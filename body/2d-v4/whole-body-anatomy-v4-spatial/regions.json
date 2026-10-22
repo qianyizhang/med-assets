@@ -1,0 +1,858 @@
+{
+  "version": "4.0-spatial",
+  "regions": [
+    {
+      "id": "overview",
+      "label": {
+        "en": "Whole-body overview",
+        "zh": "全身概览"
+      },
+      "file": "regions/overview.svg",
+      "viewBox": [
+        78,
+        25,
+        405,
+        955
+      ],
+      "organIds": [
+        "brain",
+        "mouth",
+        "eyes",
+        "ears",
+        "thyroid",
+        "trachea",
+        "esophagus",
+        "lungs",
+        "heart",
+        "diaphragm",
+        "liver",
+        "stomach",
+        "spleen",
+        "pancreas",
+        "gallbladder",
+        "small-intestine",
+        "large-intestine",
+        "kidneys",
+        "adrenals",
+        "bladder",
+        "ureters",
+        "urethra",
+        "vessels",
+        "lymph-vessels",
+        "lymph-nodes",
+        "peripheral-nerves",
+        "spinal-cord",
+        "thymus",
+        "reproductive"
+      ],
+      "contextIds": [
+        "body-outline",
+        "overview-face-landmarks",
+        "body-skeleton-context"
+      ],
+      "orientation": {
+        "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+        "zh": "前面观 · 人体右侧 = 图像左侧"
+      },
+      "note": {
+        "en": "Patient right is on your left.",
+        "zh": "人体右侧位于画面左侧。"
+      },
+      "sourceFile": "atlas.svg"
+    },
+    {
+      "id": "head-midline",
+      "label": {
+        "en": "Head · airway & foodway",
+        "zh": "头部 · 气道与食道"
+      },
+      "file": "regions/head-midline.svg",
+      "viewBox": [
+        20,
+        57,
+        510,
+        545
+      ],
+      "organIds": [
+        "brain",
+        "pituitary",
+        "spinal-cord",
+        "nose-sinuses",
+        "mouth",
+        "teeth-gums",
+        "tongue",
+        "pharynx-larynx",
+        "trachea",
+        "esophagus"
+      ],
+      "contextIds": [
+        "head-inset-context",
+        "head-labels"
+      ],
+      "orientation": {
+        "en": "NEAR-MIDLINE SECTION",
+        "zh": "近正中切面"
+      },
+      "note": {
+        "en": "Facing right · teaching section",
+        "zh": "面向画面右侧 · 教学切面"
+      },
+      "sourceFile": "head.svg"
+    },
+    {
+      "id": "head-lateral",
+      "label": {
+        "en": "Head · senses & glands",
+        "zh": "头部 · 感觉与腺体"
+      },
+      "file": "regions/head-lateral.svg",
+      "viewBox": [
+        545,
+        57,
+        330,
+        390
+      ],
+      "organIds": [
+        "eyes",
+        "ears",
+        "salivary-glands"
+      ],
+      "contextIds": [
+        "head-inset-context",
+        "head-labels"
+      ],
+      "orientation": {
+        "en": "LATERAL TEACHING VIEW",
+        "zh": "侧位教学示意"
+      },
+      "note": {
+        "en": "Separate view of off-midline structures",
+        "zh": "独立示出正中面以外的结构"
+      },
+      "sourceFile": "head.svg"
+    },
+    {
+      "id": "head-glands",
+      "label": {
+        "en": "Neck · thyroid detail",
+        "zh": "颈部 · 甲状腺细节"
+      },
+      "file": "regions/head-glands.svg",
+      "viewBox": [
+        550,
+        473,
+        320,
+        170
+      ],
+      "organIds": [
+        "thyroid",
+        "parathyroids"
+      ],
+      "contextIds": [
+        "head-inset-context",
+        "head-labels"
+      ],
+      "orientation": {
+        "en": "POSTERIOR GLAND DETAIL",
+        "zh": "腺体后面观"
+      },
+      "note": {
+        "en": "Independent enlargement · representative glands",
+        "zh": "独立放大 · 腺体位置示意"
+      },
+      "sourceFile": "head.svg"
+    },
+    {
+      "id": "chest",
+      "label": {
+        "en": "Chest",
+        "zh": "胸部"
+      },
+      "file": "regions/chest.svg",
+      "viewBox": [
+        173,
+        210,
+        350,
+        181
+      ],
+      "organIds": [
+        "lungs",
+        "heart",
+        "diaphragm",
+        "thymus",
+        "trachea",
+        "esophagus",
+        "vessels"
+      ],
+      "contextIds": [
+        "body-outline",
+        "thorax-labels",
+        "body-skeleton-context"
+      ],
+      "orientation": {
+        "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+        "zh": "前面观 · 人体右侧 = 图像左侧"
+      },
+      "note": {
+        "en": "Patient right is on your left.",
+        "zh": "人体右侧位于画面左侧。"
+      },
+      "compactViewBox": [
+        192,
+        211,
+        178,
+        179
+      ],
+      "compactHiddenContexts": [
+        "thorax-labels"
+      ],
+      "hideContextIds": [
+        "body-right-arm-context",
+        "body-left-arm-context",
+        "body-right-leg-context",
+        "body-left-leg-context",
+        "body-leg-landmarks",
+        "body-limb-landmarks"
+      ],
+      "sourceFile": "atlas.svg"
+    },
+    {
+      "id": "abdomen",
+      "label": {
+        "en": "Digestion & abdomen",
+        "zh": "消化与腹部"
+      },
+      "file": "regions/abdomen.svg",
+      "viewBox": [
+        173,
+        354,
+        350,
+        241
+      ],
+      "organIds": [
+        "liver",
+        "stomach",
+        "spleen",
+        "pancreas",
+        "gallbladder",
+        "small-intestine",
+        "large-intestine",
+        "vessels",
+        "lymph-vessels"
+      ],
+      "contextIds": [
+        "body-outline",
+        "abdomen-labels",
+        "body-skeleton-context"
+      ],
+      "orientation": {
+        "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+        "zh": "前面观 · 人体右侧 = 图像左侧"
+      },
+      "note": {
+        "en": "Stomach partly transparent to reveal the posterior pancreas.",
+        "zh": "胃部分透明，以显示后方的胰腺。"
+      },
+      "compactViewBox": [
+        192,
+        354,
+        178,
+        239
+      ],
+      "compactHiddenContexts": [
+        "abdomen-labels"
+      ],
+      "hideContextIds": [
+        "body-right-arm-context",
+        "body-left-arm-context",
+        "body-right-leg-context",
+        "body-left-leg-context",
+        "body-leg-landmarks",
+        "body-limb-landmarks"
+      ],
+      "sourceFile": "atlas.svg"
+    },
+    {
+      "id": "kidneys",
+      "label": {
+        "en": "Kidneys in the body",
+        "zh": "肾在身体中的位置"
+      },
+      "file": "regions/kidneys.svg",
+      "viewBox": [
+        205,
+        355,
+        153,
+        140
+      ],
+      "organIds": [
+        "kidneys",
+        "adrenals",
+        "ureters"
+      ],
+      "contextIds": [
+        "body-outline",
+        "body-skeleton-context",
+        "renal-vessels-context"
+      ],
+      "orientation": {
+        "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+        "zh": "前面观 · 人体右侧 = 图像左侧"
+      },
+      "note": {
+        "en": "A transparent front view reveals the kidneys behind the abdominal organs, beside the spine and beneath the lower ribs.",
+        "zh": "从前方透视：肾位于腹部脏器后面、脊柱两侧，并受下部肋骨部分遮护。"
+      },
+      "sourceFile": "atlas.svg"
+    },
+    {
+      "id": "kidney-depth",
+      "label": {
+        "en": "Kidneys: front-to-back depth",
+        "zh": "肾：前后深度关系"
+      },
+      "file": "regions/kidney-depth.svg",
+      "viewBox": [
+        0,
+        0,
+        620,
+        380
+      ],
+      "organIds": [
+        "kidneys"
+      ],
+      "contextIds": [
+        "section-orientation",
+        "section-body-wall",
+        "section-peritoneal-compartment",
+        "section-spine",
+        "section-psoas-muscles",
+        "section-labels",
+        "section-posterior-peritoneum"
+      ],
+      "centers": {
+        "kidneys": [
+          205,
+          218
+        ]
+      },
+      "orientation": {
+        "en": "TRANSVERSE SECTION · VIEWED FROM THE FEET",
+        "zh": "横断面 · 从足端向头端看"
+      },
+      "note": {
+        "en": "Front is at the top, back at the bottom. The kidneys sit behind the peritoneal compartment. This is a teaching depth diagram, not one exact scan slice.",
+        "zh": "图上方为前、下方为后。肾位于腹膜腔后方。此图用于讲解深度，并非某一真实扫描层面。"
+      },
+      "sourceFile": "kidney-depth.svg"
+    },
+    {
+      "id": "urinary",
+      "label": {
+        "en": "Kidneys & urinary tract",
+        "zh": "肾与尿路"
+      },
+      "file": "regions/urinary.svg",
+      "viewBox": [
+        171,
+        366,
+        353,
+        271
+      ],
+      "organIds": [
+        "kidneys",
+        "adrenals",
+        "ureters",
+        "bladder",
+        "urethra"
+      ],
+      "contextIds": [
+        "body-outline",
+        "urinary-labels",
+        "body-skeleton-context",
+        "renal-vessels-context"
+      ],
+      "orientation": {
+        "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+        "zh": "前面观 · 人体右侧 = 图像左侧"
+      },
+      "note": {
+        "en": "Kidneys lie at the back of the upper abdomen. Follow the ureters down to the bladder in the pelvis.",
+        "zh": "肾位于上腹部后方，沿输尿管向下可到达盆腔中的膀胱。"
+      },
+      "compactViewBox": [
+        208,
+        364,
+        146,
+        269
+      ],
+      "compactHiddenContexts": [
+        "urinary-labels"
+      ],
+      "hideContextIds": [
+        "body-right-arm-context",
+        "body-left-arm-context",
+        "body-right-leg-context",
+        "body-left-leg-context",
+        "body-leg-landmarks",
+        "body-limb-landmarks"
+      ],
+      "sourceFile": "atlas.svg"
+    },
+    {
+      "id": "tissues",
+      "label": {
+        "en": "Muscle, bone & skin",
+        "zh": "肌肉、骨与皮肤"
+      },
+      "file": "regions/tissues.svg",
+      "viewBox": [
+        25.0,
+        263.0,
+        510.0,
+        582.0
+      ],
+      "organIds": [
+        "muscle",
+        "bone",
+        "skin",
+        "bone-marrow",
+        "adipose",
+        "tendons-ligaments",
+        "joints",
+        "cartilage",
+        "peripheral-nerves"
+      ],
+      "contextIds": [
+        "body-outline",
+        "tissue-window-context",
+        "tissue-labels",
+        "knee-context"
+      ],
+      "orientation": {
+        "en": "FRONT VIEW",
+        "zh": "前面观"
+      },
+      "note": {
+        "en": "Tissue locator. Select a structure below to enlarge its own cutaway.",
+        "zh": "组织定位图。选择下方结构，放大观察其独立剖面。"
+      },
+      "sourceFile": "atlas.svg"
+    },
+    {
+      "id": "knee",
+      "label": {
+        "en": "Joint detail",
+        "zh": "关节细节"
+      },
+      "file": "regions/knee.svg",
+      "viewBox": [
+        297,
+        724,
+        56,
+        135
+      ],
+      "organIds": [
+        "joints",
+        "cartilage",
+        "tendons-ligaments"
+      ],
+      "contextIds": [
+        "knee-context"
+      ],
+      "orientation": {
+        "en": "JOINT TEACHING PROJECTION",
+        "zh": "关节教学投影"
+      },
+      "note": {
+        "en": "Simplified projection of joint components; patella omitted. This is an enlarged teaching view, not a literal single slice.",
+        "zh": "关节结构的简化投影；髌骨未显示。这是放大教学图，并非单一真实切面。"
+      },
+      "sourceFile": "atlas.svg"
+    },
+    {
+      "id": "uterine",
+      "label": {
+        "en": "Uterus & ovaries",
+        "zh": "子宫与卵巢"
+      },
+      "file": "regions/uterine.svg",
+      "viewBox": [
+        567.0,
+        335.0,
+        317.0,
+        220.0
+      ],
+      "organIds": [
+        "uterus",
+        "ovaries",
+        "vagina-vulva"
+      ],
+      "contextIds": [
+        "uterine-panel-background",
+        "uterine-inset-context",
+        "uterine-labels"
+      ],
+      "orientation": {
+        "en": "FRONTAL INTERNAL VIEW",
+        "zh": "内部结构前面观"
+      },
+      "note": {
+        "en": "External view shown separately; not a continuous tube.",
+        "zh": "外部结构另图示出，并非连续管道。"
+      },
+      "sourceFile": "atlas.svg"
+    },
+    {
+      "id": "testicular",
+      "label": {
+        "en": "Testes & prostate",
+        "zh": "睾丸与前列腺"
+      },
+      "file": "regions/testicular.svg",
+      "viewBox": [
+        567.0,
+        570.0,
+        317.0,
+        190.0
+      ],
+      "organIds": [
+        "testes",
+        "prostate",
+        "penis",
+        "urethra"
+      ],
+      "contextIds": [
+        "male-panel-background",
+        "male-inset-context",
+        "male-labels"
+      ],
+      "orientation": {
+        "en": "LATERAL PELVIC VIEW",
+        "zh": "盆腔侧位示意"
+      },
+      "note": {
+        "en": "Alternative pelvic anatomy example",
+        "zh": "另一种盆腔解剖示例"
+      },
+      "sourceFile": "atlas.svg"
+    },
+    {
+      "id": "pregnancy",
+      "label": {
+        "en": "Pregnancy & baby",
+        "zh": "妊娠与胎儿"
+      },
+      "file": "regions/pregnancy.svg",
+      "viewBox": [
+        567.0,
+        775.0,
+        317.0,
+        205.0
+      ],
+      "organIds": [
+        "placenta",
+        "fetus"
+      ],
+      "contextIds": [
+        "pregnancy-panel-background",
+        "pregnancy-inset-context",
+        "pregnancy-labels"
+      ],
+      "orientation": {
+        "en": "PREGNANCY TEACHING SECTION",
+        "zh": "妊娠教学剖面"
+      },
+      "note": {
+        "en": "Maternal and fetal circulations remain separate.",
+        "zh": "母体与胎儿循环保持独立。"
+      },
+      "sourceFile": "atlas.svg"
+    },
+    {
+      "id": "breast",
+      "label": {
+        "en": "Breast",
+        "zh": "乳房"
+      },
+      "file": "regions/breast.svg",
+      "viewBox": [
+        30.0,
+        566.0,
+        159.0,
+        146.0
+      ],
+      "organIds": [
+        "breasts"
+      ],
+      "contextIds": [
+        "breast-panel-background",
+        "breast-labels"
+      ],
+      "orientation": {
+        "en": "BREAST TEACHING SECTION",
+        "zh": "乳房教学剖面"
+      },
+      "note": {
+        "en": "Independent enlargement",
+        "zh": "独立放大"
+      },
+      "sourceFile": "atlas.svg"
+    },
+    {
+      "id": "blood",
+      "label": {
+        "en": "Blood cells",
+        "zh": "血细胞"
+      },
+      "file": "regions/blood.svg",
+      "viewBox": [
+        30.0,
+        725.0,
+        159.0,
+        182.0
+      ],
+      "organIds": [
+        "blood"
+      ],
+      "contextIds": [
+        "blood-panel-background",
+        "blood-labels"
+      ],
+      "orientation": {
+        "en": "MAGNIFIED CELL SAMPLE",
+        "zh": "放大细胞示意"
+      },
+      "note": {
+        "en": "Cell types are representative; proportions are schematic.",
+        "zh": "示出代表性细胞，比例为示意。"
+      },
+      "sourceFile": "atlas.svg"
+    },
+    {
+      "id": "muscle-detail",
+      "label": {
+        "en": "Muscle & tendon",
+        "zh": "肌肉与肌腱"
+      },
+      "file": "regions/muscle-detail.svg",
+      "viewBox": [
+        117,
+        262,
+        66,
+        176
+      ],
+      "organIds": [
+        "muscle",
+        "tendons-ligaments"
+      ],
+      "contextIds": [
+        "tissue-window-context"
+      ],
+      "orientation": {
+        "en": "REPRESENTATIVE TISSUE WINDOW",
+        "zh": "代表性组织窗口"
+      },
+      "note": {
+        "en": "Enlarged teaching sample; not a whole-limb section.",
+        "zh": "放大的教学样本，并非完整肢体切面。"
+      },
+      "sourceFile": "atlas.svg"
+    },
+    {
+      "id": "bone-detail",
+      "label": {
+        "en": "Long bone",
+        "zh": "长骨"
+      },
+      "file": "regions/bone-detail.svg",
+      "viewBox": [
+        375,
+        276,
+        68,
+        126
+      ],
+      "organIds": [
+        "bone"
+      ],
+      "contextIds": [
+        "tissue-window-context"
+      ],
+      "orientation": {
+        "en": "REPRESENTATIVE TISSUE WINDOW",
+        "zh": "代表性组织窗口"
+      },
+      "note": {
+        "en": "Enlarged teaching sample; not a whole-limb section.",
+        "zh": "放大的教学样本，并非完整肢体切面。"
+      },
+      "sourceFile": "atlas.svg"
+    },
+    {
+      "id": "skin-detail",
+      "label": {
+        "en": "Skin layers",
+        "zh": "皮肤层次"
+      },
+      "file": "regions/skin-detail.svg",
+      "viewBox": [
+        92,
+        432,
+        50,
+        60
+      ],
+      "organIds": [
+        "skin"
+      ],
+      "contextIds": [
+        "tissue-window-context"
+      ],
+      "orientation": {
+        "en": "REPRESENTATIVE TISSUE WINDOW",
+        "zh": "代表性组织窗口"
+      },
+      "note": {
+        "en": "Enlarged teaching sample; not a whole-limb section.",
+        "zh": "放大的教学样本，并非完整肢体切面。"
+      },
+      "sourceFile": "atlas.svg"
+    },
+    {
+      "id": "marrow-detail",
+      "label": {
+        "en": "Bone marrow",
+        "zh": "骨髓"
+      },
+      "file": "regions/marrow-detail.svg",
+      "viewBox": [
+        219,
+        656,
+        43,
+        109
+      ],
+      "organIds": [
+        "bone-marrow"
+      ],
+      "contextIds": [
+        "tissue-window-context"
+      ],
+      "orientation": {
+        "en": "REPRESENTATIVE TISSUE WINDOW",
+        "zh": "代表性组织窗口"
+      },
+      "note": {
+        "en": "Enlarged teaching sample; not a whole-limb section.",
+        "zh": "放大的教学样本，并非完整肢体切面。"
+      },
+      "sourceFile": "atlas.svg"
+    },
+    {
+      "id": "adipose-detail",
+      "label": {
+        "en": "Adipose tissue",
+        "zh": "脂肪组织"
+      },
+      "file": "regions/adipose-detail.svg",
+      "viewBox": [
+        307,
+        665,
+        41,
+        73
+      ],
+      "organIds": [
+        "adipose"
+      ],
+      "contextIds": [
+        "tissue-window-context"
+      ],
+      "orientation": {
+        "en": "REPRESENTATIVE TISSUE WINDOW",
+        "zh": "代表性组织窗口"
+      },
+      "note": {
+        "en": "Enlarged teaching sample; not a whole-limb section.",
+        "zh": "放大的教学样本，并非完整肢体切面。"
+      },
+      "sourceFile": "atlas.svg"
+    }
+  ],
+  "preferred": {
+    "brain": "head-midline",
+    "mouth": "head-midline",
+    "eyes": "head-lateral",
+    "ears": "head-lateral",
+    "thyroid": "head-glands",
+    "trachea": "chest",
+    "esophagus": "head-midline",
+    "lungs": "chest",
+    "heart": "chest",
+    "diaphragm": "chest",
+    "liver": "abdomen",
+    "stomach": "abdomen",
+    "spleen": "abdomen",
+    "pancreas": "abdomen",
+    "gallbladder": "abdomen",
+    "small-intestine": "abdomen",
+    "large-intestine": "abdomen",
+    "kidneys": "kidneys",
+    "adrenals": "kidneys",
+    "bladder": "urinary",
+    "ureters": "urinary",
+    "urethra": "urinary",
+    "vessels": "overview",
+    "lymph-vessels": "overview",
+    "lymph-nodes": "overview",
+    "peripheral-nerves": "tissues",
+    "spinal-cord": "head-midline",
+    "thymus": "chest",
+    "reproductive": "overview",
+    "pituitary": "head-midline",
+    "nose-sinuses": "head-midline",
+    "teeth-gums": "head-midline",
+    "tongue": "head-midline",
+    "pharynx-larynx": "head-midline",
+    "salivary-glands": "head-lateral",
+    "parathyroids": "head-glands",
+    "muscle": "muscle-detail",
+    "bone": "bone-detail",
+    "skin": "skin-detail",
+    "bone-marrow": "marrow-detail",
+    "adipose": "adipose-detail",
+    "tendons-ligaments": "muscle-detail",
+    "joints": "knee",
+    "cartilage": "knee",
+    "uterus": "uterine",
+    "ovaries": "uterine",
+    "vagina-vulva": "uterine",
+    "testes": "testicular",
+    "prostate": "testicular",
+    "penis": "testicular",
+    "placenta": "pregnancy",
+    "fetus": "pregnancy",
+    "breasts": "breast",
+    "blood": "blood"
+  },
+  "layers": {
+    "vascular": [
+      "vessels"
+    ],
+    "lymph": [
+      "lymph-vessels",
+      "lymph-nodes"
+    ],
+    "neural": [
+      "spinal-cord",
+      "peripheral-nerves"
+    ],
+    "tissue": [
+      "bone",
+      "bone-marrow",
+      "muscle",
+      "skin",
+      "adipose",
+      "joints",
+      "cartilage",
+      "tendons-ligaments"
+    ]
+  }
+}

@@ -1,0 +1,783 @@
+{
+  "source": "TotalSegmentator v2.0.1 retained public source masks",
+  "source_url": "https://zenodo.org/records/10047263",
+  "attribution": "Jakob Wasserthal and the TotalSegmentator contributors, University Hospital Basel",
+  "terms": "CC BY 4.0 dataset attribution; retained label-source receipt also records Apache-2.0.",
+  "derivation": "Largest connected component; Gaussian smoothing sigma 0.65 voxels; marching cubes 0.5; 15 windowed-sinc iterations, passband 0.1; quadric triangle reduction; coordinates rounded to 0.01 mm. Display assets only, not evaluation references.",
+  "assets": {
+    "liver": {
+      "source": "runs/br004-v1/source/s1233/segmentations/liver.nii.gz",
+      "source_sha256": "0e37697cde4bf2f6042fa89d338cfbe71d85b4b44e42801840be5612c4785980",
+      "shape": [
+        265,
+        265,
+        401
+      ],
+      "affine": [
+        [
+          1.5,
+          0.0,
+          0.0,
+          -215.611328125
+        ],
+        [
+          0.0,
+          1.5,
+          0.0,
+          -37.111328125
+        ],
+        [
+          0.0,
+          0.0,
+          1.5,
+          41.20000076293945
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source_components": 1,
+      "retained_component_voxels": 456706,
+      "truncated_at_image_boundary": false,
+      "vertices": 899,
+      "triangles": 1799,
+      "assembly_triangles": 299,
+      "asset_sha256": "0291df82c563728e51897454fd06c0e9ae5fbd9499eec122030db437ec4a550c",
+      "bytes": 86946
+    },
+    "kidney_left": {
+      "source": "runs/br004-v1/source/s1233/segmentations/kidney_left.nii.gz",
+      "source_sha256": "e0c7e53f00a20cedbe3e13d687ffc6d5e03a33824d4e4c7124f25335179b794e",
+      "shape": [
+        265,
+        265,
+        401
+      ],
+      "affine": [
+        [
+          1.5,
+          0.0,
+          0.0,
+          -215.611328125
+        ],
+        [
+          0.0,
+          1.5,
+          0.0,
+          -37.111328125
+        ],
+        [
+          0.0,
+          0.0,
+          1.5,
+          41.20000076293945
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source_components": 1,
+      "retained_component_voxels": 35513,
+      "truncated_at_image_boundary": false,
+      "vertices": 702,
+      "triangles": 1400,
+      "assembly_triangles": 300,
+      "asset_sha256": "1a0bddce61e60bd2c815c589aea5781a012bf55c88aa45bc411e62d584bf1ec4",
+      "bytes": 70718
+    },
+    "kidney_right": {
+      "source": "runs/br004-v1/source/s1233/segmentations/kidney_right.nii.gz",
+      "source_sha256": "8ca7e6696b90cb1e7e39b14e5c8f7e92c59b9344bff8fd368009751335abc8b5",
+      "shape": [
+        265,
+        265,
+        401
+      ],
+      "affine": [
+        [
+          1.5,
+          0.0,
+          0.0,
+          -215.611328125
+        ],
+        [
+          0.0,
+          1.5,
+          0.0,
+          -37.111328125
+        ],
+        [
+          0.0,
+          0.0,
+          1.5,
+          41.20000076293945
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source_components": 1,
+      "retained_component_voxels": 32882,
+      "truncated_at_image_boundary": false,
+      "vertices": 702,
+      "triangles": 1400,
+      "assembly_triangles": 300,
+      "asset_sha256": "23e94ee74c95779079162fe7c9cfe5b767cecf4ab764e87fbe3a2ff52d76a9ba",
+      "bytes": 69838
+    },
+    "spleen": {
+      "source": "runs/br004-v1/source/s1233/segmentations/spleen.nii.gz",
+      "source_sha256": "760eb489a2f6821ce25e7565e4d73709cab5a1ef0af6537d193b2ce036213573",
+      "shape": [
+        265,
+        265,
+        401
+      ],
+      "affine": [
+        [
+          1.5,
+          0.0,
+          0.0,
+          -215.611328125
+        ],
+        [
+          0.0,
+          1.5,
+          0.0,
+          -37.111328125
+        ],
+        [
+          0.0,
+          0.0,
+          1.5,
+          41.20000076293945
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source_components": 1,
+      "retained_component_voxels": 33273,
+      "truncated_at_image_boundary": false,
+      "vertices": 602,
+      "triangles": 1200,
+      "assembly_triangles": 264,
+      "asset_sha256": "e29f025133e1c504f5b7c8ab9ded973b1162f45265307c77a6ea0b48f264d285",
+      "bytes": 61114
+    },
+    "pancreas": {
+      "source": "runs/br004-v1/source/s1233/segmentations/pancreas.nii.gz",
+      "source_sha256": "9f11083652d059e85514d419c90124911953dbbce2018ccc549eaa2c73b0968b",
+      "shape": [
+        265,
+        265,
+        401
+      ],
+      "affine": [
+        [
+          1.5,
+          0.0,
+          0.0,
+          -215.611328125
+        ],
+        [
+          0.0,
+          1.5,
+          0.0,
+          -37.111328125
+        ],
+        [
+          0.0,
+          0.0,
+          1.5,
+          41.20000076293945
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source_components": 1,
+      "retained_component_voxels": 17606,
+      "truncated_at_image_boundary": false,
+      "vertices": 706,
+      "triangles": 1400,
+      "assembly_triangles": 299,
+      "asset_sha256": "064af8c2644848a39996923de245602bca3998bdb5499d224d99598c7b1afdaf",
+      "bytes": 71001
+    },
+    "stomach": {
+      "source": "runs/br004-v1/source/s1233/segmentations/stomach.nii.gz",
+      "source_sha256": "4f6675b32030747cd46d8dd5ce04bd63820833217d1a1f10bbcce8efc1d41e65",
+      "shape": [
+        265,
+        265,
+        401
+      ],
+      "affine": [
+        [
+          1.5,
+          0.0,
+          0.0,
+          -215.611328125
+        ],
+        [
+          0.0,
+          1.5,
+          0.0,
+          -37.111328125
+        ],
+        [
+          0.0,
+          0.0,
+          1.5,
+          41.20000076293945
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source_components": 1,
+      "retained_component_voxels": 25117,
+      "truncated_at_image_boundary": false,
+      "vertices": 702,
+      "triangles": 1400,
+      "assembly_triangles": 300,
+      "asset_sha256": "6f56cb5d45d3814d1086f13008c3ac6183d719b1b8d0baf7a22e9348cceb18c0",
+      "bytes": 70959
+    },
+    "gallbladder": {
+      "source": "runs/br004-v1/source/s1233/segmentations/gallbladder.nii.gz",
+      "source_sha256": "c5dd1e8886ed87d29dac8225acbac49dfc308c0ead9116690c818e49b1addcc7",
+      "shape": [
+        265,
+        265,
+        401
+      ],
+      "affine": [
+        [
+          1.5,
+          0.0,
+          0.0,
+          -215.611328125
+        ],
+        [
+          0.0,
+          1.5,
+          0.0,
+          -37.111328125
+        ],
+        [
+          0.0,
+          0.0,
+          1.5,
+          41.20000076293945
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source_components": 1,
+      "retained_component_voxels": 9211,
+      "truncated_at_image_boundary": false,
+      "vertices": 352,
+      "triangles": 700,
+      "assembly_triangles": 154,
+      "asset_sha256": "3ce30a0b77734aebacf2bc8ec66954a2bd91515894b82374276346575d3496b4",
+      "bytes": 34866
+    },
+    "heart": {
+      "source": "runs/br004-v1/source/s1233/segmentations/heart.nii.gz",
+      "source_sha256": "bbc9058c113feb505a98bb2364839fc376b781c31a954188fe7553163c070c47",
+      "shape": [
+        265,
+        265,
+        401
+      ],
+      "affine": [
+        [
+          1.5,
+          0.0,
+          0.0,
+          -215.611328125
+        ],
+        [
+          0.0,
+          1.5,
+          0.0,
+          -37.111328125
+        ],
+        [
+          0.0,
+          0.0,
+          1.5,
+          41.20000076293945
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source_components": 1,
+      "retained_component_voxels": 161298,
+      "truncated_at_image_boundary": false,
+      "vertices": 995,
+      "triangles": 2000,
+      "assembly_triangles": 300,
+      "asset_sha256": "545f45eb67d47965c6e86aa6bd9442069e603a600adaf278db2b90c11cc5f61d",
+      "bytes": 95592
+    },
+    "lung_upper_lobe_left": {
+      "source": "runs/br004-v1/source/s1233/segmentations/lung_upper_lobe_left.nii.gz",
+      "source_sha256": "2089775deac1baa468dfa0f7fda23b9520d74de78d216624f9b344b60075a78a",
+      "shape": [
+        265,
+        265,
+        401
+      ],
+      "affine": [
+        [
+          1.5,
+          0.0,
+          0.0,
+          -215.611328125
+        ],
+        [
+          0.0,
+          1.5,
+          0.0,
+          -37.111328125
+        ],
+        [
+          0.0,
+          0.0,
+          1.5,
+          41.20000076293945
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source_components": 1,
+      "retained_component_voxels": 265938,
+      "truncated_at_image_boundary": false,
+      "vertices": 600,
+      "triangles": 1200,
+      "assembly_triangles": 263,
+      "asset_sha256": "ec02009248f99a7bfcdb91bf856eb05ae526643018e2d1e05d3fc5383039a0fe",
+      "bytes": 60802
+    },
+    "lung_lower_lobe_left": {
+      "source": "runs/br004-v1/source/s1233/segmentations/lung_lower_lobe_left.nii.gz",
+      "source_sha256": "150432ae2eb7c7e664e8bd842190ad9a6e23253b3843ef32acec09c9a9b06c80",
+      "shape": [
+        265,
+        265,
+        401
+      ],
+      "affine": [
+        [
+          1.5,
+          0.0,
+          0.0,
+          -215.611328125
+        ],
+        [
+          0.0,
+          1.5,
+          0.0,
+          -37.111328125
+        ],
+        [
+          0.0,
+          0.0,
+          1.5,
+          41.20000076293945
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source_components": 3,
+      "retained_component_voxels": 282675,
+      "truncated_at_image_boundary": false,
+      "vertices": 601,
+      "triangles": 1199,
+      "assembly_triangles": 263,
+      "asset_sha256": "b22148bc98b0524a76a3d60bccdd9702dd94dc0223fb5276ba15d47ae6c8f6ad",
+      "bytes": 60757
+    },
+    "lung_upper_lobe_right": {
+      "source": "runs/br004-v1/source/s1233/segmentations/lung_upper_lobe_right.nii.gz",
+      "source_sha256": "e349bb668ae00bc73b6201184d64029dbb60671350f54c9cfc1174104751c59b",
+      "shape": [
+        265,
+        265,
+        401
+      ],
+      "affine": [
+        [
+          1.5,
+          0.0,
+          0.0,
+          -215.611328125
+        ],
+        [
+          0.0,
+          1.5,
+          0.0,
+          -37.111328125
+        ],
+        [
+          0.0,
+          0.0,
+          1.5,
+          41.20000076293945
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source_components": 3,
+      "retained_component_voxels": 228957,
+      "truncated_at_image_boundary": false,
+      "vertices": 602,
+      "triangles": 1200,
+      "assembly_triangles": 264,
+      "asset_sha256": "e3ca11acda193927cc1ec9e9fe096aa724811aa05f2f775aaf18ff26aee0ab29",
+      "bytes": 60080
+    },
+    "lung_middle_lobe_right": {
+      "source": "runs/br004-v1/source/s1233/segmentations/lung_middle_lobe_right.nii.gz",
+      "source_sha256": "d5c82fbc1a3bd4b978db2abb33769f7e63b7a3db619d435abf1ca3d0742d9ca1",
+      "shape": [
+        265,
+        265,
+        401
+      ],
+      "affine": [
+        [
+          1.5,
+          0.0,
+          0.0,
+          -215.611328125
+        ],
+        [
+          0.0,
+          1.5,
+          0.0,
+          -37.111328125
+        ],
+        [
+          0.0,
+          0.0,
+          1.5,
+          41.20000076293945
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source_components": 1,
+      "retained_component_voxels": 112128,
+      "truncated_at_image_boundary": false,
+      "vertices": 402,
+      "triangles": 800,
+      "assembly_triangles": 176,
+      "asset_sha256": "c5f89cefa2c5894108b84bf933afbd419399f89a7ca786bfb6495e2dba01b819",
+      "bytes": 40081
+    },
+    "lung_lower_lobe_right": {
+      "source": "runs/br004-v1/source/s1233/segmentations/lung_lower_lobe_right.nii.gz",
+      "source_sha256": "a0c40d35496bac945d78b1a39d1a1572568af41ae28aa23b2136d76d8454981a",
+      "shape": [
+        265,
+        265,
+        401
+      ],
+      "affine": [
+        [
+          1.5,
+          0.0,
+          0.0,
+          -215.611328125
+        ],
+        [
+          0.0,
+          1.5,
+          0.0,
+          -37.111328125
+        ],
+        [
+          0.0,
+          0.0,
+          1.5,
+          41.20000076293945
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source_components": 7,
+      "retained_component_voxels": 267687,
+      "truncated_at_image_boundary": false,
+      "vertices": 601,
+      "triangles": 1199,
+      "assembly_triangles": 264,
+      "asset_sha256": "1d23017adc49bf2bd610f3b675be99732f968382db921ccf6adb2fdcffe129bb",
+      "bytes": 60034
+    },
+    "aorta": {
+      "source": "runs/br004-v1/source/s1233/segmentations/aorta.nii.gz",
+      "source_sha256": "c2751ba8bb12ed2091db7e0446f3f333acf47db5d35e8f75c96fab4c6564ab2e",
+      "shape": [
+        265,
+        265,
+        401
+      ],
+      "affine": [
+        [
+          1.5,
+          0.0,
+          0.0,
+          -215.611328125
+        ],
+        [
+          0.0,
+          1.5,
+          0.0,
+          -37.111328125
+        ],
+        [
+          0.0,
+          0.0,
+          1.5,
+          41.20000076293945
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source_components": 1,
+      "retained_component_voxels": 77857,
+      "truncated_at_image_boundary": false,
+      "vertices": 802,
+      "triangles": 1600,
+      "assembly_triangles": 300,
+      "asset_sha256": "af5a15bc6fea88be95ca57fdaa9351f8f4c51ea4a4f6101d613d0a2a8ffe8548",
+      "bytes": 79483
+    },
+    "trachea": {
+      "source": "runs/br004-v1/source/s1233/segmentations/trachea.nii.gz",
+      "source_sha256": "6f258939ebc68c907a764cfed01861e20c632baef7a4c129ec8e41ffd77f5cf8",
+      "shape": [
+        265,
+        265,
+        401
+      ],
+      "affine": [
+        [
+          1.5,
+          0.0,
+          0.0,
+          -215.611328125
+        ],
+        [
+          0.0,
+          1.5,
+          0.0,
+          -37.111328125
+        ],
+        [
+          0.0,
+          0.0,
+          1.5,
+          41.20000076293945
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source_components": 1,
+      "retained_component_voxels": 8494,
+      "truncated_at_image_boundary": false,
+      "vertices": 502,
+      "triangles": 1000,
+      "assembly_triangles": 220,
+      "asset_sha256": "b4b938c153da2192f0526c815f00f65306f1322151ea82cc03a4600da7963416",
+      "bytes": 50124
+    },
+    "pulmonary_vein": {
+      "source": "runs/br004-v1/source/s1233/segmentations/pulmonary_vein.nii.gz",
+      "source_sha256": "08bf9cc04f61e27090d70487ecf84128e543080b5fc15d883a05468795a44eeb",
+      "shape": [
+        265,
+        265,
+        401
+      ],
+      "affine": [
+        [
+          1.5,
+          0.0,
+          0.0,
+          -215.611328125
+        ],
+        [
+          0.0,
+          1.5,
+          0.0,
+          -37.111328125
+        ],
+        [
+          0.0,
+          0.0,
+          1.5,
+          41.20000076293945
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source_components": 4,
+      "retained_component_voxels": 3953,
+      "truncated_at_image_boundary": false,
+      "vertices": 802,
+      "triangles": 1600,
+      "assembly_triangles": 300,
+      "asset_sha256": "1968b148d325c9b169c521bda23cad7d357b1c2e00580f0db3bfcaeaf974b038",
+      "bytes": 79520
+    },
+    "vertebrae_L3": {
+      "source": "runs/br004-v1/source/s1233/segmentations/vertebrae_L3.nii.gz",
+      "source_sha256": "9da23a97c2e5e5c8bddff40337970916ec67421e617976bd9c58c474d853cbf4",
+      "shape": [
+        265,
+        265,
+        401
+      ],
+      "affine": [
+        [
+          1.5,
+          0.0,
+          0.0,
+          -215.611328125
+        ],
+        [
+          0.0,
+          1.5,
+          0.0,
+          -37.111328125
+        ],
+        [
+          0.0,
+          0.0,
+          1.5,
+          41.20000076293945
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source_components": 2,
+      "retained_component_voxels": 15632,
+      "truncated_at_image_boundary": false,
+      "vertices": 800,
+      "triangles": 1600,
+      "assembly_triangles": 300,
+      "asset_sha256": "42749fc2cc7ab027cdbada48173b04174f540413dc381b1285c39f39557d338e",
+      "bytes": 79173
+    },
+    "prostate": {
+      "source": "runs/br004-v1/source/s1336/segmentations/prostate.nii.gz",
+      "source_sha256": "bda64adb825e5d82352391cddfeb7d170e787382abed60e10a5eeee8c892db1f",
+      "shape": [
+        285,
+        285,
+        416
+      ],
+      "affine": [
+        [
+          1.5,
+          0.0,
+          0.0,
+          -215.0830078125
+        ],
+        [
+          0.0,
+          1.5,
+          0.0,
+          -42.5830078125
+        ],
+        [
+          0.0,
+          0.0,
+          1.5,
+          -526.7999877929688
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source_components": 1,
+      "retained_component_voxels": 14680,
+      "truncated_at_image_boundary": false,
+      "vertices": 602,
+      "triangles": 1200,
+      "assembly_triangles": 263,
+      "asset_sha256": "8f315b245393c850a5f7ac736fd2aed18ad4a3388d9508f556b1745d12ae200c",
+      "bytes": 61732
+    }
+  }
+}

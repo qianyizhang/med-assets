@@ -1,0 +1,24 @@
+{
+  "version": "4.0-spatial",
+  "date": "2026-10-21",
+  "source": "atlas.svg",
+  "creation": "Authored educational SVG drawings, anatomically reworked and linked to whole-body origins for v4. Head/torso illustrations are reference-informed originals; specified support/tissue/pelvis illustrations are attributed Servier adaptations. No reference bitmap, traced path or clinical scan is included.",
+  "coordinate_notes": {
+    "en": "Source path coordinates, transforms and defs are retained. Crop viewBoxes do not translate paths. Primary depictions are extracted from canonical anatomy layers. Overlay files retain every source depiction. Annotation centers are not measured anatomical centroids.",
+    "zh": "保留源路径坐标、变换和定义；裁剪 viewBox 不移动路径。主要素材从规范器官图层提取单一视图，叠加素材保留全部源图示。注释锚点不是测量意义上的解剖重心。"
+  },
+  "representation_notes": {
+    "en": "Original, simplified 2D educational schematics. Paired organs and distributed tissues may share one view. Different reproductive configurations and pregnancy are independent labelled views. Blood is a tissue sample; the reproductive overview is a locator. Sizes, depth and magnifications are schematic. Clinical review is required before clinically consequential use.",
+    "zh": "原创、简化的二维教学示意。同一视图可含成对器官或分布性组织。不同生殖构型与妊娠采用独立标注视图。血液为组织样本，生殖系统总览为定位图标。尺寸、深度与放大比例均为示意；临床相关用途须经专业审核。"
+  },
+  "geometry_type": "2D SVG vector; no 3D geometry",
+  "anatomy_state": "normal-schematic",
+  "pathology_overlays_included": false,
+  "registries": {
+    "spatial": "spatial.json",
+    "coordinates": "coordinates.json",
+    "provenance": "artwork-provenance.json",
+    "sourceRelationships": "source-relationships.json",
+    "licenses": "license-registry.json"
+  }
+}

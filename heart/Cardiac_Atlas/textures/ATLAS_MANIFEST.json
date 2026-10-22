@@ -1,0 +1,15 @@
+{
+  "atlas_resolution": [
+    2048,
+    2048
+  ],
+  "scope": "LV,RV,LA,RA complete wall meshes, outer and inner surfaces",
+  "UV_layer": "Baked tissue atlas",
+  "base_color": "sRGB",
+  "roughness": "linear Non-Color",
+  "normal": "tangent-space OpenGL +Y, Non-Color",
+  "method": "Actual Blender Cycles DIFFUSE COLOR-only, ROUGHNESS and NORMAL bakes",
+  "fine_details": "remain procedural; not all anatomy baked",
+  "native_presets": "tissue procedural; clinical and transparent materials",
+  "demo_mesh": "11 TEXTURE PIPELINE STUDY / Cardiac_Walls_Baked_PBR_ED.glb"
+}

@@ -1,0 +1,154 @@
+[
+  {
+    "name": "Patient axial",
+    "center_RAS_mm": [
+      -16.125000009979516,
+      -0.25,
+      -13.5
+    ],
+    "horizontal_positive_RAS": [
+      1,
+      0,
+      0
+    ],
+    "vertical_positive_RAS": [
+      0,
+      1,
+      0
+    ],
+    "field_width_mm": 110,
+    "pixels": 240,
+    "pixel_center_convention": "linspace(-width/2,+width/2,240); bottom row negative v; PNG origin displayed lower"
+  },
+  {
+    "name": "Patient coronal",
+    "center_RAS_mm": [
+      -16.125000009979516,
+      -0.25,
+      -13.5
+    ],
+    "horizontal_positive_RAS": [
+      1,
+      0,
+      0
+    ],
+    "vertical_positive_RAS": [
+      0,
+      0,
+      1
+    ],
+    "field_width_mm": 145,
+    "pixels": 240,
+    "pixel_center_convention": "linspace(-width/2,+width/2,240); bottom row negative v; PNG origin displayed lower"
+  },
+  {
+    "name": "Patient sagittal",
+    "center_RAS_mm": [
+      -16.125000009979516,
+      -0.25,
+      -13.5
+    ],
+    "horizontal_positive_RAS": [
+      0,
+      1,
+      0
+    ],
+    "vertical_positive_RAS": [
+      0,
+      0,
+      1
+    ],
+    "field_width_mm": 145,
+    "pixels": 240,
+    "pixel_center_convention": "linspace(-width/2,+width/2,240); bottom row negative v; PNG origin displayed lower"
+  },
+  {
+    "name": "LV oblique long axis*",
+    "center_RAS_mm": [
+      -16.125000009979516,
+      -0.25,
+      -13.5
+    ],
+    "horizontal_positive_RAS": [
+      0.9897782477580362,
+      0.01815964129613597,
+      -0.14145404799095385
+    ],
+    "vertical_positive_RAS": [
+      0.14261493703336758,
+      -0.12603180505418277,
+      0.9817214288431078
+    ],
+    "field_width_mm": 145,
+    "pixels": 240,
+    "pixel_center_convention": "linspace(-width/2,+width/2,240); bottom row negative v; PNG origin displayed lower"
+  },
+  {
+    "name": "LV mid short axis*",
+    "center_RAS_mm": [
+      -16.125000009979516,
+      -0.25,
+      -13.5
+    ],
+    "horizontal_positive_RAS": [
+      0.9897782477580362,
+      0.01815964129613597,
+      -0.14145404799095385
+    ],
+    "vertical_positive_RAS": [
+      -3.469446951953614e-18,
+      0.9918599757741917,
+      0.1273333752683084
+    ],
+    "field_width_mm": 95,
+    "pixels": 240,
+    "pixel_center_convention": "linspace(-width/2,+width/2,240); bottom row negative v; PNG origin displayed lower"
+  },
+  {
+    "name": "LV apical short axis*",
+    "center_RAS_mm": [
+      -18.490000005588527,
+      1.8399999999999999,
+      -29.779999999999998
+    ],
+    "horizontal_positive_RAS": [
+      0.9897782477580362,
+      0.01815964129613597,
+      -0.14145404799095385
+    ],
+    "vertical_positive_RAS": [
+      -3.469446951953614e-18,
+      0.9918599757741917,
+      0.1273333752683084
+    ],
+    "field_width_mm": 85,
+    "pixels": 240,
+    "pixel_center_convention": "linspace(-width/2,+width/2,240); bottom row negative v; PNG origin displayed lower"
+  },
+  {
+    "name": "Ultrasound-style geometric fan",
+    "virtual_probe_RAS_mm": [
+      -24.067068866600618,
+      6.76857249097529,
+      -68.17098571917595
+    ],
+    "horizontal_positive_RAS": [
+      0.9897782477580362,
+      0.01815964129613597,
+      -0.14145404799095385
+    ],
+    "depth_positive_RAS": [
+      0.14261493703336758,
+      -0.12603180505418277,
+      0.9817214288431078
+    ],
+    "sector_half_angle_degrees": 45,
+    "max_radius_mm": 130,
+    "pixels": [
+      360,
+      360
+    ],
+    "display_vertical": "depth increases downward",
+    "physics_simulated": false
+  }
+]

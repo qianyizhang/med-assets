@@ -1,0 +1,3991 @@
+{
+  "version": "4.0-spatial",
+  "coordinateSpace": "atlas.svg anterior teaching coordinates",
+  "organs": {
+    "brain": {
+      "bodyBox": [
+        243,
+        48,
+        75,
+        54
+      ],
+      "location": {
+        "en": "Inside the skull.",
+        "zh": "位于颅骨内。"
+      },
+      "kind": "anatomy"
+    },
+    "pituitary": {
+      "bodyBox": [
+        268,
+        92,
+        24,
+        18
+      ],
+      "location": {
+        "en": "At the base of the brain, protected by the skull base.",
+        "zh": "位于脑底，受颅底骨性结构保护。"
+      },
+      "kind": "anatomy"
+    },
+    "mouth": {
+      "bodyBox": [
+        267,
+        136,
+        26,
+        12
+      ],
+      "location": {
+        "en": "The oral cavity in the lower face.",
+        "zh": "位于面部下方的口腔。"
+      },
+      "kind": "anatomy"
+    },
+    "tongue": {
+      "bodyBox": [
+        269,
+        137,
+        22,
+        17
+      ],
+      "location": {
+        "en": "The oral cavity in the lower face.",
+        "zh": "位于面部下方的口腔。"
+      },
+      "kind": "anatomy"
+    },
+    "teeth-gums": {
+      "bodyBox": [
+        269,
+        136,
+        22,
+        12
+      ],
+      "location": {
+        "en": "The oral cavity in the lower face.",
+        "zh": "位于面部下方的口腔。"
+      },
+      "kind": "anatomy"
+    },
+    "nose-sinuses": {
+      "bodyBox": [
+        268,
+        109,
+        24,
+        24
+      ],
+      "location": {
+        "en": "The nasal cavity and nearby spaces behind the nose.",
+        "zh": "位于鼻后方的鼻腔及邻近空间。"
+      },
+      "kind": "anatomy"
+    },
+    "eyes": {
+      "bodyBox": [
+        249,
+        98,
+        62,
+        14
+      ],
+      "location": {
+        "en": "In the eye sockets, on either side of the nose.",
+        "zh": "位于鼻两侧的眼眶内。"
+      },
+      "kind": "anatomy",
+      "points": [
+        [
+          259,
+          105
+        ],
+        [
+          301,
+          105
+        ]
+      ]
+    },
+    "ears": {
+      "bodyBox": [
+        228,
+        100,
+        104,
+        28
+      ],
+      "location": {
+        "en": "At the sides of the head; the inner ear is within the skull.",
+        "zh": "位于头部两侧；内耳位于颅骨内。"
+      },
+      "kind": "anatomy",
+      "points": [
+        [
+          234,
+          113
+        ],
+        [
+          326,
+          113
+        ]
+      ]
+    },
+    "salivary-glands": {
+      "bodyBox": [
+        240,
+        113,
+        80,
+        37
+      ],
+      "location": {
+        "en": "Around the jaw and beneath the tongue.",
+        "zh": "位于下颌周围及舌下。"
+      },
+      "kind": "anatomy"
+    },
+    "pharynx-larynx": {
+      "bodyBox": [
+        269,
+        145,
+        22,
+        42
+      ],
+      "location": {
+        "en": "Behind the nose and mouth, continuing into the neck.",
+        "zh": "位于鼻与口腔后方，并向下延伸至颈部。"
+      },
+      "kind": "anatomy"
+    },
+    "thyroid": {
+      "bodyBox": [
+        263,
+        172,
+        36,
+        28
+      ],
+      "location": {
+        "en": "Low in the neck, around the upper trachea.",
+        "zh": "位于颈部下方、上段气管周围。"
+      },
+      "kind": "anatomy"
+    },
+    "parathyroids": {
+      "bodyBox": [
+        264,
+        174,
+        33,
+        25
+      ],
+      "location": {
+        "en": "Small glands usually on the posterior surface of the thyroid, in the neck.",
+        "zh": "颈部的小腺体，通常位于甲状腺后表面。"
+      },
+      "kind": "anatomy"
+    },
+    "trachea": {
+      "bodyBox": [
+        269,
+        194,
+        22,
+        88
+      ],
+      "location": {
+        "en": "Down the front of the neck into the chest.",
+        "zh": "沿颈部前方向下进入胸腔。"
+      },
+      "kind": "anatomy"
+    },
+    "esophagus": {
+      "bodyBox": [
+        278,
+        185,
+        25,
+        222
+      ],
+      "location": {
+        "en": "Behind the airway, through the chest to the stomach.",
+        "zh": "位于气道后方，穿过胸部通向胃。"
+      },
+      "kind": "anatomy"
+    },
+    "lungs": {
+      "bodyBox": [
+        197,
+        220,
+        165,
+        152
+      ],
+      "location": {
+        "en": "On both sides of the chest, inside the rib cage.",
+        "zh": "位于胸腔两侧、肋骨围成的空间内。"
+      },
+      "kind": "anatomy",
+      "points": [
+        [
+          232,
+          295
+        ],
+        [
+          330,
+          295
+        ]
+      ]
+    },
+    "heart": {
+      "bodyBox": [
+        257,
+        273,
+        60,
+        87
+      ],
+      "location": {
+        "en": "Between the lungs, mostly behind the breastbone and slightly left.",
+        "zh": "位于双肺之间，多在胸骨后方并稍偏左。"
+      },
+      "kind": "anatomy"
+    },
+    "diaphragm": {
+      "bodyBox": [
+        192,
+        351,
+        178,
+        41
+      ],
+      "location": {
+        "en": "Below the lungs, separating chest from abdomen.",
+        "zh": "位于双肺下方，分隔胸腔与腹腔。"
+      },
+      "kind": "anatomy"
+    },
+    "thymus": {
+      "bodyBox": [
+        266,
+        234,
+        30,
+        43
+      ],
+      "location": {
+        "en": "Behind the upper breastbone; usually smaller in adults.",
+        "zh": "位于胸骨上部后方，成人通常较小。"
+      },
+      "kind": "anatomy"
+    },
+    "liver": {
+      "bodyBox": [
+        195,
+        373,
+        111,
+        75
+      ],
+      "location": {
+        "en": "In the upper right abdomen, beneath the diaphragm.",
+        "zh": "位于右上腹、膈肌下方。"
+      },
+      "kind": "anatomy"
+    },
+    "gallbladder": {
+      "bodyBox": [
+        195,
+        373,
+        111,
+        75
+      ],
+      "location": {
+        "en": "In the upper right abdomen, beneath the diaphragm.",
+        "zh": "位于右上腹、膈肌下方。"
+      },
+      "kind": "anatomy"
+    },
+    "stomach": {
+      "bodyBox": [
+        280,
+        383,
+        70,
+        78
+      ],
+      "location": {
+        "en": "In the upper left abdomen, below the diaphragm.",
+        "zh": "位于左上腹、膈肌下方。"
+      },
+      "kind": "anatomy"
+    },
+    "spleen": {
+      "bodyBox": [
+        342,
+        392,
+        33,
+        67
+      ],
+      "location": {
+        "en": "High in the left abdomen, beside and behind the stomach.",
+        "zh": "位于左上腹、胃的外侧及后方。"
+      },
+      "kind": "anatomy"
+    },
+    "pancreas": {
+      "bodyBox": [
+        248,
+        410,
+        106,
+        49
+      ],
+      "location": {
+        "en": "Across the upper abdomen, mostly behind the stomach.",
+        "zh": "横跨上腹部，大部分位于胃后方。"
+      },
+      "kind": "anatomy"
+    },
+    "small-intestine": {
+      "bodyBox": [
+        231,
+        455,
+        100,
+        110
+      ],
+      "location": {
+        "en": "Coiled through the central and lower abdomen.",
+        "zh": "盘曲分布于腹部中央与下方。"
+      },
+      "kind": "anatomy"
+    },
+    "large-intestine": {
+      "bodyBox": [
+        209,
+        444,
+        143,
+        135
+      ],
+      "location": {
+        "en": "Around the outer abdomen, surrounding much of the small bowel.",
+        "zh": "沿腹部外围分布，围绕大部分小肠。"
+      },
+      "kind": "anatomy"
+    },
+    "kidneys": {
+      "bodyBox": [
+        226,
+        384,
+        112,
+        83
+      ],
+      "location": {
+        "en": "Paired organs at the back of the upper abdomen; their upper parts tuck beneath the lower ribs.",
+        "zh": "成对位于上腹部后方，上部受到下方肋骨的部分遮护。"
+      },
+      "kind": "anatomy",
+      "points": [
+        [
+          244,
+          432
+        ],
+        [
+          320,
+          419
+        ]
+      ],
+      "note": {
+        "en": "They lie behind most abdominal organs, on either side of the spine. The right kidney is usually slightly lower.",
+        "zh": "位于大多数腹腔脏器后方、脊柱两侧。右肾通常稍低。"
+      }
+    },
+    "adrenals": {
+      "bodyBox": [
+        232,
+        370,
+        100,
+        27
+      ],
+      "location": {
+        "en": "Small glands above the kidneys, deep in the upper abdomen.",
+        "zh": "位于肾上方、上腹部深处的小腺体。"
+      },
+      "kind": "anatomy",
+      "points": [
+        [
+          247,
+          387
+        ],
+        [
+          319,
+          378
+        ]
+      ]
+    },
+    "ureters": {
+      "bodyBox": [
+        247,
+        438,
+        73,
+        145
+      ],
+      "location": {
+        "en": "Two tubes descending from the kidneys into the pelvis.",
+        "zh": "两条管道由肾向下进入盆腔。"
+      },
+      "kind": "anatomy"
+    },
+    "bladder": {
+      "bodyBox": [
+        253,
+        569,
+        55,
+        65
+      ],
+      "location": {
+        "en": "In the lower pelvis, behind the pubic bones.",
+        "zh": "位于盆腔下部、耻骨后方。"
+      },
+      "kind": "anatomy"
+    },
+    "urethra": {
+      "bodyBox": [
+        253,
+        569,
+        55,
+        65
+      ],
+      "location": {
+        "en": "Carries urine from the bladder to an external opening; its course differs by anatomy.",
+        "zh": "由膀胱通向体外尿道口，走行随解剖结构而异。"
+      },
+      "kind": "anatomy"
+    },
+    "spinal-cord": {
+      "bodyBox": [
+        270,
+        158,
+        22,
+        345
+      ],
+      "location": {
+        "en": "Inside the spinal canal; nerve roots continue below the cord.",
+        "zh": "位于椎管内；脊髓下方继续延伸的是神经根。"
+      },
+      "kind": "anatomy"
+    },
+    "peripheral-nerves": {
+      "bodyBox": [
+        90,
+        160,
+        380,
+        760
+      ],
+      "location": {
+        "en": "A distributed network through the body.",
+        "zh": "遍布全身的网络。"
+      },
+      "kind": "distributed"
+    },
+    "vessels": {
+      "bodyBox": [
+        90,
+        160,
+        380,
+        760
+      ],
+      "location": {
+        "en": "A distributed network through the body.",
+        "zh": "遍布全身的网络。"
+      },
+      "kind": "distributed"
+    },
+    "lymph-vessels": {
+      "bodyBox": [
+        90,
+        160,
+        380,
+        760
+      ],
+      "location": {
+        "en": "A distributed network through the body.",
+        "zh": "遍布全身的网络。"
+      },
+      "kind": "distributed"
+    },
+    "lymph-nodes": {
+      "bodyBox": [
+        90,
+        160,
+        380,
+        760
+      ],
+      "location": {
+        "en": "A distributed network through the body.",
+        "zh": "遍布全身的网络。"
+      },
+      "kind": "distributed"
+    },
+    "muscle": {
+      "bodyBox": [
+        126,
+        268,
+        51,
+        159
+      ],
+      "location": {
+        "en": "This example comes from the upper arm.",
+        "zh": "本例取自上臂。"
+      },
+      "kind": "representative"
+    },
+    "tendons-ligaments": {
+      "bodyBox": [
+        123,
+        266,
+        54,
+        164
+      ],
+      "location": {
+        "en": "This example comes from the upper arm.",
+        "zh": "本例取自上臂。"
+      },
+      "kind": "representative"
+    },
+    "bone": {
+      "bodyBox": [
+        381,
+        281,
+        57,
+        111
+      ],
+      "location": {
+        "en": "A representative long bone in the upper arm.",
+        "zh": "以上臂的长骨为代表。"
+      },
+      "kind": "representative"
+    },
+    "skin": {
+      "bodyBox": [
+        98,
+        437,
+        37,
+        49
+      ],
+      "location": {
+        "en": "A magnified skin sample from the forearm.",
+        "zh": "取自前臂的皮肤放大样本。"
+      },
+      "kind": "sample"
+    },
+    "bone-marrow": {
+      "bodyBox": [
+        224,
+        663,
+        30,
+        96
+      ],
+      "location": {
+        "en": "Marrow fills spaces inside bones. The thigh marks the source of this representative long-bone sample.",
+        "zh": "骨髓位于骨内空隙。大腿上的标记表示此代表性长骨样本的来源位置。"
+      },
+      "kind": "sample",
+      "note": {
+        "en": "This generic long-bone cutaway is not an exact femur. Red and yellow marrow distribution varies with age and bone.",
+        "zh": "此图为通用长骨剖面，并非精确股骨图。红、黄骨髓的分布随年龄和骨骼部位变化。"
+      }
+    },
+    "adipose": {
+      "bodyBox": [
+        311,
+        670,
+        31,
+        65
+      ],
+      "location": {
+        "en": "A magnified sample of subcutaneous fat.",
+        "zh": "皮下脂肪的放大样本。"
+      },
+      "kind": "sample"
+    },
+    "joints": {
+      "bodyBox": [
+        300,
+        729,
+        49,
+        109
+      ],
+      "location": {
+        "en": "A knee-joint teaching example.",
+        "zh": "以膝关节为教学例子。"
+      },
+      "kind": "representative"
+    },
+    "cartilage": {
+      "bodyBox": [
+        299,
+        750,
+        49,
+        58
+      ],
+      "location": {
+        "en": "A knee-joint teaching example.",
+        "zh": "以膝关节为教学例子。"
+      },
+      "kind": "representative"
+    },
+    "blood": {
+      "bodyBox": [
+        125,
+        391,
+        24,
+        38
+      ],
+      "location": {
+        "en": "A magnified blood sample; blood circulates throughout the body.",
+        "zh": "血液的放大样本；血液在全身循环。"
+      },
+      "kind": "sample"
+    },
+    "reproductive": {
+      "bodyBox": [
+        245,
+        550,
+        70,
+        74
+      ],
+      "location": {
+        "en": "Deep in the pelvis, below the abdomen.",
+        "zh": "位于腹部下方的盆腔深处。"
+      },
+      "kind": "alternative"
+    },
+    "ovaries": {
+      "bodyBox": [
+        245,
+        550,
+        70,
+        74
+      ],
+      "location": {
+        "en": "Deep in the pelvis, below the abdomen.",
+        "zh": "位于腹部下方的盆腔深处。"
+      },
+      "kind": "alternative"
+    },
+    "uterus": {
+      "bodyBox": [
+        245,
+        550,
+        70,
+        74
+      ],
+      "location": {
+        "en": "Deep in the pelvis, below the abdomen.",
+        "zh": "位于腹部下方的盆腔深处。"
+      },
+      "kind": "alternative"
+    },
+    "vagina-vulva": {
+      "bodyBox": [
+        245,
+        550,
+        70,
+        74
+      ],
+      "location": {
+        "en": "The vagina lies in the pelvis; the vulva is external.",
+        "zh": "阴道位于盆腔内；外阴位于体表。"
+      },
+      "kind": "alternative"
+    },
+    "testes": {
+      "bodyBox": [
+        256,
+        585,
+        49,
+        65
+      ],
+      "location": {
+        "en": "A separate pelvic and external reproductive anatomy example.",
+        "zh": "另一种盆腔及外生殖结构解剖示例。"
+      },
+      "kind": "alternative"
+    },
+    "penis": {
+      "bodyBox": [
+        256,
+        585,
+        49,
+        65
+      ],
+      "location": {
+        "en": "A separate pelvic and external reproductive anatomy example.",
+        "zh": "另一种盆腔及外生殖结构解剖示例。"
+      },
+      "kind": "alternative"
+    },
+    "prostate": {
+      "bodyBox": [
+        256,
+        585,
+        49,
+        65
+      ],
+      "location": {
+        "en": "A separate pelvic and external reproductive anatomy example.",
+        "zh": "另一种盆腔及外生殖结构解剖示例。"
+      },
+      "kind": "alternative"
+    },
+    "breasts": {
+      "bodyBox": [
+        218,
+        268,
+        128,
+        55
+      ],
+      "location": {
+        "en": "On the anterior chest wall, over the chest muscles.",
+        "zh": "位于胸壁前方、胸肌表面。"
+      },
+      "kind": "section",
+      "points": [
+        [
+          238,
+          292
+        ],
+        [
+          324,
+          292
+        ]
+      ]
+    },
+    "placenta": {
+      "bodyBox": [
+        243,
+        497,
+        76,
+        103
+      ],
+      "location": {
+        "en": "A pregnancy-stage example within the enlarged uterus.",
+        "zh": "位于增大的子宫内，表示妊娠阶段的例子。"
+      },
+      "kind": "stage",
+      "note": {
+        "en": "The locator marks the general uterine region; the pregnancy section has its own stage and scale.",
+        "zh": "定位图标示子宫的大致区域；妊娠剖面具有独立阶段和比例。"
+      }
+    },
+    "fetus": {
+      "bodyBox": [
+        243,
+        497,
+        76,
+        103
+      ],
+      "location": {
+        "en": "A pregnancy-stage example within the enlarged uterus.",
+        "zh": "位于增大的子宫内，表示妊娠阶段的例子。"
+      },
+      "kind": "stage",
+      "note": {
+        "en": "The locator marks the general uterine region; the pregnancy section has its own stage and scale.",
+        "zh": "定位图标示子宫的大致区域；妊娠剖面具有独立阶段和比例。"
+      }
+    }
+  },
+  "regions": {
+    "overview": {
+      "bodyBox": [
+        78,
+        25,
+        405,
+        955
+      ]
+    },
+    "head-midline": {
+      "bodyBox": [
+        229,
+        32,
+        104,
+        170
+      ],
+      "type": "section",
+      "orientationChange": {
+        "en": "Turn to a near-midline side section",
+        "zh": "切换为近正中侧面切面"
+      }
+    },
+    "head-lateral": {
+      "bodyBox": [
+        229,
+        32,
+        104,
+        170
+      ],
+      "type": "side-view",
+      "orientationChange": {
+        "en": "Turn to the side of the head",
+        "zh": "转向头部侧面"
+      }
+    },
+    "head-glands": {
+      "bodyBox": [
+        259,
+        166,
+        44,
+        40
+      ],
+      "type": "posterior-detail",
+      "orientationChange": {
+        "en": "Turn to the back of the thyroid",
+        "zh": "转向甲状腺后面"
+      }
+    },
+    "chest": {
+      "bodyBox": [
+        199,
+        218,
+        161,
+        162
+      ]
+    },
+    "abdomen": {
+      "bodyBox": [
+        199,
+        359,
+        166,
+        232
+      ]
+    },
+    "urinary": {
+      "bodyBox": [
+        226,
+        372,
+        112,
+        246
+      ]
+    },
+    "kidneys": {
+      "bodyBox": [
+        205,
+        355,
+        153,
+        140
+      ]
+    },
+    "kidney-depth": {
+      "bodyBox": [
+        216,
+        406,
+        128,
+        38
+      ],
+      "type": "section",
+      "orientationChange": {
+        "en": "Look across the body from the feet; front is at the top",
+        "zh": "从足端看横断面；图上方是身体前方"
+      }
+    },
+    "tissues": {
+      "bodyBox": [
+        96,
+        260,
+        338,
+        554
+      ]
+    },
+    "knee": {
+      "bodyBox": [
+        300,
+        729,
+        49,
+        109
+      ],
+      "type": "section"
+    },
+    "uterine": {
+      "bodyBox": [
+        245,
+        550,
+        70,
+        74
+      ],
+      "type": "alternative"
+    },
+    "testicular": {
+      "bodyBox": [
+        256,
+        585,
+        49,
+        65
+      ],
+      "type": "alternative"
+    },
+    "pregnancy": {
+      "bodyBox": [
+        243,
+        497,
+        76,
+        103
+      ],
+      "type": "stage"
+    },
+    "breast": {
+      "bodyBox": [
+        218,
+        268,
+        128,
+        55
+      ],
+      "type": "section"
+    },
+    "blood": {
+      "bodyBox": [
+        125,
+        391,
+        24,
+        38
+      ],
+      "type": "sample"
+    },
+    "muscle-detail": {
+      "bodyBox": [
+        126,
+        268,
+        51,
+        159
+      ],
+      "type": "representative"
+    },
+    "bone-detail": {
+      "bodyBox": [
+        381,
+        281,
+        57,
+        111
+      ],
+      "type": "representative"
+    },
+    "skin-detail": {
+      "bodyBox": [
+        98,
+        437,
+        37,
+        49
+      ],
+      "type": "sample"
+    },
+    "marrow-detail": {
+      "bodyBox": [
+        224,
+        663,
+        30,
+        96
+      ],
+      "type": "sample"
+    },
+    "adipose-detail": {
+      "bodyBox": [
+        311,
+        670,
+        31,
+        65
+      ],
+      "type": "sample"
+    }
+  },
+  "orientation": {
+    "en": "Front view: patient right is image left.",
+    "zh": "前面观：人体右侧位于图像左侧。"
+  },
+  "assetMapping": {
+    "vessels": {
+      "normalAnatomyId": "vessels",
+      "primary": "parts/vessels.svg",
+      "sourceView": {
+        "id": "overview",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          78,
+          25,
+          405,
+          955
+        ],
+        "orientation": {
+          "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+          "zh": "前面观 · 人体右侧 = 图像左侧"
+        },
+        "note": {
+          "en": "Patient right is on your left.",
+          "zh": "人体右侧位于画面左侧。"
+        },
+        "regionFile": "regions/overview.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          90,
+          160,
+          380,
+          760
+        ],
+        "location": {
+          "en": "A distributed network through the body.",
+          "zh": "遍布全身的网络。"
+        },
+        "kind": "distributed",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "overview",
+        "regionBodyBox": [
+          78,
+          25,
+          405,
+          955
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/vessels.svg"
+    },
+    "lymph-vessels": {
+      "normalAnatomyId": "lymph-vessels",
+      "primary": "parts/lymph-vessels.svg",
+      "sourceView": {
+        "id": "overview",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          78,
+          25,
+          405,
+          955
+        ],
+        "orientation": {
+          "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+          "zh": "前面观 · 人体右侧 = 图像左侧"
+        },
+        "note": {
+          "en": "Patient right is on your left.",
+          "zh": "人体右侧位于画面左侧。"
+        },
+        "regionFile": "regions/overview.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          90,
+          160,
+          380,
+          760
+        ],
+        "location": {
+          "en": "A distributed network through the body.",
+          "zh": "遍布全身的网络。"
+        },
+        "kind": "distributed",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "overview",
+        "regionBodyBox": [
+          78,
+          25,
+          405,
+          955
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/lymph-vessels.svg"
+    },
+    "peripheral-nerves": {
+      "normalAnatomyId": "peripheral-nerves",
+      "primary": "parts/peripheral-nerves.svg",
+      "sourceView": {
+        "id": "tissues",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          25.0,
+          263.0,
+          510.0,
+          582.0
+        ],
+        "orientation": {
+          "en": "FRONT VIEW",
+          "zh": "前面观"
+        },
+        "note": {
+          "en": "Tissue locator. Select a structure below to enlarge its own cutaway.",
+          "zh": "组织定位图。选择下方结构，放大观察其独立剖面。"
+        },
+        "regionFile": "regions/tissues.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          90,
+          160,
+          380,
+          760
+        ],
+        "location": {
+          "en": "A distributed network through the body.",
+          "zh": "遍布全身的网络。"
+        },
+        "kind": "distributed",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "tissues",
+        "regionBodyBox": [
+          96,
+          260,
+          338,
+          554
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/peripheral-nerves.svg"
+    },
+    "spinal-cord": {
+      "normalAnatomyId": "spinal-cord",
+      "primary": "parts/spinal-cord.svg",
+      "sourceView": {
+        "id": "overview",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          78,
+          25,
+          405,
+          955
+        ],
+        "orientation": {
+          "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+          "zh": "前面观 · 人体右侧 = 图像左侧"
+        },
+        "note": {
+          "en": "Patient right is on your left.",
+          "zh": "人体右侧位于画面左侧。"
+        },
+        "regionFile": "regions/overview.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          270,
+          158,
+          22,
+          345
+        ],
+        "location": {
+          "en": "Inside the spinal canal; nerve roots continue below the cord.",
+          "zh": "位于椎管内；脊髓下方继续延伸的是神经根。"
+        },
+        "kind": "anatomy",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "overview",
+        "regionBodyBox": [
+          78,
+          25,
+          405,
+          955
+        ],
+        "orientationChange": null
+      },
+      "variants": [
+        {
+          "file": "variants/spinal-cord--head-sagittal.svg",
+          "sourceView": {
+            "id": "head-midline",
+            "sourceFile": "head.svg",
+            "viewBox": [
+              20,
+              57,
+              510,
+              545
+            ],
+            "orientation": {
+              "en": "NEAR-MIDLINE SECTION",
+              "zh": "近正中切面"
+            },
+            "note": {
+              "en": "Facing right · teaching section",
+              "zh": "面向画面右侧 · 教学切面"
+            },
+            "regionFile": "regions/head-midline.svg"
+          }
+        }
+      ],
+      "overlay": "overlay-parts/spinal-cord.svg"
+    },
+    "brain": {
+      "normalAnatomyId": "brain",
+      "primary": "parts/brain.svg",
+      "sourceView": {
+        "id": "head-midline",
+        "sourceFile": "head.svg",
+        "viewBox": [
+          20,
+          57,
+          510,
+          545
+        ],
+        "orientation": {
+          "en": "NEAR-MIDLINE SECTION",
+          "zh": "近正中切面"
+        },
+        "note": {
+          "en": "Facing right · teaching section",
+          "zh": "面向画面右侧 · 教学切面"
+        },
+        "regionFile": "regions/head-midline.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          243,
+          48,
+          75,
+          54
+        ],
+        "location": {
+          "en": "Inside the skull.",
+          "zh": "位于颅骨内。"
+        },
+        "kind": "anatomy",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "head-midline",
+        "regionBodyBox": [
+          229,
+          32,
+          104,
+          170
+        ],
+        "orientationChange": {
+          "en": "Turn to a near-midline side section",
+          "zh": "切换为近正中侧面切面"
+        }
+      },
+      "variants": [
+        {
+          "file": "variants/brain--body-front.svg",
+          "sourceView": {
+            "id": "overview",
+            "sourceFile": "atlas.svg",
+            "viewBox": [
+              78,
+              25,
+              405,
+              955
+            ],
+            "orientation": {
+              "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+              "zh": "前面观 · 人体右侧 = 图像左侧"
+            },
+            "note": {
+              "en": "Patient right is on your left.",
+              "zh": "人体右侧位于画面左侧。"
+            },
+            "regionFile": "regions/overview.svg"
+          }
+        }
+      ],
+      "overlay": "overlay-parts/brain.svg"
+    },
+    "pituitary": {
+      "normalAnatomyId": "pituitary",
+      "primary": "parts/pituitary.svg",
+      "sourceView": {
+        "id": "head-midline",
+        "sourceFile": "head.svg",
+        "viewBox": [
+          20,
+          57,
+          510,
+          545
+        ],
+        "orientation": {
+          "en": "NEAR-MIDLINE SECTION",
+          "zh": "近正中切面"
+        },
+        "note": {
+          "en": "Facing right · teaching section",
+          "zh": "面向画面右侧 · 教学切面"
+        },
+        "regionFile": "regions/head-midline.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          268,
+          92,
+          24,
+          18
+        ],
+        "location": {
+          "en": "At the base of the brain, protected by the skull base.",
+          "zh": "位于脑底，受颅底骨性结构保护。"
+        },
+        "kind": "anatomy",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "head-midline",
+        "regionBodyBox": [
+          229,
+          32,
+          104,
+          170
+        ],
+        "orientationChange": {
+          "en": "Turn to a near-midline side section",
+          "zh": "切换为近正中侧面切面"
+        }
+      },
+      "variants": [],
+      "overlay": "overlay-parts/pituitary.svg"
+    },
+    "mouth": {
+      "normalAnatomyId": "mouth",
+      "primary": "parts/mouth.svg",
+      "sourceView": {
+        "id": "head-midline",
+        "sourceFile": "head.svg",
+        "viewBox": [
+          20,
+          57,
+          510,
+          545
+        ],
+        "orientation": {
+          "en": "NEAR-MIDLINE SECTION",
+          "zh": "近正中切面"
+        },
+        "note": {
+          "en": "Facing right · teaching section",
+          "zh": "面向画面右侧 · 教学切面"
+        },
+        "regionFile": "regions/head-midline.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          267,
+          136,
+          26,
+          12
+        ],
+        "location": {
+          "en": "The oral cavity in the lower face.",
+          "zh": "位于面部下方的口腔。"
+        },
+        "kind": "anatomy",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "head-midline",
+        "regionBodyBox": [
+          229,
+          32,
+          104,
+          170
+        ],
+        "orientationChange": {
+          "en": "Turn to a near-midline side section",
+          "zh": "切换为近正中侧面切面"
+        }
+      },
+      "variants": [
+        {
+          "file": "variants/mouth--body-front.svg",
+          "sourceView": {
+            "id": "overview",
+            "sourceFile": "atlas.svg",
+            "viewBox": [
+              78,
+              25,
+              405,
+              955
+            ],
+            "orientation": {
+              "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+              "zh": "前面观 · 人体右侧 = 图像左侧"
+            },
+            "note": {
+              "en": "Patient right is on your left.",
+              "zh": "人体右侧位于画面左侧。"
+            },
+            "regionFile": "regions/overview.svg"
+          }
+        }
+      ],
+      "overlay": "overlay-parts/mouth.svg"
+    },
+    "esophagus": {
+      "normalAnatomyId": "esophagus",
+      "primary": "parts/esophagus.svg",
+      "sourceView": {
+        "id": "head-midline",
+        "sourceFile": "head.svg",
+        "viewBox": [
+          20,
+          57,
+          510,
+          545
+        ],
+        "orientation": {
+          "en": "NEAR-MIDLINE SECTION",
+          "zh": "近正中切面"
+        },
+        "note": {
+          "en": "Facing right · teaching section",
+          "zh": "面向画面右侧 · 教学切面"
+        },
+        "regionFile": "regions/head-midline.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          278,
+          185,
+          25,
+          222
+        ],
+        "location": {
+          "en": "Behind the airway, through the chest to the stomach.",
+          "zh": "位于气道后方，穿过胸部通向胃。"
+        },
+        "kind": "anatomy",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "head-midline",
+        "regionBodyBox": [
+          229,
+          32,
+          104,
+          170
+        ],
+        "orientationChange": {
+          "en": "Turn to a near-midline side section",
+          "zh": "切换为近正中侧面切面"
+        }
+      },
+      "variants": [
+        {
+          "file": "variants/esophagus--body-front.svg",
+          "sourceView": {
+            "id": "overview",
+            "sourceFile": "atlas.svg",
+            "viewBox": [
+              78,
+              25,
+              405,
+              955
+            ],
+            "orientation": {
+              "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+              "zh": "前面观 · 人体右侧 = 图像左侧"
+            },
+            "note": {
+              "en": "Patient right is on your left.",
+              "zh": "人体右侧位于画面左侧。"
+            },
+            "regionFile": "regions/overview.svg"
+          }
+        }
+      ],
+      "overlay": "overlay-parts/esophagus.svg"
+    },
+    "thyroid": {
+      "normalAnatomyId": "thyroid",
+      "primary": "parts/thyroid.svg",
+      "sourceView": {
+        "id": "head-glands",
+        "sourceFile": "head.svg",
+        "viewBox": [
+          550,
+          473,
+          320,
+          170
+        ],
+        "orientation": {
+          "en": "POSTERIOR GLAND DETAIL",
+          "zh": "腺体后面观"
+        },
+        "note": {
+          "en": "Independent enlargement · representative glands",
+          "zh": "独立放大 · 腺体位置示意"
+        },
+        "regionFile": "regions/head-glands.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          263,
+          172,
+          36,
+          28
+        ],
+        "location": {
+          "en": "Low in the neck, around the upper trachea.",
+          "zh": "位于颈部下方、上段气管周围。"
+        },
+        "kind": "anatomy",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "head-glands",
+        "regionBodyBox": [
+          259,
+          166,
+          44,
+          40
+        ],
+        "orientationChange": {
+          "en": "Turn to the back of the thyroid",
+          "zh": "转向甲状腺后面"
+        }
+      },
+      "variants": [
+        {
+          "file": "variants/thyroid--body-front.svg",
+          "sourceView": {
+            "id": "overview",
+            "sourceFile": "atlas.svg",
+            "viewBox": [
+              78,
+              25,
+              405,
+              955
+            ],
+            "orientation": {
+              "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+              "zh": "前面观 · 人体右侧 = 图像左侧"
+            },
+            "note": {
+              "en": "Patient right is on your left.",
+              "zh": "人体右侧位于画面左侧。"
+            },
+            "regionFile": "regions/overview.svg"
+          }
+        }
+      ],
+      "overlay": "overlay-parts/thyroid.svg"
+    },
+    "lungs": {
+      "normalAnatomyId": "lungs",
+      "primary": "parts/lungs.svg",
+      "sourceView": {
+        "id": "chest",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          173,
+          210,
+          350,
+          181
+        ],
+        "orientation": {
+          "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+          "zh": "前面观 · 人体右侧 = 图像左侧"
+        },
+        "note": {
+          "en": "Patient right is on your left.",
+          "zh": "人体右侧位于画面左侧。"
+        },
+        "regionFile": "regions/chest.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          197,
+          220,
+          165,
+          152
+        ],
+        "location": {
+          "en": "On both sides of the chest, inside the rib cage.",
+          "zh": "位于胸腔两侧、肋骨围成的空间内。"
+        },
+        "kind": "anatomy",
+        "points": [
+          [
+            232,
+            295
+          ],
+          [
+            330,
+            295
+          ]
+        ],
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "chest",
+        "regionBodyBox": [
+          199,
+          218,
+          161,
+          162
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/lungs.svg"
+    },
+    "thymus": {
+      "normalAnatomyId": "thymus",
+      "primary": "parts/thymus.svg",
+      "sourceView": {
+        "id": "chest",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          173,
+          210,
+          350,
+          181
+        ],
+        "orientation": {
+          "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+          "zh": "前面观 · 人体右侧 = 图像左侧"
+        },
+        "note": {
+          "en": "Patient right is on your left.",
+          "zh": "人体右侧位于画面左侧。"
+        },
+        "regionFile": "regions/chest.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          266,
+          234,
+          30,
+          43
+        ],
+        "location": {
+          "en": "Behind the upper breastbone; usually smaller in adults.",
+          "zh": "位于胸骨上部后方，成人通常较小。"
+        },
+        "kind": "anatomy",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "chest",
+        "regionBodyBox": [
+          199,
+          218,
+          161,
+          162
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/thymus.svg"
+    },
+    "heart": {
+      "normalAnatomyId": "heart",
+      "primary": "parts/heart.svg",
+      "sourceView": {
+        "id": "chest",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          173,
+          210,
+          350,
+          181
+        ],
+        "orientation": {
+          "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+          "zh": "前面观 · 人体右侧 = 图像左侧"
+        },
+        "note": {
+          "en": "Patient right is on your left.",
+          "zh": "人体右侧位于画面左侧。"
+        },
+        "regionFile": "regions/chest.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          257,
+          273,
+          60,
+          87
+        ],
+        "location": {
+          "en": "Between the lungs, mostly behind the breastbone and slightly left.",
+          "zh": "位于双肺之间，多在胸骨后方并稍偏左。"
+        },
+        "kind": "anatomy",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "chest",
+        "regionBodyBox": [
+          199,
+          218,
+          161,
+          162
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/heart.svg"
+    },
+    "diaphragm": {
+      "normalAnatomyId": "diaphragm",
+      "primary": "parts/diaphragm.svg",
+      "sourceView": {
+        "id": "chest",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          173,
+          210,
+          350,
+          181
+        ],
+        "orientation": {
+          "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+          "zh": "前面观 · 人体右侧 = 图像左侧"
+        },
+        "note": {
+          "en": "Patient right is on your left.",
+          "zh": "人体右侧位于画面左侧。"
+        },
+        "regionFile": "regions/chest.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          192,
+          351,
+          178,
+          41
+        ],
+        "location": {
+          "en": "Below the lungs, separating chest from abdomen.",
+          "zh": "位于双肺下方，分隔胸腔与腹腔。"
+        },
+        "kind": "anatomy",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "chest",
+        "regionBodyBox": [
+          199,
+          218,
+          161,
+          162
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/diaphragm.svg"
+    },
+    "kidneys": {
+      "normalAnatomyId": "kidneys",
+      "primary": "parts/kidneys.svg",
+      "sourceView": {
+        "id": "kidneys",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          205,
+          355,
+          153,
+          140
+        ],
+        "orientation": {
+          "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+          "zh": "前面观 · 人体右侧 = 图像左侧"
+        },
+        "note": {
+          "en": "A transparent front view reveals the kidneys behind the abdominal organs, beside the spine and beneath the lower ribs.",
+          "zh": "从前方透视：肾位于腹部脏器后面、脊柱两侧，并受下部肋骨部分遮护。"
+        },
+        "regionFile": "regions/kidneys.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          226,
+          384,
+          112,
+          83
+        ],
+        "location": {
+          "en": "Paired organs at the back of the upper abdomen; their upper parts tuck beneath the lower ribs.",
+          "zh": "成对位于上腹部后方，上部受到下方肋骨的部分遮护。"
+        },
+        "kind": "anatomy",
+        "points": [
+          [
+            244,
+            432
+          ],
+          [
+            320,
+            419
+          ]
+        ],
+        "note": {
+          "en": "They lie behind most abdominal organs, on either side of the spine. The right kidney is usually slightly lower.",
+          "zh": "位于大多数腹腔脏器后方、脊柱两侧。右肾通常稍低。"
+        },
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "kidneys",
+        "regionBodyBox": [
+          205,
+          355,
+          153,
+          140
+        ],
+        "orientationChange": null
+      },
+      "variants": [
+        {
+          "file": "variants/kidneys--transverse-depth.svg",
+          "sourceView": {
+            "id": "kidney-depth",
+            "sourceFile": "kidney-depth.svg",
+            "viewBox": [
+              0,
+              0,
+              620,
+              380
+            ],
+            "orientation": {
+              "en": "TRANSVERSE SECTION · VIEWED FROM THE FEET",
+              "zh": "横断面 · 从足端向头端看"
+            },
+            "note": {
+              "en": "Front is at the top, back at the bottom. The kidneys sit behind the peritoneal compartment. This is a teaching depth diagram, not one exact scan slice.",
+              "zh": "图上方为前、下方为后。肾位于腹膜腔后方。此图用于讲解深度，并非某一真实扫描层面。"
+            },
+            "regionFile": "regions/kidney-depth.svg"
+          }
+        }
+      ],
+      "overlay": "overlay-parts/kidneys.svg"
+    },
+    "ureters": {
+      "normalAnatomyId": "ureters",
+      "primary": "parts/ureters.svg",
+      "sourceView": {
+        "id": "urinary",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          171,
+          366,
+          353,
+          271
+        ],
+        "orientation": {
+          "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+          "zh": "前面观 · 人体右侧 = 图像左侧"
+        },
+        "note": {
+          "en": "Kidneys lie at the back of the upper abdomen. Follow the ureters down to the bladder in the pelvis.",
+          "zh": "肾位于上腹部后方，沿输尿管向下可到达盆腔中的膀胱。"
+        },
+        "regionFile": "regions/urinary.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          247,
+          438,
+          73,
+          145
+        ],
+        "location": {
+          "en": "Two tubes descending from the kidneys into the pelvis.",
+          "zh": "两条管道由肾向下进入盆腔。"
+        },
+        "kind": "anatomy",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "urinary",
+        "regionBodyBox": [
+          226,
+          372,
+          112,
+          246
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/ureters.svg"
+    },
+    "stomach": {
+      "normalAnatomyId": "stomach",
+      "primary": "parts/stomach.svg",
+      "sourceView": {
+        "id": "abdomen",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          173,
+          354,
+          350,
+          241
+        ],
+        "orientation": {
+          "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+          "zh": "前面观 · 人体右侧 = 图像左侧"
+        },
+        "note": {
+          "en": "Stomach partly transparent to reveal the posterior pancreas.",
+          "zh": "胃部分透明，以显示后方的胰腺。"
+        },
+        "regionFile": "regions/abdomen.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          280,
+          383,
+          70,
+          78
+        ],
+        "location": {
+          "en": "In the upper left abdomen, below the diaphragm.",
+          "zh": "位于左上腹、膈肌下方。"
+        },
+        "kind": "anatomy",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "abdomen",
+        "regionBodyBox": [
+          199,
+          359,
+          166,
+          232
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/stomach.svg"
+    },
+    "spleen": {
+      "normalAnatomyId": "spleen",
+      "primary": "parts/spleen.svg",
+      "sourceView": {
+        "id": "abdomen",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          173,
+          354,
+          350,
+          241
+        ],
+        "orientation": {
+          "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+          "zh": "前面观 · 人体右侧 = 图像左侧"
+        },
+        "note": {
+          "en": "Stomach partly transparent to reveal the posterior pancreas.",
+          "zh": "胃部分透明，以显示后方的胰腺。"
+        },
+        "regionFile": "regions/abdomen.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          342,
+          392,
+          33,
+          67
+        ],
+        "location": {
+          "en": "High in the left abdomen, beside and behind the stomach.",
+          "zh": "位于左上腹、胃的外侧及后方。"
+        },
+        "kind": "anatomy",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "abdomen",
+        "regionBodyBox": [
+          199,
+          359,
+          166,
+          232
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/spleen.svg"
+    },
+    "liver": {
+      "normalAnatomyId": "liver",
+      "primary": "parts/liver.svg",
+      "sourceView": {
+        "id": "abdomen",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          173,
+          354,
+          350,
+          241
+        ],
+        "orientation": {
+          "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+          "zh": "前面观 · 人体右侧 = 图像左侧"
+        },
+        "note": {
+          "en": "Stomach partly transparent to reveal the posterior pancreas.",
+          "zh": "胃部分透明，以显示后方的胰腺。"
+        },
+        "regionFile": "regions/abdomen.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          195,
+          373,
+          111,
+          75
+        ],
+        "location": {
+          "en": "In the upper right abdomen, beneath the diaphragm.",
+          "zh": "位于右上腹、膈肌下方。"
+        },
+        "kind": "anatomy",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "abdomen",
+        "regionBodyBox": [
+          199,
+          359,
+          166,
+          232
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/liver.svg"
+    },
+    "adrenals": {
+      "normalAnatomyId": "adrenals",
+      "primary": "parts/adrenals.svg",
+      "sourceView": {
+        "id": "kidneys",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          205,
+          355,
+          153,
+          140
+        ],
+        "orientation": {
+          "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+          "zh": "前面观 · 人体右侧 = 图像左侧"
+        },
+        "note": {
+          "en": "A transparent front view reveals the kidneys behind the abdominal organs, beside the spine and beneath the lower ribs.",
+          "zh": "从前方透视：肾位于腹部脏器后面、脊柱两侧，并受下部肋骨部分遮护。"
+        },
+        "regionFile": "regions/kidneys.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          232,
+          370,
+          100,
+          27
+        ],
+        "location": {
+          "en": "Small glands above the kidneys, deep in the upper abdomen.",
+          "zh": "位于肾上方、上腹部深处的小腺体。"
+        },
+        "kind": "anatomy",
+        "points": [
+          [
+            247,
+            387
+          ],
+          [
+            319,
+            378
+          ]
+        ],
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "kidneys",
+        "regionBodyBox": [
+          205,
+          355,
+          153,
+          140
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/adrenals.svg"
+    },
+    "gallbladder": {
+      "normalAnatomyId": "gallbladder",
+      "primary": "parts/gallbladder.svg",
+      "sourceView": {
+        "id": "abdomen",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          173,
+          354,
+          350,
+          241
+        ],
+        "orientation": {
+          "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+          "zh": "前面观 · 人体右侧 = 图像左侧"
+        },
+        "note": {
+          "en": "Stomach partly transparent to reveal the posterior pancreas.",
+          "zh": "胃部分透明，以显示后方的胰腺。"
+        },
+        "regionFile": "regions/abdomen.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          195,
+          373,
+          111,
+          75
+        ],
+        "location": {
+          "en": "In the upper right abdomen, beneath the diaphragm.",
+          "zh": "位于右上腹、膈肌下方。"
+        },
+        "kind": "anatomy",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "abdomen",
+        "regionBodyBox": [
+          199,
+          359,
+          166,
+          232
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/gallbladder.svg"
+    },
+    "pancreas": {
+      "normalAnatomyId": "pancreas",
+      "primary": "parts/pancreas.svg",
+      "sourceView": {
+        "id": "abdomen",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          173,
+          354,
+          350,
+          241
+        ],
+        "orientation": {
+          "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+          "zh": "前面观 · 人体右侧 = 图像左侧"
+        },
+        "note": {
+          "en": "Stomach partly transparent to reveal the posterior pancreas.",
+          "zh": "胃部分透明，以显示后方的胰腺。"
+        },
+        "regionFile": "regions/abdomen.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          248,
+          410,
+          106,
+          49
+        ],
+        "location": {
+          "en": "Across the upper abdomen, mostly behind the stomach.",
+          "zh": "横跨上腹部，大部分位于胃后方。"
+        },
+        "kind": "anatomy",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "abdomen",
+        "regionBodyBox": [
+          199,
+          359,
+          166,
+          232
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/pancreas.svg"
+    },
+    "small-intestine": {
+      "normalAnatomyId": "small-intestine",
+      "primary": "parts/small-intestine.svg",
+      "sourceView": {
+        "id": "abdomen",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          173,
+          354,
+          350,
+          241
+        ],
+        "orientation": {
+          "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+          "zh": "前面观 · 人体右侧 = 图像左侧"
+        },
+        "note": {
+          "en": "Stomach partly transparent to reveal the posterior pancreas.",
+          "zh": "胃部分透明，以显示后方的胰腺。"
+        },
+        "regionFile": "regions/abdomen.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          231,
+          455,
+          100,
+          110
+        ],
+        "location": {
+          "en": "Coiled through the central and lower abdomen.",
+          "zh": "盘曲分布于腹部中央与下方。"
+        },
+        "kind": "anatomy",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "abdomen",
+        "regionBodyBox": [
+          199,
+          359,
+          166,
+          232
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/small-intestine.svg"
+    },
+    "large-intestine": {
+      "normalAnatomyId": "large-intestine",
+      "primary": "parts/large-intestine.svg",
+      "sourceView": {
+        "id": "abdomen",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          173,
+          354,
+          350,
+          241
+        ],
+        "orientation": {
+          "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+          "zh": "前面观 · 人体右侧 = 图像左侧"
+        },
+        "note": {
+          "en": "Stomach partly transparent to reveal the posterior pancreas.",
+          "zh": "胃部分透明，以显示后方的胰腺。"
+        },
+        "regionFile": "regions/abdomen.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          209,
+          444,
+          143,
+          135
+        ],
+        "location": {
+          "en": "Around the outer abdomen, surrounding much of the small bowel.",
+          "zh": "沿腹部外围分布，围绕大部分小肠。"
+        },
+        "kind": "anatomy",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "abdomen",
+        "regionBodyBox": [
+          199,
+          359,
+          166,
+          232
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/large-intestine.svg"
+    },
+    "bladder": {
+      "normalAnatomyId": "bladder",
+      "primary": "parts/bladder.svg",
+      "sourceView": {
+        "id": "urinary",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          171,
+          366,
+          353,
+          271
+        ],
+        "orientation": {
+          "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+          "zh": "前面观 · 人体右侧 = 图像左侧"
+        },
+        "note": {
+          "en": "Kidneys lie at the back of the upper abdomen. Follow the ureters down to the bladder in the pelvis.",
+          "zh": "肾位于上腹部后方，沿输尿管向下可到达盆腔中的膀胱。"
+        },
+        "regionFile": "regions/urinary.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          253,
+          569,
+          55,
+          65
+        ],
+        "location": {
+          "en": "In the lower pelvis, behind the pubic bones.",
+          "zh": "位于盆腔下部、耻骨后方。"
+        },
+        "kind": "anatomy",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "urinary",
+        "regionBodyBox": [
+          226,
+          372,
+          112,
+          246
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/bladder.svg"
+    },
+    "lymph-nodes": {
+      "normalAnatomyId": "lymph-nodes",
+      "primary": "parts/lymph-nodes.svg",
+      "sourceView": {
+        "id": "overview",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          78,
+          25,
+          405,
+          955
+        ],
+        "orientation": {
+          "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+          "zh": "前面观 · 人体右侧 = 图像左侧"
+        },
+        "note": {
+          "en": "Patient right is on your left.",
+          "zh": "人体右侧位于画面左侧。"
+        },
+        "regionFile": "regions/overview.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          90,
+          160,
+          380,
+          760
+        ],
+        "location": {
+          "en": "A distributed network through the body.",
+          "zh": "遍布全身的网络。"
+        },
+        "kind": "distributed",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "overview",
+        "regionBodyBox": [
+          78,
+          25,
+          405,
+          955
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/lymph-nodes.svg"
+    },
+    "muscle": {
+      "normalAnatomyId": "muscle",
+      "primary": "parts/muscle.svg",
+      "sourceView": {
+        "id": "muscle-detail",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          117,
+          262,
+          66,
+          176
+        ],
+        "orientation": {
+          "en": "REPRESENTATIVE TISSUE WINDOW",
+          "zh": "代表性组织窗口"
+        },
+        "note": {
+          "en": "Enlarged teaching sample; not a whole-limb section.",
+          "zh": "放大的教学样本，并非完整肢体切面。"
+        },
+        "regionFile": "regions/muscle-detail.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          126,
+          268,
+          51,
+          159
+        ],
+        "location": {
+          "en": "This example comes from the upper arm.",
+          "zh": "本例取自上臂。"
+        },
+        "kind": "representative",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "muscle-detail",
+        "regionBodyBox": [
+          126,
+          268,
+          51,
+          159
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/muscle.svg"
+    },
+    "bone": {
+      "normalAnatomyId": "bone",
+      "primary": "parts/bone.svg",
+      "sourceView": {
+        "id": "bone-detail",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          375,
+          276,
+          68,
+          126
+        ],
+        "orientation": {
+          "en": "REPRESENTATIVE TISSUE WINDOW",
+          "zh": "代表性组织窗口"
+        },
+        "note": {
+          "en": "Enlarged teaching sample; not a whole-limb section.",
+          "zh": "放大的教学样本，并非完整肢体切面。"
+        },
+        "regionFile": "regions/bone-detail.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          381,
+          281,
+          57,
+          111
+        ],
+        "location": {
+          "en": "A representative long bone in the upper arm.",
+          "zh": "以上臂的长骨为代表。"
+        },
+        "kind": "representative",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "bone-detail",
+        "regionBodyBox": [
+          381,
+          281,
+          57,
+          111
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/bone.svg"
+    },
+    "skin": {
+      "normalAnatomyId": "skin",
+      "primary": "parts/skin.svg",
+      "sourceView": {
+        "id": "skin-detail",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          92,
+          432,
+          50,
+          60
+        ],
+        "orientation": {
+          "en": "REPRESENTATIVE TISSUE WINDOW",
+          "zh": "代表性组织窗口"
+        },
+        "note": {
+          "en": "Enlarged teaching sample; not a whole-limb section.",
+          "zh": "放大的教学样本，并非完整肢体切面。"
+        },
+        "regionFile": "regions/skin-detail.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          98,
+          437,
+          37,
+          49
+        ],
+        "location": {
+          "en": "A magnified skin sample from the forearm.",
+          "zh": "取自前臂的皮肤放大样本。"
+        },
+        "kind": "sample",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "skin-detail",
+        "regionBodyBox": [
+          98,
+          437,
+          37,
+          49
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/skin.svg"
+    },
+    "bone-marrow": {
+      "normalAnatomyId": "bone-marrow",
+      "primary": "parts/bone-marrow.svg",
+      "sourceView": {
+        "id": "marrow-detail",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          219,
+          656,
+          43,
+          109
+        ],
+        "orientation": {
+          "en": "REPRESENTATIVE TISSUE WINDOW",
+          "zh": "代表性组织窗口"
+        },
+        "note": {
+          "en": "Enlarged teaching sample; not a whole-limb section.",
+          "zh": "放大的教学样本，并非完整肢体切面。"
+        },
+        "regionFile": "regions/marrow-detail.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          224,
+          663,
+          30,
+          96
+        ],
+        "location": {
+          "en": "Marrow fills spaces inside bones. The thigh marks the source of this representative long-bone sample.",
+          "zh": "骨髓位于骨内空隙。大腿上的标记表示此代表性长骨样本的来源位置。"
+        },
+        "kind": "sample",
+        "note": {
+          "en": "This generic long-bone cutaway is not an exact femur. Red and yellow marrow distribution varies with age and bone.",
+          "zh": "此图为通用长骨剖面，并非精确股骨图。红、黄骨髓的分布随年龄和骨骼部位变化。"
+        },
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "marrow-detail",
+        "regionBodyBox": [
+          224,
+          663,
+          30,
+          96
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/bone-marrow.svg"
+    },
+    "adipose": {
+      "normalAnatomyId": "adipose",
+      "primary": "parts/adipose.svg",
+      "sourceView": {
+        "id": "adipose-detail",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          307,
+          665,
+          41,
+          73
+        ],
+        "orientation": {
+          "en": "REPRESENTATIVE TISSUE WINDOW",
+          "zh": "代表性组织窗口"
+        },
+        "note": {
+          "en": "Enlarged teaching sample; not a whole-limb section.",
+          "zh": "放大的教学样本，并非完整肢体切面。"
+        },
+        "regionFile": "regions/adipose-detail.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          311,
+          670,
+          31,
+          65
+        ],
+        "location": {
+          "en": "A magnified sample of subcutaneous fat.",
+          "zh": "皮下脂肪的放大样本。"
+        },
+        "kind": "sample",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "adipose-detail",
+        "regionBodyBox": [
+          311,
+          670,
+          31,
+          65
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/adipose.svg"
+    },
+    "reproductive": {
+      "normalAnatomyId": "reproductive",
+      "primary": "parts/reproductive.svg",
+      "sourceView": {
+        "id": "overview",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          78,
+          25,
+          405,
+          955
+        ],
+        "orientation": {
+          "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+          "zh": "前面观 · 人体右侧 = 图像左侧"
+        },
+        "note": {
+          "en": "Patient right is on your left.",
+          "zh": "人体右侧位于画面左侧。"
+        },
+        "regionFile": "regions/overview.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          245,
+          550,
+          70,
+          74
+        ],
+        "location": {
+          "en": "Deep in the pelvis, below the abdomen.",
+          "zh": "位于腹部下方的盆腔深处。"
+        },
+        "kind": "alternative",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "overview",
+        "regionBodyBox": [
+          78,
+          25,
+          405,
+          955
+        ],
+        "orientationChange": null
+      },
+      "variants": [
+        {
+          "file": "variants/reproductive--inset-locator-badge.svg",
+          "sourceView": {
+            "id": "overview",
+            "sourceFile": "atlas.svg",
+            "viewBox": [
+              78,
+              25,
+              405,
+              955
+            ],
+            "orientation": {
+              "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+              "zh": "前面观 · 人体右侧 = 图像左侧"
+            },
+            "note": {
+              "en": "Patient right is on your left.",
+              "zh": "人体右侧位于画面左侧。"
+            },
+            "regionFile": "regions/overview.svg"
+          }
+        }
+      ],
+      "overlay": "overlay-parts/reproductive.svg"
+    },
+    "joints": {
+      "normalAnatomyId": "joints",
+      "primary": "parts/joints.svg",
+      "sourceView": {
+        "id": "knee",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          297,
+          724,
+          56,
+          135
+        ],
+        "orientation": {
+          "en": "JOINT TEACHING PROJECTION",
+          "zh": "关节教学投影"
+        },
+        "note": {
+          "en": "Simplified projection of joint components; patella omitted. This is an enlarged teaching view, not a literal single slice.",
+          "zh": "关节结构的简化投影；髌骨未显示。这是放大教学图，并非单一真实切面。"
+        },
+        "regionFile": "regions/knee.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          300,
+          729,
+          49,
+          109
+        ],
+        "location": {
+          "en": "A knee-joint teaching example.",
+          "zh": "以膝关节为教学例子。"
+        },
+        "kind": "representative",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "knee",
+        "regionBodyBox": [
+          300,
+          729,
+          49,
+          109
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/joints.svg"
+    },
+    "cartilage": {
+      "normalAnatomyId": "cartilage",
+      "primary": "parts/cartilage.svg",
+      "sourceView": {
+        "id": "knee",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          297,
+          724,
+          56,
+          135
+        ],
+        "orientation": {
+          "en": "JOINT TEACHING PROJECTION",
+          "zh": "关节教学投影"
+        },
+        "note": {
+          "en": "Simplified projection of joint components; patella omitted. This is an enlarged teaching view, not a literal single slice.",
+          "zh": "关节结构的简化投影；髌骨未显示。这是放大教学图，并非单一真实切面。"
+        },
+        "regionFile": "regions/knee.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          299,
+          750,
+          49,
+          58
+        ],
+        "location": {
+          "en": "A knee-joint teaching example.",
+          "zh": "以膝关节为教学例子。"
+        },
+        "kind": "representative",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "knee",
+        "regionBodyBox": [
+          300,
+          729,
+          49,
+          109
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/cartilage.svg"
+    },
+    "tendons-ligaments": {
+      "normalAnatomyId": "tendons-ligaments",
+      "primary": "parts/tendons-ligaments.svg",
+      "sourceView": {
+        "id": "muscle-detail",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          117,
+          262,
+          66,
+          176
+        ],
+        "orientation": {
+          "en": "REPRESENTATIVE TISSUE WINDOW",
+          "zh": "代表性组织窗口"
+        },
+        "note": {
+          "en": "Enlarged teaching sample; not a whole-limb section.",
+          "zh": "放大的教学样本，并非完整肢体切面。"
+        },
+        "regionFile": "regions/muscle-detail.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          123,
+          266,
+          54,
+          164
+        ],
+        "location": {
+          "en": "This example comes from the upper arm.",
+          "zh": "本例取自上臂。"
+        },
+        "kind": "representative",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "muscle-detail",
+        "regionBodyBox": [
+          126,
+          268,
+          51,
+          159
+        ],
+        "orientationChange": null
+      },
+      "variants": [
+        {
+          "file": "variants/tendons-ligaments--knee.svg",
+          "sourceView": {
+            "id": "knee",
+            "sourceFile": "atlas.svg",
+            "viewBox": [
+              297,
+              724,
+              56,
+              135
+            ],
+            "orientation": {
+              "en": "JOINT TEACHING PROJECTION",
+              "zh": "关节教学投影"
+            },
+            "note": {
+              "en": "Simplified projection of joint components; patella omitted. This is an enlarged teaching view, not a literal single slice.",
+              "zh": "关节结构的简化投影；髌骨未显示。这是放大教学图，并非单一真实切面。"
+            },
+            "regionFile": "regions/knee.svg"
+          }
+        },
+        {
+          "file": "variants/tendons-ligaments--distal-arm-tendon.svg",
+          "sourceView": {
+            "id": "muscle-detail",
+            "sourceFile": "atlas.svg",
+            "viewBox": [
+              117,
+              262,
+              66,
+              176
+            ],
+            "orientation": {
+              "en": "REPRESENTATIVE TISSUE WINDOW",
+              "zh": "代表性组织窗口"
+            },
+            "note": {
+              "en": "Enlarged teaching sample; not a whole-limb section.",
+              "zh": "放大的教学样本，并非完整肢体切面。"
+            },
+            "regionFile": "regions/muscle-detail.svg"
+          }
+        }
+      ],
+      "overlay": "overlay-parts/tendons-ligaments.svg"
+    },
+    "eyes": {
+      "normalAnatomyId": "eyes",
+      "primary": "parts/eyes.svg",
+      "sourceView": {
+        "id": "head-lateral",
+        "sourceFile": "head.svg",
+        "viewBox": [
+          545,
+          57,
+          330,
+          390
+        ],
+        "orientation": {
+          "en": "LATERAL TEACHING VIEW",
+          "zh": "侧位教学示意"
+        },
+        "note": {
+          "en": "Separate view of off-midline structures",
+          "zh": "独立示出正中面以外的结构"
+        },
+        "regionFile": "regions/head-lateral.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          249,
+          98,
+          62,
+          14
+        ],
+        "location": {
+          "en": "In the eye sockets, on either side of the nose.",
+          "zh": "位于鼻两侧的眼眶内。"
+        },
+        "kind": "anatomy",
+        "points": [
+          [
+            259,
+            105
+          ],
+          [
+            301,
+            105
+          ]
+        ],
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "head-lateral",
+        "regionBodyBox": [
+          229,
+          32,
+          104,
+          170
+        ],
+        "orientationChange": {
+          "en": "Turn to the side of the head",
+          "zh": "转向头部侧面"
+        }
+      },
+      "variants": [
+        {
+          "file": "variants/eyes--body-front.svg",
+          "sourceView": {
+            "id": "overview",
+            "sourceFile": "atlas.svg",
+            "viewBox": [
+              78,
+              25,
+              405,
+              955
+            ],
+            "orientation": {
+              "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+              "zh": "前面观 · 人体右侧 = 图像左侧"
+            },
+            "note": {
+              "en": "Patient right is on your left.",
+              "zh": "人体右侧位于画面左侧。"
+            },
+            "regionFile": "regions/overview.svg"
+          }
+        }
+      ],
+      "overlay": "overlay-parts/eyes.svg"
+    },
+    "ears": {
+      "normalAnatomyId": "ears",
+      "primary": "parts/ears.svg",
+      "sourceView": {
+        "id": "head-lateral",
+        "sourceFile": "head.svg",
+        "viewBox": [
+          545,
+          57,
+          330,
+          390
+        ],
+        "orientation": {
+          "en": "LATERAL TEACHING VIEW",
+          "zh": "侧位教学示意"
+        },
+        "note": {
+          "en": "Separate view of off-midline structures",
+          "zh": "独立示出正中面以外的结构"
+        },
+        "regionFile": "regions/head-lateral.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          228,
+          100,
+          104,
+          28
+        ],
+        "location": {
+          "en": "At the sides of the head; the inner ear is within the skull.",
+          "zh": "位于头部两侧；内耳位于颅骨内。"
+        },
+        "kind": "anatomy",
+        "points": [
+          [
+            234,
+            113
+          ],
+          [
+            326,
+            113
+          ]
+        ],
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "head-lateral",
+        "regionBodyBox": [
+          229,
+          32,
+          104,
+          170
+        ],
+        "orientationChange": {
+          "en": "Turn to the side of the head",
+          "zh": "转向头部侧面"
+        }
+      },
+      "variants": [
+        {
+          "file": "variants/ears--body-front.svg",
+          "sourceView": {
+            "id": "overview",
+            "sourceFile": "atlas.svg",
+            "viewBox": [
+              78,
+              25,
+              405,
+              955
+            ],
+            "orientation": {
+              "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+              "zh": "前面观 · 人体右侧 = 图像左侧"
+            },
+            "note": {
+              "en": "Patient right is on your left.",
+              "zh": "人体右侧位于画面左侧。"
+            },
+            "regionFile": "regions/overview.svg"
+          }
+        }
+      ],
+      "overlay": "overlay-parts/ears.svg"
+    },
+    "nose-sinuses": {
+      "normalAnatomyId": "nose-sinuses",
+      "primary": "parts/nose-sinuses.svg",
+      "sourceView": {
+        "id": "head-midline",
+        "sourceFile": "head.svg",
+        "viewBox": [
+          20,
+          57,
+          510,
+          545
+        ],
+        "orientation": {
+          "en": "NEAR-MIDLINE SECTION",
+          "zh": "近正中切面"
+        },
+        "note": {
+          "en": "Facing right · teaching section",
+          "zh": "面向画面右侧 · 教学切面"
+        },
+        "regionFile": "regions/head-midline.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          268,
+          109,
+          24,
+          24
+        ],
+        "location": {
+          "en": "The nasal cavity and nearby spaces behind the nose.",
+          "zh": "位于鼻后方的鼻腔及邻近空间。"
+        },
+        "kind": "anatomy",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "head-midline",
+        "regionBodyBox": [
+          229,
+          32,
+          104,
+          170
+        ],
+        "orientationChange": {
+          "en": "Turn to a near-midline side section",
+          "zh": "切换为近正中侧面切面"
+        }
+      },
+      "variants": [
+        {
+          "file": "variants/nose-sinuses--body-front.svg",
+          "sourceView": {
+            "id": "overview",
+            "sourceFile": "atlas.svg",
+            "viewBox": [
+              78,
+              25,
+              405,
+              955
+            ],
+            "orientation": {
+              "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+              "zh": "前面观 · 人体右侧 = 图像左侧"
+            },
+            "note": {
+              "en": "Patient right is on your left.",
+              "zh": "人体右侧位于画面左侧。"
+            },
+            "regionFile": "regions/overview.svg"
+          }
+        }
+      ],
+      "overlay": "overlay-parts/nose-sinuses.svg"
+    },
+    "teeth-gums": {
+      "normalAnatomyId": "teeth-gums",
+      "primary": "parts/teeth-gums.svg",
+      "sourceView": {
+        "id": "head-midline",
+        "sourceFile": "head.svg",
+        "viewBox": [
+          20,
+          57,
+          510,
+          545
+        ],
+        "orientation": {
+          "en": "NEAR-MIDLINE SECTION",
+          "zh": "近正中切面"
+        },
+        "note": {
+          "en": "Facing right · teaching section",
+          "zh": "面向画面右侧 · 教学切面"
+        },
+        "regionFile": "regions/head-midline.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          269,
+          136,
+          22,
+          12
+        ],
+        "location": {
+          "en": "The oral cavity in the lower face.",
+          "zh": "位于面部下方的口腔。"
+        },
+        "kind": "anatomy",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "head-midline",
+        "regionBodyBox": [
+          229,
+          32,
+          104,
+          170
+        ],
+        "orientationChange": {
+          "en": "Turn to a near-midline side section",
+          "zh": "切换为近正中侧面切面"
+        }
+      },
+      "variants": [],
+      "overlay": "overlay-parts/teeth-gums.svg"
+    },
+    "tongue": {
+      "normalAnatomyId": "tongue",
+      "primary": "parts/tongue.svg",
+      "sourceView": {
+        "id": "head-midline",
+        "sourceFile": "head.svg",
+        "viewBox": [
+          20,
+          57,
+          510,
+          545
+        ],
+        "orientation": {
+          "en": "NEAR-MIDLINE SECTION",
+          "zh": "近正中切面"
+        },
+        "note": {
+          "en": "Facing right · teaching section",
+          "zh": "面向画面右侧 · 教学切面"
+        },
+        "regionFile": "regions/head-midline.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          269,
+          137,
+          22,
+          17
+        ],
+        "location": {
+          "en": "The oral cavity in the lower face.",
+          "zh": "位于面部下方的口腔。"
+        },
+        "kind": "anatomy",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "head-midline",
+        "regionBodyBox": [
+          229,
+          32,
+          104,
+          170
+        ],
+        "orientationChange": {
+          "en": "Turn to a near-midline side section",
+          "zh": "切换为近正中侧面切面"
+        }
+      },
+      "variants": [],
+      "overlay": "overlay-parts/tongue.svg"
+    },
+    "salivary-glands": {
+      "normalAnatomyId": "salivary-glands",
+      "primary": "parts/salivary-glands.svg",
+      "sourceView": {
+        "id": "head-lateral",
+        "sourceFile": "head.svg",
+        "viewBox": [
+          545,
+          57,
+          330,
+          390
+        ],
+        "orientation": {
+          "en": "LATERAL TEACHING VIEW",
+          "zh": "侧位教学示意"
+        },
+        "note": {
+          "en": "Separate view of off-midline structures",
+          "zh": "独立示出正中面以外的结构"
+        },
+        "regionFile": "regions/head-lateral.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          240,
+          113,
+          80,
+          37
+        ],
+        "location": {
+          "en": "Around the jaw and beneath the tongue.",
+          "zh": "位于下颌周围及舌下。"
+        },
+        "kind": "anatomy",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "head-lateral",
+        "regionBodyBox": [
+          229,
+          32,
+          104,
+          170
+        ],
+        "orientationChange": {
+          "en": "Turn to the side of the head",
+          "zh": "转向头部侧面"
+        }
+      },
+      "variants": [],
+      "overlay": "overlay-parts/salivary-glands.svg"
+    },
+    "pharynx-larynx": {
+      "normalAnatomyId": "pharynx-larynx",
+      "primary": "parts/pharynx-larynx.svg",
+      "sourceView": {
+        "id": "head-midline",
+        "sourceFile": "head.svg",
+        "viewBox": [
+          20,
+          57,
+          510,
+          545
+        ],
+        "orientation": {
+          "en": "NEAR-MIDLINE SECTION",
+          "zh": "近正中切面"
+        },
+        "note": {
+          "en": "Facing right · teaching section",
+          "zh": "面向画面右侧 · 教学切面"
+        },
+        "regionFile": "regions/head-midline.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          269,
+          145,
+          22,
+          42
+        ],
+        "location": {
+          "en": "Behind the nose and mouth, continuing into the neck.",
+          "zh": "位于鼻与口腔后方，并向下延伸至颈部。"
+        },
+        "kind": "anatomy",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "head-midline",
+        "regionBodyBox": [
+          229,
+          32,
+          104,
+          170
+        ],
+        "orientationChange": {
+          "en": "Turn to a near-midline side section",
+          "zh": "切换为近正中侧面切面"
+        }
+      },
+      "variants": [],
+      "overlay": "overlay-parts/pharynx-larynx.svg"
+    },
+    "trachea": {
+      "normalAnatomyId": "trachea",
+      "primary": "parts/trachea.svg",
+      "sourceView": {
+        "id": "head-midline",
+        "sourceFile": "head.svg",
+        "viewBox": [
+          20,
+          57,
+          510,
+          545
+        ],
+        "orientation": {
+          "en": "NEAR-MIDLINE SECTION",
+          "zh": "近正中切面"
+        },
+        "note": {
+          "en": "Facing right · teaching section",
+          "zh": "面向画面右侧 · 教学切面"
+        },
+        "regionFile": "regions/head-midline.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          269,
+          194,
+          22,
+          88
+        ],
+        "location": {
+          "en": "Down the front of the neck into the chest.",
+          "zh": "沿颈部前方向下进入胸腔。"
+        },
+        "kind": "anatomy",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "head-midline",
+        "regionBodyBox": [
+          229,
+          32,
+          104,
+          170
+        ],
+        "orientationChange": {
+          "en": "Turn to a near-midline side section",
+          "zh": "切换为近正中侧面切面"
+        }
+      },
+      "variants": [
+        {
+          "file": "variants/trachea--body-front.svg",
+          "sourceView": {
+            "id": "overview",
+            "sourceFile": "atlas.svg",
+            "viewBox": [
+              78,
+              25,
+              405,
+              955
+            ],
+            "orientation": {
+              "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+              "zh": "前面观 · 人体右侧 = 图像左侧"
+            },
+            "note": {
+              "en": "Patient right is on your left.",
+              "zh": "人体右侧位于画面左侧。"
+            },
+            "regionFile": "regions/overview.svg"
+          }
+        }
+      ],
+      "overlay": "overlay-parts/trachea.svg"
+    },
+    "parathyroids": {
+      "normalAnatomyId": "parathyroids",
+      "primary": "parts/parathyroids.svg",
+      "sourceView": {
+        "id": "head-glands",
+        "sourceFile": "head.svg",
+        "viewBox": [
+          550,
+          473,
+          320,
+          170
+        ],
+        "orientation": {
+          "en": "POSTERIOR GLAND DETAIL",
+          "zh": "腺体后面观"
+        },
+        "note": {
+          "en": "Independent enlargement · representative glands",
+          "zh": "独立放大 · 腺体位置示意"
+        },
+        "regionFile": "regions/head-glands.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          264,
+          174,
+          33,
+          25
+        ],
+        "location": {
+          "en": "Small glands usually on the posterior surface of the thyroid, in the neck.",
+          "zh": "颈部的小腺体，通常位于甲状腺后表面。"
+        },
+        "kind": "anatomy",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "head-glands",
+        "regionBodyBox": [
+          259,
+          166,
+          44,
+          40
+        ],
+        "orientationChange": {
+          "en": "Turn to the back of the thyroid",
+          "zh": "转向甲状腺后面"
+        }
+      },
+      "variants": [],
+      "overlay": "overlay-parts/parathyroids.svg"
+    },
+    "uterus": {
+      "normalAnatomyId": "uterus",
+      "primary": "parts/uterus.svg",
+      "sourceView": {
+        "id": "uterine",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          567.0,
+          335.0,
+          317.0,
+          220.0
+        ],
+        "orientation": {
+          "en": "FRONTAL INTERNAL VIEW",
+          "zh": "内部结构前面观"
+        },
+        "note": {
+          "en": "External view shown separately; not a continuous tube.",
+          "zh": "外部结构另图示出，并非连续管道。"
+        },
+        "regionFile": "regions/uterine.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          245,
+          550,
+          70,
+          74
+        ],
+        "location": {
+          "en": "Deep in the pelvis, below the abdomen.",
+          "zh": "位于腹部下方的盆腔深处。"
+        },
+        "kind": "alternative",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "uterine",
+        "regionBodyBox": [
+          245,
+          550,
+          70,
+          74
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/uterus.svg"
+    },
+    "ovaries": {
+      "normalAnatomyId": "ovaries",
+      "primary": "parts/ovaries.svg",
+      "sourceView": {
+        "id": "uterine",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          567.0,
+          335.0,
+          317.0,
+          220.0
+        ],
+        "orientation": {
+          "en": "FRONTAL INTERNAL VIEW",
+          "zh": "内部结构前面观"
+        },
+        "note": {
+          "en": "External view shown separately; not a continuous tube.",
+          "zh": "外部结构另图示出，并非连续管道。"
+        },
+        "regionFile": "regions/uterine.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          245,
+          550,
+          70,
+          74
+        ],
+        "location": {
+          "en": "Deep in the pelvis, below the abdomen.",
+          "zh": "位于腹部下方的盆腔深处。"
+        },
+        "kind": "alternative",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "uterine",
+        "regionBodyBox": [
+          245,
+          550,
+          70,
+          74
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/ovaries.svg"
+    },
+    "vagina-vulva": {
+      "normalAnatomyId": "vagina-vulva",
+      "primary": "parts/vagina-vulva.svg",
+      "sourceView": {
+        "id": "uterine",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          567.0,
+          335.0,
+          317.0,
+          220.0
+        ],
+        "orientation": {
+          "en": "FRONTAL INTERNAL VIEW",
+          "zh": "内部结构前面观"
+        },
+        "note": {
+          "en": "External view shown separately; not a continuous tube.",
+          "zh": "外部结构另图示出，并非连续管道。"
+        },
+        "regionFile": "regions/uterine.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          245,
+          550,
+          70,
+          74
+        ],
+        "location": {
+          "en": "The vagina lies in the pelvis; the vulva is external.",
+          "zh": "阴道位于盆腔内；外阴位于体表。"
+        },
+        "kind": "alternative",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "uterine",
+        "regionBodyBox": [
+          245,
+          550,
+          70,
+          74
+        ],
+        "orientationChange": null
+      },
+      "variants": [
+        {
+          "file": "variants/vagina-vulva--external.svg",
+          "sourceView": {
+            "id": "uterine",
+            "sourceFile": "atlas.svg",
+            "viewBox": [
+              567.0,
+              335.0,
+              317.0,
+              220.0
+            ],
+            "orientation": {
+              "en": "FRONTAL INTERNAL VIEW",
+              "zh": "内部结构前面观"
+            },
+            "note": {
+              "en": "External view shown separately; not a continuous tube.",
+              "zh": "外部结构另图示出，并非连续管道。"
+            },
+            "regionFile": "regions/uterine.svg"
+          }
+        }
+      ],
+      "overlay": "overlay-parts/vagina-vulva.svg"
+    },
+    "breasts": {
+      "normalAnatomyId": "breasts",
+      "primary": "parts/breasts.svg",
+      "sourceView": {
+        "id": "breast",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          30.0,
+          566.0,
+          159.0,
+          146.0
+        ],
+        "orientation": {
+          "en": "BREAST TEACHING SECTION",
+          "zh": "乳房教学剖面"
+        },
+        "note": {
+          "en": "Independent enlargement",
+          "zh": "独立放大"
+        },
+        "regionFile": "regions/breast.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          218,
+          268,
+          128,
+          55
+        ],
+        "location": {
+          "en": "On the anterior chest wall, over the chest muscles.",
+          "zh": "位于胸壁前方、胸肌表面。"
+        },
+        "kind": "section",
+        "points": [
+          [
+            238,
+            292
+          ],
+          [
+            324,
+            292
+          ]
+        ],
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "breast",
+        "regionBodyBox": [
+          218,
+          268,
+          128,
+          55
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/breasts.svg"
+    },
+    "prostate": {
+      "normalAnatomyId": "prostate",
+      "primary": "parts/prostate.svg",
+      "sourceView": {
+        "id": "testicular",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          567.0,
+          570.0,
+          317.0,
+          190.0
+        ],
+        "orientation": {
+          "en": "LATERAL PELVIC VIEW",
+          "zh": "盆腔侧位示意"
+        },
+        "note": {
+          "en": "Alternative pelvic anatomy example",
+          "zh": "另一种盆腔解剖示例"
+        },
+        "regionFile": "regions/testicular.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          256,
+          585,
+          49,
+          65
+        ],
+        "location": {
+          "en": "A separate pelvic and external reproductive anatomy example.",
+          "zh": "另一种盆腔及外生殖结构解剖示例。"
+        },
+        "kind": "alternative",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "testicular",
+        "regionBodyBox": [
+          256,
+          585,
+          49,
+          65
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/prostate.svg"
+    },
+    "penis": {
+      "normalAnatomyId": "penis",
+      "primary": "parts/penis.svg",
+      "sourceView": {
+        "id": "testicular",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          567.0,
+          570.0,
+          317.0,
+          190.0
+        ],
+        "orientation": {
+          "en": "LATERAL PELVIC VIEW",
+          "zh": "盆腔侧位示意"
+        },
+        "note": {
+          "en": "Alternative pelvic anatomy example",
+          "zh": "另一种盆腔解剖示例"
+        },
+        "regionFile": "regions/testicular.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          256,
+          585,
+          49,
+          65
+        ],
+        "location": {
+          "en": "A separate pelvic and external reproductive anatomy example.",
+          "zh": "另一种盆腔及外生殖结构解剖示例。"
+        },
+        "kind": "alternative",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "testicular",
+        "regionBodyBox": [
+          256,
+          585,
+          49,
+          65
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/penis.svg"
+    },
+    "testes": {
+      "normalAnatomyId": "testes",
+      "primary": "parts/testes.svg",
+      "sourceView": {
+        "id": "testicular",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          567.0,
+          570.0,
+          317.0,
+          190.0
+        ],
+        "orientation": {
+          "en": "LATERAL PELVIC VIEW",
+          "zh": "盆腔侧位示意"
+        },
+        "note": {
+          "en": "Alternative pelvic anatomy example",
+          "zh": "另一种盆腔解剖示例"
+        },
+        "regionFile": "regions/testicular.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          256,
+          585,
+          49,
+          65
+        ],
+        "location": {
+          "en": "A separate pelvic and external reproductive anatomy example.",
+          "zh": "另一种盆腔及外生殖结构解剖示例。"
+        },
+        "kind": "alternative",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "testicular",
+        "regionBodyBox": [
+          256,
+          585,
+          49,
+          65
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/testes.svg"
+    },
+    "urethra": {
+      "normalAnatomyId": "urethra",
+      "primary": "parts/urethra.svg",
+      "sourceView": {
+        "id": "urinary",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          171,
+          366,
+          353,
+          271
+        ],
+        "orientation": {
+          "en": "FRONT VIEW · PATIENT RIGHT = IMAGE LEFT",
+          "zh": "前面观 · 人体右侧 = 图像左侧"
+        },
+        "note": {
+          "en": "Kidneys lie at the back of the upper abdomen. Follow the ureters down to the bladder in the pelvis.",
+          "zh": "肾位于上腹部后方，沿输尿管向下可到达盆腔中的膀胱。"
+        },
+        "regionFile": "regions/urinary.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          253,
+          569,
+          55,
+          65
+        ],
+        "location": {
+          "en": "Carries urine from the bladder to an external opening; its course differs by anatomy.",
+          "zh": "由膀胱通向体外尿道口，走行随解剖结构而异。"
+        },
+        "kind": "anatomy",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "urinary",
+        "regionBodyBox": [
+          226,
+          372,
+          112,
+          246
+        ],
+        "orientationChange": null
+      },
+      "variants": [
+        {
+          "file": "variants/urethra--testicular.svg",
+          "sourceView": {
+            "id": "testicular",
+            "sourceFile": "atlas.svg",
+            "viewBox": [
+              567.0,
+              570.0,
+              317.0,
+              190.0
+            ],
+            "orientation": {
+              "en": "LATERAL PELVIC VIEW",
+              "zh": "盆腔侧位示意"
+            },
+            "note": {
+              "en": "Alternative pelvic anatomy example",
+              "zh": "另一种盆腔解剖示例"
+            },
+            "regionFile": "regions/testicular.svg"
+          }
+        }
+      ],
+      "overlay": "overlay-parts/urethra.svg"
+    },
+    "fetus": {
+      "normalAnatomyId": "fetus",
+      "primary": "parts/fetus.svg",
+      "sourceView": {
+        "id": "pregnancy",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          567.0,
+          775.0,
+          317.0,
+          205.0
+        ],
+        "orientation": {
+          "en": "PREGNANCY TEACHING SECTION",
+          "zh": "妊娠教学剖面"
+        },
+        "note": {
+          "en": "Maternal and fetal circulations remain separate.",
+          "zh": "母体与胎儿循环保持独立。"
+        },
+        "regionFile": "regions/pregnancy.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          243,
+          497,
+          76,
+          103
+        ],
+        "location": {
+          "en": "A pregnancy-stage example within the enlarged uterus.",
+          "zh": "位于增大的子宫内，表示妊娠阶段的例子。"
+        },
+        "kind": "stage",
+        "note": {
+          "en": "The locator marks the general uterine region; the pregnancy section has its own stage and scale.",
+          "zh": "定位图标示子宫的大致区域；妊娠剖面具有独立阶段和比例。"
+        },
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "pregnancy",
+        "regionBodyBox": [
+          243,
+          497,
+          76,
+          103
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/fetus.svg"
+    },
+    "placenta": {
+      "normalAnatomyId": "placenta",
+      "primary": "parts/placenta.svg",
+      "sourceView": {
+        "id": "pregnancy",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          567.0,
+          775.0,
+          317.0,
+          205.0
+        ],
+        "orientation": {
+          "en": "PREGNANCY TEACHING SECTION",
+          "zh": "妊娠教学剖面"
+        },
+        "note": {
+          "en": "Maternal and fetal circulations remain separate.",
+          "zh": "母体与胎儿循环保持独立。"
+        },
+        "regionFile": "regions/pregnancy.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          243,
+          497,
+          76,
+          103
+        ],
+        "location": {
+          "en": "A pregnancy-stage example within the enlarged uterus.",
+          "zh": "位于增大的子宫内，表示妊娠阶段的例子。"
+        },
+        "kind": "stage",
+        "note": {
+          "en": "The locator marks the general uterine region; the pregnancy section has its own stage and scale.",
+          "zh": "定位图标示子宫的大致区域；妊娠剖面具有独立阶段和比例。"
+        },
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "pregnancy",
+        "regionBodyBox": [
+          243,
+          497,
+          76,
+          103
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/placenta.svg"
+    },
+    "blood": {
+      "normalAnatomyId": "blood",
+      "primary": "parts/blood.svg",
+      "sourceView": {
+        "id": "blood",
+        "sourceFile": "atlas.svg",
+        "viewBox": [
+          30.0,
+          725.0,
+          159.0,
+          182.0
+        ],
+        "orientation": {
+          "en": "MAGNIFIED CELL SAMPLE",
+          "zh": "放大细胞示意"
+        },
+        "note": {
+          "en": "Cell types are representative; proportions are schematic.",
+          "zh": "示出代表性细胞，比例为示意。"
+        },
+        "regionFile": "regions/blood.svg"
+      },
+      "bodyOrigin": {
+        "bodyBox": [
+          125,
+          391,
+          24,
+          38
+        ],
+        "location": {
+          "en": "A magnified blood sample; blood circulates throughout the body.",
+          "zh": "血液的放大样本；血液在全身循环。"
+        },
+        "kind": "sample",
+        "coordinateSpace": "atlas.svg anterior body coordinates",
+        "regionId": "blood",
+        "regionBodyBox": [
+          125,
+          391,
+          24,
+          38
+        ],
+        "orientationChange": null
+      },
+      "variants": [],
+      "overlay": "overlay-parts/blood.svg"
+    }
+  }
+}

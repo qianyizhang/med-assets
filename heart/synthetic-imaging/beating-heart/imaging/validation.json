@@ -1,0 +1,16 @@
+{
+  "structure_labels": "NIfTI/NRRD/NPZ round-trip equal; correct shape, RAS affine, mm units; finite",
+  "ct_like_arbitrary_contrast": "NIfTI/NRRD/NPZ round-trip equal; correct shape, RAS affine, mm units; finite",
+  "mri_like_bright_blood": "NIfTI/NRRD/NPZ round-trip equal; correct shape, RAS affine, mm units; finite",
+  "registration": "10,000 random voxel centers agree exactly with shared-derived geometry occupancy; web labels byte-identical",
+  "boundary": "Foreground touches voxel bounds: False",
+  "analytical_pool_overlap_voxels": {
+    "LV_RV": 0,
+    "LV_LA": 25,
+    "LV_RA": 0,
+    "RV_LA": 0,
+    "RV_RA": 0,
+    "LA_RA": 0
+  },
+  "RV_pool_intersection_LV_outer_envelope_voxels": 893
+}

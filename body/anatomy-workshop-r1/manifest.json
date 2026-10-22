@@ -1,0 +1,4277 @@
+{
+  "version": "2026-10-21-r1",
+  "title": {
+    "en": "Anatomy Workshop · reusable 3D assets",
+    "zh": "解剖工坊 · 可复用三维素材"
+  },
+  "coordinates": {
+    "units": "metres",
+    "axes": {
+      "x": "patient left",
+      "y": "superior",
+      "z": "anterior"
+    },
+    "RASmm_to_scene": [
+      [
+        -0.001,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0.001,
+        -0.43
+      ],
+      [
+        0,
+        0.001,
+        0,
+        -0.155
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "note": "One common translation for s1233 surfaces. Authored additions are pedagogically placed and not source-registered."
+  },
+  "nodeContract": {
+    "view_role": [
+      "surface",
+      "cutaway",
+      "detail"
+    ],
+    "full_view": "show surface; hide cutaway; details may be hidden inside surfaces",
+    "cutaway_view": "hide surface when cutawaySupport; show cutaway and detail"
+  },
+  "assets": [
+    {
+      "id": "liver",
+      "organIds": [
+        "liver"
+      ],
+      "name": {
+        "en": "Liver",
+        "zh": "肝脏"
+      },
+      "file": "meshes/liver.glb",
+      "group": "digestive",
+      "sourceKind": "segmented",
+      "provenance": "TotalSegmentator v2.0.1, source case s1233; retained tb3 surface at revision 75ec4e6530abe4d434b07958e90bdc9dec062bef; repaired/smoothed derivative",
+      "license": "CC BY 4.0; retain attribution and label-source Apache-2.0 notice",
+      "sourceCase": "s1233",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cutawaySupport": false,
+      "defaultVisible": true,
+      "notes": [
+        "Educational only; not clinically validated.",
+        "Shared source-case positions retained; smoothing and repair change the source surface and do not recover anatomy.",
+        "Baked artistic base color, roughness and subtle tangent-space normal relief; not measured tissue microanatomy."
+      ],
+      "status": "ready",
+      "textureFiles": {
+        "BaseColor": "textures/liver_BaseColor_1K.png",
+        "Roughness": "textures/liver_Roughness_1K.png",
+        "Normal_OpenGL": "textures/liver_Normal_OpenGL_1K.png"
+      },
+      "UVLayout": "textures/liver_UV_1K.png",
+      "bbox": [
+        [
+          -0.14554622769355774,
+          -0.13097459077835083,
+          -0.06665223836898804
+        ],
+        [
+          0.050810009241104126,
+          0.013114865869283676,
+          0.11345265805721283
+        ]
+      ],
+      "vertices": 12001,
+      "triangles": 23998,
+      "bytes": 1861060,
+      "sha256": "78e27dd417702c4f872162ef78b2d044f1cc0aba944c9ac672b00e12b6678362",
+      "nodes": [
+        {
+          "name": "Liver | source surface",
+          "anatomy_id": "liver_surface",
+          "view_role": "surface",
+          "derivation": "source-derived"
+        }
+      ]
+    },
+    {
+      "id": "kidney_left",
+      "organIds": [
+        "kidneys"
+      ],
+      "name": {
+        "en": "Left kidney",
+        "zh": "左肾"
+      },
+      "file": "meshes/kidney_left.glb",
+      "group": "urinary",
+      "sourceKind": "segmented",
+      "provenance": "TotalSegmentator v2.0.1, source case s1233; retained tb3 surface at revision 75ec4e6530abe4d434b07958e90bdc9dec062bef; repaired/smoothed derivative",
+      "license": "CC BY 4.0; retain attribution and label-source Apache-2.0 notice",
+      "sourceCase": "s1233",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cutawaySupport": true,
+      "defaultVisible": true,
+      "notes": [
+        "Educational only; not clinically validated.",
+        "Shared source-case positions retained; smoothing and repair change the source surface and do not recover anatomy.",
+        "Independent authored conceptual section: continuous cortical backing/columns, seven representative pyramid sections, calyces, pelvis and ureter origin. Section substitutes for the source exterior; it is not a registered scan cut or source-derived internal anatomy.",
+        "Baked artistic base color, roughness and subtle tangent-space normal relief; not measured tissue microanatomy."
+      ],
+      "status": "ready",
+      "textureFiles": {
+        "BaseColor": "textures/kidney_left_BaseColor_1K.png",
+        "Roughness": "textures/kidney_left_Roughness_1K.png",
+        "Normal_OpenGL": "textures/kidney_left_Normal_OpenGL_1K.png"
+      },
+      "UVLayout": "textures/kidney_left_UV_1K.png",
+      "bbox": [
+        [
+          0.05958084762096405,
+          -0.162045419216156,
+          -0.02691970393061638
+        ],
+        [
+          0.11993910372257233,
+          -0.0703345537185669,
+          0.049841947853565216
+        ]
+      ],
+      "vertices": 9664,
+      "triangles": 19248,
+      "bytes": 2502280,
+      "sha256": "1e99499c4afb6b920475065cb72319e4fcf71426eaa6ea118f6d6fc4b1d78cab",
+      "nodes": [
+        {
+          "name": "Kidney Left | source surface",
+          "anatomy_id": "kidney_left_surface",
+          "view_role": "surface",
+          "derivation": "source-derived"
+        },
+        {
+          "name": "kidney_left | authored closed-back teaching section",
+          "anatomy_id": "kidney_left_cutaway",
+          "view_role": "cutaway",
+          "derivation": "schematic teaching section; not a slice of the source segmentation"
+        },
+        {
+          "name": "kidney_left medullary pyramid section 1",
+          "anatomy_id": "kidney_left_pyramid_1",
+          "view_role": "detail",
+          "derivation": "schematic cross-section through a representative pyramid"
+        },
+        {
+          "name": "kidney_left minor calyx 1",
+          "anatomy_id": "kidney_left_calyx_1",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "kidney_left medullary pyramid section 2",
+          "anatomy_id": "kidney_left_pyramid_2",
+          "view_role": "detail",
+          "derivation": "schematic cross-section through a representative pyramid"
+        },
+        {
+          "name": "kidney_left minor calyx 2",
+          "anatomy_id": "kidney_left_calyx_2",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "kidney_left medullary pyramid section 3",
+          "anatomy_id": "kidney_left_pyramid_3",
+          "view_role": "detail",
+          "derivation": "schematic cross-section through a representative pyramid"
+        },
+        {
+          "name": "kidney_left minor calyx 3",
+          "anatomy_id": "kidney_left_calyx_3",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "kidney_left medullary pyramid section 4",
+          "anatomy_id": "kidney_left_pyramid_4",
+          "view_role": "detail",
+          "derivation": "schematic cross-section through a representative pyramid"
+        },
+        {
+          "name": "kidney_left minor calyx 4",
+          "anatomy_id": "kidney_left_calyx_4",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "kidney_left medullary pyramid section 5",
+          "anatomy_id": "kidney_left_pyramid_5",
+          "view_role": "detail",
+          "derivation": "schematic cross-section through a representative pyramid"
+        },
+        {
+          "name": "kidney_left minor calyx 5",
+          "anatomy_id": "kidney_left_calyx_5",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "kidney_left medullary pyramid section 6",
+          "anatomy_id": "kidney_left_pyramid_6",
+          "view_role": "detail",
+          "derivation": "schematic cross-section through a representative pyramid"
+        },
+        {
+          "name": "kidney_left minor calyx 6",
+          "anatomy_id": "kidney_left_calyx_6",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "kidney_left medullary pyramid section 7",
+          "anatomy_id": "kidney_left_pyramid_7",
+          "view_role": "detail",
+          "derivation": "schematic cross-section through a representative pyramid"
+        },
+        {
+          "name": "kidney_left minor calyx 7",
+          "anatomy_id": "kidney_left_calyx_7",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "kidney_left upper major calyx",
+          "anatomy_id": "kidney_left_major_calyx_upper",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "kidney_left lower major calyx",
+          "anatomy_id": "kidney_left_major_calyx_lower",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "kidney_left renal pelvis funnel",
+          "anatomy_id": "kidney_left_pelvis",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "kidney_left single ureter origin",
+          "anatomy_id": "kidney_left_ureter_origin",
+          "view_role": "detail",
+          "derivation": "schematic"
+        }
+      ],
+      "cutawaySourceKind": "schematic"
+    },
+    {
+      "id": "kidney_right",
+      "organIds": [
+        "kidneys"
+      ],
+      "name": {
+        "en": "Right kidney",
+        "zh": "右肾"
+      },
+      "file": "meshes/kidney_right.glb",
+      "group": "urinary",
+      "sourceKind": "segmented",
+      "provenance": "TotalSegmentator v2.0.1, source case s1233; retained tb3 surface at revision 75ec4e6530abe4d434b07958e90bdc9dec062bef; repaired/smoothed derivative",
+      "license": "CC BY 4.0; retain attribution and label-source Apache-2.0 notice",
+      "sourceCase": "s1233",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cutawaySupport": true,
+      "defaultVisible": true,
+      "notes": [
+        "Educational only; not clinically validated.",
+        "Shared source-case positions retained; smoothing and repair change the source surface and do not recover anatomy.",
+        "Independent authored conceptual section: continuous cortical backing/columns, seven representative pyramid sections, calyces, pelvis and ureter origin. Section substitutes for the source exterior; it is not a registered scan cut or source-derived internal anatomy.",
+        "Baked artistic base color, roughness and subtle tangent-space normal relief; not measured tissue microanatomy."
+      ],
+      "status": "ready",
+      "textureFiles": {
+        "BaseColor": "textures/kidney_right_BaseColor_1K.png",
+        "Roughness": "textures/kidney_right_Roughness_1K.png",
+        "Normal_OpenGL": "textures/kidney_right_Normal_OpenGL_1K.png"
+      },
+      "UVLayout": "textures/kidney_right_UV_1K.png",
+      "bbox": [
+        [
+          -0.09844815731048584,
+          -0.18681931495666504,
+          -0.03617881238460541
+        ],
+        [
+          -0.044869109988212585,
+          -0.09891024976968765,
+          0.04820321872830391
+        ]
+      ],
+      "vertices": 9664,
+      "triangles": 19248,
+      "bytes": 2522628,
+      "sha256": "02d26dad6603db7426b6b7eca8c7ad851163f064c24a68cde83f9f4e0149d97c",
+      "nodes": [
+        {
+          "name": "Kidney Right | source surface",
+          "anatomy_id": "kidney_right_surface",
+          "view_role": "surface",
+          "derivation": "source-derived"
+        },
+        {
+          "name": "kidney_right | authored closed-back teaching section",
+          "anatomy_id": "kidney_right_cutaway",
+          "view_role": "cutaway",
+          "derivation": "schematic teaching section; not a slice of the source segmentation"
+        },
+        {
+          "name": "kidney_right medullary pyramid section 1",
+          "anatomy_id": "kidney_right_pyramid_1",
+          "view_role": "detail",
+          "derivation": "schematic cross-section through a representative pyramid"
+        },
+        {
+          "name": "kidney_right minor calyx 1",
+          "anatomy_id": "kidney_right_calyx_1",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "kidney_right medullary pyramid section 2",
+          "anatomy_id": "kidney_right_pyramid_2",
+          "view_role": "detail",
+          "derivation": "schematic cross-section through a representative pyramid"
+        },
+        {
+          "name": "kidney_right minor calyx 2",
+          "anatomy_id": "kidney_right_calyx_2",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "kidney_right medullary pyramid section 3",
+          "anatomy_id": "kidney_right_pyramid_3",
+          "view_role": "detail",
+          "derivation": "schematic cross-section through a representative pyramid"
+        },
+        {
+          "name": "kidney_right minor calyx 3",
+          "anatomy_id": "kidney_right_calyx_3",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "kidney_right medullary pyramid section 4",
+          "anatomy_id": "kidney_right_pyramid_4",
+          "view_role": "detail",
+          "derivation": "schematic cross-section through a representative pyramid"
+        },
+        {
+          "name": "kidney_right minor calyx 4",
+          "anatomy_id": "kidney_right_calyx_4",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "kidney_right medullary pyramid section 5",
+          "anatomy_id": "kidney_right_pyramid_5",
+          "view_role": "detail",
+          "derivation": "schematic cross-section through a representative pyramid"
+        },
+        {
+          "name": "kidney_right minor calyx 5",
+          "anatomy_id": "kidney_right_calyx_5",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "kidney_right medullary pyramid section 6",
+          "anatomy_id": "kidney_right_pyramid_6",
+          "view_role": "detail",
+          "derivation": "schematic cross-section through a representative pyramid"
+        },
+        {
+          "name": "kidney_right minor calyx 6",
+          "anatomy_id": "kidney_right_calyx_6",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "kidney_right medullary pyramid section 7",
+          "anatomy_id": "kidney_right_pyramid_7",
+          "view_role": "detail",
+          "derivation": "schematic cross-section through a representative pyramid"
+        },
+        {
+          "name": "kidney_right minor calyx 7",
+          "anatomy_id": "kidney_right_calyx_7",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "kidney_right upper major calyx",
+          "anatomy_id": "kidney_right_major_calyx_upper",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "kidney_right lower major calyx",
+          "anatomy_id": "kidney_right_major_calyx_lower",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "kidney_right renal pelvis funnel",
+          "anatomy_id": "kidney_right_pelvis",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "kidney_right single ureter origin",
+          "anatomy_id": "kidney_right_ureter_origin",
+          "view_role": "detail",
+          "derivation": "schematic"
+        }
+      ],
+      "cutawaySourceKind": "schematic"
+    },
+    {
+      "id": "spleen",
+      "organIds": [
+        "spleen"
+      ],
+      "name": {
+        "en": "Spleen",
+        "zh": "脾脏"
+      },
+      "file": "meshes/spleen.glb",
+      "group": "immune",
+      "sourceKind": "segmented",
+      "provenance": "TotalSegmentator v2.0.1, source case s1233; retained tb3 surface at revision 75ec4e6530abe4d434b07958e90bdc9dec062bef; repaired/smoothed derivative",
+      "license": "CC BY 4.0; retain attribution and label-source Apache-2.0 notice",
+      "sourceCase": "s1233",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cutawaySupport": false,
+      "defaultVisible": true,
+      "notes": [
+        "Educational only; not clinically validated.",
+        "Shared source-case positions retained; smoothing and repair change the source surface and do not recover anatomy.",
+        "Baked artistic base color, roughness and subtle tangent-space normal relief; not measured tissue microanatomy."
+      ],
+      "status": "ready",
+      "textureFiles": {
+        "BaseColor": "textures/spleen_BaseColor_1K.png",
+        "Roughness": "textures/spleen_Roughness_1K.png",
+        "Normal_OpenGL": "textures/spleen_Normal_OpenGL_1K.png"
+      },
+      "UVLayout": "textures/spleen_UV_1K.png",
+      "bbox": [
+        [
+          0.05920287221670151,
+          -0.06675992906093597,
+          -0.06334637105464935
+        ],
+        [
+          0.14659324288368225,
+          -0.010383758693933487,
+          -0.001306623569689691
+        ]
+      ],
+      "vertices": 3602,
+      "triangles": 7200,
+      "bytes": 1854852,
+      "sha256": "de7a5e45c0cecca51c639fee6ba2114a5776e5578781e9705b5c7ca6751f8619",
+      "nodes": [
+        {
+          "name": "Spleen | source surface",
+          "anatomy_id": "spleen_surface",
+          "view_role": "surface",
+          "derivation": "source-derived"
+        }
+      ]
+    },
+    {
+      "id": "pancreas",
+      "organIds": [
+        "pancreas"
+      ],
+      "name": {
+        "en": "Pancreas",
+        "zh": "胰腺"
+      },
+      "file": "meshes/pancreas.glb",
+      "group": "digestive",
+      "sourceKind": "segmented",
+      "provenance": "TotalSegmentator v2.0.1, source case s1233; retained tb3 surface at revision 75ec4e6530abe4d434b07958e90bdc9dec062bef; repaired/smoothed derivative",
+      "license": "CC BY 4.0; retain attribution and label-source Apache-2.0 notice",
+      "sourceCase": "s1233",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cutawaySupport": false,
+      "defaultVisible": true,
+      "notes": [
+        "Educational only; not clinically validated.",
+        "Shared source-case positions retained; smoothing and repair change the source surface and do not recover anatomy.",
+        "Source-derived exterior plus authored schematic pancreatic duct; the duct is not a source segmentation.",
+        "Baked artistic base color, roughness and subtle tangent-space normal relief; not measured tissue microanatomy."
+      ],
+      "status": "ready",
+      "detailSupport": true,
+      "textureFiles": {
+        "BaseColor": "textures/pancreas_BaseColor_1K.png",
+        "Roughness": "textures/pancreas_Roughness_1K.png",
+        "Normal_OpenGL": "textures/pancreas_Normal_OpenGL_1K.png"
+      },
+      "UVLayout": "textures/pancreas_UV_1K.png",
+      "bbox": [
+        [
+          -0.031597573310136795,
+          -0.14616620540618896,
+          0.026400184258818626
+        ],
+        [
+          0.05097300559282303,
+          -0.04662498086690903,
+          0.06745348870754242
+        ]
+      ],
+      "vertices": 5962,
+      "triangles": 11876,
+      "bytes": 1937248,
+      "sha256": "a5c3519a56a5edab37ee4f5808cfb884080e1b2b156a5559b650993b3d9ec591",
+      "nodes": [
+        {
+          "name": "Pancreas | source surface",
+          "anatomy_id": "pancreas_surface",
+          "view_role": "surface",
+          "derivation": "source-derived"
+        },
+        {
+          "name": "Pancreatic duct · illustrative internal route",
+          "anatomy_id": "pancreatic_duct",
+          "view_role": "detail",
+          "derivation": "schematic"
+        }
+      ]
+    },
+    {
+      "id": "stomach",
+      "organIds": [
+        "stomach"
+      ],
+      "name": {
+        "en": "Stomach",
+        "zh": "胃"
+      },
+      "file": "meshes/stomach.glb",
+      "group": "digestive",
+      "sourceKind": "segmented",
+      "provenance": "TotalSegmentator v2.0.1, source case s1233; retained tb3 surface at revision 75ec4e6530abe4d434b07958e90bdc9dec062bef; repaired/smoothed derivative",
+      "license": "CC BY 4.0; retain attribution and label-source Apache-2.0 notice",
+      "sourceCase": "s1233",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cutawaySupport": true,
+      "defaultVisible": true,
+      "notes": [
+        "Educational only; not clinically validated.",
+        "Shared source-case positions retained; smoothing and repair change the source surface and do not recover anatomy.",
+        "Independent authored closed-back teaching section with wall-seated mucosal folds. Cardia, pylorus and inlet/outlet are omitted. This section is not a registered cut of the source exterior or a complete internal stomach.",
+        "Baked artistic base color, roughness and subtle tangent-space normal relief; not measured tissue microanatomy."
+      ],
+      "status": "ready",
+      "textureFiles": {
+        "BaseColor": "textures/stomach_BaseColor_1K.png",
+        "Roughness": "textures/stomach_Roughness_1K.png",
+        "Normal_OpenGL": "textures/stomach_Normal_OpenGL_1K.png"
+      },
+      "UVLayout": "textures/stomach_UV_1K.png",
+      "bbox": [
+        [
+          -0.0377633236348629,
+          -0.09823000431060791,
+          -0.0033981921151280403
+        ],
+        [
+          0.05785661190748215,
+          -0.01043722964823246,
+          0.08837383985519409
+        ]
+      ],
+      "vertices": 30254,
+      "triangles": 60456,
+      "bytes": 3385504,
+      "sha256": "cc4a9c4bee03d921b9985fa39b8a96021e31dade3237a285a2cac20ff670a8a6",
+      "nodes": [
+        {
+          "name": "Stomach | source surface",
+          "anatomy_id": "stomach_surface",
+          "view_role": "surface",
+          "derivation": "source-derived"
+        },
+        {
+          "name": "stomach | authored closed-back teaching section",
+          "anatomy_id": "stomach_cutaway",
+          "view_role": "cutaway",
+          "derivation": "schematic teaching section; not a slice of the source segmentation"
+        },
+        {
+          "name": "Gastric mucosal fold 1",
+          "anatomy_id": "gastric_ruga_1",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Gastric mucosal fold 2",
+          "anatomy_id": "gastric_ruga_2",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Gastric mucosal fold 3",
+          "anatomy_id": "gastric_ruga_3",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Gastric mucosal fold 4",
+          "anatomy_id": "gastric_ruga_4",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Gastric mucosal fold 5",
+          "anatomy_id": "gastric_ruga_5",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Gastric mucosal fold 6",
+          "anatomy_id": "gastric_ruga_6",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Gastric mucosal fold 7",
+          "anatomy_id": "gastric_ruga_7",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Gastric mucosal fold 8",
+          "anatomy_id": "gastric_ruga_8",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Gastric mucosal fold 9",
+          "anatomy_id": "gastric_ruga_9",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Gastric mucosal fold 10",
+          "anatomy_id": "gastric_ruga_10",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Gastric mucosal fold 11",
+          "anatomy_id": "gastric_ruga_11",
+          "view_role": "detail",
+          "derivation": "schematic"
+        }
+      ],
+      "cutawaySourceKind": "schematic"
+    },
+    {
+      "id": "gallbladder",
+      "organIds": [
+        "gallbladder"
+      ],
+      "name": {
+        "en": "Gallbladder",
+        "zh": "胆囊"
+      },
+      "file": "meshes/gallbladder.glb",
+      "group": "digestive",
+      "sourceKind": "segmented",
+      "provenance": "TotalSegmentator v2.0.1, source case s1233; retained tb3 surface at revision 75ec4e6530abe4d434b07958e90bdc9dec062bef; repaired/smoothed derivative",
+      "license": "CC BY 4.0; retain attribution and label-source Apache-2.0 notice",
+      "sourceCase": "s1233",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cutawaySupport": true,
+      "defaultVisible": true,
+      "notes": [
+        "Educational only; not clinically validated.",
+        "Shared source-case positions retained; smoothing and repair change the source surface and do not recover anatomy.",
+        "Source-derived exterior plus authored schematic wall thickness and cystic-duct continuation; these are not source segmentations.",
+        "Baked artistic base color, roughness and subtle tangent-space normal relief; not measured tissue microanatomy."
+      ],
+      "status": "ready",
+      "textureFiles": {
+        "BaseColor": "textures/gallbladder_BaseColor_1K.png",
+        "Roughness": "textures/gallbladder_Roughness_1K.png",
+        "Normal_OpenGL": "textures/gallbladder_Normal_OpenGL_1K.png"
+      },
+      "UVLayout": "textures/gallbladder_UV_1K.png",
+      "bbox": [
+        [
+          -0.11008007824420929,
+          -0.11048637330532074,
+          0.03542863577604294
+        ],
+        [
+          -0.04497930407524109,
+          -0.0698748528957367,
+          0.09335316717624664
+        ]
+      ],
+      "vertices": 4824,
+      "triangles": 9596,
+      "bytes": 2120780,
+      "sha256": "97f24edd4a5770629d959e11ff74d50d0be5d92866a3e937cd44a3f9510d4bad",
+      "nodes": [
+        {
+          "name": "Gallbladder | source surface",
+          "anatomy_id": "gallbladder_surface",
+          "view_role": "surface",
+          "derivation": "source-derived"
+        },
+        {
+          "name": "gallbladder | anterior teaching section",
+          "anatomy_id": "gallbladder_cutaway",
+          "view_role": "cutaway",
+          "derivation": "source-derived exterior; schematic wall/section"
+        },
+        {
+          "name": "Cystic duct · schematic",
+          "anatomy_id": "cystic_duct",
+          "view_role": "detail",
+          "derivation": "schematic"
+        }
+      ]
+    },
+    {
+      "id": "heart",
+      "organIds": [
+        "heart"
+      ],
+      "name": {
+        "en": "Source heart surface",
+        "zh": "源分割心脏表面"
+      },
+      "file": "meshes/heart.glb",
+      "group": "circulatory",
+      "sourceKind": "segmented",
+      "provenance": "TotalSegmentator v2.0.1, source case s1233; retained tb3 surface at revision 75ec4e6530abe4d434b07958e90bdc9dec062bef; repaired/smoothed derivative",
+      "license": "CC BY 4.0; retain attribution and label-source Apache-2.0 notice",
+      "sourceCase": "s1233",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cutawaySupport": false,
+      "defaultVisible": true,
+      "notes": [
+        "Educational only; not clinically validated.",
+        "Shared source-case positions retained; smoothing and repair change the source surface and do not recover anatomy.",
+        "Baked artistic base color, roughness and subtle tangent-space normal relief; not measured tissue microanatomy."
+      ],
+      "status": "ready",
+      "textureFiles": {
+        "BaseColor": "textures/heart_BaseColor_1K.png",
+        "Roughness": "textures/heart_Roughness_1K.png",
+        "Normal_OpenGL": "textures/heart_Normal_OpenGL_1K.png"
+      },
+      "UVLayout": "textures/heart_UV_1K.png",
+      "bbox": [
+        [
+          -0.052577290683984756,
+          0.0003096934233326465,
+          -0.04193386435508728
+        ],
+        [
+          0.09306853264570236,
+          0.10610095411539078,
+          0.07697439938783646
+        ]
+      ],
+      "vertices": 12000,
+      "triangles": 24000,
+      "bytes": 2035436,
+      "sha256": "8c2ac314c97400f3989dbc5e706827dd5134814ae9b6793768fac60b20198a7e",
+      "nodes": [
+        {
+          "name": "Heart | source surface",
+          "anatomy_id": "heart_surface",
+          "view_role": "surface",
+          "derivation": "source-derived"
+        }
+      ]
+    },
+    {
+      "id": "lung_left",
+      "organIds": [
+        "lungs"
+      ],
+      "name": {
+        "en": "Left lung · two lobes",
+        "zh": "左肺 · 两叶"
+      },
+      "file": "meshes/lung_left.glb",
+      "group": "respiratory",
+      "sourceKind": "segmented",
+      "provenance": "TotalSegmentator v2.0.1, source case s1233; retained tb3 surface at revision 75ec4e6530abe4d434b07958e90bdc9dec062bef; repaired/smoothed derivative",
+      "license": "CC BY 4.0; retain attribution and label-source Apache-2.0 notice",
+      "sourceCase": "s1233",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cutawaySupport": false,
+      "defaultVisible": true,
+      "notes": [
+        "Educational only; not clinically validated.",
+        "Shared source-case positions retained; smoothing and repair change the source surface and do not recover anatomy.",
+        "Baked artistic base color, roughness and subtle tangent-space normal relief; not measured tissue microanatomy."
+      ],
+      "status": "ready",
+      "textureFiles": {
+        "BaseColor": "textures/lung_left_BaseColor_1K.png",
+        "Roughness": "textures/lung_left_Roughness_1K.png",
+        "Normal_OpenGL": "textures/lung_left_Normal_OpenGL_1K.png"
+      },
+      "UVLayout": "textures/lung_left_UV_1K.png",
+      "bbox": [
+        [
+          0.00968912336975336,
+          -0.05745700001716614,
+          -0.09728746116161346
+        ],
+        [
+          0.15177848935127258,
+          0.17403680086135864,
+          0.08145079016685486
+        ]
+      ],
+      "vertices": 15602,
+      "triangles": 31200,
+      "bytes": 2293040,
+      "sha256": "6ec2acc585e59f4d11dcc11bbf6bbfdf880a171c8733587bb858fe72476dba9c",
+      "nodes": [
+        {
+          "name": "Lung Lower Lobe Left | source surface",
+          "anatomy_id": "lung_lower_lobe_left_surface",
+          "view_role": "surface",
+          "derivation": "source-derived"
+        },
+        {
+          "name": "Lung Upper Lobe Left | source surface",
+          "anatomy_id": "lung_upper_lobe_left_surface",
+          "view_role": "surface",
+          "derivation": "source-derived"
+        }
+      ]
+    },
+    {
+      "id": "lung_right",
+      "organIds": [
+        "lungs"
+      ],
+      "name": {
+        "en": "Right lung · three lobes",
+        "zh": "右肺 · 三叶"
+      },
+      "file": "meshes/lung_right.glb",
+      "group": "respiratory",
+      "sourceKind": "segmented",
+      "provenance": "TotalSegmentator v2.0.1, source case s1233; retained tb3 surface at revision 75ec4e6530abe4d434b07958e90bdc9dec062bef; repaired/smoothed derivative",
+      "license": "CC BY 4.0; retain attribution and label-source Apache-2.0 notice",
+      "sourceCase": "s1233",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cutawaySupport": false,
+      "defaultVisible": true,
+      "notes": [
+        "Educational only; not clinically validated.",
+        "Shared source-case positions retained; smoothing and repair change the source surface and do not recover anatomy.",
+        "Baked artistic base color, roughness and subtle tangent-space normal relief; not measured tissue microanatomy."
+      ],
+      "status": "ready",
+      "textureFiles": {
+        "BaseColor": "textures/lung_right_BaseColor_1K.png",
+        "Roughness": "textures/lung_right_Roughness_1K.png",
+        "Normal_OpenGL": "textures/lung_right_Normal_OpenGL_1K.png"
+      },
+      "UVLayout": "textures/lung_right_UV_1K.png",
+      "bbox": [
+        [
+          -0.1416790783405304,
+          -0.07314352691173553,
+          -0.09664373844861984
+        ],
+        [
+          -0.007403011899441481,
+          0.16921022534370422,
+          0.09733079373836517
+        ]
+      ],
+      "vertices": 18006,
+      "triangles": 36000,
+      "bytes": 2384572,
+      "sha256": "232166f23bff9c4c7142147e4e5f51cdb4519bc183c5aeb81ed1b264659f9b8f",
+      "nodes": [
+        {
+          "name": "Lung Lower Lobe Right | source surface",
+          "anatomy_id": "lung_lower_lobe_right_surface",
+          "view_role": "surface",
+          "derivation": "source-derived"
+        },
+        {
+          "name": "Lung Middle Lobe Right | source surface",
+          "anatomy_id": "lung_middle_lobe_right_surface",
+          "view_role": "surface",
+          "derivation": "source-derived"
+        },
+        {
+          "name": "Lung Upper Lobe Right | source surface",
+          "anatomy_id": "lung_upper_lobe_right_surface",
+          "view_role": "surface",
+          "derivation": "source-derived"
+        }
+      ]
+    },
+    {
+      "id": "aorta",
+      "organIds": [
+        "vessels"
+      ],
+      "name": {
+        "en": "Aorta",
+        "zh": "主动脉"
+      },
+      "file": "meshes/aorta.glb",
+      "group": "circulatory",
+      "sourceKind": "segmented",
+      "provenance": "TotalSegmentator v2.0.1, source case s1233; retained tb3 surface at revision 75ec4e6530abe4d434b07958e90bdc9dec062bef; repaired/smoothed derivative",
+      "license": "CC BY 4.0; retain attribution and label-source Apache-2.0 notice",
+      "sourceCase": "s1233",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cutawaySupport": false,
+      "defaultVisible": true,
+      "notes": [
+        "Educational only; not clinically validated.",
+        "Shared source-case positions retained; smoothing and repair change the source surface and do not recover anatomy.",
+        "Baked artistic base color, roughness and subtle tangent-space normal relief; not measured tissue microanatomy."
+      ],
+      "status": "ready",
+      "textureFiles": {
+        "BaseColor": "textures/aorta_BaseColor_1K.png",
+        "Roughness": "textures/aorta_Roughness_1K.png",
+        "Normal_OpenGL": "textures/aorta_Normal_OpenGL_1K.png"
+      },
+      "UVLayout": "textures/aorta_UV_1K.png",
+      "bbox": [
+        [
+          -0.03210260719060898,
+          -0.1685297042131424,
+          -0.06516104191541672
+        ],
+        [
+          0.04207687824964523,
+          0.1351371556520462,
+          0.04792585223913193
+        ]
+      ],
+      "vertices": 4802,
+      "triangles": 9600,
+      "bytes": 1189864,
+      "sha256": "1a20d6322cefb6c6c85c7c8ed95295e8314e568a12420434ccda40beb4f8cc31",
+      "nodes": [
+        {
+          "name": "Aorta | source surface",
+          "anatomy_id": "aorta_surface",
+          "view_role": "surface",
+          "derivation": "source-derived"
+        }
+      ]
+    },
+    {
+      "id": "trachea",
+      "organIds": [
+        "lungs",
+        "trachea"
+      ],
+      "name": {
+        "en": "Trachea and main bronchi",
+        "zh": "气管与主支气管"
+      },
+      "file": "meshes/trachea.glb",
+      "group": "respiratory",
+      "sourceKind": "segmented",
+      "provenance": "TotalSegmentator v2.0.1, source case s1233; retained tb3 surface at revision 75ec4e6530abe4d434b07958e90bdc9dec062bef; repaired/smoothed derivative",
+      "license": "CC BY 4.0; retain attribution and label-source Apache-2.0 notice",
+      "sourceCase": "s1233",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cutawaySupport": false,
+      "defaultVisible": true,
+      "notes": [
+        "Educational only; not clinically validated.",
+        "Shared source-case positions retained; smoothing and repair change the source surface and do not recover anatomy.",
+        "Source-derived exterior plus authored C-shaped cartilage rings; rings are not source segmentations.",
+        "Baked artistic base color, roughness and subtle tangent-space normal relief; not measured tissue microanatomy."
+      ],
+      "status": "ready",
+      "textureFiles": {
+        "BaseColor": "textures/trachea_BaseColor_1K.png",
+        "Roughness": "textures/trachea_Roughness_1K.png",
+        "Normal_OpenGL": "textures/trachea_Normal_OpenGL_1K.png"
+      },
+      "UVLayout": "textures/trachea_UV_1K.png",
+      "bbox": [
+        [
+          -0.046820707619190216,
+          0.07097936421632767,
+          -0.03509117662906647
+        ],
+        [
+          0.04741695895791054,
+          0.17864857614040375,
+          0.018233144655823708
+        ]
+      ],
+      "vertices": 27530,
+      "triangles": 54440,
+      "bytes": 2858964,
+      "sha256": "5390537c1e27e9630ec93d4d5437d29081c26f88e87889834091e3fca47ccd45",
+      "nodes": [
+        {
+          "name": "Trachea | source surface",
+          "anatomy_id": "trachea_surface",
+          "view_role": "surface",
+          "derivation": "source-derived"
+        },
+        {
+          "name": "Tracheal C cartilage 1",
+          "anatomy_id": "tracheal_cartilage_1",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Tracheal C cartilage 2",
+          "anatomy_id": "tracheal_cartilage_2",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Tracheal C cartilage 3",
+          "anatomy_id": "tracheal_cartilage_3",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Tracheal C cartilage 4",
+          "anatomy_id": "tracheal_cartilage_4",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Tracheal C cartilage 5",
+          "anatomy_id": "tracheal_cartilage_5",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Tracheal C cartilage 6",
+          "anatomy_id": "tracheal_cartilage_6",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Tracheal C cartilage 7",
+          "anatomy_id": "tracheal_cartilage_7",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Tracheal C cartilage 8",
+          "anatomy_id": "tracheal_cartilage_8",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Tracheal C cartilage 9",
+          "anatomy_id": "tracheal_cartilage_9",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Tracheal C cartilage 10",
+          "anatomy_id": "tracheal_cartilage_10",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Tracheal C cartilage 11",
+          "anatomy_id": "tracheal_cartilage_11",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Tracheal C cartilage 12",
+          "anatomy_id": "tracheal_cartilage_12",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Tracheal C cartilage 13",
+          "anatomy_id": "tracheal_cartilage_13",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Tracheal C cartilage 14",
+          "anatomy_id": "tracheal_cartilage_14",
+          "view_role": "surface",
+          "derivation": "schematic"
+        }
+      ],
+      "alternativeGroup": "proximal_airway"
+    },
+    {
+      "id": "pulmonary_vein",
+      "organIds": [
+        "heart",
+        "vessels"
+      ],
+      "name": {
+        "en": "Pulmonary vein example",
+        "zh": "肺静脉示例"
+      },
+      "file": "meshes/pulmonary_vein.glb",
+      "group": "circulatory",
+      "sourceKind": "segmented",
+      "provenance": "TotalSegmentator v2.0.1, source case s1233; retained tb3 surface at revision 75ec4e6530abe4d434b07958e90bdc9dec062bef; repaired/smoothed derivative",
+      "license": "CC BY 4.0; retain attribution and label-source Apache-2.0 notice",
+      "sourceCase": "s1233",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cutawaySupport": false,
+      "defaultVisible": true,
+      "notes": [
+        "Educational only; not clinically validated.",
+        "Shared source-case positions retained; smoothing and repair change the source surface and do not recover anatomy.",
+        "Baked artistic base color, roughness and subtle tangent-space normal relief; not measured tissue microanatomy."
+      ],
+      "status": "ready",
+      "textureFiles": {
+        "BaseColor": "textures/pulmonary_vein_BaseColor_1K.png",
+        "Roughness": "textures/pulmonary_vein_Roughness_1K.png",
+        "Normal_OpenGL": "textures/pulmonary_vein_Normal_OpenGL_1K.png"
+      },
+      "UVLayout": "textures/pulmonary_vein_UV_1K.png",
+      "bbox": [
+        [
+          0.008194675669074059,
+          0.0321434885263443,
+          -0.040953379124403
+        ],
+        [
+          0.06131424754858017,
+          0.087312251329422,
+          -0.0024634795263409615
+        ]
+      ],
+      "vertices": 4802,
+      "triangles": 9600,
+      "bytes": 1719172,
+      "sha256": "9dcafbb0fcc625ad7952443e0b6274d200e4a97c9792ccecaa3645bd80214355",
+      "nodes": [
+        {
+          "name": "Pulmonary Vein | source surface",
+          "anatomy_id": "pulmonary_vein_surface",
+          "view_role": "surface",
+          "derivation": "source-derived"
+        }
+      ]
+    },
+    {
+      "id": "vertebrae_L3",
+      "organIds": [
+        "bone"
+      ],
+      "name": {
+        "en": "Third lumbar vertebra",
+        "zh": "第三腰椎"
+      },
+      "file": "meshes/vertebrae_L3.glb",
+      "group": "musculoskeletal",
+      "sourceKind": "segmented",
+      "provenance": "TotalSegmentator v2.0.1, source case s1233; retained tb3 surface at revision 75ec4e6530abe4d434b07958e90bdc9dec062bef; repaired/smoothed derivative",
+      "license": "CC BY 4.0; retain attribution and label-source Apache-2.0 notice",
+      "sourceCase": "s1233",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cutawaySupport": false,
+      "defaultVisible": true,
+      "notes": [
+        "Educational only; not clinically validated.",
+        "Shared source-case positions retained; smoothing and repair change the source surface and do not recover anatomy.",
+        "Baked artistic base color, roughness and subtle tangent-space normal relief; not measured tissue microanatomy."
+      ],
+      "status": "ready",
+      "textureFiles": {
+        "BaseColor": "textures/vertebrae_L3_BaseColor_1K.png",
+        "Roughness": "textures/vertebrae_L3_Roughness_1K.png",
+        "Normal_OpenGL": "textures/vertebrae_L3_Normal_OpenGL_1K.png"
+      },
+      "UVLayout": "textures/vertebrae_L3_UV_1K.png",
+      "bbox": [
+        [
+          -0.020569970831274986,
+          -0.16244442760944366,
+          -0.0888478010892868
+        ],
+        [
+          0.05565129220485687,
+          -0.11477971076965332,
+          0.0028624720871448517
+        ]
+      ],
+      "vertices": 4800,
+      "triangles": 9600,
+      "bytes": 2035060,
+      "sha256": "823ab88a4cc7d3f9b7ee58a2039521d8fdc41367bb0913fe034133334d99fec4",
+      "nodes": [
+        {
+          "name": "Vertebrae L3 | source surface",
+          "anatomy_id": "vertebrae_L3_surface",
+          "view_role": "surface",
+          "derivation": "source-derived"
+        }
+      ]
+    },
+    {
+      "id": "bronchial_tree",
+      "organIds": [
+        "lungs"
+      ],
+      "name": {
+        "en": "Lobar airway teaching tree",
+        "zh": "肺叶支气管教学树"
+      },
+      "file": "meshes/bronchial_tree.glb",
+      "group": "respiratory",
+      "sourceKind": "schematic",
+      "provenance": "Authored teaching geometry; placement and internals are schematic",
+      "license": "Original teaching geometry",
+      "sourceCase": null,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cutawaySupport": false,
+      "defaultVisible": false,
+      "notes": [
+        "Educational only; not clinically validated.",
+        "Authored five-lobar airway hierarchy with illustrative distal branches. No complete segmental bronchial atlas or source-registered lumen.",
+        "Baked artistic base color, roughness and subtle tangent-space normal relief; not measured tissue microanatomy.",
+        "Alternative to the source trachea/main-airway surface. Hide source trachea when showing this authored hierarchy to avoid duplicated proximal airways."
+      ],
+      "status": "ready",
+      "textureFiles": {
+        "BaseColor": "textures/bronchial_tree_BaseColor_1K.png",
+        "Roughness": "textures/bronchial_tree_Roughness_1K.png",
+        "Normal_OpenGL": "textures/bronchial_tree_Normal_OpenGL_1K.png"
+      },
+      "UVLayout": "textures/bronchial_tree_UV_1K.png",
+      "bbox": [
+        [
+          -0.09923482686281204,
+          -0.025237811729311943,
+          -0.0334075391292572
+        ],
+        [
+          0.11250410974025726,
+          0.14051181077957153,
+          0.04648024961352348
+        ]
+      ],
+      "vertices": 8050,
+      "triangles": 15088,
+      "bytes": 1640504,
+      "sha256": "2d2d4e269995f11179cfa423a302f144d9d163883ccde0995a2987e83dd2e898",
+      "nodes": [
+        {
+          "name": "Distal tracheal teaching axis",
+          "anatomy_id": "distal_trachea",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Right Main",
+          "anatomy_id": "right_main",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Left Main",
+          "anatomy_id": "left_main",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "lung_upper_lobe_right lobar bronchus",
+          "anatomy_id": "lung_upper_lobe_right_lobar_bronchus",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "lung_upper_lobe_right distal illustration 1",
+          "anatomy_id": "lung_upper_lobe_right_distal_1",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "lung_upper_lobe_right distal illustration 2",
+          "anatomy_id": "lung_upper_lobe_right_distal_2",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "lung_upper_lobe_right distal illustration 3",
+          "anatomy_id": "lung_upper_lobe_right_distal_3",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "lung_middle_lobe_right lobar bronchus",
+          "anatomy_id": "lung_middle_lobe_right_lobar_bronchus",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "lung_middle_lobe_right distal illustration 1",
+          "anatomy_id": "lung_middle_lobe_right_distal_1",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "lung_middle_lobe_right distal illustration 2",
+          "anatomy_id": "lung_middle_lobe_right_distal_2",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "lung_middle_lobe_right distal illustration 3",
+          "anatomy_id": "lung_middle_lobe_right_distal_3",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "lung_lower_lobe_right lobar bronchus",
+          "anatomy_id": "lung_lower_lobe_right_lobar_bronchus",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "lung_lower_lobe_right distal illustration 1",
+          "anatomy_id": "lung_lower_lobe_right_distal_1",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "lung_lower_lobe_right distal illustration 2",
+          "anatomy_id": "lung_lower_lobe_right_distal_2",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "lung_lower_lobe_right distal illustration 3",
+          "anatomy_id": "lung_lower_lobe_right_distal_3",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "lung_upper_lobe_left lobar bronchus",
+          "anatomy_id": "lung_upper_lobe_left_lobar_bronchus",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "lung_upper_lobe_left distal illustration 1",
+          "anatomy_id": "lung_upper_lobe_left_distal_1",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "lung_upper_lobe_left distal illustration 2",
+          "anatomy_id": "lung_upper_lobe_left_distal_2",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "lung_upper_lobe_left distal illustration 3",
+          "anatomy_id": "lung_upper_lobe_left_distal_3",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "lung_lower_lobe_left lobar bronchus",
+          "anatomy_id": "lung_lower_lobe_left_lobar_bronchus",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "lung_lower_lobe_left distal illustration 1",
+          "anatomy_id": "lung_lower_lobe_left_distal_1",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "lung_lower_lobe_left distal illustration 2",
+          "anatomy_id": "lung_lower_lobe_left_distal_2",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "lung_lower_lobe_left distal illustration 3",
+          "anatomy_id": "lung_lower_lobe_left_distal_3",
+          "view_role": "surface",
+          "derivation": "schematic"
+        }
+      ],
+      "alternativeGroup": "proximal_airway"
+    },
+    {
+      "id": "bladder",
+      "organIds": [
+        "bladder",
+        "kidneys",
+        "ureters"
+      ],
+      "name": {
+        "en": "Bladder and ureters",
+        "zh": "膀胱与输尿管"
+      },
+      "file": "meshes/bladder.glb",
+      "group": "urinary",
+      "sourceKind": "schematic",
+      "provenance": "Authored teaching geometry; placement and internals are schematic",
+      "license": "Original teaching geometry",
+      "sourceCase": null,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cutawaySupport": true,
+      "defaultVisible": true,
+      "notes": [
+        "Educational only; not clinically validated.",
+        "Entirely authored schematic bladder, wall section, trigone, paired ureters and a single urethral outlet. Not source-registered.",
+        "Baked artistic base color, roughness and subtle tangent-space normal relief; not measured tissue microanatomy."
+      ],
+      "status": "ready",
+      "textureFiles": {
+        "BaseColor": "textures/bladder_BaseColor_1K.png",
+        "Roughness": "textures/bladder_Roughness_1K.png",
+        "Normal_OpenGL": "textures/bladder_Normal_OpenGL_1K.png"
+      },
+      "UVLayout": "textures/bladder_UV_1K.png",
+      "bbox": [
+        [
+          -0.05925086885690689,
+          -0.3404034972190857,
+          -0.006838540080934763
+        ],
+        [
+          0.07552181929349899,
+          -0.11944428831338882,
+          0.05576372891664505
+        ]
+      ],
+      "vertices": 5251,
+      "triangles": 10357,
+      "bytes": 1524184,
+      "sha256": "798329114cfcd241d7f8342fc8faa70ff33fdbded6029bb128d82c3d6f50d8c5",
+      "nodes": [
+        {
+          "name": "Urinary bladder | authored surface",
+          "anatomy_id": "bladder_surface",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "bladder | anterior teaching section",
+          "anatomy_id": "bladder_cutaway",
+          "view_role": "cutaway",
+          "derivation": "Fully authored schematic bladder wall and section"
+        },
+        {
+          "name": "Bladder trigone · schematic",
+          "anatomy_id": "bladder_trigone",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "kidney_left ureter to bladder",
+          "anatomy_id": "kidney_left_ureter",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "kidney_right ureter to bladder",
+          "anatomy_id": "kidney_right_ureter",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Single urethral outlet · schematic",
+          "anatomy_id": "urethral_outlet",
+          "view_role": "surface",
+          "derivation": "schematic"
+        }
+      ]
+    },
+    {
+      "id": "brain",
+      "organIds": [
+        "brain"
+      ],
+      "name": {
+        "en": "Schematic brain",
+        "zh": "示意脑"
+      },
+      "file": "meshes/brain.glb",
+      "group": "nervous",
+      "sourceKind": "schematic",
+      "provenance": "Authored teaching geometry; placement and internals are schematic",
+      "license": "Original teaching geometry",
+      "sourceCase": null,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cutawaySupport": true,
+      "defaultVisible": true,
+      "notes": [
+        "Educational only; not clinically validated.",
+        "Recognition schematic of folded hemispheres, cerebellum and brainstem with simplified teaching core. No measured gyral, tract or source-registration accuracy.",
+        "Baked artistic base color, roughness and subtle tangent-space normal relief; not measured tissue microanatomy."
+      ],
+      "status": "ready",
+      "textureFiles": {
+        "BaseColor": "textures/brain_BaseColor_1K.png",
+        "Roughness": "textures/brain_Roughness_1K.png",
+        "Normal_OpenGL": "textures/brain_Normal_OpenGL_1K.png"
+      },
+      "UVLayout": "textures/brain_UV_1K.png",
+      "bbox": [
+        [
+          -0.0694776251912117,
+          0.31800001859664917,
+          -0.08302504569292068
+        ],
+        [
+          0.0694776251912117,
+          0.4740000069141388,
+          0.08242333680391312
+        ]
+      ],
+      "vertices": 34666,
+      "triangles": 69208,
+      "bytes": 3142576,
+      "sha256": "51b7ddc3b0564f767bbd5842dee6e05ad0c0505665cc2c5670040af705b4afc5",
+      "nodes": [
+        {
+          "name": "Right cerebral hemisphere | schematic folds",
+          "anatomy_id": "hemisphere_right",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Right cerebral hemisphere | schematic folds | cutaway",
+          "anatomy_id": "hemisphere_right_cutaway",
+          "view_role": "cutaway",
+          "derivation": "source-derived exterior; schematic wall/section"
+        },
+        {
+          "name": "Left cerebral hemisphere | schematic folds",
+          "anatomy_id": "hemisphere_left",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Left cerebral hemisphere | schematic folds | cutaway",
+          "anatomy_id": "hemisphere_left_cutaway",
+          "view_role": "cutaway",
+          "derivation": "source-derived exterior; schematic wall/section"
+        },
+        {
+          "name": "White matter teaching core",
+          "anatomy_id": "white_matter_core",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Lateral ventricle · schematic C",
+          "anatomy_id": "lateral_ventricle",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Corpus callosum · schematic arch",
+          "anatomy_id": "corpus_callosum",
+          "view_role": "detail",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Cerebellum | schematic folia",
+          "anatomy_id": "cerebellum",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Cerebellum | section context",
+          "anatomy_id": "cerebellum_cutaway",
+          "view_role": "cutaway",
+          "derivation": "source-derived exterior; schematic wall/section"
+        },
+        {
+          "name": "Brainstem | schematic",
+          "anatomy_id": "brainstem",
+          "view_role": "surface",
+          "derivation": "schematic"
+        },
+        {
+          "name": "Brainstem | section context",
+          "anatomy_id": "brainstem_cutaway",
+          "view_role": "cutaway",
+          "derivation": "source-derived exterior; schematic wall/section"
+        }
+      ]
+    },
+    {
+      "id": "heart_detailed",
+      "organIds": [
+        "heart"
+      ],
+      "name": {
+        "en": "Detailed authored heart",
+        "zh": "详细创作心脏"
+      },
+      "file": "meshes/heart_detailed.glb",
+      "group": "circulatory",
+      "sourceKind": "authored",
+      "provenance": "Prior independently authored Cardiac Atlas; fitted pedagogically, not registered",
+      "license": "Original teaching geometry",
+      "sourceCase": null,
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cutawaySupport": true,
+      "defaultVisible": false,
+      "notes": [
+        "Educational only; not clinically validated.",
+        "Independent authored heart fitted to the assembly for teaching. Static clinical-color GLB; no image texture maps or animation in this derivative. The original separate heart package retains its animated native source and three material modes."
+      ],
+      "status": "ready",
+      "bbox": [
+        [
+          -0.020611753687262535,
+          6.240233778953552e-05,
+          -0.01667185127735138
+        ],
+        [
+          0.06765209138393402,
+          0.1444879025220871,
+          0.04847919940948486
+        ]
+      ],
+      "vertices": 203372,
+      "triangles": 379272,
+      "bytes": 9056304,
+      "sha256": "83dd48731d0cc67e8aa61abbd7b03163fb01bcba78f501e9d2c939927aaecf6e",
+      "nodes": [
+        {
+          "name": "Aorta | root, ascending, arch and descending",
+          "anatomy_id": "authored_surface_Aorta | root, ascending, arch and descending",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Aortic valve | annulus",
+          "anatomy_id": "authored_surface_Aortic valve | annulus",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Aortic valve | leaflet 1",
+          "anatomy_id": "authored_surface_Aortic valve | leaflet 1",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Aortic valve | leaflet 2",
+          "anatomy_id": "authored_surface_Aortic valve | leaflet 2",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Aortic valve | leaflet 3",
+          "anatomy_id": "authored_surface_Aortic valve | leaflet 3",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Brachiocephalic trunk",
+          "anatomy_id": "authored_surface_Brachiocephalic trunk",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Circumflex coronary",
+          "anatomy_id": "authored_surface_Circumflex coronary",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Coronary sinus",
+          "anatomy_id": "authored_surface_Coronary sinus",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 0",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 0",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 1",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 1",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 10",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 10",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 11",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 11",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 12",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 12",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 13",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 13",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 14",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 14",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 15",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 15",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 16",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 16",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 17",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 17",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 18",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 18",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 19",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 19",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 2",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 2",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 20",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 20",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 21",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 21",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 22",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 22",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 23",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 23",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 24",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 24",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 25",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 25",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 26",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 26",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 27",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 27",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 28",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 28",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 29",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 29",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 3",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 3",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 30",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 30",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 31",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 31",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 32",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 32",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 33",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 33",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 34",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 34",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 35",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 35",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 36",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 36",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 37",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 37",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 38",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 38",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 39",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 39",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 4",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 4",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 40",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 40",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 41",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 41",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 5",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 5",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 50",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 50",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 51",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 51",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 52",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 52",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 53",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 53",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 54",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 54",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 55",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 55",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 56",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 56",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 57",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 57",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 58",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 58",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 59",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 59",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 6",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 6",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 7",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 7",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 8",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 8",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | AV groove 9",
+          "anatomy_id": "authored_surface_Epicardial fat | AV groove 9",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 0",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 0",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 1",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 1",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 10",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 10",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 11",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 11",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 12",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 12",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 13",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 13",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 14",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 14",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 15",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 15",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 16",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 16",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 17",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 17",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 18",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 18",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 19",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 19",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 2",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 2",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 20",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 20",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 21",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 21",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 22",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 22",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 23",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 23",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 24",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 24",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 25",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 25",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 26",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 26",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 27",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 27",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 28",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 28",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 29",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 29",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 3",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 3",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 30",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 30",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 31",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 31",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 4",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 4",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 5",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 5",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 6",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 6",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 7",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 7",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 8",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 8",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Epicardial fat | LAD groove 9",
+          "anatomy_id": "authored_surface_Epicardial fat | LAD groove 9",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Great cardiac vein",
+          "anatomy_id": "authored_surface_Great cardiac vein",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Inferior vena cava",
+          "anatomy_id": "authored_surface_Inferior vena cava",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LA auricular appendage",
+          "anatomy_id": "authored_surface_LA auricular appendage",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LA | complete wall",
+          "anatomy_id": "authored_surface_LA | complete wall",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LAD diagonal branch 1",
+          "anatomy_id": "authored_surface_LAD diagonal branch 1",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LAD diagonal branch 2",
+          "anatomy_id": "authored_surface_LAD diagonal branch 2",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LAD diagonal branch 3",
+          "anatomy_id": "authored_surface_LAD diagonal branch 3",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LAD diagonal branch 4",
+          "anatomy_id": "authored_surface_LAD diagonal branch 4",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LAD diagonal branch 5",
+          "anatomy_id": "authored_surface_LAD diagonal branch 5",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LAD | anterior interventricular artery",
+          "anatomy_id": "authored_surface_LAD | anterior interventricular artery",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Left common carotid",
+          "anatomy_id": "authored_surface_Left common carotid",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Left inferior pulmonary vein",
+          "anatomy_id": "authored_surface_Left inferior pulmonary vein",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Left main coronary",
+          "anatomy_id": "authored_surface_Left main coronary",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Left pulmonary artery",
+          "anatomy_id": "authored_surface_Left pulmonary artery",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Left subclavian",
+          "anatomy_id": "authored_surface_Left subclavian",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Left superior pulmonary vein",
+          "anatomy_id": "authored_surface_Left superior pulmonary vein",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 1 leaflet 1 cord 1",
+          "anatomy_id": "authored_surface_LV chordae | papillary 1 leaflet 1 cord 1",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 1 leaflet 1 cord 2",
+          "anatomy_id": "authored_surface_LV chordae | papillary 1 leaflet 1 cord 2",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 1 leaflet 1 cord 3",
+          "anatomy_id": "authored_surface_LV chordae | papillary 1 leaflet 1 cord 3",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 1 leaflet 1 cord 4",
+          "anatomy_id": "authored_surface_LV chordae | papillary 1 leaflet 1 cord 4",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 1 leaflet 1 cord 5",
+          "anatomy_id": "authored_surface_LV chordae | papillary 1 leaflet 1 cord 5",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 1 leaflet 2 cord 1",
+          "anatomy_id": "authored_surface_LV chordae | papillary 1 leaflet 2 cord 1",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 1 leaflet 2 cord 2",
+          "anatomy_id": "authored_surface_LV chordae | papillary 1 leaflet 2 cord 2",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 1 leaflet 2 cord 3",
+          "anatomy_id": "authored_surface_LV chordae | papillary 1 leaflet 2 cord 3",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 1 leaflet 2 cord 4",
+          "anatomy_id": "authored_surface_LV chordae | papillary 1 leaflet 2 cord 4",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 1 leaflet 2 cord 5",
+          "anatomy_id": "authored_surface_LV chordae | papillary 1 leaflet 2 cord 5",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 2 leaflet 1 cord 1",
+          "anatomy_id": "authored_surface_LV chordae | papillary 2 leaflet 1 cord 1",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 2 leaflet 1 cord 2",
+          "anatomy_id": "authored_surface_LV chordae | papillary 2 leaflet 1 cord 2",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 2 leaflet 1 cord 3",
+          "anatomy_id": "authored_surface_LV chordae | papillary 2 leaflet 1 cord 3",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 2 leaflet 1 cord 4",
+          "anatomy_id": "authored_surface_LV chordae | papillary 2 leaflet 1 cord 4",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 2 leaflet 1 cord 5",
+          "anatomy_id": "authored_surface_LV chordae | papillary 2 leaflet 1 cord 5",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 2 leaflet 2 cord 1",
+          "anatomy_id": "authored_surface_LV chordae | papillary 2 leaflet 2 cord 1",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 2 leaflet 2 cord 2",
+          "anatomy_id": "authored_surface_LV chordae | papillary 2 leaflet 2 cord 2",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 2 leaflet 2 cord 3",
+          "anatomy_id": "authored_surface_LV chordae | papillary 2 leaflet 2 cord 3",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 2 leaflet 2 cord 4",
+          "anatomy_id": "authored_surface_LV chordae | papillary 2 leaflet 2 cord 4",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 2 leaflet 2 cord 5",
+          "anatomy_id": "authored_surface_LV chordae | papillary 2 leaflet 2 cord 5",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV papillary muscle 1",
+          "anatomy_id": "authored_surface_LV papillary muscle 1",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV papillary muscle 2",
+          "anatomy_id": "authored_surface_LV papillary muscle 2",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV trabecula 1",
+          "anatomy_id": "authored_surface_LV trabecula 1",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV trabecula 10",
+          "anatomy_id": "authored_surface_LV trabecula 10",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV trabecula 11",
+          "anatomy_id": "authored_surface_LV trabecula 11",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV trabecula 12",
+          "anatomy_id": "authored_surface_LV trabecula 12",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV trabecula 13",
+          "anatomy_id": "authored_surface_LV trabecula 13",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV trabecula 14",
+          "anatomy_id": "authored_surface_LV trabecula 14",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV trabecula 2",
+          "anatomy_id": "authored_surface_LV trabecula 2",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV trabecula 3",
+          "anatomy_id": "authored_surface_LV trabecula 3",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV trabecula 4",
+          "anatomy_id": "authored_surface_LV trabecula 4",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV trabecula 5",
+          "anatomy_id": "authored_surface_LV trabecula 5",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV trabecula 6",
+          "anatomy_id": "authored_surface_LV trabecula 6",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV trabecula 7",
+          "anatomy_id": "authored_surface_LV trabecula 7",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV trabecula 8",
+          "anatomy_id": "authored_surface_LV trabecula 8",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV trabecula 9",
+          "anatomy_id": "authored_surface_LV trabecula 9",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV transverse trabecula 1",
+          "anatomy_id": "authored_surface_LV transverse trabecula 1",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV transverse trabecula 2",
+          "anatomy_id": "authored_surface_LV transverse trabecula 2",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV transverse trabecula 3",
+          "anatomy_id": "authored_surface_LV transverse trabecula 3",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV transverse trabecula 4",
+          "anatomy_id": "authored_surface_LV transverse trabecula 4",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV transverse trabecula 5",
+          "anatomy_id": "authored_surface_LV transverse trabecula 5",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV transverse trabecula 6",
+          "anatomy_id": "authored_surface_LV transverse trabecula 6",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV | complete wall",
+          "anatomy_id": "authored_surface_LV | complete wall",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Middle cardiac vein",
+          "anatomy_id": "authored_surface_Middle cardiac vein",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Mitral valve | annulus",
+          "anatomy_id": "authored_surface_Mitral valve | annulus",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Mitral valve | leaflet 1",
+          "anatomy_id": "authored_surface_Mitral valve | leaflet 1",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Mitral valve | leaflet 2",
+          "anatomy_id": "authored_surface_Mitral valve | leaflet 2",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Posterior descending artery",
+          "anatomy_id": "authored_surface_Posterior descending artery",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Pulmonary trunk",
+          "anatomy_id": "authored_surface_Pulmonary trunk",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Pulmonary valve | annulus",
+          "anatomy_id": "authored_surface_Pulmonary valve | annulus",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Pulmonary valve | leaflet 1",
+          "anatomy_id": "authored_surface_Pulmonary valve | leaflet 1",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Pulmonary valve | leaflet 2",
+          "anatomy_id": "authored_surface_Pulmonary valve | leaflet 2",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Pulmonary valve | leaflet 3",
+          "anatomy_id": "authored_surface_Pulmonary valve | leaflet 3",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RA auricular appendage",
+          "anatomy_id": "authored_surface_RA auricular appendage",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RA pectinate ridge 1",
+          "anatomy_id": "authored_surface_RA pectinate ridge 1",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RA pectinate ridge 10",
+          "anatomy_id": "authored_surface_RA pectinate ridge 10",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RA pectinate ridge 11",
+          "anatomy_id": "authored_surface_RA pectinate ridge 11",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RA pectinate ridge 12",
+          "anatomy_id": "authored_surface_RA pectinate ridge 12",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RA pectinate ridge 2",
+          "anatomy_id": "authored_surface_RA pectinate ridge 2",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RA pectinate ridge 3",
+          "anatomy_id": "authored_surface_RA pectinate ridge 3",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RA pectinate ridge 4",
+          "anatomy_id": "authored_surface_RA pectinate ridge 4",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RA pectinate ridge 5",
+          "anatomy_id": "authored_surface_RA pectinate ridge 5",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RA pectinate ridge 6",
+          "anatomy_id": "authored_surface_RA pectinate ridge 6",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RA pectinate ridge 7",
+          "anatomy_id": "authored_surface_RA pectinate ridge 7",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RA pectinate ridge 8",
+          "anatomy_id": "authored_surface_RA pectinate ridge 8",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RA pectinate ridge 9",
+          "anatomy_id": "authored_surface_RA pectinate ridge 9",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RA | complete wall",
+          "anatomy_id": "authored_surface_RA | complete wall",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RCA ventricular branch 1",
+          "anatomy_id": "authored_surface_RCA ventricular branch 1",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RCA ventricular branch 2",
+          "anatomy_id": "authored_surface_RCA ventricular branch 2",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RCA ventricular branch 3",
+          "anatomy_id": "authored_surface_RCA ventricular branch 3",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RCA ventricular branch 4",
+          "anatomy_id": "authored_surface_RCA ventricular branch 4",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Right common carotid",
+          "anatomy_id": "authored_surface_Right common carotid",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Right coronary artery",
+          "anatomy_id": "authored_surface_Right coronary artery",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Right inferior pulmonary vein",
+          "anatomy_id": "authored_surface_Right inferior pulmonary vein",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Right marginal artery",
+          "anatomy_id": "authored_surface_Right marginal artery",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Right pulmonary artery",
+          "anatomy_id": "authored_surface_Right pulmonary artery",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Right subclavian",
+          "anatomy_id": "authored_surface_Right subclavian",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Right superior pulmonary vein",
+          "anatomy_id": "authored_surface_Right superior pulmonary vein",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 1 leaflet 1 cord 1",
+          "anatomy_id": "authored_surface_RV chordae | papillary 1 leaflet 1 cord 1",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 1 leaflet 1 cord 2",
+          "anatomy_id": "authored_surface_RV chordae | papillary 1 leaflet 1 cord 2",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 1 leaflet 1 cord 3",
+          "anatomy_id": "authored_surface_RV chordae | papillary 1 leaflet 1 cord 3",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 1 leaflet 1 cord 4",
+          "anatomy_id": "authored_surface_RV chordae | papillary 1 leaflet 1 cord 4",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 1 leaflet 1 cord 5",
+          "anatomy_id": "authored_surface_RV chordae | papillary 1 leaflet 1 cord 5",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 1 leaflet 2 cord 1",
+          "anatomy_id": "authored_surface_RV chordae | papillary 1 leaflet 2 cord 1",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 1 leaflet 2 cord 2",
+          "anatomy_id": "authored_surface_RV chordae | papillary 1 leaflet 2 cord 2",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 1 leaflet 2 cord 3",
+          "anatomy_id": "authored_surface_RV chordae | papillary 1 leaflet 2 cord 3",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 1 leaflet 2 cord 4",
+          "anatomy_id": "authored_surface_RV chordae | papillary 1 leaflet 2 cord 4",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 1 leaflet 2 cord 5",
+          "anatomy_id": "authored_surface_RV chordae | papillary 1 leaflet 2 cord 5",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 2 leaflet 2 cord 1",
+          "anatomy_id": "authored_surface_RV chordae | papillary 2 leaflet 2 cord 1",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 2 leaflet 2 cord 2",
+          "anatomy_id": "authored_surface_RV chordae | papillary 2 leaflet 2 cord 2",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 2 leaflet 2 cord 3",
+          "anatomy_id": "authored_surface_RV chordae | papillary 2 leaflet 2 cord 3",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 2 leaflet 2 cord 4",
+          "anatomy_id": "authored_surface_RV chordae | papillary 2 leaflet 2 cord 4",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 2 leaflet 2 cord 5",
+          "anatomy_id": "authored_surface_RV chordae | papillary 2 leaflet 2 cord 5",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 2 leaflet 3 cord 1",
+          "anatomy_id": "authored_surface_RV chordae | papillary 2 leaflet 3 cord 1",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 2 leaflet 3 cord 2",
+          "anatomy_id": "authored_surface_RV chordae | papillary 2 leaflet 3 cord 2",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 2 leaflet 3 cord 3",
+          "anatomy_id": "authored_surface_RV chordae | papillary 2 leaflet 3 cord 3",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 2 leaflet 3 cord 4",
+          "anatomy_id": "authored_surface_RV chordae | papillary 2 leaflet 3 cord 4",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 2 leaflet 3 cord 5",
+          "anatomy_id": "authored_surface_RV chordae | papillary 2 leaflet 3 cord 5",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 3 leaflet 1 cord 1",
+          "anatomy_id": "authored_surface_RV chordae | papillary 3 leaflet 1 cord 1",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 3 leaflet 1 cord 2",
+          "anatomy_id": "authored_surface_RV chordae | papillary 3 leaflet 1 cord 2",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 3 leaflet 1 cord 3",
+          "anatomy_id": "authored_surface_RV chordae | papillary 3 leaflet 1 cord 3",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 3 leaflet 1 cord 4",
+          "anatomy_id": "authored_surface_RV chordae | papillary 3 leaflet 1 cord 4",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 3 leaflet 1 cord 5",
+          "anatomy_id": "authored_surface_RV chordae | papillary 3 leaflet 1 cord 5",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 3 leaflet 3 cord 1",
+          "anatomy_id": "authored_surface_RV chordae | papillary 3 leaflet 3 cord 1",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 3 leaflet 3 cord 2",
+          "anatomy_id": "authored_surface_RV chordae | papillary 3 leaflet 3 cord 2",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 3 leaflet 3 cord 3",
+          "anatomy_id": "authored_surface_RV chordae | papillary 3 leaflet 3 cord 3",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 3 leaflet 3 cord 4",
+          "anatomy_id": "authored_surface_RV chordae | papillary 3 leaflet 3 cord 4",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 3 leaflet 3 cord 5",
+          "anatomy_id": "authored_surface_RV chordae | papillary 3 leaflet 3 cord 5",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV moderator band",
+          "anatomy_id": "authored_surface_RV moderator band",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV papillary muscle 1",
+          "anatomy_id": "authored_surface_RV papillary muscle 1",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV papillary muscle 2",
+          "anatomy_id": "authored_surface_RV papillary muscle 2",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV papillary muscle 3",
+          "anatomy_id": "authored_surface_RV papillary muscle 3",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV trabecula 1",
+          "anatomy_id": "authored_surface_RV trabecula 1",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV trabecula 10",
+          "anatomy_id": "authored_surface_RV trabecula 10",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV trabecula 11",
+          "anatomy_id": "authored_surface_RV trabecula 11",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV trabecula 12",
+          "anatomy_id": "authored_surface_RV trabecula 12",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV trabecula 13",
+          "anatomy_id": "authored_surface_RV trabecula 13",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV trabecula 14",
+          "anatomy_id": "authored_surface_RV trabecula 14",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV trabecula 2",
+          "anatomy_id": "authored_surface_RV trabecula 2",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV trabecula 3",
+          "anatomy_id": "authored_surface_RV trabecula 3",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV trabecula 4",
+          "anatomy_id": "authored_surface_RV trabecula 4",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV trabecula 5",
+          "anatomy_id": "authored_surface_RV trabecula 5",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV trabecula 6",
+          "anatomy_id": "authored_surface_RV trabecula 6",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV trabecula 7",
+          "anatomy_id": "authored_surface_RV trabecula 7",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV trabecula 8",
+          "anatomy_id": "authored_surface_RV trabecula 8",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV trabecula 9",
+          "anatomy_id": "authored_surface_RV trabecula 9",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV transverse trabecula 1",
+          "anatomy_id": "authored_surface_RV transverse trabecula 1",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV transverse trabecula 2",
+          "anatomy_id": "authored_surface_RV transverse trabecula 2",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV transverse trabecula 3",
+          "anatomy_id": "authored_surface_RV transverse trabecula 3",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV transverse trabecula 4",
+          "anatomy_id": "authored_surface_RV transverse trabecula 4",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV transverse trabecula 5",
+          "anatomy_id": "authored_surface_RV transverse trabecula 5",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV transverse trabecula 6",
+          "anatomy_id": "authored_surface_RV transverse trabecula 6",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV | complete wall",
+          "anatomy_id": "authored_surface_RV | complete wall",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Small cardiac vein",
+          "anatomy_id": "authored_surface_Small cardiac vein",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Superior vena cava",
+          "anatomy_id": "authored_surface_Superior vena cava",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Tricuspid valve | annulus",
+          "anatomy_id": "authored_surface_Tricuspid valve | annulus",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Tricuspid valve | leaflet 1",
+          "anatomy_id": "authored_surface_Tricuspid valve | leaflet 1",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Tricuspid valve | leaflet 2",
+          "anatomy_id": "authored_surface_Tricuspid valve | leaflet 2",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Tricuspid valve | leaflet 3",
+          "anatomy_id": "authored_surface_Tricuspid valve | leaflet 3",
+          "view_role": "surface",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Aorta | root, ascending, arch and descending.001",
+          "anatomy_id": "authored_cutaway_Aorta | root, ascending, arch and descending.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Aortic valve | annulus.001",
+          "anatomy_id": "authored_cutaway_Aortic valve | annulus.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Aortic valve | leaflet 1.001",
+          "anatomy_id": "authored_cutaway_Aortic valve | leaflet 1.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Aortic valve | leaflet 2.001",
+          "anatomy_id": "authored_cutaway_Aortic valve | leaflet 2.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Aortic valve | leaflet 3.001",
+          "anatomy_id": "authored_cutaway_Aortic valve | leaflet 3.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Brachiocephalic trunk.001",
+          "anatomy_id": "authored_cutaway_Brachiocephalic trunk.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Inferior vena cava.001",
+          "anatomy_id": "authored_cutaway_Inferior vena cava.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LA | anterior section",
+          "anatomy_id": "authored_cutaway_LA | anterior section",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Left common carotid.001",
+          "anatomy_id": "authored_cutaway_Left common carotid.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Left inferior pulmonary vein.001",
+          "anatomy_id": "authored_cutaway_Left inferior pulmonary vein.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Left pulmonary artery.001",
+          "anatomy_id": "authored_cutaway_Left pulmonary artery.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Left subclavian.001",
+          "anatomy_id": "authored_cutaway_Left subclavian.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Left superior pulmonary vein.001",
+          "anatomy_id": "authored_cutaway_Left superior pulmonary vein.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 1 leaflet 1 cord 1.001",
+          "anatomy_id": "authored_cutaway_LV chordae | papillary 1 leaflet 1 cord 1.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 1 leaflet 1 cord 2.001",
+          "anatomy_id": "authored_cutaway_LV chordae | papillary 1 leaflet 1 cord 2.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 1 leaflet 1 cord 3.001",
+          "anatomy_id": "authored_cutaway_LV chordae | papillary 1 leaflet 1 cord 3.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 1 leaflet 1 cord 4.001",
+          "anatomy_id": "authored_cutaway_LV chordae | papillary 1 leaflet 1 cord 4.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 1 leaflet 1 cord 5.001",
+          "anatomy_id": "authored_cutaway_LV chordae | papillary 1 leaflet 1 cord 5.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 1 leaflet 2 cord 1.001",
+          "anatomy_id": "authored_cutaway_LV chordae | papillary 1 leaflet 2 cord 1.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 1 leaflet 2 cord 2.001",
+          "anatomy_id": "authored_cutaway_LV chordae | papillary 1 leaflet 2 cord 2.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 1 leaflet 2 cord 3.001",
+          "anatomy_id": "authored_cutaway_LV chordae | papillary 1 leaflet 2 cord 3.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 1 leaflet 2 cord 4.001",
+          "anatomy_id": "authored_cutaway_LV chordae | papillary 1 leaflet 2 cord 4.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 1 leaflet 2 cord 5.001",
+          "anatomy_id": "authored_cutaway_LV chordae | papillary 1 leaflet 2 cord 5.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 2 leaflet 1 cord 1.001",
+          "anatomy_id": "authored_cutaway_LV chordae | papillary 2 leaflet 1 cord 1.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 2 leaflet 1 cord 2.001",
+          "anatomy_id": "authored_cutaway_LV chordae | papillary 2 leaflet 1 cord 2.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 2 leaflet 1 cord 3.001",
+          "anatomy_id": "authored_cutaway_LV chordae | papillary 2 leaflet 1 cord 3.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 2 leaflet 1 cord 4.001",
+          "anatomy_id": "authored_cutaway_LV chordae | papillary 2 leaflet 1 cord 4.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 2 leaflet 1 cord 5.001",
+          "anatomy_id": "authored_cutaway_LV chordae | papillary 2 leaflet 1 cord 5.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 2 leaflet 2 cord 1.001",
+          "anatomy_id": "authored_cutaway_LV chordae | papillary 2 leaflet 2 cord 1.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 2 leaflet 2 cord 2.001",
+          "anatomy_id": "authored_cutaway_LV chordae | papillary 2 leaflet 2 cord 2.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 2 leaflet 2 cord 3.001",
+          "anatomy_id": "authored_cutaway_LV chordae | papillary 2 leaflet 2 cord 3.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 2 leaflet 2 cord 4.001",
+          "anatomy_id": "authored_cutaway_LV chordae | papillary 2 leaflet 2 cord 4.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV chordae | papillary 2 leaflet 2 cord 5.001",
+          "anatomy_id": "authored_cutaway_LV chordae | papillary 2 leaflet 2 cord 5.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV papillary muscle 1.001",
+          "anatomy_id": "authored_cutaway_LV papillary muscle 1.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV papillary muscle 2.001",
+          "anatomy_id": "authored_cutaway_LV papillary muscle 2.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV trabecula 1.001",
+          "anatomy_id": "authored_cutaway_LV trabecula 1.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV trabecula 10.001",
+          "anatomy_id": "authored_cutaway_LV trabecula 10.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV trabecula 11.001",
+          "anatomy_id": "authored_cutaway_LV trabecula 11.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV trabecula 12.001",
+          "anatomy_id": "authored_cutaway_LV trabecula 12.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV trabecula 13.001",
+          "anatomy_id": "authored_cutaway_LV trabecula 13.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV trabecula 14.001",
+          "anatomy_id": "authored_cutaway_LV trabecula 14.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV trabecula 2.001",
+          "anatomy_id": "authored_cutaway_LV trabecula 2.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV trabecula 3.001",
+          "anatomy_id": "authored_cutaway_LV trabecula 3.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV trabecula 4.001",
+          "anatomy_id": "authored_cutaway_LV trabecula 4.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV trabecula 5.001",
+          "anatomy_id": "authored_cutaway_LV trabecula 5.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV trabecula 6.001",
+          "anatomy_id": "authored_cutaway_LV trabecula 6.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV trabecula 7.001",
+          "anatomy_id": "authored_cutaway_LV trabecula 7.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV trabecula 8.001",
+          "anatomy_id": "authored_cutaway_LV trabecula 8.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV trabecula 9.001",
+          "anatomy_id": "authored_cutaway_LV trabecula 9.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV transverse trabecula 1.001",
+          "anatomy_id": "authored_cutaway_LV transverse trabecula 1.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV transverse trabecula 2.001",
+          "anatomy_id": "authored_cutaway_LV transverse trabecula 2.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV transverse trabecula 3.001",
+          "anatomy_id": "authored_cutaway_LV transverse trabecula 3.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV transverse trabecula 4.001",
+          "anatomy_id": "authored_cutaway_LV transverse trabecula 4.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV transverse trabecula 5.001",
+          "anatomy_id": "authored_cutaway_LV transverse trabecula 5.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV transverse trabecula 6.001",
+          "anatomy_id": "authored_cutaway_LV transverse trabecula 6.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "LV | anterior section",
+          "anatomy_id": "authored_cutaway_LV | anterior section",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Mitral valve | annulus.001",
+          "anatomy_id": "authored_cutaway_Mitral valve | annulus.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Mitral valve | leaflet 1.001",
+          "anatomy_id": "authored_cutaway_Mitral valve | leaflet 1.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Mitral valve | leaflet 2.001",
+          "anatomy_id": "authored_cutaway_Mitral valve | leaflet 2.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Pulmonary trunk.001",
+          "anatomy_id": "authored_cutaway_Pulmonary trunk.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Pulmonary valve | annulus.001",
+          "anatomy_id": "authored_cutaway_Pulmonary valve | annulus.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Pulmonary valve | leaflet 1.001",
+          "anatomy_id": "authored_cutaway_Pulmonary valve | leaflet 1.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Pulmonary valve | leaflet 2.001",
+          "anatomy_id": "authored_cutaway_Pulmonary valve | leaflet 2.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Pulmonary valve | leaflet 3.001",
+          "anatomy_id": "authored_cutaway_Pulmonary valve | leaflet 3.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RA pectinate ridge 1.001",
+          "anatomy_id": "authored_cutaway_RA pectinate ridge 1.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RA pectinate ridge 10.001",
+          "anatomy_id": "authored_cutaway_RA pectinate ridge 10.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RA pectinate ridge 11.001",
+          "anatomy_id": "authored_cutaway_RA pectinate ridge 11.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RA pectinate ridge 12.001",
+          "anatomy_id": "authored_cutaway_RA pectinate ridge 12.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RA pectinate ridge 2.001",
+          "anatomy_id": "authored_cutaway_RA pectinate ridge 2.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RA pectinate ridge 3.001",
+          "anatomy_id": "authored_cutaway_RA pectinate ridge 3.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RA pectinate ridge 4.001",
+          "anatomy_id": "authored_cutaway_RA pectinate ridge 4.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RA pectinate ridge 5.001",
+          "anatomy_id": "authored_cutaway_RA pectinate ridge 5.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RA pectinate ridge 6.001",
+          "anatomy_id": "authored_cutaway_RA pectinate ridge 6.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RA pectinate ridge 7.001",
+          "anatomy_id": "authored_cutaway_RA pectinate ridge 7.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RA pectinate ridge 8.001",
+          "anatomy_id": "authored_cutaway_RA pectinate ridge 8.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RA pectinate ridge 9.001",
+          "anatomy_id": "authored_cutaway_RA pectinate ridge 9.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RA | anterior section",
+          "anatomy_id": "authored_cutaway_RA | anterior section",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Right common carotid.001",
+          "anatomy_id": "authored_cutaway_Right common carotid.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Right inferior pulmonary vein.001",
+          "anatomy_id": "authored_cutaway_Right inferior pulmonary vein.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Right pulmonary artery.001",
+          "anatomy_id": "authored_cutaway_Right pulmonary artery.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Right subclavian.001",
+          "anatomy_id": "authored_cutaway_Right subclavian.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Right superior pulmonary vein.001",
+          "anatomy_id": "authored_cutaway_Right superior pulmonary vein.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 1 leaflet 1 cord 1.001",
+          "anatomy_id": "authored_cutaway_RV chordae | papillary 1 leaflet 1 cord 1.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 1 leaflet 1 cord 2.001",
+          "anatomy_id": "authored_cutaway_RV chordae | papillary 1 leaflet 1 cord 2.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 1 leaflet 1 cord 3.001",
+          "anatomy_id": "authored_cutaway_RV chordae | papillary 1 leaflet 1 cord 3.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 1 leaflet 1 cord 4.001",
+          "anatomy_id": "authored_cutaway_RV chordae | papillary 1 leaflet 1 cord 4.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 1 leaflet 1 cord 5.001",
+          "anatomy_id": "authored_cutaway_RV chordae | papillary 1 leaflet 1 cord 5.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 1 leaflet 2 cord 1.001",
+          "anatomy_id": "authored_cutaway_RV chordae | papillary 1 leaflet 2 cord 1.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 1 leaflet 2 cord 2.001",
+          "anatomy_id": "authored_cutaway_RV chordae | papillary 1 leaflet 2 cord 2.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 1 leaflet 2 cord 3.001",
+          "anatomy_id": "authored_cutaway_RV chordae | papillary 1 leaflet 2 cord 3.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 1 leaflet 2 cord 4.001",
+          "anatomy_id": "authored_cutaway_RV chordae | papillary 1 leaflet 2 cord 4.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 1 leaflet 2 cord 5.001",
+          "anatomy_id": "authored_cutaway_RV chordae | papillary 1 leaflet 2 cord 5.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 2 leaflet 2 cord 1.001",
+          "anatomy_id": "authored_cutaway_RV chordae | papillary 2 leaflet 2 cord 1.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 2 leaflet 2 cord 2.001",
+          "anatomy_id": "authored_cutaway_RV chordae | papillary 2 leaflet 2 cord 2.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 2 leaflet 2 cord 3.001",
+          "anatomy_id": "authored_cutaway_RV chordae | papillary 2 leaflet 2 cord 3.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 2 leaflet 2 cord 4.001",
+          "anatomy_id": "authored_cutaway_RV chordae | papillary 2 leaflet 2 cord 4.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 2 leaflet 2 cord 5.001",
+          "anatomy_id": "authored_cutaway_RV chordae | papillary 2 leaflet 2 cord 5.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 2 leaflet 3 cord 1.001",
+          "anatomy_id": "authored_cutaway_RV chordae | papillary 2 leaflet 3 cord 1.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 2 leaflet 3 cord 2.001",
+          "anatomy_id": "authored_cutaway_RV chordae | papillary 2 leaflet 3 cord 2.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 2 leaflet 3 cord 3.001",
+          "anatomy_id": "authored_cutaway_RV chordae | papillary 2 leaflet 3 cord 3.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 2 leaflet 3 cord 4.001",
+          "anatomy_id": "authored_cutaway_RV chordae | papillary 2 leaflet 3 cord 4.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 2 leaflet 3 cord 5.001",
+          "anatomy_id": "authored_cutaway_RV chordae | papillary 2 leaflet 3 cord 5.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 3 leaflet 1 cord 1.001",
+          "anatomy_id": "authored_cutaway_RV chordae | papillary 3 leaflet 1 cord 1.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 3 leaflet 1 cord 2.001",
+          "anatomy_id": "authored_cutaway_RV chordae | papillary 3 leaflet 1 cord 2.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 3 leaflet 1 cord 3.001",
+          "anatomy_id": "authored_cutaway_RV chordae | papillary 3 leaflet 1 cord 3.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 3 leaflet 1 cord 4.001",
+          "anatomy_id": "authored_cutaway_RV chordae | papillary 3 leaflet 1 cord 4.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 3 leaflet 1 cord 5.001",
+          "anatomy_id": "authored_cutaway_RV chordae | papillary 3 leaflet 1 cord 5.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 3 leaflet 3 cord 1.001",
+          "anatomy_id": "authored_cutaway_RV chordae | papillary 3 leaflet 3 cord 1.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 3 leaflet 3 cord 2.001",
+          "anatomy_id": "authored_cutaway_RV chordae | papillary 3 leaflet 3 cord 2.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 3 leaflet 3 cord 3.001",
+          "anatomy_id": "authored_cutaway_RV chordae | papillary 3 leaflet 3 cord 3.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 3 leaflet 3 cord 4.001",
+          "anatomy_id": "authored_cutaway_RV chordae | papillary 3 leaflet 3 cord 4.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV chordae | papillary 3 leaflet 3 cord 5.001",
+          "anatomy_id": "authored_cutaway_RV chordae | papillary 3 leaflet 3 cord 5.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV moderator band.001",
+          "anatomy_id": "authored_cutaway_RV moderator band.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV papillary muscle 1.001",
+          "anatomy_id": "authored_cutaway_RV papillary muscle 1.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV papillary muscle 2.001",
+          "anatomy_id": "authored_cutaway_RV papillary muscle 2.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV papillary muscle 3.001",
+          "anatomy_id": "authored_cutaway_RV papillary muscle 3.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV trabecula 1.001",
+          "anatomy_id": "authored_cutaway_RV trabecula 1.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV trabecula 10.001",
+          "anatomy_id": "authored_cutaway_RV trabecula 10.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV trabecula 11.001",
+          "anatomy_id": "authored_cutaway_RV trabecula 11.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV trabecula 12.001",
+          "anatomy_id": "authored_cutaway_RV trabecula 12.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV trabecula 13.001",
+          "anatomy_id": "authored_cutaway_RV trabecula 13.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV trabecula 14.001",
+          "anatomy_id": "authored_cutaway_RV trabecula 14.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV trabecula 2.001",
+          "anatomy_id": "authored_cutaway_RV trabecula 2.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV trabecula 3.001",
+          "anatomy_id": "authored_cutaway_RV trabecula 3.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV trabecula 4.001",
+          "anatomy_id": "authored_cutaway_RV trabecula 4.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV trabecula 5.001",
+          "anatomy_id": "authored_cutaway_RV trabecula 5.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV trabecula 6.001",
+          "anatomy_id": "authored_cutaway_RV trabecula 6.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV trabecula 7.001",
+          "anatomy_id": "authored_cutaway_RV trabecula 7.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV trabecula 8.001",
+          "anatomy_id": "authored_cutaway_RV trabecula 8.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV trabecula 9.001",
+          "anatomy_id": "authored_cutaway_RV trabecula 9.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV transverse trabecula 1.001",
+          "anatomy_id": "authored_cutaway_RV transverse trabecula 1.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV transverse trabecula 2.001",
+          "anatomy_id": "authored_cutaway_RV transverse trabecula 2.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV transverse trabecula 3.001",
+          "anatomy_id": "authored_cutaway_RV transverse trabecula 3.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV transverse trabecula 4.001",
+          "anatomy_id": "authored_cutaway_RV transverse trabecula 4.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV transverse trabecula 5.001",
+          "anatomy_id": "authored_cutaway_RV transverse trabecula 5.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV transverse trabecula 6.001",
+          "anatomy_id": "authored_cutaway_RV transverse trabecula 6.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "RV | anterior section",
+          "anatomy_id": "authored_cutaway_RV | anterior section",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Superior vena cava.001",
+          "anatomy_id": "authored_cutaway_Superior vena cava.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Tricuspid valve | annulus.001",
+          "anatomy_id": "authored_cutaway_Tricuspid valve | annulus.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Tricuspid valve | leaflet 1.001",
+          "anatomy_id": "authored_cutaway_Tricuspid valve | leaflet 1.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Tricuspid valve | leaflet 2.001",
+          "anatomy_id": "authored_cutaway_Tricuspid valve | leaflet 2.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        },
+        {
+          "name": "Tricuspid valve | leaflet 3.001",
+          "anatomy_id": "authored_cutaway_Tricuspid valve | leaflet 3.001",
+          "view_role": "cutaway",
+          "derivation": "independently authored; uniform pedagogical fit, not source registered"
+        }
+      ]
+    }
+  ],
+  "sourceAttribution": "Jakob Wasserthal and TotalSegmentator contributors, University Hospital Basel. https://zenodo.org/records/10047263",
+  "validation": "Geometry and baked maps frozen 2026-10-21. All 17 source-derived exterior meshes pass welded edge-incidence closure and outward-volume checks; this does not certify every authored detail as a Boolean-ready solid."
+}

@@ -1,0 +1,226 @@
+{
+  "status": "SYNTHETIC ILLUSTRATIVE ONLY; not acquired CT/MRI/US, not a validated scanner simulation",
+  "source": "../heart_geometry.py exact analytic chambers and curved ventricular septum, plus ellipsoid atrial septum; ../vessel_geometry.json centerline tube approximation. Vessel cross-section transport/curvature and voxelization can differ near edges.",
+  "source_sha256": "2596456df832021d0a7fbef673302f997199afed0773805e9f178e24f93f3020",
+  "vessel_sha256": "a38402430ae08b86c8b8ad02bcb179f45ff4051b9b99e01ef1d702409d3ddb19",
+  "shape_ijk": [
+    161,
+    161,
+    181
+  ],
+  "spacing_mm": [
+    1,
+    1,
+    1
+  ],
+  "voxel_center_to_RAS_mm": [
+    [
+      1.0,
+      0.0,
+      0.0,
+      -80.0
+    ],
+    [
+      0.0,
+      1.0,
+      0.0,
+      -80.0
+    ],
+    [
+      0.0,
+      0.0,
+      1.0,
+      -70.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "Blender_to_RAS_mm": [
+    [
+      -25,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      -25,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      25,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "array_axis_order": [
+    "R+",
+    "A+",
+    "S+"
+  ],
+  "raw_storage": "uint8; i fastest; index=i+nx*(j+ny*k); length=nx*ny*nz bytes",
+  "raw_files": {
+    "labels": "labels.uint8.raw",
+    "ct": "ct.uint8.raw",
+    "mri": "mri.uint8.raw"
+  },
+  "phase": {
+    "frame": 1,
+    "name": "reference end-diastole"
+  },
+  "labels": {
+    "1": {
+      "name": "LV blood pool",
+      "short": "LV",
+      "class": "blood_pool"
+    },
+    "2": {
+      "name": "RV blood pool",
+      "short": "RV",
+      "class": "blood_pool"
+    },
+    "3": {
+      "name": "LA blood pool",
+      "short": "LA",
+      "class": "blood_pool"
+    },
+    "4": {
+      "name": "RA blood pool",
+      "short": "RA",
+      "class": "blood_pool"
+    },
+    "5": {
+      "name": "LV myocardium",
+      "short": "LV wall",
+      "class": "wall"
+    },
+    "6": {
+      "name": "RV myocardium",
+      "short": "RV wall",
+      "class": "wall"
+    },
+    "7": {
+      "name": "LA wall",
+      "short": "LA wall",
+      "class": "wall"
+    },
+    "8": {
+      "name": "RA wall",
+      "short": "RA wall",
+      "class": "wall"
+    },
+    "9": {
+      "name": "interventricular septum",
+      "short": "V septum",
+      "class": "wall"
+    },
+    "10": {
+      "name": "interatrial septum",
+      "short": "A septum",
+      "class": "wall"
+    },
+    "11": {
+      "name": "aorta lumen",
+      "short": "Aorta",
+      "class": "blood_pool"
+    },
+    "12": {
+      "name": "pulmonary arteries lumen",
+      "short": "PA",
+      "class": "blood_pool"
+    },
+    "13": {
+      "name": "vena cavae lumen",
+      "short": "VC",
+      "class": "blood_pool"
+    },
+    "14": {
+      "name": "pulmonary veins lumen",
+      "short": "PV",
+      "class": "blood_pool"
+    }
+  },
+  "present_label_voxel_counts": {
+    "0": 4490948,
+    "1": 29012,
+    "2": 37563,
+    "3": 15816,
+    "4": 16233,
+    "5": 24960,
+    "6": 19647,
+    "7": 5765,
+    "8": 7024,
+    "9": 16922,
+    "10": 1688,
+    "11": 10174,
+    "12": 9460,
+    "13": 3526,
+    "14": 2963
+  },
+  "absent_defined_labels": [],
+  "intensity": {
+    "units": "arbitrary normalized teaching units [0,1]; web uint8 is value*255",
+    "ct_like_LUT": [
+      0.0,
+      0.8199999928474426,
+      0.8199999928474426,
+      0.8199999928474426,
+      0.8199999928474426,
+      0.4300000071525574,
+      0.4300000071525574,
+      0.4300000071525574,
+      0.4300000071525574,
+      0.4300000071525574,
+      0.4300000071525574,
+      0.8199999928474426,
+      0.8199999928474426,
+      0.8199999928474426,
+      0.8199999928474426
+    ],
+    "mri_like_LUT": [
+      0.0,
+      0.9100000262260437,
+      0.9100000262260437,
+      0.9100000262260437,
+      0.9100000262260437,
+      0.28999999165534973,
+      0.28999999165534973,
+      0.28999999165534973,
+      0.28999999165534973,
+      0.28999999165534973,
+      0.28999999165534973,
+      0.9100000262260437,
+      0.9100000262260437,
+      0.9100000262260437,
+      0.9100000262260437
+    ],
+    "gaussian_sigma_voxels": {
+      "ct": 0.55,
+      "mri": 0.9
+    },
+    "physics": "none; no HU, T1/T2, pulse sequence, X-ray projection/reconstruction or acoustic propagation"
+  },
+  "LV_apex_RAS_mm": [
+    -21.5,
+    4.5,
+    -50.5
+  ],
+  "LV_base_RAS_mm": [
+    -10.75000001995903,
+    -5.0,
+    23.5
+  ],
+  "registration": "Identity in model RAS reference space only. Not registration to any patient or real scan. Real data requires its own affine, segmentation and phase-aware registration."
+}

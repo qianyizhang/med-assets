@@ -1,0 +1,425 @@
+{
+  "version": "4.0-spatial",
+  "date": "2026-10-21",
+  "canonical_count": 54,
+  "primary_parts": 54,
+  "variant_count": 15,
+  "overlay_count": 54,
+  "region_count": 21,
+  "atlas_byte_identical_to_input": true,
+  "all_svgs_parse_and_are_self_contained": true,
+  "svg_file_count": 149,
+  "source_hashes": {
+    "atlas": "95d21ad7499179fa0303a7b9dfac24158fec5bf9bd093b74f6d482e566d67959",
+    "head": "f5f24baa9ae973ebed4a29fb32d7bc084d972c47d2e255cfdc021f28d5ca4d31",
+    "kidney-depth": "7b5f1701f63df5307fa02c522a558cba834446289a1ef565e5554c4d8e7fc20d"
+  },
+  "all_parts_have_visible_pixels": true,
+  "all_part_geometry_preserved": true,
+  "all_part_crops_have_nonzero_dimensions_and_clearance": true,
+  "fresh_raster_contact_sheets": "contact-sheets/primary-01.png through primary-09.png",
+  "visual_review": {
+    "status": "passed",
+    "date": "2026-10-21",
+    "primary_parts_reviewed": 54,
+    "variants_reviewed": 15,
+    "regions_reviewed": 21,
+    "method": "Inspected fresh primary renders on nine large contact sheets, all 15 named variants on three sheets, and all 21 regions on six sheets. Re-inspected the revised abdomen, isolated tissue contexts and pelvic bony locator after the final export-only refinements.",
+    "reviewed_contact_sheets": [
+      {
+        "file": "contact-sheets/primary-01.png",
+        "sha256": "79be30376a75882526467a763b2643692c3358d7046e899678cb98334d3a860d"
+      },
+      {
+        "file": "contact-sheets/primary-02.png",
+        "sha256": "e92dd63aa767d857064b9fa87905b4e00262573ad2273ab2a7477132e19080d6"
+      },
+      {
+        "file": "contact-sheets/primary-03.png",
+        "sha256": "23abaf31576f955f3ba5f764bdd593f82106cd2702a914b8aa8b62565e9be862"
+      },
+      {
+        "file": "contact-sheets/primary-04.png",
+        "sha256": "584769d3b69909f8a0a47054b329ced06434e7131bd8a4f6b4ebae21ff9deef3"
+      },
+      {
+        "file": "contact-sheets/primary-05.png",
+        "sha256": "e09571942db0c41d8b28b98c88cea40b7c58a080dd7ee16aeaf4e24eb03e6a6f"
+      },
+      {
+        "file": "contact-sheets/primary-06.png",
+        "sha256": "75497509a0945f2a34f118c0d58783bb608c132e2de5d491193846f610ffa454"
+      },
+      {
+        "file": "contact-sheets/primary-07.png",
+        "sha256": "cab5b6007858681d9d5b7e4da64c0702457c9929cfe2155b55fd312b484c6f57"
+      },
+      {
+        "file": "contact-sheets/primary-08.png",
+        "sha256": "85e1f548e3c1b841f55385209f029411fd430b957aa0e41b7748cca74ca5b5fb"
+      },
+      {
+        "file": "contact-sheets/primary-09.png",
+        "sha256": "18a629e66b0d7bdde78b474d12ed608dedce89245d10d653ba65d75c9044ebae"
+      },
+      {
+        "file": "contact-sheets/regions-01.png",
+        "sha256": "3a18a1e876f5dc2ffe10ab6018b5bffd627311488ca935c27945c2c608cc4e4b"
+      },
+      {
+        "file": "contact-sheets/regions-02.png",
+        "sha256": "bf08b08d90f89487c8380e888872df6de1ded1332a506934eff5cd20d1e282e2"
+      },
+      {
+        "file": "contact-sheets/regions-03.png",
+        "sha256": "c087d3f8b472dcf9c6546710465bad1c5822bc54eecae90b708022a22bffdc1e"
+      },
+      {
+        "file": "contact-sheets/regions-04.png",
+        "sha256": "df9a8b83e1f91390bbb3665ae9f08527583178b589d617d8e2cf4d7dc313bfaf"
+      },
+      {
+        "file": "contact-sheets/regions-05.png",
+        "sha256": "1910517cad0b2d6ae57d417378c7acf2aedf5af3aa17d552f890a4bd7a326e56"
+      },
+      {
+        "file": "contact-sheets/regions-06.png",
+        "sha256": "2040f3a9ed65e549366ff04a295885bb26219e94d548838876566e0356a802e4"
+      },
+      {
+        "file": "contact-sheets/variants-01.png",
+        "sha256": "21f955f2aec351154707e29cbf79b282fcc30b63d3c4db0acad4477fa5ebbe75"
+      },
+      {
+        "file": "contact-sheets/variants-02.png",
+        "sha256": "84c322d0323e0f908a086eb5c3b13106484644cc07e6da262e4c3f8c60107e31"
+      },
+      {
+        "file": "contact-sheets/variants-03.png",
+        "sha256": "a67cc61b8378a4caaf19dbb91b0dc55c89f00f2a06fa2394f0ad4d10c78f2bc7"
+      }
+    ],
+    "findings": [
+      "Every primary contains one presentation view; paired structures or a distributed network within a single view are intentional. No distant overview or inset duplicates remain in primary crops.",
+      "All primary and named-variant silhouettes have visible pixels, positive crop dimensions and padding. No accidental anatomy clipping was observed.",
+      "Proximal and distal arm tendons use explicit v4 subgroups; the knee ligaments are a named separate variant.",
+      "The reproductive primary is the bony pelvic locator, with the distant badge and leader confined to a named separate variant.",
+      "Head primaries come from the full-sized v4 head source; body-front depictions and cervical cord are named alternatives.",
+      "The kidney-depth variant and contextual region explicitly identify transverse viewing from the feet, with front at top and patient right at image left.",
+      "Final knee simplification note and pregnancy amniotic-cavity leader are retained in the region exports.",
+      "The abdomen region uses documented 0.6 stomach presentation opacity to reveal the posterior pancreas; the primary stomach and source geometry remain unchanged.",
+      "Each isolated tissue detail contains only its own dashed context window, avoiding neighboring-window fragments.",
+      "Body-origin links, orientation changes, alternative anatomy and sample-scale caveats are recorded rather than implying rigid 3D registration.",
+      "The depth region preserves the source posterior-peritoneal dashed boundary."
+    ],
+    "clinical_accuracy_certification": false
+  },
+  "all_54_origins_present": true,
+  "all_21_regions_have_origin_and_orientation": true,
+  "normal_anatomy_ids_stable": true,
+  "reference_images_bundled": false,
+  "fresh_source_generation": "Every exported SVG extracted from the frozen v4 source set; every preview rendered in this build.",
+  "historical_v3_unchanged": true,
+  "source_byte_identity": {
+    "atlas.svg": true,
+    "head.svg": true,
+    "kidney-depth.svg": true
+  },
+  "arbitrary_viewport_clip_checks": [
+    {
+      "region": "overview",
+      "viewport": [
+        1000,
+        1000
+      ],
+      "visible_pixel_bounds": [
+        296,
+        9,
+        703,
+        998
+      ],
+      "clip_pass": true
+    },
+    {
+      "region": "head-midline",
+      "viewport": [
+        1000,
+        1000
+      ],
+      "visible_pixel_bounds": [
+        32,
+        0,
+        968,
+        1000
+      ],
+      "clip_pass": true
+    },
+    {
+      "region": "head-lateral",
+      "viewport": [
+        1000,
+        1000
+      ],
+      "visible_pixel_bounds": [
+        76,
+        0,
+        924,
+        1000
+      ],
+      "clip_pass": true
+    },
+    {
+      "region": "head-glands",
+      "viewport": [
+        1000,
+        1000
+      ],
+      "visible_pixel_bounds": [
+        0,
+        234,
+        1000,
+        766
+      ],
+      "clip_pass": true
+    },
+    {
+      "region": "chest",
+      "viewport": [
+        1000,
+        1000
+      ],
+      "visible_pixel_bounds": [
+        4,
+        241,
+        757,
+        759
+      ],
+      "clip_pass": true
+    },
+    {
+      "region": "abdomen",
+      "viewport": [
+        1000,
+        1000
+      ],
+      "visible_pixel_bounds": [
+        11,
+        155,
+        779,
+        845
+      ],
+      "clip_pass": true
+    },
+    {
+      "region": "kidneys",
+      "viewport": [
+        1000,
+        1000
+      ],
+      "visible_pixel_bounds": [
+        0,
+        42,
+        1000,
+        958
+      ],
+      "clip_pass": true
+    },
+    {
+      "region": "kidney-depth",
+      "viewport": [
+        1000,
+        1000
+      ],
+      "visible_pixel_bounds": [
+        65,
+        223,
+        934,
+        795
+      ],
+      "clip_pass": true
+    },
+    {
+      "region": "urinary",
+      "viewport": [
+        1000,
+        1000
+      ],
+      "visible_pixel_bounds": [
+        10,
+        116,
+        756,
+        884
+      ],
+      "clip_pass": true
+    },
+    {
+      "region": "tissues",
+      "viewport": [
+        1000,
+        1000
+      ],
+      "visible_pixel_bounds": [
+        92,
+        0,
+        833,
+        1000
+      ],
+      "clip_pass": true
+    },
+    {
+      "region": "knee",
+      "viewport": [
+        1000,
+        1000
+      ],
+      "visible_pixel_bounds": [
+        319,
+        26,
+        689,
+        956
+      ],
+      "clip_pass": true
+    },
+    {
+      "region": "uterine",
+      "viewport": [
+        1000,
+        1000
+      ],
+      "visible_pixel_bounds": [
+        0,
+        152,
+        1000,
+        848
+      ],
+      "clip_pass": true
+    },
+    {
+      "region": "testicular",
+      "viewport": [
+        1000,
+        1000
+      ],
+      "visible_pixel_bounds": [
+        0,
+        200,
+        1000,
+        800
+      ],
+      "clip_pass": true
+    },
+    {
+      "region": "pregnancy",
+      "viewport": [
+        1000,
+        1000
+      ],
+      "visible_pixel_bounds": [
+        0,
+        176,
+        1000,
+        824
+      ],
+      "clip_pass": true
+    },
+    {
+      "region": "breast",
+      "viewport": [
+        1000,
+        1000
+      ],
+      "visible_pixel_bounds": [
+        0,
+        40,
+        1000,
+        960
+      ],
+      "clip_pass": true
+    },
+    {
+      "region": "blood",
+      "viewport": [
+        1000,
+        1000
+      ],
+      "visible_pixel_bounds": [
+        63,
+        0,
+        937,
+        1000
+      ],
+      "clip_pass": true
+    },
+    {
+      "region": "muscle-detail",
+      "viewport": [
+        1000,
+        1000
+      ],
+      "visible_pixel_bounds": [
+        358,
+        21,
+        657,
+        967
+      ],
+      "clip_pass": true
+    },
+    {
+      "region": "bone-detail",
+      "viewport": [
+        1000,
+        1000
+      ],
+      "visible_pixel_bounds": [
+        301,
+        36,
+        708,
+        907
+      ],
+      "clip_pass": true
+    },
+    {
+      "region": "skin-detail",
+      "viewport": [
+        1000,
+        1000
+      ],
+      "visible_pixel_bounds": [
+        197,
+        26,
+        806,
+        943
+      ],
+      "clip_pass": true
+    },
+    {
+      "region": "marrow-detail",
+      "viewport": [
+        1000,
+        1000
+      ],
+      "visible_pixel_bounds": [
+        353,
+        13,
+        637,
+        968
+      ],
+      "clip_pass": true
+    },
+    {
+      "region": "adipose-detail",
+      "viewport": [
+        1000,
+        1000
+      ],
+      "visible_pixel_bounds": [
+        254,
+        0,
+        718,
+        950
+      ],
+      "clip_pass": true
+    }
+  ],
+  "all_primary_part_hashes_verified": true
+}

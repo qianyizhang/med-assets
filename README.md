@@ -1,8 +1,9 @@
 # Medical teaching assets
 
-Animated heart and respiratory teaching assets, imported on 2026-10-22.
-Binary models and preview images are stored with Git LFS. Documentation,
-manifests, licenses, and authoring scripts are stored in normal Git.
+Reusable cardiac, respiratory, whole-body 2D, and Anatomy Workshop 3D teaching
+assets, imported on 2026-10-22. Binary models, images, and synthetic volumes use
+Git LFS. Documentation, licenses, manifests, SVG artwork, and authoring scripts
+are stored in normal Git.
 
 ## Download
 
@@ -16,43 +17,53 @@ git lfs pull
 shasum -a 256 -c SHA256SUMS
 ```
 
-## Included assets
+## Collections
 
-- `heart/Cardiac_Atlas_Animated/`: three animated heart GLBs, the editable
-  Blender source, export scripts, source documentation, and retained QA reports.
-- `body/breathing/`: eleven animated organ GLBs, the editable Blender assembly,
-  authoring scripts, two phase preview images, attribution, and CC BY 4.0 text.
-- `metadata/asset-manifest.json`: source archive hashes and the exact extracted
-  file inventory, including identical shared files merged during extraction.
-- `SHA256SUMS`: SHA-256 hashes of all 35 imported asset files.
+| Directory | Contents |
+| --- | --- |
+| `heart/Cardiac_Atlas_Animated/` | Three animated heart GLBs, editable Blender source, export scripts, and delivery QA. |
+| `heart/Cardiac_Atlas/` | Earlier editable cardiac master, static GLB/STL exports, baked PBR textures, geometry, and source scripts. |
+| `heart/synthetic-imaging/beating-heart/` | Synthetic teaching volumes in NIfTI, NRRD, NumPy, and raw formats, illustrations, orientation metadata, and generators. These are not patient scans. |
+| `body/breathing/` | Eleven animated organ GLBs, editable Blender assembly, phase renders, scripts, and attribution. |
+| `body/anatomy-workshop-r1/` | Eighteen grouped static 3D assets, Blender source, texture maps, original meshes, rebuild scripts, and provenance. |
+| `body/2d-v4/whole-body-anatomy-v4-spatial/` | SVG anatomy parts, variants, overlays, regional views, previews, coordinate mappings, and provenance. |
 
-The four source ZIPs were extracted without modifying their member bytes.
-Nine repeated, byte-identical documentation/metadata entries were merged.
-The repository contains the extracted files only; source ZIPs are not duplicated
-in Git LFS. The GLBs are self-contained. Original source scripts retain their
-authoring-environment paths; read their package documentation before rebuilding.
-No generation or rebuild scripts were run during import.
+The collection contains all 17 requested source bundles: four priority animation
+bundles from Library and the earlier 13 original archives from Drive. The 13
+Drive ZIPs match the original SHA-256 checksum list. There are **591 extracted
+asset files totaling 370,698,859 bytes**. One hundred repeated, byte-identical
+archive entries were merged. No assets were regenerated or edited during import.
 
-## Earlier collection
+Source ZIPs are not duplicated in Git LFS alongside the extracted files.
+`metadata/asset-manifest.json` records all archive and member hashes and the exact
+extraction paths. `SHA256SUMS` covers every imported asset file.
+`metadata/earlier-README.md`, `metadata/earlier-SHA256SUMS.txt`, and
+`metadata/earlier-collection.json` retain the original earlier-collection index,
+archive checksums, and completed import status.
 
-The earlier 13 ZIPs (static cardiac meshes/textures, synthetic imaging,
-whole-body 2D v4, and Anatomy Workshop 3D r1) are **not included in this commit**.
-Their Library entries and Drive checksum records were resolved, but the
-supported Mac batch-download helper reported that its Library materialization
-action was unavailable. `metadata/earlier-collection.json` records each omitted
-archive and expected checksum. `metadata/earlier-README.md` and
-`metadata/earlier-SHA256SUMS.txt` preserve the original collection index and
-checksums as reference metadata, not as proof that those assets were downloaded.
+## Editing and reuse
+
+GLBs are self-contained. Preserve the Anatomy Workshop texture paths and the
+sibling `body-3d-assets`, `body-3d-source`, and `body-3d-delivery` directories.
+Synthetic-imaging geometry remains separate from the cardiac master. Original
+scripts retain their authoring-environment paths; read the relevant package
+documentation before rebuilding. None of the generation or rebuild scripts was
+run during this import. Source QA reports are retained evidence from delivery,
+not new clinical or visual validation from this sync.
 
 ## Attribution and scope
 
-Preserve the original package notices and license files. The respiratory assets
-retain attribution to Jakob Wasserthal, TotalSegmentator contributors, and
-University Hospital Basel. No blanket license is added to this repository;
-the authored Cardiac Atlas package has no separate public license declaration.
-These are simplified educational illustrations; retain the scope and limitations
-in each package's README. Original QA reports describe the source delivery and
-are not new clinical or visual validation from this sync.
+Preserve each collection's notices, source receipts, and full license texts.
+The 2D adaptations credit Servier Medical Art under CC BY 4.0. Source-derived
+3D organ surfaces credit Jakob Wasserthal, the TotalSegmentator contributors,
+and University Hospital Basel under CC BY 4.0; the retained label-source
+Apache 2.0 notice does not replace that attribution. No blanket license is added
+to this repository. The authored cardiac and synthetic-imaging packages do not
+declare a separate public license.
+
+These are simplified educational assets. Retain the package-specific scope and
+limitations. The Anatomy Workshop collection focuses on thoracic and abdominal
+anatomy with selected extras; it is not a complete 3D body atlas.
 
 Published viewers remain at
 https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/ and

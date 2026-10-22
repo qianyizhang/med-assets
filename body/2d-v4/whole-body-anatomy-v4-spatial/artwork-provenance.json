@@ -1,0 +1,1363 @@
+{
+  "version": "4.0-spatial",
+  "date": "2026-10-21",
+  "artworkType": {
+    "en": "Authored educational SVG: original reference-informed head/torso artwork and attributed Servier-based support adaptations",
+    "zh": "教学 SVG：参考资料辅助创作的头部与躯干图，以及署名的 Servier 支持结构改绘图"
+  },
+  "referencePolicy": {
+    "en": "No reference bitmap or traced path is embedded. Servier-inspired support compositions are attributed as adaptations under CC BY 4.0. Head/torso references are reference-only; OpenStax is fact-reference-only. See per-part derivation and attribution.",
+    "zh": "未嵌入参考位图或描摹路径。受 Servier 构图启发的支持结构按 CC BY 4.0 署名改绘；头部及躯干资料为参考，OpenStax 仅用于事实核对。详见逐项改绘与署名记录。"
+  },
+  "limitations": {
+    "en": "This is a teaching atlas with simplified depth, representative tissue samples and alternative anatomy panels. It is not scan-registered, measurement-grade or intended for clinical procedures.",
+    "zh": "本教学图谱简化深度关系，使用代表性组织样本与不同解剖示例。并非扫描配准模型，不用于测量或临床操作。"
+  },
+  "references": [
+    {
+      "title": "Head lateral mouth anatomy",
+      "creator": "Patrick J. Lynch, medical illustrator; C. Carl Jaffe, MD, cardiologist",
+      "url": "https://commons.wikimedia.org/wiki/File:Head_lateral_mouth_anatomy.jpg",
+      "license": "CC BY 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.5/",
+      "use": "Reference only, original pixels inspected. Adult sagittal proportions, palate, tongue, pharynx and brainstem relationships. No tracing or copied art.",
+      "id": "head-1"
+    },
+    {
+      "title": "Head lateral sagittal brain",
+      "creator": "Patrick J. Lynch, medical illustrator; C. Carl Jaffe, MD, cardiologist",
+      "url": "https://commons.wikimedia.org/wiki/File:Head_lateral_sagittal_brain.jpg",
+      "license": "CC BY 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.5/",
+      "use": "Reference only, original pixels inspected. Adult cranial profile and cerebellum, pons, medulla positions. Recognized as composite rather than literal all-structures midsagittal view.",
+      "id": "head-2"
+    },
+    {
+      "title": "Salivary glands",
+      "creator": "Servier Medical Art",
+      "url": "https://smart.servier.com/smart_image/salivary-glands/",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "use": "Reference only, original PNG inspected. Gland placement, lobulated shape and duct direction; no source geometry used.",
+      "id": "head-3"
+    },
+    {
+      "title": "Anatomy and Physiology 2e, 22.1, Figure 22.4 Upper Airway",
+      "creator": "OpenStax",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/22-1-organs-and-structures-of-the-respiratory-system",
+      "license": "CC BY-NC-SA 4.0 (current page)",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "use": "Anatomical fact validation only. Actual figure pixels inspected. No pixels, copied geometry or prose incorporated.",
+      "id": "head-4"
+    },
+    {
+      "title": "Anatomy and Physiology 2e, 17.5, Figure 17.15 Parathyroid Glands",
+      "creator": "OpenStax",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/17-5-the-parathyroid-glands",
+      "license": "CC BY-NC-SA 4.0 (current page)",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "use": "Anatomical fact validation only. Actual posterior-view figure inspected. No pixels, copied geometry or prose incorporated.",
+      "id": "head-5"
+    },
+    {
+      "title": "Sagittal Head, record 43960",
+      "creator": "OHSU Digital Collections archival medical illustration",
+      "url": "https://digitalcollections.ohsu.edu/record/43960",
+      "license": "Not established; no reproduction permitted by this deliverable",
+      "use": "Reference-only cross-check after authoring. Original archived drawing inspected for tongue muscle direction, conchae, palate, epiglottis, hyoid and airway/foodway adjacency.",
+      "id": "head-6"
+    },
+    {
+      "id": "renal-position",
+      "title": "Gross anatomy of the kidney",
+      "creator": "OpenStax",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/25-3-gross-anatomy-of-the-kidney",
+      "license": "CC BY-NC-SA 4.0",
+      "use": "Anatomical fact validation only; posterior location, rib/spine relationships and laterality."
+    },
+    {
+      "id": "lung-form",
+      "title": "Lungs",
+      "creator": "Servier Medical Art",
+      "url": "https://smart.servier.com/smart_image/lungs-11/",
+      "license": "CC BY 4.0",
+      "use": "Reference only; unequal lung contours, fissures and cardiac notch."
+    },
+    {
+      "id": "renal-form",
+      "title": "Kidney",
+      "creator": "Servier Medical Art",
+      "url": "https://smart.servier.com/smart_image/smart-kidney/",
+      "license": "CC BY 4.0",
+      "use": "Reference only; capsule silhouette and medial hilum."
+    },
+    {
+      "id": "digestive-form",
+      "title": "Complete digestive apparatus",
+      "creator": "Servier Medical Art",
+      "url": "https://smart.servier.com/smart_image/complete-digestive-apparatus-anatamoical/",
+      "license": "CC BY 4.0",
+      "use": "Reference only; organ mass relationships and irregular bowel form."
+    },
+    {
+      "id": "pelvic-level",
+      "title": "Anatomical study of iliac crest and lumbar levels",
+      "creator": "Primary CT anatomy study",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11687033/",
+      "license": "See source publication",
+      "use": "Factual cross-check of approximate iliac crest level; no figure reproduced."
+    },
+    {
+      "id": "servier-bone",
+      "title": "Bone structure",
+      "url": "https://smart.servier.com/smart_image/bone-cross-sectional/",
+      "creator": "Servier Medical Art by Les Laboratoires Servier",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "use": "Visually inspected reference; adaptation in newly authored SVG geometry with simplified structure, changed colors, redrawn contours, arrangement and details. No bitmap embedded or tracing used."
+    },
+    {
+      "id": "servier-muscle",
+      "title": "Muscle",
+      "url": "https://smart.servier.com/smart_image/muscle/",
+      "creator": "Servier Medical Art by Les Laboratoires Servier",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "use": "Visually inspected reference; adaptation in newly authored SVG geometry with simplified structure, changed colors, redrawn contours, arrangement and details. No bitmap embedded or tracing used."
+    },
+    {
+      "id": "servier-knee",
+      "title": "Knee – Frontal view",
+      "url": "https://smart.servier.com/smart_image/knee-frontal-view/",
+      "creator": "Servier Medical Art by Les Laboratoires Servier",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "use": "Visually inspected reference; adaptation in newly authored SVG geometry with simplified structure, changed colors, redrawn contours, arrangement and details. No bitmap embedded or tracing used."
+    },
+    {
+      "id": "servier-skin",
+      "title": "Skin",
+      "url": "https://smart.servier.com/smart_image/skin/",
+      "creator": "Servier Medical Art by Les Laboratoires Servier",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "use": "Visually inspected reference; adaptation in newly authored SVG geometry with simplified structure, changed colors, redrawn contours, arrangement and details. No bitmap embedded or tracing used."
+    },
+    {
+      "id": "servier-breast",
+      "title": "Breast",
+      "url": "https://smart.servier.com/smart_image/breast-sagittal/",
+      "creator": "Servier Medical Art by Les Laboratoires Servier",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "use": "Visually inspected reference; adaptation in newly authored SVG geometry with simplified structure, changed colors, redrawn contours, arrangement and details. No bitmap embedded or tracing used."
+    },
+    {
+      "id": "servier-uterine",
+      "title": "Genital apparatus",
+      "url": "https://smart.servier.com/smart_image/genital-apparatus/",
+      "creator": "Servier Medical Art by Les Laboratoires Servier",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "use": "Visually inspected reference; adaptation in newly authored SVG geometry with simplified structure, changed colors, redrawn contours, arrangement and details. No bitmap embedded or tracing used."
+    },
+    {
+      "id": "servier-testicular",
+      "title": "Penis / male genital apparatus",
+      "url": "https://smart.servier.com/smart_image/penis/",
+      "creator": "Servier Medical Art by Les Laboratoires Servier",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "use": "Visually inspected reference; adaptation in newly authored SVG geometry with simplified structure, changed colors, redrawn contours, arrangement and details. No bitmap embedded or tracing used."
+    },
+    {
+      "id": "servier-pregnancy",
+      "title": "Fetus in utero",
+      "url": "https://smart.servier.com/smart_image/fetus-in-utero/",
+      "creator": "Servier Medical Art by Les Laboratoires Servier",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "use": "Visually inspected reference; adaptation in newly authored SVG geometry with simplified structure, changed colors, redrawn contours, arrangement and details. No bitmap embedded or tracing used."
+    },
+    {
+      "id": "openstax-bone",
+      "title": "Bone Structure",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/6-3-bone-structure",
+      "creator": "OpenStax / Rice University",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "use": "Factual reference only. No text, image or source geometry copied."
+    },
+    {
+      "id": "openstax-connective",
+      "title": "Connective Tissue Supports and Protects",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/4-3-connective-tissue-supports-and-protects",
+      "creator": "OpenStax / Rice University",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "use": "Factual reference only. No text, image or source geometry copied."
+    },
+    {
+      "id": "openstax-blood",
+      "title": "An Overview of Blood",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/18-1-an-overview-of-blood",
+      "creator": "OpenStax / Rice University",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "use": "Factual reference only. No text, image or source geometry copied."
+    },
+    {
+      "id": "openstax-testicular",
+      "title": "Anatomy and Physiology of the Testicular Reproductive System",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/27-1-anatomy-and-physiology-of-the-testicular-reproductive-system",
+      "creator": "OpenStax / Rice University",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "use": "Factual reference only. No text, image or source geometry copied."
+    }
+  ],
+  "parts": [
+    {
+      "id": "brain",
+      "name": {
+        "zh": "脑 / 下丘脑",
+        "en": "Brain / hypothalamus"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "head"
+      ],
+      "referenceIds": [
+        "head-1",
+        "head-2",
+        "head-3",
+        "head-4",
+        "head-5",
+        "head-6"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "spinal-cord",
+      "name": {
+        "zh": "脊髓",
+        "en": "Spinal cord"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "head",
+        "torso"
+      ],
+      "referenceIds": [
+        "head-1",
+        "head-2",
+        "head-3",
+        "head-4",
+        "head-5",
+        "head-6",
+        "pelvic-level"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "pituitary",
+      "name": {
+        "zh": "垂体",
+        "en": "Pituitary"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "head"
+      ],
+      "referenceIds": [
+        "head-1",
+        "head-2",
+        "head-3",
+        "head-4",
+        "head-5",
+        "head-6"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "thyroid",
+      "name": {
+        "zh": "甲状腺",
+        "en": "Thyroid"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "head"
+      ],
+      "referenceIds": [
+        "head-1",
+        "head-2",
+        "head-3",
+        "head-4",
+        "head-5",
+        "head-6"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "adrenals",
+      "name": {
+        "zh": "肾上腺",
+        "en": "Adrenal glands"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "torso"
+      ],
+      "referenceIds": [
+        "renal-position",
+        "renal-form"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "heart",
+      "name": {
+        "zh": "心脏",
+        "en": "Heart"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "torso"
+      ],
+      "referenceIds": [
+        "lung-form"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "vessels",
+      "name": {
+        "zh": "血管与血液",
+        "en": "Blood vessels and blood"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "retained-overview-network"
+      ],
+      "referenceIds": [],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "lungs",
+      "name": {
+        "zh": "肺",
+        "en": "Lungs"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "torso"
+      ],
+      "referenceIds": [
+        "lung-form"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "mouth",
+      "name": {
+        "zh": "口腔 / 唾液腺",
+        "en": "Mouth / salivary glands"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "head"
+      ],
+      "referenceIds": [
+        "head-1",
+        "head-2",
+        "head-3",
+        "head-4",
+        "head-5",
+        "head-6"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "esophagus",
+      "name": {
+        "zh": "食管",
+        "en": "Esophagus"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "head",
+        "torso"
+      ],
+      "referenceIds": [
+        "head-1",
+        "head-2",
+        "head-3",
+        "head-4",
+        "head-5",
+        "head-6",
+        "digestive-form"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "stomach",
+      "name": {
+        "zh": "胃",
+        "en": "Stomach"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "torso"
+      ],
+      "referenceIds": [
+        "digestive-form"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "small-intestine",
+      "name": {
+        "zh": "小肠",
+        "en": "Small intestine"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "torso"
+      ],
+      "referenceIds": [
+        "digestive-form"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "large-intestine",
+      "name": {
+        "zh": "大肠",
+        "en": "Large intestine"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "torso"
+      ],
+      "referenceIds": [
+        "digestive-form"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "liver",
+      "name": {
+        "zh": "肝",
+        "en": "Liver"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "torso"
+      ],
+      "referenceIds": [
+        "digestive-form"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "pancreas",
+      "name": {
+        "zh": "胰腺",
+        "en": "Pancreas"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "torso"
+      ],
+      "referenceIds": [
+        "digestive-form"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "gallbladder",
+      "name": {
+        "zh": "胆囊",
+        "en": "Gallbladder"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "torso"
+      ],
+      "referenceIds": [
+        "digestive-form"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "kidneys",
+      "name": {
+        "zh": "肾",
+        "en": "Kidneys"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "torso"
+      ],
+      "referenceIds": [
+        "renal-position",
+        "renal-form"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "bladder",
+      "name": {
+        "zh": "膀胱",
+        "en": "Urinary bladder"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "torso"
+      ],
+      "referenceIds": [
+        "renal-position",
+        "renal-form"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "lymph-nodes",
+      "name": {
+        "zh": "淋巴结",
+        "en": "Lymph nodes"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "retained-overview-network"
+      ],
+      "referenceIds": [],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "lymph-vessels",
+      "name": {
+        "zh": "淋巴管",
+        "en": "Lymphatic vessels"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "retained-overview-network"
+      ],
+      "referenceIds": [],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "spleen",
+      "name": {
+        "zh": "脾",
+        "en": "Spleen"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "torso"
+      ],
+      "referenceIds": [
+        "digestive-form"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "thymus",
+      "name": {
+        "zh": "胸腺",
+        "en": "Thymus"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "torso"
+      ],
+      "referenceIds": [
+        "lung-form"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "bone-marrow",
+      "name": {
+        "zh": "骨髓",
+        "en": "Bone marrow"
+      },
+      "derivation": "redrawn-adaptation",
+      "refinedGroups": [
+        "tissue-pelvis"
+      ],
+      "referenceIds": [
+        "servier-bone",
+        "openstax-bone"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching",
+      "modificationNote": "Original SVG redrawing; Servier-inspired anatomical compositions treated as adaptations for conservative attribution.",
+      "attribution": "Adapted from Servier Medical Art by Les Laboratoires Servier, licensed under CC BY 4.0. Contours, layout, palette, layering and tissue details were redrawn for this atlas.",
+      "sourceLicense": "CC BY 4.0",
+      "sourceLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "adaptationLicense": "CC BY 4.0",
+      "adaptationLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "modificationNotice": "Contours, proportions, composition, colors, layering and tissue details were redrawn into new SVG geometry for this atlas."
+    },
+    {
+      "id": "muscle",
+      "name": {
+        "zh": "骨骼肌 / 呼吸肌",
+        "en": "Skeletal / breathing muscles"
+      },
+      "derivation": "redrawn-adaptation",
+      "refinedGroups": [
+        "tissue-pelvis"
+      ],
+      "referenceIds": [
+        "servier-muscle"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching",
+      "modificationNote": "Original SVG redrawing; Servier-inspired anatomical compositions treated as adaptations for conservative attribution.",
+      "attribution": "Adapted from Servier Medical Art by Les Laboratoires Servier, licensed under CC BY 4.0. Contours, layout, palette, layering and tissue details were redrawn for this atlas.",
+      "sourceLicense": "CC BY 4.0",
+      "sourceLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "adaptationLicense": "CC BY 4.0",
+      "adaptationLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "modificationNotice": "Contours, proportions, composition, colors, layering and tissue details were redrawn into new SVG geometry for this atlas."
+    },
+    {
+      "id": "adipose",
+      "name": {
+        "zh": "脂肪组织",
+        "en": "Adipose tissue"
+      },
+      "derivation": "redrawn-adaptation",
+      "refinedGroups": [
+        "tissue-pelvis"
+      ],
+      "referenceIds": [
+        "servier-skin",
+        "openstax-connective"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching",
+      "modificationNote": "Original SVG redrawing; Servier-inspired anatomical compositions treated as adaptations for conservative attribution.",
+      "attribution": "Adapted from Servier Medical Art by Les Laboratoires Servier, licensed under CC BY 4.0. Contours, layout, palette, layering and tissue details were redrawn for this atlas.",
+      "sourceLicense": "CC BY 4.0",
+      "sourceLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "adaptationLicense": "CC BY 4.0",
+      "adaptationLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "modificationNotice": "Contours, proportions, composition, colors, layering and tissue details were redrawn into new SVG geometry for this atlas."
+    },
+    {
+      "id": "skin",
+      "name": {
+        "zh": "皮肤",
+        "en": "Skin"
+      },
+      "derivation": "redrawn-adaptation",
+      "refinedGroups": [
+        "tissue-pelvis"
+      ],
+      "referenceIds": [
+        "servier-skin"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching",
+      "modificationNote": "Original SVG redrawing; Servier-inspired anatomical compositions treated as adaptations for conservative attribution.",
+      "attribution": "Adapted from Servier Medical Art by Les Laboratoires Servier, licensed under CC BY 4.0. Contours, layout, palette, layering and tissue details were redrawn for this atlas.",
+      "sourceLicense": "CC BY 4.0",
+      "sourceLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "adaptationLicense": "CC BY 4.0",
+      "adaptationLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "modificationNotice": "Contours, proportions, composition, colors, layering and tissue details were redrawn into new SVG geometry for this atlas."
+    },
+    {
+      "id": "bone",
+      "name": {
+        "zh": "骨骼",
+        "en": "Skeleton"
+      },
+      "derivation": "redrawn-adaptation",
+      "refinedGroups": [
+        "tissue-pelvis"
+      ],
+      "referenceIds": [
+        "servier-bone",
+        "openstax-bone"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching",
+      "modificationNote": "Original SVG redrawing; Servier-inspired anatomical compositions treated as adaptations for conservative attribution.",
+      "attribution": "Adapted from Servier Medical Art by Les Laboratoires Servier, licensed under CC BY 4.0. Contours, layout, palette, layering and tissue details were redrawn for this atlas.",
+      "sourceLicense": "CC BY 4.0",
+      "sourceLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "adaptationLicense": "CC BY 4.0",
+      "adaptationLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "modificationNotice": "Contours, proportions, composition, colors, layering and tissue details were redrawn into new SVG geometry for this atlas."
+    },
+    {
+      "id": "reproductive",
+      "name": {
+        "zh": "生殖器官 / 性腺",
+        "en": "Reproductive organs / gonads"
+      },
+      "derivation": "redrawn-adaptation",
+      "refinedGroups": [
+        "tissue-pelvis"
+      ],
+      "referenceIds": [
+        "servier-uterine",
+        "servier-testicular"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching",
+      "modificationNote": "Original SVG redrawing; Servier-inspired anatomical compositions treated as adaptations for conservative attribution.",
+      "attribution": "Adapted from Servier Medical Art by Les Laboratoires Servier, licensed under CC BY 4.0. Contours, layout, palette, layering and tissue details were redrawn for this atlas.",
+      "sourceLicense": "CC BY 4.0",
+      "sourceLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "adaptationLicense": "CC BY 4.0",
+      "adaptationLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "modificationNotice": "Contours, proportions, composition, colors, layering and tissue details were redrawn into new SVG geometry for this atlas."
+    },
+    {
+      "id": "eyes",
+      "name": {
+        "en": "Eyes",
+        "zh": "眼"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "head"
+      ],
+      "referenceIds": [
+        "head-1",
+        "head-2",
+        "head-3",
+        "head-4",
+        "head-5",
+        "head-6"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "ears",
+      "name": {
+        "en": "Ears / hearing and balance",
+        "zh": "耳 / 听觉与平衡"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "head"
+      ],
+      "referenceIds": [
+        "head-1",
+        "head-2",
+        "head-3",
+        "head-4",
+        "head-5",
+        "head-6"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "peripheral-nerves",
+      "name": {
+        "en": "Peripheral nerves",
+        "zh": "周围神经"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "retained-overview-network"
+      ],
+      "referenceIds": [],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "nose-sinuses",
+      "name": {
+        "en": "Nose and sinuses",
+        "zh": "鼻与鼻窦"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "head"
+      ],
+      "referenceIds": [
+        "head-1",
+        "head-2",
+        "head-3",
+        "head-4",
+        "head-5",
+        "head-6"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "pharynx-larynx",
+      "name": {
+        "en": "Pharynx and larynx",
+        "zh": "咽与喉"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "head"
+      ],
+      "referenceIds": [
+        "head-1",
+        "head-2",
+        "head-3",
+        "head-4",
+        "head-5",
+        "head-6"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "trachea",
+      "name": {
+        "en": "Trachea",
+        "zh": "气管"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "head",
+        "torso"
+      ],
+      "referenceIds": [
+        "head-1",
+        "head-2",
+        "head-3",
+        "head-4",
+        "head-5",
+        "head-6",
+        "lung-form"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "diaphragm",
+      "name": {
+        "en": "Diaphragm",
+        "zh": "膈肌"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "torso"
+      ],
+      "referenceIds": [
+        "lung-form"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "teeth-gums",
+      "name": {
+        "en": "Teeth and gums",
+        "zh": "牙齿与牙龈"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "head"
+      ],
+      "referenceIds": [
+        "head-1",
+        "head-2",
+        "head-3",
+        "head-4",
+        "head-5",
+        "head-6"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "salivary-glands",
+      "name": {
+        "en": "Salivary glands",
+        "zh": "唾液腺"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "head"
+      ],
+      "referenceIds": [
+        "head-1",
+        "head-2",
+        "head-3",
+        "head-4",
+        "head-5",
+        "head-6"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "joints",
+      "name": {
+        "en": "Joints",
+        "zh": "关节"
+      },
+      "derivation": "redrawn-adaptation",
+      "refinedGroups": [
+        "tissue-pelvis"
+      ],
+      "referenceIds": [
+        "servier-knee"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching",
+      "modificationNote": "Original SVG redrawing; Servier-inspired anatomical compositions treated as adaptations for conservative attribution.",
+      "attribution": "Adapted from Servier Medical Art by Les Laboratoires Servier, licensed under CC BY 4.0. Contours, layout, palette, layering and tissue details were redrawn for this atlas.",
+      "sourceLicense": "CC BY 4.0",
+      "sourceLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "adaptationLicense": "CC BY 4.0",
+      "adaptationLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "modificationNotice": "Contours, proportions, composition, colors, layering and tissue details were redrawn into new SVG geometry for this atlas."
+    },
+    {
+      "id": "tendons-ligaments",
+      "name": {
+        "en": "Tendons and ligaments",
+        "zh": "肌腱与韧带"
+      },
+      "derivation": "redrawn-adaptation",
+      "refinedGroups": [
+        "tissue-pelvis"
+      ],
+      "referenceIds": [
+        "servier-muscle",
+        "servier-knee"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching",
+      "modificationNote": "Original SVG redrawing; Servier-inspired anatomical compositions treated as adaptations for conservative attribution.",
+      "attribution": "Adapted from Servier Medical Art by Les Laboratoires Servier, licensed under CC BY 4.0. Contours, layout, palette, layering and tissue details were redrawn for this atlas.",
+      "sourceLicense": "CC BY 4.0",
+      "sourceLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "adaptationLicense": "CC BY 4.0",
+      "adaptationLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "modificationNotice": "Contours, proportions, composition, colors, layering and tissue details were redrawn into new SVG geometry for this atlas."
+    },
+    {
+      "id": "blood",
+      "name": {
+        "en": "Blood",
+        "zh": "血液"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "tissue-pelvis"
+      ],
+      "referenceIds": [
+        "openstax-blood"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching",
+      "modificationNote": "Original SVG cell geometry; factual reference only, no source artwork copied."
+    },
+    {
+      "id": "ureters",
+      "name": {
+        "en": "Ureters",
+        "zh": "输尿管"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "torso"
+      ],
+      "referenceIds": [
+        "renal-position",
+        "renal-form"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "urethra",
+      "name": {
+        "en": "Urethra",
+        "zh": "尿道"
+      },
+      "derivation": "redrawn-adaptation",
+      "refinedGroups": [
+        "tissue-pelvis"
+      ],
+      "referenceIds": [
+        "servier-testicular",
+        "openstax-testicular"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching",
+      "modificationNote": "Original SVG redrawing; Servier-inspired anatomical compositions treated as adaptations for conservative attribution.",
+      "attribution": "Adapted from Servier Medical Art by Les Laboratoires Servier, licensed under CC BY 4.0. Contours, layout, palette, layering and tissue details were redrawn for this atlas.",
+      "sourceLicense": "CC BY 4.0",
+      "sourceLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "adaptationLicense": "CC BY 4.0",
+      "adaptationLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "modificationNotice": "Contours, proportions, composition, colors, layering and tissue details were redrawn into new SVG geometry for this atlas."
+    },
+    {
+      "id": "ovaries",
+      "name": {
+        "en": "Ovaries",
+        "zh": "卵巢"
+      },
+      "derivation": "redrawn-adaptation",
+      "refinedGroups": [
+        "tissue-pelvis"
+      ],
+      "referenceIds": [
+        "servier-uterine"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching",
+      "modificationNote": "Original SVG redrawing; Servier-inspired anatomical compositions treated as adaptations for conservative attribution.",
+      "attribution": "Adapted from Servier Medical Art by Les Laboratoires Servier, licensed under CC BY 4.0. Contours, layout, palette, layering and tissue details were redrawn for this atlas.",
+      "sourceLicense": "CC BY 4.0",
+      "sourceLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "adaptationLicense": "CC BY 4.0",
+      "adaptationLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "modificationNotice": "Contours, proportions, composition, colors, layering and tissue details were redrawn into new SVG geometry for this atlas."
+    },
+    {
+      "id": "uterus",
+      "name": {
+        "en": "Uterus",
+        "zh": "子宫"
+      },
+      "derivation": "redrawn-adaptation",
+      "refinedGroups": [
+        "tissue-pelvis"
+      ],
+      "referenceIds": [
+        "servier-uterine"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching",
+      "modificationNote": "Original SVG redrawing; Servier-inspired anatomical compositions treated as adaptations for conservative attribution.",
+      "attribution": "Adapted from Servier Medical Art by Les Laboratoires Servier, licensed under CC BY 4.0. Contours, layout, palette, layering and tissue details were redrawn for this atlas.",
+      "sourceLicense": "CC BY 4.0",
+      "sourceLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "adaptationLicense": "CC BY 4.0",
+      "adaptationLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "modificationNotice": "Contours, proportions, composition, colors, layering and tissue details were redrawn into new SVG geometry for this atlas."
+    },
+    {
+      "id": "vagina-vulva",
+      "name": {
+        "en": "Vagina and vulva",
+        "zh": "阴道与外阴"
+      },
+      "derivation": "redrawn-adaptation",
+      "refinedGroups": [
+        "tissue-pelvis"
+      ],
+      "referenceIds": [
+        "servier-uterine"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching",
+      "modificationNote": "Original SVG redrawing; Servier-inspired anatomical compositions treated as adaptations for conservative attribution.",
+      "attribution": "Adapted from Servier Medical Art by Les Laboratoires Servier, licensed under CC BY 4.0. Contours, layout, palette, layering and tissue details were redrawn for this atlas.",
+      "sourceLicense": "CC BY 4.0",
+      "sourceLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "adaptationLicense": "CC BY 4.0",
+      "adaptationLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "modificationNotice": "Contours, proportions, composition, colors, layering and tissue details were redrawn into new SVG geometry for this atlas."
+    },
+    {
+      "id": "testes",
+      "name": {
+        "en": "Testes",
+        "zh": "睾丸"
+      },
+      "derivation": "redrawn-adaptation",
+      "refinedGroups": [
+        "tissue-pelvis"
+      ],
+      "referenceIds": [
+        "servier-testicular",
+        "openstax-testicular"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching",
+      "modificationNote": "Original SVG redrawing; Servier-inspired anatomical compositions treated as adaptations for conservative attribution.",
+      "attribution": "Adapted from Servier Medical Art by Les Laboratoires Servier, licensed under CC BY 4.0. Contours, layout, palette, layering and tissue details were redrawn for this atlas.",
+      "sourceLicense": "CC BY 4.0",
+      "sourceLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "adaptationLicense": "CC BY 4.0",
+      "adaptationLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "modificationNotice": "Contours, proportions, composition, colors, layering and tissue details were redrawn into new SVG geometry for this atlas."
+    },
+    {
+      "id": "prostate",
+      "name": {
+        "en": "Prostate",
+        "zh": "前列腺"
+      },
+      "derivation": "redrawn-adaptation",
+      "refinedGroups": [
+        "tissue-pelvis"
+      ],
+      "referenceIds": [
+        "servier-testicular",
+        "openstax-testicular"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching",
+      "modificationNote": "Original SVG redrawing; Servier-inspired anatomical compositions treated as adaptations for conservative attribution.",
+      "attribution": "Adapted from Servier Medical Art by Les Laboratoires Servier, licensed under CC BY 4.0. Contours, layout, palette, layering and tissue details were redrawn for this atlas.",
+      "sourceLicense": "CC BY 4.0",
+      "sourceLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "adaptationLicense": "CC BY 4.0",
+      "adaptationLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "modificationNotice": "Contours, proportions, composition, colors, layering and tissue details were redrawn into new SVG geometry for this atlas."
+    },
+    {
+      "id": "penis",
+      "name": {
+        "en": "Penis",
+        "zh": "阴茎"
+      },
+      "derivation": "redrawn-adaptation",
+      "refinedGroups": [
+        "tissue-pelvis"
+      ],
+      "referenceIds": [
+        "servier-testicular",
+        "openstax-testicular"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching",
+      "modificationNote": "Original SVG redrawing; Servier-inspired anatomical compositions treated as adaptations for conservative attribution.",
+      "attribution": "Adapted from Servier Medical Art by Les Laboratoires Servier, licensed under CC BY 4.0. Contours, layout, palette, layering and tissue details were redrawn for this atlas.",
+      "sourceLicense": "CC BY 4.0",
+      "sourceLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "adaptationLicense": "CC BY 4.0",
+      "adaptationLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "modificationNotice": "Contours, proportions, composition, colors, layering and tissue details were redrawn into new SVG geometry for this atlas."
+    },
+    {
+      "id": "breasts",
+      "name": {
+        "en": "Breasts / mammary glands",
+        "zh": "乳房 / 乳腺"
+      },
+      "derivation": "redrawn-adaptation",
+      "refinedGroups": [
+        "tissue-pelvis"
+      ],
+      "referenceIds": [
+        "servier-breast"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching",
+      "modificationNote": "Original SVG redrawing; Servier-inspired anatomical compositions treated as adaptations for conservative attribution.",
+      "attribution": "Adapted from Servier Medical Art by Les Laboratoires Servier, licensed under CC BY 4.0. Contours, layout, palette, layering and tissue details were redrawn for this atlas.",
+      "sourceLicense": "CC BY 4.0",
+      "sourceLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "adaptationLicense": "CC BY 4.0",
+      "adaptationLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "modificationNotice": "Contours, proportions, composition, colors, layering and tissue details were redrawn into new SVG geometry for this atlas."
+    },
+    {
+      "id": "placenta",
+      "name": {
+        "en": "Placenta",
+        "zh": "胎盘"
+      },
+      "derivation": "redrawn-adaptation",
+      "refinedGroups": [
+        "tissue-pelvis"
+      ],
+      "referenceIds": [
+        "servier-pregnancy"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching",
+      "modificationNote": "Original SVG redrawing; Servier-inspired anatomical compositions treated as adaptations for conservative attribution.",
+      "attribution": "Adapted from Servier Medical Art by Les Laboratoires Servier, licensed under CC BY 4.0. Contours, layout, palette, layering and tissue details were redrawn for this atlas.",
+      "sourceLicense": "CC BY 4.0",
+      "sourceLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "adaptationLicense": "CC BY 4.0",
+      "adaptationLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "modificationNotice": "Contours, proportions, composition, colors, layering and tissue details were redrawn into new SVG geometry for this atlas."
+    },
+    {
+      "id": "fetus",
+      "name": {
+        "en": "Fetus / newborn transition",
+        "zh": "胎儿 / 新生儿转换"
+      },
+      "derivation": "redrawn-adaptation",
+      "refinedGroups": [
+        "tissue-pelvis"
+      ],
+      "referenceIds": [
+        "servier-pregnancy"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching",
+      "modificationNote": "Original SVG redrawing; Servier-inspired anatomical compositions treated as adaptations for conservative attribution.",
+      "attribution": "Adapted from Servier Medical Art by Les Laboratoires Servier, licensed under CC BY 4.0. Contours, layout, palette, layering and tissue details were redrawn for this atlas.",
+      "sourceLicense": "CC BY 4.0",
+      "sourceLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "adaptationLicense": "CC BY 4.0",
+      "adaptationLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "modificationNotice": "Contours, proportions, composition, colors, layering and tissue details were redrawn into new SVG geometry for this atlas."
+    },
+    {
+      "id": "tongue",
+      "name": {
+        "en": "Tongue",
+        "zh": "舌"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "head"
+      ],
+      "referenceIds": [
+        "head-1",
+        "head-2",
+        "head-3",
+        "head-4",
+        "head-5",
+        "head-6"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    },
+    {
+      "id": "cartilage",
+      "name": {
+        "en": "Cartilage",
+        "zh": "软骨"
+      },
+      "derivation": "redrawn-adaptation",
+      "refinedGroups": [
+        "tissue-pelvis"
+      ],
+      "referenceIds": [
+        "servier-knee"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching",
+      "modificationNote": "Original SVG redrawing; Servier-inspired anatomical compositions treated as adaptations for conservative attribution.",
+      "attribution": "Adapted from Servier Medical Art by Les Laboratoires Servier, licensed under CC BY 4.0. Contours, layout, palette, layering and tissue details were redrawn for this atlas.",
+      "sourceLicense": "CC BY 4.0",
+      "sourceLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "adaptationLicense": "CC BY 4.0",
+      "adaptationLicenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "modificationNotice": "Contours, proportions, composition, colors, layering and tissue details were redrawn into new SVG geometry for this atlas."
+    },
+    {
+      "id": "parathyroids",
+      "name": {
+        "en": "Parathyroid glands",
+        "zh": "甲状旁腺"
+      },
+      "derivation": "original-authored",
+      "refinedGroups": [
+        "head"
+      ],
+      "referenceIds": [
+        "head-1",
+        "head-2",
+        "head-3",
+        "head-4",
+        "head-5",
+        "head-6"
+      ],
+      "sourceArtworkEmbedded": false,
+      "sourceArtworkTraced": false,
+      "normalAnatomyState": "simplified-normal-teaching"
+    }
+  ],
+  "adaptationAttribution": {
+    "en": "Adapted from Servier Medical Art by Les Laboratoires Servier, licensed under CC BY 4.0. Contours, layout, palette, layering and tissue details were redrawn for this atlas.",
+    "zh": "改编自 Les Laboratoires Servier 的 Servier Medical Art（CC BY 4.0）。轮廓、布局、配色、层次及组织细节已为本图谱重新绘制。"
+  }
+}

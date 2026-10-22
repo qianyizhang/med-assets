@@ -1,0 +1,2788 @@
+[
+  {
+    "object": "LV | complete wall",
+    "anatomy_id": "wall_LV",
+    "vertices": 12127,
+    "faces": 24246,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": 5
+  },
+  {
+    "object": "LV | closed blood pool",
+    "anatomy_id": "bloodpool_LV",
+    "vertices": 5666,
+    "faces": 5760,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": 1
+  },
+  {
+    "object": "LV | anterior section",
+    "anatomy_id": "cutaway_LV",
+    "vertices": 7553,
+    "faces": 15102,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": 5
+  },
+  {
+    "object": "RV | complete wall",
+    "anatomy_id": "wall_RV",
+    "vertices": 11332,
+    "faces": 22656,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": 6
+  },
+  {
+    "object": "RV | closed blood pool",
+    "anatomy_id": "bloodpool_RV",
+    "vertices": 5666,
+    "faces": 5760,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": 2
+  },
+  {
+    "object": "RV | anterior section",
+    "anatomy_id": "cutaway_RV",
+    "vertices": 3413,
+    "faces": 6822,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": 6
+  },
+  {
+    "object": "LA | complete wall",
+    "anatomy_id": "wall_LA",
+    "vertices": 11332,
+    "faces": 11520,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": 7
+  },
+  {
+    "object": "LA | closed blood pool",
+    "anatomy_id": "bloodpool_LA",
+    "vertices": 5666,
+    "faces": 5760,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": 3
+  },
+  {
+    "object": "LA | anterior section",
+    "anatomy_id": "cutaway_LA",
+    "vertices": 10752,
+    "faces": 10852,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": 7
+  },
+  {
+    "object": "RA | complete wall",
+    "anatomy_id": "wall_RA",
+    "vertices": 11332,
+    "faces": 11520,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": 8
+  },
+  {
+    "object": "RA | closed blood pool",
+    "anatomy_id": "bloodpool_RA",
+    "vertices": 5666,
+    "faces": 5760,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": 4
+  },
+  {
+    "object": "RA | anterior section",
+    "anatomy_id": "cutaway_RA",
+    "vertices": 4610,
+    "faces": 4418,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": 8
+  },
+  {
+    "object": "Aorta | root, ascending, arch and descending",
+    "anatomy_id": "aorta",
+    "vertices": 3200,
+    "faces": 3200,
+    "shape_keys": [],
+    "segmentation_label": null
+  },
+  {
+    "object": "Brachiocephalic trunk",
+    "anatomy_id": "brachiocephalic_trunk",
+    "vertices": 960,
+    "faces": 960,
+    "shape_keys": [],
+    "segmentation_label": null
+  },
+  {
+    "object": "Right common carotid",
+    "anatomy_id": "right_common_carotid",
+    "vertices": 512,
+    "faces": 512,
+    "shape_keys": [],
+    "segmentation_label": null
+  },
+  {
+    "object": "Right subclavian",
+    "anatomy_id": "right_subclavian",
+    "vertices": 512,
+    "faces": 512,
+    "shape_keys": [],
+    "segmentation_label": null
+  },
+  {
+    "object": "Left common carotid",
+    "anatomy_id": "left_common_carotid",
+    "vertices": 960,
+    "faces": 960,
+    "shape_keys": [],
+    "segmentation_label": null
+  },
+  {
+    "object": "Left subclavian",
+    "anatomy_id": "left_subclavian",
+    "vertices": 960,
+    "faces": 960,
+    "shape_keys": [],
+    "segmentation_label": null
+  },
+  {
+    "object": "Pulmonary trunk",
+    "anatomy_id": "pulmonary_trunk",
+    "vertices": 1408,
+    "faces": 1408,
+    "shape_keys": [],
+    "segmentation_label": null
+  },
+  {
+    "object": "Left pulmonary artery",
+    "anatomy_id": "left_pulmonary_artery",
+    "vertices": 1408,
+    "faces": 1408,
+    "shape_keys": [],
+    "segmentation_label": null
+  },
+  {
+    "object": "Right pulmonary artery",
+    "anatomy_id": "right_pulmonary_artery",
+    "vertices": 1408,
+    "faces": 1408,
+    "shape_keys": [],
+    "segmentation_label": null
+  },
+  {
+    "object": "Superior vena cava",
+    "anatomy_id": "superior_vena_cava",
+    "vertices": 960,
+    "faces": 960,
+    "shape_keys": [],
+    "segmentation_label": null
+  },
+  {
+    "object": "Inferior vena cava",
+    "anatomy_id": "inferior_vena_cava",
+    "vertices": 960,
+    "faces": 960,
+    "shape_keys": [],
+    "segmentation_label": null
+  },
+  {
+    "object": "Right superior pulmonary vein",
+    "anatomy_id": "right_superior_pulmonary_vein",
+    "vertices": 960,
+    "faces": 960,
+    "shape_keys": [],
+    "segmentation_label": null
+  },
+  {
+    "object": "Right inferior pulmonary vein",
+    "anatomy_id": "right_inferior_pulmonary_vein",
+    "vertices": 960,
+    "faces": 960,
+    "shape_keys": [],
+    "segmentation_label": null
+  },
+  {
+    "object": "Left superior pulmonary vein",
+    "anatomy_id": "left_superior_pulmonary_vein",
+    "vertices": 960,
+    "faces": 960,
+    "shape_keys": [],
+    "segmentation_label": null
+  },
+  {
+    "object": "Left inferior pulmonary vein",
+    "anatomy_id": "left_inferior_pulmonary_vein",
+    "vertices": 960,
+    "faces": 960,
+    "shape_keys": [],
+    "segmentation_label": null
+  },
+  {
+    "object": "Interventricular septum | curved muscular partition",
+    "anatomy_id": "interventricular_septum",
+    "vertices": 4410,
+    "faces": 4408,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": 9
+  },
+  {
+    "object": "Interatrial septum",
+    "anatomy_id": "interatrial_septum",
+    "vertices": 922,
+    "faces": 960,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": 10
+  },
+  {
+    "object": "Fossa ovalis | right atrial septal depression",
+    "anatomy_id": "fossa_ovalis",
+    "vertices": 922,
+    "faces": 960,
+    "shape_keys": [],
+    "segmentation_label": null
+  },
+  {
+    "object": "RA auricular appendage",
+    "anatomy_id": "RA_appendage",
+    "vertices": 706,
+    "faces": 736,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LA auricular appendage",
+    "anatomy_id": "LA_appendage",
+    "vertices": 706,
+    "faces": 736,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Mitral valve | annulus",
+    "anatomy_id": "mitral_valve_|_annulus",
+    "vertices": 782,
+    "faces": 792,
+    "shape_keys": [],
+    "segmentation_label": null
+  },
+  {
+    "object": "Mitral valve | leaflet 1",
+    "anatomy_id": "mitral_valve_leaflet_1",
+    "vertices": 225,
+    "faces": 192,
+    "shape_keys": [
+      "Basis \u2022 closed",
+      "Opening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Mitral valve | leaflet 2",
+    "anatomy_id": "mitral_valve_leaflet_2",
+    "vertices": 225,
+    "faces": 192,
+    "shape_keys": [
+      "Basis \u2022 closed",
+      "Opening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Tricuspid valve | annulus",
+    "anatomy_id": "tricuspid_valve_|_annulus",
+    "vertices": 782,
+    "faces": 792,
+    "shape_keys": [],
+    "segmentation_label": null
+  },
+  {
+    "object": "Tricuspid valve | leaflet 1",
+    "anatomy_id": "tricuspid_valve_leaflet_1",
+    "vertices": 225,
+    "faces": 192,
+    "shape_keys": [
+      "Basis \u2022 closed",
+      "Opening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Tricuspid valve | leaflet 2",
+    "anatomy_id": "tricuspid_valve_leaflet_2",
+    "vertices": 225,
+    "faces": 192,
+    "shape_keys": [
+      "Basis \u2022 closed",
+      "Opening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Tricuspid valve | leaflet 3",
+    "anatomy_id": "tricuspid_valve_leaflet_3",
+    "vertices": 225,
+    "faces": 192,
+    "shape_keys": [
+      "Basis \u2022 closed",
+      "Opening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Aortic valve | annulus",
+    "anatomy_id": "aortic_valve_|_annulus",
+    "vertices": 782,
+    "faces": 792,
+    "shape_keys": [],
+    "segmentation_label": null
+  },
+  {
+    "object": "Aortic valve | leaflet 1",
+    "anatomy_id": "aortic_valve_leaflet_1",
+    "vertices": 225,
+    "faces": 192,
+    "shape_keys": [
+      "Basis \u2022 closed",
+      "Opening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Aortic valve | leaflet 2",
+    "anatomy_id": "aortic_valve_leaflet_2",
+    "vertices": 225,
+    "faces": 192,
+    "shape_keys": [
+      "Basis \u2022 closed",
+      "Opening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Aortic valve | leaflet 3",
+    "anatomy_id": "aortic_valve_leaflet_3",
+    "vertices": 225,
+    "faces": 192,
+    "shape_keys": [
+      "Basis \u2022 closed",
+      "Opening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Pulmonary valve | annulus",
+    "anatomy_id": "pulmonary_valve_|_annulus",
+    "vertices": 782,
+    "faces": 792,
+    "shape_keys": [],
+    "segmentation_label": null
+  },
+  {
+    "object": "Pulmonary valve | leaflet 1",
+    "anatomy_id": "pulmonary_valve_leaflet_1",
+    "vertices": 225,
+    "faces": 192,
+    "shape_keys": [
+      "Basis \u2022 closed",
+      "Opening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Pulmonary valve | leaflet 2",
+    "anatomy_id": "pulmonary_valve_leaflet_2",
+    "vertices": 225,
+    "faces": 192,
+    "shape_keys": [
+      "Basis \u2022 closed",
+      "Opening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Pulmonary valve | leaflet 3",
+    "anatomy_id": "pulmonary_valve_leaflet_3",
+    "vertices": 225,
+    "faces": 192,
+    "shape_keys": [
+      "Basis \u2022 closed",
+      "Opening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV papillary muscle 1",
+    "anatomy_id": "LV_papillary_1",
+    "vertices": 922,
+    "faces": 960,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV chordae | papillary 1 leaflet 1 cord 1",
+    "anatomy_id": "LV_chord_0_0_0",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV chordae | papillary 1 leaflet 1 cord 2",
+    "anatomy_id": "LV_chord_0_0_1",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV chordae | papillary 1 leaflet 1 cord 3",
+    "anatomy_id": "LV_chord_0_0_2",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV chordae | papillary 1 leaflet 1 cord 4",
+    "anatomy_id": "LV_chord_0_0_3",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV chordae | papillary 1 leaflet 1 cord 5",
+    "anatomy_id": "LV_chord_0_0_4",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV chordae | papillary 1 leaflet 2 cord 1",
+    "anatomy_id": "LV_chord_0_1_0",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV chordae | papillary 1 leaflet 2 cord 2",
+    "anatomy_id": "LV_chord_0_1_1",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV chordae | papillary 1 leaflet 2 cord 3",
+    "anatomy_id": "LV_chord_0_1_2",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV chordae | papillary 1 leaflet 2 cord 4",
+    "anatomy_id": "LV_chord_0_1_3",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV chordae | papillary 1 leaflet 2 cord 5",
+    "anatomy_id": "LV_chord_0_1_4",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV papillary muscle 2",
+    "anatomy_id": "LV_papillary_2",
+    "vertices": 922,
+    "faces": 960,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV chordae | papillary 2 leaflet 1 cord 1",
+    "anatomy_id": "LV_chord_1_0_0",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV chordae | papillary 2 leaflet 1 cord 2",
+    "anatomy_id": "LV_chord_1_0_1",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV chordae | papillary 2 leaflet 1 cord 3",
+    "anatomy_id": "LV_chord_1_0_2",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV chordae | papillary 2 leaflet 1 cord 4",
+    "anatomy_id": "LV_chord_1_0_3",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV chordae | papillary 2 leaflet 1 cord 5",
+    "anatomy_id": "LV_chord_1_0_4",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV chordae | papillary 2 leaflet 2 cord 1",
+    "anatomy_id": "LV_chord_1_1_0",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV chordae | papillary 2 leaflet 2 cord 2",
+    "anatomy_id": "LV_chord_1_1_1",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV chordae | papillary 2 leaflet 2 cord 3",
+    "anatomy_id": "LV_chord_1_1_2",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV chordae | papillary 2 leaflet 2 cord 4",
+    "anatomy_id": "LV_chord_1_1_3",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV chordae | papillary 2 leaflet 2 cord 5",
+    "anatomy_id": "LV_chord_1_1_4",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV papillary muscle 1",
+    "anatomy_id": "RV_papillary_1",
+    "vertices": 922,
+    "faces": 960,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV chordae | papillary 1 leaflet 1 cord 1",
+    "anatomy_id": "RV_chord_0_0_0",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV chordae | papillary 1 leaflet 1 cord 2",
+    "anatomy_id": "RV_chord_0_0_1",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV chordae | papillary 1 leaflet 1 cord 3",
+    "anatomy_id": "RV_chord_0_0_2",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV chordae | papillary 1 leaflet 1 cord 4",
+    "anatomy_id": "RV_chord_0_0_3",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV chordae | papillary 1 leaflet 1 cord 5",
+    "anatomy_id": "RV_chord_0_0_4",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV chordae | papillary 1 leaflet 2 cord 1",
+    "anatomy_id": "RV_chord_0_1_0",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV chordae | papillary 1 leaflet 2 cord 2",
+    "anatomy_id": "RV_chord_0_1_1",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV chordae | papillary 1 leaflet 2 cord 3",
+    "anatomy_id": "RV_chord_0_1_2",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV chordae | papillary 1 leaflet 2 cord 4",
+    "anatomy_id": "RV_chord_0_1_3",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV chordae | papillary 1 leaflet 2 cord 5",
+    "anatomy_id": "RV_chord_0_1_4",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV papillary muscle 2",
+    "anatomy_id": "RV_papillary_2",
+    "vertices": 922,
+    "faces": 960,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV chordae | papillary 2 leaflet 2 cord 1",
+    "anatomy_id": "RV_chord_1_1_0",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV chordae | papillary 2 leaflet 2 cord 2",
+    "anatomy_id": "RV_chord_1_1_1",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV chordae | papillary 2 leaflet 2 cord 3",
+    "anatomy_id": "RV_chord_1_1_2",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV chordae | papillary 2 leaflet 2 cord 4",
+    "anatomy_id": "RV_chord_1_1_3",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV chordae | papillary 2 leaflet 2 cord 5",
+    "anatomy_id": "RV_chord_1_1_4",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV chordae | papillary 2 leaflet 3 cord 1",
+    "anatomy_id": "RV_chord_1_2_0",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV chordae | papillary 2 leaflet 3 cord 2",
+    "anatomy_id": "RV_chord_1_2_1",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV chordae | papillary 2 leaflet 3 cord 3",
+    "anatomy_id": "RV_chord_1_2_2",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV chordae | papillary 2 leaflet 3 cord 4",
+    "anatomy_id": "RV_chord_1_2_3",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV chordae | papillary 2 leaflet 3 cord 5",
+    "anatomy_id": "RV_chord_1_2_4",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV papillary muscle 3",
+    "anatomy_id": "RV_papillary_3",
+    "vertices": 922,
+    "faces": 960,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV chordae | papillary 3 leaflet 1 cord 1",
+    "anatomy_id": "RV_chord_2_0_0",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV chordae | papillary 3 leaflet 1 cord 2",
+    "anatomy_id": "RV_chord_2_0_1",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV chordae | papillary 3 leaflet 1 cord 3",
+    "anatomy_id": "RV_chord_2_0_2",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV chordae | papillary 3 leaflet 1 cord 4",
+    "anatomy_id": "RV_chord_2_0_3",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV chordae | papillary 3 leaflet 1 cord 5",
+    "anatomy_id": "RV_chord_2_0_4",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV chordae | papillary 3 leaflet 3 cord 1",
+    "anatomy_id": "RV_chord_2_2_0",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV chordae | papillary 3 leaflet 3 cord 2",
+    "anatomy_id": "RV_chord_2_2_1",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV chordae | papillary 3 leaflet 3 cord 3",
+    "anatomy_id": "RV_chord_2_2_2",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV chordae | papillary 3 leaflet 3 cord 4",
+    "anatomy_id": "RV_chord_2_2_3",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV chordae | papillary 3 leaflet 3 cord 5",
+    "anatomy_id": "RV_chord_2_2_4",
+    "vertices": 44,
+    "faces": 48,
+    "shape_keys": [
+      "Basis \u2022 AV open",
+      "AV closure tracking"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV trabecula 1",
+    "anatomy_id": "LV_trabecula_1",
+    "vertices": 121,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV trabecula 2",
+    "anatomy_id": "LV_trabecula_2",
+    "vertices": 121,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV trabecula 3",
+    "anatomy_id": "LV_trabecula_3",
+    "vertices": 121,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV trabecula 4",
+    "anatomy_id": "LV_trabecula_4",
+    "vertices": 121,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV trabecula 5",
+    "anatomy_id": "LV_trabecula_5",
+    "vertices": 121,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV trabecula 6",
+    "anatomy_id": "LV_trabecula_6",
+    "vertices": 121,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV trabecula 7",
+    "anatomy_id": "LV_trabecula_7",
+    "vertices": 121,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV trabecula 8",
+    "anatomy_id": "LV_trabecula_8",
+    "vertices": 121,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV trabecula 9",
+    "anatomy_id": "LV_trabecula_9",
+    "vertices": 121,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV trabecula 10",
+    "anatomy_id": "LV_trabecula_10",
+    "vertices": 121,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV trabecula 11",
+    "anatomy_id": "LV_trabecula_11",
+    "vertices": 121,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV trabecula 12",
+    "anatomy_id": "LV_trabecula_12",
+    "vertices": 121,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV trabecula 13",
+    "anatomy_id": "LV_trabecula_13",
+    "vertices": 121,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV trabecula 14",
+    "anatomy_id": "LV_trabecula_14",
+    "vertices": 121,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV transverse trabecula 1",
+    "anatomy_id": "",
+    "vertices": 80,
+    "faces": 84,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV transverse trabecula 2",
+    "anatomy_id": "",
+    "vertices": 80,
+    "faces": 84,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV transverse trabecula 3",
+    "anatomy_id": "",
+    "vertices": 80,
+    "faces": 84,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV transverse trabecula 4",
+    "anatomy_id": "",
+    "vertices": 80,
+    "faces": 84,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV transverse trabecula 5",
+    "anatomy_id": "",
+    "vertices": 80,
+    "faces": 84,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LV transverse trabecula 6",
+    "anatomy_id": "",
+    "vertices": 80,
+    "faces": 84,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV trabecula 1",
+    "anatomy_id": "RV_trabecula_1",
+    "vertices": 121,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV trabecula 2",
+    "anatomy_id": "RV_trabecula_2",
+    "vertices": 121,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV trabecula 3",
+    "anatomy_id": "RV_trabecula_3",
+    "vertices": 121,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV trabecula 4",
+    "anatomy_id": "RV_trabecula_4",
+    "vertices": 121,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV trabecula 5",
+    "anatomy_id": "RV_trabecula_5",
+    "vertices": 121,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV trabecula 6",
+    "anatomy_id": "RV_trabecula_6",
+    "vertices": 121,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV trabecula 7",
+    "anatomy_id": "RV_trabecula_7",
+    "vertices": 121,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV trabecula 8",
+    "anatomy_id": "RV_trabecula_8",
+    "vertices": 121,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV trabecula 9",
+    "anatomy_id": "RV_trabecula_9",
+    "vertices": 121,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV trabecula 10",
+    "anatomy_id": "RV_trabecula_10",
+    "vertices": 121,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV trabecula 11",
+    "anatomy_id": "RV_trabecula_11",
+    "vertices": 121,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV trabecula 12",
+    "anatomy_id": "RV_trabecula_12",
+    "vertices": 121,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV trabecula 13",
+    "anatomy_id": "RV_trabecula_13",
+    "vertices": 121,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV trabecula 14",
+    "anatomy_id": "RV_trabecula_14",
+    "vertices": 121,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV transverse trabecula 1",
+    "anatomy_id": "",
+    "vertices": 80,
+    "faces": 84,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV transverse trabecula 2",
+    "anatomy_id": "",
+    "vertices": 80,
+    "faces": 84,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV transverse trabecula 3",
+    "anatomy_id": "",
+    "vertices": 80,
+    "faces": 84,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV transverse trabecula 4",
+    "anatomy_id": "",
+    "vertices": 80,
+    "faces": 84,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV transverse trabecula 5",
+    "anatomy_id": "",
+    "vertices": 80,
+    "faces": 84,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV transverse trabecula 6",
+    "anatomy_id": "",
+    "vertices": 80,
+    "faces": 84,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RV moderator band",
+    "anatomy_id": "moderator_band",
+    "vertices": 182,
+    "faces": 192,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RA pectinate ridge 1",
+    "anatomy_id": "",
+    "vertices": 92,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RA pectinate ridge 2",
+    "anatomy_id": "",
+    "vertices": 92,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RA pectinate ridge 3",
+    "anatomy_id": "",
+    "vertices": 92,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RA pectinate ridge 4",
+    "anatomy_id": "",
+    "vertices": 92,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RA pectinate ridge 5",
+    "anatomy_id": "",
+    "vertices": 92,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RA pectinate ridge 6",
+    "anatomy_id": "",
+    "vertices": 92,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RA pectinate ridge 7",
+    "anatomy_id": "",
+    "vertices": 92,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RA pectinate ridge 8",
+    "anatomy_id": "",
+    "vertices": 92,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RA pectinate ridge 9",
+    "anatomy_id": "",
+    "vertices": 92,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RA pectinate ridge 10",
+    "anatomy_id": "",
+    "vertices": 92,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RA pectinate ridge 11",
+    "anatomy_id": "",
+    "vertices": 92,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RA pectinate ridge 12",
+    "anatomy_id": "",
+    "vertices": 92,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Left main coronary",
+    "anatomy_id": "left_main_coronary",
+    "vertices": 206,
+    "faces": 216,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LAD | anterior interventricular artery",
+    "anatomy_id": "lad",
+    "vertices": 878,
+    "faces": 888,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Circumflex coronary",
+    "anatomy_id": "circumflex_coronary",
+    "vertices": 302,
+    "faces": 312,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Right coronary artery",
+    "anatomy_id": "right_coronary_artery",
+    "vertices": 494,
+    "faces": 504,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Right marginal artery",
+    "anatomy_id": "right_marginal_artery",
+    "vertices": 302,
+    "faces": 312,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Posterior descending artery",
+    "anatomy_id": "posterior_descending_artery",
+    "vertices": 302,
+    "faces": 312,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Great cardiac vein",
+    "anatomy_id": "great_cardiac_vein",
+    "vertices": 1070,
+    "faces": 1080,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Coronary sinus",
+    "anatomy_id": "coronary_sinus",
+    "vertices": 302,
+    "faces": 312,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Middle cardiac vein",
+    "anatomy_id": "middle_cardiac_vein",
+    "vertices": 302,
+    "faces": 312,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Small cardiac vein",
+    "anatomy_id": "small_cardiac_vein",
+    "vertices": 398,
+    "faces": 408,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LAD diagonal branch 1",
+    "anatomy_id": "",
+    "vertices": 119,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LAD diagonal branch 2",
+    "anatomy_id": "",
+    "vertices": 119,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LAD diagonal branch 3",
+    "anatomy_id": "",
+    "vertices": 119,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LAD diagonal branch 4",
+    "anatomy_id": "",
+    "vertices": 119,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "LAD diagonal branch 5",
+    "anatomy_id": "",
+    "vertices": 119,
+    "faces": 126,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RCA ventricular branch 1",
+    "anatomy_id": "",
+    "vertices": 106,
+    "faces": 112,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RCA ventricular branch 2",
+    "anatomy_id": "",
+    "vertices": 106,
+    "faces": 112,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RCA ventricular branch 3",
+    "anatomy_id": "",
+    "vertices": 106,
+    "faces": 112,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "RCA ventricular branch 4",
+    "anatomy_id": "",
+    "vertices": 106,
+    "faces": 112,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 0",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 1",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 2",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 3",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 4",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 5",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 6",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 7",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 8",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 9",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 10",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 11",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 12",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 13",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 14",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 15",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 16",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 17",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 18",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 19",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 20",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 21",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 22",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 23",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 24",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 25",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 26",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 27",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 28",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 29",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 30",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 31",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 32",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 33",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 34",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 35",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 36",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 37",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 38",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 39",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 40",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 41",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 50",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 51",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 52",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 53",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 54",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 55",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 56",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 57",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 58",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | AV groove 59",
+    "anatomy_id": "",
+    "vertices": 86,
+    "faces": 96,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 0",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 1",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 2",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 3",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 4",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 5",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 6",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 7",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 8",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 9",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 10",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 11",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 12",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 13",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 14",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 15",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 16",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 17",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 18",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 19",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 20",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 21",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 22",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 23",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 24",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 25",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 26",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 27",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 28",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 29",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 30",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Epicardial fat | LAD groove 31",
+    "anatomy_id": "",
+    "vertices": 52,
+    "faces": 60,
+    "shape_keys": [
+      "Basis",
+      "Systole \u2022 regional shortening"
+    ],
+    "segmentation_label": null
+  },
+  {
+    "object": "Parietal pericardium | removable envelope",
+    "anatomy_id": "parietal_pericardium",
+    "vertices": 5666,
+    "faces": 5760,
+    "shape_keys": [],
+    "segmentation_label": null
+  }
+]

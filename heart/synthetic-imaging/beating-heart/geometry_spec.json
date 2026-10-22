@@ -1,0 +1,115 @@
+{
+  "name": "Cardiac Atlas \u2014 procedural educational heart",
+  "version": "1.0",
+  "units": {
+    "blender_unit_mm": 25.0,
+    "blender_scene_scale_length_m": 0.025
+  },
+  "coordinates": {
+    "blender": "+X patient left, +Y posterior, +Z superior",
+    "RAS_mm_from_blender": [
+      [
+        -25,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        -25,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        25,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "origin": "idealized near ventricular mid-base; not a patient coordinate"
+  },
+  "phase": {
+    "reference_frame": 1,
+    "reference": "end-diastole; atrial systole begins at cycle origin",
+    "fps": 30,
+    "frames_per_cycle": 24,
+    "bpm": 75,
+    "cycle_seconds": 0.8,
+    "atrial_systole_s": [
+      0,
+      0.1
+    ],
+    "isovolumetric_contraction_s": [
+      0.1,
+      0.15
+    ],
+    "ejection_s": [
+      0.15,
+      0.37
+    ],
+    "isovolumetric_relaxation_s": [
+      0.37,
+      0.43
+    ],
+    "filling_s": [
+      0.43,
+      0.8
+    ]
+  },
+  "labels": {
+    "1": "LV blood pool",
+    "2": "RV blood pool",
+    "3": "LA blood pool",
+    "4": "RA blood pool",
+    "5": "LV myocardium",
+    "6": "RV myocardium",
+    "7": "LA wall",
+    "8": "RA wall",
+    "9": "interventricular septum",
+    "10": "interatrial septum",
+    "11": "aorta lumen",
+    "12": "pulmonary arteries lumen",
+    "13": "vena cavae lumen",
+    "14": "pulmonary veins lumen"
+  },
+  "geometry_export": "exports/anatomy_meshes.json will contain object names, stable anatomy IDs, vertices in Blender units, triangle faces and labels; exact reference-phase closed full geometry. Cutaway presentation objects excluded.",
+  "disclaimer": "Idealized educational anatomy; not scan-derived, clinically validated, biomechanical, CFD, or calibrated imaging simulation. Individual anatomical variation and many microstructures omitted.",
+  "septa": [
+    {
+      "id": "interventricular_septum",
+      "label": 9,
+      "center_BU": [
+        0.035,
+        0.04,
+        -0.43
+      ],
+      "radii_BU": [
+        0.14,
+        0.55,
+        1.23
+      ]
+    },
+    {
+      "id": "interatrial_septum",
+      "label": 10,
+      "center_BU": [
+        -0.22,
+        0.4,
+        1.35
+      ],
+      "radii_BU": [
+        0.1,
+        0.48,
+        0.57
+      ]
+    }
+  ],
+  "vessel_geometry": "vessel_geometry.json"
+}

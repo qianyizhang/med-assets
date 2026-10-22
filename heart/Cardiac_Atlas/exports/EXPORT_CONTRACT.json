@@ -1,0 +1,51 @@
+{
+  "GLB": {
+    "units": "metres at scene world level",
+    "axes": "+X patient left,+Y superior,+Z anterior",
+    "RAS_mm_from_GLTF_world": [
+      [
+        -1000,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1000,
+        0
+      ],
+      [
+        0,
+        1000,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        1
+      ]
+    ],
+    "materials": "simplified standard clinical PBR colors",
+    "animation": "static frame1 ED; use .blend for full animation and 3 procedural material sets"
+  },
+  "STL": {
+    "units": "millimetres",
+    "axes": "RAS: +X right,+Y anterior,+Z superior",
+    "phase": "ED frame1",
+    "files": "STL_RAS_mm/*.stl",
+    "warning": "STL has no standardized units metadata; set mm on import. Separate overlapping anatomical regions use label priority described in geometry_spec.json."
+  },
+  "JSON": {
+    "units": "25mm perBU",
+    "axes": "Blender native +Xleft,+Yposterior,+Zsuperior"
+  },
+  "sha256": {
+    "Cardiac_Atlas_Clinical_Full_ED.glb": "32802a9a36963c2f8935f632f28ba3602d1ce004919e5e203ff87bbdcb52fa2f",
+    "Cardiac_Atlas_Clinical_Cutaway_ED.glb": "ca35a510737041d538a43cb24f494a1463605bf6b9bd511a01abf52c15bed12a",
+    "anatomy_meshes.json": "64b6bd5d48d941ecfe330ac5f929b5ad001efc28e2b51f8b876a7e85f3b1946b",
+    "anatomy_details.json": "51891140bf475767ce9842bc83beeea901c7150975d351a6ac7c4eefae2ef871"
+  }
+}

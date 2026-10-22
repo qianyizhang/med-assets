@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 380" role="img" aria-labelledby="depth-title depth-description" data-artwork-version="4.0-structural" data-body-origin-box="216 406 128 38">
+<title id="depth-title">Kidneys in depth: transverse section through the upper abdomen</title>
+<desc id="depth-description">A simplified cross-section viewed from the feet. Front is at the top, back at the bottom, and the patient's right is on the left of the image. Both kidneys sit at the back, outside the peritoneal compartment, on either side of the spine. The schematic projects representative digestive structures to explain depth, not an exact scan slice.</desc>
+<defs>
+ <radialGradient id="section-skin"><stop stop-color="#f4f0e4"/><stop offset="1" stop-color="#e7e6d8"/></radialGradient>
+ <linearGradient id="section-kidney" x2=".9" y2="1"><stop stop-color="#bb9090"/><stop offset=".55" stop-color="#9c6f7b"/><stop offset="1" stop-color="#795766"/></linearGradient>
+ <radialGradient id="section-viscera"><stop stop-color="#e8d5bd"/><stop offset="1" stop-color="#d7c2a7"/></radialGradient>
+ <style>text{font-family:Arial,"Noto Sans CJK SC",sans-serif}.axis{font-size:16px;font-weight:700;letter-spacing:1.8px;fill:#637b6a}.label{font-size:18px;fill:#425c4d}.note{font-size:14px;fill:#78877c}.leader{fill:none;stroke:#99aa98;stroke-width:1;stroke-linecap:round;stroke-linejoin:round}.organ{cursor:pointer}.kidney-highlight{fill:none;stroke:#d9b9ae;stroke-width:2;opacity:.6;stroke-linecap:round}</style>
+</defs>
+<g id="section-orientation">
+ <text class="axis" x="310" y="30" text-anchor="middle" data-en="FRONT &#183; ABDOMEN" data-zh="&#21069;&#26041; &#183; &#33145;&#37096;">FRONT &#183; ABDOMEN</text>
+ <text class="axis" x="310" y="346" text-anchor="middle" data-en="BACK &#183; SPINE" data-zh="&#21518;&#26041; &#183; &#33034;&#26609;">BACK &#183; SPINE</text>
+ <text class="note" x="100" y="68" data-en="Patient right" data-zh="&#20154;&#20307;&#21491;&#20391;">Patient right</text><text class="note" x="520" y="68" text-anchor="end" data-en="Patient left" data-zh="&#20154;&#20307;&#24038;&#20391;">Patient left</text>
+</g>
+<g id="section-body-wall">
+ <path d="M309 75C241 69 182 82 142 106C104 127 91 159 103 195C113 232 151 260 200 274C237 284 264 280 289 288L307 296L326 287C353 281 384 286 419 275C471 261 506 238 518 202C534 163 516 128 476 105C436 82 377 70 309 75Z" fill="url(#section-skin)" stroke="#b8c3b1" stroke-width="1.5"/>
+ <path d="M310 88C241 82 185 96 153 115C120 135 110 161 121 190C133 224 169 246 207 257C242 266 272 267 289 273L307 279L327 271C356 265 384 268 414 257C457 246 493 222 502 192C511 162 500 137 466 116C430 94 375 83 310 88Z" fill="#f2ecdb" stroke="#c5cbbb" stroke-width="1"/>
+ <!-- Abdominal-wall muscles and posterior erector-spinae masses. -->
+ <path d="M150 114C124 134 114 161 124 187L138 191C130 163 137 140 160 123Z M467 116C492 134 504 160 494 190L480 193C488 167 479 141 458 125Z" fill="#d1b49b" stroke="#b6a58e" stroke-width=".8"/>
+ <path d="M267 242C250 233 230 247 235 266C239 278 258 283 273 274L282 263Z M350 241C368 232 390 246 385 265C381 278 361 283 346 273L338 261Z" fill="#c8ac94" stroke="#aa9d85" stroke-width=".9"/>
+</g>
+<g id="section-peritoneal-compartment" data-depth="anterior">
+ <path d="M176 116C208 99 257 91 309 96C366 91 418 102 446 119C476 138 480 163 465 181C451 200 421 201 392 197C369 194 343 195 316 194C284 192 255 201 225 198C199 196 176 186 161 169C148 152 152 131 176 116Z" fill="url(#section-viscera)" stroke="#c4b49a" stroke-width="1"/>
+ <path d="M167 128C187 105 224 99 258 105L294 115C284 137 259 154 231 159C203 164 178 158 166 147Z" fill="#ac8168" stroke="#8d6a58" stroke-width="1" opacity=".78"/>
+ <path d="M343 111C361 101 391 106 402 119C413 134 406 151 391 157C375 166 355 159 346 147C340 138 332 130 330 118Z" fill="#dfbb9b" stroke="#b99578" stroke-width=".9"/>
+ <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M245 165C235 147 255 142 271 155C290 170 301 150 314 155C331 160 321 176 304 180C287 185 273 170 261 179C251 187 234 186 232 174M346 168C353 157 371 165 369 178C367 191 349 192 340 181C331 171 319 175 316 186M394 172C408 158 433 168 425 182C420 192 400 189 394 180" stroke="#b8967c" stroke-width="10"/>
+  <path d="M245 165C235 147 255 142 271 155C290 170 301 150 314 155C331 160 321 176 304 180C287 185 273 170 261 179C251 187 234 186 232 174M346 168C353 157 371 165 369 178C367 191 349 192 340 181C331 171 319 175 316 186M394 172C408 158 433 168 425 182C420 192 400 189 394 180" stroke="#e2bea0" stroke-width="7"/>
+ </g>
+</g>
+<!-- The posterior parietal peritoneum is the key depth boundary. -->
+<path id="section-posterior-peritoneum" d="M147 174C163 196 188 205 217 206C248 208 270 199 292 202C309 204 328 204 348 202C375 199 394 207 422 205C451 204 473 196 486 181" fill="none" stroke="#839a7f" stroke-width="1.6" stroke-dasharray="4 3"/>
+<g id="section-spine" data-landmark="spine">
+ <path d="M292 211C300 206 315 206 323 210C332 216 333 232 327 240C319 247 300 247 292 240C285 232 285 219 292 211Z" fill="#e7e5d4" stroke="#aeb9a6" stroke-width="1.2"/>
+ <path d="M293 241L284 248L269 249L265 255L286 255L297 263L304 283L311 287L317 282L319 261L331 254L352 254L349 248L334 248L325 241L317 246L301 246Z" fill="#dedfcf" stroke="#a8b4a1" stroke-width="1"/>
+ <ellipse cx="309" cy="251" rx="7" ry="5" fill="#f5f0dc" stroke="#b2bba7" stroke-width="1"/>
+ <circle cx="309" cy="251" r="2.5" fill="#c9b986"/>
+ <path d="M294 216C301 211 315 211 322 216" fill="none" stroke="#f9f6e9" stroke-width="1.6"/>
+</g>
+<g id="section-psoas-muscles">
+ <path d="M281 221C269 213 258 217 258 230C258 242 272 250 283 243L289 234Z M336 221C348 213 359 218 359 230C358 242 344 249 333 242L329 233Z" fill="#cbb197" stroke="#b3a38a" stroke-width="1"/>
+</g>
+<g id="kidneys" class="organ" data-organ="kidneys" tabindex="0" role="button" aria-label="Kidneys behind the abdominal organs and beside the spine" data-depth="posterior">
+ <g id="section-right-kidney" data-side="right">
+  <path d="M200 198C184 197 171 207 172 220C174 233 190 241 207 238C218 236 226 229 222 222C219 217 210 219 209 213C210 207 208 200 200 198Z" fill="url(#section-kidney)" stroke="#765765" stroke-width="1.1"/>
+  <path d="M182 209C176 219 187 231 201 231" class="kidney-highlight"/>
+  </g>
+ <g id="section-left-kidney" data-side="left">
+  <path d="M416 195C431 193 445 202 445 215C445 229 431 238 414 235C401 233 393 227 397 220C400 214 408 217 408 211C405 204 408 198 416 195Z" fill="url(#section-kidney)" stroke="#765765" stroke-width="1.1"/>
+  <path d="M434 203C442 215 430 229 417 229" class="kidney-highlight"/>
+  </g>
+</g>
+<g id="section-labels" pointer-events="none">
+ <text class="label" x="310" y="57" text-anchor="middle" data-en="Digestive organs are farther forward" data-zh="&#28040;&#21270;&#22120;&#23448;&#26356;&#38752;&#36817;&#33145;&#20391;">Digestive organs are farther forward</text>
+ <path class="leader" d="M310 61V114"/>
+ <text class="label" x="39" y="252" data-en="Kidney" data-zh="&#32958;">Kidney</text><path class="leader" d="M106 248H145L181 228"/>
+ <text class="label" x="579" y="249" text-anchor="end" data-en="Kidney" data-zh="&#32958;">Kidney</text><path class="leader" d="M510 245H479L438 224"/>
+ <text class="label" x="310" y="318" text-anchor="middle" data-en="Both kidneys sit beside the spine" data-zh="&#21452;&#32958;&#20301;&#20110;&#33034;&#26609;&#20004;&#20391;&#65292;&#38752;&#36817;&#32972;&#37096;">Both kidneys sit beside the spine</text>
+ <path class="leader" d="M310 301V291"/>
+ <text class="note" x="310" y="370" text-anchor="middle" data-en="Simplified depth diagram &#183; viewed from the feet &#183; not a diagnostic scan" data-zh="&#31616;&#21270;&#23618;&#27425;&#31034;&#24847; &#183; &#33258;&#36275;&#31471;&#21521;&#22836;&#31471;&#35266;&#23519; &#183; &#38750;&#35786;&#26029;&#24433;&#20687;">Simplified depth diagram &#183; viewed from the feet &#183; not a diagnostic scan</text>
+</g>
+</svg>

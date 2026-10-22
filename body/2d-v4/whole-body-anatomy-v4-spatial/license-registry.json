@@ -1,0 +1,240 @@
+{
+  "version": "4.0-spatial",
+  "artwork": {
+    "type": "Authored editable SVG, with both reference-informed originals and attributed adaptations",
+    "originalPublicLicense": "No public reuse license declared for the independent original portions in this private deliverable.",
+    "adaptations": {
+      "creator": "Servier Medical Art by Les Laboratoires Servier",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "attribution": "Adapted from Servier Medical Art by Les Laboratoires Servier, licensed under CC BY 4.0. Contours, layout, palette, layering and tissue details were redrawn for this atlas.",
+      "canonicalIds": [
+        "bone-marrow",
+        "muscle",
+        "adipose",
+        "skin",
+        "bone",
+        "reproductive",
+        "joints",
+        "tendons-ligaments",
+        "urethra",
+        "ovaries",
+        "uterus",
+        "vagina-vulva",
+        "testes",
+        "prostate",
+        "penis",
+        "breasts",
+        "placenta",
+        "fetus",
+        "cartilage"
+      ]
+    },
+    "referenceBitmapsEmbedded": false,
+    "tracedSourcePathsEmbedded": false
+  },
+  "references": [
+    {
+      "title": "Head lateral mouth anatomy",
+      "creator": "Patrick J. Lynch, medical illustrator; C. Carl Jaffe, MD, cardiologist",
+      "url": "https://commons.wikimedia.org/wiki/File:Head_lateral_mouth_anatomy.jpg",
+      "license": "CC BY 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.5/",
+      "use": "Reference only, original pixels inspected. Adult sagittal proportions, palate, tongue, pharynx and brainstem relationships. No tracing or copied art.",
+      "id": "head-1"
+    },
+    {
+      "title": "Head lateral sagittal brain",
+      "creator": "Patrick J. Lynch, medical illustrator; C. Carl Jaffe, MD, cardiologist",
+      "url": "https://commons.wikimedia.org/wiki/File:Head_lateral_sagittal_brain.jpg",
+      "license": "CC BY 2.5",
+      "licenseUrl": "https://creativecommons.org/licenses/by/2.5/",
+      "use": "Reference only, original pixels inspected. Adult cranial profile and cerebellum, pons, medulla positions. Recognized as composite rather than literal all-structures midsagittal view.",
+      "id": "head-2"
+    },
+    {
+      "title": "Salivary glands",
+      "creator": "Servier Medical Art",
+      "url": "https://smart.servier.com/smart_image/salivary-glands/",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "use": "Reference only, original PNG inspected. Gland placement, lobulated shape and duct direction; no source geometry used.",
+      "id": "head-3"
+    },
+    {
+      "title": "Anatomy and Physiology 2e, 22.1, Figure 22.4 Upper Airway",
+      "creator": "OpenStax",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/22-1-organs-and-structures-of-the-respiratory-system",
+      "license": "CC BY-NC-SA 4.0 (current page)",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "use": "Anatomical fact validation only. Actual figure pixels inspected. No pixels, copied geometry or prose incorporated.",
+      "id": "head-4"
+    },
+    {
+      "title": "Anatomy and Physiology 2e, 17.5, Figure 17.15 Parathyroid Glands",
+      "creator": "OpenStax",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/17-5-the-parathyroid-glands",
+      "license": "CC BY-NC-SA 4.0 (current page)",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "use": "Anatomical fact validation only. Actual posterior-view figure inspected. No pixels, copied geometry or prose incorporated.",
+      "id": "head-5"
+    },
+    {
+      "title": "Sagittal Head, record 43960",
+      "creator": "OHSU Digital Collections archival medical illustration",
+      "url": "https://digitalcollections.ohsu.edu/record/43960",
+      "license": "Not established; no reproduction permitted by this deliverable",
+      "use": "Reference-only cross-check after authoring. Original archived drawing inspected for tongue muscle direction, conchae, palate, epiglottis, hyoid and airway/foodway adjacency.",
+      "id": "head-6"
+    },
+    {
+      "id": "renal-position",
+      "title": "Gross anatomy of the kidney",
+      "creator": "OpenStax",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/25-3-gross-anatomy-of-the-kidney",
+      "license": "CC BY-NC-SA 4.0",
+      "use": "Anatomical fact validation only; posterior location, rib/spine relationships and laterality."
+    },
+    {
+      "id": "lung-form",
+      "title": "Lungs",
+      "creator": "Servier Medical Art",
+      "url": "https://smart.servier.com/smart_image/lungs-11/",
+      "license": "CC BY 4.0",
+      "use": "Reference only; unequal lung contours, fissures and cardiac notch."
+    },
+    {
+      "id": "renal-form",
+      "title": "Kidney",
+      "creator": "Servier Medical Art",
+      "url": "https://smart.servier.com/smart_image/smart-kidney/",
+      "license": "CC BY 4.0",
+      "use": "Reference only; capsule silhouette and medial hilum."
+    },
+    {
+      "id": "digestive-form",
+      "title": "Complete digestive apparatus",
+      "creator": "Servier Medical Art",
+      "url": "https://smart.servier.com/smart_image/complete-digestive-apparatus-anatamoical/",
+      "license": "CC BY 4.0",
+      "use": "Reference only; organ mass relationships and irregular bowel form."
+    },
+    {
+      "id": "pelvic-level",
+      "title": "Anatomical study of iliac crest and lumbar levels",
+      "creator": "Primary CT anatomy study",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11687033/",
+      "license": "See source publication",
+      "use": "Factual cross-check of approximate iliac crest level; no figure reproduced."
+    },
+    {
+      "id": "servier-bone",
+      "title": "Bone structure",
+      "url": "https://smart.servier.com/smart_image/bone-cross-sectional/",
+      "creator": "Servier Medical Art by Les Laboratoires Servier",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "use": "Visually inspected reference; adaptation in newly authored SVG geometry with simplified structure, changed colors, redrawn contours, arrangement and details. No bitmap embedded or tracing used."
+    },
+    {
+      "id": "servier-muscle",
+      "title": "Muscle",
+      "url": "https://smart.servier.com/smart_image/muscle/",
+      "creator": "Servier Medical Art by Les Laboratoires Servier",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "use": "Visually inspected reference; adaptation in newly authored SVG geometry with simplified structure, changed colors, redrawn contours, arrangement and details. No bitmap embedded or tracing used."
+    },
+    {
+      "id": "servier-knee",
+      "title": "Knee – Frontal view",
+      "url": "https://smart.servier.com/smart_image/knee-frontal-view/",
+      "creator": "Servier Medical Art by Les Laboratoires Servier",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "use": "Visually inspected reference; adaptation in newly authored SVG geometry with simplified structure, changed colors, redrawn contours, arrangement and details. No bitmap embedded or tracing used."
+    },
+    {
+      "id": "servier-skin",
+      "title": "Skin",
+      "url": "https://smart.servier.com/smart_image/skin/",
+      "creator": "Servier Medical Art by Les Laboratoires Servier",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "use": "Visually inspected reference; adaptation in newly authored SVG geometry with simplified structure, changed colors, redrawn contours, arrangement and details. No bitmap embedded or tracing used."
+    },
+    {
+      "id": "servier-breast",
+      "title": "Breast",
+      "url": "https://smart.servier.com/smart_image/breast-sagittal/",
+      "creator": "Servier Medical Art by Les Laboratoires Servier",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "use": "Visually inspected reference; adaptation in newly authored SVG geometry with simplified structure, changed colors, redrawn contours, arrangement and details. No bitmap embedded or tracing used."
+    },
+    {
+      "id": "servier-uterine",
+      "title": "Genital apparatus",
+      "url": "https://smart.servier.com/smart_image/genital-apparatus/",
+      "creator": "Servier Medical Art by Les Laboratoires Servier",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "use": "Visually inspected reference; adaptation in newly authored SVG geometry with simplified structure, changed colors, redrawn contours, arrangement and details. No bitmap embedded or tracing used."
+    },
+    {
+      "id": "servier-testicular",
+      "title": "Penis / male genital apparatus",
+      "url": "https://smart.servier.com/smart_image/penis/",
+      "creator": "Servier Medical Art by Les Laboratoires Servier",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "use": "Visually inspected reference; adaptation in newly authored SVG geometry with simplified structure, changed colors, redrawn contours, arrangement and details. No bitmap embedded or tracing used."
+    },
+    {
+      "id": "servier-pregnancy",
+      "title": "Fetus in utero",
+      "url": "https://smart.servier.com/smart_image/fetus-in-utero/",
+      "creator": "Servier Medical Art by Les Laboratoires Servier",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "use": "Visually inspected reference; adaptation in newly authored SVG geometry with simplified structure, changed colors, redrawn contours, arrangement and details. No bitmap embedded or tracing used."
+    },
+    {
+      "id": "openstax-bone",
+      "title": "Bone Structure",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/6-3-bone-structure",
+      "creator": "OpenStax / Rice University",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "use": "Factual reference only. No text, image or source geometry copied."
+    },
+    {
+      "id": "openstax-connective",
+      "title": "Connective Tissue Supports and Protects",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/4-3-connective-tissue-supports-and-protects",
+      "creator": "OpenStax / Rice University",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "use": "Factual reference only. No text, image or source geometry copied."
+    },
+    {
+      "id": "openstax-blood",
+      "title": "An Overview of Blood",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/18-1-an-overview-of-blood",
+      "creator": "OpenStax / Rice University",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "use": "Factual reference only. No text, image or source geometry copied."
+    },
+    {
+      "id": "openstax-testicular",
+      "title": "Anatomy and Physiology of the Testicular Reproductive System",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/27-1-anatomy-and-physiology-of-the-testicular-reproductive-system",
+      "creator": "OpenStax / Rice University",
+      "license": "CC BY-NC-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+      "use": "Factual reference only. No text, image or source geometry copied."
+    }
+  ],
+  "policy": "Per-part attribution and source links travel with adapted assets. OpenStax materials are fact-reference-only and no OpenStax figure, geometry or prose is distributed. No endorsement is implied."
+}

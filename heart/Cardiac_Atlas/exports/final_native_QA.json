@@ -1,0 +1,59 @@
+{
+  "blender_version": "4.3.2",
+  "units_mm_per_BU": 25.00000037252903,
+  "fps": 30,
+  "mesh_count": 262,
+  "shape_key_objects": 239,
+  "control_types": {
+    "atrial_systole": "float",
+    "ventricular_systole": "float",
+    "AV_open": "float",
+    "semilunar_open": "float"
+  },
+  "wall_uv_layers": {
+    "LV | complete wall": [
+      "Anatomical UV",
+      "Baked tissue atlas"
+    ],
+    "RV | complete wall": [
+      "Anatomical UV",
+      "Baked tissue atlas"
+    ],
+    "LA | complete wall": [
+      "Anatomical UV",
+      "Baked tissue atlas"
+    ],
+    "RA | complete wall": [
+      "Anatomical UV",
+      "Baked tissue atlas"
+    ]
+  },
+  "image_textures": [
+    {
+      "name": "Wall atlas BaseColor 2K",
+      "packed": true,
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "Wall atlas Normal_OpenGL 2K",
+      "packed": true,
+      "size": [
+        2048,
+        2048
+      ]
+    },
+    {
+      "name": "Wall atlas Roughness 2K",
+      "packed": true,
+      "size": [
+        2048,
+        2048
+      ]
+    }
+  ],
+  "frame7_ventricular_systole": 0.4902343153953552,
+  "reference_frame": 1
+}
