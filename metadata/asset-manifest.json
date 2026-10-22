@@ -1,0 +1,354 @@
+{
+  "bundles": [
+    {
+      "archive": "Cardiac_Atlas_Animated_GLB.zip",
+      "archive_bytes": 20856319,
+      "archive_sha256": "12496f54be02ee975a5fab90139a63a3fb3c0941f70075fd236619540fcca49f",
+      "files": [
+        {
+          "archive_member": "Cardiac_Atlas_Animated/Heart_Cutaway_Animated.glb",
+          "path": "heart/Cardiac_Atlas_Animated/Heart_Cutaway_Animated.glb",
+          "bytes": 5543020,
+          "sha256": "98523f91fd04e2a801b8024a3f36039675832a2d2e1d163c6f053d849be4902f"
+        },
+        {
+          "archive_member": "Cardiac_Atlas_Animated/Heart_Clinical_Animated.glb",
+          "path": "heart/Cardiac_Atlas_Animated/Heart_Clinical_Animated.glb",
+          "bytes": 8180224,
+          "sha256": "6912d439271c3525230a90fe403d586000e6a66ab37f82bf0419604181e52263"
+        },
+        {
+          "archive_member": "Cardiac_Atlas_Animated/Heart_Tissue_Animated.glb",
+          "path": "heart/Cardiac_Atlas_Animated/Heart_Tissue_Animated.glb",
+          "bytes": 14657880,
+          "sha256": "b167fddf2ede85db82306b37d7455db51148c0f81b386e7c4d2e7edf01f52cb1"
+        },
+        {
+          "archive_member": "Cardiac_Atlas_Animated/README.md",
+          "path": "heart/Cardiac_Atlas_Animated/README.md",
+          "bytes": 3810,
+          "sha256": "870f5f93c7186933960fff0ea0c9de27e212944333818d747134d5cb8e10ec87"
+        },
+        {
+          "archive_member": "Cardiac_Atlas_Animated/GLB_VALIDATION.json",
+          "path": "heart/Cardiac_Atlas_Animated/GLB_VALIDATION.json",
+          "bytes": 77374,
+          "sha256": "d8b7eaaa7848499927e97dadfbb8d94cf72d754a46839ffe075d349ada034370"
+        },
+        {
+          "archive_member": "Cardiac_Atlas_Animated/BLENDER_ROUNDTRIP_QA.json",
+          "path": "heart/Cardiac_Atlas_Animated/BLENDER_ROUNDTRIP_QA.json",
+          "bytes": 1548,
+          "sha256": "d0782067d0a885edc96aa8f191ab3aea660a9e4a1fd77b0eefde1d649ad7dc25"
+        },
+        {
+          "archive_member": "Cardiac_Atlas_Animated/original_docs/ANATOMY_CHECKLIST.md",
+          "path": "heart/Cardiac_Atlas_Animated/original_docs/ANATOMY_CHECKLIST.md",
+          "bytes": 5029,
+          "sha256": "6aa214af8bbbc8ff4cb0cc20d0c85aa512fd8bd1c36145fb3ea2c0ad787cfeea"
+        },
+        {
+          "archive_member": "Cardiac_Atlas_Animated/original_docs/README.md",
+          "path": "heart/Cardiac_Atlas_Animated/original_docs/README.md",
+          "bytes": 10143,
+          "sha256": "123845eb681078c61f813c5d8ee0eb54570b13c038b8dd5ffa88a4263abb13a8"
+        }
+      ]
+    },
+    {
+      "archive": "Cardiac_Atlas_Animated_Editable_Source.zip",
+      "archive_bytes": 17821913,
+      "archive_sha256": "69f6ab5f36c9a36e6aeeedffaa61f145f6532727af56bdeb8dd447e2c9a8bc4a",
+      "files": [
+        {
+          "archive_member": "Cardiac_Atlas_Animated/Cardiac_Atlas_Animated_Source.blend",
+          "path": "heart/Cardiac_Atlas_Animated/Cardiac_Atlas_Animated_Source.blend",
+          "bytes": 42393708,
+          "sha256": "6c8051cc269c9ca8af392ac58f19e22c24cde678b4c95159f5e3a6a19c20d01b"
+        },
+        {
+          "archive_member": "Cardiac_Atlas_Animated/export_animated.py",
+          "path": "heart/Cardiac_Atlas_Animated/export_animated.py",
+          "bytes": 4543,
+          "sha256": "76391bbe800bef842b06cbb239b70f8cd4b35e36908af852238e02d73e240685"
+        },
+        {
+          "archive_member": "Cardiac_Atlas_Animated/validate_glb.py",
+          "path": "heart/Cardiac_Atlas_Animated/validate_glb.py",
+          "bytes": 3624,
+          "sha256": "7d8d8db43f1beba0e52a3a1fff89d43e5857b5626d403ab00162f6c4dc7b8814"
+        },
+        {
+          "archive_member": "Cardiac_Atlas_Animated/roundtrip.py",
+          "path": "heart/Cardiac_Atlas_Animated/roundtrip.py",
+          "bytes": 1288,
+          "sha256": "b58e2c80e9c8d0f034fb8f6dc0c8acd73520e7810d2b6987d6feb7b49d16971f"
+        },
+        {
+          "archive_member": "Cardiac_Atlas_Animated/authored_morph_samples.json",
+          "path": "heart/Cardiac_Atlas_Animated/authored_morph_samples.json",
+          "bytes": 163572,
+          "sha256": "a855c2d85fb6b28e94e1dd01c406a13efa2e5861b163ac2909ed332469085cae"
+        },
+        {
+          "archive_member": "Cardiac_Atlas_Animated/README.md",
+          "path": "heart/Cardiac_Atlas_Animated/README.md",
+          "bytes": 3810,
+          "sha256": "870f5f93c7186933960fff0ea0c9de27e212944333818d747134d5cb8e10ec87"
+        },
+        {
+          "archive_member": "Cardiac_Atlas_Animated/GLB_VALIDATION.json",
+          "path": "heart/Cardiac_Atlas_Animated/GLB_VALIDATION.json",
+          "bytes": 77374,
+          "sha256": "d8b7eaaa7848499927e97dadfbb8d94cf72d754a46839ffe075d349ada034370"
+        },
+        {
+          "archive_member": "Cardiac_Atlas_Animated/BLENDER_ROUNDTRIP_QA.json",
+          "path": "heart/Cardiac_Atlas_Animated/BLENDER_ROUNDTRIP_QA.json",
+          "bytes": 1548,
+          "sha256": "d0782067d0a885edc96aa8f191ab3aea660a9e4a1fd77b0eefde1d649ad7dc25"
+        },
+        {
+          "archive_member": "Cardiac_Atlas_Animated/original_docs/ANATOMY_CHECKLIST.md",
+          "path": "heart/Cardiac_Atlas_Animated/original_docs/ANATOMY_CHECKLIST.md",
+          "bytes": 5029,
+          "sha256": "6aa214af8bbbc8ff4cb0cc20d0c85aa512fd8bd1c36145fb3ea2c0ad787cfeea"
+        },
+        {
+          "archive_member": "Cardiac_Atlas_Animated/original_docs/README.md",
+          "path": "heart/Cardiac_Atlas_Animated/original_docs/README.md",
+          "bytes": 10143,
+          "sha256": "123845eb681078c61f813c5d8ee0eb54570b13c038b8dd5ffa88a4263abb13a8"
+        }
+      ]
+    },
+    {
+      "archive": "breathing-glbs.zip",
+      "archive_bytes": 20779531,
+      "archive_sha256": "e9ce566c934873136273a5c43c017812d2e9628f23eb384c2b5923de01fd3385",
+      "files": [
+        {
+          "archive_member": "diaphragm_breathing.glb",
+          "path": "body/breathing/diaphragm_breathing.glb",
+          "bytes": 74140,
+          "sha256": "7aa24dcf98016381c87857c7ec31a7733a78c5b590f56ff6f2f617a342ae4d33"
+        },
+        {
+          "archive_member": "gallbladder_breathing.glb",
+          "path": "body/breathing/gallbladder_breathing.glb",
+          "bytes": 2125208,
+          "sha256": "5c403eeb19149ae9989dd3f26b63f002359c1184a9d22bffd868ac0be45cff4f"
+        },
+        {
+          "archive_member": "heart_breathing.glb",
+          "path": "body/breathing/heart_breathing.glb",
+          "bytes": 2037364,
+          "sha256": "3894d51df42a6e5941f0d2b076992d5359279f5e3ddb3b6d4ff6c00f58328086"
+        },
+        {
+          "archive_member": "kidney_left_breathing.glb",
+          "path": "body/breathing/kidney_left_breathing.glb",
+          "bytes": 2527980,
+          "sha256": "af69ae49a012f8d5ccc469eb78adaec8fb563b45594de2a4583302cede50262c"
+        },
+        {
+          "archive_member": "kidney_right_breathing.glb",
+          "path": "body/breathing/kidney_right_breathing.glb",
+          "bytes": 2548328,
+          "sha256": "819bc96e46a99a0735df1b2ffc802d4e4fed03f888ec5eb73716b33c07ae0ec3"
+        },
+        {
+          "archive_member": "liver_breathing.glb",
+          "path": "body/breathing/liver_breathing.glb",
+          "bytes": 1862988,
+          "sha256": "1bc31b52f4b9d326cca6adb339c01a11d497cb0880ede682c8bb52889f5dc49f"
+        },
+        {
+          "archive_member": "lung_left_breathing.glb",
+          "path": "body/breathing/lung_left_breathing.glb",
+          "bytes": 2525316,
+          "sha256": "e3439ed20ea7e5f022b71accd9d474e5bd0a8625498d1398ada402d0c035cee0"
+        },
+        {
+          "archive_member": "lung_right_breathing.glb",
+          "path": "body/breathing/lung_right_breathing.glb",
+          "bytes": 2653988,
+          "sha256": "450f49c0733697d3d05f16c4a1f24a28b1ae5f9b09b77f3bf470a00a4386e9b4"
+        },
+        {
+          "archive_member": "pancreas_breathing.glb",
+          "path": "body/breathing/pancreas_breathing.glb",
+          "bytes": 1940428,
+          "sha256": "df8b88d8fe5dac619ac5840ddcb57c2968dab0db76086dee2b7925f0c5f53d80"
+        },
+        {
+          "archive_member": "spleen_breathing.glb",
+          "path": "body/breathing/spleen_breathing.glb",
+          "bytes": 1856780,
+          "sha256": "a645df334901e46f24ad44b756d30234ce18bfa74e821d9a1b7ae432a045181b"
+        },
+        {
+          "archive_member": "stomach_breathing.glb",
+          "path": "body/breathing/stomach_breathing.glb",
+          "bytes": 3402440,
+          "sha256": "f1e8dfe7918361822503e9f6e5232204960f8c74b45bf9b294556c10d024ca82"
+        },
+        {
+          "archive_member": "README.md",
+          "path": "body/breathing/README.md",
+          "bytes": 2547,
+          "sha256": "d737b1ae88d4f51ac6b1032b9d27abecdbe04a65278c38d86bfef18fd8918152"
+        },
+        {
+          "archive_member": "NOTICE.md",
+          "path": "body/breathing/NOTICE.md",
+          "bytes": 3661,
+          "sha256": "87372df39878e0c73903675edc21875fa712a90b22f497ffb55d50a29f210a94"
+        },
+        {
+          "archive_member": "CC-BY-4.0.txt",
+          "path": "body/breathing/CC-BY-4.0.txt",
+          "bytes": 18656,
+          "sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94"
+        },
+        {
+          "archive_member": "animation-manifest.json",
+          "path": "body/breathing/animation-manifest.json",
+          "bytes": 42550,
+          "sha256": "79e105f7b003ff3d9e8c727c620f907aace641f394833d82419285af09ca768f"
+        }
+      ]
+    },
+    {
+      "archive": "Breathing_Native_and_Source.zip",
+      "archive_bytes": 24983245,
+      "archive_sha256": "29fad04ca304372329b09589244f0a2e86eb2b460a486bc4d059be57993cb7d1",
+      "files": [
+        {
+          "archive_member": "Breathing_Assembly.blend",
+          "path": "body/breathing/Breathing_Assembly.blend",
+          "bytes": 42497262,
+          "sha256": "fc68b49ca75d02d50330e9d5b5d5182843e6d0e7ca4d43d665cbde48ac23b841"
+        },
+        {
+          "archive_member": "build_motion.py",
+          "path": "body/breathing/build_motion.py",
+          "bytes": 5324,
+          "sha256": "6d380c77ef6fe883ec0efec608a294dd4c3f073848bcdb47634959656282b38c"
+        },
+        {
+          "archive_member": "native_assembly.py",
+          "path": "body/breathing/native_assembly.py",
+          "bytes": 705,
+          "sha256": "500d1d667da5f39291f281685caad44909a52dfcab90dd9bdfa8e9bb716d6d11"
+        },
+        {
+          "archive_member": "README.md",
+          "path": "body/breathing/README.md",
+          "bytes": 2547,
+          "sha256": "d737b1ae88d4f51ac6b1032b9d27abecdbe04a65278c38d86bfef18fd8918152"
+        },
+        {
+          "archive_member": "NOTICE.md",
+          "path": "body/breathing/NOTICE.md",
+          "bytes": 3661,
+          "sha256": "87372df39878e0c73903675edc21875fa712a90b22f497ffb55d50a29f210a94"
+        },
+        {
+          "archive_member": "component-qa.json",
+          "path": "body/breathing/component-qa.json",
+          "bytes": 546,
+          "sha256": "b52501a98df3f610cf906453d05acf562803dba477a32a7a4201dfaa9824ef76"
+        },
+        {
+          "archive_member": "test_motion.mjs",
+          "path": "body/breathing/test_motion.mjs",
+          "bytes": 6878,
+          "sha256": "2c71e9bdf4e7fdc5f0725296bd194c0d19ffb4259283c55f20c36dd84495aaed"
+        },
+        {
+          "archive_member": "expiration.webp",
+          "path": "body/breathing/expiration.webp",
+          "bytes": 12632,
+          "sha256": "e98b187887c5d05694c2e60f885cfde4587500ea17a8592be0d5879243f60e9e"
+        },
+        {
+          "archive_member": "inspiration.webp",
+          "path": "body/breathing/inspiration.webp",
+          "bytes": 12976,
+          "sha256": "887c98a0e09022f664d04303515dbd6df75316c5ad807f9ea52f201017a9ed22"
+        },
+        {
+          "archive_member": "animation-manifest.json",
+          "path": "body/breathing/animation-manifest.json",
+          "bytes": 42550,
+          "sha256": "79e105f7b003ff3d9e8c727c620f907aace641f394833d82419285af09ca768f"
+        },
+        {
+          "archive_member": "CC-BY-4.0.txt",
+          "path": "body/breathing/CC-BY-4.0.txt",
+          "bytes": 18656,
+          "sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94"
+        }
+      ]
+    }
+  ],
+  "identical_overlaps": [
+    {
+      "path": "heart/Cardiac_Atlas_Animated/README.md",
+      "archive": "Cardiac_Atlas_Animated_Editable_Source.zip",
+      "sha256": "870f5f93c7186933960fff0ea0c9de27e212944333818d747134d5cb8e10ec87"
+    },
+    {
+      "path": "heart/Cardiac_Atlas_Animated/GLB_VALIDATION.json",
+      "archive": "Cardiac_Atlas_Animated_Editable_Source.zip",
+      "sha256": "d8b7eaaa7848499927e97dadfbb8d94cf72d754a46839ffe075d349ada034370"
+    },
+    {
+      "path": "heart/Cardiac_Atlas_Animated/BLENDER_ROUNDTRIP_QA.json",
+      "archive": "Cardiac_Atlas_Animated_Editable_Source.zip",
+      "sha256": "d0782067d0a885edc96aa8f191ab3aea660a9e4a1fd77b0eefde1d649ad7dc25"
+    },
+    {
+      "path": "heart/Cardiac_Atlas_Animated/original_docs/ANATOMY_CHECKLIST.md",
+      "archive": "Cardiac_Atlas_Animated_Editable_Source.zip",
+      "sha256": "6aa214af8bbbc8ff4cb0cc20d0c85aa512fd8bd1c36145fb3ea2c0ad787cfeea"
+    },
+    {
+      "path": "heart/Cardiac_Atlas_Animated/original_docs/README.md",
+      "archive": "Cardiac_Atlas_Animated_Editable_Source.zip",
+      "sha256": "123845eb681078c61f813c5d8ee0eb54570b13c038b8dd5ffa88a4263abb13a8"
+    },
+    {
+      "path": "body/breathing/README.md",
+      "archive": "Breathing_Native_and_Source.zip",
+      "sha256": "d737b1ae88d4f51ac6b1032b9d27abecdbe04a65278c38d86bfef18fd8918152"
+    },
+    {
+      "path": "body/breathing/NOTICE.md",
+      "archive": "Breathing_Native_and_Source.zip",
+      "sha256": "87372df39878e0c73903675edc21875fa712a90b22f497ffb55d50a29f210a94"
+    },
+    {
+      "path": "body/breathing/animation-manifest.json",
+      "archive": "Breathing_Native_and_Source.zip",
+      "sha256": "79e105f7b003ff3d9e8c727c620f907aace641f394833d82419285af09ca768f"
+    },
+    {
+      "path": "body/breathing/CC-BY-4.0.txt",
+      "archive": "Breathing_Native_and_Source.zip",
+      "sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94"
+    }
+  ],
+  "extracted_files": 35,
+  "extracted_bytes": 137204460,
+  "archive_bytes": 84441008,
+  "imported_on": "2026-10-22",
+  "verification": {
+    "archive_crc": "all passed",
+    "archive_bytes": "matched Library metadata",
+    "member_sha256": "recorded and verified after extraction",
+    "asset_regeneration": false,
+    "source_qa_reports": "retained unchanged; not rerun"
+  }
+}

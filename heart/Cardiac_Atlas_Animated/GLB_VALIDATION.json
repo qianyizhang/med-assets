@@ -1,0 +1,4136 @@
+{
+  "Heart_Cutaway_Animated.glb": {
+    "bytes": 5543020,
+    "sha256": "98523f91fd04e2a801b8024a3f36039675832a2d2e1d163c6f053d849be4902f",
+    "clips": 1,
+    "clip_name": "CardiacCycle_75BPM",
+    "duration_s": 0.8,
+    "animated_nodes": 123,
+    "mesh_nodes": 142,
+    "loop_weight_error": 0,
+    "max_vertex_morph_displacement_m": 0.012115421891212464,
+    "untransformed_mesh_bounds_m": [
+      [
+        -0.04399072378873825,
+        -0.05704137682914734,
+        -0.03421906754374504
+      ],
+      [
+        0.049237120896577835,
+        0.09504806250333786,
+        0.019267231225967407
+      ]
+    ],
+    "images_embedded": 0,
+    "external_uris": [],
+    "moving_nodes": [
+      {
+        "name": "LV | anterior section",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV | anterior section",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LA | anterior section",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA | anterior section",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 6",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 7",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 8",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 9",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 10",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 11",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 12",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 13",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 14",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV transverse trabecula 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV transverse trabecula 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV transverse trabecula 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV transverse trabecula 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV transverse trabecula 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV transverse trabecula 6",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 6",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 7",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 8",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 9",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 10",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 11",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 12",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 13",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 14",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV transverse trabecula 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV transverse trabecula 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV transverse trabecula 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV transverse trabecula 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV transverse trabecula 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV transverse trabecula 6",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV moderator band",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 6",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 7",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 8",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 9",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 10",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 11",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 12",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Mitral valve | leaflet 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Mitral valve | leaflet 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Tricuspid valve | leaflet 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Tricuspid valve | leaflet 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Tricuspid valve | leaflet 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Aortic valve | leaflet 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Aortic valve | leaflet 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Aortic valve | leaflet 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Pulmonary valve | leaflet 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Pulmonary valve | leaflet 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Pulmonary valve | leaflet 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV papillary muscle 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 1 leaflet 1 cord 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 1 leaflet 1 cord 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 1 leaflet 1 cord 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 1 leaflet 1 cord 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 1 leaflet 1 cord 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 1 leaflet 2 cord 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 1 leaflet 2 cord 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 1 leaflet 2 cord 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 1 leaflet 2 cord 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 1 leaflet 2 cord 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV papillary muscle 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 2 leaflet 1 cord 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 2 leaflet 1 cord 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 2 leaflet 1 cord 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 2 leaflet 1 cord 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 2 leaflet 1 cord 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 2 leaflet 2 cord 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 2 leaflet 2 cord 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 2 leaflet 2 cord 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 2 leaflet 2 cord 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 2 leaflet 2 cord 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV papillary muscle 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 1 leaflet 1 cord 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 1 leaflet 1 cord 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 1 leaflet 1 cord 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 1 leaflet 1 cord 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 1 leaflet 1 cord 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 1 leaflet 2 cord 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 1 leaflet 2 cord 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 1 leaflet 2 cord 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 1 leaflet 2 cord 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 1 leaflet 2 cord 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV papillary muscle 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 2 leaflet 2 cord 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 2 leaflet 2 cord 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 2 leaflet 2 cord 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 2 leaflet 2 cord 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 2 leaflet 2 cord 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 2 leaflet 3 cord 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 2 leaflet 3 cord 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 2 leaflet 3 cord 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 2 leaflet 3 cord 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 2 leaflet 3 cord 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV papillary muscle 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 3 leaflet 1 cord 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 3 leaflet 1 cord 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 3 leaflet 1 cord 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 3 leaflet 1 cord 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 3 leaflet 1 cord 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 3 leaflet 3 cord 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 3 leaflet 3 cord 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 3 leaflet 3 cord 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 3 leaflet 3 cord 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 3 leaflet 3 cord 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "Heart_Clinical_Animated.glb": {
+    "bytes": 8180224,
+    "sha256": "6912d439271c3525230a90fe403d586000e6a66ab37f82bf0419604181e52263",
+    "clips": 1,
+    "clip_name": "CardiacCycle_75BPM",
+    "duration_s": 0.8,
+    "animated_nodes": 228,
+    "mesh_nodes": 247,
+    "loop_weight_error": 0,
+    "max_vertex_morph_displacement_m": 0.012115421891212464,
+    "untransformed_mesh_bounds_m": [
+      [
+        -0.04399072378873825,
+        -0.057500001043081284,
+        -0.03421906754374504
+      ],
+      [
+        0.049237120896577835,
+        0.09504806250333786,
+        0.03459611162543297
+      ]
+    ],
+    "images_embedded": 0,
+    "external_uris": [],
+    "moving_nodes": [
+      {
+        "name": "LV | complete wall",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV | complete wall",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LA | complete wall",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA | complete wall",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA auricular appendage",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LA auricular appendage",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 6",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 7",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 8",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 9",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 10",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 11",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 12",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 13",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 14",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV transverse trabecula 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV transverse trabecula 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV transverse trabecula 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV transverse trabecula 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV transverse trabecula 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV transverse trabecula 6",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 6",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 7",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 8",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 9",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 10",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 11",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 12",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 13",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 14",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV transverse trabecula 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV transverse trabecula 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV transverse trabecula 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV transverse trabecula 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV transverse trabecula 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV transverse trabecula 6",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV moderator band",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 6",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 7",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 8",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 9",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 10",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 11",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 12",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Mitral valve | leaflet 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Mitral valve | leaflet 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Tricuspid valve | leaflet 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Tricuspid valve | leaflet 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Tricuspid valve | leaflet 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Aortic valve | leaflet 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Aortic valve | leaflet 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Aortic valve | leaflet 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Pulmonary valve | leaflet 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Pulmonary valve | leaflet 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Pulmonary valve | leaflet 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV papillary muscle 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 1 leaflet 1 cord 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 1 leaflet 1 cord 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 1 leaflet 1 cord 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 1 leaflet 1 cord 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 1 leaflet 1 cord 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 1 leaflet 2 cord 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 1 leaflet 2 cord 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 1 leaflet 2 cord 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 1 leaflet 2 cord 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 1 leaflet 2 cord 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV papillary muscle 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 2 leaflet 1 cord 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 2 leaflet 1 cord 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 2 leaflet 1 cord 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 2 leaflet 1 cord 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 2 leaflet 1 cord 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 2 leaflet 2 cord 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 2 leaflet 2 cord 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 2 leaflet 2 cord 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 2 leaflet 2 cord 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 2 leaflet 2 cord 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV papillary muscle 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 1 leaflet 1 cord 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 1 leaflet 1 cord 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 1 leaflet 1 cord 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 1 leaflet 1 cord 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 1 leaflet 1 cord 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 1 leaflet 2 cord 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 1 leaflet 2 cord 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 1 leaflet 2 cord 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 1 leaflet 2 cord 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 1 leaflet 2 cord 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV papillary muscle 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 2 leaflet 2 cord 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 2 leaflet 2 cord 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 2 leaflet 2 cord 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 2 leaflet 2 cord 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 2 leaflet 2 cord 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 2 leaflet 3 cord 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 2 leaflet 3 cord 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 2 leaflet 3 cord 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 2 leaflet 3 cord 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 2 leaflet 3 cord 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV papillary muscle 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 3 leaflet 1 cord 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 3 leaflet 1 cord 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 3 leaflet 1 cord 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 3 leaflet 1 cord 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 3 leaflet 1 cord 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 3 leaflet 3 cord 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 3 leaflet 3 cord 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 3 leaflet 3 cord 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 3 leaflet 3 cord 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 3 leaflet 3 cord 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Left main coronary",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LAD | anterior interventricular artery",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Circumflex coronary",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Right coronary artery",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Right marginal artery",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Posterior descending artery",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Great cardiac vein",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Coronary sinus",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Middle cardiac vein",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Small cardiac vein",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LAD diagonal branch 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LAD diagonal branch 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LAD diagonal branch 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LAD diagonal branch 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LAD diagonal branch 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RCA ventricular branch 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RCA ventricular branch 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RCA ventricular branch 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RCA ventricular branch 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 0",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 6",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 7",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 8",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 9",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 10",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 11",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 12",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 13",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 14",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 15",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 16",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 17",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 18",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 19",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 20",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 21",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 22",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 23",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 24",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 25",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 26",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 27",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 28",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 29",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 30",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 31",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 32",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 33",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 34",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 35",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 36",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 37",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 38",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 39",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 40",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 41",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 50",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 51",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 52",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 53",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 54",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 55",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 56",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 57",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 58",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 59",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 0",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 6",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 7",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 8",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 9",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 10",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 11",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 12",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 13",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 14",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 15",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 16",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 17",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 18",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 19",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 20",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 21",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 22",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 23",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 24",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 25",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 26",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 27",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 28",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 29",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 30",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 31",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  },
+  "Heart_Tissue_Animated.glb": {
+    "bytes": 14657880,
+    "sha256": "b167fddf2ede85db82306b37d7455db51148c0f81b386e7c4d2e7edf01f52cb1",
+    "clips": 1,
+    "clip_name": "CardiacCycle_75BPM",
+    "duration_s": 0.8,
+    "animated_nodes": 228,
+    "mesh_nodes": 247,
+    "loop_weight_error": 0,
+    "max_vertex_morph_displacement_m": 0.012115421891212464,
+    "untransformed_mesh_bounds_m": [
+      [
+        -0.04399072378873825,
+        -0.057500001043081284,
+        -0.03421906754374504
+      ],
+      [
+        0.049237120896577835,
+        0.09504806250333786,
+        0.03459611162543297
+      ]
+    ],
+    "images_embedded": 3,
+    "external_uris": [],
+    "moving_nodes": [
+      {
+        "name": "LV | complete wall",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV | complete wall",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LA | complete wall",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA | complete wall",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA auricular appendage",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LA auricular appendage",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 6",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 7",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 8",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 9",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 10",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 11",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 12",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 13",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV trabecula 14",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV transverse trabecula 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV transverse trabecula 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV transverse trabecula 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV transverse trabecula 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV transverse trabecula 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV transverse trabecula 6",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 6",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 7",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 8",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 9",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 10",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 11",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 12",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 13",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV trabecula 14",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV transverse trabecula 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV transverse trabecula 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV transverse trabecula 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV transverse trabecula 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV transverse trabecula 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV transverse trabecula 6",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV moderator band",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 6",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 7",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 8",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 9",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 10",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 11",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RA pectinate ridge 12",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Mitral valve | leaflet 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Mitral valve | leaflet 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Tricuspid valve | leaflet 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Tricuspid valve | leaflet 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Tricuspid valve | leaflet 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Aortic valve | leaflet 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Aortic valve | leaflet 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Aortic valve | leaflet 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Pulmonary valve | leaflet 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Pulmonary valve | leaflet 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Pulmonary valve | leaflet 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV papillary muscle 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 1 leaflet 1 cord 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 1 leaflet 1 cord 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 1 leaflet 1 cord 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 1 leaflet 1 cord 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 1 leaflet 1 cord 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 1 leaflet 2 cord 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 1 leaflet 2 cord 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 1 leaflet 2 cord 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 1 leaflet 2 cord 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 1 leaflet 2 cord 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV papillary muscle 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 2 leaflet 1 cord 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 2 leaflet 1 cord 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 2 leaflet 1 cord 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 2 leaflet 1 cord 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 2 leaflet 1 cord 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 2 leaflet 2 cord 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 2 leaflet 2 cord 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 2 leaflet 2 cord 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 2 leaflet 2 cord 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LV chordae | papillary 2 leaflet 2 cord 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV papillary muscle 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 1 leaflet 1 cord 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 1 leaflet 1 cord 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 1 leaflet 1 cord 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 1 leaflet 1 cord 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 1 leaflet 1 cord 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 1 leaflet 2 cord 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 1 leaflet 2 cord 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 1 leaflet 2 cord 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 1 leaflet 2 cord 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 1 leaflet 2 cord 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV papillary muscle 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 2 leaflet 2 cord 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 2 leaflet 2 cord 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 2 leaflet 2 cord 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 2 leaflet 2 cord 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 2 leaflet 2 cord 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 2 leaflet 3 cord 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 2 leaflet 3 cord 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 2 leaflet 3 cord 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 2 leaflet 3 cord 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 2 leaflet 3 cord 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV papillary muscle 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 3 leaflet 1 cord 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 3 leaflet 1 cord 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 3 leaflet 1 cord 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 3 leaflet 1 cord 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 3 leaflet 1 cord 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 3 leaflet 3 cord 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 3 leaflet 3 cord 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 3 leaflet 3 cord 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 3 leaflet 3 cord 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RV chordae | papillary 3 leaflet 3 cord 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Left main coronary",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LAD | anterior interventricular artery",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Circumflex coronary",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Right coronary artery",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Right marginal artery",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Posterior descending artery",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Great cardiac vein",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Coronary sinus",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Middle cardiac vein",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Small cardiac vein",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LAD diagonal branch 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LAD diagonal branch 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LAD diagonal branch 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LAD diagonal branch 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "LAD diagonal branch 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RCA ventricular branch 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RCA ventricular branch 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RCA ventricular branch 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "RCA ventricular branch 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 0",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 6",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 7",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 8",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 9",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 10",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 11",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 12",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 13",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 14",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 15",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 16",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 17",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 18",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 19",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 20",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 21",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 22",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 23",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 24",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 25",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 26",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 27",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 28",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 29",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 30",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 31",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 32",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 33",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 34",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 35",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 36",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 37",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 38",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 39",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 40",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 41",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 50",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 51",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 52",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 53",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 54",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 55",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 56",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 57",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 58",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | AV groove 59",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 0",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 1",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 2",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 3",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 4",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 5",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 6",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 7",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 8",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 9",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 10",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 11",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 12",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 13",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 14",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 15",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 16",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 17",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 18",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 19",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 20",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 21",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 22",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 23",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 24",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 25",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 26",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 27",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 28",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 29",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 30",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      },
+      {
+        "name": "Epicardial fat | LAD groove 31",
+        "weight_range": [
+          0.0,
+          1.0
+        ]
+      }
+    ]
+  }
+}
