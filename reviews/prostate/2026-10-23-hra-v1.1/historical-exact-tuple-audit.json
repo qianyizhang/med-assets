@@ -1,0 +1,892 @@
+{
+  "selectionNote": "Prostate entry selected unchanged from the multi-organ historical audit; no new anatomy verdict.",
+  "record": {
+    "file": "VH_M_Prostate.glb",
+    "sha256": "ec1023e0a1b81f71865872bb720404abc7bb6378a54ac71fa9f24579b097f48a",
+    "frame": "Original GLB imported with standard Blender glTF axes; no centering or atlas registration",
+    "parts": [
+      {
+        "exact_duplicate_vertices_welded": 0,
+        "audit_method": "Python tuple equality remap, no tolerance or displacement",
+        "name": "VH_M_vas_deferens_L",
+        "vertices": 500,
+        "polygons": 992,
+        "world_determinant": 1.0,
+        "signed_volume_local": 2.692156813335137e-07,
+        "boundary_edges": 6,
+        "nonmanifold_edges": 6,
+        "bbox_blender_native_m": [
+          [
+            -0.03744389861822128,
+            0.003817696589976549,
+            0.037945497781038284
+          ],
+          [
+            -0.0012687452835962176,
+            0.04260385036468506,
+            0.06232524663209915
+          ]
+        ],
+        "world_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      {
+        "exact_duplicate_vertices_welded": 0,
+        "audit_method": "Python tuple equality remap, no tolerance or displacement",
+        "name": "VH_M_vas_deferens_R",
+        "vertices": 440,
+        "polygons": 870,
+        "world_determinant": 1.0,
+        "signed_volume_local": 2.4807529801312697e-07,
+        "boundary_edges": 8,
+        "nonmanifold_edges": 8,
+        "bbox_blender_native_m": [
+          [
+            -0.00040747135062702,
+            0.0023180819116532803,
+            0.03771626204252243
+          ],
+          [
+            0.045527294278144836,
+            0.04014118015766144,
+            0.05498335883021355
+          ]
+        ],
+        "world_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      {
+        "exact_duplicate_vertices_welded": 0,
+        "audit_method": "Python tuple equality remap, no tolerance or displacement",
+        "name": "VH_M_seminal_vesicle",
+        "vertices": 7961,
+        "polygons": 15895,
+        "world_determinant": 1.0,
+        "signed_volume_local": 6.231902168928774e-06,
+        "boundary_edges": 31,
+        "nonmanifold_edges": 31,
+        "bbox_blender_native_m": [
+          [
+            -0.026622185483574867,
+            0.01713506691157818,
+            0.020237106829881668
+          ],
+          [
+            0.02489507384598255,
+            0.04017246142029762,
+            0.04693528637290001
+          ]
+        ],
+        "world_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      {
+        "exact_duplicate_vertices_welded": 0,
+        "audit_method": "Python tuple equality remap, no tolerance or displacement",
+        "name": "VH_M_ejaculatory_duct",
+        "vertices": 33344,
+        "polygons": 66688,
+        "world_determinant": 1.0,
+        "signed_volume_local": 6.506044629495534e-09,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "bbox_blender_native_m": [
+          [
+            -0.0011218148283660412,
+            0.011311943642795086,
+            0.0008902907138690352
+          ],
+          [
+            0.002259576227515936,
+            0.024291032925248146,
+            0.021224286407232285
+          ]
+        ],
+        "world_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      {
+        "exact_duplicate_vertices_welded": 0,
+        "audit_method": "Python tuple equality remap, no tolerance or displacement",
+        "name": "VH_M_prostatic_utricle",
+        "vertices": 30091,
+        "polygons": 60178,
+        "world_determinant": 1.0,
+        "signed_volume_local": 1.0340433443765608e-09,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "bbox_blender_native_m": [
+          [
+            -6.556219886988401e-05,
+            0.0103019829839468,
+            0.0023497315123677254
+          ],
+          [
+            0.0008286513038910925,
+            0.015911538153886795,
+            0.008376979269087315
+          ]
+        ],
+        "world_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      {
+        "exact_duplicate_vertices_welded": 0,
+        "audit_method": "Python tuple equality remap, no tolerance or displacement",
+        "name": "VH_M_seminal_colliculus",
+        "vertices": 180,
+        "polygons": 240,
+        "world_determinant": 1.0,
+        "signed_volume_local": -7.345388846051904e-08,
+        "boundary_edges": 126,
+        "nonmanifold_edges": 126,
+        "bbox_blender_native_m": [
+          [
+            -0.0017856750637292862,
+            0.010325007140636444,
+            -0.0015329825691878796
+          ],
+          [
+            0.0025371615774929523,
+            0.013561999425292015,
+            0.006244090851396322
+          ]
+        ],
+        "world_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      {
+        "exact_duplicate_vertices_welded": 0,
+        "audit_method": "Python tuple equality remap, no tolerance or displacement",
+        "name": "VH_M_prostate_duct_R",
+        "vertices": 16002,
+        "polygons": 32004,
+        "world_determinant": 1.0,
+        "signed_volume_local": 4.028324720109035e-10,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "bbox_blender_native_m": [
+          [
+            -0.006071895360946655,
+            0.012144224718213081,
+            -0.004525680560618639
+          ],
+          [
+            -0.0011072512716054916,
+            0.014102153480052948,
+            0.006203705910593271
+          ]
+        ],
+        "world_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      {
+        "exact_duplicate_vertices_welded": 0,
+        "audit_method": "Python tuple equality remap, no tolerance or displacement",
+        "name": "VH_M_prostate_duct_L",
+        "vertices": 16002,
+        "polygons": 32004,
+        "world_determinant": 1.0,
+        "signed_volume_local": 4.1579480669739056e-10,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "bbox_blender_native_m": [
+          [
+            0.0020009789150208235,
+            0.011119000613689423,
+            -0.004722638055682182
+          ],
+          [
+            0.007129752542823553,
+            0.01359635777771473,
+            0.00670010969042778
+          ]
+        ],
+        "world_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      {
+        "exact_duplicate_vertices_welded": 0,
+        "audit_method": "Python tuple equality remap, no tolerance or displacement",
+        "name": "VH_M_apex_of_prostate",
+        "vertices": 294,
+        "polygons": 500,
+        "world_determinant": 1.0,
+        "signed_volume_local": -6.124805387284157e-08,
+        "boundary_edges": 84,
+        "nonmanifold_edges": 84,
+        "bbox_blender_native_m": [
+          [
+            -0.0071973674930632114,
+            0.004924414213746786,
+            -0.00818303320556879
+          ],
+          [
+            0.00698345061391592,
+            0.0215919129550457,
+            0.0025233167689293623
+          ]
+        ],
+        "world_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      {
+        "exact_duplicate_vertices_welded": 0,
+        "audit_method": "Python tuple equality remap, no tolerance or displacement",
+        "name": "VH_M_base_of_prostate",
+        "vertices": 1167,
+        "polygons": 2145,
+        "world_determinant": 1.0,
+        "signed_volume_local": -3.1908519589033065e-08,
+        "boundary_edges": 179,
+        "nonmanifold_edges": 179,
+        "bbox_blender_native_m": [
+          [
+            -0.010589427314698696,
+            -0.00016985177353490144,
+            0.004307336639612913
+          ],
+          [
+            0.010056859813630581,
+            0.015382615849375725,
+            0.022031111642718315
+          ]
+        ],
+        "world_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      {
+        "exact_duplicate_vertices_welded": 0,
+        "audit_method": "Python tuple equality remap, no tolerance or displacement",
+        "name": "VH_M_peripheral_zone_of_prostate_R",
+        "vertices": 1508,
+        "polygons": 3012,
+        "world_determinant": 1.0,
+        "signed_volume_local": 4.5023387532242295e-06,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "bbox_blender_native_m": [
+          [
+            -0.014382077381014824,
+            0.0025094151496887207,
+            -0.008280419744551182
+          ],
+          [
+            0.001238109776750207,
+            0.030346564948558807,
+            0.027214862406253815
+          ]
+        ],
+        "world_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      {
+        "exact_duplicate_vertices_welded": 0,
+        "audit_method": "Python tuple equality remap, no tolerance or displacement",
+        "name": "VH_M_peripheral_zone_of_prostate_L",
+        "vertices": 1491,
+        "polygons": 2978,
+        "world_determinant": 1.0,
+        "signed_volume_local": 4.398494894308652e-06,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "bbox_blender_native_m": [
+          [
+            0.00027567025972530246,
+            0.0025738573167473078,
+            -0.008136800490319729
+          ],
+          [
+            0.015216710045933723,
+            0.030344823375344276,
+            0.027249030768871307
+          ]
+        ],
+        "world_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      {
+        "exact_duplicate_vertices_welded": 0,
+        "audit_method": "Python tuple equality remap, no tolerance or displacement",
+        "name": "VH_M_transition_zone__of_prostate_L",
+        "vertices": 371,
+        "polygons": 738,
+        "world_determinant": 1.0,
+        "signed_volume_local": 7.70400426521292e-07,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "bbox_blender_native_m": [
+          [
+            0.0006027514464221895,
+            0.006687616929411888,
+            0.003583642654120922
+          ],
+          [
+            0.010617162100970745,
+            0.018515298143029213,
+            0.01889556087553501
+          ]
+        ],
+        "world_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      {
+        "exact_duplicate_vertices_welded": 0,
+        "audit_method": "Python tuple equality remap, no tolerance or displacement",
+        "name": "VH_M_transition_zone_of_prostate_R",
+        "vertices": 419,
+        "polygons": 834,
+        "world_determinant": 1.0,
+        "signed_volume_local": 8.001173379910713e-07,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "bbox_blender_native_m": [
+          [
+            -0.009827827103435993,
+            0.0065787360072135925,
+            0.0034905984066426754
+          ],
+          [
+            0.0010298906126990914,
+            0.018455104902386665,
+            0.019071288406848907
+          ]
+        ],
+        "world_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      {
+        "exact_duplicate_vertices_welded": 0,
+        "audit_method": "Python tuple equality remap, no tolerance or displacement",
+        "name": "VH_M_central_zone_of_prostate_R",
+        "vertices": 806,
+        "polygons": 1590,
+        "world_determinant": 1.0,
+        "signed_volume_local": 1.8463796353720359e-06,
+        "boundary_edges": 16,
+        "nonmanifold_edges": 16,
+        "bbox_blender_native_m": [
+          [
+            -0.012064564973115921,
+            0.009518074803054333,
+            0.007723955903202295
+          ],
+          [
+            0.0009579926263540983,
+            0.02921072021126747,
+            0.027534954249858856
+          ]
+        ],
+        "world_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      {
+        "exact_duplicate_vertices_welded": 0,
+        "audit_method": "Python tuple equality remap, no tolerance or displacement",
+        "name": "VH_M_central_zone_of_prostate_L",
+        "vertices": 730,
+        "polygons": 1436,
+        "world_determinant": 1.0,
+        "signed_volume_local": 1.7538122748280426e-06,
+        "boundary_edges": 18,
+        "nonmanifold_edges": 18,
+        "bbox_blender_native_m": [
+          [
+            0.0006448074127547443,
+            0.009584980085492134,
+            0.007724913302809
+          ],
+          [
+            0.01286087092012167,
+            0.029321307316422462,
+            0.02754627726972103
+          ]
+        ],
+        "world_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      {
+        "exact_duplicate_vertices_welded": 0,
+        "audit_method": "Python tuple equality remap, no tolerance or displacement",
+        "name": "VH_M_anterior_fibromuscular_stroma_L",
+        "vertices": 649,
+        "polygons": 1294,
+        "world_determinant": 1.0,
+        "signed_volume_local": 6.663975239262552e-07,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "bbox_blender_native_m": [
+          [
+            9.339734970126301e-05,
+            -9.309887536801398e-05,
+            -0.007138073444366455
+          ],
+          [
+            0.010115218348801136,
+            0.0111991660669446,
+            0.017972290515899658
+          ]
+        ],
+        "world_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      },
+      {
+        "exact_duplicate_vertices_welded": 0,
+        "audit_method": "Python tuple equality remap, no tolerance or displacement",
+        "name": "VH_M_anterior_fibromuscular_stroma_R",
+        "vertices": 641,
+        "polygons": 1278,
+        "world_determinant": 1.0,
+        "signed_volume_local": 6.8091394412759e-07,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "bbox_blender_native_m": [
+          [
+            -0.009307699277997017,
+            -0.0002448272716719657,
+            -0.007206486072391272
+          ],
+          [
+            0.0011696594301611185,
+            0.011415941640734673,
+            0.017724739387631416
+          ]
+        ],
+        "world_matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      }
+    ]
+  }
+}
