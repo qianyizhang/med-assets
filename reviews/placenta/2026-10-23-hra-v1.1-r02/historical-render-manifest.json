@@ -1,0 +1,151 @@
+{
+  "glb_sha256": "7f9f215f810003fddc76ede225f051dc7014c67216e804403a4632d628ad82aa",
+  "frame": 1,
+  "engine": "Blender 4.3.2 Cycles CPU",
+  "samples": 48,
+  "resolution": [
+    900,
+    900
+  ],
+  "materials": "Exact reimport of R02 GLB materials; no renderer override",
+  "geometry": "Exact reimport of R02 GLB; original source BIN chunks identical",
+  "source_age": "Full term only; no numeric week inferred",
+  "views": [
+    {
+      "image": "maternal_basal_view.png",
+      "image_sha256": "21b4f239e770bb61382c2d4d29b029f171df46d7b74a4556efccffcbbe21cd82",
+      "glb_sha256": "7f9f215f810003fddc76ede225f051dc7014c67216e804403a4632d628ad82aa",
+      "camera": {
+        "name": "axis_positive_y",
+        "position": [
+          -0.01293327659368515,
+          0.5869178771972656,
+          0.19488726556301117
+        ],
+        "target": [
+          -0.01293327659368515,
+          -0.16577398777008057,
+          0.19488726556301117
+        ],
+        "orthographic_scale": 0.3211485290527344,
+        "hidden_meshes": []
+      },
+      "actual_hidden_source_meshes": [],
+      "visibility_note": "Amnion source geometry retained with illustrative alpha=0.12, not measured transmission"
+    },
+    {
+      "image": "fetal_chorionic_amnion_hidden.png",
+      "image_sha256": "56774ba5a461854ffa941b23eda48f779afb9035e0a9c0be67e5354a90b3a7e6",
+      "glb_sha256": "7f9f215f810003fddc76ede225f051dc7014c67216e804403a4632d628ad82aa",
+      "camera": {
+        "name": "axis_negative_y",
+        "position": [
+          -0.01293327659368515,
+          -0.9184658527374268,
+          0.19488726556301117
+        ],
+        "target": [
+          -0.01293327659368515,
+          -0.16577398777008057,
+          0.19488726556301117
+        ],
+        "orthographic_scale": 0.3211485290527344,
+        "hidden_meshes": []
+      },
+      "actual_hidden_source_meshes": [
+        "VH_F_amnion"
+      ],
+      "visibility_note": "View-only amnion hidden; exported mesh retained"
+    },
+    {
+      "image": "fetal_chorionic_oblique_amnion_hidden.png",
+      "image_sha256": "7ab1944b5f7069fb18cf13489ab7acd6564cab54571270ee08bc3d8e6a957fce",
+      "glb_sha256": "7f9f215f810003fddc76ede225f051dc7014c67216e804403a4632d628ad82aa",
+      "camera": {
+        "name": "oblique",
+        "position": [
+          0.23796400427818298,
+          -0.9184658527374268,
+          0.4457845687866211
+        ],
+        "target": [
+          -0.01293327659368515,
+          -0.16577398777008057,
+          0.19488726556301117
+        ],
+        "orthographic_scale": 0.3211485290527344,
+        "hidden_meshes": []
+      },
+      "actual_hidden_source_meshes": [
+        "VH_F_amnion"
+      ],
+      "visibility_note": "View-only amnion hidden; exported mesh retained"
+    },
+    {
+      "image": "fetal_chorionic_amnion_transparent.png",
+      "image_sha256": "dd253707a70185f0112e3afa2995752269b0f659950bfd7fe53c68dca1faa001",
+      "glb_sha256": "7f9f215f810003fddc76ede225f051dc7014c67216e804403a4632d628ad82aa",
+      "camera": {
+        "name": "axis_negative_y",
+        "position": [
+          -0.01293327659368515,
+          -0.9184658527374268,
+          0.19488726556301117
+        ],
+        "target": [
+          -0.01293327659368515,
+          -0.16577398777008057,
+          0.19488726556301117
+        ],
+        "orthographic_scale": 0.3211485290527344,
+        "hidden_meshes": []
+      },
+      "actual_hidden_source_meshes": [],
+      "visibility_note": "Amnion source geometry retained with illustrative alpha=0.12, not measured transmission"
+    },
+    {
+      "image": "fetal_chorionic_oblique_amnion_transparent.png",
+      "image_sha256": "3ab5ef9dc2f20996b380360bf6031dce63fe996fb273c7f886cef9fdf7f7eb12",
+      "glb_sha256": "7f9f215f810003fddc76ede225f051dc7014c67216e804403a4632d628ad82aa",
+      "camera": {
+        "name": "oblique",
+        "position": [
+          0.23796400427818298,
+          -0.9184658527374268,
+          0.4457845687866211
+        ],
+        "target": [
+          -0.01293327659368515,
+          -0.16577398777008057,
+          0.19488726556301117
+        ],
+        "orthographic_scale": 0.3211485290527344,
+        "hidden_meshes": []
+      },
+      "actual_hidden_source_meshes": [],
+      "visibility_note": "Amnion source geometry retained with illustrative alpha=0.12, not measured transmission"
+    },
+    {
+      "image": "side_amnion_transparent.png",
+      "image_sha256": "13b27fc9b970f52f332782e37210aedf69a24671b46d7ff927f13dcc7d408947",
+      "glb_sha256": "7f9f215f810003fddc76ede225f051dc7014c67216e804403a4632d628ad82aa",
+      "camera": {
+        "name": "axis_positive_x",
+        "position": [
+          0.7397586107254028,
+          -0.16577398777008057,
+          0.19488726556301117
+        ],
+        "target": [
+          -0.01293327659368515,
+          -0.16577398777008057,
+          0.19488726556301117
+        ],
+        "orthographic_scale": 0.3211485290527344,
+        "hidden_meshes": []
+      },
+      "actual_hidden_source_meshes": [],
+      "visibility_note": "Amnion source geometry retained with illustrative alpha=0.12, not measured transmission"
+    }
+  ]
+}

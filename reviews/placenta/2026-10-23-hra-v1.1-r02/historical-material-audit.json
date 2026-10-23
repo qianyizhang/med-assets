@@ -1,0 +1,145 @@
+{
+  "source_file": "sources/3d-vh-f-placenta-full-term.glb",
+  "source_sha256": "32381ebb2b2369e8e83c2b1e5f94cb1cafccf1e1e23439f80bada482ab9e57ef",
+  "derivative_file": "models/placenta_hra_full_term_r02/placenta_hra_full_term_r02_native_frame.glb",
+  "sha256": "7f9f215f810003fddc76ede225f051dc7014c67216e804403a4632d628ad82aa",
+  "binary_chunks_sha256": "d12cb9b59dcfac495ee4f248db122d1526e5eaabf2a262205b7fe12d11cf29f1",
+  "geometry_buffer_and_topology_json_unchanged": true,
+  "binary_chunks_identical": true,
+  "allowed_changes_only": [
+    "Material baseColorFactor: muted illustrative palette; not measured tissue color",
+    "Material roughnessFactor 0.8 and metallicFactor 0",
+    "Dedicated amnion material alphaMode BLEND alpha 0.12; illustrates visibility, not measured optical transmission"
+  ],
+  "no_changes": [
+    "All vertex positions, normals, indices, node transforms, mesh names, ontology extras",
+    "No added anatomy, microtexture, fake perforations, repaired holes, or simulation"
+  ],
+  "source_materials": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.62,
+          0.194060013,
+          0.194060013,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.2581639
+      },
+      "name": "pasted__Uterus_Mat"
+    },
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.2581639
+      },
+      "name": "pasted__Arteries_Mat"
+    },
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.8823,
+          0.8078,
+          0.7607,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.249303535
+      },
+      "name": "pasted__mucosa_mat"
+    },
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.2581639
+      },
+      "name": "pasted__Vein_mat"
+    }
+  ],
+  "derivative_materials": [
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.4,
+          0.12,
+          0.14,
+          1
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.8
+      },
+      "name": "pasted__Uterus_Mat"
+    },
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.45,
+          0.045,
+          0.06,
+          1
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.8
+      },
+      "name": "pasted__Arteries_Mat"
+    },
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.7,
+          0.6,
+          0.48,
+          1
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.8
+      },
+      "name": "pasted__mucosa_mat"
+    },
+    {
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.08,
+          0.14,
+          0.32,
+          1
+        ],
+        "metallicFactor": 0.0,
+        "roughnessFactor": 0.8
+      },
+      "name": "pasted__Vein_mat"
+    },
+    {
+      "name": "Illustrative_Amnion_Transparent_R02",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.75,
+          0.8,
+          0.75,
+          0.12
+        ],
+        "roughnessFactor": 0.8,
+        "metallicFactor": 0.0
+      },
+      "alphaMode": "BLEND",
+      "doubleSided": true
+    }
+  ],
+  "source_age_scope": "Full term only, exactly as source. No numerical week inferred.",
+  "license": "CC-BY-4.0",
+  "status": "Unreviewed; root pixel approval required",
+  "boundary": "Illustrative gross morphology and named layers, not perfusion/exchange fidelity or diagnostic anatomy"
+}
