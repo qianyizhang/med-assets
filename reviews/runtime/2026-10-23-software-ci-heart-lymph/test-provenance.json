@@ -1,0 +1,50 @@
+{
+  "repository": "qianyizhang/med-assets",
+  "commit": "bbdd3666876eb5399cc40fccdae8fd7902be9c92",
+  "files": {
+    "webgl_probe.py": {
+      "sha256": "5cc6b429c1fc2c6e59583391be9cb3f4ae221788427850607bbbeabb236a01e8",
+      "bytes": 17939
+    },
+    "glb_runtime_probe.py": {
+      "sha256": "7d204e46d6666202e4e92d533b6a20e03a8344f8a9af84fe20ae204dcadbe529",
+      "bytes": 18021
+    },
+    "glb_runtime_probe.mjs": {
+      "sha256": "e804bb782fc6cd68b528d98ec8375f09d29bd1ed50d851b1cdafd9ee147a2d6e",
+      "bytes": 12909
+    },
+    "glb-runtime-fixture.json": {
+      "sha256": "5c70269dad3649e12f003183e2a8ed797f8f6386fd2d7c1af6303be82777ac2e",
+      "bytes": 55614
+    }
+  },
+  "workflow": {
+    "path": ".github/workflows/firefox-glb-runtime.yml",
+    "sha256": "548187f267752bfe32dfa692bd4c70b25c9b29277b08d919f379de19ace52317",
+    "bytes": 1139
+  },
+  "sourceLinks": {
+    "webgl_probe.py": "https://github.com/qianyizhang/med-assets/blob/bbdd3666876eb5399cc40fccdae8fd7902be9c92/ci/webgl_probe.py",
+    "glb_runtime_probe.py": "https://github.com/qianyizhang/med-assets/blob/bbdd3666876eb5399cc40fccdae8fd7902be9c92/ci/glb_runtime_probe.py",
+    "glb_runtime_probe.mjs": "https://github.com/qianyizhang/med-assets/blob/bbdd3666876eb5399cc40fccdae8fd7902be9c92/ci/glb_runtime_probe.mjs",
+    "glb-runtime-fixture.json": "https://github.com/qianyizhang/med-assets/blob/bbdd3666876eb5399cc40fccdae8fd7902be9c92/ci/glb-runtime-fixture.json"
+  },
+  "frameIDs": [
+    "lymph-full",
+    "lymph-capsule-hidden",
+    "lymph-restored",
+    "heart-full-0",
+    "heart-full-1",
+    "heart-full-2",
+    "heart-full-3",
+    "heart-paused",
+    "heart-exact-loop",
+    "heart-valves-0",
+    "heart-valves-1",
+    "heart-valves-2",
+    "heart-valves-3",
+    "heart-restored"
+  ],
+  "codeScope": "Fixed exact heart + lymph fixtures only; not all-asset coverage."
+}

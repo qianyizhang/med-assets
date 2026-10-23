@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "id": "software-ci-heart-lymph-2026-10-23",
+  "kind": "supplemental-exact-source-runtime-evidence",
+  "status": "passed-scoped-software-ci-render-and-sampled-state",
+  "reviewedAtUTC": "2026-10-23T10:16:00Z",
+  "run": {
+    "url": "https://github.com/qianyizhang/med-assets/actions/runs/39937314430",
+    "id": 39937314430,
+    "commit": "bbdd3666876eb5399cc40fccdae8fd7902be9c92",
+    "durationSeconds": 47,
+    "attempt": 1
+  },
+  "assets": [
+    {
+      "assetId": "lymph_node",
+      "variantId": "lymph_node_hra__r01",
+      "sha256": "7b047002cbb1dc06f37baa441783390d76cdb444b6144d6caa623923707953fd",
+      "bytes": 7413900
+    },
+    {
+      "assetId": "heart_animated",
+      "variantId": "heart_animated__v10-837077aeece2",
+      "sha256": "17b26d1459c0fbbbc71d051452c4074d1237683ffe02c1a8021d7ac83583857a",
+      "bytes": 8180452
+    }
+  ],
+  "scope": {
+    "actualWebGL2Rendering": true,
+    "displayMatchedFramebuffer": true,
+    "deterministicLayerAndMorphState": true,
+    "nativeUIInteractionQA": false,
+    "wholeSiteQA": false,
+    "hardwarePerformanceQA": false,
+    "anatomyApproval": false,
+    "clinicalValidation": false,
+    "existingGatesChanged": false
+  },
+  "sampleTimesSeconds": [
+    0,
+    0.2,
+    0.4,
+    0.8
+  ],
+  "captureCount": 14,
+  "loadedMorphSourceNodes": 228,
+  "loadedMorphPrimitives": 232,
+  "recordedMorphEvaluations": 2552,
+  "maxMorphError": 0,
+  "allDisplayCropsMatchFramebufferRGBExactly": true,
+  "limitations": [
+    "Software-rendered stock Firefox CI on the recorded runner image only.",
+    "Deterministic scene API and mixer state; not native mouse/keyboard play/pause/scrub/drag controls.",
+    "Not production whole-site integration, continuous playback/performance, hardware/GPU compatibility, anatomical accuracy or clinical validation.",
+    "Requested phases 0, 0.2, 0.4 and 0.8 seconds miss the early atrial peak; not every morph track was visibly exercised.",
+    "Valve-only images deliberately hide 232 other source mesh nodes; diagnostic, not a complete-heart view.",
+    "Lymph key 7 remains Source vascular network (label conflict), not resolved as blood or lymph.",
+    "Existing canonical heart pedagogical-fit root preserved, not anatomical registration.",
+    "No original catalog/review gates are changed by this supplemental evidence."
+  ],
+  "visualReview": {
+    "reviewerType": "assistant",
+    "scope": "Actual display crops: heart full 0/0.2 s, valve diagnostic 0/0.2 s, lymph capsule hidden. Not anatomical approval.",
+    "files": [
+      "images/heart-full-0.display-crop.png",
+      "images/heart-full-1.display-crop.png",
+      "images/heart-valves-0.display-crop.png",
+      "images/heart-valves-1.display-crop.png",
+      "images/lymph-capsule-hidden.display-crop.png"
+    ]
+  },
+  "originalArtifact": {
+    "id": 12494745824,
+    "zipBytes": 2670577,
+    "sha256": "61b120bff3db0548f13cebf8402c43a77df35183227b092c2095803fad1a2be1",
+    "hostedExpiryUTC": "2026-10-26T10:12:05Z",
+    "verifiedOriginalRetainedLocally": true,
+    "note": "Public handoff intentionally excludes raw logs, full browser screenshots, temporary paths and browser profile."
+  }
+}

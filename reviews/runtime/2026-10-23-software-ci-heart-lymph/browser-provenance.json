@@ -1,0 +1,81 @@
+{
+  "browser": {
+    "userAgent": "Mozilla/5.0 (X11; Linux x86_64; rv:157.0) Gecko/20100101 Firefox/157.0",
+    "webdriver": false,
+    "devicePixelRatio": 1,
+    "version": "WebGL 2.0",
+    "renderer": "llvmpipe, or similar",
+    "vendor": "Mozilla",
+    "unmaskedRenderer": "llvmpipe, or similar",
+    "unmaskedVendor": "Mesa",
+    "attributes": {
+      "alpha": false,
+      "antialias": false,
+      "depth": true,
+      "failIfMajorPerformanceCaveat": false,
+      "powerPreference": "default",
+      "premultipliedAlpha": true,
+      "preserveDrawingBuffer": true,
+      "stencil": false
+    }
+  },
+  "uid": 1001,
+  "imageOS": "ubuntu24",
+  "imageVersion": "20261012.334.1",
+  "firefoxVersion": "Mozilla Firefox 157.0",
+  "observedPackages": [
+    "firefox\t157.0+build1-0ubuntu0.24.04.1~mt1",
+    "libgl1-mesa-dri\t25.2.8-0ubuntu0.24.04.4",
+    "xauth\t1:1.1.2-1build1",
+    "xvfb\t2:21.1.12-1ubuntu1.8"
+  ],
+  "optionalInventoryWarning": "dpkg-query: no packages found matching libegl-mesa0",
+  "installedFirefoxFiles": {
+    "firefox": {
+      "bytes": 585656,
+      "sha256": "76ec1b8eba5a11d7e22b9bfdb8f8864b4e301b7710e45707c4f81cfbccdab403"
+    },
+    "libxul.so": {
+      "bytes": 186672464,
+      "sha256": "2580c0db9a8dafbcf2f0323d4f49b375dc9d685086cd25bf5e4bbbe1e6c50d1d"
+    },
+    "omni.ja": {
+      "bytes": 46110196,
+      "sha256": "71eac1a8c7a1a98e446e5bdbbebefdc609e2badb152578c2026ba97849a61a19"
+    },
+    "browser/omni.ja": {
+      "bytes": 56212723,
+      "sha256": "98ea1f514cdc77465f090a81bfd5d162d3c1f8bafd29cfe9371b1a84e525db22"
+    },
+    "application.ini": {
+      "bytes": 692,
+      "sha256": "9f3bc0ec3ec9c2cea0a172b5c278308e551ea35e5baf0ba74540986b10a41f87"
+    },
+    "platform.ini": {
+      "bytes": 165,
+      "sha256": "4811b4d28aa2be3820aee55d9fc6bd00e04461576fa06f6b60982d5e52fcbc22"
+    }
+  },
+  "launchContract": {
+    "headed": true,
+    "freshEmptyProfile": true,
+    "customPreferenceFilesWritten": false,
+    "userJSExists": false,
+    "automationFramework": null,
+    "ordinaryArgs": [
+      "--no-remote",
+      "--profile <fresh temporary profile>",
+      "--new-window <trusted ephemeral loopback page>"
+    ],
+    "noSecurityOrGraphicsOverrideFlags": true,
+    "noBrowserInheritedCITokens": true
+  },
+  "preflight": {
+    "checkedPolicyFilesPresent": [],
+    "checkedSecurityRelatedOverridesDetected": false,
+    "onlyPackageIntegrityDifference": "/etc/firefox/syspref.js; captured separately, only locale pref active",
+    "detectedSandboxWarnings": [],
+    "nonSandboxWarning": "Optional accessibility dbus-launch unavailable",
+    "note": "Conservative recorded checks, not exhaustive effective-default/sandbox attestation."
+  }
+}
