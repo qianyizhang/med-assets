@@ -1,0 +1,61 @@
+{
+  "scope": "GLB header/length, finite positions, valid triangle indices and exact zero-area triangles only. No anatomy/runtime/manifold pass.",
+  "files": [
+    {
+      "file": "models/bp3d-right-femur-exterior.glb",
+      "sha256": "3dc45bb8496f9796cf418257a39aa88afc2cc60cbd3738335a391eaec9632745",
+      "meshes": [
+        {
+          "mesh": "FJ3365",
+          "vertices": 1574,
+          "triangles": 3102,
+          "strictZeroArea": 0,
+          "minArea_m2": 3.513992226089613e-07
+        }
+      ],
+      "animationCount": 0
+    },
+    {
+      "file": "models/illustrative-container-r03.glb",
+      "sha256": "17d3b2a45d4bc369cbb3ca770a48c550e0bf5438f8112b7a7bd31d2cbd12a02c",
+      "meshes": [
+        {
+          "mesh": "Exact-coordinate seam-remapped derivative",
+          "vertices": 576,
+          "triangles": 288,
+          "strictZeroArea": 0,
+          "minArea_m2": 4.021672239673535e-08
+        },
+        {
+          "mesh": "Exact-coordinate seam-remapped derivative.001",
+          "vertices": 639,
+          "triangles": 1132,
+          "strictZeroArea": 0,
+          "minArea_m2": 1.626877477178823e-08
+        },
+        {
+          "mesh": "Exact-coordinate seam-remapped derivative.002",
+          "vertices": 639,
+          "triangles": 1132,
+          "strictZeroArea": 0,
+          "minArea_m2": 3.059923425752231e-09
+        }
+      ],
+      "animationCount": 0
+    },
+    {
+      "file": "models/independent-measured-trabecular-reference.glb",
+      "sha256": "5b4f9c8c4e0aa3738213e32a0e19f293580acf8a17f29c4c59200bd38be89fca",
+      "meshes": [
+        {
+          "mesh": "measured-reference-unsmoothed",
+          "vertices": 111941,
+          "triangles": 219606,
+          "strictZeroArea": 0,
+          "minArea_m2": 6.561714366304372e-11
+        }
+      ],
+      "animationCount": 0
+    }
+  ]
+}

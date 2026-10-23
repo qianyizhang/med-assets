@@ -1,0 +1,40 @@
+{
+  "sourceFile": "BMLPL_001_REF_17_SEG_SUB.nii",
+  "sha256": "b52e275cb5e56b58393626fcaf6d81b1ae9b1fd039d20db09f38a60b0db3ff7c",
+  "vtkVersion": "9.3.1",
+  "dimensions": [
+    100,
+    100,
+    100
+  ],
+  "spacingHeader": [
+    0.017409179359674454,
+    0.017409179359674454,
+    0.017409268766641617
+  ],
+  "values": [
+    0,
+    127
+  ],
+  "counts": [
+    707089,
+    292911
+  ],
+  "niftiXYZTUnits": 2,
+  "description": "",
+  "sformCode": 0,
+  "qformCode": 1,
+  "method": "vtkFlyingEdges3D at midpoint of two segmentation labels; no smoothing, no decimation, no filling crop boundaries",
+  "surfacePoints": 111941,
+  "surfacePolygons": 219606,
+  "surfaceBoundsHeaderUnits": [
+    0.0,
+    1.7235087156295776,
+    0.0,
+    1.7235087156295776,
+    0.0,
+    1.723517656326294
+  ],
+  "referenceOnly": true,
+  "notEstablished": "Bone site, donor age/health, registration to BP3D femur; not marrow tissue segmentation"
+}

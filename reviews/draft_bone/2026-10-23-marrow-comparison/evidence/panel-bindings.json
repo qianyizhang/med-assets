@@ -1,0 +1,47 @@
+{
+  "inputs": [
+    {
+      "file": "evidence/container-intended.png",
+      "sha256": "7e066b7b98eee19137bb92db0a98b846e5167288659d9b4b85b42a18a0278494"
+    },
+    {
+      "file": "evidence/container-neutral.png",
+      "sha256": "0197874cd951ac3e19e6c753f5625a370a8f43881856be5c60f971e37e2128f9"
+    },
+    {
+      "file": "evidence/reference-neutral-oblique.png",
+      "sha256": "c86a05bd8af1cb8b52648a89614d30d6dbec219e4fb324b6bc14f336e46ed897"
+    }
+  ],
+  "outputs": [
+    {
+      "file": "evidence/two-panel-intended.png",
+      "sha256": "477fdb6a756a02ef96766831fbe51e84f9bc76032bd6312b5461570aaa5f167e"
+    },
+    {
+      "file": "evidence/two-panel-neutral.png",
+      "sha256": "fa1ff3691bff9b95b266ecaa64702db7887c026a0422b5e06bcf486a904698a1"
+    }
+  ],
+  "referenceScaleBar": {
+    "length_m": 0.0005,
+    "renderOrthoScale_m": 0.003016156144440174,
+    "pixelsAt640": 106.0953029868402,
+    "warning": "Header-derived; record prose differs"
+  },
+  "modelBindings": [
+    {
+      "file": "models/bp3d-right-femur-exterior.glb",
+      "sha256": "3dc45bb8496f9796cf418257a39aa88afc2cc60cbd3738335a391eaec9632745"
+    },
+    {
+      "file": "models/illustrative-container-r03.glb",
+      "sha256": "17d3b2a45d4bc369cbb3ca770a48c550e0bf5438f8112b7a7bd31d2cbd12a02c"
+    },
+    {
+      "file": "models/independent-measured-trabecular-reference.glb",
+      "sha256": "5b4f9c8c4e0aa3738213e32a0e19f293580acf8a17f29c4c59200bd38be89fca"
+    }
+  ],
+  "noRegistration": true
+}
