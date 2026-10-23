@@ -1,0 +1,24 @@
+{
+  "source": {
+    "file": "sources/datasets/hra/uterus-v1.1/VH_F_Uterus.glb",
+    "sha256": "a484956788ecc2ab05ca7720d9b33d265677e238f144cc28481aad2f7a0c9a95",
+    "bytes": 909772,
+    "url": "https://cdn.humanatlas.io/hra-releases/v1.2/models/VH_F_Uterus.glb"
+  },
+  "derivative": {
+    "file": "models/uterus/exports/hra-v1.1-r02/uterus_exterior.glb",
+    "sha256": "627f169a5e02f95102af994f7346cd0f85e454651231867c6829618ef1b0c356",
+    "bytes": 291776,
+    "url": "https://anatomy-verification.landy123007.chatgpt.site/review/candidates/uterus_hra__source-candidate-02/627f169a5e02f95102af994f7346cd0f85e454651231867c6829618ef1b0c356.glb.gz",
+    "encoding": "gzip",
+    "transportSha256": "6d51d0e1ba7c11638efb5c142629123c87001307a8f5f90c5b787d295d28820f",
+    "transportBytes": 235097
+  },
+  "versionNote": "Uterus Female v1.1 metadata; HRA release v1.2 in download path",
+  "license": "CC BY 4.0",
+  "excludedSourceNodes": [
+    "VH_F_anterior_wall_of_uterus",
+    "VH_F_posterior_wall_of_uterus"
+  ],
+  "change": "Exclude two overlapping nested wall solids; retain remaining region geometry/materials in native frame. Not a cavity model."
+}

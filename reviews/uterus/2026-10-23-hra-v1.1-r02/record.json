@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": "uterus-exterior-hra-v1.1-r02-bounded-import",
+  "assetId": "draft_uterus",
+  "variantId": "uterus_hra__source-candidate-02",
+  "reviewedAt": "2026-10-23T09:19:00Z",
+  "reviewTimeNote": "Bounded replay/import check time. Prior personal static visual acceptance occurred 2026-10-23; exact personal-review time was not recorded. Historical UNREVIEWED contact header predates that verdict.",
+  "artifact": {
+    "file": "models/uterus/exports/hra-v1.1-r02/uterus_exterior.glb",
+    "sha256": "627f169a5e02f95102af994f7346cd0f85e454651231867c6829618ef1b0c356"
+  },
+  "gates": {
+    "technical": {
+      "status": "pass-with-limitations",
+      "scope": "Exact deterministic export and native source-coordinate checks; open annotated patches remain. Coordinate comparisons use explicitly rounded 0.1 micrometre world-position sets, not byte identity."
+    },
+    "visual": {
+      "status": "passed",
+      "scope": "Reviewer personally inspected exact export contacts; improved exterior display only."
+    },
+    "anatomy": {
+      "status": "reference-screened",
+      "scope": "Educational reference screening only; no complete anatomy or clinical validation."
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "Offline static renders only; no interactive browser or physiological motion pass."
+    }
+  },
+  "evidence": [
+    {
+      "file": "reviews/uterus/2026-10-23-hra-v1.1-r02/display/contact-revision.webp",
+      "sha256": "943abc6baaf7f346ac460bff648ab9ae964c7c4a614bcbef63be1b559f5c31f8",
+      "artifactSha256": "627f169a5e02f95102af994f7346cd0f85e454651231867c6829618ef1b0c356",
+      "kind": "lossy-webp-display-derivative",
+      "originalPngSha256": "063ac280424f2edaa23e1a83d2b82b087ecd0d932f3213efbc1f3418534bc7d9",
+      "note": "Quality 92 lossy display derivative, not original lossless PNG. Historical contact retains its UNREVIEWED header; later scoped static visual acceptance is documented separately, not edited into original pixels."
+    },
+    {
+      "file": "reviews/uterus/2026-10-23-hra-v1.1-r02/display/posterior-oblique.webp",
+      "sha256": "746b42948469299a35a9769658eaca41786095e72d570e2c7f108765825ca237",
+      "artifactSha256": "627f169a5e02f95102af994f7346cd0f85e454651231867c6829618ef1b0c356",
+      "kind": "lossy-webp-display-derivative",
+      "originalPngSha256": "12de340de65f1ddd5347fc596b9789c895858ec76ccfdae1c210250425d39a8f",
+      "note": "Quality 92 lossy display derivative, not original lossless PNG. Historical contact retains its UNREVIEWED header; later scoped static visual acceptance is documented separately, not edited into original pixels."
+    }
+  ],
+  "failureSummary": {
+    "failure": "Earlier primitive form lacked landmarks; the first source display exposed peeling overlap seams.",
+    "cause": "Two overlapping source wall solids were unsuitable for a clean exterior display.",
+    "fix": "Exclude the two explicitly named wall solids, retain remaining exterior region patches in the original source frame.",
+    "retest": "Fresh Blender replay reproduced the exact accepted export SHA; all retained rounded world-coordinate sets and triangle counts are compared independently. Historical personal review passed exterior scope only.",
+    "lesson": "An authoritative source still needs layer-by-layer overlap inspection; omitted solids do not create valid cavity anatomy."
+  },
+  "limitations": [
+    "8 retained meshes; fresh exact-coordinate audit: 1,100 boundary edges and 1,100 non-two-incident edges. Non-two includes boundaries, not additional defects.",
+    "Exterior only; no uterine cavity, full tubes, ovaries or complete reproductive system.",
+    "Two source wall solids excluded, not smoothed or repaired.",
+    "Annotated region patches can remain open; no watertight certification.",
+    "No BP3D registration or clinical/runtime pass.",
+    "Native PNGs/scenes and broader rejected history are deferred from this bounded import."
+  ]
+}

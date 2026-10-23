@@ -1,0 +1,50 @@
+{
+  "sha256": "627f169a5e02f95102af994f7346cd0f85e454651231867c6829618ef1b0c356",
+  "method": "Every world vertex, tuple dedup and rounding to 1e-7 metres; exact sorted-set equality after source vs final independent imports. Triangle count also compared. No coordinate mutation.",
+  "checks": {
+    "VH_F_abdominal_ostium_of_uterine_tube": {
+      "all_vertex_coordinates_match_to_0_1_micrometre": true,
+      "triangle_count_match": true,
+      "unique_coordinates": 313
+    },
+    "VH_F_body_of_uterus": {
+      "all_vertex_coordinates_match_to_0_1_micrometre": true,
+      "triangle_count_match": true,
+      "unique_coordinates": 2823
+    },
+    "VH_F_cervix": {
+      "all_vertex_coordinates_match_to_0_1_micrometre": true,
+      "triangle_count_match": true,
+      "unique_coordinates": 1825
+    },
+    "VH_F_cornua": {
+      "all_vertex_coordinates_match_to_0_1_micrometre": true,
+      "triangle_count_match": true,
+      "unique_coordinates": 369
+    },
+    "VH_F_external_cervical_os": {
+      "all_vertex_coordinates_match_to_0_1_micrometre": true,
+      "triangle_count_match": true,
+      "unique_coordinates": 162
+    },
+    "VH_F_fundus_of_uterus": {
+      "all_vertex_coordinates_match_to_0_1_micrometre": true,
+      "triangle_count_match": true,
+      "unique_coordinates": 1640
+    },
+    "VH_F_internal_cervical_os": {
+      "all_vertex_coordinates_match_to_0_1_micrometre": true,
+      "triangle_count_match": true,
+      "unique_coordinates": 135
+    },
+    "VH_F_lower_uterine_segment": {
+      "all_vertex_coordinates_match_to_0_1_micrometre": true,
+      "triangle_count_match": true,
+      "unique_coordinates": 792
+    }
+  },
+  "excluded_source_nodes": [
+    "VH_F_anterior_wall_of_uterus",
+    "VH_F_posterior_wall_of_uterus"
+  ]
+}
