@@ -1,0 +1,205 @@
+{
+  "$schema": "https://cdn.humanatlas.io/digital-objects/schema/ref-organ-metadata/latest/assets/schema.json",
+  "@context": "https://cdn.humanatlas.io/digital-objects/schema/ref-organ-metadata/latest/assets/schema.context.jsonld",
+  "@type": "Container",
+  "id": "https://lod.humanatlas.io/ref-organ/eye-male-right/v1.3",
+  "title": "eye-male-right (v1.3) graph data",
+  "description": "The graph representation of the 3D Reference Organ for Eye, Male, Right dataset.",
+  "version": "v1.3",
+  "creators": [
+    {
+      "id": "https://github.com/hubmapconsortium/hra-do-processor",
+      "label": "HRA Digital Object Processor",
+      "conforms_to": "SoftwareApplication",
+      "name": "HRA Digital Object Processor",
+      "version": "0.10.0",
+      "target_product": {
+        "code_repository": "https://github.com/hubmapconsortium/hra-do-processor",
+        "see_also": "https://github.com/hubmapconsortium/hra-do-processor/commit/cd8d578a4c9da7c0539008bc2742971b4a545121"
+      },
+      "type_of": [
+        "schema:SoftwareApplication"
+      ]
+    }
+  ],
+  "creation_date": "2026-06-08",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "distributions": [
+    {
+      "id": "https://lod.humanatlas.io/ref-organ/eye-male-right/v1.3#json",
+      "label": "Graph data distribution eye-male-right (v1.3) in JSON format",
+      "title": "Graph data distribution eye-male-right (v1.3) in JSON format",
+      "downloadUrl": "https://cdn.humanatlas.io/digital-objects/ref-organ/eye-male-right/v1.3/graph.json",
+      "accessUrl": "https://lod.humanatlas.io/ref-organ/eye-male-right/v1.3#json",
+      "mediaType": "application/json"
+    },
+    {
+      "id": "https://lod.humanatlas.io/ref-organ/eye-male-right/v1.3#turtle",
+      "label": "Graph data distribution eye-male-right (v1.3) in Turtle format",
+      "title": "Graph data distribution eye-male-right (v1.3) in Turtle format",
+      "downloadUrl": "https://cdn.humanatlas.io/digital-objects/ref-organ/eye-male-right/v1.3/graph.ttl",
+      "accessUrl": "https://lod.humanatlas.io/ref-organ/eye-male-right/v1.3#turtle",
+      "mediaType": "text/turtle"
+    },
+    {
+      "id": "https://lod.humanatlas.io/ref-organ/eye-male-right/v1.3#jsonld",
+      "label": "Graph data distribution eye-male-right (v1.3) in JSON-LD format",
+      "title": "Graph data distribution eye-male-right (v1.3) in JSON-LD format",
+      "downloadUrl": "https://cdn.humanatlas.io/digital-objects/ref-organ/eye-male-right/v1.3/graph.jsonld",
+      "accessUrl": "https://lod.humanatlas.io/ref-organ/eye-male-right/v1.3#jsonld",
+      "mediaType": "application/ld+json"
+    },
+    {
+      "id": "https://lod.humanatlas.io/ref-organ/eye-male-right/v1.3#rdfxml",
+      "label": "Graph data distribution eye-male-right (v1.3) in RDF/XML format",
+      "title": "Graph data distribution eye-male-right (v1.3) in RDF/XML format",
+      "downloadUrl": "https://cdn.humanatlas.io/digital-objects/ref-organ/eye-male-right/v1.3/graph.xml",
+      "accessUrl": "https://lod.humanatlas.io/ref-organ/eye-male-right/v1.3#rdfxml",
+      "mediaType": "application/rdf+xml"
+    },
+    {
+      "id": "https://lod.humanatlas.io/ref-organ/eye-male-right/v1.3#ntriples",
+      "label": "Graph data distribution eye-male-right (v1.3) in N-Triples format",
+      "title": "Graph data distribution eye-male-right (v1.3) in N-Triples format",
+      "downloadUrl": "https://cdn.humanatlas.io/digital-objects/ref-organ/eye-male-right/v1.3/graph.nt",
+      "accessUrl": "https://lod.humanatlas.io/ref-organ/eye-male-right/v1.3#ntriples",
+      "mediaType": "application/n-triples"
+    },
+    {
+      "id": "https://lod.humanatlas.io/ref-organ/eye-male-right/v1.3#nquads",
+      "label": "Graph data distribution eye-male-right (v1.3) in N-Quads format",
+      "title": "Graph data distribution eye-male-right (v1.3) in N-Quads format",
+      "downloadUrl": "https://cdn.humanatlas.io/digital-objects/ref-organ/eye-male-right/v1.3/graph.nq",
+      "accessUrl": "https://lod.humanatlas.io/ref-organ/eye-male-right/v1.3#nquads",
+      "mediaType": "application/n-quads"
+    }
+  ],
+  "label": "eye-male-right (v1.3) graph data",
+  "name": "eye-male-right",
+  "type": "ref-organ",
+  "publisher": "HuBMAP",
+  "see_also": "https://purl.humanatlas.io/ref-organ/eye-male-right/v1.3",
+  "was_derived_from": {
+    "id": "https://lod.humanatlas.io/ref-organ/eye-male-right/v1.3#raw-data",
+    "label": "3D Reference Organ for Eye, Male, Right",
+    "title": "3D Reference Organ for Eye, Male, Right",
+    "description": "This reference organ, Right-eye-male (https://humanatlas.io/3d-reference-library) was created using data from the\nVisible Human Male, provided by the National Library of Medicine (Spitzer et al. 1996; Ackerman 1998). In version\nv1.3, the long posterior ciliary artery was added, as well as a more detailed iris. The position of the optic nerve\nwas also moved and made twice as thick. Muscle thickness was decreased and the positions of the muscles were shifted.\nThe levator palpebrae superioris muscle was removed as it was not deemed necessary to the eye model. The inferior\noblique muscle was rotated more parallel to the plane of the cornea.\n\n**Bibliography:**\n\n* Ackerman, Michael J. 1998. “The Visible Human Project.” *Proceedings of the IEEE* 86 (3): 504–11. https://doi.org/10.1109/5.662875.\n* Spitzer, V., M. J. Ackerman, A. L. Scherzinger, and D. Whitlock. 1996. “The Visible Human Male: A Technical Report.” *Journal of the American Medical Informatics Association* 3 (2): 118–30. https://doi.org/10.1136/jamia.1996.96236280.",
+    "creators": [
+      {
+        "id": "https://orcid.org/0000-0003-4066-7531",
+        "label": "Kristen Browne",
+        "conforms_to": "Person",
+        "fullName": "Kristen Browne",
+        "firstName": "Kristen",
+        "lastName": "Browne",
+        "orcid": "0000-0003-4066-7531",
+        "type_of": [
+          "schema:Person"
+        ]
+      },
+      {
+        "id": "https://orcid.org/0000-0002-3333-5646",
+        "label": "Heidi Schlehlein",
+        "conforms_to": "Person",
+        "fullName": "Heidi Schlehlein",
+        "firstName": "Heidi",
+        "lastName": "Schlehlein",
+        "orcid": "0000-0002-3333-5646",
+        "type_of": [
+          "schema:Person"
+        ]
+      }
+    ],
+    "reviewers": [
+      {
+        "id": "https://orcid.org/0000-0001-8776-2769",
+        "label": "Angela Kruse",
+        "conforms_to": "Person",
+        "fullName": "Angela Kruse",
+        "firstName": "Angela",
+        "lastName": "Kruse",
+        "orcid": "0000-0001-8776-2769",
+        "type_of": [
+          "schema:Person"
+        ]
+      },
+      {
+        "id": "https://orcid.org/0000-0002-3959-1712",
+        "label": "Christine Curcio",
+        "conforms_to": "Person",
+        "fullName": "Christine Curcio",
+        "firstName": "Christine",
+        "lastName": "Curcio",
+        "orcid": "0000-0002-3959-1712",
+        "type_of": [
+          "schema:Person"
+        ]
+      },
+      {
+        "id": "https://orcid.org/0000-0002-5975-3862",
+        "label": "Jeff D. Messinger",
+        "conforms_to": "Person",
+        "fullName": "Jeff D. Messinger",
+        "firstName": "Jeff",
+        "lastName": "Messinger",
+        "orcid": "0000-0002-5975-3862",
+        "type_of": [
+          "schema:Person"
+        ]
+      }
+    ],
+    "creation_date": "2024-06-15",
+    "license": "Creative Commons Attribution 4.0 International ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/))",
+    "publisher": "HuBMAP",
+    "references": [
+      "https://doi.org/10.1109/5.662875",
+      "https://doi.org/10.1136/jamia.1996.96236280"
+    ],
+    "citation": "Browne, Kristen,\tand Heidi Schlehlein.\t 2024.\t\"3D Reference Organ for Eye, Male, Right v1.3.\"\t https://doi.org/10.48539/HBM272.VPJG.573.\tAccessed June 15, 2024.",
+    "citationOverall": "Browne, Kristen,\tHeidi Schlehlein,\tBruce W. Herr II,\tEllen Quardokus,\tAndreas Bueckle,\t and Katy Börner.\t 2024.\t\"HuBMAP CCF 3D Reference Object Library.\"\t https://humanatlas.io/3d-reference-library.\tAccessed June 15, 2024.",
+    "funders": [
+      {
+        "funder": "National Institutes of Health",
+        "awardNumber": "OT2OD033756"
+      },
+      {
+        "funder": "National Institutes of Health",
+        "awardNumber": "OT2OD026671"
+      }
+    ],
+    "doi": "https://doi.org/10.48539/HBM272.VPJG.573",
+    "hubmapId": "HBM272.VPJG.573",
+    "project_leads": [
+      {
+        "id": "https://orcid.org/0000-0002-3321-6137",
+        "label": "Katy Börner",
+        "conforms_to": "Person",
+        "fullName": "Katy Börner",
+        "firstName": "Katy",
+        "lastName": "Börner",
+        "orcid": "0000-0002-3321-6137",
+        "type_of": [
+          "schema:Person"
+        ]
+      }
+    ],
+    "distributions": [
+      {
+        "id": "https://lod.humanatlas.io/ref-organ/eye-male-right/v1.3#3d-vh-m-eye-r.glb",
+        "label": "Raw data distribution '3d-vh-m-eye-r.glb' file",
+        "title": "Raw data distribution '3d-vh-m-eye-r.glb' file",
+        "downloadUrl": "https://cdn.humanatlas.io/digital-objects/ref-organ/eye-male-right/v1.3/assets/3d-vh-m-eye-r.glb",
+        "accessUrl": "https://lod.humanatlas.io/ref-organ/eye-male-right/v1.3#3d-vh-m-eye-r.glb",
+        "mediaType": "model/gltf-binary"
+      },
+      {
+        "id": "https://lod.humanatlas.io/ref-organ/eye-male-right/v1.3#crosswalk.csv",
+        "label": "Raw data distribution 'crosswalk.csv' file",
+        "title": "Raw data distribution 'crosswalk.csv' file",
+        "downloadUrl": "https://cdn.humanatlas.io/digital-objects/ref-organ/eye-male-right/v1.3/assets/crosswalk.csv",
+        "accessUrl": "https://lod.humanatlas.io/ref-organ/eye-male-right/v1.3#crosswalk.csv",
+        "mediaType": "text/csv"
+      }
+    ]
+  }
+}

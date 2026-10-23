@@ -1,0 +1,60 @@
+[
+  {
+    "file": "final-multiview.png",
+    "sha256": "1e78f3a435738130f4a63e5eb96f471031419d137c9197719b51adfa4e71e8d0",
+    "sources": [
+      {
+        "file": "normal-material/anterior.png",
+        "sha256": "b2a8601b0d463272d7a2c9cb60c35a62422626de6024c22cad45081b2637a406"
+      },
+      {
+        "file": "normal-material/posterior.png",
+        "sha256": "07e989c05b8e90f6cf2f47473dccd185139e3dfd4c5ae2cd01b29c9ee594e34e"
+      },
+      {
+        "file": "normal-material/oblique-posterior.png",
+        "sha256": "95f4fe979c746c10d9414e5d0bce990f9343f253c1c1e2fa8a249e2fb6226050"
+      },
+      {
+        "file": "normal-material/side.png",
+        "sha256": "f9e530127e0893e7ec9a756c2b647e8ea67de1f270457bf0061954b5be976eea"
+      }
+    ]
+  },
+  {
+    "file": "normal-comparison.png",
+    "sha256": "4f54f1fe0f952ed93dd06241b74357805cbff5d09d71844bd33a73cdeca2fc82",
+    "sources": [
+      {
+        "file": "material-only/posterior.png",
+        "sha256": "3f01152caf51febcf29e9343348f6f902ddf971318793b0827f3f92d0a2ac0ae"
+      },
+      {
+        "file": "normal-material/posterior.png",
+        "sha256": "07e989c05b8e90f6cf2f47473dccd185139e3dfd4c5ae2cd01b29c9ee594e34e"
+      },
+      {
+        "file": "material-only/side.png",
+        "sha256": "c8e7f2854938bd20d5d1cb38b663377733e786cb30d0a62d2d2d93d1126e542b"
+      },
+      {
+        "file": "normal-material/side.png",
+        "sha256": "f9e530127e0893e7ec9a756c2b647e8ea67de1f270457bf0061954b5be976eea"
+      }
+    ]
+  },
+  {
+    "file": "layer-diagnostics.png",
+    "sha256": "3a607def67bf93f110cc1827ab88b78f9977b4fdd127163f62d2b36070319136",
+    "sources": [
+      {
+        "file": "normal-material/lens-zonules-processes.png",
+        "sha256": "c97d4fc45c8a8863f317127975f8299a15162717e6db55c9644c2b6b3aa200ce"
+      },
+      {
+        "file": "normal-material/cornea-iris-lens.png",
+        "sha256": "578df445f59f8bf91b6e9314b94341c0f45650dc28fc519c4e8a8eba5ac83978"
+      }
+    ]
+  }
+]

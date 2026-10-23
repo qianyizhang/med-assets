@@ -1,0 +1,165 @@
+{
+  "sourceSha256": "1a6ecc528e98e0bddb8e2905e4ddb799eb471383f7274dbb9bdd1676b06be73b",
+  "selection": [
+    "VH_M_cornea_R",
+    "VH_M_iris_R",
+    "VH_M_lens_R",
+    "VH_M_ciliary_body_R",
+    "VH_M_ciliary_muscle_R",
+    "VH_M_ciliary_processes_R",
+    "VH_M_suspensory_ligament_of_lens_R"
+  ],
+  "allOtherSourceNodesExcluded": [
+    "VH_M_retina_R",
+    "VH_M_fovea_R",
+    "VH_M_macula_lutea_R",
+    "VH_M_optic_disc_R",
+    "VH_M_palpebral_conjunctiva_of_upper_eyelid_R",
+    "VH_M_palpebral_conjunctiva_of_lower_eyelid_R",
+    "VH_M_sclera_R",
+    "VH_M_optic_choroid_R",
+    "VH_M_pupil_R",
+    "VH_M_ora_serrata_of_retina_R",
+    "VH_M_corneo_scleral_junction_R",
+    "VH_M_schlemms_canal_R",
+    "VH_M_aqueous_humor_R",
+    "VH_M_trabecular_meshwork_R",
+    "VH_M_bulbar_conjunctiva_R",
+    "VH_M_vitreous_humor_R"
+  ],
+  "results": [
+    {
+      "mode": "source-subset",
+      "file": "models/source-subset.glb",
+      "sha256": "372a40daf5c032d311fd8ce813126392aa070dedd2082dfc14339ba8884354be",
+      "bytes": 9778948,
+      "selectedNodes": [
+        {
+          "node": "VH_M_cornea_R",
+          "sourceNodeId": 24,
+          "normalsChanged": false
+        },
+        {
+          "node": "VH_M_iris_R",
+          "sourceNodeId": 22,
+          "normalsChanged": false
+        },
+        {
+          "node": "VH_M_lens_R",
+          "sourceNodeId": 16,
+          "normalsChanged": false
+        },
+        {
+          "node": "VH_M_ciliary_body_R",
+          "sourceNodeId": 19,
+          "normalsChanged": false
+        },
+        {
+          "node": "VH_M_ciliary_muscle_R",
+          "sourceNodeId": 20,
+          "normalsChanged": false
+        },
+        {
+          "node": "VH_M_ciliary_processes_R",
+          "sourceNodeId": 12,
+          "normalsChanged": false
+        },
+        {
+          "node": "VH_M_suspensory_ligament_of_lens_R",
+          "sourceNodeId": 13,
+          "normalsChanged": false
+        }
+      ]
+    },
+    {
+      "mode": "material-only",
+      "file": "models/material-only.glb",
+      "sha256": "658996d556addf07da3015ff8d59eddde291a88e5dadcf7ca9c491433b240bfc",
+      "bytes": 9779208,
+      "selectedNodes": [
+        {
+          "node": "VH_M_cornea_R",
+          "sourceNodeId": 24,
+          "normalsChanged": false
+        },
+        {
+          "node": "VH_M_iris_R",
+          "sourceNodeId": 22,
+          "normalsChanged": false
+        },
+        {
+          "node": "VH_M_lens_R",
+          "sourceNodeId": 16,
+          "normalsChanged": false
+        },
+        {
+          "node": "VH_M_ciliary_body_R",
+          "sourceNodeId": 19,
+          "normalsChanged": false
+        },
+        {
+          "node": "VH_M_ciliary_muscle_R",
+          "sourceNodeId": 20,
+          "normalsChanged": false
+        },
+        {
+          "node": "VH_M_ciliary_processes_R",
+          "sourceNodeId": 12,
+          "normalsChanged": false
+        },
+        {
+          "node": "VH_M_suspensory_ligament_of_lens_R",
+          "sourceNodeId": 13,
+          "normalsChanged": false
+        }
+      ]
+    },
+    {
+      "mode": "normal-material",
+      "file": "models/normal-material.glb",
+      "sha256": "457b08b1edab5fc39db3b49e09635091721847e06262b7cb937fd006223c6750",
+      "bytes": 10054784,
+      "selectedNodes": [
+        {
+          "node": "VH_M_cornea_R",
+          "sourceNodeId": 24,
+          "normalsChanged": true,
+          "sourceNormalsRetainedAtMoreThan35DegreeDifference": 238,
+          "vertices": 19572
+        },
+        {
+          "node": "VH_M_iris_R",
+          "sourceNodeId": 22,
+          "normalsChanged": false
+        },
+        {
+          "node": "VH_M_lens_R",
+          "sourceNodeId": 16,
+          "normalsChanged": true,
+          "sourceNormalsRetainedAtMoreThan35DegreeDifference": 0,
+          "vertices": 3368
+        },
+        {
+          "node": "VH_M_ciliary_body_R",
+          "sourceNodeId": 19,
+          "normalsChanged": false
+        },
+        {
+          "node": "VH_M_ciliary_muscle_R",
+          "sourceNodeId": 20,
+          "normalsChanged": false
+        },
+        {
+          "node": "VH_M_ciliary_processes_R",
+          "sourceNodeId": 12,
+          "normalsChanged": false
+        },
+        {
+          "node": "VH_M_suspensory_ligament_of_lens_R",
+          "sourceNodeId": 13,
+          "normalsChanged": false
+        }
+      ]
+    }
+  ]
+}
