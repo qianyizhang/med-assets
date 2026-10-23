@@ -1,0 +1,370 @@
+{
+  "id": "pancreas_hra_female_context_r04",
+  "sha256": "aa15f9248027c248886a9cf8d4f5f401b2753176c800851f648b03d88d97ebed",
+  "role_mapping_method": "Explicit enumerated source atlas node/name to display-role mapping; exact selected mesh set equality and every material-role assignment asserted. No substring matching used.",
+  "legend_scope": "Colors are illustrative named source-region/context groups, not measured tissue color or verified wall layers.",
+  "source_atlas_sha256": "95f0c3d2f918582608692ca1139e8bdb18c147a16470e9ee9af8b276bd77c422",
+  "rows": [
+    {
+      "source_atlas_node_id": 559,
+      "source_mesh_name": "VH_F_tail_of_pancreas",
+      "source_label": "tail of pancreas",
+      "source_node_type": "surface",
+      "illustrative_display_role": "tail",
+      "materials": [
+        "Illustrative_matte_pancreas_tail"
+      ],
+      "baseColorFactors": [
+        [
+          0.65,
+          0.47,
+          0.25,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 560,
+      "source_mesh_name": "VH_F_body_of_pancreas",
+      "source_label": "body of pancreas",
+      "source_node_type": "surface",
+      "illustrative_display_role": "body",
+      "materials": [
+        "Illustrative_matte_pancreas_body"
+      ],
+      "baseColorFactors": [
+        [
+          0.58,
+          0.4,
+          0.19,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 561,
+      "source_mesh_name": "VH_F_ucinate_process1",
+      "source_label": "uncinate process of pancreas",
+      "source_node_type": "surface",
+      "illustrative_display_role": "ucinate",
+      "materials": [
+        "Illustrative_matte_pancreas_ucinate"
+      ],
+      "baseColorFactors": [
+        [
+          0.58,
+          0.35,
+          0.17,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 562,
+      "source_mesh_name": "VH_F_head_of_pancreas",
+      "source_label": "head of pancreas",
+      "source_node_type": "surface",
+      "illustrative_display_role": "head",
+      "materials": [
+        "Illustrative_matte_pancreas_head"
+      ],
+      "baseColorFactors": [
+        [
+          0.52,
+          0.32,
+          0.13,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 563,
+      "source_mesh_name": "VH_F_neck_of_pancreas",
+      "source_label": "Neck of pancreas",
+      "source_node_type": "surface",
+      "illustrative_display_role": "neck",
+      "materials": [
+        "Illustrative_matte_pancreas_neck"
+      ],
+      "baseColorFactors": [
+        [
+          0.47,
+          0.28,
+          0.13,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 570,
+      "source_mesh_name": "VH_F_hepatopancreatic_ampulla",
+      "source_label": "hepatopancreatic ampulla",
+      "source_node_type": "mesh",
+      "illustrative_display_role": "duct",
+      "materials": [
+        "Illustrative_matte_pancreas_duct"
+      ],
+      "baseColorFactors": [
+        [
+          0.28,
+          0.48,
+          0.4,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 571,
+      "source_mesh_name": "VH_F_dorsal_pancreatic_duct",
+      "source_label": "dorsal pancreatic duct",
+      "source_node_type": "mesh",
+      "illustrative_display_role": "duct",
+      "materials": [
+        "Illustrative_matte_pancreas_duct"
+      ],
+      "baseColorFactors": [
+        [
+          0.28,
+          0.48,
+          0.4,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 572,
+      "source_mesh_name": "VH_F_common_bile_duct",
+      "source_label": "common bile duct",
+      "source_node_type": "mesh",
+      "illustrative_display_role": "duct",
+      "materials": [
+        "Illustrative_matte_pancreas_duct"
+      ],
+      "baseColorFactors": [
+        [
+          0.28,
+          0.48,
+          0.4,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 573,
+      "source_mesh_name": "VH_F_ventral_pancreatic_duct",
+      "source_label": "Ventral pancreatic duct",
+      "source_node_type": "mesh",
+      "illustrative_display_role": "duct",
+      "materials": [
+        "Illustrative_matte_pancreas_duct"
+      ],
+      "baseColorFactors": [
+        [
+          0.28,
+          0.48,
+          0.4,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 578,
+      "source_mesh_name": "VH_F_duodenum_superior",
+      "source_label": "superior part of duodenum",
+      "source_node_type": "mesh",
+      "illustrative_display_role": "duodenum",
+      "materials": [
+        "Illustrative_matte_pancreas_duodenum"
+      ],
+      "baseColorFactors": [
+        [
+          0.36,
+          0.22,
+          0.2,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 579,
+      "source_mesh_name": "VH_F_duodenal_ampulla",
+      "source_label": "duodenal ampulla",
+      "source_node_type": "mesh",
+      "illustrative_display_role": "duodenum",
+      "materials": [
+        "Illustrative_matte_pancreas_duodenum"
+      ],
+      "baseColorFactors": [
+        [
+          0.36,
+          0.22,
+          0.2,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 580,
+      "source_mesh_name": "VH_F_duodenum_descending",
+      "source_label": "descending part of duodenum",
+      "source_node_type": "mesh",
+      "illustrative_display_role": "duodenum",
+      "materials": [
+        "Illustrative_matte_pancreas_duodenum"
+      ],
+      "baseColorFactors": [
+        [
+          0.36,
+          0.22,
+          0.2,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 581,
+      "source_mesh_name": "VH_F_sphincter_of_heptopancreatic_ampulla",
+      "source_label": "Sphincter of hepatopancreatic ampulla",
+      "source_node_type": "mesh",
+      "illustrative_display_role": "duodenum",
+      "materials": [
+        "Illustrative_matte_pancreas_duodenum"
+      ],
+      "baseColorFactors": [
+        [
+          0.36,
+          0.22,
+          0.2,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 582,
+      "source_mesh_name": "VH_F_duodenum_ascending",
+      "source_label": "ascending part of duodenum",
+      "source_node_type": "mesh",
+      "illustrative_display_role": "duodenum",
+      "materials": [
+        "Illustrative_matte_pancreas_duodenum"
+      ],
+      "baseColorFactors": [
+        [
+          0.36,
+          0.22,
+          0.2,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 583,
+      "source_mesh_name": "VH_F_duodenum_horizontal",
+      "source_label": "horizontal part of duodenum",
+      "source_node_type": "mesh",
+      "illustrative_display_role": "duodenum",
+      "materials": [
+        "Illustrative_matte_pancreas_duodenum"
+      ],
+      "baseColorFactors": [
+        [
+          0.36,
+          0.22,
+          0.2,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 987,
+      "source_mesh_name": "VH_F_gastric_surface_of_spleen",
+      "source_label": "gastric surface of spleen",
+      "source_node_type": "surface",
+      "illustrative_display_role": "spleen",
+      "materials": [
+        "Illustrative_matte_pancreas_spleen"
+      ],
+      "baseColorFactors": [
+        [
+          0.26,
+          0.12,
+          0.2,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 988,
+      "source_mesh_name": "VH_F_diaphragmatic_surface_of_spleen",
+      "source_label": "diaphragmatic surface of spleen",
+      "source_node_type": "surface",
+      "illustrative_display_role": "spleen",
+      "materials": [
+        "Illustrative_matte_pancreas_spleen"
+      ],
+      "baseColorFactors": [
+        [
+          0.26,
+          0.12,
+          0.2,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 989,
+      "source_mesh_name": "VH_F_colic_surface_of_spleen",
+      "source_label": "colic surface of spleen",
+      "source_node_type": "surface",
+      "illustrative_display_role": "spleen",
+      "materials": [
+        "Illustrative_matte_pancreas_spleen"
+      ],
+      "baseColorFactors": [
+        [
+          0.26,
+          0.12,
+          0.2,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 990,
+      "source_mesh_name": "VH_F_hilum_of_spleen",
+      "source_label": "hilum of spleen",
+      "source_node_type": "surface",
+      "illustrative_display_role": "spleen",
+      "materials": [
+        "Illustrative_matte_pancreas_spleen"
+      ],
+      "baseColorFactors": [
+        [
+          0.26,
+          0.12,
+          0.2,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 991,
+      "source_mesh_name": "VH_F_renal_surface_of_spleen",
+      "source_label": "renal surface of spleen",
+      "source_node_type": "surface",
+      "illustrative_display_role": "spleen",
+      "materials": [
+        "Illustrative_matte_pancreas_spleen"
+      ],
+      "baseColorFactors": [
+        [
+          0.26,
+          0.12,
+          0.2,
+          1
+        ]
+      ]
+    }
+  ],
+  "all_selected_mesh_roles_checked": true
+}

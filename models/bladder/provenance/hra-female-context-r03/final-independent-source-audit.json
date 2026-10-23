@@ -1,0 +1,548 @@
+{
+  "id": "bladder_hra_female_context_r03",
+  "sha256": "91f04d1c831a61944da116184f389461517587c90c91fd94e199fba1619aa6b9",
+  "source_atlas_sha256": "95f0c3d2f918582608692ca1139e8bdb18c147a16470e9ee9af8b276bd77c422",
+  "all_position_index_other_nonnormal_attributes_source_byte_identical": true,
+  "all_source_node_transform_fields_identical": true,
+  "all_selected_mesh_ancestor_chains_identical": true,
+  "exact_named_meshes": 21,
+  "checks": [
+    {
+      "mesh": "VH_F_vagina",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 4461,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 4461,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0000001192092896,
+              "min_norm": 0.9999998807907104
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_cervicovaginal_junction",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 1952,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 1952,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0000001192092896,
+              "min_norm": 0.9999999403953552
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_abdominal_ostium_of_uterine_tube",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 313,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 313,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0000001192092896,
+              "min_norm": 1.0
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_body_of_uterus",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 2823,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 2823,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0000001192092896,
+              "min_norm": 0.9999999403953552
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_fundus_of_uterus",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 1640,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 1640,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0000001192092896,
+              "min_norm": 0.9999998807907104
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_cornua",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 369,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 369,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0000001192092896,
+              "min_norm": 0.9999999403953552
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_lower_uterine_segment",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 792,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 792,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0000001192092896,
+              "min_norm": 0.9999998807907104
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_posterior_wall_of_uterus",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 6508,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 6508,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0000001192092896,
+              "min_norm": 0.9999998807907104
+            },
+            "COLOR_0": {
+              "source_byte_identical": true,
+              "count": 6508,
+              "all_finite": true
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_anterior_wall_of_uterus",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 5584,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 5584,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 2,
+              "max_norm": 1.0000001192092896,
+              "min_norm": 1.3067282499112931e-11
+            },
+            "COLOR_0": {
+              "source_byte_identical": true,
+              "count": 5584,
+              "all_finite": true
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_cervix",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 1825,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 1825,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0000001192092896,
+              "min_norm": 0.9999998807907104
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_internal_cervical_os",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 135,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 135,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0000001192092896,
+              "min_norm": 0.9999998807907104
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_external_cervical_os",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 162,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 162,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0000001192092896,
+              "min_norm": 0.9999999403953552
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_rectum",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 965,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 965,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0000001192092896,
+              "min_norm": 0.9999998807907104
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_right_ureter",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 6478,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 6478,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0,
+              "min_norm": 0.9999999403953552
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_left_ureter",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 7474,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 7474,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0,
+              "min_norm": 0.9999999403953552
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_fundus_of_urinary_bladder_dome",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 6138,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": false,
+              "count": 6138,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0000001192092896,
+              "min_norm": 0.9999998807907104
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_urinary_bladder_neck_smooth_muscle",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 935,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 935,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0000001192092896,
+              "min_norm": 0.9999999403953552
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_fundus_of_urinary_bladder_base",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 13071,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": false,
+              "count": 13071,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0000001192092896,
+              "min_norm": 0.9999998807907104
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_trigone_of_urinary_bladder",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 934,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 934,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0000001192092896,
+              "min_norm": 0.9999999403953552
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_ureteral_orifice_R",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 106,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 106,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0000001192092896,
+              "min_norm": 1.0
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_ureteral_orifice_L",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 118,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 118,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0000001192092896,
+              "min_norm": 1.0
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    }
+  ],
+  "technical_warnings": [],
+  "approval_authority": "See the separate root-visual-verdict.json for exact accepted candidates; this audit grants no anatomy/runtime/clinical/normality or clean-format acceptance"
+}

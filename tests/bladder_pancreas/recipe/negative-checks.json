@@ -1,0 +1,23 @@
+{
+  "scope": "Fail-closed input guard checks only; not malicious-code or mesh security certification.",
+  "checks": [
+    {
+      "case": "wrong source size",
+      "rejected": true,
+      "output_not_created": true,
+      "expected_error": "Dependency byte-size mismatch"
+    },
+    {
+      "case": "same-size shared recipe byte change",
+      "rejected": true,
+      "output_not_created": true,
+      "expected_error": "Dependency SHA-256 mismatch"
+    },
+    {
+      "case": "assertions disabled",
+      "rejected": true,
+      "output_not_created": true,
+      "expected_error": "Run without -O"
+    }
+  ]
+}

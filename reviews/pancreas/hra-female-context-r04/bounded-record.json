@@ -1,0 +1,172 @@
+{
+  "schemaVersion": 1,
+  "assetId": "pancreas",
+  "variantId": "pancreas__hra-female-context-r04",
+  "artifact": {
+    "file": "models/pancreas/exports/hra-female-context-r04/pancreas_hra_female_context_r04.glb",
+    "sha256": "aa15f9248027c248886a9cf8d4f5f401b2753176c800851f648b03d88d97ebed",
+    "bytes": 1373872
+  },
+  "gates": {
+    "technical": {
+      "status": "pass-with-limitations",
+      "scope": "Exact positions, indices, non-normal source attributes, transforms and ancestor chains verified. Only documented selection/material/NORMAL changes. Source warnings remain; NOT clean mesh-format approval."
+    },
+    "visual": {
+      "status": "passed",
+      "scope": "Personally inspected exact accepted static contact and relevant same-atlas context only."
+    },
+    "anatomy": {
+      "status": "unreviewed"
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "No browser-runtime test or animation/physiology pass."
+    }
+  },
+  "scope": {
+    "en": "Five-region gross exterior with selected same-atlas context; no duct patency, lobular, microscopic or clinical claim. Original HRA frame; no cross-atlas registration.",
+    "zh": "5 区域大体外形及选定同图谱参照；不验证胰管通畅、流动、腺小叶、微观结构或临床准确性。保留原始 HRA 坐标，未进行跨图谱配准。"
+  },
+  "sourceFrame": "Native HRA glTF Y-up metres; source ancestor transforms unchanged; no body registration",
+  "technicalWarnings": [
+    "Open source annotation/region patches, ill-conditioned slivers, degenerate triangles and virtual non-manifold adjacency remain; no watertight or clean-mesh claim.",
+    "Twenty source zero or near-zero NORMAL vectors remain, not repaired by the guarded display-normal changes.",
+    "Coarse provider regions are not lobular or microscopic anatomy. Context roles explicitly identify duodenal ampulla and sphincters.",
+    "来源开放分区、薄片、退化面及虚拟非流形邻接保留；20个零或近零法线未修补。不宣称封闭、干净网格、腺小叶或微观准确性；参照角色明确区分十二指肠壶腹及括约肌。"
+  ],
+  "license": "CC BY 4.0",
+  "sourceDependency": {
+    "file": "sources/datasets/hra/united-female-v1.10/external-source.json",
+    "bytes": 374505632,
+    "sha256": "95f0c3d2f918582608692ca1139e8bdb18c147a16470e9ee9af8b276bd77c422",
+    "includedInThisPR": false
+  },
+  "evidence": [
+    {
+      "id": "pancreas__2026-10-23-v10-exterior-review__3",
+      "file": "reviews/pancreas/hra-female-context-r04/display/before-e59522e5e4ff.webp",
+      "sha256": "e59522e5e4ff75a2079e0ecb0e6cd9feac10d54b4bb0eb4af68ebdf7331305f2",
+      "originalSha256": "09fe80b656c343642aef8c17aa7a1a1eb5d8fd9c9c5ecf564c3a19659bfa4cc7",
+      "originalFile": "reviews/pancreas/2026-10-23-v10-exterior-review/pancreas/screenshots/contact.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "baseline",
+      "noteIsGeneric": true,
+      "kind": "blender-still-contact-sheet",
+      "label": {
+        "en": "Front / left / back",
+        "zh": "前视 / 左视 / 后视"
+      },
+      "capturedAt": "2026-10-23T01:31:54.475549+00:00",
+      "recordedDate": "2026-10-23",
+      "assetBinding": "df8b88d8fe5dac619ac5840ddcb57c2968dab0db76086dee2b7925f0c5f53d80",
+      "sourceBindings": [],
+      "role": null,
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": {
+        "engine": "Blender 4.3.2 Cycles CPU",
+        "samples": 32,
+        "resolution": [
+          512,
+          512
+        ],
+        "frame": 1,
+        "projection": "orthographic",
+        "orientation": "Manifest x=patient left, y=superior, z=anterior; glTF imported to Blender Z-up; cameras front=-Y,left=+X,back=+Y",
+        "hiddenCutawayNodes": [],
+        "scope": "Exterior static view only. Internal details may remain occluded. No motion or runtime verification."
+      },
+      "note": {
+        "en": "Lossy quality-92 WebP display derivative; not byte-identical native PNG. Original hash is preserved separately. Historical baseline source binding is distinct from the accepted context export."
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/pancreas__2026-10-23-v10-exterior-review/09fe80b656c343642aef8c17aa7a1a1eb5d8fd9c9c5ecf564c3a19659bfa4cc7.webp",
+      "bytes": 52952,
+      "selectionRole": "before",
+      "originalNativePublicCopies": []
+    },
+    {
+      "id": "pancreas__hra-female-context-r04__scoped-review__1",
+      "file": "reviews/pancreas/hra-female-context-r04/display/candidate-1bf2dc46bf2a.webp",
+      "sha256": "1bf2dc46bf2a8a38a822fdbeaa6a621fbc8e93eb98a7715256b4775a0fb69caf",
+      "originalSha256": "2493e0421fcd76917e31f2cbcb8df7da54406d77be0d9426fdccf8ea4ea9f6a4",
+      "originalFile": "reviews/pancreas/hra-female-context-r04/contact.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "candidate",
+      "noteIsGeneric": false,
+      "kind": "blender-still",
+      "label": {
+        "en": "contact",
+        "zh": "多视图联系表"
+      },
+      "capturedAt": null,
+      "recordedDate": "2026-10-23",
+      "assetBinding": "aa15f9248027c248886a9cf8d4f5f401b2753176c800851f648b03d88d97ebed",
+      "sourceBindings": [],
+      "role": "candidate-context",
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": null,
+      "note": {
+        "en": "Lossy quality-92 WebP display derivative; not byte-identical native PNG. Original hash is preserved separately. Historical baseline source binding is distinct from the accepted context export."
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/pancreas__hra-female-context-r04__scoped-review/2493e0421fcd76917e31f2cbcb8df7da54406d77be0d9426fdccf8ea4ea9f6a4.webp",
+      "bytes": 46564,
+      "selectionRole": "candidate",
+      "originalNativePublicCopies": []
+    },
+    {
+      "id": "pancreas__hra-female-context-r04__scoped-review__2",
+      "file": "reviews/pancreas/hra-female-context-r04/display/candidate-450887fc9a95.webp",
+      "sha256": "450887fc9a952a00feeb983ebc7269c62640f6ed50db8faa8b15d0c7485fe249",
+      "originalSha256": "6e5e416653149096a9ea6809d2551ad6ed71a585a9c2e50a14e7c9a3e4d0306f",
+      "originalFile": "reviews/pancreas/hra-female-context-r04/ducts_duodenum_pancreas_spleen_hidden.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "candidate",
+      "noteIsGeneric": false,
+      "kind": "blender-still",
+      "label": {
+        "en": "ducts_duodenum_pancreas_spleen_hidden",
+        "zh": "来源导管与十二指肠·隐藏胰腺和脾"
+      },
+      "capturedAt": null,
+      "recordedDate": "2026-10-23",
+      "assetBinding": "aa15f9248027c248886a9cf8d4f5f401b2753176c800851f648b03d88d97ebed",
+      "sourceBindings": [],
+      "role": "candidate-context",
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": null,
+      "note": {
+        "en": "Lossy quality-92 WebP display derivative; not byte-identical native PNG. Original hash is preserved separately. Historical baseline source binding is distinct from the accepted context export."
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/pancreas__hra-female-context-r04__scoped-review/6e5e416653149096a9ea6809d2551ad6ed71a585a9c2e50a14e7c9a3e4d0306f.webp",
+      "bytes": 14582,
+      "selectionRole": "candidate",
+      "originalNativePublicCopies": []
+    }
+  ],
+  "sourceRoleKey": {
+    "file": "models/pancreas/provenance/hra-female-context-r04/explicit-region-key.json",
+    "sha256": "576dddcf996f5c3dfee060ae1a50c0d1e8e9eabc7a34b2f012f1cf7612ff312c"
+  },
+  "cameraRecipe": {
+    "file": "reviews/pancreas/hra-female-context-r04/viewer-camera-supported-three.json",
+    "sha256": "89f8e63cd77fd2e7a99643df785285c0d0de46ba7e6c199c5666a8ff4ce5adbe",
+    "sourceSha256": "aa15f9248027c248886a9cf8d4f5f401b2753176c800851f648b03d88d97ebed"
+  },
+  "defaultWholeBodyReplacement": false,
+  "migrationOnly": true,
+  "newStudyCount": 0,
+  "limitations": [
+    "Selected source-context study only; existing baseline failures unchanged.",
+    "Full native image/scene/history payloads are not migrated by this bounded PR.",
+    "Camera recipes document named inspection visibility; no consumer runtime test is implied."
+  ]
+}

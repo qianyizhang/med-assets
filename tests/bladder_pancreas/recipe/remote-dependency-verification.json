@@ -1,0 +1,25 @@
+{
+  "repository": "qianyizhang/med-assets",
+  "ref": "79c867bad7471562d1c4ddabb4fe2a24d9764f8a",
+  "ref_scope": "Organizer supplied this verified main commit; file contents independently fetched at that immutable commit through GitHub connector.",
+  "verification_method": "Decode connector-returned original base64 bytes, verify full SHA-256/byte size against dependency-map.json and independently recalculate Git blob SHA-1. No remote script executed for this check.",
+  "dependency_map_sha256": "61179cd9dfa67d015b87bc4a49ccddf94e827cf95ef57c9286ec73986c5ca26b",
+  "files": [
+    {
+      "path": "tests/liver_spleen/recipes/extract_exact_subsets.py",
+      "bytes": 5387,
+      "sha256": "395de2445806a7357e99e6f877b45638fc4be2968d83ee7d6ee5aafa03bb2ea8",
+      "git_blob_sha1": "3a51c03454ade7d172d37b203767902075dbe5e4",
+      "url": "https://github.com/qianyizhang/med-assets/blob/79c867bad7471562d1c4ddabb4fe2a24d9764f8a/tests/liver_spleen/recipes/extract_exact_subsets.py",
+      "matches_pinned_dependency": true
+    },
+    {
+      "path": "tests/liver_spleen/recipes/resolve_shared_source.py",
+      "bytes": 534,
+      "sha256": "fd34247c22db8324689e3a0f0f6bca847e41d04fb0353cf0f57a00a52e7575f5",
+      "git_blob_sha1": "e3bf3ad5b65836ce1703730a4460a6145735fdf7",
+      "url": "https://github.com/qianyizhang/med-assets/blob/79c867bad7471562d1c4ddabb4fe2a24d9764f8a/tests/liver_spleen/recipes/resolve_shared_source.py",
+      "matches_pinned_dependency": true
+    }
+  ]
+}

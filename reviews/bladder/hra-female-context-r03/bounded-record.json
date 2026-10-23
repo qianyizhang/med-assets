@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "assetId": "bladder",
+  "variantId": "bladder__hra-female-context-r03",
+  "artifact": {
+    "file": "models/bladder/exports/hra-female-context-r03/bladder_hra_female_context_r03.glb",
+    "sha256": "91f04d1c831a61944da116184f389461517587c90c91fd94e199fba1619aa6b9",
+    "bytes": 2449600
+  },
+  "gates": {
+    "technical": {
+      "status": "pass-with-limitations",
+      "scope": "Exact positions, indices, non-normal source attributes, transforms and ancestor chains verified. Only documented selection/material/NORMAL changes. Source warnings remain; NOT clean mesh-format approval."
+    },
+    "visual": {
+      "status": "passed",
+      "scope": "Personally inspected exact accepted static contact and relevant same-atlas context only."
+    },
+    "anatomy": {
+      "status": "unreviewed"
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "No browser-runtime test or animation/physiology pass."
+    }
+  },
+  "scope": {
+    "en": "Female source six-patch exterior and selected pelvic context only; not sex-neutral, complete urinary system or validated wall layers. Original HRA frame; no cross-atlas registration.",
+    "zh": "女性来源 6 区域外形及选定同图谱盆腔参照；不推断充盈状态，不含完整泌尿系统、尿道或经验证壁层。保留原始 HRA 坐标，未进行跨图谱配准。"
+  },
+  "sourceFrame": "Native HRA glTF Y-up metres; source ancestor transforms unchanged; no body registration",
+  "technicalWarnings": [
+    "Source open annotation/region patches remain; no watertight or clean-format claim.",
+    "Source ridge remains; do not infer a universal filled/empty state.",
+    "保留来源开放标注/区域拼片；不宣称封闭实体或干净网格。",
+    "来源隆起仍保留；不得推断通用充盈或排空状态。"
+  ],
+  "license": "CC BY 4.0",
+  "sourceDependency": {
+    "file": "sources/datasets/hra/united-female-v1.10/external-source.json",
+    "bytes": 374505632,
+    "sha256": "95f0c3d2f918582608692ca1139e8bdb18c147a16470e9ee9af8b276bd77c422",
+    "includedInThisPR": false
+  },
+  "evidence": [
+    {
+      "id": "bladder__2026-10-23-v10-exterior-review__3",
+      "file": "reviews/bladder/hra-female-context-r03/display/before-aa6d2f956acf.webp",
+      "sha256": "aa6d2f956acf17e77688ea84f2f8f45633f287f58fb056c3ce2f11d240b5b834",
+      "originalSha256": "0889d402e465d6122df51bfc1d21c3e92cb19f48c5bce7a399482c3c22805794",
+      "originalFile": "reviews/bladder/2026-10-23-v10-exterior-review/bladder/screenshots/contact.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "baseline",
+      "noteIsGeneric": true,
+      "kind": "blender-still-contact-sheet",
+      "label": {
+        "en": "Front / left / back",
+        "zh": "前视 / 左视 / 后视"
+      },
+      "capturedAt": "2026-10-23T01:32:43.164946+00:00",
+      "recordedDate": "2026-10-23",
+      "assetBinding": "798329114cfcd241d7f8342fc8faa70ff33fdbded6029bb128d82c3d6f50d8c5",
+      "sourceBindings": [],
+      "role": null,
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": {
+        "engine": "Blender 4.3.2 Cycles CPU",
+        "samples": 32,
+        "resolution": [
+          512,
+          512
+        ],
+        "frame": 1,
+        "projection": "orthographic",
+        "orientation": "Manifest x=patient left, y=superior, z=anterior; glTF imported to Blender Z-up; cameras front=-Y,left=+X,back=+Y",
+        "hiddenCutawayNodes": [
+          "bladder | anterior teaching section"
+        ],
+        "scope": "Exterior static view only. Internal details may remain occluded. No motion or runtime verification."
+      },
+      "note": {
+        "en": "Lossy quality-92 WebP display derivative; not byte-identical native PNG. Original hash is preserved separately. Historical baseline source binding is distinct from the accepted context export."
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/bladder__2026-10-23-v10-exterior-review/0889d402e465d6122df51bfc1d21c3e92cb19f48c5bce7a399482c3c22805794.webp",
+      "bytes": 33194,
+      "selectionRole": "before",
+      "originalNativePublicCopies": []
+    },
+    {
+      "id": "bladder__hra-female-context-r03__scoped-review__3",
+      "file": "reviews/bladder/hra-female-context-r03/display/candidate-3b6b55e9f945.webp",
+      "sha256": "3b6b55e9f945219024fffbcc8e749c6411bc452c32d14f48eb1ac1f1dde66fb5",
+      "originalSha256": "499c939aca06b25740801a4de4d89b03db4481d27e8f0ebb8835b3b90b44948a",
+      "originalFile": "reviews/bladder/hra-female-context-r03/contact.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "candidate",
+      "noteIsGeneric": false,
+      "kind": "blender-still",
+      "label": {
+        "en": "contact",
+        "zh": "多视图联系表"
+      },
+      "capturedAt": null,
+      "recordedDate": "2026-10-23",
+      "assetBinding": "91f04d1c831a61944da116184f389461517587c90c91fd94e199fba1619aa6b9",
+      "sourceBindings": [],
+      "role": "candidate-context",
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": null,
+      "note": {
+        "en": "Lossy quality-92 WebP display derivative; not byte-identical native PNG. Original hash is preserved separately. Historical baseline source binding is distinct from the accepted context export."
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/bladder__hra-female-context-r03__scoped-review/499c939aca06b25740801a4de4d89b03db4481d27e8f0ebb8835b3b90b44948a.webp",
+      "bytes": 46822,
+      "selectionRole": "candidate",
+      "originalNativePublicCopies": []
+    },
+    {
+      "id": "bladder__hra-female-context-r03__scoped-review__5",
+      "file": "reviews/bladder/hra-female-context-r03/display/candidate-0686aa928396.webp",
+      "sha256": "0686aa928396c594cd40bc7044792ee722fa91d6ad5edf34ef3152075455dfd3",
+      "originalSha256": "43b0cbce5981dd279822611598286a638e929996636f19863502cfe98bedf7e5",
+      "originalFile": "reviews/bladder/hra-female-context-r03/same_atlas_pelvic_ureters_hidden_oblique.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "candidate",
+      "noteIsGeneric": false,
+      "kind": "blender-still",
+      "label": {
+        "en": "same_atlas_pelvic_ureters_hidden_oblique",
+        "zh": "同图谱盆腔参照·隐藏输尿管斜视"
+      },
+      "capturedAt": null,
+      "recordedDate": "2026-10-23",
+      "assetBinding": "91f04d1c831a61944da116184f389461517587c90c91fd94e199fba1619aa6b9",
+      "sourceBindings": [],
+      "role": "candidate-context",
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": null,
+      "note": {
+        "en": "Lossy quality-92 WebP display derivative; not byte-identical native PNG. Original hash is preserved separately. Historical baseline source binding is distinct from the accepted context export."
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/bladder__hra-female-context-r03__scoped-review/43b0cbce5981dd279822611598286a638e929996636f19863502cfe98bedf7e5.webp",
+      "bytes": 33036,
+      "selectionRole": "candidate",
+      "originalNativePublicCopies": []
+    }
+  ],
+  "sourceRoleKey": {
+    "file": "models/bladder/provenance/hra-female-context-r03/explicit-region-key.json",
+    "sha256": "fa46deaca91516b89c4774f87a48507ba4c9b138396871d01fe123362efd75f5"
+  },
+  "cameraRecipe": {
+    "file": "reviews/bladder/hra-female-context-r03/viewer-camera-supported-three.json",
+    "sha256": "3b292a4ff73027dc6ff16ca0034bd94d25e0dca441dff5732c5528551eff20ad",
+    "sourceSha256": "91f04d1c831a61944da116184f389461517587c90c91fd94e199fba1619aa6b9"
+  },
+  "defaultWholeBodyReplacement": false,
+  "migrationOnly": true,
+  "newStudyCount": 0,
+  "limitations": [
+    "Selected source-context study only; existing baseline failures unchanged.",
+    "Full native image/scene/history payloads are not migrated by this bounded PR.",
+    "Camera recipes document named inspection visibility; no consumer runtime test is implied."
+  ]
+}
