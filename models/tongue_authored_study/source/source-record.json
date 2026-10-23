@@ -1,0 +1,25 @@
+{
+  "derivationClass": "authored educational hybrid; not source-exact, not patient-specific",
+  "input": {
+    "path": "source/tongue-surfaces-hra-female-r02.glb",
+    "sha256": "a76dc3c882994ff1515f30f9047872a634a6cdf9275e1eec7b4aa9ba13633d12",
+    "bytes": 16647708,
+    "method": "Prior losslessly packed five-source-patch tongue subset; material-only display edit, original position/normal/index streams preserved there"
+  },
+  "immutableFullRawSource": {
+    "path": "../mouth-hra-quality-revision-20261023/source/3d-vh-f-mouth.glb",
+    "url": "https://cdn.humanatlas.io/digital-objects/ref-organ/mouth-female/v1.0/assets/3d-vh-f-mouth.glb",
+    "sha256": "bd8e24e9d52b49719c6a1cafa1f54fc40c1d3f811b9d32df78d5c20ebb78c197",
+    "bytes": 103690760,
+    "license": "CC BY 4.0",
+    "credit": "Heidi Schlehlein / HRA-HuBMAP, Mouth Female v1.0",
+    "release": "https://lod.humanatlas.io/ref-organ/mouth-female/v1.0",
+    "doi": "https://doi.org/10.48539/HBM856.VZWZ.422"
+  },
+  "nativeFrame": "Original source numeric Y-up glTF coordinate frame; no root transform, recentering, scaling, reflection, registration or patient-coordinate assertion",
+  "visualReferences": "See references/download-provenance.json: Gray 1013, 1019, 1020, 1918 public-domain plates with preserved raw image hashes",
+  "excludedReferences": "University of Michigan BlueLink imagery/material excluded due explicit generative-AI permission restriction; no article figures or NC-ND imagery copied",
+  "changedGeometry": "Lower/internal return regions removed; replacement connected body/ventral, side transition and small closure regions authored. Normals recomputed. Source triangle geometry retained only where exact-export evidence verifies it.",
+  "notModeled": ["oral floor", "frenulum attachment", "complete extrinsic muscles/attachments", "internal muscles", "vessels", "nerves", "cellular taste structures"],
+  "originalSourceVerdictUnchanged": "Needs revision for isolated whole-tongue presentation; no claim the HRA source is anatomically wrong"
+}

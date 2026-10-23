@@ -1,0 +1,83 @@
+{
+  "artifact": "models/tongue_authored_study/exports/authored-p11/tongue-authored-hra-hybrid-p11.glb",
+  "sha256": "efabd58b235b72682f067113cf079e3f70fbaceac47062f2b937f09540c1ee1a",
+  "bytes": 4983044,
+  "scope": {
+    "en": "Authored gross-exterior illustration with HRA-derived dorsum. 70,817 source-exact triangles include all 2,788 papilla triangles; body/ventral join authored and normals recomputed. All 4 provenance partitions remain visible; they are not complete anatomical layers. Whole-mouth failure remains open.",
+    "zh": "\u4eba\u5de5\u5927\u4f53\u5916\u5f62\u793a\u610f\uff0c\u820c\u80cc\u90e8\u5206\u6765\u81ea HRA\u300270,817 \u4e2a\u4fdd\u7559\u6e90\u51e0\u4f55\u4e09\u89d2\u9762\u5305\u542b\u5168\u90e8 2,788 \u4e2a\u4e73\u5934\u4e09\u89d2\u9762\uff1b\u4e3b\u4f53\uff0f\u8179\u4fa7\u8fde\u63a5\u4e3a\u4eba\u5de5\u5efa\u6a21\uff0c\u6cd5\u7ebf\u91cd\u65b0\u8ba1\u7b97\u30024 \u4e2a\u6765\u6e90\u5206\u533a\u5747\u4fdd\u6301\u53ef\u89c1\uff0c\u5e76\u975e\u5b8c\u6574\u89e3\u5256\u5c42\u3002\u5168\u53e3\u8154\u8fde\u7eed\u6027\u95ee\u9898\u4ecd\u672a\u89e3\u51b3\u3002"
+  },
+  "gates": {
+    "technical": {
+      "status": "pass-with-limitations",
+      "scope": "Specified container, topology, provenance and intersection checks only. 204,316 triangles; one closed oriented component under exact-coordinate merge. No clinical proof."
+    },
+    "visual": {
+      "status": "passed",
+      "scope": "Reviewer-inspected STATIC authored gross-exterior hybrid only; intended, neutral, underside and tip-section evidence. Not whole-mouth continuity."
+    },
+    "anatomy": {
+      "status": "reference-screened",
+      "scope": "Qualitative gross exterior reference screening only; no anatomist, patient-specific or clinical validation."
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "No browser/consumer interaction or motion validation."
+    }
+  },
+  "limitations": [
+    "Not source-exact whole mesh or patient-specific; no clinical validation.",
+    "Posterior termination is illustrative; no oral floor/frenulum, internal muscles, vessels, nerves or motion.",
+    "Papilla partitions are not removable intact layers: hiding them creates holes.",
+    "Native numerical HRA Y-up frame is retained, not registration into another atlas."
+  ],
+  "evidence": [
+    {
+      "file": "reviews/tongue_authored_study/authored-p11/evidence-1.webp",
+      "sha256": "246b690b9dc97b998473618d277e7c297d014375f7a07bdee2124cb018373c95",
+      "originalSha256": "927dcc08190dbe5ea3656c0d70e218c7cbf70e973ca1109ecb96af30f7565981",
+      "label": {
+        "en": "render-tip-p11/anterior",
+        "zh": "\u4eba\u5de5\u5916\u5f62 \u00b7 \u6700\u7ec8\u524d\u89c6"
+      },
+      "role": "candidate",
+      "note": "WebP display derivative; not byte-identical to original PNG. Provenance colors are diagnostic, not tissue or independently complete layers."
+    },
+    {
+      "file": "reviews/tongue_authored_study/authored-p11/evidence-2.webp",
+      "sha256": "ff4aedf3050b5ba6130823908044749795cadff89076070d8055dc2a2b5779ca",
+      "originalSha256": "c51cdd3b9fe0a13b1e9fe547ad914263fc957c79e901aa635730bd295db20e98",
+      "label": {
+        "en": "render-tip-p11/opposite-lateral",
+        "zh": "\u4eba\u5de5\u5916\u5f62 \u00b7 \u6700\u7ec8\u5bf9\u4fa7\u89c6"
+      },
+      "role": "candidate",
+      "note": "WebP display derivative; not byte-identical to original PNG. Provenance colors are diagnostic, not tissue or independently complete layers."
+    },
+    {
+      "file": "reviews/tongue_authored_study/authored-p11/evidence-3.webp",
+      "sha256": "a1952abe036ee46dd2e5f7562487a754daec54609df0908a65e62ec1ffd4bece",
+      "originalSha256": "faecd1b6b5e8a0834d57a3fbdf0da422f94cec53b5532fcc8cb06e7540df41b6",
+      "label": {
+        "en": "render-p11/inferior-neutral",
+        "zh": "\u8179\u4fa7\u5916\u5f62 \u00b7 \u4e2d\u6027\u6750\u8d28\u68c0\u67e5"
+      },
+      "role": "candidate",
+      "note": "WebP display derivative; not byte-identical to original PNG. Provenance colors are diagnostic, not tissue or independently complete layers."
+    },
+    {
+      "file": "reviews/tongue_authored_study/authored-p11/evidence-4.webp",
+      "sha256": "88d2589059d2bfecdc5fd7174d14f0bd008db0dc9fc2457963b979da9d6f4885",
+      "originalSha256": "99d107c6f55fed4ae74027f46586cc49c5f5d8794182b2bd2ad59e3fc4fffa0c",
+      "label": {
+        "en": "render-p11/superior-provenance",
+        "zh": "\u6765\u6e90\u5206\u533a\u8bca\u65ad \u00b7 \u975e\u7ec4\u7ec7\u989c\u8272\u3001\u975e\u72ec\u7acb\u89e3\u5256\u5c42"
+      },
+      "role": "diagnostic",
+      "note": "WebP display derivative; not byte-identical to original PNG. Provenance colors are diagnostic, not tissue or independently complete layers."
+    }
+  ],
+  "embeddedHistoricalStatus": "Frozen GLB still says prototype \u2014 not accepted. Preserve that historical metadata; current scoped static review is this external exact-hash record.",
+  "replayBoundary": "Only the recorded p08-to-p11 final refinement replay was verified byte-exact. The upstream extraction dependency map and portable full regeneration recipe are not packaged in this PR. No self-contained or fresh end-to-end regeneration claim.",
+  "oldWholeMouthFailureUnchanged": true,
+  "nativePNGHistoryDeferred": true
+}
