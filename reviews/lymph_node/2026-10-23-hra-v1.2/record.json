@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "id": "lymph-node-hra-v1.2-published-display-import",
+  "assetId": "lymph_node",
+  "variantId": "lymph_node_hra__r01",
+  "reviewedAt": "2026-10-23T04:05:16Z",
+  "artifact": {
+    "file": "models/lymph_node/exports/hra-v1.2/NIH_M_Lymph_Node.glb",
+    "sha256": "7b047002cbb1dc06f37baa441783390d76cdb444b6144d6caa623923707953fd"
+  },
+  "gates": {
+    "technical": {
+      "status": "pass-with-limitations",
+      "scope": "Original GLB integrity/finite coordinates/zero zero-area triangles; 851boundary and 1602total non-two-incidence edges retained."
+    },
+    "visual": {
+      "status": "passed",
+      "scope": "Assistant inspected exact layered contact and seven-layer key; single-node educational display only."
+    },
+    "anatomy": {
+      "status": "reference-screened",
+      "scope": "Provider-source screening only; key 7 vascular identity unresolved; no normal histology/size/clinical validation."
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "Consumer browser runtime unverified; cloud WebGL unavailable. Offline static views only."
+    }
+  },
+  "evidence": [
+    {
+      "file": "reviews/lymph_node/2026-10-23-hra-v1.2/display/exact-export-layer-contact.webp",
+      "sha256": "69711f6ca53d2539e8a1f4ba8722012ed85784f627b2bd0fbeaa5a02e24ac19d",
+      "artifactSha256": "7b047002cbb1dc06f37baa441783390d76cdb444b6144d6caa623923707953fd",
+      "kind": "lossy-webp-display-derivative",
+      "originalPngSha256": "2679a90a50f93ad5cfc6b5a406cdd0b6c7e9f1ec34fd415ef4b4decdea7accc5",
+      "note": "Quality 92 WebP derivative of prior reviewed PNG, not original lossless pixels. Original PNG/native scene migration deferred."
+    },
+    {
+      "file": "reviews/lymph_node/2026-10-23-hra-v1.2/display/layer-key-contact.webp",
+      "sha256": "8a7dd23b51fc016d67180565c1c15f2ef41c4b8202e20554148826131ec63c53",
+      "artifactSha256": "7b047002cbb1dc06f37baa441783390d76cdb444b6144d6caa623923707953fd",
+      "kind": "lossy-webp-display-derivative",
+      "originalPngSha256": "fdb67b574eb5b38fe2f9415d26b9930856b451ec0fc0df6f45ab9a1856b6fcff",
+      "note": "Quality 92 WebP derivative of prior reviewed PNG, not original lossless pixels. Original PNG/native scene migration deferred."
+    },
+    {
+      "file": "reviews/lymph_node/2026-10-23-hra-v1.2/display/capsule-medulla-hidden.webp",
+      "sha256": "7233db8cc34d03b09bc9acbe2045e8af3210ae88eb8479ab9edb62246f48cb9d",
+      "artifactSha256": "7b047002cbb1dc06f37baa441783390d76cdb444b6144d6caa623923707953fd",
+      "kind": "lossy-webp-display-derivative",
+      "originalPngSha256": "b2685fa74e2ed7be3250d63e6845781f56387c3d70cbc63c414622ab40cfd419",
+      "note": "Quality 92 WebP derivative of prior reviewed PNG, not original lossless pixels. Original PNG/native scene migration deferred."
+    }
+  ],
+  "failureSummary": {
+    "failure": "Original whole-body node draft was not sufficient; this study is only one node.",
+    "cause": "A single provider teaching node cannot establish whole-body distribution; source key 7 naming conflicts with extras.",
+    "fix": "Use unchanged source node with explicit layer views and neutral key 7 label. Do not fabricate a systemic network.",
+    "retest": "Prior exact-export layer contacts personally reviewed; export hash unchanged. This import retains published lossy display derivatives, not new original-pixel review.",
+    "lesson": "A scoped useful source study is not a full-system or clinical pass."
+  },
+  "limitations": [
+    "851 boundary edges; 1602 total non-two-incidence edges (including boundary edges)",
+    "Key 7 source node name says blood; extras label/ontology say lymph; actual mesh identity unresolved",
+    "Original source geometry, materials, extras and transforms remain unchanged",
+    "Single node only; no normal histology, universal size, systemic network, lumen/flow, source registration or clinical approval.",
+    "Original lossless PNGs and editable review scene not in this bounded import. WebP presentation derivatives are explicitly labeled."
+  ]
+}
