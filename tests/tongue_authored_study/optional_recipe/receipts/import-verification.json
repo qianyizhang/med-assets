@@ -1,0 +1,141 @@
+{
+  "sourceManifestSha256": "397d19254c87548e3034980a5653e27a1a3ed5a77e27023f9cc4c0ad469becbe",
+  "files": [
+    {
+      "file": "CC-BY-4.0.txt",
+      "originalSha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94",
+      "sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94",
+      "bytes": 18656,
+      "proseOnlyChanged": false
+    },
+    {
+      "file": "DEPENDENCIES.json",
+      "originalSha256": "d81242498686282225d44f13f0c3f95115dba16d18b620d4801f5e17a71279ea",
+      "sha256": "d81242498686282225d44f13f0c3f95115dba16d18b620d4801f5e17a71279ea",
+      "bytes": 4891,
+      "proseOnlyChanged": false
+    },
+    {
+      "file": "README.md",
+      "originalSha256": "3ac7468956c995d19151840969c6002195d2479f3e8339f24b1fa2825ed66454",
+      "sha256": "c1d18bb257330a189e05e40b12146a680c54077ccc9eb246992ac9f4d3d8cdd0",
+      "bytes": 4977,
+      "proseOnlyChanged": true
+    },
+    {
+      "file": "receipts/extraction-test.json",
+      "originalSha256": "0b25e67c0add73c24d0a2a900e2b0fbd2acf9de2f68f38d50690daf072ba7281",
+      "sha256": "0b25e67c0add73c24d0a2a900e2b0fbd2acf9de2f68f38d50690daf072ba7281",
+      "bytes": 4122,
+      "proseOnlyChanged": false
+    },
+    {
+      "file": "receipts/prior-final-step-replay.json",
+      "originalSha256": "e24803d3901be46f3119c3b70ed0284c4f185e7a320e33b0bbc30c264542f348",
+      "sha256": "e24803d3901be46f3119c3b70ed0284c4f185e7a320e33b0bbc30c264542f348",
+      "bytes": 590,
+      "proseOnlyChanged": false
+    },
+    {
+      "file": "receipts/script-audit.json",
+      "originalSha256": "551eab927fa9c0e199dc1451428211424a3e2154f61527403c67b1954871872c",
+      "sha256": "551eab927fa9c0e199dc1451428211424a3e2154f61527403c67b1954871872c",
+      "bytes": 2452,
+      "proseOnlyChanged": false
+    },
+    {
+      "file": "receipts/toolchain.json",
+      "originalSha256": "98eaa3f43f5af84915c40fc2ee81dd48fc0e5d902bf3afc3b9f7411be5d78996",
+      "sha256": "98eaa3f43f5af84915c40fc2ee81dd48fc0e5d902bf3afc3b9f7411be5d78996",
+      "bytes": 175,
+      "proseOnlyChanged": false
+    },
+    {
+      "file": "scripts/analyze_upper_patch.py",
+      "originalSha256": "6fec7ae31e085d46e236de4e93bbf0d3886041875ad6e56fed96cbe5aa47d5fb",
+      "sha256": "6fec7ae31e085d46e236de4e93bbf0d3886041875ad6e56fed96cbe5aa47d5fb",
+      "bytes": 1931,
+      "proseOnlyChanged": false
+    },
+    {
+      "file": "scripts/excluded_components_p07.py",
+      "originalSha256": "09b94e59859c32aa69f31f8410c357bba2ea2221dbfc20559db71d2c07b72981",
+      "sha256": "09b94e59859c32aa69f31f8410c357bba2ea2221dbfc20559db71d2c07b72981",
+      "bytes": 897,
+      "proseOnlyChanged": false
+    },
+    {
+      "file": "scripts/export_prototype_p08.py",
+      "originalSha256": "09725a1bb6a37ee364ce7b6e3fa5af6e01d808e1fcc694a954348a9bc0a06c87",
+      "sha256": "09725a1bb6a37ee364ce7b6e3fa5af6e01d808e1fcc694a954348a9bc0a06c87",
+      "bytes": 10969,
+      "proseOnlyChanged": false
+    },
+    {
+      "file": "scripts/extract_hra_tongue.py",
+      "originalSha256": "42608d32699beae05a40bdf130b11d63b4c900a9b0c029acc1f1e1f651ab3151",
+      "sha256": "42608d32699beae05a40bdf130b11d63b4c900a9b0c029acc1f1e1f651ab3151",
+      "bytes": 6067,
+      "proseOnlyChanged": false
+    },
+    {
+      "file": "scripts/inspect_source.py",
+      "originalSha256": "06a3316bb522b5c653f35613f771eaddae31120bcf30b5d3d89761f80a7f194d",
+      "sha256": "06a3316bb522b5c653f35613f771eaddae31120bcf30b5d3d89761f80a7f194d",
+      "bytes": 2525,
+      "proseOnlyChanged": false
+    },
+    {
+      "file": "scripts/rebuild_optional.sh",
+      "originalSha256": "342b1c6168b3040210faca63ca80c176713b815fea5972460dd7517f9cf2898b",
+      "sha256": "342b1c6168b3040210faca63ca80c176713b815fea5972460dd7517f9cf2898b",
+      "bytes": 2232,
+      "proseOnlyChanged": false
+    },
+    {
+      "file": "scripts/refine_tip_p11.py",
+      "originalSha256": "0d289537acbb7687469bc74ff640b63540bbebb4083453c65aaa87ea77708793",
+      "sha256": "0d289537acbb7687469bc74ff640b63540bbebb4083453c65aaa87ea77708793",
+      "bytes": 8059,
+      "proseOnlyChanged": false
+    },
+    {
+      "file": "scripts/restore_enclosed_source_p07.py",
+      "originalSha256": "cc27aa09c895918d40f21f05b11b1733b933fde8ad61764258a29c37eb417486",
+      "sha256": "cc27aa09c895918d40f21f05b11b1733b933fde8ad61764258a29c37eb417486",
+      "bytes": 2580,
+      "proseOnlyChanged": false
+    },
+    {
+      "file": "scripts/select_exterior_p07.py",
+      "originalSha256": "e478594087dcb154bca86b0808a0f3c72bd4e961016d43b978a4c9e204780c48",
+      "sha256": "e478594087dcb154bca86b0808a0f3c72bd4e961016d43b978a4c9e204780c48",
+      "bytes": 3793,
+      "proseOnlyChanged": false
+    },
+    {
+      "file": "scripts/trim_upper_join_p07.py",
+      "originalSha256": "4b4b6666cecbb96b5982bfade1d3f1fe51603b3e56063cfda72739373639b2d7",
+      "sha256": "4b4b6666cecbb96b5982bfade1d3f1fe51603b3e56063cfda72739373639b2d7",
+      "bytes": 2226,
+      "proseOnlyChanged": false
+    },
+    {
+      "file": "scripts/verify_candidate_p11.py",
+      "originalSha256": "7d4f9323c4c6c631f30bacd722d3be7e5cee871cad652dad58d7050a0be521ec",
+      "sha256": "7d4f9323c4c6c631f30bacd722d3be7e5cee871cad652dad58d7050a0be521ec",
+      "bytes": 4339,
+      "proseOnlyChanged": false
+    }
+  ],
+  "scriptBytesChanged": false,
+  "pythonSyntaxParsed": true,
+  "shellSyntaxChecked": true,
+  "fullChainExecuted": false,
+  "rawSourceCopied": false,
+  "independentExtractionReplay": {
+    "outputBytes": 16647708,
+    "outputSha256": "a76dc3c882994ff1515f30f9047872a634a6cdf9275e1eec7b4aa9ba13633d12",
+    "scope": "Raw to historical five-patch subset only; no full authored chain run"
+  }
+}

@@ -1,0 +1,4 @@
+import numpy as np,pathlib
+from scipy.sparse import coo_matrix
+from scipy.sparse.csgraph import connected_components
+D=pathlib.Path(__file__).resolve().parents[1];z=np.load(D/'reviews/upper-patch-analysis.npz');x=z['positions'];f=z['faces'];u=np.load(D/'reviews/prototype-p07-initial-selection.npz');keep=np.unique(u['originalFaceIDs']);m=np.ones(len(f),bool);m[keep]=False;ids=np.flatnonzero(m);ff=f[ids];e=np.sort(np.vstack([ff[:,[0,1]],ff[:,[1,2]],ff[:,[2,0]]]),axis=1);fi=np.tile(np.arange(len(ff)),3);s=np.lexsort((e[:,1],e[:,0]));e=e[s];fi=fi[s];same=np.all(e[:-1]==e[1:],axis=1);pa=np.array([fi[:-1][same],fi[1:][same]]).T;sp=coo_matrix((np.ones(len(pa)),(pa[:,0],pa[:,1])),shape=(len(ff),len(ff))).tocsr();nc,cc=connected_components(sp,directed=False);np.savez_compressed(D/'reviews/source-p07-excluded-components.npz',faceIDs=ids,components=cc);print(np.unique(cc,return_counts=True)[1])

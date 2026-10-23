@@ -1,0 +1,114 @@
+{
+  "rawExternalSource": {
+    "url": "https://cdn.humanatlas.io/digital-objects/ref-organ/mouth-female/v1.0/assets/3d-vh-f-mouth.glb",
+    "release": "https://lod.humanatlas.io/ref-organ/mouth-female/v1.0",
+    "doi": "https://doi.org/10.48539/HBM856.VZWZ.422",
+    "bytes": 103690760,
+    "sha256": "bd8e24e9d52b49719c6a1cafa1f54fc40c1d3f811b9d32df78d5c20ebb78c197",
+    "license": "CC BY4.0",
+    "credit": "Heidi Schlehlein / HRA-HuBMAP, Mouth Female v1.0",
+    "included": false
+  },
+  "generatedFiles": [
+    {
+      "pathWithinRun": "source/tongue-surfaces-hra-female-r02.glb",
+      "observedFrozenBytes": 16647708,
+      "observedFrozenSHA256": "a76dc3c882994ff1515f30f9047872a634a6cdf9275e1eec7b4aa9ba13633d12",
+      "producer": "extract_hra_tongue.py",
+      "includedInRecipeStaging": false,
+      "requiredPreexistingBakedDependency": false
+    },
+    {
+      "pathWithinRun": "reviews/upper-patch-analysis.npz",
+      "observedFrozenBytes": 11289910,
+      "observedFrozenSHA256": "64315a7026436f675fef899d7b9781de9aa9660c5a3d77b8f8a8355a273170be",
+      "producer": "analyze_upper_patch.py",
+      "includedInRecipeStaging": false,
+      "requiredPreexistingBakedDependency": false
+    },
+    {
+      "pathWithinRun": "reviews/prototype-p07-initial-selection.npz",
+      "observedFrozenBytes": 12077462,
+      "observedFrozenSHA256": "6f7aab95931be663cbf621ecac44ce2c543db9cabfe39cd81510c1d39da85c25",
+      "producer": "select_exterior_p07.py",
+      "includedInRecipeStaging": false,
+      "requiredPreexistingBakedDependency": false
+    },
+    {
+      "pathWithinRun": "reviews/source-p07-excluded-components.npz",
+      "observedFrozenBytes": 98495,
+      "observedFrozenSHA256": "f3f6655110e3fa757ce8bf740e03f62b405617b70459fe9263656433cb842657",
+      "producer": "excluded_components_p07.py",
+      "includedInRecipeStaging": false,
+      "requiredPreexistingBakedDependency": false
+    },
+    {
+      "pathWithinRun": "reviews/prototype-p07-restored-upper.npz",
+      "observedFrozenBytes": 12068042,
+      "observedFrozenSHA256": "ec95585d79ad6dddd8725c3fb2b8535f258f969b23e6f2b4c4b4099183002107",
+      "producer": "restore_enclosed_source_p07.py",
+      "includedInRecipeStaging": false,
+      "requiredPreexistingBakedDependency": false
+    },
+    {
+      "pathWithinRun": "reviews/prototype-p07-upper-selection.npz",
+      "observedFrozenBytes": 7137334,
+      "observedFrozenSHA256": "bd83ffba8b4fe70fbd634809b5ca36666122f2d56d2f2e266f1229ee04eb2aba",
+      "producer": "trim_upper_join_p07.py",
+      "includedInRecipeStaging": false,
+      "requiredPreexistingBakedDependency": false
+    },
+    {
+      "pathWithinRun": "reviews/prototype-p08-face-provenance.npz",
+      "observedFrozenBytes": 2881008,
+      "observedFrozenSHA256": "9e2ce6e1f52937a37101e0ac4b08e138a2d7a3f1737dbade6d0585709e81f3e0",
+      "producer": "export_prototype_p08.py",
+      "includedInRecipeStaging": false,
+      "requiredPreexistingBakedDependency": false
+    },
+    {
+      "pathWithinRun": "reviews/prototype-p08-build.json",
+      "observedFrozenBytes": 2077,
+      "observedFrozenSHA256": "c949f2ff9deaa65d6aea4101af0d79b121fbc7bb3e3bba89e34ac4bc75a68070",
+      "producer": "export_prototype_p08.py",
+      "includedInRecipeStaging": false,
+      "requiredPreexistingBakedDependency": false
+    },
+    {
+      "pathWithinRun": "models/tongue-authored-hra-hybrid-p08.glb",
+      "observedFrozenBytes": 4980852,
+      "observedFrozenSHA256": "6320d8d816ef14977fa01b9f124efdf407977bed6c4f253f4c9718e4be57d8bd",
+      "producer": "export_prototype_p08.py",
+      "includedInRecipeStaging": false,
+      "requiredPreexistingBakedDependency": false
+    },
+    {
+      "pathWithinRun": "reviews/prototype-p11-face-provenance.npz",
+      "observedFrozenBytes": 2883978,
+      "observedFrozenSHA256": "febda9dd6186b5a1ea5c234ed672a1ed934506d3c8bf99725eedd460911c1740",
+      "producer": "refine_tip_p11.py",
+      "includedInRecipeStaging": false,
+      "requiredPreexistingBakedDependency": false
+    },
+    {
+      "pathWithinRun": "models/tongue-authored-hra-hybrid-p11.glb",
+      "observedFrozenBytes": 4983044,
+      "observedFrozenSHA256": "efabd58b235b72682f067113cf079e3f70fbaceac47062f2b937f09540c1ee1a",
+      "producer": "refine_tip_p11.py",
+      "includedInRecipeStaging": false,
+      "requiredPreexistingBakedDependency": false
+    }
+  ],
+  "mandatoryPrivateNPZInputs": [],
+  "scope": "Dependency audit plus raw-to-subset extraction replay only. Existing recorded final-step p08-to-p11 replay is separate. A clean full authored chain has not been executed in this audit.",
+  "optionalBakedFinalStepInputs": {
+    "paths": [
+      "reviews/prototype-p08-face-provenance.npz",
+      "reviews/prototype-p08-build.json",
+      "models/tongue-authored-hra-hybrid-p08.glb"
+    ],
+    "totalBytes": 7863937,
+    "included": false,
+    "publicDownloadGuaranteed": false
+  }
+}

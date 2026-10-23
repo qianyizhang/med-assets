@@ -10,7 +10,7 @@
 
 The original Mouth Female v1.0 GLB is an external **103,690,760-byte** CC BY 4.0 dependency, not included or fetched automatically. Its URL/hash/credit are in `source/source-record.json`. The 16,647,708-byte extracted five-patch input is a derivative, not the upstream original.
 
-The recorded final p08→p11 refinement replay matched exact bytes. That does not establish a fresh complete upstream reconstruction. The upstream extraction dependency map and portable reconstruction recipe are not packaged in this PR. This is not a self-contained regeneration package; those additions will be reviewed separately.
+The recorded final p08→p11 refinement replay matched exact bytes. That does not establish a fresh complete upstream reconstruction. An optional offline recipe and dependency audit are now provided under `tests/tongue_authored_study/optional_recipe/`. Raw→five-patch extraction was verified byte-exact; the full authored chain was not rerun. The external raw source is still required, so this is not a self-contained regeneration package. Historical storage-review records retain the earlier packaging boundary.
 
 ## Evidence
 

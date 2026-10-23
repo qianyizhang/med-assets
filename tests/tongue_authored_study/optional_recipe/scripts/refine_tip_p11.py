@@ -1,0 +1,40 @@
+import pathlib,json,struct,hashlib,numpy as np
+from scipy.spatial import cKDTree
+from scipy.sparse import coo_matrix
+D=pathlib.Path(__file__).resolve().parents[1]
+z=np.load(D/'reviews/prototype-p08-face-provenance.npz');x=z['positions'];f=z['faces'];prov=z['category'].copy();sf=z['sourceCombinedFaceID'];before=x.copy();active=np.unique(f)
+def smooth(t):
+ t=np.clip(t,0,1);return t*t*t*(10+t*(-15+6*t))
+# Smooth zero-slope transition at all authoring-band bounds; posterior and superior surface unchanged.
+weight=smooth((x[:,2]-.016)/.010)*(1-smooth((x[:,1]-.696)/.007))*smooth((x[:,1]-.684)/.006)
+papilla=np.unique(f[prov==1]);weight*=smooth(cKDTree(x[papilla]).query(x)[0]/.0025);weight[papilla]=0
+sel=np.flatnonzero((weight>0)&np.isin(np.arange(len(x)),active))
+# Area-weighted spatial kernel is independent of the disparate source/loft triangle densities.
+fn=np.cross(x[f[:,1]].astype(float)-x[f[:,0]],x[f[:,2]].astype(float)-x[f[:,0]]);va=np.zeros(len(x))
+for j in range(3):np.add.at(va,f[:,j],np.linalg.norm(fn,axis=1)/6)
+co=cKDTree(x[sel]).sparse_distance_matrix(cKDTree(x[active]),.003,output_type='coo_matrix');w=np.exp(-.5*(co.data/.0012)**2)*va[active[co.col]];mat=coo_matrix((w,(co.row,active[co.col])),shape=(len(sel),len(x))).tocsr();den=np.asarray(mat.sum(1)).ravel();xx=x.astype(float)
+for _ in range(16):
+ fn=np.cross(xx[f[:,1]]-xx[f[:,0]],xx[f[:,2]]-xx[f[:,0]]);norm=np.zeros_like(xx)
+ for j in range(3):np.add.at(norm,f[:,j],fn)
+ norm/=np.maximum(np.linalg.norm(norm,axis=1)[:,None],1e-30)
+ mean=(mat@xx)/den[:,None];delta=mean-xx[sel];dn=np.einsum('ij,ij->i',delta,norm[sel]);xx[sel]+=.5*weight[sel,None]*delta
+x=xx.astype(np.float32);moved=np.any(x!=before,axis=1);changed=(prov<2)&np.any(moved[f],axis=1);prov[changed]=2
+report={'inputSha256':hashlib.sha256((D/'models/tongue-authored-hra-hybrid-p08.glb').read_bytes()).hexdigest(),'method':'Focused anterior-only area-weighted Gaussian spatial fairing, full-vector displacement with tangential mesh relaxation. 16 iterations step 0.5, spatial sigma 1.2 mm, cutoff 3 mm; quintic C2 spatial fade at native Z16–26 mm, superior Y696–703 mm, inferior Y684–690 mm. Source papilla vertices fixed and their 2.5 mm neighborhoods progressively protected with quintic falloff. No posterior/global fairing.','selectedVertices':len(sel),'movedActiveVertices':int(moved[active].sum()),'newSourceTrianglesAuthored':int(changed.sum()),'maxDisplacementM':float(np.linalg.norm(x[active]-before[active],axis=1).max()),'papillaVertexDisplacementMaxM':float(np.linalg.norm(x[papilla]-before[papilla],axis=1).max()),'posteriorZLE16mmDisplacementMaxM':float(np.linalg.norm(x[x[:,2]<=.016]-before[x[:,2]<=.016],axis=1).max(initial=0))}
+(D/'reviews/prototype-p11-tip-refinement.json').write_text(json.dumps(report,indent=2));print(json.dumps(report,indent=2));author_params=report;center=np.array(json.loads((D/'reviews/prototype-p08-build.json').read_text())['authoringCenterXZ'])
+
+# Exact float32 coordinate merge only; no tolerance weld or surface movement.
+x,inv=np.unique(x,axis=0,return_inverse=True);f=inv[f].astype(np.uint32);a=x[f[:,1]].astype(np.float64)-x[f[:,0]];b=x[f[:,2]].astype(np.float64)-x[f[:,0]];fn=np.cross(a,b);area=np.linalg.norm(fn,axis=1);valid=area>1e-16;removed=int((~valid).sum());f=f[valid];prov=prov[valid];sf=sf[valid];fn=fn[valid];norm=np.zeros(x.shape,dtype=np.float64)
+for j in range(3):np.add.at(norm,f[:,j],fn)
+norm/=np.maximum(np.linalg.norm(norm,axis=1)[:,None],1e-20);norm=norm.astype(np.float32)
+name='tongue-authored-hra-hybrid-p11';out=D/'models'/f'{name}.glb';g={'asset':{'version':'2.0','generator':'Source-aware authored illustrative tongue prototype','extras':{'status':'prototype — not accepted','provenance':'HRA mouth-female v1.0 external dorsal region + newly authored inferior body, seam transitions and small closure patches','sourceSHA256':'a76dc3c882994ff1515f30f9047872a634a6cdf9275e1eec7b4aa9ba13633d12','sourceRawSHA256':'bd8e24e9d52b49719c6a1cafa1f54fc40c1d3f811b9d32df78d5c20ebb78c197','sourceLicense':'CC BY 4.0 — Heidi Schlehlein / HRA-HuBMAP; derivative attribution required','nativeFrame':'Source numeric positions, Y-up metre coordinate convention, original origin; no registration or object transform','warning':'AUTHORED educational external-body approximation; not patient-specific, source-exact, clinically validated, or complete internal anatomy. No oral floor, frenulum, extrinsic attachments, vessels, nerves or internal muscles.'}},'scene':0,'scenes':[{'name':'Authored gross anatomy — isolated tongue illustration','nodes':[0]}],'nodes':[{'name':'AUTHORED tongue illustration — HRA-derived external dorsum','children':[]}],'meshes':[],'materials':[],'accessors':[],'bufferViews':[]};buf=bytearray()
+def accessor(a,typ,comp,target):
+ a=np.ascontiguousarray(a);start=len(buf);buf.extend(a.tobytes());buf.extend(b'\0'*((-len(buf))%4));v=len(g['bufferViews']);g['bufferViews'].append({'buffer':0,'byteOffset':start,'byteLength':a.nbytes,'target':target});ac={'bufferView':v,'componentType':comp,'count':len(a),'type':typ}
+ if typ=='VEC3' and comp==5126:ac['min']=a.min(0).astype(float).tolist();ac['max']=a.max(0).astype(float).tolist()
+ i=len(g['accessors']);g['accessors'].append(ac);return i
+names=['HRA-derived external dorsal surface — original triangles','HRA-derived papilla surface patches — original triangles','AUTHORED seam transitions and small closure patches','AUTHORED body and ventral surface'];colors=[(.53,.20,.27,1),(.55,.22,.28,1),(.53,.20,.27,1),(.53,.20,.27,1)];counts=[]
+for k,nn in enumerate(names):
+ fk=f[prov==k];used=np.unique(fk);idx=np.full(len(x),-1,dtype=np.int64);idx[used]=np.arange(len(used));local=idx[fk].astype(np.uint32);pa=accessor(x[used],'VEC3',5126,34962);na=accessor(norm[used],'VEC3',5126,34962);ia=accessor(local.ravel(),'SCALAR',5125,34963);g['materials'].append({'name':nn,'pbrMetallicRoughness':{'baseColorFactor':list(colors[k]),'roughnessFactor':.66,'metallicFactor':0},'doubleSided':False});g['meshes'].append({'name':nn,'primitives':[{'attributes':{'POSITION':pa,'NORMAL':na},'indices':ia,'material':k,'mode':4}],'extras':{'provenanceCategory':k,'originalTrianglePositions':k in [0,1],'normals':'Area-weighted normals recomputed over combined surface; no original-normal byte preservation claim'}});ni=len(g['nodes']);g['nodes'].append({'name':nn,'mesh':k,'extras':{'role':nn}});g['nodes'][0]['children'].append(ni);counts.append({'category':k,'name':nn,'vertices':len(used),'triangles':len(fk)})
+g['buffers']=[{'byteLength':len(buf)}];j=json.dumps(g,separators=(',',':')).encode();j+=b' '*((-len(j))%4);raw=struct.pack('<4sII',b'glTF',2,28+len(j)+len(buf))+struct.pack('<II',len(j),0x4e4f534a)+j+struct.pack('<II',len(buf),0x004e4942)+buf;out.write_bytes(raw)
+np.savez_compressed(D/'reviews/prototype-p11-face-provenance.npz',positions=x,faces=f,category=prov,sourceCombinedFaceID=sf)
+np.savez_compressed(D/'reviews/prototype-p11-source-triangle-selection.npz',retainedOriginalSourceFaceIDs=np.unique(sf[(prov<2)&(sf>=0)]),authoredFromSourceFaceIDs=np.unique(sf[(prov==2)&(sf>=0)]))
+e=np.sort(np.vstack([f[:,[0,1]],f[:,[1,2]],f[:,[2,0]]]),axis=1);_,ec=np.unique(e,axis=0,return_counts=True);report={'output':str(out.relative_to(D)),'sha256':hashlib.sha256(raw).hexdigest(),'bytes':len(raw),'sourceRawUnmodified':True,'frame':'native source numeric Y-up; no transform','authoringParameters':author_params,'authoringCenterXZ':center.tolist(),'categories':counts,'uniqueVertices':len(np.unique(f)),'triangles':len(f),'exactCoordinateBoundaryEdges':int((ec==1).sum()),'exactCoordinateNonTwoEdges':int((ec!=2).sum()),'removedZeroAreaFaces':removed,'selfIntersection':'not yet tested','visualGate':'pending exact-export render','referenceGate':'authored gross illustrative approximation only; pending comparison','runtimeGate':'unverified','limitations':'No floor/frenulum, internal muscles, complete extrinsic attachment, or patient/specimen-specific claims.'};(D/'reviews/prototype-p11-build.json').write_text(json.dumps(report,indent=2));print(json.dumps(report,indent=2))
