@@ -1,0 +1,294 @@
+{
+  "id": "bladder_hra_female_context_r03",
+  "glb_file": "models/bladder_hra_female_context_r03/bladder_hra_female_context_r03.glb",
+  "glb_sha256": "91f04d1c831a61944da116184f389461517587c90c91fd94e199fba1619aa6b9",
+  "engine": "Blender 4.3.2 Cycles CPU",
+  "resolution": [
+    900,
+    900
+  ],
+  "samples": 32,
+  "frame": 1,
+  "views": [
+    {
+      "file": "same_atlas_all_selected_oblique.png",
+      "sha256": "7e0235e95dfc3dde1676bea657c4dd99fbdc51c749b50e261c622a2079268727",
+      "camera_position": [
+        0.28428786993026733,
+        -0.7907764315605164,
+        0.2355201542377472
+      ],
+      "target": [
+        -0.003319352865219116,
+        0.07204524427652359,
+        0.09171655029058456
+      ],
+      "orthographic_scale": 0.3681372404098511,
+      "visible_meshes": [
+        "VH_F_vagina",
+        "VH_F_cervicovaginal_junction",
+        "VH_F_abdominal_ostium_of_uterine_tube",
+        "VH_F_body_of_uterus",
+        "VH_F_fundus_of_uterus",
+        "VH_F_cornua",
+        "VH_F_lower_uterine_segment",
+        "VH_F_posterior_wall_of_uterus",
+        "VH_F_anterior_wall_of_uterus",
+        "VH_F_cervix",
+        "VH_F_internal_cervical_os",
+        "VH_F_external_cervical_os",
+        "VH_F_rectum",
+        "VH_F_right_ureter",
+        "VH_F_left_ureter",
+        "VH_F_fundus_of_urinary_bladder_dome",
+        "VH_F_urinary_bladder_neck_smooth_muscle",
+        "VH_F_fundus_of_urinary_bladder_base",
+        "VH_F_trigone_of_urinary_bladder",
+        "VH_F_ureteral_orifice_R",
+        "VH_F_ureteral_orifice_L"
+      ],
+      "hidden_meshes": []
+    },
+    {
+      "file": "same_atlas_pelvic_ureters_hidden_side.png",
+      "sha256": "8434e42104347704c34ca7669a3e80f68328179f2fbae11ee709a285d6a4e402",
+      "camera_position": [
+        0.4410277307033539,
+        0.07204524427652359,
+        0.020235305652022362
+      ],
+      "target": [
+        -0.005734293721616268,
+        0.07204524427652359,
+        0.020235305652022362
+      ],
+      "orthographic_scale": 0.19061845541000366,
+      "visible_meshes": [
+        "VH_F_vagina",
+        "VH_F_cervicovaginal_junction",
+        "VH_F_abdominal_ostium_of_uterine_tube",
+        "VH_F_body_of_uterus",
+        "VH_F_fundus_of_uterus",
+        "VH_F_cornua",
+        "VH_F_lower_uterine_segment",
+        "VH_F_posterior_wall_of_uterus",
+        "VH_F_anterior_wall_of_uterus",
+        "VH_F_cervix",
+        "VH_F_internal_cervical_os",
+        "VH_F_external_cervical_os",
+        "VH_F_rectum",
+        "VH_F_fundus_of_urinary_bladder_dome",
+        "VH_F_urinary_bladder_neck_smooth_muscle",
+        "VH_F_fundus_of_urinary_bladder_base",
+        "VH_F_trigone_of_urinary_bladder",
+        "VH_F_ureteral_orifice_R",
+        "VH_F_ureteral_orifice_L"
+      ],
+      "hidden_meshes": [
+        "VH_F_right_ureter",
+        "VH_F_left_ureter"
+      ]
+    },
+    {
+      "file": "same_atlas_pelvic_ureters_hidden_oblique.png",
+      "sha256": "43b0cbce5981dd279822611598286a638e929996636f19863502cfe98bedf7e5",
+      "camera_position": [
+        0.14318637549877167,
+        -0.37471678853034973,
+        0.09469564259052277
+      ],
+      "target": [
+        -0.005734293721616268,
+        0.07204524427652359,
+        0.020235305652022362
+      ],
+      "orthographic_scale": 0.19061845541000366,
+      "visible_meshes": [
+        "VH_F_vagina",
+        "VH_F_cervicovaginal_junction",
+        "VH_F_abdominal_ostium_of_uterine_tube",
+        "VH_F_body_of_uterus",
+        "VH_F_fundus_of_uterus",
+        "VH_F_cornua",
+        "VH_F_lower_uterine_segment",
+        "VH_F_posterior_wall_of_uterus",
+        "VH_F_anterior_wall_of_uterus",
+        "VH_F_cervix",
+        "VH_F_internal_cervical_os",
+        "VH_F_external_cervical_os",
+        "VH_F_rectum",
+        "VH_F_fundus_of_urinary_bladder_dome",
+        "VH_F_urinary_bladder_neck_smooth_muscle",
+        "VH_F_fundus_of_urinary_bladder_base",
+        "VH_F_trigone_of_urinary_bladder",
+        "VH_F_ureteral_orifice_R",
+        "VH_F_ureteral_orifice_L"
+      ],
+      "hidden_meshes": [
+        "VH_F_right_ureter",
+        "VH_F_left_ureter"
+      ]
+    },
+    {
+      "file": "same_atlas_pelvic_ureters_hidden_opposite.png",
+      "sha256": "a3b29390501343451e1660a5fa41983234b77c4b5bb28b364da648a752bad2e1",
+      "camera_position": [
+        -0.005734293721616268,
+        0.5188072919845581,
+        0.020235305652022362
+      ],
+      "target": [
+        -0.005734293721616268,
+        0.07204524427652359,
+        0.020235305652022362
+      ],
+      "orthographic_scale": 0.19061845541000366,
+      "visible_meshes": [
+        "VH_F_vagina",
+        "VH_F_cervicovaginal_junction",
+        "VH_F_abdominal_ostium_of_uterine_tube",
+        "VH_F_body_of_uterus",
+        "VH_F_fundus_of_uterus",
+        "VH_F_cornua",
+        "VH_F_lower_uterine_segment",
+        "VH_F_posterior_wall_of_uterus",
+        "VH_F_anterior_wall_of_uterus",
+        "VH_F_cervix",
+        "VH_F_internal_cervical_os",
+        "VH_F_external_cervical_os",
+        "VH_F_rectum",
+        "VH_F_fundus_of_urinary_bladder_dome",
+        "VH_F_urinary_bladder_neck_smooth_muscle",
+        "VH_F_fundus_of_urinary_bladder_base",
+        "VH_F_trigone_of_urinary_bladder",
+        "VH_F_ureteral_orifice_R",
+        "VH_F_ureteral_orifice_L"
+      ],
+      "hidden_meshes": [
+        "VH_F_right_ureter",
+        "VH_F_left_ureter"
+      ]
+    },
+    {
+      "file": "bladder_isolated_same_export.png",
+      "sha256": "c2c7380a86c670993fa5ff0256e0e4c39029f715ad491c134b3d43ebebacc767",
+      "camera_position": [
+        -0.014551946893334389,
+        -0.15666289627552032,
+        0.0226263627409935
+      ],
+      "target": [
+        -0.014551946893334389,
+        0.028434470295906067,
+        0.004116624593734741
+      ],
+      "orthographic_scale": 0.07897487282752991,
+      "visible_meshes": [
+        "VH_F_fundus_of_urinary_bladder_dome",
+        "VH_F_urinary_bladder_neck_smooth_muscle",
+        "VH_F_fundus_of_urinary_bladder_base",
+        "VH_F_trigone_of_urinary_bladder",
+        "VH_F_ureteral_orifice_R",
+        "VH_F_ureteral_orifice_L"
+      ],
+      "hidden_meshes": [
+        "VH_F_vagina",
+        "VH_F_cervicovaginal_junction",
+        "VH_F_abdominal_ostium_of_uterine_tube",
+        "VH_F_body_of_uterus",
+        "VH_F_fundus_of_uterus",
+        "VH_F_cornua",
+        "VH_F_lower_uterine_segment",
+        "VH_F_posterior_wall_of_uterus",
+        "VH_F_anterior_wall_of_uterus",
+        "VH_F_cervix",
+        "VH_F_internal_cervical_os",
+        "VH_F_external_cervical_os",
+        "VH_F_rectum",
+        "VH_F_right_ureter",
+        "VH_F_left_ureter"
+      ]
+    },
+    {
+      "file": "bladder_ureters_context_others_hidden.png",
+      "sha256": "27dc0b196ba74631fb47ef4cb9f95a37957bae51c3cce5d5e16afe561aabcb89",
+      "camera_position": [
+        0.2501947581768036,
+        -0.7171311974525452,
+        0.2355201542377472
+      ],
+      "target": [
+        -0.003319352865219116,
+        0.043411146849393845,
+        0.10876309871673584
+      ],
+      "orthographic_scale": 0.3244980573654175,
+      "visible_meshes": [
+        "VH_F_fundus_of_urinary_bladder_dome",
+        "VH_F_urinary_bladder_neck_smooth_muscle",
+        "VH_F_fundus_of_urinary_bladder_base",
+        "VH_F_trigone_of_urinary_bladder",
+        "VH_F_ureteral_orifice_R",
+        "VH_F_ureteral_orifice_L",
+        "VH_F_left_ureter",
+        "VH_F_right_ureter"
+      ],
+      "hidden_meshes": [
+        "VH_F_vagina",
+        "VH_F_cervicovaginal_junction",
+        "VH_F_abdominal_ostium_of_uterine_tube",
+        "VH_F_body_of_uterus",
+        "VH_F_fundus_of_uterus",
+        "VH_F_cornua",
+        "VH_F_lower_uterine_segment",
+        "VH_F_posterior_wall_of_uterus",
+        "VH_F_anterior_wall_of_uterus",
+        "VH_F_cervix",
+        "VH_F_internal_cervical_os",
+        "VH_F_external_cervical_os",
+        "VH_F_rectum"
+      ]
+    }
+  ],
+  "lights": [
+    {
+      "position": [
+        -0.8661410808563232,
+        -1.6535981893539429,
+        1.8173599243164062
+      ],
+      "energy": 134.00302124023438,
+      "size": 0.8628216981887817
+    },
+    {
+      "position": [
+        0.8595023155212402,
+        -0.7907764315605164,
+        0.9545382261276245
+      ],
+      "energy": 81.89073181152344,
+      "size": 0.8628216981887817
+    },
+    {
+      "position": [
+        -0.003319352865219116,
+        1.797688603401184,
+        1.8173599243164062
+      ],
+      "energy": 119.11380004882812,
+      "size": 0.8628216981887817
+    },
+    {
+      "position": [
+        -0.003319352865219116,
+        -0.7907764315605164,
+        -1.6339268684387207
+      ],
+      "energy": 33.500755310058594,
+      "size": 0.8628216981887817
+    }
+  ],
+  "materials": "Exact final candidate role colors; illustrative only, not measured tissue properties.",
+  "frame_contract": "All selected meshes are native HRA united-female v1.10 atlas; no registration/scale/centering. Only cameras and explicit source named-layer visibility differ.",
+  "status": "Unreviewed context/coverage study; root pixel approval required"
+}

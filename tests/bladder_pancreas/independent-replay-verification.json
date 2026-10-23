@@ -1,0 +1,45 @@
+{
+  "result": "PASS exact reconstruction of two previously accepted exports",
+  "source": {
+    "sha256": "95f0c3d2f918582608692ca1139e8bdb18c147a16470e9ee9af8b276bd77c422",
+    "bytes": 374505632,
+    "read_only_external_symlink": true,
+    "checked_before_and_after": true
+  },
+  "dependency_map_sha256": "61179cd9dfa67d015b87bc4a49ccddf94e827cf95ef57c9286ec73986c5ca26b",
+  "runtime": {
+    "python": "3.12.14",
+    "numpy": "2.3.5"
+  },
+  "outputs": [
+    {
+      "id": "bladder_hra_female_context_r03",
+      "sha256": "91f04d1c831a61944da116184f389461517587c90c91fd94e199fba1619aa6b9",
+      "bytes": 2449600,
+      "exact_accepted_hash_match": true,
+      "all_roles_checked": 21
+    },
+    {
+      "id": "pancreas_hra_female_context_r04",
+      "sha256": "aa15f9248027c248886a9cf8d4f5f401b2753176c800851f648b03d88d97ebed",
+      "bytes": 1373872,
+      "exact_accepted_hash_match": true,
+      "all_roles_checked": 20
+    }
+  ],
+  "bladder_updated_normals": 486,
+  "pancreas_guard_counts": {
+    "normal_vectors_updated": 26124,
+    "illconditioned_source_triangles_preserved": 101,
+    "protected_sliver_normal_indices": 222,
+    "source_zero_normals_preserved": 20,
+    "nonmanifold_virtual_edges_not_smoothed": 8,
+    "degenerate_faces": 8,
+    "original_indices_skipped_for_multiple_smoothing_fans": 2,
+    "unchanged_geometric_crease_edges_above_threshold": 47,
+    "source_zero_normals_replaced_expected_zero": 0
+  },
+  "pancreas_max_normal_change_degrees": 39.762632631565786,
+  "source_boundary": "Only external original atlas + listed text recipes/data are build inputs; accepted GLBs, archived normals, large history and image renders are not inputs.",
+  "validation_boundary": "Byte reproduction, explicit-role checks and bounded normal/source guards only. No new anatomy, clinical, normality, closed-volume, flow, clean-format, visual or runtime approval."
+}

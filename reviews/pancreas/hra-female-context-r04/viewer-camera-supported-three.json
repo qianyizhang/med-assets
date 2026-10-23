@@ -1,0 +1,165 @@
+{
+  "exactGLBSHA": "aa15f9248027c248886a9cf8d4f5f401b2753176c800851f648b03d88d97ebed",
+  "coordinateFrame": "HRA native glTF Y-up; Blender vectors converted [x,y,z]->[x,z,-y]; no mesh transform or atlas registration",
+  "primary_view": "same_atlas_regions_oblique.png",
+  "ortho_vertical_span": 0.24686592817306519,
+  "views": [
+    {
+      "file": "same_atlas_regions_oblique.png",
+      "source_evidence_file": "same_atlas_regions_oblique.png",
+      "source_evidence_sha256": "6feba6006b346b8be0676d2038a5ed8370a184a5aedbafd24466d69e8286348b",
+      "position_three": [
+        0.2227669060230255,
+        0.3996974229812622,
+        0.505223274230957
+      ],
+      "target_three": [
+        0.029902901500463486,
+        0.30326542258262634,
+        -0.07336869835853577
+      ],
+      "up_three": [
+        -0.04938642680644989,
+        0.9877296686172485,
+        -0.14815934002399445
+      ],
+      "ortho_vertical_span": 0.24686592817306519,
+      "hidden_for_inspection_only": [],
+      "visible_source_meshes": [
+        "VH_F_tail_of_pancreas",
+        "VH_F_body_of_pancreas",
+        "VH_F_ucinate_process1",
+        "VH_F_head_of_pancreas",
+        "VH_F_neck_of_pancreas",
+        "VH_F_hepatopancreatic_ampulla",
+        "VH_F_dorsal_pancreatic_duct",
+        "VH_F_common_bile_duct",
+        "VH_F_ventral_pancreatic_duct",
+        "VH_F_duodenum_superior",
+        "VH_F_duodenal_ampulla",
+        "VH_F_duodenum_descending",
+        "VH_F_sphincter_of_heptopancreatic_ampulla",
+        "VH_F_duodenum_ascending",
+        "VH_F_duodenum_horizontal",
+        "VH_F_gastric_surface_of_spleen",
+        "VH_F_diaphragmatic_surface_of_spleen",
+        "VH_F_colic_surface_of_spleen",
+        "VH_F_hilum_of_spleen",
+        "VH_F_renal_surface_of_spleen"
+      ],
+      "mode": "exact illustrative materials",
+      "display_note": "Exact candidate materials and documented named visibility; not measured tissue appearance.",
+      "label": {
+        "en": "Same-atlas regional context",
+        "zh": "同图谱区域参照"
+      }
+    },
+    {
+      "file": "ducts_duodenum_pancreas_spleen_hidden.png",
+      "source_evidence_file": "ducts_duodenum_pancreas_spleen_hidden.png",
+      "source_evidence_sha256": "6e5e416653149096a9ea6809d2551ad6ed71a585a9c2e50a14e7c9a3e4d0306f",
+      "position_three": [
+        0.022608764469623566,
+        0.35855650901794434,
+        0.48510435223579407
+      ],
+      "target_three": [
+        0.022608764469623566,
+        0.2694186270236969,
+        -0.04972287639975548
+      ],
+      "up_three": [
+        0.0,
+        0.9863938689231873,
+        -0.16439902782440186
+      ],
+      "ortho_vertical_span": 0.22819294035434723,
+      "hidden_for_inspection_only": [
+        "VH_F_tail_of_pancreas",
+        "VH_F_body_of_pancreas",
+        "VH_F_ucinate_process1",
+        "VH_F_head_of_pancreas",
+        "VH_F_neck_of_pancreas",
+        "VH_F_gastric_surface_of_spleen",
+        "VH_F_diaphragmatic_surface_of_spleen",
+        "VH_F_colic_surface_of_spleen",
+        "VH_F_hilum_of_spleen",
+        "VH_F_renal_surface_of_spleen"
+      ],
+      "visible_source_meshes": [
+        "VH_F_hepatopancreatic_ampulla",
+        "VH_F_dorsal_pancreatic_duct",
+        "VH_F_common_bile_duct",
+        "VH_F_ventral_pancreatic_duct",
+        "VH_F_duodenal_ampulla",
+        "VH_F_duodenum_superior",
+        "VH_F_duodenum_descending",
+        "VH_F_sphincter_of_heptopancreatic_ampulla",
+        "VH_F_duodenum_ascending",
+        "VH_F_duodenum_horizontal"
+      ],
+      "mode": "exact illustrative materials",
+      "display_note": "Exact candidate materials and documented named visibility; not measured tissue appearance.",
+      "label": {
+        "en": "Source ducts and duodenum · pancreas/spleen hidden",
+        "zh": "来源导管与十二指肠·隐藏胰腺和脾"
+      }
+    },
+    {
+      "file": "pancreas_isolated_same_export.png",
+      "source_evidence_file": "pancreas_isolated_same_export.png",
+      "source_evidence_sha256": "4c7cd30d2a9527edc903f2aef94b09490eae31ba830e31b0d98e7de68a1428a6",
+      "position_three": [
+        0.03206092119216919,
+        0.26580801606178284,
+        0.4461930990219116
+      ],
+      "target_three": [
+        0.03206092119216919,
+        0.26580801606178284,
+        -0.06990206241607666
+      ],
+      "up_three": [
+        0.0,
+        0.9999999403953552,
+        -0.0
+      ],
+      "ortho_vertical_span": 0.22020061314105988,
+      "hidden_for_inspection_only": [
+        "VH_F_hepatopancreatic_ampulla",
+        "VH_F_dorsal_pancreatic_duct",
+        "VH_F_common_bile_duct",
+        "VH_F_ventral_pancreatic_duct",
+        "VH_F_duodenum_superior",
+        "VH_F_duodenal_ampulla",
+        "VH_F_duodenum_descending",
+        "VH_F_sphincter_of_heptopancreatic_ampulla",
+        "VH_F_duodenum_ascending",
+        "VH_F_duodenum_horizontal",
+        "VH_F_gastric_surface_of_spleen",
+        "VH_F_diaphragmatic_surface_of_spleen",
+        "VH_F_colic_surface_of_spleen",
+        "VH_F_hilum_of_spleen",
+        "VH_F_renal_surface_of_spleen"
+      ],
+      "visible_source_meshes": [
+        "VH_F_tail_of_pancreas",
+        "VH_F_body_of_pancreas",
+        "VH_F_ucinate_process1",
+        "VH_F_head_of_pancreas",
+        "VH_F_neck_of_pancreas"
+      ],
+      "mode": "exact illustrative materials",
+      "display_note": "Exact candidate materials and documented named visibility; not measured tissue appearance.",
+      "label": {
+        "en": "Pancreas isolated · same export",
+        "zh": "单独显示胰腺·同一导出"
+      }
+    }
+  ],
+  "derivedFrom": {
+    "file": "reviews/pancreas/hra-female-context-r04/viewer-camera-contract-three.json",
+    "sha256": "9ee0eff1cee047c49f330452602cf10e3faa7a1706d83216e6fde7339d3feeda"
+  },
+  "scope": "Source-confirmed camera/visibility subset; per-view orthographic spans retained exactly. Static recipe, not runtime verification."
+}

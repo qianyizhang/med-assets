@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "status": "frozen-local-text-only-migration-draft",
+  "transport_performed": false,
+  "payload_count": 10,
+  "payload_bytes": 50297,
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 5886,
+      "sha256": "bfed47f103a730565934f3ed495a55021b24c8cc37a9caa35624f1ada927e9fc"
+    },
+    {
+      "path": "dependency-map.json",
+      "bytes": 5984,
+      "sha256": "61179cd9dfa67d015b87bc4a49ccddf94e827cf95ef57c9286ec73986c5ca26b"
+    },
+    {
+      "path": "negative-checks.json",
+      "bytes": 612,
+      "sha256": "59baa463253bb3f32046973d7a5c254b6485bacab0942a35a54022864b203f7a"
+    },
+    {
+      "path": "recipes/bladder_interface_normals.py",
+      "bytes": 4522,
+      "sha256": "abf5b37b6748f73f09cff02aacc691aa8f84be131857f9b04439e1d88032db2a"
+    },
+    {
+      "path": "recipes/build_pair.py",
+      "bytes": 4015,
+      "sha256": "2028f8df799bc7682a535260af956ba052504314aa32fdfe30d431f7a5475fa4"
+    },
+    {
+      "path": "recipes/explicit-role-data.json",
+      "bytes": 10939,
+      "sha256": "bb1fb0cd9daf7f6e716b2d36dd4bbfac6880e569150e46b25a55d36754981ee2"
+    },
+    {
+      "path": "recipes/pancreas_guarded_normals.py",
+      "bytes": 8891,
+      "sha256": "c8380b53239345a1fb89d27b552e2cc84eb6379ec9152ef7e2a46dee06852448"
+    },
+    {
+      "path": "remote-dependency-verification.json",
+      "bytes": 1483,
+      "sha256": "78e7f0c15ac581566de25683504d1c439af8773cad667454ab9a995750508d95"
+    },
+    {
+      "path": "replay-verification.json",
+      "bytes": 1879,
+      "sha256": "a8a0a7076d606a12947114d79823acd00e2decf7655e75c9afcfaccf69fa136c"
+    },
+    {
+      "path": "replay.py",
+      "bytes": 6086,
+      "sha256": "197b78771533c3636590116955c2f1d7e02e8f1a001ae202e0a1d5a41208216d"
+    }
+  ],
+  "manifest_scope": "This inventory excludes this manifest itself. No atlas, GLB, image, audit archive or shared recipe duplicate is in the transport payload. All needed external inputs are explicit in dependency-map.json.",
+  "remote_dependency_boundary": "Requires existing tests/liver_spleen/recipes/extract_exact_subsets.py and resolve_shared_source.py with the pinned hashes. This is not a self-contained atlas bundle.",
+  "test_evidence": "replay-verification.json and negative-checks.json; exact replay passed locally, no new render/runtime/anatomy approval.",
+  "canonical_or_export_bytes_changed": false,
+  "supersedes_manifest_sha256": "2619dea8f93e122706021e522942650b8c340f596260c9d47834093af7f384cb",
+  "revision_note": "README-only public wording cleanup plus additive independent remote dependency verification. Numerical recipes, dependency map and replay evidence unchanged."
+}

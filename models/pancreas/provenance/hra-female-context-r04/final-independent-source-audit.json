@@ -1,0 +1,576 @@
+{
+  "id": "pancreas_hra_female_context_r04",
+  "sha256": "aa15f9248027c248886a9cf8d4f5f401b2753176c800851f648b03d88d97ebed",
+  "source_atlas_sha256": "95f0c3d2f918582608692ca1139e8bdb18c147a16470e9ee9af8b276bd77c422",
+  "all_position_index_other_nonnormal_attributes_source_byte_identical": true,
+  "all_source_node_transform_fields_identical": true,
+  "all_selected_mesh_ancestor_chains_identical": true,
+  "exact_named_meshes": 20,
+  "checks": [
+    {
+      "mesh": "VH_F_tail_of_pancreas",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 8147,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": false,
+              "count": 8147,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0,
+              "min_norm": 0.9999999403953552
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_body_of_pancreas",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 7373,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": false,
+              "count": 7373,
+              "all_finite": true,
+              "zero_vectors": 3,
+              "source_zero_vectors": 3,
+              "nonunit_vectors_tolerance_1e_4": 3,
+              "max_norm": 1.0,
+              "min_norm": 7.887816909643531e-22
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_ucinate_process1",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 1709,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": false,
+              "count": 1709,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0,
+              "min_norm": 0.9999999403953552
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_head_of_pancreas",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 7574,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": false,
+              "count": 7574,
+              "all_finite": true,
+              "zero_vectors": 17,
+              "source_zero_vectors": 17,
+              "nonunit_vectors_tolerance_1e_4": 17,
+              "max_norm": 1.0000001192092896,
+              "min_norm": 0.0
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_neck_of_pancreas",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 1548,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": false,
+              "count": 1548,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0,
+              "min_norm": 0.9999999403953552
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_hepatopancreatic_ampulla",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 364,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 364,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0,
+              "min_norm": 0.9999999403953552
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_dorsal_pancreatic_duct",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 472,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 472,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0,
+              "min_norm": 0.9999999403953552
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_common_bile_duct",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 764,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 764,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0,
+              "min_norm": 0.9999999403953552
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_ventral_pancreatic_duct",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 2588,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 2588,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0,
+              "min_norm": 0.9999999403953552
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_duodenum_superior",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 648,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 648,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0,
+              "min_norm": 0.9999999403953552
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_duodenal_ampulla",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 576,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 576,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0,
+              "min_norm": 0.9999999403953552
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_duodenum_descending",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 504,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 504,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0,
+              "min_norm": 0.9999999403953552
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_sphincter_of_heptopancreatic_ampulla",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 2145,
+              "all_finite": true
+            },
+            "TANGENT": {
+              "source_byte_identical": true,
+              "count": 2145,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 2145,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0,
+              "min_norm": 0.9999999403953552
+            },
+            "TEXCOORD_0": {
+              "source_byte_identical": true,
+              "count": 2145,
+              "all_finite": true
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_duodenum_ascending",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 288,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 288,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0,
+              "min_norm": 0.9999999403953552
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_duodenum_horizontal",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 576,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 576,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0,
+              "min_norm": 0.9999999403953552
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 974,
+              "all_finite": true
+            },
+            "TANGENT": {
+              "source_byte_identical": true,
+              "count": 974,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 974,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0000001192092896,
+              "min_norm": 0.9999999403953552
+            },
+            "TEXCOORD_0": {
+              "source_byte_identical": true,
+              "count": 974,
+              "all_finite": true
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 2239,
+              "all_finite": true
+            },
+            "TANGENT": {
+              "source_byte_identical": true,
+              "count": 2239,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 2239,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0000001192092896,
+              "min_norm": 0.9999998807907104
+            },
+            "TEXCOORD_0": {
+              "source_byte_identical": true,
+              "count": 2239,
+              "all_finite": true
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 83,
+              "all_finite": true
+            },
+            "TANGENT": {
+              "source_byte_identical": true,
+              "count": 83,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 83,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0000001192092896,
+              "min_norm": 0.9999999403953552
+            },
+            "TEXCOORD_0": {
+              "source_byte_identical": true,
+              "count": 83,
+              "all_finite": true
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_hilum_of_spleen",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 816,
+              "all_finite": true
+            },
+            "TANGENT": {
+              "source_byte_identical": true,
+              "count": 816,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 816,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0000001192092896,
+              "min_norm": 0.9999999403953552
+            },
+            "TEXCOORD_0": {
+              "source_byte_identical": true,
+              "count": 816,
+              "all_finite": true
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 453,
+              "all_finite": true
+            },
+            "TANGENT": {
+              "source_byte_identical": true,
+              "count": 453,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 453,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0000001192092896,
+              "min_norm": 0.9999999403953552
+            },
+            "TEXCOORD_0": {
+              "source_byte_identical": true,
+              "count": 453,
+              "all_finite": true
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    }
+  ],
+  "technical_warnings": [
+    "Retained source zero/nonunit NORMAL vectors, ill-conditioned slivers, degenerate triangles and virtual non-manifold adjacency remain. This is NOT a clean-format or mesh-validity pass.",
+    "Provider per-region surfaces remain a coarse gross-form reference, not lobular/microscopic anatomy."
+  ],
+  "approval_authority": "See the separate root-visual-verdict.json for exact accepted candidates; this audit grants no anatomy/runtime/clinical/normality or clean-format acceptance"
+}

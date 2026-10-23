@@ -1,0 +1,388 @@
+{
+  "id": "bladder_hra_female_context_r03",
+  "sha256": "91f04d1c831a61944da116184f389461517587c90c91fd94e199fba1619aa6b9",
+  "role_mapping_method": "Explicit enumerated source atlas node/name to display-role mapping; exact selected mesh set equality and every material-role assignment asserted. No substring matching used.",
+  "legend_scope": "Colors are illustrative named source-region/context groups, not measured tissue color or verified wall layers.",
+  "source_atlas_sha256": "95f0c3d2f918582608692ca1139e8bdb18c147a16470e9ee9af8b276bd77c422",
+  "rows": [
+    {
+      "source_atlas_node_id": 437,
+      "source_mesh_name": "VH_F_vagina",
+      "source_label": "vagina",
+      "source_node_type": "mesh",
+      "illustrative_display_role": "vagina",
+      "materials": [
+        "Illustrative_matte_bladder_vagina"
+      ],
+      "baseColorFactors": [
+        [
+          0.42,
+          0.22,
+          0.27,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 438,
+      "source_mesh_name": "VH_F_cervicovaginal_junction",
+      "source_label": "-",
+      "source_node_type": "mesh",
+      "illustrative_display_role": "vagina",
+      "materials": [
+        "Illustrative_matte_bladder_vagina"
+      ],
+      "baseColorFactors": [
+        [
+          0.42,
+          0.22,
+          0.27,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 478,
+      "source_mesh_name": "VH_F_abdominal_ostium_of_uterine_tube",
+      "source_label": "Abdominal ostium of uterine tube",
+      "source_node_type": "surface",
+      "illustrative_display_role": "uterus",
+      "materials": [
+        "Illustrative_matte_bladder_uterus"
+      ],
+      "baseColorFactors": [
+        [
+          0.35,
+          0.22,
+          0.3,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 479,
+      "source_mesh_name": "VH_F_body_of_uterus",
+      "source_label": "body of uterus",
+      "source_node_type": "surface",
+      "illustrative_display_role": "uterus",
+      "materials": [
+        "Illustrative_matte_bladder_uterus"
+      ],
+      "baseColorFactors": [
+        [
+          0.35,
+          0.22,
+          0.3,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 480,
+      "source_mesh_name": "VH_F_fundus_of_uterus",
+      "source_label": "Fundus of uterus",
+      "source_node_type": "surface",
+      "illustrative_display_role": "uterus",
+      "materials": [
+        "Illustrative_matte_bladder_uterus"
+      ],
+      "baseColorFactors": [
+        [
+          0.35,
+          0.22,
+          0.3,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 481,
+      "source_mesh_name": "VH_F_cornua",
+      "source_label": "-",
+      "source_node_type": "surface",
+      "illustrative_display_role": "uterus",
+      "materials": [
+        "Illustrative_matte_bladder_uterus"
+      ],
+      "baseColorFactors": [
+        [
+          0.35,
+          0.22,
+          0.3,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 482,
+      "source_mesh_name": "VH_F_lower_uterine_segment",
+      "source_label": "Lower uterine segment",
+      "source_node_type": "surface",
+      "illustrative_display_role": "uterus",
+      "materials": [
+        "Illustrative_matte_bladder_uterus"
+      ],
+      "baseColorFactors": [
+        [
+          0.35,
+          0.22,
+          0.3,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 483,
+      "source_mesh_name": "VH_F_posterior_wall_of_uterus",
+      "source_label": "Posterior wall of uterus",
+      "source_node_type": "mesh",
+      "illustrative_display_role": "uterus",
+      "materials": [
+        "Illustrative_matte_bladder_uterus"
+      ],
+      "baseColorFactors": [
+        [
+          0.35,
+          0.22,
+          0.3,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 484,
+      "source_mesh_name": "VH_F_anterior_wall_of_uterus",
+      "source_label": "Anterior wall of uterus",
+      "source_node_type": "mesh",
+      "illustrative_display_role": "uterus",
+      "materials": [
+        "Illustrative_matte_bladder_uterus"
+      ],
+      "baseColorFactors": [
+        [
+          0.35,
+          0.22,
+          0.3,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 485,
+      "source_mesh_name": "VH_F_cervix",
+      "source_label": "uterine cervix",
+      "source_node_type": "surface",
+      "illustrative_display_role": "uterus",
+      "materials": [
+        "Illustrative_matte_bladder_uterus"
+      ],
+      "baseColorFactors": [
+        [
+          0.35,
+          0.22,
+          0.3,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 486,
+      "source_mesh_name": "VH_F_internal_cervical_os",
+      "source_label": "internal cervical os",
+      "source_node_type": "surface",
+      "illustrative_display_role": "uterus",
+      "materials": [
+        "Illustrative_matte_bladder_uterus"
+      ],
+      "baseColorFactors": [
+        [
+          0.35,
+          0.22,
+          0.3,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 487,
+      "source_mesh_name": "VH_F_external_cervical_os",
+      "source_label": "external cervical os",
+      "source_node_type": "surface",
+      "illustrative_display_role": "uterus",
+      "materials": [
+        "Illustrative_matte_bladder_uterus"
+      ],
+      "baseColorFactors": [
+        [
+          0.35,
+          0.22,
+          0.3,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 598,
+      "source_mesh_name": "VH_F_rectum",
+      "source_label": "rectum",
+      "source_node_type": "mesh",
+      "illustrative_display_role": "rectum",
+      "materials": [
+        "Illustrative_matte_bladder_rectum"
+      ],
+      "baseColorFactors": [
+        [
+          0.17,
+          0.32,
+          0.32,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 685,
+      "source_mesh_name": "VH_F_right_ureter",
+      "source_label": "right ureter",
+      "source_node_type": "mesh",
+      "illustrative_display_role": "ureter",
+      "materials": [
+        "Illustrative_matte_bladder_ureter"
+      ],
+      "baseColorFactors": [
+        [
+          0.7,
+          0.57,
+          0.34,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 705,
+      "source_mesh_name": "VH_F_left_ureter",
+      "source_label": "left ureter",
+      "source_node_type": "mesh",
+      "illustrative_display_role": "ureter",
+      "materials": [
+        "Illustrative_matte_bladder_ureter"
+      ],
+      "baseColorFactors": [
+        [
+          0.7,
+          0.57,
+          0.34,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 707,
+      "source_mesh_name": "VH_F_fundus_of_urinary_bladder_dome",
+      "source_label": "fundus of urinary bladder",
+      "source_node_type": "surface",
+      "illustrative_display_role": "dome",
+      "materials": [
+        "Illustrative_matte_bladder_dome"
+      ],
+      "baseColorFactors": [
+        [
+          0.48,
+          0.24,
+          0.2,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 708,
+      "source_mesh_name": "VH_F_urinary_bladder_neck_smooth_muscle",
+      "source_label": "urinary bladder neck smooth muscle",
+      "source_node_type": "surface",
+      "illustrative_display_role": "neck",
+      "materials": [
+        "Illustrative_matte_bladder_neck"
+      ],
+      "baseColorFactors": [
+        [
+          0.6,
+          0.38,
+          0.22,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 709,
+      "source_mesh_name": "VH_F_fundus_of_urinary_bladder_base",
+      "source_label": "fundus of urinary bladder",
+      "source_node_type": "surface",
+      "illustrative_display_role": "base",
+      "materials": [
+        "Illustrative_matte_bladder_base"
+      ],
+      "baseColorFactors": [
+        [
+          0.36,
+          0.14,
+          0.13,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 710,
+      "source_mesh_name": "VH_F_trigone_of_urinary_bladder",
+      "source_label": "trigone of urinary bladder",
+      "source_node_type": "surface",
+      "illustrative_display_role": "trigone",
+      "materials": [
+        "Illustrative_matte_bladder_trigone"
+      ],
+      "baseColorFactors": [
+        [
+          0.36,
+          0.21,
+          0.29,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 712,
+      "source_mesh_name": "VH_F_ureteral_orifice_R",
+      "source_label": "Right ureteral orifice",
+      "source_node_type": "surface",
+      "illustrative_display_role": "orifice",
+      "materials": [
+        "Illustrative_matte_bladder_orifice"
+      ],
+      "baseColorFactors": [
+        [
+          0.63,
+          0.45,
+          0.22,
+          1
+        ]
+      ]
+    },
+    {
+      "source_atlas_node_id": 713,
+      "source_mesh_name": "VH_F_ureteral_orifice_L",
+      "source_label": "Left ureteral orifice",
+      "source_node_type": "surface",
+      "illustrative_display_role": "orifice",
+      "materials": [
+        "Illustrative_matte_bladder_orifice"
+      ],
+      "baseColorFactors": [
+        [
+          0.63,
+          0.45,
+          0.22,
+          1
+        ]
+      ]
+    }
+  ],
+  "all_selected_mesh_roles_checked": true
+}

@@ -1,0 +1,24 @@
+{
+  "id": "pancreas_hra_female_context_r04",
+  "sha256": "aa15f9248027c248886a9cf8d4f5f401b2753176c800851f648b03d88d97ebed",
+  "parent_file": "models/pancreas_hra_female_context_normals35_guarded_r04/pancreas_hra_female_context_normals35_guarded_r04.glb",
+  "parent_sha256": "573dbb73af3806eabb22bfb3ec370c9e4e4bd21536cb2ab2fc2fa645d9f90cc4",
+  "binary_identical": true,
+  "json_identical_except_two_material_indices": true,
+  "changes": [
+    {
+      "source_node_id": 579,
+      "name": "VH_F_duodenal_ampulla",
+      "from_material": "Illustrative_matte_pancreas_duct",
+      "to_material": "Illustrative_matte_pancreas_duodenum"
+    },
+    {
+      "source_node_id": 581,
+      "name": "VH_F_sphincter_of_heptopancreatic_ampulla",
+      "from_material": "Illustrative_matte_pancreas_duct",
+      "to_material": "Illustrative_matte_pancreas_duodenum"
+    }
+  ],
+  "interpretation": "Corrects two context material roles only. No geometry, normals, source names or transforms changed. Duodenal ampulla and sphincter remain selected duodenum-context, not labeled pancreatic ducts.",
+  "status": "Unreviewed corrected context"
+}

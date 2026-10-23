@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "purpose": "Minimal source-bound replay adapter for two existing accepted exact exports; not a new visual/anatomy/runtime verdict.",
+  "external_source": {
+    "id": "hra-united-female-v1.10",
+    "bytes": 374505632,
+    "sha256": "95f0c3d2f918582608692ca1139e8bdb18c147a16470e9ee9af8b276bd77c422",
+    "canonical_relative_path": "sources/datasets/hra/united-female-v1.10/raw/95f0c3d2f918582608692ca1139e8bdb18c147a16470e9ee9af8b276bd77c422/3d-vh-f-united.glb",
+    "url": "https://cdn.humanatlas.io/digital-objects/ref-organ/united-female/v1.10/assets/3d-vh-f-united.glb",
+    "doi": "https://doi.org/10.48539/HBM637.DWBM.744",
+    "creators": "Kristen Browne; Heidi Schlehlein",
+    "citation": "3D Reference Organ Set for Female, v1.10 (2026)",
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "automatically_downloaded": false,
+    "included_in_staging": false
+  },
+  "external_recipe_files": [
+    {
+      "repo_relative_path": "tests/liver_spleen/recipes/extract_exact_subsets.py",
+      "bytes": 5387,
+      "sha256": "395de2445806a7357e99e6f877b45638fc4be2968d83ee7d6ee5aafa03bb2ea8",
+      "use": "Exact source-byte subset extraction and GLB serialization"
+    },
+    {
+      "repo_relative_path": "tests/liver_spleen/recipes/resolve_shared_source.py",
+      "bytes": 534,
+      "sha256": "fd34247c22db8324689e3a0f0f6bca847e41d04fb0353cf0f57a00a52e7575f5",
+      "use": "Local-source resolution and SHA check; no fetch"
+    }
+  ],
+  "runtime": {
+    "python": "Python 3; tested CPython 3.12.14",
+    "numpy": "Required, tested 2.3.5",
+    "automatic_install": false,
+    "blender_required": false
+  },
+  "algorithm_origins": [
+    {
+      "staged": "recipes/bladder_interface_normals.py",
+      "origin": "med-assets-liver-spleen-pilot-draft/tests/liver_spleen/recipes/revise_interface_normals.py",
+      "origin_sha256": "8554cc6a91506019aa89c6ec5c0366087e24379af855b5580f9f097329ad7698",
+      "adaptation": "Restrict execution to bladder context only; remove unused group definitions; audit approval text only. Same numerical operations."
+    },
+    {
+      "staged": "recipes/pancreas_guarded_normals.py",
+      "origin": "visceral-reference-revision/tests/pancreas_guarded_normals_trial.py",
+      "origin_sha256": "15611adcefdef32a36b4943c497d9976e8686882706a04dba05cbb0a7f7b5bc8",
+      "adaptation": "Final context output ID and approval text only; use already explicitly assigned final roles as context parent. Numerical algorithm, guards and normal transfer unchanged."
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "bladder_hra_female_context_r03",
+      "expected_sha256": "91f04d1c831a61944da116184f389461517587c90c91fd94e199fba1619aa6b9"
+    },
+    {
+      "candidate_id": "pancreas_hra_female_context_r04",
+      "expected_sha256": "aa15f9248027c248886a9cf8d4f5f401b2753176c800851f648b03d88d97ebed"
+    }
+  ],
+  "frame_contract": "Preserve native source node/ancestor transforms and geometry. No centering, scaling, mirroring, registration, vertex/index change or anatomy synthesis. Separate female educational context, not a default whole-body replacement.",
+  "scope_warnings": [
+    "Prior acceptance is scoped STATIC VISUAL only. Replay verifies exact bytes and source-preservation guards; it is not a new visual, anatomical, clinical, runtime, normality or clean-format pass.",
+    "Source open annotation/region patches, retained zero/nonunit normals and degenerate/sliver triangles remain. No wall thickness, closed-volume or physiological implication.",
+    "Bladder ridge remains; fill state unknown. Dome/base normals only; neck, trigone, orifices and context normals untouched. Selected female context is not complete pelvis or urinary system.",
+    "Pancreas retains 101 ill-conditioned triangles, 8 degenerate faces, 222 sliver-associated protected NORMAL indices, 20 original zero/near-zero normals and 8 virtual nonmanifold edges. Two multifan indices retained. Guarded normal update is display shading, not mesh/anatomy repair.",
+    "Four source duct-subtree meshes are context only, not proven continuous, patent or flow-capable. No microscopic tissue, missing stomach or additional anatomy is invented.",
+    "Explicit mappings preserve all 21 bladder and 20 pancreas context nodes. Duodenal ampulla and sphincter are duodenum context, not pancreas-duct display roles. Provider names/typos remain unchanged."
+  ],
+  "boundary": {
+    "included": "Only text replay recipes, explicit role/dependency maps, instructions and bounded local verification record.",
+    "not_included": [
+      "374505632-byte external atlas",
+      "accepted GLBs",
+      "large audit/history/render payloads",
+      "Blender/camera/render dependencies"
+    ],
+    "historical_authority": "Existing accepted output hashes, original full provenance/licenses and static visual evidence remain in visceral-reference-revision/handoff and canonical imported records. This adapter does not replace that archive.",
+    "historical_pipeline_difference": "Apply final reviewed explicit context roles directly, before normal transfer, rather than reconstruct the rejected fuzzy role assignment and fix its two indices afterwards. Result must still match accepted final GLB SHA exactly."
+  },
+  "local_recipe_files": [
+    {
+      "path": "recipes/bladder_interface_normals.py",
+      "bytes": 4522,
+      "sha256": "abf5b37b6748f73f09cff02aacc691aa8f84be131857f9b04439e1d88032db2a"
+    },
+    {
+      "path": "recipes/build_pair.py",
+      "bytes": 4015,
+      "sha256": "2028f8df799bc7682a535260af956ba052504314aa32fdfe30d431f7a5475fa4"
+    },
+    {
+      "path": "recipes/explicit-role-data.json",
+      "bytes": 10939,
+      "sha256": "bb1fb0cd9daf7f6e716b2d36dd4bbfac6880e569150e46b25a55d36754981ee2"
+    },
+    {
+      "path": "recipes/pancreas_guarded_normals.py",
+      "bytes": 8891,
+      "sha256": "c8380b53239345a1fb89d27b552e2cc84eb6379ec9152ef7e2a46dee06852448"
+    }
+  ]
+}
