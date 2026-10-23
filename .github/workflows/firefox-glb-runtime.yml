@@ -1,21 +1,14 @@
-name: Stock Firefox exact-GLB runtime probe
+name: Exact-fixture software CI (heart + lymph)
 
 on:
-  push:
-    branches: ["ci/firefox-glb-runtime"]
-    paths:
-      - ".github/workflows/firefox-glb-runtime.yml"
-      - "ci/webgl_probe.py"
-      - "ci/glb_runtime_probe.py"
-      - "ci/glb_runtime_probe.mjs"
-      - "ci/glb-runtime-fixture.json"
+  workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
   probe:
-    if: github.ref == 'refs/heads/ci/firefox-glb-runtime'
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-24.04
     timeout-minutes: 8
     steps:
