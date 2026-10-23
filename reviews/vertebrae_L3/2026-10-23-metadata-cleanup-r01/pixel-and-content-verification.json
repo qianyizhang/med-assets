@@ -1,0 +1,74 @@
+{
+  "status": "passed-scope",
+  "scope": "Metadata-only derivative replay, exact binary/content preservation, two matched static pixel comparisons. Not anatomy/runtime validation.",
+  "sourceSha256": "823ab88a4cc7d3f9b7ee58a2039521d8fdc41367bb0913fe034133334d99fec4",
+  "derivativeSha256": "ba74f52842207d396bd0e959d40fedc0adf69e787072117e037b0ba9d18eebfe",
+  "sourceUnchanged": true,
+  "allNonJSONChunksByteIdentical": true,
+  "allJSONOutsideSceneExtrasDeepEqual": true,
+  "exactApprovedPatchApplied": true,
+  "nodeSourceProvenanceUnchanged": true,
+  "views": [
+    {
+      "view": "front",
+      "shape": [
+        512,
+        512,
+        4
+      ],
+      "samePNGBytes": false,
+      "samePixels": true,
+      "maxChannelDifference": 0,
+      "differentPixels": 0,
+      "baselinePngSha256": "1cd4e08247fe42d848743bc1d554155b6fcfdacb238eb359ca972d5edcff4f37",
+      "derivativePngSha256": "841197d9153eca1f28808130f46700332f6c303ce01b437fb592af9317670508",
+      "rgbaPixelSha256": "4084ef6f825ba95102c73e28c9d35b9ceb077a593f8c88b6f22f7f55492dba10"
+    },
+    {
+      "view": "superior",
+      "shape": [
+        512,
+        512,
+        4
+      ],
+      "samePNGBytes": false,
+      "samePixels": true,
+      "maxChannelDifference": 0,
+      "differentPixels": 0,
+      "baselinePngSha256": "50f3fd91d2fe067aea0390a8855c2db3ae777b979c2f32e913d1d3c21256a1dd",
+      "derivativePngSha256": "0dc68358a09a2c3e4a8db466f2aa2c5d98e0c6b03cf72f818146dabaa98bc7ab",
+      "rgbaPixelSha256": "214c288310116a65ff167557a78358ce8554b671374128babc863b0cae55f19b"
+    }
+  ],
+  "licenses": [
+    {
+      "source": "retained original repository source notice/license; exact SHA recorded",
+      "sha256": "87372df39878e0c73903675edc21875fa712a90b22f497ffb55d50a29f210a94",
+      "byteIdenticalToRetainedSource": true,
+      "historicalNoticeName": "SOURCE-NOTICE.md",
+      "availability": "Original notice is retained with the baseline source; concise attribution is included in models/vertebrae_L3/source/ATTRIBUTION.md, not asserted byte-identical to this historical notice."
+    },
+    {
+      "file": "models/vertebrae_L3/source/CC-BY-4.0.txt",
+      "source": "retained original repository source notice/license; exact SHA recorded",
+      "sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94",
+      "byteIdenticalToRetainedSource": true
+    },
+    {
+      "file": "models/vertebrae_L3/source/TotalSegmentator-v2.0.1-LICENSE.txt",
+      "source": "retained original repository source notice/license; exact SHA recorded",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+      "byteIdenticalToRetainedSource": true
+    }
+  ],
+  "acceptedCandidateIncrement": 0,
+  "fullAnatomyStatus": "unreviewed",
+  "browserRuntimeStatus": "unverified",
+  "knownWarningsRetained": [
+    "Retained low-resolution segmented case s1233 display, not a normal-population atlas.",
+    "Repair/subdivision/smoothing does not recover source anatomical detail.",
+    "Source-derived exterior only; fine facets and full anatomy remain unreviewed.",
+    "No clinical measurement, whole-spine coverage, cutaway, animation or browser/runtime claim."
+  ],
+  "availability": "Original PNGs and editable inspection scene are retained in the cloud review archive, deferred from this bounded PR. This report is not a fresh browser test."
+}
