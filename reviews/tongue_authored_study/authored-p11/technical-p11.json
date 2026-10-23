@@ -1,0 +1,54 @@
+{
+  "input": "models/tongue-authored-hra-hybrid-p11.glb",
+  "sha256": "efabd58b235b72682f067113cf079e3f70fbaceac47062f2b937f09540c1ee1a",
+  "bytes": 4983044,
+  "container": "glTF 2 binary lengths/chunks checked; actual bytes, not LFS pointer",
+  "meshCount": 4,
+  "triangles": 204316,
+  "uniqueExactCoordinates": 102160,
+  "finitePositionsNormals": true,
+  "indicesInRange": true,
+  "allNodeTransformsIdentity": true,
+  "nativeBounds": [
+    [
+      -0.028245696797966957,
+      0.6813268065452576,
+      -0.038412004709243774
+    ],
+    [
+      0.017987022176384926,
+      0.7192808985710144,
+      0.033497948199510574
+    ]
+  ],
+  "boundaryEdges": 0,
+  "nonTwoIncidentEdges": 0,
+  "inconsistentWindingEdges": 0,
+  "connectedComponents": 1,
+  "eulerCharacteristic": 2,
+  "zeroAreaTriangles": 0,
+  "smallestTriangleAreaM2": 3.118151248154173e-14,
+  "retainedOriginalTriangleGeometryCount": 70817,
+  "retainedOriginalTriangleGeometryByteExact": true,
+  "provenanceArraysMatchExactExportTriangleCoordinates": true,
+  "retainedBySourceMesh": {
+    "0": 561,
+    "1": 67468,
+    "2": 0,
+    "3": 1164,
+    "4": 1624
+  },
+  "sourceFaceOrder": [
+    "posterior",
+    "dorsal",
+    "ventral",
+    "fungiform",
+    "circumvallate"
+  ],
+  "changedOrClippedSourceFaceIDsCount": 19711,
+  "sourceNormals": "Recomputed across combined final surface; no byte-exact source normal claim",
+  "sharedCoordinateNormalMaxDifference": 0.0,
+  "selfIntersection": "See intersections-p11.json for result; topology metrics alone do not establish absence of intersections",
+  "runtime": "unverified; not inferred from Blender",
+  "anatomy": "Authored educational approximation; quantitative geometry checks do not establish anatomical correctness"
+}

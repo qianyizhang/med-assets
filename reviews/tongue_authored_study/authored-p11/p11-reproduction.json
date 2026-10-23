@@ -1,0 +1,13 @@
+{
+  "method": "Re-run final p08\u2192p11 refinement script in a separate temporary workspace using copied frozen p08 provenance arrays and p08 export; binary cmp against frozen p11 succeeded",
+  "reproducedSha256": "efabd58b235b72682f067113cf079e3f70fbaceac47062f2b937f09540c1ee1a",
+  "bytes": 4983044,
+  "binaryIdentical": true,
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "blender": "4.3.2"
+  },
+  "scope": "Final refinement replay verified; full upstream source-extraction replay script supplied, not re-run end-to-end in this final check"
+}
