@@ -1,0 +1,132 @@
+{
+  "rawSourceSHA256": "bd8e24e9d52b49719c6a1cafa1f54fc40c1d3f811b9d32df78d5c20ebb78c197",
+  "rawSourceBytes": 103690760,
+  "materialOnlyIntermediateSHA256StreamedNotWritten": "7527f09810df6bf59d523304e675795175e24d6cf32799f5ad8e4c866df3cc89",
+  "outputSHA256": "a76dc3c882994ff1515f30f9047872a634a6cdf9275e1eec7b4aa9ba13633d12",
+  "outputBytes": 16647708,
+  "retainedSourceNodeIndices": [
+    0,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24
+  ],
+  "retainedSourceMeshIndices": [
+    12,
+    13,
+    14,
+    15,
+    16
+  ],
+  "logicalStreams": [
+    {
+      "sourceAccessor": 48,
+      "outputAccessor": 0,
+      "logicalStreamSha256": "f466a7ea7dd8c2857aa6f2bf04d43b06d78c6a4ebd1a9d78225dae3c528b268c",
+      "bytes": 1332000,
+      "byteExactStream": true
+    },
+    {
+      "sourceAccessor": 49,
+      "outputAccessor": 1,
+      "logicalStreamSha256": "a8c9ec97a99743fb11716de8d34ea5ba98a2f4e8be8c38a406765c62d8078f64",
+      "bytes": 2688192,
+      "byteExactStream": true
+    },
+    {
+      "sourceAccessor": 50,
+      "outputAccessor": 2,
+      "logicalStreamSha256": "07afede1f38281464209d3bdc4a9e83a7aa7e92756db4153e63163e2e6187d00",
+      "bytes": 2688192,
+      "byteExactStream": true
+    },
+    {
+      "sourceAccessor": 51,
+      "outputAccessor": 3,
+      "logicalStreamSha256": "643fbc200929767a224be955f6141ce9714f08602bc4fe0c156bbb916e82bf88",
+      "bytes": 1323432,
+      "byteExactStream": true
+    },
+    {
+      "sourceAccessor": 52,
+      "outputAccessor": 4,
+      "logicalStreamSha256": "6b5ddb541018cd6e9ce0c3b2008d622985a806c19c5a3e18de7698cb1d168e3d",
+      "bytes": 2655600,
+      "byteExactStream": true
+    },
+    {
+      "sourceAccessor": 53,
+      "outputAccessor": 5,
+      "logicalStreamSha256": "8dbd0ac2025de522516b44222f88257bd08ed46e1cdd9cb0bbcabf063e41400f",
+      "bytes": 2655600,
+      "byteExactStream": true
+    },
+    {
+      "sourceAccessor": 54,
+      "outputAccessor": 6,
+      "logicalStreamSha256": "e35d4ebe5ed726b8011c90b50bc805692276027e6366c0860248b6f15996c63f",
+      "bytes": 626064,
+      "byteExactStream": true
+    },
+    {
+      "sourceAccessor": 55,
+      "outputAccessor": 7,
+      "logicalStreamSha256": "bfade258743cb70689e81011697062d951a548d5c9b789aa477b69f946381b88",
+      "bytes": 1260816,
+      "byteExactStream": true
+    },
+    {
+      "sourceAccessor": 56,
+      "outputAccessor": 8,
+      "logicalStreamSha256": "d4a3df9766ae16debfbe905ffe972a4533f50821d8323c6cacca923a96f34631",
+      "bytes": 1260816,
+      "byteExactStream": true
+    },
+    {
+      "sourceAccessor": 57,
+      "outputAccessor": 9,
+      "logicalStreamSha256": "6f1e0f8afa5d2d70b9337d35b28590fe89e150007e9a2874250179cec0fb120f",
+      "bytes": 6984,
+      "byteExactStream": true
+    },
+    {
+      "sourceAccessor": 58,
+      "outputAccessor": 10,
+      "logicalStreamSha256": "f7d0392822c112635e3e89be20bcd4411c7a99a84c50f3001399587666f467c2",
+      "bytes": 27936,
+      "byteExactStream": true
+    },
+    {
+      "sourceAccessor": 59,
+      "outputAccessor": 11,
+      "logicalStreamSha256": "b9726c63f61a178b9d3882373292e974060b91533725385e3412a59d8532777b",
+      "bytes": 27936,
+      "byteExactStream": true
+    },
+    {
+      "sourceAccessor": 60,
+      "outputAccessor": 12,
+      "logicalStreamSha256": "14f7eaa645c6712dde6af09af0d2a46084348d1f3e9af44b86d6e5442d3d8b71",
+      "bytes": 9744,
+      "byteExactStream": true
+    },
+    {
+      "sourceAccessor": 61,
+      "outputAccessor": 13,
+      "logicalStreamSha256": "c1e9d07d2226094322a2fb8496771683a7cac30ad69ae9a4440acfbb79e443e1",
+      "bytes": 38976,
+      "byteExactStream": true
+    },
+    {
+      "sourceAccessor": 62,
+      "outputAccessor": 14,
+      "logicalStreamSha256": "e63526f132d0a3606dca963503b641e6ceee577f5197ea39ac495f44fc9fe7a5",
+      "bytes": 38976,
+      "byteExactStream": true
+    }
+  ],
+  "method": "Historical material JSON edit plus byte-exact per-accessor extraction. No raw/full intermediate copy, coordinate transform, welding, reconstruction or normal edit.",
+  "verifiedScope": "Raw source to historical five-patch subset only; not a full authored geometry pipeline replay"
+}
