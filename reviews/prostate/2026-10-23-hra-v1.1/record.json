@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "id": "prostate-hra-v1.1-bounded-import",
+  "assetId": "draft_prostate",
+  "variantId": "prostate_hra__source-candidate-01",
+  "reviewedAt": "2026-10-23T09:13:00Z",
+  "reviewTimeNote": "Bounded import preparation timestamp; prior static visual review was 2026-10-23, exact personal-review time not recorded.",
+  "artifact": {
+    "file": "models/prostate/exports/hra-v1.1/VH_M_Prostate.glb",
+    "sha256": "ec1023e0a1b81f71865872bb720404abc7bb6378a54ac71fa9f24579b097f48a"
+  },
+  "gates": {
+    "technical": {
+      "status": "pass-with-limitations",
+      "scope": "Unchanged original-source bytes and source-frame integrity. Open annotated patches remain; no watertightness certification."
+    },
+    "visual": {
+      "status": "passed",
+      "scope": "Reviewer personally inspected exact native-frame contacts and same-source context; static zones/accessory-structure teaching scope only."
+    },
+    "anatomy": {
+      "status": "reference-screened",
+      "scope": "Educational source/reference screening only, not complete anatomy or clinical validation."
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "No consumer browser 3D runtime or physiological motion validation."
+    }
+  },
+  "evidence": [
+    {
+      "file": "reviews/prostate/2026-10-23-hra-v1.1/display/contact.webp",
+      "sha256": "72283dd287b98b95445182b8fa214b70986185b73febe08d8e6c38766a6b1d90",
+      "artifactSha256": "ec1023e0a1b81f71865872bb720404abc7bb6378a54ac71fa9f24579b097f48a",
+      "kind": "lossy-webp-display-derivative",
+      "originalPngSha256": "1505ca0a42c27354f5280d12b1bdb11d6210522fc475dec67cc1731213c2b19e",
+      "contextSha256": null,
+      "note": "Quality 92 lossy display derivative, not original lossless PNG. Gray bladder is separate context, excluded from final prostate GLB."
+    },
+    {
+      "file": "reviews/prostate/2026-10-23-hra-v1.1/display/context-oblique.webp",
+      "sha256": "f890423ed27f9b1a43476f88570a03a1355ec3ffd7a107dbfd4e8e0765d6b569",
+      "artifactSha256": "ec1023e0a1b81f71865872bb720404abc7bb6378a54ac71fa9f24579b097f48a",
+      "kind": "lossy-webp-display-derivative",
+      "originalPngSha256": "936ae24bcf0986d51540e385eaac4b920fc24ab50cf8fc59b2b1e80606c9b435",
+      "contextSha256": "43b7f17e3f498d5e494a7757ce86c183ae458f83724ceaf922f6bdd6a35ff339",
+      "note": "Quality 92 lossy display derivative, not original lossless PNG. Gray bladder is separate context, excluded from final prostate GLB."
+    }
+  ],
+  "failureSummary": {
+    "failure": "Earlier ellipsoid and bead-like appendages erased differentiated regions.",
+    "cause": "Generic authored primitives and coarse replacement geometry lacked useful teaching landmarks.",
+    "fix": "Use unchanged HRA region/zone source; separate same-atlas bladder context in review only.",
+    "retest": "Exact source bytes, native-frame static renders and prior personal contact review; no full-system or runtime promotion.",
+    "lesson": "Technically loadable geometry is insufficient: useful differentiated landmarks must improve."
+  },
+  "limitations": [
+    "18 source meshes; historical exact-coordinate audit reports 468 boundary and 468 non-two-incident edges. Non-two-incident counts include these boundary edges; they are not 468 additional defects.",
+    "Open annotated surface patches remain.",
+    "Bladder is context-only and excluded from delivered prostate GLB.",
+    "No continuous lumen, full male reproductive system, clinical or motion claim.",
+    "Native HRA source frame; no automatic BP3D registration.",
+    "Native PNGs, Blender scenes and full failed history are deferred from this bounded import."
+  ]
+}
