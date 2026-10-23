@@ -1,0 +1,102 @@
+{
+  "id": "blood_cell_study_authored_r05",
+  "artifact": "models/blood_cell_study/exports/authored-r05/blood-cell-authored-study-r05.glb",
+  "sha256": "4c7c738b3ca6ae6cc7e44a449be0f7d26d04ceb9975e43d3b834a2caad96618c",
+  "bytes": 3461004,
+  "scope": {
+    "en": "Authored RBC/neutrophil/platelet form study, not blood-smear statistics, measured specimen geometry or physiological motion. Intact and cutaway show the same authored cell. No original failed-blood replacement.",
+    "zh": "\u4eba\u5de5\u5efa\u6a21\u7684\u7ea2\u7ec6\u80de\uff0f\u4e2d\u6027\u7c92\u7ec6\u80de\uff0f\u8840\u5c0f\u677f\u5f62\u6001\u6559\u5b66\uff0c\u4e0d\u4ee3\u8868\u6d82\u7247\u7edf\u8ba1\u3001\u5b9e\u6d4b\u6807\u672c\u6216\u751f\u7406\u8fd0\u52a8\u3002\u5b8c\u6574\u4e0e\u5256\u5207\u89c6\u56fe\u5c55\u793a\u540c\u4e00\u4eba\u5de5\u7ec6\u80de\uff1b\u4e0d\u66ff\u6362\u5931\u8d25\u65e7\u7a3f\u3002"
+  },
+  "gates": {
+    "technical": {
+      "status": "pass-with-limitations",
+      "scope": "Specified static export checks passed; no exhaustive self-intersection test. Reopening the sanitized baked source in Blender 4.3.2 reproduced the exact reviewed GLB bytes. Separately, prior retained procedural rebuild matched geometry/shading but not bytes; a later threads=4 procedural rebuild failed strict geometry equivalence on 4 meshes. Generic procedural reproducibility remains unverified."
+    },
+    "visual": {
+      "status": "passed",
+      "scope": "Limited authored teaching-form readability: closed biconcave RBC, connected contained neutrophil nucleus, clearly labeled intact/cutaway and illustrative platelets. Not microscopy reconstruction."
+    },
+    "anatomy": {
+      "status": "reference-screened",
+      "scope": "Qualitative primary-reference screening only, not expert or clinical validation."
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "No browser/consumer interaction or animation test."
+    }
+  },
+  "limitations": [
+    "Arbitrary illustrative size/color/granule choices; no measured ultrastructure or complete organelles.",
+    "Cutaway is a display device, not a physiological opening.",
+    "Historical procedural rebuild SHA differs; baked-source export reproduces reviewed GLB exactly; only exact reviewed canonical GLB is approved."
+  ],
+  "reproducibility": {
+    "en": "The saved baked Blender source re-exports the exact reviewed GLB. This does not make the historical generator deterministic: one retained rebuild matched geometry/shading but not bytes, and a fresh rebuild failed strict geometry equivalence on 4 meshes; cause unestablished.",
+    "zh": "\u4fdd\u5b58\u7684\u5df2\u5b9a\u578b Blender \u6e90\u6587\u4ef6\u53ef\u91cd\u65b0\u5bfc\u51fa\u4e0e\u5df2\u5ba1\u9605 GLB \u5b57\u8282\u4e00\u81f4\u7684\u6587\u4ef6\u3002\u4f46\u5386\u53f2\u751f\u6210\u7a0b\u5e8f\u5e76\u975e\u5df2\u8bc1\u660e\u786e\u5b9a\uff1a\u4e00\u4efd\u4fdd\u5b58\u91cd\u5efa\u4ec5\u51e0\u4f55\uff0f\u7740\u8272\u5339\u914d\u800c\u5b57\u8282\u4e0d\u540c\uff0c\u65b0\u91cd\u5efa\u6709 4 \u4e2a\u7f51\u683c\u672a\u901a\u8fc7\u4e25\u683c\u51e0\u4f55\u7b49\u4ef7\u68c0\u67e5\uff1b\u539f\u56e0\u5c1a\u672a\u786e\u5b9a\u3002"
+  },
+  "evidence": [
+    {
+      "file": "reviews/blood_cell_study/authored-r05/evidence-1.webp",
+      "sha256": "6a5bc78b9b84f1c4c73c1ddb8018bc719c5efc04a70df4f4b80f90d1e1199fb9",
+      "bytes": 40096,
+      "originalSha256": "0cb6f9f1b1ed1a76239daf2abd57764b27d8ddf3d3b48317758f6fa458cac326",
+      "label": {
+        "en": "contact-three-view",
+        "zh": "\u7cbe\u786e\u5bfc\u51fa \u00b7 3 \u89c6\u56fe\u5bf9\u7167"
+      },
+      "role": "candidate",
+      "note": {
+        "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+        "zh": "\u81ea\u5df1\u7684\u9759\u6001\u8bc1\u636e\uff0cWebP \u5c55\u793a\u526f\u672c\uff1b\u65e0\u635f\u539f\u56fe\u4fdd\u7559\u5728\u89c4\u8303\u5ba1\u67e5\u8bb0\u5f55\u4e2d\u3002\u4e0d\u81ea\u52a8\u8868\u793a\u89e3\u5256\u6216\u8fd0\u884c\u901a\u8fc7\u3002"
+      }
+    },
+    {
+      "file": "reviews/blood_cell_study/authored-r05/evidence-2.webp",
+      "sha256": "a869c26a27be78363cdc7b90aae938e5d7bcf8d4c6ec8a3419ac6f8265cc4411",
+      "bytes": 48090,
+      "originalSha256": "78b3999f640bafe15bde73d9596d456c96420c778bb46947c0efb08f32a39e3f",
+      "label": {
+        "en": "closed-cutaway-front",
+        "zh": "\u5b8c\u6574\u4e0e\u5256\u5207\u6559\u5b66\u5f62\u6001 \u00b7 \u524d\u89c6"
+      },
+      "role": "candidate",
+      "note": {
+        "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+        "zh": "\u81ea\u5df1\u7684\u9759\u6001\u8bc1\u636e\uff0cWebP \u5c55\u793a\u526f\u672c\uff1b\u65e0\u635f\u539f\u56fe\u4fdd\u7559\u5728\u89c4\u8303\u5ba1\u67e5\u8bb0\u5f55\u4e2d\u3002\u4e0d\u81ea\u52a8\u8868\u793a\u89e3\u5256\u6216\u8fd0\u884c\u901a\u8fc7\u3002"
+      }
+    },
+    {
+      "file": "reviews/blood_cell_study/authored-r05/evidence-3.webp",
+      "sha256": "2bfeb7c12ef1837e98baed54a8089202a169703cc0f79f1d115adfbc80416c3f",
+      "bytes": 6638,
+      "originalSha256": "d9c0fedf774cf8e46b0c1b6260ecccf75dfe688a11653127786ad980aca5341b",
+      "label": {
+        "en": "rbc-profile-neutral",
+        "zh": "\u7ea2\u7ec6\u80de\u8f6e\u5ed3 \u00b7 \u4e2d\u6027\u6750\u8d28\u8bca\u65ad"
+      },
+      "role": "candidate",
+      "note": {
+        "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+        "zh": "\u81ea\u5df1\u7684\u9759\u6001\u8bc1\u636e\uff0cWebP \u5c55\u793a\u526f\u672c\uff1b\u65e0\u635f\u539f\u56fe\u4fdd\u7559\u5728\u89c4\u8303\u5ba1\u67e5\u8bb0\u5f55\u4e2d\u3002\u4e0d\u81ea\u52a8\u8868\u793a\u89e3\u5256\u6216\u8fd0\u884c\u901a\u8fc7\u3002"
+      }
+    },
+    {
+      "file": "reviews/blood_cell_study/authored-r05/evidence-4.webp",
+      "sha256": "5a9494fc053cc3c08bca67e95d13c43d52d3c0c7956d8baef99b07d101e9a53a",
+      "bytes": 109876,
+      "originalSha256": "d82485ced2933960129076959f3794e2903edac9f1dbfbf1f5625361ba5dea3e",
+      "label": {
+        "en": "reference-authored-neutrophil",
+        "zh": "\u516c\u5171\u9886\u57df\u663e\u5fae\u53c2\u8003\u4e0e\u4eba\u5de5\u4e2d\u6027\u7c92\u7ec6\u80de\u5bf9\u7167\uff1a\u7bad\u5934\u4e3a\u6dcb\u5df4\u7ec6\u80de\uff0c\u4e0d\u662f\u672c\u6a21\u578b"
+      },
+      "role": "reference-comparison",
+      "note": {
+        "en": "Reference micrograph: CDC / Dr. F. Gilbert, 1972, PHIL18906, public domain. Lower segmented cell: neutrophil. Arrowhead: lymphocyte, not modeled. Composite mixes reference pixels and authored model; not a microscopy reconstruction or all-model render. No CDC endorsement.",
+        "zh": "\u53c2\u8003\u663e\u5fae\u56fe\uff1aCDC\uff0fF. Gilbert \u533b\u751f\uff0c1972\uff0cPHIL18906\uff0c\u516c\u6709\u9886\u57df\u3002\u4e0b\u65b9\u5206\u53f6\u7ec6\u80de\u4e3a\u4e2d\u6027\u7c92\u7ec6\u80de\uff1b\u7bad\u5934\u6307\u6dcb\u5df4\u7ec6\u80de\uff0c\u672c\u6a21\u578b\u672a\u8868\u73b0\u3002\u5408\u6210\u56fe\u5305\u542b\u53c2\u8003\u56fe\u50cf\u4e0e\u4eba\u5de5\u6a21\u578b\uff0c\u4e0d\u662f\u663e\u5fae\u91cd\u5efa\uff0c\u4e5f\u975e\u5168\u90e8\u6a21\u578b\u6e32\u67d3\uff1b\u4e0d\u8868\u793a CDC \u80cc\u4e66\u3002"
+      }
+    }
+  ],
+  "mixedReferenceCaption": "CDC / Dr. F. Gilbert, 1972, PHIL18906: lower segmented cell is neutrophil; arrowhead marks lymphocyte, which is not modeled. Mixed public-domain reference and authored render, no CDC endorsement.",
+  "deferred": "Native PNGs, original private-path blend and full prototype history are not migrated in this bounded PR. Public WebPs are display derivatives, not exact original pixels.",
+  "oldDraftUnchanged": true
+}
