@@ -1,0 +1,36 @@
+name: Stock Firefox exact-GLB runtime probe
+
+on:
+  push:
+    branches: ["ci/firefox-glb-runtime"]
+    paths:
+      - ".github/workflows/firefox-glb-runtime.yml"
+      - "ci/webgl_probe.py"
+      - "ci/glb_runtime_probe.py"
+      - "ci/glb_runtime_probe.mjs"
+      - "ci/glb-runtime-fixture.json"
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    if: github.ref == 'refs/heads/ci/firefox-glb-runtime'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+          sparse-checkout: ci
+      - name: Exact GLB render and deterministic scene-state probe
+        run: python3 ci/glb_runtime_probe.py
+      - name: Preserve evidence, including bounded failures
+        if: always()
+        uses: actions/upload-artifact@330a01c490aca151604b8cf639adc76d48f6c5d4 # v5.0.0
+        with:
+          name: firefox-glb-runtime-${{ github.run_id }}-${{ github.run_attempt }}
+          path: glb-runtime-results/
+          if-no-files-found: error
+          retention-days: 3
+          include-hidden-files: false
