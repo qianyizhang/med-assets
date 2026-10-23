@@ -1,0 +1,231 @@
+{
+  "reviewDateUtc": "2026-10-23",
+  "subject": "Right cornea\u2013iris\u2013lens and ciliary apparatus: static layer study",
+  "catalogRegistration": "Standalone incoming candidate; no canonical catalog/review index entry created. Frozen canonical count unchanged.",
+  "file": "models/normal-material.glb",
+  "exportSha256": "457b08b1edab5fc39db3b49e09635091721847e06262b7cb937fd006223c6750",
+  "upstreamSourceSha256": "1a6ecc528e98e0bddb8e2905e4ddb799eb471383f7274dbb9bdd1676b06be73b",
+  "scope": {
+    "selectedNodes": [
+      "VH_M_cornea_R",
+      "VH_M_iris_R",
+      "VH_M_lens_R",
+      "VH_M_ciliary_body_R",
+      "VH_M_ciliary_muscle_R",
+      "VH_M_ciliary_processes_R",
+      "VH_M_suspensory_ligament_of_lens_R"
+    ],
+    "excludedSourceMeshes": [
+      "VH_M_retina_R",
+      "VH_M_fovea_R",
+      "VH_M_macula_lutea_R",
+      "VH_M_optic_disc_R",
+      "VH_M_palpebral_conjunctiva_of_upper_eyelid_R",
+      "VH_M_palpebral_conjunctiva_of_lower_eyelid_R",
+      "VH_M_sclera_R",
+      "VH_M_optic_choroid_R",
+      "VH_M_pupil_R",
+      "VH_M_ora_serrata_of_retina_R",
+      "VH_M_corneo_scleral_junction_R",
+      "VH_M_schlemms_canal_R",
+      "VH_M_aqueous_humor_R",
+      "VH_M_trabecular_meshwork_R",
+      "VH_M_bulbar_conjunctiva_R",
+      "VH_M_vitreous_humor_R"
+    ],
+    "sourceMissingStructures": [
+      "extraocular muscles",
+      "optic nerve"
+    ],
+    "laterality": "Right, by source labels/crosswalk; no mirroring",
+    "frame": "Unchanged HRA native glTF coordinates; independent of BP3D. Selected identity-ancestor hierarchy flattened without moving source positions."
+  },
+  "gates": {
+    "technical": {
+      "status": "pass",
+      "scope": "Finite source-preserving accessor/container checks only: all selected POSITION/index bytes and local transforms identical to raw source; normals finite; indices in range; all four variants reproduce byte-identically in fresh directory. Not watertightness or self-intersection pass.",
+      "evidence": "reviews/geometry-preservation.json"
+    },
+    "visual": {
+      "status": "pass",
+      "scope": "STATIC LAYER-STUDY READABILITY ONLY. Root personally inspected exact-export multiview/layers, lens comparison, cornea source-normal comparison, and ghost-sclera context. Explicitly not a polished whole-eye/exterior pass.",
+      "approvedExactHash": "457b08b1edab5fc39db3b49e09635091721847e06262b7cb937fd006223c6750",
+      "remainingLimitations": [
+        "Source cornea pointed/faceted rim and silhouette remain.",
+        "Source iris/ciliary contours and zonule rod morphology remain.",
+        "Opaque lens and illustrative palette are not physiological optics.",
+        "Layer-diagnostic protruding rods do not validate insertions."
+      ]
+    },
+    "anatomy": {
+      "status": "unverified",
+      "scope": "Primary educational diagrams support only broad cornea\u2013iris\u2013lens order and ciliary-ring context; actual source mesh identity crosschecked. Exact insertions, thickness, source morphology, anatomical completeness and clinical truth are unverified."
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "Blender 4.3.2 Cycles static exact-GLB reimports only. No intended browser/viewer playback, layer UI, motion or optical runtime verified."
+    }
+  },
+  "wholeEyeFailure": {
+    "status": "open",
+    "priorFailedExportSha256": "0b87e9ad6cdc3074be6ea59431f304c9f9b60fa7c7509e208947f421ff1ba3cc",
+    "noReplacementClaim": true,
+    "history": "FAILURE-HISTORY.md"
+  },
+  "workerVisualInspection": "All source-subset, material-only, final multi-view/layer and context PNGs were personally inspected before handoff. Parent reviewer approved the limited exact-hash scope.",
+  "references": "REFERENCES.md",
+  "evidence": [
+    {
+      "file": "reviews/cornea-source-comparison.png",
+      "sha256": "69edbf4d921ab8fb48d59685a9e3bea0388d97241dda390b428bcacd169c94d2"
+    },
+    {
+      "file": "reviews/final-multiview.png",
+      "sha256": "1e78f3a435738130f4a63e5eb96f471031419d137c9197719b51adfa4e71e8d0"
+    },
+    {
+      "file": "reviews/first-material-comparison.png",
+      "sha256": "561698691f07616e51d8fb2b06dc7c6e39229ace6b76728da35485061e4cba76"
+    },
+    {
+      "file": "reviews/layer-diagnostics.png",
+      "sha256": "3a607def67bf93f110cc1827ab88b78f9977b4fdd127163f62d2b36070319136"
+    },
+    {
+      "file": "reviews/normal-comparison.png",
+      "sha256": "4f54f1fe0f952ed93dd06241b74357805cbff5d09d71844bd33a73cdeca2fc82"
+    },
+    {
+      "file": "reviews/context-diagnostic/render-manifest.json",
+      "sha256": "8b72ddaadd870c20bb42b6533d5c45cb6bc6df83b620c2297f0d4bc69b09d2bd"
+    },
+    {
+      "file": "reviews/material-only/render-manifest.json",
+      "sha256": "85f6e90adce9b86ebbd9dbaa2edbebc01a44fbc9076b56a83e8cd48e296614ed"
+    },
+    {
+      "file": "reviews/normal-material/render-manifest.json",
+      "sha256": "baae6739bc8a7ba9913734f28345f554a2955aa4bfa79b706e71d728ce8ad87b"
+    },
+    {
+      "file": "reviews/source-subset/render-manifest.json",
+      "sha256": "dc7b258c4d2cf91265d8c781204d16d8a1a268be8b992b62f299bf489e25c927"
+    },
+    {
+      "file": "reviews/context-diagnostic/context-oblique.png",
+      "sha256": "30369f500b7ed53c5d1bd818351be0c234bf512c2539029e9a4900a8f618ebc5"
+    },
+    {
+      "file": "reviews/context-diagnostic/context-side.png",
+      "sha256": "96eac142a13022660122072e3ba0f8000804fe8758b5667517477311ab7f0118"
+    },
+    {
+      "file": "reviews/material-only/anterior.png",
+      "sha256": "6d7d1dcdf93d352bdb5526ce4ab1fb22576e4037bbab38da62bc63eb10ecaabc"
+    },
+    {
+      "file": "reviews/material-only/cornea-iris-lens.png",
+      "sha256": "b634660ee02e7f6b5ae3aea753c07c469f0d1c7f026fd3a1bc6222093b5eface"
+    },
+    {
+      "file": "reviews/material-only/lens-zonules-processes.png",
+      "sha256": "36be2102892a24d246a71b9b9a9523d6d2772d86862b50686879c09a0349f308"
+    },
+    {
+      "file": "reviews/material-only/oblique-posterior.png",
+      "sha256": "94ea1a86a1e91c82581657a39f396478b18deebc5fe227e0a50ff2f35a68e881"
+    },
+    {
+      "file": "reviews/material-only/posterior.png",
+      "sha256": "3f01152caf51febcf29e9343348f6f902ddf971318793b0827f3f92d0a2ac0ae"
+    },
+    {
+      "file": "reviews/material-only/side.png",
+      "sha256": "c8e7f2854938bd20d5d1cb38b663377733e786cb30d0a62d2d2d93d1126e542b"
+    },
+    {
+      "file": "reviews/normal-material/anterior.png",
+      "sha256": "b2a8601b0d463272d7a2c9cb60c35a62422626de6024c22cad45081b2637a406"
+    },
+    {
+      "file": "reviews/normal-material/cornea-iris-lens.png",
+      "sha256": "578df445f59f8bf91b6e9314b94341c0f45650dc28fc519c4e8a8eba5ac83978"
+    },
+    {
+      "file": "reviews/normal-material/lens-zonules-processes.png",
+      "sha256": "c97d4fc45c8a8863f317127975f8299a15162717e6db55c9644c2b6b3aa200ce"
+    },
+    {
+      "file": "reviews/normal-material/oblique-posterior.png",
+      "sha256": "95f4fe979c746c10d9414e5d0bce990f9343f253c1c1e2fa8a249e2fb6226050"
+    },
+    {
+      "file": "reviews/normal-material/posterior.png",
+      "sha256": "07e989c05b8e90f6cf2f47473dccd185139e3dfd4c5ae2cd01b29c9ee594e34e"
+    },
+    {
+      "file": "reviews/normal-material/side.png",
+      "sha256": "f9e530127e0893e7ec9a756c2b647e8ea67de1f270457bf0061954b5be976eea"
+    },
+    {
+      "file": "reviews/prior-failure/bp3d-r05-export-contact.png",
+      "sha256": "9d56a9560fd9671ea28741834dc9cc69ef02f499b210a775486f1d8a71d1cf14"
+    },
+    {
+      "file": "reviews/prior-failure/hra-all-layer-context.png",
+      "sha256": "14f3b4f7c896fb9fd921028a09a21949dbc8e441b55b130303286a1ed24b9675"
+    },
+    {
+      "file": "reviews/source-subset/anterior.png",
+      "sha256": "f67befafc724aa64b81250d6aebd1d793aff897be09566ce7a9ea12df381797e"
+    },
+    {
+      "file": "reviews/source-subset/oblique-posterior.png",
+      "sha256": "e35fa705f476112ddcc1427df4b22851f6739d867b20c82f1f26eeb75bfd683c"
+    },
+    {
+      "file": "reviews/source-subset/posterior.png",
+      "sha256": "678f376df953a85c2eb40fa810f72b4b8a51b85977e6dd3e027b30b6ec2584c6"
+    },
+    {
+      "file": "reviews/source-subset/side.png",
+      "sha256": "f424e33ae078d1c5ebf95178e97cf2698b137e3b5b2c37dc06279f18d5106b88"
+    },
+    {
+      "file": "reviews/geometry-preservation.json",
+      "sha256": "33527f3098b8910fe4ce2e303cabbec1855096862c0680ebb3261e29f192db62"
+    },
+    {
+      "file": "reviews/source-diagnosis.json",
+      "sha256": "6fe5387e913c892bc6028398d5b5f871b133a329f79b0b6f05a994659d124d2e"
+    },
+    {
+      "file": "reviews/crosswalk-match.json",
+      "sha256": "9491e010eb02b4dc772a6d7e46848dd8cd20a84e6b51a73e29b822e8e7d1c441"
+    },
+    {
+      "file": "reviews/attachment-distance-diagnostic.json",
+      "sha256": "86b59c2b44bf5b24305c071718a8c649a0c16bac9bcfba9481dfef047d4fe12a"
+    },
+    {
+      "file": "reviews/build-manifest.json",
+      "sha256": "391b2707cbebe11da6c7b865927d5e6af571dd869c3e97d6ace0851bd4afd59a"
+    },
+    {
+      "file": "reviews/context-build-manifest.json",
+      "sha256": "bab48f60a24dd1436e5bfb3df7728ed371ec8a8cb3018859700ed1ed1ba52356"
+    },
+    {
+      "file": "reviews/replay-verification.json",
+      "sha256": "8fbc8626017aed94d331cbfea5fd721b8f1541839da5315fc47ec25dffda45da"
+    },
+    {
+      "file": "reviews/cornea-comparison-manifest.json",
+      "sha256": "1865a6df019eac7754e43dc8108145386e8b8c4a09b6e657358e7e850ab02f7e"
+    },
+    {
+      "file": "reviews/sheet-manifest.json",
+      "sha256": "2dd2bd62e4968e7c3b553745266f3940b5160ce91b93300c95c0aa0255d9543e"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "file": "reviews/cornea-source-comparison.png",
+  "sha256": "69edbf4d921ab8fb48d59685a9e3bea0388d97241dda390b428bcacd169c94d2",
+  "sources": [
+    {
+      "file": "reviews/source-subset/side.png",
+      "sha256": "f424e33ae078d1c5ebf95178e97cf2698b137e3b5b2c37dc06279f18d5106b88",
+      "crop": [
+        220,
+        100,
+        520,
+        800
+      ]
+    },
+    {
+      "file": "reviews/material-only/side.png",
+      "sha256": "c8e7f2854938bd20d5d1cb38b663377733e786cb30d0a62d2d2d93d1126e542b",
+      "crop": [
+        220,
+        100,
+        520,
+        800
+      ]
+    },
+    {
+      "file": "reviews/normal-material/side.png",
+      "sha256": "f9e530127e0893e7ec9a756c2b647e8ea67de1f270457bf0061954b5be976eea",
+      "crop": [
+        220,
+        100,
+        520,
+        800
+      ]
+    }
+  ]
+}
