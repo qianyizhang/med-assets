@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": "liver-hra-female-r02-bounded-import",
+  "assetId": "liver",
+  "variantId": "liver__hra-female-exterior-r02",
+  "reviewedAt": "2026-10-23T09:35:00Z",
+  "reviewTimeNote": "Fresh isolated replay/import technical check time; historical static visual acceptance was on 2026-10-23, exact personal-review time not recorded.",
+  "artifact": {
+    "file": "models/liver/exports/hra-female-v1.10-r02/liver.glb",
+    "sha256": "e9abb0c2503a3fa9d725988451e630283ec2c902c182b812219f2d73f3ab1038"
+  },
+  "gates": {
+    "technical": {
+      "status": "pass-with-limitations",
+      "scope": "Exact reconstruction and source-preservation checks; source open annotation patches remain, no watertightness certification."
+    },
+    "visual": {
+      "status": "passed",
+      "scope": "Reviewer personally inspected exact export contacts. Capsule, bare area and six named source ligaments; exterior representation only."
+    },
+    "anatomy": {
+      "status": "unreviewed",
+      "scope": "No clinical, microscopic, universal-normality or complete-system approval."
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "No consumer browser 3D, motion or physiological flow pass."
+    }
+  },
+  "evidence": [
+    {
+      "file": "reviews/liver/2026-10-23-hra-female-v1.10-r02/display/candidate_material_oblique.webp",
+      "sha256": "95dc1fbe004091bc9940a4a0b912dcd0160077053392c7d81bd9822571602f8a",
+      "artifactSha256": "e9abb0c2503a3fa9d725988451e630283ec2c902c182b812219f2d73f3ab1038",
+      "kind": "lossy-webp-display-derivative",
+      "originalPngSha256": "1e3440d5b8f0f3f481451d4e846f7c8d24c80d5c6b60f56ffa23eff4a7e6aeeb",
+      "note": "Quality 92 lossy derivative, not original native PNG. Exact historical contact identities remain separately recorded."
+    },
+    {
+      "file": "reviews/liver/2026-10-23-hra-female-v1.10-r02/display/contact.webp",
+      "sha256": "f694e03476862fc2482690244055a75a5cc27e0d39565e16ae148f28841246a2",
+      "artifactSha256": "e9abb0c2503a3fa9d725988451e630283ec2c902c182b812219f2d73f3ab1038",
+      "kind": "lossy-webp-display-derivative",
+      "originalPngSha256": "fec31ad4e6abc5d5d5c749b043a6d1f6a0197a84bf344853ee8ea5b411008513",
+      "note": "Quality 92 lossy derivative, not original native PNG. Exact historical contact identities remain separately recorded."
+    }
+  ],
+  "failureSummary": {
+    "failure": "Retained CT-derived display lacked clean readable surface landmarks; source material/region boundaries also needed inspection.",
+    "cause": "Different reference geometry and display material/normal discontinuities; not a diagnosis or source anatomy correction.",
+    "fix": "Illustrative materials on the selected exterior source components; no position/index/normal change.",
+    "retest": "Fresh hash-bound atlas extraction reproduced the exact accepted export. Source position/index bytes and hierarchy retained; named region limitations explicit.",
+    "lesson": "Separate display improvement from source anatomy and preserve specific limitations for each region."
+  },
+  "limitations": [
+    "Capsule, bare area and six named source ligaments; exterior representation only.",
+    "Illustrative materials on the selected exterior source components; no position/index/normal change.",
+    "HRA native source frame, not s1233 and not registered to the current body.",
+    "Open annotation/region patches remain; no full-system or clinical claim.",
+    "Reconstruction requires the declared external 374,505,632-byte official atlas; it is not included or automatically downloaded.",
+    "Original PNGs/scenes and broader failed history remain deferred from this bounded import."
+  ]
+}
