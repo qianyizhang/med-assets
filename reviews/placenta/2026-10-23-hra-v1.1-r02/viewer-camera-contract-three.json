@@ -1,0 +1,82 @@
+{
+  "exactGLBSHA": "7f9f215f810003fddc76ede225f051dc7014c67216e804403a4632d628ad82aa",
+  "sha256": "7f9f215f810003fddc76ede225f051dc7014c67216e804403a4632d628ad82aa",
+  "coordinateFrame": "Source native glTF Y-up; Blender vectors converted [x,z,-y], no mesh reorientation",
+  "ortho_vertical_span": 0.3211485290527344,
+  "views": [
+    {
+      "file": "fetal_chorionic_amnion_hidden.png",
+      "source_evidence_file": "fetal_chorionic_amnion_hidden.png",
+      "label": {
+        "en": "Fetal-facing chorionic plate \u2014 amnion hidden for inspection"
+      },
+      "position_three": [
+        -0.01293327659368515,
+        0.19488726556301117,
+        0.9184658527374268
+      ],
+      "target_three": [
+        -0.01293327659368515,
+        0.19488726556301117,
+        0.16577398777008057
+      ],
+      "up_three": [
+        0.0,
+        0.9999999403953552,
+        -0.0
+      ],
+      "hidden_for_inspection_only": [
+        "VH_F_amnion"
+      ]
+    },
+    {
+      "file": "maternal_basal_view.png",
+      "source_evidence_file": "maternal_basal_view.png",
+      "label": {
+        "en": "Maternal-facing basal plate \u2014 amnion transparent"
+      },
+      "position_three": [
+        -0.01293327659368515,
+        0.19488726556301117,
+        -0.5869178771972656
+      ],
+      "target_three": [
+        -0.01293327659368515,
+        0.19488726556301117,
+        0.16577398777008057
+      ],
+      "up_three": [
+        -8.742277657347586e-08,
+        0.9999999403953552,
+        -0.0
+      ],
+      "hidden_for_inspection_only": []
+    },
+    {
+      "file": "side_amnion_transparent.png",
+      "source_evidence_file": "side_amnion_transparent.png",
+      "label": {
+        "en": "Side view \u2014 illustrative amnion transparency"
+      },
+      "position_three": [
+        0.7397586107254028,
+        0.19488726556301117,
+        0.16577398777008057
+      ],
+      "target_three": [
+        -0.01293327659368515,
+        0.19488726556301117,
+        0.16577398777008057
+      ],
+      "up_three": [
+        0.0,
+        0.9999998807907104,
+        -0.0
+      ],
+      "hidden_for_inspection_only": []
+    }
+  ],
+  "primary_view": "fetal_chorionic_amnion_hidden.png",
+  "scope": "Full-term gross placenta. Use maternal/fetal labels, never rename these anatomical anterior/posterior. Alpha0.12 is illustrative; source amnion still in artifact.",
+  "clinicalValidation": false
+}

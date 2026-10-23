@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "id": "placenta-hra-v1.1-r02-bounded-import",
+  "assetId": "placenta",
+  "variantId": "placenta_hra__full-term-r02",
+  "reviewedAt": "2026-10-23T08:50:59Z",
+  "reviewTimeNote": "Bounded import technical-review timestamp. Historical static visual verdict predates this; its exact personal-review timestamp was not recorded.",
+  "artifact": {
+    "file": "models/placenta/exports/hra-v1.1-r02/placenta_full_term.glb",
+    "sha256": "7f9f215f810003fddc76ede225f051dc7014c67216e804403a4632d628ad82aa"
+  },
+  "gates": {
+    "technical": {
+      "status": "pass-with-limitations",
+      "scope": "Exact source/export integrity and source-frame checks only; inherited open/degenerate source geometry is not repaired or certified watertight."
+    },
+    "visual": {
+      "status": "passed",
+      "scope": "Assistant personally inspected final exact-export contacts; static visual improvement only."
+    },
+    "anatomy": {
+      "status": "unreviewed",
+      "scope": "No clinical or expert anatomy validation."
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "Consumer browser runtime unverified; static offline render evidence only."
+    }
+  },
+  "evidence": [
+    {
+      "file": "reviews/placenta/2026-10-23-hra-v1.1-r02/display/contact.webp",
+      "sha256": "661779ea466795c61f30f8f2b527cdbf11c6dc4f6c91753d25356ea73d372940",
+      "artifactSha256": "7f9f215f810003fddc76ede225f051dc7014c67216e804403a4632d628ad82aa",
+      "kind": "lossy-webp-display-derivative",
+      "originalPngSha256": "75cc600c3612317321e798cc5aa1177e4e84c30cb3c49338c8b6a86d0564ab71",
+      "note": "Quality 92 lossy WebP from prior reviewed exact-export PNG; not original lossless pixels."
+    },
+    {
+      "file": "reviews/placenta/2026-10-23-hra-v1.1-r02/display/fetal_chorionic_oblique_amnion_hidden.webp",
+      "sha256": "bedb9d6471fa8f0904bfbb32963e1deda3827eb9a0906d188acd1eb67749e0fb",
+      "artifactSha256": "7f9f215f810003fddc76ede225f051dc7014c67216e804403a4632d628ad82aa",
+      "kind": "lossy-webp-display-derivative",
+      "originalPngSha256": "7ab1944b5f7069fb18cf13489ab7acd6564cab54571270ee08bc3d8e6a957fce",
+      "note": "Quality 92 lossy WebP from prior reviewed exact-export PNG; not original lossless pixels."
+    }
+  ],
+  "failureSummary": {
+    "failure": "Original materials obscured gross layers and looked overly glossy.",
+    "cause": "Illustrative provider material response and overlapping transparent membrane; no clinical defect inferred.",
+    "fix": "Material-only muted palette, roughness 0.8, metallic 0 and illustrative amnion alpha 0.12.",
+    "retest": "Prior exact-export contacts personally inspected. Fresh deterministic source-to-export material replay reproduced the accepted GLB SHA exactly; original BIN and geometry/transform JSON retained.",
+    "lesson": "Material polish can improve readable layers without inventing geometry; source topology and physiology limits remain."
+  },
+  "limitations": [
+    "494 boundary edges; 505 total non-two-incidence edges, including boundary edges. No watertightness claim.",
+    "Full-term gross reference layers only; no numerical gestational week, microtexture, perfusion or exchange validation.",
+    "Maternal basal and fetal chorionic views are distinct; inspection-only hiding/transparency is not measured optical behavior.",
+    "Anatomy unreviewed; browser runtime unverified.",
+    "WebP images are lossy display derivatives. Original PNG/native Blender migration deferred."
+  ]
+}

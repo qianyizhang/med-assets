@@ -1,0 +1,205 @@
+{
+  "$schema": "https://cdn.humanatlas.io/digital-objects/schema/ref-organ-metadata/latest/assets/schema.json",
+  "@context": "https://cdn.humanatlas.io/digital-objects/schema/ref-organ-metadata/latest/assets/schema.context.jsonld",
+  "@type": "Container",
+  "id": "https://lod.humanatlas.io/ref-organ/placenta-full-term-female/v1.1",
+  "title": "placenta-full-term-female (v1.1) graph data",
+  "description": "The graph representation of the 3D Reference Organ for Placenta, Full Term, Female dataset.",
+  "version": "v1.1",
+  "creators": [
+    {
+      "id": "https://github.com/hubmapconsortium/hra-do-processor",
+      "label": "HRA Digital Object Processor",
+      "conforms_to": "SoftwareApplication",
+      "name": "HRA Digital Object Processor",
+      "version": "0.10.0",
+      "target_product": {
+        "code_repository": "https://github.com/hubmapconsortium/hra-do-processor",
+        "see_also": "https://github.com/hubmapconsortium/hra-do-processor/commit/cd8d578a4c9da7c0539008bc2742971b4a545121"
+      },
+      "type_of": [
+        "schema:SoftwareApplication"
+      ]
+    }
+  ],
+  "creation_date": "2026-06-08",
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "distributions": [
+    {
+      "id": "https://lod.humanatlas.io/ref-organ/placenta-full-term-female/v1.1#json",
+      "label": "Graph data distribution placenta-full-term-female (v1.1) in JSON format",
+      "title": "Graph data distribution placenta-full-term-female (v1.1) in JSON format",
+      "downloadUrl": "https://cdn.humanatlas.io/digital-objects/ref-organ/placenta-full-term-female/v1.1/graph.json",
+      "accessUrl": "https://lod.humanatlas.io/ref-organ/placenta-full-term-female/v1.1#json",
+      "mediaType": "application/json"
+    },
+    {
+      "id": "https://lod.humanatlas.io/ref-organ/placenta-full-term-female/v1.1#turtle",
+      "label": "Graph data distribution placenta-full-term-female (v1.1) in Turtle format",
+      "title": "Graph data distribution placenta-full-term-female (v1.1) in Turtle format",
+      "downloadUrl": "https://cdn.humanatlas.io/digital-objects/ref-organ/placenta-full-term-female/v1.1/graph.ttl",
+      "accessUrl": "https://lod.humanatlas.io/ref-organ/placenta-full-term-female/v1.1#turtle",
+      "mediaType": "text/turtle"
+    },
+    {
+      "id": "https://lod.humanatlas.io/ref-organ/placenta-full-term-female/v1.1#jsonld",
+      "label": "Graph data distribution placenta-full-term-female (v1.1) in JSON-LD format",
+      "title": "Graph data distribution placenta-full-term-female (v1.1) in JSON-LD format",
+      "downloadUrl": "https://cdn.humanatlas.io/digital-objects/ref-organ/placenta-full-term-female/v1.1/graph.jsonld",
+      "accessUrl": "https://lod.humanatlas.io/ref-organ/placenta-full-term-female/v1.1#jsonld",
+      "mediaType": "application/ld+json"
+    },
+    {
+      "id": "https://lod.humanatlas.io/ref-organ/placenta-full-term-female/v1.1#rdfxml",
+      "label": "Graph data distribution placenta-full-term-female (v1.1) in RDF/XML format",
+      "title": "Graph data distribution placenta-full-term-female (v1.1) in RDF/XML format",
+      "downloadUrl": "https://cdn.humanatlas.io/digital-objects/ref-organ/placenta-full-term-female/v1.1/graph.xml",
+      "accessUrl": "https://lod.humanatlas.io/ref-organ/placenta-full-term-female/v1.1#rdfxml",
+      "mediaType": "application/rdf+xml"
+    },
+    {
+      "id": "https://lod.humanatlas.io/ref-organ/placenta-full-term-female/v1.1#ntriples",
+      "label": "Graph data distribution placenta-full-term-female (v1.1) in N-Triples format",
+      "title": "Graph data distribution placenta-full-term-female (v1.1) in N-Triples format",
+      "downloadUrl": "https://cdn.humanatlas.io/digital-objects/ref-organ/placenta-full-term-female/v1.1/graph.nt",
+      "accessUrl": "https://lod.humanatlas.io/ref-organ/placenta-full-term-female/v1.1#ntriples",
+      "mediaType": "application/n-triples"
+    },
+    {
+      "id": "https://lod.humanatlas.io/ref-organ/placenta-full-term-female/v1.1#nquads",
+      "label": "Graph data distribution placenta-full-term-female (v1.1) in N-Quads format",
+      "title": "Graph data distribution placenta-full-term-female (v1.1) in N-Quads format",
+      "downloadUrl": "https://cdn.humanatlas.io/digital-objects/ref-organ/placenta-full-term-female/v1.1/graph.nq",
+      "accessUrl": "https://lod.humanatlas.io/ref-organ/placenta-full-term-female/v1.1#nquads",
+      "mediaType": "application/n-quads"
+    }
+  ],
+  "label": "placenta-full-term-female (v1.1) graph data",
+  "name": "placenta-full-term-female",
+  "type": "ref-organ",
+  "publisher": "HuBMAP",
+  "see_also": "https://purl.humanatlas.io/ref-organ/placenta-full-term-female/v1.1",
+  "was_derived_from": {
+    "id": "https://lod.humanatlas.io/ref-organ/placenta-full-term-female/v1.1#raw-data",
+    "label": "3D Reference Organ for Placenta, Full Term, Female",
+    "title": "3D Reference Organ for Placenta, Full Term, Female",
+    "description": "This reference organ, Placenta-full-term-female (https://humanatlas.io/3d-reference-library) was created using a\nsculpted model of the placenta, partly informed by MRI data from the Department of Obstetrics, Gynecology, and\nReproductive Sciences, Division of Maternal-Fetal Medicine at UC San Diego Health. *Human Microscopic Anatomy* (Krstić\n1991) and Mannelli et al. 2015 were consulted.\n\n**Bibliography:**\n\n* Krstić, Radivoj V. 1991. *Human Microscopic Anatomy*. Berlin, Heidelberg: Springer. https://doi.org/10.1007/978-3-662-02676-2.\n* Mannelli, Chiara, Francesca Ietta, Anna Maria Avanzati, Dariusz Skarzynski, and Luana Paulesu. 2015. “Biological Tools to Study the Effects of Environmental Contaminants at the Feto–Maternal Interface.” *Dose-Response* 13 (4): 1559325815611902. https://doi.org/10.1177/1559325815611902.",
+    "creators": [
+      {
+        "id": "https://orcid.org/0000-0002-3333-5646",
+        "label": "Heidi Schlehlein",
+        "conforms_to": "Person",
+        "fullName": "Heidi Schlehlein",
+        "firstName": "Heidi",
+        "lastName": "Schlehlein",
+        "orcid": "0000-0002-3333-5646",
+        "type_of": [
+          "schema:Person"
+        ]
+      }
+    ],
+    "reviewers": [
+      {
+        "id": "https://orcid.org/0000-0002-9544-547X",
+        "label": "Ana Rodriguez-Soto",
+        "conforms_to": "Person",
+        "fullName": "Ana Rodriguez-Soto",
+        "firstName": "Ana",
+        "lastName": "Rodriguez-Soto",
+        "orcid": "0000-0002-9544-547X",
+        "type_of": [
+          "schema:Person"
+        ]
+      },
+      {
+        "id": "https://orcid.org/0000-0001-5963-2246",
+        "label": "Mana Parast",
+        "conforms_to": "Person",
+        "fullName": "Mana Parast",
+        "firstName": "Mana",
+        "lastName": "Parast",
+        "orcid": "0000-0001-5963-2246",
+        "type_of": [
+          "schema:Person"
+        ]
+      },
+      {
+        "id": "https://orcid.org/0000-0002-2095-7534",
+        "label": "Louise Laurent",
+        "conforms_to": "Person",
+        "fullName": "Louise Laurent",
+        "firstName": "Louise",
+        "lastName": "Laurent",
+        "orcid": "0000-0002-2095-7534",
+        "type_of": [
+          "schema:Person"
+        ]
+      },
+      {
+        "id": "https://orcid.org/0000-0002-2566-1978",
+        "label": "Rebecca Rakow-Penner",
+        "conforms_to": "Person",
+        "fullName": "Rebecca Rakow-Penner",
+        "firstName": "Rebecca",
+        "lastName": "Rakow-Penner",
+        "orcid": "0000-0002-2566-1978",
+        "type_of": [
+          "schema:Person"
+        ]
+      }
+    ],
+    "creation_date": "2024-06-15",
+    "license": "Creative Commons Attribution 4.0 International ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/))",
+    "publisher": "HuBMAP",
+    "references": [
+      "https://doi.org/10.1177/1559325815611902",
+      "https://doi.org/10.1007/978-3-662-02676-2"
+    ],
+    "citation": "Schlehlein, Heidi. 2024. \"3D Reference Organ for Placenta, Full Term, Female v1.1.\" https://doi.org/10.48539/HBM593.ZRJH.644. Accessed on June 15, 2024.",
+    "citationOverall": "Browne, Kristen, Heidi Schlehlein, Bruce W. Herr II, Ellen Quardokus, Andreas Bueckle, and Katy Börner. 2024. \"HuBMAP CCF 3D Reference Object Library.\" https://humanatlas.io/3d-reference-library. Accessed on June 15, 2024.",
+    "funders": [
+      {
+        "funder": "National Institutes of Health",
+        "awardNumber": "OT2OD033756"
+      },
+      {
+        "funder": "National Institutes of Health",
+        "awardNumber": "OT2OD026671"
+      }
+    ],
+    "doi": "https://doi.org/10.48539/HBM593.ZRJH.644",
+    "hubmapId": "HBM593.ZRJH.644",
+    "project_leads": [
+      {
+        "id": "https://orcid.org/0000-0002-3321-6137",
+        "label": "Katy Börner",
+        "conforms_to": "Person",
+        "fullName": "Katy Börner",
+        "firstName": "Katy",
+        "lastName": "Börner",
+        "orcid": "0000-0002-3321-6137",
+        "type_of": [
+          "schema:Person"
+        ]
+      }
+    ],
+    "distributions": [
+      {
+        "id": "https://lod.humanatlas.io/ref-organ/placenta-full-term-female/v1.1#3d-vh-f-placenta-full-term.glb",
+        "label": "Raw data distribution '3d-vh-f-placenta-full-term.glb' file",
+        "title": "Raw data distribution '3d-vh-f-placenta-full-term.glb' file",
+        "downloadUrl": "https://cdn.humanatlas.io/digital-objects/ref-organ/placenta-full-term-female/v1.1/assets/3d-vh-f-placenta-full-term.glb",
+        "accessUrl": "https://lod.humanatlas.io/ref-organ/placenta-full-term-female/v1.1#3d-vh-f-placenta-full-term.glb",
+        "mediaType": "model/gltf-binary"
+      },
+      {
+        "id": "https://lod.humanatlas.io/ref-organ/placenta-full-term-female/v1.1#crosswalk.csv",
+        "label": "Raw data distribution 'crosswalk.csv' file",
+        "title": "Raw data distribution 'crosswalk.csv' file",
+        "downloadUrl": "https://cdn.humanatlas.io/digital-objects/ref-organ/placenta-full-term-female/v1.1/assets/crosswalk.csv",
+        "accessUrl": "https://lod.humanatlas.io/ref-organ/placenta-full-term-female/v1.1#crosswalk.csv",
+        "mediaType": "text/csv"
+      }
+    ]
+  }
+}
