@@ -1,0 +1,60 @@
+{
+  "scope": "Representative static appearance identity only; no per-model quality upgrade",
+  "nativePNGsDeferred": true,
+  "results": [
+    {
+      "assetId": "stomach",
+      "sourceSha256": "f1e8dfe7918361822503e9f6e5232204960f8c74b45bf9b294556c10d024ca82",
+      "targetSha256": "ad0876f37f92945171750d31d9c53165535a697e60a3d2ac8a3f3f78667fdec6",
+      "views": [
+        {
+          "view": "front",
+          "changedRGBAPixels": 0,
+          "maxChannelDifference": 0,
+          "baselinePngSha256": "bf7b62a17ea8e9cd072482bab4de417eb20f5bb0113198547e24be0b6631f27f",
+          "derivativePngSha256": "9ac8babfd1f728b955ef26982cd5b52194b9dbba041fac2bdf9f23bac6f75f83",
+          "baselineRGBASha256": "d6b80dd7c4717272c49e8db1a525ac7b5684be0c78f2afa70ed9be0be47f550f",
+          "derivativeRGBASha256": "d6b80dd7c4717272c49e8db1a525ac7b5684be0c78f2afa70ed9be0be47f550f"
+        },
+        {
+          "view": "superior",
+          "changedRGBAPixels": 0,
+          "maxChannelDifference": 0,
+          "baselinePngSha256": "678a5d1c3462f5b3ae09288362e6883f941b219974c10cd00782243d5efb5b2e",
+          "derivativePngSha256": "caaca17a9bfb41dc52d893bddbd29a6933ca045b4e7e477c88139bdf3500094a",
+          "baselineRGBASha256": "f1207a50162e4b2c37816b7182f24d38f7bb31b8ab90291eb192e21bbaaef9db",
+          "derivativeRGBASha256": "f1207a50162e4b2c37816b7182f24d38f7bb31b8ab90291eb192e21bbaaef9db"
+        }
+      ],
+      "pixelIdentical": true,
+      "method": "Blender 4.3.2 Cycles CPU, frame 1, fixed seed 0, 48 samples, 512x512. Independent source/derivative imports; decoded RGBA compared exactly. Offline identity test only, not quality or runtime approval."
+    },
+    {
+      "assetId": "lung_left",
+      "sourceSha256": "e3439ed20ea7e5f022b71accd9d474e5bd0a8625498d1398ada402d0c035cee0",
+      "targetSha256": "6d3a6150dc47dba0d16162738caabc1bef3fcd8cf5ab4af492dd1121c1cb8533",
+      "views": [
+        {
+          "view": "front",
+          "changedRGBAPixels": 0,
+          "maxChannelDifference": 0,
+          "baselinePngSha256": "9b8265cfa8466e083c9fba83b182bd670b8cd48e64451f223ee3f500421cc15a",
+          "derivativePngSha256": "09044c1cd320ff03e03844108e8be5e9ad0ccdfde0159ac25ba5b3668cbc04d3",
+          "baselineRGBASha256": "1d859259b66324697821a20e7ac2a9f8fc7bb524c8e65691e5acba0d2112cbd7",
+          "derivativeRGBASha256": "1d859259b66324697821a20e7ac2a9f8fc7bb524c8e65691e5acba0d2112cbd7"
+        },
+        {
+          "view": "superior",
+          "changedRGBAPixels": 0,
+          "maxChannelDifference": 0,
+          "baselinePngSha256": "9a90821ca4b96868e665928a408b1be807f38a06bbd1f2474c62f0cc5888fb5a",
+          "derivativePngSha256": "9c27e725a04777fa68e13164f0e249c4a4f825fafe01df404e5c218c4c202ad4",
+          "baselineRGBASha256": "4160cd17bf2c54ce9a7aa7a00b8eea972cb8e7cfddce0c230f4382977bb6d5e2",
+          "derivativeRGBASha256": "4160cd17bf2c54ce9a7aa7a00b8eea972cb8e7cfddce0c230f4382977bb6d5e2"
+        }
+      ],
+      "pixelIdentical": true,
+      "method": "Blender 4.3.2 Cycles CPU, frame 1, fixed seed 0, 48 samples, 512x512. Independent source/derivative imports; decoded RGBA compared exactly. Offline identity test only, not quality or runtime approval."
+    }
+  ]
+}

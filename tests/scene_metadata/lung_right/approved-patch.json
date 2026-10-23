@@ -1,0 +1,46 @@
+{
+  "sourceSha256": "450f49c0733697d3d05f16c4a1f24a28b1ae5f9b09b77f3bf470a00a4386e9b4",
+  "sourceBytes": 2653988,
+  "targetSha256": "3f8476ddd9d04448f4c1f63e85408860d7957f099e87170e8099efe635c16a78",
+  "targetBytes": 2653664,
+  "jsonPointerPatch": [
+    {
+      "path": "/scenes/0/extras/README",
+      "op": "replace",
+      "oldValue": "See embedded README and exported docs. 0/1/2 material_set changes tissue/clinical/transparent. cutaway toggles full/sectioned walls. Spacebar plays 75 BPM illustrative cycle. All structures named, editable; no external assets.",
+      "value": "Educational lung right display. Contains an illustrative 4 s breathing clip with 3 morph-weight channels; no physiological or biomechanical validation. No exported keyboard, cutaway-toggle or material-switching behavior is established by this metadata. Not clinically validated."
+    },
+    {
+      "path": "/scenes/0/extras/coordinates",
+      "op": "remove",
+      "oldValue": "BU: X patient-left, Y posterior, Z superior. RAS millimeters=(-25X,-25Y,+25Z)."
+    },
+    {
+      "path": "/scenes/0/extras/clinical_status",
+      "op": "replace",
+      "oldValue": "Procedural educational model, not patient-derived or clinically validated.",
+      "value": "Source-derived educational surface from TotalSegmentator v2.0.1 retained case s1233, tb3 revision 75ec4e6530abe4d434b07958e90bdc9dec062bef. Repaired/subdivided/smoothed display derivative, not recovered detail or a generic healthy atlas. Not clinically validated."
+    },
+    {
+      "path": "/scenes/0/extras/reference_phase",
+      "op": "remove",
+      "oldValue": "Frame 1 end-diastole, beginning of atrial systole. 30fps,24 frames/cycle,75bpm."
+    },
+    {
+      "path": "/scenes/0/extras/material_set_names",
+      "op": "remove",
+      "oldValue": "0: procedural tissue-style; 1: clinical circulation colors; 2: transparent educational shell"
+    },
+    {
+      "path": "/scenes/0/extras/animation_model",
+      "op": "replace",
+      "oldValue": "Illustrative regional shape-key shortening + torsion; valve timing; no biomechanical or flow simulation",
+      "value": "Contains an illustrative 4 s breathing clip with 3 morph-weight channels; no physiological or biomechanical validation."
+    },
+    {
+      "path": "/scenes/0/extras/pericardial_layers",
+      "op": "remove",
+      "oldValue": "Endocardium/myocardium/epicardium represented by material-bearing wall surfaces; parietal serous pericardium separate simplified envelope. Epicardium is visceral serous layer. Fibrous sac thickness/reflections simplified."
+    }
+  ]
+}
