@@ -1,0 +1,100 @@
+{
+  "sha256": "627f169a5e02f95102af994f7346cd0f85e454651231867c6829618ef1b0c356",
+  "source_files": [
+    {
+      "file": "VH_F_Uterus.glb",
+      "sha256": "a484956788ecc2ab05ca7720d9b33d265677e238f144cc28481aad2f7a0c9a95"
+    }
+  ],
+  "expected_source_subset_present": true,
+  "excluded_original_nodes": [
+    "VH_F_anterior_wall_of_uterus",
+    "VH_F_posterior_wall_of_uterus"
+  ],
+  "checks": [
+    {
+      "name": "VH_F_abdominal_ostium_of_uterine_tube",
+      "vertices": 313,
+      "triangles": 546,
+      "source_bounds_max_error_m": 0.0,
+      "all_finite": true,
+      "original_materials_retained": [
+        "Uterus_Mat2.002"
+      ]
+    },
+    {
+      "name": "VH_F_body_of_uterus",
+      "vertices": 2823,
+      "triangles": 5344,
+      "source_bounds_max_error_m": 0.0,
+      "all_finite": true,
+      "original_materials_retained": [
+        "Uterus_Mat2.002"
+      ]
+    },
+    {
+      "name": "VH_F_cervix",
+      "vertices": 1825,
+      "triangles": 3508,
+      "source_bounds_max_error_m": 0.0,
+      "all_finite": true,
+      "original_materials_retained": [
+        "Uterus_Mat2.002"
+      ]
+    },
+    {
+      "name": "VH_F_external_cervical_os",
+      "vertices": 162,
+      "triangles": 270,
+      "source_bounds_max_error_m": 0.0,
+      "all_finite": true,
+      "original_materials_retained": [
+        "Uterus_Mat2.002"
+      ]
+    },
+    {
+      "name": "VH_F_internal_cervical_os",
+      "vertices": 135,
+      "triangles": 216,
+      "source_bounds_max_error_m": 0.0,
+      "all_finite": true,
+      "original_materials_retained": [
+        "Uterus_Mat2.002"
+      ]
+    },
+    {
+      "name": "VH_F_cornua",
+      "vertices": 369,
+      "triangles": 660,
+      "source_bounds_max_error_m": 0.0,
+      "all_finite": true,
+      "original_materials_retained": [
+        "Uterus_Mat2.002"
+      ]
+    },
+    {
+      "name": "VH_F_fundus_of_uterus",
+      "vertices": 1640,
+      "triangles": 3062,
+      "source_bounds_max_error_m": 0.0,
+      "all_finite": true,
+      "original_materials_retained": [
+        "Uterus_Mat2.002"
+      ]
+    },
+    {
+      "name": "VH_F_lower_uterine_segment",
+      "vertices": 792,
+      "triangles": 1408,
+      "source_bounds_max_error_m": 0.0,
+      "all_finite": true,
+      "original_materials_retained": [
+        "Uterus_Mat2.002"
+      ]
+    }
+  ],
+  "geometry_change": "Only excluded2nested wall solids overlapping exterior region surfaces; retained vertex positions/materials unchanged, no cavity created",
+  "frame": "HRA native GLB metres; x left y superior z anterior (named breast identity test), no BP3D registration",
+  "visual": "unreviewed",
+  "runtime": "untested"
+}
