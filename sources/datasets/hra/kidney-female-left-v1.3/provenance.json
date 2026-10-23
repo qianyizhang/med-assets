@@ -1,0 +1,25 @@
+{
+  "id": "kidney-female-left",
+  "metadataURL": "https://cdn.humanatlas.io/digital-objects/ref-organ/kidney-female-left/v1.3/metadata.json",
+  "metadataSha256": "d0a53168e67232f9756770f50cc902645889ad8434529ca3bf994d854c3ffbb1",
+  "citation": "Browne, Kristen, and Heidi Schlehlein. 2024. \"3D Reference Organ for Kidney, Female, Left v1.3.\" https://doi.org/10.48539/HBM449.JPXL.964. Accessed on June 15, 2024.",
+  "license": "Creative Commons Attribution 4.0 International ([CC BY 4.0](https://creativecommons.org/licenses/by/4.0/))",
+  "description": "This reference organ, Left-kidney-female (https://humanatlas.io/3d-reference-library) was created using data from the\nVisible Human Dataset, provided by the National Library of Medicine (Spitzer and Whitlock 2002). In version v1.3,\nchanges include removing the renal calyces and renal papillae and adding them to the ureter model per subject matter\nexpert input.\n\n**Bibliography:**\n\n* Spitzer, Victor M., and David G. Whitlock. 2002. \u201cThe Visible Human Dataset: The Anatomical Platform for Human Simulation.\u201d *The Anatomical Record* 253 (2): 49\u201357. https://doi.org/10.1002/(SICI)1097-0185(199804)253:2<49::AID-AR8>3.0.CO;2-9.",
+  "version": null,
+  "doi": "https://doi.org/10.48539/HBM449.JPXL.964",
+  "files": [
+    {
+      "file": "3d-vh-f-kidney-l.glb",
+      "url": "https://cdn.humanatlas.io/digital-objects/ref-organ/kidney-female-left/v1.3/assets/3d-vh-f-kidney-l.glb",
+      "sha256": "58f0227d45b14d7bcfd2ed05a7bcd76000051ea08d52f844feebd70d612f8084",
+      "bytes": 1356736
+    },
+    {
+      "file": "crosswalk.csv",
+      "url": "https://cdn.humanatlas.io/digital-objects/ref-organ/kidney-female-left/v1.3/assets/crosswalk.csv",
+      "sha256": "19fbe87b7df8cf6b840456c7477ae5aaada30a7d535751d59e20941214bee445",
+      "bytes": 1673
+    }
+  ],
+  "pathNormalizationNote": "Only original staging file path strings replaced by basenames; source/model/metadata hashes unchanged."
+}

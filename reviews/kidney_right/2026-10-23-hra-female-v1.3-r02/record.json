@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "id": "kidney-right-hra-female-r02-bounded-import",
+  "assetId": "kidney_right",
+  "variantId": "kidney_right__hra-female-r02",
+  "reviewedAt": "2026-10-23T05:18:07Z",
+  "reviewTimeNote": "Recorded scoped acceptance time from original review-outcome.json; later replay/import is technical verification, not a new anatomy verdict.",
+  "artifact": {
+    "file": "models/kidney_right/exports/hra-female-v1.3-r02/kidney_right.glb",
+    "sha256": "977d0a283de7071a2e8aaeb8900c5a6dc8d0ba770eb458e996dc66cc249c0b56"
+  },
+  "gates": {
+    "technical": {
+      "status": "pass-with-limitations",
+      "scope": "Exact source/derivative identity, unchanged BIN and original JSON recovery after reverting documented metadata/material changes. Source topology warnings retained."
+    },
+    "visual": {
+      "status": "passed",
+      "scope": "Reviewer inspected exact matte contacts; native-frame exterior plus isolated pyramids/source-labeled tip surfaces only."
+    },
+    "anatomy": {
+      "status": "unreviewed",
+      "scope": "No expert anatomy or collecting-system completeness validation."
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "No browser 3D, motion or runtime validation."
+    }
+  },
+  "evidence": [
+    {
+      "file": "reviews/kidney_right/2026-10-23-hra-female-v1.3-r02/display/contact.webp",
+      "sha256": "1d9fc25a695df753b85b2ad64d6cca5d48ce9a71ce3a070a0950156b100fdfcc",
+      "artifactSha256": "977d0a283de7071a2e8aaeb8900c5a6dc8d0ba770eb458e996dc66cc249c0b56",
+      "kind": "lossy-webp-display-derivative",
+      "originalPngSha256": "fddd716a85814ff3706b51a93f64759f524d5c97d06ec0e76400a506f8b485fd",
+      "note": "Quality 92 lossy derivative, not original lossless PNG. Historical pending header, if present, predates recorded scoped acceptance; original image pixels were not rewritten."
+    },
+    {
+      "file": "reviews/kidney_right/2026-10-23-hra-female-v1.3-r02/display/medulla_and_tip_surfaces_front.webp",
+      "sha256": "b25f2c444a74315ac0e78b623f28715006e86ee3bf4d1917735d28c1af05fbd7",
+      "artifactSha256": "977d0a283de7071a2e8aaeb8900c5a6dc8d0ba770eb458e996dc66cc249c0b56",
+      "kind": "lossy-webp-display-derivative",
+      "originalPngSha256": "8ed619b6442124479baeaaa304c944d0273e0068a384907131c56e029a3ba426",
+      "note": "Quality 92 lossy derivative, not original lossless PNG. Historical pending header, if present, predates recorded scoped acceptance; original image pixels were not rewritten."
+    }
+  ],
+  "failureSummary": {
+    "failure": "CT-derived terrace bands and glossy source materials hindered display; column/pyramid overlap is not a clean teaching view.",
+    "cause": "Different source geometry and overlapping annotation layers; no clinical diagnosis inferred.",
+    "fix": "Separate HRA female source study with only metadata and three roughness changes; no smoothing, repair or registration.",
+    "retest": "Original BIN and parsed source JSON recovered after reverting listed changes; exact final contacts were reviewed. Supported views exclude the rejected combined internal mode.",
+    "lesson": "A smooth exterior does not validate hidden anatomy or missing collecting structures."
+  },
+  "limitations": [
+    "Female HRA reference specimen, not s1233 or a universal normal template; no body registration.",
+    "No renal pelvis, calyces, ureter or renal vasculature; source papilla labels are retained tip surfaces, not a complete collecting system.",
+    "Source closure patches and exposed pale hilar surfaces remain.",
+    "Capsule-only is diagnostic; columns + medulla overlap mode is rejected as a clean teaching display.",
+    "All source binary data and topology preserved; roughness 0.72 is illustrative, not measured tissue reflectance.",
+    "Original PNGs/scenes, CT experiments and rejected r01 overlap images are deferred, not approved or silently uploaded.",
+    "Source renal-column near-degenerate warnings remain; open annotated surfaces are not certified watertight."
+  ]
+}
