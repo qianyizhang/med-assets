@@ -1,0 +1,55 @@
+{
+  "assetId": "stomach",
+  "sha256": "ad0876f37f92945171750d31d9c53165535a697e60a3d2ac8a3f3f78667fdec6",
+  "bytes": 3402184,
+  "BINUnchanged": true,
+  "JSONOutsideSceneExtrasUnchanged": true,
+  "scope": "Metadata correctness only; no new visual/anatomy/runtime pass.",
+  "actualClipSummary": "Contains an illustrative 4 s breathing clip with 13 translation-only channels; no physiological or biomechanical validation.",
+  "sourceSha256": "f1e8dfe7918361822503e9f6e5232204960f8c74b45bf9b294556c10d024ca82",
+  "sourceBytes": 3402440,
+  "allJSONOutsideSceneExtrasDeepEqual": true,
+  "allNonJSONChunksUnchanged": true,
+  "sourceNodeMetadataUnchanged": true,
+  "animationArraysAndClipJSONUnchanged": true,
+  "fieldPlan": [
+    {
+      "path": "/scenes/0/extras/README",
+      "op": "replace",
+      "oldValue": "See embedded README and exported docs. 0/1/2 material_set changes tissue/clinical/transparent. cutaway toggles full/sectioned walls. Spacebar plays 75 BPM illustrative cycle. All structures named, editable; no external assets.",
+      "value": "Educational stomach display. Contains an illustrative 4 s breathing clip with 13 translation-only channels; no physiological or biomechanical validation. No exported keyboard, cutaway-toggle or material-switching behavior is established by this metadata. Not clinically validated."
+    },
+    {
+      "path": "/scenes/0/extras/coordinates",
+      "op": "remove",
+      "oldValue": "BU: X patient-left, Y posterior, Z superior. RAS millimeters=(-25X,-25Y,+25Z)."
+    },
+    {
+      "path": "/scenes/0/extras/clinical_status",
+      "op": "replace",
+      "oldValue": "Procedural educational model, not patient-derived or clinically validated.",
+      "value": "Source-derived educational surface from TotalSegmentator v2.0.1 retained case s1233, tb3 revision 75ec4e6530abe4d434b07958e90bdc9dec062bef. Repaired/subdivided/smoothed display derivative, not recovered detail or a generic healthy atlas. Additional teaching sections, routes or structures are authored illustrations, not segmented anatomy. Not clinically validated."
+    },
+    {
+      "path": "/scenes/0/extras/reference_phase",
+      "op": "remove",
+      "oldValue": "Frame 1 end-diastole, beginning of atrial systole. 30fps,24 frames/cycle,75bpm."
+    },
+    {
+      "path": "/scenes/0/extras/material_set_names",
+      "op": "remove",
+      "oldValue": "0: procedural tissue-style; 1: clinical circulation colors; 2: transparent educational shell"
+    },
+    {
+      "path": "/scenes/0/extras/animation_model",
+      "op": "replace",
+      "oldValue": "Illustrative regional shape-key shortening + torsion; valve timing; no biomechanical or flow simulation",
+      "value": "Contains an illustrative 4 s breathing clip with 13 translation-only channels; no physiological or biomechanical validation."
+    },
+    {
+      "path": "/scenes/0/extras/pericardial_layers",
+      "op": "remove",
+      "oldValue": "Endocardium/myocardium/epicardium represented by material-bearing wall surfaces; parietal serous pericardium separate simplified envelope. Epicardium is visceral serous layer. Fibrous sac thickness/reflections simplified."
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "id": "lung_left-metadata-cleanup-r01-bounded-import",
+  "assetId": "lung_left",
+  "variantId": "lung_left__metadata-cleanup-r01",
+  "reviewedAt": "2026-10-23T09:57:00Z",
+  "reviewTimeNote": "Bounded metadata plan/replay review, not a new personal visual-review timestamp.",
+  "artifact": {
+    "file": "models/lung_left/exports/metadata-cleanup-r01/lung_left.glb",
+    "sha256": "6d3a6150dc47dba0d16162738caabc1bef3fcd8cf5ab4af492dd1121c1cb8533"
+  },
+  "gates": {
+    "technical": {
+      "status": "pass-with-limitations",
+      "scope": "Reviewed scene metadata corrected; exact input/output hashes, BIN and all JSON outside extras unchanged. No new topology or geometry-quality certification."
+    },
+    "visual": {
+      "status": "needs-review",
+      "scope": "Original visual status retained: Exterior static first screen only. No new visual approval from this metadata-only revision."
+    },
+    "anatomy": {
+      "status": "unreviewed",
+      "scope": "No anatomy approval follows from metadata cleanup."
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "Actual clip bytes retained, but playback/interaction not newly tested."
+    }
+  },
+  "evidence": [
+    {
+      "file": "reviews/lung_left/2026-10-23-metadata-cleanup-r01/verification.json",
+      "sha256": "0c387fd1fcac0161b06c2b5893ac204049276a321d5b113e4eec1d743072368d",
+      "artifactSha256": "6d3a6150dc47dba0d16162738caabc1bef3fcd8cf5ab4af492dd1121c1cb8533",
+      "kind": "exact-metadata-replay"
+    }
+  ],
+  "failureSummary": {
+    "failure": "Inherited cardiac scene metadata described absent or unrelated controls, phase and tissue layers.",
+    "cause": "Shared scene boilerplate did not match this export or its source provenance.",
+    "fix": "Apply only the reviewed field-specific metadata operations; keep accurate schematic provenance and real clip descriptions.",
+    "retest": "Exact output SHA; unchanged BIN, all JSON outside extras, source node metadata and animations. Representative offline pixel comparison is separate; no new visual pass.",
+    "lesson": "Test scene metadata against each export and preserve real motion instead of blanket static labeling."
+  },
+  "limitations": [
+    "Historical baseline remains unchanged and available.",
+    "Existing source/display quality limitations remain; no extra approved candidate or default whole-body replacement.",
+    "Native comparison PNGs remain in local review archive, not included in this bounded PR."
+  ],
+  "acceptedCandidateIncrement": 0,
+  "baselineSha256": "e3439ed20ea7e5f022b71accd9d474e5bd0a8625498d1398ada402d0c035cee0",
+  "recommendation": "Use this alternative for corrected scene metadata when choosing this same baseline geometry; not a preference over separately reviewed replacement studies.",
+  "baselinePublicSource": {
+    "url": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/motion/lung_left_breathing.glb",
+    "sha256": "e3439ed20ea7e5f022b71accd9d474e5bd0a8625498d1398ada402d0c035cee0",
+    "bytes": 2525316
+  },
+  "representativeComparisonReport": "reviews/metadata-cleanup-2026-10-23/breathing-nonheart/representative-pixel-results.json"
+}

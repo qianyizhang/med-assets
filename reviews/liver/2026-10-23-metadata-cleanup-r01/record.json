@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "id": "liver-metadata-cleanup-r01-bounded-import",
+  "assetId": "liver",
+  "variantId": "liver__metadata-cleanup-r01",
+  "reviewedAt": "2026-10-23T09:57:00Z",
+  "reviewTimeNote": "Bounded metadata plan/replay review, not a new personal visual-review timestamp.",
+  "artifact": {
+    "file": "models/liver/exports/metadata-cleanup-r01/liver.glb",
+    "sha256": "05abdf049c36658fc3e723071858c0167294d880f7120e7250ac6b5bc6439ea6"
+  },
+  "gates": {
+    "technical": {
+      "status": "pass-with-limitations",
+      "scope": "Reviewed scene metadata corrected; exact input/output hashes, BIN and all JSON outside extras unchanged. No new topology or geometry-quality certification."
+    },
+    "visual": {
+      "status": "unreviewed",
+      "scope": "Original visual status retained: Exterior static first screen only. No new visual approval from this metadata-only revision."
+    },
+    "anatomy": {
+      "status": "unreviewed",
+      "scope": "No anatomy approval follows from metadata cleanup."
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "Actual clip bytes retained, but playback/interaction not newly tested."
+    }
+  },
+  "evidence": [
+    {
+      "file": "reviews/liver/2026-10-23-metadata-cleanup-r01/verification.json",
+      "sha256": "7bc75de74e604758baba34215448023c3d91292d2bd5efbf962daebdfa1c2d2c",
+      "artifactSha256": "05abdf049c36658fc3e723071858c0167294d880f7120e7250ac6b5bc6439ea6",
+      "kind": "exact-metadata-replay"
+    }
+  ],
+  "failureSummary": {
+    "failure": "Inherited cardiac scene metadata described absent or unrelated controls, phase and tissue layers.",
+    "cause": "Shared scene boilerplate did not match this export or its source provenance.",
+    "fix": "Apply only the reviewed field-specific metadata operations; keep accurate schematic provenance and real clip descriptions.",
+    "retest": "Exact output SHA; unchanged BIN, all JSON outside extras, source node metadata and animations. Representative offline pixel comparison is separate; no new visual pass.",
+    "lesson": "Test scene metadata against each export and preserve real motion instead of blanket static labeling."
+  },
+  "limitations": [
+    "Historical baseline remains unchanged and available.",
+    "Existing source/display quality limitations remain; no extra approved candidate or default whole-body replacement.",
+    "Native comparison PNGs remain in local review archive, not included in this bounded PR."
+  ],
+  "acceptedCandidateIncrement": 0,
+  "baselineSha256": "1bc31b52f4b9d326cca6adb339c01a11d497cb0880ede682c8bb52889f5dc49f",
+  "recommendation": "Use this alternative for corrected scene metadata when choosing this same baseline geometry; not a preference over separately reviewed replacement studies.",
+  "baselinePublicSource": {
+    "url": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/motion/liver_breathing.glb",
+    "sha256": "1bc31b52f4b9d326cca6adb339c01a11d497cb0880ede682c8bb52889f5dc49f",
+    "bytes": 1862988
+  },
+  "representativeComparisonReport": "reviews/metadata-cleanup-2026-10-23/breathing-nonheart/representative-pixel-results.json"
+}

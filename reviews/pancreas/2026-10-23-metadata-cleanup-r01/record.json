@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "id": "pancreas-metadata-cleanup-r01-bounded-import",
+  "assetId": "pancreas",
+  "variantId": "pancreas__metadata-cleanup-r01",
+  "reviewedAt": "2026-10-23T09:57:00Z",
+  "reviewTimeNote": "Bounded metadata plan/replay review, not a new personal visual-review timestamp.",
+  "artifact": {
+    "file": "models/pancreas/exports/metadata-cleanup-r01/pancreas.glb",
+    "sha256": "e1c2e335e183df5b588fd7ca1af68110a2d710219bbc5548f738065175df8833"
+  },
+  "gates": {
+    "technical": {
+      "status": "pass-with-limitations",
+      "scope": "Reviewed scene metadata corrected; exact input/output hashes, BIN and all JSON outside extras unchanged. No new topology or geometry-quality certification."
+    },
+    "visual": {
+      "status": "unreviewed",
+      "scope": "Original visual status retained: Exterior static first screen only. No new visual approval from this metadata-only revision."
+    },
+    "anatomy": {
+      "status": "unreviewed",
+      "scope": "No anatomy approval follows from metadata cleanup."
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "Actual clip bytes retained, but playback/interaction not newly tested."
+    }
+  },
+  "evidence": [
+    {
+      "file": "reviews/pancreas/2026-10-23-metadata-cleanup-r01/verification.json",
+      "sha256": "88308c6ccf91bc9bd2e60431003d332f1351eed877c032dcadf881d55b8e6f57",
+      "artifactSha256": "e1c2e335e183df5b588fd7ca1af68110a2d710219bbc5548f738065175df8833",
+      "kind": "exact-metadata-replay"
+    }
+  ],
+  "failureSummary": {
+    "failure": "Inherited cardiac scene metadata described absent or unrelated controls, phase and tissue layers.",
+    "cause": "Shared scene boilerplate did not match this export or its source provenance.",
+    "fix": "Apply only the reviewed field-specific metadata operations; keep accurate schematic provenance and real clip descriptions.",
+    "retest": "Exact output SHA; unchanged BIN, all JSON outside extras, source node metadata and animations. Representative offline pixel comparison is separate; no new visual pass.",
+    "lesson": "Test scene metadata against each export and preserve real motion instead of blanket static labeling."
+  },
+  "limitations": [
+    "Historical baseline remains unchanged and available.",
+    "Existing source/display quality limitations remain; no extra approved candidate or default whole-body replacement.",
+    "Native comparison PNGs remain in local review archive, not included in this bounded PR."
+  ],
+  "acceptedCandidateIncrement": 0,
+  "baselineSha256": "df8b88d8fe5dac619ac5840ddcb57c2968dab0db76086dee2b7925f0c5f53d80",
+  "recommendation": "Use this alternative for corrected scene metadata when choosing this same baseline geometry; not a preference over separately reviewed replacement studies.",
+  "baselinePublicSource": {
+    "url": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/motion/pancreas_breathing.glb",
+    "sha256": "df8b88d8fe5dac619ac5840ddcb57c2968dab0db76086dee2b7925f0c5f53d80",
+    "bytes": 1940428
+  },
+  "representativeComparisonReport": "reviews/metadata-cleanup-2026-10-23/breathing-nonheart/representative-pixel-results.json"
+}
