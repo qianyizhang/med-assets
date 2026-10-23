@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "id": "brain-metadata-cleanup-r01-bounded-import",
+  "assetId": "brain",
+  "variantId": "brain__metadata-cleanup-r01",
+  "reviewedAt": "2026-10-23T09:57:00Z",
+  "reviewTimeNote": "Bounded metadata plan/replay review, not a new personal visual-review timestamp.",
+  "artifact": {
+    "file": "models/brain/exports/metadata-cleanup-r01/brain.glb",
+    "sha256": "22c0740411c3ef80ed40ca2637dda47e4271bd877ab200602c154c7a2893494a"
+  },
+  "gates": {
+    "technical": {
+      "status": "pass-with-limitations",
+      "scope": "Reviewed scene metadata corrected; exact input/output hashes, BIN and all JSON outside extras unchanged. No new topology or geometry-quality certification."
+    },
+    "visual": {
+      "status": "failed",
+      "scope": "Original visual status retained: Exterior static first screen only. No new visual approval from this metadata-only revision."
+    },
+    "anatomy": {
+      "status": "unreviewed",
+      "scope": "No anatomy approval follows from metadata cleanup."
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "Static export; no animation added and browser interaction not tested."
+    }
+  },
+  "evidence": [
+    {
+      "file": "reviews/brain/2026-10-23-metadata-cleanup-r01/verification.json",
+      "sha256": "bb9f111de9728085e7263edba2d6c9ee6c00c6b1ccb22ce8fc8227746cd06eee",
+      "artifactSha256": "22c0740411c3ef80ed40ca2637dda47e4271bd877ab200602c154c7a2893494a",
+      "kind": "exact-metadata-replay"
+    }
+  ],
+  "failureSummary": {
+    "failure": "Inherited cardiac scene metadata described absent or unrelated controls, phase and tissue layers.",
+    "cause": "Shared scene boilerplate did not match this export or its source provenance.",
+    "fix": "Apply only the reviewed field-specific metadata operations; keep accurate schematic provenance and real clip descriptions.",
+    "retest": "Exact output SHA; unchanged BIN, all JSON outside extras, source node metadata and animations. Representative offline pixel comparison is separate; no new visual pass.",
+    "lesson": "Test scene metadata against each export and preserve real motion instead of blanket static labeling."
+  },
+  "limitations": [
+    "Historical baseline remains unchanged and available.",
+    "Existing source/display quality limitations remain; no extra approved candidate or default whole-body replacement.",
+    "Native comparison PNGs remain in local review archive, not included in this bounded PR."
+  ],
+  "acceptedCandidateIncrement": 0,
+  "baselineSha256": "ce2340e81c21271c0ea3358ae082cc0b5f671f7f873c7311c9e41252e252d985",
+  "recommendation": "Use this alternative for corrected scene metadata when choosing this same baseline geometry; not a preference over separately reviewed replacement studies.",
+  "baselinePublicSource": {
+    "url": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/meshes/brain.glb",
+    "sha256": "ce2340e81c21271c0ea3358ae082cc0b5f671f7f873c7311c9e41252e252d985",
+    "bytes": 3142600
+  },
+  "representativeComparisonReport": "reviews/metadata-cleanup-2026-10-23/static-nonheart/representative-pixel-results.json"
+}

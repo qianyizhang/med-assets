@@ -1,0 +1,21 @@
+{
+  "method": "Same exact original brain file imported twice into reset scenes, same renderer/settings/cameras/seed. Labels identify repeat runs, not different input artifacts.",
+  "inputSha256": "ce2340e81c21271c0ea3358ae082cc0b5f671f7f873c7311c9e41252e252d985",
+  "views": [
+    {
+      "view": "front",
+      "changedPixels": 63,
+      "maxChannelDifference": 23,
+      "firstRgbaSha256": "5e5f33def854eeb5eaebeeee7451f21428f605906bb3399f79ba4e83c8e7df20",
+      "secondRgbaSha256": "f2a8bb7a740904a0acf53d583bb3d356b2b4ce5511222ad8a64d8fc3683caa79"
+    },
+    {
+      "view": "superior",
+      "changedPixels": 23,
+      "maxChannelDifference": 21,
+      "firstRgbaSha256": "c683236d953c0c1e508c46ee7fd066ba483573c429e648e9745dde41afc5bb3f",
+      "secondRgbaSha256": "2c1bd4c539e73f1a85a2dc945568aa86b9c49c2dae6797189dc6ad8f1f2f58e1"
+    }
+  ],
+  "conclusion": "Identical-input render repeat is not bit-identical. No zero-difference pixel claim. Metadata-only byte identity is independently established; this is not new visual approval."
+}
