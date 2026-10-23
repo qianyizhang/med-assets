@@ -1,0 +1,52 @@
+{
+  "sourceSha256": "823ab88a4cc7d3f9b7ee58a2039521d8fdc41367bb0913fe034133334d99fec4",
+  "sourceBytes": 2035060,
+  "targetSha256": "ba74f52842207d396bd0e959d40fedc0adf69e787072117e037b0ba9d18eebfe",
+  "targetBytes": 2034520,
+  "jsonPointerPatch": [
+    {
+      "op": "replace",
+      "path": "/scenes/0/extras/README",
+      "value": "Static educational third-lumbar-vertebra (L3) exterior. This GLB contains no animation clips, cutaway control or material-switching controls. See retained source and attribution records; not clinically validated.",
+      "oldValue": "See embedded README and exported docs. 0/1/2 material_set changes tissue/clinical/transparent. cutaway toggles full/sectioned walls. Spacebar plays 75 BPM illustrative cycle. All structures named, editable; no external assets.",
+      "reason": "Advertises cardiac animation, material-set and cutaway controls absent from this static vertebra."
+    },
+    {
+      "op": "remove",
+      "path": "/scenes/0/extras/coordinates",
+      "oldValue": "BU: X patient-left, Y posterior, Z superior. RAS millimeters=(-25X,-25Y,+25Z).",
+      "reason": "Legacy cardiac authoring BU formula with 25 mm scale is not an applicable glTF-coordinate statement; remove rather than invent a replacement transform."
+    },
+    {
+      "op": "replace",
+      "path": "/scenes/0/extras/clinical_status",
+      "value": "Source-derived educational display of TotalSegmentator v2.0.1 retained case s1233, from tb3 revision 75ec4e6530abe4d434b07958e90bdc9dec062bef. Repaired/subdivided/smoothed display derivative, not recovered detail or a generic healthy atlas.",
+      "oldValue": "Procedural educational model, not patient-derived or clinically validated.",
+      "reason": "Calls a source-derived segmented L3 procedural and not patient-derived, contradicting retained source case/provenance."
+    },
+    {
+      "op": "remove",
+      "path": "/scenes/0/extras/reference_phase",
+      "oldValue": "Frame 1 end-diastole, beginning of atrial systole. 30fps,24 frames/cycle,75bpm.",
+      "reason": "End-diastole/atrial-systole/cardiac-cycle timing is irrelevant and unsupported."
+    },
+    {
+      "op": "remove",
+      "path": "/scenes/0/extras/material_set_names",
+      "oldValue": "0: procedural tissue-style; 1: clinical circulation colors; 2: transparent educational shell",
+      "reason": "Advertises alternate cardiac material presets/control absent from exported GLB."
+    },
+    {
+      "op": "remove",
+      "path": "/scenes/0/extras/animation_model",
+      "oldValue": "Illustrative regional shape-key shortening + torsion; valve timing; no biomechanical or flow simulation",
+      "reason": "Describes cardiac shortening, torsion and valves; export has zero animation clips."
+    },
+    {
+      "op": "remove",
+      "path": "/scenes/0/extras/pericardial_layers",
+      "oldValue": "Endocardium/myocardium/epicardium represented by material-bearing wall surfaces; parietal serous pericardium separate simplified envelope. Epicardium is visceral serous layer. Fibrous sac thickness/reflections simplified.",
+      "reason": "Describes heart wall and pericardium in a vertebral export."
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "id": "vertebrae-L3-metadata-cleanup-r01-bounded-import",
+  "assetId": "vertebrae_L3",
+  "variantId": "vertebrae_L3__metadata-cleanup-r01",
+  "reviewedAt": "2026-10-23T09:36:15Z",
+  "reviewTimeNote": "Metadata-only patch approval time; gross exterior review preceded this. Fresh deterministic replay also verified during bounded import.",
+  "artifact": {
+    "file": "models/vertebrae_L3/exports/metadata-cleanup-r01/vertebrae_L3.glb",
+    "sha256": "ba74f52842207d396bd0e959d40fedc0adf69e787072117e037b0ba9d18eebfe"
+  },
+  "gates": {
+    "technical": {
+      "status": "pass-with-limitations",
+      "scope": "Exactly 7 approved scene-extra operations; all non-JSON chunks byte-identical and JSON outside scene extras deep-equal. Existing source/display warnings remain."
+    },
+    "visual": {
+      "status": "passed",
+      "scope": "Gross L3 exterior only, inherited from the reviewed original through unchanged geometry/materials and 0 changed RGBA pixels in 2 matched offline views."
+    },
+    "anatomy": {
+      "status": "unreviewed",
+      "scope": "No fine anatomical completeness, clinical measurement or whole-spine validation."
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "No browser interaction or motion validation; static asset has no animation clips."
+    }
+  },
+  "evidence": [
+    {
+      "file": "reviews/vertebrae_L3/2026-10-23-metadata-cleanup-r01/pixel-and-content-verification.json",
+      "sha256": "36ccc4aaeb6a4dc8a9221d278985a43e03b0b88b59eb3e4b714606d477317bc8",
+      "artifactSha256": "ba74f52842207d396bd0e959d40fedc0adf69e787072117e037b0ba9d18eebfe",
+      "kind": "metadata-replay-and-offline-pixel-comparison",
+      "note": "Before/after PNG hashes differ due to metadata, decoded RGBA pixels agree. Native PNG payloads deferred, not represented as included."
+    }
+  ],
+  "failureSummary": {
+    "failure": "A static L3 export inherited cardiac animation, cutaway and material-control metadata.",
+    "cause": "Unrelated scene extras persisted in an otherwise static source-derived export.",
+    "fix": "Remove or replace only the 7 reviewed scene-extra fields.",
+    "retest": "Exact output hash, unchanged BIN and JSON outside extras; 2 independent matched views have 0 changed RGBA pixels.",
+    "lesson": "Validate semantic metadata against the actual export, not only geometry and render appearance."
+  },
+  "limitations": [
+    "Retained low-resolution segmented case s1233 display, not a normal-population atlas.",
+    "Repair/subdivision/smoothing does not recover source anatomical detail.",
+    "Source-derived exterior only; fine facets and full anatomy remain unreviewed.",
+    "No clinical measurement, whole-spine coverage, cutaway, animation or browser/runtime claim."
+  ],
+  "acceptedCandidateIncrement": 0,
+  "defaultWholeBodyReplacement": false,
+  "baseline": {
+    "file": "body/anatomy-workshop-r1/meshes/vertebrae_L3.glb",
+    "sha256": "823ab88a4cc7d3f9b7ee58a2039521d8fdc41367bb0913fe034133334d99fec4"
+  },
+  "deferred": [
+    "Native before/after PNGs and editable inspection scene remain in the cloud archive; not included in this small PR."
+  ]
+}
