@@ -1,0 +1,14 @@
+{
+  "comparison_tolerance_native_units": 1e-07,
+  "all_named_mesh_bounds_exact": true,
+  "source_surface_coordinate_sets_preserved": true,
+  "warnings": [
+    "Two coincident duplicate source triangles on medial gastrocnemius are dropped by evaluated-copy/glTF transport; unique source surface triangles preserved.",
+    "One loose tendon vertex and nineteen loose fibula vertices are omitted by surface-only glTF; all surface triangle coordinates preserved.",
+    "Triangle coordinate comparison ignores winding and does not establish watertightness, attachment validity or clinical anatomy."
+  ],
+  "source_shape_edits": [],
+  "registry_changed": false,
+  "publication": false,
+  "reviewer_acceptance": "limited static calf-Achilles-heel teaching readability accepted; anatomy/runtime unverified"
+}

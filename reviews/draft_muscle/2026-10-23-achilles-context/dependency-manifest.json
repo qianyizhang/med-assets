@@ -1,0 +1,205 @@
+{
+  "status": "reviewer-inspected-static-contextual-supplement-only",
+  "asset_scope": "right Achilles calf-to-heel contextual study; not full tendon-ligament system",
+  "license": "CC-BY-SA-4.0",
+  "public_source_metadata": {
+    "name": "Z-Anatomy.zip",
+    "sha": "f43cabc6f366b2a6058dd2ed4a2b3c7b9b2492cb",
+    "size": 86734957,
+    "url": "https://api.github.com/repos/Z-Anatomy/Models-of-human-anatomy/contents/Z-Anatomy.zip?ref=master",
+    "html_url": "https://github.com/Z-Anatomy/Models-of-human-anatomy/blob/master/Z-Anatomy.zip",
+    "git_url": "https://api.github.com/repos/Z-Anatomy/Models-of-human-anatomy/git/blobs/f43cabc6f366b2a6058dd2ed4a2b3c7b9b2492cb",
+    "download_url": "https://raw.githubusercontent.com/Z-Anatomy/Models-of-human-anatomy/master/Z-Anatomy.zip",
+    "verification": "metadata only; archive not redownloaded",
+    "archive_last_change_commit": "bb293be456f6d2245191f37752d14ec76894740d",
+    "archive_commit_date": "2024-06-07T14:53:15Z",
+    "pinned_download_url": "https://raw.githubusercontent.com/Z-Anatomy/Models-of-human-anatomy/bb293be456f6d2245191f37752d14ec76894740d/Z-Anatomy.zip",
+    "pinned_head_status": 200,
+    "pinned_content_length": "86734957"
+  },
+  "source_dependency": {
+    "local_path": "EXTERNAL_SOURCE/Startup.blend",
+    "sha256": "9f08a17ea0115fed80b2a73ecdf0a1bc2ab2f6956f37c593ce23d513ea35afcd",
+    "retrieval_url": "https://raw.githubusercontent.com/Z-Anatomy/Models-of-human-anatomy/master/Z-Anatomy.zip",
+    "archive_sha256": "e029688545627bd0214b269e1063143abb580aad72b2c2445d6d8a9a0d9da736",
+    "objects": [
+      "Calcaneal tendon.r",
+      "Soleus muscle.r",
+      "Medial head of gastrocnemius.r",
+      "Lateral head of gastrocnemius.r",
+      "Calcaneus.r",
+      "Tibia.r",
+      "Fibula.r",
+      "Talus.r"
+    ],
+    "copied_into_package": false
+  },
+  "software": "Blender 4.3.2, --disable-autoexec, CPU; no source scripts executed",
+  "replay": [
+    "blender -b --disable-autoexec -t 2 -P build_proposal.py -- --source SOURCE.blend --output OUTPUT",
+    "blender -b --disable-autoexec -t 1 -P check_export_geometry.py -- --source SOURCE.blend --output OUTPUT",
+    "python finalize_manifest.py --source SOURCE.blend --output OUTPUT"
+  ],
+  "replay_note": "All replay entrypoints require explicit source/output paths; exact source hash is enforced; no source dependency copied.",
+  "external_geometry_dependencies": [],
+  "textures": [],
+  "knee_reference_only": {
+    "path": "../body-layers-quality-revision/regional-knee-r01/knee_z_native.glb",
+    "sha256": "6dcc793e4132e62e4962e504bef0d595bb2e7d3a31881137244f31eadbb53aad",
+    "included": false,
+    "do_not_count_twice": true
+  },
+  "source_reference_urls": [
+    "https://www.orthoinfo.org/diseases--conditions/achilles-tendinitis/",
+    "https://my.clevelandclinic.org/health/body/achilles-tendon-calcaneal-tendon",
+    "https://raw.githubusercontent.com/Z-Anatomy/Models-of-human-anatomy/master/License.txt",
+    "https://creativecommons.org/licenses/by-sa/4.0/"
+  ],
+  "files": [
+    {
+      "file": "ATTRIBUTION.md",
+      "bytes": 2074,
+      "sha256": "120200bfb5e98dc77eecdd294bb9b1de0f9e60d72900f0559d74cbc4cfe14c2c"
+    },
+    {
+      "file": "PORTABLE-HANDOFF.md",
+      "bytes": 3582,
+      "sha256": "8bd74736648f75415e4c92a1ac29f46d55fff44557092b120d7943d11f278dcf"
+    },
+    {
+      "file": "PROPOSAL.md",
+      "bytes": 2786,
+      "sha256": "f0276e284bf8b57a9f0796f8fd3a9428c7c99bb796c8758f5d0d0edf3ff8060c"
+    },
+    {
+      "file": "READONLY-AUDIT.md",
+      "bytes": 5436,
+      "sha256": "e4bed74dd093324513ec9b4f2039796494526884ebe14b1dec71ede89faa5de8"
+    },
+    {
+      "file": "REFERENCE-CHECK.md",
+      "bytes": 2405,
+      "sha256": "d0aee0a1a6db5d1e716a998e03a439c098d6e60f7a144b0d5bcd98816794deed"
+    },
+    {
+      "file": "SOURCE-LICENSE.txt",
+      "bytes": 2754,
+      "sha256": "196b66b56551a862e59872f7cdb70e6d9a6ad84e9105962fca8ec28c14e97520"
+    },
+    {
+      "file": "achilles-right-context-proposal.glb",
+      "bytes": 517676,
+      "sha256": "e38e33c1d0ceb791e4a2ad676dedd7923f53b5ad8d7dc8b195202565609354ea"
+    },
+    {
+      "file": "build_proposal.py",
+      "bytes": 5868,
+      "sha256": "950b2d3e4dca527c6ea336361dd4000d43db90a52472ab09ce8b5eda067ddd70"
+    },
+    {
+      "file": "check_export_geometry.py",
+      "bytes": 2928,
+      "sha256": "489edbded1d77c241ba1cc608294950bcc041613c8579164d579caa1bc7b8247"
+    },
+    {
+      "file": "check_types.py",
+      "bytes": 619,
+      "sha256": "a2b3b6740eaaa38a1a2e62ec18940129bdcdef2f3bf8ea984561ec06f0bcf09e"
+    },
+    {
+      "file": "exact-export-check.json",
+      "bytes": 1584,
+      "sha256": "d2ce8953a4650764d6d98f8a9dbe58c05fe41b41a239549af1bf1df1b2f8e781"
+    },
+    {
+      "file": "export-lateral.png",
+      "bytes": 717801,
+      "sha256": "e2e1ad69e7baa9c05fae709e0b5089999029d95483f5842d8cf2c3b17766d1eb"
+    },
+    {
+      "file": "export-posterior.png",
+      "bytes": 711734,
+      "sha256": "40ff9f62ad55f9300510b5526b868e27a5bbcf30f93b68f6330a72b9d86b0599"
+    },
+    {
+      "file": "export-render-binding.json",
+      "bytes": 2751,
+      "sha256": "2ce290fdc3592c9d2cfca78ba2989a9525b72c08bcedb2a5570f381711536e64"
+    },
+    {
+      "file": "finalize_manifest.py",
+      "bytes": 3634,
+      "sha256": "4d4408dbffe76267ba509db2204add88adf277e56e8abfb048ccf5cfc95e941a"
+    },
+    {
+      "file": "heel-close-lateral.png",
+      "bytes": 988898,
+      "sha256": "e996453161275bf8088825ac4907c0d021a203c235a542194d1b95c829cca599"
+    },
+    {
+      "file": "heel-close-neutral-oblique.png",
+      "bytes": 667857,
+      "sha256": "dfda037da0870a22d17745eebd52ceaefc6113b277a37ff3074480d9200ecde7"
+    },
+    {
+      "file": "heel-close-posterior.png",
+      "bytes": 1035265,
+      "sha256": "6297742f44760ccdf7af60c0efe50aebf6ed6f80f439f492ab1639a83fd15f48"
+    },
+    {
+      "file": "immutable-evidence-bindings.json",
+      "bytes": 1758,
+      "sha256": "6b77ba37d0964db079553f897af446afef74c91681d260e1144c7136e14f1fb9"
+    },
+    {
+      "file": "inspect_render.py",
+      "bytes": 2854,
+      "sha256": "0340f9b4ca04782a5c3935351d2c7ae2ec8d3263c6bd25232e8be2459ae7ad8f"
+    },
+    {
+      "file": "lateral.png",
+      "bytes": 588651,
+      "sha256": "31f4a162e53a38f8b23bc6afb65d1c7317e1a13d7cd5d7a3446ed16d7aed553c"
+    },
+    {
+      "file": "named-patellar-patches.json",
+      "bytes": 1282,
+      "sha256": "82cbc889146e76f765d9ca58db200fa0e558522fd6021200b31aba2df3523116"
+    },
+    {
+      "file": "neutral-oblique.png",
+      "bytes": 571982,
+      "sha256": "00f0bb0465300403cb92db32a2fc1b2d9c29d79ae11f6d28802491b0ab5e4da1"
+    },
+    {
+      "file": "oblique.png",
+      "bytes": 568981,
+      "sha256": "d684fd796ec5bf8a5eb4d583c81d58fb3192cf8d7ff16f379cf1f8229e84c214"
+    },
+    {
+      "file": "posterior.png",
+      "bytes": 581928,
+      "sha256": "ae78d8f935ae12ce87f04602bb4a2befff27ceba6cddb047a801cb37a8dc6a40"
+    },
+    {
+      "file": "source-check.json",
+      "bytes": 3306,
+      "sha256": "7251095b3def7c44c966b84ab9fd9e8b6efcc92b615ec8191b04281decfbdbed"
+    },
+    {
+      "file": "source-url-verification.json",
+      "bytes": 952,
+      "sha256": "ad658581bf3d71844256307837aa5a69d393ae3f6bff875f81b3a6cf594cf84f"
+    },
+    {
+      "file": "source-vs-export-geometry.json",
+      "bytes": 5240,
+      "sha256": "88d85757f12440cdebf2c15566e64313af341c711b4ad923dbeed2f7497a5eb6"
+    },
+    {
+      "file": "transport-verdict.json",
+      "bytes": 796,
+      "sha256": "90261aa387b7686057fc7d8a6200dd09c5146147b6a47f881a6e5a91e4b3e8b6"
+    }
+  ]
+}

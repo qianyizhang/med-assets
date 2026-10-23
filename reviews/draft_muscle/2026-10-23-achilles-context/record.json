@@ -1,0 +1,240 @@
+{
+  "id": "draft_muscle__achilles_context_20261023",
+  "parentAssetId": "draft_muscle",
+  "originalFailedAsset": "draft_tendons_ligaments",
+  "newAcceptedCandidateCount": 0,
+  "originalGatesChanged": false,
+  "license": "CC-BY-SA-4.0",
+  "renderLicense": "CC-BY-SA-4.0",
+  "studies": [
+    {
+      "id": "achilles-right-context",
+      "title": "Right calf–Achilles–heel context",
+      "file": "assemblies/musculoskeletal-teaching/2026-10-23/achilles-right-context.glb",
+      "sha256": "e38e33c1d0ceb791e4a2ad676dedd7923f53b5ad8d7dc8b195202565609354ea",
+      "bytes": 517676,
+      "sourceIds": [
+        "Calcaneal tendon.r",
+        "Soleus muscle.r",
+        "Medial head of gastrocnemius.r",
+        "Lateral head of gastrocnemius.r",
+        "Calcaneus.r",
+        "Tibia.r",
+        "Fibula.r",
+        "Talus.r"
+      ],
+      "labels": []
+    }
+  ],
+  "gates": {
+    "technical": "Source surface-coordinate multiset check and exact portable export replay passed within stated transport limits; no attachment or manifold certification.",
+    "visual": "Reviewer-inspected limited STATIC calf–Achilles–heel teaching readability only.",
+    "anatomy": "unreviewed",
+    "runtime": "unverified"
+  },
+  "scope": {
+    "en": "Eight same-source right-sided meshes, including talus; preserve native Z-Anatomy frame. Distal tendon scalloping remains; enthesis is not validated. No full tendon/ligament replacement, duplicate knee study, clinical or runtime claim. Geometry AND renders are CC BY-SA 4.0.",
+    "zh": "8 个同来源右侧网格，含距骨；保留原始 Z-Anatomy 坐标。肌腱远端波状边界仍存在，止点未验证。不代表完整肌腱/韧带替换，不重复计入膝关节研究，无临床或运行通过声明。几何及渲染均适用 CC BY-SA 4.0。"
+  },
+  "failureLesson": {
+    "en": "Floating rods describe routes, not tissue relationships. Same-source calf–Achilles–heel context improves a bounded teaching view; a scalloped seam is not proof of attachment.",
+    "zh": "悬浮杆只能表达路径，不能表达组织关系。同来源小腿–跟腱–足跟参照改善有限教学视图；波状接缝不等于附着关系已验证。"
+  },
+  "transportLimitations": [
+    "Two coincident duplicate source triangles on medial gastrocnemius are omitted; unique source surface triangles preserved.",
+    "One loose tendon vertex and 19 loose fibula vertices omitted by surface-only export.",
+    "Triangle-coordinate multiset check ignores winding; not watertightness or attachment validation."
+  ],
+  "files": [
+    {
+      "originalFile": "achilles-right-context-proposal.glb",
+      "originalSha256": "e38e33c1d0ceb791e4a2ad676dedd7923f53b5ad8d7dc8b195202565609354ea",
+      "file": "assemblies/musculoskeletal-teaching/2026-10-23/achilles-right-context.glb",
+      "sha256": "e38e33c1d0ceb791e4a2ad676dedd7923f53b5ad8d7dc8b195202565609354ea",
+      "bytes": 517676,
+      "textNormalized": false
+    },
+    {
+      "originalFile": "export-posterior.png",
+      "originalSha256": "40ff9f62ad55f9300510b5526b868e27a5bbcf30f93b68f6330a72b9d86b0599",
+      "file": "reviews/draft_muscle/2026-10-23-achilles-context/evidence/export-posterior.png",
+      "sha256": "40ff9f62ad55f9300510b5526b868e27a5bbcf30f93b68f6330a72b9d86b0599",
+      "bytes": 711734,
+      "textNormalized": false
+    },
+    {
+      "originalFile": "export-lateral.png",
+      "originalSha256": "e2e1ad69e7baa9c05fae709e0b5089999029d95483f5842d8cf2c3b17766d1eb",
+      "file": "reviews/draft_muscle/2026-10-23-achilles-context/evidence/export-lateral.png",
+      "sha256": "e2e1ad69e7baa9c05fae709e0b5089999029d95483f5842d8cf2c3b17766d1eb",
+      "bytes": 717801,
+      "textNormalized": false
+    },
+    {
+      "originalFile": "neutral-oblique.png",
+      "originalSha256": "00f0bb0465300403cb92db32a2fc1b2d9c29d79ae11f6d28802491b0ab5e4da1",
+      "file": "reviews/draft_muscle/2026-10-23-achilles-context/evidence/neutral-oblique.png",
+      "sha256": "00f0bb0465300403cb92db32a2fc1b2d9c29d79ae11f6d28802491b0ab5e4da1",
+      "bytes": 571982,
+      "textNormalized": false
+    },
+    {
+      "originalFile": "heel-close-lateral.png",
+      "originalSha256": "e996453161275bf8088825ac4907c0d021a203c235a542194d1b95c829cca599",
+      "file": "reviews/draft_muscle/2026-10-23-achilles-context/evidence/heel-close-lateral.png",
+      "sha256": "e996453161275bf8088825ac4907c0d021a203c235a542194d1b95c829cca599",
+      "bytes": 988898,
+      "textNormalized": false
+    },
+    {
+      "originalFile": "heel-close-posterior.png",
+      "originalSha256": "6297742f44760ccdf7af60c0efe50aebf6ed6f80f439f492ab1639a83fd15f48",
+      "file": "reviews/draft_muscle/2026-10-23-achilles-context/evidence/heel-close-posterior.png",
+      "sha256": "6297742f44760ccdf7af60c0efe50aebf6ed6f80f439f492ab1639a83fd15f48",
+      "bytes": 1035265,
+      "textNormalized": false
+    },
+    {
+      "originalFile": "heel-close-neutral-oblique.png",
+      "originalSha256": "dfda037da0870a22d17745eebd52ceaefc6113b277a37ff3074480d9200ecde7",
+      "file": "reviews/draft_muscle/2026-10-23-achilles-context/evidence/heel-close-neutral-oblique.png",
+      "sha256": "dfda037da0870a22d17745eebd52ceaefc6113b277a37ff3074480d9200ecde7",
+      "bytes": 667857,
+      "textNormalized": false
+    },
+    {
+      "originalFile": "ATTRIBUTION.md",
+      "originalSha256": "120200bfb5e98dc77eecdd294bb9b1de0f9e60d72900f0559d74cbc4cfe14c2c",
+      "file": "reviews/draft_muscle/2026-10-23-achilles-context/ATTRIBUTION.md",
+      "sha256": "120200bfb5e98dc77eecdd294bb9b1de0f9e60d72900f0559d74cbc4cfe14c2c",
+      "bytes": 2074,
+      "textNormalized": false
+    },
+    {
+      "originalFile": "SOURCE-LICENSE.txt",
+      "originalSha256": "196b66b56551a862e59872f7cdb70e6d9a6ad84e9105962fca8ec28c14e97520",
+      "file": "reviews/draft_muscle/2026-10-23-achilles-context/SOURCE-LICENSE.txt",
+      "sha256": "196b66b56551a862e59872f7cdb70e6d9a6ad84e9105962fca8ec28c14e97520",
+      "bytes": 2754,
+      "textNormalized": false
+    },
+    {
+      "originalFile": "PORTABLE-HANDOFF.md",
+      "originalSha256": "8bd74736648f75415e4c92a1ac29f46d55fff44557092b120d7943d11f278dcf",
+      "file": "reviews/draft_muscle/2026-10-23-achilles-context/PORTABLE-HANDOFF.md",
+      "sha256": "cc122dc4180b489e27af64eead33a3aab02b5c12902f0cf45d30215f6abb5df0",
+      "bytes": 3586,
+      "textNormalized": true
+    },
+    {
+      "originalFile": "PROPOSAL.md",
+      "originalSha256": "f0276e284bf8b57a9f0796f8fd3a9428c7c99bb796c8758f5d0d0edf3ff8060c",
+      "file": "reviews/draft_muscle/2026-10-23-achilles-context/PROPOSAL.md",
+      "sha256": "e0ae4f4f2742db129119a7ec0e708af21328419d2236ae21b3a303477f981f4e",
+      "bytes": 2790,
+      "textNormalized": true
+    },
+    {
+      "originalFile": "REFERENCE-CHECK.md",
+      "originalSha256": "d0aee0a1a6db5d1e716a998e03a439c098d6e60f7a144b0d5bcd98816794deed",
+      "file": "reviews/draft_muscle/2026-10-23-achilles-context/REFERENCE-CHECK.md",
+      "sha256": "d0aee0a1a6db5d1e716a998e03a439c098d6e60f7a144b0d5bcd98816794deed",
+      "bytes": 2405,
+      "textNormalized": false
+    },
+    {
+      "originalFile": "dependency-manifest.json",
+      "originalSha256": "ee7386293eb305b52d00d35dea9db27b34f6a62d4b5dd4c496a8dd67cc35ddc3",
+      "file": "reviews/draft_muscle/2026-10-23-achilles-context/dependency-manifest.json",
+      "sha256": "64e0cdde5832e8ca40cd954e274740994b64ef624092140c9040bfa7907b729c",
+      "bytes": 7563,
+      "textNormalized": true
+    },
+    {
+      "originalFile": "immutable-evidence-bindings.json",
+      "originalSha256": "6b77ba37d0964db079553f897af446afef74c91681d260e1144c7136e14f1fb9",
+      "file": "reviews/draft_muscle/2026-10-23-achilles-context/immutable-evidence-bindings.json",
+      "sha256": "2ff0e33e726f49cf1613a18f82e188ed95e5096ae49b34bf03d623965a63011c",
+      "bytes": 1749,
+      "textNormalized": true
+    },
+    {
+      "originalFile": "source-check.json",
+      "originalSha256": "7251095b3def7c44c966b84ab9fd9e8b6efcc92b615ec8191b04281decfbdbed",
+      "file": "reviews/draft_muscle/2026-10-23-achilles-context/source-check.json",
+      "sha256": "f18093f651c352aca90834d563ac5e7529d0e69fdf7acfb3b6e2c3612d4ad470",
+      "bytes": 3249,
+      "textNormalized": true
+    },
+    {
+      "originalFile": "source-url-verification.json",
+      "originalSha256": "ad658581bf3d71844256307837aa5a69d393ae3f6bff875f81b3a6cf594cf84f",
+      "file": "reviews/draft_muscle/2026-10-23-achilles-context/source-url-verification.json",
+      "sha256": "ad658581bf3d71844256307837aa5a69d393ae3f6bff875f81b3a6cf594cf84f",
+      "bytes": 952,
+      "textNormalized": false
+    },
+    {
+      "originalFile": "exact-export-check.json",
+      "originalSha256": "d2ce8953a4650764d6d98f8a9dbe58c05fe41b41a239549af1bf1df1b2f8e781",
+      "file": "reviews/draft_muscle/2026-10-23-achilles-context/exact-export-check.json",
+      "sha256": "d2ce8953a4650764d6d98f8a9dbe58c05fe41b41a239549af1bf1df1b2f8e781",
+      "bytes": 1584,
+      "textNormalized": false
+    },
+    {
+      "originalFile": "source-vs-export-geometry.json",
+      "originalSha256": "88d85757f12440cdebf2c15566e64313af341c711b4ad923dbeed2f7497a5eb6",
+      "file": "reviews/draft_muscle/2026-10-23-achilles-context/source-vs-export-geometry.json",
+      "sha256": "88d85757f12440cdebf2c15566e64313af341c711b4ad923dbeed2f7497a5eb6",
+      "bytes": 5240,
+      "textNormalized": false
+    },
+    {
+      "originalFile": "transport-verdict.json",
+      "originalSha256": "90261aa387b7686057fc7d8a6200dd09c5146147b6a47f881a6e5a91e4b3e8b6",
+      "file": "reviews/draft_muscle/2026-10-23-achilles-context/transport-verdict.json",
+      "sha256": "496abe1dab4ea42f28595e70dab5fa312cdba58b4cf019a14a6c662dafba6f4c",
+      "bytes": 800,
+      "textNormalized": true
+    },
+    {
+      "originalFile": "export-render-binding.json",
+      "originalSha256": "2ce290fdc3592c9d2cfca78ba2989a9525b72c08bcedb2a5570f381711536e64",
+      "file": "reviews/draft_muscle/2026-10-23-achilles-context/export-render-binding.json",
+      "sha256": "2ce290fdc3592c9d2cfca78ba2989a9525b72c08bcedb2a5570f381711536e64",
+      "bytes": 2751,
+      "textNormalized": false
+    },
+    {
+      "originalFile": "build_proposal.py",
+      "originalSha256": "950b2d3e4dca527c6ea336361dd4000d43db90a52472ab09ce8b5eda067ddd70",
+      "file": "tests/achilles_context/build_proposal.py",
+      "sha256": "950b2d3e4dca527c6ea336361dd4000d43db90a52472ab09ce8b5eda067ddd70",
+      "bytes": 5868,
+      "textNormalized": false
+    },
+    {
+      "originalFile": "check_export_geometry.py",
+      "originalSha256": "489edbded1d77c241ba1cc608294950bcc041613c8579164d579caa1bc7b8247",
+      "file": "tests/achilles_context/check_export_geometry.py",
+      "sha256": "489edbded1d77c241ba1cc608294950bcc041613c8579164d579caa1bc7b8247",
+      "bytes": 2928,
+      "textNormalized": false
+    },
+    {
+      "originalFile": "finalize_manifest.py",
+      "originalSha256": "4d4408dbffe76267ba509db2204add88adf277e56e8abfb048ccf5cfc95e941a",
+      "file": "tests/achilles_context/finalize_manifest.py",
+      "sha256": "32fd0b811f324cff2aed4ef98003b7d8ccf0f1294063cdd1e07f2e1f8270d63c",
+      "bytes": 3643,
+      "textNormalized": true
+    },
+    {
+      "file": "reviews/draft_muscle/2026-10-23-achilles-context/independent-export-replay.json",
+      "sha256": "61b6c2650cef1a356c657dae4e61eb55da3f25c66887078962f679c0da5c0699",
+      "bytes": 649
+    }
+  ],
+  "custodyNote": "Original source handoff remains unchanged outside canonical import. Text copies normalize private execution paths and reviewer wording; files[] binds both original and current hashes. Historical dependency-manifest file hashes describe the original handoff, not normalized text copies. GLB and six final PNG bytes are unchanged."
+}
