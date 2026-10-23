@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-23",
+  "software": "Blender 4.3.2",
+  "sourceSha256": "9f08a17ea0115fed80b2a73ecdf0a1bc2ab2f6956f37c593ce23d513ea35afcd",
+  "candidateSha256": "e38e33c1d0ceb791e4a2ad676dedd7923f53b5ad8d7dc8b195202565609354ea",
+  "bytes": 517676,
+  "freshOutputReplay": "passed exact bytes",
+  "commandTemplate": "blender -b --disable-autoexec -t 2 -P tests/achilles_context/build_proposal.py -- --source EXTERNAL_SOURCE --output FRESH_OUTPUT --skip-renders",
+  "scriptSha256": "950b2d3e4dca527c6ea336361dd4000d43db90a52472ab09ce8b5eda067ddd70",
+  "limits": "Export-only replay; no fresh render, anatomy, attachment or runtime certification."
+}
