@@ -1,0 +1,55 @@
+{
+  "assetId": "bladder",
+  "sha256": "6ee9d015de96057953452403bcfd2f2d9aac991fd218bfb3cf5f0e4c57c6841a",
+  "bytes": 1523484,
+  "BINUnchanged": true,
+  "JSONOutsideSceneExtrasUnchanged": true,
+  "scope": "Metadata correctness only; no new visual/anatomy/runtime pass.",
+  "actualClipSummary": "Static export with no animation clips.",
+  "sourceSha256": "798329114cfcd241d7f8342fc8faa70ff33fdbded6029bb128d82c3d6f50d8c5",
+  "sourceBytes": 1524184,
+  "allJSONOutsideSceneExtrasDeepEqual": true,
+  "allNonJSONChunksUnchanged": true,
+  "sourceNodeMetadataUnchanged": true,
+  "animationArraysAndClipJSONUnchanged": true,
+  "fieldPlan": [
+    {
+      "path": "/scenes/0/extras/README",
+      "op": "replace",
+      "oldValue": "See embedded README and exported docs. 0/1/2 material_set changes tissue/clinical/transparent. cutaway toggles full/sectioned walls. Spacebar plays 75 BPM illustrative cycle. All structures named, editable; no external assets.",
+      "value": "Educational bladder display. Static export with no animation clips. No exported keyboard, cutaway-toggle or material-switching behavior is established by this metadata. Not clinically validated."
+    },
+    {
+      "path": "/scenes/0/extras/coordinates",
+      "op": "remove",
+      "oldValue": "BU: X patient-left, Y posterior, Z superior. RAS millimeters=(-25X,-25Y,+25Z)."
+    },
+    {
+      "path": "/scenes/0/extras/clinical_status",
+      "op": "retain",
+      "oldValue": "Procedural educational model, not patient-derived or clinically validated.",
+      "value": "Procedural educational model, not patient-derived or clinically validated."
+    },
+    {
+      "path": "/scenes/0/extras/reference_phase",
+      "op": "remove",
+      "oldValue": "Frame 1 end-diastole, beginning of atrial systole. 30fps,24 frames/cycle,75bpm."
+    },
+    {
+      "path": "/scenes/0/extras/material_set_names",
+      "op": "remove",
+      "oldValue": "0: procedural tissue-style; 1: clinical circulation colors; 2: transparent educational shell"
+    },
+    {
+      "path": "/scenes/0/extras/animation_model",
+      "op": "replace",
+      "oldValue": "Illustrative regional shape-key shortening + torsion; valve timing; no biomechanical or flow simulation",
+      "value": "Static export with no animation clips."
+    },
+    {
+      "path": "/scenes/0/extras/pericardial_layers",
+      "op": "remove",
+      "oldValue": "Endocardium/myocardium/epicardium represented by material-bearing wall surfaces; parietal serous pericardium separate simplified envelope. Epicardium is visceral serous layer. Fibrous sac thickness/reflections simplified."
+    }
+  ]
+}

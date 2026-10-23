@@ -1,0 +1,35 @@
+{
+  "scope": "Representative static appearance identity only; no per-model quality upgrade",
+  "nativePNGsDeferred": true,
+  "results": [
+    {
+      "assetId": "brain",
+      "sourceSha256": "ce2340e81c21271c0ea3358ae082cc0b5f671f7f873c7311c9e41252e252d985",
+      "targetSha256": "22c0740411c3ef80ed40ca2637dda47e4271bd877ab200602c154c7a2893494a",
+      "views": [
+        {
+          "view": "front",
+          "changedRGBAPixels": 20,
+          "maxChannelDifference": 15,
+          "baselinePngSha256": "990d979fd66df58c0c7c809a26b07ba79545857a8cd62d310167c5bb91b93014",
+          "derivativePngSha256": "a560861523fc0e217ea64cbcf079f746ce7d32b0d3c3c110490110464c69623c",
+          "baselineRGBASha256": "12095bc834d07f206c11f0702a287fb54da46878196aca469d27899b4b4a6924",
+          "derivativeRGBASha256": "5374a9c2d02501c2cece638adaab64f46ca59e83a4b8ba7432dfd5cf3e99fbe0"
+        },
+        {
+          "view": "superior",
+          "changedRGBAPixels": 19,
+          "maxChannelDifference": 21,
+          "baselinePngSha256": "095cef09c3fe244ae0a9cab96c3714a7f46ccd5c1c02645449bb8a4476966b41",
+          "derivativePngSha256": "80d3cf03539889dfcd72029b6311dcdfdd1401907f488237d4df4ee967dafaed",
+          "baselineRGBASha256": "7fd2f8575a23a450f4c4f3ed1461dced7f517d10b5888c4772ca1e814690be2f",
+          "derivativeRGBASha256": "bc23f9c1f482d65e4f28acd02f781644f141a3a407387067d0b86db630ff61f8"
+        }
+      ],
+      "pixelIdentical": false,
+      "method": "Blender 4.3.2 Cycles CPU, frame 1, fixed seed 0, 48 samples, 512x512. Independent source/derivative imports; decoded RGBA compared exactly. Offline identity test only, not quality or runtime approval."
+    }
+  ],
+  "interpretation": "Brain source/metadata comparison is not pixel-identical (20/19 changed pixels); repeated identical source input also varies (63/23). Do not claim zero differences or a proven rendering cause. Exact BIN/all-other-JSON identity establishes no render-data changes. Original failed visual status remains.",
+  "repeatControl": "reviews/metadata-cleanup-2026-10-23/static-nonheart/brain-identical-input-repeat.json"
+}
