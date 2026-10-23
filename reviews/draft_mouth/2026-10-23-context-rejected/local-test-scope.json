@@ -1,0 +1,21 @@
+{
+  "sourceReportSha256": "9a0095251f66510870900d8db4b10b40359ad29633808317ed706e3c84783518",
+  "method": "Zero-epsilon recentered BVH candidate search, followed by EXACT integer/rational triangle-plane and coplanar polygon predicates on exported float32 coordinates scaled by2^149. Shared-edge contacts are allowed only within that exact edge; positive segments extending beyond a shared vertex and positive coplanar area are flagged. No tolerance threshold used to discard an actual positive intersection. BVH candidate completeness and full static-source self-intersection are not universally certified.",
+  "records": [
+    {
+      "stage": "before",
+      "BVHCandidateFacePairs": 1170,
+      "legitimateSharedEdgeContacts": 1090,
+      "positiveIntersectionsBeyondSharedFeature": 80,
+      "seconds": 0.7459678110026289
+    },
+    {
+      "stage": "after",
+      "BVHCandidateFacePairs": 1096,
+      "legitimateSharedEdgeContacts": 1096,
+      "positiveIntersectionsBeyondSharedFeature": 0,
+      "seconds": 0.7333016529955785
+    }
+  ],
+  "scope": "Queried local contact pairs only. BVH completeness and all inherited source self-intersections not certified. No full-mouth readability, anatomy or runtime pass."
+}

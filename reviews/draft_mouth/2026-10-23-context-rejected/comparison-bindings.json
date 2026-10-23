@@ -1,0 +1,40 @@
+{
+  "layoutOnly": true,
+  "sourceImages": [
+    {
+      "file": "reviews/context-source-renders/whole-window-oblique.png",
+      "sha256": "bc7f70e79e6f1406955b4ebdb9d7c78a95b77d6702f3b34153158bf3a3e7dc0c"
+    },
+    {
+      "file": "reviews/context-p12-renders/whole-window-oblique.png",
+      "sha256": "53559ea919b97545d35929a95ea5b6e727b6342a4293eecaf319d76a4790fe17"
+    },
+    {
+      "file": "reviews/context-source-renders/whole-window-neutral.png",
+      "sha256": "6e3ffe60b7d2748ff624bf00ba0f03330e61332d0d126c940a4db250d59f6583"
+    },
+    {
+      "file": "reviews/context-p12-renders/whole-window-neutral.png",
+      "sha256": "c19dc0cb533b931590d0a117683b69543c2f9845c95cba624d08b73e37bdf6d4"
+    }
+  ],
+  "outputSHA256": "3d66cb2e502a66cad6c15137fb8a82750e43da911f2be7a6102a7dd87d5d979a",
+  "interpretation": "Diagnostic negative result for whole-mouth readability; no anatomy or clinical validation",
+  "artifactBindings": [
+    {
+      "name": "oral-window-source-CONTEXT-DIAGNOSTIC.glb",
+      "sha256": "45e6565c24f893428575e6a501a343e187423643acf37ec47b5be30737adff7c",
+      "bytes": 64423632,
+      "role": "control: original floor/gingiva, same display window",
+      "payloadIncluded": false
+    },
+    {
+      "name": "oral-window-p12-CONTEXT-DIAGNOSTIC.glb",
+      "sha256": "9c7a925e2f387d4baba9b23a2441290c57df0f0085c8eb58a0714be6b0fb1e14",
+      "bytes": 64462304,
+      "role": "rejected prototype: authored local floor/gingiva transition",
+      "payloadIncluded": false
+    }
+  ],
+  "sourceImagesPackaged": false
+}

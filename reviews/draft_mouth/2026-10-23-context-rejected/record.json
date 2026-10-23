@@ -1,0 +1,106 @@
+{
+  "id": "draft_mouth__context_rejected_20261023",
+  "assetId": "draft_mouth",
+  "status": "needs-revision",
+  "newAcceptedCandidateCount": 0,
+  "existingGatesChanged": false,
+  "artifacts": [
+    {
+      "name": "oral-window-source-CONTEXT-DIAGNOSTIC.glb",
+      "sha256": "45e6565c24f893428575e6a501a343e187423643acf37ec47b5be30737adff7c",
+      "bytes": 64423632,
+      "role": "control: original floor/gingiva, same display window",
+      "payloadIncluded": false
+    },
+    {
+      "name": "oral-window-p12-CONTEXT-DIAGNOSTIC.glb",
+      "sha256": "9c7a925e2f387d4baba9b23a2441290c57df0f0085c8eb58a0714be6b0fb1e14",
+      "bytes": 64462304,
+      "role": "rejected prototype: authored local floor/gingiva transition",
+      "payloadIncluded": false
+    }
+  ],
+  "scope": {
+    "en": "Negative whole-mouth readability result. Local seam work did not make the full closed-pose context useful or complete. Gold display-cut faces are not reconstructed tissue.",
+    "zh": "\u5168\u53e3\u8154\u53ef\u8bfb\u6027\u672a\u8fbe\u6807\u3002\u5c40\u90e8\u63a5\u7f1d\u4fee\u6574\u672a\u80fd\u4f7f\u95ed\u53e3\u59ff\u6001\u7684\u6574\u4f53\u5c55\u793a\u6e05\u695a\u6216\u5b8c\u6574\u3002\u91d1\u8272\u5c55\u793a\u5207\u53e3\u5e76\u975e\u91cd\u5efa\u7ec4\u7ec7\u3002"
+  },
+  "failureSummary": {
+    "failure": {
+      "en": "Local floor/gingiva seam improved, but full oral context remains heavily occluded.",
+      "zh": "\u53e3\u5e95\uff0f\u4e0b\u7259\u9f88\u5c40\u90e8\u63a5\u7f1d\u6709\u6240\u6539\u5584\uff0c\u4f46\u6574\u4f53\u53e3\u8154\u4ecd\u4e25\u91cd\u906e\u6321\u3002"
+    },
+    "cause": {
+      "en": "Original closed-pose gingival/palatal walls and tongue obscure the repaired region.",
+      "zh": "\u539f\u59cb\u95ed\u53e3\u59ff\u6001\u4e0b\u7684\u7259\u9f88\uff0f\u816d\u58c1\u548c\u820c\u4f53\u906e\u4f4f\u4e86\u4fee\u6574\u533a\u57df\u3002"
+    },
+    "fix": {
+      "en": "Bounded local transition plus the same clearly marked buccal display window in both control and prototype.",
+      "zh": "\u4ec5\u4fee\u6574\u5c40\u90e8\u8fc7\u6e21\uff0c\u5e76\u5728\u5bf9\u7167\u548c\u539f\u578b\u4e2d\u4f7f\u7528\u76f8\u540c\u3001\u660e\u786e\u6807\u793a\u7684\u988a\u4fa7\u5c55\u793a\u7a97\u53e3\u3002"
+    },
+    "retest": {
+      "en": "Matched exact-export colored and neutral-tissue views still fail the whole-mouth readability target. Local contact tests do not certify the entire model.",
+      "zh": "\u5339\u914d\u7684\u7cbe\u786e\u5bfc\u51fa\u5f69\u8272\u4e0e\u4e2d\u6027\u7ec4\u7ec7\u6750\u8d28\u89c6\u56fe\u4ecd\u672a\u8fbe\u5230\u5168\u53e3\u8154\u53ef\u8bfb\u6027\u76ee\u6807\u3002\u5c40\u90e8\u63a5\u89e6\u6d4b\u8bd5\u4e0d\u80fd\u8bc1\u660e\u6574\u4e2a\u6a21\u578b\u5408\u683c\u3002"
+    },
+    "lesson": {
+      "en": "Solve presentation and pose scope before polishing a hidden seam; better local topology does not prove a useful whole-organ teaching view.",
+      "zh": "\u5148\u89e3\u51b3\u5c55\u793a\u4e0e\u59ff\u6001\u8303\u56f4\uff0c\u518d\u6253\u78e8\u9690\u85cf\u63a5\u7f1d\uff1b\u5c40\u90e8\u62d3\u6251\u6539\u5584\u4e0d\u4ee3\u8868\u6574\u4f53\u5668\u5b98\u6559\u5b66\u89c6\u56fe\u6709\u7528\u3002"
+    }
+  },
+  "limitations": [
+    "Gland meshes 0\u20135 omitted in both displayed context exports.",
+    "No separate authored tongue inserted; original teeth, tongue/papillae and palate retained in native placement.",
+    "No whole-mouth, clinical, anatomy completeness or runtime approval.",
+    "Large control/prototype/source GLBs and full history are deliberately not included."
+  ],
+  "evidence": [
+    {
+      "file": "reviews/draft_mouth/2026-10-23-context-rejected/context-before-after-comparison.png",
+      "sha256": "3d66cb2e502a66cad6c15137fb8a82750e43da911f2be7a6102a7dd87d5d979a",
+      "bytes": 500392,
+      "role": "rejected-comparison",
+      "label": {
+        "en": "Matched context \u00b7 no whole-mouth pass",
+        "zh": "\u5339\u914d\u6574\u4f53\u5bf9\u7167 \u00b7 \u5168\u53e3\u8154\u672a\u901a\u8fc7"
+      },
+      "artifactBindings": [
+        {
+          "name": "oral-window-source-CONTEXT-DIAGNOSTIC.glb",
+          "sha256": "45e6565c24f893428575e6a501a343e187423643acf37ec47b5be30737adff7c",
+          "bytes": 64423632,
+          "role": "control: original floor/gingiva, same display window",
+          "payloadIncluded": false
+        },
+        {
+          "name": "oral-window-p12-CONTEXT-DIAGNOSTIC.glb",
+          "sha256": "9c7a925e2f387d4baba9b23a2441290c57df0f0085c8eb58a0714be6b0fb1e14",
+          "bytes": 64462304,
+          "role": "rejected prototype: authored local floor/gingiva transition",
+          "payloadIncluded": false
+        }
+      ],
+      "originalPixelsUnchanged": true
+    }
+  ],
+  "files": [
+    {
+      "file": "reviews/draft_mouth/2026-10-23-context-rejected/source-attribution.json",
+      "sha256": "8014c1bb82bfa475df95dc2dab1b20c43a611b3a627c6964f4e1290342d61dfb",
+      "bytes": 581
+    },
+    {
+      "file": "reviews/draft_mouth/2026-10-23-context-rejected/context-before-after-comparison.png",
+      "sha256": "3d66cb2e502a66cad6c15137fb8a82750e43da911f2be7a6102a7dd87d5d979a",
+      "bytes": 500392
+    },
+    {
+      "file": "reviews/draft_mouth/2026-10-23-context-rejected/comparison-bindings.json",
+      "sha256": "2c08bab305a8afcc2cd9808e47834315e3c5736ad13258153397d56496e843eb",
+      "bytes": 1547
+    },
+    {
+      "file": "reviews/draft_mouth/2026-10-23-context-rejected/local-test-scope.json",
+      "sha256": "23fd7d6f01c7ed5e410d9d787a594fd3b8e56637f86bf345daa45797050a5c44",
+      "bytes": 1221
+    }
+  ]
+}
