@@ -1,0 +1,401 @@
+{
+  "studies": [
+    {
+      "study": "second-costal",
+      "file": "assemblies/skeletal-teaching/2026-10-23/second-costal.glb",
+      "sha256": "181d3e175e93702bb52f98535f2ebfe1d9387425dd432f19318161db7db99f05",
+      "selected_ids": [
+        "FJ3335",
+        "FJ3242",
+        "FJ3229",
+        "FJ3336",
+        "FJ3158",
+        "FJ3160",
+        "FJ3153",
+        "FJ3178",
+        "FJ3290"
+      ],
+      "checks": [
+        {
+          "id": "FJ3153",
+          "max_roundtrip_vertex_error_m": 0.0,
+          "same_triangle_vertex_mapping": true,
+          "triangles": 922,
+          "source_sha256": "d17057ed1dad252a6fa6a3e8d92bc13310cebe0b584df147af0cc4a646f98f3e"
+        },
+        {
+          "id": "FJ3158",
+          "max_roundtrip_vertex_error_m": 0.0,
+          "same_triangle_vertex_mapping": true,
+          "triangles": 1700,
+          "source_sha256": "57a9cd9f62fc902f2d10f32c83237bba5bee4a24ae323a2b2405d9df68fd585b"
+        },
+        {
+          "id": "FJ3160",
+          "max_roundtrip_vertex_error_m": 0.0,
+          "same_triangle_vertex_mapping": true,
+          "triangles": 1938,
+          "source_sha256": "f04ca280dc74fdc79afb14e5da1515a1e77762960bb38fab869be0e617348eac"
+        },
+        {
+          "id": "FJ3178",
+          "max_roundtrip_vertex_error_m": 0.0,
+          "same_triangle_vertex_mapping": true,
+          "triangles": 4646,
+          "source_sha256": "32a06946d8eadbe1a847a373abe7499381c0182c72b7c94e3e2a0c3ba7c867e3"
+        },
+        {
+          "id": "FJ3229",
+          "max_roundtrip_vertex_error_m": 0.0,
+          "same_triangle_vertex_mapping": true,
+          "triangles": 5594,
+          "source_sha256": "b752f038ceba8430f3872897ce69495d7dd74ed8e19c21d3f75d0bc0b156d84f"
+        },
+        {
+          "id": "FJ3242",
+          "max_roundtrip_vertex_error_m": 0.0,
+          "same_triangle_vertex_mapping": true,
+          "triangles": 588,
+          "source_sha256": "c83bb88d995837a455e72707e9d5ecb0035ad60d8fd2f6f28d3710b4ef4c9d8e"
+        },
+        {
+          "id": "FJ3290",
+          "max_roundtrip_vertex_error_m": 0.0,
+          "same_triangle_vertex_mapping": true,
+          "triangles": 2546,
+          "source_sha256": "b847e67db475197cc4510744fef76bafd8e75c50797ca85eb8cd56dd853d61d6"
+        },
+        {
+          "id": "FJ3335",
+          "max_roundtrip_vertex_error_m": 0.0,
+          "same_triangle_vertex_mapping": true,
+          "triangles": 658,
+          "source_sha256": "065a4969ea4210ce6d3f5838dc2da20f1153de478e02c7a86ced152eab82bf6a"
+        },
+        {
+          "id": "FJ3336",
+          "max_roundtrip_vertex_error_m": 0.0,
+          "same_triangle_vertex_mapping": true,
+          "triangles": 5594,
+          "source_sha256": "e9f527453bb2a48764ac7243d0b9b23e37fb2a85e92cee445972a1a770a5eaa4"
+        }
+      ],
+      "noAnimationClaim": true
+    },
+    {
+      "study": "L3-L4-disc",
+      "file": "assemblies/skeletal-teaching/2026-10-23/L3-L4-disc.glb",
+      "sha256": "d476f7efe89cea84fa3a7670b505e557c328ddae10526cc4083e4c95313b80d5",
+      "selected_ids": [
+        "FJ3162",
+        "FJ3165",
+        "FJ3215"
+      ],
+      "checks": [
+        {
+          "id": "FJ3162",
+          "max_roundtrip_vertex_error_m": 0.0,
+          "same_triangle_vertex_mapping": true,
+          "triangles": 3272,
+          "source_sha256": "07fdac1c69d14c68241176f055da667eec8c2976c3a579df235d90e66fca91b0"
+        },
+        {
+          "id": "FJ3165",
+          "max_roundtrip_vertex_error_m": 0.0,
+          "same_triangle_vertex_mapping": true,
+          "triangles": 3512,
+          "source_sha256": "e30bc2a914a50d097dc5824cacbe54be10fc68c9f43cd9ef023519bc146cab61"
+        },
+        {
+          "id": "FJ3215",
+          "max_roundtrip_vertex_error_m": 0.0,
+          "same_triangle_vertex_mapping": true,
+          "triangles": 3454,
+          "source_sha256": "671fbfa846c09e3ef118964eadd7433ba7a181065dc67f303d63efef4e29569e"
+        }
+      ],
+      "noAnimationClaim": true
+    }
+  ],
+  "renderBindings": [],
+  "sourceRecords": [
+    {
+      "id": "FJ3153",
+      "concept": [
+        "FMA7485",
+        "sternum"
+      ],
+      "path": "external-source/d17057ed1dad252a6fa6a3e8d92bc13310cebe0b584df147af0cc4a646f98f3e/FJ3153.obj",
+      "sha256": "d17057ed1dad252a6fa6a3e8d92bc13310cebe0b584df147af0cc4a646f98f3e",
+      "vertices": 495,
+      "faces": 922,
+      "bounds_m": [
+        [
+          -0.0103378,
+          -0.21335300000000001,
+          1.16402
+        ],
+        [
+          0.0106039,
+          -0.198509,
+          1.1845
+        ]
+      ]
+    },
+    {
+      "id": "FJ3178",
+      "concept": [
+        "FMA7485",
+        "sternum"
+      ],
+      "path": "external-source/32a06946d8eadbe1a847a373abe7499381c0182c72b7c94e3e2a0c3ba7c867e3/FJ3178.obj",
+      "sha256": "32a06946d8eadbe1a847a373abe7499381c0182c72b7c94e3e2a0c3ba7c867e3",
+      "vertices": 3691,
+      "faces": 4646,
+      "bounds_m": [
+        [
+          -0.023614899999999998,
+          -0.213832,
+          1.17965
+        ],
+        [
+          0.0239556,
+          -0.165166,
+          1.2896400000000001
+        ]
+      ]
+    },
+    {
+      "id": "FJ3290",
+      "concept": [
+        "FMA7485",
+        "sternum"
+      ],
+      "path": "external-source/b847e67db475197cc4510744fef76bafd8e75c50797ca85eb8cd56dd853d61d6/FJ3290.obj",
+      "sha256": "b847e67db475197cc4510744fef76bafd8e75c50797ca85eb8cd56dd853d61d6",
+      "vertices": 1446,
+      "faces": 2546,
+      "bounds_m": [
+        [
+          -0.0274497,
+          -0.178588,
+          1.28027
+        ],
+        [
+          0.0274497,
+          -0.130801,
+          1.32525
+        ]
+      ]
+    },
+    {
+      "id": "FJ3335",
+      "concept": [
+        "FMA7886",
+        "right second costal cartilage"
+      ],
+      "path": "external-source/065a4969ea4210ce6d3f5838dc2da20f1153de478e02c7a86ced152eab82bf6a/FJ3335.obj",
+      "sha256": "065a4969ea4210ce6d3f5838dc2da20f1153de478e02c7a86ced152eab82bf6a",
+      "vertices": 383,
+      "faces": 658,
+      "bounds_m": [
+        [
+          -0.048187,
+          -0.178261,
+          1.27012
+        ],
+        [
+          -0.0102446,
+          -0.157745,
+          1.28802
+        ]
+      ]
+    },
+    {
+      "id": "FJ3242",
+      "concept": [
+        "FMA8031",
+        "left second costal cartilage"
+      ],
+      "path": "external-source/c83bb88d995837a455e72707e9d5ecb0035ad60d8fd2f6f28d3710b4ef4c9d8e/FJ3242.obj",
+      "sha256": "c83bb88d995837a455e72707e9d5ecb0035ad60d8fd2f6f28d3710b4ef4c9d8e",
+      "vertices": 330,
+      "faces": 588,
+      "bounds_m": [
+        [
+          0.010202500000000001,
+          -0.17824500000000001,
+          1.27017
+        ],
+        [
+          0.0480573,
+          -0.157748,
+          1.28801
+        ]
+      ]
+    },
+    {
+      "id": "FJ3215",
+      "concept": [
+        "FMA16035",
+        "intervertebral disk of third lumbar vertebra"
+      ],
+      "path": "external-source/671fbfa846c09e3ef118964eadd7433ba7a181065dc67f303d63efef4e29569e/FJ3215.obj",
+      "sha256": "671fbfa846c09e3ef118964eadd7433ba7a181065dc67f303d63efef4e29569e",
+      "vertices": 4151,
+      "faces": 3454,
+      "bounds_m": [
+        [
+          -0.023009699999999998,
+          -0.112853,
+          0.963294
+        ],
+        [
+          0.0217167,
+          -0.0745784,
+          0.980707
+        ]
+      ]
+    },
+    {
+      "id": "FJ3158",
+      "concept": [
+        "FMA9165",
+        "first thoracic vertebra"
+      ],
+      "path": "external-source/57a9cd9f62fc902f2d10f32c83237bba5bee4a24ae323a2b2405d9df68fd585b/FJ3158.obj",
+      "sha256": "57a9cd9f62fc902f2d10f32c83237bba5bee4a24ae323a2b2405d9df68fd585b",
+      "vertices": 1078,
+      "faces": 1700,
+      "bounds_m": [
+        [
+          -0.037383000000000007,
+          -0.0868719,
+          1.34722
+        ],
+        [
+          0.0359162,
+          -0.0170867,
+          1.3769
+        ]
+      ]
+    },
+    {
+      "id": "FJ3162",
+      "concept": [
+        "FMA13074",
+        "third lumbar vertebra"
+      ],
+      "path": "external-source/07fdac1c69d14c68241176f055da667eec8c2976c3a579df235d90e66fca91b0/FJ3162.obj",
+      "sha256": "07fdac1c69d14c68241176f055da667eec8c2976c3a579df235d90e66fca91b0",
+      "vertices": 1849,
+      "faces": 3272,
+      "bounds_m": [
+        [
+          -0.0402029,
+          -0.115353,
+          0.967693
+        ],
+        [
+          0.038841,
+          -0.029514,
+          1.00973
+        ]
+      ]
+    },
+    {
+      "id": "FJ3165",
+      "concept": [
+        "FMA13075",
+        "fourth lumbar vertebra"
+      ],
+      "path": "external-source/e30bc2a914a50d097dc5824cacbe54be10fc68c9f43cd9ef023519bc146cab61/FJ3165.obj",
+      "sha256": "e30bc2a914a50d097dc5824cacbe54be10fc68c9f43cd9ef023519bc146cab61",
+      "vertices": 1968,
+      "faces": 3512,
+      "bounds_m": [
+        [
+          -0.0427661,
+          -0.110405,
+          0.938664
+        ],
+        [
+          0.0414154,
+          -0.026156199999999998,
+          0.9834020000000001
+        ]
+      ]
+    },
+    {
+      "id": "FJ3160",
+      "concept": [
+        "FMA9187",
+        "second thoracic vertebra"
+      ],
+      "path": "external-source/f04ca280dc74fdc79afb14e5da1515a1e77762960bb38fab869be0e617348eac/FJ3160.obj",
+      "sha256": "f04ca280dc74fdc79afb14e5da1515a1e77762960bb38fab869be0e617348eac",
+      "vertices": 1161,
+      "faces": 1938,
+      "bounds_m": [
+        [
+          -0.0359221,
+          -0.0826758,
+          1.32659
+        ],
+        [
+          0.0345784,
+          -0.0121205,
+          1.36036
+        ]
+      ]
+    },
+    {
+      "id": "FJ3229",
+      "concept": [
+        "FMA8012",
+        "left second rib"
+      ],
+      "path": "external-source/b752f038ceba8430f3872897ce69495d7dd74ed8e19c21d3f75d0bc0b156d84f/FJ3229.obj",
+      "sha256": "b752f038ceba8430f3872897ce69495d7dd74ed8e19c21d3f75d0bc0b156d84f",
+      "vertices": 2862,
+      "faces": 5594,
+      "bounds_m": [
+        [
+          0.0147349,
+          -0.16712700000000003,
+          1.27351
+        ],
+        [
+          0.09566100000000001,
+          -0.0506468,
+          1.35903
+        ]
+      ]
+    },
+    {
+      "id": "FJ3336",
+      "concept": [
+        "FMA7882",
+        "right second rib"
+      ],
+      "path": "external-source/e9f527453bb2a48764ac7243d0b9b23e37fb2a85e92cee445972a1a770a5eaa4/FJ3336.obj",
+      "sha256": "e9f527453bb2a48764ac7243d0b9b23e37fb2a85e92cee445972a1a770a5eaa4",
+      "vertices": 2861,
+      "faces": 5594,
+      "bounds_m": [
+        [
+          -0.0969721,
+          -0.16715700000000003,
+          1.27355
+        ],
+        [
+          -0.016049499999999998,
+          -0.0506529,
+          1.35903
+        ]
+      ]
+    }
+  ],
+  "noCanonicalEdits": true,
+  "noNewAcceptedModelCount": true
+}
