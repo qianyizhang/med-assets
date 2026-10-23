@@ -1,0 +1,69 @@
+{
+  "id": "kidney_right",
+  "modes": {
+    "all_source_geometry": [
+      "capsule",
+      "hilum_surface",
+      "outer_cortex",
+      "renal_column_surface",
+      "papilla_labeled_tip_surfaces",
+      "renal_pyramids"
+    ],
+    "medulla_and_tip_surfaces": [
+      "renal_pyramids",
+      "papilla_labeled_tip_surfaces"
+    ],
+    "capsule_only": [
+      "capsule"
+    ]
+  },
+  "layers": {
+    "capsule": [
+      "VH_F_kidney_capsule_R"
+    ],
+    "hilum_surface": [
+      "VH_F_hilum_of_kidney_R"
+    ],
+    "outer_cortex": [
+      "VH_F_outer_cortex_of_kidney_R"
+    ],
+    "renal_column_surface": [
+      "VH_F_renal_column_R"
+    ],
+    "papilla_labeled_tip_surfaces": [
+      "VH_F_renal_papilla_R_a",
+      "VH_F_renal_papilla_R_b",
+      "VH_F_renal_papilla_R_c",
+      "VH_F_renal_papilla_R_d",
+      "VH_F_renal_papilla_R_e",
+      "VH_F_renal_papilla_R_f",
+      "VH_F_renal_papilla_R_g",
+      "VH_F_renal_papilla_R_h",
+      "VH_F_renal_papilla_R_i",
+      "VH_F_renal_papilla_R_j"
+    ],
+    "renal_pyramids": [
+      "VH_F_renal_pyramid_R_a",
+      "VH_F_renal_pyramid_R_b",
+      "VH_F_renal_pyramid_R_c",
+      "VH_F_renal_pyramid_R_d",
+      "VH_F_renal_pyramid_R_e",
+      "VH_F_renal_pyramid_R_f",
+      "VH_F_renal_pyramid_R_g",
+      "VH_F_renal_pyramid_R_h",
+      "VH_F_renal_pyramid_R_i",
+      "VH_F_renal_pyramid_R_j"
+    ]
+  },
+  "supportedModes": [
+    "all_source_geometry",
+    "medulla_and_tip_surfaces"
+  ],
+  "diagnosticOnlyModes": [
+    "capsule_only"
+  ],
+  "rejectedModes": [
+    "columns_and_medulla"
+  ],
+  "note": "Modes require consumer visibility control. GLB extras do not themselves hide anything; default GLB scene preserves all original source geometry. Source papilla labels describe retained tip surfaces, not verification of a full collecting system."
+}

@@ -1,0 +1,170 @@
+{
+  "scope": "Read-only exact-index/position-tuple diagnostic on supplied left kidney GLBs only. No geometry change, Blender reimport, epsilon weld, clinical or runtime conclusion.",
+  "definition": "A triangle is collapsed when fewer than 3 distinct decoded float32 POSITION tuples remain for its 3 indexed corners, using exact equality. Different indices at exactly equal coordinates count as one position. This is not an epsilon-based near-degeneracy test.",
+  "scriptSha256": "5feab6f8ee445f0072cac57e769d6700f2dbfb8fa2f23561f7dc11a6df658bd4",
+  "pythonVersion": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "source": {
+    "fileName": "3d-vh-f-kidney-l.glb",
+    "sha256": "58f0227d45b14d7bcfd2ed05a7bcd76000051ea08d52f844feebd70d612f8084",
+    "binSha256": "d2ced61c1dab66d323b0af79a6b751bcd3d73d59c25795d795e6ad12e13117cd",
+    "binBytes": 1332376,
+    "indexedTriangles": 73526,
+    "collapsedTriangleCount": 2,
+    "affectedPrimitives": [
+      {
+        "meshIndex": 25,
+        "meshName": "VH_F_outer_cortex_of_kidney_L",
+        "primitiveIndex": 0,
+        "positionAccessor": 76,
+        "indexAccessor": 75,
+        "positionRows": 6896,
+        "uniqueExactPositions": 6895,
+        "indexedTriangles": 13784,
+        "collapsedTriangles": [
+          {
+            "triangleOrdinalZeroBased": 13294,
+            "indexStreamOffsetZeroBased": 39882,
+            "indices": [
+              6661,
+              6660,
+              6662
+            ],
+            "positions": [
+              [
+                0.07815374433994293,
+                0.23261617124080658,
+                -0.07644027471542358
+              ],
+              [
+                0.0781538113951683,
+                0.23261816799640656,
+                -0.07644038647413254
+              ],
+              [
+                0.07815374433994293,
+                0.23261617124080658,
+                -0.07644027471542358
+              ]
+            ],
+            "distinctIndexCount": 3,
+            "distinctExactPositionCount": 2
+          },
+          {
+            "triangleOrdinalZeroBased": 13314,
+            "indexStreamOffsetZeroBased": 39942,
+            "indices": [
+              6662,
+              6668,
+              6661
+            ],
+            "positions": [
+              [
+                0.07815374433994293,
+                0.23261617124080658,
+                -0.07644027471542358
+              ],
+              [
+                0.078153595328331,
+                0.2326141744852066,
+                -0.07644013315439224
+              ],
+              [
+                0.07815374433994293,
+                0.23261617124080658,
+                -0.07644027471542358
+              ]
+            ],
+            "distinctIndexCount": 3,
+            "distinctExactPositionCount": 2
+          }
+        ],
+        "boundaryEdgesIncludingCollapsed": 0,
+        "overusedEdgesIncludingCollapsed": 5,
+        "overusedEdgesExcludingCollapsed": 3
+      }
+    ]
+  },
+  "candidate": {
+    "fileName": "kidney_left_hra_female_r02.glb",
+    "sha256": "8e55b5ae48821f067f41bd23ffdd668f68c7ff705cf49e9a40287042fee469fc",
+    "binSha256": "d2ced61c1dab66d323b0af79a6b751bcd3d73d59c25795d795e6ad12e13117cd",
+    "binBytes": 1332376,
+    "indexedTriangles": 73526,
+    "collapsedTriangleCount": 2,
+    "affectedPrimitives": [
+      {
+        "meshIndex": 25,
+        "meshName": "VH_F_outer_cortex_of_kidney_L",
+        "primitiveIndex": 0,
+        "positionAccessor": 76,
+        "indexAccessor": 75,
+        "positionRows": 6896,
+        "uniqueExactPositions": 6895,
+        "indexedTriangles": 13784,
+        "collapsedTriangles": [
+          {
+            "triangleOrdinalZeroBased": 13294,
+            "indexStreamOffsetZeroBased": 39882,
+            "indices": [
+              6661,
+              6660,
+              6662
+            ],
+            "positions": [
+              [
+                0.07815374433994293,
+                0.23261617124080658,
+                -0.07644027471542358
+              ],
+              [
+                0.0781538113951683,
+                0.23261816799640656,
+                -0.07644038647413254
+              ],
+              [
+                0.07815374433994293,
+                0.23261617124080658,
+                -0.07644027471542358
+              ]
+            ],
+            "distinctIndexCount": 3,
+            "distinctExactPositionCount": 2
+          },
+          {
+            "triangleOrdinalZeroBased": 13314,
+            "indexStreamOffsetZeroBased": 39942,
+            "indices": [
+              6662,
+              6668,
+              6661
+            ],
+            "positions": [
+              [
+                0.07815374433994293,
+                0.23261617124080658,
+                -0.07644027471542358
+              ],
+              [
+                0.078153595328331,
+                0.2326141744852066,
+                -0.07644013315439224
+              ],
+              [
+                0.07815374433994293,
+                0.23261617124080658,
+                -0.07644027471542358
+              ]
+            ],
+            "distinctIndexCount": 3,
+            "distinctExactPositionCount": 2
+          }
+        ],
+        "boundaryEdgesIncludingCollapsed": 0,
+        "overusedEdgesIncludingCollapsed": 5,
+        "overusedEdgesExcludingCollapsed": 3
+      }
+    ]
+  },
+  "geometryPreservationEvidence": "BIN chunks and affected-primitive details identical.",
+  "gateEffect": "None. Existing scoped visual approval and pass-with-limitations technical status can coexist with inherited topology warnings; anatomy/runtime not inferred."
+}

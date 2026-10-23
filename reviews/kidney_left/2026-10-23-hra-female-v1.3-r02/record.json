@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "id": "kidney-left-hra-female-r02-bounded-import",
+  "assetId": "kidney_left",
+  "variantId": "kidney_left__hra-female-r02",
+  "reviewedAt": "2026-10-23T05:18:07Z",
+  "reviewTimeNote": "Recorded scoped acceptance time from original review-outcome.json; later replay/import is technical verification, not a new anatomy verdict.",
+  "artifact": {
+    "file": "models/kidney_left/exports/hra-female-v1.3-r02/kidney_left.glb",
+    "sha256": "8e55b5ae48821f067f41bd23ffdd668f68c7ff705cf49e9a40287042fee469fc"
+  },
+  "gates": {
+    "technical": {
+      "status": "pass-with-limitations",
+      "scope": "Exact source/derivative identity, unchanged BIN and original JSON recovery after reverting documented metadata/material changes. Source topology warnings retained."
+    },
+    "visual": {
+      "status": "passed",
+      "scope": "Reviewer inspected exact matte contacts; native-frame exterior plus isolated pyramids/source-labeled tip surfaces only."
+    },
+    "anatomy": {
+      "status": "unreviewed",
+      "scope": "No expert anatomy or collecting-system completeness validation."
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "No browser 3D, motion or runtime validation."
+    }
+  },
+  "evidence": [
+    {
+      "file": "reviews/kidney_left/2026-10-23-hra-female-v1.3-r02/display/contact.webp",
+      "sha256": "2a194bee7c66deab78bb74a090ee4f6bc44b6bcb59f9c57164100ffed506690d",
+      "artifactSha256": "8e55b5ae48821f067f41bd23ffdd668f68c7ff705cf49e9a40287042fee469fc",
+      "kind": "lossy-webp-display-derivative",
+      "originalPngSha256": "8479f68fd98b473ab73e55080b6aca8aba64f54391b9a8923ed5e2601ec564c3",
+      "note": "Quality 92 lossy derivative, not original lossless PNG. Historical pending header, if present, predates recorded scoped acceptance; original image pixels were not rewritten."
+    },
+    {
+      "file": "reviews/kidney_left/2026-10-23-hra-female-v1.3-r02/display/medulla_and_tip_surfaces_front.webp",
+      "sha256": "b140b1200fe8947b2185da28e7dc39d27cc991facbb88d18bcb0e3bd81ef010c",
+      "artifactSha256": "8e55b5ae48821f067f41bd23ffdd668f68c7ff705cf49e9a40287042fee469fc",
+      "kind": "lossy-webp-display-derivative",
+      "originalPngSha256": "e33dffa541417aa5a369d02f3ac927606a608a53935fb5dfee5dcd2d1700d51e",
+      "note": "Quality 92 lossy derivative, not original lossless PNG. Historical pending header, if present, predates recorded scoped acceptance; original image pixels were not rewritten."
+    }
+  ],
+  "failureSummary": {
+    "failure": "CT-derived terrace bands and glossy source materials hindered display; column/pyramid overlap is not a clean teaching view.",
+    "cause": "Different source geometry and overlapping annotation layers; no clinical diagnosis inferred.",
+    "fix": "Separate HRA female source study with only metadata and three roughness changes; no smoothing, repair or registration.",
+    "retest": "Original BIN and parsed source JSON recovered after reverting listed changes; exact final contacts were reviewed. Supported views exclude the rejected combined internal mode.",
+    "lesson": "A smooth exterior does not validate hidden anatomy or missing collecting structures."
+  },
+  "limitations": [
+    "Female HRA reference specimen, not s1233 or a universal normal template; no body registration.",
+    "No renal pelvis, calyces, ureter or renal vasculature; source papilla labels are retained tip surfaces, not a complete collecting system.",
+    "Source closure patches and exposed pale hilar surfaces remain.",
+    "Capsule-only is diagnostic; columns + medulla overlap mode is rejected as a clean teaching display.",
+    "All source binary data and topology preserved; roughness 0.72 is illustrative, not measured tissue reflectance.",
+    "Original PNGs/scenes, CT experiments and rejected r01 overlap images are deferred, not approved or silently uploaded.",
+    "Two exact collapsed outer-cortex indexed triangles are retained from source. This refines prior near-degeneracy warnings, not two additional affected faces. Exact accessor method differs from tolerance-weld counts."
+  ]
+}

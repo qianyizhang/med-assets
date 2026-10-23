@@ -1,0 +1,121 @@
+{
+  "id": "kidney_left",
+  "candidateFile": "models/kidney_left/kidney_left_hra_female_r02.glb",
+  "candidateSha256": "8e55b5ae48821f067f41bd23ffdd668f68c7ff705cf49e9a40287042fee469fc",
+  "candidateBytes": 1378060,
+  "sourceFile": "source/kidney-female-left/3d-vh-f-kidney-l.glb",
+  "sourceSha256": "58f0227d45b14d7bcfd2ed05a7bcd76000051ea08d52f844feebd70d612f8084",
+  "sourceUrl": "https://cdn.humanatlas.io/digital-objects/ref-organ/kidney-female-left/v1.3/assets/3d-vh-f-kidney-l.glb",
+  "sourceMetadataSha256": "d0a53168e67232f9756770f50cc902645889ad8434529ca3bf994d854c3ffbb1",
+  "sourceDOI": "https://doi.org/10.48539/HBM449.JPXL.964",
+  "sourceRelease": "v1.3",
+  "referenceSex": "female",
+  "originalJsonRecoveredAfterRevertingDocumentedChanges": true,
+  "nonJsonChunksByteIdentical": true,
+  "binaryChunks": [
+    {
+      "type": 5130562,
+      "bytes": 1332376,
+      "sha256": "d2ced61c1dab66d323b0af79a6b751bcd3d73d59c25795d795e6ad12e13117cd"
+    }
+  ],
+  "geometryChanges": "none",
+  "transformChanges": "none",
+  "materialChanges": [
+    {
+      "materialIndex": 0,
+      "materialName": "kidney_capsule_mat",
+      "jsonPath": "materials/0/pbrMetallicRoughness/roughnessFactor",
+      "original": 0.249303535,
+      "candidate": 0.72,
+      "meaning": "Illustrative matte display material, not a measured tissue reflectance."
+    },
+    {
+      "materialIndex": 1,
+      "materialName": "kidney_CortexMedulla_mat",
+      "jsonPath": "materials/1/pbrMetallicRoughness/roughnessFactor",
+      "original": 0.249303535,
+      "candidate": 0.72,
+      "meaning": "Illustrative matte display material, not a measured tissue reflectance."
+    },
+    {
+      "materialIndex": 2,
+      "materialName": "kidney_Pyramids_mat",
+      "jsonPath": "materials/2/pbrMetallicRoughness/roughnessFactor",
+      "original": 0.249303535,
+      "candidate": 0.72,
+      "meaning": "Illustrative matte display material, not a measured tissue reflectance."
+    }
+  ],
+  "supportedModes": [
+    "all_source_geometry",
+    "medulla_and_tip_surfaces"
+  ],
+  "diagnosticOnlyModes": [
+    "capsule_only"
+  ],
+  "rejectedModes": [
+    "columns_and_medulla"
+  ],
+  "illustrativeMaterial": "Source base colors unchanged; roughness 0.72. No tissue reflectance/normality claim, invented texture or subsurface parameter.",
+  "topologyChanges": "none",
+  "sourceLayerNodes": {
+    "capsule": [
+      "VH_F_kidney_capsule_L"
+    ],
+    "hilum_surface": [
+      "VH_F_hilum_of_kidney_L"
+    ],
+    "papilla_labeled_tip_surfaces": [
+      "VH_F_renal_papilla_L_a",
+      "VH_F_renal_papilla_L_b",
+      "VH_F_renal_papilla_L_c",
+      "VH_F_renal_papilla_L_d",
+      "VH_F_renal_papilla_L_e",
+      "VH_F_renal_papilla_L_f",
+      "VH_F_renal_papilla_L_g",
+      "VH_F_renal_papilla_L_h",
+      "VH_F_renal_papilla_L_i",
+      "VH_F_renal_papilla_L_j",
+      "VH_F_renal_papilla_L_k"
+    ],
+    "renal_pyramids": [
+      "VH_F_renal_pyramid_L_a",
+      "VH_F_renal_pyramid_L_b",
+      "VH_F_renal_pyramid_L_c",
+      "VH_F_renal_pyramid_L_d",
+      "VH_F_renal_pyramid_L_e",
+      "VH_F_renal_pyramid_L_f",
+      "VH_F_renal_pyramid_L_g",
+      "VH_F_renal_pyramid_L_h",
+      "VH_F_renal_pyramid_L_i",
+      "VH_F_renal_pyramid_L_j",
+      "VH_F_renal_pyramid_L_k"
+    ],
+    "renal_column_surface": [
+      "VH_F_renal_column_L"
+    ],
+    "outer_cortex": [
+      "VH_F_outer_cortex_of_kidney_L"
+    ]
+  },
+  "viewModes": {
+    "all_source_geometry": [
+      "capsule",
+      "hilum_surface",
+      "papilla_labeled_tip_surfaces",
+      "renal_pyramids",
+      "renal_column_surface",
+      "outer_cortex"
+    ],
+    "medulla_and_tip_surfaces": [
+      "renal_pyramids",
+      "papilla_labeled_tip_surfaces"
+    ],
+    "capsule_only": [
+      "capsule"
+    ]
+  },
+  "sourceCitation": "Browne, Kristen, and Heidi Schlehlein. 2024. \"3D Reference Organ for Kidney, Female, Left v1.3.\" https://doi.org/10.48539/HBM449.JPXL.964. Accessed on June 15, 2024.",
+  "status": "pending_root_visual_review; no clinical accuracy claim; no canonical promotion"
+}
