@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "id": "spleen-hra-female-r03-bounded-import",
+  "assetId": "spleen",
+  "variantId": "spleen__hra-female-r03",
+  "reviewedAt": "2026-10-23T09:35:00Z",
+  "reviewTimeNote": "Fresh isolated replay/import technical check time; historical static visual acceptance was on 2026-10-23, exact personal-review time not recorded.",
+  "artifact": {
+    "file": "models/spleen/exports/hra-female-v1.10-r03/spleen.glb",
+    "sha256": "4e2637cf6c844aef85ab77c2c1049d4e7647348a13c34d784795b98825f7c8c7"
+  },
+  "gates": {
+    "technical": {
+      "status": "pass-with-limitations",
+      "scope": "Exact reconstruction and source-preservation checks; source open annotation patches remain, no watertightness certification."
+    },
+    "visual": {
+      "status": "passed",
+      "scope": "Reviewer personally inspected exact export contacts. Five named exterior surface regions; hilum protected; bounded outer-interface display normals only."
+    },
+    "anatomy": {
+      "status": "unreviewed",
+      "scope": "No clinical, microscopic, universal-normality or complete-system approval."
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "No consumer browser 3D, motion or physiological flow pass."
+    }
+  },
+  "evidence": [
+    {
+      "file": "reviews/spleen/2026-10-23-hra-female-v1.10-r03/display/candidate_material_oblique.webp",
+      "sha256": "94dabf0d88d80fba0731083cdcfbbe95e2acbbdbc445a01cdc5db1a7c3ca7202",
+      "artifactSha256": "4e2637cf6c844aef85ab77c2c1049d4e7647348a13c34d784795b98825f7c8c7",
+      "kind": "lossy-webp-display-derivative",
+      "originalPngSha256": "d5a5ebf4793e0a1c55789710f6dd548d8a2edf37ad969fd1fab1af6becadffd9",
+      "note": "Quality 92 lossy derivative, not original native PNG. Exact historical contact identities remain separately recorded."
+    },
+    {
+      "file": "reviews/spleen/2026-10-23-hra-female-v1.10-r03/display/contact.webp",
+      "sha256": "eeb2d439c11c0757f764e9380eabfabd58cd2387cbba9d6ed60ef54eeb6bcf3f",
+      "artifactSha256": "4e2637cf6c844aef85ab77c2c1049d4e7647348a13c34d784795b98825f7c8c7",
+      "kind": "lossy-webp-display-derivative",
+      "originalPngSha256": "dc78a16000cebe9bd1b78a5171cadf1e19e2318fdc9d7aa4a13c2ec96d93ea7f",
+      "note": "Quality 92 lossy derivative, not original native PNG. Exact historical contact identities remain separately recorded."
+    }
+  ],
+  "failureSummary": {
+    "failure": "Retained CT-derived display lacked clean readable surface landmarks; source material/region boundaries also needed inspection.",
+    "cause": "Different reference geometry and display material/normal discontinuities; not a diagnosis or source anatomy correction.",
+    "fix": "Illustrative materials plus 330 display-normal vectors changed at exact shared region interfaces, maximum angular change 21.673 degrees; hilum untouched. No position/index change.",
+    "retest": "Fresh hash-bound atlas extraction reproduced the exact accepted export. Source position/index bytes and hierarchy retained; named region limitations explicit.",
+    "lesson": "Separate display improvement from source anatomy and preserve specific limitations for each region."
+  },
+  "limitations": [
+    "Five named exterior surface regions; hilum protected; bounded outer-interface display normals only.",
+    "Illustrative materials plus 330 display-normal vectors changed at exact shared region interfaces, maximum angular change 21.673 degrees; hilum untouched. No position/index change.",
+    "HRA native source frame, not s1233 and not registered to the current body.",
+    "Open annotation/region patches remain; no full-system or clinical claim.",
+    "Reconstruction requires the declared external 374,505,632-byte official atlas; it is not included or automatically downloaded.",
+    "Original PNGs/scenes and broader failed history remain deferred from this bounded import."
+  ]
+}

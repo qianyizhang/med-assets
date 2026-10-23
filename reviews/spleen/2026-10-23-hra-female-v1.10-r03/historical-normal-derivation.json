@@ -1,0 +1,6961 @@
+{
+  "id": "spleen_hra_female_r03",
+  "parent_file": "models/spleen_hra_female_r02/spleen_hra_female_r02.glb",
+  "parent_sha256": "5f0124f5785a29bcca2045b9306f1e1c1286fcb55d754b88b0029cfc3a20b4ab",
+  "file": "models/spleen_hra_female_r03/spleen_hra_female_r03.glb",
+  "sha256": "4e2637cf6c844aef85ab77c2c1049d4e7647348a13c34d784795b98825f7c8c7",
+  "all_json_identical": true,
+  "all_non_normal_binary_bytes_identical": true,
+  "binary_changed_bytes": 3130,
+  "changed_normal_vectors": 330,
+  "max_normal_angular_change_degrees": 21.672936979022666,
+  "rms_normal_angular_change_degrees": 8.186672656377091,
+  "interface_groups": [
+    {
+      "included_source_parts": [
+        "VH_F_gastric_surface_of_spleen",
+        "VH_F_diaphragmatic_surface_of_spleen",
+        "VH_F_colic_surface_of_spleen",
+        "VH_F_renal_surface_of_spleen"
+      ],
+      "shared_exact_coordinates_updated": 163,
+      "shared_coords_skipped_for_within_part_hard_normal_or_opposition": 0
+    }
+  ],
+  "method": "At exact shared POSITION tuples across the explicitly listed region patches only, replace participating normals by the normalized unweighted mean of one unit normal per named part. No proximity tolerance. Skip within-part split normals and near-opposed vectors. All other data remains byte-identical.",
+  "protected": "Bladder trigone/orifice/neck meshes fully untouched; spleen hilum fully untouched. No position, index, boundary, opening, source name, transform, tangent, UV or material changes. Tangents remain source values and are unused because no normal-map texture exists.",
+  "interpretation": "Reversible display-shading derivative, not corrected source anatomy. No smoothing, fill state change, hole fill, reconstructed tissue, registration, clinical or runtime validation.",
+  "approval": "unreviewed R03 shading trial; root must inspect exact-export pixels",
+  "updates": [
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 0,
+      "coordinate": [
+        0.05695468932390213,
+        0.32874205708503723,
+        -0.11054690927267075
+      ],
+      "old_normal": [
+        0.05247793346643448,
+        -0.28124070167541504,
+        0.9582013487815857
+      ],
+      "new_normal": [
+        -0.04013749212026596,
+        -0.3872494399547577,
+        0.921100914478302
+      ],
+      "angular_change_degrees": 8.348173991713363,
+      "binary_byte_offset": 37940
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 2,
+      "coordinate": [
+        0.05695468932390213,
+        0.32874205708503723,
+        -0.11054690927267075
+      ],
+      "old_normal": [
+        -0.1319023221731186,
+        -0.48505160212516785,
+        0.8644805550575256
+      ],
+      "new_normal": [
+        -0.04013749212026596,
+        -0.3872494399547577,
+        0.921100914478302
+      ],
+      "angular_change_degrees": 8.348174407463514,
+      "binary_byte_offset": 261348
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 2,
+      "coordinate": [
+        0.054676759988069534,
+        0.3301199972629547,
+        -0.110017791390419
+      ],
+      "old_normal": [
+        -0.004249269608408213,
+        -0.2908494174480438,
+        0.9567594528198242
+      ],
+      "new_normal": [
+        -0.08154290914535522,
+        -0.39676427841186523,
+        0.9142914414405823
+      ],
+      "angular_change_degrees": 7.903072438381855,
+      "binary_byte_offset": 37964
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 0,
+      "coordinate": [
+        0.054676759988069534,
+        0.3301199972629547,
+        -0.110017791390419
+      ],
+      "old_normal": [
+        -0.1572875827550888,
+        -0.4951423108577728,
+        0.854455828666687
+      ],
+      "new_normal": [
+        -0.08154290914535522,
+        -0.39676427841186523,
+        0.9142914414405823
+      ],
+      "angular_change_degrees": 7.903071868838432,
+      "binary_byte_offset": 261324
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 4,
+      "coordinate": [
+        0.04329695925116539,
+        0.3395637571811676,
+        -0.11200303584337234
+      ],
+      "old_normal": [
+        -0.41468802094459534,
+        0.08000482618808746,
+        0.9064397811889648
+      ],
+      "new_normal": [
+        -0.5066361427307129,
+        -0.04795021936297417,
+        0.8608255386352539
+      ],
+      "angular_change_degrees": 9.409102642065593,
+      "binary_byte_offset": 37988
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 8,
+      "coordinate": [
+        0.04329695925116539,
+        0.3395637571811676,
+        -0.11200303584337234
+      ],
+      "old_normal": [
+        -0.5849519371986389,
+        -0.1746150404214859,
+        0.7920485138893127
+      ],
+      "new_normal": [
+        -0.5066361427307129,
+        -0.04795021936297417,
+        0.8608255386352539
+      ],
+      "angular_change_degrees": 9.409104296046937,
+      "binary_byte_offset": 261420
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 6,
+      "coordinate": [
+        0.04183143377304077,
+        0.34087035059928894,
+        -0.11291498690843582
+      ],
+      "old_normal": [
+        -0.38851240277290344,
+        0.1930362582206726,
+        0.9009968638420105
+      ],
+      "new_normal": [
+        -0.6720936894416809,
+        0.005443674977868795,
+        0.7404460906982422
+      ],
+      "angular_change_degrees": 21.672936979022666,
+      "binary_byte_offset": 38012
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 2,
+      "coordinate": [
+        0.04183143377304077,
+        0.34087035059928894,
+        -0.11291498690843582
+      ],
+      "old_normal": [
+        -0.8589321970939636,
+        0.07978970557451248,
+        0.5058351159095764
+      ],
+      "new_normal": [
+        -0.6720936894416809,
+        0.005443674977868795,
+        0.7404460906982422
+      ],
+      "angular_change_degrees": 17.775333301990003,
+      "binary_byte_offset": 146164
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 6,
+      "coordinate": [
+        0.04183143377304077,
+        0.34087035059928894,
+        -0.11291498690843582
+      ],
+      "old_normal": [
+        -0.6654878258705139,
+        -0.2573319971561432,
+        0.7006469964981079
+      ],
+      "new_normal": [
+        -0.6720936894416809,
+        0.005443674977868795,
+        0.7404460906982422
+      ],
+      "angular_change_degrees": 15.27755468363329,
+      "binary_byte_offset": 261396
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 7,
+      "coordinate": [
+        0.04175107926130295,
+        0.3426721394062042,
+        -0.11333560943603516
+      ],
+      "old_normal": [
+        -0.4730106294155121,
+        0.2288185954093933,
+        0.8508250117301941
+      ],
+      "new_normal": [
+        -0.6240010261535645,
+        0.19631460309028625,
+        0.7563618421554565
+      ],
+      "angular_change_degrees": 10.387420565289068,
+      "binary_byte_offset": 38024
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 0,
+      "coordinate": [
+        0.04175107926130295,
+        0.3426721394062042,
+        -0.11333560943603516
+      ],
+      "old_normal": [
+        -0.7545381188392639,
+        0.15737587213516235,
+        0.6371068954467773
+      ],
+      "new_normal": [
+        -0.6240010261535645,
+        0.19631460309028625,
+        0.7563618421554565
+      ],
+      "angular_change_degrees": 10.387420723090507,
+      "binary_byte_offset": 146140
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 8,
+      "coordinate": [
+        0.10940999537706375,
+        0.30538928508758545,
+        -0.087284155189991
+      ],
+      "old_normal": [
+        -0.7295598387718201,
+        -0.0006081504398025572,
+        0.6839167475700378
+      ],
+      "new_normal": [
+        -0.7258806228637695,
+        -0.02982228435575962,
+        0.6871739029884338
+      ],
+      "angular_change_degrees": 1.697401598892936,
+      "binary_byte_offset": 38036
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "vertex": 0,
+      "coordinate": [
+        0.10940999537706375,
+        0.30538928508758545,
+        -0.087284155189991
+      ],
+      "old_normal": [
+        -0.7215643525123596,
+        -0.05901024863123894,
+        0.6898280382156372
+      ],
+      "new_normal": [
+        -0.7258806228637695,
+        -0.02982228435575962,
+        0.6871739029884338
+      ],
+      "angular_change_degrees": 1.6974021503468708,
+      "binary_byte_offset": 194024
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 9,
+      "coordinate": [
+        0.1098906397819519,
+        0.3055064380168915,
+        -0.08677131682634354
+      ],
+      "old_normal": [
+        -0.7053689956665039,
+        -0.003924679476767778,
+        0.7088294625282288
+      ],
+      "new_normal": [
+        -0.7036804556846619,
+        -0.02234930917620659,
+        0.7101650238037109
+      ],
+      "angular_change_degrees": 1.0627948010037571,
+      "binary_byte_offset": 38048
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "vertex": 2,
+      "coordinate": [
+        0.1098906397819519,
+        0.3055064380168915,
+        -0.08677131682634354
+      ],
+      "old_normal": [
+        -0.7017498016357422,
+        -0.04076625034213066,
+        0.711256206035614
+      ],
+      "new_normal": [
+        -0.7036804556846619,
+        -0.02234930917620659,
+        0.7101650238037109
+      ],
+      "angular_change_degrees": 1.0627947228646235,
+      "binary_byte_offset": 194048
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 22,
+      "coordinate": [
+        0.04167570546269417,
+        0.3453356623649597,
+        -0.11420236527919769
+      ],
+      "old_normal": [
+        -0.524716854095459,
+        0.2799566984176636,
+        0.8039258122444153
+      ],
+      "new_normal": [
+        -0.6303182244300842,
+        0.2542452812194824,
+        0.7335245609283447
+      ],
+      "angular_change_degrees": 7.4247323345377865,
+      "binary_byte_offset": 38204
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 97,
+      "coordinate": [
+        0.04167570546269417,
+        0.3453356623649597,
+        -0.11420236527919769
+      ],
+      "old_normal": [
+        -0.7253498435020447,
+        0.22427046298980713,
+        0.6508228778839111
+      ],
+      "new_normal": [
+        -0.6303182244300842,
+        0.2542452812194824,
+        0.7335245609283447
+      ],
+      "angular_change_degrees": 7.424733602849218,
+      "binary_byte_offset": 147304
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 24,
+      "coordinate": [
+        0.04557577893137932,
+        0.3374616503715515,
+        -0.1109011247754097
+      ],
+      "old_normal": [
+        -0.4151937663555145,
+        -0.046840131282806396,
+        0.9085263609886169
+      ],
+      "new_normal": [
+        -0.47925180196762085,
+        -0.13595305383205414,
+        0.8670839071273804
+      ],
+      "angular_change_degrees": 6.7253162676675275,
+      "binary_byte_offset": 38228
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 23,
+      "coordinate": [
+        0.04557577893137932,
+        0.3374616503715515,
+        -0.1109011247754097
+      ],
+      "old_normal": [
+        -0.5367144346237183,
+        -0.22319500148296356,
+        0.8137086629867554
+      ],
+      "new_normal": [
+        -0.47925180196762085,
+        -0.13595305383205414,
+        0.8670839071273804
+      ],
+      "angular_change_degrees": 6.725317544011112,
+      "binary_byte_offset": 261600
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 83,
+      "coordinate": [
+        0.08680258691310883,
+        0.3827788531780243,
+        -0.1270863562822342
+      ],
+      "old_normal": [
+        0.20388804376125336,
+        0.5848821401596069,
+        0.7850748896598816
+      ],
+      "new_normal": [
+        0.27265527844429016,
+        0.6926220655441284,
+        0.667782723903656
+      ],
+      "angular_change_degrees": 9.952007949501114,
+      "binary_byte_offset": 38936
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 109,
+      "coordinate": [
+        0.08680258691310883,
+        0.3827788531780243,
+        -0.1270863562822342
+      ],
+      "old_normal": [
+        0.33321717381477356,
+        0.7795180678367615,
+        0.5303941965103149
+      ],
+      "new_normal": [
+        0.27265527844429016,
+        0.6926220655441284,
+        0.667782723903656
+      ],
+      "angular_change_degrees": 9.952006047311176,
+      "binary_byte_offset": 147448
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 84,
+      "coordinate": [
+        0.08452817052602768,
+        0.3838253617286682,
+        -0.12733492255210876
+      ],
+      "old_normal": [
+        0.1744784712791443,
+        0.6159688830375671,
+        0.768205463886261
+      ],
+      "new_normal": [
+        0.2336478978395462,
+        0.7273166179656982,
+        0.6453055143356323
+      ],
+      "angular_change_degrees": 10.10164756864663,
+      "binary_byte_offset": 38948
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 25,
+      "coordinate": [
+        0.08452817052602768,
+        0.3838253617286682,
+        -0.12733492255210876
+      ],
+      "old_normal": [
+        0.2855733633041382,
+        0.8161147832870483,
+        0.5023987293243408
+      ],
+      "new_normal": [
+        0.2336478978395462,
+        0.7273166179656982,
+        0.6453055143356323
+      ],
+      "angular_change_degrees": 10.10164457505013,
+      "binary_byte_offset": 146440
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 85,
+      "coordinate": [
+        0.08214661478996277,
+        0.3847101926803589,
+        -0.1275777369737625
+      ],
+      "old_normal": [
+        0.1366022229194641,
+        0.6464143991470337,
+        0.7506585717201233
+      ],
+      "new_normal": [
+        0.18569767475128174,
+        0.7572754621505737,
+        0.6261391639709473
+      ],
+      "angular_change_degrees": 9.970446158589459,
+      "binary_byte_offset": 38960
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 27,
+      "coordinate": [
+        0.08214661478996277,
+        0.3847101926803589,
+        -0.1275777369737625
+      ],
+      "old_normal": [
+        0.22918404638767242,
+        0.8452626466751099,
+        0.4827069044113159
+      ],
+      "new_normal": [
+        0.18569767475128174,
+        0.7572754621505737,
+        0.6261391639709473
+      ],
+      "angular_change_degrees": 9.970445790698852,
+      "binary_byte_offset": 146464
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 86,
+      "coordinate": [
+        0.07966867089271545,
+        0.38542425632476807,
+        -0.12782739102840424
+      ],
+      "old_normal": [
+        0.08768713474273682,
+        0.6704338192939758,
+        0.7367696762084961
+      ],
+      "new_normal": [
+        0.12611648440361023,
+        0.7790220975875854,
+        0.6141816973686218
+      ],
+      "angular_change_degrees": 9.649355027379963,
+      "binary_byte_offset": 38972
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 29,
+      "coordinate": [
+        0.07966867089271545,
+        0.38542425632476807,
+        -0.12782739102840424
+      ],
+      "old_normal": [
+        0.16097725927829742,
+        0.8655672669410706,
+        0.4742148816585541
+      ],
+      "new_normal": [
+        0.12611648440361023,
+        0.7790220975875854,
+        0.6141816973686218
+      ],
+      "angular_change_degrees": 9.649356289127173,
+      "binary_byte_offset": 146488
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 36,
+      "coordinate": [
+        0.07966867089271545,
+        0.38542425632476807,
+        -0.12782739102840424
+      ],
+      "old_normal": [
+        0.16097725927829742,
+        0.8655672669410706,
+        0.4742148816585541
+      ],
+      "new_normal": [
+        0.12611648440361023,
+        0.7790220975875854,
+        0.6141816973686218
+      ],
+      "angular_change_degrees": 9.649356289127173,
+      "binary_byte_offset": 146572
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 88,
+      "coordinate": [
+        0.07711564004421234,
+        0.38592177629470825,
+        -0.1280815452337265
+      ],
+      "old_normal": [
+        0.030906395986676216,
+        0.6906467080116272,
+        0.7225316762924194
+      ],
+      "new_normal": [
+        0.05774763971567154,
+        0.7963855862617493,
+        0.6020258665084839
+      ],
+      "angular_change_degrees": 9.323758256274013,
+      "binary_byte_offset": 38996
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 35,
+      "coordinate": [
+        0.07711564004421234,
+        0.38592177629470825,
+        -0.1280815452337265
+      ],
+      "old_normal": [
+        0.0830630362033844,
+        0.8810818791389465,
+        0.4656129777431488
+      ],
+      "new_normal": [
+        0.05774763971567154,
+        0.7963855862617493,
+        0.6020258665084839
+      ],
+      "angular_change_degrees": 9.32375710145726,
+      "binary_byte_offset": 146560
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 90,
+      "coordinate": [
+        0.07451678812503815,
+        0.38616982102394104,
+        -0.12832021713256836
+      ],
+      "old_normal": [
+        -0.031066054478287697,
+        0.706445038318634,
+        0.7070858478546143
+      ],
+      "new_normal": [
+        -0.016361987218260765,
+        0.8112188577651978,
+        0.5845136642456055
+      ],
+      "angular_change_degrees": 9.287433820292202,
+      "binary_byte_offset": 39020
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 37,
+      "coordinate": [
+        0.07451678812503815,
+        0.38616982102394104,
+        -0.12832021713256836
+      ],
+      "old_normal": [
+        -0.0012289491714909673,
+        0.894724428653717,
+        0.4466169476509094
+      ],
+      "new_normal": [
+        -0.016361987218260765,
+        0.8112188577651978,
+        0.5845136642456055
+      ],
+      "angular_change_degrees": 9.287432334971864,
+      "binary_byte_offset": 146584
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 96,
+      "coordinate": [
+        0.07190581411123276,
+        0.38613566756248474,
+        -0.12852390110492706
+      ],
+      "old_normal": [
+        -0.09733138233423233,
+        0.7180041670799255,
+        0.6892000436782837
+      ],
+      "new_normal": [
+        -0.09544099122285843,
+        0.8243617415428162,
+        0.5579594373703003
+      ],
+      "angular_change_degrees": 9.690906683514253,
+      "binary_byte_offset": 39092
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 39,
+      "coordinate": [
+        0.07190581411123276,
+        0.38613566756248474,
+        -0.12852390110492706
+      ],
+      "old_normal": [
+        -0.09082674980163574,
+        0.9071923494338989,
+        0.4107949435710907
+      ],
+      "new_normal": [
+        -0.09544099122285843,
+        0.8243617415428162,
+        0.5579594373703003
+      ],
+      "angular_change_degrees": 9.690904484655114,
+      "binary_byte_offset": 146608
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 97,
+      "coordinate": [
+        0.06931284070014954,
+        0.3858136236667633,
+        -0.12868396937847137
+      ],
+      "old_normal": [
+        -0.16338522732257843,
+        0.7222746014595032,
+        0.6720303297042847
+      ],
+      "new_normal": [
+        -0.17490606009960175,
+        0.8311247825622559,
+        0.527863085269928
+      ],
+      "angular_change_degrees": 10.385430242502398,
+      "binary_byte_offset": 39104
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 41,
+      "coordinate": [
+        0.06931284070014954,
+        0.3858136236667633,
+        -0.12868396937847137
+      ],
+      "old_normal": [
+        -0.18069608509540558,
+        0.912743091583252,
+        0.3664003014564514
+      ],
+      "new_normal": [
+        -0.17490606009960175,
+        0.8311247825622559,
+        0.527863085269928
+      ],
+      "angular_change_degrees": 10.385432724150501,
+      "binary_byte_offset": 146632
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 100,
+      "coordinate": [
+        0.06677092611789703,
+        0.38522911071777344,
+        -0.1287979930639267
+      ],
+      "old_normal": [
+        -0.23159708082675934,
+        0.7167822122573853,
+        0.6577127575874329
+      ],
+      "new_normal": [
+        -0.256752073764801,
+        0.8260184526443481,
+        0.5017687678337097
+      ],
+      "angular_change_degrees": 11.020732403564168,
+      "binary_byte_offset": 39140
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 47,
+      "coordinate": [
+        0.06677092611789703,
+        0.38522911071777344,
+        -0.1287979930639267
+      ],
+      "old_normal": [
+        -0.27243706583976746,
+        0.904788076877594,
+        0.32731759548187256
+      ],
+      "new_normal": [
+        -0.256752073764801,
+        0.8260184526443481,
+        0.5017687678337097
+      ],
+      "angular_change_degrees": 11.020735783226863,
+      "binary_byte_offset": 146704
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 101,
+      "coordinate": [
+        0.06431858986616135,
+        0.3843814432621002,
+        -0.12888161838054657
+      ],
+      "old_normal": [
+        -0.30299481749534607,
+        0.705012857913971,
+        0.641210675239563
+      ],
+      "new_normal": [
+        -0.3385911285877228,
+        0.8042897582054138,
+        0.48833805322647095
+      ],
+      "angular_change_degrees": 10.656494528754841,
+      "binary_byte_offset": 39152
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 48,
+      "coordinate": [
+        0.06431858986616135,
+        0.3843814432621002,
+        -0.12888161838054657
+      ],
+      "old_normal": [
+        -0.3625083863735199,
+        0.8758242726325989,
+        0.3186211884021759
+      ],
+      "new_normal": [
+        -0.3385911285877228,
+        0.8042897582054138,
+        0.48833805322647095
+      ],
+      "angular_change_degrees": 10.656494570744252,
+      "binary_byte_offset": 146716
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 107,
+      "coordinate": [
+        0.06197052448987961,
+        0.3832930624485016,
+        -0.12893761694431305
+      ],
+      "old_normal": [
+        -0.3753432333469391,
+        0.6851657032966614,
+        0.6242318749427795
+      ],
+      "new_normal": [
+        -0.41673099994659424,
+        0.7692315578460693,
+        0.48437389731407166
+      ],
+      "angular_change_degrees": 9.656925399112634,
+      "binary_byte_offset": 39224
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 50,
+      "coordinate": [
+        0.06197052448987961,
+        0.3832930624485016,
+        -0.12893761694431305
+      ],
+      "old_normal": [
+        -0.4463084638118744,
+        0.8314971923828125,
+        0.33078864216804504
+      ],
+      "new_normal": [
+        -0.41673099994659424,
+        0.7692315578460693,
+        0.48437389731407166
+      ],
+      "angular_change_degrees": 9.656925076900775,
+      "binary_byte_offset": 146740
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 108,
+      "coordinate": [
+        0.05974229797720909,
+        0.3819643259048462,
+        -0.12898023426532745
+      ],
+      "old_normal": [
+        -0.4440198242664337,
+        0.6539666056632996,
+        0.6125146150588989
+      ],
+      "new_normal": [
+        -0.4891325533390045,
+        0.7247083187103271,
+        0.48533204197883606
+      ],
+      "angular_change_degrees": 8.738313074024214,
+      "binary_byte_offset": 39236
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 53,
+      "coordinate": [
+        0.05974229797720909,
+        0.3819643259048462,
+        -0.12898023426532745
+      ],
+      "old_normal": [
+        -0.5228901505470276,
+        0.778626024723053,
+        0.34688252210617065
+      ],
+      "new_normal": [
+        -0.4891325533390045,
+        0.7247083187103271,
+        0.48533204197883606
+      ],
+      "angular_change_degrees": 8.738314724187143,
+      "binary_byte_offset": 146776
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 111,
+      "coordinate": [
+        0.057644523680210114,
+        0.38041701912879944,
+        -0.1290028989315033
+      ],
+      "old_normal": [
+        -0.49499017000198364,
+        0.6175092458724976,
+        0.6112832427024841
+      ],
+      "new_normal": [
+        -0.5458407998085022,
+        0.68043053150177,
+        0.4889499843120575
+      ],
+      "angular_change_degrees": 8.410777284227668,
+      "binary_byte_offset": 39272
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 58,
+      "coordinate": [
+        0.057644523680210114,
+        0.38041701912879944,
+        -0.1290028989315033
+      ],
+      "old_normal": [
+        -0.5849502682685852,
+        0.7287156581878662,
+        0.35609930753707886
+      ],
+      "new_normal": [
+        -0.5458407998085022,
+        0.68043053150177,
+        0.4889499843120575
+      ],
+      "angular_change_degrees": 8.41077855574173,
+      "binary_byte_offset": 146836
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 112,
+      "coordinate": [
+        0.05567203834652901,
+        0.3786925673484802,
+        -0.12897111475467682
+      ],
+      "old_normal": [
+        -0.5237063765525818,
+        0.5809223055839539,
+        0.6231060028076172
+      ],
+      "new_normal": [
+        -0.5866455435752869,
+        0.6418333053588867,
+        0.49385932087898254
+      ],
+      "angular_change_degrees": 8.954627357912363,
+      "binary_byte_offset": 39284
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 60,
+      "coordinate": [
+        0.05567203834652901,
+        0.3786925673484802,
+        -0.12897111475467682
+      ],
+      "old_normal": [
+        -0.6352846026420593,
+        0.6870988607406616,
+        0.35257425904273987
+      ],
+      "new_normal": [
+        -0.5866455435752869,
+        0.6418333053588867,
+        0.49385932087898254
+      ],
+      "angular_change_degrees": 8.954628526334066,
+      "binary_byte_offset": 146860
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 118,
+      "coordinate": [
+        0.05382785573601723,
+        0.3768070936203003,
+        -0.12884540855884552
+      ],
+      "old_normal": [
+        -0.5291280150413513,
+        0.5591709613800049,
+        0.6382408142089844
+      ],
+      "new_normal": [
+        -0.6083502173423767,
+        0.6175423264503479,
+        0.4985494315624237
+      ],
+      "angular_change_degrees": 9.80215513189933,
+      "binary_byte_offset": 39356
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 61,
+      "coordinate": [
+        0.05382785573601723,
+        0.3768070936203003,
+        -0.12884540855884552
+      ],
+      "old_normal": [
+        -0.6698103547096252,
+        0.6578832268714905,
+        0.34430184960365295
+      ],
+      "new_normal": [
+        -0.6083502173423767,
+        0.6175423264503479,
+        0.4985494315624237
+      ],
+      "angular_change_degrees": 9.80215453359062,
+      "binary_byte_offset": 146872
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 119,
+      "coordinate": [
+        0.05208142101764679,
+        0.37481817603111267,
+        -0.12855365872383118
+      ],
+      "old_normal": [
+        -0.5117132067680359,
+        0.553266167640686,
+        0.65730220079422
+      ],
+      "new_normal": [
+        -0.6140974760055542,
+        0.6082315444946289,
+        0.5029301047325134
+      ],
+      "angular_change_degrees": 11.088058223372618,
+      "binary_byte_offset": 39368
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 64,
+      "coordinate": [
+        0.05208142101764679,
+        0.37481817603111267,
+        -0.12855365872383118
+      ],
+      "old_normal": [
+        -0.6935548186302185,
+        0.6404889225959778,
+        0.3297813832759857
+      ],
+      "new_normal": [
+        -0.6140974760055542,
+        0.6082315444946289,
+        0.5029301047325134
+      ],
+      "angular_change_degrees": 11.088059857610364,
+      "binary_byte_offset": 146908
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 122,
+      "coordinate": [
+        0.0504470057785511,
+        0.3727375268936157,
+        -0.12805208563804626
+      ],
+      "old_normal": [
+        -0.49807682633399963,
+        0.557394802570343,
+        0.6642519235610962
+      ],
+      "new_normal": [
+        -0.6159992218017578,
+        0.599854052066803,
+        0.5106076002120972
+      ],
+      "angular_change_degrees": 11.379307342382603,
+      "binary_byte_offset": 39404
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 69,
+      "coordinate": [
+        0.0504470057785511,
+        0.3727375268936157,
+        -0.12805208563804626
+      ],
+      "old_normal": [
+        -0.7097036242485046,
+        0.6187300086021423,
+        0.33688870072364807
+      ],
+      "new_normal": [
+        -0.6159992218017578,
+        0.599854052066803,
+        0.5106076002120972
+      ],
+      "angular_change_degrees": 11.379309747196599,
+      "binary_byte_offset": 146968
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 123,
+      "coordinate": [
+        0.048956021666526794,
+        0.3705675005912781,
+        -0.12732982635498047
+      ],
+      "old_normal": [
+        -0.4913206994533539,
+        0.5718051791191101,
+        0.6569952964782715
+      ],
+      "new_normal": [
+        -0.6088160872459412,
+        0.5973303318023682,
+        0.5220531225204468
+      ],
+      "angular_change_degrees": 10.369647433369613,
+      "binary_byte_offset": 39416
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 71,
+      "coordinate": [
+        0.048956021666526794,
+        0.3705675005912781,
+        -0.12732982635498047
+      ],
+      "old_normal": [
+        -0.706423819065094,
+        0.6033430695533752,
+        0.3700575828552246
+      ],
+      "new_normal": [
+        -0.6088160872459412,
+        0.5973303318023682,
+        0.5220531225204468
+      ],
+      "angular_change_degrees": 10.36964350351234,
+      "binary_byte_offset": 146992
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 129,
+      "coordinate": [
+        0.04759291186928749,
+        0.3683777153491974,
+        -0.1263916939496994
+      ],
+      "old_normal": [
+        -0.46790313720703125,
+        0.5895026922225952,
+        0.6584476232528687
+      ],
+      "new_normal": [
+        -0.5831190347671509,
+        0.6039988994598389,
+        0.5432840585708618
+      ],
+      "angular_change_degrees": 9.380996165855956,
+      "binary_byte_offset": 39488
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 72,
+      "coordinate": [
+        0.04759291186928749,
+        0.3683777153491974,
+        -0.1263916939496994
+      ],
+      "old_normal": [
+        -0.6827380061149597,
+        0.6023396849632263,
+        0.4135890007019043
+      ],
+      "new_normal": [
+        -0.5831190347671509,
+        0.6039988994598389,
+        0.5432840585708618
+      ],
+      "angular_change_degrees": 9.380997824533646,
+      "binary_byte_offset": 147004
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 130,
+      "coordinate": [
+        0.04635179042816162,
+        0.3662036955356598,
+        -0.12527364492416382
+      ],
+      "old_normal": [
+        -0.43338343501091003,
+        0.5954405069351196,
+        0.6764832139015198
+      ],
+      "new_normal": [
+        -0.5487698912620544,
+        0.6039677858352661,
+        0.577991783618927
+      ],
+      "angular_change_degrees": 8.714212125772097,
+      "binary_byte_offset": 39500
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 75,
+      "coordinate": [
+        0.04635179042816162,
+        0.3662036955356598,
+        -0.12527364492416382
+      ],
+      "old_normal": [
+        -0.6514868140220642,
+        0.5985511541366577,
+        0.4661561846733093
+      ],
+      "new_normal": [
+        -0.5487698912620544,
+        0.6039677858352661,
+        0.577991783618927
+      ],
+      "angular_change_degrees": 8.714211493811565,
+      "binary_byte_offset": 147040
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 133,
+      "coordinate": [
+        0.045267436653375626,
+        0.3640182316303253,
+        -0.12404470890760422
+      ],
+      "old_normal": [
+        -0.4031568765640259,
+        0.5933591723442078,
+        0.6966990232467651
+      ],
+      "new_normal": [
+        -0.510829508304596,
+        0.5973576307296753,
+        0.6182370781898499
+      ],
+      "angular_change_degrees": 7.6424951829968055,
+      "binary_byte_offset": 39536
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 80,
+      "coordinate": [
+        0.045267436653375626,
+        0.3640182316303253,
+        -0.12404470890760422
+      ],
+      "old_normal": [
+        -0.6094269156455994,
+        0.5907436013221741,
+        0.5287917852401733
+      ],
+      "new_normal": [
+        -0.510829508304596,
+        0.5973576307296753,
+        0.6182370781898499
+      ],
+      "angular_change_degrees": 7.642494334600965,
+      "binary_byte_offset": 147100
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 134,
+      "coordinate": [
+        0.04433555528521538,
+        0.36184555292129517,
+        -0.1227288618683815
+      ],
+      "old_normal": [
+        -0.365658164024353,
+        0.5853155255317688,
+        0.7236710786819458
+      ],
+      "new_normal": [
+        -0.47048670053482056,
+        0.5867331624031067,
+        0.6590800285339355
+      ],
+      "angular_change_degrees": 7.059763343475419,
+      "binary_byte_offset": 39548
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 82,
+      "coordinate": [
+        0.04433555528521538,
+        0.36184555292129517,
+        -0.1227288618683815
+      ],
+      "old_normal": [
+        -0.5681812167167664,
+        0.579254150390625,
+        0.5844953060150146
+      ],
+      "new_normal": [
+        -0.47048670053482056,
+        0.5867331624031067,
+        0.6590800285339355
+      ],
+      "angular_change_degrees": 7.059763136998635,
+      "binary_byte_offset": 147124
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 140,
+      "coordinate": [
+        0.04354201257228851,
+        0.3595984876155853,
+        -0.1213415116071701
+      ],
+      "old_normal": [
+        -0.333894819021225,
+        0.5673439502716064,
+        0.7527517676353455
+      ],
+      "new_normal": [
+        -0.43755465745925903,
+        0.5661913752555847,
+        0.698550820350647
+      ],
+      "angular_change_degrees": 6.706315175849874,
+      "binary_byte_offset": 39620
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 83,
+      "coordinate": [
+        0.04354201257228851,
+        0.3595984876155853,
+        -0.1213415116071701
+      ],
+      "old_normal": [
+        -0.5352268218994141,
+        0.5572908520698547,
+        0.6347906589508057
+      ],
+      "new_normal": [
+        -0.43755465745925903,
+        0.5661913752555847,
+        0.698550820350647
+      ],
+      "angular_change_degrees": 6.706314368353616,
+      "binary_byte_offset": 147136
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 141,
+      "coordinate": [
+        0.042869098484516144,
+        0.3571278154850006,
+        -0.11982391774654388
+      ],
+      "old_normal": [
+        -0.32097306847572327,
+        0.5386890769004822,
+        0.7789674997329712
+      ],
+      "new_normal": [
+        -0.4246295094490051,
+        0.534100353717804,
+        0.7310448884963989
+      ],
+      "angular_change_degrees": 6.551916323892046,
+      "binary_byte_offset": 39632
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 86,
+      "coordinate": [
+        0.042869098484516144,
+        0.3571278154850006,
+        -0.11982391774654388
+      ],
+      "old_normal": [
+        -0.5227392911911011,
+        0.5225350260734558,
+        0.6735731363296509
+      ],
+      "new_normal": [
+        -0.4246295094490051,
+        0.534100353717804,
+        0.7310448884963989
+      ],
+      "angular_change_degrees": 6.551915726897283,
+      "binary_byte_offset": 147172
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 144,
+      "coordinate": [
+        0.042328108102083206,
+        0.354352205991745,
+        -0.1182134598493576
+      ],
+      "old_normal": [
+        -0.3481164574623108,
+        0.49247080087661743,
+        0.7976763248443604
+      ],
+      "new_normal": [
+        -0.4519192576408386,
+        0.4832051694393158,
+        0.7498545050621033
+      ],
+      "angular_change_degrees": 6.573351753247356,
+      "binary_byte_offset": 39668
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 91,
+      "coordinate": [
+        0.042328108102083206,
+        0.354352205991745,
+        -0.1182134598493576
+      ],
+      "old_normal": [
+        -0.5497803092002869,
+        0.467586487531662,
+        0.6921737194061279
+      ],
+      "new_normal": [
+        -0.4519192576408386,
+        0.4832051694393158,
+        0.7498545050621033
+      ],
+      "angular_change_degrees": 6.57335242350472,
+      "binary_byte_offset": 147232
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 145,
+      "coordinate": [
+        0.04192986711859703,
+        0.35134825110435486,
+        -0.11666524410247803
+      ],
+      "old_normal": [
+        -0.4188961982727051,
+        0.42560485005378723,
+        0.8021137714385986
+      ],
+      "new_normal": [
+        -0.5176337361335754,
+        0.41104546189308167,
+        0.7503978610038757
+      ],
+      "angular_change_degrees": 6.443911787699824,
+      "binary_byte_offset": 39680
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 93,
+      "coordinate": [
+        0.04192986711859703,
+        0.35134825110435486,
+        -0.11666524410247803
+      ],
+      "old_normal": [
+        -0.6098307371139526,
+        0.3912922739982605,
+        0.689200222492218
+      ],
+      "new_normal": [
+        -0.5176337361335754,
+        0.41104546189308167,
+        0.7503978610038757
+      ],
+      "angular_change_degrees": 6.443915150509968,
+      "binary_byte_offset": 147256
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 151,
+      "coordinate": [
+        0.04170679301023483,
+        0.34828636050224304,
+        -0.11531970649957657
+      ],
+      "old_normal": [
+        -0.49531060457229614,
+        0.347137451171875,
+        0.7963435649871826
+      ],
+      "new_normal": [
+        -0.590435802936554,
+        0.3271757960319519,
+        0.7377950549125671
+      ],
+      "angular_change_degrees": 6.504788269851222,
+      "binary_byte_offset": 39752
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 94,
+      "coordinate": [
+        0.04170679301023483,
+        0.34828636050224304,
+        -0.11531970649957657
+      ],
+      "old_normal": [
+        -0.6779590249061584,
+        0.3030017018318176,
+        0.6697473526000977
+      ],
+      "new_normal": [
+        -0.590435802936554,
+        0.3271757960319519,
+        0.7377950549125671
+      ],
+      "angular_change_degrees": 6.504786378602917,
+      "binary_byte_offset": 147268
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 152,
+      "coordinate": [
+        0.047972507774829865,
+        0.3353113830089569,
+        -0.11008556187152863
+      ],
+      "old_normal": [
+        -0.35357093811035156,
+        -0.13414685428142548,
+        0.9257388114929199
+      ],
+      "new_normal": [
+        -0.41714513301849365,
+        -0.22042837738990784,
+        0.8817036151885986
+      ],
+      "angular_change_degrees": 6.6424386935255395,
+      "binary_byte_offset": 39764
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 26,
+      "coordinate": [
+        0.047972507774829865,
+        0.3353113830089569,
+        -0.11008556187152863
+      ],
+      "old_normal": [
+        -0.47511905431747437,
+        -0.303750604391098,
+        0.8258313536643982
+      ],
+      "new_normal": [
+        -0.41714513301849365,
+        -0.22042837738990784,
+        0.8817036151885986
+      ],
+      "angular_change_degrees": 6.642439131538414,
+      "binary_byte_offset": 261636
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 154,
+      "coordinate": [
+        0.05031418800354004,
+        0.33335158228874207,
+        -0.10968710482120514
+      ],
+      "old_normal": [
+        -0.24568955600261688,
+        -0.2036743462085724,
+        0.9477096199989319
+      ],
+      "new_normal": [
+        -0.3160591721534729,
+        -0.2957194447517395,
+        0.90147465467453
+      ],
+      "angular_change_degrees": 7.1521414963646865,
+      "binary_byte_offset": 39788
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 27,
+      "coordinate": [
+        0.05031418800354004,
+        0.33335158228874207,
+        -0.10968710482120514
+      ],
+      "old_normal": [
+        -0.38151034712791443,
+        -0.38316261768341064,
+        0.8412111401557922
+      ],
+      "new_normal": [
+        -0.3160591721534729,
+        -0.2957194447517395,
+        0.90147465467453
+      ],
+      "angular_change_degrees": 7.15214206969541,
+      "binary_byte_offset": 261648
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 160,
+      "coordinate": [
+        0.05254987254738808,
+        0.3316144347190857,
+        -0.10969335585832596
+      ],
+      "old_normal": [
+        -0.11801740527153015,
+        -0.2574923038482666,
+        0.9590463042259216
+      ],
+      "new_normal": [
+        -0.19474244117736816,
+        -0.35645344853401184,
+        0.9137922525405884
+      ],
+      "angular_change_degrees": 7.634382314682867,
+      "binary_byte_offset": 39860
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 29,
+      "coordinate": [
+        0.05254987254738808,
+        0.3316144347190857,
+        -0.10969335585832596
+      ],
+      "old_normal": [
+        -0.2680151164531708,
+        -0.4490954279899597,
+        0.8523386716842651
+      ],
+      "new_normal": [
+        -0.19474244117736816,
+        -0.35645344853401184,
+        0.9137922525405884
+      ],
+      "angular_change_degrees": 7.63438169034629,
+      "binary_byte_offset": 261672
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 197,
+      "coordinate": [
+        0.09306972473859787,
+        0.3786470293998718,
+        -0.1260717809200287
+      ],
+      "old_normal": [
+        0.2381555438041687,
+        0.5228384137153625,
+        0.8184876441955566
+      ],
+      "new_normal": [
+        0.3432822823524475,
+        0.6222493648529053,
+        0.7035360932350159
+      ],
+      "angular_change_degrees": 10.602910659524447,
+      "binary_byte_offset": 40304
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 187,
+      "coordinate": [
+        0.09306972473859787,
+        0.3786470293998718,
+        -0.1260717809200287
+      ],
+      "old_normal": [
+        0.43668660521507263,
+        0.7004117965698242,
+        0.5645601749420166
+      ],
+      "new_normal": [
+        0.3432822823524475,
+        0.6222493648529053,
+        0.7035360932350159
+      ],
+      "angular_change_degrees": 10.602912550810327,
+      "binary_byte_offset": 148384
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 198,
+      "coordinate": [
+        0.09106675535440445,
+        0.3801772892475128,
+        -0.12646792829036713
+      ],
+      "old_normal": [
+        0.2332979291677475,
+        0.5320669412612915,
+        0.8139268755912781
+      ],
+      "new_normal": [
+        0.3266785442829132,
+        0.6345945596694946,
+        0.7004076838493347
+      ],
+      "angular_change_degrees": 10.282117220231726,
+      "binary_byte_offset": 40316
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 105,
+      "coordinate": [
+        0.09106675535440445,
+        0.3801772892475128,
+        -0.12646792829036713
+      ],
+      "old_normal": [
+        0.4095667898654938,
+        0.7167400121688843,
+        0.5643925070762634
+      ],
+      "new_normal": [
+        0.3266785442829132,
+        0.6345945596694946,
+        0.7004076838493347
+      ],
+      "angular_change_degrees": 10.282118245385888,
+      "binary_byte_offset": 147400
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 199,
+      "coordinate": [
+        0.0889778807759285,
+        0.3815622627735138,
+        -0.1268046498298645
+      ],
+      "old_normal": [
+        0.2230818122625351,
+        0.5561246871948242,
+        0.8005996942520142
+      ],
+      "new_normal": [
+        0.30289047956466675,
+        0.6600719094276428,
+        0.687431812286377
+      ],
+      "angular_change_degrees": 9.933270712810677,
+      "binary_byte_offset": 40328
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 107,
+      "coordinate": [
+        0.0889778807759285,
+        0.3815622627735138,
+        -0.1268046498298645
+      ],
+      "old_normal": [
+        0.37361806631088257,
+        0.7442291975021362,
+        0.5536537170410156
+      ],
+      "new_normal": [
+        0.30289047956466675,
+        0.6600719094276428,
+        0.687431812286377
+      ],
+      "angular_change_degrees": 9.933271059480607,
+      "binary_byte_offset": 147424
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 236,
+      "coordinate": [
+        0.09839896857738495,
+        0.373821884393692,
+        -0.12444690614938736
+      ],
+      "old_normal": [
+        0.23923632502555847,
+        0.5753300786018372,
+        0.7821518182754517
+      ],
+      "new_normal": [
+        0.36052191257476807,
+        0.6503601670265198,
+        0.6686221361160278
+      ],
+      "angular_change_degrees": 10.458801275993281,
+      "binary_byte_offset": 40772
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 271,
+      "coordinate": [
+        0.09839896857738495,
+        0.373821884393692,
+        -0.12444690614938736
+      ],
+      "old_normal": [
+        0.46982789039611816,
+        0.7037797570228577,
+        0.532875120639801
+      ],
+      "new_normal": [
+        0.36052191257476807,
+        0.6503601670265198,
+        0.6686221361160278
+      ],
+      "angular_change_degrees": 10.458802314056243,
+      "binary_byte_offset": 149392
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 237,
+      "coordinate": [
+        0.09675487130880356,
+        0.3754154145717621,
+        -0.12506429851055145
+      ],
+      "old_normal": [
+        0.24273492395877838,
+        0.5457574725151062,
+        0.8020153641700745
+      ],
+      "new_normal": [
+        0.3642236292362213,
+        0.6323602795600891,
+        0.6837116479873657
+      ],
+      "angular_change_degrees": 10.926140833062146,
+      "binary_byte_offset": 40784
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 183,
+      "coordinate": [
+        0.09675487130880356,
+        0.3754154145717621,
+        -0.12506429851055145
+      ],
+      "old_normal": [
+        0.4725072979927063,
+        0.6960367560386658,
+        0.5406197905540466
+      ],
+      "new_normal": [
+        0.3642236292362213,
+        0.6323602795600891,
+        0.6837116479873657
+      ],
+      "angular_change_degrees": 10.92614172994103,
+      "binary_byte_offset": 148336
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 238,
+      "coordinate": [
+        0.09497694671154022,
+        0.3770427703857422,
+        -0.1256030946969986
+      ],
+      "old_normal": [
+        0.23936830461025238,
+        0.5271544456481934,
+        0.8153594732284546
+      ],
+      "new_normal": [
+        0.35604602098464966,
+        0.6231184005737305,
+        0.6963868737220764
+      ],
+      "angular_change_degrees": 11.03472217045751,
+      "binary_byte_offset": 40796
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 185,
+      "coordinate": [
+        0.09497694671154022,
+        0.3770427703857422,
+        -0.1256030946969986
+      ],
+      "old_normal": [
+        0.4595581591129303,
+        0.6960412263870239,
+        0.5516638159751892
+      ],
+      "new_normal": [
+        0.35604602098464966,
+        0.6231184005737305,
+        0.6963868737220764
+      ],
+      "angular_change_degrees": 11.034724460429786,
+      "binary_byte_offset": 148360
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 273,
+      "coordinate": [
+        0.10273751616477966,
+        0.36950260400772095,
+        -0.12203486263751984
+      ],
+      "old_normal": [
+        0.16621121764183044,
+        0.6759588122367859,
+        0.7179509997367859
+      ],
+      "new_normal": [
+        0.29348570108413696,
+        0.7319577932357788,
+        0.6149015426635742
+      ],
+      "angular_change_degrees": 9.928689975358262,
+      "binary_byte_offset": 41216
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 373,
+      "coordinate": [
+        0.10273751616477966,
+        0.36950260400772095,
+        -0.12203486263751984
+      ],
+      "old_normal": [
+        0.4119691848754883,
+        0.7660319805145264,
+        0.49343347549438477
+      ],
+      "new_normal": [
+        0.29348570108413696,
+        0.7319577932357788,
+        0.6149015426635742
+      ],
+      "angular_change_degrees": 9.928690931575165,
+      "binary_byte_offset": 150616
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 274,
+      "coordinate": [
+        0.10136594623327255,
+        0.3708597421646118,
+        -0.12293267995119095
+      ],
+      "old_normal": [
+        0.19927634298801422,
+        0.6488128304481506,
+        0.7343915104866028
+      ],
+      "new_normal": [
+        0.32004740834236145,
+        0.7070655226707458,
+        0.6305775046348572
+      ],
+      "angular_change_degrees": 9.727730627700023,
+      "binary_byte_offset": 41228
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 267,
+      "coordinate": [
+        0.10136594623327255,
+        0.3708597421646118,
+        -0.12293267995119095
+      ],
+      "old_normal": [
+        0.43161505460739136,
+        0.7449855804443359,
+        0.5086304545402527
+      ],
+      "new_normal": [
+        0.32004740834236145,
+        0.7070655226707458,
+        0.6305775046348572
+      ],
+      "angular_change_degrees": 9.727727195216735,
+      "binary_byte_offset": 149344
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 275,
+      "coordinate": [
+        0.09992559254169464,
+        0.37229564785957336,
+        -0.12373905628919601
+      ],
+      "old_normal": [
+        0.22542236745357513,
+        0.6129835247993469,
+        0.7572556734085083
+      ],
+      "new_normal": [
+        0.34439417719841003,
+        0.677359938621521,
+        0.6500585675239563
+      ],
+      "angular_change_degrees": 9.901417231441826,
+      "binary_byte_offset": 41240
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 269,
+      "coordinate": [
+        0.09992559254169464,
+        0.37229564785957336,
+        -0.12373905628919601
+      ],
+      "old_normal": [
+        0.4531065821647644,
+        0.7215579748153687,
+        0.5234964489936829
+      ],
+      "new_normal": [
+        0.34439417719841003,
+        0.677359938621521,
+        0.6500585675239563
+      ],
+      "angular_change_degrees": 9.901415945293206,
+      "binary_byte_offset": 149368
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 309,
+      "coordinate": [
+        0.10655554383993149,
+        0.36564964056015015,
+        -0.11888034641742706
+      ],
+      "old_normal": [
+        0.09685622155666351,
+        0.7077549695968628,
+        0.6997870206832886
+      ],
+      "new_normal": [
+        0.25594639778137207,
+        0.762546718120575,
+        0.5941497683525085
+      ],
+      "angular_change_degrees": 11.401941003383657,
+      "binary_byte_offset": 41648
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 487,
+      "coordinate": [
+        0.10655554383993149,
+        0.36564964056015015,
+        -0.11888034641742706
+      ],
+      "old_normal": [
+        0.4049341380596161,
+        0.7872399687767029,
+        0.46506085991859436
+      ],
+      "new_normal": [
+        0.25594639778137207,
+        0.762546718120575,
+        0.5941497683525085
+      ],
+      "angular_change_degrees": 11.401941308297623,
+      "binary_byte_offset": 151984
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 310,
+      "coordinate": [
+        0.10532833635807037,
+        0.36692947149276733,
+        -0.11999984830617905
+      ],
+      "old_normal": [
+        0.11017724871635437,
+        0.7045438885688782,
+        0.7010555863380432
+      ],
+      "new_normal": [
+        0.2575240135192871,
+        0.7599842548370361,
+        0.5967456102371216
+      ],
+      "angular_change_degrees": 10.836595559061195,
+      "binary_byte_offset": 41660
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 369,
+      "coordinate": [
+        0.10532833635807037,
+        0.36692947149276733,
+        -0.11999984830617905
+      ],
+      "old_normal": [
+        0.39568614959716797,
+        0.7883195877075195,
+        0.4711526334285736
+      ],
+      "new_normal": [
+        0.2575240135192871,
+        0.7599842548370361,
+        0.5967456102371216
+      ],
+      "angular_change_degrees": 10.836593637063148,
+      "binary_byte_offset": 150568
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 311,
+      "coordinate": [
+        0.10405588150024414,
+        0.3682033121585846,
+        -0.12105407565832138
+      ],
+      "old_normal": [
+        0.13442732393741608,
+        0.6944957971572876,
+        0.7068274021148682
+      ],
+      "new_normal": [
+        0.27103978395462036,
+        0.7501120567321777,
+        0.6032158136367798
+      ],
+      "angular_change_degrees": 10.341809228284097,
+      "binary_byte_offset": 41672
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 371,
+      "coordinate": [
+        0.10405588150024414,
+        0.3682033121585846,
+        -0.12105407565832138
+      ],
+      "old_normal": [
+        0.3988458216190338,
+        0.7813562154769897,
+        0.4800048768520355
+      ],
+      "new_normal": [
+        0.27103978395462036,
+        0.7501120567321777,
+        0.6032158136367798
+      ],
+      "angular_change_degrees": 10.341812420678322,
+      "binary_byte_offset": 150592
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 344,
+      "coordinate": [
+        0.10999806970357895,
+        0.3615569472312927,
+        -0.11528312414884567
+      ],
+      "old_normal": [
+        0.09095251560211182,
+        0.6789515018463135,
+        0.7285276055335999
+      ],
+      "new_normal": [
+        0.26500657200813293,
+        0.7283360958099365,
+        0.6319003701210022
+      ],
+      "angular_change_degrees": 11.772682612716903,
+      "binary_byte_offset": 42068
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 607,
+      "coordinate": [
+        0.10999806970357895,
+        0.3615569472312927,
+        -0.11528312414884567
+      ],
+      "old_normal": [
+        0.4279116690158844,
+        0.7470791935920715,
+        0.5086888074874878
+      ],
+      "new_normal": [
+        0.26500657200813293,
+        0.7283360958099365,
+        0.6319003701210022
+      ],
+      "angular_change_degrees": 11.77268081975312,
+      "binary_byte_offset": 153424
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 345,
+      "coordinate": [
+        0.10888604074716568,
+        0.3629767596721649,
+        -0.11650791019201279
+      ],
+      "old_normal": [
+        0.08895276486873627,
+        0.6952243447303772,
+        0.7132675647735596
+      ],
+      "new_normal": [
+        0.26257818937301636,
+        0.7468429803848267,
+        0.6109650135040283
+      ],
+      "angular_change_degrees": 11.940784924928034,
+      "binary_byte_offset": 42080
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 483,
+      "coordinate": [
+        0.10888604074716568,
+        0.3629767596721649,
+        -0.11650791019201279
+      ],
+      "old_normal": [
+        0.4248402714729309,
+        0.7661412954330444,
+        0.4822223484516144
+      ],
+      "new_normal": [
+        0.26257818937301636,
+        0.7468429803848267,
+        0.6109650135040283
+      ],
+      "angular_change_degrees": 11.94078462037213,
+      "binary_byte_offset": 151936
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 346,
+      "coordinate": [
+        0.10774058848619461,
+        0.3643369674682617,
+        -0.11771144717931747
+      ],
+      "old_normal": [
+        0.09118736535310745,
+        0.704368531703949,
+        0.7039530277252197
+      ],
+      "new_normal": [
+        0.2604457437992096,
+        0.757952094078064,
+        0.5980607271194458
+      ],
+      "angular_change_degrees": 11.865321970398776,
+      "binary_byte_offset": 42092
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 485,
+      "coordinate": [
+        0.10774058848619461,
+        0.3643369674682617,
+        -0.11771144717931747
+      ],
+      "old_normal": [
+        0.4185745418071747,
+        0.7791463136672974,
+        0.4666116535663605
+      ],
+      "new_normal": [
+        0.2604457437992096,
+        0.757952094078064,
+        0.5980607271194458
+      ],
+      "angular_change_degrees": 11.865321109131717,
+      "binary_byte_offset": 151960
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 378,
+      "coordinate": [
+        0.11310582607984543,
+        0.35687342286109924,
+        -0.11166682839393616
+      ],
+      "old_normal": [
+        0.13574931025505066,
+        0.6286160349845886,
+        0.7657768130302429
+      ],
+      "new_normal": [
+        0.30530279874801636,
+        0.6674856543540955,
+        0.6791561841964722
+      ],
+      "angular_change_degrees": 11.151616152572718,
+      "binary_byte_offset": 42476
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 736,
+      "coordinate": [
+        0.11310582607984543,
+        0.35687342286109924,
+        -0.11166682839393616
+      ],
+      "old_normal": [
+        0.4633273482322693,
+        0.6811494827270508,
+        0.5668891072273254
+      ],
+      "new_normal": [
+        0.30530279874801636,
+        0.6674856543540955,
+        0.6791561841964722
+      ],
+      "angular_change_degrees": 11.151614545020735,
+      "binary_byte_offset": 154972
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 379,
+      "coordinate": [
+        0.11210897564888,
+        0.35849106311798096,
+        -0.11285309493541718
+      ],
+      "old_normal": [
+        0.11374292522668839,
+        0.6424189805984497,
+        0.7578657269477844
+      ],
+      "new_normal": [
+        0.28343257308006287,
+        0.6853237152099609,
+        0.6708184480667114
+      ],
+      "angular_change_degrees": 11.2181155853663,
+      "binary_byte_offset": 42488
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 603,
+      "coordinate": [
+        0.11210897564888,
+        0.35849106311798096,
+        -0.11285309493541718
+      ],
+      "old_normal": [
+        0.4422914981842041,
+        0.702040433883667,
+        0.5581374764442444
+      ],
+      "new_normal": [
+        0.28343257308006287,
+        0.6853237152099609,
+        0.6708184480667114
+      ],
+      "angular_change_degrees": 11.218113818814835,
+      "binary_byte_offset": 153376
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 380,
+      "coordinate": [
+        0.11107267439365387,
+        0.3600578308105469,
+        -0.11406079679727554
+      ],
+      "old_normal": [
+        0.09980610758066177,
+        0.6593860983848572,
+        0.745150089263916
+      ],
+      "new_normal": [
+        0.27140912413597107,
+        0.7056798934936523,
+        0.6544868350028992
+      ],
+      "angular_change_degrees": 11.45102764635994,
+      "binary_byte_offset": 42500
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 605,
+      "coordinate": [
+        0.11107267439365387,
+        0.3600578308105469,
+        -0.11406079679727554
+      ],
+      "old_normal": [
+        0.43220722675323486,
+        0.7238801717758179,
+        0.5377680659294128
+      ],
+      "new_normal": [
+        0.27140912413597107,
+        0.7056798934936523,
+        0.6544868350028992
+      ],
+      "angular_change_degrees": 11.4510293414021,
+      "binary_byte_offset": 153400
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 413,
+      "coordinate": [
+        0.11585399508476257,
+        0.35180923342704773,
+        -0.10824676603078842
+      ],
+      "old_normal": [
+        0.2232823222875595,
+        0.6120826601982117,
+        0.7586171627044678
+      ],
+      "new_normal": [
+        0.394997775554657,
+        0.6356276273727417,
+        0.6632905006408691
+      ],
+      "angular_change_degrees": 11.352081363692127,
+      "binary_byte_offset": 42896
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 895,
+      "coordinate": [
+        0.11585399508476257,
+        0.35180923342704773,
+        -0.10824676603078842
+      ],
+      "old_normal": [
+        0.5512579083442688,
+        0.6343020796775818,
+        0.5420108437538147
+      ],
+      "new_normal": [
+        0.394997775554657,
+        0.6356276273727417,
+        0.6632905006408691
+      ],
+      "angular_change_degrees": 11.352082344950531,
+      "binary_byte_offset": 156880
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 414,
+      "coordinate": [
+        0.11497489362955093,
+        0.35351860523223877,
+        -0.10936976224184036
+      ],
+      "old_normal": [
+        0.19655641913414001,
+        0.612312912940979,
+        0.765792727470398
+      ],
+      "new_normal": [
+        0.36895692348480225,
+        0.6413896679878235,
+        0.6726738810539246
+      ],
+      "angular_change_degrees": 11.368184801622759,
+      "binary_byte_offset": 42908
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 732,
+      "coordinate": [
+        0.11497489362955093,
+        0.35351860523223877,
+        -0.10936976224184036
+      ],
+      "old_normal": [
+        0.526880145072937,
+        0.6452992558479309,
+        0.5531603097915649
+      ],
+      "new_normal": [
+        0.36895692348480225,
+        0.6413896679878235,
+        0.6726738810539246
+      ],
+      "angular_change_degrees": 11.368186127279131,
+      "binary_byte_offset": 154924
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 415,
+      "coordinate": [
+        0.11405951529741287,
+        0.3552115857601166,
+        -0.11050668358802795
+      ],
+      "old_normal": [
+        0.16522382199764252,
+        0.61812424659729,
+        0.7685204148292542
+      ],
+      "new_normal": [
+        0.3366382420063019,
+        0.6523562073707581,
+        0.6790479421615601
+      ],
+      "angular_change_degrees": 11.269158419246587,
+      "binary_byte_offset": 42920
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 734,
+      "coordinate": [
+        0.11405951529741287,
+        0.3552115857601166,
+        -0.11050668358802795
+      ],
+      "old_normal": [
+        0.4950718879699707,
+        0.6614333391189575,
+        0.563391387462616
+      ],
+      "new_normal": [
+        0.3366382420063019,
+        0.6523562073707581,
+        0.6790479421615601
+      ],
+      "angular_change_degrees": 11.269158398863414,
+      "binary_byte_offset": 154948
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 448,
+      "coordinate": [
+        0.11817387491464615,
+        0.3466024398803711,
+        -0.10484780371189117
+      ],
+      "old_normal": [
+        0.2650240361690521,
+        0.5812997221946716,
+        0.7693197727203369
+      ],
+      "new_normal": [
+        0.4330297112464905,
+        0.5882613658905029,
+        0.6829596161842346
+      ],
+      "angular_change_degrees": 10.846827340863333,
+      "binary_byte_offset": 43316
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1046,
+      "coordinate": [
+        0.11817387491464615,
+        0.3466024398803711,
+        -0.10484780371189117
+      ],
+      "old_normal": [
+        0.5855622291564941,
+        0.5742030143737793,
+        0.5721956491470337
+      ],
+      "new_normal": [
+        0.4330297112464905,
+        0.5882613658905029,
+        0.6829596161842346
+      ],
+      "angular_change_degrees": 10.846829392891651,
+      "binary_byte_offset": 158692
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 449,
+      "coordinate": [
+        0.1174737811088562,
+        0.34837642312049866,
+        -0.1059836745262146
+      ],
+      "old_normal": [
+        0.2519126832485199,
+        0.599611759185791,
+        0.7596089839935303
+      ],
+      "new_normal": [
+        0.4234691858291626,
+        0.6124483942985535,
+        0.6675184369087219
+      ],
+      "angular_change_degrees": 11.198132659069682,
+      "binary_byte_offset": 43328
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 891,
+      "coordinate": [
+        0.1174737811088562,
+        0.34837642312049866,
+        -0.1059836745262146
+      ],
+      "old_normal": [
+        0.5789012312889099,
+        0.6019647717475891,
+        0.5500107407569885
+      ],
+      "new_normal": [
+        0.4234691858291626,
+        0.6124483942985535,
+        0.6675184369087219
+      ],
+      "angular_change_degrees": 11.198133359191896,
+      "binary_byte_offset": 156832
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 450,
+      "coordinate": [
+        0.1166929304599762,
+        0.3501015305519104,
+        -0.1071188747882843
+      ],
+      "old_normal": [
+        0.23976433277130127,
+        0.6106289625167847,
+        0.754748523235321
+      ],
+      "new_normal": [
+        0.41204845905303955,
+        0.6289647817611694,
+        0.659256637096405
+      ],
+      "angular_change_degrees": 11.35338290157288,
+      "binary_byte_offset": 43340
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 893,
+      "coordinate": [
+        0.1166929304599762,
+        0.3501015305519104,
+        -0.1071188747882843
+      ],
+      "old_normal": [
+        0.5682063698768616,
+        0.6226850152015686,
+        0.5379636287689209
+      ],
+      "new_normal": [
+        0.41204845905303955,
+        0.6289647817611694,
+        0.659256637096405
+      ],
+      "angular_change_degrees": 11.353382930341576,
+      "binary_byte_offset": 156856
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 481,
+      "coordinate": [
+        0.11980384588241577,
+        0.34098684787750244,
+        -0.1014869287610054
+      ],
+      "old_normal": [
+        0.2913806438446045,
+        0.5256413817405701,
+        0.7992488145828247
+      ],
+      "new_normal": [
+        0.46375715732574463,
+        0.5199145078659058,
+        0.7173689603805542
+      ],
+      "angular_change_degrees": 10.95563731971736,
+      "binary_byte_offset": 43712
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1199,
+      "coordinate": [
+        0.11980384588241577,
+        0.34098684787750244,
+        -0.1014869287610054
+      ],
+      "old_normal": [
+        0.6192294359207153,
+        0.49523642659187317,
+        0.6093405485153198
+      ],
+      "new_normal": [
+        0.46375715732574463,
+        0.5199145078659058,
+        0.7173689603805542
+      ],
+      "angular_change_degrees": 10.955638308596924,
+      "binary_byte_offset": 160528
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 482,
+      "coordinate": [
+        0.11932721734046936,
+        0.34289711713790894,
+        -0.10259278863668442
+      ],
+      "old_normal": [
+        0.2852761447429657,
+        0.5416338443756104,
+        0.7907277345657349
+      ],
+      "new_normal": [
+        0.45253607630729675,
+        0.5391382575035095,
+        0.7103105187416077
+      ],
+      "angular_change_degrees": 10.649680731831749,
+      "binary_byte_offset": 43724
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1042,
+      "coordinate": [
+        0.11932721734046936,
+        0.34289711713790894,
+        -0.10259278863668442
+      ],
+      "old_normal": [
+        0.6042066216468811,
+        0.5180699229240417,
+        0.6054238677024841
+      ],
+      "new_normal": [
+        0.45253607630729675,
+        0.5391382575035095,
+        0.7103105187416077
+      ],
+      "angular_change_degrees": 10.649680064933333,
+      "binary_byte_offset": 158644
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 483,
+      "coordinate": [
+        0.11878906190395355,
+        0.34477388858795166,
+        -0.1037151888012886
+      ],
+      "old_normal": [
+        0.27708500623703003,
+        0.5610242486000061,
+        0.7800485491752625
+      ],
+      "new_normal": [
+        0.44284290075302124,
+        0.5627052783966064,
+        0.6980350613594055
+      ],
+      "angular_change_degrees": 10.611736580726514,
+      "binary_byte_offset": 43736
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1044,
+      "coordinate": [
+        0.11878906190395355,
+        0.34477388858795166,
+        -0.1037151888012886
+      ],
+      "old_normal": [
+        0.5934535264968872,
+        0.5451391339302063,
+        0.592145562171936
+      ],
+      "new_normal": [
+        0.44284290075302124,
+        0.5627052783966064,
+        0.6980350613594055
+      ],
+      "angular_change_degrees": 10.611736113723172,
+      "binary_byte_offset": 158668
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 513,
+      "coordinate": [
+        0.12065339833498001,
+        0.3371429443359375,
+        -0.09933934360742569
+      ],
+      "old_normal": [
+        0.3057878017425537,
+        0.5140716433525085,
+        0.8013889193534851
+      ],
+      "new_normal": [
+        0.4861386716365814,
+        0.5041293501853943,
+        0.7138086557388306
+      ],
+      "angular_change_degrees": 11.520815517891421,
+      "binary_byte_offset": 44096
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1195,
+      "coordinate": [
+        0.12065339833498001,
+        0.3371429443359375,
+        -0.09933934360742569
+      ],
+      "old_normal": [
+        0.6469003558158875,
+        0.4738728702068329,
+        0.5974651575088501
+      ],
+      "new_normal": [
+        0.4861386716365814,
+        0.5041293501853943,
+        0.7138086557388306
+      ],
+      "angular_change_degrees": 11.52081440576095,
+      "binary_byte_offset": 160480
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 514,
+      "coordinate": [
+        0.12106303870677948,
+        0.33525678515434265,
+        -0.09827614575624466
+      ],
+      "old_normal": [
+        0.3142837584018707,
+        0.5273773670196533,
+        0.7893660664558411
+      ],
+      "new_normal": [
+        0.4918811023235321,
+        0.5160322785377502,
+        0.7012585997581482
+      ],
+      "angular_change_degrees": 11.396354019392746,
+      "binary_byte_offset": 44108
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1352,
+      "coordinate": [
+        0.12106303870677948,
+        0.33525678515434265,
+        -0.09827614575624466
+      ],
+      "old_normal": [
+        0.6500824093818665,
+        0.48433881998062134,
+        0.5854988098144531
+      ],
+      "new_normal": [
+        0.4918811023235321,
+        0.5160322785377502,
+        0.7012585997581482
+      ],
+      "angular_change_degrees": 11.39635429906698,
+      "binary_byte_offset": 162364
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 515,
+      "coordinate": [
+        0.12023988366127014,
+        0.3390618860721588,
+        -0.10040292143821716
+      ],
+      "old_normal": [
+        0.29737550020217896,
+        0.5149292945861816,
+        0.8039997816085815
+      ],
+      "new_normal": [
+        0.4758058786392212,
+        0.506794810295105,
+        0.7188656330108643
+      ],
+      "angular_change_degrees": 11.355524454377287,
+      "binary_byte_offset": 44120
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1194,
+      "coordinate": [
+        0.12023988366127014,
+        0.3390618860721588,
+        -0.10040292143821716
+      ],
+      "old_normal": [
+        0.6356078386306763,
+        0.4788186848163605,
+        0.6055868864059448
+      ],
+      "new_normal": [
+        0.4758058786392212,
+        0.506794810295105,
+        0.7188656330108643
+      ],
+      "angular_change_degrees": 11.355525774618949,
+      "binary_byte_offset": 160468
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 544,
+      "coordinate": [
+        0.12190943211317062,
+        0.331622451543808,
+        -0.09606043249368668
+      ],
+      "old_normal": [
+        0.32500359416007996,
+        0.5594848394393921,
+        0.7624627947807312
+      ],
+      "new_normal": [
+        0.5058028697967529,
+        0.54326993227005,
+        0.6700904369354248
+      ],
+      "angular_change_degrees": 11.690052658129893,
+      "binary_byte_offset": 44468
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1348,
+      "coordinate": [
+        0.12190943211317062,
+        0.331622451543808,
+        -0.09606043249368668
+      ],
+      "old_normal": [
+        0.665619432926178,
+        0.5045181512832642,
+        0.5499202013015747
+      ],
+      "new_normal": [
+        0.5058028697967529,
+        0.54326993227005,
+        0.6700904369354248
+      ],
+      "angular_change_degrees": 11.690048200966253,
+      "binary_byte_offset": 162316
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 545,
+      "coordinate": [
+        0.12232740223407745,
+        0.3298240602016449,
+        -0.09490354359149933
+      ],
+      "old_normal": [
+        0.33388930559158325,
+        0.5631487965583801,
+        0.7558978199958801
+      ],
+      "new_normal": [
+        0.516822874546051,
+        0.5434864163398743,
+        0.6614503860473633
+      ],
+      "angular_change_degrees": 11.87073413783468,
+      "binary_byte_offset": 44480
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1504,
+      "coordinate": [
+        0.12232740223407745,
+        0.3298240602016449,
+        -0.09490354359149933
+      ],
+      "old_normal": [
+        0.6776511669158936,
+        0.5005782842636108,
+        0.5387117266654968
+      ],
+      "new_normal": [
+        0.516822874546051,
+        0.5434864163398743,
+        0.6614503860473633
+      ],
+      "angular_change_degrees": 11.870735600114752,
+      "binary_byte_offset": 164188
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 546,
+      "coordinate": [
+        0.12148459255695343,
+        0.3334229290485382,
+        -0.09718484431505203
+      ],
+      "old_normal": [
+        0.3190363049507141,
+        0.5464363694190979,
+        0.7743535041809082
+      ],
+      "new_normal": [
+        0.4973454475402832,
+        0.5331304669380188,
+        0.6844117045402527
+      ],
+      "angular_change_degrees": 11.487066503244048,
+      "binary_byte_offset": 44492
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1347,
+      "coordinate": [
+        0.12148459255695343,
+        0.3334229290485382,
+        -0.09718484431505203
+      ],
+      "old_normal": [
+        0.6557306051254272,
+        0.49846702814102173,
+        0.5670520067214966
+      ],
+      "new_normal": [
+        0.4973454475402832,
+        0.5331304669380188,
+        0.6844117045402527
+      ],
+      "angular_change_degrees": 11.487065185651801,
+      "binary_byte_offset": 162304
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 574,
+      "coordinate": [
+        0.12310982495546341,
+        0.32608121633529663,
+        -0.09249957650899887
+      ],
+      "old_normal": [
+        0.35993361473083496,
+        0.5427603125572205,
+        0.7588539123535156
+      ],
+      "new_normal": [
+        0.5474556088447571,
+        0.5153234601020813,
+        0.6593436598777771
+      ],
+      "angular_change_degrees": 12.28799062107921,
+      "binary_byte_offset": 44828
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1500,
+      "coordinate": [
+        0.12310982495546341,
+        0.32608121633529663,
+        -0.09249957650899887
+      ],
+      "old_normal": [
+        0.7098934650421143,
+        0.4642748236656189,
+        0.5296227335929871
+      ],
+      "new_normal": [
+        0.5474556088447571,
+        0.5153234601020813,
+        0.6593436598777771
+      ],
+      "angular_change_degrees": 12.287986966453948,
+      "binary_byte_offset": 164140
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 575,
+      "coordinate": [
+        0.12345921993255615,
+        0.3240728974342346,
+        -0.09126085042953491
+      ],
+      "old_normal": [
+        0.3773523271083832,
+        0.5208202600479126,
+        0.7657359838485718
+      ],
+      "new_normal": [
+        0.5702606439590454,
+        0.4879600703716278,
+        0.660831093788147
+      ],
+      "angular_change_degrees": 12.747793328430236,
+      "binary_byte_offset": 44840
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1656,
+      "coordinate": [
+        0.12345921993255615,
+        0.3240728974342346,
+        -0.09126085042953491
+      ],
+      "old_normal": [
+        0.7350561022758484,
+        0.4310442805290222,
+        0.523348331451416
+      ],
+      "new_normal": [
+        0.5702606439590454,
+        0.4879600703716278,
+        0.660831093788147
+      ],
+      "angular_change_degrees": 12.747795063480503,
+      "binary_byte_offset": 166012
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 576,
+      "coordinate": [
+        0.12272944301366806,
+        0.32798880338668823,
+        -0.09371566772460938
+      ],
+      "old_normal": [
+        0.34612858295440674,
+        0.5571596622467041,
+        0.7548298835754395
+      ],
+      "new_normal": [
+        0.5305057168006897,
+        0.5338223576545715,
+        0.6584811210632324
+      ],
+      "angular_change_degrees": 12.01622484653458,
+      "binary_byte_offset": 44852
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1499,
+      "coordinate": [
+        0.12272944301366806,
+        0.32798880338668823,
+        -0.09371566772460938
+      ],
+      "old_normal": [
+        0.6916347146034241,
+        0.48709166049957275,
+        0.5332760214805603
+      ],
+      "new_normal": [
+        0.5305057168006897,
+        0.5338223576545715,
+        0.6584811210632324
+      ],
+      "angular_change_degrees": 12.016222721085366,
+      "binary_byte_offset": 164128
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 603,
+      "coordinate": [
+        0.12398433685302734,
+        0.31976261734962463,
+        -0.08877495676279068
+      ],
+      "old_normal": [
+        0.45246759057044983,
+        0.46270033717155457,
+        0.7623525857925415
+      ],
+      "new_normal": [
+        0.6416916251182556,
+        0.4128154218196869,
+        0.6463863253593445
+      ],
+      "angular_change_degrees": 13.061311162831467,
+      "binary_byte_offset": 45176
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1652,
+      "coordinate": [
+        0.12398433685302734,
+        0.31976261734962463,
+        -0.08877495676279068
+      ],
+      "old_normal": [
+        0.797713041305542,
+        0.3415704369544983,
+        0.49697452783584595
+      ],
+      "new_normal": [
+        0.6416916251182556,
+        0.4128154218196869,
+        0.6463863253593445
+      ],
+      "angular_change_degrees": 13.061310891469947,
+      "binary_byte_offset": 165964
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 604,
+      "coordinate": [
+        0.1241079717874527,
+        0.3175638020038605,
+        -0.08755487948656082
+      ],
+      "old_normal": [
+        0.4946713149547577,
+        0.42836254835128784,
+        0.7561784982681274
+      ],
+      "new_normal": [
+        0.6741821765899658,
+        0.3691883683204651,
+        0.6396704912185669
+      ],
+      "angular_change_degrees": 12.747986721137828,
+      "binary_byte_offset": 45188
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1810,
+      "coordinate": [
+        0.1241079717874527,
+        0.3175638020038605,
+        -0.08755487948656082
+      ],
+      "old_normal": [
+        0.8204559683799744,
+        0.29181328415870667,
+        0.49162688851356506
+      ],
+      "new_normal": [
+        0.6741821765899658,
+        0.3691883683204651,
+        0.6396704912185669
+      ],
+      "angular_change_degrees": 12.747985199433007,
+      "binary_byte_offset": 167860
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 605,
+      "coordinate": [
+        0.12375914305448532,
+        0.3219554126262665,
+        -0.09001317620277405
+      ],
+      "old_normal": [
+        0.40823885798454285,
+        0.49290814995765686,
+        0.7683637142181396
+      ],
+      "new_normal": [
+        0.6032412052154541,
+        0.4523589015007019,
+        0.6568648815155029
+      ],
+      "angular_change_degrees": 13.106833235322489,
+      "binary_byte_offset": 45200
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1651,
+      "coordinate": [
+        0.12375914305448532,
+        0.3219554126262665,
+        -0.09001317620277405
+      ],
+      "old_normal": [
+        0.7668134570121765,
+        0.38824084401130676,
+        0.5111420154571533
+      ],
+      "new_normal": [
+        0.6032412052154541,
+        0.4523589015007019,
+        0.6568648815155029
+      ],
+      "angular_change_degrees": 13.106835699244664,
+      "binary_byte_offset": 165952
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 606,
+      "coordinate": [
+        0.11373449116945267,
+        0.30664870142936707,
+        -0.08382638543844223
+      ],
+      "old_normal": [
+        -0.5061209201812744,
+        0.09125030040740967,
+        0.8576217889785767
+      ],
+      "new_normal": [
+        -0.4892761707305908,
+        0.026429470628499985,
+        0.8717283606529236
+      ],
+      "angular_change_degrees": 3.9222664810133328,
+      "binary_byte_offset": 45212
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "vertex": 57,
+      "coordinate": [
+        0.11373449116945267,
+        0.30664870142936707,
+        -0.08382638543844223
+      ],
+      "old_normal": [
+        -0.4701394736766815,
+        -0.03851516172289848,
+        0.8817514181137085
+      ],
+      "new_normal": [
+        -0.4892761707305908,
+        0.026429470628499985,
+        0.8717283606529236
+      ],
+      "angular_change_degrees": 3.9222661776635936,
+      "binary_byte_offset": 194708
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 607,
+      "coordinate": [
+        0.11499282717704773,
+        0.3070926070213318,
+        -0.08321496844291687
+      ],
+      "old_normal": [
+        -0.4230043590068817,
+        0.12937265634536743,
+        0.8968444466590881
+      ],
+      "new_normal": [
+        -0.40414562821388245,
+        0.053728099912405014,
+        0.9131153225898743
+      ],
+      "angular_change_degrees": 4.564190047818342,
+      "binary_byte_offset": 45224
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "vertex": 58,
+      "coordinate": [
+        0.11499282717704773,
+        0.3070926070213318,
+        -0.08321496844291687
+      ],
+      "old_normal": [
+        -0.3827236294746399,
+        -0.022257229313254356,
+        0.9235947728157043
+      ],
+      "new_normal": [
+        -0.40414562821388245,
+        0.053728099912405014,
+        0.9131153225898743
+      ],
+      "angular_change_degrees": 4.564189579149671,
+      "binary_byte_offset": 194720
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 611,
+      "coordinate": [
+        0.11254772543907166,
+        0.30616495013237,
+        -0.08455918729305267
+      ],
+      "old_normal": [
+        -0.5764488577842712,
+        0.053850945085287094,
+        0.8153568506240845
+      ],
+      "new_normal": [
+        -0.5628265738487244,
+        0.0014960627304390073,
+        0.8265736699104309
+      ],
+      "angular_change_degrees": 3.1659077714097776,
+      "binary_byte_offset": 45272
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "vertex": 17,
+      "coordinate": [
+        0.11254772543907166,
+        0.30616495013237,
+        -0.08455918729305267
+      ],
+      "old_normal": [
+        -0.5474863052368164,
+        -0.05086338892579079,
+        0.8352674841880798
+      ],
+      "new_normal": [
+        -0.5628265738487244,
+        0.0014960627304390073,
+        0.8265736699104309
+      ],
+      "angular_change_degrees": 3.165908240434574,
+      "binary_byte_offset": 194228
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 613,
+      "coordinate": [
+        0.11146395653486252,
+        0.3057277500629425,
+        -0.08537083119153976
+      ],
+      "old_normal": [
+        -0.6256141066551208,
+        0.0251726433634758,
+        0.7797264456748962
+      ],
+      "new_normal": [
+        -0.6173436045646667,
+        -0.020604116842150688,
+        0.7864237427711487
+      ],
+      "angular_change_degrees": 2.692959792363452,
+      "binary_byte_offset": 45296
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "vertex": 16,
+      "coordinate": [
+        0.11146395653486252,
+        0.3057277500629425,
+        -0.08537083119153976
+      ],
+      "old_normal": [
+        -0.6077096462249756,
+        -0.06633537262678146,
+        0.7913841009140015
+      ],
+      "new_normal": [
+        -0.6173436045646667,
+        -0.020604116842150688,
+        0.7864237427711487
+      ],
+      "angular_change_degrees": 2.692959234787701,
+      "binary_byte_offset": 194216
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 615,
+      "coordinate": [
+        0.11057782918214798,
+        0.3055804371833801,
+        -0.08612088114023209
+      ],
+      "old_normal": [
+        -0.6656568050384521,
+        0.010305295698344707,
+        0.7461869120597839
+      ],
+      "new_normal": [
+        -0.6633633971214294,
+        -0.018062138929963112,
+        0.7480793595314026
+      ],
+      "angular_change_degrees": 1.634208537344385,
+      "binary_byte_offset": 45320
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "vertex": 18,
+      "coordinate": [
+        0.11057782918214798,
+        0.3055804371833801,
+        -0.08612088114023209
+      ],
+      "old_normal": [
+        -0.6605303883552551,
+        -0.046414878219366074,
+        0.7493632435798645
+      ],
+      "new_normal": [
+        -0.6633633971214294,
+        -0.018062138929963112,
+        0.7480793595314026
+      ],
+      "angular_change_degrees": 1.6342082674270888,
+      "binary_byte_offset": 194240
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 616,
+      "coordinate": [
+        0.11630064994096756,
+        0.3075218200683594,
+        -0.08274200558662415
+      ],
+      "old_normal": [
+        -0.32679855823516846,
+        0.16624698042869568,
+        0.9303572773933411
+      ],
+      "new_normal": [
+        -0.3063027858734131,
+        0.08425617963075638,
+        0.9481980204582214
+      ],
+      "angular_change_degrees": 4.950540045348656,
+      "binary_byte_offset": 45332
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "vertex": 82,
+      "coordinate": [
+        0.11630064994096756,
+        0.3075218200683594,
+        -0.08274200558662415
+      ],
+      "old_normal": [
+        -0.28352174162864685,
+        0.0016367502976208925,
+        0.958964467048645
+      ],
+      "new_normal": [
+        -0.3063027858734131,
+        0.08425617963075638,
+        0.9481980204582214
+      ],
+      "angular_change_degrees": 4.950540681888146,
+      "binary_byte_offset": 195008
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 628,
+      "coordinate": [
+        0.12395822256803513,
+        0.3132411539554596,
+        -0.08525215089321136
+      ],
+      "old_normal": [
+        0.5210251212120056,
+        0.3397282063961029,
+        0.7830182909965515
+      ],
+      "new_normal": [
+        0.6892209053039551,
+        0.26858824491500854,
+        0.6729300618171692
+      ],
+      "angular_change_degrees": 12.240850369291069,
+      "binary_byte_offset": 45476
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1806,
+      "coordinate": [
+        0.12395822256803513,
+        0.3132411539554596,
+        -0.08525215089321136
+      ],
+      "old_normal": [
+        0.8260777592658997,
+        0.18523558974266052,
+        0.5322437286376953
+      ],
+      "new_normal": [
+        0.6892209053039551,
+        0.26858824491500854,
+        0.6729300618171692
+      ],
+      "angular_change_degrees": 12.240846835255615,
+      "binary_byte_offset": 167812
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 629,
+      "coordinate": [
+        0.1241009384393692,
+        0.31539276242256165,
+        -0.08637550473213196
+      ],
+      "old_normal": [
+        0.5215609073638916,
+        0.38700005412101746,
+        0.7603981494903564
+      ],
+      "new_normal": [
+        0.6918759942054749,
+        0.32064762711524963,
+        0.6469101309776306
+      ],
+      "angular_change_degrees": 12.35106972643345,
+      "binary_byte_offset": 45488
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1805,
+      "coordinate": [
+        0.1241009384393692,
+        0.31539276242256165,
+        -0.08637550473213196
+      ],
+      "old_normal": [
+        0.8301645517349243,
+        0.23945263028144836,
+        0.503477156162262
+      ],
+      "new_normal": [
+        0.6918759942054749,
+        0.32064762711524963,
+        0.6469101309776306
+      ],
+      "angular_change_degrees": 12.351065878252795,
+      "binary_byte_offset": 167800
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 630,
+      "coordinate": [
+        0.12367996573448181,
+        0.3110436797142029,
+        -0.08420852571725845
+      ],
+      "old_normal": [
+        0.5006665587425232,
+        0.24752524495124817,
+        0.829496443271637
+      ],
+      "new_normal": [
+        0.6730993986129761,
+        0.17536044120788574,
+        0.7184607982635498
+      ],
+      "angular_change_degrees": 12.481690204150965,
+      "binary_byte_offset": 45500
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1961,
+      "coordinate": [
+        0.12367996573448181,
+        0.3110436797142029,
+        -0.08420852571725845
+      ],
+      "old_normal": [
+        0.8137149810791016,
+        0.09490638971328735,
+        0.5734637379646301
+      ],
+      "new_normal": [
+        0.6730993986129761,
+        0.17536044120788574,
+        0.7184607982635498
+      ],
+      "angular_change_degrees": 12.481688850035102,
+      "binary_byte_offset": 169672
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 632,
+      "coordinate": [
+        0.12320635467767715,
+        0.3086279332637787,
+        -0.08342180401086807
+      ],
+      "old_normal": [
+        0.4812607765197754,
+        0.18472257256507874,
+        0.856893002986908
+      ],
+      "new_normal": [
+        0.5886635780334473,
+        0.036388784646987915,
+        0.8075587153434753
+      ],
+      "angular_change_degrees": 10.883252880018425,
+      "binary_byte_offset": 45524
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1959,
+      "coordinate": [
+        0.12320635467767715,
+        0.3086279332637787,
+        -0.08342180401086807
+      ],
+      "old_normal": [
+        0.7731314897537231,
+        -0.049083974212408066,
+        0.6323437690734863
+      ],
+      "new_normal": [
+        0.5886635780334473,
+        0.036388784646987915,
+        0.8075587153434753
+      ],
+      "angular_change_degrees": 15.424259695121787,
+      "binary_byte_offset": 169648
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "vertex": 78,
+      "coordinate": [
+        0.12320635467767715,
+        0.3086279332637787,
+        -0.08342180401086807
+      ],
+      "old_normal": [
+        0.47305336594581604,
+        -0.028854964300990105,
+        0.8805612325668335
+      ],
+      "new_normal": [
+        0.5886635780334473,
+        0.036388784646987915,
+        0.8075587153434753
+      ],
+      "angular_change_degrees": 8.688548675255326,
+      "binary_byte_offset": 194960
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 633,
+      "coordinate": [
+        0.12190943211317062,
+        0.3087558150291443,
+        -0.08272087574005127
+      ],
+      "old_normal": [
+        0.3401496708393097,
+        0.20541228353977203,
+        0.9176622629165649
+      ],
+      "new_normal": [
+        0.3478884994983673,
+        0.09405429661273956,
+        0.9328061938285828
+      ],
+      "angular_change_degrees": 6.457734372879003,
+      "binary_byte_offset": 45536
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "vertex": 74,
+      "coordinate": [
+        0.12190943211317062,
+        0.3087558150291443,
+        -0.08272087574005127
+      ],
+      "old_normal": [
+        0.3512127101421356,
+        -0.018497223034501076,
+        0.9361129999160767
+      ],
+      "new_normal": [
+        0.3478884994983673,
+        0.09405429661273956,
+        0.9328061938285828
+      ],
+      "angular_change_degrees": 6.457734465133659,
+      "binary_byte_offset": 194912
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 635,
+      "coordinate": [
+        0.12046004831790924,
+        0.3085770308971405,
+        -0.08239246159791946
+      ],
+      "old_normal": [
+        0.1027522012591362,
+        0.2219180464744568,
+        0.9696362018585205
+      ],
+      "new_normal": [
+        0.12221989780664444,
+        0.11805997043848038,
+        0.9854562878608704
+      ],
+      "angular_change_degrees": 6.124671632064598,
+      "binary_byte_offset": 45560
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "vertex": 75,
+      "coordinate": [
+        0.12046004831790924,
+        0.3085770308971405,
+        -0.08239246159791946
+      ],
+      "old_normal": [
+        0.14029236137866974,
+        0.012854153290390968,
+        0.9900266528129578
+      ],
+      "new_normal": [
+        0.12221989780664444,
+        0.11805997043848038,
+        0.9854562878608704
+      ],
+      "angular_change_degrees": 6.124671666647228,
+      "binary_byte_offset": 194924
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 637,
+      "coordinate": [
+        0.11903275549411774,
+        0.308279424905777,
+        -0.08230707049369812
+      ],
+      "old_normal": [
+        -0.06347516179084778,
+        0.21594756841659546,
+        0.9743395447731018
+      ],
+      "new_normal": [
+        -0.04181522876024246,
+        0.12124311923980713,
+        0.9917417168617249
+      ],
+      "angular_change_degrees": 5.657156193516705,
+      "binary_byte_offset": 45584
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "vertex": 80,
+      "coordinate": [
+        0.11903275549411774,
+        0.308279424905777,
+        -0.08230707049369812
+      ],
+      "old_normal": [
+        -0.019747979938983917,
+        0.02535765990614891,
+        0.9994834661483765
+      ],
+      "new_normal": [
+        -0.04181522876024246,
+        0.12124311923980713,
+        0.9917417168617249
+      ],
+      "angular_change_degrees": 5.65715547411923,
+      "binary_byte_offset": 194984
+    },
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "vertex": 638,
+      "coordinate": [
+        0.11764747649431229,
+        0.30792689323425293,
+        -0.08243153989315033
+      ],
+      "old_normal": [
+        -0.20723943412303925,
+        0.19737324118614197,
+        0.9581730365753174
+      ],
+      "new_normal": [
+        -0.18635208904743195,
+        0.11172454059123993,
+        0.9761099219322205
+      ],
+      "angular_change_degrees": 5.156341389429269,
+      "binary_byte_offset": 45596
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "vertex": 81,
+      "coordinate": [
+        0.11764747649431229,
+        0.30792689323425293,
+        -0.08243153989315033
+      ],
+      "old_normal": [
+        -0.1639564484357834,
+        0.025171570479869843,
+        0.9861463904380798
+      ],
+      "new_normal": [
+        -0.18635208904743195,
+        0.11172454059123993,
+        0.9761099219322205
+      ],
+      "angular_change_degrees": 5.156340997980153,
+      "binary_byte_offset": 194996
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 3,
+      "coordinate": [
+        0.04131884500384331,
+        0.34013986587524414,
+        -0.11367015540599823
+      ],
+      "old_normal": [
+        -0.8771699666976929,
+        -0.06590619683265686,
+        0.47563570737838745
+      ],
+      "new_normal": [
+        -0.8213188648223877,
+        -0.16314376890659332,
+        0.5466437339782715
+      ],
+      "angular_change_degrees": 7.6103151695864355,
+      "binary_byte_offset": 146176
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 7,
+      "coordinate": [
+        0.04131884500384331,
+        0.34013986587524414,
+        -0.11367015540599823
+      ],
+      "old_normal": [
+        -0.7509990334510803,
+        -0.25750732421875,
+        0.6080218553543091
+      ],
+      "new_normal": [
+        -0.8213188648223877,
+        -0.16314376890659332,
+        0.5466437339782715
+      ],
+      "angular_change_degrees": 7.610315561308801,
+      "binary_byte_offset": 261408
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 103,
+      "coordinate": [
+        0.040953487157821655,
+        0.3389942944049835,
+        -0.11479409784078598
+      ],
+      "old_normal": [
+        -0.9065524935722351,
+        -0.17744795978069305,
+        0.38298171758651733
+      ],
+      "new_normal": [
+        -0.857947051525116,
+        -0.25139036774635315,
+        0.44802868366241455
+      ],
+      "angular_change_degrees": 6.295535793262336,
+      "binary_byte_offset": 147376
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 16,
+      "coordinate": [
+        0.040953487157821655,
+        0.3389942944049835,
+        -0.11479409784078598
+      ],
+      "old_normal": [
+        -0.7989940047264099,
+        -0.3223007917404175,
+        0.5076720118522644
+      ],
+      "new_normal": [
+        -0.857947051525116,
+        -0.25139036774635315,
+        0.44802868366241455
+      ],
+      "angular_change_degrees": 6.295535978620473,
+      "binary_byte_offset": 261516
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 104,
+      "coordinate": [
+        0.04078330472111702,
+        0.3376631736755371,
+        -0.11608535796403885
+      ],
+      "old_normal": [
+        -0.9106821417808533,
+        -0.2714734971523285,
+        0.31138449907302856
+      ],
+      "new_normal": [
+        -0.8670556545257568,
+        -0.3326411545276642,
+        0.37089666724205017
+      ],
+      "angular_change_degrees": 5.4936787675882375,
+      "binary_byte_offset": 147388
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 17,
+      "coordinate": [
+        0.04078330472111702,
+        0.3376631736755371,
+        -0.11608535796403885
+      ],
+      "old_normal": [
+        -0.8154641389846802,
+        -0.3907530903816223,
+        0.4270016849040985
+      ],
+      "new_normal": [
+        -0.8670556545257568,
+        -0.3326411545276642,
+        0.37089666724205017
+      ],
+      "angular_change_degrees": 5.493679810731597,
+      "binary_byte_offset": 261528
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 181,
+      "coordinate": [
+        0.040837448090314865,
+        0.33627253770828247,
+        -0.11750590801239014
+      ],
+      "old_normal": [
+        -0.9058117866516113,
+        -0.3546570837497711,
+        0.2317829579114914
+      ],
+      "new_normal": [
+        -0.8655852675437927,
+        -0.4096565842628479,
+        0.28799936175346375
+      ],
+      "angular_change_degrees": 5.06297518473665,
+      "binary_byte_offset": 148312
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 49,
+      "coordinate": [
+        0.040837448090314865,
+        0.33627253770828247,
+        -0.11750590801239014
+      ],
+      "old_normal": [
+        -0.8186042904853821,
+        -0.46145936846733093,
+        0.3419684171676636
+      ],
+      "new_normal": [
+        -0.8655852675437927,
+        -0.4096565842628479,
+        0.28799936175346375
+      ],
+      "angular_change_degrees": 5.062974226693816,
+      "binary_byte_offset": 261912
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 182,
+      "coordinate": [
+        0.04111101105809212,
+        0.33491766452789307,
+        -0.11900629103183746
+      ],
+      "old_normal": [
+        -0.8938603401184082,
+        -0.4215426743030548,
+        0.15269416570663452
+      ],
+      "new_normal": [
+        -0.857078492641449,
+        -0.47225746512413025,
+        0.20588669180870056
+      ],
+      "angular_change_degrees": 4.710172544178213,
+      "binary_byte_offset": 148324
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 50,
+      "coordinate": [
+        0.04111101105809212,
+        0.33491766452789307,
+        -0.11900629103183746
+      ],
+      "old_normal": [
+        -0.8145077228546143,
+        -0.519782543182373,
+        0.25768861174583435
+      ],
+      "new_normal": [
+        -0.857078492641449,
+        -0.47225746512413025,
+        0.20588669180870056
+      ],
+      "angular_change_degrees": 4.710173558307231,
+      "binary_byte_offset": 261924
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 263,
+      "coordinate": [
+        0.04156390205025673,
+        0.3336418569087982,
+        -0.12051669508218765
+      ],
+      "old_normal": [
+        -0.8765323758125305,
+        -0.47297030687332153,
+        0.08938740193843842
+      ],
+      "new_normal": [
+        -0.8424270749092102,
+        -0.52018803358078,
+        0.14043165743350983
+      ],
+      "angular_change_degrees": 4.438550078064957,
+      "binary_byte_offset": 149296
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 82,
+      "coordinate": [
+        0.04156390205025673,
+        0.3336418569087982,
+        -0.12051669508218765
+      ],
+      "old_normal": [
+        -0.8032687306404114,
+        -0.5642855763435364,
+        0.19063358008861542
+      ],
+      "new_normal": [
+        -0.8424270749092102,
+        -0.52018803358078,
+        0.14043165743350983
+      ],
+      "angular_change_degrees": 4.438550429807175,
+      "binary_byte_offset": 262308
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 264,
+      "coordinate": [
+        0.04214351251721382,
+        0.33244067430496216,
+        -0.12198732048273087
+      ],
+      "old_normal": [
+        -0.857945442199707,
+        -0.5108613967895508,
+        0.05431756749749184
+      ],
+      "new_normal": [
+        -0.8234608769416809,
+        -0.5573722124099731,
+        0.10605829954147339
+      ],
+      "angular_change_degrees": 4.4501578068155885,
+      "binary_byte_offset": 149308
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 83,
+      "coordinate": [
+        0.04214351251721382,
+        0.33244067430496216,
+        -0.12198732048273087
+      ],
+      "old_normal": [
+        -0.7840113043785095,
+        -0.6005223989486694,
+        0.15715955197811127
+      ],
+      "new_normal": [
+        -0.8234608769416809,
+        -0.5573722124099731,
+        0.10605829954147339
+      ],
+      "angular_change_degrees": 4.450158267545569,
+      "binary_byte_offset": 262320
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 266,
+      "coordinate": [
+        0.04276597499847412,
+        0.33131515979766846,
+        -0.12340901792049408
+      ],
+      "old_normal": [
+        -0.8430966138839722,
+        -0.5364190340042114,
+        0.03798479586839676
+      ],
+      "new_normal": [
+        -0.8079591393470764,
+        -0.5823677182197571,
+        0.08972100168466568
+      ],
+      "angular_change_degrees": 4.447568095748842,
+      "binary_byte_offset": 149332
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 84,
+      "coordinate": [
+        0.04276597499847412,
+        0.33131515979766846,
+        -0.12340901792049408
+      ],
+      "old_normal": [
+        -0.7679557800292969,
+        -0.6248091459274292,
+        0.1409168690443039
+      ],
+      "new_normal": [
+        -0.8079591393470764,
+        -0.5823677182197571,
+        0.08972100168466568
+      ],
+      "angular_change_degrees": 4.44756873256728,
+      "binary_byte_offset": 262332
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 355,
+      "coordinate": [
+        0.043401774019002914,
+        0.33026593923568726,
+        -0.12477350234985352
+      ],
+      "old_normal": [
+        -0.830083429813385,
+        -0.5571443438529968,
+        0.02349199913442135
+      ],
+      "new_normal": [
+        -0.7957578301429749,
+        -0.6010758876800537,
+        0.07400844991207123
+      ],
+      "angular_change_degrees": 4.311602668761595,
+      "binary_byte_offset": 150400
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 86,
+      "coordinate": [
+        0.043401774019002914,
+        0.33026593923568726,
+        -0.12477350234985352
+      ],
+      "old_normal": [
+        -0.7569282650947571,
+        -0.6416053175926208,
+        0.12410600483417511
+      ],
+      "new_normal": [
+        -0.7957578301429749,
+        -0.6010758876800537,
+        0.07400844991207123
+      ],
+      "angular_change_degrees": 4.311601145193399,
+      "binary_byte_offset": 262356
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 356,
+      "coordinate": [
+        0.04406837746500969,
+        0.32926225662231445,
+        -0.12607944011688232
+      ],
+      "old_normal": [
+        -0.8148401975631714,
+        -0.5796799659729004,
+        0.0025684896390885115
+      ],
+      "new_normal": [
+        -0.7824008464813232,
+        -0.6205741167068481,
+        0.05231340229511261
+      ],
+      "angular_change_degrees": 4.132230490890188,
+      "binary_byte_offset": 150412
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 118,
+      "coordinate": [
+        0.04406837746500969,
+        0.32926225662231445,
+        -0.12607944011688232
+      ],
+      "old_normal": [
+        -0.7458935976028442,
+        -0.6582418084144592,
+        0.10178633034229279
+      ],
+      "new_normal": [
+        -0.7824008464813232,
+        -0.6205741167068481,
+        0.05231340229511261
+      ],
+      "angular_change_degrees": 4.1322326637469455,
+      "binary_byte_offset": 262740
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 358,
+      "coordinate": [
+        0.044810712337493896,
+        0.32827404141426086,
+        -0.1273297518491745
+      ],
+      "old_normal": [
+        -0.7957512736320496,
+        -0.6051124930381775,
+        -0.02487895078957081
+      ],
+      "new_normal": [
+        -0.7661892175674438,
+        -0.6421456933021545,
+        0.02455519512295723
+      ],
+      "angular_change_degrees": 3.9241777531979913,
+      "binary_byte_offset": 150436
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 119,
+      "coordinate": [
+        0.044810712337493896,
+        0.32827404141426086,
+        -0.1273297518491745
+      ],
+      "old_normal": [
+        -0.7330345511436462,
+        -0.6761678457260132,
+        0.07387419790029526
+      ],
+      "new_normal": [
+        -0.7661892175674438,
+        -0.6421456933021545,
+        0.02455519512295723
+      ],
+      "angular_change_degrees": 3.9241758041212425,
+      "binary_byte_offset": 262752
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 360,
+      "coordinate": [
+        0.04566090926527977,
+        0.32726866006851196,
+        -0.12852533161640167
+      ],
+      "old_normal": [
+        -0.7730661630630493,
+        -0.6314866542816162,
+        -0.059945665299892426
+      ],
+      "new_normal": [
+        -0.7467309236526489,
+        -0.6650680899620056,
+        -0.008795742876827717
+      ],
+      "angular_change_degrees": 3.8174695379614114,
+      "binary_byte_offset": 150460
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 120,
+      "coordinate": [
+        0.04566090926527977,
+        0.32726866006851196,
+        -0.12852533161640167
+      ],
+      "old_normal": [
+        -0.717082142829895,
+        -0.6956982612609863,
+        0.04239320755004883
+      ],
+      "new_normal": [
+        -0.7467309236526489,
+        -0.6650680899620056,
+        -0.008795742876827717
+      ],
+      "angular_change_degrees": 3.8174670762882577,
+      "binary_byte_offset": 262764
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 362,
+      "coordinate": [
+        0.046662501990795135,
+        0.3262251913547516,
+        -0.1296282559633255
+      ],
+      "old_normal": [
+        -0.7487397193908691,
+        -0.6563557386398315,
+        -0.09266122430562973
+      ],
+      "new_normal": [
+        -0.7270393967628479,
+        -0.6853571534156799,
+        -0.041222210973501205
+      ],
+      "angular_change_degrees": 3.6052119850646847,
+      "binary_byte_offset": 150484
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 121,
+      "coordinate": [
+        0.046662501990795135,
+        0.3262251913547516,
+        -0.1296282559633255
+      ],
+      "old_normal": [
+        -0.7024615406990051,
+        -0.7116460204124451,
+        0.010379956103861332
+      ],
+      "new_normal": [
+        -0.7270393967628479,
+        -0.6853571534156799,
+        -0.041222210973501205
+      ],
+      "angular_change_degrees": 3.6052125512540303,
+      "binary_byte_offset": 262776
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 364,
+      "coordinate": [
+        0.047799523919820786,
+        0.32512709498405457,
+        -0.1306350827217102
+      ],
+      "old_normal": [
+        -0.7298778295516968,
+        -0.6736288666725159,
+        -0.11620044708251953
+      ],
+      "new_normal": [
+        -0.7125611305236816,
+        -0.6985369324684143,
+        -0.06559580564498901
+      ],
+      "angular_change_degrees": 3.380984722078796,
+      "binary_byte_offset": 150508
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 122,
+      "coordinate": [
+        0.047799523919820786,
+        0.32512709498405457,
+        -0.1306350827217102
+      ],
+      "old_normal": [
+        -0.6927639245986938,
+        -0.7210133671760559,
+        -0.01476281601935625
+      ],
+      "new_normal": [
+        -0.7125611305236816,
+        -0.6985369324684143,
+        -0.06559580564498901
+      ],
+      "angular_change_degrees": 3.380986041848869,
+      "binary_byte_offset": 262788
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 366,
+      "coordinate": [
+        0.049044590443372726,
+        0.32397547364234924,
+        -0.13155053555965424
+      ],
+      "old_normal": [
+        -0.716300368309021,
+        -0.6833142042160034,
+        -0.14140570163726807
+      ],
+      "new_normal": [
+        -0.7022746205329895,
+        -0.7063083052635193,
+        -0.08910058438777924
+      ],
+      "angular_change_degrees": 3.3712986227024837,
+      "binary_byte_offset": 150532
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 123,
+      "coordinate": [
+        0.049044590443372726,
+        0.32397547364234924,
+        -0.13155053555965424
+      ],
+      "old_normal": [
+        -0.6858181953430176,
+        -0.7268577218055725,
+        -0.03648708015680313
+      ],
+      "new_normal": [
+        -0.7022746205329895,
+        -0.7063083052635193,
+        -0.08910058438777924
+      ],
+      "angular_change_degrees": 3.3712975376629024,
+      "binary_byte_offset": 262800
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 368,
+      "coordinate": [
+        0.05038461089134216,
+        0.3227742612361908,
+        -0.13236244022846222
+      ],
+      "old_normal": [
+        -0.707923412322998,
+        -0.6873502731323242,
+        -0.16246269643306732
+      ],
+      "new_normal": [
+        -0.6973127126693726,
+        -0.7084964513778687,
+        -0.1085713729262352
+      ],
+      "angular_change_degrees": 3.3726920790724515,
+      "binary_byte_offset": 150556
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 124,
+      "coordinate": [
+        0.05038461089134216,
+        0.3227742612361908,
+        -0.13236244022846222
+      ],
+      "old_normal": [
+        -0.6842865347862244,
+        -0.7271884083747864,
+        -0.054303959012031555
+      ],
+      "new_normal": [
+        -0.6973127126693726,
+        -0.7084964513778687,
+        -0.1085713729262352
+      ],
+      "angular_change_degrees": 3.3726922920678777,
+      "binary_byte_offset": 262812
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 479,
+      "coordinate": [
+        0.05179218575358391,
+        0.3215031325817108,
+        -0.1330617517232895
+      ],
+      "old_normal": [
+        -0.7088866829872131,
+        -0.6838566660881042,
+        -0.17268380522727966
+      ],
+      "new_normal": [
+        -0.7016821503639221,
+        -0.7025779485702515,
+        -0.11843305826187134
+      ],
+      "angular_change_degrees": 3.3144829462924155,
+      "binary_byte_offset": 151888
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 126,
+      "coordinate": [
+        0.05179218575358391,
+        0.3215031325817108,
+        -0.1330617517232895
+      ],
+      "old_normal": [
+        -0.6921300888061523,
+        -0.7189487814903259,
+        -0.0637860894203186
+      ],
+      "new_normal": [
+        -0.7016821503639221,
+        -0.7025779485702515,
+        -0.11843305826187134
+      ],
+      "angular_change_degrees": 3.3144838461290735,
+      "binary_byte_offset": 262836
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 480,
+      "coordinate": [
+        0.05323819816112518,
+        0.3201419413089752,
+        -0.13364996016025543
+      ],
+      "old_normal": [
+        -0.7155295610427856,
+        -0.6767351031303406,
+        -0.17334093153476715
+      ],
+      "new_normal": [
+        -0.7113236784934998,
+        -0.692689061164856,
+        -0.11916559934616089
+      ],
+      "angular_change_degrees": 3.2451735527366914,
+      "binary_byte_offset": 151900
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 179,
+      "coordinate": [
+        0.05323819816112518,
+        0.3201419413089752,
+        -0.13364996016025543
+      ],
+      "old_normal": [
+        -0.7048365473747253,
+        -0.7064214944839478,
+        -0.06460808217525482
+      ],
+      "new_normal": [
+        -0.7113236784934998,
+        -0.692689061164856,
+        -0.11916559934616089
+      ],
+      "angular_change_degrees": 3.2451737230708346,
+      "binary_byte_offset": 263472
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 482,
+      "coordinate": [
+        0.054710254073143005,
+        0.3186883330345154,
+        -0.1341172605752945
+      ],
+      "old_normal": [
+        -0.7234191298484802,
+        -0.670267641544342,
+        -0.1655476838350296
+      ],
+      "new_normal": [
+        -0.7217980623245239,
+        -0.6827359199523926,
+        -0.11348679661750793
+      ],
+      "angular_change_degrees": 3.068976937216405,
+      "binary_byte_offset": 151924
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 180,
+      "coordinate": [
+        0.054710254073143005,
+        0.3186883330345154,
+        -0.1341172605752945
+      ],
+      "old_normal": [
+        -0.7181065678596497,
+        -0.6932458281517029,
+        -0.06110038235783577
+      ],
+      "new_normal": [
+        -0.7217980623245239,
+        -0.6827359199523926,
+        -0.11348679661750793
+      ],
+      "angular_change_degrees": 3.068976810125488,
+      "binary_byte_offset": 263484
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 599,
+      "coordinate": [
+        0.05619872361421585,
+        0.31714633107185364,
+        -0.13445957005023956
+      ],
+      "old_normal": [
+        -0.7327045202255249,
+        -0.6630387902259827,
+        -0.15337416529655457
+      ],
+      "new_normal": [
+        -0.7330684065818787,
+        -0.6721419095993042,
+        -0.10409574955701828
+      ],
+      "angular_change_degrees": 2.8715463131941985,
+      "binary_byte_offset": 153328
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 182,
+      "coordinate": [
+        0.05619872361421585,
+        0.31714633107185364,
+        -0.13445957005023956
+      ],
+      "old_normal": [
+        -0.7315913438796997,
+        -0.6795570254325867,
+        -0.05455591529607773
+      ],
+      "new_normal": [
+        -0.7330684065818787,
+        -0.6721419095993042,
+        -0.10409574955701828
+      ],
+      "angular_change_degrees": 2.8715459547148923,
+      "binary_byte_offset": 263508
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 600,
+      "coordinate": [
+        0.05769142881035805,
+        0.31552401185035706,
+        -0.13467980921268463
+      ],
+      "old_normal": [
+        -0.7427688241004944,
+        -0.6550047993659973,
+        -0.1387922763824463
+      ],
+      "new_normal": [
+        -0.7445576786994934,
+        -0.6611281037330627,
+        -0.09243074059486389
+      ],
+      "angular_change_degrees": 2.681552170525546,
+      "binary_byte_offset": 153340
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 232,
+      "coordinate": [
+        0.05769142881035805,
+        0.31552401185035706,
+        -0.13467980921268463
+      ],
+      "old_normal": [
+        -0.7447159886360168,
+        -0.6658035516738892,
+        -0.04586677625775337
+      ],
+      "new_normal": [
+        -0.7445576786994934,
+        -0.6611281037330627,
+        -0.09243074059486389
+      ],
+      "angular_change_degrees": 2.681552706059966,
+      "binary_byte_offset": 264108
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 602,
+      "coordinate": [
+        0.05918154492974281,
+        0.3138323724269867,
+        -0.13478215038776398
+      ],
+      "old_normal": [
+        -0.7533048987388611,
+        -0.6462845802307129,
+        -0.12185242027044296
+      ],
+      "new_normal": [
+        -0.7559530138969421,
+        -0.6498032212257385,
+        -0.07931439578533173
+      ],
+      "angular_change_degrees": 2.4504096718575945,
+      "binary_byte_offset": 153364
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 233,
+      "coordinate": [
+        0.05918154492974281,
+        0.3138323724269867,
+        -0.13478215038776398
+      ],
+      "old_normal": [
+        -0.7572186589241028,
+        -0.6521334648132324,
+        -0.03663131594657898
+      ],
+      "new_normal": [
+        -0.7559530138969421,
+        -0.6498032212257385,
+        -0.07931439578533173
+      ],
+      "angular_change_degrees": 2.450409908650477,
+      "binary_byte_offset": 264120
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 728,
+      "coordinate": [
+        0.06066306307911873,
+        0.3120788037776947,
+        -0.13477978110313416
+      ],
+      "old_normal": [
+        -0.7646145820617676,
+        -0.6347303986549377,
+        -0.11172332614660263
+      ],
+      "new_normal": [
+        -0.7681552171707153,
+        -0.6364470720291138,
+        -0.0698045939207077
+      ],
+      "angular_change_degrees": 2.4125064057415564,
+      "binary_byte_offset": 154876
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 235,
+      "coordinate": [
+        0.06066306307911873,
+        0.3120788037776947,
+        -0.13477978110313416
+      ],
+      "old_normal": [
+        -0.7703343033790588,
+        -0.6370357275009155,
+        -0.027762137353420258
+      ],
+      "new_normal": [
+        -0.7681552171707153,
+        -0.6364470720291138,
+        -0.0698045939207077
+      ],
+      "angular_change_degrees": 2.412506372652823,
+      "binary_byte_offset": 264144
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 729,
+      "coordinate": [
+        0.06213260442018509,
+        0.31025928258895874,
+        -0.13467924296855927
+      ],
+      "old_normal": [
+        -0.7759668231010437,
+        -0.6200235486030579,
+        -0.11595851927995682
+      ],
+      "new_normal": [
+        -0.7815929055213928,
+        -0.6203172206878662,
+        -0.06572011113166809
+      ],
+      "angular_change_degrees": 2.896767049938054,
+      "binary_byte_offset": 154888
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 279,
+      "coordinate": [
+        0.06213260442018509,
+        0.31025928258895874,
+        -0.13467924296855927
+      ],
+      "old_normal": [
+        -0.7852215766906738,
+        -0.6190256476402283,
+        -0.015313751064240932
+      ],
+      "new_normal": [
+        -0.7815929055213928,
+        -0.6203172206878662,
+        -0.06572011113166809
+      ],
+      "angular_change_degrees": 2.8967668940521487,
+      "binary_byte_offset": 264672
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 731,
+      "coordinate": [
+        0.06358987838029861,
+        0.308358758687973,
+        -0.13447369635105133
+      ],
+      "old_normal": [
+        -0.7865121364593506,
+        -0.6024434566497803,
+        -0.13587039709091187
+      ],
+      "new_normal": [
+        -0.7962778210639954,
+        -0.6009641885757446,
+        -0.06916433572769165
+      ],
+      "angular_change_degrees": 3.8643654413382076,
+      "binary_byte_offset": 154912
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 280,
+      "coordinate": [
+        0.06358987838029861,
+        0.308358758687973,
+        -0.13447369635105133
+      ],
+      "old_normal": [
+        -0.8024227619171143,
+        -0.5967522263526917,
+        -0.002143785823136568
+      ],
+      "new_normal": [
+        -0.7962778210639954,
+        -0.6009641885757446,
+        -0.06916433572769165
+      ],
+      "angular_change_degrees": 3.8643653789397603,
+      "binary_byte_offset": 264684
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 857,
+      "coordinate": [
+        0.06502792984247208,
+        0.3063644766807556,
+        -0.13416896760463715
+      ],
+      "old_normal": [
+        -0.7916780114173889,
+        -0.5887267589569092,
+        -0.16323833167552948
+      ],
+      "new_normal": [
+        -0.8078319430351257,
+        -0.5846019983291626,
+        -0.07515323162078857
+      ],
+      "angular_change_degrees": 5.138209578201559,
+      "binary_byte_offset": 156424
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 282,
+      "coordinate": [
+        0.06502792984247208,
+        0.3063644766807556,
+        -0.13416896760463715
+      ],
+      "old_normal": [
+        -0.8174934387207031,
+        -0.5757788419723511,
+        0.013535862788558006
+      ],
+      "new_normal": [
+        -0.8078319430351257,
+        -0.5846019983291626,
+        -0.07515323162078857
+      ],
+      "angular_change_degrees": 5.1382096012569125,
+      "binary_byte_offset": 264708
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 858,
+      "coordinate": [
+        0.06647014617919922,
+        0.30428585410118103,
+        -0.13375481963157654
+      ],
+      "old_normal": [
+        -0.7928690314292908,
+        -0.5858915448188782,
+        -0.16760024428367615
+      ],
+      "new_normal": [
+        -0.813032329082489,
+        -0.5778741836547852,
+        -0.07099205255508423
+      ],
+      "angular_change_degrees": 5.675460805563942,
+      "binary_byte_offset": 156436
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 284,
+      "coordinate": [
+        0.06647014617919922,
+        0.30428585410118103,
+        -0.13375481963157654
+      ],
+      "old_normal": [
+        -0.825224757194519,
+        -0.564191460609436,
+        0.026312144473195076
+      ],
+      "new_normal": [
+        -0.813032329082489,
+        -0.5778741836547852,
+        -0.07099205255508423
+      ],
+      "angular_change_degrees": 5.675460426120499,
+      "binary_byte_offset": 264732
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 861,
+      "coordinate": [
+        0.06794772297143936,
+        0.30213791131973267,
+        -0.13320891559123993
+      ],
+      "old_normal": [
+        -0.7947883009910583,
+        -0.5915772318840027,
+        -0.13545483350753784
+      ],
+      "new_normal": [
+        -0.813281238079071,
+        -0.5797375440597534,
+        -0.0497794970870018
+      ],
+      "angular_change_degrees": 5.0691528717569865,
+      "binary_byte_offset": 156472
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 286,
+      "coordinate": [
+        0.06794772297143936,
+        0.30213791131973267,
+        -0.13320891559123993
+      ],
+      "old_normal": [
+        -0.825412392616272,
+        -0.5633630156517029,
+        0.03628523275256157
+      ],
+      "new_normal": [
+        -0.813281238079071,
+        -0.5797375440597534,
+        -0.0497794970870018
+      ],
+      "angular_change_degrees": 5.069152038362186,
+      "binary_byte_offset": 264756
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 864,
+      "coordinate": [
+        0.06949227303266525,
+        0.2999390959739685,
+        -0.13250179588794708
+      ],
+      "old_normal": [
+        -0.7902328968048096,
+        -0.6077157855033875,
+        -0.07882639765739441
+      ],
+      "new_normal": [
+        -0.8044531941413879,
+        -0.5938816666603088,
+        -0.012636992149055004
+      ],
+      "angular_change_degrees": 3.959825950288145,
+      "binary_byte_offset": 156508
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 288,
+      "coordinate": [
+        0.06949227303266525,
+        0.2999390959739685,
+        -0.13250179588794708
+      ],
+      "old_normal": [
+        -0.8148326277732849,
+        -0.5772120356559753,
+        0.05361275374889374
+      ],
+      "new_normal": [
+        -0.8044531941413879,
+        -0.5938816666603088,
+        -0.012636992149055004
+      ],
+      "angular_change_degrees": 3.9598261895542772,
+      "binary_byte_offset": 264780
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 867,
+      "coordinate": [
+        0.0711650550365448,
+        0.29774561524391174,
+        -0.13159959018230438
+      ],
+      "old_normal": [
+        -0.772642195224762,
+        -0.6347659826278687,
+        -0.009809717535972595
+      ],
+      "new_normal": [
+        -0.7826923131942749,
+        -0.6213669776916504,
+        0.03599751740694046
+      ],
+      "angular_change_degrees": 2.7947852822298613,
+      "binary_byte_offset": 156544
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 290,
+      "coordinate": [
+        0.0711650550365448,
+        0.29774561524391174,
+        -0.13159959018230438
+      ],
+      "old_normal": [
+        -0.790880560874939,
+        -0.6064898371696472,
+        0.08171912282705307
+      ],
+      "new_normal": [
+        -0.7826923131942749,
+        -0.6213669776916504,
+        0.03599751740694046
+      ],
+      "angular_change_degrees": 2.7947858635373257,
+      "binary_byte_offset": 264804
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 870,
+      "coordinate": [
+        0.07300551235675812,
+        0.2956315279006958,
+        -0.13047091662883759
+      ],
+      "old_normal": [
+        -0.7401480674743652,
+        -0.6705411076545715,
+        0.050552498549222946
+      ],
+      "new_normal": [
+        -0.7485663294792175,
+        -0.6576607823371887,
+        0.08444349467754364
+      ],
+      "angular_change_degrees": 2.1326442326438246,
+      "binary_byte_offset": 156580
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 292,
+      "coordinate": [
+        0.07300551235675812,
+        0.2956315279006958,
+        -0.13047091662883759
+      ],
+      "old_normal": [
+        -0.7559476494789124,
+        -0.6438694000244141,
+        0.11821751296520233
+      ],
+      "new_normal": [
+        -0.7485663294792175,
+        -0.6576607823371887,
+        0.08444349467754364
+      ],
+      "angular_change_degrees": 2.132644948769131,
+      "binary_byte_offset": 264828
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 873,
+      "coordinate": [
+        0.07500775903463364,
+        0.2936924695968628,
+        -0.1291045844554901
+      ],
+      "old_normal": [
+        -0.6931915283203125,
+        -0.7149650454521179,
+        0.09116175025701523
+      ],
+      "new_normal": [
+        -0.7038453817367554,
+        -0.6992390155792236,
+        0.12516583502292633
+      ],
+      "angular_change_degrees": 2.2317965146672765,
+      "binary_byte_offset": 156616
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 294,
+      "coordinate": [
+        0.07500775903463364,
+        0.2936924695968628,
+        -0.1291045844554901
+      ],
+      "old_normal": [
+        -0.7134314775466919,
+        -0.6824522018432617,
+        0.15898004174232483
+      ],
+      "new_normal": [
+        -0.7038453817367554,
+        -0.6992390155792236,
+        0.12516583502292633
+      ],
+      "angular_change_degrees": 2.2317968199337446,
+      "binary_byte_offset": 264852
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 876,
+      "coordinate": [
+        0.07710696756839752,
+        0.2920309901237488,
+        -0.12752072513103485
+      ],
+      "old_normal": [
+        -0.634251594543457,
+        -0.7647321820259094,
+        0.11362089961767197
+      ],
+      "new_normal": [
+        -0.6516287326812744,
+        -0.742445170879364,
+        0.15541930496692657
+      ],
+      "angular_change_degrees": 2.8912095548284693,
+      "binary_byte_offset": 156652
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 296,
+      "coordinate": [
+        0.07710696756839752,
+        0.2920309901237488,
+        -0.12752072513103485
+      ],
+      "old_normal": [
+        -0.6673470735549927,
+        -0.718268096446991,
+        0.19682207703590393
+      ],
+      "new_normal": [
+        -0.6516287326812744,
+        -0.742445170879364,
+        0.15541930496692657
+      ],
+      "angular_change_degrees": 2.8912119496731363,
+      "binary_byte_offset": 264876
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 879,
+      "coordinate": [
+        0.07920294255018234,
+        0.29070860147476196,
+        -0.1257694810628891
+      ],
+      "old_normal": [
+        -0.5699747204780579,
+        -0.8116076588630676,
+        0.12814825773239136
+      ],
+      "new_normal": [
+        -0.5965815186500549,
+        -0.7828824520111084,
+        0.17659445106983185
+      ],
+      "angular_change_degrees": 3.5695342282720888,
+      "binary_byte_offset": 156688
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 298,
+      "coordinate": [
+        0.07920294255018234,
+        0.29070860147476196,
+        -0.1257694810628891
+      ],
+      "old_normal": [
+        -0.6208736300468445,
+        -0.7511196732521057,
+        0.22435545921325684
+      ],
+      "new_normal": [
+        -0.5965815186500549,
+        -0.7828824520111084,
+        0.17659445106983185
+      ],
+      "angular_change_degrees": 3.5695350222170164,
+      "binary_byte_offset": 264900
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 882,
+      "coordinate": [
+        0.0812104269862175,
+        0.2897210121154785,
+        -0.12389762699604034
+      ],
+      "old_normal": [
+        -0.5162951350212097,
+        -0.8446717262268066,
+        0.14131221175193787
+      ],
+      "new_normal": [
+        -0.5504943132400513,
+        -0.8128981590270996,
+        0.19013845920562744
+      ],
+      "angular_change_degrees": 3.8711100384345327,
+      "binary_byte_offset": 156724
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 300,
+      "coordinate": [
+        0.0812104269862175,
+        0.2897210121154785,
+        -0.12389762699604034
+      ],
+      "old_normal": [
+        -0.5821815133094788,
+        -0.7774152755737305,
+        0.23809710144996643
+      ],
+      "new_normal": [
+        -0.5504943132400513,
+        -0.8128981590270996,
+        0.19013845920562744
+      ],
+      "angular_change_degrees": 3.8711097864412296,
+      "binary_byte_offset": 264924
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 885,
+      "coordinate": [
+        0.08308187127113342,
+        0.28898048400878906,
+        -0.12192793935537338
+      ],
+      "old_normal": [
+        -0.47524482011795044,
+        -0.8669551014900208,
+        0.15010391175746918
+      ],
+      "new_normal": [
+        -0.5177831649780273,
+        -0.8318786025047302,
+        0.19969633221626282
+      ],
+      "angular_change_degrees": 4.249849108136653,
+      "binary_byte_offset": 156760
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 302,
+      "coordinate": [
+        0.08308187127113342,
+        0.28898048400878906,
+        -0.12192793935537338
+      ],
+      "old_normal": [
+        -0.5574740171432495,
+        -0.7922273278236389,
+        0.24819055199623108
+      ],
+      "new_normal": [
+        -0.5177831649780273,
+        -0.8318786025047302,
+        0.19969633221626282
+      ],
+      "angular_change_degrees": 4.249847931774596,
+      "binary_byte_offset": 264948
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 888,
+      "coordinate": [
+        0.08483096212148666,
+        0.28843212127685547,
+        -0.11988028883934021
+      ],
+      "old_normal": [
+        -0.447706013917923,
+        -0.8787881731987,
+        0.16519851982593536
+      ],
+      "new_normal": [
+        -0.4943343698978424,
+        -0.8431136608123779,
+        0.21164336800575256
+      ],
+      "angular_change_degrees": 4.290144887014066,
+      "binary_byte_offset": 156796
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 324,
+      "coordinate": [
+        0.08483096212148666,
+        0.28843212127685547,
+        -0.11988028883934021
+      ],
+      "old_normal": [
+        -0.5381925106048584,
+        -0.8027143478393555,
+        0.25690218806266785
+      ],
+      "new_normal": [
+        -0.4943343698978424,
+        -0.8431136608123779,
+        0.21164336800575256
+      ],
+      "angular_change_degrees": 4.290145824385354,
+      "binary_byte_offset": 265212
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 890,
+      "coordinate": [
+        0.08648243546485901,
+        0.2880273461341858,
+        -0.117781862616539
+      ],
+      "old_normal": [
+        -0.4295581579208374,
+        -0.8845545053482056,
+        0.1817781925201416
+      ],
+      "new_normal": [
+        -0.4760781526565552,
+        -0.8505778908729553,
+        0.22330893576145172
+      ],
+      "angular_change_degrees": 4.0697780229504135,
+      "binary_byte_offset": 156820
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 325,
+      "coordinate": [
+        0.08648243546485901,
+        0.2880273461341858,
+        -0.117781862616539
+      ],
+      "old_normal": [
+        -0.5201971530914307,
+        -0.812311589717865,
+        0.2637134790420532
+      ],
+      "new_normal": [
+        -0.4760781526565552,
+        -0.8505778908729553,
+        0.22330893576145172
+      ],
+      "angular_change_degrees": 4.069778324992199,
+      "binary_byte_offset": 265224
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1038,
+      "coordinate": [
+        0.08806528896093369,
+        0.2877250611782074,
+        -0.11567878723144531
+      ],
+      "old_normal": [
+        -0.40950438380241394,
+        -0.8909327983856201,
+        0.1963292360305786
+      ],
+      "new_normal": [
+        -0.4549681544303894,
+        -0.8590397834777832,
+        0.23463726043701172
+      ],
+      "angular_change_degrees": 3.8662278941285004,
+      "binary_byte_offset": 158596
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 327,
+      "coordinate": [
+        0.08806528896093369,
+        0.2877250611782074,
+        -0.11567878723144531
+      ],
+      "old_normal": [
+        -0.49836117029190063,
+        -0.823236882686615,
+        0.27187734842300415
+      ],
+      "new_normal": [
+        -0.4549681544303894,
+        -0.8590397834777832,
+        0.23463726043701172
+      ],
+      "angular_change_degrees": 3.8662289327293777,
+      "binary_byte_offset": 265248
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1039,
+      "coordinate": [
+        0.08961199223995209,
+        0.2875034213066101,
+        -0.11363150179386139
+      ],
+      "old_normal": [
+        -0.3806762993335724,
+        -0.899901270866394,
+        0.21275155246257782
+      ],
+      "new_normal": [
+        -0.427639901638031,
+        -0.8680934906005859,
+        0.2520671784877777
+      ],
+      "angular_change_degrees": 3.955014689201047,
+      "binary_byte_offset": 158608
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 348,
+      "coordinate": [
+        0.08961199223995209,
+        0.2875034213066101,
+        -0.11363150179386139
+      ],
+      "old_normal": [
+        -0.4725666344165802,
+        -0.8321508765220642,
+        0.2901821732521057
+      ],
+      "new_normal": [
+        -0.427639901638031,
+        -0.8680934906005859,
+        0.2520671784877777
+      ],
+      "angular_change_degrees": 3.9550156420231035,
+      "binary_byte_offset": 265500
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1041,
+      "coordinate": [
+        0.09115877002477646,
+        0.28735947608947754,
+        -0.1116880550980568
+      ],
+      "old_normal": [
+        -0.3480583131313324,
+        -0.9072790741920471,
+        0.2360086739063263
+      ],
+      "new_normal": [
+        -0.39814382791519165,
+        -0.8737262487411499,
+        0.27943503856658936
+      ],
+      "angular_change_degrees": 4.257941956142518,
+      "binary_byte_offset": 158632
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 349,
+      "coordinate": [
+        0.09115877002477646,
+        0.28735947608947754,
+        -0.1116880550980568
+      ],
+      "old_normal": [
+        -0.4460315406322479,
+        -0.8353502750396729,
+        0.3213188946247101
+      ],
+      "new_normal": [
+        -0.39814382791519165,
+        -0.8737262487411499,
+        0.27943503856658936
+      ],
+      "angular_change_degrees": 4.257944124593395,
+      "binary_byte_offset": 265512
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1190,
+      "coordinate": [
+        0.09272943437099457,
+        0.2872864902019501,
+        -0.10986840724945068
+      ],
+      "old_normal": [
+        -0.3167136609554291,
+        -0.9107480645179749,
+        0.26501038670539856
+      ],
+      "new_normal": [
+        -0.3715248703956604,
+        -0.8732035160064697,
+        0.31541234254837036
+      ],
+      "angular_change_degrees": 4.7793737047243425,
+      "binary_byte_offset": 160420
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 351,
+      "coordinate": [
+        0.09272943437099457,
+        0.2872864902019501,
+        -0.10986840724945068
+      ],
+      "old_normal": [
+        -0.42375239729881287,
+        -0.8295865058898926,
+        0.3636208474636078
+      ],
+      "new_normal": [
+        -0.3715248703956604,
+        -0.8732035160064697,
+        0.31541234254837036
+      ],
+      "angular_change_degrees": 4.77937352380693,
+      "binary_byte_offset": 265536
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1191,
+      "coordinate": [
+        0.09433458745479584,
+        0.28727778792381287,
+        -0.10817360877990723
+      ],
+      "old_normal": [
+        -0.2911537289619446,
+        -0.9096831679344177,
+        0.2961520850658417
+      ],
+      "new_normal": [
+        -0.3507397770881653,
+        -0.8668138384819031,
+        0.3544226586818695
+      ],
+      "angular_change_degrees": 5.3718056423173675,
+      "binary_byte_offset": 160432
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 371,
+      "coordinate": [
+        0.09433458745479584,
+        0.28727778792381287,
+        -0.10817360877990723
+      ],
+      "old_normal": [
+        -0.40724503993988037,
+        -0.8163306713104248,
+        0.4095801115036011
+      ],
+      "new_normal": [
+        -0.3507397770881653,
+        -0.8668138384819031,
+        0.3544226586818695
+      ],
+      "angular_change_degrees": 5.371806439637344,
+      "binary_byte_offset": 265776
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1193,
+      "coordinate": [
+        0.09596599638462067,
+        0.28731998801231384,
+        -0.10658343881368637
+      ],
+      "old_normal": [
+        -0.2739259898662567,
+        -0.9059070944786072,
+        0.322950541973114
+      ],
+      "new_normal": [
+        -0.33667054772377014,
+        -0.8582842350006104,
+        0.3872998356819153
+      ],
+      "angular_change_degrees": 5.830258775863437,
+      "binary_byte_offset": 160456
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 372,
+      "coordinate": [
+        0.09596599638462067,
+        0.28731998801231384,
+        -0.10658343881368637
+      ],
+      "old_normal": [
+        -0.39593207836151123,
+        -0.801781952381134,
+        0.4476422965526581
+      ],
+      "new_normal": [
+        -0.33667054772377014,
+        -0.8582842350006104,
+        0.3872998356819153
+      ],
+      "angular_change_degrees": 5.8302592838581555,
+      "binary_byte_offset": 265788
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1343,
+      "coordinate": [
+        0.0992455780506134,
+        0.28751012682914734,
+        -0.10360688716173172
+      ],
+      "old_normal": [
+        -0.24174857139587402,
+        -0.9019374251365662,
+        0.35786381363868713
+      ],
+      "new_normal": [
+        -0.30857834219932556,
+        -0.8494831323623657,
+        0.42796942591667175
+      ],
+      "angular_change_degrees": 6.314176680719223,
+      "binary_byte_offset": 162256
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 393,
+      "coordinate": [
+        0.0992455780506134,
+        0.28751012682914734,
+        -0.10360688716173172
+      ],
+      "old_normal": [
+        -0.37166428565979004,
+        -0.7867225408554077,
+        0.49288269877433777
+      ],
+      "new_normal": [
+        -0.30857834219932556,
+        -0.8494831323623657,
+        0.42796942591667175
+      ],
+      "angular_change_degrees": 6.314174808914949,
+      "binary_byte_offset": 266040
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1344,
+      "coordinate": [
+        0.09760686010122299,
+        0.28739529848098755,
+        -0.10506957769393921
+      ],
+      "old_normal": [
+        -0.2585206925868988,
+        -0.9032390117645264,
+        0.3425295948982239
+      ],
+      "new_normal": [
+        -0.3237737715244293,
+        -0.8521249890327454,
+        0.41116127371788025
+      ],
+      "angular_change_degrees": 6.168832660225306,
+      "binary_byte_offset": 162268
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 374,
+      "coordinate": [
+        0.09760686010122299,
+        0.28739529848098755,
+        -0.10506957769393921
+      ],
+      "old_normal": [
+        -0.38527727127075195,
+        -0.7911426424980164,
+        0.4750313460826874
+      ],
+      "new_normal": [
+        -0.3237737715244293,
+        -0.8521249890327454,
+        0.41116127371788025
+      ],
+      "angular_change_degrees": 6.168832420895895,
+      "binary_byte_offset": 265812
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1345,
+      "coordinate": [
+        0.10086622089147568,
+        0.28767216205596924,
+        -0.10216976702213287
+      ],
+      "old_normal": [
+        -0.22515170276165009,
+        -0.9017151594161987,
+        0.36907538771629333
+      ],
+      "new_normal": [
+        -0.29327192902565,
+        -0.8495619297027588,
+        0.4384474456310272
+      ],
+      "angular_change_degrees": 6.324663796320021,
+      "binary_byte_offset": 162280
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 394,
+      "coordinate": [
+        0.10086622089147568,
+        0.28767216205596924,
+        -0.10216976702213287
+      ],
+      "old_normal": [
+        -0.3578222692012787,
+        -0.7870672345161438,
+        0.5024824142456055
+      ],
+      "new_normal": [
+        -0.29327192902565,
+        -0.8495619297027588,
+        0.4384474456310272
+      ],
+      "angular_change_degrees": 6.32466467596117,
+      "binary_byte_offset": 266052
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1495,
+      "coordinate": [
+        0.10400431603193283,
+        0.288149893283844,
+        -0.09929075092077255
+      ],
+      "old_normal": [
+        -0.19224774837493896,
+        -0.9018410444259644,
+        0.38694122433662415
+      ],
+      "new_normal": [
+        -0.2662130296230316,
+        -0.850250244140625,
+        0.4540981352329254
+      ],
+      "angular_change_degrees": 6.445684823939284,
+      "binary_byte_offset": 164080
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 414,
+      "coordinate": [
+        0.10400431603193283,
+        0.288149893283844,
+        -0.09929075092077255
+      ],
+      "old_normal": [
+        -0.33681273460388184,
+        -0.7879101634025574,
+        0.5155141353607178
+      ],
+      "new_normal": [
+        -0.2662130296230316,
+        -0.850250244140625,
+        0.4540981352329254
+      ],
+      "angular_change_degrees": 6.445685927754925,
+      "binary_byte_offset": 266292
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1496,
+      "coordinate": [
+        0.10245445370674133,
+        0.28788307309150696,
+        -0.10073676705360413
+      ],
+      "old_normal": [
+        -0.20844365656375885,
+        -0.9024746417999268,
+        0.37694936990737915
+      ],
+      "new_normal": [
+        -0.27893462777137756,
+        -0.8508665561676025,
+        0.44522082805633545
+      ],
+      "angular_change_degrees": 6.355950999662114,
+      "binary_byte_offset": 164092
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 396,
+      "coordinate": [
+        0.10245445370674133,
+        0.28788307309150696,
+        -0.10073676705360413
+      ],
+      "old_normal": [
+        -0.34599658846855164,
+        -0.7887985110282898,
+        0.5080190896987915
+      ],
+      "new_normal": [
+        -0.27893462777137756,
+        -0.8508665561676025,
+        0.44522082805633545
+      ],
+      "angular_change_degrees": 6.355952699016424,
+      "binary_byte_offset": 266076
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1498,
+      "coordinate": [
+        0.10552254319190979,
+        0.2884819805622101,
+        -0.09781738370656967
+      ],
+      "old_normal": [
+        -0.17920544743537903,
+        -0.896229088306427,
+        0.40578195452690125
+      ],
+      "new_normal": [
+        -0.25584524869918823,
+        -0.8443860411643982,
+        0.47069671750068665
+      ],
+      "angular_change_degrees": 6.479474381765418,
+      "binary_byte_offset": 164116
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 415,
+      "coordinate": [
+        0.10552254319190979,
+        0.2884819805622101,
+        -0.09781738370656967
+      ],
+      "old_normal": [
+        -0.3292165994644165,
+        -0.7817558646202087,
+        0.5295982360839844
+      ],
+      "new_normal": [
+        -0.25584524869918823,
+        -0.8443860411643982,
+        0.47069671750068665
+      ],
+      "angular_change_degrees": 6.479473456967491,
+      "binary_byte_offset": 266304
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1647,
+      "coordinate": [
+        0.10702858865261078,
+        0.28889310359954834,
+        -0.09631366282701492
+      ],
+      "old_normal": [
+        -0.16988426446914673,
+        -0.8846624493598938,
+        0.43417951464653015
+      ],
+      "new_normal": [
+        -0.24708980321884155,
+        -0.8328589200973511,
+        0.4952702522277832
+      ],
+      "angular_change_degrees": 6.377406184245057,
+      "binary_byte_offset": 165904
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 417,
+      "coordinate": [
+        0.10702858865261078,
+        0.28889310359954834,
+        -0.09631366282701492
+      ],
+      "old_normal": [
+        -0.3212372660636902,
+        -0.770747721195221,
+        0.5502313375473022
+      ],
+      "new_normal": [
+        -0.24708980321884155,
+        -0.8328589200973511,
+        0.4952702522277832
+      ],
+      "angular_change_degrees": 6.377403704580493,
+      "binary_byte_offset": 266328
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1648,
+      "coordinate": [
+        0.10853291302919388,
+        0.2893925905227661,
+        -0.09478484839200974
+      ],
+      "old_normal": [
+        -0.15507452189922333,
+        -0.8721328377723694,
+        0.4640433192253113
+      ],
+      "new_normal": [
+        -0.23458969593048096,
+        -0.8196957111358643,
+        0.52255779504776
+      ],
+      "angular_change_degrees": 6.408235258881875,
+      "binary_byte_offset": 165916
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 434,
+      "coordinate": [
+        0.10853291302919388,
+        0.2893925905227661,
+        -0.09478484839200974
+      ],
+      "old_normal": [
+        -0.31117337942123413,
+        -0.7570154070854187,
+        0.574542224407196
+      ],
+      "new_normal": [
+        -0.23458969593048096,
+        -0.8196957111358643,
+        0.52255779504776
+      ],
+      "angular_change_degrees": 6.408236065815863,
+      "binary_byte_offset": 266532
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1649,
+      "coordinate": [
+        0.11002805829048157,
+        0.29000020027160645,
+        -0.09323015064001083
+      ],
+      "old_normal": [
+        -0.1045745387673378,
+        -0.8570061326026917,
+        0.5045838356018066
+      ],
+      "new_normal": [
+        -0.1929824948310852,
+        -0.802770733833313,
+        0.5641958117485046
+      ],
+      "angular_change_degrees": 6.858312669337961,
+      "binary_byte_offset": 165928
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 435,
+      "coordinate": [
+        0.11002805829048157,
+        0.29000020027160645,
+        -0.09323015064001083
+      ],
+      "old_normal": [
+        -0.27862870693206787,
+        -0.7370469570159912,
+        0.6157336831092834
+      ],
+      "new_normal": [
+        -0.1929824948310852,
+        -0.802770733833313,
+        0.5641958117485046
+      ],
+      "angular_change_degrees": 6.858314626974948,
+      "binary_byte_offset": 266544
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1801,
+      "coordinate": [
+        0.1115637868642807,
+        0.2908746600151062,
+        -0.09163873642683029
+      ],
+      "old_normal": [
+        -0.016188589856028557,
+        -0.8224428296089172,
+        0.5686174631118774
+      ],
+      "new_normal": [
+        -0.14303459227085114,
+        -0.7524107098579407,
+        0.6429768800735474
+      ],
+      "angular_change_degrees": 9.341588344458263,
+      "binary_byte_offset": 167752
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "vertex": 27,
+      "coordinate": [
+        0.1115637868642807,
+        0.2908746600151062,
+        -0.09163873642683029
+      ],
+      "old_normal": [
+        -0.1651570051908493,
+        -0.6866287589073181,
+        0.7080000638961792
+      ],
+      "new_normal": [
+        -0.14303459227085114,
+        -0.7524107098579407,
+        0.6429768800735474
+      ],
+      "angular_change_degrees": 5.451074485506868,
+      "binary_byte_offset": 194348
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 437,
+      "coordinate": [
+        0.1115637868642807,
+        0.2908746600151062,
+        -0.09163873642683029
+      ],
+      "old_normal": [
+        -0.2444431185722351,
+        -0.7307221293449402,
+        0.6374109387397766
+      ],
+      "new_normal": [
+        -0.14303459227085114,
+        -0.7524107098579407,
+        0.6429768800735474
+      ],
+      "angular_change_degrees": 5.952899527449803,
+      "binary_byte_offset": 266568
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1802,
+      "coordinate": [
+        0.1131381019949913,
+        0.29214513301849365,
+        -0.09003974497318268
+      ],
+      "old_normal": [
+        0.05672743171453476,
+        -0.7801591157913208,
+        0.6230038404464722
+      ],
+      "new_normal": [
+        -0.03317518159747124,
+        -0.7378677725791931,
+        0.6741294860839844
+      ],
+      "angular_change_degrees": 6.405317989550419,
+      "binary_byte_offset": 167764
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "vertex": 22,
+      "coordinate": [
+        0.1131381019949913,
+        0.29214513301849365,
+        -0.09003974497318268
+      ],
+      "old_normal": [
+        -0.12266360968351364,
+        -0.6863642930984497,
+        0.7168387174606323
+      ],
+      "new_normal": [
+        -0.03317518159747124,
+        -0.7378677725791931,
+        0.6741294860839844
+      ],
+      "angular_change_degrees": 6.405317028765428,
+      "binary_byte_offset": 194288
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1804,
+      "coordinate": [
+        0.11459092795848846,
+        0.29356691241264343,
+        -0.08854277431964874
+      ],
+      "old_normal": [
+        0.11347433179616928,
+        -0.7547933459281921,
+        0.6460732817649841
+      ],
+      "new_normal": [
+        0.024272073060274124,
+        -0.717943012714386,
+        0.6956785917282104
+      ],
+      "angular_change_degrees": 6.220549736538761,
+      "binary_byte_offset": 167788
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "vertex": 23,
+      "coordinate": [
+        0.11459092795848846,
+        0.29356691241264343,
+        -0.08854277431964874
+      ],
+      "old_normal": [
+        -0.06521600484848022,
+        -0.672638475894928,
+        0.7370918989181519
+      ],
+      "new_normal": [
+        0.024272073060274124,
+        -0.717943012714386,
+        0.6956785917282104
+      ],
+      "angular_change_degrees": 6.22055034524038,
+      "binary_byte_offset": 194300
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1955,
+      "coordinate": [
+        0.11587966978549957,
+        0.2949763536453247,
+        -0.0872131884098053
+      ],
+      "old_normal": [
+        0.15466010570526123,
+        -0.7352383136749268,
+        0.6599279046058655
+      ],
+      "new_normal": [
+        0.05950990691781044,
+        -0.6986528635025024,
+        0.7129815816879272
+      ],
+      "angular_change_degrees": 6.588097939966129,
+      "binary_byte_offset": 169600
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "vertex": 59,
+      "coordinate": [
+        0.11587966978549957,
+        0.2949763536453247,
+        -0.0872131884098053
+      ],
+      "old_normal": [
+        -0.036426227539777756,
+        -0.6528405547142029,
+        0.7566190958023071
+      ],
+      "new_normal": [
+        0.05950990691781044,
+        -0.6986528635025024,
+        0.7129815816879272
+      ],
+      "angular_change_degrees": 6.588096199401621,
+      "binary_byte_offset": 194732
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1956,
+      "coordinate": [
+        0.1170668676495552,
+        0.29635095596313477,
+        -0.0860218033194542
+      ],
+      "old_normal": [
+        0.1885860115289688,
+        -0.7059014439582825,
+        0.6827433705329895
+      ],
+      "new_normal": [
+        0.08008231222629547,
+        -0.6639431118965149,
+        0.7434825897216797
+      ],
+      "angular_change_degrees": 7.5246590391536285,
+      "binary_byte_offset": 169612
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "vertex": 60,
+      "coordinate": [
+        0.1170668676495552,
+        0.29635095596313477,
+        -0.0860218033194542
+      ],
+      "old_normal": [
+        -0.02980063110589981,
+        -0.610549807548523,
+        0.7914170026779175
+      ],
+      "new_normal": [
+        0.08008231222629547,
+        -0.6639431118965149,
+        0.7434825897216797
+      ],
+      "angular_change_degrees": 7.524660615720942,
+      "binary_byte_offset": 194744
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 1957,
+      "coordinate": [
+        0.12245476245880127,
+        0.30595338344573975,
+        -0.0831056758761406
+      ],
+      "old_normal": [
+        0.680083692073822,
+        -0.18721874058246613,
+        0.7088267207145691
+      ],
+      "new_normal": [
+        0.5607206225395203,
+        -0.1432369351387024,
+        0.8155216574668884
+      ],
+      "angular_change_degrees": 9.523740490174609,
+      "binary_byte_offset": 169624
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "vertex": 77,
+      "coordinate": [
+        0.12245476245880127,
+        0.30595338344573975,
+        -0.0831056758761406
+      ],
+      "old_normal": [
+        0.4259009063243866,
+        -0.09530670940876007,
+        0.8997361660003662
+      ],
+      "new_normal": [
+        0.5607206225395203,
+        -0.1432369351387024,
+        0.8155216574668884
+      ],
+      "angular_change_degrees": 9.523739310139693,
+      "binary_byte_offset": 194948
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 2105,
+      "coordinate": [
+        0.11820787191390991,
+        0.29776036739349365,
+        -0.08497757464647293
+      ],
+      "old_normal": [
+        0.236567422747612,
+        -0.6436699628829956,
+        0.7278220653533936
+      ],
+      "new_normal": [
+        0.11803153902292252,
+        -0.5957775115966797,
+        0.7944291830062866
+      ],
+      "angular_change_degrees": 8.266695433053405,
+      "binary_byte_offset": 171400
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "vertex": 63,
+      "coordinate": [
+        0.11820787191390991,
+        0.29776036739349365,
+        -0.08497757464647293
+      ],
+      "old_normal": [
+        -0.0029571312479674816,
+        -0.5355043411254883,
+        0.8445273637771606
+      ],
+      "new_normal": [
+        0.11803153902292252,
+        -0.5957775115966797,
+        0.7944291830062866
+      ],
+      "angular_change_degrees": 8.266693545087083,
+      "binary_byte_offset": 194780
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 2106,
+      "coordinate": [
+        0.11932793259620667,
+        0.29931843280792236,
+        -0.08413189649581909
+      ],
+      "old_normal": [
+        0.31555840373039246,
+        -0.5418401956558228,
+        0.7789943814277649
+      ],
+      "new_normal": [
+        0.19747257232666016,
+        -0.4936448931694031,
+        0.8469470143318176
+      ],
+      "angular_change_degrees": 8.287314644149166,
+      "binary_byte_offset": 171412
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "vertex": 65,
+      "coordinate": [
+        0.11932793259620667,
+        0.29931843280792236,
+        -0.08413189649581909
+      ],
+      "old_normal": [
+        0.0752626284956932,
+        -0.43514007329940796,
+        0.8972116112709045
+      ],
+      "new_normal": [
+        0.19747257232666016,
+        -0.4936448931694031,
+        0.8469470143318176
+      ],
+      "angular_change_degrees": 8.287315495440497,
+      "binary_byte_offset": 194804
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 2109,
+      "coordinate": [
+        0.12042906135320663,
+        0.3011489808559418,
+        -0.08352065831422806
+      ],
+      "old_normal": [
+        0.43050774931907654,
+        -0.42050227522850037,
+        0.7986495494842529
+      ],
+      "new_normal": [
+        0.31725013256073,
+        -0.3769281804561615,
+        0.8702169060707092
+      ],
+      "angular_change_degrees": 8.07866958990089,
+      "binary_byte_offset": 171448
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "vertex": 79,
+      "coordinate": [
+        0.12042906135320663,
+        0.3011489808559418,
+        -0.08352065831422806
+      ],
+      "old_normal": [
+        0.197695791721344,
+        -0.32587286829948425,
+        0.9245123863220215
+      ],
+      "new_normal": [
+        0.31725013256073,
+        -0.3769281804561615,
+        0.8702169060707092
+      ],
+      "angular_change_degrees": 8.078671890777978,
+      "binary_byte_offset": 194972
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "vertex": 2110,
+      "coordinate": [
+        0.12149376422166824,
+        0.30336588621139526,
+        -0.08316853642463684
+      ],
+      "old_normal": [
+        0.559520423412323,
+        -0.3025810718536377,
+        0.7716097831726074
+      ],
+      "new_normal": [
+        0.4468677341938019,
+        -0.26230859756469727,
+        0.8552797436714172
+      ],
+      "angular_change_degrees": 8.372070622134455,
+      "binary_byte_offset": 171460
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "vertex": 76,
+      "coordinate": [
+        0.12149376422166824,
+        0.30336588621139526,
+        -0.08316853642463684
+      ],
+      "old_normal": [
+        0.32469090819358826,
+        -0.21644552052021027,
+        0.9207210540771484
+      ],
+      "new_normal": [
+        0.4468677341938019,
+        -0.26230859756469727,
+        0.8552797436714172
+      ],
+      "angular_change_degrees": 8.372070709748742,
+      "binary_byte_offset": 194936
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "vertex": 26,
+      "coordinate": [
+        0.11054469645023346,
+        0.2917417287826538,
+        -0.09103567153215408
+      ],
+      "old_normal": [
+        -0.24445246160030365,
+        -0.6439473628997803,
+        0.7249653935432434
+      ],
+      "new_normal": [
+        -0.27903005480766296,
+        -0.6617359519004822,
+        0.6958791613578796
+      ],
+      "angular_change_degrees": 2.7825154074810428,
+      "binary_byte_offset": 194336
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 438,
+      "coordinate": [
+        0.11054469645023346,
+        0.2917417287826538,
+        -0.09103567153215408
+      ],
+      "old_normal": [
+        -0.31294968724250793,
+        -0.6779640913009644,
+        0.6651520133018494
+      ],
+      "new_normal": [
+        -0.27903005480766296,
+        -0.6617359519004822,
+        0.6958791613578796
+      ],
+      "angular_change_degrees": 2.782514739250211,
+      "binary_byte_offset": 266580
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "vertex": 30,
+      "coordinate": [
+        0.10975725203752518,
+        0.29271259903907776,
+        -0.09061527252197266
+      ],
+      "old_normal": [
+        -0.3701702654361725,
+        -0.5522575378417969,
+        0.7469843626022339
+      ],
+      "new_normal": [
+        -0.3931851387023926,
+        -0.5621533989906311,
+        0.7275912165641785
+      ],
+      "angular_change_degrees": 1.8151965152453704,
+      "binary_byte_offset": 194384
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 440,
+      "coordinate": [
+        0.10975725203752518,
+        0.29271259903907776,
+        -0.09061527252197266
+      ],
+      "old_normal": [
+        -0.4158053994178772,
+        -0.5714851021766663,
+        0.707467794418335
+      ],
+      "new_normal": [
+        -0.3931851387023926,
+        -0.5621533989906311,
+        0.7275912165641785
+      ],
+      "angular_change_degrees": 1.8151987175411348,
+      "binary_byte_offset": 266604
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "vertex": 33,
+      "coordinate": [
+        0.10905198752880096,
+        0.293751060962677,
+        -0.0902896374464035
+      ],
+      "old_normal": [
+        -0.45541560649871826,
+        -0.47342315316200256,
+        0.7539677023887634
+      ],
+      "new_normal": [
+        -0.46930041909217834,
+        -0.4789680540561676,
+        0.7418535351753235
+      ],
+      "angular_change_degrees": 1.1024508754857762,
+      "binary_byte_offset": 194420
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 442,
+      "coordinate": [
+        0.10905198752880096,
+        0.293751060962677,
+        -0.0902896374464035
+      ],
+      "old_normal": [
+        -0.48301151394844055,
+        -0.48433563113212585,
+        0.7294647693634033
+      ],
+      "new_normal": [
+        -0.46930041909217834,
+        -0.4789680540561676,
+        0.7418535351753235
+      ],
+      "angular_change_degrees": 1.1024502247693946,
+      "binary_byte_offset": 266628
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "vertex": 35,
+      "coordinate": [
+        0.10842389613389969,
+        0.2948625385761261,
+        -0.09007090330123901
+      ],
+      "old_normal": [
+        -0.5305596590042114,
+        -0.37914878129959106,
+        0.7581245303153992
+      ],
+      "new_normal": [
+        -0.5388070940971375,
+        -0.3823619782924652,
+        0.7506572008132935
+      ],
+      "angular_change_degrees": 0.6635115794101318,
+      "binary_byte_offset": 194444
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 444,
+      "coordinate": [
+        0.10842389613389969,
+        0.2948625385761261,
+        -0.09007090330123901
+      ],
+      "old_normal": [
+        -0.5469823479652405,
+        -0.3855239748954773,
+        0.7430893182754517
+      ],
+      "new_normal": [
+        -0.5388070940971375,
+        -0.3823619782924652,
+        0.7506572008132935
+      ],
+      "angular_change_degrees": 0.6635116131519841,
+      "binary_byte_offset": 266652
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "vertex": 37,
+      "coordinate": [
+        0.10788659751415253,
+        0.29601114988327026,
+        -0.08997498452663422
+      ],
+      "old_normal": [
+        -0.5892525315284729,
+        -0.2812536358833313,
+        0.7574153542518616
+      ],
+      "new_normal": [
+        -0.5943889617919922,
+        -0.28332677483558655,
+        0.75261390209198
+      ],
+      "angular_change_degrees": 0.42006106380963676,
+      "binary_byte_offset": 194468
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 446,
+      "coordinate": [
+        0.10788659751415253,
+        0.29601114988327026,
+        -0.08997498452663422
+      ],
+      "old_normal": [
+        -0.5994935631752014,
+        -0.2853847146034241,
+        0.7477720975875854
+      ],
+      "new_normal": [
+        -0.5943889617919922,
+        -0.28332677483558655,
+        0.75261390209198
+      ],
+      "angular_change_degrees": 0.42006255249173935,
+      "binary_byte_offset": 266676
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "vertex": 39,
+      "coordinate": [
+        0.10743306577205658,
+        0.2971417009830475,
+        -0.08999525010585785
+      ],
+      "old_normal": [
+        -0.6316660642623901,
+        -0.19175748527050018,
+        0.7511504888534546
+      ],
+      "new_normal": [
+        -0.6340656876564026,
+        -0.1928156614303589,
+        0.7488543391227722
+      ],
+      "angular_change_degrees": 0.1997435243911096,
+      "binary_byte_offset": 194492
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 448,
+      "coordinate": [
+        0.10743306577205658,
+        0.2971417009830475,
+        -0.08999525010585785
+      ],
+      "old_normal": [
+        -0.6364575624465942,
+        -0.19387148320674896,
+        0.746549129486084
+      ],
+      "new_normal": [
+        -0.6340656876564026,
+        -0.1928156614303589,
+        0.7488543391227722
+      ],
+      "angular_change_degrees": 0.19974010126968472,
+      "binary_byte_offset": 266700
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "vertex": 42,
+      "coordinate": [
+        0.10703489929437637,
+        0.2982538044452667,
+        -0.09011863172054291
+      ],
+      "old_normal": [
+        -0.6734022498130798,
+        -0.09251348674297333,
+        0.7334648966789246
+      ],
+      "new_normal": [
+        -0.6711641550064087,
+        -0.09139038622379303,
+        0.7356537580490112
+      ],
+      "angular_change_degrees": 0.19075412669644934,
+      "binary_byte_offset": 194528
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 450,
+      "coordinate": [
+        0.10703489929437637,
+        0.2982538044452667,
+        -0.09011863172054291
+      ],
+      "old_normal": [
+        -0.6689187288284302,
+        -0.09026627987623215,
+        0.7378345131874084
+      ],
+      "new_normal": [
+        -0.6711641550064087,
+        -0.09139038622379303,
+        0.7356537580490112
+      ],
+      "angular_change_degrees": 0.19075162989110578,
+      "binary_byte_offset": 266724
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "vertex": 45,
+      "coordinate": [
+        0.1066533625125885,
+        0.29950857162475586,
+        -0.09041249006986618
+      ],
+      "old_normal": [
+        -0.6841428279876709,
+        -0.0374445840716362,
+        0.7283862829208374
+      ],
+      "new_normal": [
+        -0.6786797046661377,
+        -0.034557145088911057,
+        0.7336209416389465
+      ],
+      "angular_change_degrees": 0.46392323691783294,
+      "binary_byte_offset": 194564
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "vertex": 452,
+      "coordinate": [
+        0.1066533625125885,
+        0.29950857162475586,
+        -0.09041249006986618
+      ],
+      "old_normal": [
+        -0.673172116279602,
+        -0.03166744485497475,
+        0.7388074994087219
+      ],
+      "new_normal": [
+        -0.6786797046661377,
+        -0.034557145088911057,
+        0.7336209416389465
+      ],
+      "angular_change_degrees": 0.4639218491962444,
+      "binary_byte_offset": 266748
+    }
+  ]
+}

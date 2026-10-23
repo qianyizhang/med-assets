@@ -1,0 +1,44 @@
+{
+  "id": "liver_hra_female_exterior_r02",
+  "parent_file": "models/liver_hra_female_exterior_r01/liver_hra_female_exterior_r01.glb",
+  "parent_sha256": "ae2e8708f4855fb1a305a11ebd4c9e960ce4a24caca47c1dca3624be740fd18b",
+  "file": "models/liver_hra_female_exterior_r02/liver_hra_female_exterior_r02.glb",
+  "sha256": "e9abb0c2503a3fa9d725988451e630283ec2c902c182b812219f2d73f3ab1038",
+  "binary_sha256": "1d132021bc3d7cd879dbb57d9d9df4348d274d95f968e975c4b281c7a19ff252",
+  "all_binary_bytes_identical": true,
+  "all_non_material_json_identical": true,
+  "changes": "Only new illustrative matte materials and primitive material indices. Source normals/positions/topology/UVs/transforms remain byte-identical. No invented textures or additional anatomy. Double-sided display explicit for source surface patches; this does not confer thickness.",
+  "role_colors": {
+    "capsule": [
+      0.34,
+      0.075,
+      0.055,
+      1
+    ],
+    "bare": [
+      0.46,
+      0.18,
+      0.12,
+      1
+    ],
+    "ligament": [
+      0.64,
+      0.57,
+      0.42,
+      1
+    ]
+  },
+  "named_mesh_roles": {
+    "VH_F_capsule_of_the_liver": "capsule",
+    "VH_F_bare_area_of_liver": "bare",
+    "VH_F_coronary_ligament_of_liver": "ligament",
+    "VH_F_falciform_ligament": "ligament",
+    "VH_F_triangular_ligament_of_liver": "ligament",
+    "VH_F_ligamentum_venosum": "ligament",
+    "VH_F_round_ligament_of_liver": "ligament",
+    "VH_F_hepataduodenal_ligament": "ligament"
+  },
+  "roughness": 0.78,
+  "license": "CC-BY-4.0",
+  "status": "Unreviewed; exact-export pixel review required"
+}

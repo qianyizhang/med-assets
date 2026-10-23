@@ -1,0 +1,188 @@
+{
+  "id": "spleen_hra_female_r03",
+  "sha256": "4e2637cf6c844aef85ab77c2c1049d4e7647348a13c34d784795b98825f7c8c7",
+  "source_atlas_sha256": "95f0c3d2f918582608692ca1139e8bdb18c147a16470e9ee9af8b276bd77c422",
+  "all_position_index_other_nonnormal_attributes_source_byte_identical": true,
+  "all_source_node_transform_fields_identical": true,
+  "all_selected_mesh_ancestor_chains_identical": true,
+  "exact_named_meshes": 5,
+  "checks": [
+    {
+      "mesh": "VH_F_gastric_surface_of_spleen",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 974,
+              "all_finite": true
+            },
+            "TANGENT": {
+              "source_byte_identical": true,
+              "count": 974,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": false,
+              "count": 974,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0000001192092896,
+              "min_norm": 0.9999999403953552
+            },
+            "TEXCOORD_0": {
+              "source_byte_identical": true,
+              "count": 974,
+              "all_finite": true
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_diaphragmatic_surface_of_spleen",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 2239,
+              "all_finite": true
+            },
+            "TANGENT": {
+              "source_byte_identical": true,
+              "count": 2239,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": false,
+              "count": 2239,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0000001192092896,
+              "min_norm": 0.9999998807907104
+            },
+            "TEXCOORD_0": {
+              "source_byte_identical": true,
+              "count": 2239,
+              "all_finite": true
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_colic_surface_of_spleen",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 83,
+              "all_finite": true
+            },
+            "TANGENT": {
+              "source_byte_identical": true,
+              "count": 83,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": false,
+              "count": 83,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0000001192092896,
+              "min_norm": 0.9999999403953552
+            },
+            "TEXCOORD_0": {
+              "source_byte_identical": true,
+              "count": 83,
+              "all_finite": true
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_hilum_of_spleen",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 816,
+              "all_finite": true
+            },
+            "TANGENT": {
+              "source_byte_identical": true,
+              "count": 816,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": true,
+              "count": 816,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0000001192092896,
+              "min_norm": 0.9999999403953552
+            },
+            "TEXCOORD_0": {
+              "source_byte_identical": true,
+              "count": 816,
+              "all_finite": true
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    },
+    {
+      "mesh": "VH_F_renal_surface_of_spleen",
+      "primitives": [
+        {
+          "attributes": {
+            "POSITION": {
+              "source_byte_identical": true,
+              "count": 453,
+              "all_finite": true
+            },
+            "TANGENT": {
+              "source_byte_identical": true,
+              "count": 453,
+              "all_finite": true
+            },
+            "NORMAL": {
+              "source_byte_identical": false,
+              "count": 453,
+              "all_finite": true,
+              "zero_vectors": 0,
+              "source_zero_vectors": 0,
+              "nonunit_vectors_tolerance_1e_4": 0,
+              "max_norm": 1.0000001192092896,
+              "min_norm": 0.9999999403953552
+            },
+            "TEXCOORD_0": {
+              "source_byte_identical": true,
+              "count": 453,
+              "all_finite": true
+            }
+          },
+          "indices_source_byte_identical": true
+        }
+      ]
+    }
+  ],
+  "technical_warnings": [],
+  "approval_authority": "See the separate root-visual-verdict.json for exact accepted candidates; this audit grants no anatomy/runtime/clinical/normality or clean-format acceptance"
+}
