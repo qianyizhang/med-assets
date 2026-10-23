@@ -1,0 +1,288 @@
+{
+  "source_glb_sha256": "7b047002cbb1dc06f37baa441783390d76cdb444b6144d6caa623923707953fd",
+  "export_glb_sha256": "7b047002cbb1dc06f37baa441783390d76cdb444b6144d6caa623923707953fd",
+  "source_and_export_byte_identical": true,
+  "expected_meshes": 7,
+  "actual_meshes": 7,
+  "exact_named_object_match": true,
+  "geometry_materials_transforms_extras": "Original artifact bytes unchanged; Blender review import only",
+  "status": "TECHNICAL_INGEST_OK_WITH_SOURCE_TOPOLOGY_AND_LABEL_WARNINGS",
+  "topology_method": "Per-object explicit exact float-tuple equality remap for counts only. No mutation, no BMesh merge. Connected components use remapped vertex adjacency.",
+  "not_tested": [
+    "self intersections",
+    "anatomical correctness",
+    "histology validity",
+    "flow continuity",
+    "patient normative size",
+    "browser runtime",
+    "assembly registration"
+  ],
+  "objects": [
+    {
+      "source_node": "Yao_afferent_lymphatic_vessel",
+      "key": "1",
+      "display_label": "Afferent lymphatic vessel",
+      "provider_extras": {
+        "currentUVSet": "map1",
+        "anatomical_structure_of": "#VHMLymphNode",
+        "source_spatial_entity": "#VHMaleOrgans",
+        "label": "afferent lymphatic vessel",
+        "ontologyid": "UBERON:0010396",
+        "representation_of": "http://purl.obolibrary.org/obo/UBERON_0010396",
+        "glb_file_of_single_organs": "NIH_M_Lymph_Node&lf;"
+      },
+      "vertices": 2266,
+      "triangles": 4526,
+      "all_positions_finite": true,
+      "all_vertex_normals_finite": true,
+      "zero_area_triangles": 0,
+      "triangles_below_1e-20_m2": 0,
+      "exact_tuple_boundary_edges": 4,
+      "exact_tuple_non_two_incident_edges": 4,
+      "exact_tuple_connected_components": 3,
+      "bounds_blender_import_m": [
+        [
+          -0.007083616219460964,
+          -0.07458637654781342,
+          0.32302752137184143
+        ],
+        [
+          -0.0007674026419408619,
+          -0.06507834047079086,
+          0.32687312364578247
+        ]
+      ],
+      "materials": [
+        "Lymph_mat"
+      ]
+    },
+    {
+      "source_node": "Yao_blood_vasculature",
+      "key": "7",
+      "display_label": "Source vascular network (label conflict)",
+      "provider_extras": {
+        "currentUVSet": "map1",
+        "anatomical_structure_of": "#VHMLymphNode",
+        "source_spatial_entity": "#VHMaleOrgans",
+        "label": "Lymph vasculature",
+        "ontologyid": "UBERON:0004536",
+        "representation_of": "http://purl.obolibrary.org/obo/UBERON_0004536",
+        "glb_file_of_single_organs": "NIH_M_Lymph_Node&lf;"
+      },
+      "vertices": 65579,
+      "triangles": 131309,
+      "all_positions_finite": true,
+      "all_vertex_normals_finite": true,
+      "zero_area_triangles": 0,
+      "triangles_below_1e-20_m2": 0,
+      "exact_tuple_boundary_edges": 652,
+      "exact_tuple_non_two_incident_edges": 1285,
+      "exact_tuple_connected_components": 8,
+      "bounds_blender_import_m": [
+        [
+          -0.009557685814797878,
+          -0.07743126153945923,
+          0.32522323727607727
+        ],
+        [
+          0.007834644056856632,
+          -0.06554366648197174,
+          0.33338266611099243
+        ]
+      ],
+      "materials": [
+        "artery_mat"
+      ]
+    },
+    {
+      "source_node": "Yao_capsule_of_lymph_node",
+      "key": "2",
+      "display_label": "Capsule of lymph node",
+      "provider_extras": {
+        "currentUVSet": "map1",
+        "anatomical_structure_of": "#VHMLymphNode",
+        "source_spatial_entity": "#VHMaleOrgans",
+        "label": "capsule of lymph node",
+        "ontologyid": "UBERON:0002194",
+        "representation_of": "http://purl.obolibrary.org/obo/UBERON_0002194",
+        "glb_file_of_single_organs": "NIH_M_Lymph_Node&lf;"
+      },
+      "vertices": 4744,
+      "triangles": 9442,
+      "all_positions_finite": true,
+      "all_vertex_normals_finite": true,
+      "zero_area_triangles": 0,
+      "triangles_below_1e-20_m2": 0,
+      "exact_tuple_boundary_edges": 48,
+      "exact_tuple_non_two_incident_edges": 48,
+      "exact_tuple_connected_components": 1,
+      "bounds_blender_import_m": [
+        [
+          -0.010057964362204075,
+          -0.0780453011393547,
+          0.3243873417377472
+        ],
+        [
+          0.008260306902229786,
+          -0.06516613811254501,
+          0.33257347345352173
+        ]
+      ],
+      "materials": [
+        "Lymph_mat"
+      ]
+    },
+    {
+      "source_node": "Yao_efferent_lymph_node",
+      "key": "4",
+      "display_label": "Efferent lymphatic vessel",
+      "provider_extras": {
+        "currentUVSet": "map1",
+        "anatomical_structure_of": "#VHMLymphNode",
+        "source_spatial_entity": "#VHMaleOrgans",
+        "label": "efferent lymphatic vessel",
+        "ontologyid": "UBERON:0010397",
+        "representation_of": "http://purl.obolibrary.org/obo/UBERON_0010397",
+        "glb_file_of_single_organs": "NIH_M_Lymph_Node&lf;"
+      },
+      "vertices": 2077,
+      "triangles": 4154,
+      "all_positions_finite": true,
+      "all_vertex_normals_finite": true,
+      "zero_area_triangles": 0,
+      "triangles_below_1e-20_m2": 0,
+      "exact_tuple_boundary_edges": 0,
+      "exact_tuple_non_two_incident_edges": 0,
+      "exact_tuple_connected_components": 1,
+      "bounds_blender_import_m": [
+        [
+          -0.0035596464294940233,
+          -0.07777828723192215,
+          0.3290134370326996
+        ],
+        [
+          0.0029507065191864967,
+          -0.06770451366901398,
+          0.33370018005371094
+        ]
+      ],
+      "materials": [
+        "Lymph_mat"
+      ]
+    },
+    {
+      "source_node": "Yao_follicles",
+      "key": "3",
+      "display_label": "Lymph node follicles",
+      "provider_extras": {
+        "currentUVSet": "map1",
+        "anatomical_structure_of": "#VHMLymphNode",
+        "source_spatial_entity": "#VHMaleOrgans",
+        "label": "lymph node follicle",
+        "ontologyid": "UBERON:0010748",
+        "representation_of": "http://purl.obolibrary.org/obo/UBERON_0010748",
+        "glb_file_of_single_organs": "NIH_M_Lymph_Node&lf;"
+      },
+      "vertices": 2907,
+      "triangles": 5758,
+      "all_positions_finite": true,
+      "all_vertex_normals_finite": true,
+      "zero_area_triangles": 0,
+      "triangles_below_1e-20_m2": 0,
+      "exact_tuple_boundary_edges": 0,
+      "exact_tuple_non_two_incident_edges": 0,
+      "exact_tuple_connected_components": 14,
+      "bounds_blender_import_m": [
+        [
+          -0.009306678548455238,
+          -0.07739852368831635,
+          0.3249375820159912
+        ],
+        [
+          0.007055072579532862,
+          -0.06601532548666,
+          0.33128851652145386
+        ]
+      ],
+      "materials": [
+        "lymph_cortex_mat"
+      ]
+    },
+    {
+      "source_node": "Yao_medulla_of_lymph_node",
+      "key": "5",
+      "display_label": "Medulla of lymph node",
+      "provider_extras": {
+        "currentUVSet": "map1",
+        "anatomical_structure_of": "#VHMLymphNode",
+        "source_spatial_entity": "#VHMaleOrgans",
+        "label": "medulla of lymph node",
+        "ontologyid": "UBERON:0002007",
+        "representation_of": "http://purl.obolibrary.org/obo/UBERON_0002007",
+        "glb_file_of_single_organs": "NIH_M_Lymph_Node&lf;"
+      },
+      "vertices": 44194,
+      "triangles": 88351,
+      "all_positions_finite": true,
+      "all_vertex_normals_finite": true,
+      "zero_area_triangles": 0,
+      "triangles_below_1e-20_m2": 0,
+      "exact_tuple_boundary_edges": 147,
+      "exact_tuple_non_two_incident_edges": 265,
+      "exact_tuple_connected_components": 1,
+      "bounds_blender_import_m": [
+        [
+          -0.00935094803571701,
+          -0.0775439515709877,
+          0.3253134787082672
+        ],
+        [
+          0.007918071933090687,
+          -0.06545459479093552,
+          0.33226197957992554
+        ]
+      ],
+      "materials": [
+        "lymph_medulla_mat"
+      ]
+    },
+    {
+      "source_node": "Yao_paracortex",
+      "key": "6",
+      "display_label": "Paracortex / T-cell domain",
+      "provider_extras": {
+        "currentUVSet": "map1",
+        "anatomical_structure_of": "#VHMLymphNode",
+        "source_spatial_entity": "#VHMaleOrgans",
+        "label": "lymph node T cell domain",
+        "ontologyid": "UBERON:0010417",
+        "representation_of": "http://purl.obolibrary.org/obo/UBERON_0010417",
+        "glb_file_of_single_organs": "NIH_M_Lymph_Node&lf;"
+      },
+      "vertices": 5451,
+      "triangles": 10910,
+      "all_positions_finite": true,
+      "all_vertex_normals_finite": true,
+      "zero_area_triangles": 0,
+      "triangles_below_1e-20_m2": 0,
+      "exact_tuple_boundary_edges": 0,
+      "exact_tuple_non_two_incident_edges": 0,
+      "exact_tuple_connected_components": 1,
+      "bounds_blender_import_m": [
+        [
+          -0.00945852231234312,
+          -0.07766664028167725,
+          0.3248162269592285
+        ],
+        [
+          0.0070245168171823025,
+          -0.06705173850059509,
+          0.33147117495536804
+        ]
+      ],
+      "materials": [
+        "lymph_paracortex_mat"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,302 @@
+{
+  "exact_glb_sha256": "7b047002cbb1dc06f37baa441783390d76cdb444b6144d6caa623923707953fd",
+  "geometry_materials_transforms": "Unchanged. Only camera/lights and explicitly recorded layer visibility differ between screenshots. All isolated layers retain original relative coordinates and common camera scale; no exploded transform.",
+  "frame": "HRA original GLB frame; Blender glTF import coordinate conversion only. Camera directions are not anatomical claims. Separate from Z/BP3D.",
+  "screenshots": [
+    {
+      "file": "screenshots/whole-oblique.png",
+      "sha256": "70bb958980091aff9a6850976c1549337f8cca937240a8ba2ae90b714c39e3ae",
+      "camera_direction_blender": [
+        1,
+        -2,
+        0.5
+      ],
+      "hidden_source_nodes": [],
+      "visible_source_nodes": [
+        "Yao_afferent_lymphatic_vessel",
+        "Yao_blood_vasculature",
+        "Yao_capsule_of_lymph_node",
+        "Yao_efferent_lymph_node",
+        "Yao_follicles",
+        "Yao_medulla_of_lymph_node",
+        "Yao_paracortex"
+      ]
+    },
+    {
+      "file": "screenshots/capsule-hidden-oblique.png",
+      "sha256": "e5030324d666eebee61ecc9976dbcc59a180153f8f0c265b49174f2fc921ac78",
+      "camera_direction_blender": [
+        1,
+        -2,
+        0.5
+      ],
+      "hidden_source_nodes": [
+        "Yao_capsule_of_lymph_node"
+      ],
+      "visible_source_nodes": [
+        "Yao_afferent_lymphatic_vessel",
+        "Yao_blood_vasculature",
+        "Yao_efferent_lymph_node",
+        "Yao_follicles",
+        "Yao_medulla_of_lymph_node",
+        "Yao_paracortex"
+      ]
+    },
+    {
+      "file": "screenshots/capsule-hidden-lower.png",
+      "sha256": "36ef4af6c7b06f9b930c3dab48462135b9943829bccb82ed191071ad441056c9",
+      "camera_direction_blender": [
+        1,
+        -2,
+        -1.6
+      ],
+      "hidden_source_nodes": [
+        "Yao_capsule_of_lymph_node"
+      ],
+      "visible_source_nodes": [
+        "Yao_afferent_lymphatic_vessel",
+        "Yao_blood_vasculature",
+        "Yao_efferent_lymph_node",
+        "Yao_follicles",
+        "Yao_medulla_of_lymph_node",
+        "Yao_paracortex"
+      ]
+    },
+    {
+      "file": "screenshots/capsule-medulla-hidden.png",
+      "sha256": "b2685fa74e2ed7be3250d63e6845781f56387c3d70cbc63c414622ab40cfd419",
+      "camera_direction_blender": [
+        1,
+        -2,
+        0.5
+      ],
+      "hidden_source_nodes": [
+        "Yao_capsule_of_lymph_node",
+        "Yao_medulla_of_lymph_node"
+      ],
+      "visible_source_nodes": [
+        "Yao_afferent_lymphatic_vessel",
+        "Yao_blood_vasculature",
+        "Yao_efferent_lymph_node",
+        "Yao_follicles",
+        "Yao_paracortex"
+      ]
+    },
+    {
+      "file": "screenshots/follicles-paracortex-context.png",
+      "sha256": "733a5153e39239163ca085540f49b61a5486083f20b4357128002f8105c1efe0",
+      "camera_direction_blender": [
+        1,
+        -2,
+        0.5
+      ],
+      "hidden_source_nodes": [
+        "Yao_capsule_of_lymph_node",
+        "Yao_medulla_of_lymph_node",
+        "Yao_blood_vasculature"
+      ],
+      "visible_source_nodes": [
+        "Yao_afferent_lymphatic_vessel",
+        "Yao_efferent_lymph_node",
+        "Yao_follicles",
+        "Yao_paracortex"
+      ]
+    },
+    {
+      "file": "screenshots/layer-1.png",
+      "sha256": "da1ebe42c0b0c6cd170f7a7d3522f5c6dbcc5359c703a6160a12bf61b2210cc8",
+      "camera_direction_blender": [
+        1,
+        -2,
+        0.5
+      ],
+      "hidden_source_nodes": [
+        "Yao_blood_vasculature",
+        "Yao_capsule_of_lymph_node",
+        "Yao_efferent_lymph_node",
+        "Yao_follicles",
+        "Yao_medulla_of_lymph_node",
+        "Yao_paracortex"
+      ],
+      "visible_source_nodes": [
+        "Yao_afferent_lymphatic_vessel"
+      ]
+    },
+    {
+      "file": "screenshots/layer-7.png",
+      "sha256": "7e1906e6d0225f64552e3eec1acf3c04263a939e951aea4dad672485c4212978",
+      "camera_direction_blender": [
+        1,
+        -2,
+        0.5
+      ],
+      "hidden_source_nodes": [
+        "Yao_afferent_lymphatic_vessel",
+        "Yao_capsule_of_lymph_node",
+        "Yao_efferent_lymph_node",
+        "Yao_follicles",
+        "Yao_medulla_of_lymph_node",
+        "Yao_paracortex"
+      ],
+      "visible_source_nodes": [
+        "Yao_blood_vasculature"
+      ]
+    },
+    {
+      "file": "screenshots/layer-2.png",
+      "sha256": "93191a1389419394a0c149a7cfb5159f1c00210f42ef877c30e76d2864131926",
+      "camera_direction_blender": [
+        1,
+        -2,
+        0.5
+      ],
+      "hidden_source_nodes": [
+        "Yao_afferent_lymphatic_vessel",
+        "Yao_blood_vasculature",
+        "Yao_efferent_lymph_node",
+        "Yao_follicles",
+        "Yao_medulla_of_lymph_node",
+        "Yao_paracortex"
+      ],
+      "visible_source_nodes": [
+        "Yao_capsule_of_lymph_node"
+      ]
+    },
+    {
+      "file": "screenshots/layer-4.png",
+      "sha256": "00d44cb540f8dea9e9615f4bdaf61193d6e9e29c7b136068496faa7630ab82de",
+      "camera_direction_blender": [
+        1,
+        -2,
+        0.5
+      ],
+      "hidden_source_nodes": [
+        "Yao_afferent_lymphatic_vessel",
+        "Yao_blood_vasculature",
+        "Yao_capsule_of_lymph_node",
+        "Yao_follicles",
+        "Yao_medulla_of_lymph_node",
+        "Yao_paracortex"
+      ],
+      "visible_source_nodes": [
+        "Yao_efferent_lymph_node"
+      ]
+    },
+    {
+      "file": "screenshots/layer-3.png",
+      "sha256": "589d4aedf49037887c1465f035eafe87fc95b526899c77196943e0256c18dc62",
+      "camera_direction_blender": [
+        1,
+        -2,
+        0.5
+      ],
+      "hidden_source_nodes": [
+        "Yao_afferent_lymphatic_vessel",
+        "Yao_blood_vasculature",
+        "Yao_capsule_of_lymph_node",
+        "Yao_efferent_lymph_node",
+        "Yao_medulla_of_lymph_node",
+        "Yao_paracortex"
+      ],
+      "visible_source_nodes": [
+        "Yao_follicles"
+      ]
+    },
+    {
+      "file": "screenshots/layer-5.png",
+      "sha256": "9bbf3688ff22697a7fa77694677898459c659c532fd2e3dd0578546e93b901a8",
+      "camera_direction_blender": [
+        1,
+        -2,
+        0.5
+      ],
+      "hidden_source_nodes": [
+        "Yao_afferent_lymphatic_vessel",
+        "Yao_blood_vasculature",
+        "Yao_capsule_of_lymph_node",
+        "Yao_efferent_lymph_node",
+        "Yao_follicles",
+        "Yao_paracortex"
+      ],
+      "visible_source_nodes": [
+        "Yao_medulla_of_lymph_node"
+      ]
+    },
+    {
+      "file": "screenshots/layer-6.png",
+      "sha256": "05de442ef8d8b1e3d522772489a232a2cb046ce3e5ac0adc11d7f9d18f23165c",
+      "camera_direction_blender": [
+        1,
+        -2,
+        0.5
+      ],
+      "hidden_source_nodes": [
+        "Yao_afferent_lymphatic_vessel",
+        "Yao_blood_vasculature",
+        "Yao_capsule_of_lymph_node",
+        "Yao_efferent_lymph_node",
+        "Yao_follicles",
+        "Yao_medulla_of_lymph_node"
+      ],
+      "visible_source_nodes": [
+        "Yao_paracortex"
+      ]
+    }
+  ],
+  "camera_recipe": {
+    "target_center_blender_import_m": [
+      -0.0008988287299871445,
+      -0.07156182080507278,
+      0.3283638507127762
+    ],
+    "orthographic_scale_m": 0.021615560092031954,
+    "position_rule": "center + camera_direction_blender (recorded per view)",
+    "rotation_rule": "(center-camera.location).to_track_quat(-Z,Y).to_euler()",
+    "resolution": [
+      1100,
+      900
+    ],
+    "engine": "Cycles",
+    "samples": 48,
+    "denoising": false,
+    "lights": [
+      {
+        "type": "AREA",
+        "offset_from_center": [
+          -1,
+          -2,
+          2
+        ],
+        "energy": 130,
+        "size": 2
+      },
+      {
+        "type": "AREA",
+        "offset_from_center": [
+          1,
+          -1,
+          -1
+        ],
+        "energy": 90,
+        "size": 2
+      },
+      {
+        "type": "AREA",
+        "offset_from_center": [
+          0,
+          2,
+          1
+        ],
+        "energy": 110,
+        "size": 2
+      }
+    ],
+    "world_color": [
+      0.045,
+      0.045,
+      0.045
+    ],
+    "blender_version": "4.3.2",
+    "material_edits": "none"
+  }
+}
