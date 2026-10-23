@@ -1,0 +1,190 @@
+{
+  "id": "marrow-independent-comparison-bounded-import-20261023",
+  "parentAssetId": "draft_bone",
+  "originalAssetId": "draft_bone_marrow",
+  "newAcceptedCandidateCount": 0,
+  "originalGatesChanged": false,
+  "scope": "Limited STATIC comparative teaching supplement only. Two independent panels, no registration or cross-panel scale matching; not completed marrow.",
+  "gates": {
+    "visual": "Reviewer-inspected static comparison only",
+    "technical": "Header/index/finite/zero-area checks only; not manifold/intersection certification",
+    "anatomy": "unreviewed",
+    "runtime": "unverified"
+  },
+  "limitations": [
+    "Authored 2.5 mm inner shell is illustrative, not measured cortex or marrow.",
+    "Independent micro-CT surface is segmented bone; gaps are not segmented marrow.",
+    "NIfTI header spacing ~17.409 \u00b5m differs from record prose 17.59 \u00b5m. Unresolved; bars header-derived, not independently calibrated.",
+    "Bone site, donor age/health and anatomical orientation unknown.",
+    "Source objects are separate; never embed/scale the micro-CT sample into the femur as matched tissue.",
+    "Prior flat connected bracket remained visually inadequate; connectivity did not make cancellous anatomy."
+  ],
+  "evidence": [
+    {
+      "file": "reviews/draft_bone/2026-10-23-marrow-comparison/evidence/two-panel-intended.png",
+      "sha256": "477fdb6a756a02ef96766831fbe51e84f9bc76032bd6312b5461570aaa5f167e",
+      "bytes": 910263,
+      "kind": "two-independent-panels",
+      "artifactBindings": [
+        {
+          "file": "assemblies/marrow-comparison/2026-10-23/illustrative-container-r03.glb",
+          "sha256": "17d3b2a45d4bc369cbb3ca770a48c550e0bf5438f8112b7a7bd31d2cbd12a02c"
+        },
+        {
+          "file": "assemblies/marrow-comparison/2026-10-23/bp3d-right-femur-exterior.glb",
+          "sha256": "3dc45bb8496f9796cf418257a39aa88afc2cc60cbd3738335a391eaec9632745"
+        },
+        {
+          "file": "assemblies/marrow-comparison/2026-10-23/independent-measured-trabecular-reference.glb",
+          "sha256": "5b4f9c8c4e0aa3738213e32a0e19f293580acf8a17f29c4c59200bd38be89fca"
+        }
+      ],
+      "noRegistration": true
+    },
+    {
+      "file": "reviews/draft_bone/2026-10-23-marrow-comparison/evidence/two-panel-neutral.png",
+      "sha256": "fa1ff3691bff9b95b266ecaa64702db7887c026a0422b5e06bcf486a904698a1",
+      "bytes": 899043,
+      "kind": "two-independent-panels",
+      "artifactBindings": [
+        {
+          "file": "assemblies/marrow-comparison/2026-10-23/illustrative-container-r03.glb",
+          "sha256": "17d3b2a45d4bc369cbb3ca770a48c550e0bf5438f8112b7a7bd31d2cbd12a02c"
+        },
+        {
+          "file": "assemblies/marrow-comparison/2026-10-23/bp3d-right-femur-exterior.glb",
+          "sha256": "3dc45bb8496f9796cf418257a39aa88afc2cc60cbd3738335a391eaec9632745"
+        },
+        {
+          "file": "assemblies/marrow-comparison/2026-10-23/independent-measured-trabecular-reference.glb",
+          "sha256": "5b4f9c8c4e0aa3738213e32a0e19f293580acf8a17f29c4c59200bd38be89fca"
+        }
+      ],
+      "noRegistration": true
+    }
+  ],
+  "files": [
+    {
+      "file": "assemblies/marrow-comparison/2026-10-23/illustrative-container-r03.glb",
+      "sha256": "17d3b2a45d4bc369cbb3ca770a48c550e0bf5438f8112b7a7bd31d2cbd12a02c",
+      "bytes": 64456,
+      "canonicalOriginalSha256": "17d3b2a45d4bc369cbb3ca770a48c550e0bf5438f8112b7a7bd31d2cbd12a02c"
+    },
+    {
+      "file": "assemblies/marrow-comparison/2026-10-23/bp3d-right-femur-exterior.glb",
+      "sha256": "3dc45bb8496f9796cf418257a39aa88afc2cc60cbd3738335a391eaec9632745",
+      "bytes": 57812,
+      "canonicalOriginalSha256": "3dc45bb8496f9796cf418257a39aa88afc2cc60cbd3738335a391eaec9632745"
+    },
+    {
+      "file": "assemblies/marrow-comparison/2026-10-23/independent-measured-trabecular-reference.glb",
+      "sha256": "5b4f9c8c4e0aa3738213e32a0e19f293580acf8a17f29c4c59200bd38be89fca",
+      "bytes": 5323328,
+      "canonicalOriginalSha256": "5b4f9c8c4e0aa3738213e32a0e19f293580acf8a17f29c4c59200bd38be89fca"
+    },
+    {
+      "file": "sources/datasets/marrow-comparison-v1/BP3D-FJ3365.obj",
+      "sha256": "02fffe2e1b0f8e038d8b7b48e47cbc4925a749446240e676e910bff34d5348de",
+      "bytes": 192118,
+      "canonicalOriginalSha256": "02fffe2e1b0f8e038d8b7b48e47cbc4925a749446240e676e910bff34d5348de"
+    },
+    {
+      "file": "sources/datasets/marrow-comparison-v1/BMLPL_001_REF_17_SEG_SUB.nii",
+      "sha256": "b52e275cb5e56b58393626fcaf6d81b1ae9b1fd039d20db09f38a60b0db3ff7c",
+      "bytes": 2000352,
+      "canonicalOriginalSha256": "b52e275cb5e56b58393626fcaf6d81b1ae9b1fd039d20db09f38a60b0db3ff7c"
+    },
+    {
+      "file": "sources/datasets/marrow-comparison-v1/selected-file.json",
+      "sha256": "147b250a37e54697d61f9fcd0de1958245514caf13d10f1d7ac29096ee2b8108",
+      "bytes": 359,
+      "canonicalOriginalSha256": "147b250a37e54697d61f9fcd0de1958245514caf13d10f1d7ac29096ee2b8108"
+    },
+    {
+      "file": "sources/datasets/marrow-comparison-v1/zenodo-record-11061947.json",
+      "sha256": "35224d9b58bdd3f790bbd6c480428c3a940eab94250089943c2bbd5c8da25865",
+      "bytes": 16035,
+      "canonicalOriginalSha256": "35224d9b58bdd3f790bbd6c480428c3a940eab94250089943c2bbd5c8da25865"
+    },
+    {
+      "file": "reviews/draft_bone/2026-10-23-marrow-comparison/evidence/two-panel-intended.png",
+      "sha256": "477fdb6a756a02ef96766831fbe51e84f9bc76032bd6312b5461570aaa5f167e",
+      "bytes": 910263,
+      "canonicalOriginalSha256": "477fdb6a756a02ef96766831fbe51e84f9bc76032bd6312b5461570aaa5f167e"
+    },
+    {
+      "file": "reviews/draft_bone/2026-10-23-marrow-comparison/evidence/two-panel-neutral.png",
+      "sha256": "fa1ff3691bff9b95b266ecaa64702db7887c026a0422b5e06bcf486a904698a1",
+      "bytes": 899043,
+      "canonicalOriginalSha256": "fa1ff3691bff9b95b266ecaa64702db7887c026a0422b5e06bcf486a904698a1"
+    },
+    {
+      "file": "reviews/draft_bone/2026-10-23-marrow-comparison/evidence/model-container-checks.json",
+      "sha256": "f2d76e4183ae0949ace5efa165115e79c174b8634be91cf07173054aca1aa686",
+      "bytes": 1840,
+      "canonicalOriginalSha256": "f2d76e4183ae0949ace5efa165115e79c174b8634be91cf07173054aca1aa686"
+    },
+    {
+      "file": "reviews/draft_bone/2026-10-23-marrow-comparison/evidence/reference-extraction.json",
+      "sha256": "f6270f0edba1b220dd78e2c4bb8ae661e7665ee4e1aaf07b22c7578a9b9e6e1f",
+      "bytes": 917,
+      "canonicalOriginalSha256": "f6270f0edba1b220dd78e2c4bb8ae661e7665ee4e1aaf07b22c7578a9b9e6e1f"
+    },
+    {
+      "file": "reviews/draft_bone/2026-10-23-marrow-comparison/evidence/reference-components.json",
+      "sha256": "c3b7999273f441d36d17e59727984ee3ce4df5de3e7e33921b6539956c7423ad",
+      "bytes": 234,
+      "canonicalOriginalSha256": "c3b7999273f441d36d17e59727984ee3ce4df5de3e7e33921b6539956c7423ad"
+    },
+    {
+      "file": "reviews/draft_bone/2026-10-23-marrow-comparison/evidence/panel-bindings.json",
+      "sha256": "4903a2266e4543b36260f02c1eab251c91c307b2a630fac59668b7d3cf007885",
+      "bytes": 1481,
+      "canonicalOriginalSha256": "4903a2266e4543b36260f02c1eab251c91c307b2a630fac59668b7d3cf007885"
+    },
+    {
+      "file": "reviews/draft_bone/2026-10-23-marrow-comparison/source-header-attribution-check.json",
+      "sha256": "5a6d26d0298d7f9fbef96029a286248d0f7a553714be736722bd7ba33637bbf5",
+      "bytes": 959,
+      "canonicalOriginalSha256": "5a6d26d0298d7f9fbef96029a286248d0f7a553714be736722bd7ba33637bbf5"
+    },
+    {
+      "file": "reviews/draft_bone/2026-10-23-marrow-comparison/licenses/bodyparts3d-official-license-snapshot.html",
+      "sha256": "75d9ec998779dd1429a54e8c477ce2bdfa1ce275d7613289c9ab9456fbe70b7e",
+      "bytes": 14682,
+      "canonicalOriginalSha256": "75d9ec998779dd1429a54e8c477ce2bdfa1ce275d7613289c9ab9456fbe70b7e"
+    },
+    {
+      "file": "reviews/draft_bone/2026-10-23-marrow-comparison/LICENSES.md",
+      "sha256": "cad852c6a71c4581810fb93f53b0a073e3a1e32dc449cf173e7b34e69f65d73f",
+      "bytes": 2954,
+      "canonicalOriginalSha256": "c5a52d647662fe81a0f4dfa73b37b496f968e061117d87290ab661f52fedb994"
+    },
+    {
+      "file": "tests/marrow_comparison/original_recipes/check_models.py",
+      "sha256": "f89990ab99df853cc9b01c0b93b9f9d6cefc395ee3af63ebba084b58bb0f2624",
+      "bytes": 1682,
+      "canonicalOriginalSha256": "f89990ab99df853cc9b01c0b93b9f9d6cefc395ee3af63ebba084b58bb0f2624"
+    },
+    {
+      "file": "tests/marrow_comparison/original_recipes/extract_reference.py",
+      "sha256": "b0073a211661d394f1509ecca11e43d0a213273f27160c3355f9bd775016e23a",
+      "bytes": 1592,
+      "canonicalOriginalSha256": "b0073a211661d394f1509ecca11e43d0a213273f27160c3355f9bd775016e23a"
+    },
+    {
+      "file": "tests/marrow_comparison/original_recipes/replay_container.py",
+      "sha256": "1645577610bfb2dede9266382fd2b0c35dba19acc542e4db89b24b6742609122",
+      "bytes": 5255,
+      "canonicalOriginalSha256": "1645577610bfb2dede9266382fd2b0c35dba19acc542e4db89b24b6742609122"
+    }
+  ],
+  "sourceFacts": {
+    "creator": "Kuczynski, Michael",
+    "affiliation": "University of Calgary",
+    "doi": "10.5281/zenodo.11061947",
+    "license": "CC BY 4.0",
+    "sourceNIfTI": "Original public segmented-bone input, not newly sanitized; exact publisherMD5 verified and identifying/free-text header fields/extensions empty."
+  },
+  "replayBoundary": "Supplied tools reconstruct method-specific source surfaces in a new output folder. No byte-identical cross-version GLB or full final-panel rendering replay claimed. Panel source render inputs/full histories omitted; exact 2 final panels retained."
+}
