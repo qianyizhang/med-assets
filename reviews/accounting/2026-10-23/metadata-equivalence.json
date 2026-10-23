@@ -1,0 +1,1512 @@
+{
+  "schemaVersion": 1,
+  "records": [
+    {
+      "id": "stomach__2026-10-23-metadata-visual-equivalence",
+      "assetId": "stomach",
+      "derivative": {
+        "id": "stomach__metadata-cleanup-r01",
+        "file": "models/stomach/exports/metadata-cleanup-r01/stomach.glb",
+        "sha256": "ad0876f37f92945171750d31d9c53165535a697e60a3d2ac8a3f3f78667fdec6",
+        "bytes": 3402184,
+        "remotePath": "models/stomach/exports/metadata-cleanup-r01/stomach.glb",
+        "remoteRef": "3f4dfc5fedc7156e0b7bd4e7390357c35d0895f5",
+        "pointerVerified": true
+      },
+      "reviewedAt": "2026-10-23T12:35:45.190685+00:00",
+      "reviewMethod": "Exact metadata-only render-data equivalence check; no new pixel inspection",
+      "visual": {
+        "status": "needs-revision",
+        "scope": "Inherited source visual outcome through verified unchanged render data; not a fresh rendered review of this derivative hash. Upper transverse ribbing and distal corrugation persist under neutral material; needs revision for requested detailed exterior fidelity.",
+        "equivalentSourceVariantId": "stomach__v10-837077aeece2",
+        "equivalentSourceSha256": "f1e8dfe7918361822503e9f6e5232204960f8c74b45bf9b294556c10d024ca82"
+      },
+      "baselineSha256": "f1e8dfe7918361822503e9f6e5232204960f8c74b45bf9b294556c10d024ca82",
+      "allNonJSONChunksByteIdentical": true,
+      "allJSONOutsideSceneExtrasDeepEqual": true,
+      "sourceVisualReview": {
+        "id": "stomach__2026-10-23-confirmed-static-review",
+        "sha256": "daf3538187221e7ee4b6ec6c5cb14a1eff4e75d619e5589932133823b08f126f",
+        "visual": {
+          "status": "needs-revision",
+          "scope": "Upper transverse ribbing and distal corrugation persist under neutral material; needs revision for requested detailed exterior fidelity."
+        }
+      },
+      "originalVerificationReceipt": {
+        "assetId": "stomach",
+        "sha256": "ad0876f37f92945171750d31d9c53165535a697e60a3d2ac8a3f3f78667fdec6",
+        "bytes": 3402184,
+        "BINUnchanged": true,
+        "JSONOutsideSceneExtrasUnchanged": true,
+        "scope": "Metadata correctness only; no new visual/anatomy/runtime pass.",
+        "actualClipSummary": "Contains an illustrative 4 s breathing clip with 13 translation-only channels; no physiological or biomechanical validation.",
+        "sourceSha256": "f1e8dfe7918361822503e9f6e5232204960f8c74b45bf9b294556c10d024ca82",
+        "sourceBytes": 3402440,
+        "allJSONOutsideSceneExtrasDeepEqual": true,
+        "allNonJSONChunksUnchanged": true,
+        "sourceNodeMetadataUnchanged": true,
+        "animationArraysAndClipJSONUnchanged": true,
+        "fieldPlan": [
+          {
+            "path": "/scenes/0/extras/README",
+            "op": "replace",
+            "oldValue": "See embedded README and exported docs. 0/1/2 material_set changes tissue/clinical/transparent. cutaway toggles full/sectioned walls. Spacebar plays 75 BPM illustrative cycle. All structures named, editable; no external assets.",
+            "value": "Educational stomach display. Contains an illustrative 4 s breathing clip with 13 translation-only channels; no physiological or biomechanical validation. No exported keyboard, cutaway-toggle or material-switching behavior is established by this metadata. Not clinically validated."
+          },
+          {
+            "path": "/scenes/0/extras/coordinates",
+            "op": "remove",
+            "oldValue": "BU: X patient-left, Y posterior, Z superior. RAS millimeters=(-25X,-25Y,+25Z)."
+          },
+          {
+            "path": "/scenes/0/extras/clinical_status",
+            "op": "replace",
+            "oldValue": "Procedural educational model, not patient-derived or clinically validated.",
+            "value": "Source-derived educational surface from TotalSegmentator v2.0.1 retained case s1233, tb3 revision 75ec4e6530abe4d434b07958e90bdc9dec062bef. Repaired/subdivided/smoothed display derivative, not recovered detail or a generic healthy atlas. Additional teaching sections, routes or structures are authored illustrations, not segmented anatomy. Not clinically validated."
+          },
+          {
+            "path": "/scenes/0/extras/reference_phase",
+            "op": "remove",
+            "oldValue": "Frame 1 end-diastole, beginning of atrial systole. 30fps,24 frames/cycle,75bpm."
+          },
+          {
+            "path": "/scenes/0/extras/material_set_names",
+            "op": "remove",
+            "oldValue": "0: procedural tissue-style; 1: clinical circulation colors; 2: transparent educational shell"
+          },
+          {
+            "path": "/scenes/0/extras/animation_model",
+            "op": "replace",
+            "oldValue": "Illustrative regional shape-key shortening + torsion; valve timing; no biomechanical or flow simulation",
+            "value": "Contains an illustrative 4 s breathing clip with 13 translation-only channels; no physiological or biomechanical validation."
+          },
+          {
+            "path": "/scenes/0/extras/pericardial_layers",
+            "op": "remove",
+            "oldValue": "Endocardium/myocardium/epicardium represented by material-bearing wall surfaces; parietal serous pericardium separate simplified envelope. Epicardium is visceral serous layer. Fibrous sac thickness/reflections simplified."
+          }
+        ]
+      },
+      "limitations": [
+        "No new geometry, material, animation, anatomy or browser-runtime approval.",
+        "Visual outcome inherits only the linked source review scope, including unresolved Needs review cases.",
+        "No pixel-identity claim from this check; earlier representative render-repeat variation remains documented."
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "kidney_left__2026-10-23-metadata-visual-equivalence",
+      "assetId": "kidney_left",
+      "derivative": {
+        "id": "kidney_left__metadata-cleanup-r01",
+        "file": "models/kidney_left/exports/metadata-cleanup-r01/kidney_left.glb",
+        "sha256": "d2139a88cf85b70bdd7981e6134841faff99fcf18d7a480f04224d7e74c73c28",
+        "bytes": 2527704,
+        "remotePath": "models/kidney_left/exports/metadata-cleanup-r01/kidney_left.glb",
+        "remoteRef": "3f4dfc5fedc7156e0b7bd4e7390357c35d0895f5",
+        "pointerVerified": true
+      },
+      "reviewedAt": "2026-10-23T12:35:45.190685+00:00",
+      "reviewMethod": "Exact metadata-only render-data equivalence check; no new pixel inspection",
+      "visual": {
+        "status": "needs-revision",
+        "scope": "Inherited source visual outcome through verified unchanged render data; not a fresh rendered review of this derivative hash. Persistent coarse terraced bands remain in exact-export and retained-source neutral comparisons; needs revision for detailed surface presentation, preserving side-specific anatomy.",
+        "equivalentSourceVariantId": "kidney_left__v10-837077aeece2",
+        "equivalentSourceSha256": "af69ae49a012f8d5ccc469eb78adaec8fb563b45594de2a4583302cede50262c"
+      },
+      "baselineSha256": "af69ae49a012f8d5ccc469eb78adaec8fb563b45594de2a4583302cede50262c",
+      "allNonJSONChunksByteIdentical": true,
+      "allJSONOutsideSceneExtrasDeepEqual": true,
+      "sourceVisualReview": {
+        "id": "kidney_left__2026-10-23-confirmed-static-review",
+        "sha256": "6f877f0374d7e62572df4b43d41cebd40a8e714a6892a8f1f00492cf73a04640",
+        "visual": {
+          "status": "needs-revision",
+          "scope": "Persistent coarse terraced bands remain in exact-export and retained-source neutral comparisons; needs revision for detailed surface presentation, preserving side-specific anatomy."
+        }
+      },
+      "originalVerificationReceipt": {
+        "assetId": "kidney_left",
+        "sha256": "d2139a88cf85b70bdd7981e6134841faff99fcf18d7a480f04224d7e74c73c28",
+        "bytes": 2527704,
+        "BINUnchanged": true,
+        "JSONOutsideSceneExtrasUnchanged": true,
+        "scope": "Metadata correctness only; no new visual/anatomy/runtime pass.",
+        "actualClipSummary": "Contains an illustrative 4 s breathing clip with 20 translation-only channels; no physiological or biomechanical validation.",
+        "sourceSha256": "af69ae49a012f8d5ccc469eb78adaec8fb563b45594de2a4583302cede50262c",
+        "sourceBytes": 2527980,
+        "allJSONOutsideSceneExtrasDeepEqual": true,
+        "allNonJSONChunksUnchanged": true,
+        "sourceNodeMetadataUnchanged": true,
+        "animationArraysAndClipJSONUnchanged": true,
+        "fieldPlan": [
+          {
+            "path": "/scenes/0/extras/README",
+            "op": "replace",
+            "oldValue": "See embedded README and exported docs. 0/1/2 material_set changes tissue/clinical/transparent. cutaway toggles full/sectioned walls. Spacebar plays 75 BPM illustrative cycle. All structures named, editable; no external assets.",
+            "value": "Educational kidney left display. Contains an illustrative 4 s breathing clip with 20 translation-only channels; no physiological or biomechanical validation. No exported keyboard, cutaway-toggle or material-switching behavior is established by this metadata. Not clinically validated."
+          },
+          {
+            "path": "/scenes/0/extras/coordinates",
+            "op": "remove",
+            "oldValue": "BU: X patient-left, Y posterior, Z superior. RAS millimeters=(-25X,-25Y,+25Z)."
+          },
+          {
+            "path": "/scenes/0/extras/clinical_status",
+            "op": "replace",
+            "oldValue": "Procedural educational model, not patient-derived or clinically validated.",
+            "value": "Source-derived educational surface from TotalSegmentator v2.0.1 retained case s1233, tb3 revision 75ec4e6530abe4d434b07958e90bdc9dec062bef. Repaired/subdivided/smoothed display derivative, not recovered detail or a generic healthy atlas. Additional teaching sections, routes or structures are authored illustrations, not segmented anatomy. Not clinically validated."
+          },
+          {
+            "path": "/scenes/0/extras/reference_phase",
+            "op": "remove",
+            "oldValue": "Frame 1 end-diastole, beginning of atrial systole. 30fps,24 frames/cycle,75bpm."
+          },
+          {
+            "path": "/scenes/0/extras/material_set_names",
+            "op": "remove",
+            "oldValue": "0: procedural tissue-style; 1: clinical circulation colors; 2: transparent educational shell"
+          },
+          {
+            "path": "/scenes/0/extras/animation_model",
+            "op": "replace",
+            "oldValue": "Illustrative regional shape-key shortening + torsion; valve timing; no biomechanical or flow simulation",
+            "value": "Contains an illustrative 4 s breathing clip with 20 translation-only channels; no physiological or biomechanical validation."
+          },
+          {
+            "path": "/scenes/0/extras/pericardial_layers",
+            "op": "remove",
+            "oldValue": "Endocardium/myocardium/epicardium represented by material-bearing wall surfaces; parietal serous pericardium separate simplified envelope. Epicardium is visceral serous layer. Fibrous sac thickness/reflections simplified."
+          }
+        ]
+      },
+      "limitations": [
+        "No new geometry, material, animation, anatomy or browser-runtime approval.",
+        "Visual outcome inherits only the linked source review scope, including unresolved Needs review cases.",
+        "No pixel-identity claim from this check; earlier representative render-repeat variation remains documented."
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "bladder__2026-10-23-metadata-visual-equivalence",
+      "assetId": "bladder",
+      "derivative": {
+        "id": "bladder__metadata-cleanup-r01",
+        "file": "models/bladder/exports/metadata-cleanup-r01/bladder.glb",
+        "sha256": "6ee9d015de96057953452403bcfd2f2d9aac991fd218bfb3cf5f0e4c57c6841a",
+        "bytes": 1523484,
+        "remotePath": "models/bladder/exports/metadata-cleanup-r01/bladder.glb",
+        "remoteRef": "3f4dfc5fedc7156e0b7bd4e7390357c35d0895f5",
+        "pointerVerified": true
+      },
+      "reviewedAt": "2026-10-23T12:35:45.190685+00:00",
+      "reviewMethod": "Exact metadata-only render-data equivalence check; no new pixel inspection",
+      "visual": {
+        "status": "needs-revision",
+        "scope": "Inherited source visual outcome through verified unchanged render data; not a fresh rendered review of this derivative hash. Analytic bulb/uniform tube schematic below requested detailed visual target; needs revision, preserving schematic identity.",
+        "equivalentSourceVariantId": "bladder__v10-837077aeece2",
+        "equivalentSourceSha256": "798329114cfcd241d7f8342fc8faa70ff33fdbded6029bb128d82c3d6f50d8c5"
+      },
+      "baselineSha256": "798329114cfcd241d7f8342fc8faa70ff33fdbded6029bb128d82c3d6f50d8c5",
+      "allNonJSONChunksByteIdentical": true,
+      "allJSONOutsideSceneExtrasDeepEqual": true,
+      "sourceVisualReview": {
+        "id": "bladder__2026-10-23-confirmed-static-review",
+        "sha256": "d158451c75d246bb5ec2427c303306f1812f97517d4e18686b733be780550092",
+        "visual": {
+          "status": "needs-revision",
+          "scope": "Analytic bulb/uniform tube schematic below requested detailed visual target; needs revision, preserving schematic identity."
+        }
+      },
+      "originalVerificationReceipt": {
+        "assetId": "bladder",
+        "sha256": "6ee9d015de96057953452403bcfd2f2d9aac991fd218bfb3cf5f0e4c57c6841a",
+        "bytes": 1523484,
+        "BINUnchanged": true,
+        "JSONOutsideSceneExtrasUnchanged": true,
+        "scope": "Metadata correctness only; no new visual/anatomy/runtime pass.",
+        "actualClipSummary": "Static export with no animation clips.",
+        "sourceSha256": "798329114cfcd241d7f8342fc8faa70ff33fdbded6029bb128d82c3d6f50d8c5",
+        "sourceBytes": 1524184,
+        "allJSONOutsideSceneExtrasDeepEqual": true,
+        "allNonJSONChunksUnchanged": true,
+        "sourceNodeMetadataUnchanged": true,
+        "animationArraysAndClipJSONUnchanged": true,
+        "fieldPlan": [
+          {
+            "path": "/scenes/0/extras/README",
+            "op": "replace",
+            "oldValue": "See embedded README and exported docs. 0/1/2 material_set changes tissue/clinical/transparent. cutaway toggles full/sectioned walls. Spacebar plays 75 BPM illustrative cycle. All structures named, editable; no external assets.",
+            "value": "Educational bladder display. Static export with no animation clips. No exported keyboard, cutaway-toggle or material-switching behavior is established by this metadata. Not clinically validated."
+          },
+          {
+            "path": "/scenes/0/extras/coordinates",
+            "op": "remove",
+            "oldValue": "BU: X patient-left, Y posterior, Z superior. RAS millimeters=(-25X,-25Y,+25Z)."
+          },
+          {
+            "path": "/scenes/0/extras/clinical_status",
+            "op": "retain",
+            "oldValue": "Procedural educational model, not patient-derived or clinically validated.",
+            "value": "Procedural educational model, not patient-derived or clinically validated."
+          },
+          {
+            "path": "/scenes/0/extras/reference_phase",
+            "op": "remove",
+            "oldValue": "Frame 1 end-diastole, beginning of atrial systole. 30fps,24 frames/cycle,75bpm."
+          },
+          {
+            "path": "/scenes/0/extras/material_set_names",
+            "op": "remove",
+            "oldValue": "0: procedural tissue-style; 1: clinical circulation colors; 2: transparent educational shell"
+          },
+          {
+            "path": "/scenes/0/extras/animation_model",
+            "op": "replace",
+            "oldValue": "Illustrative regional shape-key shortening + torsion; valve timing; no biomechanical or flow simulation",
+            "value": "Static export with no animation clips."
+          },
+          {
+            "path": "/scenes/0/extras/pericardial_layers",
+            "op": "remove",
+            "oldValue": "Endocardium/myocardium/epicardium represented by material-bearing wall surfaces; parietal serous pericardium separate simplified envelope. Epicardium is visceral serous layer. Fibrous sac thickness/reflections simplified."
+          }
+        ]
+      },
+      "limitations": [
+        "No new geometry, material, animation, anatomy or browser-runtime approval.",
+        "Visual outcome inherits only the linked source review scope, including unresolved Needs review cases.",
+        "No pixel-identity claim from this check; earlier representative render-repeat variation remains documented."
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "bronchial_tree__2026-10-23-metadata-visual-equivalence",
+      "assetId": "bronchial_tree",
+      "derivative": {
+        "id": "bronchial_tree__metadata-cleanup-r01",
+        "file": "models/bronchial_tree/exports/metadata-cleanup-r01/bronchial_tree.glb",
+        "sha256": "e3bd69d8ded88d09f22d1171c524849ba6ad11b314fdfb948d663ef22c40c640",
+        "bytes": 1639756,
+        "remotePath": "models/bronchial_tree/exports/metadata-cleanup-r01/bronchial_tree.glb",
+        "remoteRef": "3f4dfc5fedc7156e0b7bd4e7390357c35d0895f5",
+        "pointerVerified": true
+      },
+      "reviewedAt": "2026-10-23T12:35:45.190685+00:00",
+      "reviewMethod": "Exact metadata-only render-data equivalence check; no new pixel inspection",
+      "visual": {
+        "status": "needs-revision",
+        "scope": "Inherited source visual outcome through verified unchanged render data; not a fresh rendered review of this derivative hash. Needs revision for visible overlapping routes and abrupt authored branch joins; projected overlaps alone do not prove graph cycles.",
+        "equivalentSourceVariantId": "bronchial_tree__v10-837077aeece2",
+        "equivalentSourceSha256": "2d2d4e269995f11179cfa423a302f144d9d163883ccde0995a2987e83dd2e898"
+      },
+      "baselineSha256": "2d2d4e269995f11179cfa423a302f144d9d163883ccde0995a2987e83dd2e898",
+      "allNonJSONChunksByteIdentical": true,
+      "allJSONOutsideSceneExtrasDeepEqual": true,
+      "sourceVisualReview": {
+        "id": "bronchial_tree__2026-10-23-confirmed-static-review",
+        "sha256": "2f3bccac1e15bbc32392ff678c1021e001d91d5bdb50d2b1e1a2ea43ce103799",
+        "visual": {
+          "status": "needs-revision",
+          "scope": "Needs revision for visible overlapping routes and abrupt authored branch joins; projected overlaps alone do not prove graph cycles."
+        }
+      },
+      "originalVerificationReceipt": {
+        "assetId": "bronchial_tree",
+        "sha256": "e3bd69d8ded88d09f22d1171c524849ba6ad11b314fdfb948d663ef22c40c640",
+        "bytes": 1639756,
+        "BINUnchanged": true,
+        "JSONOutsideSceneExtrasUnchanged": true,
+        "scope": "Metadata correctness only; no new visual/anatomy/runtime pass.",
+        "actualClipSummary": "Static export with no animation clips.",
+        "sourceSha256": "2d2d4e269995f11179cfa423a302f144d9d163883ccde0995a2987e83dd2e898",
+        "sourceBytes": 1640504,
+        "allJSONOutsideSceneExtrasDeepEqual": true,
+        "allNonJSONChunksUnchanged": true,
+        "sourceNodeMetadataUnchanged": true,
+        "animationArraysAndClipJSONUnchanged": true,
+        "fieldPlan": [
+          {
+            "path": "/scenes/0/extras/README",
+            "op": "replace",
+            "oldValue": "See embedded README and exported docs. 0/1/2 material_set changes tissue/clinical/transparent. cutaway toggles full/sectioned walls. Spacebar plays 75 BPM illustrative cycle. All structures named, editable; no external assets.",
+            "value": "Educational bronchial tree display. Static export with no animation clips. No exported keyboard, cutaway-toggle or material-switching behavior is established by this metadata. Not clinically validated."
+          },
+          {
+            "path": "/scenes/0/extras/coordinates",
+            "op": "remove",
+            "oldValue": "BU: X patient-left, Y posterior, Z superior. RAS millimeters=(-25X,-25Y,+25Z)."
+          },
+          {
+            "path": "/scenes/0/extras/clinical_status",
+            "op": "retain",
+            "oldValue": "Procedural educational model, not patient-derived or clinically validated.",
+            "value": "Procedural educational model, not patient-derived or clinically validated."
+          },
+          {
+            "path": "/scenes/0/extras/reference_phase",
+            "op": "remove",
+            "oldValue": "Frame 1 end-diastole, beginning of atrial systole. 30fps,24 frames/cycle,75bpm."
+          },
+          {
+            "path": "/scenes/0/extras/material_set_names",
+            "op": "remove",
+            "oldValue": "0: procedural tissue-style; 1: clinical circulation colors; 2: transparent educational shell"
+          },
+          {
+            "path": "/scenes/0/extras/animation_model",
+            "op": "replace",
+            "oldValue": "Illustrative regional shape-key shortening + torsion; valve timing; no biomechanical or flow simulation",
+            "value": "Static export with no animation clips."
+          },
+          {
+            "path": "/scenes/0/extras/pericardial_layers",
+            "op": "remove",
+            "oldValue": "Endocardium/myocardium/epicardium represented by material-bearing wall surfaces; parietal serous pericardium separate simplified envelope. Epicardium is visceral serous layer. Fibrous sac thickness/reflections simplified."
+          }
+        ]
+      },
+      "limitations": [
+        "No new geometry, material, animation, anatomy or browser-runtime approval.",
+        "Visual outcome inherits only the linked source review scope, including unresolved Needs review cases.",
+        "No pixel-identity claim from this check; earlier representative render-repeat variation remains documented."
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "liver__2026-10-23-metadata-visual-equivalence",
+      "assetId": "liver",
+      "derivative": {
+        "id": "liver__metadata-cleanup-r01",
+        "file": "models/liver/exports/metadata-cleanup-r01/liver.glb",
+        "sha256": "05abdf049c36658fc3e723071858c0167294d880f7120e7250ac6b5bc6439ea6",
+        "bytes": 1862672,
+        "remotePath": "models/liver/exports/metadata-cleanup-r01/liver.glb",
+        "remoteRef": "3f4dfc5fedc7156e0b7bd4e7390357c35d0895f5",
+        "pointerVerified": true
+      },
+      "reviewedAt": "2026-10-23T12:35:45.190685+00:00",
+      "reviewMethod": "Exact metadata-only render-data equivalence check; no new pixel inspection",
+      "visual": {
+        "status": "needs-revision",
+        "scope": "Inherited source visual outcome through verified unchanged render data; not a fresh rendered review of this derivative hash. Persistent coarse terraced bands remain in exact-export and retained-source neutral comparisons; needs revision for detailed surface presentation, not a specimen anatomy diagnosis.",
+        "equivalentSourceVariantId": "liver__v10-837077aeece2",
+        "equivalentSourceSha256": "1bc31b52f4b9d326cca6adb339c01a11d497cb0880ede682c8bb52889f5dc49f"
+      },
+      "baselineSha256": "1bc31b52f4b9d326cca6adb339c01a11d497cb0880ede682c8bb52889f5dc49f",
+      "allNonJSONChunksByteIdentical": true,
+      "allJSONOutsideSceneExtrasDeepEqual": true,
+      "sourceVisualReview": {
+        "id": "liver__2026-10-23-confirmed-static-review",
+        "sha256": "115fc4c56835318333524820260cfd06c088539c47cc6dcbfda62778403bd45e",
+        "visual": {
+          "status": "needs-revision",
+          "scope": "Persistent coarse terraced bands remain in exact-export and retained-source neutral comparisons; needs revision for detailed surface presentation, not a specimen anatomy diagnosis."
+        }
+      },
+      "originalVerificationReceipt": {
+        "assetId": "liver",
+        "sha256": "05abdf049c36658fc3e723071858c0167294d880f7120e7250ac6b5bc6439ea6",
+        "bytes": 1862672,
+        "BINUnchanged": true,
+        "JSONOutsideSceneExtrasUnchanged": true,
+        "scope": "Metadata correctness only; no new visual/anatomy/runtime pass.",
+        "actualClipSummary": "Contains an illustrative 4 s breathing clip with 1 translation-only channel; no physiological or biomechanical validation.",
+        "sourceSha256": "1bc31b52f4b9d326cca6adb339c01a11d497cb0880ede682c8bb52889f5dc49f",
+        "sourceBytes": 1862988,
+        "allJSONOutsideSceneExtrasDeepEqual": true,
+        "allNonJSONChunksUnchanged": true,
+        "sourceNodeMetadataUnchanged": true,
+        "animationArraysAndClipJSONUnchanged": true,
+        "fieldPlan": [
+          {
+            "path": "/scenes/0/extras/README",
+            "op": "replace",
+            "oldValue": "See embedded README and exported docs. 0/1/2 material_set changes tissue/clinical/transparent. cutaway toggles full/sectioned walls. Spacebar plays 75 BPM illustrative cycle. All structures named, editable; no external assets.",
+            "value": "Educational liver display. Contains an illustrative 4 s breathing clip with 1 translation-only channel; no physiological or biomechanical validation. No exported keyboard, cutaway-toggle or material-switching behavior is established by this metadata. Not clinically validated."
+          },
+          {
+            "path": "/scenes/0/extras/coordinates",
+            "op": "remove",
+            "oldValue": "BU: X patient-left, Y posterior, Z superior. RAS millimeters=(-25X,-25Y,+25Z)."
+          },
+          {
+            "path": "/scenes/0/extras/clinical_status",
+            "op": "replace",
+            "oldValue": "Procedural educational model, not patient-derived or clinically validated.",
+            "value": "Source-derived educational surface from TotalSegmentator v2.0.1 retained case s1233, tb3 revision 75ec4e6530abe4d434b07958e90bdc9dec062bef. Repaired/subdivided/smoothed display derivative, not recovered detail or a generic healthy atlas. Not clinically validated."
+          },
+          {
+            "path": "/scenes/0/extras/reference_phase",
+            "op": "remove",
+            "oldValue": "Frame 1 end-diastole, beginning of atrial systole. 30fps,24 frames/cycle,75bpm."
+          },
+          {
+            "path": "/scenes/0/extras/material_set_names",
+            "op": "remove",
+            "oldValue": "0: procedural tissue-style; 1: clinical circulation colors; 2: transparent educational shell"
+          },
+          {
+            "path": "/scenes/0/extras/animation_model",
+            "op": "replace",
+            "oldValue": "Illustrative regional shape-key shortening + torsion; valve timing; no biomechanical or flow simulation",
+            "value": "Contains an illustrative 4 s breathing clip with 1 translation-only channel; no physiological or biomechanical validation."
+          },
+          {
+            "path": "/scenes/0/extras/pericardial_layers",
+            "op": "remove",
+            "oldValue": "Endocardium/myocardium/epicardium represented by material-bearing wall surfaces; parietal serous pericardium separate simplified envelope. Epicardium is visceral serous layer. Fibrous sac thickness/reflections simplified."
+          }
+        ]
+      },
+      "limitations": [
+        "No new geometry, material, animation, anatomy or browser-runtime approval.",
+        "Visual outcome inherits only the linked source review scope, including unresolved Needs review cases.",
+        "No pixel-identity claim from this check; earlier representative render-repeat variation remains documented."
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "brain__2026-10-23-metadata-visual-equivalence",
+      "assetId": "brain",
+      "derivative": {
+        "id": "brain__metadata-cleanup-r01",
+        "file": "models/brain/exports/metadata-cleanup-r01/brain.glb",
+        "sha256": "22c0740411c3ef80ed40ca2637dda47e4271bd877ab200602c154c7a2893494a",
+        "bytes": 3141876,
+        "remotePath": "models/brain/exports/metadata-cleanup-r01/brain.glb",
+        "remoteRef": "3f4dfc5fedc7156e0b7bd4e7390357c35d0895f5",
+        "pointerVerified": true
+      },
+      "reviewedAt": "2026-10-23T12:35:45.190685+00:00",
+      "reviewMethod": "Exact metadata-only render-data equivalence check; no new pixel inspection",
+      "visual": {
+        "status": "failed",
+        "scope": "Inherited source visual outcome through verified unchanged render data; not a fresh rendered review of this derivative hash. Exterior static first screen only",
+        "equivalentSourceVariantId": "brain__v10-837077aeece2",
+        "equivalentSourceSha256": "ce2340e81c21271c0ea3358ae082cc0b5f671f7f873c7311c9e41252e252d985"
+      },
+      "baselineSha256": "ce2340e81c21271c0ea3358ae082cc0b5f671f7f873c7311c9e41252e252d985",
+      "allNonJSONChunksByteIdentical": true,
+      "allJSONOutsideSceneExtrasDeepEqual": true,
+      "sourceVisualReview": {
+        "id": "brain__2026-10-23-v10-exterior-review",
+        "sha256": "ce1109877a592c4544663e5a4a62877823781526cfa37d25f2440c1510fc35cc",
+        "visual": {
+          "status": "failed",
+          "scope": "Exterior static first screen only"
+        }
+      },
+      "originalVerificationReceipt": {
+        "assetId": "brain",
+        "sha256": "22c0740411c3ef80ed40ca2637dda47e4271bd877ab200602c154c7a2893494a",
+        "bytes": 3141876,
+        "BINUnchanged": true,
+        "JSONOutsideSceneExtrasUnchanged": true,
+        "scope": "Metadata correctness only; no new visual/anatomy/runtime pass.",
+        "actualClipSummary": "Static export with no animation clips.",
+        "sourceSha256": "ce2340e81c21271c0ea3358ae082cc0b5f671f7f873c7311c9e41252e252d985",
+        "sourceBytes": 3142600,
+        "allJSONOutsideSceneExtrasDeepEqual": true,
+        "allNonJSONChunksUnchanged": true,
+        "sourceNodeMetadataUnchanged": true,
+        "animationArraysAndClipJSONUnchanged": true,
+        "fieldPlan": [
+          {
+            "path": "/scenes/0/extras/README",
+            "op": "replace",
+            "oldValue": "See embedded README and exported docs. 0/1/2 material_set changes tissue/clinical/transparent. cutaway toggles full/sectioned walls. Spacebar plays 75 BPM illustrative cycle. All structures named, editable; no external assets.",
+            "value": "Educational brain display. Static export with no animation clips. No exported keyboard, cutaway-toggle or material-switching behavior is established by this metadata. Not clinically validated."
+          },
+          {
+            "path": "/scenes/0/extras/coordinates",
+            "op": "remove",
+            "oldValue": "BU: X patient-left, Y posterior, Z superior. RAS millimeters=(-25X,-25Y,+25Z)."
+          },
+          {
+            "path": "/scenes/0/extras/clinical_status",
+            "op": "retain",
+            "oldValue": "Procedural educational model, not patient-derived or clinically validated.",
+            "value": "Procedural educational model, not patient-derived or clinically validated."
+          },
+          {
+            "path": "/scenes/0/extras/reference_phase",
+            "op": "remove",
+            "oldValue": "Frame 1 end-diastole, beginning of atrial systole. 30fps,24 frames/cycle,75bpm."
+          },
+          {
+            "path": "/scenes/0/extras/material_set_names",
+            "op": "remove",
+            "oldValue": "0: procedural tissue-style; 1: clinical circulation colors; 2: transparent educational shell"
+          },
+          {
+            "path": "/scenes/0/extras/animation_model",
+            "op": "replace",
+            "oldValue": "Illustrative regional shape-key shortening + torsion; valve timing; no biomechanical or flow simulation",
+            "value": "Static export with no animation clips."
+          },
+          {
+            "path": "/scenes/0/extras/pericardial_layers",
+            "op": "remove",
+            "oldValue": "Endocardium/myocardium/epicardium represented by material-bearing wall surfaces; parietal serous pericardium separate simplified envelope. Epicardium is visceral serous layer. Fibrous sac thickness/reflections simplified."
+          }
+        ]
+      },
+      "limitations": [
+        "No new geometry, material, animation, anatomy or browser-runtime approval.",
+        "Visual outcome inherits only the linked source review scope, including unresolved Needs review cases.",
+        "No pixel-identity claim from this check; earlier representative render-repeat variation remains documented."
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "pancreas__2026-10-23-metadata-visual-equivalence",
+      "assetId": "pancreas",
+      "derivative": {
+        "id": "pancreas__metadata-cleanup-r01",
+        "file": "models/pancreas/exports/metadata-cleanup-r01/pancreas.glb",
+        "sha256": "e1c2e335e183df5b588fd7ca1af68110a2d710219bbc5548f738065175df8833",
+        "bytes": 1940208,
+        "remotePath": "models/pancreas/exports/metadata-cleanup-r01/pancreas.glb",
+        "remoteRef": "3f4dfc5fedc7156e0b7bd4e7390357c35d0895f5",
+        "pointerVerified": true
+      },
+      "reviewedAt": "2026-10-23T12:35:45.190685+00:00",
+      "reviewMethod": "Exact metadata-only render-data equivalence check; no new pixel inspection",
+      "visual": {
+        "status": "needs-review",
+        "scope": "Inherited source visual outcome through verified unchanged render data; not a fresh rendered review of this derivative hash. Needs review: coarse source-limited lobulation; no confidently established defect or anatomy verdict. Obtain source/context before judging or reshaping.",
+        "equivalentSourceVariantId": "pancreas__v10-837077aeece2",
+        "equivalentSourceSha256": "df8b88d8fe5dac619ac5840ddcb57c2968dab0db76086dee2b7925f0c5f53d80"
+      },
+      "baselineSha256": "df8b88d8fe5dac619ac5840ddcb57c2968dab0db76086dee2b7925f0c5f53d80",
+      "allNonJSONChunksByteIdentical": true,
+      "allJSONOutsideSceneExtrasDeepEqual": true,
+      "sourceVisualReview": {
+        "id": "pancreas__2026-10-23-confirmed-static-review",
+        "sha256": "158f9464d282623f34f4d661adff8c7aa0ff016e9e1f27b0209b35c90b6ec890",
+        "visual": {
+          "status": "needs-review",
+          "scope": "Needs review: coarse source-limited lobulation; no confidently established defect or anatomy verdict. Obtain source/context before judging or reshaping."
+        }
+      },
+      "originalVerificationReceipt": {
+        "assetId": "pancreas",
+        "sha256": "e1c2e335e183df5b588fd7ca1af68110a2d710219bbc5548f738065175df8833",
+        "bytes": 1940208,
+        "BINUnchanged": true,
+        "JSONOutsideSceneExtrasUnchanged": true,
+        "scope": "Metadata correctness only; no new visual/anatomy/runtime pass.",
+        "actualClipSummary": "Contains an illustrative 4 s breathing clip with 2 translation-only channels; no physiological or biomechanical validation.",
+        "sourceSha256": "df8b88d8fe5dac619ac5840ddcb57c2968dab0db76086dee2b7925f0c5f53d80",
+        "sourceBytes": 1940428,
+        "allJSONOutsideSceneExtrasDeepEqual": true,
+        "allNonJSONChunksUnchanged": true,
+        "sourceNodeMetadataUnchanged": true,
+        "animationArraysAndClipJSONUnchanged": true,
+        "fieldPlan": [
+          {
+            "path": "/scenes/0/extras/README",
+            "op": "replace",
+            "oldValue": "See embedded README and exported docs. 0/1/2 material_set changes tissue/clinical/transparent. cutaway toggles full/sectioned walls. Spacebar plays 75 BPM illustrative cycle. All structures named, editable; no external assets.",
+            "value": "Educational pancreas display. Contains an illustrative 4 s breathing clip with 2 translation-only channels; no physiological or biomechanical validation. No exported keyboard, cutaway-toggle or material-switching behavior is established by this metadata. Not clinically validated."
+          },
+          {
+            "path": "/scenes/0/extras/coordinates",
+            "op": "remove",
+            "oldValue": "BU: X patient-left, Y posterior, Z superior. RAS millimeters=(-25X,-25Y,+25Z)."
+          },
+          {
+            "path": "/scenes/0/extras/clinical_status",
+            "op": "replace",
+            "oldValue": "Procedural educational model, not patient-derived or clinically validated.",
+            "value": "Source-derived educational surface from TotalSegmentator v2.0.1 retained case s1233, tb3 revision 75ec4e6530abe4d434b07958e90bdc9dec062bef. Repaired/subdivided/smoothed display derivative, not recovered detail or a generic healthy atlas. Additional teaching sections, routes or structures are authored illustrations, not segmented anatomy. Not clinically validated."
+          },
+          {
+            "path": "/scenes/0/extras/reference_phase",
+            "op": "remove",
+            "oldValue": "Frame 1 end-diastole, beginning of atrial systole. 30fps,24 frames/cycle,75bpm."
+          },
+          {
+            "path": "/scenes/0/extras/material_set_names",
+            "op": "remove",
+            "oldValue": "0: procedural tissue-style; 1: clinical circulation colors; 2: transparent educational shell"
+          },
+          {
+            "path": "/scenes/0/extras/animation_model",
+            "op": "replace",
+            "oldValue": "Illustrative regional shape-key shortening + torsion; valve timing; no biomechanical or flow simulation",
+            "value": "Contains an illustrative 4 s breathing clip with 2 translation-only channels; no physiological or biomechanical validation."
+          },
+          {
+            "path": "/scenes/0/extras/pericardial_layers",
+            "op": "remove",
+            "oldValue": "Endocardium/myocardium/epicardium represented by material-bearing wall surfaces; parietal serous pericardium separate simplified envelope. Epicardium is visceral serous layer. Fibrous sac thickness/reflections simplified."
+          }
+        ]
+      },
+      "limitations": [
+        "No new geometry, material, animation, anatomy or browser-runtime approval.",
+        "Visual outcome inherits only the linked source review scope, including unresolved Needs review cases.",
+        "No pixel-identity claim from this check; earlier representative render-repeat variation remains documented."
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "aorta__2026-10-23-metadata-visual-equivalence",
+      "assetId": "aorta",
+      "derivative": {
+        "id": "aorta__metadata-cleanup-r01",
+        "file": "models/aorta/exports/metadata-cleanup-r01/aorta.glb",
+        "sha256": "f3c68980cbdbfbc1142751062e79d15f96e4d0dc6690e12d42d294c9d4d3b4ef",
+        "bytes": 1189384,
+        "remotePath": "models/aorta/exports/metadata-cleanup-r01/aorta.glb",
+        "remoteRef": "3f4dfc5fedc7156e0b7bd4e7390357c35d0895f5",
+        "pointerVerified": true
+      },
+      "reviewedAt": "2026-10-23T12:35:45.190685+00:00",
+      "reviewMethod": "Exact metadata-only render-data equivalence check; no new pixel inspection",
+      "visual": {
+        "status": "needs-review",
+        "scope": "Inherited source visual outcome through verified unchanged render data; not a fresh rendered review of this derivative hash. Needs review: source-limited/ambiguous morphology and coverage; original source/context required before judging or reshaping. Do not label specimen anatomy wrong.",
+        "equivalentSourceVariantId": "aorta__v10-837077aeece2",
+        "equivalentSourceSha256": "1a20d6322cefb6c6c85c7c8ed95295e8314e568a12420434ccda40beb4f8cc31"
+      },
+      "baselineSha256": "1a20d6322cefb6c6c85c7c8ed95295e8314e568a12420434ccda40beb4f8cc31",
+      "allNonJSONChunksByteIdentical": true,
+      "allJSONOutsideSceneExtrasDeepEqual": true,
+      "sourceVisualReview": {
+        "id": "aorta__2026-10-23-confirmed-static-review",
+        "sha256": "de302ca64580b231d7574cf7244c98dfc32aa0d568d57da67aa7a85b377732ba",
+        "visual": {
+          "status": "needs-review",
+          "scope": "Needs review: source-limited/ambiguous morphology and coverage; original source/context required before judging or reshaping. Do not label specimen anatomy wrong."
+        }
+      },
+      "originalVerificationReceipt": {
+        "assetId": "aorta",
+        "sha256": "f3c68980cbdbfbc1142751062e79d15f96e4d0dc6690e12d42d294c9d4d3b4ef",
+        "bytes": 1189384,
+        "BINUnchanged": true,
+        "JSONOutsideSceneExtrasUnchanged": true,
+        "scope": "Metadata correctness only; no new visual/anatomy/runtime pass.",
+        "actualClipSummary": "Static export with no animation clips.",
+        "sourceSha256": "1a20d6322cefb6c6c85c7c8ed95295e8314e568a12420434ccda40beb4f8cc31",
+        "sourceBytes": 1189864,
+        "allJSONOutsideSceneExtrasDeepEqual": true,
+        "allNonJSONChunksUnchanged": true,
+        "sourceNodeMetadataUnchanged": true,
+        "animationArraysAndClipJSONUnchanged": true,
+        "fieldPlan": [
+          {
+            "path": "/scenes/0/extras/README",
+            "op": "replace",
+            "oldValue": "See embedded README and exported docs. 0/1/2 material_set changes tissue/clinical/transparent. cutaway toggles full/sectioned walls. Spacebar plays 75 BPM illustrative cycle. All structures named, editable; no external assets.",
+            "value": "Educational aorta display. Static export with no animation clips. No exported keyboard, cutaway-toggle or material-switching behavior is established by this metadata. Not clinically validated."
+          },
+          {
+            "path": "/scenes/0/extras/coordinates",
+            "op": "remove",
+            "oldValue": "BU: X patient-left, Y posterior, Z superior. RAS millimeters=(-25X,-25Y,+25Z)."
+          },
+          {
+            "path": "/scenes/0/extras/clinical_status",
+            "op": "replace",
+            "oldValue": "Procedural educational model, not patient-derived or clinically validated.",
+            "value": "Source-derived educational surface from TotalSegmentator v2.0.1 retained case s1233, tb3 revision 75ec4e6530abe4d434b07958e90bdc9dec062bef. Repaired/subdivided/smoothed display derivative, not recovered detail or a generic healthy atlas. Not clinically validated."
+          },
+          {
+            "path": "/scenes/0/extras/reference_phase",
+            "op": "remove",
+            "oldValue": "Frame 1 end-diastole, beginning of atrial systole. 30fps,24 frames/cycle,75bpm."
+          },
+          {
+            "path": "/scenes/0/extras/material_set_names",
+            "op": "remove",
+            "oldValue": "0: procedural tissue-style; 1: clinical circulation colors; 2: transparent educational shell"
+          },
+          {
+            "path": "/scenes/0/extras/animation_model",
+            "op": "replace",
+            "oldValue": "Illustrative regional shape-key shortening + torsion; valve timing; no biomechanical or flow simulation",
+            "value": "Static export with no animation clips."
+          },
+          {
+            "path": "/scenes/0/extras/pericardial_layers",
+            "op": "remove",
+            "oldValue": "Endocardium/myocardium/epicardium represented by material-bearing wall surfaces; parietal serous pericardium separate simplified envelope. Epicardium is visceral serous layer. Fibrous sac thickness/reflections simplified."
+          }
+        ]
+      },
+      "limitations": [
+        "No new geometry, material, animation, anatomy or browser-runtime approval.",
+        "Visual outcome inherits only the linked source review scope, including unresolved Needs review cases.",
+        "No pixel-identity claim from this check; earlier representative render-repeat variation remains documented."
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "trachea__2026-10-23-metadata-visual-equivalence",
+      "assetId": "trachea",
+      "derivative": {
+        "id": "trachea__metadata-cleanup-r01",
+        "file": "models/trachea/exports/metadata-cleanup-r01/trachea.glb",
+        "sha256": "04667b54ff0b71e3841975dc23bae31930898e4917092a42d7d1ad553fd8b3c8",
+        "bytes": 2858536,
+        "remotePath": "models/trachea/exports/metadata-cleanup-r01/trachea.glb",
+        "remoteRef": "3f4dfc5fedc7156e0b7bd4e7390357c35d0895f5",
+        "pointerVerified": true
+      },
+      "reviewedAt": "2026-10-23T12:35:45.190685+00:00",
+      "reviewMethod": "Exact metadata-only render-data equivalence check; no new pixel inspection",
+      "visual": {
+        "status": "needs-revision",
+        "scope": "Inherited source visual outcome through verified unchanged render data; not a fresh rendered review of this derivative hash. Needs revision for conspicuously protruding authored cartilage rings; source-derived host does not authenticate additions.",
+        "equivalentSourceVariantId": "trachea__v10-837077aeece2",
+        "equivalentSourceSha256": "5390537c1e27e9630ec93d4d5437d29081c26f88e87889834091e3fca47ccd45"
+      },
+      "baselineSha256": "5390537c1e27e9630ec93d4d5437d29081c26f88e87889834091e3fca47ccd45",
+      "allNonJSONChunksByteIdentical": true,
+      "allJSONOutsideSceneExtrasDeepEqual": true,
+      "sourceVisualReview": {
+        "id": "trachea__2026-10-23-confirmed-static-review",
+        "sha256": "7309dc6339cdeffa52dc996c9609cc26e4a78e4d7378d1207f0ae26525fa75ac",
+        "visual": {
+          "status": "needs-revision",
+          "scope": "Needs revision for conspicuously protruding authored cartilage rings; source-derived host does not authenticate additions."
+        }
+      },
+      "originalVerificationReceipt": {
+        "assetId": "trachea",
+        "sha256": "04667b54ff0b71e3841975dc23bae31930898e4917092a42d7d1ad553fd8b3c8",
+        "bytes": 2858536,
+        "BINUnchanged": true,
+        "JSONOutsideSceneExtrasUnchanged": true,
+        "scope": "Metadata correctness only; no new visual/anatomy/runtime pass.",
+        "actualClipSummary": "Static export with no animation clips.",
+        "sourceSha256": "5390537c1e27e9630ec93d4d5437d29081c26f88e87889834091e3fca47ccd45",
+        "sourceBytes": 2858964,
+        "allJSONOutsideSceneExtrasDeepEqual": true,
+        "allNonJSONChunksUnchanged": true,
+        "sourceNodeMetadataUnchanged": true,
+        "animationArraysAndClipJSONUnchanged": true,
+        "fieldPlan": [
+          {
+            "path": "/scenes/0/extras/README",
+            "op": "replace",
+            "oldValue": "See embedded README and exported docs. 0/1/2 material_set changes tissue/clinical/transparent. cutaway toggles full/sectioned walls. Spacebar plays 75 BPM illustrative cycle. All structures named, editable; no external assets.",
+            "value": "Educational trachea display. Static export with no animation clips. No exported keyboard, cutaway-toggle or material-switching behavior is established by this metadata. Not clinically validated."
+          },
+          {
+            "path": "/scenes/0/extras/coordinates",
+            "op": "remove",
+            "oldValue": "BU: X patient-left, Y posterior, Z superior. RAS millimeters=(-25X,-25Y,+25Z)."
+          },
+          {
+            "path": "/scenes/0/extras/clinical_status",
+            "op": "replace",
+            "oldValue": "Procedural educational model, not patient-derived or clinically validated.",
+            "value": "Source-derived educational surface from TotalSegmentator v2.0.1 retained case s1233, tb3 revision 75ec4e6530abe4d434b07958e90bdc9dec062bef. Repaired/subdivided/smoothed display derivative, not recovered detail or a generic healthy atlas. Additional teaching sections, routes or structures are authored illustrations, not segmented anatomy. Not clinically validated."
+          },
+          {
+            "path": "/scenes/0/extras/reference_phase",
+            "op": "remove",
+            "oldValue": "Frame 1 end-diastole, beginning of atrial systole. 30fps,24 frames/cycle,75bpm."
+          },
+          {
+            "path": "/scenes/0/extras/material_set_names",
+            "op": "remove",
+            "oldValue": "0: procedural tissue-style; 1: clinical circulation colors; 2: transparent educational shell"
+          },
+          {
+            "path": "/scenes/0/extras/animation_model",
+            "op": "replace",
+            "oldValue": "Illustrative regional shape-key shortening + torsion; valve timing; no biomechanical or flow simulation",
+            "value": "Static export with no animation clips."
+          },
+          {
+            "path": "/scenes/0/extras/pericardial_layers",
+            "op": "remove",
+            "oldValue": "Endocardium/myocardium/epicardium represented by material-bearing wall surfaces; parietal serous pericardium separate simplified envelope. Epicardium is visceral serous layer. Fibrous sac thickness/reflections simplified."
+          }
+        ]
+      },
+      "limitations": [
+        "No new geometry, material, animation, anatomy or browser-runtime approval.",
+        "Visual outcome inherits only the linked source review scope, including unresolved Needs review cases.",
+        "No pixel-identity claim from this check; earlier representative render-repeat variation remains documented."
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "gallbladder__2026-10-23-metadata-visual-equivalence",
+      "assetId": "gallbladder",
+      "derivative": {
+        "id": "gallbladder__metadata-cleanup-r01",
+        "file": "models/gallbladder/exports/metadata-cleanup-r01/gallbladder.glb",
+        "sha256": "faa06e38130b3f63cc0094914eeb9adfb874ba2a2dc78da49e1c255c1f740227",
+        "bytes": 2124988,
+        "remotePath": "models/gallbladder/exports/metadata-cleanup-r01/gallbladder.glb",
+        "remoteRef": "3f4dfc5fedc7156e0b7bd4e7390357c35d0895f5",
+        "pointerVerified": true
+      },
+      "reviewedAt": "2026-10-23T12:35:45.190685+00:00",
+      "reviewMethod": "Exact metadata-only render-data equivalence check; no new pixel inspection",
+      "visual": {
+        "status": "needs-review",
+        "scope": "Inherited source visual outcome through verified unchanged render data; not a fresh rendered review of this derivative hash. Needs review: source-limited/ambiguous morphology and authored duct relationship; original source/context required before judging or reshaping. Do not label specimen anatomy wrong.",
+        "equivalentSourceVariantId": "gallbladder__v10-837077aeece2",
+        "equivalentSourceSha256": "5c403eeb19149ae9989dd3f26b63f002359c1184a9d22bffd868ac0be45cff4f"
+      },
+      "baselineSha256": "5c403eeb19149ae9989dd3f26b63f002359c1184a9d22bffd868ac0be45cff4f",
+      "allNonJSONChunksByteIdentical": true,
+      "allJSONOutsideSceneExtrasDeepEqual": true,
+      "sourceVisualReview": {
+        "id": "gallbladder__2026-10-23-confirmed-static-review",
+        "sha256": "5567bcc01718e0b9bd8f7dc1e34cdf66a49e763ad0e9fd8b2f507275efaf6429",
+        "visual": {
+          "status": "needs-review",
+          "scope": "Needs review: source-limited/ambiguous morphology and authored duct relationship; original source/context required before judging or reshaping. Do not label specimen anatomy wrong."
+        }
+      },
+      "originalVerificationReceipt": {
+        "assetId": "gallbladder",
+        "sha256": "faa06e38130b3f63cc0094914eeb9adfb874ba2a2dc78da49e1c255c1f740227",
+        "bytes": 2124988,
+        "BINUnchanged": true,
+        "JSONOutsideSceneExtrasUnchanged": true,
+        "scope": "Metadata correctness only; no new visual/anatomy/runtime pass.",
+        "actualClipSummary": "Contains an illustrative 4 s breathing clip with 3 translation-only channels; no physiological or biomechanical validation.",
+        "sourceSha256": "5c403eeb19149ae9989dd3f26b63f002359c1184a9d22bffd868ac0be45cff4f",
+        "sourceBytes": 2125208,
+        "allJSONOutsideSceneExtrasDeepEqual": true,
+        "allNonJSONChunksUnchanged": true,
+        "sourceNodeMetadataUnchanged": true,
+        "animationArraysAndClipJSONUnchanged": true,
+        "fieldPlan": [
+          {
+            "path": "/scenes/0/extras/README",
+            "op": "replace",
+            "oldValue": "See embedded README and exported docs. 0/1/2 material_set changes tissue/clinical/transparent. cutaway toggles full/sectioned walls. Spacebar plays 75 BPM illustrative cycle. All structures named, editable; no external assets.",
+            "value": "Educational gallbladder display. Contains an illustrative 4 s breathing clip with 3 translation-only channels; no physiological or biomechanical validation. No exported keyboard, cutaway-toggle or material-switching behavior is established by this metadata. Not clinically validated."
+          },
+          {
+            "path": "/scenes/0/extras/coordinates",
+            "op": "remove",
+            "oldValue": "BU: X patient-left, Y posterior, Z superior. RAS millimeters=(-25X,-25Y,+25Z)."
+          },
+          {
+            "path": "/scenes/0/extras/clinical_status",
+            "op": "replace",
+            "oldValue": "Procedural educational model, not patient-derived or clinically validated.",
+            "value": "Source-derived educational surface from TotalSegmentator v2.0.1 retained case s1233, tb3 revision 75ec4e6530abe4d434b07958e90bdc9dec062bef. Repaired/subdivided/smoothed display derivative, not recovered detail or a generic healthy atlas. Additional teaching sections, routes or structures are authored illustrations, not segmented anatomy. Not clinically validated."
+          },
+          {
+            "path": "/scenes/0/extras/reference_phase",
+            "op": "remove",
+            "oldValue": "Frame 1 end-diastole, beginning of atrial systole. 30fps,24 frames/cycle,75bpm."
+          },
+          {
+            "path": "/scenes/0/extras/material_set_names",
+            "op": "remove",
+            "oldValue": "0: procedural tissue-style; 1: clinical circulation colors; 2: transparent educational shell"
+          },
+          {
+            "path": "/scenes/0/extras/animation_model",
+            "op": "replace",
+            "oldValue": "Illustrative regional shape-key shortening + torsion; valve timing; no biomechanical or flow simulation",
+            "value": "Contains an illustrative 4 s breathing clip with 3 translation-only channels; no physiological or biomechanical validation."
+          },
+          {
+            "path": "/scenes/0/extras/pericardial_layers",
+            "op": "remove",
+            "oldValue": "Endocardium/myocardium/epicardium represented by material-bearing wall surfaces; parietal serous pericardium separate simplified envelope. Epicardium is visceral serous layer. Fibrous sac thickness/reflections simplified."
+          }
+        ]
+      },
+      "limitations": [
+        "No new geometry, material, animation, anatomy or browser-runtime approval.",
+        "Visual outcome inherits only the linked source review scope, including unresolved Needs review cases.",
+        "No pixel-identity claim from this check; earlier representative render-repeat variation remains documented."
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "pulmonary_vein__2026-10-23-metadata-visual-equivalence",
+      "assetId": "pulmonary_vein",
+      "derivative": {
+        "id": "pulmonary_vein__metadata-cleanup-r01",
+        "file": "models/pulmonary_vein/exports/metadata-cleanup-r01/pulmonary_vein.glb",
+        "sha256": "9e0454c0a920bcd9292d1aced370ff781b97aa8fb87b0439eb1f0ac21517a593",
+        "bytes": 1718704,
+        "remotePath": "models/pulmonary_vein/exports/metadata-cleanup-r01/pulmonary_vein.glb",
+        "remoteRef": "3f4dfc5fedc7156e0b7bd4e7390357c35d0895f5",
+        "pointerVerified": true
+      },
+      "reviewedAt": "2026-10-23T12:35:45.190685+00:00",
+      "reviewMethod": "Exact metadata-only render-data equivalence check; no new pixel inspection",
+      "visual": {
+        "status": "needs-review",
+        "scope": "Inherited source visual outcome through verified unchanged render data; not a fresh rendered review of this derivative hash. Needs review: source-limited/ambiguous morphology and coverage; original source/context required before judging or reshaping. Do not label specimen anatomy wrong.",
+        "equivalentSourceVariantId": "pulmonary_vein__v10-837077aeece2",
+        "equivalentSourceSha256": "9dcafbb0fcc625ad7952443e0b6274d200e4a97c9792ccecaa3645bd80214355"
+      },
+      "baselineSha256": "9dcafbb0fcc625ad7952443e0b6274d200e4a97c9792ccecaa3645bd80214355",
+      "allNonJSONChunksByteIdentical": true,
+      "allJSONOutsideSceneExtrasDeepEqual": true,
+      "sourceVisualReview": {
+        "id": "pulmonary_vein__2026-10-23-confirmed-static-review",
+        "sha256": "d51a553b1589ce6d87c2882bfd488e391af50849073f0615aa3449c5a8bebfd8",
+        "visual": {
+          "status": "needs-review",
+          "scope": "Needs review: source-limited/ambiguous morphology and coverage; original source/context required before judging or reshaping. Do not label specimen anatomy wrong."
+        }
+      },
+      "originalVerificationReceipt": {
+        "assetId": "pulmonary_vein",
+        "sha256": "9e0454c0a920bcd9292d1aced370ff781b97aa8fb87b0439eb1f0ac21517a593",
+        "bytes": 1718704,
+        "BINUnchanged": true,
+        "JSONOutsideSceneExtrasUnchanged": true,
+        "scope": "Metadata correctness only; no new visual/anatomy/runtime pass.",
+        "actualClipSummary": "Static export with no animation clips.",
+        "sourceSha256": "9dcafbb0fcc625ad7952443e0b6274d200e4a97c9792ccecaa3645bd80214355",
+        "sourceBytes": 1719172,
+        "allJSONOutsideSceneExtrasDeepEqual": true,
+        "allNonJSONChunksUnchanged": true,
+        "sourceNodeMetadataUnchanged": true,
+        "animationArraysAndClipJSONUnchanged": true,
+        "fieldPlan": [
+          {
+            "path": "/scenes/0/extras/README",
+            "op": "replace",
+            "oldValue": "See embedded README and exported docs. 0/1/2 material_set changes tissue/clinical/transparent. cutaway toggles full/sectioned walls. Spacebar plays 75 BPM illustrative cycle. All structures named, editable; no external assets.",
+            "value": "Educational pulmonary vein display. Static export with no animation clips. No exported keyboard, cutaway-toggle or material-switching behavior is established by this metadata. Not clinically validated."
+          },
+          {
+            "path": "/scenes/0/extras/coordinates",
+            "op": "remove",
+            "oldValue": "BU: X patient-left, Y posterior, Z superior. RAS millimeters=(-25X,-25Y,+25Z)."
+          },
+          {
+            "path": "/scenes/0/extras/clinical_status",
+            "op": "replace",
+            "oldValue": "Procedural educational model, not patient-derived or clinically validated.",
+            "value": "Source-derived educational surface from TotalSegmentator v2.0.1 retained case s1233, tb3 revision 75ec4e6530abe4d434b07958e90bdc9dec062bef. Repaired/subdivided/smoothed display derivative, not recovered detail or a generic healthy atlas. Not clinically validated."
+          },
+          {
+            "path": "/scenes/0/extras/reference_phase",
+            "op": "remove",
+            "oldValue": "Frame 1 end-diastole, beginning of atrial systole. 30fps,24 frames/cycle,75bpm."
+          },
+          {
+            "path": "/scenes/0/extras/material_set_names",
+            "op": "remove",
+            "oldValue": "0: procedural tissue-style; 1: clinical circulation colors; 2: transparent educational shell"
+          },
+          {
+            "path": "/scenes/0/extras/animation_model",
+            "op": "replace",
+            "oldValue": "Illustrative regional shape-key shortening + torsion; valve timing; no biomechanical or flow simulation",
+            "value": "Static export with no animation clips."
+          },
+          {
+            "path": "/scenes/0/extras/pericardial_layers",
+            "op": "remove",
+            "oldValue": "Endocardium/myocardium/epicardium represented by material-bearing wall surfaces; parietal serous pericardium separate simplified envelope. Epicardium is visceral serous layer. Fibrous sac thickness/reflections simplified."
+          }
+        ]
+      },
+      "limitations": [
+        "No new geometry, material, animation, anatomy or browser-runtime approval.",
+        "Visual outcome inherits only the linked source review scope, including unresolved Needs review cases.",
+        "No pixel-identity claim from this check; earlier representative render-repeat variation remains documented."
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "vertebrae_L3__2026-10-23-metadata-visual-equivalence",
+      "assetId": "vertebrae_L3",
+      "derivative": {
+        "id": "vertebrae_L3__metadata-cleanup-r01",
+        "file": "models/vertebrae_L3/exports/metadata-cleanup-r01/vertebrae_L3_metadata_cleanup_r01.glb",
+        "sha256": "ba74f52842207d396bd0e959d40fedc0adf69e787072117e037b0ba9d18eebfe",
+        "bytes": 2034520,
+        "remotePath": "models/vertebrae_L3/exports/metadata-cleanup-r01/vertebrae_L3.glb",
+        "remoteRef": "3f4dfc5fedc7156e0b7bd4e7390357c35d0895f5",
+        "pointerVerified": true
+      },
+      "reviewedAt": "2026-10-23T12:35:45.190685+00:00",
+      "reviewMethod": "Exact metadata-only render-data equivalence check; no new pixel inspection",
+      "visual": {
+        "status": "passed",
+        "scope": "Inherited source visual outcome through verified unchanged render data; not a fresh rendered review of this derivative hash. Static source-limited gross exterior only; body/arch/processes/canal readable.",
+        "equivalentSourceVariantId": "vertebrae_L3__v10-837077aeece2",
+        "equivalentSourceSha256": "823ab88a4cc7d3f9b7ee58a2039521d8fdc41367bb0913fe034133334d99fec4"
+      },
+      "baselineSha256": "823ab88a4cc7d3f9b7ee58a2039521d8fdc41367bb0913fe034133334d99fec4",
+      "allNonJSONChunksByteIdentical": true,
+      "allJSONOutsideSceneExtrasDeepEqual": true,
+      "sourceVisualReview": {
+        "id": "vertebrae_L3__2026-10-23-focused-readonly-review",
+        "sha256": "8c6b0404e60daa0f12294d25427c0d98fb2d6f6587b21d32739e14f34f5e1003",
+        "visual": {
+          "status": "passed",
+          "scope": "Static source-limited gross exterior only; body/arch/processes/canal readable.",
+          "reason": "Superior view resolves a vertebral foramen and arch; body and posterior/lateral processes remain recognizable in all views. Surface is broadly smoothed and lacks validated fine facet or microstructural detail."
+        }
+      },
+      "originalVerificationReceipt": {
+        "status": "passed-scope",
+        "scope": "Metadata-only derivative replay, exact binary/content preservation, two matched static pixel comparisons. Not anatomy/runtime validation.",
+        "sourceSha256": "823ab88a4cc7d3f9b7ee58a2039521d8fdc41367bb0913fe034133334d99fec4",
+        "derivativeSha256": "ba74f52842207d396bd0e959d40fedc0adf69e787072117e037b0ba9d18eebfe",
+        "sourceUnchanged": true,
+        "allNonJSONChunksByteIdentical": true,
+        "allJSONOutsideSceneExtrasDeepEqual": true,
+        "exactApprovedPatchApplied": true,
+        "nodeSourceProvenanceUnchanged": true,
+        "views": [
+          {
+            "view": "front",
+            "shape": [
+              512,
+              512,
+              4
+            ],
+            "samePNGBytes": false,
+            "samePixels": true,
+            "maxChannelDifference": 0,
+            "differentPixels": 0,
+            "baselinePngSha256": "1cd4e08247fe42d848743bc1d554155b6fcfdacb238eb359ca972d5edcff4f37",
+            "derivativePngSha256": "841197d9153eca1f28808130f46700332f6c303ce01b437fb592af9317670508",
+            "rgbaPixelSha256": "4084ef6f825ba95102c73e28c9d35b9ceb077a593f8c88b6f22f7f55492dba10"
+          },
+          {
+            "view": "superior",
+            "shape": [
+              512,
+              512,
+              4
+            ],
+            "samePNGBytes": false,
+            "samePixels": true,
+            "maxChannelDifference": 0,
+            "differentPixels": 0,
+            "baselinePngSha256": "50f3fd91d2fe067aea0390a8855c2db3ae777b979c2f32e913d1d3c21256a1dd",
+            "derivativePngSha256": "0dc68358a09a2c3e4a8db466f2aa2c5d98e0c6b03cf72f818146dabaa98bc7ab",
+            "rgbaPixelSha256": "214c288310116a65ff167557a78358ce8554b671374128babc863b0cae55f19b"
+          }
+        ],
+        "licenses": [
+          {
+            "file": "reviews/vertebrae_L3/2026-10-23-metadata-cleanup-r01/provenance/SOURCE-NOTICE.md",
+            "source": "sources/imports/2026-10-22-original/body/anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy/NOTICE.md",
+            "sha256": "87372df39878e0c73903675edc21875fa712a90b22f497ffb55d50a29f210a94",
+            "byteIdenticalToRetainedSource": true
+          },
+          {
+            "file": "reviews/vertebrae_L3/2026-10-23-metadata-cleanup-r01/provenance/CC-BY-4.0.txt",
+            "source": "sources/imports/2026-10-22-original/body/anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy/CC-BY-4.0.txt",
+            "sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94",
+            "byteIdenticalToRetainedSource": true
+          },
+          {
+            "file": "reviews/vertebrae_L3/2026-10-23-metadata-cleanup-r01/provenance/TotalSegmentator-v2.0.1-LICENSE.txt",
+            "source": "sources/imports/2026-10-22-original/body/anatomy-workshop-r1/docs/licenses/TotalSegmentator-v2.0.1-LICENSE.txt",
+            "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+            "byteIdenticalToRetainedSource": true
+          }
+        ],
+        "acceptedCandidateIncrement": 0,
+        "fullAnatomyStatus": "unreviewed",
+        "browserRuntimeStatus": "unverified",
+        "knownWarningsRetained": [
+          "Retained low-resolution segmented case s1233 display, not a normal-population atlas.",
+          "Repair/subdivision/smoothing does not recover source anatomical detail.",
+          "Source-derived exterior only; fine facets and full anatomy remain unreviewed.",
+          "No clinical measurement, whole-spine coverage, cutaway, animation or browser/runtime claim."
+        ]
+      },
+      "limitations": [
+        "No new geometry, material, animation, anatomy or browser-runtime approval.",
+        "Visual outcome inherits only the linked source review scope, including unresolved Needs review cases.",
+        "No pixel-identity claim from this check; earlier representative render-repeat variation remains documented."
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "lung_right__2026-10-23-metadata-visual-equivalence",
+      "assetId": "lung_right",
+      "derivative": {
+        "id": "lung_right__metadata-cleanup-r01",
+        "file": "models/lung_right/exports/metadata-cleanup-r01/lung_right.glb",
+        "sha256": "3f8476ddd9d04448f4c1f63e85408860d7957f099e87170e8099efe635c16a78",
+        "bytes": 2653664,
+        "remotePath": "models/lung_right/exports/metadata-cleanup-r01/lung_right.glb",
+        "remoteRef": "3f4dfc5fedc7156e0b7bd4e7390357c35d0895f5",
+        "pointerVerified": true
+      },
+      "reviewedAt": "2026-10-23T12:35:45.190685+00:00",
+      "reviewMethod": "Exact metadata-only render-data equivalence check; no new pixel inspection",
+      "visual": {
+        "status": "needs-review",
+        "scope": "Inherited source visual outcome through verified unchanged render data; not a fresh rendered review of this derivative hash. Exterior static first screen only",
+        "equivalentSourceVariantId": "lung_right__v10-837077aeece2",
+        "equivalentSourceSha256": "450f49c0733697d3d05f16c4a1f24a28b1ae5f9b09b77f3bf470a00a4386e9b4"
+      },
+      "baselineSha256": "450f49c0733697d3d05f16c4a1f24a28b1ae5f9b09b77f3bf470a00a4386e9b4",
+      "allNonJSONChunksByteIdentical": true,
+      "allJSONOutsideSceneExtrasDeepEqual": true,
+      "sourceVisualReview": {
+        "id": "lung_right__2026-10-23-v10-exterior-review",
+        "sha256": "40bd0d3cb9400299d339a5fa42527d45c2b8015e4c7344a69a607bb56ed80789",
+        "visual": {
+          "status": "needs-review",
+          "scope": "Exterior static first screen only"
+        }
+      },
+      "originalVerificationReceipt": {
+        "assetId": "lung_right",
+        "sha256": "3f8476ddd9d04448f4c1f63e85408860d7957f099e87170e8099efe635c16a78",
+        "bytes": 2653664,
+        "BINUnchanged": true,
+        "JSONOutsideSceneExtrasUnchanged": true,
+        "scope": "Metadata correctness only; no new visual/anatomy/runtime pass.",
+        "actualClipSummary": "Contains an illustrative 4 s breathing clip with 3 morph-weight channels; no physiological or biomechanical validation.",
+        "sourceSha256": "450f49c0733697d3d05f16c4a1f24a28b1ae5f9b09b77f3bf470a00a4386e9b4",
+        "sourceBytes": 2653988,
+        "allJSONOutsideSceneExtrasDeepEqual": true,
+        "allNonJSONChunksUnchanged": true,
+        "sourceNodeMetadataUnchanged": true,
+        "animationArraysAndClipJSONUnchanged": true,
+        "fieldPlan": [
+          {
+            "path": "/scenes/0/extras/README",
+            "op": "replace",
+            "oldValue": "See embedded README and exported docs. 0/1/2 material_set changes tissue/clinical/transparent. cutaway toggles full/sectioned walls. Spacebar plays 75 BPM illustrative cycle. All structures named, editable; no external assets.",
+            "value": "Educational lung right display. Contains an illustrative 4 s breathing clip with 3 morph-weight channels; no physiological or biomechanical validation. No exported keyboard, cutaway-toggle or material-switching behavior is established by this metadata. Not clinically validated."
+          },
+          {
+            "path": "/scenes/0/extras/coordinates",
+            "op": "remove",
+            "oldValue": "BU: X patient-left, Y posterior, Z superior. RAS millimeters=(-25X,-25Y,+25Z)."
+          },
+          {
+            "path": "/scenes/0/extras/clinical_status",
+            "op": "replace",
+            "oldValue": "Procedural educational model, not patient-derived or clinically validated.",
+            "value": "Source-derived educational surface from TotalSegmentator v2.0.1 retained case s1233, tb3 revision 75ec4e6530abe4d434b07958e90bdc9dec062bef. Repaired/subdivided/smoothed display derivative, not recovered detail or a generic healthy atlas. Not clinically validated."
+          },
+          {
+            "path": "/scenes/0/extras/reference_phase",
+            "op": "remove",
+            "oldValue": "Frame 1 end-diastole, beginning of atrial systole. 30fps,24 frames/cycle,75bpm."
+          },
+          {
+            "path": "/scenes/0/extras/material_set_names",
+            "op": "remove",
+            "oldValue": "0: procedural tissue-style; 1: clinical circulation colors; 2: transparent educational shell"
+          },
+          {
+            "path": "/scenes/0/extras/animation_model",
+            "op": "replace",
+            "oldValue": "Illustrative regional shape-key shortening + torsion; valve timing; no biomechanical or flow simulation",
+            "value": "Contains an illustrative 4 s breathing clip with 3 morph-weight channels; no physiological or biomechanical validation."
+          },
+          {
+            "path": "/scenes/0/extras/pericardial_layers",
+            "op": "remove",
+            "oldValue": "Endocardium/myocardium/epicardium represented by material-bearing wall surfaces; parietal serous pericardium separate simplified envelope. Epicardium is visceral serous layer. Fibrous sac thickness/reflections simplified."
+          }
+        ]
+      },
+      "limitations": [
+        "No new geometry, material, animation, anatomy or browser-runtime approval.",
+        "Visual outcome inherits only the linked source review scope, including unresolved Needs review cases.",
+        "No pixel-identity claim from this check; earlier representative render-repeat variation remains documented."
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "spleen__2026-10-23-metadata-visual-equivalence",
+      "assetId": "spleen",
+      "derivative": {
+        "id": "spleen__metadata-cleanup-r01",
+        "file": "models/spleen/exports/metadata-cleanup-r01/spleen.glb",
+        "sha256": "1bfc1c7b38c18a6eb7fbd4a05e9a7ec0444cc411ef60a45b2d0fa49317cbfefd",
+        "bytes": 1856468,
+        "remotePath": "models/spleen/exports/metadata-cleanup-r01/spleen.glb",
+        "remoteRef": "3f4dfc5fedc7156e0b7bd4e7390357c35d0895f5",
+        "pointerVerified": true
+      },
+      "reviewedAt": "2026-10-23T12:35:45.190685+00:00",
+      "reviewMethod": "Exact metadata-only render-data equivalence check; no new pixel inspection",
+      "visual": {
+        "status": "needs-revision",
+        "scope": "Inherited source visual outcome through verified unchanged render data; not a fresh rendered review of this derivative hash. Persistent coarse terraced bands remain in exact-export and retained-source neutral comparisons; needs revision for detailed surface presentation, not a specimen anatomy diagnosis.",
+        "equivalentSourceVariantId": "spleen__v10-837077aeece2",
+        "equivalentSourceSha256": "a645df334901e46f24ad44b756d30234ce18bfa74e821d9a1b7ae432a045181b"
+      },
+      "baselineSha256": "a645df334901e46f24ad44b756d30234ce18bfa74e821d9a1b7ae432a045181b",
+      "allNonJSONChunksByteIdentical": true,
+      "allJSONOutsideSceneExtrasDeepEqual": true,
+      "sourceVisualReview": {
+        "id": "spleen__2026-10-23-confirmed-static-review",
+        "sha256": "8dd088f27b1b34cb0f67213a4c7be75e641cc71063b640ef53bf023b95fae9d0",
+        "visual": {
+          "status": "needs-revision",
+          "scope": "Persistent coarse terraced bands remain in exact-export and retained-source neutral comparisons; needs revision for detailed surface presentation, not a specimen anatomy diagnosis."
+        }
+      },
+      "originalVerificationReceipt": {
+        "assetId": "spleen",
+        "sha256": "1bfc1c7b38c18a6eb7fbd4a05e9a7ec0444cc411ef60a45b2d0fa49317cbfefd",
+        "bytes": 1856468,
+        "BINUnchanged": true,
+        "JSONOutsideSceneExtrasUnchanged": true,
+        "scope": "Metadata correctness only; no new visual/anatomy/runtime pass.",
+        "actualClipSummary": "Contains an illustrative 4 s breathing clip with 1 translation-only channel; no physiological or biomechanical validation.",
+        "sourceSha256": "a645df334901e46f24ad44b756d30234ce18bfa74e821d9a1b7ae432a045181b",
+        "sourceBytes": 1856780,
+        "allJSONOutsideSceneExtrasDeepEqual": true,
+        "allNonJSONChunksUnchanged": true,
+        "sourceNodeMetadataUnchanged": true,
+        "animationArraysAndClipJSONUnchanged": true,
+        "fieldPlan": [
+          {
+            "path": "/scenes/0/extras/README",
+            "op": "replace",
+            "oldValue": "See embedded README and exported docs. 0/1/2 material_set changes tissue/clinical/transparent. cutaway toggles full/sectioned walls. Spacebar plays 75 BPM illustrative cycle. All structures named, editable; no external assets.",
+            "value": "Educational spleen display. Contains an illustrative 4 s breathing clip with 1 translation-only channel; no physiological or biomechanical validation. No exported keyboard, cutaway-toggle or material-switching behavior is established by this metadata. Not clinically validated."
+          },
+          {
+            "path": "/scenes/0/extras/coordinates",
+            "op": "remove",
+            "oldValue": "BU: X patient-left, Y posterior, Z superior. RAS millimeters=(-25X,-25Y,+25Z)."
+          },
+          {
+            "path": "/scenes/0/extras/clinical_status",
+            "op": "replace",
+            "oldValue": "Procedural educational model, not patient-derived or clinically validated.",
+            "value": "Source-derived educational surface from TotalSegmentator v2.0.1 retained case s1233, tb3 revision 75ec4e6530abe4d434b07958e90bdc9dec062bef. Repaired/subdivided/smoothed display derivative, not recovered detail or a generic healthy atlas. Not clinically validated."
+          },
+          {
+            "path": "/scenes/0/extras/reference_phase",
+            "op": "remove",
+            "oldValue": "Frame 1 end-diastole, beginning of atrial systole. 30fps,24 frames/cycle,75bpm."
+          },
+          {
+            "path": "/scenes/0/extras/material_set_names",
+            "op": "remove",
+            "oldValue": "0: procedural tissue-style; 1: clinical circulation colors; 2: transparent educational shell"
+          },
+          {
+            "path": "/scenes/0/extras/animation_model",
+            "op": "replace",
+            "oldValue": "Illustrative regional shape-key shortening + torsion; valve timing; no biomechanical or flow simulation",
+            "value": "Contains an illustrative 4 s breathing clip with 1 translation-only channel; no physiological or biomechanical validation."
+          },
+          {
+            "path": "/scenes/0/extras/pericardial_layers",
+            "op": "remove",
+            "oldValue": "Endocardium/myocardium/epicardium represented by material-bearing wall surfaces; parietal serous pericardium separate simplified envelope. Epicardium is visceral serous layer. Fibrous sac thickness/reflections simplified."
+          }
+        ]
+      },
+      "limitations": [
+        "No new geometry, material, animation, anatomy or browser-runtime approval.",
+        "Visual outcome inherits only the linked source review scope, including unresolved Needs review cases.",
+        "No pixel-identity claim from this check; earlier representative render-repeat variation remains documented."
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "lung_left__2026-10-23-metadata-visual-equivalence",
+      "assetId": "lung_left",
+      "derivative": {
+        "id": "lung_left__metadata-cleanup-r01",
+        "file": "models/lung_left/exports/metadata-cleanup-r01/lung_left.glb",
+        "sha256": "6d3a6150dc47dba0d16162738caabc1bef3fcd8cf5ab4af492dd1121c1cb8533",
+        "bytes": 2524996,
+        "remotePath": "models/lung_left/exports/metadata-cleanup-r01/lung_left.glb",
+        "remoteRef": "3f4dfc5fedc7156e0b7bd4e7390357c35d0895f5",
+        "pointerVerified": true
+      },
+      "reviewedAt": "2026-10-23T12:35:45.190685+00:00",
+      "reviewMethod": "Exact metadata-only render-data equivalence check; no new pixel inspection",
+      "visual": {
+        "status": "needs-review",
+        "scope": "Inherited source visual outcome through verified unchanged render data; not a fresh rendered review of this derivative hash. Exterior static first screen only",
+        "equivalentSourceVariantId": "lung_left__v10-837077aeece2",
+        "equivalentSourceSha256": "e3439ed20ea7e5f022b71accd9d474e5bd0a8625498d1398ada402d0c035cee0"
+      },
+      "baselineSha256": "e3439ed20ea7e5f022b71accd9d474e5bd0a8625498d1398ada402d0c035cee0",
+      "allNonJSONChunksByteIdentical": true,
+      "allJSONOutsideSceneExtrasDeepEqual": true,
+      "sourceVisualReview": {
+        "id": "lung_left__2026-10-23-v10-exterior-review",
+        "sha256": "26a2245aa9724163eddd113b438caeb1093c7f4539cb589b76b79655a1b5ac5d",
+        "visual": {
+          "status": "needs-review",
+          "scope": "Exterior static first screen only"
+        }
+      },
+      "originalVerificationReceipt": {
+        "assetId": "lung_left",
+        "sha256": "6d3a6150dc47dba0d16162738caabc1bef3fcd8cf5ab4af492dd1121c1cb8533",
+        "bytes": 2524996,
+        "BINUnchanged": true,
+        "JSONOutsideSceneExtrasUnchanged": true,
+        "scope": "Metadata correctness only; no new visual/anatomy/runtime pass.",
+        "actualClipSummary": "Contains an illustrative 4 s breathing clip with 2 morph-weight channels; no physiological or biomechanical validation.",
+        "sourceSha256": "e3439ed20ea7e5f022b71accd9d474e5bd0a8625498d1398ada402d0c035cee0",
+        "sourceBytes": 2525316,
+        "allJSONOutsideSceneExtrasDeepEqual": true,
+        "allNonJSONChunksUnchanged": true,
+        "sourceNodeMetadataUnchanged": true,
+        "animationArraysAndClipJSONUnchanged": true,
+        "fieldPlan": [
+          {
+            "path": "/scenes/0/extras/README",
+            "op": "replace",
+            "oldValue": "See embedded README and exported docs. 0/1/2 material_set changes tissue/clinical/transparent. cutaway toggles full/sectioned walls. Spacebar plays 75 BPM illustrative cycle. All structures named, editable; no external assets.",
+            "value": "Educational lung left display. Contains an illustrative 4 s breathing clip with 2 morph-weight channels; no physiological or biomechanical validation. No exported keyboard, cutaway-toggle or material-switching behavior is established by this metadata. Not clinically validated."
+          },
+          {
+            "path": "/scenes/0/extras/coordinates",
+            "op": "remove",
+            "oldValue": "BU: X patient-left, Y posterior, Z superior. RAS millimeters=(-25X,-25Y,+25Z)."
+          },
+          {
+            "path": "/scenes/0/extras/clinical_status",
+            "op": "replace",
+            "oldValue": "Procedural educational model, not patient-derived or clinically validated.",
+            "value": "Source-derived educational surface from TotalSegmentator v2.0.1 retained case s1233, tb3 revision 75ec4e6530abe4d434b07958e90bdc9dec062bef. Repaired/subdivided/smoothed display derivative, not recovered detail or a generic healthy atlas. Not clinically validated."
+          },
+          {
+            "path": "/scenes/0/extras/reference_phase",
+            "op": "remove",
+            "oldValue": "Frame 1 end-diastole, beginning of atrial systole. 30fps,24 frames/cycle,75bpm."
+          },
+          {
+            "path": "/scenes/0/extras/material_set_names",
+            "op": "remove",
+            "oldValue": "0: procedural tissue-style; 1: clinical circulation colors; 2: transparent educational shell"
+          },
+          {
+            "path": "/scenes/0/extras/animation_model",
+            "op": "replace",
+            "oldValue": "Illustrative regional shape-key shortening + torsion; valve timing; no biomechanical or flow simulation",
+            "value": "Contains an illustrative 4 s breathing clip with 2 morph-weight channels; no physiological or biomechanical validation."
+          },
+          {
+            "path": "/scenes/0/extras/pericardial_layers",
+            "op": "remove",
+            "oldValue": "Endocardium/myocardium/epicardium represented by material-bearing wall surfaces; parietal serous pericardium separate simplified envelope. Epicardium is visceral serous layer. Fibrous sac thickness/reflections simplified."
+          }
+        ]
+      },
+      "limitations": [
+        "No new geometry, material, animation, anatomy or browser-runtime approval.",
+        "Visual outcome inherits only the linked source review scope, including unresolved Needs review cases.",
+        "No pixel-identity claim from this check; earlier representative render-repeat variation remains documented."
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "kidney_right__2026-10-23-metadata-visual-equivalence",
+      "assetId": "kidney_right",
+      "derivative": {
+        "id": "kidney_right__metadata-cleanup-r01",
+        "file": "models/kidney_right/exports/metadata-cleanup-r01/kidney_right.glb",
+        "sha256": "0a5df031b7d9afcd43e451762717e00f817fe1f00d54c6e858ebea2c02741d64",
+        "bytes": 2548052,
+        "remotePath": "models/kidney_right/exports/metadata-cleanup-r01/kidney_right.glb",
+        "remoteRef": "3f4dfc5fedc7156e0b7bd4e7390357c35d0895f5",
+        "pointerVerified": true
+      },
+      "reviewedAt": "2026-10-23T12:35:45.190685+00:00",
+      "reviewMethod": "Exact metadata-only render-data equivalence check; no new pixel inspection",
+      "visual": {
+        "status": "needs-revision",
+        "scope": "Inherited source visual outcome through verified unchanged render data; not a fresh rendered review of this derivative hash. Persistent coarse terraced bands remain in exact-export and retained-source neutral comparisons; needs revision for detailed surface presentation, preserving side-specific anatomy.",
+        "equivalentSourceVariantId": "kidney_right__v10-837077aeece2",
+        "equivalentSourceSha256": "819bc96e46a99a0735df1b2ffc802d4e4fed03f888ec5eb73716b33c07ae0ec3"
+      },
+      "baselineSha256": "819bc96e46a99a0735df1b2ffc802d4e4fed03f888ec5eb73716b33c07ae0ec3",
+      "allNonJSONChunksByteIdentical": true,
+      "allJSONOutsideSceneExtrasDeepEqual": true,
+      "sourceVisualReview": {
+        "id": "kidney_right__2026-10-23-confirmed-static-review",
+        "sha256": "5cdab1cdd7d42b2f6a17df86329db6d5061ac4631133e4c1815e70889eddce04",
+        "visual": {
+          "status": "needs-revision",
+          "scope": "Persistent coarse terraced bands remain in exact-export and retained-source neutral comparisons; needs revision for detailed surface presentation, preserving side-specific anatomy."
+        }
+      },
+      "originalVerificationReceipt": {
+        "assetId": "kidney_right",
+        "sha256": "0a5df031b7d9afcd43e451762717e00f817fe1f00d54c6e858ebea2c02741d64",
+        "bytes": 2548052,
+        "BINUnchanged": true,
+        "JSONOutsideSceneExtrasUnchanged": true,
+        "scope": "Metadata correctness only; no new visual/anatomy/runtime pass.",
+        "actualClipSummary": "Contains an illustrative 4 s breathing clip with 20 translation-only channels; no physiological or biomechanical validation.",
+        "sourceSha256": "819bc96e46a99a0735df1b2ffc802d4e4fed03f888ec5eb73716b33c07ae0ec3",
+        "sourceBytes": 2548328,
+        "allJSONOutsideSceneExtrasDeepEqual": true,
+        "allNonJSONChunksUnchanged": true,
+        "sourceNodeMetadataUnchanged": true,
+        "animationArraysAndClipJSONUnchanged": true,
+        "fieldPlan": [
+          {
+            "path": "/scenes/0/extras/README",
+            "op": "replace",
+            "oldValue": "See embedded README and exported docs. 0/1/2 material_set changes tissue/clinical/transparent. cutaway toggles full/sectioned walls. Spacebar plays 75 BPM illustrative cycle. All structures named, editable; no external assets.",
+            "value": "Educational kidney right display. Contains an illustrative 4 s breathing clip with 20 translation-only channels; no physiological or biomechanical validation. No exported keyboard, cutaway-toggle or material-switching behavior is established by this metadata. Not clinically validated."
+          },
+          {
+            "path": "/scenes/0/extras/coordinates",
+            "op": "remove",
+            "oldValue": "BU: X patient-left, Y posterior, Z superior. RAS millimeters=(-25X,-25Y,+25Z)."
+          },
+          {
+            "path": "/scenes/0/extras/clinical_status",
+            "op": "replace",
+            "oldValue": "Procedural educational model, not patient-derived or clinically validated.",
+            "value": "Source-derived educational surface from TotalSegmentator v2.0.1 retained case s1233, tb3 revision 75ec4e6530abe4d434b07958e90bdc9dec062bef. Repaired/subdivided/smoothed display derivative, not recovered detail or a generic healthy atlas. Additional teaching sections, routes or structures are authored illustrations, not segmented anatomy. Not clinically validated."
+          },
+          {
+            "path": "/scenes/0/extras/reference_phase",
+            "op": "remove",
+            "oldValue": "Frame 1 end-diastole, beginning of atrial systole. 30fps,24 frames/cycle,75bpm."
+          },
+          {
+            "path": "/scenes/0/extras/material_set_names",
+            "op": "remove",
+            "oldValue": "0: procedural tissue-style; 1: clinical circulation colors; 2: transparent educational shell"
+          },
+          {
+            "path": "/scenes/0/extras/animation_model",
+            "op": "replace",
+            "oldValue": "Illustrative regional shape-key shortening + torsion; valve timing; no biomechanical or flow simulation",
+            "value": "Contains an illustrative 4 s breathing clip with 20 translation-only channels; no physiological or biomechanical validation."
+          },
+          {
+            "path": "/scenes/0/extras/pericardial_layers",
+            "op": "remove",
+            "oldValue": "Endocardium/myocardium/epicardium represented by material-bearing wall surfaces; parietal serous pericardium separate simplified envelope. Epicardium is visceral serous layer. Fibrous sac thickness/reflections simplified."
+          }
+        ]
+      },
+      "limitations": [
+        "No new geometry, material, animation, anatomy or browser-runtime approval.",
+        "Visual outcome inherits only the linked source review scope, including unresolved Needs review cases.",
+        "No pixel-identity claim from this check; earlier representative render-repeat variation remains documented."
+      ],
+      "candidateCountDelta": 0
+    }
+  ],
+  "note": "Linked render-data equivalence, not new pixel inspection or anatomy/runtime approval."
+}

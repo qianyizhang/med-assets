@@ -1,0 +1,1624 @@
+{
+  "schemaVersion": 1,
+  "records": [
+    {
+      "id": "heart__2026-10-23-confirmed-static-review",
+      "assetId": "heart",
+      "variantId": "heart__v10-837077aeece2",
+      "artifact": {
+        "assetId": "heart",
+        "sha256": "3894d51df42a6e5941f0d2b076992d5359279f5e3ddb3b6d4ff6c00f58328086",
+        "bytes": 2037364,
+        "publicURL": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/motion/heart_breathing.glb",
+        "evidence": "Exact hash/size against retained published Assets v15 payload and inventory; no new independent network download in this planning step."
+      },
+      "reviewedAt": "2026-10-23T12:26:25Z",
+      "visual": {
+        "status": "needs-revision",
+        "scope": "Visibly coarse bulky exterior; uneven relief persists under neutral material. Needs revision for requested detailed exterior fidelity, not a claim of corrupted source anatomy."
+      },
+      "scope": {
+        "en": "Visibly coarse bulky exterior; uneven relief persists under neutral material. Needs revision for requested detailed exterior fidelity, not a claim of corrupted source anatomy.",
+        "zh": "表面粗厚，起伏不均在中性材质下仍可见；未达到要求的精细外形质量，不代表来源解剖数据损坏。"
+      },
+      "evidence": [
+        {
+          "id": "heart__confirmed-static-review__0",
+          "file": "reviews/readonly-audits/heart-stomach-readonly-audit-20261023/heart/contact.png",
+          "sha256": "97ac746c8ea60038267d6caa782159814a0814dad49f3fe8385e3723a707ff05",
+          "sourceSha256": "3894d51df42a6e5941f0d2b076992d5359279f5e3ddb3b6d4ff6c00f58328086",
+          "assetBinding": "3894d51df42a6e5941f0d2b076992d5359279f5e3ddb3b6d4ff6c00f58328086",
+          "kind": "blender-still",
+          "label": {
+            "en": "Exact-export contact sheet",
+            "zh": "精确导出多视图"
+          },
+          "role": "baseline",
+          "capturedAt": null
+        },
+        {
+          "id": "heart__confirmed-static-review__1",
+          "file": "reviews/readonly-audits/heart-stomach-readonly-audit-20261023/heart/matched-neutral/contact.png",
+          "sha256": "8dbf0d6daad50f8993086ba6bfa375e64b114c44197d61e11085b624c51b9d6a",
+          "sourceSha256": "3894d51df42a6e5941f0d2b076992d5359279f5e3ddb3b6d4ff6c00f58328086",
+          "assetBinding": "3894d51df42a6e5941f0d2b076992d5359279f5e3ddb3b6d4ff6c00f58328086",
+          "kind": "blender-still",
+          "label": {
+            "en": "Matched neutral comparison",
+            "zh": "匹配中性材质对比"
+          },
+          "role": "baseline",
+          "capturedAt": null
+        }
+      ],
+      "limitations": [
+        "No anatomy gate promotion or clinical validation.",
+        "No full-runtime promotion: offline stills/sample evaluation and any separate supplemental CI proof are not full intended-consumer runtime acceptance.",
+        "No peristalsis claim for either stomach; static detailed heart is not animated; source heart translates only.",
+        "Sampled phases do not establish exhaustive collision, valve contact, topology, or whole-body registration.",
+        "Existing immutable historical reviews remain intact; this is an additive later decision.",
+        "No new variant, candidate, model, or geometry change."
+      ],
+      "sourceRecordSha256": "5161b037fe0d9093e297a96a67f07322a7ff1d481c567bbab1696a77fe71ac70",
+      "changedGateNames": [
+        "visual"
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "heart_detailed__2026-10-23-confirmed-static-review",
+      "assetId": "heart_detailed",
+      "variantId": "heart_detailed__v10-837077aeece2",
+      "artifact": {
+        "assetId": "heart_detailed",
+        "sha256": "83dd48731d0cc67e8aa61abbd7b03163fb01bcba78f501e9d2c939927aaecf6e",
+        "bytes": 9056304,
+        "publicURL": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/meshes/heart_detailed.glb",
+        "evidence": "Exact hash/size against retained published Assets v15 payload and inventory; no new independent network download in this planning step."
+      },
+      "reviewedAt": "2026-10-23T12:26:25Z",
+      "visual": {
+        "status": "needs-revision",
+        "scope": "Analytic chamber solids, abrupt tubular junctions and exposed cord/gap geometry do not meet requested detailed/less-toyish fidelity. Useful static schematic retained."
+      },
+      "scope": {
+        "en": "Analytic chamber solids, abrupt tubular junctions and exposed cord/gap geometry do not meet requested detailed/less-toyish fidelity. Useful static schematic retained.",
+        "zh": "解析式腔室、突兀管状连接及暴露细索/空隙未达到精细、少玩具感的目标；保留为静态示意。"
+      },
+      "evidence": [
+        {
+          "id": "heart_detailed__confirmed-static-review__0",
+          "file": "reviews/readonly-audits/heart-stomach-readonly-audit-20261023/heart_detailed/contact.png",
+          "sha256": "f910ca8c7e10d5130f80e4645bbdf90f7569b80810479dba6f05c6b33eda01db",
+          "sourceSha256": "83dd48731d0cc67e8aa61abbd7b03163fb01bcba78f501e9d2c939927aaecf6e",
+          "assetBinding": "83dd48731d0cc67e8aa61abbd7b03163fb01bcba78f501e9d2c939927aaecf6e",
+          "kind": "blender-still",
+          "label": {
+            "en": "Exact-export contact sheet",
+            "zh": "精确导出多视图"
+          },
+          "role": "baseline",
+          "capturedAt": null
+        },
+        {
+          "id": "heart_detailed__confirmed-static-review__1",
+          "file": "reviews/readonly-audits/heart-stomach-readonly-audit-20261023/heart_detailed/matched-neutral/contact.png",
+          "sha256": "2f164efe3c65191b6ac3f57bcf99f2c79ea9a46fb5d04263830f7c43986fa707",
+          "sourceSha256": "83dd48731d0cc67e8aa61abbd7b03163fb01bcba78f501e9d2c939927aaecf6e",
+          "assetBinding": "83dd48731d0cc67e8aa61abbd7b03163fb01bcba78f501e9d2c939927aaecf6e",
+          "kind": "blender-still",
+          "label": {
+            "en": "Matched neutral comparison",
+            "zh": "匹配中性材质对比"
+          },
+          "role": "baseline",
+          "capturedAt": null
+        }
+      ],
+      "limitations": [
+        "No anatomy gate promotion or clinical validation.",
+        "No full-runtime promotion: offline stills/sample evaluation and any separate supplemental CI proof are not full intended-consumer runtime acceptance.",
+        "No peristalsis claim for either stomach; static detailed heart is not animated; source heart translates only.",
+        "Sampled phases do not establish exhaustive collision, valve contact, topology, or whole-body registration.",
+        "Existing immutable historical reviews remain intact; this is an additive later decision.",
+        "No new variant, candidate, model, or geometry change."
+      ],
+      "sourceRecordSha256": "607d22bd6516010084f3c52c352dbd3e47c4f504b12963bc02700d3760155651",
+      "changedGateNames": [
+        "visual"
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "heart_animated__2026-10-23-confirmed-static-review",
+      "assetId": "heart_animated",
+      "variantId": "heart_animated__v10-837077aeece2",
+      "artifact": {
+        "assetId": "heart_animated",
+        "sha256": "17b26d1459c0fbbbc71d051452c4074d1237683ffe02c1a8021d7ac83583857a",
+        "bytes": 8180452,
+        "publicURL": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/motion/heart_animated_clinical.glb",
+        "evidence": "Exact hash/size against retained published Assets v15 payload and inventory; no new independent network download in this planning step."
+      },
+      "reviewedAt": "2026-10-23T12:26:25Z",
+      "visual": {
+        "status": "needs-revision",
+        "scope": "Analytic chamber solids, simplified junctions and exposed fine cords/gaps do not meet requested detailed/less-toyish fidelity. Useful morph demonstration retained; not a broken-animation verdict."
+      },
+      "scope": {
+        "en": "Analytic chamber solids, simplified junctions and exposed fine cords/gaps do not meet requested detailed/less-toyish fidelity. Useful morph demonstration retained; not a broken-animation verdict.",
+        "zh": "解析式腔室、简化连接及暴露细索/空隙未达到精细目标；保留形变演示，不代表动画失效。"
+      },
+      "evidence": [
+        {
+          "id": "heart_animated__confirmed-static-review__0",
+          "file": "reviews/readonly-audits/heart-stomach-readonly-audit-20261023/heart_animated/contact.png",
+          "sha256": "2e6341cb7cbb20776107f872f2611fa9a259de08e9390c6b7569f111bffe7462",
+          "sourceSha256": "17b26d1459c0fbbbc71d051452c4074d1237683ffe02c1a8021d7ac83583857a",
+          "assetBinding": "17b26d1459c0fbbbc71d051452c4074d1237683ffe02c1a8021d7ac83583857a",
+          "kind": "blender-still",
+          "label": {
+            "en": "Exact-export contact sheet",
+            "zh": "精确导出多视图"
+          },
+          "role": "baseline",
+          "capturedAt": null
+        }
+      ],
+      "limitations": [
+        "No anatomy gate promotion or clinical validation.",
+        "No full-runtime promotion: offline stills/sample evaluation and any separate supplemental CI proof are not full intended-consumer runtime acceptance.",
+        "No peristalsis claim for either stomach; static detailed heart is not animated; source heart translates only.",
+        "Sampled phases do not establish exhaustive collision, valve contact, topology, or whole-body registration.",
+        "Existing immutable historical reviews remain intact; this is an additive later decision.",
+        "No new variant, candidate, model, or geometry change."
+      ],
+      "sourceRecordSha256": "dd8e02b49ba7d2e90eeb4cd13298823b0658ccd29a2f22a506aed75d843fc75f",
+      "changedGateNames": [
+        "visual"
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "stomach__2026-10-23-confirmed-static-review",
+      "assetId": "stomach",
+      "variantId": "stomach__v10-837077aeece2",
+      "artifact": {
+        "assetId": "stomach",
+        "sha256": "f1e8dfe7918361822503e9f6e5232204960f8c74b45bf9b294556c10d024ca82",
+        "bytes": 3402440,
+        "publicURL": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/motion/stomach_breathing.glb",
+        "evidence": "Exact hash/size against retained published Assets v15 payload and inventory; no new independent network download in this planning step."
+      },
+      "reviewedAt": "2026-10-23T12:26:25Z",
+      "visual": {
+        "status": "needs-revision",
+        "scope": "Upper transverse ribbing and distal corrugation persist under neutral material; needs revision for requested detailed exterior fidelity."
+      },
+      "scope": {
+        "en": "Upper transverse ribbing and distal corrugation persist under neutral material; needs revision for requested detailed exterior fidelity.",
+        "zh": "上部横向条纹和远端褶皱在中性材质下仍存在，需改善精细外形质量。"
+      },
+      "evidence": [
+        {
+          "id": "stomach__confirmed-static-review__0",
+          "file": "reviews/readonly-audits/heart-stomach-readonly-audit-20261023/stomach/contact.png",
+          "sha256": "8c6f408d7c5808ec1f80d8275b414c1f091302a32141adc0acf8c91b5cc17fb5",
+          "sourceSha256": "f1e8dfe7918361822503e9f6e5232204960f8c74b45bf9b294556c10d024ca82",
+          "assetBinding": "f1e8dfe7918361822503e9f6e5232204960f8c74b45bf9b294556c10d024ca82",
+          "kind": "blender-still",
+          "label": {
+            "en": "Exact-export contact sheet",
+            "zh": "精确导出多视图"
+          },
+          "role": "baseline",
+          "capturedAt": null
+        },
+        {
+          "id": "stomach__confirmed-static-review__1",
+          "file": "reviews/readonly-audits/heart-stomach-readonly-audit-20261023/stomach/matched-neutral/contact.png",
+          "sha256": "6c6f230c1701690f191d030e8211997ae676af7a5f1da7a7707c77d0a538b480",
+          "sourceSha256": "f1e8dfe7918361822503e9f6e5232204960f8c74b45bf9b294556c10d024ca82",
+          "assetBinding": "f1e8dfe7918361822503e9f6e5232204960f8c74b45bf9b294556c10d024ca82",
+          "kind": "blender-still",
+          "label": {
+            "en": "Matched neutral comparison",
+            "zh": "匹配中性材质对比"
+          },
+          "role": "baseline",
+          "capturedAt": null
+        }
+      ],
+      "limitations": [
+        "No anatomy gate promotion or clinical validation.",
+        "No full-runtime promotion: offline stills/sample evaluation and any separate supplemental CI proof are not full intended-consumer runtime acceptance.",
+        "No peristalsis claim for either stomach; static detailed heart is not animated; source heart translates only.",
+        "Sampled phases do not establish exhaustive collision, valve contact, topology, or whole-body registration.",
+        "Existing immutable historical reviews remain intact; this is an additive later decision.",
+        "No new variant, candidate, model, or geometry change."
+      ],
+      "sourceRecordSha256": "daf3538187221e7ee4b6ec6c5cb14a1eff4e75d619e5589932133823b08f126f",
+      "changedGateNames": [
+        "visual"
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "stomach_polished__2026-10-23-confirmed-static-review",
+      "assetId": "stomach_polished",
+      "variantId": "stomach_polished__v10-837077aeece2",
+      "artifact": {
+        "assetId": "stomach_polished",
+        "sha256": "6572a15a00815045b199d589912fdf7ef0e2e9a064a6bffc0d353d74176e2512",
+        "bytes": 1926888,
+        "publicURL": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/stomach/stomach_polished.glb",
+        "evidence": "Exact hash/size against retained published Assets v15 payload and inventory; no new independent network download in this planning step."
+      },
+      "reviewedAt": "2026-10-23T12:26:25Z",
+      "visual": {
+        "status": "passed",
+        "scope": "Scoped visual pass only for shown smooth authored exterior and illustrative isolated cutaway. Broad folds and illustrative thickness remain schematic. Preserve geometry unchanged per user preference."
+      },
+      "scope": {
+        "en": "Scoped visual pass only for shown smooth authored exterior and illustrative isolated cutaway. Broad folds and illustrative thickness remain schematic. Preserve geometry unchanged per user preference.",
+        "zh": "仅接受所示平滑人为外形及示意孤立剖面；宽大褶皱与厚度仍为示意。按用户偏好保留几何不变。"
+      },
+      "evidence": [
+        {
+          "id": "stomach_polished__confirmed-static-review__0",
+          "file": "reviews/readonly-audits/heart-stomach-readonly-audit-20261023/stomach_polished/contact.png",
+          "sha256": "0569e172fe554b71edaea48988b262f5ebb5aee6ef19121169ec8e0d6547d190",
+          "sourceSha256": "6572a15a00815045b199d589912fdf7ef0e2e9a064a6bffc0d353d74176e2512",
+          "assetBinding": "6572a15a00815045b199d589912fdf7ef0e2e9a064a6bffc0d353d74176e2512",
+          "kind": "blender-still",
+          "label": {
+            "en": "Exact-export contact sheet",
+            "zh": "精确导出多视图"
+          },
+          "role": "baseline",
+          "capturedAt": null
+        },
+        {
+          "id": "stomach_polished__confirmed-static-review__1",
+          "file": "reviews/readonly-audits/heart-stomach-readonly-audit-20261023/stomach_polished/matched-neutral/contact.png",
+          "sha256": "38589c7843c5dc4f39dc94f05cf830e07ddf15414d8372e80ac7291c9c2ce85d",
+          "sourceSha256": "6572a15a00815045b199d589912fdf7ef0e2e9a064a6bffc0d353d74176e2512",
+          "assetBinding": "6572a15a00815045b199d589912fdf7ef0e2e9a064a6bffc0d353d74176e2512",
+          "kind": "blender-still",
+          "label": {
+            "en": "Matched neutral comparison",
+            "zh": "匹配中性材质对比"
+          },
+          "role": "baseline",
+          "capturedAt": null
+        }
+      ],
+      "limitations": [
+        "No anatomy gate promotion or clinical validation.",
+        "No full-runtime promotion: offline stills/sample evaluation and any separate supplemental CI proof are not full intended-consumer runtime acceptance.",
+        "No peristalsis claim for either stomach; static detailed heart is not animated; source heart translates only.",
+        "Sampled phases do not establish exhaustive collision, valve contact, topology, or whole-body registration.",
+        "Existing immutable historical reviews remain intact; this is an additive later decision.",
+        "No new variant, candidate, model, or geometry change."
+      ],
+      "sourceRecordSha256": "e82120ffcfcc3bcf2dac8630178e9a09814b574ed85a52a722dfec5ea7b9e332",
+      "changedGateNames": [
+        "visual"
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "draft_ovaries__2026-10-23-confirmed-static-review",
+      "assetId": "draft_ovaries",
+      "variantId": "draft_ovaries__v10-837077aeece2",
+      "artifact": {
+        "assetId": "draft_ovaries",
+        "sha256": "178b63623128daf71056a1aafa3ecaf015082a1beb1906002bfb3bf818280046",
+        "bytes": 132080,
+        "publicURL": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/pelvis/ovaries.glb",
+        "evidence": "Exact hash/size against retained published Assets v15 payload and inventory; no new independent network download in this planning step."
+      },
+      "reviewedAt": "2026-10-23T12:29:28Z",
+      "visual": {
+        "status": "needs-revision",
+        "scope": "Requested detailed/less-toyish visual-fidelity target; preserve useful schematic baseline.",
+        "reason": "Paired oval solids with regularly repeated button-like front relief and smooth backs; schematic rather than resolved gross detail."
+      },
+      "scope": null,
+      "evidence": [
+        {
+          "id": "draft_ovaries__2026-10-23-confirmed-static-review__contact",
+          "file": "reviews/ovaries/2026-10-23-v10-exterior-review/draft_ovaries/screenshots/contact.png",
+          "sha256": "7451f9806e64fa9c04f55d97dd0f35f61bc09b56ce737f160809d8ea71e61143",
+          "sourceSha256": "178b63623128daf71056a1aafa3ecaf015082a1beb1906002bfb3bf818280046",
+          "assetBinding": "178b63623128daf71056a1aafa3ecaf015082a1beb1906002bfb3bf818280046",
+          "kind": "blender-still",
+          "label": {
+            "en": "Exact original baseline contact",
+            "zh": "原始基线精确导出多视图"
+          },
+          "role": "baseline",
+          "capturedAt": null
+        }
+      ],
+      "limitations": [
+        "Frame-1 front/left/back contacts only; not anatomy or full runtime approval.",
+        "Small separated components in joints/lymph overview are not enough for fine surface diagnosis; no hidden defect inferred.",
+        "No candidate review substituted; only exact original baseline pixels.",
+        "No geometry changes recommended solely to cosmetically reshape anatomy; proper reference/context must guide any rebuild."
+      ],
+      "sourceRecordSha256": "51e50dd1e3d2358fa2e64cba1a370d5128cc701b78ec35ed126bb80ba6608a39",
+      "changedGateNames": [
+        "visual"
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "draft_testes__2026-10-23-confirmed-static-review",
+      "assetId": "draft_testes",
+      "variantId": "draft_testes__v10-837077aeece2",
+      "artifact": {
+        "assetId": "draft_testes",
+        "sha256": "71c760a96d57798b83bfc4af9d94c577606591f13d59c6c102be79986e500f09",
+        "bytes": 80204,
+        "publicURL": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/pelvis/testes.glb",
+        "evidence": "Exact hash/size against retained published Assets v15 payload and inventory; no new independent network download in this planning step."
+      },
+      "reviewedAt": "2026-10-23T12:29:28Z",
+      "visual": {
+        "status": "needs-revision",
+        "scope": "Requested detailed/less-toyish visual-fidelity target; preserve useful schematic baseline.",
+        "reason": "Paired ellipsoids with flat strip-like attached components and uniform curved tubes; detailed epididymal/duct transitions not demonstrated."
+      },
+      "scope": null,
+      "evidence": [
+        {
+          "id": "draft_testes__2026-10-23-confirmed-static-review__contact",
+          "file": "reviews/testes/2026-10-23-v10-exterior-review/draft_testes/screenshots/contact.png",
+          "sha256": "f012337862e58e8904701771520578c8847f610f40681816e7b48b255c33ac29",
+          "sourceSha256": "71c760a96d57798b83bfc4af9d94c577606591f13d59c6c102be79986e500f09",
+          "assetBinding": "71c760a96d57798b83bfc4af9d94c577606591f13d59c6c102be79986e500f09",
+          "kind": "blender-still",
+          "label": {
+            "en": "Exact original baseline contact",
+            "zh": "原始基线精确导出多视图"
+          },
+          "role": "baseline",
+          "capturedAt": null
+        }
+      ],
+      "limitations": [
+        "Frame-1 front/left/back contacts only; not anatomy or full runtime approval.",
+        "Small separated components in joints/lymph overview are not enough for fine surface diagnosis; no hidden defect inferred.",
+        "No candidate review substituted; only exact original baseline pixels.",
+        "No geometry changes recommended solely to cosmetically reshape anatomy; proper reference/context must guide any rebuild."
+      ],
+      "sourceRecordSha256": "57c0df9e963c191a84b86aaa2b9dc5aa2e2a67fa2b885588c657567c93aad545",
+      "changedGateNames": [
+        "visual"
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "draft_urethra_female__2026-10-23-confirmed-static-review",
+      "assetId": "draft_urethra_female",
+      "variantId": "draft_urethra_female__v10-837077aeece2",
+      "artifact": {
+        "assetId": "draft_urethra_female",
+        "sha256": "fa9cd7a8e40ad417b73afbcbb128ddcdee44d5cc0de293ef56280f563b29aa01",
+        "bytes": 8564,
+        "publicURL": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/pelvis/urethra_female.glb",
+        "evidence": "Exact hash/size against retained published Assets v15 payload and inventory; no new independent network download in this planning step."
+      },
+      "reviewedAt": "2026-10-23T12:29:28Z",
+      "visual": {
+        "status": "needs-revision",
+        "scope": "Requested detailed/less-toyish visual-fidelity target; preserve useful schematic baseline.",
+        "reason": "Uniform solid-looking straight tube; regional wall/lumen detail and pelvic relationships not demonstrated."
+      },
+      "scope": null,
+      "evidence": [
+        {
+          "id": "draft_urethra_female__2026-10-23-confirmed-static-review__contact",
+          "file": "reviews/urethra/2026-10-23-v10-exterior-review/draft_urethra_female/screenshots/contact.png",
+          "sha256": "689949785127a508a1802d9ac6c29355165491020cad2368a74d219148dbf60e",
+          "sourceSha256": "fa9cd7a8e40ad417b73afbcbb128ddcdee44d5cc0de293ef56280f563b29aa01",
+          "assetBinding": "fa9cd7a8e40ad417b73afbcbb128ddcdee44d5cc0de293ef56280f563b29aa01",
+          "kind": "blender-still",
+          "label": {
+            "en": "Exact original baseline contact",
+            "zh": "原始基线精确导出多视图"
+          },
+          "role": "baseline",
+          "capturedAt": null
+        }
+      ],
+      "limitations": [
+        "Frame-1 front/left/back contacts only; not anatomy or full runtime approval.",
+        "Small separated components in joints/lymph overview are not enough for fine surface diagnosis; no hidden defect inferred.",
+        "No candidate review substituted; only exact original baseline pixels.",
+        "No geometry changes recommended solely to cosmetically reshape anatomy; proper reference/context must guide any rebuild."
+      ],
+      "sourceRecordSha256": "c29872af15c5e88432d0809b8863f5f8a22236a3843dbc35b3d96d1fa889e8b6",
+      "changedGateNames": [
+        "visual"
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "draft_urethra_male__2026-10-23-confirmed-static-review",
+      "assetId": "draft_urethra_male",
+      "variantId": "draft_urethra_male__v10-837077aeece2",
+      "artifact": {
+        "assetId": "draft_urethra_male",
+        "sha256": "368638eb652ab42feb177e5be97708714f8950038199072c94ddbcb2a115cb92",
+        "bytes": 15472,
+        "publicURL": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/pelvis/urethra_male.glb",
+        "evidence": "Exact hash/size against retained published Assets v15 payload and inventory; no new independent network download in this planning step."
+      },
+      "reviewedAt": "2026-10-23T12:29:28Z",
+      "visual": {
+        "status": "needs-revision",
+        "scope": "Requested detailed/less-toyish visual-fidelity target; preserve useful schematic baseline.",
+        "reason": "Uniform-diameter curved tube seen as straight line front/back; segment-specific detail and surrounding relationships not demonstrated."
+      },
+      "scope": null,
+      "evidence": [
+        {
+          "id": "draft_urethra_male__2026-10-23-confirmed-static-review__contact",
+          "file": "reviews/urethra/2026-10-23-v10-exterior-review/draft_urethra_male/screenshots/contact.png",
+          "sha256": "a34e2a1df01abfd19d9c4a104f5027cf6e8b05efda5c85fb657fee7b05c6c79d",
+          "sourceSha256": "368638eb652ab42feb177e5be97708714f8950038199072c94ddbcb2a115cb92",
+          "assetBinding": "368638eb652ab42feb177e5be97708714f8950038199072c94ddbcb2a115cb92",
+          "kind": "blender-still",
+          "label": {
+            "en": "Exact original baseline contact",
+            "zh": "原始基线精确导出多视图"
+          },
+          "role": "baseline",
+          "capturedAt": null
+        }
+      ],
+      "limitations": [
+        "Frame-1 front/left/back contacts only; not anatomy or full runtime approval.",
+        "Small separated components in joints/lymph overview are not enough for fine surface diagnosis; no hidden defect inferred.",
+        "No candidate review substituted; only exact original baseline pixels.",
+        "No geometry changes recommended solely to cosmetically reshape anatomy; proper reference/context must guide any rebuild."
+      ],
+      "sourceRecordSha256": "f43bdfe78abbb7ba1d42408615a3d277538ff7dfd58d719f62b8cf57b43f7170",
+      "changedGateNames": [
+        "visual"
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "draft_parathyroids__2026-10-23-confirmed-static-review",
+      "assetId": "draft_parathyroids",
+      "variantId": "draft_parathyroids__v10-837077aeece2",
+      "artifact": {
+        "assetId": "draft_parathyroids",
+        "sha256": "9741ddb9dabac9504c9587caafa7a6f51a6765d38a75be48c6229f00a769391f",
+        "bytes": 47240,
+        "publicURL": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/head/parathyroids.glb",
+        "evidence": "Exact hash/size against retained published Assets v15 payload and inventory; no new independent network download in this planning step."
+      },
+      "reviewedAt": "2026-10-23T12:29:28Z",
+      "visual": {
+        "status": "needs-revision",
+        "scope": "Requested detailed/less-toyish visual-fidelity target; preserve useful schematic baseline.",
+        "reason": "Four repeated smooth oval solids, flattened in side view and isolated without thyroid context; localization schematic, not detailed morphology or verified placement."
+      },
+      "scope": null,
+      "evidence": [
+        {
+          "id": "draft_parathyroids__2026-10-23-confirmed-static-review__contact",
+          "file": "reviews/parathyroids/2026-10-23-v10-exterior-review/draft_parathyroids/screenshots/contact.png",
+          "sha256": "5a328893dd0709723383cb247b28156e2fc81a5ec8a400942325db21eb087eab",
+          "sourceSha256": "9741ddb9dabac9504c9587caafa7a6f51a6765d38a75be48c6229f00a769391f",
+          "assetBinding": "9741ddb9dabac9504c9587caafa7a6f51a6765d38a75be48c6229f00a769391f",
+          "kind": "blender-still",
+          "label": {
+            "en": "Exact original baseline contact",
+            "zh": "原始基线精确导出多视图"
+          },
+          "role": "baseline",
+          "capturedAt": null
+        }
+      ],
+      "limitations": [
+        "Frame-1 front/left/back contacts only; not anatomy or full runtime approval.",
+        "Small separated components in joints/lymph overview are not enough for fine surface diagnosis; no hidden defect inferred.",
+        "No candidate review substituted; only exact original baseline pixels.",
+        "No geometry changes recommended solely to cosmetically reshape anatomy; proper reference/context must guide any rebuild."
+      ],
+      "sourceRecordSha256": "2e20d5c2da91861e92b79ae411dbf8137c3373087aab41a21265d73f9e7b2f12",
+      "changedGateNames": [
+        "visual"
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "draft_adrenals__2026-10-23-confirmed-static-review",
+      "assetId": "draft_adrenals",
+      "variantId": "draft_adrenals__v10-837077aeece2",
+      "artifact": {
+        "assetId": "draft_adrenals",
+        "sha256": "dbd584b3905dfe968df814b6ef629eb6a08ce68762891d1b0e5ce61a04987857",
+        "bytes": 49176,
+        "publicURL": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/head/adrenals.glb",
+        "evidence": "Exact hash/size against retained published Assets v15 payload and inventory; no new independent network download in this planning step."
+      },
+      "reviewedAt": "2026-10-23T12:29:28Z",
+      "visual": {
+        "status": "needs-revision",
+        "scope": "Requested detailed/less-toyish visual-fidelity target; preserve useful schematic baseline.",
+        "reason": "Smooth triangular and crescent solids with small repeated surface buttons; very simplified external forms with no kidney context. Detailed morphology not demonstrated."
+      },
+      "scope": null,
+      "evidence": [
+        {
+          "id": "draft_adrenals__2026-10-23-confirmed-static-review__contact",
+          "file": "reviews/adrenals/2026-10-23-v10-exterior-review/draft_adrenals/screenshots/contact.png",
+          "sha256": "4bf4aea2daff77956654184308fcab3f878075a1d6a822c047536f86025cdaab",
+          "sourceSha256": "dbd584b3905dfe968df814b6ef629eb6a08ce68762891d1b0e5ce61a04987857",
+          "assetBinding": "dbd584b3905dfe968df814b6ef629eb6a08ce68762891d1b0e5ce61a04987857",
+          "kind": "blender-still",
+          "label": {
+            "en": "Exact original baseline contact",
+            "zh": "原始基线精确导出多视图"
+          },
+          "role": "baseline",
+          "capturedAt": null
+        }
+      ],
+      "limitations": [
+        "Frame-1 front/left/back contacts only; not anatomy or full runtime approval.",
+        "Small separated components in joints/lymph overview are not enough for fine surface diagnosis; no hidden defect inferred.",
+        "No candidate review substituted; only exact original baseline pixels.",
+        "No geometry changes recommended solely to cosmetically reshape anatomy; proper reference/context must guide any rebuild."
+      ],
+      "sourceRecordSha256": "64022a0e9c5662216c5bc73c895d596daef467f2d2fd264675b43b1a9af66d6b",
+      "changedGateNames": [
+        "visual"
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "draft_pituitary__2026-10-23-confirmed-static-review",
+      "assetId": "draft_pituitary",
+      "variantId": "draft_pituitary__v10-837077aeece2",
+      "artifact": {
+        "assetId": "draft_pituitary",
+        "sha256": "ed1d491f288a90a9cd79ce4c806d0ced9965a581a85e2563d721d385b145045d",
+        "bytes": 102336,
+        "publicURL": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/head/pituitary.glb",
+        "evidence": "Exact hash/size against retained published Assets v15 payload and inventory; no new independent network download in this planning step."
+      },
+      "reviewedAt": "2026-10-23T12:29:28Z",
+      "visual": {
+        "status": "needs-revision",
+        "scope": "Requested detailed/less-toyish visual-fidelity target; preserve useful schematic baseline.",
+        "reason": "Smooth repeated ovoid/circular solids with a uniform stalk-like connector; simplified component scheme and abrupt connections, not resolved detailed gland/context fidelity."
+      },
+      "scope": null,
+      "evidence": [
+        {
+          "id": "draft_pituitary__2026-10-23-confirmed-static-review__contact",
+          "file": "reviews/pituitary/2026-10-23-v10-exterior-review/draft_pituitary/screenshots/contact.png",
+          "sha256": "4a687e0812a9df839e8a17273a8cc3ea07b72411bd43d42733bd619912c84b11",
+          "sourceSha256": "ed1d491f288a90a9cd79ce4c806d0ced9965a581a85e2563d721d385b145045d",
+          "assetBinding": "ed1d491f288a90a9cd79ce4c806d0ced9965a581a85e2563d721d385b145045d",
+          "kind": "blender-still",
+          "label": {
+            "en": "Exact original baseline contact",
+            "zh": "原始基线精确导出多视图"
+          },
+          "role": "baseline",
+          "capturedAt": null
+        }
+      ],
+      "limitations": [
+        "Frame-1 front/left/back contacts only; not anatomy or full runtime approval.",
+        "Small separated components in joints/lymph overview are not enough for fine surface diagnosis; no hidden defect inferred.",
+        "No candidate review substituted; only exact original baseline pixels.",
+        "No geometry changes recommended solely to cosmetically reshape anatomy; proper reference/context must guide any rebuild."
+      ],
+      "sourceRecordSha256": "7365d1f0a78ce93c5c5ffc3ad5c7637f94e3e29f897bdad33a768cd8446576c9",
+      "changedGateNames": [
+        "visual"
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "draft_penis__2026-10-23-confirmed-static-review",
+      "assetId": "draft_penis",
+      "variantId": "draft_penis__v10-837077aeece2",
+      "artifact": {
+        "assetId": "draft_penis",
+        "sha256": "8bf7e4b3e66731df07a3167b1a18b033280e1195f76a9ff3205249b5c16f926a",
+        "bytes": 55132,
+        "publicURL": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/pelvis/penis.glb",
+        "evidence": "Exact hash/size against retained published Assets v15 payload and inventory; no new independent network download in this planning step."
+      },
+      "reviewedAt": "2026-10-23T12:29:28Z",
+      "visual": {
+        "status": "needs-revision",
+        "scope": "Requested detailed/less-toyish visual-fidelity target; preserve useful schematic baseline.",
+        "reason": "Uniform cylindrical shaft, rounded end cap, and simple lateral cylinders with abrupt intersections; schematic analytic solids, insufficient resolved exterior/transition detail."
+      },
+      "scope": null,
+      "evidence": [
+        {
+          "id": "draft_penis__2026-10-23-confirmed-static-review__contact",
+          "file": "reviews/penis/2026-10-23-v10-exterior-review/draft_penis/screenshots/contact.png",
+          "sha256": "a9c1c27086526f50a5d475aa7f5184ad9d8ab3cb9ab8a15c11315ceb2fcd9aed",
+          "sourceSha256": "8bf7e4b3e66731df07a3167b1a18b033280e1195f76a9ff3205249b5c16f926a",
+          "assetBinding": "8bf7e4b3e66731df07a3167b1a18b033280e1195f76a9ff3205249b5c16f926a",
+          "kind": "blender-still",
+          "label": {
+            "en": "Exact original baseline contact",
+            "zh": "原始基线精确导出多视图"
+          },
+          "role": "baseline",
+          "capturedAt": null
+        }
+      ],
+      "limitations": [
+        "Frame-1 front/left/back contacts only; not anatomy or full runtime approval.",
+        "Small separated components in joints/lymph overview are not enough for fine surface diagnosis; no hidden defect inferred.",
+        "No candidate review substituted; only exact original baseline pixels.",
+        "No geometry changes recommended solely to cosmetically reshape anatomy; proper reference/context must guide any rebuild."
+      ],
+      "sourceRecordSha256": "368661527e8774924008e4f613202e8a20a2df539e3bc4248f6de79d65fceca2",
+      "changedGateNames": [
+        "visual"
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "draft_joints__2026-10-23-confirmed-static-review",
+      "assetId": "draft_joints",
+      "variantId": "draft_joints__v10-837077aeece2",
+      "artifact": {
+        "assetId": "draft_joints",
+        "sha256": "8cb86ef4fa5cb930ed78679a0c0b987b9f6c1a41018e8848773e2a9985c504a0",
+        "bytes": 359236,
+        "publicURL": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/networks/draft_joints.glb",
+        "evidence": "Exact hash/size against retained published Assets v15 payload and inventory; no new independent network download in this planning step."
+      },
+      "reviewedAt": "2026-10-23T12:32:11Z",
+      "visual": {
+        "status": "needs-revision",
+        "scope": "Inspected representative shoulder shows simplistic analytic ball/rim forms; needs revision against detailed visual target. Other joint regions not individually adjudicated."
+      },
+      "scope": "Inspected representative shoulder shows simplistic analytic ball/rim forms; needs revision against detailed visual target. Other joint regions not individually adjudicated.",
+      "evidence": [
+        {
+          "id": "draft_joints__confirmed-static__0",
+          "file": "reviews/readonly-audits/representative-baselines-2026-10-23/draft_joints-representative.png",
+          "sha256": "36bc64b543eba43f2215069a996c4caab35ea3d6b055dcd13b12e9f11cfbf65a",
+          "sourceSha256": "8cb86ef4fa5cb930ed78679a0c0b987b9f6c1a41018e8848773e2a9985c504a0",
+          "assetBinding": "8cb86ef4fa5cb930ed78679a0c0b987b9f6c1a41018e8848773e2a9985c504a0",
+          "kind": "blender-still",
+          "label": {
+            "en": "Scoped original-baseline inspection",
+            "zh": "限定范围原始基线复核"
+          },
+          "role": "baseline",
+          "capturedAt": null,
+          "renderSettings": {
+            "visibleMeshes": [
+              "Proximal humeral segment -1",
+              "Humeral head -1",
+              "Humeral cartilage cap -1",
+              "Glenoid socket rim -1",
+              "Scapular neck context -1"
+            ],
+            "hiddenMeshes": [
+              "Transparent synovial capsule shoulder-1",
+              "Transparent synovial capsule elbow-1",
+              "Distal humeral segment -1",
+              "Humeral trochlea -1",
+              "Ulnar trochlear notch -1",
+              "Proximal ulna -1",
+              "Radial head -1",
+              "Proximal radius -1",
+              "Transparent synovial capsule knee-1",
+              "Distal femoral segment -1",
+              "Femoral condyle (-1, -0.014)",
+              "Femoral articular surface (-1, -0.014)",
+              "Meniscus crescent (-1, -0.014)",
+              "Femoral condyle (-1, 0.014)",
+              "Femoral articular surface (-1, 0.014)",
+              "Meniscus crescent (-1, 0.014)",
+              "Tibial plateau -1",
+              "Proximal tibial segment -1",
+              "Patella -1.001",
+              "Transparent synovial capsule shoulder1",
+              "Proximal humeral segment 1",
+              "Humeral head 1",
+              "Humeral cartilage cap 1",
+              "Glenoid socket rim 1",
+              "Scapular neck context 1",
+              "Transparent synovial capsule elbow1",
+              "Distal humeral segment 1",
+              "Humeral trochlea 1",
+              "Ulnar trochlear notch 1",
+              "Proximal ulna 1",
+              "Radial head 1",
+              "Proximal radius 1",
+              "Transparent synovial capsule knee1",
+              "Distal femoral segment 1",
+              "Femoral condyle (1, -0.014)",
+              "Femoral articular surface (1, -0.014)",
+              "Meniscus crescent (1, -0.014)",
+              "Femoral condyle (1, 0.014)",
+              "Femoral articular surface (1, 0.014)",
+              "Meniscus crescent (1, 0.014)",
+              "Tibial plateau 1",
+              "Proximal tibial segment 1",
+              "Patella 1.001"
+            ],
+            "frame": 1,
+            "cameraCenter": [
+              -0.16820169985294342,
+              0.0,
+              0.12805217504501343
+            ],
+            "cameraOffsetMultiplier": [
+              1,
+              -3,
+              0.5
+            ],
+            "orthoScale": 0.1456916382908821,
+            "materials": "original imported materials unchanged",
+            "geometry": "Exact GLB fresh import; no edits to geometry, transforms, materials, normals or modifiers. Visibility/camera/light changes only. No GLB exported.",
+            "renderer": "4.3.2",
+            "engine": "Cycles CPU",
+            "samples": 32,
+            "resolution": [
+              512,
+              512
+            ]
+          }
+        }
+      ],
+      "limitations": [
+        "Visual decision only; anatomy and full runtime gates unchanged.",
+        "No clinical diagnosis or source specimen abnormality inferred.",
+        "Historical evidence preserved; later additive scoped decision only.",
+        "No new candidate or geometry/source replacement.",
+        "Single isolated representative only; not full asset coverage or registered position proof.",
+        "Joint capsule hidden deliberately to expose original enclosed components; not a natural exterior view.",
+        "No independent anatomy reference or runtime approval."
+      ],
+      "sourceRecordSha256": "1a5c2133b19790ed1bb0794a5b6c6e66fde7713b8c3de82d425093505986cb1d",
+      "changedGateNames": [
+        "visual"
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "draft_lymph_nodes__2026-10-23-confirmed-static-review",
+      "assetId": "draft_lymph_nodes",
+      "variantId": "draft_lymph_nodes__v10-837077aeece2",
+      "artifact": {
+        "assetId": "draft_lymph_nodes",
+        "sha256": "ed12545cb763d12b1f3879b4ba6cb1cdef89ceadef55769e3118f1e8082f902a",
+        "bytes": 250984,
+        "publicURL": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/networks/draft_lymph_nodes.glb",
+        "evidence": "Exact hash/size against retained published Assets v15 payload and inventory; no new independent network download in this planning step."
+      },
+      "reviewedAt": "2026-10-23T12:32:11Z",
+      "visual": {
+        "status": "needs-revision",
+        "scope": "Inspected representative node shows angular oval/low-detail representation; needs revision against detailed visual target. Other nodes not individually adjudicated; no invented surface detail prescribed."
+      },
+      "scope": "Inspected representative node shows angular oval/low-detail representation; needs revision against detailed visual target. Other nodes not individually adjudicated; no invented surface detail prescribed.",
+      "evidence": [
+        {
+          "id": "draft_lymph_nodes__confirmed-static__0",
+          "file": "reviews/readonly-audits/representative-baselines-2026-10-23/draft_lymph_nodes-representative.png",
+          "sha256": "731a4ffc33affa9039d06a211594605b95fba4f27eabc257c286b99e2e924a79",
+          "sourceSha256": "ed12545cb763d12b1f3879b4ba6cb1cdef89ceadef55769e3118f1e8082f902a",
+          "assetBinding": "ed12545cb763d12b1f3879b4ba6cb1cdef89ceadef55769e3118f1e8082f902a",
+          "kind": "blender-still",
+          "label": {
+            "en": "Scoped original-baseline inspection",
+            "zh": "限定范围原始基线复核"
+          },
+          "role": "baseline",
+          "capturedAt": null,
+          "renderSettings": {
+            "visibleMeshes": [
+              "Cervical chain (-1, 0)"
+            ],
+            "hiddenMeshes": [
+              "Cervical chain (-1, 1)",
+              "Cervical chain (-1, 2)",
+              "Cervical chain (-1, 3)",
+              "Cervical chain (-1, 4)",
+              "Cervical chain (-1, 5)",
+              "Axillary group (-1, 0)",
+              "Axillary group (-1, 1)",
+              "Axillary group (-1, 2)",
+              "Axillary group (-1, 3)",
+              "Axillary group (-1, 4)",
+              "Axillary group (-1, 5)",
+              "Axillary group (-1, 6)",
+              "Inguinal chain (-1, 0)",
+              "Inguinal chain (-1, 1)",
+              "Inguinal chain (-1, 2)",
+              "Inguinal chain (-1, 3)",
+              "Inguinal chain (-1, 4)",
+              "Inguinal chain (-1, 5)",
+              "Inguinal chain (-1, 6)",
+              "Mesenteric group (-1, 0)",
+              "Mesenteric group (-1, 1)",
+              "Mesenteric group (-1, 2)",
+              "Mesenteric group (-1, 3)",
+              "Mesenteric group (-1, 4)",
+              "Mesenteric group (-1, 5)",
+              "Cervical chain (1, 0)",
+              "Cervical chain (1, 1)",
+              "Cervical chain (1, 2)",
+              "Cervical chain (1, 3)",
+              "Cervical chain (1, 4)",
+              "Cervical chain (1, 5)",
+              "Axillary group (1, 0)",
+              "Axillary group (1, 1)",
+              "Axillary group (1, 2)",
+              "Axillary group (1, 3)",
+              "Axillary group (1, 4)",
+              "Axillary group (1, 5)",
+              "Axillary group (1, 6)",
+              "Inguinal chain (1, 0)",
+              "Inguinal chain (1, 1)",
+              "Inguinal chain (1, 2)",
+              "Inguinal chain (1, 3)",
+              "Inguinal chain (1, 4)",
+              "Inguinal chain (1, 5)",
+              "Inguinal chain (1, 6)",
+              "Mesenteric group (1, 0)",
+              "Mesenteric group (1, 1)",
+              "Mesenteric group (1, 2)",
+              "Mesenteric group (1, 3)",
+              "Mesenteric group (1, 4)",
+              "Mesenteric group (1, 5)"
+            ],
+            "frame": 1,
+            "cameraCenter": [
+              -0.0430000014603138,
+              -0.02500000037252903,
+              0.3100000023841858
+            ],
+            "cameraOffsetMultiplier": [
+              1,
+              -3,
+              0.5
+            ],
+            "orthoScale": 0.01416002869606018,
+            "materials": "original imported materials unchanged",
+            "geometry": "Exact GLB fresh import; no edits to geometry, transforms, materials, normals or modifiers. Visibility/camera/light changes only. No GLB exported.",
+            "renderer": "4.3.2",
+            "engine": "Cycles CPU",
+            "samples": 32,
+            "resolution": [
+              512,
+              512
+            ]
+          }
+        }
+      ],
+      "limitations": [
+        "Visual decision only; anatomy and full runtime gates unchanged.",
+        "No clinical diagnosis or source specimen abnormality inferred.",
+        "Historical evidence preserved; later additive scoped decision only.",
+        "No new candidate or geometry/source replacement.",
+        "Single isolated representative only; not full asset coverage or registered position proof.",
+        "All other nodes hidden; distribution and network context intentionally absent.",
+        "No independent anatomy reference or runtime approval."
+      ],
+      "sourceRecordSha256": "364945815112d4a46256223e9269d3ccb7001ba3164d3c3a9fabf5da64c7182d",
+      "changedGateNames": [
+        "visual"
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "liver__2026-10-23-confirmed-static-review",
+      "assetId": "liver",
+      "variantId": "liver__v10-837077aeece2",
+      "artifact": {
+        "assetId": "liver",
+        "sha256": "1bc31b52f4b9d326cca6adb339c01a11d497cb0880ede682c8bb52889f5dc49f",
+        "bytes": 1862988,
+        "publicURL": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/motion/liver_breathing.glb",
+        "evidence": "Exact hash/size against retained published Assets v15 payload and inventory; no new independent network download in this planning step."
+      },
+      "reviewedAt": "2026-10-23T12:32:11Z",
+      "visual": {
+        "status": "needs-revision",
+        "scope": "Persistent coarse terraced bands remain in exact-export and retained-source neutral comparisons; needs revision for detailed surface presentation, not a specimen anatomy diagnosis."
+      },
+      "scope": "Persistent coarse terraced bands remain in exact-export and retained-source neutral comparisons; needs revision for detailed surface presentation, not a specimen anatomy diagnosis.",
+      "evidence": [
+        {
+          "id": "liver__confirmed-static__0",
+          "file": "reviews/primary-history/primary-organs-quality-audit/renders/liver/comparison.png",
+          "sha256": "f5231a891e54948398da0b795f9a18108af4884d7a21363f63b4ac3114e4cb9b",
+          "sourceSha256": "1bc31b52f4b9d326cca6adb339c01a11d497cb0880ede682c8bb52889f5dc49f",
+          "assetBinding": "1bc31b52f4b9d326cca6adb339c01a11d497cb0880ede682c8bb52889f5dc49f",
+          "kind": "blender-still",
+          "label": {
+            "en": "Scoped original-baseline inspection",
+            "zh": "限定范围原始基线复核"
+          },
+          "role": "baseline",
+          "capturedAt": null,
+          "renderSettings": {
+            "renderer": "4.3.2 Workbench",
+            "projection": "orthographic",
+            "resolution": [
+              640,
+              640
+            ],
+            "frame": 1,
+            "axes": "Blender X patient left, -Y anterior, Z superior; from retained native importer mapping.",
+            "sourceTransform": "(-RAS_x/1000, -(RAS_y-155)/1000, (RAS_z-430)/1000)",
+            "appearance": "single clay, studio paint.sl, shadows/cavity off, no textures",
+            "visibilityFilter": "Only meshes inheriting view_role=surface; all other mesh roles hidden. This deliberately excludes authored cutaway/details, including pancreas duct."
+          }
+        }
+      ],
+      "limitations": [
+        "Visual decision only; anatomy and full runtime gates unchanged.",
+        "No clinical diagnosis or source specimen abnormality inferred.",
+        "Historical evidence preserved; later additive scoped decision only.",
+        "No new candidate or geometry/source replacement."
+      ],
+      "sourceRecordSha256": "115fc4c56835318333524820260cfd06c088539c47cc6dcbfda62778403bd45e",
+      "changedGateNames": [
+        "visual"
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "kidney_left__2026-10-23-confirmed-static-review",
+      "assetId": "kidney_left",
+      "variantId": "kidney_left__v10-837077aeece2",
+      "artifact": {
+        "assetId": "kidney_left",
+        "sha256": "af69ae49a012f8d5ccc469eb78adaec8fb563b45594de2a4583302cede50262c",
+        "bytes": 2527980,
+        "publicURL": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/motion/kidney_left_breathing.glb",
+        "evidence": "Exact hash/size against retained published Assets v15 payload and inventory; no new independent network download in this planning step."
+      },
+      "reviewedAt": "2026-10-23T12:32:11Z",
+      "visual": {
+        "status": "needs-revision",
+        "scope": "Persistent coarse terraced bands remain in exact-export and retained-source neutral comparisons; needs revision for detailed surface presentation, preserving side-specific anatomy."
+      },
+      "scope": "Persistent coarse terraced bands remain in exact-export and retained-source neutral comparisons; needs revision for detailed surface presentation, preserving side-specific anatomy.",
+      "evidence": [
+        {
+          "id": "kidney_left__confirmed-static__0",
+          "file": "reviews/primary-history/primary-organs-quality-audit/renders/kidney_left/comparison.png",
+          "sha256": "ef3764ff7817c213b080aa5c423e14bf2a1643cabaa149364a60f209fded4bb8",
+          "sourceSha256": "af69ae49a012f8d5ccc469eb78adaec8fb563b45594de2a4583302cede50262c",
+          "assetBinding": "af69ae49a012f8d5ccc469eb78adaec8fb563b45594de2a4583302cede50262c",
+          "kind": "blender-still",
+          "label": {
+            "en": "Scoped original-baseline inspection",
+            "zh": "限定范围原始基线复核"
+          },
+          "role": "baseline",
+          "capturedAt": null,
+          "renderSettings": {
+            "renderer": "4.3.2 Workbench",
+            "projection": "orthographic",
+            "resolution": [
+              640,
+              640
+            ],
+            "frame": 1,
+            "axes": "Blender X patient left, -Y anterior, Z superior; from retained native importer mapping.",
+            "sourceTransform": "(-RAS_x/1000, -(RAS_y-155)/1000, (RAS_z-430)/1000)",
+            "appearance": "single clay, studio paint.sl, shadows/cavity off, no textures",
+            "visibilityFilter": "Only meshes inheriting view_role=surface; all other mesh roles hidden. This deliberately excludes authored cutaway/details, including pancreas duct."
+          }
+        }
+      ],
+      "limitations": [
+        "Visual decision only; anatomy and full runtime gates unchanged.",
+        "No clinical diagnosis or source specimen abnormality inferred.",
+        "Historical evidence preserved; later additive scoped decision only.",
+        "No new candidate or geometry/source replacement."
+      ],
+      "sourceRecordSha256": "6f877f0374d7e62572df4b43d41cebd40a8e714a6892a8f1f00492cf73a04640",
+      "changedGateNames": [
+        "visual"
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "kidney_right__2026-10-23-confirmed-static-review",
+      "assetId": "kidney_right",
+      "variantId": "kidney_right__v10-837077aeece2",
+      "artifact": {
+        "assetId": "kidney_right",
+        "sha256": "819bc96e46a99a0735df1b2ffc802d4e4fed03f888ec5eb73716b33c07ae0ec3",
+        "bytes": 2548328,
+        "publicURL": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/motion/kidney_right_breathing.glb",
+        "evidence": "Exact hash/size against retained published Assets v15 payload and inventory; no new independent network download in this planning step."
+      },
+      "reviewedAt": "2026-10-23T12:32:11Z",
+      "visual": {
+        "status": "needs-revision",
+        "scope": "Persistent coarse terraced bands remain in exact-export and retained-source neutral comparisons; needs revision for detailed surface presentation, preserving side-specific anatomy."
+      },
+      "scope": "Persistent coarse terraced bands remain in exact-export and retained-source neutral comparisons; needs revision for detailed surface presentation, preserving side-specific anatomy.",
+      "evidence": [
+        {
+          "id": "kidney_right__confirmed-static__0",
+          "file": "reviews/primary-history/primary-organs-quality-audit/renders/kidney_right/comparison.png",
+          "sha256": "9c9819dab9b5a1e422b5266169059e986a81421e5b41db50cafa044c79384dfc",
+          "sourceSha256": "819bc96e46a99a0735df1b2ffc802d4e4fed03f888ec5eb73716b33c07ae0ec3",
+          "assetBinding": "819bc96e46a99a0735df1b2ffc802d4e4fed03f888ec5eb73716b33c07ae0ec3",
+          "kind": "blender-still",
+          "label": {
+            "en": "Scoped original-baseline inspection",
+            "zh": "限定范围原始基线复核"
+          },
+          "role": "baseline",
+          "capturedAt": null,
+          "renderSettings": {
+            "renderer": "4.3.2 Workbench",
+            "projection": "orthographic",
+            "resolution": [
+              640,
+              640
+            ],
+            "frame": 1,
+            "axes": "Blender X patient left, -Y anterior, Z superior; from retained native importer mapping.",
+            "sourceTransform": "(-RAS_x/1000, -(RAS_y-155)/1000, (RAS_z-430)/1000)",
+            "appearance": "single clay, studio paint.sl, shadows/cavity off, no textures",
+            "visibilityFilter": "Only meshes inheriting view_role=surface; all other mesh roles hidden. This deliberately excludes authored cutaway/details, including pancreas duct."
+          }
+        }
+      ],
+      "limitations": [
+        "Visual decision only; anatomy and full runtime gates unchanged.",
+        "No clinical diagnosis or source specimen abnormality inferred.",
+        "Historical evidence preserved; later additive scoped decision only.",
+        "No new candidate or geometry/source replacement."
+      ],
+      "sourceRecordSha256": "5cdab1cdd7d42b2f6a17df86329db6d5061ac4631133e4c1815e70889eddce04",
+      "changedGateNames": [
+        "visual"
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "spleen__2026-10-23-confirmed-static-review",
+      "assetId": "spleen",
+      "variantId": "spleen__v10-837077aeece2",
+      "artifact": {
+        "assetId": "spleen",
+        "sha256": "a645df334901e46f24ad44b756d30234ce18bfa74e821d9a1b7ae432a045181b",
+        "bytes": 1856780,
+        "publicURL": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/motion/spleen_breathing.glb",
+        "evidence": "Exact hash/size against retained published Assets v15 payload and inventory; no new independent network download in this planning step."
+      },
+      "reviewedAt": "2026-10-23T12:32:11Z",
+      "visual": {
+        "status": "needs-revision",
+        "scope": "Persistent coarse terraced bands remain in exact-export and retained-source neutral comparisons; needs revision for detailed surface presentation, not a specimen anatomy diagnosis."
+      },
+      "scope": "Persistent coarse terraced bands remain in exact-export and retained-source neutral comparisons; needs revision for detailed surface presentation, not a specimen anatomy diagnosis.",
+      "evidence": [
+        {
+          "id": "spleen__confirmed-static__0",
+          "file": "reviews/primary-history/primary-organs-quality-audit/renders/spleen/comparison.png",
+          "sha256": "95c89910c47fb0812dd2e409717b1f9da912db134155328de953a87081be9f87",
+          "sourceSha256": "a645df334901e46f24ad44b756d30234ce18bfa74e821d9a1b7ae432a045181b",
+          "assetBinding": "a645df334901e46f24ad44b756d30234ce18bfa74e821d9a1b7ae432a045181b",
+          "kind": "blender-still",
+          "label": {
+            "en": "Scoped original-baseline inspection",
+            "zh": "限定范围原始基线复核"
+          },
+          "role": "baseline",
+          "capturedAt": null,
+          "renderSettings": {
+            "renderer": "4.3.2 Workbench",
+            "projection": "orthographic",
+            "resolution": [
+              640,
+              640
+            ],
+            "frame": 1,
+            "axes": "Blender X patient left, -Y anterior, Z superior; from retained native importer mapping.",
+            "sourceTransform": "(-RAS_x/1000, -(RAS_y-155)/1000, (RAS_z-430)/1000)",
+            "appearance": "single clay, studio paint.sl, shadows/cavity off, no textures",
+            "visibilityFilter": "Only meshes inheriting view_role=surface; all other mesh roles hidden. This deliberately excludes authored cutaway/details, including pancreas duct."
+          }
+        }
+      ],
+      "limitations": [
+        "Visual decision only; anatomy and full runtime gates unchanged.",
+        "No clinical diagnosis or source specimen abnormality inferred.",
+        "Historical evidence preserved; later additive scoped decision only.",
+        "No new candidate or geometry/source replacement."
+      ],
+      "sourceRecordSha256": "8dd088f27b1b34cb0f67213a4c7be75e641cc71063b640ef53bf023b95fae9d0",
+      "changedGateNames": [
+        "visual"
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "bladder__2026-10-23-confirmed-static-review",
+      "assetId": "bladder",
+      "variantId": "bladder__v10-837077aeece2",
+      "artifact": {
+        "assetId": "bladder",
+        "sha256": "798329114cfcd241d7f8342fc8faa70ff33fdbded6029bb128d82c3d6f50d8c5",
+        "bytes": 1524184,
+        "publicURL": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/meshes/bladder.glb",
+        "evidence": "Exact hash/size against retained published Assets v15 payload and inventory; no new independent network download in this planning step."
+      },
+      "reviewedAt": "2026-10-23T12:32:11Z",
+      "visual": {
+        "status": "needs-revision",
+        "scope": "Analytic bulb/uniform tube schematic below requested detailed visual target; needs revision, preserving schematic identity."
+      },
+      "scope": "Analytic bulb/uniform tube schematic below requested detailed visual target; needs revision, preserving schematic identity.",
+      "evidence": [
+        {
+          "id": "bladder__confirmed-static__0",
+          "file": "reviews/primary-history/primary-organs-quality-audit/renders/bladder/comparison.png",
+          "sha256": "903b7294722b2bae0e9db7e2346082de996fd9d802a139d1c533300dc077d7bd",
+          "sourceSha256": "798329114cfcd241d7f8342fc8faa70ff33fdbded6029bb128d82c3d6f50d8c5",
+          "assetBinding": "798329114cfcd241d7f8342fc8faa70ff33fdbded6029bb128d82c3d6f50d8c5",
+          "kind": "blender-still",
+          "label": {
+            "en": "Scoped original-baseline inspection",
+            "zh": "限定范围原始基线复核"
+          },
+          "role": "baseline",
+          "capturedAt": null,
+          "renderSettings": {
+            "renderer": "4.3.2 Workbench",
+            "projection": "orthographic",
+            "resolution": [
+              640,
+              640
+            ],
+            "frame": 1,
+            "axes": "Blender X patient left, -Y anterior, Z superior; from retained native importer mapping.",
+            "sourceTransform": "(-RAS_x/1000, -(RAS_y-155)/1000, (RAS_z-430)/1000)",
+            "appearance": "single clay, studio paint.sl, shadows/cavity off, no textures",
+            "visibilityFilter": "Only meshes inheriting view_role=surface; all other mesh roles hidden. This deliberately excludes authored cutaway/details, including pancreas duct."
+          }
+        }
+      ],
+      "limitations": [
+        "Visual decision only; anatomy and full runtime gates unchanged.",
+        "No clinical diagnosis or source specimen abnormality inferred.",
+        "Historical evidence preserved; later additive scoped decision only.",
+        "No new candidate or geometry/source replacement."
+      ],
+      "sourceRecordSha256": "d158451c75d246bb5ec2427c303306f1812f97517d4e18686b733be780550092",
+      "changedGateNames": [
+        "visual"
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "pancreas__2026-10-23-confirmed-static-review",
+      "assetId": "pancreas",
+      "variantId": "pancreas__v10-837077aeece2",
+      "artifact": {
+        "assetId": "pancreas",
+        "sha256": "df8b88d8fe5dac619ac5840ddcb57c2968dab0db76086dee2b7925f0c5f53d80",
+        "bytes": 1940428,
+        "publicURL": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/motion/pancreas_breathing.glb",
+        "evidence": "Exact hash/size against retained published Assets v15 payload and inventory; no new independent network download in this planning step."
+      },
+      "reviewedAt": "2026-10-23T12:32:11Z",
+      "visual": {
+        "status": "needs-review",
+        "scope": "Needs review: coarse source-limited lobulation; no confidently established defect or anatomy verdict. Obtain source/context before judging or reshaping."
+      },
+      "scope": "Needs review: coarse source-limited lobulation; no confidently established defect or anatomy verdict. Obtain source/context before judging or reshaping.",
+      "evidence": [
+        {
+          "id": "pancreas__confirmed-static__0",
+          "file": "reviews/primary-history/primary-organs-quality-audit/renders/pancreas/comparison.png",
+          "sha256": "432d9165ffe7d4c0ca042307687d8caba28b9f6d44e4cbf32900380558dfe841",
+          "sourceSha256": "df8b88d8fe5dac619ac5840ddcb57c2968dab0db76086dee2b7925f0c5f53d80",
+          "assetBinding": "df8b88d8fe5dac619ac5840ddcb57c2968dab0db76086dee2b7925f0c5f53d80",
+          "kind": "blender-still",
+          "label": {
+            "en": "Scoped original-baseline inspection",
+            "zh": "限定范围原始基线复核"
+          },
+          "role": "baseline",
+          "capturedAt": null,
+          "renderSettings": {
+            "renderer": "4.3.2 Workbench",
+            "projection": "orthographic",
+            "resolution": [
+              640,
+              640
+            ],
+            "frame": 1,
+            "axes": "Blender X patient left, -Y anterior, Z superior; from retained native importer mapping.",
+            "sourceTransform": "(-RAS_x/1000, -(RAS_y-155)/1000, (RAS_z-430)/1000)",
+            "appearance": "single clay, studio paint.sl, shadows/cavity off, no textures",
+            "visibilityFilter": "Only meshes inheriting view_role=surface; all other mesh roles hidden. This deliberately excludes authored cutaway/details, including pancreas duct."
+          }
+        }
+      ],
+      "limitations": [
+        "Visual decision only; anatomy and full runtime gates unchanged.",
+        "No clinical diagnosis or source specimen abnormality inferred.",
+        "Historical evidence preserved; later additive scoped decision only.",
+        "No new candidate or geometry/source replacement."
+      ],
+      "sourceRecordSha256": "158f9464d282623f34f4d661adff8c7aa0ff016e9e1f27b0209b35c90b6ec890",
+      "changedGateNames": [
+        "visual"
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "diaphragm__2026-10-23-confirmed-static-review",
+      "assetId": "diaphragm",
+      "variantId": "diaphragm__v10-837077aeece2",
+      "artifact": {
+        "assetId": "diaphragm",
+        "sha256": "b68787a1a90912ebd75fd8c60492c34072c61dce86384775e9609d94e80e676e",
+        "bytes": 74136,
+        "publicURL": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/motion/diaphragm_breathing.glb",
+        "evidence": "Exact hash/size against retained published Assets v15 payload and inventory; no new independent network download in this planning step."
+      },
+      "reviewedAt": "2026-10-23T12:32:11Z",
+      "visual": {
+        "status": "needs-revision",
+        "scope": "Needs revision against requested detailed teaching target, preserving useful open-dome motion-schematic purpose. Intentional openness is NOT a topology failure; static views say nothing about motion."
+      },
+      "scope": "Needs revision against requested detailed teaching target, preserving useful open-dome motion-schematic purpose. Intentional openness is NOT a topology failure; static views say nothing about motion.",
+      "evidence": [
+        {
+          "id": "diaphragm__confirmed-static__0",
+          "file": "reviews/diaphragm/2026-10-23-v10-exterior-review/diaphragm/screenshots/contact.png",
+          "sha256": "8a4f3dd11c6b760b911e4c03e586a836e5f51955b4a4afaef5eb903d820a93f3",
+          "sourceSha256": "b68787a1a90912ebd75fd8c60492c34072c61dce86384775e9609d94e80e676e",
+          "assetBinding": "b68787a1a90912ebd75fd8c60492c34072c61dce86384775e9609d94e80e676e",
+          "kind": "blender-still",
+          "label": {
+            "en": "Scoped original-baseline inspection",
+            "zh": "限定范围原始基线复核"
+          },
+          "role": "baseline",
+          "capturedAt": null,
+          "renderSettings": {
+            "engine": "Blender 4.3.2 Cycles CPU",
+            "samples": 32,
+            "resolution": [
+              512,
+              512
+            ],
+            "frame": 1,
+            "projection": "orthographic",
+            "orientation": "Manifest x=patient left, y=superior, z=anterior; glTF imported to Blender Z-up; cameras front=-Y,left=+X,back=+Y",
+            "hiddenCutawayNodes": [],
+            "scope": "Exterior static view only. Internal details may remain occluded. No motion or runtime verification."
+          }
+        }
+      ],
+      "limitations": [
+        "Visual decision only; anatomy and full runtime gates unchanged.",
+        "No clinical diagnosis or source specimen abnormality inferred.",
+        "Historical evidence preserved; later additive scoped decision only.",
+        "No new candidate or geometry/source replacement."
+      ],
+      "sourceRecordSha256": "de4d00c63c8ebb2051a9d9ed22c4f3015e5c1996649b6254c362fa80014ac985",
+      "changedGateNames": [
+        "visual"
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "draft_esophagus__2026-10-23-confirmed-static-review",
+      "assetId": "draft_esophagus",
+      "variantId": "draft_esophagus__v10-837077aeece2",
+      "artifact": {
+        "assetId": "draft_esophagus",
+        "sha256": "3ee499bbc94fc91a1b0d5b74e92b91f9293bfb523f9118302a1c524b6b08a24c",
+        "bytes": 77896,
+        "publicURL": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/pelvis/esophagus.glb",
+        "evidence": "Exact hash/size against retained published Assets v15 payload and inventory; no new independent network download in this planning step."
+      },
+      "reviewedAt": "2026-10-23T12:32:11Z",
+      "visual": {
+        "status": "needs-revision",
+        "scope": "Needs revision against requested detailed teaching target, preserving useful tube-schematic purpose. Static views do not establish lumen, attachments or motion."
+      },
+      "scope": "Needs revision against requested detailed teaching target, preserving useful tube-schematic purpose. Static views do not establish lumen, attachments or motion.",
+      "evidence": [
+        {
+          "id": "draft_esophagus__confirmed-static__0",
+          "file": "reviews/esophagus/2026-10-23-v10-exterior-review/draft_esophagus/screenshots/contact.png",
+          "sha256": "ca2680b175e38b0c33d5c07af63b0dc5d803ca429d838eb35c4435cfd32e79ac",
+          "sourceSha256": "3ee499bbc94fc91a1b0d5b74e92b91f9293bfb523f9118302a1c524b6b08a24c",
+          "assetBinding": "3ee499bbc94fc91a1b0d5b74e92b91f9293bfb523f9118302a1c524b6b08a24c",
+          "kind": "blender-still",
+          "label": {
+            "en": "Scoped original-baseline inspection",
+            "zh": "限定范围原始基线复核"
+          },
+          "role": "baseline",
+          "capturedAt": null,
+          "renderSettings": {
+            "engine": "Blender 4.3.2 Cycles CPU",
+            "samples": 32,
+            "resolution": [
+              512,
+              512
+            ],
+            "frame": 1,
+            "projection": "orthographic",
+            "orientation": "Manifest x=patient left, y=superior, z=anterior; glTF imported to Blender Z-up; cameras front=-Y,left=+X,back=+Y",
+            "hiddenCutawayNodes": [],
+            "scope": "Exterior static view only. Internal details may remain occluded. No motion or runtime verification."
+          }
+        }
+      ],
+      "limitations": [
+        "Visual decision only; anatomy and full runtime gates unchanged.",
+        "No clinical diagnosis or source specimen abnormality inferred.",
+        "Historical evidence preserved; later additive scoped decision only.",
+        "No new candidate or geometry/source replacement."
+      ],
+      "sourceRecordSha256": "97636c50a59d5966309cbf37070bc24537c184d9e20284667f2b586bf27bb9ba",
+      "changedGateNames": [
+        "visual"
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "bronchial_tree__2026-10-23-confirmed-static-review",
+      "assetId": "bronchial_tree",
+      "variantId": "bronchial_tree__v10-837077aeece2",
+      "artifact": {
+        "assetId": "bronchial_tree",
+        "sha256": "2d2d4e269995f11179cfa423a302f144d9d163883ccde0995a2987e83dd2e898",
+        "bytes": 1640504,
+        "publicURL": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/meshes/bronchial_tree.glb",
+        "evidence": "Exact hash/size against retained published Assets v15 payload and inventory; no new independent network download in this planning step."
+      },
+      "reviewedAt": "2026-10-23T12:32:11Z",
+      "visual": {
+        "status": "needs-revision",
+        "scope": "Needs revision for visible overlapping routes and abrupt authored branch joins; projected overlaps alone do not prove graph cycles."
+      },
+      "scope": "Needs revision for visible overlapping routes and abrupt authored branch joins; projected overlaps alone do not prove graph cycles.",
+      "evidence": [
+        {
+          "id": "bronchial_tree__confirmed-static__0",
+          "file": "reviews/readonly-audits/torso-readonly-audit-20261023/bronchial_tree-diagnostic-contact.png",
+          "sha256": "733bd37587a3c092ab3916387d38f8145deb8c0ccc1b2fc9efd4d636c84533e3",
+          "sourceSha256": "2d2d4e269995f11179cfa423a302f144d9d163883ccde0995a2987e83dd2e898",
+          "assetBinding": "2d2d4e269995f11179cfa423a302f144d9d163883ccde0995a2987e83dd2e898",
+          "kind": "blender-still",
+          "label": {
+            "en": "Scoped original-baseline inspection",
+            "zh": "限定范围原始基线复核"
+          },
+          "role": "baseline",
+          "capturedAt": null,
+          "renderSettings": null
+        }
+      ],
+      "limitations": [
+        "Visual decision only; anatomy and full runtime gates unchanged.",
+        "No clinical diagnosis or source specimen abnormality inferred.",
+        "Historical evidence preserved; later additive scoped decision only.",
+        "No new candidate or geometry/source replacement."
+      ],
+      "sourceRecordSha256": "2f3bccac1e15bbc32392ff678c1021e001d91d5bdb50d2b1e1a2ea43ce103799",
+      "changedGateNames": [
+        "visual"
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "trachea__2026-10-23-confirmed-static-review",
+      "assetId": "trachea",
+      "variantId": "trachea__v10-837077aeece2",
+      "artifact": {
+        "assetId": "trachea",
+        "sha256": "5390537c1e27e9630ec93d4d5437d29081c26f88e87889834091e3fca47ccd45",
+        "bytes": 2858964,
+        "publicURL": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/meshes/trachea.glb",
+        "evidence": "Exact hash/size against retained published Assets v15 payload and inventory; no new independent network download in this planning step."
+      },
+      "reviewedAt": "2026-10-23T12:32:11Z",
+      "visual": {
+        "status": "needs-revision",
+        "scope": "Needs revision for conspicuously protruding authored cartilage rings; source-derived host does not authenticate additions."
+      },
+      "scope": "Needs revision for conspicuously protruding authored cartilage rings; source-derived host does not authenticate additions.",
+      "evidence": [
+        {
+          "id": "trachea__confirmed-static__0",
+          "file": "reviews/readonly-audits/torso-readonly-audit-20261023/trachea-diagnostic-contact.png",
+          "sha256": "5af9ac4741d3a1e38ba341f6ac207f145115584e1341e2f2431596935a510596",
+          "sourceSha256": "5390537c1e27e9630ec93d4d5437d29081c26f88e87889834091e3fca47ccd45",
+          "assetBinding": "5390537c1e27e9630ec93d4d5437d29081c26f88e87889834091e3fca47ccd45",
+          "kind": "blender-still",
+          "label": {
+            "en": "Scoped original-baseline inspection",
+            "zh": "限定范围原始基线复核"
+          },
+          "role": "baseline",
+          "capturedAt": null,
+          "renderSettings": null
+        }
+      ],
+      "limitations": [
+        "Visual decision only; anatomy and full runtime gates unchanged.",
+        "No clinical diagnosis or source specimen abnormality inferred.",
+        "Historical evidence preserved; later additive scoped decision only.",
+        "No new candidate or geometry/source replacement."
+      ],
+      "sourceRecordSha256": "7309dc6339cdeffa52dc996c9609cc26e4a78e4d7378d1207f0ae26525fa75ac",
+      "changedGateNames": [
+        "visual"
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "aorta__2026-10-23-confirmed-static-review",
+      "assetId": "aorta",
+      "variantId": "aorta__v10-837077aeece2",
+      "artifact": {
+        "assetId": "aorta",
+        "sha256": "1a20d6322cefb6c6c85c7c8ed95295e8314e568a12420434ccda40beb4f8cc31",
+        "bytes": 1189864,
+        "publicURL": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/meshes/aorta.glb",
+        "evidence": "Exact hash/size against retained published Assets v15 payload and inventory; no new independent network download in this planning step."
+      },
+      "reviewedAt": "2026-10-23T12:32:11Z",
+      "visual": {
+        "status": "needs-review",
+        "scope": "Needs review: source-limited/ambiguous morphology and coverage; original source/context required before judging or reshaping. Do not label specimen anatomy wrong."
+      },
+      "scope": "Needs review: source-limited/ambiguous morphology and coverage; original source/context required before judging or reshaping. Do not label specimen anatomy wrong.",
+      "evidence": [
+        {
+          "id": "aorta__confirmed-static__0",
+          "file": "reviews/readonly-audits/torso-readonly-audit-20261023/aorta-diagnostic-contact.png",
+          "sha256": "1b2e6313ef7edc2fe5f0237892aa18e7d5db1986bcd57a24bda391a3f609b559",
+          "sourceSha256": "1a20d6322cefb6c6c85c7c8ed95295e8314e568a12420434ccda40beb4f8cc31",
+          "assetBinding": "1a20d6322cefb6c6c85c7c8ed95295e8314e568a12420434ccda40beb4f8cc31",
+          "kind": "blender-still",
+          "label": {
+            "en": "Scoped original-baseline inspection",
+            "zh": "限定范围原始基线复核"
+          },
+          "role": "baseline",
+          "capturedAt": null,
+          "renderSettings": null
+        }
+      ],
+      "limitations": [
+        "Visual decision only; anatomy and full runtime gates unchanged.",
+        "No clinical diagnosis or source specimen abnormality inferred.",
+        "Historical evidence preserved; later additive scoped decision only.",
+        "No new candidate or geometry/source replacement."
+      ],
+      "sourceRecordSha256": "de302ca64580b231d7574cf7244c98dfc32aa0d568d57da67aa7a85b377732ba",
+      "changedGateNames": [
+        "visual"
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "gallbladder__2026-10-23-confirmed-static-review",
+      "assetId": "gallbladder",
+      "variantId": "gallbladder__v10-837077aeece2",
+      "artifact": {
+        "assetId": "gallbladder",
+        "sha256": "5c403eeb19149ae9989dd3f26b63f002359c1184a9d22bffd868ac0be45cff4f",
+        "bytes": 2125208,
+        "publicURL": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/motion/gallbladder_breathing.glb",
+        "evidence": "Exact hash/size against retained published Assets v15 payload and inventory; no new independent network download in this planning step."
+      },
+      "reviewedAt": "2026-10-23T12:32:11Z",
+      "visual": {
+        "status": "needs-review",
+        "scope": "Needs review: source-limited/ambiguous morphology and authored duct relationship; original source/context required before judging or reshaping. Do not label specimen anatomy wrong."
+      },
+      "scope": "Needs review: source-limited/ambiguous morphology and authored duct relationship; original source/context required before judging or reshaping. Do not label specimen anatomy wrong.",
+      "evidence": [
+        {
+          "id": "gallbladder__confirmed-static__0",
+          "file": "reviews/readonly-audits/torso-readonly-audit-20261023/gallbladder-diagnostic-contact.png",
+          "sha256": "57b0ec5379fd11b028cdca9989bde2a2abe5bf02c8fade792bcdb691803493ce",
+          "sourceSha256": "5c403eeb19149ae9989dd3f26b63f002359c1184a9d22bffd868ac0be45cff4f",
+          "assetBinding": "5c403eeb19149ae9989dd3f26b63f002359c1184a9d22bffd868ac0be45cff4f",
+          "kind": "blender-still",
+          "label": {
+            "en": "Scoped original-baseline inspection",
+            "zh": "限定范围原始基线复核"
+          },
+          "role": "baseline",
+          "capturedAt": null,
+          "renderSettings": null
+        }
+      ],
+      "limitations": [
+        "Visual decision only; anatomy and full runtime gates unchanged.",
+        "No clinical diagnosis or source specimen abnormality inferred.",
+        "Historical evidence preserved; later additive scoped decision only.",
+        "No new candidate or geometry/source replacement."
+      ],
+      "sourceRecordSha256": "5567bcc01718e0b9bd8f7dc1e34cdf66a49e763ad0e9fd8b2f507275efaf6429",
+      "changedGateNames": [
+        "visual"
+      ],
+      "candidateCountDelta": 0
+    },
+    {
+      "id": "pulmonary_vein__2026-10-23-confirmed-static-review",
+      "assetId": "pulmonary_vein",
+      "variantId": "pulmonary_vein__v10-837077aeece2",
+      "artifact": {
+        "assetId": "pulmonary_vein",
+        "sha256": "9dcafbb0fcc625ad7952443e0b6274d200e4a97c9792ccecaa3645bd80214355",
+        "bytes": 1719172,
+        "publicURL": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/meshes/pulmonary_vein.glb",
+        "evidence": "Exact hash/size against retained published Assets v15 payload and inventory; no new independent network download in this planning step."
+      },
+      "reviewedAt": "2026-10-23T12:32:11Z",
+      "visual": {
+        "status": "needs-review",
+        "scope": "Needs review: source-limited/ambiguous morphology and coverage; original source/context required before judging or reshaping. Do not label specimen anatomy wrong."
+      },
+      "scope": "Needs review: source-limited/ambiguous morphology and coverage; original source/context required before judging or reshaping. Do not label specimen anatomy wrong.",
+      "evidence": [
+        {
+          "id": "pulmonary_vein__confirmed-static__0",
+          "file": "reviews/readonly-audits/torso-readonly-audit-20261023/pulmonary_vein-diagnostic-contact.png",
+          "sha256": "13eae705f16135f3b6b2a28e65219c7bb9ef5dbbf1b7155d27dbefe362d124a8",
+          "sourceSha256": "9dcafbb0fcc625ad7952443e0b6274d200e4a97c9792ccecaa3645bd80214355",
+          "assetBinding": "9dcafbb0fcc625ad7952443e0b6274d200e4a97c9792ccecaa3645bd80214355",
+          "kind": "blender-still",
+          "label": {
+            "en": "Scoped original-baseline inspection",
+            "zh": "限定范围原始基线复核"
+          },
+          "role": "baseline",
+          "capturedAt": null,
+          "renderSettings": null
+        }
+      ],
+      "limitations": [
+        "Visual decision only; anatomy and full runtime gates unchanged.",
+        "No clinical diagnosis or source specimen abnormality inferred.",
+        "Historical evidence preserved; later additive scoped decision only.",
+        "No new candidate or geometry/source replacement."
+      ],
+      "sourceRecordSha256": "d51a553b1589ce6d87c2882bfd488e391af50849073f0615aa3449c5a8bebfd8",
+      "changedGateNames": [
+        "visual"
+      ],
+      "candidateCountDelta": 0
+    }
+  ],
+  "note": "Additive later visual decisions; historical reviews not replaced. No full catalog migration."
+}
