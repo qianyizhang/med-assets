@@ -1,0 +1,19 @@
+{
+  "canonicalSha256": "4c7c738b3ca6ae6cc7e44a449be0f7d26d04ceb9975e43d3b834a2caad96618c",
+  "newReplaySha256": "9ad47f5553446f448b097d6e3eb045587b5f8e3545b9f491907574fd8b4ec7b5",
+  "previousRetainedReplaySha256": "548417b8f3eff1e89e230ec3010f7e2452ea98f83f7e9627469d80ff49b4e75e",
+  "command": "Blender 4.3.2 --background --factory-startup --threads 4, handed-off build_study_r05.py",
+  "result": "strict-geometry-equivalence-failed",
+  "affectedNodes": [
+    "NEUTROPHIL_INTACT_one_connected_segmented_nucleus",
+    "NEUTROPHIL_INTACT_cytoplasm_and_closed_outer_boundary",
+    "NEUTROPHIL_CUTAWAY_front_half_cytoplasm_removed",
+    "NEUTROPHIL_CUTAWAY_same_connected_nucleus"
+  ],
+  "nodesAndMaterialsEqual": true,
+  "cause": "Unestablished; build/remesh thread sensitivity is a hypothesis, not a verified explanation.",
+  "comparisonCaution": "Sorted-correspondence normal differences after unequal positions are not a reliable geometric error magnitude. The static interpretation sentence in the raw comparison report is superseded by its false exact-check flags and this failure record.",
+  "canonicalArtifactChanged": false,
+  "newVisualVerdict": false,
+  "replayArtifactPromoted": false
+}
