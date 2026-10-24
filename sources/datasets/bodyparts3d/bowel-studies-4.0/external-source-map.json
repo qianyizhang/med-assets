@@ -1,0 +1,755 @@
+{
+  "schema": "bp3d-bowel-external-source-v1",
+  "archive": {
+    "url": "https://dbarchive.biosciencedbc.jp/data/bodyparts3d/LATEST/partof_BP3D_4.0_obj_99.zip",
+    "sha256": "9fbc713fffeee924a5a657d9813d84d7eb957bded63adb854931dd5e3eb61c97",
+    "bytes": 64888505,
+    "includedInDraft": false,
+    "urlMutability": "LATEST URL is mutable, not a version-pinned URL. Exact archive/member hashes are mandatory identity requirements; fail closed on mismatch. No fresh availability check."
+  },
+  "sourceKind": "BodyParts3D 4.0 anatomical atlas / CAD-derived; not a raw patient scan",
+  "license": "CC-BY-4.0",
+  "licenseURL": "https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html",
+  "attribution": "BodyParts3D, © The Database Center for Life Science licensed under CC Attribution 4.0 International",
+  "historicalLicenseNotice": "Original OBJ headers retain historical CC BY-SA 2.1 Japan text. They are not rewritten. Retained official license page dated 2025-02-27 states CC BY 4.0 for the database.",
+  "licenseRecord": "sources/datasets/bodyparts3d/bowel-studies-4.0/license.html",
+  "originalProvenanceIdentity": {
+    "canonicalPath": "models/intestines/source/provenance.json",
+    "sha256": "ef1e9b12814271f2e01276c2187e0239f576de5461b112eaf830ede066900a6e",
+    "bytes": 15275,
+    "includedInDraft": false,
+    "availability": "Historical canonical record outside this bounded payload; not a bundled dependency."
+  },
+  "declaredProviderGroups": {
+    "small-intestine": [
+      "FJ2573",
+      "FJ2574",
+      "FJ2575",
+      "FJ2576",
+      "FJ2577",
+      "FJ2578",
+      "FJ2579",
+      "FJ2580",
+      "FJ2581",
+      "FJ2582",
+      "FJ2583",
+      "FJ2584",
+      "FJ2585",
+      "FJ2586",
+      "FJ2587",
+      "FJ2588",
+      "FJ2589",
+      "FJ2590",
+      "FJ2591",
+      "FJ2592",
+      "FJ2593",
+      "FJ2594",
+      "FJ2595",
+      "FJ2596",
+      "FJ2597",
+      "FJ2598",
+      "FJ2599",
+      "FJ2600",
+      "FJ2601",
+      "FJ2602",
+      "FJ2603",
+      "FJ2604",
+      "FJ2605",
+      "FJ2606",
+      "FJ2607",
+      "FJ2608",
+      "FJ2609",
+      "FJ2610",
+      "FJ2611",
+      "FJ2612",
+      "FJ2613",
+      "FJ2614",
+      "FJ2615",
+      "FJ2616",
+      "FJ2617",
+      "FJ2618",
+      "FJ2619",
+      "FJ2620",
+      "FJ2621",
+      "FJ2622",
+      "FJ2623",
+      "FJ2624",
+      "FJ2625",
+      "FJ2626",
+      "FJ2627",
+      "FJ2628"
+    ],
+    "large-intestine": [
+      "FJ2565",
+      "FJ2566",
+      "FJ2567",
+      "FJ2568",
+      "FJ2569",
+      "FJ2570",
+      "FJ2571",
+      "FJ2572",
+      "FJ2599"
+    ]
+  },
+  "exportComponentIds": {
+    "small-intestine": [
+      "FJ2573",
+      "FJ2574",
+      "FJ2575",
+      "FJ2576",
+      "FJ2577",
+      "FJ2578",
+      "FJ2579",
+      "FJ2580",
+      "FJ2581",
+      "FJ2582",
+      "FJ2583",
+      "FJ2584",
+      "FJ2585",
+      "FJ2586",
+      "FJ2587",
+      "FJ2588",
+      "FJ2589",
+      "FJ2590",
+      "FJ2591",
+      "FJ2592",
+      "FJ2593",
+      "FJ2594",
+      "FJ2595",
+      "FJ2596",
+      "FJ2597",
+      "FJ2598",
+      "FJ2599",
+      "FJ2600",
+      "FJ2601",
+      "FJ2602",
+      "FJ2603",
+      "FJ2604",
+      "FJ2605",
+      "FJ2606",
+      "FJ2607",
+      "FJ2608",
+      "FJ2609",
+      "FJ2610",
+      "FJ2611",
+      "FJ2612",
+      "FJ2613",
+      "FJ2614",
+      "FJ2615",
+      "FJ2616",
+      "FJ2617",
+      "FJ2618",
+      "FJ2619",
+      "FJ2620",
+      "FJ2621",
+      "FJ2622",
+      "FJ2623",
+      "FJ2624",
+      "FJ2625",
+      "FJ2626",
+      "FJ2627",
+      "FJ2628"
+    ],
+    "large-intestine": [
+      "FJ2565",
+      "FJ2566",
+      "FJ2567",
+      "FJ2568",
+      "FJ2569",
+      "FJ2570",
+      "FJ2571",
+      "FJ2572"
+    ]
+  },
+  "components": [
+    {
+      "id": "FJ2565",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2565.obj",
+      "sha256": "253d45e8f678603e82c29087ace8810e856f764fd254c20a5bba5bd8897c98d3",
+      "bytes": 27111,
+      "englishName": "Appendix",
+      "conceptId": "FMA14542",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2566",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2566.obj",
+      "sha256": "8c156d4b6c70b181ae7d5b181913f693948c38558a530996dbad0158993fb653",
+      "bytes": 214382,
+      "englishName": "Ascending colon",
+      "conceptId": "FMA14545",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2567",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2567.obj",
+      "sha256": "01227dde6807b83e2d2a4d1771765e5cb9f33d54719dbd1771b7245a5f7f7a4b",
+      "bytes": 365592,
+      "englishName": "Descending colon",
+      "conceptId": "FMA14547",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2568",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2568.obj",
+      "sha256": "0cb3bccddc08f3121e0e25355c88f68f484ea07d5d8815733b7b49eefd9dbcda",
+      "bytes": 1480719,
+      "englishName": "Taenia libera",
+      "conceptId": "FMA15044",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2569",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2569.obj",
+      "sha256": "9566e92b9c5c2a265c752200709f45d3deaacf32e8a62e4c41f0f3866b569107",
+      "bytes": 1386112,
+      "englishName": "Taenia mesocolica",
+      "conceptId": "FMA15042",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2570",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2570.obj",
+      "sha256": "9574b2cbadd22a230c1450101f27ba566d11e2f8c0c3c63329a082b39d89a807",
+      "bytes": 1319628,
+      "englishName": "Taenia omentalis",
+      "conceptId": "FMA15043",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2571",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2571.obj",
+      "sha256": "99a7fe3eb3f8aeb10b21b4eedde3a25df209cd80676cfb130f314cc731a8fcaf",
+      "bytes": 129716,
+      "englishName": "Rectum",
+      "conceptId": "FMA14544",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2572",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2572.obj",
+      "sha256": "66c493a453400d704e39950bbf468e70182c1e68090ac8a85099bfece42c9d35",
+      "bytes": 225551,
+      "englishName": "Transverse colon",
+      "conceptId": "FMA14546",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2573",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2573.obj",
+      "sha256": "d549d9857ced73b198cdde3ad2494e897b620884364588f8644d7f6fd74ae1cb",
+      "bytes": 112677,
+      "englishName": "Duodenum",
+      "conceptId": "FMA7206",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2574",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2574.obj",
+      "sha256": "b6547b41e4102688005d102b63a853dc0dc5c2e34610672e8c0639a6b4c4d563",
+      "bytes": 22516,
+      "englishName": "Proximal part of ileum",
+      "conceptId": "FMA14964",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2575",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2575.obj",
+      "sha256": "6be375a4887d1354e6b3e8e251e55f22da640e5b5f1f8a8224fd6678d1eda826",
+      "bytes": 16101,
+      "englishName": "Proximal part of ileum",
+      "conceptId": "FMA14964",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2576",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2576.obj",
+      "sha256": "5e5687e8af2e373c06136c1020a24ab8803c6dc580197fc589a41f9faea4f40e",
+      "bytes": 10158,
+      "englishName": "Middle part of ileum",
+      "conceptId": "FMA14965",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2577",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2577.obj",
+      "sha256": "ee3f47d0554de48b943b4db2d0f6bc1ec584e6ade56f8ec74bb185d1bdbcf84e",
+      "bytes": 19013,
+      "englishName": "Middle part of ileum",
+      "conceptId": "FMA14965",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2578",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2578.obj",
+      "sha256": "390a30e04a95b41f2a243cc96cc584a463ce8d1accd9b20d459ff71385b29065",
+      "bytes": 17639,
+      "englishName": "Middle part of ileum",
+      "conceptId": "FMA14965",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2579",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2579.obj",
+      "sha256": "b82be69d1481aeab262e79b074b4eacb1f783ae2090cf42b7774b20209e7cf58",
+      "bytes": 16654,
+      "englishName": "Middle part of ileum",
+      "conceptId": "FMA14965",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2580",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2580.obj",
+      "sha256": "f45bc8e30afc5d0aa37e8bcf5e310f5b4716df2c21ae7ebea299c8ec183b5b8b",
+      "bytes": 20141,
+      "englishName": "Middle part of ileum",
+      "conceptId": "FMA14965",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2581",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2581.obj",
+      "sha256": "bde15b34176f21e9eb9f65f7c2c6746637d183a8f088200595443a1f5d4266d5",
+      "bytes": 12422,
+      "englishName": "Middle part of ileum",
+      "conceptId": "FMA14965",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2582",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2582.obj",
+      "sha256": "d48d46d478d409f78b8d68c0ac8848192669680c93f00efdf1aff3741ab1eddb",
+      "bytes": 12523,
+      "englishName": "Middle part of ileum",
+      "conceptId": "FMA14965",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2583",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2583.obj",
+      "sha256": "69cc9c8b12d7c12092fbe451f2ed68860e378ec2c46967a2b71ac2e8806838f5",
+      "bytes": 11380,
+      "englishName": "Middle part of ileum",
+      "conceptId": "FMA14965",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2584",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2584.obj",
+      "sha256": "7bfd148d820040c750592c12cb0c86411fead3701607dffd2c3895369c6c1c11",
+      "bytes": 13112,
+      "englishName": "Middle part of ileum",
+      "conceptId": "FMA14965",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2585",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2585.obj",
+      "sha256": "1263e4a01037f3348768686d364f9f590008dfee2f8dd78539964db91f4aa861",
+      "bytes": 17449,
+      "englishName": "Proximal part of ileum",
+      "conceptId": "FMA14964",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2586",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2586.obj",
+      "sha256": "91b76f2902b8f280779820a305caf932cae577073952ba6d116be7a2f8a9243b",
+      "bytes": 15737,
+      "englishName": "Middle part of ileum",
+      "conceptId": "FMA14965",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2587",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2587.obj",
+      "sha256": "cd8315e26a28fce7c54233477704ed4ef1474d75572eb3e26e4e2e9ddc9c056d",
+      "bytes": 13068,
+      "englishName": "Distal part of ileum",
+      "conceptId": "FMA14966",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2588",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2588.obj",
+      "sha256": "b7cbb7897f8d57eb4a7169c32be00f5be796c1e7cc86e74aaec3ad193c677485",
+      "bytes": 15691,
+      "englishName": "Distal part of ileum",
+      "conceptId": "FMA14966",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2589",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2589.obj",
+      "sha256": "1d7695ab41a305eb349921c43dd720bf8016d23bf3859567370d9c339baf6722",
+      "bytes": 18969,
+      "englishName": "Distal part of ileum",
+      "conceptId": "FMA14966",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2590",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2590.obj",
+      "sha256": "73a877864b309b18fc7cb65db64d32baa9c058c9536b4b89fee097e2fc82dbae",
+      "bytes": 10654,
+      "englishName": "Distal part of ileum",
+      "conceptId": "FMA14966",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2591",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2591.obj",
+      "sha256": "dadd4bbb9dc091d2800e3f8d955d7766e5c86c2b854c34a6cd5c61a072d641a3",
+      "bytes": 13164,
+      "englishName": "Distal part of ileum",
+      "conceptId": "FMA14966",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2592",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2592.obj",
+      "sha256": "f5c18c8096976a2c19daa3d6c26cd0032ecec1691392d478b22f1d20c8273a1d",
+      "bytes": 14153,
+      "englishName": "Distal part of ileum",
+      "conceptId": "FMA14966",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2593",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2593.obj",
+      "sha256": "af8ebff2a50f5af91a8a54dac0fb2102850fe9415adb8a3d6893d3275c6736ff",
+      "bytes": 15169,
+      "englishName": "Distal part of ileum",
+      "conceptId": "FMA14966",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2594",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2594.obj",
+      "sha256": "70d6c0ad3390dbfccdda54d352f45b8156ab3255c2184072fecf2e974da01a5d",
+      "bytes": 12695,
+      "englishName": "Distal part of ileum",
+      "conceptId": "FMA14966",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2595",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2595.obj",
+      "sha256": "996e47dec84bf03f4ac007194b83e0eb4d5f511288288986a444fcb6140c1d1d",
+      "bytes": 15375,
+      "englishName": "Distal part of ileum",
+      "conceptId": "FMA14966",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2596",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2596.obj",
+      "sha256": "6dc16ba09ede9b97474595da2540e1268d98bfb10af952b0cc9e36231c3a505f",
+      "bytes": 14167,
+      "englishName": "Proximal part of ileum",
+      "conceptId": "FMA14964",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2597",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2597.obj",
+      "sha256": "bdd01b5ff6a117a4a13f23e9f4a9ac390dfa6f0e7550464527c62cf4998dceb6",
+      "bytes": 11754,
+      "englishName": "Distal part of ileum",
+      "conceptId": "FMA14966",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2598",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2598.obj",
+      "sha256": "0efc0e799d28e9df3d0483c828ff9cd4b65db7e0da5fd5d157bf0d10959bd897",
+      "bytes": 14440,
+      "englishName": "Distal part of ileum",
+      "conceptId": "FMA14966",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2599",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2599.obj",
+      "sha256": "38a95d81d5bf9acc1f22b29c50f5d6ee23352dc013ac245d227b1eaf96c5aa28",
+      "bytes": 17334,
+      "englishName": "Ileocecal junction",
+      "conceptId": "FMA11338",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2600",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2600.obj",
+      "sha256": "14cbe0e74c698aace6e1ed1d95d9da60a494f215caf948d760a84441cb47ffda",
+      "bytes": 15132,
+      "englishName": "Proximal part of ileum",
+      "conceptId": "FMA14964",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2601",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2601.obj",
+      "sha256": "af315559e744dcc9ba57c249ec3e7faae53f19211861731ba6cbb994d91061cf",
+      "bytes": 13048,
+      "englishName": "Proximal part of ileum",
+      "conceptId": "FMA14964",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2602",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2602.obj",
+      "sha256": "7300e8d6bcefd3476479fecc61eb1f707806500c9a896934ac7248a6088a01d3",
+      "bytes": 15572,
+      "englishName": "Proximal part of ileum",
+      "conceptId": "FMA14964",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2603",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2603.obj",
+      "sha256": "cdff2efd1e8a0acd13aafa6328043cc8f6e5b8a2b0831fb457af06e33d0d97ab",
+      "bytes": 17215,
+      "englishName": "Proximal part of ileum",
+      "conceptId": "FMA14964",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2604",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2604.obj",
+      "sha256": "cbe476086c02ceced25590d0fcbb6f250e0361f6cac08dca6e743f5ada2b6872",
+      "bytes": 12060,
+      "englishName": "Proximal part of ileum",
+      "conceptId": "FMA14964",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2605",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2605.obj",
+      "sha256": "3ad5c6f04a91c08332c264e9b7fea7839867ca1cada6d540d018ba75c64d49e9",
+      "bytes": 19706,
+      "englishName": "Proximal part of ileum",
+      "conceptId": "FMA14964",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2606",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2606.obj",
+      "sha256": "89b5f2a7b84ce723f206eefd2ffedd8318fca2fd540ceddee173243fb57d9912",
+      "bytes": 21177,
+      "englishName": "Proximal part of jejunum",
+      "conceptId": "FMA16981",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2607",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2607.obj",
+      "sha256": "13bbe7d80aa85d7d25e1dad84b9c91842c64f25baa7d46c55950aac11cd12e94",
+      "bytes": 14011,
+      "englishName": "Middle part of jejunum",
+      "conceptId": "FMA16982",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2608",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2608.obj",
+      "sha256": "f1699baa49100725b02d81bec5cbe9a344f08bbf04f66a335d77fae079230130",
+      "bytes": 15010,
+      "englishName": "Middle part of jejunum",
+      "conceptId": "FMA16982",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2609",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2609.obj",
+      "sha256": "c666347a146576fef68f20a0108b3aaa4c64a4b47340fb4d438429a6878d7b0b",
+      "bytes": 10884,
+      "englishName": "Middle part of jejunum",
+      "conceptId": "FMA16982",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2610",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2610.obj",
+      "sha256": "b99fd902532e7f255a4bbf324e8965adc3630544f981763357f1a3362bc8f2d1",
+      "bytes": 17391,
+      "englishName": "Middle part of jejunum",
+      "conceptId": "FMA16982",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2611",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2611.obj",
+      "sha256": "f307128f506971b523b25c63df7d603561f283327f7cb7a027c69cbd05985abf",
+      "bytes": 13410,
+      "englishName": "Distal part of jejunum",
+      "conceptId": "FMA16983",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2612",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2612.obj",
+      "sha256": "4caa419f277f7a7543a92becadeafdbb2ece3f7e9d423986edb0b2f5c72efd77",
+      "bytes": 14768,
+      "englishName": "Distal part of jejunum",
+      "conceptId": "FMA16983",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2613",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2613.obj",
+      "sha256": "4050e67d24cc9e4682b006278584417b05b996501fc14fa1b9ac3e25924174a2",
+      "bytes": 10132,
+      "englishName": "Distal part of jejunum",
+      "conceptId": "FMA16983",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2614",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2614.obj",
+      "sha256": "3a0fe667c05cf00349c0f0e6dee83af8f9612d2ab0a61cb393082acbd2f45273",
+      "bytes": 13430,
+      "englishName": "Distal part of jejunum",
+      "conceptId": "FMA16983",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2615",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2615.obj",
+      "sha256": "d88c128830e798dd41d723687954fa148702362df7794cb8bff0e69e85fbac6b",
+      "bytes": 16021,
+      "englishName": "Distal part of jejunum",
+      "conceptId": "FMA16983",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2616",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2616.obj",
+      "sha256": "39f4f1e9c3e1c6882e60b1e1386ca8b75b7877b7da247c7188868ddd891c9411",
+      "bytes": 26546,
+      "englishName": "Distal part of jejunum",
+      "conceptId": "FMA16983",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2617",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2617.obj",
+      "sha256": "b590f94cbe6821b109ecb7d6db1f0a7ba34c696c7618187c3c93ce732317a31d",
+      "bytes": 14289,
+      "englishName": "Proximal part of jejunum",
+      "conceptId": "FMA16981",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2618",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2618.obj",
+      "sha256": "dba020a6ad5d06cefef0bd468aa2767ff642f8fa9fe8d9907ad7d4d8031358a6",
+      "bytes": 13022,
+      "englishName": "Distal part of jejunum",
+      "conceptId": "FMA16983",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2619",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2619.obj",
+      "sha256": "9f4394a95d24321b3c19f7cf41744a10db1fc8cb8b180c11c89ca15a01c0b920",
+      "bytes": 15669,
+      "englishName": "Distal part of jejunum",
+      "conceptId": "FMA16983",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2620",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2620.obj",
+      "sha256": "e44f63bc62ff749cb53c1e7a914e6ab6284e82adbdfc4117c6c62092de4d2ecc",
+      "bytes": 17068,
+      "englishName": "Distal part of jejunum",
+      "conceptId": "FMA16983",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2621",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2621.obj",
+      "sha256": "fa44e8a3155ccd5c6c98b111a28de4727654ddc5a2ff7a22dd0a50e6efe3ab76",
+      "bytes": 30871,
+      "englishName": "Distal part of jejunum",
+      "conceptId": "FMA16983",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2622",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2622.obj",
+      "sha256": "005ab831ac1e943836bbab604e1d65977d4c386e593e3644e78f5361ed027cbf",
+      "bytes": 10197,
+      "englishName": "Proximal part of jejunum",
+      "conceptId": "FMA16981",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2623",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2623.obj",
+      "sha256": "38ecee2c5b418641b9399e91f493db87abba6b6a1e8cf9250fcdc295491f025d",
+      "bytes": 22960,
+      "englishName": "Proximal part of jejunum",
+      "conceptId": "FMA16981",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2624",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2624.obj",
+      "sha256": "732a475c4d81228ac54222aa259390d259d2d0f86453777fd23c670a1123a626",
+      "bytes": 10190,
+      "englishName": "Proximal part of jejunum",
+      "conceptId": "FMA16981",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2625",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2625.obj",
+      "sha256": "668459db84a25f6301edb716439c81a58532ccda4e763f4235da6ea1248163fe",
+      "bytes": 8816,
+      "englishName": "Proximal part of jejunum",
+      "conceptId": "FMA16981",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2626",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2626.obj",
+      "sha256": "35124a0a754ebdf402a38f8e8d2193dde0c91bbb4cd851163fed49dba2747b8c",
+      "bytes": 20250,
+      "englishName": "Proximal part of jejunum",
+      "conceptId": "FMA16981",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2627",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2627.obj",
+      "sha256": "994297bdf2c25126db37d5afae74cb9cec76550c4adb6748a7c1f906a2ffab03",
+      "bytes": 10883,
+      "englishName": "Proximal part of jejunum",
+      "conceptId": "FMA16981",
+      "includedInDraft": false
+    },
+    {
+      "id": "FJ2628",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2628.obj",
+      "sha256": "be71bf232347b0d1188112f4ded90d1efe15b6672b6d17cdf4728c661da9b732",
+      "bytes": 13917,
+      "englishName": "Middle part of jejunum",
+      "conceptId": "FMA16982",
+      "includedInDraft": false
+    }
+  ],
+  "referenceOnlyComponents": [
+    {
+      "id": "FJ2564",
+      "role": "Locate source gastric attachment for illustrative duodenal morph; not included in bowel exports",
+      "sha256": "cb78c3f2214fd21a16fa6c9f2389b9aa874e9d3ce624c42b34d4563c31554c67",
+      "archiveMember": "partof_BP3D_4.0_obj_99/FJ2564.obj",
+      "bytes": 106977,
+      "includedInDraft": false,
+      "exportedInEitherBowel": false
+    }
+  ],
+  "sharedComponentPolicy": "FJ2599 (ileocecal junction) belongs to both broad provider groups, but is exported once with small intestine and omitted from large intestine to avoid a duplicate assembly surface.",
+  "localSourceIdentityCheck": "Existing archive and 64 selected member bytes were verified locally against recorded SHA256; no source bytes copied or remote retrieval performed."
+}

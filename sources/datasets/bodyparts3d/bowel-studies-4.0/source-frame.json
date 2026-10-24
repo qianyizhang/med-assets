@@ -1,0 +1,34 @@
+{
+  "source": "BP3D source OBJ, millimetres; +X patient-left, +Y posterior, +Z superior",
+  "export": "glTF metres [x,y,z] = [sourceX, sourceZ, -sourceY] * 0.001",
+  "rawMmToGltfMetres": [
+    [
+      0.001,
+      0,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0.001,
+      0
+    ],
+    [
+      0,
+      -0.001,
+      0,
+      0
+    ],
+    [
+      0,
+      0,
+      0,
+      1
+    ]
+  ],
+  "extraTranslationRotationOrFit": false,
+  "pairScope": "Both exact accepted candidates retain the same original BP3D source frame; no new whole-body or CT registration.",
+  "excludedDiagnosticVariant": "Historical diagnostic lung-bounds translation is removed from these source-frame exports. Diagnostic overlay GLBs are not selected or copied.",
+  "defaultAssembly": "No default visibility/placement change authorized by this migration."
+}

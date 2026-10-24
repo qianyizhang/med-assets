@@ -1,0 +1,33 @@
+{
+  "scope": "Local unchanged-media identity, reference/link consistency and verifier behavior only. No new geometry, anatomy, motion, clinical, runtime or remote-availability validation.",
+  "checks": {
+    "default_tolerates_unrelated_repository_file": true,
+    "strict_rejects_extra_package_file": true,
+    "tampered_glb_rejected": true,
+    "baseline_rebinding_rejected_even_with_updated_record_hash": true,
+    "duplicate_ileocecal_export_assignment_rejected": true,
+    "diagnostic_translation_in_source_frame_rejected": true
+  },
+  "sourceIdentityChecks": {
+    "existingArchiveHashMatched": true,
+    "selectedArchiveMemberBytesCompared": 64,
+    "referenceOnlyMemberBytesCompared": 1,
+    "rawSourceCopied": false,
+    "networkRequests": 0
+  },
+  "transportChecks": {
+    "storedGzipObjectsLocallyChecked": 2,
+    "decodedBytesMatchCanonicalSourceFrameGlbs": true,
+    "allSelectedWebPsMatchPublicMap": true,
+    "freshAvailabilityChecked": false
+  },
+  "presentationPrivacy": {
+    "selectedWebPsViewed": 6,
+    "privatePathsOrUserDetailsObserved": false,
+    "imagesReencodedOrChanged": false,
+    "newProseInternalRoleLabelsObserved": false
+  },
+  "markdownLinks": "All local links checked by verifier; historical recipe/report/native-PNG references explicitly external.",
+  "countDelta": 0,
+  "gateDelta": 0
+}

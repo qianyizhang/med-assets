@@ -1,0 +1,171 @@
+{
+  "schema": "bounded-bowel-dependencies-v1",
+  "sourceMap": "sources/datasets/bodyparts3d/bowel-studies-4.0/external-source-map.json",
+  "sourceFrame": "sources/datasets/bodyparts3d/bowel-studies-4.0/source-frame.json",
+  "studies": [
+    {
+      "variantId": "small-intestine__source-candidate-v4",
+      "sourceRecords": {
+        "manifest": "sources/datasets/bodyparts3d/bowel-studies-4.0/external-source-map.json",
+        "componentIds": [
+          "FJ2573",
+          "FJ2574",
+          "FJ2575",
+          "FJ2576",
+          "FJ2577",
+          "FJ2578",
+          "FJ2579",
+          "FJ2580",
+          "FJ2581",
+          "FJ2582",
+          "FJ2583",
+          "FJ2584",
+          "FJ2585",
+          "FJ2586",
+          "FJ2587",
+          "FJ2588",
+          "FJ2589",
+          "FJ2590",
+          "FJ2591",
+          "FJ2592",
+          "FJ2593",
+          "FJ2594",
+          "FJ2595",
+          "FJ2596",
+          "FJ2597",
+          "FJ2598",
+          "FJ2599",
+          "FJ2600",
+          "FJ2601",
+          "FJ2602",
+          "FJ2603",
+          "FJ2604",
+          "FJ2605",
+          "FJ2606",
+          "FJ2607",
+          "FJ2608",
+          "FJ2609",
+          "FJ2610",
+          "FJ2611",
+          "FJ2612",
+          "FJ2613",
+          "FJ2614",
+          "FJ2615",
+          "FJ2616",
+          "FJ2617",
+          "FJ2618",
+          "FJ2619",
+          "FJ2620",
+          "FJ2621",
+          "FJ2622",
+          "FJ2623",
+          "FJ2624",
+          "FJ2625",
+          "FJ2626",
+          "FJ2627",
+          "FJ2628"
+        ]
+      },
+      "rawSourceIncluded": false,
+      "historicalSourceFrameExportReceipt": {
+        "canonicalPath": "reviews/intestines/source-candidate-v4/evidence/small-intestine-source-frame-export.json",
+        "sha256": "1aab2e551cae35dc56f05c57099f8e0b80ffc87ffd67424f14a45765a1c454bf",
+        "bytes": 388,
+        "includedInDraft": false,
+        "availability": "Historical canonical record outside this bounded payload; not a bundled dependency."
+      },
+      "unbundledDependencies": [
+        "Exact external archive/member OBJ data, plus gastric reference FJ2564 for historical motion weighting",
+        "Provider grouping tables and historical cleanup/bridge inputs",
+        "Historical build, source-frame-export, render and validation scripts",
+        "Compatible Blender/Python environment and exact render/material/camera state"
+      ],
+      "cameraBoundary": "Public map does not provide a complete numeric camera contract; no camera or source rebuild closure is claimed."
+    },
+    {
+      "variantId": "large-intestine__source-candidate-v4",
+      "sourceRecords": {
+        "manifest": "sources/datasets/bodyparts3d/bowel-studies-4.0/external-source-map.json",
+        "componentIds": [
+          "FJ2565",
+          "FJ2566",
+          "FJ2567",
+          "FJ2568",
+          "FJ2569",
+          "FJ2570",
+          "FJ2571",
+          "FJ2572"
+        ]
+      },
+      "rawSourceIncluded": false,
+      "historicalSourceFrameExportReceipt": {
+        "canonicalPath": "reviews/intestines/source-candidate-v4/evidence/large-intestine-source-frame-export.json",
+        "sha256": "b95e67b2ffbcb4af2d435edf107d562f34d9ee8703b70b7d34bd5f3bfc2cb22f",
+        "bytes": 388,
+        "includedInDraft": false,
+        "availability": "Historical canonical record outside this bounded payload; not a bundled dependency."
+      },
+      "unbundledDependencies": [
+        "Exact external archive/member OBJ data, plus gastric reference FJ2564 for historical motion weighting",
+        "Provider grouping tables and historical cleanup/bridge inputs",
+        "Historical build, source-frame-export, render and validation scripts",
+        "Compatible Blender/Python environment and exact render/material/camera state"
+      ],
+      "cameraBoundary": "Public map does not provide a complete numeric camera contract; no camera or source rebuild closure is claimed."
+    }
+  ],
+  "historicalSharedRecipes": [
+    {
+      "canonicalPath": "tests/intestines/build_candidates.py",
+      "sha256": "74e2559822c7fec1221b6fc50c544822854a8f2972b97ed7650acb33ad7d5db1",
+      "bytes": 6427,
+      "includedInDraft": false,
+      "availability": "Historical canonical record outside this bounded payload; not a bundled dependency."
+    },
+    {
+      "canonicalPath": "tests/intestines/export_source_frame.py",
+      "sha256": "cf4bb7cd22d92f7d95e29e9907e2e8f6bbf4de58c44e9858a0e96704210e28d3",
+      "bytes": 1475,
+      "includedInDraft": false,
+      "availability": "Historical canonical record outside this bounded payload; not a bundled dependency."
+    },
+    {
+      "canonicalPath": "tests/intestines/repair_junction.py",
+      "sha256": "91008aac416d9cf09c28505c5f9a5971f35e9582c103e191fcd379fac59f2d74",
+      "bytes": 3405,
+      "includedInDraft": false,
+      "availability": "Historical canonical record outside this bounded payload; not a bundled dependency."
+    },
+    {
+      "canonicalPath": "tests/intestines/render_candidates.py",
+      "sha256": "a904e1b26acdf14d169956b14be21b94725d0899adee0282cf234289b89f3c8f",
+      "bytes": 3276,
+      "includedInDraft": false,
+      "availability": "Historical canonical record outside this bounded payload; not a bundled dependency."
+    },
+    {
+      "canonicalPath": "tests/intestines/validate_exports.py",
+      "sha256": "8aa448dd9fe0678df4117233fb084fbc64810951959f7d834b47894f9159f8ba",
+      "bytes": 3083,
+      "includedInDraft": false,
+      "availability": "Historical canonical record outside this bounded payload; not a bundled dependency."
+    },
+    {
+      "canonicalPath": "tests/intestines/make_contacts.py",
+      "sha256": "017aedb3e50d5c427c03331dbfe89bf5a7f565e3438c8de352a7fe824e376248",
+      "bytes": 1222,
+      "includedInDraft": false,
+      "availability": "Historical canonical record outside this bounded payload; not a bundled dependency."
+    }
+  ],
+  "rebuildClosure": "NOT_BUNDLED; no full portable or byte-identical rebuild claim. Historical recipes/receipts are external metadata references, not executable dependencies supplied here.",
+  "noSourceCodeExecuted": true,
+  "historicalCleanupReceipt": {
+    "canonicalPath": "reviews/intestines/source-candidate-v4/evidence/cleanup-receipt.json",
+    "sha256": "b448d794bccc8bb10b147bacf33bd5b8e4bcbda126fcc55e63260e8732f69d5c",
+    "bytes": 856,
+    "includedInDraft": false,
+    "availability": "External historical canonical record; not a dependency bundled here."
+  },
+  "historicalFrameReceiptsAndRecipeNote": "External recipes may depend on their original package layout and input tables. Reference identities are retained only; no executable replay or byte-identical reconstruction is promised."
+}

@@ -1,0 +1,40 @@
+{
+  "status": "Historical exterior audit results retained, not rerun or promoted",
+  "method": "Blender import plus BMesh remove_doubles with distance 0.00000015 m (0.15 micrometres), then component/edge/face counts. This is a tolerance-welded audit, NOT an exact float-tuple remap.",
+  "sourceAuditRecord": {
+    "canonicalPath": "reviews/intestines/source-candidate-v4/evidence/source-frame/export-tests.json",
+    "sha256": "78ac362b6c34696ebf2d89dac965f3b9c8c72f79265e6da5117136485bcdcc7a",
+    "bytes": 3574,
+    "includedInDraft": false,
+    "availability": "Historical canonical record outside this bounded payload; not a bundled dependency."
+  },
+  "sourceAuditCode": {
+    "canonicalPath": "tests/intestines/validate_exports.py",
+    "sha256": "8aa448dd9fe0678df4117233fb084fbc64810951959f7d834b47894f9159f8ba",
+    "bytes": 3083,
+    "includedInDraft": false,
+    "availability": "Historical canonical record outside this bounded payload; not a bundled dependency."
+  },
+  "studies": {
+    "small-intestine": {
+      "sha256": "a9459afc67cb13c28084b518615fdbb5e05c135a47eafa3036908139aece94da",
+      "reportedFiniteCoordinates": true,
+      "reportedFaces": 96240,
+      "reportedBoundaryEdges": 0,
+      "reportedNonManifoldEdges": 0,
+      "reportedDegenerateFacesBelow1e-14m2": 0,
+      "reportedConnectedComponents": 55,
+      "warning": "Multiple disconnected atlas components remain. Closed exterior modeling boundaries do not establish a continuous validated lumen."
+    },
+    "large-intestine": {
+      "sha256": "a8bd8f8227a3cf53b5aa63bb234c1bcb182bfa432da5eb2e3488788f829df4f5",
+      "reportedFiniteCoordinates": true,
+      "reportedFaces": 350748,
+      "reportedBoundaryEdges": 0,
+      "reportedNonManifoldEdges": 0,
+      "reportedDegenerateFacesBelow1e-14m2": 0,
+      "reportedConnectedComponents": 10,
+      "warning": "Multiple disconnected atlas components remain. Closed exterior modeling boundaries do not establish a continuous validated lumen."
+    }
+  }
+}
