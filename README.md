@@ -19,6 +19,8 @@ shasum -a 256 -c SHA256SUMS
 
 ## Collections
 
+[Scoped study files and review evidence](docs/SCOPED-STUDIES.md) — verified migrations, limitations, and pending studies.
+
 | Directory | Contents |
 | --- | --- |
 | `heart/Cardiac_Atlas_Animated/` | Three animated heart GLBs, editable Blender source, export scripts, and delivery QA. |
@@ -68,3 +70,4 @@ anatomy with selected extras; it is not a complete 3D body atlas.
 Published viewers remain at
 https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/ and
 https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/.
+
