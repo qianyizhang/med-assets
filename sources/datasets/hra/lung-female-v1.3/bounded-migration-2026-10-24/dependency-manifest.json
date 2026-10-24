@@ -1,0 +1,106 @@
+{
+  "sourceMap": "sources/datasets/hra/lung-female-v1.3/bounded-migration-2026-10-24/external-source-map.json",
+  "sourceFrame": "sources/datasets/hra/lung-female-v1.3/bounded-migration-2026-10-24/source-frame.json",
+  "rawSource": {
+    "repositoryPath": "sources/datasets/hra/lung-female-v1.3/raw/3d-vh-f-lung.glb",
+    "sha256": "323d27bb76ba2c5b140ff31ad5190627eeb8d4e37cd220e4b541655d67789c1a",
+    "bytes": 23253972,
+    "includedInDraft": false,
+    "referenceKind": "external-canonical-artifact",
+    "role": "Original HRA source and comparison before-mesh; not bundled",
+    "url": "https://cdn.humanatlas.io/digital-objects/ref-organ/lung-female/v1.3/assets/3d-vh-f-lung.glb",
+    "archive": null,
+    "archiveMember": null,
+    "archiveNote": "Provider distributes a direct GLB, not an archive. No archive/member identity invented."
+  },
+  "historicalRecipes": [
+    {
+      "repositoryPath": "tests/lung_hra_normals/build_hra_normal_candidate_r02.py",
+      "sha256": "2c7e5d4a4c7f49ac57703261a2df22e33f5a376fbd656120b4a8efafceb7a031",
+      "bytes": 4020,
+      "includedInDraft": false,
+      "referenceKind": "external-canonical-artifact",
+      "role": "Historical external recipe; not executed or made portable by this migration"
+    },
+    {
+      "repositoryPath": "tests/lung_hra_normals/diagnose_hra_normals.py",
+      "sha256": "915f0066e11c8d38af88e3f5af96cebd3b765141c4ac290b012296e419f5e76b",
+      "bytes": 2801,
+      "includedInDraft": false,
+      "referenceKind": "external-canonical-artifact",
+      "role": "Historical external recipe; not executed or made portable by this migration"
+    },
+    {
+      "repositoryPath": "tests/lung_hra_normals/render_hra_candidate_r02.py",
+      "sha256": "9ebc71d410ed53fd77a72f6a56e5ec38a486dadddcfba5322e79c673a6d34c6b",
+      "bytes": 3804,
+      "includedInDraft": false,
+      "referenceKind": "external-canonical-artifact",
+      "role": "Historical external recipe; not executed or made portable by this migration"
+    },
+    {
+      "repositoryPath": "tests/lung_hra_normals/compose_hra_candidate.py",
+      "sha256": "b548c444d24dca5c15b83c7a1d25973d351e75099961591122750e9627a7fded",
+      "bytes": 1811,
+      "includedInDraft": false,
+      "referenceKind": "external-canonical-artifact",
+      "role": "Historical external recipe; not executed or made portable by this migration"
+    },
+    {
+      "repositoryPath": "tests/lung_hra_normals/make_handoff_recipes.py",
+      "sha256": "73b0254410e33df9c3cfb06767b23f40a16fa1eaf026bede9290dc1de72add51",
+      "bytes": 2147,
+      "includedInDraft": false,
+      "referenceKind": "external-canonical-artifact",
+      "role": "Historical external recipe; not executed or made portable by this migration"
+    },
+    {
+      "repositoryPath": "tests/lung_hra_normals/screen_hra_lung.py",
+      "sha256": "6104fc4dfad700b919bc9fd8b8f9db982a8d98b9475614f60c04ea6cc75b5598",
+      "bytes": 3793,
+      "includedInDraft": false,
+      "referenceKind": "external-canonical-artifact",
+      "role": "Historical external recipe; not executed or made portable by this migration"
+    }
+  ],
+  "historicalReviewRecord": {
+    "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/record.json",
+    "sha256": "b8879dc0d2dcc5cdd019bb511d393d4a249c867183b3f1c70f58740a44027d86",
+    "bytes": 29209,
+    "includedInDraft": false,
+    "referenceKind": "external-canonical-artifact",
+    "role": "Historical review"
+  },
+  "historicalReports": [
+    {
+      "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/normal-derivative-audit.json",
+      "sha256": "f250e1cee8000901e9827c3dd41d13c79c56eb979717c1c837fdd94b92d1964b",
+      "bytes": 861330,
+      "includedInDraft": false,
+      "referenceKind": "external-canonical-artifact",
+      "role": "Historical audit"
+    },
+    {
+      "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/exact-candidate-audit.json",
+      "sha256": "0fef803af97be23fd6e6b90247082eba01fc637c4b8300a5faed288f65853b59",
+      "bytes": 77517,
+      "includedInDraft": false,
+      "referenceKind": "external-canonical-artifact",
+      "role": "Historical audit"
+    },
+    {
+      "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/review-outcome.json",
+      "sha256": "06df9187b2bab3032f615c41b1bc69ed8f49be6c82a83336e3714eda5ca3328a",
+      "bytes": 6845,
+      "includedInDraft": false,
+      "referenceKind": "external-canonical-artifact",
+      "role": "Historical audit"
+    }
+  ],
+  "includedReceiptSubset": "reviews/lung_pair/2026-10-24-bounded-migration/historical-technical-scope.json",
+  "includedCameraRecipe": "reviews/lung_pair/2026-10-24-bounded-migration/camera-visibility.json",
+  "rawSourceIncluded": false,
+  "rawArchivesScenesAndHistoryCopied": false,
+  "portableRebuildClosure": false,
+  "rebuildLimitations": "Source GLB, original native PNGs, full historical receipts and build/render scripts are external. Scripts depend on their prior environment and paths; no portable rebuild or render replay is asserted. Provider labels/metadata and CC BY 4.0 terms are retained locally."
+}

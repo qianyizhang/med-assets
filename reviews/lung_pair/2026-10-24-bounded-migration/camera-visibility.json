@@ -1,0 +1,935 @@
+{
+  "exactGLBSHA": "966a4c225be028e616f6f813e8d4232582995a82b8121a42257c1be53087cb19",
+  "modelCount": 1,
+  "sourceFrameRecord": "sources/datasets/hra/lung-female-v1.3/bounded-migration-2026-10-24/source-frame.json",
+  "sourceFrame": {
+    "gltfUnits": "metres",
+    "gltfUp": "+Y",
+    "nodeTransforms": "all source node transforms/parent hierarchy retained",
+    "BlenderToGltf": "(x, z, -y)",
+    "nativeBlenderBoundsM": [
+      [
+        -0.13052892684936523,
+        0.003816480515524745,
+        0.36707305908203125
+      ],
+      [
+        0.12060581147670746,
+        0.15642137825489044,
+        0.5901092886924744
+      ]
+    ],
+    "alignment": "none; do not recenter per part or mix with another dataset"
+  },
+  "surfaceLabels": "Source named lobes / bronchopulmonary segment patches / hila, not reconstructed tissue layers.",
+  "scopes": {
+    "all_provider_geometry": {
+      "label": "Combined female lung pair + supplied intrapulmonary branches",
+      "visibleMeshNames": [
+        "VH_F_hilum_L",
+        "VH_F_hilum_upper_L",
+        "VH_F_lingula_superior_bronchopulmonary_segment",
+        "VH_F_left_anterior_bronchopulmonary_segment",
+        "VH_F_left_apical_bronchopulmonary_segment",
+        "VH_F_left_posterior_bronchopulmonary_segment",
+        "VH_F_lingula_inferior_bronchopulmonary_segment",
+        "VH_F_left_superior_bronchopulmonary_segment",
+        "VH_F_left_posterior_basal_bronchopulmonary_segment",
+        "VH_F_left_anterior_basal_bronchopulmonary_segment",
+        "VH_F_left_lateral_basal_bronchopulmonary_segment",
+        "VH_F_left_medial_basal_bronchopulmonary_segment",
+        "VH_F_hilum_lower_L",
+        "VH_F_hilum_R",
+        "VH_F_right_medial_basal_bronchopulmonary_segment",
+        "VH_F_right_posterior_basal_bronchopulmonary_segment",
+        "VH_F_right_anterior_basal_bronchopulmonary_segment",
+        "VH_F_right_lateral_basal_bronchopulmonary_segment",
+        "VH_F_right_superior_bronchopulmonary_segment",
+        "VH_F_hilum_lower_R",
+        "VH_F_right_medial_bronchopulmonary_segment",
+        "VH_F_right_lateral_bronchopulmonary_segmennt",
+        "VH_F_hilum_middle_R",
+        "VH_F_right_anterior_bronchopulmonary_segm",
+        "VH_F_right_apical_bronchopulmonary_segment",
+        "VH_F_right_posterior_bronchopulmonary_segment",
+        "VH_F_hilum_upper_R",
+        "VH_F_cartilage_of_lobar_bronchus_L",
+        "VH_F_cartilage_of_tertiary_bronchus_L",
+        "VH_F_left_superior_lobar_bronchus",
+        "VH_F_left_inferior_lobar_bronchus",
+        "VH_F_left_anterior_basal_bronchus",
+        "VH_F_left_lingula_superior_bronchus",
+        "VH_F_left_apical_bronchus",
+        "VH_F_left_posterior_basal_bronchus",
+        "VH_F_left_medial_basal_bronchus",
+        "VH_F_left_superior_bronchus",
+        "VH_F_left_anterior_bronchus",
+        "VH_F_left_posterior_bronchus",
+        "VH_F_left_lateral_basal_bronchus",
+        "VH_F_left_lingula_inferior_bronchi",
+        "VH_F_cartilage_of_lobar_bronchus_R",
+        "VH_F_cartilage_of_tertiary_bronchus_R",
+        "VH_F_right_middle_lobar_bronchus",
+        "VH_F_right_superior_lobar_bronchus",
+        "VH_F_right_inferior_lobar_bronchus",
+        "VH_F_right_anterior_bronchus",
+        "VH_F_right_lateral_basal_bronchus",
+        "VH_F_right_lateral_bronchus",
+        "VH_F_right_medial_bronchus",
+        "VH_F_right_medial_basal_bronchus",
+        "VH_F_right_posterior_basal_bronchus",
+        "VH_F_right_posterior_bronchus",
+        "VH_F_right_superior_bronchus",
+        "VH_F_right_apical_bronchus",
+        "VH_F_right_anterior_basal_bronchus"
+      ],
+      "hideOtherMeshNodes": true,
+      "cameras": [
+        {
+          "view": "axis_negative_y",
+          "sourceImage": "review/all_provider_geometry_axis_negative_y.png",
+          "sourceImageSha256": "559e40fcb9cfb486876b73beb570a04c34599247a124b35b0271a879432b1c58",
+          "gltfYUpCameraPosition": [
+            -0.004961557686328888,
+            0.4785911738872528,
+            0.6732853055000305
+          ],
+          "gltfYUpTarget": [
+            -0.004961557686328888,
+            0.4785911738872528,
+            -0.08011893182992935
+          ],
+          "gltfYUpUp": [
+            0.0,
+            0.9999999403953552,
+            -0.0
+          ],
+          "orthographicVerticalSpanM": 0.2963390052318573,
+          "sourceImageReference": {
+            "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/review/all_provider_geometry_axis_negative_y.png",
+            "sha256": "559e40fcb9cfb486876b73beb570a04c34599247a124b35b0271a879432b1c58",
+            "bytes": 544666,
+            "includedInDraft": false,
+            "referenceKind": "external-canonical-artifact",
+            "role": "Historical native PNG; not a selected WebP"
+          }
+        },
+        {
+          "view": "axis_positive_y",
+          "sourceImage": "review/all_provider_geometry_axis_positive_y.png",
+          "sourceImageSha256": "9bbabd62ca348e2bcd64b1d85855132be98bacbc12916e7cb4e008540a923775",
+          "gltfYUpCameraPosition": [
+            -0.004961557686328888,
+            0.4785911738872528,
+            -0.8335232138633728
+          ],
+          "gltfYUpTarget": [
+            -0.004961557686328888,
+            0.4785911738872528,
+            -0.08011893182992935
+          ],
+          "gltfYUpUp": [
+            -8.742277657347586e-08,
+            0.9999999403953552,
+            -0.0
+          ],
+          "orthographicVerticalSpanM": 0.2963390052318573,
+          "sourceImageReference": {
+            "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/review/all_provider_geometry_axis_positive_y.png",
+            "sha256": "9bbabd62ca348e2bcd64b1d85855132be98bacbc12916e7cb4e008540a923775",
+            "bytes": 523779,
+            "includedInDraft": false,
+            "referenceKind": "external-canonical-artifact",
+            "role": "Historical native PNG; not a selected WebP"
+          }
+        },
+        {
+          "view": "axis_positive_x",
+          "sourceImage": "review/all_provider_geometry_axis_positive_x.png",
+          "sourceImageSha256": "9586e39fea54a439f9a731d447aac2b4164e43d171a69e68c1962f93a96ff152",
+          "gltfYUpCameraPosition": [
+            0.7484427094459534,
+            0.4785911738872528,
+            -0.08011893182992935
+          ],
+          "gltfYUpTarget": [
+            -0.004961557686328888,
+            0.4785911738872528,
+            -0.08011893182992935
+          ],
+          "gltfYUpUp": [
+            0.0,
+            0.9999998807907104,
+            -0.0
+          ],
+          "orthographicVerticalSpanM": 0.2963390052318573,
+          "sourceImageReference": {
+            "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/review/all_provider_geometry_axis_positive_x.png",
+            "sha256": "9586e39fea54a439f9a731d447aac2b4164e43d171a69e68c1962f93a96ff152",
+            "bytes": 519039,
+            "includedInDraft": false,
+            "referenceKind": "external-canonical-artifact",
+            "role": "Historical native PNG; not a selected WebP"
+          }
+        },
+        {
+          "view": "axis_negative_x",
+          "sourceImage": "review/all_provider_geometry_axis_negative_x.png",
+          "sourceImageSha256": "48c179dec4e7c338657786868b62b982710aaf65ca1d875b0f4f90f40f813c67",
+          "gltfYUpCameraPosition": [
+            -0.75836580991745,
+            0.4785911738872528,
+            -0.08011893182992935
+          ],
+          "gltfYUpTarget": [
+            -0.004961557686328888,
+            0.4785911738872528,
+            -0.08011893182992935
+          ],
+          "gltfYUpUp": [
+            0.0,
+            0.9999998807907104,
+            -0.0
+          ],
+          "orthographicVerticalSpanM": 0.2963390052318573,
+          "sourceImageReference": {
+            "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/review/all_provider_geometry_axis_negative_x.png",
+            "sha256": "48c179dec4e7c338657786868b62b982710aaf65ca1d875b0f4f90f40f813c67",
+            "bytes": 521355,
+            "includedInDraft": false,
+            "referenceKind": "external-canonical-artifact",
+            "role": "Historical native PNG; not a selected WebP"
+          }
+        },
+        {
+          "view": "axis_negative_z",
+          "sourceImage": "review/all_provider_geometry_axis_negative_z.png",
+          "sourceImageSha256": "f9694f3977f4dae01ae2882bea13f2c3eac79ff1d9a7b4434ddfd97b22c88bf9",
+          "gltfYUpCameraPosition": [
+            -0.004961557686328888,
+            -0.27481308579444885,
+            -0.08011893182992935
+          ],
+          "gltfYUpTarget": [
+            -0.004961557686328888,
+            0.4785911738872528,
+            -0.08011893182992935
+          ],
+          "gltfYUpUp": [
+            8.742277657347586e-08,
+            -8.742277657347586e-08,
+            -1.0
+          ],
+          "orthographicVerticalSpanM": 0.2963390052318573,
+          "sourceImageReference": {
+            "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/review/all_provider_geometry_axis_negative_z.png",
+            "sha256": "f9694f3977f4dae01ae2882bea13f2c3eac79ff1d9a7b4434ddfd97b22c88bf9",
+            "bytes": 533822,
+            "includedInDraft": false,
+            "referenceKind": "external-canonical-artifact",
+            "role": "Historical native PNG; not a selected WebP"
+          }
+        },
+        {
+          "view": "oblique",
+          "sourceImage": "review/all_provider_geometry_oblique.png",
+          "sourceImageSha256": "21f4857dd6a57005a20ccfb98892ad8009586aa0dc05352fcf7a5a5e6c734f89",
+          "gltfYUpCameraPosition": [
+            0.4973079562187195,
+            0.6292720437049866,
+            0.6732853055000305
+          ],
+          "gltfYUpTarget": [
+            -0.004961557686328888,
+            0.4785911738872528,
+            -0.08011893182992935
+          ],
+          "gltfYUpUp": [
+            -0.09105560183525085,
+            0.9864349365234375,
+            -0.1365833580493927
+          ],
+          "orthographicVerticalSpanM": 0.2963390052318573,
+          "sourceImageReference": {
+            "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/review/all_provider_geometry_oblique.png",
+            "sha256": "21f4857dd6a57005a20ccfb98892ad8009586aa0dc05352fcf7a5a5e6c734f89",
+            "bytes": 549392,
+            "includedInDraft": false,
+            "referenceKind": "external-canonical-artifact",
+            "role": "Historical native PNG; not a selected WebP"
+          }
+        }
+      ]
+    },
+    "provider_airways_only": {
+      "label": "Supplied intrapulmonary bronchi/cartilage only; not full bronchial tree",
+      "visibleMeshNames": [
+        "VH_F_cartilage_of_lobar_bronchus_L",
+        "VH_F_cartilage_of_tertiary_bronchus_L",
+        "VH_F_left_superior_lobar_bronchus",
+        "VH_F_left_inferior_lobar_bronchus",
+        "VH_F_left_anterior_basal_bronchus",
+        "VH_F_left_lingula_superior_bronchus",
+        "VH_F_left_apical_bronchus",
+        "VH_F_left_posterior_basal_bronchus",
+        "VH_F_left_medial_basal_bronchus",
+        "VH_F_left_superior_bronchus",
+        "VH_F_left_anterior_bronchus",
+        "VH_F_left_posterior_bronchus",
+        "VH_F_left_lateral_basal_bronchus",
+        "VH_F_left_lingula_inferior_bronchi",
+        "VH_F_cartilage_of_lobar_bronchus_R",
+        "VH_F_cartilage_of_tertiary_bronchus_R",
+        "VH_F_right_middle_lobar_bronchus",
+        "VH_F_right_superior_lobar_bronchus",
+        "VH_F_right_inferior_lobar_bronchus",
+        "VH_F_right_anterior_bronchus",
+        "VH_F_right_lateral_basal_bronchus",
+        "VH_F_right_lateral_bronchus",
+        "VH_F_right_medial_bronchus",
+        "VH_F_right_medial_basal_bronchus",
+        "VH_F_right_posterior_basal_bronchus",
+        "VH_F_right_posterior_bronchus",
+        "VH_F_right_superior_bronchus",
+        "VH_F_right_apical_bronchus",
+        "VH_F_right_anterior_basal_bronchus"
+      ],
+      "hideOtherMeshNodes": true,
+      "cameras": [
+        {
+          "view": "axis_negative_y",
+          "sourceImage": "review/provider_airways_only_axis_negative_y.png",
+          "sourceImageSha256": "c3b598a5885b3dd2966d5a647bb471263a2256195726c6f0699787b93d3a7989",
+          "gltfYUpCameraPosition": [
+            -0.004961557686328888,
+            0.4785911738872528,
+            0.6732853055000305
+          ],
+          "gltfYUpTarget": [
+            -0.004961557686328888,
+            0.4785911738872528,
+            -0.08011893182992935
+          ],
+          "gltfYUpUp": [
+            0.0,
+            0.9999999403953552,
+            -0.0
+          ],
+          "orthographicVerticalSpanM": 0.2963390052318573,
+          "sourceImageReference": {
+            "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/review/provider_airways_only_axis_negative_y.png",
+            "sha256": "c3b598a5885b3dd2966d5a647bb471263a2256195726c6f0699787b93d3a7989",
+            "bytes": 553114,
+            "includedInDraft": false,
+            "referenceKind": "external-canonical-artifact",
+            "role": "Historical native PNG; not a selected WebP"
+          }
+        },
+        {
+          "view": "oblique",
+          "sourceImage": "review/provider_airways_only_oblique.png",
+          "sourceImageSha256": "0c527c496d89fad5e4c402cde28b9421aa10dfdddfff0bf21b5b11835f277bb4",
+          "gltfYUpCameraPosition": [
+            0.4973079562187195,
+            0.6292720437049866,
+            0.6732853055000305
+          ],
+          "gltfYUpTarget": [
+            -0.004961557686328888,
+            0.4785911738872528,
+            -0.08011893182992935
+          ],
+          "gltfYUpUp": [
+            -0.09105560183525085,
+            0.9864349365234375,
+            -0.1365833580493927
+          ],
+          "orthographicVerticalSpanM": 0.2963390052318573,
+          "sourceImageReference": {
+            "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/review/provider_airways_only_oblique.png",
+            "sha256": "0c527c496d89fad5e4c402cde28b9421aa10dfdddfff0bf21b5b11835f277bb4",
+            "bytes": 552768,
+            "includedInDraft": false,
+            "referenceKind": "external-canonical-artifact",
+            "role": "Historical native PNG; not a selected WebP"
+          }
+        }
+      ]
+    },
+    "left_source_lung": {
+      "label": "Isolated source left-lung exterior patches and hila",
+      "visibleMeshNames": [
+        "VH_F_hilum_L",
+        "VH_F_hilum_upper_L",
+        "VH_F_lingula_superior_bronchopulmonary_segment",
+        "VH_F_left_anterior_bronchopulmonary_segment",
+        "VH_F_left_apical_bronchopulmonary_segment",
+        "VH_F_left_posterior_bronchopulmonary_segment",
+        "VH_F_lingula_inferior_bronchopulmonary_segment",
+        "VH_F_left_superior_bronchopulmonary_segment",
+        "VH_F_left_posterior_basal_bronchopulmonary_segment",
+        "VH_F_left_anterior_basal_bronchopulmonary_segment",
+        "VH_F_left_lateral_basal_bronchopulmonary_segment",
+        "VH_F_left_medial_basal_bronchopulmonary_segment",
+        "VH_F_hilum_lower_L"
+      ],
+      "hideOtherMeshNodes": true,
+      "cameras": [
+        {
+          "view": "axis_negative_y",
+          "sourceImage": "review/left_source_lung_axis_negative_y.png",
+          "sourceImageSha256": "a03ca95423cc93d64e0eda350744aa1b50fd81e8f6c0cfa8b87b5c379f4104c7",
+          "gltfYUpCameraPosition": [
+            0.06524679809808731,
+            0.4785911738872528,
+            0.5889897346496582
+          ],
+          "gltfYUpTarget": [
+            0.06524679809808731,
+            0.4785911738872528,
+            -0.08011893182992935
+          ],
+          "gltfYUpUp": [
+            0.0,
+            0.9999999403953552,
+            -0.0
+          ],
+          "orthographicVerticalSpanM": 0.26318275928497314,
+          "sourceImageReference": {
+            "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/review/left_source_lung_axis_negative_y.png",
+            "sha256": "a03ca95423cc93d64e0eda350744aa1b50fd81e8f6c0cfa8b87b5c379f4104c7",
+            "bytes": 515848,
+            "includedInDraft": false,
+            "referenceKind": "external-canonical-artifact",
+            "role": "Historical native PNG; not a selected WebP"
+          }
+        },
+        {
+          "view": "axis_positive_y",
+          "sourceImage": "review/left_source_lung_axis_positive_y.png",
+          "sourceImageSha256": "a4ab0d71c437c2b266a0d86eaf0e649863be1331c358336289f8e34d98cede05",
+          "gltfYUpCameraPosition": [
+            0.06524679809808731,
+            0.4785911738872528,
+            -0.7492276430130005
+          ],
+          "gltfYUpTarget": [
+            0.06524679809808731,
+            0.4785911738872528,
+            -0.08011893182992935
+          ],
+          "gltfYUpUp": [
+            -8.742277657347586e-08,
+            0.9999999403953552,
+            -0.0
+          ],
+          "orthographicVerticalSpanM": 0.26318275928497314,
+          "sourceImageReference": {
+            "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/review/left_source_lung_axis_positive_y.png",
+            "sha256": "a4ab0d71c437c2b266a0d86eaf0e649863be1331c358336289f8e34d98cede05",
+            "bytes": 503109,
+            "includedInDraft": false,
+            "referenceKind": "external-canonical-artifact",
+            "role": "Historical native PNG; not a selected WebP"
+          }
+        },
+        {
+          "view": "axis_positive_x",
+          "sourceImage": "review/left_source_lung_axis_positive_x.png",
+          "sourceImageSha256": "42a539d7595e2db51e88689a8992ee7b2ca948ba26704983f7084af99bdf1705",
+          "gltfYUpCameraPosition": [
+            0.7343555092811584,
+            0.4785911738872528,
+            -0.08011893182992935
+          ],
+          "gltfYUpTarget": [
+            0.06524679809808731,
+            0.4785911738872528,
+            -0.08011893182992935
+          ],
+          "gltfYUpUp": [
+            0.0,
+            0.9999998211860657,
+            -5.960464477539063e-08
+          ],
+          "orthographicVerticalSpanM": 0.26318275928497314,
+          "sourceImageReference": {
+            "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/review/left_source_lung_axis_positive_x.png",
+            "sha256": "42a539d7595e2db51e88689a8992ee7b2ca948ba26704983f7084af99bdf1705",
+            "bytes": 512813,
+            "includedInDraft": false,
+            "referenceKind": "external-canonical-artifact",
+            "role": "Historical native PNG; not a selected WebP"
+          }
+        },
+        {
+          "view": "axis_negative_x",
+          "sourceImage": "review/left_source_lung_axis_negative_x.png",
+          "sourceImageSha256": "11a8693ebe9b2450c42ca7a8775aa4afb849f8c4660450ead69f83d228e34dd0",
+          "gltfYUpCameraPosition": [
+            -0.6038618683815002,
+            0.4785911738872528,
+            -0.08011893182992935
+          ],
+          "gltfYUpTarget": [
+            0.06524679809808731,
+            0.4785911738872528,
+            -0.08011893182992935
+          ],
+          "gltfYUpUp": [
+            0.0,
+            0.9999998211860657,
+            -5.960464477539063e-08
+          ],
+          "orthographicVerticalSpanM": 0.26318275928497314,
+          "sourceImageReference": {
+            "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/review/left_source_lung_axis_negative_x.png",
+            "sha256": "11a8693ebe9b2450c42ca7a8775aa4afb849f8c4660450ead69f83d228e34dd0",
+            "bytes": 527002,
+            "includedInDraft": false,
+            "referenceKind": "external-canonical-artifact",
+            "role": "Historical native PNG; not a selected WebP"
+          }
+        },
+        {
+          "view": "axis_negative_z",
+          "sourceImage": "review/left_source_lung_axis_negative_z.png",
+          "sourceImageSha256": "beedd835619183e426cea30a2ab541c0e6dd40a94376c44244edfa0b9d41611c",
+          "gltfYUpCameraPosition": [
+            0.06524679809808731,
+            -0.19051751494407654,
+            -0.08011893182992935
+          ],
+          "gltfYUpTarget": [
+            0.06524679809808731,
+            0.4785911738872528,
+            -0.08011893182992935
+          ],
+          "gltfYUpUp": [
+            8.742277657347586e-08,
+            -8.742277657347586e-08,
+            -1.0
+          ],
+          "orthographicVerticalSpanM": 0.26318275928497314,
+          "sourceImageReference": {
+            "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/review/left_source_lung_axis_negative_z.png",
+            "sha256": "beedd835619183e426cea30a2ab541c0e6dd40a94376c44244edfa0b9d41611c",
+            "bytes": 508130,
+            "includedInDraft": false,
+            "referenceKind": "external-canonical-artifact",
+            "role": "Historical native PNG; not a selected WebP"
+          }
+        },
+        {
+          "view": "oblique",
+          "sourceImage": "review/left_source_lung_oblique.png",
+          "sourceImageSha256": "f7652157e6f81521a569a33ce6719d1d461e8f85eec28f37572ae18ce09df3c6",
+          "gltfYUpCameraPosition": [
+            0.5113192796707153,
+            0.6124129295349121,
+            0.5889897346496582
+          ],
+          "gltfYUpTarget": [
+            0.06524679809808731,
+            0.4785911738872528,
+            -0.08011893182992935
+          ],
+          "gltfYUpUp": [
+            -0.09105563163757324,
+            0.9864348769187927,
+            -0.13658349215984344
+          ],
+          "orthographicVerticalSpanM": 0.26318275928497314,
+          "sourceImageReference": {
+            "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/review/left_source_lung_oblique.png",
+            "sha256": "f7652157e6f81521a569a33ce6719d1d461e8f85eec28f37572ae18ce09df3c6",
+            "bytes": 512997,
+            "includedInDraft": false,
+            "referenceKind": "external-canonical-artifact",
+            "role": "Historical native PNG; not a selected WebP"
+          }
+        }
+      ]
+    },
+    "right_source_lung": {
+      "label": "Isolated source right-lung exterior patches and hila",
+      "visibleMeshNames": [
+        "VH_F_hilum_R",
+        "VH_F_right_medial_basal_bronchopulmonary_segment",
+        "VH_F_right_posterior_basal_bronchopulmonary_segment",
+        "VH_F_right_anterior_basal_bronchopulmonary_segment",
+        "VH_F_right_lateral_basal_bronchopulmonary_segment",
+        "VH_F_right_superior_bronchopulmonary_segment",
+        "VH_F_hilum_lower_R",
+        "VH_F_right_medial_bronchopulmonary_segment",
+        "VH_F_right_lateral_bronchopulmonary_segmennt",
+        "VH_F_hilum_middle_R",
+        "VH_F_right_anterior_bronchopulmonary_segm",
+        "VH_F_right_apical_bronchopulmonary_segment",
+        "VH_F_right_posterior_bronchopulmonary_segment",
+        "VH_F_hilum_upper_R"
+      ],
+      "hideOtherMeshNodes": true,
+      "cameras": [
+        {
+          "view": "axis_negative_y",
+          "sourceImage": "review/right_source_lung_axis_negative_y.png",
+          "sourceImageSha256": "4278bc890b819ff64674ecf8f58db3a00554f04d36ac26f765a6ad72be463c96",
+          "gltfYUpCameraPosition": [
+            -0.06490166485309601,
+            0.4846181869506836,
+            0.5367633700370789
+          ],
+          "gltfYUpTarget": [
+            -0.06490166485309601,
+            0.4846181869506836,
+            -0.07971973717212677
+          ],
+          "gltfYUpUp": [
+            0.0,
+            0.9999999403953552,
+            -0.0
+          ],
+          "orthographicVerticalSpanM": 0.24248336255550385,
+          "sourceImageReference": {
+            "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/review/right_source_lung_axis_negative_y.png",
+            "sha256": "4278bc890b819ff64674ecf8f58db3a00554f04d36ac26f765a6ad72be463c96",
+            "bytes": 522866,
+            "includedInDraft": false,
+            "referenceKind": "external-canonical-artifact",
+            "role": "Historical native PNG; not a selected WebP"
+          }
+        },
+        {
+          "view": "axis_positive_y",
+          "sourceImage": "review/right_source_lung_axis_positive_y.png",
+          "sourceImageSha256": "57f5d2505d0dd89ba6b8de63540ed81d235197ba3aa0423744aacb4467f46bf9",
+          "gltfYUpCameraPosition": [
+            -0.06490166485309601,
+            0.4846181869506836,
+            -0.69620281457901
+          ],
+          "gltfYUpTarget": [
+            -0.06490166485309601,
+            0.4846181869506836,
+            -0.07971973717212677
+          ],
+          "gltfYUpUp": [
+            -8.742277657347586e-08,
+            0.9999999403953552,
+            -0.0
+          ],
+          "orthographicVerticalSpanM": 0.24248336255550385,
+          "sourceImageReference": {
+            "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/review/right_source_lung_axis_positive_y.png",
+            "sha256": "57f5d2505d0dd89ba6b8de63540ed81d235197ba3aa0423744aacb4467f46bf9",
+            "bytes": 508868,
+            "includedInDraft": false,
+            "referenceKind": "external-canonical-artifact",
+            "role": "Historical native PNG; not a selected WebP"
+          }
+        },
+        {
+          "view": "axis_positive_x",
+          "sourceImage": "review/right_source_lung_axis_positive_x.png",
+          "sourceImageSha256": "93c2becd1e14bc596b65b79c9f00eee4937b86e9c267da02ad534a358152542e",
+          "gltfYUpCameraPosition": [
+            0.5515814423561096,
+            0.4846181869506836,
+            -0.07971973717212677
+          ],
+          "gltfYUpTarget": [
+            -0.06490166485309601,
+            0.4846181869506836,
+            -0.07971973717212677
+          ],
+          "gltfYUpUp": [
+            0.0,
+            0.9999998807907104,
+            -0.0
+          ],
+          "orthographicVerticalSpanM": 0.24248336255550385,
+          "sourceImageReference": {
+            "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/review/right_source_lung_axis_positive_x.png",
+            "sha256": "93c2becd1e14bc596b65b79c9f00eee4937b86e9c267da02ad534a358152542e",
+            "bytes": 540662,
+            "includedInDraft": false,
+            "referenceKind": "external-canonical-artifact",
+            "role": "Historical native PNG; not a selected WebP"
+          }
+        },
+        {
+          "view": "axis_negative_x",
+          "sourceImage": "review/right_source_lung_axis_negative_x.png",
+          "sourceImageSha256": "a9113f18a15c59a0b75d1ed6c145875673c1578fb26439609ef70ce7035b51c8",
+          "gltfYUpCameraPosition": [
+            -0.6813847422599792,
+            0.4846181869506836,
+            -0.07971973717212677
+          ],
+          "gltfYUpTarget": [
+            -0.06490166485309601,
+            0.4846181869506836,
+            -0.07971973717212677
+          ],
+          "gltfYUpUp": [
+            0.0,
+            0.9999998807907104,
+            -0.0
+          ],
+          "orthographicVerticalSpanM": 0.24248336255550385,
+          "sourceImageReference": {
+            "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/review/right_source_lung_axis_negative_x.png",
+            "sha256": "a9113f18a15c59a0b75d1ed6c145875673c1578fb26439609ef70ce7035b51c8",
+            "bytes": 524246,
+            "includedInDraft": false,
+            "referenceKind": "external-canonical-artifact",
+            "role": "Historical native PNG; not a selected WebP"
+          }
+        },
+        {
+          "view": "axis_negative_z",
+          "sourceImage": "review/right_source_lung_axis_negative_z.png",
+          "sourceImageSha256": "1a3dd7a4b6b96753feff6245a97532f0af601473afe40a5b27f0824e412a81e7",
+          "gltfYUpCameraPosition": [
+            -0.06490166485309601,
+            -0.13186490535736084,
+            -0.07971973717212677
+          ],
+          "gltfYUpTarget": [
+            -0.06490166485309601,
+            0.4846181869506836,
+            -0.07971973717212677
+          ],
+          "gltfYUpUp": [
+            8.742277657347586e-08,
+            -8.742277657347586e-08,
+            -1.0
+          ],
+          "orthographicVerticalSpanM": 0.24248336255550385,
+          "sourceImageReference": {
+            "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/review/right_source_lung_axis_negative_z.png",
+            "sha256": "1a3dd7a4b6b96753feff6245a97532f0af601473afe40a5b27f0824e412a81e7",
+            "bytes": 512550,
+            "includedInDraft": false,
+            "referenceKind": "external-canonical-artifact",
+            "role": "Historical native PNG; not a selected WebP"
+          }
+        },
+        {
+          "view": "oblique",
+          "sourceImage": "review/right_source_lung_oblique.png",
+          "sourceImageSha256": "a56571f67e69d4bddeb773860777ace3aee23e8c801b03838d6baf6ec36e03f1",
+          "gltfYUpCameraPosition": [
+            0.34608709812164307,
+            0.6079148054122925,
+            0.5367633700370789
+          ],
+          "gltfYUpTarget": [
+            -0.06490166485309601,
+            0.4846181869506836,
+            -0.07971973717212677
+          ],
+          "gltfYUpUp": [
+            -0.09105543047189713,
+            0.986435055732727,
+            -0.13658322393894196
+          ],
+          "orthographicVerticalSpanM": 0.24248336255550385,
+          "sourceImageReference": {
+            "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/review/right_source_lung_oblique.png",
+            "sha256": "a56571f67e69d4bddeb773860777ace3aee23e8c801b03838d6baf6ec36e03f1",
+            "bytes": 536120,
+            "includedInDraft": false,
+            "referenceKind": "external-canonical-artifact",
+            "role": "Historical native PNG; not a selected WebP"
+          }
+        }
+      ]
+    }
+  },
+  "viewerSubset": {
+    "exactGLBSHA": "966a4c225be028e616f6f813e8d4232582995a82b8121a42257c1be53087cb19",
+    "coordinateFrame": {
+      "gltfUnits": "metres",
+      "gltfUp": "+Y",
+      "nodeTransforms": "all source node transforms/parent hierarchy retained",
+      "BlenderToGltf": "(x, z, -y)",
+      "nativeBlenderBoundsM": [
+        [
+          -0.13052892684936523,
+          0.003816480515524745,
+          0.36707305908203125
+        ],
+        [
+          0.12060581147670746,
+          0.15642137825489044,
+          0.5901092886924744
+        ]
+      ],
+      "alignment": "none; do not recenter per part or mix with another dataset"
+    },
+    "ortho_vertical_span": 0.2963390052318573,
+    "primary_view": "all_provider_geometry_axis_negative_y.png",
+    "views": [
+      {
+        "file": "all_provider_geometry_axis_negative_y.png",
+        "label": {
+          "en": "Combined source pair · source axis view",
+          "zh": "原始双肺组合·来源轴向视图"
+        },
+        "mode": "all_provider_geometry",
+        "position_three": [
+          -0.004961557686328888,
+          0.4785911738872528,
+          0.6732853055000305
+        ],
+        "target_three": [
+          -0.004961557686328888,
+          0.4785911738872528,
+          -0.08011893182992935
+        ],
+        "up_three": [
+          0.0,
+          0.9999999403953552,
+          -0.0
+        ],
+        "hidden_for_inspection_only": [],
+        "source_evidence_file": "review/all_provider_geometry_axis_negative_y.png",
+        "source_evidence_sha256": "559e40fcb9cfb486876b73beb570a04c34599247a124b35b0271a879432b1c58",
+        "sourceEvidenceReference": {
+          "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/review/all_provider_geometry_axis_negative_y.png",
+          "sha256": "559e40fcb9cfb486876b73beb570a04c34599247a124b35b0271a879432b1c58",
+          "bytes": 544666,
+          "includedInDraft": false,
+          "referenceKind": "external-canonical-artifact",
+          "role": "Historical native PNG; not bundled"
+        }
+      },
+      {
+        "file": "all_provider_geometry_oblique.png",
+        "label": {
+          "en": "Combined source pair · oblique",
+          "zh": "原始双肺组合·斜视"
+        },
+        "mode": "all_provider_geometry",
+        "position_three": [
+          0.4973079562187195,
+          0.6292720437049866,
+          0.6732853055000305
+        ],
+        "target_three": [
+          -0.004961557686328888,
+          0.4785911738872528,
+          -0.08011893182992935
+        ],
+        "up_three": [
+          -0.09105560183525085,
+          0.9864349365234375,
+          -0.1365833580493927
+        ],
+        "hidden_for_inspection_only": [],
+        "source_evidence_file": "review/all_provider_geometry_oblique.png",
+        "source_evidence_sha256": "21f4857dd6a57005a20ccfb98892ad8009586aa0dc05352fcf7a5a5e6c734f89",
+        "sourceEvidenceReference": {
+          "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/review/all_provider_geometry_oblique.png",
+          "sha256": "21f4857dd6a57005a20ccfb98892ad8009586aa0dc05352fcf7a5a5e6c734f89",
+          "bytes": 549392,
+          "includedInDraft": false,
+          "referenceKind": "external-canonical-artifact",
+          "role": "Historical native PNG; not bundled"
+        }
+      },
+      {
+        "file": "provider_airways_only_oblique.png",
+        "label": {
+          "en": "Supplied intrapulmonary branches only",
+          "zh": "仅显示来源提供的肺内分支"
+        },
+        "mode": "provider_airways_only",
+        "position_three": [
+          0.4973079562187195,
+          0.6292720437049866,
+          0.6732853055000305
+        ],
+        "target_three": [
+          -0.004961557686328888,
+          0.4785911738872528,
+          -0.08011893182992935
+        ],
+        "up_three": [
+          -0.09105560183525085,
+          0.9864349365234375,
+          -0.1365833580493927
+        ],
+        "hidden_for_inspection_only": [
+          "VH_F_hilum_L",
+          "VH_F_hilum_R",
+          "VH_F_hilum_lower_L",
+          "VH_F_hilum_lower_R",
+          "VH_F_hilum_middle_R",
+          "VH_F_hilum_upper_L",
+          "VH_F_hilum_upper_R",
+          "VH_F_left_anterior_basal_bronchopulmonary_segment",
+          "VH_F_left_anterior_bronchopulmonary_segment",
+          "VH_F_left_apical_bronchopulmonary_segment",
+          "VH_F_left_lateral_basal_bronchopulmonary_segment",
+          "VH_F_left_medial_basal_bronchopulmonary_segment",
+          "VH_F_left_posterior_basal_bronchopulmonary_segment",
+          "VH_F_left_posterior_bronchopulmonary_segment",
+          "VH_F_left_superior_bronchopulmonary_segment",
+          "VH_F_lingula_inferior_bronchopulmonary_segment",
+          "VH_F_lingula_superior_bronchopulmonary_segment",
+          "VH_F_right_anterior_basal_bronchopulmonary_segment",
+          "VH_F_right_anterior_bronchopulmonary_segm",
+          "VH_F_right_apical_bronchopulmonary_segment",
+          "VH_F_right_lateral_basal_bronchopulmonary_segment",
+          "VH_F_right_lateral_bronchopulmonary_segmennt",
+          "VH_F_right_medial_basal_bronchopulmonary_segment",
+          "VH_F_right_medial_bronchopulmonary_segment",
+          "VH_F_right_posterior_basal_bronchopulmonary_segment",
+          "VH_F_right_posterior_bronchopulmonary_segment",
+          "VH_F_right_superior_bronchopulmonary_segment"
+        ],
+        "source_evidence_file": "review/provider_airways_only_oblique.png",
+        "source_evidence_sha256": "0c527c496d89fad5e4c402cde28b9421aa10dfdddfff0bf21b5b11835f277bb4",
+        "sourceEvidenceReference": {
+          "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/review/provider_airways_only_oblique.png",
+          "sha256": "0c527c496d89fad5e4c402cde28b9421aa10dfdddfff0bf21b5b11835f277bb4",
+          "bytes": 552768,
+          "includedInDraft": false,
+          "referenceKind": "external-canonical-artifact",
+          "role": "Historical native PNG; not bundled"
+        }
+      }
+    ],
+    "derivedFrom": {
+      "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/camera-visibility-gltf-yup.json",
+      "sha256": "27e84962f28bb088dffa1b5642508fb17ba723f79c9b00782c07b67ca67cba7c",
+      "bytes": 21117,
+      "includedInDraft": false,
+      "referenceKind": "external-canonical-artifact",
+      "role": "Historical original visibility contract"
+    },
+    "scope": "Source-confirmed camera/visibility subset only. One combined lung pair; no animation or whole-body registration."
+  },
+  "sourceRecords": [
+    {
+      "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/camera-visibility-gltf-yup.json",
+      "sha256": "27e84962f28bb088dffa1b5642508fb17ba723f79c9b00782c07b67ca67cba7c",
+      "bytes": 21117,
+      "includedInDraft": false,
+      "referenceKind": "external-canonical-artifact",
+      "role": "Historical camera recipe; external"
+    },
+    {
+      "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/viewer-camera-contract-three.json",
+      "sha256": "191859150e6b137c2bcf4d3dba4aeacc098c585a6f16c2aa5e94eb02692ba701",
+      "bytes": 4900,
+      "includedInDraft": false,
+      "referenceKind": "external-canonical-artifact",
+      "role": "Historical camera recipe; external"
+    }
+  ],
+  "status": "Retained camera and named-visibility recipes only; not executed in a browser in this migration. Views are not separate models. No full portable render/rebuild closure."
+}

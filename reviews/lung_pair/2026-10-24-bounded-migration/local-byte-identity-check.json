@@ -1,0 +1,23 @@
+{
+  "scope": "Local source/candidate byte identity only; no rebuild, anatomy, topology, rendering or runtime evaluation.",
+  "candidateSha256": "966a4c225be028e616f6f813e8d4232582995a82b8121a42257c1be53087cb19",
+  "sourceSha256": "323d27bb76ba2c5b140ff31ad5190627eeb8d4e37cd220e4b541655d67789c1a",
+  "candidateBytes": 23253972,
+  "sourceBytes": 23253972,
+  "allJsonAndChunkHeaderBytesIdentical": true,
+  "allNonNormalAccessorsByteIdentical": true,
+  "changedBytes": 13746,
+  "changedNormalRows": 1501,
+  "allChangesWithinHistoricalSelectedNormalRows": true,
+  "rawSourceIncluded": false,
+  "sourceRecord": "sources/datasets/hra/lung-female-v1.3/bounded-migration-2026-10-24/external-source-map.json",
+  "normalRowReceipt": {
+    "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/normal-derivative-audit.json",
+    "sha256": "f250e1cee8000901e9827c3dd41d13c79c56eb979717c1c837fdd94b92d1964b",
+    "bytes": 861330,
+    "includedInDraft": false,
+    "referenceKind": "external-canonical-artifact",
+    "role": "Exact row whitelist used for the local byte comparison; external"
+  },
+  "networkRequests": 0
+}
