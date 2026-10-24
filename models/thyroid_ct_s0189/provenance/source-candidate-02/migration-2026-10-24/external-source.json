@@ -1,0 +1,30 @@
+{
+  "dataset": "TotalSegmentator v2.0.1",
+  "creator": "Jakob Wasserthal et al., University Hospital Basel",
+  "license": "CC-BY-4.0",
+  "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+  "recordURL": "https://zenodo.org/records/10047292",
+  "doi": "https://doi.org/10.5281/zenodo.10047292",
+  "publicationDate": "2023-10-27",
+  "archiveURL": "https://zenodo.org/records/10047292/files/Totalsegmentator_dataset_v201.zip",
+  "externalDependency": true,
+  "automaticallyDownloaded": false,
+  "rawIncluded": false,
+  "archiveSHA256": null,
+  "members": [
+    {
+      "member": "s0189/segmentations/thyroid_gland.nii.gz",
+      "sha256": "34bd5856b80c6da0780f07ca88814acf4772a58bf024ab12f897dcbaba6c1993",
+      "role": "focus"
+    },
+    {
+      "member": "s0189/segmentations/trachea.nii.gz",
+      "sha256": "c8f80fa16b0f0b940e18e2b1656274d455b817d9790e9d00b1cfc3286b0850d1",
+      "role": "review context only"
+    }
+  ],
+  "sourceFrame": "Native label affine RAS; mm inferred from published 1.5 mm convention and numeric affine. Header unit flag unspecified. Converted to metres; no atlas registration.",
+  "clinicalScope": "This clinical-source sample only; not normal/healthy normative anatomy. CT resolution corrugation is not tissue texture. No inferred parathyroids, vessels or follicles.",
+  "derivative": "0.5 label isosurface; winding reversed. 8 Taubin iterations lambda0.5/mu-0.53; movement capped0.75mm; thyroid measured max0.699mm and volume drift+0.226%. No inferred isthmus or topology addition.",
+  "reconstruction": "External labels, numeric affine and full original pipeline required. This receipt does not package a portable or byte-identical rebuild. No NIfTI, CT image, mask array or clinical metadata included."
+}

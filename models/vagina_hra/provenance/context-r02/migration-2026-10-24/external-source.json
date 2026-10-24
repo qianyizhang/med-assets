@@ -1,0 +1,29 @@
+{
+  "dataset": "Human Reference Atlas united-female v1.10",
+  "creators": [
+    "Kristen Browne",
+    "Heidi Schlehlein"
+  ],
+  "license": "CC-BY-4.0",
+  "licenseURL": "https://creativecommons.org/licenses/by/4.0/",
+  "doi": "https://doi.org/10.48539/HBM637.DWBM.744",
+  "url": "https://cdn.humanatlas.io/digital-objects/ref-organ/united-female/v1.10/assets/3d-vh-f-united.glb",
+  "sha256": "95f0c3d2f918582608692ca1139e8bdb18c147a16470e9ee9af8b276bd77c422",
+  "bytes": 374505632,
+  "externalDependency": true,
+  "automaticallyDownloaded": false,
+  "rawIncluded": false,
+  "sourceFrame": "Original HRA glTF metre frame; standard Blender import/export only. No anatomical normalization, recentering or cross-atlas registration.",
+  "selectedSubtreeRoots": [
+    "VH_F_vagina",
+    "VH_F_uterus",
+    "VH_F_urinary_bladder",
+    "VH_F_rectum",
+    "VH_F_sacrum",
+    "VH_F_coccyx",
+    "VH_F_ilium_compact_bone"
+  ],
+  "meshCount": 23,
+  "scope": "Vagina/cervicovaginal-junction exterior plus selected same-atlas context. NOT vulva, complete pelvis, mucosal or validated lumen model.",
+  "reconstruction": "Full external HRA source plus original selection/material pipeline required. No portable or byte-identical reconstruction claim. Self-contained source locator record; no dependency on unverified remote metadata path."
+}

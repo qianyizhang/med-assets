@@ -1,0 +1,539 @@
+{
+  "inheritedOnly": true,
+  "newTestsRun": false,
+  "sourceSHA256": "95f0c3d2f918582608692ca1139e8bdb18c147a16470e9ee9af8b276bd77c422",
+  "candidateSHA256": "c649de4db766ba00020315029c922de1d018061c1a34bd95c850a05255ab3037",
+  "sourceMeshCount": 23,
+  "outputMeshCount": 23,
+  "checks": [
+    {
+      "name": "VH_F_vagina",
+      "role": "focus",
+      "source_vertices": 4461,
+      "export_vertices": 4461,
+      "source_triangles": 8780,
+      "export_triangles": 8780,
+      "world_coordinate_set_max_bidirectional_nearest_distance_m": 0.0,
+      "world_determinant": 1.0,
+      "all_finite": true,
+      "bounds": [
+        [
+          -0.0345090851187706,
+          0.05912921950221062,
+          -0.05208705738186836
+        ],
+        [
+          0.010017966851592064,
+          0.0828528180718422,
+          0.006452033296227455
+        ]
+      ]
+    },
+    {
+      "name": "VH_F_cervicovaginal_junction",
+      "role": "focus",
+      "source_vertices": 1952,
+      "export_vertices": 1952,
+      "source_triangles": 3766,
+      "export_triangles": 3766,
+      "world_coordinate_set_max_bidirectional_nearest_distance_m": 0.0,
+      "world_determinant": 1.0,
+      "all_finite": true,
+      "bounds": [
+        [
+          -0.03143985569477081,
+          0.06505817174911499,
+          0.0024023675359785557
+        ],
+        [
+          0.006820926442742348,
+          0.09038802981376648,
+          0.025683078914880753
+        ]
+      ]
+    },
+    {
+      "name": "VH_F_abdominal_ostium_of_uterine_tube",
+      "role": "uterus",
+      "source_vertices": 313,
+      "export_vertices": 313,
+      "source_triangles": 546,
+      "export_triangles": 546,
+      "world_coordinate_set_max_bidirectional_nearest_distance_m": 0.0,
+      "world_determinant": 1.0,
+      "all_finite": true,
+      "bounds": [
+        [
+          -0.03974504396319389,
+          0.03987690061330795,
+          0.03946676105260849
+        ],
+        [
+          0.012742566876113415,
+          0.0421060174703598,
+          0.04311982914805412
+        ]
+      ]
+    },
+    {
+      "name": "VH_F_body_of_uterus",
+      "role": "uterus",
+      "source_vertices": 2823,
+      "export_vertices": 2823,
+      "source_triangles": 5344,
+      "export_triangles": 5344,
+      "world_coordinate_set_max_bidirectional_nearest_distance_m": 0.0,
+      "world_determinant": 1.0,
+      "all_finite": true,
+      "bounds": [
+        [
+          -0.0341830812394619,
+          0.03804643452167511,
+          0.02146206796169281
+        ],
+        [
+          0.008935680612921715,
+          0.06569686532020569,
+          0.05152751877903938
+        ]
+      ]
+    },
+    {
+      "name": "VH_F_fundus_of_uterus",
+      "role": "uterus",
+      "source_vertices": 1640,
+      "export_vertices": 1640,
+      "source_triangles": 3062,
+      "export_triangles": 3062,
+      "world_coordinate_set_max_bidirectional_nearest_distance_m": 0.0,
+      "world_determinant": 1.0,
+      "all_finite": true,
+      "bounds": [
+        [
+          -0.03337022662162781,
+          0.027496622875332832,
+          0.0320986732840538
+        ],
+        [
+          0.008037347346544266,
+          0.049555204808712006,
+          0.05321197211742401
+        ]
+      ]
+    },
+    {
+      "name": "VH_F_cornua",
+      "role": "uterus",
+      "source_vertices": 369,
+      "export_vertices": 369,
+      "source_triangles": 660,
+      "export_triangles": 660,
+      "world_coordinate_set_max_bidirectional_nearest_distance_m": 0.0,
+      "world_determinant": 1.0,
+      "all_finite": true,
+      "bounds": [
+        [
+          -0.03974319249391556,
+          0.036262739449739456,
+          0.0370500348508358
+        ],
+        [
+          0.012725362554192543,
+          0.04591949284076691,
+          0.04636550694704056
+        ]
+      ]
+    },
+    {
+      "name": "VH_F_lower_uterine_segment",
+      "role": "uterus",
+      "source_vertices": 792,
+      "export_vertices": 792,
+      "source_triangles": 1408,
+      "export_triangles": 1408,
+      "world_coordinate_set_max_bidirectional_nearest_distance_m": 0.0,
+      "world_determinant": 1.0,
+      "all_finite": true,
+      "bounds": [
+        [
+          -0.020889349281787872,
+          0.05686080828309059,
+          0.017684917896986008
+        ],
+        [
+          -0.0028578233905136585,
+          0.07143371552228928,
+          0.038033902645111084
+        ]
+      ]
+    },
+    {
+      "name": "VH_F_posterior_wall_of_uterus",
+      "role": "uterus",
+      "source_vertices": 6508,
+      "export_vertices": 6508,
+      "source_triangles": 12022,
+      "export_triangles": 12022,
+      "world_coordinate_set_max_bidirectional_nearest_distance_m": 0.0,
+      "world_determinant": 1.0,
+      "all_finite": true,
+      "bounds": [
+        [
+          -0.03401535004377365,
+          0.027685241773724556,
+          0.021398210898041725
+        ],
+        [
+          0.008844166062772274,
+          0.06136665120720863,
+          0.047326620668172836
+        ]
+      ]
+    },
+    {
+      "name": "VH_F_anterior_wall_of_uterus",
+      "role": "uterus",
+      "source_vertices": 5584,
+      "export_vertices": 5584,
+      "source_triangles": 10147,
+      "export_triangles": 10147,
+      "world_coordinate_set_max_bidirectional_nearest_distance_m": 0.0,
+      "world_determinant": 1.0,
+      "all_finite": true,
+      "bounds": [
+        [
+          -0.03401535004377365,
+          0.02972673438489437,
+          0.028414268046617508
+        ],
+        [
+          0.008844166062772274,
+          0.06570125371217728,
+          0.05296699330210686
+        ]
+      ]
+    },
+    {
+      "name": "VH_F_cervix",
+      "role": "uterus",
+      "source_vertices": 1825,
+      "export_vertices": 1825,
+      "source_triangles": 3508,
+      "export_triangles": 3508,
+      "world_coordinate_set_max_bidirectional_nearest_distance_m": 0.0,
+      "world_determinant": 1.0,
+      "all_finite": true,
+      "bounds": [
+        [
+          -0.02460305206477642,
+          0.06190929189324379,
+          0.0062188454903662205
+        ],
+        [
+          0.0026926230639219284,
+          0.08619216829538345,
+          0.03515302762389183
+        ]
+      ]
+    },
+    {
+      "name": "VH_F_internal_cervical_os",
+      "role": "uterus",
+      "source_vertices": 135,
+      "export_vertices": 135,
+      "source_triangles": 216,
+      "export_triangles": 216,
+      "world_coordinate_set_max_bidirectional_nearest_distance_m": 0.0,
+      "world_determinant": 1.0,
+      "all_finite": true,
+      "bounds": [
+        [
+          -0.012525038793683052,
+          0.06537212431430817,
+          0.02315264567732811
+        ],
+        [
+          -0.009072573855519295,
+          0.06961788237094879,
+          0.026931418105959892
+        ]
+      ]
+    },
+    {
+      "name": "VH_F_external_cervical_os",
+      "role": "uterus",
+      "source_vertices": 162,
+      "export_vertices": 162,
+      "source_triangles": 270,
+      "export_triangles": 270,
+      "world_coordinate_set_max_bidirectional_nearest_distance_m": 0.0,
+      "world_determinant": 1.0,
+      "all_finite": true,
+      "bounds": [
+        [
+          -0.014222287572920322,
+          0.07832885533571243,
+          0.013049067929387093
+        ],
+        [
+          -0.006857067346572876,
+          0.0841342881321907,
+          0.020107373595237732
+        ]
+      ]
+    },
+    {
+      "name": "VH_F_rectum",
+      "role": "rectum",
+      "source_vertices": 965,
+      "export_vertices": 965,
+      "source_triangles": 1880,
+      "export_triangles": 1880,
+      "world_coordinate_set_max_bidirectional_nearest_distance_m": 0.0,
+      "world_determinant": 1.0,
+      "all_finite": true,
+      "bounds": [
+        [
+          -0.02385588362812996,
+          0.08313643932342529,
+          -0.01328155118972063
+        ],
+        [
+          0.029071612283587456,
+          0.14650557935237885,
+          0.09255766868591309
+        ]
+      ]
+    },
+    {
+      "name": "VH_F_fundus_of_urinary_bladder_dome",
+      "role": "bladder",
+      "source_vertices": 6138,
+      "export_vertices": 6138,
+      "source_triangles": 11916,
+      "export_triangles": 11916,
+      "world_coordinate_set_max_bidirectional_nearest_distance_m": 0.0,
+      "world_determinant": 1.0,
+      "all_finite": true,
+      "bounds": [
+        [
+          -0.04054019972681999,
+          -0.0024150912649929523,
+          0.007800909224897623
+        ],
+        [
+          0.01143630687147379,
+          0.05876102298498154,
+          0.026227213442325592
+        ]
+      ]
+    },
+    {
+      "name": "VH_F_urinary_bladder_neck_smooth_muscle",
+      "role": "bladder",
+      "source_vertices": 935,
+      "export_vertices": 935,
+      "source_triangles": 1790,
+      "export_triangles": 1790,
+      "world_coordinate_set_max_bidirectional_nearest_distance_m": 0.0,
+      "world_determinant": 1.0,
+      "all_finite": true,
+      "bounds": [
+        [
+          -0.01607695035636425,
+          0.0492430105805397,
+          -0.01799396425485611
+        ],
+        [
+          -0.00919598899781704,
+          0.05493762716650963,
+          -0.013756226748228073
+        ]
+      ]
+    },
+    {
+      "name": "VH_F_fundus_of_urinary_bladder_base",
+      "role": "bladder",
+      "source_vertices": 13071,
+      "export_vertices": 13071,
+      "source_triangles": 25526,
+      "export_triangles": 25526,
+      "world_coordinate_set_max_bidirectional_nearest_distance_m": 0.0,
+      "world_determinant": 1.0,
+      "all_finite": true,
+      "bounds": [
+        [
+          -0.04054019972681999,
+          -0.0024150912649929523,
+          -0.015222308225929737
+        ],
+        [
+          0.01143630687147379,
+          0.0592840313911438,
+          0.020149854943156242
+        ]
+      ]
+    },
+    {
+      "name": "VH_F_trigone_of_urinary_bladder",
+      "role": "bladder",
+      "source_vertices": 934,
+      "export_vertices": 934,
+      "source_triangles": 1684,
+      "export_triangles": 1684,
+      "world_coordinate_set_max_bidirectional_nearest_distance_m": 0.0,
+      "world_determinant": 1.0,
+      "all_finite": true,
+      "bounds": [
+        [
+          -0.03412303701043129,
+          0.050865285098552704,
+          -0.014329137280583382
+        ],
+        [
+          0.00866294838488102,
+          0.055649757385253906,
+          0.012025370262563229
+        ]
+      ]
+    },
+    {
+      "name": "VH_F_ureteral_orifice_R",
+      "role": "bladder",
+      "source_vertices": 106,
+      "export_vertices": 106,
+      "source_triangles": 180,
+      "export_triangles": 180,
+      "world_coordinate_set_max_bidirectional_nearest_distance_m": 0.0,
+      "world_determinant": 1.0,
+      "all_finite": true,
+      "bounds": [
+        [
+          -0.036559198051691055,
+          0.053813934326171875,
+          0.009611086919903755
+        ],
+        [
+          -0.03312330320477486,
+          0.05600558966398239,
+          0.01300685852766037
+        ]
+      ]
+    },
+    {
+      "name": "VH_F_ureteral_orifice_L",
+      "role": "bladder",
+      "source_vertices": 118,
+      "export_vertices": 118,
+      "source_triangles": 194,
+      "export_triangles": 194,
+      "world_coordinate_set_max_bidirectional_nearest_distance_m": 0.0,
+      "world_determinant": 1.0,
+      "all_finite": true,
+      "bounds": [
+        [
+          0.00818664487451315,
+          0.04904640093445778,
+          0.008465146645903587
+        ],
+        [
+          0.010536002926528454,
+          0.05201484635472298,
+          0.011849340982735157
+        ]
+      ]
+    },
+    {
+      "name": "VH_F_sacrum",
+      "role": "bone",
+      "source_vertices": 9786,
+      "export_vertices": 9786,
+      "source_triangles": 19636,
+      "export_triangles": 19636,
+      "world_coordinate_set_max_bidirectional_nearest_distance_m": 0.0,
+      "world_determinant": 1.0,
+      "all_finite": true,
+      "bounds": [
+        [
+          -0.07182217389345169,
+          0.07756024599075317,
+          0.043841227889060974
+        ],
+        [
+          0.055596258491277695,
+          0.18245455622673035,
+          0.14288178086280823
+        ]
+      ]
+    },
+    {
+      "name": "VH_F_coccyx",
+      "role": "bone",
+      "source_vertices": 697,
+      "export_vertices": 697,
+      "source_triangles": 1390,
+      "export_triangles": 1390,
+      "world_coordinate_set_max_bidirectional_nearest_distance_m": 0.0,
+      "world_determinant": 1.0,
+      "all_finite": true,
+      "bounds": [
+        [
+          -0.02362126298248768,
+          0.14032788574695587,
+          0.0182205718010664
+        ],
+        [
+          0.0082860654219985,
+          0.1783144772052765,
+          0.045169055461883545
+        ]
+      ]
+    },
+    {
+      "name": "VH_F_ilium_compact_bone_R",
+      "role": "bone",
+      "source_vertices": 5907,
+      "export_vertices": 5907,
+      "source_triangles": 11810,
+      "export_triangles": 11810,
+      "world_coordinate_set_max_bidirectional_nearest_distance_m": 0.0,
+      "world_determinant": 1.0,
+      "all_finite": true,
+      "bounds": [
+        [
+          -0.16699616611003876,
+          0.003940601367503405,
+          0.024749064818024635
+        ],
+        [
+          -0.05201111361384392,
+          0.16555026173591614,
+          0.16465844213962555
+        ]
+      ]
+    },
+    {
+      "name": "VH_F_ilium_compact_bone_L",
+      "role": "bone",
+      "source_vertices": 6344,
+      "export_vertices": 6344,
+      "source_triangles": 12684,
+      "export_triangles": 12684,
+      "world_coordinate_set_max_bidirectional_nearest_distance_m": 0.0,
+      "world_determinant": 1.0,
+      "all_finite": true,
+      "bounds": [
+        [
+          0.031099094077944756,
+          -0.0002899217652156949,
+          0.025642728433012962
+        ],
+        [
+          0.14984172582626343,
+          0.16546127200126648,
+          0.16400381922721863
+        ]
+      ]
+    }
+  ]
+}
