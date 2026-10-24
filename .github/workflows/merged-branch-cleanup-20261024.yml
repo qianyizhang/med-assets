@@ -1,0 +1,80 @@
+name: Audited merged branch cleanup 2026-10-24
+on:
+  push:
+    branches: [maintenance/merged-branch-cleanup-20261024]
+    paths: [.github/workflows/merged-branch-cleanup-20261024.yml]
+permissions:
+  contents: write
+  pull-requests: read
+concurrency:
+  group: merged-branch-cleanup-20261024
+  cancel-in-progress: false
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+          lfs: false
+      - name: Check exact merged heads and delete with atomic leases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: python
+        run: |
+          import json, os, subprocess, urllib.request, urllib.parse, datetime
+          from pathlib import Path
+          REPO='qianyizhang/med-assets'
+          assert os.environ['GITHUB_REPOSITORY']==REPO
+          assert os.environ['GITHUB_REF']=='refs/heads/maintenance/merged-branch-cleanup-20261024'
+          def api(path):
+           req=urllib.request.Request('https://api.github.com/repos/'+REPO+path,headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','X-GitHub-Api-Version':'2022-11-28'})
+           with urllib.request.urlopen(req) as r:return json.load(r)
+          def pages(path):
+           out=[]
+           for n in range(1,101):
+            batch=api(path+('&' if '?' in path else '?')+'per_page=100&page='+str(n));out+=batch
+            if len(batch)<100:return out
+           raise RuntimeError('pagination bound exceeded')
+          def git(*args):return subprocess.run(['git',*args],check=True,text=True,capture_output=True).stdout.strip()
+          m=json.loads(Path('maintenance/branch-cleanup/2026-10-24/recovery-manifest.json').read_text())
+          rows=m['eligible'];assert len(rows)==22 and len({x['branch'] for x in rows})==22
+          repo=api('');default=repo['default_branch'];assert default=='main'
+          before={b['name']:b for b in pages('/branches')}
+          open_heads={p['head']['ref'] for p in pages('/pulls?state=open') if p['head']['repo'] and p['head']['repo']['full_name']==REPO}
+          git('fetch','origin','main')
+          main=git('rev-parse','FETCH_HEAD');selected=[];skipped=[]
+          for row in rows:
+           name=row['branch'];sha=row['expected_sha']
+           assert name not in [default,*m['preserve_active']]
+           branch=api('/branches/'+urllib.parse.quote(name,safe=''))
+           if branch['commit']['sha']!=sha or branch['protected'] or name in open_heads:
+            skipped.append({'branch':name,'reason':'head moved, protected, or active PR'});continue
+           p=api('/pulls/'+str(row['prs'][0]['number']))
+           assert p['merged'] and p['state']=='closed' and p['head']['sha']==sha and p['head']['ref']==name and p['base']['ref']=='main'
+           git('merge-base','--is-ancestor',sha,main)
+           git('merge-base','--is-ancestor',p['merge_commit_sha'],main)
+           selected.append(row)
+          # Refresh protection and open PR state immediately before the lease-guarded atomic deletion.
+          open_heads={p['head']['ref'] for p in pages('/pulls?state=open') if p['head']['repo'] and p['head']['repo']['full_name']==REPO}
+          for row in selected:
+           b=api('/branches/'+urllib.parse.quote(row['branch'],safe=''))
+           assert not b['protected'] and b['commit']['sha']==row['expected_sha'] and row['branch'] not in open_heads
+          assert api('')['default_branch']==default
+          if selected:
+           args=['push','--atomic','origin']
+           args += ['--force-with-lease=refs/heads/'+r['branch']+':'+r['expected_sha'] for r in selected]
+           args += [':refs/heads/'+r['branch'] for r in selected]
+           print(git(*args))
+          after={b['name']:b for b in pages('/branches')}
+          assert all(r['branch'] not in after for r in selected)
+          assert all(name in after for name in before if name not in {r['branch'] for r in selected})
+          receipt={'checked_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'run_url':f'https://github.com/{REPO}/actions/runs/'+os.environ['GITHUB_RUN_ID'],'main_sha_checked':main,'deleted':[{'branch':r['branch'],'sha':r['expected_sha']} for r in selected],'skipped':skipped,'before_count':len(before),'after_count':len(after),'remaining':{k:v['commit']['sha'] for k,v in after.items()},'retained_head_changes':{k:{'before':v['commit']['sha'],'after':after[k]['commit']['sha']} for k,v in before.items() if k in after and v['commit']['sha']!=after[k]['commit']['sha']}}
+          Path('branch-cleanup-receipt.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt,indent=2))
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: branch-cleanup-receipt-20261024
+          path: branch-cleanup-receipt.json
+          if-no-files-found: warn
