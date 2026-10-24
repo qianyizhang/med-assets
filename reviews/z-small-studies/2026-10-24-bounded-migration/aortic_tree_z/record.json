@@ -1,0 +1,188 @@
+{
+  "schema": "z-small-static-study-migration-v1",
+  "assetId": "draft_vessels",
+  "variantId": "aortic_tree_z__r02",
+  "model": {
+    "path": "models/aortic_tree_z/exports/r02/aortic_tree_z_source_frame.glb",
+    "sha256": "d4b3dbd2d09fd76795f47bb96844acdeba5f1b4f48dd630f2a294f33816deaeb",
+    "bytes": 881168
+  },
+  "scope": {
+    "en": "Aorta and selected major arterial branches only:15 source structures in9 meshes. Open rims and unfused intersections remain; no complete circulation, continuous lumen or whole-body registration.",
+    "zh": "仅主动脉与部分主要动脉分支：15个来源结构组成9个网格。保留开放端缘和未融合交叉表面；不代表完整循环、连续管腔或全身配准。"
+  },
+  "gates": {
+    "technical": "pass-with-limitations",
+    "visual": "passed",
+    "anatomy": "reference-screened",
+    "runtime": "unverified"
+  },
+  "gatePolicy": "Verbatim existing gallery gates; no new validation or gate/count change.",
+  "historicalReview": {
+    "status": "Existing scoped static visual acceptance; retained, not re-reviewed in this migration",
+    "scope": "Static aorta plus selected major arterial branch exterior improvement",
+    "limitations": [
+      "Selected aorta, arch branches, renal trunks and common/external iliac arteries only; not veins, lymphatics, peripheral nerves, full arterial tree or full circulation.",
+      "Native Z-Anatomy world frame only; not BodyParts3D 4.0 or CT registration. Isolated viewer only; no default whole-body replacement.",
+      "15 named source structures represented by9 meshes; only six numerically coincident curve endpoints joined, with source handles/radii retained.",
+      "Open end rims and intersecting unfused branch surfaces remain. Each of9 meshes has40 boundary edges after exact tuple remap; not a closed-volume or continuous-lumen pass.",
+      "Bidirectional sampled vertex-to-surface discrepancy from independently densified original curves is at most0.0743mm; this is not analytic Hausdorff distance.",
+      "Static visual exterior scope only; no browser-runtime, motion, clinical or expert-anatomy validation."
+    ],
+    "notClaimed": []
+  },
+  "historicalReviewIdentity": {
+    "canonicalPath": "reviews/aortic_tree_z/r02/review.json",
+    "sha256": "2c7b05cfed96046b6c7a27c0c212033843949ae884c4433a058486b16515961c",
+    "bytes": 1444,
+    "includedInDraft": false
+  },
+  "sourceFrame": "Z-Anatomy native evaluated world only; separate from BP3D/CT. No recentering, alignment or default whole-body assembly.",
+  "warnings": [
+    "15 source structures in 9 exterior meshes; selected arterial subset, not complete circulation.",
+    "Open end rims and unfused intersecting branch surfaces remain; 40 boundary edges per mesh in the historical exact-tuple audit.",
+    "No closed-volume/continuous-lumen/flow, veins, lymphatics, nerves, whole-body registration or clinical/runtime pass."
+  ],
+  "changes": "Historical r02 joins six numerically coincident native curve endpoints with matching radii, retains source control points/handles, and increases longitudinal/bevel sampling. No new paths or lumen. This migration makes no geometry/material/transform edits.",
+  "failureLesson": {
+    "en": "Source joins and caps must be inspected; partial exterior coherence is not a continuous lumen.",
+    "zh": "必须检查源模型接合与端盖；局部外观连贯不等于连续管腔。"
+  },
+  "evidence": [
+    {
+      "id": "draft_vessels__2026-10-23-v10-exterior-review__3",
+      "file": "evidence/canonical/draft_vessels__2026-10-23-v10-exterior-review/f6a1b11294b68fa26429e9c8532961d1e36631a5e98c3a2ab1fe71831c51bd36.webp",
+      "sha256": "57c6465e0135599536816e185981e4c40a4e3bb14087d687001567bfc73f7955",
+      "originalSha256": "f6a1b11294b68fa26429e9c8532961d1e36631a5e98c3a2ab1fe71831c51bd36",
+      "originalFile": "reviews/vessels/2026-10-23-v10-exterior-review/draft_vessels/screenshots/contact.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "baseline",
+      "noteIsGeneric": true,
+      "kind": "blender-still-contact-sheet",
+      "label": {
+        "en": "Front / left / back",
+        "zh": "前视 / 左视 / 后视"
+      },
+      "capturedAt": "2026-10-23T01:34:29.243641+00:00",
+      "recordedDate": "2026-10-23",
+      "assetBinding": "203b1bb112005a9ff5a3e70d00eb91ba225d21772e425b9ad4ae973221d98ea1",
+      "sourceBindings": [],
+      "role": null,
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": {
+        "engine": "Blender 4.3.2 Cycles CPU",
+        "samples": 32,
+        "resolution": [
+          512,
+          512
+        ],
+        "frame": 1,
+        "projection": "orthographic",
+        "orientation": "Manifest x=patient left, y=superior, z=anterior; glTF imported to Blender Z-up; cameras front=-Y,left=+X,back=+Y",
+        "hiddenCutawayNodes": [],
+        "scope": "Exterior static view only. Internal details may remain occluded. No motion or runtime verification."
+      },
+      "note": {
+        "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+        "zh": "自己的静态证据，WebP 展示副本；无损原图保留在规范审查记录中。不自动表示解剖或运行通过。"
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/draft_vessels__2026-10-23-v10-exterior-review/f6a1b11294b68fa26429e9c8532961d1e36631a5e98c3a2ab1fe71831c51bd36.webp",
+      "bytes": 30762,
+      "selectionRole": "before",
+      "originalNativePublicCopies": [],
+      "retainedPath": "reviews/z-small-studies/2026-10-24-bounded-migration/display/57c6465e0135599536816e185981e4c40a4e3bb14087d687001567bfc73f7955.webp",
+      "license": "CC BY-SA 4.0 for Z-derived candidate renders; baseline remains separately bound to its original review."
+    },
+    {
+      "id": "aortic_tree_z__r02__scoped-review__1",
+      "file": "evidence/canonical/aortic_tree_z__r02__scoped-review/0d6809b0e84889bd116a1142f00d24d166e078b6000592dca59173ea06a55507.webp",
+      "sha256": "dfc0643539359a701e1690c548c825f695fa637a89595a76326a1c39ca9321e1",
+      "originalSha256": "0d6809b0e84889bd116a1142f00d24d166e078b6000592dca59173ea06a55507",
+      "originalFile": "reviews/aortic_tree_z/r02/exact-export-contact.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "candidate",
+      "noteIsGeneric": true,
+      "kind": "blender-still",
+      "label": {
+        "en": "exact-export-contact",
+        "zh": "精确导出复测对照图"
+      },
+      "capturedAt": null,
+      "recordedDate": "2026-10-23",
+      "assetBinding": "d4b3dbd2d09fd76795f47bb96844acdeba5f1b4f48dd630f2a294f33816deaeb",
+      "sourceBindings": [],
+      "role": "candidate",
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": null,
+      "note": {
+        "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+        "zh": "自己的静态证据，WebP 展示副本；无损原图保留在规范审查记录中。不自动表示解剖或运行通过。"
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/aortic_tree_z__r02__scoped-review/0d6809b0e84889bd116a1142f00d24d166e078b6000592dca59173ea06a55507.webp",
+      "bytes": 52764,
+      "selectionRole": "candidate",
+      "originalNativePublicCopies": [],
+      "retainedPath": "reviews/z-small-studies/2026-10-24-bounded-migration/display/dfc0643539359a701e1690c548c825f695fa637a89595a76326a1c39ca9321e1.webp",
+      "license": "CC BY-SA 4.0 for Z-derived candidate renders; baseline remains separately bound to its original review."
+    },
+    {
+      "id": "aortic_tree_z__r02__scoped-review__6",
+      "file": "evidence/canonical/aortic_tree_z__r02__scoped-review/d607996234506d612425744ab2bb648ab006a276cb79985d2fe180a86d21b3bc.webp",
+      "sha256": "e63b51114510b4a4882195733c4892524b22fe38b921f6ffe07b35fbc26be8a5",
+      "originalSha256": "d607996234506d612425744ab2bb648ab006a276cb79985d2fe180a86d21b3bc",
+      "originalFile": "reviews/aortic_tree_z/r02/screenshots/exact-glb/arch-junctions.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "candidate",
+      "noteIsGeneric": true,
+      "kind": "blender-still",
+      "label": {
+        "en": "arch-junctions",
+        "zh": "主动脉弓分支交界细节"
+      },
+      "capturedAt": null,
+      "recordedDate": "2026-10-23",
+      "assetBinding": "d4b3dbd2d09fd76795f47bb96844acdeba5f1b4f48dd630f2a294f33816deaeb",
+      "sourceBindings": [],
+      "role": "candidate",
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": null,
+      "note": {
+        "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+        "zh": "自己的静态证据，WebP 展示副本；无损原图保留在规范审查记录中。不自动表示解剖或运行通过。"
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/aortic_tree_z__r02__scoped-review/d607996234506d612425744ab2bb648ab006a276cb79985d2fe180a86d21b3bc.webp",
+      "bytes": 36136,
+      "selectionRole": "candidate",
+      "originalNativePublicCopies": [],
+      "retainedPath": "reviews/z-small-studies/2026-10-24-bounded-migration/display/e63b51114510b4a4882195733c4892524b22fe38b921f6ffe07b35fbc26be8a5.webp",
+      "license": "CC BY-SA 4.0 for Z-derived candidate renders; baseline remains separately bound to its original review."
+    }
+  ],
+  "attribution": [
+    {
+      "role": "attribution",
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/attribution/ffd29bceef3af0c3f5ff40d72c4c7bf53042cc6b4d427fabd09d65f18f80fcb0.md",
+      "sha256": "ffd29bceef3af0c3f5ff40d72c4c7bf53042cc6b4d427fabd09d65f18f80fcb0",
+      "bytes": 2664
+    }
+  ],
+  "publicMapProvenance": {
+    "siteSourceCommit": "2613894e2792183cd27db9856af24e580e974f2e",
+    "inventoryRemoteRef": "79c867bad7471562d1c4ddabb4fe2a24d9764f8a",
+    "sourceMapSha256": "ff5d8a648cb3c93c15e6b6b332afcb4d1106e4e1814039df333a16b58b2dd42b",
+    "sourceMapName": "accepted-study-public-media-map-20261023.json",
+    "availability": "Retained local deployed-site bytes only; no fresh HTTP availability, remote or LFS readback."
+  },
+  "sourceDependency": "sources/datasets/z-anatomy/small-static-studies/dependency-manifest.json",
+  "cameraContractAvailableInReviewData": false,
+  "rebuildClaim": false
+}

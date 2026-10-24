@@ -1,0 +1,188 @@
+{
+  "schema": "z-small-static-study-migration-v1",
+  "assetId": "draft_ears",
+  "variantId": "ears_z__r04",
+  "model": {
+    "path": "models/ears_z/exports/r04/ears_z.glb",
+    "sha256": "04ba664cdc219dc7b78e80ddb2b1d5ff39ffe4438bd0ab1bf63c2221c46f5939",
+    "bytes": 1752248
+  },
+  "scope": {
+    "en": "Auricle/pinna exterior only;36 source regions,1µm seam weld and2-level interpolation. Medial cut/open boundaries remain; no canal, tympanum, middle/inner ear or watertightness claim.",
+    "zh": "仅耳廓外观；36个来源分区，1µm接缝合并与2级插值。保留内侧切割/开放边界；无耳道、鼓膜或中内耳，不声称水密。"
+  },
+  "gates": {
+    "technical": "pass-with-limitations",
+    "visual": "passed",
+    "anatomy": "reference-screened",
+    "runtime": "unverified"
+  },
+  "gatePolicy": "Verbatim existing gallery gates; no new validation or gate/count change.",
+  "historicalReview": {
+    "status": "Existing scoped static visual acceptance; retained, not re-reviewed in this migration",
+    "scope": "Static auricle/pinna educational exterior improvement",
+    "limitations": [
+      "Auricle/pinna exterior only, not whole-ear volume. Exposed medial attachment/cut boundary remains.",
+      "No auditory canal, tympanic membrane, middle or inner ear. No licensed inner-ear geometry included.",
+      "36 named source regions (18per side), joined with1micrometre seam tolerance then2-level Catmull-Clark interpolation. No anatomy added or canal capped.",
+      "One-way final-vertex-to-source-surface distance max0.58013mm,mean0.03173mm,not bidirectional Hausdorff.",
+      "Open/nonmanifold source region boundaries remain; no watertight, clinical or browser-runtime pass.",
+      "Z-Anatomy native source frame, not BP3D4 or CT registration."
+    ],
+    "notClaimed": []
+  },
+  "historicalReviewIdentity": {
+    "canonicalPath": "reviews/ears_z/r04/review.json",
+    "sha256": "751e3e6b3426e8721ab4fc735dd97687355a2a8c2282df4c9523ca8f62890a49",
+    "bytes": 1013,
+    "includedInDraft": false
+  },
+  "sourceFrame": "Z-Anatomy native evaluated world only; separate from BP3D/CT. No recentering, alignment or default whole-body assembly.",
+  "warnings": [
+    "Auricle/pinna exterior only, 18 source regions per side; medial attachment/cut and open/non-manifold boundaries remain.",
+    "No canal, tympanic membrane, middle/inner ear, whole-ear volume or watertightness claim.",
+    "One-way sampled final-vertex-to-source discrepancy is not bidirectional Hausdorff or anatomical validation."
+  ],
+  "changes": "Historical r04 compounds 36 source regions, applies a 1 micrometre seam tolerance and two Catmull-Clark interpolation levels; does not add/cap a canal. This migration makes no geometry/material/transform edits.",
+  "failureLesson": {
+    "en": "Interpolation can improve seams, not recover missing inner-ear anatomy or close a medial source boundary.",
+    "zh": "插值可改善接缝，但不能恢复缺失的中内耳解剖或证明内侧边界闭合。"
+  },
+  "evidence": [
+    {
+      "id": "draft_ears__2026-10-23-v10-exterior-review__3",
+      "file": "evidence/canonical/draft_ears__2026-10-23-v10-exterior-review/1004ffbf9241f95c9ac05d0e7e7c6741d4328617ef7994af554622a20b06fe9c.webp",
+      "sha256": "aa7825ca44529e1e7c751dc614238c5a01357e3b606faf1d833eaac08bca3fb9",
+      "originalSha256": "1004ffbf9241f95c9ac05d0e7e7c6741d4328617ef7994af554622a20b06fe9c",
+      "originalFile": "reviews/ears/2026-10-23-v10-exterior-review/draft_ears/screenshots/contact.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "baseline",
+      "noteIsGeneric": true,
+      "kind": "blender-still-contact-sheet",
+      "label": {
+        "en": "Front / left / back",
+        "zh": "前视 / 左视 / 后视"
+      },
+      "capturedAt": "2026-10-23T01:33:19.829878+00:00",
+      "recordedDate": "2026-10-23",
+      "assetBinding": "7195a11653c274e6cecfc72093579615a5c0fdd5a840a8bd661dd5dfb7c57457",
+      "sourceBindings": [],
+      "role": null,
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": {
+        "engine": "Blender 4.3.2 Cycles CPU",
+        "samples": 32,
+        "resolution": [
+          512,
+          512
+        ],
+        "frame": 1,
+        "projection": "orthographic",
+        "orientation": "Manifest x=patient left, y=superior, z=anterior; glTF imported to Blender Z-up; cameras front=-Y,left=+X,back=+Y",
+        "hiddenCutawayNodes": [],
+        "scope": "Exterior static view only. Internal details may remain occluded. No motion or runtime verification."
+      },
+      "note": {
+        "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+        "zh": "自己的静态证据，WebP 展示副本；无损原图保留在规范审查记录中。不自动表示解剖或运行通过。"
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/draft_ears__2026-10-23-v10-exterior-review/1004ffbf9241f95c9ac05d0e7e7c6741d4328617ef7994af554622a20b06fe9c.webp",
+      "bytes": 31106,
+      "selectionRole": "before",
+      "originalNativePublicCopies": [],
+      "retainedPath": "reviews/z-small-studies/2026-10-24-bounded-migration/display/aa7825ca44529e1e7c751dc614238c5a01357e3b606faf1d833eaac08bca3fb9.webp",
+      "license": "CC BY-SA 4.0 for Z-derived candidate renders; baseline remains separately bound to its original review."
+    },
+    {
+      "id": "ears_z__r04__scoped-review__3",
+      "file": "evidence/canonical/ears_z__r04__scoped-review/ab17704495afe06bb75144226c849cbbf76e8480fe9a85fc9744db33e2a3d457.webp",
+      "sha256": "9eb518206d5073352bda1b7649009886ccb471b40af01d2c067ca8c92b6cf2ee",
+      "originalSha256": "ab17704495afe06bb75144226c849cbbf76e8480fe9a85fc9744db33e2a3d457",
+      "originalFile": "reviews/ears_z/r04/export-contact.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "candidate",
+      "noteIsGeneric": true,
+      "kind": "blender-still",
+      "label": {
+        "en": "export-contact",
+        "zh": "精确导出复测对照图"
+      },
+      "capturedAt": null,
+      "recordedDate": "2026-10-23",
+      "assetBinding": "04ba664cdc219dc7b78e80ddb2b1d5ff39ffe4438bd0ab1bf63c2221c46f5939",
+      "sourceBindings": [],
+      "role": "candidate",
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": null,
+      "note": {
+        "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+        "zh": "自己的静态证据，WebP 展示副本；无损原图保留在规范审查记录中。不自动表示解剖或运行通过。"
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/ears_z__r04__scoped-review/ab17704495afe06bb75144226c849cbbf76e8480fe9a85fc9744db33e2a3d457.webp",
+      "bytes": 44604,
+      "selectionRole": "candidate",
+      "originalNativePublicCopies": [],
+      "retainedPath": "reviews/z-small-studies/2026-10-24-bounded-migration/display/9eb518206d5073352bda1b7649009886ccb471b40af01d2c067ca8c92b6cf2ee.webp",
+      "license": "CC BY-SA 4.0 for Z-derived candidate renders; baseline remains separately bound to its original review."
+    },
+    {
+      "id": "ears_z__r04__scoped-review__1",
+      "file": "evidence/canonical/ears_z__r04__scoped-review/1b4180852de67031d48c4c5cdfd1fe2f475ced4bb68f70b5e2b631288804efc9.webp",
+      "sha256": "0a3351fa73458d5ad04f5799a83fab415b7c822a6bd5d57a69fd3222a5458a29",
+      "originalSha256": "1b4180852de67031d48c4c5cdfd1fe2f475ced4bb68f70b5e2b631288804efc9",
+      "originalFile": "reviews/ears_z/r04/ear-detail-oblique.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "candidate",
+      "noteIsGeneric": true,
+      "kind": "blender-still",
+      "label": {
+        "en": "ear-detail-oblique",
+        "zh": "耳廓局部斜视"
+      },
+      "capturedAt": null,
+      "recordedDate": "2026-10-23",
+      "assetBinding": "04ba664cdc219dc7b78e80ddb2b1d5ff39ffe4438bd0ab1bf63c2221c46f5939",
+      "sourceBindings": [],
+      "role": "candidate",
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": null,
+      "note": {
+        "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+        "zh": "自己的静态证据，WebP 展示副本；无损原图保留在规范审查记录中。不自动表示解剖或运行通过。"
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/ears_z__r04__scoped-review/1b4180852de67031d48c4c5cdfd1fe2f475ced4bb68f70b5e2b631288804efc9.webp",
+      "bytes": 18048,
+      "selectionRole": "candidate",
+      "originalNativePublicCopies": [],
+      "retainedPath": "reviews/z-small-studies/2026-10-24-bounded-migration/display/0a3351fa73458d5ad04f5799a83fab415b7c822a6bd5d57a69fd3222a5458a29.webp",
+      "license": "CC BY-SA 4.0 for Z-derived candidate renders; baseline remains separately bound to its original review."
+    }
+  ],
+  "attribution": [
+    {
+      "role": "attribution",
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/attribution/f1272871d04ff2e810c1b639300f9b8c644dbf3af992dc0640cde1a6757ef425.md",
+      "sha256": "f1272871d04ff2e810c1b639300f9b8c644dbf3af992dc0640cde1a6757ef425",
+      "bytes": 2893
+    }
+  ],
+  "publicMapProvenance": {
+    "siteSourceCommit": "2613894e2792183cd27db9856af24e580e974f2e",
+    "inventoryRemoteRef": "79c867bad7471562d1c4ddabb4fe2a24d9764f8a",
+    "sourceMapSha256": "ff5d8a648cb3c93c15e6b6b332afcb4d1106e4e1814039df333a16b58b2dd42b",
+    "sourceMapName": "accepted-study-public-media-map-20261023.json",
+    "availability": "Retained local deployed-site bytes only; no fresh HTTP availability, remote or LFS readback."
+  },
+  "sourceDependency": "sources/datasets/z-anatomy/small-static-studies/dependency-manifest.json",
+  "cameraContractAvailableInReviewData": false,
+  "rebuildClaim": false
+}

@@ -1,0 +1,143 @@
+{
+  "schema": "z-small-static-study-migration-v1",
+  "assetId": "parotid_glands",
+  "variantId": "parotid_glands__source-candidate-02",
+  "model": {
+    "path": "models/parotid_glands/exports/source-candidate-02/parotid_glands_source_frame.glb",
+    "sha256": "fc21df4c24bad92c3fb11873adf601ebf5bad066365b60be6e4366aced731d34",
+    "bytes": 63688
+  },
+  "scope": {
+    "en": "Parotid pair outer envelopes only; no ducts, deep lobes or full salivary-system replacement.",
+    "zh": "仅双侧腮腺外包络；无导管、深叶或完整唾液腺系统替换。"
+  },
+  "gates": {
+    "technical": "pass-with-limitations",
+    "visual": "passed",
+    "anatomy": "reference-screened",
+    "runtime": "unverified"
+  },
+  "gatePolicy": "Verbatim existing gallery gates; no new validation or gate/count change.",
+  "historicalReview": {
+    "status": "Existing scoped static visual acceptance; retained, not re-reviewed in this migration",
+    "scope": "Source outer envelopes in same-Z-Anatomy context only; no ducts, deep lobes or complete salivary system. Native Z-Anatomy frame, not BP3D registration.",
+    "limitations": [
+      "Parotid pair outer envelopes only; no ducts, deep lobes or full salivary-system replacement.",
+      "Selected contact includes same-source mandible context; mandible is not in the parotid GLB and is not counted as an additional model.",
+      "Native source scale was interpreted as metre-like; original scene unit setting and whole-body registration are not established."
+    ],
+    "notClaimed": [
+      "browser runtime",
+      "clinical validation",
+      "default full-body assembly",
+      "normal/healthy normative anatomy"
+    ]
+  },
+  "historicalReviewIdentity": {
+    "canonicalPath": "reviews/parotid_glands/source-candidate-02/visual-review.json",
+    "sha256": "5397fd612d1ce9c0d9a6ef54dede1463787242991e638c1544775a52046b900a",
+    "bytes": 528,
+    "includedInDraft": false
+  },
+  "sourceFrame": "Z-Anatomy native evaluated world only; separate from BP3D/CT. No recentering, alignment or default whole-body assembly.",
+  "warnings": [
+    "Parotid pair outer envelopes only; no ducts, deep lobes or full salivary-system replacement.",
+    "Selected contact includes same-source mandible context; mandible is not in the parotid GLB and is not counted as an additional model.",
+    "Native source scale was interpreted as metre-like; original scene unit setting and whole-body registration are not established."
+  ],
+  "changes": "Historical derivative evaluates provider modifiers and bakes source world transforms, correcting mirrored-world winding where recorded; illustrative materials only. This migration makes no geometry/material/transform edits.",
+  "failureLesson": {
+    "en": "A recognizable paired envelope with context is not a complete salivary system.",
+    "zh": "带参照的双侧外包络可辨识，不等于完整唾液腺系统。"
+  },
+  "evidence": [
+    {
+      "id": "parotid_glands__source-candidate-02__scoped-review__0",
+      "file": "evidence/canonical/parotid_glands__source-candidate-02__scoped-review/3752cabc4ad7287d7050cd2c17cbe14bba7b4d69237b593ac4ccdc2370c34201.webp",
+      "sha256": "e73253ecac6756dd0c54bc576c14114710c09a4bd33f9b55f17324046e7b62ec",
+      "originalSha256": "3752cabc4ad7287d7050cd2c17cbe14bba7b4d69237b593ac4ccdc2370c34201",
+      "originalFile": "reviews/parotid_glands/source-candidate-02/contact.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "candidate",
+      "noteIsGeneric": true,
+      "kind": "blender-still",
+      "label": {
+        "en": "contact",
+        "zh": "多视图联系表"
+      },
+      "capturedAt": null,
+      "recordedDate": "2026-10-23",
+      "assetBinding": "fc21df4c24bad92c3fb11873adf601ebf5bad066365b60be6e4366aced731d34",
+      "sourceBindings": [],
+      "role": "candidate",
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": null,
+      "note": {
+        "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+        "zh": "自己的静态证据，WebP 展示副本；无损原图保留在规范审查记录中。不自动表示解剖或运行通过。"
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/parotid_glands__source-candidate-02__scoped-review/3752cabc4ad7287d7050cd2c17cbe14bba7b4d69237b593ac4ccdc2370c34201.webp",
+      "bytes": 36660,
+      "selectionRole": "candidate",
+      "originalNativePublicCopies": [],
+      "retainedPath": "reviews/z-small-studies/2026-10-24-bounded-migration/display/e73253ecac6756dd0c54bc576c14114710c09a4bd33f9b55f17324046e7b62ec.webp",
+      "license": "CC BY-SA 4.0 for Z-derived candidate renders; baseline remains separately bound to its original review."
+    },
+    {
+      "id": "parotid_glands__source-candidate-02__scoped-review__9",
+      "file": "evidence/canonical/parotid_glands__source-candidate-02__scoped-review/47933f2b2c4133de6c7f0c733e80bd76d97dc063e27d550bb9412321bc6fd1a0.webp",
+      "sha256": "f56dbad2b7c51b450f2b5d58ae665825306a84f7252928a1accf5d3fb48f0cc8",
+      "originalSha256": "47933f2b2c4133de6c7f0c733e80bd76d97dc063e27d550bb9412321bc6fd1a0",
+      "originalFile": "reviews/parotid_glands/source-candidate-02/screenshots/final-glb/oblique.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "candidate",
+      "noteIsGeneric": true,
+      "kind": "blender-still",
+      "label": {
+        "en": "oblique",
+        "zh": "斜视"
+      },
+      "capturedAt": null,
+      "recordedDate": "2026-10-23",
+      "assetBinding": "fc21df4c24bad92c3fb11873adf601ebf5bad066365b60be6e4366aced731d34",
+      "sourceBindings": [],
+      "role": "candidate",
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": null,
+      "note": {
+        "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+        "zh": "自己的静态证据，WebP 展示副本；无损原图保留在规范审查记录中。不自动表示解剖或运行通过。"
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/parotid_glands__source-candidate-02__scoped-review/47933f2b2c4133de6c7f0c733e80bd76d97dc063e27d550bb9412321bc6fd1a0.webp",
+      "bytes": 7232,
+      "selectionRole": "candidate",
+      "originalNativePublicCopies": [],
+      "retainedPath": "reviews/z-small-studies/2026-10-24-bounded-migration/display/f56dbad2b7c51b450f2b5d58ae665825306a84f7252928a1accf5d3fb48f0cc8.webp",
+      "license": "CC BY-SA 4.0 for Z-derived candidate renders; baseline remains separately bound to its original review."
+    }
+  ],
+  "attribution": [
+    {
+      "role": "attribution",
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/attribution/f1272871d04ff2e810c1b639300f9b8c644dbf3af992dc0640cde1a6757ef425.md",
+      "sha256": "f1272871d04ff2e810c1b639300f9b8c644dbf3af992dc0640cde1a6757ef425",
+      "bytes": 2893
+    }
+  ],
+  "publicMapProvenance": {
+    "siteSourceCommit": "2613894e2792183cd27db9856af24e580e974f2e",
+    "inventoryRemoteRef": "79c867bad7471562d1c4ddabb4fe2a24d9764f8a",
+    "sourceMapSha256": "ff5d8a648cb3c93c15e6b6b332afcb4d1106e4e1814039df333a16b58b2dd42b",
+    "sourceMapName": "accepted-study-public-media-map-20261023.json",
+    "availability": "Retained local deployed-site bytes only; no fresh HTTP availability, remote or LFS readback."
+  },
+  "sourceDependency": "sources/datasets/z-anatomy/small-static-studies/dependency-manifest.json",
+  "cameraContractAvailableInReviewData": false,
+  "rebuildClaim": false
+}

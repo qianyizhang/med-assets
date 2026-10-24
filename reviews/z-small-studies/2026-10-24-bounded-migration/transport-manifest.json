@@ -1,0 +1,169 @@
+{
+  "schema": "bounded-z-small-studies-transport-v1",
+  "status": "REVIEWED_BOUNDED_MEDIA_IDENTITIES_TRANSPORT_VERIFIED",
+  "publicMapProvenance": {
+    "siteSourceCommit": "2613894e2792183cd27db9856af24e580e974f2e",
+    "inventoryRemoteRef": "79c867bad7471562d1c4ddabb4fe2a24d9764f8a",
+    "sourceMapSha256": "ff5d8a648cb3c93c15e6b6b332afcb4d1106e4e1814039df333a16b58b2dd42b",
+    "sourceMapName": "accepted-study-public-media-map-20261023.json",
+    "availability": "Retained local deployed-site bytes only; no fresh HTTP availability, remote or LFS readback."
+  },
+  "studies": [
+    {
+      "assetId": "draft_vessels",
+      "variantId": "aortic_tree_z__r02",
+      "canonicalPath": "models/aortic_tree_z/exports/r02/aortic_tree_z_source_frame.glb",
+      "transport": {
+        "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/candidates/aortic_tree_z__r02/d4b3dbd2d09fd76795f47bb96844acdeba5f1b4f48dd630f2a294f33816deaeb.glb.gz",
+        "sitePath": "candidates/aortic_tree_z__r02/d4b3dbd2d09fd76795f47bb96844acdeba5f1b4f48dd630f2a294f33816deaeb.glb.gz",
+        "encoding": "gzip",
+        "storedSha256": "f023de69a88e254d3c8c4e48148f1d749c440d4ae2bfd6ccfb8637fff305a2ea",
+        "storedBytes": 708563,
+        "decodedSha256": "d4b3dbd2d09fd76795f47bb96844acdeba5f1b4f48dd630f2a294f33816deaeb",
+        "decodedBytes": 881168,
+        "decodeRequiredBeforeLFSUpload": true
+      },
+      "rawCandidate": null,
+      "evidence": [
+        {
+          "path": "reviews/z-small-studies/2026-10-24-bounded-migration/display/57c6465e0135599536816e185981e4c40a4e3bb14087d687001567bfc73f7955.webp",
+          "sha256": "57c6465e0135599536816e185981e4c40a4e3bb14087d687001567bfc73f7955",
+          "bytes": 30762,
+          "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/draft_vessels__2026-10-23-v10-exterior-review/f6a1b11294b68fa26429e9c8532961d1e36631a5e98c3a2ab1fe71831c51bd36.webp",
+          "selectionRole": "before",
+          "role": null,
+          "reviewPhase": "baseline",
+          "assetBinding": "203b1bb112005a9ff5a3e70d00eb91ba225d21772e425b9ad4ae973221d98ea1",
+          "originalSha256": "f6a1b11294b68fa26429e9c8532961d1e36631a5e98c3a2ab1fe71831c51bd36"
+        },
+        {
+          "path": "reviews/z-small-studies/2026-10-24-bounded-migration/display/dfc0643539359a701e1690c548c825f695fa637a89595a76326a1c39ca9321e1.webp",
+          "sha256": "dfc0643539359a701e1690c548c825f695fa637a89595a76326a1c39ca9321e1",
+          "bytes": 52764,
+          "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/aortic_tree_z__r02__scoped-review/0d6809b0e84889bd116a1142f00d24d166e078b6000592dca59173ea06a55507.webp",
+          "selectionRole": "candidate",
+          "role": "candidate",
+          "reviewPhase": "candidate",
+          "assetBinding": "d4b3dbd2d09fd76795f47bb96844acdeba5f1b4f48dd630f2a294f33816deaeb",
+          "originalSha256": "0d6809b0e84889bd116a1142f00d24d166e078b6000592dca59173ea06a55507"
+        },
+        {
+          "path": "reviews/z-small-studies/2026-10-24-bounded-migration/display/e63b51114510b4a4882195733c4892524b22fe38b921f6ffe07b35fbc26be8a5.webp",
+          "sha256": "e63b51114510b4a4882195733c4892524b22fe38b921f6ffe07b35fbc26be8a5",
+          "bytes": 36136,
+          "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/aortic_tree_z__r02__scoped-review/d607996234506d612425744ab2bb648ab006a276cb79985d2fe180a86d21b3bc.webp",
+          "selectionRole": "candidate",
+          "role": "candidate",
+          "reviewPhase": "candidate",
+          "assetBinding": "d4b3dbd2d09fd76795f47bb96844acdeba5f1b4f48dd630f2a294f33816deaeb",
+          "originalSha256": "d607996234506d612425744ab2bb648ab006a276cb79985d2fe180a86d21b3bc"
+        }
+      ],
+      "recordPath": "reviews/z-small-studies/2026-10-24-bounded-migration/aortic_tree_z/record.json"
+    },
+    {
+      "assetId": "draft_ears",
+      "variantId": "ears_z__r04",
+      "canonicalPath": "models/ears_z/exports/r04/ears_z.glb",
+      "transport": {
+        "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/candidates/ears_z__r04/04ba664cdc219dc7b78e80ddb2b1d5ff39ffe4438bd0ab1bf63c2221c46f5939.glb.gz",
+        "sitePath": "candidates/ears_z__r04/04ba664cdc219dc7b78e80ddb2b1d5ff39ffe4438bd0ab1bf63c2221c46f5939.glb.gz",
+        "encoding": "gzip",
+        "storedSha256": "bf9d5623a1be40266e1645f54ea6a95f676a8169000d471c70815c922d475462",
+        "storedBytes": 1376627,
+        "decodedSha256": "04ba664cdc219dc7b78e80ddb2b1d5ff39ffe4438bd0ab1bf63c2221c46f5939",
+        "decodedBytes": 1752248,
+        "decodeRequiredBeforeLFSUpload": true
+      },
+      "rawCandidate": null,
+      "evidence": [
+        {
+          "path": "reviews/z-small-studies/2026-10-24-bounded-migration/display/aa7825ca44529e1e7c751dc614238c5a01357e3b606faf1d833eaac08bca3fb9.webp",
+          "sha256": "aa7825ca44529e1e7c751dc614238c5a01357e3b606faf1d833eaac08bca3fb9",
+          "bytes": 31106,
+          "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/draft_ears__2026-10-23-v10-exterior-review/1004ffbf9241f95c9ac05d0e7e7c6741d4328617ef7994af554622a20b06fe9c.webp",
+          "selectionRole": "before",
+          "role": null,
+          "reviewPhase": "baseline",
+          "assetBinding": "7195a11653c274e6cecfc72093579615a5c0fdd5a840a8bd661dd5dfb7c57457",
+          "originalSha256": "1004ffbf9241f95c9ac05d0e7e7c6741d4328617ef7994af554622a20b06fe9c"
+        },
+        {
+          "path": "reviews/z-small-studies/2026-10-24-bounded-migration/display/9eb518206d5073352bda1b7649009886ccb471b40af01d2c067ca8c92b6cf2ee.webp",
+          "sha256": "9eb518206d5073352bda1b7649009886ccb471b40af01d2c067ca8c92b6cf2ee",
+          "bytes": 44604,
+          "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/ears_z__r04__scoped-review/ab17704495afe06bb75144226c849cbbf76e8480fe9a85fc9744db33e2a3d457.webp",
+          "selectionRole": "candidate",
+          "role": "candidate",
+          "reviewPhase": "candidate",
+          "assetBinding": "04ba664cdc219dc7b78e80ddb2b1d5ff39ffe4438bd0ab1bf63c2221c46f5939",
+          "originalSha256": "ab17704495afe06bb75144226c849cbbf76e8480fe9a85fc9744db33e2a3d457"
+        },
+        {
+          "path": "reviews/z-small-studies/2026-10-24-bounded-migration/display/0a3351fa73458d5ad04f5799a83fab415b7c822a6bd5d57a69fd3222a5458a29.webp",
+          "sha256": "0a3351fa73458d5ad04f5799a83fab415b7c822a6bd5d57a69fd3222a5458a29",
+          "bytes": 18048,
+          "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/ears_z__r04__scoped-review/1b4180852de67031d48c4c5cdfd1fe2f475ced4bb68f70b5e2b631288804efc9.webp",
+          "selectionRole": "candidate",
+          "role": "candidate",
+          "reviewPhase": "candidate",
+          "assetBinding": "04ba664cdc219dc7b78e80ddb2b1d5ff39ffe4438bd0ab1bf63c2221c46f5939",
+          "originalSha256": "1b4180852de67031d48c4c5cdfd1fe2f475ced4bb68f70b5e2b631288804efc9"
+        }
+      ],
+      "recordPath": "reviews/z-small-studies/2026-10-24-bounded-migration/ears_z/record.json"
+    },
+    {
+      "assetId": "parotid_glands",
+      "variantId": "parotid_glands__source-candidate-02",
+      "canonicalPath": "models/parotid_glands/exports/source-candidate-02/parotid_glands_source_frame.glb",
+      "transport": {
+        "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/candidates/parotid_glands__source-candidate-02/fc21df4c24bad92c3fb11873adf601ebf5bad066365b60be6e4366aced731d34.glb.gz",
+        "sitePath": "candidates/parotid_glands__source-candidate-02/fc21df4c24bad92c3fb11873adf601ebf5bad066365b60be6e4366aced731d34.glb.gz",
+        "encoding": "gzip",
+        "storedSha256": "c6785e16ad9c4678ac8263d10c022c0be70e394e6c613d0c7f9de523a06b337f",
+        "storedBytes": 44972,
+        "decodedSha256": "fc21df4c24bad92c3fb11873adf601ebf5bad066365b60be6e4366aced731d34",
+        "decodedBytes": 63688,
+        "decodeRequiredBeforeLFSUpload": true
+      },
+      "rawCandidate": null,
+      "evidence": [
+        {
+          "path": "reviews/z-small-studies/2026-10-24-bounded-migration/display/e73253ecac6756dd0c54bc576c14114710c09a4bd33f9b55f17324046e7b62ec.webp",
+          "sha256": "e73253ecac6756dd0c54bc576c14114710c09a4bd33f9b55f17324046e7b62ec",
+          "bytes": 36660,
+          "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/parotid_glands__source-candidate-02__scoped-review/3752cabc4ad7287d7050cd2c17cbe14bba7b4d69237b593ac4ccdc2370c34201.webp",
+          "selectionRole": "candidate",
+          "role": "candidate",
+          "reviewPhase": "candidate",
+          "assetBinding": "fc21df4c24bad92c3fb11873adf601ebf5bad066365b60be6e4366aced731d34",
+          "originalSha256": "3752cabc4ad7287d7050cd2c17cbe14bba7b4d69237b593ac4ccdc2370c34201"
+        },
+        {
+          "path": "reviews/z-small-studies/2026-10-24-bounded-migration/display/f56dbad2b7c51b450f2b5d58ae665825306a84f7252928a1accf5d3fb48f0cc8.webp",
+          "sha256": "f56dbad2b7c51b450f2b5d58ae665825306a84f7252928a1accf5d3fb48f0cc8",
+          "bytes": 7232,
+          "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/parotid_glands__source-candidate-02__scoped-review/47933f2b2c4133de6c7f0c733e80bd76d97dc063e27d550bb9412321bc6fd1a0.webp",
+          "selectionRole": "candidate",
+          "role": "candidate",
+          "reviewPhase": "candidate",
+          "assetBinding": "fc21df4c24bad92c3fb11873adf601ebf5bad066365b60be6e4366aced731d34",
+          "originalSha256": "47933f2b2c4133de6c7f0c733e80bd76d97dc063e27d550bb9412321bc6fd1a0"
+        }
+      ],
+      "recordPath": "reviews/z-small-studies/2026-10-24-bounded-migration/parotid_glands/record.json"
+    }
+  ],
+  "uniqueMediaOids": 11,
+  "uniqueMediaBytes": 2954416,
+  "uniqueCandidateDecodedBytes": 2697104,
+  "uniqueSelectedEvidenceBytes": 257312,
+  "uniqueStoredTransportPlusEvidenceBytes": 2387474,
+  "sourceGeometryBundled": false,
+  "remoteAvailabilityChecked": false,
+  "transportNote": "All three existing candidate endpoints are gzip; rawCandidate is null. Stored gzip hashes/lengths and decoded GLB hashes/lengths remain distinct. GLB copies are decoded bytes, not gzip wrappers. No invented raw URL. Existing WebP URLs are unchanged. Local retained gzip equality checked without a network request.",
+  "countDelta": 0,
+  "gateDelta": 0,
+  "transportReceipt": "reviews/z-small-studies/2026-10-24-bounded-migration/transport-receipt.json"
+}

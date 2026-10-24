@@ -1,0 +1,459 @@
+{
+  "schema": "external-pinned-z-small-studies-v1",
+  "sharedExternalSource": {
+    "archive_url": "https://raw.githubusercontent.com/Z-Anatomy/Models-of-human-anatomy/bb293be456f6d2245191f37752d14ec76894740d/Z-Anatomy.zip",
+    "archive_sha256": "e029688545627bd0214b269e1063143abb580aad72b2c2445d6d8a9a0d9da736",
+    "required_member": "Z-Anatomy/Startup.blend",
+    "member_sha256": "9f08a17ea0115fed80b2a73ecdf0a1bc2ab2f6956f37c593ce23d513ea35afcd",
+    "archive_commit": "bb293be456f6d2245191f37752d14ec76894740d",
+    "archive_bytes": 86734957,
+    "id": "shared-z-anatomy-archive",
+    "includedInDraft": false,
+    "availability": "Pinned reference and hashes inherited from retained Achilles/Z-joint records; not fetched or freshly availability-checked in this task.",
+    "license": "CC-BY-SA-4.0 for selected geometry and derived renders; original BodyParts3D CC-BY-SA-2.1-Japan credit retained.",
+    "excludedMembers": "No source Python/add-on, themes, splash, kidney or inner-ear exception geometry included or executed."
+  },
+  "studies": [
+    {
+      "variantId": "aortic_tree_z__r02",
+      "sourceSelectorNames": [
+        "Ascending aorta",
+        "Aortic arch",
+        "Thoracic aorta",
+        "Abdominal aorta",
+        "Brachiocephalic trunk",
+        "Right common carotid artery",
+        "Left common carotid artery",
+        "Right subclavian artery",
+        "Left subclavian artery",
+        "Right renal artery",
+        "Left renal artery",
+        "Common iliac artery.r",
+        "Common iliac artery.l",
+        "External iliac artery.r",
+        "External iliac artery.l"
+      ],
+      "selectorNote": "Historical source/extraction names. Underscores in ear records are evaluated filenames, not a new guarantee of provider selector spelling.",
+      "externalSource": "shared-z-anatomy-archive",
+      "sourceGeometryIncluded": false,
+      "historicalReplayFiles": [
+        {
+          "canonicalPath": "tests/aortic_tree_z/build_z_joined_aortic_candidate.py",
+          "sha256": "45294e3b3ebfbee06e7195274e8373f2930abdadb707937fb457cdd5699ecc01",
+          "bytes": 7235,
+          "includedInDraft": false
+        },
+        {
+          "canonicalPath": "tests/aortic_tree_z/verify_exact_export.py",
+          "sha256": "728351e5f04197aad049433e628d5a93035474aa3d0189a5da4f7af2a73d5183",
+          "bytes": 5244,
+          "includedInDraft": false
+        },
+        {
+          "canonicalPath": "tests/aortic_tree_z/render_z_aortic_context.py",
+          "sha256": "04ae8d8a014a7b571a77708d7f840accf8f11d48822ed19f0b95981d36670086",
+          "bytes": 3657,
+          "includedInDraft": false
+        },
+        {
+          "canonicalPath": "tests/aortic_tree_z/make_z_contact.py",
+          "sha256": "3d0f416fc73f0bd4d1360c51403adce18c67d787626b2d1e8f7f382f1152be27",
+          "bytes": 1673,
+          "includedInDraft": false
+        }
+      ],
+      "cameraBoundary": "Current public review map does not expose a complete numeric camera contract. Existing evidence is copied, not rerendered. Historical build/render code and source/context datablocks are not bundled; full replay closure is not claimed.",
+      "additionalUnbundledDependencies": [
+        "Original named provider object/modifier dependencies",
+        "Historical evaluated-source intermediates or selected .blend subsets used by the recipes",
+        "Historical scene/material/render state and any source-native context geometry",
+        "Compatible Blender environment; no software installation or execution performed"
+      ],
+      "historicalSourceSelectionRecord": {
+        "canonicalPath": "reviews/aortic_tree_z/r02/build-tests.json",
+        "sha256": "75f66f994f81eb4161b0f277b6c9f92fd6d5bc1f4d0ef12056afc5afda322ec1",
+        "bytes": 10711,
+        "includedInDraft": false
+      },
+      "externalSelectedDatablocksSha256": "29bb851776dd79365ba7757ec3194ff07c488cff827f2cc612e03557d8412331"
+    },
+    {
+      "variantId": "ears_z__r04",
+      "sourceSelectorNames": [
+        "Helix.r",
+        "Helix.l",
+        "Antihelix.r",
+        "Antihelix.l",
+        "Crura_of_antihelix.r",
+        "Crura_of_antihelix.l",
+        "Tragus.r",
+        "Tragus.l",
+        "Antitragus.r",
+        "Antitragus.l",
+        "Lobule_of_auricle.r",
+        "Lobule_of_auricle.l",
+        "Concha_of_auricle.r",
+        "Concha_of_auricle.l",
+        "Triangular_fossa.r",
+        "Triangular_fossa.l",
+        "Scapha.r",
+        "Scapha.l",
+        "Intertragic_incisure.r",
+        "Intertragic_incisure.l",
+        "Cymba_conchae.r",
+        "Cymba_conchae.l",
+        "Cavity_of_concha.r",
+        "Cavity_of_concha.l",
+        "Eminentia_scaphae.r",
+        "Eminentia_scaphae.l",
+        "Eminentia_conchae.r",
+        "Eminentia_conchae.l",
+        "Posterior_auricular_groove.r",
+        "Posterior_auricular_groove.l",
+        "Auricular_tubercle.r",
+        "Auricular_tubercle.l",
+        "Apex_of_auricle.r",
+        "Apex_of_auricle.l",
+        "Anterior_notch_of_auricle.r",
+        "Anterior_notch_of_auricle.l"
+      ],
+      "selectorNote": "Historical source/extraction names. Underscores in ear records are evaluated filenames, not a new guarantee of provider selector spelling.",
+      "externalSource": "shared-z-anatomy-archive",
+      "sourceGeometryIncluded": false,
+      "historicalReplayFiles": [
+        {
+          "canonicalPath": "tests/ears/blender/extract_z_ear_expanded.py",
+          "sha256": "aebd7e3519668697c4438a6915ac387e69f726ae98f0651a3f17a81767e0e964",
+          "bytes": 2349,
+          "includedInDraft": false
+        },
+        {
+          "canonicalPath": "tests/ears/blender/build_ear_composite_r04.py",
+          "sha256": "791fab364cf66e6f1436f1104a1b4fd4d5576252bd71650d20f3908a7a1ab4fb",
+          "bytes": 3259,
+          "includedInDraft": false
+        },
+        {
+          "canonicalPath": "tests/ears/blender/check_export.py",
+          "sha256": "87e15e565d06af2cbf069536ae6fab1437d77242e0d4668c1689f9172c2ce7c4",
+          "bytes": 1770,
+          "includedInDraft": false
+        },
+        {
+          "canonicalPath": "tests/ears/export_contact.py",
+          "sha256": "01ce870d8599dadaff4a5b2f6efdd0fad9a8f064c387a827eed4c81cc8d827f3",
+          "bytes": 1424,
+          "includedInDraft": false
+        }
+      ],
+      "cameraBoundary": "Current public review map does not expose a complete numeric camera contract. Existing evidence is copied, not rerendered. Historical build/render code and source/context datablocks are not bundled; full replay closure is not claimed.",
+      "additionalUnbundledDependencies": [
+        "Original named provider object/modifier dependencies",
+        "Historical evaluated-source intermediates or selected .blend subsets used by the recipes",
+        "Historical scene/material/render state and any source-native context geometry",
+        "Compatible Blender environment; no software installation or execution performed"
+      ],
+      "historicalSourceSelectionRecord": {
+        "canonicalPath": "reviews/ears_z/r04/results.json",
+        "sha256": "f7ea94ca9829221ce6cfa2701b8fcd09f46b3ed7ffadbc220d329c05e8c681cf",
+        "bytes": 5860,
+        "includedInDraft": false
+      },
+      "externalEvaluatedSourceComponents": [
+        {
+          "name": "Helix.r",
+          "hash": "1fdef5d4751cd1334f0a7040c22e99d570629fd8ee067e859c9eb911f75ae0fe"
+        },
+        {
+          "name": "Helix.l",
+          "hash": "c6808bfee573bbfe6289653754c9381aacd554776de8a385df724654b3c67611"
+        },
+        {
+          "name": "Antihelix.r",
+          "hash": "e2985ddb24ec137b1b8f85468554b1a361ba00c0f919e56d3970a1cdfe5657fb"
+        },
+        {
+          "name": "Antihelix.l",
+          "hash": "73bfcefadc25da837fc7eefbceaf47f4cbd49ec9d12fbffbae4ef35fb9a3519f"
+        },
+        {
+          "name": "Crura_of_antihelix.r",
+          "hash": "8b69998212c17a79aa648d5c849d69949ba6443153a7236592b3fc2009019506"
+        },
+        {
+          "name": "Crura_of_antihelix.l",
+          "hash": "acecafcd492dae2698ef6e5340d7e257b232fb8859c79320092a69b9934923ae"
+        },
+        {
+          "name": "Tragus.r",
+          "hash": "a919f7c8985175bcf7b9ec7c0f013c4a68a9e915afba1199105fcca7e8439282"
+        },
+        {
+          "name": "Tragus.l",
+          "hash": "8973fa6a1bd08821911733847bfed122eefdce7a607c8afcd980e9e43776c178"
+        },
+        {
+          "name": "Antitragus.r",
+          "hash": "c591d28e096bf0795719e4334f328ba8c788ed8986d07b70362e2af4b8c7c2b4"
+        },
+        {
+          "name": "Antitragus.l",
+          "hash": "7da22f7c414cd95ed516784003ff9df867ff91f7b4fd8a0a1f0b8739953e11a7"
+        },
+        {
+          "name": "Lobule_of_auricle.r",
+          "hash": "0288721f7eca2bd442b7118b77d81e8a8f20ff13fb2c271cbb3f001f0513756a"
+        },
+        {
+          "name": "Lobule_of_auricle.l",
+          "hash": "67998d83aa91337b4f0ac1e0bab81f779de89679a00b630464ac6adb72804447"
+        },
+        {
+          "name": "Concha_of_auricle.r",
+          "hash": "cf3790a03c0d681aff40948479a3fe1af0c898c3cb7ae5f000e5863b7243dbbd"
+        },
+        {
+          "name": "Concha_of_auricle.l",
+          "hash": "796cda73ab2985f78e649c6b30a711ce815cfa7e62bd11866c806418a1f07fab"
+        },
+        {
+          "name": "Triangular_fossa.r",
+          "hash": "64aea6fac166492fcb1d8e5e32dc12449d893e479e3176145005e397b94f08bb"
+        },
+        {
+          "name": "Triangular_fossa.l",
+          "hash": "643d8de40e1ead2fcd26af797773a4d988e2ab103b14897e23a0fbd24507ba28"
+        },
+        {
+          "name": "Scapha.r",
+          "hash": "155618c63310507e21c9e6d9725a702b39bd73ecf012e6b8c6153752c81a582f"
+        },
+        {
+          "name": "Scapha.l",
+          "hash": "d527f79d1aaa425244d6e2f5c5a7f128e2b18dfa606eb205899d1e2bcc96ca52"
+        },
+        {
+          "name": "Intertragic_incisure.r",
+          "hash": "bacc9699568ad968bbce2f091627fe4f3284e714fe9e983ce7da7a7026c0eb0a"
+        },
+        {
+          "name": "Intertragic_incisure.l",
+          "hash": "d073ec0691ec8bd72d625a1b998d7fb1730052c8d28eb2bd5de5fbdba92a0914"
+        },
+        {
+          "name": "Cymba_conchae.r",
+          "hash": "8e85a12b66a2c27d2feb0352c55b26102982a19db4d273f29aaca37c8f943d41"
+        },
+        {
+          "name": "Cymba_conchae.l",
+          "hash": "401fb7e718251996b66f97faa433394eb4fc42524a33f8b572f7bba1de98a336"
+        },
+        {
+          "name": "Cavity_of_concha.r",
+          "hash": "835afc2cb58aa7217b35f586b08330b17051ab58412b496f3ff605e4818bb344"
+        },
+        {
+          "name": "Cavity_of_concha.l",
+          "hash": "4a1c847be61a18cf7f48242b509b8e9a4c36c38004a2ea02be0731436a0f57ba"
+        },
+        {
+          "name": "Eminentia_scaphae.r",
+          "hash": "809d0c0641ef7051b0bc70150c1be0b72245bba81d2153489b1602084a5322ca"
+        },
+        {
+          "name": "Eminentia_scaphae.l",
+          "hash": "c6006a49ee75b2e9823fd39b60291741bb36350d9a181df85dc0756c65a1bb0d"
+        },
+        {
+          "name": "Eminentia_conchae.r",
+          "hash": "7dd67e4527c86e1ad5ca98dbb27cd34ac5e3a25de984eccb5d29bcae26703d86"
+        },
+        {
+          "name": "Eminentia_conchae.l",
+          "hash": "92fe350c30b1977d349042cecc08a50ffa9346d7e4aa139ede98c269f65517ab"
+        },
+        {
+          "name": "Posterior_auricular_groove.r",
+          "hash": "e9445eef8fb52a8a6fa61bfcbf004d18f7d256734a2937ea1b4fed8e8ffcd63c"
+        },
+        {
+          "name": "Posterior_auricular_groove.l",
+          "hash": "738020c62ac7343cd3fdd1528e1681f97d446c5c0e25a7387363e3d2332fcf4f"
+        },
+        {
+          "name": "Auricular_tubercle.r",
+          "hash": "509bec4727c4a45b21a4b502927fdf9319284c32a8e0a8eb2a8ad0a256a64709"
+        },
+        {
+          "name": "Auricular_tubercle.l",
+          "hash": "1d87d8820ff3fbefc77209d60135e471f7dceaa425a1fdb5c83a0d74d725cd5e"
+        },
+        {
+          "name": "Apex_of_auricle.r",
+          "hash": "bcbae49317da611dcb7037e82f3a2642dad38ee76219938888db7cd34068f4eb"
+        },
+        {
+          "name": "Apex_of_auricle.l",
+          "hash": "f4ce453fcae6098632eb4aa5c86f517866b9dcf6bfd7532c85ae7cb9e18964d1"
+        },
+        {
+          "name": "Anterior_notch_of_auricle.r",
+          "hash": "bb4b6d717e908a02b95224d08a0a90b507b667aba712daa10ba3698de21d4d32"
+        },
+        {
+          "name": "Anterior_notch_of_auricle.l",
+          "hash": "9025e9911727aff1c8eb6c7289583fb2ec7e0c21a93069753e453e6979ea85b8"
+        }
+      ],
+      "historicalPartialCameraRecord": {
+        "canonicalPath": "reviews/ears_z/r04/detail-camera.json",
+        "sha256": "5c4be459d385a30a5d4714bcc7852825d0b923438764a88d6bf8bad71294dd20",
+        "bytes": 277,
+        "includedInDraft": false
+      }
+    },
+    {
+      "variantId": "parotid_glands__source-candidate-02",
+      "sourceSelectorNames": [
+        "Parotid gland.l",
+        "Parotid gland.r"
+      ],
+      "selectorNote": "Historical source/extraction names. Underscores in ear records are evaluated filenames, not a new guarantee of provider selector spelling.",
+      "externalSource": "shared-z-anatomy-archive",
+      "sourceGeometryIncluded": false,
+      "historicalReplayFiles": [
+        {
+          "canonicalPath": "tests/glands/build_z_candidates.py",
+          "sha256": "81e55c207c615cde09c6375a0c5e6635e3351fc89195505f2f7df5678a37ae4f",
+          "bytes": 6450,
+          "includedInDraft": false
+        },
+        {
+          "canonicalPath": "tests/glands/verify_final_glb.py",
+          "sha256": "5134d71af9e9741d21a6093cbb57bfaae56494ed8d02cab57d3ca597fdd2a67a",
+          "bytes": 3748,
+          "includedInDraft": false
+        },
+        {
+          "canonicalPath": "tests/glands/make_contacts.py",
+          "sha256": "23629a2e4f98ba832ff516ff9c134245f866e36b829f40cf78466904e9efe3c6",
+          "bytes": 1148,
+          "includedInDraft": false
+        }
+      ],
+      "cameraBoundary": "Current public review map does not expose a complete numeric camera contract. Existing evidence is copied, not rerendered. Historical build/render code and source/context datablocks are not bundled; full replay closure is not claimed.",
+      "additionalUnbundledDependencies": [
+        "Original named provider object/modifier dependencies",
+        "Historical evaluated-source intermediates or selected .blend subsets used by the recipes",
+        "Historical scene/material/render state and any source-native context geometry",
+        "Compatible Blender environment; no software installation or execution performed"
+      ],
+      "historicalSourceSelectionRecord": {
+        "canonicalPath": "models/parotid_glands/source/evaluated-extraction-report.json",
+        "sha256": "b3bc3e0e68b11c597114de3ad104329203b31624e2bf1a60229e3bfe240a45df",
+        "bytes": 10792,
+        "includedInDraft": false
+      },
+      "externalEvaluatedSourceComponents": [
+        {
+          "name": "Parotid gland.l",
+          "file": "Parotid_gland.l.obj",
+          "sha256": "559416ced38a2387f9b8fc3a821c8bbb58f3338ed36125a75a5abf8444e644b6",
+          "source_modifiers": [
+            {
+              "name": "Solidify",
+              "type": "SOLIDIFY",
+              "thickness": 0.004999999888241291,
+              "offset": 0.3589041233062744
+            },
+            {
+              "name": "Subdivision",
+              "type": "SUBSURF",
+              "levels": 1,
+              "render_levels": 2
+            }
+          ],
+          "world_matrix": [
+            [
+              -1.0,
+              0.0,
+              0.0,
+              0.050953853875398636
+            ],
+            [
+              0.0,
+              -4.887620548288396e-07,
+              -1.0,
+              -0.01861531101167202
+            ],
+            [
+              0.0,
+              1.0,
+              -4.887620548288396e-07,
+              1.553959846496582
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        {
+          "name": "Parotid gland.r",
+          "file": "Parotid_gland.r.obj",
+          "sha256": "48d67a85eb86a829196ec6aa93f4a82e1a8bb776a2e04c7b04411209ba2c0aad",
+          "source_modifiers": [
+            {
+              "name": "Solidify",
+              "type": "SOLIDIFY",
+              "thickness": 0.004999999888241291,
+              "offset": 0.3589041233062744
+            },
+            {
+              "name": "Subdivision",
+              "type": "SUBSURF",
+              "levels": 1,
+              "render_levels": 2
+            }
+          ],
+          "world_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              -0.050953734666109085
+            ],
+            [
+              0.0,
+              -1.6292068494294654e-07,
+              -1.0,
+              -0.01861531101167202
+            ],
+            [
+              0.0,
+              1.0,
+              -1.6292068494294654e-07,
+              1.553959846496582
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      ],
+      "historicalContextRecord": {
+        "canonicalPath": "models/parotid_glands/source/context/mandible-extraction-report.json",
+        "sha256": "a25c87b094d0c5c10d76d50ee441225a3c0525b411d9e935e7fe784915fed2fd",
+        "bytes": 1225,
+        "includedInDraft": false
+      }
+    }
+  ],
+  "rebuildClosure": "NOT_BUNDLED; data-only geometry/presentation migration, not a reproducible-source package",
+  "zeroNewApprovedStudies": true
+}
