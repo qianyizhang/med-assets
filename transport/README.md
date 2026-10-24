@@ -19,7 +19,8 @@ Use the existing transport format: top-level `objects`, `totalBytes`, optional `
 - Gzip GLB: `"encoding":"gzip"`, `transportSha256`, and `transportBytes`. Both compressed bytes and bounded decoded bytes must match. The LFS OID is the **raw GLB** hash.
 - GLB, WebP and PNG only. WebP bytes are checked independently of any PNG-derived URL basename.
 - Only `https://anatomy-verification.landy123007.chatgpt.site/review/...` sources; no credentials, query strings, traversal, other hosts, or cross-origin redirects. Additional official sources/formats require a separate small code review—not manifest-controlled allowlists.
-- Fixed ceilings: 32 unique OIDs, 35,000,000 raw bytes and 35,000,000 transport bytes per batch, 25,000,000 bytes per object/transport, 128 KiB manifest. These are safety ceilings, **not standing approval to spend or upload arbitrary assets**. Each manifest still needs scope review.
+- Fixed ceilings: 32 unique OIDs, 40,000,000 raw bytes and 40,000,000 transport bytes per batch, 40,000,000 bytes per object/transport, 128 KiB manifest. These are safety ceilings, **not standing approval to spend or upload arbitrary assets**. Each manifest still needs scope review.
+- The 40,000,000-byte ceiling accommodates the reviewed muscle (30,517,312 bytes) and breast (37,499,672 bytes) exports in separate, explicitly approved bounded batches. It does not authorize those uploads by itself, change spending limits, or include source archives.
 
 Content-addressed filenames are immutable identities. Fix a manifest by adding a newly reviewed hash-named file, not editing the old one. JSON is parsed strictly as data; duplicate/unknown fields and invalid types are rejected.
 

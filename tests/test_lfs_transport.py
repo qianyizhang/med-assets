@@ -68,6 +68,37 @@ class Validation(unittest.TestCase):
         self.invalid(lambda m: m.update(totalBytes=t.MAX_TOTAL + 1))
         self.invalid(lambda m: m.update(totalBytes=25))
 
+    def test_40mb_raw_object_and_batch_boundaries(self):
+        # Schema-only sizes: no large payload allocation or network.
+        self.assertEqual((t.MAX_OBJECT, t.MAX_TOTAL), (40_000_000, 40_000_000))
+        m = {'objects': [dict(OBJ, bytes=40_000_000)], 'totalBytes': 40_000_000}
+        t.validate_manifest(*encode(m))
+        m['objects'][0]['bytes'] += 1
+        with self.assertRaisesRegex(t.Stop, 'Object outside fixed cap'):
+            t.validate_manifest(*encode(m))
+        m = {'objects': [dict(OBJ, bytes=20_000_000),
+                         dict(OBJ, sha256='2' * 64, bytes=20_000_000)], 'totalBytes': 40_000_000}
+        t.validate_manifest(*encode(m))
+        m['objects'][1]['bytes'] += 1
+        m['totalBytes'] += 1
+        with self.assertRaisesRegex(t.Stop, 'Total outside fixed cap'):
+            t.validate_manifest(*encode(m))
+
+    def test_40mb_gzip_transport_boundaries(self):
+        o = dict(OBJ, encoding='gzip', transportBytes=40_000_000, transportSha256='3' * 64)
+        m = {'objects': [o], 'totalBytes': len(GLB)}
+        t.validate_manifest(*encode(m))
+        o['transportBytes'] += 1
+        with self.assertRaisesRegex(t.Stop, 'Gzip transport outside fixed cap'):
+            t.validate_manifest(*encode(m))
+        o['transportBytes'] = 20_000_000
+        m['objects'].append(dict(o, sha256='2' * 64, transportSha256='4' * 64))
+        m['totalBytes'] = 2 * len(GLB)
+        t.validate_manifest(*encode(m))
+        m['objects'][1]['transportBytes'] += 1
+        with self.assertRaisesRegex(t.Stop, 'Aggregate transport cap exceeded'):
+            t.validate_manifest(*encode(m))
+
     def test_oid_and_file(self):
         self.invalid(lambda m: m['objects'][0].update(sha256='X' * 64))
         for name in ('../x.glb', '/x.glb', 'x/../x.glb', 'x\\x.glb', 'x.py', 'x\nx.glb'):
