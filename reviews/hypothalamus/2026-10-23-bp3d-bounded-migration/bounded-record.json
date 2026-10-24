@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 1,
+  "assetId": "hypothalamus",
+  "variantId": "hypothalamus__source-candidate-01",
+  "artifact": {
+    "file": "models/hypothalamus/exports/source-candidate-01/hypothalamus_source_frame.glb",
+    "sha256": "b6d73d6b5a33006391a743c650ccc06b65b9b9afaaaebbcf1d05102d4399274c",
+    "bytes": 75720
+  },
+  "gates": {
+    "technical": {
+      "status": "pass-with-limitations",
+      "scope": "Only supplied exact-export checks; see detailed machine records. Not a general topology certificate."
+    },
+    "visual": {
+      "status": "passed",
+      "scope": "Two low-detail hypothalamic exterior/localization surfaces only; no nuclei or tissue subdivisions. Pituitary wireframe is context only; source stalk overlap remains."
+    },
+    "anatomy": {
+      "status": "reference-screened",
+      "scope": "External reference landmarks only; no clinical or internal-tissue validation."
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "No browser model runtime evidence yet."
+    }
+  },
+  "sourceRecords": [
+    {
+      "file_id": "FJ1760",
+      "concept_id": "FMA62008",
+      "name": "hypothalamus",
+      "source_sha256": "cc6db16b990c3fa607ef64f6c0482fd05cb986213d011da9641ccf50182af897",
+      "source_vertices": 1183,
+      "export_vertices": 1029,
+      "faces": 2050,
+      "exact_duplicate_vertices_welded": 154,
+      "bounds_m": [
+        [
+          -0.000654917,
+          -0.11017700000000001,
+          1.53223
+        ],
+        [
+          0.00695987,
+          -0.09223970000000001,
+          1.5521
+        ]
+      ],
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "file_id": "FJ1808",
+      "concept_id": "FMA62008",
+      "name": "hypothalamus",
+      "source_sha256": "9e6fe3664aa909ce2d26683de807b627b076a1e68906f4bf4ffc59cf984e4bc4",
+      "source_vertices": 1191,
+      "export_vertices": 1018,
+      "faces": 2028,
+      "exact_duplicate_vertices_welded": 173,
+      "bounds_m": [
+        [
+          -0.008267680000000001,
+          -0.11017700000000001,
+          1.53223
+        ],
+        [
+          -0.000650617,
+          -0.0922362,
+          1.5521
+        ]
+      ],
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    }
+  ],
+  "context": {
+    "gland_ids": [
+      "FJ1760",
+      "FJ1808"
+    ],
+    "context_ids": [
+      "FJ1796"
+    ],
+    "context_names": [
+      "pituitary gland"
+    ],
+    "all_same_source_frame": true,
+    "context_not_in_gland_export": true
+  },
+  "evidence": [
+    {
+      "id": "hypothalamus__source-candidate-01__scoped-review__0",
+      "file": "reviews/hypothalamus/2026-10-23-bp3d-bounded-migration/display/candidate-a7b1de9bb9cb.webp",
+      "sha256": "a7b1de9bb9cb4fda45e8a1dbff7db7fae51e5a71b62e6517cf34343d6c281a58",
+      "originalSha256": "cc8dc630dfa87f73137b9f4f4005f48884e1808551baca7a578181b2e43bf181",
+      "originalFile": "reviews/hypothalamus/source-candidate-01/contact.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "candidate",
+      "noteIsGeneric": true,
+      "kind": "blender-still",
+      "label": {
+        "en": "contact",
+        "zh": "多视图联系表"
+      },
+      "capturedAt": null,
+      "recordedDate": "2026-10-23",
+      "assetBinding": "b6d73d6b5a33006391a743c650ccc06b65b9b9afaaaebbcf1d05102d4399274c",
+      "sourceBindings": [],
+      "role": "candidate",
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": null,
+      "note": {
+        "en": "Quality-92 WebP display derivative, not native PNG bytes. Separate historical baseline/context bindings are retained."
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/hypothalamus__source-candidate-01__scoped-review/cc8dc630dfa87f73137b9f4f4005f48884e1808551baca7a578181b2e43bf181.webp",
+      "bytes": 65192,
+      "selectionRole": "candidate",
+      "originalNativePublicCopies": []
+    },
+    {
+      "id": "hypothalamus__source-candidate-01__scoped-review__9",
+      "file": "reviews/hypothalamus/2026-10-23-bp3d-bounded-migration/display/candidate-279869c120df.webp",
+      "sha256": "279869c120df3097058bf1a54a084124da7d775602f31b5be2fb75df3b8fc39c",
+      "originalSha256": "ac08d2cc9e92bb8cb25ad4b1da34613f422e90bbf5887936ad2706917cd11758",
+      "originalFile": "reviews/hypothalamus/source-candidate-01/screenshots/final-glb/oblique.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "candidate",
+      "noteIsGeneric": true,
+      "kind": "blender-still",
+      "label": {
+        "en": "oblique",
+        "zh": "斜视"
+      },
+      "capturedAt": null,
+      "recordedDate": "2026-10-23",
+      "assetBinding": "b6d73d6b5a33006391a743c650ccc06b65b9b9afaaaebbcf1d05102d4399274c",
+      "sourceBindings": [],
+      "role": "candidate",
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": null,
+      "note": {
+        "en": "Quality-92 WebP display derivative, not native PNG bytes. Separate historical baseline/context bindings are retained."
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/hypothalamus__source-candidate-01__scoped-review/ac08d2cc9e92bb8cb25ad4b1da34613f422e90bbf5887936ad2706917cd11758.webp",
+      "bytes": 19542,
+      "selectionRole": "candidate",
+      "originalNativePublicCopies": []
+    }
+  ],
+  "externalSourceRecord": "sources/datasets/bp3d-4.0-glands/external-source-members.json",
+  "license": "CC BY 4.0",
+  "migrationOnly": true,
+  "newStudyCount": 0,
+  "limitations": [
+    "Native source coordinates retained; no default whole-body replacement.",
+    "Portable or byte-identical regeneration is not established. Original build layout/full TSV assumptions remain unresolved; broken recipes are not packaged as functional.",
+    "Historical topology counts are retained source-method outputs, not new rigorous exact-tuple or watertight certification.",
+    "Full native PNGs, editable scenes and rejected history are deferred; display derivatives and exact accepted GLB are migrated.",
+    "No new anatomy, clinical or browser-runtime approval."
+  ]
+}

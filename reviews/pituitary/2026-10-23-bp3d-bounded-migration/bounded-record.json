@@ -1,0 +1,198 @@
+{
+  "schemaVersion": 1,
+  "assetId": "draft_pituitary",
+  "variantId": "pituitary__source-candidate-01",
+  "artifact": {
+    "file": "models/pituitary/exports/source-candidate-01/pituitary_source_frame.glb",
+    "sha256": "8eae4c6d05b0c9de5128ae6f574a97265cb392a44567fcac5ea0b9b7f1dbca68",
+    "bytes": 22296
+  },
+  "gates": {
+    "technical": {
+      "status": "pass-with-limitations",
+      "scope": "Only supplied exact-export checks; see detailed machine records. Not a general topology certificate."
+    },
+    "visual": {
+      "status": "passed",
+      "scope": "Low-detail pituitary exterior/localization envelope only; not pituitary lobes or fine neuroanatomy. Neighboring hypothalamus is review context; source stalk overlap remains, not fused."
+    },
+    "anatomy": {
+      "status": "reference-screened",
+      "scope": "External reference landmarks only; no clinical or internal-tissue validation."
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "No browser model runtime evidence yet."
+    }
+  },
+  "sourceRecords": [
+    {
+      "file_id": "FJ1796",
+      "concept_id": "FMA13889",
+      "name": "pituitary gland",
+      "source_sha256": "f4dfe89a92a5af3f9a2de4f3221c45978a2a8308ef465b780684ab839aeab21b",
+      "source_vertices": 609,
+      "export_vertices": 584,
+      "faces": 1164,
+      "exact_duplicate_vertices_welded": 25,
+      "bounds_m": [
+        [
+          -0.0067911000000000004,
+          -0.11056300000000001,
+          1.52257
+        ],
+        [
+          0.00551969,
+          -0.101105,
+          1.53554
+        ]
+      ],
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    }
+  ],
+  "context": {
+    "gland_ids": [
+      "FJ1796"
+    ],
+    "context_ids": [
+      "FJ1760",
+      "FJ1808"
+    ],
+    "context_names": [
+      "hypothalamus",
+      "hypothalamus"
+    ],
+    "all_same_source_frame": true,
+    "context_not_in_gland_export": true
+  },
+  "evidence": [
+    {
+      "id": "draft_pituitary__2026-10-23-v10-exterior-review__3",
+      "file": "reviews/pituitary/2026-10-23-bp3d-bounded-migration/display/before-b36f37edf3a5.webp",
+      "sha256": "b36f37edf3a55a6ef4533b0bf8c62e11b0203f19c2be50f1bc518094bb18b682",
+      "originalSha256": "4a687e0812a9df839e8a17273a8cc3ea07b72411bd43d42733bd619912c84b11",
+      "originalFile": "reviews/pituitary/2026-10-23-v10-exterior-review/draft_pituitary/screenshots/contact.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "baseline",
+      "noteIsGeneric": true,
+      "kind": "blender-still-contact-sheet",
+      "label": {
+        "en": "Front / left / back",
+        "zh": "前视 / 左视 / 后视"
+      },
+      "capturedAt": "2026-10-23T01:33:04.201482+00:00",
+      "recordedDate": "2026-10-23",
+      "assetBinding": "ed1d491f288a90a9cd79ce4c806d0ced9965a581a85e2563d721d385b145045d",
+      "sourceBindings": [],
+      "role": null,
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": {
+        "engine": "Blender 4.3.2 Cycles CPU",
+        "samples": 32,
+        "resolution": [
+          512,
+          512
+        ],
+        "frame": 1,
+        "projection": "orthographic",
+        "orientation": "Manifest x=patient left, y=superior, z=anterior; glTF imported to Blender Z-up; cameras front=-Y,left=+X,back=+Y",
+        "hiddenCutawayNodes": [],
+        "scope": "Exterior static view only. Internal details may remain occluded. No motion or runtime verification."
+      },
+      "note": {
+        "en": "Quality-92 WebP display derivative, not native PNG bytes. Separate historical baseline/context bindings are retained."
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/draft_pituitary__2026-10-23-v10-exterior-review/4a687e0812a9df839e8a17273a8cc3ea07b72411bd43d42733bd619912c84b11.webp",
+      "bytes": 54104,
+      "selectionRole": "before",
+      "originalNativePublicCopies": [
+        {
+          "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/pituitary/2026-10-23-v10-exterior-review/draft_pituitary/screenshots/contact.png",
+          "sitePath": "accounting-package/reviews/pituitary/2026-10-23-v10-exterior-review/draft_pituitary/screenshots/contact.png",
+          "sha256": "4a687e0812a9df839e8a17273a8cc3ea07b72411bd43d42733bd619912c84b11",
+          "bytes": 478031
+        }
+      ]
+    },
+    {
+      "id": "pituitary__source-candidate-01__scoped-review__0",
+      "file": "reviews/pituitary/2026-10-23-bp3d-bounded-migration/display/candidate-3e22ee807a76.webp",
+      "sha256": "3e22ee807a76e44d557ed781858bcd1fd4f60fdd65d6f2e221c20acc4c70be3e",
+      "originalSha256": "f63c908cc8427faf7f14d8c0d98ecdc6d0e64306bc587107e92cb41be822b0be",
+      "originalFile": "reviews/pituitary/source-candidate-01/contact.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "candidate",
+      "noteIsGeneric": true,
+      "kind": "blender-still",
+      "label": {
+        "en": "contact",
+        "zh": "多视图联系表"
+      },
+      "capturedAt": null,
+      "recordedDate": "2026-10-23",
+      "assetBinding": "8eae4c6d05b0c9de5128ae6f574a97265cb392a44567fcac5ea0b9b7f1dbca68",
+      "sourceBindings": [],
+      "role": "candidate",
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": null,
+      "note": {
+        "en": "Quality-92 WebP display derivative, not native PNG bytes. Separate historical baseline/context bindings are retained."
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/pituitary__source-candidate-01__scoped-review/f63c908cc8427faf7f14d8c0d98ecdc6d0e64306bc587107e92cb41be822b0be.webp",
+      "bytes": 76474,
+      "selectionRole": "candidate",
+      "originalNativePublicCopies": []
+    },
+    {
+      "id": "pituitary__source-candidate-01__scoped-review__10",
+      "file": "reviews/pituitary/2026-10-23-bp3d-bounded-migration/display/candidate-13aa81fd2082.webp",
+      "sha256": "13aa81fd20826d2b9cb102c5baa8c4ed0b074195933eaa0a59a89ce27836d666",
+      "originalSha256": "3eba33a2fc4b70e9f190e9614a9ece805889c25192afb7a680c913282171b0bb",
+      "originalFile": "reviews/pituitary/source-candidate-01/screenshots/final-glb/oblique.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "candidate",
+      "noteIsGeneric": true,
+      "kind": "blender-still",
+      "label": {
+        "en": "oblique",
+        "zh": "斜视"
+      },
+      "capturedAt": null,
+      "recordedDate": "2026-10-23",
+      "assetBinding": "8eae4c6d05b0c9de5128ae6f574a97265cb392a44567fcac5ea0b9b7f1dbca68",
+      "sourceBindings": [],
+      "role": "candidate",
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": null,
+      "note": {
+        "en": "Quality-92 WebP display derivative, not native PNG bytes. Separate historical baseline/context bindings are retained."
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/pituitary__source-candidate-01__scoped-review/3eba33a2fc4b70e9f190e9614a9ece805889c25192afb7a680c913282171b0bb.webp",
+      "bytes": 14960,
+      "selectionRole": "candidate",
+      "originalNativePublicCopies": []
+    }
+  ],
+  "externalSourceRecord": "sources/datasets/bp3d-4.0-glands/external-source-members.json",
+  "license": "CC BY 4.0",
+  "migrationOnly": true,
+  "newStudyCount": 0,
+  "limitations": [
+    "Native source coordinates retained; no default whole-body replacement.",
+    "Portable or byte-identical regeneration is not established. Original build layout/full TSV assumptions remain unresolved; broken recipes are not packaged as functional.",
+    "Historical topology counts are retained source-method outputs, not new rigorous exact-tuple or watertight certification.",
+    "Full native PNGs, editable scenes and rejected history are deferred; display derivatives and exact accepted GLB are migrated.",
+    "No new anatomy, clinical or browser-runtime approval."
+  ]
+}

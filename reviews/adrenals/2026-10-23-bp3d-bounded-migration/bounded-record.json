@@ -1,0 +1,224 @@
+{
+  "schemaVersion": 1,
+  "assetId": "draft_adrenals",
+  "variantId": "adrenals__source-candidate-01",
+  "artifact": {
+    "file": "models/adrenals/exports/source-candidate-01/adrenals_source_frame.glb",
+    "sha256": "c7de1afa5394a7f64b106a62ff979eaa9e0b428db23a13fa34340c2d38ba13a7",
+    "bytes": 115440
+  },
+  "gates": {
+    "technical": {
+      "status": "pass-with-limitations",
+      "scope": "Only supplied exact-export checks; see detailed machine records. Not a general topology certificate."
+    },
+    "visual": {
+      "status": "passed",
+      "scope": "Left/right adrenal exterior silhouettes and same-source localization relative to kidneys. Kidneys are review context, not part of the gland export; illustrative color is not tissue evidence."
+    },
+    "anatomy": {
+      "status": "reference-screened",
+      "scope": "External reference landmarks only; no clinical or internal-tissue validation."
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "No browser model runtime evidence yet."
+    }
+  },
+  "sourceRecords": [
+    {
+      "file_id": "FJ3129",
+      "concept_id": "FMA15630",
+      "name": "left adrenal gland",
+      "source_sha256": "ba5fd50b54d62d8d6e99ce7c2fb19b13979173619ec78c223e01227142943c47",
+      "source_vertices": 2000,
+      "export_vertices": 2000,
+      "faces": 3996,
+      "exact_duplicate_vertices_welded": 0,
+      "bounds_m": [
+        [
+          0.027315000000000002,
+          -0.0832855,
+          1.06334
+        ],
+        [
+          0.0754916,
+          -0.063135,
+          1.10822
+        ]
+      ],
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "file_id": "FJ3130",
+      "concept_id": "FMA15629",
+      "name": "right adrenal gland",
+      "source_sha256": "919d7260f7109f19b8d443b167b8e25d55112ff3a0c437f327d260d71c6a0b4e",
+      "source_vertices": 1149,
+      "export_vertices": 1149,
+      "faces": 2294,
+      "exact_duplicate_vertices_welded": 0,
+      "bounds_m": [
+        [
+          -0.0625344,
+          -0.102342,
+          1.04552
+        ],
+        [
+          -0.0306302,
+          -0.0751055,
+          1.0877999999999999
+        ]
+      ],
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    }
+  ],
+  "context": {
+    "gland_ids": [
+      "FJ3129",
+      "FJ3130"
+    ],
+    "context_ids": [
+      "FJ3145",
+      "FJ3147"
+    ],
+    "context_names": [
+      "left kidney",
+      "right kidney"
+    ],
+    "all_same_source_frame": true,
+    "context_not_in_gland_export": true
+  },
+  "evidence": [
+    {
+      "id": "draft_adrenals__2026-10-23-v10-exterior-review__3",
+      "file": "reviews/adrenals/2026-10-23-bp3d-bounded-migration/display/before-1e431552642d.webp",
+      "sha256": "1e431552642dea8427f0ab52fbee0c14a0ff8e787b4d37068c9e077092a6e84a",
+      "originalSha256": "4bf4aea2daff77956654184308fcab3f878075a1d6a822c047536f86025cdaab",
+      "originalFile": "reviews/adrenals/2026-10-23-v10-exterior-review/draft_adrenals/screenshots/contact.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "baseline",
+      "noteIsGeneric": true,
+      "kind": "blender-still-contact-sheet",
+      "label": {
+        "en": "Front / left / back",
+        "zh": "前视 / 左视 / 后视"
+      },
+      "capturedAt": "2026-10-23T01:33:12.309687+00:00",
+      "recordedDate": "2026-10-23",
+      "assetBinding": "dbd584b3905dfe968df814b6ef629eb6a08ce68762891d1b0e5ce61a04987857",
+      "sourceBindings": [],
+      "role": null,
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": {
+        "engine": "Blender 4.3.2 Cycles CPU",
+        "samples": 32,
+        "resolution": [
+          512,
+          512
+        ],
+        "frame": 1,
+        "projection": "orthographic",
+        "orientation": "Manifest x=patient left, y=superior, z=anterior; glTF imported to Blender Z-up; cameras front=-Y,left=+X,back=+Y",
+        "hiddenCutawayNodes": [],
+        "scope": "Exterior static view only. Internal details may remain occluded. No motion or runtime verification."
+      },
+      "note": {
+        "en": "Quality-92 WebP display derivative, not native PNG bytes. Separate historical baseline/context bindings are retained."
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/draft_adrenals__2026-10-23-v10-exterior-review/4bf4aea2daff77956654184308fcab3f878075a1d6a822c047536f86025cdaab.webp",
+      "bytes": 21086,
+      "selectionRole": "before",
+      "originalNativePublicCopies": [
+        {
+          "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/adrenals/2026-10-23-v10-exterior-review/draft_adrenals/screenshots/contact.png",
+          "sitePath": "accounting-package/reviews/adrenals/2026-10-23-v10-exterior-review/draft_adrenals/screenshots/contact.png",
+          "sha256": "4bf4aea2daff77956654184308fcab3f878075a1d6a822c047536f86025cdaab",
+          "bytes": 226090
+        }
+      ]
+    },
+    {
+      "id": "adrenals__source-candidate-01__scoped-review__0",
+      "file": "reviews/adrenals/2026-10-23-bp3d-bounded-migration/display/candidate-a524ea65d5eb.webp",
+      "sha256": "a524ea65d5eb2d6bd070b4e3e838a8fa69c757dbf749598a868922932625b830",
+      "originalSha256": "61b70470c4c69e7a8f0b7079bcebbab44d67d1e2c3c184f1a41720eb2f52bdaf",
+      "originalFile": "reviews/adrenals/source-candidate-01/contact.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "candidate",
+      "noteIsGeneric": true,
+      "kind": "blender-still",
+      "label": {
+        "en": "contact",
+        "zh": "多视图联系表"
+      },
+      "capturedAt": null,
+      "recordedDate": "2026-10-23",
+      "assetBinding": "c7de1afa5394a7f64b106a62ff979eaa9e0b428db23a13fa34340c2d38ba13a7",
+      "sourceBindings": [],
+      "role": "candidate",
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": null,
+      "note": {
+        "en": "Quality-92 WebP display derivative, not native PNG bytes. Separate historical baseline/context bindings are retained."
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/adrenals__source-candidate-01__scoped-review/61b70470c4c69e7a8f0b7079bcebbab44d67d1e2c3c184f1a41720eb2f52bdaf.webp",
+      "bytes": 32590,
+      "selectionRole": "candidate",
+      "originalNativePublicCopies": []
+    },
+    {
+      "id": "adrenals__source-candidate-01__scoped-review__10",
+      "file": "reviews/adrenals/2026-10-23-bp3d-bounded-migration/display/candidate-409ef01a7e81.webp",
+      "sha256": "409ef01a7e81265345caa44d60109fdb59b3c6bd6887d40682e3169dc5723954",
+      "originalSha256": "446c1c336dd0f97c00ebdf847ebe93a3856329f64c2c421624df59ddcbbe5edd",
+      "originalFile": "reviews/adrenals/source-candidate-01/screenshots/final-glb/oblique.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "candidate",
+      "noteIsGeneric": true,
+      "kind": "blender-still",
+      "label": {
+        "en": "oblique",
+        "zh": "斜视"
+      },
+      "capturedAt": null,
+      "recordedDate": "2026-10-23",
+      "assetBinding": "c7de1afa5394a7f64b106a62ff979eaa9e0b428db23a13fa34340c2d38ba13a7",
+      "sourceBindings": [],
+      "role": "candidate",
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": null,
+      "note": {
+        "en": "Quality-92 WebP display derivative, not native PNG bytes. Separate historical baseline/context bindings are retained."
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/adrenals__source-candidate-01__scoped-review/446c1c336dd0f97c00ebdf847ebe93a3856329f64c2c421624df59ddcbbe5edd.webp",
+      "bytes": 6738,
+      "selectionRole": "candidate",
+      "originalNativePublicCopies": []
+    }
+  ],
+  "externalSourceRecord": "sources/datasets/bp3d-4.0-glands/external-source-members.json",
+  "license": "CC BY 4.0",
+  "migrationOnly": true,
+  "newStudyCount": 0,
+  "limitations": [
+    "Native source coordinates retained; no default whole-body replacement.",
+    "Portable or byte-identical regeneration is not established. Original build layout/full TSV assumptions remain unresolved; broken recipes are not packaged as functional.",
+    "Historical topology counts are retained source-method outputs, not new rigorous exact-tuple or watertight certification.",
+    "Full native PNGs, editable scenes and rejected history are deferred; display derivatives and exact accepted GLB are migrated.",
+    "No new anatomy, clinical or browser-runtime approval."
+  ]
+}
