@@ -1,0 +1,146 @@
+{
+  "schema": "bounded-bp3d-body-study-v1",
+  "model": {
+    "path": "models/skin/exports/bp3d-envelope-r01/skin_source_frame.glb",
+    "sha256": "d86719833a17dc7b45c8eb970498f1e2feefd352b5812942f4b147a9ffcfbe4f",
+    "bytes": 4901132
+  },
+  "scope": {
+    "en": "Whole male adult external body envelope for navigation, reviewed front/side/back and with native skeleton context. Not skin histology, layer thickness, microtexture, demographic coverage or rigging.",
+    "zh": "用于导航的成年男性全身外表包络；已检查前/侧/后及同源骨骼参照。不包含皮肤组织学、层厚、微观纹理、人群覆盖或绑定。"
+  },
+  "recordedPublicGates": {
+    "technical": "pass-with-limitations",
+    "visual": "passed",
+    "anatomy": "reference-screened",
+    "runtime": "unverified"
+  },
+  "gateInterpretation": "Historical scoped static review only; no new quality, anatomy, clinical, motion or runtime promotion.",
+  "limitations": [
+    "One adult male external body envelope for navigation, not layered skin, histology, thickness or microtexture.",
+    "No demographic coverage, clinical validation, rigging or motion approval.",
+    "Native skeleton context is a contextual image, not proof of mixed-source registration or runtime behavior."
+  ],
+  "componentCount": 1,
+  "componentIdentityMap": [
+    {
+      "nodeIndex": 0,
+      "nodeName": "FJ2810 skin",
+      "sourceFileId": "FJ2810",
+      "nodeConceptId": "FMA7163",
+      "sourceSha256": "682f402206f15592acdeaae8ffb6b34c3e5c3267fa4685e63d2e4920ef2a80e0",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ2810",
+      "sourceHashEmbeddedInGLB": false
+    }
+  ],
+  "provenanceBoundary": "GLB source file/concept IDs are retained. Member hashes are independently computed from official retained archives, not embedded GLB source hashes. This is identity association, not a source-to-derivative rebuild proof.",
+  "evidence": [
+    {
+      "path": "reviews/bp3d-body-studies/2026-10-24-bounded-migration/shared-display/3efc6f288f3efc983263df79b807555920864057d4126cc4feffb9e0e4afc026.webp",
+      "sha256": "3efc6f288f3efc983263df79b807555920864057d4126cc4feffb9e0e4afc026",
+      "bytes": 30104,
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/draft_skin__2026-10-23-v10-exterior-review/649da5519974dc53a818f45da7aae0c7e3a766504a4f0deb68f20095fa34fa00.webp",
+      "format": "WEBP",
+      "pixelDimensions": [
+        1536,
+        602
+      ],
+      "selectionRole": "before",
+      "role": null,
+      "assetBinding": "249595f6fb24f85294593c7a48eb5dc3c1e1b42db03d9377691f0f592e8850c2",
+      "originalPngSha256": "649da5519974dc53a818f45da7aae0c7e3a766504a4f0deb68f20095fa34fa00",
+      "originalPngExternal": {
+        "canonicalReference": "reviews/skin/2026-10-23-v10-exterior-review/draft_skin/screenshots/contact.png",
+        "sha256": "649da5519974dc53a818f45da7aae0c7e3a766504a4f0deb68f20095fa34fa00",
+        "bundled": false
+      },
+      "sourceBindings": [],
+      "renderSettings": {
+        "engine": "Blender 4.3.2 Cycles CPU",
+        "samples": 32,
+        "resolution": [
+          512,
+          512
+        ],
+        "frame": 1,
+        "projection": "orthographic",
+        "orientation": "Manifest x=patient left, y=superior, z=anterior; glTF imported to Blender Z-up; cameras front=-Y,left=+X,back=+Y",
+        "hiddenCutawayNodes": [],
+        "scope": "Exterior static view only. Internal details may remain occluded. No motion or runtime verification."
+      },
+      "label": {
+        "en": "Front / left / back",
+        "zh": "前视 / 左视 / 后视"
+      }
+    },
+    {
+      "path": "reviews/skin/2026-10-24-bp3d-envelope-r01-bounded-migration/display/c31801ea60a4e13e906d440b4a0166afff2796f58e9cddaae47d3e8fced70c9d.webp",
+      "sha256": "c31801ea60a4e13e906d440b4a0166afff2796f58e9cddaae47d3e8fced70c9d",
+      "bytes": 31212,
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/skin__bp3d-envelope-r01__scoped-review/ea6fbf64e627fe4555118e720870b88fed377bb4a56ed5b69257b8887f8cdb22.webp",
+      "format": "WEBP",
+      "pixelDimensions": [
+        1000,
+        1500
+      ],
+      "selectionRole": "candidate",
+      "role": "candidate",
+      "assetBinding": "d86719833a17dc7b45c8eb970498f1e2feefd352b5812942f4b147a9ffcfbe4f",
+      "originalPngSha256": "ea6fbf64e627fe4555118e720870b88fed377bb4a56ed5b69257b8887f8cdb22",
+      "originalPngExternal": {
+        "canonicalReference": "reviews/skin/bp3d-envelope-r01/back.png",
+        "sha256": "ea6fbf64e627fe4555118e720870b88fed377bb4a56ed5b69257b8887f8cdb22",
+        "bundled": false
+      },
+      "sourceBindings": [],
+      "renderSettings": null,
+      "label": {
+        "en": "back",
+        "zh": "后视"
+      }
+    },
+    {
+      "path": "reviews/skin/2026-10-24-bp3d-envelope-r01-bounded-migration/display/458bade8e5844f6f7fc3f0924b233befaa682e57c29f5ec3f8eed43e43f7add7.webp",
+      "sha256": "458bade8e5844f6f7fc3f0924b233befaa682e57c29f5ec3f8eed43e43f7add7",
+      "bytes": 73984,
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/skin__bp3d-envelope-r01__scoped-review/1c0c35b4b86180bf8b245f1d06918257aa968d4a6bb680a0799a5c7341f95682.webp",
+      "format": "WEBP",
+      "pixelDimensions": [
+        1000,
+        1500
+      ],
+      "selectionRole": "candidate",
+      "role": "candidate-context",
+      "assetBinding": "d86719833a17dc7b45c8eb970498f1e2feefd352b5812942f4b147a9ffcfbe4f",
+      "originalPngSha256": "1c0c35b4b86180bf8b245f1d06918257aa968d4a6bb680a0799a5c7341f95682",
+      "originalPngExternal": {
+        "canonicalReference": "reviews/skin/bp3d-envelope-r01/context-skeleton.png",
+        "sha256": "1c0c35b4b86180bf8b245f1d06918257aa968d4a6bb680a0799a5c7341f95682",
+        "bundled": false
+      },
+      "sourceBindings": [],
+      "renderSettings": null,
+      "label": {
+        "en": "context-skeleton",
+        "zh": "骨骼参照"
+      }
+    }
+  ],
+  "externalHistoricalRecords": [
+    {
+      "canonicalReference": "reviews/skin/bp3d-envelope-r01/review.json",
+      "sha256": "2b48aee075bba6d1461fc65bd5a8b5b16cd0bd570e71e11b4fb35d4908dbe863",
+      "bytes": 1184,
+      "bundled": false
+    },
+    {
+      "canonicalReference": "reviews/skin/bp3d-envelope-r01/record.json",
+      "sha256": "eaa9bd0e970903f45591341cfebba0a934694226bb2eaaba20d1168da6f466bb",
+      "bytes": 6281,
+      "bundled": false
+    }
+  ],
+  "sourceDependencies": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json",
+  "rebuildBoundary": "Raw archives and OBJ files, original PNGs, full history, Blender scenes and replay environment remain external. No portable rebuild or deterministic pixel replay claim.",
+  "freshAvailabilityChecked": false
+}
