@@ -1,0 +1,25 @@
+{
+  "scope": "Local stored-byte identity, dependency/role consistency and verifier behavior only. No new quality, reconstruction, camera, clinical, runtime or remote-availability claim.",
+  "defaultMode": "manifest-only; unrelated repository files allowed",
+  "optionalMode": "--strict-package; isolated exact file closure",
+  "checks": {
+    "default_ignores_unlisted_repository_file": true,
+    "strict_rejects_unlisted_isolated_package_file": true,
+    "tampered_glb_rejected": true,
+    "baseline_rebinding_rejected_even_with_updated_file_hash": true
+  },
+  "retainedTransportChecks": {
+    "gzipCandidatesChecked": 3,
+    "allStoredHashesAndSizesMatchExistingMap": true,
+    "allDecodedBytesEqualCanonicalGlbs": true,
+    "rawCandidateUrlsInvented": false,
+    "networkRequestsMade": 0
+  },
+  "presentationPrivacy": {
+    "selectedWebPsViewed": 8,
+    "actualPrivatePathsOrUserDetailsObserved": false,
+    "historicalPixelsUnchanged": true
+  },
+  "countDelta": 0,
+  "gateDelta": 0
+}
