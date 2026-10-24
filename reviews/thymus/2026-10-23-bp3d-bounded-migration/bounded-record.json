@@ -1,0 +1,221 @@
+{
+  "schemaVersion": 1,
+  "assetId": "draft_thymus",
+  "variantId": "thymus__source-candidate-01",
+  "artifact": {
+    "file": "models/thymus/exports/source-candidate-01/thymus_source_frame.glb",
+    "sha256": "897d7c9d9885c895862235291e05ce8b85208a276e1624f0cbb273d0a887b2a9",
+    "bytes": 39696
+  },
+  "gates": {
+    "technical": {
+      "status": "pass-with-limitations",
+      "scope": "Only supplied exact-export checks; see detailed machine records. Not a general topology certificate."
+    },
+    "visual": {
+      "status": "passed",
+      "scope": "Two source thymus-lobe exteriors and same-source retrosternal localization, checked in contextual side/back views. Sternum occlusion is disclosed; no histological or clinical validation."
+    },
+    "anatomy": {
+      "status": "reference-screened",
+      "scope": "External reference landmarks only; no clinical or internal-tissue validation."
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "No browser model runtime evidence yet."
+    }
+  },
+  "sourceRecords": [
+    {
+      "file_id": "FJ3150",
+      "concept_id": "FMA71195",
+      "name": "left lobe of thymus",
+      "source_sha256": "54102c62c92c793d69b6900b7b8b5d5a130ff024767e25a50eaac6105cb0189d",
+      "source_vertices": 606,
+      "export_vertices": 529,
+      "faces": 1050,
+      "exact_duplicate_vertices_welded": 77,
+      "bounds_m": [
+        [
+          -0.00350991,
+          -0.159289,
+          1.25755
+        ],
+        [
+          0.0218142,
+          -0.119742,
+          1.31668
+        ]
+      ],
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "file_id": "FJ3151",
+      "concept_id": "FMA71194",
+      "name": "right lobe of thymus",
+      "source_sha256": "12da29f923a948d45b2eee05bd39805ec84bea612aeaa7056f13813986415d67",
+      "source_vertices": 599,
+      "export_vertices": 517,
+      "faces": 1030,
+      "exact_duplicate_vertices_welded": 82,
+      "bounds_m": [
+        [
+          -0.024754500000000002,
+          -0.144267,
+          1.26116
+        ],
+        [
+          0.00241891,
+          -0.12213,
+          1.32975
+        ]
+      ],
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    }
+  ],
+  "context": {
+    "gland_ids": [
+      "FJ3150",
+      "FJ3151"
+    ],
+    "context_ids": [
+      "FJ2541",
+      "FJ3153",
+      "FJ3178",
+      "FJ3290"
+    ],
+    "context_names": [
+      "trachea",
+      "xiphoid process",
+      "body of sternum",
+      "manubrium"
+    ],
+    "all_same_source_frame": true,
+    "context_not_in_gland_export": true
+  },
+  "evidence": [
+    {
+      "id": "draft_thymus__2026-10-23-v10-exterior-review__3",
+      "file": "reviews/thymus/2026-10-23-bp3d-bounded-migration/display/before-71ec579760d3.webp",
+      "sha256": "71ec579760d362ae2cd4a35aa554328b1578d1fdd6e1c7f2cae403eb6e1535fb",
+      "originalSha256": "c659302da305bfd58a8db18723e259481d4f0aa099484dcda475b58dac3694d6",
+      "originalFile": "reviews/thymus/2026-10-23-v10-exterior-review/draft_thymus/screenshots/contact.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "baseline",
+      "noteIsGeneric": true,
+      "kind": "blender-still-contact-sheet",
+      "label": {
+        "en": "Front / left / back",
+        "zh": "前视 / 左视 / 后视"
+      },
+      "capturedAt": "2026-10-23T01:34:38.051865+00:00",
+      "recordedDate": "2026-10-23",
+      "assetBinding": "8211c85c2fa393a3a0dfeaeb71947126852a4ea75f7b603a5c6444152096471b",
+      "sourceBindings": [],
+      "role": null,
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": {
+        "engine": "Blender 4.3.2 Cycles CPU",
+        "samples": 32,
+        "resolution": [
+          512,
+          512
+        ],
+        "frame": 1,
+        "projection": "orthographic",
+        "orientation": "Manifest x=patient left, y=superior, z=anterior; glTF imported to Blender Z-up; cameras front=-Y,left=+X,back=+Y",
+        "hiddenCutawayNodes": [],
+        "scope": "Exterior static view only. Internal details may remain occluded. No motion or runtime verification."
+      },
+      "note": {
+        "en": "Quality-92 WebP display derivative, not native PNG bytes. Separate historical baseline/context bindings are retained."
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/draft_thymus__2026-10-23-v10-exterior-review/c659302da305bfd58a8db18723e259481d4f0aa099484dcda475b58dac3694d6.webp",
+      "bytes": 50272,
+      "selectionRole": "before",
+      "originalNativePublicCopies": []
+    },
+    {
+      "id": "thymus__source-candidate-01__scoped-review__0",
+      "file": "reviews/thymus/2026-10-23-bp3d-bounded-migration/display/candidate-71981b813eeb.webp",
+      "sha256": "71981b813eeb7f5648d9f5b94ea55c36e0f41f8e00cfc4a71e9ca2f6736a2af7",
+      "originalSha256": "5794a03c51a4a361816708f1a689a34ea39c3c665463db7f96818360f7c3f48e",
+      "originalFile": "reviews/thymus/source-candidate-01/contact.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "candidate",
+      "noteIsGeneric": true,
+      "kind": "blender-still",
+      "label": {
+        "en": "contact",
+        "zh": "多视图联系表"
+      },
+      "capturedAt": null,
+      "recordedDate": "2026-10-23",
+      "assetBinding": "897d7c9d9885c895862235291e05ce8b85208a276e1624f0cbb273d0a887b2a9",
+      "sourceBindings": [],
+      "role": "candidate",
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": null,
+      "note": {
+        "en": "Quality-92 WebP display derivative, not native PNG bytes. Separate historical baseline/context bindings are retained."
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/thymus__source-candidate-01__scoped-review/5794a03c51a4a361816708f1a689a34ea39c3c665463db7f96818360f7c3f48e.webp",
+      "bytes": 41564,
+      "selectionRole": "candidate",
+      "originalNativePublicCopies": []
+    },
+    {
+      "id": "thymus__source-candidate-01__scoped-review__10",
+      "file": "reviews/thymus/2026-10-23-bp3d-bounded-migration/display/candidate-23b1f13d81ea.webp",
+      "sha256": "23b1f13d81eabdd401b9be0c413ef68f8066a22c2959b0b0a2a2c13266200ff6",
+      "originalSha256": "8e73e208ce43bbe0248e1230da1ab19dc7bc2f24a261eb008bb98a7329665eef",
+      "originalFile": "reviews/thymus/source-candidate-01/screenshots/final-glb/oblique.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "candidate",
+      "noteIsGeneric": true,
+      "kind": "blender-still",
+      "label": {
+        "en": "oblique",
+        "zh": "斜视"
+      },
+      "capturedAt": null,
+      "recordedDate": "2026-10-23",
+      "assetBinding": "897d7c9d9885c895862235291e05ce8b85208a276e1624f0cbb273d0a887b2a9",
+      "sourceBindings": [],
+      "role": "candidate",
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": null,
+      "note": {
+        "en": "Quality-92 WebP display derivative, not native PNG bytes. Separate historical baseline/context bindings are retained."
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/thymus__source-candidate-01__scoped-review/8e73e208ce43bbe0248e1230da1ab19dc7bc2f24a261eb008bb98a7329665eef.webp",
+      "bytes": 12280,
+      "selectionRole": "candidate",
+      "originalNativePublicCopies": []
+    }
+  ],
+  "externalSourceRecord": "sources/datasets/bp3d-4.0-glands/external-source-members.json",
+  "license": "CC BY 4.0",
+  "migrationOnly": true,
+  "newStudyCount": 0,
+  "limitations": [
+    "Native source coordinates retained; no default whole-body replacement.",
+    "Portable or byte-identical regeneration is not established. Original build layout/full TSV assumptions remain unresolved; broken recipes are not packaged as functional.",
+    "Historical topology counts are retained source-method outputs, not new rigorous exact-tuple or watertight certification.",
+    "Full native PNGs, editable scenes and rejected history are deferred; display derivatives and exact accepted GLB are migrated.",
+    "No new anatomy, clinical or browser-runtime approval."
+  ]
+}
