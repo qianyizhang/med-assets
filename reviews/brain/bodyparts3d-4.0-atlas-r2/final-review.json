@@ -1,0 +1,52 @@
+{
+  "assetId": "brain",
+  "revision": "bodyparts3d-4.0-atlas-r2",
+  "sourceKind": "atlas-derived",
+  "status": "educational-exterior-visual-pass",
+  "technical": "Final49 GLB meshes closed/manifold under exact-coordinate topology check; finite geometry and stable group IDs.4 zero-volume island faces and6 unused vertices removed. Self-intersections not tested.",
+  "visual": "Assistant personally reviewed the final exact-source-frame GLB six-view contact sheet and accepted the educational exterior visual gate on2026-10-23T02:02UTC. This is not a clinical, internal-tissue, runtime or assembly pass.",
+  "anatomy": "Reference-based major external landmarks and orientation screened; not an expert clinical certificate, patient reconstruction, or validation of internal-tissue accuracy.",
+  "runtime": "unverified",
+  "wholeBodyRegistration": "not accepted; source-frame atlas kept separate from s1233 torso",
+  "failureSummary": {
+    "en": "Old brain: generic dents and ball-like cerebellum replaced anatomy. Fix:49 primary atlas parts with named gyri, cerebellum and brainstem. Lesson: validate landmarks before surface polish.",
+    "zh": "旧脑模型用通用凹槽和球状小脑代替真实形态。修复：采用49个原始图谱部件，保留命名脑回、小脑和脑干。经验：先核查解剖标志，再做表面润色。"
+  },
+  "remainingCaveats": {
+    "en": "Reduced-resolution atlas; visible faceting and truncated brainstem. Artistic material. No synthetic ventricle/core retained. No verified section mode, motion, clinical accuracy or mixed-source registration.",
+    "zh": "减面图谱仍有可见棱面，脑干下端为截断边界。材质为展示用配色。已移除虚构脑室和核心。剖面、运动、临床准确性及跨来源配准均未验证。"
+  },
+  "references": [
+    "https://dbarchive.biosciencedbc.jp/en/bodyparts3d/download.html",
+    "https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC2686534/",
+    "https://openstax.org/books/anatomy-and-physiology-2e/pages/13-2-the-central-nervous-system"
+  ],
+  "files": {
+    "brain.glb": {
+      "bytes": 4415304,
+      "sha256": "69f437d06777ede3d93e7dd26eba6737ca909de6117323433e62b1232ef85a08"
+    },
+    "brain-source-frame.glb": {
+      "bytes": 4415384,
+      "sha256": "26d39768e2882daee034f997a8d594e915283b5f8a176a8bb60003944a45b886"
+    }
+  },
+  "assistantReviewedSha256": "26d39768e2882daee034f997a8d594e915283b5f8a176a8bb60003944a45b886",
+  "renderEvidence": {
+    "sourceFile": "brain-source-frame.glb",
+    "sourceSha256": "26d39768e2882daee034f997a8d594e915283b5f8a176a8bb60003944a45b886",
+    "views": [
+      "front",
+      "left",
+      "back",
+      "right",
+      "superior",
+      "inferior",
+      "oblique"
+    ],
+    "contact": "final-glb-proof/contact.png",
+    "renderer": "Blender4.3.2 Cycles CPU64samples,1000px orthographic, no denoising",
+    "type": "Exact GLB reimport rendered evidence, not browser QA"
+  }
+}

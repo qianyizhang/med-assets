@@ -1,0 +1,68 @@
+{
+  "id": "brain__bodyparts3d-4.0-atlas-r2__2026-10-24-evidence-link-correction",
+  "assetId": "brain",
+  "variantId": "brain__bodyparts3d-4.0-atlas-r2",
+  "sourceSha256": "26d39768e2882daee034f997a8d594e915283b5f8a176a8bb60003944a45b886",
+  "reviewedAt": "2026-10-24",
+  "type": "additive-evidence-link-correction",
+  "existingGatesChanged": false,
+  "newAcceptedCandidateCount": 0,
+  "scope": "Links retained exact source-frame GLB reimport contact to existing scoped review. Original empty evidence record and all verdicts remain unchanged; no new anatomy/runtime approval.",
+  "sourceRecords": [
+    {
+      "file": "reviews/brain/bodyparts3d-4.0-atlas-r2/final-review.json",
+      "sha256": "84446d9ee6251325aa1215d912d4c0bd3a747fb7711b96c387cea96f4f6b7deb"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "brain__bodyparts3d-4.0-atlas-r2__2026-10-24-evidence-link-correction__contact",
+      "file": "reviews/brain/bodyparts3d-4.0-atlas-r2/screenshots/contact.png",
+      "sha256": "1de1a0b96d416d08c4d241ee99ef02baa97d3716f5390e72296c67f623e27c79",
+      "kind": "exact-glb-reimport-contact",
+      "label": {
+        "en": "Accepted brain exterior · exact GLB multiview contact",
+        "zh": "已审阅脑外形·精确 GLB 多视角对照"
+      },
+      "role": "candidate",
+      "sourceSha256": "26d39768e2882daee034f997a8d594e915283b5f8a176a8bb60003944a45b886",
+      "capturedAt": null,
+      "renderSettings": {
+        "origin": "Exact source-frame GLB reimport",
+        "engine": "Blender 4.3.2 Cycles CPU",
+        "samples": 64,
+        "projection": "orthographic",
+        "denoising": false
+      },
+      "note": {
+        "en": "Retained prior scoped visual-review contact, newly linked because the earlier catalog record omitted its evidence array. Exact original PNG unchanged; not browser or internal-tissue proof.",
+        "zh": "保留的既有范围内视觉审查图；先前目录记录漏接证据数组，现补充关联。原 PNG 字节未变，不是浏览器或内部组织验证。"
+      }
+    }
+  ],
+  "failureSummary": {
+    "failure": {
+      "en": "The gallery showed only baseline imagery despite retained accepted-candidate evidence.",
+      "zh": "已有候选模型审查图被保留，但图库仅展示旧基线图。"
+    },
+    "cause": {
+      "certainty": "observed",
+      "text": {
+        "en": "The canonical scoped-review evidence array was empty.",
+        "zh": "规范范围审查记录的证据数组为空。"
+      }
+    },
+    "fix": {
+      "en": "Add a separate immutable exact-hash evidence link; preserve prior records and verdicts.",
+      "zh": "新增独立不可变的精确哈希证据关联，保留旧记录与结论。"
+    },
+    "retest": {
+      "en": "Source GLB, contact PNG and final-review bindings verified; public display/transport checked separately.",
+      "zh": "已核对源 GLB、对照 PNG 及最终审查绑定；公开展示与传输另行检查。"
+    },
+    "lesson": {
+      "en": "Require at least one candidate-bound image when assessing evidence completeness; baseline images do not substitute.",
+      "zh": "检查证据完整性时，至少应有一张绑定候选模型的图像；旧基线图不能替代。"
+    }
+  }
+}

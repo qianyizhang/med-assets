@@ -1,0 +1,387 @@
+{
+  "schema": "bounded-bp3d-head-study-v1",
+  "model": {
+    "path": "models/teeth_gums/exports/r02/teeth_gums.glb",
+    "sha256": "82bfaeead46bb51b1fa5bdfdb06c918dfd01aa23b28acae733ab75ec2cd6897f",
+    "bytes": 814328
+  },
+  "scope": {
+    "en": "28 teeth +2 gingiva surfaces; not a complete32-tooth/full-mouth model. Static exterior only.",
+    "zh": "28颗牙齿+2个牙龈表面；不是完整32牙列或全口模型。仅静态外观。"
+  },
+  "recordedPublicGates": {
+    "technical": "pass-with-limitations",
+    "visual": "passed",
+    "anatomy": "reference-screened",
+    "runtime": "unverified"
+  },
+  "gateInterpretation": "Historical scoped static review only. This migration does not promote quality, anatomy, clinical validity, rigging, motion or runtime.",
+  "limitations": [
+    "28 teeth + 2 gingiva surfaces, not 32-tooth completeness or full mouth.",
+    "Exposed cut roots and omitted alveolar support must remain labeled. Historical jaw-context images are not part of this selected-media subset."
+  ],
+  "runtime": "UNVERIFIED",
+  "clinical": "NOT_VALIDATED",
+  "motion": "No new motion/rigging claim",
+  "displayLabelOverrides": {},
+  "componentCount": 30,
+  "componentIdentityMap": [
+    {
+      "nodeIndex": 0,
+      "nodeName": "FJ1252 Gingiva of upper jaw",
+      "sourceFileId": "FJ1252",
+      "sourceSha256": "1c25044d612eb73b3892149c29cf1a258484965c74e9500b927f2168b40c8f82",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1252"
+    },
+    {
+      "nodeIndex": 1,
+      "nodeName": "FJ1253 Gingiva of lower jaw",
+      "sourceFileId": "FJ1253",
+      "sourceSha256": "a826f6bb73bf578a461ec49354660dcf2af4cb1ec870a8c0a24ed2ebfa7aa69c",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1253"
+    },
+    {
+      "nodeIndex": 2,
+      "nodeName": "FJ1254 Left lower first secondary molar tooth",
+      "sourceFileId": "FJ1254",
+      "sourceSha256": "7ac5ee013326492b1d51795eb292a7e5bba0647b74c30b09dc715f9a1dc28754",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1254"
+    },
+    {
+      "nodeIndex": 3,
+      "nodeName": "FJ1255 Left lower first secondary premolar tooth",
+      "sourceFileId": "FJ1255",
+      "sourceSha256": "6cbac9debf9b9cd9825f096c5ac84911f91020a36ec6f95fdfc49f10a679822b",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1255"
+    },
+    {
+      "nodeIndex": 4,
+      "nodeName": "FJ1256 Left lower second secondary molar tooth",
+      "sourceFileId": "FJ1256",
+      "sourceSha256": "a5dfb507dc76447d6ca09e4a5e11b8750571227d13b582cfffac1d2f35cd1bec",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1256"
+    },
+    {
+      "nodeIndex": 5,
+      "nodeName": "FJ1257 Left lower second secondary premolar tooth",
+      "sourceFileId": "FJ1257",
+      "sourceSha256": "b4e2d2cb7d5e7d41d82bc6e48b3de5cb628a0786ae0d82abadd39250f6dff3a7",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1257"
+    },
+    {
+      "nodeIndex": 6,
+      "nodeName": "FJ1258 Left lower central secondary incisor tooth",
+      "sourceFileId": "FJ1258",
+      "sourceSha256": "56fe0ccb8277f4ae0c945d3f2b3cf0a3a816ec2edf31eae4ab46a91954bde7aa",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1258"
+    },
+    {
+      "nodeIndex": 7,
+      "nodeName": "FJ1259 Left lower lateral secondary incisor tooth",
+      "sourceFileId": "FJ1259",
+      "sourceSha256": "f2a5c7fb06457bf61d55f8cab4048983651418f01b3bad013e9a2dea7a383b62",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1259"
+    },
+    {
+      "nodeIndex": 8,
+      "nodeName": "FJ1260 Left lower secondary canine tooth",
+      "sourceFileId": "FJ1260",
+      "sourceSha256": "4dd682c058f3949b30077712296603c1c508423a58998ad909baeec5bfa56b72",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1260"
+    },
+    {
+      "nodeIndex": 9,
+      "nodeName": "FJ1261 Left upper first secondary molar tooth",
+      "sourceFileId": "FJ1261",
+      "sourceSha256": "529061a7fdb28af07855e7350f788f93ef6c97e3bfead2e28bb9efe0256b0728",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1261"
+    },
+    {
+      "nodeIndex": 10,
+      "nodeName": "FJ1262 Left upper first secondary premolar tooth",
+      "sourceFileId": "FJ1262",
+      "sourceSha256": "5f45ec1015edb7c7539a3ef7a7577d4a0a723beb4dbfb18e36eca77663431c18",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1262"
+    },
+    {
+      "nodeIndex": 11,
+      "nodeName": "FJ1263 Left upper second secondary molar tooth",
+      "sourceFileId": "FJ1263",
+      "sourceSha256": "5811bdc8cfed255f8aa9e10fa8dd4815b5d0924c2a23f1d7e373c8521be6c65a",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1263"
+    },
+    {
+      "nodeIndex": 12,
+      "nodeName": "FJ1264 Left upper second secondary premolar tooth",
+      "sourceFileId": "FJ1264",
+      "sourceSha256": "e882218931e8f197490f16ba8058a87502edccc5e8e1f2d50fbd715a0386d33b",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1264"
+    },
+    {
+      "nodeIndex": 13,
+      "nodeName": "FJ1265 Left upper central secondary incisor tooth",
+      "sourceFileId": "FJ1265",
+      "sourceSha256": "bd094c59fb378809a534467b70b5b24ae0b147bc31f42c004e7ddadf8f0b7328",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1265"
+    },
+    {
+      "nodeIndex": 14,
+      "nodeName": "FJ1266 Left upper lateral secondary incisor tooth",
+      "sourceFileId": "FJ1266",
+      "sourceSha256": "4df1ab640352a074623d02e755e7632de180da9dc957503f887c791a533d5ea5",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1266"
+    },
+    {
+      "nodeIndex": 15,
+      "nodeName": "FJ1267 Left upper secondary canine tooth",
+      "sourceFileId": "FJ1267",
+      "sourceSha256": "44f5accf76e8b0a1ac2aefb55d031508fedad0bacda03b598aef71f88ca2462d",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1267"
+    },
+    {
+      "nodeIndex": 16,
+      "nodeName": "FJ1268 Right lower first secondary molar tooth",
+      "sourceFileId": "FJ1268",
+      "sourceSha256": "692c5313517c8b049fac739a068710f8bdbd1f3e201a1b88819aff6f8f1a6eda",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1268"
+    },
+    {
+      "nodeIndex": 17,
+      "nodeName": "FJ1269 Right lower first secondary premolar tooth",
+      "sourceFileId": "FJ1269",
+      "sourceSha256": "7b3067782910e38d45b03901ba998fcf35088b9f85c523b3cc890cf11adbf17f",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1269"
+    },
+    {
+      "nodeIndex": 18,
+      "nodeName": "FJ1270 Right lower second secondary molar tooth",
+      "sourceFileId": "FJ1270",
+      "sourceSha256": "722d80bd11c7e814c3c1c2b20fe2621ed8327319028ad67c6e4dce24d7ee4458",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1270"
+    },
+    {
+      "nodeIndex": 19,
+      "nodeName": "FJ1271 Right lower second secondary premolar tooth",
+      "sourceFileId": "FJ1271",
+      "sourceSha256": "220723db70ad6e5edd497977f656be1df7d407804d5ca31302bca598a3d81c41",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1271"
+    },
+    {
+      "nodeIndex": 20,
+      "nodeName": "FJ1272 Right lower central secondary incisor tooth",
+      "sourceFileId": "FJ1272",
+      "sourceSha256": "17927707d17fa7a78f9743f90b4150d6e7b4eaa4fe5c8ad29a961b4ea795272b",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1272"
+    },
+    {
+      "nodeIndex": 21,
+      "nodeName": "FJ1273 Right lower lateral secondary incisor tooth",
+      "sourceFileId": "FJ1273",
+      "sourceSha256": "43ca036b3bf66dad24be63b0f95a2a8ecf839b61d2d83981659e03b4a357f869",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1273"
+    },
+    {
+      "nodeIndex": 22,
+      "nodeName": "FJ1274 Right lower secondary canine tooth",
+      "sourceFileId": "FJ1274",
+      "sourceSha256": "a7ded2520e6c1e41154d89a389b4ded0daf733f23d47e4a02fb97230c07b4907",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1274"
+    },
+    {
+      "nodeIndex": 23,
+      "nodeName": "FJ1275 Right upper second secondary molar tooth",
+      "sourceFileId": "FJ1275",
+      "sourceSha256": "457c1d089e24d7e120abf97c2af844ff609a58c3292446e4b1814137d3691416",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1275"
+    },
+    {
+      "nodeIndex": 24,
+      "nodeName": "FJ1276 Right upper first secondary molar tooth",
+      "sourceFileId": "FJ1276",
+      "sourceSha256": "95ba31eb43e4975d8f36be7595e383baf31b21b68c829a5e6c419a0125682ef6",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1276"
+    },
+    {
+      "nodeIndex": 25,
+      "nodeName": "FJ1277 Right upper first secondary premolar tooth",
+      "sourceFileId": "FJ1277",
+      "sourceSha256": "46d0a4b9528553387811d65040836ccfe7dc971fec56254e01c9eabdc16156a0",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1277"
+    },
+    {
+      "nodeIndex": 26,
+      "nodeName": "FJ1278 Right upper second secondary premolar tooth",
+      "sourceFileId": "FJ1278",
+      "sourceSha256": "32f4db913923278b7cbfcaf8e64d1073604951dd58493e3310da30bec1ff3829",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1278"
+    },
+    {
+      "nodeIndex": 27,
+      "nodeName": "FJ1279 Right upper central secondary incisor tooth",
+      "sourceFileId": "FJ1279",
+      "sourceSha256": "e8b9c01f57a8a723f9ea0497dfbe2df5f95e23786d0663f196a3608f995d6b22",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1279"
+    },
+    {
+      "nodeIndex": 28,
+      "nodeName": "FJ1280 Right upper lateral secondary incisor tooth",
+      "sourceFileId": "FJ1280",
+      "sourceSha256": "5c06c01ee01c337523fc9cf641c31c65856a52c74237d9d86989d93dd6847c0e",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1280"
+    },
+    {
+      "nodeIndex": 29,
+      "nodeName": "FJ1281 Right upper secondary canine tooth",
+      "sourceFileId": "FJ1281",
+      "sourceSha256": "2d8f105ee772e727e3b4ccbb6370a893a213174c0f90155054dac20bc053512c",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1281"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "draft_teeth_gums__2026-10-23-v10-exterior-review__3",
+      "file": "evidence/canonical/draft_teeth_gums__2026-10-23-v10-exterior-review/adf946762dd22ac7a46a5940815455d55dfacbde59bdbd4dea5d1dec43707d79.webp",
+      "sha256": "f026a78e481ff9942e532675eaeb2ff5162195dbb31ceeff6902c343716d1b8c",
+      "originalSha256": "adf946762dd22ac7a46a5940815455d55dfacbde59bdbd4dea5d1dec43707d79",
+      "originalFile": "reviews/teeth-gums/2026-10-23-v10-exterior-review/draft_teeth_gums/screenshots/contact.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "baseline",
+      "noteIsGeneric": true,
+      "kind": "blender-still-contact-sheet",
+      "label": {
+        "en": "Front / left / back",
+        "zh": "前视 / 左视 / 后视"
+      },
+      "capturedAt": "2026-10-23T01:33:30.606152+00:00",
+      "recordedDate": "2026-10-23",
+      "assetBinding": "5399d1b4b2ddde2003461be84dc25fea874b69686c6e2e0a99b0baa89ff5698c",
+      "sourceBindings": [],
+      "role": null,
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": {
+        "engine": "Blender 4.3.2 Cycles CPU",
+        "samples": 32,
+        "resolution": [
+          512,
+          512
+        ],
+        "frame": 1,
+        "projection": "orthographic",
+        "orientation": "Manifest x=patient left, y=superior, z=anterior; glTF imported to Blender Z-up; cameras front=-Y,left=+X,back=+Y",
+        "hiddenCutawayNodes": [],
+        "scope": "Exterior static view only. Internal details may remain occluded. No motion or runtime verification."
+      },
+      "note": {
+        "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+        "zh": "自己的静态证据，WebP 展示副本；无损原图保留在规范审查记录中。不自动表示解剖或运行通过。"
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/draft_teeth_gums__2026-10-23-v10-exterior-review/adf946762dd22ac7a46a5940815455d55dfacbde59bdbd4dea5d1dec43707d79.webp",
+      "bytes": 76206,
+      "selectionRole": "before",
+      "originalNativePublicCopies": [],
+      "retainedPath": "reviews/bp3d-head-studies/2026-10-24-bounded-migration/shared-display/f026a78e481ff9942e532675eaeb2ff5162195dbb31ceeff6902c343716d1b8c.webp",
+      "actualFormat": "WEBP",
+      "pixelDimensions": [
+        1536,
+        602
+      ],
+      "identityBoundary": "Retained WebP bytes; original PNG hash is provenance only and is not interchangeable."
+    },
+    {
+      "id": "teeth_gums__r02__scoped-review__3",
+      "file": "evidence/canonical/teeth_gums__r02__scoped-review/40603608dbadf869f8f397d089ce93e4e79a9dbba8b2cf323df249b08def8526.webp",
+      "sha256": "bd032b06954a652e831921bab63ab755151b06ef3d99f2dcb6979199e21d0026",
+      "originalSha256": "40603608dbadf869f8f397d089ce93e4e79a9dbba8b2cf323df249b08def8526",
+      "originalFile": "reviews/teeth_gums/r02/contact.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "candidate",
+      "noteIsGeneric": true,
+      "kind": "blender-still",
+      "label": {
+        "en": "contact",
+        "zh": "多视图联系表"
+      },
+      "capturedAt": null,
+      "recordedDate": "2026-10-23",
+      "assetBinding": "82bfaeead46bb51b1fa5bdfdb06c918dfd01aa23b28acae733ab75ec2cd6897f",
+      "sourceBindings": [],
+      "role": "candidate",
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": null,
+      "note": {
+        "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+        "zh": "自己的静态证据，WebP 展示副本；无损原图保留在规范审查记录中。不自动表示解剖或运行通过。"
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/teeth_gums__r02__scoped-review/40603608dbadf869f8f397d089ce93e4e79a9dbba8b2cf323df249b08def8526.webp",
+      "bytes": 72482,
+      "selectionRole": "candidate",
+      "originalNativePublicCopies": [],
+      "retainedPath": "reviews/teeth_gums/2026-10-24-r02-bounded-migration/display/bd032b06954a652e831921bab63ab755151b06ef3d99f2dcb6979199e21d0026.webp",
+      "actualFormat": "WEBP",
+      "pixelDimensions": [
+        1200,
+        1260
+      ],
+      "identityBoundary": "Retained WebP bytes; original PNG hash is provenance only and is not interchangeable."
+    },
+    {
+      "id": "teeth_gums__r02__scoped-review__6",
+      "file": "evidence/canonical/teeth_gums__r02__scoped-review/58abe6f04cd73833e32b95107737299fd66ea384def730a101c74238e6e8d75f.webp",
+      "sha256": "faee70f5ce140f3a2f0c588b29dbd89f4b6c44bb45f6e2200785997bea9c26e6",
+      "originalSha256": "58abe6f04cd73833e32b95107737299fd66ea384def730a101c74238e6e8d75f",
+      "originalFile": "reviews/teeth_gums/r02/export-front.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "candidate",
+      "noteIsGeneric": true,
+      "kind": "blender-still",
+      "label": {
+        "en": "export-front",
+        "zh": "导出前视"
+      },
+      "capturedAt": null,
+      "recordedDate": "2026-10-23",
+      "assetBinding": "82bfaeead46bb51b1fa5bdfdb06c918dfd01aa23b28acae733ab75ec2cd6897f",
+      "sourceBindings": [],
+      "role": "candidate",
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": null,
+      "note": {
+        "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+        "zh": "自己的静态证据，WebP 展示副本；无损原图保留在规范审查记录中。不自动表示解剖或运行通过。"
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/teeth_gums__r02__scoped-review/58abe6f04cd73833e32b95107737299fd66ea384def730a101c74238e6e8d75f.webp",
+      "bytes": 42930,
+      "selectionRole": "candidate",
+      "originalNativePublicCopies": [],
+      "retainedPath": "reviews/teeth_gums/2026-10-24-r02-bounded-migration/display/faee70f5ce140f3a2f0c588b29dbd89f4b6c44bb45f6e2200785997bea9c26e6.webp",
+      "actualFormat": "WEBP",
+      "pixelDimensions": [
+        1000,
+        1000
+      ],
+      "identityBoundary": "Retained WebP bytes; original PNG hash is provenance only and is not interchangeable."
+    }
+  ],
+  "historicalReview": {
+    "sha256": "be5dc44b214b464155a104af5f4b0ef2e0d7551c30858bc5d829b4ac7f1d2563",
+    "bundled": false,
+    "originalPreservedUnchanged": true,
+    "policy": "Public normalized scope here; raw historical record retained externally."
+  },
+  "sourceDependencies": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json",
+  "rebuildBoundary": "Not source-complete or portable-rebuild complete. Native OBJ, original lossless screenshots, authoring scenes and recipe dependencies remain external. No fresh-machine deterministic render replay verified.",
+  "publicMapProvenance": {
+    "siteSourceCommit": "2613894e2792183cd27db9856af24e580e974f2e",
+    "inventoryRemoteRef": "79c867bad7471562d1c4ddabb4fe2a24d9764f8a"
+  },
+  "freshAvailabilityChecked": false
+}
