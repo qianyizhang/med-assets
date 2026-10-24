@@ -1,0 +1,177 @@
+{
+  "schema": "bounded-joint-migration-v1",
+  "region": "knee",
+  "model": {
+    "path": "models/joints/exports/z-knee-r01/knee_z_native.glb",
+    "sha256": "6dcc793e4132e62e4962e504bef0d595bb2e7d3a31881137244f31eadbb53aad",
+    "bytes": 365864
+  },
+  "review": {
+    "scope": "RIGHT knee selected source structures; not a complete joint model",
+    "visual_gate": "Reviewer-inspected static visual acceptance, scoped selected RIGHT regional study",
+    "technical_gate": "SURFACE_FIDELITY_CHECKS_PASSED_WITH_SOURCE_TOPOLOGY_WARNINGS; NOT blanket technical/watertight/physics pass",
+    "technical_warnings": [
+      {
+        "name": "Anterior cruciate ligament.r",
+        "open_boundary_edges": 0,
+        "nonmanifold_edges": 1182
+      },
+      {
+        "name": "Articular capsule of knee joint.r",
+        "open_boundary_edges": 404,
+        "nonmanifold_edges": 0
+      }
+    ],
+    "runtime_gate": "UNVERIFIED",
+    "clinical_gate": "NOT_VALIDATED",
+    "motion_rigging_gate": "NONE; not a biomechanics model",
+    "source_gaps": [
+      "No patellar ligament mesh: source has only origin/insertion markers, not used as tissue.",
+      "No separate articular cartilage surfaces.",
+      "Not a complete extensor mechanism or validated ligament attachment model."
+    ],
+    "source_frame": "Z native evaluated world only; no BP3D/CT placement",
+    "input_sha256": "6dcc793e4132e62e4962e504bef0d595bb2e7d3a31881137244f31eadbb53aad",
+    "failure": "Isolated tiny whole-body joint marks did not support regional structural inspection.",
+    "cause": "Global framing plus missing named key and occlusion obscured relationships; procedural geometry had weak source grounding.",
+    "fix": "Named source geometry in regional context; exact exported GLB views, opaque selected-structure focus and EN/中文 numbered source-vertex keys.",
+    "retest": "Final-GLB anterior/lateral/posterior/deep/focus renders. Names, roles, finite coordinates, polygon-surface bounds and triangulated topology checked against source.",
+    "lesson": "Show the structure in context, then remove named occluders explicitly. Real source can still contain gaps and topology defects; neither source reputation nor a pretty render validates mechanics.",
+    "reference_checks": [
+      "Z-Anatomy original named objects and evaluated shapes; exact source hash recorded.",
+      "Linked OpenStax selected-synovial-joints chapter used for high-level structural comparison only; no text/figures redistributed."
+    ],
+    "references": [
+      "https://github.com/Z-Anatomy/Models-of-human-anatomy",
+      "https://openstax.org/books/anatomy-and-physiology-2e/pages/9-6-anatomy-of-selected-synovial-joints"
+    ],
+    "evidence": "review-contact-sheet.png; raw unannotated render files retained",
+    "technical_bound_note": "Transverse ligament contains 2 unreferenced source vertices (0,109), which are not polygon tissue and GLB omits. Source OBJ preserves them; all-vertex bound difference of 16.3 mm is recorded. Polygon-surface bounds match. Source triangulation explains ACL edge counts; no geometry healing."
+  },
+  "historicalReviewSha256": "0037f4e8f113f5e447ba07374a53e1fc0624ea9c389cad212e991cc8de031390",
+  "historicalRecordPolicy": "Original historical record retained unchanged in frozen handoff; public summary normalized for readability.",
+  "evidence": [
+    {
+      "id": "draft_joints__2026-10-23-v10-exterior-review__3",
+      "file": "evidence/canonical/draft_joints__2026-10-23-v10-exterior-review/c32df1cc6ce227e052d5de39210ac143e27d6f25391a8a6b26f195219d459e10.webp",
+      "sha256": "1e0909355a400ca91e2ff370f9ec9f166de86a229d760b015bb1d043cb51c344",
+      "originalSha256": "c32df1cc6ce227e052d5de39210ac143e27d6f25391a8a6b26f195219d459e10",
+      "originalFile": "reviews/joints/2026-10-23-v10-exterior-review/draft_joints/screenshots/contact.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "baseline",
+      "noteIsGeneric": true,
+      "kind": "blender-still-contact-sheet",
+      "label": {
+        "en": "Front / left / back",
+        "zh": "前视 / 左视 / 后视"
+      },
+      "capturedAt": "2026-10-23T01:34:39.975913+00:00",
+      "recordedDate": "2026-10-23",
+      "assetBinding": "8cb86ef4fa5cb930ed78679a0c0b987b9f6c1a41018e8848773e2a9985c504a0",
+      "sourceBindings": [],
+      "role": null,
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": {
+        "engine": "Blender 4.3.2 Cycles CPU",
+        "samples": 32,
+        "resolution": [
+          512,
+          512
+        ],
+        "frame": 1,
+        "projection": "orthographic",
+        "orientation": "Manifest x=patient left, y=superior, z=anterior; glTF imported to Blender Z-up; cameras front=-Y,left=+X,back=+Y",
+        "hiddenCutawayNodes": [],
+        "scope": "Exterior static view only. Internal details may remain occluded. No motion or runtime verification."
+      },
+      "note": {
+        "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+        "zh": "自己的静态证据，WebP 展示副本；无损原图保留在规范审查记录中。不自动表示解剖或运行通过。"
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/draft_joints__2026-10-23-v10-exterior-review/c32df1cc6ce227e052d5de39210ac143e27d6f25391a8a6b26f195219d459e10.webp",
+      "bytes": 27518,
+      "selectionRole": "before",
+      "originalNativePublicCopies": [],
+      "retainedPath": "reviews/joints/2026-10-24-bounded-migration/shared-display/1e0909355a400ca91e2ff370f9ec9f166de86a229d760b015bb1d043cb51c344.webp",
+      "license": "CC BY-SA 4.0 for candidate render derivatives; baseline remains bound to its original review."
+    },
+    {
+      "id": "joints__z-knee-r01__scoped-review__5",
+      "file": "evidence/canonical/joints__z-knee-r01__scoped-review/a0ebca255fabd7ea3ec33992b53d5ab47389e9477b18d68e81b04755c6eeefb6.webp",
+      "sha256": "389335795967d6bd672dd8c384370f8f00bb6fa48525350c077d6b8ec1d768bb",
+      "originalSha256": "a0ebca255fabd7ea3ec33992b53d5ab47389e9477b18d68e81b04755c6eeefb6",
+      "originalFile": "reviews/joints/z-knee-r01/review-contact-sheet.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "candidate",
+      "noteIsGeneric": true,
+      "kind": "blender-still",
+      "label": {
+        "en": "review-contact-sheet",
+        "zh": "审查多视角对照图"
+      },
+      "capturedAt": null,
+      "recordedDate": "2026-10-23",
+      "assetBinding": "6dcc793e4132e62e4962e504bef0d595bb2e7d3a31881137244f31eadbb53aad",
+      "sourceBindings": [],
+      "role": "candidate",
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": null,
+      "note": {
+        "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+        "zh": "自己的静态证据，WebP 展示副本；无损原图保留在规范审查记录中。不自动表示解剖或运行通过。"
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/joints__z-knee-r01__scoped-review/a0ebca255fabd7ea3ec33992b53d5ab47389e9477b18d68e81b04755c6eeefb6.webp",
+      "bytes": 120628,
+      "selectionRole": "candidate",
+      "originalNativePublicCopies": [],
+      "retainedPath": "reviews/joints/2026-10-24-knee-bounded-migration/display/389335795967d6bd672dd8c384370f8f00bb6fa48525350c077d6b8ec1d768bb.webp",
+      "license": "CC BY-SA 4.0 for candidate render derivatives; baseline remains bound to its original review."
+    },
+    {
+      "id": "joints__z-knee-r01__scoped-review__2",
+      "file": "evidence/canonical/joints__z-knee-r01__scoped-review/f9235046743be721cbf0da7cbcc97d9c0a54f940c7f9c383a87fdea8adc3d572.webp",
+      "sha256": "584d01525c6894b21144dd5cac62c1ca0cdd9a97f221146c61acd3b82d02e185",
+      "originalSha256": "f9235046743be721cbf0da7cbcc97d9c0a54f940c7f9c383a87fdea8adc3d572",
+      "originalFile": "reviews/joints/z-knee-r01/focus-selected.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "candidate",
+      "noteIsGeneric": true,
+      "kind": "blender-still",
+      "label": {
+        "en": "focus-selected",
+        "zh": "聚焦选定结构"
+      },
+      "capturedAt": null,
+      "recordedDate": "2026-10-23",
+      "assetBinding": "6dcc793e4132e62e4962e504bef0d595bb2e7d3a31881137244f31eadbb53aad",
+      "sourceBindings": [],
+      "role": "candidate",
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": null,
+      "note": {
+        "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+        "zh": "自己的静态证据，WebP 展示副本；无损原图保留在规范审查记录中。不自动表示解剖或运行通过。"
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/joints__z-knee-r01__scoped-review/f9235046743be721cbf0da7cbcc97d9c0a54f940c7f9c383a87fdea8adc3d572.webp",
+      "bytes": 18930,
+      "selectionRole": "candidate",
+      "originalNativePublicCopies": [],
+      "retainedPath": "reviews/joints/2026-10-24-knee-bounded-migration/display/584d01525c6894b21144dd5cac62c1ca0cdd9a97f221146c61acd3b82d02e185.webp",
+      "license": "CC BY-SA 4.0 for candidate render derivatives; baseline remains bound to its original review."
+    }
+  ],
+  "publicMapProvenance": {
+    "siteSourceCommit": "2613894e2792183cd27db9856af24e580e974f2e",
+    "inventoryRemoteRef": "79c867bad7471562d1c4ddabb4fe2a24d9764f8a"
+  },
+  "dependencyBoundary": "Exact GLB and selected WebPs only; external source and replay prerequisites explicitly not bundled. No quality promotion or fresh remote readback."
+}

@@ -1,0 +1,4 @@
+# RIGHT regional joint studies — bounded migration draft
+3 unchanged GLBs and selected current public WebP evidence; shared baseline deduplicated once. Reviewer-inspected static visual acceptance only. All source omissions/topology warnings retained in regional records; no complete joint, cartilage/tendon coverage, clinical, rigging or runtime promotion. Geometry and derived renders retain CC BY-SA 4.0 obligations.
+
+Paths in model README files are repository-root relative. Sources/license/camera boundary: sources/datasets/z-anatomy/joint-regional-studies. Transport manifest: reviews/joints/2026-10-24-bounded-migration/transport-manifest.json. Missing native source/replay dependencies are disclosed, not represented as bundled or reproducible. No remote write authorized/performed by this draft.

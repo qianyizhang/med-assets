@@ -1,0 +1,296 @@
+{
+  "coordinate_contract": {
+    "input": "Blender native Z-up evaluated world (manifest nativeWorldTarget)",
+    "output": "glTF / untransformed Three scene Y-up world",
+    "conversion": "(x,y,z) -> (x,z,-y)",
+    "model_transform": "NONE; conversion already baked by glTF exporter",
+    "camera_up": [
+      0,
+      1,
+      0
+    ],
+    "camera_forward": "local -Z; camera.lookAt(target)",
+    "ortho_scale": "Full vertical span for original square render; use top=scale/2,bottom=-scale/2,left=-scale*aspect/2,right=scale*aspect/2; not distance.",
+    "evidence": [
+      "build_regional_joint.py line40 glTF export uses default export_yup=True",
+      "/usr/share/blender/scripts/addons_core/io_scene_gltf2/__init__.py export_yup default True",
+      "/usr/share/blender/scripts/addons_core/io_scene_gltf2/blender/exp/nodes.py __convert_swizzle_location",
+      "export-proof.json positions from exact final GLB reimport in Blender"
+    ],
+    "caution": "Camera region crop preserves full source bones. Deep visibility requires listed named objects hidden; camera alone does not produce deep view."
+  },
+  "regions": {
+    "knee": {
+      "glb_sha256": "6dcc793e4132e62e4962e504bef0d595bb2e7d3a31881137244f31eadbb53aad",
+      "target_three": [
+        -0.07581962645053864,
+        0.4294162392616272,
+        -0.03563088923692703
+      ],
+      "ortho_vertical_span": 0.25,
+      "views": [
+        {
+          "file": "anterior.png",
+          "position_three": [
+            -0.07581962645053864,
+            0.5794162750244141,
+            2.964369058609009
+          ],
+          "target_three": [
+            -0.07581962645053864,
+            0.4294162392616272,
+            -0.03563088923692703
+          ],
+          "up_three": [
+            0,
+            1,
+            0
+          ],
+          "hidden_for_inspection_only": []
+        },
+        {
+          "file": "lateral.png",
+          "position_three": [
+            -3.075819730758667,
+            0.5294162631034851,
+            0.06436911225318909
+          ],
+          "target_three": [
+            -0.07581962645053864,
+            0.4294162392616272,
+            -0.03563088923692703
+          ],
+          "up_three": [
+            0,
+            1,
+            0
+          ],
+          "hidden_for_inspection_only": []
+        },
+        {
+          "file": "posterior.png",
+          "position_three": [
+            -0.07581962645053864,
+            0.5794162750244141,
+            -3.035630941390991
+          ],
+          "target_three": [
+            -0.07581962645053864,
+            0.4294162392616272,
+            -0.03563088923692703
+          ],
+          "up_three": [
+            0,
+            1,
+            0
+          ],
+          "hidden_for_inspection_only": []
+        },
+        {
+          "file": "deep-oblique.png",
+          "position_three": [
+            -0.32581961154937744,
+            1.1794161796569824,
+            0.9643691182136536
+          ],
+          "target_three": [
+            -0.07581962645053864,
+            0.4294162392616272,
+            -0.03563088923692703
+          ],
+          "up_three": [
+            0,
+            1,
+            0
+          ],
+          "hidden_for_inspection_only": [
+            "Articular capsule of knee joint.r",
+            "Infrapatellar fat pad.r",
+            "Femur.r",
+            "Patella.r"
+          ]
+        }
+      ]
+    },
+    "shoulder": {
+      "glb_sha256": "2f2bb36881fb7a5ff346906a6ac8ea9433e31291d0ebb073959d020739e67448",
+      "target_three": [
+        -0.14905396103858948,
+        1.3778831958770752,
+        -0.03589377552270889
+      ],
+      "ortho_vertical_span": 0.26,
+      "views": [
+        {
+          "file": "anterior.png",
+          "position_three": [
+            -0.14905396103858948,
+            1.5278831720352173,
+            2.964106321334839
+          ],
+          "target_three": [
+            -0.14905396103858948,
+            1.3778831958770752,
+            -0.03589377552270889
+          ],
+          "up_three": [
+            0,
+            1,
+            0
+          ],
+          "hidden_for_inspection_only": []
+        },
+        {
+          "file": "lateral.png",
+          "position_three": [
+            -3.1490540504455566,
+            1.477883219718933,
+            0.06410622596740723
+          ],
+          "target_three": [
+            -0.14905396103858948,
+            1.3778831958770752,
+            -0.03589377552270889
+          ],
+          "up_three": [
+            0,
+            1,
+            0
+          ],
+          "hidden_for_inspection_only": []
+        },
+        {
+          "file": "posterior.png",
+          "position_three": [
+            -0.14905396103858948,
+            1.5278831720352173,
+            -3.035893678665161
+          ],
+          "target_three": [
+            -0.14905396103858948,
+            1.3778831958770752,
+            -0.03589377552270889
+          ],
+          "up_three": [
+            0,
+            1,
+            0
+          ],
+          "hidden_for_inspection_only": []
+        },
+        {
+          "file": "deep-oblique.png",
+          "position_three": [
+            -0.3990539610385895,
+            2.127883195877075,
+            0.9641062021255493
+          ],
+          "target_three": [
+            -0.14905396103858948,
+            1.3778831958770752,
+            -0.03589377552270889
+          ],
+          "up_three": [
+            0,
+            1,
+            0
+          ],
+          "hidden_for_inspection_only": [
+            "Articular capsule of glenohumeral joint.r",
+            "Humerus.r"
+          ]
+        }
+      ]
+    },
+    "elbow": {
+      "glb_sha256": "cd6cd488943fe721101955322b343a8c9441f1d4ff8c5042dd4e1ca7462f7891",
+      "target_three": [
+        -0.2377430498600006,
+        1.0809470415115356,
+        -0.030993029475212097
+      ],
+      "ortho_vertical_span": 0.24,
+      "views": [
+        {
+          "file": "anterior.png",
+          "position_three": [
+            -0.2377430498600006,
+            1.2309470176696777,
+            2.9690070152282715
+          ],
+          "target_three": [
+            -0.2377430498600006,
+            1.0809470415115356,
+            -0.030993029475212097
+          ],
+          "up_three": [
+            0,
+            1,
+            0
+          ],
+          "hidden_for_inspection_only": []
+        },
+        {
+          "file": "lateral.png",
+          "position_three": [
+            -3.2377431392669678,
+            1.1809470653533936,
+            0.06900697201490402
+          ],
+          "target_three": [
+            -0.2377430498600006,
+            1.0809470415115356,
+            -0.030993029475212097
+          ],
+          "up_three": [
+            0,
+            1,
+            0
+          ],
+          "hidden_for_inspection_only": []
+        },
+        {
+          "file": "posterior.png",
+          "position_three": [
+            -0.2377430498600006,
+            1.2309470176696777,
+            -3.0309929847717285
+          ],
+          "target_three": [
+            -0.2377430498600006,
+            1.0809470415115356,
+            -0.030993029475212097
+          ],
+          "up_three": [
+            0,
+            1,
+            0
+          ],
+          "hidden_for_inspection_only": []
+        },
+        {
+          "file": "deep-oblique.png",
+          "position_three": [
+            -0.4877430498600006,
+            1.8309470415115356,
+            0.9690069556236267
+          ],
+          "target_three": [
+            -0.2377430498600006,
+            1.0809470415115356,
+            -0.030993029475212097
+          ],
+          "up_three": [
+            0,
+            1,
+            0
+          ],
+          "hidden_for_inspection_only": [
+            "Articular capsule of elbow joint.r",
+            "Humerus.r"
+          ]
+        }
+      ]
+    }
+  }
+}

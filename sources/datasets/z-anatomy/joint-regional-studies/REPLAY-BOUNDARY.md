@@ -1,0 +1,4 @@
+# Bounded preservation, not native reconstruction
+This migration preserves 3 exact GLBs and selected current public WebP presentation evidence. It does not bundle original PNGs, review .blend scenes, evaluated OBJ snapshots, source Startup.blend, author build scripts, fonts or a complete toolchain. External source/member hashes and pinned URL are retained; a fresh-machine rebuild or deterministic pixel replay is not established. WebP is not lossless PNG evidence. No executable reconstruction recipe is supplied.
+
+Geometry AND derived renders: CC BY-SA 4.0, with upstream historical BodyParts3D attribution retained. Camera contract converts Blender Z-up coordinates to exported Three Y-up; do not rotate the GLB again. No BP3D/CT registration. Static reviewer acceptance is scoped; no new runtime, clinical, physics or whole-joint pass.

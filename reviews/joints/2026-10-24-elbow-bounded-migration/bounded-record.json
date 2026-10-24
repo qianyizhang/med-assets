@@ -1,0 +1,170 @@
+{
+  "schema": "bounded-joint-migration-v1",
+  "region": "elbow",
+  "model": {
+    "path": "models/joints/exports/z-elbow-r01/elbow_z_native.glb",
+    "sha256": "cd6cd488943fe721101955322b343a8c9441f1d4ff8c5042dd4e1ca7462f7891",
+    "bytes": 158752
+  },
+  "review": {
+    "scope": "RIGHT elbow selected source structures; not a complete joint model",
+    "visual_gate": "Reviewer-inspected static visual acceptance, scoped selected RIGHT regional study",
+    "technical_gate": "SURFACE_FIDELITY_CHECKS_PASSED_WITH_SOURCE_TOPOLOGY_WARNINGS; NOT blanket technical/watertight/physics pass",
+    "technical_warnings": [
+      {
+        "name": "Humerus.r",
+        "open_boundary_edges": 4,
+        "nonmanifold_edges": 2
+      }
+    ],
+    "runtime_gate": "UNVERIFIED",
+    "clinical_gate": "NOT_VALIDATED",
+    "motion_rigging_gate": "NONE; not a biomechanics model",
+    "source_gaps": [
+      "Tendon/muscle/bursa context not included.",
+      "No separate articular cartilage surfaces."
+    ],
+    "source_frame": "Z native evaluated world only; no BP3D/CT placement",
+    "input_sha256": "cd6cd488943fe721101955322b343a8c9441f1d4ff8c5042dd4e1ca7462f7891",
+    "failure": "Isolated tiny whole-body joint marks did not support regional structural inspection.",
+    "cause": "Global framing plus missing named key and occlusion obscured relationships; procedural geometry had weak source grounding.",
+    "fix": "Named source geometry in regional context; exact exported GLB views, opaque selected-structure focus and EN/中文 numbered source-vertex keys.",
+    "retest": "Final-GLB anterior/lateral/posterior/deep/focus renders. Names, roles, finite coordinates, polygon-surface bounds and triangulated topology checked against source.",
+    "lesson": "Show the structure in context, then remove named occluders explicitly. Real source can still contain gaps and topology defects; neither source reputation nor a pretty render validates mechanics.",
+    "reference_checks": [
+      "Z-Anatomy original named objects and evaluated shapes; exact source hash recorded.",
+      "Linked OpenStax selected-synovial-joints chapter used for high-level structural comparison only; no text/figures redistributed."
+    ],
+    "references": [
+      "https://github.com/Z-Anatomy/Models-of-human-anatomy",
+      "https://openstax.org/books/anatomy-and-physiology-2e/pages/9-6-anatomy-of-selected-synovial-joints"
+    ],
+    "evidence": "review-contact-sheet.png; raw unannotated render files retained"
+  },
+  "historicalReviewSha256": "91454362f464bfb214c6bf36fff0c5feee23622bee5f1cc9f60eb044813596e6",
+  "historicalRecordPolicy": "Original historical record retained unchanged in frozen handoff; public summary normalized for readability.",
+  "evidence": [
+    {
+      "id": "draft_joints__2026-10-23-v10-exterior-review__3",
+      "file": "evidence/canonical/draft_joints__2026-10-23-v10-exterior-review/c32df1cc6ce227e052d5de39210ac143e27d6f25391a8a6b26f195219d459e10.webp",
+      "sha256": "1e0909355a400ca91e2ff370f9ec9f166de86a229d760b015bb1d043cb51c344",
+      "originalSha256": "c32df1cc6ce227e052d5de39210ac143e27d6f25391a8a6b26f195219d459e10",
+      "originalFile": "reviews/joints/2026-10-23-v10-exterior-review/draft_joints/screenshots/contact.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "baseline",
+      "noteIsGeneric": true,
+      "kind": "blender-still-contact-sheet",
+      "label": {
+        "en": "Front / left / back",
+        "zh": "前视 / 左视 / 后视"
+      },
+      "capturedAt": "2026-10-23T01:34:39.975913+00:00",
+      "recordedDate": "2026-10-23",
+      "assetBinding": "8cb86ef4fa5cb930ed78679a0c0b987b9f6c1a41018e8848773e2a9985c504a0",
+      "sourceBindings": [],
+      "role": null,
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": {
+        "engine": "Blender 4.3.2 Cycles CPU",
+        "samples": 32,
+        "resolution": [
+          512,
+          512
+        ],
+        "frame": 1,
+        "projection": "orthographic",
+        "orientation": "Manifest x=patient left, y=superior, z=anterior; glTF imported to Blender Z-up; cameras front=-Y,left=+X,back=+Y",
+        "hiddenCutawayNodes": [],
+        "scope": "Exterior static view only. Internal details may remain occluded. No motion or runtime verification."
+      },
+      "note": {
+        "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+        "zh": "自己的静态证据，WebP 展示副本；无损原图保留在规范审查记录中。不自动表示解剖或运行通过。"
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/draft_joints__2026-10-23-v10-exterior-review/c32df1cc6ce227e052d5de39210ac143e27d6f25391a8a6b26f195219d459e10.webp",
+      "bytes": 27518,
+      "selectionRole": "before",
+      "originalNativePublicCopies": [],
+      "retainedPath": "reviews/joints/2026-10-24-bounded-migration/shared-display/1e0909355a400ca91e2ff370f9ec9f166de86a229d760b015bb1d043cb51c344.webp",
+      "license": "CC BY-SA 4.0 for candidate render derivatives; baseline remains bound to its original review."
+    },
+    {
+      "id": "joints__z-elbow-r01__scoped-review__5",
+      "file": "evidence/canonical/joints__z-elbow-r01__scoped-review/fbf48b03427dbb2214532afd20f8eecb0ef414b3e2a1789526668810db452f2f.webp",
+      "sha256": "5d98b09ffac33ed679ec9087d7dc8da52bbffaf98efcbdc81d2c4a79962d227d",
+      "originalSha256": "fbf48b03427dbb2214532afd20f8eecb0ef414b3e2a1789526668810db452f2f",
+      "originalFile": "reviews/joints/z-elbow-r01/review-contact-sheet.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "candidate",
+      "noteIsGeneric": true,
+      "kind": "blender-still",
+      "label": {
+        "en": "review-contact-sheet",
+        "zh": "审查多视角对照图"
+      },
+      "capturedAt": null,
+      "recordedDate": "2026-10-23",
+      "assetBinding": "cd6cd488943fe721101955322b343a8c9441f1d4ff8c5042dd4e1ca7462f7891",
+      "sourceBindings": [],
+      "role": "candidate",
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": null,
+      "note": {
+        "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+        "zh": "自己的静态证据，WebP 展示副本；无损原图保留在规范审查记录中。不自动表示解剖或运行通过。"
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/joints__z-elbow-r01__scoped-review/fbf48b03427dbb2214532afd20f8eecb0ef414b3e2a1789526668810db452f2f.webp",
+      "bytes": 104688,
+      "selectionRole": "candidate",
+      "originalNativePublicCopies": [],
+      "retainedPath": "reviews/joints/2026-10-24-elbow-bounded-migration/display/5d98b09ffac33ed679ec9087d7dc8da52bbffaf98efcbdc81d2c4a79962d227d.webp",
+      "license": "CC BY-SA 4.0 for candidate render derivatives; baseline remains bound to its original review."
+    },
+    {
+      "id": "joints__z-elbow-r01__scoped-review__2",
+      "file": "evidence/canonical/joints__z-elbow-r01__scoped-review/4c670d45792aba6088f53165ad7a9759fc74ffb8841fc6b1353af5844d92fef0.webp",
+      "sha256": "77d894941f7fd09602057659f31cf1189ae36031cbb3e299ca4ca585491d3a44",
+      "originalSha256": "4c670d45792aba6088f53165ad7a9759fc74ffb8841fc6b1353af5844d92fef0",
+      "originalFile": "reviews/joints/z-elbow-r01/focus-selected.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "candidate",
+      "noteIsGeneric": true,
+      "kind": "blender-still",
+      "label": {
+        "en": "focus-selected",
+        "zh": "聚焦选定结构"
+      },
+      "capturedAt": null,
+      "recordedDate": "2026-10-23",
+      "assetBinding": "cd6cd488943fe721101955322b343a8c9441f1d4ff8c5042dd4e1ca7462f7891",
+      "sourceBindings": [],
+      "role": "candidate",
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": null,
+      "note": {
+        "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+        "zh": "自己的静态证据，WebP 展示副本；无损原图保留在规范审查记录中。不自动表示解剖或运行通过。"
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/joints__z-elbow-r01__scoped-review/4c670d45792aba6088f53165ad7a9759fc74ffb8841fc6b1353af5844d92fef0.webp",
+      "bytes": 12190,
+      "selectionRole": "candidate",
+      "originalNativePublicCopies": [],
+      "retainedPath": "reviews/joints/2026-10-24-elbow-bounded-migration/display/77d894941f7fd09602057659f31cf1189ae36031cbb3e299ca4ca585491d3a44.webp",
+      "license": "CC BY-SA 4.0 for candidate render derivatives; baseline remains bound to its original review."
+    }
+  ],
+  "publicMapProvenance": {
+    "siteSourceCommit": "2613894e2792183cd27db9856af24e580e974f2e",
+    "inventoryRemoteRef": "79c867bad7471562d1c4ddabb4fe2a24d9764f8a"
+  },
+  "dependencyBoundary": "Exact GLB and selected WebPs only; external source and replay prerequisites explicitly not bundled. No quality promotion or fresh remote readback."
+}
