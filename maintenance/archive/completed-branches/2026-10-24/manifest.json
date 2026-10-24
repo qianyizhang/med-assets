@@ -1,0 +1,681 @@
+{
+  "checked_at": "2026-10-24T08:22:55.607Z",
+  "repository": "qianyizhang/med-assets",
+  "base_main": "1ff3ac0a2109c1e4171292b284048cde52e784fe",
+  "bundle_sha256": "0cbd5cf4b34c6a38b9e6ec098778ddc67b60282cd531d994d2fe4ddb1598cb27",
+  "bundle_bytes": 55091,
+  "branches": [
+    {
+      "branch": "ci/firefox-webgl-feasibility",
+      "sha": "88720d97bde4af14a1ec5a5b4169e759a1ff7a22",
+      "fork_point": "944e335efd07a44eb5178fb66e957f152a22d6a9",
+      "protected": false,
+      "files": [
+        {
+          "original_path": ".github/workflows/firefox-webgl-probe.yml",
+          "archive_path": "ci__firefox-webgl-feasibility/.github/workflows/firefox-webgl-probe.yml.txt",
+          "sha256": "26a4faad5b97701f24814696322929ef5115612871b8882046fc4a2c94eb30bd",
+          "bytes": 1098
+        },
+        {
+          "original_path": "ci/webgl_probe.py",
+          "archive_path": "ci__firefox-webgl-feasibility/ci/webgl_probe.py.txt",
+          "sha256": "5cc6b429c1fc2c6e59583391be9cb3f4ae221788427850607bbbeabb236a01e8",
+          "bytes": 17939
+        }
+      ],
+      "runs": [
+        {
+          "id": 39934010838,
+          "name": "Stock Firefox WebGL feasibility probe",
+          "branch": "ci/firefox-webgl-feasibility",
+          "sha": "88720d97bde4af14a1ec5a5b4169e759a1ff7a22",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/qianyizhang/med-assets/actions/runs/39934010838",
+          "created_at": "2026-10-23T09:44:08Z",
+          "updated_at": "2026-10-23T09:45:00Z"
+        },
+        {
+          "id": 39933574276,
+          "name": "Stock Firefox WebGL feasibility probe",
+          "branch": "ci/firefox-webgl-feasibility",
+          "sha": "4299e154587708c1005ff6f63cfb104d45b01701",
+          "status": "completed",
+          "conclusion": "failure",
+          "url": "https://github.com/qianyizhang/med-assets/actions/runs/39933574276",
+          "created_at": "2026-10-23T09:40:30Z",
+          "updated_at": "2026-10-23T09:40:50Z"
+        }
+      ]
+    },
+    {
+      "branch": "cloud/achilles-supplement-lfs-pilot-20261023",
+      "sha": "ba2012733d344857250ed65b54f22e223dc9958c",
+      "fork_point": "272eb275e28b96842e63e18bd29a9e0fab711739",
+      "protected": false,
+      "files": [
+        {
+          "original_path": ".github/workflows/achilles-supplement-lfs-pilot.yml",
+          "archive_path": "cloud__achilles-supplement-lfs-pilot-20261023/.github/workflows/achilles-supplement-lfs-pilot.yml.txt",
+          "sha256": "25d0c315acce2651de3c221b2892107151b4e26b81f4151c4b854e4371a44875",
+          "bytes": 14464
+        }
+      ],
+      "runs": [
+        {
+          "id": 39974697288,
+          "name": "Bounded achilles-supplement LFS pilot",
+          "branch": "cloud/achilles-supplement-lfs-pilot-20261023",
+          "sha": "ba2012733d344857250ed65b54f22e223dc9958c",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/qianyizhang/med-assets/actions/runs/39974697288",
+          "created_at": "2026-10-23T15:01:42Z",
+          "updated_at": "2026-10-23T15:01:58Z"
+        }
+      ]
+    },
+    {
+      "branch": "cloud/bladder-pancreas-lfs-pilot-20261023",
+      "sha": "a9605f97b4f19370e886699da6069f1e6e062ed4",
+      "fork_point": "79c867bad7471562d1c4ddabb4fe2a24d9764f8a",
+      "protected": false,
+      "files": [
+        {
+          "original_path": ".github/workflows/bladder-pancreas-lfs-pilot.yml",
+          "archive_path": "cloud__bladder-pancreas-lfs-pilot-20261023/.github/workflows/bladder-pancreas-lfs-pilot.yml.txt",
+          "sha256": "37be8128e99b9eab9ccd38d0a8c73a845ab72d10c89cc58a15a7451522505787",
+          "bytes": 12520
+        }
+      ],
+      "runs": [
+        {
+          "id": 39983909416,
+          "name": "Bounded unchanged bladder-pancreas LFS pilot",
+          "branch": "cloud/bladder-pancreas-lfs-pilot-20261023",
+          "sha": "a9605f97b4f19370e886699da6069f1e6e062ed4",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/qianyizhang/med-assets/actions/runs/39983909416",
+          "created_at": "2026-10-23T16:05:55Z",
+          "updated_at": "2026-10-23T16:06:13Z"
+        }
+      ]
+    },
+    {
+      "branch": "cloud/blood-study-lfs-pilot-20261023",
+      "sha": "7df16c7baf3d19140472d49f7c94e3db076d1ac8",
+      "fork_point": "dab1e0e86b6b5a956cc1447b07c9082e253fe024",
+      "protected": false,
+      "files": [
+        {
+          "original_path": ".github/workflows/blood-study-lfs-pilot.yml",
+          "archive_path": "cloud__blood-study-lfs-pilot-20261023/.github/workflows/blood-study-lfs-pilot.yml.txt",
+          "sha256": "51d083759d63fcf8c4693cd93e4a0a16729b362dd5fd75fdc0a87a7022d59218",
+          "bytes": 11329
+        }
+      ],
+      "runs": [
+        {
+          "id": 39947388411,
+          "name": "Bounded authored blood-study LFS pilot",
+          "branch": "cloud/blood-study-lfs-pilot-20261023",
+          "sha": "7df16c7baf3d19140472d49f7c94e3db076d1ac8",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/qianyizhang/med-assets/actions/runs/39947388411",
+          "created_at": "2026-10-23T11:37:33Z",
+          "updated_at": "2026-10-23T11:37:55Z"
+        }
+      ]
+    },
+    {
+      "branch": "cloud/bp3d-glands-lfs-pilot-20261023",
+      "sha": "9109b9643476a33cf84311a6fb3ef8763e0bd046",
+      "fork_point": "963a8e92048acc24ef17f959f3b76c615b505704",
+      "protected": false,
+      "files": [
+        {
+          "original_path": ".github/workflows/bp3d-glands-lfs-pilot.yml",
+          "archive_path": "cloud__bp3d-glands-lfs-pilot-20261023/.github/workflows/bp3d-glands-lfs-pilot.yml.txt",
+          "sha256": "88ec50e246112403291f017ff1cefa547b0348f3a0088d6c2a6f9ffe28d97c25",
+          "bytes": 15510
+        }
+      ],
+      "runs": [
+        {
+          "id": 40076836138,
+          "name": "Bounded unchanged bp3d-glands LFS pilot",
+          "branch": "cloud/bp3d-glands-lfs-pilot-20261023",
+          "sha": "9109b9643476a33cf84311a6fb3ef8763e0bd046",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/qianyizhang/med-assets/actions/runs/40076836138",
+          "created_at": "2026-10-24T08:07:56Z",
+          "updated_at": "2026-10-24T08:08:17Z"
+        }
+      ]
+    },
+    {
+      "branch": "cloud/cartilage-supplement-lfs-pilot-20261023",
+      "sha": "d3695dba498219d28fc751e4344f9ee26a002bf0",
+      "fork_point": "94cb299f49e0fb0e3ffc411da4f3ac0b6cd10414",
+      "protected": false,
+      "files": [
+        {
+          "original_path": ".github/workflows/cartilage-supplement-lfs-pilot.yml",
+          "archive_path": "cloud__cartilage-supplement-lfs-pilot-20261023/.github/workflows/cartilage-supplement-lfs-pilot.yml.txt",
+          "sha256": "c5b505ff73cef683091ed20e482a85c53e00038d105b11c4e7d78af4e1f1aac9",
+          "bytes": 12766
+        }
+      ],
+      "runs": [
+        {
+          "id": 39949800140,
+          "name": "Bounded cartilage contextual-supplement LFS pilot",
+          "branch": "cloud/cartilage-supplement-lfs-pilot-20261023",
+          "sha": "d3695dba498219d28fc751e4344f9ee26a002bf0",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/qianyizhang/med-assets/actions/runs/39949800140",
+          "created_at": "2026-10-23T11:57:49Z",
+          "updated_at": "2026-10-23T11:58:14Z"
+        },
+        {
+          "id": 39949673293,
+          "name": "Bounded cartilage contextual-supplement LFS pilot",
+          "branch": "cloud/cartilage-supplement-lfs-pilot-20261023",
+          "sha": "13ee96f6deb548bf658ce2c6a05f2253348b41b1",
+          "status": "completed",
+          "conclusion": "failure",
+          "url": "https://github.com/qianyizhang/med-assets/actions/runs/39949673293",
+          "created_at": "2026-10-23T11:56:44Z",
+          "updated_at": "2026-10-23T11:56:51Z"
+        }
+      ]
+    },
+    {
+      "branch": "cloud/eye-lfs-pilot-20261023",
+      "sha": "b3ca3882351713d7d3cadda963423bbaa1d6e3c2",
+      "fork_point": "54b8679f3d15d6fd512539e69e448f9b051f612c",
+      "protected": false,
+      "files": [
+        {
+          "original_path": ".github/workflows/eye-lfs-pilot.yml",
+          "archive_path": "cloud__eye-lfs-pilot-20261023/.github/workflows/eye-lfs-pilot.yml.txt",
+          "sha256": "413355f8dc2d80fe785c262bf3a77772d1475b2eed718ad0b16e44f53efa013f",
+          "bytes": 9161
+        }
+      ],
+      "runs": [
+        {
+          "id": 39929671636,
+          "name": "Bounded HRA eye LFS pilot",
+          "branch": "cloud/eye-lfs-pilot-20261023",
+          "sha": "b3ca3882351713d7d3cadda963423bbaa1d6e3c2",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/qianyizhang/med-assets/actions/runs/39929671636",
+          "created_at": "2026-10-23T09:08:18Z",
+          "updated_at": "2026-10-23T09:08:41Z"
+        }
+      ]
+    },
+    {
+      "branch": "cloud/joints-lfs-pilot-20261024",
+      "sha": "829d7636c5908e85361efc2ad6ac1cf38dfac6df",
+      "fork_point": "1ff3ac0a2109c1e4171292b284048cde52e784fe",
+      "protected": false,
+      "files": [
+        {
+          "original_path": ".github/workflows/joints-lfs-pilot.yml",
+          "archive_path": "cloud__joints-lfs-pilot-20261024/.github/workflows/joints-lfs-pilot.yml.txt",
+          "sha256": "583f9d2fdd1163711704ae9db2eb7352df3319f409988bf454aa633e39cba1fb",
+          "bytes": 13544
+        }
+      ],
+      "runs": [
+        {
+          "id": 40077582378,
+          "name": "Bounded unchanged joints LFS pilot",
+          "branch": "cloud/joints-lfs-pilot-20261024",
+          "sha": "829d7636c5908e85361efc2ad6ac1cf38dfac6df",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/qianyizhang/med-assets/actions/runs/40077582378",
+          "created_at": "2026-10-24T08:19:25Z",
+          "updated_at": "2026-10-24T08:19:53Z"
+        }
+      ]
+    },
+    {
+      "branch": "cloud/kidney-pair-lfs-pilot-20261023",
+      "sha": "4957e30a5a1c7f9e979357769d588b379bb8283c",
+      "fork_point": "144720194a12a1ac1813dbdab408cb45950bf91c",
+      "protected": false,
+      "files": [
+        {
+          "original_path": ".github/workflows/kidney-pair-lfs-pilot.yml",
+          "archive_path": "cloud__kidney-pair-lfs-pilot-20261023/.github/workflows/kidney-pair-lfs-pilot.yml.txt",
+          "sha256": "fbdb3d6ead986a866de349bd1e888a23edbc190f81f42304c7cb534985e11c39",
+          "bytes": 10378
+        }
+      ],
+      "runs": [
+        {
+          "id": 39931812091,
+          "name": "Bounded HRA kidney-pair LFS pilot",
+          "branch": "cloud/kidney-pair-lfs-pilot-20261023",
+          "sha": "4957e30a5a1c7f9e979357769d588b379bb8283c",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/qianyizhang/med-assets/actions/runs/39931812091",
+          "created_at": "2026-10-23T09:25:56Z",
+          "updated_at": "2026-10-23T09:26:14Z"
+        }
+      ]
+    },
+    {
+      "branch": "cloud/l3-metadata-lfs-pilot-20261023",
+      "sha": "b3ac5f0bb80f8aecb2863dc57501547390d36c0b",
+      "fork_point": "5265e0ea084c9c4ee31ae91214c66a06fa399f39",
+      "protected": false,
+      "files": [
+        {
+          "original_path": ".github/workflows/l3-metadata-lfs-pilot.yml",
+          "archive_path": "cloud__l3-metadata-lfs-pilot-20261023/.github/workflows/l3-metadata-lfs-pilot.yml.txt",
+          "sha256": "4901c5e6430933cabe0db0b3774f791a82eea94a7325e8320d5884067b112036",
+          "bytes": 19004
+        }
+      ],
+      "runs": [
+        {
+          "id": 39935333222,
+          "name": "Bounded L3 metadata-only LFS pilot",
+          "branch": "cloud/l3-metadata-lfs-pilot-20261023",
+          "sha": "b3ac5f0bb80f8aecb2863dc57501547390d36c0b",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/qianyizhang/med-assets/actions/runs/39935333222",
+          "created_at": "2026-10-23T09:55:05Z",
+          "updated_at": "2026-10-23T09:55:18Z"
+        }
+      ]
+    },
+    {
+      "branch": "cloud/lfs-upload-probe-20261023-0751",
+      "sha": "60a0f798f0455ac7dd3fc5a2eb4cb82aae1023ea",
+      "fork_point": "82bc1c6bb32aae9da3392c995df212b7edb098fc",
+      "protected": false,
+      "files": [
+        {
+          "original_path": ".github/workflows/lfs-upload-probe.yml",
+          "archive_path": "cloud__lfs-upload-probe-20261023-0751/.github/workflows/lfs-upload-probe.yml.txt",
+          "sha256": "4dff2d85173edf9b9e3359981e2fee049c6643593e8fa168dbe9020780918023",
+          "bytes": 4892
+        }
+      ],
+      "runs": [
+        {
+          "id": 39924847070,
+          "name": "One-object LFS upload probe",
+          "branch": "cloud/lfs-upload-probe-20261023-0751",
+          "sha": "60a0f798f0455ac7dd3fc5a2eb4cb82aae1023ea",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/qianyizhang/med-assets/actions/runs/39924847070",
+          "created_at": "2026-10-23T08:28:10Z",
+          "updated_at": "2026-10-23T08:28:23Z"
+        },
+        {
+          "id": 39924677094,
+          "name": "One-object LFS upload probe",
+          "branch": "cloud/lfs-upload-probe-20261023-0751",
+          "sha": "c07519286060361bef5aca25699b549e5d0f987d",
+          "status": "completed",
+          "conclusion": "failure",
+          "url": "https://github.com/qianyizhang/med-assets/actions/runs/39924677094",
+          "created_at": "2026-10-23T08:26:43Z",
+          "updated_at": "2026-10-23T08:27:02Z"
+        }
+      ]
+    },
+    {
+      "branch": "cloud/liver-spleen-lfs-pilot-20261023",
+      "sha": "c202815e1edfc36f8007e5b7ac4edf258e25fd3f",
+      "fork_point": "944e335efd07a44eb5178fb66e957f152a22d6a9",
+      "protected": false,
+      "files": [
+        {
+          "original_path": ".github/workflows/liver-spleen-lfs-pilot.yml",
+          "archive_path": "cloud__liver-spleen-lfs-pilot-20261023/.github/workflows/liver-spleen-lfs-pilot.yml.txt",
+          "sha256": "ce48c85062ee5755995bdeb8bfe3bb2431d09b4cb1471bd9e86ddf162fce2d93",
+          "bytes": 9735
+        }
+      ],
+      "runs": [
+        {
+          "id": 39933125100,
+          "name": "Bounded HRA liver-spleen LFS pilot",
+          "branch": "cloud/liver-spleen-lfs-pilot-20261023",
+          "sha": "c202815e1edfc36f8007e5b7ac4edf258e25fd3f",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/qianyizhang/med-assets/actions/runs/39933125100",
+          "created_at": "2026-10-23T09:36:46Z",
+          "updated_at": "2026-10-23T09:37:04Z"
+        }
+      ]
+    },
+    {
+      "branch": "cloud/lymph-node-lfs-pilot-20261023",
+      "sha": "7c916c7c0ba55afec635295e127aaf8b49df8349",
+      "fork_point": "5e13bcf413a1a4eedd7144d8a2dd8814a642606c",
+      "protected": false,
+      "files": [
+        {
+          "original_path": ".github/workflows/lymph-node-lfs-pilot.yml",
+          "archive_path": "cloud__lymph-node-lfs-pilot-20261023/.github/workflows/lymph-node-lfs-pilot.yml.txt",
+          "sha256": "f1308f963b5e51a549b2b83c50d01a428e16a31b57005b0c43f14ad80c828704",
+          "bytes": 7433
+        }
+      ],
+      "runs": [
+        {
+          "id": 39926775746,
+          "name": "Bounded HRA lymph-node LFS pilot",
+          "branch": "cloud/lymph-node-lfs-pilot-20261023",
+          "sha": "7c916c7c0ba55afec635295e127aaf8b49df8349",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/qianyizhang/med-assets/actions/runs/39926775746",
+          "created_at": "2026-10-23T08:44:17Z",
+          "updated_at": "2026-10-23T08:44:35Z"
+        }
+      ]
+    },
+    {
+      "branch": "cloud/marrow-comparison-lfs-pilot-20261023",
+      "sha": "c6ad35c8ca0c96f19576812cde5fbe17dabb405d",
+      "fork_point": "272eb275e28b96842e63e18bd29a9e0fab711739",
+      "protected": false,
+      "files": [
+        {
+          "original_path": ".github/workflows/marrow-comparison-lfs-pilot.yml",
+          "archive_path": "cloud__marrow-comparison-lfs-pilot-20261023/.github/workflows/marrow-comparison-lfs-pilot.yml.txt",
+          "sha256": "2d812f0693daddaa0b8be2641956a56cd2ec274bb6fe105ece99e070a49c61df",
+          "bytes": 14388
+        }
+      ],
+      "runs": [
+        {
+          "id": 39974713329,
+          "name": "Bounded marrow-comparison LFS pilot",
+          "branch": "cloud/marrow-comparison-lfs-pilot-20261023",
+          "sha": "c6ad35c8ca0c96f19576812cde5fbe17dabb405d",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/qianyizhang/med-assets/actions/runs/39974713329",
+          "created_at": "2026-10-23T15:01:48Z",
+          "updated_at": "2026-10-23T15:02:03Z"
+        }
+      ]
+    },
+    {
+      "branch": "cloud/metadata-breathing-nonheart-lfs-pilot-20261023",
+      "sha": "4899484e28f0a4ca06b50632e4edeba1d4d040b6",
+      "fork_point": "3a5f471b9651c4158b46e517f806c8938b41fbd6",
+      "protected": false,
+      "files": [
+        {
+          "original_path": ".github/workflows/metadata-breathing-nonheart-lfs-pilot.yml",
+          "archive_path": "cloud__metadata-breathing-nonheart-lfs-pilot-20261023/.github/workflows/metadata-breathing-nonheart-lfs-pilot.yml.txt",
+          "sha256": "5610de693f33e937cfb5b8e6160e4a3eeb5ecbc2d749d9c38e8d432832740330",
+          "bytes": 64152
+        }
+      ],
+      "runs": [
+        {
+          "id": 39937472066,
+          "name": "Bounded generated metadata-breathing-nonheart LFS pilot",
+          "branch": "cloud/metadata-breathing-nonheart-lfs-pilot-20261023",
+          "sha": "4899484e28f0a4ca06b50632e4edeba1d4d040b6",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/qianyizhang/med-assets/actions/runs/39937472066",
+          "created_at": "2026-10-23T10:12:43Z",
+          "updated_at": "2026-10-23T10:13:13Z"
+        }
+      ]
+    },
+    {
+      "branch": "cloud/metadata-static-nonheart-lfs-pilot-20261023",
+      "sha": "15c126bd9b6549a4ea4421d72b21f2a0964ecac0",
+      "fork_point": "3a5f471b9651c4158b46e517f806c8938b41fbd6",
+      "protected": false,
+      "files": [
+        {
+          "original_path": ".github/workflows/metadata-static-nonheart-lfs-pilot.yml",
+          "archive_path": "cloud__metadata-static-nonheart-lfs-pilot-20261023/.github/workflows/metadata-static-nonheart-lfs-pilot.yml.txt",
+          "sha256": "7fe60490f58198818f6db9848eea57527d2e7f326f98bd279ca01e097805cfc2",
+          "bytes": 41800
+        }
+      ],
+      "runs": [
+        {
+          "id": 39937462142,
+          "name": "Bounded generated metadata-static-nonheart LFS pilot",
+          "branch": "cloud/metadata-static-nonheart-lfs-pilot-20261023",
+          "sha": "15c126bd9b6549a4ea4421d72b21f2a0964ecac0",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/qianyizhang/med-assets/actions/runs/39937462142",
+          "created_at": "2026-10-23T10:12:38Z",
+          "updated_at": "2026-10-23T10:13:02Z"
+        }
+      ]
+    },
+    {
+      "branch": "cloud/mouth-negative-lfs-pilot-20261023",
+      "sha": "173168670653205fecc661ffc7c7f3ddbc7fd202",
+      "fork_point": "0d3dbea7ed6bd4f3485a156002bac61be114ec8e",
+      "protected": false,
+      "files": [
+        {
+          "original_path": ".github/workflows/mouth-negative-lfs-pilot.yml",
+          "archive_path": "cloud__mouth-negative-lfs-pilot-20261023/.github/workflows/mouth-negative-lfs-pilot.yml.txt",
+          "sha256": "76a01a7b0d2d0c02fe476ba96cfe088862d7c41195cc470d69da0f9a02bf390a",
+          "bytes": 9291
+        }
+      ],
+      "runs": [
+        {
+          "id": 39951626181,
+          "name": "Bounded negative-mouth review PNG LFS pilot",
+          "branch": "cloud/mouth-negative-lfs-pilot-20261023",
+          "sha": "173168670653205fecc661ffc7c7f3ddbc7fd202",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/qianyizhang/med-assets/actions/runs/39951626181",
+          "created_at": "2026-10-23T12:12:46Z",
+          "updated_at": "2026-10-23T12:12:57Z"
+        }
+      ]
+    },
+    {
+      "branch": "cloud/placenta-lfs-pilot-20261023",
+      "sha": "575cf37ed6682e7a40e3adf1ed5c022db58fb884",
+      "fork_point": "76a359383fbeaa05be6602886285e141dd7ac14d",
+      "protected": false,
+      "files": [
+        {
+          "original_path": ".github/workflows/placenta-lfs-pilot.yml",
+          "archive_path": "cloud__placenta-lfs-pilot-20261023/.github/workflows/placenta-lfs-pilot.yml.txt",
+          "sha256": "25ca0f5100095ba994974fbd5dd0d6fcaaf152a5960e17e665dbc098529fa174",
+          "bytes": 8708
+        }
+      ],
+      "runs": [
+        {
+          "id": 39927906059,
+          "name": "Bounded HRA placenta LFS pilot",
+          "branch": "cloud/placenta-lfs-pilot-20261023",
+          "sha": "575cf37ed6682e7a40e3adf1ed5c022db58fb884",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/qianyizhang/med-assets/actions/runs/39927906059",
+          "created_at": "2026-10-23T08:53:45Z",
+          "updated_at": "2026-10-23T08:54:01Z"
+        }
+      ]
+    },
+    {
+      "branch": "cloud/prostate-lfs-pilot-20261023",
+      "sha": "66d62d079585d250d723a7181f3a3e00fcac7567",
+      "fork_point": "fcfec6b455bd7433f1d8fe6bd40902cb258abf76",
+      "protected": false,
+      "files": [
+        {
+          "original_path": ".github/workflows/prostate-lfs-pilot.yml",
+          "archive_path": "cloud__prostate-lfs-pilot-20261023/.github/workflows/prostate-lfs-pilot.yml.txt",
+          "sha256": "30d995ec7a888538c54ac165f2ae4eee13d97c78b417f7796f31b7c0ae2baefd",
+          "bytes": 8490
+        }
+      ],
+      "runs": [
+        {
+          "id": 39930498900,
+          "name": "Bounded HRA prostate LFS pilot",
+          "branch": "cloud/prostate-lfs-pilot-20261023",
+          "sha": "66d62d079585d250d723a7181f3a3e00fcac7567",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/qianyizhang/med-assets/actions/runs/39930498900",
+          "created_at": "2026-10-23T09:15:03Z",
+          "updated_at": "2026-10-23T09:15:19Z"
+        }
+      ]
+    },
+    {
+      "branch": "cloud/review-accounting-lfs-pilot-20261023",
+      "sha": "83b4214734e69bd70cd5f14fa04a9e51c76c003a",
+      "fork_point": "3f4dfc5fedc7156e0b7bd4e7390357c35d0895f5",
+      "protected": false,
+      "files": [
+        {
+          "original_path": ".github/workflows/review-accounting-lfs-pilot.yml",
+          "archive_path": "cloud__review-accounting-lfs-pilot-20261023/.github/workflows/review-accounting-lfs-pilot.yml.txt",
+          "sha256": "ae11d5b0cd4a08b4b20a9cfe50418863217596c671650ea8e0e35217b4283d9b",
+          "bytes": 21166
+        }
+      ],
+      "runs": [
+        {
+          "id": 39977954383,
+          "name": "Bounded review-accounting LFS pilot",
+          "branch": "cloud/review-accounting-lfs-pilot-20261023",
+          "sha": "83b4214734e69bd70cd5f14fa04a9e51c76c003a",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/qianyizhang/med-assets/actions/runs/39977954383",
+          "created_at": "2026-10-23T15:24:10Z",
+          "updated_at": "2026-10-23T15:25:02Z"
+        }
+      ]
+    },
+    {
+      "branch": "cloud/runtime-proof-lfs-pilot-20261023",
+      "sha": "4d6c887bfb43f2149e713d5e07b139b6761f97fb",
+      "fork_point": "880ed00e5a26906f67a9c51b00228160a58c339f",
+      "protected": false,
+      "files": [
+        {
+          "original_path": ".github/workflows/runtime-proof-lfs-pilot.yml",
+          "archive_path": "cloud__runtime-proof-lfs-pilot-20261023/.github/workflows/runtime-proof-lfs-pilot.yml.txt",
+          "sha256": "20cb2fcd2bf22e901dfbeef8264666daf5d966807250e5f669f886984d58ec2f",
+          "bytes": 13630
+        }
+      ],
+      "runs": [
+        {
+          "id": 39940377365,
+          "name": "Bounded screenshot runtime-proof LFS pilot",
+          "branch": "cloud/runtime-proof-lfs-pilot-20261023",
+          "sha": "4d6c887bfb43f2149e713d5e07b139b6761f97fb",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/qianyizhang/med-assets/actions/runs/39940377365",
+          "created_at": "2026-10-23T10:37:06Z",
+          "updated_at": "2026-10-23T10:37:40Z"
+        }
+      ]
+    },
+    {
+      "branch": "cloud/tongue-study-lfs-pilot-20261023",
+      "sha": "9aaa528928feeda49c9eb83edee33e5bc5ade015",
+      "fork_point": "de1e7117fc626a997f848af6417dbdec3b0aee29",
+      "protected": false,
+      "files": [
+        {
+          "original_path": ".github/workflows/tongue-study-lfs-pilot.yml",
+          "archive_path": "cloud__tongue-study-lfs-pilot-20261023/.github/workflows/tongue-study-lfs-pilot.yml.txt",
+          "sha256": "7543fe79390f673c4b95f0d1d7053191782cb3a9e84d08052e9d3ae9cb7a6970",
+          "bytes": 11398
+        }
+      ],
+      "runs": [
+        {
+          "id": 39947966134,
+          "name": "Bounded authored tongue-study LFS pilot",
+          "branch": "cloud/tongue-study-lfs-pilot-20261023",
+          "sha": "9aaa528928feeda49c9eb83edee33e5bc5ade015",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/qianyizhang/med-assets/actions/runs/39947966134",
+          "created_at": "2026-10-23T11:42:30Z",
+          "updated_at": "2026-10-23T11:42:46Z"
+        }
+      ]
+    },
+    {
+      "branch": "cloud/uterus-lfs-pilot-20261023",
+      "sha": "b7f9309e79f579690976b44f45b51f3a37231c7c",
+      "fork_point": "a510685fc69405bc8d0bb6e4637d95a1b8ca3c09",
+      "protected": false,
+      "files": [
+        {
+          "original_path": ".github/workflows/uterus-lfs-pilot.yml",
+          "archive_path": "cloud__uterus-lfs-pilot-20261023/.github/workflows/uterus-lfs-pilot.yml.txt",
+          "sha256": "53c88327874726e0d09e32b714a0c02ac763e480a3c65592420968876b0689ca",
+          "bytes": 8689
+        }
+      ],
+      "runs": [
+        {
+          "id": 39931242590,
+          "name": "Bounded HRA uterus LFS pilot",
+          "branch": "cloud/uterus-lfs-pilot-20261023",
+          "sha": "b7f9309e79f579690976b44f45b51f3a37231c7c",
+          "status": "completed",
+          "conclusion": "success",
+          "url": "https://github.com/qianyizhang/med-assets/actions/runs/39931242590",
+          "created_at": "2026-10-23T09:21:16Z",
+          "updated_at": "2026-10-23T09:21:30Z"
+        }
+      ]
+    }
+  ],
+  "preserve": [
+    "main"
+  ],
+  "merged_glands_branch": {
+    "name": "assets/bp3d-glands-20261024",
+    "commit": {
+      "sha": "43ad01eac2177f1ea53e55484a0cfcc892f68892",
+      "url": "https://api.github.com/repos/qianyizhang/med-assets/commits/43ad01eac2177f1ea53e55484a0cfcc892f68892"
+    },
+    "protected": false
+  },
+  "archive_status": "Proposed for preservation before deletion; execution receipt must be checked separately"
+}

@@ -1,0 +1,143 @@
+name: Bounded review-accounting LFS pilot
+on:
+  push:
+    branches:
+      - cloud/review-accounting-lfs-pilot-20261023
+    paths:
+      - .github/workflows/review-accounting-lfs-pilot.yml
+permissions: {}
+jobs:
+  upload-and-verify:
+    if: github.repository == 'qianyizhang/med-assets' && github.ref == 'refs/heads/cloud/review-accounting-lfs-pilot-20261023'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    env:
+      GIT_TERMINAL_PROMPT: '0'
+      APPROVED_MANIFEST: >-
+        {"objects":[{"oid":"4bf4aea2daff77956654184308fcab3f878075a1d6a822c047536f86025cdaab","size":226090,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/adrenals/2026-10-23-v10-exterior-review/draft_adrenals/screenshots/contact.png","type":"png","file":"reviews/adrenals/2026-10-23-v10-exterior-review/draft_adrenals/screenshots/contact.png"},{"oid":"8a4f3dd11c6b760b911e4c03e586a836e5f51955b4a4afaef5eb903d820a93f3","size":264816,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/diaphragm/2026-10-23-v10-exterior-review/diaphragm/screenshots/contact.png","type":"png","file":"reviews/diaphragm/2026-10-23-v10-exterior-review/diaphragm/screenshots/contact.png"},{"oid":"ca2680b175e38b0c33d5c07af63b0dc5d803ca429d838eb35c4435cfd32e79ac","size":272480,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/esophagus/2026-10-23-v10-exterior-review/draft_esophagus/screenshots/contact.png","type":"png","file":"reviews/esophagus/2026-10-23-v10-exterior-review/draft_esophagus/screenshots/contact.png"},{"oid":"7451f9806e64fa9c04f55d97dd0f35f61bc09b56ce737f160809d8ea71e61143","size":234788,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/ovaries/2026-10-23-v10-exterior-review/draft_ovaries/screenshots/contact.png","type":"png","file":"reviews/ovaries/2026-10-23-v10-exterior-review/draft_ovaries/screenshots/contact.png"},{"oid":"5a328893dd0709723383cb247b28156e2fc81a5ec8a400942325db21eb087eab","size":249543,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/parathyroids/2026-10-23-v10-exterior-review/draft_parathyroids/screenshots/contact.png","type":"png","file":"reviews/parathyroids/2026-10-23-v10-exterior-review/draft_parathyroids/screenshots/contact.png"},{"oid":"a9c1c27086526f50a5d475aa7f5184ad9d8ab3cb9ab8a15c11315ceb2fcd9aed","size":390758,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/penis/2026-10-23-v10-exterior-review/draft_penis/screenshots/contact.png","type":"png","file":"reviews/penis/2026-10-23-v10-exterior-review/draft_penis/screenshots/contact.png"},{"oid":"4a687e0812a9df839e8a17273a8cc3ea07b72411bd43d42733bd619912c84b11","size":478031,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/pituitary/2026-10-23-v10-exterior-review/draft_pituitary/screenshots/contact.png","type":"png","file":"reviews/pituitary/2026-10-23-v10-exterior-review/draft_pituitary/screenshots/contact.png"},{"oid":"903b7294722b2bae0e9db7e2346082de996fd9d802a139d1c533300dc077d7bd","size":275602,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/primary-history/primary-organs-quality-audit/renders/bladder/comparison.png","type":"png","file":"reviews/primary-history/primary-organs-quality-audit/renders/bladder/comparison.png"},{"oid":"ef3764ff7817c213b080aa5c423e14bf2a1643cabaa149364a60f209fded4bb8","size":779346,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/primary-history/primary-organs-quality-audit/renders/kidney_left/comparison.png","type":"png","file":"reviews/primary-history/primary-organs-quality-audit/renders/kidney_left/comparison.png"},{"oid":"9c9819dab9b5a1e422b5266169059e986a81421e5b41db50cafa044c79384dfc","size":794034,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/primary-history/primary-organs-quality-audit/renders/kidney_right/comparison.png","type":"png","file":"reviews/primary-history/primary-organs-quality-audit/renders/kidney_right/comparison.png"},{"oid":"f5231a891e54948398da0b795f9a18108af4884d7a21363f63b4ac3114e4cb9b","size":811288,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/primary-history/primary-organs-quality-audit/renders/liver/comparison.png","type":"png","file":"reviews/primary-history/primary-organs-quality-audit/renders/liver/comparison.png"},{"oid":"432d9165ffe7d4c0ca042307687d8caba28b9f6d44e4cbf32900380558dfe841","size":746527,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/primary-history/primary-organs-quality-audit/renders/pancreas/comparison.png","type":"png","file":"reviews/primary-history/primary-organs-quality-audit/renders/pancreas/comparison.png"},{"oid":"95c89910c47fb0812dd2e409717b1f9da912db134155328de953a87081be9f87","size":728993,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/primary-history/primary-organs-quality-audit/renders/spleen/comparison.png","type":"png","file":"reviews/primary-history/primary-organs-quality-audit/renders/spleen/comparison.png"},{"oid":"97ac746c8ea60038267d6caa782159814a0814dad49f3fe8385e3723a707ff05","size":830471,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/readonly-audits/heart-stomach-readonly-audit-20261023/heart/contact.png","type":"png","file":"reviews/readonly-audits/heart-stomach-readonly-audit-20261023/heart/contact.png"},{"oid":"8dbf0d6daad50f8993086ba6bfa375e64b114c44197d61e11085b624c51b9d6a","size":410558,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/readonly-audits/heart-stomach-readonly-audit-20261023/heart/matched-neutral/contact.png","type":"png","file":"reviews/readonly-audits/heart-stomach-readonly-audit-20261023/heart/matched-neutral/contact.png"},{"oid":"2e6341cb7cbb20776107f872f2611fa9a259de08e9390c6b7569f111bffe7462","size":1611741,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/readonly-audits/heart-stomach-readonly-audit-20261023/heart_animated/contact.png","type":"png","file":"reviews/readonly-audits/heart-stomach-readonly-audit-20261023/heart_animated/contact.png"},{"oid":"f910ca8c7e10d5130f80e4645bbdf90f7569b80810479dba6f05c6b33eda01db","size":412092,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/readonly-audits/heart-stomach-readonly-audit-20261023/heart_detailed/contact.png","type":"png","file":"reviews/readonly-audits/heart-stomach-readonly-audit-20261023/heart_detailed/contact.png"},{"oid":"2f164efe3c65191b6ac3f57bcf99f2c79ea9a46fb5d04263830f7c43986fa707","size":403482,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/readonly-audits/heart-stomach-readonly-audit-20261023/heart_detailed/matched-neutral/contact.png","type":"png","file":"reviews/readonly-audits/heart-stomach-readonly-audit-20261023/heart_detailed/matched-neutral/contact.png"},{"oid":"8c6f408d7c5808ec1f80d8275b414c1f091302a32141adc0acf8c91b5cc17fb5","size":685289,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/readonly-audits/heart-stomach-readonly-audit-20261023/stomach/contact.png","type":"png","file":"reviews/readonly-audits/heart-stomach-readonly-audit-20261023/stomach/contact.png"},{"oid":"6c6f230c1701690f191d030e8211997ae676af7a5f1da7a7707c77d0a538b480","size":337754,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/readonly-audits/heart-stomach-readonly-audit-20261023/stomach/matched-neutral/contact.png","type":"png","file":"reviews/readonly-audits/heart-stomach-readonly-audit-20261023/stomach/matched-neutral/contact.png"},{"oid":"0569e172fe554b71edaea48988b262f5ebb5aee6ef19121169ec8e0d6547d190","size":1066950,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/readonly-audits/heart-stomach-readonly-audit-20261023/stomach_polished/contact.png","type":"png","file":"reviews/readonly-audits/heart-stomach-readonly-audit-20261023/stomach_polished/contact.png"},{"oid":"38589c7843c5dc4f39dc94f05cf830e07ddf15414d8372e80ac7291c9c2ce85d","size":388922,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/readonly-audits/heart-stomach-readonly-audit-20261023/stomach_polished/matched-neutral/contact.png","type":"png","file":"reviews/readonly-audits/heart-stomach-readonly-audit-20261023/stomach_polished/matched-neutral/contact.png"},{"oid":"36bc64b543eba43f2215069a996c4caab35ea3d6b055dcd13b12e9f11cfbf65a","size":315976,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/readonly-audits/representative-baselines-2026-10-23/draft_joints-representative.png","type":"png","file":"reviews/readonly-audits/representative-baselines-2026-10-23/draft_joints-representative.png"},{"oid":"731a4ffc33affa9039d06a211594605b95fba4f27eabc257c286b99e2e924a79","size":303596,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/readonly-audits/representative-baselines-2026-10-23/draft_lymph_nodes-representative.png","type":"png","file":"reviews/readonly-audits/representative-baselines-2026-10-23/draft_lymph_nodes-representative.png"},{"oid":"1b2e6313ef7edc2fe5f0237892aa18e7d5db1986bcd57a24bda391a3f609b559","size":310443,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/readonly-audits/torso-readonly-audit-20261023/aorta-diagnostic-contact.png","type":"png","file":"reviews/readonly-audits/torso-readonly-audit-20261023/aorta-diagnostic-contact.png"},{"oid":"733bd37587a3c092ab3916387d38f8145deb8c0ccc1b2fc9efd4d636c84533e3","size":268989,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/readonly-audits/torso-readonly-audit-20261023/bronchial_tree-diagnostic-contact.png","type":"png","file":"reviews/readonly-audits/torso-readonly-audit-20261023/bronchial_tree-diagnostic-contact.png"},{"oid":"57b0ec5379fd11b028cdca9989bde2a2abe5bf02c8fade792bcdb691803493ce","size":418456,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/readonly-audits/torso-readonly-audit-20261023/gallbladder-diagnostic-contact.png","type":"png","file":"reviews/readonly-audits/torso-readonly-audit-20261023/gallbladder-diagnostic-contact.png"},{"oid":"13eae705f16135f3b6b2a28e65219c7bb9ef5dbbf1b7155d27dbefe362d124a8","size":449658,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/readonly-audits/torso-readonly-audit-20261023/pulmonary_vein-diagnostic-contact.png","type":"png","file":"reviews/readonly-audits/torso-readonly-audit-20261023/pulmonary_vein-diagnostic-contact.png"},{"oid":"5af9ac4741d3a1e38ba341f6ac207f145115584e1341e2f2431596935a510596","size":356807,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/readonly-audits/torso-readonly-audit-20261023/trachea-diagnostic-contact.png","type":"png","file":"reviews/readonly-audits/torso-readonly-audit-20261023/trachea-diagnostic-contact.png"},{"oid":"f012337862e58e8904701771520578c8847f610f40681816e7b48b255c33ac29","size":381950,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/testes/2026-10-23-v10-exterior-review/draft_testes/screenshots/contact.png","type":"png","file":"reviews/testes/2026-10-23-v10-exterior-review/draft_testes/screenshots/contact.png"},{"oid":"689949785127a508a1802d9ac6c29355165491020cad2368a74d219148dbf60e","size":290648,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/urethra/2026-10-23-v10-exterior-review/draft_urethra_female/screenshots/contact.png","type":"png","file":"reviews/urethra/2026-10-23-v10-exterior-review/draft_urethra_female/screenshots/contact.png"},{"oid":"a34e2a1df01abfd19d9c4a104f5027cf6e8b05efda5c85fb657fee7b05c6c79d","size":268076,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/accounting-package/reviews/urethra/2026-10-23-v10-exterior-review/draft_urethra_male/screenshots/contact.png","type":"png","file":"reviews/urethra/2026-10-23-v10-exterior-review/draft_urethra_male/screenshots/contact.png"}]}
+    steps:
+      - name: Configure temporary repository authentication
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          fetch-depth: 1
+          lfs: false
+          submodules: false
+          sparse-checkout: .gitattributes
+          sparse-checkout-cone-mode: false
+          persist-credentials: true
+          show-progress: false
+      - name: Verify sources, upload missing among 32 exact approved OIDs, and independently read back
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import gzip, hashlib, io, json, os, pathlib, re, subprocess, urllib.parse, urllib.request
+          
+          import struct, math
+          
+          def verify_format(data, kind):
+              if kind == 'png':
+                  assert data[:8] == bytes([137,80,78,71,13,10,26,10])
+                  assert data[8:16] == bytes([0,0,0,13])+b'IHDR'
+                  width,height = struct.unpack_from('>II',data,16)
+                  assert width > 0 and height > 0
+                  return {'type':'png','width':width,'height':height}
+              raise AssertionError('Unapproved content type')
+          
+          manifest = json.loads(os.environ["APPROVED_MANIFEST"])
+          objects = manifest["objects"]
+          assert len(objects) == 32 and len({o["oid"] for o in objects}) == 32, "Unexpected object count"
+          assert sum(o["size"] for o in objects) == 15764154, "Unexpected total bytes"
+          assert sum(o["size"] for o in objects) <= 15764154, "Approved batch cap exceeded"
+          assert max(o["size"] for o in objects) <= 1611741, "Per-object limit exceeded"
+          assert all(re.fullmatch("[0-9a-f]{64}", o["oid"]) and 0 < o["size"] <= 1611741 for o in objects), "Invalid object constraints"
+          work = pathlib.Path(os.environ["RUNNER_TEMP"], "review-accounting-approved-pilot")
+          work.mkdir(exist_ok=True)
+          
+          # Every source is public. Do not read or pass GitHub credentials to source URLs.
+          for o in objects:
+              parsed = urllib.parse.urlsplit(o["url"])
+              assert parsed.scheme == "https" and parsed.hostname in {"anatomy-verification.landy123007.chatgpt.site"}, "Unapproved source host"
+              assert parsed.username is None and parsed.password is None, "Credentials in URL refused"
+              encoding = o.get("encoding", "identity")
+              assert encoding in {"identity", "gzip"}, "Unapproved source encoding"
+              transfer_size = o.get("transportSize", o["size"])
+              transfer_oid = o.get("transportOid", o["oid"])
+              assert 0 < transfer_size <= 1611741 and re.fullmatch("[0-9a-f]{64}", transfer_oid), "Invalid transport constraints"
+              if encoding == "gzip":
+                  assert "transportSize" in o and "transportOid" in o, "Gzip transport manifest required"
+              else:
+                  assert transfer_size == o["size"] and transfer_oid == o["oid"], "Identity transport mismatch"
+              req = urllib.request.Request(o["url"], headers={"User-Agent": "med-assets-review-accounting-pilot/1.0", "Accept-Encoding": "identity"})
+              with urllib.request.urlopen(req, timeout=45) as response:
+                  assert urllib.parse.urlsplit(response.url).scheme == "https", "Non-HTTPS redirect refused"
+                  transport = response.read(transfer_size + 1)
+              assert len(transport) == transfer_size and hashlib.sha256(transport).hexdigest() == transfer_oid, "Transport size or SHA-256 mismatch"
+              if encoding == "gzip":
+                  with gzip.GzipFile(fileobj=io.BytesIO(transport)) as compressed:
+                      data = compressed.read(o["size"] + 1)
+              else:
+                  data = transport
+              assert len(data) == o["size"], "Source size mismatch"
+              assert hashlib.sha256(data).hexdigest() == o["oid"], "Source SHA-256 mismatch"
+              verify_format(data, o["type"])
+              (work / o["oid"]).write_bytes(data)
+              print(f"SOURCE VERIFIED {o['oid']} {o['size']} bytes", flush=True)
+          
+          subprocess.run(["git", "lfs", "version"], check=True)
+          subprocess.run(["git", "lfs", "install", "--local"], check=True)
+          # Validate every LFS pointer before uploading any object.
+          for o in objects:
+              with (work / o["oid"]).open("rb") as source:
+                  clean = subprocess.run(["git", "lfs", "clean", "approved-" + o["oid"]], stdin=source, stdout=subprocess.PIPE, check=True)
+              expected = f"version https://git-lfs.github.com/spec/v1\noid sha256:{o['oid']}\nsize {o['size']}\n".encode()
+              assert clean.stdout == expected, "Generated LFS pointer mismatch"
+          # Query destination again and upload only genuinely missing approved objects.
+          preflight_endpoint = "https://github.com/qianyizhang/med-assets.git/info/lfs/objects/batch"
+          preflight_payload = json.dumps({"operation":"download","transfers":["basic"],"objects":[{"oid":o["oid"],"size":o["size"]} for o in objects]}).encode()
+          preflight_headers = {"Accept":"application/vnd.git-lfs+json","Content-Type":"application/vnd.git-lfs+json"}
+          with urllib.request.urlopen(urllib.request.Request(preflight_endpoint,data=preflight_payload,headers=preflight_headers),timeout=45) as response:
+              preflight_result = json.load(response)
+          preflight_objects = {o["oid"]:o for o in preflight_result.get("objects",[])}
+          assert set(preflight_objects) == {o["oid"] for o in objects}, "Unexpected preflight objects"
+          missing = set()
+          for o in objects:
+              remote = preflight_objects[o["oid"]]
+              assert remote.get("size") == o["size"]
+              error = remote.get("error")
+              if error:
+                  assert error.get("code") == 404, "Destination returned an error other than missing object; stop"
+                  missing.add(o["oid"])
+              else:
+                  assert remote.get("actions",{}).get("download"), "Destination unavailable"
+          for o in objects:
+              if o["oid"] not in missing:
+                  print(f"ALREADY PRESENT SKIPPED {o['oid']} {o['size']} bytes",flush=True)
+                  continue
+              subprocess.run(["git", "lfs", "push", "--object-id", "origin", o["oid"]], check=True)
+              print(f"UPLOAD COMMAND PASSED {o['oid']} {o['size']} bytes", flush=True)
+          
+          # Independent HTTP readback, without the local LFS cache or GitHub user credentials.
+          endpoint = "https://github.com/qianyizhang/med-assets.git/info/lfs/objects/batch"
+          payload = json.dumps({"operation": "download", "transfers": ["basic"], "objects": [{"oid": o["oid"], "size": o["size"]} for o in objects]}).encode()
+          headers = {"Accept": "application/vnd.git-lfs+json", "Content-Type": "application/vnd.git-lfs+json", "User-Agent": "med-assets-review-accounting-pilot-readback/1.0"}
+          with urllib.request.urlopen(urllib.request.Request(endpoint, data=payload, headers=headers), timeout=45) as response:
+              result = json.load(response)
+          returned = {o["oid"]: o for o in result.get("objects", [])}
+          assert set(returned) == {o["oid"] for o in objects}, "Unexpected LFS Batch objects"
+          for expected in objects:
+              obj = returned[expected["oid"]]
+              assert obj.get("size") == expected["size"] and "error" not in obj, "GitHub object unavailable"
+              action = obj.get("actions", {}).get("download")
+              assert action and urllib.parse.urlsplit(action["href"]).scheme == "https", "Invalid LFS download action"
+              req = urllib.request.Request(action["href"], headers=action.get("header", {}))
+              with urllib.request.urlopen(req, timeout=45) as response:
+                  assert urllib.parse.urlsplit(response.url).scheme == "https", "Non-HTTPS LFS redirect refused"
+                  data = response.read(expected["size"] + 1)
+              assert len(data) == expected["size"] and hashlib.sha256(data).hexdigest() == expected["oid"], "GitHub LFS readback mismatch"
+              verify_format(data, expected["type"])
+              print(f"GITHUB READBACK VERIFIED {expected['oid']} {len(data)} bytes", flush=True)
+          print("PASS: 32 exact objects; 15764154 bytes; no Git asset pointer or branch-tip commit pushed by this job.", flush=True)
+          PY

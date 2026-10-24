@@ -1,0 +1,115 @@
+name: Bounded HRA kidney-pair LFS pilot
+on:
+  push:
+    branches:
+      - cloud/kidney-pair-lfs-pilot-20261023
+    paths:
+      - .github/workflows/kidney-pair-lfs-pilot.yml
+permissions: {}
+jobs:
+  upload-and-verify:
+    if: github.repository == 'qianyizhang/med-assets' && github.ref == 'refs/heads/cloud/kidney-pair-lfs-pilot-20261023'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    env:
+      GIT_TERMINAL_PROMPT: '0'
+      APPROVED_MANIFEST: >-
+        {"objects":[{"oid":"58f0227d45b14d7bcfd2ed05a7bcd76000051ea08d52f844feebd70d612f8084","size":1356736,"url":"https://cdn.humanatlas.io/digital-objects/ref-organ/kidney-female-left/v1.3/assets/3d-vh-f-kidney-l.glb","type":"glb","file":"sources/datasets/hra/kidney-female-left-v1.3/3d-vh-f-kidney-l.glb"},{"oid":"8e55b5ae48821f067f41bd23ffdd668f68c7ff705cf49e9a40287042fee469fc","size":1378060,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/candidates/kidney_left__hra-female-r02/8e55b5ae48821f067f41bd23ffdd668f68c7ff705cf49e9a40287042fee469fc.glb.gz","type":"glb","file":"models/kidney_left/exports/hra-female-v1.3-r02/kidney_left.glb","encoding":"gzip","transportSize":1083841,"transportOid":"dd2e12cf9ef5893d6408cf707728fc5ccee3ca55c3abcd6806b582c138f81540"},{"oid":"2a194bee7c66deab78bb74a090ee4f6bc44b6bcb59f9c57164100ffed506690d","size":73228,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/kidney_left__hra-female-r02__scoped-review/8479f68fd98b473ab73e55080b6aca8aba64f54391b9a8923ed5e2601ec564c3.webp","type":"webp","file":"reviews/kidney_left/2026-10-23-hra-female-v1.3-r02/display/contact.webp"},{"oid":"b140b1200fe8947b2185da28e7dc39d27cc991facbb88d18bcb0e3bd81ef010c","size":18632,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/kidney_left__hra-female-r02__scoped-review/e33dffa541417aa5a369d02f3ac927606a608a53935fb5dfee5dcd2d1700d51e.webp","type":"webp","file":"reviews/kidney_left/2026-10-23-hra-female-v1.3-r02/display/medulla_and_tip_surfaces_front.webp"},{"oid":"d80ee5a109a5cd5c90ca0770d1087e28786e2c545747cbae15a5ea22b4b0af86","size":1383740,"url":"https://cdn.humanatlas.io/digital-objects/ref-organ/kidney-female-right/v1.3/assets/3d-vh-f-kidney-r.glb","type":"glb","file":"sources/datasets/hra/kidney-female-right-v1.3/3d-vh-f-kidney-r.glb"},{"oid":"977d0a283de7071a2e8aaeb8900c5a6dc8d0ba770eb458e996dc66cc249c0b56","size":1403576,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/candidates/kidney_right__hra-female-r02/977d0a283de7071a2e8aaeb8900c5a6dc8d0ba770eb458e996dc66cc249c0b56.glb.gz","type":"glb","file":"models/kidney_right/exports/hra-female-v1.3-r02/kidney_right.glb","encoding":"gzip","transportSize":1100746,"transportOid":"18ffc85965fcb300a9ceafe3305e43c52d4aed409bdf282a6a70221c8dd437e4"},{"oid":"1d9fc25a695df753b85b2ad64d6cca5d48ce9a71ce3a070a0950156b100fdfcc","size":81796,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/kidney_right__hra-female-r02__scoped-review/fddd716a85814ff3706b51a93f64759f524d5c97d06ec0e76400a506f8b485fd.webp","type":"webp","file":"reviews/kidney_right/2026-10-23-hra-female-v1.3-r02/display/contact.webp"},{"oid":"b25f2c444a74315ac0e78b623f28715006e86ee3bf4d1917735d28c1af05fbd7","size":20784,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/kidney_right__hra-female-r02__scoped-review/8ed619b6442124479baeaaa304c944d0273e0068a384907131c56e029a3ba426.webp","type":"webp","file":"reviews/kidney_right/2026-10-23-hra-female-v1.3-r02/display/medulla_and_tip_surfaces_front.webp"}]}
+    steps:
+      - name: Configure temporary repository authentication
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          fetch-depth: 1
+          lfs: false
+          submodules: false
+          sparse-checkout: .gitattributes
+          sparse-checkout-cone-mode: false
+          persist-credentials: true
+          show-progress: false
+      - name: Verify sources, upload only eight exact OIDs, and independently read back
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import gzip, hashlib, io, json, os, pathlib, re, subprocess, urllib.parse, urllib.request
+          
+          manifest = json.loads(os.environ["APPROVED_MANIFEST"])
+          objects = manifest["objects"]
+          assert len(objects) == 8 and len({o["oid"] for o in objects}) == 8, "Unexpected object count"
+          assert sum(o["size"] for o in objects) == 5716552, "Unexpected total bytes"
+          assert sum(o["size"] for o in objects) <= 5716552, "Approved batch cap exceeded"
+          assert max(o["size"] for o in objects) <= 1403576, "Per-object limit exceeded"
+          assert all(re.fullmatch("[0-9a-f]{64}", o["oid"]) and 0 < o["size"] <= 1403576 for o in objects), "Invalid object constraints"
+          work = pathlib.Path(os.environ["RUNNER_TEMP"], "kidney-pair-approved-pilot")
+          work.mkdir(exist_ok=True)
+          
+          # Every source is public. Do not read or pass GitHub credentials to source URLs.
+          for o in objects:
+              parsed = urllib.parse.urlsplit(o["url"])
+              assert parsed.scheme == "https" and parsed.hostname in {"cdn.humanatlas.io", "anatomy-verification.landy123007.chatgpt.site"}, "Unapproved source host"
+              assert parsed.username is None and parsed.password is None, "Credentials in URL refused"
+              encoding = o.get("encoding", "identity")
+              assert encoding in {"identity", "gzip"}, "Unapproved source encoding"
+              transfer_size = o.get("transportSize", o["size"])
+              transfer_oid = o.get("transportOid", o["oid"])
+              assert 0 < transfer_size <= 1403576 and re.fullmatch("[0-9a-f]{64}", transfer_oid), "Invalid transport constraints"
+              if encoding == "gzip":
+                  assert "transportSize" in o and "transportOid" in o, "Gzip transport manifest required"
+              else:
+                  assert transfer_size == o["size"] and transfer_oid == o["oid"], "Identity transport mismatch"
+              req = urllib.request.Request(o["url"], headers={"User-Agent": "med-assets-kidney-pair-pilot/1.0", "Accept-Encoding": "identity"})
+              with urllib.request.urlopen(req, timeout=45) as response:
+                  assert urllib.parse.urlsplit(response.url).scheme == "https", "Non-HTTPS redirect refused"
+                  transport = response.read(transfer_size + 1)
+              assert len(transport) == transfer_size and hashlib.sha256(transport).hexdigest() == transfer_oid, "Transport size or SHA-256 mismatch"
+              if encoding == "gzip":
+                  with gzip.GzipFile(fileobj=io.BytesIO(transport)) as compressed:
+                      data = compressed.read(o["size"] + 1)
+              else:
+                  data = transport
+              assert len(data) == o["size"], "Source size mismatch"
+              assert hashlib.sha256(data).hexdigest() == o["oid"], "Source SHA-256 mismatch"
+              if o["type"] == "glb":
+                  assert data[:4] == b"glTF", "Source is not GLB"
+              elif o["type"] == "webp":
+                  assert data[:4] == b"RIFF" and data[8:12] == b"WEBP", "Source is not WebP"
+              else:
+                  raise AssertionError("Unapproved content type")
+              (work / o["oid"]).write_bytes(data)
+              print(f"SOURCE VERIFIED {o['oid']} {o['size']} bytes", flush=True)
+          
+          subprocess.run(["git", "lfs", "version"], check=True)
+          subprocess.run(["git", "lfs", "install", "--local"], check=True)
+          # Validate every LFS pointer before uploading any object.
+          for o in objects:
+              with (work / o["oid"]).open("rb") as source:
+                  clean = subprocess.run(["git", "lfs", "clean", "approved-" + o["oid"]], stdin=source, stdout=subprocess.PIPE, check=True)
+              expected = f"version https://git-lfs.github.com/spec/v1\noid sha256:{o['oid']}\nsize {o['size']}\n".encode()
+              assert clean.stdout == expected, "Generated LFS pointer mismatch"
+          for o in objects:
+              subprocess.run(["git", "lfs", "push", "--object-id", "origin", o["oid"]], check=True)
+              print(f"UPLOAD COMMAND PASSED {o['oid']} {o['size']} bytes", flush=True)
+          
+          # Independent HTTP readback, without the local LFS cache or GitHub user credentials.
+          endpoint = "https://github.com/qianyizhang/med-assets.git/info/lfs/objects/batch"
+          payload = json.dumps({"operation": "download", "transfers": ["basic"], "objects": [{"oid": o["oid"], "size": o["size"]} for o in objects]}).encode()
+          headers = {"Accept": "application/vnd.git-lfs+json", "Content-Type": "application/vnd.git-lfs+json", "User-Agent": "med-assets-kidney-pair-pilot-readback/1.0"}
+          with urllib.request.urlopen(urllib.request.Request(endpoint, data=payload, headers=headers), timeout=45) as response:
+              result = json.load(response)
+          returned = {o["oid"]: o for o in result.get("objects", [])}
+          assert set(returned) == {o["oid"] for o in objects}, "Unexpected LFS Batch objects"
+          for expected in objects:
+              obj = returned[expected["oid"]]
+              assert obj.get("size") == expected["size"] and "error" not in obj, "GitHub object unavailable"
+              action = obj.get("actions", {}).get("download")
+              assert action and urllib.parse.urlsplit(action["href"]).scheme == "https", "Invalid LFS download action"
+              req = urllib.request.Request(action["href"], headers=action.get("header", {}))
+              with urllib.request.urlopen(req, timeout=45) as response:
+                  assert urllib.parse.urlsplit(response.url).scheme == "https", "Non-HTTPS LFS redirect refused"
+                  data = response.read(expected["size"] + 1)
+              assert len(data) == expected["size"] and hashlib.sha256(data).hexdigest() == expected["oid"], "GitHub LFS readback mismatch"
+              print(f"GITHUB READBACK VERIFIED {expected['oid']} {len(data)} bytes", flush=True)
+          print("PASS: 8 exact objects; 5716552 bytes; no Git asset pointer or branch-tip commit pushed by this job.", flush=True)
+          PY

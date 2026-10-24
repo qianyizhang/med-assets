@@ -1,0 +1,140 @@
+name: Bounded unchanged joints LFS pilot
+on:
+  push:
+    branches:
+      - cloud/joints-lfs-pilot-20261024
+    paths:
+      - .github/workflows/joints-lfs-pilot.yml
+permissions: {}
+jobs:
+  upload-and-verify:
+    if: github.repository == 'qianyizhang/med-assets' && github.ref == 'refs/heads/cloud/joints-lfs-pilot-20261024'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    env:
+      GIT_TERMINAL_PROMPT: '0'
+      APPROVED_MANIFEST: >-
+        {"objects":[{"oid":"6dcc793e4132e62e4962e504bef0d595bb2e7d3a31881137244f31eadbb53aad","size":365864,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/candidates/joints__z-knee-r01/6dcc793e4132e62e4962e504bef0d595bb2e7d3a31881137244f31eadbb53aad.glb.gz","type":"glb","file":"models/joints/exports/z-knee-r01/knee_z_native.glb","encoding":"gzip","transportOid":"d6b1090d5e0f73047f71ed917e8804c4a095016b0588e986f00ae0efbfd9facd","transportSize":283338},{"oid":"1e0909355a400ca91e2ff370f9ec9f166de86a229d760b015bb1d043cb51c344","size":27518,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/draft_joints__2026-10-23-v10-exterior-review/c32df1cc6ce227e052d5de39210ac143e27d6f25391a8a6b26f195219d459e10.webp","type":"webp","file":"reviews/joints/2026-10-24-bounded-migration/shared-display/1e0909355a400ca91e2ff370f9ec9f166de86a229d760b015bb1d043cb51c344.webp"},{"oid":"389335795967d6bd672dd8c384370f8f00bb6fa48525350c077d6b8ec1d768bb","size":120628,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/joints__z-knee-r01__scoped-review/a0ebca255fabd7ea3ec33992b53d5ab47389e9477b18d68e81b04755c6eeefb6.webp","type":"webp","file":"reviews/joints/2026-10-24-knee-bounded-migration/display/389335795967d6bd672dd8c384370f8f00bb6fa48525350c077d6b8ec1d768bb.webp"},{"oid":"584d01525c6894b21144dd5cac62c1ca0cdd9a97f221146c61acd3b82d02e185","size":18930,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/joints__z-knee-r01__scoped-review/f9235046743be721cbf0da7cbcc97d9c0a54f940c7f9c383a87fdea8adc3d572.webp","type":"webp","file":"reviews/joints/2026-10-24-knee-bounded-migration/display/584d01525c6894b21144dd5cac62c1ca0cdd9a97f221146c61acd3b82d02e185.webp"},{"oid":"2f2bb36881fb7a5ff346906a6ac8ea9433e31291d0ebb073959d020739e67448","size":671700,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/candidates/joints__z-shoulder-r01/2f2bb36881fb7a5ff346906a6ac8ea9433e31291d0ebb073959d020739e67448.glb.gz","type":"glb","file":"models/joints/exports/z-shoulder-r01/shoulder_z_native.glb","encoding":"gzip","transportOid":"b1e79f02ac2b33e70fdcdf8109791e59c41c0b442a2016b6d9d83531e348ddeb","transportSize":550198},{"oid":"f9b8fb7db5fe35ef8e09d6f4e093af6852feaea15ddf2d6268ced5d87fafdcc2","size":117540,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/joints__z-shoulder-r01__scoped-review/f33df6a4aa0a0aaf27977b8e2afaddd39539c2e9b4a6ddc08454d49127b45426.webp","type":"webp","file":"reviews/joints/2026-10-24-shoulder-bounded-migration/display/f9b8fb7db5fe35ef8e09d6f4e093af6852feaea15ddf2d6268ced5d87fafdcc2.webp"},{"oid":"36e997bea028887d9a475d28e336fecf8d37577436bd98fda261c75c76531948","size":28524,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/joints__z-shoulder-r01__scoped-review/1b24f10b904f8e150ec17410124ef6d0bd8f9d749f23f389810b2ff1cc2715c8.webp","type":"webp","file":"reviews/joints/2026-10-24-shoulder-bounded-migration/display/36e997bea028887d9a475d28e336fecf8d37577436bd98fda261c75c76531948.webp"},{"oid":"cd6cd488943fe721101955322b343a8c9441f1d4ff8c5042dd4e1ca7462f7891","size":158752,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/candidates/joints__z-elbow-r01/cd6cd488943fe721101955322b343a8c9441f1d4ff8c5042dd4e1ca7462f7891.glb.gz","type":"glb","file":"models/joints/exports/z-elbow-r01/elbow_z_native.glb","encoding":"gzip","transportOid":"caac7941f9298a010bcea2fefd619994f4791ab59e8b5cd21b630ae6e9ae9092","transportSize":128205},{"oid":"5d98b09ffac33ed679ec9087d7dc8da52bbffaf98efcbdc81d2c4a79962d227d","size":104688,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/joints__z-elbow-r01__scoped-review/fbf48b03427dbb2214532afd20f8eecb0ef414b3e2a1789526668810db452f2f.webp","type":"webp","file":"reviews/joints/2026-10-24-elbow-bounded-migration/display/5d98b09ffac33ed679ec9087d7dc8da52bbffaf98efcbdc81d2c4a79962d227d.webp"},{"oid":"77d894941f7fd09602057659f31cf1189ae36031cbb3e299ca4ca585491d3a44","size":12190,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/joints__z-elbow-r01__scoped-review/4c670d45792aba6088f53165ad7a9759fc74ffb8841fc6b1353af5844d92fef0.webp","type":"webp","file":"reviews/joints/2026-10-24-elbow-bounded-migration/display/77d894941f7fd09602057659f31cf1189ae36031cbb3e299ca4ca585491d3a44.webp"}]}
+    steps:
+      - name: Configure temporary repository authentication
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          fetch-depth: 1
+          lfs: false
+          submodules: false
+          sparse-checkout: .gitattributes
+          sparse-checkout-cone-mode: false
+          persist-credentials: true
+          show-progress: false
+      - name: Verify sources, upload missing among 10 exact approved OIDs, and independently read back
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import gzip, hashlib, io, struct, json, os, pathlib, re, subprocess, urllib.parse, urllib.request
+          
+          manifest = json.loads(os.environ["APPROVED_MANIFEST"])
+          objects = manifest["objects"]
+          assert len(objects) == 10 and len({o["oid"] for o in objects}) == 10, "Unexpected object count"
+          assert sum(o["size"] for o in objects) == 1626334, "Unexpected total bytes"
+          assert sum(o["size"] for o in objects) <= 1626334, "Approved batch cap exceeded"
+          assert max(o["size"] for o in objects) <= 671700, "Per-object limit exceeded"
+          assert all(re.fullmatch("[0-9a-f]{64}", o["oid"]) and 0 < o["size"] <= 671700 for o in objects), "Invalid object constraints"
+          work = pathlib.Path(os.environ["RUNNER_TEMP"], "joints-approved-pilot")
+          work.mkdir(exist_ok=True)
+          
+          # Every source is public. Do not read or pass GitHub credentials to source URLs.
+          for o in objects:
+              parsed = urllib.parse.urlsplit(o["url"])
+              assert parsed.scheme == "https" and parsed.hostname in {"anatomy-verification.landy123007.chatgpt.site"}, "Unapproved source host"
+              assert parsed.username is None and parsed.password is None, "Credentials in URL refused"
+              encoding = o.get("encoding", "identity")
+              assert encoding in {"identity", "gzip"}, "Unapproved source encoding"
+              transfer_size = o.get("transportSize", o["size"])
+              transfer_oid = o.get("transportOid", o["oid"])
+              assert 0 < transfer_size <= 671700 and re.fullmatch("[0-9a-f]{64}", transfer_oid), "Invalid transport constraints"
+              if encoding == "gzip":
+                  assert "transportSize" in o and "transportOid" in o, "Gzip transport manifest required"
+              else:
+                  assert transfer_size == o["size"] and transfer_oid == o["oid"], "Identity transport mismatch"
+              req = urllib.request.Request(o["url"], headers={"User-Agent": "med-assets-joints-pilot/1.0", "Accept-Encoding": "identity"})
+              with urllib.request.urlopen(req, timeout=45) as response:
+                  assert urllib.parse.urlsplit(response.url).scheme == "https", "Non-HTTPS redirect refused"
+                  transport = response.read(transfer_size + 1)
+              assert len(transport) == transfer_size and hashlib.sha256(transport).hexdigest() == transfer_oid, "Transport size or SHA-256 mismatch"
+              if encoding == "gzip":
+                  with gzip.GzipFile(fileobj=io.BytesIO(transport)) as compressed:
+                      data = compressed.read(o["size"] + 1)
+              else:
+                  data = transport
+              assert len(data) == o["size"], "Source size mismatch"
+              assert hashlib.sha256(data).hexdigest() == o["oid"], "Source SHA-256 mismatch"
+              if o["type"] == "png":
+                  assert data[:8] == bytes([137,80,78,71,13,10,26,10]), "Source is not PNG"
+              elif o["type"] == "blend":
+                  assert data[:7] == b"BLENDER", "Source is not uncompressed Blender file"
+              elif o["type"] == "glb":
+                  assert data[:4] == b"glTF" and struct.unpack_from("<II",data,4) == (2,len(data)), "Invalid GLB header"
+              elif o["type"] == "webp":
+                  assert data[:4] == b"RIFF" and data[8:12] == b"WEBP" and struct.unpack_from("<I",data,4)[0]+8 == len(data), "Invalid WebP header"
+              else:
+                  raise AssertionError("Unapproved content type")
+              (work / o["oid"]).write_bytes(data)
+              print(f"SOURCE VERIFIED {o['oid']} {o['size']} bytes", flush=True)
+          
+          subprocess.run(["git", "lfs", "version"], check=True)
+          subprocess.run(["git", "lfs", "install", "--local"], check=True)
+          # Validate every LFS pointer before uploading any object.
+          for o in objects:
+              with (work / o["oid"]).open("rb") as source:
+                  clean = subprocess.run(["git", "lfs", "clean", "approved-" + o["oid"]], stdin=source, stdout=subprocess.PIPE, check=True)
+              expected = f"version https://git-lfs.github.com/spec/v1\noid sha256:{o['oid']}\nsize {o['size']}\n".encode()
+              assert clean.stdout == expected, "Generated LFS pointer mismatch"
+          # Query destination again and upload only genuinely missing approved objects.
+          preflight_endpoint = "https://github.com/qianyizhang/med-assets.git/info/lfs/objects/batch"
+          preflight_payload = json.dumps({"operation":"download","transfers":["basic"],"objects":[{"oid":o["oid"],"size":o["size"]} for o in objects]}).encode()
+          preflight_headers = {"Accept":"application/vnd.git-lfs+json","Content-Type":"application/vnd.git-lfs+json"}
+          with urllib.request.urlopen(urllib.request.Request(preflight_endpoint,data=preflight_payload,headers=preflight_headers),timeout=45) as response:
+              preflight_result = json.load(response)
+          preflight_objects = {o["oid"]:o for o in preflight_result.get("objects",[])}
+          assert set(preflight_objects) == {o["oid"] for o in objects}, "Unexpected preflight objects"
+          missing = set()
+          for o in objects:
+              remote = preflight_objects[o["oid"]]
+              assert remote.get("size") == o["size"]
+              error = remote.get("error")
+              if error:
+                  assert error.get("code") == 404, "Destination returned an error other than missing object; stop"
+                  missing.add(o["oid"])
+              else:
+                  assert remote.get("actions",{}).get("download"), "Destination unavailable"
+          for o in objects:
+              if o["oid"] not in missing:
+                  print(f"ALREADY PRESENT SKIPPED {o['oid']} {o['size']} bytes",flush=True)
+                  continue
+              subprocess.run(["git", "lfs", "push", "--object-id", "origin", o["oid"]], check=True)
+              print(f"UPLOAD COMMAND PASSED {o['oid']} {o['size']} bytes", flush=True)
+          
+          # Independent HTTP readback, without the local LFS cache or GitHub user credentials.
+          endpoint = "https://github.com/qianyizhang/med-assets.git/info/lfs/objects/batch"
+          payload = json.dumps({"operation": "download", "transfers": ["basic"], "objects": [{"oid": o["oid"], "size": o["size"]} for o in objects]}).encode()
+          headers = {"Accept": "application/vnd.git-lfs+json", "Content-Type": "application/vnd.git-lfs+json", "User-Agent": "med-assets-joints-pilot-readback/1.0"}
+          with urllib.request.urlopen(urllib.request.Request(endpoint, data=payload, headers=headers), timeout=45) as response:
+              result = json.load(response)
+          returned = {o["oid"]: o for o in result.get("objects", [])}
+          assert set(returned) == {o["oid"] for o in objects}, "Unexpected LFS Batch objects"
+          for expected in objects:
+              obj = returned[expected["oid"]]
+              assert obj.get("size") == expected["size"] and "error" not in obj, "GitHub object unavailable"
+              action = obj.get("actions", {}).get("download")
+              assert action and urllib.parse.urlsplit(action["href"]).scheme == "https", "Invalid LFS download action"
+              req = urllib.request.Request(action["href"], headers=action.get("header", {}))
+              with urllib.request.urlopen(req, timeout=45) as response:
+                  assert urllib.parse.urlsplit(response.url).scheme == "https", "Non-HTTPS LFS redirect refused"
+                  data = response.read(expected["size"] + 1)
+              assert len(data) == expected["size"] and hashlib.sha256(data).hexdigest() == expected["oid"], "GitHub LFS readback mismatch"
+              print(f"GITHUB READBACK VERIFIED {expected['oid']} {len(data)} bytes", flush=True)
+          print("PASS: 10 exact objects; 1626334 bytes; no Git asset pointer or branch-tip commit pushed by this job.", flush=True)
+          PY

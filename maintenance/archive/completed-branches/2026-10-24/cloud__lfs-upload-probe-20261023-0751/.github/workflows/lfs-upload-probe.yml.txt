@@ -1,0 +1,92 @@
+name: One-object LFS upload probe
+on:
+  push:
+    branches:
+      - cloud/lfs-upload-probe-20261023-0751
+    paths:
+      - .github/workflows/lfs-upload-probe.yml
+permissions: {}
+jobs:
+  probe:
+    if: github.repository == 'qianyizhang/med-assets' && github.ref == 'refs/heads/cloud/lfs-upload-probe-20261023-0751'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    env:
+      EXPECTED_OID: b68787a1a90912ebd75fd8c60492c34072c61dce86384775e9609d94e80e676e
+      EXPECTED_SIZE: '74136'
+      PUBLIC_SOURCE: https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/motion/diaphragm_breathing.glb
+      GIT_TERMINAL_PROMPT: '0'
+    steps:
+      - name: Configure ordinary repository authentication
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # Verified official v6 tag on 2026-10-23
+        with:
+          fetch-depth: 1
+          lfs: false
+          submodules: false
+          sparse-checkout: .gitattributes
+          sparse-checkout-cone-mode: false
+          persist-credentials: true
+          show-progress: false
+      - name: Fetch only the approved public bytes and verify
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib, os, pathlib, urllib.request
+          expected = os.environ['EXPECTED_OID']
+          size = int(os.environ['EXPECTED_SIZE'])
+          request = urllib.request.Request(os.environ['PUBLIC_SOURCE'], headers={'User-Agent': 'med-assets-lfs-probe/1.0'})
+          with urllib.request.urlopen(request, timeout=30) as response:
+              data = response.read(size + 1)
+          assert len(data) == size, 'Source size mismatch'
+          assert data[:4] == b'glTF', 'Source is not GLB bytes'
+          assert hashlib.sha256(data).hexdigest() == expected, 'Source SHA-256 mismatch'
+          pathlib.Path(os.environ['RUNNER_TEMP'], 'approved-diaphragm.glb').write_bytes(data)
+          print(f'Approved public source verified: {size} bytes, SHA-256 {expected}')
+          PY
+      - name: Upload this one OID through normal Git LFS
+        shell: bash
+        run: |
+          set -euo pipefail
+          git lfs version
+          git lfs install --local
+          git lfs clean approved-diaphragm.glb < "$RUNNER_TEMP/approved-diaphragm.glb" > "$RUNNER_TEMP/approved-diaphragm.pointer"
+          python3 - <<'PY'
+          import os, pathlib
+          expected = 'version https://git-lfs.github.com/spec/v1\noid sha256:' + os.environ['EXPECTED_OID'] + '\nsize ' + os.environ['EXPECTED_SIZE'] + '\n'
+          actual = pathlib.Path(os.environ['RUNNER_TEMP'], 'approved-diaphragm.pointer').read_text()
+          assert actual == expected, 'Generated LFS pointer mismatch'
+          PY
+          git lfs push --object-id origin "$EXPECTED_OID"
+      - name: Independently download from GitHub without local LFS cache or user credentials
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib, json, os, urllib.parse, urllib.request
+          oid = os.environ['EXPECTED_OID']
+          size = int(os.environ['EXPECTED_SIZE'])
+          endpoint = 'https://github.com/qianyizhang/med-assets.git/info/lfs/objects/batch'
+          payload = json.dumps({'operation': 'download', 'transfers': ['basic'], 'objects': [{'oid': oid, 'size': size}]}).encode()
+          headers = {'Accept': 'application/vnd.git-lfs+json', 'Content-Type': 'application/vnd.git-lfs+json', 'User-Agent': 'med-assets-lfs-probe/1.0'}
+          with urllib.request.urlopen(urllib.request.Request(endpoint, data=payload, headers=headers), timeout=30) as response:
+              result = json.load(response)
+          objects = result.get('objects', [])
+          assert len(objects) == 1, 'Unexpected LFS Batch response'
+          obj = objects[0]
+          assert obj.get('oid') == oid and obj.get('size') == size, 'LFS Batch object identity mismatch'
+          assert 'error' not in obj, 'GitHub does not serve the uploaded object'
+          action = obj.get('actions', {}).get('download')
+          assert action, 'No GitHub LFS download action'
+          assert urllib.parse.urlsplit(action['href']).scheme == 'https', 'Non-HTTPS LFS transport refused'
+          request = urllib.request.Request(action['href'], headers=action.get('header', {}))
+          with urllib.request.urlopen(request, timeout=30) as response:
+              data = response.read(size + 1)
+          assert len(data) == size, 'Downloaded LFS size mismatch'
+          assert data[:4] == b'glTF', 'Downloaded LFS content is not GLB'
+          assert hashlib.sha256(data).hexdigest() == oid, 'Downloaded LFS SHA-256 mismatch'
+          print(f'PASS: independent GitHub LFS response is {size} bytes, SHA-256 {oid}')
+          print('No Git asset pointer or branch-tip commit was pushed by this job.')
+          PY
