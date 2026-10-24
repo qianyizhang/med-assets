@@ -1,0 +1,37 @@
+{
+  "exactCandidateSha256": "966a4c225be028e616f6f813e8d4232582995a82b8121a42257c1be53087cb19",
+  "exactSourceSha256": "323d27bb76ba2c5b140ff31ad5190627eeb8d4e37cd220e4b541655d67789c1a",
+  "nativeProviderFrame": {
+    "gltfUnits": "metres",
+    "gltfUp": "+Y",
+    "nodeTransforms": "all source node transforms/parent hierarchy retained",
+    "BlenderToGltf": "(x, z, -y)",
+    "nativeBlenderBoundsM": [
+      [
+        -0.13052892684936523,
+        0.003816480515524745,
+        0.36707305908203125
+      ],
+      [
+        0.12060581147670746,
+        0.15642137825489044,
+        0.5901092886924744
+      ]
+    ],
+    "alignment": "none; do not recenter per part or mix with another dataset"
+  },
+  "sourceFramePreserved": true,
+  "extraTranslationRotationScalingOrRegistration": false,
+  "axisLabelWarning": "Camera-axis labels are not independently verified anatomical directions.",
+  "frameScope": "Combined provider pair only. No sample-derived breathing, mixed-source whole-body alignment or CT/patient registration.",
+  "nodeHierarchyTransformsPreserved": true,
+  "animationCount": 0,
+  "sourceRecord": {
+    "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/camera-visibility-gltf-yup.json",
+    "sha256": "27e84962f28bb088dffa1b5642508fb17ba723f79c9b00782c07b67ca67cba7c",
+    "bytes": 21117,
+    "includedInDraft": false,
+    "referenceKind": "external-canonical-artifact",
+    "role": "Historical frame and visibility contract"
+  }
+}

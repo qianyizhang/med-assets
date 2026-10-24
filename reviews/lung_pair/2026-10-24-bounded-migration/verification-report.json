@@ -1,0 +1,39 @@
+{
+  "scope": "Local unchanged-media identity, reference/link consistency and verifier behavior only. No new geometry, anatomy, topology, rendering, clinical, runtime or remote-availability validation.",
+  "checks": {
+    "default_tolerates_unrelated_repository_file": true,
+    "strict_rejects_extra_package_file": true,
+    "tampered_glb_rejected": true,
+    "comparison_rebinding_rejected_even_with_updated_record_hash": true,
+    "source_frame_registration_promotion_rejected": true,
+    "cartilage_warning_erasure_rejected": true,
+    "invented_airway_visibility_rejected": true,
+    "unbundled_source_inclusion_claim_rejected": true
+  },
+  "sourceIdentityChecks": {
+    "existingCanonicalSourceGlbLocallyHashed": true,
+    "existingCanonicalCandidateLocallyHashed": true,
+    "allJsonAndChunkHeaderBytesIdentical": true,
+    "allNonNormalAccessorsByteIdentical": true,
+    "changedBytes": 13746,
+    "changedNormalRows": 1501,
+    "changesRestrictedToHistoricalSelectedNormalRows": true,
+    "rawSourceCopied": false,
+    "networkRequests": 0
+  },
+  "transportChecks": {
+    "storedGzipObjectsLocallyChecked": 1,
+    "decodedBytesMatchCanonicalGlb": true,
+    "allSelectedWebPsMatchPublicMap": true,
+    "freshAvailabilityChecked": false
+  },
+  "presentationPrivacy": {
+    "selectedWebPsViewed": 3,
+    "privatePathsOrUserDetailsObserved": false,
+    "imagesReencodedOrChanged": false,
+    "newProseInternalRoleLabelsObserved": false
+  },
+  "markdownLinks": "All local links checked by verifier; historical recipes/reports/native PNGs and original source GLB explicitly external.",
+  "countDelta": 0,
+  "gateDelta": 0
+}

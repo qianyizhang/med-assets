@@ -1,0 +1,1227 @@
+{
+  "exactCandidateSha256": "966a4c225be028e616f6f813e8d4232582995a82b8121a42257c1be53087cb19",
+  "historicalReviewDecisionUTC": "2026-10-23T05:33:45Z",
+  "historicalDecision": "Prior scoped static visual improvement only.",
+  "normalOnlyDerivative": {
+    "candidateSha256": "966a4c225be028e616f6f813e8d4232582995a82b8121a42257c1be53087cb19",
+    "sourceSha256": "323d27bb76ba2c5b140ff31ad5190627eeb8d4e37cd220e4b541655d67789c1a",
+    "method": "NORMAL-only reconciliation at exact coincident POSITION tuples between provider bronchopulmonary segment patches within the SAME named lobe. Hilum and bronchial nodes never edited. Positions shared with any hilum or other lobe protected. Normal differences >30 degrees and every within-patch split normal protected conservatively. No mesh welding, position/triangle/topology/node transform/label/material/animation changes. No smoothing over actual interlobar fissures.",
+    "changedNormalRows": 1501,
+    "changedBytes": 13746,
+    "allChangedBytesWithinSelectedNormals": true,
+    "allJsonBytesIdentical": true,
+    "allNonNormalAccessorsByteIdentical": true,
+    "protectedNonNormalAccessorIds": [
+      0,
+      1,
+      3,
+      4,
+      6,
+      7,
+      9,
+      10,
+      12,
+      13,
+      15,
+      16,
+      18,
+      19,
+      21,
+      22,
+      24,
+      25,
+      27,
+      28,
+      30,
+      31,
+      33,
+      34,
+      36,
+      37,
+      39,
+      40,
+      42,
+      43,
+      45,
+      46,
+      48,
+      49,
+      51,
+      52,
+      54,
+      55,
+      57,
+      58,
+      60,
+      61,
+      63,
+      64,
+      66,
+      67,
+      69,
+      70,
+      72,
+      73,
+      75,
+      76,
+      78,
+      79,
+      81,
+      82,
+      84,
+      85,
+      86,
+      88,
+      89,
+      90,
+      92,
+      93,
+      95,
+      96,
+      98,
+      99,
+      101,
+      102,
+      104,
+      105,
+      107,
+      108,
+      110,
+      111,
+      113,
+      114,
+      116,
+      117,
+      119,
+      120,
+      122,
+      123,
+      125,
+      126,
+      128,
+      129,
+      130,
+      132,
+      133,
+      134,
+      136,
+      137,
+      139,
+      140,
+      142,
+      143,
+      145,
+      146,
+      148,
+      149,
+      151,
+      152,
+      154,
+      155,
+      157,
+      158,
+      160,
+      161,
+      163,
+      164,
+      166,
+      167,
+      169,
+      170
+    ],
+    "normalRotationDegrees": {
+      "max": 17.202789306640625,
+      "rms": 5.040865146542656,
+      "p95": 10.652349472045898
+    },
+    "skippedGroupCount": 87
+  },
+  "meshStats": [
+    {
+      "name": "VH_F_hilum_L",
+      "ancestry": [
+        "VH_F_hilum_L",
+        "VH_F_left_lungs_L",
+        "VH_F_lungs",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 764,
+      "faces": 1414,
+      "rawBoundaryEdges": 110,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 764,
+        "boundaryEdges": 110,
+        "nonManifoldEdges": 110
+      }
+    },
+    {
+      "name": "VH_F_hilum_upper_L",
+      "ancestry": [
+        "VH_F_hilum_upper_L",
+        "VH_F_L_lung_upper_lobe",
+        "VH_F_left_lungs_L",
+        "VH_F_lungs",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 425,
+      "faces": 792,
+      "rawBoundaryEdges": 56,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 425,
+        "boundaryEdges": 56,
+        "nonManifoldEdges": 56
+      }
+    },
+    {
+      "name": "VH_F_lingula_superior_bronchopulmonary_segment",
+      "ancestry": [
+        "VH_F_lingula_superior_bronchopulmonary_segment",
+        "VH_F_L_lung_upper_lobe",
+        "VH_F_left_lungs_L",
+        "VH_F_lungs",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 738,
+      "faces": 1312,
+      "rawBoundaryEdges": 162,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 738,
+        "boundaryEdges": 162,
+        "nonManifoldEdges": 162
+      }
+    },
+    {
+      "name": "VH_F_left_anterior_bronchopulmonary_segment",
+      "ancestry": [
+        "VH_F_left_anterior_bronchopulmonary_segment",
+        "VH_F_L_lung_upper_lobe",
+        "VH_F_left_lungs_L",
+        "VH_F_lungs",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 588,
+      "faces": 1024,
+      "rawBoundaryEdges": 150,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 588,
+        "boundaryEdges": 150,
+        "nonManifoldEdges": 150
+      }
+    },
+    {
+      "name": "VH_F_left_apical_bronchopulmonary_segment",
+      "ancestry": [
+        "VH_F_left_apical_bronchopulmonary_segment",
+        "VH_F_L_lung_upper_lobe",
+        "VH_F_left_lungs_L",
+        "VH_F_lungs",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 268,
+      "faces": 458,
+      "rawBoundaryEdges": 76,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 268,
+        "boundaryEdges": 76,
+        "nonManifoldEdges": 76
+      }
+    },
+    {
+      "name": "VH_F_left_posterior_bronchopulmonary_segment",
+      "ancestry": [
+        "VH_F_left_posterior_bronchopulmonary_segment",
+        "VH_F_L_lung_upper_lobe",
+        "VH_F_left_lungs_L",
+        "VH_F_lungs",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 553,
+      "faces": 1028,
+      "rawBoundaryEdges": 76,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 553,
+        "boundaryEdges": 76,
+        "nonManifoldEdges": 76
+      }
+    },
+    {
+      "name": "VH_F_lingula_inferior_bronchopulmonary_segment",
+      "ancestry": [
+        "VH_F_lingula_inferior_bronchopulmonary_segment",
+        "VH_F_L_lung_upper_lobe",
+        "VH_F_left_lungs_L",
+        "VH_F_lungs",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 614,
+      "faces": 1142,
+      "rawBoundaryEdges": 82,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 611,
+        "boundaryEdges": 78,
+        "nonManifoldEdges": 78
+      }
+    },
+    {
+      "name": "VH_F_left_superior_bronchopulmonary_segment",
+      "ancestry": [
+        "VH_F_left_superior_bronchopulmonary_segment",
+        "VH_F_L_lung_lower_lobe",
+        "VH_F_left_lungs_L",
+        "VH_F_lungs",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 721,
+      "faces": 1359,
+      "rawBoundaryEdges": 81,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 721,
+        "boundaryEdges": 81,
+        "nonManifoldEdges": 81
+      }
+    },
+    {
+      "name": "VH_F_left_posterior_basal_bronchopulmonary_segment",
+      "ancestry": [
+        "VH_F_left_posterior_basal_bronchopulmonary_segment",
+        "VH_F_L_lung_lower_lobe",
+        "VH_F_left_lungs_L",
+        "VH_F_lungs",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 883,
+      "faces": 1674,
+      "rawBoundaryEdges": 90,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 883,
+        "boundaryEdges": 90,
+        "nonManifoldEdges": 90
+      }
+    },
+    {
+      "name": "VH_F_left_anterior_basal_bronchopulmonary_segment",
+      "ancestry": [
+        "VH_F_left_anterior_basal_bronchopulmonary_segment",
+        "VH_F_L_lung_lower_lobe",
+        "VH_F_left_lungs_L",
+        "VH_F_lungs",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 356,
+      "faces": 606,
+      "rawBoundaryEdges": 104,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 356,
+        "boundaryEdges": 104,
+        "nonManifoldEdges": 104
+      }
+    },
+    {
+      "name": "VH_F_left_lateral_basal_bronchopulmonary_segment",
+      "ancestry": [
+        "VH_F_left_lateral_basal_bronchopulmonary_segment",
+        "VH_F_L_lung_lower_lobe",
+        "VH_F_left_lungs_L",
+        "VH_F_lungs",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 350,
+      "faces": 616,
+      "rawBoundaryEdges": 82,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 350,
+        "boundaryEdges": 82,
+        "nonManifoldEdges": 82
+      }
+    },
+    {
+      "name": "VH_F_left_medial_basal_bronchopulmonary_segment",
+      "ancestry": [
+        "VH_F_left_medial_basal_bronchopulmonary_segment",
+        "VH_F_L_lung_lower_lobe",
+        "VH_F_left_lungs_L",
+        "VH_F_lungs",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 933,
+      "faces": 1741,
+      "rawBoundaryEdges": 123,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 933,
+        "boundaryEdges": 123,
+        "nonManifoldEdges": 123
+      }
+    },
+    {
+      "name": "VH_F_hilum_lower_L",
+      "ancestry": [
+        "VH_F_hilum_lower_L",
+        "VH_F_L_lung_lower_lobe",
+        "VH_F_left_lungs_L",
+        "VH_F_lungs",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 339,
+      "faces": 622,
+      "rawBoundaryEdges": 54,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 339,
+        "boundaryEdges": 54,
+        "nonManifoldEdges": 54
+      }
+    },
+    {
+      "name": "VH_F_hilum_R",
+      "ancestry": [
+        "VH_F_hilum_R",
+        "VH_F_lungs_R",
+        "VH_F_lungs",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 1992,
+      "faces": 3784,
+      "rawBoundaryEdges": 202,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 1992,
+        "boundaryEdges": 202,
+        "nonManifoldEdges": 202
+      }
+    },
+    {
+      "name": "VH_F_right_medial_basal_bronchopulmonary_segment",
+      "ancestry": [
+        "VH_F_right_medial_basal_bronchopulmonary_segment",
+        "VH_F_R_lung_lower_lobe",
+        "VH_F_lungs_R",
+        "VH_F_lungs",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 250,
+      "faces": 434,
+      "rawBoundaryEdges": 64,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 250,
+        "boundaryEdges": 64,
+        "nonManifoldEdges": 64
+      }
+    },
+    {
+      "name": "VH_F_right_posterior_basal_bronchopulmonary_segment",
+      "ancestry": [
+        "VH_F_right_posterior_basal_bronchopulmonary_segment",
+        "VH_F_R_lung_lower_lobe",
+        "VH_F_lungs_R",
+        "VH_F_lungs",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 852,
+      "faces": 1602,
+      "rawBoundaryEdges": 100,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 852,
+        "boundaryEdges": 100,
+        "nonManifoldEdges": 100
+      }
+    },
+    {
+      "name": "VH_F_right_anterior_basal_bronchopulmonary_segment",
+      "ancestry": [
+        "VH_F_right_anterior_basal_bronchopulmonary_segment",
+        "VH_F_R_lung_lower_lobe",
+        "VH_F_lungs_R",
+        "VH_F_lungs",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 1164,
+      "faces": 2202,
+      "rawBoundaryEdges": 124,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 1164,
+        "boundaryEdges": 124,
+        "nonManifoldEdges": 124
+      }
+    },
+    {
+      "name": "VH_F_right_lateral_basal_bronchopulmonary_segment",
+      "ancestry": [
+        "VH_F_right_lateral_basal_bronchopulmonary_segment",
+        "VH_F_R_lung_lower_lobe",
+        "VH_F_lungs_R",
+        "VH_F_lungs",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 450,
+      "faces": 784,
+      "rawBoundaryEdges": 114,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 450,
+        "boundaryEdges": 114,
+        "nonManifoldEdges": 114
+      }
+    },
+    {
+      "name": "VH_F_right_superior_bronchopulmonary_segment",
+      "ancestry": [
+        "VH_F_right_superior_bronchopulmonary_segment",
+        "VH_F_R_lung_lower_lobe",
+        "VH_F_lungs_R",
+        "VH_F_lungs",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 1131,
+      "faces": 2158,
+      "rawBoundaryEdges": 102,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 1131,
+        "boundaryEdges": 102,
+        "nonManifoldEdges": 102
+      }
+    },
+    {
+      "name": "VH_F_hilum_lower_R",
+      "ancestry": [
+        "VH_F_hilum_lower_R",
+        "VH_F_R_lung_lower_lobe",
+        "VH_F_lungs_R",
+        "VH_F_lungs",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 1170,
+      "faces": 2276,
+      "rawBoundaryEdges": 70,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 1170,
+        "boundaryEdges": 70,
+        "nonManifoldEdges": 70
+      }
+    },
+    {
+      "name": "VH_F_right_medial_bronchopulmonary_segment",
+      "ancestry": [
+        "VH_F_right_medial_bronchopulmonary_segment",
+        "VH_F_R_lung_middle_lobe",
+        "VH_F_lungs_R",
+        "VH_F_lungs",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 1024,
+      "faces": 1950,
+      "rawBoundaryEdges": 96,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 1024,
+        "boundaryEdges": 96,
+        "nonManifoldEdges": 96
+      }
+    },
+    {
+      "name": "VH_F_right_lateral_bronchopulmonary_segmennt",
+      "ancestry": [
+        "VH_F_right_lateral_bronchopulmonary_segmennt",
+        "VH_F_R_lung_middle_lobe",
+        "VH_F_lungs_R",
+        "VH_F_lungs",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 612,
+      "faces": 1134,
+      "rawBoundaryEdges": 88,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 612,
+        "boundaryEdges": 88,
+        "nonManifoldEdges": 88
+      }
+    },
+    {
+      "name": "VH_F_hilum_middle_R",
+      "ancestry": [
+        "VH_F_hilum_middle_R",
+        "VH_F_R_lung_middle_lobe",
+        "VH_F_lungs_R",
+        "VH_F_lungs",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 274,
+      "faces": 482,
+      "rawBoundaryEdges": 64,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 274,
+        "boundaryEdges": 64,
+        "nonManifoldEdges": 64
+      }
+    },
+    {
+      "name": "VH_F_right_anterior_bronchopulmonary_segm",
+      "ancestry": [
+        "VH_F_right_anterior_bronchopulmonary_segm",
+        "VH_F_R_lung_upper_lobe",
+        "VH_F_lungs_R",
+        "VH_F_lungs",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 1425,
+      "faces": 2744,
+      "rawBoundaryEdges": 104,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 1425,
+        "boundaryEdges": 104,
+        "nonManifoldEdges": 104
+      }
+    },
+    {
+      "name": "VH_F_right_apical_bronchopulmonary_segment",
+      "ancestry": [
+        "VH_F_right_apical_bronchopulmonary_segment",
+        "VH_F_R_lung_upper_lobe",
+        "VH_F_lungs_R",
+        "VH_F_lungs",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 625,
+      "faces": 1176,
+      "rawBoundaryEdges": 72,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 625,
+        "boundaryEdges": 72,
+        "nonManifoldEdges": 72
+      }
+    },
+    {
+      "name": "VH_F_right_posterior_bronchopulmonary_segment",
+      "ancestry": [
+        "VH_F_right_posterior_bronchopulmonary_segment",
+        "VH_F_R_lung_upper_lobe",
+        "VH_F_lungs_R",
+        "VH_F_lungs",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 656,
+      "faces": 1224,
+      "rawBoundaryEdges": 86,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 656,
+        "boundaryEdges": 86,
+        "nonManifoldEdges": 86
+      }
+    },
+    {
+      "name": "VH_F_hilum_upper_R",
+      "ancestry": [
+        "VH_F_hilum_upper_R",
+        "VH_F_R_lung_upper_lobe",
+        "VH_F_lungs_R",
+        "VH_F_lungs",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 548,
+      "faces": 1026,
+      "rawBoundaryEdges": 68,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 548,
+        "boundaryEdges": 68,
+        "nonManifoldEdges": 68
+      }
+    },
+    {
+      "name": "VH_F_cartilage_of_lobar_bronchus_L",
+      "ancestry": [
+        "VH_F_cartilage_of_lobar_bronchus_L",
+        "VH_F_left_bronchial_cartilage",
+        "VH_F_bronchi_L",
+        "VH_F_bronchi",
+        "VH_F_tracheobronchial_tree",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 42713,
+      "faces": 21358,
+      "rawBoundaryEdges": 42716,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 10950,
+        "boundaryEdges": 528,
+        "nonManifoldEdges": 528
+      }
+    },
+    {
+      "name": "VH_F_cartilage_of_tertiary_bronchus_L",
+      "ancestry": [
+        "VH_F_cartilage_of_tertiary_bronchus_L",
+        "VH_F_left_bronchial_cartilage",
+        "VH_F_bronchi_L",
+        "VH_F_bronchi",
+        "VH_F_tracheobronchial_tree",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 176693,
+      "faces": 88352,
+      "rawBoundaryEdges": 176704,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 44485,
+        "boundaryEdges": 308,
+        "nonManifoldEdges": 308
+      }
+    },
+    {
+      "name": "VH_F_left_superior_lobar_bronchus",
+      "ancestry": [
+        "VH_F_left_superior_lobar_bronchus",
+        "VH_F_lobar_bronchi_L",
+        "VH_F_bronchi_L",
+        "VH_F_bronchi",
+        "VH_F_tracheobronchial_tree",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 230,
+      "faces": 385,
+      "rawBoundaryEdges": 81,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 230,
+        "boundaryEdges": 81,
+        "nonManifoldEdges": 81
+      }
+    },
+    {
+      "name": "VH_F_left_inferior_lobar_bronchus",
+      "ancestry": [
+        "VH_F_left_inferior_lobar_bronchus",
+        "VH_F_lobar_bronchi_L",
+        "VH_F_bronchi_L",
+        "VH_F_bronchi",
+        "VH_F_tracheobronchial_tree",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 323,
+      "faces": 558,
+      "rawBoundaryEdges": 96,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 323,
+        "boundaryEdges": 96,
+        "nonManifoldEdges": 96
+      }
+    },
+    {
+      "name": "VH_F_left_anterior_basal_bronchus",
+      "ancestry": [
+        "VH_F_left_anterior_basal_bronchus",
+        "VH_F_tertiary_bronchi_L",
+        "VH_F_bronchi_L",
+        "VH_F_bronchi",
+        "VH_F_tracheobronchial_tree",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 215,
+      "faces": 395,
+      "rawBoundaryEdges": 39,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 215,
+        "boundaryEdges": 39,
+        "nonManifoldEdges": 39
+      }
+    },
+    {
+      "name": "VH_F_left_lingula_superior_bronchus",
+      "ancestry": [
+        "VH_F_left_lingula_superior_bronchus",
+        "VH_F_tertiary_bronchi_L",
+        "VH_F_bronchi_L",
+        "VH_F_bronchi",
+        "VH_F_tracheobronchial_tree",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 558,
+      "faces": 1052,
+      "rawBoundaryEdges": 72,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 558,
+        "boundaryEdges": 72,
+        "nonManifoldEdges": 72
+      }
+    },
+    {
+      "name": "VH_F_left_apical_bronchus",
+      "ancestry": [
+        "VH_F_left_apical_bronchus",
+        "VH_F_tertiary_bronchi_L",
+        "VH_F_bronchi_L",
+        "VH_F_bronchi",
+        "VH_F_tracheobronchial_tree",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 152,
+      "faces": 270,
+      "rawBoundaryEdges": 36,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 152,
+        "boundaryEdges": 36,
+        "nonManifoldEdges": 36
+      }
+    },
+    {
+      "name": "VH_F_left_posterior_basal_bronchus",
+      "ancestry": [
+        "VH_F_left_posterior_basal_bronchus",
+        "VH_F_tertiary_bronchi_L",
+        "VH_F_bronchi_L",
+        "VH_F_bronchi",
+        "VH_F_tracheobronchial_tree",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 404,
+      "faces": 750,
+      "rawBoundaryEdges": 70,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 404,
+        "boundaryEdges": 70,
+        "nonManifoldEdges": 70
+      }
+    },
+    {
+      "name": "VH_F_left_medial_basal_bronchus",
+      "ancestry": [
+        "VH_F_left_medial_basal_bronchus",
+        "VH_F_tertiary_bronchi_L",
+        "VH_F_bronchi_L",
+        "VH_F_bronchi",
+        "VH_F_tracheobronchial_tree",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 206,
+      "faces": 377,
+      "rawBoundaryEdges": 39,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 206,
+        "boundaryEdges": 39,
+        "nonManifoldEdges": 39
+      }
+    },
+    {
+      "name": "VH_F_left_superior_bronchus",
+      "ancestry": [
+        "VH_F_left_superior_bronchus",
+        "VH_F_tertiary_bronchi_L",
+        "VH_F_bronchi_L",
+        "VH_F_bronchi",
+        "VH_F_tracheobronchial_tree",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 329,
+      "faces": 610,
+      "rawBoundaryEdges": 60,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 329,
+        "boundaryEdges": 60,
+        "nonManifoldEdges": 60
+      }
+    },
+    {
+      "name": "VH_F_left_anterior_bronchus",
+      "ancestry": [
+        "VH_F_left_anterior_bronchus",
+        "VH_F_tertiary_bronchi_L",
+        "VH_F_bronchi_L",
+        "VH_F_bronchi",
+        "VH_F_tracheobronchial_tree",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 289,
+      "faces": 530,
+      "rawBoundaryEdges": 54,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 289,
+        "boundaryEdges": 54,
+        "nonManifoldEdges": 54
+      }
+    },
+    {
+      "name": "VH_F_left_posterior_bronchus",
+      "ancestry": [
+        "VH_F_left_posterior_bronchus",
+        "VH_F_tertiary_bronchi_L",
+        "VH_F_bronchi_L",
+        "VH_F_bronchi",
+        "VH_F_tracheobronchial_tree",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 356,
+      "faces": 666,
+      "rawBoundaryEdges": 56,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 356,
+        "boundaryEdges": 56,
+        "nonManifoldEdges": 56
+      }
+    },
+    {
+      "name": "VH_F_left_lateral_basal_bronchus",
+      "ancestry": [
+        "VH_F_left_lateral_basal_bronchus",
+        "VH_F_tertiary_bronchi_L",
+        "VH_F_bronchi_L",
+        "VH_F_bronchi",
+        "VH_F_tracheobronchial_tree",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 274,
+      "faces": 510,
+      "rawBoundaryEdges": 44,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 274,
+        "boundaryEdges": 44,
+        "nonManifoldEdges": 44
+      }
+    },
+    {
+      "name": "VH_F_left_lingula_inferior_bronchi",
+      "ancestry": [
+        "VH_F_left_lingula_inferior_bronchi",
+        "VH_F_tertiary_bronchi_L",
+        "VH_F_bronchi_L",
+        "VH_F_bronchi",
+        "VH_F_tracheobronchial_tree",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 580,
+      "faces": 1055,
+      "rawBoundaryEdges": 117,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 565,
+        "boundaryEdges": 89,
+        "nonManifoldEdges": 89
+      }
+    },
+    {
+      "name": "VH_F_cartilage_of_lobar_bronchus_R",
+      "ancestry": [
+        "VH_F_cartilage_of_lobar_bronchus_R",
+        "VH_F_right_bronchial_cartilage",
+        "VH_F_bronchi_R",
+        "VH_F_bronchi",
+        "VH_F_tracheobronchial_tree",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 58431,
+      "faces": 29218,
+      "rawBoundaryEdges": 58436,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 15015,
+        "boundaryEdges": 844,
+        "nonManifoldEdges": 844
+      }
+    },
+    {
+      "name": "VH_F_cartilage_of_tertiary_bronchus_R",
+      "ancestry": [
+        "VH_F_cartilage_of_tertiary_bronchus_R",
+        "VH_F_right_bronchial_cartilage",
+        "VH_F_bronchi_R",
+        "VH_F_bronchi",
+        "VH_F_tracheobronchial_tree",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 211565,
+      "faces": 105786,
+      "rawBoundaryEdges": 211572,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 53293,
+        "boundaryEdges": 518,
+        "nonManifoldEdges": 522
+      }
+    },
+    {
+      "name": "VH_F_right_middle_lobar_bronchus",
+      "ancestry": [
+        "VH_F_right_middle_lobar_bronchus",
+        "VH_F_lobar_bronchus_R",
+        "VH_F_bronchi_R",
+        "VH_F_bronchi",
+        "VH_F_tracheobronchial_tree",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 153,
+      "faces": 262,
+      "rawBoundaryEdges": 46,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 153,
+        "boundaryEdges": 46,
+        "nonManifoldEdges": 46
+      }
+    },
+    {
+      "name": "VH_F_right_superior_lobar_bronchus",
+      "ancestry": [
+        "VH_F_right_superior_lobar_bronchus",
+        "VH_F_lobar_bronchus_R",
+        "VH_F_bronchi_R",
+        "VH_F_bronchi",
+        "VH_F_tracheobronchial_tree",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 141,
+      "faces": 224,
+      "rawBoundaryEdges": 58,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 141,
+        "boundaryEdges": 58,
+        "nonManifoldEdges": 58
+      }
+    },
+    {
+      "name": "VH_F_right_inferior_lobar_bronchus",
+      "ancestry": [
+        "VH_F_right_inferior_lobar_bronchus",
+        "VH_F_lobar_bronchus_R",
+        "VH_F_bronchi_R",
+        "VH_F_bronchi",
+        "VH_F_tracheobronchial_tree",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 399,
+      "faces": 692,
+      "rawBoundaryEdges": 120,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 399,
+        "boundaryEdges": 120,
+        "nonManifoldEdges": 120
+      }
+    },
+    {
+      "name": "VH_F_right_anterior_bronchus",
+      "ancestry": [
+        "VH_F_right_anterior_bronchus",
+        "VH_F_tertiary_bronchi_R",
+        "VH_F_bronchi_R",
+        "VH_F_bronchi",
+        "VH_F_tracheobronchial_tree",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 629,
+      "faces": 1197,
+      "rawBoundaryEdges": 71,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 629,
+        "boundaryEdges": 71,
+        "nonManifoldEdges": 71
+      }
+    },
+    {
+      "name": "VH_F_right_lateral_basal_bronchus",
+      "ancestry": [
+        "VH_F_right_lateral_basal_bronchus",
+        "VH_F_tertiary_bronchi_R",
+        "VH_F_bronchi_R",
+        "VH_F_bronchi",
+        "VH_F_tracheobronchial_tree",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 204,
+      "faces": 376,
+      "rawBoundaryEdges": 36,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 204,
+        "boundaryEdges": 36,
+        "nonManifoldEdges": 36
+      }
+    },
+    {
+      "name": "VH_F_right_lateral_bronchus",
+      "ancestry": [
+        "VH_F_right_lateral_bronchus",
+        "VH_F_tertiary_bronchi_R",
+        "VH_F_bronchi_R",
+        "VH_F_bronchi",
+        "VH_F_tracheobronchial_tree",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 251,
+      "faces": 458,
+      "rawBoundaryEdges": 52,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 251,
+        "boundaryEdges": 52,
+        "nonManifoldEdges": 52
+      }
+    },
+    {
+      "name": "VH_F_right_medial_bronchus",
+      "ancestry": [
+        "VH_F_right_medial_bronchus",
+        "VH_F_tertiary_bronchi_R",
+        "VH_F_bronchi_R",
+        "VH_F_bronchi",
+        "VH_F_tracheobronchial_tree",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 327,
+      "faces": 612,
+      "rawBoundaryEdges": 50,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 327,
+        "boundaryEdges": 50,
+        "nonManifoldEdges": 50
+      }
+    },
+    {
+      "name": "VH_F_right_medial_basal_bronchus",
+      "ancestry": [
+        "VH_F_right_medial_basal_bronchus",
+        "VH_F_tertiary_bronchi_R",
+        "VH_F_bronchi_R",
+        "VH_F_bronchi",
+        "VH_F_tracheobronchial_tree",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 259,
+      "faces": 474,
+      "rawBoundaryEdges": 52,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 259,
+        "boundaryEdges": 52,
+        "nonManifoldEdges": 52
+      }
+    },
+    {
+      "name": "VH_F_right_posterior_basal_bronchus",
+      "ancestry": [
+        "VH_F_right_posterior_basal_bronchus",
+        "VH_F_tertiary_bronchi_R",
+        "VH_F_bronchi_R",
+        "VH_F_bronchi",
+        "VH_F_tracheobronchial_tree",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 279,
+      "faces": 522,
+      "rawBoundaryEdges": 40,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 279,
+        "boundaryEdges": 40,
+        "nonManifoldEdges": 40
+      }
+    },
+    {
+      "name": "VH_F_right_posterior_bronchus",
+      "ancestry": [
+        "VH_F_right_posterior_bronchus",
+        "VH_F_tertiary_bronchi_R",
+        "VH_F_bronchi_R",
+        "VH_F_bronchi",
+        "VH_F_tracheobronchial_tree",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 442,
+      "faces": 832,
+      "rawBoundaryEdges": 62,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 442,
+        "boundaryEdges": 62,
+        "nonManifoldEdges": 62
+      }
+    },
+    {
+      "name": "VH_F_right_superior_bronchus",
+      "ancestry": [
+        "VH_F_right_superior_bronchus",
+        "VH_F_tertiary_bronchi_R",
+        "VH_F_bronchi_R",
+        "VH_F_bronchi",
+        "VH_F_tracheobronchial_tree",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 377,
+      "faces": 708,
+      "rawBoundaryEdges": 56,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 377,
+        "boundaryEdges": 56,
+        "nonManifoldEdges": 56
+      }
+    },
+    {
+      "name": "VH_F_right_apical_bronchus",
+      "ancestry": [
+        "VH_F_right_apical_bronchus",
+        "VH_F_tertiary_bronchi_R",
+        "VH_F_bronchi_R",
+        "VH_F_bronchi",
+        "VH_F_tracheobronchial_tree",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 677,
+      "faces": 1270,
+      "rawBoundaryEdges": 104,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 677,
+        "boundaryEdges": 104,
+        "nonManifoldEdges": 104
+      }
+    },
+    {
+      "name": "VH_F_right_anterior_basal_bronchus",
+      "ancestry": [
+        "VH_F_right_anterior_basal_bronchus",
+        "VH_F_tertiary_bronchi_R",
+        "VH_F_bronchi_R",
+        "VH_F_bronchi",
+        "VH_F_tracheobronchial_tree",
+        "VH_F_respiratory_system"
+      ],
+      "rawVertices": 441,
+      "faces": 834,
+      "rawBoundaryEdges": 60,
+      "diagnosticWeldOnly1e7m": {
+        "vertices": 441,
+        "boundaryEdges": 60,
+        "nonManifoldEdges": 60
+      }
+    }
+  ],
+  "diagnosticMethod": "Blender BMesh remove_doubles(dist=1e-7 metres = 0.1 micrometre), diagnostic copy only. NOT an exact floating-point tuple remap proof; not a repair or new migration-time topology audit.",
+  "reportedTotals": {
+    "meshes": 56,
+    "rawVertices": 517602,
+    "faces": 297097,
+    "rawBoundaryEdges": 493599,
+    "diagnosticBoundaryEdges": 6337,
+    "diagnosticNonManifoldEdges": 6341,
+    "componentsWithOpenBoundaries": 56,
+    "extraRightTertiaryCartilageNonBoundaryNonManifoldEdges": 4
+  },
+  "warnings": {
+    "en": [
+      "All 56 component meshes retain source open annotation boundaries; not watertight solids.",
+      "Right tertiary bronchial cartilage has 4 additional non-boundary non-manifold edges under diagnostic weld; unmodified.",
+      "Provider released intrapulmonary bronchi only; main bronchi, trachea and larynx removed in v1.3.",
+      "Source patch labels and hilus surfaces do not establish complete tissue microanatomy."
+    ],
+    "zh": [
+      "56 个来源组件均保留开放标注边界，并非封闭实体。",
+      "右三级支气管软骨额外保留 4 条非边界非流形边。",
+      "来源仅提供肺内分支；v1.3 移除了主支气管、气管和喉。",
+      "来源分段及肺门表面不等于完整组织微观解剖。"
+    ]
+  },
+  "sourceRecords": [
+    {
+      "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/normal-derivative-audit.json",
+      "sha256": "f250e1cee8000901e9827c3dd41d13c79c56eb979717c1c837fdd94b92d1964b",
+      "bytes": 861330,
+      "includedInDraft": false,
+      "referenceKind": "external-canonical-artifact",
+      "role": "Historical receipt; external to this bounded draft"
+    },
+    {
+      "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/exact-candidate-audit.json",
+      "sha256": "0fef803af97be23fd6e6b90247082eba01fc637c4b8300a5faed288f65853b59",
+      "bytes": 77517,
+      "includedInDraft": false,
+      "referenceKind": "external-canonical-artifact",
+      "role": "Historical receipt; external to this bounded draft"
+    },
+    {
+      "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/review-outcome.json",
+      "sha256": "06df9187b2bab3032f615c41b1bc69ed8f49be6c82a83336e3714eda5ca3328a",
+      "bytes": 6845,
+      "includedInDraft": false,
+      "referenceKind": "external-canonical-artifact",
+      "role": "Historical receipt; external to this bounded draft"
+    }
+  ]
+}

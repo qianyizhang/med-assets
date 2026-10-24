@@ -1,0 +1,281 @@
+{
+  "schema": "bounded-hra-lung-study-v1",
+  "assetId": "lung_pair",
+  "variantId": "lung_pair__hra-female-normals-r02",
+  "model": {
+    "path": "models/lung_pair/exports/hra-female-normals-r02/lung_female_hra_normals_r02.glb",
+    "sha256": "966a4c225be028e616f6f813e8d4232582995a82b8121a42257c1be53087cb19",
+    "bytes": 23253972
+  },
+  "modelCount": 1,
+  "scope": {
+    "en": "One combined female HRA lung/lobe pair with supplied intrapulmonary branches. NORMAL-only patch-seam shading correction; source positions, topology, hierarchy and frame unchanged. No trachea/main bronchi, breathing, whole-body registration or clinical validation.",
+    "zh": "一项女性 HRA 双肺/肺叶及来源肺内分支研究。仅校正 NORMAL 拼片接缝明暗；来源位置、拓扑、层级与坐标不变。不包含气管/主支气管、呼吸运动、全身配准或临床验证。"
+  },
+  "gates": {
+    "technical": "pass-with-limitations",
+    "visual": "passed",
+    "anatomy": "unreviewed",
+    "runtime": "unverified"
+  },
+  "gatesAreHistoricalUnchanged": true,
+  "migrationDate": "2026-10-24",
+  "priorReviewIdentity": {
+    "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/record.json",
+    "sha256": "b8879dc0d2dcc5cdd019bb511d393d4a249c867183b3f1c70f58740a44027d86",
+    "bytes": 29209,
+    "includedInDraft": false,
+    "referenceKind": "external-canonical-artifact",
+    "role": "Historical scoped review; no new quality review"
+  },
+  "sourceRecords": {
+    "manifest": "sources/datasets/hra/lung-female-v1.3/bounded-migration-2026-10-24/external-source-map.json",
+    "externalRawSource": true,
+    "componentNodeNames": [
+      "VH_F_hilum_L",
+      "VH_F_hilum_upper_L",
+      "VH_F_lingula_superior_bronchopulmonary_segment",
+      "VH_F_left_anterior_bronchopulmonary_segment",
+      "VH_F_left_apical_bronchopulmonary_segment",
+      "VH_F_left_posterior_bronchopulmonary_segment",
+      "VH_F_lingula_inferior_bronchopulmonary_segment",
+      "VH_F_left_superior_bronchopulmonary_segment",
+      "VH_F_left_posterior_basal_bronchopulmonary_segment",
+      "VH_F_left_anterior_basal_bronchopulmonary_segment",
+      "VH_F_left_lateral_basal_bronchopulmonary_segment",
+      "VH_F_left_medial_basal_bronchopulmonary_segment",
+      "VH_F_hilum_lower_L",
+      "VH_F_hilum_R",
+      "VH_F_right_medial_basal_bronchopulmonary_segment",
+      "VH_F_right_posterior_basal_bronchopulmonary_segment",
+      "VH_F_right_anterior_basal_bronchopulmonary_segment",
+      "VH_F_right_lateral_basal_bronchopulmonary_segment",
+      "VH_F_right_superior_bronchopulmonary_segment",
+      "VH_F_hilum_lower_R",
+      "VH_F_right_medial_bronchopulmonary_segment",
+      "VH_F_right_lateral_bronchopulmonary_segmennt",
+      "VH_F_hilum_middle_R",
+      "VH_F_right_anterior_bronchopulmonary_segm",
+      "VH_F_right_apical_bronchopulmonary_segment",
+      "VH_F_right_posterior_bronchopulmonary_segment",
+      "VH_F_hilum_upper_R",
+      "VH_F_cartilage_of_lobar_bronchus_L",
+      "VH_F_cartilage_of_tertiary_bronchus_L",
+      "VH_F_left_superior_lobar_bronchus",
+      "VH_F_left_inferior_lobar_bronchus",
+      "VH_F_left_anterior_basal_bronchus",
+      "VH_F_left_lingula_superior_bronchus",
+      "VH_F_left_apical_bronchus",
+      "VH_F_left_posterior_basal_bronchus",
+      "VH_F_left_medial_basal_bronchus",
+      "VH_F_left_superior_bronchus",
+      "VH_F_left_anterior_bronchus",
+      "VH_F_left_posterior_bronchus",
+      "VH_F_left_lateral_basal_bronchus",
+      "VH_F_left_lingula_inferior_bronchi",
+      "VH_F_cartilage_of_lobar_bronchus_R",
+      "VH_F_cartilage_of_tertiary_bronchus_R",
+      "VH_F_right_middle_lobar_bronchus",
+      "VH_F_right_superior_lobar_bronchus",
+      "VH_F_right_inferior_lobar_bronchus",
+      "VH_F_right_anterior_bronchus",
+      "VH_F_right_lateral_basal_bronchus",
+      "VH_F_right_lateral_bronchus",
+      "VH_F_right_medial_bronchus",
+      "VH_F_right_medial_basal_bronchus",
+      "VH_F_right_posterior_basal_bronchus",
+      "VH_F_right_posterior_bronchus",
+      "VH_F_right_superior_bronchus",
+      "VH_F_right_apical_bronchus",
+      "VH_F_right_anterior_basal_bronchus"
+    ]
+  },
+  "sourceFrameRecord": "sources/datasets/hra/lung-female-v1.3/bounded-migration-2026-10-24/source-frame.json",
+  "historicalTechnicalScope": "reviews/lung_pair/2026-10-24-bounded-migration/historical-technical-scope.json",
+  "localByteCheck": "reviews/lung_pair/2026-10-24-bounded-migration/local-byte-identity-check.json",
+  "cameraContractAvailableInReviewData": true,
+  "cameraRecord": "reviews/lung_pair/2026-10-24-bounded-migration/camera-visibility.json",
+  "evidence": [
+    {
+      "id": "lung_pair__hra-female-normals-r02__scoped-review__5",
+      "file": "evidence/canonical/lung_pair__hra-female-normals-r02__scoped-review/aaaa1f677702328bb5cb2b7232bc63fd427bca8bc539b84144f23fb1821e73f3.webp",
+      "sha256": "8ee967465ea8ff3385988b11b55257dae93029e2ae961af2a2d17bf537ffb52c",
+      "originalSha256": "aaaa1f677702328bb5cb2b7232bc63fd427bca8bc539b84144f23fb1821e73f3",
+      "originalFile": "reviews/lung_pair/hra-female-normals-r02/review/all_provider_geometry_contact.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "candidate",
+      "noteIsGeneric": false,
+      "kind": "blender-still",
+      "label": {
+        "en": "all_provider_geometry_contact",
+        "zh": "全部来源双肺结构对照图"
+      },
+      "capturedAt": null,
+      "recordedDate": "2026-10-23",
+      "assetBinding": "966a4c225be028e616f6f813e8d4232582995a82b8121a42257c1be53087cb19",
+      "sourceBindings": [],
+      "role": "candidate",
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": null,
+      "note": {
+        "en": "Exact candidate export reimport; named visibility modes only.",
+        "zh": "精确候选重新导入；仅使用具名可见性模式。"
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/lung_pair__hra-female-normals-r02__scoped-review/aaaa1f677702328bb5cb2b7232bc63fd427bca8bc539b84144f23fb1821e73f3.webp",
+      "bytes": 70590,
+      "selectionRole": "candidate",
+      "originalNativePublicCopies": [],
+      "retainedPath": "reviews/lung_pair/2026-10-24-bounded-migration/display/8ee967465ea8ff3385988b11b55257dae93029e2ae961af2a2d17bf537ffb52c.webp",
+      "originalNativeImageIncluded": false,
+      "originalNativeImageReference": {
+        "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/review/all_provider_geometry_contact.png",
+        "sha256": "aaaa1f677702328bb5cb2b7232bc63fd427bca8bc539b84144f23fb1821e73f3",
+        "bytes": 923375,
+        "includedInDraft": false,
+        "referenceKind": "external-canonical-artifact",
+        "role": "Historical native PNG; not bundled or substituted for WebP"
+      }
+    },
+    {
+      "id": "lung_pair__hra-female-normals-r02__scoped-review__23",
+      "file": "evidence/canonical/lung_pair__hra-female-normals-r02__scoped-review/b3d644a8c18d1aeca28207bf6474a592f9bd71bb33a954f1ebcb6e080a6aa4c7.webp",
+      "sha256": "1b3b3978041a989e522772c69d8e4fd3cbdd98807f0b60a9d6453da4c2f4ea4b",
+      "originalSha256": "b3d644a8c18d1aeca28207bf6474a592f9bd71bb33a954f1ebcb6e080a6aa4c7",
+      "originalFile": "reviews/lung_pair/hra-female-normals-r02/review/provider_airways_only_contact.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "candidate",
+      "noteIsGeneric": false,
+      "kind": "blender-still",
+      "label": {
+        "en": "provider_airways_only_contact",
+        "zh": "仅来源肺内分支对照图"
+      },
+      "capturedAt": null,
+      "recordedDate": "2026-10-23",
+      "assetBinding": "966a4c225be028e616f6f813e8d4232582995a82b8121a42257c1be53087cb19",
+      "sourceBindings": [],
+      "role": "candidate",
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": null,
+      "note": {
+        "en": "Exact candidate export reimport; named visibility modes only.",
+        "zh": "精确候选重新导入；仅使用具名可见性模式。"
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/lung_pair__hra-female-normals-r02__scoped-review/b3d644a8c18d1aeca28207bf6474a592f9bd71bb33a954f1ebcb6e080a6aa4c7.webp",
+      "bytes": 40440,
+      "selectionRole": "candidate",
+      "originalNativePublicCopies": [],
+      "retainedPath": "reviews/lung_pair/2026-10-24-bounded-migration/display/1b3b3978041a989e522772c69d8e4fd3cbdd98807f0b60a9d6453da4c2f4ea4b.webp",
+      "originalNativeImageIncluded": false,
+      "originalNativeImageReference": {
+        "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/review/provider_airways_only_contact.png",
+        "sha256": "b3d644a8c18d1aeca28207bf6474a592f9bd71bb33a954f1ebcb6e080a6aa4c7",
+        "bytes": 399286,
+        "includedInDraft": false,
+        "referenceKind": "external-canonical-artifact",
+        "role": "Historical native PNG; not bundled or substituted for WebP"
+      }
+    },
+    {
+      "id": "lung_pair__hra-female-normals-r02__scoped-review__14",
+      "file": "evidence/canonical/lung_pair__hra-female-normals-r02__scoped-review/d7680712bf72abc117007d57dc72fab40cc16c2b2aadd98ccff144ea952b11ff.webp",
+      "sha256": "f9dfe46b6a068bbaa867ab7ef4732c728ee6a3d630859af791dde33f96c1b8e4",
+      "originalSha256": "d7680712bf72abc117007d57dc72fab40cc16c2b2aadd98ccff144ea952b11ff",
+      "originalFile": "reviews/lung_pair/hra-female-normals-r02/review/left_source_vs_normals.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "comparison",
+      "noteIsGeneric": false,
+      "kind": "blender-still",
+      "label": {
+        "en": "left_source_vs_normals",
+        "zh": "左肺来源法线与修订法线对照"
+      },
+      "capturedAt": null,
+      "recordedDate": "2026-10-23",
+      "assetBinding": "comparison / historical association; not a single tested mesh",
+      "sourceBindings": [
+        {
+          "role": "before",
+          "sha256": "323d27bb76ba2c5b140ff31ad5190627eeb8d4e37cd220e4b541655d67789c1a"
+        },
+        {
+          "role": "after",
+          "sha256": "966a4c225be028e616f6f813e8d4232582995a82b8121a42257c1be53087cb19"
+        }
+      ],
+      "role": "comparison",
+      "bindingLabel": {
+        "en": "Comparison / historical evidence: before-mesh association is not independently verified; see source bindings.",
+        "zh": "对照或历史证据：旧网格关联未独立验证；请查看来源绑定。"
+      },
+      "renderSettings": null,
+      "note": {
+        "en": "Source and normal-only derivative comparison; both exact artifacts retained.",
+        "zh": "来源与仅法线修改结果对比；保留两者精确文件。"
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/lung_pair__hra-female-normals-r02__scoped-review/d7680712bf72abc117007d57dc72fab40cc16c2b2aadd98ccff144ea952b11ff.webp",
+      "bytes": 57416,
+      "selectionRole": "candidate",
+      "originalNativePublicCopies": [],
+      "retainedPath": "reviews/lung_pair/2026-10-24-bounded-migration/display/f9dfe46b6a068bbaa867ab7ef4732c728ee6a3d630859af791dde33f96c1b8e4.webp",
+      "originalNativeImageIncluded": false,
+      "originalNativeImageReference": {
+        "repositoryPath": "reviews/lung_pair/hra-female-normals-r02/review/left_source_vs_normals.png",
+        "sha256": "d7680712bf72abc117007d57dc72fab40cc16c2b2aadd98ccff144ea952b11ff",
+        "bytes": 756544,
+        "includedInDraft": false,
+        "referenceKind": "external-canonical-artifact",
+        "role": "Historical native PNG; not bundled or substituted for WebP"
+      }
+    }
+  ],
+  "failureSummary": {
+    "failure": {
+      "en": "Patch normals created artificial shading bands; the sample-derived material trial could not repair source geometry.",
+      "zh": "拼片法线产生人工明暗条带；样本来源材质试验无法修复来源几何。"
+    },
+    "cause": {
+      "certainty": "observed",
+      "text": {
+        "en": "Normals differed at exactly coincident within-lobe patch boundaries; not all dark regions are geometry holes.",
+        "zh": "同肺叶精确重合拼片边界的法线不一致；暗区不一定是几何孔洞。"
+      }
+    },
+    "fix": {
+      "en": "Reconcile only conservative within-lobe normal discontinuities. Protect cross-lobe/hilum boundaries, split normals and >30° differences; preserve every non-normal byte.",
+      "zh": "仅协调保守范围内同肺叶法线不连续。保护跨肺叶/肺门边界、分裂法线及 >30° 差异；保留所有非法线字节。"
+    },
+    "retest": {
+      "en": "Exact byte/accessor audits and fresh-import contacts; airway image pixels unchanged.",
+      "zh": "精确字节/accessor 核验及重新导入图；气道图像像素不变。"
+    },
+    "lesson": {
+      "en": "Separate source geometry, material glare and patch-normal artifacts before smoothing or inventing missing anatomy.",
+      "zh": "平滑或补画缺失解剖前，先区分来源几何、材质反光与拼片法线伪影。"
+    }
+  },
+  "limitations": {
+    "en": [
+      "All 56 component meshes retain source open annotation boundaries; not watertight solids.",
+      "Right tertiary bronchial cartilage has 4 additional non-boundary non-manifold edges under diagnostic weld; unmodified.",
+      "Provider released intrapulmonary bronchi only; main bronchi, trachea and larynx removed in v1.3.",
+      "Source patch labels and hilus surfaces do not establish complete tissue microanatomy."
+    ],
+    "zh": [
+      "56 个来源组件均保留开放标注边界，并非封闭实体。",
+      "右三级支气管软骨额外保留 4 条非边界非流形边。",
+      "来源仅提供肺内分支；v1.3 移除了主支气管、气管和喉。",
+      "来源分段及肺门表面不等于完整组织微观解剖。"
+    ]
+  },
+  "rebuildClosure": false,
+  "countDelta": 0,
+  "gateDelta": 0,
+  "comparisonNote": "The selected comparison retains its original before/after bindings, including the public-map warning that before-mesh image association is not independently verified. The raw before GLB is external; its hash and byte size are locally checked. This is not two separate lung assets."
+}

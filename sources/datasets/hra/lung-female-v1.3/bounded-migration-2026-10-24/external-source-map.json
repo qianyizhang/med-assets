@@ -1,0 +1,649 @@
+{
+  "schema": "hra-lung-external-source-v1",
+  "sourceId": "hra-lung-female-v1.3",
+  "sourceGLB": {
+    "repositoryPath": "sources/datasets/hra/lung-female-v1.3/raw/3d-vh-f-lung.glb",
+    "sha256": "323d27bb76ba2c5b140ff31ad5190627eeb8d4e37cd220e4b541655d67789c1a",
+    "bytes": 23253972,
+    "includedInDraft": false,
+    "referenceKind": "external-canonical-artifact",
+    "role": "Original HRA source and comparison before-mesh; not bundled",
+    "url": "https://cdn.humanatlas.io/digital-objects/ref-organ/lung-female/v1.3/assets/3d-vh-f-lung.glb",
+    "archive": null,
+    "archiveMember": null,
+    "archiveNote": "Provider distributes a direct GLB, not an archive. No archive/member identity invented."
+  },
+  "metadataRecord": "sources/datasets/hra/lung-female-v1.3/bounded-migration-2026-10-24/metadata.json",
+  "metadataURL": "https://cdn.humanatlas.io/digital-objects/ref-organ/lung-female/v1.3/metadata.json",
+  "metadataSha256": "577f1d0ceaaf20ed928472a13698ba4ec53d9cbf7c933690b35445ab2430047d",
+  "crosswalkRecord": "sources/datasets/hra/lung-female-v1.3/bounded-migration-2026-10-24/crosswalk.csv",
+  "crosswalkURL": "https://cdn.humanatlas.io/digital-objects/ref-organ/lung-female/v1.3/assets/crosswalk.csv",
+  "crosswalkSha256": "913d4edd95c75ae9e558bd64901bab20c0aaedb843964d713d0157a695569e98",
+  "license": "CC-BY-4.0",
+  "licenseRecord": "sources/datasets/hra/lung-female-v1.3/bounded-migration-2026-10-24/CC-BY-4.0.txt",
+  "attributionRecord": "sources/datasets/hra/lung-female-v1.3/bounded-migration-2026-10-24/ATTRIBUTION.md",
+  "citation": "Kristen Browne; Heidi Schlehlein. 2023. *3D Reference Organ for Lung, Female v1.3.* [https://doi.org/10.48539/HBM794.PKQV.978](https://doi.org/10.48539/HBM794.PKQV.978). Accessed on June 15, 2023.",
+  "doi": "https://doi.org/10.48539/HBM794.PKQV.978",
+  "providerDescription": "[This reference organ](https://humanatlas.io/3d-reference-library) was created using data from the Visible Human\nFemale, provided by the National Library of Medicine. In version 1.3 the larynx, trachea, main bronchi were removed;\nhowever, lung lobes and intrapulmonary bronchi remain part of the lung model.",
+  "sourceAcquiredUTC": "2026-10-23",
+  "freshSourceAvailabilityChecked": false,
+  "versionedURLNotContentAddressed": "Require the recorded SHA and byte size; stop if a future download differs. No new availability claim.",
+  "components": [
+    {
+      "nodeIndex": 3,
+      "nodeName": "VH_F_hilum_L",
+      "meshIndex": 0,
+      "providerCrosswalk": {
+        "node_name": "VH_F_hilum_L",
+        "OntologyID": "UBERON:0004887",
+        "label": "left lung hilus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 5,
+      "nodeName": "VH_F_hilum_upper_L",
+      "meshIndex": 1,
+      "providerCrosswalk": {
+        "node_name": "VH_F_hilum_upper_L",
+        "OntologyID": "UBERON:0004887",
+        "label": "left lung hilus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 6,
+      "nodeName": "VH_F_lingula_superior_bronchopulmonary_segment",
+      "meshIndex": 2,
+      "providerCrosswalk": {
+        "node_name": "VH_F_lingula_superior_bronchopulmonary_segment",
+        "OntologyID": "FMA:7374",
+        "label": "Superior lingular bronchopulmonary segment"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 7,
+      "nodeName": "VH_F_left_anterior_bronchopulmonary_segment",
+      "meshIndex": 3,
+      "providerCrosswalk": {
+        "node_name": "VH_F_left_anterior_bronchopulmonary_segment",
+        "OntologyID": "FMA:7373",
+        "label": "Left Anterior Bronchopulmonary Segment"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 8,
+      "nodeName": "VH_F_left_apical_bronchopulmonary_segment",
+      "meshIndex": 4,
+      "providerCrosswalk": {
+        "node_name": "VH_F_left_apical_bronchopulmonary_segment",
+        "OntologyID": "FMA:7385",
+        "label": "Left apical bronchopulmonary segment"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 9,
+      "nodeName": "VH_F_left_posterior_bronchopulmonary_segment",
+      "meshIndex": 5,
+      "providerCrosswalk": {
+        "node_name": "VH_F_left_posterior_bronchopulmonary_segment",
+        "OntologyID": "FMA:7386",
+        "label": "Left posterior bronchopulmonary segment"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 10,
+      "nodeName": "VH_F_lingula_inferior_bronchopulmonary_segment",
+      "meshIndex": 6,
+      "providerCrosswalk": {
+        "node_name": "VH_F_lingula_inferior_bronchopulmonary_segment",
+        "OntologyID": "FMA:7375",
+        "label": "Inferior lingular bronchopulmonary segment"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 12,
+      "nodeName": "VH_F_left_superior_bronchopulmonary_segment",
+      "meshIndex": 7,
+      "providerCrosswalk": {
+        "node_name": "VH_F_left_superior_bronchopulmonary_segment",
+        "OntologyID": "FMA:7376",
+        "label": "Left superior bronchopulmonary segment"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 13,
+      "nodeName": "VH_F_left_posterior_basal_bronchopulmonary_segment",
+      "meshIndex": 8,
+      "providerCrosswalk": {
+        "node_name": "VH_F_left_posterior_basal_bronchopulmonary_segment",
+        "OntologyID": "FMA:7380",
+        "label": "Left posterior basal bronchopulmonary segment"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 14,
+      "nodeName": "VH_F_left_anterior_basal_bronchopulmonary_segment",
+      "meshIndex": 9,
+      "providerCrosswalk": {
+        "node_name": "VH_F_left_anterior_basal_bronchopulmonary_segment",
+        "OntologyID": "FMA:7378",
+        "label": "left anterior basal bronchopulmonary segment"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 15,
+      "nodeName": "VH_F_left_lateral_basal_bronchopulmonary_segment",
+      "meshIndex": 10,
+      "providerCrosswalk": {
+        "node_name": "VH_F_left_lateral_basal_bronchopulmonary_segment",
+        "OntologyID": "FMA:7379",
+        "label": "left Lateral Basal Bronchopulmonary Segment"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 16,
+      "nodeName": "VH_F_left_medial_basal_bronchopulmonary_segment",
+      "meshIndex": 11,
+      "providerCrosswalk": {
+        "node_name": "VH_F_left_medial_basal_bronchopulmonary_segment",
+        "OntologyID": "FMA:7377",
+        "label": "Left Medial Basal Bronchopulmonary Segment"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 17,
+      "nodeName": "VH_F_hilum_lower_L",
+      "meshIndex": 12,
+      "providerCrosswalk": {
+        "node_name": "VH_F_hilum_lower_L",
+        "OntologyID": "UBERON:0004887",
+        "label": "left lung hilus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 19,
+      "nodeName": "VH_F_hilum_R",
+      "meshIndex": 13,
+      "providerCrosswalk": {
+        "node_name": "VH_F_hilum_R",
+        "OntologyID": "UBERON:0004888",
+        "label": "right lung hilus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 21,
+      "nodeName": "VH_F_right_medial_basal_bronchopulmonary_segment",
+      "meshIndex": 14,
+      "providerCrosswalk": {
+        "node_name": "VH_F_right_medial_basal_bronchopulmonary_segment",
+        "OntologyID": "FMA:7365",
+        "label": "Right Medial Basal Bronchopulmonary Segment"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 22,
+      "nodeName": "VH_F_right_posterior_basal_bronchopulmonary_segment",
+      "meshIndex": 15,
+      "providerCrosswalk": {
+        "node_name": "VH_F_right_posterior_basal_bronchopulmonary_segment",
+        "OntologyID": "FMA:7362",
+        "label": "Right Posterior Basal Bronchopulmonary Segment"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 23,
+      "nodeName": "VH_F_right_anterior_basal_bronchopulmonary_segment",
+      "meshIndex": 16,
+      "providerCrosswalk": {
+        "node_name": "VH_F_right_anterior_basal_bronchopulmonary_segment",
+        "OntologyID": "FMA:7364",
+        "label": "Right anterior basal bronchopulmonary segment"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 24,
+      "nodeName": "VH_F_right_lateral_basal_bronchopulmonary_segment",
+      "meshIndex": 17,
+      "providerCrosswalk": {
+        "node_name": "VH_F_right_lateral_basal_bronchopulmonary_segment",
+        "OntologyID": "FMA:7363",
+        "label": "Right Lateral Basal Bronchopulmonary Segment"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 25,
+      "nodeName": "VH_F_right_superior_bronchopulmonary_segment",
+      "meshIndex": 18,
+      "providerCrosswalk": {
+        "node_name": "VH_F_right_superior_bronchopulmonary_segment",
+        "OntologyID": "FMA:7366",
+        "label": "Right Superior Bronchopulmonary Segment"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 26,
+      "nodeName": "VH_F_hilum_lower_R",
+      "meshIndex": 19,
+      "providerCrosswalk": {
+        "node_name": "VH_F_hilum_lower_R",
+        "OntologyID": "UBERON:0004888",
+        "label": "right lung hilus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 28,
+      "nodeName": "VH_F_right_medial_bronchopulmonary_segment",
+      "meshIndex": 20,
+      "providerCrosswalk": {
+        "node_name": "VH_F_right_medial_bronchopulmonary_segment",
+        "OntologyID": "FMA:7360",
+        "label": "Right Medial Bronchopulmonary Segment"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 29,
+      "nodeName": "VH_F_right_lateral_bronchopulmonary_segmennt",
+      "meshIndex": 21,
+      "providerCrosswalk": {
+        "node_name": "VH_F_right_lateral_bronchopulmonary_segmennt",
+        "OntologyID": "FMA:7361",
+        "label": "Right Lateral Bronchopulmonary Segment"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 30,
+      "nodeName": "VH_F_hilum_middle_R",
+      "meshIndex": 22,
+      "providerCrosswalk": {
+        "node_name": "VH_F_hilum_middle_R",
+        "OntologyID": "UBERON:0004888",
+        "label": "right lung hilus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 32,
+      "nodeName": "VH_F_right_anterior_bronchopulmonary_segm",
+      "meshIndex": 23,
+      "providerCrosswalk": {
+        "node_name": "VH_F_right_anterior_bronchopulmonary_segm",
+        "OntologyID": "FMA:7359",
+        "label": "Right Anterior Bronchopulmonary Segment"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 33,
+      "nodeName": "VH_F_right_apical_bronchopulmonary_segment",
+      "meshIndex": 24,
+      "providerCrosswalk": {
+        "node_name": "VH_F_right_apical_bronchopulmonary_segment",
+        "OntologyID": "FMA:7338",
+        "label": "Right Apical Bronchopulmonary Segment"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 34,
+      "nodeName": "VH_F_right_posterior_bronchopulmonary_segment",
+      "meshIndex": 25,
+      "providerCrosswalk": {
+        "node_name": "VH_F_right_posterior_bronchopulmonary_segment",
+        "OntologyID": "FMA:7339",
+        "label": "Right Posterior Bronchopulmonary Segment"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 35,
+      "nodeName": "VH_F_hilum_upper_R",
+      "meshIndex": 26,
+      "providerCrosswalk": {
+        "node_name": "VH_F_hilum_upper_R",
+        "OntologyID": "UBERON:0004888",
+        "label": "right lung hilus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 40,
+      "nodeName": "VH_F_cartilage_of_lobar_bronchus_L",
+      "meshIndex": 27,
+      "providerCrosswalk": {
+        "node_name": "VH_F_cartilage_of_lobar_bronchus_L",
+        "OntologyID": "FMA:62659",
+        "label": "Cartilage of lobar bronchus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 41,
+      "nodeName": "VH_F_cartilage_of_tertiary_bronchus_L",
+      "meshIndex": 28,
+      "providerCrosswalk": {
+        "node_name": "VH_F_cartilage_of_tertiary_bronchus_L",
+        "OntologyID": "FMA:62662",
+        "label": "Cartilage of segmental bronchus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 43,
+      "nodeName": "VH_F_left_superior_lobar_bronchus",
+      "meshIndex": 29,
+      "providerCrosswalk": {
+        "node_name": "VH_F_left_superior_lobar_bronchus",
+        "OntologyID": "UBERON:0012065",
+        "label": "lobar bronchus of left lung upper lobe"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 44,
+      "nodeName": "VH_F_left_inferior_lobar_bronchus",
+      "meshIndex": 30,
+      "providerCrosswalk": {
+        "node_name": "VH_F_left_inferior_lobar_bronchus",
+        "OntologyID": "UBERON:0012066",
+        "label": "lobar bronchus of left lung lower lobe"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 46,
+      "nodeName": "VH_F_left_anterior_basal_bronchus",
+      "meshIndex": 31,
+      "providerCrosswalk": {
+        "node_name": "VH_F_left_anterior_basal_bronchus",
+        "OntologyID": "FMA:7506",
+        "label": "Left anterior basal segmental bronchus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 47,
+      "nodeName": "VH_F_left_lingula_superior_bronchus",
+      "meshIndex": 32,
+      "providerCrosswalk": {
+        "node_name": "VH_F_left_lingula_superior_bronchus",
+        "OntologyID": "FMA:7430",
+        "label": "Superior lingular bronchus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 48,
+      "nodeName": "VH_F_left_apical_bronchus",
+      "meshIndex": 33,
+      "providerCrosswalk": {
+        "node_name": "VH_F_left_apical_bronchus",
+        "OntologyID": "FMA:7426",
+        "label": "Left apical segmental bronchus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 49,
+      "nodeName": "VH_F_left_posterior_basal_bronchus",
+      "meshIndex": 34,
+      "providerCrosswalk": {
+        "node_name": "VH_F_left_posterior_basal_bronchus",
+        "OntologyID": "FMA:7508",
+        "label": "Left posterior basal segmental bronchus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 50,
+      "nodeName": "VH_F_left_medial_basal_bronchus",
+      "meshIndex": 35,
+      "providerCrosswalk": {
+        "node_name": "VH_F_left_medial_basal_bronchus",
+        "OntologyID": "FMA:7505",
+        "label": "Left medial basal segmental bronchus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 51,
+      "nodeName": "VH_F_left_superior_bronchus",
+      "meshIndex": 36,
+      "providerCrosswalk": {
+        "node_name": "VH_F_left_superior_bronchus",
+        "OntologyID": "FMA:7504",
+        "label": "Left superior segmental bronchus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 52,
+      "nodeName": "VH_F_left_anterior_bronchus",
+      "meshIndex": 37,
+      "providerCrosswalk": {
+        "node_name": "VH_F_left_anterior_bronchus",
+        "OntologyID": "FMA:7428",
+        "label": "Left anterior segmental bronchus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 53,
+      "nodeName": "VH_F_left_posterior_bronchus",
+      "meshIndex": 38,
+      "providerCrosswalk": {
+        "node_name": "VH_F_left_posterior_bronchus",
+        "OntologyID": "FMA:7427",
+        "label": "Left posterior segmental bronchus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 54,
+      "nodeName": "VH_F_left_lateral_basal_bronchus",
+      "meshIndex": 39,
+      "providerCrosswalk": {
+        "node_name": "VH_F_left_lateral_basal_bronchus",
+        "OntologyID": "FMA:7507",
+        "label": "Left lateral basal segmental bronchus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 55,
+      "nodeName": "VH_F_left_lingula_inferior_bronchi",
+      "meshIndex": 40,
+      "providerCrosswalk": {
+        "node_name": "VH_F_left_lingula_inferior_bronchi",
+        "OntologyID": "FMA:7431",
+        "label": "Inferior lingular bronchus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 58,
+      "nodeName": "VH_F_cartilage_of_lobar_bronchus_R",
+      "meshIndex": 41,
+      "providerCrosswalk": {
+        "node_name": "VH_F_cartilage_of_lobar_bronchus_R",
+        "OntologyID": "FMA:62659",
+        "label": "Cartilage of lobar bronchus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 59,
+      "nodeName": "VH_F_cartilage_of_tertiary_bronchus_R",
+      "meshIndex": 42,
+      "providerCrosswalk": {
+        "node_name": "VH_F_cartilage_of_tertiary_bronchus_R",
+        "OntologyID": "FMA:62662",
+        "label": "Cartilage of segmental bronchus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 61,
+      "nodeName": "VH_F_right_middle_lobar_bronchus",
+      "meshIndex": 43,
+      "providerCrosswalk": {
+        "node_name": "VH_F_right_middle_lobar_bronchus",
+        "OntologyID": "FMA:7401",
+        "label": "Middle lobar bronchus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 62,
+      "nodeName": "VH_F_right_superior_lobar_bronchus",
+      "meshIndex": 44,
+      "providerCrosswalk": {
+        "node_name": "VH_F_right_superior_lobar_bronchus",
+        "OntologyID": "FMA:7397",
+        "label": "Right superior lobar bronchus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 63,
+      "nodeName": "VH_F_right_inferior_lobar_bronchus",
+      "meshIndex": 45,
+      "providerCrosswalk": {
+        "node_name": "VH_F_right_inferior_lobar_bronchus",
+        "OntologyID": "FMA:7404",
+        "label": "Right inferior lobar bronchus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 65,
+      "nodeName": "VH_F_right_anterior_bronchus",
+      "meshIndex": 46,
+      "providerCrosswalk": {
+        "node_name": "VH_F_right_anterior_bronchus",
+        "OntologyID": "FMA:7400",
+        "label": "Right anterior segmental bronchus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 66,
+      "nodeName": "VH_F_right_lateral_basal_bronchus",
+      "meshIndex": 47,
+      "providerCrosswalk": {
+        "node_name": "VH_F_right_lateral_basal_bronchus",
+        "OntologyID": "FMA:7419",
+        "label": "Right lateral basal segmental bronchus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 67,
+      "nodeName": "VH_F_right_lateral_bronchus",
+      "meshIndex": 48,
+      "providerCrosswalk": {
+        "node_name": "VH_F_right_lateral_bronchus",
+        "OntologyID": "FMA:7402",
+        "label": "Lateral segmental bronchus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 68,
+      "nodeName": "VH_F_right_medial_bronchus",
+      "meshIndex": 49,
+      "providerCrosswalk": {
+        "node_name": "VH_F_right_medial_bronchus",
+        "OntologyID": "FMA:7403",
+        "label": "Medial segmental bronchus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 69,
+      "nodeName": "VH_F_right_medial_basal_bronchus",
+      "meshIndex": 50,
+      "providerCrosswalk": {
+        "node_name": "VH_F_right_medial_basal_bronchus",
+        "OntologyID": "FMA:7417",
+        "label": "Right medial basal segmental bronchus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 70,
+      "nodeName": "VH_F_right_posterior_basal_bronchus",
+      "meshIndex": 51,
+      "providerCrosswalk": {
+        "node_name": "VH_F_right_posterior_basal_bronchus",
+        "OntologyID": "FMA:7420",
+        "label": "Right posterior basal segmental bronchus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 71,
+      "nodeName": "VH_F_right_posterior_bronchus",
+      "meshIndex": 52,
+      "providerCrosswalk": {
+        "node_name": "VH_F_right_posterior_bronchus",
+        "OntologyID": "FMA:7399",
+        "label": "Right posterior segmental bronchus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 72,
+      "nodeName": "VH_F_right_superior_bronchus",
+      "meshIndex": 53,
+      "providerCrosswalk": {
+        "node_name": "VH_F_right_superior_bronchus",
+        "OntologyID": "FMA:7416",
+        "label": "Right superior segmental bronchus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 73,
+      "nodeName": "VH_F_right_apical_bronchus",
+      "meshIndex": 54,
+      "providerCrosswalk": {
+        "node_name": "VH_F_right_apical_bronchus",
+        "OntologyID": "FMA:7398",
+        "label": "Right apical segmental bronchus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    },
+    {
+      "nodeIndex": 74,
+      "nodeName": "VH_F_right_anterior_basal_bronchus",
+      "meshIndex": 55,
+      "providerCrosswalk": {
+        "node_name": "VH_F_right_anterior_basal_bronchus",
+        "OntologyID": "FMA:7418",
+        "label": "Right anterior basal segmental bronchus"
+      },
+      "labelScope": "Provider annotation; not new anatomical verification."
+    }
+  ]
+}
