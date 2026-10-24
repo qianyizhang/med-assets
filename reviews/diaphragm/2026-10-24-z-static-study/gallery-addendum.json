@@ -1,0 +1,629 @@
+{
+  "schema": "diaphragm-gallery-addendum-v1",
+  "additive_to_frozen_payload_manifest_sha256": "a096363b914f8424e88a3dc2d2f224e48d2d94bf4515343f27910674ca15b421",
+  "assetId": "diaphragm_static_study",
+  "variantId": "diaphragm_z__native-static-r01",
+  "reviewable_count": 1,
+  "primarySha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+  "auxiliaryContextSha256": "07dd35e532eb8a971d97b072ed2be5c5c49e5bfda113997e6d1231e26c3951a9",
+  "baselineSha256": "b68787a1a90912ebd75fd8c60492c34072c61dce86384775e9609d94e80e676e",
+  "evidence": [
+    {
+      "file": "evidence/superior.png",
+      "sha256": "5ba2cde168ecad2083d4041777c5258467caa8ba21f4b14257c1fe334459dd93",
+      "origin": "Blender source-preserving scene render, not browser runtime capture",
+      "pixel_unchanged_from_reviewed_render": true,
+      "role": "primary-isolated",
+      "sourceSha256s": [
+        "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29"
+      ],
+      "camera": {
+        "file": "evidence/superior.png",
+        "position": [
+          -0.00042023140122182667,
+          -0.01697428524494171,
+          2.1521987915039062
+        ],
+        "quaternion": [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "target": [
+          -0.00042023140122182667,
+          -0.01697428524494171,
+          1.1521989107131958
+        ],
+        "ortho_scale": 0.3400000035762787,
+        "context": false,
+        "source_sha256": "a979e5a93dd2665b75cbb8eddca6777e8e688d804e63c27ba996bf3d1eb18d44",
+        "export_sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+        "lighting": "Initial energies x0.16 plus6W underside fill; mesh/material unchanged",
+        "png_sha256": "5ba2cde168ecad2083d4041777c5258467caa8ba21f4b14257c1fe334459dd93",
+        "render_origin": "Blender source-preserving scene; not browser/GLB screenshot"
+      }
+    },
+    {
+      "file": "evidence/inferior.png",
+      "sha256": "751596814bcdabb7d4e63a34efb9a1c2c0f8e6e34e436ba59d79c3c0a2bc94b6",
+      "origin": "Blender source-preserving scene render, not browser runtime capture",
+      "pixel_unchanged_from_reviewed_render": true,
+      "role": "primary-isolated",
+      "sourceSha256s": [
+        "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29"
+      ],
+      "camera": {
+        "file": "evidence/inferior.png",
+        "position": [
+          -0.00042023140122182667,
+          -0.01697428524494171,
+          0.1521989107131958
+        ],
+        "quaternion": [
+          -4.371139183945161e-08,
+          4.371138473402425e-08,
+          1.0,
+          -4.371138473402425e-08
+        ],
+        "target": [
+          -0.00042023140122182667,
+          -0.01697428524494171,
+          1.1521989107131958
+        ],
+        "ortho_scale": 0.3400000035762787,
+        "context": false,
+        "source_sha256": "a979e5a93dd2665b75cbb8eddca6777e8e688d804e63c27ba996bf3d1eb18d44",
+        "export_sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+        "lighting": "Initial energies x0.16 plus6W underside fill; mesh/material unchanged",
+        "png_sha256": "751596814bcdabb7d4e63a34efb9a1c2c0f8e6e34e436ba59d79c3c0a2bc94b6",
+        "render_origin": "Blender source-preserving scene; not browser/GLB screenshot"
+      }
+    },
+    {
+      "file": "evidence/front.png",
+      "sha256": "591d99bdf9b123203b85a72719476dbc86e8846f5ee0200ace4ce05489e1aade",
+      "origin": "Blender source-preserving scene render, not browser runtime capture",
+      "pixel_unchanged_from_reviewed_render": true,
+      "role": "primary-isolated",
+      "sourceSha256s": [
+        "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29"
+      ],
+      "camera": {
+        "file": "evidence/front.png",
+        "position": [
+          -0.00042023140122182667,
+          -1.0169743299484253,
+          1.1521989107131958
+        ],
+        "quaternion": [
+          0.7071067094802856,
+          0.7071068286895752,
+          0.0,
+          0.0
+        ],
+        "target": [
+          -0.00042023140122182667,
+          -0.01697428524494171,
+          1.1521989107131958
+        ],
+        "ortho_scale": 0.3400000035762787,
+        "context": false,
+        "source_sha256": "a979e5a93dd2665b75cbb8eddca6777e8e688d804e63c27ba996bf3d1eb18d44",
+        "export_sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+        "lighting": "Initial energies x0.16 plus6W underside fill; mesh/material unchanged",
+        "png_sha256": "591d99bdf9b123203b85a72719476dbc86e8846f5ee0200ace4ce05489e1aade",
+        "render_origin": "Blender source-preserving scene; not browser/GLB screenshot"
+      }
+    },
+    {
+      "file": "evidence/side.png",
+      "sha256": "36c0b4604a09fd2ea0e1ccb6ee45d5209badadee77be7e09ea3bf01049631d82",
+      "origin": "Blender source-preserving scene render, not browser runtime capture",
+      "pixel_unchanged_from_reviewed_render": true,
+      "role": "primary-isolated",
+      "sourceSha256s": [
+        "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29"
+      ],
+      "camera": {
+        "file": "evidence/side.png",
+        "position": [
+          0.9995797872543335,
+          -0.01697428524494171,
+          1.1521989107131958
+        ],
+        "quaternion": [
+          0.4999999701976776,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "target": [
+          -0.00042023140122182667,
+          -0.01697428524494171,
+          1.1521989107131958
+        ],
+        "ortho_scale": 0.3400000035762787,
+        "context": false,
+        "source_sha256": "a979e5a93dd2665b75cbb8eddca6777e8e688d804e63c27ba996bf3d1eb18d44",
+        "export_sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+        "lighting": "Initial energies x0.16 plus6W underside fill; mesh/material unchanged",
+        "png_sha256": "36c0b4604a09fd2ea0e1ccb6ee45d5209badadee77be7e09ea3bf01049631d82",
+        "render_origin": "Blender source-preserving scene; not browser/GLB screenshot"
+      }
+    },
+    {
+      "file": "evidence/oblique.png",
+      "sha256": "0cb8f236bfd7c22409dbb2673a7690910dc3f0f888ce7c6c2300b5e6fd586ba8",
+      "origin": "Blender source-preserving scene render, not browser runtime capture",
+      "pixel_unchanged_from_reviewed_render": true,
+      "role": "primary-isolated",
+      "sourceSha256s": [
+        "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29"
+      ],
+      "camera": {
+        "file": "evidence/oblique.png",
+        "position": [
+          0.7995797991752625,
+          -1.0169743299484253,
+          1.852198839187622
+        ],
+        "quaternion": [
+          0.8116388916969299,
+          0.48132815957069397,
+          0.16884078085422516,
+          0.2847074568271637
+        ],
+        "target": [
+          -0.00042023140122182667,
+          -0.01697428524494171,
+          1.1521989107131958
+        ],
+        "ortho_scale": 0.3400000035762787,
+        "context": false,
+        "source_sha256": "a979e5a93dd2665b75cbb8eddca6777e8e688d804e63c27ba996bf3d1eb18d44",
+        "export_sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+        "lighting": "Initial energies x0.16 plus6W underside fill; mesh/material unchanged",
+        "png_sha256": "0cb8f236bfd7c22409dbb2673a7690910dc3f0f888ce7c6c2300b5e6fd586ba8",
+        "render_origin": "Blender source-preserving scene; not browser/GLB screenshot"
+      }
+    },
+    {
+      "file": "evidence/context_oblique.png",
+      "sha256": "67cfd3bbe4cdeb0eff7724d00a5b43aba079a9e3883c90a5ca7a5df46f962cd1",
+      "origin": "Blender source-preserving scene render, not browser runtime capture",
+      "pixel_unchanged_from_reviewed_render": true,
+      "role": "auxiliary-context",
+      "sourceSha256s": [
+        "07dd35e532eb8a971d97b072ed2be5c5c49e5bfda113997e6d1231e26c3951a9"
+      ],
+      "camera": {
+        "file": "evidence/context_oblique.png",
+        "position": [
+          0.7995797991752625,
+          -1.0169743299484253,
+          1.7521989345550537
+        ],
+        "quaternion": [
+          0.7963082194328308,
+          0.5062880516052246,
+          0.177596315741539,
+          0.27932989597320557
+        ],
+        "target": [
+          -0.00042023140122182667,
+          -0.01697428524494171,
+          1.1521989107131958
+        ],
+        "ortho_scale": 0.550000011920929,
+        "context": true,
+        "source_sha256": "a979e5a93dd2665b75cbb8eddca6777e8e688d804e63c27ba996bf3d1eb18d44",
+        "export_sha256": "07dd35e532eb8a971d97b072ed2be5c5c49e5bfda113997e6d1231e26c3951a9",
+        "lighting": "Initial energies x0.16 plus6W underside fill; mesh/material unchanged",
+        "png_sha256": "67cfd3bbe4cdeb0eff7724d00a5b43aba079a9e3883c90a5ca7a5df46f962cd1",
+        "render_origin": "Blender source-preserving scene; not browser/GLB screenshot"
+      }
+    },
+    {
+      "file": "evidence/diagnostic-contact.png",
+      "sha256": "bc335418260bdbb88c415111e251ce4c483ed51ea70ae1a2df9a4b39aae622fa",
+      "origin": "Blender source-preserving scene render, not browser runtime capture",
+      "pixel_unchanged_from_reviewed_render": true,
+      "role": "mixed-primary-and-context-contact",
+      "sourceSha256s": [
+        "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+        "07dd35e532eb8a971d97b072ed2be5c5c49e5bfda113997e6d1231e26c3951a9"
+      ],
+      "tiles": [
+        {
+          "row": 1,
+          "column": 1,
+          "view": "superior",
+          "source_render_sha256": "01779577346092ea2a6b4288e38edc3aff5efdd47c95d0ebb47bbe84cbdda22a",
+          "export_sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+          "role": "primary-isolated",
+          "camera": {
+            "file": "evidence/superior.png",
+            "position": [
+              -0.00042023140122182667,
+              -0.01697428524494171,
+              2.1521987915039062
+            ],
+            "quaternion": [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            "target": [
+              -0.00042023140122182667,
+              -0.01697428524494171,
+              1.1521989107131958
+            ],
+            "ortho_scale": 0.3400000035762787,
+            "context": false,
+            "source_sha256": "a979e5a93dd2665b75cbb8eddca6777e8e688d804e63c27ba996bf3d1eb18d44",
+            "export_sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+            "lighting": "Initial energies x0.16 plus6W underside fill; mesh/material unchanged",
+            "png_sha256": "5ba2cde168ecad2083d4041777c5258467caa8ba21f4b14257c1fe334459dd93",
+            "render_origin": "Blender source-preserving scene; not browser/GLB screenshot"
+          }
+        },
+        {
+          "row": 1,
+          "column": 2,
+          "view": "inferior",
+          "source_render_sha256": "b5023a391f0e7edfb2c89266792cfd96426eaaf5ec6c6437425346b7b7148614",
+          "export_sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+          "role": "primary-isolated",
+          "camera": {
+            "file": "evidence/inferior.png",
+            "position": [
+              -0.00042023140122182667,
+              -0.01697428524494171,
+              0.1521989107131958
+            ],
+            "quaternion": [
+              -4.371139183945161e-08,
+              4.371138473402425e-08,
+              1.0,
+              -4.371138473402425e-08
+            ],
+            "target": [
+              -0.00042023140122182667,
+              -0.01697428524494171,
+              1.1521989107131958
+            ],
+            "ortho_scale": 0.3400000035762787,
+            "context": false,
+            "source_sha256": "a979e5a93dd2665b75cbb8eddca6777e8e688d804e63c27ba996bf3d1eb18d44",
+            "export_sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+            "lighting": "Initial energies x0.16 plus6W underside fill; mesh/material unchanged",
+            "png_sha256": "751596814bcdabb7d4e63a34efb9a1c2c0f8e6e34e436ba59d79c3c0a2bc94b6",
+            "render_origin": "Blender source-preserving scene; not browser/GLB screenshot"
+          }
+        },
+        {
+          "row": 1,
+          "column": 3,
+          "view": "front",
+          "source_render_sha256": "f779571b9e8b48111e2a770fcf6b5c8c3327b7fb35b5993860d0e91e2c8248bc",
+          "export_sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+          "role": "primary-isolated",
+          "camera": {
+            "file": "evidence/front.png",
+            "position": [
+              -0.00042023140122182667,
+              -1.0169743299484253,
+              1.1521989107131958
+            ],
+            "quaternion": [
+              0.7071067094802856,
+              0.7071068286895752,
+              0.0,
+              0.0
+            ],
+            "target": [
+              -0.00042023140122182667,
+              -0.01697428524494171,
+              1.1521989107131958
+            ],
+            "ortho_scale": 0.3400000035762787,
+            "context": false,
+            "source_sha256": "a979e5a93dd2665b75cbb8eddca6777e8e688d804e63c27ba996bf3d1eb18d44",
+            "export_sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+            "lighting": "Initial energies x0.16 plus6W underside fill; mesh/material unchanged",
+            "png_sha256": "591d99bdf9b123203b85a72719476dbc86e8846f5ee0200ace4ce05489e1aade",
+            "render_origin": "Blender source-preserving scene; not browser/GLB screenshot"
+          }
+        },
+        {
+          "row": 2,
+          "column": 1,
+          "view": "side",
+          "source_render_sha256": "f3f2d0953cbac1baa39efde23e8a78d260ca6ea9d56509a6aa76f6f077010df9",
+          "export_sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+          "role": "primary-isolated",
+          "camera": {
+            "file": "evidence/side.png",
+            "position": [
+              0.9995797872543335,
+              -0.01697428524494171,
+              1.1521989107131958
+            ],
+            "quaternion": [
+              0.4999999701976776,
+              0.5,
+              0.5,
+              0.5
+            ],
+            "target": [
+              -0.00042023140122182667,
+              -0.01697428524494171,
+              1.1521989107131958
+            ],
+            "ortho_scale": 0.3400000035762787,
+            "context": false,
+            "source_sha256": "a979e5a93dd2665b75cbb8eddca6777e8e688d804e63c27ba996bf3d1eb18d44",
+            "export_sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+            "lighting": "Initial energies x0.16 plus6W underside fill; mesh/material unchanged",
+            "png_sha256": "36c0b4604a09fd2ea0e1ccb6ee45d5209badadee77be7e09ea3bf01049631d82",
+            "render_origin": "Blender source-preserving scene; not browser/GLB screenshot"
+          }
+        },
+        {
+          "row": 2,
+          "column": 2,
+          "view": "oblique",
+          "source_render_sha256": "6336b27b16eb7f3f43923dd1a6e05ae0fe8f8d6de84965e7cf1c97afc25ca1b7",
+          "export_sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+          "role": "primary-isolated",
+          "camera": {
+            "file": "evidence/oblique.png",
+            "position": [
+              0.7995797991752625,
+              -1.0169743299484253,
+              1.852198839187622
+            ],
+            "quaternion": [
+              0.8116388916969299,
+              0.48132815957069397,
+              0.16884078085422516,
+              0.2847074568271637
+            ],
+            "target": [
+              -0.00042023140122182667,
+              -0.01697428524494171,
+              1.1521989107131958
+            ],
+            "ortho_scale": 0.3400000035762787,
+            "context": false,
+            "source_sha256": "a979e5a93dd2665b75cbb8eddca6777e8e688d804e63c27ba996bf3d1eb18d44",
+            "export_sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+            "lighting": "Initial energies x0.16 plus6W underside fill; mesh/material unchanged",
+            "png_sha256": "0cb8f236bfd7c22409dbb2673a7690910dc3f0f888ce7c6c2300b5e6fd586ba8",
+            "render_origin": "Blender source-preserving scene; not browser/GLB screenshot"
+          }
+        },
+        {
+          "row": 2,
+          "column": 3,
+          "view": "posterior_oblique",
+          "source_render_sha256": "9b447854bcce1baa0f92c8578d4bc55d1322563fb698ba6127e80c90696d30c1",
+          "export_sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+          "role": "primary-isolated",
+          "camera": {
+            "file": "not-packaged/posterior_oblique.png",
+            "position": [
+              -0.8004202246665955,
+              0.9830257296562195,
+              0.7521989345550537
+            ],
+            "quaternion": [
+              0.19608600437641144,
+              0.26667559146881104,
+              -0.7602337598800659,
+              -0.5589982271194458
+            ],
+            "target": [
+              -0.00042023140122182667,
+              -0.01697428524494171,
+              1.1521989107131958
+            ],
+            "ortho_scale": 0.3400000035762787,
+            "context": false,
+            "source_sha256": "a979e5a93dd2665b75cbb8eddca6777e8e688d804e63c27ba996bf3d1eb18d44",
+            "export_sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+            "lighting": "Initial energies x0.16 plus6W underside fill; mesh/material unchanged",
+            "render_origin": "Blender source-preserving scene; not browser/GLB screenshot"
+          }
+        },
+        {
+          "row": 3,
+          "column": 1,
+          "view": "context_front",
+          "source_render_sha256": "02932ce5f1ac21ce80f1e0adf926e64b7eba268a45ac2c794dbec13df4c9311d",
+          "export_sha256": "07dd35e532eb8a971d97b072ed2be5c5c49e5bfda113997e6d1231e26c3951a9",
+          "role": "auxiliary-context",
+          "camera": {
+            "file": "not-packaged/context_front.png",
+            "position": [
+              -0.00042023140122182667,
+              -1.0169743299484253,
+              1.2521989345550537
+            ],
+            "quaternion": [
+              0.7414525747299194,
+              0.6710053086280823,
+              0.0,
+              0.0
+            ],
+            "target": [
+              -0.00042023140122182667,
+              -0.01697428524494171,
+              1.1521989107131958
+            ],
+            "ortho_scale": 0.550000011920929,
+            "context": true,
+            "source_sha256": "a979e5a93dd2665b75cbb8eddca6777e8e688d804e63c27ba996bf3d1eb18d44",
+            "export_sha256": "07dd35e532eb8a971d97b072ed2be5c5c49e5bfda113997e6d1231e26c3951a9",
+            "lighting": "Initial energies x0.16 plus6W underside fill; mesh/material unchanged",
+            "render_origin": "Blender source-preserving scene; not browser/GLB screenshot"
+          }
+        },
+        {
+          "row": 3,
+          "column": 2,
+          "view": "context_oblique",
+          "source_render_sha256": "0cdb59e3f1a6ba7f44597aadbac8de749881583ea9a6c47fe454b23da6eaa8a7",
+          "export_sha256": "07dd35e532eb8a971d97b072ed2be5c5c49e5bfda113997e6d1231e26c3951a9",
+          "role": "auxiliary-context",
+          "camera": {
+            "file": "evidence/context_oblique.png",
+            "position": [
+              0.7995797991752625,
+              -1.0169743299484253,
+              1.7521989345550537
+            ],
+            "quaternion": [
+              0.7963082194328308,
+              0.5062880516052246,
+              0.177596315741539,
+              0.27932989597320557
+            ],
+            "target": [
+              -0.00042023140122182667,
+              -0.01697428524494171,
+              1.1521989107131958
+            ],
+            "ortho_scale": 0.550000011920929,
+            "context": true,
+            "source_sha256": "a979e5a93dd2665b75cbb8eddca6777e8e688d804e63c27ba996bf3d1eb18d44",
+            "export_sha256": "07dd35e532eb8a971d97b072ed2be5c5c49e5bfda113997e6d1231e26c3951a9",
+            "lighting": "Initial energies x0.16 plus6W underside fill; mesh/material unchanged",
+            "png_sha256": "67cfd3bbe4cdeb0eff7724d00a5b43aba079a9e3883c90a5ca7a5df46f962cd1",
+            "render_origin": "Blender source-preserving scene; not browser/GLB screenshot"
+          }
+        },
+        {
+          "row": 3,
+          "column": 3,
+          "view": "context_posterior",
+          "source_render_sha256": "6eff90c4326c36950c7106ce8cb982d899ed2c3b832bae9741b3b4b5f1771439",
+          "export_sha256": "07dd35e532eb8a971d97b072ed2be5c5c49e5bfda113997e6d1231e26c3951a9",
+          "role": "auxiliary-context",
+          "camera": {
+            "file": "not-packaged/context_posterior.png",
+            "position": [
+              -0.5004202127456665,
+              0.9830257296562195,
+              1.4521989822387695
+            ],
+            "quaternion": [
+              0.1822999119758606,
+              0.1398324817419052,
+              -0.5923399329185486,
+              -0.772235095500946
+            ],
+            "target": [
+              -0.00042023140122182667,
+              -0.01697428524494171,
+              1.1521989107131958
+            ],
+            "ortho_scale": 0.550000011920929,
+            "context": true,
+            "source_sha256": "a979e5a93dd2665b75cbb8eddca6777e8e688d804e63c27ba996bf3d1eb18d44",
+            "export_sha256": "07dd35e532eb8a971d97b072ed2be5c5c49e5bfda113997e6d1231e26c3951a9",
+            "lighting": "Initial energies x0.16 plus6W underside fill; mesh/material unchanged",
+            "render_origin": "Blender source-preserving scene; not browser/GLB screenshot"
+          }
+        }
+      ],
+      "caveat": "Top 2 rows are isolated primary; bottom row is auxiliary partial skeletal context. One study, not 2 candidates."
+    },
+    {
+      "file": "evidence/baseline-source-comparison.png",
+      "sha256": "1231abb62715f7e687dffb12ff3af2b046438a8505d5b432d4b3e97bd242ddb1",
+      "origin": "Blender source-preserving scene render, not browser runtime capture",
+      "pixel_unchanged_from_reviewed_render": true,
+      "role": "historical-baseline-versus-new-primary-comparison",
+      "sourceSha256s": [
+        "b68787a1a90912ebd75fd8c60492c34072c61dce86384775e9609d94e80e676e",
+        "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29"
+      ],
+      "panels": [
+        {
+          "side": "left",
+          "role": "historical-baseline",
+          "source_contact_sha256": "8a4f3dd11c6b760b911e4c03e586a836e5f51955b4a4afaef5eb903d820a93f3",
+          "export_sha256": "b68787a1a90912ebd75fd8c60492c34072c61dce86384775e9609d94e80e676e",
+          "binding_receipt": "reviews/diaphragm/2026-10-23-confirmed-static-review/record.json",
+          "views": "existing front/left/back contact, frame1"
+        },
+        {
+          "side": "right",
+          "role": "new-primary",
+          "source_render_sha256": "6336b27b16eb7f3f43923dd1a6e05ae0fe8f8d6de84965e7cf1c97afc25ca1b7",
+          "export_sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+          "camera": {
+            "file": "evidence/oblique.png",
+            "position": [
+              0.7995797991752625,
+              -1.0169743299484253,
+              1.852198839187622
+            ],
+            "quaternion": [
+              0.8116388916969299,
+              0.48132815957069397,
+              0.16884078085422516,
+              0.2847074568271637
+            ],
+            "target": [
+              -0.00042023140122182667,
+              -0.01697428524494171,
+              1.1521989107131958
+            ],
+            "ortho_scale": 0.3400000035762787,
+            "context": false,
+            "source_sha256": "a979e5a93dd2665b75cbb8eddca6777e8e688d804e63c27ba996bf3d1eb18d44",
+            "export_sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+            "lighting": "Initial energies x0.16 plus6W underside fill; mesh/material unchanged",
+            "png_sha256": "0cb8f236bfd7c22409dbb2673a7690910dc3f0f888ce7c6c2300b5e6fd586ba8",
+            "render_origin": "Blender source-preserving scene; not browser/GLB screenshot"
+          }
+        }
+      ],
+      "caveat": "Different source models, frames, materials, camera framing and static views; not registered anatomy, not motion equivalence, not an edit of baseline geometry."
+    }
+  ],
+  "failure_lesson": {
+    "failure": {
+      "en": "The shallow cap was too schematic for the requested detailed anatomy; initial new-source lighting also hid curvature.",
+      "zh": "浅穹顶过于示意化，未达到所需的精细解剖展示；新来源模型最初的灯光也掩盖了曲率。"
+    },
+    "cause": {
+      "en": "Coverage and technical export checks were mistaken for sufficient visual quality; smooth geometry and bright lighting reduced anatomical readability.",
+      "zh": "覆盖数量与导出技术检查被误当作足够的视觉质量证据；平滑表面与过亮灯光降低了解剖结构的可辨性。"
+    },
+    "fix": {
+      "en": "Added a separate unchanged Z-Anatomy static study with native skeletal context and lower-exposure diagnostics. Baseline and its animation remain unchanged; no invented repairs.",
+      "zh": "新增独立的 Z-Anatomy 静态研究，保留原始几何与同源骨骼位置，并降低诊断渲染的曝光感。原基线及其动画未变，未凭空修补解剖结构。"
+    },
+    "retest": {
+      "en": "Reviewed 9 views and baseline comparison; checked source fidelity, native axes, repeatable exports and geometry roundtrip. Accepted only gross static shape/regional localization; anatomy, runtime and motion remain unverified.",
+      "zh": "复核 9 个视角与基线对比，检查源几何一致性、原生坐标轴、导出可重复性及几何往返一致性。仅认可静态大体形态与区域定位；解剖准确性、运行时与运动仍未验证。"
+    },
+    "lesson": {
+      "en": "Review silhouettes, undersides and coherent context before expanding coverage. A clean export is not an anatomy pass; retain unexplained source features and label limits.",
+      "zh": "扩充覆盖前，先检查轮廓、下表面与一致的上下文。导出通过不等于解剖通过；保留尚未解释的源特征，并明确限制。"
+    }
+  },
+  "axis_caveat": {
+    "en": "Source Blender world: +X left, -Y anterior, +Z superior. Exact camera quaternions use that frame. glTF serializes Y-up; do not reuse those camera vectors without conversion. Source/baseline frames are not registered.",
+    "zh": "源 Blender 世界坐标：+X 为左、-Y 为前、+Z 为上。精确相机四元数使用此坐标系；glTF 按 Y-up 序列化，不能直接复用这些相机向量而不做转换。源模型与基线坐标系未经配准。"
+  },
+  "limits": {
+    "en": "Smooth source anatomy; unnamed openings and unexplained narrow projections retained. Partial ribs/sternum/spine context omits cartilage and much of thorax. Not final detailed anatomy or breathing motion.",
+    "zh": "源解剖表面较平滑；保留未命名开口及尚未解释的细长突出结构。肋骨、胸骨与脊柱上下文不完整，缺少软骨与大部分胸廓。并非最终精细解剖模型或呼吸运动模型。"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "study_count": 1,
+  "baseline_replaced": false,
+  "frame": "Z-Anatomy native world coordinates, not wholebody/patient registration",
+  "source_axes": {
+    "+X": "left",
+    "-Y": "anterior",
+    "+Z": "superior"
+  },
+  "export_axes": "Blender glTF exporter default Y-up serialization. Reimported world-space triangle equivalence tested; consumers must not apply source camera vectors directly to glTF coordinates without conversion.",
+  "source_to_gltf_direction_mapping": "(x,y,z) -> (x,z,-y) under default Blender glTF export; camera records remain Blender source world frame",
+  "roles": {
+    "diaphragm_z_native_static.glb": "isolated organ study",
+    "diaphragm_z_context_static.glb": "same study with partial same-source skeletal context; not a second candidate"
+  },
+  "camera_contract": "camera-bindings.json: quaternion w,x,y,z; camera local -Z forward, local Y up; actual world position and target; all are source Blender world frame",
+  "verification_limits": "Axis mapping follows exporter convention; actual GLB browser camera placement not tested. Source axes independently checked against named bone centroids in axis-check.json."
+}

@@ -1,0 +1,310 @@
+{
+  "id": "diaphragm_z__native-static-r01__scoped-review",
+  "assetId": "diaphragm_static_study",
+  "variantId": "diaphragm_z__native-static-r01",
+  "sourceSha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+  "reviewedAt": "2026-10-24",
+  "gates": {
+    "technical": {
+      "status": "pass-with-limitations",
+      "scope": "Recorded source-coordinate/face fidelity, native transforms, export repeatability and geometry roundtrip checked. Four source boundary edges retained; not watertightness or general reconstruction proof."
+    },
+    "visual": {
+      "status": "passed",
+      "scope": "Gross static shape and regional localization only, after reviewer inspection of nine source-scene views and comparison. Not a finished detailed anatomy asset."
+    },
+    "anatomy": {
+      "status": "unreviewed",
+      "scope": "Reference targets considered; no anatomical validation or named-opening assignment."
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "No browser interaction or breathing-motion validation; baseline animation not transferred."
+    }
+  },
+  "evidence": [
+    {
+      "id": "diaphragm_z__native-static-r01__scoped-review__superior",
+      "file": "reviews/diaphragm/2026-10-24-z-static-study/evidence/superior.png",
+      "sha256": "5ba2cde168ecad2083d4041777c5258467caa8ba21f4b14257c1fe334459dd93",
+      "kind": "source-preserving-scene-render-or-contact",
+      "label": {
+        "en": "Superior source-scene view",
+        "zh": "上面·源场景视图"
+      },
+      "capturedAt": null,
+      "role": "candidate",
+      "assetBindings": [
+        {
+          "sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+          "role": "primary-study"
+        }
+      ],
+      "note": {
+        "en": "Blender source-preserving scene pixels, not GLB reimport or browser capture. PNG metadata removed with decoded pixels unchanged. Context and comparison bind their separate exports.",
+        "zh": "保留源几何的 Blender 场景图像，不是 GLB 重导入或浏览器截图。PNG 元数据已移除，解码像素未变；参照与对比各自绑定独立导出。"
+      },
+      "renderSettings": {
+        "origin": "Blender source-preserving scene render, not browser runtime capture",
+        "cameraBindingFile": "reviews/diaphragm/2026-10-24-z-static-study/gallery-addendum.json"
+      },
+      "sourceSha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29"
+    },
+    {
+      "id": "diaphragm_z__native-static-r01__scoped-review__inferior",
+      "file": "reviews/diaphragm/2026-10-24-z-static-study/evidence/inferior.png",
+      "sha256": "751596814bcdabb7d4e63a34efb9a1c2c0f8e6e34e436ba59d79c3c0a2bc94b6",
+      "kind": "source-preserving-scene-render-or-contact",
+      "label": {
+        "en": "Inferior source-scene view",
+        "zh": "下面·源场景视图"
+      },
+      "capturedAt": null,
+      "role": "candidate",
+      "assetBindings": [
+        {
+          "sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+          "role": "primary-study"
+        }
+      ],
+      "note": {
+        "en": "Blender source-preserving scene pixels, not GLB reimport or browser capture. PNG metadata removed with decoded pixels unchanged. Context and comparison bind their separate exports.",
+        "zh": "保留源几何的 Blender 场景图像，不是 GLB 重导入或浏览器截图。PNG 元数据已移除，解码像素未变；参照与对比各自绑定独立导出。"
+      },
+      "renderSettings": {
+        "origin": "Blender source-preserving scene render, not browser runtime capture",
+        "cameraBindingFile": "reviews/diaphragm/2026-10-24-z-static-study/gallery-addendum.json"
+      },
+      "sourceSha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29"
+    },
+    {
+      "id": "diaphragm_z__native-static-r01__scoped-review__front",
+      "file": "reviews/diaphragm/2026-10-24-z-static-study/evidence/front.png",
+      "sha256": "591d99bdf9b123203b85a72719476dbc86e8846f5ee0200ace4ce05489e1aade",
+      "kind": "source-preserving-scene-render-or-contact",
+      "label": {
+        "en": "Anterior source-scene view",
+        "zh": "前面·源场景视图"
+      },
+      "capturedAt": null,
+      "role": "candidate",
+      "assetBindings": [
+        {
+          "sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+          "role": "primary-study"
+        }
+      ],
+      "note": {
+        "en": "Blender source-preserving scene pixels, not GLB reimport or browser capture. PNG metadata removed with decoded pixels unchanged. Context and comparison bind their separate exports.",
+        "zh": "保留源几何的 Blender 场景图像，不是 GLB 重导入或浏览器截图。PNG 元数据已移除，解码像素未变；参照与对比各自绑定独立导出。"
+      },
+      "renderSettings": {
+        "origin": "Blender source-preserving scene render, not browser runtime capture",
+        "cameraBindingFile": "reviews/diaphragm/2026-10-24-z-static-study/gallery-addendum.json"
+      },
+      "sourceSha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29"
+    },
+    {
+      "id": "diaphragm_z__native-static-r01__scoped-review__side",
+      "file": "reviews/diaphragm/2026-10-24-z-static-study/evidence/side.png",
+      "sha256": "36c0b4604a09fd2ea0e1ccb6ee45d5209badadee77be7e09ea3bf01049631d82",
+      "kind": "source-preserving-scene-render-or-contact",
+      "label": {
+        "en": "Side source-scene view",
+        "zh": "侧面·源场景视图"
+      },
+      "capturedAt": null,
+      "role": "candidate",
+      "assetBindings": [
+        {
+          "sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+          "role": "primary-study"
+        }
+      ],
+      "note": {
+        "en": "Blender source-preserving scene pixels, not GLB reimport or browser capture. PNG metadata removed with decoded pixels unchanged. Context and comparison bind their separate exports.",
+        "zh": "保留源几何的 Blender 场景图像，不是 GLB 重导入或浏览器截图。PNG 元数据已移除，解码像素未变；参照与对比各自绑定独立导出。"
+      },
+      "renderSettings": {
+        "origin": "Blender source-preserving scene render, not browser runtime capture",
+        "cameraBindingFile": "reviews/diaphragm/2026-10-24-z-static-study/gallery-addendum.json"
+      },
+      "sourceSha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29"
+    },
+    {
+      "id": "diaphragm_z__native-static-r01__scoped-review__oblique",
+      "file": "reviews/diaphragm/2026-10-24-z-static-study/evidence/oblique.png",
+      "sha256": "0cb8f236bfd7c22409dbb2673a7690910dc3f0f888ce7c6c2300b5e6fd586ba8",
+      "kind": "source-preserving-scene-render-or-contact",
+      "label": {
+        "en": "Oblique source-scene view",
+        "zh": "斜视·源场景视图"
+      },
+      "capturedAt": null,
+      "role": "candidate",
+      "assetBindings": [
+        {
+          "sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+          "role": "primary-study"
+        }
+      ],
+      "note": {
+        "en": "Blender source-preserving scene pixels, not GLB reimport or browser capture. PNG metadata removed with decoded pixels unchanged. Context and comparison bind their separate exports.",
+        "zh": "保留源几何的 Blender 场景图像，不是 GLB 重导入或浏览器截图。PNG 元数据已移除，解码像素未变；参照与对比各自绑定独立导出。"
+      },
+      "renderSettings": {
+        "origin": "Blender source-preserving scene render, not browser runtime capture",
+        "cameraBindingFile": "reviews/diaphragm/2026-10-24-z-static-study/gallery-addendum.json"
+      },
+      "sourceSha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29"
+    },
+    {
+      "id": "diaphragm_z__native-static-r01__scoped-review__context_oblique",
+      "file": "reviews/diaphragm/2026-10-24-z-static-study/evidence/context_oblique.png",
+      "sha256": "67cfd3bbe4cdeb0eff7724d00a5b43aba079a9e3883c90a5ca7a5df46f962cd1",
+      "kind": "source-preserving-scene-render-or-contact",
+      "label": {
+        "en": "Partial same-source skeletal context",
+        "zh": "不完整同源骨骼参照"
+      },
+      "capturedAt": null,
+      "role": "candidate",
+      "assetBindings": [
+        {
+          "sha256": "07dd35e532eb8a971d97b072ed2be5c5c49e5bfda113997e6d1231e26c3951a9",
+          "role": "auxiliary-context"
+        }
+      ],
+      "note": {
+        "en": "Blender source-preserving scene pixels, not GLB reimport or browser capture. PNG metadata removed with decoded pixels unchanged. Context and comparison bind their separate exports.",
+        "zh": "保留源几何的 Blender 场景图像，不是 GLB 重导入或浏览器截图。PNG 元数据已移除，解码像素未变；参照与对比各自绑定独立导出。"
+      },
+      "renderSettings": {
+        "origin": "Blender source-preserving scene render, not browser runtime capture",
+        "cameraBindingFile": "reviews/diaphragm/2026-10-24-z-static-study/gallery-addendum.json"
+      },
+      "sourceSha256": "07dd35e532eb8a971d97b072ed2be5c5c49e5bfda113997e6d1231e26c3951a9"
+    },
+    {
+      "id": "diaphragm_z__native-static-r01__scoped-review__diagnostic-contact",
+      "file": "reviews/diaphragm/2026-10-24-z-static-study/evidence/diagnostic-contact.png",
+      "sha256": "bc335418260bdbb88c415111e251ce4c483ed51ea70ae1a2df9a4b39aae622fa",
+      "kind": "source-preserving-scene-render-or-contact",
+      "label": {
+        "en": "Isolated and context views · source scene",
+        "zh": "独立与参照视图·源场景"
+      },
+      "capturedAt": null,
+      "role": "candidate",
+      "assetBindings": [
+        {
+          "sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+          "role": "primary-study"
+        },
+        {
+          "sha256": "07dd35e532eb8a971d97b072ed2be5c5c49e5bfda113997e6d1231e26c3951a9",
+          "role": "auxiliary-context"
+        }
+      ],
+      "note": {
+        "en": "Blender source-preserving scene pixels, not GLB reimport or browser capture. PNG metadata removed with decoded pixels unchanged. Context and comparison bind their separate exports.",
+        "zh": "保留源几何的 Blender 场景图像，不是 GLB 重导入或浏览器截图。PNG 元数据已移除，解码像素未变；参照与对比各自绑定独立导出。"
+      },
+      "renderSettings": {
+        "origin": "Blender source-preserving scene render, not browser runtime capture",
+        "cameraBindingFile": "reviews/diaphragm/2026-10-24-z-static-study/gallery-addendum.json"
+      },
+      "assetBinding": "Multiple exact export associations; see tile/source bindings, not a single mesh render."
+    },
+    {
+      "id": "diaphragm_z__native-static-r01__scoped-review__baseline-source-comparison",
+      "file": "reviews/diaphragm/2026-10-24-z-static-study/evidence/baseline-source-comparison.png",
+      "sha256": "1231abb62715f7e687dffb12ff3af2b046438a8505d5b432d4b3e97bd242ddb1",
+      "kind": "source-preserving-scene-render-or-contact",
+      "label": {
+        "en": "Different-model baseline comparison · not registered",
+        "zh": "不同模型的基线对比·未配准"
+      },
+      "capturedAt": null,
+      "role": "comparison",
+      "assetBindings": [
+        {
+          "sha256": "b68787a1a90912ebd75fd8c60492c34072c61dce86384775e9609d94e80e676e",
+          "role": "baseline"
+        },
+        {
+          "sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+          "role": "primary-study"
+        }
+      ],
+      "note": {
+        "en": "Blender source-preserving scene pixels, not GLB reimport or browser capture. PNG metadata removed with decoded pixels unchanged. Context and comparison bind their separate exports.",
+        "zh": "保留源几何的 Blender 场景图像，不是 GLB 重导入或浏览器截图。PNG 元数据已移除，解码像素未变；参照与对比各自绑定独立导出。"
+      },
+      "renderSettings": {
+        "origin": "Blender source-preserving scene render, not browser runtime capture",
+        "cameraBindingFile": "reviews/diaphragm/2026-10-24-z-static-study/gallery-addendum.json"
+      },
+      "assetBinding": "Multiple exact export associations; see tile/source bindings, not a single mesh render."
+    }
+  ],
+  "references": [
+    {
+      "url": "https://assets.cambridge.org/97805218/67122/excerpt/9780521867122_excerpt.pdf",
+      "title": "Thoracic anatomy reference targets; no reference pixels copied"
+    }
+  ],
+  "failureSummary": {
+    "failure": {
+      "en": "The shallow cap was too schematic for the requested detailed anatomy; initial new-source lighting also hid curvature.",
+      "zh": "浅穹顶过于示意化，未达到所需的精细解剖展示；新来源模型最初的灯光也掩盖了曲率。"
+    },
+    "cause": {
+      "en": "Coverage and technical export checks were mistaken for sufficient visual quality; smooth geometry and bright lighting reduced anatomical readability.",
+      "zh": "覆盖数量与导出技术检查被误当作足够的视觉质量证据；平滑表面与过亮灯光降低了解剖结构的可辨性。"
+    },
+    "fix": {
+      "en": "Added a separate unchanged Z-Anatomy static study with native skeletal context and lower-exposure diagnostics. Baseline and its animation remain unchanged; no invented repairs.",
+      "zh": "新增独立的 Z-Anatomy 静态研究，保留原始几何与同源骨骼位置，并降低诊断渲染的曝光感。原基线及其动画未变，未凭空修补解剖结构。"
+    },
+    "retest": {
+      "en": "Reviewed 9 views and baseline comparison; checked source fidelity, native axes, repeatable exports and geometry roundtrip. Accepted only gross static shape/regional localization; anatomy, runtime and motion remain unverified.",
+      "zh": "复核 9 个视角与基线对比，检查源几何一致性、原生坐标轴、导出可重复性及几何往返一致性。仅认可静态大体形态与区域定位；解剖准确性、运行时与运动仍未验证。"
+    },
+    "lesson": {
+      "en": "Review silhouettes, undersides and coherent context before expanding coverage. A clean export is not an anatomy pass; retain unexplained source features and label limits.",
+      "zh": "扩充覆盖前，先检查轮廓、下表面与一致的上下文。导出通过不等于解剖通过；保留尚未解释的源特征，并明确限制。"
+    }
+  },
+  "scope": {
+    "en": "Smooth source anatomy; unnamed openings and unexplained narrow projections retained. Partial ribs/sternum/spine context omits cartilage and much of thorax. Not final detailed anatomy or breathing motion.",
+    "zh": "源解剖表面较平滑；保留未命名开口及尚未解释的细长突出结构。肋骨、胸骨与脊柱上下文不完整，缺少软骨与大部分胸廓。并非最终精细解剖模型或呼吸运动模型。"
+  },
+  "sourceRecords": [
+    {
+      "file": "reviews/diaphragm/2026-10-24-z-static-study/review-decision.json",
+      "sha256": "1339bbe1b64f3a1e9b8b35687e2775ce732edfc329901471784859a9f5e7ed3e"
+    },
+    {
+      "file": "reviews/diaphragm/2026-10-24-z-static-study/gallery-addendum.json",
+      "sha256": "2d63ba48c037a516d74e197189766b7dc1495ec86aca2a134300a87d356de1c6"
+    },
+    {
+      "file": "reviews/diaphragm/2026-10-24-z-static-study/source-qa.json",
+      "sha256": "67edf5dad305525512ebde56b51b0ebeddb268432994c3a24d225c9b4de361b5"
+    },
+    {
+      "file": "reviews/diaphragm/2026-10-24-z-static-study/export-qa.json",
+      "sha256": "9a76f89f5aa899996ce92ea535ff9ebc800309dd07b9389aa09aaeab1a0d390c"
+    },
+    {
+      "file": "reviews/diaphragm/2026-10-24-z-static-study/axis-check.json",
+      "sha256": "8418cbb668db346ac11053463a3cdbc05b3c91520a148556b0e1ae83690485b6"
+    },
+    {
+      "file": "reviews/diaphragm/2026-10-24-z-static-study/png-sanitization.json",
+      "sha256": "174e38dd6de129f21a848f110acea8143becd3eae4fba64909995e4e6c040d4e"
+    }
+  ],
+  "integrationClarification": "Package approval received after original decision file; original awaiting-package-review wording preserved as history. Current acceptance remains gross static shape/localization only."
+}

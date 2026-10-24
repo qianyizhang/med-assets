@@ -1,0 +1,94 @@
+{
+  "exactGLBSHA": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+  "coordinateFrame": "Source Blender world Z-up camera vectors converted (x,y,z) -> (x,z,-y) to glTF Y-up; exported model is not transformed again.",
+  "primary_view": "oblique.png",
+  "ortho_vertical_span": 0.3400000035762787,
+  "sourceCameraRecordSha256": "debc84607ddf1a89136d93dd4951fc6295708ac1f2bf56fd06c120d49f6650b9",
+  "verificationScope": "Exact recorded camera recipe conversion; browser placement/runtime remains unverified. Source scene renders are not GLB/browser captures.",
+  "views": [
+    {
+      "file": "superior.png",
+      "label": {
+        "en": "Superior · static source view",
+        "zh": "上方 · 静态来源视图"
+      },
+      "source_evidence_file": "evidence/superior.png",
+      "source_evidence_sha256": "5ba2cde168ecad2083d4041777c5258467caa8ba21f4b14257c1fe334459dd93",
+      "position_three": [
+        -0.00042023140122182667,
+        2.1521987915039062,
+        0.01697428524494171
+      ],
+      "target_three": [
+        -0.00042023140122182667,
+        1.1521989107131958,
+        0.01697428524494171
+      ],
+      "up_three": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "ortho_vertical_span": 0.3400000035762787,
+      "hidden_for_inspection_only": [],
+      "mode": "source neutral shading; all isolated geometry retained",
+      "render_origin": "Blender source-preserving scene; not browser/GLB screenshot"
+    },
+    {
+      "file": "inferior.png",
+      "label": {
+        "en": "Inferior · static source view",
+        "zh": "下方 · 静态来源视图"
+      },
+      "source_evidence_file": "evidence/inferior.png",
+      "source_evidence_sha256": "751596814bcdabb7d4e63a34efb9a1c2c0f8e6e34e436ba59d79c3c0a2bc94b6",
+      "position_three": [
+        -0.00042023140122182667,
+        0.1521989107131958,
+        0.01697428524494171
+      ],
+      "target_three": [
+        -0.00042023140122182667,
+        1.1521989107131958,
+        0.01697428524494171
+      ],
+      "up_three": [
+        8.742276564667707e-08,
+        -8.742277328941893e-08,
+        -0.9999999999999923
+      ],
+      "ortho_vertical_span": 0.3400000035762787,
+      "hidden_for_inspection_only": [],
+      "mode": "source neutral shading; all isolated geometry retained",
+      "render_origin": "Blender source-preserving scene; not browser/GLB screenshot"
+    },
+    {
+      "file": "oblique.png",
+      "label": {
+        "en": "Oblique · static source view",
+        "zh": "斜视 · 静态来源视图"
+      },
+      "source_evidence_file": "evidence/oblique.png",
+      "source_evidence_sha256": "0cb8f236bfd7c22409dbb2673a7690910dc3f0f888ce7c6c2300b5e6fd586ba8",
+      "position_three": [
+        0.7995797991752625,
+        1.852198839187622,
+        1.0169743299484253
+      ],
+      "target_three": [
+        -0.00042023140122182667,
+        1.1521989107131958,
+        0.01697428524494171
+      ],
+      "up_three": [
+        -0.299623634939465,
+        0.8774697376802002,
+        -0.37452975428008783
+      ],
+      "ortho_vertical_span": 0.3400000035762787,
+      "hidden_for_inspection_only": [],
+      "mode": "source neutral shading; all isolated geometry retained",
+      "render_origin": "Blender source-preserving scene; not browser/GLB screenshot"
+    }
+  ]
+}
