@@ -1,0 +1,22 @@
+{
+  "checkedAtUtc": "2026-10-24T09:03:40.631151+00:00",
+  "scope": "Local retained bytes and exact additive binding only",
+  "subsetAndStrict": "passed",
+  "browserReadback": {
+    "externalReport": "reviews/site/2026-10-24-verification-v25/report.json",
+    "sha256": "dd64246d2e3fabd423d23eacf88c43bb5a934c9362237c796ab45fe4ea2ca336",
+    "bundled": false,
+    "checkedAt": "2026-10-24T08:59:22Z",
+    "result": "passed",
+    "scope": "Reported actual browser display and exact native PNG download readback; not model runtime or mobile verification.",
+    "nativePngReadback": {
+      "sha256": "1de1a0b96d416d08c4d241ee99ef02baa97d3716f5390e72296c67f623e27c79",
+      "bytes": 2133461,
+      "match": true,
+      "method": "Documented browser download followed by independent hashing; no credentials/security changes"
+    }
+  },
+  "freshNetworkCheck": false,
+  "newQualityApproval": false,
+  "additiveDependencyPaths": "All included additive sourceRecords and evidence paths exist with exact hashes"
+}

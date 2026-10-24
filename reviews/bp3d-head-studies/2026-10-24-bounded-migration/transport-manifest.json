@@ -1,0 +1,184 @@
+{
+  "schema": "bounded-bp3d-head-studies-transport-v1",
+  "checkedFrom": "Retained deployment bytes and unchanged canonical source bytes",
+  "siteSourceCommit": "2613894e2792183cd27db9856af24e580e974f2e",
+  "inventoryRemoteRef": "79c867bad7471562d1c4ddabb4fe2a24d9764f8a",
+  "freshAvailabilityChecked": false,
+  "studies": [
+    {
+      "assetId": "draft_teeth_gums",
+      "variantId": "teeth_gums__r02",
+      "canonicalPath": "models/teeth_gums/exports/r02/teeth_gums.glb",
+      "galleryURL": "https://anatomy-verification.landy123007.chatgpt.site/review/#candidate-teeth_gums__r02",
+      "viewerURL": "https://anatomy-verification.landy123007.chatgpt.site/review/candidate.html?asset=draft_teeth_gums&candidate=teeth_gums__r02",
+      "transport": {
+        "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/candidates/teeth_gums__r02/82bfaeead46bb51b1fa5bdfdb06c918dfd01aa23b28acae733ab75ec2cd6897f.glb.gz",
+        "sitePath": "candidates/teeth_gums__r02/82bfaeead46bb51b1fa5bdfdb06c918dfd01aa23b28acae733ab75ec2cd6897f.glb.gz",
+        "encoding": "gzip",
+        "storedSha256": "023315743aa0d0a673c724260afb7afe0feee4b2d400d594fb9578592e8fa1b7",
+        "storedBytes": 648096,
+        "decodedSha256": "82bfaeead46bb51b1fa5bdfdb06c918dfd01aa23b28acae733ab75ec2cd6897f",
+        "decodedBytes": 814328,
+        "decodeRequiredBeforeLFSUpload": true
+      },
+      "evidence": [
+        {
+          "path": "reviews/bp3d-head-studies/2026-10-24-bounded-migration/shared-display/f026a78e481ff9942e532675eaeb2ff5162195dbb31ceeff6902c343716d1b8c.webp",
+          "sha256": "f026a78e481ff9942e532675eaeb2ff5162195dbb31ceeff6902c343716d1b8c",
+          "bytes": 76206,
+          "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/draft_teeth_gums__2026-10-23-v10-exterior-review/adf946762dd22ac7a46a5940815455d55dfacbde59bdbd4dea5d1dec43707d79.webp",
+          "originalPngSha256": "adf946762dd22ac7a46a5940815455d55dfacbde59bdbd4dea5d1dec43707d79",
+          "format": "WEBP",
+          "selectionRole": "before"
+        },
+        {
+          "path": "reviews/teeth_gums/2026-10-24-r02-bounded-migration/display/bd032b06954a652e831921bab63ab755151b06ef3d99f2dcb6979199e21d0026.webp",
+          "sha256": "bd032b06954a652e831921bab63ab755151b06ef3d99f2dcb6979199e21d0026",
+          "bytes": 72482,
+          "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/teeth_gums__r02__scoped-review/40603608dbadf869f8f397d089ce93e4e79a9dbba8b2cf323df249b08def8526.webp",
+          "originalPngSha256": "40603608dbadf869f8f397d089ce93e4e79a9dbba8b2cf323df249b08def8526",
+          "format": "WEBP",
+          "selectionRole": "candidate"
+        },
+        {
+          "path": "reviews/teeth_gums/2026-10-24-r02-bounded-migration/display/faee70f5ce140f3a2f0c588b29dbd89f4b6c44bb45f6e2200785997bea9c26e6.webp",
+          "sha256": "faee70f5ce140f3a2f0c588b29dbd89f4b6c44bb45f6e2200785997bea9c26e6",
+          "bytes": 42930,
+          "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/teeth_gums__r02__scoped-review/58abe6f04cd73833e32b95107737299fd66ea384def730a101c74238e6e8d75f.webp",
+          "originalPngSha256": "58abe6f04cd73833e32b95107737299fd66ea384def730a101c74238e6e8d75f",
+          "format": "WEBP",
+          "selectionRole": "candidate"
+        }
+      ],
+      "reviewRecord": "reviews/teeth_gums/2026-10-24-r02-bounded-migration/bounded-record.json",
+      "retainedTransportCheck": {
+        "storedGzipIdentity": "matched retained deployment bytes",
+        "decodedCanonicalEquality": "passed against unchanged source",
+        "freshAvailabilityChecked": false,
+        "gzipBundled": false
+      }
+    },
+    {
+      "assetId": "draft_pharynx_larynx",
+      "variantId": "pharynx_larynx__r03",
+      "canonicalPath": "models/pharynx_larynx/exports/r03/pharynx_larynx.glb",
+      "galleryURL": "https://anatomy-verification.landy123007.chatgpt.site/review/#candidate-pharynx_larynx__r03",
+      "viewerURL": "https://anatomy-verification.landy123007.chatgpt.site/review/candidate.html?asset=draft_pharynx_larynx&candidate=pharynx_larynx__r03",
+      "transport": {
+        "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/candidates/pharynx_larynx__r03/d691a60f12d448b9b36d362270429c672c01c7fae0f10a8789ef188dd4c08530.glb.gz",
+        "sitePath": "candidates/pharynx_larynx__r03/d691a60f12d448b9b36d362270429c672c01c7fae0f10a8789ef188dd4c08530.glb.gz",
+        "encoding": "gzip",
+        "storedSha256": "a5a24e5458ba5fc2e04eb167bbad5d831cbb6c3f7fa4ff70d5c3c41be5bda67a",
+        "storedBytes": 3964162,
+        "decodedSha256": "d691a60f12d448b9b36d362270429c672c01c7fae0f10a8789ef188dd4c08530",
+        "decodedBytes": 5050088,
+        "decodeRequiredBeforeLFSUpload": true
+      },
+      "evidence": [
+        {
+          "path": "reviews/bp3d-head-studies/2026-10-24-bounded-migration/shared-display/6c21278de83b799d22f6e5c43e1e2c17bd2778c71c60da99c2c763b2c1ece383.webp",
+          "sha256": "6c21278de83b799d22f6e5c43e1e2c17bd2778c71c60da99c2c763b2c1ece383",
+          "bytes": 27310,
+          "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/draft_pharynx_larynx__2026-10-23-v10-exterior-review/177d5c0fc101988700c64f57174f5881667df1061e36c1d6cedf02058322e132.webp",
+          "originalPngSha256": "177d5c0fc101988700c64f57174f5881667df1061e36c1d6cedf02058322e132",
+          "format": "WEBP",
+          "selectionRole": "before"
+        },
+        {
+          "path": "reviews/pharynx_larynx/2026-10-24-r03-bounded-migration/display/1ebf8eeaf20d87b22dab5b41fdd8cd8ef2a6ee56389f7d214c6a2e7098166b64.webp",
+          "sha256": "1ebf8eeaf20d87b22dab5b41fdd8cd8ef2a6ee56389f7d214c6a2e7098166b64",
+          "bytes": 65166,
+          "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/pharynx_larynx__r03__scoped-review/6610e557a460792c445db16990e0b1e8a3030a9159f67ce8cafa7f4332414961.webp",
+          "originalPngSha256": "6610e557a460792c445db16990e0b1e8a3030a9159f67ce8cafa7f4332414961",
+          "format": "WEBP",
+          "selectionRole": "candidate"
+        },
+        {
+          "path": "reviews/pharynx_larynx/2026-10-24-r03-bounded-migration/display/3fd53e5ae14c6aa7230d3f0acc75b05001fc902f146c91984839df60d9b929ff.webp",
+          "sha256": "3fd53e5ae14c6aa7230d3f0acc75b05001fc902f146c91984839df60d9b929ff",
+          "bytes": 21414,
+          "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/pharynx_larynx__r03__scoped-review/81bfdbf9bee4b7d1d61f797c3ef94dc09a28634adfe96e88cbf695082aa333da.webp",
+          "originalPngSha256": "81bfdbf9bee4b7d1d61f797c3ef94dc09a28634adfe96e88cbf695082aa333da",
+          "format": "WEBP",
+          "selectionRole": "candidate"
+        }
+      ],
+      "reviewRecord": "reviews/pharynx_larynx/2026-10-24-r03-bounded-migration/bounded-record.json",
+      "retainedTransportCheck": {
+        "storedGzipIdentity": "matched retained deployment bytes",
+        "decodedCanonicalEquality": "passed against unchanged source",
+        "freshAvailabilityChecked": false,
+        "gzipBundled": false
+      }
+    },
+    {
+      "assetId": "brain",
+      "variantId": "brain__bodyparts3d-4.0-atlas-r2",
+      "canonicalPath": "models/brain/exports/bodyparts3d-4.0-atlas-r2/brain-source-frame.glb",
+      "galleryURL": "https://anatomy-verification.landy123007.chatgpt.site/review/#candidate-brain__bodyparts3d-4.0-atlas-r2",
+      "viewerURL": "https://anatomy-verification.landy123007.chatgpt.site/review/candidate.html?asset=brain&candidate=brain__bodyparts3d-4.0-atlas-r2",
+      "transport": {
+        "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/candidates/brain__bodyparts3d-4.0-atlas-r2/26d39768e2882daee034f997a8d594e915283b5f8a176a8bb60003944a45b886.glb.gz",
+        "sitePath": "candidates/brain__bodyparts3d-4.0-atlas-r2/26d39768e2882daee034f997a8d594e915283b5f8a176a8bb60003944a45b886.glb.gz",
+        "encoding": "gzip",
+        "storedSha256": "25c37c60fdfe98cdf3d6cc9fd4f4889f5e0bd212fbc6ee684d62608213c31aae",
+        "storedBytes": 3575984,
+        "decodedSha256": "26d39768e2882daee034f997a8d594e915283b5f8a176a8bb60003944a45b886",
+        "decodedBytes": 4415384,
+        "decodeRequiredBeforeLFSUpload": true
+      },
+      "evidence": [
+        {
+          "path": "reviews/bp3d-head-studies/2026-10-24-bounded-migration/shared-display/fc9d0db4a01c2df83444f8492f1e17f0b2ef504de094e9955833e3db08144764.webp",
+          "sha256": "fc9d0db4a01c2df83444f8492f1e17f0b2ef504de094e9955833e3db08144764",
+          "bytes": 74614,
+          "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/brain__2026-10-23-v10-exterior-review/f20daf44d9a3dfc53898939e17cfcc67a76a811541dbabedf7a4e7995c24f162.webp",
+          "originalPngSha256": "f20daf44d9a3dfc53898939e17cfcc67a76a811541dbabedf7a4e7995c24f162",
+          "format": "WEBP",
+          "selectionRole": "before"
+        },
+        {
+          "path": "reviews/brain/bodyparts3d-4.0-atlas-r2/screenshots/contact.png",
+          "sha256": "1de1a0b96d416d08c4d241ee99ef02baa97d3716f5390e72296c67f623e27c79",
+          "bytes": 2133461,
+          "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/source-downloads/brain__bodyparts3d-4.0-atlas-r2/1de1a0b96d416d08c4d241ee99ef02baa97d3716f5390e72296c67f623e27c79.png",
+          "format": "PNG",
+          "selectionRole": "candidate",
+          "sourceSha256": "26d39768e2882daee034f997a8d594e915283b5f8a176a8bb60003944a45b886",
+          "additiveRecord": "reviews/brain/2026-10-24-evidence-link-correction/record.json"
+        }
+      ],
+      "reviewRecord": "reviews/brain/2026-10-24-bodyparts3d-4.0-atlas-r2-bounded-migration/bounded-record.json",
+      "retainedTransportCheck": {
+        "storedGzipIdentity": "matched retained deployment bytes",
+        "decodedCanonicalEquality": "passed against unchanged source",
+        "freshAvailabilityChecked": false,
+        "gzipBundled": false
+      }
+    }
+  ],
+  "uniqueMediaOids": 11,
+  "uniqueMediaBytes": 12793383,
+  "uniqueSelectedEvidence": 8,
+  "sharedBaselinePolicy": "Store each distinct actual WebP hash once; do not alias differing baselines or original PNG hashes.",
+  "status": "EXACT_MEDIA_TRANSPORT_AND_INDEPENDENT_READBACK_PASSED",
+  "brainEvidencePublication": {
+    "version": "v25",
+    "reportedPublication": "v25 terminal succeeded2026-10-24T08:58:18.644522Z",
+    "browserReadback": {
+      "externalReport": "reviews/site/2026-10-24-verification-v25/report.json",
+      "sha256": "dd64246d2e3fabd423d23eacf88c43bb5a934c9362237c796ab45fe4ea2ca336",
+      "bundled": false,
+      "checkedAt": "2026-10-24T08:59:22Z",
+      "result": "passed",
+      "scope": "Reported actual browser display and exact native PNG download readback; not model runtime or mobile verification.",
+      "nativePngReadback": {
+        "sha256": "1de1a0b96d416d08c4d241ee99ef02baa97d3716f5390e72296c67f623e27c79",
+        "bytes": 2133461,
+        "match": true,
+        "method": "Documented browser download followed by independent hashing; no credentials/security changes"
+      }
+    },
+    "freshAvailabilityCheckedHere": false
+  }
+}

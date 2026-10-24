@@ -1,0 +1,412 @@
+{
+  "schema": "bounded-bp3d-head-study-v1",
+  "model": {
+    "path": "models/pharynx_larynx/exports/r03/pharynx_larynx.glb",
+    "sha256": "d691a60f12d448b9b36d362270429c672c01c7fae0f10a8789ef188dd4c08530",
+    "bytes": 5050088
+  },
+  "scope": {
+    "en": "Dissected exterior only; no continuous mucosal airway. Two source laterality labels are disputed; preserve explicit display overrides. Epiglottic holes are source-authored, exact pattern unvalidated.",
+    "zh": "仅解剖分离后的外观，无连续黏膜气道。2个来源左右标注存在争议，必须保留显示覆盖说明。会厌孔洞来自原始图谱，具体图案未独立验证。"
+  },
+  "recordedPublicGates": {
+    "technical": "pass-with-limitations",
+    "visual": "passed",
+    "anatomy": "reference-screened",
+    "runtime": "unverified"
+  },
+  "gateInterpretation": "Historical scoped static review only. This migration does not promote quality, anatomy, clinical validity, rigging, motion or runtime.",
+  "limitations": [
+    "33 dissected muscle/cartilage/ligament components; no continuous mucosal airway or swallowing/voice mechanics.",
+    "FJ2742 and FJ2754 have disputed source laterality labels. Neutral display overrides below are mandatory; preserve raw source names.",
+    "Epiglottic fenestrations are source-authored; exact size/pattern independently unvalidated. No mucosal covering."
+  ],
+  "runtime": "UNVERIFIED",
+  "clinical": "NOT_VALIDATED",
+  "motion": "No new motion/rigging claim",
+  "displayLabelOverrides": {
+    "FJ2742": "Middle pharyngeal constrictor — source laterality disputed (source: Right)",
+    "FJ2754": "Middle pharyngeal constrictor — source laterality disputed (source: Left)"
+  },
+  "componentCount": 33,
+  "componentIdentityMap": [
+    {
+      "nodeIndex": 0,
+      "nodeName": "FJ2740 Left inferior pharyngeal constrictor",
+      "sourceFileId": "FJ2740",
+      "sourceSha256": "345877a821866cb8f0fa6c6ca353f28385b5a4a35e0c9e9bd5601a08211a1097",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2740"
+    },
+    {
+      "nodeIndex": 1,
+      "nodeName": "FJ2742 Right middle pharyngeal constrictor",
+      "sourceFileId": "FJ2742",
+      "sourceSha256": "b242673d67bc4abc71432268d4fb03df4bb6e707ccdf890829b7544d14d87d26",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2742"
+    },
+    {
+      "nodeIndex": 2,
+      "nodeName": "FJ2743 Left palatopharyngeus",
+      "sourceFileId": "FJ2743",
+      "sourceSha256": "e2a82119db68aa8db6022c78ce9bb7efef468ac6c776f5493ec8b6a1596ae015",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2743"
+    },
+    {
+      "nodeIndex": 3,
+      "nodeName": "FJ2745 Left salpingopharyngeus",
+      "sourceFileId": "FJ2745",
+      "sourceSha256": "81c70a6f8ab2de5d20a715cdf5339d756ca7171c473adc645231929b2732bf31",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2745"
+    },
+    {
+      "nodeIndex": 4,
+      "nodeName": "FJ2746 Left stylopharyngeus",
+      "sourceFileId": "FJ2746",
+      "sourceSha256": "8cea3d6b0e2d0e864be7d11d919ee63d73aee5532db36cd3943a305fedd03751",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2746"
+    },
+    {
+      "nodeIndex": 5,
+      "nodeName": "FJ2747 Left superior pharyngeal constrictor",
+      "sourceFileId": "FJ2747",
+      "sourceSha256": "3282d0f49da840abfea2e8ac276e4d780c71041cba4fbe4a2853ebc1c8bb1f22",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2747"
+    },
+    {
+      "nodeIndex": 6,
+      "nodeName": "FJ2749 Pharyngeal raphe",
+      "sourceFileId": "FJ2749",
+      "sourceSha256": "62957c500f1d400e6d88ac869b03434e3d6fc1abe2fddb6ed2909f99a2999a9c",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2749"
+    },
+    {
+      "nodeIndex": 7,
+      "nodeName": "FJ2752 Right inferior pharyngeal constrictor",
+      "sourceFileId": "FJ2752",
+      "sourceSha256": "3fb68e999835bcbe32995db8a0b8a2a4cd592441583f89c07f8897fdd20e4ec4",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2752"
+    },
+    {
+      "nodeIndex": 8,
+      "nodeName": "FJ2754 Left middle pharyngeal constrictor",
+      "sourceFileId": "FJ2754",
+      "sourceSha256": "9583ea54a06a4d8d52aa9f3578a0f97931634c86db01aa2f37059f9974fdab39",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2754"
+    },
+    {
+      "nodeIndex": 9,
+      "nodeName": "FJ2755 Right palatopharyngeus",
+      "sourceFileId": "FJ2755",
+      "sourceSha256": "c3fbea74a7567588f83c9856be8305cc4b8cffe9f7157a9e41b8c53c5bd989be",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2755"
+    },
+    {
+      "nodeIndex": 10,
+      "nodeName": "FJ2757 Right salpingopharyngeus",
+      "sourceFileId": "FJ2757",
+      "sourceSha256": "b10e40d550d6208c907df65d844403071233d8088a109b2be5f925cd5d9e6c36",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2757"
+    },
+    {
+      "nodeIndex": 11,
+      "nodeName": "FJ2758 Right stylopharyngeus",
+      "sourceFileId": "FJ2758",
+      "sourceSha256": "dcea7bd8d13fff1ca83eea7605fbb399b0ab34983ddd8632613690a1be70c377",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2758"
+    },
+    {
+      "nodeIndex": 12,
+      "nodeName": "FJ2759 Right superior pharyngeal constrictor",
+      "sourceFileId": "FJ2759",
+      "sourceSha256": "85d82b26595b6e782fe3bdc9dc2b99bb2127ea84da709e01a6e31672179cdf60",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2759"
+    },
+    {
+      "nodeIndex": 13,
+      "nodeName": "FJ2769 Cricoid cartilage",
+      "sourceFileId": "FJ2769",
+      "sourceSha256": "5f75fb4d2969fd1de51898787bb8810c441d5d2bd6eb0c5482b7cacd3c9bc3be",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2769"
+    },
+    {
+      "nodeIndex": 14,
+      "nodeName": "FJ2770 Epiglottis",
+      "sourceFileId": "FJ2770",
+      "sourceSha256": "05ae56007f7aa017fb458bdef643ea97e51ed3bd275b13da30086fa02b606054",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2770"
+    },
+    {
+      "nodeIndex": 15,
+      "nodeName": "FJ2771 Hyo-epiglottic ligament",
+      "sourceFileId": "FJ2771",
+      "sourceSha256": "f744a2873d81471ee14cf63ebf4380c350e21e7e49872bf11ff3ddd668f7bb34",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2771"
+    },
+    {
+      "nodeIndex": 16,
+      "nodeName": "FJ2775 Left arytenoid cartilage",
+      "sourceFileId": "FJ2775",
+      "sourceSha256": "1e2c0bf8eab8a3a1814b5d56ba721031f3bd87473ea739e540781117bbfb32c9",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2775"
+    },
+    {
+      "nodeIndex": 17,
+      "nodeName": "FJ2778 Left lateral crico-arytenoid",
+      "sourceFileId": "FJ2778",
+      "sourceSha256": "15d694d60ddab28b19aa0ca2017c86ac82ccc3fda58d257a240f56c363d4271a",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2778"
+    },
+    {
+      "nodeIndex": 18,
+      "nodeName": "FJ2780 Left oblique arytenoid",
+      "sourceFileId": "FJ2780",
+      "sourceSha256": "9ad13a6a95301607fa5968e68ae47efc458ebc67f9582f6fc0861672b7b4de17",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2780"
+    },
+    {
+      "nodeIndex": 19,
+      "nodeName": "FJ2782 Left posterior crico-arytenoid",
+      "sourceFileId": "FJ2782",
+      "sourceSha256": "eb100ad68f9201832f5fa15c7e802c175fb813302c8983f13b6f3d3dfdb3d4ef",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2782"
+    },
+    {
+      "nodeIndex": 20,
+      "nodeName": "FJ2784 Left thyro-arytenoid",
+      "sourceFileId": "FJ2784",
+      "sourceSha256": "6b0698f8b6a6cb877d3610dc959abe0b9c4691bb6e746fd85c8e523fcebc74a9",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2784"
+    },
+    {
+      "nodeIndex": 21,
+      "nodeName": "FJ2785 Left thyro-arytenoid",
+      "sourceFileId": "FJ2785",
+      "sourceSha256": "a785608978d62c2c14f2057cfe2606fe183523dbf92fc587801234bc0be41e2a",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2785"
+    },
+    {
+      "nodeIndex": 22,
+      "nodeName": "FJ2788 Left vocalis",
+      "sourceFileId": "FJ2788",
+      "sourceSha256": "dd26f669e127e5c5fae7ff796da0f516887f8c3834bbde1f2881d3a222cc2375",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2788"
+    },
+    {
+      "nodeIndex": 23,
+      "nodeName": "FJ2792 Right arytenoid cartilage",
+      "sourceFileId": "FJ2792",
+      "sourceSha256": "6766f404ea88ffb33f5430ee4704a416aab95813da19a84998f67fbdcc556eaa",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2792"
+    },
+    {
+      "nodeIndex": 24,
+      "nodeName": "FJ2796 Right lateral crico-arytenoid",
+      "sourceFileId": "FJ2796",
+      "sourceSha256": "d0a4730aeb6f0bafdf53eced4954a0ccfaf31ba8f3d08aa90e0c18d9c8928cb3",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2796"
+    },
+    {
+      "nodeIndex": 25,
+      "nodeName": "FJ2798 Right oblique arytenoid",
+      "sourceFileId": "FJ2798",
+      "sourceSha256": "706e265f99131c2bde1b61c4bc2cdfab7ae384ed2c84f10c8cbff91a295ca22c",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2798"
+    },
+    {
+      "nodeIndex": 26,
+      "nodeName": "FJ2800 Right posterior crico-arytenoid",
+      "sourceFileId": "FJ2800",
+      "sourceSha256": "917fb9e8667c4d179c0f86ec06c27dc2d0537e4f81d1319aa21fe5a0e237d891",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2800"
+    },
+    {
+      "nodeIndex": 27,
+      "nodeName": "FJ2802 Right thyro-arytenoid",
+      "sourceFileId": "FJ2802",
+      "sourceSha256": "68d5990536538ba707bd1b1b967b7ab14266ed74e5f0d1e33230a5922181c322",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2802"
+    },
+    {
+      "nodeIndex": 28,
+      "nodeName": "FJ2803 Right thyro-arytenoid",
+      "sourceFileId": "FJ2803",
+      "sourceSha256": "fd38f2f5befd554ba19bd4fbab0d0a4ae137a59bb24d3dd0852eb5caa910d3e2",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2803"
+    },
+    {
+      "nodeIndex": 29,
+      "nodeName": "FJ2806 Right vocalis",
+      "sourceFileId": "FJ2806",
+      "sourceSha256": "f4b83790f1c6364785f6ec6a8428443e7f20cfe48ed9a14234bb8aff1d80f2a9",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2806"
+    },
+    {
+      "nodeIndex": 30,
+      "nodeName": "FJ2807 Thyro-epiglottic ligament",
+      "sourceFileId": "FJ2807",
+      "sourceSha256": "eb7a5318fd5cd6d9a26605d00bd06f6c18004f7c7c7483c09394d5766f443925",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2807"
+    },
+    {
+      "nodeIndex": 31,
+      "nodeName": "FJ2808 Thyroid cartilage",
+      "sourceFileId": "FJ2808",
+      "sourceSha256": "48cd41bcd4044c7013ba10c971e212766afc970408f51875f9ef8e8c407c0687",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2808"
+    },
+    {
+      "nodeIndex": 32,
+      "nodeName": "FJ2809 Transverse arytenoid",
+      "sourceFileId": "FJ2809",
+      "sourceSha256": "1ece0839b43392b090d5e4b5bf96448a10935f1d3637487cd526d0fff8251f32",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ2809"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "draft_pharynx_larynx__2026-10-23-v10-exterior-review__3",
+      "file": "evidence/canonical/draft_pharynx_larynx__2026-10-23-v10-exterior-review/177d5c0fc101988700c64f57174f5881667df1061e36c1d6cedf02058322e132.webp",
+      "sha256": "6c21278de83b799d22f6e5c43e1e2c17bd2778c71c60da99c2c763b2c1ece383",
+      "originalSha256": "177d5c0fc101988700c64f57174f5881667df1061e36c1d6cedf02058322e132",
+      "originalFile": "reviews/pharynx-larynx/2026-10-23-v10-exterior-review/draft_pharynx_larynx/screenshots/contact.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "baseline",
+      "noteIsGeneric": true,
+      "kind": "blender-still-contact-sheet",
+      "label": {
+        "en": "Front / left / back",
+        "zh": "前视 / 左视 / 后视"
+      },
+      "capturedAt": "2026-10-23T01:33:25.290017+00:00",
+      "recordedDate": "2026-10-23",
+      "assetBinding": "d2ba3f8cda5a901e55cdce88991617c27f786d1ffb968a62f945cb89c851fc78",
+      "sourceBindings": [],
+      "role": null,
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": {
+        "engine": "Blender 4.3.2 Cycles CPU",
+        "samples": 32,
+        "resolution": [
+          512,
+          512
+        ],
+        "frame": 1,
+        "projection": "orthographic",
+        "orientation": "Manifest x=patient left, y=superior, z=anterior; glTF imported to Blender Z-up; cameras front=-Y,left=+X,back=+Y",
+        "hiddenCutawayNodes": [],
+        "scope": "Exterior static view only. Internal details may remain occluded. No motion or runtime verification."
+      },
+      "note": {
+        "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+        "zh": "自己的静态证据，WebP 展示副本；无损原图保留在规范审查记录中。不自动表示解剖或运行通过。"
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/draft_pharynx_larynx__2026-10-23-v10-exterior-review/177d5c0fc101988700c64f57174f5881667df1061e36c1d6cedf02058322e132.webp",
+      "bytes": 27310,
+      "selectionRole": "before",
+      "originalNativePublicCopies": [],
+      "retainedPath": "reviews/bp3d-head-studies/2026-10-24-bounded-migration/shared-display/6c21278de83b799d22f6e5c43e1e2c17bd2778c71c60da99c2c763b2c1ece383.webp",
+      "actualFormat": "WEBP",
+      "pixelDimensions": [
+        1536,
+        602
+      ],
+      "identityBoundary": "Retained WebP bytes; original PNG hash is provenance only and is not interchangeable."
+    },
+    {
+      "id": "pharynx_larynx__r03__scoped-review__2",
+      "file": "evidence/canonical/pharynx_larynx__r03__scoped-review/6610e557a460792c445db16990e0b1e8a3030a9159f67ce8cafa7f4332414961.webp",
+      "sha256": "1ebf8eeaf20d87b22dab5b41fdd8cd8ef2a6ee56389f7d214c6a2e7098166b64",
+      "originalSha256": "6610e557a460792c445db16990e0b1e8a3030a9159f67ce8cafa7f4332414961",
+      "originalFile": "reviews/pharynx_larynx/r03/contact.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "candidate",
+      "noteIsGeneric": true,
+      "kind": "blender-still",
+      "label": {
+        "en": "contact",
+        "zh": "多视图联系表"
+      },
+      "capturedAt": null,
+      "recordedDate": "2026-10-23",
+      "assetBinding": "d691a60f12d448b9b36d362270429c672c01c7fae0f10a8789ef188dd4c08530",
+      "sourceBindings": [],
+      "role": "candidate",
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": null,
+      "note": {
+        "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+        "zh": "自己的静态证据，WebP 展示副本；无损原图保留在规范审查记录中。不自动表示解剖或运行通过。"
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/pharynx_larynx__r03__scoped-review/6610e557a460792c445db16990e0b1e8a3030a9159f67ce8cafa7f4332414961.webp",
+      "bytes": 65166,
+      "selectionRole": "candidate",
+      "originalNativePublicCopies": [],
+      "retainedPath": "reviews/pharynx_larynx/2026-10-24-r03-bounded-migration/display/1ebf8eeaf20d87b22dab5b41fdd8cd8ef2a6ee56389f7d214c6a2e7098166b64.webp",
+      "actualFormat": "WEBP",
+      "pixelDimensions": [
+        1200,
+        1260
+      ],
+      "identityBoundary": "Retained WebP bytes; original PNG hash is provenance only and is not interchangeable."
+    },
+    {
+      "id": "pharynx_larynx__r03__scoped-review__4",
+      "file": "evidence/canonical/pharynx_larynx__r03__scoped-review/81bfdbf9bee4b7d1d61f797c3ef94dc09a28634adfe96e88cbf695082aa333da.webp",
+      "sha256": "3fd53e5ae14c6aa7230d3f0acc75b05001fc902f146c91984839df60d9b929ff",
+      "originalSha256": "81bfdbf9bee4b7d1d61f797c3ef94dc09a28634adfe96e88cbf695082aa333da",
+      "originalFile": "reviews/pharynx_larynx/r03/epiglottis-diagnostic/cartilage-only.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "candidate",
+      "noteIsGeneric": true,
+      "kind": "blender-still",
+      "label": {
+        "en": "cartilage-only",
+        "zh": "仅显示软骨"
+      },
+      "capturedAt": null,
+      "recordedDate": "2026-10-23",
+      "assetBinding": "d691a60f12d448b9b36d362270429c672c01c7fae0f10a8789ef188dd4c08530",
+      "sourceBindings": [],
+      "role": "candidate",
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": null,
+      "note": {
+        "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+        "zh": "自己的静态证据，WebP 展示副本；无损原图保留在规范审查记录中。不自动表示解剖或运行通过。"
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/pharynx_larynx__r03__scoped-review/81bfdbf9bee4b7d1d61f797c3ef94dc09a28634adfe96e88cbf695082aa333da.webp",
+      "bytes": 21414,
+      "selectionRole": "candidate",
+      "originalNativePublicCopies": [],
+      "retainedPath": "reviews/pharynx_larynx/2026-10-24-r03-bounded-migration/display/3fd53e5ae14c6aa7230d3f0acc75b05001fc902f146c91984839df60d9b929ff.webp",
+      "actualFormat": "WEBP",
+      "pixelDimensions": [
+        1000,
+        1000
+      ],
+      "identityBoundary": "Retained WebP bytes; original PNG hash is provenance only and is not interchangeable."
+    }
+  ],
+  "historicalReview": {
+    "sha256": "a024f21bd7181ae948f1b72b880a704b83781ed1f5a0aac294848b19bbfec0db",
+    "bundled": false,
+    "originalPreservedUnchanged": true,
+    "policy": "Public normalized scope here; raw historical record retained externally."
+  },
+  "sourceDependencies": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json",
+  "rebuildBoundary": "Not source-complete or portable-rebuild complete. Native OBJ, original lossless screenshots, authoring scenes and recipe dependencies remain external. No fresh-machine deterministic render replay verified.",
+  "publicMapProvenance": {
+    "siteSourceCommit": "2613894e2792183cd27db9856af24e580e974f2e",
+    "inventoryRemoteRef": "79c867bad7471562d1c4ddabb4fe2a24d9764f8a"
+  },
+  "freshAvailabilityChecked": false
+}

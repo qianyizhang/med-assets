@@ -1,0 +1,486 @@
+{
+  "schema": "bounded-bp3d-head-study-v1",
+  "model": {
+    "path": "models/brain/exports/bodyparts3d-4.0-atlas-r2/brain-source-frame.glb",
+    "sha256": "26d39768e2882daee034f997a8d594e915283b5f8a176a8bb60003944a45b886",
+    "bytes": 4415384
+  },
+  "scope": {
+    "en": "Educational exterior of 49 atlas parts with named gyri, cerebellum and brainstem; reduced-resolution faceting and truncated brainstem remain. No internal-tissue, section, motion or mixed-source assembly approval.",
+    "zh": "49个图谱部件的教学外形，含具名脑回、小脑和脑干；保留减面棱面与截断脑干。未接受内部组织、剖面、运动或跨来源组装。"
+  },
+  "recordedPublicGates": {
+    "technical": "pass-with-limitations",
+    "visual": "passed",
+    "anatomy": "reference-screened",
+    "runtime": "unverified"
+  },
+  "gateInterpretation": "Historical scoped static review only. This migration does not promote quality, anatomy, clinical validity, rigging, motion or runtime.",
+  "limitations": [
+    "49 atlas representation meshes, not 49 independently validated tissues. Reduced-resolution faceting and truncated brainstem remain.",
+    "No synthetic internal core retained; no accepted internal-tissue, section, motion or mixed-source body assembly.",
+    "The baseline depicts the old draft only. The separate native PNG depicts the accepted exterior candidate; no internal-tissue or runtime proof."
+  ],
+  "runtime": "UNVERIFIED",
+  "clinical": "NOT_VALIDATED",
+  "motion": "No new motion/rigging claim",
+  "displayLabelOverrides": {},
+  "componentCount": 49,
+  "componentIdentityMap": [
+    {
+      "nodeIndex": 0,
+      "nodeName": "medulla oblongata | FJ1769",
+      "sourceFileId": "FJ1769",
+      "sourceSha256": "cc1cd37ef3f58fea9ffe8875efa3a33101ee6945dd13bdb28c973303a9986fbd",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1769"
+    },
+    {
+      "nodeIndex": 1,
+      "nodeName": "medulla oblongata | FJ1831",
+      "sourceFileId": "FJ1831",
+      "sourceSha256": "7c19ec386aadaafdae3dab8aa99c08d5db47fa063f689e99ee7e9cdf0bdbeda9",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1831"
+    },
+    {
+      "nodeIndex": 2,
+      "nodeName": "midbrain | FJ1770",
+      "sourceFileId": "FJ1770",
+      "sourceSha256": "6e7eb027702dc4097aa0b2abe46efcffcd1f5e108b1665a649b45420b98229e9",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1770"
+    },
+    {
+      "nodeIndex": 3,
+      "nodeName": "midbrain | FJ1817",
+      "sourceFileId": "FJ1817",
+      "sourceSha256": "b86a8f1ce035a5ec382122a210f86239c581a5478f2b1b5f377b021542981f2e",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1817"
+    },
+    {
+      "nodeIndex": 4,
+      "nodeName": "pons | FJ1775",
+      "sourceFileId": "FJ1775",
+      "sourceSha256": "d24253c225545078ce9c4420880dc5652e20fb2576a6305a9fadc18f95fba9dd",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1775"
+    },
+    {
+      "nodeIndex": 5,
+      "nodeName": "pons | FJ1822",
+      "sourceFileId": "FJ1822",
+      "sourceSha256": "474dffce10e8506b5f8a7aac5d6ccfc7ef6251490b36b5f04a7fa2676b7fb708",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1822"
+    },
+    {
+      "nodeIndex": 7,
+      "nodeName": "cerebellum | FJ1781",
+      "sourceFileId": "FJ1781",
+      "sourceSha256": "47003d37cf123dc10b108bb79a2b12638a56f0f2616d0d1f58b727af88d1ec53",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1781"
+    },
+    {
+      "nodeIndex": 8,
+      "nodeName": "cerebellum | FJ1830",
+      "sourceFileId": "FJ1830",
+      "sourceSha256": "585176d67d072ead00bab6b4d0ca42a151ace76bed1c20c1aeed22b8b4c57ac1",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1830"
+    },
+    {
+      "nodeIndex": 10,
+      "nodeName": "anterior part of superior temporal gyrus | FJ1837",
+      "sourceFileId": "FJ1837",
+      "sourceSha256": "2fb61c24b880e134ff2034558fa6abbfcbcd8506b0aca18ee2cc844fa6783de6",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1837"
+    },
+    {
+      "nodeIndex": 11,
+      "nodeName": "anterior part of superior temporal gyrus | FJ1838",
+      "sourceFileId": "FJ1838",
+      "sourceSha256": "342678a0d5a35ca049870e95536c19b9d66915c7f636f0b738162e5db833746b",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1838"
+    },
+    {
+      "nodeIndex": 12,
+      "nodeName": "corpus callosum | FJ1742",
+      "sourceFileId": "FJ1742",
+      "sourceSha256": "3f46359c2a23499ac130bd27646309f7974d216f9d55320b503e3b0844da9a70",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1742"
+    },
+    {
+      "nodeIndex": 13,
+      "nodeName": "hypothalamus | FJ1760",
+      "sourceFileId": "FJ1760",
+      "sourceSha256": "aec134edcffcaea082eaebc3a01fe84700893fcc8cba5868b1ade6a721f530bf",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1760"
+    },
+    {
+      "nodeIndex": 14,
+      "nodeName": "hypothalamus | FJ1808",
+      "sourceFileId": "FJ1808",
+      "sourceSha256": "122de5cfac67f779f911876ea1faca1fb9546327b1a1654d395f571f711772f7",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1808"
+    },
+    {
+      "nodeIndex": 15,
+      "nodeName": "left thalamus | FJ1782",
+      "sourceFileId": "FJ1782",
+      "sourceSha256": "6e6e87e4feda05756e8748a61febdb2fe61d4ba834fd5a57d805512d9fcd82cc",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1782"
+    },
+    {
+      "nodeIndex": 16,
+      "nodeName": "orbital gyrus | FJ1793",
+      "sourceFileId": "FJ1793",
+      "sourceSha256": "b47d45c7f6a419e69a9c5b6af00b80cc4f1269593a260e34b662b850801e354c",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1793"
+    },
+    {
+      "nodeIndex": 17,
+      "nodeName": "orbital gyrus | FJ1794",
+      "sourceFileId": "FJ1794",
+      "sourceSha256": "8fe535cdf4054a6a395ea2250e1c66719d551818eaf96802a4c7883af00a8170",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1794"
+    },
+    {
+      "nodeIndex": 18,
+      "nodeName": "posterior part of superior temporal gyrus | FJ1839",
+      "sourceFileId": "FJ1839",
+      "sourceSha256": "a26f20cb2f22b373ea82a0ab8d8adc815d5e7ec81fd7ea93947c3322ce79ad77",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1839"
+    },
+    {
+      "nodeIndex": 19,
+      "nodeName": "posterior part of superior temporal gyrus | FJ1840",
+      "sourceFileId": "FJ1840",
+      "sourceSha256": "4d68654bdf8e258a8253decbd2f246d388f693b6b2a37f809ffcfdd4d4bc25f7",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1840"
+    },
+    {
+      "nodeIndex": 20,
+      "nodeName": "right thalamus | FJ1827",
+      "sourceFileId": "FJ1827",
+      "sourceSha256": "a4b5be59d7cf6dc3ca1b2ae97a83ffd947e39493cc663c2cb7d65a064af91b1d",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1827"
+    },
+    {
+      "nodeIndex": 22,
+      "nodeName": "left angular gyrus | FJ1732",
+      "sourceFileId": "FJ1732",
+      "sourceSha256": "d24f6c5647b751706d3f7c4dd4b62518fb3e9cd281ed7d2a2437fafbbcd0e1b3",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1732"
+    },
+    {
+      "nodeIndex": 23,
+      "nodeName": "left cingulate gyrus | FJ1739",
+      "sourceFileId": "FJ1739",
+      "sourceSha256": "0926a6839371b0179bbf7d0040b3925f338995be63d18fc1b176721db12c82d3",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1739"
+    },
+    {
+      "nodeIndex": 24,
+      "nodeName": "left fusiform gyrus | FJ1783",
+      "sourceFileId": "FJ1783",
+      "sourceSha256": "f0cc5fbc23f9846e881e91cb2221e691694895c7584506d560aca48324d079b5",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1783"
+    },
+    {
+      "nodeIndex": 25,
+      "nodeName": "left inferior frontal gyrus | FJ1744",
+      "sourceFileId": "FJ1744",
+      "sourceSha256": "3de90fe338da50f60859e591089e5882cf8ce2df2d0e4acbfc5dae7364c184a5",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1744"
+    },
+    {
+      "nodeIndex": 26,
+      "nodeName": "left inferior temporal gyrus | FJ1746",
+      "sourceFileId": "FJ1746",
+      "sourceSha256": "aefe572e69d8b7687b29644b0a855ced4e64b255f1cb3ca0e6640cab7292d132",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1746"
+    },
+    {
+      "nodeIndex": 27,
+      "nodeName": "left insula | FJ1748",
+      "sourceFileId": "FJ1748",
+      "sourceSha256": "b7553aaa8a282d5882d9d2809f5fedd7b35ef50710773ac103cfa82f9f184245",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1748"
+    },
+    {
+      "nodeIndex": 28,
+      "nodeName": "left middle frontal gyrus | FJ1787",
+      "sourceFileId": "FJ1787",
+      "sourceSha256": "de3c1098d95fc81060b72603e72a4a2a55529b0fb82063dbd0dfc4f3955d720c",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1787"
+    },
+    {
+      "nodeIndex": 29,
+      "nodeName": "left middle temporal gyrus | FJ1789",
+      "sourceFileId": "FJ1789",
+      "sourceSha256": "52396a1feaedfb7f8f1a334dd02acb35f2897362b0f1a37658edc4e69556db6d",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1789"
+    },
+    {
+      "nodeIndex": 30,
+      "nodeName": "left occipital lobe | FJ1791",
+      "sourceFileId": "FJ1791",
+      "sourceSha256": "d504be1cf6f085be1b885b31ac3b1fb1a1fc475855aeda56baa142a600911fe5",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1791"
+    },
+    {
+      "nodeIndex": 31,
+      "nodeName": "left parahippocampal gyrus | FJ1785",
+      "sourceFileId": "FJ1785",
+      "sourceSha256": "d328f96770816958f290e2461214dd52c38d3e7395d113eed55ba6065ec76c37",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1785"
+    },
+    {
+      "nodeIndex": 32,
+      "nodeName": "left postcentral gyrus | FJ1797",
+      "sourceFileId": "FJ1797",
+      "sourceSha256": "e05f6ec80fa902f5334cc5e8c029359674d39c39a90f86476a6d1d190ca1f30a",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1797"
+    },
+    {
+      "nodeIndex": 33,
+      "nodeName": "left precentral gyrus | FJ1800",
+      "sourceFileId": "FJ1800",
+      "sourceSha256": "9f375219acb0aed075860e5afe3562be19bde6061a007d3096d52f96aa59e944",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1800"
+    },
+    {
+      "nodeIndex": 34,
+      "nodeName": "left superior frontal gyrus | FJ1833",
+      "sourceFileId": "FJ1833",
+      "sourceSha256": "b1705a60646438f5c1bd8d215c738f90e7aed9c9360a8ab94993a1e6b5649851",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1833"
+    },
+    {
+      "nodeIndex": 35,
+      "nodeName": "left superior parietal lobule | FJ1835",
+      "sourceFileId": "FJ1835",
+      "sourceSha256": "6d1cc1963191120c07eb557c728b4cd00ccf63467b3858a408a6b5ba4564719c",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1835"
+    },
+    {
+      "nodeIndex": 36,
+      "nodeName": "left supramarginal gyrus | FJ1841",
+      "sourceFileId": "FJ1841",
+      "sourceSha256": "895a1e9e5eaed7443d9fe9544fefede9db219aaf38d30a4674cde778e1bdfb8e",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1841"
+    },
+    {
+      "nodeIndex": 38,
+      "nodeName": "right angular gyrus | FJ1733",
+      "sourceFileId": "FJ1733",
+      "sourceSha256": "a8e5d63d28890e42861f2b1c4c7b898dba84b169507315d77e9ebeb2433171e9",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1733"
+    },
+    {
+      "nodeIndex": 39,
+      "nodeName": "right cingulate gyrus | FJ1740",
+      "sourceFileId": "FJ1740",
+      "sourceSha256": "9e8c3b086c0cd15b9f85189b37529c6d044c153cbd3f16c678a5b79d02efb656",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1740"
+    },
+    {
+      "nodeIndex": 40,
+      "nodeName": "right fusiform gyrus | FJ1784",
+      "sourceFileId": "FJ1784",
+      "sourceSha256": "ecfd67d495a6f5f3bf391f2455f124edf444122d79299fb8fa0b01493e450f29",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1784"
+    },
+    {
+      "nodeIndex": 41,
+      "nodeName": "right inferior frontal gyrus | FJ1745",
+      "sourceFileId": "FJ1745",
+      "sourceSha256": "b3eafbe2d1289be8c24dde82d8a5475f86a13cb6bcc7d5dbc0b4cfcb2d340132",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1745"
+    },
+    {
+      "nodeIndex": 42,
+      "nodeName": "right inferior temporal gyrus | FJ1747",
+      "sourceFileId": "FJ1747",
+      "sourceSha256": "dd358cac91394ee511250be17f7a0184defecb23a19b921388fb267e23132195",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1747"
+    },
+    {
+      "nodeIndex": 43,
+      "nodeName": "right insula | FJ1749",
+      "sourceFileId": "FJ1749",
+      "sourceSha256": "0c8e4e39ba935c4f5b24168b46c99782057ba73379844173de56c60210b45c72",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1749"
+    },
+    {
+      "nodeIndex": 44,
+      "nodeName": "right middle frontal gyrus | FJ1788",
+      "sourceFileId": "FJ1788",
+      "sourceSha256": "216015b568cc446ae3e7c2ad256f47a352479a6e36c0df025cde311e913fde0c",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1788"
+    },
+    {
+      "nodeIndex": 45,
+      "nodeName": "right middle temporal gyrus | FJ1790",
+      "sourceFileId": "FJ1790",
+      "sourceSha256": "f2c8ba988026b991559d5195a702675a0a222e9a03711dcb127a909f18ae0fb4",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1790"
+    },
+    {
+      "nodeIndex": 46,
+      "nodeName": "right occipital lobe | FJ1792",
+      "sourceFileId": "FJ1792",
+      "sourceSha256": "e9e4bb82648576fbe6256992771f0ab0917cfea10d15325c86869283573a64ad",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1792"
+    },
+    {
+      "nodeIndex": 47,
+      "nodeName": "right parahippocampal gyrus | FJ1786",
+      "sourceFileId": "FJ1786",
+      "sourceSha256": "2453959db95754c9f3fe6dbe435bbcff98e79f6bbd77c12f1d063c30941fa05f",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1786"
+    },
+    {
+      "nodeIndex": 48,
+      "nodeName": "right postcentral gyrus | FJ1798",
+      "sourceFileId": "FJ1798",
+      "sourceSha256": "ce476b98e79e988bbf2efa1b8593019d0cc64114cf455d00347ed6e95ee5f037",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1798"
+    },
+    {
+      "nodeIndex": 49,
+      "nodeName": "right precentral gyrus | FJ1801",
+      "sourceFileId": "FJ1801",
+      "sourceSha256": "89e9017a488f4854ef4daaa5488bbe0bada8aed4cd81352553305beda8caef85",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1801"
+    },
+    {
+      "nodeIndex": 50,
+      "nodeName": "right superior frontal gyrus | FJ1834",
+      "sourceFileId": "FJ1834",
+      "sourceSha256": "505aff0f5fba6160aa273af517d8ef9f9e4d7bd6ee904e2739ccf41f8d7af441",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1834"
+    },
+    {
+      "nodeIndex": 51,
+      "nodeName": "right superior parietal lobule | FJ1836",
+      "sourceFileId": "FJ1836",
+      "sourceSha256": "e3291cc04dcdc3743d8fe67951d2b1589294062d116873515194e0c6c979c770",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1836"
+    },
+    {
+      "nodeIndex": 52,
+      "nodeName": "right supramarginal gyrus | FJ1842",
+      "sourceFileId": "FJ1842",
+      "sourceSha256": "374934ec8c016aec1aae2cad47d80b1d2668354cc890b0227a0b102c9b3b4469",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json#members/FJ1842"
+    }
+  ],
+  "evidence": [
+    {
+      "id": "brain__2026-10-23-v10-exterior-review__3",
+      "file": "evidence/canonical/brain__2026-10-23-v10-exterior-review/f20daf44d9a3dfc53898939e17cfcc67a76a811541dbabedf7a4e7995c24f162.webp",
+      "sha256": "fc9d0db4a01c2df83444f8492f1e17f0b2ef504de094e9955833e3db08144764",
+      "originalSha256": "f20daf44d9a3dfc53898939e17cfcc67a76a811541dbabedf7a4e7995c24f162",
+      "originalFile": "reviews/brain/2026-10-23-v10-exterior-review/brain/screenshots/contact.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "baseline",
+      "noteIsGeneric": true,
+      "kind": "blender-still-contact-sheet",
+      "label": {
+        "en": "Front / left / back",
+        "zh": "前视 / 左视 / 后视"
+      },
+      "capturedAt": "2026-10-23T01:30:45.353805+00:00",
+      "recordedDate": "2026-10-23",
+      "assetBinding": "ce2340e81c21271c0ea3358ae082cc0b5f671f7f873c7311c9e41252e252d985",
+      "sourceBindings": [],
+      "role": null,
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": {
+        "engine": "Blender 4.3.2 Cycles CPU",
+        "samples": 32,
+        "resolution": [
+          512,
+          512
+        ],
+        "frame": 1,
+        "projection": "orthographic",
+        "orientation": "Manifest x=patient left, y=superior, z=anterior; glTF imported to Blender Z-up; cameras front=-Y,left=+X,back=+Y",
+        "hiddenCutawayNodes": [
+          "Right cerebral hemisphere | schematic folds | cutaway",
+          "Left cerebral hemisphere | schematic folds | cutaway",
+          "Cerebellum | section context",
+          "Brainstem | section context"
+        ],
+        "scope": "Exterior static view only. Internal details may remain occluded. No motion or runtime verification."
+      },
+      "note": {
+        "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+        "zh": "自己的静态证据，WebP 展示副本；无损原图保留在规范审查记录中。不自动表示解剖或运行通过。"
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/brain__2026-10-23-v10-exterior-review/f20daf44d9a3dfc53898939e17cfcc67a76a811541dbabedf7a4e7995c24f162.webp",
+      "bytes": 74614,
+      "selectionRole": "before",
+      "originalNativePublicCopies": [],
+      "retainedPath": "reviews/bp3d-head-studies/2026-10-24-bounded-migration/shared-display/fc9d0db4a01c2df83444f8492f1e17f0b2ef504de094e9955833e3db08144764.webp",
+      "actualFormat": "WEBP",
+      "pixelDimensions": [
+        1536,
+        602
+      ],
+      "identityBoundary": "Retained WebP bytes; original PNG hash is provenance only and is not interchangeable."
+    },
+    {
+      "path": "reviews/brain/bodyparts3d-4.0-atlas-r2/screenshots/contact.png",
+      "sha256": "1de1a0b96d416d08c4d241ee99ef02baa97d3716f5390e72296c67f623e27c79",
+      "bytes": 2133461,
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/source-downloads/brain__bodyparts3d-4.0-atlas-r2/1de1a0b96d416d08c4d241ee99ef02baa97d3716f5390e72296c67f623e27c79.png",
+      "format": "PNG",
+      "selectionRole": "candidate",
+      "sourceSha256": "26d39768e2882daee034f997a8d594e915283b5f8a176a8bb60003944a45b886",
+      "additiveRecord": "reviews/brain/2026-10-24-evidence-link-correction/record.json",
+      "actualFormat": "PNG",
+      "retainedPath": "reviews/brain/bodyparts3d-4.0-atlas-r2/screenshots/contact.png"
+    }
+  ],
+  "historicalReview": {
+    "sha256": "b18e0b745c42e76c8652411b042720e63b173a96898c29a42ad076ffb0acc7f1",
+    "bundled": false,
+    "originalPreservedUnchanged": true,
+    "policy": "Public normalized scope here; raw historical record retained externally."
+  },
+  "sourceDependencies": "sources/datasets/bp3d-4.0-head-studies/external-source-map.json",
+  "rebuildBoundary": "Not source-complete or portable-rebuild complete. Native OBJ archives, the remaining original screenshot set, authoring scenes and recipe dependencies remain external. No fresh-machine deterministic render replay verified.",
+  "publicMapProvenance": {
+    "siteSourceCommit": "2613894e2792183cd27db9856af24e580e974f2e",
+    "inventoryRemoteRef": "79c867bad7471562d1c4ddabb4fe2a24d9764f8a"
+  },
+  "freshAvailabilityChecked": false,
+  "migrationStatus": "LOCAL_EXACT_SCOPE_APPROVED_PENDING_TRANSPORT",
+  "acceptedCandidateEvidenceDependency": {
+    "canonicalReference": "reviews/brain/bodyparts3d-4.0-atlas-r2/screenshots/contact.png",
+    "sha256": "1de1a0b96d416d08c4d241ee99ef02baa97d3716f5390e72296c67f623e27c79",
+    "bytes": 2133461,
+    "actualFormat": "PNG",
+    "binding": "Exact additive canonical record binds this PNG to the unchanged accepted source-frame GLB.",
+    "bundled": true,
+    "publicSelectedEvidenceBinding": "Published v25; actual browser display and native PNG download readback passed per retained report.",
+    "acceptanceRevoked": false,
+    "retainedPath": "reviews/brain/bodyparts3d-4.0-atlas-r2/screenshots/contact.png",
+    "additiveRecord": "reviews/brain/2026-10-24-evidence-link-correction/record.json",
+    "additiveRecordSha256": "298a0ba9c1ddb82836930417c10c6eadf3481ebe901d353143ca7a12b7b8d5a5"
+  },
+  "browserReadback": {
+    "externalReport": "reviews/site/2026-10-24-verification-v25/report.json",
+    "sha256": "dd64246d2e3fabd423d23eacf88c43bb5a934c9362237c796ab45fe4ea2ca336",
+    "bundled": false,
+    "checkedAt": "2026-10-24T08:59:22Z",
+    "result": "passed",
+    "scope": "Reported actual browser display and exact native PNG download readback; not model runtime or mobile verification.",
+    "nativePngReadback": {
+      "sha256": "1de1a0b96d416d08c4d241ee99ef02baa97d3716f5390e72296c67f623e27c79",
+      "bytes": 2133461,
+      "match": true,
+      "method": "Documented browser download followed by independent hashing; no credentials/security changes"
+    }
+  }
+}
