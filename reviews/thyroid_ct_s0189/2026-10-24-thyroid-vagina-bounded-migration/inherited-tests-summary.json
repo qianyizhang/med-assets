@@ -1,0 +1,50 @@
+{
+  "inheritedOnly": true,
+  "newTestsRun": false,
+  "displayCleanup": [
+    {
+      "organ": "thyroid_gland",
+      "source_obj_sha256": "5a1644ea9a07e9940c0199d8e778ed157fab12bbf8fec16429eccd5ef637d994",
+      "output_obj_sha256": "2f57cb6e43ab947430ec43597d78beb059d09c152f4732e5bd3855d0a917e751",
+      "method": "Taubin graph-Laplacian lambda .5 mu -.53, 8 iterations, displacement projection .00075m each step",
+      "vertex_count": 4172,
+      "triangles": 8340,
+      "max_vertex_displacement_m": 0.0006988913630314253,
+      "rms_vertex_displacement_m": 0.00036461416393621153,
+      "source_signed_volume_m3": -1.973024994784007e-05,
+      "output_positive_volume_m3": 1.9774842397751003e-05,
+      "relative_volume_drift": 0.0022601056767561634,
+      "faces_reversed_to_outward": true,
+      "no_topology_additions": true,
+      "surface_not_an_improved_segmentation": "display-only approximation; no invented anatomy"
+    },
+    {
+      "organ": "trachea",
+      "source_obj_sha256": "5ffdae61dedf40638c1f8a0bc5cbc4d966a21b49c56a2c044612e775e19a5f78",
+      "output_obj_sha256": "d498ad9246b77406355969f960196ae66b77460e2977022c5ebfc6c42e9cd2ff",
+      "method": "Taubin graph-Laplacian lambda .5 mu -.53, 8 iterations, displacement projection .00075m each step",
+      "vertex_count": 7392,
+      "triangles": 14780,
+      "max_vertex_displacement_m": 0.0007137464198782695,
+      "rms_vertex_displacement_m": 0.00034485574380174755,
+      "source_signed_volume_m3": -4.99644805649175e-05,
+      "output_positive_volume_m3": 5.0061234061196735e-05,
+      "relative_volume_drift": 0.001936445554628019,
+      "faces_reversed_to_outward": true,
+      "no_topology_additions": true,
+      "surface_not_an_improved_segmentation": "display-only approximation; no invented anatomy"
+    }
+  ],
+  "originalSourceLabels": [
+    {
+      "member": "s0189/segmentations/thyroid_gland.nii.gz",
+      "sha256": "34bd5856b80c6da0780f07ca88814acf4772a58bf024ab12f897dcbaba6c1993",
+      "role": "focus"
+    },
+    {
+      "member": "s0189/segmentations/trachea.nii.gz",
+      "sha256": "c8f80fa16b0f0b940e18e2b1656274d455b817d9790e9d00b1cfc3286b0850d1",
+      "role": "review context only"
+    }
+  ]
+}

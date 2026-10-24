@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "migrationOnly": true,
+  "newStudyCount": 0,
+  "preparedDate": "2026-10-24",
+  "assetId": "draft_vagina_vulva",
+  "variantId": "vagina_hra__context-r02",
+  "artifact": {
+    "file": "models/vagina_hra/exports/context-r02/vagina_hra_same_atlas_context_r02.glb",
+    "sha256": "c649de4db766ba00020315029c922de1d018061c1a34bd95c850a05255ab3037",
+    "bytes": 2718584
+  },
+  "scope": {
+    "en": "Supplemental narrow exterior study, NOT vagina-and-vulva replacement. 23 same-atlas meshes retain original coordinates; uterus/cervix, bladder, rectum and selected bones are context, not a complete pelvis. No validated lumen or mucosa.",
+    "zh": "补充性局部外形研究，不是阴道与外阴完整替代品。23个同图谱网格保留原坐标；子宫/宫颈、膀胱、直肠和部分骨骼仅作参照，并非完整骨盆。未验证管腔或黏膜。"
+  },
+  "inheritedGates": {
+    "technical": "pass-with-limitations",
+    "visual": "passed",
+    "anatomy": "unreviewed",
+    "runtime": "unverified"
+  },
+  "clinicalValidation": false,
+  "defaultWholeBodyReplacement": false,
+  "evidence": [
+    {
+      "file": "reviews/vagina_hra/2026-10-24-thyroid-vagina-bounded-migration/display/before-dcd85b63234e.webp",
+      "sha256": "dcd85b63234ea548e6a1d1c85b76615f59ad2d6847da011e55ff770e921e4acb",
+      "bytes": 46856,
+      "selectionRole": "before",
+      "assetBinding": "892600b7ef61618c2d237215e6b1a11b6da1153206baf34a4ccc40fc0c2f19ef",
+      "sourceBindings": [],
+      "originalPNG": {
+        "sha256": "88ad417678d38f3a36a06ace3fde3820060f60d5835efb559fb0c94a1bcc0269",
+        "canonicalFile": "reviews/vagina-vulva/2026-10-23-v10-exterior-review/draft_vagina_vulva/screenshots/contact.png",
+        "included": false
+      },
+      "encoding": "webp-quality92",
+      "label": {
+        "en": "Front / left / back",
+        "zh": "前视 / 左视 / 后视"
+      },
+      "recordedDate": "2026-10-23",
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/draft_vagina_vulva__2026-10-23-v10-exterior-review/88ad417678d38f3a36a06ace3fde3820060f60d5835efb559fb0c94a1bcc0269.webp",
+      "bindingNote": "Before evidence is bound only to its own historical baseline export, not this candidate."
+    },
+    {
+      "file": "reviews/vagina_hra/2026-10-24-thyroid-vagina-bounded-migration/display/candidate-9d925a86df94.webp",
+      "sha256": "9d925a86df94555faea6f6698895fbd8fe3c14872d79e925df4ed715de13f6b0",
+      "bytes": 88618,
+      "selectionRole": "candidate",
+      "assetBinding": "c649de4db766ba00020315029c922de1d018061c1a34bd95c850a05255ab3037",
+      "sourceBindings": [],
+      "originalPNG": {
+        "sha256": "10e18ad8142ca91fac7bbbd5a00b021977a6485476acf365e1e0a5fb265e1aed",
+        "canonicalFile": "reviews/vagina_hra/context-r02/contact.png",
+        "included": false
+      },
+      "encoding": "webp-quality92",
+      "label": {
+        "en": "contact",
+        "zh": "多视图联系表"
+      },
+      "recordedDate": "2026-10-23",
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/vagina_hra__context-r02__scoped-review/10e18ad8142ca91fac7bbbd5a00b021977a6485476acf365e1e0a5fb265e1aed.webp",
+      "bindingNote": "Exact accepted candidate binding; context may include additional structures."
+    },
+    {
+      "file": "reviews/vagina_hra/2026-10-24-thyroid-vagina-bounded-migration/display/candidate-1697478e9a83.webp",
+      "sha256": "1697478e9a83e50c834cf8e95653e8e7583d472b4ca698864cf554eb12b63159",
+      "bytes": 26810,
+      "selectionRole": "candidate",
+      "assetBinding": "c649de4db766ba00020315029c922de1d018061c1a34bd95c850a05255ab3037",
+      "sourceBindings": [],
+      "originalPNG": {
+        "sha256": "dd3acd852eae8ce5274930ed6a55db1ddb918f815456ba1d87211899c636c898",
+        "canonicalFile": "reviews/vagina_hra/context-r02/same_atlas_side_bones_hidden.png",
+        "included": false
+      },
+      "encoding": "webp-quality92",
+      "label": {
+        "en": "same_atlas_side_bones_hidden",
+        "zh": "同图谱侧视——隐藏选定骨骼"
+      },
+      "recordedDate": "2026-10-23",
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/vagina_hra__context-r02__scoped-review/dd3acd852eae8ce5274930ed6a55db1ddb918f815456ba1d87211899c636c898.webp",
+      "bindingNote": "Exact accepted candidate binding; context may include additional structures."
+    }
+  ],
+  "sourceRecords": [
+    {
+      "file": "models/vagina_hra/provenance/context-r02/migration-2026-10-24/external-source.json",
+      "sha256": "5a3b3b03504960808619bd4df62911a6f516379c582ede22710dd30387526263",
+      "bytes": 1325
+    }
+  ],
+  "textRecords": [
+    {
+      "file": "reviews/vagina_hra/2026-10-24-thyroid-vagina-bounded-migration/inherited-tests-summary.json",
+      "sha256": "8bae8b78b2056b1142c4ea09fb57874322899e6d2941f8b2bea850e7e6761f34",
+      "bytes": 13827
+    },
+    {
+      "file": "models/vagina_hra/provenance/context-r02/migration-2026-10-24/ATTRIBUTION.md",
+      "sha256": "b75014a10c54044066f509f1109a92e425e273d1ddc60bbe2f845bc88983b8d7",
+      "bytes": 1006
+    },
+    {
+      "file": "models/vagina_hra/provenance/context-r02/migration-2026-10-24/README.md",
+      "sha256": "5ffdb3216a155ad2b941df609ff9090be0f9eb442b581b095c24b4127c0d8677",
+      "bytes": 1280
+    }
+  ],
+  "sourceFrame": "Original HRA glTF metre frame; standard Blender import/export only. No anatomical normalization, recentering or cross-atlas registration.",
+  "reconstruction": "Not self-contained or verified portable reconstruction; raw sources external.",
+  "originalMediaUnchanged": true
+}

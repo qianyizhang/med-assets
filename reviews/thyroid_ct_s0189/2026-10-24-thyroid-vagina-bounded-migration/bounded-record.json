@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "migrationOnly": true,
+  "newStudyCount": 0,
+  "preparedDate": "2026-10-24",
+  "assetId": "draft_thyroid",
+  "variantId": "thyroid_ct_s0189__source-candidate-02",
+  "artifact": {
+    "file": "models/thyroid_ct_s0189/exports/source-candidate-02/thyroid_ct_s0189_source_frame.glb",
+    "sha256": "4add07e2efed2d67efb1d4ba225a109fe448043c79182e3d2e1a96e671534883",
+    "bytes": 151580
+  },
+  "scope": {
+    "en": "Exterior of this public clinical-source sample only; not a healthy/normal normative atlas. CT-resolution corrugation is not tissue texture.",
+    "zh": "仅代表此公开临床来源样本的外表面；不代表健康/正常标准图谱。CT 分辨率造成的波纹不是组织纹理。"
+  },
+  "inheritedGates": {
+    "technical": "pass-with-limitations",
+    "visual": "passed",
+    "anatomy": "reference-screened",
+    "runtime": "unverified"
+  },
+  "clinicalValidation": false,
+  "defaultWholeBodyReplacement": false,
+  "evidence": [
+    {
+      "file": "reviews/thyroid_ct_s0189/2026-10-24-thyroid-vagina-bounded-migration/display/before-140e6f45c6d2.webp",
+      "sha256": "140e6f45c6d2ea6bbf0d75c69ed834c83391e6d7bf3d4f0d940a87397b2423c9",
+      "bytes": 44616,
+      "selectionRole": "before",
+      "assetBinding": "6decdf72e54c407f6c8ad1b4fc552b5ceadf8814b34fe75bbec853d7c12e5d0d",
+      "sourceBindings": [],
+      "originalPNG": {
+        "sha256": "4f9a768172e63d80fab47684a5011c64c9fd3ccebf42d9a5968cb942946bc23b",
+        "canonicalFile": "reviews/thyroid/2026-10-23-v10-exterior-review/draft_thyroid/screenshots/contact.png",
+        "included": false
+      },
+      "encoding": "webp-quality92",
+      "label": {
+        "en": "Front / left / back",
+        "zh": "前视 / 左视 / 后视"
+      },
+      "recordedDate": "2026-10-23",
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/draft_thyroid__2026-10-23-v10-exterior-review/4f9a768172e63d80fab47684a5011c64c9fd3ccebf42d9a5968cb942946bc23b.webp",
+      "bindingNote": "Before evidence is bound only to its own historical baseline export, not this candidate."
+    },
+    {
+      "file": "reviews/thyroid_ct_s0189/2026-10-24-thyroid-vagina-bounded-migration/display/candidate-18e9046c3a4b.webp",
+      "sha256": "18e9046c3a4b5f5df574d013f474afd99c8052bef665e082558ed0105901a0c8",
+      "bytes": 49936,
+      "selectionRole": "candidate",
+      "assetBinding": "4add07e2efed2d67efb1d4ba225a109fe448043c79182e3d2e1a96e671534883",
+      "sourceBindings": [],
+      "originalPNG": {
+        "sha256": "4ba3abaf0c1da26ed03f9303d0d5e063d8a7d187cb7575030c37af6652f7e868",
+        "canonicalFile": "reviews/thyroid_ct_s0189/source-candidate-02/contact.png",
+        "included": false
+      },
+      "encoding": "webp-quality92",
+      "label": {
+        "en": "contact",
+        "zh": "多视图联系表"
+      },
+      "recordedDate": "2026-10-23",
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/thyroid_ct_s0189__source-candidate-02__scoped-review/4ba3abaf0c1da26ed03f9303d0d5e063d8a7d187cb7575030c37af6652f7e868.webp",
+      "bindingNote": "Exact accepted candidate binding; context may include additional structures."
+    },
+    {
+      "file": "reviews/thyroid_ct_s0189/2026-10-24-thyroid-vagina-bounded-migration/display/candidate-96f84342b2f5.webp",
+      "sha256": "96f84342b2f57e30f1449bb7d6ae4404cb1249a3ca9519e641ff778a2e4ef396",
+      "bytes": 31342,
+      "selectionRole": "candidate",
+      "assetBinding": "4add07e2efed2d67efb1d4ba225a109fe448043c79182e3d2e1a96e671534883",
+      "sourceBindings": [],
+      "originalPNG": {
+        "sha256": "53f54181bdcc00e80c4e560780aae2bab027c6deb9db1c4e854372e1cf59ae8d",
+        "canonicalFile": "reviews/thyroid_ct_s0189/source-candidate-02/screenshots/final-glb/oblique.png",
+        "included": false
+      },
+      "encoding": "webp-quality92",
+      "label": {
+        "en": "oblique",
+        "zh": "斜视"
+      },
+      "recordedDate": "2026-10-23",
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/thyroid_ct_s0189__source-candidate-02__scoped-review/53f54181bdcc00e80c4e560780aae2bab027c6deb9db1c4e854372e1cf59ae8d.webp",
+      "bindingNote": "Exact accepted candidate binding; context may include additional structures."
+    }
+  ],
+  "sourceRecords": [
+    {
+      "file": "models/thyroid_ct_s0189/provenance/source-candidate-02/migration-2026-10-24/external-source.json",
+      "sha256": "ac8c25c850897dc51ccb2abce7433f005fe985e6abfdc1fdfd47b8f731c06a7d",
+      "bytes": 1749
+    }
+  ],
+  "textRecords": [
+    {
+      "file": "reviews/thyroid_ct_s0189/2026-10-24-thyroid-vagina-bounded-migration/inherited-tests-summary.json",
+      "sha256": "480894f9b01882e095f31aba5926d3620f67a36ce6edd449255b90f1585529e4",
+      "bytes": 2201
+    },
+    {
+      "file": "models/thyroid_ct_s0189/provenance/source-candidate-02/migration-2026-10-24/ATTRIBUTION.md",
+      "sha256": "5d4cd4a1332d8bd25b9a3065b1b7d5c9dc5baad9709717a5bfe0186fa35e4df1",
+      "bytes": 855
+    },
+    {
+      "file": "models/thyroid_ct_s0189/provenance/source-candidate-02/migration-2026-10-24/README.md",
+      "sha256": "bd67799a6485999307a2074645a4135a735e4666fd407de2f5c22fa41be4ef5d",
+      "bytes": 1144
+    }
+  ],
+  "sourceFrame": "Native label affine RAS; mm inferred from published 1.5 mm convention and numeric affine. Header unit flag unspecified. Converted to metres; no atlas registration.",
+  "reconstruction": "Not self-contained or verified portable reconstruction; raw sources external.",
+  "originalMediaUnchanged": true
+}
