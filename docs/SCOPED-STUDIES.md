@@ -1,6 +1,6 @@
 # Scoped study files and review evidence
 
-Snapshot: **34 of 36 scoped studies have their reviewed GLB and concise evidence in this repository**. This is migration coverage, not a claim that all anatomy assets passed. The remaining studies are listed below; counts change only after exact file and Git LFS download checks.
+Snapshot: **35 of 36 scoped studies have their reviewed GLB and concise evidence in this repository**. This is migration coverage, not a claim that all anatomy assets passed. The remaining studies are listed below; counts change only after exact file and Git LFS download checks.
 
 The original 62 baseline exports have separate review decisions. Metadata-only alternatives and contextual teaching supplements are not additional studies. Historical failed/needs-revision originals are not silently replaced by these scoped studies. See the [baseline review ledger](../reviews/accounting/2026-10-23/baseline-decisions.json).
 
@@ -31,6 +31,7 @@ The original 62 baseline exports have separate review decisions. Metadata-only a
 | Laryngeal/pharyngeal subset | [GLB](../models/pharynx_larynx/exports/r03/pharynx_larynx.glb) | [Review](../reviews/pharynx_larynx/2026-10-24-r03-bounded-migration/bounded-record.json) |
 | Left female kidney | [GLB](../models/kidney_left/exports/hra-female-v1.3-r02/kidney_left.glb) | [Review](../reviews/kidney_left/2026-10-23-hra-female-v1.3-r02/record.json) |
 | Liver exterior | [GLB](../models/liver/exports/hra-female-v1.10-r02/liver.glb) | [Review](../reviews/liver/2026-10-23-hra-female-v1.10-r02/record.json) |
+| Muscle layer study | [GLB](../models/muscle/exports/z-anatomy-r02/muscle_z_native_frame.glb) | [Review](../reviews/muscle/2026-10-24-bounded-migration/bounded-record.json) |
 | Outer skin envelope | [GLB](../models/skin/exports/bp3d-envelope-r01/skin_source_frame.glb) | [Review](../reviews/skin/2026-10-24-bp3d-envelope-r01-bounded-migration/bounded-record.json) |
 | Pancreas same-atlas context | [GLB](../models/pancreas/exports/hra-female-context-r04/pancreas_hra_female_context_r04.glb) | [Review](../reviews/pancreas/hra-female-context-r04/bounded-record.json) |
 | Parotid exteriors | [GLB](../models/parotid_glands/exports/source-candidate-02/parotid_glands_source_frame.glb) | [Review](../reviews/z-small-studies/2026-10-24-bounded-migration/parotid_glands/record.json) |
@@ -55,8 +56,7 @@ The original 62 baseline exports have separate review decisions. Metadata-only a
 
 | Study | Current boundary |
 |---|---|
-| Muscle layer study | Reviewed public study exceeds the current transport ceiling; separate ceiling approval and exact batch checks are pending. |
-| Breast source study | Reviewed public study exceeds the current transport ceiling; separate ceiling approval and exact batch checks are pending. |
+| Breast source study | Exact batch and ceiling approved; bounded transfer and independent readback are pending. |
 
 
 No source archive upload, new permissions, billing assurance or broader quality approval is implied by this index.

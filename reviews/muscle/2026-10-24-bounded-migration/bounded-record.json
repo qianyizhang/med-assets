@@ -1,0 +1,2640 @@
+{
+  "model": {
+    "path": "models/muscle/exports/z-anatomy-r02/muscle_z_native_frame.glb",
+    "sha256": "7081144bdbca0d2d871311a3568a0aedb1c8e125f7709ae8e7d55345a54bdfb7",
+    "bytes": 30517312
+  },
+  "scope": {
+    "en": "462 muscle/part meshes +47 support meshes;41 inherited topology warnings. Static illustrative surfaces, no rig or watertightness claim.",
+    "zh": "462\u4e2a\u808c\u8089/\u90e8\u4ef6\u7f51\u683c+47\u4e2a\u652f\u6301\u7f51\u683c\uff1b\u4fdd\u755941\u9879\u6765\u6e90\u62d3\u6251\u8b66\u544a\u3002\u9759\u6001\u5c55\u793a\u8868\u9762\uff1b\u4e0d\u58f0\u79f0\u5df2\u6709 rig \u6216\u6c34\u5bc6\u6027\u3002"
+  },
+  "recordedPublicGates": {
+    "technical": "pass-with-limitations",
+    "visual": "passed",
+    "anatomy": "reference-screened",
+    "runtime": "unverified"
+  },
+  "gateInterpretation": "Historical scoped acceptance only; no new quality, anatomy, clinical, motion, count or runtime promotion.",
+  "limitations": [
+    "462 muscle/part meshes plus 47 support meshes; not complete anatomy or validated attachments.",
+    "41 inherited topology warnings; no watertightness, rigging, measured fibre direction or mechanics claim.",
+    "Static illustrative surfaces in Z-Anatomy native frame; do not silently overlay CT/BP3D assemblies."
+  ],
+  "failureSummary": {
+    "failure": "Primitive muscle scaffolds lacked coherent anatomical coverage.",
+    "change": "Named source muscle collection with separate support classification and source-preserving modifier evaluation.",
+    "remaining": "Source topology warnings and simplified surfaces remain.",
+    "lesson": "Source selection and visible anatomy review precede surface polish; topology warnings must survive packaging."
+  },
+  "evidence": [
+    {
+      "path": "reviews/muscle/2026-10-24-bounded-migration/evidence/2fdba2bd7ac5f95ac977b44ca711443a62895257d7441cb402aff6141d5e02cb.webp",
+      "sha256": "2fdba2bd7ac5f95ac977b44ca711443a62895257d7441cb402aff6141d5e02cb",
+      "bytes": 42220,
+      "actualFormat": "WEBP",
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/draft_muscle__2026-10-23-v10-exterior-review/38c74d68f4246260ff101c96bc43785e36e18a43f37c23845c0b2676d3ce333d.webp",
+      "originalPNG": {
+        "canonicalReference": "reviews/muscle/2026-10-23-v10-exterior-review/draft_muscle/screenshots/contact.png",
+        "sha256": "38c74d68f4246260ff101c96bc43785e36e18a43f37c23845c0b2676d3ce333d",
+        "bundled": false
+      },
+      "selectionRole": "before",
+      "assetBinding": "ad4baf39f37305a54a4cfdc5b8fceb2e77e1234c4c4d6de7d18e010dc7535628",
+      "label": {
+        "en": "Front / left / back",
+        "zh": "\u524d\u89c6 / \u5de6\u89c6 / \u540e\u89c6"
+      },
+      "role": null
+    },
+    {
+      "path": "reviews/muscle/2026-10-24-bounded-migration/evidence/c47a934c2d89554bfc4feb62925032a8e56944ea8b1dc391b7d1cb05ca36d9a5.webp",
+      "sha256": "c47a934c2d89554bfc4feb62925032a8e56944ea8b1dc391b7d1cb05ca36d9a5",
+      "bytes": 78742,
+      "actualFormat": "WEBP",
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/muscle__z-anatomy-r02__scoped-review/e461e9015aea9982bf2102394a602e63a55e50f93b5af1261d7a221056b564b3.webp",
+      "originalPNG": {
+        "canonicalReference": "reviews/muscle/z-anatomy-r02/back.png",
+        "sha256": "e461e9015aea9982bf2102394a602e63a55e50f93b5af1261d7a221056b564b3",
+        "bundled": false
+      },
+      "selectionRole": "candidate",
+      "assetBinding": "7081144bdbca0d2d871311a3568a0aedb1c8e125f7709ae8e7d55345a54bdfb7",
+      "label": {
+        "en": "back",
+        "zh": "\u540e\u89c6"
+      },
+      "role": "candidate"
+    },
+    {
+      "path": "reviews/muscle/2026-10-24-bounded-migration/evidence/c4f6a0890160ae8bdf1b4e0d3f53a6f746ed78f4bd97eb2eadf8e9b3d36c5915.webp",
+      "sha256": "c4f6a0890160ae8bdf1b4e0d3f53a6f746ed78f4bd97eb2eadf8e9b3d36c5915",
+      "bytes": 80944,
+      "actualFormat": "WEBP",
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/muscle__z-anatomy-r02__scoped-review/94f5c2688859c48db1ef82f23d542300f764cd0082867fc4e19bc52110baf39d.webp",
+      "originalPNG": {
+        "canonicalReference": "reviews/muscle/z-anatomy-r02/context-selected-z-bones.png",
+        "sha256": "94f5c2688859c48db1ef82f23d542300f764cd0082867fc4e19bc52110baf39d",
+        "bundled": false
+      },
+      "selectionRole": "candidate",
+      "assetBinding": "7081144bdbca0d2d871311a3568a0aedb1c8e125f7709ae8e7d55345a54bdfb7",
+      "label": {
+        "en": "context-selected-z-bones",
+        "zh": "\u9009\u5b9a Z-Anatomy \u9aa8\u9abc\u53c2\u7167"
+      },
+      "role": "candidate-context"
+    }
+  ],
+  "nodeIdentityMap": [
+    {
+      "index": 0,
+      "name": "Lateral rectus muscle.l [candidate]",
+      "sourceObjectName": "Lateral rectus muscle.l"
+    },
+    {
+      "index": 1,
+      "name": "Lateral rectus muscle.r [candidate]",
+      "sourceObjectName": "Lateral rectus muscle.r"
+    },
+    {
+      "index": 2,
+      "name": "Superior oblique muscle.l [candidate]",
+      "sourceObjectName": "Superior oblique muscle.l"
+    },
+    {
+      "index": 3,
+      "name": "Superior oblique muscle.r [candidate]",
+      "sourceObjectName": "Superior oblique muscle.r"
+    },
+    {
+      "index": 4,
+      "name": "Common tendinous ring.r [candidate]",
+      "sourceObjectName": "Common tendinous ring.r"
+    },
+    {
+      "index": 5,
+      "name": "Inferior oblique muscle.r [candidate]",
+      "sourceObjectName": "Inferior oblique muscle.r"
+    },
+    {
+      "index": 6,
+      "name": "Inferior rectus muscle.r [candidate]",
+      "sourceObjectName": "Inferior rectus muscle.r"
+    },
+    {
+      "index": 7,
+      "name": "Inferior tarsus.r [candidate]",
+      "sourceObjectName": "Inferior tarsus.r"
+    },
+    {
+      "index": 8,
+      "name": "Levator palpebrae superioris.r [candidate]",
+      "sourceObjectName": "Levator palpebrae superioris.r"
+    },
+    {
+      "index": 9,
+      "name": "Medial rectus muscle.r [candidate]",
+      "sourceObjectName": "Medial rectus muscle.r"
+    },
+    {
+      "index": 10,
+      "name": "Superior rectus muscle.r [candidate]",
+      "sourceObjectName": "Superior rectus muscle.r"
+    },
+    {
+      "index": 11,
+      "name": "Superior tarsus.r [candidate]",
+      "sourceObjectName": "Superior tarsus.r"
+    },
+    {
+      "index": 12,
+      "name": "Trochlea of superior oblique muscle.r [candidate]",
+      "sourceObjectName": "Trochlea of superior oblique muscle.r"
+    },
+    {
+      "index": 13,
+      "name": "Common tendinous ring.l [candidate]",
+      "sourceObjectName": "Common tendinous ring.l"
+    },
+    {
+      "index": 14,
+      "name": "Inferior oblique muscle.l [candidate]",
+      "sourceObjectName": "Inferior oblique muscle.l"
+    },
+    {
+      "index": 15,
+      "name": "Inferior rectus muscle.l [candidate]",
+      "sourceObjectName": "Inferior rectus muscle.l"
+    },
+    {
+      "index": 16,
+      "name": "Inferior tarsus.l [candidate]",
+      "sourceObjectName": "Inferior tarsus.l"
+    },
+    {
+      "index": 17,
+      "name": "Levator palpebrae superioris.l [candidate]",
+      "sourceObjectName": "Levator palpebrae superioris.l"
+    },
+    {
+      "index": 18,
+      "name": "Medial rectus muscle.l [candidate]",
+      "sourceObjectName": "Medial rectus muscle.l"
+    },
+    {
+      "index": 19,
+      "name": "Superior rectus muscle.l [candidate]",
+      "sourceObjectName": "Superior rectus muscle.l"
+    },
+    {
+      "index": 20,
+      "name": "Superior tarsus.l [candidate]",
+      "sourceObjectName": "Superior tarsus.l"
+    },
+    {
+      "index": 21,
+      "name": "Trochlea of superior oblique muscle.l [candidate]",
+      "sourceObjectName": "Trochlea of superior oblique muscle.l"
+    },
+    {
+      "index": 22,
+      "name": "Frontalis muscle.r [candidate]",
+      "sourceObjectName": "Frontalis muscle.r"
+    },
+    {
+      "index": 23,
+      "name": "Occipitalis muscle.r [candidate]",
+      "sourceObjectName": "Occipitalis muscle.r"
+    },
+    {
+      "index": 24,
+      "name": "Epicranial aponeurosis.r [candidate]",
+      "sourceObjectName": "Epicranial aponeurosis.r"
+    },
+    {
+      "index": 25,
+      "name": "Frontalis muscle.l [candidate]",
+      "sourceObjectName": "Frontalis muscle.l"
+    },
+    {
+      "index": 26,
+      "name": "Occipitalis muscle.l [candidate]",
+      "sourceObjectName": "Occipitalis muscle.l"
+    },
+    {
+      "index": 27,
+      "name": "Epicranial aponeurosis.l [candidate]",
+      "sourceObjectName": "Epicranial aponeurosis.l"
+    },
+    {
+      "index": 28,
+      "name": "Temporoparietalis muscle.r [candidate]",
+      "sourceObjectName": "Temporoparietalis muscle.r"
+    },
+    {
+      "index": 29,
+      "name": "Temporoparietalis muscle.l [candidate]",
+      "sourceObjectName": "Temporoparietalis muscle.l"
+    },
+    {
+      "index": 30,
+      "name": "Nasalis muscle.r [candidate]",
+      "sourceObjectName": "Nasalis muscle.r"
+    },
+    {
+      "index": 31,
+      "name": "Nasalis muscle.l [candidate]",
+      "sourceObjectName": "Nasalis muscle.l"
+    },
+    {
+      "index": 32,
+      "name": "Orbital part of orbicularis oculi.r [candidate]",
+      "sourceObjectName": "Orbital part of orbicularis oculi.r"
+    },
+    {
+      "index": 33,
+      "name": "Palpebral part of orbicularis oculi.r [candidate]",
+      "sourceObjectName": "Palpebral part of orbicularis oculi.r"
+    },
+    {
+      "index": 34,
+      "name": "Orbital part of orbicularis oculi.l [candidate]",
+      "sourceObjectName": "Orbital part of orbicularis oculi.l"
+    },
+    {
+      "index": 35,
+      "name": "Palpebral part of orbicularis oculi.l [candidate]",
+      "sourceObjectName": "Palpebral part of orbicularis oculi.l"
+    },
+    {
+      "index": 36,
+      "name": "Orbicularis oris muscle.r [candidate]",
+      "sourceObjectName": "Orbicularis oris muscle.r"
+    },
+    {
+      "index": 37,
+      "name": "Orbicularis oris muscle.l [candidate]",
+      "sourceObjectName": "Orbicularis oris muscle.l"
+    },
+    {
+      "index": 38,
+      "name": "Zygomaticus major muscle.r [candidate]",
+      "sourceObjectName": "Zygomaticus major muscle.r"
+    },
+    {
+      "index": 39,
+      "name": "Corrugator supercilii.r [candidate]",
+      "sourceObjectName": "Corrugator supercilii.r"
+    },
+    {
+      "index": 40,
+      "name": "Depressor anguli oris.r [candidate]",
+      "sourceObjectName": "Depressor anguli oris.r"
+    },
+    {
+      "index": 41,
+      "name": "Depressor labii inferioris.r [candidate]",
+      "sourceObjectName": "Depressor labii inferioris.r"
+    },
+    {
+      "index": 42,
+      "name": "Levator anguli oris.r [candidate]",
+      "sourceObjectName": "Levator anguli oris.r"
+    },
+    {
+      "index": 43,
+      "name": "Procerus muscle.r [candidate]",
+      "sourceObjectName": "Procerus muscle.r"
+    },
+    {
+      "index": 44,
+      "name": "Risorius muscle.r [candidate]",
+      "sourceObjectName": "Risorius muscle.r"
+    },
+    {
+      "index": 45,
+      "name": "Zygomaticus minor muscle.r [candidate]",
+      "sourceObjectName": "Zygomaticus minor muscle.r"
+    },
+    {
+      "index": 46,
+      "name": "Levator labii superioris.r [candidate]",
+      "sourceObjectName": "Levator labii superioris.r"
+    },
+    {
+      "index": 47,
+      "name": "Depressor septi nasi.r [candidate]",
+      "sourceObjectName": "Depressor septi nasi.r"
+    },
+    {
+      "index": 48,
+      "name": "Mentalis muscle.r [candidate]",
+      "sourceObjectName": "Mentalis muscle.r"
+    },
+    {
+      "index": 49,
+      "name": "Levator nasolabialis.r [candidate]",
+      "sourceObjectName": "Levator nasolabialis.r"
+    },
+    {
+      "index": 50,
+      "name": "Bucinator.r [candidate]",
+      "sourceObjectName": "Bucinator.r"
+    },
+    {
+      "index": 51,
+      "name": "Zygomaticus major muscle.l [candidate]",
+      "sourceObjectName": "Zygomaticus major muscle.l"
+    },
+    {
+      "index": 52,
+      "name": "Corrugator supercilii.l [candidate]",
+      "sourceObjectName": "Corrugator supercilii.l"
+    },
+    {
+      "index": 53,
+      "name": "Depressor anguli oris.l [candidate]",
+      "sourceObjectName": "Depressor anguli oris.l"
+    },
+    {
+      "index": 54,
+      "name": "Depressor labii inferioris.l [candidate]",
+      "sourceObjectName": "Depressor labii inferioris.l"
+    },
+    {
+      "index": 55,
+      "name": "Levator anguli oris.l [candidate]",
+      "sourceObjectName": "Levator anguli oris.l"
+    },
+    {
+      "index": 56,
+      "name": "Procerus muscle.l [candidate]",
+      "sourceObjectName": "Procerus muscle.l"
+    },
+    {
+      "index": 57,
+      "name": "Risorius muscle.l [candidate]",
+      "sourceObjectName": "Risorius muscle.l"
+    },
+    {
+      "index": 58,
+      "name": "Zygomaticus minor muscle.l [candidate]",
+      "sourceObjectName": "Zygomaticus minor muscle.l"
+    },
+    {
+      "index": 59,
+      "name": "Levator labii superioris.l [candidate]",
+      "sourceObjectName": "Levator labii superioris.l"
+    },
+    {
+      "index": 60,
+      "name": "Depressor septi nasi.l [candidate]",
+      "sourceObjectName": "Depressor septi nasi.l"
+    },
+    {
+      "index": 61,
+      "name": "Mentalis muscle.l [candidate]",
+      "sourceObjectName": "Mentalis muscle.l"
+    },
+    {
+      "index": 62,
+      "name": "Levator nasolabialis.l [candidate]",
+      "sourceObjectName": "Levator nasolabialis.l"
+    },
+    {
+      "index": 63,
+      "name": "Bucinator.l [candidate]",
+      "sourceObjectName": "Bucinator.l"
+    },
+    {
+      "index": 64,
+      "name": "Superficial part of masseter.r [candidate]",
+      "sourceObjectName": "Superficial part of masseter.r"
+    },
+    {
+      "index": 65,
+      "name": "Deep part of masseter.r [candidate]",
+      "sourceObjectName": "Deep part of masseter.r"
+    },
+    {
+      "index": 66,
+      "name": "Superficial part of masseter.l [candidate]",
+      "sourceObjectName": "Superficial part of masseter.l"
+    },
+    {
+      "index": 67,
+      "name": "Deep part of masseter.l [candidate]",
+      "sourceObjectName": "Deep part of masseter.l"
+    },
+    {
+      "index": 68,
+      "name": "Medial pterygoid muscle.r [candidate]",
+      "sourceObjectName": "Medial pterygoid muscle.r"
+    },
+    {
+      "index": 69,
+      "name": "Medial pterygoid muscle.l [candidate]",
+      "sourceObjectName": "Medial pterygoid muscle.l"
+    },
+    {
+      "index": 70,
+      "name": "Inferior head of lateral pterygoid muscle.r [candidate]",
+      "sourceObjectName": "Inferior head of lateral pterygoid muscle.r"
+    },
+    {
+      "index": 71,
+      "name": "Superior head of lateral pterygoid muscle.r [candidate]",
+      "sourceObjectName": "Superior head of lateral pterygoid muscle.r"
+    },
+    {
+      "index": 72,
+      "name": "Inferior head of lateral pterygoid muscle.l [candidate]",
+      "sourceObjectName": "Inferior head of lateral pterygoid muscle.l"
+    },
+    {
+      "index": 73,
+      "name": "Superior head of lateral pterygoid muscle.l [candidate]",
+      "sourceObjectName": "Superior head of lateral pterygoid muscle.l"
+    },
+    {
+      "index": 74,
+      "name": "Temporalis muscle.r [candidate]",
+      "sourceObjectName": "Temporalis muscle.r"
+    },
+    {
+      "index": 75,
+      "name": "Temporalis muscle.l [candidate]",
+      "sourceObjectName": "Temporalis muscle.l"
+    },
+    {
+      "index": 76,
+      "name": "Hyoglossus muscle.r [candidate]",
+      "sourceObjectName": "Hyoglossus muscle.r"
+    },
+    {
+      "index": 77,
+      "name": "Hyoglossus muscle.l [candidate]",
+      "sourceObjectName": "Hyoglossus muscle.l"
+    },
+    {
+      "index": 78,
+      "name": "Genioglossus muscle.r [candidate]",
+      "sourceObjectName": "Genioglossus muscle.r"
+    },
+    {
+      "index": 79,
+      "name": "Genioglossus muscle.l [candidate]",
+      "sourceObjectName": "Genioglossus muscle.l"
+    },
+    {
+      "index": 80,
+      "name": "Palatopharyngeus muscle.r [candidate]",
+      "sourceObjectName": "Palatopharyngeus muscle.r"
+    },
+    {
+      "index": 81,
+      "name": "Palatopharyngeus muscle.l [candidate]",
+      "sourceObjectName": "Palatopharyngeus muscle.l"
+    },
+    {
+      "index": 82,
+      "name": "Sternocleidomastoid muscle.r [candidate]",
+      "sourceObjectName": "Sternocleidomastoid muscle.r"
+    },
+    {
+      "index": 83,
+      "name": "Sternocleidomastoid muscle.l [candidate]",
+      "sourceObjectName": "Sternocleidomastoid muscle.l"
+    },
+    {
+      "index": 84,
+      "name": "Intermediate tendon of digastric muscle.r [candidate]",
+      "sourceObjectName": "Intermediate tendon of digastric muscle.r"
+    },
+    {
+      "index": 85,
+      "name": "Anterior belly of digastric muscle.r [candidate]",
+      "sourceObjectName": "Anterior belly of digastric muscle.r"
+    },
+    {
+      "index": 86,
+      "name": "Posterior belly of digastric muscle.r [candidate]",
+      "sourceObjectName": "Posterior belly of digastric muscle.r"
+    },
+    {
+      "index": 87,
+      "name": "Intermediate tendon of digastric muscle.l [candidate]",
+      "sourceObjectName": "Intermediate tendon of digastric muscle.l"
+    },
+    {
+      "index": 88,
+      "name": "Anterior belly of digastric muscle.l [candidate]",
+      "sourceObjectName": "Anterior belly of digastric muscle.l"
+    },
+    {
+      "index": 89,
+      "name": "Posterior belly of digastric muscle.l [candidate]",
+      "sourceObjectName": "Posterior belly of digastric muscle.l"
+    },
+    {
+      "index": 90,
+      "name": "Mylohyoid muscle.r [candidate]",
+      "sourceObjectName": "Mylohyoid muscle.r"
+    },
+    {
+      "index": 91,
+      "name": "Stylohyoid muscle.r [candidate]",
+      "sourceObjectName": "Stylohyoid muscle.r"
+    },
+    {
+      "index": 92,
+      "name": "Geniohyoid muscle.r [candidate]",
+      "sourceObjectName": "Geniohyoid muscle.r"
+    },
+    {
+      "index": 93,
+      "name": "Mylohyoid muscle.l [candidate]",
+      "sourceObjectName": "Mylohyoid muscle.l"
+    },
+    {
+      "index": 94,
+      "name": "Stylohyoid muscle.l [candidate]",
+      "sourceObjectName": "Stylohyoid muscle.l"
+    },
+    {
+      "index": 95,
+      "name": "Geniohyoid muscle.l [candidate]",
+      "sourceObjectName": "Geniohyoid muscle.l"
+    },
+    {
+      "index": 96,
+      "name": "Omohyoid muscle.r [candidate]",
+      "sourceObjectName": "Omohyoid muscle.r"
+    },
+    {
+      "index": 97,
+      "name": "Omohyoid muscle.l [candidate]",
+      "sourceObjectName": "Omohyoid muscle.l"
+    },
+    {
+      "index": 98,
+      "name": "Sternohyoid muscle.r [candidate]",
+      "sourceObjectName": "Sternohyoid muscle.r"
+    },
+    {
+      "index": 99,
+      "name": "Sternothyroid muscle.r [candidate]",
+      "sourceObjectName": "Sternothyroid muscle.r"
+    },
+    {
+      "index": 100,
+      "name": "Thyrohyoid muscle.r [candidate]",
+      "sourceObjectName": "Thyrohyoid muscle.r"
+    },
+    {
+      "index": 101,
+      "name": "Sternohyoid muscle.l [candidate]",
+      "sourceObjectName": "Sternohyoid muscle.l"
+    },
+    {
+      "index": 102,
+      "name": "Sternothyroid muscle.l [candidate]",
+      "sourceObjectName": "Sternothyroid muscle.l"
+    },
+    {
+      "index": 103,
+      "name": "Thyrohyoid muscle.l [candidate]",
+      "sourceObjectName": "Thyrohyoid muscle.l"
+    },
+    {
+      "index": 104,
+      "name": "Superior pharyngeal constrictor.r [candidate]",
+      "sourceObjectName": "Superior pharyngeal constrictor.r"
+    },
+    {
+      "index": 105,
+      "name": "Superior pharyngeal constrictor.l [candidate]",
+      "sourceObjectName": "Superior pharyngeal constrictor.l"
+    },
+    {
+      "index": 106,
+      "name": "Middle pharyngeal constrictor.r [candidate]",
+      "sourceObjectName": "Middle pharyngeal constrictor.r"
+    },
+    {
+      "index": 107,
+      "name": "Middle pharyngeal constrictor.l [candidate]",
+      "sourceObjectName": "Middle pharyngeal constrictor.l"
+    },
+    {
+      "index": 108,
+      "name": "Inferior pharyngeal constrictor.r [candidate]",
+      "sourceObjectName": "Inferior pharyngeal constrictor.r"
+    },
+    {
+      "index": 109,
+      "name": "Inferior pharyngeal constrictor.l [candidate]",
+      "sourceObjectName": "Inferior pharyngeal constrictor.l"
+    },
+    {
+      "index": 110,
+      "name": "Stylopharyngeus muscle.r [candidate]",
+      "sourceObjectName": "Stylopharyngeus muscle.r"
+    },
+    {
+      "index": 111,
+      "name": "Stylopharyngeus muscle.l [candidate]",
+      "sourceObjectName": "Stylopharyngeus muscle.l"
+    },
+    {
+      "index": 112,
+      "name": "Oblique part of cricothyroid muscle.r [candidate]",
+      "sourceObjectName": "Oblique part of cricothyroid muscle.r"
+    },
+    {
+      "index": 113,
+      "name": "Straight part of cricothyroid muscle.r [candidate]",
+      "sourceObjectName": "Straight part of cricothyroid muscle.r"
+    },
+    {
+      "index": 114,
+      "name": "Oblique part of cricothyroid muscle.l [candidate]",
+      "sourceObjectName": "Oblique part of cricothyroid muscle.l"
+    },
+    {
+      "index": 115,
+      "name": "Straight part of cricothyroid muscle.l [candidate]",
+      "sourceObjectName": "Straight part of cricothyroid muscle.l"
+    },
+    {
+      "index": 116,
+      "name": "External part of thyro-arytenoid muscle.r [candidate]",
+      "sourceObjectName": "External part of thyro-arytenoid muscle.r"
+    },
+    {
+      "index": 117,
+      "name": "External part of thyro-arytenoid muscle.l [candidate]",
+      "sourceObjectName": "External part of thyro-arytenoid muscle.l"
+    },
+    {
+      "index": 118,
+      "name": "Ary-epiglottic part of oblique arytenoid muscle.r [candidate]",
+      "sourceObjectName": "Ary-epiglottic part of oblique arytenoid muscle.r"
+    },
+    {
+      "index": 119,
+      "name": "Thyro-epiglottic part of thyro-arytenoid muscle.r [candidate]",
+      "sourceObjectName": "Thyro-epiglottic part of thyro-arytenoid muscle.r"
+    },
+    {
+      "index": 120,
+      "name": "Ary-epiglottic part of oblique arytenoid muscle.l [candidate]",
+      "sourceObjectName": "Ary-epiglottic part of oblique arytenoid muscle.l"
+    },
+    {
+      "index": 121,
+      "name": "Thyro-epiglottic part of thyro-arytenoid muscle.l [candidate]",
+      "sourceObjectName": "Thyro-epiglottic part of thyro-arytenoid muscle.l"
+    },
+    {
+      "index": 122,
+      "name": "Transverse arytenoid muscle [candidate]",
+      "sourceObjectName": "Transverse arytenoid muscle"
+    },
+    {
+      "index": 123,
+      "name": "Lateral crico-arytenoid muscle.r [candidate]",
+      "sourceObjectName": "Lateral crico-arytenoid muscle.r"
+    },
+    {
+      "index": 124,
+      "name": "Lateral crico-arytenoid muscle.l [candidate]",
+      "sourceObjectName": "Lateral crico-arytenoid muscle.l"
+    },
+    {
+      "index": 125,
+      "name": "Posterior crico-arytenoid muscle.r [candidate]",
+      "sourceObjectName": "Posterior crico-arytenoid muscle.r"
+    },
+    {
+      "index": 126,
+      "name": "Posterior crico-arytenoid muscle.l [candidate]",
+      "sourceObjectName": "Posterior crico-arytenoid muscle.l"
+    },
+    {
+      "index": 127,
+      "name": "Platysma.r [candidate]",
+      "sourceObjectName": "Platysma.r"
+    },
+    {
+      "index": 128,
+      "name": "Scalenus medius muscle.r [candidate]",
+      "sourceObjectName": "Scalenus medius muscle.r"
+    },
+    {
+      "index": 129,
+      "name": "Scalenus posterior muscle.r [candidate]",
+      "sourceObjectName": "Scalenus posterior muscle.r"
+    },
+    {
+      "index": 130,
+      "name": "Scalenus anterior muscle.r [candidate]",
+      "sourceObjectName": "Scalenus anterior muscle.r"
+    },
+    {
+      "index": 131,
+      "name": "Longus capitis muscle.r [candidate]",
+      "sourceObjectName": "Longus capitis muscle.r"
+    },
+    {
+      "index": 132,
+      "name": "Longus colli muscle.r [candidate]",
+      "sourceObjectName": "Longus colli muscle.r"
+    },
+    {
+      "index": 133,
+      "name": "Rectus anterior capitis muscle.r [candidate]",
+      "sourceObjectName": "Rectus anterior capitis muscle.r"
+    },
+    {
+      "index": 134,
+      "name": "Rectus lateralis capitis muscle.r [candidate]",
+      "sourceObjectName": "Rectus lateralis capitis muscle.r"
+    },
+    {
+      "index": 135,
+      "name": "Platysma.l [candidate]",
+      "sourceObjectName": "Platysma.l"
+    },
+    {
+      "index": 136,
+      "name": "Scalenus medius muscle.l [candidate]",
+      "sourceObjectName": "Scalenus medius muscle.l"
+    },
+    {
+      "index": 137,
+      "name": "Scalenus posterior muscle.l [candidate]",
+      "sourceObjectName": "Scalenus posterior muscle.l"
+    },
+    {
+      "index": 138,
+      "name": "Scalenus anterior muscle.l [candidate]",
+      "sourceObjectName": "Scalenus anterior muscle.l"
+    },
+    {
+      "index": 139,
+      "name": "Longus capitis muscle.l [candidate]",
+      "sourceObjectName": "Longus capitis muscle.l"
+    },
+    {
+      "index": 140,
+      "name": "Longus colli muscle.l [candidate]",
+      "sourceObjectName": "Longus colli muscle.l"
+    },
+    {
+      "index": 141,
+      "name": "Rectus anterior capitis muscle.l [candidate]",
+      "sourceObjectName": "Rectus anterior capitis muscle.l"
+    },
+    {
+      "index": 142,
+      "name": "Rectus lateralis capitis muscle.l [candidate]",
+      "sourceObjectName": "Rectus lateralis capitis muscle.l"
+    },
+    {
+      "index": 143,
+      "name": "Obliquus inferior capitis muscle.r [candidate]",
+      "sourceObjectName": "Obliquus inferior capitis muscle.r"
+    },
+    {
+      "index": 144,
+      "name": "Obliquus superior capitis muscle.r [candidate]",
+      "sourceObjectName": "Obliquus superior capitis muscle.r"
+    },
+    {
+      "index": 145,
+      "name": "Rectus posterior major capitis muscle.r [candidate]",
+      "sourceObjectName": "Rectus posterior major capitis muscle.r"
+    },
+    {
+      "index": 146,
+      "name": "Rectus posterior minor capitis muscle.r [candidate]",
+      "sourceObjectName": "Rectus posterior minor capitis muscle.r"
+    },
+    {
+      "index": 147,
+      "name": "Obliquus inferior capitis muscle.l [candidate]",
+      "sourceObjectName": "Obliquus inferior capitis muscle.l"
+    },
+    {
+      "index": 148,
+      "name": "Obliquus superior capitis muscle.l [candidate]",
+      "sourceObjectName": "Obliquus superior capitis muscle.l"
+    },
+    {
+      "index": 149,
+      "name": "Rectus posterior major capitis muscle.l [candidate]",
+      "sourceObjectName": "Rectus posterior major capitis muscle.l"
+    },
+    {
+      "index": 150,
+      "name": "Rectus posterior minor capitis muscle.l [candidate]",
+      "sourceObjectName": "Rectus posterior minor capitis muscle.l"
+    },
+    {
+      "index": 151,
+      "name": "Iliocostalis lumborum muscle.r [candidate]",
+      "sourceObjectName": "Iliocostalis lumborum muscle.r"
+    },
+    {
+      "index": 152,
+      "name": "Iliocostalis thoracis muscle.r [candidate]",
+      "sourceObjectName": "Iliocostalis thoracis muscle.r"
+    },
+    {
+      "index": 153,
+      "name": "Iliocostalis colli muscle.r [candidate]",
+      "sourceObjectName": "Iliocostalis colli muscle.r"
+    },
+    {
+      "index": 154,
+      "name": "Iliocostalis lumborum muscle.l [candidate]",
+      "sourceObjectName": "Iliocostalis lumborum muscle.l"
+    },
+    {
+      "index": 155,
+      "name": "Iliocostalis thoracis muscle.l [candidate]",
+      "sourceObjectName": "Iliocostalis thoracis muscle.l"
+    },
+    {
+      "index": 156,
+      "name": "Iliocostalis colli muscle [candidate]",
+      "sourceObjectName": "Iliocostalis colli muscle"
+    },
+    {
+      "index": 157,
+      "name": "Longissimus thoracis muscle.r [candidate]",
+      "sourceObjectName": "Longissimus thoracis muscle.r"
+    },
+    {
+      "index": 158,
+      "name": "Longissimus thoracis muscle.l [candidate]",
+      "sourceObjectName": "Longissimus thoracis muscle.l"
+    },
+    {
+      "index": 159,
+      "name": "Longissimus capitis muscle.r [candidate]",
+      "sourceObjectName": "Longissimus capitis muscle.r"
+    },
+    {
+      "index": 160,
+      "name": "Longissimus colli muscle.r [candidate]",
+      "sourceObjectName": "Longissimus colli muscle.r"
+    },
+    {
+      "index": 161,
+      "name": "Longissimus capitis muscle.l [candidate]",
+      "sourceObjectName": "Longissimus capitis muscle.l"
+    },
+    {
+      "index": 162,
+      "name": "Longissimus colli muscle.l [candidate]",
+      "sourceObjectName": "Longissimus colli muscle.l"
+    },
+    {
+      "index": 163,
+      "name": "Spinalis capitis muscle.r [candidate]",
+      "sourceObjectName": "Spinalis capitis muscle.r"
+    },
+    {
+      "index": 164,
+      "name": "Spinalis colli muscle.r [candidate]",
+      "sourceObjectName": "Spinalis colli muscle.r"
+    },
+    {
+      "index": 165,
+      "name": "Spinalis thoracis muscle.r [candidate]",
+      "sourceObjectName": "Spinalis thoracis muscle.r"
+    },
+    {
+      "index": 166,
+      "name": "Spinalis capitis muscle.l [candidate]",
+      "sourceObjectName": "Spinalis capitis muscle.l"
+    },
+    {
+      "index": 167,
+      "name": "Spinalis colli muscle.l [candidate]",
+      "sourceObjectName": "Spinalis colli muscle.l"
+    },
+    {
+      "index": 168,
+      "name": "Spinalis thoracis muscle.l [candidate]",
+      "sourceObjectName": "Spinalis thoracis muscle.l"
+    },
+    {
+      "index": 169,
+      "name": "Splenius capitis muscle.r [candidate]",
+      "sourceObjectName": "Splenius capitis muscle.r"
+    },
+    {
+      "index": 170,
+      "name": "Splenius colli muscle.r [candidate]",
+      "sourceObjectName": "Splenius colli muscle.r"
+    },
+    {
+      "index": 171,
+      "name": "Splenius capitis muscle.l [candidate]",
+      "sourceObjectName": "Splenius capitis muscle.l"
+    },
+    {
+      "index": 172,
+      "name": "Splenius colli muscle.l [candidate]",
+      "sourceObjectName": "Splenius colli muscle.l"
+    },
+    {
+      "index": 173,
+      "name": "Multifidus colli muscle.r [candidate]",
+      "sourceObjectName": "Multifidus colli muscle.r"
+    },
+    {
+      "index": 174,
+      "name": "Multifidus thoracis muscle.r [candidate]",
+      "sourceObjectName": "Multifidus thoracis muscle.r"
+    },
+    {
+      "index": 175,
+      "name": "Multifidus lumborum muscle.r [candidate]",
+      "sourceObjectName": "Multifidus lumborum muscle.r"
+    },
+    {
+      "index": 176,
+      "name": "Multifidus colli muscle.l [candidate]",
+      "sourceObjectName": "Multifidus colli muscle.l"
+    },
+    {
+      "index": 177,
+      "name": "Multifidus thoracis muscle.l [candidate]",
+      "sourceObjectName": "Multifidus thoracis muscle.l"
+    },
+    {
+      "index": 178,
+      "name": "Multifidus lumborum muscle.l [candidate]",
+      "sourceObjectName": "Multifidus lumborum muscle.l"
+    },
+    {
+      "index": 179,
+      "name": "Semispinalis thoracis muscle.r [candidate]",
+      "sourceObjectName": "Semispinalis thoracis muscle.r"
+    },
+    {
+      "index": 180,
+      "name": "Semispinalis colli muscle.r [candidate]",
+      "sourceObjectName": "Semispinalis colli muscle.r"
+    },
+    {
+      "index": 181,
+      "name": "Semispinalis thoracis muscle.l [candidate]",
+      "sourceObjectName": "Semispinalis thoracis muscle.l"
+    },
+    {
+      "index": 182,
+      "name": "Semispinalis colli muscle.l [candidate]",
+      "sourceObjectName": "Semispinalis colli muscle.l"
+    },
+    {
+      "index": 183,
+      "name": "Rotatores.l [candidate]",
+      "sourceObjectName": "Rotatores.l"
+    },
+    {
+      "index": 184,
+      "name": "Rotatores.r [candidate]",
+      "sourceObjectName": "Rotatores.r"
+    },
+    {
+      "index": 185,
+      "name": "Interspinales colli muscles.r [candidate]",
+      "sourceObjectName": "Interspinales colli muscles.r"
+    },
+    {
+      "index": 186,
+      "name": "Interspinales thoracis muscles.r [candidate]",
+      "sourceObjectName": "Interspinales thoracis muscles.r"
+    },
+    {
+      "index": 187,
+      "name": "Interspinales lumborum muscles.r [candidate]",
+      "sourceObjectName": "Interspinales lumborum muscles.r"
+    },
+    {
+      "index": 188,
+      "name": "Interspinales colli muscles.l [candidate]",
+      "sourceObjectName": "Interspinales colli muscles.l"
+    },
+    {
+      "index": 189,
+      "name": "Interspinales thoracis muscles.l [candidate]",
+      "sourceObjectName": "Interspinales thoracis muscles.l"
+    },
+    {
+      "index": 190,
+      "name": "Interspinales lumborum muscles.l [candidate]",
+      "sourceObjectName": "Interspinales lumborum muscles.l"
+    },
+    {
+      "index": 191,
+      "name": "Ascending part of trapezius muscle.r [candidate]",
+      "sourceObjectName": "Ascending part of trapezius muscle.r"
+    },
+    {
+      "index": 192,
+      "name": "Descending part of trapezius muscle.r [candidate]",
+      "sourceObjectName": "Descending part of trapezius muscle.r"
+    },
+    {
+      "index": 193,
+      "name": "Transverse part of trapezius muscle.r [candidate]",
+      "sourceObjectName": "Transverse part of trapezius muscle.r"
+    },
+    {
+      "index": 194,
+      "name": "Ascending part of trapezius muscle.l [candidate]",
+      "sourceObjectName": "Ascending part of trapezius muscle.l"
+    },
+    {
+      "index": 195,
+      "name": "Descending part of trapezius muscle.l [candidate]",
+      "sourceObjectName": "Descending part of trapezius muscle.l"
+    },
+    {
+      "index": 196,
+      "name": "Transverse part of trapezius muscle.l [candidate]",
+      "sourceObjectName": "Transverse part of trapezius muscle.l"
+    },
+    {
+      "index": 197,
+      "name": "Dorsal parts of lateral intertransversarii lumborum muscles.r [",
+      "sourceObjectName": "Dorsal parts of lateral intertransversarii lumborum muscles.r"
+    },
+    {
+      "index": 198,
+      "name": "Ventral parts of lateral intertransversarii lumborum muscles.r ",
+      "sourceObjectName": "Ventral parts of lateral intertransversarii lumborum muscles.r"
+    },
+    {
+      "index": 199,
+      "name": "Dorsal parts of lateral intertransversarii lumborum muscles.l [",
+      "sourceObjectName": "Dorsal parts of lateral intertransversarii lumborum muscles.l"
+    },
+    {
+      "index": 200,
+      "name": "Ventral parts of lateral intertransversarii lumborum muscles.l ",
+      "sourceObjectName": "Ventral parts of lateral intertransversarii lumborum muscles.l"
+    },
+    {
+      "index": 201,
+      "name": "Levator scapulae.r [candidate]",
+      "sourceObjectName": "Levator scapulae.r"
+    },
+    {
+      "index": 202,
+      "name": "Rhomboid major muscle.r [candidate]",
+      "sourceObjectName": "Rhomboid major muscle.r"
+    },
+    {
+      "index": 203,
+      "name": "Rhomboid minor muscle.r [candidate]",
+      "sourceObjectName": "Rhomboid minor muscle.r"
+    },
+    {
+      "index": 204,
+      "name": "Latissimus dorsi muscle.r [candidate]",
+      "sourceObjectName": "Latissimus dorsi muscle.r"
+    },
+    {
+      "index": 205,
+      "name": "Serratus posterior inferior muscle.r [candidate]",
+      "sourceObjectName": "Serratus posterior inferior muscle.r"
+    },
+    {
+      "index": 206,
+      "name": "Serratus posterior superior muscle.r [candidate]",
+      "sourceObjectName": "Serratus posterior superior muscle.r"
+    },
+    {
+      "index": 207,
+      "name": "Levator scapulae.l [candidate]",
+      "sourceObjectName": "Levator scapulae.l"
+    },
+    {
+      "index": 208,
+      "name": "Rhomboid major muscle.l [candidate]",
+      "sourceObjectName": "Rhomboid major muscle.l"
+    },
+    {
+      "index": 209,
+      "name": "Rhomboid minor muscle.l [candidate]",
+      "sourceObjectName": "Rhomboid minor muscle.l"
+    },
+    {
+      "index": 210,
+      "name": "Latissimus dorsi muscle.l [candidate]",
+      "sourceObjectName": "Latissimus dorsi muscle.l"
+    },
+    {
+      "index": 211,
+      "name": "Serratus posterior inferior muscle.l [candidate]",
+      "sourceObjectName": "Serratus posterior inferior muscle.l"
+    },
+    {
+      "index": 212,
+      "name": "Serratus posterior superior muscle.l [candidate]",
+      "sourceObjectName": "Serratus posterior superior muscle.l"
+    },
+    {
+      "index": 213,
+      "name": "Clavicular head of pectoralis major muscle.r [candidate]",
+      "sourceObjectName": "Clavicular head of pectoralis major muscle.r"
+    },
+    {
+      "index": 214,
+      "name": "Sternocostal head of pectoralis major muscle.r [candidate]",
+      "sourceObjectName": "Sternocostal head of pectoralis major muscle.r"
+    },
+    {
+      "index": 215,
+      "name": "(Abdominal part of pectoralis major muscle).r [candidate]",
+      "sourceObjectName": "(Abdominal part of pectoralis major muscle).r"
+    },
+    {
+      "index": 216,
+      "name": "Clavicular head of pectoralis major muscle.l [candidate]",
+      "sourceObjectName": "Clavicular head of pectoralis major muscle.l"
+    },
+    {
+      "index": 217,
+      "name": "Sternocostal head of pectoralis major muscle.l [candidate]",
+      "sourceObjectName": "Sternocostal head of pectoralis major muscle.l"
+    },
+    {
+      "index": 218,
+      "name": "(Abdominal part of pectoralis major muscle).l [candidate]",
+      "sourceObjectName": "(Abdominal part of pectoralis major muscle).l"
+    },
+    {
+      "index": 219,
+      "name": "Levatores longi costarum.r [candidate]",
+      "sourceObjectName": "Levatores longi costarum.r"
+    },
+    {
+      "index": 220,
+      "name": "Levatores breves costarum.r [candidate]",
+      "sourceObjectName": "Levatores breves costarum.r"
+    },
+    {
+      "index": 221,
+      "name": "Levatores longi costarum.l [candidate]",
+      "sourceObjectName": "Levatores longi costarum.l"
+    },
+    {
+      "index": 222,
+      "name": "Levatores breves costarum.l [candidate]",
+      "sourceObjectName": "Levatores breves costarum.l"
+    },
+    {
+      "index": 223,
+      "name": "Pectoralis minor muscle.r [candidate]",
+      "sourceObjectName": "Pectoralis minor muscle.r"
+    },
+    {
+      "index": 224,
+      "name": "External intercostal muscles.r [candidate]",
+      "sourceObjectName": "External intercostal muscles.r"
+    },
+    {
+      "index": 225,
+      "name": "Internal intercostal muscles.r [candidate]",
+      "sourceObjectName": "Internal intercostal muscles.r"
+    },
+    {
+      "index": 226,
+      "name": "Serratus anterior muscle.r [candidate]",
+      "sourceObjectName": "Serratus anterior muscle.r"
+    },
+    {
+      "index": 227,
+      "name": "Innermost intercostal muscles.r [candidate]",
+      "sourceObjectName": "Innermost intercostal muscles.r"
+    },
+    {
+      "index": 228,
+      "name": "Subclavius muscle.r [candidate]",
+      "sourceObjectName": "Subclavius muscle.r"
+    },
+    {
+      "index": 229,
+      "name": "Transversus thoracis muscle.r [candidate]",
+      "sourceObjectName": "Transversus thoracis muscle.r"
+    },
+    {
+      "index": 230,
+      "name": "Pectoralis minor muscle.l [candidate]",
+      "sourceObjectName": "Pectoralis minor muscle.l"
+    },
+    {
+      "index": 231,
+      "name": "External intercostal muscles.l [candidate]",
+      "sourceObjectName": "External intercostal muscles.l"
+    },
+    {
+      "index": 232,
+      "name": "Internal intercostal muscles.l [candidate]",
+      "sourceObjectName": "Internal intercostal muscles.l"
+    },
+    {
+      "index": 233,
+      "name": "Serratus anterior muscle.l [candidate]",
+      "sourceObjectName": "Serratus anterior muscle.l"
+    },
+    {
+      "index": 234,
+      "name": "Innermost intercostal muscles.l [candidate]",
+      "sourceObjectName": "Innermost intercostal muscles.l"
+    },
+    {
+      "index": 235,
+      "name": "Subclavius muscle.l [candidate]",
+      "sourceObjectName": "Subclavius muscle.l"
+    },
+    {
+      "index": 236,
+      "name": "Transversus thoracis muscle.l [candidate]",
+      "sourceObjectName": "Transversus thoracis muscle.l"
+    },
+    {
+      "index": 237,
+      "name": "Diaphragm [candidate]",
+      "sourceObjectName": "Diaphragm"
+    },
+    {
+      "index": 238,
+      "name": "Rectus abdominis muscle.r [candidate]",
+      "sourceObjectName": "Rectus abdominis muscle.r"
+    },
+    {
+      "index": 239,
+      "name": "Rectus abdominis muscle.l [candidate]",
+      "sourceObjectName": "Rectus abdominis muscle.l"
+    },
+    {
+      "index": 240,
+      "name": "Inguinal ligament.l [candidate]",
+      "sourceObjectName": "Inguinal ligament.l"
+    },
+    {
+      "index": 241,
+      "name": "Inguinal ligament.r [candidate]",
+      "sourceObjectName": "Inguinal ligament.r"
+    },
+    {
+      "index": 242,
+      "name": "External abdominal oblique muscle.r [candidate]",
+      "sourceObjectName": "External abdominal oblique muscle.r"
+    },
+    {
+      "index": 243,
+      "name": "External abdominal oblique muscle.l [candidate]",
+      "sourceObjectName": "External abdominal oblique muscle.l"
+    },
+    {
+      "index": 244,
+      "name": "Internal abdominal oblique muscle.r [candidate]",
+      "sourceObjectName": "Internal abdominal oblique muscle.r"
+    },
+    {
+      "index": 245,
+      "name": "Internal abdominal oblique muscle.l [candidate]",
+      "sourceObjectName": "Internal abdominal oblique muscle.l"
+    },
+    {
+      "index": 246,
+      "name": "Transversus abdominis muscle.r [candidate]",
+      "sourceObjectName": "Transversus abdominis muscle.r"
+    },
+    {
+      "index": 247,
+      "name": "Transversus abdominis muscle.l [candidate]",
+      "sourceObjectName": "Transversus abdominis muscle.l"
+    },
+    {
+      "index": 248,
+      "name": "Linea alba [candidate]",
+      "sourceObjectName": "Linea alba"
+    },
+    {
+      "index": 249,
+      "name": "Pyramidalis muscle.r [candidate]",
+      "sourceObjectName": "Pyramidalis muscle.r"
+    },
+    {
+      "index": 250,
+      "name": "Quadratus lumborum muscle.r [candidate]",
+      "sourceObjectName": "Quadratus lumborum muscle.r"
+    },
+    {
+      "index": 251,
+      "name": "Pyramidalis muscle.l [candidate]",
+      "sourceObjectName": "Pyramidalis muscle.l"
+    },
+    {
+      "index": 252,
+      "name": "Quadratus lumborum muscle.l [candidate]",
+      "sourceObjectName": "Quadratus lumborum muscle.l"
+    },
+    {
+      "index": 253,
+      "name": "Coccygeus muscle.r [candidate]",
+      "sourceObjectName": "Coccygeus muscle.r"
+    },
+    {
+      "index": 254,
+      "name": "Iliococcygeus muscle.r [candidate]",
+      "sourceObjectName": "Iliococcygeus muscle.r"
+    },
+    {
+      "index": 255,
+      "name": "Pubo-analis muscle.r [candidate]",
+      "sourceObjectName": "Pubo-analis muscle.r"
+    },
+    {
+      "index": 256,
+      "name": "Pubococcygeus muscle.r [candidate]",
+      "sourceObjectName": "Pubococcygeus muscle.r"
+    },
+    {
+      "index": 257,
+      "name": "Coccygeus muscle.l [candidate]",
+      "sourceObjectName": "Coccygeus muscle.l"
+    },
+    {
+      "index": 258,
+      "name": "Iliococcygeus muscle.l [candidate]",
+      "sourceObjectName": "Iliococcygeus muscle.l"
+    },
+    {
+      "index": 259,
+      "name": "Pubo-analis muscle.l [candidate]",
+      "sourceObjectName": "Pubo-analis muscle.l"
+    },
+    {
+      "index": 260,
+      "name": "Pubococcygeus muscle.l [candidate]",
+      "sourceObjectName": "Pubococcygeus muscle.l"
+    },
+    {
+      "index": 261,
+      "name": "Acromial part of deltoid muscle.r [candidate]",
+      "sourceObjectName": "Acromial part of deltoid muscle.r"
+    },
+    {
+      "index": 262,
+      "name": "Clavicular part of deltoid muscle.r [candidate]",
+      "sourceObjectName": "Clavicular part of deltoid muscle.r"
+    },
+    {
+      "index": 263,
+      "name": "Scapular spinal part of deltoid muscle.r [candidate]",
+      "sourceObjectName": "Scapular spinal part of deltoid muscle.r"
+    },
+    {
+      "index": 264,
+      "name": "Acromial part of deltoid muscle.l [candidate]",
+      "sourceObjectName": "Acromial part of deltoid muscle.l"
+    },
+    {
+      "index": 265,
+      "name": "Clavicular part of deltoid muscle.l [candidate]",
+      "sourceObjectName": "Clavicular part of deltoid muscle.l"
+    },
+    {
+      "index": 266,
+      "name": "Scapular spinal part of deltoid muscle.l [candidate]",
+      "sourceObjectName": "Scapular spinal part of deltoid muscle.l"
+    },
+    {
+      "index": 267,
+      "name": "Subscapularis muscle.r [candidate]",
+      "sourceObjectName": "Subscapularis muscle.r"
+    },
+    {
+      "index": 268,
+      "name": "Supraspinatus muscle.r [candidate]",
+      "sourceObjectName": "Supraspinatus muscle.r"
+    },
+    {
+      "index": 269,
+      "name": "Teres minor muscle.r [candidate]",
+      "sourceObjectName": "Teres minor muscle.r"
+    },
+    {
+      "index": 270,
+      "name": "Infraspinatus muscle.r [candidate]",
+      "sourceObjectName": "Infraspinatus muscle.r"
+    },
+    {
+      "index": 271,
+      "name": "Subscapularis muscle.l [candidate]",
+      "sourceObjectName": "Subscapularis muscle.l"
+    },
+    {
+      "index": 272,
+      "name": "Supraspinatus muscle.l [candidate]",
+      "sourceObjectName": "Supraspinatus muscle.l"
+    },
+    {
+      "index": 273,
+      "name": "Teres minor muscle.l [candidate]",
+      "sourceObjectName": "Teres minor muscle.l"
+    },
+    {
+      "index": 274,
+      "name": "Infraspinatus muscle.l [candidate]",
+      "sourceObjectName": "Infraspinatus muscle.l"
+    },
+    {
+      "index": 275,
+      "name": "Teres major muscle.r [candidate]",
+      "sourceObjectName": "Teres major muscle.r"
+    },
+    {
+      "index": 276,
+      "name": "Teres major muscle.l [candidate]",
+      "sourceObjectName": "Teres major muscle.l"
+    },
+    {
+      "index": 277,
+      "name": "Long head of biceps brachii.r [candidate]",
+      "sourceObjectName": "Long head of biceps brachii.r"
+    },
+    {
+      "index": 278,
+      "name": "Short head of biceps brachii.r [candidate]",
+      "sourceObjectName": "Short head of biceps brachii.r"
+    },
+    {
+      "index": 279,
+      "name": "Long head of biceps brachii.l [candidate]",
+      "sourceObjectName": "Long head of biceps brachii.l"
+    },
+    {
+      "index": 280,
+      "name": "Short head of biceps brachii.l [candidate]",
+      "sourceObjectName": "Short head of biceps brachii.l"
+    },
+    {
+      "index": 281,
+      "name": "Brachialis muscle.r [candidate]",
+      "sourceObjectName": "Brachialis muscle.r"
+    },
+    {
+      "index": 282,
+      "name": "Coracobrachialis muscle.r [candidate]",
+      "sourceObjectName": "Coracobrachialis muscle.r"
+    },
+    {
+      "index": 283,
+      "name": "Brachialis muscle.l [candidate]",
+      "sourceObjectName": "Brachialis muscle.l"
+    },
+    {
+      "index": 284,
+      "name": "Coracobrachialis muscle.l [candidate]",
+      "sourceObjectName": "Coracobrachialis muscle.l"
+    },
+    {
+      "index": 285,
+      "name": "Medial head of triceps brachii.r [candidate]",
+      "sourceObjectName": "Medial head of triceps brachii.r"
+    },
+    {
+      "index": 286,
+      "name": "Lateral head of triceps brachii.r [candidate]",
+      "sourceObjectName": "Lateral head of triceps brachii.r"
+    },
+    {
+      "index": 287,
+      "name": "Long head of triceps brachii.r [candidate]",
+      "sourceObjectName": "Long head of triceps brachii.r"
+    },
+    {
+      "index": 288,
+      "name": "Medial head of triceps brachii.l [candidate]",
+      "sourceObjectName": "Medial head of triceps brachii.l"
+    },
+    {
+      "index": 289,
+      "name": "Lateral head of triceps brachii.l [candidate]",
+      "sourceObjectName": "Lateral head of triceps brachii.l"
+    },
+    {
+      "index": 290,
+      "name": "Long head of triceps brachii.l [candidate]",
+      "sourceObjectName": "Long head of triceps brachii.l"
+    },
+    {
+      "index": 291,
+      "name": "Superficial head of pronator teres.r [candidate]",
+      "sourceObjectName": "Superficial head of pronator teres.r"
+    },
+    {
+      "index": 292,
+      "name": "Deep head of pronator teres.r [candidate]",
+      "sourceObjectName": "Deep head of pronator teres.r"
+    },
+    {
+      "index": 293,
+      "name": "Superficial head of pronator teres.l [candidate]",
+      "sourceObjectName": "Superficial head of pronator teres.l"
+    },
+    {
+      "index": 294,
+      "name": "Deep head of pronator teres.l [candidate]",
+      "sourceObjectName": "Deep head of pronator teres.l"
+    },
+    {
+      "index": 295,
+      "name": "Humeral head of flexor carpi ulnaris.r [candidate]",
+      "sourceObjectName": "Humeral head of flexor carpi ulnaris.r"
+    },
+    {
+      "index": 296,
+      "name": "Ulnar head of flexor carpi ulnaris.r [candidate]",
+      "sourceObjectName": "Ulnar head of flexor carpi ulnaris.r"
+    },
+    {
+      "index": 297,
+      "name": "Humeral head of flexor carpi ulnaris.l [candidate]",
+      "sourceObjectName": "Humeral head of flexor carpi ulnaris.l"
+    },
+    {
+      "index": 298,
+      "name": "Ulnar head of flexor carpi ulnaris.l [candidate]",
+      "sourceObjectName": "Ulnar head of flexor carpi ulnaris.l"
+    },
+    {
+      "index": 299,
+      "name": "Humero-ulnar head of flexor digitorum superficialis.r [candidat",
+      "sourceObjectName": "Humero-ulnar head of flexor digitorum superficialis.r"
+    },
+    {
+      "index": 300,
+      "name": "Humero-ulnar head of flexor digitorum superficialis.l [candidat",
+      "sourceObjectName": "Humero-ulnar head of flexor digitorum superficialis.l"
+    },
+    {
+      "index": 301,
+      "name": "Flexor carpi radialis.r [candidate]",
+      "sourceObjectName": "Flexor carpi radialis.r"
+    },
+    {
+      "index": 302,
+      "name": "Palmaris longus muscle.r [candidate]",
+      "sourceObjectName": "Palmaris longus muscle.r"
+    },
+    {
+      "index": 303,
+      "name": "Flexor carpi radialis.l [candidate]",
+      "sourceObjectName": "Flexor carpi radialis.l"
+    },
+    {
+      "index": 304,
+      "name": "Palmaris longus muscle.l [candidate]",
+      "sourceObjectName": "Palmaris longus muscle.l"
+    },
+    {
+      "index": 305,
+      "name": "Radial head of flexor digitorum superficialis.r [candidate]",
+      "sourceObjectName": "Radial head of flexor digitorum superficialis.r"
+    },
+    {
+      "index": 306,
+      "name": "Flexor digitorum profundus.r [candidate]",
+      "sourceObjectName": "Flexor digitorum profundus.r"
+    },
+    {
+      "index": 307,
+      "name": "Flexor pollicis longus.r [candidate]",
+      "sourceObjectName": "Flexor pollicis longus.r"
+    },
+    {
+      "index": 308,
+      "name": "Pronator quadratus.r [candidate]",
+      "sourceObjectName": "Pronator quadratus.r"
+    },
+    {
+      "index": 309,
+      "name": "Radial head of flexor digitorum superficialis.l [candidate]",
+      "sourceObjectName": "Radial head of flexor digitorum superficialis.l"
+    },
+    {
+      "index": 310,
+      "name": "Flexor digitorum profundus.l [candidate]",
+      "sourceObjectName": "Flexor digitorum profundus.l"
+    },
+    {
+      "index": 311,
+      "name": "Flexor pollicis longus.l [candidate]",
+      "sourceObjectName": "Flexor pollicis longus.l"
+    },
+    {
+      "index": 312,
+      "name": "Pronator quadratus.l [candidate]",
+      "sourceObjectName": "Pronator quadratus.l"
+    },
+    {
+      "index": 313,
+      "name": "Extensor digitorum.r [candidate]",
+      "sourceObjectName": "Extensor digitorum.r"
+    },
+    {
+      "index": 314,
+      "name": "Extensor digitorum.l [candidate]",
+      "sourceObjectName": "Extensor digitorum.l"
+    },
+    {
+      "index": 315,
+      "name": "Ulnar head of extensor carpi ulnaris.r [candidate]",
+      "sourceObjectName": "Ulnar head of extensor carpi ulnaris.r"
+    },
+    {
+      "index": 316,
+      "name": "Humeral head of extensor carpi ulnaris.r [candidate]",
+      "sourceObjectName": "Humeral head of extensor carpi ulnaris.r"
+    },
+    {
+      "index": 317,
+      "name": "Ulnar head of extensor carpi ulnaris.l [candidate]",
+      "sourceObjectName": "Ulnar head of extensor carpi ulnaris.l"
+    },
+    {
+      "index": 318,
+      "name": "Humeral head of extensor carpi ulnaris.l [candidate]",
+      "sourceObjectName": "Humeral head of extensor carpi ulnaris.l"
+    },
+    {
+      "index": 319,
+      "name": "Brachioradialis muscle.r [candidate]",
+      "sourceObjectName": "Brachioradialis muscle.r"
+    },
+    {
+      "index": 320,
+      "name": "Extensor carpi radialis longus.r [candidate]",
+      "sourceObjectName": "Extensor carpi radialis longus.r"
+    },
+    {
+      "index": 321,
+      "name": "Extensor carpi radialis brevis.r [candidate]",
+      "sourceObjectName": "Extensor carpi radialis brevis.r"
+    },
+    {
+      "index": 322,
+      "name": "Anconeus muscle.r [candidate]",
+      "sourceObjectName": "Anconeus muscle.r"
+    },
+    {
+      "index": 323,
+      "name": "Extensor digiti minimi.r [candidate]",
+      "sourceObjectName": "Extensor digiti minimi.r"
+    },
+    {
+      "index": 324,
+      "name": "Brachioradialis muscle.l [candidate]",
+      "sourceObjectName": "Brachioradialis muscle.l"
+    },
+    {
+      "index": 325,
+      "name": "Extensor carpi radialis longus.l [candidate]",
+      "sourceObjectName": "Extensor carpi radialis longus.l"
+    },
+    {
+      "index": 326,
+      "name": "Extensor carpi radialis brevis.l [candidate]",
+      "sourceObjectName": "Extensor carpi radialis brevis.l"
+    },
+    {
+      "index": 327,
+      "name": "Anconeus muscle.l [candidate]",
+      "sourceObjectName": "Anconeus muscle.l"
+    },
+    {
+      "index": 328,
+      "name": "Extensor digiti minimi.l [candidate]",
+      "sourceObjectName": "Extensor digiti minimi.l"
+    },
+    {
+      "index": 329,
+      "name": "Supinator.r [candidate]",
+      "sourceObjectName": "Supinator.r"
+    },
+    {
+      "index": 330,
+      "name": "Supinator.l [candidate]",
+      "sourceObjectName": "Supinator.l"
+    },
+    {
+      "index": 331,
+      "name": "Abductor pollicis longus.r [candidate]",
+      "sourceObjectName": "Abductor pollicis longus.r"
+    },
+    {
+      "index": 332,
+      "name": "Extensor indicis.r [candidate]",
+      "sourceObjectName": "Extensor indicis.r"
+    },
+    {
+      "index": 333,
+      "name": "Extensor pollicis brevis.r [candidate]",
+      "sourceObjectName": "Extensor pollicis brevis.r"
+    },
+    {
+      "index": 334,
+      "name": "Extensor pollicis longus.r [candidate]",
+      "sourceObjectName": "Extensor pollicis longus.r"
+    },
+    {
+      "index": 335,
+      "name": "Abductor pollicis longus.l [candidate]",
+      "sourceObjectName": "Abductor pollicis longus.l"
+    },
+    {
+      "index": 336,
+      "name": "Extensor indicis.l [candidate]",
+      "sourceObjectName": "Extensor indicis.l"
+    },
+    {
+      "index": 337,
+      "name": "Extensor pollicis brevis.l [candidate]",
+      "sourceObjectName": "Extensor pollicis brevis.l"
+    },
+    {
+      "index": 338,
+      "name": "Extensor pollicis longus.l [candidate]",
+      "sourceObjectName": "Extensor pollicis longus.l"
+    },
+    {
+      "index": 339,
+      "name": "Superficial head of flexor pollicis brevis.r [candidate]",
+      "sourceObjectName": "Superficial head of flexor pollicis brevis.r"
+    },
+    {
+      "index": 340,
+      "name": "Deep head of flexor pollicis brevis.r [candidate]",
+      "sourceObjectName": "Deep head of flexor pollicis brevis.r"
+    },
+    {
+      "index": 341,
+      "name": "Superficial head of flexor pollicis brevis.l [candidate]",
+      "sourceObjectName": "Superficial head of flexor pollicis brevis.l"
+    },
+    {
+      "index": 342,
+      "name": "Deep head of flexor pollicis brevis.l [candidate]",
+      "sourceObjectName": "Deep head of flexor pollicis brevis.l"
+    },
+    {
+      "index": 343,
+      "name": "Oblique head of adductor pollicis.r [candidate]",
+      "sourceObjectName": "Oblique head of adductor pollicis.r"
+    },
+    {
+      "index": 344,
+      "name": "Transverse head of adductor pollicis.r [candidate]",
+      "sourceObjectName": "Transverse head of adductor pollicis.r"
+    },
+    {
+      "index": 345,
+      "name": "Oblique head of adductor pollicis.l [candidate]",
+      "sourceObjectName": "Oblique head of adductor pollicis.l"
+    },
+    {
+      "index": 346,
+      "name": "Transverse head of adductor pollicis.l [candidate]",
+      "sourceObjectName": "Transverse head of adductor pollicis.l"
+    },
+    {
+      "index": 347,
+      "name": "Abductor pollicis brevis.r [candidate]",
+      "sourceObjectName": "Abductor pollicis brevis.r"
+    },
+    {
+      "index": 348,
+      "name": "Opponens pollicis muscle.r [candidate]",
+      "sourceObjectName": "Opponens pollicis muscle.r"
+    },
+    {
+      "index": 349,
+      "name": "Abductor digiti minimi of hand.r [candidate]",
+      "sourceObjectName": "Abductor digiti minimi of hand.r"
+    },
+    {
+      "index": 350,
+      "name": "Flexor digiti minimi of hand.r [candidate]",
+      "sourceObjectName": "Flexor digiti minimi of hand.r"
+    },
+    {
+      "index": 351,
+      "name": "Opponens digiti minimi muscle of hand.r [candidate]",
+      "sourceObjectName": "Opponens digiti minimi muscle of hand.r"
+    },
+    {
+      "index": 352,
+      "name": "Lumbrical muscles of hand.r [candidate]",
+      "sourceObjectName": "Lumbrical muscles of hand.r"
+    },
+    {
+      "index": 353,
+      "name": "Dorsal interossei muscles of hand.r [candidate]",
+      "sourceObjectName": "Dorsal interossei muscles of hand.r"
+    },
+    {
+      "index": 354,
+      "name": "Palmar interossei muscles.r [candidate]",
+      "sourceObjectName": "Palmar interossei muscles.r"
+    },
+    {
+      "index": 355,
+      "name": "Abductor pollicis brevis.l [candidate]",
+      "sourceObjectName": "Abductor pollicis brevis.l"
+    },
+    {
+      "index": 356,
+      "name": "Opponens pollicis muscle.l [candidate]",
+      "sourceObjectName": "Opponens pollicis muscle.l"
+    },
+    {
+      "index": 357,
+      "name": "Abductor digiti minimi of hand.l [candidate]",
+      "sourceObjectName": "Abductor digiti minimi of hand.l"
+    },
+    {
+      "index": 358,
+      "name": "Flexor digiti minimi of hand.l [candidate]",
+      "sourceObjectName": "Flexor digiti minimi of hand.l"
+    },
+    {
+      "index": 359,
+      "name": "Opponens digiti minimi muscle of hand.l [candidate]",
+      "sourceObjectName": "Opponens digiti minimi muscle of hand.l"
+    },
+    {
+      "index": 360,
+      "name": "Lumbrical muscles of hand.l [candidate]",
+      "sourceObjectName": "Lumbrical muscles of hand.l"
+    },
+    {
+      "index": 361,
+      "name": "Dorsal interossei muscles of hand.l [candidate]",
+      "sourceObjectName": "Dorsal interossei muscles of hand.l"
+    },
+    {
+      "index": 362,
+      "name": "Palmar interossei muscles.l [candidate]",
+      "sourceObjectName": "Palmar interossei muscles.l"
+    },
+    {
+      "index": 363,
+      "name": "Extensor retinaculum of wrist.r [candidate]",
+      "sourceObjectName": "Extensor retinaculum of wrist.r"
+    },
+    {
+      "index": 364,
+      "name": "Flexor retinaculum of wrist.r [candidate]",
+      "sourceObjectName": "Flexor retinaculum of wrist.r"
+    },
+    {
+      "index": 365,
+      "name": "Superficial transverse metacarpal ligament.r [candidate]",
+      "sourceObjectName": "Superficial transverse metacarpal ligament.r"
+    },
+    {
+      "index": 366,
+      "name": "Extensor retinaculum of wrist.l [candidate]",
+      "sourceObjectName": "Extensor retinaculum of wrist.l"
+    },
+    {
+      "index": 367,
+      "name": "Flexor retinaculum of wrist.l [candidate]",
+      "sourceObjectName": "Flexor retinaculum of wrist.l"
+    },
+    {
+      "index": 368,
+      "name": "Superficial transverse metacarpal ligament.l [candidate]",
+      "sourceObjectName": "Superficial transverse metacarpal ligament.l"
+    },
+    {
+      "index": 369,
+      "name": "Iliacus muscle.r [candidate]",
+      "sourceObjectName": "Iliacus muscle.r"
+    },
+    {
+      "index": 370,
+      "name": "Psoas major.r [candidate]",
+      "sourceObjectName": "Psoas major.r"
+    },
+    {
+      "index": 371,
+      "name": "Iliacus muscle.l [candidate]",
+      "sourceObjectName": "Iliacus muscle.l"
+    },
+    {
+      "index": 372,
+      "name": "Psoas major.l [candidate]",
+      "sourceObjectName": "Psoas major.l"
+    },
+    {
+      "index": 373,
+      "name": "Gluteus medius muscle.r [candidate]",
+      "sourceObjectName": "Gluteus medius muscle.r"
+    },
+    {
+      "index": 374,
+      "name": "Gluteus maximus muscle.r [candidate]",
+      "sourceObjectName": "Gluteus maximus muscle.r"
+    },
+    {
+      "index": 375,
+      "name": "Gluteus minimus muscle.r [candidate]",
+      "sourceObjectName": "Gluteus minimus muscle.r"
+    },
+    {
+      "index": 376,
+      "name": "Tensor fasciae latae.r [candidate]",
+      "sourceObjectName": "Tensor fasciae latae.r"
+    },
+    {
+      "index": 377,
+      "name": "Gluteus medius muscle.l [candidate]",
+      "sourceObjectName": "Gluteus medius muscle.l"
+    },
+    {
+      "index": 378,
+      "name": "Gluteus maximus muscle.l [candidate]",
+      "sourceObjectName": "Gluteus maximus muscle.l"
+    },
+    {
+      "index": 379,
+      "name": "Gluteus minimus muscle.l [candidate]",
+      "sourceObjectName": "Gluteus minimus muscle.l"
+    },
+    {
+      "index": 380,
+      "name": "Tensor fasciae latae.l [candidate]",
+      "sourceObjectName": "Tensor fasciae latae.l"
+    },
+    {
+      "index": 381,
+      "name": "Piriformis muscle.r [candidate]",
+      "sourceObjectName": "Piriformis muscle.r"
+    },
+    {
+      "index": 382,
+      "name": "Quadratus femoris muscle.r [candidate]",
+      "sourceObjectName": "Quadratus femoris muscle.r"
+    },
+    {
+      "index": 383,
+      "name": "Inferior gemellus muscle.r [candidate]",
+      "sourceObjectName": "Inferior gemellus muscle.r"
+    },
+    {
+      "index": 384,
+      "name": "Obturator internus.r [candidate]",
+      "sourceObjectName": "Obturator internus.r"
+    },
+    {
+      "index": 385,
+      "name": "Superior gemellus muscle.r [candidate]",
+      "sourceObjectName": "Superior gemellus muscle.r"
+    },
+    {
+      "index": 386,
+      "name": "Piriformis muscle.l [candidate]",
+      "sourceObjectName": "Piriformis muscle.l"
+    },
+    {
+      "index": 387,
+      "name": "Quadratus femoris muscle.l [candidate]",
+      "sourceObjectName": "Quadratus femoris muscle.l"
+    },
+    {
+      "index": 388,
+      "name": "Inferior gemellus muscle.l [candidate]",
+      "sourceObjectName": "Inferior gemellus muscle.l"
+    },
+    {
+      "index": 389,
+      "name": "Obturator internus.l [candidate]",
+      "sourceObjectName": "Obturator internus.l"
+    },
+    {
+      "index": 390,
+      "name": "Superior gemellus muscle.l [candidate]",
+      "sourceObjectName": "Superior gemellus muscle.l"
+    },
+    {
+      "index": 391,
+      "name": "Lateral patellar retinaculum.r [candidate]",
+      "sourceObjectName": "Lateral patellar retinaculum.r"
+    },
+    {
+      "index": 392,
+      "name": "Medial patellar retinaculum.r [candidate]",
+      "sourceObjectName": "Medial patellar retinaculum.r"
+    },
+    {
+      "index": 393,
+      "name": "Lateral patellar retinaculum.l [candidate]",
+      "sourceObjectName": "Lateral patellar retinaculum.l"
+    },
+    {
+      "index": 394,
+      "name": "Rectus femoris muscle.r [candidate]",
+      "sourceObjectName": "Rectus femoris muscle.r"
+    },
+    {
+      "index": 395,
+      "name": "Vastus lateralis muscle.r [candidate]",
+      "sourceObjectName": "Vastus lateralis muscle.r"
+    },
+    {
+      "index": 396,
+      "name": "Vastus medialis muscle.r [candidate]",
+      "sourceObjectName": "Vastus medialis muscle.r"
+    },
+    {
+      "index": 397,
+      "name": "Vastus intermedius muscle.r [candidate]",
+      "sourceObjectName": "Vastus intermedius muscle.r"
+    },
+    {
+      "index": 398,
+      "name": "Rectus femoris muscle.l [candidate]",
+      "sourceObjectName": "Rectus femoris muscle.l"
+    },
+    {
+      "index": 399,
+      "name": "Vastus lateralis muscle.l [candidate]",
+      "sourceObjectName": "Vastus lateralis muscle.l"
+    },
+    {
+      "index": 400,
+      "name": "Vastus medialis muscle.l [candidate]",
+      "sourceObjectName": "Vastus medialis muscle.l"
+    },
+    {
+      "index": 401,
+      "name": "Vastus intermedius muscle.l [candidate]",
+      "sourceObjectName": "Vastus intermedius muscle.l"
+    },
+    {
+      "index": 402,
+      "name": "Sartorius muscle.r [candidate]",
+      "sourceObjectName": "Sartorius muscle.r"
+    },
+    {
+      "index": 403,
+      "name": "Sartorius muscle.l [candidate]",
+      "sourceObjectName": "Sartorius muscle.l"
+    },
+    {
+      "index": 404,
+      "name": "Adductor magnus.r [candidate]",
+      "sourceObjectName": "Adductor magnus.r"
+    },
+    {
+      "index": 405,
+      "name": "Adductor longus.r [candidate]",
+      "sourceObjectName": "Adductor longus.r"
+    },
+    {
+      "index": 406,
+      "name": "Pectineus muscle.r [candidate]",
+      "sourceObjectName": "Pectineus muscle.r"
+    },
+    {
+      "index": 407,
+      "name": "Adductor brevis.r [candidate]",
+      "sourceObjectName": "Adductor brevis.r"
+    },
+    {
+      "index": 408,
+      "name": "(Adductor minimus).r [candidate]",
+      "sourceObjectName": "(Adductor minimus).r"
+    },
+    {
+      "index": 409,
+      "name": "Gracilis muscle.r [candidate]",
+      "sourceObjectName": "Gracilis muscle.r"
+    },
+    {
+      "index": 410,
+      "name": "Obturator externus.r [candidate]",
+      "sourceObjectName": "Obturator externus.r"
+    },
+    {
+      "index": 411,
+      "name": "Adductor magnus.l [candidate]",
+      "sourceObjectName": "Adductor magnus.l"
+    },
+    {
+      "index": 412,
+      "name": "Adductor longus.l [candidate]",
+      "sourceObjectName": "Adductor longus.l"
+    },
+    {
+      "index": 413,
+      "name": "Pectineus muscle.l [candidate]",
+      "sourceObjectName": "Pectineus muscle.l"
+    },
+    {
+      "index": 414,
+      "name": "Adductor brevis.l [candidate]",
+      "sourceObjectName": "Adductor brevis.l"
+    },
+    {
+      "index": 415,
+      "name": "(Adductor minimus).l [candidate]",
+      "sourceObjectName": "(Adductor minimus).l"
+    },
+    {
+      "index": 416,
+      "name": "Gracilis muscle.l [candidate]",
+      "sourceObjectName": "Gracilis muscle.l"
+    },
+    {
+      "index": 417,
+      "name": "Obturator externus.l [candidate]",
+      "sourceObjectName": "Obturator externus.l"
+    },
+    {
+      "index": 418,
+      "name": "Long head of biceps femoris.r [candidate]",
+      "sourceObjectName": "Long head of biceps femoris.r"
+    },
+    {
+      "index": 419,
+      "name": "Short head of biceps femoris.r [candidate]",
+      "sourceObjectName": "Short head of biceps femoris.r"
+    },
+    {
+      "index": 420,
+      "name": "Long head of biceps femoris.l [candidate]",
+      "sourceObjectName": "Long head of biceps femoris.l"
+    },
+    {
+      "index": 421,
+      "name": "Short head of biceps femoris.l [candidate]",
+      "sourceObjectName": "Short head of biceps femoris.l"
+    },
+    {
+      "index": 422,
+      "name": "Semimembranosus muscle.r [candidate]",
+      "sourceObjectName": "Semimembranosus muscle.r"
+    },
+    {
+      "index": 423,
+      "name": "Semitendinosus muscle.r [candidate]",
+      "sourceObjectName": "Semitendinosus muscle.r"
+    },
+    {
+      "index": 424,
+      "name": "Semimembranosus muscle.l [candidate]",
+      "sourceObjectName": "Semimembranosus muscle.l"
+    },
+    {
+      "index": 425,
+      "name": "Semitendinosus muscle.l [candidate]",
+      "sourceObjectName": "Semitendinosus muscle.l"
+    },
+    {
+      "index": 426,
+      "name": "Extensor digitorum longus.r [candidate]",
+      "sourceObjectName": "Extensor digitorum longus.r"
+    },
+    {
+      "index": 427,
+      "name": "Tendon of extensor digitorum longus.r [candidate]",
+      "sourceObjectName": "Tendon of extensor digitorum longus.r"
+    },
+    {
+      "index": 428,
+      "name": "Extensor digitorum longus.l [candidate]",
+      "sourceObjectName": "Extensor digitorum longus.l"
+    },
+    {
+      "index": 429,
+      "name": "Tendon of extensor digitorum longus.l [candidate]",
+      "sourceObjectName": "Tendon of extensor digitorum longus.l"
+    },
+    {
+      "index": 430,
+      "name": "Tibialis anterior muscle.r [candidate]",
+      "sourceObjectName": "Tibialis anterior muscle.r"
+    },
+    {
+      "index": 431,
+      "name": "Fibularis tertius muscle.r [candidate]",
+      "sourceObjectName": "Fibularis tertius muscle.r"
+    },
+    {
+      "index": 432,
+      "name": "Extensor hallucis longus.r [candidate]",
+      "sourceObjectName": "Extensor hallucis longus.r"
+    },
+    {
+      "index": 433,
+      "name": "Tibialis anterior muscle.l [candidate]",
+      "sourceObjectName": "Tibialis anterior muscle.l"
+    },
+    {
+      "index": 434,
+      "name": "Fibularis tertius muscle.l [candidate]",
+      "sourceObjectName": "Fibularis tertius muscle.l"
+    },
+    {
+      "index": 435,
+      "name": "Extensor hallucis longus.l [candidate]",
+      "sourceObjectName": "Extensor hallucis longus.l"
+    },
+    {
+      "index": 436,
+      "name": "Fibularis longus muscle.r [candidate]",
+      "sourceObjectName": "Fibularis longus muscle.r"
+    },
+    {
+      "index": 437,
+      "name": "Fibularis brevis muscle.r [candidate]",
+      "sourceObjectName": "Fibularis brevis muscle.r"
+    },
+    {
+      "index": 438,
+      "name": "Fibularis longus muscle.l [candidate]",
+      "sourceObjectName": "Fibularis longus muscle.l"
+    },
+    {
+      "index": 439,
+      "name": "Fibularis brevis muscle.l [candidate]",
+      "sourceObjectName": "Fibularis brevis muscle.l"
+    },
+    {
+      "index": 440,
+      "name": "Lateral head of gastrocnemius.r [candidate]",
+      "sourceObjectName": "Lateral head of gastrocnemius.r"
+    },
+    {
+      "index": 441,
+      "name": "Medial head of gastrocnemius.r [candidate]",
+      "sourceObjectName": "Medial head of gastrocnemius.r"
+    },
+    {
+      "index": 442,
+      "name": "Calcaneal tendon.r [candidate]",
+      "sourceObjectName": "Calcaneal tendon.r"
+    },
+    {
+      "index": 443,
+      "name": "Lateral head of gastrocnemius.l [candidate]",
+      "sourceObjectName": "Lateral head of gastrocnemius.l"
+    },
+    {
+      "index": 444,
+      "name": "Medial head of gastrocnemius.l [candidate]",
+      "sourceObjectName": "Medial head of gastrocnemius.l"
+    },
+    {
+      "index": 445,
+      "name": "Calcaneal tendon.l [candidate]",
+      "sourceObjectName": "Calcaneal tendon.l"
+    },
+    {
+      "index": 446,
+      "name": "Soleus muscle.r [candidate]",
+      "sourceObjectName": "Soleus muscle.r"
+    },
+    {
+      "index": 447,
+      "name": "Soleus muscle.l [candidate]",
+      "sourceObjectName": "Soleus muscle.l"
+    },
+    {
+      "index": 448,
+      "name": "Plantaris muscle.r [candidate]",
+      "sourceObjectName": "Plantaris muscle.r"
+    },
+    {
+      "index": 449,
+      "name": "Plantaris muscle.l [candidate]",
+      "sourceObjectName": "Plantaris muscle.l"
+    },
+    {
+      "index": 450,
+      "name": "Flexor digitorum longus.r [candidate]",
+      "sourceObjectName": "Flexor digitorum longus.r"
+    },
+    {
+      "index": 451,
+      "name": "Popliteus muscle.r [candidate]",
+      "sourceObjectName": "Popliteus muscle.r"
+    },
+    {
+      "index": 452,
+      "name": "Tibialis posterior muscle.r [candidate]",
+      "sourceObjectName": "Tibialis posterior muscle.r"
+    },
+    {
+      "index": 453,
+      "name": "Flexor hallucis longus.r [candidate]",
+      "sourceObjectName": "Flexor hallucis longus.r"
+    },
+    {
+      "index": 454,
+      "name": "Flexor digitorum longus.l [candidate]",
+      "sourceObjectName": "Flexor digitorum longus.l"
+    },
+    {
+      "index": 455,
+      "name": "Popliteus muscle.l [candidate]",
+      "sourceObjectName": "Popliteus muscle.l"
+    },
+    {
+      "index": 456,
+      "name": "Tibialis posterior muscle.l [candidate]",
+      "sourceObjectName": "Tibialis posterior muscle.l"
+    },
+    {
+      "index": 457,
+      "name": "Flexor hallucis longus.l [candidate]",
+      "sourceObjectName": "Flexor hallucis longus.l"
+    },
+    {
+      "index": 458,
+      "name": "Medial head of flexor hallucis brevis.r [candidate]",
+      "sourceObjectName": "Medial head of flexor hallucis brevis.r"
+    },
+    {
+      "index": 459,
+      "name": "Lateral head of flexor hallucis brevis.r [candidate]",
+      "sourceObjectName": "Lateral head of flexor hallucis brevis.r"
+    },
+    {
+      "index": 460,
+      "name": "Medial head of flexor hallucis brevis.l [candidate]",
+      "sourceObjectName": "Medial head of flexor hallucis brevis.l"
+    },
+    {
+      "index": 461,
+      "name": "Lateral head of flexor hallucis brevis.l [candidate]",
+      "sourceObjectName": "Lateral head of flexor hallucis brevis.l"
+    },
+    {
+      "index": 462,
+      "name": "Oblique head of adductor hallucis.r [candidate]",
+      "sourceObjectName": "Oblique head of adductor hallucis.r"
+    },
+    {
+      "index": 463,
+      "name": "Transverse head of adductor hallucis.r [candidate]",
+      "sourceObjectName": "Transverse head of adductor hallucis.r"
+    },
+    {
+      "index": 464,
+      "name": "Oblique head of adductor hallucis.l [candidate]",
+      "sourceObjectName": "Oblique head of adductor hallucis.l"
+    },
+    {
+      "index": 465,
+      "name": "Transverse head of adductor hallucis.l [candidate]",
+      "sourceObjectName": "Transverse head of adductor hallucis.l"
+    },
+    {
+      "index": 466,
+      "name": "Abductor digiti minimi of foot.r [candidate]",
+      "sourceObjectName": "Abductor digiti minimi of foot.r"
+    },
+    {
+      "index": 467,
+      "name": "Abductor digiti minimi of foot.l [candidate]",
+      "sourceObjectName": "Abductor digiti minimi of foot.l"
+    },
+    {
+      "index": 468,
+      "name": "Abductor hallucis.r [candidate]",
+      "sourceObjectName": "Abductor hallucis.r"
+    },
+    {
+      "index": 469,
+      "name": "Extensor digitorum brevis.r [candidate]",
+      "sourceObjectName": "Extensor digitorum brevis.r"
+    },
+    {
+      "index": 470,
+      "name": "Extensor hallucis brevis.r [candidate]",
+      "sourceObjectName": "Extensor hallucis brevis.r"
+    },
+    {
+      "index": 471,
+      "name": "Dorsal interossei muscles of foot.r [candidate]",
+      "sourceObjectName": "Dorsal interossei muscles of foot.r"
+    },
+    {
+      "index": 472,
+      "name": "Flexor digitorum brevis.r [candidate]",
+      "sourceObjectName": "Flexor digitorum brevis.r"
+    },
+    {
+      "index": 473,
+      "name": "Flexor digiti minimi of foot.r [candidate]",
+      "sourceObjectName": "Flexor digiti minimi of foot.r"
+    },
+    {
+      "index": 474,
+      "name": "Lumbrical muscles of foot.r [candidate]",
+      "sourceObjectName": "Lumbrical muscles of foot.r"
+    },
+    {
+      "index": 475,
+      "name": "(Opponens digiti minimi muscle of foot).r [candidate]",
+      "sourceObjectName": "(Opponens digiti minimi muscle of foot).r"
+    },
+    {
+      "index": 476,
+      "name": "Plantar interossei muscles.r [candidate]",
+      "sourceObjectName": "Plantar interossei muscles.r"
+    },
+    {
+      "index": 477,
+      "name": "Quadratus plantae muscle.r [candidate]",
+      "sourceObjectName": "Quadratus plantae muscle.r"
+    },
+    {
+      "index": 478,
+      "name": "Abductor hallucis.l [candidate]",
+      "sourceObjectName": "Abductor hallucis.l"
+    },
+    {
+      "index": 479,
+      "name": "Extensor digitorum brevis.l [candidate]",
+      "sourceObjectName": "Extensor digitorum brevis.l"
+    },
+    {
+      "index": 480,
+      "name": "Extensor hallucis brevis.l [candidate]",
+      "sourceObjectName": "Extensor hallucis brevis.l"
+    },
+    {
+      "index": 481,
+      "name": "Dorsal interossei muscles of foot.l [candidate]",
+      "sourceObjectName": "Dorsal interossei muscles of foot.l"
+    },
+    {
+      "index": 482,
+      "name": "Flexor digitorum brevis.l [candidate]",
+      "sourceObjectName": "Flexor digitorum brevis.l"
+    },
+    {
+      "index": 483,
+      "name": "Flexor digiti minimi of foot.l [candidate]",
+      "sourceObjectName": "Flexor digiti minimi of foot.l"
+    },
+    {
+      "index": 484,
+      "name": "Lumbrical muscles of foot.l [candidate]",
+      "sourceObjectName": "Lumbrical muscles of foot.l"
+    },
+    {
+      "index": 485,
+      "name": "(Opponens digiti minimi muscle of foot).l [candidate]",
+      "sourceObjectName": "(Opponens digiti minimi muscle of foot).l"
+    },
+    {
+      "index": 486,
+      "name": "Plantar interossei muscles.l [candidate]",
+      "sourceObjectName": "Plantar interossei muscles.l"
+    },
+    {
+      "index": 487,
+      "name": "Quadratus plantae muscle.l [candidate]",
+      "sourceObjectName": "Quadratus plantae muscle.l"
+    },
+    {
+      "index": 488,
+      "name": "Iliotibial tract.r [candidate]",
+      "sourceObjectName": "Iliotibial tract.r"
+    },
+    {
+      "index": 489,
+      "name": "Iliotibial tract.l [candidate]",
+      "sourceObjectName": "Iliotibial tract.l"
+    },
+    {
+      "index": 490,
+      "name": "Superior extensor retinaculum of ankle.r [candidate]",
+      "sourceObjectName": "Superior extensor retinaculum of ankle.r"
+    },
+    {
+      "index": 491,
+      "name": "Inferior extensor retinaculum of ankle.r [candidate]",
+      "sourceObjectName": "Inferior extensor retinaculum of ankle.r"
+    },
+    {
+      "index": 492,
+      "name": "Superior fibular retinaculum.r [candidate]",
+      "sourceObjectName": "Superior fibular retinaculum.r"
+    },
+    {
+      "index": 493,
+      "name": "Inferior fibular retinaculum.r [candidate]",
+      "sourceObjectName": "Inferior fibular retinaculum.r"
+    },
+    {
+      "index": 494,
+      "name": "Superficial transverse metatarsal ligament.r [candidate]",
+      "sourceObjectName": "Superficial transverse metatarsal ligament.r"
+    },
+    {
+      "index": 495,
+      "name": "Plantar aponeurosis.r [candidate]",
+      "sourceObjectName": "Plantar aponeurosis.r"
+    },
+    {
+      "index": 496,
+      "name": "Flexor retinaculum of ankle.r [candidate]",
+      "sourceObjectName": "Flexor retinaculum of ankle.r"
+    },
+    {
+      "index": 497,
+      "name": "Superior extensor retinaculum of ankle.l [candidate]",
+      "sourceObjectName": "Superior extensor retinaculum of ankle.l"
+    },
+    {
+      "index": 498,
+      "name": "Inferior extensor retinaculum of ankle.l [candidate]",
+      "sourceObjectName": "Inferior extensor retinaculum of ankle.l"
+    },
+    {
+      "index": 499,
+      "name": "Superior fibular retinaculum.l [candidate]",
+      "sourceObjectName": "Superior fibular retinaculum.l"
+    },
+    {
+      "index": 500,
+      "name": "Inferior fibular retinaculum.l [candidate]",
+      "sourceObjectName": "Inferior fibular retinaculum.l"
+    },
+    {
+      "index": 501,
+      "name": "Superficial transverse metatarsal ligament.l [candidate]",
+      "sourceObjectName": "Superficial transverse metatarsal ligament.l"
+    },
+    {
+      "index": 502,
+      "name": "Plantar aponeurosis.l [candidate]",
+      "sourceObjectName": "Plantar aponeurosis.l"
+    },
+    {
+      "index": 503,
+      "name": "Flexor retinaculum of ankle.l [candidate]",
+      "sourceObjectName": "Flexor retinaculum of ankle.l"
+    },
+    {
+      "index": 504,
+      "name": "External anal sphincter.r [candidate]",
+      "sourceObjectName": "External anal sphincter.r"
+    },
+    {
+      "index": 505,
+      "name": "External anal sphincter.l [candidate]",
+      "sourceObjectName": "External anal sphincter.l"
+    },
+    {
+      "index": 506,
+      "name": "Tendinous arch of levator ani.r [candidate]",
+      "sourceObjectName": "Tendinous arch of levator ani.r"
+    },
+    {
+      "index": 507,
+      "name": "Tendinous arch of levator ani.l [candidate]",
+      "sourceObjectName": "Tendinous arch of levator ani.l"
+    },
+    {
+      "index": 508,
+      "name": "Medial patellar retinaculum.l [candidate]",
+      "sourceObjectName": "Medial patellar retinaculum.l"
+    }
+  ],
+  "sourceDependencies": "sources/datasets/muscle-bounded/external-source-map.json",
+  "reviewBoundary": "Selected public WebPs are unchanged. Original PNGs and full historical review records remain explicitly external. No source rebuild, new rendering or runtime testing.",
+  "transportStatus": "EXACT_SOURCE_AND_INDEPENDENT_GITHUB_LFS_READBACK_PASSED",
+  "historicalPixelLabels": "Original pixels are unchanged. Historical UNREVIEWED or NOT a quality pass labels describe the capture-stage/baseline state, not a new verdict; consult the dated scoped record.",
+  "contextEvidenceBoundary": "Selected Z-bone context render includes contextual geometry outside the delivered muscle GLB. Its context-record.json is explicitly external in the source map; this image does not assert that bones are bundled."
+}
