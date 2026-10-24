@@ -1,0 +1,45 @@
+name: Bounded reviewed-manifest LFS transport
+on:
+  push:
+    branches: [main]
+    paths: ['transport/manifests/*.json']
+  workflow_dispatch:
+    inputs:
+      manifest_sha256:
+        description: SHA-256 of the reviewed manifest already on main
+        required: true
+        type: string
+permissions: {}
+concurrency:
+  group: bounded-lfs-transport
+  cancel-in-progress: false
+jobs:
+  transfer:
+    if: github.repository == 'qianyizhang/med-assets' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    env:
+      GIT_TERMINAL_PROMPT: '0'
+      GIT_LFS_SKIP_SMUDGE: '1'
+      MANIFEST_SHA256: ${{ inputs.manifest_sha256 }}
+      PUSH_BEFORE: ${{ github.event.before }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+          lfs: false
+          submodules: false
+          persist-credentials: true
+          show-progress: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /tools/lfs_transport.py
+            /tests/test_lfs_transport.py
+            /transport/manifests/
+      - name: Offline safety tests
+        run: python3 -m unittest discover -s tests -p test_lfs_transport.py
+      - name: Verify all sources, upload missing OIDs, fresh HTTP readback
+        run: python3 tools/lfs_transport.py run
