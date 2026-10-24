@@ -1,0 +1,2577 @@
+{
+  "schema": "bounded-bp3d-body-study-v1",
+  "model": {
+    "path": "models/skeleton/exports/source-candidate-03/skeleton_source_frame.glb",
+    "sha256": "d224985628cc62d0c9c4284019b73505c9ebf14d78d30a040d74a7b33c68620e",
+    "bytes": 12705356
+  },
+  "scope": {
+    "en": "Isolated BodyParts3D skeletal exterior, reviewed in front/side/back and skull/pelvis close-ups. 206 bone-category meshes do not imply 206 anatomical bones. No motion-mechanics or mixed-source placement approval.",
+    "zh": "独立 BodyParts3D 骨骼外形，已检查前/侧/后及颅骨/骨盆近景。206个骨类别网格不等于206块解剖骨。未接受运动力学或跨来源放置。"
+  },
+  "recordedPublicGates": {
+    "technical": "pass-with-limitations",
+    "visual": "passed",
+    "anatomy": "reference-screened",
+    "runtime": "unverified"
+  },
+  "gateInterpretation": "Historical scoped static review only; no new quality, anatomy, clinical, motion or runtime promotion.",
+  "limitations": [
+    "271 source representation meshes: 206 bone-category, 37 cartilage/disc and 28 dental context meshes; these are not an anatomical bone count or completeness claim.",
+    "28 source teeth, not complete 32-tooth dentition. Reduced-resolution atlas detail, not patient-specific or clinically validated.",
+    "Static exterior only. No mechanics, rigging, runtime or mixed-source patient registration approval.",
+    "Recorded derivative removed 4 exact zero-area source triangles; 2 near-zero-area triangles remained below 1e-14 m² in the recorded roundtrip. No new topology assessment."
+  ],
+  "componentCount": 271,
+  "componentIdentityMap": [
+    {
+      "nodeIndex": 0,
+      "nodeName": "FJ1254 left lower first secondary molar tooth",
+      "sourceFileId": "FJ1254",
+      "nodeConceptId": "FMA55704",
+      "sourceSha256": "7ac5ee013326492b1d51795eb292a7e5bba0647b74c30b09dc715f9a1dc28754",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ1254",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 1,
+      "nodeName": "FJ1255 left lower first secondary premolar tooth",
+      "sourceFileId": "FJ1255",
+      "nodeConceptId": "FMA55693",
+      "sourceSha256": "6cbac9debf9b9cd9825f096c5ac84911f91020a36ec6f95fdfc49f10a679822b",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ1255",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 2,
+      "nodeName": "FJ1256 left lower second secondary molar tooth",
+      "sourceFileId": "FJ1256",
+      "nodeConceptId": "FMA55703",
+      "sourceSha256": "a5dfb507dc76447d6ca09e4a5e11b8750571227d13b582cfffac1d2f35cd1bec",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ1256",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 3,
+      "nodeName": "FJ1257 left lower second secondary premolar tooth",
+      "sourceFileId": "FJ1257",
+      "nodeConceptId": "FMA55692",
+      "sourceSha256": "b4e2d2cb7d5e7d41d82bc6e48b3de5cb628a0786ae0d82abadd39250f6dff3a7",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ1257",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 4,
+      "nodeName": "FJ1258 left lower central secondary incisor tooth",
+      "sourceFileId": "FJ1258",
+      "nodeConceptId": "FMA57143",
+      "sourceSha256": "56fe0ccb8277f4ae0c945d3f2b3cf0a3a816ec2edf31eae4ab46a91954bde7aa",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ1258",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 5,
+      "nodeName": "FJ1259 left lower lateral secondary incisor tooth",
+      "sourceFileId": "FJ1259",
+      "nodeConceptId": "FMA57141",
+      "sourceSha256": "f2a5c7fb06457bf61d55f8cab4048983651418f01b3bad013e9a2dea7a383b62",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ1259",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 6,
+      "nodeName": "FJ1260 left lower secondary canine tooth",
+      "sourceFileId": "FJ1260",
+      "nodeConceptId": "FMA55687",
+      "sourceSha256": "4dd682c058f3949b30077712296603c1c508423a58998ad909baeec5bfa56b72",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ1260",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 7,
+      "nodeName": "FJ1261 left upper first secondary molar tooth",
+      "sourceFileId": "FJ1261",
+      "nodeConceptId": "FMA55699",
+      "sourceSha256": "529061a7fdb28af07855e7350f788f93ef6c97e3bfead2e28bb9efe0256b0728",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ1261",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 8,
+      "nodeName": "FJ1262 left upper first secondary premolar tooth",
+      "sourceFileId": "FJ1262",
+      "nodeConceptId": "FMA55690",
+      "sourceSha256": "5f45ec1015edb7c7539a3ef7a7577d4a0a723beb4dbfb18e36eca77663431c18",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ1262",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 9,
+      "nodeName": "FJ1263 left upper second secondary molar tooth",
+      "sourceFileId": "FJ1263",
+      "nodeConceptId": "FMA55700",
+      "sourceSha256": "5811bdc8cfed255f8aa9e10fa8dd4815b5d0924c2a23f1d7e373c8521be6c65a",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ1263",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 10,
+      "nodeName": "FJ1264 left upper second secondary premolar tooth",
+      "sourceFileId": "FJ1264",
+      "nodeConceptId": "FMA55691",
+      "sourceSha256": "e882218931e8f197490f16ba8058a87502edccc5e8e1f2d50fbd715a0386d33b",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ1264",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 11,
+      "nodeName": "FJ1265 left upper central secondary incisor tooth",
+      "sourceFileId": "FJ1265",
+      "nodeConceptId": "FMA55682",
+      "sourceSha256": "bd094c59fb378809a534467b70b5b24ae0b147bc31f42c004e7ddadf8f0b7328",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ1265",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 12,
+      "nodeName": "FJ1266 left upper lateral secondary incisor tooth",
+      "sourceFileId": "FJ1266",
+      "nodeConceptId": "FMA55683",
+      "sourceSha256": "4df1ab640352a074623d02e755e7632de180da9dc957503f887c791a533d5ea5",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ1266",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 13,
+      "nodeName": "FJ1267 left upper secondary canine tooth",
+      "sourceFileId": "FJ1267",
+      "nodeConceptId": "FMA55799",
+      "sourceSha256": "44f5accf76e8b0a1ac2aefb55d031508fedad0bacda03b598aef71f88ca2462d",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ1267",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 14,
+      "nodeName": "FJ1268 right lower first secondary molar tooth",
+      "sourceFileId": "FJ1268",
+      "nodeConceptId": "FMA55705",
+      "sourceSha256": "692c5313517c8b049fac739a068710f8bdbd1f3e201a1b88819aff6f8f1a6eda",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ1268",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 15,
+      "nodeName": "FJ1269 right lower first secondary premolar tooth",
+      "sourceFileId": "FJ1269",
+      "nodeConceptId": "FMA55694",
+      "sourceSha256": "7b3067782910e38d45b03901ba998fcf35088b9f85c523b3cc890cf11adbf17f",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ1269",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 16,
+      "nodeName": "FJ1270 right lower second secondary molar tooth",
+      "sourceFileId": "FJ1270",
+      "nodeConceptId": "FMA55706",
+      "sourceSha256": "722d80bd11c7e814c3c1c2b20fe2621ed8327319028ad67c6e4dce24d7ee4458",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ1270",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 17,
+      "nodeName": "FJ1271 right lower second secondary premolar tooth",
+      "sourceFileId": "FJ1271",
+      "nodeConceptId": "FMA55695",
+      "sourceSha256": "220723db70ad6e5edd497977f656be1df7d407804d5ca31302bca598a3d81c41",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ1271",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 18,
+      "nodeName": "FJ1272 right lower central secondary incisor tooth",
+      "sourceFileId": "FJ1272",
+      "nodeConceptId": "FMA57142",
+      "sourceSha256": "17927707d17fa7a78f9743f90b4150d6e7b4eaa4fe5c8ad29a961b4ea795272b",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ1272",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 19,
+      "nodeName": "FJ1273 right lower lateral secondary incisor tooth",
+      "sourceFileId": "FJ1273",
+      "nodeConceptId": "FMA57140",
+      "sourceSha256": "43ca036b3bf66dad24be63b0f95a2a8ecf839b61d2d83981659e03b4a357f869",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ1273",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 20,
+      "nodeName": "FJ1274 right lower secondary canine tooth",
+      "sourceFileId": "FJ1274",
+      "nodeConceptId": "FMA55686",
+      "sourceSha256": "a7ded2520e6c1e41154d89a389b4ded0daf733f23d47e4a02fb97230c07b4907",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ1274",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 21,
+      "nodeName": "FJ1275 right upper second secondary molar tooth",
+      "sourceFileId": "FJ1275",
+      "nodeConceptId": "FMA55697",
+      "sourceSha256": "457c1d089e24d7e120abf97c2af844ff609a58c3292446e4b1814137d3691416",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ1275",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 22,
+      "nodeName": "FJ1276 right upper first secondary molar tooth",
+      "sourceFileId": "FJ1276",
+      "nodeConceptId": "FMA55698",
+      "sourceSha256": "95ba31eb43e4975d8f36be7595e383baf31b21b68c829a5e6c419a0125682ef6",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ1276",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 23,
+      "nodeName": "FJ1277 right upper first secondary premolar tooth",
+      "sourceFileId": "FJ1277",
+      "nodeConceptId": "FMA55689",
+      "sourceSha256": "46d0a4b9528553387811d65040836ccfe7dc971fec56254e01c9eabdc16156a0",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ1277",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 24,
+      "nodeName": "FJ1278 right upper second secondary premolar tooth",
+      "sourceFileId": "FJ1278",
+      "nodeConceptId": "FMA55688",
+      "sourceSha256": "32f4db913923278b7cbfcaf8e64d1073604951dd58493e3310da30bec1ff3829",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ1278",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 25,
+      "nodeName": "FJ1279 right upper central secondary incisor tooth",
+      "sourceFileId": "FJ1279",
+      "nodeConceptId": "FMA55681",
+      "sourceSha256": "e8b9c01f57a8a723f9ea0497dfbe2df5f95e23786d0663f196a3608f995d6b22",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ1279",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 26,
+      "nodeName": "FJ1280 right upper lateral secondary incisor tooth",
+      "sourceFileId": "FJ1280",
+      "nodeConceptId": "FMA55680",
+      "sourceSha256": "5c06c01ee01c337523fc9cf641c31c65856a52c74237d9d86989d93dd6847c0e",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ1280",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 27,
+      "nodeName": "FJ1281 right upper secondary canine tooth",
+      "sourceFileId": "FJ1281",
+      "nodeConceptId": "FMA55798",
+      "sourceSha256": "2d8f105ee772e727e3b4ccbb6370a893a213174c0f90155054dac20bc053512c",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ1281",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 28,
+      "nodeName": "FJ2772 hyoid bone",
+      "sourceFileId": "FJ2772",
+      "nodeConceptId": "FMA52749",
+      "sourceSha256": "429d56a742a23c27c3423519191c89ae29c34faa027ee0037ad86fbcf5eda11f",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ2772",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 29,
+      "nodeName": "FJ3152 right hip bone",
+      "sourceFileId": "FJ3152",
+      "nodeConceptId": "FMA16586",
+      "sourceSha256": "708e42cba3d1817230c98410c80742875d56bb5b3e688a566f62509c7a63e424",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3152",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 30,
+      "nodeName": "FJ3153 sternum",
+      "sourceFileId": "FJ3153",
+      "nodeConceptId": "FMA7485",
+      "sourceSha256": "d17057ed1dad252a6fa6a3e8d92bc13310cebe0b584df147af0cc4a646f98f3e",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3153",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 31,
+      "nodeName": "FJ3154 tenth thoracic vertebra",
+      "sourceFileId": "FJ3154",
+      "nodeConceptId": "FMA10037",
+      "sourceSha256": "55fd0b1ec25bc207c5a58cb2aa3d5f2880df6593719ec803c83ac898d3bda358",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3154",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 32,
+      "nodeName": "FJ3155 eleventh thoracic vertebra",
+      "sourceFileId": "FJ3155",
+      "nodeConceptId": "FMA10059",
+      "sourceSha256": "7ce892808f37a9c96c74f298334be195cb50bfdbe64bcfa62072141ed38df0a2",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3155",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 33,
+      "nodeName": "FJ3156 twelfth thoracic vertebra",
+      "sourceFileId": "FJ3156",
+      "nodeConceptId": "FMA10081",
+      "sourceSha256": "d78f0563a0c0b5be89284a6d73434998a05dc9dbddb471b49e398c9ef96f07ae",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3156",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 34,
+      "nodeName": "FJ3157 first lumbar vertebra",
+      "sourceFileId": "FJ3157",
+      "nodeConceptId": "FMA13072",
+      "sourceSha256": "2e252a2558f0f64430efa35d79a4fe8677b6cbb0ab6e93afda94b8d4239479fd",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3157",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 35,
+      "nodeName": "FJ3158 first thoracic vertebra",
+      "sourceFileId": "FJ3158",
+      "nodeConceptId": "FMA9165",
+      "sourceSha256": "57a9cd9f62fc902f2d10f32c83237bba5bee4a24ae323a2b2405d9df68fd585b",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3158",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 36,
+      "nodeName": "FJ3159 second lumbar vertebra",
+      "sourceFileId": "FJ3159",
+      "nodeConceptId": "FMA13073",
+      "sourceSha256": "1e63e0abb22ccf6255f1fb910699b2bade07cace17ffc12b43bb185228dd3696",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3159",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 37,
+      "nodeName": "FJ3160 second thoracic vertebra",
+      "sourceFileId": "FJ3160",
+      "nodeConceptId": "FMA9187",
+      "sourceSha256": "f04ca280dc74fdc79afb14e5da1515a1e77762960bb38fab869be0e617348eac",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3160",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 38,
+      "nodeName": "FJ3161 third cervical vertebra",
+      "sourceFileId": "FJ3161",
+      "nodeConceptId": "FMA12521",
+      "sourceSha256": "7717781b7cb53eaa24eff097e6da5f8dfd1e58a3f23aa169ec05c58eb93de2dc",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3161",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 39,
+      "nodeName": "FJ3162 third lumbar vertebra",
+      "sourceFileId": "FJ3162",
+      "nodeConceptId": "FMA13074",
+      "sourceSha256": "07fdac1c69d14c68241176f055da667eec8c2976c3a579df235d90e66fca91b0",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3162",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 40,
+      "nodeName": "FJ3163 third thoracic vertebra",
+      "sourceFileId": "FJ3163",
+      "nodeConceptId": "FMA9209",
+      "sourceSha256": "968ed4928160fd54c444aa8c4a2c318fa56368c55c715afcdeaa48445382d3f6",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3163",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 41,
+      "nodeName": "FJ3164 fourth cervical vertebra",
+      "sourceFileId": "FJ3164",
+      "nodeConceptId": "FMA12522",
+      "sourceSha256": "ac0dc9fe871acf68fc8fffa41666f4d7fae35626055e18c104135db80bbd8a65",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3164",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 42,
+      "nodeName": "FJ3165 fourth lumbar vertebra",
+      "sourceFileId": "FJ3165",
+      "nodeConceptId": "FMA13075",
+      "sourceSha256": "e30bc2a914a50d097dc5824cacbe54be10fc68c9f43cd9ef023519bc146cab61",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3165",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 43,
+      "nodeName": "FJ3166 fourth thoracic vertebra",
+      "sourceFileId": "FJ3166",
+      "nodeConceptId": "FMA9248",
+      "sourceSha256": "cd744d75a90dc4d2b38f3b25928656ae2f9b873ea3113d01f91a102290eda5bd",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3166",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 44,
+      "nodeName": "FJ3167 fifth cervical vertebra",
+      "sourceFileId": "FJ3167",
+      "nodeConceptId": "FMA12523",
+      "sourceSha256": "15c66e24dcef4af7b1e4c7e948d3048c87b2d772a2f182f814ae7df8059af3f5",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3167",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 45,
+      "nodeName": "FJ3168 fifth lumbar vertebra",
+      "sourceFileId": "FJ3168",
+      "nodeConceptId": "FMA13076",
+      "sourceSha256": "884ef6993f9578f86a6441ca7016f647f22778a9ab850189e1863d5f4112001d",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3168",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 46,
+      "nodeName": "FJ3169 fifth thoracic vertebra",
+      "sourceFileId": "FJ3169",
+      "nodeConceptId": "FMA9922",
+      "sourceSha256": "7eb98fe2886168196d8a7ee37d1c7a6e7decbc1c09cdf2d4295c13ed7ba3df0c",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3169",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 47,
+      "nodeName": "FJ3170 sixth cervical vertebra",
+      "sourceFileId": "FJ3170",
+      "nodeConceptId": "FMA12524",
+      "sourceSha256": "e9cda58b8a69602513d067ee47468c3984c223cdc501975468379b65149c7d19",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3170",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 48,
+      "nodeName": "FJ3171 sixth thoracic vertebra",
+      "sourceFileId": "FJ3171",
+      "nodeConceptId": "FMA9945",
+      "sourceSha256": "7c9c326269edd09bdf02aca90333c61debe4f39c777fbef887751826a54adb9e",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3171",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 49,
+      "nodeName": "FJ3172 seventh cervical vertebra",
+      "sourceFileId": "FJ3172",
+      "nodeConceptId": "FMA12525",
+      "sourceSha256": "7454480761dbf6c98c04f1a59788aeba1dcdecde7a673553ec19b2da172c2916",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3172",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 50,
+      "nodeName": "FJ3173 seventh thoracic vertebra",
+      "sourceFileId": "FJ3173",
+      "nodeConceptId": "FMA9968",
+      "sourceSha256": "1bcf85e649234f976236f81077019ae66971c69c0943992a7ec0072939d42245",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3173",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 51,
+      "nodeName": "FJ3174 eighth thoracic vertebra",
+      "sourceFileId": "FJ3174",
+      "nodeConceptId": "FMA9991",
+      "sourceSha256": "f5928470229deb2c7579804b883ffeaae611127dac1454caed3b3df93fe8dad6",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3174",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 52,
+      "nodeName": "FJ3175 ninth thoracic vertebra",
+      "sourceFileId": "FJ3175",
+      "nodeConceptId": "FMA10014",
+      "sourceSha256": "f1ce32fedb9f84ac37b800b2a182f6701f972fbd8cc01be7732ab3ca3864603e",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3175",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 53,
+      "nodeName": "FJ3176 atlas",
+      "sourceFileId": "FJ3176",
+      "nodeConceptId": "FMA12519",
+      "sourceSha256": "594ac8b2b09280022e2b73142f873fd4d622ba7a1bca590c3fdcb0231e4fb461",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3176",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 54,
+      "nodeName": "FJ3177 axis",
+      "sourceFileId": "FJ3177",
+      "nodeConceptId": "FMA12520",
+      "sourceSha256": "d76f052f56dda3dc6f4d453c33f062ff56207ff3aea90f9678b5d295f0c916f1",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3177",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 55,
+      "nodeName": "FJ3178 sternum",
+      "sourceFileId": "FJ3178",
+      "nodeConceptId": "FMA7485",
+      "sourceSha256": "32a06946d8eadbe1a847a373abe7499381c0182c72b7c94e3e2a0c3ba7c867e3",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3178",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 56,
+      "nodeName": "FJ3179 distal phalanx of left second toe",
+      "sourceFileId": "FJ3179",
+      "nodeConceptId": "FMA32653",
+      "sourceSha256": "aa2903a8f53a7fe7383a9f27dc4920f411a4d8f181afaf7412799dd87e589aac",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3179",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 57,
+      "nodeName": "FJ3180 distal phalanx of left third toe",
+      "sourceFileId": "FJ3180",
+      "nodeConceptId": "FMA32655",
+      "sourceSha256": "f0887b9a26088762fbd89b1dc34a033ce8d59c2f41a8bf239e822e99c042a8c2",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3180",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 58,
+      "nodeName": "FJ3181 distal phalanx of left fourth toe",
+      "sourceFileId": "FJ3181",
+      "nodeConceptId": "FMA32657",
+      "sourceSha256": "eea79d87f0a3b799e705dc7e6cfcba699aa46f1ba4ebc78f27392b069e6849dc",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3181",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 59,
+      "nodeName": "FJ3182 distal phalanx of left big toe",
+      "sourceFileId": "FJ3182",
+      "nodeConceptId": "FMA32651",
+      "sourceSha256": "dad7cb9b6e4eb0619d725a2e2697997a2e8b869ed5d67965c91746b2e6faaa88",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3182",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 60,
+      "nodeName": "FJ3183 distal phalanx of left index finger",
+      "sourceFileId": "FJ3183",
+      "nodeConceptId": "FMA23953",
+      "sourceSha256": "4b21956aa21986a4e709fe73291d0a21a74b202375ce6623dfc7ef6b26ebf9b8",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3183",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 61,
+      "nodeName": "FJ3184 distal phalanx of left little finger",
+      "sourceFileId": "FJ3184",
+      "nodeConceptId": "FMA23959",
+      "sourceSha256": "11479ce0bbe0c20515066d4b98dd11c35f7f23580f10e2a388ccb816a8dad20e",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3184",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 62,
+      "nodeName": "FJ3185 distal phalanx of left little toe",
+      "sourceFileId": "FJ3185",
+      "nodeConceptId": "FMA32659",
+      "sourceSha256": "4e4c610814cfdf5cb49d890f5ba5b6c0049bda34d031a439c9b3812d161936fa",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3185",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 63,
+      "nodeName": "FJ3186 distal phalanx of left middle finger",
+      "sourceFileId": "FJ3186",
+      "nodeConceptId": "FMA23955",
+      "sourceSha256": "c5dcbe81e721420508a2cb40228e45471925d4b507f0c738a7446a2ee835cd7c",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3186",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 64,
+      "nodeName": "FJ3187 distal phalanx of left ring finger",
+      "sourceFileId": "FJ3187",
+      "nodeConceptId": "FMA23957",
+      "sourceSha256": "49dd966dbef49394d802a781a5ee80b98eec168352d190e6a57ba35ff4ca3bd6",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3187",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 65,
+      "nodeName": "FJ3188 distal phalanx of left thumb",
+      "sourceFileId": "FJ3188",
+      "nodeConceptId": "FMA23951",
+      "sourceSha256": "6a0cae057769e3f67a86304be10f7f4b6cafc631092c764a82aef7e7ee9d2119",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3188",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 66,
+      "nodeName": "FJ3189 distal phalanx of right second toe",
+      "sourceFileId": "FJ3189",
+      "nodeConceptId": "FMA32652",
+      "sourceSha256": "e9375bc30ba9c2aa2c69cbe3f7e1b1f581d0d1a674c41d31f6b9c27a8f174715",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3189",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 67,
+      "nodeName": "FJ3190 distal phalanx of right third toe",
+      "sourceFileId": "FJ3190",
+      "nodeConceptId": "FMA32654",
+      "sourceSha256": "153722e3a39bc9f4cf3444cefd9336e5adb6b2236c6d6b8c2d1ba4a54c8754af",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3190",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 68,
+      "nodeName": "FJ3191 distal phalanx of right fourth toe",
+      "sourceFileId": "FJ3191",
+      "nodeConceptId": "FMA32656",
+      "sourceSha256": "35ca50bcad4f559dcc6a0885abb9fe3c06965925791ff5567a38301623d46beb",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3191",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 69,
+      "nodeName": "FJ3192 distal phalanx of right big toe",
+      "sourceFileId": "FJ3192",
+      "nodeConceptId": "FMA32650",
+      "sourceSha256": "ecb7a162be315a96591180a3b997efffa827d06849e8c85cfea72fe0d57e9ab8",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3192",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 70,
+      "nodeName": "FJ3193 distal phalanx of right index finger",
+      "sourceFileId": "FJ3193",
+      "nodeConceptId": "FMA24460",
+      "sourceSha256": "22fb13bf483f413a93306da7e3805569ec78cf91222920a23e31d1f8f8be8ca7",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3193",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 71,
+      "nodeName": "FJ3194 distal phalanx of right little finger",
+      "sourceFileId": "FJ3194",
+      "nodeConceptId": "FMA24463",
+      "sourceSha256": "1a77bb45ca5da49a3f46f0773d8f544f8171fa7650da31040fc15524d541eac0",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3194",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 72,
+      "nodeName": "FJ3195 distal phalanx of right little toe",
+      "sourceFileId": "FJ3195",
+      "nodeConceptId": "FMA32658",
+      "sourceSha256": "5402b29f019e8c13be850809be79cd262eab0276094322203e46a103145276ff",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3195",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 73,
+      "nodeName": "FJ3196 distal phalanx of right middle finger",
+      "sourceFileId": "FJ3196",
+      "nodeConceptId": "FMA24461",
+      "sourceSha256": "9aa0ed0579e703009b4f5e16c7a650d5127a9fcf6f91b6e20e5b8317b7e7651e",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3196",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 74,
+      "nodeName": "FJ3197 distal phalanx of right ring finger",
+      "sourceFileId": "FJ3197",
+      "nodeConceptId": "FMA24462",
+      "sourceSha256": "a8e025b484c28f564f12d7e98b32dad1196050a957f879b639aac2cadc5a300d",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3197",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 75,
+      "nodeName": "FJ3198 distal phalanx of right thumb",
+      "sourceFileId": "FJ3198",
+      "nodeConceptId": "FMA24459",
+      "sourceSha256": "b95a645681d4548ad0d6bf4d79645f5c2e3b7c044c834ed8d52315c9e3a14f4e",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3198",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 76,
+      "nodeName": "FJ3199 ethmoid",
+      "sourceFileId": "FJ3199",
+      "nodeConceptId": "FMA52740",
+      "sourceSha256": "6c0fceb9f44fe469d4db0e41594e8c5ed28a576950de7c43df488628d81105ea",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3199",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 77,
+      "nodeName": "FJ3200 frontal bone",
+      "sourceFileId": "FJ3200",
+      "nodeConceptId": "FMA52734",
+      "sourceSha256": "9a01d88bd564b462ecadd6ad5bb3bb2274105baa3d211e0f444210d3f499ed64",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3200",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 78,
+      "nodeName": "FJ3201 hyoid bone",
+      "sourceFileId": "FJ3201",
+      "nodeConceptId": "FMA52749",
+      "sourceSha256": "27e9e3f1146ff10c489c683b89f78c60c187eed578f52ec1bfdd1694d0684b44",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3201",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 79,
+      "nodeName": "FJ3202 intervertebral disk of axis",
+      "sourceFileId": "FJ3202",
+      "nodeConceptId": "FMA25058",
+      "sourceSha256": "54353b0c78da72312837053808c9b7fbece5ea843132b974642447400c05eb17",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3202",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 80,
+      "nodeName": "FJ3203 intervertebral disk of fourth thoracic vertebra",
+      "sourceFileId": "FJ3203",
+      "nodeConceptId": "FMA13501",
+      "sourceSha256": "e4d18b10b53cf1dce6254ed32e0cf2bde492f3fba523001f9d0099b6836c4955",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3203",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 81,
+      "nodeName": "FJ3204 intervertebral disk of fifth thoracic vertebra",
+      "sourceFileId": "FJ3204",
+      "nodeConceptId": "FMA13502",
+      "sourceSha256": "aea5417173600504e344b7ff1987e73255fb8cc10a0309fad43c9749ceb53363",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3204",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 82,
+      "nodeName": "FJ3205 intervertebral disk of sixth thoracic vertebra",
+      "sourceFileId": "FJ3205",
+      "nodeConceptId": "FMA13503",
+      "sourceSha256": "1419ec408f4c3084e1ee41c6272d5a93ec07e6fba49c3f99b813cc559cae2961",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3205",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 83,
+      "nodeName": "FJ3206 intervertebral disk of seventh thoracic vertebra",
+      "sourceFileId": "FJ3206",
+      "nodeConceptId": "FMA13504",
+      "sourceSha256": "b3ea7878a0c4dc7acda522e4de58ee9048d7197167279c9d57c816e22752ef05",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3206",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 84,
+      "nodeName": "FJ3207 intervertebral disk of eighth thoracic vertebra",
+      "sourceFileId": "FJ3207",
+      "nodeConceptId": "FMA13505",
+      "sourceSha256": "6ba7cf1f72bcb78289c2043a89c0269821b7e17933b95cde1785de36f164dd88",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3207",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 85,
+      "nodeName": "FJ3208 intervertebral disk of ninth thoracic vertebra",
+      "sourceFileId": "FJ3208",
+      "nodeConceptId": "FMA13506",
+      "sourceSha256": "9a674b66719c1b358420e1f4b36884d0fd4cb48c9aec4c7512edb6a6257b3943",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3208",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 86,
+      "nodeName": "FJ3209 intervertebral disk of tenth thoracic vertebra",
+      "sourceFileId": "FJ3209",
+      "nodeConceptId": "FMA13507",
+      "sourceSha256": "9f0ce1156106b47bf9b1cd4e42ab0d2f6cd726774f2642e491c00b3e8f1903db",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3209",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 87,
+      "nodeName": "FJ3210 intervertebral disk of eleventh thoracic vertebra",
+      "sourceFileId": "FJ3210",
+      "nodeConceptId": "FMA13508",
+      "sourceSha256": "0612b7a8bd73b5250b8cda72b0c30d7c9ceb21010dabfc683826f581b4fe6b5e",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3210",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 88,
+      "nodeName": "FJ3211 intervertebral disk",
+      "sourceFileId": "FJ3211",
+      "nodeConceptId": "FMA10446",
+      "sourceSha256": "312819388c2857a2908b6529b463f43406f090748a464d3aa4bd00f0f3920ccd",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3211",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 89,
+      "nodeName": "FJ3212 intervertebral disk of first lumbar vertebra",
+      "sourceFileId": "FJ3212",
+      "nodeConceptId": "FMA16033",
+      "sourceSha256": "7713e48391f7bddcf0b38736831f3bf570d2aff4aa761ba555c4c2cc3f5e1e1f",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3212",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 90,
+      "nodeName": "FJ3213 intervertebral disk of third cervical vertebra",
+      "sourceFileId": "FJ3213",
+      "nodeConceptId": "FMA13896",
+      "sourceSha256": "588c57901bbacd9acd909e6be32cc98d5c3ded0e0aa9d6d429524e3105e0e359",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3213",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 91,
+      "nodeName": "FJ3214 intervertebral disk of second lumbar vertebra",
+      "sourceFileId": "FJ3214",
+      "nodeConceptId": "FMA16034",
+      "sourceSha256": "6f798a68e6456c961a7b82f814cb9dd867dc005b49d9b5711b65a93cd25dde5d",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3214",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 92,
+      "nodeName": "FJ3215 intervertebral disk of third lumbar vertebra",
+      "sourceFileId": "FJ3215",
+      "nodeConceptId": "FMA16035",
+      "sourceSha256": "671fbfa846c09e3ef118964eadd7433ba7a181065dc67f303d63efef4e29569e",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3215",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 93,
+      "nodeName": "FJ3216 intervertebral disk of fourth lumbar vertebra",
+      "sourceFileId": "FJ3216",
+      "nodeConceptId": "FMA16036",
+      "sourceSha256": "a83d0843c597451b0bf8be3bd0f59511e123d65555b66377b2fa4b8b4aafa837",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3216",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 94,
+      "nodeName": "FJ3217 intervertebral disk of fifth lumbar vertebra",
+      "sourceFileId": "FJ3217",
+      "nodeConceptId": "FMA16037",
+      "sourceSha256": "5f534a8cc9f026b6cc46a4153804eb3b3b53023ba4d27ad36373fbdc0c623b38",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3217",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 95,
+      "nodeName": "FJ3218 intervertebral disk of fourth cervical vertebra",
+      "sourceFileId": "FJ3218",
+      "nodeConceptId": "FMA13897",
+      "sourceSha256": "19d1fce7507311905dc3967587577b918c44ca47db1dec7a8370f6396d481592",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3218",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 96,
+      "nodeName": "FJ3219 intervertebral disk of fifth cervical vertebra",
+      "sourceFileId": "FJ3219",
+      "nodeConceptId": "FMA13898",
+      "sourceSha256": "0afd538cf25eb2668e3b3755654d4ad98f49e865a572f1c2ccf7f24db8353b77",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3219",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 97,
+      "nodeName": "FJ3220 intervertebral disk of sixth cervical vertebra",
+      "sourceFileId": "FJ3220",
+      "nodeConceptId": "FMA13899",
+      "sourceSha256": "368196ece25f700fe3bd3922c7bd706631673fb64f1199134e66f7d8063d5c75",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3220",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 98,
+      "nodeName": "FJ3221 intervertebral disk of seventh cervical vertebra",
+      "sourceFileId": "FJ3221",
+      "nodeConceptId": "FMA13900",
+      "sourceSha256": "0a1690fb85f87722081914d4cc5ec898b6fb199c273778607059d093d9bc9e4d",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3221",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 99,
+      "nodeName": "FJ3222 intervertebral disk of first thoracic vertebra",
+      "sourceFileId": "FJ3222",
+      "nodeConceptId": "FMA10458",
+      "sourceSha256": "c83ba588bcfaf229b5bbea5ea521d6751f6fa586997c147dd1ec5215ee9d0639",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3222",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 100,
+      "nodeName": "FJ3223 intervertebral disk of second thoracic vertebra",
+      "sourceFileId": "FJ3223",
+      "nodeConceptId": "FMA13495",
+      "sourceSha256": "465db0485b4ad437a2b39f3fbe60170eed5e144c9597e294414cacaa4e0e9a16",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3223",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 101,
+      "nodeName": "FJ3224 intervertebral disk of third thoracic vertebra",
+      "sourceFileId": "FJ3224",
+      "nodeConceptId": "FMA13500",
+      "sourceSha256": "20a49a6ae3e5709cc272cff12b461806ff0e93626e34ec007e0a381a7b7b97c7",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3224",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 102,
+      "nodeName": "FJ3225 left tenth rib",
+      "sourceFileId": "FJ3225",
+      "nodeConceptId": "FMA8472",
+      "sourceSha256": "daa25aba7fba3ff691d61cd239f8d49debc84ff871a351051c1d57a192b91dfd",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3225",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 103,
+      "nodeName": "FJ3226 left eleventh rib",
+      "sourceFileId": "FJ3226",
+      "nodeConceptId": "FMA8532",
+      "sourceSha256": "4bb9d52fdb2c15cb459c2bd08fd58082cdb39d15903cde675313762ea2287fc8",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3226",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 104,
+      "nodeName": "FJ3227 left twelfth rib",
+      "sourceFileId": "FJ3227",
+      "nodeConceptId": "FMA8534",
+      "sourceSha256": "83e04b8b6f91e4de57e7b380a2f2c7d6f0bbf284ce76710ca89aa82fb376bd4e",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3227",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 105,
+      "nodeName": "FJ3228 left first rib",
+      "sourceFileId": "FJ3228",
+      "nodeConceptId": "FMA7987",
+      "sourceSha256": "eb534d19462226e26b91234544f99abe118878a25c125f2a8839341e6769252b",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3228",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 106,
+      "nodeName": "FJ3229 left second rib",
+      "sourceFileId": "FJ3229",
+      "nodeConceptId": "FMA8012",
+      "sourceSha256": "b752f038ceba8430f3872897ce69495d7dd74ed8e19c21d3f75d0bc0b156d84f",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3229",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 107,
+      "nodeName": "FJ3230 left third rib",
+      "sourceFileId": "FJ3230",
+      "nodeConceptId": "FMA8039",
+      "sourceSha256": "8b42d241c711fe9765b1239be33fcab6b865ab4619b5d05fa98ea245b6075d5c",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3230",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 108,
+      "nodeName": "FJ3231 left fourth rib",
+      "sourceFileId": "FJ3231",
+      "nodeConceptId": "FMA8148",
+      "sourceSha256": "28b852d4813703c5654d0405168e22bf0032632d47b9667b4b16e60ed89a425b",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3231",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 109,
+      "nodeName": "FJ3232 left fifth rib",
+      "sourceFileId": "FJ3232",
+      "nodeConceptId": "FMA8093",
+      "sourceSha256": "6fa730aea273685148d3e9d3f52fe450acec4c13d6e3b1b6865e0e9532283abb",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3232",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 110,
+      "nodeName": "FJ3233 left sixth rib",
+      "sourceFileId": "FJ3233",
+      "nodeConceptId": "FMA8202",
+      "sourceSha256": "2a0f1e32b8410b6396bea7ae342a16ae1ac1b77042e70d7e98cabeb7dcf3dfb9",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3233",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 111,
+      "nodeName": "FJ3234 left seventh rib",
+      "sourceFileId": "FJ3234",
+      "nodeConceptId": "FMA8256",
+      "sourceSha256": "638a766f20b64d02095efa845b5ea316624a376acb44c7e4a6d533d4da6ef4db",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3234",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 112,
+      "nodeName": "FJ3235 left eighth rib",
+      "sourceFileId": "FJ3235",
+      "nodeConceptId": "FMA8310",
+      "sourceSha256": "81a7215ef6ed923bbad6f07208bbc0ee26ddbaae3b1423f624cae465012d9144",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3235",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 113,
+      "nodeName": "FJ3236 left ninth rib",
+      "sourceFileId": "FJ3236",
+      "nodeConceptId": "FMA8391",
+      "sourceSha256": "3dc292292b9f2bd5e226ac100d3a8db76cba8eb1d9d09533a6e5e871f023e2a8",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3236",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 114,
+      "nodeName": "FJ3237 left clavicle",
+      "sourceFileId": "FJ3237",
+      "nodeConceptId": "FMA13323",
+      "sourceSha256": "ae2dc115516cd51b56047c8c0188a0b62c3fe627deed4d1b83e79e09b4b5c0d8",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3237",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 115,
+      "nodeName": "FJ3239 left first costal cartilage",
+      "sourceFileId": "FJ3239",
+      "nodeConceptId": "FMA8005",
+      "sourceSha256": "9ca5fdb0582ad2795c9316ab9bb2f89f952b5a8c8fcf92a37efa042fc5c7739c",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3239",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 116,
+      "nodeName": "FJ3240 left first metacarpal bone",
+      "sourceFileId": "FJ3240",
+      "nodeConceptId": "FMA24465",
+      "sourceSha256": "0c8bf4436d320036d10a7fa3747ef34f0ce4ecd01bbee373225d1588efa38c70",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3240",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 117,
+      "nodeName": "FJ3241 left first metatarsal bone",
+      "sourceFileId": "FJ3241",
+      "nodeConceptId": "FMA24508",
+      "sourceSha256": "81a87d611584dc38c5da832051623450d5e798e0461f5595c53b926bce8e1205",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3241",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 118,
+      "nodeName": "FJ3242 left second costal cartilage",
+      "sourceFileId": "FJ3242",
+      "nodeConceptId": "FMA8031",
+      "sourceSha256": "c83bb88d995837a455e72707e9d5ecb0035ad60d8fd2f6f28d3710b4ef4c9d8e",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3242",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 119,
+      "nodeName": "FJ3243 left second metacarpal bone",
+      "sourceFileId": "FJ3243",
+      "nodeConceptId": "FMA24467",
+      "sourceSha256": "8fda448450b00ade9b520798111fce1c90a3f27832d0c5112daafb2dabf8c2e9",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3243",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 120,
+      "nodeName": "FJ3244 left second metatarsal bone",
+      "sourceFileId": "FJ3244",
+      "nodeConceptId": "FMA24510",
+      "sourceSha256": "dfccfdd4e15f9c5fc2d3ff5aec2c192e655b33796b7936a091f4fbbf0e846a47",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3244",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 121,
+      "nodeName": "FJ3245 left third costal cartilage",
+      "sourceFileId": "FJ3245",
+      "nodeConceptId": "FMA8058",
+      "sourceSha256": "ac65f51684b5dbcc3ea82381edae8723cbd9c7b8680bf6149a31dbf0acd26065",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3245",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 122,
+      "nodeName": "FJ3246 left third metacarpal bone",
+      "sourceFileId": "FJ3246",
+      "nodeConceptId": "FMA24469",
+      "sourceSha256": "c0c426e3140f3dc2457ddeb2e83d1db6efdadb3e77ccd939a2f15cbd7e186ecd",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3246",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 123,
+      "nodeName": "FJ3247 left third metatarsal bone",
+      "sourceFileId": "FJ3247",
+      "nodeConceptId": "FMA24512",
+      "sourceSha256": "ba30e72831383f90a10502c5d511ebaa1edb77ba2a345b3030d95e3483769535",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3247",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 124,
+      "nodeName": "FJ3248 left fourth costal cartilage",
+      "sourceFileId": "FJ3248",
+      "nodeConceptId": "FMA8167",
+      "sourceSha256": "3633cb39f1540513872b9477c829d562114dce8d19cba5c99073fe4e3abeb1be",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3248",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 125,
+      "nodeName": "FJ3249 left fourth metacarpal bone",
+      "sourceFileId": "FJ3249",
+      "nodeConceptId": "FMA24471",
+      "sourceSha256": "f6b5c38ee246def1b4c59bbb878ad52b9d06b37af4e55f634c84beb757afff5d",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3249",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 126,
+      "nodeName": "FJ3250 left fourth metatarsal bone",
+      "sourceFileId": "FJ3250",
+      "nodeConceptId": "FMA24514",
+      "sourceSha256": "60e27563f64f948d6de395fb136af962c07d01d83bfa6ac057a263a6f5afcec0",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3250",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 127,
+      "nodeName": "FJ3251 left fifth costal cartilage",
+      "sourceFileId": "FJ3251",
+      "nodeConceptId": "FMA8112",
+      "sourceSha256": "86be490af572a3d8c7f41fd1ed3f4bfac19a9966737bc1275f135f160d8298be",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3251",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 128,
+      "nodeName": "FJ3252 left fifth metacarpal bone",
+      "sourceFileId": "FJ3252",
+      "nodeConceptId": "FMA24473",
+      "sourceSha256": "ffe5b98ae80aabd879732ae03f8c56e3f4f84ed6442bf5a00565d274f2816b50",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3252",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 129,
+      "nodeName": "FJ3253 left fifth metatarsal bone",
+      "sourceFileId": "FJ3253",
+      "nodeConceptId": "FMA24516",
+      "sourceSha256": "bb7bfc77f5c770e1ad0042802b74ab028bd131c631bbdbf3636bcabe522e680b",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3253",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 130,
+      "nodeName": "FJ3254 left sixth costal cartilage",
+      "sourceFileId": "FJ3254",
+      "nodeConceptId": "FMA8221",
+      "sourceSha256": "bc9ca44f2ea1fa9800d7f0a35c4596f41df1750ba9c89910d4f64041131db2bf",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3254",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 131,
+      "nodeName": "FJ3255 left seventh costal cartilage",
+      "sourceFileId": "FJ3255",
+      "nodeConceptId": "FMA8275",
+      "sourceSha256": "97e69ede580a6e81cc42bb54fb22d4752719b61c5fced8ccccfb18ce64996676",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3255",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 132,
+      "nodeName": "FJ3256 left calcaneus",
+      "sourceFileId": "FJ3256",
+      "nodeConceptId": "FMA24498",
+      "sourceSha256": "f39b699100eea69a951440f617a7d2ab692a7dc1c80e5bbb064603d7ba2dd4a4",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3256",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 133,
+      "nodeName": "FJ3257 left capitate",
+      "sourceFileId": "FJ3257",
+      "nodeConceptId": "FMA24447",
+      "sourceSha256": "43e59c2c85a9d76c49d338c1b42b6ddff82173b8ebd76fbb2d54d86930d23508",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3257",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 134,
+      "nodeName": "FJ3258 left cuboid bone",
+      "sourceFileId": "FJ3258",
+      "nodeConceptId": "FMA24529",
+      "sourceSha256": "f1ed3539cbb89954b3aadd8a435a174dd26d31e8de39e9480f1c9bd38b4ee3c6",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3258",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 135,
+      "nodeName": "FJ3259 left femur",
+      "sourceFileId": "FJ3259",
+      "nodeConceptId": "FMA24475",
+      "sourceSha256": "4b919097be4820784d199838c69b1fe10afba703f0d6680a3ecab58460fb6549",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3259",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 136,
+      "nodeName": "FJ3260 left fibula",
+      "sourceFileId": "FJ3260",
+      "nodeConceptId": "FMA24481",
+      "sourceSha256": "34d29e9d6b2bf032147bcbe8da1e9fb65739ca2115baf577987ff1b780fabb73",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3260",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 137,
+      "nodeName": "FJ3261 left hamate",
+      "sourceFileId": "FJ3261",
+      "nodeConceptId": "FMA24449",
+      "sourceSha256": "bc8ce15358c4b60be971675493d38a4bc11046bbb2e93281fdb39d3a3049b375",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3261",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 138,
+      "nodeName": "FJ3262 left humerus",
+      "sourceFileId": "FJ3262",
+      "nodeConceptId": "FMA23131",
+      "sourceSha256": "58b4f0f36723f27726009cdf4b77172dc694303f4e03f51b29c1663507480194",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3262",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 139,
+      "nodeName": "FJ3263 left inferior nasal concha",
+      "sourceFileId": "FJ3263",
+      "nodeConceptId": "FMA54738",
+      "sourceSha256": "c6477a98607e712a2bdefd4c2732ce22a990b8cd8783b7b7a6453192443961cd",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3263",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 140,
+      "nodeName": "FJ3264 left intermediate cuneiform bone",
+      "sourceFileId": "FJ3264",
+      "nodeConceptId": "FMA24524",
+      "sourceSha256": "6d6675dfb04a553a305369368392e91c1a2fd49783a81f7ac35773a5407e13f1",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3264",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 141,
+      "nodeName": "FJ3265 left lacrimal bone",
+      "sourceFileId": "FJ3265",
+      "nodeConceptId": "FMA53646",
+      "sourceSha256": "8ad400f81a74d51e3193ab1dc92ec39df5dc1c104a6ced970d430bca3d0f9c9c",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3265",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 142,
+      "nodeName": "FJ3266 sesamoid bone of left foot",
+      "sourceFileId": "FJ3266",
+      "nodeConceptId": "FMA45098",
+      "sourceSha256": "cc2fc94a2ff8b65b6e6849fabadb902eb82cbe616157f978b28f0c3f10fbc083",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3266",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 143,
+      "nodeName": "FJ3267 left lateral cuneiform bone",
+      "sourceFileId": "FJ3267",
+      "nodeConceptId": "FMA24526",
+      "sourceSha256": "1e59930bb6ff4556d250b38ae71fc1e46148b6a87c7355148bac05ea52da0b27",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3267",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 144,
+      "nodeName": "FJ3268 left lunate",
+      "sourceFileId": "FJ3268",
+      "nodeConceptId": "FMA24438",
+      "sourceSha256": "8be07938751172946412e4e5eedf72831d7ec7b42110884d423982e5b8406333",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3268",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 145,
+      "nodeName": "FJ3269 left maxilla",
+      "sourceFileId": "FJ3269",
+      "nodeConceptId": "FMA53650",
+      "sourceSha256": "a56eeb3723f4b3cd1d96b113eaba8f253ed49ff76220ba48ac0d1d086b80ff60",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3269",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 146,
+      "nodeName": "FJ3270 sesamoid bone of left foot",
+      "sourceFileId": "FJ3270",
+      "nodeConceptId": "FMA45098",
+      "sourceSha256": "fb2a430917ad6e0fcaa13124476d12e15c2e99288d697e15e6084b01616a1e97",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3270",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 147,
+      "nodeName": "FJ3271 left medial cuneiform bone",
+      "sourceFileId": "FJ3271",
+      "nodeConceptId": "FMA24522",
+      "sourceSha256": "6bd6c95a27d545d8984a2582f36f3881e04e1550ae2fb3f068d3bee80bf833b2",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3271",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 148,
+      "nodeName": "FJ3272 left nasal bone",
+      "sourceFileId": "FJ3272",
+      "nodeConceptId": "FMA53648",
+      "sourceSha256": "cc03a0b61102415dfa66cc55210f65c71ca9466e6e043d350449eac71b414a24",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3272",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 149,
+      "nodeName": "FJ3273 left palatine bone",
+      "sourceFileId": "FJ3273",
+      "nodeConceptId": "FMA53656",
+      "sourceSha256": "dacf96918a971758cbf25e3884b15e6c2b0a112a863b773332fb916431676368",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3273",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 150,
+      "nodeName": "FJ3274 left parietal bone",
+      "sourceFileId": "FJ3274",
+      "nodeConceptId": "FMA52789",
+      "sourceSha256": "df63a28fa604ff67828d8f382c66cfa46f40306b1b4c17a8062029764047d0e3",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3274",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 151,
+      "nodeName": "FJ3275 left patella",
+      "sourceFileId": "FJ3275",
+      "nodeConceptId": "FMA24487",
+      "sourceSha256": "8a0776c1efe4ed2e3fff3c14b6fdb814dab4c077f8f3cf866866e8d9312a33e3",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3275",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 152,
+      "nodeName": "FJ3276 left pisiform",
+      "sourceFileId": "FJ3276",
+      "nodeConceptId": "FMA24442",
+      "sourceSha256": "fde947e4adb1373a5fe74820141804efb7875a6a507ff53938c2727392d6828b",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3276",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 153,
+      "nodeName": "FJ3277 left radius",
+      "sourceFileId": "FJ3277",
+      "nodeConceptId": "FMA23465",
+      "sourceSha256": "cce317e77ca297f93c0676815e22e8a2b6cc09029b74f1678193b17a9c0d5583",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3277",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 154,
+      "nodeName": "FJ3278 left scaphoid",
+      "sourceFileId": "FJ3278",
+      "nodeConceptId": "FMA24436",
+      "sourceSha256": "4311e5b791fb93c11376a4643d6bee38b134614dba22e94004d9fb3de1fe2a3f",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3278",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 155,
+      "nodeName": "FJ3279 left scapula",
+      "sourceFileId": "FJ3279",
+      "nodeConceptId": "FMA13396",
+      "sourceSha256": "a52cf573f15b7c7c5cf096ae3ee81d8062a955edffdf82447e745afeccd0e554",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3279",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 156,
+      "nodeName": "FJ3280 left talus",
+      "sourceFileId": "FJ3280",
+      "nodeConceptId": "FMA24483",
+      "sourceSha256": "0f9b04d6f7e7f82572e9bca7fe3e08e92e4a7917d9cc60f9a8038e4c3a7c7bb7",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3280",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 157,
+      "nodeName": "FJ3281 left temporal bone",
+      "sourceFileId": "FJ3281",
+      "nodeConceptId": "FMA52739",
+      "sourceSha256": "47cc46f1480c54fe14a2d22361c3b93fcb964538f23d5b425ac718854cff2673",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3281",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 158,
+      "nodeName": "FJ3282 left tibia",
+      "sourceFileId": "FJ3282",
+      "nodeConceptId": "FMA24478",
+      "sourceSha256": "80add76b87c7b9e1396406de48f691e5fd3dde9e5cec49a0b15c6963d78542c6",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3282",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 159,
+      "nodeName": "FJ3283 left trapezium",
+      "sourceFileId": "FJ3283",
+      "nodeConceptId": "FMA24444",
+      "sourceSha256": "b3126c2751ac29968622e802011d4461c528057f9fd2db950f0704acaa8763cb",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3283",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 160,
+      "nodeName": "FJ3284 left trapezoid",
+      "sourceFileId": "FJ3284",
+      "nodeConceptId": "FMA24445",
+      "sourceSha256": "cea6f3c52bdeb7d261f52a296e00686acf042d87ed004bf453fd39cdfb8f1379",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3284",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 161,
+      "nodeName": "FJ3285 left triquetral",
+      "sourceFileId": "FJ3285",
+      "nodeConceptId": "FMA24440",
+      "sourceSha256": "fe25c63027de612508d7d92ac6ea08beafe48b0f9d0c8a2a7471b5ce85882576",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3285",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 162,
+      "nodeName": "FJ3286 left ulna",
+      "sourceFileId": "FJ3286",
+      "nodeConceptId": "FMA23468",
+      "sourceSha256": "32838a464599fa017717090afe9d355c03c0afb48cd8c5aa7e6f825156b594a5",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3286",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 163,
+      "nodeName": "FJ3287 left zygomatic bone",
+      "sourceFileId": "FJ3287",
+      "nodeConceptId": "FMA52893",
+      "sourceSha256": "9cfd8fd359816b5fa5ed9758f26d942c7ada0900aa7f614aff39949fdad3ddee",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3287",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 164,
+      "nodeName": "FJ3288 left hip bone",
+      "sourceFileId": "FJ3288",
+      "nodeConceptId": "FMA16587",
+      "sourceSha256": "981411a910d502c80e454cc95128a9812a1284202295d1ebc7ab5020a08d83aa",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3288",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 165,
+      "nodeName": "FJ3289 mandible",
+      "sourceFileId": "FJ3289",
+      "nodeConceptId": "FMA52748",
+      "sourceSha256": "6ae0d7fde4221302f1c74d9e9933e2e05c36efef273bb27a78326d108d140ce8",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3289",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 166,
+      "nodeName": "FJ3290 sternum",
+      "sourceFileId": "FJ3290",
+      "nodeConceptId": "FMA7485",
+      "sourceSha256": "b847e67db475197cc4510744fef76bafd8e75c50797ca85eb8cd56dd853d61d6",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3290",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 167,
+      "nodeName": "FJ3291 middle phalanx of left ring finger",
+      "sourceFileId": "FJ3291",
+      "nodeConceptId": "FMA23942",
+      "sourceSha256": "8c31a1d782b726629680cd5e0514b4988e8c0b9d388d600b5c76f0a89dcd9275",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3291",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 168,
+      "nodeName": "FJ3292 middle phalanx of right ring finger",
+      "sourceFileId": "FJ3292",
+      "nodeConceptId": "FMA24457",
+      "sourceSha256": "48586a1489d539eecb8f37520e9683c014fc32bc6666bba42ca264b35af5c7a7",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3292",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 169,
+      "nodeName": "FJ3293 middle phalanx of left second toe",
+      "sourceFileId": "FJ3293",
+      "nodeConceptId": "FMA32643",
+      "sourceSha256": "706e5f280c437ae9c01d08e021d82640ec3dfa50d1d2e0a2ee48eafc821ed104",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3293",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 170,
+      "nodeName": "FJ3294 middle phalanx of left third toe",
+      "sourceFileId": "FJ3294",
+      "nodeConceptId": "FMA32645",
+      "sourceSha256": "c7b9a13197ef69b530146cfdcfca046bcba053bcc6bc6895c63cf2fc9fd3781f",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3294",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 171,
+      "nodeName": "FJ3295 middle phalanx of left fourth toe",
+      "sourceFileId": "FJ3295",
+      "nodeConceptId": "FMA32647",
+      "sourceSha256": "d854f4059f59201871761d7a891f626c7ad8d74a77e7aea64f7b99c8c2b55f9b",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3295",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 172,
+      "nodeName": "FJ3296 middle phalanx of left index finger",
+      "sourceFileId": "FJ3296",
+      "nodeConceptId": "FMA23938",
+      "sourceSha256": "3784ab9d38876602abdda3ef45b45a11f907f5412abf458915a5ffe92cdd82ac",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3296",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 173,
+      "nodeName": "FJ3297 middle phalanx of left little finger",
+      "sourceFileId": "FJ3297",
+      "nodeConceptId": "FMA23944",
+      "sourceSha256": "876fc444322b51eebcc12622aefff29266c16b8dadbe9c7b97588013b2e6a120",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3297",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 174,
+      "nodeName": "FJ3298 middle phalanx of left little toe",
+      "sourceFileId": "FJ3298",
+      "nodeConceptId": "FMA230988",
+      "sourceSha256": "68eb411cca65a47677026461b807534ee0640dcb7355031d6ab1fef901050e81",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3298",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 175,
+      "nodeName": "FJ3299 middle phalanx of left middle finger",
+      "sourceFileId": "FJ3299",
+      "nodeConceptId": "FMA23940",
+      "sourceSha256": "7d67270dabfb72710d6adf29b6ccc901a459fa49d2315517a392ca62cf2e0878",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3299",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 176,
+      "nodeName": "FJ3300 middle phalanx of right second toe",
+      "sourceFileId": "FJ3300",
+      "nodeConceptId": "FMA32642",
+      "sourceSha256": "d23b2c500c208c3c3c3f482f8429b75a08d8d852f2d5529bb18aad4716bd17e9",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3300",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 177,
+      "nodeName": "FJ3301 middle phalanx of right third toe",
+      "sourceFileId": "FJ3301",
+      "nodeConceptId": "FMA32644",
+      "sourceSha256": "41a7cc5bda4605754c7db7bbc561e78fea9e59824a311d16efee7c00d9e931ae",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3301",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 178,
+      "nodeName": "FJ3302 middle phalanx of right fourth toe",
+      "sourceFileId": "FJ3302",
+      "nodeConceptId": "FMA32646",
+      "sourceSha256": "6454fbcd2ba8d7fc45c9d9d9d4b56cd9e7831143038ee4510a7bbd407984bad1",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3302",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 179,
+      "nodeName": "FJ3303 middle phalanx of right index finger",
+      "sourceFileId": "FJ3303",
+      "nodeConceptId": "FMA24455",
+      "sourceSha256": "0dce3e3ab43a1c3c8030e5bd97c40035f84e1ca272ea08e57c6523fecca7337c",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3303",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 180,
+      "nodeName": "FJ3304 middle phalanx of right little finger",
+      "sourceFileId": "FJ3304",
+      "nodeConceptId": "FMA24458",
+      "sourceSha256": "3289a2bb712569479a65872d56778a962cca787409326252fd05734cc5f9dd36",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3304",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 181,
+      "nodeName": "FJ3305 middle phalanx of right little toe",
+      "sourceFileId": "FJ3305",
+      "nodeConceptId": "FMA230986",
+      "sourceSha256": "e6a389b572fb34e9a2e483dcbec2446d1b6a94a02e4ae25079513e571e452b49",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3305",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 182,
+      "nodeName": "FJ3306 middle phalanx of right middle finger",
+      "sourceFileId": "FJ3306",
+      "nodeConceptId": "FMA24456",
+      "sourceSha256": "8795bec6ecf458cbb1a4e361113da509a49dfafdaf8ca4610cb0a90e3bdd6233",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3306",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 183,
+      "nodeName": "FJ3307 navicular bone of left foot",
+      "sourceFileId": "FJ3307",
+      "nodeConceptId": "FMA24501",
+      "sourceSha256": "f3acad5a0995ac64585b22079fed851a20af96fc09e1e781fbb8853145a5df2d",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3307",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 184,
+      "nodeName": "FJ3308 navicular bone of right foot",
+      "sourceFileId": "FJ3308",
+      "nodeConceptId": "FMA24500",
+      "sourceSha256": "8156683b53dbe285d9c5bd939969b0ae85bc4f989f0d2bca5d7a72a28ed22518",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3308",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 185,
+      "nodeName": "FJ3309 occipital bone",
+      "sourceFileId": "FJ3309",
+      "nodeConceptId": "FMA52735",
+      "sourceSha256": "37172b4706d23d51ebb3ce3839cc59c6e4cb4931039901f395703bc7dff52761",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3309",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 186,
+      "nodeName": "FJ3310 proximal phalanx of right big toe",
+      "sourceFileId": "FJ3310",
+      "nodeConceptId": "FMA43253",
+      "sourceSha256": "c325627d966076f87101492f298d0e71ba877ce796463fd10e4fa6697b5e42fd",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3310",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 187,
+      "nodeName": "FJ3311 proximal phalanx of left third toe",
+      "sourceFileId": "FJ3311",
+      "nodeConceptId": "FMA32637",
+      "sourceSha256": "deac4abe55e492efe84c7dd5bef101690ea3c6c5f4a9df552c370b8a2a324aa6",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3311",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 188,
+      "nodeName": "FJ3312 proximal phalanx of left fourth toe",
+      "sourceFileId": "FJ3312",
+      "nodeConceptId": "FMA32639",
+      "sourceSha256": "663bd9469b96679753e7f64c5f072c8cfe245dbb4b37b685079b4e7b890c4937",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3312",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 189,
+      "nodeName": "FJ3313 proximal phalanx of left index finger",
+      "sourceFileId": "FJ3313",
+      "nodeConceptId": "FMA71915",
+      "sourceSha256": "8ff94391d57f8758f86e7a8ac9a82f62c9175067ffbbadab5693221ba204ecbe",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3313",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 190,
+      "nodeName": "FJ3314 proximal phalanx of left little finger",
+      "sourceFileId": "FJ3314",
+      "nodeConceptId": "FMA66791",
+      "sourceSha256": "a970bf6fea2d1ad51cad704a488417aaaaacca40be6f10c9ec713f358760efb8",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3314",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 191,
+      "nodeName": "FJ3315 proximal phalanx of left little toe",
+      "sourceFileId": "FJ3315",
+      "nodeConceptId": "FMA32641",
+      "sourceSha256": "0bdbbd0619f4765da9fa25918a1e79db22b156eb4de1ba8574bec67369bfdd6d",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3315",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 192,
+      "nodeName": "FJ3316 proximal phalanx of left middle finger",
+      "sourceFileId": "FJ3316",
+      "nodeConceptId": "FMA71908",
+      "sourceSha256": "411ec81747038f797c4a2a7c33ac87cdbf49047aedc43a6487d45cc373f697a8",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3316",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 193,
+      "nodeName": "FJ3317 proximal phalanx of left ring finger",
+      "sourceFileId": "FJ3317",
+      "nodeConceptId": "FMA71916",
+      "sourceSha256": "851e0b459c672fef4cd2a32583991b22c30576f467eb50c5ffcb22fd13ea7de8",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3317",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 194,
+      "nodeName": "FJ3318 proximal phalanx of left thumb",
+      "sourceFileId": "FJ3318",
+      "nodeConceptId": "FMA65470",
+      "sourceSha256": "0f62e4d042979264f6f3d4dd0a90044b89a3ad4b66c141cebc2aa515bd3255c8",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3318",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 195,
+      "nodeName": "FJ3319 proximal phalanx of right second toe",
+      "sourceFileId": "FJ3319",
+      "nodeConceptId": "FMA32634",
+      "sourceSha256": "1d2f11bb623181a344f0b9d68b16ffb3e31946d3f5f571e92cd35f0e66c1101c",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3319",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 196,
+      "nodeName": "FJ3320 proximal phalanx of right third toe",
+      "sourceFileId": "FJ3320",
+      "nodeConceptId": "FMA32636",
+      "sourceSha256": "54e8381fbba8e81960afa51c153d5e06143c85f1808e083f2bd591115fce3c02",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3320",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 197,
+      "nodeName": "FJ3321 proximal phalanx of right fourth toe",
+      "sourceFileId": "FJ3321",
+      "nodeConceptId": "FMA32638",
+      "sourceSha256": "37b1195ac0a13fc425bab0d0151ada733b4d1c107a61a70ae42eeb3ee3c33dfa",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3321",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 198,
+      "nodeName": "FJ3322 proximal phalanx of right index finger",
+      "sourceFileId": "FJ3322",
+      "nodeConceptId": "FMA24451",
+      "sourceSha256": "7f260208904ef78c88790201e64b02cb9bb3e2b3e0feafa4108630d9a2d8c7a9",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3322",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 199,
+      "nodeName": "FJ3323 proximal phalanx of right little finger",
+      "sourceFileId": "FJ3323",
+      "nodeConceptId": "FMA24454",
+      "sourceSha256": "dede96cf0c9d5ccb093673a9ec2dc2ef2970578cde1438276120fdf9aff096d2",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3323",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 200,
+      "nodeName": "FJ3324 proximal phalanx of right little toe",
+      "sourceFileId": "FJ3324",
+      "nodeConceptId": "FMA32640",
+      "sourceSha256": "0f783ee739f14fd2ca5c9db076d989795880ac9e436ce15062e397e7c6586225",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3324",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 201,
+      "nodeName": "FJ3325 proximal phalanx of right middle finger",
+      "sourceFileId": "FJ3325",
+      "nodeConceptId": "FMA24452",
+      "sourceSha256": "0ed85cade9e2a4c6d0c3353cbfcd996ab65f9c908ac6a2d41b0cffada814bd0d",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3325",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 202,
+      "nodeName": "FJ3326 proximal phalanx of right ring finger",
+      "sourceFileId": "FJ3326",
+      "nodeConceptId": "FMA24453",
+      "sourceSha256": "8464ab995a48d5642198901885fafc5b101fd8982530f533f04e2be8aef26b59",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3326",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 203,
+      "nodeName": "FJ3327 proximal phalanx of right thumb",
+      "sourceFileId": "FJ3327",
+      "nodeConceptId": "FMA24450",
+      "sourceSha256": "14f0aa99ab3dbcc34f8c9460fb240bb7ba0b43c2188feaa79aa58ae8a476cae8",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3327",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 204,
+      "nodeName": "FJ3328 proximal phalanx of left second toe",
+      "sourceFileId": "FJ3328",
+      "nodeConceptId": "FMA32635",
+      "sourceSha256": "33964822dfcd4833af09cef2c3909d210ba13a6c96fc9f3c2d457f4f2d1805f8",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3328",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 205,
+      "nodeName": "FJ3329 proximal phalanx of left big toe",
+      "sourceFileId": "FJ3329",
+      "nodeConceptId": "FMA43254",
+      "sourceSha256": "7b351faa1a13618f21c5072c00e97248334306b623c78a8eb102c62b298245c5",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3329",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 206,
+      "nodeName": "FJ3330 right tenth rib",
+      "sourceFileId": "FJ3330",
+      "nodeConceptId": "FMA8445",
+      "sourceSha256": "0f688dd4e0d20a8328b4763c0acc7582a9beac8fe5c7ce58586db99c6e366945",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3330",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 207,
+      "nodeName": "FJ3331 right eleventh rib",
+      "sourceFileId": "FJ3331",
+      "nodeConceptId": "FMA8531",
+      "sourceSha256": "761d6d8713c31d4b9f795c4875da9fc750c913907386489568fdebea15af49c3",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3331",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 208,
+      "nodeName": "FJ3332 right twelfth rib",
+      "sourceFileId": "FJ3332",
+      "nodeConceptId": "FMA8533",
+      "sourceSha256": "ece92488a9293cde2d8a8275cee8232326b377811afba888f6147d7217e04e07",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3332",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 209,
+      "nodeName": "FJ3333 right first costal cartilage",
+      "sourceFileId": "FJ3333",
+      "nodeConceptId": "FMA7875",
+      "sourceSha256": "616b5add6471a3fd2a7297cbebfee18a13866eb165ca0be05c5942ae16bacc10",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3333",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 210,
+      "nodeName": "FJ3334 right first rib",
+      "sourceFileId": "FJ3334",
+      "nodeConceptId": "FMA7857",
+      "sourceSha256": "ecef0080744a8422b72b4f52229bd68945692cdef7d6fe2a57043b2155c49d17",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3334",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 211,
+      "nodeName": "FJ3335 right second costal cartilage",
+      "sourceFileId": "FJ3335",
+      "nodeConceptId": "FMA7886",
+      "sourceSha256": "065a4969ea4210ce6d3f5838dc2da20f1153de478e02c7a86ced152eab82bf6a",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3335",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 212,
+      "nodeName": "FJ3336 right second rib",
+      "sourceFileId": "FJ3336",
+      "nodeConceptId": "FMA7882",
+      "sourceSha256": "e9f527453bb2a48764ac7243d0b9b23e37fb2a85e92cee445972a1a770a5eaa4",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3336",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 213,
+      "nodeName": "FJ3337 right third costal cartilage",
+      "sourceFileId": "FJ3337",
+      "nodeConceptId": "FMA7913",
+      "sourceSha256": "469513e43364a7212843011c944a9fff22b5b50496a11e739bcdafc70005d3dd",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3337",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 214,
+      "nodeName": "FJ3338 right third rib",
+      "sourceFileId": "FJ3338",
+      "nodeConceptId": "FMA7909",
+      "sourceSha256": "69dbbcfc72d592aa862621612e7ad1151ada3fa06c5ce51e24731015561ad7ac",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3338",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 215,
+      "nodeName": "FJ3339 right fourth costal cartilage",
+      "sourceFileId": "FJ3339",
+      "nodeConceptId": "FMA7976",
+      "sourceSha256": "fc442f6596ca1a7ce18fc2d65cb92dcc1de1951381ebd631223469b6e84923b1",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3339",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 216,
+      "nodeName": "FJ3340 right fourth rib",
+      "sourceFileId": "FJ3340",
+      "nodeConceptId": "FMA7957",
+      "sourceSha256": "b9bc6bbb160fd579ed246c3eb145b39f82866dc2dfeebe798f0dba5a2e352597",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3340",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 217,
+      "nodeName": "FJ3341 right fifth costal cartilage",
+      "sourceFileId": "FJ3341",
+      "nodeConceptId": "FMA8070",
+      "sourceSha256": "921b821e925624302d8ab138dfa80a24bf3d9150e006b7ac27a2b5f73d15ab33",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3341",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 218,
+      "nodeName": "FJ3342 right fifth rib",
+      "sourceFileId": "FJ3342",
+      "nodeConceptId": "FMA8066",
+      "sourceSha256": "11d403618e4114a5edcd8f2fa4e90ef4e6427b04f4cd3962c59462694b55c443",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3342",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 219,
+      "nodeName": "FJ3343 right sixth costal cartilage",
+      "sourceFileId": "FJ3343",
+      "nodeConceptId": "FMA8194",
+      "sourceSha256": "3b633ffd599c51c1f00d66442855a047b013bda569fa092ea31ece5fdc289111",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3343",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 220,
+      "nodeName": "FJ3344 right sixth rib",
+      "sourceFileId": "FJ3344",
+      "nodeConceptId": "FMA8175",
+      "sourceSha256": "67f1f42fea1c289adaf4929716534bad7dfdd136ca0057f05de83d6e20c8f0a8",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3344",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 221,
+      "nodeName": "FJ3345 right seventh costal cartilage",
+      "sourceFileId": "FJ3345",
+      "nodeConceptId": "FMA8248",
+      "sourceSha256": "a4d22796f4ffc6f9ad1b7d620c917be1638244864eca62aec60bd11033ed3041",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3345",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 222,
+      "nodeName": "FJ3346 right seventh rib",
+      "sourceFileId": "FJ3346",
+      "nodeConceptId": "FMA8229",
+      "sourceSha256": "91aa56e034fbe6f413c0f15b76d725a1f8efd115aa2900beda6edf43a3ab0c43",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3346",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 223,
+      "nodeName": "FJ3347 right eighth rib",
+      "sourceFileId": "FJ3347",
+      "nodeConceptId": "FMA8283",
+      "sourceSha256": "43a1591cf1e123ca01f64297a7ce008d679a5f5f26421cc5b69e2232da89d743",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3347",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 224,
+      "nodeName": "FJ3348 right ninth rib",
+      "sourceFileId": "FJ3348",
+      "nodeConceptId": "FMA8364",
+      "sourceSha256": "7d3a969b778da18eb38b1a64d92e2b90e1730fcb0d7b2bfacd125ff4826876d0",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3348",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 225,
+      "nodeName": "FJ3349 right radius",
+      "sourceFileId": "FJ3349",
+      "nodeConceptId": "FMA23464",
+      "sourceSha256": "be1ebc9c5285cc934c625763b3363fc3133efab9eafdf1edf0b36de3b7ee06a9",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3349",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 226,
+      "nodeName": "FJ3350 right first metacarpal bone",
+      "sourceFileId": "FJ3350",
+      "nodeConceptId": "FMA24464",
+      "sourceSha256": "73267d7a1a33294ed2856e147f3d7658c14878cd01906ec8ffb64a4b9b68318b",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3350",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 227,
+      "nodeName": "FJ3351 right first metatarsal bone",
+      "sourceFileId": "FJ3351",
+      "nodeConceptId": "FMA24507",
+      "sourceSha256": "36f03bdaf6be4385c83cc297b13bf6089504e5ddd12a6d6894a4e655b01cfb02",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3351",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 228,
+      "nodeName": "FJ3352 right second metacarpal bone",
+      "sourceFileId": "FJ3352",
+      "nodeConceptId": "FMA24466",
+      "sourceSha256": "3c67c77a4312c40f3ca98e1600eb930c6210ac83773efe4f594bf6ca3ca02fce",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3352",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 229,
+      "nodeName": "FJ3353 right second metatarsal bone",
+      "sourceFileId": "FJ3353",
+      "nodeConceptId": "FMA24509",
+      "sourceSha256": "3f813ff69332df5a67dbce693af5558f4b5db2d48bf12ba39fff3e48e44e99d6",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3353",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 230,
+      "nodeName": "FJ3354 right third metacarpal bone",
+      "sourceFileId": "FJ3354",
+      "nodeConceptId": "FMA24468",
+      "sourceSha256": "ce10ec6c9f5c3428593ae8ba0a8be016df7905f39e7d3d7ca930d60da76d0d90",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3354",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 231,
+      "nodeName": "FJ3355 right third metatarsal bone",
+      "sourceFileId": "FJ3355",
+      "nodeConceptId": "FMA24511",
+      "sourceSha256": "27fc6985c6e4b902188075caae096aaf7c8c13360d41446f6a85a5bf34003750",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3355",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 232,
+      "nodeName": "FJ3356 right fourth metacarpal bone",
+      "sourceFileId": "FJ3356",
+      "nodeConceptId": "FMA24470",
+      "sourceSha256": "beb659c0409fc079dbb9bb950c5a409cb31f0177273d231fda65af930e991f72",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3356",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 233,
+      "nodeName": "FJ3357 right fourth metatarsal bone",
+      "sourceFileId": "FJ3357",
+      "nodeConceptId": "FMA24513",
+      "sourceSha256": "ca70d269f39c11fed91263c4b4bce78cf682acff928ec656130e997e1b07a20b",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3357",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 234,
+      "nodeName": "FJ3358 right fifth metacarpal bone",
+      "sourceFileId": "FJ3358",
+      "nodeConceptId": "FMA24472",
+      "sourceSha256": "dca9d2526d8970358c4c2802e840687561cf24d4fb382b3a16f0f423b717283f",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3358",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 235,
+      "nodeName": "FJ3359 right fifth metatarsal bone",
+      "sourceFileId": "FJ3359",
+      "nodeConceptId": "FMA24515",
+      "sourceSha256": "56164dbe40a84f339817445368bebc440d1cb9cfa8246b2d91f8084a538ea745",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3359",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 236,
+      "nodeName": "FJ3360 right calcaneus",
+      "sourceFileId": "FJ3360",
+      "nodeConceptId": "FMA24497",
+      "sourceSha256": "c278cca7a72dc6fc4eee55a348b0020522d99f72209eafe60f35ba4f7258682b",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3360",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 237,
+      "nodeName": "FJ3361 right capitate",
+      "sourceFileId": "FJ3361",
+      "nodeConceptId": "FMA24446",
+      "sourceSha256": "25066d1353fd200871374beffaaed8c6c5ef694148385f3fd33fd5b63bd017ce",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3361",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 238,
+      "nodeName": "FJ3362 right clavicle",
+      "sourceFileId": "FJ3362",
+      "nodeConceptId": "FMA13322",
+      "sourceSha256": "1435b8f365652b215180e398b894a5bdfbf9cb13d00ccf06d07038b962e957b9",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3362",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 239,
+      "nodeName": "FJ3364 right cuboid bone",
+      "sourceFileId": "FJ3364",
+      "nodeConceptId": "FMA24528",
+      "sourceSha256": "92673fcdd37a297b135725f05848155705c04a4bdada1c5088cb3d5d8deef010",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3364",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 240,
+      "nodeName": "FJ3365 right femur",
+      "sourceFileId": "FJ3365",
+      "nodeConceptId": "FMA24474",
+      "sourceSha256": "02fffe2e1b0f8e038d8b7b48e47cbc4925a749446240e676e910bff34d5348de",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3365",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 241,
+      "nodeName": "FJ3366 right fibula",
+      "sourceFileId": "FJ3366",
+      "nodeConceptId": "FMA24480",
+      "sourceSha256": "05bf4de7604e2fd5099b3a5337d243d2d40f2b8f80daf1694b3aba394aa93942",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3366",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 242,
+      "nodeName": "FJ3367 right hamate",
+      "sourceFileId": "FJ3367",
+      "nodeConceptId": "FMA24448",
+      "sourceSha256": "0591d076d4c7a0fc5fe653f80f03801b543075b72544f46e562b21412c743d12",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3367",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 243,
+      "nodeName": "FJ3368 right humerus",
+      "sourceFileId": "FJ3368",
+      "nodeConceptId": "FMA23130",
+      "sourceSha256": "159fbdeb854044e7b0ebd0d48cfe332afb44a691d09b89ff644a851826d08268",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3368",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 244,
+      "nodeName": "FJ3369 right inferior nasal concha",
+      "sourceFileId": "FJ3369",
+      "nodeConceptId": "FMA54737",
+      "sourceSha256": "681194f0df836eb03818110633c22976f9e4cb9e4e77bb194cec3f61cdf2a80b",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3369",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 245,
+      "nodeName": "FJ3370 right intermediate cuneiform bone",
+      "sourceFileId": "FJ3370",
+      "nodeConceptId": "FMA24523",
+      "sourceSha256": "0f849f1f865d7f206cdef48047ccd111cb8f434f0f97b0ed28246a9ba7707679",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3370",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 246,
+      "nodeName": "FJ3371 right lacrimal bone",
+      "sourceFileId": "FJ3371",
+      "nodeConceptId": "FMA53645",
+      "sourceSha256": "d8160ed34abb66d2539e6f05eadc431bd18774e5d1def1a4cb9bc40e3e4a32c5",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3371",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 247,
+      "nodeName": "FJ3372 sesamoid bone of right foot",
+      "sourceFileId": "FJ3372",
+      "nodeConceptId": "FMA45097",
+      "sourceSha256": "dc021f600274fc6dc6af862f213d0e8d61abb5822f44e3e4a2fe752781e1f16a",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3372",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 248,
+      "nodeName": "FJ3373 right lateral cuneiform bone",
+      "sourceFileId": "FJ3373",
+      "nodeConceptId": "FMA24525",
+      "sourceSha256": "fd23e4ff9032ac103773b75b0dfba0b5502979db882c92dd7d724766672da23a",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3373",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 249,
+      "nodeName": "FJ3374 right lunate",
+      "sourceFileId": "FJ3374",
+      "nodeConceptId": "FMA24437",
+      "sourceSha256": "7b607f05b221c86aa6b3f93fc9d37d860281941ed293c4afc1affdb1ef379fc4",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3374",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 250,
+      "nodeName": "FJ3375 right maxilla",
+      "sourceFileId": "FJ3375",
+      "nodeConceptId": "FMA53649",
+      "sourceSha256": "a1be9480b632355859507e590be68146a591d343ad671ca85c43d7be50d8b43c",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3375",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 251,
+      "nodeName": "FJ3376 sesamoid bone of right foot",
+      "sourceFileId": "FJ3376",
+      "nodeConceptId": "FMA45097",
+      "sourceSha256": "d2d94ed0abef251d0d15ed0cc21814a4ea4810840e17d05488ae14bac68ac5a0",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3376",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 252,
+      "nodeName": "FJ3377 right medial cuneiform bone",
+      "sourceFileId": "FJ3377",
+      "nodeConceptId": "FMA24521",
+      "sourceSha256": "cf2bcfee0c5f1bb6f27589044043eb5964b1f35b9fe38624fe31b17cdd8a52aa",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3377",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 253,
+      "nodeName": "FJ3378 right nasal bone",
+      "sourceFileId": "FJ3378",
+      "nodeConceptId": "FMA53647",
+      "sourceSha256": "1acb8f803fb2cd9679eccd1634768b1bbee0714ebef7cf2de041d9332da88acf",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3378",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 254,
+      "nodeName": "FJ3379 right palatine bone",
+      "sourceFileId": "FJ3379",
+      "nodeConceptId": "FMA53655",
+      "sourceSha256": "629876377eca1ae98eefc496121e950367c49bf215febf17cf58a7f9687845dd",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3379",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 255,
+      "nodeName": "FJ3380 right parietal bone",
+      "sourceFileId": "FJ3380",
+      "nodeConceptId": "FMA52788",
+      "sourceSha256": "fb69a19eaa0585509f45ce1ebb5e8d91af0442629e52cfe1cfd190ca8f2f72b0",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3380",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 256,
+      "nodeName": "FJ3381 right patella",
+      "sourceFileId": "FJ3381",
+      "nodeConceptId": "FMA24486",
+      "sourceSha256": "3f53300560b903d8fbc4165af3cdafab8d4f1d0a941ca59c7ef5169d0b838b8a",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3381",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 257,
+      "nodeName": "FJ3382 right pisiform",
+      "sourceFileId": "FJ3382",
+      "nodeConceptId": "FMA24441",
+      "sourceSha256": "c02fffdeada2334cb5cc8281cf3068043c194930f42d6253292416fbb8af50a2",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3382",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 258,
+      "nodeName": "FJ3383 right scaphoid",
+      "sourceFileId": "FJ3383",
+      "nodeConceptId": "FMA24435",
+      "sourceSha256": "1d657f0402994d7854cf5a2038ccf085cffb69ff349fcbe88b04b7d26c1491f1",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3383",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 259,
+      "nodeName": "FJ3384 right scapula",
+      "sourceFileId": "FJ3384",
+      "nodeConceptId": "FMA13395",
+      "sourceSha256": "cb68b2e01a22989f20e602d5036a3f1fb28448fe647f599b9bbd61edfbff2320",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3384",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 260,
+      "nodeName": "FJ3385 right talus",
+      "sourceFileId": "FJ3385",
+      "nodeConceptId": "FMA24482",
+      "sourceSha256": "2332712fbc270403f10f8a99259493758831a6c68c9f54e59ee8d7c3d7281811",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3385",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 261,
+      "nodeName": "FJ3386 right temporal bone",
+      "sourceFileId": "FJ3386",
+      "nodeConceptId": "FMA52738",
+      "sourceSha256": "cae2e4dc5211d50b06e70893eef3bdaf19564ab8ae7923260e800c3498f65f88",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3386",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 262,
+      "nodeName": "FJ3387 right tibia",
+      "sourceFileId": "FJ3387",
+      "nodeConceptId": "FMA24477",
+      "sourceSha256": "a658d28799577c26cdf8318aef799dbe90564355a28b5098d8707eee907f9c7d",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3387",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 263,
+      "nodeName": "FJ3388 right trapezium",
+      "sourceFileId": "FJ3388",
+      "nodeConceptId": "FMA24443",
+      "sourceSha256": "def87e2a86ad17a4b537abfeb0a5b83fac8117fd658cff7ee29a1f79afa59c1a",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3388",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 264,
+      "nodeName": "FJ3389 right trapezoid",
+      "sourceFileId": "FJ3389",
+      "nodeConceptId": "FMA23725",
+      "sourceSha256": "6361a214c7008b247b5ac0dd7bd80be5593bf8882a45add63c9036485d4bcee6",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3389",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 265,
+      "nodeName": "FJ3390 right triquetral",
+      "sourceFileId": "FJ3390",
+      "nodeConceptId": "FMA24439",
+      "sourceSha256": "701c3417f0a8d3df769781449e7f5a5797ed30808849aebca261a6fea3dd4ce9",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3390",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 266,
+      "nodeName": "FJ3391 right ulna",
+      "sourceFileId": "FJ3391",
+      "nodeConceptId": "FMA23467",
+      "sourceSha256": "c84d953caa7613d6640593003ead91449eb1aaedc74cb2b27ae103e2177d3871",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3391",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 267,
+      "nodeName": "FJ3392 right zygomatic bone",
+      "sourceFileId": "FJ3392",
+      "nodeConceptId": "FMA52892",
+      "sourceSha256": "e2c25d922162e3a76131e40ddf0356709947fa554b46640fa1880c381bb749c7",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3392",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 268,
+      "nodeName": "FJ3393 sacrum",
+      "sourceFileId": "FJ3393",
+      "nodeConceptId": "FMA16202",
+      "sourceSha256": "fd95a0b26f450e4939858c9effb7b14e589874c9210edfdb92e8f4552dd484de",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3393",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 269,
+      "nodeName": "FJ3394 sphenoid bone",
+      "sourceFileId": "FJ3394",
+      "nodeConceptId": "FMA52736",
+      "sourceSha256": "9255a2f02b16d0cf87c68fbfdc7afc4709d1afef94c2e2bb1e035b7f7852aca0",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3394",
+      "sourceHashEmbeddedInGLB": false
+    },
+    {
+      "nodeIndex": 270,
+      "nodeName": "FJ3395 vomer",
+      "sourceFileId": "FJ3395",
+      "nodeConceptId": "FMA9710",
+      "sourceSha256": "fcbfac8ca1992059a3026b445fbf55c5b5fa5a54786ed468a6ee8259230101d4",
+      "sourceIdentityRef": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json#members/FJ3395",
+      "sourceHashEmbeddedInGLB": false
+    }
+  ],
+  "provenanceBoundary": "GLB source file/concept IDs are retained. Member hashes are independently computed from official retained archives, not embedded GLB source hashes. This is identity association, not a source-to-derivative rebuild proof.",
+  "evidence": [
+    {
+      "path": "reviews/bp3d-body-studies/2026-10-24-bounded-migration/shared-display/18ade1ae83ebdb7926b3a9e22714662150e9f06afe2c1191382f32aa7596f5ef.webp",
+      "sha256": "18ade1ae83ebdb7926b3a9e22714662150e9f06afe2c1191382f32aa7596f5ef",
+      "bytes": 43818,
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/draft_bone__2026-10-23-v10-exterior-review/3536bcfdf6a2510c4b7d8f8325b6e501a96d5b56ccc928362dd473fda2fd15b3.webp",
+      "format": "WEBP",
+      "pixelDimensions": [
+        1536,
+        602
+      ],
+      "selectionRole": "before",
+      "role": null,
+      "assetBinding": "d79eb35e72a4e923fc204146b02fe2fa06a6161a739d75232f253616eb3ace95",
+      "originalPngSha256": "3536bcfdf6a2510c4b7d8f8325b6e501a96d5b56ccc928362dd473fda2fd15b3",
+      "originalPngExternal": {
+        "canonicalReference": "reviews/bone/2026-10-23-v10-exterior-review/draft_bone/screenshots/contact.png",
+        "sha256": "3536bcfdf6a2510c4b7d8f8325b6e501a96d5b56ccc928362dd473fda2fd15b3",
+        "bundled": false
+      },
+      "sourceBindings": [],
+      "renderSettings": {
+        "engine": "Blender 4.3.2 Cycles CPU",
+        "samples": 32,
+        "resolution": [
+          512,
+          512
+        ],
+        "frame": 1,
+        "projection": "orthographic",
+        "orientation": "Manifest x=patient left, y=superior, z=anterior; glTF imported to Blender Z-up; cameras front=-Y,left=+X,back=+Y",
+        "hiddenCutawayNodes": [],
+        "scope": "Exterior static view only. Internal details may remain occluded. No motion or runtime verification."
+      },
+      "label": {
+        "en": "Front / left / back",
+        "zh": "前视 / 左视 / 后视"
+      }
+    },
+    {
+      "path": "reviews/skeleton/2026-10-24-source-candidate-03-bounded-migration/display/06dffcdd3472b8fd6607f34a4eda50f7733a6055474b5303071b925b5d041c1e.webp",
+      "sha256": "06dffcdd3472b8fd6607f34a4eda50f7733a6055474b5303071b925b5d041c1e",
+      "bytes": 44408,
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/skeleton__source-candidate-03__scoped-review/3651c1ab10d730e868b30a4572121e59af76a56d61bc7fbe02f17146e9b97c61.webp",
+      "format": "WEBP",
+      "pixelDimensions": [
+        1000,
+        1500
+      ],
+      "selectionRole": "candidate",
+      "role": "candidate",
+      "assetBinding": "d224985628cc62d0c9c4284019b73505c9ebf14d78d30a040d74a7b33c68620e",
+      "originalPngSha256": "3651c1ab10d730e868b30a4572121e59af76a56d61bc7fbe02f17146e9b97c61",
+      "originalPngExternal": {
+        "canonicalReference": "reviews/skeleton/source-candidate-03/back.png",
+        "sha256": "3651c1ab10d730e868b30a4572121e59af76a56d61bc7fbe02f17146e9b97c61",
+        "bundled": false
+      },
+      "sourceBindings": [],
+      "renderSettings": null,
+      "label": {
+        "en": "back",
+        "zh": "后视"
+      }
+    },
+    {
+      "path": "reviews/skeleton/2026-10-24-source-candidate-03-bounded-migration/display/1dfba759ec1a74403ba0032a57e66957bd3d82f5145f849a2cdf063ffc9fa08d.webp",
+      "sha256": "1dfba759ec1a74403ba0032a57e66957bd3d82f5145f849a2cdf063ffc9fa08d",
+      "bytes": 47428,
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/skeleton__source-candidate-03__scoped-review/c532f63fa2ef5ce4d759fadc4249a97035226d1ca46499ea6e35833c8e0bce85.webp",
+      "format": "WEBP",
+      "pixelDimensions": [
+        1000,
+        1500
+      ],
+      "selectionRole": "candidate",
+      "role": "candidate",
+      "assetBinding": "d224985628cc62d0c9c4284019b73505c9ebf14d78d30a040d74a7b33c68620e",
+      "originalPngSha256": "c532f63fa2ef5ce4d759fadc4249a97035226d1ca46499ea6e35833c8e0bce85",
+      "originalPngExternal": {
+        "canonicalReference": "reviews/skeleton/source-candidate-03/front.png",
+        "sha256": "c532f63fa2ef5ce4d759fadc4249a97035226d1ca46499ea6e35833c8e0bce85",
+        "bundled": false
+      },
+      "sourceBindings": [],
+      "renderSettings": null,
+      "label": {
+        "en": "front",
+        "zh": "前视"
+      }
+    }
+  ],
+  "externalHistoricalRecords": [
+    {
+      "canonicalReference": "reviews/skeleton/source-candidate-03/review.json",
+      "sha256": "b6681e4074132fd65d835b59280bea14dace5e5dba64f445d963ddd22f156bb2",
+      "bytes": 2169,
+      "bundled": false
+    },
+    {
+      "canonicalReference": "reviews/skeleton/source-candidate-03/record.json",
+      "sha256": "11ff1a1c90ddcab2b77b0dd273a862b9090f5419ab3949ef9bc459f1f9308847",
+      "bytes": 6145,
+      "bundled": false
+    }
+  ],
+  "sourceDependencies": "sources/datasets/bp3d-4.0-body-studies/external-source-map.json",
+  "rebuildBoundary": "Raw archives and OBJ files, original PNGs, full history, Blender scenes and replay environment remain external. No portable rebuild or deterministic pixel replay claim.",
+  "freshAvailabilityChecked": false
+}

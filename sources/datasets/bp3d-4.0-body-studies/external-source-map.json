@@ -1,0 +1,5757 @@
+{
+  "dataset": "BodyParts3D 4.0, published 99% polygon-reduction OBJ",
+  "archives": {
+    "isa": {
+      "url": "https://dbarchive.biosciencedbc.jp/data/bodyparts3d/LATEST/isa_BP3D_4.0_obj_99.zip",
+      "sha256": "40665852c49f218326590e204db91064a1ecfc3c6f8cbd7bbbcaac62c7cd409e",
+      "bytes": 142903898,
+      "localIntegrityCheck": "ZIP CRC passed on retained bytes",
+      "freshAvailabilityChecked": false,
+      "bundled": false
+    },
+    "partof": {
+      "url": "https://dbarchive.biosciencedbc.jp/data/bodyparts3d/LATEST/partof_BP3D_4.0_obj_99.zip",
+      "sha256": "9fbc713fffeee924a5a657d9813d84d7eb957bded63adb854931dd5e3eb61c97",
+      "bytes": 64888505,
+      "localIntegrityCheck": "ZIP CRC passed on retained bytes",
+      "freshAvailabilityChecked": false,
+      "bundled": false
+    }
+  },
+  "members": {
+    "FJ1254": {
+      "fileId": "FJ1254",
+      "sha256": "7ac5ee013326492b1d51795eb292a7e5bba0647b74c30b09dc715f9a1dc28754",
+      "bytes": 103775,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ1254",
+        "Representation ID": "BP5462",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA55704",
+        "English name": "Left lower first secondary molar tooth"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ1254.obj",
+          "crc32": "b547bffb"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ1255": {
+      "fileId": "FJ1255",
+      "sha256": "6cbac9debf9b9cd9825f096c5ac84911f91020a36ec6f95fdfc49f10a679822b",
+      "bytes": 69150,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ1255",
+        "Representation ID": "BP5472",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA55693",
+        "English name": "Left lower first secondary premolar tooth"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ1255.obj",
+          "crc32": "01a16a77"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ1256": {
+      "fileId": "FJ1256",
+      "sha256": "a5dfb507dc76447d6ca09e4a5e11b8750571227d13b582cfffac1d2f35cd1bec",
+      "bytes": 95723,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ1256",
+        "Representation ID": "BP5459",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA55703",
+        "English name": "Left lower second secondary molar tooth"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ1256.obj",
+          "crc32": "1c92ee0e"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ1257": {
+      "fileId": "FJ1257",
+      "sha256": "b4e2d2cb7d5e7d41d82bc6e48b3de5cb628a0786ae0d82abadd39250f6dff3a7",
+      "bytes": 65949,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ1257",
+        "Representation ID": "BP5475",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA55692",
+        "English name": "Left lower second secondary premolar tooth"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ1257.obj",
+          "crc32": "2c8d11de"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ1258": {
+      "fileId": "FJ1258",
+      "sha256": "56fe0ccb8277f4ae0c945d3f2b3cf0a3a816ec2edf31eae4ab46a91954bde7aa",
+      "bytes": 53967,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ1258",
+        "Representation ID": "BP5447",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA57143",
+        "English name": "Left lower central secondary incisor tooth"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ1258.obj",
+          "crc32": "488d4488"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ1259": {
+      "fileId": "FJ1259",
+      "sha256": "f2a5c7fb06457bf61d55f8cab4048983651418f01b3bad013e9a2dea7a383b62",
+      "bytes": 56256,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ1259",
+        "Representation ID": "BP5444",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA57141",
+        "English name": "Left lower lateral secondary incisor tooth"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ1259.obj",
+          "crc32": "60d49630"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ1260": {
+      "fileId": "FJ1260",
+      "sha256": "4dd682c058f3949b30077712296603c1c508423a58998ad909baeec5bfa56b72",
+      "bytes": 69212,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ1260",
+        "Representation ID": "BP5480",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA55687",
+        "English name": "Left lower secondary canine tooth"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ1260.obj",
+          "crc32": "6e76ff07"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ1261": {
+      "fileId": "FJ1261",
+      "sha256": "529061a7fdb28af07855e7350f788f93ef6c97e3bfead2e28bb9efe0256b0728",
+      "bytes": 128003,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ1261",
+        "Representation ID": "BP5455",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA55699",
+        "English name": "Left upper first secondary molar tooth"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ1261.obj",
+          "crc32": "513e4865"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ1262": {
+      "fileId": "FJ1262",
+      "sha256": "5f45ec1015edb7c7539a3ef7a7577d4a0a723beb4dbfb18e36eca77663431c18",
+      "bytes": 95273,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ1262",
+        "Representation ID": "BP5468",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA55690",
+        "English name": "Left upper first secondary premolar tooth"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ1262.obj",
+          "crc32": "917cb608"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ1263": {
+      "fileId": "FJ1263",
+      "sha256": "5811bdc8cfed255f8aa9e10fa8dd4815b5d0924c2a23f1d7e373c8521be6c65a",
+      "bytes": 110058,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ1263",
+        "Representation ID": "BP5453",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA55700",
+        "English name": "Left upper second secondary molar tooth"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ1263.obj",
+          "crc32": "9a27e036"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ1264": {
+      "fileId": "FJ1264",
+      "sha256": "e882218931e8f197490f16ba8058a87502edccc5e8e1f2d50fbd715a0386d33b",
+      "bytes": 86905,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ1264",
+        "Representation ID": "BP5466",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA55691",
+        "English name": "Left upper second secondary premolar tooth"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ1264.obj",
+          "crc32": "51409228"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ1265": {
+      "fileId": "FJ1265",
+      "sha256": "bd094c59fb378809a534467b70b5b24ae0b147bc31f42c004e7ddadf8f0b7328",
+      "bytes": 75752,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ1265",
+        "Representation ID": "BP5440",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA55682",
+        "English name": "Left upper central secondary incisor tooth"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ1265.obj",
+          "crc32": "48465088"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ1266": {
+      "fileId": "FJ1266",
+      "sha256": "4df1ab640352a074623d02e755e7632de180da9dc957503f887c791a533d5ea5",
+      "bytes": 80970,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ1266",
+        "Representation ID": "BP5438",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA55683",
+        "English name": "Left upper lateral secondary incisor tooth"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ1266.obj",
+          "crc32": "c4d3abc7"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ1267": {
+      "fileId": "FJ1267",
+      "sha256": "44f5accf76e8b0a1ac2aefb55d031508fedad0bacda03b598aef71f88ca2462d",
+      "bytes": 81747,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ1267",
+        "Representation ID": "BP5482",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA55799",
+        "English name": "Left upper secondary canine tooth"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ1267.obj",
+          "crc32": "83ad3715"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ1268": {
+      "fileId": "FJ1268",
+      "sha256": "692c5313517c8b049fac739a068710f8bdbd1f3e201a1b88819aff6f8f1a6eda",
+      "bytes": 104807,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ1268",
+        "Representation ID": "BP5461",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA55705",
+        "English name": "Right lower first secondary molar tooth"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ1268.obj",
+          "crc32": "98db8c08"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ1269": {
+      "fileId": "FJ1269",
+      "sha256": "7b3067782910e38d45b03901ba998fcf35088b9f85c523b3cc890cf11adbf17f",
+      "bytes": 69791,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ1269",
+        "Representation ID": "BP5471",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA55694",
+        "English name": "Right lower first secondary premolar tooth"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ1269.obj",
+          "crc32": "02ba883e"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ1270": {
+      "fileId": "FJ1270",
+      "sha256": "722d80bd11c7e814c3c1c2b20fe2621ed8327319028ad67c6e4dce24d7ee4458",
+      "bytes": 96262,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ1270",
+        "Representation ID": "BP5458",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA55706",
+        "English name": "Right lower second secondary molar tooth"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ1270.obj",
+          "crc32": "d4d058c7"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ1271": {
+      "fileId": "FJ1271",
+      "sha256": "220723db70ad6e5edd497977f656be1df7d407804d5ca31302bca598a3d81c41",
+      "bytes": 66636,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ1271",
+        "Representation ID": "BP5474",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA55695",
+        "English name": "Right lower second secondary premolar tooth"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ1271.obj",
+          "crc32": "a026eb29"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ1272": {
+      "fileId": "FJ1272",
+      "sha256": "17927707d17fa7a78f9743f90b4150d6e7b4eaa4fe5c8ad29a961b4ea795272b",
+      "bytes": 54356,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ1272",
+        "Representation ID": "BP5446",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA57142",
+        "English name": "Right lower central secondary incisor tooth"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ1272.obj",
+          "crc32": "ceeda6df"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ1273": {
+      "fileId": "FJ1273",
+      "sha256": "43ca036b3bf66dad24be63b0f95a2a8ecf839b61d2d83981659e03b4a357f869",
+      "bytes": 56841,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ1273",
+        "Representation ID": "BP5443",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA57140",
+        "English name": "Right lower lateral secondary incisor tooth"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ1273.obj",
+          "crc32": "ea829582"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ1274": {
+      "fileId": "FJ1274",
+      "sha256": "a7ded2520e6c1e41154d89a389b4ded0daf733f23d47e4a02fb97230c07b4907",
+      "bytes": 69629,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ1274",
+        "Representation ID": "BP5479",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA55686",
+        "English name": "Right lower secondary canine tooth"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ1274.obj",
+          "crc32": "ac260759"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ1275": {
+      "fileId": "FJ1275",
+      "sha256": "457c1d089e24d7e120abf97c2af844ff609a58c3292446e4b1814137d3691416",
+      "bytes": 111671,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ1275",
+        "Representation ID": "BP5452",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA55697",
+        "English name": "Right upper second secondary molar tooth"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ1275.obj",
+          "crc32": "65b6df9e"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ1276": {
+      "fileId": "FJ1276",
+      "sha256": "95ba31eb43e4975d8f36be7595e383baf31b21b68c829a5e6c419a0125682ef6",
+      "bytes": 130145,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ1276",
+        "Representation ID": "BP7680",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA55698",
+        "English name": "Right upper first secondary molar tooth"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ1276.obj",
+          "crc32": "c2c4c31b"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ1277": {
+      "fileId": "FJ1277",
+      "sha256": "46d0a4b9528553387811d65040836ccfe7dc971fec56254e01c9eabdc16156a0",
+      "bytes": 95890,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ1277",
+        "Representation ID": "BP7681",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA55689",
+        "English name": "Right upper first secondary premolar tooth"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ1277.obj",
+          "crc32": "2edc6ee5"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ1278": {
+      "fileId": "FJ1278",
+      "sha256": "32f4db913923278b7cbfcaf8e64d1073604951dd58493e3310da30bec1ff3829",
+      "bytes": 87622,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ1278",
+        "Representation ID": "BP7682",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA55688",
+        "English name": "Right upper second secondary premolar tooth"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ1278.obj",
+          "crc32": "cc400d99"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ1279": {
+      "fileId": "FJ1279",
+      "sha256": "e8b9c01f57a8a723f9ea0497dfbe2df5f95e23786d0663f196a3608f995d6b22",
+      "bytes": 76355,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ1279",
+        "Representation ID": "BP7683",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA55681",
+        "English name": "Right upper central secondary incisor tooth"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ1279.obj",
+          "crc32": "34522edf"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ1280": {
+      "fileId": "FJ1280",
+      "sha256": "5c06c01ee01c337523fc9cf641c31c65856a52c74237d9d86989d93dd6847c0e",
+      "bytes": 81012,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ1280",
+        "Representation ID": "BP7747",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA55680",
+        "English name": "Right upper lateral secondary incisor tooth"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ1280.obj",
+          "crc32": "9c3a3495"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ1281": {
+      "fileId": "FJ1281",
+      "sha256": "2d8f105ee772e727e3b4ccbb6370a893a213174c0f90155054dac20bc053512c",
+      "bytes": 82485,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ1281",
+        "Representation ID": "BP7684",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA55798",
+        "English name": "Right upper secondary canine tooth"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ1281.obj",
+          "crc32": "d23b41c3"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ2772": {
+      "fileId": "FJ2772",
+      "sha256": "429d56a742a23c27c3423519191c89ae29c34faa027ee0037ad86fbcf5eda11f",
+      "bytes": 75566,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ2772",
+        "Representation ID": "BP10003",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA52749",
+        "English name": "Hyoid bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ2772.obj",
+          "crc32": "e1001166"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3152": {
+      "fileId": "FJ3152",
+      "sha256": "708e42cba3d1817230c98410c80742875d56bb5b3e688a566f62509c7a63e424",
+      "bytes": 149390,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3152",
+        "Representation ID": "BP9949",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA16586",
+        "English name": "Right hip bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3152.obj",
+          "crc32": "7e309a9a"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3153": {
+      "fileId": "FJ3153",
+      "sha256": "d17057ed1dad252a6fa6a3e8d92bc13310cebe0b584df147af0cc4a646f98f3e",
+      "bytes": 56265,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3153",
+        "Representation ID": "BP9391",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA7488",
+        "English name": "Xiphoid process"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3153.obj",
+          "crc32": "19f9b8c5"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3154": {
+      "fileId": "FJ3154",
+      "sha256": "55fd0b1ec25bc207c5a58cb2aa3d5f2880df6593719ec803c83ac898d3bda358",
+      "bytes": 181677,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3154",
+        "Representation ID": "BP9751",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA10037",
+        "English name": "Tenth thoracic vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3154.obj",
+          "crc32": "b145b2f2"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3155": {
+      "fileId": "FJ3155",
+      "sha256": "7ce892808f37a9c96c74f298334be195cb50bfdbe64bcfa62072141ed38df0a2",
+      "bytes": 178073,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3155",
+        "Representation ID": "BP9561",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA10059",
+        "English name": "Eleventh thoracic vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3155.obj",
+          "crc32": "c8495564"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3156": {
+      "fileId": "FJ3156",
+      "sha256": "d78f0563a0c0b5be89284a6d73434998a05dc9dbddb471b49e398c9ef96f07ae",
+      "bytes": 181657,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3156",
+        "Representation ID": "BP10217",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA10081",
+        "English name": "Twelfth thoracic vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3156.obj",
+          "crc32": "cc7b3828"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3157": {
+      "fileId": "FJ3157",
+      "sha256": "2e252a2558f0f64430efa35d79a4fe8677b6cbb0ab6e93afda94b8d4239479fd",
+      "bytes": 193802,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3157",
+        "Representation ID": "BP10066",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA13072",
+        "English name": "First lumbar vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3157.obj",
+          "crc32": "8b9db175"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3158": {
+      "fileId": "FJ3158",
+      "sha256": "57a9cd9f62fc902f2d10f32c83237bba5bee4a24ae323a2b2405d9df68fd585b",
+      "bytes": 114179,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3158",
+        "Representation ID": "BP10080",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA9165",
+        "English name": "First thoracic vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3158.obj",
+          "crc32": "1cd9578c"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3159": {
+      "fileId": "FJ3159",
+      "sha256": "1e63e0abb22ccf6255f1fb910699b2bade07cace17ffc12b43bb185228dd3696",
+      "bytes": 214020,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3159",
+        "Representation ID": "BP10088",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA13073",
+        "English name": "Second lumbar vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3159.obj",
+          "crc32": "2fd4e3a6"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3160": {
+      "fileId": "FJ3160",
+      "sha256": "f04ca280dc74fdc79afb14e5da1515a1e77762960bb38fab869be0e617348eac",
+      "bytes": 126576,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3160",
+        "Representation ID": "BP9790",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA9187",
+        "English name": "Second thoracic vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3160.obj",
+          "crc32": "eb8fe9e5"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3161": {
+      "fileId": "FJ3161",
+      "sha256": "7717781b7cb53eaa24eff097e6da5f8dfd1e58a3f23aa169ec05c58eb93de2dc",
+      "bytes": 139576,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3161",
+        "Representation ID": "BP10151",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA12521",
+        "English name": "Third cervical vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3161.obj",
+          "crc32": "a48d59fb"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3162": {
+      "fileId": "FJ3162",
+      "sha256": "07fdac1c69d14c68241176f055da667eec8c2976c3a579df235d90e66fca91b0",
+      "bytes": 214363,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3162",
+        "Representation ID": "BP9675",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA13074",
+        "English name": "Third lumbar vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3162.obj",
+          "crc32": "75967182"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3163": {
+      "fileId": "FJ3163",
+      "sha256": "968ed4928160fd54c444aa8c4a2c318fa56368c55c715afcdeaa48445382d3f6",
+      "bytes": 130540,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3163",
+        "Representation ID": "BP9927",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA9209",
+        "English name": "Third thoracic vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3163.obj",
+          "crc32": "6af86753"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3164": {
+      "fileId": "FJ3164",
+      "sha256": "ac0dc9fe871acf68fc8fffa41666f4d7fae35626055e18c104135db80bbd8a65",
+      "bytes": 161495,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3164",
+        "Representation ID": "BP9546",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA12522",
+        "English name": "Fourth cervical vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3164.obj",
+          "crc32": "7aae2818"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3165": {
+      "fileId": "FJ3165",
+      "sha256": "e30bc2a914a50d097dc5824cacbe54be10fc68c9f43cd9ef023519bc146cab61",
+      "bytes": 229806,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3165",
+        "Representation ID": "BP9632",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA13075",
+        "English name": "Fourth lumbar vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3165.obj",
+          "crc32": "e93e258c"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3166": {
+      "fileId": "FJ3166",
+      "sha256": "cd744d75a90dc4d2b38f3b25928656ae2f9b873ea3113d01f91a102290eda5bd",
+      "bytes": 133882,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3166",
+        "Representation ID": "BP10174",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA9248",
+        "English name": "Fourth thoracic vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3166.obj",
+          "crc32": "53f226c5"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3167": {
+      "fileId": "FJ3167",
+      "sha256": "15c66e24dcef4af7b1e4c7e948d3048c87b2d772a2f182f814ae7df8059af3f5",
+      "bytes": 158861,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3167",
+        "Representation ID": "BP10002",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA12523",
+        "English name": "Fifth cervical vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3167.obj",
+          "crc32": "3e6003fe"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3168": {
+      "fileId": "FJ3168",
+      "sha256": "884ef6993f9578f86a6441ca7016f647f22778a9ab850189e1863d5f4112001d",
+      "bytes": 252137,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3168",
+        "Representation ID": "BP9697",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA13076",
+        "English name": "Fifth lumbar vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3168.obj",
+          "crc32": "66110dd3"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3169": {
+      "fileId": "FJ3169",
+      "sha256": "7eb98fe2886168196d8a7ee37d1c7a6e7decbc1c09cdf2d4295c13ed7ba3df0c",
+      "bytes": 147917,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3169",
+        "Representation ID": "BP9883",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA9922",
+        "English name": "Fifth thoracic vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3169.obj",
+          "crc32": "f110c159"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3170": {
+      "fileId": "FJ3170",
+      "sha256": "e9cda58b8a69602513d067ee47468c3984c223cdc501975468379b65149c7d19",
+      "bytes": 162035,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3170",
+        "Representation ID": "BP9368",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA12524",
+        "English name": "Sixth cervical vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3170.obj",
+          "crc32": "065b18c7"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3171": {
+      "fileId": "FJ3171",
+      "sha256": "7c9c326269edd09bdf02aca90333c61debe4f39c777fbef887751826a54adb9e",
+      "bytes": 149094,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3171",
+        "Representation ID": "BP9703",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA9945",
+        "English name": "Sixth thoracic vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3171.obj",
+          "crc32": "b03ff57f"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3172": {
+      "fileId": "FJ3172",
+      "sha256": "7454480761dbf6c98c04f1a59788aeba1dcdecde7a673553ec19b2da172c2916",
+      "bytes": 133362,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3172",
+        "Representation ID": "BP9522",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA12525",
+        "English name": "Seventh cervical vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3172.obj",
+          "crc32": "d72573cf"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3173": {
+      "fileId": "FJ3173",
+      "sha256": "1bcf85e649234f976236f81077019ae66971c69c0943992a7ec0072939d42245",
+      "bytes": 167619,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3173",
+        "Representation ID": "BP10006",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA9968",
+        "English name": "Seventh thoracic vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3173.obj",
+          "crc32": "48233cd2"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3174": {
+      "fileId": "FJ3174",
+      "sha256": "f5928470229deb2c7579804b883ffeaae611127dac1454caed3b3df93fe8dad6",
+      "bytes": 157446,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3174",
+        "Representation ID": "BP10205",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA9991",
+        "English name": "Eighth thoracic vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3174.obj",
+          "crc32": "daa7459e"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3175": {
+      "fileId": "FJ3175",
+      "sha256": "f1ce32fedb9f84ac37b800b2a182f6701f972fbd8cc01be7732ab3ca3864603e",
+      "bytes": 166121,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3175",
+        "Representation ID": "BP9656",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA10014",
+        "English name": "Ninth thoracic vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3175.obj",
+          "crc32": "7da3efae"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3176": {
+      "fileId": "FJ3176",
+      "sha256": "594ac8b2b09280022e2b73142f873fd4d622ba7a1bca590c3fdcb0231e4fb461",
+      "bytes": 148680,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3176",
+        "Representation ID": "BP9997",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA12519",
+        "English name": "Atlas"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3176.obj",
+          "crc32": "296123fa"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3177": {
+      "fileId": "FJ3177",
+      "sha256": "d76f052f56dda3dc6f4d453c33f062ff56207ff3aea90f9678b5d295f0c916f1",
+      "bytes": 161902,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3177",
+        "Representation ID": "BP9781",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA12520",
+        "English name": "Axis"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3177.obj",
+          "crc32": "a2c31044"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3178": {
+      "fileId": "FJ3178",
+      "sha256": "32a06946d8eadbe1a847a373abe7499381c0182c72b7c94e3e2a0c3ba7c867e3",
+      "bytes": 374296,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3178",
+        "Representation ID": "BP10083",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA7487",
+        "English name": "Body of sternum"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3178.obj",
+          "crc32": "1f1a8aae"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3179": {
+      "fileId": "FJ3179",
+      "sha256": "aa2903a8f53a7fe7383a9f27dc4920f411a4d8f181afaf7412799dd87e589aac",
+      "bytes": 16800,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3179",
+        "Representation ID": "BP9622",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA32653",
+        "English name": "Distal phalanx of left second toe"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3179.obj",
+          "crc32": "0dd90c05"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3180": {
+      "fileId": "FJ3180",
+      "sha256": "f0887b9a26088762fbd89b1dc34a033ce8d59c2f41a8bf239e822e99c042a8c2",
+      "bytes": 20682,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3180",
+        "Representation ID": "BP9503",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA32655",
+        "English name": "Distal phalanx of left third toe"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3180.obj",
+          "crc32": "b6cb939e"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3181": {
+      "fileId": "FJ3181",
+      "sha256": "eea79d87f0a3b799e705dc7e6cfcba699aa46f1ba4ebc78f27392b069e6849dc",
+      "bytes": 15005,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3181",
+        "Representation ID": "BP9974",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA32657",
+        "English name": "Distal phalanx of left fourth toe"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3181.obj",
+          "crc32": "d6b9f487"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3182": {
+      "fileId": "FJ3182",
+      "sha256": "dad7cb9b6e4eb0619d725a2e2697997a2e8b869ed5d67965c91746b2e6faaa88",
+      "bytes": 26069,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3182",
+        "Representation ID": "BP10216",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA32651",
+        "English name": "Distal phalanx of left big toe"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3182.obj",
+          "crc32": "2bc49064"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3183": {
+      "fileId": "FJ3183",
+      "sha256": "4b21956aa21986a4e709fe73291d0a21a74b202375ce6623dfc7ef6b26ebf9b8",
+      "bytes": 21253,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3183",
+        "Representation ID": "BP9700",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA23953",
+        "English name": "Distal phalanx of left index finger"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3183.obj",
+          "crc32": "54b7b52f"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3184": {
+      "fileId": "FJ3184",
+      "sha256": "11479ce0bbe0c20515066d4b98dd11c35f7f23580f10e2a388ccb816a8dad20e",
+      "bytes": 14525,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3184",
+        "Representation ID": "BP9977",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA23959",
+        "English name": "Distal phalanx of left little finger"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3184.obj",
+          "crc32": "c6192f15"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3185": {
+      "fileId": "FJ3185",
+      "sha256": "4e4c610814cfdf5cb49d890f5ba5b6c0049bda34d031a439c9b3812d161936fa",
+      "bytes": 15696,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3185",
+        "Representation ID": "BP9986",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA32659",
+        "English name": "Distal phalanx of left little toe"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3185.obj",
+          "crc32": "61c34a15"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3186": {
+      "fileId": "FJ3186",
+      "sha256": "c5dcbe81e721420508a2cb40228e45471925d4b507f0c738a7446a2ee835cd7c",
+      "bytes": 17612,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3186",
+        "Representation ID": "BP10012",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA23955",
+        "English name": "Distal phalanx of left middle finger"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3186.obj",
+          "crc32": "bb6a7623"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3187": {
+      "fileId": "FJ3187",
+      "sha256": "49dd966dbef49394d802a781a5ee80b98eec168352d190e6a57ba35ff4ca3bd6",
+      "bytes": 13641,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3187",
+        "Representation ID": "BP10127",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA23957",
+        "English name": "Distal phalanx of left ring finger"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3187.obj",
+          "crc32": "0e057ac6"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3188": {
+      "fileId": "FJ3188",
+      "sha256": "6a0cae057769e3f67a86304be10f7f4b6cafc631092c764a82aef7e7ee9d2119",
+      "bytes": 18738,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3188",
+        "Representation ID": "BP10158",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA23951",
+        "English name": "Distal phalanx of left thumb"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3188.obj",
+          "crc32": "50b28537"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3189": {
+      "fileId": "FJ3189",
+      "sha256": "e9375bc30ba9c2aa2c69cbe3f7e1b1f581d0d1a674c41d31f6b9c27a8f174715",
+      "bytes": 15969,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3189",
+        "Representation ID": "BP9786",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA32652",
+        "English name": "Distal phalanx of right second toe"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3189.obj",
+          "crc32": "e12e9d17"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3190": {
+      "fileId": "FJ3190",
+      "sha256": "153722e3a39bc9f4cf3444cefd9336e5adb6b2236c6d6b8c2d1ba4a54c8754af",
+      "bytes": 17112,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3190",
+        "Representation ID": "BP10092",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA32654",
+        "English name": "Distal phalanx of right third toe"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3190.obj",
+          "crc32": "832e4fa2"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3191": {
+      "fileId": "FJ3191",
+      "sha256": "35ca50bcad4f559dcc6a0885abb9fe3c06965925791ff5567a38301623d46beb",
+      "bytes": 15463,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3191",
+        "Representation ID": "BP10218",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA32656",
+        "English name": "Distal phalanx of right fourth toe"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3191.obj",
+          "crc32": "a537e710"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3192": {
+      "fileId": "FJ3192",
+      "sha256": "ecb7a162be315a96591180a3b997efffa827d06849e8c85cfea72fe0d57e9ab8",
+      "bytes": 30071,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3192",
+        "Representation ID": "BP10230",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA32650",
+        "English name": "Distal phalanx of right big toe"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3192.obj",
+          "crc32": "23274291"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3193": {
+      "fileId": "FJ3193",
+      "sha256": "22fb13bf483f413a93306da7e3805569ec78cf91222920a23e31d1f8f8be8ca7",
+      "bytes": 17152,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3193",
+        "Representation ID": "BP10064",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24460",
+        "English name": "Distal phalanx of right index finger"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3193.obj",
+          "crc32": "dd3cd610"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3194": {
+      "fileId": "FJ3194",
+      "sha256": "1a77bb45ca5da49a3f46f0773d8f544f8171fa7650da31040fc15524d541eac0",
+      "bytes": 13604,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3194",
+        "Representation ID": "BP9881",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24463",
+        "English name": "Distal phalanx of right little finger"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3194.obj",
+          "crc32": "a8aa2b83"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3195": {
+      "fileId": "FJ3195",
+      "sha256": "5402b29f019e8c13be850809be79cd262eab0276094322203e46a103145276ff",
+      "bytes": 16662,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3195",
+        "Representation ID": "BP9914",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA32658",
+        "English name": "Distal phalanx of right little toe"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3195.obj",
+          "crc32": "caf5ef82"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3196": {
+      "fileId": "FJ3196",
+      "sha256": "9aa0ed0579e703009b4f5e16c7a650d5127a9fcf6f91b6e20e5b8317b7e7651e",
+      "bytes": 13455,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3196",
+        "Representation ID": "BP9795",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24461",
+        "English name": "Distal phalanx of right middle finger"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3196.obj",
+          "crc32": "5b3ba81e"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3197": {
+      "fileId": "FJ3197",
+      "sha256": "a8e025b484c28f564f12d7e98b32dad1196050a957f879b639aac2cadc5a300d",
+      "bytes": 10111,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3197",
+        "Representation ID": "BP9506",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24462",
+        "English name": "Distal phalanx of right ring finger"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3197.obj",
+          "crc32": "ee6f5311"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3198": {
+      "fileId": "FJ3198",
+      "sha256": "b95a645681d4548ad0d6bf4d79645f5c2e3b7c044c834ed8d52315c9e3a14f4e",
+      "bytes": 17974,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3198",
+        "Representation ID": "BP9772",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24459",
+        "English name": "Distal phalanx of right thumb"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3198.obj",
+          "crc32": "6d7fe8d7"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3199": {
+      "fileId": "FJ3199",
+      "sha256": "6c0fceb9f44fe469d4db0e41594e8c5ed28a576950de7c43df488628d81105ea",
+      "bytes": 1542632,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3199",
+        "Representation ID": "BP10084",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA52740",
+        "English name": "Ethmoid"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3199.obj",
+          "crc32": "f0e4613c"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3200": {
+      "fileId": "FJ3200",
+      "sha256": "9a01d88bd564b462ecadd6ad5bb3bb2274105baa3d211e0f444210d3f499ed64",
+      "bytes": 1005991,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3200",
+        "Representation ID": "BP9668",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA52734",
+        "English name": "Frontal bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3200.obj",
+          "crc32": "598999fd"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3201": {
+      "fileId": "FJ3201",
+      "sha256": "27e9e3f1146ff10c489c683b89f78c60c187eed578f52ec1bfdd1694d0684b44",
+      "bytes": 75566,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3201",
+        "Representation ID": "BP10003",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA52749",
+        "English name": "Hyoid bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3201.obj",
+          "crc32": "f7ea3ab8"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3202": {
+      "fileId": "FJ3202",
+      "sha256": "54353b0c78da72312837053808c9b7fbece5ea843132b974642447400c05eb17",
+      "bytes": 235455,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3202",
+        "Representation ID": "BP10171",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA25058",
+        "English name": "Intervertebral disk of axis"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3202.obj",
+          "crc32": "e52ed1c8"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3203": {
+      "fileId": "FJ3203",
+      "sha256": "e4d18b10b53cf1dce6254ed32e0cf2bde492f3fba523001f9d0099b6836c4955",
+      "bytes": 115264,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3203",
+        "Representation ID": "BP10223",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA13501",
+        "English name": "Intervertebral disk of fourth thoracic vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3203.obj",
+          "crc32": "bd432ba8"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3204": {
+      "fileId": "FJ3204",
+      "sha256": "aea5417173600504e344b7ff1987e73255fb8cc10a0309fad43c9749ceb53363",
+      "bytes": 142635,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3204",
+        "Representation ID": "BP9870",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA13502",
+        "English name": "Intervertebral disk of fifth thoracic vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3204.obj",
+          "crc32": "dd18c982"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3205": {
+      "fileId": "FJ3205",
+      "sha256": "1419ec408f4c3084e1ee41c6272d5a93ec07e6fba49c3f99b813cc559cae2961",
+      "bytes": 205751,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3205",
+        "Representation ID": "BP9889",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA13503",
+        "English name": "Intervertebral disk of sixth thoracic vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3205.obj",
+          "crc32": "69246c7d"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3206": {
+      "fileId": "FJ3206",
+      "sha256": "b3ea7878a0c4dc7acda522e4de58ee9048d7197167279c9d57c816e22752ef05",
+      "bytes": 207991,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3206",
+        "Representation ID": "BP9769",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA13504",
+        "English name": "Intervertebral disk of seventh thoracic vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3206.obj",
+          "crc32": "91b437b8"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3207": {
+      "fileId": "FJ3207",
+      "sha256": "6ba7cf1f72bcb78289c2043a89c0269821b7e17933b95cde1785de36f164dd88",
+      "bytes": 266229,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3207",
+        "Representation ID": "BP9994",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA13505",
+        "English name": "Intervertebral disk of eighth thoracic vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3207.obj",
+          "crc32": "0dad732c"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3208": {
+      "fileId": "FJ3208",
+      "sha256": "9a674b66719c1b358420e1f4b36884d0fd4cb48c9aec4c7512edb6a6257b3943",
+      "bytes": 265180,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3208",
+        "Representation ID": "BP9916",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA13506",
+        "English name": "Intervertebral disk of ninth thoracic vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3208.obj",
+          "crc32": "f1ec9d3a"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3209": {
+      "fileId": "FJ3209",
+      "sha256": "9f0ce1156106b47bf9b1cd4e42ab0d2f6cd726774f2642e491c00b3e8f1903db",
+      "bytes": 276498,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3209",
+        "Representation ID": "BP10128",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA13507",
+        "English name": "Intervertebral disk of tenth thoracic vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3209.obj",
+          "crc32": "1e204e91"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3210": {
+      "fileId": "FJ3210",
+      "sha256": "0612b7a8bd73b5250b8cda72b0c30d7c9ceb21010dabfc683826f581b4fe6b5e",
+      "bytes": 308301,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3210",
+        "Representation ID": "BP9337",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA13508",
+        "English name": "Intervertebral disk of eleventh thoracic vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3210.obj",
+          "crc32": "98b2e13c"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3211": {
+      "fileId": "FJ3211",
+      "sha256": "312819388c2857a2908b6529b463f43406f090748a464d3aa4bd00f0f3920ccd",
+      "bytes": 358666,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3211",
+        "Representation ID": "BP9765",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA10446",
+        "English name": "Intervertebral disk"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3211.obj",
+          "crc32": "f1d02be1"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3212": {
+      "fileId": "FJ3212",
+      "sha256": "7713e48391f7bddcf0b38736831f3bf570d2aff4aa761ba555c4c2cc3f5e1e1f",
+      "bytes": 344938,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3212",
+        "Representation ID": "BP10038",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA16033",
+        "English name": "Intervertebral disk of first lumbar vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3212.obj",
+          "crc32": "fcac7628"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3213": {
+      "fileId": "FJ3213",
+      "sha256": "588c57901bbacd9acd909e6be32cc98d5c3ded0e0aa9d6d429524e3105e0e359",
+      "bytes": 58733,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3213",
+        "Representation ID": "BP10193",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA13896",
+        "English name": "Intervertebral disk of third cervical vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3213.obj",
+          "crc32": "ee7bfe0b"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3214": {
+      "fileId": "FJ3214",
+      "sha256": "6f798a68e6456c961a7b82f814cb9dd867dc005b49d9b5711b65a93cd25dde5d",
+      "bytes": 320157,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3214",
+        "Representation ID": "BP9907",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA16034",
+        "English name": "Intervertebral disk of second lumbar vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3214.obj",
+          "crc32": "46839dbb"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3215": {
+      "fileId": "FJ3215",
+      "sha256": "671fbfa846c09e3ef118964eadd7433ba7a181065dc67f303d63efef4e29569e",
+      "bytes": 359677,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3215",
+        "Representation ID": "BP9567",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA16035",
+        "English name": "Intervertebral disk of third lumbar vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3215.obj",
+          "crc32": "1338f908"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3216": {
+      "fileId": "FJ3216",
+      "sha256": "a83d0843c597451b0bf8be3bd0f59511e123d65555b66377b2fa4b8b4aafa837",
+      "bytes": 331141,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3216",
+        "Representation ID": "BP9688",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA16036",
+        "English name": "Intervertebral disk of fourth lumbar vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3216.obj",
+          "crc32": "ed80ca7e"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3217": {
+      "fileId": "FJ3217",
+      "sha256": "5f534a8cc9f026b6cc46a4153804eb3b3b53023ba4d27ad36373fbdc0c623b38",
+      "bytes": 266809,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3217",
+        "Representation ID": "BP9968",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA16037",
+        "English name": "Intervertebral disk of fifth lumbar vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3217.obj",
+          "crc32": "1eee40ba"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3218": {
+      "fileId": "FJ3218",
+      "sha256": "19d1fce7507311905dc3967587577b918c44ca47db1dec7a8370f6396d481592",
+      "bytes": 67184,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3218",
+        "Representation ID": "BP9923",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA13897",
+        "English name": "Intervertebral disk of fourth cervical vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3218.obj",
+          "crc32": "6d2ca5c1"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3219": {
+      "fileId": "FJ3219",
+      "sha256": "0afd538cf25eb2668e3b3755654d4ad98f49e865a572f1c2ccf7f24db8353b77",
+      "bytes": 68641,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3219",
+        "Representation ID": "BP9491",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA13898",
+        "English name": "Intervertebral disk of fifth cervical vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3219.obj",
+          "crc32": "abe41e6c"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3220": {
+      "fileId": "FJ3220",
+      "sha256": "368196ece25f700fe3bd3922c7bd706631673fb64f1199134e66f7d8063d5c75",
+      "bytes": 78855,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3220",
+        "Representation ID": "BP10187",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA13899",
+        "English name": "Intervertebral disk of sixth cervical vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3220.obj",
+          "crc32": "cc65c71d"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3221": {
+      "fileId": "FJ3221",
+      "sha256": "0a1690fb85f87722081914d4cc5ec898b6fb199c273778607059d093d9bc9e4d",
+      "bytes": 88237,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3221",
+        "Representation ID": "BP9682",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA13900",
+        "English name": "Intervertebral disk of seventh cervical vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3221.obj",
+          "crc32": "7e1f26c9"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3222": {
+      "fileId": "FJ3222",
+      "sha256": "c83ba588bcfaf229b5bbea5ea521d6751f6fa586997c147dd1ec5215ee9d0639",
+      "bytes": 98619,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3222",
+        "Representation ID": "BP10175",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA10458",
+        "English name": "Intervertebral disk of first thoracic vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3222.obj",
+          "crc32": "b0e8c72a"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3223": {
+      "fileId": "FJ3223",
+      "sha256": "465db0485b4ad437a2b39f3fbe60170eed5e144c9597e294414cacaa4e0e9a16",
+      "bytes": 114102,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3223",
+        "Representation ID": "BP9815",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA13495",
+        "English name": "Intervertebral disk of second thoracic vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3223.obj",
+          "crc32": "e9a14030"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3224": {
+      "fileId": "FJ3224",
+      "sha256": "20a49a6ae3e5709cc272cff12b461806ff0e93626e34ec007e0a381a7b7b97c7",
+      "bytes": 133240,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3224",
+        "Representation ID": "BP10094",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA13500",
+        "English name": "Intervertebral disk of third thoracic vertebra"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3224.obj",
+          "crc32": "4245033d"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3225": {
+      "fileId": "FJ3225",
+      "sha256": "daa25aba7fba3ff691d61cd239f8d49debc84ff871a351051c1d57a192b91dfd",
+      "bytes": 432180,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3225",
+        "Representation ID": "BP10173",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA8472",
+        "English name": "Left tenth rib"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3225.obj",
+          "crc32": "342ed6da"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3226": {
+      "fileId": "FJ3226",
+      "sha256": "4bb9d52fdb2c15cb459c2bd08fd58082cdb39d15903cde675313762ea2287fc8",
+      "bytes": 304278,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3226",
+        "Representation ID": "BP10142",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA8532",
+        "English name": "Left eleventh rib"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3226.obj",
+          "crc32": "3676624e"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3227": {
+      "fileId": "FJ3227",
+      "sha256": "83e04b8b6f91e4de57e7b380a2f2c7d6f0bbf284ce76710ca89aa82fb376bd4e",
+      "bytes": 170995,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3227",
+        "Representation ID": "BP10125",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA8534",
+        "English name": "Left twelfth rib"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3227.obj",
+          "crc32": "02ea806a"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3228": {
+      "fileId": "FJ3228",
+      "sha256": "eb534d19462226e26b91234544f99abe118878a25c125f2a8839341e6769252b",
+      "bytes": 200850,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3228",
+        "Representation ID": "BP9978",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA7987",
+        "English name": "Left first rib"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3228.obj",
+          "crc32": "0e3ffe75"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3229": {
+      "fileId": "FJ3229",
+      "sha256": "b752f038ceba8430f3872897ce69495d7dd74ed8e19c21d3f75d0bc0b156d84f",
+      "bytes": 355234,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3229",
+        "Representation ID": "BP10089",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA8012",
+        "English name": "Left second rib"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3229.obj",
+          "crc32": "412c4241"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3230": {
+      "fileId": "FJ3230",
+      "sha256": "8b42d241c711fe9765b1239be33fcab6b865ab4619b5d05fa98ea245b6075d5c",
+      "bytes": 460035,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3230",
+        "Representation ID": "BP9720",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA8039",
+        "English name": "Left third rib"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3230.obj",
+          "crc32": "1c139782"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3231": {
+      "fileId": "FJ3231",
+      "sha256": "28b852d4813703c5654d0405168e22bf0032632d47b9667b4b16e60ed89a425b",
+      "bytes": 564537,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3231",
+        "Representation ID": "BP9589",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA8148",
+        "English name": "Left fourth rib"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3231.obj",
+          "crc32": "ffe3f7b9"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3232": {
+      "fileId": "FJ3232",
+      "sha256": "6fa730aea273685148d3e9d3f52fe450acec4c13d6e3b1b6865e0e9532283abb",
+      "bytes": 622390,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3232",
+        "Representation ID": "BP9794",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA8093",
+        "English name": "Left fifth rib"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3232.obj",
+          "crc32": "8caadafa"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3233": {
+      "fileId": "FJ3233",
+      "sha256": "2a0f1e32b8410b6396bea7ae342a16ae1ac1b77042e70d7e98cabeb7dcf3dfb9",
+      "bytes": 657313,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3233",
+        "Representation ID": "BP10114",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA8202",
+        "English name": "Left sixth rib"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3233.obj",
+          "crc32": "c5330a94"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3234": {
+      "fileId": "FJ3234",
+      "sha256": "638a766f20b64d02095efa845b5ea316624a376acb44c7e4a6d533d4da6ef4db",
+      "bytes": 642411,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3234",
+        "Representation ID": "BP10209",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA8256",
+        "English name": "Left seventh rib"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3234.obj",
+          "crc32": "846dd9ac"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3235": {
+      "fileId": "FJ3235",
+      "sha256": "81a7215ef6ed923bbad6f07208bbc0ee26ddbaae3b1423f624cae465012d9144",
+      "bytes": 532786,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3235",
+        "Representation ID": "BP9918",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA8310",
+        "English name": "Left eighth rib"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3235.obj",
+          "crc32": "599076cb"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3236": {
+      "fileId": "FJ3236",
+      "sha256": "3dc292292b9f2bd5e226ac100d3a8db76cba8eb1d9d09533a6e5e871f023e2a8",
+      "bytes": 481790,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3236",
+        "Representation ID": "BP9773",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA8391",
+        "English name": "Left ninth rib"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3236.obj",
+          "crc32": "fe876b82"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3237": {
+      "fileId": "FJ3237",
+      "sha256": "ae2dc115516cd51b56047c8c0188a0b62c3fe627deed4d1b83e79e09b4b5c0d8",
+      "bytes": 69713,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3237",
+        "Representation ID": "BP10007",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA13323",
+        "English name": "Left clavicle"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3237.obj",
+          "crc32": "4f106d05"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3239": {
+      "fileId": "FJ3239",
+      "sha256": "9ca5fdb0582ad2795c9316ab9bb2f89f952b5a8c8fcf92a37efa042fc5c7739c",
+      "bytes": 42790,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3239",
+        "Representation ID": "BP9930",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA8005",
+        "English name": "Left first costal cartilage"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3239.obj",
+          "crc32": "3062cf1c"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3240": {
+      "fileId": "FJ3240",
+      "sha256": "0c8bf4436d320036d10a7fa3747ef34f0ce4ecd01bbee373225d1588efa38c70",
+      "bytes": 34527,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3240",
+        "Representation ID": "BP10035",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24465",
+        "English name": "Left first metacarpal bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3240.obj",
+          "crc32": "dc742ad5"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3241": {
+      "fileId": "FJ3241",
+      "sha256": "81a87d611584dc38c5da832051623450d5e798e0461f5595c53b926bce8e1205",
+      "bytes": 70978,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3241",
+        "Representation ID": "BP9649",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24508",
+        "English name": "Left first metatarsal bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3241.obj",
+          "crc32": "f4c71d0c"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3242": {
+      "fileId": "FJ3242",
+      "sha256": "c83bb88d995837a455e72707e9d5ecb0035ad60d8fd2f6f28d3710b4ef4c9d8e",
+      "bytes": 36200,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3242",
+        "Representation ID": "BP9764",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA8031",
+        "English name": "Left second costal cartilage"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3242.obj",
+          "crc32": "ae20719d"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3243": {
+      "fileId": "FJ3243",
+      "sha256": "8fda448450b00ade9b520798111fce1c90a3f27832d0c5112daafb2dabf8c2e9",
+      "bytes": 47133,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3243",
+        "Representation ID": "BP10048",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24467",
+        "English name": "Left second metacarpal bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3243.obj",
+          "crc32": "0049ab81"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3244": {
+      "fileId": "FJ3244",
+      "sha256": "dfccfdd4e15f9c5fc2d3ff5aec2c192e655b33796b7936a091f4fbbf0e846a47",
+      "bytes": 51581,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3244",
+        "Representation ID": "BP10052",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24510",
+        "English name": "Left second metatarsal bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3244.obj",
+          "crc32": "79b6074f"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3245": {
+      "fileId": "FJ3245",
+      "sha256": "ac65f51684b5dbcc3ea82381edae8723cbd9c7b8680bf6149a31dbf0acd26065",
+      "bytes": 36602,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3245",
+        "Representation ID": "BP9942",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA8058",
+        "English name": "Left third costal cartilage"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3245.obj",
+          "crc32": "84240ca5"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3246": {
+      "fileId": "FJ3246",
+      "sha256": "c0c426e3140f3dc2457ddeb2e83d1db6efdadb3e77ccd939a2f15cbd7e186ecd",
+      "bytes": 43632,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3246",
+        "Representation ID": "BP10021",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24469",
+        "English name": "Left third metacarpal bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3246.obj",
+          "crc32": "2acf4a4a"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3247": {
+      "fileId": "FJ3247",
+      "sha256": "ba30e72831383f90a10502c5d511ebaa1edb77ba2a345b3030d95e3483769535",
+      "bytes": 47151,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3247",
+        "Representation ID": "BP10076",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24512",
+        "English name": "Left third metatarsal bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3247.obj",
+          "crc32": "b56bd112"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3248": {
+      "fileId": "FJ3248",
+      "sha256": "3633cb39f1540513872b9477c829d562114dce8d19cba5c99073fe4e3abeb1be",
+      "bytes": 40725,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3248",
+        "Representation ID": "BP9958",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA8167",
+        "English name": "Left fourth costal cartilage"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3248.obj",
+          "crc32": "0b2efa74"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3249": {
+      "fileId": "FJ3249",
+      "sha256": "f6b5c38ee246def1b4c59bbb878ad52b9d06b37af4e55f634c84beb757afff5d",
+      "bytes": 33765,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3249",
+        "Representation ID": "BP10196",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24471",
+        "English name": "Left fourth metacarpal bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3249.obj",
+          "crc32": "a05bc334"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3250": {
+      "fileId": "FJ3250",
+      "sha256": "60e27563f64f948d6de395fb136af962c07d01d83bfa6ac057a263a6f5afcec0",
+      "bytes": 48551,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3250",
+        "Representation ID": "BP9814",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24514",
+        "English name": "Left fourth metatarsal bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3250.obj",
+          "crc32": "01436278"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3251": {
+      "fileId": "FJ3251",
+      "sha256": "86be490af572a3d8c7f41fd1ed3f4bfac19a9966737bc1275f135f160d8298be",
+      "bytes": 66532,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3251",
+        "Representation ID": "BP9973",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA8112",
+        "English name": "Left fifth costal cartilage"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3251.obj",
+          "crc32": "f5a9970b"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3252": {
+      "fileId": "FJ3252",
+      "sha256": "ffe5b98ae80aabd879732ae03f8c56e3f4f84ed6442bf5a00565d274f2816b50",
+      "bytes": 30811,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3252",
+        "Representation ID": "BP9543",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24473",
+        "English name": "Left fifth metacarpal bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3252.obj",
+          "crc32": "8a36b25c"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3253": {
+      "fileId": "FJ3253",
+      "sha256": "bb7bfc77f5c770e1ad0042802b74ab028bd131c631bbdbf3636bcabe522e680b",
+      "bytes": 51789,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3253",
+        "Representation ID": "BP10214",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24516",
+        "English name": "Left fifth metatarsal bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3253.obj",
+          "crc32": "1fec48ff"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3254": {
+      "fileId": "FJ3254",
+      "sha256": "bc9ca44f2ea1fa9800d7f0a35c4596f41df1750ba9c89910d4f64041131db2bf",
+      "bytes": 91695,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3254",
+        "Representation ID": "BP9713",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA8221",
+        "English name": "Left sixth costal cartilage"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3254.obj",
+          "crc32": "453e08ae"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3255": {
+      "fileId": "FJ3255",
+      "sha256": "97e69ede580a6e81cc42bb54fb22d4752719b61c5fced8ccccfb18ce64996676",
+      "bytes": 150879,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3255",
+        "Representation ID": "BP9823",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA8275",
+        "English name": "Left seventh costal cartilage"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3255.obj",
+          "crc32": "d3733752"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3256": {
+      "fileId": "FJ3256",
+      "sha256": "f39b699100eea69a951440f617a7d2ab692a7dc1c80e5bbb064603d7ba2dd4a4",
+      "bytes": 80419,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3256",
+        "Representation ID": "BP9825",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24498",
+        "English name": "Left calcaneus"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3256.obj",
+          "crc32": "b0af69e8"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3257": {
+      "fileId": "FJ3257",
+      "sha256": "43e59c2c85a9d76c49d338c1b42b6ddff82173b8ebd76fbb2d54d86930d23508",
+      "bytes": 25350,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3257",
+        "Representation ID": "BP9504",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24447",
+        "English name": "Left capitate"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3257.obj",
+          "crc32": "b4edfdc7"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3258": {
+      "fileId": "FJ3258",
+      "sha256": "f1ed3539cbb89954b3aadd8a435a174dd26d31e8de39e9480f1c9bd38b4ee3c6",
+      "bytes": 55266,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3258",
+        "Representation ID": "BP9828",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24529",
+        "English name": "Left cuboid bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3258.obj",
+          "crc32": "e308f933"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3259": {
+      "fileId": "FJ3259",
+      "sha256": "4b919097be4820784d199838c69b1fe10afba703f0d6680a3ecab58460fb6549",
+      "bytes": 197179,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3259",
+        "Representation ID": "BP10115",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24475",
+        "English name": "Left femur"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3259.obj",
+          "crc32": "16e8aa6c"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3260": {
+      "fileId": "FJ3260",
+      "sha256": "34d29e9d6b2bf032147bcbe8da1e9fb65739ca2115baf577987ff1b780fabb73",
+      "bytes": 67082,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3260",
+        "Representation ID": "BP9685",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24481",
+        "English name": "Left fibula"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3260.obj",
+          "crc32": "600c991e"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3261": {
+      "fileId": "FJ3261",
+      "sha256": "bc8ce15358c4b60be971675493d38a4bc11046bbb2e93281fdb39d3a3049b375",
+      "bytes": 29395,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3261",
+        "Representation ID": "BP10034",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24449",
+        "English name": "Left hamate"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3261.obj",
+          "crc32": "10758d15"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3262": {
+      "fileId": "FJ3262",
+      "sha256": "58b4f0f36723f27726009cdf4b77172dc694303f4e03f51b29c1663507480194",
+      "bytes": 247433,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3262",
+        "Representation ID": "BP10189",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA23131",
+        "English name": "Left humerus"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3262.obj",
+          "crc32": "52525492"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3263": {
+      "fileId": "FJ3263",
+      "sha256": "c6477a98607e712a2bdefd4c2732ce22a990b8cd8783b7b7a6453192443961cd",
+      "bytes": 49630,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3263",
+        "Representation ID": "BP10109",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA54738",
+        "English name": "Left inferior nasal concha"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3263.obj",
+          "crc32": "6ce42879"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3264": {
+      "fileId": "FJ3264",
+      "sha256": "6d6675dfb04a553a305369368392e91c1a2fd49783a81f7ac35773a5407e13f1",
+      "bytes": 31581,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3264",
+        "Representation ID": "BP9820",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24524",
+        "English name": "Left intermediate cuneiform bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3264.obj",
+          "crc32": "33fa65d6"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3265": {
+      "fileId": "FJ3265",
+      "sha256": "8ad400f81a74d51e3193ab1dc92ec39df5dc1c104a6ced970d430bca3d0f9c9c",
+      "bytes": 40002,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3265",
+        "Representation ID": "BP9614",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA53646",
+        "English name": "Left lacrimal bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3265.obj",
+          "crc32": "57b41ead"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3266": {
+      "fileId": "FJ3266",
+      "sha256": "cc2fc94a2ff8b65b6e6849fabadb902eb82cbe616157f978b28f0c3f10fbc083",
+      "bytes": 7600,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3266",
+        "Representation ID": "BP8272",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA45098",
+        "English name": "Sesamoid bone of left foot"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ3266.obj",
+          "crc32": "c16ebc72"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3267": {
+      "fileId": "FJ3267",
+      "sha256": "1e59930bb6ff4556d250b38ae71fc1e46148b6a87c7355148bac05ea52da0b27",
+      "bytes": 43880,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3267",
+        "Representation ID": "BP9717",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24526",
+        "English name": "Left lateral cuneiform bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3267.obj",
+          "crc32": "aa97bc0e"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3268": {
+      "fileId": "FJ3268",
+      "sha256": "8be07938751172946412e4e5eedf72831d7ec7b42110884d423982e5b8406333",
+      "bytes": 19796,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3268",
+        "Representation ID": "BP9800",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24438",
+        "English name": "Left lunate"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3268.obj",
+          "crc32": "0cc53c5a"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3269": {
+      "fileId": "FJ3269",
+      "sha256": "a56eeb3723f4b3cd1d96b113eaba8f253ed49ff76220ba48ac0d1d086b80ff60",
+      "bytes": 384818,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3269",
+        "Representation ID": "BP10118",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA53650",
+        "English name": "Left maxilla"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3269.obj",
+          "crc32": "9230c48a"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3270": {
+      "fileId": "FJ3270",
+      "sha256": "fb2a430917ad6e0fcaa13124476d12e15c2e99288d697e15e6084b01616a1e97",
+      "bytes": 9720,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3270",
+        "Representation ID": "BP8272",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA45098",
+        "English name": "Sesamoid bone of left foot"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ3270.obj",
+          "crc32": "ae8ec594"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3271": {
+      "fileId": "FJ3271",
+      "sha256": "6bd6c95a27d545d8984a2582f36f3881e04e1550ae2fb3f068d3bee80bf833b2",
+      "bytes": 63718,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3271",
+        "Representation ID": "BP9959",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24522",
+        "English name": "Left medial cuneiform bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3271.obj",
+          "crc32": "052df939"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3272": {
+      "fileId": "FJ3272",
+      "sha256": "cc03a0b61102415dfa66cc55210f65c71ca9466e6e043d350449eac71b414a24",
+      "bytes": 28146,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3272",
+        "Representation ID": "BP9837",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA53648",
+        "English name": "Left nasal bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3272.obj",
+          "crc32": "6187f1de"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3273": {
+      "fileId": "FJ3273",
+      "sha256": "dacf96918a971758cbf25e3884b15e6c2b0a112a863b773332fb916431676368",
+      "bytes": 126160,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3273",
+        "Representation ID": "BP9484",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA53656",
+        "English name": "Left palatine bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3273.obj",
+          "crc32": "fb0e40f5"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3274": {
+      "fileId": "FJ3274",
+      "sha256": "df63a28fa604ff67828d8f382c66cfa46f40306b1b4c17a8062029764047d0e3",
+      "bytes": 956860,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3274",
+        "Representation ID": "BP10199",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA52789",
+        "English name": "Left parietal bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3274.obj",
+          "crc32": "36dc6d2c"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3275": {
+      "fileId": "FJ3275",
+      "sha256": "8a0776c1efe4ed2e3fff3c14b6fdb814dab4c077f8f3cf866866e8d9312a33e3",
+      "bytes": 19171,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3275",
+        "Representation ID": "BP9728",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24487",
+        "English name": "Left patella"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3275.obj",
+          "crc32": "810d94a6"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3276": {
+      "fileId": "FJ3276",
+      "sha256": "fde947e4adb1373a5fe74820141804efb7875a6a507ff53938c2727392d6828b",
+      "bytes": 12494,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3276",
+        "Representation ID": "BP10072",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24442",
+        "English name": "Left pisiform"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3276.obj",
+          "crc32": "a0c79109"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3277": {
+      "fileId": "FJ3277",
+      "sha256": "cce317e77ca297f93c0676815e22e8a2b6cc09029b74f1678193b17a9c0d5583",
+      "bytes": 39879,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3277",
+        "Representation ID": "BP10123",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA23465",
+        "English name": "Left radius"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3277.obj",
+          "crc32": "ead270ab"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3278": {
+      "fileId": "FJ3278",
+      "sha256": "4311e5b791fb93c11376a4643d6bee38b134614dba22e94004d9fb3de1fe2a3f",
+      "bytes": 19055,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3278",
+        "Representation ID": "BP9627",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24436",
+        "English name": "Left scaphoid"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3278.obj",
+          "crc32": "1b268695"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3279": {
+      "fileId": "FJ3279",
+      "sha256": "a52cf573f15b7c7c5cf096ae3ee81d8062a955edffdf82447e745afeccd0e554",
+      "bytes": 1865742,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3279",
+        "Representation ID": "BP10159",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA13396",
+        "English name": "Left scapula"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3279.obj",
+          "crc32": "3d4e2d89"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3280": {
+      "fileId": "FJ3280",
+      "sha256": "0f9b04d6f7e7f82572e9bca7fe3e08e92e4a7917d9cc60f9a8038e4c3a7c7bb7",
+      "bytes": 85963,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3280",
+        "Representation ID": "BP10186",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24483",
+        "English name": "Left talus"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3280.obj",
+          "crc32": "8e219b59"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3281": {
+      "fileId": "FJ3281",
+      "sha256": "47cc46f1480c54fe14a2d22361c3b93fcb964538f23d5b425ac718854cff2673",
+      "bytes": 341132,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3281",
+        "Representation ID": "BP9536",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA52739",
+        "English name": "Left temporal bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3281.obj",
+          "crc32": "781a8c15"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3282": {
+      "fileId": "FJ3282",
+      "sha256": "80add76b87c7b9e1396406de48f691e5fd3dde9e5cec49a0b15c6963d78542c6",
+      "bytes": 101393,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3282",
+        "Representation ID": "BP10195",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24478",
+        "English name": "Left tibia"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3282.obj",
+          "crc32": "46eb73b9"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3283": {
+      "fileId": "FJ3283",
+      "sha256": "b3126c2751ac29968622e802011d4461c528057f9fd2db950f0704acaa8763cb",
+      "bytes": 23455,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3283",
+        "Representation ID": "BP10102",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24444",
+        "English name": "Left trapezium"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3283.obj",
+          "crc32": "4f34fb00"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3284": {
+      "fileId": "FJ3284",
+      "sha256": "cea6f3c52bdeb7d261f52a296e00686acf042d87ed004bf453fd39cdfb8f1379",
+      "bytes": 27730,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3284",
+        "Representation ID": "BP10228",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24445",
+        "English name": "Left trapezoid"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3284.obj",
+          "crc32": "ae924bf2"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3285": {
+      "fileId": "FJ3285",
+      "sha256": "fe25c63027de612508d7d92ac6ea08beafe48b0f9d0c8a2a7471b5ce85882576",
+      "bytes": 19114,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3285",
+        "Representation ID": "BP9859",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24440",
+        "English name": "Left triquetral"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3285.obj",
+          "crc32": "7bdf2edf"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3286": {
+      "fileId": "FJ3286",
+      "sha256": "32838a464599fa017717090afe9d355c03c0afb48cd8c5aa7e6f825156b594a5",
+      "bytes": 53065,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3286",
+        "Representation ID": "BP10130",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA23468",
+        "English name": "Left ulna"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3286.obj",
+          "crc32": "31c1c1c9"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3287": {
+      "fileId": "FJ3287",
+      "sha256": "9cfd8fd359816b5fa5ed9758f26d942c7ada0900aa7f614aff39949fdad3ddee",
+      "bytes": 96711,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3287",
+        "Representation ID": "BP9801",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA52893",
+        "English name": "Left zygomatic bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3287.obj",
+          "crc32": "921c160e"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3288": {
+      "fileId": "FJ3288",
+      "sha256": "981411a910d502c80e454cc95128a9812a1284202295d1ebc7ab5020a08d83aa",
+      "bytes": 144969,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3288",
+        "Representation ID": "BP10067",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA16587",
+        "English name": "Left hip bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3288.obj",
+          "crc32": "eeb87b50"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3289": {
+      "fileId": "FJ3289",
+      "sha256": "6ae0d7fde4221302f1c74d9e9933e2e05c36efef273bb27a78326d108d140ce8",
+      "bytes": 355298,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3289",
+        "Representation ID": "BP9617",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA52748",
+        "English name": "Mandible"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3289.obj",
+          "crc32": "d5770edb"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3290": {
+      "fileId": "FJ3290",
+      "sha256": "b847e67db475197cc4510744fef76bafd8e75c50797ca85eb8cd56dd853d61d6",
+      "bytes": 164758,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3290",
+        "Representation ID": "BP9840",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA7486",
+        "English name": "Manubrium"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3290.obj",
+          "crc32": "526578d8"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3291": {
+      "fileId": "FJ3291",
+      "sha256": "8c31a1d782b726629680cd5e0514b4988e8c0b9d388d600b5c76f0a89dcd9275",
+      "bytes": 22303,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3291",
+        "Representation ID": "BP9872",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA23942",
+        "English name": "Middle phalanx of left ring finger"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3291.obj",
+          "crc32": "9d8f2efc"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3292": {
+      "fileId": "FJ3292",
+      "sha256": "48586a1489d539eecb8f37520e9683c014fc32bc6666bba42ca264b35af5c7a7",
+      "bytes": 22026,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3292",
+        "Representation ID": "BP9777",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24457",
+        "English name": "Middle phalanx of right ring finger"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3292.obj",
+          "crc32": "14eaba8c"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3293": {
+      "fileId": "FJ3293",
+      "sha256": "706e5f280c437ae9c01d08e021d82640ec3dfa50d1d2e0a2ee48eafc821ed104",
+      "bytes": 20890,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3293",
+        "Representation ID": "BP9398",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA32643",
+        "English name": "Middle phalanx of left second toe"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3293.obj",
+          "crc32": "d3635cdb"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3294": {
+      "fileId": "FJ3294",
+      "sha256": "c7b9a13197ef69b530146cfdcfca046bcba053bcc6bc6895c63cf2fc9fd3781f",
+      "bytes": 19299,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3294",
+        "Representation ID": "BP9292",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA32645",
+        "English name": "Middle phalanx of left third toe"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3294.obj",
+          "crc32": "e26293f4"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3295": {
+      "fileId": "FJ3295",
+      "sha256": "d854f4059f59201871761d7a891f626c7ad8d74a77e7aea64f7b99c8c2b55f9b",
+      "bytes": 18902,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3295",
+        "Representation ID": "BP10091",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA32647",
+        "English name": "Middle phalanx of left fourth toe"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3295.obj",
+          "crc32": "5e623e2c"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3296": {
+      "fileId": "FJ3296",
+      "sha256": "3784ab9d38876602abdda3ef45b45a11f907f5412abf458915a5ffe92cdd82ac",
+      "bytes": 19637,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3296",
+        "Representation ID": "BP10126",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA23938",
+        "English name": "Middle phalanx of left index finger"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3296.obj",
+          "crc32": "d1bdc7ee"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3297": {
+      "fileId": "FJ3297",
+      "sha256": "876fc444322b51eebcc12622aefff29266c16b8dadbe9c7b97588013b2e6a120",
+      "bytes": 18373,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3297",
+        "Representation ID": "BP9865",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA23944",
+        "English name": "Middle phalanx of left little finger"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3297.obj",
+          "crc32": "ef19aac5"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3298": {
+      "fileId": "FJ3298",
+      "sha256": "68eb411cca65a47677026461b807534ee0640dcb7355031d6ab1fef901050e81",
+      "bytes": 14804,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3298",
+        "Representation ID": "BP10111",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA230988",
+        "English name": "Middle phalanx of left little toe"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3298.obj",
+          "crc32": "b4c184ab"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3299": {
+      "fileId": "FJ3299",
+      "sha256": "7d67270dabfb72710d6adf29b6ccc901a459fa49d2315517a392ca62cf2e0878",
+      "bytes": 24419,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3299",
+        "Representation ID": "BP9779",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA23940",
+        "English name": "Middle phalanx of left middle finger"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3299.obj",
+          "crc32": "608c3490"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3300": {
+      "fileId": "FJ3300",
+      "sha256": "d23b2c500c208c3c3c3f482f8429b75a08d8d852f2d5529bb18aad4716bd17e9",
+      "bytes": 19082,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3300",
+        "Representation ID": "BP9798",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA32642",
+        "English name": "Middle phalanx of right second toe"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3300.obj",
+          "crc32": "cf4527c7"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3301": {
+      "fileId": "FJ3301",
+      "sha256": "41a7cc5bda4605754c7db7bbc561e78fea9e59824a311d16efee7c00d9e931ae",
+      "bytes": 19746,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3301",
+        "Representation ID": "BP10119",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA32644",
+        "English name": "Middle phalanx of right third toe"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3301.obj",
+          "crc32": "a88b39c4"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3302": {
+      "fileId": "FJ3302",
+      "sha256": "6454fbcd2ba8d7fc45c9d9d9d4b56cd9e7831143038ee4510a7bbd407984bad1",
+      "bytes": 23229,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3302",
+        "Representation ID": "BP9858",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA32646",
+        "English name": "Middle phalanx of right fourth toe"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3302.obj",
+          "crc32": "e11ad50d"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3303": {
+      "fileId": "FJ3303",
+      "sha256": "0dce3e3ab43a1c3c8030e5bd97c40035f84e1ca272ea08e57c6523fecca7337c",
+      "bytes": 18666,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3303",
+        "Representation ID": "BP9821",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24455",
+        "English name": "Middle phalanx of right index finger"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3303.obj",
+          "crc32": "b3fd8d3c"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3304": {
+      "fileId": "FJ3304",
+      "sha256": "3289a2bb712569479a65872d56778a962cca787409326252fd05734cc5f9dd36",
+      "bytes": 15918,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3304",
+        "Representation ID": "BP9799",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24458",
+        "English name": "Middle phalanx of right little finger"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3304.obj",
+          "crc32": "b6a6180f"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3305": {
+      "fileId": "FJ3305",
+      "sha256": "e6a389b572fb34e9a2e483dcbec2446d1b6a94a02e4ae25079513e571e452b49",
+      "bytes": 10020,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3305",
+        "Representation ID": "BP10212",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA230986",
+        "English name": "Middle phalanx of right little toe"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3305.obj",
+          "crc32": "6bd3d672"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3306": {
+      "fileId": "FJ3306",
+      "sha256": "8795bec6ecf458cbb1a4e361113da509a49dfafdaf8ca4610cb0a90e3bdd6233",
+      "bytes": 23307,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3306",
+        "Representation ID": "BP10170",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24456",
+        "English name": "Middle phalanx of right middle finger"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3306.obj",
+          "crc32": "25963ee9"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3307": {
+      "fileId": "FJ3307",
+      "sha256": "f3acad5a0995ac64585b22079fed851a20af96fc09e1e781fbb8853145a5df2d",
+      "bytes": 48956,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3307",
+        "Representation ID": "BP9866",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24501",
+        "English name": "Navicular bone of left foot"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3307.obj",
+          "crc32": "92cec82d"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3308": {
+      "fileId": "FJ3308",
+      "sha256": "8156683b53dbe285d9c5bd939969b0ae85bc4f989f0d2bca5d7a72a28ed22518",
+      "bytes": 48256,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3308",
+        "Representation ID": "BP10162",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24500",
+        "English name": "Navicular bone of right foot"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3308.obj",
+          "crc32": "0930e948"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3309": {
+      "fileId": "FJ3309",
+      "sha256": "37172b4706d23d51ebb3ce3839cc59c6e4cb4931039901f395703bc7dff52761",
+      "bytes": 843677,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3309",
+        "Representation ID": "BP10180",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA52735",
+        "English name": "Occipital bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3309.obj",
+          "crc32": "6b66fa95"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3310": {
+      "fileId": "FJ3310",
+      "sha256": "c325627d966076f87101492f298d0e71ba877ce796463fd10e4fa6697b5e42fd",
+      "bytes": 30991,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3310",
+        "Representation ID": "BP9970",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA43253",
+        "English name": "Proximal phalanx of right big toe"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3310.obj",
+          "crc32": "7293a1fb"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3311": {
+      "fileId": "FJ3311",
+      "sha256": "deac4abe55e492efe84c7dd5bef101690ea3c6c5f4a9df552c370b8a2a324aa6",
+      "bytes": 26457,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3311",
+        "Representation ID": "BP10004",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA32637",
+        "English name": "Proximal phalanx of left third toe"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3311.obj",
+          "crc32": "eddf36de"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3312": {
+      "fileId": "FJ3312",
+      "sha256": "663bd9469b96679753e7f64c5f072c8cfe245dbb4b37b685079b4e7b890c4937",
+      "bytes": 27744,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3312",
+        "Representation ID": "BP9715",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA32639",
+        "English name": "Proximal phalanx of left fourth toe"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3312.obj",
+          "crc32": "bab54248"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3313": {
+      "fileId": "FJ3313",
+      "sha256": "8ff94391d57f8758f86e7a8ac9a82f62c9175067ffbbadab5693221ba204ecbe",
+      "bytes": 24154,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3313",
+        "Representation ID": "BP9710",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA71915",
+        "English name": "Proximal phalanx of left index finger"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3313.obj",
+          "crc32": "4b4d7d9a"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3314": {
+      "fileId": "FJ3314",
+      "sha256": "a970bf6fea2d1ad51cad704a488417aaaaacca40be6f10c9ec713f358760efb8",
+      "bytes": 17251,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3314",
+        "Representation ID": "BP9919",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA66791",
+        "English name": "Proximal phalanx of left little finger"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3314.obj",
+          "crc32": "00e6772b"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3315": {
+      "fileId": "FJ3315",
+      "sha256": "0bdbbd0619f4765da9fa25918a1e79db22b156eb4de1ba8574bec67369bfdd6d",
+      "bytes": 25036,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3315",
+        "Representation ID": "BP9863",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA32641",
+        "English name": "Proximal phalanx of left little toe"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3315.obj",
+          "crc32": "3309d06a"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3316": {
+      "fileId": "FJ3316",
+      "sha256": "411ec81747038f797c4a2a7c33ac87cdbf49047aedc43a6487d45cc373f697a8",
+      "bytes": 28627,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3316",
+        "Representation ID": "BP10022",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA71908",
+        "English name": "Proximal phalanx of left middle finger"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3316.obj",
+          "crc32": "d699ee89"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3317": {
+      "fileId": "FJ3317",
+      "sha256": "851e0b459c672fef4cd2a32583991b22c30576f467eb50c5ffcb22fd13ea7de8",
+      "bytes": 22682,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3317",
+        "Representation ID": "BP9493",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA71916",
+        "English name": "Proximal phalanx of left ring finger"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3317.obj",
+          "crc32": "4b3d4cca"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3318": {
+      "fileId": "FJ3318",
+      "sha256": "0f62e4d042979264f6f3d4dd0a90044b89a3ad4b66c141cebc2aa515bd3255c8",
+      "bytes": 21622,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3318",
+        "Representation ID": "BP9437",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA65470",
+        "English name": "Proximal phalanx of left thumb"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3318.obj",
+          "crc32": "036ac4e1"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3319": {
+      "fileId": "FJ3319",
+      "sha256": "1d2f11bb623181a344f0b9d68b16ffb3e31946d3f5f571e92cd35f0e66c1101c",
+      "bytes": 26109,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3319",
+        "Representation ID": "BP10191",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA32634",
+        "English name": "Proximal phalanx of right second toe"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3319.obj",
+          "crc32": "1fcd9f8b"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3320": {
+      "fileId": "FJ3320",
+      "sha256": "54e8381fbba8e81960afa51c153d5e06143c85f1808e083f2bd591115fce3c02",
+      "bytes": 28700,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3320",
+        "Representation ID": "BP9947",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA32636",
+        "English name": "Proximal phalanx of right third toe"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3320.obj",
+          "crc32": "8a353f86"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3321": {
+      "fileId": "FJ3321",
+      "sha256": "37b1195ac0a13fc425bab0d0151ada733b4d1c107a61a70ae42eeb3ee3c33dfa",
+      "bytes": 27853,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3321",
+        "Representation ID": "BP9698",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA32638",
+        "English name": "Proximal phalanx of right fourth toe"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3321.obj",
+          "crc32": "53507ada"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3322": {
+      "fileId": "FJ3322",
+      "sha256": "7f260208904ef78c88790201e64b02cb9bb3e2b3e0feafa4108630d9a2d8c7a9",
+      "bytes": 24439,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3322",
+        "Representation ID": "BP10051",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24451",
+        "English name": "Proximal phalanx of right index finger"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3322.obj",
+          "crc32": "3cba1523"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3323": {
+      "fileId": "FJ3323",
+      "sha256": "dede96cf0c9d5ccb093673a9ec2dc2ef2970578cde1438276120fdf9aff096d2",
+      "bytes": 20013,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3323",
+        "Representation ID": "BP9612",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24454",
+        "English name": "Proximal phalanx of right little finger"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3323.obj",
+          "crc32": "85a5c338"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3324": {
+      "fileId": "FJ3324",
+      "sha256": "0f783ee739f14fd2ca5c9db076d989795880ac9e436ce15062e397e7c6586225",
+      "bytes": 25999,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3324",
+        "Representation ID": "BP9762",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA32640",
+        "English name": "Proximal phalanx of right little toe"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3324.obj",
+          "crc32": "af06c418"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3325": {
+      "fileId": "FJ3325",
+      "sha256": "0ed85cade9e2a4c6d0c3353cbfcd996ab65f9c908ac6a2d41b0cffada814bd0d",
+      "bytes": 29295,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3325",
+        "Representation ID": "BP10103",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24452",
+        "English name": "Proximal phalanx of right middle finger"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3325.obj",
+          "crc32": "a421698c"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3326": {
+      "fileId": "FJ3326",
+      "sha256": "8464ab995a48d5642198901885fafc5b101fd8982530f533f04e2be8aef26b59",
+      "bytes": 23133,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3326",
+        "Representation ID": "BP9711",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24453",
+        "English name": "Proximal phalanx of right ring finger"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3326.obj",
+          "crc32": "3233004f"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3327": {
+      "fileId": "FJ3327",
+      "sha256": "14f0aa99ab3dbcc34f8c9460fb240bb7ba0b43c2188feaa79aa58ae8a476cae8",
+      "bytes": 20714,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3327",
+        "Representation ID": "BP9557",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24450",
+        "English name": "Proximal phalanx of right thumb"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3327.obj",
+          "crc32": "eaae0cdb"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3328": {
+      "fileId": "FJ3328",
+      "sha256": "33964822dfcd4833af09cef2c3909d210ba13a6c96fc9f3c2d457f4f2d1805f8",
+      "bytes": 24732,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3328",
+        "Representation ID": "BP10137",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA32635",
+        "English name": "Proximal phalanx of left second toe"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3328.obj",
+          "crc32": "eb2f7f49"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3329": {
+      "fileId": "FJ3329",
+      "sha256": "7b351faa1a13618f21c5072c00e97248334306b623c78a8eb102c62b298245c5",
+      "bytes": 33796,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3329",
+        "Representation ID": "BP9891",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA43254",
+        "English name": "Proximal phalanx of left big toe"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3329.obj",
+          "crc32": "e70cb34a"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3330": {
+      "fileId": "FJ3330",
+      "sha256": "0f688dd4e0d20a8328b4763c0acc7582a9beac8fe5c7ce58586db99c6e366945",
+      "bytes": 434809,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3330",
+        "Representation ID": "BP9749",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA8445",
+        "English name": "Right tenth rib"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3330.obj",
+          "crc32": "5573162a"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3331": {
+      "fileId": "FJ3331",
+      "sha256": "761d6d8713c31d4b9f795c4875da9fc750c913907386489568fdebea15af49c3",
+      "bytes": 306724,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3331",
+        "Representation ID": "BP10071",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA8531",
+        "English name": "Right eleventh rib"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3331.obj",
+          "crc32": "4fcdd8cb"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3332": {
+      "fileId": "FJ3332",
+      "sha256": "ece92488a9293cde2d8a8275cee8232326b377811afba888f6147d7217e04e07",
+      "bytes": 172395,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3332",
+        "Representation ID": "BP10213",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA8533",
+        "English name": "Right twelfth rib"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3332.obj",
+          "crc32": "aaf7302f"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3333": {
+      "fileId": "FJ3333",
+      "sha256": "616b5add6471a3fd2a7297cbebfee18a13866eb165ca0be05c5942ae16bacc10",
+      "bytes": 45599,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3333",
+        "Representation ID": "BP9771",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA7875",
+        "English name": "Right first costal cartilage"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3333.obj",
+          "crc32": "37130860"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3334": {
+      "fileId": "FJ3334",
+      "sha256": "ecef0080744a8422b72b4f52229bd68945692cdef7d6fe2a57043b2155c49d17",
+      "bytes": 202346,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3334",
+        "Representation ID": "BP9714",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA7857",
+        "English name": "Right first rib"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3334.obj",
+          "crc32": "36226669"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3335": {
+      "fileId": "FJ3335",
+      "sha256": "065a4969ea4210ce6d3f5838dc2da20f1153de478e02c7a86ced152eab82bf6a",
+      "bytes": 42019,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3335",
+        "Representation ID": "BP10045",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA7886",
+        "English name": "Right second costal cartilage"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3335.obj",
+          "crc32": "77aef7d3"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3336": {
+      "fileId": "FJ3336",
+      "sha256": "e9f527453bb2a48764ac7243d0b9b23e37fb2a85e92cee445972a1a770a5eaa4",
+      "bytes": 358351,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3336",
+        "Representation ID": "BP10229",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA7882",
+        "English name": "Right second rib"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3336.obj",
+          "crc32": "ad9a3396"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3337": {
+      "fileId": "FJ3337",
+      "sha256": "469513e43364a7212843011c944a9fff22b5b50496a11e739bcdafc70005d3dd",
+      "bytes": 42128,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3337",
+        "Representation ID": "BP10093",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA7913",
+        "English name": "Right third costal cartilage"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3337.obj",
+          "crc32": "b7df8cfa"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3338": {
+      "fileId": "FJ3338",
+      "sha256": "69dbbcfc72d592aa862621612e7ad1151ada3fa06c5ce51e24731015561ad7ac",
+      "bytes": 463529,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3338",
+        "Representation ID": "BP10077",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA7909",
+        "English name": "Right third rib"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3338.obj",
+          "crc32": "9b8b2184"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3339": {
+      "fileId": "FJ3339",
+      "sha256": "fc442f6596ca1a7ce18fc2d65cb92dcc1de1951381ebd631223469b6e84923b1",
+      "bytes": 43628,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3339",
+        "Representation ID": "BP9827",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA7976",
+        "English name": "Right fourth costal cartilage"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3339.obj",
+          "crc32": "6311772b"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3340": {
+      "fileId": "FJ3340",
+      "sha256": "b9bc6bbb160fd579ed246c3eb145b39f82866dc2dfeebe798f0dba5a2e352597",
+      "bytes": 567439,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3340",
+        "Representation ID": "BP10139",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA7957",
+        "English name": "Right fourth rib"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3340.obj",
+          "crc32": "d4ac4ec2"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3341": {
+      "fileId": "FJ3341",
+      "sha256": "921b821e925624302d8ab138dfa80a24bf3d9150e006b7ac27a2b5f73d15ab33",
+      "bytes": 73177,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3341",
+        "Representation ID": "BP9987",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA8070",
+        "English name": "Right fifth costal cartilage"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3341.obj",
+          "crc32": "6093fb3d"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3342": {
+      "fileId": "FJ3342",
+      "sha256": "11d403618e4114a5edcd8f2fa4e90ef4e6427b04f4cd3962c59462694b55c443",
+      "bytes": 627176,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3342",
+        "Representation ID": "BP9975",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA8066",
+        "English name": "Right fifth rib"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3342.obj",
+          "crc32": "863617df"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3343": {
+      "fileId": "FJ3343",
+      "sha256": "3b633ffd599c51c1f00d66442855a047b013bda569fa092ea31ece5fdc289111",
+      "bytes": 103505,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3343",
+        "Representation ID": "BP9396",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA8194",
+        "English name": "Right sixth costal cartilage"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3343.obj",
+          "crc32": "a5f1067d"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3344": {
+      "fileId": "FJ3344",
+      "sha256": "67f1f42fea1c289adaf4929716534bad7dfdd136ca0057f05de83d6e20c8f0a8",
+      "bytes": 661848,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3344",
+        "Representation ID": "BP10033",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA8175",
+        "English name": "Right sixth rib"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3344.obj",
+          "crc32": "910ae548"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3345": {
+      "fileId": "FJ3345",
+      "sha256": "a4d22796f4ffc6f9ad1b7d620c917be1638244864eca62aec60bd11033ed3041",
+      "bytes": 167567,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3345",
+        "Representation ID": "BP9725",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA8248",
+        "English name": "Right seventh costal cartilage"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3345.obj",
+          "crc32": "1815d179"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3346": {
+      "fileId": "FJ3346",
+      "sha256": "91aa56e034fbe6f413c0f15b76d725a1f8efd115aa2900beda6edf43a3ab0c43",
+      "bytes": 647432,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3346",
+        "Representation ID": "BP9669",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA8229",
+        "English name": "Right seventh rib"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3346.obj",
+          "crc32": "cb5a125c"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3347": {
+      "fileId": "FJ3347",
+      "sha256": "43a1591cf1e123ca01f64297a7ce008d679a5f5f26421cc5b69e2232da89d743",
+      "bytes": 535785,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3347",
+        "Representation ID": "BP10133",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA8283",
+        "English name": "Right eighth rib"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3347.obj",
+          "crc32": "72171558"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3348": {
+      "fileId": "FJ3348",
+      "sha256": "7d3a969b778da18eb38b1a64d92e2b90e1730fcb0d7b2bfacd125ff4826876d0",
+      "bytes": 485203,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3348",
+        "Representation ID": "BP10184",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA8364",
+        "English name": "Right ninth rib"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3348.obj",
+          "crc32": "d23edb56"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3349": {
+      "fileId": "FJ3349",
+      "sha256": "be1ebc9c5285cc934c625763b3363fc3133efab9eafdf1edf0b36de3b7ee06a9",
+      "bytes": 42704,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3349",
+        "Representation ID": "BP9783",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA23464",
+        "English name": "Right radius"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3349.obj",
+          "crc32": "2ced406a"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3350": {
+      "fileId": "FJ3350",
+      "sha256": "73267d7a1a33294ed2856e147f3d7658c14878cd01906ec8ffb64a4b9b68318b",
+      "bytes": 34554,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3350",
+        "Representation ID": "BP9833",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24464",
+        "English name": "Right first metacarpal bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3350.obj",
+          "crc32": "b76f9569"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3351": {
+      "fileId": "FJ3351",
+      "sha256": "36f03bdaf6be4385c83cc297b13bf6089504e5ddd12a6d6894a4e655b01cfb02",
+      "bytes": 69314,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3351",
+        "Representation ID": "BP9677",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24507",
+        "English name": "Right first metatarsal bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3351.obj",
+          "crc32": "db2ea5ef"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3352": {
+      "fileId": "FJ3352",
+      "sha256": "3c67c77a4312c40f3ca98e1600eb930c6210ac83773efe4f594bf6ca3ca02fce",
+      "bytes": 46640,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3352",
+        "Representation ID": "BP9671",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24466",
+        "English name": "Right second metacarpal bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3352.obj",
+          "crc32": "1ef9dd78"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3353": {
+      "fileId": "FJ3353",
+      "sha256": "3f813ff69332df5a67dbce693af5558f4b5db2d48bf12ba39fff3e48e44e99d6",
+      "bytes": 53151,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3353",
+        "Representation ID": "BP9876",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24509",
+        "English name": "Right second metatarsal bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3353.obj",
+          "crc32": "f96519e5"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3354": {
+      "fileId": "FJ3354",
+      "sha256": "ce10ec6c9f5c3428593ae8ba0a8be016df7905f39e7d3d7ca930d60da76d0d90",
+      "bytes": 44441,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3354",
+        "Representation ID": "BP9877",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24468",
+        "English name": "Right third metacarpal bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3354.obj",
+          "crc32": "209df7c7"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3355": {
+      "fileId": "FJ3355",
+      "sha256": "27fc6985c6e4b902188075caae096aaf7c8c13360d41446f6a85a5bf34003750",
+      "bytes": 45927,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3355",
+        "Representation ID": "BP9980",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24511",
+        "English name": "Right third metatarsal bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3355.obj",
+          "crc32": "4883df42"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3356": {
+      "fileId": "FJ3356",
+      "sha256": "beb659c0409fc079dbb9bb950c5a409cb31f0177273d231fda65af930e991f72",
+      "bytes": 35728,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3356",
+        "Representation ID": "BP9775",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24470",
+        "English name": "Right fourth metacarpal bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3356.obj",
+          "crc32": "62b87526"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3357": {
+      "fileId": "FJ3357",
+      "sha256": "ca70d269f39c11fed91263c4b4bce78cf682acff928ec656130e997e1b07a20b",
+      "bytes": 43591,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3357",
+        "Representation ID": "BP10160",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24513",
+        "English name": "Right fourth metatarsal bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3357.obj",
+          "crc32": "5279c7a4"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3358": {
+      "fileId": "FJ3358",
+      "sha256": "dca9d2526d8970358c4c2802e840687561cf24d4fb382b3a16f0f423b717283f",
+      "bytes": 31194,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3358",
+        "Representation ID": "BP10056",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24472",
+        "English name": "Right fifth metacarpal bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3358.obj",
+          "crc32": "40328e11"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3359": {
+      "fileId": "FJ3359",
+      "sha256": "56164dbe40a84f339817445368bebc440d1cb9cfa8246b2d91f8084a538ea745",
+      "bytes": 49448,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3359",
+        "Representation ID": "BP9463",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24515",
+        "English name": "Right fifth metatarsal bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3359.obj",
+          "crc32": "cd74e46f"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3360": {
+      "fileId": "FJ3360",
+      "sha256": "c278cca7a72dc6fc4eee55a348b0020522d99f72209eafe60f35ba4f7258682b",
+      "bytes": 81786,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3360",
+        "Representation ID": "BP10113",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24497",
+        "English name": "Right calcaneus"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3360.obj",
+          "crc32": "74537ef5"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3361": {
+      "fileId": "FJ3361",
+      "sha256": "25066d1353fd200871374beffaaed8c6c5ef694148385f3fd33fd5b63bd017ce",
+      "bytes": 27468,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3361",
+        "Representation ID": "BP9824",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24446",
+        "English name": "Right capitate"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3361.obj",
+          "crc32": "4dc20861"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3362": {
+      "fileId": "FJ3362",
+      "sha256": "1435b8f365652b215180e398b894a5bdfbf9cb13d00ccf06d07038b962e957b9",
+      "bytes": 68325,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3362",
+        "Representation ID": "BP10225",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA13322",
+        "English name": "Right clavicle"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3362.obj",
+          "crc32": "a8085e69"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3364": {
+      "fileId": "FJ3364",
+      "sha256": "92673fcdd37a297b135725f05848155705c04a4bdada1c5088cb3d5d8deef010",
+      "bytes": 60081,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3364",
+        "Representation ID": "BP10031",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24528",
+        "English name": "Right cuboid bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3364.obj",
+          "crc32": "f25ce8ad"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3365": {
+      "fileId": "FJ3365",
+      "sha256": "02fffe2e1b0f8e038d8b7b48e47cbc4925a749446240e676e910bff34d5348de",
+      "bytes": 192118,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3365",
+        "Representation ID": "BP10053",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24474",
+        "English name": "Right femur"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3365.obj",
+          "crc32": "33f330a4"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3366": {
+      "fileId": "FJ3366",
+      "sha256": "05bf4de7604e2fd5099b3a5337d243d2d40f2b8f80daf1694b3aba394aa93942",
+      "bytes": 69200,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3366",
+        "Representation ID": "BP9550",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24480",
+        "English name": "Right fibula"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3366.obj",
+          "crc32": "0e55622a"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3367": {
+      "fileId": "FJ3367",
+      "sha256": "0591d076d4c7a0fc5fe653f80f03801b543075b72544f46e562b21412c743d12",
+      "bytes": 34998,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3367",
+        "Representation ID": "BP10220",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24448",
+        "English name": "Right hamate"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3367.obj",
+          "crc32": "86f267f3"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3368": {
+      "fileId": "FJ3368",
+      "sha256": "159fbdeb854044e7b0ebd0d48cfe332afb44a691d09b89ff644a851826d08268",
+      "bytes": 256568,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3368",
+        "Representation ID": "BP10197",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA23130",
+        "English name": "Right humerus"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3368.obj",
+          "crc32": "9e57b574"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3369": {
+      "fileId": "FJ3369",
+      "sha256": "681194f0df836eb03818110633c22976f9e4cb9e4e77bb194cec3f61cdf2a80b",
+      "bytes": 54835,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3369",
+        "Representation ID": "BP9752",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA54737",
+        "English name": "Right inferior nasal concha"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3369.obj",
+          "crc32": "d77d7bd0"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3370": {
+      "fileId": "FJ3370",
+      "sha256": "0f849f1f865d7f206cdef48047ccd111cb8f434f0f97b0ed28246a9ba7707679",
+      "bytes": 30370,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3370",
+        "Representation ID": "BP10153",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24523",
+        "English name": "Right intermediate cuneiform bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3370.obj",
+          "crc32": "115881e4"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3371": {
+      "fileId": "FJ3371",
+      "sha256": "d8160ed34abb66d2539e6f05eadc431bd18774e5d1def1a4cb9bc40e3e4a32c5",
+      "bytes": 44180,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3371",
+        "Representation ID": "BP9936",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA53645",
+        "English name": "Right lacrimal bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3371.obj",
+          "crc32": "5d80c010"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3372": {
+      "fileId": "FJ3372",
+      "sha256": "dc021f600274fc6dc6af862f213d0e8d61abb5822f44e3e4a2fe752781e1f16a",
+      "bytes": 6873,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3372",
+        "Representation ID": "BP8756",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA45097",
+        "English name": "Sesamoid bone of right foot"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ3372.obj",
+          "crc32": "190d879a"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3373": {
+      "fileId": "FJ3373",
+      "sha256": "fd23e4ff9032ac103773b75b0dfba0b5502979db882c92dd7d724766672da23a",
+      "bytes": 41986,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3373",
+        "Representation ID": "BP9929",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24525",
+        "English name": "Right lateral cuneiform bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3373.obj",
+          "crc32": "8a15d992"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3374": {
+      "fileId": "FJ3374",
+      "sha256": "7b607f05b221c86aa6b3f93fc9d37d860281941ed293c4afc1affdb1ef379fc4",
+      "bytes": 21072,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3374",
+        "Representation ID": "BP10233",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24437",
+        "English name": "Right lunate"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3374.obj",
+          "crc32": "e8b859a5"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3375": {
+      "fileId": "FJ3375",
+      "sha256": "a1be9480b632355859507e590be68146a591d343ad671ca85c43d7be50d8b43c",
+      "bytes": 388581,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3375",
+        "Representation ID": "BP9705",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA53649",
+        "English name": "Right maxilla"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3375.obj",
+          "crc32": "f78380f5"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3376": {
+      "fileId": "FJ3376",
+      "sha256": "d2d94ed0abef251d0d15ed0cc21814a4ea4810840e17d05488ae14bac68ac5a0",
+      "bytes": 10645,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3376",
+        "Representation ID": "BP8756",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA45097",
+        "English name": "Sesamoid bone of right foot"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ3376.obj",
+          "crc32": "6fde9f4c"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3377": {
+      "fileId": "FJ3377",
+      "sha256": "cf2bcfee0c5f1bb6f27589044043eb5964b1f35b9fe38624fe31b17cdd8a52aa",
+      "bytes": 65006,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3377",
+        "Representation ID": "BP9996",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24521",
+        "English name": "Right medial cuneiform bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3377.obj",
+          "crc32": "a9f3e97a"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3378": {
+      "fileId": "FJ3378",
+      "sha256": "1acb8f803fb2cd9679eccd1634768b1bbee0714ebef7cf2de041d9332da88acf",
+      "bytes": 27685,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3378",
+        "Representation ID": "BP10124",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA53647",
+        "English name": "Right nasal bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3378.obj",
+          "crc32": "388c627d"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3379": {
+      "fileId": "FJ3379",
+      "sha256": "629876377eca1ae98eefc496121e950367c49bf215febf17cf58a7f9687845dd",
+      "bytes": 119252,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3379",
+        "Representation ID": "BP9748",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA53655",
+        "English name": "Right palatine bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3379.obj",
+          "crc32": "e3ffdea0"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3380": {
+      "fileId": "FJ3380",
+      "sha256": "fb69a19eaa0585509f45ce1ebb5e8d91af0442629e52cfe1cfd190ca8f2f72b0",
+      "bytes": 928870,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3380",
+        "Representation ID": "BP10121",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA52788",
+        "English name": "Right parietal bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3380.obj",
+          "crc32": "4f3f72b4"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3381": {
+      "fileId": "FJ3381",
+      "sha256": "3f53300560b903d8fbc4165af3cdafab8d4f1d0a941ca59c7ef5169d0b838b8a",
+      "bytes": 19208,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3381",
+        "Representation ID": "BP9739",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24486",
+        "English name": "Right patella"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3381.obj",
+          "crc32": "27d211bf"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3382": {
+      "fileId": "FJ3382",
+      "sha256": "c02fffdeada2334cb5cc8281cf3068043c194930f42d6253292416fbb8af50a2",
+      "bytes": 11692,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3382",
+        "Representation ID": "BP9957",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24441",
+        "English name": "Right pisiform"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3382.obj",
+          "crc32": "e4c690c2"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3383": {
+      "fileId": "FJ3383",
+      "sha256": "1d657f0402994d7854cf5a2038ccf085cffb69ff349fcbe88b04b7d26c1491f1",
+      "bytes": 20599,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3383",
+        "Representation ID": "BP9926",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24435",
+        "English name": "Right scaphoid"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3383.obj",
+          "crc32": "0dcfb20f"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3384": {
+      "fileId": "FJ3384",
+      "sha256": "cb68b2e01a22989f20e602d5036a3f1fb28448fe647f599b9bbd61edfbff2320",
+      "bytes": 1743772,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3384",
+        "Representation ID": "BP10144",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA13395",
+        "English name": "Right scapula"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3384.obj",
+          "crc32": "1e88655b"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3385": {
+      "fileId": "FJ3385",
+      "sha256": "2332712fbc270403f10f8a99259493758831a6c68c9f54e59ee8d7c3d7281811",
+      "bytes": 89823,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3385",
+        "Representation ID": "BP9560",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24482",
+        "English name": "Right talus"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3385.obj",
+          "crc32": "c5201a99"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3386": {
+      "fileId": "FJ3386",
+      "sha256": "cae2e4dc5211d50b06e70893eef3bdaf19564ab8ae7923260e800c3498f65f88",
+      "bytes": 349972,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3386",
+        "Representation ID": "BP10032",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA52738",
+        "English name": "Right temporal bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3386.obj",
+          "crc32": "4ec581e4"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3387": {
+      "fileId": "FJ3387",
+      "sha256": "a658d28799577c26cdf8318aef799dbe90564355a28b5098d8707eee907f9c7d",
+      "bytes": 100140,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3387",
+        "Representation ID": "BP9559",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24477",
+        "English name": "Right tibia"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3387.obj",
+          "crc32": "1549cefa"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3388": {
+      "fileId": "FJ3388",
+      "sha256": "def87e2a86ad17a4b537abfeb0a5b83fac8117fd658cff7ee29a1f79afa59c1a",
+      "bytes": 28952,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3388",
+        "Representation ID": "BP9841",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24443",
+        "English name": "Right trapezium"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3388.obj",
+          "crc32": "307d85c6"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3389": {
+      "fileId": "FJ3389",
+      "sha256": "6361a214c7008b247b5ac0dd7bd80be5593bf8882a45add63c9036485d4bcee6",
+      "bytes": 26446,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3389",
+        "Representation ID": "BP9408",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA23725",
+        "English name": "Right trapezoid"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3389.obj",
+          "crc32": "5fa63e56"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3390": {
+      "fileId": "FJ3390",
+      "sha256": "701c3417f0a8d3df769781449e7f5a5797ed30808849aebca261a6fea3dd4ce9",
+      "bytes": 13089,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3390",
+        "Representation ID": "BP9704",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA24439",
+        "English name": "Right triquetral"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3390.obj",
+          "crc32": "3b4f8154"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3391": {
+      "fileId": "FJ3391",
+      "sha256": "c84d953caa7613d6640593003ead91449eb1aaedc74cb2b27ae103e2177d3871",
+      "bytes": 54177,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3391",
+        "Representation ID": "BP9679",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA23467",
+        "English name": "Right ulna"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3391.obj",
+          "crc32": "3196d15d"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3392": {
+      "fileId": "FJ3392",
+      "sha256": "e2c25d922162e3a76131e40ddf0356709947fa554b46640fa1880c381bb749c7",
+      "bytes": 101102,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3392",
+        "Representation ID": "BP9965",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA52892",
+        "English name": "Right zygomatic bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3392.obj",
+          "crc32": "55b76279"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3393": {
+      "fileId": "FJ3393",
+      "sha256": "fd95a0b26f450e4939858c9effb7b14e589874c9210edfdb92e8f4552dd484de",
+      "bytes": 654882,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3393",
+        "Representation ID": "BP10178",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA16202",
+        "English name": "Sacrum"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3393.obj",
+          "crc32": "cf1b1f57"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3394": {
+      "fileId": "FJ3394",
+      "sha256": "9255a2f02b16d0cf87c68fbfdc7afc4709d1afef94c2e2bb1e035b7f7852aca0",
+      "bytes": 573598,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3394",
+        "Representation ID": "BP9806",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA52736",
+        "English name": "Sphenoid bone"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3394.obj",
+          "crc32": "899a399d"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ3395": {
+      "fileId": "FJ3395",
+      "sha256": "fcbfac8ca1992059a3026b445fbf55c5b5fa5a54786ed468a6ee8259230101d4",
+      "bytes": 465972,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ3395",
+        "Representation ID": "BP9960",
+        "Build-up logic": "FMA 3.0 part_of",
+        "Concept ID": "FMA9710",
+        "English name": "Vomer"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "partof",
+          "member": "partof_BP3D_4.0_obj_99/FJ3395.obj",
+          "crc32": "cd146203"
+        }
+      ],
+      "bundled": false
+    },
+    "FJ2810": {
+      "fileId": "FJ2810",
+      "sha256": "682f402206f15592acdeaae8ffb6b34c3e5c3267fa4685e63d2e4920ef2a80e0",
+      "bytes": 14465502,
+      "identity": {
+        "Compatibility version": "4.0",
+        "File ID": "FJ2810",
+        "Representation ID": "BP9115",
+        "Build-up logic": "FMA 3.0 is_a",
+        "Concept ID": "FMA7163",
+        "English name": "Skin"
+      },
+      "verifiedMatchingArchiveMembers": [
+        {
+          "archiveId": "isa",
+          "member": "isa_BP3D_4.0_obj_99/FJ2810.obj",
+          "crc32": "c7d79905"
+        }
+      ],
+      "bundled": false
+    }
+  },
+  "perStudyComponentCounts": {
+    "skeleton": 271,
+    "skin": 1
+  },
+  "license": {
+    "publisherURL": "https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html",
+    "currentLicense": "CC BY4.0",
+    "publisherPageUpdated": "2025-02-27",
+    "historicalOBJHeaders": "CC BY-SA2.1 Japan retained unchanged externally",
+    "retainedLicenseSnapshotSha256": "7e175c7fe3ea5b375676f14fd8252c1f82a2475448b939b946e3c45bf863c545",
+    "snapshotBundled": false,
+    "freshAvailabilityChecked": false
+  },
+  "identityBoundary": "Canonical GLB nodes identify source files/concepts but do not contain source SHA hashes. Archive/member hashes are pinned independently; association is not rebuild validation. Exact raw header names and node labels are preserved.",
+  "sourceFrame": "Native BP3D millimetres converted to glTF metres: +X patient left, +Y superior, +Z anterior. Keep existing node transforms; no new centering or registration.",
+  "dependenciesNotBundled": [
+    "Official raw archives and OBJ members",
+    "Original PNG evidence and historical records explicitly listed in bounded records",
+    "Blender scenes and full replay recipes/environment"
+  ],
+  "portableSourceRebuildVerified": false,
+  "pixelReplayVerified": false
+}
