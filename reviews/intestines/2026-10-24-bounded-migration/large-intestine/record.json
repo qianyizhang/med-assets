@@ -1,0 +1,226 @@
+{
+  "schema": "bp3d-bowel-bounded-migration-v1",
+  "assetId": "draft_large_intestine",
+  "variantId": "large-intestine__source-candidate-v4",
+  "model": {
+    "path": "models/large-intestine/exports/source-candidate-v4/large-intestine.glb",
+    "sha256": "a8bd8f8227a3cf53b5aa63bb234c1bcb182bfa432da5eb2e3488788f829df4f5",
+    "bytes": 7882016
+  },
+  "scope": {
+    "en": "Source-derived large-bowel educational exterior in its source-consistent intestinal pair. Taenia ribbons are teaching surfaces, not photographic tissue; no continuous-lumen or mixed-source CT registration approval.",
+    "zh": "来源大肠的教学外表面，置于同源肠道组合中。结肠带为教学表面，并非照片级组织；未接受连续肠腔或跨来源 CT 配准。"
+  },
+  "gates": {
+    "technical": "pass-with-limitations",
+    "visual": "passed",
+    "anatomy": "reference-screened",
+    "runtime": "unverified"
+  },
+  "gatePolicy": "Existing gallery gates retained verbatim; no new anatomy/runtime/quality gate or count change.",
+  "priorReview": {
+    "technicalStatus": "passed exterior checks",
+    "visualStatus": "passed — educational exterior only, source-consistent pair",
+    "anatomyScope": "source-derived educational exterior only; not clinical or continuous lumen validation",
+    "runtimeStatus": "not tested",
+    "placementStatus": "source-consistent pair only; mixed-source CT registration rejected",
+    "failure": {
+      "en": "Near rectangular frame with near-uniform bead-like haustra; pale taenia strips look intermittently detached; cecal bulb and appendix junction remain toy-like.",
+      "zh": "原大肠是近矩形框加重复鼓包，纵行条带像浮在表面。"
+    },
+    "cause": {
+      "en": "Uniform procedural radius modulation and a box-like path replaced region-specific anatomical form.",
+      "zh": "用统一半径变化替代不同肠段的真实外形。"
+    },
+    "change": {
+      "en": "BodyParts3D source exterior replacement; see precise bridge/motion/fragment-cleanup receipt.",
+      "zh": "采用来源明确的肠段、直肠和阑尾外表面；清除来源网格中小于0.5 mm的离散碎片。"
+    },
+    "lesson": {
+      "en": "Regional calibre and bends must come from anatomical reference; repeated bumps are not equivalent to haustra.",
+      "zh": "解剖图谱也可能有网格碎片和重复归属；来源可信不能替代质量检查。"
+    },
+    "limits": {
+      "en": "Closed exterior modeling boundaries, no continuous validated lumen. Taenia ribbons are source-derived teaching surfaces, not photographic tissue finish.",
+      "zh": "保留封闭的外表面建模边界，不代表连续且经验证的肠腔。结肠带是来源图谱的教学表面，不是照片级组织材质。"
+    }
+  },
+  "priorReviewIdentity": {
+    "canonicalPath": "reviews/intestines/source-candidate-v4/evidence/review-cards.json",
+    "sha256": "e61201e146c9c8832521b9b3fd2a255fe64ced55427975be89757c3932e1f5d9",
+    "bytes": 5416,
+    "includedInDraft": false,
+    "availability": "Historical canonical record outside this bounded payload; not a bundled dependency."
+  },
+  "sourceRecords": {
+    "manifest": "sources/datasets/bodyparts3d/bowel-studies-4.0/external-source-map.json",
+    "componentIds": [
+      "FJ2565",
+      "FJ2566",
+      "FJ2567",
+      "FJ2568",
+      "FJ2569",
+      "FJ2570",
+      "FJ2571",
+      "FJ2572"
+    ],
+    "externalRawSource": true
+  },
+  "sourceFrameRecord": "sources/datasets/bodyparts3d/bowel-studies-4.0/source-frame.json",
+  "historicalExteriorChecks": "reviews/intestines/2026-10-24-bounded-migration/historical-exterior-checks.json",
+  "animationContract": {
+    "embeddedClip": null,
+    "scope": "Colon remains static.",
+    "runtimeStatus": "unverified"
+  },
+  "warnings": [
+    "Source-derived educational exterior in its source-consistent intestinal pair; not clinical or validated continuous lumen.",
+    "Historical tolerance-welded audit reports 10 disconnected components despite zero boundary/non-manifold/degenerate exterior counts. Not a new topology pass.",
+    "BP3D source frame only; diagnostic CT-overlay translation excluded. No mixed-source patient registration or default assembly approval.",
+    "Source atlas is reduced-polygon CAD, not a raw scan; interpolation does not recover missing anatomy.",
+    "Source-derived taenia ribbons are teaching surfaces, not photographic tissue. Historical cleanup removed 345 disconnected slivers, maximum diameter 0.450821 mm.",
+    "FJ2599 ileocecal junction is exported with small intestine only, not duplicated in this GLB."
+  ],
+  "evidence": [
+    {
+      "id": "draft_large_intestine__2026-10-23-v10-exterior-review__3",
+      "file": "evidence/canonical/draft_large_intestine__2026-10-23-v10-exterior-review/744826f195ae40b45866f6a8121a687a1e27d69674bc0964ac7b7082f41c6b52.webp",
+      "sha256": "abdd4877d467e3573ea4c43c4949206df50db5b1cbb25c2ac725d9f577ca4598",
+      "originalSha256": "744826f195ae40b45866f6a8121a687a1e27d69674bc0964ac7b7082f41c6b52",
+      "originalFile": "reviews/large-intestine/2026-10-23-v10-exterior-review/draft_large_intestine/screenshots/contact.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "baseline",
+      "noteIsGeneric": true,
+      "kind": "blender-still-contact-sheet",
+      "label": {
+        "en": "Front / left / back",
+        "zh": "前视 / 左视 / 后视"
+      },
+      "capturedAt": "2026-10-23T01:30:52.562004+00:00",
+      "recordedDate": "2026-10-23",
+      "assetBinding": "2db0e5193d86f51a83d95df5c3841377aa823d51585a45dbdbd49e6cd92455b0",
+      "sourceBindings": [],
+      "role": null,
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": {
+        "engine": "Blender 4.3.2 Cycles CPU",
+        "samples": 32,
+        "resolution": [
+          512,
+          512
+        ],
+        "frame": 1,
+        "projection": "orthographic",
+        "orientation": "Manifest x=patient left, y=superior, z=anterior; glTF imported to Blender Z-up; cameras front=-Y,left=+X,back=+Y",
+        "hiddenCutawayNodes": [],
+        "scope": "Exterior static view only. Internal details may remain occluded. No motion or runtime verification."
+      },
+      "note": {
+        "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+        "zh": "自己的静态证据，WebP 展示副本；无损原图保留在规范审查记录中。不自动表示解剖或运行通过。"
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/draft_large_intestine__2026-10-23-v10-exterior-review/744826f195ae40b45866f6a8121a687a1e27d69674bc0964ac7b7082f41c6b52.webp",
+      "bytes": 51238,
+      "selectionRole": "before",
+      "originalNativePublicCopies": [],
+      "retainedPath": "reviews/intestines/2026-10-24-bounded-migration/display/abdd4877d467e3573ea4c43c4949206df50db5b1cbb25c2ac725d9f577ca4598.webp",
+      "license": "CC BY 4.0 for BP3D-derived candidate render; baseline retains its separate original binding.",
+      "originalNativeImageIncluded": false,
+      "originalNativeImageAvailability": "External original PNG in the historical canonical review; only the exact selected WebP is bundled."
+    },
+    {
+      "id": "large-intestine__source-candidate-v4__scoped-review__1",
+      "file": "evidence/canonical/large-intestine__source-candidate-v4__scoped-review/06d66283f33890c3c8a17d94786bb47236a6652d9774dc262d6f3997a4e5072e.webp",
+      "sha256": "4e2bcd495eac8d692911d22931ca5c6135c6421f398265d29e7e5624b3c9262b",
+      "originalSha256": "06d66283f33890c3c8a17d94786bb47236a6652d9774dc262d6f3997a4e5072e",
+      "originalFile": "reviews/intestines/source-candidate-v4/evidence/source-frame/large-intestine/contact.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "candidate",
+      "noteIsGeneric": true,
+      "kind": "blender-still",
+      "label": {
+        "en": "contact",
+        "zh": "多视图联系表"
+      },
+      "capturedAt": null,
+      "recordedDate": "2026-10-23",
+      "assetBinding": "a8bd8f8227a3cf53b5aa63bb234c1bcb182bfa432da5eb2e3488788f829df4f5",
+      "sourceBindings": [],
+      "role": "candidate",
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": null,
+      "note": {
+        "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+        "zh": "自己的静态证据，WebP 展示副本；无损原图保留在规范审查记录中。不自动表示解剖或运行通过。"
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/large-intestine__source-candidate-v4__scoped-review/06d66283f33890c3c8a17d94786bb47236a6652d9774dc262d6f3997a4e5072e.webp",
+      "bytes": 123668,
+      "selectionRole": "candidate",
+      "originalNativePublicCopies": [],
+      "retainedPath": "reviews/intestines/2026-10-24-bounded-migration/display/4e2bcd495eac8d692911d22931ca5c6135c6421f398265d29e7e5624b3c9262b.webp",
+      "license": "CC BY 4.0 for BP3D-derived candidate render; baseline retains its separate original binding.",
+      "originalNativeImageIncluded": false,
+      "originalNativeImageAvailability": "External original PNG in the historical canonical review; only the exact selected WebP is bundled."
+    },
+    {
+      "id": "large-intestine__source-candidate-v4__scoped-review__4",
+      "file": "evidence/canonical/large-intestine__source-candidate-v4__scoped-review/30567fc5baa4fc6d65a44778b4c1e6676f8ff49c24fcd0797772632858ca9adb.webp",
+      "sha256": "80f6a668665f37b3b6d6a9029244547665afae61fdc23c467284a28cb64726ef",
+      "originalSha256": "30567fc5baa4fc6d65a44778b4c1e6676f8ff49c24fcd0797772632858ca9adb",
+      "originalFile": "reviews/intestines/source-candidate-v4/evidence/source-frame/large-intestine/oblique.png",
+      "presentationEncoding": "webp-quality92",
+      "reviewPhase": "candidate",
+      "noteIsGeneric": true,
+      "kind": "blender-still",
+      "label": {
+        "en": "oblique",
+        "zh": "斜视"
+      },
+      "capturedAt": null,
+      "recordedDate": "2026-10-23",
+      "assetBinding": "a8bd8f8227a3cf53b5aa63bb234c1bcb182bfa432da5eb2e3488788f829df4f5",
+      "sourceBindings": [],
+      "role": "candidate",
+      "bindingLabel": {
+        "en": "Source binding identifies the reviewed export; context may include other structures.",
+        "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+      },
+      "renderSettings": null,
+      "note": {
+        "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+        "zh": "自己的静态证据，WebP 展示副本；无损原图保留在规范审查记录中。不自动表示解剖或运行通过。"
+      },
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/large-intestine__source-candidate-v4__scoped-review/30567fc5baa4fc6d65a44778b4c1e6676f8ff49c24fcd0797772632858ca9adb.webp",
+      "bytes": 25334,
+      "selectionRole": "candidate",
+      "originalNativePublicCopies": [],
+      "retainedPath": "reviews/intestines/2026-10-24-bounded-migration/display/80f6a668665f37b3b6d6a9029244547665afae61fdc23c467284a28cb64726ef.webp",
+      "license": "CC BY 4.0 for BP3D-derived candidate render; baseline retains its separate original binding.",
+      "originalNativeImageIncluded": false,
+      "originalNativeImageAvailability": "External original PNG in the historical canonical review; only the exact selected WebP is bundled."
+    }
+  ],
+  "publicMapProvenance": {
+    "sourceMapName": "accepted-study-public-media-map-20261023.json",
+    "sourceMapSha256": "ff5d8a648cb3c93c15e6b6b332afcb4d1106e4e1814039df333a16b58b2dd42b",
+    "siteSourceCommit": "2613894e2792183cd27db9856af24e580e974f2e",
+    "inventoryRemoteRef": "79c867bad7471562d1c4ddabb4fe2a24d9764f8a",
+    "availability": "Retained local site presentation only. No fresh HTTP, remote or LFS readback."
+  },
+  "cameraContractAvailableInReviewData": false,
+  "rebuildClosure": false,
+  "migrationChanges": "Exact GLB/WebP byte copies only. No retopology, bridge, morph, translation, material, rendering or gate edits.",
+  "historicalModificationReceipt": {
+    "canonicalPath": "reviews/intestines/source-candidate-v4/evidence/cleanup-receipt.json",
+    "sha256": "b448d794bccc8bb10b147bacf33bd5b8e4bcbda126fcc55e63260e8732f69d5c",
+    "bytes": 856,
+    "includedInDraft": false,
+    "availability": "External historical canonical record; not a dependency bundled here."
+  }
+}

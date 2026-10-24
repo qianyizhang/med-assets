@@ -1,0 +1,314 @@
+{
+  "provenance": {
+    "sourceMapName": "accepted-study-public-media-map-20261023.json",
+    "sourceMapSha256": "ff5d8a648cb3c93c15e6b6b332afcb4d1106e4e1814039df333a16b58b2dd42b",
+    "siteSourceCommit": "2613894e2792183cd27db9856af24e580e974f2e",
+    "inventoryRemoteRef": "79c867bad7471562d1c4ddabb4fe2a24d9764f8a",
+    "availability": "Retained local site presentation only. No fresh HTTP, remote or LFS readback."
+  },
+  "studies": [
+    {
+      "assetId": "draft_small_intestine",
+      "variantId": "small-intestine__source-candidate-v4",
+      "group": "digestive",
+      "canonicalFile": "models/small-intestine/exports/source-candidate-v4/small-intestine.glb",
+      "galleryURL": "https://anatomy-verification.landy123007.chatgpt.site/review/#candidate-small-intestine__source-candidate-v4",
+      "viewerURL": "https://anatomy-verification.landy123007.chatgpt.site/review/candidate.html?asset=draft_small_intestine&candidate=small-intestine__source-candidate-v4",
+      "candidateTransport": {
+        "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/candidates/small-intestine__source-candidate-v4/a9459afc67cb13c28084b518615fdbb5e05c135a47eafa3036908139aece94da.glb.gz",
+        "sitePath": "candidates/small-intestine__source-candidate-v4/a9459afc67cb13c28084b518615fdbb5e05c135a47eafa3036908139aece94da.glb.gz",
+        "encoding": "gzip",
+        "storedSha256": "dc6456353c310e74b331385870a24b4050e04d3dfbb0178053c9cf0196c775b0",
+        "storedBytes": 1752401,
+        "decodedSha256": "a9459afc67cb13c28084b518615fdbb5e05c135a47eafa3036908139aece94da",
+        "decodedBytes": 2366552,
+        "decodeRequiredBeforeLFSUpload": true
+      },
+      "rawCandidate": null,
+      "selectedEvidence": [
+        {
+          "id": "draft_small_intestine__2026-10-23-v10-exterior-review__3",
+          "file": "evidence/canonical/draft_small_intestine__2026-10-23-v10-exterior-review/7fdfab6a8002965cf614c8b34d4d645417551b65841cb79add25dd062fdb0249.webp",
+          "sha256": "f2df2ff5a49067c6e97bd6aa40d43b97d10ae325f1a56108a41c7f6482ceb6f1",
+          "originalSha256": "7fdfab6a8002965cf614c8b34d4d645417551b65841cb79add25dd062fdb0249",
+          "originalFile": "reviews/small-intestine/2026-10-23-v10-exterior-review/draft_small_intestine/screenshots/contact.png",
+          "presentationEncoding": "webp-quality92",
+          "reviewPhase": "baseline",
+          "noteIsGeneric": true,
+          "kind": "blender-still-contact-sheet",
+          "label": {
+            "en": "Front / left / back",
+            "zh": "前视 / 左视 / 后视"
+          },
+          "capturedAt": "2026-10-23T01:30:49.301912+00:00",
+          "recordedDate": "2026-10-23",
+          "assetBinding": "b587a571ba7105147e068488b6827634fe2b0f176fed1c4b73665c1958354564",
+          "sourceBindings": [],
+          "role": null,
+          "bindingLabel": {
+            "en": "Source binding identifies the reviewed export; context may include other structures.",
+            "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+          },
+          "renderSettings": {
+            "engine": "Blender 4.3.2 Cycles CPU",
+            "samples": 32,
+            "resolution": [
+              512,
+              512
+            ],
+            "frame": 1,
+            "projection": "orthographic",
+            "orientation": "Manifest x=patient left, y=superior, z=anterior; glTF imported to Blender Z-up; cameras front=-Y,left=+X,back=+Y",
+            "hiddenCutawayNodes": [],
+            "scope": "Exterior static view only. Internal details may remain occluded. No motion or runtime verification."
+          },
+          "note": {
+            "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+            "zh": "自己的静态证据，WebP 展示副本；无损原图保留在规范审查记录中。不自动表示解剖或运行通过。"
+          },
+          "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/draft_small_intestine__2026-10-23-v10-exterior-review/7fdfab6a8002965cf614c8b34d4d645417551b65841cb79add25dd062fdb0249.webp",
+          "bytes": 58576,
+          "selectionRole": "before",
+          "originalNativePublicCopies": []
+        },
+        {
+          "id": "small-intestine__source-candidate-v4__scoped-review__1",
+          "file": "evidence/canonical/small-intestine__source-candidate-v4__scoped-review/5ff510f549e1f1da94aa91a12ccbc1443f9cc2e2c76a10308507aeabe0d3953a.webp",
+          "sha256": "f981917fb1ec5f1119aa4a82a32bcbcb00c29400d3911203683710822a8ec922",
+          "originalSha256": "5ff510f549e1f1da94aa91a12ccbc1443f9cc2e2c76a10308507aeabe0d3953a",
+          "originalFile": "reviews/intestines/source-candidate-v4/evidence/source-frame/small-intestine/contact.png",
+          "presentationEncoding": "webp-quality92",
+          "reviewPhase": "candidate",
+          "noteIsGeneric": true,
+          "kind": "blender-still",
+          "label": {
+            "en": "contact",
+            "zh": "多视图联系表"
+          },
+          "capturedAt": null,
+          "recordedDate": "2026-10-23",
+          "assetBinding": "a9459afc67cb13c28084b518615fdbb5e05c135a47eafa3036908139aece94da",
+          "sourceBindings": [],
+          "role": "candidate",
+          "bindingLabel": {
+            "en": "Source binding identifies the reviewed export; context may include other structures.",
+            "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+          },
+          "renderSettings": null,
+          "note": {
+            "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+            "zh": "自己的静态证据，WebP 展示副本；无损原图保留在规范审查记录中。不自动表示解剖或运行通过。"
+          },
+          "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/small-intestine__source-candidate-v4__scoped-review/5ff510f549e1f1da94aa91a12ccbc1443f9cc2e2c76a10308507aeabe0d3953a.webp",
+          "bytes": 167662,
+          "selectionRole": "candidate",
+          "originalNativePublicCopies": []
+        },
+        {
+          "id": "small-intestine__source-candidate-v4__scoped-review__4",
+          "file": "evidence/canonical/small-intestine__source-candidate-v4__scoped-review/7be269393c41eae77e07e75517f1dad85841a105b0b92f5c3cf6e125f863f8a5.webp",
+          "sha256": "30c8b787c4762a244056029fb49bf75426c677c45655f555e98152754c2f32fa",
+          "originalSha256": "7be269393c41eae77e07e75517f1dad85841a105b0b92f5c3cf6e125f863f8a5",
+          "originalFile": "reviews/intestines/source-candidate-v4/evidence/source-frame/small-intestine/oblique.png",
+          "presentationEncoding": "webp-quality92",
+          "reviewPhase": "candidate",
+          "noteIsGeneric": true,
+          "kind": "blender-still",
+          "label": {
+            "en": "oblique",
+            "zh": "斜视"
+          },
+          "capturedAt": null,
+          "recordedDate": "2026-10-23",
+          "assetBinding": "a9459afc67cb13c28084b518615fdbb5e05c135a47eafa3036908139aece94da",
+          "sourceBindings": [],
+          "role": "candidate",
+          "bindingLabel": {
+            "en": "Source binding identifies the reviewed export; context may include other structures.",
+            "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+          },
+          "renderSettings": null,
+          "note": {
+            "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+            "zh": "自己的静态证据，WebP 展示副本；无损原图保留在规范审查记录中。不自动表示解剖或运行通过。"
+          },
+          "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/small-intestine__source-candidate-v4__scoped-review/7be269393c41eae77e07e75517f1dad85841a105b0b92f5c3cf6e125f863f8a5.webp",
+          "bytes": 37336,
+          "selectionRole": "candidate",
+          "originalNativePublicCopies": []
+        }
+      ],
+      "attribution": [],
+      "scope": {
+        "en": "Source-derived small-bowel educational exterior in its source-consistent intestinal pair. Closed modeling boundaries do not validate a continuous lumen. No clinical, browser-motion or mixed-source CT registration approval.",
+        "zh": "来源小肠的教学外表面，置于同源肠道组合中。封闭建模边界不验证连续肠腔。未接受临床、浏览器运动或跨来源 CT 配准。"
+      },
+      "gates": {
+        "technical": "pass-with-limitations",
+        "visual": "passed",
+        "anatomy": "reference-screened",
+        "runtime": "unverified"
+      },
+      "cameraContractAvailableInReviewData": false,
+      "selectedEvidenceBytes": 263574,
+      "modelDecodedPlusSelectedEvidenceBytes": 2630126,
+      "notes": [
+        "This is selected current public presentation, not a full source/rebuild dependency closure.",
+        "WebP display hashes differ from original PNG hashes; do not substitute one for the other.",
+        "Comparison/source bindings retained verbatim. No new remote endpoint fetch or LFS media-readback performed."
+      ]
+    },
+    {
+      "assetId": "draft_large_intestine",
+      "variantId": "large-intestine__source-candidate-v4",
+      "group": "digestive",
+      "canonicalFile": "models/large-intestine/exports/source-candidate-v4/large-intestine.glb",
+      "galleryURL": "https://anatomy-verification.landy123007.chatgpt.site/review/#candidate-large-intestine__source-candidate-v4",
+      "viewerURL": "https://anatomy-verification.landy123007.chatgpt.site/review/candidate.html?asset=draft_large_intestine&candidate=large-intestine__source-candidate-v4",
+      "candidateTransport": {
+        "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/candidates/large-intestine__source-candidate-v4/a8bd8f8227a3cf53b5aa63bb234c1bcb182bfa432da5eb2e3488788f829df4f5.glb.gz",
+        "sitePath": "candidates/large-intestine__source-candidate-v4/a8bd8f8227a3cf53b5aa63bb234c1bcb182bfa432da5eb2e3488788f829df4f5.glb.gz",
+        "encoding": "gzip",
+        "storedSha256": "67c77624f0472b4c183fabe5ba6ec8f67f6b8b1e8ac943bfc3049984e8b6f1e8",
+        "storedBytes": 5271248,
+        "decodedSha256": "a8bd8f8227a3cf53b5aa63bb234c1bcb182bfa432da5eb2e3488788f829df4f5",
+        "decodedBytes": 7882016,
+        "decodeRequiredBeforeLFSUpload": true
+      },
+      "rawCandidate": null,
+      "selectedEvidence": [
+        {
+          "id": "draft_large_intestine__2026-10-23-v10-exterior-review__3",
+          "file": "evidence/canonical/draft_large_intestine__2026-10-23-v10-exterior-review/744826f195ae40b45866f6a8121a687a1e27d69674bc0964ac7b7082f41c6b52.webp",
+          "sha256": "abdd4877d467e3573ea4c43c4949206df50db5b1cbb25c2ac725d9f577ca4598",
+          "originalSha256": "744826f195ae40b45866f6a8121a687a1e27d69674bc0964ac7b7082f41c6b52",
+          "originalFile": "reviews/large-intestine/2026-10-23-v10-exterior-review/draft_large_intestine/screenshots/contact.png",
+          "presentationEncoding": "webp-quality92",
+          "reviewPhase": "baseline",
+          "noteIsGeneric": true,
+          "kind": "blender-still-contact-sheet",
+          "label": {
+            "en": "Front / left / back",
+            "zh": "前视 / 左视 / 后视"
+          },
+          "capturedAt": "2026-10-23T01:30:52.562004+00:00",
+          "recordedDate": "2026-10-23",
+          "assetBinding": "2db0e5193d86f51a83d95df5c3841377aa823d51585a45dbdbd49e6cd92455b0",
+          "sourceBindings": [],
+          "role": null,
+          "bindingLabel": {
+            "en": "Source binding identifies the reviewed export; context may include other structures.",
+            "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+          },
+          "renderSettings": {
+            "engine": "Blender 4.3.2 Cycles CPU",
+            "samples": 32,
+            "resolution": [
+              512,
+              512
+            ],
+            "frame": 1,
+            "projection": "orthographic",
+            "orientation": "Manifest x=patient left, y=superior, z=anterior; glTF imported to Blender Z-up; cameras front=-Y,left=+X,back=+Y",
+            "hiddenCutawayNodes": [],
+            "scope": "Exterior static view only. Internal details may remain occluded. No motion or runtime verification."
+          },
+          "note": {
+            "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+            "zh": "自己的静态证据，WebP 展示副本；无损原图保留在规范审查记录中。不自动表示解剖或运行通过。"
+          },
+          "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/draft_large_intestine__2026-10-23-v10-exterior-review/744826f195ae40b45866f6a8121a687a1e27d69674bc0964ac7b7082f41c6b52.webp",
+          "bytes": 51238,
+          "selectionRole": "before",
+          "originalNativePublicCopies": []
+        },
+        {
+          "id": "large-intestine__source-candidate-v4__scoped-review__1",
+          "file": "evidence/canonical/large-intestine__source-candidate-v4__scoped-review/06d66283f33890c3c8a17d94786bb47236a6652d9774dc262d6f3997a4e5072e.webp",
+          "sha256": "4e2bcd495eac8d692911d22931ca5c6135c6421f398265d29e7e5624b3c9262b",
+          "originalSha256": "06d66283f33890c3c8a17d94786bb47236a6652d9774dc262d6f3997a4e5072e",
+          "originalFile": "reviews/intestines/source-candidate-v4/evidence/source-frame/large-intestine/contact.png",
+          "presentationEncoding": "webp-quality92",
+          "reviewPhase": "candidate",
+          "noteIsGeneric": true,
+          "kind": "blender-still",
+          "label": {
+            "en": "contact",
+            "zh": "多视图联系表"
+          },
+          "capturedAt": null,
+          "recordedDate": "2026-10-23",
+          "assetBinding": "a8bd8f8227a3cf53b5aa63bb234c1bcb182bfa432da5eb2e3488788f829df4f5",
+          "sourceBindings": [],
+          "role": "candidate",
+          "bindingLabel": {
+            "en": "Source binding identifies the reviewed export; context may include other structures.",
+            "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+          },
+          "renderSettings": null,
+          "note": {
+            "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+            "zh": "自己的静态证据，WebP 展示副本；无损原图保留在规范审查记录中。不自动表示解剖或运行通过。"
+          },
+          "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/large-intestine__source-candidate-v4__scoped-review/06d66283f33890c3c8a17d94786bb47236a6652d9774dc262d6f3997a4e5072e.webp",
+          "bytes": 123668,
+          "selectionRole": "candidate",
+          "originalNativePublicCopies": []
+        },
+        {
+          "id": "large-intestine__source-candidate-v4__scoped-review__4",
+          "file": "evidence/canonical/large-intestine__source-candidate-v4__scoped-review/30567fc5baa4fc6d65a44778b4c1e6676f8ff49c24fcd0797772632858ca9adb.webp",
+          "sha256": "80f6a668665f37b3b6d6a9029244547665afae61fdc23c467284a28cb64726ef",
+          "originalSha256": "30567fc5baa4fc6d65a44778b4c1e6676f8ff49c24fcd0797772632858ca9adb",
+          "originalFile": "reviews/intestines/source-candidate-v4/evidence/source-frame/large-intestine/oblique.png",
+          "presentationEncoding": "webp-quality92",
+          "reviewPhase": "candidate",
+          "noteIsGeneric": true,
+          "kind": "blender-still",
+          "label": {
+            "en": "oblique",
+            "zh": "斜视"
+          },
+          "capturedAt": null,
+          "recordedDate": "2026-10-23",
+          "assetBinding": "a8bd8f8227a3cf53b5aa63bb234c1bcb182bfa432da5eb2e3488788f829df4f5",
+          "sourceBindings": [],
+          "role": "candidate",
+          "bindingLabel": {
+            "en": "Source binding identifies the reviewed export; context may include other structures.",
+            "zh": "来源绑定标识受审导出；参照画面可能含其他结构。"
+          },
+          "renderSettings": null,
+          "note": {
+            "en": "Own static evidence, WebP display derivative; original lossless image retained in canonical review record. No automatic anatomy or runtime pass.",
+            "zh": "自己的静态证据，WebP 展示副本；无损原图保留在规范审查记录中。不自动表示解剖或运行通过。"
+          },
+          "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/large-intestine__source-candidate-v4__scoped-review/30567fc5baa4fc6d65a44778b4c1e6676f8ff49c24fcd0797772632858ca9adb.webp",
+          "bytes": 25334,
+          "selectionRole": "candidate",
+          "originalNativePublicCopies": []
+        }
+      ],
+      "attribution": [],
+      "scope": {
+        "en": "Source-derived large-bowel educational exterior in its source-consistent intestinal pair. Taenia ribbons are teaching surfaces, not photographic tissue; no continuous-lumen or mixed-source CT registration approval.",
+        "zh": "来源大肠的教学外表面，置于同源肠道组合中。结肠带为教学表面，并非照片级组织；未接受连续肠腔或跨来源 CT 配准。"
+      },
+      "gates": {
+        "technical": "pass-with-limitations",
+        "visual": "passed",
+        "anatomy": "reference-screened",
+        "runtime": "unverified"
+      },
+      "cameraContractAvailableInReviewData": false,
+      "selectedEvidenceBytes": 200240,
+      "modelDecodedPlusSelectedEvidenceBytes": 8082256,
+      "notes": [
+        "This is selected current public presentation, not a full source/rebuild dependency closure.",
+        "WebP display hashes differ from original PNG hashes; do not substitute one for the other.",
+        "Comparison/source bindings retained verbatim. No new remote endpoint fetch or LFS media-readback performed."
+      ]
+    }
+  ],
+  "externalPathPolicy": "OriginalFile fields and attribution/source reference URLs are historical identities, not bundled dependencies. Selected WebP bytes are mapped to local paths in each dated record; original PNG files are external and retain distinct hashes."
+}
