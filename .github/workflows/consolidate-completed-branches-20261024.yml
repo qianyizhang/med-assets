@@ -1,0 +1,90 @@
+name: Consolidate completed branches 2026-10-24
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/consolidate-completed-branches-20261024.yml]
+permissions:
+  contents: write
+  pull-requests: read
+  actions: read
+concurrency:
+  group: consolidate-completed-branches-20261024
+  cancel-in-progress: false
+jobs:
+  consolidate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          fetch-depth: 0
+          lfs: false
+      - name: Restore archive, verify exact heads, prune, and record receipt
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: python
+        run: |
+          import base64, hashlib, json, os, subprocess, urllib.request, urllib.parse, datetime
+          from pathlib import Path
+          repo='qianyizhang/med-assets';maintenance='maintenance/merged-branch-cleanup-20261024'
+          assert os.environ['GITHUB_REPOSITORY']==repo and os.environ['GITHUB_REF']=='refs/heads/main'
+          def api(path):
+           req=urllib.request.Request('https://api.github.com/repos/'+repo+path,headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json'})
+           with urllib.request.urlopen(req) as r:return json.load(r)
+          def pages(path):
+           result=[]
+           for n in range(1,101):
+            batch=api(path+('&' if '?' in path else '?')+'per_page=100&page='+str(n));result+=batch
+            if len(batch)<100:return result
+           raise RuntimeError('pagination bound exceeded')
+          def git(*args):return subprocess.run(['git',*args],check=True,text=True,capture_output=True).stdout.strip()
+          root=Path('maintenance/archive/completed-branches/2026-10-24')
+          m=json.loads((root/'manifest.json').read_text());expected={r['branch']:r['sha'] for r in m['branches']};assert len(expected)==23
+          expected.update({'assets/bp3d-glands-20261024':'43ad01eac2177f1ea53e55484a0cfcc892f68892','assets/right-regional-joints-20261024':'2570048732c3ecc7f4c51c9e751b0c63aec6b3d2'})
+          # This reviewed workflow PR head is exactly the triggering merge commit's second parent.
+          expected[maintenance]=git('rev-parse',os.environ['GITHUB_SHA']+'^2');assert len(expected)==26 and 'main' not in expected
+          assert api('')['default_branch']=='main'
+          before={b['name']:b for b in pages('/branches')}
+          assert set(before)==set(expected)|{'main'}, 'Unexpected branch; preserve and re-audit'
+          assert not pages('/pulls?state=open'), 'Open PR exists; stop'
+          runs=api('/actions/runs?per_page=100')['workflow_runs']
+          assert all(r['status']=='completed' or str(r['id'])==os.environ['GITHUB_RUN_ID'] for r in runs), 'Another job is active'
+          for name,sha in expected.items():assert before[name]['commit']['sha']==sha and not before[name]['protected'],name
+          main=git('rev-parse','HEAD');git('merge-base','--is-ancestor','3ae6b05e2c9bd71634ac295bd0e57ff10f7c7419',main)
+          for number,name in [(24,'assets/bp3d-glands-20261024'),(26,'assets/right-regional-joints-20261024')]:
+           p=api('/pulls/'+str(number));assert p['merged'] and p['head']['sha']==expected[name];git('merge-base','--is-ancestor',expected[name],main)
+          prs=pages('/pulls?state=closed&head='+urllib.parse.quote('qianyizhang:'+maintenance,safe=''))
+          matching=[p for p in prs if p['head']['sha']==expected[maintenance] and p['merged_at'] and p['merge_commit_sha']==os.environ['GITHUB_SHA']];assert len(matching)==1
+          # Verify archived commits are normally restorable before removing any ref.
+          data=base64.b64decode((root/'completed-pilots.bundle.base64.txt').read_text());assert hashlib.sha256(data).hexdigest()==m['bundle_sha256']
+          bundle=Path(os.environ['RUNNER_TEMP'])/'completed-pilots.bundle';bundle.write_bytes(data);git('bundle','verify',str(bundle))
+          git('fetch',str(bundle),'+refs/heads/*:refs/archive-verification/*')
+          for row in m['branches']:
+           assert git('rev-parse','refs/archive-verification/'+row['branch'])==row['sha']
+           for f in row['files']:
+            b=subprocess.check_output(['git','show',row['sha']+':'+f['original_path']]);assert hashlib.sha256(b).hexdigest()==f['sha256'];assert b==(root/f['archive_path']).read_bytes()
+          # Fresh safety checks plus atomic exact-SHA leases; any changed head aborts the whole push.
+          assert not pages('/pulls?state=open')
+          assert api('')['default_branch']=='main'
+          now={b['name']:b for b in pages('/branches')};assert set(now)==set(before)
+          for name,sha in expected.items():assert now[name]['commit']['sha']==sha and not now[name]['protected']
+          git('push','--atomic','origin',*['--force-with-lease=refs/heads/'+n+':'+s for n,s in expected.items()],*[':refs/heads/'+n for n in expected])
+          after=pages('/branches');assert len(after)==1 and after[0]['name']=='main'
+          receipt={'checked_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'run_url':'https://github.com/'+repo+'/actions/runs/'+os.environ['GITHUB_RUN_ID'],'archive_merge':'3ae6b05e2c9bd71634ac295bd0e57ff10f7c7419','bundle_sha256':m['bundle_sha256'],'restored_pilot_heads':23,'restored_source_files':24,'deleted':[{'branch':n,'sha':s} for n,s in expected.items()],'maintenance_recovery_pr':matching[0]['html_url'],'before_count':len(before),'after_count':1,'remaining':['main'],'models_lfs_settings_unchanged':True}
+          Path('final-prune-receipt.json').write_text(json.dumps(receipt,indent=2)+'\n');print(json.dumps(receipt,indent=2))
+          # Store receipt and retire these one-shot workflows as inert text; no new branch.
+          receipt_path=root/'final-prune-receipt.json';receipt_path.write_text(json.dumps(receipt,indent=2)+'\n')
+          git('config','user.name','github-actions[bot]');git('config','user.email','41898282+github-actions[bot]@users.noreply.github.com')
+          git('add',str(receipt_path))
+          recipes=root/'cleanup-recipes';recipes.mkdir(exist_ok=True)
+          for filename in ['merged-branch-cleanup-20261024.yml','consolidate-completed-branches-20261024.yml']:
+           git('mv','.github/workflows/'+filename,str(recipes/(filename+'.txt')))
+          git('commit','-m','docs: record branch consolidation and retire one-shot cleanup workflows')
+          git('push','origin','HEAD:refs/heads/main')
+          print('DURABLE_RECEIPT_COMMIT='+git('rev-parse','HEAD'))
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: final-branch-prune-receipt-20261024
+          path: final-prune-receipt.json
+          if-no-files-found: warn
