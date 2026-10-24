@@ -1,0 +1,80 @@
+{
+  "status": "EXACT_SOURCE_AND_INDEPENDENT_GITHUB_LFS_READBACK_PASSED",
+  "canonicalPath": "models/breasts_hra/exports/source-candidate-02/breasts_hra_native_frame.glb",
+  "transport": {
+    "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/candidates/breasts_hra__source-candidate-02/905865c4382fb109d14fca74c8ffe809e190f44e9d3086144c3d1d7c3be53964.glb.gz",
+    "sitePath": "candidates/breasts_hra__source-candidate-02/905865c4382fb109d14fca74c8ffe809e190f44e9d3086144c3d1d7c3be53964.glb.gz",
+    "encoding": "gzip",
+    "storedSha256": "5908652ad0ad3bedd62d866f2710512f5e7a5afaf62c48327ec0f00cf34bceb4",
+    "storedBytes": 16075046,
+    "decodedSha256": "905865c4382fb109d14fca74c8ffe809e190f44e9d3086144c3d1d7c3be53964",
+    "decodedBytes": 37499672,
+    "decodeRequiredBeforeLFSUpload": true
+  },
+  "evidence": [
+    {
+      "path": "reviews/breasts_hra/2026-10-24-bounded-migration/evidence/594e94c1e45216f6ef88a98e6b17df7d9a40a871ad3fc9de65f3b3b0e92f1d1e.webp",
+      "sha256": "594e94c1e45216f6ef88a98e6b17df7d9a40a871ad3fc9de65f3b3b0e92f1d1e",
+      "bytes": 41572,
+      "actualFormat": "WEBP",
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/draft_breasts__2026-10-23-v10-exterior-review/c2b26637657046faac0d2343773910fec3a93fd501642d16b5a38c01e6fb09da.webp",
+      "originalPNG": {
+        "canonicalReference": "reviews/breasts/2026-10-23-v10-exterior-review/draft_breasts/screenshots/contact.png",
+        "sha256": "c2b26637657046faac0d2343773910fec3a93fd501642d16b5a38c01e6fb09da",
+        "bundled": false
+      },
+      "selectionRole": "before",
+      "assetBinding": "0e48db329729216cba9b3fd42a30c5f67f3d5424210f004d4f593b0752cda9c0",
+      "label": {
+        "en": "Front / left / back",
+        "zh": "\u524d\u89c6 / \u5de6\u89c6 / \u540e\u89c6"
+      },
+      "role": null
+    },
+    {
+      "path": "reviews/breasts_hra/2026-10-24-bounded-migration/evidence/7ae5cfcc4dac77573b942cc5d2409e438128bd02123bba4c83f28a642b4a2f9d.webp",
+      "sha256": "7ae5cfcc4dac77573b942cc5d2409e438128bd02123bba4c83f28a642b4a2f9d",
+      "bytes": 57334,
+      "actualFormat": "WEBP",
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/breasts_hra__source-candidate-02__scoped-review/65561eb2b646dc59ec655985871b108c934ec5750c07acd46d997805b14c38e4.webp",
+      "originalPNG": {
+        "canonicalReference": "reviews/breasts_hra/source-candidate-02/contact-revision.png",
+        "sha256": "65561eb2b646dc59ec655985871b108c934ec5750c07acd46d997805b14c38e4",
+        "bundled": false
+      },
+      "selectionRole": "candidate",
+      "assetBinding": "905865c4382fb109d14fca74c8ffe809e190f44e9d3086144c3d1d7c3be53964",
+      "label": {
+        "en": "contact-revision",
+        "zh": "\u6700\u65b0\u5ba1\u67e5\u5bf9\u7167\u56fe"
+      },
+      "role": "candidate"
+    },
+    {
+      "path": "reviews/breasts_hra/2026-10-24-bounded-migration/evidence/ef39f5ce563af200cb5efa65fd76f0d9c7b1eb31e1e5138936dae24c5f16423a.webp",
+      "sha256": "ef39f5ce563af200cb5efa65fd76f0d9c7b1eb31e1e5138936dae24c5f16423a",
+      "bytes": 28980,
+      "actualFormat": "WEBP",
+      "publicURL": "https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/breasts_hra__source-candidate-02__scoped-review/3c4bde95053bf39057bbc4f52fc8eda88443a3a1c0a33a9c4e194174ad9b958d.webp",
+      "originalPNG": {
+        "canonicalReference": "reviews/breasts_hra/source-candidate-02/screenshots/fat-and-ligaments-hidden-nipple-retained.png",
+        "sha256": "3c4bde95053bf39057bbc4f52fc8eda88443a3a1c0a33a9c4e194174ad9b958d",
+        "bundled": false
+      },
+      "selectionRole": "candidate",
+      "assetBinding": "905865c4382fb109d14fca74c8ffe809e190f44e9d3086144c3d1d7c3be53964",
+      "label": {
+        "en": "fat-and-ligaments-hidden-nipple-retained",
+        "zh": "\u9690\u85cf\u8102\u80aa\u4e0e\u97e7\u5e26\uff0c\u4fdd\u7559\u4e73\u5934"
+      },
+      "role": "candidate"
+    }
+  ],
+  "reviewRecord": "reviews/breasts_hra/2026-10-24-bounded-migration/bounded-record.json",
+  "sourceMap": "sources/datasets/breasts_hra-bounded/external-source-map.json",
+  "uniqueMediaOids": 4,
+  "uniqueMediaBytes": 37627558,
+  "siteSourceCommit": "2613894e2792183cd27db9856af24e580e974f2e",
+  "inventoryRemoteRef": "79c867bad7471562d1c4ddabb4fe2a24d9764f8a",
+  "freshAvailabilityChecked": false
+}

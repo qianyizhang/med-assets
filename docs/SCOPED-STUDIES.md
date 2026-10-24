@@ -1,6 +1,6 @@
 # Scoped study files and review evidence
 
-Snapshot: **35 of 36 scoped studies have their reviewed GLB and concise evidence in this repository**. This is migration coverage, not a claim that all anatomy assets passed. The remaining studies are listed below; counts change only after exact file and Git LFS download checks.
+Snapshot: **36 of 36 scoped studies have their reviewed GLB and concise evidence in this repository**. This is migration coverage, not a claim that all anatomy assets passed. All studies in this bounded set have passed exact file and Git LFS download checks; source/history boundaries still apply.
 
 The original 62 baseline exports have separate review decisions. Metadata-only alternatives and contextual teaching supplements are not additional studies. Historical failed/needs-revision originals are not silently replaced by these scoped studies. See the [baseline review ledger](../reviews/accounting/2026-10-23/baseline-decisions.json).
 
@@ -23,6 +23,7 @@ The original 62 baseline exports have separate review decisions. Metadata-only a
 | Authored tongue exterior hybrid | [GLB](../models/tongue_authored_study/exports/authored-p11/tongue-authored-hra-hybrid-p11.glb) | [Review](../reviews/tongue_authored_study/authored-p11/record.json) |
 | Bladder same-atlas context | [GLB](../models/bladder/exports/hra-female-context-r03/bladder_hra_female_context_r03.glb) | [Review](../reviews/bladder/hra-female-context-r03/bounded-record.json) |
 | Brain atlas representations | [GLB](../models/brain/exports/bodyparts3d-4.0-atlas-r2/brain-source-frame.glb) | [Review](../reviews/brain/2026-10-24-bodyparts3d-4.0-atlas-r2-bounded-migration/bounded-record.json) |
+| Breast source study | [GLB](../models/breasts_hra/exports/source-candidate-02/breasts_hra_native_frame.glb) | [Review](../reviews/breasts_hra/2026-10-24-bounded-migration/bounded-record.json) |
 | Combined lung/lobe and intrapulmonary branches | [GLB](../models/lung_pair/exports/hra-female-normals-r02/lung_female_hra_normals_r02.glb) | [Review](../reviews/lung_pair/2026-10-24-bounded-migration/record.json) |
 | Diaphragm gross-shape/localization study | [GLB](../models/diaphragm/exports/z-native-static-r01/diaphragm_z_native_static.glb) | [Review](../reviews/diaphragm/2026-10-24-z-static-study/record.json) |
 | Full-term placenta | [GLB](../models/placenta/exports/hra-v1.1-r02/placenta_full_term.glb) | [Review](../reviews/placenta/2026-10-23-hra-v1.1-r02/record.json) |
@@ -52,11 +53,8 @@ The original 62 baseline exports have separate review decisions. Metadata-only a
 | Uterus exterior | [GLB](../models/uterus/exports/hra-v1.1-r02/uterus_exterior.glb) | [Review](../reviews/uterus/2026-10-23-hra-v1.1-r02/record.json) |
 | Vagina/junction context | [GLB](../models/vagina_hra/exports/context-r02/vagina_hra_same_atlas_context_r02.glb) | [Review](../reviews/vagina_hra/2026-10-24-thyroid-vagina-bounded-migration/bounded-record.json) |
 
-## Not yet migrated
+## Migration boundary
 
-| Study | Current boundary |
-|---|---|
-| Breast source study | Exact batch and ceiling approved; bounded transfer and independent readback are pending. |
-
+No study in this 36-study set remains pending migration. This does not mean all baseline assets passed, all source/history files were uploaded, or all reconstruction/runtime checks passed. The linked records retain those boundaries.
 
 No source archive upload, new permissions, billing assurance or broader quality approval is implied by this index.
