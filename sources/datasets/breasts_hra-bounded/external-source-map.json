@@ -1,0 +1,151 @@
+{
+  "dataset": "HRA female left/right mammary gland v1.0, authored/sculpted atlas",
+  "license": "CC BY 4.0",
+  "sourceFiles": [
+    {
+      "canonicalReference": "sources/datasets/hra/reference-organs-2026/raw/5181797d8b669580d0243684ce10e61657881178c9bd56b4ba338547ecb1099e/3d-vh-f-mammary-gland-l.glb",
+      "sha256": "5181797d8b669580d0243684ce10e61657881178c9bd56b4ba338547ecb1099e",
+      "bytes": 13727160,
+      "bundled": false,
+      "publicURL": "https://cdn.humanatlas.io/hra-releases/v1.3/models/3d-vh-f-mammary-gland-l.glb"
+    },
+    {
+      "canonicalReference": "sources/datasets/hra/reference-organs-2026/raw/7fb6c2dd90190a80dbcca487e3aaa27cc801d1c66a205840ea36a6c851082ff0/3d-vh-f-mammary-gland-r.glb",
+      "sha256": "7fb6c2dd90190a80dbcca487e3aaa27cc801d1c66a205840ea36a6c851082ff0",
+      "bytes": 24388424,
+      "bundled": false,
+      "publicURL": "https://cdn.humanatlas.io/hra-releases/v1.3/models/3d-vh-f-mammary-gland-r.glb"
+    }
+  ],
+  "selection": [
+    {
+      "sourceObjectName": "VH_F_areola_L",
+      "recordedSourceBoundsMaxErrorM": 0.0
+    },
+    {
+      "sourceObjectName": "VH_F_areolar_tubercles_L",
+      "recordedSourceBoundsMaxErrorM": 0.0
+    },
+    {
+      "sourceObjectName": "VH_F_fat_L",
+      "recordedSourceBoundsMaxErrorM": 0.0
+    },
+    {
+      "sourceObjectName": "VH_F_main_lactiferous_ducts_L",
+      "recordedSourceBoundsMaxErrorM": 0.0
+    },
+    {
+      "sourceObjectName": "VH_F_main_lactiferous_sinuses_L",
+      "recordedSourceBoundsMaxErrorM": 0.0
+    },
+    {
+      "sourceObjectName": "VH_F_mammary_lobes_L",
+      "recordedSourceBoundsMaxErrorM": 0.0
+    },
+    {
+      "sourceObjectName": "VH_F_nipple_L",
+      "recordedSourceBoundsMaxErrorM": 0.0
+    },
+    {
+      "sourceObjectName": "VH_F_suspensory_ligaments_L",
+      "recordedSourceBoundsMaxErrorM": 0.0
+    },
+    {
+      "sourceObjectName": "VH_F_areola_R",
+      "recordedSourceBoundsMaxErrorM": 0.0
+    },
+    {
+      "sourceObjectName": "VH_F_areolar_tubercles_R",
+      "recordedSourceBoundsMaxErrorM": 0.0
+    },
+    {
+      "sourceObjectName": "VH_F_fat_R",
+      "recordedSourceBoundsMaxErrorM": 0.0
+    },
+    {
+      "sourceObjectName": "VH_F_main_lactiferous_ducts_R",
+      "recordedSourceBoundsMaxErrorM": 0.0
+    },
+    {
+      "sourceObjectName": "VH_F_main_lactiferous_sinuses_R",
+      "recordedSourceBoundsMaxErrorM": 0.0
+    },
+    {
+      "sourceObjectName": "VH_F_mammary_lobes_R",
+      "recordedSourceBoundsMaxErrorM": 0.0
+    },
+    {
+      "sourceObjectName": "VH_F_nipple_R",
+      "recordedSourceBoundsMaxErrorM": 0.0
+    },
+    {
+      "sourceObjectName": "VH_F_suspensory_ligaments_R",
+      "recordedSourceBoundsMaxErrorM": 0.0
+    }
+  ],
+  "frame": "HRA native GLB metres; x left y superior z anterior (named breast identity test), no BP3D registration",
+  "licenseReceipts": [
+    {
+      "canonicalReference": "sources/datasets/hra/reference-organs-2026/package-metadata/reproductive/hra/mammary-l-metadata.md",
+      "sha256": "65e27e2bee33b669ae53357ed337315e845ecdaff99b2a64695229e70c785467",
+      "bytes": 1753,
+      "bundled": false
+    },
+    {
+      "canonicalReference": "sources/datasets/hra/reference-organs-2026/package-metadata/reproductive/hra/mammary-r-metadata.md",
+      "sha256": "233d9d7b72a01457e58d94e3abe0aeecf6d1b26425e42e6c5732c7591f0663d3",
+      "bytes": 1756,
+      "bundled": false
+    }
+  ],
+  "recipeDependencies": [
+    {
+      "canonicalReference": "tests/reproductive/revise_breast_materials.py",
+      "sha256": "dfcb74f09db530dfdebde3a8325dcee1020ef4e69c04e07c65c7cfc925cb0848",
+      "bytes": 5944,
+      "bundled": false
+    }
+  ],
+  "externalHistoricalRecords": [
+    {
+      "canonicalReference": "reviews/breasts_hra/source-candidate-02/REVIEW-EN-ZH.md",
+      "sha256": "371bb7c9125ba43581fb59dc1c40de3760bffa8d71dd1345119afc7dea676497",
+      "bytes": 1727,
+      "bundled": false
+    },
+    {
+      "canonicalReference": "reviews/breasts_hra/source-candidate-02/exact-export-tests.json",
+      "sha256": "cacaab135597e1d0177e7f195374a920c0bcd72a34806c4b8c30d94bca7b52c1",
+      "bytes": 4858,
+      "bundled": false
+    },
+    {
+      "canonicalReference": "reviews/breasts_hra/source-candidate-02/full-coordinate-tests.json",
+      "sha256": "56427d9ea3cc43c6e57d33bb49f5c641a03dfb61a6a14493795f0ac5e1232456",
+      "bytes": 3043,
+      "bundled": false
+    },
+    {
+      "canonicalReference": "reviews/breasts_hra/source-candidate-02/layer-visibility.json",
+      "sha256": "f844d19299b64edd902d84033743ada3bfd397a6c3123e926dc9ff8627148b01",
+      "bytes": 520,
+      "bundled": false
+    },
+    {
+      "canonicalReference": "reviews/breasts_hra/source-candidate-02/material-change-log.json",
+      "sha256": "94a8176d46cbb9f2bda4acd1671dc6e2d676932ec8c88ecc2145d7c3978082f3",
+      "bytes": 3760,
+      "bundled": false
+    },
+    {
+      "canonicalReference": "reviews/breasts_hra/source-candidate-02/record.json",
+      "sha256": "b8c32e13306521f1ad42586b99cdb74fc4ab9ebc20b1105499fdc6291481c6b2",
+      "bytes": 8794,
+      "bundled": false
+    }
+  ],
+  "portableRebuildVerified": false,
+  "recipeBoundary": "Historical recipes remain external and contain original worktree-specific path assumptions. They are not bundled as working portable tools.",
+  "freshAvailabilityChecked": false,
+  "dependencyInterpretation": "Every canonicalReference, archiveMember and evaluated OBJ fileName in this source map is explicitly external. Source URLs are provenance, not claims of current accessibility."
+}
