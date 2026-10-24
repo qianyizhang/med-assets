@@ -1,0 +1,140 @@
+name: Bounded cartilage contextual-supplement LFS pilot
+on:
+  push:
+    branches:
+      - cloud/cartilage-supplement-lfs-pilot-20261023
+    paths:
+      - .github/workflows/cartilage-supplement-lfs-pilot.yml
+permissions: {}
+jobs:
+  upload-and-verify:
+    if: github.repository == 'qianyizhang/med-assets' && github.ref == 'refs/heads/cloud/cartilage-supplement-lfs-pilot-20261023'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    env:
+      GIT_TERMINAL_PROMPT: '0'
+      APPROVED_MANIFEST: >-
+        {"objects":[{"oid":"181d3e175e93702bb52f98535f2ebfe1d9387425dd432f19318161db7db99f05","size":497332,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/teaching/draft_bone__cartilage_teaching_supplements_20261023/181d3e175e93702bb52f98535f2ebfe1d9387425dd432f19318161db7db99f05.glb","type":"glb","file":"assemblies/skeletal-teaching/2026-10-23/second-costal.glb"},{"oid":"ba3b72b84e082469c8b917a92648d2581c4c89c7d7468ba278c3a33aa4f52894","size":22410,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/teaching/draft_bone__cartilage_teaching_supplements_20261023/6ba8ab51020fa9e47635136eb3b76d7c2dc77513d9530b7586a51686485ed3f4.webp","type":"webp","file":"reviews/skeletal_teaching/2026-10-23/second-costal-1.webp"},{"oid":"f41680a7682e36ff1875da2864666847df3a03b9e755468f8859799f08c5863d","size":18758,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/teaching/draft_bone__cartilage_teaching_supplements_20261023/ac12c0606117bbaab8559309747b232d3b91c898d47fc2573ec2f0bdb30a8583.webp","type":"webp","file":"reviews/skeletal_teaching/2026-10-23/second-costal-2.webp"},{"oid":"decc153e909bec981a1332ed0d603ab813e872e9c54578d8dd8e112b662dca65","size":19940,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/teaching/draft_bone__cartilage_teaching_supplements_20261023/d965a0df72cdb3b87bd427b9536df9900e3bfef6ab0b652a46dd4a79a7005f01.webp","type":"webp","file":"reviews/skeletal_teaching/2026-10-23/second-costal-3.webp"},{"oid":"3119746fb4cd9db038350797f92ff32bef4a53d6c0913a6dcaf5776e62e21e95","size":22508,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/teaching/draft_bone__cartilage_teaching_supplements_20261023/ee02c0acea799a0b7f6b2c630d8e961c7146347ab4040bbbb1fdda50ad9fded3.webp","type":"webp","file":"reviews/skeletal_teaching/2026-10-23/second-costal-4.webp"},{"oid":"d476f7efe89cea84fa3a7670b505e557c328ddae10526cc4083e4c95313b80d5","size":256144,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/teaching/draft_bone__cartilage_teaching_supplements_20261023/d476f7efe89cea84fa3a7670b505e557c328ddae10526cc4083e4c95313b80d5.glb","type":"glb","file":"assemblies/skeletal-teaching/2026-10-23/L3-L4-disc.glb"},{"oid":"3fc9b910bedf12083dbbec3ddca9a5c722baae4b06b6f3b8f295341840439592","size":21226,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/teaching/draft_bone__cartilage_teaching_supplements_20261023/f9ee92927803413b629db1d7aa327c0f46ec8df75580f861f5103da2ca0d8a13.webp","type":"webp","file":"reviews/skeletal_teaching/2026-10-23/L3-L4-disc-1.webp"},{"oid":"d1919e8c6b4654b9459b2d4a57febb34c63ba8a469e881b72d5420b35fe8d662","size":27540,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/teaching/draft_bone__cartilage_teaching_supplements_20261023/78a99a688ed89dd463912399aa9631af93340a396dedc0bf20e64d93b9680e67.webp","type":"webp","file":"reviews/skeletal_teaching/2026-10-23/L3-L4-disc-2.webp"},{"oid":"119f72c7f57474efb380316e943e08b35f73f0f805f36c40654d2e87da11b533","size":16854,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/teaching/draft_bone__cartilage_teaching_supplements_20261023/b4d366550f9f84e50ce115a87ddd2cc9edab286e83bdca19378b69d7ada3991f.webp","type":"webp","file":"reviews/skeletal_teaching/2026-10-23/L3-L4-disc-3.webp"},{"oid":"9edee4d925413f40a5129054ae2759cf557e716808b7fcf4d43a6e90ef77ca8b","size":21148,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/teaching/draft_bone__cartilage_teaching_supplements_20261023/bf30b7b2ae74ebb0ceacf35e84028a68b559614ef6f27a7eaa20832b30fb7fdc.webp","type":"webp","file":"reviews/skeletal_teaching/2026-10-23/L3-L4-disc-4.webp"}]}
+    steps:
+      - name: Configure temporary repository authentication
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          fetch-depth: 1
+          lfs: false
+          submodules: false
+          sparse-checkout: .gitattributes
+          sparse-checkout-cone-mode: false
+          persist-credentials: true
+          show-progress: false
+      - name: Verify sources, upload missing among 10 exact approved OIDs, and independently read back
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import gzip, hashlib, io, json, os, pathlib, re, subprocess, urllib.parse, urllib.request
+          
+          manifest = json.loads(os.environ["APPROVED_MANIFEST"])
+          objects = manifest["objects"]
+          assert len(objects) == 10 and len({o["oid"] for o in objects}) == 10, "Unexpected object count"
+          assert sum(o["size"] for o in objects) == 923860, "Unexpected total bytes"
+          assert sum(o["size"] for o in objects) <= 923860, "Approved batch cap exceeded"
+          assert max(o["size"] for o in objects) <= 497332, "Per-object limit exceeded"
+          assert all(re.fullmatch("[0-9a-f]{64}", o["oid"]) and 0 < o["size"] <= 497332 for o in objects), "Invalid object constraints"
+          work = pathlib.Path(os.environ["RUNNER_TEMP"], "cartilage-supplement-approved-pilot")
+          work.mkdir(exist_ok=True)
+          
+          # Every source is public. Do not read or pass GitHub credentials to source URLs.
+          for o in objects:
+              parsed = urllib.parse.urlsplit(o["url"])
+              assert parsed.scheme == "https" and parsed.hostname in {"anatomy-verification.landy123007.chatgpt.site"}, "Unapproved source host"
+              assert parsed.username is None and parsed.password is None, "Credentials in URL refused"
+              encoding = o.get("encoding", "identity")
+              assert encoding in {"identity", "gzip"}, "Unapproved source encoding"
+              transfer_size = o.get("transportSize", o["size"])
+              transfer_oid = o.get("transportOid", o["oid"])
+              assert 0 < transfer_size <= 497332 and re.fullmatch("[0-9a-f]{64}", transfer_oid), "Invalid transport constraints"
+              if encoding == "gzip":
+                  assert "transportSize" in o and "transportOid" in o, "Gzip transport manifest required"
+              else:
+                  assert transfer_size == o["size"] and transfer_oid == o["oid"], "Identity transport mismatch"
+              req = urllib.request.Request(o["url"], headers={"User-Agent": "med-assets-cartilage-supplement-pilot/1.0", "Accept-Encoding": "identity"})
+              with urllib.request.urlopen(req, timeout=45) as response:
+                  assert urllib.parse.urlsplit(response.url).scheme == "https", "Non-HTTPS redirect refused"
+                  transport = response.read(transfer_size + 1)
+              assert len(transport) == transfer_size and hashlib.sha256(transport).hexdigest() == transfer_oid, "Transport size or SHA-256 mismatch"
+              if encoding == "gzip":
+                  with gzip.GzipFile(fileobj=io.BytesIO(transport)) as compressed:
+                      data = compressed.read(o["size"] + 1)
+              else:
+                  data = transport
+              assert len(data) == o["size"], "Source size mismatch"
+              assert hashlib.sha256(data).hexdigest() == o["oid"], "Source SHA-256 mismatch"
+              if o["type"] == "png":
+                  assert data[:8] == bytes([137,80,78,71,13,10,26,10]), "Source is not PNG"
+              elif o["type"] == "blend":
+                  assert data[:7] == b"BLENDER", "Source is not uncompressed Blender file"
+              elif o["type"] == "glb":
+                  assert data[:4] == b"glTF", "Source is not GLB"
+              elif o["type"] == "webp":
+                  assert data[:4] == b"RIFF" and data[8:12] == b"WEBP", "Source is not WebP"
+              else:
+                  raise AssertionError("Unapproved content type")
+              (work / o["oid"]).write_bytes(data)
+              print(f"SOURCE VERIFIED {o['oid']} {o['size']} bytes", flush=True)
+          
+          subprocess.run(["git", "lfs", "version"], check=True)
+          subprocess.run(["git", "lfs", "install", "--local"], check=True)
+          # Validate every LFS pointer before uploading any object.
+          for o in objects:
+              with (work / o["oid"]).open("rb") as source:
+                  clean = subprocess.run(["git", "lfs", "clean", "approved-" + o["oid"]], stdin=source, stdout=subprocess.PIPE, check=True)
+              expected = f"version https://git-lfs.github.com/spec/v1\noid sha256:{o['oid']}\nsize {o['size']}\n".encode()
+              assert clean.stdout == expected, "Generated LFS pointer mismatch"
+          # Query destination again and upload only genuinely missing approved objects.
+          preflight_endpoint = "https://github.com/qianyizhang/med-assets.git/info/lfs/objects/batch"
+          preflight_payload = json.dumps({"operation":"download","transfers":["basic"],"objects":[{"oid":o["oid"],"size":o["size"]} for o in objects]}).encode()
+          preflight_headers = {"Accept":"application/vnd.git-lfs+json","Content-Type":"application/vnd.git-lfs+json"}
+          with urllib.request.urlopen(urllib.request.Request(preflight_endpoint,data=preflight_payload,headers=preflight_headers),timeout=45) as response:
+              preflight_result = json.load(response)
+          preflight_objects = {o["oid"]:o for o in preflight_result.get("objects",[])}
+          assert set(preflight_objects) == {o["oid"] for o in objects}, "Unexpected preflight objects"
+          missing = set()
+          for o in objects:
+              remote = preflight_objects[o["oid"]]
+              assert remote.get("size") == o["size"]
+              error = remote.get("error")
+              if error:
+                  assert error.get("code") == 404, "Destination returned an error other than missing object; stop"
+                  missing.add(o["oid"])
+              else:
+                  assert remote.get("actions",{}).get("download"), "Destination unavailable"
+          for o in objects:
+              if o["oid"] not in missing:
+                  print(f"ALREADY PRESENT SKIPPED {o['oid']} {o['size']} bytes",flush=True)
+                  continue
+              subprocess.run(["git", "lfs", "push", "--object-id", "origin", o["oid"]], check=True)
+              print(f"UPLOAD COMMAND PASSED {o['oid']} {o['size']} bytes", flush=True)
+          
+          # Independent HTTP readback, without the local LFS cache or GitHub user credentials.
+          endpoint = "https://github.com/qianyizhang/med-assets.git/info/lfs/objects/batch"
+          payload = json.dumps({"operation": "download", "transfers": ["basic"], "objects": [{"oid": o["oid"], "size": o["size"]} for o in objects]}).encode()
+          headers = {"Accept": "application/vnd.git-lfs+json", "Content-Type": "application/vnd.git-lfs+json", "User-Agent": "med-assets-cartilage-supplement-pilot-readback/1.0"}
+          with urllib.request.urlopen(urllib.request.Request(endpoint, data=payload, headers=headers), timeout=45) as response:
+              result = json.load(response)
+          returned = {o["oid"]: o for o in result.get("objects", [])}
+          assert set(returned) == {o["oid"] for o in objects}, "Unexpected LFS Batch objects"
+          for expected in objects:
+              obj = returned[expected["oid"]]
+              assert obj.get("size") == expected["size"] and "error" not in obj, "GitHub object unavailable"
+              action = obj.get("actions", {}).get("download")
+              assert action and urllib.parse.urlsplit(action["href"]).scheme == "https", "Invalid LFS download action"
+              req = urllib.request.Request(action["href"], headers=action.get("header", {}))
+              with urllib.request.urlopen(req, timeout=45) as response:
+                  assert urllib.parse.urlsplit(response.url).scheme == "https", "Non-HTTPS LFS redirect refused"
+                  data = response.read(expected["size"] + 1)
+              assert len(data) == expected["size"] and hashlib.sha256(data).hexdigest() == expected["oid"], "GitHub LFS readback mismatch"
+              print(f"GITHUB READBACK VERIFIED {expected['oid']} {len(data)} bytes", flush=True)
+          print("PASS: 10 exact objects; 923860 bytes; no Git asset pointer or branch-tip commit pushed by this job.", flush=True)
+          PY

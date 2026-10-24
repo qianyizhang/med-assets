@@ -1,0 +1,138 @@
+name: Bounded screenshot runtime-proof LFS pilot
+on:
+  push:
+    branches:
+      - cloud/runtime-proof-lfs-pilot-20261023
+    paths:
+      - .github/workflows/runtime-proof-lfs-pilot.yml
+permissions: {}
+jobs:
+  upload-and-verify:
+    if: github.repository == 'qianyizhang/med-assets' && github.ref == 'refs/heads/cloud/runtime-proof-lfs-pilot-20261023'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    env:
+      GIT_TERMINAL_PROMPT: '0'
+      APPROVED_MANIFEST: >-
+        {"objects":[{"oid":"c00a5379d65443d3a848ff7940eb7ac5f910ee8bf463385a5a3cdb9322990424","size":62818,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/runtime/software-ci-heart-lymph-2026-10-23/images/heart-exact-loop.canvas.png","type":"png","file":"images/heart-exact-loop.canvas.png"},{"oid":"1c1b528fb3f9828d33298840a3105cf959d95d2b1947b6540437c85d35ac897e","size":69455,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/runtime/software-ci-heart-lymph-2026-10-23/images/heart-exact-loop.display-crop.png","type":"png","file":"images/heart-exact-loop.display-crop.png"},{"oid":"d83e64ff1114fef92940a4029e0998e18794dc99603a73b7b7aef073f2b39da2","size":61907,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/runtime/software-ci-heart-lymph-2026-10-23/images/heart-full-1.canvas.png","type":"png","file":"images/heart-full-1.canvas.png"},{"oid":"c74eaf59988d287bee8424980609078f03b5f72cc3381c92c8a508621846ea4f","size":68595,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/runtime/software-ci-heart-lymph-2026-10-23/images/heart-full-1.display-crop.png","type":"png","file":"images/heart-full-1.display-crop.png"},{"oid":"71ba2b9a8adb3feb6c60549513d0914e9d1337ef21b9526568c69d333622fd34","size":61403,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/runtime/software-ci-heart-lymph-2026-10-23/images/heart-full-2.canvas.png","type":"png","file":"images/heart-full-2.canvas.png"},{"oid":"d60c0145c5f50022a6dd0902955b2313b6dd157ff70a4ac2e9e853f9536297d2","size":68159,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/runtime/software-ci-heart-lymph-2026-10-23/images/heart-full-2.display-crop.png","type":"png","file":"images/heart-full-2.display-crop.png"},{"oid":"942d5fe18c8ee6b2f9e09d2474a85f0e10b956743231d0ab4f8cd0a8b66bdb76","size":29890,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/runtime/software-ci-heart-lymph-2026-10-23/images/heart-valves-0.canvas.png","type":"png","file":"images/heart-valves-0.canvas.png"},{"oid":"19ee60a863ff27f9e3ee669d0a81c16e74225c557da5c7fb84dab9c67dcd5a22","size":24919,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/runtime/software-ci-heart-lymph-2026-10-23/images/heart-valves-0.display-crop.png","type":"png","file":"images/heart-valves-0.display-crop.png"},{"oid":"e8ec4a49dfdc4161dbbe4e21d1b22937ec083fd4e12327a7ea1350e423983f41","size":28529,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/runtime/software-ci-heart-lymph-2026-10-23/images/heart-valves-1.canvas.png","type":"png","file":"images/heart-valves-1.canvas.png"},{"oid":"e763591b1925d83a68630b739b450b61fd409a4a231e5f65787fec5781adf80c","size":23406,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/runtime/software-ci-heart-lymph-2026-10-23/images/heart-valves-1.display-crop.png","type":"png","file":"images/heart-valves-1.display-crop.png"},{"oid":"7595e639f072088a227d048cc840b1575fda1139b7850fc1be92df14fb5e8a20","size":30028,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/runtime/software-ci-heart-lymph-2026-10-23/images/heart-valves-2.canvas.png","type":"png","file":"images/heart-valves-2.canvas.png"},{"oid":"ddfdd40721767c372ebf29f0e03783ed17dc6cc78cf67a502f009fefc733ec09","size":25031,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/runtime/software-ci-heart-lymph-2026-10-23/images/heart-valves-2.display-crop.png","type":"png","file":"images/heart-valves-2.display-crop.png"},{"oid":"c14fd9a94cec7120ad2f3b7af7a12fbfbef74513e8cd161f6edbb4ec0d949093","size":51726,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/runtime/software-ci-heart-lymph-2026-10-23/images/lymph-capsule-hidden.canvas.png","type":"png","file":"images/lymph-capsule-hidden.canvas.png"},{"oid":"f5356a466141cbc0334814f98f9754e0db982e1dfda2f6fecd84a3f9bfed0c2d","size":52123,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/runtime/software-ci-heart-lymph-2026-10-23/images/lymph-capsule-hidden.display-crop.png","type":"png","file":"images/lymph-capsule-hidden.display-crop.png"},{"oid":"c96c800f1a92403aebe0d6c8071d12978286c78cc7deefbc131b961a1655bec3","size":37327,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/runtime/software-ci-heart-lymph-2026-10-23/images/lymph-full.canvas.png","type":"png","file":"images/lymph-full.canvas.png"},{"oid":"e2de1bc1b38a6cd9621b94b03d4d101914ab16e59f77beeb2092fd65a33b7b79","size":35175,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/runtime/software-ci-heart-lymph-2026-10-23/images/lymph-full.display-crop.png","type":"png","file":"images/lymph-full.display-crop.png"}]}
+    steps:
+      - name: Configure temporary repository authentication
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          fetch-depth: 1
+          lfs: false
+          submodules: false
+          sparse-checkout: .gitattributes
+          sparse-checkout-cone-mode: false
+          persist-credentials: true
+          show-progress: false
+      - name: Verify sources, upload missing among 16 exact PNG OIDs, and independently read back
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import gzip, hashlib, io, json, os, pathlib, re, subprocess, urllib.parse, urllib.request
+          
+          manifest = json.loads(os.environ["APPROVED_MANIFEST"])
+          objects = manifest["objects"]
+          assert len(objects) == 16 and len({o["oid"] for o in objects}) == 16, "Unexpected object count"
+          assert sum(o["size"] for o in objects) == 730491, "Unexpected total bytes"
+          assert sum(o["size"] for o in objects) <= 5000000, "Approved batch cap exceeded"
+          assert max(o["size"] for o in objects) <= 69455, "Per-object limit exceeded"
+          assert all(re.fullmatch("[0-9a-f]{64}", o["oid"]) and 0 < o["size"] <= 69455 for o in objects), "Invalid object constraints"
+          work = pathlib.Path(os.environ["RUNNER_TEMP"], "runtime-proof-approved-pilot")
+          work.mkdir(exist_ok=True)
+          
+          # Every source is public. Do not read or pass GitHub credentials to source URLs.
+          for o in objects:
+              parsed = urllib.parse.urlsplit(o["url"])
+              assert parsed.scheme == "https" and parsed.hostname in {"cdn.humanatlas.io", "anatomy-verification.landy123007.chatgpt.site"}, "Unapproved source host"
+              assert parsed.username is None and parsed.password is None, "Credentials in URL refused"
+              encoding = o.get("encoding", "identity")
+              assert encoding in {"identity", "gzip"}, "Unapproved source encoding"
+              transfer_size = o.get("transportSize", o["size"])
+              transfer_oid = o.get("transportOid", o["oid"])
+              assert 0 < transfer_size <= 69455 and re.fullmatch("[0-9a-f]{64}", transfer_oid), "Invalid transport constraints"
+              if encoding == "gzip":
+                  assert "transportSize" in o and "transportOid" in o, "Gzip transport manifest required"
+              else:
+                  assert transfer_size == o["size"] and transfer_oid == o["oid"], "Identity transport mismatch"
+              req = urllib.request.Request(o["url"], headers={"User-Agent": "med-assets-runtime-proof-pilot/1.0", "Accept-Encoding": "identity"})
+              with urllib.request.urlopen(req, timeout=45) as response:
+                  assert urllib.parse.urlsplit(response.url).scheme == "https", "Non-HTTPS redirect refused"
+                  transport = response.read(transfer_size + 1)
+              assert len(transport) == transfer_size and hashlib.sha256(transport).hexdigest() == transfer_oid, "Transport size or SHA-256 mismatch"
+              if encoding == "gzip":
+                  with gzip.GzipFile(fileobj=io.BytesIO(transport)) as compressed:
+                      data = compressed.read(o["size"] + 1)
+              else:
+                  data = transport
+              assert len(data) == o["size"], "Source size mismatch"
+              assert hashlib.sha256(data).hexdigest() == o["oid"], "Source SHA-256 mismatch"
+              if o["type"] == "png":
+                  assert data[:8] == bytes([137,80,78,71,13,10,26,10]), "Source is not PNG"
+              elif o["type"] == "glb":
+                  assert data[:4] == b"glTF", "Source is not GLB"
+              elif o["type"] == "webp":
+                  assert data[:4] == b"RIFF" and data[8:12] == b"WEBP", "Source is not WebP"
+              else:
+                  raise AssertionError("Unapproved content type")
+              (work / o["oid"]).write_bytes(data)
+              print(f"SOURCE VERIFIED {o['oid']} {o['size']} bytes", flush=True)
+          
+          subprocess.run(["git", "lfs", "version"], check=True)
+          subprocess.run(["git", "lfs", "install", "--local"], check=True)
+          # Validate every LFS pointer before uploading any object.
+          for o in objects:
+              with (work / o["oid"]).open("rb") as source:
+                  clean = subprocess.run(["git", "lfs", "clean", "approved-" + o["oid"]], stdin=source, stdout=subprocess.PIPE, check=True)
+              expected = f"version https://git-lfs.github.com/spec/v1\noid sha256:{o['oid']}\nsize {o['size']}\n".encode()
+              assert clean.stdout == expected, "Generated LFS pointer mismatch"
+          # Query destination again and upload only genuinely missing approved objects.
+          preflight_endpoint = "https://github.com/qianyizhang/med-assets.git/info/lfs/objects/batch"
+          preflight_payload = json.dumps({"operation":"download","transfers":["basic"],"objects":[{"oid":o["oid"],"size":o["size"]} for o in objects]}).encode()
+          preflight_headers = {"Accept":"application/vnd.git-lfs+json","Content-Type":"application/vnd.git-lfs+json"}
+          with urllib.request.urlopen(urllib.request.Request(preflight_endpoint,data=preflight_payload,headers=preflight_headers),timeout=45) as response:
+              preflight_result = json.load(response)
+          preflight_objects = {o["oid"]:o for o in preflight_result.get("objects",[])}
+          assert set(preflight_objects) == {o["oid"] for o in objects}, "Unexpected preflight objects"
+          missing = set()
+          for o in objects:
+              remote = preflight_objects[o["oid"]]
+              assert remote.get("size") == o["size"]
+              error = remote.get("error")
+              if error:
+                  assert error.get("code") == 404, "Destination returned an error other than missing object; stop"
+                  missing.add(o["oid"])
+              else:
+                  assert remote.get("actions",{}).get("download"), "Destination unavailable"
+          for o in objects:
+              if o["oid"] not in missing:
+                  print(f"ALREADY PRESENT SKIPPED {o['oid']} {o['size']} bytes",flush=True)
+                  continue
+              subprocess.run(["git", "lfs", "push", "--object-id", "origin", o["oid"]], check=True)
+              print(f"UPLOAD COMMAND PASSED {o['oid']} {o['size']} bytes", flush=True)
+          
+          # Independent HTTP readback, without the local LFS cache or GitHub user credentials.
+          endpoint = "https://github.com/qianyizhang/med-assets.git/info/lfs/objects/batch"
+          payload = json.dumps({"operation": "download", "transfers": ["basic"], "objects": [{"oid": o["oid"], "size": o["size"]} for o in objects]}).encode()
+          headers = {"Accept": "application/vnd.git-lfs+json", "Content-Type": "application/vnd.git-lfs+json", "User-Agent": "med-assets-runtime-proof-pilot-readback/1.0"}
+          with urllib.request.urlopen(urllib.request.Request(endpoint, data=payload, headers=headers), timeout=45) as response:
+              result = json.load(response)
+          returned = {o["oid"]: o for o in result.get("objects", [])}
+          assert set(returned) == {o["oid"] for o in objects}, "Unexpected LFS Batch objects"
+          for expected in objects:
+              obj = returned[expected["oid"]]
+              assert obj.get("size") == expected["size"] and "error" not in obj, "GitHub object unavailable"
+              action = obj.get("actions", {}).get("download")
+              assert action and urllib.parse.urlsplit(action["href"]).scheme == "https", "Invalid LFS download action"
+              req = urllib.request.Request(action["href"], headers=action.get("header", {}))
+              with urllib.request.urlopen(req, timeout=45) as response:
+                  assert urllib.parse.urlsplit(response.url).scheme == "https", "Non-HTTPS LFS redirect refused"
+                  data = response.read(expected["size"] + 1)
+              assert len(data) == expected["size"] and hashlib.sha256(data).hexdigest() == expected["oid"], "GitHub LFS readback mismatch"
+              print(f"GITHUB READBACK VERIFIED {expected['oid']} {len(data)} bytes", flush=True)
+          print("PASS: 16 exact objects; 730491 bytes; no Git asset pointer or branch-tip commit pushed by this job.", flush=True)
+          PY

@@ -1,0 +1,99 @@
+name: Bounded HRA lymph-node LFS pilot
+on:
+  push:
+    branches:
+      - cloud/lymph-node-lfs-pilot-20261023
+    paths:
+      - .github/workflows/lymph-node-lfs-pilot.yml
+permissions: {}
+jobs:
+  upload-and-verify:
+    if: github.repository == 'qianyizhang/med-assets' && github.ref == 'refs/heads/cloud/lymph-node-lfs-pilot-20261023'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    env:
+      GIT_TERMINAL_PROMPT: '0'
+      APPROVED_MANIFEST: >-
+        {"objects":[{"oid":"7b047002cbb1dc06f37baa441783390d76cdb444b6144d6caa623923707953fd","size":7413900,"url":"https://cdn.humanatlas.io/hra-releases/v1.2/models/NIH_M_Lymph_Node.glb","type":"glb","file":"models/lymph_node/exports/hra-v1.2/NIH_M_Lymph_Node.glb"},{"oid":"69711f6ca53d2539e8a1f4ba8722012ed85784f627b2bd0fbeaa5a02e24ac19d","size":119932,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/lymph_node_hra__r01__scoped-review/2679a90a50f93ad5cfc6b5a406cdd0b6c7e9f1ec34fd415ef4b4decdea7accc5.webp","type":"webp","file":"reviews/lymph_node/2026-10-23-hra-v1.2/display/exact-export-layer-contact.webp"},{"oid":"8a7dd23b51fc016d67180565c1c15f2ef41c4b8202e20554148826131ec63c53","size":158928,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/lymph_node_hra__r01__scoped-review/fdb67b574eb5b38fe2f9415d26b9930856b451ec0fc0df6f45ab9a1856b6fcff.webp","type":"webp","file":"reviews/lymph_node/2026-10-23-hra-v1.2/display/layer-key-contact.webp"},{"oid":"7233db8cc34d03b09bc9acbe2045e8af3210ae88eb8479ab9edb62246f48cb9d","size":83520,"url":"https://anatomy-verification.landy123007.chatgpt.site/review/evidence/canonical/lymph_node_hra__r01__scoped-review/b2685fa74e2ed7be3250d63e6845781f56387c3d70cbc63c414622ab40cfd419.webp","type":"webp","file":"reviews/lymph_node/2026-10-23-hra-v1.2/display/capsule-medulla-hidden.webp"}]}
+    steps:
+      - name: Configure temporary repository authentication
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          fetch-depth: 1
+          lfs: false
+          submodules: false
+          sparse-checkout: .gitattributes
+          sparse-checkout-cone-mode: false
+          persist-credentials: true
+          show-progress: false
+      - name: Verify sources, upload only four exact OIDs, and independently read back
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib, json, os, pathlib, re, subprocess, urllib.parse, urllib.request
+          
+          manifest = json.loads(os.environ["APPROVED_MANIFEST"])
+          objects = manifest["objects"]
+          assert len(objects) == 4 and len({o["oid"] for o in objects}) == 4, "Unexpected object count"
+          assert sum(o["size"] for o in objects) == 7776280, "Unexpected total bytes"
+          assert max(o["size"] for o in objects) <= 7413900, "Per-object limit exceeded"
+          assert all(re.fullmatch("[0-9a-f]{64}", o["oid"]) and 0 < o["size"] <= 7413900 for o in objects), "Invalid object constraints"
+          work = pathlib.Path(os.environ["RUNNER_TEMP"], "lymph-node-approved-pilot")
+          work.mkdir(exist_ok=True)
+          
+          # Every source is public. Do not read or pass GitHub credentials to source URLs.
+          for o in objects:
+              parsed = urllib.parse.urlsplit(o["url"])
+              assert parsed.scheme == "https" and parsed.hostname in {"cdn.humanatlas.io", "anatomy-verification.landy123007.chatgpt.site"}, "Unapproved source host"
+              assert parsed.username is None and parsed.password is None, "Credentials in URL refused"
+              req = urllib.request.Request(o["url"], headers={"User-Agent": "med-assets-lymph-node-pilot/1.0"})
+              with urllib.request.urlopen(req, timeout=45) as response:
+                  assert urllib.parse.urlsplit(response.url).scheme == "https", "Non-HTTPS redirect refused"
+                  data = response.read(o["size"] + 1)
+              assert len(data) == o["size"], "Source size mismatch"
+              assert hashlib.sha256(data).hexdigest() == o["oid"], "Source SHA-256 mismatch"
+              if o["type"] == "glb":
+                  assert data[:4] == b"glTF", "Source is not GLB"
+              elif o["type"] == "webp":
+                  assert data[:4] == b"RIFF" and data[8:12] == b"WEBP", "Source is not WebP"
+              else:
+                  raise AssertionError("Unapproved content type")
+              (work / o["oid"]).write_bytes(data)
+              print(f"SOURCE VERIFIED {o['oid']} {o['size']} bytes", flush=True)
+          
+          subprocess.run(["git", "lfs", "version"], check=True)
+          subprocess.run(["git", "lfs", "install", "--local"], check=True)
+          # Validate every LFS pointer before uploading any object.
+          for o in objects:
+              with (work / o["oid"]).open("rb") as source:
+                  clean = subprocess.run(["git", "lfs", "clean", "approved-" + o["oid"]], stdin=source, stdout=subprocess.PIPE, check=True)
+              expected = f"version https://git-lfs.github.com/spec/v1\noid sha256:{o['oid']}\nsize {o['size']}\n".encode()
+              assert clean.stdout == expected, "Generated LFS pointer mismatch"
+          for o in objects:
+              subprocess.run(["git", "lfs", "push", "--object-id", "origin", o["oid"]], check=True)
+              print(f"UPLOAD COMMAND PASSED {o['oid']} {o['size']} bytes", flush=True)
+          
+          # Independent HTTP readback, without the local LFS cache or GitHub user credentials.
+          endpoint = "https://github.com/qianyizhang/med-assets.git/info/lfs/objects/batch"
+          payload = json.dumps({"operation": "download", "transfers": ["basic"], "objects": [{"oid": o["oid"], "size": o["size"]} for o in objects]}).encode()
+          headers = {"Accept": "application/vnd.git-lfs+json", "Content-Type": "application/vnd.git-lfs+json", "User-Agent": "med-assets-lymph-node-pilot-readback/1.0"}
+          with urllib.request.urlopen(urllib.request.Request(endpoint, data=payload, headers=headers), timeout=45) as response:
+              result = json.load(response)
+          returned = {o["oid"]: o for o in result.get("objects", [])}
+          assert set(returned) == {o["oid"] for o in objects}, "Unexpected LFS Batch objects"
+          for expected in objects:
+              obj = returned[expected["oid"]]
+              assert obj.get("size") == expected["size"] and "error" not in obj, "GitHub object unavailable"
+              action = obj.get("actions", {}).get("download")
+              assert action and urllib.parse.urlsplit(action["href"]).scheme == "https", "Invalid LFS download action"
+              req = urllib.request.Request(action["href"], headers=action.get("header", {}))
+              with urllib.request.urlopen(req, timeout=45) as response:
+                  assert urllib.parse.urlsplit(response.url).scheme == "https", "Non-HTTPS LFS redirect refused"
+                  data = response.read(expected["size"] + 1)
+              assert len(data) == expected["size"] and hashlib.sha256(data).hexdigest() == expected["oid"], "GitHub LFS readback mismatch"
+              print(f"GITHUB READBACK VERIFIED {expected['oid']} {len(data)} bytes", flush=True)
+          print("PASS: 4 exact objects; 7776280 bytes; no Git asset pointer or branch-tip commit pushed by this job.", flush=True)
+          PY
