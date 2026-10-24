@@ -1,0 +1,22 @@
+{
+  "result": "passed",
+  "sourceToGLTF": "(x,y,z)->(x,z,-y)",
+  "views": [
+    {
+      "file": "evidence/superior.png",
+      "quaternionForwardVsTargetMaxError": 0.0,
+      "upDirectionDotTolerance": 1e-05
+    },
+    {
+      "file": "evidence/inferior.png",
+      "quaternionForwardVsTargetMaxError": 8.742278750027302e-08,
+      "upDirectionDotTolerance": 1e-05
+    },
+    {
+      "file": "evidence/oblique.png",
+      "quaternionForwardVsTargetMaxError": 9.240080511840887e-08,
+      "upDirectionDotTolerance": 1e-05
+    }
+  ],
+  "limitations": "Numerical camera recipe only, not actual browser render; model transforms unchanged"
+}

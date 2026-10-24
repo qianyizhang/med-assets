@@ -1,0 +1,30 @@
+{
+  "decision": "accepted-scoped-static-visual-study",
+  "reviewer": "coordinating reviewer",
+  "decision_received_utc": "2026-10-24T08:15:56Z",
+  "accepted_scope": [
+    "gross static shape",
+    "regional localization"
+  ],
+  "not_accepted": [
+    "final detailed asset",
+    "anatomical validation",
+    "browser/runtime validation",
+    "animation/motion"
+  ],
+  "baseline_status": "needs-revision; original unchanged",
+  "reviewed_original_images": {
+    "diagnostic-contact.png": "a2f476c9ae0d92e839ae79babd8b3bae31c597b866a9b2a2120cb718be1afd84",
+    "baseline-source-comparison.png": "4465995911e3da093ea91afeb5cb5fc25cd0061acfc5d89b349c65e6a6010f8e"
+  },
+  "reviewed_original_fullsize": {
+    "superior.png": "01779577346092ea2a6b4288e38edc3aff5efdd47c95d0ebb47bbe84cbdda22a",
+    "inferior.png": "b5023a391f0e7edfb2c89266792cfd96426eaaf5ec6c6437425346b7b7148614"
+  },
+  "exports": {
+    "diaphragm_z_native_static.glb": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+    "diaphragm_z_context_static.glb": "07dd35e532eb8a971d97b072ed2be5c5c49e5bfda113997e6d1231e26c3951a9"
+  },
+  "package_status": "awaiting scoped package review; not published",
+  "image_sanitization": "PNG ancillary metadata removed; exact decoded pixels retained; bindings in png-sanitization.json"
+}
