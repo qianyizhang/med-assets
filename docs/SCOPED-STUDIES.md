@@ -1,0 +1,62 @@
+# Scoped study files and review evidence
+
+Snapshot: **34 of 36 scoped studies have their reviewed GLB and concise evidence in this repository**. This is migration coverage, not a claim that all anatomy assets passed. The remaining studies are listed below; counts change only after exact file and Git LFS download checks.
+
+The original 62 baseline exports have separate review decisions. Metadata-only alternatives and contextual teaching supplements are not additional studies. Historical failed/needs-revision originals are not silently replaced by these scoped studies. See the [baseline review ledger](../reviews/accounting/2026-10-23/baseline-decisions.json).
+
+## What is included—and what is not
+
+- Each row links a canonical GLB and its scoped review record, including evidence bindings and limits. Git LFS is required to retrieve media bytes rather than pointer text.
+- Static visual acceptance is limited to the named study. Anatomy, clinical use, animation and browser/runtime status must be read independently in the linked record; this index grants no new pass.
+- Many raw source archives, editable scenes, lossless originals and failed-iteration histories remain external or deferred. Read each record’s provenance/reconstruction boundary; this is **not** a complete source/history migration or a universal reproducible-build claim.
+- Selected WebPs are display derivatives, not byte-identical native PNGs. Before/after or source-comparison images may bind different artifacts.
+- Model bytes and media were checked against exact hashes before pointer publication, including independent GitHub LFS download verification. Local integrity tests are not anatomy validation or a claim of configured CI coverage.
+
+## Available studies
+
+| Study | Model | Scoped review and evidence |
+|---|---|---|
+| Adrenal exteriors | [GLB](../models/adrenals/exports/source-candidate-01/adrenals_source_frame.glb) | [Review](../reviews/adrenals/2026-10-23-bp3d-bounded-migration/bounded-record.json) |
+| Anterior eye-segment layer study | [GLB](../models/eye_anterior_segment/exports/hra-v1.3-r01/anterior_segment.glb) | [Review](../reviews/eye_anterior_segment/2026-10-23-hra-v1.3-r01/historical-review.json) |
+| Auricle/pinna pair | [GLB](../models/ears_z/exports/r04/ears_z.glb) | [Review](../reviews/z-small-studies/2026-10-24-bounded-migration/ears_z/record.json) |
+| Authored blood-cell teaching study | [GLB](../models/blood_cell_study/exports/authored-r05/blood-cell-authored-study-r05.glb) | [Review](../reviews/blood_cell_study/authored-r05/record.json) |
+| Authored tongue exterior hybrid | [GLB](../models/tongue_authored_study/exports/authored-p11/tongue-authored-hra-hybrid-p11.glb) | [Review](../reviews/tongue_authored_study/authored-p11/record.json) |
+| Bladder same-atlas context | [GLB](../models/bladder/exports/hra-female-context-r03/bladder_hra_female_context_r03.glb) | [Review](../reviews/bladder/hra-female-context-r03/bounded-record.json) |
+| Brain atlas representations | [GLB](../models/brain/exports/bodyparts3d-4.0-atlas-r2/brain-source-frame.glb) | [Review](../reviews/brain/2026-10-24-bodyparts3d-4.0-atlas-r2-bounded-migration/bounded-record.json) |
+| Combined lung/lobe and intrapulmonary branches | [GLB](../models/lung_pair/exports/hra-female-normals-r02/lung_female_hra_normals_r02.glb) | [Review](../reviews/lung_pair/2026-10-24-bounded-migration/record.json) |
+| Diaphragm gross-shape/localization study | [GLB](../models/diaphragm/exports/z-native-static-r01/diaphragm_z_native_static.glb) | [Review](../reviews/diaphragm/2026-10-24-z-static-study/record.json) |
+| Full-term placenta | [GLB](../models/placenta/exports/hra-v1.1-r02/placenta_full_term.glb) | [Review](../reviews/placenta/2026-10-23-hra-v1.1-r02/record.json) |
+| Hypothalamus localization envelope | [GLB](../models/hypothalamus/exports/source-candidate-01/hypothalamus_source_frame.glb) | [Review](../reviews/hypothalamus/2026-10-23-bp3d-bounded-migration/bounded-record.json) |
+| Large bowel | [GLB](../models/large-intestine/exports/source-candidate-v4/large-intestine.glb) | [Review](../reviews/intestines/2026-10-24-bounded-migration/large-intestine/record.json) |
+| Laryngeal/pharyngeal subset | [GLB](../models/pharynx_larynx/exports/r03/pharynx_larynx.glb) | [Review](../reviews/pharynx_larynx/2026-10-24-r03-bounded-migration/bounded-record.json) |
+| Left female kidney | [GLB](../models/kidney_left/exports/hra-female-v1.3-r02/kidney_left.glb) | [Review](../reviews/kidney_left/2026-10-23-hra-female-v1.3-r02/record.json) |
+| Liver exterior | [GLB](../models/liver/exports/hra-female-v1.10-r02/liver.glb) | [Review](../reviews/liver/2026-10-23-hra-female-v1.10-r02/record.json) |
+| Outer skin envelope | [GLB](../models/skin/exports/bp3d-envelope-r01/skin_source_frame.glb) | [Review](../reviews/skin/2026-10-24-bp3d-envelope-r01-bounded-migration/bounded-record.json) |
+| Pancreas same-atlas context | [GLB](../models/pancreas/exports/hra-female-context-r04/pancreas_hra_female_context_r04.glb) | [Review](../reviews/pancreas/hra-female-context-r04/bounded-record.json) |
+| Parotid exteriors | [GLB](../models/parotid_glands/exports/source-candidate-02/parotid_glands_source_frame.glb) | [Review](../reviews/z-small-studies/2026-10-24-bounded-migration/parotid_glands/record.json) |
+| Pituitary localization envelope | [GLB](../models/pituitary/exports/source-candidate-01/pituitary_source_frame.glb) | [Review](../reviews/pituitary/2026-10-23-bp3d-bounded-migration/bounded-record.json) |
+| Prostate with explicit context | [GLB](../models/prostate/exports/hra-v1.1/VH_M_Prostate.glb) | [Review](../reviews/prostate/2026-10-23-hra-v1.1/record.json) |
+| Right elbow context | [GLB](../models/joints/exports/z-elbow-r01/elbow_z_native.glb) | [Review](../reviews/joints/2026-10-24-elbow-bounded-migration/bounded-record.json) |
+| Right female kidney | [GLB](../models/kidney_right/exports/hra-female-v1.3-r02/kidney_right.glb) | [Review](../reviews/kidney_right/2026-10-23-hra-female-v1.3-r02/record.json) |
+| Right knee context | [GLB](../models/joints/exports/z-knee-r01/knee_z_native.glb) | [Review](../reviews/joints/2026-10-24-knee-bounded-migration/bounded-record.json) |
+| Right shoulder context | [GLB](../models/joints/exports/z-shoulder-r01/shoulder_z_native.glb) | [Review](../reviews/joints/2026-10-24-shoulder-bounded-migration/bounded-record.json) |
+| Selected aortic/arterial subset | [GLB](../models/aortic_tree_z/exports/r02/aortic_tree_z_source_frame.glb) | [Review](../reviews/z-small-studies/2026-10-24-bounded-migration/aortic_tree_z/record.json) |
+| Single lymph-node layers | [GLB](../models/lymph_node/exports/hra-v1.2/NIH_M_Lymph_Node.glb) | [Review](../reviews/lymph_node/2026-10-23-hra-v1.2/record.json) |
+| Skeleton representations | [GLB](../models/skeleton/exports/source-candidate-03/skeleton_source_frame.glb) | [Review](../reviews/skeleton/2026-10-24-source-candidate-03-bounded-migration/bounded-record.json) |
+| Small bowel | [GLB](../models/small-intestine/exports/source-candidate-v4/small-intestine.glb) | [Review](../reviews/intestines/2026-10-24-bounded-migration/small-intestine/record.json) |
+| Spleen exterior | [GLB](../models/spleen/exports/hra-female-v1.10-r03/spleen.glb) | [Review](../reviews/spleen/2026-10-23-hra-female-v1.10-r03/record.json) |
+| Teeth and gingiva | [GLB](../models/teeth_gums/exports/r02/teeth_gums.glb) | [Review](../reviews/teeth_gums/2026-10-24-r02-bounded-migration/bounded-record.json) |
+| Thymus exterior | [GLB](../models/thymus/exports/source-candidate-01/thymus_source_frame.glb) | [Review](../reviews/thymus/2026-10-23-bp3d-bounded-migration/bounded-record.json) |
+| Thyroid clinical-source exterior | [GLB](../models/thyroid_ct_s0189/exports/source-candidate-02/thyroid_ct_s0189_source_frame.glb) | [Review](../reviews/thyroid_ct_s0189/2026-10-24-thyroid-vagina-bounded-migration/bounded-record.json) |
+| Uterus exterior | [GLB](../models/uterus/exports/hra-v1.1-r02/uterus_exterior.glb) | [Review](../reviews/uterus/2026-10-23-hra-v1.1-r02/record.json) |
+| Vagina/junction context | [GLB](../models/vagina_hra/exports/context-r02/vagina_hra_same_atlas_context_r02.glb) | [Review](../reviews/vagina_hra/2026-10-24-thyroid-vagina-bounded-migration/bounded-record.json) |
+
+## Not yet migrated
+
+| Study | Current boundary |
+|---|---|
+| Muscle layer study | Reviewed public study exceeds the current transport ceiling; separate ceiling approval and exact batch checks are pending. |
+| Breast source study | Reviewed public study exceeds the current transport ceiling; separate ceiling approval and exact batch checks are pending. |
+
+
+No source archive upload, new permissions, billing assurance or broader quality approval is implied by this index.
