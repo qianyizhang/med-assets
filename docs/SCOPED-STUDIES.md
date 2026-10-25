@@ -58,3 +58,7 @@ The original 62 baseline exports have separate review decisions. Metadata-only a
 No study in this 36-study set remains pending migration. This does not mean all baseline assets passed, all source/history files were uploaded, or all reconstruction/runtime checks passed. The linked records retain those boundaries.
 
 No source archive upload, new permissions, billing assurance or broader quality approval is implied by this index.
+
+## Scoped defect revisions (not additional studies)
+
+- [Trachea C-band integration r05](../models/trachea/exports/host-conforming-cbands-r05/README.md) — [review and tests](../reviews/trachea/2026-10-25-host-conforming-cbands-r05/REVIEW.md). Ring-integration defect improved; whole-trachea quality remains **Needs revision**. The 36-study count is unchanged.

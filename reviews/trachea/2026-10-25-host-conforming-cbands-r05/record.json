@@ -1,0 +1,65 @@
+{
+  "id": "trachea__2026-10-25-host-conforming-cbands-r05",
+  "assetId": "trachea",
+  "variantId": "trachea__host-conforming-cbands-r05",
+  "sourceSha256": "af54ca254e47910ded53c6b690b475ab17236ba47d314fbdd5357dc67849bf4d",
+  "baselineSha256": "5390537c1e27e9630ec93d4d5437d29081c26f88e87889834091e3fca47ccd45",
+  "decisionAt": "2026-10-25T04:36:04Z",
+  "decisionProvenance": "Coordinating reviewer personally inspected candidate front and independent exactexport side/posterior; approval scope explicitly limited.",
+  "gates": {
+    "visual": {
+      "status": "needs-revision",
+      "scope": "Whole-trachea detailed quality remains limited; original baseline unchanged."
+    },
+    "scopedVisual": {
+      "status": "passed",
+      "scope": "Ring-integration visual defect corrected only."
+    },
+    "anatomy": {
+      "status": "unreviewed"
+    },
+    "runtime": {
+      "status": "unverified"
+    },
+    "motion": {
+      "status": "not-present"
+    }
+  },
+  "candidateCountDelta": 0,
+  "studyCountDelta": 0,
+  "technical": {
+    "exact_export_reimport": true,
+    "host_ordered_world_vertices_and_faces_equal": true,
+    "byte_identical_rebuild": true,
+    "independent_receipt": "independent-export-receipt.json"
+  },
+  "lessons": {
+    "failure": {
+      "en": "Thin authored rings protruded as shelves from the segmented host.",
+      "zh": "人工细环像搁板一样突出于分割宿主表面。"
+    },
+    "cause": {
+      "en": "Generic ring placement ignored local tube shape and direction.",
+      "zh": "通用环布置未贴合局部管道形状与方向。"
+    },
+    "fix": {
+      "en": "Preserved source host; projected low-profile illustrative C-bands onto host-local sections.",
+      "zh": "保留源宿主，将低起伏 C 形示意带投影到宿主局部截面。"
+    },
+    "retest": {
+      "en": "Matched front/back/side comparison; independent exact GLB side/back renders; host vertices/faces unchanged; byte-identical rebuild.",
+      "zh": "同相机正后侧对比；独立重导入精确 GLB 的侧面与后面渲染；宿主顶点/面未变；重建输出字节一致。"
+    },
+    "lesson": {
+      "en": "Repair the authored defect without replacing coherent source anatomy; keep whole-asset limitations explicit.",
+      "zh": "针对人工添加缺陷修复，不替换一致的源解剖；明确保留整体资产限制。"
+    }
+  },
+  "limitations": [
+    "Illustrative bands, not patient cartilage segmentation; dimensions/count/spacing are authored.",
+    "Original closed segmentation ends and coarse distal host remain.",
+    "No open-lumen, tissue-wall, clinical, motion or browser-runtime pass.",
+    "Z source/union experiments rejected; no Z geometry incorporated."
+  ],
+  "primaryReference": "https://openstax.org/books/anatomy-and-physiology/pages/22-1-organs-and-structures-of-the-respiratory-system"
+}
