@@ -1,0 +1,30 @@
+{
+  "status": "PASS — bounded original 2D duct-network relationship and bilingual label review",
+  "scope": "Actual EN/ZH PNG pixels inspected; not clinical precision, procedural map, patient-specific anatomy, or 3D-model approval.",
+  "reviewed_files": {
+    "biliary-pathways-en.png": "f27e83bcab355660e169fd9b106b7501a1b66e2155d9bbc389304a6333fb8e27",
+    "biliary-pathways-zh.png": "7b66e5fd9217e3ccb7d4215b4b53a61a234daf53eccff956136d72914d2d11a5"
+  },
+  "checks": [
+    "Right and left hepatic branches converge into common hepatic duct.",
+    "Cystic duct connects gallbladder to common hepatic duct; common bile duct labeled below this junction.",
+    "Cystic duct alone has bidirectional flow; different filling and emptying phases explicitly distinguished.",
+    "Direct hepatic-to-common-bile route retained; does not imply every bile flow visits gallbladder.",
+    "Liver produces bile; gallbladder stores/concentrates; pancreas produces pancreatic juice.",
+    "Solid bile pathway and dashed pancreatic-juice pathway are distinct and directed toward duodenum.",
+    "Typical shared terminal junction shown near duodenal entry, not pancreatic juice routed toward gallbladder.",
+    "No false second duodenal entry apparent in displayed upper continuation.",
+    "Label targets and English/Chinese terminology consistent; no blocking label overlap observed.",
+    "Variant/sphincter omissions and non-scale/non-procedural limits visible."
+  ],
+  "remaining_limitations": [
+    "Simplified organ envelopes and duct lines do not establish precise anatomical position, branch patterns, lumen caliber, or variations.",
+    "Solid common outlet represents shared delivery after the junction, not proof of separate fluid-exclusive lumen.",
+    "Approval attaches to hashed PNGs only; later revisions or font-outline conversions require equivalence checking."
+  ],
+  "references": [
+    "https://www.cancer.gov/types/liver/bile-duct-cancer",
+    "https://www.niddk.nih.gov/health-information/digestive-diseases/digestive-system-how-it-works",
+    "https://openstax.org/books/anatomy-and-physiology-2e/pages/23-6-accessory-organs-in-digestion-the-liver-pancreas-and-gallbladder"
+  ]
+}
