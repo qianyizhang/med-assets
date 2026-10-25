@@ -1,0 +1,31 @@
+{
+  "status": "PASS — bounded head label readability review",
+  "scope": "Actual baseline and final EN/ZH PNG pixels inspected. No broad anatomy, clinical precision, or 3D approval.",
+  "files": {
+    "candidate/head.svg": "3adf6a2799a5e247f86637695a516084f4beca2d3558668daea07c9c49518699",
+    "candidate/head.png": "f8509001b05b36955c369220a32e2cc5da73e9307dc0f0b78080dced80c56b40",
+    "candidate/head-zh.svg": "28570028f38731144240f0814527e50169ba996142eba50c49b5670e2765bd3a",
+    "candidate/head-zh.png": "5406c1cc0d323131ed4f6c2b22344e4c651d10ef0e7ec74a34a3aa40fffb1388"
+  },
+  "baseline_svg_sha256": "f5f24baa9ae973ebed4a29fb32d7bc084d972c47d2e255cfdc021f28d5ca4d31",
+  "pixel_findings": [
+    "Three gland sublabels visibly more legible.",
+    "Submandibular label moved below neck without text overlap or clipping.",
+    "Parotid and sublingual leaders retain targets; revised submandibular leader remains at lower gland region.",
+    "No newly misleading gland target observed."
+  ],
+  "xml_findings": {
+    "element_count_baseline_and_candidate": 259,
+    "english_text_and_tail_unchanged": true,
+    "changes_limited_to": "Leader stroke/width; three sublabel font-size/class changes; two label y positions; three leader path d changes.",
+    "organ_context_geometry_unchanged": true,
+    "source_metadata_unchanged": true,
+    "zh_vs_en_attribute_changes": 0,
+    "zh_text_changes": 26,
+    "all_zh_changes_match_existing_data_zh": true
+  },
+  "limits": [
+    "Label readability/target review only; source anatomy not revalidated.",
+    "Receipt binds listed bytes; later edits require recheck."
+  ]
+}
