@@ -1,0 +1,87 @@
+{
+  "baseline_sha256": "5390537c1e27e9630ec93d4d5437d29081c26f88e87889834091e3fca47ccd45",
+  "candidate_sha256": "af54ca254e47910ded53c6b690b475ab17236ba47d314fbdd5357dc67849bf4d",
+  "candidate_bytes": 707132,
+  "mesh_count": 19,
+  "mesh_names": [
+    "Trachea | source surface",
+    "Authored illustrative C-band 1",
+    "Authored illustrative C-band 2",
+    "Authored illustrative C-band 3",
+    "Authored illustrative C-band 4",
+    "Authored illustrative C-band 5",
+    "Authored illustrative C-band 6",
+    "Authored illustrative C-band 7",
+    "Authored illustrative C-band 8",
+    "Authored illustrative C-band 9",
+    "Authored illustrative C-band 10",
+    "Authored illustrative C-band 11",
+    "Authored illustrative C-band 12",
+    "Authored illustrative C-band 13",
+    "Authored illustrative C-band 14",
+    "Authored illustrative C-band 15",
+    "Authored illustrative C-band 16",
+    "Authored illustrative C-band 17",
+    "Authored illustrative C-band 18"
+  ],
+  "host_baseline_vertices": 3865,
+  "host_candidate_vertices": 3865,
+  "ordered_world_vertices_equal": true,
+  "ordered_faces_equal": true,
+  "world_vertex_multisets_equal": true,
+  "world_triangle_multisets_equal": true,
+  "baseline_world_vertex_hash": "863f9f4050f3a1a645a4f2737ff664393ab3898c6ac0e17677391826f2a95d94",
+  "candidate_world_vertex_hash": "863f9f4050f3a1a645a4f2737ff664393ab3898c6ac0e17677391826f2a95d94",
+  "all_source_meshes_removed_before_reimport": true,
+  "render_scope": "Exact exported GLB reimport, retained source camera/lights, not browser/runtime/anatomy validation",
+  "renders": [
+    {
+      "file": "side.png",
+      "sha256": "e652eff9efbaac513bb096920896fd94e53ac5481193ae173d74d7e182a8629a",
+      "camera": {
+        "file": "side.png",
+        "position": [
+          0.43097496032714844,
+          0.008886617608368397,
+          0.124813973903656
+        ],
+        "target": [
+          0.00029812566936016083,
+          0.008886617608368397,
+          0.124813973903656
+        ],
+        "quaternion_wxyz": [
+          0.4999999701976776,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "ortho_scale": 0.13458651304244995
+      }
+    },
+    {
+      "file": "posterior.png",
+      "sha256": "501afa1de77c9232c8e5a96e0e604ff5462046691892ce6393c040d20ad4c1f3",
+      "camera": {
+        "file": "posterior.png",
+        "position": [
+          0.00029812566936016083,
+          0.43956345319747925,
+          0.124813973903656
+        ],
+        "target": [
+          0.00029812566936016083,
+          0.008886617608368397,
+          0.124813973903656
+        ],
+        "quaternion_wxyz": [
+          5.338507946817117e-08,
+          -5.338507591545749e-08,
+          0.7071068286895752,
+          0.7071067690849304
+        ],
+        "ortho_scale": 0.13458651304244995
+      }
+    }
+  ]
+}
