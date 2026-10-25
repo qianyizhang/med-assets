@@ -1,0 +1,58 @@
+{
+  "sha256": "e4f51a86040ef115776fe06a33443982f7b63243332681e53dadaa77f81c05f5",
+  "objects": [
+    {
+      "node": "01 Mucosa - composite",
+      "vertices": 772,
+      "polygons": 770,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.2394738913629864e-06,
+      "zero_area_faces": 0
+    },
+    {
+      "node": "02 Submucosa",
+      "vertices": 772,
+      "polygons": 770,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "volume_m3": 3.1193054857594703e-06,
+      "zero_area_faces": 0
+    },
+    {
+      "node": "03 Muscularis externa - inner circular",
+      "vertices": 772,
+      "polygons": 770,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "volume_m3": 2.671656616584943e-06,
+      "zero_area_faces": 0
+    },
+    {
+      "node": "04 Muscularis externa - outer longitudinal",
+      "vertices": 772,
+      "polygons": 770,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "volume_m3": 3.32366761138686e-06,
+      "zero_area_faces": 0
+    },
+    {
+      "node": "05 Adventitia",
+      "vertices": 772,
+      "polygons": 770,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "volume_m3": 1.4630500650509897e-06,
+      "zero_area_faces": 0
+    }
+  ],
+  "parameters": {
+    "length_m": 0.045,
+    "outer_radius_m": 0.0118,
+    "wedge_degrees_removed": 90,
+    "angular_segments": 192,
+    "lumen_fold_count_illustrative": 6
+  },
+  "source_geometry": "Independently authored analytic teaching geometry, not derived from Z-Anatomy or the baseline."
+}

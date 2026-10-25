@@ -1,0 +1,12 @@
+{
+  "existing_output": {
+    "exit_code": 2,
+    "result": "rejected before writing"
+  },
+  "wrong_baseline_hash": {
+    "exit_code": 2,
+    "result": "rejected; no output directory created"
+  },
+  "source_and_baseline_hash_guards": "Present in replay entry point; wrong source branch not independently injected",
+  "scope": "Safety/technical guard evidence only"
+}

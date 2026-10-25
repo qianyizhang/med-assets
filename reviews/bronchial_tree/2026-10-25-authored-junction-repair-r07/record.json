@@ -1,0 +1,25 @@
+{
+  "asset_id": "bronchial_tree",
+  "variant": "authored-junction-repair-r07",
+  "whole_asset_status": "needs_revision",
+  "scope_status": "approved_scoped_authored_mesh_connectivity_join_improvement",
+  "study_count_delta": 0,
+  "candidate_sha256": "3408ca8e8f394dd268b1dbeafdc59fdc8cc104c0976628e455dbc070ae0a7993",
+  "baseline_sha256": "2d2d4e269995f11179cfa423a302f144d9d163883ccde0995a2987e83dd2e898",
+  "reviewer": "Reviewer independently inspected actual whole comparison and exact-export close pixels",
+  "decision_date_utc": "2026-10-25",
+  "negative_evidence": [
+    "Angular bends and simplistic thin routes",
+    "Residual left-lobar ridge/lip and dark dimple",
+    "Foreground crossing remains; no clinical routing approval",
+    "Closed ends; no lumen/motion",
+    "443892 triangles; runtime not optimized or browser-tested"
+  ],
+  "approval_excludes": [
+    "clinical accuracy",
+    "whole anatomy asset pass",
+    "motion",
+    "runtime/browser pass",
+    "coverage increment"
+  ]
+}

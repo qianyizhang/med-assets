@@ -1,0 +1,26 @@
+{
+  "candidate_id": "esophagus_wall_authored_r01",
+  "asset_relation": "supplement to draft_esophagus; does not replace original baseline or motion",
+  "exact_glb_sha256": "e4f51a86040ef115776fe06a33443982f7b63243332681e53dadaa77f81c05f5",
+  "nodes": [
+    "01 Mucosa - composite",
+    "02 Submucosa",
+    "03 Muscularis externa - inner circular",
+    "04 Muscularis externa - outer longitudinal",
+    "05 Adventitia"
+  ],
+  "gates": {
+    "technical": "Only listed finite/positive-volume, 1e-8 m tolerance-weld edge diagnostics, repeat-build and clean-reimport checks; not exact-index topology/manifold proof.",
+    "visual": "Reviewer-inspected teaching supplement; independent English and Chinese label/reference QA found no blockers. Marker 5 uses a precise leader.",
+    "anatomy": "layer-order teaching reference screened only; no whole-anatomy pass",
+    "runtime": "Blender import/render checked; browser unverified"
+  },
+  "proposed_use": "static illustrative wall-layer cutaway + labeled 2D teaching sheet",
+  "status": "Approved for teaching-supplement integration; packaging is not evidence that external publication occurred.",
+  "clinical_use": false,
+  "measured_thickness": false,
+  "source_images_embedded": false,
+  "z_anatomy_geometry_embedded": false,
+  "coverage_count_increment": 0,
+  "license_scope": "Independent authored analytic geometry; no new public reuse license grant is asserted. Authorized storage/publication does not itself establish a blanket license."
+}

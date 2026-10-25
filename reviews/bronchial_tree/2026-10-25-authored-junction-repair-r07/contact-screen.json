@@ -1,0 +1,366 @@
+{
+  "baseline": "2d2d4e269995f11179cfa423a302f144d9d163883ccde0995a2987e83dd2e898",
+  "attachment_reference": "Original build_collection.py lines126\u2013136 at canonical0b4e3dbb; authored recipe only, not clinical anatomy",
+  "pairs": [
+    {
+      "a": "Distal tracheal teaching axis",
+      "b": "Right Main",
+      "bvh_triangle_overlap_pairs": 33,
+      "same_lobar_recipe_group": false,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.006931049286311575,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "Distal tracheal teaching axis",
+      "b": "Left Main",
+      "bvh_triangle_overlap_pairs": 42,
+      "same_lobar_recipe_group": false,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.006842945203802356,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "Right Main",
+      "b": "Left Main",
+      "bvh_triangle_overlap_pairs": 39,
+      "same_lobar_recipe_group": false,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.006682408812737296,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "Right Main",
+      "b": "lung_upper_lobe_right lobar bronchus",
+      "bvh_triangle_overlap_pairs": 36,
+      "same_lobar_recipe_group": false,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.007098579355239274,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "Right Main",
+      "b": "lung_middle_lobe_right lobar bronchus",
+      "bvh_triangle_overlap_pairs": 34,
+      "same_lobar_recipe_group": false,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.005163799593013924,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "Right Main",
+      "b": "lung_lower_lobe_right lobar bronchus",
+      "bvh_triangle_overlap_pairs": 30,
+      "same_lobar_recipe_group": false,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.0045627900353312064,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "Left Main",
+      "b": "lung_upper_lobe_left lobar bronchus",
+      "bvh_triangle_overlap_pairs": 30,
+      "same_lobar_recipe_group": false,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.004247854039071467,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "Left Main",
+      "b": "lung_lower_lobe_left lobar bronchus",
+      "bvh_triangle_overlap_pairs": 28,
+      "same_lobar_recipe_group": false,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.003757305075343018,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_upper_lobe_right lobar bronchus",
+      "b": "lung_upper_lobe_right distal illustration 1",
+      "bvh_triangle_overlap_pairs": 23,
+      "same_lobar_recipe_group": true,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.06789828071636528,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_upper_lobe_right lobar bronchus",
+      "b": "lung_upper_lobe_right distal illustration 2",
+      "bvh_triangle_overlap_pairs": 26,
+      "same_lobar_recipe_group": true,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.06776060350827601,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_upper_lobe_right lobar bronchus",
+      "b": "lung_upper_lobe_right distal illustration 3",
+      "bvh_triangle_overlap_pairs": 26,
+      "same_lobar_recipe_group": true,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.06773771145795865,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_middle_lobe_right lobar bronchus",
+      "b": "lung_lower_lobe_right lobar bronchus",
+      "bvh_triangle_overlap_pairs": 59,
+      "same_lobar_recipe_group": false,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.006500338199152116,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_middle_lobe_right lobar bronchus",
+      "b": "lung_middle_lobe_right distal illustration 1",
+      "bvh_triangle_overlap_pairs": 20,
+      "same_lobar_recipe_group": true,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.04558930062055123,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_middle_lobe_right lobar bronchus",
+      "b": "lung_middle_lobe_right distal illustration 2",
+      "bvh_triangle_overlap_pairs": 30,
+      "same_lobar_recipe_group": true,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.045061714107782494,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_middle_lobe_right lobar bronchus",
+      "b": "lung_middle_lobe_right distal illustration 3",
+      "bvh_triangle_overlap_pairs": 32,
+      "same_lobar_recipe_group": true,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.045448359935584874,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_lower_lobe_right lobar bronchus",
+      "b": "lung_lower_lobe_right distal illustration 1",
+      "bvh_triangle_overlap_pairs": 26,
+      "same_lobar_recipe_group": true,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.04033508048959848,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_lower_lobe_right lobar bronchus",
+      "b": "lung_lower_lobe_right distal illustration 2",
+      "bvh_triangle_overlap_pairs": 26,
+      "same_lobar_recipe_group": true,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.039473334731714924,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_lower_lobe_right lobar bronchus",
+      "b": "lung_lower_lobe_right distal illustration 3",
+      "bvh_triangle_overlap_pairs": 29,
+      "same_lobar_recipe_group": true,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.03987342658266191,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_upper_lobe_left lobar bronchus",
+      "b": "lung_lower_lobe_left lobar bronchus",
+      "bvh_triangle_overlap_pairs": 50,
+      "same_lobar_recipe_group": false,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.006328667939537266,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_upper_lobe_left lobar bronchus",
+      "b": "lung_upper_lobe_left distal illustration 1",
+      "bvh_triangle_overlap_pairs": 34,
+      "same_lobar_recipe_group": true,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.03971974488496049,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_upper_lobe_left lobar bronchus",
+      "b": "lung_upper_lobe_left distal illustration 2",
+      "bvh_triangle_overlap_pairs": 26,
+      "same_lobar_recipe_group": true,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.04004292469300303,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_upper_lobe_left lobar bronchus",
+      "b": "lung_upper_lobe_left distal illustration 3",
+      "bvh_triangle_overlap_pairs": 25,
+      "same_lobar_recipe_group": true,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.03996789234524181,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_lower_lobe_left lobar bronchus",
+      "b": "lung_lower_lobe_left distal illustration 1",
+      "bvh_triangle_overlap_pairs": 31,
+      "same_lobar_recipe_group": true,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.05645439448600098,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_lower_lobe_left lobar bronchus",
+      "b": "lung_lower_lobe_left distal illustration 2",
+      "bvh_triangle_overlap_pairs": 27,
+      "same_lobar_recipe_group": true,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.05599925173498766,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_lower_lobe_left lobar bronchus",
+      "b": "lung_lower_lobe_left distal illustration 3",
+      "bvh_triangle_overlap_pairs": 26,
+      "same_lobar_recipe_group": true,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.05676030107801644,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_upper_lobe_right distal illustration 1",
+      "b": "lung_upper_lobe_right distal illustration 2",
+      "bvh_triangle_overlap_pairs": 37,
+      "same_lobar_recipe_group": true,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.06915411592271346,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_upper_lobe_right distal illustration 1",
+      "b": "lung_upper_lobe_right distal illustration 3",
+      "bvh_triangle_overlap_pairs": 44,
+      "same_lobar_recipe_group": true,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.06913903441534189,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_upper_lobe_right distal illustration 2",
+      "b": "lung_upper_lobe_right distal illustration 3",
+      "bvh_triangle_overlap_pairs": 40,
+      "same_lobar_recipe_group": true,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.06895081973154656,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_middle_lobe_right distal illustration 1",
+      "b": "lung_middle_lobe_right distal illustration 2",
+      "bvh_triangle_overlap_pairs": 41,
+      "same_lobar_recipe_group": true,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.04673778307052758,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_middle_lobe_right distal illustration 1",
+      "b": "lung_middle_lobe_right distal illustration 3",
+      "bvh_triangle_overlap_pairs": 50,
+      "same_lobar_recipe_group": true,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.048595078333281964,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_middle_lobe_right distal illustration 2",
+      "b": "lung_middle_lobe_right distal illustration 3",
+      "bvh_triangle_overlap_pairs": 33,
+      "same_lobar_recipe_group": true,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.04654859686584783,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_lower_lobe_right distal illustration 1",
+      "b": "lung_lower_lobe_right distal illustration 2",
+      "bvh_triangle_overlap_pairs": 41,
+      "same_lobar_recipe_group": true,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.04147418093678983,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_lower_lobe_right distal illustration 1",
+      "b": "lung_lower_lobe_right distal illustration 3",
+      "bvh_triangle_overlap_pairs": 54,
+      "same_lobar_recipe_group": true,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.044091822525452073,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_lower_lobe_right distal illustration 2",
+      "b": "lung_lower_lobe_right distal illustration 3",
+      "bvh_triangle_overlap_pairs": 46,
+      "same_lobar_recipe_group": true,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.041292647585167035,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_upper_lobe_left distal illustration 1",
+      "b": "lung_upper_lobe_left distal illustration 2",
+      "bvh_triangle_overlap_pairs": 31,
+      "same_lobar_recipe_group": true,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.04112209952082315,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_upper_lobe_left distal illustration 1",
+      "b": "lung_upper_lobe_left distal illustration 3",
+      "bvh_triangle_overlap_pairs": 48,
+      "same_lobar_recipe_group": true,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.04193511070352475,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_upper_lobe_left distal illustration 2",
+      "b": "lung_upper_lobe_left distal illustration 3",
+      "bvh_triangle_overlap_pairs": 39,
+      "same_lobar_recipe_group": true,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.04152867563349669,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_lower_lobe_left distal illustration 1",
+      "b": "lung_lower_lobe_left distal illustration 2",
+      "bvh_triangle_overlap_pairs": 35,
+      "same_lobar_recipe_group": true,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.057671561184454094,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_lower_lobe_left distal illustration 1",
+      "b": "lung_lower_lobe_left distal illustration 3",
+      "bvh_triangle_overlap_pairs": 54,
+      "same_lobar_recipe_group": true,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.0604057734796143,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    },
+    {
+      "a": "lung_lower_lobe_left distal illustration 2",
+      "b": "lung_lower_lobe_left distal illustration 3",
+      "bvh_triangle_overlap_pairs": 29,
+      "same_lobar_recipe_group": true,
+      "max_overlap_centroid_distance_to_declared_attachment_m": 0.05803912446363661,
+      "outside_12mm_attachment_region": false,
+      "caveat": "BVH overlap candidates, conservative screening not proof of actual vascular/airway graph connection"
+    }
+  ]
+}
