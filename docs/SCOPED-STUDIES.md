@@ -71,3 +71,10 @@ No source archive upload, new permissions, billing assurance or broader quality 
 - [Esophageal wall cutaway](../models/esophagus_wall/exports/authored-cutaway-r01/README.md) — independently authored four-tunic teaching segment; illustrative dimensions, not a replacement for the whole organ or its motion.
 
 These additions do not increase the 36-study count or confer anatomy, clinical, or browser-runtime approval.
+
+## 2D relationship teaching aids (not 3D validation)
+
+- [Testis transport pathway · EN/中文](../diagrams/testis_pathway/exports/r01/README.md) — symbolic internal-to-external pathway; not specimen geometry or a repair of the failed 3D model.
+- [Urinary outflow comparison · EN/中文](../diagrams/urinary_outflow/exports/r01/README.md) — typical female/male lower-tract relationships; simplified contours, not measured anatomy or clinical guidance.
+
+These original SVG/PNG supplements do not increase the 36-study count or change existing 3D quality gates.
