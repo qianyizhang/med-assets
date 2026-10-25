@@ -1,0 +1,29 @@
+{
+  "baseline_sha256": "ac84480b9db8d0ce1306d6dd5462821ce15a2786be9a51c2538e4664b5c5040a",
+  "candidate_sha256": "e2d9ab4705a216c7d427eca8cfaf8f0064360d8eaa1a5661a208ecc4970fe656",
+  "only_text_replacement": {
+    "old": "M381 405H360L342 416",
+    "new": "M381 382H347L327 398"
+  },
+  "geometry_change": "Leader path and its label y only; no organ shape/material/position/source-license changes",
+  "contour_test": "256samples per cubic, 2D point-in-polygon; not clinical anatomy",
+  "points": [
+    {
+      "point": [
+        342,
+        416
+      ],
+      "inside_stomach_contour": true,
+      "inside_spleen_contour": false
+    },
+    {
+      "point": [
+        327,
+        398
+      ],
+      "inside_stomach_contour": true,
+      "inside_spleen_contour": false
+    }
+  ],
+  "additional_label_layout_change": "Stomach label y408\u2192385 only, aligning label with clear path above spleen"
+}
