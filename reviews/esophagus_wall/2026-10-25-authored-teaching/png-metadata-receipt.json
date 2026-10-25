@@ -1,0 +1,67 @@
+{
+  "method": "Pillow decode; new Image.frombytes; PNG save with no metadata. Decoded mode, dimensions and pixel bytes asserted identical.",
+  "images": [
+    {
+      "file": "reviews/esophagus_wall/2026-10-25-authored-teaching/teaching-sheet.png",
+      "source_file": "teaching-sheet.png",
+      "original_sha256": "8ff3937cdaffc5e1cd34a82e34fbadbdac7032b3219b1c9ff97b2c2ee20ba3c8",
+      "stripped_sha256": "c2b8dc96d57f8a0489bf95e62935fa14db9c439973a83db338a1260f0f5fb358",
+      "decoded_pixel_sha256": "3bc3efbe0e0321a98c60604f1d2a3ef9c2a2aa9f1288beb5021c7f7ec8acd21d",
+      "decoded_pixels_identical": true,
+      "mode": "RGB",
+      "dimensions": [
+        2400,
+        1450
+      ],
+      "original_metadata_keys": [],
+      "stripped_metadata_keys": [],
+      "stripped_bytes": 916509
+    },
+    {
+      "file": "reviews/esophagus_wall/2026-10-25-authored-teaching/teaching-sheet-zh-CN.png",
+      "source_file": "teaching-sheet-zh-CN.png",
+      "original_sha256": "978e6242ee262d1582c31fe3da2763ec2169bd5d1169c76d75c41692aa8d96f9",
+      "stripped_sha256": "177fabd3f6bd3e8d441562f992a0a9f2c0bce27ffdb839e8cd1a02de18add542",
+      "decoded_pixel_sha256": "3d8aecb911a85a4ecd3c6076f71cf0f31a7f4a7988b373962e8bcbe65ec51c8d",
+      "decoded_pixels_identical": true,
+      "mode": "RGB",
+      "dimensions": [
+        2400,
+        1450
+      ],
+      "original_metadata_keys": [],
+      "stripped_metadata_keys": [],
+      "stripped_bytes": 987121
+    },
+    {
+      "file": "reviews/esophagus_wall/2026-10-25-authored-teaching/oblique.png",
+      "source_file": "oblique.png",
+      "original_sha256": "a19c36334fa656e21eac2c0281b24554830c026f5d3d26adee79f7543ec521d4",
+      "stripped_sha256": "67a9eaf72a5801ff7e0fa989338c6f4096a8ca6bc630946c79c6aca407e29185",
+      "decoded_pixel_sha256": "80903e36634c3192e5b82972bb8dd7f4b0e68f92eece627e37385e5631c15d92",
+      "decoded_pixels_identical": true,
+      "mode": "RGBA",
+      "dimensions": [
+        1000,
+        1100
+      ],
+      "original_metadata_keys": [
+        "Camera",
+        "Date",
+        "File",
+        "Frame",
+        "RenderTime",
+        "Scene",
+        "Time",
+        "cycles.ViewLayer.render_time",
+        "cycles.ViewLayer.samples",
+        "cycles.ViewLayer.synchronization_time",
+        "cycles.ViewLayer.total_time",
+        "dpi",
+        "exif"
+      ],
+      "stripped_metadata_keys": [],
+      "stripped_bytes": 660785
+    }
+  ]
+}

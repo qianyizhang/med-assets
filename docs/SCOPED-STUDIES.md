@@ -62,3 +62,12 @@ No source archive upload, new permissions, billing assurance or broader quality 
 ## Scoped defect revisions (not additional studies)
 
 - [Trachea C-band integration r05](../models/trachea/exports/host-conforming-cbands-r05/README.md) — [review and tests](../reviews/trachea/2026-10-25-host-conforming-cbands-r05/REVIEW.md). Ring-integration defect improved; whole-trachea quality remains **Needs revision**. The 36-study count is unchanged.
+
+- [Bronchial junction repair r07](../models/bronchial_tree/exports/authored-junction-repair-r07/README.md) — authored mesh connectivity improved; residual junction and routing defects remain, whole asset **Needs revision**.
+
+## Context and teaching supplements (not additional organ studies)
+
+- [Parathyroid posterior localization](../models/parathyroids/exports/z-localization-r01/README.md) — one atlas example with same-source thyroid context; simplified morphology and number/location variability remain unresolved.
+- [Esophageal wall cutaway](../models/esophagus_wall/exports/authored-cutaway-r01/README.md) — independently authored four-tunic teaching segment; illustrative dimensions, not a replacement for the whole organ or its motion.
+
+These additions do not increase the 36-study count or confer anatomy, clinical, or browser-runtime approval.

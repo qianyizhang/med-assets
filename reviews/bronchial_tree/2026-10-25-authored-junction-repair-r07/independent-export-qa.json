@@ -1,0 +1,246 @@
+{
+  "scope": "Exact GLB Blender renderer QA, not browser or clinical validation",
+  "candidate_sha256": "3408ca8e8f394dd268b1dbeafdc59fdc8cc104c0976628e455dbc070ae0a7993",
+  "trim_input_sha256": "e48f419f9c20cc5af4a7c779a3738b9179d24288e958919e25ea12c7392597a5",
+  "source_meshes_deleted": [
+    "Authored bronchial junction-consolidation experiment",
+    "Distal tracheal teaching axis",
+    "Left Main",
+    "lung_lower_lobe_left distal illustration 1",
+    "lung_lower_lobe_left distal illustration 2",
+    "lung_lower_lobe_left distal illustration 3",
+    "lung_lower_lobe_left lobar bronchus",
+    "lung_lower_lobe_right distal illustration 1",
+    "lung_lower_lobe_right distal illustration 2",
+    "lung_lower_lobe_right distal illustration 3",
+    "lung_lower_lobe_right lobar bronchus",
+    "lung_middle_lobe_right distal illustration 1",
+    "lung_middle_lobe_right distal illustration 2",
+    "lung_middle_lobe_right distal illustration 3",
+    "lung_middle_lobe_right lobar bronchus",
+    "lung_upper_lobe_left distal illustration 1",
+    "lung_upper_lobe_left distal illustration 2",
+    "lung_upper_lobe_left distal illustration 3",
+    "lung_upper_lobe_left lobar bronchus",
+    "lung_upper_lobe_right distal illustration 1",
+    "lung_upper_lobe_right distal illustration 2",
+    "lung_upper_lobe_right distal illustration 3",
+    "lung_upper_lobe_right lobar bronchus",
+    "Right Main"
+  ],
+  "geometry_world_vertices_and_faces_exact_r06": true,
+  "mesh_count": 1,
+  "raw_import_vertices": 221948,
+  "weld_tolerance_m": 1e-09,
+  "vertices": 221948,
+  "edges": 665838,
+  "faces": 443892,
+  "euler": 2,
+  "components": [
+    221948
+  ],
+  "boundary_edges": 0,
+  "nonmanifold_edges": 0,
+  "zero_area_faces": 0,
+  "eight_retained_input_geometry_exact": {
+    "Distal tracheal teaching axis": true,
+    "Right Main": true,
+    "Left Main": true,
+    "lung_upper_lobe_right lobar bronchus": true,
+    "lung_middle_lobe_right lobar bronchus": true,
+    "lung_lower_lobe_right lobar bronchus": true,
+    "lung_upper_lobe_left lobar bronchus": true,
+    "lung_lower_lobe_left lobar bronchus": true
+  },
+  "terminal_witnesses": [
+    {
+      "name": "distal tracheal teaching-axis top",
+      "position": [
+        0.003000000026077032,
+        0.006000000052154064,
+        0.14000000059604645
+      ],
+      "reimport_surface_distance_m": 1.043374879827752e-07,
+      "matches_trim_recipe_endpoint": true
+    },
+    {
+      "name": "lung_upper_lobe_right distal illustration 1",
+      "position": [
+        -0.08438904583454132,
+        -0.022628560662269592,
+        0.08685024082660675
+      ],
+      "reimport_surface_distance_m": 4.393987467210536e-07,
+      "matches_trim_recipe_endpoint": true
+    },
+    {
+      "name": "lung_upper_lobe_right distal illustration 2",
+      "position": [
+        -0.06475237756967545,
+        0.017127137631177902,
+        0.1364966183900833
+      ],
+      "reimport_surface_distance_m": 1.2350502629487892e-06,
+      "matches_trim_recipe_endpoint": true
+    },
+    {
+      "name": "lung_upper_lobe_right distal illustration 3",
+      "position": [
+        -0.04511571303009987,
+        -0.022628560662269592,
+        0.08685024082660675
+      ],
+      "reimport_surface_distance_m": 6.82674055951793e-07,
+      "matches_trim_recipe_endpoint": true
+    },
+    {
+      "name": "lung_middle_lobe_right distal illustration 1",
+      "position": [
+        -0.09311842918395996,
+        -0.04605723172426224,
+        0.00919497013092041
+      ],
+      "reimport_surface_distance_m": 1.014073021110562e-07,
+      "matches_trim_recipe_endpoint": true
+    },
+    {
+      "name": "lung_middle_lobe_right distal illustration 2",
+      "position": [
+        -0.07426207512617111,
+        -0.01620393618941307,
+        0.0451909601688385
+      ],
+      "reimport_surface_distance_m": 8.072198056652269e-07,
+      "matches_trim_recipe_endpoint": true
+    },
+    {
+      "name": "lung_middle_lobe_right distal illustration 3",
+      "position": [
+        -0.055405717343091965,
+        -0.04605723172426224,
+        0.00919497013092041
+      ],
+      "reimport_surface_distance_m": 9.552754676178665e-08,
+      "matches_trim_recipe_endpoint": true
+    },
+    {
+      "name": "lung_lower_lobe_right distal illustration 1",
+      "position": [
+        -0.09875111281871796,
+        -0.0065991804003715515,
+        -0.024872738867998123
+      ],
+      "reimport_surface_distance_m": 1.0133885552932043e-07,
+      "matches_trim_recipe_endpoint": true
+    },
+    {
+      "name": "lung_lower_lobe_right distal illustration 2",
+      "position": [
+        -0.07447563111782074,
+        0.030087264254689217,
+        0.04369858279824257
+      ],
+      "reimport_surface_distance_m": 4.3959830691164825e-06,
+      "matches_trim_recipe_endpoint": true
+    },
+    {
+      "name": "lung_lower_lobe_right distal illustration 3",
+      "position": [
+        -0.05020015314221382,
+        -0.0065991804003715515,
+        -0.024872738867998123
+      ],
+      "reimport_surface_distance_m": 1.1257193364144769e-06,
+      "matches_trim_recipe_endpoint": true
+    },
+    {
+      "name": "lung_upper_lobe_left distal illustration 1",
+      "position": [
+        0.04877812787890434,
+        -0.019386403262615204,
+        0.05004036799073219
+      ],
+      "reimport_surface_distance_m": 6.2558264346535e-08,
+      "matches_trim_recipe_endpoint": true
+    },
+    {
+      "name": "lung_upper_lobe_left distal illustration 2",
+      "position": [
+        0.07111804187297821,
+        0.01704089529812336,
+        0.12456364929676056
+      ],
+      "reimport_surface_distance_m": 1.0030650798853458e-07,
+      "matches_trim_recipe_endpoint": true
+    },
+    {
+      "name": "lung_upper_lobe_left distal illustration 3",
+      "position": [
+        0.09345795214176178,
+        -0.019386403262615204,
+        0.05004036799073219
+      ],
+      "reimport_surface_distance_m": 2.974830294988351e-06,
+      "matches_trim_recipe_endpoint": true
+    },
+    {
+      "name": "lung_lower_lobe_left distal illustration 1",
+      "position": [
+        0.0667136162519455,
+        -0.002608964219689369,
+        -0.0023004338145256042
+      ],
+      "reimport_surface_distance_m": 1.3604277455669944e-06,
+      "matches_trim_recipe_endpoint": true
+    },
+    {
+      "name": "lung_lower_lobe_left distal illustration 2",
+      "position": [
+        0.08936188369989395,
+        0.03288143128156662,
+        0.07571528851985931
+      ],
+      "reimport_surface_distance_m": 5.025138989367406e-07,
+      "matches_trim_recipe_endpoint": true
+    },
+    {
+      "name": "lung_lower_lobe_left distal illustration 3",
+      "position": [
+        0.11201015114784241,
+        -0.002608964219689369,
+        -0.0023004338145256042
+      ],
+      "reimport_surface_distance_m": 9.814853996203965e-08,
+      "matches_trim_recipe_endpoint": true
+    }
+  ],
+  "terminal_scope": "16 supplied recipe point witnesses nearest-surface checked, not independently skeleton-extracted terminal count",
+  "control_proof_scope": "15 recorded retained end-to-destination Bezier controls with exact-copy flags and zero sampled reconstruction discrepancy; code inspected. This is authoring-recipe preservation, not anatomical route validation, not full final surface identity.",
+  "raw_accessor_comparison": {
+    "POSITION_accessor_bytes_equal": true,
+    "NORMAL_accessor_bytes_equal": false,
+    "index_accessor_bytes_equal": true,
+    "nodes_equal": true,
+    "materials_equal": true
+  },
+  "visual_review": {
+    "reviewed_images": [
+      "reimport-candidate-front.png",
+      "reimport-candidate-left_lobar_close.png"
+    ],
+    "finding": "Whole-tree redundant overlapping stems visibly reduced versus earlier baseline/r04. Main/left lobar surfaces shade smoothly, but left-lobar-close retains a local vertical ridge/lip and pinpoint dark dimple at the junction. A thin distal branch crosses in foreground. Broad faceting reduced versus r06; not flawless and not clinical anatomy approval."
+  },
+  "source_vs_reimport_rgb_mae": {
+    "candidate-front.png": [
+      0.0005682352941176471,
+      0.0004976470588235294,
+      0.0004423529411764706
+    ],
+    "candidate-left_lobar_close.png": [
+      0.0025905882352941175,
+      0.00226,
+      0.0019788235294117646
+    ]
+  },
+  "max_terminal_witness_distance_m": 4.3959830691164825e-06
+}

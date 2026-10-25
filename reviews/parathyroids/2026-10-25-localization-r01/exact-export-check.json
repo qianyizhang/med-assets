@@ -1,0 +1,114 @@
+{
+  "exports": {
+    "parathyroids_native.glb": {
+      "sha256": "b6fbbabfa7efd12b8c377f5bc56193bd81776daab999a8c1ac8286f693b85b45",
+      "nodes": [
+        {
+          "source_name": "Superior parathyroid gland.r",
+          "role": "target",
+          "vertices": 66,
+          "triangles": 128,
+          "finite": true,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "zero_area_faces": 0,
+          "source_to_export_max_vertex_distance_m": 0.0
+        },
+        {
+          "source_name": "Superior parathyroid gland.l",
+          "role": "target",
+          "vertices": 66,
+          "triangles": 128,
+          "finite": true,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "zero_area_faces": 0,
+          "source_to_export_max_vertex_distance_m": 0.0
+        },
+        {
+          "source_name": "Inferior parathyroid gland.r",
+          "role": "target",
+          "vertices": 66,
+          "triangles": 128,
+          "finite": true,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "zero_area_faces": 0,
+          "source_to_export_max_vertex_distance_m": 0.0
+        },
+        {
+          "source_name": "Inferior parathyroid gland.l",
+          "role": "target",
+          "vertices": 66,
+          "triangles": 128,
+          "finite": true,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "zero_area_faces": 0,
+          "source_to_export_max_vertex_distance_m": 0.0
+        }
+      ]
+    },
+    "parathyroids_thyroid_context.glb": {
+      "sha256": "7759008c5682ac76e77f39f68f5cd421ea42cfe5252cebe9bd82ecc54dc04345",
+      "nodes": [
+        {
+          "source_name": "Superior parathyroid gland.r",
+          "role": "target",
+          "vertices": 66,
+          "triangles": 128,
+          "finite": true,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "zero_area_faces": 0,
+          "source_to_export_max_vertex_distance_m": 0.0
+        },
+        {
+          "source_name": "Superior parathyroid gland.l",
+          "role": "target",
+          "vertices": 66,
+          "triangles": 128,
+          "finite": true,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "zero_area_faces": 0,
+          "source_to_export_max_vertex_distance_m": 0.0
+        },
+        {
+          "source_name": "Inferior parathyroid gland.r",
+          "role": "target",
+          "vertices": 66,
+          "triangles": 128,
+          "finite": true,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "zero_area_faces": 0,
+          "source_to_export_max_vertex_distance_m": 0.0
+        },
+        {
+          "source_name": "Inferior parathyroid gland.l",
+          "role": "target",
+          "vertices": 66,
+          "triangles": 128,
+          "finite": true,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "zero_area_faces": 0,
+          "source_to_export_max_vertex_distance_m": 0.0
+        },
+        {
+          "source_name": "Thyroid gland",
+          "role": "context",
+          "vertices": 1302,
+          "triangles": 2600,
+          "finite": true,
+          "boundary_edges": 0,
+          "nonmanifold_edges": 0,
+          "zero_area_faces": 0,
+          "source_to_export_max_vertex_distance_m": 0.0
+        }
+      ]
+    }
+  },
+  "limitations": "Finite geometry and source/export distance checks only. Nonmanifold diagnostics are indexed GLB topology, not anatomical correctness. No anatomy/clinical/runtime pass."
+}

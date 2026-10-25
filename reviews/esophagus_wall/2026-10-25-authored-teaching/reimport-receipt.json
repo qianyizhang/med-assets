@@ -1,0 +1,96 @@
+{
+  "sha256": "e4f51a86040ef115776fe06a33443982f7b63243332681e53dadaa77f81c05f5",
+  "clean_scene_reimport": true,
+  "objects": [
+    {
+      "node": "01 Mucosa - composite",
+      "finite": true,
+      "boundary_edges_welded": 0,
+      "nonmanifold_edges_welded": 0,
+      "positive_volume": true,
+      "zero_area_faces": 0
+    },
+    {
+      "node": "02 Submucosa",
+      "finite": true,
+      "boundary_edges_welded": 0,
+      "nonmanifold_edges_welded": 0,
+      "positive_volume": true,
+      "zero_area_faces": 0
+    },
+    {
+      "node": "03 Muscularis externa - inner circular",
+      "finite": true,
+      "boundary_edges_welded": 0,
+      "nonmanifold_edges_welded": 0,
+      "positive_volume": true,
+      "zero_area_faces": 0
+    },
+    {
+      "node": "04 Muscularis externa - outer longitudinal",
+      "finite": true,
+      "boundary_edges_welded": 0,
+      "nonmanifold_edges_welded": 0,
+      "positive_volume": true,
+      "zero_area_faces": 0
+    },
+    {
+      "node": "05 Adventitia",
+      "finite": true,
+      "boundary_edges_welded": 0,
+      "nonmanifold_edges_welded": 0,
+      "positive_volume": true,
+      "zero_area_faces": 0
+    }
+  ],
+  "cameras": [
+    {
+      "name": "oblique",
+      "position": [
+        0.11611921340227127,
+        -0.23223842680454254,
+        0.17277193069458008
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.02250000089406967
+      ],
+      "ortho_scale": 0.067
+    },
+    {
+      "name": "longitudinal",
+      "position": [
+        0.0,
+        -0.2985111474990845,
+        0.05235111713409424
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.02250000089406967
+      ],
+      "ortho_scale": 0.06
+    },
+    {
+      "name": "cross-section",
+      "position": [
+        0.0,
+        0.0,
+        0.3225000202655792
+      ],
+      "target": [
+        0.0,
+        0.0,
+        0.02250000089406967
+      ],
+      "ortho_scale": 0.033
+    }
+  ],
+  "render": "Blender 4.3.2 Cycles CPU, 96 samples, no denoising, 1000x1100",
+  "scope": "Only finite/edge/volume and rendered layer readability checks. Not tissue anatomy validation or browser runtime.",
+  "topology_method": {
+    "weld_distance_m": 1e-08,
+    "scope": "Tolerance-weld diagnostics; not exact-index topology or manifold proof. Original exported GLB bytes are unchanged."
+  }
+}
