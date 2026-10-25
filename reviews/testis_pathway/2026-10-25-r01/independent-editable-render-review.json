@@ -1,0 +1,33 @@
+{
+  "status": "PASS — bounded original 2D teaching schematic relationship/label review",
+  "scope": "Actual rendered EN/ZH PNG pixels reviewed; not clinical/anatomical geometric precision approval, not 3D repair, not source-model validation. SVG text-to-path conversion requires separate equivalence check.",
+  "reviewed_files": {
+    "testis-pathway-en.png": "d4c795af99e4d652cbea5dafe0ad19d663f8d9a86134abae631123fd0f42cfea",
+    "testis-pathway-zh.png": "c504449cc4bb8b65a4ec9f96ecf1ca8e82da016a8fda3f9ab16e890ccd91750c"
+  },
+  "confirmed_fixes": [
+    "Tunica leader now terminates on capsule at approximately (422.33,379).",
+    "Chinese tunica English subtitle no longer overlaps leader.",
+    "Chinese straight-tubule Latin subtitle no longer overlaps leader.",
+    "Rete and straight-tubule label order now avoids former leader crossing."
+  ],
+  "relationship_checks": [
+    "Rete represented within posterior testicular mediastinum.",
+    "Straight-tubule leader targets straight blue lower segment; rete leader targets posterior network.",
+    "Efferent ductules connect rete to superior epididymal head.",
+    "Flow descends through external epididymal body to inferior tail.",
+    "Ductus deferens continues from tail and ascends externally.",
+    "Bilingual terminology and direction labels consistent.",
+    "Symbolic coil/lobule/count and non-scale limitations visibly disclosed."
+  ],
+  "remaining_limitations": [
+    "Epididymal envelope and ducts symbolic; no actual lumen, coil count, duct diameter, or specimen geometry established.",
+    "2D projection communicates selected relationships, not complete regional anatomy.",
+    "Approval attaches to hashed PNGs only; later revisions or display conversions need byte/visual equivalence verification."
+  ],
+  "references": [
+    "https://www.training.seer.cancer.gov/testicular/anatomy/",
+    "https://www.training.seer.cancer.gov/testicular/anatomy/cross-section.html",
+    "https://openstax.org/books/anatomy-and-physiology-2e/pages/27-1-anatomy-and-physiology-of-the-testicular-reproductive-system"
+  ]
+}

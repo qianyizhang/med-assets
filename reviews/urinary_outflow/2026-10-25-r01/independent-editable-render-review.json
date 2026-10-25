@@ -1,0 +1,28 @@
+{
+  "status": "PASS — bounded original 2D lower-tract relationship and bilingual label review",
+  "scope": "Actual EN/ZH PNG pixels inspected. No clinical precision, measured dimensions, complete pelvic anatomy, or 3D-model approval.",
+  "reviewed_files": {
+    "urinary-outflow-en.png": "175d7bd072aafb3502274f86a04960ed934cc71424f67b09e12a4c2271da6b5c",
+    "urinary-outflow-zh.png": "e4761f8f9255312a2a1a6b0d9e07c8a8272e3582e30a2e60861e83c38e5cf7e9"
+  },
+  "checks": [
+    "Female urethra anterior to separate vaginal canal; urinary and vaginal external openings separate.",
+    "Urine-flow arrows run from bladder outward, not toward bladder.",
+    "Male prostate is immediately inferior to bladder; prostatic urethra passes through it.",
+    "Membranous label targets segment below prostate, before penile/spongy segment.",
+    "Spongy urethral label targets course within penile envelope; caption names corpus spongiosum.",
+    "Male distal urinary opening reaches contour; outflow arrow points outside.",
+    "Very short bladder-wall/preprostatic portion explicitly noted as not separately labeled.",
+    "English and Chinese labels legible with no blocking text/leader collision observed.",
+    "尿道前列腺部、尿道膜部、尿道海绵体部（阴茎部）、尿道外口、阴道口 correctly distinguished.",
+    "Schematic, not-to-scale, omitted structures, and non-3D-validation limits visible."
+  ],
+  "remaining_limitations": [
+    "Simplified outlines do not establish real curvature, relative length, lumen caliber, sphincters, or complete reproductive/pelvic anatomy.",
+    "Approval attaches only to hashed PNGs; subsequent conversion or revisions need equivalence verification."
+  ],
+  "references": [
+    "https://www.niddk.nih.gov/health-information/urologic-diseases/urinary-tract-how-it-works",
+    "https://openstax.org/books/anatomy-and-physiology-2e/pages/25-2-gross-anatomy-of-urine-transport"
+  ]
+}
