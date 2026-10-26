@@ -11,6 +11,25 @@ One reusable executor replaces per-batch workflow copies. It never commits point
 
 This is not a new per-commit gate: unrelated commits and asset-pointer PRs do not trigger transfer. Ordinary PR branch hygiene can follow the user's periodic cadence. The implementation PR should contain these four files only; **no batch manifest** is bundled with it.
 
+## Authorized transport PR merges
+
+An assistant may complete a routine transport merge within the owner's existing authorization; this is not authority to merge arbitrary changes or approve an asset candidate. Use the connected GitHub tools, with no new credentials:
+
+1. Confirm the exact PR is manifest-only, its reviewed batch is authorized, and its full head SHA matches the reviewed changes. Check required reviews, CI and branch rules; `mergeable=true` alone is not sufficient.
+2. If draft, use `mark_pull_request_ready_for_review`; draft PRs cannot merge. Re-read the PR after the transition.
+3. Use `merge_pull_request` with `expected_head_sha` set to the reviewed full SHA and a repository-allowed merge method. If the head changed, stop and review the new changes rather than silently accepting them. Preserve all required checks and protections.
+4. Verify the merged state and merge commit, then the upload workflow result and independent fresh LFS readback described above. A successful merge is not proof of successful transport. Record the run URL and sanitized receipt.
+
+GitHub repository write permission and approval to execute a particular action are separate. An action-approval denial before execution is not a GitHub permission or CI failure. Stop the denied action; do not retry through CLI, browser, another agent or token, weaken protections, or obtain broader credentials to bypass it. If the exact transition is genuinely outside the existing authorization, request only that specific scope. If adequate authorization already exists but the action remains blocked, report the unresolved block through the supported feedback/handoff path rather than repeatedly asking for the same permission. Knowing this workflow does not mean an approval block has been removed.
+
+Auto-merge is an optional supported feature when the repository permits it and required reviews/checks remain pending. The connected wrapper does not expose an expected-head guard; prefer the guarded immediate merge for a frozen reviewed manifest. Auto-merge is not a workaround for a denied action.
+
+Transport authorization covers the reviewed upload only. Keep separate candidate anatomy, visual-quality, clinical and runtime approval unchanged; a draft candidate remains draft unless separately authorized.
+
+**Recorded example:** the owner merged [PR78](https://github.com/qianyizhang/med-assets/pull/78) on 2026-10-26. This was not an assistant workaround for the earlier blocked ready transition and does not establish that future action approval will succeed.
+
+References: [draft/ready transitions](https://docs.github.com/en/pull-requests/how-tos/create-pull-requests/changing-the-stage-of-a-pull-request), [merge requirements](https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/merging-a-pull-request), [merge API SHA guard](https://docs.github.com/en/rest/pulls/pulls#merge-a-pull-request), [auto-merge](https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/automatically-merging-a-pull-request).
+
 ## Manifest shape
 
 Use the existing transport format: top-level `objects`, `totalBytes`, optional `objectCount` and `scope`. Each object has `file` (raw identity/display path), `sha256`, `bytes`, and `url`. `file` is metadata only; temporary files are always named by checked OID, never that path.

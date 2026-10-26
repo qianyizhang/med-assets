@@ -1,0 +1,801 @@
+{
+  "schema_version": 1,
+  "checked_utc": "2026-10-26",
+  "status": "planning_and_coverage_not_anatomy_approval",
+  "counts": {
+    "permanent_target": 32,
+    "primary_target": 20,
+    "existing_named_adult_exteriors": 28,
+    "missing_adult_exterior_slots": 4,
+    "missing_primary_exterior_slots": 20,
+    "complete_layered_tooth_sets_accepted": 0,
+    "coherent_dentition_sets_accepted": 0,
+    "condition_variants_created": 0
+  },
+  "status_semantics": {
+    "created": "Geometry exists; not a completeness or anatomy approval.",
+    "source_supported": "Source label and source identity support this mapping; geometric laterality is a separate gate.",
+    "draft": "Named specification exists, not necessarily geometry.",
+    "missing": "Required target deliverable unavailable, not a diagnosis of a missing tooth."
+  },
+  "bp3d_evidence": {
+    "canonical_path": "models/teeth_gums/exports/r02/teeth_gums.glb",
+    "glb_sha256": "82bfaeead46bb51b1fa5bdfdb06c918dfd01aa23b28acae733ab75ec2cd6897f",
+    "inspection": "Actual GLB JSON source_name/source_file_id/source_sha256; 28 tooth nodes and 2 gingiva nodes.",
+    "placement": "Retain native atlas placement; no cross-specimen registration claimed.",
+    "crosswalk_status": "Source-label mapping; not independent geometric laterality validation.",
+    "canonical_record": "https://github.com/qianyizhang/med-assets/blob/b2a9ae9953ef0fe64a3e11173b6a408598c56347/reviews/teeth_gums/2026-10-24-r02-bounded-migration/bounded-record.json"
+  },
+  "unassigned_specimens": [
+    {
+      "source": "UFF tomo1b",
+      "named_slot": null,
+      "components": [
+        "hard_tissue_boundary",
+        "slice_enclosed_space_proxy"
+      ],
+      "status": "created_research_display_pilot",
+      "limit": "Unknown FDI; proxy is connected to exterior and algorithmically capped. Not a complete canal or layered baseline."
+    }
+  ],
+  "teeth": [
+    {
+      "fdi": "11",
+      "name": "permanent maxillary right central incisor",
+      "dentition": "permanent",
+      "exterior_status": "created_source_supported_unaccepted_set",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": {
+        "source_object": "FJ1279",
+        "source_name": "Right upper central secondary incisor tooth",
+        "source_mesh_sha256": "e8b9c01f57a8a723f9ea0497dfbe2df5f95e23786d0663f196a3608f995d6b22"
+      },
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "12",
+      "name": "permanent maxillary right lateral incisor",
+      "dentition": "permanent",
+      "exterior_status": "created_source_supported_unaccepted_set",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": {
+        "source_object": "FJ1280",
+        "source_name": "Right upper lateral secondary incisor tooth",
+        "source_mesh_sha256": "5c06c01ee01c337523fc9cf641c31c65856a52c74237d9d86989d93dd6847c0e"
+      },
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "13",
+      "name": "permanent maxillary right canine",
+      "dentition": "permanent",
+      "exterior_status": "created_source_supported_unaccepted_set",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": {
+        "source_object": "FJ1281",
+        "source_name": "Right upper secondary canine tooth",
+        "source_mesh_sha256": "2d8f105ee772e727e3b4ccbb6370a893a213174c0f90155054dac20bc053512c"
+      },
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "14",
+      "name": "permanent maxillary right first premolar",
+      "dentition": "permanent",
+      "exterior_status": "created_source_supported_unaccepted_set",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": {
+        "source_object": "FJ1277",
+        "source_name": "Right upper first secondary premolar tooth",
+        "source_mesh_sha256": "46d0a4b9528553387811d65040836ccfe7dc971fec56254e01c9eabdc16156a0"
+      },
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "15",
+      "name": "permanent maxillary right second premolar",
+      "dentition": "permanent",
+      "exterior_status": "created_source_supported_unaccepted_set",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": {
+        "source_object": "FJ1278",
+        "source_name": "Right upper second secondary premolar tooth",
+        "source_mesh_sha256": "32f4db913923278b7cbfcaf8e64d1073604951dd58493e3310da30bec1ff3829"
+      },
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "16",
+      "name": "permanent maxillary right first molar",
+      "dentition": "permanent",
+      "exterior_status": "created_source_supported_unaccepted_set",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": {
+        "source_object": "FJ1276",
+        "source_name": "Right upper first secondary molar tooth",
+        "source_mesh_sha256": "95ba31eb43e4975d8f36be7595e383baf31b21b68c829a5e6c419a0125682ef6"
+      },
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "17",
+      "name": "permanent maxillary right second molar",
+      "dentition": "permanent",
+      "exterior_status": "created_source_supported_unaccepted_set",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": {
+        "source_object": "FJ1275",
+        "source_name": "Right upper second secondary molar tooth",
+        "source_mesh_sha256": "457c1d089e24d7e120abf97c2af844ff609a58c3292446e4b1814137d3691416"
+      },
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "18",
+      "name": "permanent maxillary right third molar",
+      "dentition": "permanent",
+      "exterior_status": "missing",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": null,
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "21",
+      "name": "permanent maxillary left central incisor",
+      "dentition": "permanent",
+      "exterior_status": "created_source_supported_unaccepted_set",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": {
+        "source_object": "FJ1265",
+        "source_name": "Left upper central secondary incisor tooth",
+        "source_mesh_sha256": "bd094c59fb378809a534467b70b5b24ae0b147bc31f42c004e7ddadf8f0b7328"
+      },
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "22",
+      "name": "permanent maxillary left lateral incisor",
+      "dentition": "permanent",
+      "exterior_status": "created_source_supported_unaccepted_set",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": {
+        "source_object": "FJ1266",
+        "source_name": "Left upper lateral secondary incisor tooth",
+        "source_mesh_sha256": "4df1ab640352a074623d02e755e7632de180da9dc957503f887c791a533d5ea5"
+      },
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "23",
+      "name": "permanent maxillary left canine",
+      "dentition": "permanent",
+      "exterior_status": "created_source_supported_unaccepted_set",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": {
+        "source_object": "FJ1267",
+        "source_name": "Left upper secondary canine tooth",
+        "source_mesh_sha256": "44f5accf76e8b0a1ac2aefb55d031508fedad0bacda03b598aef71f88ca2462d"
+      },
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "24",
+      "name": "permanent maxillary left first premolar",
+      "dentition": "permanent",
+      "exterior_status": "created_source_supported_unaccepted_set",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": {
+        "source_object": "FJ1262",
+        "source_name": "Left upper first secondary premolar tooth",
+        "source_mesh_sha256": "5f45ec1015edb7c7539a3ef7a7577d4a0a723beb4dbfb18e36eca77663431c18"
+      },
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "25",
+      "name": "permanent maxillary left second premolar",
+      "dentition": "permanent",
+      "exterior_status": "created_source_supported_unaccepted_set",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": {
+        "source_object": "FJ1264",
+        "source_name": "Left upper second secondary premolar tooth",
+        "source_mesh_sha256": "e882218931e8f197490f16ba8058a87502edccc5e8e1f2d50fbd715a0386d33b"
+      },
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "26",
+      "name": "permanent maxillary left first molar",
+      "dentition": "permanent",
+      "exterior_status": "created_source_supported_unaccepted_set",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": {
+        "source_object": "FJ1261",
+        "source_name": "Left upper first secondary molar tooth",
+        "source_mesh_sha256": "529061a7fdb28af07855e7350f788f93ef6c97e3bfead2e28bb9efe0256b0728"
+      },
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "27",
+      "name": "permanent maxillary left second molar",
+      "dentition": "permanent",
+      "exterior_status": "created_source_supported_unaccepted_set",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": {
+        "source_object": "FJ1263",
+        "source_name": "Left upper second secondary molar tooth",
+        "source_mesh_sha256": "5811bdc8cfed255f8aa9e10fa8dd4815b5d0924c2a23f1d7e373c8521be6c65a"
+      },
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "28",
+      "name": "permanent maxillary left third molar",
+      "dentition": "permanent",
+      "exterior_status": "missing",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": null,
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "31",
+      "name": "permanent mandibular left central incisor",
+      "dentition": "permanent",
+      "exterior_status": "created_source_supported_unaccepted_set",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": {
+        "source_object": "FJ1258",
+        "source_name": "Left lower central secondary incisor tooth",
+        "source_mesh_sha256": "56fe0ccb8277f4ae0c945d3f2b3cf0a3a816ec2edf31eae4ab46a91954bde7aa"
+      },
+      "separate_layer_reference": {
+        "source": "LMU SWIRendo",
+        "status": "created_prepared_research_pilot",
+        "layers": [
+          "enamel",
+          "dentin",
+          "pulp_label",
+          "bone"
+        ],
+        "baseline_substitute": false,
+        "limits": "Preparation state and source labels are in progress; 46 is cropped. Inter-tissue consistency is unpassed. Not registered to BP3D."
+      }
+    },
+    {
+      "fdi": "32",
+      "name": "permanent mandibular left lateral incisor",
+      "dentition": "permanent",
+      "exterior_status": "created_source_supported_unaccepted_set",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": {
+        "source_object": "FJ1259",
+        "source_name": "Left lower lateral secondary incisor tooth",
+        "source_mesh_sha256": "f2a5c7fb06457bf61d55f8cab4048983651418f01b3bad013e9a2dea7a383b62"
+      },
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "33",
+      "name": "permanent mandibular left canine",
+      "dentition": "permanent",
+      "exterior_status": "created_source_supported_unaccepted_set",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": {
+        "source_object": "FJ1260",
+        "source_name": "Left lower secondary canine tooth",
+        "source_mesh_sha256": "4dd682c058f3949b30077712296603c1c508423a58998ad909baeec5bfa56b72"
+      },
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "34",
+      "name": "permanent mandibular left first premolar",
+      "dentition": "permanent",
+      "exterior_status": "created_source_supported_unaccepted_set",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": {
+        "source_object": "FJ1255",
+        "source_name": "Left lower first secondary premolar tooth",
+        "source_mesh_sha256": "6cbac9debf9b9cd9825f096c5ac84911f91020a36ec6f95fdfc49f10a679822b"
+      },
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "35",
+      "name": "permanent mandibular left second premolar",
+      "dentition": "permanent",
+      "exterior_status": "created_source_supported_unaccepted_set",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": {
+        "source_object": "FJ1257",
+        "source_name": "Left lower second secondary premolar tooth",
+        "source_mesh_sha256": "b4e2d2cb7d5e7d41d82bc6e48b3de5cb628a0786ae0d82abadd39250f6dff3a7"
+      },
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "36",
+      "name": "permanent mandibular left first molar",
+      "dentition": "permanent",
+      "exterior_status": "created_source_supported_unaccepted_set",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": {
+        "source_object": "FJ1254",
+        "source_name": "Left lower first secondary molar tooth",
+        "source_mesh_sha256": "7ac5ee013326492b1d51795eb292a7e5bba0647b74c30b09dc715f9a1dc28754"
+      },
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "37",
+      "name": "permanent mandibular left second molar",
+      "dentition": "permanent",
+      "exterior_status": "created_source_supported_unaccepted_set",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": {
+        "source_object": "FJ1256",
+        "source_name": "Left lower second secondary molar tooth",
+        "source_mesh_sha256": "a5dfb507dc76447d6ca09e4a5e11b8750571227d13b582cfffac1d2f35cd1bec"
+      },
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "38",
+      "name": "permanent mandibular left third molar",
+      "dentition": "permanent",
+      "exterior_status": "missing",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": null,
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "41",
+      "name": "permanent mandibular right central incisor",
+      "dentition": "permanent",
+      "exterior_status": "created_source_supported_unaccepted_set",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": {
+        "source_object": "FJ1272",
+        "source_name": "Right lower central secondary incisor tooth",
+        "source_mesh_sha256": "17927707d17fa7a78f9743f90b4150d6e7b4eaa4fe5c8ad29a961b4ea795272b"
+      },
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "42",
+      "name": "permanent mandibular right lateral incisor",
+      "dentition": "permanent",
+      "exterior_status": "created_source_supported_unaccepted_set",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": {
+        "source_object": "FJ1273",
+        "source_name": "Right lower lateral secondary incisor tooth",
+        "source_mesh_sha256": "43ca036b3bf66dad24be63b0f95a2a8ecf839b61d2d83981659e03b4a357f869"
+      },
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "43",
+      "name": "permanent mandibular right canine",
+      "dentition": "permanent",
+      "exterior_status": "created_source_supported_unaccepted_set",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": {
+        "source_object": "FJ1274",
+        "source_name": "Right lower secondary canine tooth",
+        "source_mesh_sha256": "a7ded2520e6c1e41154d89a389b4ded0daf733f23d47e4a02fb97230c07b4907"
+      },
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "44",
+      "name": "permanent mandibular right first premolar",
+      "dentition": "permanent",
+      "exterior_status": "created_source_supported_unaccepted_set",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": {
+        "source_object": "FJ1269",
+        "source_name": "Right lower first secondary premolar tooth",
+        "source_mesh_sha256": "7b3067782910e38d45b03901ba998fcf35088b9f85c523b3cc890cf11adbf17f"
+      },
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "45",
+      "name": "permanent mandibular right second premolar",
+      "dentition": "permanent",
+      "exterior_status": "created_source_supported_unaccepted_set",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": {
+        "source_object": "FJ1271",
+        "source_name": "Right lower second secondary premolar tooth",
+        "source_mesh_sha256": "220723db70ad6e5edd497977f656be1df7d407804d5ca31302bca598a3d81c41"
+      },
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "46",
+      "name": "permanent mandibular right first molar",
+      "dentition": "permanent",
+      "exterior_status": "created_source_supported_unaccepted_set",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": {
+        "source_object": "FJ1268",
+        "source_name": "Right lower first secondary molar tooth",
+        "source_mesh_sha256": "692c5313517c8b049fac739a068710f8bdbd1f3e201a1b88819aff6f8f1a6eda"
+      },
+      "separate_layer_reference": {
+        "source": "LMU SWIRendo",
+        "status": "created_prepared_research_pilot",
+        "layers": [
+          "enamel",
+          "dentin",
+          "pulp_label",
+          "bone"
+        ],
+        "baseline_substitute": false,
+        "limits": "Preparation state and source labels are in progress; 46 is cropped. Inter-tissue consistency is unpassed. Not registered to BP3D."
+      }
+    },
+    {
+      "fdi": "47",
+      "name": "permanent mandibular right second molar",
+      "dentition": "permanent",
+      "exterior_status": "created_source_supported_unaccepted_set",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": {
+        "source_object": "FJ1270",
+        "source_name": "Right lower second secondary molar tooth",
+        "source_mesh_sha256": "722d80bd11c7e814c3c1c2b20fe2621ed8327319028ad67c6e4dce24d7ee4458"
+      },
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "48",
+      "name": "permanent mandibular right third molar",
+      "dentition": "permanent",
+      "exterior_status": "missing",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": null,
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "51",
+      "name": "primary maxillary right central incisor",
+      "dentition": "primary",
+      "exterior_status": "missing",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": null,
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "52",
+      "name": "primary maxillary right lateral incisor",
+      "dentition": "primary",
+      "exterior_status": "missing",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": null,
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "53",
+      "name": "primary maxillary right canine",
+      "dentition": "primary",
+      "exterior_status": "missing",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": null,
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "54",
+      "name": "primary maxillary right first molar",
+      "dentition": "primary",
+      "exterior_status": "missing",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": null,
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "55",
+      "name": "primary maxillary right second molar",
+      "dentition": "primary",
+      "exterior_status": "missing",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": null,
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "61",
+      "name": "primary maxillary left central incisor",
+      "dentition": "primary",
+      "exterior_status": "missing",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": null,
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "62",
+      "name": "primary maxillary left lateral incisor",
+      "dentition": "primary",
+      "exterior_status": "missing",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": null,
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "63",
+      "name": "primary maxillary left canine",
+      "dentition": "primary",
+      "exterior_status": "missing",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": null,
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "64",
+      "name": "primary maxillary left first molar",
+      "dentition": "primary",
+      "exterior_status": "missing",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": null,
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "65",
+      "name": "primary maxillary left second molar",
+      "dentition": "primary",
+      "exterior_status": "missing",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": null,
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "71",
+      "name": "primary mandibular left central incisor",
+      "dentition": "primary",
+      "exterior_status": "missing",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": null,
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "72",
+      "name": "primary mandibular left lateral incisor",
+      "dentition": "primary",
+      "exterior_status": "missing",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": null,
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "73",
+      "name": "primary mandibular left canine",
+      "dentition": "primary",
+      "exterior_status": "missing",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": null,
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "74",
+      "name": "primary mandibular left first molar",
+      "dentition": "primary",
+      "exterior_status": "missing",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": null,
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "75",
+      "name": "primary mandibular left second molar",
+      "dentition": "primary",
+      "exterior_status": "missing",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": null,
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "81",
+      "name": "primary mandibular right central incisor",
+      "dentition": "primary",
+      "exterior_status": "missing",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": null,
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "82",
+      "name": "primary mandibular right lateral incisor",
+      "dentition": "primary",
+      "exterior_status": "missing",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": null,
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "83",
+      "name": "primary mandibular right canine",
+      "dentition": "primary",
+      "exterior_status": "missing",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": null,
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "84",
+      "name": "primary mandibular right first molar",
+      "dentition": "primary",
+      "exterior_status": "missing",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": null,
+      "separate_layer_reference": null
+    },
+    {
+      "fdi": "85",
+      "name": "primary mandibular right second molar",
+      "dentition": "primary",
+      "exterior_status": "missing",
+      "specification_status": "draft",
+      "complete_component_set_status": "missing",
+      "whole_set_accepted": false,
+      "condition_variants_created": 0,
+      "bp3d": null,
+      "separate_layer_reference": null
+    }
+  ]
+}
