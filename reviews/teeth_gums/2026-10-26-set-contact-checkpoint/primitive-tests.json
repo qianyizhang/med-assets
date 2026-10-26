@@ -1,0 +1,13 @@
+{
+  "passed": 7,
+  "cases": [
+    "parallel separation",
+    "strict edge-face crossing",
+    "coplanar overlap",
+    "coplanar separation",
+    "noncoplanar endpoint-only touch is not strict crossing",
+    "coplanar edge-only touch",
+    "edge-interior closest point"
+  ],
+  "note": "Two additional touch tests run after numeric receipts; no measurement algorithm changed. Actual22crossing claims use independent strict-witness test."
+}

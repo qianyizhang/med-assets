@@ -1,0 +1,51 @@
+{
+  "source_sha256": "82bfaeead46bb51b1fa5bdfdb06c918dfd01aa23b28acae733ab75ec2cd6897f",
+  "contacts_json_sha256": "efdab9739a516dd58212ce28f8c34556d589db20ad1b60826fb30208b83524a9",
+  "method": "Unpruned enumeration of every triangle pair for each positive-gap adjacency. Same primitive distance functions; independently removes broad-phase/PCU-seed dependence.",
+  "pairs": [
+    {
+      "pair": [
+        "14",
+        "13"
+      ],
+      "exhaustive_triangle_pairs": 2241120,
+      "minimum_mm": 0.19267944878229937,
+      "difference_from_pruned_mm": 0.0,
+      "noncoplanar_intersections": 0,
+      "seconds": 71.44091892242432
+    },
+    {
+      "pair": [
+        "11",
+        "21"
+      ],
+      "exhaustive_triangle_pairs": 1658944,
+      "minimum_mm": 0.3284806297284125,
+      "difference_from_pruned_mm": 0.0,
+      "noncoplanar_intersections": 0,
+      "seconds": 55.373533725738525
+    },
+    {
+      "pair": [
+        "23",
+        "24"
+      ],
+      "exhaustive_triangle_pairs": 2241120,
+      "minimum_mm": 0.19300296022800506,
+      "difference_from_pruned_mm": 0.0,
+      "noncoplanar_intersections": 0,
+      "seconds": 36.449602365493774
+    },
+    {
+      "pair": [
+        "41",
+        "31"
+      ],
+      "exhaustive_triangle_pairs": 844560,
+      "minimum_mm": 0.3400367682011185,
+      "difference_from_pruned_mm": 0.0,
+      "noncoplanar_intersections": 0,
+      "seconds": 11.876076698303223
+    }
+  ]
+}
