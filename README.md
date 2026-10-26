@@ -19,7 +19,13 @@ shasum -a 256 -c SHA256SUMS
 
 ## Collections
 
-[Scoped study files and review evidence](docs/SCOPED-STUDIES.md) — verified migrations, limitations, and pending studies.
+Browse [review folders](reviews/), [3D models](models/), [2D teaching aids](diagrams/)
+and [assemblies](assemblies/). Open the study's run/revision README and review
+record for its status, evidence and limits.
+
+[Scoped study files and review evidence](docs/SCOPED-STUDIES.md) retains the
+36-study migration snapshot and earlier scoped additions. New batches follow
+[study discovery](docs/ASSET_LAYOUT.md#study-discovery) without editing a global list.
 
 | Directory | Contents |
 | --- | --- |

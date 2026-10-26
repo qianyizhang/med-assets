@@ -1,5 +1,15 @@
 # Scoped study files and review evidence
 
+Browse all studies through the [review folders](../reviews/), [3D models](../models/),
+[2D teaching aids](../diagrams/) and [assemblies](../assemblies/). GitHub lists new
+folders automatically; open the relevant study, then its run/revision README or
+review record for evidence, status, source/licence links and limits.
+
+The overview below retains the existing entries and bounded migration snapshot;
+it is not a live list or count of every later addition. Put new entries in the
+study's own README following [study discovery](ASSET_LAYOUT.md#study-discovery),
+without appending to this page. Directory discovery confers no quality approval.
+
 Snapshot: **36 of 36 scoped studies have their reviewed GLB and concise evidence in this repository**. This is migration coverage, not a claim that all anatomy assets passed. All studies in this bounded set have passed exact file and Git LFS download checks; source/history boundaries still apply.
 
 The original 62 baseline exports have separate review decisions. Metadata-only alternatives and contextual teaching supplements are not additional studies. Historical failed/needs-revision originals are not silently replaced by these scoped studies. See the [baseline review ledger](../reviews/accounting/2026-10-23/baseline-decisions.json).
