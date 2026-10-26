@@ -20,7 +20,8 @@ REPOSITORY = 'qianyizhang/med-assets'
 LFS_URL = f'https://github.com/{REPOSITORY}.git/info/lfs'
 SOURCE_HOST = 'anatomy-verification.landy123007.chatgpt.site'
 SOURCE_HOSTS = frozenset({SOURCE_HOST, 'anatomy-airway-review.landy123007.chatgpt.site',
-                          'heart-anatomy-imaging-lab.landy123007.chatgpt.site'})
+                          'heart-anatomy-imaging-lab.landy123007.chatgpt.site',
+                          'anatomy-dental-review.landy123007.chatgpt.site'})
 MAX_MANIFEST = 131_072
 MAX_OBJECTS = 32
 MAX_TOTAL = 40_000_000
