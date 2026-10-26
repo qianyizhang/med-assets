@@ -1,0 +1,21 @@
+{
+  "left_completed_region_12mm_vertices": 11246,
+  "left_completed_region_exact": true,
+  "source_sha256": "8820a14b820239c0ea53a3597ad7731b7c66eb41f05b197fde2e90ee08fb47e4",
+  "candidate_sha256": "c9e2eb595d677203b52aa870a9f0203f059a8f686a65056983fcc59ccd607587",
+  "unique_position_bijection": true,
+  "source_map_max_error_m": 0.0,
+  "candidate_map_max_error_m": 3.743205232669794e-09,
+  "oriented_faces_equal_after_bijection": true,
+  "changed_vertices": 6476,
+  "max_displacement_m": 0.00018506004244487936,
+  "outside_support_exact": true,
+  "zero_area_faces": 0,
+  "face_normal_dot_nonpositive": 0,
+  "min_face_normal_cosine": 0.9385685812210353,
+  "changed_face_area_ratio_min": 0.30805899205670817,
+  "changed_face_area_ratio_max": 2.6603415829707773,
+  "whole_signed_volume_before": 2.3894095846210263e-05,
+  "whole_signed_volume_after": 2.3892220582868734e-05,
+  "caveat": "Vertex correspondence uses builder npz but validates fresh GLB positions and full oriented triangle topology independently. Positive face normal comparison is not exhaustive self-intersection testing."
+}

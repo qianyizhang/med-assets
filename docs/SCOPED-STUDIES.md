@@ -67,6 +67,8 @@ No source archive upload, new permissions, billing assurance or broader quality 
 
 - [Bronchial local lobar fairing r09](../models/bronchial_tree/exports/authored-lobar-fairing-r09/README.md) — reduces a visible collar/dimple with bounded geometry changes; r07 history is retained and the whole model remains **Needs revision**.
 
+- [Bronchial central-Y focal fairing r13](../models/bronchial_tree/exports/authored-central-fairing-r13/README.md) — modest focal dimple reduction on exact r09; accepted left repair is preserved, rejected right-junction experiments excluded, and the whole model remains **Needs revision**.
+
 ## Context and teaching supplements (not additional organ studies)
 
 - [Parathyroid posterior localization](../models/parathyroids/exports/z-localization-r01/README.md) — one atlas example with same-source thyroid context; simplified morphology and number/location variability remain unresolved.
@@ -80,4 +82,5 @@ These additions do not increase the 36-study count or confer anatomy, clinical, 
 - [Urinary outflow comparison · EN/中文](../diagrams/urinary_outflow/exports/r01/README.md) — typical female/male lower-tract relationships; simplified contours, not measured anatomy or clinical guidance.
 
 These original SVG/PNG supplements do not increase the 36-study count or change existing 3D quality gates.
+
 
