@@ -1,0 +1,18 @@
+{
+  "candidate_sha256": "5d9f0f88ff8498f611aea583e080558691d592a3ce50c89ecb847cf18b4d1471",
+  "exact_coordinate_weld_mesh_count": 104,
+  "all_meshes_one_component_euler2": true,
+  "bad_edge_incidence_count": 0,
+  "zero_area_triangles": 0,
+  "all_signed_volumes_positive": true,
+  "unrelated_nerve_filum_pairs": 5151,
+  "bvh_triangle_candidates": 0,
+  "triangle_contacts": 0,
+  "same_group_exclusion": "Only samelevel/same-side dorsal+ventral+mixed nerve convergence excluded; upper vs descending groups distinct. Filum tested against every nerve. Cord intentional attachments checked separately.",
+  "representative_root_objects_touching_cord": 68,
+  "representative_root_objects_checked": 68,
+  "descending_start_points_inside_cord_3rays": 28,
+  "descending_start_points_checked": 28,
+  "max_start_to_actual_root_vertex_mm": 0.48000056756737897,
+  "limitations": "Finite-precision BVH screen and exact-coordinate topology, not exhaustive self-intersection proof within each tube, not anatomy/clinical/runtime validation. No claim of31-pair reconstruction. Root cap serialization duplicates removed only for checking, no candidate geometry changed."
+}

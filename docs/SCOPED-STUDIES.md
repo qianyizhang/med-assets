@@ -71,6 +71,8 @@ No source archive upload, new permissions, billing assurance or broader quality 
 
 ## Context and teaching supplements (not additional organ studies)
 
+- [Spinal cord gross relationships r03](../models/spinal_cord/exports/authored-relationships-r03/README.md) — authored conus, separate filum and descending-root relationships at 17 representative levels, not a complete 31-pair map; original whole model remains **Needs revision**.
+
 - [Parathyroid posterior localization](../models/parathyroids/exports/z-localization-r01/README.md) — one atlas example with same-source thyroid context; simplified morphology and number/location variability remain unresolved.
 - [Esophageal wall cutaway](../models/esophagus_wall/exports/authored-cutaway-r01/README.md) — independently authored four-tunic teaching segment; illustrative dimensions, not a replacement for the whole organ or its motion.
 
