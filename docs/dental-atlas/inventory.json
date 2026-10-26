@@ -1,0 +1,2028 @@
+{
+  "schema_version": 1,
+  "status": "research_spec_only",
+  "checked_utc": "2026-10-26",
+  "scope": {
+    "permanent": 32,
+    "primary": 20,
+    "geometry_included": false,
+    "separate_scenes": true,
+    "intended_use": "Dentist teaching asset specification; no clinical or anatomical approval"
+  },
+  "numbering": {
+    "scheme": "FDI/ISO 3950",
+    "side_convention": "patient",
+    "primary_quadrants": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "permanent_quadrants": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "source_id": "ada_numbering"
+  },
+  "scene_roots": [
+    {
+      "id": "permanent",
+      "parent": null
+    },
+    {
+      "id": "primary",
+      "parent": null
+    }
+  ],
+  "arch_nodes": [
+    {
+      "id": "permanent/maxillary",
+      "parent": "permanent"
+    },
+    {
+      "id": "permanent/mandibular",
+      "parent": "permanent"
+    },
+    {
+      "id": "primary/maxillary",
+      "parent": "primary"
+    },
+    {
+      "id": "primary/mandibular",
+      "parent": "primary"
+    }
+  ],
+  "component_templates": {
+    "tooth_components_v1": [
+      "external_surface",
+      "enamel",
+      "dentin",
+      "cementum",
+      "pulp_tissue",
+      "pulp_cavity",
+      "pulp_chamber",
+      "root_canals",
+      "periodontal_ligament",
+      "crown_region",
+      "root_regions",
+      "cej",
+      "apical_foramina",
+      "surface_landmarks"
+    ]
+  },
+  "component_catalog": [
+    {
+      "id": "external_surface",
+      "label": "Tooth exterior / 牙体外表面",
+      "kind": "surface",
+      "spec": "Whole-tooth segmentation envelope; an exterior proxy, not an enamel mesh.",
+      "default_status": "specified_not_built"
+    },
+    {
+      "id": "enamel",
+      "label": "Enamel / 牙釉质",
+      "kind": "tissue",
+      "spec": "Crown tissue; preserve individual cusp/ridge/fossa morphology. No uniform offset shell as source truth.",
+      "default_status": "specified_not_built"
+    },
+    {
+      "id": "dentin",
+      "label": "Dentin / 牙本质",
+      "kind": "tissue",
+      "spec": "Separate crown/root tissue surrounding the pulp space; do not infer thickness from exterior alone.",
+      "default_status": "specified_not_built"
+    },
+    {
+      "id": "cementum",
+      "label": "Cementum / 牙骨质",
+      "kind": "tissue",
+      "spec": "Root covering; unresolved thin layers remain unavailable or explicitly schematic.",
+      "default_status": "specified_not_built"
+    },
+    {
+      "id": "pulp_tissue",
+      "label": "Pulp / 牙髓",
+      "kind": "tissue",
+      "spec": "Soft tissue distinct from a cavity mask; no fabricated nerves or vessels.",
+      "default_status": "specified_not_built"
+    },
+    {
+      "id": "pulp_cavity",
+      "label": "Pulp cavity / 牙髓腔",
+      "kind": "space",
+      "spec": "Segmentation-derived space proxy; does not prove separate pulp tissue or canal branches.",
+      "default_status": "specified_not_built"
+    },
+    {
+      "id": "pulp_chamber",
+      "label": "Pulp chamber / 髓室",
+      "kind": "space_region",
+      "spec": "Coronal subdivision of pulp cavity, only after supported boundary review.",
+      "default_status": "specified_not_built"
+    },
+    {
+      "id": "root_canals",
+      "label": "Root canals / 根管",
+      "kind": "space_region",
+      "spec": "Named specimen-specific branches; variable count/course, never fixed from tooth class alone.",
+      "default_status": "specified_not_built"
+    },
+    {
+      "id": "periodontal_ligament",
+      "label": "Periodontal ligament / 牙周膜",
+      "kind": "support_tissue",
+      "spec": "Tooth-associated support between cementum and socket; do not render unresolved thickness as measured anatomy.",
+      "default_status": "specified_not_built"
+    },
+    {
+      "id": "crown_region",
+      "label": "Anatomical crown / 解剖牙冠",
+      "kind": "annotation",
+      "spec": "Region annotation, not a new overlapping tissue solid.",
+      "default_status": "specified_not_built"
+    },
+    {
+      "id": "root_regions",
+      "label": "Roots / 牙根",
+      "kind": "annotation",
+      "spec": "Named observed roots; specimen-specific count, furcation and resorption status.",
+      "default_status": "specified_not_built"
+    },
+    {
+      "id": "cej",
+      "label": "Cementoenamel junction / 釉牙骨质界",
+      "kind": "landmark",
+      "spec": "Boundary landmark, not a volumetric tissue.",
+      "default_status": "specified_not_built"
+    },
+    {
+      "id": "apical_foramina",
+      "label": "Apical foramina / 根尖孔",
+      "kind": "landmark",
+      "spec": "Observed openings only; no assertion that every fine branch is resolved.",
+      "default_status": "specified_not_built"
+    },
+    {
+      "id": "surface_landmarks",
+      "label": "Surface landmarks / 牙面标志",
+      "kind": "annotation",
+      "spec": "Mesial/distal; buccal or labial; lingual or palatal; occlusal/incisal; named cusps, ridges, grooves and fossae where applicable.",
+      "default_status": "specified_not_built"
+    }
+  ],
+  "shared_support_catalog": [
+    {
+      "id": "gingiva",
+      "parent_scope": "arch",
+      "status": "specified_not_built",
+      "spec": "Separately selectable free/attached gingiva and interdental papilla annotations where supported; do not duplicate shared papillae per tooth."
+    },
+    {
+      "id": "alveolar_bone",
+      "parent_scope": "arch",
+      "status": "specified_not_built",
+      "spec": "Arch-level support mesh; tooth-specific socket regions are annotations, not overlapping duplicate bone."
+    },
+    {
+      "id": "jaw_context",
+      "parent_scope": "arch",
+      "status": "specified_not_built",
+      "spec": "Maxilla or mandible context; whole jaw segmentation is not a separately validated alveolar process."
+    }
+  ],
+  "teeth": [
+    {
+      "id": "permanent/maxillary/tooth_11",
+      "fdi": "11",
+      "dentition": "permanent",
+      "arch": "maxillary",
+      "patient_side": "right",
+      "position_from_midline": 1,
+      "tooth_type": "central incisor",
+      "label_en": "permanent maxillary right central incisor",
+      "label_zh": "恒牙·上颌右中切牙",
+      "parent": "permanent/maxillary",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "permanent/maxillary/tooth_12",
+      "fdi": "12",
+      "dentition": "permanent",
+      "arch": "maxillary",
+      "patient_side": "right",
+      "position_from_midline": 2,
+      "tooth_type": "lateral incisor",
+      "label_en": "permanent maxillary right lateral incisor",
+      "label_zh": "恒牙·上颌右侧切牙",
+      "parent": "permanent/maxillary",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "permanent/maxillary/tooth_13",
+      "fdi": "13",
+      "dentition": "permanent",
+      "arch": "maxillary",
+      "patient_side": "right",
+      "position_from_midline": 3,
+      "tooth_type": "canine",
+      "label_en": "permanent maxillary right canine",
+      "label_zh": "恒牙·上颌右尖牙",
+      "parent": "permanent/maxillary",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "permanent/maxillary/tooth_14",
+      "fdi": "14",
+      "dentition": "permanent",
+      "arch": "maxillary",
+      "patient_side": "right",
+      "position_from_midline": 4,
+      "tooth_type": "first premolar",
+      "label_en": "permanent maxillary right first premolar",
+      "label_zh": "恒牙·上颌右第一前磨牙",
+      "parent": "permanent/maxillary",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "permanent/maxillary/tooth_15",
+      "fdi": "15",
+      "dentition": "permanent",
+      "arch": "maxillary",
+      "patient_side": "right",
+      "position_from_midline": 5,
+      "tooth_type": "second premolar",
+      "label_en": "permanent maxillary right second premolar",
+      "label_zh": "恒牙·上颌右第二前磨牙",
+      "parent": "permanent/maxillary",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "permanent/maxillary/tooth_16",
+      "fdi": "16",
+      "dentition": "permanent",
+      "arch": "maxillary",
+      "patient_side": "right",
+      "position_from_midline": 6,
+      "tooth_type": "first molar",
+      "label_en": "permanent maxillary right first molar",
+      "label_zh": "恒牙·上颌右第一磨牙",
+      "parent": "permanent/maxillary",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "permanent/maxillary/tooth_17",
+      "fdi": "17",
+      "dentition": "permanent",
+      "arch": "maxillary",
+      "patient_side": "right",
+      "position_from_midline": 7,
+      "tooth_type": "second molar",
+      "label_en": "permanent maxillary right second molar",
+      "label_zh": "恒牙·上颌右第二磨牙",
+      "parent": "permanent/maxillary",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "permanent/maxillary/tooth_18",
+      "fdi": "18",
+      "dentition": "permanent",
+      "arch": "maxillary",
+      "patient_side": "right",
+      "position_from_midline": 8,
+      "tooth_type": "third molar",
+      "label_en": "permanent maxillary right third molar",
+      "label_zh": "恒牙·上颌右第三磨牙",
+      "parent": "permanent/maxillary",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "permanent/maxillary/tooth_21",
+      "fdi": "21",
+      "dentition": "permanent",
+      "arch": "maxillary",
+      "patient_side": "left",
+      "position_from_midline": 1,
+      "tooth_type": "central incisor",
+      "label_en": "permanent maxillary left central incisor",
+      "label_zh": "恒牙·上颌左中切牙",
+      "parent": "permanent/maxillary",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "permanent/maxillary/tooth_22",
+      "fdi": "22",
+      "dentition": "permanent",
+      "arch": "maxillary",
+      "patient_side": "left",
+      "position_from_midline": 2,
+      "tooth_type": "lateral incisor",
+      "label_en": "permanent maxillary left lateral incisor",
+      "label_zh": "恒牙·上颌左侧切牙",
+      "parent": "permanent/maxillary",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "permanent/maxillary/tooth_23",
+      "fdi": "23",
+      "dentition": "permanent",
+      "arch": "maxillary",
+      "patient_side": "left",
+      "position_from_midline": 3,
+      "tooth_type": "canine",
+      "label_en": "permanent maxillary left canine",
+      "label_zh": "恒牙·上颌左尖牙",
+      "parent": "permanent/maxillary",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "permanent/maxillary/tooth_24",
+      "fdi": "24",
+      "dentition": "permanent",
+      "arch": "maxillary",
+      "patient_side": "left",
+      "position_from_midline": 4,
+      "tooth_type": "first premolar",
+      "label_en": "permanent maxillary left first premolar",
+      "label_zh": "恒牙·上颌左第一前磨牙",
+      "parent": "permanent/maxillary",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "permanent/maxillary/tooth_25",
+      "fdi": "25",
+      "dentition": "permanent",
+      "arch": "maxillary",
+      "patient_side": "left",
+      "position_from_midline": 5,
+      "tooth_type": "second premolar",
+      "label_en": "permanent maxillary left second premolar",
+      "label_zh": "恒牙·上颌左第二前磨牙",
+      "parent": "permanent/maxillary",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "permanent/maxillary/tooth_26",
+      "fdi": "26",
+      "dentition": "permanent",
+      "arch": "maxillary",
+      "patient_side": "left",
+      "position_from_midline": 6,
+      "tooth_type": "first molar",
+      "label_en": "permanent maxillary left first molar",
+      "label_zh": "恒牙·上颌左第一磨牙",
+      "parent": "permanent/maxillary",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "permanent/maxillary/tooth_27",
+      "fdi": "27",
+      "dentition": "permanent",
+      "arch": "maxillary",
+      "patient_side": "left",
+      "position_from_midline": 7,
+      "tooth_type": "second molar",
+      "label_en": "permanent maxillary left second molar",
+      "label_zh": "恒牙·上颌左第二磨牙",
+      "parent": "permanent/maxillary",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "permanent/maxillary/tooth_28",
+      "fdi": "28",
+      "dentition": "permanent",
+      "arch": "maxillary",
+      "patient_side": "left",
+      "position_from_midline": 8,
+      "tooth_type": "third molar",
+      "label_en": "permanent maxillary left third molar",
+      "label_zh": "恒牙·上颌左第三磨牙",
+      "parent": "permanent/maxillary",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "permanent/mandibular/tooth_31",
+      "fdi": "31",
+      "dentition": "permanent",
+      "arch": "mandibular",
+      "patient_side": "left",
+      "position_from_midline": 1,
+      "tooth_type": "central incisor",
+      "label_en": "permanent mandibular left central incisor",
+      "label_zh": "恒牙·下颌左中切牙",
+      "parent": "permanent/mandibular",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "permanent/mandibular/tooth_32",
+      "fdi": "32",
+      "dentition": "permanent",
+      "arch": "mandibular",
+      "patient_side": "left",
+      "position_from_midline": 2,
+      "tooth_type": "lateral incisor",
+      "label_en": "permanent mandibular left lateral incisor",
+      "label_zh": "恒牙·下颌左侧切牙",
+      "parent": "permanent/mandibular",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "permanent/mandibular/tooth_33",
+      "fdi": "33",
+      "dentition": "permanent",
+      "arch": "mandibular",
+      "patient_side": "left",
+      "position_from_midline": 3,
+      "tooth_type": "canine",
+      "label_en": "permanent mandibular left canine",
+      "label_zh": "恒牙·下颌左尖牙",
+      "parent": "permanent/mandibular",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "permanent/mandibular/tooth_34",
+      "fdi": "34",
+      "dentition": "permanent",
+      "arch": "mandibular",
+      "patient_side": "left",
+      "position_from_midline": 4,
+      "tooth_type": "first premolar",
+      "label_en": "permanent mandibular left first premolar",
+      "label_zh": "恒牙·下颌左第一前磨牙",
+      "parent": "permanent/mandibular",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "permanent/mandibular/tooth_35",
+      "fdi": "35",
+      "dentition": "permanent",
+      "arch": "mandibular",
+      "patient_side": "left",
+      "position_from_midline": 5,
+      "tooth_type": "second premolar",
+      "label_en": "permanent mandibular left second premolar",
+      "label_zh": "恒牙·下颌左第二前磨牙",
+      "parent": "permanent/mandibular",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "permanent/mandibular/tooth_36",
+      "fdi": "36",
+      "dentition": "permanent",
+      "arch": "mandibular",
+      "patient_side": "left",
+      "position_from_midline": 6,
+      "tooth_type": "first molar",
+      "label_en": "permanent mandibular left first molar",
+      "label_zh": "恒牙·下颌左第一磨牙",
+      "parent": "permanent/mandibular",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "permanent/mandibular/tooth_37",
+      "fdi": "37",
+      "dentition": "permanent",
+      "arch": "mandibular",
+      "patient_side": "left",
+      "position_from_midline": 7,
+      "tooth_type": "second molar",
+      "label_en": "permanent mandibular left second molar",
+      "label_zh": "恒牙·下颌左第二磨牙",
+      "parent": "permanent/mandibular",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "permanent/mandibular/tooth_38",
+      "fdi": "38",
+      "dentition": "permanent",
+      "arch": "mandibular",
+      "patient_side": "left",
+      "position_from_midline": 8,
+      "tooth_type": "third molar",
+      "label_en": "permanent mandibular left third molar",
+      "label_zh": "恒牙·下颌左第三磨牙",
+      "parent": "permanent/mandibular",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "permanent/mandibular/tooth_41",
+      "fdi": "41",
+      "dentition": "permanent",
+      "arch": "mandibular",
+      "patient_side": "right",
+      "position_from_midline": 1,
+      "tooth_type": "central incisor",
+      "label_en": "permanent mandibular right central incisor",
+      "label_zh": "恒牙·下颌右中切牙",
+      "parent": "permanent/mandibular",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "permanent/mandibular/tooth_42",
+      "fdi": "42",
+      "dentition": "permanent",
+      "arch": "mandibular",
+      "patient_side": "right",
+      "position_from_midline": 2,
+      "tooth_type": "lateral incisor",
+      "label_en": "permanent mandibular right lateral incisor",
+      "label_zh": "恒牙·下颌右侧切牙",
+      "parent": "permanent/mandibular",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "permanent/mandibular/tooth_43",
+      "fdi": "43",
+      "dentition": "permanent",
+      "arch": "mandibular",
+      "patient_side": "right",
+      "position_from_midline": 3,
+      "tooth_type": "canine",
+      "label_en": "permanent mandibular right canine",
+      "label_zh": "恒牙·下颌右尖牙",
+      "parent": "permanent/mandibular",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "permanent/mandibular/tooth_44",
+      "fdi": "44",
+      "dentition": "permanent",
+      "arch": "mandibular",
+      "patient_side": "right",
+      "position_from_midline": 4,
+      "tooth_type": "first premolar",
+      "label_en": "permanent mandibular right first premolar",
+      "label_zh": "恒牙·下颌右第一前磨牙",
+      "parent": "permanent/mandibular",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "permanent/mandibular/tooth_45",
+      "fdi": "45",
+      "dentition": "permanent",
+      "arch": "mandibular",
+      "patient_side": "right",
+      "position_from_midline": 5,
+      "tooth_type": "second premolar",
+      "label_en": "permanent mandibular right second premolar",
+      "label_zh": "恒牙·下颌右第二前磨牙",
+      "parent": "permanent/mandibular",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "permanent/mandibular/tooth_46",
+      "fdi": "46",
+      "dentition": "permanent",
+      "arch": "mandibular",
+      "patient_side": "right",
+      "position_from_midline": 6,
+      "tooth_type": "first molar",
+      "label_en": "permanent mandibular right first molar",
+      "label_zh": "恒牙·下颌右第一磨牙",
+      "parent": "permanent/mandibular",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "permanent/mandibular/tooth_47",
+      "fdi": "47",
+      "dentition": "permanent",
+      "arch": "mandibular",
+      "patient_side": "right",
+      "position_from_midline": 7,
+      "tooth_type": "second molar",
+      "label_en": "permanent mandibular right second molar",
+      "label_zh": "恒牙·下颌右第二磨牙",
+      "parent": "permanent/mandibular",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "permanent/mandibular/tooth_48",
+      "fdi": "48",
+      "dentition": "permanent",
+      "arch": "mandibular",
+      "patient_side": "right",
+      "position_from_midline": 8,
+      "tooth_type": "third molar",
+      "label_en": "permanent mandibular right third molar",
+      "label_zh": "恒牙·下颌右第三磨牙",
+      "parent": "permanent/mandibular",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "primary/maxillary/tooth_51",
+      "fdi": "51",
+      "dentition": "primary",
+      "arch": "maxillary",
+      "patient_side": "right",
+      "position_from_midline": 1,
+      "tooth_type": "central incisor",
+      "label_en": "primary maxillary right central incisor",
+      "label_zh": "乳牙·上颌右中切牙",
+      "parent": "primary/maxillary",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "primary/maxillary/tooth_52",
+      "fdi": "52",
+      "dentition": "primary",
+      "arch": "maxillary",
+      "patient_side": "right",
+      "position_from_midline": 2,
+      "tooth_type": "lateral incisor",
+      "label_en": "primary maxillary right lateral incisor",
+      "label_zh": "乳牙·上颌右侧切牙",
+      "parent": "primary/maxillary",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "primary/maxillary/tooth_53",
+      "fdi": "53",
+      "dentition": "primary",
+      "arch": "maxillary",
+      "patient_side": "right",
+      "position_from_midline": 3,
+      "tooth_type": "canine",
+      "label_en": "primary maxillary right canine",
+      "label_zh": "乳牙·上颌右尖牙",
+      "parent": "primary/maxillary",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "primary/maxillary/tooth_54",
+      "fdi": "54",
+      "dentition": "primary",
+      "arch": "maxillary",
+      "patient_side": "right",
+      "position_from_midline": 4,
+      "tooth_type": "first molar",
+      "label_en": "primary maxillary right first molar",
+      "label_zh": "乳牙·上颌右第一磨牙",
+      "parent": "primary/maxillary",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "primary/maxillary/tooth_55",
+      "fdi": "55",
+      "dentition": "primary",
+      "arch": "maxillary",
+      "patient_side": "right",
+      "position_from_midline": 5,
+      "tooth_type": "second molar",
+      "label_en": "primary maxillary right second molar",
+      "label_zh": "乳牙·上颌右第二磨牙",
+      "parent": "primary/maxillary",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "primary/maxillary/tooth_61",
+      "fdi": "61",
+      "dentition": "primary",
+      "arch": "maxillary",
+      "patient_side": "left",
+      "position_from_midline": 1,
+      "tooth_type": "central incisor",
+      "label_en": "primary maxillary left central incisor",
+      "label_zh": "乳牙·上颌左中切牙",
+      "parent": "primary/maxillary",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "primary/maxillary/tooth_62",
+      "fdi": "62",
+      "dentition": "primary",
+      "arch": "maxillary",
+      "patient_side": "left",
+      "position_from_midline": 2,
+      "tooth_type": "lateral incisor",
+      "label_en": "primary maxillary left lateral incisor",
+      "label_zh": "乳牙·上颌左侧切牙",
+      "parent": "primary/maxillary",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "primary/maxillary/tooth_63",
+      "fdi": "63",
+      "dentition": "primary",
+      "arch": "maxillary",
+      "patient_side": "left",
+      "position_from_midline": 3,
+      "tooth_type": "canine",
+      "label_en": "primary maxillary left canine",
+      "label_zh": "乳牙·上颌左尖牙",
+      "parent": "primary/maxillary",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "primary/maxillary/tooth_64",
+      "fdi": "64",
+      "dentition": "primary",
+      "arch": "maxillary",
+      "patient_side": "left",
+      "position_from_midline": 4,
+      "tooth_type": "first molar",
+      "label_en": "primary maxillary left first molar",
+      "label_zh": "乳牙·上颌左第一磨牙",
+      "parent": "primary/maxillary",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "primary/maxillary/tooth_65",
+      "fdi": "65",
+      "dentition": "primary",
+      "arch": "maxillary",
+      "patient_side": "left",
+      "position_from_midline": 5,
+      "tooth_type": "second molar",
+      "label_en": "primary maxillary left second molar",
+      "label_zh": "乳牙·上颌左第二磨牙",
+      "parent": "primary/maxillary",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "primary/mandibular/tooth_71",
+      "fdi": "71",
+      "dentition": "primary",
+      "arch": "mandibular",
+      "patient_side": "left",
+      "position_from_midline": 1,
+      "tooth_type": "central incisor",
+      "label_en": "primary mandibular left central incisor",
+      "label_zh": "乳牙·下颌左中切牙",
+      "parent": "primary/mandibular",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "primary/mandibular/tooth_72",
+      "fdi": "72",
+      "dentition": "primary",
+      "arch": "mandibular",
+      "patient_side": "left",
+      "position_from_midline": 2,
+      "tooth_type": "lateral incisor",
+      "label_en": "primary mandibular left lateral incisor",
+      "label_zh": "乳牙·下颌左侧切牙",
+      "parent": "primary/mandibular",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "primary/mandibular/tooth_73",
+      "fdi": "73",
+      "dentition": "primary",
+      "arch": "mandibular",
+      "patient_side": "left",
+      "position_from_midline": 3,
+      "tooth_type": "canine",
+      "label_en": "primary mandibular left canine",
+      "label_zh": "乳牙·下颌左尖牙",
+      "parent": "primary/mandibular",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "primary/mandibular/tooth_74",
+      "fdi": "74",
+      "dentition": "primary",
+      "arch": "mandibular",
+      "patient_side": "left",
+      "position_from_midline": 4,
+      "tooth_type": "first molar",
+      "label_en": "primary mandibular left first molar",
+      "label_zh": "乳牙·下颌左第一磨牙",
+      "parent": "primary/mandibular",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "primary/mandibular/tooth_75",
+      "fdi": "75",
+      "dentition": "primary",
+      "arch": "mandibular",
+      "patient_side": "left",
+      "position_from_midline": 5,
+      "tooth_type": "second molar",
+      "label_en": "primary mandibular left second molar",
+      "label_zh": "乳牙·下颌左第二磨牙",
+      "parent": "primary/mandibular",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "primary/mandibular/tooth_81",
+      "fdi": "81",
+      "dentition": "primary",
+      "arch": "mandibular",
+      "patient_side": "right",
+      "position_from_midline": 1,
+      "tooth_type": "central incisor",
+      "label_en": "primary mandibular right central incisor",
+      "label_zh": "乳牙·下颌右中切牙",
+      "parent": "primary/mandibular",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "primary/mandibular/tooth_82",
+      "fdi": "82",
+      "dentition": "primary",
+      "arch": "mandibular",
+      "patient_side": "right",
+      "position_from_midline": 2,
+      "tooth_type": "lateral incisor",
+      "label_en": "primary mandibular right lateral incisor",
+      "label_zh": "乳牙·下颌右侧切牙",
+      "parent": "primary/mandibular",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "primary/mandibular/tooth_83",
+      "fdi": "83",
+      "dentition": "primary",
+      "arch": "mandibular",
+      "patient_side": "right",
+      "position_from_midline": 3,
+      "tooth_type": "canine",
+      "label_en": "primary mandibular right canine",
+      "label_zh": "乳牙·下颌右尖牙",
+      "parent": "primary/mandibular",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "primary/mandibular/tooth_84",
+      "fdi": "84",
+      "dentition": "primary",
+      "arch": "mandibular",
+      "patient_side": "right",
+      "position_from_midline": 4,
+      "tooth_type": "first molar",
+      "label_en": "primary mandibular right first molar",
+      "label_zh": "乳牙·下颌右第一磨牙",
+      "parent": "primary/mandibular",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    },
+    {
+      "id": "primary/mandibular/tooth_85",
+      "fdi": "85",
+      "dentition": "primary",
+      "arch": "mandibular",
+      "patient_side": "right",
+      "position_from_midline": 5,
+      "tooth_type": "second molar",
+      "label_en": "primary mandibular right second molar",
+      "label_zh": "乳牙·下颌右第二磨牙",
+      "parent": "primary/mandibular",
+      "component_template": "tooth_components_v1",
+      "status": "specified_not_built",
+      "specimen_id": null,
+      "source_id": null,
+      "root_count": null,
+      "canal_count": null
+    }
+  ],
+  "sources": [
+    {
+      "id": "ada_numbering",
+      "url": "https://www.ada.org/-/media/project/ada-organization/ada/ada-org/files/publications/cdt/universal_tooth_designation_system_valueset_2.pdf",
+      "role": "nomenclature_reference",
+      "geometry_permission": "not_applicable"
+    },
+    {
+      "id": "ada_anatomy",
+      "url": "https://www.mouthhealthy.org/all-topics-a-z/tooth/",
+      "role": "anatomy_reference",
+      "geometry_permission": "not_applicable"
+    },
+    {
+      "id": "toothfairy3",
+      "url": "https://ditto.ing.unimore.it/toothfairy3/",
+      "role": "candidate_segmentation_source",
+      "geometry_permission": "blocked_pending_access_and_license_verification",
+      "supported_scope": "Permanent tooth and pulp-cavity candidate labels; no primary dentition coverage verified",
+      "not_supported": [
+        "enamel",
+        "dentin",
+        "cementum",
+        "periodontal_ligament",
+        "pulp_tissue"
+      ],
+      "orientation": "RPI per official page; retain affine and verify laterality after conversion",
+      "class_count_note": "Official total77 includes background in prose; inspect dataset.json before asserting foreground count."
+    },
+    {
+      "id": "swirendo",
+      "url": "https://data.ub.uni-muenchen.de/477/",
+      "role": "candidate_microct_reference",
+      "geometry_permission": "license_and_files_must_be_checked_before_use",
+      "supported_scope": "9 prepared teeth; candidate layer reference, not complete healthy dentition atlas",
+      "license_evidence": "Public metadata CC BY-SA4.0; archive unverified",
+      "preparation_warning": "After7mm access preparation; elderly donor pathology/restorations; not a healthy normative atlas"
+    },
+    {
+      "id": "existing_bp3d_r02",
+      "url": "https://github.com/qianyizhang/med-assets/tree/main/models/teeth_gums/exports/r02",
+      "role": "existing_exterior_reference",
+      "geometry_permission": "existing_asset_attribution_must_be_rechecked_for_reuse",
+      "supported_scope": "28 teeth plus2 gingiva surfaces in existing scoped review, not complete32 or primary20",
+      "frame": "BodyParts3D native atlas; not old authored mouth frame"
+    },
+    {
+      "id": "nidcr_fillings",
+      "url": "https://www.nidcr.nih.gov/health-info/dental-fillings",
+      "role": "clinical_context_reference_not_geometry_license",
+      "geometry_permission": "not_applicable"
+    },
+    {
+      "id": "nidcr_periodontal",
+      "url": "https://www.nidcr.nih.gov/health-info/gum-disease",
+      "role": "clinical_context_reference_not_geometry_license",
+      "geometry_permission": "not_applicable"
+    },
+    {
+      "id": "aae_endo",
+      "url": "https://www.aae.org/patients/root-canal-treatment/what-is-a-root-canal/root-canal-explained/",
+      "role": "clinical_context_reference_not_geometry_license",
+      "geometry_permission": "not_applicable"
+    },
+    {
+      "id": "fda_implants",
+      "url": "https://www.fda.gov/medical-devices/dental-devices/dental-implants-what-you-should-know",
+      "role": "clinical_context_reference_not_geometry_license",
+      "geometry_permission": "not_applicable"
+    },
+    {
+      "id": "nhs_tools",
+      "url": "https://heeoe.hee.nhs.uk/sites/default/files/educational_supervisor_information_guide_24-25_v1.pdf",
+      "role": "clinical_context_reference_not_geometry_license",
+      "geometry_permission": "not_applicable"
+    },
+    {
+      "id": "toothfairy2",
+      "url": "https://toothfairy2.grand-challenge.org/dataset/",
+      "role": "candidate_exterior_segmentation",
+      "geometry_permission": "blocked_pending_access_agreement_review",
+      "license_evidence": "Official benchmark dataset.json says CC-BY-SA4.0; structured challenge description states research use. Reconcile terms before redistribution.",
+      "license_metadata_url": "https://github.com/AImageLab-zip/ToothFairy2-Benchmark/blob/main/dataset.json",
+      "agreement_context_url": "https://ditto.ing.unimore.it/static/toothfairy2/ToothFairy2_StructuredChallengeDescription.pdf"
+    },
+    {
+      "id": "pulpy3d",
+      "url": "https://ditto.ing.unimore.it/pulpy3d/",
+      "role": "candidate_mandibular_pulp_annotation",
+      "geometry_permission": "blocked_pending_dataset_access_and_derivative_license",
+      "supported_scope": "Mandibular pulp/canal annotations; current portal423 scans vs paper443 original-scan basis. Actual archive unverified; not full dentition or separate pulp tissue.",
+      "paper_url": "https://papers.miccai.org/miccai-2024/paper/1419_paper.pdf"
+    },
+    {
+      "id": "cenieh_primary_measurements",
+      "url": "https://doi.org/10.5281/zenodo.20487337",
+      "role": "candidate_dimension_reference_only",
+      "geometry_permission": "not_applicable",
+      "license_evidence": "CC BY4.0 public metadata;712 crown measurements, not geometry"
+    },
+    {
+      "id": "habi_microct",
+      "url": "https://github.com/habi/zmk-tooth-cohort",
+      "role": "research_lead_only",
+      "geometry_permission": "blocked_pending_dataset_specific_license",
+      "supported_scope": "2 mandibular canine microCT examples; remaining data on request"
+    }
+  ],
+  "mesh_record_requirements": [
+    "stable_node_id",
+    "parent_id",
+    "fdi_if_tooth_specific",
+    "component_id",
+    "source_url",
+    "source_version",
+    "source_file_sha256",
+    "source_label_id",
+    "license_identifier_and_version",
+    "license_evidence_url",
+    "attribution",
+    "specimen_pseudonym",
+    "source_frame",
+    "source_affine",
+    "source_units",
+    "export_transform",
+    "geometry_method",
+    "voxel_spacing_mm_if_segmented",
+    "derived_file_sha256",
+    "modifications",
+    "coverage_and_omissions",
+    "review_status"
+  ],
+  "coverage_policy": {
+    "missing_is_not_absent": true,
+    "statuses": [
+      "specified_not_built",
+      "source_candidate",
+      "source_verified",
+      "derived_unreviewed",
+      "expert_reviewed",
+      "unavailable",
+      "not_applicable"
+    ],
+    "primary_stage_required": [
+      "eruption_stage",
+      "root_formation_stage",
+      "physiological_resorption_stage"
+    ],
+    "synthetic_details": "Separate schematic layer with explicit label and rationale; never silently source-derived"
+  },
+  "condition_catalog": [
+    {
+      "id": "caries",
+      "priority": "P1",
+      "source_ids": [
+        "nidcr_fillings"
+      ],
+      "spec": "Separate lesion volume/mask and affected tissue states; localized enamel/dentin examples. Do not imply color alone diagnoses extent.",
+      "status": "specified_not_built"
+    },
+    {
+      "id": "restoration",
+      "priority": "P1",
+      "source_ids": [
+        "nidcr_fillings"
+      ],
+      "spec": "Separate cavity preparation, restoration and intact baseline variants; composite/amalgam material labels without invented measured properties.",
+      "status": "specified_not_built"
+    },
+    {
+      "id": "periodontal_changes",
+      "priority": "P1",
+      "source_ids": [
+        "nidcr_periodontal"
+      ],
+      "spec": "Independent plaque/calculus deposits, gingival inflammation/recession, pocket and bone-loss examples; geometry-supported disease extent, not universal severity staging.",
+      "status": "specified_not_built"
+    },
+    {
+      "id": "pulpal_apical_changes",
+      "priority": "P2",
+      "source_ids": [
+        "aae_endo"
+      ],
+      "spec": "Separate annotated pulp inflammation/necrosis and periapical lesion examples; visual teaching states require new pathology-specific references and expert review.",
+      "status": "specified_not_built"
+    },
+    {
+      "id": "crack_fracture",
+      "priority": "P2",
+      "source_ids": [],
+      "spec": "Crack annotation or actual fracture plane/fragments depending on evidence; no visible line claimed as definitive fracture depth. Dedicated reference needed.",
+      "status": "specified_not_built"
+    },
+    {
+      "id": "impaction",
+      "priority": "P2",
+      "source_ids": [],
+      "spec": "Tooth position, eruption context and surrounding bone/soft tissue as separate objects; dedicated case/reference and registration needed.",
+      "status": "specified_not_built"
+    },
+    {
+      "id": "missing_tooth_implant",
+      "priority": "P2",
+      "source_ids": [
+        "fda_implants"
+      ],
+      "spec": "Socket/ridge and implant-restoration assembly variants; no implied patient-specific implant planning.",
+      "status": "specified_not_built"
+    }
+  ],
+  "tool_material_catalog": [
+    {
+      "id": "asset/inspection/mirror",
+      "family": "inspection",
+      "priority": "P1",
+      "label": "mirror",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/inspection/periodontal_probe",
+      "family": "inspection",
+      "priority": "P1",
+      "label": "periodontal probe",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/inspection/explorer",
+      "family": "inspection",
+      "priority": "P1",
+      "label": "explorer",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/inspection/cotton_pliers",
+      "family": "inspection",
+      "priority": "P1",
+      "label": "cotton pliers",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/isolation/rubber_dam_sheet",
+      "family": "isolation",
+      "priority": "P1",
+      "label": "rubber dam sheet",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/isolation/dam_frame",
+      "family": "isolation",
+      "priority": "P1",
+      "label": "dam frame",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/isolation/dam_clamp",
+      "family": "isolation",
+      "priority": "P1",
+      "label": "dam clamp",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/isolation/dam_punch",
+      "family": "isolation",
+      "priority": "P1",
+      "label": "dam punch",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/isolation/clamp_forceps",
+      "family": "isolation",
+      "priority": "P1",
+      "label": "clamp forceps",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/isolation/suction_tip",
+      "family": "isolation",
+      "priority": "P1",
+      "label": "suction tip",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/restorative/handpiece",
+      "family": "restorative",
+      "priority": "P1",
+      "label": "handpiece",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/restorative/bur",
+      "family": "restorative",
+      "priority": "P1",
+      "label": "bur",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/restorative/excavator",
+      "family": "restorative",
+      "priority": "P1",
+      "label": "excavator",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/restorative/matrix_band",
+      "family": "restorative",
+      "priority": "P1",
+      "label": "matrix band",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/restorative/matrix_retainer",
+      "family": "restorative",
+      "priority": "P1",
+      "label": "matrix retainer",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/restorative/wedge",
+      "family": "restorative",
+      "priority": "P1",
+      "label": "wedge",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/restorative/composite_increment",
+      "family": "restorative",
+      "priority": "P1",
+      "label": "composite increment",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/restorative/curing_light_tip",
+      "family": "restorative",
+      "priority": "P1",
+      "label": "curing light tip",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/restorative/finishing_instrument",
+      "family": "restorative",
+      "priority": "P1",
+      "label": "finishing instrument",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/endodontic/hand_file",
+      "family": "endodontic",
+      "priority": "P1",
+      "label": "hand file",
+      "status": "specified_not_built",
+      "source_ids": [
+        "aae_endo",
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/endodontic/rotary_file",
+      "family": "endodontic",
+      "priority": "P1",
+      "label": "rotary file",
+      "status": "specified_not_built",
+      "source_ids": [
+        "aae_endo",
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/endodontic/file_handle",
+      "family": "endodontic",
+      "priority": "P1",
+      "label": "file handle",
+      "status": "specified_not_built",
+      "source_ids": [
+        "aae_endo",
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/endodontic/file_stop",
+      "family": "endodontic",
+      "priority": "P1",
+      "label": "file stop",
+      "status": "specified_not_built",
+      "source_ids": [
+        "aae_endo",
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/endodontic/irrigation_syringe",
+      "family": "endodontic",
+      "priority": "P1",
+      "label": "irrigation syringe",
+      "status": "specified_not_built",
+      "source_ids": [
+        "aae_endo",
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/endodontic/irrigation_tip",
+      "family": "endodontic",
+      "priority": "P1",
+      "label": "irrigation tip",
+      "status": "specified_not_built",
+      "source_ids": [
+        "aae_endo",
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/endodontic/paper_point",
+      "family": "endodontic",
+      "priority": "P1",
+      "label": "paper point",
+      "status": "specified_not_built",
+      "source_ids": [
+        "aae_endo",
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/endodontic/gutta_percha_point",
+      "family": "endodontic",
+      "priority": "P1",
+      "label": "gutta percha point",
+      "status": "specified_not_built",
+      "source_ids": [
+        "aae_endo",
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/endodontic/sealer_volume",
+      "family": "endodontic",
+      "priority": "P1",
+      "label": "sealer volume",
+      "status": "specified_not_built",
+      "source_ids": [
+        "aae_endo",
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/endodontic/temporary_restoration",
+      "family": "endodontic",
+      "priority": "P1",
+      "label": "temporary restoration",
+      "status": "specified_not_built",
+      "source_ids": [
+        "aae_endo",
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/endodontic/crown",
+      "family": "endodontic",
+      "priority": "P1",
+      "label": "crown",
+      "status": "specified_not_built",
+      "source_ids": [
+        "aae_endo",
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/endodontic/optional_post",
+      "family": "endodontic",
+      "priority": "P1",
+      "label": "optional post",
+      "status": "specified_not_built",
+      "source_ids": [
+        "aae_endo",
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/periodontal/scaler",
+      "family": "periodontal",
+      "priority": "P2",
+      "label": "scaler",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/periodontal/curette",
+      "family": "periodontal",
+      "priority": "P2",
+      "label": "curette",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/periodontal/ultrasonic_tip",
+      "family": "periodontal",
+      "priority": "P2",
+      "label": "ultrasonic tip",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/extraction_surgical/adult_forceps",
+      "family": "extraction_surgical",
+      "priority": "P2",
+      "label": "adult forceps",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/extraction_surgical/paediatric_forceps",
+      "family": "extraction_surgical",
+      "priority": "P2",
+      "label": "paediatric forceps",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/extraction_surgical/elevator",
+      "family": "extraction_surgical",
+      "priority": "P2",
+      "label": "elevator",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/extraction_surgical/luxator",
+      "family": "extraction_surgical",
+      "priority": "P2",
+      "label": "luxator",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/extraction_surgical/scalpel_handle",
+      "family": "extraction_surgical",
+      "priority": "P2",
+      "label": "scalpel handle",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/extraction_surgical/scalpel_blade",
+      "family": "extraction_surgical",
+      "priority": "P2",
+      "label": "scalpel blade",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/extraction_surgical/periosteal_elevator",
+      "family": "extraction_surgical",
+      "priority": "P2",
+      "label": "periosteal elevator",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/extraction_surgical/root_tip_pick",
+      "family": "extraction_surgical",
+      "priority": "P2",
+      "label": "root tip pick",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/extraction_surgical/rongeur",
+      "family": "extraction_surgical",
+      "priority": "P2",
+      "label": "rongeur",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/extraction_surgical/needle_holder",
+      "family": "extraction_surgical",
+      "priority": "P2",
+      "label": "needle holder",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/extraction_surgical/suture_needle",
+      "family": "extraction_surgical",
+      "priority": "P2",
+      "label": "suture needle",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/extraction_surgical/suture_thread",
+      "family": "extraction_surgical",
+      "priority": "P2",
+      "label": "suture thread",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/extraction_surgical/suture_scissors",
+      "family": "extraction_surgical",
+      "priority": "P2",
+      "label": "suture scissors",
+      "status": "specified_not_built",
+      "source_ids": [
+        "nhs_tools"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/implant/implant_body",
+      "family": "implant",
+      "priority": "P3",
+      "label": "implant body",
+      "status": "specified_not_built",
+      "source_ids": [
+        "fda_implants"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/implant/abutment",
+      "family": "implant",
+      "priority": "P3",
+      "label": "abutment",
+      "status": "specified_not_built",
+      "source_ids": [
+        "fda_implants"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/implant/fixation_screw",
+      "family": "implant",
+      "priority": "P3",
+      "label": "fixation screw",
+      "status": "specified_not_built",
+      "source_ids": [
+        "fda_implants"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/implant/prosthetic_crown",
+      "family": "implant",
+      "priority": "P3",
+      "label": "prosthetic crown",
+      "status": "specified_not_built",
+      "source_ids": [
+        "fda_implants"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/implant/driver",
+      "family": "implant",
+      "priority": "P3",
+      "label": "driver",
+      "status": "specified_not_built",
+      "source_ids": [
+        "fda_implants"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    },
+    {
+      "id": "asset/implant/drill",
+      "family": "implant",
+      "priority": "P3",
+      "label": "drill",
+      "status": "specified_not_built",
+      "source_ids": [
+        "fda_implants"
+      ],
+      "geometry_source": null,
+      "dimensions_mm": null
+    }
+  ],
+  "tool_asset_contract": {
+    "units": "meters in GLB; measured source dimensions recorded in mm",
+    "required_frames": [
+      "asset_origin",
+      "grip_or_handle",
+      "working_tip_or_edge",
+      "insertion_axis_if_applicable",
+      "attachment_mate_if_applicable"
+    ],
+    "frame_status": "named placeholders only until verified geometry exists",
+    "device_policy": "Generic non-branded placeholders in spec. Realistic geometry needs source/reference and redistribution clearance. Do not average incompatible device systems.",
+    "states": [
+      "intact",
+      "illustration_variant_when_referenced"
+    ],
+    "not_included": [
+      "clinical_sequence",
+      "force",
+      "torque",
+      "speed",
+      "dose",
+      "depth_settings",
+      "treatment_recommendations"
+    ]
+  },
+  "space_semantics": {
+    "pulp_cavity": "Parent space/render proxy, not verified tissue",
+    "children": [
+      "pulp_chamber",
+      "root_canals"
+    ],
+    "partition_policy": "Child regions partition or annotate parent; no duplicate overlapping volume totals or simultaneous duplicate solids",
+    "tissue_overlay": "pulp_tissue is a distinct evidentiary claim, unavailable until independently supported"
+  }
+}
