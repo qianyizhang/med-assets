@@ -82,6 +82,8 @@ No source archive upload, new permissions, billing assurance or broader quality 
 - [Parathyroid posterior localization](../models/parathyroids/exports/z-localization-r01/README.md) — one atlas example with same-source thyroid context; simplified morphology and number/location variability remain unresolved.
 - [Esophageal wall cutaway](../models/esophagus_wall/exports/authored-cutaway-r01/README.md) — independently authored four-tunic teaching segment; illustrative dimensions, not a replacement for the whole organ or its motion.
 
+- [Male urethra in source context r01](../models/urethra_male/exports/z-native-context-r01/README.md) — six-object gross localization study; source interfaces, outlet, lumen and flow remain unvalidated. Original model stays **Needs revision**, not a complete urinary tract or clinical pass.
+
 These additions do not increase the 36-study count or confer anatomy, clinical, or browser-runtime approval.
 
 ## 2D relationship teaching aids (not 3D validation)
@@ -95,7 +97,7 @@ These original SVG/PNG supplements do not increase the 36-study count or change 
 
 
 
-- [Male urethra in source context r01](../models/urethra_male/exports/z-native-context-r01/README.md) — six-object gross localization study; source interfaces, outlet, lumen and flow remain unvalidated. Original model stays **Needs revision**, not a complete urinary tract or clinical pass.
+- [Major salivary gland localization and gross parotid course r02](../models/salivary_glands/exports/z-native-scoped-r02/README.md) — source-preserved gland pairs and parotid surface course only; submandibular ducts excluded, confirmed left crossing retained as negative evidence. Original whole model remains **Needs revision**.
 
 ## Set-level validation findings (not quality promotions)
 
