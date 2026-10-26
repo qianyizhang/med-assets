@@ -1,0 +1,51 @@
+{
+  "candidate_sha256": "7b21b74fb3712b2816801337bd4d0732ef8bb035a999ad36558b8235609cfe02",
+  "source_sha256": "d224985628cc62d0c9c4284019b73505c9ebf14d78d30a040d74a7b33c68620e",
+  "scoped_geometry_pass": true,
+  "meshes": [
+    {
+      "name": "Source exterior with authored cortical shell - cut after offset",
+      "vertices": 1384,
+      "triangles": 2764,
+      "components": 1,
+      "boundary_edges": 0,
+      "edge_incidence_not2": 0,
+      "zero_area": 0,
+      "outside_source_vertices_over_1um": 0,
+      "max_outside_m": 0,
+      "nonadjacent_bvh_candidates": 0,
+      "nonadjacent_triangle_contacts": 0,
+      "contact_pairs": []
+    },
+    {
+      "name": "Illustrative marrow - partially removed, color transition not p",
+      "vertices": 890,
+      "triangles": 1776,
+      "components": 1,
+      "boundary_edges": 0,
+      "edge_incidence_not2": 0,
+      "zero_area": 0,
+      "outside_source_vertices_over_1um": 0,
+      "max_outside_m": 0
+    },
+    {
+      "name": "Connected illustrative trabecular network - not patient microar",
+      "vertices": 178163,
+      "triangles": 364734,
+      "components": 1,
+      "boundary_edges": 0,
+      "edge_incidence_not2": 0,
+      "zero_area": 0,
+      "outside_source_vertices_over_1um": 0,
+      "max_outside_m": 0
+    }
+  ],
+  "limits": [
+    "Exact-coordinate weld for checks only; no candidate mutation.",
+    "Vertex-containment screening, not every triangle-interior proof.",
+    "Shell nonadjacent BVH/SAT excludes shared-vertex pairs; finite precision.",
+    "No exhaustive network self-intersection proof.",
+    "Intentional network/backing contact is not segmented tissue, attachment count or mechanical validation.",
+    "No clinical anatomy or runtime approval."
+  ]
+}

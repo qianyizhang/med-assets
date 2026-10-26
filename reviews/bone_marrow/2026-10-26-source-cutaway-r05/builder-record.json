@@ -1,0 +1,70 @@
+{
+  "source_object": "FJ3259 left femur",
+  "source_sha256": "d224985628cc62d0c9c4284019b73505c9ebf14d78d30a040d74a7b33c68620e",
+  "output_sha256": "7b21b74fb3712b2816801337bd4d0732ef8bb035a999ad36558b8235609cfe02",
+  "local_inset_support": {
+    "center": [
+      0.12258849292993546,
+      -0.05768254026770592,
+      0.8028264045715332
+    ],
+    "inner_radius_m": 0.0035,
+    "outer_radius_m": 0.007,
+    "min_weight": 0.15,
+    "modified_vertex_weights": 23
+  },
+  "whole_original_status": "Needs revision",
+  "count_delta": 0,
+  "scope": "Authored interior cutaway on source-derived exterior, not patient cortex or trabecular segmentation",
+  "nodes_in_largest_graph": 1100,
+  "edges": 3340,
+  "discarded_sample_nodes": 0,
+  "cortical_attachment_struts": 142,
+  "illustrative_cortical_offset_m": 0.002,
+  "source_exact_coordinate_weld": true,
+  "generated_islands_removed": [
+    {
+      "vertices": 8,
+      "bounds": [
+        [
+          0.07699254900217056,
+          -0.07755639404058456,
+          0.7965948581695557
+        ],
+        [
+          0.07701734453439713,
+          -0.0775328204035759,
+          0.7966077327728271
+        ]
+      ],
+      "span": [
+        2.47955322265625e-05,
+        2.3573637008666992e-05,
+        1.2874603271484375e-05
+      ]
+    },
+    {
+      "vertices": 8,
+      "bounds": [
+        [
+          0.1055544763803482,
+          -0.07481753826141357,
+          0.8083587884902954
+        ],
+        [
+          0.1055661290884018,
+          -0.07476779073476791,
+          0.8083696365356445
+        ]
+      ],
+      "span": [
+        1.1652708053588867e-05,
+        4.97475266456604e-05,
+        1.0848045349121094e-05
+      ]
+    }
+  ],
+  "network_faces_before_decimation": 521050,
+  "network_faces_after_decimation": 364734,
+  "marrow_cutback": "front marrow partly removed to expose network; empty display space is not anatomical air"
+}

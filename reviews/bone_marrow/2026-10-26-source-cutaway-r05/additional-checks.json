@@ -1,0 +1,150 @@
+{
+  "final-allmesh-equality.json": {
+    "baseline": "r05/candidate.glb",
+    "candidate": "final-build/marrow_cutaway.glb",
+    "candidate_sha256": "7b21b74fb3712b2816801337bd4d0732ef8bb035a999ad36558b8235609cfe02",
+    "baseline_sha256": "dbfd05f3555691c30adde187b2ae1a77f0991e895bc4c0433a22abd0a4292813",
+    "raw_glb_node_transform_identity_asserted": true,
+    "exact_oriented_coordinate_geometry_equal": true,
+    "baseline_meshes": {
+      "0": {
+        "unique_vertices": 1384,
+        "triangles": 2764,
+        "geometry_sha256": "b15ea129204d3f02a6fa9575876ef13c880aa877e7149a72f3d3875f138af4df"
+      },
+      "1": {
+        "unique_vertices": 890,
+        "triangles": 1776,
+        "geometry_sha256": "379ad41c8c86317884ffa1e4011820eb994cbc879b5b514a0969dbf7e42d6e33"
+      },
+      "2": {
+        "unique_vertices": 178163,
+        "triangles": 364734,
+        "geometry_sha256": "f04d0d58657957ac0af98c7dd2c7d0cdd2246bdb5ec3f8340e1c886b9e1ec2ed"
+      }
+    },
+    "candidate_meshes": {
+      "0": {
+        "unique_vertices": 1384,
+        "triangles": 2764,
+        "geometry_sha256": "b15ea129204d3f02a6fa9575876ef13c880aa877e7149a72f3d3875f138af4df"
+      },
+      "1": {
+        "unique_vertices": 890,
+        "triangles": 1776,
+        "geometry_sha256": "379ad41c8c86317884ffa1e4011820eb994cbc879b5b514a0969dbf7e42d6e33"
+      },
+      "2": {
+        "unique_vertices": 178163,
+        "triangles": 364734,
+        "geometry_sha256": "f04d0d58657957ac0af98c7dd2c7d0cdd2246bdb5ec3f8340e1c886b9e1ec2ed"
+      }
+    }
+  },
+  "r05-exterior-contact.json": {
+    "source_surface_exterior": {
+      "r04": {
+        "source_surface_triangles": 1328,
+        "oriented_coordinate_sha256": "0b16c79144bca585fed5de8f68ec529c15de37e3935e30517cd8982e5c9a2464",
+        "max_vertex_distance_m": 1.666000493116826e-08
+      },
+      "r05": {
+        "source_surface_triangles": 1328,
+        "oriented_coordinate_sha256": "0b16c79144bca585fed5de8f68ec529c15de37e3935e30517cd8982e5c9a2464",
+        "max_vertex_distance_m": 1.666000493116826e-08
+      }
+    },
+    "r04_r05_outer_oriented_coordinate_equality": true,
+    "shell_network_bvh_pairs": 2624,
+    "shell_network_sat_contacts": 2624,
+    "contacting_shell_triangles": 199,
+    "contacting_network_triangles": 2480,
+    "scope": "Exterior triangles selected by all vertices within1um source surface; finite surface proximity selection, not every face classified. Contact triangle pair count is not attachment count, union, watertight fusion or mechanical integrity."
+  },
+  "r05-protected-equality.json": {
+    "baseline": "r04",
+    "candidate": "r05",
+    "raw_glb_node_transform_identity_asserted": true,
+    "exact_oriented_coordinate_geometry_equal": true,
+    "baseline_meshes": {
+      "Illustrative marrow - partially removed, color transition not p": {
+        "unique_vertices": 890,
+        "triangles": 1776,
+        "geometry_sha256": "379ad41c8c86317884ffa1e4011820eb994cbc879b5b514a0969dbf7e42d6e33"
+      },
+      "Connected illustrative trabecular network - not patient microar": {
+        "unique_vertices": 178163,
+        "triangles": 364734,
+        "geometry_sha256": "f04d0d58657957ac0af98c7dd2c7d0cdd2246bdb5ec3f8340e1c886b9e1ec2ed"
+      }
+    },
+    "candidate_meshes": {
+      "Illustrative marrow - partially removed, color transition not p": {
+        "unique_vertices": 890,
+        "triangles": 1776,
+        "geometry_sha256": "379ad41c8c86317884ffa1e4011820eb994cbc879b5b514a0969dbf7e42d6e33"
+      },
+      "Connected illustrative trabecular network - not patient microar": {
+        "unique_vertices": 178163,
+        "triangles": 364734,
+        "geometry_sha256": "f04d0d58657957ac0af98c7dd2c7d0cdd2246bdb5ec3f8340e1c886b9e1ec2ed"
+      }
+    }
+  },
+  "verifier-safety-tests.json": {
+    "existing_output_exit_code": 1,
+    "wrong_hash_exit_code": 1,
+    "wrong_hash_output_created": false
+  },
+  "network-simplification-check.json": {
+    "rows": [
+      {
+        "from": "r02",
+        "to": "r03",
+        "vertices_screened": 516846,
+        "excluded_tiny_island_vertices": 16,
+        "max_surface_distance_m": 7.713897502981126e-05,
+        "p99_surface_distance_m": 3.5161607411282585e-05
+      },
+      {
+        "from": "r03",
+        "to": "r02",
+        "vertices_screened": 178163,
+        "excluded_tiny_island_vertices": 0,
+        "max_surface_distance_m": 5.139104905538261e-05,
+        "p99_surface_distance_m": 2.7357835388102104e-05
+      }
+    ],
+    "scope": "All exact-unique vertices to opposite triangle surface; finite-precision sampled-surface check, not continuous Hausdorff proof.2recorded tiny generated islands excluded only from r02."
+  },
+  "final_vs_r05_pixels": [
+    {
+      "view": "front",
+      "changed_pixels": 446,
+      "max_channel_delta": 31,
+      "mean_channel_delta": 0.0004308333333333333,
+      "exact_decoded_pixels": false
+    },
+    {
+      "view": "oblique",
+      "changed_pixels": 214,
+      "max_channel_delta": 25,
+      "mean_channel_delta": 0.00019645833333333334,
+      "exact_decoded_pixels": false
+    },
+    {
+      "view": "reverse",
+      "changed_pixels": 0,
+      "max_channel_delta": 0,
+      "mean_channel_delta": 0.0,
+      "exact_decoded_pixels": true
+    },
+    {
+      "view": "close",
+      "changed_pixels": 876,
+      "max_channel_delta": 38,
+      "mean_channel_delta": 0.0008322916666666666,
+      "exact_decoded_pixels": false
+    }
+  ]
+}
