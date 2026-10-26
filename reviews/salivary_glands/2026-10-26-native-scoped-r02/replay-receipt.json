@@ -1,0 +1,135 @@
+{
+  "model_build_byte_identity": {
+    "context.glb": true,
+    "glands-ducts.glb": true
+  },
+  "diagnostic_original_build_byte_identity": {
+    "context.glb": true,
+    "glands-ducts.glb": true
+  },
+  "render_and_composite_replay": [
+    {
+      "reference": "r02/renders/glands-ducts-front-source.png",
+      "replay": "portable-renders/glands-ducts-front-source.png",
+      "decoded_pixels_equal": true,
+      "dimensions": [
+        1100,
+        1100
+      ]
+    },
+    {
+      "reference": "r02/renders/glands-ducts-oblique.png",
+      "replay": "portable-renders/glands-ducts-oblique.png",
+      "decoded_pixels_equal": true,
+      "dimensions": [
+        1100,
+        1100
+      ]
+    },
+    {
+      "reference": "r02/renders/context-side-source.png",
+      "replay": "portable-renders/context-side-source.png",
+      "decoded_pixels_equal": true,
+      "dimensions": [
+        1100,
+        1100
+      ]
+    },
+    {
+      "reference": "r02/renders/context-inferior-source.png",
+      "replay": "portable-renders/context-inferior-source.png",
+      "decoded_pixels_equal": true,
+      "dimensions": [
+        1100,
+        1100
+      ]
+    },
+    {
+      "reference": "r02/renders/context-superior-source.png",
+      "replay": "portable-renders/context-superior-source.png",
+      "decoded_pixels_equal": true,
+      "dimensions": [
+        1100,
+        1100
+      ]
+    },
+    {
+      "reference": "r02/renders/context-oblique.png",
+      "replay": "portable-renders/context-oblique.png",
+      "decoded_pixels_equal": true,
+      "dimensions": [
+        1100,
+        1100
+      ]
+    },
+    {
+      "reference": "failure-diagnostic/opaque-oblique.png",
+      "replay": "portable-failure/opaque-oblique.png",
+      "decoded_pixels_equal": true,
+      "dimensions": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "reference": "failure-diagnostic/opaque-reverse.png",
+      "replay": "portable-failure/opaque-reverse.png",
+      "decoded_pixels_equal": true,
+      "dimensions": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "reference": "failure-diagnostic/translucent-oblique.png",
+      "replay": "portable-failure/translucent-oblique.png",
+      "decoded_pixels_equal": true,
+      "dimensions": [
+        1000,
+        1000
+      ]
+    },
+    {
+      "reference": "r02/review-comparison.png",
+      "replay": "portable-comparison.png",
+      "decoded_pixels_equal": true,
+      "dimensions": [
+        1800,
+        1040
+      ]
+    },
+    {
+      "reference": "r02/annotated-context.png",
+      "replay": "portable-annotated.png",
+      "decoded_pixels_equal": true,
+      "dimensions": [
+        1700,
+        1120
+      ]
+    },
+    {
+      "reference": "failure-diagnostic/rejection-closeup.png",
+      "replay": "portable-rejection.png",
+      "decoded_pixels_equal": true,
+      "dimensions": [
+        1500,
+        1040
+      ]
+    },
+    {
+      "reference": "baseline-renders/whole.png",
+      "replay": "portable-baseline/whole.png",
+      "decoded_pixels_equal": true,
+      "dimensions": [
+        1100,
+        1100
+      ]
+    }
+  ],
+  "guards": {
+    "existing_output_exit": 1,
+    "wrong_source_exit": 1,
+    "wrong_source_output_absent": true
+  },
+  "scope": "Actual native Blender replay and pixel checks; not browser or clinical QA. Initial metadata-writer argument shadowing was fixed before freeze; geometry hashes stayed identical."
+}

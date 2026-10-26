@@ -1,0 +1,10 @@
+from PIL import Image,ImageDraw,ImageFont
+from pathlib import Path
+import argparse,json
+p=argparse.ArgumentParser();p.add_argument('--renders',required=True);p.add_argument('--baseline-renders');p.add_argument('--out',required=True);a=p.parse_args();R=Path(a.renders);B=Path(a.baseline_renders) if a.baseline_renders else None;O=Path(a.out);assert {x['glb_sha256'] for x in json.loads((R/'bindings.json').read_text())}=={'a53134ec91195f5c42b8be4cde3536343e62857a7ecf5ab5d11bf3eba6ead515', '1764c63011e698b9047d1abe79c647b8b609b7d8f9b18b740b17cdc65db930f8'},'Render model bindings mismatch';assert json.loads((B/'bindings.json').read_text())['baseline_sha256']=='865717807c724b375f25fdc745e231525730ed80a374042a1e4f89cf32b8b4b6','Baseline binding mismatch';assert not O.exists(),'Output file must be new';im=Image.new('RGB',(1800,1040),'#13171c');d=ImageDraw.Draw(im);f=lambda n:ImageFont.truetype('/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc',n)
+d.text((25,18),'Major salivary glands / 主要唾液腺：从孤立草稿到同源位置关系',font=f(29),fill='#eee');d.text((25,65),'Different models/poses; no registration / 不同模型与姿态，未配准',font=f(21),fill='#aab2bd')
+for i,(path,title) in enumerate([('baseline-renders/whole.png','Original floating draft / 原孤立草稿'),('r02/renders/glands-ducts-front-source.png','Glands + parotid ducts / 腺体与腮腺导管'),('r02/renders/context-superior-source.png','Same-source oral-floor context / 同源口底参照')]):
+ x=20+i*595;d.text((x,115),title,font=f(21),fill='#eee');im.paste(Image.open(B/'whole.png' if path.startswith('baseline') else R/Path(path).name).convert('RGB').resize((570,570)),(x,155))
+lines=[('3 gland pairs + parotid ducts only. BOTH submandibular ducts excluded: source course unaccepted.','#dce6e9'),('3 对腺体，仅显示腮腺导管。两侧下颌下腺导管均排除：源走行未获接受。','#dce6e9'),('Left source duct crosses modeled mylohyoid: separate diagnostic retained. No route repair invented.','#f3b853'),('左侧源导管穿过模型下颌舌骨肌：保留独立诊断图，未凭空修补走行。','#f3b853'),('Original still Needs revision · Source-preserved teaching pilot, not clinical validation · CC BY-SA 4.0','#aab2bd')]
+for j,(s,c) in enumerate(lines):d.text((25,770+j*40),s,font=f(21),fill=c)
+im.save(O)

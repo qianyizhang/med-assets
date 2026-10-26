@@ -71,6 +71,8 @@ No source archive upload, new permissions, billing assurance or broader quality 
 
 ## Context and teaching supplements (not additional organ studies)
 
+- [Major salivary gland localization and gross parotid course r02](../models/salivary_glands/exports/z-native-scoped-r02/README.md) — source-preserved gland pairs and parotid surface course only; submandibular ducts excluded, confirmed left crossing retained as negative evidence. Original whole model remains **Needs revision**.
+
 - [Proximal femur / marrow teaching cutaway r05](../reviews/bone_marrow/2026-10-26-source-cutaway-r05/README.md) — BP3D exterior with authored cortical inset, network and marrow; illustrative tissue relationships, not measured microarchitecture or a whole-model pass. Earlier independent marrow comparison remains unchanged.
 
 - [NIH3D nasal/sinus airspace cast](../reviews/nose_sinuses/2026-10-26-nih3d-airspace-r01/README.md) — source-preserved specimen display with disclosed cyst indentation and retained self-intersections; not mucosa/conchae, a healthy template, or a whole-model pass.
