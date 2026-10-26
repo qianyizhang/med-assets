@@ -1,0 +1,49 @@
+{
+  "status": "scoped-context-localization-review",
+  "whole_asset": "needs-revision",
+  "count_delta": 0,
+  "clinical_expert_review": false,
+  "source_geometry_edit": false,
+  "model": {
+    "path": "models/urethra_male/exports/z-native-context-r01/urethral-context.glb",
+    "sha256": "d2d88c936287f4ea5978aba1f17e86975c587a102e498595dd7a58aa07c269e7",
+    "role": "single reviewable region assembly, urethra plus5 same-source context objects"
+  },
+  "accepted": "Gross source-context localization, not complete anatomy",
+  "unvalidated": [
+    "proximal bladder interface",
+    "distal protrusion/outlet",
+    "surface containment/interpenetration",
+    "wall thickness",
+    "patent lumen",
+    "physiological flow",
+    "complete urinary tract"
+  ],
+  "reviewed_images": {
+    "annotated-context.webp": {
+      "source_png": "r01/annotated-context.png",
+      "png_sha256": "ad5587e46afb57715b45ca2df3f0100103676cedc0d6c8124aa23c85e3a2ae41",
+      "lossless_rgb_equal": true,
+      "scope": "translucent context with labeled caveats"
+    },
+    "review-comparison.webp": {
+      "source_png": "r01/review-comparison.png",
+      "png_sha256": "afae32af1eeb05836877d038704d4d347b949a8b6026145d61cc979baba69573",
+      "lossless_rgb_equal": true,
+      "scope": "different unregistered models, no scale match"
+    },
+    "context-oblique.webp": {
+      "source_png": "r01/translucent-renders/context-oblique.png",
+      "png_sha256": "c197a3209026e95c94212ff9b8b58f08102340380c56b70a3c3f5e3ecd5b88b6",
+      "lossless_rgb_equal": true,
+      "scope": "translucent source context"
+    },
+    "urethra-oblique.webp": {
+      "source_png": "r01/renders/urethra-oblique.png",
+      "png_sha256": "c08c8f7da7662cb8e92bb70ff8f5fce67987d80ab4646d24ab4ef5d4dc3f810b",
+      "lossless_rgb_equal": true,
+      "scope": "isolated source surface; not lumen"
+    }
+  },
+  "review": "Independent native source placement and actual final annotated/comparison pixel review; separate supervising visual review. Neither is clinical-expert validation."
+}

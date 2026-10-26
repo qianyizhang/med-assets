@@ -1,0 +1,218 @@
+{
+  "source_sha256": "9f08a17ea0115fed80b2a73ecdf0a1bc2ab2f6956f37c593ce23d513ea35afcd",
+  "members": [
+    {
+      "name": "Urethra",
+      "type": "CURVE",
+      "matrix_world": [
+        [
+          1.0,
+          0.0,
+          8.470329472543003e-22,
+          0.0
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          9.15036935111857e-11
+        ],
+        [
+          0.0,
+          0.0,
+          0.9999999403953552,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "modifiers": [],
+      "evaluated_vertices": 1452,
+      "faces": 1440,
+      "splines": [
+        {
+          "type": "BEZIER",
+          "bezier_points": 11,
+          "points": 0,
+          "cyclic": false
+        }
+      ]
+    },
+    {
+      "name": "Urinary bladder",
+      "type": "MESH",
+      "matrix_world": [
+        [
+          1.0,
+          0.0,
+          8.470329472543003e-22,
+          0.0003886380873154849
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          0.0,
+          0.003709985176101327
+        ],
+        [
+          0.0,
+          0.0,
+          0.9999999403953552,
+          0.8575296998023987
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "modifiers": [
+        "SUBSURF"
+      ],
+      "evaluated_vertices": 1520,
+      "faces": 1518
+    },
+    {
+      "name": "Prostate",
+      "type": "MESH",
+      "matrix_world": [
+        [
+          0.9999999403953552,
+          0.0,
+          0.0,
+          -0.00040262669790536165
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.01615491695702076
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.8219332098960876
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "modifiers": [],
+      "evaluated_vertices": 236,
+      "faces": 468
+    },
+    {
+      "name": "Corpus spongiosum of penis",
+      "type": "MESH",
+      "matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.0008906165021471679
+        ],
+        [
+          0.0,
+          1.0,
+          -1.4210854715202004e-14,
+          -0.03425164148211479
+        ],
+        [
+          0.0,
+          1.4210854715202004e-14,
+          1.0,
+          0.7945515513420105
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "modifiers": [],
+      "evaluated_vertices": 282,
+      "faces": 560
+    },
+    {
+      "name": "Corpus cavernosum of penis",
+      "type": "MESH",
+      "matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0002364793763263151
+        ],
+        [
+          0.0,
+          1.0,
+          -1.4210854715202004e-14,
+          -0.04620566591620445
+        ],
+        [
+          0.0,
+          1.4210854715202004e-14,
+          1.0,
+          0.7963351607322693
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "modifiers": [],
+      "evaluated_vertices": 646,
+      "faces": 1288
+    },
+    {
+      "name": "Glans penis",
+      "type": "MESH",
+      "matrix_world": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -9.868948836810887e-05
+        ],
+        [
+          0.0,
+          1.0,
+          -1.4210854715202004e-14,
+          -0.09066228568553925
+        ],
+        [
+          0.0,
+          1.4210854715202004e-14,
+          1.0,
+          0.758807361125946
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "modifiers": [],
+      "evaluated_vertices": 694,
+      "faces": 1391
+    }
+  ],
+  "exports": {
+    "context.glb": "d2d88c936287f4ea5978aba1f17e86975c587a102e498595dd7a58aa07c269e7",
+    "urethra.glb": "356fb8e1012f4244cc4c7f3f44e87373c04a2e094d936f39d8948390b351b772"
+  },
+  "scope": "Native effective transforms and evaluated source geometry; visibility/material only. No inferred lumen, outlet, or clinical route validation."
+}

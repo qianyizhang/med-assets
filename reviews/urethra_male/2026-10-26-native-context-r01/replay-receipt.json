@@ -1,0 +1,123 @@
+{
+  "software": "Blender4.3.2/Pillow/NotoSansCJK-Regular",
+  "models_byte_identical": {
+    "context.glb": "d2d88c936287f4ea5978aba1f17e86975c587a102e498595dd7a58aa07c269e7",
+    "urethra.glb": "356fb8e1012f4244cc4c7f3f44e87373c04a2e094d936f39d8948390b351b772"
+  },
+  "images": [
+    {
+      "image": "baseline-renders/whole.png",
+      "size": [
+        1100,
+        1100
+      ],
+      "decoded_rgba_sha256": "e605b3d820d33fb21c05de0ad862495da427dc80bd8a16fbaeaa481f65809807",
+      "fresh_replay_pixels_equal": true
+    },
+    {
+      "image": "r01/review-comparison.png",
+      "size": [
+        1600,
+        1080
+      ],
+      "decoded_rgba_sha256": "9944ec43a6fa47771db6bd5173faf72c0e76d72ce3fd5183ae3043cf4cc4823d",
+      "fresh_replay_pixels_equal": true
+    },
+    {
+      "image": "r01/annotated-context.png",
+      "size": [
+        1600,
+        1440
+      ],
+      "decoded_rgba_sha256": "e5138db9015549ee249eec1b79005458ce340bde156909b70dcfd62d840da834",
+      "fresh_replay_pixels_equal": true
+    },
+    {
+      "image": "r01/renders/urethra-side-source.png",
+      "size": [
+        1100,
+        1100
+      ],
+      "decoded_rgba_sha256": "86fcb523e707f3ed76d170ec31f5419f848fcf3056de4f6daf9c68b8a452b1b0",
+      "fresh_replay_pixels_equal": true
+    },
+    {
+      "image": "r01/renders/urethra-oblique.png",
+      "size": [
+        1100,
+        1100
+      ],
+      "decoded_rgba_sha256": "4c7b74edff5adfe1eeed2d60b1eb24b728f892ff432444fdca0d6c9b9234edb2",
+      "fresh_replay_pixels_equal": true
+    },
+    {
+      "image": "r01/renders/context-side-source.png",
+      "size": [
+        1100,
+        1100
+      ],
+      "decoded_rgba_sha256": "9c595b5d30e4a0d4ef60ee0fe80c306e2015fefe026dedcf623334ade1963064",
+      "fresh_replay_pixels_equal": true
+    },
+    {
+      "image": "r01/renders/context-oblique.png",
+      "size": [
+        1100,
+        1100
+      ],
+      "decoded_rgba_sha256": "517463151aebfeaedafae8f45859c5c7f08723be58271ddc565d4f6c4f33ecab",
+      "fresh_replay_pixels_equal": true
+    },
+    {
+      "image": "r01/translucent-renders/context-side-source.png",
+      "size": [
+        1100,
+        1100
+      ],
+      "decoded_rgba_sha256": "851823235233f0fd6dca12dd9927510640f2cfe0d4ad1e7d2054fd01951c3853",
+      "fresh_replay_pixels_equal": true
+    },
+    {
+      "image": "r01/translucent-renders/context-oblique.png",
+      "size": [
+        1100,
+        1100
+      ],
+      "decoded_rgba_sha256": "236931c035fe22e63c0868cbfbd77538446b0328a96c27e6030f4c6c1365a622",
+      "fresh_replay_pixels_equal": true
+    }
+  ],
+  "packaged_media": {
+    "annotated-context.webp": {
+      "source_png": "r01/annotated-context.png",
+      "png_sha256": "ad5587e46afb57715b45ca2df3f0100103676cedc0d6c8124aa23c85e3a2ae41",
+      "lossless_rgb_equal": true,
+      "scope": "translucent context with labeled caveats"
+    },
+    "review-comparison.webp": {
+      "source_png": "r01/review-comparison.png",
+      "png_sha256": "afae32af1eeb05836877d038704d4d347b949a8b6026145d61cc979baba69573",
+      "lossless_rgb_equal": true,
+      "scope": "different unregistered models, no scale match"
+    },
+    "context-oblique.webp": {
+      "source_png": "r01/translucent-renders/context-oblique.png",
+      "png_sha256": "c197a3209026e95c94212ff9b8b58f08102340380c56b70a3c3f5e3ecd5b88b6",
+      "lossless_rgb_equal": true,
+      "scope": "translucent source context"
+    },
+    "urethra-oblique.webp": {
+      "source_png": "r01/renders/urethra-oblique.png",
+      "png_sha256": "c08c8f7da7662cb8e92bb70ff8f5fce67987d80ab4646d24ab4ef5d4dc3f810b",
+      "lossless_rgb_equal": true,
+      "scope": "isolated source surface; not lumen"
+    }
+  },
+  "guards": {
+    "existing_output_exit": 1,
+    "wrong_source_exit": 1,
+    "wrong_source_output_absent": true
+  },
+  "surface_check_exact": true,
+  "scope": "Builder portable replay; independent visual/source placement receipt separately attributed. No clinical/interface/lumen/runtime pass."
+}

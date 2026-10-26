@@ -71,6 +71,8 @@ No source archive upload, new permissions, billing assurance or broader quality 
 
 ## Context and teaching supplements (not additional organ studies)
 
+- [Male urethra in source context r01](../models/urethra_male/exports/z-native-context-r01/README.md) — six-object gross localization study; source interfaces, outlet, lumen and flow remain unvalidated. Original model stays **Needs revision**, not a complete urinary tract or clinical pass.
+
 - [Proximal femur / marrow teaching cutaway r05](../reviews/bone_marrow/2026-10-26-source-cutaway-r05/README.md) — BP3D exterior with authored cortical inset, network and marrow; illustrative tissue relationships, not measured microarchitecture or a whole-model pass. Earlier independent marrow comparison remains unchanged.
 
 - [NIH3D nasal/sinus airspace cast](../reviews/nose_sinuses/2026-10-26-nih3d-airspace-r01/README.md) — source-preserved specimen display with disclosed cyst indentation and retained self-intersections; not mucosa/conchae, a healthy template, or a whole-model pass.
