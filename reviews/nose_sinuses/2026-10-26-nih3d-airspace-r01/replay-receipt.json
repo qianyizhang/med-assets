@@ -1,0 +1,18 @@
+{
+  "checked_utc": "2026-10-26T03:43:10Z",
+  "build_replay_sha256": "3d8c4d56e09d72ae369c697d2bb9435cc3792f9dbe225e7d456ff58174a577be",
+  "build_bytes_exact": true,
+  "package_inverse_verifier_pass": true,
+  "build_wrong_source_exit": 1,
+  "build_existing_output_exit": 1,
+  "wrong_source_created_output": false,
+  "render": "Generic guarded render wrapper executed on exact baseline and freshly reimported exact exported GLB;5 native PNG hashes in render-bindings.json. Render across package copy not rerun; script bytes identical.",
+  "composition": "Actual Pillow composite personally inspected;4 lossless WebPs decoded pixels match native PNGs.",
+  "dependencies": "Blender4.3.2; Python3/Pillow; DejaVu Sans for composite. Not bundled.",
+  "not_tested": [
+    "browser WebGL runtime",
+    "clinical accuracy",
+    "printing or simulation readiness",
+    "exhaustive intersection freedom"
+  ]
+}

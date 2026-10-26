@@ -1,0 +1,24 @@
+{
+  "entry": "https://3d.nih.gov/entries/2305",
+  "title": "Upper respiratory airways cast",
+  "creator": "nevitdilmen",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "license_evidence": "Primary entry HTML Licensing anchor and CC-BY image alt; verified2026-10-26. Not inferred from NIH government hosting.",
+  "source_download": "https://3d.nih.gov/api/submissions/31561/runs/ce550e47-4561-4749-85c4-3fed72645da7/output-files/862291",
+  "source_bytes": 9920484,
+  "source_sha256": "9c9d980edd1bb2d576376c0c486a3e45db65188c6ede72f3b2e1a56a1f7f9ba7",
+  "file_role": "NIH workflow output STL, not original CT or Blender authoring source",
+  "source_description_summary": "MDCT-derived upper-airway airspace cast; nasal cavity, four sinus groups and hypopharynx. Creator discloses retention-cyst indentation in posterior right maxillary sinus.",
+  "unit_axis_limit": "Source does not document physical units or anatomical coordinate convention. Do not infer mm or patient-side labels from file axes.",
+  "source_quality": "4 nonadjacent segment-triangle intersection pairs independently detected; automated source metadata reports13 using unspecified different method. Defects retained, not repaired.",
+  "reference": "https://medicine.nus.edu.sg/ant/nushalo/eGuides/nervous/ner25.pdf",
+  "reference_role": "Supports distinction between airspaces and conchae/tissue; not patient validation. No reference illustration redistributed.",
+  "baseline": {
+    "url": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/head/nose-sinuses.glb",
+    "bytes": 160548,
+    "sha256": "5f7be3713d4c45f137d972615d3b475f0c7c7256db157971458f104ed923a947",
+    "role": "Authored failed schematic comparison only; no source registration"
+  },
+  "changes": "No anatomy edits. Neutral display material/smooth normals plus reversible centering and uniform fit only."
+}

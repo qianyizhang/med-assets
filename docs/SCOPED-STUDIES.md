@@ -71,6 +71,8 @@ No source archive upload, new permissions, billing assurance or broader quality 
 
 ## Context and teaching supplements (not additional organ studies)
 
+- [NIH3D nasal/sinus airspace cast](../reviews/nose_sinuses/2026-10-26-nih3d-airspace-r01/README.md) — source-preserved specimen display with disclosed cyst indentation and retained self-intersections; not mucosa/conchae, a healthy template, or a whole-model pass.
+
 - [Spinal cord gross relationships r03](../models/spinal_cord/exports/authored-relationships-r03/README.md) — authored conus, separate filum and descending-root relationships at 17 representative levels, not a complete 31-pair map; original whole model remains **Needs revision**.
 
 - [Parathyroid posterior localization](../models/parathyroids/exports/z-localization-r01/README.md) — one atlas example with same-source thyroid context; simplified morphology and number/location variability remain unresolved.
