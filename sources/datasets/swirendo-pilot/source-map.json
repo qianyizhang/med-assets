@@ -1,0 +1,185 @@
+{
+  "status": "source_ingestion_verified_derivatives_pending_review",
+  "checked_utc": "2026-10-26",
+  "source_record": "https://data.ub.uni-muenchen.de/477/",
+  "doi": "10.5282/ubm/data.477",
+  "attribution": [
+    "Benz, Leander",
+    "Heck, Katrin",
+    "Walter, Elias"
+  ],
+  "title": "Data: Visualization of Pulpal Structures by SWIR in Endodontic Access Preparation",
+  "license": "CC-BY-SA-4.0",
+  "license_evidence": "Official repository record explicitly applies CC BY-SA4.0 to this dataset; saved evidence hash below. No account or agreement accepted.",
+  "license_page_sha256": "ddecc10968db7f697faf1cd5090a027471bdc308fb6dca747ca94492c80bf583",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "acquisition": "Two ZIP members retrieved via public HTTP ranges; matching ETag, CRC32 and member size; entire ZIP hash not verified.",
+  "members": [
+    {
+      "name": "Data/M_1_46_T2_SEG_na.nrrd",
+      "compressed": 1206933,
+      "size": 1356909,
+      "crc32": 3370918460,
+      "offset": 801842016,
+      "method": 8,
+      "url": "https://data.ub.uni-muenchen.de/477/9/SWIRendo_Data.zip",
+      "range": [
+        801842016,
+        803053044
+      ],
+      "sha256": "ab579400c7449b72df82594fe5593873662d89e4306f7523ef056da99946c62d",
+      "zip_etag": "c9fe013740a674feaa9502609ed71571",
+      "crc_verified": true
+    },
+    {
+      "name": "Data/A_1_31_T2_SEG_na.nrrd",
+      "compressed": 585563,
+      "size": 751452,
+      "crc32": 1137209687,
+      "offset": 1067391385,
+      "method": 8,
+      "url": "https://data.ub.uni-muenchen.de/477/9/SWIRendo_Data.zip",
+      "range": [
+        1067391385,
+        1067981043
+      ],
+      "sha256": "f4eda9fe91b60d78ece366d6f32532862775a1725c664067da5a20aae3c142fe",
+      "zip_etag": "c9fe013740a674feaa9502609ed71571",
+      "crc_verified": true
+    }
+  ],
+  "source_header_facts": [
+    {
+      "source_file": "A_1_31_T2_SEG_na.nrrd",
+      "source_sha256": "f4eda9fe91b60d78ece366d6f32532862775a1725c664067da5a20aae3c142fe",
+      "shape": [
+        500,
+        500,
+        679
+      ],
+      "space": "left-posterior-superior",
+      "space_directions_mm": [
+        [
+          0.04,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.04,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.04
+        ]
+      ],
+      "origin_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "labels": [
+        {
+          "name": "Enamel",
+          "id": 1,
+          "boundary_touch": [],
+          "status": "Segmentation.Status:inprogress"
+        },
+        {
+          "name": "Dentin",
+          "id": 2,
+          "boundary_touch": [],
+          "status": "Segmentation.Status:inprogress"
+        },
+        {
+          "name": "Pulp",
+          "id": 4,
+          "boundary_touch": [],
+          "status": "Segmentation.Status:inprogress"
+        },
+        {
+          "name": "Bone",
+          "id": 3,
+          "boundary_touch": [
+            "max_2"
+          ],
+          "status": "Segmentation.Status:inprogress"
+        }
+      ]
+    },
+    {
+      "source_file": "M_1_46_T2_SEG_na.nrrd",
+      "source_sha256": "ab579400c7449b72df82594fe5593873662d89e4306f7523ef056da99946c62d",
+      "shape": [
+        500,
+        500,
+        525
+      ],
+      "space": "left-posterior-superior",
+      "space_directions_mm": [
+        [
+          0.04,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.04,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.04
+        ]
+      ],
+      "origin_mm": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "labels": [
+        {
+          "name": "Enamel",
+          "id": 1,
+          "boundary_touch": [],
+          "status": "Segmentation.Status:inprogress"
+        },
+        {
+          "name": "Dentin",
+          "id": 2,
+          "boundary_touch": [
+            "max_2"
+          ],
+          "status": "Segmentation.Status:inprogress"
+        },
+        {
+          "name": "Pulp",
+          "id": 3,
+          "boundary_touch": [
+            "max_2"
+          ],
+          "status": "Segmentation.Status:inprogress"
+        },
+        {
+          "name": "Bone",
+          "id": 4,
+          "boundary_touch": [
+            "max_2"
+          ],
+          "status": "Segmentation.Status:inprogress"
+        }
+      ]
+    }
+  ],
+  "scope_limits": [
+    "T2 prepared donor specimens, not normal intact atlas",
+    "Labels marked Segmentation.Status:inprogress",
+    "No clinical/anatomical approval",
+    "No primary teeth, cementum, PDL, gingiva or microvascular/nerve models",
+    "Separate specimen coordinates, not a registered jaw",
+    "Raw scan volumes and photographs not acquired"
+  ]
+}
