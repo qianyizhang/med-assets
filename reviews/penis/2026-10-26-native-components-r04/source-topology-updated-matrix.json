@@ -1,0 +1,126 @@
+{
+  "inspection_blend_sha256": "4d3a2c38a83808749077cd3ecbaebc0cded242047b25d57af79b894cbee13a32",
+  "selected_objects": [
+    "Glans penis",
+    "Corpus spongiosum of penis",
+    "Corpus cavernosum of penis"
+  ],
+  "default_scene_objects_excluded": true,
+  "meshes": [
+    {
+      "name": "Glans penis",
+      "vertices": 694,
+      "triangles": 1391,
+      "bounds": [
+        [
+          -0.015438982285559177,
+          -0.10643548518419266,
+          0.744401752948761
+        ],
+        [
+          0.01532045193016529,
+          -0.08076749742031097,
+          0.7759299874305725
+        ]
+      ],
+      "components": [
+        {
+          "vertices": 694,
+          "bounds": [
+            [
+              -0.015438982285559177,
+              -0.10643548518419266,
+              0.744401752948761
+            ],
+            [
+              0.01532045193016529,
+              -0.08076749742031097,
+              0.7759299874305725
+            ]
+          ]
+        }
+      ],
+      "boundary_edges": 1,
+      "edge_incidence_not2": 3,
+      "zero_area": 0,
+      "euler": -1
+    },
+    {
+      "name": "Corpus spongiosum of penis",
+      "vertices": 282,
+      "triangles": 560,
+      "bounds": [
+        [
+          -0.011280291713774204,
+          -0.0889887660741806,
+          0.7474421262741089
+        ],
+        [
+          0.009973972104489803,
+          0.0231318362057209,
+          0.818726122379303
+        ]
+      ],
+      "components": [
+        {
+          "vertices": 282,
+          "bounds": [
+            [
+              -0.011280291713774204,
+              -0.0889887660741806,
+              0.7474421262741089
+            ],
+            [
+              0.009973972104489803,
+              0.0231318362057209,
+              0.818726122379303
+            ]
+          ]
+        }
+      ],
+      "boundary_edges": 0,
+      "edge_incidence_not2": 0,
+      "zero_area": 0,
+      "euler": 2
+    },
+    {
+      "name": "Corpus cavernosum of penis",
+      "vertices": 646,
+      "triangles": 1288,
+      "bounds": [
+        [
+          -0.03253675624728203,
+          -0.10103093087673187,
+          0.7452114820480347
+        ],
+        [
+          0.03275947645306587,
+          0.034486059099435806,
+          0.8283091187477112
+        ]
+      ],
+      "components": [
+        {
+          "vertices": 646,
+          "bounds": [
+            [
+              -0.03253675624728203,
+              -0.10103093087673187,
+              0.7452114820480347
+            ],
+            [
+              0.03275947645306587,
+              0.034486059099435806,
+              0.8283091187477112
+            ]
+          ]
+        }
+      ],
+      "boundary_edges": 0,
+      "edge_incidence_not2": 0,
+      "zero_area": 0,
+      "euler": 2
+    }
+  ],
+  "scope": "Selective mesh load with autoexec disabled. Exact coordinate welding for checks only. Topology and bounds not anatomical or lumen validation."
+}

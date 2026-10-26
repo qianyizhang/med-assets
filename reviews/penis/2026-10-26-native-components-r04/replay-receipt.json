@@ -1,0 +1,69 @@
+{
+  "build_byte_identical": true,
+  "render_and_composite_tests": [
+    {
+      "reference": "r04/minus-y.png",
+      "replay": "portable-renders/minus-y.png",
+      "dimensions": [
+        1000,
+        1000
+      ],
+      "decoded_rgba_equal": true
+    },
+    {
+      "reference": "r04/plus-y.png",
+      "replay": "portable-renders/plus-y.png",
+      "dimensions": [
+        1000,
+        1000
+      ],
+      "decoded_rgba_equal": true
+    },
+    {
+      "reference": "r04/side.png",
+      "replay": "portable-renders/side.png",
+      "dimensions": [
+        1000,
+        1000
+      ],
+      "decoded_rgba_equal": true
+    },
+    {
+      "reference": "r04/oblique.png",
+      "replay": "portable-renders/oblique.png",
+      "dimensions": [
+        1000,
+        1000
+      ],
+      "decoded_rgba_equal": true
+    },
+    {
+      "reference": "r04/inferior-source.png",
+      "replay": "portable-renders/inferior-source.png",
+      "dimensions": [
+        1000,
+        1000
+      ],
+      "decoded_rgba_equal": true
+    },
+    {
+      "reference": "r04/review-comparison.png",
+      "replay": "comparison-replay.png",
+      "dimensions": [
+        1800,
+        1020
+      ],
+      "decoded_rgba_equal": true
+    },
+    {
+      "reference": "r04/annotated-context.png",
+      "replay": "context-replay.png",
+      "dimensions": [
+        1700,
+        1120
+      ],
+      "decoded_rgba_equal": true
+    }
+  ],
+  "scope": "Actual Blender rendered images, not browser visual QA; byte PNG identity not required"
+}
