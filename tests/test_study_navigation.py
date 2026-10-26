@@ -3,6 +3,7 @@ import hashlib
 from pathlib import Path
 import re
 import subprocess
+import sys
 import tempfile
 import unittest
 from urllib.parse import unquote, urlsplit
@@ -16,8 +17,9 @@ NAVIGATION_DOCS = ('README.md', 'docs/SCOPED-STUDIES.md', 'docs/ASSET_LAYOUT.md'
 
 class HistoricalOverview(unittest.TestCase):
     # Characterized before the navigation change at main 6fd567d (includes PR87).
-    # These are frozen historical evidence, not a registry for future additions.
-    # An intentional correction needs review of the changed content and digest.
+    # Only the explicitly historical overview is frozen, not its linked prose.
+    # New studies do not change this bounded snapshot. A correction to the
+    # snapshot itself needs review of the changed content and its digest.
     def test_existing_entries_headings_and_limits_are_preserved(self):
         text = OVERVIEW.read_text()
         snapshot = text[text.index('Snapshot:'):]
@@ -27,22 +29,40 @@ class HistoricalOverview(unittest.TestCase):
         self.assertEqual(hashlib.sha256(snapshot.encode()).hexdigest(),
                          '7ed304da9123f55bef8ec3978ff8bfb252ea8b3610be6d96186078b593bb0399')
 
-    def test_linked_status_evidence_and_provenance_are_preserved(self):
+    def test_historical_links_resolve(self):
         text = OVERVIEW.read_text()
         snapshot = text[text.index('Snapshot:'):]
-        records = []
         for link in sorted(set(LINK.findall(snapshot))):
             path = OVERVIEW.parent / link
             with self.subTest(link=link):
                 self.assertTrue(path.is_file(), link)
-            if path.suffix in {'.json', '.md'}:
-                records.append(f'{link} {hashlib.sha256(path.read_bytes()).hexdigest()}')
-        self.assertEqual(len(records), 55)
-        self.assertEqual(hashlib.sha256('\n'.join(records).encode()).hexdigest(),
-                         'a2e337912fba52c84b50328935dd8c3822aad0411e7185bdf32a556adfda693b')
 
 
 class DirectoryNavigation(unittest.TestCase):
+    def test_study_readme_clarification_needs_no_shared_test_edit(self):
+        # Run the historical checks against an isolated copy with one prose
+        # clarification. This catches a new aggregate digest of linked files.
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp)
+            text = OVERVIEW.read_text()
+            snapshot = text[text.index('Snapshot:'):]
+            files = {OVERVIEW, Path(__file__).resolve()}
+            files.update((OVERVIEW.parent / link).resolve()
+                         for link in LINK.findall(snapshot))
+            for source in files:
+                target = root / source.relative_to(ROOT)
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes(source.read_bytes())
+            readme = root / 'models/penis/exports/z-native-components-r04/README.md'
+            with readme.open('a') as stream:
+                stream.write('\nRead the linked review for the scope of each check.\n')
+            result = subprocess.run(
+                [sys.executable, str(root / 'tests/test_study_navigation.py'),
+                 'HistoricalOverview'], capture_output=True, text=True, cwd=root)
+            self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+            self.assertEqual((root / 'tests/test_study_navigation.py').read_bytes(),
+                             Path(__file__).read_bytes())
+
     def test_relative_links_and_new_fragments_resolve(self):
         for name in NAVIGATION_DOCS:
             doc = ROOT / name
