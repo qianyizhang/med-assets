@@ -121,11 +121,12 @@ class Validation(unittest.TestCase):
         self.invalid(lambda m: m['objects'][0].update(encoding='gzip'))
         self.invalid(lambda m: m['objects'][0].update(transportBytes=24))
 
-    def test_four_exact_source_hosts_and_secondary_guards(self):
+    def test_five_exact_source_hosts_and_secondary_guards(self):
         second = 'anatomy-airway-review.landy123007.chatgpt.site'
         self.assertEqual(t.SOURCE_HOSTS, {'anatomy-verification.landy123007.chatgpt.site', second,
                                         'heart-anatomy-imaging-lab.landy123007.chatgpt.site',
-                                        'anatomy-dental-review.landy123007.chatgpt.site'})
+                                        'anatomy-dental-review.landy123007.chatgpt.site',
+                                        'anatomy-head-neck-review.landy123007.chatgpt.site'})
         m = copy.deepcopy(MANIFEST)
         m['objects'][0]['url'] = f'https://{second}/review/candidates/test/{OID}.glb'
         t.validate_manifest(*encode(m))
@@ -287,6 +288,26 @@ class TriggerAndExecution(unittest.TestCase):
 
     def test_dental_host_manifest_and_redirect_guards(self):
         host = 'anatomy-dental-review.landy123007.chatgpt.site'
+        m = copy.deepcopy(MANIFEST)
+        m['objects'][0]['url'] = f'https://{host}/review/test.glb'
+        t.validate_manifest(*encode(m))
+        request = t.urllib.request.Request(f'https://{host}/review/x.glb')
+        redirected = t.SameOriginRedirect().redirect_request(request, None, 302, '', {}, f'https://{host}/review/y.glb')
+        self.assertEqual(redirected.full_url, f'https://{host}/review/y.glb')
+        for url in (f'http://{host}/review/x.glb', f'https://user:pass@{host}/review/x.glb',
+                    f'https://{host}:444/review/x.glb', f'https://sub.{host}/review/x.glb',
+                    f'https://{host}.evil.example/review/x.glb', f'https://{host}/elsewhere/x.glb',
+                    f'https://{host}/review/../x.glb', f'https://{host}/review/%2e%2e/x.glb',
+                    f'https://{host}/review/x.glb?token=x', f'https://{host}/review/x.glb#fragment'):
+            invalid = copy.deepcopy(m)
+            invalid['objects'][0]['url'] = url
+            with self.subTest(url=url), self.assertRaises(t.Stop):
+                t.validate_manifest(*encode(invalid))
+            with self.subTest(redirect=url), self.assertRaises(t.Stop):
+                t.SameOriginRedirect().redirect_request(request, None, 302, '', {}, url)
+
+    def test_head_neck_host_manifest_and_redirect_guards(self):
+        host = 'anatomy-head-neck-review.landy123007.chatgpt.site'
         m = copy.deepcopy(MANIFEST)
         m['objects'][0]['url'] = f'https://{host}/review/test.glb'
         t.validate_manifest(*encode(m))
