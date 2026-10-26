@@ -121,6 +121,20 @@ class Validation(unittest.TestCase):
         self.invalid(lambda m: m['objects'][0].update(encoding='gzip'))
         self.invalid(lambda m: m['objects'][0].update(transportBytes=24))
 
+    def test_two_exact_source_hosts_and_secondary_guards(self):
+        second = 'anatomy-airway-review.landy123007.chatgpt.site'
+        self.assertEqual(t.SOURCE_HOSTS, {'anatomy-verification.landy123007.chatgpt.site', second})
+        m = copy.deepcopy(MANIFEST)
+        m['objects'][0]['url'] = f'https://{second}/review/candidates/test/{OID}.glb'
+        t.validate_manifest(*encode(m))
+        for url in (f'http://{second}/review/x.glb', f'https://user:pass@{second}/review/x.glb',
+                    f'https://{second}:444/review/x.glb', f'https://sub.{second}/review/x.glb',
+                    f'https://{second}.evil.example/review/x.glb', f'https://{second}/elsewhere/x.glb',
+                    f'https://{second}/review/../x.glb', f'https://{second}/review/%2e%2e/x.glb',
+                    f'https://{second}/review/x.glb?token=x', f'https://{second}/review/x.glb#fragment'):
+            with self.subTest(url=url):
+                self.invalid(lambda m, url=url: m['objects'][0].update(url=url))
+
     def test_bounded_gzip_and_bad_transport_hash(self):
         o = copy.deepcopy(OBJ)
         data = gzip.compress(GLB + b'oversized')
@@ -243,6 +257,23 @@ class TriggerAndExecution(unittest.TestCase):
         request = t.urllib.request.Request('https://github-cloud.s3.amazonaws.com/object', headers={'Authorization': 'dummy'})
         with self.assertRaises(t.Stop):
             t.SameOriginRedirect().redirect_request(request, None, 302, '', {}, 'https://evil.example/object')
+
+    def test_redirect_between_allowlisted_source_hosts_is_refused(self):
+        for old in t.SOURCE_HOSTS:
+            new = next(host for host in t.SOURCE_HOSTS if host != old)
+            request = t.urllib.request.Request(f'https://{old}/review/x.glb')
+            with self.assertRaisesRegex(t.Stop, 'Cross-origin redirect refused'):
+                t.SameOriginRedirect().redirect_request(request, None, 302, '', {}, f'https://{new}/review/x.glb')
+
+    def test_secondary_same_origin_redirect_rechecks_source_path(self):
+        host = 'anatomy-airway-review.landy123007.chatgpt.site'
+        request = t.urllib.request.Request(f'https://{host}/review/x.glb')
+        redirected = t.SameOriginRedirect().redirect_request(request, None, 302, '', {}, f'https://{host}/review/y.glb')
+        self.assertEqual(redirected.full_url, f'https://{host}/review/y.glb')
+        for path in ('/elsewhere/y.glb', '/review/../y.glb', '/review/%2e%2e/y.glb',
+                     '/review/y.glb?token=x', '/review/y.glb#fragment'):
+            with self.subTest(path=path), self.assertRaises(t.Stop):
+                t.SameOriginRedirect().redirect_request(request, None, 302, '', {}, f'https://{host}{path}')
 
     def test_response_cap_and_http_error_redaction(self):
         class Response:
