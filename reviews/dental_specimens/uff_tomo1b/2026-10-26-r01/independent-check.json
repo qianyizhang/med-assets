@@ -1,0 +1,56 @@
+{
+  "hashes": [
+    "7b7e58a7c8149538dffdeebf9f6f079ccb47f6be1fc53db93510b80073ad9790",
+    "46694985ff0162a4220d959528847446ffe48b3be41e481f5890429500e2d3b3"
+  ],
+  "components": [
+    {
+      "name": "hard_tissue_boundary",
+      "bounds_equal": true,
+      "master_faces": 2026564,
+      "lod_faces": 1013896,
+      "lod_volume_mm3": 212.35118706361618,
+      "lod_winding": true,
+      "lod_watertight": true,
+      "lod_zero_area": 0,
+      "distances": {
+        "master_to_lod": {
+          "samples": 12000,
+          "max_mm": 7.16918542273047e-07,
+          "p95_mm": 2.1951994743737128e-07,
+          "max_batched_pcu_vs_naive_difference_mm": 0.0
+        },
+        "lod_to_master": {
+          "samples": 12000,
+          "max_mm": 8.780593437676134e-07,
+          "p95_mm": 2.688475830841681e-07,
+          "max_batched_pcu_vs_naive_difference_mm": 0.0
+        }
+      }
+    },
+    {
+      "name": "slice_enclosed_space_proxy",
+      "bounds_equal": true,
+      "master_faces": 242580,
+      "lod_faces": 121290,
+      "lod_volume_mm3": 4.4733599594497795,
+      "lod_winding": true,
+      "lod_watertight": true,
+      "lod_zero_area": 0,
+      "distances": {
+        "master_to_lod": {
+          "samples": 12000,
+          "max_mm": 3.658637373492371e-07,
+          "p95_mm": 8.961933860461766e-08,
+          "max_batched_pcu_vs_naive_difference_mm": 0.0
+        },
+        "lod_to_master": {
+          "samples": 12000,
+          "max_mm": 5.376993386491115e-07,
+          "p95_mm": 1.7923033001285598e-07,
+          "max_batched_pcu_vs_naive_difference_mm": 0.0
+        }
+      }
+    }
+  ]
+}

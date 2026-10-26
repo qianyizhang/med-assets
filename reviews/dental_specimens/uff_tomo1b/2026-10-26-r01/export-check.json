@@ -1,0 +1,41 @@
+{
+  "sha256": "46694985ff0162a4220d959528847446ffe48b3be41e481f5890429500e2d3b3",
+  "bytes": 20434544,
+  "components": [
+    {
+      "name": "hard_tissue_boundary",
+      "faces": 1013896,
+      "vertices": 506804,
+      "positive_signed_volume_mm3": 212.3511870636162,
+      "zero_area_faces": 0,
+      "global_topology": {
+        "euler": -144,
+        "boundary_components": 0,
+        "nonmanifold_edges": 0,
+        "watertight": true,
+        "winding": true
+      },
+      "source_global_topology_equal": true,
+      "exact_bounds_preserved": true,
+      "finite": true
+    },
+    {
+      "name": "slice_enclosed_space_proxy",
+      "faces": 121290,
+      "vertices": 60647,
+      "positive_signed_volume_mm3": 4.4733599594497795,
+      "zero_area_faces": 0,
+      "global_topology": {
+        "euler": 2,
+        "boundary_components": 0,
+        "nonmanifold_edges": 0,
+        "watertight": true,
+        "winding": true
+      },
+      "source_global_topology_equal": true,
+      "exact_bounds_preserved": true,
+      "finite": true
+    }
+  ],
+  "clinical_approval": false
+}

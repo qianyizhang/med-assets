@@ -1,0 +1,103 @@
+{
+  "title": "ds-uct-002: Root Canal Strain: X-Ray micro-CT of four teeth before and after root canal procedure.",
+  "doi": "10.5281/zenodo.3877625",
+  "creators": [
+    {
+      "name": "Pereira, Andre",
+      "affiliation": "Universidade Federal Fluminense",
+      "orcid": "0000-0003-0991-8515"
+    },
+    {
+      "name": "Tonelli, St\u00e9phanie",
+      "affiliation": "Pontifical Catholic University of Minas Gerais",
+      "orcid": "0000-0002-4671-9868"
+    },
+    {
+      "name": "Antunes, Marcelo Avelar",
+      "affiliation": "Universidade de Brasilia",
+      "orcid": "0000-0003-0247-9812"
+    },
+    {
+      "name": "Miranda, Antonio",
+      "affiliation": "Universidade de Brasilia",
+      "orcid": "0000-0002-5225-7428"
+    },
+    {
+      "name": "Silveira, Frank Ferreira",
+      "affiliation": "Pontifical Catholic University of Minas Gerais",
+      "orcid": "0000-0002-4298-0540"
+    }
+  ],
+  "license": {
+    "id": "cc-by-4.0"
+  },
+  "source_url": "https://zenodo.org/records/3877625",
+  "publication_date": "2020-06-05",
+  "source_zip_md5": "977bc12d30f0ebb725bb04f37fa090f2",
+  "derivative_notice": "Owner-requested DRAFT repository/Site research-candidate review; no anatomy, clinical, complete-canal or runtime approval.",
+  "source_archive": {
+    "url": "https://zenodo.org/api/records/3877625/files/ds-uct-002_root_canal_strain_tomo1b_20um_8bits.zip/content",
+    "bytes": 252940963,
+    "md5": "977bc12d30f0ebb725bb04f37fa090f2",
+    "sha256": "cceeee50561a6d2f925fc8a0e38a33729246c28b267084db32f66c2c0ae29777",
+    "member_template": "ds-uct-002_root_canal_strain_tomo1b_10um_8bits/{0001..1018}.tiff",
+    "header_member": "ds-uct-002_root_canal_strain_tomo1b_10um_8bits/Header.txt",
+    "no_raw_archive_in_repository": true,
+    "selected_member_index": {
+      "path": "selected-members.csv",
+      "sha256": "8764ad743b09bff278ca74a6682dcd7efb82b5bf4a0a1c2a7c7197266f962ad8",
+      "member_count": 999,
+      "note": "Header plus 998 TIFF members needed for the bounded ROI; per-member SHA-256 and ZIP CRC32 verified locally."
+    }
+  },
+  "ingestion": {
+    "native_shape_zyx": [
+      1018,
+      1024,
+      1004
+    ],
+    "roi_origin_zyx": [
+      4,
+      360,
+      308
+    ],
+    "roi_stop_exclusive_zyx": [
+      1002,
+      688,
+      664
+    ],
+    "roi_shape_zyx": [
+      998,
+      328,
+      356
+    ],
+    "roi_uint8_c_order_sha256": "477ceb66bb04e75e5d25944072df640352cbd13a96cf713cc52c887d3f44f049",
+    "roi_npy_file_sha256": "ea02a9b9c39a9558cdad23922bc6aeed4b12918ade9c2d822ef7415b82a1fade",
+    "native_spacing_mm": 0.020002117,
+    "mesh_units": "metres",
+    "mesh_axes": "X=source column;Y=row;Z=slice; anatomical orientation unknown",
+    "threshold": "strict intensity >80",
+    "hard_region_selection": "largest 6-connected component",
+    "void_selection": "per-slice 4-connected hole fill minus hard region, largest 6-connected candidate",
+    "mask_array_sha256": {
+      "hard_tissue": "4b4fabb87af76c21ea69e25a036495da56503b56cae5f3daf1caba0705bb6c70",
+      "slice_enclosed_space_proxy": "2c0e4e40a4fd563a5a87eab748fa611b82351d719d5ad3f6d2d02476e1862555"
+    }
+  },
+  "candidate": {
+    "path": "models/dental_specimens/uff_tomo1b/exports/r01/uff-tomo1b-display.glb",
+    "bytes": 20434544,
+    "sha256": "46694985ff0162a4220d959528847446ffe48b3be41e481f5890429500e2d3b3",
+    "nodes": [
+      "uff_tomo1b_hard_tissue_boundary",
+      "uff_tomo1b_slice_enclosed_space_proxy"
+    ],
+    "geometry": [
+      "hard_tissue_boundary",
+      "slice_enclosed_space_proxy"
+    ],
+    "master_sha256": "7b7e58a7c8149538dffdeebf9f6f079ccb47f6be1fc53db93510b80073ad9790"
+  },
+  "critical_limit": "All 559,390 proxy voxels connect to exterior in 3D; slice selection truncates an open channel and creates an algorithmic cap, not an anatomical endpoint.",
+  "replay_status": "Fresh source-to-master/display numerical replay is byte-identical. Subsequent non-overwrite/input guards passed 7 tests and final candidate verification; no second full numerical run claimed. See replay-verification.json."
+}

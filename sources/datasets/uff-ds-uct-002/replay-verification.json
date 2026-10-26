@@ -1,0 +1,35 @@
+{
+  "checked_utc": "2026-10-26T06:16:00Z",
+  "source_archive_sha256": "cceeee50561a6d2f925fc8a0e38a33729246c28b267084db32f66c2c0ae29777",
+  "full_numerical_replay": {
+    "source_zip_to_verified_roi_and_masks": true,
+    "corrected_master_sha256": "7b7e58a7c8149538dffdeebf9f6f079ccb47f6be1fc53db93510b80073ad9790",
+    "corrected_master_byte_match": true,
+    "display_sha256": "46694985ff0162a4220d959528847446ffe48b3be41e481f5890429500e2d3b3",
+    "display_byte_match": true
+  },
+  "guard_hardening_after_full_run": {
+    "changes": "Only input/hash/output-directory guards; no numerical recipe change",
+    "tests_passed": 7,
+    "wrong_source_no_output": true,
+    "wrong_model_no_output": true,
+    "existing_output_unchanged": true,
+    "singleton_pcu_fallback": true,
+    "final_guarded_verify_candidate_passed": true,
+    "second_full_numerical_run_claimed": false
+  },
+  "final_entrypoint_sha256": "e9c9095c571c327c1b45629ad6479c8c957b2df351b9bdf2601c0943381b4a33",
+  "dependency_pins_sha256": "c34e8c601ecdbe5d58e1ac10ff766bd43aaac3e5c3b3b381b3ef2669e3032280",
+  "environment": {
+    "python": "3.12.14",
+    "system": "Linux",
+    "machine": "x86_64",
+    "dependencies": "tools/dental/requirements-uff.txt"
+  },
+  "not_verified": [
+    "Clean render replay",
+    "Fresh unrelated operating-system/native-library installation",
+    "Clinical or anatomical correctness",
+    "Runtime performance from this replay"
+  ]
+}
