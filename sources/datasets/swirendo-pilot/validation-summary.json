@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "checked_utc": "2026-10-26T05:06:00Z",
+  "scope": "Local prepared-specimen independently toggled-layer research/display pilot",
+  "verdict": "accepted_with_scope_limits",
+  "geometry_in_this_pr": false,
+  "candidates": [
+    {
+      "fdi": "31",
+      "bytes": 13239300,
+      "faces": 664678,
+      "sha256": "23e59040c6c2497ef864cf229d90dbd9e347489f1c9f4a8860bd48422cc2ec21",
+      "face_connected_islands": {
+        "Enamel": 28,
+        "Dentin": 15,
+        "Pulp": 2,
+        "Bone": 656
+      }
+    },
+    {
+      "fdi": "46",
+      "bytes": 47401584,
+      "faces": 2376218,
+      "sha256": "74701de5fc446f433a77fef2a7067417228a1ac0856421ba569b86f5c3d37734",
+      "face_connected_islands": {
+        "Enamel": 7,
+        "Dentin": 12,
+        "Pulp": 14,
+        "Bone": 1199
+      }
+    }
+  ],
+  "technical_checks": {
+    "named_layers": 8,
+    "zero_area_faces_after_float32_glb_reimport": 0,
+    "source_face_island_counts_preserved": true,
+    "per_island_topology_signatures_guarded": true,
+    "independent_global_boundary_nonmanifold_euler_preserved": true,
+    "manifold_certified": false
+  },
+  "visual_review": {
+    "actual_images_viewed": 18,
+    "original_matched_images": 16,
+    "camera_only_fullframe_corrections": 2,
+    "corrected_component": "31 Pulp",
+    "geometry_changed_by_reframe": false,
+    "browser_runtime_tested": false
+  },
+  "fidelity": {
+    "units": "mm",
+    "reference": "Extracted master surfaces, not physical anatomy",
+    "conservative_bound_range_rounded": [
+      0.01,
+      0.075
+    ],
+    "additional_export_allowance": 1e-05,
+    "source_voxel_spacing": 0.04,
+    "universally_subvoxel": false,
+    "batched_naive_crosschecks": {
+      "matched": 18,
+      "tested": 18
+    },
+    "pcu_singleton_anomaly": "Reproduced independently; affected witnesses replaced with all-triangle naive queries; production singleton guard required"
+  },
+  "interface_consistency": {
+    "passed": false,
+    "sampled_fdi": "31",
+    "foreign_source_label_shift_samples": 3,
+    "shift_mm_rounded": [
+      0.0141,
+      0.0154
+    ],
+    "proves_candidate_volume_overlap": false
+  },
+  "retained_source_caveats": [
+    "T 2 prepared permanent specimens, not intact normal atlas",
+    "All segment labels inprogress",
+    "31 Bone and 46 Dentin/Pulp/Bone touch source maxZ",
+    "No invented caps or removed islands",
+    "Independent specimen frames, not registered full mouth",
+    "No primary geometry or cementum/PDL/gingiva/nerves/vessels"
+  ],
+  "withheld": [
+    "Anatomical/clinical teaching approval",
+    "Interface-consistent watertight multitissue model",
+    "Self-intersection certification",
+    "Complete-root/healthy-atlas claims",
+    "Simulation approval",
+    "Runtime performance approval",
+    "External geometry publication"
+  ],
+  "evidence_scope": "Curated summary of local source, mesh, hash and actual rendered-image review. Full local receipts and binaries are not published in this PR."
+}

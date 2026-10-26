@@ -1,5 +1,5 @@
 {
-  "status": "source_ingestion_verified_derivatives_pending_review",
+  "status": "source_ingestion_verified_local_display_reviewed_anatomy_pending",
   "checked_utc": "2026-10-26",
   "source_record": "https://data.ub.uni-muenchen.de/477/",
   "doi": "10.5282/ubm/data.477",
@@ -181,5 +181,10 @@
     "No primary teeth, cementum, PDL, gingiva or microvascular/nerve models",
     "Separate specimen coordinates, not a registered jaw",
     "Raw scan volumes and photographs not acquired"
-  ]
+  ],
+  "local_derivative_review": {
+    "summary": "validation-summary.json",
+    "scope": "Local prepared-specimen independent-layer research/display only; no binaries published by this documentation change",
+    "source_status_unchanged": true
+  }
 }
