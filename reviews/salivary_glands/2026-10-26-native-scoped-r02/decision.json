@@ -1,0 +1,103 @@
+{
+  "date_utc": "2026-10-26",
+  "scope": "Gross gland-envelope localization and gross parotid surface course ONLY",
+  "original_status": "Needs revision",
+  "count_delta": 0,
+  "excluded_objects": [
+    "Submandibular duct.l",
+    "Submandibular duct.r"
+  ],
+  "exclusion": "Left source duct crosses modeled mylohyoid; right course unaccepted, not independently claimed faulty. No geometry repair.",
+  "review": "Independent and separate reviewer actual-pixel reviews, not clinical-expert validation. Complete duct/outlet/lumen/motion/runtime gates not passed.",
+  "primary_sha256": "a53134ec91195f5c42b8be4cde3536343e62857a7ecf5ab5d11bf3eba6ead515",
+  "context_sha256": "1764c63011e698b9047d1abe79c647b8b609b7d8f9b18b740b17cdc65db930f8",
+  "baseline_sha256": "865717807c724b375f25fdc745e231525730ed80a374042a1e4f89cf32b8b4b6",
+  "media": [
+    {
+      "path": "models/salivary_glands/exports/z-native-scoped-r02/glands-and-parotid-ducts.glb",
+      "bytes": 129736,
+      "sha256": "a53134ec91195f5c42b8be4cde3536343e62857a7ecf5ab5d11bf3eba6ead515",
+      "role": "primary glands and parotid ducts"
+    },
+    {
+      "path": "models/salivary_glands/exports/z-native-scoped-r02/same-source-context.glb",
+      "bytes": 763124,
+      "sha256": "1764c63011e698b9047d1abe79c647b8b609b7d8f9b18b740b17cdc65db930f8",
+      "role": "auxiliary same-source context"
+    },
+    {
+      "path": "reviews/salivary_glands/2026-10-26-native-scoped-r02/annotated-context.webp",
+      "bytes": 399426,
+      "sha256": "341ac649e3e8dce5fb51b37075b0f5b49e6c24bf9c4bca73238fc953f3531e09",
+      "role": "candidate review evidence"
+    },
+    {
+      "path": "reviews/salivary_glands/2026-10-26-native-scoped-r02/comparison.webp",
+      "bytes": 285550,
+      "sha256": "b59028a25d61a9a728f370dd5aca03a03d5f20f14b31e127a47f276e48776618",
+      "role": "candidate review evidence"
+    },
+    {
+      "path": "reviews/salivary_glands/2026-10-26-native-scoped-r02/context-inferior-source.webp",
+      "bytes": 346692,
+      "sha256": "003b552344b5002692140bdcb4b0d0c9608ed6726c60bd3662cd814e154b2286",
+      "role": "candidate review evidence"
+    },
+    {
+      "path": "reviews/salivary_glands/2026-10-26-native-scoped-r02/context-side-source.webp",
+      "bytes": 258770,
+      "sha256": "b1fe8fa5885d112df6370ba3cd4b5d56873ac53a7d101bbde06a7bf602408de6",
+      "role": "candidate review evidence"
+    },
+    {
+      "path": "reviews/salivary_glands/2026-10-26-native-scoped-r02/context-superior-source.webp",
+      "bytes": 401024,
+      "sha256": "324faa144397eb37cc0b4b95b05f1dbfc96b1e5f30af6004df364518e3b097b1",
+      "role": "candidate review evidence"
+    },
+    {
+      "path": "reviews/salivary_glands/2026-10-26-native-scoped-r02/glands-ducts-front-source.webp",
+      "bytes": 189120,
+      "sha256": "4e77c3618d81fe8f01a13ee7696386f3fd85c5ec700aa9067157a284ea2025b8",
+      "role": "candidate review evidence"
+    },
+    {
+      "path": "reviews/salivary_glands/2026-10-26-native-scoped-r02/rejection-closeup.webp",
+      "bytes": 422732,
+      "sha256": "02df4101183938e04838510ff97c2c073d69ed4f86b2156ba14462ab6d0e5a58",
+      "role": "rejected original-source diagnostic ONLY"
+    }
+  ],
+  "lossless_display_checks": [
+    {
+      "file": "rejection-closeup.webp",
+      "decoded_RGB_equal_to_rendered_png": true
+    },
+    {
+      "file": "context-superior-source.webp",
+      "decoded_RGB_equal_to_rendered_png": true
+    },
+    {
+      "file": "context-side-source.webp",
+      "decoded_RGB_equal_to_rendered_png": true
+    },
+    {
+      "file": "glands-ducts-front-source.webp",
+      "decoded_RGB_equal_to_rendered_png": true
+    },
+    {
+      "file": "annotated-context.webp",
+      "decoded_RGB_equal_to_rendered_png": true
+    },
+    {
+      "file": "context-inferior-source.webp",
+      "decoded_RGB_equal_to_rendered_png": true
+    },
+    {
+      "file": "comparison.webp",
+      "decoded_RGB_equal_to_rendered_png": true
+    }
+  ],
+  "reference_figure_redistributed": false,
+  "publication": "Existing authorized pipeline only; source/camera/geometry preserved; no changes to other projects"
+}

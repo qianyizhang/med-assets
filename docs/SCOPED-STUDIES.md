@@ -95,6 +95,8 @@ These original SVG/PNG supplements do not increase the 36-study count or change 
 
 
 
+- [Major salivary gland localization and gross parotid course r02](../models/salivary_glands/exports/z-native-scoped-r02/README.md) — source-preserved gland pairs and parotid surface course only; submandibular ducts excluded, confirmed left crossing retained as negative evidence. Original whole model remains **Needs revision**.
+
 ## Set-level validation findings (not quality promotions)
 
 - [Dental exterior/contact checkpoint](../reviews/teeth_gums/2026-10-26-set-contact-checkpoint/README.md) — unchanged 28-tooth source assembly; 22 of 26 within-arch neighbouring pairs have confirmed surface crossings and four remain separated. Useful exterior overview, **contact gate failed**; bite, full-set anatomy and conditions remain unvalidated. [Scope and source attribution](../reviews/teeth_gums/2026-10-26-set-contact-checkpoint/INTEGRATION.md).

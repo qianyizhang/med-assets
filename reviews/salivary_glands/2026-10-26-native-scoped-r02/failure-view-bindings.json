@@ -1,0 +1,56 @@
+{
+  "original_context_sha256": "8026bc00d8e19ac1b15d0c24375111f058a9bb182fc172fa1d30b1f6cb9e265c",
+  "source_objects": [
+    "Submandibular duct.l",
+    "Mylohyoid muscle.l"
+  ],
+  "geometry_changes": "None; otherobjects hidden for diagnostic; duct highlight and muscle transparency explicitly non-tissue appearance",
+  "scope": "Confirmed source defect: centerline passes through modeled mylohyoid; no proposed anatomy repair",
+  "views": [
+    {
+      "file": "opaque-oblique.png",
+      "camera": [
+        0.19593258202075958,
+        0.13402807712554932,
+        1.692406177520752
+      ],
+      "target": [
+        0.022727500647306442,
+        -0.039177000522613525,
+        1.5192010402679443
+      ],
+      "ortho_scale": 0.027,
+      "translucent_display": false
+    },
+    {
+      "file": "opaque-reverse.png",
+      "camera": [
+        -0.1504775732755661,
+        -0.21238207817077637,
+        1.692406177520752
+      ],
+      "target": [
+        0.022727500647306442,
+        -0.039177000522613525,
+        1.5192010402679443
+      ],
+      "ortho_scale": 0.027,
+      "translucent_display": false
+    },
+    {
+      "file": "translucent-oblique.png",
+      "camera": [
+        0.19593258202075958,
+        0.13402807712554932,
+        1.692406177520752
+      ],
+      "target": [
+        0.022727500647306442,
+        -0.039177000522613525,
+        1.5192010402679443
+      ],
+      "ortho_scale": 0.027,
+      "translucent_display": true
+    }
+  ]
+}
