@@ -1,0 +1,24 @@
+{
+  "exact_glb_replay": true,
+  "candidate_sha256": "5d9f0f88ff8498f611aea583e080558691d592a3ce50c89ecb847cf18b4d1471",
+  "portable_check_receipts_equal_independent_results": {
+    "contact": true,
+    "origin": true
+  },
+  "actual_final_render_wrapper_pngs_decoded_exact": [
+    "after-lower-oblique.png",
+    "after-lower.png",
+    "after-side.png",
+    "after-whole.png",
+    "before-lower-oblique.png",
+    "before-lower.png",
+    "before-side.png",
+    "before-whole.png"
+  ],
+  "annotation_replay_decoded_exact": true,
+  "existing_output_guard_exit1": true,
+  "wrong_source_guard_exit1": true,
+  "wrong_source_output_not_created": true,
+  "source_reference_images_redistributed": false,
+  "scope": "Actual local Blender4.3.2/Inkscape1.4 replays; not browser, runtime, clinical or exhaustive geometry proof."
+}
