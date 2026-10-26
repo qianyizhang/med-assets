@@ -1,0 +1,624 @@
+{
+  "source_sha256": "82bfaeead46bb51b1fa5bdfdb06c918dfd01aa23b28acae733ab75ec2cd6897f",
+  "contacts_json_sha256": "efdab9739a516dd58212ce28f8c34556d589db20ad1b60826fb30208b83524a9",
+  "method": "Independently compute signed plane distances and line-plane point; verify area-based barycentrics strictly inside target triangle, and segment endpoints on opposite plane sides. Actual witness coordinates, no mesh changes.",
+  "strict_witnesses_confirmed": 22,
+  "witnesses": [
+    {
+      "pair": [
+        "17",
+        "16"
+      ],
+      "triangle_indices": [
+        496,
+        398
+      ],
+      "direction": "second_to_first",
+      "point_glb_xyz_mm": [
+        -27.24060708445426,
+        1464.525495995378,
+        144.04708498595883
+      ],
+      "edge_index": 1,
+      "segment_fraction": 0.846253408505474,
+      "triangle_barycentric": [
+        0.6023603694774856,
+        0.01268550220051894,
+        0.3849541283219955
+      ],
+      "endpoint_signed_plane_distances_mm": [
+        0.8560927104649722,
+        -0.1555341874129044
+      ],
+      "area_barycentric_sum_error": 0.0
+    },
+    {
+      "pair": [
+        "16",
+        "15"
+      ],
+      "triangle_indices": [
+        952,
+        550
+      ],
+      "direction": "first_to_second",
+      "point_glb_xyz_mm": [
+        -25.841927886331472,
+        1460.6321343232814,
+        153.9109629080141
+      ],
+      "edge_index": 1,
+      "segment_fraction": 0.728863491239002,
+      "triangle_barycentric": [
+        0.3747642156949196,
+        0.13887307092330128,
+        0.48636271338177894
+      ],
+      "endpoint_signed_plane_distances_mm": [
+        -0.06727069729584308,
+        0.02502463386622266
+      ],
+      "area_barycentric_sum_error": 2.220446049250313e-16
+    },
+    {
+      "pair": [
+        "15",
+        "14"
+      ],
+      "triangle_indices": [
+        558,
+        106
+      ],
+      "direction": "first_to_second",
+      "point_glb_xyz_mm": [
+        -23.746961184661558,
+        1458.983879101738,
+        160.6311984923584
+      ],
+      "edge_index": 0,
+      "segment_fraction": 0.6974410871184674,
+      "triangle_barycentric": [
+        0.5998888789778022,
+        0.07923597853826,
+        0.3208751424839377
+      ],
+      "endpoint_signed_plane_distances_mm": [
+        0.44486433312659857,
+        -0.19298786879140212
+      ],
+      "area_barycentric_sum_error": 0.0
+    },
+    {
+      "pair": [
+        "13",
+        "12"
+      ],
+      "triangle_indices": [
+        628,
+        46
+      ],
+      "direction": "first_to_second",
+      "point_glb_xyz_mm": [
+        -16.559719665421795,
+        1458.4425061392883,
+        175.32525507761335
+      ],
+      "edge_index": 0,
+      "segment_fraction": 0.31240436964137536,
+      "triangle_barycentric": [
+        0.22321611866898755,
+        0.4073632720139648,
+        0.3694206093170478
+      ],
+      "endpoint_signed_plane_distances_mm": [
+        -0.3737537372784526,
+        0.8226243342174847
+      ],
+      "area_barycentric_sum_error": 0.0
+    },
+    {
+      "pair": [
+        "12",
+        "11"
+      ],
+      "triangle_indices": [
+        836,
+        77
+      ],
+      "direction": "first_to_second",
+      "point_glb_xyz_mm": [
+        -9.5358712757626,
+        1456.3087761573006,
+        178.96137749628815
+      ],
+      "edge_index": 1,
+      "segment_fraction": 0.7660299949086127,
+      "triangle_barycentric": [
+        0.13321183830407646,
+        0.8462058414185566,
+        0.02058232027736708
+      ],
+      "endpoint_signed_plane_distances_mm": [
+        0.16959447929405536,
+        -0.05179956587553094
+      ],
+      "area_barycentric_sum_error": 2.220446049250313e-16
+    },
+    {
+      "pair": [
+        "21",
+        "22"
+      ],
+      "triangle_indices": [
+        1187,
+        124
+      ],
+      "direction": "first_to_second",
+      "point_glb_xyz_mm": [
+        7.961704612381673,
+        1456.351460349695,
+        178.34617191001584
+      ],
+      "edge_index": 0,
+      "segment_fraction": 0.7804848440870886,
+      "triangle_barycentric": [
+        0.04056740153404992,
+        0.7316963803363161,
+        0.22773621812963388
+      ],
+      "endpoint_signed_plane_distances_mm": [
+        -0.3614083141549126,
+        0.10164784496582198
+      ],
+      "area_barycentric_sum_error": 1.1102230246251565e-16
+    },
+    {
+      "pair": [
+        "22",
+        "23"
+      ],
+      "triangle_indices": [
+        1176,
+        138
+      ],
+      "direction": "first_to_second",
+      "point_glb_xyz_mm": [
+        13.854331341720833,
+        1457.4325018566772,
+        173.4656602524373
+      ],
+      "edge_index": 2,
+      "segment_fraction": 0.5168539848560946,
+      "triangle_barycentric": [
+        0.1901781127915301,
+        0.7917447511119895,
+        0.01807713609648046
+      ],
+      "endpoint_signed_plane_distances_mm": [
+        -0.5429075864412601,
+        0.507500463701605
+      ],
+      "area_barycentric_sum_error": 0.0
+    },
+    {
+      "pair": [
+        "24",
+        "25"
+      ],
+      "triangle_indices": [
+        952,
+        219
+      ],
+      "direction": "second_to_first",
+      "point_glb_xyz_mm": [
+        19.972277163660728,
+        1459.0348236810366,
+        159.68119466008943
+      ],
+      "edge_index": 0,
+      "segment_fraction": 0.2821209473327113,
+      "triangle_barycentric": [
+        0.04234832997616809,
+        0.6145036715556431,
+        0.3431479984681889
+      ],
+      "endpoint_signed_plane_distances_mm": [
+        -0.10169848603401421,
+        0.25877983716571257
+      ],
+      "area_barycentric_sum_error": 0.0
+    },
+    {
+      "pair": [
+        "25",
+        "26"
+      ],
+      "triangle_indices": [
+        849,
+        635
+      ],
+      "direction": "first_to_second",
+      "point_glb_xyz_mm": [
+        23.15562897995201,
+        1461.1297775123032,
+        153.65565534675503
+      ],
+      "edge_index": 2,
+      "segment_fraction": 0.09551004996078513,
+      "triangle_barycentric": [
+        0.15673072231790194,
+        0.7817000772876572,
+        0.06156920039444089
+      ],
+      "endpoint_signed_plane_distances_mm": [
+        0.01562615426732788,
+        -0.14798128048685477
+      ],
+      "area_barycentric_sum_error": 0.0
+    },
+    {
+      "pair": [
+        "26",
+        "27"
+      ],
+      "triangle_indices": [
+        615,
+        359
+      ],
+      "direction": "first_to_second",
+      "point_glb_xyz_mm": [
+        23.042197180157455,
+        1464.541903431246,
+        143.3293409737385
+      ],
+      "edge_index": 0,
+      "segment_fraction": 0.23990625456818265,
+      "triangle_barycentric": [
+        0.11852039710156673,
+        0.7386772672666558,
+        0.1428023356317775
+      ],
+      "endpoint_signed_plane_distances_mm": [
+        0.1611929511830284,
+        -0.510706793461672
+      ],
+      "area_barycentric_sum_error": 0.0
+    },
+    {
+      "pair": [
+        "47",
+        "46"
+      ],
+      "triangle_indices": [
+        900,
+        650
+      ],
+      "direction": "first_to_second",
+      "point_glb_xyz_mm": [
+        -26.27869182579318,
+        1456.9201039312968,
+        142.61506461294587
+      ],
+      "edge_index": 1,
+      "segment_fraction": 0.5525248863427646,
+      "triangle_barycentric": [
+        0.5729792688027524,
+        0.3701997300843367,
+        0.056821001112910906
+      ],
+      "endpoint_signed_plane_distances_mm": [
+        0.4211938827696571,
+        -0.34111364976085956
+      ],
+      "area_barycentric_sum_error": 0.0
+    },
+    {
+      "pair": [
+        "46",
+        "45"
+      ],
+      "triangle_indices": [
+        950,
+        433
+      ],
+      "direction": "first_to_second",
+      "point_glb_xyz_mm": [
+        -22.18002108153769,
+        1452.324731654789,
+        152.48470691736225
+      ],
+      "edge_index": 0,
+      "segment_fraction": 0.8823576885070012,
+      "triangle_barycentric": [
+        0.33936664531949656,
+        0.516864666332905,
+        0.14376868834759854
+      ],
+      "endpoint_signed_plane_distances_mm": [
+        1.6895025816506664,
+        -0.22525670889215166
+      ],
+      "area_barycentric_sum_error": 0.0
+    },
+    {
+      "pair": [
+        "45",
+        "44"
+      ],
+      "triangle_indices": [
+        627,
+        256
+      ],
+      "direction": "first_to_second",
+      "point_glb_xyz_mm": [
+        -19.695189128035526,
+        1451.1067438314126,
+        159.67810994797298
+      ],
+      "edge_index": 0,
+      "segment_fraction": 0.9183792455564272,
+      "triangle_barycentric": [
+        0.21095537339282563,
+        0.7840727164824379,
+        0.004971910124736459
+      ],
+      "endpoint_signed_plane_distances_mm": [
+        1.9617756536999527,
+        -0.17435238184962337
+      ],
+      "area_barycentric_sum_error": 0.0
+    },
+    {
+      "pair": [
+        "44",
+        "43"
+      ],
+      "triangle_indices": [
+        789,
+        75
+      ],
+      "direction": "first_to_second",
+      "point_glb_xyz_mm": [
+        -15.713843993710956,
+        1448.0607848734812,
+        165.7330867866325
+      ],
+      "edge_index": 0,
+      "segment_fraction": 0.15616325630904784,
+      "triangle_barycentric": [
+        0.715251151160639,
+        0.20900214269831113,
+        0.07574670614104967
+      ],
+      "endpoint_signed_plane_distances_mm": [
+        -0.20237490285792822,
+        1.0935439172352395
+      ],
+      "area_barycentric_sum_error": 2.220446049250313e-16
+    },
+    {
+      "pair": [
+        "43",
+        "42"
+      ],
+      "triangle_indices": [
+        938,
+        109
+      ],
+      "direction": "first_to_second",
+      "point_glb_xyz_mm": [
+        -11.526721215976265,
+        1448.1391991934936,
+        172.3868399402616
+      ],
+      "edge_index": 1,
+      "segment_fraction": 0.9993882091066941,
+      "triangle_barycentric": [
+        0.4830125927594698,
+        0.505071583585122,
+        0.011915823655408206
+      ],
+      "endpoint_signed_plane_distances_mm": [
+        0.3674588461971048,
+        -0.0002249455954348445
+      ],
+      "area_barycentric_sum_error": 0.0
+    },
+    {
+      "pair": [
+        "42",
+        "41"
+      ],
+      "triangle_indices": [
+        717,
+        2
+      ],
+      "direction": "second_to_first",
+      "point_glb_xyz_mm": [
+        -6.3436176594979665,
+        1447.421847932111,
+        172.79984639697287
+      ],
+      "edge_index": 1,
+      "segment_fraction": 0.8093902117156975,
+      "triangle_barycentric": [
+        0.5796949039546776,
+        0.374525344690378,
+        0.04577975135494447
+      ],
+      "endpoint_signed_plane_distances_mm": [
+        0.08436474766740111,
+        -0.019867730618405813
+      ],
+      "area_barycentric_sum_error": 0.0
+    },
+    {
+      "pair": [
+        "31",
+        "32"
+      ],
+      "triangle_indices": [
+        804,
+        317
+      ],
+      "direction": "first_to_second",
+      "point_glb_xyz_mm": [
+        4.9810283101020305,
+        1447.4741069115041,
+        172.71559644829915
+      ],
+      "edge_index": 1,
+      "segment_fraction": 0.8026007461300918,
+      "triangle_barycentric": [
+        0.6174181772581221,
+        0.2354697654201257,
+        0.14711205732175212
+      ],
+      "endpoint_signed_plane_distances_mm": [
+        0.04072726621846536,
+        -0.010016850847012636
+      ],
+      "area_barycentric_sum_error": 0.0
+    },
+    {
+      "pair": [
+        "32",
+        "33"
+      ],
+      "triangle_indices": [
+        705,
+        110
+      ],
+      "direction": "first_to_second",
+      "point_glb_xyz_mm": [
+        8.626896375082769,
+        1445.610635078663,
+        168.80968046530688
+      ],
+      "edge_index": 2,
+      "segment_fraction": 0.7170603027760825,
+      "triangle_barycentric": [
+        0.5528975385129203,
+        0.21584585723411856,
+        0.23125660425296107
+      ],
+      "endpoint_signed_plane_distances_mm": [
+        -0.5296809788700277,
+        0.20900302974037793
+      ],
+      "area_barycentric_sum_error": 0.0
+    },
+    {
+      "pair": [
+        "33",
+        "34"
+      ],
+      "triangle_indices": [
+        777,
+        107
+      ],
+      "direction": "first_to_second",
+      "point_glb_xyz_mm": [
+        13.378186065031175,
+        1448.572960930374,
+        164.85799647769335
+      ],
+      "edge_index": 0,
+      "segment_fraction": 0.9288622861079918,
+      "triangle_barycentric": [
+        0.32768863093656275,
+        0.2940859611341136,
+        0.37822540792932363
+      ],
+      "endpoint_signed_plane_distances_mm": [
+        0.47464554676190485,
+        -0.036351135804149295
+      ],
+      "area_barycentric_sum_error": 0.0
+    },
+    {
+      "pair": [
+        "34",
+        "35"
+      ],
+      "triangle_indices": [
+        650,
+        124
+      ],
+      "direction": "first_to_second",
+      "point_glb_xyz_mm": [
+        17.214644196693346,
+        1451.740026473999,
+        159.09627269473447
+      ],
+      "edge_index": 2,
+      "segment_fraction": 0.6387690652131254,
+      "triangle_barycentric": [
+        0.052252149267479814,
+        0.8331859117157141,
+        0.11456193901680614
+      ],
+      "endpoint_signed_plane_distances_mm": [
+        0.289428480125898,
+        -0.16367499010763648
+      ],
+      "area_barycentric_sum_error": 0.0
+    },
+    {
+      "pair": [
+        "35",
+        "36"
+      ],
+      "triangle_indices": [
+        211,
+        304
+      ],
+      "direction": "first_to_second",
+      "point_glb_xyz_mm": [
+        18.453599071045495,
+        1453.844358661874,
+        152.48251876471204
+      ],
+      "edge_index": 1,
+      "segment_fraction": 0.6093727004640764,
+      "triangle_barycentric": [
+        0.3660275155285226,
+        0.2822614864290335,
+        0.3517109980424439
+      ],
+      "endpoint_signed_plane_distances_mm": [
+        0.41499227582818216,
+        -0.2660232595119125
+      ],
+      "area_barycentric_sum_error": 1.1102230246251565e-16
+    },
+    {
+      "pair": [
+        "36",
+        "37"
+      ],
+      "triangle_indices": [
+        492,
+        95
+      ],
+      "direction": "first_to_second",
+      "point_glb_xyz_mm": [
+        21.473167890609464,
+        1456.3996482445227,
+        141.5092329110559
+      ],
+      "edge_index": 0,
+      "segment_fraction": 0.9085513838853537,
+      "triangle_barycentric": [
+        0.08749320395955439,
+        0.48049696711421297,
+        0.43200982892623274
+      ],
+      "endpoint_signed_plane_distances_mm": [
+        0.7619445127359111,
+        -0.07669216346121376
+      ],
+      "area_barycentric_sum_error": 0.0
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "date_utc": "2026-10-26",
+  "decision": "Scoped gross internal-component relationship candidate accepted for publication handoff",
+  "whole_original_status": "Needs revision",
+  "count_delta": 0,
+  "candidate_sha256": "c44d35e13be11d2fb35141747d819d4609a45ca0a5527c89e1015618d17cab70",
+  "baseline_sha256": "8bf7e4b3e66731df07a3167b1a18b033280e1195f76a9ff3205249b5c16f926a",
+  "review": "Reviewer personally viewed comparison and annotated context; independent reviewer viewed all5native angles plus baseline and annotation. Not clinical-expert review.",
+  "build_safety_tests": {
+    "existing_output_exit": 1,
+    "wrong_source_exit": 1,
+    "wrong_source_output_absent": true
+  },
+  "image_bindings": {
+    "oblique.webp": {
+      "sha256": "9ef8463f5ffde973633cdc4f208ed71656c79d2244ee77ae5d7522e7d9fd6f0a",
+      "role": "Lossless native rendered source-export evidence",
+      "model_sha256": "c44d35e13be11d2fb35141747d819d4609a45ca0a5527c89e1015618d17cab70",
+      "baseline_included": false
+    },
+    "inferior-source.webp": {
+      "sha256": "ad93d0ff41709764df6c0c39adc44c30133b69b1d4460f543e6fad8472018c9c",
+      "role": "Lossless native rendered source-export evidence",
+      "model_sha256": "c44d35e13be11d2fb35141747d819d4609a45ca0a5527c89e1015618d17cab70",
+      "baseline_included": false
+    },
+    "plus-y.webp": {
+      "sha256": "95d19d71400ea1ada84f345b1e018c255075fe5b39487e72f764e718087ca4c8",
+      "role": "Lossless native rendered source-export evidence",
+      "model_sha256": "c44d35e13be11d2fb35141747d819d4609a45ca0a5527c89e1015618d17cab70",
+      "baseline_included": false
+    },
+    "side.webp": {
+      "sha256": "859b6b2708ef8031ac979bb1c8fc01e09704f7a24089efc71b41fa4ab8ede7c9",
+      "role": "Lossless native rendered source-export evidence",
+      "model_sha256": "c44d35e13be11d2fb35141747d819d4609a45ca0a5527c89e1015618d17cab70",
+      "baseline_included": false
+    },
+    "review-comparison.png": {
+      "sha256": "d7b9a4b026db5090de73ea6af8fdbf85d5b371bb687d99d6179c82bbd46b33d0",
+      "role": "Annotated/assembled teaching evidence",
+      "model_sha256": "c44d35e13be11d2fb35141747d819d4609a45ca0a5527c89e1015618d17cab70",
+      "baseline_included": true
+    },
+    "annotated-context.png": {
+      "sha256": "6b5dc0b2afb399ae60adb1dae20fb444e9612c73533e575e5afb029d0fcd5f88",
+      "role": "Annotated/assembled teaching evidence",
+      "model_sha256": "c44d35e13be11d2fb35141747d819d4609a45ca0a5527c89e1015618d17cab70",
+      "baseline_included": false
+    }
+  },
+  "source_archive": "External hash-pinned reusable source; not embedded",
+  "source_blend_sha256": "9f08a17ea0115fed80b2a73ecdf0a1bc2ab2f6956f37c593ce23d513ea35afcd"
+}
