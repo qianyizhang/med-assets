@@ -81,6 +81,8 @@ These additions do not increase the 36-study count or confer anatomy, clinical, 
 - [Testis transport pathway · EN/中文](../diagrams/testis_pathway/exports/r01/README.md) — symbolic internal-to-external pathway; not specimen geometry or a repair of the failed 3D model.
 - [Urinary outflow comparison · EN/中文](../diagrams/urinary_outflow/exports/r01/README.md) — typical female/male lower-tract relationships; simplified contours, not measured anatomy or clinical guidance.
 
+- [Oral vestibule and cavity proper · EN/中文](../diagrams/oral_spaces/exports/r01/README.md) — simplified coronal relationship aid with mucosal reflections; not a repair or pass of the failed 3D mouth.
+
 These original SVG/PNG supplements do not increase the 36-study count or change existing 3D quality gates.
 
 
