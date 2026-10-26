@@ -27,8 +27,42 @@ failures remain historical; a newer pass never rewrites earlier evidence.
 3. Upload missing LFS payloads through an authorized route and independently read
    them back by hash and size **before** publishing new pointers.
 4. Include the model's source notices, review record, evidence and tests together.
-5. Add catalog entries only when every referenced dependency exists.
+5. Add the study's README entry only when every referenced dependency exists (see
+   [study discovery](#study-discovery)).
 
 A text-only foundation does not certify any existing asset. Published viewers and
 repository synchronization are separate deliveries. No blanket clinical,
 anatomical, motion or browser-runtime approval is implied.
+
+## Study discovery
+
+Browse [reviews](../reviews/), [models](../models/), [diagrams](../diagrams/) and
+[assemblies](../assemblies/) using GitHub's directory listing or a local checkout.
+These existing directories are the discovery surface; no generator or second
+metadata registry is needed.
+
+For each new batch, add or reuse a README in its own review run or export revision
+(for example, `reviews/<study>/<run>/README.md` or
+`models/<study>/exports/<revision>/README.md`). Give the study a readable title,
+state its scoped status and limits, and link the exact artifact, review record,
+evidence, source/licence notices and replay instructions. Reuse the existing
+[review contract](REVIEW_CONTRACT.md) and package metadata; link to them rather
+than copying records into another registry. A new revision retains prior evidence.
+
+Independent study additions need no new row in `docs/SCOPED-STUDIES.md`, the root
+README, a parent directory README or a generated aggregate. The scoped overview
+retains its historical entries and 36-study migration count; new studies do not
+change that bounded count. Correcting an existing claim still needs review.
+
+Separate study/run paths let asset PRs compose independently. Shared source
+changes, review contracts and transport policy still require coordinated review.
+Keep the [bounded transport flow](../transport/README.md#normal-flow), including
+separate manifest-only publication and independent LFS readback before pointers.
+
+Check retained navigation and a two-branch addition with:
+
+```sh
+python3 -m unittest discover -s tests -p test_study_navigation.py
+```
+
+This checks documentation and Git composition, not media bytes or quality gates.
