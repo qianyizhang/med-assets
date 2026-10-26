@@ -1,0 +1,193 @@
+{
+  "source_sha256": "8820a14b820239c0ea53a3597ad7731b7c66eb41f05b197fde2e90ee08fb47e4",
+  "candidate_sha256": "c9e2eb595d677203b52aa870a9f0203f059a8f686a65056983fcc59ccd607587",
+  "axis": [
+    -0.03224129401095805,
+    0.0,
+    -0.9994801143396996
+  ],
+  "center": [
+    0.0,
+    0.007,
+    0.08
+  ],
+  "scope": "Planes normal to original parent endpoint tangent; surface sections within12mm radial aperture. Degree2 test at0.1micron coordinate rounding; open cuts excluded from reliable area claim. Closed solid-surface area, NOT lumen/caliber/clinical patency.",
+  "rows": [
+    {
+      "axial_mm": -8.0,
+      "r09": {
+        "area_mm2": 122.8792512961386,
+        "segments": 337,
+        "non_degree2_endpoints": 0,
+        "closed_section_gate": true
+      },
+      "candidate": {
+        "area_mm2": 122.8792513284741,
+        "segments": 337,
+        "non_degree2_endpoints": 0,
+        "closed_section_gate": true
+      },
+      "relative_area_change": 2.631486140103334e-10
+    },
+    {
+      "axial_mm": -6.0,
+      "r09": {
+        "area_mm2": 121.02858725293092,
+        "segments": 336,
+        "non_degree2_endpoints": 0,
+        "closed_section_gate": true
+      },
+      "candidate": {
+        "area_mm2": 120.95479856927273,
+        "segments": 335,
+        "non_degree2_endpoints": 0,
+        "closed_section_gate": true
+      },
+      "relative_area_change": -0.0006096797899820539
+    },
+    {
+      "axial_mm": -4.0,
+      "r09": {
+        "area_mm2": 119.16601960705752,
+        "segments": 344,
+        "non_degree2_endpoints": 0,
+        "closed_section_gate": true
+      },
+      "candidate": {
+        "area_mm2": 118.95771044205888,
+        "segments": 338,
+        "non_degree2_endpoints": 0,
+        "closed_section_gate": true
+      },
+      "relative_area_change": -0.0017480584287830059
+    },
+    {
+      "axial_mm": -3.0,
+      "r09": {
+        "area_mm2": 119.58801296902773,
+        "segments": 342,
+        "non_degree2_endpoints": 0,
+        "closed_section_gate": true
+      },
+      "candidate": {
+        "area_mm2": 119.86937213416068,
+        "segments": 339,
+        "non_degree2_endpoints": 0,
+        "closed_section_gate": true
+      },
+      "relative_area_change": 0.0023527371861744584
+    },
+    {
+      "axial_mm": -2.0,
+      "r09": {
+        "area_mm2": 130.8641169816955,
+        "segments": 379,
+        "non_degree2_endpoints": 0,
+        "closed_section_gate": true
+      },
+      "candidate": {
+        "area_mm2": 130.86348052506267,
+        "segments": 366,
+        "non_degree2_endpoints": 0,
+        "closed_section_gate": true
+      },
+      "relative_area_change": -4.863492357620736e-06
+    },
+    {
+      "axial_mm": -1.0,
+      "r09": {
+        "area_mm2": 157.31378491557786,
+        "segments": 422,
+        "non_degree2_endpoints": 0,
+        "closed_section_gate": true
+      },
+      "candidate": {
+        "area_mm2": 156.95932168820892,
+        "segments": 419,
+        "non_degree2_endpoints": 0,
+        "closed_section_gate": true
+      },
+      "relative_area_change": -0.002253224201294035
+    },
+    {
+      "axial_mm": 0,
+      "r09": {
+        "area_mm2": 188.25221885400592,
+        "segments": 459,
+        "non_degree2_endpoints": 0,
+        "closed_section_gate": true
+      },
+      "candidate": {
+        "area_mm2": 187.97816759474526,
+        "segments": 448,
+        "non_degree2_endpoints": 0,
+        "closed_section_gate": true
+      },
+      "relative_area_change": -0.0014557664229880585
+    },
+    {
+      "axial_mm": 1.0,
+      "r09": {
+        "area_mm2": 185.12531184862362,
+        "segments": 448,
+        "non_degree2_endpoints": 2,
+        "closed_section_gate": false
+      },
+      "candidate": {
+        "area_mm2": 185.01122317336606,
+        "segments": 446,
+        "non_degree2_endpoints": 2,
+        "closed_section_gate": false
+      },
+      "relative_area_change": -0.0006162780989714678
+    },
+    {
+      "axial_mm": 2.0,
+      "r09": {
+        "area_mm2": 152.86013324095163,
+        "segments": 401,
+        "non_degree2_endpoints": 4,
+        "closed_section_gate": false
+      },
+      "candidate": {
+        "area_mm2": 152.54523854101612,
+        "segments": 395,
+        "non_degree2_endpoints": 4,
+        "closed_section_gate": false
+      },
+      "relative_area_change": -0.002060018483950543
+    },
+    {
+      "axial_mm": 3.0,
+      "r09": {
+        "area_mm2": 134.16237415099994,
+        "segments": 384,
+        "non_degree2_endpoints": 4,
+        "closed_section_gate": false
+      },
+      "candidate": {
+        "area_mm2": 133.91283708557978,
+        "segments": 385,
+        "non_degree2_endpoints": 4,
+        "closed_section_gate": false
+      },
+      "relative_area_change": -0.0018599631006775974
+    },
+    {
+      "axial_mm": 4.0,
+      "r09": {
+        "area_mm2": 118.58637055031245,
+        "segments": 358,
+        "non_degree2_endpoints": 4,
+        "closed_section_gate": false
+      },
+      "candidate": {
+        "area_mm2": 118.3694627590718,
+        "segments": 357,
+        "non_degree2_endpoints": 4,
+        "closed_section_gate": false
+      },
+      "relative_area_change": -0.0018291123190133929
+    }
+  ]
+}
