@@ -1,0 +1,2671 @@
+{
+  "source_sha256": "82bfaeead46bb51b1fa5bdfdb06c918dfd01aa23b28acae733ab75ec2cd6897f",
+  "source_bytes": 814328,
+  "method": "All triangle pairs whose AABB distance is below initial vertex-to-surface upper bound; minimum of vertex-face and edge-edge distances plus noncoplanar edge-face intersection tests. Distances in mm. No vertex-only gap claims.",
+  "numerical_tolerance_mm": 1e-09,
+  "limitations": [
+    "No clinical contact tolerance or occlusion approval.",
+    "Only within-arch adjacency; no opposing-arch assessment.",
+    "Surface intersection is not a signed penetration-depth or volume-overlap estimate.",
+    "Source labels support FDI crosswalk, not independent anatomical laterality proof.",
+    "A positive mesh gap does not prove a biological gap; source segmentation and display resolution remain limiting.",
+    "Contained nonintersecting objects would not be identified as volumetric overlap by this surface test."
+  ],
+  "primitive_tests_passed": 5,
+  "meshes": [
+    {
+      "fdi": "11",
+      "source_object": "FJ1279",
+      "source_name": "Right upper central secondary incisor tooth",
+      "source_mesh_sha256": "e8b9c01f57a8a723f9ea0497dfbe2df5f95e23786d0663f196a3608f995d6b22",
+      "vertices": 646,
+      "faces": 1288,
+      "bounds_mm": [
+        [
+          -9.679480455815792,
+          1452.370047569275,
+          170.4609990119934
+        ],
+        [
+          -0.8088769973255694,
+          1478.760004043579,
+          183.33199620246887
+        ]
+      ],
+      "watertight": true,
+      "winding_consistent": true,
+      "euler_number": 2,
+      "face_components": 1,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "node_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "fdi": "12",
+      "source_object": "FJ1280",
+      "source_name": "Right upper lateral secondary incisor tooth",
+      "source_mesh_sha256": "5c06c01ee01c337523fc9cf641c31c65856a52c74237d9d86989d93dd6847c0e",
+      "vertices": 686,
+      "faces": 1368,
+      "bounds_mm": [
+        [
+          -16.875499859452248,
+          1451.6700506210327,
+          168.93400251865387
+        ],
+        [
+          -7.3009999468922615,
+          1480.5899858474731,
+          180.25000393390656
+        ]
+      ],
+      "watertight": true,
+      "winding_consistent": true,
+      "euler_number": 2,
+      "face_components": 1,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "node_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "fdi": "13",
+      "source_object": "FJ1281",
+      "source_name": "Right upper secondary canine tooth",
+      "source_mesh_sha256": "2d8f105ee772e727e3b4ccbb6370a893a213174c0f90155054dac20bc053512c",
+      "vertices": 698,
+      "faces": 1392,
+      "bounds_mm": [
+        [
+          -22.753499448299408,
+          1453.1300067901611,
+          166.61299765110016
+        ],
+        [
+          -13.495800085365772,
+          1484.5099449157715,
+          175.93200504779816
+        ]
+      ],
+      "watertight": true,
+      "winding_consistent": true,
+      "euler_number": 2,
+      "face_components": 1,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "node_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "fdi": "14",
+      "source_object": "FJ1277",
+      "source_name": "Right upper first secondary premolar tooth",
+      "source_mesh_sha256": "46d0a4b9528553387811d65040836ccfe7dc971fec56254e01c9eabdc16156a0",
+      "vertices": 807,
+      "faces": 1610,
+      "bounds_mm": [
+        [
+          -25.951100513339043,
+          1454.740047454834,
+          159.4969928264618
+        ],
+        [
+          -16.43810048699379,
+          1483.180046081543,
+          167.5339937210083
+        ]
+      ],
+      "watertight": true,
+      "winding_consistent": true,
+      "euler_number": 2,
+      "face_components": 1,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "node_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "fdi": "15",
+      "source_object": "FJ1278",
+      "source_name": "Right upper second secondary premolar tooth",
+      "source_mesh_sha256": "32f4db913923278b7cbfcaf8e64d1073604951dd58493e3310da30bec1ff3829",
+      "vertices": 735,
+      "faces": 1466,
+      "bounds_mm": [
+        [
+          -28.940699994564056,
+          1455.839991569519,
+          153.58500182628632
+        ],
+        [
+          -19.647499546408653,
+          1481.7899465560913,
+          161.16300225257874
+        ]
+      ],
+      "watertight": true,
+      "winding_consistent": true,
+      "euler_number": 2,
+      "face_components": 1,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "node_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "fdi": "16",
+      "source_object": "FJ1276",
+      "source_name": "Right upper first secondary molar tooth",
+      "source_mesh_sha256": "95ba31eb43e4975d8f36be7595e383baf31b21b68c829a5e6c419a0125682ef6",
+      "vertices": 1080,
+      "faces": 2156,
+      "bounds_mm": [
+        [
+          -31.189600005745888,
+          1457.8700065612793,
+          142.66499876976013
+        ],
+        [
+          -19.628800451755524,
+          1482.4199676513672,
+          154.16400134563446
+        ]
+      ],
+      "watertight": true,
+      "winding_consistent": true,
+      "euler_number": 2,
+      "face_components": 1,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "node_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "fdi": "17",
+      "source_object": "FJ1275",
+      "source_name": "Right upper second secondary molar tooth",
+      "source_mesh_sha256": "457c1d089e24d7e120abf97c2af844ff609a58c3292446e4b1814137d3691416",
+      "vertices": 926,
+      "faces": 1844,
+      "bounds_mm": [
+        [
+          -30.861100181937218,
+          1461.4700078964233,
+          134.83700156211853
+        ],
+        [
+          -18.95100064575672,
+          1484.1400384902954,
+          144.63800191879272
+        ]
+      ],
+      "watertight": true,
+      "winding_consistent": true,
+      "euler_number": 4,
+      "face_components": 2,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "node_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "fdi": "21",
+      "source_object": "FJ1265",
+      "source_name": "Left upper central secondary incisor tooth",
+      "source_mesh_sha256": "bd094c59fb378809a534467b70b5b24ae0b147bc31f42c004e7ddadf8f0b7328",
+      "vertices": 646,
+      "faces": 1288,
+      "bounds_mm": [
+        [
+          -0.48429099842906,
+          1452.3600339889526,
+          170.4699993133545
+        ],
+        [
+          8.366909809410572,
+          1478.790044784546,
+          183.34899842739105
+        ]
+      ],
+      "watertight": true,
+      "winding_consistent": true,
+      "euler_number": 2,
+      "face_components": 1,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "node_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "fdi": "22",
+      "source_object": "FJ1266",
+      "source_name": "Left upper lateral secondary incisor tooth",
+      "source_mesh_sha256": "4df1ab640352a074623d02e755e7632de180da9dc957503f887c791a533d5ea5",
+      "vertices": 691,
+      "faces": 1378,
+      "bounds_mm": [
+        [
+          5.988120101392269,
+          1451.6700506210327,
+          168.93699765205383
+        ],
+        [
+          15.598700381815434,
+          1480.5999994277954,
+          180.6109994649887
+        ]
+      ],
+      "watertight": true,
+      "winding_consistent": true,
+      "euler_number": 2,
+      "face_components": 1,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "node_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "fdi": "23",
+      "source_object": "FJ1267",
+      "source_name": "Left upper secondary canine tooth",
+      "source_mesh_sha256": "44f5accf76e8b0a1ac2aefb55d031508fedad0bacda03b598aef71f88ca2462d",
+      "vertices": 698,
+      "faces": 1392,
+      "bounds_mm": [
+        [
+          12.203900143504143,
+          1453.1400203704834,
+          166.6249930858612
+        ],
+        [
+          21.450400352478027,
+          1484.5199584960938,
+          175.929993391037
+        ]
+      ],
+      "watertight": true,
+      "winding_consistent": true,
+      "euler_number": 2,
+      "face_components": 1,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "node_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "fdi": "24",
+      "source_object": "FJ1262",
+      "source_name": "Left upper first secondary premolar tooth",
+      "source_mesh_sha256": "5f45ec1015edb7c7539a3ef7a7577d4a0a723beb4dbfb18e36eca77663431c18",
+      "vertices": 807,
+      "faces": 1610,
+      "bounds_mm": [
+        [
+          15.161399729549885,
+          1454.7200202941895,
+          159.49000418186188
+        ],
+        [
+          24.632899090647697,
+          1483.1700325012207,
+          167.51399636268616
+        ]
+      ],
+      "watertight": true,
+      "winding_consistent": true,
+      "euler_number": 2,
+      "face_components": 1,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "node_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "fdi": "25",
+      "source_object": "FJ1264",
+      "source_name": "Left upper second secondary premolar tooth",
+      "source_mesh_sha256": "e882218931e8f197490f16ba8058a87502edccc5e8e1f2d50fbd715a0386d33b",
+      "vertices": 735,
+      "faces": 1466,
+      "bounds_mm": [
+        [
+          18.32840032875538,
+          1455.8500051498413,
+          153.59200537204742
+        ],
+        [
+          27.62630023062229,
+          1481.7899465560913,
+          161.16799414157867
+        ]
+      ],
+      "watertight": true,
+      "winding_consistent": true,
+      "euler_number": 2,
+      "face_components": 1,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "node_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "fdi": "26",
+      "source_object": "FJ1261",
+      "source_name": "Left upper first secondary molar tooth",
+      "source_mesh_sha256": "529061a7fdb28af07855e7350f788f93ef6c97e3bfead2e28bb9efe0256b0728",
+      "vertices": 1080,
+      "faces": 2156,
+      "bounds_mm": [
+        [
+          18.311599269509315,
+          1457.8700065612793,
+          142.64599978923798
+        ],
+        [
+          29.88629974424839,
+          1482.4399948120117,
+          154.1849970817566
+        ]
+      ],
+      "watertight": true,
+      "winding_consistent": true,
+      "euler_number": 2,
+      "face_components": 1,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "node_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "fdi": "27",
+      "source_object": "FJ1263",
+      "source_name": "Left upper second secondary molar tooth",
+      "source_mesh_sha256": "5811bdc8cfed255f8aa9e10fa8dd4815b5d0924c2a23f1d7e373c8521be6c65a",
+      "vertices": 928,
+      "faces": 1848,
+      "bounds_mm": [
+        [
+          17.670899629592896,
+          1461.4700078964233,
+          134.81099903583527
+        ],
+        [
+          29.52449955046177,
+          1484.1300249099731,
+          144.66999471187592
+        ]
+      ],
+      "watertight": true,
+      "winding_consistent": true,
+      "euler_number": 4,
+      "face_components": 2,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "node_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "fdi": "31",
+      "source_object": "FJ1258",
+      "source_name": "Left lower central secondary incisor tooth",
+      "source_mesh_sha256": "56fe0ccb8277f4ae0c945d3f2b3cf0a3a816ec2edf31eae4ab46a91954bde7aa",
+      "vertices": 461,
+      "faces": 918,
+      "bounds_mm": [
+        [
+          -0.4914450109936297,
+          1428.0799627304077,
+          160.26900708675385
+        ],
+        [
+          5.391119979321957,
+          1453.5499811172485,
+          178.48999798297882
+        ]
+      ],
+      "watertight": true,
+      "winding_consistent": true,
+      "euler_number": 2,
+      "face_components": 1,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "node_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "fdi": "32",
+      "source_object": "FJ1259",
+      "source_name": "Left lower lateral secondary incisor tooth",
+      "source_mesh_sha256": "f2a5c7fb06457bf61d55f8cab4048983651418f01b3bad013e9a2dea7a383b62",
+      "vertices": 482,
+      "faces": 960,
+      "bounds_mm": [
+        [
+          3.527600085362792,
+          1428.380012512207,
+          160.97599267959595
+        ],
+        [
+          11.386699974536896,
+          1453.5200595855713,
+          177.80299484729767
+        ]
+      ],
+      "watertight": true,
+      "winding_consistent": true,
+      "euler_number": 2,
+      "face_components": 1,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "node_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "fdi": "33",
+      "source_object": "FJ1260",
+      "source_name": "Left lower secondary canine tooth",
+      "source_mesh_sha256": "4dd682c058f3949b30077712296603c1c508423a58998ad909baeec5bfa56b72",
+      "vertices": 592,
+      "faces": 1180,
+      "bounds_mm": [
+        [
+          7.689440157264471,
+          1427.150011062622,
+          158.26000273227692
+        ],
+        [
+          16.30450040102005,
+          1453.9799690246582,
+          173.8560050725937
+        ]
+      ],
+      "watertight": true,
+      "winding_consistent": true,
+      "euler_number": 2,
+      "face_components": 1,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "node_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "fdi": "34",
+      "source_object": "FJ1255",
+      "source_name": "Left lower first secondary premolar tooth",
+      "source_mesh_sha256": "6cbac9debf9b9cd9825f096c5ac84911f91020a36ec6f95fdfc49f10a679822b",
+      "vertices": 590,
+      "faces": 1176,
+      "bounds_mm": [
+        [
+          12.587299570441246,
+          1432.0800304412842,
+          153.3769965171814
+        ],
+        [
+          20.498299971222878,
+          1454.5700550079346,
+          167.50000417232513
+        ]
+      ],
+      "watertight": true,
+      "winding_consistent": true,
+      "euler_number": 2,
+      "face_components": 1,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "node_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "fdi": "35",
+      "source_object": "FJ1257",
+      "source_name": "Left lower second secondary premolar tooth",
+      "source_mesh_sha256": "b4e2d2cb7d5e7d41d82bc6e48b3de5cb628a0786ae0d82abadd39250f6dff3a7",
+      "vertices": 563,
+      "faces": 1122,
+      "bounds_mm": [
+        [
+          15.579300001263618,
+          1432.4599504470825,
+          147.3580002784729
+        ],
+        [
+          23.697499185800552,
+          1455.839991569519,
+          160.65600514411926
+        ]
+      ],
+      "watertight": true,
+      "winding_consistent": true,
+      "euler_number": 2,
+      "face_components": 1,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "node_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "fdi": "36",
+      "source_object": "FJ1254",
+      "source_name": "Left lower first secondary molar tooth",
+      "source_mesh_sha256": "7ac5ee013326492b1d51795eb292a7e5bba0647b74c30b09dc715f9a1dc28754",
+      "vertices": 883,
+      "faces": 1762,
+      "bounds_mm": [
+        [
+          16.42090082168579,
+          1439.1100406646729,
+          138.97199928760529
+        ],
+        [
+          28.755100443959236,
+          1458.8099718093872,
+          154.07800674438477
+        ]
+      ],
+      "watertight": true,
+      "winding_consistent": true,
+      "euler_number": 2,
+      "face_components": 1,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "node_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "fdi": "37",
+      "source_object": "FJ1256",
+      "source_name": "Left lower second secondary molar tooth",
+      "source_mesh_sha256": "a5dfb507dc76447d6ca09e4a5e11b8750571227d13b582cfffac1d2f35cd1bec",
+      "vertices": 810,
+      "faces": 1616,
+      "bounds_mm": [
+        [
+          20.05930058658123,
+          1444.4700479507446,
+          126.34000182151794
+        ],
+        [
+          32.158199697732925,
+          1463.170051574707,
+          142.84099638462067
+        ]
+      ],
+      "watertight": true,
+      "winding_consistent": true,
+      "euler_number": 2,
+      "face_components": 1,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "node_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "fdi": "41",
+      "source_object": "FJ1272",
+      "source_name": "Right lower central secondary incisor tooth",
+      "source_mesh_sha256": "17927707d17fa7a78f9743f90b4150d6e7b4eaa4fe5c8ad29a961b4ea795272b",
+      "vertices": 462,
+      "faces": 920,
+      "bounds_mm": [
+        [
+          -6.701999809592962,
+          1428.0999898910522,
+          160.26100516319275
+        ],
+        [
+          -0.8278419845737517,
+          1453.5599946975708,
+          178.49700152873993
+        ]
+      ],
+      "watertight": true,
+      "winding_consistent": true,
+      "euler_number": 2,
+      "face_components": 1,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "node_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "fdi": "42",
+      "source_object": "FJ1273",
+      "source_name": "Right lower lateral secondary incisor tooth",
+      "source_mesh_sha256": "43ca036b3bf66dad24be63b0f95a2a8ecf839b61d2d83981659e03b4a357f869",
+      "vertices": 481,
+      "faces": 958,
+      "bounds_mm": [
+        [
+          -12.69339956343174,
+          1428.380012512207,
+          160.97000241279602
+        ],
+        [
+          -4.844469949603081,
+          1453.5200595855713,
+          177.8320074081421
+        ]
+      ],
+      "watertight": true,
+      "winding_consistent": true,
+      "euler_number": 2,
+      "face_components": 1,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "node_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "fdi": "43",
+      "source_object": "FJ1274",
+      "source_name": "Right lower secondary canine tooth",
+      "source_mesh_sha256": "a7ded2520e6c1e41154d89a389b4ded0daf733f23d47e4a02fb97230c07b4907",
+      "vertices": 591,
+      "faces": 1178,
+      "bounds_mm": [
+        [
+          -17.620399594306946,
+          1427.150011062622,
+          158.25699269771576
+        ],
+        [
+          -8.99553019553423,
+          1453.9799690246582,
+          173.85700345039368
+        ]
+      ],
+      "watertight": true,
+      "winding_consistent": true,
+      "euler_number": 2,
+      "face_components": 1,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "node_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "fdi": "44",
+      "source_object": "FJ1269",
+      "source_name": "Right lower first secondary premolar tooth",
+      "source_mesh_sha256": "7b3067782910e38d45b03901ba998fcf35088b9f85c523b3cc890cf11adbf17f",
+      "vertices": 592,
+      "faces": 1180,
+      "bounds_mm": [
+        [
+          -21.780699491500854,
+          1432.070016860962,
+          153.3759981393814
+        ],
+        [
+          -13.834799639880657,
+          1454.5899629592896,
+          167.52299666404724
+        ]
+      ],
+      "watertight": true,
+      "winding_consistent": true,
+      "euler_number": 2,
+      "face_components": 1,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "node_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "fdi": "45",
+      "source_object": "FJ1271",
+      "source_name": "Right lower second secondary premolar tooth",
+      "source_mesh_sha256": "220723db70ad6e5edd497977f656be1df7d407804d5ca31302bca598a3d81c41",
+      "vertices": 564,
+      "faces": 1124,
+      "bounds_mm": [
+        [
+          -25.005299597978592,
+          1432.4599504470825,
+          147.32599258422852
+        ],
+        [
+          -16.891200095415115,
+          1455.8199644088745,
+          160.65099835395813
+        ]
+      ],
+      "watertight": true,
+      "winding_consistent": true,
+      "euler_number": 2,
+      "face_components": 1,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "node_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "fdi": "46",
+      "source_object": "FJ1268",
+      "source_name": "Right lower first secondary molar tooth",
+      "source_mesh_sha256": "692c5313517c8b049fac739a068710f8bdbd1f3e201a1b88819aff6f8f1a6eda",
+      "vertices": 883,
+      "faces": 1762,
+      "bounds_mm": [
+        [
+          -30.054399743676186,
+          1439.1100406646729,
+          138.96499574184418
+        ],
+        [
+          -17.738299444317818,
+          1458.8299989700317,
+          154.0759950876236
+        ]
+      ],
+      "watertight": true,
+      "winding_consistent": true,
+      "euler_number": 2,
+      "face_components": 1,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "node_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    {
+      "fdi": "47",
+      "source_object": "FJ1270",
+      "source_name": "Right lower second secondary molar tooth",
+      "source_mesh_sha256": "722d80bd11c7e814c3c1c2b20fe2621ed8327319028ad67c6e4dce24d7ee4458",
+      "vertices": 812,
+      "faces": 1620,
+      "bounds_mm": [
+        [
+          -33.4475003182888,
+          1444.4899559020996,
+          126.34100019931793
+        ],
+        [
+          -21.375499665737152,
+          1463.170051574707,
+          142.86300539970398
+        ]
+      ],
+      "watertight": true,
+      "winding_consistent": true,
+      "euler_number": 2,
+      "face_components": 1,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "degenerate_triangles": 0,
+      "node_transform": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  ],
+  "adjacent_pairs": [
+    {
+      "arch": "maxillary",
+      "pair": [
+        "17",
+        "16"
+      ],
+      "minimum_triangle_surface_distance_mm": 0.0,
+      "initial_vertex_surface_upper_bound_mm": 0.005924422914640094,
+      "tested_triangle_pairs": 245,
+      "closest_triangle_pair": [
+        1193,
+        1087
+      ],
+      "noncoplanar_edge_face_intersection_pairs": 29,
+      "intersection_pair_examples": [
+        [
+          496,
+          398
+        ],
+        [
+          496,
+          404
+        ],
+        [
+          496,
+          754
+        ],
+        [
+          656,
+          404
+        ],
+        [
+          656,
+          754
+        ],
+        [
+          656,
+          879
+        ],
+        [
+          780,
+          879
+        ],
+        [
+          780,
+          1087
+        ]
+      ],
+      "classification": "surface_intersection_detected"
+    },
+    {
+      "arch": "maxillary",
+      "pair": [
+        "16",
+        "15"
+      ],
+      "minimum_triangle_surface_distance_mm": 0.0,
+      "initial_vertex_surface_upper_bound_mm": 0.004588373950614354,
+      "tested_triangle_pairs": 154,
+      "closest_triangle_pair": [
+        1602,
+        555
+      ],
+      "noncoplanar_edge_face_intersection_pairs": 14,
+      "intersection_pair_examples": [
+        [
+          952,
+          550
+        ],
+        [
+          952,
+          552
+        ],
+        [
+          952,
+          685
+        ],
+        [
+          953,
+          276
+        ],
+        [
+          953,
+          551
+        ],
+        [
+          953,
+          555
+        ],
+        [
+          955,
+          276
+        ],
+        [
+          955,
+          550
+        ]
+      ],
+      "classification": "surface_intersection_detected"
+    },
+    {
+      "arch": "maxillary",
+      "pair": [
+        "15",
+        "14"
+      ],
+      "minimum_triangle_surface_distance_mm": 0.0,
+      "initial_vertex_surface_upper_bound_mm": 0.04125522748886554,
+      "tested_triangle_pairs": 378,
+      "closest_triangle_pair": [
+        1302,
+        429
+      ],
+      "noncoplanar_edge_face_intersection_pairs": 38,
+      "intersection_pair_examples": [
+        [
+          558,
+          106
+        ],
+        [
+          558,
+          191
+        ],
+        [
+          692,
+          106
+        ],
+        [
+          693,
+          191
+        ],
+        [
+          694,
+          191
+        ],
+        [
+          837,
+          106
+        ],
+        [
+          837,
+          179
+        ],
+        [
+          837,
+          180
+        ]
+      ],
+      "classification": "surface_intersection_detected"
+    },
+    {
+      "arch": "maxillary",
+      "pair": [
+        "14",
+        "13"
+      ],
+      "minimum_triangle_surface_distance_mm": 0.19267944878229937,
+      "initial_vertex_surface_upper_bound_mm": 0.19366752825854777,
+      "tested_triangle_pairs": 133,
+      "closest_triangle_pair": [
+        762,
+        175
+      ],
+      "noncoplanar_edge_face_intersection_pairs": 0,
+      "intersection_pair_examples": [],
+      "classification": "positive_mesh_surface_gap"
+    },
+    {
+      "arch": "maxillary",
+      "pair": [
+        "13",
+        "12"
+      ],
+      "minimum_triangle_surface_distance_mm": 0.0,
+      "initial_vertex_surface_upper_bound_mm": 0.07689278489809703,
+      "tested_triangle_pairs": 562,
+      "closest_triangle_pair": [
+        1025,
+        197
+      ],
+      "noncoplanar_edge_face_intersection_pairs": 59,
+      "intersection_pair_examples": [
+        [
+          628,
+          46
+        ],
+        [
+          706,
+          12
+        ],
+        [
+          706,
+          27
+        ],
+        [
+          706,
+          37
+        ],
+        [
+          710,
+          27
+        ],
+        [
+          711,
+          27
+        ],
+        [
+          711,
+          28
+        ],
+        [
+          713,
+          28
+        ]
+      ],
+      "classification": "surface_intersection_detected"
+    },
+    {
+      "arch": "maxillary",
+      "pair": [
+        "12",
+        "11"
+      ],
+      "minimum_triangle_surface_distance_mm": 0.0,
+      "initial_vertex_surface_upper_bound_mm": 0.0022543177654694544,
+      "tested_triangle_pairs": 301,
+      "closest_triangle_pair": [
+        1034,
+        1
+      ],
+      "noncoplanar_edge_face_intersection_pairs": 17,
+      "intersection_pair_examples": [
+        [
+          836,
+          77
+        ],
+        [
+          838,
+          1
+        ],
+        [
+          838,
+          77
+        ],
+        [
+          839,
+          1
+        ],
+        [
+          842,
+          1
+        ],
+        [
+          1034,
+          1
+        ],
+        [
+          1034,
+          46
+        ],
+        [
+          1036,
+          46
+        ]
+      ],
+      "classification": "surface_intersection_detected"
+    },
+    {
+      "arch": "maxillary",
+      "pair": [
+        "11",
+        "21"
+      ],
+      "minimum_triangle_surface_distance_mm": 0.3284806297284125,
+      "initial_vertex_surface_upper_bound_mm": 0.3284806297284125,
+      "tested_triangle_pairs": 29,
+      "closest_triangle_pair": [
+        1280,
+        47
+      ],
+      "noncoplanar_edge_face_intersection_pairs": 0,
+      "intersection_pair_examples": [],
+      "classification": "positive_mesh_surface_gap"
+    },
+    {
+      "arch": "maxillary",
+      "pair": [
+        "21",
+        "22"
+      ],
+      "minimum_triangle_surface_distance_mm": 0.0,
+      "initial_vertex_surface_upper_bound_mm": 0.003647648103167366,
+      "tested_triangle_pairs": 336,
+      "closest_triangle_pair": [
+        1187,
+        124
+      ],
+      "noncoplanar_edge_face_intersection_pairs": 27,
+      "intersection_pair_examples": [
+        [
+          1187,
+          124
+        ],
+        [
+          1187,
+          125
+        ],
+        [
+          1187,
+          127
+        ],
+        [
+          1187,
+          128
+        ],
+        [
+          1187,
+          139
+        ],
+        [
+          1187,
+          140
+        ],
+        [
+          1187,
+          344
+        ],
+        [
+          1237,
+          311
+        ]
+      ],
+      "classification": "surface_intersection_detected"
+    },
+    {
+      "arch": "maxillary",
+      "pair": [
+        "22",
+        "23"
+      ],
+      "minimum_triangle_surface_distance_mm": 0.0,
+      "initial_vertex_surface_upper_bound_mm": 0.03100953832462465,
+      "tested_triangle_pairs": 490,
+      "closest_triangle_pair": [
+        1280,
+        386
+      ],
+      "noncoplanar_edge_face_intersection_pairs": 59,
+      "intersection_pair_examples": [
+        [
+          1176,
+          138
+        ],
+        [
+          1176,
+          139
+        ],
+        [
+          1182,
+          206
+        ],
+        [
+          1183,
+          139
+        ],
+        [
+          1183,
+          170
+        ],
+        [
+          1183,
+          188
+        ],
+        [
+          1183,
+          206
+        ],
+        [
+          1184,
+          206
+        ]
+      ],
+      "classification": "surface_intersection_detected"
+    },
+    {
+      "arch": "maxillary",
+      "pair": [
+        "23",
+        "24"
+      ],
+      "minimum_triangle_surface_distance_mm": 0.19300296022800506,
+      "initial_vertex_surface_upper_bound_mm": 0.20299703455078652,
+      "tested_triangle_pairs": 150,
+      "closest_triangle_pair": [
+        1197,
+        694
+      ],
+      "noncoplanar_edge_face_intersection_pairs": 0,
+      "intersection_pair_examples": [],
+      "classification": "positive_mesh_surface_gap"
+    },
+    {
+      "arch": "maxillary",
+      "pair": [
+        "24",
+        "25"
+      ],
+      "minimum_triangle_surface_distance_mm": 0.0,
+      "initial_vertex_surface_upper_bound_mm": 0.019070043604810065,
+      "tested_triangle_pairs": 299,
+      "closest_triangle_pair": [
+        1412,
+        703
+      ],
+      "noncoplanar_edge_face_intersection_pairs": 39,
+      "intersection_pair_examples": [
+        [
+          952,
+          219
+        ],
+        [
+          952,
+          220
+        ],
+        [
+          952,
+          223
+        ],
+        [
+          953,
+          220
+        ],
+        [
+          953,
+          401
+        ],
+        [
+          953,
+          402
+        ],
+        [
+          953,
+          573
+        ],
+        [
+          954,
+          402
+        ]
+      ],
+      "classification": "surface_intersection_detected"
+    },
+    {
+      "arch": "maxillary",
+      "pair": [
+        "25",
+        "26"
+      ],
+      "minimum_triangle_surface_distance_mm": 0.0,
+      "initial_vertex_surface_upper_bound_mm": 0.014792555644769771,
+      "tested_triangle_pairs": 123,
+      "closest_triangle_pair": [
+        1108,
+        896
+      ],
+      "noncoplanar_edge_face_intersection_pairs": 17,
+      "intersection_pair_examples": [
+        [
+          849,
+          635
+        ],
+        [
+          849,
+          895
+        ],
+        [
+          849,
+          1078
+        ],
+        [
+          852,
+          635
+        ],
+        [
+          852,
+          636
+        ],
+        [
+          852,
+          637
+        ],
+        [
+          853,
+          635
+        ],
+        [
+          853,
+          637
+        ]
+      ],
+      "classification": "surface_intersection_detected"
+    },
+    {
+      "arch": "maxillary",
+      "pair": [
+        "26",
+        "27"
+      ],
+      "minimum_triangle_surface_distance_mm": 0.0,
+      "initial_vertex_surface_upper_bound_mm": 0.14888183865053858,
+      "tested_triangle_pairs": 360,
+      "closest_triangle_pair": [
+        1851,
+        928
+      ],
+      "noncoplanar_edge_face_intersection_pairs": 25,
+      "intersection_pair_examples": [
+        [
+          615,
+          359
+        ],
+        [
+          615,
+          461
+        ],
+        [
+          615,
+          462
+        ],
+        [
+          630,
+          359
+        ],
+        [
+          630,
+          463
+        ],
+        [
+          630,
+          464
+        ],
+        [
+          630,
+          563
+        ],
+        [
+          630,
+          699
+        ]
+      ],
+      "classification": "surface_intersection_detected"
+    },
+    {
+      "arch": "mandibular",
+      "pair": [
+        "47",
+        "46"
+      ],
+      "minimum_triangle_surface_distance_mm": 0.0,
+      "initial_vertex_surface_upper_bound_mm": 0.03178998672597846,
+      "tested_triangle_pairs": 347,
+      "closest_triangle_pair": [
+        1457,
+        1057
+      ],
+      "noncoplanar_edge_face_intersection_pairs": 51,
+      "intersection_pair_examples": [
+        [
+          900,
+          650
+        ],
+        [
+          900,
+          653
+        ],
+        [
+          901,
+          653
+        ],
+        [
+          980,
+          648
+        ],
+        [
+          980,
+          649
+        ],
+        [
+          1017,
+          649
+        ],
+        [
+          1017,
+          650
+        ],
+        [
+          1035,
+          653
+        ]
+      ],
+      "classification": "surface_intersection_detected"
+    },
+    {
+      "arch": "mandibular",
+      "pair": [
+        "46",
+        "45"
+      ],
+      "minimum_triangle_surface_distance_mm": 0.0,
+      "initial_vertex_surface_upper_bound_mm": 0.015843242028057217,
+      "tested_triangle_pairs": 495,
+      "closest_triangle_pair": [
+        1618,
+        753
+      ],
+      "noncoplanar_edge_face_intersection_pairs": 61,
+      "intersection_pair_examples": [
+        [
+          950,
+          433
+        ],
+        [
+          950,
+          436
+        ],
+        [
+          1063,
+          433
+        ],
+        [
+          1064,
+          430
+        ],
+        [
+          1064,
+          433
+        ],
+        [
+          1064,
+          524
+        ],
+        [
+          1064,
+          525
+        ],
+        [
+          1228,
+          298
+        ]
+      ],
+      "classification": "surface_intersection_detected"
+    },
+    {
+      "arch": "mandibular",
+      "pair": [
+        "45",
+        "44"
+      ],
+      "minimum_triangle_surface_distance_mm": 0.0,
+      "initial_vertex_surface_upper_bound_mm": 0.05425082623934649,
+      "tested_triangle_pairs": 386,
+      "closest_triangle_pair": [
+        1034,
+        456
+      ],
+      "noncoplanar_edge_face_intersection_pairs": 36,
+      "intersection_pair_examples": [
+        [
+          627,
+          256
+        ],
+        [
+          627,
+          265
+        ],
+        [
+          628,
+          141
+        ],
+        [
+          628,
+          145
+        ],
+        [
+          628,
+          265
+        ],
+        [
+          629,
+          256
+        ],
+        [
+          629,
+          257
+        ],
+        [
+          652,
+          145
+        ]
+      ],
+      "classification": "surface_intersection_detected"
+    },
+    {
+      "arch": "mandibular",
+      "pair": [
+        "44",
+        "43"
+      ],
+      "minimum_triangle_surface_distance_mm": 0.0,
+      "initial_vertex_surface_upper_bound_mm": 0.07547630891548772,
+      "tested_triangle_pairs": 604,
+      "closest_triangle_pair": [
+        1079,
+        177
+      ],
+      "noncoplanar_edge_face_intersection_pairs": 46,
+      "intersection_pair_examples": [
+        [
+          789,
+          75
+        ],
+        [
+          794,
+          75
+        ],
+        [
+          794,
+          78
+        ],
+        [
+          796,
+          84
+        ],
+        [
+          796,
+          87
+        ],
+        [
+          797,
+          78
+        ],
+        [
+          798,
+          75
+        ],
+        [
+          798,
+          78
+        ]
+      ],
+      "classification": "surface_intersection_detected"
+    },
+    {
+      "arch": "mandibular",
+      "pair": [
+        "43",
+        "42"
+      ],
+      "minimum_triangle_surface_distance_mm": 0.0,
+      "initial_vertex_surface_upper_bound_mm": 0.0002249455954354219,
+      "tested_triangle_pairs": 580,
+      "closest_triangle_pair": [
+        1047,
+        105
+      ],
+      "noncoplanar_edge_face_intersection_pairs": 33,
+      "intersection_pair_examples": [
+        [
+          938,
+          109
+        ],
+        [
+          941,
+          109
+        ],
+        [
+          942,
+          109
+        ],
+        [
+          948,
+          109
+        ],
+        [
+          949,
+          1
+        ],
+        [
+          949,
+          109
+        ],
+        [
+          949,
+          111
+        ],
+        [
+          950,
+          1
+        ]
+      ],
+      "classification": "surface_intersection_detected"
+    },
+    {
+      "arch": "mandibular",
+      "pair": [
+        "42",
+        "41"
+      ],
+      "minimum_triangle_surface_distance_mm": 0.0,
+      "initial_vertex_surface_upper_bound_mm": 0.024766361255001826,
+      "tested_triangle_pairs": 334,
+      "closest_triangle_pair": [
+        717,
+        2
+      ],
+      "noncoplanar_edge_face_intersection_pairs": 27,
+      "intersection_pair_examples": [
+        [
+          717,
+          2
+        ],
+        [
+          717,
+          6
+        ],
+        [
+          717,
+          7
+        ],
+        [
+          717,
+          8
+        ],
+        [
+          717,
+          9
+        ],
+        [
+          717,
+          14
+        ],
+        [
+          717,
+          17
+        ],
+        [
+          720,
+          17
+        ]
+      ],
+      "classification": "surface_intersection_detected"
+    },
+    {
+      "arch": "mandibular",
+      "pair": [
+        "41",
+        "31"
+      ],
+      "minimum_triangle_surface_distance_mm": 0.3400367682011185,
+      "initial_vertex_surface_upper_bound_mm": 0.35983267838284383,
+      "tested_triangle_pairs": 93,
+      "closest_triangle_pair": [
+        916,
+        45
+      ],
+      "noncoplanar_edge_face_intersection_pairs": 0,
+      "intersection_pair_examples": [],
+      "classification": "positive_mesh_surface_gap"
+    },
+    {
+      "arch": "mandibular",
+      "pair": [
+        "31",
+        "32"
+      ],
+      "minimum_triangle_surface_distance_mm": 0.0,
+      "initial_vertex_surface_upper_bound_mm": 0.0058700798928581184,
+      "tested_triangle_pairs": 363,
+      "closest_triangle_pair": [
+        804,
+        317
+      ],
+      "noncoplanar_edge_face_intersection_pairs": 20,
+      "intersection_pair_examples": [
+        [
+          804,
+          317
+        ],
+        [
+          805,
+          317
+        ],
+        [
+          807,
+          317
+        ],
+        [
+          808,
+          317
+        ],
+        [
+          814,
+          317
+        ],
+        [
+          814,
+          320
+        ],
+        [
+          815,
+          320
+        ],
+        [
+          817,
+          317
+        ]
+      ],
+      "classification": "surface_intersection_detected"
+    },
+    {
+      "arch": "mandibular",
+      "pair": [
+        "32",
+        "33"
+      ],
+      "minimum_triangle_surface_distance_mm": 0.0,
+      "initial_vertex_surface_upper_bound_mm": 0.09503052923950903,
+      "tested_triangle_pairs": 807,
+      "closest_triangle_pair": [
+        768,
+        110
+      ],
+      "noncoplanar_edge_face_intersection_pairs": 36,
+      "intersection_pair_examples": [
+        [
+          705,
+          110
+        ],
+        [
+          705,
+          166
+        ],
+        [
+          705,
+          167
+        ],
+        [
+          705,
+          281
+        ],
+        [
+          768,
+          110
+        ],
+        [
+          769,
+          108
+        ],
+        [
+          769,
+          110
+        ],
+        [
+          769,
+          111
+        ]
+      ],
+      "classification": "surface_intersection_detected"
+    },
+    {
+      "arch": "mandibular",
+      "pair": [
+        "33",
+        "34"
+      ],
+      "minimum_triangle_surface_distance_mm": 0.0,
+      "initial_vertex_surface_upper_bound_mm": 0.007484295638166962,
+      "tested_triangle_pairs": 381,
+      "closest_triangle_pair": [
+        1042,
+        368
+      ],
+      "noncoplanar_edge_face_intersection_pairs": 42,
+      "intersection_pair_examples": [
+        [
+          777,
+          107
+        ],
+        [
+          784,
+          107
+        ],
+        [
+          867,
+          107
+        ],
+        [
+          871,
+          107
+        ],
+        [
+          873,
+          107
+        ],
+        [
+          873,
+          111
+        ],
+        [
+          873,
+          112
+        ],
+        [
+          875,
+          282
+        ]
+      ],
+      "classification": "surface_intersection_detected"
+    },
+    {
+      "arch": "mandibular",
+      "pair": [
+        "34",
+        "35"
+      ],
+      "minimum_triangle_surface_distance_mm": 0.0,
+      "initial_vertex_surface_upper_bound_mm": 0.10542078365639593,
+      "tested_triangle_pairs": 541,
+      "closest_triangle_pair": [
+        1058,
+        341
+      ],
+      "noncoplanar_edge_face_intersection_pairs": 41,
+      "intersection_pair_examples": [
+        [
+          650,
+          124
+        ],
+        [
+          650,
+          125
+        ],
+        [
+          651,
+          125
+        ],
+        [
+          651,
+          225
+        ],
+        [
+          655,
+          124
+        ],
+        [
+          656,
+          124
+        ],
+        [
+          659,
+          124
+        ],
+        [
+          659,
+          168
+        ]
+      ],
+      "classification": "surface_intersection_detected"
+    },
+    {
+      "arch": "mandibular",
+      "pair": [
+        "35",
+        "36"
+      ],
+      "minimum_triangle_surface_distance_mm": 0.0,
+      "initial_vertex_surface_upper_bound_mm": 0.009021016847019102,
+      "tested_triangle_pairs": 475,
+      "closest_triangle_pair": [
+        923,
+        753
+      ],
+      "noncoplanar_edge_face_intersection_pairs": 55,
+      "intersection_pair_examples": [
+        [
+          211,
+          304
+        ],
+        [
+          305,
+          264
+        ],
+        [
+          306,
+          259
+        ],
+        [
+          307,
+          259
+        ],
+        [
+          307,
+          264
+        ],
+        [
+          311,
+          103
+        ],
+        [
+          311,
+          264
+        ],
+        [
+          312,
+          103
+        ]
+      ],
+      "classification": "surface_intersection_detected"
+    },
+    {
+      "arch": "mandibular",
+      "pair": [
+        "36",
+        "37"
+      ],
+      "minimum_triangle_surface_distance_mm": 0.0,
+      "initial_vertex_surface_upper_bound_mm": 0.0008923541810234039,
+      "tested_triangle_pairs": 356,
+      "closest_triangle_pair": [
+        1152,
+        461
+      ],
+      "noncoplanar_edge_face_intersection_pairs": 51,
+      "intersection_pair_examples": [
+        [
+          492,
+          95
+        ],
+        [
+          495,
+          95
+        ],
+        [
+          584,
+          163
+        ],
+        [
+          586,
+          163
+        ],
+        [
+          719,
+          95
+        ],
+        [
+          719,
+          180
+        ],
+        [
+          719,
+          247
+        ],
+        [
+          720,
+          77
+        ]
+      ],
+      "classification": "surface_intersection_detected"
+    }
+  ]
+}

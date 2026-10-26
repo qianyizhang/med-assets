@@ -71,6 +71,8 @@ No source archive upload, new permissions, billing assurance or broader quality 
 
 ## Context and teaching supplements (not additional organ studies)
 
+- [Penile internal-component relationships r04](../models/penis/exports/z-native-components-r04/README.md) — source-preserved gross components with glans edge defects and missing septum/lumen explicitly retained; not a complete external organ or whole-model pass.
+
 - [Proximal femur / marrow teaching cutaway r05](../reviews/bone_marrow/2026-10-26-source-cutaway-r05/README.md) — BP3D exterior with authored cortical inset, network and marrow; illustrative tissue relationships, not measured microarchitecture or a whole-model pass. Earlier independent marrow comparison remains unchanged.
 
 - [NIH3D nasal/sinus airspace cast](../reviews/nose_sinuses/2026-10-26-nih3d-airspace-r01/README.md) — source-preserved specimen display with disclosed cyst indentation and retained self-intersections; not mucosa/conchae, a healthy template, or a whole-model pass.
@@ -92,3 +94,7 @@ These additions do not increase the 36-study count or confer anatomy, clinical, 
 These original SVG/PNG supplements do not increase the 36-study count or change existing 3D quality gates.
 
 
+
+## Set-level validation findings (not quality promotions)
+
+- [Dental exterior/contact checkpoint](../reviews/teeth_gums/2026-10-26-set-contact-checkpoint/README.md) — unchanged 28-tooth source assembly; 22 of 26 within-arch neighbouring pairs have confirmed surface crossings and four remain separated. Useful exterior overview, **contact gate failed**; bite, full-set anatomy and conditions remain unvalidated. [Scope and source attribution](../reviews/teeth_gums/2026-10-26-set-contact-checkpoint/INTEGRATION.md).

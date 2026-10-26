@@ -1,0 +1,33 @@
+{
+  "source_inspection_sha256": "4d3a2c38a83808749077cd3ecbaebc0cded242047b25d57af79b894cbee13a32",
+  "candidate_sha256": "c44d35e13be11d2fb35141747d819d4609a45ca0a5527c89e1015618d17cab70",
+  "exact_object_membership": true,
+  "meshes": [
+    {
+      "name": "Glans penis",
+      "source_vertices": 694,
+      "export_vertices": 694,
+      "max_world_coordinate_error_m": 5.972094641037984e-08,
+      "unique_bijective_mapping": true,
+      "oriented_triangles_equal_after_mapping": true
+    },
+    {
+      "name": "Corpus spongiosum of penis",
+      "source_vertices": 282,
+      "export_vertices": 282,
+      "max_world_coordinate_error_m": 5.972094641037984e-08,
+      "unique_bijective_mapping": true,
+      "oriented_triangles_equal_after_mapping": true
+    },
+    {
+      "name": "Corpus cavernosum of penis",
+      "source_vertices": 646,
+      "export_vertices": 646,
+      "max_world_coordinate_error_m": 5.972094641037984e-08,
+      "unique_bijective_mapping": true,
+      "oriented_triangles_equal_after_mapping": true
+    }
+  ],
+  "scope": "Selective source load, view-layer update before world transforms, export fresh import. Float32 coordinate tolerance2e-7m, no bit-exact claim. Source topology defects retained; no anatomy or lumen validation.",
+  "scoped_source_preservation_pass": true
+}
