@@ -19,6 +19,7 @@ import zlib
 REPOSITORY = 'qianyizhang/med-assets'
 LFS_URL = f'https://github.com/{REPOSITORY}.git/info/lfs'
 SOURCE_HOST = 'anatomy-verification.landy123007.chatgpt.site'
+SOURCE_HOSTS = frozenset({SOURCE_HOST, 'anatomy-airway-review.landy123007.chatgpt.site'})
 MAX_MANIFEST = 131_072
 MAX_OBJECTS = 32
 MAX_TOTAL = 40_000_000
@@ -63,7 +64,7 @@ def https_url(url):
 
 def source_url(url):
     p = https_url(url)
-    require(p.hostname == SOURCE_HOST and not p.query and not p.fragment, 'Source host/query not allowed')
+    require(p.hostname in SOURCE_HOSTS and not p.query and not p.fragment, 'Source host/query not allowed')
     require(re.fullmatch(r'/review/[A-Za-z0-9_./-]+', p.path) is not None, 'Source path not allowed')
     require('//' not in p.path and not any(x in ('.', '..') for x in p.path.split('/')), 'Source path traversal')
 
@@ -167,7 +168,7 @@ class SameOriginRedirect(urllib.request.HTTPRedirectHandler):
     def redirect_request(self, req, fp, code, msg, headers, newurl):
         old, new = https_url(req.full_url), https_url(newurl)
         require((old.hostname, old.port or 443) == (new.hostname, new.port or 443), 'Cross-origin redirect refused')
-        if old.hostname == SOURCE_HOST:
+        if old.hostname in SOURCE_HOSTS:
             source_url(newurl)
         return super().redirect_request(req, fp, code, msg, headers, newurl)
 
