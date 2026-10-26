@@ -71,6 +71,8 @@ No source archive upload, new permissions, billing assurance or broader quality 
 
 ## Context and teaching supplements (not additional organ studies)
 
+- [Proximal femur / marrow teaching cutaway r05](../reviews/bone_marrow/2026-10-26-source-cutaway-r05/README.md) — BP3D exterior with authored cortical inset, network and marrow; illustrative tissue relationships, not measured microarchitecture or a whole-model pass. Earlier independent marrow comparison remains unchanged.
+
 - [NIH3D nasal/sinus airspace cast](../reviews/nose_sinuses/2026-10-26-nih3d-airspace-r01/README.md) — source-preserved specimen display with disclosed cyst indentation and retained self-intersections; not mucosa/conchae, a healthy template, or a whole-model pass.
 
 - [Spinal cord gross relationships r03](../models/spinal_cord/exports/authored-relationships-r03/README.md) — authored conus, separate filum and descending-root relationships at 17 representative levels, not a complete 31-pair map; original whole model remains **Needs revision**.

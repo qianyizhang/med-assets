@@ -1,0 +1,28 @@
+{
+  "checked_utc": "2026-10-26T04:15:20Z",
+  "final_glb_sha256": "7b21b74fb3712b2816801337bd4d0732ef8bb035a999ad36558b8235609cfe02",
+  "build_replay_exact_bytes": true,
+  "build_wrong_input_exit": 1,
+  "build_existing_output_exit": 1,
+  "wrong_input_created_output": false,
+  "independent_generic_verifier": "Actually executed with exact source and final candidate; pass; verifier safety receipts in additional-checks.json",
+  "baseline_render_replay_decoded_pixels_equal": true,
+  "composition_replay_decoded_pixels_equal": true,
+  "native_webp_pixels_equal_pngs": true,
+  "final_render_binding": "4 fresh exact final-GLB views; actual final front/close plus bilingual context personally and independently viewed. Prior r05 reverse pixels exact; other3 differ slightly as recorded\u2014not claimed exact visual transfer.",
+  "scope": "Static evidence only, no browser/clinical/printing/simulation/full-organ pass",
+  "dependencies": "Blender4.3.2/Python3/Pillow/DejaVuSans/NotoSansCJKSC; not bundled",
+  "public_text_scan": "No private workspace/home paths in packaged text; no reference figure redistributed",
+  "baseline_png_guard_correction": {
+    "reason": "Independent replay PNG container hash differed, exact1000x1200 RGBA pixels equal",
+    "rgba_sha256": "b32fd147c241f16e99b42246b01e60eea6f74079e37b0d04b25832ad8dc7cc4f",
+    "source_glb_guard": "retained in baseline renderer",
+    "tested_on": "independent integration render + baseline outputs",
+    "result": "pass",
+    "composite_pixel_equality": {
+      "before-after.png": true,
+      "annotated-context.png": true
+    },
+    "media_or_geometry_changes": false
+  }
+}

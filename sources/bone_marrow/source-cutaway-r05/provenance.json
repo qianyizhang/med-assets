@@ -1,0 +1,25 @@
+{
+  "source_role": "Existing licensed BP3D skeletal exterior derivative; selected FJ3259 left femur only",
+  "source_url": "https://media.githubusercontent.com/media/qianyizhang/med-assets/7797d3f1aa29585e9e93a663dceb727dda380079/models/skeleton/exports/source-candidate-03/skeleton_source_frame.glb",
+  "source_sha256": "d224985628cc62d0c9c4284019b73505c9ebf14d78d30a040d74a7b33c68620e",
+  "source_bytes": 12705356,
+  "source_object": "FJ3259 left femur / FMA24475",
+  "source_coordinates": "BodyParts3D4.0 mm converted to m in prior canonical derivative; no patient registration",
+  "license": "CC BY4.0 per current DBCLS publisher page updated2025-02-27; historical source headers CC BY-SA2.1 Japan preserved upstream",
+  "license_url": "https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html",
+  "creator": "BodyParts3D \u00a9 The Database Center for Life Science (DBCLS)",
+  "external_source_map": "https://github.com/qianyizhang/med-assets/blob/7797d3f1aa29585e9e93a663dceb727dda380079/sources/datasets/bp3d-4.0-body-studies/external-source-map.json",
+  "baseline_url": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/networks/draft_bone_marrow.glb",
+  "baseline_sha256": "c277ea5b96dfa8437e6ab80e3f5d69d87b95b3a5e0412ec521b3192377d95597",
+  "baseline_bytes": 34284,
+  "reference_url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/6-3-bone-structure",
+  "reference_role": "Section6.3 and actual Figure6.7 inspected for cortical shell, medullary cavity, cancellous compartment/marrow relationships; no reference figure copied into deliverable",
+  "authored_changes": [
+    "Declared proximal fragment/window cuts",
+    "Illustrative inward cortical offset with local bounded correction",
+    "Connected illustrative trabecular network",
+    "Marrow backing with editorial removal and color transition",
+    "Neutral teaching materials; network tessellation reduction"
+  ],
+  "limits": "Source exterior only. Internal structures are not CT-segmented microarchitecture or measured thickness; no load trajectory, age-specific distribution, clinical or runtime pass."
+}
