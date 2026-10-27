@@ -23,9 +23,9 @@ or apply foundation fields mechanically. The fixed selector covers those 25
 historical paths; new foundation runs need explicit coverage. See [verification
 scope](VERIFICATION.md) for what each command actually runs.
 
-## Asset quality ground rules
+## Medical and dental asset quality ground rules
 
-Apply these rules to each asset and revision, within its intended use:
+Apply these rules to each medical or dental asset and revision, within its intended use:
 
 - **Prioritize validity and usefulness.** Gate domain-appropriate anatomical and
   geometric validity and technical correctness. Then judge authentic, useful
