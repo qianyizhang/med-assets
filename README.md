@@ -61,6 +61,8 @@ archive checksums, and completed import status.
 
 ## Editing and reuse
 
+For issue, pull request, and review workflow, see [Contributing](CONTRIBUTING.md).
+
 GLBs are self-contained. Preserve the Anatomy Workshop texture paths and the
 sibling `body-3d-assets`, `body-3d-source`, and `body-3d-delivery` directories.
 Synthetic-imaging geometry remains separate from the cardiac master. Original
