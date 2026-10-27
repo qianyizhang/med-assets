@@ -1,0 +1,87 @@
+{
+  "record_family": "scoped_local_candidate_evidence",
+  "checked_utc": "2026-10-27",
+  "status": "retain_local_candidate_payload_blocked",
+  "model_delivered_in_this_pr": false,
+  "pointers_published": false,
+  "media": [
+    {
+      "filename": "A_1_31_T2_SEG_na__layered.glb",
+      "sha256": "c0884a6bcc8fc6175dd97a99f50e53334024b4eb5e033063c7602358f6da1014",
+      "bytes": 26524356,
+      "availability": "local_only_not_in_repository",
+      "kind": "candidate"
+    },
+    {
+      "filename": "witness-1-enamel-dentin-matched.png",
+      "sha256": "379186586c7e7bee4029e2998293b696058483df6b6854ea6f24f23fcefa1158",
+      "bytes": 267458,
+      "availability": "local_only_not_in_repository",
+      "kind": "matched_section_evidence"
+    },
+    {
+      "filename": "witness-2-dentin-pulp-matched.png",
+      "sha256": "00156890840ae82264b3d072b84cbff511de3a19b6a32db72d90e70c5adf7b6e",
+      "bytes": 247126,
+      "availability": "local_only_not_in_repository",
+      "kind": "matched_section_evidence"
+    },
+    {
+      "filename": "witness-3-bone-dentin-matched.png",
+      "sha256": "f2058b0f83ce75d5c139660901d168c0e3adee425f22ffb4eb78c2694eaab118",
+      "bytes": 310667,
+      "availability": "local_only_not_in_repository",
+      "kind": "matched_section_evidence"
+    },
+    {
+      "filename": "FDI31-one-round-no-change-comparison.png",
+      "sha256": "f0d9a6259f98961e30568c9e4d359e284fedbd0d91bc16b1243fca64f0942c34",
+      "bytes": 244293,
+      "availability": "local_only_not_in_repository",
+      "kind": "matched_section_evidence"
+    }
+  ],
+  "text_evidence": [
+    {
+      "file": "interface-independent-validation.json",
+      "sha256": "4299bf7abc3ec7c3a1420629573b6270bf4b3e4795c3d239fe6baad9e974370a"
+    },
+    {
+      "file": "old-witness-location-check.json",
+      "sha256": "43619c81eaae850ea105e03e64b5c2b20d7a7603ee14b25ef0cb1601c95eaf44"
+    },
+    {
+      "file": "matched-occupancy-screen.json",
+      "sha256": "beec9a50801e5fc7b87bf644eaa89f5fc83d6d28318302a8fc5d8bf62f951c35"
+    },
+    {
+      "file": "refinement-comparison.json",
+      "sha256": "a7be4b61e2f14d37bf6746fe42398700978106ca2162963f92d4f0ccade903e6"
+    }
+  ],
+  "gates": {
+    "technical": "passed_bounded_local_checks",
+    "visual": "local_sections_reviewed_not_full_3d_approval",
+    "anatomy": "unapproved",
+    "clinical": "unapproved",
+    "runtime": "unmeasured",
+    "remote_payload": "not_transferred"
+  },
+  "rejected_attempts": [
+    {
+      "target": 0.1,
+      "sha256": "6c15e3b63761ee71d38e0c83293d948e67bc422bdfc5672091d6d3f7b2e6b160",
+      "bytes": 21562592,
+      "triangles": 1080892
+    },
+    {
+      "target": 0.05,
+      "sha256": "0475962973890924bc4a7daae05d38844bf6e6f63205a72b2d974b27d3b0bf1d",
+      "bytes": 19908672,
+      "triangles": 998198
+    }
+  ],
+  "rejection_reason": "Unsupported local morphology contraction despite technical passes; not automatic rejection for source deviation.",
+  "source_license": "CC-BY-SA-4.0",
+  "source_doi": "10.5282/ubm/data.477"
+}

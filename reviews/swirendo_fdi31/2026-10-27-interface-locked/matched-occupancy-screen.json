@@ -1,0 +1,308 @@
+[
+  {
+    "variant": "master",
+    "sha256": "e1c8ba1d1dc8ddea4014112dc1887e4d882fbc9acb5c8c9aa029522288b4e985",
+    "components": [
+      {
+        "tissue": "Enamel",
+        "faces": 351712,
+        "foreign_source_occupancy": {
+          "Dentin": {
+            "sample_count": 60000,
+            "above_0_9": 0,
+            "above_0_6": 35,
+            "max": 0.6666696667671204
+          },
+          "Pulp": {
+            "sample_count": 60000,
+            "above_0_9": 0,
+            "above_0_6": 0,
+            "max": 0.0
+          },
+          "Bone": {
+            "sample_count": 60000,
+            "above_0_9": 0,
+            "above_0_6": 0,
+            "max": 0.5555567741394043
+          }
+        }
+      },
+      {
+        "tissue": "Dentin",
+        "faces": 604314,
+        "foreign_source_occupancy": {
+          "Enamel": {
+            "sample_count": 60000,
+            "above_0_9": 0,
+            "above_0_6": 22,
+            "max": 0.6666712760925293
+          },
+          "Pulp": {
+            "sample_count": 60000,
+            "above_0_9": 0,
+            "above_0_6": 8,
+            "max": 0.708333432674408
+          },
+          "Bone": {
+            "sample_count": 60000,
+            "above_0_9": 0,
+            "above_0_6": 16,
+            "max": 0.6666698455810547
+          }
+        }
+      },
+      {
+        "tissue": "Pulp",
+        "faces": 25334,
+        "foreign_source_occupancy": {
+          "Enamel": {
+            "sample_count": 37985,
+            "above_0_9": 0,
+            "above_0_6": 0,
+            "max": 0.0
+          },
+          "Dentin": {
+            "sample_count": 37985,
+            "above_0_9": 0,
+            "above_0_6": 228,
+            "max": 0.7083349227905273
+          },
+          "Bone": {
+            "sample_count": 37985,
+            "above_0_9": 0,
+            "above_0_6": 0,
+            "max": 0.0
+          }
+        }
+      },
+      {
+        "tissue": "Bone",
+        "faces": 1588062,
+        "foreign_source_occupancy": {
+          "Enamel": {
+            "sample_count": 60000,
+            "above_0_9": 0,
+            "above_0_6": 0,
+            "max": 0.5000098347663879
+          },
+          "Dentin": {
+            "sample_count": 60000,
+            "above_0_9": 0,
+            "above_0_6": 2,
+            "max": 0.6666654944419861
+          },
+          "Pulp": {
+            "sample_count": 60000,
+            "above_0_9": 0,
+            "above_0_6": 0,
+            "max": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "variant": "r03",
+    "sha256": "23e59040c6c2497ef864cf229d90dbd9e347489f1c9f4a8860bd48422cc2ec21",
+    "components": [
+      {
+        "tissue": "Enamel",
+        "faces": 88626,
+        "foreign_source_occupancy": {
+          "Dentin": {
+            "sample_count": 60000,
+            "above_0_9": 1,
+            "above_0_6": 517,
+            "max": 1.0
+          },
+          "Pulp": {
+            "sample_count": 60000,
+            "above_0_9": 0,
+            "above_0_6": 0,
+            "max": 0.0
+          },
+          "Bone": {
+            "sample_count": 60000,
+            "above_0_9": 0,
+            "above_0_6": 0,
+            "max": 0.5555672645568848
+          }
+        }
+      },
+      {
+        "tissue": "Dentin",
+        "faces": 151168,
+        "foreign_source_occupancy": {
+          "Enamel": {
+            "sample_count": 60000,
+            "above_0_9": 0,
+            "above_0_6": 137,
+            "max": 0.8333361148834229
+          },
+          "Pulp": {
+            "sample_count": 60000,
+            "above_0_9": 1,
+            "above_0_6": 77,
+            "max": 0.999991774559021
+          },
+          "Bone": {
+            "sample_count": 60000,
+            "above_0_9": 0,
+            "above_0_6": 10,
+            "max": 0.6666693687438965
+          }
+        }
+      },
+      {
+        "tissue": "Pulp",
+        "faces": 12670,
+        "foreign_source_occupancy": {
+          "Enamel": {
+            "sample_count": 18989,
+            "above_0_9": 0,
+            "above_0_6": 0,
+            "max": 0.0
+          },
+          "Dentin": {
+            "sample_count": 18989,
+            "above_0_9": 0,
+            "above_0_6": 157,
+            "max": 0.7083349227905273
+          },
+          "Bone": {
+            "sample_count": 18989,
+            "above_0_9": 0,
+            "above_0_6": 0,
+            "max": 0.0
+          }
+        }
+      },
+      {
+        "tissue": "Bone",
+        "faces": 412214,
+        "foreign_source_occupancy": {
+          "Enamel": {
+            "sample_count": 60000,
+            "above_0_9": 0,
+            "above_0_6": 4,
+            "max": 0.8333268761634827
+          },
+          "Dentin": {
+            "sample_count": 60000,
+            "above_0_9": 1,
+            "above_0_6": 24,
+            "max": 0.9999959468841553
+          },
+          "Pulp": {
+            "sample_count": 60000,
+            "above_0_9": 0,
+            "above_0_6": 0,
+            "max": 0.0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "variant": "interface_locked",
+    "sha256": "c0884a6bcc8fc6175dd97a99f50e53334024b4eb5e033063c7602358f6da1014",
+    "components": [
+      {
+        "tissue": "Enamel",
+        "faces": 233932,
+        "foreign_source_occupancy": {
+          "Dentin": {
+            "sample_count": 60000,
+            "above_0_9": 0,
+            "above_0_6": 63,
+            "max": 0.666670024394989
+          },
+          "Pulp": {
+            "sample_count": 60000,
+            "above_0_9": 0,
+            "above_0_6": 0,
+            "max": 0.0
+          },
+          "Bone": {
+            "sample_count": 60000,
+            "above_0_9": 0,
+            "above_0_6": 0,
+            "max": 0.5555534958839417
+          }
+        }
+      },
+      {
+        "tissue": "Dentin",
+        "faces": 454258,
+        "foreign_source_occupancy": {
+          "Enamel": {
+            "sample_count": 60000,
+            "above_0_9": 0,
+            "above_0_6": 33,
+            "max": 0.6666712760925293
+          },
+          "Pulp": {
+            "sample_count": 60000,
+            "above_0_9": 0,
+            "above_0_6": 19,
+            "max": 0.7083340287208557
+          },
+          "Bone": {
+            "sample_count": 60000,
+            "above_0_9": 0,
+            "above_0_6": 17,
+            "max": 0.6666721105575562
+          }
+        }
+      },
+      {
+        "tissue": "Pulp",
+        "faces": 25334,
+        "foreign_source_occupancy": {
+          "Enamel": {
+            "sample_count": 37985,
+            "above_0_9": 0,
+            "above_0_6": 0,
+            "max": 0.0
+          },
+          "Dentin": {
+            "sample_count": 37985,
+            "above_0_9": 0,
+            "above_0_6": 228,
+            "max": 0.7083349227905273
+          },
+          "Bone": {
+            "sample_count": 37985,
+            "above_0_9": 0,
+            "above_0_6": 0,
+            "max": 0.0
+          }
+        }
+      },
+      {
+        "tissue": "Bone",
+        "faces": 615456,
+        "foreign_source_occupancy": {
+          "Enamel": {
+            "sample_count": 60000,
+            "above_0_9": 0,
+            "above_0_6": 0,
+            "max": 0.5787028074264526
+          },
+          "Dentin": {
+            "sample_count": 60000,
+            "above_0_9": 0,
+            "above_0_6": 19,
+            "max": 0.666671872138977
+          },
+          "Pulp": {
+            "sample_count": 60000,
+            "above_0_9": 0,
+            "above_0_6": 0,
+            "max": 0.0
+          }
+        }
+      }
+    ]
+  }
+]
