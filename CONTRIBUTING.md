@@ -26,6 +26,14 @@ only after its acceptance criteria are met; track residual work separately.
 Repository issues, PRs, and documentation are the source of truth; keep chat
 summaries concise.
 
+Keep issue/PR scope balanced: split oversized issues into independently closable
+outcomes with explicit dependencies, not one ticket per mechanical commit. After
+each merge, add a concise comment to every relevant issue: delivered change/PR,
+checks, remaining work and current status; partial delivery leaves the issue open.
+When a surface's actionable backlog is cleared, audit that surface and propose the
+next evidence-backed batch of meaningful improvements. Do not create filler;
+blocked or paused issues remain visible and are not counted as completed.
+
 Follow the applicable [review contract](docs/REVIEW_CONTRACT.md) and
 [verification guidance](docs/VERIFICATION.md). Technical integrity, visual review,
 anatomical/clinical approval, browser runtime, and publication are separate gates;
