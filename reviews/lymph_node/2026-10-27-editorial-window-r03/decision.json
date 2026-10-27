@@ -357,5 +357,130 @@
     },
     "preservedOriginalFailureReceiptSha256": "a6c79a8aee1c63171e685eb1c7c222bbce6930973b59cf247fc412936b0d70c3",
     "disposition": "Retain local editorial inspection candidate; no single-sided viewer, anatomy, clinical or canonical acceptance."
+  },
+  "displayRepairFollowup": {
+    "date": "2026-10-27",
+    "baselineSha256": "2f6f65e98ccd280166343fd6a9d1a59f3d5e97830759dd531d80a43f27487194",
+    "candidateSha256": "5f887b4978d4b1c2edb3d80dee43a5a7d84f7b518849407622ccabb6e32a81be",
+    "bytes": 22104552,
+    "triangles": 167367,
+    "cornerStrategy": "full-split",
+    "invalidNormalCornersRepaired": 164,
+    "validSourceNormalBytesPreserved": true,
+    "rawGeometryColorsMaterialsTransformsUnchanged": true,
+    "directImportFullOrientedOccurrencesPreserved": true,
+    "normalValidity": "passed for direct import, actual scene export and export/full-split/reimport",
+    "declaredNormalDirectionBudgetDegrees": 0.05,
+    "normalDirectionBudget": "failed; not enlarged",
+    "maximumMeasuredNormalDirectionDriftDegrees": 0.6473800836239592,
+    "vertexColors": "passed; white RGB plus implicit alpha one equals source white RGBA",
+    "singleSidedMaterialsUnchanged": true,
+    "offlineRenderCulling": "Explicit review-only Backfacing to Transparent on both variants; Cycles material flag alone does not cull. Not serialized into GLB.",
+    "visual": "Matched whole/detail/reverse pixels inspected; no obvious deterioration, no visible improvement claim.",
+    "anatomy": "unvalidated; provider network identity unresolved",
+    "clinical": "unvalidated",
+    "browserRuntime": "unverified",
+    "actualDataNegativeControls": 7,
+    "offlineUnitTestsAdded": 15,
+    "byteExactReplay": true,
+    "buildCost": {
+      "wallSeconds": 2.7261253949982347,
+      "childPeakRSSKiB": 169780,
+      "exitCode": 0,
+      "scope": "One independent deterministic rebuild, shared host; no viewer performance benchmark. Python stdlib timing used because /usr/bin/time is absent.",
+      "sha256": "5f887b4978d4b1c2edb3d80dee43a5a7d84f7b518849407622ccabb6e32a81be",
+      "byteExactReplay": true
+    },
+    "failedAttemptsPreserved": [
+      "full split with original 0.05-degree target",
+      "minimal split: nonunit and zero imported normals",
+      "power-of-two local scale: normal validity still fails",
+      "earlier incorrect repair-count receipt",
+      "nonminimal coincident-normal diagnostic matching"
+    ],
+    "evidence": [
+      {
+        "localEvidenceName": "display-repair-20261027/full-final-check/repair-verification.json",
+        "sha256": "e7d482f8a252b2c04a029dcbc4996f308faa4ab3234b126ea110e7e08f5b2f89",
+        "bytes": 9421,
+        "delivery": "not_in_repository"
+      },
+      {
+        "localEvidenceName": "display-repair-20261027/full-final-review/repair-verification.json",
+        "sha256": "b8eb5e14f2f074a5a1f2eb75cf9228d59174966e4f5cc499b7abbfe4ca8eb57b",
+        "bytes": 13459,
+        "delivery": "not_in_repository"
+      },
+      {
+        "localEvidenceName": "display-repair-20261027/full-final-review/baseline-renders/oblique.png",
+        "sha256": "66ad7fdbe48b198d5924b666cd02ac295b4954e87180aa0ff48f0ed1ac4908fe",
+        "bytes": 986522,
+        "delivery": "not_in_repository"
+      },
+      {
+        "localEvidenceName": "display-repair-20261027/full-final-review/baseline-renders/detail.png",
+        "sha256": "b7ce36a21b1718282ae3523a6d69fcf2015b9d048a12f2217145afde9a140f29",
+        "bytes": 1551850,
+        "delivery": "not_in_repository"
+      },
+      {
+        "localEvidenceName": "display-repair-20261027/full-final-review/baseline-renders/reverse.png",
+        "sha256": "2c9053cf7cd3f3e58d8a7fbdc96571e03749edc7c8861edb4f61aaa6646cdae9",
+        "bytes": 920302,
+        "delivery": "not_in_repository"
+      },
+      {
+        "localEvidenceName": "display-repair-20261027/full-final-review/candidate-renders/oblique.png",
+        "sha256": "6dfc286f7c20c8cdb2f0d6f570af8e240116f03158f609297e8f1480564aa22c",
+        "bytes": 986347,
+        "delivery": "not_in_repository"
+      },
+      {
+        "localEvidenceName": "display-repair-20261027/full-final-review/candidate-renders/detail.png",
+        "sha256": "4af29680128a8ad4cb319837feb325f76fd117c025e51f998910c276fe19d0c2",
+        "bytes": 1551574,
+        "delivery": "not_in_repository"
+      },
+      {
+        "localEvidenceName": "display-repair-20261027/full-final-review/candidate-renders/reverse.png",
+        "sha256": "8b5325cd0861e5c476a2ce78c12a87aaa0d3143facd8ea1cc952c01510158e07",
+        "bytes": 920470,
+        "delivery": "not_in_repository"
+      }
+    ],
+    "disposition": "No canonical change. Retain compact and split candidates; full-split fixes Blender normal validity but its payload/vertex cost has no demonstrated intended-view benefit. Supported viewer behavior and runtime cost remain untested.",
+    "role": "diagnostic full-split variant; not default or promoted",
+    "compactComparison": {
+      "retainedSha256": "882d146ce2b04547e1f45704a414d5d0a059fef7bff980fe7b932148be24314e",
+      "retainedBytes": 7614472,
+      "referencedVertices": 93453,
+      "importNonunitNormalCorners": 157,
+      "importZeroNormalCorners": 3,
+      "normalRawPolicyValid": true,
+      "colorsMaterialsAndFacingSemantics": "same as split; source ambiguity retained",
+      "actualMatchedImages": "final-review-v2 baseline-renders/candidate-renders; local, not in repository",
+      "currentRecipeOnlyExtrasDiffer": true
+    },
+    "splitReferencedVertices": 502101,
+    "sequentialBuildComparison": {
+      "runs": [
+        {
+          "wallSeconds": 1.3040819599991664,
+          "peakRSSKiB": 117772,
+          "strategy": "minimal",
+          "bytes": 7614568,
+          "sha256": "f89e989450e6f5f64a9d939d135ad0ec17c22e86eee6d9977d46dd68ca542f83"
+        },
+        {
+          "wallSeconds": 2.637499486998422,
+          "peakRSSKiB": 169028,
+          "strategy": "full",
+          "bytes": 22104552,
+          "sha256": "5f887b4978d4b1c2edb3d80dee43a5a7d84f7b518849407622ccabb6e32a81be"
+        }
+      ],
+      "scope": "Sequential single builds on same shared host; not runtime/download/GPU benchmarks."
+    },
+    "precisionTargetInterpretation": "Experimental 0.05-degree fidelity check remains failed; not a medical/repository acceptance requirement. Normal unit validity and actual culling behavior are separate substantive checks."
   }
 }

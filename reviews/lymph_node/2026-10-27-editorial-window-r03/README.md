@@ -16,6 +16,12 @@ of this proposal. The intact source remains the exterior reference.
 
 ## Local result
 
+The later [display comparison](DISPLAY-REPAIR.md) repairs invalid raw normals
+and verifies colors/culling. Full corner splitting fixes Blender normal validity
+at a substantial byte/vertex cost, with no observed visual benefit. Keep it as a
+diagnostic and make no canonical change; the original r03 results below remain
+unchanged.
+
 The [follow-up import review](IMPORT-REVIEW.md) distinguishes intact geometric
 support from lost winding and single-sided visibility. It preserves the original
 106-face failure, adds executable source-pair accounting and negative tests,
