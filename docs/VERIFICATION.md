@@ -91,9 +91,20 @@ hash and inspect the rendered pixels separately. Successful process exit alone
 does not certify the expected hash, anatomy, or browser runtime. The UFF source
 replay additionally requires its pinned public ZIP, which is not bundled here.
 Do not mass-edit historical recipes or their per-organ metadata to standardize
-fonts/dependencies. The 15 byte-identical `tests/scene_metadata/*/patch_metadata.py`
-copies are retained replay history; shared active behavior can be considered in
-a separately characterized change.
+fonts/dependencies.
+
+## Metadata-only replay
+
+`tools/patch_scene_metadata.py` owns the scene-extra patch behavior for the 15
+organ alternatives and L3. Each package keeps its original `approved-patch.json`
+and exact input/output hashes; its README gives the command with `--patch`.
+The old per-organ script copies have been removed. Their original implementations
+remain in Git history at `cb93598`.
+
+The tool checks source identity, permitted field operations and target identity
+before creating output, preserves all other GLB content and refuses an existing
+output file. Synthetic CLI tests run in offline CI; they do not certify model
+geometry, pixels or anatomy. Actual replay still needs the exact baseline bytes.
 
 ## CI and quality boundaries
 

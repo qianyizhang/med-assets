@@ -13,7 +13,7 @@ Corrected scene metadata for this existing baseline geometry; **0 new approved s
 From repository root, with the original baseline LFS file already fetched:
 
 ```sh
-python tests/scene_metadata/kidney_right/patch_metadata.py ORIGINAL_BASELINE.glb /tmp/kidney_right-metadata-replay.glb
+python tools/patch_scene_metadata.py --patch tests/scene_metadata/kidney_right/approved-patch.json ORIGINAL_BASELINE.glb /tmp/kidney_right-metadata-replay.glb
 python tests/review_records/validate_record.py reviews/kidney_right/2026-10-23-metadata-cleanup-r01/record.json
 ```
 

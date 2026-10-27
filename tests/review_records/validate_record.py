@@ -13,6 +13,7 @@ STATUSES = {'unreviewed', 'unverified', 'passed', 'pass-with-limitations',
 
 
 def reference(root, entry):
+    root = Path(root).resolve()
     name = entry.get('file', '')
     if not isinstance(name, str) or not name or '\\' in name:
         raise ValueError('Expected repository-relative POSIX file path')
