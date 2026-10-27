@@ -16,6 +16,11 @@ of this proposal. The intact source remains the exterior reference.
 
 ## Local result
 
+The [follow-up import review](IMPORT-REVIEW.md) distinguishes intact geometric
+support from lost winding and single-sided visibility. It preserves the original
+106-face failure, adds executable source-pair accounting and negative tests,
+and leaves the generated candidate unchanged.
+
 Matched intact/r02/r03 exports were rendered at whole, second-oblique, reverse
 and detail views using the same cameras, scale, source materials and lighting.
 Actual pixels were inspected. The green region and blue follicles are easier
@@ -48,6 +53,7 @@ kept unchanged.
 | Pinned GLB surfaces and deterministic replay | Passed within the declared clipping scope; actual negative controls reject corruptions. |
 | Visual usefulness | Pass with limitations for source-region inspection; tissue and vessel continuity are intentionally omitted. |
 | Direct GLB-to-Blender oriented preservation | **Failed:** Blender drops 18 medulla and 88 network opposite-winding duplicate faces inherited from the source. No unique unoriented surface was lost. |
+| Additional surface-support audit | Exact supports and unambiguous winding pass with individually source-traced exceptions; single-sided front-face support and exact normal preservation fail separately. No appearance-equivalence claim. |
 | Blender import → export → reimport | Exact oriented triangle multisets and coordinates match for all seven already-imported meshes. This narrower pass does not erase the preceding failure. |
 | Anatomy / clinical | No new acceptance; no histological identification, flow or patient-specific reconstruction. |
 | Browser runtime | Untested. Local Blender rendering is the demonstrated workflow. |

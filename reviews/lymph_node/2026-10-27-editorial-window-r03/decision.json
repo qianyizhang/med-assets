@@ -333,5 +333,29 @@
     "byteExactReplay": "passed",
     "negativeControls": 10,
     "scope": "Bundledcheck.py fromfreshoutput. Does not bundle originalfailedGLBs."
+  },
+  "importFollowup": {
+    "date": "2026-10-27",
+    "scope": "Additional exact surface-support diagnosis; original oriented-preservation failure remains failed. Candidate bytes unchanged.",
+    "sourceTracedReversedPairs": 106,
+    "otherCoincidentOccurrencesPreserved": 77,
+    "distinctTriangleSupports": 167184,
+    "surfaceSupportAndUnambiguousOrientation": "passed",
+    "fullOrientedPreservation": "failed",
+    "singleSidedFrontFaceSupport": "failed",
+    "exactNormalizedNormalPreservation": "failed",
+    "vertexColorPreservation": "unverified",
+    "appearanceEquivalence": "unverified",
+    "actualDataNegativeControls": 10,
+    "offlineUnitTestsAdded": 16,
+    "normalMultiplicityRegression": "A source normal tuple cannot be reused to certify two coincident occurrences; prior false pass preserved locally.",
+    "receipt": {
+      "localEvidenceName": "issue101-astra-20261027/final-audit-v3/surface-audit.json",
+      "sha256": "fa1671f37141ef83773d19541bf62356e0d36b1831009b578ce31646fb7deffc",
+      "bytes": 96400,
+      "delivery": "not_in_repository"
+    },
+    "preservedOriginalFailureReceiptSha256": "a6c79a8aee1c63171e685eb1c7c222bbce6930973b59cf247fc412936b0d70c3",
+    "disposition": "Retain local editorial inspection candidate; no single-sided viewer, anatomy, clinical or canonical acceptance."
   }
 }
