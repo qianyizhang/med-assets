@@ -1,0 +1,247 @@
+{
+  "priority": [
+    "anatomical/geometric validity",
+    "authentic useful appearance",
+    "practical performance",
+    "exact source fidelity"
+  ],
+  "scope": "one medical/dental refinement round; two geometry attempts; clinical and actual runtime gates unresolved",
+  "source_voxel_spacing_mm": 0.04,
+  "spacing_provenance": {
+    "space": "left-posterior-superior",
+    "space_directions_mm": [
+      [
+        0.04,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.04,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.04
+      ]
+    ],
+    "space_origin_mm": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "axis_spacings_mm": [
+      0.04,
+      0.04,
+      0.04
+    ],
+    "isotropic": true
+  },
+  "nrrd_sha256": "f4eda9fe91b60d78ece366d6f32532862775a1725c664067da5a20aae3c142fe",
+  "initial_review_threshold_mm": 0.02,
+  "threshold_not_universal_or_automatic_veto": true,
+  "inherited_coincident_triangle_excess": {
+    "enamel": 2,
+    "dentin": 0,
+    "pulp": 0,
+    "bone": 22
+  },
+  "variants": [
+    {
+      "variant": "master",
+      "bytes": 51333280,
+      "faces": 2569422,
+      "sha256": "e1c8ba1d1dc8ddea4014112dc1887e4d882fbc9acb5c8c9aa029522288b4e985",
+      "actual_interactive_runtime": "not_measured",
+      "clinical_anatomical_approval": false,
+      "sampled_reference_deviation": {
+        "reference_definition": "0 relative to itself; not anatomical accuracy"
+      }
+    },
+    {
+      "variant": "r03_failed_interface",
+      "bytes": 13239300,
+      "faces": 664678,
+      "sha256": "23e59040c6c2497ef864cf229d90dbd9e347489f1c9f4a8860bd48422cc2ec21",
+      "actual_interactive_runtime": "not_measured",
+      "clinical_anatomical_approval": false,
+      "sampled_reference_deviation": {
+        "enamel": {
+          "max_sampled_target_point_upper_mm": 0.02683294716010138,
+          "in_source_voxels": 0.6708236790025345,
+          "max_naive_crosscheck_disagreement_mm": 0.0,
+          "both_directions_sampled": true,
+          "global_certificate": false
+        },
+        "dentin": {
+          "max_sampled_target_point_upper_mm": 0.028283498802532087,
+          "in_source_voxels": 0.7070874700633022,
+          "max_naive_crosscheck_disagreement_mm": 1.734723475976807e-18,
+          "both_directions_sampled": true,
+          "global_certificate": false
+        },
+        "pulp": {
+          "max_sampled_target_point_upper_mm": 1.1851529150115363e-06,
+          "in_source_voxels": 2.9628822875288405e-05,
+          "max_naive_crosscheck_disagreement_mm": 3.3550149183619263e-15,
+          "both_directions_sampled": true,
+          "global_certificate": false
+        },
+        "bone": {
+          "max_sampled_target_point_upper_mm": 0.05059615045439872,
+          "in_source_voxels": 1.264903761359968,
+          "max_naive_crosscheck_disagreement_mm": 2.050443148604586e-15,
+          "both_directions_sampled": true,
+          "global_certificate": false
+        }
+      },
+      "max_sampled_reference_deviation_mm": 0.05059615045439872,
+      "max_sampled_reference_deviation_source_voxels": 1.264903761359968
+    },
+    {
+      "variant": "existing_interface_locked",
+      "bytes": 26524356,
+      "faces": 1328980,
+      "sha256": "c0884a6bcc8fc6175dd97a99f50e53334024b4eb5e033063c7602358f6da1014",
+      "actual_interactive_runtime": "not_measured",
+      "clinical_anatomical_approval": false,
+      "sampled_reference_deviation": {
+        "enamel": {
+          "max_sampled_target_point_upper_mm": 0.028283992708039194,
+          "in_source_voxels": 0.7070998177009798,
+          "max_naive_crosscheck_disagreement_mm": 0.0,
+          "both_directions_sampled": true,
+          "global_certificate": false
+        },
+        "dentin": {
+          "max_sampled_target_point_upper_mm": 0.02138100882009375,
+          "in_source_voxels": 0.5345252205023437,
+          "max_naive_crosscheck_disagreement_mm": 0.0,
+          "both_directions_sampled": true,
+          "global_certificate": false
+        },
+        "pulp": {
+          "max_sampled_target_point_upper_mm": 7.993605777301127e-15,
+          "in_source_voxels": 1.9984014443252818e-13,
+          "max_naive_crosscheck_disagreement_mm": 4.440892098500626e-15,
+          "both_directions_sampled": true,
+          "global_certificate": false
+        },
+        "bone": {
+          "max_sampled_target_point_upper_mm": 0.05059615045439872,
+          "in_source_voxels": 1.264903761359968,
+          "max_naive_crosscheck_disagreement_mm": 0.0,
+          "both_directions_sampled": true,
+          "global_certificate": false
+        }
+      },
+      "max_sampled_reference_deviation_mm": 0.05059615045439872,
+      "max_sampled_reference_deviation_source_voxels": 1.264903761359968
+    },
+    {
+      "variant": "attempt-0.1",
+      "bytes": 21562592,
+      "faces": 1080892,
+      "sha256": "6c15e3b63761ee71d38e0c83293d948e67bc422bdfc5672091d6d3f7b2e6b160",
+      "actual_interactive_runtime": "not_measured",
+      "clinical_anatomical_approval": false,
+      "build_resources": {
+        "ratio": 0.1,
+        "exit_code": 0,
+        "elapsed_seconds": 341.578317528998,
+        "peak_child_RSS_KiB": 2052868,
+        "user_cpu_seconds": 297.520426,
+        "system_cpu_seconds": 35.344081,
+        "scope": "builder process including source loading, collar classification, decimation, source-exclusion certificate and export; not interactive runtime"
+      },
+      "sampled_reference_deviation": {
+        "enamel": {
+          "max_sampled_target_point_upper_mm": 0.07999967783689499,
+          "in_source_voxels": 1.9999919459223747,
+          "max_naive_crosscheck_disagreement_mm": 0.0,
+          "both_directions_sampled": true,
+          "global_certificate": false
+        },
+        "dentin": {
+          "max_sampled_target_point_upper_mm": 0.0400003045797348,
+          "in_source_voxels": 1.00000761449337,
+          "max_naive_crosscheck_disagreement_mm": 0.0,
+          "both_directions_sampled": true,
+          "global_certificate": false
+        },
+        "pulp": {
+          "max_sampled_target_point_upper_mm": 7.993605777301127e-15,
+          "in_source_voxels": 1.9984014443252818e-13,
+          "max_naive_crosscheck_disagreement_mm": 4.440892098500626e-15,
+          "both_directions_sampled": true,
+          "global_certificate": false
+        },
+        "bone": {
+          "max_sampled_target_point_upper_mm": 0.09843218837409944,
+          "in_source_voxels": 2.4608047093524856,
+          "max_naive_crosscheck_disagreement_mm": 0.0,
+          "both_directions_sampled": true,
+          "global_certificate": false
+        }
+      },
+      "max_sampled_reference_deviation_mm": 0.09843218837409944,
+      "max_sampled_reference_deviation_source_voxels": 2.4608047093524856,
+      "all_technical_gates_pass": true,
+      "all_boundary_supports_preserved": true,
+      "all_no_new_orientation_independent_duplicates": true
+    },
+    {
+      "variant": "attempt-0.05",
+      "bytes": 19908672,
+      "faces": 998198,
+      "sha256": "0475962973890924bc4a7daae05d38844bf6e6f63205a72b2d974b27d3b0bf1d",
+      "actual_interactive_runtime": "not_measured",
+      "clinical_anatomical_approval": false,
+      "build_resources": {
+        "ratio": 0.05,
+        "exit_code": 0,
+        "elapsed_seconds": 603.4517093919858,
+        "peak_child_RSS_KiB": 2036356,
+        "user_cpu_seconds": 525.778455,
+        "system_cpu_seconds": 61.283749,
+        "scope": "builder process including source loading, collar classification, decimation, source-exclusion certificate and export; not interactive runtime"
+      },
+      "sampled_reference_deviation": {
+        "enamel": {
+          "max_sampled_target_point_upper_mm": 0.0800001434981823,
+          "in_source_voxels": 2.0000035874545574,
+          "max_naive_crosscheck_disagreement_mm": 0.0,
+          "both_directions_sampled": true,
+          "global_certificate": false
+        },
+        "dentin": {
+          "max_sampled_target_point_upper_mm": 0.0626615263401346,
+          "in_source_voxels": 1.5665381585033649,
+          "max_naive_crosscheck_disagreement_mm": 0.0,
+          "both_directions_sampled": true,
+          "global_certificate": false
+        },
+        "pulp": {
+          "max_sampled_target_point_upper_mm": 7.993605777301127e-15,
+          "in_source_voxels": 1.9984014443252818e-13,
+          "max_naive_crosscheck_disagreement_mm": 4.440892098500626e-15,
+          "both_directions_sampled": true,
+          "global_certificate": false
+        },
+        "bone": {
+          "max_sampled_target_point_upper_mm": 0.2180723390728872,
+          "in_source_voxels": 5.45180847682218,
+          "max_naive_crosscheck_disagreement_mm": 1.4432899320127035e-15,
+          "both_directions_sampled": true,
+          "global_certificate": false
+        }
+      },
+      "max_sampled_reference_deviation_mm": 0.2180723390728872,
+      "max_sampled_reference_deviation_source_voxels": 5.45180847682218,
+      "all_technical_gates_pass": true,
+      "all_boundary_supports_preserved": true,
+      "all_no_new_orientation_independent_duplicates": true
+    }
+  ]
+}
