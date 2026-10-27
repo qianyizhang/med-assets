@@ -12,7 +12,7 @@ STATUSES = {'unreviewed', 'unverified', 'passed', 'pass-with-limitations',
             'not-applicable'}
 
 
-def payload(root, entry):
+def reference(root, entry):
     name = entry.get('file', '')
     if not isinstance(name, str) or not name or '\\' in name:
         raise ValueError('Expected repository-relative POSIX file path')
@@ -25,16 +25,21 @@ def payload(root, entry):
     digest = entry.get('sha256', '')
     if not isinstance(digest, str) or not re.fullmatch(r'[0-9a-f]{64}', digest):
         raise ValueError('Expected lowercase SHA-256')
+    return path, digest
+
+
+def payload(root, entry):
+    path, digest = reference(root, entry)
     data = path.read_bytes()
     if data.startswith(b'version https://git-lfs.github.com/spec/v1\n'):
         raise ValueError('Unresolved LFS pointer; fetch actual payload first')
     if hashlib.sha256(data).hexdigest() != digest:
-        raise ValueError('Payload SHA-256 mismatch: ' + name)
+        raise ValueError('Payload SHA-256 mismatch: ' + entry['file'])
     return digest
 
 
-def validate(record, root):
-    root = Path(root).resolve()
+def validate_structure(record, resolve_payload):
+    """Check the foundation family with an explicit reference-checking boundary."""
     if record.get('schemaVersion') != 1:
         raise ValueError('Unsupported schemaVersion')
     for key in ('id', 'assetId', 'variantId', 'reviewedAt'):
@@ -42,7 +47,7 @@ def validate(record, root):
             raise ValueError('Missing text field: ' + key)
     if datetime.fromisoformat(record['reviewedAt'].replace('Z', '+00:00')).tzinfo is None:
         raise ValueError('reviewedAt requires timezone')
-    digest = payload(root, record['artifact'])
+    digest = resolve_payload(record['artifact'])
     for name in ('technical', 'visual', 'anatomy', 'runtime'):
         gate = record['gates'][name]
         if gate.get('status') not in STATUSES or not isinstance(gate.get('scope'), str) or not gate['scope'].strip():
@@ -51,7 +56,7 @@ def validate(record, root):
     if not isinstance(evidence, list) or not evidence:
         raise ValueError('At least one bound evidence item required')
     for item in evidence:
-        payload(root, item)
+        resolve_payload(item)
         if item.get('artifactSha256') != digest or not isinstance(item.get('kind'), str) or not item['kind'].strip():
             raise ValueError('Evidence kind/binding mismatch')
     for key in ('failure', 'cause', 'fix', 'retest', 'lesson'):
@@ -60,6 +65,11 @@ def validate(record, root):
     limits = record.get('limitations')
     if not isinstance(limits, list) or not limits or not all(isinstance(x, str) and x.strip() for x in limits):
         raise ValueError('Explicit limitations required')
+
+
+def validate(record, root):
+    root = Path(root).resolve()
+    validate_structure(record, lambda entry: payload(root, entry))
     return {'result': 'passed', 'scope': 'Local contract/hash checks only; not visual, anatomy, remote LFS or runtime certification.'}
 
 

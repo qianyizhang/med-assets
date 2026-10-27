@@ -1,8 +1,11 @@
 # Asset and review layout
 
-This is an additive foundation, not a completed migration. Existing `heart/`,
-`body/`, `metadata/`, checksums and Git LFS links remain authoritative and unchanged.
-No new model or screenshot payload is included in this change.
+This layout began as an additive foundation, not a completed migration. That
+foundation left the existing `heart/`, `body/`, `metadata/`, import checksums and
+Git LFS links unchanged and added no model or screenshot payload. Subsequent
+reviewed batches can change current assets. Historical `SHA256SUMS` remains the
+2026-10-22 import snapshot; use the [current verification commands](VERIFICATION.md)
+to check today's checkout and its documented import-file updates.
 
 ## Target homes for subsequent reviewed batches
 
