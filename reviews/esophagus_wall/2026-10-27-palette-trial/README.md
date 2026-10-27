@@ -40,6 +40,8 @@ The closest adjacent median display-luma gap in eroded transverse regions rose f
 
 Local retained evidence: `oblique-comparison.png` SHA-256 `470c29af2cde1dc0476b7ccff778014762f34d6501468b29d3a74719a12f0da5`; `cross-section-comparison.png` `9c72140ad567105298347c4bdb58365231b1493c7475be54dfcafb5f78c2561b`; grayscale `72368e51985346e760beafb9c60983215b5617c24a6fe379e02c99c66bf4e321`. The bilingual sheets and comparison images are retained in the local trial workspace; remote image delivery has not succeeded, so independent hosted pixel review is still pending.
 
+I also inspected a matched native-pixel crop of the upper-right transverse bands, using the same `(520, 170, 900, 610)` source-pixel rectangle in both 1000 × 1100 renders. The local labeled comparison has SHA-256 `52b7884edd8ceb9559f518337f28b01331590329fb46803b65dcc0928ff83be5`; no interpolation or geometry edit was applied to either cropped panel.
+
 Fresh candidate-pixel bilingual sheet SHA-256 values: English `88de3df3f84a07edce69badfd04743313c4f3ae21351e9a2fecf7a035a8a3481`; Chinese `6379e27ac0b0622ab00da323088bfae37f7d29e0b1ad45b7cada2a499e96c63c`. They use the existing label-sheet scripts unchanged and are local review drafts.
 
 ## Gates and next decision
