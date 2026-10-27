@@ -4,6 +4,51 @@ This small contract supports later organ-sized imports. It is not a claim that t
 full collection has already been migrated or passed. No catalog is introduced by
 this foundation. Existing package records stay unchanged.
 
+## Format selection
+
+`schemaVersion: 1` is local to a record family; it does not declare every JSON
+document to be foundation v1. Choose a validator by the package and record's
+purpose, not by that number alone.
+
+| Family | Validator and scope |
+|---|---|
+| Foundation v1 `record.json` in the 2026-10-23 metadata-cleanup and HRA runs | `tests/review_records/validate_record.py`; the 25 existing records are selected explicitly by `FOUNDATION_PATTERNS` in `tools/verify.py`. Offline mode checks shape and text/pointer references; payload-integrity mode checks actual bytes. |
+| Bounded migration receipts, including adrenal `bounded-record.json` | Existing package validators, for example `tests/bp3d_glands/verify_bounded_receipt.py`. Identity and migration assertions are package-specific; missing foundation-only fields do not alone invalidate these receipts. The 11 selected package checks are listed in `PAYLOAD_CHECKS`. |
+| Scoped decisions, including salivary `decision.json` | Package README, provenance and its own geometry/failure checks. Salivary verification needs Blender and the pinned source scene; it is not covered by foundation validation. |
+| Accounting and runtime receipts | Their own checks in `tests/review_accounting/` and `tests/runtime_receipts/`; no new runtime or clinical approval from a metadata pass. |
+
+Other record families are outside the foundation gate. When extending coverage,
+add an explicit family selection and its tests; do not rewrite immutable records
+or apply foundation fields mechanically. The fixed selector covers those 25
+historical paths; new foundation runs need explicit coverage. See [verification
+scope](VERIFICATION.md) for what each command actually runs.
+
+## Medical and dental asset quality ground rules
+
+Apply these rules to each medical or dental asset and revision, within its intended use:
+
+- **Prioritize validity and usefulness.** Gate domain-appropriate anatomical and
+  geometric validity and technical correctness. Then judge authentic, useful
+  appearance and practical performance; exact source fidelity is a lower priority.
+  Medical authenticity includes tissue relationships, not just realistic appearance.
+- **Use sources critically.** A source is evidence, not ground truth. Measure and
+  document deviations and label inferred reconstruction; source differences alone
+  do not reject a valid, evidence-supported improvement. Flag source–anatomy conflicts
+  and record the evidence and decision. Preserve untouched references and provenance.
+- **Set and report scope.** Derive tolerances from source resolution and intended use;
+  state the rationale and whether checks are sampled or exhaustive. Keep candidates,
+  failures and approved revisions distinct; retain earlier evidence and decisions.
+  Exact source pixels or triangle identity are not universal gates.
+- **Review actual output.** Inspect matched context and detail-zoom exports. Measure
+  bytes, triangles and build cost separately from performance in the intended runtime.
+  Integrity, render and documentation checks do not establish anatomy, clinical
+  validity or browser runtime.
+- **Optimize with evidence.** Desktop is the primary target. Efficiency targets are
+  soft unless a concrete use case justifies a hard limit. Before simplifying geometry,
+  demonstrate the benefit and assess the resulting quality cost.
+
+## Foundation fields
+
 Each new record contains:
 
 - `schemaVersion: 1`, immutable `id`, `assetId`, `variantId`, and ISO8601 `reviewedAt`.

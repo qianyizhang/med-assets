@@ -1,0 +1,233 @@
+[
+  {
+    "old_r03_witness": {
+      "source": "A_1_31_T2_SEG_na.nrrd",
+      "surface": "Enamel",
+      "other_label": "Dentin",
+      "point_type": "triangle_centroid",
+      "index": 49743,
+      "point_mm": [
+        4.880000061045091,
+        9.153333182136217,
+        6.160000028709571
+      ],
+      "voxel_coordinate": [
+        122.00000152612726,
+        228.83332955340543,
+        154.00000071773928
+      ],
+      "trilinear_other_occupancy": 1.0,
+      "8_corner_label_values": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "own_master_surface_distance_mm": 0.01539606466542268,
+      "own_master_surface_distance_mm_in_source_voxels": 0.384901616635567,
+      "other_master_surface_distance_mm": 0.015396064665423191,
+      "other_master_surface_distance_mm_in_source_voxels": 0.38490161663557976
+    },
+    "interpretation": "Old witness is not a candidate surface vertex or sample. Distances demonstrate candidate withdrawal/proximity at that historical location only; not a global displacement, overlap, or clinical certificate.",
+    "surfaces": [
+      {
+        "role": "own",
+        "tissue": "Enamel",
+        "candidate_ply_sha256": "0935717d0898373587bae6108c7f2f7fa3a087aca9648e773b580f19151b4b4b",
+        "distance_computation_units": "mm; original float32 metre mesh retained separately for exact triangle key",
+        "old_point_to_candidate_distance_mm": 0.01539606466542268,
+        "candidate_closest_point_mm": [
+          4.871111069979458,
+          9.162221966240473,
+          6.151111037643938
+        ],
+        "candidate_closest_face_index": 124197,
+        "closest_triangle_exact_oriented_master_member": true,
+        "closest_point_source_trilinear_occupancy": {
+          "Enamel": 0.4286676347255707,
+          "Dentin": 0.5713323354721069,
+          "Pulp": 0.0,
+          "Bone": 0.0
+        }
+      },
+      {
+        "role": "foreign",
+        "tissue": "Dentin",
+        "candidate_ply_sha256": "d2c8e4b9d30b2bf2160d4534c1b84a958c1216548d72284f67e4877a42786bea",
+        "distance_computation_units": "mm; original float32 metre mesh retained separately for exact triangle key",
+        "old_point_to_candidate_distance_mm": 0.015396064665423191,
+        "candidate_closest_point_mm": [
+          4.871111069979458,
+          9.162221966240475,
+          6.151111037643939
+        ],
+        "candidate_closest_face_index": 107766,
+        "closest_triangle_exact_oriented_master_member": true,
+        "closest_point_source_trilinear_occupancy": {
+          "Enamel": 0.4286676347255707,
+          "Dentin": 0.5713323354721069,
+          "Pulp": 0.0,
+          "Bone": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "old_r03_witness": {
+      "source": "A_1_31_T2_SEG_na.nrrd",
+      "surface": "Dentin",
+      "other_label": "Pulp",
+      "point_type": "triangle_centroid",
+      "index": 68017,
+      "point_mm": [
+        6.200000022848447,
+        7.086666766554117,
+        12.679999694228172
+      ],
+      "voxel_coordinate": [
+        155.00000057121116,
+        177.16666916385293,
+        316.9999923557043
+      ],
+      "trilinear_other_occupancy": 0.999991774559021,
+      "8_corner_label_values": [
+        2,
+        4,
+        2,
+        4,
+        2,
+        2,
+        2,
+        2
+      ],
+      "own_master_surface_distance_mm": 0.014142133551510689,
+      "own_master_surface_distance_mm_in_source_voxels": 0.35355333878776724,
+      "other_master_surface_distance_mm": 0.014142133551510689,
+      "other_master_surface_distance_mm_in_source_voxels": 0.35355333878776724
+    },
+    "interpretation": "Old witness is not a candidate surface vertex or sample. Distances demonstrate candidate withdrawal/proximity at that historical location only; not a global displacement, overlap, or clinical certificate.",
+    "surfaces": [
+      {
+        "role": "own",
+        "tissue": "Dentin",
+        "candidate_ply_sha256": "d2c8e4b9d30b2bf2160d4534c1b84a958c1216548d72284f67e4877a42786bea",
+        "distance_computation_units": "mm; original float32 metre mesh retained separately for exact triangle key",
+        "old_point_to_candidate_distance_mm": 0.014142133551510689,
+        "candidate_closest_point_mm": [
+          6.190000024313727,
+          7.086666766554117,
+          12.669999695693454
+        ],
+        "candidate_closest_face_index": 193179,
+        "closest_triangle_exact_oriented_master_member": true,
+        "closest_point_source_trilinear_occupancy": {
+          "Enamel": 0.0,
+          "Dentin": 0.39583805203437805,
+          "Pulp": 0.6041619181632996,
+          "Bone": 0.0
+        }
+      },
+      {
+        "role": "foreign",
+        "tissue": "Pulp",
+        "candidate_ply_sha256": "ffa544da258a4a25b2500cd34c0da24324789b0126af647896eec4f87fa0294e",
+        "distance_computation_units": "mm; original float32 metre mesh retained separately for exact triangle key",
+        "old_point_to_candidate_distance_mm": 0.014142133551510689,
+        "candidate_closest_point_mm": [
+          6.190000024313727,
+          7.086666766554117,
+          12.669999695693454
+        ],
+        "candidate_closest_face_index": 3077,
+        "closest_triangle_exact_oriented_master_member": true,
+        "closest_point_source_trilinear_occupancy": {
+          "Enamel": 0.0,
+          "Dentin": 0.39583805203437805,
+          "Pulp": 0.6041619181632996,
+          "Bone": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "old_r03_witness": {
+      "source": "A_1_31_T2_SEG_na.nrrd",
+      "surface": "Bone",
+      "other_label": "Dentin",
+      "point_type": "triangle_centroid",
+      "index": 147522,
+      "point_mm": [
+        8.633333258330822,
+        8.04000006367763,
+        17.839999869465828
+      ],
+      "voxel_coordinate": [
+        215.83333145827055,
+        201.00000159194073,
+        445.9999967366457
+      ],
+      "trilinear_other_occupancy": 0.9999959468841553,
+      "8_corner_label_values": [
+        2,
+        2,
+        3,
+        2,
+        3,
+        2,
+        3,
+        3
+      ],
+      "own_master_surface_distance_mm": 0.015395526961909132,
+      "own_master_surface_distance_mm_in_source_voxels": 0.3848881740477283,
+      "other_master_surface_distance_mm": 0.015395526961909132,
+      "other_master_surface_distance_mm_in_source_voxels": 0.3848881740477283
+    },
+    "interpretation": "Old witness is not a candidate surface vertex or sample. Distances demonstrate candidate withdrawal/proximity at that historical location only; not a global displacement, overlap, or clinical certificate.",
+    "surfaces": [
+      {
+        "role": "own",
+        "tissue": "Bone",
+        "candidate_ply_sha256": "57c71a95fa39614942dc059b0438aa6d5177bb2997e1de99f0a66f4d0a6954c5",
+        "distance_computation_units": "mm; original float32 metre mesh retained separately for exact triangle key",
+        "old_point_to_candidate_distance_mm": 0.015395526961909132,
+        "candidate_closest_point_mm": [
+          8.64222173199181,
+          8.04888853733862,
+          17.83111098188691
+        ],
+        "candidate_closest_face_index": 280091,
+        "closest_triangle_exact_oriented_master_member": true,
+        "closest_point_source_trilinear_occupancy": {
+          "Enamel": 0.0,
+          "Dentin": 0.5713421106338501,
+          "Pulp": 0.0,
+          "Bone": 0.4286579191684723
+        }
+      },
+      {
+        "role": "foreign",
+        "tissue": "Dentin",
+        "candidate_ply_sha256": "d2c8e4b9d30b2bf2160d4534c1b84a958c1216548d72284f67e4877a42786bea",
+        "distance_computation_units": "mm; original float32 metre mesh retained separately for exact triangle key",
+        "old_point_to_candidate_distance_mm": 0.015395526961909132,
+        "candidate_closest_point_mm": [
+          8.642221731991812,
+          8.048888537338618,
+          17.83111098188691
+        ],
+        "candidate_closest_face_index": 364405,
+        "closest_triangle_exact_oriented_master_member": true,
+        "closest_point_source_trilinear_occupancy": {
+          "Enamel": 0.0,
+          "Dentin": 0.5713421106338501,
+          "Pulp": 0.0,
+          "Bone": 0.4286579191684723
+        }
+      }
+    ]
+  }
+]

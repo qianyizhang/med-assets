@@ -70,4 +70,6 @@ An optional manual `workflow_dispatch` accepts only that manifest SHA and only r
 
 The first approved manifest-only merge completed successfully on 2026-10-24: [diaphragm transport run](https://github.com/qianyizhang/med-assets/actions/runs/40079101938/job/120828718881). All 10 objects / 6,620,120 bytes passed source verification, missing-only upload, runner readback and separate fresh GitHub download at 08:44:17 UTC. This establishes that bounded run only, not future source availability, billing headroom or anatomy/runtime acceptance. Offline tests remain distinct from live transfer evidence.
 
-Historical executor provenance is retained as inert recipes and restoration evidence under `maintenance/archive/completed-branches/2026-10-24/`; this implementation has no dependency on deleted pilot branch refs.
+Historical executor provenance is retained in the recovery bundle and restoration
+evidence under `maintenance/archive/completed-branches/2026-10-24/`; this
+implementation has no dependency on deleted pilot branch refs or extracted copies.

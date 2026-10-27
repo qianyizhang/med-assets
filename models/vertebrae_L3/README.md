@@ -11,7 +11,7 @@
 ## Replay from repository root
 
 ```sh
-python tests/vertebrae_L3_metadata/patch_metadata.py body/anatomy-workshop-r1/meshes/vertebrae_L3.glb /tmp/L3-metadata-replay.glb
+python tools/patch_scene_metadata.py --patch tests/vertebrae_L3_metadata/approved-patch.json body/anatomy-workshop-r1/meshes/vertebrae_L3.glb /tmp/L3-metadata-replay.glb
 python tests/review_records/validate_record.py reviews/vertebrae_L3/2026-10-23-metadata-cleanup-r01/record.json
 ```
 

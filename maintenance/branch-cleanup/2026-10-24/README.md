@@ -11,8 +11,9 @@ Scope: remove 22 redundant remote branch names, not commits, models or LFS objec
 - Atomic push uses an explicit expected-SHA lease per branch; a moved head aborts the batch.
 - Local synthetic Git test confirmed that moving 1 of 2 branches preserves both during atomic deletion.
 - No repository settings, local worktrees, LFS objects or commit history are removed.
-- 21 unmerged pilot/feasibility branches contain unique workflow or script content and remain intact.
-- Active glands transport and asset branches are explicitly excluded.
+- At this cleanup stage, 21 unmerged pilot/feasibility branches and active glands
+  branches were excluded. The later [completed-branch archive](../../archive/completed-branches/2026-10-24/README.md)
+  preserves the subsequently retired pilot heads; this is not a current branch inventory.
 
 ## Restore a removed branch
 

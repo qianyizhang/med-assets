@@ -4,7 +4,7 @@ import hashlib
 from pathlib import Path
 import tempfile
 import unittest
-from validate_record import validate
+from validate_record import reference, validate
 
 class RecordTests(unittest.TestCase):
     def setUp(self):
@@ -60,5 +60,24 @@ class RecordTests(unittest.TestCase):
     def test_timezone_required(self):
         self.record['reviewedAt'] = '2026-10-23T00:00:00'
         with self.assertRaises(ValueError): validate(self.record, self.root)
+
+    def test_symlink_root_accepts_internal_reference(self):
+        with tempfile.TemporaryDirectory() as other:
+            alias = Path(other) / 'root'
+            alias.symlink_to(self.root.resolve(), target_is_directory=True)
+            path, digest = reference(alias, self.record['artifact'])
+            self.assertEqual(path, (self.root / 'artifact.txt').resolve())
+            self.assertEqual(digest, self.record['artifact']['sha256'])
+
+    def test_symlink_root_still_rejects_escape(self):
+        with tempfile.TemporaryDirectory() as other:
+            alias = Path(other) / 'root'
+            alias.symlink_to(self.root.resolve(), target_is_directory=True)
+            outside = Path(other) / 'outside.txt'
+            outside.write_bytes(b'outside')
+            (self.root / 'escape.txt').symlink_to(outside.resolve())
+            entry = {'file': 'escape.txt', 'sha256': hashlib.sha256(b'outside').hexdigest()}
+            with self.assertRaisesRegex(ValueError, 'escapes repository'):
+                reference(alias, entry)
 
 if __name__ == '__main__': unittest.main()

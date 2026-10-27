@@ -14,8 +14,13 @@ git lfs install
 git clone https://github.com/qianyizhang/med-assets.git
 cd med-assets
 git lfs pull
-shasum -a 256 -c SHA256SUMS
+python3 tools/verify.py payload-integrity
 ```
+
+Verification requires Python 3.11+ and Git. For a checkout without downloaded
+media, run `python3 tools/verify.py offline`; its success verifies text and
+pointer metadata, **not media bytes**. See [verification modes and prerequisites](docs/VERIFICATION.md)
+for dental tests, package checks and separate authoring replays.
 
 ## Collections
 
@@ -36,20 +41,27 @@ record for its status, evidence and limits.
 | `body/anatomy-workshop-r1/` | Eighteen grouped static 3D assets, Blender source, texture maps, original meshes, rebuild scripts, and provenance. |
 | `body/2d-v4/whole-body-anatomy-v4-spatial/` | SVG anatomy parts, variants, overlays, regional views, previews, coordinate mappings, and provenance. |
 
-The collection contains all 17 requested source bundles: four priority animation
+The 2026-10-22 import snapshot contains all 17 requested source bundles: four priority animation
 bundles from Library and the earlier 13 original archives from Drive. The 13
-Drive ZIPs match the original SHA-256 checksum list. There are **591 extracted
+Drive ZIPs match the original SHA-256 checksum list. That snapshot has **591 extracted
 asset files totaling 370,698,859 bytes**. One hundred repeated, byte-identical
 archive entries were merged. No assets were regenerated or edited during import.
 
 Source ZIPs are not duplicated in Git LFS alongside the extracted files.
 `metadata/asset-manifest.json` records all archive and member hashes and the exact
-extraction paths. `SHA256SUMS` covers every imported asset file.
+extraction paths. `SHA256SUMS` preserves the original hashes of those 591 files;
+it is not a current-checkout checksum list. Later edits to `head.svg` and
+`regions/abdomen.svg` are recorded in
+[`metadata/current-import-overrides.json`](metadata/current-import-overrides.json).
+The verification command applies those explicit updates without changing the
+historical snapshot, and checks current LFS bytes against their tracked pointers.
 `metadata/earlier-README.md`, `metadata/earlier-SHA256SUMS.txt`, and
 `metadata/earlier-collection.json` retain the original earlier-collection index,
 archive checksums, and completed import status.
 
 ## Editing and reuse
+
+For issue, pull request, and review workflow, see [Contributing](CONTRIBUTING.md).
 
 GLBs are self-contained. Preserve the Anatomy Workshop texture paths and the
 sibling `body-3d-assets`, `body-3d-source`, and `body-3d-delivery` directories.
