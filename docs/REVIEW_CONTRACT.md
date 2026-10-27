@@ -86,3 +86,28 @@ Only public-source research and authorized asset evidence belong in public
 records. Exclude credentials, signed/private endpoints, conversation links and
 personal or internal absolute paths. Keep source licensing per package; no
 repository-wide license is inferred.
+
+## Comparing asset variants
+
+When a change needs visual review:
+
+- Bind the source, baseline, candidate exports and evidence images to their
+  hashes. To claim unchanged geometry, hash the relevant mesh data and compare
+  geometry metadata and transforms; if reordering or compression changes the
+  bytes, record a reproducible decoded comparison and its tolerances. A whole
+  GLB hash alone cannot establish geometry identity after a material edit.
+- Compare clean reimports of the actual exports using matching camera position,
+  projection and scale, lighting, exposure and background. Record intentional
+  differences and inspect the views needed to reveal the changed area.
+- Check that material names, colors and legends agree across views. Inspect a
+  grayscale view as one readability check; it does not certify accessibility or
+  anatomy. Label illustrative colors and retain source limitations.
+- Run the documented export/reimport and replay when inputs are available;
+  record missing prerequisites and compare relevant hashes, geometry or decoded
+  pixels. A proposed geometry change needs a suitable source/reference and
+  scale. Technical checks do not promote the separate visual, anatomy, clinical
+  or runtime gates.
+
+These practices paraphrase [lookdev](https://github.com/arjun988/blender-skills/blob/8f778d2405a214b508d4c7d80742be8e43acdd52/.claude/skills/lookdev/SKILL.md)
+and [qa-review](https://github.com/arjun988/blender-skills/blob/8f778d2405a214b508d4c7d80742be8e43acdd52/.claude/skills/qa-review/SKILL.md)
+from blender-skills contributors, © 2026; [MIT license](https://github.com/arjun988/blender-skills/blob/8f778d2405a214b508d4c7d80742be8e43acdd52/LICENSE).
