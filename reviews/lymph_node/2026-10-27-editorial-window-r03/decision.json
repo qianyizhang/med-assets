@@ -1,0 +1,337 @@
+{
+  "formatFamily": "scoped-editorial-display-decision",
+  "assetId": "lymph_node",
+  "issue": 101,
+  "status": "wip-local-candidate-retained",
+  "source": {
+    "file": "models/lymph_node/exports/hra-v1.2/NIH_M_Lymph_Node.glb",
+    "sha256": "7b047002cbb1dc06f37baa441783390d76cdb444b6144d6caa623923707953fd",
+    "license": "CC-BY-4.0"
+  },
+  "baselineR02": {
+    "sha256": "e4a5b5112314c5693a2caa25355fc6c6ea47aa8d628064adfce9dad603db089e",
+    "bytes": 10347068,
+    "delivery": "not_in_repository"
+  },
+  "candidateR03": {
+    "sha256": "2f6f65e98ccd280166343fd6a9d1a59f3d5e97830759dd531d80a43f27487194",
+    "bytes": 14190680,
+    "rawTriangles": 167367,
+    "delivery": "generated_locally_only"
+  },
+  "window": {
+    "centerBlender": [
+      -0.0008988287299871445,
+      -0.07156182080507278,
+      0.3283638507127762
+    ],
+    "cameraFront": [
+      0.4364357804719848,
+      -0.8728715609439696,
+      0.2182178902359924
+    ],
+    "cameraRight": [
+      0.8944271909999159,
+      0.4472135954999579,
+      0
+    ],
+    "rightThresholdMetres": -0.0008,
+    "frontThresholdMetres": -0.0008,
+    "selection": "exact planar clipping, no cap surfaces"
+  },
+  "editedSurfaces": [
+    {
+      "node": "Yao_capsule_of_lymph_node",
+      "triangles": 6291,
+      "maxVertexToAssignedSourceTriangleMetres": 1.5158118224623986e-08,
+      "minimumSourceNormalCosine": 0.999989518866095,
+      "retainedSurfaceAreaFraction": 0.6326168721244044
+    },
+    {
+      "node": "Yao_medulla_of_lymph_node",
+      "triangles": 54151,
+      "maxVertexToAssignedSourceTriangleMetres": 1.5176745066592548e-08,
+      "minimumSourceNormalCosine": 0.9501444386827511,
+      "retainedSurfaceAreaFraction": 0.5944700435260412
+    },
+    {
+      "node": "Yao_blood_vasculature",
+      "triangles": 81577,
+      "maxVertexToAssignedSourceTriangleMetres": 1.5227546086885708e-08,
+      "minimumSourceNormalCosine": 0.06862996336655619,
+      "retainedSurfaceAreaFraction": 0.6077115528952635
+    }
+  ],
+  "unchangedSourceMeshes": 4,
+  "sixOtherR02MeshArraysExact": true,
+  "precisionInvalidFragmentsOmitted": [
+    {
+      "sourceTriangle": 28233,
+      "reason": "Exactly zero area after float32 serialization",
+      "preQuantizationAreaSquareMetres": 2.621546226490478e-18
+    },
+    {
+      "sourceTriangle": 100837,
+      "reason": "Exactly zero area after float32 serialization",
+      "preQuantizationAreaSquareMetres": 5.594683028917435e-18
+    },
+    {
+      "sourceTriangle": 100837,
+      "reason": "Nonpositive source orientation after float32 serialization",
+      "preQuantizationAreaSquareMetres": 2.332907028777833e-13
+    }
+  ],
+  "deterministicReplayByteExact": true,
+  "vascularDisplayLabel": "Source vascular network (identity unresolved)",
+  "visibilityScope": "Screen pixels of object-ID passes; not tissue quantities or anatomical coverage.",
+  "visibilityPixels": {
+    "oblique": {
+      "source": {
+        "Yao_afferent_lymphatic_vessel": 4206,
+        "Yao_capsule_of_lymph_node": 246892,
+        "Yao_follicles": 0,
+        "Yao_efferent_lymph_node": 17131,
+        "Yao_medulla_of_lymph_node": 0,
+        "Yao_paracortex": 0,
+        "Yao_blood_vasculature": 20135
+      },
+      "r02": {
+        "Yao_afferent_lymphatic_vessel": 4549,
+        "Yao_capsule_of_lymph_node": 109107,
+        "Yao_follicles": 22519,
+        "Yao_efferent_lymph_node": 18117,
+        "Yao_medulla_of_lymph_node": 3235,
+        "Yao_paracortex": 27933,
+        "Yao_blood_vasculature": 80536
+      },
+      "r03": {
+        "Yao_afferent_lymphatic_vessel": 4549,
+        "Yao_capsule_of_lymph_node": 109514,
+        "Yao_follicles": 27144,
+        "Yao_efferent_lymph_node": 23979,
+        "Yao_medulla_of_lymph_node": 6364,
+        "Yao_paracortex": 72396,
+        "Yao_blood_vasculature": 21265
+      }
+    },
+    "second-oblique": {
+      "source": {
+        "Yao_afferent_lymphatic_vessel": 3533,
+        "Yao_capsule_of_lymph_node": 285188,
+        "Yao_follicles": 0,
+        "Yao_efferent_lymph_node": 30742,
+        "Yao_medulla_of_lymph_node": 0,
+        "Yao_paracortex": 0,
+        "Yao_blood_vasculature": 21361
+      },
+      "r02": {
+        "Yao_afferent_lymphatic_vessel": 3533,
+        "Yao_capsule_of_lymph_node": 157161,
+        "Yao_follicles": 16223,
+        "Yao_efferent_lymph_node": 30966,
+        "Yao_medulla_of_lymph_node": 3846,
+        "Yao_paracortex": 25486,
+        "Yao_blood_vasculature": 76490
+      },
+      "r03": {
+        "Yao_afferent_lymphatic_vessel": 3533,
+        "Yao_capsule_of_lymph_node": 157439,
+        "Yao_follicles": 20204,
+        "Yao_efferent_lymph_node": 33745,
+        "Yao_medulla_of_lymph_node": 6387,
+        "Yao_paracortex": 69060,
+        "Yao_blood_vasculature": 19254
+      }
+    },
+    "reverse": {
+      "source": {
+        "Yao_afferent_lymphatic_vessel": 11382,
+        "Yao_capsule_of_lymph_node": 268172,
+        "Yao_follicles": 0,
+        "Yao_efferent_lymph_node": 8808,
+        "Yao_medulla_of_lymph_node": 0,
+        "Yao_paracortex": 0,
+        "Yao_blood_vasculature": 0
+      },
+      "r02": {
+        "Yao_afferent_lymphatic_vessel": 11382,
+        "Yao_capsule_of_lymph_node": 225868,
+        "Yao_follicles": 10264,
+        "Yao_efferent_lymph_node": 8808,
+        "Yao_medulla_of_lymph_node": 0,
+        "Yao_paracortex": 8200,
+        "Yao_blood_vasculature": 1473
+      },
+      "r03": {
+        "Yao_afferent_lymphatic_vessel": 11382,
+        "Yao_capsule_of_lymph_node": 225868,
+        "Yao_follicles": 10352,
+        "Yao_efferent_lymph_node": 8808,
+        "Yao_medulla_of_lymph_node": 0,
+        "Yao_paracortex": 8798,
+        "Yao_blood_vasculature": 0
+      }
+    },
+    "detail": {
+      "source": {
+        "Yao_afferent_lymphatic_vessel": 8893,
+        "Yao_capsule_of_lymph_node": 661733,
+        "Yao_follicles": 0,
+        "Yao_efferent_lymph_node": 49947,
+        "Yao_medulla_of_lymph_node": 0,
+        "Yao_paracortex": 0,
+        "Yao_blood_vasculature": 61967
+      },
+      "r02": {
+        "Yao_afferent_lymphatic_vessel": 9903,
+        "Yao_capsule_of_lymph_node": 286219,
+        "Yao_follicles": 64980,
+        "Yao_efferent_lymph_node": 52937,
+        "Yao_medulla_of_lymph_node": 9903,
+        "Yao_paracortex": 83338,
+        "Yao_blood_vasculature": 236286
+      },
+      "r03": {
+        "Yao_afferent_lymphatic_vessel": 9903,
+        "Yao_capsule_of_lymph_node": 287474,
+        "Yao_follicles": 75968,
+        "Yao_efferent_lymph_node": 70887,
+        "Yao_medulla_of_lymph_node": 19490,
+        "Yao_paracortex": 214147,
+        "Yao_blood_vasculature": 65555
+      }
+    }
+  },
+  "matchedViews": [
+    "oblique",
+    "second-oblique",
+    "reverse",
+    "detail"
+  ],
+  "sourceToGlbToleranceMetres": 5e-08,
+  "directGlbToBlender": {
+    "fullOrientedPreservation": "failed",
+    "oppositeWindingDuplicatesRemoved": {
+      "medulla": 18,
+      "vascularNetwork": 88
+    },
+    "uniqueUnorientedSurfacesLost": 0
+  },
+  "blenderImportExportReimport": {
+    "scope": "Already imported representation only",
+    "allSevenOrientedMultisetsExact": true,
+    "coordinateErrorMetres": 0
+  },
+  "cost": {
+    "buildWallSeconds": 21.078667898000276,
+    "buildPeakRSSKiB": 202324,
+    "renderWallSeconds": 175.58657428099832,
+    "renderPeakRSSKiB": 703316,
+    "renderScope": "Four main views, four ID passes and roundtrip; shared host, no benchmark or runtime claim."
+  },
+  "gates": {
+    "technical": "passed for pinned GLB clipping/replay; direct GLB import orientation preservation failed",
+    "visual": "pass-with-limitations in inspected local views",
+    "anatomy": "needs-review; provider network identity unresolved",
+    "clinical": "unvalidated",
+    "browserRuntime": "unverified",
+    "canonicalPromotion": "not authorized by this WIP"
+  },
+  "payloadPolicy": "No generated media, model pointers, transport manifest or upload included.",
+  "evidence": [
+    {
+      "localEvidenceName": "source-renders/oblique.png",
+      "sha256": "b22eed3f8791b37a01ab28cdf94eaa4e1c219f03c50c21ea661199d87d1dd023",
+      "bytes": 885473,
+      "delivery": "not_in_repository"
+    },
+    {
+      "localEvidenceName": "source-renders/second-oblique.png",
+      "sha256": "71a8571a36d31f79457d160d81dcb9629cce72da7a38031e235f8b70d9c2dc51",
+      "bytes": 940877,
+      "delivery": "not_in_repository"
+    },
+    {
+      "localEvidenceName": "source-renders/reverse.png",
+      "sha256": "541ad6f42072210156324ffa4db99094c41aecfc1c0f1cfaccd40ecdf18fd400",
+      "bytes": 890152,
+      "delivery": "not_in_repository"
+    },
+    {
+      "localEvidenceName": "source-renders/detail.png",
+      "sha256": "7fb270e588f821d399817d349fe82bfbfbc149b47d53b73c1051b3b241a4218c",
+      "bytes": 1345258,
+      "delivery": "not_in_repository"
+    },
+    {
+      "localEvidenceName": "r02-renders/oblique.png",
+      "sha256": "989cdeb00a63ab5d8048c406670a27dc5bccdfc8d0ccec01bf258538cf769051",
+      "bytes": 1005051,
+      "delivery": "not_in_repository"
+    },
+    {
+      "localEvidenceName": "r02-renders/second-oblique.png",
+      "sha256": "e2db934c76d41df42bd2bbd343a48812f385385e405b9bf7c27f15357bae44e4",
+      "bytes": 1044524,
+      "delivery": "not_in_repository"
+    },
+    {
+      "localEvidenceName": "r02-renders/reverse.png",
+      "sha256": "5ddd692677dcfd73a4d8ca67c74ade48d2823fb761cbdc81f96227fd07b773f7",
+      "bytes": 884445,
+      "delivery": "not_in_repository"
+    },
+    {
+      "localEvidenceName": "r02-renders/detail.png",
+      "sha256": "fd19d29508644572226138fad4a46aa00f365f0d967cadf81fb11a501650c27a",
+      "bytes": 1661543,
+      "delivery": "not_in_repository"
+    },
+    {
+      "localEvidenceName": "r03-renders/oblique.png",
+      "sha256": "0bed75c2c3006d79666068dcf45bf8e50fac030d75561cc8834235cfc0d1e969",
+      "bytes": 957863,
+      "delivery": "not_in_repository"
+    },
+    {
+      "localEvidenceName": "r03-renders/second-oblique.png",
+      "sha256": "44ef7a98bfdb3324df7dbf5cde6151e5346b3751dac0860280863ddfc9fb66ae",
+      "bytes": 984206,
+      "delivery": "not_in_repository"
+    },
+    {
+      "localEvidenceName": "r03-renders/reverse.png",
+      "sha256": "b5f306325813994fac92b925119430b2998587b457e565088e12590c54d2a7df",
+      "bytes": 879305,
+      "delivery": "not_in_repository"
+    },
+    {
+      "localEvidenceName": "r03-renders/detail.png",
+      "sha256": "862681d7d733d9a40251b28d59377efaf824606608f29e4076c0b718b1b355a7",
+      "bytes": 1550888,
+      "delivery": "not_in_repository"
+    }
+  ],
+  "recordedLocalSourceToGlbNegativeControls": [
+    "original two zero-area network triangles rejected",
+    "quantization-reversed network triangle rejected",
+    "node transform mutation rejected",
+    "unsupported resolved network label rejected",
+    "network material reassignment rejected",
+    "network edge displacement rejected",
+    "network triangle winding reversal rejected",
+    "network invented source-face mapping rejected",
+    "material mutation rejected",
+    "provider-label mutation rejected",
+    "interior mesh mutation rejected",
+    "cut-surface material reassignment rejected",
+    "invented cut-edge displacement rejected",
+    "existing-output overwrite rejected"
+  ],
+  "portableRecipeVerification": {
+    "sourceSurfaces": "passed",
+    "byteExactReplay": "passed",
+    "negativeControls": 10,
+    "scope": "Bundledcheck.py fromfreshoutput. Does not bundle originalfailedGLBs."
+  }
+}
