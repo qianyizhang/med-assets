@@ -5,7 +5,7 @@
 - Source: HRA Eye Male Right v1.3, CC BY 4.0; native source frame.
 - Exact source and selected candidate are included with Git LFS. Run `git lfs pull` first.
 - POSITION/index/UV bytes and transforms retained. Materials are illustrative; only lens/cornea normals receive a guarded change. Corneal rim faceting remains.
-- 16 source meshes excluded; no extraocular muscles/optic nerve in the source. Zonule insertion, optics, motion and anatomy completeness are not validated.
+- 16 source meshes excluded. The pinned GLB has no **separately named** optic-nerve, extraocular-muscle, or long-posterior-ciliary-artery mesh; it does name an optic disc and ciliary muscle. Provider prose describes broader changes, and that mismatch remains unresolved. See the [source-coverage screen](../../reviews/eye_anterior_segment/2026-10-27-source-coverage-r01/README.md). Zonule insertion, optics, motion and anatomy completeness are not validated.
 - Visual scope passed only for layer readability. Anatomy remains unreviewed; runtime unverified.
 
 ## Reproduce

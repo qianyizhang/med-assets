@@ -1,0 +1,184 @@
+{
+  "sourceSha256": "1a6ecc528e98e0bddb8e2905e4ddb799eb471383f7274dbb9bdd1676b06be73b",
+  "sourceBytes": 20697584,
+  "sourceFile": "sources/datasets/hra/eye-male-right-v1.3/hra-source.glb",
+  "meshNodeCount": 23,
+  "selectedNodes": [
+    "VH_M_cornea_R",
+    "VH_M_iris_R",
+    "VH_M_lens_R",
+    "VH_M_ciliary_body_R",
+    "VH_M_ciliary_muscle_R",
+    "VH_M_ciliary_processes_R",
+    "VH_M_suspensory_ligament_of_lens_R"
+  ],
+  "noSeparatelyNamedNodes": [
+    "optic nerve",
+    "extraocular muscles",
+    "long posterior ciliary artery"
+  ],
+  "meshNodes": [
+    {
+      "node": "VH_M_retina_R",
+      "mesh": 0,
+      "materials": [
+        "eye_edits_012042:retina1"
+      ]
+    },
+    {
+      "node": "VH_M_fovea_R",
+      "mesh": 1,
+      "materials": [
+        "eye_edits_012043:fovea_mat"
+      ]
+    },
+    {
+      "node": "VH_M_macula_lutea_R",
+      "mesh": 2,
+      "materials": [
+        "eye_edits_012043:macula"
+      ]
+    },
+    {
+      "node": "VH_M_optic_disc_R",
+      "mesh": 3,
+      "materials": [
+        "eye_edits_012042:pasted__retina3"
+      ]
+    },
+    {
+      "node": "VH_M_palpebral_conjunctiva_of_upper_eyelid_R",
+      "mesh": 4,
+      "materials": [
+        "pasted__pasted__pasted__pasted__conjunctiva_Mat1"
+      ]
+    },
+    {
+      "node": "VH_M_palpebral_conjunctiva_of_lower_eyelid_R",
+      "mesh": 5,
+      "materials": [
+        "pasted__pasted__pasted__pasted__conjunctiva_Mat1"
+      ]
+    },
+    {
+      "node": "VH_M_sclera_R",
+      "mesh": 6,
+      "materials": [
+        "eye_edits_012042:Eyeball_Mat"
+      ]
+    },
+    {
+      "node": "VH_M_optic_choroid_R",
+      "mesh": 7,
+      "materials": [
+        "eye_edits_012043:choroid_mat"
+      ]
+    },
+    {
+      "node": "VH_M_pupil_R",
+      "mesh": 8,
+      "materials": [
+        "eye_edits_012042:pupil1"
+      ]
+    },
+    {
+      "node": "VH_M_ciliary_processes_R",
+      "mesh": 9,
+      "materials": [
+        "eye_edits_012043:brain_mat1"
+      ]
+    },
+    {
+      "node": "VH_M_suspensory_ligament_of_lens_R",
+      "mesh": 10,
+      "materials": [
+        "eye_edits_012043:iris_mat"
+      ]
+    },
+    {
+      "node": "VH_M_ora_serrata_of_retina_R",
+      "mesh": 11,
+      "materials": [
+        "eye_edits_012043:Ora_serrata_Mat"
+      ]
+    },
+    {
+      "node": "VH_M_corneo_scleral_junction_R",
+      "mesh": 12,
+      "materials": [
+        "eye_edits_012043:limbus1"
+      ]
+    },
+    {
+      "node": "VH_M_lens_R",
+      "mesh": 13,
+      "materials": [
+        "eye_edits_012042:lens1"
+      ]
+    },
+    {
+      "node": "VH_M_schlemms_canal_R",
+      "mesh": 14,
+      "materials": [
+        "eye_edits_012043:Skin_Mat"
+      ]
+    },
+    {
+      "node": "VH_M_aqueous_humor_R",
+      "mesh": 15,
+      "materials": [
+        "eye_edits_012042:humor_mat"
+      ]
+    },
+    {
+      "node": "VH_M_ciliary_body_R",
+      "mesh": 16,
+      "materials": [
+        "eye_edits_012044:lung_mat"
+      ]
+    },
+    {
+      "node": "VH_M_ciliary_muscle_R",
+      "mesh": 17,
+      "materials": [
+        "eye_edits_012045:lung_mat"
+      ]
+    },
+    {
+      "node": "VH_M_trabecular_meshwork_R",
+      "mesh": 18,
+      "materials": [
+        "eye_edits_012043:meniscus_mat"
+      ]
+    },
+    {
+      "node": "VH_M_iris_R",
+      "mesh": 19,
+      "materials": [
+        "eye_edits_012042:iris_mat"
+      ]
+    },
+    {
+      "node": "VH_M_bulbar_conjunctiva_R",
+      "mesh": 20,
+      "materials": [
+        "eye_edits_012042:Bone_Mat"
+      ]
+    },
+    {
+      "node": "VH_M_cornea_R",
+      "mesh": 21,
+      "materials": [
+        "eye_edits_012042:Cornea_mat"
+      ]
+    },
+    {
+      "node": "VH_M_vitreous_humor_R",
+      "mesh": 22,
+      "materials": [
+        "eye_edits_012042:humor_mat"
+      ]
+    }
+  ],
+  "scope": "Exact glTF node/material-name inventory only; absence of a named node does not prove no related geometry is merged into another mesh."
+}
