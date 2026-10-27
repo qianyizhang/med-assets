@@ -1,0 +1,486 @@
+{
+  "formatFamily": "scoped-editorial-display-decision",
+  "assetId": "lymph_node",
+  "issue": 101,
+  "status": "wip-local-candidate-retained",
+  "source": {
+    "file": "models/lymph_node/exports/hra-v1.2/NIH_M_Lymph_Node.glb",
+    "sha256": "7b047002cbb1dc06f37baa441783390d76cdb444b6144d6caa623923707953fd",
+    "license": "CC-BY-4.0"
+  },
+  "baselineR02": {
+    "sha256": "e4a5b5112314c5693a2caa25355fc6c6ea47aa8d628064adfce9dad603db089e",
+    "bytes": 10347068,
+    "delivery": "not_in_repository"
+  },
+  "candidateR03": {
+    "sha256": "2f6f65e98ccd280166343fd6a9d1a59f3d5e97830759dd531d80a43f27487194",
+    "bytes": 14190680,
+    "rawTriangles": 167367,
+    "delivery": "generated_locally_only"
+  },
+  "window": {
+    "centerBlender": [
+      -0.0008988287299871445,
+      -0.07156182080507278,
+      0.3283638507127762
+    ],
+    "cameraFront": [
+      0.4364357804719848,
+      -0.8728715609439696,
+      0.2182178902359924
+    ],
+    "cameraRight": [
+      0.8944271909999159,
+      0.4472135954999579,
+      0
+    ],
+    "rightThresholdMetres": -0.0008,
+    "frontThresholdMetres": -0.0008,
+    "selection": "exact planar clipping, no cap surfaces"
+  },
+  "editedSurfaces": [
+    {
+      "node": "Yao_capsule_of_lymph_node",
+      "triangles": 6291,
+      "maxVertexToAssignedSourceTriangleMetres": 1.5158118224623986e-08,
+      "minimumSourceNormalCosine": 0.999989518866095,
+      "retainedSurfaceAreaFraction": 0.6326168721244044
+    },
+    {
+      "node": "Yao_medulla_of_lymph_node",
+      "triangles": 54151,
+      "maxVertexToAssignedSourceTriangleMetres": 1.5176745066592548e-08,
+      "minimumSourceNormalCosine": 0.9501444386827511,
+      "retainedSurfaceAreaFraction": 0.5944700435260412
+    },
+    {
+      "node": "Yao_blood_vasculature",
+      "triangles": 81577,
+      "maxVertexToAssignedSourceTriangleMetres": 1.5227546086885708e-08,
+      "minimumSourceNormalCosine": 0.06862996336655619,
+      "retainedSurfaceAreaFraction": 0.6077115528952635
+    }
+  ],
+  "unchangedSourceMeshes": 4,
+  "sixOtherR02MeshArraysExact": true,
+  "precisionInvalidFragmentsOmitted": [
+    {
+      "sourceTriangle": 28233,
+      "reason": "Exactly zero area after float32 serialization",
+      "preQuantizationAreaSquareMetres": 2.621546226490478e-18
+    },
+    {
+      "sourceTriangle": 100837,
+      "reason": "Exactly zero area after float32 serialization",
+      "preQuantizationAreaSquareMetres": 5.594683028917435e-18
+    },
+    {
+      "sourceTriangle": 100837,
+      "reason": "Nonpositive source orientation after float32 serialization",
+      "preQuantizationAreaSquareMetres": 2.332907028777833e-13
+    }
+  ],
+  "deterministicReplayByteExact": true,
+  "vascularDisplayLabel": "Source vascular network (identity unresolved)",
+  "visibilityScope": "Screen pixels of object-ID passes; not tissue quantities or anatomical coverage.",
+  "visibilityPixels": {
+    "oblique": {
+      "source": {
+        "Yao_afferent_lymphatic_vessel": 4206,
+        "Yao_capsule_of_lymph_node": 246892,
+        "Yao_follicles": 0,
+        "Yao_efferent_lymph_node": 17131,
+        "Yao_medulla_of_lymph_node": 0,
+        "Yao_paracortex": 0,
+        "Yao_blood_vasculature": 20135
+      },
+      "r02": {
+        "Yao_afferent_lymphatic_vessel": 4549,
+        "Yao_capsule_of_lymph_node": 109107,
+        "Yao_follicles": 22519,
+        "Yao_efferent_lymph_node": 18117,
+        "Yao_medulla_of_lymph_node": 3235,
+        "Yao_paracortex": 27933,
+        "Yao_blood_vasculature": 80536
+      },
+      "r03": {
+        "Yao_afferent_lymphatic_vessel": 4549,
+        "Yao_capsule_of_lymph_node": 109514,
+        "Yao_follicles": 27144,
+        "Yao_efferent_lymph_node": 23979,
+        "Yao_medulla_of_lymph_node": 6364,
+        "Yao_paracortex": 72396,
+        "Yao_blood_vasculature": 21265
+      }
+    },
+    "second-oblique": {
+      "source": {
+        "Yao_afferent_lymphatic_vessel": 3533,
+        "Yao_capsule_of_lymph_node": 285188,
+        "Yao_follicles": 0,
+        "Yao_efferent_lymph_node": 30742,
+        "Yao_medulla_of_lymph_node": 0,
+        "Yao_paracortex": 0,
+        "Yao_blood_vasculature": 21361
+      },
+      "r02": {
+        "Yao_afferent_lymphatic_vessel": 3533,
+        "Yao_capsule_of_lymph_node": 157161,
+        "Yao_follicles": 16223,
+        "Yao_efferent_lymph_node": 30966,
+        "Yao_medulla_of_lymph_node": 3846,
+        "Yao_paracortex": 25486,
+        "Yao_blood_vasculature": 76490
+      },
+      "r03": {
+        "Yao_afferent_lymphatic_vessel": 3533,
+        "Yao_capsule_of_lymph_node": 157439,
+        "Yao_follicles": 20204,
+        "Yao_efferent_lymph_node": 33745,
+        "Yao_medulla_of_lymph_node": 6387,
+        "Yao_paracortex": 69060,
+        "Yao_blood_vasculature": 19254
+      }
+    },
+    "reverse": {
+      "source": {
+        "Yao_afferent_lymphatic_vessel": 11382,
+        "Yao_capsule_of_lymph_node": 268172,
+        "Yao_follicles": 0,
+        "Yao_efferent_lymph_node": 8808,
+        "Yao_medulla_of_lymph_node": 0,
+        "Yao_paracortex": 0,
+        "Yao_blood_vasculature": 0
+      },
+      "r02": {
+        "Yao_afferent_lymphatic_vessel": 11382,
+        "Yao_capsule_of_lymph_node": 225868,
+        "Yao_follicles": 10264,
+        "Yao_efferent_lymph_node": 8808,
+        "Yao_medulla_of_lymph_node": 0,
+        "Yao_paracortex": 8200,
+        "Yao_blood_vasculature": 1473
+      },
+      "r03": {
+        "Yao_afferent_lymphatic_vessel": 11382,
+        "Yao_capsule_of_lymph_node": 225868,
+        "Yao_follicles": 10352,
+        "Yao_efferent_lymph_node": 8808,
+        "Yao_medulla_of_lymph_node": 0,
+        "Yao_paracortex": 8798,
+        "Yao_blood_vasculature": 0
+      }
+    },
+    "detail": {
+      "source": {
+        "Yao_afferent_lymphatic_vessel": 8893,
+        "Yao_capsule_of_lymph_node": 661733,
+        "Yao_follicles": 0,
+        "Yao_efferent_lymph_node": 49947,
+        "Yao_medulla_of_lymph_node": 0,
+        "Yao_paracortex": 0,
+        "Yao_blood_vasculature": 61967
+      },
+      "r02": {
+        "Yao_afferent_lymphatic_vessel": 9903,
+        "Yao_capsule_of_lymph_node": 286219,
+        "Yao_follicles": 64980,
+        "Yao_efferent_lymph_node": 52937,
+        "Yao_medulla_of_lymph_node": 9903,
+        "Yao_paracortex": 83338,
+        "Yao_blood_vasculature": 236286
+      },
+      "r03": {
+        "Yao_afferent_lymphatic_vessel": 9903,
+        "Yao_capsule_of_lymph_node": 287474,
+        "Yao_follicles": 75968,
+        "Yao_efferent_lymph_node": 70887,
+        "Yao_medulla_of_lymph_node": 19490,
+        "Yao_paracortex": 214147,
+        "Yao_blood_vasculature": 65555
+      }
+    }
+  },
+  "matchedViews": [
+    "oblique",
+    "second-oblique",
+    "reverse",
+    "detail"
+  ],
+  "sourceToGlbToleranceMetres": 5e-08,
+  "directGlbToBlender": {
+    "fullOrientedPreservation": "failed",
+    "oppositeWindingDuplicatesRemoved": {
+      "medulla": 18,
+      "vascularNetwork": 88
+    },
+    "uniqueUnorientedSurfacesLost": 0
+  },
+  "blenderImportExportReimport": {
+    "scope": "Already imported representation only",
+    "allSevenOrientedMultisetsExact": true,
+    "coordinateErrorMetres": 0
+  },
+  "cost": {
+    "buildWallSeconds": 21.078667898000276,
+    "buildPeakRSSKiB": 202324,
+    "renderWallSeconds": 175.58657428099832,
+    "renderPeakRSSKiB": 703316,
+    "renderScope": "Four main views, four ID passes and roundtrip; shared host, no benchmark or runtime claim."
+  },
+  "gates": {
+    "technical": "passed for pinned GLB clipping/replay; direct GLB import orientation preservation failed",
+    "visual": "pass-with-limitations in inspected local views",
+    "anatomy": "needs-review; provider network identity unresolved",
+    "clinical": "unvalidated",
+    "browserRuntime": "unverified",
+    "canonicalPromotion": "not authorized by this WIP"
+  },
+  "payloadPolicy": "No generated media, model pointers, transport manifest or upload included.",
+  "evidence": [
+    {
+      "localEvidenceName": "source-renders/oblique.png",
+      "sha256": "b22eed3f8791b37a01ab28cdf94eaa4e1c219f03c50c21ea661199d87d1dd023",
+      "bytes": 885473,
+      "delivery": "not_in_repository"
+    },
+    {
+      "localEvidenceName": "source-renders/second-oblique.png",
+      "sha256": "71a8571a36d31f79457d160d81dcb9629cce72da7a38031e235f8b70d9c2dc51",
+      "bytes": 940877,
+      "delivery": "not_in_repository"
+    },
+    {
+      "localEvidenceName": "source-renders/reverse.png",
+      "sha256": "541ad6f42072210156324ffa4db99094c41aecfc1c0f1cfaccd40ecdf18fd400",
+      "bytes": 890152,
+      "delivery": "not_in_repository"
+    },
+    {
+      "localEvidenceName": "source-renders/detail.png",
+      "sha256": "7fb270e588f821d399817d349fe82bfbfbc149b47d53b73c1051b3b241a4218c",
+      "bytes": 1345258,
+      "delivery": "not_in_repository"
+    },
+    {
+      "localEvidenceName": "r02-renders/oblique.png",
+      "sha256": "989cdeb00a63ab5d8048c406670a27dc5bccdfc8d0ccec01bf258538cf769051",
+      "bytes": 1005051,
+      "delivery": "not_in_repository"
+    },
+    {
+      "localEvidenceName": "r02-renders/second-oblique.png",
+      "sha256": "e2db934c76d41df42bd2bbd343a48812f385385e405b9bf7c27f15357bae44e4",
+      "bytes": 1044524,
+      "delivery": "not_in_repository"
+    },
+    {
+      "localEvidenceName": "r02-renders/reverse.png",
+      "sha256": "5ddd692677dcfd73a4d8ca67c74ade48d2823fb761cbdc81f96227fd07b773f7",
+      "bytes": 884445,
+      "delivery": "not_in_repository"
+    },
+    {
+      "localEvidenceName": "r02-renders/detail.png",
+      "sha256": "fd19d29508644572226138fad4a46aa00f365f0d967cadf81fb11a501650c27a",
+      "bytes": 1661543,
+      "delivery": "not_in_repository"
+    },
+    {
+      "localEvidenceName": "r03-renders/oblique.png",
+      "sha256": "0bed75c2c3006d79666068dcf45bf8e50fac030d75561cc8834235cfc0d1e969",
+      "bytes": 957863,
+      "delivery": "not_in_repository"
+    },
+    {
+      "localEvidenceName": "r03-renders/second-oblique.png",
+      "sha256": "44ef7a98bfdb3324df7dbf5cde6151e5346b3751dac0860280863ddfc9fb66ae",
+      "bytes": 984206,
+      "delivery": "not_in_repository"
+    },
+    {
+      "localEvidenceName": "r03-renders/reverse.png",
+      "sha256": "b5f306325813994fac92b925119430b2998587b457e565088e12590c54d2a7df",
+      "bytes": 879305,
+      "delivery": "not_in_repository"
+    },
+    {
+      "localEvidenceName": "r03-renders/detail.png",
+      "sha256": "862681d7d733d9a40251b28d59377efaf824606608f29e4076c0b718b1b355a7",
+      "bytes": 1550888,
+      "delivery": "not_in_repository"
+    }
+  ],
+  "recordedLocalSourceToGlbNegativeControls": [
+    "original two zero-area network triangles rejected",
+    "quantization-reversed network triangle rejected",
+    "node transform mutation rejected",
+    "unsupported resolved network label rejected",
+    "network material reassignment rejected",
+    "network edge displacement rejected",
+    "network triangle winding reversal rejected",
+    "network invented source-face mapping rejected",
+    "material mutation rejected",
+    "provider-label mutation rejected",
+    "interior mesh mutation rejected",
+    "cut-surface material reassignment rejected",
+    "invented cut-edge displacement rejected",
+    "existing-output overwrite rejected"
+  ],
+  "portableRecipeVerification": {
+    "sourceSurfaces": "passed",
+    "byteExactReplay": "passed",
+    "negativeControls": 10,
+    "scope": "Bundledcheck.py fromfreshoutput. Does not bundle originalfailedGLBs."
+  },
+  "importFollowup": {
+    "date": "2026-10-27",
+    "scope": "Additional exact surface-support diagnosis; original oriented-preservation failure remains failed. Candidate bytes unchanged.",
+    "sourceTracedReversedPairs": 106,
+    "otherCoincidentOccurrencesPreserved": 77,
+    "distinctTriangleSupports": 167184,
+    "surfaceSupportAndUnambiguousOrientation": "passed",
+    "fullOrientedPreservation": "failed",
+    "singleSidedFrontFaceSupport": "failed",
+    "exactNormalizedNormalPreservation": "failed",
+    "vertexColorPreservation": "unverified",
+    "appearanceEquivalence": "unverified",
+    "actualDataNegativeControls": 10,
+    "offlineUnitTestsAdded": 16,
+    "normalMultiplicityRegression": "A source normal tuple cannot be reused to certify two coincident occurrences; prior false pass preserved locally.",
+    "receipt": {
+      "localEvidenceName": "issue101-astra-20261027/final-audit-v3/surface-audit.json",
+      "sha256": "fa1671f37141ef83773d19541bf62356e0d36b1831009b578ce31646fb7deffc",
+      "bytes": 96400,
+      "delivery": "not_in_repository"
+    },
+    "preservedOriginalFailureReceiptSha256": "a6c79a8aee1c63171e685eb1c7c222bbce6930973b59cf247fc412936b0d70c3",
+    "disposition": "Retain local editorial inspection candidate; no single-sided viewer, anatomy, clinical or canonical acceptance."
+  },
+  "displayRepairFollowup": {
+    "date": "2026-10-27",
+    "baselineSha256": "2f6f65e98ccd280166343fd6a9d1a59f3d5e97830759dd531d80a43f27487194",
+    "candidateSha256": "5f887b4978d4b1c2edb3d80dee43a5a7d84f7b518849407622ccabb6e32a81be",
+    "bytes": 22104552,
+    "triangles": 167367,
+    "cornerStrategy": "full-split",
+    "invalidNormalCornersRepaired": 164,
+    "validSourceNormalBytesPreserved": true,
+    "rawGeometryColorsMaterialsTransformsUnchanged": true,
+    "directImportFullOrientedOccurrencesPreserved": true,
+    "normalValidity": "passed for direct import, actual scene export and export/full-split/reimport",
+    "declaredNormalDirectionBudgetDegrees": 0.05,
+    "normalDirectionBudget": "failed; not enlarged",
+    "maximumMeasuredNormalDirectionDriftDegrees": 0.6473800836239592,
+    "vertexColors": "passed; white RGB plus implicit alpha one equals source white RGBA",
+    "singleSidedMaterialsUnchanged": true,
+    "offlineRenderCulling": "Explicit review-only Backfacing to Transparent on both variants; Cycles material flag alone does not cull. Not serialized into GLB.",
+    "visual": "Matched whole/detail/reverse pixels inspected; no obvious deterioration, no visible improvement claim.",
+    "anatomy": "unvalidated; provider network identity unresolved",
+    "clinical": "unvalidated",
+    "browserRuntime": "unverified",
+    "actualDataNegativeControls": 7,
+    "offlineUnitTestsAdded": 15,
+    "byteExactReplay": true,
+    "buildCost": {
+      "wallSeconds": 2.7261253949982347,
+      "childPeakRSSKiB": 169780,
+      "exitCode": 0,
+      "scope": "One independent deterministic rebuild, shared host; no viewer performance benchmark. Python stdlib timing used because /usr/bin/time is absent.",
+      "sha256": "5f887b4978d4b1c2edb3d80dee43a5a7d84f7b518849407622ccabb6e32a81be",
+      "byteExactReplay": true
+    },
+    "failedAttemptsPreserved": [
+      "full split with original 0.05-degree target",
+      "minimal split: nonunit and zero imported normals",
+      "power-of-two local scale: normal validity still fails",
+      "earlier incorrect repair-count receipt",
+      "nonminimal coincident-normal diagnostic matching"
+    ],
+    "evidence": [
+      {
+        "localEvidenceName": "display-repair-20261027/full-final-check/repair-verification.json",
+        "sha256": "e7d482f8a252b2c04a029dcbc4996f308faa4ab3234b126ea110e7e08f5b2f89",
+        "bytes": 9421,
+        "delivery": "not_in_repository"
+      },
+      {
+        "localEvidenceName": "display-repair-20261027/full-final-review/repair-verification.json",
+        "sha256": "b8eb5e14f2f074a5a1f2eb75cf9228d59174966e4f5cc499b7abbfe4ca8eb57b",
+        "bytes": 13459,
+        "delivery": "not_in_repository"
+      },
+      {
+        "localEvidenceName": "display-repair-20261027/full-final-review/baseline-renders/oblique.png",
+        "sha256": "66ad7fdbe48b198d5924b666cd02ac295b4954e87180aa0ff48f0ed1ac4908fe",
+        "bytes": 986522,
+        "delivery": "not_in_repository"
+      },
+      {
+        "localEvidenceName": "display-repair-20261027/full-final-review/baseline-renders/detail.png",
+        "sha256": "b7ce36a21b1718282ae3523a6d69fcf2015b9d048a12f2217145afde9a140f29",
+        "bytes": 1551850,
+        "delivery": "not_in_repository"
+      },
+      {
+        "localEvidenceName": "display-repair-20261027/full-final-review/baseline-renders/reverse.png",
+        "sha256": "2c9053cf7cd3f3e58d8a7fbdc96571e03749edc7c8861edb4f61aaa6646cdae9",
+        "bytes": 920302,
+        "delivery": "not_in_repository"
+      },
+      {
+        "localEvidenceName": "display-repair-20261027/full-final-review/candidate-renders/oblique.png",
+        "sha256": "6dfc286f7c20c8cdb2f0d6f570af8e240116f03158f609297e8f1480564aa22c",
+        "bytes": 986347,
+        "delivery": "not_in_repository"
+      },
+      {
+        "localEvidenceName": "display-repair-20261027/full-final-review/candidate-renders/detail.png",
+        "sha256": "4af29680128a8ad4cb319837feb325f76fd117c025e51f998910c276fe19d0c2",
+        "bytes": 1551574,
+        "delivery": "not_in_repository"
+      },
+      {
+        "localEvidenceName": "display-repair-20261027/full-final-review/candidate-renders/reverse.png",
+        "sha256": "8b5325cd0861e5c476a2ce78c12a87aaa0d3143facd8ea1cc952c01510158e07",
+        "bytes": 920470,
+        "delivery": "not_in_repository"
+      }
+    ],
+    "disposition": "No canonical change. Retain compact and split candidates; full-split fixes Blender normal validity but its payload/vertex cost has no demonstrated intended-view benefit. Supported viewer behavior and runtime cost remain untested.",
+    "role": "diagnostic full-split variant; not default or promoted",
+    "compactComparison": {
+      "retainedSha256": "882d146ce2b04547e1f45704a414d5d0a059fef7bff980fe7b932148be24314e",
+      "retainedBytes": 7614472,
+      "referencedVertices": 93453,
+      "importNonunitNormalCorners": 157,
+      "importZeroNormalCorners": 3,
+      "normalRawPolicyValid": true,
+      "colorsMaterialsAndFacingSemantics": "same as split; source ambiguity retained",
+      "actualMatchedImages": "final-review-v2 baseline-renders/candidate-renders; local, not in repository",
+      "currentRecipeOnlyExtrasDiffer": true
+    },
+    "splitReferencedVertices": 502101,
+    "sequentialBuildComparison": {
+      "runs": [
+        {
+          "wallSeconds": 1.3040819599991664,
+          "peakRSSKiB": 117772,
+          "strategy": "minimal",
+          "bytes": 7614568,
+          "sha256": "f89e989450e6f5f64a9d939d135ad0ec17c22e86eee6d9977d46dd68ca542f83"
+        },
+        {
+          "wallSeconds": 2.637499486998422,
+          "peakRSSKiB": 169028,
+          "strategy": "full",
+          "bytes": 22104552,
+          "sha256": "5f887b4978d4b1c2edb3d80dee43a5a7d84f7b518849407622ccabb6e32a81be"
+        }
+      ],
+      "scope": "Sequential single builds on same shared host; not runtime/download/GPU benchmarks."
+    },
+    "precisionTargetInterpretation": "Experimental 0.05-degree fidelity check remains failed; not a medical/repository acceptance requirement. Normal unit validity and actual culling behavior are separate substantive checks."
+  }
+}
