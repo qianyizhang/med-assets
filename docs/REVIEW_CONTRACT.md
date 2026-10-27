@@ -23,6 +23,30 @@ or apply foundation fields mechanically. The fixed selector covers those 25
 historical paths; new foundation runs need explicit coverage. See [verification
 scope](VERIFICATION.md) for what each command actually runs.
 
+## Medical and dental asset quality ground rules
+
+Apply these rules to each medical or dental asset and revision, within its intended use:
+
+- **Prioritize validity and usefulness.** Gate domain-appropriate anatomical and
+  geometric validity and technical correctness. Then judge authentic, useful
+  appearance and practical performance; exact source fidelity is a lower priority.
+  Medical authenticity includes tissue relationships, not just realistic appearance.
+- **Use sources critically.** A source is evidence, not ground truth. Measure and
+  document deviations and label inferred reconstruction; source differences alone
+  do not reject a valid, evidence-supported improvement. Flag source–anatomy conflicts
+  and record the evidence and decision. Preserve untouched references and provenance.
+- **Set and report scope.** Derive tolerances from source resolution and intended use;
+  state the rationale and whether checks are sampled or exhaustive. Keep candidates,
+  failures and approved revisions distinct; retain earlier evidence and decisions.
+  Exact source pixels or triangle identity are not universal gates.
+- **Review actual output.** Inspect matched context and detail-zoom exports. Measure
+  bytes, triangles and build cost separately from performance in the intended runtime.
+  Integrity, render and documentation checks do not establish anatomy, clinical
+  validity or browser runtime.
+- **Optimize with evidence.** Desktop is the primary target. Efficiency targets are
+  soft unless a concrete use case justifies a hard limit. Before simplifying geometry,
+  demonstrate the benefit and assess the resulting quality cost.
+
 ## Foundation fields
 
 Each new record contains:
