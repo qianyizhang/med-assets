@@ -5,6 +5,7 @@ from pathlib import Path
 import re, secrets, shutil, signal, struct, subprocess, sys, tempfile, threading, time
 import urllib.parse, urllib.request, zlib
 import webgl_probe as base
+import lymph_diagnostics as diagnostics
 
 HERE=Path(__file__).resolve().parent
 RECIPE=HERE.parent/'tools/lymph_node/editorial_window_r03'
@@ -14,7 +15,7 @@ MAX_DOWNLOAD=10*1024*1024
 MAX_POST=4*1024*1024
 FRAME_IDS=(['lymph-full','lymph-capsule-hidden','lymph-restored']+
  ['lymph-source-lit-reverse','lymph-candidate-lit-front','lymph-candidate-lit-reverse',
-  'lymph-source-normal-front','lymph-source-normal-back','lymph-candidate-normal-front','lymph-candidate-normal-back']+
+  'lymph-source-normal-front','lymph-source-normal-back','lymph-candidate-normal-front','lymph-candidate-normal-back']+diagnostics.ORBIT_IDS+diagnostics.CONTROL_IDS+
  [f'heart-full-{i}' for i in range(4)]+['heart-paused','heart-exact-loop']+
  [f'heart-valves-{i}' for i in range(4)]+['heart-restored'])
 
@@ -118,9 +119,13 @@ def changed(a,b,tolerance=2):
  assert len(a)==len(b)
  return sum(any(abs(a[i+k]-b[i+k])>tolerance for k in range(3)) for i in range(0,len(a),4))
 
-def verify_snapshot(row,fixture,work,previous):
+def verify_snapshot(row,fixture,work,previous,diagnostic_baseline=None):
  index=len(previous);assert index<len(FRAME_IDS) and row['id']==FRAME_IDS[index], 'Unexpected snapshot sequence'
- name=row['id'];assert row['width']==row['height']==512 and row['glError']==0 and row['contextLost'] is False
+ name=row['id']
+ if name in diagnostics.NORMAL_IDS+diagnostics.CONTROL_IDS:
+  diagnostics.require(diagnostic_baseline is not None,'Missing diagnostic baseline')
+  diagnostics.validate_frame(row,diagnostic_baseline)
+ assert row['width']==row['height']==512 and row['glError']==0 and row['contextLost'] is False
  resource=fixture['lymphCandidate'] if row['asset']=='lymphCandidate' else next(x for x in fixture['resources'] if x.get('id')==row['asset'])
  assert row['assetSHA256']==resource['sha256']
  visible=row['visibleNodes'];assert len(visible)==fixture[row['asset']]['meshes']
@@ -155,7 +160,11 @@ def verify_snapshot(row,fixture,work,previous):
  elif name in ('heart-exact-loop','heart-restored'):compare='heart-full-0';maximum=0
  elif name in ('heart-valves-1','heart-valves-2'):compare='heart-valves-0';minimum=20
  elif name=='heart-valves-3':compare='heart-valves-0';maximum=10
- difference=None
+ if name in diagnostics.ORBIT_IDS:
+  if name.endswith('-back'):compare=name.removesuffix('-back')+'-front'
+  elif name.startswith('lymph-candidate-'):compare=name.replace('lymph-candidate-','lymph-source-',1)
+ difference=diagnostics.control_difference(name,raw,previous,changed)
+ if name in diagnostics.CONTROL_IDS:compare='lymph-candidate-normal-front'
  if compare:
   difference=changed(raw,previous[compare])
   if minimum is not None:assert difference>=minimum, 'Independent pixel change too small'
@@ -193,7 +202,7 @@ def verify_snapshot(row,fixture,work,previous):
 def inside(firefox,work):
  fixture=json.loads((HERE/'glb-runtime-fixture.json').read_text());nonce=secrets.token_hex(12)
  profile=work/'profile';profile.mkdir();home=work/'home';home.mkdir()
- received=threading.Event();report={};previous={};receipts=[];server_errors=[]
+ received=threading.Event();report={};previous={};receipts=[];server_errors=[];diagnostic_baseline={}
  importmap=json.dumps({'imports':{'three':'./vendor/build/three.module.js'}})
  html=f'''<!doctype html><html lang="en"><meta charset="utf-8"><title>Exact GLB runtime probe</title>
  <link rel="stylesheet" href="style.css"><h1>Exact-hash GLB runtime probe</h1>
@@ -202,7 +211,8 @@ def inside(firefox,work):
  <script type="importmap" nonce="{nonce}">{importmap}</script><script type="module" src="probe.mjs"></script></html>'''.encode()
  css=b'body{background:#fff;color:#111;font:16px sans-serif;margin:20px}h1{font-size:22px;margin:0}h2{font-size:17px;margin:12px 0}.row{display:flex;gap:20px}canvas{width:512px;height:512px;display:block}pre{font:13px monospace;white-space:pre-wrap;max-width:460px}'
  files={'/':(html,'text/html'),'/style.css':(css,'text/css'),'/probe.mjs':((HERE/'glb_runtime_probe.mjs').read_bytes(),'text/javascript'),
-  '/fixture.json':((HERE/'glb-runtime-fixture.json').read_bytes(),'application/json')}
+  '/fixture.json':((HERE/'glb-runtime-fixture.json').read_bytes(),'application/json'),
+  '/lymph_diagnostics.mjs':((HERE/'lymph_diagnostics.mjs').read_bytes(),'text/javascript')}
  for item in fixture['resources']:
   files['/'+item['path']]=((work/item['path']).read_bytes(),'text/javascript' if item['path'].endswith('.js') else 'model/gltf-binary' if item['path'].endswith('.glb') else 'text/plain')
  candidate=fixture['lymphCandidate'];files['/'+candidate['path']]=((work/candidate['path']).read_bytes(),'model/gltf-binary')
@@ -222,7 +232,9 @@ def inside(firefox,work):
    if not 0<length<=MAX_POST or received.is_set():self.send_error(413);return
    try:
     value=json.loads(self.rfile.read(length))
-    if key=='snapshot':result=verify_snapshot(value,fixture,work,previous);receipts.append(result)
+    if key=='snapshot':
+     if value['id']=='lymph-source-normal-front':diagnostic_baseline.update({key:value[key] for key in ('camera','culling')})
+     result=verify_snapshot(value,fixture,work,previous,diagnostic_baseline or None);receipts.append(result)
     else:report['value']=value;dump('browser-report.json',value);received.set();result={'accepted':True}
     data=json.dumps(result).encode();self.send_response(200);self.send_header('Content-Type','application/json');self.send_header('Content-Length',str(len(data)));self.end_headers();self.wfile.write(data)
    except Exception as error:
@@ -246,7 +258,17 @@ def inside(firefox,work):
    assert not value.get('errors') and not server_errors and all(c.get('passed') is True for c in value['checks'])
    assert list(previous)==FRAME_IDS and [r['id'] for r in receipts]==FRAME_IDS and len(value['frames'])==len(FRAME_IDS)
    assert all(r['displayMatch'] for r in receipts)
-   outcome.update(status='passed',reason='Exact-source rendering, deterministic morph/layer state, framebuffer changes and visible display match verified',frameCount=len(receipts))
+   normals=diagnostics.validate_normals(value,fixture)
+   sheet,cells=diagnostics.contact_sheet(previous,png)
+   (OUT/'lymph-diagnostics.svg').write_bytes(sheet)
+   dump('lymph-diagnostics.json',{'status':'sampled-diagnostics-passed','normalPolicy':value['normalPolicy'],
+    'samples':value['orbitSamples'],'normalDiagnostics':normals,'cells':cells,
+    'contactSheetSHA256':hashlib.sha256(sheet).hexdigest(),
+    'controls':[r for r in receipts if r['id'] in diagnostics.CONTROL_IDS],
+    'scope':'Four fixed views; GL culling state and deliberate normal/winding mutations. Not all-view correctness or anatomical/vascular identity.',
+    'attribution':diagnostics.ATTRIBUTION,
+    'sourceComparison':'Source anomalies are retained observations. Matching source/candidate speckling alone establishes neither its cause nor normal/winding correctness.'})
+   outcome.update(status='passed',reason='Exact-input render states, bounded normal/facing mutations, deterministic morph/layer state, framebuffer changes and visible display match verified',frameCount=len(receipts))
  except Exception as error:outcome.update(status='failed',reason=str(error))
  finally:
   if browser and browser.poll() is None:
@@ -277,7 +299,7 @@ def main():
  integrity=provenance['firefoxPackageIntegrity'];assert integrity['exit']==0
  assert all(line.endswith(' c /etc/firefox/syspref.js') for line in integrity['stdout'].splitlines()), 'Unexpected packaged Firefox changes'
  fixture=json.loads((HERE/'glb-runtime-fixture.json').read_text())
- dump('test-provenance.json',{'githubSHA':os.environ.get('GITHUB_SHA'),'files':{p.name:{'sha256':base.sha(p),'bytes':p.stat().st_size} for p in [HERE/'webgl_probe.py',Path(__file__),HERE/'glb_runtime_probe.mjs',HERE/'glb-runtime-fixture.json',*[RECIPE/p for p in ('build.py','gltf_source.py','check.py','import_audit.py','display_repair.py')]]},'frameIDs':FRAME_IDS})
+ dump('test-provenance.json',{'githubSHA':os.environ.get('GITHUB_SHA'),'files':{p.name:{'sha256':base.sha(p),'bytes':p.stat().st_size} for p in [HERE/'webgl_probe.py',Path(__file__),HERE/'glb_runtime_probe.mjs',HERE/'lymph_diagnostics.mjs',HERE/'lymph_diagnostics.py',HERE/'glb-runtime-fixture.json',*[RECIPE/p for p in ('build.py','gltf_source.py','check.py','import_audit.py','display_repair.py')]]},'frameIDs':FRAME_IDS})
  with tempfile.TemporaryDirectory(prefix='glb-runtime-') as temporary:
   work=Path(temporary);(work/'framebuffer').mkdir();download_inputs(fixture,work);reconstruct(fixture,work)
   args=['xvfb-run','--auto-servernum','--server-args',f'-screen 0 1280x1024x24 -nolisten tcp -fbdir {work}/framebuffer',sys.executable,str(Path(__file__).resolve()),'--inside-xvfb',str(firefox),str(work)]

@@ -43,7 +43,7 @@ class RuntimeReconstructionTests(unittest.TestCase):
   with tempfile.TemporaryDirectory() as directory, mock.patch.object(probe,'OUT',Path(directory)), mock.patch.object(probe.os,'geteuid',return_value=1000), mock.patch.dict(probe.os.environ,{'GITHUB_ACTIONS':'false'}):
    with self.assertRaisesRegex(RuntimeError,'Authorized GitHub Actions job only'):probe.main()
 
- def test_pixel_difference_detects_normal_or_facing_changes(self):
+ def test_rgb_difference_counter(self):
   a=bytes([0,0,0,255]*128);b=bytes([20,0,0,255]*128)
   self.assertEqual(probe.changed(a,a),0)
   self.assertEqual(probe.changed(a,b),128)

@@ -1,5 +1,6 @@
 import * as THREE from './vendor/build/three.module.js';
 import {GLTFLoader} from './vendor/examples/jsm/loaders/GLTFLoader.js';
+import {samples,normalPolicy,auditGeometry,validNormals,mutateGeometry} from './lymph_diagnostics.mjs';
 
 // Deterministic scene API checks, not native UI/click/playback controls QA.
 const canvas=document.querySelector('canvas'), status=document.querySelector('#status');
@@ -12,7 +13,7 @@ const hash=async bytes=>Array.from(new Uint8Array(await crypto.subtle.digest('SH
 const b64=bytes=>{let s='';for(let i=0;i<bytes.length;i+=8192)s+=String.fromCharCode(...bytes.subarray(i,i+8192));return btoa(s);};
 const post=async (path,value)=>{const r=await fetch(path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(value)});assert(r.ok,`${path}: HTTP ${r.status}`);return r.json();};
 const settle=()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
-const frames=[],checks=[];
+const frames=[],checks=[],normalDiagnostics=[];
 function check(test,label){checks.push({label,passed:!!test});assert(test,label);}
 const read=gl=>{const p=new Uint8Array(512*512*4);gl.readPixels(0,0,512,512,gl.RGBA,gl.UNSIGNED_BYTE,p);return p;};
 const diff=(a,b,tolerance=2)=>{let changed=0,max=0;for(let i=0;i<a.length;i+=4){let d=0;for(let k=0;k<3;k++)d=Math.max(d,Math.abs(a[i+k]-b[i+k]));max=Math.max(max,d);if(d>tolerance)changed++;}return {changedPixels:changed,maxChannelDifference:max};};
@@ -56,7 +57,18 @@ async function run(){
    const p=o.geometry.attributes.position;assert(p&&p.count>0,'Empty loaded POSITION');
    for(let i=0;i<p.array.length;i++)assert(Number.isFinite(p.array[i]),'Nonfinite loaded POSITION');}});
   check(meshCount===fixture[id].renderMeshes,`${id}: expected rendered mesh count`);
-  if(id==='lymph'||id==='lymphCandidate')model.scene.traverse(o=>{if(o.isMesh){const n=o.geometry.attributes.normal;assert(n&&n.count>0,'Missing loaded normals');for(const x of n.array)assert(Number.isFinite(x),'Nonfinite normal');const materials=Array.isArray(o.material)?o.material:[o.material];assert(materials.every(m=>m.side===THREE.FrontSide),'Loaded material must cull back faces');}});
+  if(id==='lymph'||id==='lymphCandidate')model.scene.traverse(o=>{if(o.isMesh){
+   const n=o.geometry.attributes.normal;assert(n&&n.count>0,'Missing loaded normals');
+   for(const x of n.array)assert(Number.isFinite(x),'Nonfinite normal');
+   const report=auditGeometry(o.geometry),materials=Array.isArray(o.material)?o.material:[o.material];
+   const frontSide=materials.every(m=>m.side===THREE.FrontSide);
+   normalDiagnostics.push({asset:id,assetSHA256:resource.sha256,mesh:o.name,...report,frontSide});
+   check(report.nonfinite===0,`${id}/${o.name}: finite referenced normals`);
+   check(frontSide,`${id}/${o.name}: loaded material culls back faces`);
+   // Source defects are retained as observations, not silently repaired. The
+   // compact candidate is required to have nonzero unit referenced normals.
+   if(id==='lymphCandidate')check(validNormals(report),`${id}/${o.name}: nonzero unit referenced normals`);
+  }});
   if(id==='heart')check(morphCount===fixture.heart.morphRenderMeshes,'heart: 232 rendered morph primitives');
   const nodes=new Map();for(let i=0;i<doc.nodes.length;i++)nodes.set(i,await model.parser.getDependency('node',i));
   const transforms=new Map();model.scene.traverse(o=>transforms.set(o,JSON.stringify([o.position.toArray(),o.quaternion.toArray(),o.scale.toArray()])));
@@ -89,6 +101,7 @@ async function run(){
   assert(devicePixelRatio===1&&Number.isFinite(window.mozInnerScreenX)&&Number.isFinite(window.mozInnerScreenY),'Unreviewed display-coordinate layout');
   const result={id,asset:asset.id,assetSHA256:asset.resource.sha256,pixelSHA256:await hash(pixels),
    width:512,height:512,backgroundDifference:presence,comparison,glError:gl.getError(),contextLost:lost||gl.isContextLost(),
+   culling:{enabled:gl.isEnabled(gl.CULL_FACE),mode:gl.getParameter(gl.CULL_FACE_MODE),frontFace:gl.getParameter(gl.FRONT_FACE)},
    visibleNodes:visibleNodes(asset),rendererInfo:{calls:renderer.info.render.calls,triangles:renderer.info.render.triangles},
    displayRect:{x:Math.round(window.mozInnerScreenX+rect.left),y:Math.round(window.mozInnerScreenY+rect.top),width:rect.width,height:rect.height},
    ...extra,canvasPNG:canvas.toDataURL('image/png'),rgbaBase64:b64(pixels)};
@@ -126,6 +139,35 @@ async function run(){
  await snapshot('lymph-candidate-normal-front',candidate,{camera:lymphCamera,diagnostic:'normal-front'},'lymph-source-normal-front');
  scene.overrideMaterial=normalBack;
  await snapshot('lymph-candidate-normal-back',candidate,{camera:lymphCamera,diagnostic:'normal-back'},'lymph-candidate-normal-front',100);
+ // Four fixed samples only. All fits use source bounds, including the candidate.
+ for(const sample of samples.slice(1)) {
+  const spec=fit([lymph.model.scene],sample.direction);
+  for(const [label,asset] of [['source',lymph],['candidate',candidate]]) {
+   scene.remove(lymph.model.scene,candidate.model.scene);scene.add(asset.model.scene);
+   for(const [side,material] of [['front',normalFront],['back',normalBack]]) {
+    scene.overrideMaterial=material;
+    await snapshot(`lymph-${label}-orbit-${sample.id}-${side}`,asset,
+     {camera:spec,diagnostic:`normal-${side}`,orbitSample:sample.id},
+     side==='back'?`lymph-${label}-orbit-${sample.id}-front`:label==='candidate'?`lymph-source-orbit-${sample.id}-front`:null);
+   }
+  }
+ }
+ scene.remove(lymph.model.scene,candidate.model.scene);scene.add(candidate.model.scene);
+ useCamera(lymphCamera);scene.overrideMaterial=normalFront;
+ // Require real renderer sensitivity AND exact return to the pinned candidate.
+ // A missing/ineffective mutation must fail the >=100 changed-pixel threshold.
+ for(const kind of ['negated-normals','reversed-winding']) {
+  const restores=[];
+  try {
+   const geometries=new Set();candidate.model.scene.traverse(o=>{if(o.isMesh)geometries.add(o.geometry);});
+   for(const geometry of geometries)restores.push(mutateGeometry(geometry,kind));
+   await snapshot(`lymph-control-${kind}`,candidate,
+    {camera:lymphCamera,diagnostic:'normal-front',negativeControl:kind,mutatedInMemory:true},
+    'lymph-candidate-normal-front',100);
+  } finally {for(const restore of restores.reverse())restore();}
+  await snapshot(`lymph-control-${kind}-restored`,candidate,
+   {camera:lymphCamera,diagnostic:'normal-front',restoredAfter:kind},'lymph-candidate-normal-front',null,0);
+ }
  scene.overrideMaterial=null;normalFront.dispose();normalBack.dispose();scene.remove(candidate.model.scene);
  const heart=await load('heart');scene.add(heart.model.scene);
  check(heart.model.animations.length===1,'heart: exactly one animation clip');
@@ -165,11 +207,11 @@ async function run(){
  mixer.setTime(0);fit([heart.model.scene],[0,0,1]);
  await snapshot('heart-restored',heart,{timeSeconds:0,...weights(0)},'heart-full-0',null,0);
  assert(!errors.length,'Page errors recorded');
- status.textContent=`PASS: ${frames.length} exact-source render states. Software CI only; native UI, clinical, hardware QA not performed.`;
- await post('complete',{schema:1,passed:true,browser,threeRevision:THREE.REVISION,checks,frames,errors,
+ status.textContent=`PASS: ${frames.length} checked render states including deliberate diagnostic mutations. Software CI only; native UI, clinical, hardware QA not performed.`;
+ await post('complete',{schema:1,passed:true,browser,threeRevision:THREE.REVISION,checks,frames,errors,normalDiagnostics,normalPolicy,orbitSamples:samples,
   claims:{softwareCIRender:true,deterministicMixerAndLayerState:true,nativeUIInteractionQA:false,wholeSiteQA:false,hardwarePerformanceQA:false,clinicalQA:false}});
 }
 run().catch(async error=>{
  status.textContent=`FAILED: ${error.stack||error}`;
- try{await post('complete',{schema:1,passed:false,error:String(error.stack||error),checks,frames,errors});}catch{}
+ try{await post('complete',{schema:1,passed:false,error:String(error.stack||error),checks,frames,errors,normalDiagnostics,normalPolicy,orbitSamples:samples});}catch{}
 });
