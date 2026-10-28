@@ -35,15 +35,36 @@ Opaque lens color, translucent cornea, double-sided surfaces and editorial hidin
 
 ## Reproduce the focused local checks
 
-With exact existing LFS eye bytes, Python 3.11+, NumPy, and Blender 4.3.2:
+With exact existing LFS eye bytes, Python 3.11+, NumPy, Pillow, DejaVu Sans, and Blender 4.3.2:
 
 ```sh
 python3 -m unittest discover -s tests -p test_eye_source_coverage.py
 python3 tests/eye_anterior_segment/verify_source_coverage.py
 python3 tests/eye_anterior_segment/replay.py --output /tmp/eye-replay-NEW
 blender -b --python tests/eye_anterior_segment/detail_review.py -- --output /tmp/eye-detail-NEW
+python3 tests/eye_anterior_segment/verify_detail_review.py --output /tmp/eye-detail-NEW
+python3 tests/eye_anterior_segment/make_teaching_plate.py --output /tmp/eye-detail-NEW
 ```
 
-Output directories must be new. Review all native 1000×1000 PNGs, especially both matched endpoint pairs and both full/three-structure pairs. `render-manifest.json` binds the views to the export and records visibility, camera, settings and pixel-file hashes. Rendering success is not visual or anatomical acceptance. No new export means no new downstream export-runtime claim; the retained GLB's browser-runtime gate stays unverified.
+Output directories must be new. Review all native 1000×1000 PNGs, especially both matched endpoint pairs and both full/three-structure pairs. `render-manifest.json` binds the views to the export and records visibility, camera, settings and pixel-file hashes. The captioned `teaching-order.png` retains every decoded render pixel and explicitly distinguishes the lens from the pupil opening; `teaching-order-grayscale.png` is only a readability diagnostic. Rendering success is not visual or anatomical acceptance. No new export means no new downstream export-runtime claim; the retained GLB's browser-runtime gate stays unverified.
 
 The six synthetic stdlib tests are discovered by existing lean offline CI. Exact payload validation, four-export replay and fresh rendering are local gates, not hosted-CI substitutes. No unrelated full-suite run is required for this bounded decision.
+
+
+## Observed outcome and delivery
+
+The [scoped decision](decision.json) separates the technical, visual, anatomical and runtime gates. Local Blender 4.3.2 produced nine native views; both reviewers inspected the endpoint detail pairs, anterior views and corrected profiles, plus the captioned color and grayscale teaching plates. The [render receipt](local-render-manifest.json) and [caption receipt](teaching-plate-manifest.json) retain exact hashes and settings.
+
+Posterior and oblique superior-sector details show blunt cylindrical rods, shorter exposed ends in the dark lens-to-process gap, and long rods extending beyond visible process contours. Layer hiding exposes more rod length. These observations do not prove actual tissue detachment or biological insertion; they justify rejecting these images as attachment lessons. The three-structure image improves broad-order reading and its caption corrects the pupil/lens confusion. Corrected profiles include the entire corneal silhouette and retain visible angular poles/rim; shape and thickness claims remain rejected. Grayscale retains distinguishable boundaries, without an accessibility claim.
+
+The first local profile framing cropped a corneal pole. Both profile cameras were widened together and the complete batch rerendered in a new directory. The other seven views retained identical decoded RGB pixels. Original diagnostics were preserved.
+
+**Delivery status:** code, decision and text receipts are in this PR. The eleven PNGs are retained as local review deliverables, not committed as unuploaded LFS pointers or published through a Site. Reproduction commands above produce the full evidence. Parent independent acceptance remains pending; no issue closure, canonical promotion or consumer integration follows automatically.
+
+| Issue #100 acceptance | Bounded result |
+|---|---|
+| Reproduce inventory and explain mismatch or mark unresolved | Exact 23-mesh inventory and 7/16 partition reproduced; provider-specific discrepancy explicitly unresolved. |
+| Map teaching claims to anatomical references | Claim/reference table distinguishes general anatomy, source labels and inspected model appearance. |
+| Inspect matched details; correct or omit misleading geometry/labels | Native matched endpoint and profile views reviewed; unsupported ciliary/zonular geometry omitted from teaching views; pupil/lens caption corrected. |
+| Explain illustrative materials and cuts; exclude optical/clinical claims | Explicit in the teaching caption and scope; no physiological or surgical use. |
+| Separate decisions; preserve source/provenance | Scoped gates recorded; intact source/export/history retained. Parent review pending. |

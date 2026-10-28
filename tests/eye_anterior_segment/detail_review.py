@@ -71,8 +71,8 @@ views = [
     ('oblique-detail-isolated', zonule_target, (1, 2, .6), .0055, isolation),
     ('anterior-order-full', center, (2, -1, .4), extent * 1.2, []),
     ('anterior-order-three-structures', center, (2, -1, .4), extent * 1.2, ciliary),
-    ('corneal-profile-full', center, (2, 0, 0), extent * .8, []),
-    ('corneal-profile-three-structures', center, (2, 0, 0), extent * .8, ciliary),
+    ('corneal-profile-full', center, (2, 0, 0), extent * 1.05, []),
+    ('corneal-profile-three-structures', center, (2, 0, 0), extent * 1.05, ciliary),
 ]
 rows = []
 for name, target, delta, scale, hidden in views:
