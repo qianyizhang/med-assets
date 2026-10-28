@@ -54,6 +54,14 @@ broad/uncertain risk. Each PR records affected scope, chosen commands and ration
 exact revision, passed/failed/blocked coverage and remaining limits. Hosted green
 never replaces required local E2E evidence.
 
+For medical and dental asset delivery, unavailable live viewer/runtime testing
+alone does not block a PR or authorized merge. Prioritize review of actual offline
+renders and affected technical checks; fix known failures before acceptance.
+Record the exact artifact, checks performed, unrun runtime coverage and remaining
+risk in the PR and merge note. Keep runtime `unverified` until actually tested;
+offline evidence is not a runtime pass or clinical approval. This exception does
+not waive required CI, execution/security guards, or known defects.
+
 Existing protected runtime restrictions still apply. If local E2E is barred or
 prerequisites are unavailable, record it blocked and require a reviewed, explicitly
 authorized local mode where needed; never spoof CI flags or bypass execution guards.

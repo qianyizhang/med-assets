@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "scope": "Exact display file identities, not anatomy or runtime acceptance",
+  "defaultQuality": "balanced",
+  "models": {
+    "balanced": {
+      "url": "/review/fdi31-balanced-20261028/FDI31-balanced.glb.gz",
+      "triangles": 105370,
+      "compressedBytes": 888210,
+      "compressedSha256": "182fd3b511e77598bf081a631c3c332ac8a7c14c165212d1d8c2a3a2c037a877",
+      "bytes": 2052220,
+      "sha256": "90006e54c2b9f79f6c201397a50f92228d9ad6fa4450f20e0ad20c5fe70c19f7"
+    },
+    "detailed": {
+      "url": "/review/fdi31-interface-locked-20261027/A_1_31_T2_SEG_na__layered.glb.gz",
+      "triangles": 1328980,
+      "compressedBytes": 7654030,
+      "compressedSha256": "fdcdfcceb8816f0cd6f2992a11fb8cfa09331dcbd00a2c7e64f68c832ca2bb1b",
+      "bytes": 26524356,
+      "sha256": "c0884a6bcc8fc6175dd97a99f50e53334024b4eb5e033063c7602358f6da1014"
+    }
+  },
+  "source": {
+    "citation": "Benz, Heck & Walter (2024), Data: Visualization of Pulpal Structures by SWIR in Endodontic Access Preparation",
+    "doi": "https://doi.org/10.5282/ubm/data.477",
+    "license": "CC BY-SA 4.0"
+  },
+  "limitations": [
+    "Balanced is a separate teaching-resolution simplification with visible detail loss.",
+    "Detailed reference and master remain unchanged; master is not delivered in this preview.",
+    "No clinical, global non-overlap or measured runtime approval."
+  ]
+}

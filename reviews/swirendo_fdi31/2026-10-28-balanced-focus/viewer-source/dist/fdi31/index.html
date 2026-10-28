@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>FDI 31 · Focus a source layer</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="./focus.css">
+  <script type="importmap">{"imports":{"three":"/review/uff-tomo1b/payload/viewer/vendor/three.module.js"}}</script>
+</head>
+<body>
+  <nav><a href="/#fdi31-interface-locked" data-en="← Specimen evidence" data-zh="← 标本证据">← Specimen evidence</a><button id="language" type="button">中文</button></nav>
+  <main>
+    <div class="eyebrow">FDI 31 · PREPARED T2 SPECIMEN / 制备后 T2 标本</div>
+    <h1 data-en="Focus a layer. Keep its place." data-zh="单独看分层，保留原位置。">Focus a layer. Keep its place.</h1>
+    <p data-en="Choose a source label to reveal it, then restore the whole specimen. Every layer stays in the original specimen frame; the camera and scale stay fixed when switching layers." data-zh="选择来源标签以单独显示，再恢复完整标本。各层保持原始标本坐标；切换分层时相机与比例不变。">Choose a source label to reveal it, then restore the whole specimen. Every layer stays in the original specimen frame; the camera and scale stay fixed when switching layers.</p>
+    <p class="warning" data-en="Unapproved research/teaching candidate, not healthy reference anatomy or clinical material. Prepared specimen; source labels are in progress. Islands, open/nonmanifold geometry and boundary truncation remain. Isolation is a display choice—not disjoint tissue validation or an exploded anatomical arrangement." data-zh="尚未批准的研究／教学候选，不是健康解剖参照或临床材料。制备后标本，来源标签仍在完善中；保留小碎片、开放／非流形几何与边界截断。隔离仅改变显示，不证明组织互不相交，也不呈现解剖爆炸排列。">Unapproved research/teaching candidate, not healthy reference anatomy or clinical material. Prepared specimen; source labels are in progress. Islands, open/nonmanifold geometry and boundary truncation remain. Isolation is a display choice—not disjoint tissue validation or an exploded anatomical arrangement.</p>
+
+    <section class="quality-picker" aria-label="Display quality">
+      <label for="quality" data-en="Display quality" data-zh="显示精度">Display quality</label>
+      <select id="quality" aria-describedby="quality-note quality-policy">
+        <option value="balanced" selected data-en="Balanced draft · 105,370 triangles · default" data-zh="均衡草稿 · 105,370 三角面 · 默认">Balanced draft · 105,370 triangles · default</option>
+        <option value="detailed" data-en="Detailed reference · 1,328,980 triangles" data-zh="详细参考 · 1,328,980 三角面">Detailed reference · 1,328,980 triangles</option>
+      </select>
+      <p id="quality-note"></p>
+      <p id="quality-policy" class="status" data-en="Only the selected model is loaded. Quality changes keep your layer selection and camera; Restore still shows all layers and resets the view. No measured frame-rate claim." data-zh="只加载所选模型。切换精度保留当前分层选择与相机；恢复按钮仍显示全部分层并重置视角。不声称已测量的帧率提升。">Only the selected model is loaded. Quality changes keep your layer selection and camera; Restore still shows all layers and resets the view. No measured frame-rate claim.</p>
+    </section>
+
+    <section class="focus-layout" aria-label="FDI 31 source-layer viewer">
+      <div class="stage-column">
+        <div id="viewport" class="focus-viewport">
+          <div id="placeholder"><p data-en="Inspect the selected draft in 3D." data-zh="三维检查所选草稿。">Inspect the selected draft in 3D.</p><p id="download-size">Selected download: 0.89 MB compressed. Only this model loads when opened.</p></div>
+        </div>
+        <p id="status" role="status" aria-live="polite"></p>
+        <button id="load" type="button" data-en="Open 3D layer view" data-zh="打开三维分层视图">Open 3D layer view</button>
+        <button id="retry" type="button" hidden data-en="Try loading again" data-zh="重新加载">Try loading again</button>
+        <p class="status" data-en="Drag to orbit; scroll to zoom. Restoring the specimen also resets the camera. Colors identify source labels, not disease." data-zh="拖动旋转、滚动缩放。恢复标本时也重置相机。颜色区分来源标签，不表示疾病。">Drag to orbit; scroll to zoom. Restoring the specimen also resets the camera. Colors identify source labels, not disease.</p>
+      </div>
+      <aside class="focus-panel">
+        <fieldset id="layer-controls" disabled>
+          <legend data-en="Show in place" data-zh="原位显示">Show in place</legend>
+          <div class="context-presets">
+            <button type="button" data-mode="all" aria-pressed="true" aria-controls="viewport context-copy" data-en="Whole specimen" data-zh="完整标本">Whole specimen</button>
+            <button type="button" data-mode="tooth" aria-pressed="false" aria-controls="viewport context-copy" data-en="Tooth labels · hide bone" data-zh="牙体标签 · 隐藏骨">Tooth labels · hide bone</button>
+          </div>
+          <p class="small-label" data-en="ISOLATE ONE SOURCE LABEL" data-zh="单独显示一个来源标签">ISOLATE ONE SOURCE LABEL</p>
+          <div class="layer-presets">
+            <button type="button" data-mode="enamel" aria-pressed="false" aria-controls="viewport context-copy"><span class="swatch enamel"></span><span data-en="Enamel label" data-zh="釉质标签">Enamel label</span></button>
+            <button type="button" data-mode="dentin" aria-pressed="false" aria-controls="viewport context-copy"><span class="swatch dentin"></span><span data-en="Dentin label" data-zh="牙本质标签">Dentin label</span></button>
+            <button type="button" data-mode="pulp" aria-pressed="false" aria-controls="viewport context-copy"><span class="swatch pulp"></span><span data-en="Pulp-space label" data-zh="牙髓空间标签">Pulp-space label</span></button>
+            <button type="button" data-mode="bone" aria-pressed="false" aria-controls="viewport context-copy"><span class="swatch bone"></span><span data-en="Bone label" data-zh="骨标签">Bone label</span></button>
+          </div>
+          <button id="restore" class="restore-button" type="button" data-en="↺ Restore all layers & camera" data-zh="↺ 恢复所有分层与相机">↺ Restore all layers & camera</button>
+        </fieldset>
+        <div id="context-copy" role="status" aria-live="polite"><h2 id="context-title"></h2><p id="context-description"></p><p id="visible-labels" class="status"></p></div>
+      </aside>
+    </section>
+
+    <details class="technical"><summary data-en="Exact candidate and verification scope" data-zh="精确候选与核查范围">Exact candidate and verification scope</summary>
+      <p id="integrity" class="status"></p>
+      <p id="model-metrics">Balanced draft · 2,052,220 GLB bytes · 105,370 triangles</p>
+      <p>GLB SHA-256: <code id="model-hash">90006e54c2b9f79f6c201397a50f92228d9ad6fa4450f20e0ad20c5fe70c19f7</code></p>
+      <p><a id="model-download" download href="/review/fdi31-balanced-20261028/FDI31-balanced.glb.gz" data-en="Download selected gzip GLB · decompress before opening" data-zh="下载所选 gzip GLB · 解压后打开">Download selected gzip GLB · decompress before opening</a> · <a href="./model-manifest.json" data-en="Both model identities" data-zh="两版模型身份清单">Both model identities</a></p>
+      <p data-en="Browser controls do not edit geometry or move layers. Balanced is a separately simplified teaching draft: fine contours are smoother and bone is coarser. The detailed reference and master remain unchanged. Successful loading is not measured performance or acceptance." data-zh="浏览器控制不编辑几何或移动分层。均衡版是单独简化的教学草稿：细部轮廓更平滑、骨表面更粗。详细参考与主模型保持不变。成功加载不等于性能测量或验收。">Browser controls do not edit geometry or move layers. Balanced is a separately simplified teaching draft: fine contours are smoother and bone is coarser. The detailed reference and master remain unchanged. Successful loading is not measured performance or acceptance.</p>
+      <p data-en="Anatomy/clinical acceptance, repository delivery and measured runtime remain separate. This review preview does not complete any of those gates." data-zh="解剖／临床验收、仓库交付与运行性能测量保持独立。此审查预览不代表完成任何上述关口。">Anatomy/clinical acceptance, repository delivery and measured runtime remain separate. This review preview does not complete any of those gates.</p>
+    </details>
+    <section id="fallback" class="card">
+      <h2 data-en="Matched static evidence stays available" data-zh="匹配静态证据始终可用">Matched static evidence stays available</h2>
+      <p data-en="This retained figure belongs to the Detailed reference, not the Balanced draft. It is not a screenshot of this viewer, proof of Balanced's interfaces, full-model acceptance or clinical validation." data-zh="此保留图属于详细参考，不是均衡草稿。它不是查看器截图，不证明均衡版界面正确，也不代表全模型验收或临床验证。">This retained figure belongs to the Detailed reference, not the Balanced draft. It is not a screenshot of this viewer, proof of Balanced's interfaces, full-model acceptance or clinical validation.</p>
+      <a href="/review/fdi31-interface-locked-20261027/witness-2-dentin-pulp-matched.png"><img loading="lazy" src="/review/fdi31-interface-locked-20261027/witness-2-dentin-pulp-matched.png" alt="Retained dentin–pulp interface comparison, not a viewer screenshot / 保留的牙本质–牙髓界面对照，非查看器截图"></a>
+      <p><a href="/#fdi31-interface-locked" data-en="Detailed reference evidence, downloads & limitations →" data-zh="详细参考证据、下载与限制 →">Detailed reference evidence, downloads & limitations →</a></p>
+    </section>
+    <p id="changelog" class="status" data-en="2026-10-28 · Balanced (105,370 triangles) is now the default; Detailed (1,328,980) remains optional. Smaller download with disclosed detail loss; four labels and original specimen placement retained. Browser 3D performance remains unmeasured." data-zh="2026-10-28 · 均衡版（105,370 三角面）现为默认；详细版（1,328,980）仍可选。下载更小，明确保留细节损失说明；四个标签与原始标本位置保留。浏览器三维性能仍未测量。">2026-10-28 · Balanced (105,370 triangles) is now the default; Detailed (1,328,980) remains optional. Smaller download with disclosed detail loss; four labels and original specimen placement retained. Browser 3D performance remains unmeasured.</p>
+    <footer>
+      <p>Benz, Heck &amp; Walter (2024) · <a href="https://doi.org/10.5282/ubm/data.477">Data: Visualization of Pulpal Structures by SWIR in Endodontic Access Preparation</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
+      <p data-en="Source-derived drafts: Detailed preserves protected interfaces with exterior-only simplification; Balanced further simplifies separate tissue layers and softens fine detail. Both supplied files retain their original draft bytes and specimen frame. Specimen-specific, nonclinical use only." data-zh="来源衍生草稿：详细版保护界面、仅简化外表面；均衡版进一步简化各独立分层，使细节更平滑。两份文件均保留各自草稿原始字节与标本坐标。仅限该标本的非临床使用。">Source-derived drafts: Detailed preserves protected interfaces with exterior-only simplification; Balanced further simplifies separate tissue layers and softens fine detail. Both supplied files retain their original draft bytes and specimen frame. Specimen-specific, nonclinical use only.</p>
+    </footer>
+    <noscript><p class="warning">JavaScript is needed for layer controls. Static evidence and the specimen link above remain available. / 分层控制需要 JavaScript；上方静态证据及标本链接仍可使用。</p></noscript>
+  </main>
+  <script type="module" src="./viewer.mjs"></script>
+</body>
+</html>
