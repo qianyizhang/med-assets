@@ -1,3 +1,33 @@
+export function setEsophagusView(THREE,camera,transverse){
+  camera.up.set(0,0,-1);camera.left=camera.bottom=transverse?-.0165:-.0335;camera.right=camera.top=-camera.left;
+  camera.near=.00001;camera.far=2;
+  camera.position.copy(new THREE.Vector3(0,.0225,0)).add(transverse?new THREE.Vector3(0,.3,0):new THREE.Vector3(.85,1.1,1.7).normalize().multiplyScalar(.3));
+  camera.lookAt(0,.0225,0);camera.updateProjectionMatrix();camera.updateMatrixWorld(true);
+}
+
+// Raycast the center of the displayed anchor pixel. A continuous subpixel ray can
+// land exactly on a tessellation seam that rasterization covers (run 40633821427).
+export function resolveAnchors(THREE,nodes,camera,layers){
+  const describe=object=>object?{name:object.name,uuid:object.uuid,visible:object.visible,
+    materialSide:Array.isArray(object.material)?object.material.map(m=>m.side):object.material?.side}:null;
+  const visible=object=>{for(let p=object;p;p=p.parent)if(!p.visible)return false;return !!object;};
+  return layers.map(l=>{
+    const point=new THREE.Vector3(...l.anchor),ndc=point.clone().project(camera);
+    const pixel=[Math.round((ndc.x+1)*256),Math.round((1-ndc.y)*256)];
+    const center=new THREE.Vector2((pixel[0]+.5)/256-1,1-(pixel[1]+.5)/256);
+    const ray=new THREE.Raycaster();ray.setFromCamera(center,camera);
+    const hits=ray.intersectObjects([...nodes.values()],true),hit=hits[0],expected=nodes.get(l.node);
+    const details={anchorId:l.number,expectedNode:l.node,expected:describe(expected),
+      actual:hit?{...describe(hit.object),distance:hit.distance,point:hit.point.toArray(),faceIndex:hit.faceIndex}:null,
+      anchorWorld:l.anchor,projectedNDC:ndc.toArray(),pixel,pixelCenterNDC:center.toArray(),
+      rayOrigin:ray.ray.origin.toArray(),rayDirection:ray.ray.direction.toArray(),
+      cameraPosition:camera.position.toArray(),intersectionCount:hits.length};
+    if(!(hit&&hit.object===expected&&visible(expected)&&visible(hit.object)))
+      throw Error('Numbered anchor misses its loaded compartment: '+JSON.stringify(details));
+    return {number:l.number,hitNode:l.node,point:l.anchor,pixel,raycast:details};
+  });
+}
+
 // Inject the existing reviewed renderer/loader/snapshot path; never launch a browser.
 // Deterministic scene API exercise, not native UI or whole-Site acceptance.
 export async function runEsophagus({THREE, GLTFLoader, renderer, scene, camera, snapshot, check, fixture}) {
@@ -21,12 +51,7 @@ export async function runEsophagus({THREE, GLTFLoader, renderer, scene, camera, 
     return {language,labels,notice:notices[language],context:fixture.context[language],attribution:fixture.attribution,
       rect:{x:Math.round(window.mozInnerScreenX+r.left),y:Math.round(window.mozInnerScreenY+r.top),width:r.width,height:r.height}};
   }
-  function view(transverse){
-    camera.up.set(0,0,-1);camera.left=camera.bottom=transverse?-.0165:-.0335;camera.right=camera.top=-camera.left;
-    camera.near=.00001;camera.far=2;
-    camera.position.copy(new THREE.Vector3(0,.0225,0)).add(transverse?new THREE.Vector3(0,.3,0):new THREE.Vector3(.85,1.1,1.7).normalize().multiplyScalar(.3));
-    camera.lookAt(0,.0225,0);camera.updateProjectionMatrix();camera.updateMatrixWorld(true);
-  }
+  const view=transverse=>setEsophagusView(THREE,camera,transverse);
   async function load(variant){
     const resource=fixture[variant];
     const response=await fetch(resource.path,{credentials:'omit',redirect:'error'});assert(response.ok,'Esophagus input HTTP failure');
@@ -67,12 +92,7 @@ export async function runEsophagus({THREE, GLTFLoader, renderer, scene, camera, 
       scene.remove(asset.model.scene);if(variant==='candidate')candidate=asset;
     }
     scene.add(candidate.model.scene);view(true);scene.updateMatrixWorld(true);
-    const anchors=fixture.layers.map(l=>{
-      const point=new THREE.Vector3(...l.anchor),ndc=point.clone().project(camera),ray=new THREE.Raycaster();ray.setFromCamera(new THREE.Vector2(ndc.x,ndc.y),camera);
-      const hit=ray.intersectObjects([...candidate.nodes.values()],true)[0];
-      assert(hit&&hit.object===candidate.nodes.get(l.node),'Numbered anchor misses its loaded compartment');
-      return {number:l.number,hitNode:l.node,point:l.anchor,pixel:[Math.round((ndc.x+1)*256),Math.round((1-ndc.y)*256)]};
-    });
+    const anchors=resolveAnchors(THREE,candidate.nodes,camera,fixture.layers);
     // Grayscale is derived from real lit readPixels, not baseColorFactor or swatches.
     const sheet=document.createElement('canvas');sheet.width=sheet.height=512;const ctx=sheet.getContext('2d');const rgba=ctx.createImageData(512,512);
     for(let y=0;y<512;y++)for(let x=0;x<512;x++){

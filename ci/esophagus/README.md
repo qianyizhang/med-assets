@@ -3,9 +3,10 @@
 This isolated module extends the reviewed `ci/glb_runtime_probe.py` and `.mjs`
 architecture, integrated against PR #111 merge
 `f082ed38af36bedcbbb425272eb5252e725c57f7`. Its 18 states follow the existing
-37 lymph/heart states, for 55 total. No browser was launched, protected workflow
-dispatched, model staged, or Site published for this change. Parent independent
-review is required before merge or dispatch.
+37 lymph/heart states, for 55 total. The subsequent combined run failed at anchor
+3; see the repair record below. This repair and its local CPU regression launch no
+browser and dispatch no protected workflow. Parent independent review is required
+before merge or rerun; no model or Site publication is included.
 
 ## Verified input and replay
 
@@ -22,10 +23,11 @@ allowlisted runtime host, but the 2026-10-28 read-only request failed at the
 execution environment proxy: `Tunnel connection failed: 403 Forbidden`.
 No payload was returned, no retry or alternate route was attempted. The existing
 baseline Site in the transport manifest uses a host outside the runtime allowlist;
-this change does not add it. **Remote baseline availability is unresolved.**
-A future authorized run must obtain exactly the pinned baseline through the
-reviewed source path or stop inconclusive. Local bytes do not prove remote input
-availability. No new public payload staging or LFS transport is proposed.
+this change does not add it. The parent independently verified that run
+40633821427 subsequently downloaded and reconstructed the exact pinned inputs
+on its Actions runner. The earlier local proxy restriction remains; no denied
+source download was retried. A future authorized run must still verify exact
+input bytes or stop inconclusive. No new public staging or LFS transport is proposed.
 
 Local technical replay (new output directory only):
 
@@ -63,8 +65,8 @@ of both full display images remains mandatory. No accessibility pass is claimed.
 `validate_frame` alone is a semantic/pixel contract, not a runtime pass.
 `capture_snapshot` adds actual display matching using the existing XWD/PNG
 helpers. It must be reached through the shared global sequence, origin and
-size gates. Runtime evidence remains unrun until the reviewed harness invokes
-this module and all 18 captures pass. Source attribution is retained from the
+size gates. Full esophagus runtime verification remains incomplete until all 18
+captures pass; the failed run completed only its first 14 esophagus captures. Source attribution is retained from the
 canonical package and PR #108 labels. Geometry, anatomical/clinical acceptance,
 visual acceptance, software CI runtime, supported product viewer and publication
 remain separate gates. This probe does not verify native UI or the whole Site.
@@ -110,3 +112,57 @@ Remaining: parent review of the integrated diff, verified remote baseline input,
 authorized protected software-CI execution, independent review of captured
 numbers/EN/中文 glyphs and palette discrimination, and any separate supported
 product-viewer gate. This PR stays draft.
+
+## Anchor repair after run 40633821427
+
+The combined run on `dc5d46c78ccce6f429c7fb4f4313425dee977761` stopped after
+51/55 captures at the anchor assertion, before grayscale/EN/中文 and hide/restore.
+The retained run is a failure, not a full acceptance. Job logs and artifact
+metadata were read through the GitHub connector. The connector supplied artifact
+12792368383 (10,441,486 bytes; ZIP SHA-256
+`7d190fb05e5a03c5908d39b309df1ed3c4b5f89a2918eec615fbb3817087891c`), but transferring
+that ZIP to this executor was blocked by its proxy with HTTP 403. No bytes were
+received and no transfer retry or alternate route was attempted. The 51-capture
+localization was supplied by the parent's independent artifact review.
+
+A local regression using the exact baseline/candidate and pinned Three r180
+GLTFLoader reproduced anchor 3's miss. The other four anchors hit their expected
+object UUIDs; all five objects were visible and double-sided. Anchor 3's continuous
+ray at `x=5.51091059616309e-19`, `z=-0.009000000000000001` lies on the cap's
+triangulation seam and returns zero intersections. This is a subpixel ray/edge
+numerical failure, not evidence of malformed anatomy or a missing rasterized
+compartment. The parent separately verified all five projected pixels are inside
+the correct isolated rendered regions.
+
+The repaired check casts through the center of the already-selected display
+pixel. Anchor positions and projected pixels stay unchanged, including anchor 3
+at `[256,116]`. Its ray now hits the original inner-circular mesh at distance
+`0.27749999821186067`, face 767. The exact hit-object identity assertion remains;
+wrong-compartment and hidden-object negative controls must fail. Failure messages
+now retain anchor ID, expected and actual name/UUID/visibility/material side,
+hit distance/point/face, world/NDC/pixel coordinates, ray and camera position.
+No mesh, material, source hash, visibility state or pixel tolerance is repaired.
+
+The earlier offline tests checked Python evidence contracts and fabricated
+receipts; they never loaded the GLB and exercised Three's projection/raycast.
+The new regression closes that specific gap with six real-loader CPU cases:
+original failure and repaired mapping on both pinned exports, wrong-compartment
+rejection with diagnostics, and hidden-compartment rejection. It also checks
+unchanged loaded geometry arrays. The local runner verifies all five reviewed
+Three files by size/SHA-256 before import, rebuilds the exact palette candidate
+in temporary storage, and has no network path:
+
+```sh
+python3 tests/runtime_receipts/run_esophagus_anchor_regression.py \
+  --vendor-root /path/to/verified/three/vendor \
+  --input /path/to/exact-baseline.glb
+```
+
+Missing dependencies fail; nothing is skipped. Local selection for this change:
+these six actual-loader tests, the 18 existing esophagus contract/negative tests,
+JavaScript syntax, and the repository's lean offline integrity checks. The
+unrelated model builds are outside scope. Full rendered grayscale/label/display
+validation remains blocked by the missing local browser stack and Actions-only
+entrypoint; see [the separate local-mode review](LOCAL_RUNTIME_REVIEW.md).
+No protected rerun or heavier web CI is part of this repair. Keep WIP until the
+required local display scope is resolved and the parent reviews the change.
