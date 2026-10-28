@@ -44,6 +44,35 @@ I also inspected a matched native-pixel crop of the upper-right transverse bands
 
 Fresh candidate-pixel bilingual sheet SHA-256 values: English `88de3df3f84a07edce69badfd04743313c4f3ae21351e9a2fecf7a035a8a3481`; Chinese `6379e27ac0b0622ab00da323088bfae37f7d29e0b1ad45b7cada2a499e96c63c`. They use the existing label-sheet scripts unchanged and are local review drafts.
 
+An independent pixel review found two presentation gaps in those local images:
+the grayscale comparison had colored swatches without numbered region anchors,
+and the standalone English/Chinese sheets did not state that the palette is an
+unapproved local derivative. `tests/esophagus_wall/grayscale_review.py` now
+adds numbers 1–5 to both panels and uses grayscale swatches, guarded by the
+retained comparison SHA-256. The label-sheet generators accept an opt-in
+`--review-status` flag to add the warning in the sheet's own language. Without
+that flag, canonical sheet output remains unchanged. These are annotations
+only; they do not change the GLB, its materials, or its render.
+
+```sh
+python3 tests/esophagus_wall/grayscale_review.py \
+  --comparison /path/to/retained/cross-section-grayscale-comparison.png \
+  --params tests/esophagus_wall/parameters.json \
+  --output /tmp/esophagus-grayscale-reviewed.png
+python3 tests/esophagus_wall/label_sheet.py \
+  --input /path/to/retained/candidate/render --output /tmp/esophagus-en-reviewed \
+  --review-status
+python3 tests/esophagus_wall/label_sheet_zh.py \
+  --input /path/to/retained/candidate/render --output /tmp/esophagus-zh-reviewed \
+  --review-status
+```
+
+The grayscale anchors provide a region key for this schematic view; they do
+not turn gray values into reliable histologic tissue identification or prove
+accessibility. The bilingual warnings identify candidate status, not anatomy
+or clinical acceptance. Generated review sheets stay local pending the image
+delivery and viewer decisions.
+
 ## Gates and next decision
 
 | Gate | Current result |

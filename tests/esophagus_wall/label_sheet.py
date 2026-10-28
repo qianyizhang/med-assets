@@ -4,7 +4,9 @@ import math,textwrap,json
 import argparse
 parser=argparse.ArgumentParser(description='Label actual rendered pixels in a NEW output directory only.')
 parser.add_argument('--input',required=True);parser.add_argument('--output',required=True)
+parser.add_argument('--review-status',action='store_true',help='Mark a local candidate sheet as unapproved without changing canonical replay output.')
 a=parser.parse_args();D=Path(a.input).resolve();OUT=Path(a.output).resolve();OUT.mkdir(parents=True,exist_ok=False)
+review_status=a.review_status
 W,H=2400,1450;im=Image.new('RGB',(W,H),'#141b22');d=ImageDraw.Draw(im)
 font='/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf';bold='/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
 f=lambda n,b=False:ImageFont.truetype(bold if b else font,n)
@@ -38,4 +40,6 @@ wrap(985,1165,'Individual cells, muscle fibers, nerve plexuses and regional musc
 d.line((45,1280,2355,1280),fill='#4b5c69',width=2)
 text(45,1310,'Teaching supplement, not a patient model or replacement of the full-organ animation.',27,bold=True)
 text(45,1360,'References: Columbia human histology laboratory; MH 109 Medical Histology Collection. No source imagery copied.',23)
+if review_status:
+ text(45,1405,'UNAPPROVED LOCAL DERIVATIVE | Illustrative colors; no anatomical or clinical approval.',20,color='#ffd28c',bold=True)
 im.save(OUT/'teaching-sheet.png')
