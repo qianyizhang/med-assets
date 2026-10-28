@@ -1,0 +1,58 @@
+{
+  "recordFamily": "scoped-svg-presentation-review",
+  "reviewedAt": "2026-10-28",
+  "issue": "https://github.com/qianyizhang/med-assets/issues/124",
+  "artifact": {
+    "file": "body/2d-v4/whole-body-anatomy-v4-spatial/regions/urinary.svg",
+    "sha256": "c6a91a1bcb328c279729c6e9705fb84f377d47aa09435e408ca6a45fdb36a83a",
+    "bytes": 43468,
+    "changeCommit": "d03ec293dc93a8f221c17eb8916ac1f8c523334c"
+  },
+  "previous": {
+    "commit": "bdde50e21249a7b69c6c0dd0c8180fa59ac5d5e9",
+    "v2Sha256": "09ec761954be764a8dc2f3215234fda4bb29190b10fb07a1fcce74a95dbd1066",
+    "review": "../2026-10-28-context-r02/README.md"
+  },
+  "change": "Two ureter stroke colors only: #ac986c to #8f774b; #d0bb87 to #c6ab73. Four V2 context-opacity changes retained.",
+  "technical": {
+    "status": "passed",
+    "scope": "Complete XML equals V2 after reversing two stroke colors. All 196 path data/positions, widths, 54 IDs, labels, hit areas, definitions and clips unchanged. V2 vascular and skeletal context identical. Matched EN/Chinese native/detail exports inspected; no rerender on final integration."
+  },
+  "independentVisualReview": {
+    "status": "pass-with-limitations",
+    "evidenceSha256": "38f86eb7750696cbe86663b6dfd137794d41ef971053495d8155ffde7de0f66a",
+    "scope": "Actual baseline/V2/V3 native-size comparison only. The independent reviewer judged V3 a valid small readability improvement: darker ureters support continuous tracing while subdued vessels remain discernible.",
+    "limitations": "Small presentation improvement, not a major asset upgrade or anatomical validation. Independent EN/Chinese detail review not claimed."
+  },
+  "evidence": {
+    "fileName": "urinary-r03-native-baseline-v2-v3.png",
+    "kind": "multi-artifact native comparison",
+    "sha256": "38f86eb7750696cbe86663b6dfd137794d41ef971053495d8155ffde7de0f66a",
+    "bytes": 79483,
+    "imageSize": [
+      1091,
+      305
+    ],
+    "panelSize": [
+      353,
+      271
+    ],
+    "artifactSha256s": {
+      "baseline": "aee0e24ed573816babc28261dda5e98d371ef13d08f85fab4c2615e8288993e7",
+      "v2": "09ec761954be764a8dc2f3215234fda4bb29190b10fb07a1fcce74a95dbd1066",
+      "v3": "c6a91a1bcb328c279729c6e9705fb84f377d47aa09435e408ca6a45fdb36a83a"
+    },
+    "availability": "Existing private Library image; no image bytes added to repository."
+  },
+  "validationReused": {
+    "offlineTests": 174,
+    "testedCommit": "ba9039c67cb949c684df39f97a30f7ebf3366025",
+    "scope": "Unaffected verification code, transport manifests and record suites. This is not a full-suite V3 claim; final import binding and SVG structure are checked separately."
+  },
+  "remainingLimits": [
+    "No anatomical/clinical approval or browser runtime pass.",
+    "Authored simplified educational schematic; original attribution and use limits retained.",
+    "Local checkpoint only: no push, PR, merge or public payload delivery.",
+    "Earlier V1/V2 records and comparison images retained; historical packaged previews unchanged."
+  ]
+}
