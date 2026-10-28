@@ -104,7 +104,10 @@ class EsophagusRuntimeTests(unittest.TestCase):
         row['pixelSHA256']=hashlib.sha256(gray).hexdigest();probe.validate_frame(row,gray,previous)
         bad=bytearray(gray);bad[0]+=4;row['pixelSHA256']=hashlib.sha256(bad).hexdigest()
         with self.assertRaisesRegex(ValueError,'rendered pixels'):probe.validate_frame(row,bad,previous)
-        row['pixelSHA256']=hashlib.sha256(gray).hexdigest();row['anchors'][0]['hitNode']=4
+        row['pixelSHA256']=hashlib.sha256(gray).hexdigest()
+        row['anchors'][0]['pixel'][0]+=1
+        with self.assertRaisesRegex(ValueError,'projection'):probe.validate_frame(row,gray,previous)
+        row['anchors'][0]['pixel'][0]-=1;row['anchors'][0]['hitNode']=4
         with self.assertRaisesRegex(ValueError,'mapping'):probe.validate_frame(row,gray,previous)
 
     def test_display_mismatch_is_not_a_pass(self):
