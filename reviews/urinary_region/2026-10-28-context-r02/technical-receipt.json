@@ -1,0 +1,71 @@
+{
+  "baselineSha256": "aee0e24ed573816babc28261dda5e98d371ef13d08f85fab4c2615e8288993e7",
+  "candidateSha256": "09ec761954be764a8dc2f3215234fda4bb29190b10fb07a1fcce74a95dbd1066",
+  "baselineBytes": 43426,
+  "candidateBytes": 43468,
+  "changedOpacityAttributes": [
+    [
+      "body-skeleton-context",
+      "opacity",
+      null,
+      ".75"
+    ],
+    [
+      "renal-vessels-context",
+      "opacity",
+      ".57",
+      ".28"
+    ],
+    [
+      "renal-vessels-context/path[1]",
+      "opacity",
+      null,
+      ".64"
+    ],
+    [
+      "renal-vessels-context/path[2]",
+      "opacity",
+      null,
+      ".64"
+    ]
+  ],
+  "fullXmlIdenticalAfterRevertingFourOpacities": true,
+  "normalizedXmlSha256": "f10fd0051f18804941d282fa84cbbcba0e11c80af515fb888e83ae547c6bc8bb",
+  "elements": 320,
+  "paths": 196,
+  "uniqueIds": 54,
+  "resolvedUrlReferences": 34,
+  "externalDependencies": 0,
+  "pixels": {
+    "en": {
+      "overviewSize": [
+        1059,
+        813
+      ],
+      "changedPixels": 129306,
+      "changedPixelFraction": 0.1502,
+      "rightLabelColumnIdentical": true,
+      "differenceBounds": [
+        86,
+        0,
+        568,
+        813
+      ]
+    },
+    "zh": {
+      "overviewSize": [
+        1059,
+        813
+      ],
+      "changedPixels": 129442,
+      "changedPixelFraction": 0.1503,
+      "rightLabelColumnIdentical": true,
+      "differenceBounds": [
+        86,
+        0,
+        568,
+        813
+      ]
+    }
+  }
+}
