@@ -4,7 +4,9 @@ import math,textwrap,json
 import argparse
 parser=argparse.ArgumentParser(description='Label actual rendered pixels in a NEW output directory only.')
 parser.add_argument('--input',required=True);parser.add_argument('--output',required=True)
+parser.add_argument('--review-status',action='store_true',help='Mark a local candidate sheet as unapproved without changing canonical replay output.')
 a=parser.parse_args();D=Path(a.input).resolve();OUT=Path(a.output).resolve();OUT.mkdir(parents=True,exist_ok=False)
+review_status=a.review_status
 W,H=2400,1450;im=Image.new('RGB',(W,H),'#141b22');d=ImageDraw.Draw(im)
 font='/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc';bold='/usr/share/fonts/opentype/noto/NotoSansCJK-Bold.ttc'
 f=lambda n,b=False:ImageFont.truetype(bold if b else font,n)
@@ -43,4 +45,6 @@ wrap(985,1165,'未重建单个细胞、肌纤维、神经丛或食管各段肌�
 d.line((45,1280,2355,1280),fill='#4b5c69',width=2)
 text(45,1310,'仅为教学补充：不是患者模型，不替代完整食管模型及其动画。',27,bold=True)
 text(45,1360,'参考：哥伦比亚大学人体组织学实验课程；MH 109 医学组织学切片集。未复制参考图片。',23)
+if review_status:
+ text(45,1405,'未经批准的本地衍生版本｜颜色仅供教学示意；未获解剖学或临床认可。',23,color='#ffd28c',bold=True)
 im.save(OUT/'teaching-sheet-zh-CN.png')

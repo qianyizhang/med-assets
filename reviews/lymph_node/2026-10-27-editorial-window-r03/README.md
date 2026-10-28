@@ -34,6 +34,21 @@ to see; the rear network remains visible from the front. The reverse capsule
 outline remains, although the pink fringe formerly visible at the window edge
 is omitted. This is a visibility trade-off, not a repair of vessel anatomy.
 
+An independent presentation review found that the detail crop is useful for
+local region inspection but lacks whole-organ context on its own. The
+`tools/lymph_node/editorial_window_r03/detail_context.py` recipe pairs the
+exact retained r02/r03 detail pixels with the intact/r02/r03 whole-organ panel,
+checking both source image hashes. It labels the vascular network identity as
+unresolved and the window as an editorial omission. It changes no model or
+render pixels and does not establish tissue continuity or runtime behavior.
+
+```sh
+python3 tools/lymph_node/editorial_window_r03/detail_context.py \
+  --detail /path/to/retained/detail-r02-r03.png \
+  --context /path/to/retained/source-r02-r03-context.png \
+  --output /tmp/lymph-detail-with-context.png
+```
+
 In the first controlled object-ID view, visible follicle pixels increase from
 22,519 to 27,144 (+20.5%) and paracortex pixels from 27,933 to 72,396 (+159.2%).
 Both improve in the second oblique and detail views too. These are screen
