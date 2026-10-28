@@ -36,7 +36,7 @@ Intentional historical corrections require review and an updated baseline.
 
 Choose tests by affected behavior and dependencies. Feature changes must reuse or
 add relevant E2E journeys and pass scoped validation locally in the authorized
-cloud executor. Include relevant export/reload, consumer interaction and failure
+development environment. Include relevant export/reload, consumer interaction and failure
 recovery checks; technical integrity does not establish visual or anatomical quality.
 Documentation-only changes need applicable documentation/offline checks, not
 unrelated functional replays.
