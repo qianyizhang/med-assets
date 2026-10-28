@@ -1,0 +1,478 @@
+{
+  "schema": "lung-lobe-teaching-review-v1",
+  "status": "local-draft-needs-independent-review",
+  "baseline": {
+    "sha256": "966a4c225be028e616f6f813e8d4232582995a82b8121a42257c1be53087cb19",
+    "bytes": 23253972
+  },
+  "v1": {
+    "baselineSha256": "966a4c225be028e616f6f813e8d4232582995a82b8121a42257c1be53087cb19",
+    "baselineBytes": 23253972,
+    "revision": "v1",
+    "candidateSha256": "fab70f09392d20fa0af2d91948a1b6006ac6e647eeae25ebd9604f0c29587186",
+    "candidateBytes": 23257076,
+    "scope": "Draft source-labeled lobe identification only. False colors are illustrative, not natural tissue or physiology. Source annotation boundaries remain; no segment, airway completeness, breathing, clinical or runtime approval.",
+    "checks": {
+      "binSha256": "5499f3933eee04b599e0ffcc5ca6d3a08b349ab86bf4df9baa398dff0af5d398",
+      "binExact": true,
+      "sourceFieldsRecovered": true,
+      "meshCount": 56,
+      "changedMaterialAssignments": 25,
+      "triangles": 297097
+    }
+  },
+  "v2": {
+    "baselineSha256": "966a4c225be028e616f6f813e8d4232582995a82b8121a42257c1be53087cb19",
+    "baselineBytes": 23253972,
+    "revision": "v2",
+    "candidateSha256": "1b97cbe5ca765043962b77f3bcfd584679bf7174082b849aab676a39485612c0",
+    "candidateBytes": 23257040,
+    "scope": "Draft source-labeled lobe identification only. False colors are illustrative, not natural tissue or physiology. Source annotation boundaries remain; no segment, airway completeness, breathing, clinical or runtime approval.",
+    "checks": {
+      "binSha256": "5499f3933eee04b599e0ffcc5ca6d3a08b349ab86bf4df9baa398dff0af5d398",
+      "binExact": true,
+      "sourceFieldsRecovered": true,
+      "meshCount": 56,
+      "changedMaterialAssignments": 25,
+      "triangles": 297097
+    }
+  },
+  "nativeRenderConditions": {
+    "renderer": "4.3.2",
+    "engine": "Cycles CPU",
+    "samples": 24,
+    "seed": 0,
+    "resolution": [
+      800,
+      800
+    ],
+    "denoising": false,
+    "viewTransform": "AgX",
+    "look": "AgX - Medium High Contrast",
+    "exposure": 0,
+    "gamma": 1
+  },
+  "nativeFrames": [
+    {
+      "variant": "baseline",
+      "view": "context",
+      "file": "baseline-context.png",
+      "sha256": "697b9ecd43fb0225c20c075d58bcdabe308c25bfe662ac28e5031b9bb19adad5",
+      "bytes": 719766,
+      "seconds": 5.60752649799997
+    },
+    {
+      "variant": "baseline",
+      "view": "reverse",
+      "file": "baseline-reverse.png",
+      "sha256": "c6ac89073ef3379d5a4bcd5a4cbb1f725b11207db0df8830935616170a61e8d0",
+      "bytes": 682288,
+      "seconds": 5.754714815
+    },
+    {
+      "variant": "baseline",
+      "view": "right-detail",
+      "file": "baseline-right-detail.png",
+      "sha256": "fb96143a888b32d772077cf2968dea1646c0e3989377b2d8625680861162ddd9",
+      "bytes": 977203,
+      "seconds": 9.765017656999987
+    },
+    {
+      "variant": "v1",
+      "view": "context",
+      "file": "v1-context.png",
+      "sha256": "c624ef33e2ba812d3445f49b090332cf3103d2c77ecfbdb534a28bb84795dcdd",
+      "bytes": 779473,
+      "seconds": 5.282036876999996
+    },
+    {
+      "variant": "v1",
+      "view": "reverse",
+      "file": "v1-reverse.png",
+      "sha256": "31cb7dec6c5861ba2ec509fd5d66fbc1b30632287e202ad7cd0c959e7473f889",
+      "bytes": 747300,
+      "seconds": 5.42215371900005
+    },
+    {
+      "variant": "v1",
+      "view": "right-detail",
+      "file": "v1-right-detail.png",
+      "sha256": "a8083b50478a3f3d430b0ef7fde03b0218c639c02095adb40bc5af80bbb05d15",
+      "bytes": 1094498,
+      "seconds": 9.113432945999989
+    },
+    {
+      "variant": "v2",
+      "view": "context",
+      "file": "v2-context.png",
+      "sha256": "93dae6f1e64ab7d6a2b9099f14d58b5ec258ba6a1f2a39aea3551d6a4f95081f",
+      "bytes": 757653,
+      "seconds": 5.819310041999984
+    },
+    {
+      "variant": "v2",
+      "view": "reverse",
+      "file": "v2-reverse.png",
+      "sha256": "593913d339d04bb60490ec7609de418d083a10f324b9a013a14f1b1772728727",
+      "bytes": 714680,
+      "seconds": 6.168351039000015
+    },
+    {
+      "variant": "v2",
+      "view": "right-detail",
+      "file": "v2-right-detail.png",
+      "sha256": "63cd9e01bec8968797181aece8af82da3f8d644487c78e4ede0b2d7219d000a1",
+      "bytes": 1055842,
+      "seconds": 11.059428776000004
+    }
+  ],
+  "comparisonPlates": {
+    "baselineSha256": "966a4c225be028e616f6f813e8d4232582995a82b8121a42257c1be53087cb19",
+    "candidateSha256": "1b97cbe5ca765043962b77f3bcfd584679bf7174082b849aab676a39485612c0",
+    "plates": [
+      {
+        "file": "matched-context.jpg",
+        "sha256": "00e3c61213d8929ff980b8aacd24767f2af3d8617d53e3480348cb42369b76a0",
+        "bytes": 191658,
+        "views": [
+          "context"
+        ],
+        "grayscale": false,
+        "jpegQuality": 86,
+        "dimensions": [
+          1600,
+          1164
+        ]
+      },
+      {
+        "file": "matched-reverse-detail.jpg",
+        "sha256": "434e1e6733e1643b8c555f218568bf7adba1dbf3fc922d906841b3b79870ba54",
+        "bytes": 325400,
+        "views": [
+          "reverse",
+          "right-detail"
+        ],
+        "grayscale": false,
+        "jpegQuality": 86,
+        "dimensions": [
+          1600,
+          2004
+        ]
+      },
+      {
+        "file": "grayscale-context.jpg",
+        "sha256": "2a7780b0717972e57c8dc5da65cc4a93fea46462ace0357d7949061618172f09",
+        "bytes": 177229,
+        "views": [
+          "context"
+        ],
+        "grayscale": true,
+        "jpegQuality": 86,
+        "dimensions": [
+          1600,
+          1164
+        ]
+      }
+    ],
+    "note": "Native 800px panels; annotations added, then lossy JPEG compression. Not runtime screenshots."
+  },
+  "reimportAudit": {
+    "meshes": 56,
+    "geometryNormalsTransformsExact": true,
+    "importedMaterialValuesMatch": true,
+    "retainedMaterialGraphsCompared": [
+      "VH_F_L_lobar_bronchial_cartilage1",
+      "VH_F_L_tertiary_bronchial_cartilage1",
+      "VH_F_R_lobar_bronchial_cartilage1",
+      "VH_F_R_tertiary_bronchial_cartilage1",
+      "lung_mat",
+      "mucosa_mat2"
+    ],
+    "fullReceiptSha256": "bfbbb569a83c7e3bc0456e22339c9527dfb4b95d312bf2b33b44f7834e268d9d"
+  },
+  "localChecks": {
+    "exactBuildReplay": true,
+    "secondBuildByteIdentical": true,
+    "sameSizeCorruptionRejected": true,
+    "existingOutputRejectedAndUnchanged": true,
+    "baselineSha256After": "966a4c225be028e616f6f813e8d4232582995a82b8121a42257c1be53087cb19",
+    "buildSeconds": 0.10839105600007315
+  },
+  "gates": {
+    "technical": "passed for hash-pinned material-only recipe and clean Blender imports",
+    "visual": "author reviewed actual context/reverse/detail and grayscale; retain v2 for independent review",
+    "anatomy": "general lobe naming reference-screened; exact source surfaces and clinical validity unapproved",
+    "runtime": "unverified; live WebGL and actual consumer not run",
+    "publication": "not performed"
+  },
+  "failuresRetained": [
+    "v1 glossy highlights compete with lobe colors; replaced by v2 matte teaching materials",
+    "initial material audit falsely compared unused default color for linked source cartilage; fixed by comparing retained shader graphs; no model mutation"
+  ],
+  "limits": [
+    "Five source-labeled lobe groups only; no segment-border validation.",
+    "Open annotation boundaries and right tertiary cartilage warnings inherited.",
+    "23.26 MB model remains unchanged in geometric complexity; no measured hardware/runtime performance improvement.",
+    "No canonical promotion, full airway, breathing or clinical certification."
+  ],
+  "comparisonFailureControls": {
+    "wrongCameraRejected": true,
+    "wrongFrameHashRejected": true,
+    "existingComparisonOutputRejected": true
+  },
+  "offlineVerification": {
+    "passed": true,
+    "tests": 174,
+    "transportManifests": 25,
+    "foundationRecords": 25,
+    "importReferences": 591,
+    "pointerIdentities": 673,
+    "scope": "Text/pointer metadata only; no media or runtime claim"
+  },
+  "visibleNodesAllFrames": [
+    "VH_F_cartilage_of_lobar_bronchus_L",
+    "VH_F_cartilage_of_lobar_bronchus_R",
+    "VH_F_cartilage_of_tertiary_bronchus_L",
+    "VH_F_cartilage_of_tertiary_bronchus_R",
+    "VH_F_hilum_L",
+    "VH_F_hilum_R",
+    "VH_F_hilum_lower_L",
+    "VH_F_hilum_lower_R",
+    "VH_F_hilum_middle_R",
+    "VH_F_hilum_upper_L",
+    "VH_F_hilum_upper_R",
+    "VH_F_left_anterior_basal_bronchopulmonary_segment",
+    "VH_F_left_anterior_basal_bronchus",
+    "VH_F_left_anterior_bronchopulmonary_segment",
+    "VH_F_left_anterior_bronchus",
+    "VH_F_left_apical_bronchopulmonary_segment",
+    "VH_F_left_apical_bronchus",
+    "VH_F_left_inferior_lobar_bronchus",
+    "VH_F_left_lateral_basal_bronchopulmonary_segment",
+    "VH_F_left_lateral_basal_bronchus",
+    "VH_F_left_lingula_inferior_bronchi",
+    "VH_F_left_lingula_superior_bronchus",
+    "VH_F_left_medial_basal_bronchopulmonary_segment",
+    "VH_F_left_medial_basal_bronchus",
+    "VH_F_left_posterior_basal_bronchopulmonary_segment",
+    "VH_F_left_posterior_basal_bronchus",
+    "VH_F_left_posterior_bronchopulmonary_segment",
+    "VH_F_left_posterior_bronchus",
+    "VH_F_left_superior_bronchopulmonary_segment",
+    "VH_F_left_superior_bronchus",
+    "VH_F_left_superior_lobar_bronchus",
+    "VH_F_lingula_inferior_bronchopulmonary_segment",
+    "VH_F_lingula_superior_bronchopulmonary_segment",
+    "VH_F_right_anterior_basal_bronchopulmonary_segment",
+    "VH_F_right_anterior_basal_bronchus",
+    "VH_F_right_anterior_bronchopulmonary_segm",
+    "VH_F_right_anterior_bronchus",
+    "VH_F_right_apical_bronchopulmonary_segment",
+    "VH_F_right_apical_bronchus",
+    "VH_F_right_inferior_lobar_bronchus",
+    "VH_F_right_lateral_basal_bronchopulmonary_segment",
+    "VH_F_right_lateral_basal_bronchus",
+    "VH_F_right_lateral_bronchopulmonary_segmennt",
+    "VH_F_right_lateral_bronchus",
+    "VH_F_right_medial_basal_bronchopulmonary_segment",
+    "VH_F_right_medial_basal_bronchus",
+    "VH_F_right_medial_bronchopulmonary_segment",
+    "VH_F_right_medial_bronchus",
+    "VH_F_right_middle_lobar_bronchus",
+    "VH_F_right_posterior_basal_bronchopulmonary_segment",
+    "VH_F_right_posterior_basal_bronchus",
+    "VH_F_right_posterior_bronchopulmonary_segment",
+    "VH_F_right_posterior_bronchus",
+    "VH_F_right_superior_bronchopulmonary_segment",
+    "VH_F_right_superior_bronchus",
+    "VH_F_right_superior_lobar_bronchus"
+  ],
+  "matchedViews": {
+    "context": {
+      "cameraLocation": [
+        -0.004961557686328888,
+        -0.9198810458183289,
+        0.4785911738872528
+      ],
+      "target": [
+        -0.004961557686328888,
+        0.08011893182992935,
+        0.4785911738872528
+      ],
+      "orthoScaleM": 0.2963390052318573,
+      "anchors": [
+        {
+          "number": 1,
+          "label": "Right upper lobe",
+          "pixel": [
+            243,
+            306
+          ],
+          "hitNode": "VH_F_right_anterior_bronchopulmonary_segm",
+          "gridVisibleCells": 576
+        },
+        {
+          "number": 2,
+          "label": "Right middle lobe",
+          "pixel": [
+            218,
+            543
+          ],
+          "hitNode": "VH_F_right_medial_bronchopulmonary_segment",
+          "gridVisibleCells": 216
+        },
+        {
+          "number": 3,
+          "label": "Right lower lobe",
+          "pixel": [
+            318,
+            618
+          ],
+          "hitNode": "VH_F_right_posterior_basal_bronchopulmonary_segment",
+          "gridVisibleCells": 169
+        },
+        {
+          "number": 4,
+          "label": "Left upper lobe",
+          "pixel": [
+            593,
+            306
+          ],
+          "hitNode": "VH_F_lingula_superior_bronchopulmonary_segment",
+          "gridVisibleCells": 569
+        },
+        {
+          "number": 5,
+          "label": "Left lower lobe",
+          "pixel": [
+            581,
+            568
+          ],
+          "hitNode": "VH_F_left_medial_basal_bronchopulmonary_segment",
+          "gridVisibleCells": 303
+        }
+      ]
+    },
+    "reverse": {
+      "cameraLocation": [
+        -0.004961557686328888,
+        1.0801188945770264,
+        0.4785911738872528
+      ],
+      "target": [
+        -0.004961557686328888,
+        0.08011893182992935,
+        0.4785911738872528
+      ],
+      "orthoScaleM": 0.2963390052318573,
+      "anchors": [
+        {
+          "number": 1,
+          "label": "Right upper lobe",
+          "pixel": [
+            606,
+            193
+          ],
+          "hitNode": "VH_F_right_posterior_bronchopulmonary_segment",
+          "gridVisibleCells": 202
+        },
+        {
+          "number": 3,
+          "label": "Right lower lobe",
+          "pixel": [
+            581,
+            468
+          ],
+          "hitNode": "VH_F_right_posterior_basal_bronchopulmonary_segment",
+          "gridVisibleCells": 758
+        },
+        {
+          "number": 4,
+          "label": "Left upper lobe",
+          "pixel": [
+            193,
+            181
+          ],
+          "hitNode": "VH_F_left_posterior_bronchopulmonary_segment",
+          "gridVisibleCells": 212
+        },
+        {
+          "number": 5,
+          "label": "Left lower lobe",
+          "pixel": [
+            206,
+            456
+          ],
+          "hitNode": "VH_F_left_posterior_basal_bronchopulmonary_segment",
+          "gridVisibleCells": 660
+        }
+      ]
+    },
+    "right-detail": {
+      "cameraLocation": [
+        -0.7680000066757202,
+        -0.9259999990463257,
+        0.6080000400543213
+      ],
+      "target": [
+        -0.06800000369548798,
+        0.07400000095367432,
+        0.4580000042915344
+      ],
+      "orthoScaleM": 0.1550000011920929,
+      "anchors": [
+        {
+          "number": 1,
+          "label": "Right upper lobe",
+          "pixel": [
+            568,
+            218
+          ],
+          "hitNode": "VH_F_right_anterior_bronchopulmonary_segm",
+          "gridVisibleCells": 1745
+        },
+        {
+          "number": 2,
+          "label": "Right middle lobe",
+          "pixel": [
+            543,
+            581
+          ],
+          "hitNode": "VH_F_right_medial_bronchopulmonary_segment",
+          "gridVisibleCells": 711
+        },
+        {
+          "number": 3,
+          "label": "Right lower lobe",
+          "pixel": [
+            206,
+            556
+          ],
+          "hitNode": "VH_F_right_anterior_basal_bronchopulmonary_segment",
+          "gridVisibleCells": 886
+        },
+        {
+          "number": 4,
+          "label": "Left upper lobe",
+          "pixel": [
+            768,
+            6
+          ],
+          "hitNode": "VH_F_left_posterior_bronchopulmonary_segment",
+          "gridVisibleCells": 10
+        },
+        {
+          "number": 5,
+          "label": "Left lower lobe",
+          "pixel": [
+            743,
+            631
+          ],
+          "hitNode": "VH_F_left_posterior_basal_bronchopulmonary_segment",
+          "gridVisibleCells": 220
+        }
+      ]
+    }
+  },
+  "evidenceLayoutNote": "Each native frame references matchedViews by its view key; visibleNodesAllFrames is exact for all nine frames."
+}
