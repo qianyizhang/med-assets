@@ -18,7 +18,7 @@ The original build script and material helper are preserved under `recipe/` in t
 python3 reviews/swirendo_fdi31/2026-10-28-balanced-focus/recipe/dental-teaching-lod-20261028/scripts/build_lod.py --preset balanced
 ```
 
-Requires compatible NumPy, trimesh and PyMeshLab; exact build versions were not locked, so byte-identical output is not promised. Verify input and output hashes before comparing. The script selects each largest face-connected component for QEM (target counts enamel 14,000, dentin 25,000, pulp 5,000, bone 40,000); small components are retained, simplification is in millimetres and export returns to metres. It preserves topology/boundaries/normals and uses no exact-interface collar. Gzip uses level 9 and `mtime=0`. It writes new drafts, not the master.
+Requires compatible NumPy, trimesh and PyMeshLab; exact build versions were not locked, so byte-identical output is not promised. Verify input and output hashes before comparing. The script selects each largest face-connected component for QEM (target counts enamel 14,000, dentin 25,000, pulp 5,000, bone 40,000); small components are retained, simplification is in millimetres and export returns to metres. The QEM filter requests topology, boundary and normal preservation; these settings do not certify that the result is manifold or free of defects. It uses no exact-interface collar. Gzip uses level 9 and `mtime=0`. The script writes to `recipe/dental-teaching-lod-20261028/drafts/balanced/` and **overwrites files there**; use a clean copy or back up prior outputs. It does not write the master.
 
 | Input layer | SHA-256 |
 | --- | --- |
