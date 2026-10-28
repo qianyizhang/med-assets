@@ -1,0 +1,43 @@
+{
+  "recordFamily": "eye-teaching-derivative-draft",
+  "reviewedAt": "2026-10-28",
+  "status": "draft; parent independent review pending",
+  "baselineSha256": "457b08b1edab5fc39db3b49e09635091721847e06262b7cb937fd006223c6750",
+  "candidate": {
+    "localFile": "eye-order-study.glb",
+    "sha256": "f19ee7388a85d9661f8cad7cec7a1033d5406e2fda3ee8e4b98597572d8ba2da",
+    "bytes": 2594032,
+    "publication": "local only; no repository binary, pointer, transport or Site delivery"
+  },
+  "gates": {
+    "technical": {
+      "status": "pass-with-limitations",
+      "scope": "Pinned deterministic derivative; retained accessor bytes, materials, transforms and metadata exact; unsupported nodes and unused payload removed. Clean Blender 4.3.2 reimports preserve imported geometry/normals and assignments. Six focused tests normal/optimized, actual corruption/pointer/overwrite rejection, two-build exact replay, four matching-camera renders and 167-test offline scope passed. No general mesh-topology certification."
+    },
+    "visual": {
+      "status": "needs-review",
+      "scope": "Worker inspected all four native context/detail images and three comparison plates. Unsupported rods/ring absent in actual export; broad order readable with explicit pupil/lens caption. Superior-sector detail is sampled; corneal angular/faceted outline remains. Parent independent review pending."
+    },
+    "anatomy": {
+      "status": "reference-screened",
+      "scope": "Reuse issue100/PR113 accepted broad cornea-iris/pupil-lens order only. Omission does not imply support tissues are absent in life. Attachment, corneal shape/thickness, optics, accommodation, normal-atlas, surgical and clinical claims remain rejected. No new anatomy certification."
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "Native Blender import/render passed separately. Actual review-gallery consumer work in issue99 remains paused. Existing browser probe is restricted to its reviewed CI job and was not run locally or bypassed; no browser/device/interactions or load-cost claim. A reviewed authorized local mode or later consumer acceptance is still required."
+    }
+  },
+  "evidence": {
+    "build": "build-receipt.json",
+    "nativeReimportAndRenders": "reimport-render-receipt.json",
+    "comparisonPlates": "comparison-receipt.json",
+    "sourceProvenance": "../../../models/eye_anterior_segment/ATTRIBUTION.md",
+    "acceptedReferences": "../2026-10-28-teaching-scope-r02/README.md"
+  },
+  "limitations": [
+    "Original 20697584-byte raw source and 10054784-byte seven-node diagnostic export unchanged.",
+    "Provider-specific source metadata/distribution discrepancy remains unresolved.",
+    "Illustrative transparent cornea, opaque lens, double-sided materials and inherited open boundaries remain.",
+    "All outputs retained locally; code/text draft only, with independent review and downstream delivery outstanding."
+  ]
+}

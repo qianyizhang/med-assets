@@ -1,0 +1,478 @@
+{
+  "baselineSha256": "457b08b1edab5fc39db3b49e09635091721847e06262b7cb937fd006223c6750",
+  "candidateSha256": "f19ee7388a85d9661f8cad7cec7a1033d5406e2fda3ee8e4b98597572d8ba2da",
+  "renderer": "4.3.2",
+  "engine": "Cycles CPU",
+  "samples": 48,
+  "seed": 0,
+  "resolution": [
+    1000,
+    1000
+  ],
+  "viewTransform": "AgX",
+  "look": "AgX - Medium High Contrast",
+  "denoising": false,
+  "exposure": 0,
+  "gamma": 1,
+  "imports": [
+    {
+      "variant": "baseline",
+      "seconds": 0.2559750510008598,
+      "meshes": {
+        "VH_M_cornea_R": {
+          "vertices": 19572,
+          "polygons": 9788,
+          "geometryAndNormalsSha256": "3aa519286363afb1beca3dd3bc69e744d7ab06d30561ba812235d327818aeb4e",
+          "worldMatrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "VH_M_cornea_R illustrative teaching color, not measured tissue"
+          ]
+        },
+        "VH_M_iris_R": {
+          "vertices": 65666,
+          "polygons": 32829,
+          "geometryAndNormalsSha256": "f84800f419b4fbe3c9ce8ee8f08c8fb9e23afbfc1b5fdb0eb22843dc4e3eff0d",
+          "worldMatrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "VH_M_iris_R illustrative teaching color, not measured tissue"
+          ]
+        },
+        "VH_M_lens_R": {
+          "vertices": 3368,
+          "polygons": 1684,
+          "geometryAndNormalsSha256": "4ff9feac131dcafa4f346ba9988363907c250d9e503be8f7d799730def6405bc",
+          "worldMatrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "VH_M_lens_R illustrative teaching color, not measured tissue"
+          ]
+        },
+        "VH_M_ciliary_body_R": {
+          "vertices": 31767,
+          "polygons": 15886,
+          "geometryAndNormalsSha256": "94cc6f6f63eb8ae27600df195f934e38f66c3d06841d3ca613631d08dccce17b",
+          "worldMatrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "VH_M_ciliary_body_R illustrative teaching color, not measured t"
+          ]
+        },
+        "VH_M_ciliary_muscle_R": {
+          "vertices": 112809,
+          "polygons": 54614,
+          "geometryAndNormalsSha256": "5b2c71ba1efe5031e4ec4ba9c9aef85f1e1a55edd2b3512c1368a6f86e4212b8",
+          "worldMatrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "VH_M_ciliary_muscle_R illustrative teaching color, not measured"
+          ]
+        },
+        "VH_M_ciliary_processes_R": {
+          "vertices": 76608,
+          "polygons": 25536,
+          "geometryAndNormalsSha256": "baa2083655cbf9db009f4c4148f9b8227f725178e7c4c818d00d1b214e00fb69",
+          "worldMatrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "VH_M_ciliary_processes_R illustrative teaching color, not measu"
+          ]
+        },
+        "VH_M_suspensory_ligament_of_lens_R": {
+          "vertices": 31366,
+          "polygons": 10456,
+          "geometryAndNormalsSha256": "3e62371835cef78c30a270f5e1663fef95a778163d0f86f18af20bff35a8b0a6",
+          "worldMatrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "VH_M_suspensory_ligament_of_lens_R illustrative teaching color,"
+          ]
+        }
+      }
+    },
+    {
+      "variant": "candidate",
+      "seconds": 0.06846603400117601,
+      "meshes": {
+        "VH_M_cornea_R": {
+          "vertices": 19572,
+          "polygons": 9788,
+          "geometryAndNormalsSha256": "3aa519286363afb1beca3dd3bc69e744d7ab06d30561ba812235d327818aeb4e",
+          "worldMatrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "VH_M_cornea_R illustrative teaching color, not measured tissue"
+          ]
+        },
+        "VH_M_iris_R": {
+          "vertices": 65666,
+          "polygons": 32829,
+          "geometryAndNormalsSha256": "f84800f419b4fbe3c9ce8ee8f08c8fb9e23afbfc1b5fdb0eb22843dc4e3eff0d",
+          "worldMatrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "VH_M_iris_R illustrative teaching color, not measured tissue"
+          ]
+        },
+        "VH_M_lens_R": {
+          "vertices": 3368,
+          "polygons": 1684,
+          "geometryAndNormalsSha256": "4ff9feac131dcafa4f346ba9988363907c250d9e503be8f7d799730def6405bc",
+          "worldMatrix": [
+            [
+              1.0,
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "materials": [
+            "VH_M_lens_R illustrative teaching color, not measured tissue"
+          ]
+        }
+      }
+    }
+  ],
+  "views": [
+    {
+      "variant": "baseline",
+      "view": "context",
+      "file": "baseline-context.png",
+      "sha256": "4f8c2a729129cf8b606933b72438a53dee666b9b2284bb50f4c9be2335b7feb0",
+      "bytes": 951657,
+      "seconds": 22.72142165299738,
+      "visibleNodes": [
+        "VH_M_ciliary_body_R",
+        "VH_M_ciliary_muscle_R",
+        "VH_M_ciliary_processes_R",
+        "VH_M_cornea_R",
+        "VH_M_iris_R",
+        "VH_M_lens_R",
+        "VH_M_suspensory_ligament_of_lens_R"
+      ],
+      "cameraLocation": [
+        1.9648369550704956,
+        -1.0930123329162598,
+        1.2111257314682007
+      ],
+      "target": [
+        -0.035162992775440216,
+        -0.09301231801509857,
+        0.8111257553100586
+      ],
+      "orthoScaleM": 0.018125224858522415
+    },
+    {
+      "variant": "baseline",
+      "view": "detail",
+      "file": "baseline-detail.png",
+      "sha256": "2d999a6f7a607311af1326a471e009c29768c9a7aad581801b43102f765e370a",
+      "bytes": 1865348,
+      "seconds": 49.19016843799909,
+      "visibleNodes": [
+        "VH_M_ciliary_body_R",
+        "VH_M_ciliary_muscle_R",
+        "VH_M_ciliary_processes_R",
+        "VH_M_cornea_R",
+        "VH_M_iris_R",
+        "VH_M_lens_R",
+        "VH_M_suspensory_ligament_of_lens_R"
+      ],
+      "cameraLocation": [
+        0.9648370146751404,
+        1.9069876670837402,
+        1.4159257411956787
+      ],
+      "target": [
+        -0.035162992775440216,
+        -0.09301231801509857,
+        0.8159257769584656
+      ],
+      "orthoScaleM": 0.005499999970197678
+    },
+    {
+      "variant": "candidate",
+      "view": "context",
+      "file": "candidate-context.png",
+      "sha256": "5824387a90ef4167705f8323264f7833f992896f6ff676478865cf5e78ded772",
+      "bytes": 802331,
+      "seconds": 17.138335592000658,
+      "visibleNodes": [
+        "VH_M_cornea_R",
+        "VH_M_iris_R",
+        "VH_M_lens_R"
+      ],
+      "cameraLocation": [
+        1.9648369550704956,
+        -1.0930123329162598,
+        1.2111257314682007
+      ],
+      "target": [
+        -0.035162992775440216,
+        -0.09301231801509857,
+        0.8111257553100586
+      ],
+      "orthoScaleM": 0.018125224858522415
+    },
+    {
+      "variant": "candidate",
+      "view": "detail",
+      "file": "candidate-detail.png",
+      "sha256": "cf9d5c9aaec34d93f4ed318cd1b4f4828a93c15b2af44dbf6d5a9c4eb89fdf80",
+      "bytes": 1338747,
+      "seconds": 28.472845753,
+      "visibleNodes": [
+        "VH_M_cornea_R",
+        "VH_M_iris_R",
+        "VH_M_lens_R"
+      ],
+      "cameraLocation": [
+        0.9648370146751404,
+        1.9069876670837402,
+        1.4159257411956787
+      ],
+      "target": [
+        -0.035162992775440216,
+        -0.09301231801509857,
+        0.8159257769584656
+      ],
+      "orthoScaleM": 0.005499999970197678
+    }
+  ],
+  "scope": "Clean native GLB imports and matched pixels; no browser, anatomical or clinical acceptance."
+}

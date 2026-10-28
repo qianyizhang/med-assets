@@ -50,7 +50,8 @@ Derivative change: editorial omission and compact repacking only. No endorsement
 ## Reproduce locally
 
 Python 3.11+ uses only the standard library for export/integrity. Blender 4.3.2 is
-needed for clean native import and pixels. Supply an already authorized exact
+needed for clean native import and pixels; Pillow and DejaVu Sans compose labeled
+comparisons without resampling the native panels. Supply an already authorized exact
 diagnostic payload; the recipe does not download or hydrate it. Use new output
 directories; existing artifacts are never overwritten.
 
@@ -61,6 +62,7 @@ python3 tools/eye_teaching/build.py --source /path/to/anterior_segment.glb --out
 python3 tools/eye_teaching/build.py --source /path/to/anterior_segment.glb --output /tmp/eye-order-REPLAY
 cmp /tmp/eye-order-NEW/eye-order-study.glb /tmp/eye-order-REPLAY/eye-order-study.glb
 blender -b --python tools/eye_teaching/review_blender.py -- --baseline /path/to/anterior_segment.glb --candidate /tmp/eye-order-NEW/eye-order-study.glb --output /tmp/eye-order-NEW/review
+python3 tools/eye_teaching/compare.py --review /tmp/eye-order-NEW/review
 python3 tools/verify.py offline
 ```
 
@@ -79,9 +81,19 @@ Inspect actual pixels separately from the technical receipt.
 
 ## Gates and remaining work
 
-- Technical: focused tests and exact deterministic replay passed; native reimport
-  and visual results are being collected for this draft.
-- Visual: parent review of matched context/detail is pending.
+- Technical: six focused tests passed with normal and optimized Python; two exact
+  builds match byte-for-byte. Actual same-size corruption and LFS-pointer inputs
+  are rejected, and an existing output directory is preserved. Clean native
+  reimports match retained geometry/normals, transforms and material assignments.
+  [Reimport/render receipt](reimport-render-receipt.json) binds all four frames.
+  The required offline scope passed 167 tests; it is not media/runtime acceptance.
+- Visual: the worker inspected four native frames plus the labeled context,
+  detail and grayscale comparisons. Omission is effective; broad order remains
+  readable with the caption. The inherited angular corneal rim remains visible.
+  The detail samples one superior sector, not every surface or tissue relationship.
+  [Comparison receipt](comparison-receipt.json) verifies native color-panel pixels,
+  matched cameras, hashes and visibility. Parent independent visual/scope review
+  remains pending; this is not approved-asset promotion.
 - Anatomy: reuse only the accepted broad-order reference screening; no new approval.
 - Runtime: browser/actual review-gallery acceptance remains unverified. The existing
   `ci/glb_runtime_probe.py` is restricted to its reviewed GitHub Actions job; it was
@@ -90,3 +102,9 @@ Inspect actual pixels separately from the technical receipt.
 - Delivery: code, recipes and text receipts only. GLB/PNG outputs remain local.
   No Site, transport, LFS publication or canonical promotion. Parent reviews before
   merge; publication and downstream consumer work require separate acceptance.
+
+Native import observations: 0.256 s baseline and 0.068 s candidate on this executor;
+context renders 22.7/17.1 s and detail renders 49.2/28.5 s (baseline/candidate).
+These are single-run Blender CPU timings, not controlled benchmarks, browser
+load costs or desktop performance claims. The [decision](decision.json) records
+technical, visual, anatomical and runtime gates separately.
