@@ -15,7 +15,7 @@
   },
   "v2": {
     "changeCommit": "11b00906977627217f55b07b6c2280e7a0eb4d55",
-    "disposition": "retain: subdued large vessel trunks, partly restored renal branches and bony context"
+    "disposition": "retain as local trial pending independent keep/revise/reject decision at normal teaching scale; no promotion"
   },
   "gates": {
     "technical": {
@@ -23,8 +23,8 @@
       "scope": "Exact XML identity after reversing four opacity attributes; unique IDs, local references, unchanged full organ/label/data/clip trees; matched SVG raster export. See technical-receipt.json."
     },
     "visual": {
-      "status": "pass-with-limitations",
-      "scope": "Author inspected actual matched Inkscape native/3x overview, ureter-detail crops and grayscale; EN and existing data-zh localization. Labels unchanged; paired urinary route easier to trace. No independent reviewer."
+      "status": "needs-review",
+      "scope": "Author inspected matched Inkscape native/3x overview, ureter-detail crops and grayscale, EN and existing data-zh localization. Author found the paired route easier to trace; independent confirmation of a clearly useful gain is pending."
     },
     "anatomy": {
       "status": "reference-screened",
@@ -36,7 +36,7 @@
     },
     "publication": {
       "status": "unverified",
-      "scope": "Local review images only; no image/model payload upload. Issue creation denied by automatic approval review; draft PR text retained locally."
+      "scope": "Issue #124 created on one authorized reconsideration. Private Library image handoff failed before upload preparation; images remain local. No push, PR or public image/model payload publication."
     }
   },
   "reference": {
@@ -276,6 +276,12 @@
     "Static appearance correction in regions/urinary.svg only; atlas, primary parts, other regions and coordinate/provenance data are unchanged.",
     "Packaged raster previews and import checksums remain historical; review current SVG exports.",
     "Normal simplified educational schematic; not a clinical, procedural, dimensional or depth measurement asset.",
-    "Hosted CI and remote issue/PR delivery have not run; no remote write or merge occurred."
-  ]
+    "Hosted CI and remote PR delivery have not run; issue #124 exists, but no push, PR or merge occurred."
+  ],
+  "issue": "https://github.com/qianyizhang/med-assets/issues/124",
+  "validation": {
+    "testedCommit": "ba9039c67cb949c684df39f97a30f7ebf3366025",
+    "offlineTestsPassed": 174,
+    "laterChanges": "Review status/issue linkage only; SVG, verification code and import metadata unchanged. No repeated tests."
+  }
 }

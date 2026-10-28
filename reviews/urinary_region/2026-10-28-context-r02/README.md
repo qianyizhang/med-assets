@@ -2,8 +2,12 @@
 
 **Before:** broad red/blue background vessels compete with the thin gold ureters
 at the native 353 × 271 size, also in grayscale.
-**Current:** both ureters are easier to trace while kidney connections and pelvic
-context remain visible. This is a regional presentation change, with no new anatomy.
+**Trial:** the author found both ureters easier to trace with renal/pelvic context
+retained. Independent review must confirm a clearly useful gain at normal teaching
+scale before acceptance; a marginal trial should be revised or rejected.
+[Issue #124](https://github.com/qianyizhang/med-assets/issues/124) tracks that decision.
+Private Library image handoff is blocked before upload preparation.
+This is a regional presentation change, with no new anatomy.
 
 - V1 faded all vessel context to `.18` and skeleton context to `.55`; the small
   renal branches and pelvic landmarks became too faint.
