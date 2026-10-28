@@ -7,11 +7,14 @@ import urllib.parse, urllib.request, zlib
 import webgl_probe as base
 
 HERE=Path(__file__).resolve().parent
+RECIPE=HERE.parent/'tools/lymph_node/editorial_window_r03'
 OUT=Path.cwd()/'glb-runtime-results'
 HOSTS={'raw.githubusercontent.com','media.githubusercontent.com','heart-anatomy-imaging-lab.landy123007.chatgpt.site'}
 MAX_DOWNLOAD=10*1024*1024
 MAX_POST=4*1024*1024
 FRAME_IDS=(['lymph-full','lymph-capsule-hidden','lymph-restored']+
+ ['lymph-source-lit-reverse','lymph-candidate-lit-front','lymph-candidate-lit-reverse',
+  'lymph-source-normal-front','lymph-source-normal-back','lymph-candidate-normal-front','lymph-candidate-normal-back']+
  [f'heart-full-{i}' for i in range(4)]+['heart-paused','heart-exact-loop']+
  [f'heart-valves-{i}' for i in range(4)]+['heart-restored'])
 
@@ -55,6 +58,38 @@ def download_inputs(fixture,work):
     'contentType':response.headers.get('Content-Type'),'contentEncoding':response.headers.get('Content-Encoding'),'seconds':round(time.monotonic()-started,3)})
   dump('download-provenance.json',receipts)
 
+def verify_generated(path, expected_bytes, expected_sha):
+ # Explicitly bounded independently of the 10 MiB network limit.
+ if not isinstance(expected_bytes,int) or not 0<expected_bytes<=16*1024*1024:
+  raise ValueError('Generated size outside local bound')
+ if not path.is_file() or path.stat().st_size != expected_bytes:
+  raise ValueError('Generated size mismatch: '+path.name)
+ digest=hashlib.sha256(path.read_bytes()).hexdigest()
+ if digest != expected_sha:raise ValueError('Generated SHA-256 mismatch: '+path.name)
+ return {'bytes':expected_bytes,'sha256':digest}
+
+def reconstruct(fixture,work):
+ spec=fixture['lymphCandidate']; source=work/'assets/lymph.glb'
+ intermediate=work/'r03'; compact=work/'compact'
+ for script,args in [('build.py',['--source',str(source),'--output',str(intermediate)]),
+                     ('display_repair.py',['--input',str(intermediate/'lymph-node-editorial-window-r03.glb'),'--output',str(compact)])]:
+  if script=='display_repair.py':
+   r03=verify_generated(intermediate/'lymph-node-editorial-window-r03.glb',spec['intermediateBytes'],spec['intermediateSha256'])
+   source_map=verify_generated(intermediate/'triangle-source-map.json',spec['sourceMapBytes'],spec['sourceMapSha256'])
+  subprocess.run([sys.executable,str(RECIPE/script),*args],check=True,timeout=120,stdout=subprocess.DEVNULL)
+ # Receipts contain temporary paths; bound and hash them, but do not expose them.
+ receipt_hashes={}
+ for path in (intermediate/'build-receipt.json',compact/'build-receipt.json'):
+  if not path.is_file() or not 0<path.stat().st_size<=128*1024:raise ValueError('Generated receipt exceeds bound')
+  receipt_hashes[path.parent.name]=hashlib.sha256(path.read_bytes()).hexdigest()
+ candidate=compact/'prepared-display-repair.glb'
+ verified=verify_generated(candidate,spec['bytes'],spec['sha256'])
+ target=work/spec['path'];target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(candidate,target)
+ verify_generated(target,spec['bytes'],spec['sha256'])
+ dump('reconstruction-provenance.json',{'sourceSha256':next(x['sha256'] for x in fixture['resources'] if x.get('id')=='lymph'),
+  'intermediate':r03,'sourceMap':source_map,'candidate':verified,'localReceiptSHA256':receipt_hashes,
+  'retainedComparisonSha256':spec['retainedComparisonSha256'],'note':spec['identityNote']})
+
 def png(width,height,rgb):
  assert len(rgb)==width*height*3
  def chunk(k,p):return struct.pack('>I',len(p))+k+p+struct.pack('>I',zlib.crc32(k+p)&0xffffffff)
@@ -86,11 +121,11 @@ def changed(a,b,tolerance=2):
 def verify_snapshot(row,fixture,work,previous):
  index=len(previous);assert index<len(FRAME_IDS) and row['id']==FRAME_IDS[index], 'Unexpected snapshot sequence'
  name=row['id'];assert row['width']==row['height']==512 and row['glError']==0 and row['contextLost'] is False
- resource=next(x for x in fixture['resources'] if x.get('id')==row['asset'])
+ resource=fixture['lymphCandidate'] if row['asset']=='lymphCandidate' else next(x for x in fixture['resources'] if x.get('id')==row['asset'])
  assert row['assetSHA256']==resource['sha256']
  visible=row['visibleNodes'];assert len(visible)==fixture[row['asset']]['meshes']
  visibility={x['node']:x['visible'] for x in visible};assert len(visibility)==len(visible)
- if row['asset']=='lymph':
+ if row['asset'] in ('lymph','lymphCandidate'):
   assert {x['node']:x['name'] for x in visible}=={x['node']:x['name'] for x in fixture['lymph']['layers']}
   assert all(v is (not(name=='lymph-capsule-hidden' and i==2)) for i,v in visibility.items())
  else:
@@ -109,6 +144,11 @@ def verify_snapshot(row,fixture,work,previous):
  compare=None;minimum=None;maximum=None
  if name=='lymph-capsule-hidden':compare='lymph-full';minimum=100
  elif name=='lymph-restored':compare='lymph-full';maximum=0
+ elif name=='lymph-candidate-lit-front':compare='lymph-full';minimum=100
+ elif name=='lymph-candidate-lit-reverse':compare='lymph-source-lit-reverse'
+ elif name=='lymph-candidate-normal-front':compare='lymph-source-normal-front'
+ elif name=='lymph-source-normal-back':compare='lymph-source-normal-front';minimum=100
+ elif name=='lymph-candidate-normal-back':compare='lymph-candidate-normal-front';minimum=100
  elif name in ('heart-full-1','heart-full-2'):compare='heart-full-0';minimum=50
  elif name=='heart-full-3':compare='heart-full-0';maximum=10
  elif name=='heart-paused':compare='heart-full-1';maximum=0
@@ -165,6 +205,7 @@ def inside(firefox,work):
   '/fixture.json':((HERE/'glb-runtime-fixture.json').read_bytes(),'application/json')}
  for item in fixture['resources']:
   files['/'+item['path']]=((work/item['path']).read_bytes(),'text/javascript' if item['path'].endswith('.js') else 'model/gltf-binary' if item['path'].endswith('.glb') else 'text/plain')
+ candidate=fixture['lymphCandidate'];files['/'+candidate['path']]=((work/candidate['path']).read_bytes(),'model/gltf-binary')
  class Handler(http.server.BaseHTTPRequestHandler):
   def log_message(self,*args):pass
   def do_GET(self):
@@ -236,9 +277,9 @@ def main():
  integrity=provenance['firefoxPackageIntegrity'];assert integrity['exit']==0
  assert all(line.endswith(' c /etc/firefox/syspref.js') for line in integrity['stdout'].splitlines()), 'Unexpected packaged Firefox changes'
  fixture=json.loads((HERE/'glb-runtime-fixture.json').read_text())
- dump('test-provenance.json',{'githubSHA':os.environ.get('GITHUB_SHA'),'files':{p.name:{'sha256':base.sha(p),'bytes':p.stat().st_size} for p in [HERE/'webgl_probe.py',Path(__file__),HERE/'glb_runtime_probe.mjs',HERE/'glb-runtime-fixture.json']},'frameIDs':FRAME_IDS})
+ dump('test-provenance.json',{'githubSHA':os.environ.get('GITHUB_SHA'),'files':{p.name:{'sha256':base.sha(p),'bytes':p.stat().st_size} for p in [HERE/'webgl_probe.py',Path(__file__),HERE/'glb_runtime_probe.mjs',HERE/'glb-runtime-fixture.json',*[RECIPE/p for p in ('build.py','gltf_source.py','check.py','import_audit.py','display_repair.py')]]},'frameIDs':FRAME_IDS})
  with tempfile.TemporaryDirectory(prefix='glb-runtime-') as temporary:
-  work=Path(temporary);(work/'framebuffer').mkdir();download_inputs(fixture,work)
+  work=Path(temporary);(work/'framebuffer').mkdir();download_inputs(fixture,work);reconstruct(fixture,work)
   args=['xvfb-run','--auto-servernum','--server-args',f'-screen 0 1280x1024x24 -nolisten tcp -fbdir {work}/framebuffer',sys.executable,str(Path(__file__).resolve()),'--inside-xvfb',str(firefox),str(work)]
   with (OUT/'xvfb.log').open('wb') as log:return subprocess.run(args,stdout=log,stderr=subprocess.STDOUT,timeout=300,check=False).returncode
 

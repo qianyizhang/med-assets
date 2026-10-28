@@ -39,7 +39,7 @@ async function run(){
  const previous=new Map();
 
  async function load(id){
-  const resource=fixture.resources.find(x=>x.id===id);assert(resource,'Missing asset fixture');
+  const resource=id==='lymphCandidate'?fixture.lymphCandidate:fixture.resources.find(x=>x.id===id);assert(resource,'Missing asset fixture');
   const response=await fetch(resource.path,{redirect:'error',credentials:'omit'});assert(response.ok,'Asset HTTP failure');
   const bytes=await response.arrayBuffer();check(bytes.byteLength===resource.bytes,`${id}: exact byte count`);
   check(await hash(bytes)===resource.sha256,`${id}: exact SHA-256`);
@@ -48,6 +48,7 @@ async function run(){
   const doc=JSON.parse(new TextDecoder().decode(bytes.slice(20,20+view.getUint32(12,true))));
   check(doc.nodes.length===fixture[id].nodes&&doc.meshes.length===fixture[id].meshes,`${id}: expected source scene counts`);
   assert(doc.buffers.length===1&&!doc.buffers[0].uri&&!doc.images?.length&&!doc.extensionsRequired?.length,'Only reviewed embedded GLBs permitted');
+  if(id==='lymph'||id==='lymphCandidate')check(doc.materials.every(m=>!m.doubleSided),`${id}: source materials single-sided`);
   const manager=new THREE.LoadingManager();manager.setURLModifier(()=>{throw Error('Unexpected external GLB resource request');});
   const model=await new GLTFLoader(manager).parseAsync(bytes,'');
   let meshCount=0,morphCount=0;
@@ -55,6 +56,7 @@ async function run(){
    const p=o.geometry.attributes.position;assert(p&&p.count>0,'Empty loaded POSITION');
    for(let i=0;i<p.array.length;i++)assert(Number.isFinite(p.array[i]),'Nonfinite loaded POSITION');}});
   check(meshCount===fixture[id].renderMeshes,`${id}: expected rendered mesh count`);
+  if(id==='lymph'||id==='lymphCandidate')model.scene.traverse(o=>{if(o.isMesh){const n=o.geometry.attributes.normal;assert(n&&n.count>0,'Missing loaded normals');for(const x of n.array)assert(Number.isFinite(x),'Nonfinite normal');const materials=Array.isArray(o.material)?o.material:[o.material];assert(materials.every(m=>m.side===THREE.FrontSide),'Loaded material must cull back faces');}});
   if(id==='heart')check(morphCount===fixture.heart.morphRenderMeshes,'heart: 232 rendered morph primitives');
   const nodes=new Map();for(let i=0;i<doc.nodes.length;i++)nodes.set(i,await model.parser.getDependency('node',i));
   const transforms=new Map();model.scene.traverse(o=>transforms.set(o,JSON.stringify([o.position.toArray(),o.quaternion.toArray(),o.scale.toArray()])));
@@ -101,7 +103,30 @@ async function run(){
  await snapshot('lymph-full',lymph,{camera:lymphCamera,labelWarning:fixture.lymph.labelWarning});
  capsule.visible=false;await snapshot('lymph-capsule-hidden',lymph,{},'lymph-full',100);
  for(const layer of fixture.lymph.layers)lymph.nodes.get(layer.node).visible=true;
- await snapshot('lymph-restored',lymph,{},'lymph-full',null,0);scene.remove(lymph.model.scene);
+ await snapshot('lymph-restored',lymph,{},'lymph-full',null,0);
+ // Camera and lighting stay identical across assets; reverse is the opposite view.
+ const reverseCamera=fit([lymph.model.scene],[-1,-.5,-2]);
+ await snapshot('lymph-source-lit-reverse',lymph,{camera:reverseCamera});
+ const useCamera=spec=>{camera.position.fromArray(spec.cameraPosition);camera.lookAt(new THREE.Vector3(...spec.target));camera.updateProjectionMatrix();};
+ scene.remove(lymph.model.scene);
+ const candidate=await load('lymphCandidate');scene.add(candidate.model.scene);
+ check(!candidate.model.animations.length,'lymph candidate: static');
+ useCamera(lymphCamera);await snapshot('lymph-candidate-lit-front',candidate,{camera:lymphCamera},'lymph-full',100);
+ useCamera(reverseCamera);await snapshot('lymph-candidate-lit-reverse',candidate,{camera:reverseCamera},'lymph-source-lit-reverse');
+ // Diagnostic normal visualization uses the loaded normals and explicit front/back
+ // sidedness. It is not the GLB material appearance or an anatomy check.
+ useCamera(lymphCamera);scene.remove(candidate.model.scene);scene.add(lymph.model.scene);
+ const normalFront=new THREE.MeshNormalMaterial({side:THREE.FrontSide});
+ const normalBack=new THREE.MeshNormalMaterial({side:THREE.BackSide});
+ scene.overrideMaterial=normalFront;
+ await snapshot('lymph-source-normal-front',lymph,{camera:lymphCamera,diagnostic:'normal-front'});
+ scene.overrideMaterial=normalBack;
+ await snapshot('lymph-source-normal-back',lymph,{camera:lymphCamera,diagnostic:'normal-back'},'lymph-source-normal-front',100);
+ scene.remove(lymph.model.scene);scene.add(candidate.model.scene);scene.overrideMaterial=normalFront;
+ await snapshot('lymph-candidate-normal-front',candidate,{camera:lymphCamera,diagnostic:'normal-front'},'lymph-source-normal-front');
+ scene.overrideMaterial=normalBack;
+ await snapshot('lymph-candidate-normal-back',candidate,{camera:lymphCamera,diagnostic:'normal-back'},'lymph-candidate-normal-front',100);
+ scene.overrideMaterial=null;normalFront.dispose();normalBack.dispose();scene.remove(candidate.model.scene);
  const heart=await load('heart');scene.add(heart.model.scene);
  check(heart.model.animations.length===1,'heart: exactly one animation clip');
  const clip=heart.model.animations[0];check(clip.name===fixture.heart.animationName&&Math.abs(clip.duration-fixture.heart.duration)<1e-7,'heart: exact authored 0.8 s clip');

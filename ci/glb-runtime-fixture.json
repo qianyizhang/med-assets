@@ -2633,5 +2633,49 @@
       73
     ],
     "morphRenderMeshes": 232
+  },
+  "lymphCandidate": {
+    "path": "assets/lymph-candidate.glb",
+    "bytes": 7614568,
+    "sha256": "f89e989450e6f5f64a9d939d135ad0ec17c22e86eee6d9977d46dd68ca542f83",
+    "intermediateBytes": 14190680,
+    "intermediateSha256": "2f6f65e98ccd280166343fd6a9d1a59f3d5e97830759dd531d80a43f27487194",
+    "sourceMapBytes": 853955,
+    "sourceMapSha256": "33ba36d5f19eea5b480a4c5cd04a2d780b73bca402d1a48a92238582ef87a7d1",
+    "retainedComparisonSha256": "882d146ce2b04547e1f45704a414d5d0a059fef7bff980fe7b932148be24314e",
+    "identityNote": "Current compact recipe differs from retained comparison by explanatory metadata; measurements remain bound to their respective hashes.",
+    "nodes": 8,
+    "meshes": 7,
+    "renderMeshes": 7,
+    "layers": [
+      {
+        "node": 1,
+        "name": "Yao_afferent_lymphatic_vessel"
+      },
+      {
+        "node": 2,
+        "name": "Yao_capsule_of_lymph_node"
+      },
+      {
+        "node": 3,
+        "name": "Yao_follicles"
+      },
+      {
+        "node": 4,
+        "name": "Yao_efferent_lymph_node"
+      },
+      {
+        "node": 5,
+        "name": "Yao_medulla_of_lymph_node"
+      },
+      {
+        "node": 6,
+        "name": "Yao_paracortex"
+      },
+      {
+        "node": 7,
+        "name": "Yao_blood_vasculature"
+      }
+    ]
   }
 }
