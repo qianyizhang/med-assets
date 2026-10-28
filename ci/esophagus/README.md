@@ -1,9 +1,11 @@
 # Issue 102 target-viewer extension (WIP)
 
 This isolated module extends the reviewed `ci/glb_runtime_probe.py` and `.mjs`
-architecture. It is not wired into that harness yet. No browser was launched,
-protected workflow dispatched, model staged, or Site published for this change.
-Parent independent review is required before shared integration, merge or dispatch.
+architecture, integrated against PR #111 merge
+`f082ed38af36bedcbbb425272eb5252e725c57f7`. Its 18 states follow the existing
+37 lymph/heart states, for 55 total. No browser was launched, protected workflow
+dispatched, model staged, or Site published for this change. Parent independent
+review is required before merge or dispatch.
 
 ## Verified input and replay
 
@@ -46,8 +48,10 @@ exported double-sided flag, metalness, roughness and linear RGBA. Numbered
 transverse anchors must raycast to the corresponding loaded compartment.
 
 Candidate and baseline isolated-layer frames must differ in actual pixels;
-restore must reproduce the transverse framebuffer exactly. Grayscale comes
-from actual lit `readPixels`, with explicit display-luma coefficients, followed
+restoration requires zero pixels whose maximum RGB channel difference exceeds
+2 on the 8-bit scale against the transverse framebuffer. This permits differences
+of up to 2 per channel; it is tolerance-bounded restoration, not byte identity.
+Grayscale comes from actual lit `readPixels`, with explicit display-luma coefficients, followed
 by neutral numbered badges; it is not inferred from JSON colors. The server
 independently validates grayscale pixels outside bounded badge regions and
 captures the visible Xvfb display, retaining the reviewed >=98% match within
@@ -65,39 +69,44 @@ canonical package and PR #108 labels. Geometry, anatomical/clinical acceptance,
 visual acceptance, software CI runtime, supported product viewer and publication
 remain separate gates. This probe does not verify native UI or the whole Site.
 
-## Minimal integration proposal (not applied)
+## Integrated shared wiring
 
-See `integration.patch` for the bounded shared wiring against merged
-`55b81bb39e17a5ec12b87eefc4f1af2745f68c8e`. It is review material only, intentionally
-not applied: another worker owns the shared lymph/runtime paths. Parent must
-reconcile it with that worker's changes and independently review the final diff.
-The patch adds this exact baseline as an eighth bounded download, reconstructs
-only inside the runner, registers the candidate for same-origin serving, appends
-18 frame IDs and dispatches esophagus frames to this verifier. Existing input
-hashes, 10 MiB download / 4 MiB POST limits and security gates stay intact.
+The shared diff adds the exact baseline as an eighth bounded download, reconstructs the candidate only
+inside the temporary runner directory, serves it through the existing same-origin
+file map, appends 18 frame IDs, and routes only those frames to this verifier after
+the global sequence check. The original 37-state prefix, lymph diagnostics imports,
+normal controls, file-map entry, provenance and completion fields are retained.
 
-Sparse checkout needs the two existing esophagus replay inputs. Provenance must
-include this module, fixture and both replay inputs. No protected dispatch is
-part of this PR. A passing offline suite is not media-byte, actual-pixel,
-remote-availability or runtime evidence; keep issue #102 open.
+Sparse checkout includes the existing `tests/esophagus_wall` replay directory.
+Provenance includes this module, fixture and both replay inputs. The original
+seven resource records and fixture file remain unchanged; 10 MiB download and
+4 MiB POST limits, host allowlist, source hashes, manual/main-only dispatch,
+read-only token, pinned actions, time limits and three-day retention are unchanged.
+The workflow does not upload temporary GLBs. No protected dispatch is part of this
+PR. A passing offline suite is not media-byte, actual-pixel, remote-availability
+or runtime evidence; keep issue #102 open.
 
-## Author-local checkpoint — 2026-10-28
+## Integrated validation — 2026-10-28
 
-- Exact input/candidate replay and independent pair verification passed. Existing
-  output was refused; a same-size, one-byte-corrupted baseline was rejected by
-  SHA-256 before output creation.
-- 14 module contract/negative tests passed, including unchanged candidate pixels,
-  wrong material/number/legend mappings, missing grayscale badges, shifted anchor
-  projections, non-pixel-derived grayscale, context loss and display mismatch.
-- Full offline gate: 135 tests, 25 transport manifests, 25 foundation records,
-  591 import references and 673 LFS pointer identities passed. This is metadata
-  and contract evidence, not execution of these 18 viewer states.
-- The unapplied integration patch was applied only to temporary text copies;
-  Python compilation and Node syntax checks passed. No shared working file,
-  protected workflow or browser was executed. The proposal also adds this
-  14-test suite to the existing offline minimum-count guard.
+- The integrated temporary reconstruction reproduced the same 201,328-byte
+  baseline and 201,344-byte candidate identities, five meshes and 7,700 triangles.
+  Existing output and corrupted baseline checks remain in place; temporary model
+  files were removed when the local check ended.
+- 18 esophagus contract/negative tests passed. These include preserved 37+18
+  ordering, sequence-gated dispatch, retained lymph diagnostics, original input
+  records, corrupt reconstructed candidate rejection, all five isolated-layer
+  pixel comparisons, grayscale derivation and badge/anchor checks, labels and
+  display mismatch. Python restoration accepts channel differences of ±2 and
+  rejects ±3; the unchanged shared JavaScript comparison was checked at the same
+  boundaries without running a browser.
+- Full offline gate: 146 tests, 25 transport manifests, 25 foundation records,
+  591 import references and 673 LFS pointer identities passed. The 18-test
+  esophagus suite is also required by the offline minimum-count guard.
+- The existing four lymph JavaScript normal/winding tests passed. Python
+  compilation, shared/module JavaScript syntax and whole-branch whitespace
+  checks passed. Runtime and Chinese-glyph acceptance remain unrun.
 
-Remaining: parent code/patch review and reconciliation with the lymph worker,
-verified remote baseline input, authorized protected software-CI execution,
-independent review of captured numbers/EN/中文 glyphs and palette discrimination,
-and any separate supported product-viewer gate. This PR stays draft.
+Remaining: parent review of the integrated diff, verified remote baseline input,
+authorized protected software-CI execution, independent review of captured
+numbers/EN/中文 glyphs and palette discrimination, and any separate supported
+product-viewer gate. This PR stays draft.

@@ -17,6 +17,8 @@ ROOT=Path(__file__).resolve().parents[1]
 spec=importlib.util.spec_from_file_location('esophagus_probe',ROOT/'ci/esophagus/probe.py')
 probe=importlib.util.module_from_spec(spec);spec.loader.exec_module(probe)
 F=probe.FIXTURE
+sys.path.insert(0,str(ROOT/'ci'))
+import glb_runtime_probe as runtime
 
 
 def frame(name=None, gray=False):
@@ -78,16 +80,26 @@ class EsophagusRuntimeTests(unittest.TestCase):
             with self.assertRaises(ValueError):probe.validate_frame(row,raw,{})
 
     def test_equal_candidate_pixels_do_not_pass_material_change(self):
-        row,raw=frame('esophagus-candidate-oblique')
-        previous={name:raw for name in probe.FRAME_IDS[:7]}
-        with self.assertRaisesRegex(ValueError,'framebuffer change'):probe.validate_frame(row,raw,previous)
+        for state in ['oblique',*[f'layer-{n}' for n in range(1,6)]]:
+            name='esophagus-candidate-'+state;row,raw=frame(name)
+            if state.startswith('layer-'):
+                number=int(state[-1]);row['rendererInfo']['triangles']=1540
+                for node in row['visibleNodes']:node['visible']=node['node']==number-1
+            previous={key:raw for key in probe.FRAME_IDS[:probe.FRAME_IDS.index(name)]}
+            with self.subTest(state=state), self.assertRaisesRegex(ValueError,'framebuffer change'):
+                probe.validate_frame(row,raw,previous)
 
     def test_restore_requires_actual_pixels(self):
         row,raw=frame('esophagus-candidate-restored')
         previous={name:raw for name in probe.FRAME_IDS[:-1]}
         probe.validate_frame(row,raw,previous)
-        bad=bytearray(raw);bad[0]=0;row['pixelSHA256']=hashlib.sha256(bad).hexdigest()
-        with self.assertRaisesRegex(ValueError,'framebuffer change'):probe.validate_frame(row,bad,previous)
+        for delta in [-2,2]:
+            within=bytearray(raw);within[0]+=delta;row['pixelSHA256']=hashlib.sha256(within).hexdigest()
+            probe.validate_frame(row,within,previous);self.assertEqual(runtime.changed(raw,within),0)
+        for delta in [-3,3]:
+            bad=bytearray(raw);bad[0]+=delta;row['pixelSHA256']=hashlib.sha256(bad).hexdigest()
+            self.assertEqual(runtime.changed(raw,bad),1)
+            with self.assertRaisesRegex(ValueError,'framebuffer change'):probe.validate_frame(row,bad,previous)
 
     def test_gray_derived_from_pixels_and_bad_anchor_rejected(self):
         row,source=frame('esophagus-candidate-gray-en',True)
@@ -134,6 +146,56 @@ class EsophagusRuntimeTests(unittest.TestCase):
         lum=int(.2126*80+.7152*120+.0722*160+.5);gray=bytes([lum,lum,lum,255])*(512*512)
         row['pixelSHA256']=hashlib.sha256(gray).hexdigest()
         with self.assertRaisesRegex(ValueError,'badge'):probe.validate_frame(row,gray,previous)
+
+    def test_integrated_frame_order_preserves_37_then_appends_18(self):
+        expected=(['lymph-full','lymph-capsule-hidden','lymph-restored',
+                   'lymph-source-lit-reverse','lymph-candidate-lit-front','lymph-candidate-lit-reverse',
+                   'lymph-source-normal-front','lymph-source-normal-back',
+                   'lymph-candidate-normal-front','lymph-candidate-normal-back']+
+                  runtime.diagnostics.ORBIT_IDS+runtime.diagnostics.CONTROL_IDS+
+                  [f'heart-full-{i}' for i in range(4)]+['heart-paused','heart-exact-loop']+
+                  [f'heart-valves-{i}' for i in range(4)]+['heart-restored'])
+        self.assertEqual(len(expected),37)
+        self.assertEqual(runtime.FRAME_IDS,expected+probe.FRAME_IDS)
+        self.assertEqual(len(set(runtime.FRAME_IDS)),55)
+
+    def test_fixture_extension_keeps_original_inputs_and_is_repeatable(self):
+        original=json.loads((ROOT/'ci/glb-runtime-fixture.json').read_text())
+        for _ in range(2):
+            fixture=runtime.load_fixture()
+            self.assertEqual(fixture['resources'],original['resources']+[F['baseline']])
+            self.assertEqual(len(fixture['resources']),8)
+            for key,value in original.items():
+                if key!='resources':self.assertEqual(fixture[key],value)
+            self.assertNotIn('url',fixture['esophagus']['candidate'])
+        self.assertEqual(json.loads((ROOT/'ci/glb-runtime-fixture.json').read_text()),original)
+
+    def test_shared_dispatch_requires_sequence_and_keeps_lymph_validation(self):
+        row={'id':probe.FRAME_IDS[0]};previous={name:b'' for name in runtime.FRAME_IDS[:37]}
+        with patch.object(runtime.esophagus,'capture_snapshot',return_value={'displayMatch':True}) as capture:
+            with self.assertRaisesRegex(AssertionError,'sequence'):runtime.verify_snapshot(row,{},Path('.'),{})
+            capture.assert_not_called()
+            result=runtime.verify_snapshot(row,{},Path('.'),previous)
+            self.assertTrue(result['displayMatch']);capture.assert_called_once_with(row,Path('.'),previous,runtime)
+            capture.reset_mock()
+            name='lymph-source-normal-front';prior={key:b'' for key in runtime.FRAME_IDS[:runtime.FRAME_IDS.index(name)]}
+            baseline={'camera':'sentinel','culling':'sentinel'}
+            with patch.object(runtime.diagnostics,'validate_frame',side_effect=ValueError('normal sentinel')) as normal:
+                with self.assertRaisesRegex(ValueError,'normal sentinel'):
+                    runtime.verify_snapshot({'id':name},{},Path('.'),prior,baseline)
+                normal.assert_called_once_with({'id':name},baseline)
+            capture.assert_not_called()
+
+    def test_integrated_reconstruction_refuses_corrupt_generated_candidate(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            work=Path(temporary)
+            def corrupt(source,output):
+                candidate=output/'candidate/esophagus-wall-palette-r01.glb'
+                candidate.parent.mkdir(parents=True);candidate.write_bytes(bytes(F['candidate']['bytes']))
+                return {'runtimeVerified':False}
+            with patch.object(runtime.esophagus,'prepare',side_effect=corrupt), patch.object(runtime,'dump') as dump:
+                with self.assertRaisesRegex(ValueError,'SHA-256'):runtime.prepare_esophagus(work)
+                dump.assert_not_called()
 
     def test_zh_label_mismatch_rejected(self):
         row,source=frame('esophagus-candidate-gray-zh',True)
