@@ -10,14 +10,15 @@ export async function runEsophagus({THREE, GLTFLoader, renderer, scene, camera, 
   const oldStatus=document.querySelector('#status');const oldDisplay=oldStatus.style.display;oldStatus.style.display='none';
   const initial={position:camera.position.clone(),quaternion:camera.quaternion.clone(),up:camera.up.clone(),left:camera.left,right:camera.right,top:camera.top,bottom:camera.bottom,near:camera.near,far:camera.far};
   const assets=[],extras=[];
-  function legend(language){
+  function legend(language, baseline){
+    const notices=baseline?fixture.baselineNotices:fixture.notices;
     panel.replaceChildren();panel.lang=language==='zh'?'zh-CN':'en';
     const labels=fixture.layers.map(l=>`${l.number}  ${l[language]}`);
-    for(const text of [fixture.notices[language],fixture.context[language],...labels,fixture.attribution]){
+    for(const text of [notices[language],fixture.context[language],...labels,fixture.attribution]){
       const p=document.createElement('p');p.textContent=text;panel.append(p);
     }
     const r=panel.getBoundingClientRect();
-    return {language,labels,notice:fixture.notices[language],context:fixture.context[language],attribution:fixture.attribution,
+    return {language,labels,notice:notices[language],context:fixture.context[language],attribution:fixture.attribution,
       rect:{x:Math.round(window.mozInnerScreenX+r.left),y:Math.round(window.mozInnerScreenY+r.top),width:r.width,height:r.height}};
   }
   function view(transverse){
@@ -48,7 +49,9 @@ export async function runEsophagus({THREE, GLTFLoader, renderer, scene, camera, 
     }
     const asset={id:resource.id,resource,model,doc,nodes,transforms,meshCount:5,morphCount:0,materials};assets.push(asset);return asset;
   }
-  const extra=(asset,language='en')=>({legend:legend(language),materials:asset.materials});
+  const extra=(asset,language='en')=>({legend:legend(language,asset.id===fixture.baseline.id),materials:fixture.layers.map(l=>{
+    const m=asset.nodes.get(l.node).material;return {number:l.number,name:m.name,rgba:[...m.color.toArray(),m.opacity],metalness:m.metalness,roughness:m.roughness,doubleSided:m.side===THREE.DoubleSide};
+  })});
   try {
     let candidate,transversePixels;
     for(const variant of ['baseline','candidate']){

@@ -8,6 +8,10 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
+from types import SimpleNamespace
+import base64
+import struct
 
 ROOT=Path(__file__).resolve().parents[1]
 spec=importlib.util.spec_from_file_location('esophagus_probe',ROOT/'ci/esophagus/probe.py')
@@ -26,7 +30,7 @@ def frame(name=None, gray=False):
              materials=[dict(number=l['number'],name=l['name'],rgba=l[variant+'RGBA'],metalness=0,
                              roughness=.7200000286102295,doubleSided=True) for l in F['layers']],
              legend=dict(language='en',labels=[f"{l['number']}  {l['en']}" for l in F['layers']],
-                         notice=F['notices']['en'],context=F['context']['en'],attribution=F['attribution'],
+                         notice=F['baselineNotices' if variant=='baseline' else 'notices']['en'],context=F['context']['en'],attribution=F['attribution'],
                          rect=dict(x=552,y=100,width=440,height=580)))
     return row,raw
 
@@ -102,6 +106,31 @@ class EsophagusRuntimeTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'rendered pixels'):probe.validate_frame(row,bad,previous)
         row['pixelSHA256']=hashlib.sha256(gray).hexdigest();row['anchors'][0]['hitNode']=4
         with self.assertRaisesRegex(ValueError,'mapping'):probe.validate_frame(row,gray,previous)
+
+    def test_display_mismatch_is_not_a_pass(self):
+        row,_=frame()
+        raw=bytes([80,120,160,255])*(512*256)+bytes([170,160,150,255])*(512*256)
+        row['pixelSHA256']=hashlib.sha256(raw).hexdigest()
+        row['rgbaBase64']=base64.b64encode(raw).decode()
+        # Header validation uses dimensions; the actual displayed pixels are independently checked.
+        row['canvasPNG']='data:image/png;base64,'+base64.b64encode(b'\x89PNG\r\n\x1a\n'+b'12345678'+struct.pack('>II',512,512)).decode()
+        row['displayRect']=dict(x=0,y=0,width=512,height=512)
+        with tempfile.TemporaryDirectory() as temporary:
+            root=Path(temporary);(root/'framebuffer').mkdir();(root/'framebuffer/Xvfb_screen0').write_bytes(b'synthetic-xwd')
+            shared=SimpleNamespace(OUT=root,decode_xwd=lambda data:(1280,1024,bytes(1280*1024*3)),png=lambda w,h,p:b'png',dump=lambda *args:None)
+            previous={}
+            with patch('time.sleep'), self.assertRaisesRegex(ValueError,'Display screenshot'):
+                probe.capture_snapshot(row,root,previous,shared)
+            self.assertEqual(previous,{})
+
+    def test_gray_missing_badge_rejected(self):
+        row,source=frame('esophagus-candidate-gray-en',True)
+        previous={name:source for name in probe.FRAME_IDS[:14]}
+        row['anchors']=[dict(number=i+1,hitNode=i,point=l['anchor'],pixel=[int((l['anchor'][0]/.0165+1)*256+.5),int((1+l['anchor'][2]/.0165)*256+.5)]) for i,l in enumerate(F['layers'])]
+        row['graySourceSHA256']=hashlib.sha256(source).hexdigest()
+        lum=int(.2126*80+.7152*120+.0722*160+.5);gray=bytes([lum,lum,lum,255])*(512*512)
+        row['pixelSHA256']=hashlib.sha256(gray).hexdigest()
+        with self.assertRaisesRegex(ValueError,'badge'):probe.validate_frame(row,gray,previous)
 
     def test_zh_label_mismatch_rejected(self):
         row,source=frame('esophagus-candidate-gray-zh',True)

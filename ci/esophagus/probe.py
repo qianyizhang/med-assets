@@ -110,7 +110,8 @@ def validate_frame(row, raw, previous):
     language = 'zh' if name.endswith('-gray-zh') else 'en'
     require(row['legend']['language'] == language, 'Legend language')
     require(row['legend']['labels'] == [f"{l['number']}  {l[language]}" for l in FIXTURE['layers']], 'Bilingual number mapping')
-    require(row['legend']['notice'] == FIXTURE['notices'][language] and row['legend']['context'] == FIXTURE['context'][language], 'Candidate/context notice')
+    notices = FIXTURE['baselineNotices'] if variant == 'baseline' else FIXTURE['notices']
+    require(row['legend']['notice'] == notices[language] and row['legend']['context'] == FIXTURE['context'][language], 'Candidate/context notice')
     require(row['legend']['attribution'] == FIXTURE['attribution'], 'Source attribution')
     rect = row['legend']['rect']
     require(0 <= rect['x'] and 0 <= rect['y'] and 300 <= rect['width'] <= 600 and 100 <= rect['height'] <= 650
@@ -153,13 +154,6 @@ def validate_frame(row, raw, previous):
             'anatomicalApproval': False, 'clinicalApproval': False}
 
 
-if __name__ == '__main__':
-    import argparse
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--input', type=Path, required=True)
-    parser.add_argument('--output', type=Path, required=True)
-    args = parser.parse_args()
-    print(json.dumps(prepare(args.input, args.output), indent=2))
 
 
 def capture_snapshot(row, work, previous, shared):
@@ -207,3 +201,12 @@ def capture_snapshot(row, work, previous, shared):
     require(fraction >= .98, 'Display screenshot does not match actual GL readback')
     previous[name] = raw
     return receipt
+
+
+if __name__ == '__main__':
+    import argparse
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--input', type=Path, required=True)
+    parser.add_argument('--output', type=Path, required=True)
+    args = parser.parse_args()
+    print(json.dumps(prepare(args.input, args.output), indent=2))

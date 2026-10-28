@@ -80,3 +80,24 @@ Sparse checkout needs the two existing esophagus replay inputs. Provenance must
 include this module, fixture and both replay inputs. No protected dispatch is
 part of this PR. A passing offline suite is not media-byte, actual-pixel,
 remote-availability or runtime evidence; keep issue #102 open.
+
+## Author-local checkpoint — 2026-10-28
+
+- Exact input/candidate replay and independent pair verification passed. Existing
+  output was refused; a same-size, one-byte-corrupted baseline was rejected by
+  SHA-256 before output creation.
+- 14 module contract/negative tests passed, including unchanged candidate pixels,
+  wrong material/number/legend mappings, missing grayscale badges, shifted anchor
+  projections, non-pixel-derived grayscale, context loss and display mismatch.
+- Full offline gate: 135 tests, 25 transport manifests, 25 foundation records,
+  591 import references and 673 LFS pointer identities passed. This is metadata
+  and contract evidence, not execution of these 18 viewer states.
+- The unapplied integration patch was applied only to temporary text copies;
+  Python compilation and Node syntax checks passed. No shared working file,
+  protected workflow or browser was executed. The proposal also adds this
+  14-test suite to the existing offline minimum-count guard.
+
+Remaining: parent code/patch review and reconciliation with the lymph worker,
+verified remote baseline input, authorized protected software-CI execution,
+independent review of captured numbers/EN/中文 glyphs and palette discrimination,
+and any separate supported product-viewer gate. This PR stays draft.
