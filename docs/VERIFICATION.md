@@ -51,7 +51,7 @@ Existing protected runtime restrictions still apply. If local E2E is barred or
 prerequisites are unavailable, record it blocked and require a reviewed, explicitly
 authorized local mode where needed; never spoof CI flags or bypass execution guards.
 This guidance changes no workflow, security control or current CI job. The complete
-offline scope below remains required; it is not a full media/runtime suite.
+offline scope described above remains required; it is not a full media/runtime suite.
 
 ## Current and historical integrity
 
