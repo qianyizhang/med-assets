@@ -34,6 +34,16 @@ When a surface's actionable backlog is cleared, audit that surface and propose t
 next evidence-backed batch of meaningful improvements. Do not create filler;
 blocked or paused issues remain visible and are not counted as completed.
 
+Iterate toward a useful result: build v1, inspect actual defects, fix v2, run
+affected regression checks, then repeat until the agreed acceptance is met.
+Reuse valid evidence tied to the exact artifact and test conditions unless a change
+invalidates it. Repeat reproduction or an audit only for a concrete risk or question,
+not as a substitute for improvement. Each cycle should deliver a concrete improvement
+or resolve a blocker; if meaningful effort stalls, report the blocker and next choice.
+Stop when acceptance is met; do not invent extra gates or reopen settled checks.
+Keep concise reusable lessons in the existing owning guide or review record, not
+duplicate reports. Required scoped local checks and separate quality gates still apply.
+
 Follow the applicable [review contract](docs/REVIEW_CONTRACT.md) and
 [verification guidance](docs/VERIFICATION.md). Technical integrity, visual review,
 anatomical/clinical approval, browser runtime, and publication are separate gates;
