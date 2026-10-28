@@ -6,6 +6,7 @@ import re, secrets, shutil, signal, struct, subprocess, sys, tempfile, threading
 import urllib.parse, urllib.request, zlib
 import webgl_probe as base
 import lymph_diagnostics as diagnostics
+from esophagus import probe as esophagus
 
 HERE=Path(__file__).resolve().parent
 RECIPE=HERE.parent/'tools/lymph_node/editorial_window_r03'
@@ -17,7 +18,22 @@ FRAME_IDS=(['lymph-full','lymph-capsule-hidden','lymph-restored']+
  ['lymph-source-lit-reverse','lymph-candidate-lit-front','lymph-candidate-lit-reverse',
   'lymph-source-normal-front','lymph-source-normal-back','lymph-candidate-normal-front','lymph-candidate-normal-back']+diagnostics.ORBIT_IDS+diagnostics.CONTROL_IDS+
  [f'heart-full-{i}' for i in range(4)]+['heart-paused','heart-exact-loop']+
- [f'heart-valves-{i}' for i in range(4)]+['heart-restored'])
+ [f'heart-valves-{i}' for i in range(4)]+['heart-restored']+esophagus.FRAME_IDS)
+
+def load_fixture():
+ fixture=json.loads((HERE/'glb-runtime-fixture.json').read_text())
+ fixture['esophagus']=esophagus.FIXTURE
+ fixture['resources'].append(esophagus.FIXTURE['baseline'])
+ return fixture
+
+def prepare_esophagus(work):
+ receipt=esophagus.prepare(work/esophagus.FIXTURE['baseline']['path'],work/'esophagus-replay')
+ candidate=esophagus.FIXTURE['candidate']
+ source=work/'esophagus-replay/candidate/esophagus-wall-palette-r01.glb'
+ target=work/candidate['path'];target.parent.mkdir(parents=True,exist_ok=True)
+ shutil.copyfile(source,target)
+ verify_generated(target,candidate['bytes'],candidate['sha256'])
+ dump('esophagus-reconstruction.json',receipt)
 
 def dump(name,value):
  OUT.mkdir(exist_ok=True);(OUT/name).write_text(json.dumps(value,indent=2)+'\n')
@@ -35,7 +51,7 @@ class ScopedRedirect(urllib.request.HTTPRedirectHandler):
 
 def download_inputs(fixture,work):
  receipts=[];opener=urllib.request.build_opener(ScopedRedirect());deadline=time.monotonic()+120
- assert len(fixture['resources'])==7
+ assert len(fixture['resources'])==8
  for item in fixture['resources']:
   expected=item['bytes'];assert 0<expected<=MAX_DOWNLOAD
   relative=Path(item['path']);assert not relative.is_absolute() and '..' not in relative.parts
@@ -122,6 +138,8 @@ def changed(a,b,tolerance=2):
 def verify_snapshot(row,fixture,work,previous,diagnostic_baseline=None):
  index=len(previous);assert index<len(FRAME_IDS) and row['id']==FRAME_IDS[index], 'Unexpected snapshot sequence'
  name=row['id']
+ if name in esophagus.FRAME_IDS:
+  return esophagus.capture_snapshot(row,work,previous,sys.modules[__name__])
  if name in diagnostics.NORMAL_IDS+diagnostics.CONTROL_IDS:
   diagnostics.require(diagnostic_baseline is not None,'Missing diagnostic baseline')
   diagnostics.validate_frame(row,diagnostic_baseline)
@@ -200,7 +218,7 @@ def verify_snapshot(row,fixture,work,previous,diagnostic_baseline=None):
  return receipt
 
 def inside(firefox,work):
- fixture=json.loads((HERE/'glb-runtime-fixture.json').read_text());nonce=secrets.token_hex(12)
+ fixture=load_fixture();nonce=secrets.token_hex(12)
  profile=work/'profile';profile.mkdir();home=work/'home';home.mkdir()
  received=threading.Event();report={};previous={};receipts=[];server_errors=[];diagnostic_baseline={}
  importmap=json.dumps({'imports':{'three':'./vendor/build/three.module.js'}})
@@ -211,11 +229,13 @@ def inside(firefox,work):
  <script type="importmap" nonce="{nonce}">{importmap}</script><script type="module" src="probe.mjs"></script></html>'''.encode()
  css=b'body{background:#fff;color:#111;font:16px sans-serif;margin:20px}h1{font-size:22px;margin:0}h2{font-size:17px;margin:12px 0}.row{display:flex;gap:20px}canvas{width:512px;height:512px;display:block}pre{font:13px monospace;white-space:pre-wrap;max-width:460px}'
  files={'/':(html,'text/html'),'/style.css':(css,'text/css'),'/probe.mjs':((HERE/'glb_runtime_probe.mjs').read_bytes(),'text/javascript'),
-  '/fixture.json':((HERE/'glb-runtime-fixture.json').read_bytes(),'application/json'),
+  '/fixture.json':(json.dumps(fixture).encode(),'application/json'),
+  '/esophagus/probe.mjs':((HERE/'esophagus/probe.mjs').read_bytes(),'text/javascript'),
   '/lymph_diagnostics.mjs':((HERE/'lymph_diagnostics.mjs').read_bytes(),'text/javascript')}
  for item in fixture['resources']:
   files['/'+item['path']]=((work/item['path']).read_bytes(),'text/javascript' if item['path'].endswith('.js') else 'model/gltf-binary' if item['path'].endswith('.glb') else 'text/plain')
  candidate=fixture['lymphCandidate'];files['/'+candidate['path']]=((work/candidate['path']).read_bytes(),'model/gltf-binary')
+ spec=esophagus.FIXTURE['candidate'];files['/'+spec['path']]=((work/spec['path']).read_bytes(),'model/gltf-binary')
  class Handler(http.server.BaseHTTPRequestHandler):
   def log_message(self,*args):pass
   def do_GET(self):
@@ -298,10 +318,10 @@ def main():
  dump('runner-syspref.json',{'path':str(actual),'bytes':len(content),'sha256':hashlib.sha256(content).hexdigest(),'text':content.decode('utf-8'),'readOnly':True})
  integrity=provenance['firefoxPackageIntegrity'];assert integrity['exit']==0
  assert all(line.endswith(' c /etc/firefox/syspref.js') for line in integrity['stdout'].splitlines()), 'Unexpected packaged Firefox changes'
- fixture=json.loads((HERE/'glb-runtime-fixture.json').read_text())
- dump('test-provenance.json',{'githubSHA':os.environ.get('GITHUB_SHA'),'files':{p.name:{'sha256':base.sha(p),'bytes':p.stat().st_size} for p in [HERE/'webgl_probe.py',Path(__file__),HERE/'glb_runtime_probe.mjs',HERE/'lymph_diagnostics.mjs',HERE/'lymph_diagnostics.py',HERE/'glb-runtime-fixture.json',*[RECIPE/p for p in ('build.py','gltf_source.py','check.py','import_audit.py','display_repair.py')]]},'frameIDs':FRAME_IDS})
+ fixture=load_fixture()
+ dump('test-provenance.json',{'githubSHA':os.environ.get('GITHUB_SHA'),'files':{p.name:{'sha256':base.sha(p),'bytes':p.stat().st_size} for p in [HERE/'webgl_probe.py',Path(__file__),HERE/'glb_runtime_probe.mjs',HERE/'lymph_diagnostics.mjs',HERE/'lymph_diagnostics.py',HERE/'glb-runtime-fixture.json',HERE/'esophagus/fixture.json',HERE/'esophagus/probe.py',HERE/'esophagus/probe.mjs',HERE.parent/'tests/esophagus_wall/palette_trial.py',HERE.parent/'tests/esophagus_wall/parameters.json',*[RECIPE/p for p in ('build.py','gltf_source.py','check.py','import_audit.py','display_repair.py')]]},'frameIDs':FRAME_IDS})
  with tempfile.TemporaryDirectory(prefix='glb-runtime-') as temporary:
-  work=Path(temporary);(work/'framebuffer').mkdir();download_inputs(fixture,work);reconstruct(fixture,work)
+  work=Path(temporary);(work/'framebuffer').mkdir();download_inputs(fixture,work);reconstruct(fixture,work);prepare_esophagus(work)
   args=['xvfb-run','--auto-servernum','--server-args',f'-screen 0 1280x1024x24 -nolisten tcp -fbdir {work}/framebuffer',sys.executable,str(Path(__file__).resolve()),'--inside-xvfb',str(firefox),str(work)]
   with (OUT/'xvfb.log').open('wb') as log:return subprocess.run(args,stdout=log,stderr=subprocess.STDOUT,timeout=300,check=False).returncode
 

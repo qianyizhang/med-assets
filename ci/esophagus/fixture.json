@@ -1,0 +1,164 @@
+{
+  "schema": 1,
+  "baseline": {
+    "id": "esophagusBaseline",
+    "path": "assets/esophagus-baseline.glb",
+    "bytes": 201328,
+    "sha256": "e4f51a86040ef115776fe06a33443982f7b63243332681e53dadaa77f81c05f5",
+    "url": "https://media.githubusercontent.com/media/qianyizhang/med-assets/55b81bb39e17a5ec12b87eefc4f1af2745f68c8e/models/esophagus_wall/exports/authored-cutaway-r01/esophagus-wall-cutaway-r01.glb"
+  },
+  "candidate": {
+    "id": "esophagusCandidate",
+    "path": "assets/esophagus-candidate.glb",
+    "bytes": 201344,
+    "sha256": "c7ec6420edbd62f94b85610e1c51f6fa4dd31dc008248c19a9731ac5cef0c311"
+  },
+  "binarySHA256": "53fbd63b3632950d18da9edbf6293489cab43a2aa529eac7113b809921680701",
+  "meshes": 5,
+  "triangles": 7700,
+  "layers": [
+    {
+      "number": 1,
+      "node": 0,
+      "mesh": 0,
+      "material": 0,
+      "name": "01 Mucosa - composite",
+      "en": "Composite mucosa",
+      "zh": "黏膜（合并表示）",
+      "anchor": [
+        -0.004070319397786862,
+        0.045,
+        -0.0023499999999999997
+      ],
+      "baselineRGBA": [
+        0.5600000023841858,
+        0.2199999988079071,
+        0.25,
+        1
+      ],
+      "candidateRGBA": [
+        0.39675523072562685,
+        0.03688945040110004,
+        0.12743768043564743,
+        1
+      ]
+    },
+    {
+      "number": 2,
+      "node": 1,
+      "mesh": 1,
+      "material": 1,
+      "name": "02 Submucosa",
+      "en": "Submucosa",
+      "zh": "黏膜下层",
+      "anchor": [
+        -0.0037249999999999983,
+        0.045,
+        -0.006451889258194068
+      ],
+      "baselineRGBA": [
+        0.7200000286102295,
+        0.5699999928474426,
+        0.36000001430511475,
+        1
+      ],
+      "candidateRGBA": [
+        0.8879231178819663,
+        0.6514056374198242,
+        0.26225065752969623,
+        1
+      ]
+    },
+    {
+      "number": 3,
+      "node": 2,
+      "mesh": 2,
+      "material": 2,
+      "name": "03 Muscularis externa - inner circular",
+      "en": "Inner circular muscle",
+      "zh": "内环行肌层",
+      "anchor": [
+        5.51091059616309e-19,
+        0.045,
+        -0.009000000000000001
+      ],
+      "baselineRGBA": [
+        0.4300000071525574,
+        0.11999999731779099,
+        0.14000000059604645,
+        1
+      ],
+      "candidateRGBA": [
+        0.0202885630566524,
+        0.15292615199615017,
+        0.25415209433082675,
+        1
+      ]
+    },
+    {
+      "number": 4,
+      "node": 3,
+      "mesh": 3,
+      "material": 3,
+      "name": "04 Muscularis externa - outer longitudinal",
+      "en": "Outer longitudinal muscle",
+      "zh": "外纵行肌层",
+      "anchor": [
+        0.005225000000000001,
+        0.045,
+        -0.009049965469547384
+      ],
+      "baselineRGBA": [
+        0.6499999761581421,
+        0.30000001192092896,
+        0.23000000417232513,
+        1
+      ],
+      "candidateRGBA": [
+        0.6375968739940326,
+        0.2788942634768104,
+        0.10224173308810132,
+        1
+      ]
+    },
+    {
+      "number": 5,
+      "node": 4,
+      "mesh": 4,
+      "material": 4,
+      "name": "05 Adventitia",
+      "en": "Adventitia",
+      "zh": "外膜",
+      "anchor": [
+        0.009959292143521046,
+        0.045,
+        -0.005749999999999999
+      ],
+      "baselineRGBA": [
+        0.5299999713897705,
+        0.41999998688697815,
+        0.30000001192092896,
+        1
+      ],
+      "candidateRGBA": [
+        0.09989872824711389,
+        0.13843161503245183,
+        0.18782077230067787,
+        1
+      ]
+    }
+  ],
+  "notices": {
+    "en": "UNAPPROVED LOCAL DERIVATIVE | Illustrative colors; no anatomical or clinical approval.",
+    "zh": "未经批准的本地衍生版本｜颜色仅供教学示意；未获解剖学或临床认可。"
+  },
+  "context": {
+    "en": "Four tunics, five compartments. Dimensions, folds and cuts are illustrative. Not a patient model.",
+    "zh": "四层管壁，五个标注区。尺寸、褶皱与剖切仅为示意；不是患者模型。"
+  },
+  "attribution": "Independently authored teaching geometry. References: Columbia Human Histology Laboratory; Brelje & Sorenson MH 109. No reference imagery copied; no new reuse license.",
+  "baselineNotices": {
+    "en": "CANONICAL BASELINE | Illustrative teaching cutaway; runtime review in progress.",
+    "zh": "现行基线｜教学剖切示意；运行环境验证进行中。"
+  }
+}

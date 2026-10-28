@@ -1,3 +1,4 @@
+import {runEsophagus} from './esophagus/probe.mjs';
 import * as THREE from './vendor/build/three.module.js';
 import {GLTFLoader} from './vendor/examples/jsm/loaders/GLTFLoader.js';
 import {samples,normalPolicy,auditGeometry,validNormals,mutateGeometry} from './lymph_diagnostics.mjs';
@@ -206,6 +207,8 @@ async function run(){
  for(const [i,o] of heart.nodes)if('mesh' in heart.doc.nodes[i])o.visible=true;
  mixer.setTime(0);fit([heart.model.scene],[0,0,1]);
  await snapshot('heart-restored',heart,{timeSeconds:0,...weights(0)},'heart-full-0',null,0);
+ scene.remove(heart.model.scene);
+ await runEsophagus({THREE,GLTFLoader,renderer,scene,camera,snapshot,check,fixture:fixture.esophagus});
  assert(!errors.length,'Page errors recorded');
  status.textContent=`PASS: ${frames.length} checked render states including deliberate diagnostic mutations. Software CI only; native UI, clinical, hardware QA not performed.`;
  await post('complete',{schema:1,passed:true,browser,threeRevision:THREE.REVISION,checks,frames,errors,normalDiagnostics,normalPolicy,orbitSamples:samples,
