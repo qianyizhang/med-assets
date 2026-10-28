@@ -52,6 +52,12 @@ screenshots for docs/test-only edits. Image publication still needs authorizatio
 Highlight only key facts/numbers with textual cues: 🟢 Passed/Positive,
 🔴 Failed/Blocked, 🟡 Pending/Uncertain; never rely on color alone.
 
+Asset and visible-feature PR descriptions must embed representative matched
+baseline/current screenshots, or clear views of a new asset, with brief labels for
+the intended change and context/detail zoom where useful. Reuse existing authorized
+evidence; do not rerender just to satisfy this rule. For docs-only or other nonvisual
+changes, state screenshots are not applicable; do not add decorative images.
+
 Follow the applicable [review contract](docs/REVIEW_CONTRACT.md) and
 [verification guidance](docs/VERIFICATION.md). Technical integrity, visual review,
 anatomical/clinical approval, browser runtime, and publication are separate gates;
