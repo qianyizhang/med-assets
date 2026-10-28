@@ -19,5 +19,23 @@ jobs:
           persist-credentials: false
           lfs: false
           submodules: false
+          fetch-depth: 0
+      - name: Classify change and check documentation whitespace
+        id: scope
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: |
+          scope=full
+          if git show "$BASE_SHA:tools/docs_scope.py" > "$RUNNER_TEMP/docs_scope.py"; then
+            scope=$(python3 "$RUNNER_TEMP/docs_scope.py" "$BASE_SHA" HEAD)
+          fi
+          echo "scope=$scope" >> "$GITHUB_OUTPUT"
+          if [ "$scope" = docs ]; then
+            git diff --check "$BASE_SHA...HEAD"
+          fi
+      - name: Classifier tests
+        if: steps.scope.outputs.scope != 'docs'
+        run: python3 -m unittest discover -s tests -p test_docs_scope.py
       - name: Required stdlib tests and metadata integrity (no media-byte claim)
+        if: steps.scope.outputs.scope != 'docs'
         run: python3 tools/verify.py offline

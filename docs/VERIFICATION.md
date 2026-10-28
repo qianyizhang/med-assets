@@ -1,5 +1,12 @@
 # Local verification
 
+The offline PR job has a narrow fast path for prose-only changes to
+`CONTRIBUTING.md`. It checks diff whitespace; it does not validate links. Code
+examples or active embedded content, deletions, renames, file-type changes, mixed
+or unknown paths, and missing or empty diffs select the full offline scope. Changes
+to the classifier, workflow, verification guidance, records or manifests run the
+full scope; this is not a blanket exemption for Markdown or docs.
+
 Run from the repository root. The ordinary PR gate needs **Python 3.11+ and Git**,
 a full text/pointer checkout, and no third-party Python packages. It makes no
 network requests, fetches no LFS media and performs no rendering or uploads.
