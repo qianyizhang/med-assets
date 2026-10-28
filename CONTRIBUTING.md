@@ -44,6 +44,14 @@ Stop when acceptance is met; do not invent extra gates or reopen settled checks.
 Keep concise reusable lessons in the existing owning guide or review record, not
 duplicate reports. Required scoped local checks and separate quality gates still apply.
 
+Keep asset issue updates visual-first: reuse authorized matched baseline/current
+images with the same camera, scale and lighting; show whole context and zoom subtle
+details. Use short bullets for problem, change, remaining gap and next step; link
+verbose checks instead of repeating logs. Do not recapture valid evidence or create
+screenshots for docs/test-only edits. Image publication still needs authorization.
+Highlight only key facts/numbers with textual cues: 🟢 Passed/Positive,
+🔴 Failed/Blocked, 🟡 Pending/Uncertain; never rely on color alone.
+
 Follow the applicable [review contract](docs/REVIEW_CONTRACT.md) and
 [verification guidance](docs/VERIFICATION.md). Technical integrity, visual review,
 anatomical/clinical approval, browser runtime, and publication are separate gates;
