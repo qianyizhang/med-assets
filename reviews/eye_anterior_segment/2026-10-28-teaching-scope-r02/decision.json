@@ -1,0 +1,77 @@
+{
+  "recordFamily": "eye-teaching-scope-decision",
+  "reviewedAt": "2026-10-28T05:20:00Z",
+  "artifact": {
+    "file": "models/eye_anterior_segment/exports/hra-v1.3-r01/anterior_segment.glb",
+    "sha256": "457b08b1edab5fc39db3b49e09635091721847e06262b7cb937fd006223c6750",
+    "changed": false
+  },
+  "source": {
+    "file": "sources/datasets/hra/eye-male-right-v1.3/hra-source.glb",
+    "sha256": "1a6ecc528e98e0bddb8e2905e4ddb799eb471383f7274dbb9bdd1676b06be73b",
+    "bytes": 20697584,
+    "meshNodes": 23,
+    "selected": 7,
+    "excluded": 16,
+    "providerDescriptionDiscrepancy": "unresolved; specifically tied to this v1.3 raw-data distribution"
+  },
+  "teachingScope": {
+    "keep": "Broad cornea / pupil opening surrounded by iris / lens order only; retain caption with image.",
+    "visibleNodes": [
+      "VH_M_cornea_R",
+      "VH_M_iris_R",
+      "VH_M_lens_R"
+    ],
+    "omitNodes": [
+      "VH_M_ciliary_body_R",
+      "VH_M_ciliary_muscle_R",
+      "VH_M_ciliary_processes_R",
+      "VH_M_suspensory_ligament_of_lens_R"
+    ],
+    "reject": [
+      "Zonular attachment/microstructure demonstrated by rods",
+      "Ciliary component boundaries validated by source labels",
+      "Corneal shape or thickness validated by this mesh",
+      "Pale disk is pupil tissue",
+      "Optical, accommodation, surgical or clinical validation"
+    ]
+  },
+  "gates": {
+    "technical": {
+      "status": "pass-with-limitations",
+      "scope": "Exact pinned source/inventory and exclusion partition; six focused stdlib tests; corrupt/pointer payload rejection; all four existing exports replayed exact hashes; existing record hashes; nine native render files and four matched camera pairs verified. No new topology certification."
+    },
+    "visual": {
+      "status": "pass-with-limitations",
+      "scope": "Two reviewers inspected native endpoint and corrected profile details, anterior views, captioned plate and grayscale. Broad order is readable; source rod endpoints and corneal facets remain visible limitations. Superior 5.5-mm endpoint region is sampled in two angles, not exhaustive fiber assessment."
+    },
+    "anatomy": {
+      "status": "reference-screened",
+      "scope": "Primary-reference facts and displayed broad order only. Zonular/ciliary geometry rejected for attachment teaching and omitted from teaching plate. Shape/thickness and attachment geometry are not certified."
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "No browser runtime run and no new GLB. Existing runtime status unchanged."
+    }
+  },
+  "evidence": {
+    "nativeRenderReceipt": "local-render-manifest.json",
+    "captionReceipt": "teaching-plate-manifest.json",
+    "delivery": "PNG outputs reviewed and retained locally; not published to Git/LFS or Sites. Receipts and reproducible recipes are committed. Parent independent review pending."
+  },
+  "recipeSha256": {
+    "tests/eye_anterior_segment/detail_review.py": "d7dce4bafb7b3344381cb01328d3c1531d0dda4bbafada8e3f711290bc0c7638",
+    "tests/eye_anterior_segment/verify_detail_review.py": "2fe8a63cfbf4e138f6e428853ccc9d1712226705fdb2ceb76f1396314f00827e",
+    "tests/eye_anterior_segment/make_teaching_plate.py": "1bbdf12e4d307373f5aafad295cde349efc7221ef3b637d80d3a0715af95ab07"
+  },
+  "failureAndRetest": {
+    "failure": "Initial profile camera cropped corneal poles.",
+    "fix": "Increase only the matched profile camera scale from 0.8 to 1.05 times full model extent; rerender into a fresh directory.",
+    "retest": "Both corrected profile silhouettes fit. Seven other views have byte-identical decoded RGB pixels across runs; file metadata changes are not treated as pixel changes."
+  },
+  "validationNotes": [
+    "Five existing study-navigation tests and fourteen affected local documentation links passed before receipt additions.",
+    "Three render negative probes reject mismatched cameras, reintroduced teaching geometry and wrong artifact hash.",
+    "No unrelated full suite, fresh source download, dependency install, new binary publication or clinical promotion."
+  ]
+}

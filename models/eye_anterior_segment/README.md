@@ -1,12 +1,13 @@
 # Right anterior-segment layer study
 
-**Static seven-component teaching study, not a complete eye or replacement for the failed whole-eye draft.**
+**Static anterior-order study; seven source components retained for diagnosis. Not a complete eye or replacement for the failed whole-eye draft.**
 
 - Source: HRA Eye Male Right v1.3, CC BY 4.0; native source frame.
 - Exact source and selected candidate are included with Git LFS. Run `git lfs pull` first.
 - POSITION/index/UV bytes and transforms retained. Materials are illustrative; only lens/cornea normals receive a guarded change. Corneal rim faceting remains.
-- 16 source meshes excluded; no extraocular muscles/optic nerve in the source. Zonule insertion, optics, motion and anatomy completeness are not validated.
-- Visual scope passed only for layer readability. Anatomy remains unreviewed; runtime unverified.
+- 16 source meshes excluded. The pinned GLB has no **separately named** optic-nerve, extraocular-muscle, or long-posterior-ciliary-artery mesh; it does name an optic disc and ciliary muscle. Provider prose describes broader changes, and that mismatch remains unresolved. See the [source-coverage screen](../../reviews/eye_anterior_segment/2026-10-27-source-coverage-r01/README.md). Zonule insertion, optics, motion and anatomy completeness are not validated.
+- The [bounded teaching decision](../../reviews/eye_anterior_segment/2026-10-28-teaching-scope-r02/README.md) permits only broad cornea–pupil–lens order. Use its three-structure view, which omits the four ciliary/zonular nodes. Source-named zonular/ciliary geometry is rejected for teaching attachment anatomy and retained only for diagnosis. Do not label the pale-blue lens seen through the pupil opening as a pupil surface.
+- Visual scope is layer readability; broad order is reference-screened. Exact shape, thickness, attachment, optical/clinical behavior and runtime remain unverified. No automatic canonical promotion.
 
 ## Reproduce
 
