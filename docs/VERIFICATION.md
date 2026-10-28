@@ -32,6 +32,27 @@ are validated automatically without changing the baseline. New foundation runs
 remain outside this historical selector until explicitly covered by a validator.
 Intentional historical corrections require review and an updated baseline.
 
+## Scope selection and acceptance
+
+Choose tests by affected behavior and dependencies. Feature changes must reuse or
+add relevant E2E journeys and pass scoped validation locally in the authorized
+development environment. Include relevant export/reload, consumer interaction and failure
+recovery checks; technical integrity does not establish visual or anatomical quality.
+Documentation-only changes need applicable documentation/offline checks, not
+unrelated functional replays.
+
+Regular hosted CI is a selective core/must-pass sanity layer, not the only or final
+delivery guard. Run full suites deliberately for releases, major refactors or
+broad/uncertain risk. Each PR records affected scope, chosen commands and rationale,
+exact revision, passed/failed/blocked coverage and remaining limits. Hosted green
+never replaces required local E2E evidence.
+
+Existing protected runtime restrictions still apply. If local E2E is barred or
+prerequisites are unavailable, record it blocked and require a reviewed, explicitly
+authorized local mode where needed; never spoof CI flags or bypass execution guards.
+This guidance changes no workflow, security control or current CI job. The complete
+offline scope described above remains required; it is not a full media/runtime suite.
+
 ## Current and historical integrity
 
 `SHA256SUMS` is immutable evidence of the 2026-10-22 import: 591 files, originally
