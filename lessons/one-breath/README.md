@@ -7,20 +7,21 @@ No anatomy masters, gallery, Sites or protected runtime probes are changed.
 
 ## Open locally
 
-Requires Python 3.11+, a browser supporting WebGL2, existing hydrated lung files
-from this repository, and the privately delivered V7 trachea package. The model
-bytes are not included in this source branch. A clean text/LFS-pointer checkout
-alone cannot display the models. No new anatomy is downloaded.
+Requires Git LFS, Python 3.11+ and a browser supporting WebGL2. Both lung models
+and both reviewed V7 trachea variants are tracked in this repository. Hydrate
+the four pinned model inputs before preparation; no private trachea bundle is
+required. A text/LFS-pointer checkout alone cannot display the models.
 
 ```sh
-python3 lessons/one-breath/prepare.py \
-  --asset-root /path/to/hydrated/med-assets \
-  --trachea-root /path/to/unpacked/trachea-v7
+git lfs pull --include="models/lung_*/exports/metadata-cleanup-r01/*.glb,models/trachea/exports/open-airway-r06/trachea-*.glb" --exclude=""
+python3 lessons/one-breath/prepare.py
 python3 lessons/one-breath/serve.py --port 8766
 ```
 
-Open `http://127.0.0.1:8766`. The server binds only to loopback. Preparation checks
-all input sizes/hashes and downloads only the five official Three.js 0.180.0 files
+Open `http://127.0.0.1:8766`. The server binds only to loopback. Preparation resolves
+every model from this script's repository, regardless of the working directory;
+`--asset-root` optionally selects another hydrated checkout. It checks all four
+input sizes/hashes before staging output or downloading the five official Three.js 0.180.0 files
 already pinned in `ci/glb-runtime-fixture.json`. A new `.local/` output is required;
 existing files are not overwritten. The model loader rejects missing, altered or
 externally dependent assets. Asset failures show a retry action. A no-WebGL view
