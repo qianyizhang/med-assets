@@ -1,0 +1,48 @@
+name: Public Drive exact-ZIP probe (no writes)
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/public-drive-source-probe.yml'
+permissions: {}
+jobs:
+  anonymous-source:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    steps:
+      - name: Verify one exact public ZIP anonymously
+        run: |
+          python3 - <<'PYTHON'
+          import hashlib, io, json, urllib.request, urllib.parse, zipfile
+          ID='1v_YFyysDCbcj3Tto69w_dns_fCD-V0Tt'
+          SIZE=1363093
+          SHA='970b71d347f63e4c50deacd3b69b046351e9011db31caf46d0bc6f4b558248c4'
+          START=f'https://drive.google.com/uc?export=download&id={ID}'
+          def permitted(url):
+              u=urllib.parse.urlsplit(url); q=urllib.parse.parse_qs(u.query)
+              return (u.scheme=='https' and u.netloc in ('drive.google.com','drive.usercontent.google.com')
+                      and u.path in ('/uc','/download') and q=={'export':['download'],'id':[ID]})
+          class Redirect(urllib.request.HTTPRedirectHandler):
+              count=0
+              def redirect_request(self, req, fp, code, msg, headers, newurl):
+                  self.count+=1
+                  if self.count>3 or not permitted(newurl):
+                      raise RuntimeError('Unexpected redirect; stop without credentials/confirmation workaround')
+                  print(json.dumps({'redirect':code,'to':newurl}))
+                  return super().redirect_request(req,fp,code,msg,headers,newurl)
+          assert permitted(START)
+          assert not permitted('http://drive.google.com/uc?export=download&id='+ID)
+          assert not permitted('https://example.org/download?export=download&id='+ID)
+          assert not permitted(START+'&confirm=t')
+          # No cookie handler, authentication, retries, checkout, or repository writes.
+          opener=urllib.request.build_opener(Redirect())
+          with opener.open(START,timeout=45) as r:
+              mime=r.headers.get_content_type(); final=r.url
+              if r.status!=200 or mime not in ('application/octet-stream','application/zip'):
+                  raise RuntimeError(f'Nonbinary response: HTTP {r.status}, {mime}; no HTML bypass')
+              b=r.read(SIZE+1)
+              if len(b)!=SIZE or hashlib.sha256(b).hexdigest()!=SHA:
+                  raise RuntimeError('Exact size/hash mismatch')
+              with zipfile.ZipFile(io.BytesIO(b)) as z:
+                  assert z.testzip() is None
+              print(json.dumps({'status':'PASS','final_url':final,'content_type':mime,'bytes':len(b),'sha256':SHA}))
+          PYTHON
