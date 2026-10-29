@@ -7,7 +7,7 @@ Reviewed bytes → direct Git LFS upload → fresh GitHub readback → asset-poi
 Drive backup: retain the same verified bytes; not a replacement for repository delivery.
 ```
 
-## Preferred route
+## Normal flow
 
 - Check the **current executor**, repository remote and existing authentication;
   connector access does not imply shell access. Try the exact authorized, bounded
