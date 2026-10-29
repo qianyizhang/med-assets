@@ -9,16 +9,20 @@ The head → body → tail subline is 20px. No anatomical curve or leader moved.
 - [English display SVG](testis-pathway-en.svg)
 - [中文 display SVG](testis-pathway-zh.svg)
 - [Editable sources and bounded builder](../../../../sources/authored/testis_pathway/r02/)
-- [Scoped review and exact identities](../../../../reviews/testis_pathway/2026-10-29-r02/readability.json)
+- [Initial author review and identities](../../../../reviews/testis_pathway/2026-10-29-r02/readability.json)
+- [Independent visual review](../../../../reviews/testis_pathway/2026-10-29-r02/independent-review.json)
 
 🟢 Positive: matched EN/中文 overview and detail review at 800px and native size;
 grayscale detail review; zero changed pixels outside the summary; all visible
 display lettering outlined. The English export retains r01's empty `text31`
 element and its ID. Display SVGs need no external fonts, images or network access.
 
-🟡 Pending: independent visual acceptance and supported viewer/runtime checks.
-This is an author-reviewed readability revision, not anatomical or clinical
-approval. The [r01 limitations and attribution](../r01/README.md) still apply:
+🟢 Independent review: pass with limitations. Both languages are clearer and
+complete at the inspected 800px scale; route order and callout meaning are retained.
+No concrete defect required a change to the reviewed SVGs.
+
+🟡 Pending: supported viewer/runtime checks. Visual acceptance is not anatomical
+or clinical approval. The [r01 limitations and attribution](../r01/README.md) still apply:
 symbolic coils/counts, omitted epididymal duct coiling, no specimen geometry and
 no change to passed-organ/3D-study counts. No separate public license is added.
 

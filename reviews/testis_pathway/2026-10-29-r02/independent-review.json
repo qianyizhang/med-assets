@@ -1,0 +1,154 @@
+{
+  "reviewType": "Independent actual-pixel review of the preserved local evidence",
+  "date": "2026-10-29",
+  "verdict": "pass-with-limitations",
+  "gate": "visual readability only",
+  "candidateCommit": "3326e22bc1e610f2e0ea2fefa179b2ff9a758a49",
+  "branch": "wip/testis-route-summary",
+  "repositoryCleanAtEnd": true,
+  "candidateBinding": {
+    "en": {
+      "r01": {
+        "path": "diagrams/testis_pathway/exports/r01/testis-pathway-en.svg",
+        "sha256": "d00f45b3e6f1d4866cd426e4bd7d22e31df5dcaeb40c62eca82aba00eb8f26f6"
+      },
+      "r02": {
+        "path": "diagrams/testis_pathway/exports/r02/testis-pathway-en.svg",
+        "sha256": "e6448677bf216a92aa99084b649a0974bb977eb4ffcc407a3bf16d6cb45ade76"
+      }
+    },
+    "zh": {
+      "r01": {
+        "path": "diagrams/testis_pathway/exports/r01/testis-pathway-zh.svg",
+        "sha256": "6c97095658b4b402ac03e2183fb3ed5f19d5b085bdb0424baa7b7dd0d3edb322"
+      },
+      "r02": {
+        "path": "diagrams/testis_pathway/exports/r02/testis-pathway-zh.svg",
+        "sha256": "da18d81cc6c6400187af627b26fadcfcd2b7bfedd9d8820c025977747bf7ff12"
+      }
+    }
+  },
+  "actualVisualInspections": [
+    {
+      "path": "testis-en-teaching-before-current.png",
+      "language": "en",
+      "kind": "teaching",
+      "sha256": "ef595a60fa50491a2487c48279c5e03557359874632452e9fe412ed599ad05e6",
+      "dimensions": [
+        800,
+        1284
+      ],
+      "actuallyViewed": true,
+      "viewTool": "tools.view_image",
+      "viewDetail": "original",
+      "layout": "r01 baseline above r02 current",
+      "baselineArtifactSha256": "d00f45b3e6f1d4866cd426e4bd7d22e31df5dcaeb40c62eca82aba00eb8f26f6",
+      "candidateArtifactSha256": "e6448677bf216a92aa99084b649a0974bb977eb4ffcc407a3bf16d6cb45ade76"
+    },
+    {
+      "path": "testis-en-native-strip-before-current.png",
+      "language": "en",
+      "kind": "native-strip",
+      "sha256": "211b2dd8c7878d60f93730b620e94996e0808bd9bede114f49d857c835acbcd3",
+      "dimensions": [
+        1263,
+        278
+      ],
+      "actuallyViewed": true,
+      "viewTool": "tools.view_image",
+      "viewDetail": "original",
+      "layout": "r01 baseline above r02 current",
+      "baselineArtifactSha256": "d00f45b3e6f1d4866cd426e4bd7d22e31df5dcaeb40c62eca82aba00eb8f26f6",
+      "candidateArtifactSha256": "e6448677bf216a92aa99084b649a0974bb977eb4ffcc407a3bf16d6cb45ade76"
+    },
+    {
+      "path": "testis-zh-teaching-before-current.png",
+      "language": "zh",
+      "kind": "teaching",
+      "sha256": "2ad748f7317c4dbcdd015510806c600e19ab2d8edc9febd9d968a0613fbf8bd8",
+      "dimensions": [
+        800,
+        1284
+      ],
+      "actuallyViewed": true,
+      "viewTool": "tools.view_image",
+      "viewDetail": "original",
+      "layout": "r01 baseline above r02 current",
+      "baselineArtifactSha256": "6c97095658b4b402ac03e2183fb3ed5f19d5b085bdb0424baa7b7dd0d3edb322",
+      "candidateArtifactSha256": "da18d81cc6c6400187af627b26fadcfcd2b7bfedd9d8820c025977747bf7ff12"
+    },
+    {
+      "path": "testis-zh-native-strip-before-current.png",
+      "language": "zh",
+      "kind": "native-strip",
+      "sha256": "e495ff065921240ec2634d847bd9471799d0da36fcd845840cab2378563846cd",
+      "dimensions": [
+        1263,
+        278
+      ],
+      "actuallyViewed": true,
+      "viewTool": "tools.view_image",
+      "viewDetail": "original",
+      "layout": "r01 baseline above r02 current",
+      "baselineArtifactSha256": "6c97095658b4b402ac03e2183fb3ed5f19d5b085bdb0424baa7b7dd0d3edb322",
+      "candidateArtifactSha256": "da18d81cc6c6400187af627b26fadcfcd2b7bfedd9d8820c025977747bf7ff12"
+    }
+  ],
+  "findings": [
+    {
+      "language": "en and zh",
+      "location": "Bottom transport summary, all five panels",
+      "severity": "none",
+      "finding": "The larger grouped labels are visibly clearer at the inspected 800px teaching width. All named route stages are complete and legible; no clipped glyphs, overlap or missing arrows observed in overview or native detail."
+    },
+    {
+      "language": "en and zh",
+      "location": "Transport panels 2 and 4 and connecting arrows",
+      "severity": "none",
+      "finding": "Straight tubules followed by rete testis is conveyed by the internal downward arrow; epididymal head, body and tail form an internal left-to-right sequence. Between-panel arrows preserve the main route. No false sequence or translation mismatch observed."
+    },
+    {
+      "language": "en and zh",
+      "location": "Anatomical drawing, callouts, leaders, title and notes outside summary",
+      "severity": "none",
+      "finding": "Meaning is retained. Independent XML comparison found all 66 non-summary root children unchanged for each editable and display file."
+    }
+  ],
+  "routeScreening": {
+    "status": "reference-screened",
+    "route": "Seminiferous tubules -> straight tubules -> rete testis -> efferent ductules -> epididymis (head -> body -> tail) -> ductus deferens",
+    "translation": "生精小管 -> 生精直小管 -> 睾丸网 -> 睾丸输出小管 -> 附睾（头 -> 体 -> 尾）-> 输精管",
+    "sourcesRead": [
+      "https://training.seer.cancer.gov/testicular/anatomy/",
+      "https://training.seer.cancer.gov/testicular/anatomy/cross-section.html"
+    ],
+    "scope": "Narrow terminology and route-order screen; no anatomical or clinical approval."
+  },
+  "independentIdentityChecks": [
+    "Verified HEAD and branch directly with Git; current display bytes equal exact commit blobs.",
+    "Computed SHA256 for all four required comparison images and r01/r02 displays; identities match checkpoint and review record.",
+    "Candidate display bytes equal preserved v2 and final-build SVGs.",
+    "Decoded pixels in each montage equal the corresponding preserved baseline/current individual views.",
+    "Both native detail strips equal crops [69,862,1332,965] from their preserved 1400x1060 native images.",
+    "Read r01/r02 editable route text, source descriptions, builders, required scope documents and existing identity records."
+  ],
+  "limitations": [
+    "Visual verdict covers the preserved 800px teaching views and native strip details, not arbitrary smaller displays or viewing distances.",
+    "The epididymis subline remains smaller than primary labels (20px source, about 11.4px at 800px width), but is legible in the inspected views. Existing small ancillary notes and credits were not enlarged.",
+    "Retained symbolic coils, lobules and duct counts; epididymal duct coiling omitted; no specimen geometry, lumen diameter or clinical precision.",
+    "No anatomical/clinical approval or 3D-model quality approval. Supported viewer/runtime remains unverified.",
+    "Used preserved raster-to-SVG provenance and checked exact identities; no fresh rendering or builder replay performed."
+  ],
+  "defects": [],
+  "unrun": [
+    "174-test offline suite",
+    "SVG regeneration or rendering",
+    "supported viewer/browser runtime"
+  ],
+  "repositoryModifications": "None",
+  "remoteActions": "None",
+  "blockers": [],
+  "reviewer": "testis_pixel_review (independent same-executor agent; separate from author)",
+  "sourceReceiptSha256": "3bb564db5dbb6f01aba85e3b2258c6ddfdeca76744d6d82aa6333a2b1945348a",
+  "recordPreparation": "Findings retained from the independent reviewer. Local evidence paths normalized to filenames; images remain in the private local review bundle."
+}
