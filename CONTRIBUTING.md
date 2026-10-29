@@ -1,5 +1,7 @@
 # Contributing
 
+## Issues and status
+
 Scan for problems and track actionable work in issues. Describe the problem,
 impact, supporting evidence (including authorized screenshots or illustrations when
 useful), acceptance criteria, and what is out of scope. Use existing semantic labels
@@ -13,6 +15,8 @@ next action where applicable. Work items can continue, pause, or be cancelled
 independently; record dependencies rather than silently changing related work.
 Closing as not planned differs from completing acceptance and does not itself
 authorize deleting history or artifacts; follow applicable retention rules.
+
+## Pull requests and delivery
 
 Once there is concrete progress, open a draft/WIP PR. Link the related issues;
 issues and PRs may have many-to-many relationships. Describe scoped commits,
@@ -34,6 +38,8 @@ When a surface's actionable backlog is cleared, audit that surface and propose t
 next evidence-backed batch of meaningful improvements. Do not create filler;
 blocked or paused issues remain visible and are not counted as completed.
 
+## Iteration and checks
+
 Iterate toward a useful result: build v1, inspect actual defects, fix v2, run
 affected regression checks, then repeat until the agreed acceptance is met.
 Reuse valid evidence tied to the exact artifact and test conditions unless a change
@@ -44,21 +50,24 @@ Stop when acceptance is met; do not invent extra gates or reopen settled checks.
 Keep concise reusable lessons in the existing owning guide or review record, not
 duplicate reports. Required scoped local checks and separate quality gates still apply.
 
-Keep asset issue updates visual-first: reuse authorized matched baseline/current
-images with the same camera, scale and lighting; show whole context and zoom subtle
-details. Use short bullets for problem, change, remaining gap and next step; link
-verbose checks instead of repeating logs. Do not recapture valid evidence or create
-screenshots for docs/test-only edits. Image publication still needs authorization.
-Highlight only key facts/numbers with textual cues: 🟢 Passed/Positive,
-🔴 Failed/Blocked, 🟡 Pending/Uncertain; never rely on color alone.
-
-Asset and visible-feature PR descriptions must embed representative matched
-baseline/current screenshots, or clear views of a new asset, with brief labels for
-the intended change and context/detail zoom where useful. Reuse existing authorized
-evidence; do not rerender just to satisfy this rule. For docs-only or other nonvisual
-changes, state screenshots are not applicable; do not add decorative images.
-
 Follow the applicable [review contract](docs/REVIEW_CONTRACT.md) and
 [verification guidance](docs/VERIFICATION.md). Technical integrity, visual review,
 anatomical/clinical approval, browser runtime, and publication are separate gates;
 a screenshot alone does not establish runtime approval.
+
+## Visual evidence in issues and PRs
+
+- Keep asset issue updates visual-first. Use short bullets for problem, change,
+  remaining gap and next step; link verbose checks instead of repeating logs.
+- Asset and visible-feature PR descriptions must embed representative matched
+  baseline/current screenshots, or clear views of a new asset, with brief labels
+  for the intended change. See the [comparison contract](docs/REVIEW_CONTRACT.md#comparing-asset-variants)
+  for export/reimport and artifact-binding requirements.
+- For both issue updates and PRs, match camera, scale and lighting; show whole
+  context and zoom subtle details. Reuse existing authorized evidence; do not
+  recapture or rerender valid evidence just to satisfy this rule. Image publication
+  still needs authorization.
+- For docs/test-only or other nonvisual changes, state screenshots are not
+  applicable; do not create decorative images.
+- Highlight only key facts/numbers with textual cues: 🟢 Passed/Positive,
+  🔴 Failed/Blocked, 🟡 Pending/Uncertain; never rely on color alone.
