@@ -106,6 +106,8 @@ def legend():
         c += text(x + 36, y + 25, group["zh"], 25, INK)
         if group["number"] == 1:
             c += text(x + 36, y + 53, "One joined source group / 源文件中的一个合并组", 18, MUTED)
+        if group["number"] == 4:
+            c += text(x + 36, y + 53, "No separate direct arch origin / 经头臂干分出，非直接起自主动脉弓", 18, MUTED)
     return c
 
 
@@ -132,14 +134,14 @@ def frame(title, description, content, images, record):
 
 def teaching(images, record):
     c = text(40, 38, "Z-ANATOMY · SOURCE-NAMED LOCATORS / 源模型命名定位", 18, MUTED, 700)
-    c += text(40, 91, "Arch branches: follow the same numbers · 主动脉弓分支：循编号对照", 38, INK, 700)
+    c += text(40, 91, "Aortic arch region: follow the same numbers · 主动脉弓区域：循编号对照", 38, INK, 700)
     for view, x, name in zip(record["views"], (40, 980), ("Overview / 全貌", "Junction detail / 分支交接局部")):
         c += text(x, 137, name, 24, INK, 700)
         c += panel(view, x, 160, True)
         c += text(x + 18, 195, "R / 右", 20, MUTED, 700)
         c += text(x + 882, 195, "L / 左", 20, MUTED, 700, text_anchor="end")
     c += legend() + footer()
-    return frame("Aortic arch branch locators / 主动脉弓分支定位", "Two source-native views. Numbers 1–4 identify the same source groups in overview and junction detail; source left is screen right. No geometry is added or fused.", c, images, record)
+    return frame("Aortic arch region locators / 主动脉弓区域定位", "Two source-native views. Numbers 1–4 identify the same source groups in overview and junction detail; source left is screen right. ID 4 is not a separate direct arch origin. No geometry is added or fused.", c, images, record)
 
 
 def comparison(images, record, view):

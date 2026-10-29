@@ -19,7 +19,7 @@
     },
     "visual": {
       "status": "pass-with-limitations",
-      "scope": "Author inspected actual native overview/detail pairs, standalone sheet and grayscale; independent review pending"
+      "scope": "Author inspected revised native teaching sheet and grayscale; all four native outputs differ only in requested heading/note regions. Independent revised-pixel confirmation pending."
     },
     "anatomy": {
       "status": "reference-screened",
@@ -62,30 +62,33 @@
   "presentationOutputs": [
     {
       "file": "arch-locators.svg",
-      "sha256": "f62f53912a1cd17b3583241708c833d3b3189dc50cd84ae27d200fbff7a4878d",
-      "bytes": 2077943
+      "sha256": "8d3065eb45d75f8e9bec6659c808b54d58d27d667340c78ca6f860fe4b19de21",
+      "bytes": 2078151
     },
     {
       "file": "overview-comparison.svg",
-      "sha256": "9685a40f5ed687dc83838322716ebf38b14defc793733bcd25b012aa7de865ed",
-      "bytes": 978775
+      "sha256": "f30f871d49d3c6ac9b242eb62f627d8058f0b19738c02e44bbeb1f2b878bf754",
+      "bytes": 978935
     },
     {
       "file": "junction-comparison.svg",
-      "sha256": "42dac287ae12efba42868f14d0baf86067b06a5e513a1f12e888a752b22dcf3e",
-      "bytes": 1105692
+      "sha256": "723c89b92ef91afe7784c40712be0cc3407beafe8f49fd2a2c928197f8d5c94e",
+      "bytes": 1105852
     }
   ],
   "checks": [
     {
       "command": "python3 -m unittest discover -s tests -p test_aortic_arch_locators.py -v",
       "status": "passed",
-      "tests": 8
+      "tests": 8,
+      "testedCommit": "c993a7e262ba8d0eaf515fd7bcc2ab73776044a9",
+      "reuseScope": "Reused for unchanged source/camera/mapping code; not rerun for this presentation wording revision"
     },
     {
       "command": "tools/aortic_arch_locators/check_visuals.py with pinned source and rendered inputs",
       "status": "passed",
-      "evidence": "visual-binding.json"
+      "evidence": "visual-binding.json",
+      "scope": "Rerun after v3 wording revision: actual native exports, exact raster binding, locator-mask confinement and byte-identical composition replay"
     },
     {
       "command": "python3 tools/verify.py offline",
@@ -94,13 +97,16 @@
       "transportManifests": 26,
       "foundationRecords": 25,
       "importReferences": 591,
-      "lfsPointerIdentities": 683
+      "lfsPointerIdentities": 683,
+      "testedCommit": "c993a7e262ba8d0eaf515fd7bcc2ab73776044a9",
+      "reuseScope": "Reused for unchanged source/camera/mapping code; not rerun for this presentation wording revision"
     }
   ],
   "iteration": {
     "v1": "Actual native overview/detail and standalone exports inspected; numeric endpoints and bilingual layout readable",
     "v2": "Completed the composite English artery name; added exhaustive source/import coordinate and topology/material preservation evidence. Exact decoded source pixels retained",
-    "lesson": "A named-node ray hit establishes a locator on a retained composite, not an internal component boundary"
+    "lesson": "A named-node ray hit establishes a locator on a retained composite, not an internal component boundary",
+    "v3": "Independent review found that Arch branches with four IDs could imply four direct arch origins. Retitled the visible teaching sheet Aortic arch region and added the bilingual no-separate-direct-arch-origin note under ID 4 on every sheet. Source renders, camera, geometry, composite group 1 and leaders are unchanged."
   },
   "limits": [
     "Historical numeric camera recipe was unbundled; new captures are explicitly labeled new",
@@ -109,5 +115,37 @@
     "Independent review and public delivery remain separate"
   ],
   "license": "CC BY-SA 4.0",
-  "attribution": "See lessons/aortic-arch-locators/README.md and retained Z-Anatomy attribution"
+  "attribution": "See lessons/aortic-arch-locators/README.md and retained Z-Anatomy attribution",
+  "independentFirstPass": {
+    "reviewedCommit": "c993a7e262ba8d0eaf515fd7bcc2ab73776044a9",
+    "scope": "All 30 manifest entries verified; native teaching, matched overview/detail comparisons and grayscale inspected",
+    "finding": "Leaders, matched crop/scale and source-group wording accepted; visible direct-arch-origin distinction requested for ID 4",
+    "resolution": "v3 presentation wording updated; revised pixels await independent confirmation"
+  },
+  "wordingRevisionCheck": [
+    {
+      "file": "arch-locators.png",
+      "changesOnlyInHeadingOrId4Note": true,
+      "bothImagePanelsIdenticalToV2": true,
+      "sha256": "d655c760b9178efc452ec7e795e99d69cd9e4283661738f4fae0f4d6f25b2fc6"
+    },
+    {
+      "file": "overview-comparison.png",
+      "changesOnlyInHeadingOrId4Note": true,
+      "bothImagePanelsIdenticalToV2": true,
+      "sha256": "d11775c80d7e3a098ee1a62d2b45eae2656b4ec7c7263a147c20f4e5e6c52d3b"
+    },
+    {
+      "file": "junction-comparison.png",
+      "changesOnlyInHeadingOrId4Note": true,
+      "bothImagePanelsIdenticalToV2": true,
+      "sha256": "b06efe8944f8b8d987b3b8509cd4332b7aa236fc38ed7abb263e3956658e3ee1"
+    },
+    {
+      "file": "arch-locators-grayscale.png",
+      "changesOnlyInHeadingOrId4Note": true,
+      "bothImagePanelsIdenticalToV2": true,
+      "sha256": "bf144521d4f25a9f4822f9899aaa1b59cedc46627065bbaeaeb934b8c9d653e7"
+    }
+  ]
 }

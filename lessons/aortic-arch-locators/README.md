@@ -12,7 +12,9 @@ editorial change. Every pair uses identical raster bytes, dimensions and crop.
 | 3 | `Left subclavian artery.001` | Left subclavian artery / 左锁骨下动脉 |
 | 4 | `Right subclavian artery.001` | Right subclavian artery / 右锁骨下动脉 |
 
-ID 1 deliberately names the joined source group: the retained GLB does not retain
+The visible heading says “Aortic arch region,” and ID 4 carries a bilingual note
+that it is not a separate direct arch origin. ID 1 deliberately names the joined
+source group: the retained GLB does not retain
 an internal component boundary that would justify a separate source-verified
 trunk/right-carotid segmentation. ID 4 is a branch of the brachiocephalic system,
 not a fourth direct arch origin. The three direct arch branches and the
