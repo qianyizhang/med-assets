@@ -1,0 +1,33 @@
+name: FDI31 staged-source verification (no LFS)
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/fdi31-source-verification.yml'
+      - 'ci/verify_fdi31_source.py'
+      - 'ci/fdi31-source/**'
+      - 'tests/test_fdi31_source.py'
+permissions:
+  contents: read
+jobs:
+  source-only:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    env:
+      GIT_LFS_SKIP_SMUDGE: '1'
+      GIT_TERMINAL_PROMPT: '0'
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+          lfs: false
+          submodules: false
+          sparse-checkout: |
+            ci
+            tools/lfs_transport.py
+            tests/test_fdi31_source.py
+          sparse-checkout-cone-mode: false
+      - name: Offline failure-path checks
+        run: python3 -m unittest discover -s tests -p test_fdi31_source.py
+      - name: Fetch exact 5 staged objects and verify sizes, hashes and headers
+        run: python3 ci/verify_fdi31_source.py
