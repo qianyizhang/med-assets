@@ -24,8 +24,10 @@ Drive backup: retain the same verified bytes; not a replacement for repository d
   cause remains unresolved; do not build a staging detour when direct upload works.
 - Fallback needs the same byte/hash checks and existing source/publication permissions.
   Do not change sharing, add credentials, widen allowlists or bypass an access/action
-  denial. The current CI executor accepts only the Site sources listed below:
-  **Drive support is not implied**; any production support needs separate code review.
+  denial. The general manifest executor accepts only the Site sources listed below.
+  The separate [Balanced-only Drive fallback](https://github.com/qianyizhang/med-assets/pull/142)
+  requires explicit main dispatch and its fixed reviewed OID; it is not general
+  Drive support. New objects/sources still need separate code review.
   Known permission, quota or integrity failures must be resolved, not routed around.
 
 ## Bounded CI fallback
