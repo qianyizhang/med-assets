@@ -3,6 +3,7 @@ import importlib.util
 import json
 from pathlib import Path
 import unittest
+import tempfile
 from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -33,3 +34,25 @@ class SourceOnlyTests(unittest.TestCase):
         self.assertEqual(len(m['objects']), 5)
         self.assertEqual(m['totalBytes'], 27593900)
         self.assertTrue(all(o['url'].startswith('https://anatomy-dental-review.landy123007.chatgpt.site/review/fdi31-interface-locked-20261027/') for o in m['objects']))
+
+    def test_existing_output_is_refused_before_network(self):
+        with tempfile.TemporaryDirectory() as directory, patch.object(source, 'download_source') as download:
+            with self.assertRaisesRegex(source.Stop, 'fresh directory'):
+                source.verify(source.MANIFEST.read_bytes(), Path(directory))
+            download.assert_not_called()
+
+    def test_hash_failure_leaves_no_output(self):
+        with tempfile.TemporaryDirectory() as directory, patch('lfs_transport.http_bytes', return_value=b'bad'):
+            output = Path(directory) / 'new'
+            with self.assertRaises(source.Stop):
+                source.verify(source.MANIFEST.read_bytes(), output)
+            self.assertFalse(output.exists())
+
+    def test_consumer_failure_removes_new_output(self):
+        with tempfile.TemporaryDirectory() as directory, \
+             patch.object(source, 'download_source', return_value=b'fixture'), \
+             patch.object(source, 'consume', side_effect=source.Stop('parse failed')):
+            output = Path(directory) / 'new'
+            with self.assertRaisesRegex(source.Stop, 'parse failed'):
+                source.verify(source.MANIFEST.read_bytes(), output)
+            self.assertFalse(output.exists())

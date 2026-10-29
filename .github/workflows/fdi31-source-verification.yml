@@ -25,9 +25,10 @@ jobs:
           sparse-checkout: |
             ci
             tools/lfs_transport.py
+            tools/eye_teaching/build.py
             tests/test_fdi31_source.py
           sparse-checkout-cone-mode: false
       - name: Offline failure-path checks
         run: python3 -m unittest discover -s tests -p test_fdi31_source.py
       - name: Fetch exact 5 staged objects and verify sizes, hashes and headers
-        run: python3 ci/verify_fdi31_source.py
+        run: python3 ci/verify_fdi31_source.py --output "$RUNNER_TEMP/fdi31-verified-review"
