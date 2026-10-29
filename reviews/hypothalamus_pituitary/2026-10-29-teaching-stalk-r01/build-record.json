@@ -1,0 +1,93 @@
+{
+  "sources": {
+    "hypothalamus": {
+      "file": "models/hypothalamus/exports/source-candidate-01/hypothalamus_source_frame.glb",
+      "bytes": 75720,
+      "sha256": "b6d73d6b5a33006391a743c650ccc06b65b9b9afaaaebbcf1d05102d4399274c"
+    },
+    "pituitary": {
+      "file": "models/pituitary/exports/source-candidate-01/pituitary_source_frame.glb",
+      "bytes": 22296,
+      "sha256": "8eae4c6d05b0c9de5128ae6f574a97265cb392a44567fcac5ea0b9b7f1dbca68"
+    }
+  },
+  "inputs": [
+    {
+      "name": "FJ1760 hypothalamus",
+      "organ": "hypothalamus",
+      "topology_local_mm": {
+        "vertices": 1029,
+        "edges": 3075,
+        "faces": 2050,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "zero_area_faces": 0,
+        "component_vertices": [
+          1001,
+          28
+        ]
+      }
+    },
+    {
+      "name": "FJ1808 hypothalamus",
+      "organ": "hypothalamus",
+      "topology_local_mm": {
+        "vertices": 1018,
+        "edges": 3042,
+        "faces": 2028,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "zero_area_faces": 0,
+        "component_vertices": [
+          979,
+          39
+        ]
+      }
+    },
+    {
+      "name": "FJ1796 pituitary gland",
+      "organ": "pituitary",
+      "topology_local_mm": {
+        "vertices": 584,
+        "edges": 1746,
+        "faces": 1164,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "zero_area_faces": 0,
+        "component_vertices": [
+          584
+        ]
+      }
+    }
+  ],
+  "operation": "Exact boolean union of the three retained exterior shells, then localized weighted smoothing; no new lobes/nuclei or clinical dimensions.",
+  "junction_z_m": [
+    1.5317500391006469,
+    1.536050039100647
+  ],
+  "smooth_iterations": 5,
+  "max_blend_movement_mm": 0.9357254090911911,
+  "outside_blend_band_movement_mm": 0.0,
+  "topology_local_mm": {
+    "vertices": 2677,
+    "edges": 7592,
+    "faces": 4907,
+    "boundary_edges": 0,
+    "nonmanifold_edges": 0,
+    "zero_area_faces": 0,
+    "component_vertices": [
+      2677
+    ]
+  },
+  "artifact": {
+    "file": "hypothalamus-pituitary-teaching.glb",
+    "bytes": 130668,
+    "sha256": "31ddd537a8aa3ac7dcd75a9a9789132fb10bcfeccb4149e14443d845fd7fb373"
+  },
+  "blender": "4.3.2",
+  "limitations": [
+    "Inferred exterior teaching junction; no measured anatomical boundary.",
+    "Paired source envelopes remain low-detail atlas localization surfaces.",
+    "No internal anatomy, physiology, clinical or live runtime validation."
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "checked_at": "2026-10-29T15:28:26.797109+00:00",
+  "artifact_sha256": "31ddd537a8aa3ac7dcd75a9a9789132fb10bcfeccb4149e14443d845fd7fb373",
+  "replay": {
+    "blender": "4.3.2",
+    "bytes": 130668,
+    "sha256": "31ddd537a8aa3ac7dcd75a9a9789132fb10bcfeccb4149e14443d845fd7fb373",
+    "exact_byte_match": true,
+    "inputs": "The two exact retained source GLBs in the repository; no private source inputs."
+  },
+  "failure_checks": {
+    "wrong_source_same_size_rejected_before_output": true,
+    "existing_output_refused_without_changes": true
+  },
+  "v1_v2_geometry": {
+    "decoded_position_triangles": 5370,
+    "identical_sorted_triangle_positions": true,
+    "scope": "Ignores material and vertex-order differences; compares every exported triangle position exactly."
+  },
+  "code_sha256": {
+    "assemblies/hypothalamus-pituitary/teaching-stalk-r01/build.py": "e7f42d866035a3619e541e5c81dc34b633efa98d3600b5d5fad2ab186bca7ef3",
+    "tests/hypothalamus_pituitary/render.py": "639584741188dec39adb3bc6afefb6a0477c846e1774e28d9813254805fedee3",
+    "tests/hypothalamus_pituitary/check_export.py": "cca57c1416c2f538fad51790575b90e702acefd743e45499234fb8ad87ae1f4c",
+    "tests/hypothalamus_pituitary/verify_package.py": "2f895bd2fb707945f93f573e753e11425bf58adf1266165ea910cb5c18b038d9"
+  },
+  "runtime": "unverified"
+}
