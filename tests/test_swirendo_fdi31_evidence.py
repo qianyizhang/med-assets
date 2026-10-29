@@ -19,12 +19,20 @@ class FDI31EvidenceTests(unittest.TestCase):
 
     def test_no_missing_payload_is_claimed_delivered(self):
         record = json.loads((RUN / 'evidence-index.json').read_text())
-        self.assertFalse(record['model_delivered_in_this_pr'])
-        self.assertFalse(record['pointers_published'])
+        self.assertTrue(record['model_delivered_in_this_pr'])
+        self.assertTrue(record['pointers_published'])
         self.assertEqual(len(record['media']), 5)
         for entry in record['media']:
-            self.assertEqual(entry['availability'], 'local_only_not_in_repository')
-            self.assertFalse((RUN / entry['filename']).exists())
+            self.assertEqual(entry['availability'], 'repository_lfs_verified')
+            path = RUN / entry['file']
+            self.assertEqual(path.parent, RUN / 'media')
+            data = path.read_bytes()
+            expected = f"version https://git-lfs.github.com/spec/v1\noid sha256:{entry['sha256']}\nsize {entry['bytes']}\n".encode()
+            if data.startswith(b'version https://git-lfs.github.com/spec/v1'):
+                self.assertEqual(data, expected)
+            else:
+                self.assertEqual(len(data), entry['bytes'])
+                self.assertEqual(hashlib.sha256(data).hexdigest(), entry['sha256'])
         candidate = record['media'][0]
         self.assertEqual(candidate['bytes'], 26524356)
         self.assertEqual(candidate['sha256'], 'c0884a6bcc8fc6175dd97a99f50e53334024b4eb5e033063c7602358f6da1014')
