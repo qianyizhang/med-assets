@@ -1,0 +1,28 @@
+{
+  "scope": "Exact previously reviewed educational model delivery; no gallery or clinical promotion",
+  "date": "2026-10-29",
+  "issue": 133,
+  "objects": [
+    {
+      "file": "trachea-open.glb",
+      "sha256": "eb3ce52962aacc4d109a9840685aa172ca1d97bfc835367f4e36fd32de6b6cbb",
+      "bytes": 962440
+    },
+    {
+      "file": "trachea-cutaway.glb",
+      "sha256": "42b25a9e3de950db1a083da3802d4bb982c9084c425f768824c8973dc08be283",
+      "bytes": 1564740
+    }
+  ],
+  "transport": {
+    "route": "Existing managed Git LFS authentication; object upload only, no ref or main update",
+    "uploaderReadback": "Fresh empty LFS store; size and SHA256 matched",
+    "independentReadback": "Separate fresh GitHub LFS HTTPS download; size and SHA256 matched",
+    "branchCheckoutHydration": "Pending final branch check; independent object readback is not a checkout test"
+  },
+  "limits": [
+    "Geometry and pixels unchanged; existing reviewed evidence reused",
+    "Live supported-viewer runtime unverified",
+    "No clinical approval; source attribution and model limitations unchanged"
+  ]
+}
