@@ -5,7 +5,7 @@ three editorial openings and provides a cutaway of the connected Y-shaped airway
 The original r05 file, source attribution and gallery selection are unchanged.
 Related issue: [#133](https://github.com/qianyizhang/med-assets/issues/133).
 
-**Recipe delivery only.** The two generated GLBs are local and unpublished. The
+**Model delivery:** the exact reviewed [open](trachea-open.glb) and [cutaway](trachea-cutaway.glb) GLBs are now referenced through Git LFS on this branch. Both objects passed independent fresh GitHub HTTPS hash/size readback on 2026-10-29; see [delivery receipt](delivery.json). Gallery selection remains unchanged. The
 [review](../../../../reviews/trachea/2026-10-29-open-airway-r06/README.md) contains
 public geometry projections and exact identities of the privately reviewed renders.
 The source cast is preserved; the inferred wall is a separate authored teaching
