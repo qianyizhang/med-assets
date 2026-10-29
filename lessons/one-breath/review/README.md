@@ -1,10 +1,13 @@
 # Bounded local review
 
 **Offline visuals and focused code review: pass with limitations. Browser UI and
-WebGL: unverified.** Actual scene render identities are in
-[visual-bindings.json](visual-bindings.json); the images remain local/private.
-The storyboard is deliberately labeled offline composition, not a screenshot of
-the implemented lesson UI. No public model or gallery delivery is implied.
+WebGL: unverified.** The [reviewed storyboard](offline-storyboard.png) is the exact
+`v2/offline-storyboard.png` bound in [visual-bindings.json](visual-bindings.json).
+It is an offline Blender composition of shared lesson scene snapshots, not a
+browser/UI screenshot. Other scene renders remain local/private. No public model
+or gallery delivery is implied.
+
+![Offline Blender composition; browser UI and WebGL unverified](offline-storyboard.png)
 
 [Independent review](independent-review.md) records the v1 defects and v2 fixes.
 [Checks](checks.json) separate technical, visual, educational and runtime evidence.
