@@ -9,13 +9,23 @@ on:
         description: SHA-256 of the reviewed manifest already on main
         required: true
         type: string
+      create_fdi31_pr:
+        description: After successful transport, open a draft PR for the fixed FDI31 batch
+        required: false
+        default: false
+        type: boolean
+      zero_cost_confirmed:
+        description: Owner checked current LFS allowance and enforced no-overage limit for this run
+        required: false
+        default: false
+        type: boolean
 permissions: {}
 concurrency:
   group: bounded-lfs-transport
   cancel-in-progress: false
 jobs:
   transfer:
-    if: github.repository == 'qianyizhang/med-assets' && github.ref == 'refs/heads/main'
+    if: github.repository == 'qianyizhang/med-assets' && github.ref == 'refs/heads/main' && (!inputs.create_fdi31_pr || (inputs.zero_cost_confirmed && inputs.manifest_sha256 == 'ab97d341e9490f418a06d4d9943c0ab2743f22713c174446d8d3f3c0b7ee1118'))
     runs-on: ubuntu-latest
     timeout-minutes: 10
     permissions:
@@ -43,3 +53,38 @@ jobs:
         run: python3 -m unittest discover -s tests -p test_lfs_transport.py
       - name: Verify all sources, upload missing OIDs, fresh HTTP readback
         run: python3 tools/lfs_transport.py run
+
+  fdi31-draft-pr:
+    needs: transfer
+    if: github.event_name == 'workflow_dispatch' && inputs.create_fdi31_pr && inputs.zero_cost_confirmed && needs.transfer.result == 'success'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: write
+      pull-requests: write
+    env:
+      GIT_LFS_SKIP_SMUDGE: '1'
+      GIT_TERMINAL_PROMPT: '0'
+      MANIFEST_SHA256: ${{ inputs.manifest_sha256 }}
+      CREATE_FDI31_PR: ${{ inputs.create_fdi31_pr }}
+      ZERO_COST_CONFIRMED: ${{ inputs.zero_cost_confirmed }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          lfs: false
+          submodules: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /ci/commit_fdi31_assets.py
+            /ci/fdi31-source/manifest.json
+            /tools/lfs_transport.py
+            /tests/test_fdi31_commit.py
+            /transport/manifests/
+      - name: Offline draft-PR failure-path tests
+        run: python3 -m unittest discover -s tests -p test_fdi31_commit.py
+      - name: Fresh readback then fixed pointers and draft PR (never merge)
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python3 ci/commit_fdi31_assets.py

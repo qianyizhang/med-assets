@@ -73,3 +73,35 @@ The first approved manifest-only merge completed successfully on 2026-10-24: [di
 Historical executor provenance is retained in the recovery bundle and restoration
 evidence under `maintenance/archive/completed-branches/2026-10-24/`; this
 implementation has no dependency on deleted pilot branch refs or extracted copies.
+
+## Optional FDI31 draft asset PR
+
+Proposed follow-on to #135 / #96; **off by default**, manual dispatch only:
+
+`reviewed fixed manifest → normal transport + readback → fresh readback → 5 pointers + notice → draft PR`
+
+- First merge/review the implementation separately; it contains no batch manifest.
+  The exact FDI31 manifest must already be authorized and on main through the
+  existing manifest-only process. This does not authorize merging PR109.
+- Set `create_fdi31_pr=true` only for manifest
+  `ab97d341e9490f418a06d4d9943c0ab2743f22713c174446d8d3f3c0b7ee1118`.
+  `zero_cost_confirmed=true` is the operator's confirmation of current allowance
+  **and enforced no-overage controls**, not an automatic billing check. If absent,
+  the opted-in run skips transfer before any upload. Do not guess this value.
+- Reuses existing bounded transport; the follow-on never uploads. Its second
+  fresh readback consumes another 27,593,900 bytes of LFS bandwidth. Include that,
+  normal transfer readback and subsequent independent hydration in allowance.
+- Job-only ephemeral `contents: write` + **`pull-requests: write`** are requested
+  for the optional job. Repository Actions PR creation must already be permitted;
+  if disabled, request specific approval for that persistent setting. No PAT,
+  settings API, new credentials, automatic merge or ordinary-Git binary bypass.
+- Fixed 5 paths only, plus attribution notice. Changed main or existing target
+  stops; existing branch is never overwritten. Existing PR is reported unchanged,
+  not newly validated. An orphan branch after failed PR creation stops for manual
+  inspection; no alternate branch, force push or automatic retry.
+- GitHub may require approval for workflows on token-created PRs. Required CI and
+  independent clean-checkout hydration remain review gates, not bypassed here.
+  Source identity/license scope are pre-reviewed; hashes do not establish anatomy.
+
+Tests are offline/mocked; a passing test does not establish live upload, PR-token
+permission, public download or clean-checkout hydration.
