@@ -15,10 +15,18 @@ or gallery delivery is implied.
 output to the already reviewed v2 meshes, cameras and state without rerendering.
 Later fallback/text changes did not invalidate those rendered models.
 
-Seventeen targeted Node checks passed. These exercise actual GLB consumption and
-application state logic; they are not browser interaction E2E. The separate
-repository offline gate passed 183 tests plus its fixed metadata/pointer scope.
-A loopback HTTP check verified exact served files and missing-asset 404 behavior.
+The [repository setup receipt](repository-setup.json) records the later integration
+of the exact repository-hosted lung and V7 trachea inputs. A fresh source checkout
+with its own empty LFS store hydrated all four models from GitHub, prepared them
+without a private bundle, and passed 17 consumer/state checks plus loopback HTTP
+checks. The focused independent setup review passed with limitations. Local LFS
+initialization is required before hydration; the initial skipped checkout and its
+fix are retained in the receipt.
+
+These checks exercise actual GLB consumption and application state logic, not
+browser interaction E2E. The original source checkpoint's separate repository
+offline gate passed 183 tests plus its fixed metadata/pointer scope. The earlier
+visual receipts above remain historical; no images were rerendered for setup.
 
 The attempted sandboxed Chromium launch failed before creating a page because
 the SUID sandbox helper is misconfigured. The environment was not modified to

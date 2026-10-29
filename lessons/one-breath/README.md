@@ -13,6 +13,7 @@ the four pinned model inputs before preparation; no private trachea bundle is
 required. A text/LFS-pointer checkout alone cannot display the models.
 
 ```sh
+git lfs install --local
 git lfs pull --include="models/lung_*/exports/metadata-cleanup-r01/*.glb,models/trachea/exports/open-airway-r06/trachea-*.glb" --exclude=""
 python3 lessons/one-breath/prepare.py
 python3 lessons/one-breath/serve.py --port 8766
@@ -67,7 +68,9 @@ python3 tools/verify.py offline
 The 17 targeted Node checks exercise shared state, reset/stage/language data,
 actual pinned GLTFLoader/morph consumption, ports, pause behavior and missing/
 corrupt-asset rejection/retry. They do not click browser controls or prove WebGL.
-The repository offline gate separately passed 183 tests and metadata/pointer checks.
+The initial source checkpoint's repository offline gate separately passed 183
+tests and metadata/pointer checks. See the [repository setup receipt](review/repository-setup.json)
+for the fresh checkout's preparation, exact asset/vendor identities and scoped checks.
 
 Optional offline evidence, using Blender 4.3.2 and Inkscape:
 

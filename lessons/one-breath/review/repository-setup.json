@@ -1,0 +1,97 @@
+{
+  "scope": "Repository-only model preparation; no new model, render, browser or clinical acceptance",
+  "tested_source_commit": "61045049f52e1245561307557bc866238f4913a0",
+  "integrated_model_main": "ca947a397251e5c3f19cb6c784bb04d4ff05951b",
+  "started_at_utc": "2026-10-29T12:23:16.142633+00:00",
+  "completed_at_utc": "2026-10-29T12:26:40.514104+00:00",
+  "before": "Required --asset-root and a separately supplied --trachea-root; trachea manifest source paths did not identify repository files.",
+  "after": "All four manifest sources resolve in the script repository by default. Both V7 trachea variants are exact reviewed repository inputs; no private model bundle is required.",
+  "fresh_checkout": {
+    "method": "Fresh --no-local source clone at the tested commit, with no Git object alternates, no existing .local output, no shared LFS store and no private model copying. Origin set to https://github.com/qianyizhang/med-assets.git before model hydration.",
+    "pointer_only_preparation": {
+      "exit_code": 1,
+      "output_created": false,
+      "default_root_resolved": true
+    },
+    "initial_hydration": "git lfs pull exited 0 but skipped working-file checkout because local LFS filters were not initialized. The following exact-byte assertion failed; this was not accepted as successful hydration.",
+    "fix": "git lfs install --local, then the same scoped pull. Only the fresh validation checkout was initialized; no authentication or global configuration changes.",
+    "hydration_commands": [
+      "git lfs install --local",
+      "git lfs pull --include=\"models/lung_*/exports/metadata-cleanup-r01/*.glb,models/trachea/exports/open-airway-r06/trachea-*.glb\" --exclude=\"\""
+    ],
+    "hydration_exit_code": 0,
+    "preparation": "Invoked the checkout prepare.py without arguments from outside the repository; exit 0. All four staged models match their hydrated inputs; all five downloaded vendor files match ci/glb-runtime-fixture.json.",
+    "model_inputs": [
+      {
+        "id": "lungLeft",
+        "source": "models/lung_left/exports/metadata-cleanup-r01/lung_left.glb",
+        "bytes": 2524996,
+        "sha256": "6d3a6150dc47dba0d16162738caabc1bef3fcd8cf5ab4af492dd1121c1cb8533"
+      },
+      {
+        "id": "lungRight",
+        "source": "models/lung_right/exports/metadata-cleanup-r01/lung_right.glb",
+        "bytes": 2653664,
+        "sha256": "3f8476ddd9d04448f4c1f63e85408860d7957f099e87170e8099efe635c16a78"
+      },
+      {
+        "id": "tracheaOpen",
+        "source": "models/trachea/exports/open-airway-r06/trachea-open.glb",
+        "bytes": 962440,
+        "sha256": "eb3ce52962aacc4d109a9840685aa172ca1d97bfc835367f4e36fd32de6b6cbb"
+      },
+      {
+        "id": "tracheaCutaway",
+        "source": "models/trachea/exports/open-airway-r06/trachea-cutaway.glb",
+        "bytes": 1564740,
+        "sha256": "42b25a9e3de950db1a083da3802d4bb982c9084c425f768824c8973dc08be283"
+      }
+    ],
+    "vendor_files_verified": 5,
+    "overwrite_rejection": {
+      "exit_code": 1,
+      "all_staged_bytes_unchanged": true
+    }
+  },
+  "affected_checks": {
+    "command": "node --test lessons/one-breath/tests/state.test.mjs lessons/one-breath/tests/consumer.test.mjs",
+    "result": "17 passed, 0 failed, 0 skipped; actual pinned GLTFLoader consumption and state checks in the fresh prepared checkout",
+    "loopback_http": {
+      "status": "passed",
+      "index_exact": true,
+      "model_responses_exact": 4,
+      "missing_model_status": 404,
+      "same_origin_csp_retained": true,
+      "browser_or_webgl_test": false
+    },
+    "broad_local_offline_suite": "Not repeated for this setup-only change; required PR CI is reported separately in PR141."
+  },
+  "functional_sources_sha256": {
+    "prepare.py": "9ac37d353570c7e3f65d7f80c96c96fdefadd6883fbbc96bdfd9af9a4486c4a4",
+    "assets.json": "68794413465d15d6ab28f1b2b4fa60ebc065728798d0cc565de93eb269f7fc6e",
+    "asset-loader.mjs": "d2c82696fa5056f75ddcc01320c490be98a31ca7bc17a4af315943ea6be10bc0",
+    "state.mjs": "3e52661f6f11cd63411b658b4cb2fad24d5a9d857161df65e1c9d27fd8b0451d",
+    "scene.mjs": "60c33a7be79e7bc6a917e045c8c765f30847399b1a5afd40e9c1cad384ce3b14"
+  },
+  "independent_focused_review": {
+    "verdict": "PASS with limitations; no blocking setup defect remains",
+    "method": "A separate reviewer inspected the source diff and retained logs, independently hashed all four hydrated inputs/staged outputs and five vendor files, and checked no input symlinks or Git object alternates were present. No duplicate test/build run.",
+    "findings": "Only the two trachea source paths changed in the manifest. IDs, sizes, hashes, output names, scene/state/loader code and integrity/overwrite guards remain unchanged. Script-relative setup works outside the checkout. README local LFS initialization resolves the observed first hydration failure."
+  },
+  "evidence_limits": [
+    "Git LFS hydration and the five pinned official Three.js software downloads are still required; this is not fully offline installation.",
+    "Original offline storyboard and visual bindings are retained without rerendering; they are not screenshots of the browser UI.",
+    "Browser controls, responsive layout, WebGL and live failure/retry UI remain unverified. The earlier sandboxed Chromium launch failed before page creation; no sandbox bypass was attempted.",
+    "No changed anatomy, clinical approval, model-quality upgrade or Site/gallery delivery is claimed."
+  ],
+  "retained_log_sha256": {
+    "pointer-rejection.log": "7ed20c036aa22cc64c542495db717590fccef30a27a9adfc2d4e4431c496d25b",
+    "hydrate.log": "9ec5050f19ac36ec226ef0d312f1b0419241dc61113d4def79dd46054af8d17b",
+    "lfs-install-local.log": "4fea4bc2b3b77e0192bd58ef65c3a0c982ecc7409dbffab6873bb6e04be6a875",
+    "hydrate-after-local-init.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "prepare.log": "0268abda7b98a335555c4126a51f46fad66c916edb83d9dc938464d6041d5034",
+    "consumer-state.log": "ab27d19770a5d0d2277880cbf443b168faee21813a3d103aa39fea80f2453352",
+    "overwrite-rejection.log": "ea5b2bec991a50b72489f63cbcb62d2db6713e6aed3b99cc1800685e5807cd79",
+    "serve.log": "114accc5aa8c43cdcb6b4ee6a8e72e783725d2c3eeaa0b6e7082bc8d0fe48097"
+  }
+}
