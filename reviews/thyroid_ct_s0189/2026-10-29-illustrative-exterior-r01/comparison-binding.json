@@ -1,0 +1,107 @@
+{
+  "file": "comparison.png",
+  "bytes": 2338425,
+  "sha256": "4cfff00447e3c04dcc2fdecba4b51621d1125128b18a6a2e1dfa76f1d334222b",
+  "kind": "Native-pixel layout of matched offline Cycles exports; not a browser screenshot",
+  "source_images": [
+    {
+      "file": "original-oblique.png",
+      "bytes": 765590,
+      "sha256": "480c4b40d8a1d424d598294b084d3a9cd7853aa2825fad06a9af7f3b1fa40acc",
+      "artifact_sha256": "4add07e2efed2d67efb1d4ba225a109fe448043c79182e3d2e1a96e671534883",
+      "camera": [
+        0.07500000298023224,
+        -0.019999995827674866,
+        0.6899999976158142
+      ],
+      "target": [
+        0.0,
+        0.18000000715255737,
+        0.625
+      ],
+      "orthoscale": 0.074,
+      "pixels": [
+        900,
+        900
+      ],
+      "samples": 40,
+      "material": "Unchanged exported illustrative rose material; unchanged smooth normals mode.",
+      "scope": "Clean GLB import, actual offline Cycles pixels. New matched cameras cover the retained oblique ridge region; old camera settings unavailable."
+    },
+    {
+      "file": "original-ridge-detail.png",
+      "bytes": 877990,
+      "sha256": "b3b77804525f0447c182b1f468ec1c60320f204779e562952d4167bbbd264b2e",
+      "artifact_sha256": "4add07e2efed2d67efb1d4ba225a109fe448043c79182e3d2e1a96e671534883",
+      "camera": [
+        0.05900000035762787,
+        -0.027000010013580322,
+        0.6819999814033508
+      ],
+      "target": [
+        -0.01600000075995922,
+        0.17299999296665192,
+        0.6169999837875366
+      ],
+      "orthoscale": 0.041,
+      "pixels": [
+        900,
+        900
+      ],
+      "samples": 40,
+      "material": "Unchanged exported illustrative rose material; unchanged smooth normals mode.",
+      "scope": "Clean GLB import, actual offline Cycles pixels. New matched cameras cover the retained oblique ridge region; old camera settings unavailable."
+    },
+    {
+      "file": "updated-oblique.png",
+      "bytes": 758624,
+      "sha256": "f73b70f64c817eda798e16a23aeee8f78b03ed469096cc9d8e63559dd0d48b22",
+      "artifact_sha256": "4c2dee513f713fd8d649e7d1928ba3859ce1d25e81468e707b65a5fbeeee216a",
+      "camera": [
+        0.07500000298023224,
+        -0.019999995827674866,
+        0.6899999976158142
+      ],
+      "target": [
+        0.0,
+        0.18000000715255737,
+        0.625
+      ],
+      "orthoscale": 0.074,
+      "pixels": [
+        900,
+        900
+      ],
+      "samples": 40,
+      "material": "Unchanged exported illustrative rose material; unchanged smooth normals mode.",
+      "scope": "Clean GLB import, actual offline Cycles pixels. New matched cameras cover the retained oblique ridge region; old camera settings unavailable."
+    },
+    {
+      "file": "updated-ridge-detail.png",
+      "bytes": 871859,
+      "sha256": "2af5bced93b7329435e06aff2c1587041a1da99755ab84e8a7021cf72a496320",
+      "artifact_sha256": "4c2dee513f713fd8d649e7d1928ba3859ce1d25e81468e707b65a5fbeeee216a",
+      "camera": [
+        0.05900000035762787,
+        -0.027000010013580322,
+        0.6819999814033508
+      ],
+      "target": [
+        -0.01600000075995922,
+        0.17299999296665192,
+        0.6169999837875366
+      ],
+      "orthoscale": 0.041,
+      "pixels": [
+        900,
+        900
+      ],
+      "samples": 40,
+      "material": "Unchanged exported illustrative rose material; unchanged smooth normals mode.",
+      "scope": "Clean GLB import, actual offline Cycles pixels. New matched cameras cover the retained oblique ridge region; old camera settings unavailable."
+    }
+  ],
+  "source_sha256": "4add07e2efed2d67efb1d4ba225a109fe448043c79182e3d2e1a96e671534883",
+  "artifact_sha256": "4c2dee513f713fd8d649e7d1928ba3859ce1d25e81468e707b65a5fbeeee216a",
+  "layout": "Original left, updated right; oblique overview above, ridge detail below; source pixels pasted without resampling."
+}

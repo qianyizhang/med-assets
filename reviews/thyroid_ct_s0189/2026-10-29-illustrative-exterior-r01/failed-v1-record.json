@@ -1,0 +1,86 @@
+{
+  "source": {
+    "file": "models/thyroid_ct_s0189/exports/source-candidate-02/thyroid_ct_s0189_source_frame.glb",
+    "sha256": "4add07e2efed2d67efb1d4ba225a109fe448043c79182e3d2e1a96e671534883",
+    "bytes": 151580
+  },
+  "artifact": {
+    "file": "thyroid-illustrative-exterior.glb",
+    "sha256": "c0f1db399238266adfb49ae8bcf036e7107c2f407c07f4bf1ab705b5eae44022",
+    "bytes": 152076
+  },
+  "blender": "4.3.2",
+  "modifier": {
+    "type": "LAPLACIANSMOOTH",
+    "strength": 0.35,
+    "iterations": 8,
+    "volume_preserve": true,
+    "normalized": true,
+    "selection": "Anterior-facing emphasis with reduced posterior and central-bridge influence; editorial selection, not tissue segmentation."
+  },
+  "before": {
+    "vertices": 4172,
+    "faces": 8340,
+    "components": [
+      4172
+    ],
+    "nonmanifold_edges": 0,
+    "zero_area_faces": 0,
+    "signed_volume_mm3": 19774.841705453862
+  },
+  "after": {
+    "vertices": 4172,
+    "faces": 8340,
+    "components": [
+      4172
+    ],
+    "nonmanifold_edges": 0,
+    "zero_area_faces": 0,
+    "signed_volume_mm3": 19774.823451447694
+  },
+  "displacement_mm": {
+    "max": 0.6211322215493048,
+    "rms": 0.1937801155931852,
+    "p95": 0.3306817722299229,
+    "central_abs_x_lt5_max": 0.26492272906684006
+  },
+  "relative_volume_change": -9.230924039593802e-07,
+  "source_bounds_m": [
+    [
+      -0.028692785650491714,
+      0.03155157342553139
+    ],
+    [
+      0.16197818517684937,
+      0.19653619825839996
+    ],
+    [
+      0.5993510484695435,
+      0.6506618857383728
+    ]
+  ],
+  "candidate_bounds_m": [
+    [
+      -0.028755435720086098,
+      0.03156298026442528
+    ],
+    [
+      0.16197051107883453,
+      0.19644275307655334
+    ],
+    [
+      0.5995453000068665,
+      0.6504862904548645
+    ]
+  ],
+  "frame": "Native source frame retained; temporary local-mm operation reversed before export.",
+  "limits": [
+    "Smoothing parameters are presentation choices at 1.5mm source-label scale; no measured anatomical tolerance.",
+    "Exact same-sample trachea context is external, so no new tracheal distance/collision validation.",
+    "No new internal anatomy, clinical or browser/runtime approval."
+  ],
+  "status": "needs-revision; superseded by V2",
+  "finding": "V1 emphasized the opposite face; target corrugation remained in the ridge-facing view. Detail camera sampled the other face and lighting was too pale.",
+  "fix": "V2 weights the sampled negative-Y ridge face, corrects the detail camera and uses matched lower camera-relative lighting. Strength and iteration count were not increased.",
+  "retention": "Failed GLB, recipe, render recipe and eight PNGs retained separately in local V1 review artifacts; not the distributed candidate."
+}
