@@ -1,8 +1,38 @@
-# Bounded LFS transport
+# Asset delivery: direct LFS first
+
+```text
+Reviewed bytes → direct Git LFS upload → fresh GitHub readback → asset-pointer PR
+                      │ unresolved technical failure
+                      └→ authorized Drive/Site source → bounded CI upload → readback
+Drive backup: retain the same verified bytes; not a replacement for repository delivery.
+```
+
+## Preferred route
+
+- Check the **current executor**, repository remote and existing authentication;
+  connector access does not imply shell access. Try the exact authorized, bounded
+  object upload (for example, `git lfs push --object-id origin <reviewed-oid>`),
+  not a broad ref push. An old environment failure is not a permanent limitation.
+- Record timestamp, executor context, command, exit status and sanitized result.
+  Distinguish missing authentication, network failure, quota and action denial;
+  do not guess the cause or expose tokens, signed URLs or private billing data.
+- Verify size and SHA-256 from a **fresh GitHub download / empty LFS store** before
+  opening the matching asset-pointer PR. Preserve the receipt and exact artifact
+  identity. Upload success alone is not repository delivery or asset approval.
+- Keep a verified backup in the owner's authorized Drive destination. Use Drive
+  or a Site as a source fallback only when direct transport fails and its technical
+  cause remains unresolved; do not build a staging detour when direct upload works.
+- Fallback needs the same byte/hash checks and existing source/publication permissions.
+  Do not change sharing, add credentials, widen allowlists or bypass an access/action
+  denial. The current CI executor accepts only the Site sources listed below:
+  **Drive support is not implied**; any production support needs separate code review.
+  Known permission, quota or integrity failures must be resolved, not routed around.
+
+## Bounded CI fallback
 
 One reusable executor replaces per-batch workflow copies. It never commits pointers, pushes Git refs, merges PRs, changes settings, or fetches executable source code.
 
-## Normal flow
+## CI fallback flow
 
 1. Review an exact manifest and the asset/source/privacy/licensing scope. Save its **unchanged UTF-8 bytes** as `transport/manifests/<sha256-of-file>.json`.
 2. Merge a **manifest-only PR adding exactly one file**. This explicitly authorizes that bounded batch. The main-only push trigger compares the event's before/after commits; edits, deletions, multiple files, or mixed code changes stop before any source download/upload. Do not combine executor changes with a transport batch.
@@ -62,7 +92,7 @@ An optional manual `workflow_dispatch` accepts only that manifest SHA and only r
 - One serialized job, 10-minute timeout, pinned official checkout, `contents: write` only, existing ephemeral `GITHUB_TOKEN` authentication. No PAT, secrets, settings, or new permission request. [GitHub token documentation](https://docs.github.com/en/actions/tutorials/authenticate-with-github_token).
 - Git LFS upload URLs are fixed to this repository with command-scoped overrides, including remote-specific overrides; no manifest-selected destination. [Git LFS configuration](https://github.com/git-lfs/git-lfs/blob/main/docs/man/git-lfs-config.adoc).
 - Source/LFS response sizes and gzip output are bounded. URLs/headers from temporary LFS download actions and raw Git stderr are never logged. Cross-origin redirects are refused rather than forwarding authentication.
-- A source 403/hash mismatch, unexpected destination response, permission failure or quota error stops the batch. Already-uploaded objects may remain if a later operation fails; do not claim success without complete readback. No automatic batch resubmission, alternate transport route or spending-limit adjustment.
+- A source 403/hash mismatch, unexpected destination response, permission failure or quota error stops the batch. Already-uploaded objects may remain if a later operation fails; do not claim success without complete readback. No automatic batch resubmission or spending-limit adjustment. Source fallback follows the preferred-route conditions above; it is never a workaround for a denied action or known permission/quota/integrity failure.
 - This does **not** query billing headroom or guarantee zero fees. Existing budgets/quotas still govern; check known allowance before approving a batch and stop for any new cost decision.
 - Hash/format checks prove transport identity, not anatomy, visual quality, licensing, de-identification or recipe reproducibility. Those remain separately reviewed evidence.
 
