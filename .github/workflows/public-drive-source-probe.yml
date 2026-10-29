@@ -1,0 +1,61 @@
+name: Balanced Drive fallback (explicit dispatch only)
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/public-drive-source-probe.yml'
+      - 'tools/balanced_drive_fallback.py'
+      - 'tests/test_balanced_drive_fallback.py'
+  workflow_dispatch:
+    inputs:
+      confirm_oid:
+        description: Exact reviewed Balanced OID; dispatch authorizes one object-only upload
+        required: true
+        type: string
+permissions: {}
+concurrency:
+  group: bounded-lfs-transport
+  cancel-in-progress: false
+jobs:
+  verify:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 2
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+          lfs: false
+          sparse-checkout: |
+            tools/lfs_transport.py
+            tools/balanced_drive_fallback.py
+            tests/test_balanced_drive_fallback.py
+          sparse-checkout-cone-mode: false
+      - run: python3 -m unittest discover -s tests -p test_balanced_drive_fallback.py
+      - run: python3 tools/balanced_drive_fallback.py source-check
+  transfer:
+    if: github.event_name == 'workflow_dispatch' && github.repository == 'qianyizhang/med-assets' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    env:
+      GIT_TERMINAL_PROMPT: '0'
+      GIT_LFS_SKIP_SMUDGE: '1'
+      CONFIRM_OID: ${{ inputs.confirm_oid }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: true
+          lfs: false
+          submodules: false
+          sparse-checkout: |
+            tools/lfs_transport.py
+            tools/balanced_drive_fallback.py
+            tests/test_balanced_drive_fallback.py
+          sparse-checkout-cone-mode: false
+      - run: python3 -m unittest discover -s tests -p test_balanced_drive_fallback.py
+      - name: Exact ZIP and member verification, missing-object upload, fresh readback
+        run: python3 tools/balanced_drive_fallback.py upload
