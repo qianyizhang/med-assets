@@ -1,0 +1,157 @@
+{
+  "baseline_sha256": "af54ca254e47910ded53c6b690b475ab17236ba47d314fbdd5357dc67849bf4d",
+  "variants": [
+    {
+      "variant": "open",
+      "file": "trachea-open.glb",
+      "sha256": "eb3ce52962aacc4d109a9840685aa172ca1d97bfc835367f4e36fd32de6b6cbb",
+      "bytes": 962440,
+      "section_planes": [
+        [
+          "proximal",
+          [
+            0.002,
+            -0.0025,
+            0.1735
+          ],
+          [
+            0.28,
+            -0.5,
+            1
+          ]
+        ],
+        [
+          "branch_x_positive",
+          [
+            0.024,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ],
+        [
+          "branch_x_negative",
+          [
+            -0.027,
+            0,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ]
+        ]
+      ],
+      "band_cap_setback_m": 5e-05,
+      "editorial_depth_field": null,
+      "surface_boundary_loops_before_shell": 3,
+      "boundary_vertex_counts": [
+        74,
+        42,
+        74
+      ],
+      "opening_centers": [
+        [
+          -0.026999980211257935,
+          0.02473285049200058,
+          0.08174657076597214
+        ],
+        [
+          0.02399999462068081,
+          0.030220692977309227,
+          0.07507817447185516
+        ],
+        [
+          -0.00015147037629503757,
+          -0.006014006212353706,
+          0.17234541475772858
+        ]
+      ],
+      "outer_vertices": 2525,
+      "nominal_shell_thickness_m": 0.0006,
+      "max_offset_vector_m": 0.000821987495900547,
+      "locally_reduced_offsets": 1,
+      "minimum_normal_thickness_m": 0.00019463567150523886,
+      "thickness_rule": "Authored source-normal offset constrained to editorial sections; locally reduced to avoid crossing cuts. Not measured tissue."
+    },
+    {
+      "variant": "cutaway",
+      "file": "trachea-cutaway.glb",
+      "sha256": "42b25a9e3de950db1a083da3802d4bb982c9084c425f768824c8973dc08be283",
+      "bytes": 1564740,
+      "section_planes": [
+        [
+          "proximal",
+          [
+            0.002,
+            -0.0025,
+            0.1735
+          ],
+          [
+            0.28,
+            -0.5,
+            1
+          ]
+        ],
+        [
+          "branch_x_positive",
+          [
+            0.024,
+            0,
+            0
+          ],
+          [
+            1,
+            0,
+            0
+          ]
+        ],
+        [
+          "branch_x_negative",
+          [
+            -0.027,
+            0,
+            0
+          ],
+          [
+            -1,
+            0,
+            0
+          ]
+        ]
+      ],
+      "band_cap_setback_m": 5e-05,
+      "editorial_depth_field": [
+        0.02007771994226687,
+        -0.0037992988345005177,
+        -0.016076237409268963,
+        -0.010218181848688843,
+        -0.007661036499318204,
+        -0.005942600247485309
+      ],
+      "surface_boundary_loops_before_shell": 1,
+      "boundary_vertex_counts": [
+        465
+      ],
+      "opening_centers": [
+        [
+          -0.004458189010620117,
+          0.01950041577219963,
+          0.1128242239356041
+        ]
+      ],
+      "outer_vertices": 1704,
+      "nominal_shell_thickness_m": 0.0006,
+      "max_offset_vector_m": 0.000819066825155375,
+      "locally_reduced_offsets": 4,
+      "minimum_normal_thickness_m": 0.00011617412116748937,
+      "thickness_rule": "Authored source-normal offset constrained to editorial sections; locally reduced to avoid crossing cuts. Not measured tissue."
+    }
+  ],
+  "scope": "Authored hollow teaching derivative of existing display cast. Original source is not validated wall geometry; dimensions and cuts illustrative."
+}

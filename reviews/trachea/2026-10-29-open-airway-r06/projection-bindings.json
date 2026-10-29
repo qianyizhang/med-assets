@@ -1,0 +1,101 @@
+{
+  "views": [
+    {
+      "phase": "baseline",
+      "view": "whole",
+      "artifact_sha256": "af54ca254e47910ded53c6b690b475ab17236ba47d314fbdd5357dc67849bf4d",
+      "camera": [
+        0.16270343959331512,
+        -0.540344774723053,
+        0.2907034456729889
+      ],
+      "target": [
+        -0.003,
+        0.012,
+        0.125
+      ],
+      "orthoscale": 0.145,
+      "projection": "Two-sided triangles, painter depth ordering and illustrative directional shading; not a raster render"
+    },
+    {
+      "phase": "baseline",
+      "view": "proximal",
+      "artifact_sha256": "af54ca254e47910ded53c6b690b475ab17236ba47d314fbdd5357dc67849bf4d",
+      "camera": [
+        0.2021164745092392,
+        -0.2556455731391907,
+        0.6772911548614502
+      ],
+      "target": [
+        0,
+        -0.003,
+        0.172
+      ],
+      "orthoscale": 0.045,
+      "projection": "Two-sided triangles, painter depth ordering and illustrative directional shading; not a raster render"
+    },
+    {
+      "phase": "open",
+      "view": "whole",
+      "artifact_sha256": "eb3ce52962aacc4d109a9840685aa172ca1d97bfc835367f4e36fd32de6b6cbb",
+      "camera": [
+        0.16270343959331512,
+        -0.540344774723053,
+        0.2907034456729889
+      ],
+      "target": [
+        -0.003,
+        0.012,
+        0.125
+      ],
+      "orthoscale": 0.145,
+      "projection": "Two-sided triangles, painter depth ordering and illustrative directional shading; not a raster render"
+    },
+    {
+      "phase": "open",
+      "view": "proximal",
+      "artifact_sha256": "eb3ce52962aacc4d109a9840685aa172ca1d97bfc835367f4e36fd32de6b6cbb",
+      "camera": [
+        0.2021164745092392,
+        -0.2556455731391907,
+        0.6772911548614502
+      ],
+      "target": [
+        0,
+        -0.003,
+        0.172
+      ],
+      "orthoscale": 0.045,
+      "projection": "Two-sided triangles, painter depth ordering and illustrative directional shading; not a raster render"
+    },
+    {
+      "phase": "cutaway",
+      "view": "whole",
+      "artifact_sha256": "42b25a9e3de950db1a083da3802d4bb982c9084c425f768824c8973dc08be283",
+      "camera": [
+        0.16270343959331512,
+        -0.540344774723053,
+        0.2907034456729889
+      ],
+      "target": [
+        -0.003,
+        0.012,
+        0.125
+      ],
+      "orthoscale": 0.145,
+      "projection": "Two-sided triangles, painter depth ordering and illustrative directional shading; not a raster render"
+    }
+  ],
+  "files": [
+    {
+      "file": "comparison-proximal.svg",
+      "bytes": 6113363,
+      "sha256": "f0d26593e064d41f581f69041ae4d92188cae3ba2ff4ec4e05db9d79d25c29d8"
+    },
+    {
+      "file": "comparison-whole.svg",
+      "bytes": 7944997,
+      "sha256": "9776415517ac344631ba0d6ecfe00149fb87406b1fd0f681178a6613c55b9676"
+    }
+  ]
+}

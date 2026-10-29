@@ -1,0 +1,162 @@
+{
+  "family": "trachea-open-airway-study-v1",
+  "baseline_commit": "53c1ceeff9e861fd9261ecfc09a83de32326d07e",
+  "baseline_sha256": "af54ca254e47910ded53c6b690b475ab17236ba47d314fbdd5357dc67849bf4d",
+  "variants": [
+    {
+      "file": "trachea-open.glb",
+      "sha256": "eb3ce52962aacc4d109a9840685aa172ca1d97bfc835367f4e36fd32de6b6cbb",
+      "bytes": 962440,
+      "mesh_count": 19,
+      "triangles": 50978,
+      "shell": {
+        "name": "Trachea | authored open teaching shell",
+        "vertices": 5050,
+        "triangles": 10104,
+        "components": 1,
+        "euler": -2,
+        "bad_edge_incidence": 0,
+        "zero_area": 0,
+        "signed_volume": 3.5628661838828375e-06,
+        "nonadjacent_self_candidates": 0,
+        "nonadjacent_self_contacts": 0,
+        "first_self_contacts": []
+      },
+      "closed_positive_volume_meshes": 19,
+      "exact_byte_replay": true,
+      "delivery": "Local generated GLB; not published"
+    },
+    {
+      "file": "trachea-cutaway.glb",
+      "sha256": "42b25a9e3de950db1a083da3802d4bb982c9084c425f768824c8973dc08be283",
+      "bytes": 1564740,
+      "mesh_count": 19,
+      "triangles": 24942,
+      "shell": {
+        "name": "Trachea | authored cutaway teaching shell",
+        "vertices": 3408,
+        "triangles": 6812,
+        "components": 1,
+        "euler": 2,
+        "bad_edge_incidence": 0,
+        "zero_area": 0,
+        "signed_volume": 1.8447778330258164e-06,
+        "nonadjacent_self_candidates": 0,
+        "nonadjacent_self_contacts": 0,
+        "first_self_contacts": []
+      },
+      "closed_positive_volume_meshes": 19,
+      "exact_byte_replay": true,
+      "delivery": "Local generated GLB; not published"
+    }
+  ],
+  "technical": {
+    "status": "pass-with-limitations",
+    "scope": "Both exact V7 exports reimported; closed positive-volume meshes, zero degenerate triangles, zero detected nonadjacent shell self-contacts. Finite precision screens, not exhaustive geometric proof.",
+    "sampled_lumen": {
+      "source_revision": "V6",
+      "grid_spacing_m": 0.0012,
+      "sample_clearance_m": 0.00015,
+      "air_samples": 10487,
+      "connected_air_samples": 10484,
+      "all_three_openings_connected": true,
+      "reuse_basis": "Both V7 shell meshes have identical decoded attributes, indices and node transforms to V6. Band caps are excluded from the reuse claim and checked separately."
+    },
+    "replay": "Byte-identical rebuild using existing locally hydrated r05 input and Blender 4.3.2; not a fresh-checkout or remote-input test.",
+    "offline": "Passed: 177 tests; 25 transport manifests; 25 foundation records; 591 import references; 673 LFS pointer identities. No media/runtime claim.",
+    "guard_checks": {
+      "wrong_source_rejected": true,
+      "existing_output_rejected_without_modification": true
+    },
+    "scoped_source_checks": "Python AST syntax; relative documentation links; SVG XML and no active/embedded payload; exact path/style/order equality for final SVG packaging."
+  },
+  "visual": {
+    "status": "pass-with-limitations",
+    "scope": "Independent same-executor actual Cycles review: V7 whole/open/proximal, earlier V6 bifurcation/outlet details. Rim hatching resolved by band-cap setback; cavity findings retained via exact decoded-shell identity. SVG projections are separate public proof, not Cycles evidence."
+  },
+  "anatomy": {
+    "status": "reference-screened",
+    "scope": "OpenStax 22.1 supports a continuous tracheal airway dividing into primary bronchi. Cast-derived envelope, inferred thickness, local reductions, interior and cuts remain authored; no specialist or clinical approval."
+  },
+  "runtime": {
+    "status": "unverified",
+    "scope": "No supported browser/gallery model test; no runtime promotion from Blender renders or mesh checks."
+  },
+  "publication": {
+    "status": "recipe-and-svg-draft",
+    "scope": "Recipe, SVG projections and text receipts only. Final GLBs and PNGs remain local; one V6 detail PNG supplied privately. Existing gallery and accepted count unchanged."
+  },
+  "limitations": [
+    "Not recovered specimen wall, mucosal layers, normal lumen caliber or histology.",
+    "Source surface and terminal sections remain coarse; illustrative C-bands remain.",
+    "Three grid air samples outside the main connected component are not an exhaustive void proof; all three opening seeds connect.",
+    "Model/gallery delivery and supported runtime remain unfinished; issue133 stays open."
+  ],
+  "local_receipts": [
+    {
+      "file": "v7/build-record.json",
+      "sha256": "ae1f514bbf8d869435e145f513fab393768eb94ec14896cc5d258eca8906c423"
+    },
+    {
+      "file": "v7/open-geometry.json",
+      "sha256": "9024b7fcf7bc33f526fdedb440198552acc49c5b8728938f105471b3c5e997b3"
+    },
+    {
+      "file": "v7/cutaway-geometry.json",
+      "sha256": "65b33fd808cceeaa939e6aea3a1c941085c77c58dc6372b3a16fda2244a73124"
+    },
+    {
+      "file": "v7/independent-review.md",
+      "sha256": "8a00e5c86daa96d0ce276d9306570bbbcfeed9400af549539f46d8465bf0312d"
+    },
+    {
+      "file": "v7/reused-shell-evidence.json",
+      "sha256": "60315ebad5e6fd2d67fccf9e73eb8a12c61951fa97adb4c16689a3c9598d586d"
+    },
+    {
+      "file": "v6/lumen-check.json",
+      "sha256": "883b003bd8627b9fa4bb36fe90aabd87b63b89f678df2532756f0e0c31e3fff0"
+    },
+    {
+      "file": "v6/independent-review.md",
+      "sha256": "69f19876300b19d0737b2ac1fb1c12fe76d63355425e574c0d2f65dc54955b83"
+    },
+    {
+      "file": "replay/build-record.json",
+      "sha256": "ae1f514bbf8d869435e145f513fab393768eb94ec14896cc5d258eca8906c423"
+    }
+  ],
+  "evidence_policy": "Failed geometry and projection trials retained locally; not promoted. Final V7 GLBs remain local/unpublished.",
+  "source_files": [
+    {
+      "file": "tests/trachea_open_airway/bind_reuse.py",
+      "sha256": "99f60536570d1ead42d096ad912eaa41a3cc36333d180f58773e5a3b38ad879b"
+    },
+    {
+      "file": "tests/trachea_open_airway/check_geometry.py",
+      "sha256": "638efaec80f48a1ec2ac39d88fbd2595683667593928b950a8bc5d0f081306a5"
+    },
+    {
+      "file": "tests/trachea_open_airway/check_lumen.py",
+      "sha256": "2b47eafd429dbec914b42adc8ec033f188a2af799291d5c7355bed3586898373"
+    },
+    {
+      "file": "tests/trachea_open_airway/project.py",
+      "sha256": "38ac858a96776b43ed61eaf1dcfaa6128694aa29e77eac1fbbafc4558acc9a5c"
+    },
+    {
+      "file": "tests/trachea_open_airway/render.py",
+      "sha256": "7aa3bc13e4cf90ea888ee5ba552ed4923607cb76e925cf68eea89d2d1fbeecf9"
+    },
+    {
+      "file": "models/trachea/exports/open-airway-r06/build.py",
+      "sha256": "59054bc720e8b9c7fce3d6748139ea09d129813fbada736a94b6a0148b30ceec"
+    }
+  ],
+  "timestamps_utc": {
+    "v7_export_file_mtime": "2026-10-29T07:37:44.796821Z",
+    "v7_proximal_render_file_mtime": "2026-10-29T07:37:54.849610Z",
+    "independent_visual_receipt_file_mtime": "2026-10-29T07:40:38.194014Z",
+    "scope": "Retained local file timestamps, not measured render/build durations."
+  }
+}
