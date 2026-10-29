@@ -5,6 +5,7 @@ import json
 import os
 from pathlib import Path
 import sys
+import subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'tools'))
@@ -31,7 +32,9 @@ def main():
         receipt = verify(MANIFEST.read_bytes())
     except Stop as error:
         raise SystemExit('STOP: ' + str(error)) from None
-    receipt['commit'] = os.environ.get('GITHUB_SHA')
+    receipt['commit'] = subprocess.check_output(
+        ['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
+    receipt['eventCommit'] = os.environ.get('GITHUB_SHA')
     receipt['runId'] = os.environ.get('GITHUB_RUN_ID')
     encoded = json.dumps(receipt, sort_keys=True, indent=2)
     print(encoded)
