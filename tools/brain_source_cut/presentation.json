@@ -1,0 +1,35 @@
+{
+  "model": {
+    "file": "models/brain/exports/bodyparts3d-4.0-atlas-r2/brain-source-frame.glb",
+    "sha256": "26d39768e2882daee034f997a8d594e915283b5f8a176a8bb60003944a45b886",
+    "bytes": 4415384,
+    "meshes": 49
+  },
+  "image": {
+    "file": "reviews/brain/bodyparts3d-4.0-atlas-r2/screenshots/contact.png",
+    "sha256": "1de1a0b96d416d08c4d241ee99ef02baa97d3716f5390e72296c67f623e27c79",
+    "bytes": 2133461,
+    "width": 2100,
+    "height": 1586
+  },
+  "views": {
+    "front": {
+      "en": "Front view",
+      "zh": "前面观",
+      "overview": [0, 128, 700, 700],
+      "detail": [200, 545, 300, 255],
+      "bracket": [[322, 745], [322, 755], [379, 755], [379, 745]],
+      "anchor": [379, 755],
+      "badge": [416, 768]
+    },
+    "left": {
+      "en": "Left view",
+      "zh": "左侧面观",
+      "overview": [700, 128, 700, 700],
+      "detail": [990, 545, 300, 255],
+      "bracket": [[1093, 748], [1097, 759], [1148, 759], [1146, 749]],
+      "anchor": [1148, 759],
+      "badge": [1190, 770]
+    }
+  }
+}

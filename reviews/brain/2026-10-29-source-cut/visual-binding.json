@@ -1,0 +1,164 @@
+{
+  "sourceModel": {
+    "file": "models/brain/exports/bodyparts3d-4.0-atlas-r2/brain-source-frame.glb",
+    "sha256": "26d39768e2882daee034f997a8d594e915283b5f8a176a8bb60003944a45b886",
+    "bytes": 4415384,
+    "meshes": 49
+  },
+  "sourceImage": {
+    "file": "reviews/brain/bodyparts3d-4.0-atlas-r2/screenshots/contact.png",
+    "sha256": "1de1a0b96d416d08c4d241ee99ef02baa97d3716f5390e72296c67f623e27c79",
+    "bytes": 2133461,
+    "width": 2100,
+    "height": 1586
+  },
+  "files": [
+    {
+      "file": "front-teaching-portable.png",
+      "sha256": "e83738dbd0a2d3d6d31df29760842279acfd516f74cb8e6586928fb3f645a054",
+      "svgSha256": "4aed879ba0af2b0e2cbaadfbac02e36a7c6a454879853bf78fb3a328c9f7af47",
+      "bytes": 935384,
+      "dimensions": [
+        1440,
+        1224
+      ]
+    },
+    {
+      "file": "front-teaching-linked.png",
+      "sha256": "e83738dbd0a2d3d6d31df29760842279acfd516f74cb8e6586928fb3f645a054",
+      "svgSha256": "bf8da30884081b9736955d84f3b5112e08a5e9efcfd1f3e59518c9c5d73f1796",
+      "bytes": 935384,
+      "dimensions": [
+        1440,
+        1224
+      ]
+    },
+    {
+      "file": "front-teaching.pdf",
+      "sha256": "2dd00aff05760f05566d183d9dd879821e5f7506e3f300a284f05be5c0e38368",
+      "bytes": 5342070,
+      "svgSha256": "4aed879ba0af2b0e2cbaadfbac02e36a7c6a454879853bf78fb3a328c9f7af47"
+    },
+    {
+      "file": "front-comparison-portable.png",
+      "sha256": "c2ee5ee6cc8db191b0b10d8ff7a12b3a7d0010f7af1ec4d7430307662e66ae28",
+      "svgSha256": "5adb522f74af9f5fdd1938a54daa03f5b3b1f3f81272732e5401fe0db9d42196",
+      "bytes": 765180,
+      "dimensions": [
+        1440,
+        1748
+      ]
+    },
+    {
+      "file": "front-comparison-linked.png",
+      "sha256": "c2ee5ee6cc8db191b0b10d8ff7a12b3a7d0010f7af1ec4d7430307662e66ae28",
+      "svgSha256": "a434bf487dccb3eb71dff211d9797dd5a866fddc20e0d969799f27b025dbc8c5",
+      "bytes": 765180,
+      "dimensions": [
+        1440,
+        1748
+      ]
+    },
+    {
+      "file": "left-teaching-portable.png",
+      "sha256": "764fedf2bba241b885e3de4c89a261215020ef98a72b4816d6fbe389dc03f346",
+      "svgSha256": "cf5050aa7c2446b93aae2bdc0f417c2463194a6a04fb11e149c4c6f67c80bead",
+      "bytes": 923796,
+      "dimensions": [
+        1440,
+        1224
+      ]
+    },
+    {
+      "file": "left-teaching-linked.png",
+      "sha256": "764fedf2bba241b885e3de4c89a261215020ef98a72b4816d6fbe389dc03f346",
+      "svgSha256": "b7e6234de5c51123c69123d635e85456b95f1ee8f9371f56c7c64807d87d3286",
+      "bytes": 923796,
+      "dimensions": [
+        1440,
+        1224
+      ]
+    },
+    {
+      "file": "left-teaching.pdf",
+      "sha256": "3ffe7622cb957a18bcd68387dec3937fc5dc04df1940290971b3dd9ae286bce6",
+      "bytes": 5342052,
+      "svgSha256": "cf5050aa7c2446b93aae2bdc0f417c2463194a6a04fb11e149c4c6f67c80bead"
+    },
+    {
+      "file": "left-comparison-portable.png",
+      "sha256": "28021db58dacac5ba28a744746c3e5223ec2e513a0760ed2b2f7b82e61188a0d",
+      "svgSha256": "64dcd2b49ee0e21780c3656b19f59193776704b7d8b540cdcccf51dc2b3ef4af",
+      "bytes": 759078,
+      "dimensions": [
+        1440,
+        1748
+      ]
+    },
+    {
+      "file": "left-comparison-linked.png",
+      "sha256": "28021db58dacac5ba28a744746c3e5223ec2e513a0760ed2b2f7b82e61188a0d",
+      "svgSha256": "edf83feaa845daf0899be110d29145a71aca70a682f1b651975f50d5c5334065",
+      "bytes": 759078,
+      "dimensions": [
+        1440,
+        1748
+      ]
+    }
+  ],
+  "pairs": [
+    {
+      "view": "front",
+      "crop": "overview",
+      "differenceBounds": [
+        306,
+        592,
+        414,
+        629
+      ],
+      "onlyLocalizedCueChanged": true,
+      "pairScale": 0.96
+    },
+    {
+      "view": "front",
+      "crop": "detail",
+      "differenceBounds": [
+        270,
+        448,
+        498,
+        514
+      ],
+      "onlyLocalizedCueChanged": true,
+      "pairScale": 2.24
+    },
+    {
+      "view": "left",
+      "crop": "overview",
+      "differenceBounds": [
+        374,
+        594,
+        485,
+        631
+      ],
+      "onlyLocalizedCueChanged": true,
+      "pairScale": 0.96
+    },
+    {
+      "view": "left",
+      "crop": "detail",
+      "differenceBounds": [
+        227,
+        453,
+        462,
+        518
+      ],
+      "onlyLocalizedCueChanged": true,
+      "pairScale": 2.24
+    }
+  ],
+  "scope": "Native SVG export/reload and pixel binding only; no browser/WebGL or clinical approval",
+  "inkscape": "Inkscape 1.4 (e7c3feb100, 2024-10-09)",
+  "byteIdenticalReplay": true,
+  "linkedPortablePixelsIdentical": true,
+  "modelBytesUnchangedAfterExport": true
+}
