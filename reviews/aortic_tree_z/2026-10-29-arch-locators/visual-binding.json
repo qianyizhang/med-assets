@@ -1,0 +1,60 @@
+{
+  "sourceSha256": "d4b3dbd2d09fd76795f47bb96844acdeba5f1b4f48dd630f2a294f33816deaeb",
+  "sourceRenderReceiptSha256": "1038c1dc5da664b592aa5a96810f0568694cf48ddd887a0b5dda643ed65e089d",
+  "nativeRenderer": "Inkscape 1.4 (e7c3feb100, 2024-10-09)",
+  "comparisons": [
+    {
+      "view": "overview",
+      "originalPixelsEqualRender": true,
+      "changesConfinedToEditorialMask": true,
+      "visibleNumericBadges": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "changedPixelCount": 9046
+    },
+    {
+      "view": "junction",
+      "originalPixelsEqualRender": true,
+      "changesConfinedToEditorialMask": true,
+      "visibleNumericBadges": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "changedPixelCount": 11159
+    }
+  ],
+  "compositionReplayByteIdentical": [
+    "arch-locators.svg",
+    "overview-comparison.svg",
+    "junction-comparison.svg",
+    "build.json"
+  ],
+  "outputs": [
+    {
+      "file": "arch-locators.png",
+      "sha256": "ebcf7d70d4df66083d89b266d7810ef9797af88bf2d7e608481da107cc6b8b1a",
+      "bytes": 1099183
+    },
+    {
+      "file": "overview-comparison.png",
+      "sha256": "80a531c153a65b2ee0f63c00b5617e25723a3decbff9ef28ff3a5e9dfe31da8a",
+      "bytes": 845078
+    },
+    {
+      "file": "junction-comparison.png",
+      "sha256": "b2189e56e8d5233b1d468df1ed4bf28670a681f6c4c555430bf59e2b9ffbb6fb",
+      "bytes": 956546
+    },
+    {
+      "file": "arch-locators-grayscale.png",
+      "sha256": "58ef65655d53097971c5f34e07b8965a231e44b9dea347094025bf6d93809f2a",
+      "bytes": 390575
+    }
+  ],
+  "scope": "Actual native SVG exports and static binding. Grayscale exported for visual inspection; no browser or clinical approval."
+}

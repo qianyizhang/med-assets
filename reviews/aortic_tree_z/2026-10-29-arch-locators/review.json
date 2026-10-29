@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "id": "aortic_tree_z-r02-arch-locators-2026-10-29",
+  "issue": 149,
+  "scope": "Private static source-named editorial teaching plates; no model export or public delivery",
+  "baseCommit": "384b785c5f647234077dc34dcae56fbb10b6178c",
+  "branch": "wip/aortic-arch-locators-149",
+  "source": {
+    "file": "models/aortic_tree_z/exports/r02/aortic_tree_z_source_frame.glb",
+    "sha256": "d4b3dbd2d09fd76795f47bb96844acdeba5f1b4f48dd630f2a294f33816deaeb",
+    "bytes": 881168,
+    "meshes": 9,
+    "namedStructures": 15
+  },
+  "gates": {
+    "technical": {
+      "status": "passed",
+      "scope": "Exact source bytes, all-vertex import basis, pre/post vertices/topology/material/transforms, 8 exact named-node ray hits, pixel binding and deterministic composition"
+    },
+    "visual": {
+      "status": "pass-with-limitations",
+      "scope": "Author inspected actual native overview/detail pairs, standalone sheet and grayscale; independent review pending"
+    },
+    "anatomy": {
+      "status": "reference-screened",
+      "scope": "Retained source names and bilateral coordinates; general branch relationships checked with OpenStax. No clinical or specialist approval"
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "Native Inkscape SVG rendering only; browser runtime not attempted in this private preparation"
+    },
+    "publication": {
+      "status": "unverified",
+      "scope": "Private local/Library review only; no public PR, raster or Site publication authorized"
+    }
+  },
+  "mapping": {
+    "namedNodeHits": 8,
+    "maximumSourceImportCoordinateErrorM": 0.0,
+    "laterality": "Source +X is left in 3 bilateral name/coordinate checks; source left projects to screen right",
+    "compositeId1": "Brachiocephalic trunk + Right common carotid artery stays one source group; no component boundary invented"
+  },
+  "sourceRenderReplay": {
+    "views": [
+      {
+        "view": "overview",
+        "v1Sha256": "51879b7b295723abfe2c023b1f6efb092b5b5619cded4ff01a8d1c9b7c813faa",
+        "v2Sha256": "c99ec690c3af7fb7b9102b006b096812dfc294adc6e6edf4f2847921941f0111",
+        "pixelsEqual": true,
+        "maxPixelDifference": 0
+      },
+      {
+        "view": "junction",
+        "v1Sha256": "8402f59072680d43dd977925aca72c354f5b099b3ee066d204811a33e41086eb",
+        "v2Sha256": "e85942b1dde683da0fac69019c6106d728c34b090e46bda0e825e210d510248d",
+        "pixelsEqual": true,
+        "maxPixelDifference": 0
+      }
+    ],
+    "containerDifference": "Date and Cycles timing metadata differ; decoded RGB pixels exactly equal in both views"
+  },
+  "presentationOutputs": [
+    {
+      "file": "arch-locators.svg",
+      "sha256": "f62f53912a1cd17b3583241708c833d3b3189dc50cd84ae27d200fbff7a4878d",
+      "bytes": 2077943
+    },
+    {
+      "file": "overview-comparison.svg",
+      "sha256": "9685a40f5ed687dc83838322716ebf38b14defc793733bcd25b012aa7de865ed",
+      "bytes": 978775
+    },
+    {
+      "file": "junction-comparison.svg",
+      "sha256": "42dac287ae12efba42868f14d0baf86067b06a5e513a1f12e888a752b22dcf3e",
+      "bytes": 1105692
+    }
+  ],
+  "checks": [
+    {
+      "command": "python3 -m unittest discover -s tests -p test_aortic_arch_locators.py -v",
+      "status": "passed",
+      "tests": 8
+    },
+    {
+      "command": "tools/aortic_arch_locators/check_visuals.py with pinned source and rendered inputs",
+      "status": "passed",
+      "evidence": "visual-binding.json"
+    },
+    {
+      "command": "python3 tools/verify.py offline",
+      "status": "passed",
+      "tests": 197,
+      "transportManifests": 26,
+      "foundationRecords": 25,
+      "importReferences": 591,
+      "lfsPointerIdentities": 683
+    }
+  ],
+  "iteration": {
+    "v1": "Actual native overview/detail and standalone exports inspected; numeric endpoints and bilingual layout readable",
+    "v2": "Completed the composite English artery name; added exhaustive source/import coordinate and topology/material preservation evidence. Exact decoded source pixels retained",
+    "lesson": "A named-node ray hit establishes a locator on a retained composite, not an internal component boundary"
+  },
+  "limits": [
+    "Historical numeric camera recipe was unbundled; new captures are explicitly labeled new",
+    "Open/unfused junctions and cropped ends are retained; no continuous lumen validation",
+    "Source group identity is not anatomical or clinical approval",
+    "Independent review and public delivery remain separate"
+  ],
+  "license": "CC BY-SA 4.0",
+  "attribution": "See lessons/aortic-arch-locators/README.md and retained Z-Anatomy attribution"
+}
