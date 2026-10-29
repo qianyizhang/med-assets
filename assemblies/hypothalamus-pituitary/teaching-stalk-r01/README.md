@@ -36,6 +36,7 @@ source GLBs and this package/evidence. No private bundle or external atlas archi
 is required:
 
 ```sh
+git lfs install --local
 git lfs pull --include='models/hypothalamus/exports/source-candidate-01/*.glb,models/pituitary/exports/source-candidate-01/*.glb,assemblies/hypothalamus-pituitary/teaching-stalk-r01/*.glb,reviews/hypothalamus_pituitary/2026-10-29-teaching-stalk-r01/renders/*.png'
 python3 tests/hypothalamus_pituitary/verify_package.py
 ```
