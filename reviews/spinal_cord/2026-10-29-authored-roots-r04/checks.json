@@ -1,0 +1,97 @@
+{
+  "family": "spinal-root-study-v1",
+  "baseline_commit": "fb02eeef1e9e3d241de291da80103243c9f11e73",
+  "baseline_sha256": "5d9f0f88ff8498f611aea583e080558691d592a3ce50c89ecb847cf18b4d1471",
+  "candidate": {
+    "sha256": "a37783fbd1ad25ba9a2bcfbed1419a2d3f655b42cec643bf32a77266ca82a9d0",
+    "bytes": 2663288,
+    "meshes": 104,
+    "triangles": 178960,
+    "delivery": "local generated GLB; not published"
+  },
+  "technical": {
+    "status": "pass-with-limitations",
+    "single_component_closed_meshes": 104,
+    "zero_area_triangles": 0,
+    "all_volumes_positive": true,
+    "unrelated_pairs_screened": 5151,
+    "unrelated_triangle_contacts": 0,
+    "root_cord_contacts": 68,
+    "dorsal_ganglion_groups_screened": 34,
+    "root_mixed_contact_candidate_groups": 68,
+    "preserved_cord_filum_triangle_identity": true,
+    "exact_build_replay_sha256": "a37783fbd1ad25ba9a2bcfbed1419a2d3f655b42cec643bf32a77266ca82a9d0",
+    "limits": "Finite-precision screens; same-pair distal union intentional. Not exhaustive intratube intersection proof, anatomy or runtime.",
+    "offline": "Passed: 177 tests; 25 transport manifests; 25 foundation records; 591 import references; 673 LFS pointer identities. No media/runtime claim.",
+    "failure_checks": [
+      {
+        "check": "pointer-rejected",
+        "exit_code": 1,
+        "expected_failure_observed": true
+      },
+      {
+        "check": "existing-output-rejected",
+        "exit_code": 1,
+        "expected_failure_observed": true
+      }
+    ]
+  },
+  "visual": {
+    "status": "pass-with-limitations",
+    "scope": "Independent same-executor inspection of six actual matched neutral Cycles PNGs; V1 angular ganglion and union collar corrected in V2. See independent-review.md and raster-bindings.json."
+  },
+  "anatomy": {
+    "status": "reference-screened",
+    "scope": "Dorsal ganglion and distal dorsal/ventral union supported by Dartmouth chapter41 and OpenStax13.4. Authored dimensions and paths; no specialist or clinical approval."
+  },
+  "runtime": {
+    "status": "unverified",
+    "scope": "No supported live gallery or browser model test. Blender export/reimport and rendering are offline checks only."
+  },
+  "publication": {
+    "status": "code-and-svg-draft",
+    "scope": "Source recipe, geometry-bound flat SVG comparisons and receipts only; generated GLB and reviewed PNGs remain local."
+  },
+  "local_receipts": [
+    {
+      "file": "v2/build-record.json",
+      "sha256": "54642af0fc3746eaa93c1b7fcd35ecce447f42a887f40adacce8fe447ce2ab40"
+    },
+    {
+      "file": "v2/geometry-check.json",
+      "sha256": "d32baec7972517c9983505b5adb3bd351a355172338b955569d8256dac6a4990"
+    },
+    {
+      "file": "v2/relationship-check.json",
+      "sha256": "eb8f8932a14b3b24fc0bcae67e11f01d231339eb29e82dedaeb8dadc591707e4"
+    }
+  ],
+  "limitations": [
+    "17 bilateral samples, not a complete 31-pair map",
+    "No rootlets, distal rami, vertebrae, meninges or vessels",
+    "Some left lower roots overlap in this view",
+    "Whole model remains Needs revision; no quality-count increase"
+  ],
+  "source_files": [
+    {
+      "file": "models/spinal_cord/exports/authored-roots-r04/build.py",
+      "sha256": "e72c0602192de905b326d4b0e10cf3d9fd9228b374f49cd05b2ee772bb509ddc"
+    },
+    {
+      "file": "tests/spinal_cord/authored-roots-r04/check_geometry.py",
+      "sha256": "a63a6f8cc74ec35d430c399034d2b9bdf6df7efa7efdb2961d5cf8e7f901b67b"
+    },
+    {
+      "file": "tests/spinal_cord/authored-roots-r04/check_relationships.py",
+      "sha256": "5f84a52c9b336ed90a690292632ab0b119e25fb9747a0f9e6b2c534f51b9a9d9"
+    },
+    {
+      "file": "tests/spinal_cord/authored-roots-r04/project.py",
+      "sha256": "1f453bb98f77204cb3299c716e07dda6d03418f6204c33f35e2589bcdde0741d"
+    },
+    {
+      "file": "tests/spinal_cord/authored-roots-r04/render.py",
+      "sha256": "e5f376cfe4dd5edbc0a570bb4d73b02764c4fdd4d431a5485ac5dbc20d5982a0"
+    }
+  ]
+}

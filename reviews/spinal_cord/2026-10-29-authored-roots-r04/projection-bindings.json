@@ -1,0 +1,157 @@
+{
+  "views": [
+    {
+      "phase": "before",
+      "view": "whole",
+      "artifact_sha256": "5d9f0f88ff8498f611aea583e080558691d592a3ce50c89ecb847cf18b4d1471",
+      "camera": [
+        0.8158589005470276,
+        -1.75301992893219,
+        0.2575623691082001
+      ],
+      "target": [
+        0,
+        0.06,
+        0.04
+      ],
+      "orthoscale": 0.62,
+      "projection": "front-facing mesh silhouette, flat fill, object-average depth ordering; not a raster render",
+      "native_viewport": [
+        900,
+        1000
+      ]
+    },
+    {
+      "phase": "before",
+      "view": "pair",
+      "artifact_sha256": "5d9f0f88ff8498f611aea583e080558691d592a3ce50c89ecb847cf18b4d1471",
+      "camera": [
+        0.26656708121299744,
+        -1.5977805852890015,
+        1.2764573097229004
+      ],
+      "target": [
+        0.017,
+        0.066,
+        0.195
+      ],
+      "orthoscale": 0.056,
+      "projection": "front-facing mesh silhouette, flat fill, object-average depth ordering; not a raster render",
+      "native_viewport": [
+        900,
+        1000
+      ]
+    },
+    {
+      "phase": "before",
+      "view": "lower",
+      "artifact_sha256": "5d9f0f88ff8498f611aea583e080558691d592a3ce50c89ecb847cf18b4d1471",
+      "camera": [
+        1.0861655473709106,
+        -1.6170239448547363,
+        0.02710239589214325
+      ],
+      "target": [
+        0,
+        0.054,
+        -0.14
+      ],
+      "orthoscale": 0.225,
+      "projection": "front-facing mesh silhouette, flat fill, object-average depth ordering; not a raster render",
+      "native_viewport": [
+        900,
+        1000
+      ]
+    },
+    {
+      "phase": "current",
+      "view": "whole",
+      "artifact_sha256": "a37783fbd1ad25ba9a2bcfbed1419a2d3f655b42cec643bf32a77266ca82a9d0",
+      "camera": [
+        0.8158589005470276,
+        -1.75301992893219,
+        0.2575623691082001
+      ],
+      "target": [
+        0,
+        0.06,
+        0.04
+      ],
+      "orthoscale": 0.62,
+      "projection": "front-facing mesh silhouette, flat fill, object-average depth ordering; not a raster render",
+      "native_viewport": [
+        900,
+        1000
+      ]
+    },
+    {
+      "phase": "current",
+      "view": "pair",
+      "artifact_sha256": "a37783fbd1ad25ba9a2bcfbed1419a2d3f655b42cec643bf32a77266ca82a9d0",
+      "camera": [
+        0.26656708121299744,
+        -1.5977805852890015,
+        1.2764573097229004
+      ],
+      "target": [
+        0.017,
+        0.066,
+        0.195
+      ],
+      "orthoscale": 0.056,
+      "projection": "front-facing mesh silhouette, flat fill, object-average depth ordering; not a raster render",
+      "native_viewport": [
+        900,
+        1000
+      ]
+    },
+    {
+      "phase": "current",
+      "view": "lower",
+      "artifact_sha256": "a37783fbd1ad25ba9a2bcfbed1419a2d3f655b42cec643bf32a77266ca82a9d0",
+      "camera": [
+        1.0861655473709106,
+        -1.6170239448547363,
+        0.02710239589214325
+      ],
+      "target": [
+        0,
+        0.054,
+        -0.14
+      ],
+      "orthoscale": 0.225,
+      "projection": "front-facing mesh silhouette, flat fill, object-average depth ordering; not a raster render",
+      "native_viewport": [
+        900,
+        1000
+      ]
+    }
+  ],
+  "preserved_mesh_signatures": {
+    "before": {
+      "Authored cord with two enlargements and one conus": "39ccc9000c266137c0e6cf45d7136d96bfa18f6dc205f9e1f4a4c5c11b7831b8",
+      "Filum terminale - nonneural teaching strand": "52fa500574e744cdb00f17e3375845d55d8539f7efc1c1d0fe796b050a1ccb32"
+    },
+    "current": {
+      "Authored cord with two enlargements and one conus": "39ccc9000c266137c0e6cf45d7136d96bfa18f6dc205f9e1f4a4c5c11b7831b8",
+      "Filum terminale - nonneural teaching strand": "52fa500574e744cdb00f17e3375845d55d8539f7efc1c1d0fe796b050a1ccb32"
+    }
+  },
+  "files": [
+    {
+      "file": "comparison-lower.svg",
+      "sha256": "68a47c42d0a27c775b133ac92a8487747504a58cb1bdb7c1631915ddf192d192",
+      "bytes": 303934
+    },
+    {
+      "file": "comparison-pair.svg",
+      "sha256": "16d450ca8a168b009090f86ce914367419c49133d1b3df1ad5c83ae0288662ea",
+      "bytes": 320778
+    },
+    {
+      "file": "comparison-whole.svg",
+      "sha256": "1b6878e47c6380387199b32b7a48c57fcc24843113b6578dd65e75b265a147c3",
+      "bytes": 291688
+    }
+  ]
+}
