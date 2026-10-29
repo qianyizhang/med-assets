@@ -1,0 +1,287 @@
+{
+  "recordFamily": "scoped-svg-presentation-review",
+  "reviewedAt": "2026-10-28",
+  "artifact": {
+    "file": "body/2d-v4/whole-body-anatomy-v4-spatial/regions/urinary.svg",
+    "sha256": "09ec761954be764a8dc2f3215234fda4bb29190b10fb07a1fcce74a95dbd1066"
+  },
+  "baseline": {
+    "commit": "f2b6c8eccb1a54f532f0978cbdab4f9298f3b81a",
+    "sha256": "aee0e24ed573816babc28261dda5e98d371ef13d08f85fab4c2615e8288993e7"
+  },
+  "v1": {
+    "sha256": "ad9e651e31533787c87af718a841a24d7fea998c9a4fcbf18270e92aa306ef13",
+    "disposition": "revised: uniform context fade made renal branches and pelvic landmarks too faint at native size"
+  },
+  "v2": {
+    "changeCommit": "11b00906977627217f55b07b6c2280e7a0eb4d55",
+    "disposition": "retain as local trial pending independent keep/revise/reject decision at normal teaching scale; no promotion"
+  },
+  "gates": {
+    "technical": {
+      "status": "passed",
+      "scope": "Exact XML identity after reversing four opacity attributes; unique IDs, local references, unchanged full organ/label/data/clip trees; matched SVG raster export. See technical-receipt.json."
+    },
+    "visual": {
+      "status": "needs-review",
+      "scope": "Author inspected matched Inkscape native/3x overview, ureter-detail crops and grayscale, EN and existing data-zh localization. Author found the paired route easier to trace; independent confirmation of a clearly useful gain is pending."
+    },
+    "anatomy": {
+      "status": "reference-screened",
+      "scope": "No anatomy changed. Existing urinary-system emphasis checked against NIDDK; educational simplifications remain; no anatomical or clinical approval."
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "No product browser consumer or WebGL testing; Inkscape is an offline export renderer. Interaction and accessibility behavior unchanged."
+    },
+    "publication": {
+      "status": "unverified",
+      "scope": "Issue #124 created on one authorized reconsideration. Private Library image handoff failed before upload preparation; images remain local. No push, PR or public image/model payload publication."
+    }
+  },
+  "reference": {
+    "title": "NIDDK — The Urinary Tract & How It Works",
+    "url": "https://www.niddk.nih.gov/health-information/urologic-diseases/urinary-tract-how-it-works",
+    "accessed": "2026-10-28",
+    "use": "Existing structure identities and kidney-to-bladder teaching focus only; no reference image copied."
+  },
+  "render": {
+    "renderer": "Inkscape 1.4 (e7c3feb100, 2024-10-09)",
+    "background": "white, opaque",
+    "nativeSize": [
+      353,
+      271
+    ],
+    "overviewSize": [
+      1059,
+      813
+    ],
+    "detailSourceBox": [
+      230,
+      412,
+      104,
+      210
+    ],
+    "detailRasterCrop": [
+      177,
+      138,
+      489,
+      768
+    ],
+    "font": "Arial fallback; Noto Sans CJK SC for Chinese",
+    "grayscale": "Pillow ImageOps.grayscale; diagnostic only",
+    "warnings": "Inkscape ignores existing hover/transition CSS and feDropShadow. No hover/focus or filter-runtime pass claimed."
+  },
+  "evidence": [
+    {
+      "file": "baseline/en-detail.png",
+      "sha256": "aee1e85d8a5782a71403275b0a2014f271cb3adddea3e7cfec2f0541fe5cc212",
+      "bytes": 105891,
+      "size": [
+        312,
+        630
+      ],
+      "artifactSha256": "aee0e24ed573816babc28261dda5e98d371ef13d08f85fab4c2615e8288993e7",
+      "availability": "local review directory; not committed or published"
+    },
+    {
+      "file": "baseline/en-native-gray.png",
+      "sha256": "827df78ad7362b0287c6dd62ed551d4156a6f4e344b7c9c39f7a958ce5a43bb5",
+      "bytes": 18102,
+      "size": [
+        353,
+        271
+      ],
+      "artifactSha256": "aee0e24ed573816babc28261dda5e98d371ef13d08f85fab4c2615e8288993e7",
+      "availability": "local review directory; not committed or published"
+    },
+    {
+      "file": "baseline/en-native.png",
+      "sha256": "a7706f0359607b15783e99668a61ed5b1c1a15452ccdbb18d2b7c7256bd0f65d",
+      "bytes": 50187,
+      "size": [
+        353,
+        271
+      ],
+      "artifactSha256": "aee0e24ed573816babc28261dda5e98d371ef13d08f85fab4c2615e8288993e7",
+      "availability": "local review directory; not committed or published"
+    },
+    {
+      "file": "baseline/en-overview.png",
+      "sha256": "95fa5050f87a04c872d1f133f1210e71f3f8fbd36d6c45f7509042827d317dd6",
+      "bytes": 222856,
+      "size": [
+        1059,
+        813
+      ],
+      "artifactSha256": "aee0e24ed573816babc28261dda5e98d371ef13d08f85fab4c2615e8288993e7",
+      "availability": "local review directory; not committed or published"
+    },
+    {
+      "file": "baseline/zh-native-gray.png",
+      "sha256": "c626888765909a005b7f71804173c73e5e148931292070197b959c676bf4e4b1",
+      "bytes": 17681,
+      "size": [
+        353,
+        271
+      ],
+      "artifactSha256": "aee0e24ed573816babc28261dda5e98d371ef13d08f85fab4c2615e8288993e7",
+      "availability": "local review directory; not committed or published"
+    },
+    {
+      "file": "baseline/zh-native.png",
+      "sha256": "bd613902ff30a6c4c5d01012b535940fdcf4907d3bd321cd6d9cbafd171d16c2",
+      "bytes": 48997,
+      "size": [
+        353,
+        271
+      ],
+      "artifactSha256": "aee0e24ed573816babc28261dda5e98d371ef13d08f85fab4c2615e8288993e7",
+      "availability": "local review directory; not committed or published"
+    },
+    {
+      "file": "v1/en-detail.png",
+      "sha256": "3527e1859ca2ebb89e191a655adc166a8641feb4ebbd4d31d324c696b732da00",
+      "bytes": 97536,
+      "size": [
+        312,
+        630
+      ],
+      "artifactSha256": "ad9e651e31533787c87af718a841a24d7fea998c9a4fcbf18270e92aa306ef13",
+      "availability": "local review directory; not committed or published"
+    },
+    {
+      "file": "v1/en-native-gray.png",
+      "sha256": "da1c3a569c5da54bd5316392fc2e82feca750f7315ae3f37d66edecaff36cc09",
+      "bytes": 17091,
+      "size": [
+        353,
+        271
+      ],
+      "artifactSha256": "ad9e651e31533787c87af718a841a24d7fea998c9a4fcbf18270e92aa306ef13",
+      "availability": "local review directory; not committed or published"
+    },
+    {
+      "file": "v1/en-native.png",
+      "sha256": "8618fb1d3b89aa02204d1d5cc2cdece46e7c33914e7ac0f15169021df9dcd4e3",
+      "bytes": 46788,
+      "size": [
+        353,
+        271
+      ],
+      "artifactSha256": "ad9e651e31533787c87af718a841a24d7fea998c9a4fcbf18270e92aa306ef13",
+      "availability": "local review directory; not committed or published"
+    },
+    {
+      "file": "v1/en-overview.png",
+      "sha256": "9ac8c2d88d41d841f58b27e96f14fba70d6129dda648f38d1b9def45a757a5dc",
+      "bytes": 207172,
+      "size": [
+        1059,
+        813
+      ],
+      "artifactSha256": "ad9e651e31533787c87af718a841a24d7fea998c9a4fcbf18270e92aa306ef13",
+      "availability": "local review directory; not committed or published"
+    },
+    {
+      "file": "v1/zh-native-gray.png",
+      "sha256": "ff865e968ad5242c3c3a2ff3c0d4c6fc1a9a806b5c810a30f0396aed98acf0b7",
+      "bytes": 16672,
+      "size": [
+        353,
+        271
+      ],
+      "artifactSha256": "ad9e651e31533787c87af718a841a24d7fea998c9a4fcbf18270e92aa306ef13",
+      "availability": "local review directory; not committed or published"
+    },
+    {
+      "file": "v1/zh-native.png",
+      "sha256": "9186c746c226aba343a511cf2ef676149d1b0e99824a33a17ef9891729b46b2e",
+      "bytes": 45498,
+      "size": [
+        353,
+        271
+      ],
+      "artifactSha256": "ad9e651e31533787c87af718a841a24d7fea998c9a4fcbf18270e92aa306ef13",
+      "availability": "local review directory; not committed or published"
+    },
+    {
+      "file": "v2/en-detail.png",
+      "sha256": "80806633e53494f2af0dd38e68311effe5c951f6d8100a89461139ee26d1a3dd",
+      "bytes": 102091,
+      "size": [
+        312,
+        630
+      ],
+      "artifactSha256": "09ec761954be764a8dc2f3215234fda4bb29190b10fb07a1fcce74a95dbd1066",
+      "availability": "local review directory; not committed or published"
+    },
+    {
+      "file": "v2/en-native-gray.png",
+      "sha256": "9c5a5f1c2a1ff3bda3ea298194784662aed3d9f38b88e4d5e3afa409cab3b55e",
+      "bytes": 17490,
+      "size": [
+        353,
+        271
+      ],
+      "artifactSha256": "09ec761954be764a8dc2f3215234fda4bb29190b10fb07a1fcce74a95dbd1066",
+      "availability": "local review directory; not committed or published"
+    },
+    {
+      "file": "v2/en-native.png",
+      "sha256": "1ab7c76d4edb809c96b3b35977bd026b9ff12b9c69b4dc2a81ea458c9876b931",
+      "bytes": 48476,
+      "size": [
+        353,
+        271
+      ],
+      "artifactSha256": "09ec761954be764a8dc2f3215234fda4bb29190b10fb07a1fcce74a95dbd1066",
+      "availability": "local review directory; not committed or published"
+    },
+    {
+      "file": "v2/en-overview.png",
+      "sha256": "efd3f12dd336e04f4b908f6388039493b48ac80c836fdc8d8eee13c0e42d331e",
+      "bytes": 215893,
+      "size": [
+        1059,
+        813
+      ],
+      "artifactSha256": "09ec761954be764a8dc2f3215234fda4bb29190b10fb07a1fcce74a95dbd1066",
+      "availability": "local review directory; not committed or published"
+    },
+    {
+      "file": "v2/zh-native-gray.png",
+      "sha256": "a8ebe480250695469d8782bed02b1ebb97fc1b71611e9678aff5550256e01ca6",
+      "bytes": 17067,
+      "size": [
+        353,
+        271
+      ],
+      "artifactSha256": "09ec761954be764a8dc2f3215234fda4bb29190b10fb07a1fcce74a95dbd1066",
+      "availability": "local review directory; not committed or published"
+    },
+    {
+      "file": "v2/zh-native.png",
+      "sha256": "96e553a5e1e87013557daed37e3f71f89ac551372037a45fed67cfe594e25ca4",
+      "bytes": 47289,
+      "size": [
+        353,
+        271
+      ],
+      "artifactSha256": "09ec761954be764a8dc2f3215234fda4bb29190b10fb07a1fcce74a95dbd1066",
+      "availability": "local review directory; not committed or published"
+    }
+  ],
+  "limitations": [
+    "Static appearance correction in regions/urinary.svg only; atlas, primary parts, other regions and coordinate/provenance data are unchanged.",
+    "Packaged raster previews and import checksums remain historical; review current SVG exports.",
+    "Normal simplified educational schematic; not a clinical, procedural, dimensional or depth measurement asset.",
+    "Hosted CI and remote PR delivery have not run; issue #124 exists, but no push, PR or merge occurred."
+  ],
+  "issue": "https://github.com/qianyizhang/med-assets/issues/124",
+  "validation": {
+    "testedCommit": "ba9039c67cb949c684df39f97a30f7ebf3366025",
+    "offlineTestsPassed": 174,
+    "laterChanges": "Review status/issue linkage only; SVG, verification code and import metadata unchanged. No repeated tests."
+  }
+}
