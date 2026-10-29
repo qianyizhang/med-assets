@@ -3,8 +3,9 @@
 import base64, collections, hashlib, http.server, json, math, os
 from pathlib import Path
 import re, secrets, shutil, signal, struct, subprocess, sys, tempfile, threading, time
-import urllib.parse, urllib.request, zlib
+import urllib.parse, urllib.request
 import webgl_probe as base
+from webgl_probe import decode_xwd, png
 import lymph_diagnostics as diagnostics
 from esophagus import probe as esophagus
 
@@ -106,30 +107,6 @@ def reconstruct(fixture,work):
  dump('reconstruction-provenance.json',{'sourceSha256':next(x['sha256'] for x in fixture['resources'] if x.get('id')=='lymph'),
   'intermediate':r03,'sourceMap':source_map,'candidate':verified,'localReceiptSHA256':receipt_hashes,
   'retainedComparisonSha256':spec['retainedComparisonSha256'],'note':spec['identityNote']})
-
-def png(width,height,rgb):
- assert len(rgb)==width*height*3
- def chunk(k,p):return struct.pack('>I',len(p))+k+p+struct.pack('>I',zlib.crc32(k+p)&0xffffffff)
- rows=b''.join(b'\0'+rgb[y*width*3:(y+1)*width*3] for y in range(height))
- return b'\x89PNG\r\n\x1a\n'+chunk(b'IHDR',struct.pack('>2I5B',width,height,8,2,0,0,0))+chunk(b'IDAT',zlib.compress(rows))+chunk(b'IEND',b'')
-
-def decode_xwd(data):
- if len(data)<100:raise ValueError('Truncated XWD')
- h=struct.unpack('>25I',data[:100]);header,version,fmt,depth,width,height,offset,order=h[:8]
- bpp,stride,visual,red,green,blue,ncolors=h[11],h[12],h[13],h[14],h[15],h[16],h[19]
- if not(version==7 and fmt==2 and depth==24 and offset==0 and bpp==32 and visual==4 and order in (0,1)):
-  raise ValueError('Unsupported XWD layout')
- if not(100<=header<=4096 and 1<=width<=4096 and 1<=height<=4096 and width*4<=stride<=32768 and ncolors<=65536):
-  raise ValueError('Invalid XWD bounds')
- start=header+ncolors*12
- if len(data)<start+stride*height or (red,green,blue)!=(0xff0000,0xff00,0xff):raise ValueError('Invalid XWD pixels/masks')
- rgb=bytearray(width*height*3)
- for y in range(height):
-  row=data[start+y*stride:start+y*stride+width*4];target=y*width*3
-  rgb[target:target+width*3:3]=row[(2 if order==0 else 1)::4]
-  rgb[target+1:target+width*3:3]=row[(1 if order==0 else 2)::4]
-  rgb[target+2:target+width*3:3]=row[(0 if order==0 else 3)::4]
- return width,height,bytes(rgb)
 
 def changed(a,b,tolerance=2):
  assert len(a)==len(b)

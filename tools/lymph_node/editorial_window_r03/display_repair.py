@@ -12,7 +12,6 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from gltf_source import load, accessor, write_glb
 from build import append_accessor
 from check import CANDIDATE_SHA, cross, sub, norm
-from import_audit import oriented, material_semantics
 
 # The input has only unit vectors (within 1.4e-7) or cancellation remnants
 # below 1.1e-10. This threshold separates invalid remnants, not anatomy.

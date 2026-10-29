@@ -27,8 +27,9 @@ failures remain historical; a newer pass never rewrites earlier evidence.
 
 1. Confirm source/license and exact byte hashes.
 2. Review actual exported views against appropriate references; record limitations.
-3. Upload missing LFS payloads through an authorized route and independently read
-   them back by hash and size **before** publishing new pointers.
+3. Follow the [bounded transport flow](../transport/README.md#normal-flow) for
+   manifest-only publication, authorized upload and independent hash/size readback
+   **before** publishing new LFS pointers.
 4. Include the model's source notices, review record, evidence and tests together.
 5. Add the study's README entry only when every referenced dependency exists (see
    [study discovery](#study-discovery)).
@@ -59,8 +60,6 @@ change that bounded count. Correcting an existing claim still needs review.
 
 Separate study/run paths let asset PRs compose independently. Shared source
 changes, review contracts and transport policy still require coordinated review.
-Keep the [bounded transport flow](../transport/README.md#normal-flow), including
-separate manifest-only publication and independent LFS readback before pointers.
 
 Check retained navigation and a two-branch addition with:
 
