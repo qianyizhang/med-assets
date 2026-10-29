@@ -1,0 +1,139 @@
+{
+  "schema": "one-breath-local-v1",
+  "assets": [
+    {
+      "id": "lungLeft",
+      "file": "lung-left.glb",
+      "source": "models/lung_left/exports/metadata-cleanup-r01/lung_left.glb",
+      "bytes": 2524996,
+      "sha256": "6d3a6150dc47dba0d16162738caabc1bef3fcd8cf5ab4af492dd1121c1cb8533"
+    },
+    {
+      "id": "lungRight",
+      "file": "lung-right.glb",
+      "source": "models/lung_right/exports/metadata-cleanup-r01/lung_right.glb",
+      "bytes": 2653664,
+      "sha256": "3f8476ddd9d04448f4c1f63e85408860d7957f099e87170e8099efe635c16a78"
+    },
+    {
+      "id": "tracheaOpen",
+      "file": "trachea-open.glb",
+      "source": "trachea-v7/trachea-open.glb",
+      "bytes": 962440,
+      "sha256": "eb3ce52962aacc4d109a9840685aa172ca1d97bfc835367f4e36fd32de6b6cbb"
+    },
+    {
+      "id": "tracheaCutaway",
+      "file": "trachea-cutaway.glb",
+      "source": "trachea-v7/trachea-cutaway.glb",
+      "bytes": 1564740,
+      "sha256": "42b25a9e3de950db1a083da3802d4bb982c9084c425f768824c8973dc08be283"
+    }
+  ],
+  "frame": "Existing s1233 display frame; no new specimen registration or measured wall claim.",
+  "ports": {
+    "proximal": {
+      "position": [
+        -0.00015147,
+        0.17234541,
+        0.00601401
+      ],
+      "label": "trachea"
+    },
+    "left": {
+      "position": [
+        0.024,
+        0.07507817,
+        -0.03022069
+      ],
+      "label": "left"
+    },
+    "right": {
+      "position": [
+        -0.027,
+        0.08174657,
+        -0.02473285
+      ],
+      "label": "right"
+    }
+  },
+  "route": {
+    "main": [
+      [
+        -0.00015147,
+        0.17234541,
+        0.00601401
+      ],
+      [
+        0.000306,
+        0.17,
+        0.00158
+      ],
+      [
+        -0.002262,
+        0.16,
+        -0.005402
+      ],
+      [
+        -0.008603,
+        0.145,
+        -0.01268
+      ],
+      [
+        -0.013067,
+        0.13,
+        -0.017332
+      ],
+      [
+        -0.012606,
+        0.115,
+        -0.021659
+      ],
+      [
+        -0.010826,
+        0.103,
+        -0.022425
+      ],
+      [
+        -0.009604,
+        0.096,
+        -0.024011
+      ]
+    ],
+    "left": [
+      [
+        -0.009604,
+        0.096,
+        -0.024011
+      ],
+      [
+        0.006,
+        0.084,
+        -0.028
+      ],
+      [
+        0.024,
+        0.07507817,
+        -0.03022069
+      ]
+    ],
+    "right": [
+      [
+        -0.009604,
+        0.096,
+        -0.024011
+      ],
+      [
+        -0.018,
+        0.087,
+        -0.026
+      ],
+      [
+        -0.027,
+        0.08174657,
+        -0.02473285
+      ]
+    ]
+  },
+  "route_scope": "Authored teaching guides: main shaft centers estimated from V7 inner-surface bounds in 2 mm horizontal slices, connected to known editorial ports. Not extracted flow or distal airway reconstruction."
+}
