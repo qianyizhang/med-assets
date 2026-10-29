@@ -8,9 +8,7 @@ union visible. It preserves the r03 cord, conus and non-neural filum exactly.
 
 The image is a **flat SVG projection of the generated geometry, not a screenshot**.
 The independent visual review inspected matched, neutral-shaded Cycles PNGs.
-The GLB and reviewed PNGs remain local build products; this package publishes
-source code, SVG projections and receipts. It does not deliver a new binary or
-change the existing gallery/model selection. Whole-model status remains **Needs
+The exact reviewed [candidate GLB](candidate.glb) is now referenced through Git LFS on this branch. Fresh independent GitHub HTTPS readback matched its hash and size; see [delivery receipt](delivery.json). Reviewed PNGs remain separately retained. This does not change existing gallery/model selection. Whole-model status remains **Needs
 revision**; no quality-count increase is claimed.
 
 - 17 bilateral illustrative samples; **not a complete 31-pair nerve map**.
@@ -21,7 +19,7 @@ revision**; no quality-count increase is claimed.
 - Some lower roots overlap in the chosen view; inspect the pair close-up.
 
 本版显示背根神经节、独立腹根与其远端汇合的混合性脊神经。17个双侧示意层位
-不是完整31对脊神经图谱；不代表临床尺寸或椎骨定位。生成的GLB和已审阅PNG尚未发布。
+不是完整31对脊神经图谱；不代表临床尺寸或椎骨定位。本分支已提供经审阅GLB的Git LFS引用；PNG单独保留，图库选择未改变。
 
 ## Reproduce locally
 

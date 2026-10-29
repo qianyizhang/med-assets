@@ -1,7 +1,11 @@
 # FDI 31: retain the interface-locked research candidate
 
-**Draft evidence only. The 26.5 MB model and review images remain local; this PR
-ships neither payloads nor LFS pointers. No canonical asset changes.**
+**Retained unapproved candidate delivered:** [model](media/A_1_31_T2_SEG_na__layered.glb)
+and 4 review PNGs are tracked in Git LFS. No canonical asset or quality-status promotion.
+
+![Matched interface evidence](media/witness-1-enamel-dentin-matched.png)
+
+![Retained candidate and rejected simplifications](media/FDI31-one-round-no-change-comparison.png)
 
 ## Decision
 
@@ -24,18 +28,18 @@ ships neither payloads nor LFS pointers. No canonical asset changes.**
 
 ## Evidence and separate gates
 
-[Evidence index](evidence-index.json) binds exact local media hashes/sizes and
+[Evidence index](evidence-index.json) binds exact delivered media hashes/sizes and
 checksums of the included technical receipts. It is a scoped decision record,
-**not** a foundation record or claim that missing media can be read from GitHub.
+**not** a foundation record or anatomy acceptance.
 
 | Gate | Evidence / limit |
 |---|---|
 | Technical | [Independent export/topology checks](interface-independent-validation.json), [old witness checks](old-witness-location-check.json), [sampled occupancy screen](matched-occupancy-screen.json). No new duplicate/zero-area defects; inherited defects remain. |
-| Visual utility | Prior matched context/zoom sections reviewed; representative interface and rejection figures re-inspected while preparing this MR. Images are **not delivered here**. Local sections do not certify full 3-D appearance. |
+| Visual utility | Prior matched context/zoom sections reviewed; representative interface and rejection figures re-inspected while preparing this MR. Images are linked under `media/`. Local sections do not certify full 3-D appearance. |
 | Refinement | [Comparison receipt](refinement-comparison.json). 2 trials; sampled errors, not global bounds or biological accuracy. Builds: 341.6/603.5 s; peak child RSS about 1.96/1.94 GiB. |
 | Anatomy / clinical | Unapproved. Prepared T2 specimen, `inprogress` labels, source truncation, open/nonmanifold geometry and inherited coincident triangles remain. |
 | Runtime | Unmeasured. Complete 5-way 3-D rendering was not finished; no browser/FPS claim. |
-| Payload | Blocked pending separately authorized existing transport flow. No source download, upload or Site publication performed for this MR. |
+| Payload | [Bounded upload + fresh readback](https://github.com/qianyizhang/med-assets/actions/runs/40844590953) passed for all 5 objects; separate cloud readback also passed on 2026-10-29. |
 
 Use the [review contract](../../../docs/REVIEW_CONTRACT.md); the medical QA priority
 clarification is proposed separately in [PR93](https://github.com/qianyizhang/med-assets/pull/93).
@@ -57,9 +61,14 @@ unchanged. This is a new candidate, not a clean r03 rebuild. Original inputs,
 recipes, full receipts and rejected binaries remain local. This PR is not a
 self-contained geometry reproduction package.
 
-**Next delivery step:** authorize staging the exact candidate and 4 PNGs on the
-existing public Dental review Site, then a separate hash-named manifest-only PR
-under the [bounded transport policy](../../../transport/README.md). Independent
-fresh LFS readback must precede any candidate/image pointers. Only then add a
-complete export/review package. No new host, credentials, public-audience change,
-private-account data, rejected trial binaries or canonical promotion is needed.
+## Download and verification
+
+After clone, fetch only this review package:
+
+```sh
+git lfs pull --include="reviews/swirendo_fdi31/2026-10-27-interface-locked/media/*" --exclude=""
+```
+
+The evidence index binds all 5 raw SHA256 identities. Upload/readback proves bytes,
+not new visual, anatomy, clinical or browser acceptance. Rejected trial binaries
+are excluded. Authoring inputs/recipes remain outside this scoped delivery.
