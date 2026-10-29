@@ -19,9 +19,11 @@ authorize deleting history or artifacts; follow applicable retention rules.
 ## Pull requests and delivery
 
 Once there is concrete progress, open a draft/WIP PR. Link the related issues;
-issues and PRs may have many-to-many relationships. Describe scoped commits,
-tests and results, and remaining work. Reference issues without auto-closing them
-when a PR delivers only part of their acceptance criteria.
+issues and PRs may have many-to-many relationships. Use the
+[shared GitHub guide](https://github.com/qianyizhang/repo-kit/blob/main/user/practices/github.md)
+for public issue, PR and follow-up briefs; keep detailed worker evidence in
+linked records. Reference issues without auto-closing them when a PR delivers
+only part of their acceptance criteria.
 
 Mark a PR ready when its scoped acceptance criteria and applicable checks have
 supporting evidence, the exact tested commit is identified, and limitations are
