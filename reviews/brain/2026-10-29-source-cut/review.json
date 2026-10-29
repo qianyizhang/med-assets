@@ -9,7 +9,7 @@
     },
     "visual": {
       "status": "pass-with-limitations",
-      "scope": "Author inspected actual front/left teaching and comparisons, front grayscale and PDF reload; independent review pending"
+      "scope": "Author inspected front/left teaching and comparisons, front grayscale and PDF reload. Independent parent-agent review passed front/left comparisons, front grayscale and both actual standalone SVG layouts at 38d09238df799ac48cd3f234ffe2bd7205b77501."
     },
     "anatomy": {
       "status": "unverified",
@@ -86,5 +86,40 @@
     "Magnified detail reuses retained render pixels, not new geometric detail.",
     "Clinical/anatomical and browser runtime gates are not promoted.",
     "No new binary/LFS transport, Site publication, model mutation or canonical asset promotion."
-  ]
+  ],
+  "independentReview": {
+    "reviewer": "independent parent agent",
+    "reviewedAt": "2026-10-29",
+    "reviewedCommit": "38d09238df799ac48cd3f234ffe2bd7205b77501",
+    "status": "passed",
+    "evidence": [
+      {
+        "file": "front-comparison-portable.png",
+        "sha256": "c2ee5ee6cc8db191b0b10d8ff7a12b3a7d0010f7af1ec4d7430307662e66ae28"
+      },
+      {
+        "file": "left-comparison-portable.png",
+        "sha256": "28021db58dacac5ba28a744746c3e5223ec2e513a0760ed2b2f7b82e61188a0d"
+      },
+      {
+        "file": "front-comparison-grayscale.png",
+        "sha256": "e913312e7a36db39a25f6159e875fec71fc1de443965542d5225abcf4b0831b7"
+      },
+      {
+        "file": "portable/front-teaching.svg",
+        "sha256": "4aed879ba0af2b0e2cbaadfbac02e36a7c6a454879853bf78fb3a328c9f7af47"
+      },
+      {
+        "file": "portable/left-teaching.svg",
+        "sha256": "cf5050aa7c2446b93aae2bdc0f417c2463194a6a04fb11e149c4c6f67c80bead"
+      }
+    ],
+    "scope": "Verified private bundle sizes/hashes; inspected front/left comparisons and grayscale; independently rendered both portable teaching SVGs in Inkscape for actual standalone layout. Correct inferior source boundary, preserved visible tissue, matched crop/scale, readable EN/中文 editorial cue. Reviewed builder and 13-file diff: pinned inputs, 49 meshes and both medulla names enforced, no source mesh writes. No blocking presentation finding.",
+    "exclusions": [
+      "Browser rendering",
+      "Anatomical or clinical certification",
+      "Independent PDF reload",
+      "Public raster delivery"
+    ]
+  }
 }

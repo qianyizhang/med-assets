@@ -9,7 +9,7 @@ bracket outside the tissue, not an anatomical cap or reconstructed cord.
 **Evidence:** matched Original/Updated front and left sheets are committed as
 small SVGs referencing the existing exact contact image. Native PNG comparisons,
 portable SVGs and printable PDFs were produced locally; the front comparison was
-shared privately for independent review. New public raster transport is pending
+shared privately and independently reviewed. New public raster transport is pending
 explicit scope. The committed SVG's external image may not display in GitHub's
 restricted image preview; it was verified in Inkscape against the portable export.
 
@@ -27,9 +27,18 @@ restricted image preview; it was verified in Inkscape against the portable expor
   medulla node names, byte-identical portable replay, independent linked/portable
   native exports, and four Original/Updated pixel differences confined to the cue.
   See [visual-binding.json](visual-binding.json) and [review.json](review.json).
-- **Pending:** independent presentation review, public raster evidence delivery
-  and browser display. Chromium stopped before page launch because its SUID
-  sandbox helper was misconfigured. No security changes or protected probes ran.
+- **Independent static pass:** at `38d09238df799ac48cd3f234ffe2bd7205b77501`,
+  the parent reviewer verified private bundle hashes/sizes and inspected both
+  comparisons, front grayscale and independently rendered standalone SVG layouts.
+  The correct inferior boundary is marked outside tissue; Original/Updated crops
+  and scales match, and EN/中文 labels distinguish the editorial cue. Builder/diff
+  review confirmed pinned inputs, 49 meshes/two medulla names and no mesh writes.
+  No blocking presentation finding. PDF reload was author-only, not independently
+  verified; this verdict does not certify anatomy, browser display or publication.
+- **Pending:** public raster evidence authority and browser display. The first
+  PR-image embed was rejected by automatic approval review; the text-only draft
+  remains. Chromium stopped before page launch at its misconfigured SUID sandbox
+  helper. No public raster retry, security change or protected probe was attempted.
 
 ## Reproduce
 
