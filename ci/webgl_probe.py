@@ -111,37 +111,58 @@ def sha(path):
     return h.hexdigest()
 
 
-def xwd_to_png(data, target):
-    """Convert Xvfb's documented XWD snapshot; reject unsupported layouts."""
+def png(width, height, rgb):
+    """Encode top-down RGB rows as a PNG without changing their pixels."""
+    assert len(rgb) == width * height * 3
+
+    def chunk(kind, payload):
+        return (struct.pack('>I', len(payload)) + kind + payload +
+                struct.pack('>I', zlib.crc32(kind + payload) & 0xffffffff))
+
+    rows = b''.join(b'\0' + rgb[y * width * 3:(y + 1) * width * 3] for y in range(height))
+    return (b'\x89PNG\r\n\x1a\n' +
+            chunk(b'IHDR', struct.pack('>2I5B', width, height, 8, 2, 0, 0, 0)) +
+            chunk(b'IDAT', zlib.compress(rows)) + chunk(b'IEND', b''))
+
+
+def decode_xwd(data):
+    """Decode Xvfb's bounded TrueColor layout to top-down RGB rows."""
     if len(data) < 100:
-        raise ValueError('Truncated XWD header')
+        raise ValueError('Truncated XWD')
     h = struct.unpack('>25I', data[:100])
     header, version, fmt, depth, width, height, offset, order = h[:8]
-    bpp, stride, visual, red, green, blue, ncolors = h[11],h[12],h[13],h[14],h[15],h[16],h[19]
-    if not (version==7 and fmt==2 and depth==24 and offset==0 and bpp==32 and visual==4 and order in (0,1)):
-        raise ValueError(f'Unsupported XWD layout: {h}')
-    if not (100<=header<=4096 and 1<=width<=4096 and 1<=height<=4096 and width*4<=stride<=32768 and ncolors<=65536):
+    bpp, stride, visual, red, green, blue, ncolors = h[11], h[12], h[13], h[14], h[15], h[16], h[19]
+    if not (version == 7 and fmt == 2 and depth == 24 and offset == 0 and bpp == 32 and visual == 4 and order in (0, 1)):
+        raise ValueError('Unsupported XWD layout')
+    if not (100 <= header <= 4096 and 1 <= width <= 4096 and 1 <= height <= 4096 and width * 4 <= stride <= 32768 and ncolors <= 65536):
         raise ValueError('Invalid XWD bounds')
-    start = header+ncolors*12
-    if len(data)<start+stride*height or (red,green,blue)!=(0xff0000,0xff00,0xff):
-        raise ValueError('Truncated XWD or unsupported RGB masks')
-    raw=bytearray();counts={"webgl2":0,"webgl":0}
-    targets={"webgl2":(26,204,77),"webgl":(204,51,179)}
+    start = header + ncolors * 12
+    if len(data) < start + stride * height or (red, green, blue) != (0xff0000, 0xff00, 0xff):
+        raise ValueError('Invalid XWD pixels/masks')
+    rgb = bytearray(width * height * 3)
     for y in range(height):
-        raw.append(0)
-        for x in range(width):
-            i=start+y*stride+x*4
-            p=int.from_bytes(data[i:i+4], 'little' if order==0 else 'big')
-            rgb=((p>>16)&255,(p>>8)&255,p&255)
-            raw.extend(rgb)
-            for kind,color in targets.items():
-                if all(abs(a-b)<=3 for a,b in zip(rgb,color)):
-                    counts[kind]+=1
-    def chunk(kind,payload):
-        return struct.pack('>I',len(payload))+kind+payload+struct.pack('>I',zlib.crc32(kind+payload)&0xffffffff)
-    png=b'\x89PNG\r\n\x1a\n'+chunk(b'IHDR',struct.pack('>2I5B',width,height,8,2,0,0,0))+chunk(b'IDAT',zlib.compress(raw))+chunk(b'IEND',b'')
-    Path(target).write_bytes(png)
-    return {"width":width,"height":height,"triangleColorPixels":counts,"sha256":hashlib.sha256(png).hexdigest()}
+        row = data[start + y * stride:start + y * stride + width * 4]
+        target = y * width * 3
+        rgb[target:target + width * 3:3] = row[(2 if order == 0 else 1)::4]
+        rgb[target + 1:target + width * 3:3] = row[(1 if order == 0 else 2)::4]
+        rgb[target + 2:target + width * 3:3] = row[(0 if order == 0 else 3)::4]
+    return width, height, bytes(rgb)
+
+
+def xwd_to_png(data, target):
+    """Save a display capture and count the WebGL feasibility probe's colors."""
+    width, height, rgb = decode_xwd(data)
+    counts = {"webgl2": 0, "webgl": 0}
+    targets = {"webgl2": (26, 204, 77), "webgl": (204, 51, 179)}
+    for offset in range(0, len(rgb), 3):
+        pixel = rgb[offset:offset + 3]
+        for kind, color in targets.items():
+            if all(abs(a - b) <= 3 for a, b in zip(pixel, color)):
+                counts[kind] += 1
+    encoded = png(width, height, rgb)
+    Path(target).write_bytes(encoded)
+    return {"width": width, "height": height, "triangleColorPixels": counts,
+            "sha256": hashlib.sha256(encoded).hexdigest()}
 
 
 def provenance(firefox):
