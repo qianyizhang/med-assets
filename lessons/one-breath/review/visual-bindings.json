@@ -1,0 +1,203 @@
+[
+  {
+    "image": "mechanics-rest.png",
+    "sha256": "fdfb3bc1365efe592f5de1b11da2ea05c7d2c34aed80723cc8554e7f5c549fcb",
+    "snapshot": "mechanics-rest.json",
+    "snapshot_sha256": "839b3b4f878bc6ae4e28680ce089a8dedbe2125e85de1868b91086ae39072e57",
+    "assets": [
+      {
+        "id": "lungLeft",
+        "file": "lung-left.glb",
+        "source": "models/lung_left/exports/metadata-cleanup-r01/lung_left.glb",
+        "bytes": 2524996,
+        "sha256": "6d3a6150dc47dba0d16162738caabc1bef3fcd8cf5ab4af492dd1121c1cb8533"
+      },
+      {
+        "id": "lungRight",
+        "file": "lung-right.glb",
+        "source": "models/lung_right/exports/metadata-cleanup-r01/lung_right.glb",
+        "bytes": 2653664,
+        "sha256": "3f8476ddd9d04448f4c1f63e85408860d7957f099e87170e8099efe635c16a78"
+      },
+      {
+        "id": "tracheaOpen",
+        "file": "trachea-open.glb",
+        "source": "trachea-v7/trachea-open.glb",
+        "bytes": 962440,
+        "sha256": "eb3ce52962aacc4d109a9840685aa172ca1d97bfc835367f4e36fd32de6b6cbb"
+      },
+      {
+        "id": "tracheaCutaway",
+        "file": "trachea-cutaway.glb",
+        "source": "trachea-v7/trachea-cutaway.glb",
+        "bytes": 1564740,
+        "sha256": "42b25a9e3de950db1a083da3802d4bb982c9084c425f768824c8973dc08be283"
+      }
+    ],
+    "state": {
+      "stage": 0,
+      "language": "en",
+      "phase": 0,
+      "playing": false,
+      "gas": "oxygen",
+      "elapsed": 1.7,
+      "breathClock": 1.7,
+      "assets": "ready",
+      "error": ""
+    },
+    "camera": {
+      "position": [
+        0.27,
+        0.17,
+        0.68
+      ],
+      "target": [
+        0,
+        0.055,
+        0
+      ],
+      "height": 0.37
+    },
+    "scope": "Actual offline Blender render of shared Three.js snapshot geometry/morph state. Not browser screenshot or WebGL acceptance."
+  },
+  {
+    "image": "mechanics-in.png",
+    "sha256": "18c7c4e6fca672b44a22ca50fc5d46913397ad8384c731bd7f02d137e24d0b14",
+    "snapshot": "mechanics-in.json",
+    "snapshot_sha256": "58d8165eeb788af554713d96274346296614f1a2d1bed96f2d6ae4070cd5ed53",
+    "assets": [
+      {
+        "id": "lungLeft",
+        "file": "lung-left.glb",
+        "source": "models/lung_left/exports/metadata-cleanup-r01/lung_left.glb",
+        "bytes": 2524996,
+        "sha256": "6d3a6150dc47dba0d16162738caabc1bef3fcd8cf5ab4af492dd1121c1cb8533"
+      },
+      {
+        "id": "lungRight",
+        "file": "lung-right.glb",
+        "source": "models/lung_right/exports/metadata-cleanup-r01/lung_right.glb",
+        "bytes": 2653664,
+        "sha256": "3f8476ddd9d04448f4c1f63e85408860d7957f099e87170e8099efe635c16a78"
+      },
+      {
+        "id": "tracheaOpen",
+        "file": "trachea-open.glb",
+        "source": "trachea-v7/trachea-open.glb",
+        "bytes": 962440,
+        "sha256": "eb3ce52962aacc4d109a9840685aa172ca1d97bfc835367f4e36fd32de6b6cbb"
+      },
+      {
+        "id": "tracheaCutaway",
+        "file": "trachea-cutaway.glb",
+        "source": "trachea-v7/trachea-cutaway.glb",
+        "bytes": 1564740,
+        "sha256": "42b25a9e3de950db1a083da3802d4bb982c9084c425f768824c8973dc08be283"
+      }
+    ],
+    "state": {
+      "stage": 0,
+      "language": "en",
+      "phase": 0.38,
+      "playing": true,
+      "gas": "oxygen",
+      "elapsed": 1.7,
+      "breathClock": 1.7,
+      "assets": "ready",
+      "error": ""
+    },
+    "camera": {
+      "position": [
+        0.27,
+        0.17,
+        0.68
+      ],
+      "target": [
+        0,
+        0.055,
+        0
+      ],
+      "height": 0.37
+    },
+    "scope": "Actual offline Blender render of shared Three.js snapshot geometry/morph state. Not browser screenshot or WebGL acceptance."
+  },
+  {
+    "image": "airway.png",
+    "sha256": "7d93258ecff26166d90bd30f8d878c695e18763d21035761b8cee6a7eedcfece",
+    "snapshot": "airway.json",
+    "snapshot_sha256": "b63eb24859a71a055afc8dcd2f053863429c757790f665f84532e2d594057bff",
+    "assets": [
+      {
+        "id": "lungLeft",
+        "file": "lung-left.glb",
+        "source": "models/lung_left/exports/metadata-cleanup-r01/lung_left.glb",
+        "bytes": 2524996,
+        "sha256": "6d3a6150dc47dba0d16162738caabc1bef3fcd8cf5ab4af492dd1121c1cb8533"
+      },
+      {
+        "id": "lungRight",
+        "file": "lung-right.glb",
+        "source": "models/lung_right/exports/metadata-cleanup-r01/lung_right.glb",
+        "bytes": 2653664,
+        "sha256": "3f8476ddd9d04448f4c1f63e85408860d7957f099e87170e8099efe635c16a78"
+      },
+      {
+        "id": "tracheaOpen",
+        "file": "trachea-open.glb",
+        "source": "trachea-v7/trachea-open.glb",
+        "bytes": 962440,
+        "sha256": "eb3ce52962aacc4d109a9840685aa172ca1d97bfc835367f4e36fd32de6b6cbb"
+      },
+      {
+        "id": "tracheaCutaway",
+        "file": "trachea-cutaway.glb",
+        "source": "trachea-v7/trachea-cutaway.glb",
+        "bytes": 1564740,
+        "sha256": "42b25a9e3de950db1a083da3802d4bb982c9084c425f768824c8973dc08be283"
+      }
+    ],
+    "state": {
+      "stage": 1,
+      "language": "en",
+      "phase": 0.3,
+      "playing": true,
+      "gas": "oxygen",
+      "elapsed": 1.7,
+      "breathClock": 1.7,
+      "assets": "ready",
+      "error": ""
+    },
+    "camera": {
+      "position": [
+        0.075,
+        0.165,
+        0.33
+      ],
+      "target": [
+        0,
+        0.123,
+        -0.014
+      ],
+      "height": 0.151
+    },
+    "scope": "Actual offline Blender render of shared Three.js snapshot geometry/morph state. Not browser screenshot or WebGL acceptance."
+  },
+  {
+    "file": "v2/offline-storyboard.png",
+    "bytes": 543046,
+    "sha256": "d6eb778453cf94a5cf6ac699628ef8360f016e48685f6483de8367b6d4ac6b75",
+    "scope": "Offline composition or same-code authored schematic; not a browser screenshot"
+  },
+  {
+    "file": "v2/exchange-en.svg",
+    "bytes": 2067,
+    "sha256": "cb3c53027392f96bd1f24614a1728381670d05f5a0b35a2805af4de6d7c4f5a0",
+    "scope": "Offline composition or same-code authored schematic; not a browser screenshot"
+  },
+  {
+    "file": "v2/exchange-zh.svg",
+    "bytes": 2086,
+    "sha256": "b336fc0aab128152e3cf3544245a4e8c72efc6f1ddee7c51cf0fc5d8f093b360",
+    "scope": "Offline composition or same-code authored schematic; not a browser screenshot"
+  }
+]

@@ -1,0 +1,168 @@
+{
+  "family": "one-breath-local-prototype-v1",
+  "base_revision": "5690af1",
+  "technical": {
+    "status": "pass-with-limitations",
+    "node_tests": 17,
+    "repo_offline_tests": 183,
+    "scope": "Actual pinned GLTFLoader/morph consumption; state/reset/stage/gas/language data; pause clock; corrupt/missing model rejection and retry; exact loopback HTTP file delivery and 404 behavior. Not browser clicks."
+  },
+  "visual": {
+    "status": "pass-with-limitations",
+    "scope": "Independent actual offline whole/detail renders and bilingual storyboard; scene/state geometry reused by final code. Model composition evidence, not implemented UI screenshots."
+  },
+  "educational": {
+    "status": "reference-screened",
+    "scope": "Original qualitative mechanics\u2192airway\u2192exchange lesson; authored wall/motion/diaphragm/ribs/diagram. No clinical, quantitative physiology or simulation validation."
+  },
+  "runtime": {
+    "status": "unverified",
+    "blocker": "Sandboxed Chromium launch failed before page creation: SUID sandbox helper was found but is not configured correctly. No security override or protected CI probe was used.",
+    "unrun": [
+      "Actual DOM controls and event timing",
+      "Browser/WebGL rendering",
+      "Responsive layout and keyboard/focus behavior",
+      "Live no-WebGL/asset-retry UI"
+    ]
+  },
+  "publication": {
+    "scope": "Local prototype and private offline storyboard only. No Sites or binary/LFS publication; any later code draft does not publish model bytes."
+  },
+  "iteration": {
+    "v1_defects": [
+      "Flow guide left bent lumen",
+      "Paused mechanics retained moving airflow markers",
+      "End inspiration mislabeled as initial rest",
+      "No-WebGL text promised absent/inconsistent preview"
+    ],
+    "v2_fixes": [
+      "Guide aligned to existing inner-surface slice centers and ports",
+      "Separate frozen breath clock, continuing exchange clock",
+      "End-inspiration and paused cues",
+      "Static fallback labelled separately; reset frame/missing-preview text and stale-callback guard"
+    ]
+  },
+  "input_manifest": "assets.json",
+  "files": [
+    {
+      "file": ".gitignore",
+      "bytes": 21,
+      "sha256": "5fe496a917a6009e370a0368f1f3bf898b3972513ffa0ba7bb8d4ff69c67fdf5"
+    },
+    {
+      "file": "README.md",
+      "bytes": 5398,
+      "sha256": "a757953361ccd197c63627a0a2229f19070a84aac4d5382cd300d321d1844a3e"
+    },
+    {
+      "file": "app.mjs",
+      "bytes": 5983,
+      "sha256": "ed86a2d4ce2a9bd654a269b956054d9685a8ee8d65fce49aa90b32ca8109a2a7"
+    },
+    {
+      "file": "asset-loader.mjs",
+      "bytes": 1792,
+      "sha256": "d2c82696fa5056f75ddcc01320c490be98a31ca7bc17a4af315943ea6be10bc0"
+    },
+    {
+      "file": "assets.json",
+      "bytes": 2800,
+      "sha256": "5912784546119831b3fac9a1788834de49a0fb2eaf1e3bc7005b0c44c2b33806"
+    },
+    {
+      "file": "exchange.mjs",
+      "bytes": 2366,
+      "sha256": "d7d2e6bccde8d577dfb7ade32eb104bbeacc0b14de8fa9c067dbce64ac50ffc2"
+    },
+    {
+      "file": "index.html",
+      "bytes": 1689,
+      "sha256": "87f7d4a86f704b6e6c290f8b66bd2d174e3f5326ce8e8d77762171bb81233491"
+    },
+    {
+      "file": "licenses/ATTRIBUTION.md",
+      "bytes": 1764,
+      "sha256": "8dd4c8026f96ee331f269abde517bf37d5624b3378d79af705b00d8e27a8638b"
+    },
+    {
+      "file": "licenses/CC-BY-4.0.txt",
+      "bytes": 18656,
+      "sha256": "9e5f1b3c610b9c2da5c313bf81d577a7d1acec686bdb0384edefa6df0f90cd94"
+    },
+    {
+      "file": "licenses/SOURCE-NOTICE.md",
+      "bytes": 3661,
+      "sha256": "87372df39878e0c73903675edc21875fa712a90b22f497ffb55d50a29f210a94"
+    },
+    {
+      "file": "licenses/TotalSegmentator-v2.0.1-LICENSE.txt",
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "file": "licenses/trachea-provenance/host-conforming-cbands-r05/ATTRIBUTION.md",
+      "bytes": 1184,
+      "sha256": "c1736928b19b1f1a8b11d20b29a5ad8054e3449c948a313268b1d33c59e09706"
+    },
+    {
+      "file": "licenses/trachea-provenance/host-conforming-cbands-r05/README.md",
+      "bytes": 1083,
+      "sha256": "e0807bab024f6ceb914fa2ff0b248dcaed09462bc0b57e84ed72bfa5671a9ef3"
+    },
+    {
+      "file": "licenses/trachea-provenance/open-airway-r06/ATTRIBUTION.md",
+      "bytes": 1265,
+      "sha256": "f2849d9cb807d3088da297bb2ee7d229a3f4bdb61944236bd09defeb850b5364"
+    },
+    {
+      "file": "prepare.py",
+      "bytes": 1874,
+      "sha256": "ddeedfdca9cc5e2547d8abeb3e5ecc9bce7c299f4a4df3925d5f0062075c044a"
+    },
+    {
+      "file": "scene.mjs",
+      "bytes": 4328,
+      "sha256": "60c33a7be79e7bc6a917e045c8c765f30847399b1a5afd40e9c1cad384ce3b14"
+    },
+    {
+      "file": "serve.py",
+      "bytes": 772,
+      "sha256": "6b6717a0ab0c0608fca5965e583709a7fa96e72e15b48b528be7e4d8b89a30ba"
+    },
+    {
+      "file": "state.mjs",
+      "bytes": 6134,
+      "sha256": "3e52661f6f11cd63411b658b4cb2fad24d5a9d857161df65e1c9d27fd8b0451d"
+    },
+    {
+      "file": "style.css",
+      "bytes": 4772,
+      "sha256": "68fa8f3f15d84e054423a0fa6b5a5b73e5fc0f73203d1addaafb5233aba82d12"
+    },
+    {
+      "file": "tests/board.mjs",
+      "bytes": 3244,
+      "sha256": "b661a55d1b89c516a596b030cee57cc03ff7d2d960b662c304bb0e3455f7ed26"
+    },
+    {
+      "file": "tests/capture.mjs",
+      "bytes": 2485,
+      "sha256": "aa696d1659ce38e54a8a0bfc9750bb9a7d3f5861d36a48d5aa4bf1f7daa90e0c"
+    },
+    {
+      "file": "tests/consumer.test.mjs",
+      "bytes": 3474,
+      "sha256": "b13c23776c5b589f45cae5d79dd9f5c068f155126fc5e647465fbeb62fc2d671"
+    },
+    {
+      "file": "tests/render_offline.py",
+      "bytes": 2923,
+      "sha256": "a203c3f8b44d257e4129c9789de248e9ce632c5faf7f3969cee63f0e4d9d6bbf"
+    },
+    {
+      "file": "tests/state.test.mjs",
+      "bytes": 3890,
+      "sha256": "cb777db5679b3f70e130d1a09e58d42b8818a848f2c84265934bfcf39dacf3a0"
+    }
+  ]
+}
