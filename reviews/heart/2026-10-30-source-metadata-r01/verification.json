@@ -1,0 +1,65 @@
+{
+  "scope": "Local source-heart metadata correctness maintenance; not geometric improvement or catalog promotion",
+  "patch": "tests/scene_metadata/heart/approved-patch.json",
+  "source": {
+    "file": "body/breathing/heart_breathing.glb",
+    "bytes": 2037364,
+    "sha256": "3894d51df42a6e5941f0d2b076992d5359279f5e3ddb3b6d4ff6c00f58328086"
+  },
+  "target": {
+    "file": "models/heart/exports/metadata-cleanup-r01/heart.glb",
+    "bytes": 2037228,
+    "sha256": "50c86dcab55701ca1418e16cd269ded70027663d58d02270ec6df0c8afd488fb"
+  },
+  "exactReplayPassed": true,
+  "nonJSONChunksUnchanged": true,
+  "JSONOutsideAllowedFieldsUnchanged": true,
+  "binBytes": 2033172,
+  "binSha256": "2a8c8dda5693e07538dd83474b2f914859de6c00682b233e299924a56ef68f43",
+  "clip": {
+    "name": "Illustrative breathing · 4 seconds",
+    "channels": 1,
+    "path": "translation",
+    "keys": 81,
+    "timeRangeSeconds": [0, 4],
+    "decodedArraysExact": true
+  },
+  "retainedNodeAndManifestContractUnchanged": true,
+  "rejectedCases": [
+    "changed source",
+    "wrong old field",
+    "outside extras",
+    "unsupported operation",
+    "wrong target field"
+  ],
+  "nativeImport": {
+    "blender": "4.3.2",
+    "sourceAndTargetImportPassed": true,
+    "sceneExtrasMatchEachGLB": true,
+    "nodeProvenanceUnchanged": true,
+    "meshVertices": 15153,
+    "triangles": 24000,
+    "positionSha256": "8d7a989a02276ca375ee65be782a664206dbece22f6cf3e342dfe310a8016e77",
+    "triangleIndexSha256": "6740014f592966a3bc798d22bacf3863e0bf59743e59c9ab2aa2e99a0af45b43",
+    "animationCurvesSha256": "9c348241b52b20c9e71184c110534ed8651d095c765bd808d8c450950798b78f",
+    "worldMatricesAt81TimesSha256": "e637809bf92d5914123f5ec0680d428ad7aa2e897859867acd10699b8d92dea0",
+    "materialsAndImageInventoryUnchanged": true,
+    "scope": "Native import and sampled state only; no render, browser, physiology or clinical approval"
+  },
+  "offline": {
+    "command": "python3 tools/verify.py offline",
+    "testsPassed": 234,
+    "transportManifests": 26,
+    "foundationRecords": 25,
+    "importReferences": 591,
+    "LFSPointerIdentities": 835,
+    "scope": "Text/pointer gate; actual source/target payload and native import checks recorded separately above"
+  },
+  "limitations": [
+    "Original body studio.js and historical dependencies absent; no live viewer test",
+    "No rendering needed because render and animation data are unchanged",
+    "Anatomy/clinical and browser-runtime gates not promoted",
+    "This receipt records author checks only; independent review is separate",
+    "Blender reported a read-only extension-cache write warning; both imports and all assertions passed"
+  ]
+}
