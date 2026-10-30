@@ -1,0 +1,2540 @@
+{
+  "source": {
+    "file": "Z-Anatomy/Startup.blend",
+    "bytes": 306838281,
+    "sha256": "9f08a17ea0115fed80b2a73ecdf0a1bc2ab2f6956f37c593ce23d513ea35afcd"
+  },
+  "blender": "4.3.2",
+  "autoExec": false,
+  "sourceObjectCount": 7184,
+  "objects": [
+    {
+      "name": "Cornea.l",
+      "type": "MESH",
+      "parent": "Eyeball.g",
+      "matrixWorld": [
+        [
+          -0.9999999403953552,
+          0.0,
+          0.0,
+          0.03054818883538246
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          1.4210854715202004e-14,
+          -0.06406375765800476
+        ],
+        [
+          0.0,
+          -1.4210854715202004e-14,
+          0.9999999403953552,
+          1.5907039642333984
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "modifiers": [
+        {
+          "name": "Subdivision",
+          "type": "SUBSURF",
+          "viewport": true,
+          "render": true
+        }
+      ],
+      "dataName": "Cornea",
+      "animationData": false,
+      "materials": [
+        {
+          "name": "Cornea",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Mix Shader",
+              "type": "MIX_SHADER"
+            },
+            {
+              "name": "Principled BSDF",
+              "type": "BSDF_PRINCIPLED"
+            },
+            {
+              "name": "Transparent BSDF",
+              "type": "BSDF_TRANSPARENT"
+            },
+            {
+              "name": "Material Output",
+              "type": "OUTPUT_MATERIAL"
+            },
+            {
+              "name": "Cross Section Controller",
+              "type": "GROUP"
+            },
+            {
+              "name": "Value",
+              "type": "VALUE"
+            }
+          ],
+          "principled": {
+            "Base Color": [
+              0.040757063776254654,
+              0.040757063776254654,
+              0.040757063776254654,
+              1.0
+            ],
+            "Metallic": 0.0,
+            "Roughness": 0.014545454643666744,
+            "Alpha": 1.0
+          }
+        }
+      ],
+      "rawVertices": 322,
+      "evaluatedVertices": 1346,
+      "evaluatedTriangles": 2688,
+      "worldGeometrySha256": "078b5d7135dc579dcfd9d5c98fb3fa6cf589bb2f36d50332449abcf4e5557be6",
+      "boundsNative": [
+        [
+          0.02407730743288994,
+          -0.07815010845661163,
+          1.5842969417572021
+        ],
+        [
+          0.03827205300331116,
+          -0.07319430261850357,
+          1.5984926223754883
+        ]
+      ]
+    },
+    {
+      "name": "Cornea.r",
+      "type": "MESH",
+      "parent": "Eyeball.g",
+      "matrixWorld": [
+        [
+          0.9999999403953552,
+          0.0,
+          0.0,
+          -0.03054819628596306
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          1.4210854715202004e-14,
+          -0.06406375765800476
+        ],
+        [
+          0.0,
+          -1.4210854715202004e-14,
+          0.9999999403953552,
+          1.5907039642333984
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "modifiers": [
+        {
+          "name": "Subdivision",
+          "type": "SUBSURF",
+          "viewport": true,
+          "render": true
+        }
+      ],
+      "dataName": "Cornea",
+      "animationData": false,
+      "materials": [
+        {
+          "name": "Cornea",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Mix Shader",
+              "type": "MIX_SHADER"
+            },
+            {
+              "name": "Principled BSDF",
+              "type": "BSDF_PRINCIPLED"
+            },
+            {
+              "name": "Transparent BSDF",
+              "type": "BSDF_TRANSPARENT"
+            },
+            {
+              "name": "Material Output",
+              "type": "OUTPUT_MATERIAL"
+            },
+            {
+              "name": "Cross Section Controller",
+              "type": "GROUP"
+            },
+            {
+              "name": "Value",
+              "type": "VALUE"
+            }
+          ],
+          "principled": {
+            "Base Color": [
+              0.040757063776254654,
+              0.040757063776254654,
+              0.040757063776254654,
+              1.0
+            ],
+            "Metallic": 0.0,
+            "Roughness": 0.014545454643666744,
+            "Alpha": 1.0
+          }
+        }
+      ],
+      "rawVertices": 322,
+      "evaluatedVertices": 1346,
+      "evaluatedTriangles": 2688,
+      "worldGeometrySha256": "8cbfb7a060f07fdb52d22b7c9003d570645bb1b2d54549e32d5cacc59655d189",
+      "boundsNative": [
+        [
+          -0.038272060453891754,
+          -0.07815010845661163,
+          1.5842969417572021
+        ],
+        [
+          -0.024077314883470535,
+          -0.07319430261850357,
+          1.5984926223754883
+        ]
+      ]
+    },
+    {
+      "name": "Inferior oblique muscle.l",
+      "type": "MESH",
+      "parent": "Extra-ocular muscles.g",
+      "matrixWorld": [
+        [
+          -0.9999999403953552,
+          0.0,
+          0.0,
+          0.0334785096347332
+        ],
+        [
+          0.0,
+          0.9995875358581543,
+          0.028715595602989197,
+          -0.0636286586523056
+        ],
+        [
+          0.0,
+          -0.02871559001505375,
+          0.99958735704422,
+          1.5824147462844849
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.9999999403953552
+        ]
+      ],
+      "modifiers": [],
+      "dataName": "Inferior oblique muscle",
+      "animationData": false,
+      "materials": [
+        {
+          "name": "Adductor",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Gamma",
+              "type": "GAMMA"
+            },
+            {
+              "name": "Muscle-Shader",
+              "type": "GROUP"
+            }
+          ]
+        },
+        {
+          "name": "Tendon",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Mix Shader",
+              "type": "MIX_SHADER"
+            },
+            {
+              "name": "Material Output",
+              "type": "OUTPUT_MATERIAL"
+            },
+            {
+              "name": "Group",
+              "type": "GROUP"
+            },
+            {
+              "name": "Principled BSDF",
+              "type": "BSDF_PRINCIPLED"
+            },
+            {
+              "name": "Group.001",
+              "type": "GROUP"
+            },
+            {
+              "name": "Gamma",
+              "type": "GAMMA"
+            },
+            {
+              "name": "Mix",
+              "type": "MIX"
+            },
+            {
+              "name": "Attribute",
+              "type": "ATTRIBUTE"
+            },
+            {
+              "name": "Mix.001",
+              "type": "MIX"
+            }
+          ],
+          "principled": {
+            "Base Color": [
+              0.9259456396102905,
+              0.8037736415863037,
+              0.8014432191848755,
+              1.0
+            ],
+            "Metallic": 0.0,
+            "Roughness": 0.5,
+            "Alpha": 1.0
+          }
+        }
+      ],
+      "rawVertices": 576,
+      "evaluatedVertices": 576,
+      "evaluatedTriangles": 1148,
+      "worldGeometrySha256": "0b1a952ec7140fe25df45f0166c7e0451a51184bc338db139b3b95017a845225",
+      "boundsNative": [
+        [
+          0.013868361711502075,
+          -0.07867588847875595,
+          1.5755367279052734
+        ],
+        [
+          0.043256066739559174,
+          -0.05263001099228859,
+          1.5917012691497803
+        ]
+      ]
+    },
+    {
+      "name": "Inferior oblique muscle.r",
+      "type": "MESH",
+      "parent": "Extra-ocular muscles.g",
+      "matrixWorld": [
+        [
+          0.9999999403953552,
+          0.0,
+          0.0,
+          -0.0334785170853138
+        ],
+        [
+          0.0,
+          0.9995875358581543,
+          0.028715595602989197,
+          -0.0636286586523056
+        ],
+        [
+          0.0,
+          -0.02871559001505375,
+          0.99958735704422,
+          1.5824147462844849
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.9999999403953552
+        ]
+      ],
+      "modifiers": [],
+      "dataName": "Inferior oblique muscle",
+      "animationData": false,
+      "materials": [
+        {
+          "name": "Adductor",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Gamma",
+              "type": "GAMMA"
+            },
+            {
+              "name": "Muscle-Shader",
+              "type": "GROUP"
+            }
+          ]
+        },
+        {
+          "name": "Tendon",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Mix Shader",
+              "type": "MIX_SHADER"
+            },
+            {
+              "name": "Material Output",
+              "type": "OUTPUT_MATERIAL"
+            },
+            {
+              "name": "Group",
+              "type": "GROUP"
+            },
+            {
+              "name": "Principled BSDF",
+              "type": "BSDF_PRINCIPLED"
+            },
+            {
+              "name": "Group.001",
+              "type": "GROUP"
+            },
+            {
+              "name": "Gamma",
+              "type": "GAMMA"
+            },
+            {
+              "name": "Mix",
+              "type": "MIX"
+            },
+            {
+              "name": "Attribute",
+              "type": "ATTRIBUTE"
+            },
+            {
+              "name": "Mix.001",
+              "type": "MIX"
+            }
+          ],
+          "principled": {
+            "Base Color": [
+              0.9259456396102905,
+              0.8037736415863037,
+              0.8014432191848755,
+              1.0
+            ],
+            "Metallic": 0.0,
+            "Roughness": 0.5,
+            "Alpha": 1.0
+          }
+        }
+      ],
+      "rawVertices": 576,
+      "evaluatedVertices": 576,
+      "evaluatedTriangles": 1148,
+      "worldGeometrySha256": "dc6542b5f55e411a38dddb5f5ca65c920f1e79ef392aed6358a11e5d97862769",
+      "boundsNative": [
+        [
+          -0.04325607419013977,
+          -0.07867588847875595,
+          1.5755367279052734
+        ],
+        [
+          -0.013868369162082672,
+          -0.05263001099228859,
+          1.5917012691497803
+        ]
+      ]
+    },
+    {
+      "name": "Inferior rectus muscle.l",
+      "type": "MESH",
+      "parent": "Extra-ocular muscles.g",
+      "matrixWorld": [
+        [
+          -0.9999999403953552,
+          0.0,
+          0.0,
+          0.024939848110079765
+        ],
+        [
+          0.0,
+          0.9995875358581543,
+          0.028715595602989197,
+          -0.05546408146619797
+        ],
+        [
+          0.0,
+          -0.02871559001505375,
+          0.99958735704422,
+          1.583344578742981
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.9999999403953552
+        ]
+      ],
+      "modifiers": [],
+      "dataName": "Inferior rectus muscle",
+      "animationData": false,
+      "materials": [
+        {
+          "name": "Flexion",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Gamma",
+              "type": "GAMMA"
+            },
+            {
+              "name": "Muscle-Shader",
+              "type": "GROUP"
+            }
+          ]
+        },
+        {
+          "name": "Tendon",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Mix Shader",
+              "type": "MIX_SHADER"
+            },
+            {
+              "name": "Material Output",
+              "type": "OUTPUT_MATERIAL"
+            },
+            {
+              "name": "Group",
+              "type": "GROUP"
+            },
+            {
+              "name": "Principled BSDF",
+              "type": "BSDF_PRINCIPLED"
+            },
+            {
+              "name": "Group.001",
+              "type": "GROUP"
+            },
+            {
+              "name": "Gamma",
+              "type": "GAMMA"
+            },
+            {
+              "name": "Mix",
+              "type": "MIX"
+            },
+            {
+              "name": "Attribute",
+              "type": "ATTRIBUTE"
+            },
+            {
+              "name": "Mix.001",
+              "type": "MIX"
+            }
+          ],
+          "principled": {
+            "Base Color": [
+              0.9259456396102905,
+              0.8037736415863037,
+              0.8014432191848755,
+              1.0
+            ],
+            "Metallic": 0.0,
+            "Roughness": 0.5,
+            "Alpha": 1.0
+          }
+        }
+      ],
+      "rawVertices": 870,
+      "evaluatedVertices": 870,
+      "evaluatedTriangles": 1736,
+      "worldGeometrySha256": "b0fb4295ffee7aee1038a663aae2f6d83a9c33787bb64559f821e6aacd539ba3",
+      "boundsNative": [
+        [
+          0.013395206071436405,
+          -0.07236050814390182,
+          1.5765018463134766
+        ],
+        [
+          0.03560870885848999,
+          -0.030912509188055992,
+          1.5983020067214966
+        ]
+      ]
+    },
+    {
+      "name": "Inferior rectus muscle.r",
+      "type": "MESH",
+      "parent": "Extra-ocular muscles.g",
+      "matrixWorld": [
+        [
+          0.9999999403953552,
+          0.0,
+          0.0,
+          -0.024939855560660362
+        ],
+        [
+          0.0,
+          0.9995875358581543,
+          0.028715595602989197,
+          -0.05546408146619797
+        ],
+        [
+          0.0,
+          -0.02871559001505375,
+          0.99958735704422,
+          1.583344578742981
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.9999999403953552
+        ]
+      ],
+      "modifiers": [],
+      "dataName": "Inferior rectus muscle",
+      "animationData": false,
+      "materials": [
+        {
+          "name": "Flexion",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Gamma",
+              "type": "GAMMA"
+            },
+            {
+              "name": "Muscle-Shader",
+              "type": "GROUP"
+            }
+          ]
+        },
+        {
+          "name": "Tendon",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Mix Shader",
+              "type": "MIX_SHADER"
+            },
+            {
+              "name": "Material Output",
+              "type": "OUTPUT_MATERIAL"
+            },
+            {
+              "name": "Group",
+              "type": "GROUP"
+            },
+            {
+              "name": "Principled BSDF",
+              "type": "BSDF_PRINCIPLED"
+            },
+            {
+              "name": "Group.001",
+              "type": "GROUP"
+            },
+            {
+              "name": "Gamma",
+              "type": "GAMMA"
+            },
+            {
+              "name": "Mix",
+              "type": "MIX"
+            },
+            {
+              "name": "Attribute",
+              "type": "ATTRIBUTE"
+            },
+            {
+              "name": "Mix.001",
+              "type": "MIX"
+            }
+          ],
+          "principled": {
+            "Base Color": [
+              0.9259456396102905,
+              0.8037736415863037,
+              0.8014432191848755,
+              1.0
+            ],
+            "Metallic": 0.0,
+            "Roughness": 0.5,
+            "Alpha": 1.0
+          }
+        }
+      ],
+      "rawVertices": 870,
+      "evaluatedVertices": 870,
+      "evaluatedTriangles": 1736,
+      "worldGeometrySha256": "39c30b8cbc398af710f74338597b47db3e25b8f065168f36e5ad148d43a59b23",
+      "boundsNative": [
+        [
+          -0.03560871630907059,
+          -0.07236050814390182,
+          1.5765018463134766
+        ],
+        [
+          -0.013395213522017002,
+          -0.030912509188055992,
+          1.5983020067214966
+        ]
+      ]
+    },
+    {
+      "name": "Lateral rectus muscle.l",
+      "type": "MESH",
+      "parent": "Extra-ocular muscles.g",
+      "matrixWorld": [
+        [
+          -0.9999999403953552,
+          0.0,
+          0.0,
+          0.03733915463089943
+        ],
+        [
+          0.0,
+          0.9995875358581543,
+          0.028715595602989197,
+          -0.05654124543070793
+        ],
+        [
+          0.0,
+          -0.02871559001505375,
+          0.99958735704422,
+          1.5942271947860718
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.9999999403953552
+        ]
+      ],
+      "modifiers": [],
+      "dataName": "Lateral rectus muscle",
+      "animationData": false,
+      "materials": [
+        {
+          "name": "External rotation",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Gamma",
+              "type": "GAMMA"
+            },
+            {
+              "name": "Muscle-Shader",
+              "type": "GROUP"
+            }
+          ]
+        },
+        {
+          "name": "Tendon",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Mix Shader",
+              "type": "MIX_SHADER"
+            },
+            {
+              "name": "Material Output",
+              "type": "OUTPUT_MATERIAL"
+            },
+            {
+              "name": "Group",
+              "type": "GROUP"
+            },
+            {
+              "name": "Principled BSDF",
+              "type": "BSDF_PRINCIPLED"
+            },
+            {
+              "name": "Group.001",
+              "type": "GROUP"
+            },
+            {
+              "name": "Gamma",
+              "type": "GAMMA"
+            },
+            {
+              "name": "Mix",
+              "type": "MIX"
+            },
+            {
+              "name": "Attribute",
+              "type": "ATTRIBUTE"
+            },
+            {
+              "name": "Mix.001",
+              "type": "MIX"
+            }
+          ],
+          "principled": {
+            "Base Color": [
+              0.9259456396102905,
+              0.8037736415863037,
+              0.8014432191848755,
+              1.0
+            ],
+            "Metallic": 0.0,
+            "Roughness": 0.5,
+            "Alpha": 1.0
+          }
+        }
+      ],
+      "rawVertices": 802,
+      "evaluatedVertices": 802,
+      "evaluatedTriangles": 1600,
+      "worldGeometrySha256": "86d4ef1a1e50390a39722594b1e9062b03fc77e711c475728591716e7d45c39c",
+      "boundsNative": [
+        [
+          0.017668910324573517,
+          -0.07070234417915344,
+          1.5856668949127197
+        ],
+        [
+          0.04411374405026436,
+          -0.030927276238799095,
+          1.6021325588226318
+        ]
+      ]
+    },
+    {
+      "name": "Lateral rectus muscle.r",
+      "type": "MESH",
+      "parent": "Extra-ocular muscles.g",
+      "matrixWorld": [
+        [
+          0.9999999403953552,
+          0.0,
+          0.0,
+          -0.037339162081480026
+        ],
+        [
+          0.0,
+          0.9995875358581543,
+          0.028715595602989197,
+          -0.05654124543070793
+        ],
+        [
+          0.0,
+          -0.02871559001505375,
+          0.99958735704422,
+          1.5942271947860718
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.9999999403953552
+        ]
+      ],
+      "modifiers": [],
+      "dataName": "Lateral rectus muscle",
+      "animationData": false,
+      "materials": [
+        {
+          "name": "External rotation",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Gamma",
+              "type": "GAMMA"
+            },
+            {
+              "name": "Muscle-Shader",
+              "type": "GROUP"
+            }
+          ]
+        },
+        {
+          "name": "Tendon",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Mix Shader",
+              "type": "MIX_SHADER"
+            },
+            {
+              "name": "Material Output",
+              "type": "OUTPUT_MATERIAL"
+            },
+            {
+              "name": "Group",
+              "type": "GROUP"
+            },
+            {
+              "name": "Principled BSDF",
+              "type": "BSDF_PRINCIPLED"
+            },
+            {
+              "name": "Group.001",
+              "type": "GROUP"
+            },
+            {
+              "name": "Gamma",
+              "type": "GAMMA"
+            },
+            {
+              "name": "Mix",
+              "type": "MIX"
+            },
+            {
+              "name": "Attribute",
+              "type": "ATTRIBUTE"
+            },
+            {
+              "name": "Mix.001",
+              "type": "MIX"
+            }
+          ],
+          "principled": {
+            "Base Color": [
+              0.9259456396102905,
+              0.8037736415863037,
+              0.8014432191848755,
+              1.0
+            ],
+            "Metallic": 0.0,
+            "Roughness": 0.5,
+            "Alpha": 1.0
+          }
+        }
+      ],
+      "rawVertices": 802,
+      "evaluatedVertices": 802,
+      "evaluatedTriangles": 1600,
+      "worldGeometrySha256": "8f169cda842018c67088622c49baf7cf3e5a84283362a48354eb32a4e4e695b7",
+      "boundsNative": [
+        [
+          -0.044113751500844955,
+          -0.07070234417915344,
+          1.5856668949127197
+        ],
+        [
+          -0.017668917775154114,
+          -0.030927276238799095,
+          1.6021325588226318
+        ]
+      ]
+    },
+    {
+      "name": "Medial rectus muscle.l",
+      "type": "MESH",
+      "parent": "Extra-ocular muscles.g",
+      "matrixWorld": [
+        [
+          -0.9999999403953552,
+          0.0,
+          0.0,
+          0.017870968207716942
+        ],
+        [
+          0.0,
+          0.9995875358581543,
+          0.028715595602989197,
+          -0.05959545448422432
+        ],
+        [
+          0.0,
+          -0.02871559001505375,
+          0.99958735704422,
+          1.5930277109146118
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.9999999403953552
+        ]
+      ],
+      "modifiers": [],
+      "dataName": "Medial rectus muscle",
+      "animationData": false,
+      "materials": [
+        {
+          "name": "Internal rotator",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Gamma",
+              "type": "GAMMA"
+            },
+            {
+              "name": "Muscle-Shader",
+              "type": "GROUP"
+            }
+          ]
+        },
+        {
+          "name": "Tendon",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Mix Shader",
+              "type": "MIX_SHADER"
+            },
+            {
+              "name": "Material Output",
+              "type": "OUTPUT_MATERIAL"
+            },
+            {
+              "name": "Group",
+              "type": "GROUP"
+            },
+            {
+              "name": "Principled BSDF",
+              "type": "BSDF_PRINCIPLED"
+            },
+            {
+              "name": "Group.001",
+              "type": "GROUP"
+            },
+            {
+              "name": "Gamma",
+              "type": "GAMMA"
+            },
+            {
+              "name": "Mix",
+              "type": "MIX"
+            },
+            {
+              "name": "Attribute",
+              "type": "ATTRIBUTE"
+            },
+            {
+              "name": "Mix.001",
+              "type": "MIX"
+            }
+          ],
+          "principled": {
+            "Base Color": [
+              0.9259456396102905,
+              0.8037736415863037,
+              0.8014432191848755,
+              1.0
+            ],
+            "Metallic": 0.0,
+            "Roughness": 0.5,
+            "Alpha": 1.0
+          }
+        }
+      ],
+      "rawVertices": 628,
+      "evaluatedVertices": 628,
+      "evaluatedTriangles": 1252,
+      "worldGeometrySha256": "79ea072a9ea3bafa7dc0f9f17e814ec62e6205fff801cebafae1d792e8fcbbb1",
+      "boundsNative": [
+        [
+          0.0125356987118721,
+          -0.07322007417678833,
+          1.5849454402923584
+        ],
+        [
+          0.022546257823705673,
+          -0.032819174230098724,
+          1.6015214920043945
+        ]
+      ]
+    },
+    {
+      "name": "Medial rectus muscle.r",
+      "type": "MESH",
+      "parent": "Extra-ocular muscles.g",
+      "matrixWorld": [
+        [
+          0.9999999403953552,
+          0.0,
+          0.0,
+          -0.01787097565829754
+        ],
+        [
+          0.0,
+          0.9995875358581543,
+          0.028715595602989197,
+          -0.05959545448422432
+        ],
+        [
+          0.0,
+          -0.02871559001505375,
+          0.99958735704422,
+          1.5930277109146118
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.9999999403953552
+        ]
+      ],
+      "modifiers": [],
+      "dataName": "Medial rectus muscle",
+      "animationData": false,
+      "materials": [
+        {
+          "name": "Internal rotator",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Gamma",
+              "type": "GAMMA"
+            },
+            {
+              "name": "Muscle-Shader",
+              "type": "GROUP"
+            }
+          ]
+        },
+        {
+          "name": "Tendon",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Mix Shader",
+              "type": "MIX_SHADER"
+            },
+            {
+              "name": "Material Output",
+              "type": "OUTPUT_MATERIAL"
+            },
+            {
+              "name": "Group",
+              "type": "GROUP"
+            },
+            {
+              "name": "Principled BSDF",
+              "type": "BSDF_PRINCIPLED"
+            },
+            {
+              "name": "Group.001",
+              "type": "GROUP"
+            },
+            {
+              "name": "Gamma",
+              "type": "GAMMA"
+            },
+            {
+              "name": "Mix",
+              "type": "MIX"
+            },
+            {
+              "name": "Attribute",
+              "type": "ATTRIBUTE"
+            },
+            {
+              "name": "Mix.001",
+              "type": "MIX"
+            }
+          ],
+          "principled": {
+            "Base Color": [
+              0.9259456396102905,
+              0.8037736415863037,
+              0.8014432191848755,
+              1.0
+            ],
+            "Metallic": 0.0,
+            "Roughness": 0.5,
+            "Alpha": 1.0
+          }
+        }
+      ],
+      "rawVertices": 628,
+      "evaluatedVertices": 628,
+      "evaluatedTriangles": 1252,
+      "worldGeometrySha256": "928d3933df8ae7c32d5c121c5426d436428d724f197a8df703cfb4a6adec9833",
+      "boundsNative": [
+        [
+          -0.02254626527428627,
+          -0.07322007417678833,
+          1.5849454402923584
+        ],
+        [
+          -0.012535706162452698,
+          -0.032819174230098724,
+          1.6015214920043945
+        ]
+      ]
+    },
+    {
+      "name": "Optic nerve (II).l",
+      "type": "CURVE",
+      "parent": "Cranial nerves.g",
+      "matrixWorld": [
+        [
+          -1.0,
+          0.0,
+          0.0,
+          0.01696678251028061
+        ],
+        [
+          0.0,
+          0.9999997615814209,
+          3.258412846207648e-07,
+          -0.039517514407634735
+        ],
+        [
+          0.0,
+          -3.258412846207648e-07,
+          0.9999997615814209,
+          1.5995891094207764
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "modifiers": [],
+      "dataName": "Optic nerve (II)",
+      "animationData": false,
+      "materials": [
+        {
+          "name": "Nerve-2",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Group",
+              "type": "GROUP"
+            },
+            {
+              "name": "Group.002",
+              "type": "GROUP"
+            }
+          ]
+        }
+      ],
+      "rawVertices": null,
+      "evaluatedVertices": 900,
+      "evaluatedTriangles": 1748,
+      "worldGeometrySha256": "eb89c19b85482cb898c0cbe302b525fca9b4aacf66f9dccd497517213a65ddf2",
+      "boundsNative": [
+        [
+          -4.131719470024109e-05,
+          -0.06139135733246803,
+          1.5927956104278564
+        ],
+        [
+          0.030493810772895813,
+          -0.01888582482933998,
+          1.6095308065414429
+        ]
+      ],
+      "sourceCurve": {
+        "dimensions": "3D",
+        "bevelDepth": 0.0005000000237487257,
+        "bevelResolution": 4,
+        "resolutionU": 12,
+        "fillMode": "FULL",
+        "splines": [
+          {
+            "type": "BEZIER",
+            "bezierPoints": 7,
+            "points": 0,
+            "cyclic": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "Optic nerve (II).r",
+      "type": "CURVE",
+      "parent": "Cranial nerves.g",
+      "matrixWorld": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.01696678251028061
+        ],
+        [
+          0.0,
+          0.9999997615814209,
+          -7.105427357601002e-15,
+          -0.039517514407634735
+        ],
+        [
+          0.0,
+          7.105427357601002e-15,
+          0.9999997615814209,
+          1.5995891094207764
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "modifiers": [],
+      "dataName": "Optic nerve (II)",
+      "animationData": false,
+      "materials": [
+        {
+          "name": "Nerve-2",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Group",
+              "type": "GROUP"
+            },
+            {
+              "name": "Group.002",
+              "type": "GROUP"
+            }
+          ]
+        }
+      ],
+      "rawVertices": null,
+      "evaluatedVertices": 900,
+      "evaluatedTriangles": 1748,
+      "worldGeometrySha256": "ceead1be347ca0f5947d6a853774571f4c37d4d95ccca6b6a0677367730225a6",
+      "boundsNative": [
+        [
+          -0.030493810772895813,
+          -0.061391353607177734,
+          1.5927956104278564
+        ],
+        [
+          4.131719470024109e-05,
+          -0.01888582669198513,
+          1.6095308065414429
+        ]
+      ],
+      "sourceCurve": {
+        "dimensions": "3D",
+        "bevelDepth": 0.0005000000237487257,
+        "bevelResolution": 4,
+        "resolutionU": 12,
+        "fillMode": "FULL",
+        "splines": [
+          {
+            "type": "BEZIER",
+            "bezierPoints": 7,
+            "points": 0,
+            "cyclic": false
+          }
+        ]
+      }
+    },
+    {
+      "name": "Sclera.l",
+      "type": "MESH",
+      "parent": "Eyeball.g",
+      "matrixWorld": [
+        [
+          -0.9999999403953552,
+          0.0,
+          0.0,
+          0.030548186972737312
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          1.4210854715202004e-14,
+          -0.06406375765800476
+        ],
+        [
+          0.0,
+          -1.4210854715202004e-14,
+          0.9999999403953552,
+          1.5907039642333984
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "modifiers": [
+        {
+          "name": "Subdivision",
+          "type": "SUBSURF",
+          "viewport": true,
+          "render": true
+        }
+      ],
+      "dataName": "Sclera",
+      "animationData": false,
+      "materials": [
+        {
+          "name": "Eye",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Material Output",
+              "type": "OUTPUT_MATERIAL"
+            },
+            {
+              "name": "Group",
+              "type": "GROUP"
+            },
+            {
+              "name": "Mix Shader",
+              "type": "MIX_SHADER"
+            },
+            {
+              "name": "Gamma",
+              "type": "GAMMA"
+            },
+            {
+              "name": "Principled BSDF",
+              "type": "BSDF_PRINCIPLED"
+            },
+            {
+              "name": "Attribute",
+              "type": "ATTRIBUTE"
+            },
+            {
+              "name": "Group.001",
+              "type": "GROUP"
+            },
+            {
+              "name": "Mix",
+              "type": "MIX"
+            }
+          ],
+          "principled": {
+            "Base Color": [
+              0.5190099477767944,
+              0.5190099477767944,
+              0.5190099477767944,
+              1.0
+            ],
+            "Metallic": 0.0,
+            "Roughness": 0.14743590354919434,
+            "Alpha": 1.0
+          }
+        }
+      ],
+      "rawVertices": 577,
+      "evaluatedVertices": 2305,
+      "evaluatedTriangles": 4544,
+      "worldGeometrySha256": "0c4aec7656dd804ce315ebf22592f6af1642c48858c8209b4ca6003cf0772c17",
+      "boundsNative": [
+        [
+          0.017424652352929115,
+          -0.07578937709331512,
+          1.5775812864303589
+        ],
+        [
+          0.04367171227931976,
+          -0.050822723656892776,
+          1.6038262844085693
+        ]
+      ]
+    },
+    {
+      "name": "Sclera.r",
+      "type": "MESH",
+      "parent": "Eyeball.g",
+      "matrixWorld": [
+        [
+          0.9999999403953552,
+          0.0,
+          0.0,
+          -0.03054819442331791
+        ],
+        [
+          0.0,
+          0.9999999403953552,
+          1.4210854715202004e-14,
+          -0.06406375765800476
+        ],
+        [
+          0.0,
+          -1.4210854715202004e-14,
+          0.9999999403953552,
+          1.5907039642333984
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "modifiers": [
+        {
+          "name": "Subdivision",
+          "type": "SUBSURF",
+          "viewport": true,
+          "render": true
+        }
+      ],
+      "dataName": "Sclera",
+      "animationData": false,
+      "materials": [
+        {
+          "name": "Eye",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Material Output",
+              "type": "OUTPUT_MATERIAL"
+            },
+            {
+              "name": "Group",
+              "type": "GROUP"
+            },
+            {
+              "name": "Mix Shader",
+              "type": "MIX_SHADER"
+            },
+            {
+              "name": "Gamma",
+              "type": "GAMMA"
+            },
+            {
+              "name": "Principled BSDF",
+              "type": "BSDF_PRINCIPLED"
+            },
+            {
+              "name": "Attribute",
+              "type": "ATTRIBUTE"
+            },
+            {
+              "name": "Group.001",
+              "type": "GROUP"
+            },
+            {
+              "name": "Mix",
+              "type": "MIX"
+            }
+          ],
+          "principled": {
+            "Base Color": [
+              0.5190099477767944,
+              0.5190099477767944,
+              0.5190099477767944,
+              1.0
+            ],
+            "Metallic": 0.0,
+            "Roughness": 0.14743590354919434,
+            "Alpha": 1.0
+          }
+        }
+      ],
+      "rawVertices": 577,
+      "evaluatedVertices": 2305,
+      "evaluatedTriangles": 4544,
+      "worldGeometrySha256": "20da91faae40b9b9fa09a803dad9f0fd136b4602a6bef635383a3735b4c171fe",
+      "boundsNative": [
+        [
+          -0.04367171972990036,
+          -0.07578937709331512,
+          1.5775812864303589
+        ],
+        [
+          -0.017424659803509712,
+          -0.050822723656892776,
+          1.6038262844085693
+        ]
+      ]
+    },
+    {
+      "name": "Superior oblique muscle.l",
+      "type": "MESH",
+      "parent": "Extra-ocular muscles.g",
+      "matrixWorld": [
+        [
+          -0.9999999403953552,
+          0.0,
+          0.0,
+          0.02389746531844139
+        ],
+        [
+          0.0,
+          0.9995875358581543,
+          0.028715595602989197,
+          -0.058783695101737976
+        ],
+        [
+          0.0,
+          -0.02871559001505375,
+          0.99958735704422,
+          1.6018221378326416
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.9999999403953552
+        ]
+      ],
+      "modifiers": [],
+      "dataName": "Superior oblique muscle",
+      "animationData": false,
+      "materials": [
+        {
+          "name": "Abductor",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Muscle-Shader",
+              "type": "GROUP"
+            },
+            {
+              "name": "Gamma",
+              "type": "GAMMA"
+            }
+          ]
+        },
+        {
+          "name": "Tendon",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Mix Shader",
+              "type": "MIX_SHADER"
+            },
+            {
+              "name": "Material Output",
+              "type": "OUTPUT_MATERIAL"
+            },
+            {
+              "name": "Group",
+              "type": "GROUP"
+            },
+            {
+              "name": "Principled BSDF",
+              "type": "BSDF_PRINCIPLED"
+            },
+            {
+              "name": "Group.001",
+              "type": "GROUP"
+            },
+            {
+              "name": "Gamma",
+              "type": "GAMMA"
+            },
+            {
+              "name": "Mix",
+              "type": "MIX"
+            },
+            {
+              "name": "Attribute",
+              "type": "ATTRIBUTE"
+            },
+            {
+              "name": "Mix.001",
+              "type": "MIX"
+            }
+          ],
+          "principled": {
+            "Base Color": [
+              0.9259456396102905,
+              0.8037736415863037,
+              0.8014432191848755,
+              1.0
+            ],
+            "Metallic": 0.0,
+            "Roughness": 0.5,
+            "Alpha": 1.0
+          }
+        }
+      ],
+      "rawVertices": 877,
+      "evaluatedVertices": 877,
+      "evaluatedTriangles": 1750,
+      "worldGeometrySha256": "b3aa67c201739f0502c6d964a298efb21cbb9d3477db2944313f8ac86575700c",
+      "boundsNative": [
+        [
+          0.012636750005185604,
+          -0.07716885209083557,
+          1.595416784286499
+        ],
+        [
+          0.04056814685463905,
+          -0.03388827294111252,
+          1.6072983741760254
+        ]
+      ]
+    },
+    {
+      "name": "Superior oblique muscle.r",
+      "type": "MESH",
+      "parent": "Extra-ocular muscles.g",
+      "matrixWorld": [
+        [
+          0.9999999403953552,
+          0.0,
+          0.0,
+          -0.023897472769021988
+        ],
+        [
+          0.0,
+          0.9995875358581543,
+          0.028715595602989197,
+          -0.058783695101737976
+        ],
+        [
+          0.0,
+          -0.02871559001505375,
+          0.99958735704422,
+          1.6018221378326416
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.9999999403953552
+        ]
+      ],
+      "modifiers": [],
+      "dataName": "Superior oblique muscle",
+      "animationData": false,
+      "materials": [
+        {
+          "name": "Abductor",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Muscle-Shader",
+              "type": "GROUP"
+            },
+            {
+              "name": "Gamma",
+              "type": "GAMMA"
+            }
+          ]
+        },
+        {
+          "name": "Tendon",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Mix Shader",
+              "type": "MIX_SHADER"
+            },
+            {
+              "name": "Material Output",
+              "type": "OUTPUT_MATERIAL"
+            },
+            {
+              "name": "Group",
+              "type": "GROUP"
+            },
+            {
+              "name": "Principled BSDF",
+              "type": "BSDF_PRINCIPLED"
+            },
+            {
+              "name": "Group.001",
+              "type": "GROUP"
+            },
+            {
+              "name": "Gamma",
+              "type": "GAMMA"
+            },
+            {
+              "name": "Mix",
+              "type": "MIX"
+            },
+            {
+              "name": "Attribute",
+              "type": "ATTRIBUTE"
+            },
+            {
+              "name": "Mix.001",
+              "type": "MIX"
+            }
+          ],
+          "principled": {
+            "Base Color": [
+              0.9259456396102905,
+              0.8037736415863037,
+              0.8014432191848755,
+              1.0
+            ],
+            "Metallic": 0.0,
+            "Roughness": 0.5,
+            "Alpha": 1.0
+          }
+        }
+      ],
+      "rawVertices": 877,
+      "evaluatedVertices": 877,
+      "evaluatedTriangles": 1750,
+      "worldGeometrySha256": "9146fc910b27011949de965c4ea3323e2c2a1378141fc19d5d4f2da51226b978",
+      "boundsNative": [
+        [
+          -0.04056815430521965,
+          -0.07716885209083557,
+          1.595416784286499
+        ],
+        [
+          -0.012636757455766201,
+          -0.03388827294111252,
+          1.6072983741760254
+        ]
+      ]
+    },
+    {
+      "name": "Superior rectus muscle.l",
+      "type": "MESH",
+      "parent": "Extra-ocular muscles.g",
+      "matrixWorld": [
+        [
+          -0.9999999403953552,
+          0.0,
+          0.0,
+          0.02716325782239437
+        ],
+        [
+          0.0,
+          0.9995875358581543,
+          0.028715595602989197,
+          -0.05841715261340141
+        ],
+        [
+          0.0,
+          -0.02871559001505375,
+          0.99958735704422,
+          1.6018974781036377
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.9999999403953552
+        ]
+      ],
+      "modifiers": [],
+      "dataName": "Superior rectus muscle",
+      "animationData": false,
+      "materials": [
+        {
+          "name": "Extension",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Muscle-Shader",
+              "type": "GROUP"
+            },
+            {
+              "name": "Gamma",
+              "type": "GAMMA"
+            }
+          ]
+        },
+        {
+          "name": "Tendon",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Mix Shader",
+              "type": "MIX_SHADER"
+            },
+            {
+              "name": "Material Output",
+              "type": "OUTPUT_MATERIAL"
+            },
+            {
+              "name": "Group",
+              "type": "GROUP"
+            },
+            {
+              "name": "Principled BSDF",
+              "type": "BSDF_PRINCIPLED"
+            },
+            {
+              "name": "Group.001",
+              "type": "GROUP"
+            },
+            {
+              "name": "Gamma",
+              "type": "GAMMA"
+            },
+            {
+              "name": "Mix",
+              "type": "MIX"
+            },
+            {
+              "name": "Attribute",
+              "type": "ATTRIBUTE"
+            },
+            {
+              "name": "Mix.001",
+              "type": "MIX"
+            }
+          ],
+          "principled": {
+            "Base Color": [
+              0.9259456396102905,
+              0.8037736415863037,
+              0.8014432191848755,
+              1.0
+            ],
+            "Metallic": 0.0,
+            "Roughness": 0.5,
+            "Alpha": 1.0
+          }
+        }
+      ],
+      "rawVertices": 644,
+      "evaluatedVertices": 644,
+      "evaluatedTriangles": 1284,
+      "worldGeometrySha256": "530fb04eee0b5a123b53e0798bc4276f7e55a0749444ceead4ecccab4b949a58",
+      "boundsNative": [
+        [
+          0.013909360393881798,
+          -0.07345160096883774,
+          1.5983548164367676
+        ],
+        [
+          0.036804985255002975,
+          -0.03284471854567528,
+          1.6048115491867065
+        ]
+      ]
+    },
+    {
+      "name": "Superior rectus muscle.r",
+      "type": "MESH",
+      "parent": "Extra-ocular muscles.g",
+      "matrixWorld": [
+        [
+          0.9999999403953552,
+          0.0,
+          0.0,
+          -0.027163265272974968
+        ],
+        [
+          0.0,
+          0.9995875358581543,
+          0.028715595602989197,
+          -0.05841715261340141
+        ],
+        [
+          0.0,
+          -0.02871559001505375,
+          0.99958735704422,
+          1.6018974781036377
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.9999999403953552
+        ]
+      ],
+      "modifiers": [],
+      "dataName": "Superior rectus muscle",
+      "animationData": false,
+      "materials": [
+        {
+          "name": "Extension",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Muscle-Shader",
+              "type": "GROUP"
+            },
+            {
+              "name": "Gamma",
+              "type": "GAMMA"
+            }
+          ]
+        },
+        {
+          "name": "Tendon",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Mix Shader",
+              "type": "MIX_SHADER"
+            },
+            {
+              "name": "Material Output",
+              "type": "OUTPUT_MATERIAL"
+            },
+            {
+              "name": "Group",
+              "type": "GROUP"
+            },
+            {
+              "name": "Principled BSDF",
+              "type": "BSDF_PRINCIPLED"
+            },
+            {
+              "name": "Group.001",
+              "type": "GROUP"
+            },
+            {
+              "name": "Gamma",
+              "type": "GAMMA"
+            },
+            {
+              "name": "Mix",
+              "type": "MIX"
+            },
+            {
+              "name": "Attribute",
+              "type": "ATTRIBUTE"
+            },
+            {
+              "name": "Mix.001",
+              "type": "MIX"
+            }
+          ],
+          "principled": {
+            "Base Color": [
+              0.9259456396102905,
+              0.8037736415863037,
+              0.8014432191848755,
+              1.0
+            ],
+            "Metallic": 0.0,
+            "Roughness": 0.5,
+            "Alpha": 1.0
+          }
+        }
+      ],
+      "rawVertices": 644,
+      "evaluatedVertices": 644,
+      "evaluatedTriangles": 1284,
+      "worldGeometrySha256": "f50daf1879691fcb55deba9da076e2fb34d52010674a3ef2f0ec165482d1b4ca",
+      "boundsNative": [
+        [
+          -0.03680499270558357,
+          -0.07345160096883774,
+          1.5983548164367676
+        ],
+        [
+          -0.013909367844462395,
+          -0.03284471854567528,
+          1.6048115491867065
+        ]
+      ]
+    },
+    {
+      "name": "Trochlea of superior oblique muscle.l",
+      "type": "MESH",
+      "parent": "Extra-ocular muscles.g",
+      "matrixWorld": [
+        [
+          -0.9999999403953552,
+          0.0,
+          0.0,
+          0.014669462107121944
+        ],
+        [
+          0.0,
+          0.9995875358581543,
+          0.028715595602989197,
+          -0.07547607272863388
+        ],
+        [
+          0.0,
+          -0.02871559001505375,
+          0.99958735704422,
+          1.6068739891052246
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.9999999403953552
+        ]
+      ],
+      "modifiers": [],
+      "dataName": "Trochlea of superior oblique muscle",
+      "animationData": false,
+      "materials": [
+        {
+          "name": "Tendon",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Mix Shader",
+              "type": "MIX_SHADER"
+            },
+            {
+              "name": "Material Output",
+              "type": "OUTPUT_MATERIAL"
+            },
+            {
+              "name": "Group",
+              "type": "GROUP"
+            },
+            {
+              "name": "Principled BSDF",
+              "type": "BSDF_PRINCIPLED"
+            },
+            {
+              "name": "Group.001",
+              "type": "GROUP"
+            },
+            {
+              "name": "Gamma",
+              "type": "GAMMA"
+            },
+            {
+              "name": "Mix",
+              "type": "MIX"
+            },
+            {
+              "name": "Attribute",
+              "type": "ATTRIBUTE"
+            },
+            {
+              "name": "Mix.001",
+              "type": "MIX"
+            }
+          ],
+          "principled": {
+            "Base Color": [
+              0.9259456396102905,
+              0.8037736415863037,
+              0.8014432191848755,
+              1.0
+            ],
+            "Metallic": 0.0,
+            "Roughness": 0.5,
+            "Alpha": 1.0
+          }
+        },
+        {
+          "name": "Tendon",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Mix Shader",
+              "type": "MIX_SHADER"
+            },
+            {
+              "name": "Material Output",
+              "type": "OUTPUT_MATERIAL"
+            },
+            {
+              "name": "Group",
+              "type": "GROUP"
+            },
+            {
+              "name": "Principled BSDF",
+              "type": "BSDF_PRINCIPLED"
+            },
+            {
+              "name": "Group.001",
+              "type": "GROUP"
+            },
+            {
+              "name": "Gamma",
+              "type": "GAMMA"
+            },
+            {
+              "name": "Mix",
+              "type": "MIX"
+            },
+            {
+              "name": "Attribute",
+              "type": "ATTRIBUTE"
+            },
+            {
+              "name": "Mix.001",
+              "type": "MIX"
+            }
+          ],
+          "principled": {
+            "Base Color": [
+              0.9259456396102905,
+              0.8037736415863037,
+              0.8014432191848755,
+              1.0
+            ],
+            "Metallic": 0.0,
+            "Roughness": 0.5,
+            "Alpha": 1.0
+          }
+        }
+      ],
+      "rawVertices": 98,
+      "evaluatedVertices": 98,
+      "evaluatedTriangles": 192,
+      "worldGeometrySha256": "64a40129e6e4118bf4be5182d5cdf59b56855d5bf74c0857b67a3c5f49f29bbf",
+      "boundsNative": [
+        [
+          0.01247921958565712,
+          -0.07691750675439835,
+          1.6051034927368164
+        ],
+        [
+          0.016702700406312943,
+          -0.07397742569446564,
+          1.6087167263031006
+        ]
+      ]
+    },
+    {
+      "name": "Trochlea of superior oblique muscle.r",
+      "type": "MESH",
+      "parent": "Extra-ocular muscles.g",
+      "matrixWorld": [
+        [
+          0.9999999403953552,
+          0.0,
+          0.0,
+          -0.014669469557702541
+        ],
+        [
+          0.0,
+          0.9995875358581543,
+          0.028715595602989197,
+          -0.07547607272863388
+        ],
+        [
+          0.0,
+          -0.02871559001505375,
+          0.99958735704422,
+          1.6068739891052246
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.9999999403953552
+        ]
+      ],
+      "modifiers": [],
+      "dataName": "Trochlea of superior oblique muscle",
+      "animationData": false,
+      "materials": [
+        {
+          "name": "Tendon",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Mix Shader",
+              "type": "MIX_SHADER"
+            },
+            {
+              "name": "Material Output",
+              "type": "OUTPUT_MATERIAL"
+            },
+            {
+              "name": "Group",
+              "type": "GROUP"
+            },
+            {
+              "name": "Principled BSDF",
+              "type": "BSDF_PRINCIPLED"
+            },
+            {
+              "name": "Group.001",
+              "type": "GROUP"
+            },
+            {
+              "name": "Gamma",
+              "type": "GAMMA"
+            },
+            {
+              "name": "Mix",
+              "type": "MIX"
+            },
+            {
+              "name": "Attribute",
+              "type": "ATTRIBUTE"
+            },
+            {
+              "name": "Mix.001",
+              "type": "MIX"
+            }
+          ],
+          "principled": {
+            "Base Color": [
+              0.9259456396102905,
+              0.8037736415863037,
+              0.8014432191848755,
+              1.0
+            ],
+            "Metallic": 0.0,
+            "Roughness": 0.5,
+            "Alpha": 1.0
+          }
+        },
+        {
+          "name": "Tendon",
+          "diffuseColor": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929,
+            1.0
+          ],
+          "useNodes": true,
+          "nodes": [
+            {
+              "name": "Mix Shader",
+              "type": "MIX_SHADER"
+            },
+            {
+              "name": "Material Output",
+              "type": "OUTPUT_MATERIAL"
+            },
+            {
+              "name": "Group",
+              "type": "GROUP"
+            },
+            {
+              "name": "Principled BSDF",
+              "type": "BSDF_PRINCIPLED"
+            },
+            {
+              "name": "Group.001",
+              "type": "GROUP"
+            },
+            {
+              "name": "Gamma",
+              "type": "GAMMA"
+            },
+            {
+              "name": "Mix",
+              "type": "MIX"
+            },
+            {
+              "name": "Attribute",
+              "type": "ATTRIBUTE"
+            },
+            {
+              "name": "Mix.001",
+              "type": "MIX"
+            }
+          ],
+          "principled": {
+            "Base Color": [
+              0.9259456396102905,
+              0.8037736415863037,
+              0.8014432191848755,
+              1.0
+            ],
+            "Metallic": 0.0,
+            "Roughness": 0.5,
+            "Alpha": 1.0
+          }
+        }
+      ],
+      "rawVertices": 98,
+      "evaluatedVertices": 98,
+      "evaluatedTriangles": 192,
+      "worldGeometrySha256": "cd094ca8517ea22f9edf62a5e50a7a68c300b7a75b06a88e0db1df7d5b689187",
+      "boundsNative": [
+        [
+          -0.01670270785689354,
+          -0.07691750675439835,
+          1.6051034927368164
+        ],
+        [
+          -0.012479227036237717,
+          -0.07397742569446564,
+          1.6087167263031006
+        ]
+      ]
+    }
+  ],
+  "sourceBytesUnchanged": true,
+  "scope": "Native names/geometry/material inventory only; no anatomical, attachment, laterality or action inference."
+}

@@ -1,0 +1,42 @@
+{
+  "source": {
+    "archiveUrl": "https://raw.githubusercontent.com/Z-Anatomy/Models-of-human-anatomy/bb293be456f6d2245191f37752d14ec76894740d/Z-Anatomy.zip",
+    "archiveCommit": "bb293be456f6d2245191f37752d14ec76894740d",
+    "archiveBytes": 86734957,
+    "archiveSha256": "e029688545627bd0214b269e1063143abb580aad72b2c2445d6d8a9a0d9da736",
+    "member": "Z-Anatomy/Startup.blend",
+    "memberBytes": 306838281,
+    "memberSha256": "9f08a17ea0115fed80b2a73ecdf0a1bc2ab2f6956f37c593ce23d513ea35afcd"
+  },
+  "sourceAcquisition": "Reused exact already-acquired local source; byte hash reverified. Original master retained unchanged; no upstream scripts/add-ons executed.",
+  "license": "Z-Anatomy CC BY-SA 4.0 for selected surfaces and derivatives; underlying BodyParts3D CC BY-SA 2.1 Japan and cranial-nerve attribution retained in the linked upstream License.txt. No kidney/inner-ear exception objects selected.",
+  "sourceObjectSelection": [
+    "Cornea.l",
+    "Cornea.r",
+    "Inferior oblique muscle.l",
+    "Inferior oblique muscle.r",
+    "Inferior rectus muscle.l",
+    "Inferior rectus muscle.r",
+    "Lateral rectus muscle.l",
+    "Lateral rectus muscle.r",
+    "Medial rectus muscle.l",
+    "Medial rectus muscle.r",
+    "Optic nerve (II).l",
+    "Optic nerve (II).r",
+    "Sclera.l",
+    "Sclera.r",
+    "Superior oblique muscle.l",
+    "Superior oblique muscle.r",
+    "Superior rectus muscle.l",
+    "Superior rectus muscle.r",
+    "Trochlea of superior oblique muscle.l",
+    "Trochlea of superior oblique muscle.r"
+  ],
+  "sourceEvaluation": "Blender 4.3.2 existing modifier/curve evaluation, 20 surfaces, 35884 triangles. No remodelling or fitting.",
+  "coordinates": "Native world matrices with invertible common Blender-to-glTF axis permutation only. L/R suffixes are source labels; no independent patient-orientation calibration.",
+  "changes": "Static surface export; redundant vertices split only for corner normals. Four neutral display materials replace source shaders. Root nodes retain source parent names as provenance; two unilateral scenes preserve all objects.",
+  "omissions": "Source annotations/font/line nodes; no rig, animation, anterior dissection or pathway extension.",
+  "baselineReview": "Independent parent reviewer inspected the exact retained schematic image SHA256 b8e544892849a5454d30220a274da8aa83a99cd642027160efc0f820e93ad4f7 and selected the bounded source course/context gain. This worker did not inspect baseline pixels; no baseline registration or identical scale claimed.",
+  "licenseFile": "sources/datasets/z-anatomy/small-static-studies/upstream/License.txt",
+  "licenseFileSha256": "196b66b56551a862e59872f7cdb70e6d9a6ad84e9105962fca8ec28c14e97520"
+}

@@ -1,0 +1,233 @@
+{
+  "source": {
+    "file": "Z-Anatomy/Startup.blend",
+    "bytes": 306838281,
+    "sha256": "9f08a17ea0115fed80b2a73ecdf0a1bc2ab2f6956f37c593ce23d513ea35afcd"
+  },
+  "blender": "4.3.2",
+  "views": [
+    {
+      "file": "source-R-oblique.png",
+      "bytes": 853971,
+      "sha256": "c18210011a660e4aeb41ec48a75c4bc5f1f71456db59b6a394726147bc8ec5a2",
+      "resolution": [
+        1000,
+        900
+      ],
+      "sourceSide": "r",
+      "visibleSourceNames": [
+        "Cornea.r",
+        "Inferior oblique muscle.r",
+        "Inferior rectus muscle.r",
+        "Lateral rectus muscle.r",
+        "Medial rectus muscle.r",
+        "Optic nerve (II).r",
+        "Sclera.r",
+        "Superior oblique muscle.r",
+        "Superior rectus muscle.r",
+        "Trochlea of superior oblique muscle.r"
+      ],
+      "cameraMatrixWorld": [
+        [
+          -0.5547001957893372,
+          0.3491206169128418,
+          -0.7552632093429565,
+          -0.20203623175621033
+        ],
+        [
+          -0.8320502638816833,
+          -0.23274709284305573,
+          0.5035088062286377,
+          0.07121913880109787
+        ],
+        [
+          -1.4807618242684839e-08,
+          0.9077133536338806,
+          0.4195907711982727,
+          1.6925338506698608
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "orthographicScaleNativeUnits": 0.0924391895532608,
+      "frameMarginsPx": {
+        "left": 99.0564376115799,
+        "right": 166.42725467681885,
+        "top": 191.57474040985107,
+        "bottom": 283.8591456413269
+      }
+    },
+    {
+      "file": "source-R-posterior.png",
+      "bytes": 905144,
+      "sha256": "f858fe79cb08ae52eed90326f0d34743111ac2f7e76ea0e14f1935765075404c",
+      "resolution": [
+        1000,
+        900
+      ],
+      "sourceSide": "r",
+      "visibleSourceNames": [
+        "Cornea.r",
+        "Inferior oblique muscle.r",
+        "Inferior rectus muscle.r",
+        "Lateral rectus muscle.r",
+        "Medial rectus muscle.r",
+        "Optic nerve (II).r",
+        "Sclera.r",
+        "Superior oblique muscle.r",
+        "Superior rectus muscle.r",
+        "Trochlea of superior oblique muscle.r"
+      ],
+      "cameraMatrixWorld": [
+        [
+          -1.0,
+          -6.107715222469778e-08,
+          -1.0538261108195002e-07,
+          -0.022036217153072357
+        ],
+        [
+          -8.742277657347586e-08,
+          -0.24253547191619873,
+          0.9701425433158875,
+          0.19121913611888885
+        ],
+        [
+          -8.481256230652434e-08,
+          0.9701425433158875,
+          0.24253547191619873,
+          1.652533769607544
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "orthographicScaleNativeUnits": 0.06327832490205765,
+      "frameMarginsPx": {
+        "left": 151.10470354557037,
+        "right": 151.10385417938232,
+        "top": 96.22628688812256,
+        "bottom": 247.21164107322693
+      }
+    },
+    {
+      "file": "source-L-oblique.png",
+      "bytes": 850579,
+      "sha256": "10de4f2d22e44b70be14396c83d98e5b3ea42ac7de6b47b2d52ac30165a334e1",
+      "resolution": [
+        1000,
+        900
+      ],
+      "sourceSide": "l",
+      "visibleSourceNames": [
+        "Cornea.l",
+        "Inferior oblique muscle.l",
+        "Inferior rectus muscle.l",
+        "Lateral rectus muscle.l",
+        "Medial rectus muscle.l",
+        "Optic nerve (II).l",
+        "Sclera.l",
+        "Superior oblique muscle.l",
+        "Superior rectus muscle.l",
+        "Trochlea of superior oblique muscle.l"
+      ],
+      "cameraMatrixWorld": [
+        [
+          -0.5547001957893372,
+          -0.3491206169128418,
+          0.7552632093429565,
+          0.20203621685504913
+        ],
+        [
+          0.8320502638816833,
+          -0.23274709284305573,
+          0.5035088062286377,
+          0.07121913880109787
+        ],
+        [
+          1.4807618242684839e-08,
+          0.9077133536338806,
+          0.4195907711982727,
+          1.6925338506698608
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "orthographicScaleNativeUnits": 0.0924391895532608,
+      "frameMarginsPx": {
+        "left": 166.42719507217407,
+        "right": 99.05654191970825,
+        "top": 191.57468676567078,
+        "bottom": 283.8591456413269
+      }
+    }
+  ],
+  "editorialMaterials": {
+    "globe": [
+      0.64,
+      0.66,
+      0.67,
+      1
+    ],
+    "muscle": [
+      0.32,
+      0.35,
+      0.37,
+      1
+    ],
+    "nerve": [
+      0.6,
+      0.61,
+      0.57,
+      1
+    ],
+    "trochlea": [
+      0.22,
+      0.24,
+      0.25,
+      1
+    ]
+  },
+  "lights": [
+    [
+      "key",
+      [
+        -0.13,
+        -0.16,
+        0.16
+      ],
+      0.35,
+      0.12
+    ],
+    [
+      "fill",
+      [
+        0.15,
+        0.04,
+        0.08
+      ],
+      0.25,
+      0.12
+    ],
+    [
+      "rim",
+      [
+        -0.06,
+        0.15,
+        0.04
+      ],
+      0.22,
+      0.1
+    ]
+  ]
+}
