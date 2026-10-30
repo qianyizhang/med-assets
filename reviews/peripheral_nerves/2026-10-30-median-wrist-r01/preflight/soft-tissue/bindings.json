@@ -1,0 +1,96 @@
+{
+  "sourceSha256": "9f08a17ea0115fed80b2a73ecdf0a1bc2ab2f6956f37c593ce23d513ea35afcd",
+  "selectedObjects": [
+    "Median nerve.r",
+    "Palmar branch of median nerve.r",
+    "Common palmar digital branches of median nerve.r",
+    "Proper palmar digital branches of median nerve.r",
+    "Flexor retinaculum of wrist.r",
+    "Radius.r",
+    "Ulna.r",
+    "Scaphoid bone.r",
+    "Lunate bone.r",
+    "Triquetrum bone.r",
+    "Pisiform bone.r",
+    "Trapezium bone.r",
+    "Trapezoid bone.r",
+    "Capitate bone.r",
+    "Hamate bone.r",
+    "First metacarpal bone.r",
+    "Second metacarpal bone.r",
+    "Third metacarpal bone.r",
+    "Fourth metacarpal bone.r",
+    "Fifth metacarpal bone.r",
+    "Flexor pollicis longus.r",
+    "Flexor digitorum profundus.r",
+    "Radial head of flexor digitorum superficialis.r",
+    "Humero-ulnar head of flexor digitorum superficialis.r"
+  ],
+  "views": [
+    {
+      "file": "overview.png",
+      "camera": [
+        -0.23000000417232513,
+        -1.524999976158142,
+        1.0499999523162842
+      ],
+      "target": [
+        -0.23000000417232513,
+        -0.02500000037252903,
+        1.0499999523162842
+      ],
+      "scale": 0.77,
+      "retinaculumHidden": false,
+      "sha256": "594116959215e43b77a5e07ed89c4d03042cd9803f0d7ad3a1d043a0f84d9d01"
+    },
+    {
+      "file": "palmar-roof.png",
+      "camera": [
+        -0.26499998569488525,
+        -1.524999976158142,
+        0.8550000190734863
+      ],
+      "target": [
+        -0.26499998569488525,
+        -0.02500000037252903,
+        0.8550000190734863
+      ],
+      "scale": 0.15,
+      "retinaculumHidden": false,
+      "sha256": "d8b6f8320459dddd9250b1446321c78f0a2e9bfcf4cdac3e9fbc8afb2c2bf051"
+    },
+    {
+      "file": "palmar-roof-hidden.png",
+      "camera": [
+        -0.26499998569488525,
+        -1.524999976158142,
+        0.8550000190734863
+      ],
+      "target": [
+        -0.26499998569488525,
+        -0.02500000037252903,
+        0.8550000190734863
+      ],
+      "scale": 0.15,
+      "retinaculumHidden": true,
+      "sha256": "8a22ef49556f08936287b73b515228cb83b1906f4fb0288a98159ce1a2814b11"
+    },
+    {
+      "file": "oblique-roof-hidden.png",
+      "camera": [
+        -1.0610029697418213,
+        -1.162147045135498,
+        1.4235734939575195
+      ],
+      "target": [
+        -0.26499998569488525,
+        -0.02500000037252903,
+        0.8550000190734863
+      ],
+      "scale": 0.15,
+      "retinaculumHidden": true,
+      "sha256": "ed0d81344d60eda7a87c2d529ad3c88a01c0bab6f4e801c8a2951ae5d6a660cc"
+    }
+  ],
+  "scope": "Source-native preflight diagnostic. Opaque source retinaculum hidden only in explicitly named views; no geometry reposition, cut, fusion or tunnel claim."
+}

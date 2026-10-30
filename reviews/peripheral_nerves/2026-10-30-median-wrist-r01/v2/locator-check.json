@@ -1,0 +1,56 @@
+{
+  "artifactSha256": "6094265d2263f3b501f4e487ff7f859b83205bde99bca9312d48c26f29680c50",
+  "bindingsSha256": "a9a668d28f8088f81db55613f9f6966406826b8bc421921229f28f3d722371ce",
+  "checks": [
+    {
+      "panel": "hand-palmar.png",
+      "key": "trunk",
+      "boundSourceObject": "Median nerve.r",
+      "firstVisibleSourceObject": "Median nerve.r",
+      "coordinateError": 0.0,
+      "passed": true
+    },
+    {
+      "panel": "hand-palmar.png",
+      "key": "common",
+      "boundSourceObject": "Common palmar digital branches of median nerve.r",
+      "firstVisibleSourceObject": "Common palmar digital branches of median nerve.r",
+      "coordinateError": 0.0,
+      "passed": true
+    },
+    {
+      "panel": "hand-palmar.png",
+      "key": "proper",
+      "boundSourceObject": "Proper palmar digital branches of median nerve.r",
+      "firstVisibleSourceObject": "Proper palmar digital branches of median nerve.r",
+      "coordinateError": 0.0,
+      "passed": true
+    },
+    {
+      "panel": "hand-palmar.png",
+      "key": "scaphoid",
+      "boundSourceObject": "Scaphoid bone.r",
+      "firstVisibleSourceObject": "Scaphoid bone.r",
+      "coordinateError": 0.0,
+      "passed": true
+    },
+    {
+      "panel": "wrist-oblique.png",
+      "key": "trunk",
+      "boundSourceObject": "Median nerve.r",
+      "firstVisibleSourceObject": "Median nerve.r",
+      "coordinateError": 0.0,
+      "passed": true
+    },
+    {
+      "panel": "wrist-oblique.png",
+      "key": "scaphoid",
+      "boundSourceObject": "Scaphoid bone.r",
+      "firstVisibleSourceObject": "Scaphoid bone.r",
+      "coordinateError": 0.0,
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "scope": "Six displayed numeric leaders bind exact GLB vertices and first-hit source objects. Semantic identity still requires independent pixel/anatomy review."
+}

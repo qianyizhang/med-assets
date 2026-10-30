@@ -1,0 +1,535 @@
+{
+  "scope": "Native source surface screen; overlap candidates are not a clinical clearance or continuous-lumen proof.",
+  "sections": {
+    "Median nerve.r": [
+      {
+        "world": [
+          -0.2405533492565155,
+          -0.011958736926317215,
+          0.938471257686615
+        ],
+        "radius": 2.0
+      },
+      {
+        "world": [
+          -0.25672993063926697,
+          -0.027734577655792236,
+          0.8674297332763672
+        ],
+        "radius": 2.0
+      },
+      {
+        "world": [
+          -0.2634942829608917,
+          -0.034298598766326904,
+          0.8360272645950317
+        ],
+        "radius": 1.0
+      }
+    ],
+    "Palmar branch of median nerve.r": [
+      {
+        "world": [
+          -0.2405533492565155,
+          -0.011958735063672066,
+          0.9384711980819702
+        ],
+        "radius": 1.0
+      },
+      {
+        "world": [
+          -0.2473144680261612,
+          -0.02414100617170334,
+          0.8815622329711914
+        ],
+        "radius": 1.0
+      },
+      {
+        "world": [
+          -0.2567717730998993,
+          -0.028091995045542717,
+          0.8687523603439331
+        ],
+        "radius": 1.0
+      },
+      {
+        "world": [
+          -0.2742082178592682,
+          -0.03540154919028282,
+          0.855792224407196
+        ],
+        "radius": 1.0
+      },
+      {
+        "world": [
+          -0.2772654891014099,
+          -0.045664235949516296,
+          0.8400426506996155
+        ],
+        "radius": 0.20000000298023224
+      }
+    ]
+  },
+  "overlaps": {
+    "Median nerve.r / Flexor retinaculum of wrist.r": {
+      "allTriangleCandidates": 0,
+      "wristCandidates": 0,
+      "witness": []
+    },
+    "Median nerve.r / Flexor pollicis longus.r": {
+      "allTriangleCandidates": 0,
+      "wristCandidates": 0,
+      "witness": []
+    },
+    "Median nerve.r / Flexor digitorum profundus.r": {
+      "allTriangleCandidates": 495,
+      "wristCandidates": 131,
+      "witness": [
+        {
+          "nerveTriangle": 4804,
+          "contextTriangle": 3487,
+          "nerveCentroid": [
+            -0.2532222867012024,
+            -0.02324696257710457,
+            0.8885213732719421
+          ]
+        },
+        {
+          "nerveTriangle": 4807,
+          "contextTriangle": 3484,
+          "nerveCentroid": [
+            -0.25284722447395325,
+            -0.02248472534120083,
+            0.8903500437736511
+          ]
+        },
+        {
+          "nerveTriangle": 4807,
+          "contextTriangle": 3485,
+          "nerveCentroid": [
+            -0.25284722447395325,
+            -0.02248472534120083,
+            0.8903500437736511
+          ]
+        },
+        {
+          "nerveTriangle": 4807,
+          "contextTriangle": 3487,
+          "nerveCentroid": [
+            -0.25284722447395325,
+            -0.02248472534120083,
+            0.8903500437736511
+          ]
+        },
+        {
+          "nerveTriangle": 4819,
+          "contextTriangle": 3720,
+          "nerveCentroid": [
+            -0.25095972418785095,
+            -0.022797418758273125,
+            0.8900316953659058
+          ]
+        },
+        {
+          "nerveTriangle": 4819,
+          "contextTriangle": 3979,
+          "nerveCentroid": [
+            -0.25095972418785095,
+            -0.022797418758273125,
+            0.8900316953659058
+          ]
+        }
+      ]
+    },
+    "Median nerve.r / Radial head of flexor digitorum superficialis.r": {
+      "allTriangleCandidates": 98,
+      "wristCandidates": 60,
+      "witness": [
+        {
+          "nerveTriangle": 4805,
+          "contextTriangle": 142,
+          "nerveCentroid": [
+            -0.25277799367904663,
+            -0.02297220192849636,
+            0.8904478549957275
+          ]
+        },
+        {
+          "nerveTriangle": 4804,
+          "contextTriangle": 142,
+          "nerveCentroid": [
+            -0.2532222867012024,
+            -0.02324696257710457,
+            0.8885213732719421
+          ]
+        },
+        {
+          "nerveTriangle": 4804,
+          "contextTriangle": 145,
+          "nerveCentroid": [
+            -0.2532222867012024,
+            -0.02324696257710457,
+            0.8885213732719421
+          ]
+        },
+        {
+          "nerveTriangle": 4804,
+          "contextTriangle": 149,
+          "nerveCentroid": [
+            -0.2532222867012024,
+            -0.02324696257710457,
+            0.8885213732719421
+          ]
+        },
+        {
+          "nerveTriangle": 4807,
+          "contextTriangle": 142,
+          "nerveCentroid": [
+            -0.25284722447395325,
+            -0.02248472534120083,
+            0.8903500437736511
+          ]
+        },
+        {
+          "nerveTriangle": 4807,
+          "contextTriangle": 145,
+          "nerveCentroid": [
+            -0.25284722447395325,
+            -0.02248472534120083,
+            0.8903500437736511
+          ]
+        }
+      ]
+    },
+    "Median nerve.r / Humero-ulnar head of flexor digitorum superficialis.r": {
+      "allTriangleCandidates": 693,
+      "wristCandidates": 204,
+      "witness": [
+        {
+          "nerveTriangle": 4803,
+          "contextTriangle": 9210,
+          "nerveCentroid": [
+            -0.25247442722320557,
+            -0.023370949551463127,
+            0.8904768228530884
+          ]
+        },
+        {
+          "nerveTriangle": 4803,
+          "contextTriangle": 9519,
+          "nerveCentroid": [
+            -0.25247442722320557,
+            -0.023370949551463127,
+            0.8904768228530884
+          ]
+        },
+        {
+          "nerveTriangle": 4802,
+          "contextTriangle": 9213,
+          "nerveCentroid": [
+            -0.2529922425746918,
+            -0.023689862340688705,
+            0.8885754346847534
+          ]
+        },
+        {
+          "nerveTriangle": 4802,
+          "contextTriangle": 9519,
+          "nerveCentroid": [
+            -0.2529922425746918,
+            -0.023689862340688705,
+            0.8885754346847534
+          ]
+        },
+        {
+          "nerveTriangle": 4819,
+          "contextTriangle": 8944,
+          "nerveCentroid": [
+            -0.25095972418785095,
+            -0.022797418758273125,
+            0.8900316953659058
+          ]
+        },
+        {
+          "nerveTriangle": 4819,
+          "contextTriangle": 8947,
+          "nerveCentroid": [
+            -0.25095972418785095,
+            -0.022797418758273125,
+            0.8900316953659058
+          ]
+        }
+      ]
+    },
+    "Median nerve.r / Scaphoid bone.r": {
+      "allTriangleCandidates": 0,
+      "wristCandidates": 0,
+      "witness": []
+    },
+    "Median nerve.r / Lunate bone.r": {
+      "allTriangleCandidates": 0,
+      "wristCandidates": 0,
+      "witness": []
+    },
+    "Median nerve.r / Triquetrum bone.r": {
+      "allTriangleCandidates": 0,
+      "wristCandidates": 0,
+      "witness": []
+    },
+    "Median nerve.r / Pisiform bone.r": {
+      "allTriangleCandidates": 0,
+      "wristCandidates": 0,
+      "witness": []
+    },
+    "Median nerve.r / Trapezium bone.r": {
+      "allTriangleCandidates": 0,
+      "wristCandidates": 0,
+      "witness": []
+    },
+    "Median nerve.r / Trapezoid bone.r": {
+      "allTriangleCandidates": 0,
+      "wristCandidates": 0,
+      "witness": []
+    },
+    "Median nerve.r / Capitate bone.r": {
+      "allTriangleCandidates": 0,
+      "wristCandidates": 0,
+      "witness": []
+    },
+    "Median nerve.r / Hamate bone.r": {
+      "allTriangleCandidates": 0,
+      "wristCandidates": 0,
+      "witness": []
+    },
+    "Palmar branch of median nerve.r / Flexor retinaculum of wrist.r": {
+      "allTriangleCandidates": 0,
+      "wristCandidates": 0,
+      "witness": []
+    },
+    "Palmar branch of median nerve.r / Flexor pollicis longus.r": {
+      "allTriangleCandidates": 0,
+      "wristCandidates": 0,
+      "witness": []
+    },
+    "Palmar branch of median nerve.r / Flexor digitorum profundus.r": {
+      "allTriangleCandidates": 221,
+      "wristCandidates": 114,
+      "witness": [
+        {
+          "nerveTriangle": 506,
+          "contextTriangle": 4000,
+          "nerveCentroid": [
+            -0.25431761145591736,
+            -0.02762361243367195,
+            0.8712127208709717
+          ]
+        },
+        {
+          "nerveTriangle": 531,
+          "contextTriangle": 4000,
+          "nerveCentroid": [
+            -0.25489938259124756,
+            -0.02786056511104107,
+            0.8704971671104431
+          ]
+        },
+        {
+          "nerveTriangle": 531,
+          "contextTriangle": 4007,
+          "nerveCentroid": [
+            -0.25489938259124756,
+            -0.02786056511104107,
+            0.8704971671104431
+          ]
+        },
+        {
+          "nerveTriangle": 532,
+          "contextTriangle": 4002,
+          "nerveCentroid": [
+            -0.25547274947166443,
+            -0.027943309396505356,
+            0.8703869581222534
+          ]
+        },
+        {
+          "nerveTriangle": 532,
+          "contextTriangle": 4010,
+          "nerveCentroid": [
+            -0.25547274947166443,
+            -0.027943309396505356,
+            0.8703869581222534
+          ]
+        },
+        {
+          "nerveTriangle": 529,
+          "contextTriangle": 4007,
+          "nerveCentroid": [
+            -0.25476086139678955,
+            -0.02775130234658718,
+            0.8703186511993408
+          ]
+        }
+      ]
+    },
+    "Palmar branch of median nerve.r / Radial head of flexor digitorum superficialis.r": {
+      "allTriangleCandidates": 76,
+      "wristCandidates": 76,
+      "witness": [
+        {
+          "nerveTriangle": 506,
+          "contextTriangle": 160,
+          "nerveCentroid": [
+            -0.25431761145591736,
+            -0.02762361243367195,
+            0.8712127208709717
+          ]
+        },
+        {
+          "nerveTriangle": 531,
+          "contextTriangle": 160,
+          "nerveCentroid": [
+            -0.25489938259124756,
+            -0.02786056511104107,
+            0.8704971671104431
+          ]
+        },
+        {
+          "nerveTriangle": 529,
+          "contextTriangle": 160,
+          "nerveCentroid": [
+            -0.25476086139678955,
+            -0.02775130234658718,
+            0.8703186511993408
+          ]
+        },
+        {
+          "nerveTriangle": 528,
+          "contextTriangle": 160,
+          "nerveCentroid": [
+            -0.2551308274269104,
+            -0.027930360287427902,
+            0.8700433969497681
+          ]
+        },
+        {
+          "nerveTriangle": 550,
+          "contextTriangle": 158,
+          "nerveCentroid": [
+            -0.25504249334335327,
+            -0.027754662558436394,
+            0.8698873519897461
+          ]
+        },
+        {
+          "nerveTriangle": 550,
+          "contextTriangle": 160,
+          "nerveCentroid": [
+            -0.25504249334335327,
+            -0.027754662558436394,
+            0.8698873519897461
+          ]
+        }
+      ]
+    },
+    "Palmar branch of median nerve.r / Humero-ulnar head of flexor digitorum superficialis.r": {
+      "allTriangleCandidates": 227,
+      "wristCandidates": 103,
+      "witness": [
+        {
+          "nerveTriangle": 506,
+          "contextTriangle": 8970,
+          "nerveCentroid": [
+            -0.25431761145591736,
+            -0.02762361243367195,
+            0.8712127208709717
+          ]
+        },
+        {
+          "nerveTriangle": 506,
+          "contextTriangle": 8971,
+          "nerveCentroid": [
+            -0.25431761145591736,
+            -0.02762361243367195,
+            0.8712127208709717
+          ]
+        },
+        {
+          "nerveTriangle": 531,
+          "contextTriangle": 8971,
+          "nerveCentroid": [
+            -0.25489938259124756,
+            -0.02786056511104107,
+            0.8704971671104431
+          ]
+        },
+        {
+          "nerveTriangle": 532,
+          "contextTriangle": 9232,
+          "nerveCentroid": [
+            -0.25547274947166443,
+            -0.027943309396505356,
+            0.8703869581222534
+          ]
+        },
+        {
+          "nerveTriangle": 532,
+          "contextTriangle": 9233,
+          "nerveCentroid": [
+            -0.25547274947166443,
+            -0.027943309396505356,
+            0.8703869581222534
+          ]
+        },
+        {
+          "nerveTriangle": 529,
+          "contextTriangle": 9238,
+          "nerveCentroid": [
+            -0.25476086139678955,
+            -0.02775130234658718,
+            0.8703186511993408
+          ]
+        }
+      ]
+    },
+    "Palmar branch of median nerve.r / Scaphoid bone.r": {
+      "allTriangleCandidates": 0,
+      "wristCandidates": 0,
+      "witness": []
+    },
+    "Palmar branch of median nerve.r / Lunate bone.r": {
+      "allTriangleCandidates": 0,
+      "wristCandidates": 0,
+      "witness": []
+    },
+    "Palmar branch of median nerve.r / Triquetrum bone.r": {
+      "allTriangleCandidates": 0,
+      "wristCandidates": 0,
+      "witness": []
+    },
+    "Palmar branch of median nerve.r / Pisiform bone.r": {
+      "allTriangleCandidates": 0,
+      "wristCandidates": 0,
+      "witness": []
+    },
+    "Palmar branch of median nerve.r / Trapezium bone.r": {
+      "allTriangleCandidates": 0,
+      "wristCandidates": 0,
+      "witness": []
+    },
+    "Palmar branch of median nerve.r / Trapezoid bone.r": {
+      "allTriangleCandidates": 0,
+      "wristCandidates": 0,
+      "witness": []
+    },
+    "Palmar branch of median nerve.r / Capitate bone.r": {
+      "allTriangleCandidates": 0,
+      "wristCandidates": 0,
+      "witness": []
+    },
+    "Palmar branch of median nerve.r / Hamate bone.r": {
+      "allTriangleCandidates": 0,
+      "wristCandidates": 0,
+      "witness": []
+    }
+  }
+}
