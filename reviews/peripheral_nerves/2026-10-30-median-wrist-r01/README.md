@@ -42,7 +42,7 @@ rebuilt, replaced or republished by this package.
 | Visual | [Independent V2 review accepted with limitations](independent-review.md); color/detail views preferred because grayscale nerve–bone contrast is reduced |
 | Anatomy | Gross course reference-screened; unresolved soft-tissue relationship remains excluded |
 | Clinical/runtime | Unverified; no motion or physical-scale validation |
-| Publication | Separate delivery receipt; neither local review nor metadata checks establish remote availability |
+| Publication | [Bounded upload and fresh GitHub payload readback passed](delivery.json); draft PR and runtime remain separate |
 
 The [recipe](../../../tests/peripheral_nerves/median-wrist-r01/README.md) describes
 exact replay and separate scoped tests. The broader offline gate covers only its

@@ -1,0 +1,41 @@
+{
+  "schema": "bounded-median-wrist-delivery-v1",
+  "upload": {
+    "action": "bounded direct Git LFS upload",
+    "executor": "Linux cloud; Git LFS 3.6.1",
+    "repository": "qianyizhang/med-assets",
+    "commit": "a13ff28e6b5a27803cf91db89859f609b41099fd",
+    "startedAt": "2026-10-30T07:15:25.098081+00:00",
+    "completedAt": "2026-10-30T07:15:27.839820+00:00",
+    "exitCode": 0,
+    "objectCount": 17,
+    "uniqueBytes": 10300763,
+    "sanitizedResult": "Uploading LFS objects: 100% (17/17), 10 MB | 3.6 MB/s, done.\n"
+  },
+  "readback": {
+    "action": "fresh GitHub readback into previously nonexistent empty LFS store",
+    "executor": "Linux cloud; Git LFS 3.6.1",
+    "repository": "qianyizhang/med-assets",
+    "commit": "a13ff28e6b5a27803cf91db89859f609b41099fd",
+    "startedAt": "2026-10-30T07:16:26.683590+00:00",
+    "completedAt": "2026-10-30T07:16:27.784868+00:00",
+    "exitCode": 0,
+    "sanitizedResult": "fetch: Fetching reference a13ff28e6b5a27803cf91db89859f609b41099fd\n",
+    "verifiedPathCount": 21,
+    "verifiedUniqueObjects": 17,
+    "verifiedUniqueBytes": 10300763,
+    "manifestSha256": "ca018cf11ce0b3d4ff272dcf29e02f956b4a56a44327b16d9883809709f6f222",
+    "boundary": "Fresh byte identity only; no browser runtime, clinical or GitHub inline rendering pass."
+  },
+  "branch": "wip/median-wrist-150",
+  "publication": "Payloads and branch delivered; draft PR is a separate action. No merge or Site publication.",
+  "gates": {
+    "remoteByteIdentity": "passed",
+    "independentStaticReview": "accepted with limitations",
+    "anatomy": "reference-screened skeletal localization only",
+    "clinical": "unverified",
+    "browserRuntime": "unverified",
+    "githubInlineRendering": "unverified"
+  },
+  "retention": "Original source masters, failed soft-tissue screen, V1, failed layout/occluded landmark trials, and final V2 retained. Source download was not repeated. A recoverable local archive is retained; no new Drive destination was selected."
+}
