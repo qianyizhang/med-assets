@@ -181,8 +181,8 @@
       "view": "overview",
       "state": "isolated",
       "file": "overview-isolated.png",
-      "sha256": "b7b3e34a7e30387c676a6230848759c7b8616730bef43c6cd548359b74ee5233",
-      "bytes": 629513,
+      "sha256": "b33f0b9299b44e24dd5a53e8878715c70765de8165643cb6b2875dab43c32d5f",
+      "bytes": 627063,
       "resolution": [
         900,
         700
@@ -190,7 +190,7 @@
       "cameraPosition": [
         0.0,
         0.550000011920929,
-        0.06499999761581421
+        0.05000000074505806
       ],
       "cameraWorldMatrix": [
         [
@@ -209,7 +209,7 @@
           0.0,
           1.0000001192092896,
           -1.3435885648505064e-07,
-          0.06499999761581421
+          0.05000000074505806
         ],
         [
           0.0,
@@ -218,7 +218,7 @@
           1.0
         ]
       ],
-      "orthoScaleM": 0.36000001430511475,
+      "orthoScaleM": 0.4000000059604645,
       "contextVisible": false,
       "selectedGeometrySha256": "eaf19ce4147911fcf29b5167f6dced917631ca31b01d9f97afccbb261062f6a1"
     },
@@ -226,8 +226,8 @@
       "view": "overview",
       "state": "context",
       "file": "overview-context.png",
-      "sha256": "41b93cd9606fe0e6809accda5720e359642f5a3cfe1e11839d65824f3be42dc5",
-      "bytes": 816607,
+      "sha256": "d508d5630994df1a889cae21d50b47a4e4436fa22535904c4f0f313f437c4333",
+      "bytes": 785275,
       "resolution": [
         900,
         700
@@ -235,7 +235,7 @@
       "cameraPosition": [
         0.0,
         0.550000011920929,
-        0.06499999761581421
+        0.05000000074505806
       ],
       "cameraWorldMatrix": [
         [
@@ -254,7 +254,7 @@
           0.0,
           1.0000001192092896,
           -1.3435885648505064e-07,
-          0.06499999761581421
+          0.05000000074505806
         ],
         [
           0.0,
@@ -263,7 +263,7 @@
           1.0
         ]
       ],
-      "orthoScaleM": 0.36000001430511475,
+      "orthoScaleM": 0.4000000059604645,
       "contextVisible": true,
       "selectedGeometrySha256": "eaf19ce4147911fcf29b5167f6dced917631ca31b01d9f97afccbb261062f6a1"
     },
@@ -370,12 +370,39 @@
       0.06568001210689545
     ],
     "leftPixelOverview": [
-      94.19998228549957,
-      506.1500145122409
+      129.77998405694962,
+      456.7850130610168
     ],
     "rightPixelOverview": [
-      471.85000106692314,
-      348.2999697327614
+      469.6650009602308,
+      314.71997275948524
+    ]
+  },
+  "overviewFraming": {
+    "contextPixelBounds": [
+      [
+        105.884994506836,
+        70.12246704101562
+      ],
+      [
+        770.3999862670898,
+        631.0700302124023
+      ]
+    ],
+    "edgeMarginsPx": {
+      "left": 105.884994506836,
+      "top": 70.12246704101562,
+      "right": 129.60001373291016,
+      "bottom": 68.92996978759766
+    },
+    "minimumEdgeMarginPx": 68.92996978759766,
+    "requiredMarginPx": 24
+  },
+  "reusedDetail": {
+    "fromV1RenderReceiptSha256": "5b4ec93009d693483f7e9084c46cc6399706a91f822ae26cadd04d4ff80e898f",
+    "images": [
+      "detail-isolated.png",
+      "detail-context.png"
     ]
   },
   "sourceBytesAndGeometryUnchanged": true,

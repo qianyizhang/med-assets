@@ -22,11 +22,13 @@ CONTEXT = {
     'lung_lower_lobe_right': '1d23017adc49bf2bd610f3b675be99732f968382db921ccf6adb2fdcffe129bb',
 }
 CAMERAS = {
-    'overview': {'position': [0., .55, .065], 'scale': .36},
+    'overview': {'position': [0., .55, .05], 'scale': .40},
     'detail': {'position': [.034754461608827114, .55, .05972786992788315], 'scale': .13},
 }
 RESOLUTION = [900, 700]
 POSTERIOR_BASIS = [[-1., 0., 0.], [0., 0., 1.], [0., 1., 0.]]
+MIN_OVERVIEW_MARGIN_PX = 24
+V1_RENDER_RECEIPT_SHA = '5b4ec93009d693483f7e9084c46cc6399706a91f822ae26cadd04d4ff80e898f'
 
 
 def require(condition, message):
@@ -55,6 +57,46 @@ def project(point, camera):
     pixels_per_metre = RESOLUTION[0] / camera['scale']
     return [RESOLUTION[0] / 2 - (x - cx) * pixels_per_metre,
             RESOLUTION[1] / 2 - (z - cz) * pixels_per_metre]
+
+
+def context_framing(context_rows, camera=None):
+    camera = camera or CAMERAS['overview']
+    points = []
+    for row in context_rows:
+        lo, hi = row['blenderBoundsM']
+        points.extend(project([x, 0, z], camera) for x in (lo[0], hi[0]) for z in (lo[2], hi[2]))
+    low = [min(p[i] for p in points) for i in range(2)]
+    high = [max(p[i] for p in points) for i in range(2)]
+    margins = {'left': low[0], 'top': low[1], 'right': RESOLUTION[0] - high[0], 'bottom': RESOLUTION[1] - high[1]}
+    return {'contextPixelBounds': [low, high], 'edgeMarginsPx': margins,
+            'minimumEdgeMarginPx': min(margins.values()), 'requiredMarginPx': MIN_OVERVIEW_MARGIN_PX}
+
+
+def require_framing_margin(framing):
+    require(framing['minimumEdgeMarginPx'] >= MIN_OVERVIEW_MARGIN_PX,
+            'Overview context lacks breathing room')
+
+
+def reuse_v1_detail(directory, expected_source):
+    """Reuse only the exact independently reviewed v1 detail captures."""
+    directory = Path(directory)
+    raw = (directory / 'render.json').read_bytes()
+    require(sha(raw) == V1_RENDER_RECEIPT_SHA, 'Detail reuse receipt identity mismatch')
+    previous = json.loads(raw)
+    require(previous['source'] == expected_source, 'Detail reuse source differs')
+    rows = [r for r in previous['views'] if r['view'] == 'detail']
+    require([r['state'] for r in rows] == ['isolated', 'context'], 'Detail reuse states differ')
+    payloads = {}
+    for row in rows:
+        require(row['resolution'] == RESOLUTION and row['selectedGeometrySha256'] == expected_source['geometrySha256'],
+                'Detail reuse geometry/dimensions differ')
+        require(abs(row['orthoScaleM'] - CAMERAS['detail']['scale']) < 1e-7
+                and all(abs(a-b) < 1e-7 for a,b in zip(row['cameraPosition'], CAMERAS['detail']['position'])),
+                'Detail reuse camera differs')
+        data = (directory / row['file']).read_bytes()
+        require(sha(data) == row['sha256'] and len(data) == row['bytes'], 'Detail reuse image identity mismatch')
+        payloads[row['file']] = data
+    return rows, payloads
 
 
 def geometry_sha(vertices, faces):

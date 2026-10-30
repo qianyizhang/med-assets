@@ -7,9 +7,11 @@ import struct
 from xml.sax.saxutils import escape, quoteattr
 
 if __package__:
-    from .source import CAMERAS, CONTEXT, GLB_SHA, POSTERIOR_BASIS, RESOLUTION, load_inputs, project, require, sha
+    from .source import (CAMERAS, CONTEXT, GLB_SHA, POSTERIOR_BASIS, RESOLUTION,
+                         context_framing, load_inputs, project, require, require_framing_margin, sha)
 else:
-    from source import CAMERAS, CONTEXT, GLB_SHA, POSTERIOR_BASIS, RESOLUTION, load_inputs, project, require, sha
+    from source import (CAMERAS, CONTEXT, GLB_SHA, POSTERIOR_BASIS, RESOLUTION,
+                        context_framing, load_inputs, project, require, require_framing_margin, sha)
 
 INK, MUTED, BG = '#f4f2eb', '#bdc7cc', '#101b22'
 
@@ -17,6 +19,9 @@ INK, MUTED, BG = '#f4f2eb', '#bdc7cc', '#101b22'
 def validate_record(record, expected_source):
     require(record['source'] == expected_source, 'Render source/context inventory differs')
     require(record['sourceBytesAndGeometryUnchanged'] is True, 'Geometry preservation not verified')
+    framing = context_framing(expected_source['contexts'])
+    require_framing_margin(framing)
+    require(record['overviewFraming'] == framing, 'Overview framing receipt differs')
     require([c['name'] for c in record['source']['contexts']] == list(CONTEXT), 'Incomplete same-case context')
     require([(v['view'], v['state']) for v in record['views']] ==
             [(v, s) for v in CAMERAS for s in ('isolated', 'context')], 'Unexpected visibility pairs')

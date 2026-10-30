@@ -1,15 +1,15 @@
 {
-  "stage": "private-v1",
+  "stage": "private-v2",
   "sourceSha256": "9e0454c0a920bcd9292d1aced370ff781b97aa8fb87b0439eb1f0ac21517a593",
   "generatorSha256": {
-    "tools/pulmonary_vein_context/build.py": "f033a2b2132352f8481fd8d2fec4f39257b092457254b890a90b662c64b890e4",
+    "tools/pulmonary_vein_context/build.py": "f5ab5531f956bb4188007fb805a456eadb973c1d7f4c4cf17debe1f4fa9244bd",
     "tools/pulmonary_vein_context/check_visuals.py": "7b550891695c138b95f25f7a03b4b10af89b471cf692643caccb3fff5631232c",
-    "tools/pulmonary_vein_context/render.py": "38f4d9094e82ab72006d2963cc6ae2a15fac53e3fe2c49ba53957f37a4b69e11",
-    "tools/pulmonary_vein_context/source.py": "1a9543b5b7711a6fd3b7543ddbc2877cf3bb741197f2fe22bb496ae98c791754"
+    "tools/pulmonary_vein_context/render.py": "86ad301f43ad64a4a0f8ae9d7599664d8e23625aed257ad48e3de6151235821b",
+    "tools/pulmonary_vein_context/source.py": "67365b9ea0cdecd93755f4bfedd1abd129d7a7f375607a8bd258415c5d2c0eed"
   },
   "scopedTests": {
     "command": "python3 -m unittest discover -s tests -p 'test_pulmonary_vein_context.py' -v",
-    "passed": 9,
+    "passed": 11,
     "failed": 0
   },
   "nativeVisualBinding": {
@@ -17,21 +17,59 @@
     "panels": 8,
     "nonEditorialPixelDifferences": 0
   },
+  "overviewFraming": {
+    "contextPixelBounds": [
+      [
+        105.884994506836,
+        70.12246704101562
+      ],
+      [
+        770.3999862670898,
+        631.0700302124023
+      ]
+    ],
+    "edgeMarginsPx": {
+      "left": 105.884994506836,
+      "top": 70.12246704101562,
+      "right": 129.60001373291016,
+      "bottom": 68.92996978759766
+    },
+    "minimumEdgeMarginPx": 68.92996978759766,
+    "requiredMarginPx": 24
+  },
+  "v1IndependentReview": {
+    "commit": "8de4646f420b223b091fa390efbcd5c33d0f3ac7",
+    "manifestEntriesVerified": 38,
+    "actualViewsInspected": [
+      "teaching",
+      "overview comparison",
+      "detail comparison",
+      "grayscale"
+    ],
+    "result": "Context and source-bound scope readable; sole blocking finding was near-edge lower lung in overview."
+  },
+  "v2Reuse": {
+    "detailRenderBytesIdentical": true,
+    "detailComparisonPngBytesIdentical": true,
+    "sourceInventoryIdentical": true,
+    "lightingAndMaterialReceiptIdentical": true,
+    "renderedImages": 2,
+    "reusedImages": 2
+  },
   "authorVisualReview": {
     "inspected": [
-      "combined teaching PNG",
-      "overview Original/Updated PNG",
-      "detail Original/Updated PNG",
-      "grayscale teaching PNG"
+      "v2 combined teaching PNG",
+      "v2 overview Original/Updated PNG",
+      "v2 grayscale teaching PNG"
     ],
-    "finding": "Overview minimum context margin is 0.1999664306640625 px; widen overview in v2. Detail pixels remain reusable."
+    "result": "Visible margin on every overview side; detail rectangle aligns to the recomputed camera; no new blocking finding."
   },
   "gates": {
     "technical": "scoped checks passed",
-    "staticPresentation": "needs framing revision and independent review",
+    "staticPresentation": "v2 author inspection passed; final independent review pending",
     "browserRuntime": "unverified; no browser attempt",
     "anatomyClinical": "unverified",
     "publicDelivery": "not attempted",
-    "requiredOfflinePRGate": "not run at private-v1 stage"
+    "requiredOfflinePRGate": "not run at private-v2 stage"
   }
 }

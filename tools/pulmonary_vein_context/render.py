@@ -8,7 +8,9 @@ import bpy
 from mathutils import Matrix, Vector
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from source import CAMERAS, POSTERIOR_BASIS, RESOLUTION, geometry_sha, load_inputs, project, require, sha
+from source import (CAMERAS, POSTERIOR_BASIS, RESOLUTION, V1_RENDER_RECEIPT_SHA,
+                    context_framing, geometry_sha, load_inputs, project, require,
+                    require_framing_margin, reuse_v1_detail, sha)
 
 
 def material(name, color, opacity=1):
@@ -64,8 +66,11 @@ def mesh_identity(obj):
     return geometry_sha([v.co[:] for v in obj.data.vertices], [p.vertices[:] for p in obj.data.polygons])
 
 
-def run(root, output):
+def run(root, output, reuse_detail_from=None):
     record, vertices, faces, contexts = load_inputs(root)
+    framing = context_framing(record['contexts'])
+    require_framing_margin(framing)
+    reused_rows, reused_payloads = reuse_v1_detail(reuse_detail_from, record) if reuse_detail_from else ([], {})
     output.mkdir(parents=True, exist_ok=False)
     bpy.ops.wm.read_factory_settings(use_empty=True)
     require(not bpy.context.preferences.filepaths.use_scripts_auto_execute, 'Run with --disable-autoexec')
@@ -108,6 +113,11 @@ def run(root, output):
     camera.rotation_quaternion = Matrix(POSTERIOR_BASIS).to_quaternion()
     views = []
     for view, config in CAMERAS.items():
+        if view == 'detail' and reused_rows:
+            for name, raw in reused_payloads.items():
+                (output / name).write_bytes(raw)
+            views.extend(reused_rows)
+            continue
         camera.location = config['position']
         camera.data.ortho_scale = config['scale']
         for state in ('isolated', 'context'):
@@ -133,6 +143,9 @@ def run(root, output):
                    'rightPixelOverview': project(right, CAMERAS['overview'])}
     require(orientation['leftPixelOverview'][0] < orientation['rightPixelOverview'][0], 'Laterality is mirrored')
     result = {'schemaVersion': 1, 'source': record, 'views': views, 'orientationWitness': orientation,
+              'overviewFraming': framing,
+              'reusedDetail': {'fromV1RenderReceiptSha256': V1_RENDER_RECEIPT_SHA,
+                               'images': [r['file'] for r in reused_rows]} if reused_rows else None,
               'sourceBytesAndGeometryUnchanged': True, 'blender': bpy.app.version_string,
               'display': {'lighting': lights, 'worldColor': [.025, .035, .045], 'worldStrength': .4,
                           'engine': 'Cycles CPU', 'samples': 48, 'seed': 0, 'denoise': False,
@@ -149,5 +162,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--root', type=Path, required=True, help='Checkout containing exact hydrated GLB')
     parser.add_argument('--output', type=Path, required=True, help='New local directory')
+    parser.add_argument('--reuse-detail-from', type=Path, help='Exact reviewed v1 render directory; only overview is rerendered')
     options = parser.parse_args(args)
-    print(json.dumps(run(options.root, options.output), indent=2))
+    print(json.dumps(run(options.root, options.output, options.reuse_detail_from), indent=2))

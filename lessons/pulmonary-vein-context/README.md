@@ -73,6 +73,14 @@ does not export a new GLB. Source-coordinate/face checks and SVG-to-PNG binding
 checks support the static presentation only; browser, anatomy and clinical gates
 remain separate.
 
+For the camera-only v1 → v2 revision, append
+`--reuse-detail-from /path/to/exact-v1-renders` to the Blender command. This
+accepts only the recorded v1 receipt and its exact detail PNGs; it renders the
+overview pair and copies the unchanged detail pair. Lighting, materials and
+source inputs remain identical. The overview's projected context margin is
+recorded on every side; a 24 px minimum prevents the v1 near-edge framing.
+V2 has 68.93 px minimum margin at the native 900×700 resolution.
+
 ## Attribution
 
 Jakob Wasserthal and the TotalSegmentator contributors, University Hospital
@@ -82,5 +90,5 @@ and the [label-source Apache-2.0 notice](../../body/anatomy-workshop-r1/docs/lic
 The change adds editorial display materials, same-case visibility comparisons
 and bilingual typography. No source author endorsement is implied.
 
-Private v1 review is recorded in
+Private v1/v2 review is recorded in
 [the review record](../../reviews/pulmonary_vein/2026-10-30-context/README.md).

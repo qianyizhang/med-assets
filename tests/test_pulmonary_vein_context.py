@@ -2,6 +2,7 @@
 import copy
 import json
 from pathlib import Path
+import tempfile
 import unittest
 
 from tools.pulmonary_vein_context import build, source
@@ -56,6 +57,18 @@ class PulmonaryContextBindingTests(unittest.TestCase):
         self.record['sourceBytesAndGeometryUnchanged'] = False
         with self.assertRaisesRegex(ValueError, 'Geometry preservation'):
             build.validate_record(self.record, self.expected)
+
+    def test_original_near_edge_overview_fails_margin_requirement(self):
+        old = source.context_framing(self.expected['contexts'], {'position': [0., .55, .065], 'scale': .36})
+        self.assertLess(old['minimumEdgeMarginPx'], 1)
+        with self.assertRaisesRegex(ValueError, 'lacks breathing room'):
+            source.require_framing_margin(old)
+
+    def test_detail_reuse_rejects_a_different_receipt(self):
+        with tempfile.TemporaryDirectory() as directory:
+            (Path(directory) / 'render.json').write_text('{}')
+            with self.assertRaisesRegex(ValueError, 'reuse receipt identity mismatch'):
+                source.reuse_v1_detail(directory, self.expected)
 
 
 if __name__ == '__main__':
