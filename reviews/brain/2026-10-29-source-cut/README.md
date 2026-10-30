@@ -9,8 +9,11 @@ bracket outside the tissue, not an anatomical cap or reconstructed cord.
 **Evidence:** matched Original/Updated front and left sheets are committed as
 small SVGs referencing the existing exact contact image. Native PNG comparisons,
 portable SVGs and printable PDFs were produced locally; the front comparison was
-shared privately and independently reviewed. New public raster transport is pending
-explicit scope. The committed SVG's external image may not display in GitHub's
+shared privately and independently reviewed. The exact approved
+[front Original/Updated comparison](screenshots/front-comparison.png) is now
+delivered through Git LFS with fresh GitHub size/hash readback; see
+[publication.json](publication.json). Other private raster evidence remains private.
+The committed SVG's external image may not display in GitHub's
 restricted image preview; it was verified in Inkscape against the portable export.
 
 ## Iteration and scoped decision
@@ -35,10 +38,15 @@ restricted image preview; it was verified in Inkscape against the portable expor
   review confirmed pinned inputs, 49 meshes/two medulla names and no mesh writes.
   No blocking presentation finding. PDF reload was author-only, not independently
   verified; this verdict does not certify anatomy, browser display or publication.
-- **Pending:** public raster evidence authority and browser display. The first
-  PR-image embed was rejected by automatic approval review; the text-only draft
-  remains. Chromium stopped before page launch at its misconfigured SUID sandbox
-  helper. No public raster retry, security change or protected probe was attempted.
+- **Publication update (2026-10-30):** explicit approval covers only the existing
+  front comparison PNG (765,180 bytes, SHA-256
+  `c2ee5ee6cc8db191b0b10d8ff7a12b3a7d0010f7af1ec4d7430307662e66ae28`).
+  Direct single-object LFS upload and fresh unauthenticated download passed.
+  The earlier PR-image approval rejection remains historical; this delivery uses
+  the new exact approval. The PR stays draft; no merge or Site publication.
+- **Pending:** browser display. Chromium stopped before page launch at its
+  misconfigured SUID sandbox helper. No security change or protected probe was
+  attempted. The public PNG does not promote browser or clinical approval.
 
 ## Reproduce
 

@@ -20,8 +20,8 @@
       "scope": "Normal Chromium launch stopped at SUID sandbox helper; no page or WebGL execution."
     },
     "publication": {
-      "status": "needs-review",
-      "scope": "Text/SVG draft delivery only; new public raster evidence transport not authorized."
+      "status": "pass-with-limitations",
+      "scope": "One explicitly approved front comparison PNG uploaded via direct Git LFS; fresh unauthenticated GitHub download matches exact bytes/hash. Other private raster evidence remains private; no Site publication or merge."
     }
   },
   "v1": {
@@ -85,7 +85,7 @@
   "limitations": [
     "Magnified detail reuses retained render pixels, not new geometric detail.",
     "Clinical/anatomical and browser runtime gates are not promoted.",
-    "No new binary/LFS transport, Site publication, model mutation or canonical asset promotion."
+    "Only the exact approved front comparison PNG is delivered via Git LFS; no other raster, Site publication, model mutation or canonical asset promotion."
   ],
   "independentReview": {
     "reviewer": "independent parent agent",
@@ -114,7 +114,7 @@
         "sha256": "cf5050aa7c2446b93aae2bdc0f417c2463194a6a04fb11e149c4c6f67c80bead"
       }
     ],
-    "scope": "Verified private bundle sizes/hashes; inspected front/left comparisons and grayscale; independently rendered both portable teaching SVGs in Inkscape for actual standalone layout. Correct inferior source boundary, preserved visible tissue, matched crop/scale, readable EN/中文 editorial cue. Reviewed builder and 13-file diff: pinned inputs, 49 meshes and both medulla names enforced, no source mesh writes. No blocking presentation finding.",
+    "scope": "Verified private bundle sizes/hashes; inspected front/left comparisons and grayscale; independently rendered both portable teaching SVGs in Inkscape for actual standalone layout. Correct inferior source boundary, preserved visible tissue, matched crop/scale, readable EN/\u4e2d\u6587 editorial cue. Reviewed builder and 13-file diff: pinned inputs, 49 meshes and both medulla names enforced, no source mesh writes. No blocking presentation finding.",
     "exclusions": [
       "Browser rendering",
       "Anatomical or clinical certification",
