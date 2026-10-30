@@ -12,7 +12,7 @@ Actual clean GLB reimports in Blender 4.3.2 Cycles, same camera, scale, lighting
 - **V2 correction:** reviewer found inherited animation/pericardium descriptions overstated derivative content. V2 corrects three scene descriptions only. All other JSON and BIN content matches v1; exact-v2 reimports have identical decoded pixels. PNG timestamps/render-time metadata differ, so PNG byte identity is not claimed.
 - **Technical:** both builds replay byte-identically; 15 actual-source replay/integrity/failure checks pass. All 124 retained objects match the source after clean reimport; animated-source world coordinates match at all 25 authored samples, four walls move and the loop closes exactly.
 - **Aggregate:** required offline verification passes 189 tests, 26 transport manifests, 25 historical foundation records, 591 import references and 702 LFS pointer identities. Its scope excludes media/runtime; the separate hydrated package check verifies both local candidates, native provenance and ten image bindings.
-- **Limits:** presentation fix only. Underlying RV inlet/apparatus geometry, canonical fitted animation `17b26d…`, anatomy/clinical approval, browser runtime and publication remain unresolved separate gates. This package has not been uploaded or deployed.
+- **Limits:** presentation fix only. Underlying RV inlet/apparatus geometry, canonical fitted animation `17b26d…`, anatomy/clinical approval and browser runtime remain unresolved separate gates. No canonical replacement or Site deployment is included.
 
 | Original animated source, t=0 | Updated animated source, t=0 |
 |---|---|
@@ -20,6 +20,8 @@ Actual clean GLB reimports in Blender 4.3.2 Cycles, same camera, scale, lighting
 | ![Original animated source seam](images/original-animated-source-seam-front.png) | ![Updated animated source seam](images/updated-animated-source-seam-front.png) |
 
 The animated pair uses exact repository source `6912d439271c3525230a90fe403d586000e6a66ab37f82bf0419604181e52263`. It does not claim to render the fitted canonical artifact `17b26d1459c0fbbbc71d051452c4074d1237683ffe02c1a8021d7ac83583857a`.
+
+[Source ownership and canonical applicability](provenance-and-applicability.md) records the owner's prior distribution, exact paths/sizes, unavailable fitted bytes and a zero-error comparison of all 912 retained canonical morph samples. This supports shared recorded timing, not exact canonical replacement applicability. Absence of a separate public reuse license is not treated as absence of owner authorization.
 
 ## Exact artifacts and evidence
 

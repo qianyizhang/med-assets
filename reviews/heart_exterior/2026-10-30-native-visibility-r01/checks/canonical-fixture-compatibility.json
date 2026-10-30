@@ -1,0 +1,35 @@
+{
+  "result": "passed-recorded-sample-compatibility-only",
+  "source": {
+    "file": "heart/Cardiac_Atlas_Animated/Heart_Clinical_Animated.glb",
+    "sha256": "6912d439271c3525230a90fe403d586000e6a66ab37f82bf0419604181e52263",
+    "bytes": 8180224
+  },
+  "canonical": {
+    "assetId": "heart_animated",
+    "variantId": "heart_animated__v10-837077aeece2",
+    "sha256": "17b26d1459c0fbbbc71d051452c4074d1237683ffe02c1a8021d7ac83583857a",
+    "bytes": 8180452,
+    "trackedRepositoryPath": null,
+    "sitePath": "body/3d/assets/motion/heart_animated_clinical.glb",
+    "exactBytesTested": false
+  },
+  "fixture": {
+    "file": "reviews/runtime/2026-10-23-software-ci-heart-lymph/source-expected-morph-fixture.json",
+    "sha256": "11138b99558f3730331752eb12022b589d7845e70698676a73edd757317be1c6"
+  },
+  "matchingTrackNamesAndNodeIndices": 228,
+  "matchingMeshes": 247,
+  "matchingRenderPrimitives": 251,
+  "comparedTimesSeconds": [
+    0,
+    0.2,
+    0.4,
+    0.8
+  ],
+  "comparedScalarValues": 912,
+  "maximumAbsoluteError": 0.0,
+  "sourceNodeCount": 248,
+  "recordedCanonicalNodeCount": 249,
+  "scope": "Names, indices, primitive counts and four recorded morph samples agree. This does not prove canonical geometry, fitting transforms, all samples, byte identity, clean reimport or replacement applicability. assets/heart.glb in the CI fixture is a transient download destination."
+}
