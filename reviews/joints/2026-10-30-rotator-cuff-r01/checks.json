@@ -1,0 +1,295 @@
+{
+  "artifactSha256": "edf5c2fc5322adc1c75703143b3fba5a2be3ecd87d5559bce1441c1977a4eb30",
+  "toleranceNativeUnits": 5e-07,
+  "scope": "Exhaustive surface coordinates and triangle multiplicity; no watertightness or anatomy certification",
+  "objects": [
+    {
+      "name": "Humerus.r",
+      "importedVertices": 2143,
+      "triangles": 4280,
+      "maxWorldError": 1.2130097104545712e-07,
+      "triangleMultisetMatches": true
+    },
+    {
+      "name": "Scapula.r",
+      "importedVertices": 12665,
+      "triangles": 25326,
+      "maxWorldError": 1.2383438274810032e-07,
+      "triangleMultisetMatches": true
+    },
+    {
+      "name": "Supraspinatus muscle.r",
+      "importedVertices": 717,
+      "triangles": 1430,
+      "maxWorldError": 1.2013700256829907e-07,
+      "triangleMultisetMatches": true
+    },
+    {
+      "name": "Infraspinatus muscle.r",
+      "importedVertices": 1585,
+      "triangles": 3166,
+      "maxWorldError": 1.2013700256829907e-07,
+      "triangleMultisetMatches": true
+    },
+    {
+      "name": "Teres minor muscle.r",
+      "importedVertices": 763,
+      "triangles": 1522,
+      "maxWorldError": 1.1973200741977053e-07,
+      "triangleMultisetMatches": true
+    },
+    {
+      "name": "Subscapularis muscle.r",
+      "importedVertices": 1471,
+      "triangles": 2954,
+      "maxWorldError": 1.2013700256829907e-07,
+      "triangleMultisetMatches": true
+    }
+  ],
+  "sourceViews": [
+    {
+      "file": "posterior.png",
+      "sha256": "656d1a26a18849f22d70c55d756e5c69c40181d4b5d1ae3cd42ba7808d52b11d",
+      "anchors": [
+        {
+          "id": "1",
+          "object": "Supraspinatus muscle.r",
+          "face": 1228,
+          "world": [
+            -0.1049998551607132,
+            0.08396655321121216,
+            1.3926022052764893
+          ],
+          "pixel": [
+            350.0000059604645,
+            344.99977827072144
+          ]
+        },
+        {
+          "id": "2",
+          "object": "Infraspinatus muscle.r",
+          "face": 2411,
+          "world": [
+            -0.10799986124038696,
+            0.10774301737546921,
+            1.3486218452453613
+          ],
+          "pixel": [
+            360.0000321865082,
+            499.99954104423523
+          ]
+        },
+        {
+          "id": "3",
+          "object": "Teres minor muscle.r",
+          "face": 498,
+          "world": [
+            -0.17339985072612762,
+            0.06596515327692032,
+            1.3508601188659668
+          ],
+          "pixel": [
+            578.0000030994415,
+            475.99975168704987
+          ]
+        },
+        {
+          "id": "S",
+          "object": "Scapula.r",
+          "face": 4084,
+          "world": [
+            -0.10499987006187439,
+            0.09551544487476349,
+            1.3849234580993652
+          ],
+          "pixel": [
+            350.0000596046448,
+            374.99985694885254
+          ]
+        }
+      ]
+    },
+    {
+      "file": "anterior.png",
+      "sha256": "fa982caab2a6a042e73601d7220f6423ba5892416abf78542ab89a110f0955aa",
+      "anchors": [
+        {
+          "id": "4",
+          "object": "Subscapularis muscle.r",
+          "face": 2053,
+          "world": [
+            -0.10200001299381256,
+            0.07838284224271774,
+            1.329557180404663
+          ],
+          "pixel": [
+            560.0000202655792,
+            519.9993252754211
+          ]
+        }
+      ]
+    },
+    {
+      "file": "lateral.png",
+      "sha256": "73b49da9ccf34dadc4be2967de9c3fa7644c2552eca0b14de4ce8a7b4fe3fcc7",
+      "anchors": []
+    },
+    {
+      "file": "overview.png",
+      "sha256": "02d06c53812407e2799e1638e3c46d0f2ac25683e2bbb95f994a5828451f92bc",
+      "anchors": [
+        {
+          "id": "S",
+          "object": "Scapula.r",
+          "face": 8578,
+          "world": [
+            -0.09866655617952347,
+            0.10210330039262772,
+            1.2838006019592285
+          ],
+          "pixel": [
+            366.0000264644623,
+            371.00003957748413
+          ]
+        },
+        {
+          "id": "H",
+          "object": "Humerus.r",
+          "face": 1381,
+          "world": [
+            -0.20744431018829346,
+            0.04917173460125923,
+            1.1790235042572021
+          ],
+          "pixel": [
+            543.9999997615814,
+            535.000330209732
+          ]
+        }
+      ]
+    }
+  ],
+  "exportViews": [
+    {
+      "file": "posterior.png",
+      "sha256": "bbb414ed76e9cca294e8c5756e4a5cdd0b852b2d9cf81d6237450790f206d284",
+      "anchors": [
+        {
+          "id": "1",
+          "object": "Supraspinatus muscle.r",
+          "face": 1228,
+          "world": [
+            -0.10499987006187439,
+            0.0839666873216629,
+            1.3926022052764893
+          ],
+          "pixel": [
+            350.0000596046448,
+            344.99983191490173
+          ]
+        },
+        {
+          "id": "2",
+          "object": "Infraspinatus muscle.r",
+          "face": 2411,
+          "world": [
+            -0.10799986124038696,
+            0.1077432632446289,
+            1.3486217260360718
+          ],
+          "pixel": [
+            360.0000321865082,
+            500.0000238418579
+          ]
+        },
+        {
+          "id": "3",
+          "object": "Teres minor muscle.r",
+          "face": 498,
+          "world": [
+            -0.17339986562728882,
+            0.06596503406763077,
+            1.3508601188659668
+          ],
+          "pixel": [
+            578.0000567436218,
+            475.99969804286957
+          ]
+        },
+        {
+          "id": "S",
+          "object": "Scapula.r",
+          "face": 4084,
+          "world": [
+            -0.10499986261129379,
+            0.09551557898521423,
+            1.3849234580993652
+          ],
+          "pixel": [
+            350.0000327825546,
+            374.99991059303284
+          ]
+        }
+      ]
+    },
+    {
+      "file": "anterior.png",
+      "sha256": "5c02d92bbd599849b378198cfc5d11ed69a8c25d289cdca989aca8869f321371",
+      "anchors": [
+        {
+          "id": "4",
+          "object": "Subscapularis muscle.r",
+          "face": 2053,
+          "world": [
+            -0.10200000554323196,
+            0.07838296890258789,
+            1.3295570611953735
+          ],
+          "pixel": [
+            560.0000202655792,
+            519.9996739625931
+          ]
+        }
+      ]
+    },
+    {
+      "file": "lateral.png",
+      "sha256": "156bc72418dfb4ed0596d2ab4e5881c37629c78a49eb7d6deb39e78434e4caba",
+      "anchors": []
+    },
+    {
+      "file": "overview.png",
+      "sha256": "2acb839e6b049d298a3d4445c5dc2b1f11c0edce6dc730132245e853bd37f1b9",
+      "anchors": [
+        {
+          "id": "S",
+          "object": "Scapula.r",
+          "face": 8581,
+          "world": [
+            -0.09866654872894287,
+            0.1021030843257904,
+            1.2838006019592285
+          ],
+          "pixel": [
+            366.0000264644623,
+            371.00003957748413
+          ]
+        },
+        {
+          "id": "H",
+          "object": "Humerus.r",
+          "face": 1381,
+          "world": [
+            -0.20744431018829346,
+            0.04917174577713013,
+            1.1790236234664917
+          ],
+          "pixel": [
+            543.9999997615814,
+            535.000142455101
+          ]
+        }
+      ]
+    }
+  ]
+}

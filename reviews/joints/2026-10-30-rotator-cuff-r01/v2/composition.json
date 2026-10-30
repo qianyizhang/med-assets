@@ -1,0 +1,92 @@
+{
+  "artifactSha256": "edf5c2fc5322adc1c75703143b3fba5a2be3ecd87d5559bce1441c1977a4eb30",
+  "outputs": {
+    "source-export.png": "a968d4d3992e2ec7ed6b9bb7451e60cfc0b10f48b358cac91ec36da742847cdf",
+    "grayscale.png": "7834414cc6606debd8e028db3de2cea962d89573b0feeb874797ef600082a78c",
+    "teaching.png": "addb75923e5b96edfafbc6045a4c1075b8b93889da8863b2ab99440c349eb482"
+  },
+  "version": 2,
+  "previousTeachingSha256": "d5a7dc86c7556029f95b99f924a39fc7a8c2396a59896789f3157030151eeb4b",
+  "labelBindings": [
+    {
+      "view": "overview",
+      "anchorId": "S",
+      "badgeInRawPixels": [
+        150,
+        380
+      ]
+    },
+    {
+      "view": "overview",
+      "anchorId": "H",
+      "badgeInRawPixels": [
+        750,
+        560
+      ]
+    },
+    {
+      "view": "posterior",
+      "anchorId": "1",
+      "badgeInRawPixels": [
+        285,
+        240
+      ]
+    },
+    {
+      "view": "posterior",
+      "anchorId": "2",
+      "badgeInRawPixels": [
+        175,
+        535
+      ]
+    },
+    {
+      "view": "posterior",
+      "anchorId": "3",
+      "badgeInRawPixels": [
+        758,
+        470
+      ]
+    },
+    {
+      "view": "posterior",
+      "anchorId": "S",
+      "badgeInRawPixels": [
+        110,
+        365
+      ]
+    },
+    {
+      "view": "anterior",
+      "anchorId": "4",
+      "badgeInRawPixels": [
+        785,
+        590
+      ]
+    }
+  ],
+  "sourceExportPixelComparison": [
+    {
+      "view": "posterior.png",
+      "meanAbsoluteRGBDifference255": 5.390946502057613e-05,
+      "maxChannelDifference255": 7
+    },
+    {
+      "view": "anterior.png",
+      "meanAbsoluteRGBDifference255": 6.995884773662552e-05,
+      "maxChannelDifference255": 9
+    },
+    {
+      "view": "lateral.png",
+      "meanAbsoluteRGBDifference255": 0.00016954732510288066,
+      "maxChannelDifference255": 14
+    },
+    {
+      "view": "overview.png",
+      "meanAbsoluteRGBDifference255": 1.8106995884773663e-05,
+      "maxChannelDifference255": 4
+    }
+  ],
+  "renderConditions": "Shared VIEWS and capture() in replay.py; identical camera, scale, lighting and exposure for each pair.",
+  "grayscaleScope": "Readability diagnostic of the same teaching pixels; color is preferred."
+}
