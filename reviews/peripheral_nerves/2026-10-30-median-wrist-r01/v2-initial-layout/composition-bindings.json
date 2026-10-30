@@ -1,0 +1,190 @@
+{
+  "artifactSha256": "6094265d2263f3b501f4e487ff7f859b83205bde99bca9312d48c26f29680c50",
+  "inputs": {
+    "bindings.json": "e39564585b530e682dd6e36e4236479930452befa1b8620bc6c06027420ce26f",
+    "whole-source.png": "55522b1f662d3084e79ceb060e661ce52fa26e5ded1ef6643a22b0765579c5a3",
+    "hand-palmar.png": "abfec8ea5db2c2f881fe5313ae1192e3c8367bec74079acfac75172a20cde863",
+    "wrist-oblique.png": "bc7349b5a81d34fbf9214e7d371efd0df7fb60e35646acf47fb368ae6c780545"
+  },
+  "outputs": {
+    "teaching-grayscale.png": "546e0b8f1d70dd486e1170dd5e95b18310014c82f2d36efaeb5d061883390af4",
+    "teaching.png": "6ad2fd56208daafa5c18a2af0e64878925893de26b15a32d25266a01b0efaff8"
+  },
+  "locators": [
+    {
+      "panel": "hand-palmar.png",
+      "number": 1,
+      "anchor": {
+        "key": "trunk",
+        "sourceObject": "Median nerve.r",
+        "vertex": 2641,
+        "world": [
+          -0.2560866177082062,
+          -0.026763252913951874,
+          0.874428927898407
+        ],
+        "pixel": [
+          519.4777429103851,
+          176.58848762512207
+        ],
+        "depth": 1.518236756324768
+      },
+      "displayPixel": [
+        877.8624451160431,
+        286.64984703063965
+      ],
+      "panelBox": [
+        520,
+        165,
+        620,
+        620
+      ]
+    },
+    {
+      "panel": "hand-palmar.png",
+      "number": 2,
+      "anchor": {
+        "key": "common",
+        "sourceObject": "Common palmar digital branches of median nerve.r",
+        "vertex": 793,
+        "world": [
+          -0.2794817090034485,
+          -0.03861980885267258,
+          0.80638188123703
+        ],
+        "pixel": [
+          433.53660106658936,
+          426.5572249889374
+        ],
+        "depth": 1.5063802003860474
+      },
+      "displayPixel": [
+        818.6585474014282,
+        458.85053277015686
+      ],
+      "panelBox": [
+        520,
+        165,
+        620,
+        620
+      ]
+    },
+    {
+      "panel": "hand-palmar.png",
+      "number": 3,
+      "anchor": {
+        "key": "proper",
+        "sourceObject": "Proper palmar digital branches of median nerve.r",
+        "vertex": 2574,
+        "world": [
+          -0.29822877049446106,
+          -0.05309754237532616,
+          0.7453395128250122
+        ],
+        "pixel": [
+          364.6698385477066,
+          650.7945120334625
+        ],
+        "depth": 1.491902470588684
+      },
+      "displayPixel": [
+        771.2169998884201,
+        613.3251082897186
+      ],
+      "panelBox": [
+        520,
+        165,
+        620,
+        620
+      ]
+    },
+    {
+      "panel": "hand-palmar.png",
+      "number": 4,
+      "anchor": {
+        "key": "scaphoid",
+        "sourceObject": "Scaphoid bone.r",
+        "vertex": 79,
+        "world": [
+          -0.27619925141334534,
+          -0.025639178231358528,
+          0.8528331518173218
+        ],
+        "pixel": [
+          445.5946058034897,
+          255.91996908187866
+        ],
+        "depth": 1.5193607807159424
+      },
+      "displayPixel": [
+        826.9651728868484,
+        341.3004231452942
+      ],
+      "panelBox": [
+        520,
+        165,
+        620,
+        620
+      ]
+    },
+    {
+      "panel": "wrist-oblique.png",
+      "number": 1,
+      "anchor": {
+        "key": "trunk",
+        "sourceObject": "Median nerve.r",
+        "vertex": 2641,
+        "world": [
+          -0.2560866177082062,
+          -0.026763252913951874,
+          0.874428927898407
+        ],
+        "pixel": [
+          505.66940903663635,
+          325.4072606563568
+        ],
+        "depth": 1.496932864189148
+      },
+      "displayPixel": [
+        1548.3500373363495,
+        389.1694462299347
+      ],
+      "panelBox": [
+        1200,
+        165,
+        620,
+        620
+      ]
+    },
+    {
+      "panel": "wrist-oblique.png",
+      "number": 4,
+      "anchor": {
+        "key": "scaphoid",
+        "sourceObject": "Scaphoid bone.r",
+        "vertex": 79,
+        "world": [
+          -0.27619925141334534,
+          -0.025639178231358528,
+          0.8528331518173218
+        ],
+        "pixel": [
+          388.8962209224701,
+          474.54864978790283
+        ],
+        "depth": 1.4949396848678589
+      },
+      "displayPixel": [
+        1467.9062855243683,
+        491.91129207611084
+      ],
+      "panelBox": [
+        1200,
+        165,
+        620,
+        620
+      ]
+    }
+  ],
+  "scope": "V2 teaching composition only; exact V1 GLB and raw captures unchanged. All leaders bind reimported source-object vertices. Source ends do not establish anatomical origins or termini."
+}
