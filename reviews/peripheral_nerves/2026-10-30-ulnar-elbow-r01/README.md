@@ -71,7 +71,7 @@ accuracy is independently reviewed in the images.
 | Visual | Independent v1 findings addressed in v2; [final review accepted with limitations](independent-v2-review.md) |
 | Anatomy/clinical | Gross relationship reference-screened; no clinical, complete-tunnel or full-route certification |
 | Runtime | Unverified; no browser test or motion evidence |
-| Publication | Separate from local review; see delivery receipt when available |
+| Publication | [Direct upload and fresh GitHub byte readback passed](delivery.json); draft review only, no runtime or clinical promotion |
 
 Source-coordinate evidence in `v1/native-check.json` screens all four vertex
 clouds bidirectionally against the full native scene: maximum difference
