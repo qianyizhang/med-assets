@@ -13,7 +13,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--artifact", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
-    parser.add_argument("--views", nargs="+", default=["whole", "posterior-close", "side-close"])
+    parser.add_argument("--views", nargs="+", default=["pair", "posterior-close", "side-close"])
     args = parser.parse_args(sys.argv[sys.argv.index("--") + 1:])
     if args.out.exists():
         raise FileExistsError("Output must be a new directory")
@@ -21,6 +21,7 @@ def main():
     bpy.ops.object.select_all(action="SELECT")
     bpy.ops.object.delete(use_global=False)
     bpy.ops.import_scene.gltf(filepath=str(args.artifact))
+    objects = [obj for obj in bpy.context.scene.objects if obj.type == "MESH"]
     scene = bpy.context.scene
     scene.render.engine = "CYCLES"
     scene.cycles.samples = 24
@@ -48,12 +49,16 @@ def main():
     scene.camera = camera
     views = {
         "whole": ((0, -.015, .805), (.3, 1, .2), .215),
+        "pair": ((0, -.052, .744), (.3, 1, .2), .085),
         "posterior-close": ((-.0206, -.052, .744), (-.35, 1, .22), .055),
         "side-close": ((-.0206, -.052, .744), (-1, 0, .08), .055),
         "anterior-close": ((-.0206, -.052, .744), (0, -1, .1), .055),
     }
     rows = []
     for name in args.views:
+        # Isolate the source-named right side for detail; do not reposition it.
+        for obj in objects:
+            obj.hide_render = "close" in name and obj.get("source_object", "").endswith(".l")
         aim, direction, scale = views[name]
         camera.location = Vector(aim) + Vector(direction).normalized() * .8
         camera.rotation_euler = (Vector(aim) - camera.location).to_track_quat("-Z", "Y").to_euler()
@@ -62,7 +67,8 @@ def main():
         bpy.ops.render.render(write_still=True)
         output = Path(scene.render.filepath)
         rows.append({"file": output.name, "sha256": hashlib.sha256(output.read_bytes()).hexdigest(),
-                     "target": aim, "camera": list(camera.location), "scale": scale})
+                     "target": aim, "camera": list(camera.location), "scale": scale,
+                     "visible_objects": sorted(o.get("source_object", o.name) for o in objects if not o.hide_render)})
     (args.out / "render.json").write_text(json.dumps({
         "artifact_sha256": hashlib.sha256(args.artifact.read_bytes()).hexdigest(),
         "blender": bpy.app.version_string, "engine": "Cycles CPU", "samples": 24,

@@ -1,4 +1,4 @@
-"""Export six named Z-Anatomy objects, preserving their evaluated native frame.
+"""Export named Z-Anatomy objects, preserving their evaluated native frame.
 
 Run with Blender 4.3.2 --background --factory-startup --python build.py -- ...
 No upstream scripts are executed. The source archive stays external.
@@ -12,7 +12,7 @@ from pathlib import Path
 import bpy
 
 SOURCE_SHA = "9f08a17ea0115fed80b2a73ecdf0a1bc2ab2f6956f37c593ce23d513ea35afcd"
-NAMES = [f"{part}.{side}" for part in ("Testis", "Epididymis", "Ductus deferens")
+NAMES = [f"{part}.{side}" for part in ("Testis", "Epididymis")
          for side in ("r", "l")]
 COLORS = {"Testis": (.47, .32, .23), "Epididymis": (.37, .16, .14),
           "Ductus deferens": (.67, .60, .42)}
@@ -26,7 +26,9 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--source", type=Path, required=True)
     parser.add_argument("--out", type=Path, required=True)
-    parser.add_argument("--surface-level", type=int, choices=(1, 2), default=1)
+    parser.add_argument("--surface-level", type=int, choices=(1, 2), default=2)
+    parser.add_argument("--include-deferens", action="store_true",
+                        help="Diagnostic source context only; excluded from the accepted bounded study")
     args = parser.parse_args(sys.argv[sys.argv.index("--") + 1:])
     if sha(args.source) != SOURCE_SHA:
         raise ValueError("Pinned source hash mismatch")
@@ -35,10 +37,11 @@ def main():
     args.out.mkdir(parents=True)
     bpy.ops.object.select_all(action="SELECT")
     bpy.ops.object.delete(use_global=False)
+    names = NAMES + (["Ductus deferens.r", "Ductus deferens.l"] if args.include_deferens else [])
     with bpy.data.libraries.load(str(args.source), link=False) as (available, selected):
-        if not set(NAMES).issubset(available.objects):
+        if not set(names).issubset(available.objects):
             raise ValueError("Missing required named source objects")
-        selected.objects = NAMES
+        selected.objects = names
     originals = list(selected.objects)
     for obj in originals:
         bpy.context.collection.objects.link(obj)
@@ -84,7 +87,8 @@ def main():
         bpy.data.objects.remove(obj, do_unlink=True)
     bpy.context.view_layer.update()
     scene = bpy.context.scene
-    scene["scope"] = "Native testis/epididymis/deferens gross relationship, static"
+    scene["scope"] = ("Native testis/epididymis/deferens gross relationship, static"
+                      if args.include_deferens else "Native testis/epididymis gross form; deferens excluded")
     scene["limitations"] = "No scrotum, lumen, flow, full-tract, clinical or runtime validation"
     scene["coordinates"] = "Unscaled Z-Anatomy native world; no cross-atlas registration"
     scene["attribution"] = "Z-Anatomy CC BY-SA 4.0; BodyParts3D DBCLS historical CC BY-SA 2.1 Japan"

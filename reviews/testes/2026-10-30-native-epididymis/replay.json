@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "check": "first",
+      "passed": true,
+      "exit_code": 0,
+      "elapsed_seconds": 1.873
+    },
+    {
+      "check": "replay",
+      "passed": true,
+      "exit_code": 0,
+      "elapsed_seconds": 1.822
+    },
+    {
+      "check": "byte-identical-replay",
+      "passed": true
+    },
+    {
+      "check": "source-export",
+      "passed": true,
+      "exit_code": 0,
+      "elapsed_seconds": 2.176
+    },
+    {
+      "check": "reject-wrong-source",
+      "passed": true,
+      "exit_code": 1,
+      "elapsed_seconds": 1.117
+    },
+    {
+      "check": "refuse-output-overwrite",
+      "passed": true,
+      "exit_code": 1,
+      "elapsed_seconds": 1.269
+    },
+    {
+      "check": "four-static-meshes-no-failed-output",
+      "passed": true
+    }
+  ],
+  "artifact_sha256": "e35457062c7bba79d938700beab7de851c75fa8dbbbbc76872d47290f2833d0d",
+  "artifact_bytes": 220184,
+  "scope": "Build/rebuild, source equivalence, two expected failure paths and static export membership; no visual/runtime/anatomy assertions"
+}

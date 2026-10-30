@@ -1,0 +1,80 @@
+{
+  "reviewer": "Independent native subagent visual_reviewer",
+  "reviewed_at": "2026-10-30",
+  "status": "pass-with-limitations",
+  "artifact_sha256": "e35457062c7bba79d938700beab7de851c75fa8dbbbbc76872d47290f2833d0d",
+  "method": "Reviewer used view_image to inspect actual v1/v2 context, details and grayscale pixels; source prose was not a substitute for image inspection.",
+  "v1_findings": [
+    "Polygonal superior epididymal rim at native viewport subdivision1",
+    "Side view superimposed paired testis/epididymis, resembling a doubled cap",
+    "Long context-free deferens loops and pointed lower crossing obscured focus and did not prove continuity"
+  ],
+  "v2_corrections": [
+    "Evaluate native render subdivision2; no authored smoothing algorithm",
+    "Isolate source-named .r objects for detail, without repositioning",
+    "Exclude both deferens objects from bounded default export; preserve v1 negative evidence and recipe history"
+  ],
+  "v2_finding": "Ducts no longer obscure the epididymis; superior outline smoother; isolated side removes doubled-cap ambiguity; grayscale preserves readable shape boundaries. No further blocking visual correction within scope.",
+  "limitations": [
+    "Simplified gross-form supplement, not complete head/body/tail anatomy",
+    "No lumen, duct continuity or tissue-interface validation",
+    "No exact anatomical scale, clinical or browser-runtime approval",
+    "Historical original remains Needs revision; ledger count delta0"
+  ],
+  "evidence": [
+    {
+      "file": "evidence/v1-pair.png",
+      "sha256": "cdcecf625b8355738e22f285702467389bd5c095e84c8c4756f6d87520fcf940",
+      "artifact_sha256": "1442a5d7f90bc301467e819e0467e01bafbac4c145e5131ffd832b8e3c3453a2",
+      "kind": "clean-GLB-import Cycles render"
+    },
+    {
+      "file": "evidence/v1-posterior-close.png",
+      "sha256": "3a9cc119444ce5c2a48a4f07af3d702131b9057b7be94c811227044039ad9bb5",
+      "artifact_sha256": "1442a5d7f90bc301467e819e0467e01bafbac4c145e5131ffd832b8e3c3453a2",
+      "kind": "clean-GLB-import Cycles render"
+    },
+    {
+      "file": "evidence/v1-side-close.png",
+      "sha256": "4f6b3caeb5a65bc2ff981ce82af380481c91667ae4d2a09ec2a5efe67a94384f",
+      "artifact_sha256": "1442a5d7f90bc301467e819e0467e01bafbac4c145e5131ffd832b8e3c3453a2",
+      "kind": "clean-GLB-import Cycles render"
+    },
+    {
+      "file": "evidence/v2-pair.png",
+      "sha256": "dd45c4e5a7147e5c5174a6692ddb507f62632c52887a31703a09496baa6e18e1",
+      "artifact_sha256": "e35457062c7bba79d938700beab7de851c75fa8dbbbbc76872d47290f2833d0d",
+      "kind": "clean-GLB-import Cycles render"
+    },
+    {
+      "file": "evidence/v2-posterior-close.png",
+      "sha256": "0f7cdc85b734dc7d545cb818f6c4cd22b4e9aca2524cee69a61ed66facbd6fd0",
+      "artifact_sha256": "e35457062c7bba79d938700beab7de851c75fa8dbbbbc76872d47290f2833d0d",
+      "kind": "clean-GLB-import Cycles render"
+    },
+    {
+      "file": "evidence/v2-side-close.png",
+      "sha256": "d7b28c3703ad162a4661de4dc53421dbc78feac37da29931f66aec6f9755de38",
+      "artifact_sha256": "e35457062c7bba79d938700beab7de851c75fa8dbbbbc76872d47290f2833d0d",
+      "kind": "clean-GLB-import Cycles render"
+    },
+    {
+      "local_review_only": "pair-grayscale.png",
+      "sha256": "02a0784f6deee0a271b61e00d9656f782b5f2dbc13c7998c4557ce920e39e6cd",
+      "artifact_sha256": "e35457062c7bba79d938700beab7de851c75fa8dbbbbc76872d47290f2833d0d",
+      "kind": "grayscale diagnostic of corresponding v2 RGB render"
+    },
+    {
+      "local_review_only": "posterior-close-grayscale.png",
+      "sha256": "6500da33fdf5b6c14f89bedefc6c0e54a80d8522964d409c930e0d493701ff98",
+      "artifact_sha256": "e35457062c7bba79d938700beab7de851c75fa8dbbbbc76872d47290f2833d0d",
+      "kind": "grayscale diagnostic of corresponding v2 RGB render"
+    },
+    {
+      "local_review_only": "side-close-grayscale.png",
+      "sha256": "88e1951e39b0944a4b891fa19c250d60fa2ad29df8452b720844f1151721e1ff",
+      "artifact_sha256": "e35457062c7bba79d938700beab7de851c75fa8dbbbbc76872d47290f2833d0d",
+      "kind": "grayscale diagnostic of corresponding v2 RGB render"
+    }
+  ]
+}

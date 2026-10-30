@@ -1,0 +1,69 @@
+{
+  "artifact_sha256": "e35457062c7bba79d938700beab7de851c75fa8dbbbbc76872d47290f2833d0d",
+  "blender": "4.3.2",
+  "engine": "Cycles CPU",
+  "samples": 24,
+  "view_transform": "AgX",
+  "views": [
+    {
+      "file": "pair.png",
+      "sha256": "dd45c4e5a7147e5c5174a6692ddb507f62632c52887a31703a09496baa6e18e1",
+      "target": [
+        0,
+        -0.052,
+        0.744
+      ],
+      "camera": [
+        0.22577302157878876,
+        0.7005767226219177,
+        0.8945153951644897
+      ],
+      "scale": 0.085,
+      "visible_objects": [
+        "Epididymis.l",
+        "Epididymis.r",
+        "Testis.l",
+        "Testis.r"
+      ]
+    },
+    {
+      "file": "posterior-close.png",
+      "sha256": "0f7cdc85b734dc7d545cb818f6c4cd22b4e9aca2524cee69a61ed66facbd6fd0",
+      "target": [
+        -0.0206,
+        -0.052,
+        0.744
+      ],
+      "camera": [
+        -0.2793605923652649,
+        0.6873160004615784,
+        0.9066495299339294
+      ],
+      "scale": 0.055,
+      "visible_objects": [
+        "Epididymis.r",
+        "Testis.r"
+      ]
+    },
+    {
+      "file": "side-close.png",
+      "sha256": "d7b28c3703ad162a4661de4dc53421dbc78feac37da29931f66aec6f9755de38",
+      "target": [
+        -0.0206,
+        -0.052,
+        0.744
+      ],
+      "camera": [
+        -0.8180522322654724,
+        -0.052000001072883606,
+        0.8077961802482605
+      ],
+      "scale": 0.055,
+      "visible_objects": [
+        "Epididymis.r",
+        "Testis.r"
+      ]
+    }
+  ],
+  "scope": "Clean GLB import; fixed source-coordinate views, not validated anatomical/physical scale"
+}
