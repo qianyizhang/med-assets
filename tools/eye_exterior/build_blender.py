@@ -37,7 +37,7 @@ def collect(source, reference):
         bpy.context.scene.collection.objects.link(obj)
     bpy.context.view_layer.update()
     deps = bpy.context.evaluated_depsgraph_get()
-    objects = []; bindings = []; metadata = []
+    objects = []; bindings = []
     for src in chosen.objects:
         expected = next(r for r in reference['objects'] if r['name'] == src.name)
         mesh = bpy.data.meshes.new_from_object(src.evaluated_get(deps), preserve_all_data_layers=True, depsgraph=deps)
@@ -70,11 +70,9 @@ def collect(source, reference):
             'sourceEvaluatedWorldGeometrySha256': world_hash,
             'nativeBounds': [[min(p[a] for p in world) for a in range(3)], [max(p[a] for p in world) for a in range(3)]],
             'displayRole': glb.role_for(src.name)})
-        metadata.append({k: expected[k] for k in ('name', 'type', 'parent', 'matrixWorld', 'dataName',
-                         'modifiers', 'materials', 'rawVertices', 'sourceCurve') if k in expected})
     assert len(objects) == 20 and sum(b['triangles'] for b in bindings) == 35884
     assert source_hash(source) == PIN
-    return objects, bindings, metadata
+    return objects, bindings
 
 
 def main():
@@ -86,7 +84,7 @@ def main():
     if args.output.exists():
         raise ValueError('Output directory must be new')
     reference = json.loads(args.reference.read_text())
-    objects, bindings, metadata = collect(args.source, reference)
+    objects, bindings = collect(args.source, reference)
     source = {'member': 'Z-Anatomy/Startup.blend', 'bytes': SIZE, 'sha256': PIN,
               'archiveCommit': 'bb293be456f6d2245191f37752d14ec76894740d'}
     data = glb.make(objects, source)
@@ -95,8 +93,6 @@ def main():
     args.output.mkdir(parents=True)
     (args.output/'eye-exterior-courses.glb').write_bytes(data)
     records = {'bindings.json': {'source': source, 'objects': bindings},
-               'source-materials.json': {'source': source, 'objects': metadata,
-                   'use': 'Raw source material metadata retained for provenance only. Action-labelled shaders are not exported or interpreted as muscle function.'},
                'build-receipt.json': {'source': source, 'artifact': {'file': 'eye-exterior-courses.glb', 'bytes': len(data), 'sha256': glb.sha(data)},
                    'blender': bpy.app.version_string, 'sourceBytesUnchanged': True, 'autoExec': False,
                    'triangles': sum(b['triangles'] for b in bindings), 'decodedVerification': checks,

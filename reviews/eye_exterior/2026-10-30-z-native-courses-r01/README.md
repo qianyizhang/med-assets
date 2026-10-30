@@ -34,8 +34,8 @@ source parents, counts and neutral materials are checked. Existing source gaps,
 overlaps, mirrored transforms and two beveled optic curves remain. Annotation
 parents are recorded but not exported; this is a static surface subset, not a rig.
 
-Two separate Blender processes produced identical GLB, bindings, source metadata
-and build receipt (`determinism.json`). The source master hash was checked before
+Two separate Blender processes produced identical GLB, bindings and build receipt
+(`determinism.json`). The source master hash was checked before
 and after extraction. Eight offline failure tests reject vertex/normal edits,
 fitting translations, source-label changes, source-action shaders, missing surfaces
 and unintended default-scene mixing.

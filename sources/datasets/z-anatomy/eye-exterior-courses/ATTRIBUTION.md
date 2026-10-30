@@ -23,7 +23,7 @@ use four declared neutral display materials; group existing nodes into unilatera
 scenes; render and add editorial teaching cues. No fitting, smoothing operation,
 fusion, missing tissue reconstruction, source geometry edits or animation transfer.
 
-[source-inventory.json](source-inventory.json) retains source names, parents,
-matrices, raw/evaluated counts, curve settings, modifiers and world geometry hashes.
-[source-materials.json](source-materials.json) retains raw material metadata;
-action-labelled shader names are provenance, not muscle-function assertions.
+[source-inventory.json](source-inventory.json) is the canonical record for source
+names, parents, matrices, raw/evaluated counts, curve settings, modifiers, world
+geometry hashes and raw material metadata. Material metadata is provenance only;
+action-labelled shaders are not exported or interpreted as muscle function.
