@@ -1,0 +1,82 @@
+{
+  "id": "pharynx_larynx__r03",
+  "assetId": "draft_pharynx_larynx",
+  "name": {
+    "en": "Pharynx Larynx · r03",
+    "zh": "咽喉解剖外观 · r03"
+  },
+  "reviewable": true,
+  "source": {
+    "file": "candidates/pharynx_larynx__r03/d691a60f12d448b9b36d362270429c672c01c7fae0f10a8789ef188dd4c08530.glb.gz",
+    "sha256": "d691a60f12d448b9b36d362270429c672c01c7fae0f10a8789ef188dd4c08530",
+    "revision": "r03",
+    "bytes": 5050088,
+    "encoding": "gzip",
+    "transportSha256": "a5a24e5458ba5fc2e04eb167bbad5d831cbb6c3f7fa4ff70d5c3c41be5bda67a",
+    "transportBytes": 3964162
+  },
+  "gates": {
+    "technical": "pass-with-limitations",
+    "visual": "passed",
+    "anatomy": "reference-screened",
+    "runtime": "unverified"
+  },
+  "gateDetails": {
+    "technical": {
+      "status": "pass-with-limitations",
+      "scope": "Dissected exterior only; no continuous mucosal airway. Two source laterality labels are disputed; preserve explicit display overrides. Epiglottic holes are source-authored, exact pattern unvalidated.",
+      "warnings": []
+    },
+    "visual": {
+      "status": "passed",
+      "scope": "Dissected exterior only; no continuous mucosal airway. Two source laterality labels are disputed; preserve explicit display overrides. Epiglottic holes are source-authored, exact pattern unvalidated."
+    },
+    "anatomy": {
+      "status": "reference-screened",
+      "scope": "Educational static exterior only; no clinical validation."
+    },
+    "runtime": {
+      "status": "unverified"
+    }
+  },
+  "gateNotes": {
+    "en": "Specific technical checks passed with limitations; reference screening is not a complete anatomy pass. Visual acceptance is limited to the stated educational exterior/localization scope. Runtime unverified.",
+    "zh": "特定技术检查通过但有限制；参考初筛不是完整解剖通过。视觉接受仅限声明的教学外观或定位范围。运行未验证。"
+  },
+  "license": "CC BY 4.0",
+  "scope": {
+    "en": "Dissected exterior only; no continuous mucosal airway. Two source laterality labels are disputed; preserve explicit display overrides. Epiglottic holes are source-authored, exact pattern unvalidated.",
+    "zh": "仅解剖分离后的外观，无连续黏膜气道。2个来源左右标注存在争议，必须保留显示覆盖说明。会厌孔洞来自原始图谱，具体图案未独立验证。"
+  },
+  "provenance": {
+    "en": "",
+    "zh": ""
+  },
+  "evidenceIds": [
+    "pharynx_larynx__r03__scoped-review__2",
+    "pharynx_larynx__r03__scoped-review__4"
+  ],
+  "beforeEvidenceIds": [
+    "draft_pharynx_larynx__2026-10-23-v10-exterior-review__3"
+  ],
+  "issueIds": [
+    "pharynx_larynx__r03__scoped-review"
+  ],
+  "history": [
+    "pharynx_larynx__r03__scoped-review"
+  ],
+  "attributionFile": "attribution/9f8bb0454cf5fdfded22f576522b4bda8d88f9e206f6a37df33f6e24aa76a9b7.md",
+  "sourceDownloads": [],
+  "sourceFrame": "BP3D4 native millimetres converted to metres, no translation, glTF standard Y-up export",
+  "displayLabelOverrides": {
+    "FJ2742": "Middle pharyngeal constrictor — source laterality disputed (source: Right)",
+    "FJ2754": "Middle pharyngeal constrictor — source laterality disputed (source: Left)"
+  },
+  "criticalNotes": [
+    {
+      "en": "Source laterality is disputed for 2 middle pharyngeal constrictor labels. Source Left/Right names are not treated as verified anatomical sides.",
+      "zh": "2 个咽中缩肌的来源标签存在侧别争议。来源中的 Left/Right 名称不视为已验证的解剖侧别。"
+    }
+  ],
+  "references": []
+}
