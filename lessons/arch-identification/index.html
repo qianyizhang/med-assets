@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Name the tooth · Arch identification</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="lesson">
+    <header>
+      <div><p class="eyebrow" data-copy="eyebrow">DENTAL ATLAS · 28 SOURCE LABELS</p><h1 data-copy="title">Name the tooth</h1></div>
+      <div class="language" aria-label="Language / 语言"><button type="button" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="zh" lang="zh-CN" aria-pressed="false">中文</button></div>
+    </header>
+    <p class="intro" data-copy="intro">Choose an arch, then a numbered crown locator.</p>
+    <div class="arches" aria-label="Arch / 牙弓"><button type="button" data-arch="upper" aria-pressed="true" data-copy="upper">Upper arch</button><button type="button" data-arch="lower" aria-pressed="false" data-copy="lower">Lower arch</button></div>
+    <p id="boot" role="status">Loading source labels…</p>
+    <div class="content" hidden>
+      <section class="plate-panel" aria-label="Identification plate / 牙列辨认图板">
+        <div class="orientation"><strong id="screen-left"></strong><span data-copy="front">Front</span><strong id="screen-right"></strong></div>
+        <div id="image-error" hidden><p data-copy="unavailable">Arch image unavailable</p><p data-copy="fallback">FDI selection remains available below.</p><button type="button" id="retry" data-copy="retry">Retry image</button></div>
+        <div id="plate"></div>
+        <p class="help" id="keyboard-help" data-copy="help">Tab to the plate · Arrow keys move along the arch · Home / End</p>
+      </section>
+      <aside>
+        <section class="selection" aria-live="polite" aria-atomic="true"><span class="eyebrow" data-copy="selected">Selected tooth</span><h2 id="fdi"></h2><dl id="identity"></dl></section>
+        <section class="coverage"><h3 data-copy="coverage">Third-molar source coverage unavailable</h3><p id="missing"></p><p data-copy="absence">This does not mean these teeth are absent in a patient.</p></section>
+      </aside>
+    </div>
+    <footer><p data-copy="scope">Source-labelled exterior identification; contacts and bite are not validated.</p><details><summary data-copy="details">Source &amp; scope</summary><p data-copy="limits"></p><p><span data-copy="source"></span> · <a href="../../models/teeth_gums/exports/r02/ATTRIBUTION.md" data-copy="attribution">Attribution</a> · <a href="../../reviews/teeth_gums/2026-10-26-set-contact-checkpoint/README.md" data-copy="receipt">Source review</a></p></details></footer>
+    <noscript>Enable JavaScript to select the source-labelled teeth. / 请启用 JavaScript 以选择来源标注的牙齿。</noscript>
+  </main>
+  <script type="module" src="app.mjs"></script>
+</body>
+</html>
