@@ -1,16 +1,18 @@
 import * as THREE from './.local/vendor/build/three.module.js';
-import {initialState,reduce,breath,COPY,fallbackFrame} from './state.mjs';
+import {initialState,reduce,breath,COPY,fallbackFrame,lessonStatus} from './state.mjs';
 import {createLessonScene,applyLessonState,sceneLabels,CAMERAS} from './scene.mjs';
 import {exchangeSVG} from './exchange.mjs';
 import {loadModels} from './asset-loader.mjs';
 const $=id=>document.getElementById(id);let state=initialState(),view,renderer,manifest,last=performance.now(),uiKey='',generation=0;
 const camera=new THREE.OrthographicCamera(-.2,.2,.2,-.2,.001,10),look=new THREE.Vector3(...CAMERAS.mechanics.target);camera.position.set(...CAMERAS.mechanics.position);camera.lookAt(look);let cameraHeight=CAMERAS.mechanics.height;
 const dispatch=action=>{state=reduce(state,action);renderUI();};
+function renderStatus(previewLoaded=false){const status=lessonStatus(state,Boolean(renderer),previewLoaded);$('phase').textContent=status.phase;$('cue').textContent=status.cue;}
 function renderUI(){const c=COPY[state.language],b=breath(state),key=[state.stage,state.language,state.playing,state.assets,state.phase>=1,state.gas,b.phaseName].join('|');if(key===uiKey)return;uiKey=key;
  document.documentElement.lang=state.language==='zh'?'zh-CN':'en';$('subtitle').textContent=c.sub;$('language').textContent=c.language;$('reset').textContent=c.reset;$('sources').textContent=c.receipt;
  if(!$('stages').children.length){for(let i=0;i<3;i++){const button=document.createElement('button');button.type='button';button.dataset.stage=i;button.innerHTML=`<span>0${i+1}</span><b></b>`;button.addEventListener('click',()=>dispatch({type:'stage',value:i}));$('stages').append(button);}}
  $('stages').querySelectorAll('button').forEach((button,i)=>{button.querySelector('b').textContent=c.stages[i];button.setAttribute('aria-current',i===state.stage?'step':'false');});
- for(const [id,value] of Object.entries({kicker:c.kicker[state.stage],heading:c.heading[state.stage],explanation:c.body[state.stage],limit:c.limit,'view-label':state.stage===2?c.diagram:c.source,phase:c.phase[b.phaseName],cue:state.stage===2?(state.gas==='oxygen'?c.oxygenPath:c.co2Path):c.cue[b.phaseName],'teaching-note':state.stage===2?c.exchangeNote:state.stage===1?c.routeNote:c.limit,'gas-title':c.action[2]}))$(id).textContent=value;
+ for(const [id,value] of Object.entries({kicker:c.kicker[state.stage],heading:c.heading[state.stage],explanation:c.body[state.stage],limit:c.limit,'view-label':state.stage===2?c.diagram:c.source,'teaching-note':state.stage===2?c.exchangeNote:state.stage===1?c.routeNote:c.limit,'gas-title':c.action[2]}))$(id).textContent=value;
+ renderStatus();
  $('breath-control').hidden=state.stage===2;$('gas-control').hidden=state.stage!==2;$('breath-control').disabled=state.assets!=='ready'||!renderer;
  $('breath-control').textContent=state.playing?c.pause:state.phase>=1?c.again:state.phase>0?c.resume:c.action[state.stage];
  document.querySelectorAll('[data-gas]').forEach(el=>{el.textContent=el.dataset.gas==='oxygen'?c.oxygen:c.co2;el.setAttribute('aria-pressed',String(el.dataset.gas===state.gas));});
@@ -19,7 +21,7 @@ function renderUI(){const c=COPY[state.language],b=breath(state),key=[state.stag
  if(state.stage===2){$('notice').replaceChildren();return;}
  if(state.assets==='error'){$('notice').replaceChildren(document.createTextNode(c.error));const detail=document.createElement('small');detail.textContent=state.error;$('notice').append(detail);const retry=document.createElement('button');retry.textContent=c.retry;retry.onclick=boot;$('notice').append(retry);}
  else if(state.assets==='loading')$('notice').textContent=c.loading;
- else if(!renderer){$('phase').textContent=c.preview;$('cue').textContent=c.snapshot;$('notice').replaceChildren();const image=document.createElement('img');image.src=`./.local/previews/${fallbackFrame(state)}.png`;image.alt=state.language==='en'?'Offline assembly preview':'离线构图预览';image.onerror=()=>{if(!image.isConnected)return;$('notice').replaceChildren(document.createTextNode(c.fallbackMissing));};$('notice').append(image,document.createTextNode(c.fallback));}
+ else if(!renderer){$('notice').replaceChildren();const image=document.createElement('img');image.src=`./.local/previews/${fallbackFrame(state)}.png`;image.alt=state.language==='en'?'Offline assembly preview':'离线构图预览';image.onload=()=>{if(image.isConnected)renderStatus(true);};image.onerror=()=>{if(!image.isConnected)return;$('notice').replaceChildren(document.createTextNode(c.fallbackMissing));};$('notice').append(image,document.createTextNode(c.fallback));}
  else $('notice').replaceChildren();
 }
 $('language').onclick=()=>dispatch({type:'language',value:state.language==='en'?'zh':'en'});$('reset').onclick=()=>dispatch({type:'reset'});$('breath-control').onclick=()=>dispatch({type:'play'});document.querySelectorAll('[data-gas]').forEach(b=>b.onclick=()=>dispatch({type:'gas',value:b.dataset.gas}));
