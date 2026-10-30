@@ -1,0 +1,428 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "path": "models/pulmonary_vein/exports/metadata-cleanup-r01/pulmonary_vein.glb",
+    "sha256": "9e0454c0a920bcd9292d1aced370ff781b97aa8fb87b0439eb1f0ac21517a593",
+    "bytes": 1718704,
+    "binaryChunkSha256": "67528c9254f492204296cffa5755380e89d8d01f4bcc38b8c6cbfc8e818bf958",
+    "node": "Pulmonary Vein | source surface",
+    "vertices": 5854,
+    "triangles": 9600,
+    "geometrySha256": "eaf19ce4147911fcf29b5167f6dced917631ca31b01d9f97afccbb261062f6a1",
+    "blenderBoundsM": [
+      [
+        0.008194675669074059,
+        0.0024634795263409615,
+        0.0321434885263443
+      ],
+      [
+        0.06131424754858017,
+        0.040953379124403,
+        0.087312251329422
+      ]
+    ],
+    "sourceJsonSha256": "1968b148d325c9b169c521bda23cad7d357b1c2e00580f0db3bfcaeaf974b038",
+    "sourceManifestSha256": "31d9696f77ded3e075d7c921fadcdc2258eeab6212f4720c5ee67a27d28fafec",
+    "sourceMaskSha256": "08bf9cc04f61e27090d70487ecf84128e543080b5fc15d883a05468795a44eeb",
+    "sourceCase": "s1233",
+    "sourceRevision": "75ec4e6530abe4d434b07958e90bdc9dec062bef",
+    "sourceComponentReceipt": {
+      "originalComponents": 4,
+      "retainedLargestComponentVoxels": 3953,
+      "rawMaskRecomputed": false
+    },
+    "contexts": [
+      {
+        "name": "heart",
+        "path": "body/anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy/heart.json",
+        "sha256": "545f45eb67d47965c6e86aa6bd9442069e603a600adaf278db2b90c11cc5f61d",
+        "case": "s1233",
+        "coordinates": "RAS millimetres",
+        "vertices": 995,
+        "triangles": 2000,
+        "blenderBoundsM": [
+          [
+            -0.053540000915527346,
+            -0.07725,
+            -0.000600006103515625
+          ],
+          [
+            0.0934199981689453,
+            0.04277999877929688,
+            0.10715997314453125
+          ]
+        ],
+        "geometrySha256": "c282d44e5c42a4bd6f2f4268426da0ff553c8760058a2e345626f14401bb9e8a"
+      },
+      {
+        "name": "lung_upper_lobe_left",
+        "path": "body/anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy/lung_upper_lobe_left.json",
+        "sha256": "ec02009248f99a7bfcdb91bf856eb05ae526643018e2d1e05d3fc5383039a0fe",
+        "case": "s1233",
+        "coordinates": "RAS millimetres",
+        "vertices": 600,
+        "triangles": 1200,
+        "blenderBoundsM": [
+          [
+            0.0075100002288818355,
+            -0.08369000244140624,
+            -0.00404998779296875
+          ],
+          [
+            0.13372000122070313,
+            0.08483000183105469,
+            0.1743900146484375
+          ]
+        ],
+        "geometrySha256": "01dfc5348d72d9cabe8ea128d29e4f2054014f7d39de37dac97f89c5a2bf971c"
+      },
+      {
+        "name": "lung_lower_lobe_left",
+        "path": "body/anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy/lung_lower_lobe_left.json",
+        "sha256": "b22148bc98b0524a76a3d60bccdd9702dd94dc0223fb5276ba15d47ae6c8f6ad",
+        "case": "s1233",
+        "coordinates": "RAS millimetres",
+        "vertices": 601,
+        "triangles": 1199,
+        "blenderBoundsM": [
+          [
+            0.025600000381469725,
+            -0.06516999816894531,
+            -0.05902999877929688
+          ],
+          [
+            0.15294000244140624,
+            0.09788000106811523,
+            0.128969970703125
+          ]
+        ],
+        "geometrySha256": "9d985745f9f7f15761e983350b391da2af49270ebb4e8141e5d15469442d155d"
+      },
+      {
+        "name": "lung_upper_lobe_right",
+        "path": "body/anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy/lung_upper_lobe_right.json",
+        "sha256": "e3ca11acda193927cc1ec9e9fe096aa724811aa05f2f775aaf18ff26aee0ab29",
+        "case": "s1233",
+        "coordinates": "RAS millimetres",
+        "vertices": 602,
+        "triangles": 1200,
+        "blenderBoundsM": [
+          [
+            -0.11958999633789062,
+            -0.09205000305175781,
+            0.04979998779296875
+          ],
+          [
+            -0.009520000457763671,
+            0.09087000274658204,
+            0.170280029296875
+          ]
+        ],
+        "geometrySha256": "d63373405816eb32421e7c73b3c1fd99197c6cb03b921f4728a706e2180b4852"
+      },
+      {
+        "name": "lung_middle_lobe_right",
+        "path": "body/anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy/lung_middle_lobe_right.json",
+        "sha256": "c5f89cefa2c5894108b84bf933afbd419399f89a7ca786bfb6495e2dba01b819",
+        "case": "s1233",
+        "coordinates": "RAS millimetres",
+        "vertices": 402,
+        "triangles": 800,
+        "blenderBoundsM": [
+          [
+            -0.12705000305175781,
+            -0.09816000366210938,
+            -0.01704998779296875
+          ],
+          [
+            -0.0206299991607666,
+            0.039660003662109374,
+            0.06954000854492187
+          ]
+        ],
+        "geometrySha256": "86c9ca402d32126d58d207d895ab4eb7ea12e1294b7aa83af42d3ec0d08ebc74"
+      },
+      {
+        "name": "lung_lower_lobe_right",
+        "path": "body/anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy/lung_lower_lobe_right.json",
+        "sha256": "1d23017adc49bf2bd610f3b675be99732f968382db921ccf6adb2fdcffe129bb",
+        "case": "s1233",
+        "coordinates": "RAS millimetres",
+        "vertices": 601,
+        "triangles": 1199,
+        "blenderBoundsM": [
+          [
+            -0.14239999389648436,
+            -0.07335000610351562,
+            -0.07492001342773437
+          ],
+          [
+            -0.006570000171661377,
+            0.09688000106811523,
+            0.09007000732421876
+          ]
+        ],
+        "geometrySha256": "38c2730bbf7422b7d77476f67943f78c98866ad1c7ed595222ea3935818fbec2"
+      }
+    ],
+    "coordinateMapping": {
+      "rasMmToBlenderM": "(-R/1000, -(A-155)/1000, (S-430)/1000)",
+      "gltfToBlender": "(x, -z, y)",
+      "independentFitting": false
+    },
+    "laterality": {
+      "source": "RAS +X is patient right; retained RAS X is negative",
+      "posteriorScreenLeft": "patient left",
+      "posteriorScreenRight": "patient right"
+    }
+  },
+  "views": [
+    {
+      "view": "overview",
+      "state": "isolated",
+      "file": "overview-isolated.png",
+      "sha256": "b7b3e34a7e30387c676a6230848759c7b8616730bef43c6cd548359b74ee5233",
+      "bytes": 629513,
+      "resolution": [
+        900,
+        700
+      ],
+      "cameraPosition": [
+        0.0,
+        0.550000011920929,
+        0.06499999761581421
+      ],
+      "cameraWorldMatrix": [
+        [
+          -1.000000238418579,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.3435885648505064e-07,
+          1.0000001192092896,
+          0.550000011920929
+        ],
+        [
+          0.0,
+          1.0000001192092896,
+          -1.3435885648505064e-07,
+          0.06499999761581421
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "orthoScaleM": 0.36000001430511475,
+      "contextVisible": false,
+      "selectedGeometrySha256": "eaf19ce4147911fcf29b5167f6dced917631ca31b01d9f97afccbb261062f6a1"
+    },
+    {
+      "view": "overview",
+      "state": "context",
+      "file": "overview-context.png",
+      "sha256": "41b93cd9606fe0e6809accda5720e359642f5a3cfe1e11839d65824f3be42dc5",
+      "bytes": 816607,
+      "resolution": [
+        900,
+        700
+      ],
+      "cameraPosition": [
+        0.0,
+        0.550000011920929,
+        0.06499999761581421
+      ],
+      "cameraWorldMatrix": [
+        [
+          -1.000000238418579,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.3435885648505064e-07,
+          1.0000001192092896,
+          0.550000011920929
+        ],
+        [
+          0.0,
+          1.0000001192092896,
+          -1.3435885648505064e-07,
+          0.06499999761581421
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "orthoScaleM": 0.36000001430511475,
+      "contextVisible": true,
+      "selectedGeometrySha256": "eaf19ce4147911fcf29b5167f6dced917631ca31b01d9f97afccbb261062f6a1"
+    },
+    {
+      "view": "detail",
+      "state": "isolated",
+      "file": "detail-isolated.png",
+      "sha256": "9135b59f1ec82d67d17fa41e5581c64ea99a80d4d3fcd0e7371d346a9a479ad8",
+      "bytes": 670217,
+      "resolution": [
+        900,
+        700
+      ],
+      "cameraPosition": [
+        0.03475446254014969,
+        0.550000011920929,
+        0.05972786992788315
+      ],
+      "cameraWorldMatrix": [
+        [
+          -1.000000238418579,
+          0.0,
+          0.0,
+          0.03475446254014969
+        ],
+        [
+          0.0,
+          -1.3435885648505064e-07,
+          1.0000001192092896,
+          0.550000011920929
+        ],
+        [
+          0.0,
+          1.0000001192092896,
+          -1.3435885648505064e-07,
+          0.05972786992788315
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "orthoScaleM": 0.12999999523162842,
+      "contextVisible": false,
+      "selectedGeometrySha256": "eaf19ce4147911fcf29b5167f6dced917631ca31b01d9f97afccbb261062f6a1"
+    },
+    {
+      "view": "detail",
+      "state": "context",
+      "file": "detail-context.png",
+      "sha256": "b97b121523162e951188657a43984adc8e82a1fc760e551756e06f311494325c",
+      "bytes": 1052587,
+      "resolution": [
+        900,
+        700
+      ],
+      "cameraPosition": [
+        0.03475446254014969,
+        0.550000011920929,
+        0.05972786992788315
+      ],
+      "cameraWorldMatrix": [
+        [
+          -1.000000238418579,
+          0.0,
+          0.0,
+          0.03475446254014969
+        ],
+        [
+          0.0,
+          -1.3435885648505064e-07,
+          1.0000001192092896,
+          0.550000011920929
+        ],
+        [
+          0.0,
+          1.0000001192092896,
+          -1.3435885648505064e-07,
+          0.05972786992788315
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "orthoScaleM": 0.12999999523162842,
+      "contextVisible": true,
+      "selectedGeometrySha256": "eaf19ce4147911fcf29b5167f6dced917631ca31b01d9f97afccbb261062f6a1"
+    }
+  ],
+  "orientationWitness": {
+    "leftContextPointBlenderM": [
+      0.14232000708580017,
+      0.005254996940493584,
+      0.0025399941951036453
+    ],
+    "rightContextPointBlenderM": [
+      -0.008740000426769257,
+      0.025310000404715538,
+      0.06568001210689545
+    ],
+    "leftPixelOverview": [
+      94.19998228549957,
+      506.1500145122409
+    ],
+    "rightPixelOverview": [
+      471.85000106692314,
+      348.2999697327614
+    ]
+  },
+  "sourceBytesAndGeometryUnchanged": true,
+  "blender": "4.3.2",
+  "display": {
+    "lighting": [
+      [
+        [
+          -0.3,
+          0.4,
+          0.4
+        ],
+        8,
+        0.4
+      ],
+      [
+        [
+          0.3,
+          0.3,
+          0.1
+        ],
+        5,
+        0.4
+      ],
+      [
+        [
+          0,
+          -0.3,
+          -0.3
+        ],
+        2,
+        0.4
+      ]
+    ],
+    "worldColor": [
+      0.025,
+      0.035,
+      0.045
+    ],
+    "worldStrength": 0.4,
+    "engine": "Cycles CPU",
+    "samples": 48,
+    "seed": 0,
+    "denoise": false,
+    "colorManagement": "AgX Medium High Contrast; exposure 0",
+    "context": "Editorial translucent front-face display; invisible to lighting rays",
+    "componentMaterial": "Opaque diagnostic rose; same in all four renders"
+  },
+  "scope": "Matched new renders of exact retained component. Context is coarse same-case source geometry; no fitting, additions to the selected component, fusion, repair or lumen claim."
+}

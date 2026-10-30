@@ -1,0 +1,37 @@
+{
+  "stage": "private-v1",
+  "sourceSha256": "9e0454c0a920bcd9292d1aced370ff781b97aa8fb87b0439eb1f0ac21517a593",
+  "generatorSha256": {
+    "tools/pulmonary_vein_context/build.py": "f033a2b2132352f8481fd8d2fec4f39257b092457254b890a90b662c64b890e4",
+    "tools/pulmonary_vein_context/check_visuals.py": "7b550891695c138b95f25f7a03b4b10af89b471cf692643caccb3fff5631232c",
+    "tools/pulmonary_vein_context/render.py": "38f4d9094e82ab72006d2963cc6ae2a15fac53e3fe2c49ba53957f37a4b69e11",
+    "tools/pulmonary_vein_context/source.py": "1a9543b5b7711a6fd3b7543ddbc2877cf3bb741197f2fe22bb496ae98c791754"
+  },
+  "scopedTests": {
+    "command": "python3 -m unittest discover -s tests -p 'test_pulmonary_vein_context.py' -v",
+    "passed": 9,
+    "failed": 0
+  },
+  "nativeVisualBinding": {
+    "status": "passed",
+    "panels": 8,
+    "nonEditorialPixelDifferences": 0
+  },
+  "authorVisualReview": {
+    "inspected": [
+      "combined teaching PNG",
+      "overview Original/Updated PNG",
+      "detail Original/Updated PNG",
+      "grayscale teaching PNG"
+    ],
+    "finding": "Overview minimum context margin is 0.1999664306640625 px; widen overview in v2. Detail pixels remain reusable."
+  },
+  "gates": {
+    "technical": "scoped checks passed",
+    "staticPresentation": "needs framing revision and independent review",
+    "browserRuntime": "unverified; no browser attempt",
+    "anatomyClinical": "unverified",
+    "publicDelivery": "not attempted",
+    "requiredOfflinePRGate": "not run at private-v1 stage"
+  }
+}
