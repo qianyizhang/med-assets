@@ -1,0 +1,79 @@
+{
+  "globalMappingSha256": "8593f6f927e5bdc63baae1f7ca361f414d9cfc9b9b250f1e41d3bc81d88da923",
+  "mappingRows": 1166,
+  "relevantRows": 29,
+  "matchedMeshes": [
+    {
+      "sourceNode": "VH_F_left_ovary",
+      "glbSha256": "defd5cdc4b053b4e92193c5864bab2abae1807864ffde8bde7a7cb57f4736609",
+      "sourceSpatialEntity": "#VHFemaleOrgans",
+      "metadataRepresentationMatches": true,
+      "allNodeTransformsDefaultIdentity": true
+    },
+    {
+      "sourceNode": "VH_F_right_ovary",
+      "glbSha256": "381df741bf3d2511716e68db3ff70d94c0eda770d28a503af2d9fcb7b65113f8",
+      "sourceSpatialEntity": "#VHFemaleOrgans",
+      "metadataRepresentationMatches": true,
+      "allNodeTransformsDefaultIdentity": true
+    },
+    {
+      "sourceNode": "VH_F_uterine_tube_infundibulum_L",
+      "glbSha256": "34817c498e038b599b338f8a35e6c1b3cbda576255c4f2ecca6d9efdebac6c15",
+      "sourceSpatialEntity": "#VHFemaleOrgans",
+      "metadataRepresentationMatches": true,
+      "allNodeTransformsDefaultIdentity": true
+    },
+    {
+      "sourceNode": "VH_F_fibria_of_uterine_tube_L",
+      "glbSha256": "34817c498e038b599b338f8a35e6c1b3cbda576255c4f2ecca6d9efdebac6c15",
+      "sourceSpatialEntity": "#VHFemaleOrgans",
+      "metadataRepresentationMatches": true,
+      "allNodeTransformsDefaultIdentity": true
+    },
+    {
+      "sourceNode": "VH_F_isthmus_of_fallopian_tube_L",
+      "glbSha256": "34817c498e038b599b338f8a35e6c1b3cbda576255c4f2ecca6d9efdebac6c15",
+      "sourceSpatialEntity": "#VHFemaleOrgans",
+      "metadataRepresentationMatches": true,
+      "allNodeTransformsDefaultIdentity": true
+    },
+    {
+      "sourceNode": "VH_F_ampulla_of_uterine_tube_L",
+      "glbSha256": "34817c498e038b599b338f8a35e6c1b3cbda576255c4f2ecca6d9efdebac6c15",
+      "sourceSpatialEntity": "#VHFemaleOrgans",
+      "metadataRepresentationMatches": true,
+      "allNodeTransformsDefaultIdentity": true
+    },
+    {
+      "sourceNode": "VH_F_ampulla_of_uterine_tube_R",
+      "glbSha256": "eec911de07307d1a27cfe27c939e3f3562590e5c419e27decaf3b1d7b13ab038",
+      "sourceSpatialEntity": "#VHFemaleOrgans",
+      "metadataRepresentationMatches": true,
+      "allNodeTransformsDefaultIdentity": true
+    },
+    {
+      "sourceNode": "VH_F_isthmus_of_fallopian_tube_R",
+      "glbSha256": "eec911de07307d1a27cfe27c939e3f3562590e5c419e27decaf3b1d7b13ab038",
+      "sourceSpatialEntity": "#VHFemaleOrgans",
+      "metadataRepresentationMatches": true,
+      "allNodeTransformsDefaultIdentity": true
+    },
+    {
+      "sourceNode": "VH_F_fibria_of_uterine_tube_R",
+      "glbSha256": "eec911de07307d1a27cfe27c939e3f3562590e5c419e27decaf3b1d7b13ab038",
+      "sourceSpatialEntity": "#VHFemaleOrgans",
+      "metadataRepresentationMatches": true,
+      "allNodeTransformsDefaultIdentity": true
+    },
+    {
+      "sourceNode": "VH_F_uterine_tube_infundibulum_R",
+      "glbSha256": "eec911de07307d1a27cfe27c939e3f3562590e5c419e27decaf3b1d7b13ab038",
+      "sourceSpatialEntity": "#VHFemaleOrgans",
+      "metadataRepresentationMatches": true,
+      "allNodeTransformsDefaultIdentity": true
+    }
+  ],
+  "sourceFrameEvidence": "Every selected mesh explicitly identifies #VHFemaleOrgans in both native GLB extras and pinned global mapping; every source node has default identity transform. Native coordinate compatibility is inspected without individual fitting.",
+  "notAcquired": "Ligament and mesovarium rows refer to separate VH_F_Ligaments_Uterus_Ovaries export. Those meshes are absent from the four selected GLBs and are not reconstructed."
+}

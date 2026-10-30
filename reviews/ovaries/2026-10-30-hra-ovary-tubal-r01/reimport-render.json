@@ -1,0 +1,1273 @@
+{
+  "candidateSha256": "465a44b18df91ece95a236372a8cbe3e1a0de0207525955290e6b0fa519195d1",
+  "candidateBytes": 681552,
+  "blender": "4.3.2",
+  "cleanReimportExact": true,
+  "sourceSignature": {
+    "meshes": {
+      "VH_F_ampulla_of_uterine_tube_L": {
+        "name": "VH_F_ampulla_of_uterine_tube_L",
+        "vertices": 5752,
+        "triangles": 11424,
+        "worldGeometrySha256": "62be98a67bd639a2f04310cc66cbf9eb1e0255e327e2e0175d04cc0f3ff17e1d",
+        "cornerNormalsSha256": "3d3282643efb81db3566fa58dcee5b0d4ff6015d2c702c65d0ba8edb3615f2dc",
+        "matrixWorld": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "VH_F_fallopian_tube_L",
+        "materials": [
+          "Uterus_Mat1"
+        ]
+      },
+      "VH_F_ampulla_of_uterine_tube_R": {
+        "name": "VH_F_ampulla_of_uterine_tube_R",
+        "vertices": 5260,
+        "triangles": 10440,
+        "worldGeometrySha256": "6330ac3da4b8708ab67e2375a6376d19113f22f43c6bc9da78103fee0b0d41cb",
+        "cornerNormalsSha256": "585c3a080d486a4b1a952473fe81265ff6263d58eeef33eddd14dbf147a534e2",
+        "matrixWorld": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "VH_F_fallopian_tube_R",
+        "materials": [
+          "Uterus_Mat"
+        ]
+      },
+      "VH_F_fibria_of_uterine_tube_L": {
+        "name": "VH_F_fibria_of_uterine_tube_L",
+        "vertices": 1456,
+        "triangles": 2871,
+        "worldGeometrySha256": "9edb7f7ec1456dd8828b20d3c44eca178ba34d7a58d9afcf129bf3f1a8b05708",
+        "cornerNormalsSha256": "04c8ccc8e669f5d0dcc39b52039dba088dabbefca1eb31c59bf071669c83f18d",
+        "matrixWorld": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "VH_F_fallopian_tube_L",
+        "materials": [
+          "Uterus_Mat1"
+        ]
+      },
+      "VH_F_fibria_of_uterine_tube_R": {
+        "name": "VH_F_fibria_of_uterine_tube_R",
+        "vertices": 1785,
+        "triangles": 3530,
+        "worldGeometrySha256": "230581421138c8848d31d348cc3958a0607dcfc5a5bc3e80952062fb01a81726",
+        "cornerNormalsSha256": "01a537493690c4f51ca38ce263bb2b510e640cb76f7ec9ace65a9fdaa92156ad",
+        "matrixWorld": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "VH_F_fallopian_tube_R",
+        "materials": [
+          "Uterus_Mat"
+        ]
+      },
+      "VH_F_isthmus_of_fallopian_tube_L": {
+        "name": "VH_F_isthmus_of_fallopian_tube_L",
+        "vertices": 976,
+        "triangles": 1870,
+        "worldGeometrySha256": "629eaf3cd763f7284f5965b75e44cec480b7e50a58f0b00647108ad45f0cd184",
+        "cornerNormalsSha256": "74aec18032a078153c73fd3ae51a6d876ee2419c3a0df91b9d680c4e79de9851",
+        "matrixWorld": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "VH_F_fallopian_tube_L",
+        "materials": [
+          "Uterus_Mat1"
+        ]
+      },
+      "VH_F_isthmus_of_fallopian_tube_R": {
+        "name": "VH_F_isthmus_of_fallopian_tube_R",
+        "vertices": 840,
+        "triangles": 1600,
+        "worldGeometrySha256": "c559dbad9f4b209cd8bc2dcb4b0fc74cb72463dd8b5bab61bc707c935400d50a",
+        "cornerNormalsSha256": "ca7fe685c2a6a45769ad734fe7c60c10d70b729d8bf1fc43ccf7fb10c442fea7",
+        "matrixWorld": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "VH_F_fallopian_tube_R",
+        "materials": [
+          "Uterus_Mat"
+        ]
+      },
+      "VH_F_left_ovary": {
+        "name": "VH_F_left_ovary",
+        "vertices": 214,
+        "triangles": 424,
+        "worldGeometrySha256": "dbc802a939dd2868387e2a099efab4341790b6fe29fd66ddc959de77cabb555a",
+        "cornerNormalsSha256": "b55fb8368daf21d1078fc85783f8f107cfcdb1b64582052542b94dc32a5ccf75",
+        "matrixWorld": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": null,
+        "materials": [
+          "Ovary_mat"
+        ]
+      },
+      "VH_F_right_ovary": {
+        "name": "VH_F_right_ovary",
+        "vertices": 207,
+        "triangles": 410,
+        "worldGeometrySha256": "2af02c3299c85b33250ffa578c04aec3d94a86978feaee898942a99cf919d4bc",
+        "cornerNormalsSha256": "cd3b61901f5cf27fcfbf09e746f8bc20b77aa70739efd81ae5b83973a78797c2",
+        "matrixWorld": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": null,
+        "materials": [
+          "Ovary_mat1"
+        ]
+      },
+      "VH_F_uterine_tube_infundibulum_L": {
+        "name": "VH_F_uterine_tube_infundibulum_L",
+        "vertices": 1098,
+        "triangles": 2116,
+        "worldGeometrySha256": "c53c49592e6889dc3109360e18c056d8bbafe5e1d549b5ce0c531c1bfaf37186",
+        "cornerNormalsSha256": "7378efbc2346eb94a1b57ae1677445992543681bc11233155dea680708c2355c",
+        "matrixWorld": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "VH_F_fallopian_tube_L",
+        "materials": [
+          "Uterus_Mat1"
+        ]
+      },
+      "VH_F_uterine_tube_infundibulum_R": {
+        "name": "VH_F_uterine_tube_infundibulum_R",
+        "vertices": 1140,
+        "triangles": 2200,
+        "worldGeometrySha256": "449d6921260f2093697d7c209ca7c328b88ff2bf288ac3457bd44c21382e7e51",
+        "cornerNormalsSha256": "f46f843f532141adfd67550c79ca07a3b405eda2b949eff6d336c55147a10a3d",
+        "matrixWorld": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "VH_F_fallopian_tube_R",
+        "materials": [
+          "Uterus_Mat"
+        ]
+      }
+    },
+    "materials": {
+      "Ovary_mat": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "roughness": 0.2074085921049118,
+        "metallic": 0.0
+      },
+      "Ovary_mat1": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "roughness": 0.2074085921049118,
+        "metallic": 0.0
+      },
+      "Uterus_Mat": {
+        "baseColor": [
+          0.6200000047683716,
+          0.19406001269817352,
+          0.19406001269817352,
+          1.0
+        ],
+        "roughness": 0.2581638991832733,
+        "metallic": 0.0
+      },
+      "Uterus_Mat1": {
+        "baseColor": [
+          0.6200000047683716,
+          0.19406001269817352,
+          0.19406001269817352,
+          1.0
+        ],
+        "roughness": 0.2581638991832733,
+        "metallic": 0.0
+      }
+    }
+  },
+  "candidateSignature": {
+    "meshes": {
+      "VH_F_ampulla_of_uterine_tube_L": {
+        "name": "VH_F_ampulla_of_uterine_tube_L",
+        "vertices": 5752,
+        "triangles": 11424,
+        "worldGeometrySha256": "62be98a67bd639a2f04310cc66cbf9eb1e0255e327e2e0175d04cc0f3ff17e1d",
+        "cornerNormalsSha256": "3d3282643efb81db3566fa58dcee5b0d4ff6015d2c702c65d0ba8edb3615f2dc",
+        "matrixWorld": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "VH_F_fallopian_tube_L",
+        "materials": [
+          "Uterus_Mat1"
+        ]
+      },
+      "VH_F_ampulla_of_uterine_tube_R": {
+        "name": "VH_F_ampulla_of_uterine_tube_R",
+        "vertices": 5260,
+        "triangles": 10440,
+        "worldGeometrySha256": "6330ac3da4b8708ab67e2375a6376d19113f22f43c6bc9da78103fee0b0d41cb",
+        "cornerNormalsSha256": "585c3a080d486a4b1a952473fe81265ff6263d58eeef33eddd14dbf147a534e2",
+        "matrixWorld": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "VH_F_fallopian_tube_R",
+        "materials": [
+          "Uterus_Mat"
+        ]
+      },
+      "VH_F_fibria_of_uterine_tube_L": {
+        "name": "VH_F_fibria_of_uterine_tube_L",
+        "vertices": 1456,
+        "triangles": 2871,
+        "worldGeometrySha256": "9edb7f7ec1456dd8828b20d3c44eca178ba34d7a58d9afcf129bf3f1a8b05708",
+        "cornerNormalsSha256": "04c8ccc8e669f5d0dcc39b52039dba088dabbefca1eb31c59bf071669c83f18d",
+        "matrixWorld": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "VH_F_fallopian_tube_L",
+        "materials": [
+          "Uterus_Mat1"
+        ]
+      },
+      "VH_F_fibria_of_uterine_tube_R": {
+        "name": "VH_F_fibria_of_uterine_tube_R",
+        "vertices": 1785,
+        "triangles": 3530,
+        "worldGeometrySha256": "230581421138c8848d31d348cc3958a0607dcfc5a5bc3e80952062fb01a81726",
+        "cornerNormalsSha256": "01a537493690c4f51ca38ce263bb2b510e640cb76f7ec9ace65a9fdaa92156ad",
+        "matrixWorld": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "VH_F_fallopian_tube_R",
+        "materials": [
+          "Uterus_Mat"
+        ]
+      },
+      "VH_F_isthmus_of_fallopian_tube_L": {
+        "name": "VH_F_isthmus_of_fallopian_tube_L",
+        "vertices": 976,
+        "triangles": 1870,
+        "worldGeometrySha256": "629eaf3cd763f7284f5965b75e44cec480b7e50a58f0b00647108ad45f0cd184",
+        "cornerNormalsSha256": "74aec18032a078153c73fd3ae51a6d876ee2419c3a0df91b9d680c4e79de9851",
+        "matrixWorld": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "VH_F_fallopian_tube_L",
+        "materials": [
+          "Uterus_Mat1"
+        ]
+      },
+      "VH_F_isthmus_of_fallopian_tube_R": {
+        "name": "VH_F_isthmus_of_fallopian_tube_R",
+        "vertices": 840,
+        "triangles": 1600,
+        "worldGeometrySha256": "c559dbad9f4b209cd8bc2dcb4b0fc74cb72463dd8b5bab61bc707c935400d50a",
+        "cornerNormalsSha256": "ca7fe685c2a6a45769ad734fe7c60c10d70b729d8bf1fc43ccf7fb10c442fea7",
+        "matrixWorld": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "VH_F_fallopian_tube_R",
+        "materials": [
+          "Uterus_Mat"
+        ]
+      },
+      "VH_F_left_ovary": {
+        "name": "VH_F_left_ovary",
+        "vertices": 214,
+        "triangles": 424,
+        "worldGeometrySha256": "dbc802a939dd2868387e2a099efab4341790b6fe29fd66ddc959de77cabb555a",
+        "cornerNormalsSha256": "b55fb8368daf21d1078fc85783f8f107cfcdb1b64582052542b94dc32a5ccf75",
+        "matrixWorld": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": null,
+        "materials": [
+          "Ovary_mat"
+        ]
+      },
+      "VH_F_right_ovary": {
+        "name": "VH_F_right_ovary",
+        "vertices": 207,
+        "triangles": 410,
+        "worldGeometrySha256": "2af02c3299c85b33250ffa578c04aec3d94a86978feaee898942a99cf919d4bc",
+        "cornerNormalsSha256": "cd3b61901f5cf27fcfbf09e746f8bc20b77aa70739efd81ae5b83973a78797c2",
+        "matrixWorld": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": null,
+        "materials": [
+          "Ovary_mat1"
+        ]
+      },
+      "VH_F_uterine_tube_infundibulum_L": {
+        "name": "VH_F_uterine_tube_infundibulum_L",
+        "vertices": 1098,
+        "triangles": 2116,
+        "worldGeometrySha256": "c53c49592e6889dc3109360e18c056d8bbafe5e1d549b5ce0c531c1bfaf37186",
+        "cornerNormalsSha256": "7378efbc2346eb94a1b57ae1677445992543681bc11233155dea680708c2355c",
+        "matrixWorld": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "VH_F_fallopian_tube_L",
+        "materials": [
+          "Uterus_Mat1"
+        ]
+      },
+      "VH_F_uterine_tube_infundibulum_R": {
+        "name": "VH_F_uterine_tube_infundibulum_R",
+        "vertices": 1140,
+        "triangles": 2200,
+        "worldGeometrySha256": "449d6921260f2093697d7c209ca7c328b88ff2bf288ac3457bd44c21382e7e51",
+        "cornerNormalsSha256": "f46f843f532141adfd67550c79ca07a3b405eda2b949eff6d336c55147a10a3d",
+        "matrixWorld": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "parent": "VH_F_fallopian_tube_R",
+        "materials": [
+          "Uterus_Mat"
+        ]
+      }
+    },
+    "materials": {
+      "Ovary_mat": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "roughness": 0.2074085921049118,
+        "metallic": 0.0
+      },
+      "Ovary_mat1": {
+        "baseColor": [
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "roughness": 0.2074085921049118,
+        "metallic": 0.0
+      },
+      "Uterus_Mat": {
+        "baseColor": [
+          0.6200000047683716,
+          0.19406001269817352,
+          0.19406001269817352,
+          1.0
+        ],
+        "roughness": 0.2581638991832733,
+        "metallic": 0.0
+      },
+      "Uterus_Mat1": {
+        "baseColor": [
+          0.6200000047683716,
+          0.19406001269817352,
+          0.19406001269817352,
+          1.0
+        ],
+        "roughness": 0.2581638991832733,
+        "metallic": 0.0
+      }
+    }
+  },
+  "views": [
+    {
+      "variant": "source",
+      "view": "overview",
+      "file": "source-overview.png",
+      "bytes": 798948,
+      "sha256": "b6622d12e464ab8e1591bc18c595804735d370a842e9e7973a2902eea0689dc5",
+      "resolution": [
+        1200,
+        800
+      ],
+      "cameraWorldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.013014392927289009
+        ],
+        [
+          0.0,
+          -1.6292068494294654e-07,
+          -1.0,
+          -0.30426809191703796
+        ],
+        [
+          0.0,
+          1.0,
+          -1.6292068494294654e-07,
+          0.06262591481208801
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "orthoScaleM": 0.165,
+      "visibleSourceNodes": [
+        "VH_F_ampulla_of_uterine_tube_L",
+        "VH_F_ampulla_of_uterine_tube_R",
+        "VH_F_fibria_of_uterine_tube_L",
+        "VH_F_fibria_of_uterine_tube_R",
+        "VH_F_isthmus_of_fallopian_tube_L",
+        "VH_F_isthmus_of_fallopian_tube_R",
+        "VH_F_left_ovary",
+        "VH_F_right_ovary",
+        "VH_F_uterine_tube_infundibulum_L",
+        "VH_F_uterine_tube_infundibulum_R"
+      ],
+      "frameMarginsPx": {
+        "left": 136.70779466629028,
+        "right": 136.70783042907715,
+        "top": 234.66863632202148,
+        "bottom": 234.6677303314209
+      },
+      "anchors": {}
+    },
+    {
+      "variant": "source",
+      "view": "detail-L",
+      "file": "source-detail-L.png",
+      "bytes": 734001,
+      "sha256": "99fdecf75ccec633a0f3d4dfae83005df0a6ae6e6d041d231cf3262723c7e6f0",
+      "resolution": [
+        900,
+        900
+      ],
+      "cameraWorldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.031376779079437256
+        ],
+        [
+          0.0,
+          -1.6292068494294654e-07,
+          -1.0,
+          -0.30724093317985535
+        ],
+        [
+          0.0,
+          1.0,
+          -1.6292068494294654e-07,
+          0.0631231963634491
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "orthoScaleM": 0.064,
+      "visibleSourceNodes": [
+        "VH_F_ampulla_of_uterine_tube_L",
+        "VH_F_fibria_of_uterine_tube_L",
+        "VH_F_isthmus_of_fallopian_tube_L",
+        "VH_F_left_ovary",
+        "VH_F_uterine_tube_infundibulum_L"
+      ],
+      "frameMarginsPx": {
+        "left": 178.43201011419296,
+        "right": 178.43196988105774,
+        "top": 137.3093605041504,
+        "bottom": 137.30769753456116
+      },
+      "anchors": {
+        "ovary": {
+          "sourceNode": "VH_F_left_ovary",
+          "pixel": [
+            639.6362006664276,
+            480.0296366214752
+          ],
+          "rayHitNode": "VH_F_left_ovary"
+        },
+        "fimbria": {
+          "sourceNode": "VH_F_fibria_of_uterine_tube_L",
+          "pixel": [
+            557.4482202529907,
+            305.1920413970947
+          ],
+          "rayHitNode": "VH_F_fibria_of_uterine_tube_L"
+        }
+      }
+    },
+    {
+      "variant": "source",
+      "view": "detail-R",
+      "file": "source-detail-R.png",
+      "bytes": 719800,
+      "sha256": "eb4b452af00fd809c65b2011004aec332c52bab7486dc6fb0c2ea55030ccacde",
+      "resolution": [
+        900,
+        900
+      ],
+      "cameraWorldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.058019377291202545
+        ],
+        [
+          0.0,
+          -1.6292068494294654e-07,
+          -1.0,
+          -0.302456259727478
+        ],
+        [
+          0.0,
+          1.0,
+          -1.6292068494294654e-07,
+          0.06219452619552612
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "orthoScaleM": 0.064,
+      "visibleSourceNodes": [
+        "VH_F_ampulla_of_uterine_tube_R",
+        "VH_F_fibria_of_uterine_tube_R",
+        "VH_F_isthmus_of_fallopian_tube_R",
+        "VH_F_right_ovary",
+        "VH_F_uterine_tube_infundibulum_R"
+      ],
+      "frameMarginsPx": {
+        "left": 187.06369400024414,
+        "right": 187.06374764442444,
+        "top": 136.3825500011444,
+        "bottom": 136.38099431991577
+      },
+      "anchors": {
+        "ovary": {
+          "sourceNode": "VH_F_right_ovary",
+          "pixel": [
+            260.01285910606384,
+            469.7103202342987
+          ],
+          "rayHitNode": "VH_F_right_ovary"
+        },
+        "fimbria": {
+          "sourceNode": "VH_F_fibria_of_uterine_tube_R",
+          "pixel": [
+            310.3782534599304,
+            298.67979884147644
+          ],
+          "rayHitNode": "VH_F_fibria_of_uterine_tube_R"
+        }
+      }
+    },
+    {
+      "variant": "export",
+      "view": "overview",
+      "file": "export-overview.png",
+      "bytes": 798948,
+      "sha256": "d3db3ba1efb5f34b5f9483c8960c11b4e446496e96bdf2174882a56a22d55db2",
+      "resolution": [
+        1200,
+        800
+      ],
+      "cameraWorldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.013014392927289009
+        ],
+        [
+          0.0,
+          -1.6292068494294654e-07,
+          -1.0,
+          -0.30426809191703796
+        ],
+        [
+          0.0,
+          1.0,
+          -1.6292068494294654e-07,
+          0.06262591481208801
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "orthoScaleM": 0.165,
+      "visibleSourceNodes": [
+        "VH_F_ampulla_of_uterine_tube_L",
+        "VH_F_ampulla_of_uterine_tube_R",
+        "VH_F_fibria_of_uterine_tube_L",
+        "VH_F_fibria_of_uterine_tube_R",
+        "VH_F_isthmus_of_fallopian_tube_L",
+        "VH_F_isthmus_of_fallopian_tube_R",
+        "VH_F_left_ovary",
+        "VH_F_right_ovary",
+        "VH_F_uterine_tube_infundibulum_L",
+        "VH_F_uterine_tube_infundibulum_R"
+      ],
+      "frameMarginsPx": {
+        "left": 136.70779466629028,
+        "right": 136.70783042907715,
+        "top": 234.66863632202148,
+        "bottom": 234.6677303314209
+      },
+      "anchors": {}
+    },
+    {
+      "variant": "export",
+      "view": "detail-L",
+      "file": "export-detail-L.png",
+      "bytes": 734001,
+      "sha256": "61464b70fc7f7302b3efd4dc59386ed235ac54815836a81ea177c0ec327ef15f",
+      "resolution": [
+        900,
+        900
+      ],
+      "cameraWorldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.031376779079437256
+        ],
+        [
+          0.0,
+          -1.6292068494294654e-07,
+          -1.0,
+          -0.30724093317985535
+        ],
+        [
+          0.0,
+          1.0,
+          -1.6292068494294654e-07,
+          0.0631231963634491
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "orthoScaleM": 0.064,
+      "visibleSourceNodes": [
+        "VH_F_ampulla_of_uterine_tube_L",
+        "VH_F_fibria_of_uterine_tube_L",
+        "VH_F_isthmus_of_fallopian_tube_L",
+        "VH_F_left_ovary",
+        "VH_F_uterine_tube_infundibulum_L"
+      ],
+      "frameMarginsPx": {
+        "left": 178.43201011419296,
+        "right": 178.43196988105774,
+        "top": 137.3093605041504,
+        "bottom": 137.30769753456116
+      },
+      "anchors": {
+        "ovary": {
+          "sourceNode": "VH_F_left_ovary",
+          "pixel": [
+            639.6362006664276,
+            480.0296366214752
+          ],
+          "rayHitNode": "VH_F_left_ovary"
+        },
+        "fimbria": {
+          "sourceNode": "VH_F_fibria_of_uterine_tube_L",
+          "pixel": [
+            557.4482202529907,
+            305.1920413970947
+          ],
+          "rayHitNode": "VH_F_fibria_of_uterine_tube_L"
+        }
+      }
+    },
+    {
+      "variant": "export",
+      "view": "detail-R",
+      "file": "export-detail-R.png",
+      "bytes": 719800,
+      "sha256": "d4eac58ccd3bc2f9ac94a998adb76094c836aa7b47289f17cf2effb65e482129",
+      "resolution": [
+        900,
+        900
+      ],
+      "cameraWorldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.058019377291202545
+        ],
+        [
+          0.0,
+          -1.6292068494294654e-07,
+          -1.0,
+          -0.302456259727478
+        ],
+        [
+          0.0,
+          1.0,
+          -1.6292068494294654e-07,
+          0.06219452619552612
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "orthoScaleM": 0.064,
+      "visibleSourceNodes": [
+        "VH_F_ampulla_of_uterine_tube_R",
+        "VH_F_fibria_of_uterine_tube_R",
+        "VH_F_isthmus_of_fallopian_tube_R",
+        "VH_F_right_ovary",
+        "VH_F_uterine_tube_infundibulum_R"
+      ],
+      "frameMarginsPx": {
+        "left": 187.06369400024414,
+        "right": 187.06374764442444,
+        "top": 136.3825500011444,
+        "bottom": 136.38099431991577
+      },
+      "anchors": {
+        "ovary": {
+          "sourceNode": "VH_F_right_ovary",
+          "pixel": [
+            260.01285910606384,
+            469.7103202342987
+          ],
+          "rayHitNode": "VH_F_right_ovary"
+        },
+        "fimbria": {
+          "sourceNode": "VH_F_fibria_of_uterine_tube_R",
+          "pixel": [
+            310.3782534599304,
+            298.67979884147644
+          ],
+          "rayHitNode": "VH_F_fibria_of_uterine_tube_R"
+        }
+      }
+    }
+  ],
+  "display": {
+    "engine": "Cycles CPU",
+    "samples": 32,
+    "seed": 0,
+    "denoising": false,
+    "sourceMaterialsPreserved": true,
+    "lights": [
+      [
+        "key",
+        [
+          -0.15,
+          -0.16,
+          0.18
+        ],
+        0.36,
+        0.14
+      ],
+      [
+        "fill",
+        [
+          0.15,
+          -0.08,
+          0.05
+        ],
+        0.16,
+        0.14
+      ],
+      [
+        "rim",
+        [
+          0.04,
+          0.13,
+          0.1
+        ],
+        0.22,
+        0.12
+      ]
+    ],
+    "view": "native glTF +Z; source labels, not independently established patient orientation"
+  },
+  "geometryAndSourceBytesUnchanged": true,
+  "runtime": "unverified",
+  "anatomyClinical": "unverified"
+}
