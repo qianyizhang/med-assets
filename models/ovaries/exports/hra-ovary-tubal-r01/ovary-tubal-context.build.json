@@ -1,0 +1,70 @@
+{
+  "artifact": {
+    "file": "ovary-tubal-context.glb",
+    "bytes": 681552,
+    "sha256": "465a44b18df91ece95a236372a8cbe3e1a0de0207525955290e6b0fa519195d1"
+  },
+  "sourceCommit": "29888dcc5f32dae28c7a07c41171c822275360c3",
+  "sourceManifestSha256": "b8b051630796e03378b9aba42453ec95a87b4eab4cc968a06846742ad30a3934",
+  "checks": {
+    "sources": [
+      {
+        "file": "sources/datasets/hra/ovary-tubal-context/originals/ovary-female-left/v1.3/raw/3d-vh-f-ovary-l.glb",
+        "sha256": "defd5cdc4b053b4e92193c5864bab2abae1807864ffde8bde7a7cb57f4736609",
+        "binSha256": "63ad23fd16e4acf38fba8ac22b7deab4f996634966bef5dcaa43283be87f3a74",
+        "binOffset": 0,
+        "sourceArraysRecoveredExactly": true,
+        "sourceBinPreservedExactly": true
+      },
+      {
+        "file": "sources/datasets/hra/ovary-tubal-context/originals/ovary-female-right/v1.3/raw/3d-vh-f-ovary-r.glb",
+        "sha256": "381df741bf3d2511716e68db3ff70d94c0eda770d28a503af2d9fcb7b65113f8",
+        "binSha256": "165ff8d1871456590c29a1aa154dc8efd08a98e3d2ea4db10b89135d1203ab85",
+        "binOffset": 7680,
+        "sourceArraysRecoveredExactly": true,
+        "sourceBinPreservedExactly": true
+      },
+      {
+        "file": "sources/datasets/hra/ovary-tubal-context/originals/fallopian-tube-female-left/v1.2/raw/3d-vh-f-fallopian-tube-l.glb",
+        "sha256": "34817c498e038b599b338f8a35e6c1b3cbda576255c4f2ecca6d9efdebac6c15",
+        "binSha256": "4001c2982af7b8daad77653d5252244524420ddb2f86260ecfb9cba123c3713e",
+        "binOffset": 15108,
+        "sourceArraysRecoveredExactly": true,
+        "sourceBinPreservedExactly": true
+      },
+      {
+        "file": "sources/datasets/hra/ovary-tubal-context/originals/fallopian-tube-female-right/v1.2/raw/3d-vh-f-fallopian-tube-r.glb",
+        "sha256": "eec911de07307d1a27cfe27c939e3f3562590e5c419e27decaf3b1d7b13ab038",
+        "binSha256": "ddcb4f649c3d1bd8e787376a88a3f80006343685eca124822e5f2cd9a26b1865",
+        "binOffset": 347564,
+        "sourceArraysRecoveredExactly": true,
+        "sourceBinPreservedExactly": true
+      }
+    ],
+    "meshes": 10,
+    "nodes": 12,
+    "materials": 4,
+    "sourceRoots": [
+      0,
+      1,
+      2,
+      7
+    ],
+    "sourceNames": [
+      "VH_F_left_ovary",
+      "VH_F_right_ovary",
+      "VH_F_fallopian_tube_L",
+      "VH_F_uterine_tube_infundibulum_L",
+      "VH_F_fibria_of_uterine_tube_L",
+      "VH_F_isthmus_of_fallopian_tube_L",
+      "VH_F_ampulla_of_uterine_tube_L",
+      "VH_F_fallopian_tube_R",
+      "VH_F_ampulla_of_uterine_tube_R",
+      "VH_F_isthmus_of_fallopian_tube_R",
+      "VH_F_fibria_of_uterine_tube_R",
+      "VH_F_uterine_tube_infundibulum_R"
+    ],
+    "preserved": "All source node graphs/extras/transforms, materials, mesh/accessor/view arrays recovered exactly after index rebasing; all source BIN bytes exact.",
+    "noAnimationTransferred": true
+  }
+}

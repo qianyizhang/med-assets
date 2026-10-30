@@ -1,0 +1,650 @@
+{
+  "candidateSha256": "465a44b18df91ece95a236372a8cbe3e1a0de0207525955290e6b0fa519195d1",
+  "font": {
+    "file": "NotoSansCJK-Regular.ttc",
+    "sha256": "b76b0433203017ca80401b2ee0dd69350349871c4b19d504c34dbdd80541690a"
+  },
+  "baselineImageSha256": "7451f9806e64fa9c04f55d97dd0f35f61bc09b56ce737f160809d8ea71e61143",
+  "originalComparison": "Different models, independent views/scales, no registration claim.",
+  "matchedSourceExport": [
+    {
+      "view": "overview",
+      "identicalRGB": true,
+      "size": [
+        1200,
+        800
+      ]
+    },
+    {
+      "view": "detail-R",
+      "identicalRGB": true,
+      "size": [
+        900,
+        900
+      ]
+    },
+    {
+      "view": "detail-L",
+      "identicalRGB": true,
+      "size": [
+        900,
+        900
+      ]
+    }
+  ],
+  "leaders": [
+    {
+      "side": "R",
+      "number": 1,
+      "role": "ovary",
+      "sourceNode": "VH_F_right_ovary",
+      "start": [
+        570,
+        1299.7103202342987
+      ],
+      "endpoint": [
+        300.01285910606384,
+        1299.7103202342987
+      ]
+    },
+    {
+      "side": "R",
+      "number": 2,
+      "role": "fimbria",
+      "sourceNode": "VH_F_fibria_of_uterine_tube_R",
+      "start": [
+        570,
+        1128.6797988414764
+      ],
+      "endpoint": [
+        350.3782534599304,
+        1128.6797988414764
+      ]
+    },
+    {
+      "side": "L",
+      "number": 1,
+      "role": "ovary",
+      "sourceNode": "VH_F_left_ovary",
+      "start": [
+        1350,
+        1310.0296366214752
+      ],
+      "endpoint": [
+        1639.6362006664276,
+        1310.0296366214752
+      ]
+    },
+    {
+      "side": "L",
+      "number": 2,
+      "role": "fimbria",
+      "sourceNode": "VH_F_fibria_of_uterine_tube_L",
+      "start": [
+        1350,
+        1135.1920413970947
+      ],
+      "endpoint": [
+        1557.4482202529907,
+        1135.1920413970947
+      ]
+    }
+  ],
+  "sheets": [
+    {
+      "file": "teaching.png",
+      "bytes": 1241258,
+      "sha256": "e37da6c0c382693dd348db4d78da599be0efe3da7d7af486fbdd53fcbffacb60",
+      "size": [
+        1940,
+        1930
+      ],
+      "panels": [
+        {
+          "file": "export-overview.png",
+          "sha256": "d3db3ba1efb5f34b5f9483c8960c11b4e446496e96bdf2174882a56a22d55db2",
+          "crop": [
+            0,
+            150,
+            1200,
+            650
+          ],
+          "position": [
+            370,
+            200
+          ],
+          "size": [
+            1200,
+            500
+          ],
+          "resampling": false
+        },
+        {
+          "file": "export-detail-R.png",
+          "sha256": "d4eac58ccd3bc2f9ac94a998adb76094c836aa7b47289f17cf2effb65e482129",
+          "crop": [
+            0,
+            0,
+            900,
+            900
+          ],
+          "position": [
+            40,
+            830
+          ],
+          "size": [
+            900,
+            900
+          ],
+          "resampling": false
+        },
+        {
+          "file": "export-detail-L.png",
+          "sha256": "61464b70fc7f7302b3efd4dc59386ed235ac54815836a81ea177c0ec327ef15f",
+          "crop": [
+            0,
+            0,
+            900,
+            900
+          ],
+          "position": [
+            1000,
+            830
+          ],
+          "size": [
+            900,
+            900
+          ],
+          "resampling": false
+        }
+      ],
+      "texts": [
+        {
+          "text": "Ovary + tubal-end context / 卵巢与输卵管末端",
+          "box": [
+            40,
+            30,
+            1040,
+            82
+          ]
+        },
+        {
+          "text": "Native source relationships / 来源模型原生相对位置",
+          "box": [
+            40,
+            102,
+            720,
+            135
+          ]
+        },
+        {
+          "text": "Source R / 来源右",
+          "box": [
+            490,
+            155,
+            728,
+            187
+          ]
+        },
+        {
+          "text": "Source L / 来源左",
+          "box": [
+            1320,
+            155,
+            1555,
+            187
+          ]
+        },
+        {
+          "text": "1  Ovary / 卵巢       2  Fimbrial end / 伞端",
+          "box": [
+            40,
+            732,
+            684,
+            772
+          ]
+        },
+        {
+          "text": "Source R / 来源右",
+          "box": [
+            40,
+            790,
+            278,
+            822
+          ]
+        },
+        {
+          "text": "Source L / 来源左",
+          "box": [
+            1000,
+            790,
+            1235,
+            822
+          ]
+        },
+        {
+          "text": "Coarse exterior context; follicles, ligaments and uterus are not included. / 粗略外形与位置；不含卵泡、韧带和子宫。",
+          "box": [
+            40,
+            1760,
+            1419,
+            1789
+          ]
+        },
+        {
+          "text": "Source gaps/cut ends remain; proximity is not an attachment claim. / 保留源间隙与截断端；相邻不代表附着。",
+          "box": [
+            40,
+            1804,
+            1344,
+            1833
+          ]
+        },
+        {
+          "text": "Source L/R labels · native +Z view / 来源左右标注 · 原生 +Z 视角",
+          "box": [
+            40,
+            1848,
+            797,
+            1876
+          ]
+        },
+        {
+          "text": "Browne & Schlehlein · HuBMAP / HRA · CC BY 4.0 · Ovary v1.3 + Fallopian tube v1.2",
+          "box": [
+            40,
+            1890,
+            886,
+            1913
+          ]
+        }
+      ],
+      "unalteredPanelPixelsOutsideEditorialOverlay": 2212228
+    },
+    {
+      "file": "original-updated.png",
+      "bytes": 744012,
+      "sha256": "0fca8f8dceda88627e51ad51f478d5b97f090957ab65e871a9aab6c0b21cc532",
+      "size": [
+        1600,
+        1600
+      ],
+      "panels": [
+        {
+          "file": "contact.png",
+          "sha256": "7451f9806e64fa9c04f55d97dd0f35f61bc09b56ce737f160809d8ea71e61143",
+          "crop": [
+            0,
+            0,
+            1536,
+            602
+          ],
+          "position": [
+            32,
+            140
+          ],
+          "size": [
+            1536,
+            602
+          ],
+          "resampling": false
+        },
+        {
+          "file": "export-overview.png",
+          "sha256": "d3db3ba1efb5f34b5f9483c8960c11b4e446496e96bdf2174882a56a22d55db2",
+          "crop": [
+            0,
+            150,
+            1200,
+            650
+          ],
+          "position": [
+            200,
+            920
+          ],
+          "size": [
+            1200,
+            500
+          ],
+          "resampling": false
+        }
+      ],
+      "texts": [
+        {
+          "text": "Original schematic / 原示意模型  →  Updated source subset / 更新来源子集",
+          "box": [
+            32,
+            26,
+            1220,
+            65
+          ]
+        },
+        {
+          "text": "Different models, independent views and scales / 不同模型，视角和比例独立",
+          "box": [
+            32,
+            82,
+            1013,
+            114
+          ]
+        },
+        {
+          "text": "Original: schematic exterior retained separately / 原模型：示意外形，独立保留",
+          "box": [
+            32,
+            772,
+            1070,
+            805
+          ]
+        },
+        {
+          "text": "Updated: both ovaries with native tubal-end context / 更新：双侧卵巢及原生输卵管末端",
+          "box": [
+            32,
+            850,
+            1272,
+            884
+          ]
+        },
+        {
+          "text": "All 10 acquired meshes; source geometry, gaps and cut ends retained. / 保留全部10个来源网格、间隙与截断端。",
+          "box": [
+            32,
+            1460,
+            1311,
+            1488
+          ]
+        },
+        {
+          "text": "Source L/R labels; no follicle or attachment reconstruction. / 沿用来源左右标注；未重建卵泡或附着。",
+          "box": [
+            32,
+            1505,
+            1184,
+            1532
+          ]
+        },
+        {
+          "text": "Updated source: Browne & Schlehlein · HuBMAP / HRA · CC BY 4.0",
+          "box": [
+            32,
+            1550,
+            736,
+            1575
+          ]
+        }
+      ],
+      "unalteredPanelPixelsOutsideEditorialOverlay": 1524672
+    },
+    {
+      "file": "matched-overview.png",
+      "bytes": 676332,
+      "sha256": "6bb149bcaf376fbf88a03582b6b2e3f50465681d2616f2c9c5832097a53ea645",
+      "size": [
+        2520,
+        1030
+      ],
+      "panels": [
+        {
+          "file": "source-overview.png",
+          "sha256": "b6622d12e464ab8e1591bc18c595804735d370a842e9e7973a2902eea0689dc5",
+          "crop": [
+            0,
+            0,
+            1200,
+            800
+          ],
+          "position": [
+            40,
+            130
+          ],
+          "size": [
+            1200,
+            800
+          ],
+          "resampling": false
+        },
+        {
+          "file": "export-overview.png",
+          "sha256": "d3db3ba1efb5f34b5f9483c8960c11b4e446496e96bdf2174882a56a22d55db2",
+          "crop": [
+            0,
+            0,
+            1200,
+            800
+          ],
+          "position": [
+            1280,
+            130
+          ],
+          "size": [
+            1200,
+            800
+          ],
+          "resampling": false
+        }
+      ],
+      "texts": [
+        {
+          "text": "Clean reimport: four sources / combined GLB  |  原始文件 / 合并导出",
+          "box": [
+            40,
+            20,
+            1027,
+            57
+          ]
+        },
+        {
+          "text": "Original source files / 原始来源文件",
+          "box": [
+            40,
+            77,
+            488,
+            109
+          ]
+        },
+        {
+          "text": "Updated combined GLB / 合并导出",
+          "box": [
+            1280,
+            77,
+            1726,
+            109
+          ]
+        },
+        {
+          "text": "Matched camera, scale and lighting; identical RGB pixels. / 同视角、比例与光照；RGB像素一致。",
+          "box": [
+            40,
+            965,
+            1188,
+            994
+          ]
+        }
+      ],
+      "unalteredPanelPixelsOutsideEditorialOverlay": 1920000
+    },
+    {
+      "file": "matched-detail-R.png",
+      "bytes": 603829,
+      "sha256": "107b9c2b8c2a6c71378fc758c3482f2d5b546a0c62c9bd23642ac1fe4410c7ae",
+      "size": [
+        1920,
+        1130
+      ],
+      "panels": [
+        {
+          "file": "source-detail-R.png",
+          "sha256": "eb4b452af00fd809c65b2011004aec332c52bab7486dc6fb0c2ea55030ccacde",
+          "crop": [
+            0,
+            0,
+            900,
+            900
+          ],
+          "position": [
+            40,
+            130
+          ],
+          "size": [
+            900,
+            900
+          ],
+          "resampling": false
+        },
+        {
+          "file": "export-detail-R.png",
+          "sha256": "d4eac58ccd3bc2f9ac94a998adb76094c836aa7b47289f17cf2effb65e482129",
+          "crop": [
+            0,
+            0,
+            900,
+            900
+          ],
+          "position": [
+            980,
+            130
+          ],
+          "size": [
+            900,
+            900
+          ],
+          "resampling": false
+        }
+      ],
+      "texts": [
+        {
+          "text": "Clean reimport: four sources / combined GLB  |  原始文件 / 合并导出",
+          "box": [
+            40,
+            20,
+            1027,
+            57
+          ]
+        },
+        {
+          "text": "Original source files / 原始来源文件",
+          "box": [
+            40,
+            77,
+            488,
+            109
+          ]
+        },
+        {
+          "text": "Updated combined GLB / 合并导出",
+          "box": [
+            980,
+            77,
+            1426,
+            109
+          ]
+        },
+        {
+          "text": "Matched camera, scale and lighting; identical RGB pixels. / 同视角、比例与光照；RGB像素一致。",
+          "box": [
+            40,
+            1065,
+            1188,
+            1094
+          ]
+        }
+      ],
+      "unalteredPanelPixelsOutsideEditorialOverlay": 1620000
+    },
+    {
+      "file": "matched-detail-L.png",
+      "bytes": 616948,
+      "sha256": "12cd4d2e3e2f8e56c802420b1020a63f62a2a4f67e03df6eb427243a00422506",
+      "size": [
+        1920,
+        1130
+      ],
+      "panels": [
+        {
+          "file": "source-detail-L.png",
+          "sha256": "99fdecf75ccec633a0f3d4dfae83005df0a6ae6e6d041d231cf3262723c7e6f0",
+          "crop": [
+            0,
+            0,
+            900,
+            900
+          ],
+          "position": [
+            40,
+            130
+          ],
+          "size": [
+            900,
+            900
+          ],
+          "resampling": false
+        },
+        {
+          "file": "export-detail-L.png",
+          "sha256": "61464b70fc7f7302b3efd4dc59386ed235ac54815836a81ea177c0ec327ef15f",
+          "crop": [
+            0,
+            0,
+            900,
+            900
+          ],
+          "position": [
+            980,
+            130
+          ],
+          "size": [
+            900,
+            900
+          ],
+          "resampling": false
+        }
+      ],
+      "texts": [
+        {
+          "text": "Clean reimport: four sources / combined GLB  |  原始文件 / 合并导出",
+          "box": [
+            40,
+            20,
+            1027,
+            57
+          ]
+        },
+        {
+          "text": "Original source files / 原始来源文件",
+          "box": [
+            40,
+            77,
+            488,
+            109
+          ]
+        },
+        {
+          "text": "Updated combined GLB / 合并导出",
+          "box": [
+            980,
+            77,
+            1426,
+            109
+          ]
+        },
+        {
+          "text": "Matched camera, scale and lighting; identical RGB pixels. / 同视角、比例与光照；RGB像素一致。",
+          "box": [
+            40,
+            1065,
+            1188,
+            1094
+          ]
+        }
+      ],
+      "unalteredPanelPixelsOutsideEditorialOverlay": 1620000
+    }
+  ],
+  "grayscale": {
+    "file": "teaching-grayscale.png",
+    "bytes": 511026,
+    "sha256": "e139532661e6dd808e771878efb026f8d7c5c25b6b803b4df7f930c47062c561"
+  },
+  "scope": "Native static display only; clinical/anatomy approval and browser runtime unverified."
+}
