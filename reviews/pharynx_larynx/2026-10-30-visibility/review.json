@@ -1,0 +1,210 @@
+{
+  "schema": "pharynx-visibility-review-v1",
+  "issue": 150,
+  "scope": "Candidate-specific viewer visibility and explicit camera fit; unchanged r03 GLB",
+  "sourceSha256": "d691a60f12d448b9b36d362270429c672c01c7fae0f10a8789ef188dd4c08530",
+  "baselineRepositoryCommit": "3bf6489b6b51093c0e03e5771b1f530700e7e282",
+  "v1ImplementationCommit": "b2e142c674691cca27d76ec9ffdfef94d0b3dc64",
+  "viewerBaselineCommit": "11d91eea72408d8995ad9f60cd1c45b6341bd240",
+  "files": {
+    "gallery/pharynx_larynx/visibility-r01/pharynx-inspection.mjs": {
+      "sha256": "e68540b83686ad8df30920cddb2fdb9c641502db98b0251f4cc362fb0edee89b",
+      "bytes": 9210
+    },
+    "gallery/pharynx_larynx/visibility-r01/README.md": {
+      "sha256": "71ef527b645918c368c325db1a695af926b594b1116844311c1586d53c74cc7c",
+      "bytes": 4317
+    },
+    "gallery/pharynx_larynx/visibility-r01/apply.py": {
+      "sha256": "536525e5e1f65389338e189074d201f3adef63c0ec5c82182bd627fa9e47d0d9",
+      "bytes": 2339
+    },
+    "gallery/pharynx_larynx/visibility-r01/pharynx-inspection.css": {
+      "sha256": "1b27280449d92a8025427ccf9eda1d3ba59febc729839187e7e7907a5e9b1678",
+      "bytes": 617
+    }
+  },
+  "checks": {
+    "scopedNode": {
+      "passed": 9,
+      "failed": 0,
+      "skipped": 0,
+      "command": "PHARYNX_TEST_DEPS=<isolated dependency directory> node --test tests/pharynx_visibility/visibility.test.mjs",
+      "dependencies": {
+        "three": "0.180.0",
+        "jsdom": "26.1.0"
+      }
+    },
+    "patcherPython": {
+      "passed": 5,
+      "failed": 0,
+      "command": "python3 -m unittest discover -s tests -p test_pharynx_visibility_patch.py"
+    },
+    "cleanReimportAndStaticRenders": {
+      "status": "passed",
+      "receipts": [
+        "v1/render-receipt.json",
+        "v2/render-receipt.json"
+      ]
+    },
+    "unchangedLayerVisibilitySets": true,
+    "resetPixelsEqual": true,
+    "resetFitPixelsEqual": true,
+    "offlineRepositoryGate": {
+      "status": "passed",
+      "tests": 194,
+      "command": "python3 tools/verify.py offline",
+      "sourceCommit": "dbcffbc4ee74d1d8b4648ca905e1856ba609dd4f",
+      "transportManifests": 26,
+      "foundationRecords": 25,
+      "importReferences": 591,
+      "lfsPointerIdentities": 708,
+      "scope": "Text/pointer/offline package checks only; scoped Node and media/visual checks recorded separately."
+    },
+    "freshRemoteEvidence": {
+      "status": "passed",
+      "objects": 18,
+      "bytes": 12587844,
+      "emptyStore": true
+    }
+  },
+  "independentReview": "independent-review.json",
+  "gates": {
+    "technical": "pass-with-limitations",
+    "staticVisual": "pass-with-limitations",
+    "browserUI": "unverified",
+    "webgl": "unverified",
+    "anatomy": "not-assessed",
+    "clinical": "not-validated",
+    "publication": "not-performed"
+  },
+  "runtimeBlockers": [
+    {
+      "surface": "local Chromium",
+      "state": "blocked before page/model execution",
+      "reason": "Sandbox-enabled launch aborted: SUID sandbox helper not configured correctly. No security configuration change or alternate browser route."
+    },
+    {
+      "surface": "live candidate.js",
+      "state": "denied to coordinator; not retried in this executor",
+      "reason": "net::ERR_BLOCKED_BY_CLIENT"
+    }
+  ],
+  "evidence": [
+    {
+      "file": "v1/baseline-cartilage-detail.png",
+      "sha256": "bfaa6b2e552e919213e4762485853956ac6ad6fc8e894802ef7882fdede0fba3",
+      "bytes": 896885,
+      "kind": "offline-render-or-deterministic-composition"
+    },
+    {
+      "file": "v1/baseline-front.png",
+      "sha256": "f5fd929597a1659e015740792c481ef0c62a9b6ce9dcbe4e223040d43fbc4f28",
+      "bytes": 801130,
+      "kind": "offline-render-or-deterministic-composition"
+    },
+    {
+      "file": "v1/baseline-posterior-oblique.png",
+      "sha256": "3ac032ef66706c12d3c238c9bb3054ec6f8d1e4227a6e86d41cd481999c92a2c",
+      "bytes": 740137,
+      "kind": "offline-render-or-deterministic-composition"
+    },
+    {
+      "file": "v1/cartilage-cartilage-detail.png",
+      "sha256": "d8b57b7eb8ca2b85a1e50551c44065aba6055b6d01317d41b5bfb0a1e2680bcb",
+      "bytes": 696786,
+      "kind": "offline-render-or-deterministic-composition"
+    },
+    {
+      "file": "v1/cartilage-front.png",
+      "sha256": "afd19e8f5dfcac9d2a1ac7f4038aa08accb229b3224a2b98259f9fee9a2d1628",
+      "bytes": 499605,
+      "kind": "offline-render-or-deterministic-composition"
+    },
+    {
+      "file": "v1/cartilage-posterior-oblique.png",
+      "sha256": "d1c0e0537a47fea4775341edf1edfefea612b26788ad740188c25de7cfdec682",
+      "bytes": 506563,
+      "kind": "offline-render-or-deterministic-composition"
+    },
+    {
+      "file": "v1/comparison-cartilage-detail.png",
+      "sha256": "053e3dd728682b43c347f42805943be1b25f815e75962fc08b30a6435be0b289",
+      "bytes": 1148491,
+      "kind": "offline-render-or-deterministic-composition"
+    },
+    {
+      "file": "v1/comparison-detail-grayscale.png",
+      "sha256": "b8b55e7e15ce5222dfb5d7cef019a5b4871047a9b173d1b2e3b68055d45a6cd9",
+      "bytes": 479716,
+      "kind": "offline-render-or-deterministic-composition"
+    },
+    {
+      "file": "v1/comparison-posterior-oblique.png",
+      "sha256": "37a0a821f9ccc6af2eafafac8e00dc953a16fa6d881b0fed4cb366a3baf856c1",
+      "bytes": 756891,
+      "kind": "offline-render-or-deterministic-composition"
+    },
+    {
+      "file": "v1/muscles-front.png",
+      "sha256": "6c8df53345612f2e4e771fbac39bbce7c1a322cf874dcffcea3c81a28641da06",
+      "bytes": 795715,
+      "kind": "offline-render-or-deterministic-composition"
+    },
+    {
+      "file": "v1/muscles-posterior-oblique.png",
+      "sha256": "1d78a44d82bad5801631f052335b24e9899c2d54f535362648fbd7cf1c08d908",
+      "bytes": 732518,
+      "kind": "offline-render-or-deterministic-composition"
+    },
+    {
+      "file": "v1/reset-front.png",
+      "sha256": "a247236cac83b00e6b38769c1bc2a7ca0b971f4979d3223804e6d9f88808eb89",
+      "bytes": 801130,
+      "kind": "offline-render-or-deterministic-composition"
+    },
+    {
+      "file": "v1/reset-posterior-oblique.png",
+      "sha256": "5f8eca5a9884895b7102be5c94ba5bb026e06dfc25e5dd5e76ce5c9e1ccdb729",
+      "bytes": 740137,
+      "kind": "offline-render-or-deterministic-composition"
+    },
+    {
+      "file": "v2/baseline-all-fitted.png",
+      "sha256": "424ef604aac547ca5a43450ca48ff53cb99073cbcb8a9aa42a6267297d7851c0",
+      "bytes": 632624,
+      "kind": "offline-render-or-deterministic-composition"
+    },
+    {
+      "file": "v2/cartilage-cartilage-after-fit.png",
+      "sha256": "a6c001c1c69e935595401b443160409bdfc272fed30191cbc8fb3e2f46e4b73d",
+      "bytes": 604730,
+      "kind": "offline-render-or-deterministic-composition"
+    },
+    {
+      "file": "v2/cartilage-cartilage-before-fit.png",
+      "sha256": "ce650720d6da5790f85e159a2ceada9c0d9fda577709dc2084178d7c91fac9a7",
+      "bytes": 488479,
+      "kind": "offline-render-or-deterministic-composition"
+    },
+    {
+      "file": "v2/comparison-fit.png",
+      "sha256": "c698b32096960e62646b744b89b899aa75270344e81426151749b2c8bf2fb82a",
+      "bytes": 633683,
+      "kind": "offline-render-or-deterministic-composition"
+    },
+    {
+      "file": "v2/reset-reset-fitted.png",
+      "sha256": "fdcfe9fc224f2e15568efc93491dc612fbc1d630bd8f55ab370b85766ce0c7e3",
+      "bytes": 632624,
+      "kind": "offline-render-or-deterministic-composition"
+    }
+  ],
+  "remaining": [
+    "Native browser/UI pixel and WebGL validation",
+    "Apply patch to an independently authorized current Site source checkout and evaluate integration",
+    "Site publication is outside this task; no deployment performed"
+  ],
+  "implementationCommit": "dbcffbc4ee74d1d8b4648ca905e1856ba609dd4f",
+  "deliveryReceipt": "delivery-receipt.json"
+}

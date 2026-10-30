@@ -1,0 +1,45 @@
+{
+  "reviewer": "Independent native pixel-review agent",
+  "kind": "automated independent review; not a clinical or anatomical specialist signoff",
+  "v1": {
+    "verdict": "static visibility passes; camera-fit correction requested",
+    "imagesInspected": [
+      "v1/comparison-posterior-oblique.png",
+      "v1/comparison-cartilage-detail.png",
+      "v1/comparison-detail-grayscale.png",
+      "v1/baseline-front.png",
+      "v1/cartilage-front.png",
+      "v1/muscles-front.png",
+      "v1/muscles-posterior-oblique.png",
+      "v1/reset-front.png",
+      "v1/reset-posterior-oblique.png"
+    ],
+    "finding": "Five cartilage parts become readable; muscle context and neutral disputed-side labels remain appropriate. Isolated group sits low in original full-assembly framing. Existing Fit uses full-scene bounds. Zoom clipping is an inference, not observed browser behavior.",
+    "requestedCorrection": "Separate Fit visible parts action; preserve direction and camera-neutral layer switches."
+  },
+  "v2": {
+    "verdict": "pass-with-limitations",
+    "imagesInspected": [
+      "v2/comparison-fit.png",
+      "v2/cartilage-cartilage-before-fit.png",
+      "v2/cartilage-cartilage-after-fit.png",
+      "v2/baseline-all-fitted.png",
+      "v2/reset-reset-fitted.png"
+    ],
+    "findings": [
+      "All five cartilage parts are centered and enlarged with clear margins.",
+      "Full/reset fitted panels have identical decoded pixels.",
+      "All four raw V2 image hashes/sizes match the receipt; V1/V2 visibility sets are identical.",
+      "Control wording retains camera/visibility distinction and disputed source-side limits.",
+      "No further visual or code correction warranted."
+    ],
+    "receiptCorrection": "Corrected the fit receipt to disclose intentional camera target/distance change; no new render required."
+  },
+  "unverified": [
+    "Actual browser/UI appearance",
+    "WebGL behavior",
+    "Live vendor byte identity",
+    "Clinical or anatomical completeness"
+  ],
+  "evidenceBoundary": "Actual native image inspection of offline Cycles output. DOM and source-code inspection are separate technical evidence."
+}

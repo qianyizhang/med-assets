@@ -1,0 +1,1552 @@
+{
+  "sourceSha256": "d691a60f12d448b9b36d362270429c672c01c7fae0f10a8789ef188dd4c08530",
+  "controllerSha256": "6ceb79534d44763b67db1b3ebb7ae8f3c814dc4dbf3fe22bd4ba199f181679b5",
+  "renderer": "4.3.2",
+  "engine": "Cycles CPU",
+  "samples": 32,
+  "seed": 0,
+  "resolution": [
+    900,
+    900
+  ],
+  "viewTransform": "AgX",
+  "look": "AgX - Medium High Contrast",
+  "denoising": false,
+  "exposure": 0,
+  "gamma": 1,
+  "geometryTransformsMaterialsUnchanged": true,
+  "meshIdentities": {
+    "FJ2740": {
+      "meshNormalsSha256": "e97582d1d41e7326542d6cc5c1d5bf5fda6450c77624cfd6f7e07d1b528e3ffa",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2740 Left inferior pharyngeal constrictor",
+      "materials": [
+        "Illustrative tissue; not measured"
+      ]
+    },
+    "FJ2742": {
+      "meshNormalsSha256": "2c42836106ccbab5ac8fffdea844c50bf919b3e44dce824f125ad067be53cf80",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2742 Right middle pharyngeal constrictor",
+      "materials": [
+        "Illustrative tissue; not measured"
+      ]
+    },
+    "FJ2743": {
+      "meshNormalsSha256": "e417bbec9f8fe4b062ff24872c5372b2a0c8c6591dcd991cedcd885b09ae9d21",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2743 Left palatopharyngeus",
+      "materials": [
+        "Illustrative tissue; not measured"
+      ]
+    },
+    "FJ2745": {
+      "meshNormalsSha256": "db9618e1209221fe0dfe0567e6bff6899061aa3a84aaf97e631728ceade80ae9",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2745 Left salpingopharyngeus",
+      "materials": [
+        "Illustrative tissue; not measured"
+      ]
+    },
+    "FJ2746": {
+      "meshNormalsSha256": "04492a5cf5dd4afebbc6e5cb894c2603a0e5a602870b049da7d4be543d037a7b",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2746 Left stylopharyngeus",
+      "materials": [
+        "Illustrative tissue; not measured"
+      ]
+    },
+    "FJ2747": {
+      "meshNormalsSha256": "b272eae35167828bccb3f3ed817c6f29a59d9c3200cb93506b52786a82b68ca6",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2747 Left superior pharyngeal constrictor",
+      "materials": [
+        "Illustrative tissue; not measured"
+      ]
+    },
+    "FJ2749": {
+      "meshNormalsSha256": "cf485a1805575304150280346e67525ff7124cb5b878575ac1d47f1fb60c14ef",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2749 Pharyngeal raphe",
+      "materials": [
+        "Illustrative tissue; not measured"
+      ]
+    },
+    "FJ2752": {
+      "meshNormalsSha256": "59e353c267763f1781cea61dd2387aed107fb5cf9600b88b12a91952fd9eb7ea",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2752 Right inferior pharyngeal constrictor",
+      "materials": [
+        "Illustrative tissue; not measured"
+      ]
+    },
+    "FJ2754": {
+      "meshNormalsSha256": "b11e0da80737544c749f1a5ec6df4efa79cf50067cb725ecb02dc0398d8433cb",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2754 Left middle pharyngeal constrictor",
+      "materials": [
+        "Illustrative tissue; not measured"
+      ]
+    },
+    "FJ2755": {
+      "meshNormalsSha256": "18654c495b265ba4b8a58483be6a9ae8bee0afe0bd97c23352a1f1fdd39e7d74",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2755 Right palatopharyngeus",
+      "materials": [
+        "Illustrative tissue; not measured"
+      ]
+    },
+    "FJ2757": {
+      "meshNormalsSha256": "e8998ca7b3dce0409a57d9a098dbb2b018a9010d14851fbc5b6638fa2dc072bd",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2757 Right salpingopharyngeus",
+      "materials": [
+        "Illustrative tissue; not measured"
+      ]
+    },
+    "FJ2758": {
+      "meshNormalsSha256": "4a7592ec7d18796015377921b57b4e8d0eecbac6ff75f053cf56a073120e4ba0",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2758 Right stylopharyngeus",
+      "materials": [
+        "Illustrative tissue; not measured"
+      ]
+    },
+    "FJ2759": {
+      "meshNormalsSha256": "6c2d68e7da5e61b6625e72cd633e54abd5b8b644d97807f6d788a5e600eeeb5a",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2759 Right superior pharyngeal constrictor",
+      "materials": [
+        "Illustrative tissue; not measured"
+      ]
+    },
+    "FJ2769": {
+      "meshNormalsSha256": "71c2c4f585a20cb93b3732ab6a1475f0a487422056c8accc6183032e2acaf5ca",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2769 Cricoid cartilage",
+      "materials": [
+        "FJ2769 cartilage"
+      ]
+    },
+    "FJ2770": {
+      "meshNormalsSha256": "cfd88a4598c391f2854fa31d2f6ab9b3d0683d198197d57700037cafc775f8c5",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2770 Epiglottis",
+      "materials": [
+        "FJ2770 cartilage"
+      ]
+    },
+    "FJ2771": {
+      "meshNormalsSha256": "43212ed161559d38d23d72ab892a0d594a0ddf71e4b192f9330f77f658aade74",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2771 Hyo-epiglottic ligament",
+      "materials": [
+        "Illustrative tissue; not measured"
+      ]
+    },
+    "FJ2775": {
+      "meshNormalsSha256": "73a536bbfb1666cbf23cf196796bb4ecc8f51da87cd1eee927639d3f5b992f7d",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2775 Left arytenoid cartilage",
+      "materials": [
+        "FJ2775 cartilage"
+      ]
+    },
+    "FJ2778": {
+      "meshNormalsSha256": "29675eb142d81192fe1cc32ca322982887dffd7687b7950c8e5da5d8fab251ae",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2778 Left lateral crico-arytenoid",
+      "materials": [
+        "Illustrative tissue; not measured"
+      ]
+    },
+    "FJ2780": {
+      "meshNormalsSha256": "a7065d7ed9bccf2973b38d7ba19f2d3c27e2e9b9633c03daa6b908879b5f9946",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2780 Left oblique arytenoid",
+      "materials": [
+        "Illustrative tissue; not measured"
+      ]
+    },
+    "FJ2782": {
+      "meshNormalsSha256": "1213f5f416be5d908d54bff4cae95cb0706e2b9e064d7f213d396eb8c1f52636",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2782 Left posterior crico-arytenoid",
+      "materials": [
+        "Illustrative tissue; not measured"
+      ]
+    },
+    "FJ2784": {
+      "meshNormalsSha256": "3802f48c5a1030c2942bdecac7ae4061c82fd5f4fcde479285f8008a2fb751cb",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2784 Left thyro-arytenoid",
+      "materials": [
+        "Illustrative tissue; not measured"
+      ]
+    },
+    "FJ2785": {
+      "meshNormalsSha256": "4ac59fa4398dc250fef06bea5fd8242ebaa64f2ead18c4df56d1b3441c647ac2",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2785 Left thyro-arytenoid",
+      "materials": [
+        "Illustrative tissue; not measured"
+      ]
+    },
+    "FJ2788": {
+      "meshNormalsSha256": "ea8eb9522f05eee8b769cbba13de4383db187177f6512a54b6646537a32dbe11",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2788 Left vocalis",
+      "materials": [
+        "Illustrative tissue; not measured"
+      ]
+    },
+    "FJ2792": {
+      "meshNormalsSha256": "cd259f86f6529fa9de949ccd8a4bea9afd9a776e83c51906bb348da75d072425",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2792 Right arytenoid cartilage",
+      "materials": [
+        "FJ2792 cartilage"
+      ]
+    },
+    "FJ2796": {
+      "meshNormalsSha256": "43ab7f04e4fd4a3839bc11e677491af233087a38f958e470c2d25fd85656bb01",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2796 Right lateral crico-arytenoid",
+      "materials": [
+        "Illustrative tissue; not measured"
+      ]
+    },
+    "FJ2798": {
+      "meshNormalsSha256": "f85ad0f6f0c74e17fa0e7524ddbbf3d7089d6933e449d23be5c2d1e917bc7e7b",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2798 Right oblique arytenoid",
+      "materials": [
+        "Illustrative tissue; not measured"
+      ]
+    },
+    "FJ2800": {
+      "meshNormalsSha256": "75ea64cafff9558c479d8c09c2368372a78ed6bb8de718d79879e807b2bbfc36",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2800 Right posterior crico-arytenoid",
+      "materials": [
+        "Illustrative tissue; not measured"
+      ]
+    },
+    "FJ2802": {
+      "meshNormalsSha256": "222d1dcc07dfdd7b26f50d5821a6a810f3ffb855024be6f112bce10776b40a1f",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2802 Right thyro-arytenoid",
+      "materials": [
+        "Illustrative tissue; not measured"
+      ]
+    },
+    "FJ2803": {
+      "meshNormalsSha256": "89e4618ef56f6f88f767c2564e5dc8c97d33aac1d80df7e479e1d5314b4b9bc1",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2803 Right thyro-arytenoid",
+      "materials": [
+        "Illustrative tissue; not measured"
+      ]
+    },
+    "FJ2806": {
+      "meshNormalsSha256": "b677f63e9c114dfce649ff984e32bd2867dba1469b80d189bbd8fb774c6d255c",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2806 Right vocalis",
+      "materials": [
+        "Illustrative tissue; not measured"
+      ]
+    },
+    "FJ2807": {
+      "meshNormalsSha256": "db4a4483083e8b0ad584b12a18fccbf7e8a4fc0fa078a4039eb5f04e80e9a99a",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2807 Thyro-epiglottic ligament",
+      "materials": [
+        "Illustrative tissue; not measured"
+      ]
+    },
+    "FJ2808": {
+      "meshNormalsSha256": "82820b4389174745944accdfc33f4975634d2b941be87c509aa21c918c2c6c8b",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2808 Thyroid cartilage",
+      "materials": [
+        "FJ2808 cartilage"
+      ]
+    },
+    "FJ2809": {
+      "meshNormalsSha256": "bf9890fc78fcfd390ac603390858dc698c2ad63adf5d5d68e1077f3955a478b4",
+      "worldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "FJ2809 Transverse arytenoid",
+      "materials": [
+        "Illustrative tissue; not measured"
+      ]
+    }
+  },
+  "views": [
+    {
+      "view": "front",
+      "state": "baseline",
+      "visibleSourceIds": [
+        "FJ2740",
+        "FJ2742",
+        "FJ2743",
+        "FJ2745",
+        "FJ2746",
+        "FJ2747",
+        "FJ2749",
+        "FJ2752",
+        "FJ2754",
+        "FJ2755",
+        "FJ2757",
+        "FJ2758",
+        "FJ2759",
+        "FJ2769",
+        "FJ2770",
+        "FJ2771",
+        "FJ2775",
+        "FJ2778",
+        "FJ2780",
+        "FJ2782",
+        "FJ2784",
+        "FJ2785",
+        "FJ2788",
+        "FJ2792",
+        "FJ2796",
+        "FJ2798",
+        "FJ2800",
+        "FJ2802",
+        "FJ2803",
+        "FJ2806",
+        "FJ2807",
+        "FJ2808",
+        "FJ2809"
+      ],
+      "file": "baseline-front.png",
+      "sha256": "f5fd929597a1659e015740792c481ef0c62a9b6ce9dcbe4e223040d43fbc4f28",
+      "bytes": 801130,
+      "cameraPositionBlender": [
+        -0.0006480999290943146,
+        -1.1059117317199707,
+        1.4428499937057495
+      ],
+      "targetBlender": [
+        -0.0006480999290943146,
+        -0.1059117466211319,
+        1.4428499937057495
+      ],
+      "orthoVerticalSpan": 0.13469032287597654
+    },
+    {
+      "view": "front",
+      "state": "cartilage",
+      "visibleSourceIds": [
+        "FJ2769",
+        "FJ2770",
+        "FJ2775",
+        "FJ2792",
+        "FJ2808"
+      ],
+      "file": "cartilage-front.png",
+      "sha256": "afd19e8f5dfcac9d2a1ac7f4038aa08accb229b3224a2b98259f9fee9a2d1628",
+      "bytes": 499605,
+      "cameraPositionBlender": [
+        -0.0006480999290943146,
+        -1.1059117317199707,
+        1.4428499937057495
+      ],
+      "targetBlender": [
+        -0.0006480999290943146,
+        -0.1059117466211319,
+        1.4428499937057495
+      ],
+      "orthoVerticalSpan": 0.13469032287597654
+    },
+    {
+      "view": "front",
+      "state": "muscles",
+      "visibleSourceIds": [
+        "FJ2740",
+        "FJ2742",
+        "FJ2743",
+        "FJ2745",
+        "FJ2746",
+        "FJ2747",
+        "FJ2752",
+        "FJ2754",
+        "FJ2755",
+        "FJ2757",
+        "FJ2758",
+        "FJ2759",
+        "FJ2769",
+        "FJ2770",
+        "FJ2775",
+        "FJ2778",
+        "FJ2780",
+        "FJ2782",
+        "FJ2784",
+        "FJ2785",
+        "FJ2788",
+        "FJ2792",
+        "FJ2796",
+        "FJ2798",
+        "FJ2800",
+        "FJ2802",
+        "FJ2803",
+        "FJ2806",
+        "FJ2808",
+        "FJ2809"
+      ],
+      "file": "muscles-front.png",
+      "sha256": "6c8df53345612f2e4e771fbac39bbce7c1a322cf874dcffcea3c81a28641da06",
+      "bytes": 795715,
+      "cameraPositionBlender": [
+        -0.0006480999290943146,
+        -1.1059117317199707,
+        1.4428499937057495
+      ],
+      "targetBlender": [
+        -0.0006480999290943146,
+        -0.1059117466211319,
+        1.4428499937057495
+      ],
+      "orthoVerticalSpan": 0.13469032287597654
+    },
+    {
+      "view": "front",
+      "state": "reset",
+      "visibleSourceIds": [
+        "FJ2740",
+        "FJ2742",
+        "FJ2743",
+        "FJ2745",
+        "FJ2746",
+        "FJ2747",
+        "FJ2749",
+        "FJ2752",
+        "FJ2754",
+        "FJ2755",
+        "FJ2757",
+        "FJ2758",
+        "FJ2759",
+        "FJ2769",
+        "FJ2770",
+        "FJ2771",
+        "FJ2775",
+        "FJ2778",
+        "FJ2780",
+        "FJ2782",
+        "FJ2784",
+        "FJ2785",
+        "FJ2788",
+        "FJ2792",
+        "FJ2796",
+        "FJ2798",
+        "FJ2800",
+        "FJ2802",
+        "FJ2803",
+        "FJ2806",
+        "FJ2807",
+        "FJ2808",
+        "FJ2809"
+      ],
+      "file": "reset-front.png",
+      "sha256": "a247236cac83b00e6b38769c1bc2a7ca0b971f4979d3223804e6d9f88808eb89",
+      "bytes": 801130,
+      "cameraPositionBlender": [
+        -0.0006480999290943146,
+        -1.1059117317199707,
+        1.4428499937057495
+      ],
+      "targetBlender": [
+        -0.0006480999290943146,
+        -0.1059117466211319,
+        1.4428499937057495
+      ],
+      "orthoVerticalSpan": 0.13469032287597654
+    },
+    {
+      "view": "posterior-oblique",
+      "state": "baseline",
+      "visibleSourceIds": [
+        "FJ2740",
+        "FJ2742",
+        "FJ2743",
+        "FJ2745",
+        "FJ2746",
+        "FJ2747",
+        "FJ2749",
+        "FJ2752",
+        "FJ2754",
+        "FJ2755",
+        "FJ2757",
+        "FJ2758",
+        "FJ2759",
+        "FJ2769",
+        "FJ2770",
+        "FJ2771",
+        "FJ2775",
+        "FJ2778",
+        "FJ2780",
+        "FJ2782",
+        "FJ2784",
+        "FJ2785",
+        "FJ2788",
+        "FJ2792",
+        "FJ2796",
+        "FJ2798",
+        "FJ2800",
+        "FJ2802",
+        "FJ2803",
+        "FJ2806",
+        "FJ2807",
+        "FJ2808",
+        "FJ2809"
+      ],
+      "file": "baseline-posterior-oblique.png",
+      "sha256": "3ac032ef66706c12d3c238c9bb3054ec6f8d1e4227a6e86d41cd481999c92a2c",
+      "bytes": 740137,
+      "cameraPositionBlender": [
+        0.5993519425392151,
+        0.8940882682800293,
+        1.6928499937057495
+      ],
+      "targetBlender": [
+        -0.0006480999290943146,
+        -0.1059117466211319,
+        1.4428499937057495
+      ],
+      "orthoVerticalSpan": 0.13469032287597654
+    },
+    {
+      "view": "posterior-oblique",
+      "state": "cartilage",
+      "visibleSourceIds": [
+        "FJ2769",
+        "FJ2770",
+        "FJ2775",
+        "FJ2792",
+        "FJ2808"
+      ],
+      "file": "cartilage-posterior-oblique.png",
+      "sha256": "d1c0e0537a47fea4775341edf1edfefea612b26788ad740188c25de7cfdec682",
+      "bytes": 506563,
+      "cameraPositionBlender": [
+        0.5993519425392151,
+        0.8940882682800293,
+        1.6928499937057495
+      ],
+      "targetBlender": [
+        -0.0006480999290943146,
+        -0.1059117466211319,
+        1.4428499937057495
+      ],
+      "orthoVerticalSpan": 0.13469032287597654
+    },
+    {
+      "view": "posterior-oblique",
+      "state": "muscles",
+      "visibleSourceIds": [
+        "FJ2740",
+        "FJ2742",
+        "FJ2743",
+        "FJ2745",
+        "FJ2746",
+        "FJ2747",
+        "FJ2752",
+        "FJ2754",
+        "FJ2755",
+        "FJ2757",
+        "FJ2758",
+        "FJ2759",
+        "FJ2769",
+        "FJ2770",
+        "FJ2775",
+        "FJ2778",
+        "FJ2780",
+        "FJ2782",
+        "FJ2784",
+        "FJ2785",
+        "FJ2788",
+        "FJ2792",
+        "FJ2796",
+        "FJ2798",
+        "FJ2800",
+        "FJ2802",
+        "FJ2803",
+        "FJ2806",
+        "FJ2808",
+        "FJ2809"
+      ],
+      "file": "muscles-posterior-oblique.png",
+      "sha256": "1d78a44d82bad5801631f052335b24e9899c2d54f535362648fbd7cf1c08d908",
+      "bytes": 732518,
+      "cameraPositionBlender": [
+        0.5993519425392151,
+        0.8940882682800293,
+        1.6928499937057495
+      ],
+      "targetBlender": [
+        -0.0006480999290943146,
+        -0.1059117466211319,
+        1.4428499937057495
+      ],
+      "orthoVerticalSpan": 0.13469032287597654
+    },
+    {
+      "view": "posterior-oblique",
+      "state": "reset",
+      "visibleSourceIds": [
+        "FJ2740",
+        "FJ2742",
+        "FJ2743",
+        "FJ2745",
+        "FJ2746",
+        "FJ2747",
+        "FJ2749",
+        "FJ2752",
+        "FJ2754",
+        "FJ2755",
+        "FJ2757",
+        "FJ2758",
+        "FJ2759",
+        "FJ2769",
+        "FJ2770",
+        "FJ2771",
+        "FJ2775",
+        "FJ2778",
+        "FJ2780",
+        "FJ2782",
+        "FJ2784",
+        "FJ2785",
+        "FJ2788",
+        "FJ2792",
+        "FJ2796",
+        "FJ2798",
+        "FJ2800",
+        "FJ2802",
+        "FJ2803",
+        "FJ2806",
+        "FJ2807",
+        "FJ2808",
+        "FJ2809"
+      ],
+      "file": "reset-posterior-oblique.png",
+      "sha256": "5f8eca5a9884895b7102be5c94ba5bb026e06dfc25e5dd5e76ce5c9e1ccdb729",
+      "bytes": 740137,
+      "cameraPositionBlender": [
+        0.5993519425392151,
+        0.8940882682800293,
+        1.6928499937057495
+      ],
+      "targetBlender": [
+        -0.0006480999290943146,
+        -0.1059117466211319,
+        1.4428499937057495
+      ],
+      "orthoVerticalSpan": 0.13469032287597654
+    },
+    {
+      "view": "cartilage-detail",
+      "state": "baseline",
+      "visibleSourceIds": [
+        "FJ2740",
+        "FJ2742",
+        "FJ2743",
+        "FJ2745",
+        "FJ2746",
+        "FJ2747",
+        "FJ2749",
+        "FJ2752",
+        "FJ2754",
+        "FJ2755",
+        "FJ2757",
+        "FJ2758",
+        "FJ2759",
+        "FJ2769",
+        "FJ2770",
+        "FJ2771",
+        "FJ2775",
+        "FJ2778",
+        "FJ2780",
+        "FJ2782",
+        "FJ2784",
+        "FJ2785",
+        "FJ2788",
+        "FJ2792",
+        "FJ2796",
+        "FJ2798",
+        "FJ2800",
+        "FJ2802",
+        "FJ2803",
+        "FJ2806",
+        "FJ2807",
+        "FJ2808",
+        "FJ2809"
+      ],
+      "file": "baseline-cartilage-detail.png",
+      "sha256": "bfaa6b2e552e919213e4762485853956ac6ad6fc8e894802ef7882fdede0fba3",
+      "bytes": 896885,
+      "cameraPositionBlender": [
+        0.34935110807418823,
+        0.8930239677429199,
+        1.912714958190918
+      ],
+      "targetBlender": [
+        -0.0006488999351859093,
+        -0.10697604715824127,
+        1.412714958190918
+      ],
+      "orthoVerticalSpan": 0.06633905172348023
+    },
+    {
+      "view": "cartilage-detail",
+      "state": "cartilage",
+      "visibleSourceIds": [
+        "FJ2769",
+        "FJ2770",
+        "FJ2775",
+        "FJ2792",
+        "FJ2808"
+      ],
+      "file": "cartilage-cartilage-detail.png",
+      "sha256": "d8b57b7eb8ca2b85a1e50551c44065aba6055b6d01317d41b5bfb0a1e2680bcb",
+      "bytes": 696786,
+      "cameraPositionBlender": [
+        0.34935110807418823,
+        0.8930239677429199,
+        1.912714958190918
+      ],
+      "targetBlender": [
+        -0.0006488999351859093,
+        -0.10697604715824127,
+        1.412714958190918
+      ],
+      "orthoVerticalSpan": 0.06633905172348023
+    }
+  ],
+  "scope": "Offline visibility illustrations from a clean import of the unchanged exact GLB. Native scene positions; only visibility differs between panels. Not WebGL or UI screenshots."
+}
