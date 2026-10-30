@@ -24,7 +24,7 @@ remain separate.
 | Visual | [Independent V2 review accepted](independent-review.md), 07:47:06 UTC; color is preferred to grayscale |
 | Anatomy | Gross skeletal landmark reference-screening only; no complete pelvis/plexus/foramen or soft-tissue validation |
 | Runtime/clinical | Unrun; no motion, physical-scale, surgical or live-viewer claim |
-| Repository/delivery | **205 offline tests**, 26 manifests, 25 foundation records, 591 import references and 771 LFS pointer identities passed; fresh remote readback pending |
+| Repository/delivery | **205 offline tests**, 26 manifests, 25 foundation records, 591 import references and 771 LFS pointer identities passed; [all 11 media objects passed fresh GitHub readback](delivery.json) |
 
 GLB SHA-256: `72077a97a8a935a7a4623443c1c0fd61ab48a9bf4ad895af058345b7a372abd6`.
 [Recipe and checks](../../../tests/peripheral_nerves/sciatic-hip-r01/README.md).
