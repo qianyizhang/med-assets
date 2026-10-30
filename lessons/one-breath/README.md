@@ -48,10 +48,13 @@ inner-surface slice centers and is editorial, not computed flow.
 
 ## Evidence boundaries
 
-The isolated cloud Chromium attempt failed before page launch because its SUID
-sandbox helper is misconfigured. No sandbox/security override was attempted.
-**Actual browser UI interaction, responsive layout and WebGL execution remain
-unverified.** The existing protected CI-only Firefox probes were not run or altered.
+The initial isolated Chromium attempt failed before page launch because its SUID
+sandbox helper was misconfigured. Later supported-cloud non-WebGL desktop and
+500 px browser checks are recorded in [#140](https://github.com/qianyizhang/med-assets/issues/140).
+The [availability-status revision](review/availability-status.md) has focused
+state/event checks but still needs current browser screenshots and interaction
+review. **Live WebGL, animation and camera acceptance remain unverified.** The
+existing protected CI-only Firefox probes were not run or altered.
 
 The offline images are actual Blender renders of geometry/morph snapshots emitted
 by the same Three.js loader and scene/state functions used by the app. The
@@ -61,13 +64,15 @@ out-of-lumen markers, pause drift, midpoint naming and fallback-state defects.
 See [review receipts](review/README.md).
 
 ```sh
-node --test lessons/one-breath/tests/state.test.mjs lessons/one-breath/tests/consumer.test.mjs
+node --test lessons/one-breath/tests/state.test.mjs lessons/one-breath/tests/consumer.test.mjs lessons/one-breath/tests/ui.test.mjs
 python3 tools/verify.py offline
 ```
 
-The 17 targeted Node checks exercise shared state, reset/stage/language data,
+The 26 targeted Node checks exercise shared state, reset/stage/language data,
 actual pinned GLTFLoader/morph consumption, ports, pause behavior and missing/
-corrupt-asset rejection/retry. They do not click browser controls or prove WebGL.
+corrupt-asset rejection/retry. The UI event tests run the actual app body with
+DOM, loader and renderer doubles, including detached preview callbacks. They do
+not click browser controls, decode preview images or prove layout or WebGL.
 The initial source checkpoint's repository offline gate separately passed 183
 tests and metadata/pointer checks. See the [repository setup receipt](review/repository-setup.json)
 for the fresh checkout's preparation, exact asset/vendor identities and scoped checks.

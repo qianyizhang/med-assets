@@ -1,5 +1,9 @@
 # Bounded local review
 
+Later [non-WebGL browser checks in #140](https://github.com/qianyizhang/med-assets/issues/140)
+and the [availability-status fix review](availability-status.md) supplement this
+historical prototype record. The original images and receipts below are retained.
+
 **Offline visuals and focused code review: pass with limitations. Browser UI and
 WebGL: unverified.** The [reviewed storyboard](offline-storyboard.png) is the exact
 `v2/offline-storyboard.png` bound in [visual-bindings.json](visual-bindings.json).
