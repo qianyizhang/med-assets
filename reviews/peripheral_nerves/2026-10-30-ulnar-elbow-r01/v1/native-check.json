@@ -1,0 +1,107 @@
+{
+  "nativeComparison": [
+    {
+      "source": "Ulnar nerve.r",
+      "source_vertices": 1596,
+      "export_vertices": 1729,
+      "source_triangles": 3168,
+      "export_triangles": 3168,
+      "max_export_to_source": 1.2105761015845928e-07,
+      "max_source_to_export": 1.2105761015845928e-07,
+      "native_world_coordinate_pass": true,
+      "bounds": [
+        [
+          -0.23733142018318176,
+          -0.10020647197961807
+        ],
+        [
+          -0.01939159631729126,
+          0.044739510864019394
+        ],
+        [
+          0.8829606175422668,
+          1.3998475074768066
+        ]
+      ]
+    },
+    {
+      "source": "Humerus.r",
+      "source_vertices": 2143,
+      "export_vertices": 2143,
+      "source_triangles": 4280,
+      "export_triangles": 4280,
+      "max_export_to_source": 1.2130097104545712e-07,
+      "max_source_to_export": 1.2130097104545712e-07,
+      "native_world_coordinate_pass": true,
+      "bounds": [
+        [
+          -0.2488327920436859,
+          -0.1446065455675125
+        ],
+        [
+          0.0012591369450092316,
+          0.05362621322274208
+        ],
+        [
+          1.087022304534912,
+          1.404604434967041
+        ]
+      ]
+    },
+    {
+      "source": "Ulna.r",
+      "source_vertices": 454,
+      "export_vertices": 454,
+      "source_triangles": 904,
+      "export_triangles": 904,
+      "max_export_to_source": 1.22028140481234e-07,
+      "max_source_to_export": 1.22028140481234e-07,
+      "native_world_coordinate_pass": true,
+      "bounds": [
+        [
+          -0.2556301951408386,
+          -0.20323720574378967
+        ],
+        [
+          -0.02285148575901985,
+          0.060388050973415375
+        ],
+        [
+          0.8555801510810852,
+          1.1110198497772217
+        ]
+      ]
+    },
+    {
+      "source": "Radius.r",
+      "source_vertices": 394,
+      "export_vertices": 394,
+      "source_triangles": 784,
+      "export_triangles": 784,
+      "max_export_to_source": 1.2157238415966276e-07,
+      "max_source_to_export": 1.2157238415966276e-07,
+      "native_world_coordinate_pass": true,
+      "bounds": [
+        [
+          -0.2886669635772705,
+          -0.22687692940235138
+        ],
+        [
+          -0.026730334386229515,
+          0.04194079339504242
+        ],
+        [
+          0.8563235998153687,
+          1.0933313369750977
+        ]
+      ]
+    }
+  ],
+  "nerve_bone_BVH_triangle_candidates": {
+    "Humerus.r": 0,
+    "Ulna.r": 0,
+    "Radius.r": 0
+  },
+  "tolerance": 1e-06,
+  "scope": "Exhaustive symmetric vertex-coordinate proximity screen with full-source evaluated world coordinates. Not topology equality, formal self-intersection proof, anatomy or clinical validation. BVH candidate counts are diagnostic only."
+}
