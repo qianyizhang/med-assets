@@ -1,15 +1,16 @@
-# Ovary–tubal context: private build v1
+# Ovary–tubal context: source-preserving teaching candidate
 
 Related backlog: #150, `draft_ovaries`. This additive candidate makes a coarse
 source-native ovary/fimbrial relationship available where the retained schematic
 shows isolated exteriors. It preserves the original draft and does not claim to
 repair its geometry or reproduce follicles.
 
-Status: local v1 prepared for independent review; no issue, PR or publication yet.
+Status: independent static build review passed at
+`fae5c9d5dde97f7c516e2c26038321d9da141f98`; draft delivery prepared.
 Current main and open issue/PR searches found no overlapping ovary/tubal work at
 branch creation. The earlier independent targeted-source preflight passed after
 inspection of exact overview and both native source-side witnesses. That preflight
-does not substitute for independent review of this new combined export and sheet.
+was followed by independent review of this new combined export and sheet.
 
 Acceptance for this bounded candidate:
 
@@ -39,15 +40,20 @@ pair. The old schematic uses independent views/scales, explicitly labelled.
 
 Author inspected actual combined-export overview, both details, teaching,
 Original/Updated and grayscale sheets. The relevant arches/end relationships remain
-inside frame; number/name cues work without color. Independent build review remains
-pending. Native source colors are retained; no tissue-color validity is claimed.
+inside frame; number/name cues work without color. The independent reviewer verified
+all 46 private bundle identities, inspected teaching, Original/Updated and matched
+detail pixels, and independently ran exact source/BIN recovery against the delivered
+GLB. No blocking finding remained. The preflight framing defect was fixed in this
+build; no additional geometry or presentation revision was needed. This pass covers
+static source-preserving teaching only. Native source colors are retained; no
+tissue-color validity is claimed.
 
 Scoped controls: nine synthetic builder failure tests passed; actual byte-identical
 replay, source identity checks, clean reimport and pixel/leader binding checks passed.
 Authored-file whitespace and local Markdown links pass. An unrestricted whitespace
 check reports upstream CRLF/trailing tabs in exact vendored CSV/YAML originals;
 those source bytes are intentionally retained, not normalized. The full repository
-offline gate is still pending for the later PR delivery step.
+offline gate and terminal CI results are recorded with draft PR delivery.
 Browser runtime and anatomy/clinical approval remain unverified. No added ligaments,
 mesovarium, uterus, follicle detail, attachment, continuous lumen or motion is claimed.
 
