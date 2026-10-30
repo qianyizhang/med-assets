@@ -41,7 +41,7 @@ One reusable executor replaces per-batch workflow copies. It never commits point
 3. The pinned main checkout verifies the manifest filename, file hash, committed bytes and fixed limits; downloads and validates **every** source before any upload; checks which OIDs are missing; uploads only those; then downloads every object from GitHub over fresh HTTPS, not the LFS cache.
 4. Independently run the readback command below in another cloud executor with the reviewed main manifest. Preserve its sanitized receipt and the Actions run URL in the asset PR. Only then publish/merge matching asset pointers and review evidence.
 
-This is not a new per-commit gate: unrelated commits and asset-pointer PRs do not trigger transfer. Ordinary PR branch hygiene can follow the user's periodic cadence. The implementation PR should contain these four files only; **no batch manifest** is bundled with it.
+This is not a new per-commit gate: unrelated commits and asset-pointer PRs do not trigger transfer. Ordinary PR branch hygiene can follow the user's periodic cadence.
 
 ## Authorized transport PR merges
 
