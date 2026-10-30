@@ -45,3 +45,16 @@ My additional independent metadata/image/binding checks are retained in `checks/
 - The review provides no anatomy/clinical, continuous-time motion, browser-runtime, performance or publication approval. No publication was performed by the reviewer. Issue #150 remains broader than this presentation slice.
 
 Portable copy: evidence paths relocated; the original reviewer note remains in the private worker bundle.
+
+## Follow-up provenance and applicability review
+
+Independent source review found consistent project-authored provenance in the
+analytic generator, heart-specific manifest entry and prior owner import records.
+Both exact inputs contain no image textures or external image/buffer URIs. The
+absence of a separate public reuse license does not establish uncertain imported
+ownership or block owner-authorized project delivery; no license grant is added.
+
+The reviewer independently reran the retained canonical-fixture comparison:
+228 names/node indices and 912 scalar weights match exactly. The source's 248
+nodes versus the canonical record's 249 remain distinct. The scoped v2 visual
+pass is unchanged; exact fitted-canonical replacement remains unverified.
