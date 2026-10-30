@@ -161,11 +161,12 @@ class EsophagusRuntimeTests(unittest.TestCase):
 
     def test_fixture_extension_keeps_original_inputs_and_is_repeatable(self):
         original=json.loads((ROOT/'ci/glb-runtime-fixture.json').read_text())
+        resolved=runtime.load_base_fixture()
         for _ in range(2):
             fixture=runtime.load_fixture()
             self.assertEqual(fixture['resources'],original['resources']+[F['baseline']])
             self.assertEqual(len(fixture['resources']),8)
-            for key,value in original.items():
+            for key,value in resolved.items():
                 if key!='resources':self.assertEqual(fixture[key],value)
             self.assertNotIn('url',fixture['esophagus']['candidate'])
         self.assertEqual(json.loads((ROOT/'ci/glb-runtime-fixture.json').read_text()),original)

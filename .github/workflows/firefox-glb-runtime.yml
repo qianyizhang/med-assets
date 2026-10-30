@@ -15,10 +15,12 @@ jobs:
       - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
         with:
           persist-credentials: false
+          sparse-checkout-cone-mode: false
           sparse-checkout: |
-            ci
-            tools/lymph_node/editorial_window_r03
-            tests/esophagus_wall
+            /ci/
+            /reviews/runtime/2026-10-23-software-ci-heart-lymph/source-expected-morph-fixture.json
+            /tools/lymph_node/editorial_window_r03/
+            /tests/esophagus_wall/
       - name: Exact GLB render and deterministic scene-state probe
         run: python3 ci/glb_runtime_probe.py
       - name: Preserve evidence, including bounded failures
