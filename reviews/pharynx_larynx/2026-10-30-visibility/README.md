@@ -54,7 +54,7 @@ pair as visibility-only; that metadata correction required no rerender.
   explicitly disclosed 30-part context mode.
 - BodyParts3D 4.0, OBJ 99% reduction; [pinned member/archive source map](../../../sources/datasets/bp3d-4.0-head-studies/external-source-map.json)
   and [DBCLS attribution](../../../models/pharynx_larynx/exports/r03/ATTRIBUTION.md).
-  The publisher license page was freshly read on 2026-10-30 and states CC BY
+  The [publisher license page](https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html) was freshly read on 2026-10-30 and states CC BY
   4.0, updated 2025-02-27. Historical CC BY-SA 2.1 Japan headers remain retained
   externally. Raw OBJ archives and historical authoring recipes were not rebuilt.
 - Relevant viewer baseline: published v40 commit
@@ -83,7 +83,9 @@ before writes, deterministic replay and repeated-application refusal.
 
 V1 source is retained in local implementation commit `b2e142c`; its render/state
 receipts remain in [v1](v1/). V2 camera correction and records are in [v2](v2/).
-The normal offline gate and remote evidence availability are recorded separately
-in `review.json` and the delivery receipt when complete. No runtime or clinical
+The repository offline gate passed all 194 tests. All 18 evidence payloads
+(12,587,844 bytes) passed fresh GitHub hash/size readback into an empty LFS store;
+see [delivery receipt](delivery-receipt.json). Public inline-media display remains
+unverified. Technical checks are recorded separately in `review.json`. No runtime or clinical
 status is promoted by those checks. #150 remains open; this is a viewer patch
 for one bounded inspection task, with Site integration/deployment still separate.

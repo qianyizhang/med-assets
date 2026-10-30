@@ -1,0 +1,137 @@
+{
+  "upload": {
+    "action": "git lfs push --object-id origin --stdin",
+    "repository": "qianyizhang/med-assets",
+    "startedAt": "2026-10-30T01:33:45.670501+00:00",
+    "finishedAt": "2026-10-30T01:33:49.107753+00:00",
+    "objectCount": 18,
+    "bytes": 12587844,
+    "objects": {
+      "bfaa6b2e552e919213e4762485853956ac6ad6fc8e894802ef7882fdede0fba3": 896885,
+      "f5fd929597a1659e015740792c481ef0c62a9b6ce9dcbe4e223040d43fbc4f28": 801130,
+      "3ac032ef66706c12d3c238c9bb3054ec6f8d1e4227a6e86d41cd481999c92a2c": 740137,
+      "d8b57b7eb8ca2b85a1e50551c44065aba6055b6d01317d41b5bfb0a1e2680bcb": 696786,
+      "afd19e8f5dfcac9d2a1ac7f4038aa08accb229b3224a2b98259f9fee9a2d1628": 499605,
+      "d1c0e0537a47fea4775341edf1edfefea612b26788ad740188c25de7cfdec682": 506563,
+      "053e3dd728682b43c347f42805943be1b25f815e75962fc08b30a6435be0b289": 1148491,
+      "b8b55e7e15ce5222dfb5d7cef019a5b4871047a9b173d1b2e3b68055d45a6cd9": 479716,
+      "37a0a821f9ccc6af2eafafac8e00dc953a16fa6d881b0fed4cb366a3baf856c1": 756891,
+      "6c8df53345612f2e4e771fbac39bbce7c1a322cf874dcffcea3c81a28641da06": 795715,
+      "1d78a44d82bad5801631f052335b24e9899c2d54f535362648fbd7cf1c08d908": 732518,
+      "a247236cac83b00e6b38769c1bc2a7ca0b971f4979d3223804e6d9f88808eb89": 801130,
+      "5f8eca5a9884895b7102be5c94ba5bb026e06dfc25e5dd5e76ce5c9e1ccdb729": 740137,
+      "424ef604aac547ca5a43450ca48ff53cb99073cbcb8a9aa42a6267297d7851c0": 632624,
+      "a6c001c1c69e935595401b443160409bdfc272fed30191cbc8fb3e2f46e4b73d": 604730,
+      "ce650720d6da5790f85e159a2ceada9c0d9fda577709dc2084178d7c91fac9a7": 488479,
+      "c698b32096960e62646b744b89b899aa75270344e81426151749b2c8bf2fb82a": 633683,
+      "fdcfe9fc224f2e15568efc93491dc612fbc1d630bd8f55ab370b85766ce0c7e3": 632624
+    },
+    "exitCode": 0,
+    "output": "Uploading LFS objects: 100% (18/18), 13 MB | 3.8 MB/s, done.\n"
+  },
+  "freshReadback": {
+    "repository": "qianyizhang/med-assets",
+    "action": "git -c lfs.storage=<fresh-empty-store> lfs fetch --include=reviews/pharynx_larynx/2026-10-30-visibility/**/*.png --exclude= origin HEAD",
+    "initialStoreEmpty": true,
+    "sourceCommit": "dbcffbc4ee74d1d8b4648ca905e1856ba609dd4f",
+    "startedAt": "2026-10-30T01:34:46.553264+00:00",
+    "finishedAt": "2026-10-30T01:34:47.868064+00:00",
+    "exitCode": 0,
+    "output": "fetch: Fetching reference refs/heads/wip/pharynx-larynx-visibility-preflight-150\n",
+    "objects": [
+      {
+        "sha256": "bfaa6b2e552e919213e4762485853956ac6ad6fc8e894802ef7882fdede0fba3",
+        "bytes": 896885,
+        "passed": true
+      },
+      {
+        "sha256": "f5fd929597a1659e015740792c481ef0c62a9b6ce9dcbe4e223040d43fbc4f28",
+        "bytes": 801130,
+        "passed": true
+      },
+      {
+        "sha256": "3ac032ef66706c12d3c238c9bb3054ec6f8d1e4227a6e86d41cd481999c92a2c",
+        "bytes": 740137,
+        "passed": true
+      },
+      {
+        "sha256": "d8b57b7eb8ca2b85a1e50551c44065aba6055b6d01317d41b5bfb0a1e2680bcb",
+        "bytes": 696786,
+        "passed": true
+      },
+      {
+        "sha256": "afd19e8f5dfcac9d2a1ac7f4038aa08accb229b3224a2b98259f9fee9a2d1628",
+        "bytes": 499605,
+        "passed": true
+      },
+      {
+        "sha256": "d1c0e0537a47fea4775341edf1edfefea612b26788ad740188c25de7cfdec682",
+        "bytes": 506563,
+        "passed": true
+      },
+      {
+        "sha256": "053e3dd728682b43c347f42805943be1b25f815e75962fc08b30a6435be0b289",
+        "bytes": 1148491,
+        "passed": true
+      },
+      {
+        "sha256": "b8b55e7e15ce5222dfb5d7cef019a5b4871047a9b173d1b2e3b68055d45a6cd9",
+        "bytes": 479716,
+        "passed": true
+      },
+      {
+        "sha256": "37a0a821f9ccc6af2eafafac8e00dc953a16fa6d881b0fed4cb366a3baf856c1",
+        "bytes": 756891,
+        "passed": true
+      },
+      {
+        "sha256": "6c8df53345612f2e4e771fbac39bbce7c1a322cf874dcffcea3c81a28641da06",
+        "bytes": 795715,
+        "passed": true
+      },
+      {
+        "sha256": "1d78a44d82bad5801631f052335b24e9899c2d54f535362648fbd7cf1c08d908",
+        "bytes": 732518,
+        "passed": true
+      },
+      {
+        "sha256": "a247236cac83b00e6b38769c1bc2a7ca0b971f4979d3223804e6d9f88808eb89",
+        "bytes": 801130,
+        "passed": true
+      },
+      {
+        "sha256": "5f8eca5a9884895b7102be5c94ba5bb026e06dfc25e5dd5e76ce5c9e1ccdb729",
+        "bytes": 740137,
+        "passed": true
+      },
+      {
+        "sha256": "424ef604aac547ca5a43450ca48ff53cb99073cbcb8a9aa42a6267297d7851c0",
+        "bytes": 632624,
+        "passed": true
+      },
+      {
+        "sha256": "a6c001c1c69e935595401b443160409bdfc272fed30191cbc8fb3e2f46e4b73d",
+        "bytes": 604730,
+        "passed": true
+      },
+      {
+        "sha256": "ce650720d6da5790f85e159a2ceada9c0d9fda577709dc2084178d7c91fac9a7",
+        "bytes": 488479,
+        "passed": true
+      },
+      {
+        "sha256": "c698b32096960e62646b744b89b899aa75270344e81426151749b2c8bf2fb82a",
+        "bytes": 633683,
+        "passed": true
+      },
+      {
+        "sha256": "fdcfe9fc224f2e15568efc93491dc612fbc1d630bd8f55ab370b85766ce0c7e3",
+        "bytes": 632624,
+        "passed": true
+      }
+    ],
+    "status": "passed"
+  },
+  "publicMediaDisplay": "unverified; no claim based on readback alone",
+  "siteDeployment": "not performed"
+}

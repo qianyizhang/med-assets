@@ -51,7 +51,21 @@
     "resetPixelsEqual": true,
     "resetFitPixelsEqual": true,
     "offlineRepositoryGate": {
-      "status": "pending"
+      "status": "passed",
+      "tests": 194,
+      "command": "python3 tools/verify.py offline",
+      "sourceCommit": "dbcffbc4ee74d1d8b4648ca905e1856ba609dd4f",
+      "transportManifests": 26,
+      "foundationRecords": 25,
+      "importReferences": 591,
+      "lfsPointerIdentities": 708,
+      "scope": "Text/pointer/offline package checks only; scoped Node and media/visual checks recorded separately."
+    },
+    "freshRemoteEvidence": {
+      "status": "passed",
+      "objects": 18,
+      "bytes": 12587844,
+      "emptyStore": true
     }
   },
   "independentReview": "independent-review.json",
@@ -190,5 +204,7 @@
     "Native browser/UI pixel and WebGL validation",
     "Apply patch to an independently authorized current Site source checkout and evaluate integration",
     "Site publication is outside this task; no deployment performed"
-  ]
+  ],
+  "implementationCommit": "dbcffbc4ee74d1d8b4648ca905e1856ba609dd4f",
+  "deliveryReceipt": "delivery-receipt.json"
 }
