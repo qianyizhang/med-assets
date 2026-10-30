@@ -144,6 +144,16 @@ geometry, pixels or anatomy. Actual replay still needs the exact baseline bytes.
 
 ## CI and quality boundaries
 
+The manual runtime probe assembles its browser fixture through
+`ci/glb_runtime_fixture.py`: the small `ci/glb-runtime-fixture.json` configuration
+references the retained, hash-pinned heart morph expectations in
+`reviews/runtime/2026-10-23-software-ci-heart-lymph/source-expected-morph-fixture.json`.
+The loader checks source identity and animation/count contracts before supplying
+all tracks to the existing browser and independent snapshot checks. The sparse
+checkout and test provenance include that dependency. Offline tests verify fixture
+equivalence and reject missing, altered or mismatched evidence; they do not launch
+the main-only browser job or establish a new runtime pass.
+
 `offline-verification.yml` uses `pull_request`, `contents: read`, a pinned checkout
 with `persist-credentials: false`, and no secrets, uploads or media hydration.
 It intentionally runs the complete **offline scope**, not every package replay.

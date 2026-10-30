@@ -57,6 +57,24 @@ Follow the applicable [review contract](docs/REVIEW_CONTRACT.md) and
 anatomical/clinical approval, browser runtime, and publication are separate gates;
 a screenshot alone does not establish runtime approval.
 
+## Generated artifacts and retention
+
+Keep canonical inputs, source identities, licenses, attribution, replay recipes,
+unique measurements and review decisions. Preserve masters, failed drafts and
+approved derivatives as distinct evidence. Generated files can still be required
+deliverables or historical records; regeneration alone does not make them disposable.
+
+A file around 1,000 lines warrants a usefulness and duplication review, not a size
+limit. Retain large files when they carry unique evidence, replay inputs or a
+consumer contract. Trace readers, dynamic discovery, packaging and checks before
+removal. Prefer one authoritative record with a pinned reference over copied
+inventories or receipts; materialize consumer-specific copies during preparation.
+Remove a copy only after proving its replacement or repeatable regeneration,
+updating producers and consumers together, and comparing meaningful outputs and
+asset hashes. Keep immutable historical manifests intact. Record the evidence and
+checkout savings in the issue/PR; do not minify, split files arbitrarily or add a
+permanent audit report merely to lower line counts.
+
 ## Visual evidence in issues and PRs
 
 - Keep asset issue updates visual-first. Use short bullets for problem, change,
