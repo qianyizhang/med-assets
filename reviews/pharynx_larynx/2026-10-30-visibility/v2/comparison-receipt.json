@@ -1,0 +1,17 @@
+{
+  "resetFitPixelsEqual": true,
+  "file": "comparison-fit.png",
+  "sha256": "c698b32096960e62646b744b89b899aa75270344e81426151749b2c8bf2fb82a",
+  "inputs": [
+    {
+      "file": "cartilage-cartilage-before-fit.png",
+      "sha256": "ce650720d6da5790f85e159a2ceada9c0d9fda577709dc2084178d7c91fac9a7"
+    },
+    {
+      "file": "cartilage-cartilage-after-fit.png",
+      "sha256": "a6c001c1c69e935595401b443160409bdfc272fed30191cbc8fb3e2f46e4b73d"
+    }
+  ],
+  "resampling": "none",
+  "intentionalDifference": "camera target and distance; same direction, visibility, source and lighting"
+}

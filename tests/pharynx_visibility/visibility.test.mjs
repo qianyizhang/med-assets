@@ -5,12 +5,13 @@ import {createHash} from 'node:crypto';
 import {createRequire} from 'node:module';
 import {resolve} from 'node:path';
 import {pathToFileURL} from 'node:url';
-import {createInspection, mountInspection, SOURCE_SHA256} from '../../gallery/pharynx_larynx/visibility-r01/pharynx-inspection.mjs';
+import {createInspection, mountInspection, fitVisibleParts, SOURCE_SHA256} from '../../gallery/pharynx_larynx/visibility-r01/pharynx-inspection.mjs';
 
 const deps = process.env.PHARYNX_TEST_DEPS;
 assert.ok(deps, 'Set PHARYNX_TEST_DEPS to the isolated directory containing pinned three and jsdom packages');
 const require = createRequire(pathToFileURL(resolve(deps, 'package.json')));
 const {JSDOM} = require('jsdom');
+const THREE = require('three');
 const {GLTFLoader} = await import(pathToFileURL(require.resolve('three/examples/jsm/loaders/GLTFLoader.js')));
 const record = JSON.parse(readFileSync(new URL('./fixtures/record-excerpt.json', import.meta.url)));
 const raw = readFileSync(new URL('../../models/pharynx_larynx/exports/r03/pharynx_larynx.glb', import.meta.url));
@@ -101,7 +102,8 @@ test('invalid mode leaves the current scene and selected mode unchanged', () => 
 
 test('real module DOM handlers change visibility, expose selected state, retain neutral labels and survive language repaint', () => {
   const scene = copy(), dom = new JSDOM('<head></head><body><div id="viewport"></div></body>');
-  const doc = dom.window.document, ui = mountInspection(record, scene, doc.querySelector('#viewport'));
+  let fitCalls = 0;
+  const doc = dom.window.document, ui = mountInspection(record, scene, doc.querySelector('#viewport'), {fitVisible: () => fitCalls++});
   const button = mode => doc.querySelector(`[data-layer="${mode}"]`);
   assert.equal(button('all').getAttribute('aria-pressed'), 'true');
   button('cartilage').click();
@@ -110,6 +112,11 @@ test('real module DOM handlers change visibility, expose selected state, retain 
   ui.paint('zh');
   assert.equal(button('cartilage').textContent, '软骨');
   assert.equal(button('cartilage').getAttribute('aria-pressed'), 'true');
+  const fit = doc.querySelector('[data-action="fit-visible"]');
+  assert.equal(fit.textContent, '适配可见结构');
+  fit.click();
+  assert.equal(fitCalls, 1);
+  assert.equal(visible(scene).length, 5);
   button('muscles').click();
   assert.equal(visible(scene).length, 30);
   for (const [id, label] of Object.entries(record.displayLabelOverrides)) {
@@ -120,4 +127,52 @@ test('real module DOM handlers change visibility, expose selected state, retain 
   assert.equal(button('all').getAttribute('aria-pressed'), 'true');
   assert.match(doc.querySelector('[role="status"]').textContent, /Original source visibility restored/);
   assert.match(doc.querySelector('.pharynx-inspection').textContent, /source epiglottic openings are retained/);
+});
+
+test('explicit fit frames visible world bounds at wide and narrow aspects, preserves direction and resets to full framing', () => {
+  for (const aspect of [1.6, .55]) {
+    const scene = copy(); scene.updateWorldMatrix(true, true);
+    const before = renderIdentity(scene), controller = createInspection(record, scene);
+    const box = new THREE.Box3().setFromObject(scene), target = box.getCenter(new THREE.Vector3());
+    const camera = new THREE.PerspectiveCamera(38, aspect, .001, 100);
+    const direction = new THREE.Vector3(.6, .25, -1).normalize();
+    camera.position.copy(target).addScaledVector(direction, .5);
+    const controls = {target, update() {}};
+    fitVisibleParts(scene, camera, controls, THREE);
+    const fullPosition = camera.position.clone(), fullTarget = target.clone();
+    controller.select('cartilage');
+    assert.ok(camera.position.equals(fullPosition), 'Layer switching must not fit the camera');
+    fitVisibleParts(scene, camera, controls, THREE); camera.updateMatrixWorld();
+    assert.ok(camera.position.clone().sub(target).normalize().distanceTo(direction) < 1e-10);
+    assert.ok(!target.equals(fullTarget), 'The smaller cartilage group must be recentered');
+    for (const object of meshes(scene).filter(o => o.visible)) {
+      const bounds = object.geometry.boundingBox;
+      for (const x of [bounds.min.x, bounds.max.x]) for (const y of [bounds.min.y, bounds.max.y]) for (const z of [bounds.min.z, bounds.max.z]) {
+        const ndc = new THREE.Vector3(x, y, z).applyMatrix4(object.matrixWorld).project(camera);
+        assert.ok(Math.abs(ndc.x) < .95 && Math.abs(ndc.y) < .95 && Math.abs(ndc.z) < 1, 'Visible bounds must fit with margin');
+      }
+    }
+    controller.select('all'); fitVisibleParts(scene, camera, controls, THREE);
+    assert.ok(camera.position.distanceTo(fullPosition) < 1e-10);
+    assert.ok(target.distanceTo(fullTarget) < 1e-10);
+    assert.deepEqual(renderIdentity(scene), before);
+  }
+});
+
+test('fit excludes parts under invisible ancestors and rejects empty visibility before changing camera', () => {
+  const scene = copy(), controller = createInspection(record, scene);
+  controller.select('cartilage');
+  const hiddenParent = new THREE.Group();
+  const epiglottis = meshes(scene).find(o => o.userData.source_file_id === 'FJ2770');
+  scene.add(hiddenParent); hiddenParent.add(epiglottis); hiddenParent.visible = false;
+  const camera = new THREE.PerspectiveCamera(38, 1, .001, 100), controls = {target: new THREE.Vector3(0, 1.5, 0), update() {}};
+  camera.position.set(0, 1.5, 1);
+  fitVisibleParts(scene, camera, controls, THREE);
+  const expected = new THREE.Box3();
+  scene.traverse(o => {if (o.isMesh && o.visible && o !== epiglottis) expected.union(o.geometry.boundingBox.clone().applyMatrix4(o.matrixWorld));});
+  assert.ok(controls.target.distanceTo(expected.getCenter(new THREE.Vector3())) < 1e-10);
+  const position = camera.position.clone(), target = controls.target.clone();
+  scene.visible = false;
+  assert.throws(() => fitVisibleParts(scene, camera, controls, THREE), /No visible/);
+  assert.ok(camera.position.equals(position) && controls.target.equals(target));
 });

@@ -24,7 +24,7 @@ def apply(review_dir):
         ("let lang='en',data,record", "let inspectionUI=null;\nlet lang='en',data,record"),
         ('function paint(){', 'function paint(){inspectionUI?.paint(lang);'),
         ('const originalVisibility=new Map();',
-         'inspectionUI=mountInspection(record,model.scene,wrap);const originalVisibility=new Map();'),
+         'inspectionUI=mountInspection(record,model.scene,wrap,{fitVisible:()=>fitVisibleParts(model.scene,camera,controls,THREE)});const originalVisibility=new Map();'),
         ("}catch(err){cleanup();state='blocked';",
          "}catch(err){cleanup();document.querySelector('.pharynx-inspection')?.remove();state='blocked';"),
     )
@@ -32,7 +32,7 @@ def apply(review_dir):
         if text.count(old) != 1:
             raise ValueError('Expected exactly one integration anchor: ' + old)
         text = text.replace(old, new, 1)
-    text = "import {mountInspection} from './pharynx-inspection.mjs';\n" + text
+    text = "import {mountInspection,fitVisibleParts} from './pharynx-inspection.mjs';\n" + text
     # Read all payloads before writing; baseline/anchor failures leave the copy untouched.
     payloads = {name: (Path(__file__).parent / name).read_bytes() for name in MODULES}
     payloads['candidate.js'] = text.encode('utf-8')

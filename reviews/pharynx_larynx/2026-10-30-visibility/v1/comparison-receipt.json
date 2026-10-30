@@ -1,0 +1,61 @@
+{
+  "resetPixelsEqual": true,
+  "compositions": [
+    {
+      "file": "comparison-posterior-oblique.png",
+      "sha256": "37a0a821f9ccc6af2eafafac8e00dc953a16fa6d881b0fed4cb366a3baf856c1",
+      "inputs": [
+        {
+          "file": "baseline-posterior-oblique.png",
+          "sha256": "3ac032ef66706c12d3c238c9bb3054ec6f8d1e4227a6e86d41cd481999c92a2c"
+        },
+        {
+          "file": "cartilage-posterior-oblique.png",
+          "sha256": "d1c0e0537a47fea4775341edf1edfefea612b26788ad740188c25de7cfdec682"
+        }
+      ],
+      "pixelPlacement": [
+        [
+          0,
+          100
+        ],
+        [
+          900,
+          100
+        ]
+      ],
+      "resampling": "none"
+    },
+    {
+      "file": "comparison-cartilage-detail.png",
+      "sha256": "053e3dd728682b43c347f42805943be1b25f815e75962fc08b30a6435be0b289",
+      "inputs": [
+        {
+          "file": "baseline-cartilage-detail.png",
+          "sha256": "bfaa6b2e552e919213e4762485853956ac6ad6fc8e894802ef7882fdede0fba3"
+        },
+        {
+          "file": "cartilage-cartilage-detail.png",
+          "sha256": "d8b57b7eb8ca2b85a1e50551c44065aba6055b6d01317d41b5bfb0a1e2680bcb"
+        }
+      ],
+      "pixelPlacement": [
+        [
+          0,
+          100
+        ],
+        [
+          900,
+          100
+        ]
+      ],
+      "resampling": "none"
+    },
+    {
+      "file": "comparison-detail-grayscale.png",
+      "sha256": "b8b55e7e15ce5222dfb5d7cef019a5b4871047a9b173d1b2e3b68055d45a6cd9",
+      "input": "comparison-cartilage-detail.png",
+      "operation": "Pillow ImageOps.grayscale; no geometry change"
+    }
+  ]
+}

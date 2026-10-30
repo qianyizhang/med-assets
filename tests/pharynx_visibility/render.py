@@ -2,16 +2,19 @@
 import argparse
 import hashlib
 import json
+import math
 from pathlib import Path
 import struct
 import sys
 
 import bpy
 from mathutils import Vector
+from mathutils import Matrix
 
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--states', type=Path, required=True)
 parser.add_argument('--output', type=Path, required=True)
+parser.add_argument('--fit-comparison', action='store_true')
 args = parser.parse_args(sys.argv[sys.argv.index('--') + 1:])
 root = Path(__file__).resolve().parents[2]
 glb = root / 'models/pharynx_larynx/exports/r03/pharynx_larynx.glb'
@@ -76,11 +79,32 @@ camera = bpy.context.object
 camera.data.type = 'ORTHO'
 scene.camera = camera
 rows = []
+if args.fit_comparison:
+    def blender_vector(value):
+        return Vector((value[0], -value[2], value[1]))
+    views = [(row['label'], blender_vector(row['targetThree']),
+              blender_vector(row['positionThree']) - blender_vector(row['targetThree']), None)
+             for row in states['cameras']]
 for view, target, direction, span in views:
     camera.location = target + direction
     camera.rotation_euler = (-direction).to_track_quat('-Z', 'Y').to_euler()
-    camera.data.ortho_scale = span
-    for state, ids in states['states'].items():
+    if args.fit_comparison:
+        current = next(row for row in states['cameras'] if row['label'] == view)
+        forward = -direction.normalized()
+        up = blender_vector(current['upThree'])
+        right = forward.cross(up).normalized()
+        up = right.cross(forward).normalized()
+        camera.rotation_euler = Matrix((right, up, -forward)).transposed().to_euler()
+        camera.data.type = 'PERSP'
+        camera.data.sensor_fit = 'VERTICAL'
+        camera.data.sensor_height = 32
+        camera.data.lens = 32 / (2 * math.tan(math.radians(current['fovVerticalDegrees']) / 2))
+        camera.data.clip_start, camera.data.clip_end = current['near'], current['far']
+        active_states = {current['state']: states['states'][current['state']]}
+    else:
+        camera.data.ortho_scale = span
+        active_states = states['states']
+    for state, ids in active_states.items():
         if state in ('reset', 'muscles') and view == 'cartilage-detail':
             continue
         for id, obj in parts.items():
@@ -91,13 +115,18 @@ for view, target, direction, span in views:
         rows.append({'view': view, 'state': state, 'visibleSourceIds': ids, 'file': path.name,
                      'sha256': sha(path.read_bytes()), 'bytes': path.stat().st_size,
                      'cameraPositionBlender': list(camera.location), 'targetBlender': list(target),
-                     'orthoVerticalSpan': span})
+                     'orthoVerticalSpan': span, 'cameraType': camera.data.type,
+                     'controllerCamera': current if args.fit_comparison else None})
 assert before == {id: signature(obj) for id, obj in parts.items()}
 receipt = {'sourceSha256': states['sourceSha256'], 'controllerSha256': states['controllerSha256'],
            'renderer': bpy.app.version_string, 'engine': 'Cycles CPU', 'samples': 32, 'seed': 0,
            'resolution': [900, 900], 'viewTransform': 'AgX', 'look': scene.view_settings.look,
            'denoising': False, 'exposure': 0, 'gamma': 1, 'geometryTransformsMaterialsUnchanged': True,
            'meshIdentities': before, 'views': rows,
-           'scope': 'Offline visibility illustrations from a clean import of the unchanged exact GLB. Native scene positions; only visibility differs between panels. Not WebGL or UI screenshots.'}
+           'scope': ('Offline perspective fit illustrations from a clean import of the unchanged exact GLB. '
+                     'The before/after fit comparison changes camera target and distance while retaining the same five parts, '
+                     'viewing direction, source positions and materials. Full/reset fitted views show all 33 parts. Not WebGL or UI screenshots.'
+                     if args.fit_comparison else
+                     'Offline visibility illustrations from a clean import of the unchanged exact GLB. Native scene positions; only visibility differs between panels. Not WebGL or UI screenshots.')}
 (args.output / 'render-receipt.json').write_text(json.dumps(receipt, indent=2) + '\n')
 print('PASS unchanged geometry/transforms/materials; actual offline render files and source bindings recorded')

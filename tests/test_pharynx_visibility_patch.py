@@ -29,7 +29,7 @@ class PharynxVisibilityPatchTests(unittest.TestCase):
             result = patch.apply(target)
             self.assertEqual(set(result), {'candidate.js', *patch.MODULES})
             text = (target / 'candidate.js').read_text()
-            self.assertIn('inspectionUI=mountInspection(record,model.scene,wrap);', text)
+            self.assertIn('inspectionUI=mountInspection(record,model.scene,wrap,{fitVisible:()=>fitVisibleParts(model.scene,camera,controls,THREE)});', text)
             self.assertIn('function paint(){inspectionUI?.paint(lang);', text)
             self.assertIn("document.querySelector('.pharynx-inspection')?.remove()", text)
             self.assertIn('camera.position.copy(center).add(new THREE.Vector3', text)

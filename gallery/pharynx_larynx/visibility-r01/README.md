@@ -2,7 +2,8 @@
 
 This viewer patch exposes the five existing cartilage components beneath the
 muscles in `pharynx_larynx__r03`. It adds cartilage, muscles-plus-cartilage and
-reset controls to the existing isolated viewer. It creates no model or new
+reset controls to the existing isolated viewer, plus an explicit “Fit visible
+parts” camera action. It creates no model or new
 anatomy and does not replace the canonical review dataset.
 
 The patch targets gallery v40 source commit
@@ -29,6 +30,10 @@ restores captured original visibility, including any initially hidden parts.
 The bilingual panel states what was hidden and lists source-bound labels.
 Layer switching changes only visibility; it retains the camera and native
 geometry, materials, transforms and raw source names.
+“Fit visible parts” frames the effectively visible meshes with a margin while
+preserving the viewing direction. It adjusts only the perspective camera and
+orbit target. Reset followed by fit restores full-assembly framing. Existing
+front/back/left and Fit camera actions retain their v40 behavior.
 
 Source: [unchanged r03 GLB](../../../models/pharynx_larynx/exports/r03/pharynx_larynx.glb),
 SHA-256 `d691a60f12d448b9b36d362270429c672c01c7fae0f10a8789ef188dd4c08530`,

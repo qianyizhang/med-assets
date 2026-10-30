@@ -13,6 +13,10 @@ const DISPUTED = Object.freeze({
   FJ2754: 'Middle pharyngeal constrictor — source laterality disputed (source: Left)',
 });
 const MODES = ['cartilage', 'muscles', 'all'];
+const effectivelyVisible = object => {
+  for (let current = object; current; current = current.parent) if (!current.visible) return false;
+  return true;
+};
 
 export function createInspection(record, scene) {
   if (record.id !== 'pharynx_larynx__r03' || record.assetId !== 'draft_pharynx_larynx') return null;
@@ -34,10 +38,6 @@ export function createInspection(record, scene) {
   });
   if (parts.size !== expected.size) throw Error('Missing pharynx source parts');
   let mode = 'all';
-  const effectivelyVisible = object => {
-    for (let current = object; current; current = current.parent) if (!current.visible) return false;
-    return true;
-  };
   return {
     get mode() { return mode; },
     select(next) {
@@ -58,32 +58,63 @@ export function createInspection(record, scene) {
   };
 }
 
+// Explicit camera action; layer selection never calls this or moves source parts.
+export function fitVisibleParts(scene, camera, controls, THREE) {
+  if (!camera.isPerspectiveCamera) throw Error('Pharynx fit requires the v40 perspective camera');
+  const box = new THREE.Box3();
+  scene.updateWorldMatrix(true, true);
+  scene.traverse(object => {
+    if (!object.isMesh || !effectivelyVisible(object)) return;
+    if (!object.geometry.boundingBox) object.geometry.computeBoundingBox();
+    box.union(object.geometry.boundingBox.clone().applyMatrix4(object.matrixWorld));
+  });
+  if (box.isEmpty()) throw Error('No visible source parts to fit');
+  const center = box.getCenter(new THREE.Vector3());
+  const radius = box.getSize(new THREE.Vector3()).length() / 2;
+  const direction = camera.position.clone().sub(controls.target);
+  if (![radius, camera.fov, camera.aspect, ...center.toArray(), ...direction.toArray()].every(Number.isFinite)
+      || radius <= 0 || camera.fov <= 0 || camera.fov >= 180 || camera.aspect <= 0 || direction.lengthSq() === 0) {
+    throw Error('Invalid visible-part camera bounds');
+  }
+  const vertical = camera.fov * Math.PI / 360;
+  const horizontal = Math.atan(Math.tan(vertical) * camera.aspect);
+  const distance = radius * 1.15 / Math.sin(Math.min(vertical, horizontal));
+  camera.position.copy(center).add(direction.normalize().multiplyScalar(distance));
+  camera.zoom = 1;
+  camera.near = Math.max(radius / 1000, distance - radius * 1.5);
+  camera.far = distance + radius * 3;
+  controls.target.copy(center);
+  camera.lookAt(center);
+  camera.updateProjectionMatrix();
+  controls.update();
+}
+
 const COPY = {
   en: {
     title: 'Inspect source layers', cartilage: 'Cartilage', muscles: 'Muscles + cartilage', all: 'Reset all parts',
-    labels: 'Visible source labels',
+    labels: 'Visible source labels', fitVisible: 'Fit visible parts',
     cartilageNote: 'Muscles, ligaments and the pharyngeal raphe are hidden for inspection.',
     musclesNote: 'Only the two ligaments and the pharyngeal raphe are hidden for inspection.',
     allNote: 'Original source visibility restored.',
     count: (shown, total) => `${shown} / ${total} source parts shown.`,
-    positions: 'Positions and camera stay unchanged when switching layers. Drag to rotate; scroll to zoom.',
+    positions: 'Layer switches keep positions and camera unchanged. Fit visible parts adjusts only the camera; drag to rotate.',
     limits: 'Dissected surfaces only; source epiglottic openings are retained. No continuous mucosal airway.',
     sides: 'FJ2742 / FJ2754: middle pharyngeal constrictors with disputed source sides; raw Left/Right names are not verified anatomical sides.',
   },
   zh: {
     title: '查看来源层次', cartilage: '软骨', muscles: '肌肉与软骨', all: '恢复全部结构',
-    labels: '当前可见的来源标注',
+    labels: '当前可见的来源标注', fitVisible: '适配可见结构',
     cartilageNote: '为便于观察，已隐藏肌肉、韧带与咽缝。',
     musclesNote: '为便于观察，仅隐藏两条韧带与咽缝。',
     allNote: '已恢复来源的初始可见状态。',
     count: (shown, total) => `显示 ${shown} / ${total} 个来源结构。`,
-    positions: '切换层次时保留结构位置与相机。拖动旋转，滚动缩放。',
+    positions: '切换层次时保留结构位置与相机。“适配可见结构”仅调整相机；拖动可旋转。',
     limits: '仅展示解剖分离后的表面；保留来源会厌孔洞，不表示连续黏膜气道。',
     sides: 'FJ2742 / FJ2754 为来源侧别存在争议的咽中缩肌；原始 Left/Right 名称不视为已验证的解剖侧别。',
   },
 };
 
-export function mountInspection(record, scene, viewport) {
+export function mountInspection(record, scene, viewport, {fitVisible} = {}) {
   const controller = createInspection(record, scene);
   if (!controller) return null;
   const doc = viewport.ownerDocument;
@@ -116,14 +147,22 @@ export function mountInspection(record, scene, viewport) {
     button.onclick = () => { controller.select(mode); paint(language); };
     buttons.append(button);
   }
+  const fitButton = doc.createElement('button');
+  fitButton.type = 'button';
+  fitButton.dataset.action = 'fit-visible';
+  if (typeof fitVisible === 'function') {
+    fitButton.onclick = fitVisible;
+    buttons.append(fitButton);
+  }
   function paint(lang = 'en') {
     language = lang === 'zh' ? 'zh' : 'en';
     const text = COPY[language], items = controller.items(), visible = items.filter(item => item.visible);
     title.textContent = text.title;
-    for (const button of buttons.children) {
+    for (const button of buttons.querySelectorAll('[data-layer]')) {
       button.textContent = text[button.dataset.layer];
       button.setAttribute('aria-pressed', String(button.dataset.layer === controller.mode));
     }
+    fitButton.textContent = text.fitVisible;
     status.textContent = `${text.count(visible.length, items.length)} ${text[controller.mode + 'Note']}`;
     positions.textContent = text.positions;
     limits.textContent = text.limits;
