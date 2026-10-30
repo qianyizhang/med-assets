@@ -1,0 +1,265 @@
+{
+  "sourceCommit": "c08bde5325e35a46404d86a6bd458c484297cc2d",
+  "sourceSha256": "9f08a17ea0115fed80b2a73ecdf0a1bc2ab2f6956f37c593ce23d513ea35afcd",
+  "sourceArchive": {
+    "url": "https://raw.githubusercontent.com/Z-Anatomy/Models-of-human-anatomy/c08bde5325e35a46404d86a6bd458c484297cc2d/Z-Anatomy.zip",
+    "sha256": "e029688545627bd0214b269e1063143abb580aad72b2c2445d6d8a9a0d9da736",
+    "bytes": 86734957,
+    "member": "Z-Anatomy/Startup.blend",
+    "memberBytes": 306838281
+  },
+  "license": {
+    "name": "CC BY-SA 4.0",
+    "file": "sources/datasets/z-anatomy/ulnar-elbow/License.txt",
+    "sha256": "196b66b56551a862e59872f7cdb70e6d9a6ad84e9105962fca8ec28c14e97520"
+  },
+  "artifact": {
+    "file": "right-rotator-cuff.glb",
+    "sha256": "edf5c2fc5322adc1c75703143b3fba5a2be3ecd87d5559bce1441c1977a4eb30",
+    "bytes": 703536
+  },
+  "objects": [
+    {
+      "name": "Humerus.r",
+      "parent": "Bones of free part of upper limb.g",
+      "vertices": 2143,
+      "triangles": 4280,
+      "localSurfaceSha256": "09294ca268e8e41886d5f2325de5c081751b739de4c8d2859673b71e0df55c0a",
+      "nativeMatrix": [
+        [
+          0.9999999403953552,
+          0.0,
+          0.0,
+          -0.19699914753437042
+        ],
+        [
+          0.0,
+          0.999999463558197,
+          -7.105427357601002e-14,
+          0.030781565234065056
+        ],
+        [
+          0.0,
+          7.105427357601002e-14,
+          0.999999463558197,
+          1.2480400800704956
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.9999999403953552
+        ]
+      ],
+      "illustrativeLinearRGB": [
+        0.7,
+        0.67,
+        0.57
+      ],
+      "boundaryEdges": 4,
+      "nonmanifoldEdges": 2
+    },
+    {
+      "name": "Scapula.r",
+      "parent": "Bones of pectoral girdle.g",
+      "vertices": 12690,
+      "triangles": 25326,
+      "localSurfaceSha256": "f2de1e66a36a1d5cc4ad0d3a934a6d8bb02f98f29aefdf7d2d73b8f4ee613eca",
+      "nativeMatrix": [
+        [
+          0.9999999403953552,
+          0.0,
+          0.0,
+          -0.12066435813903809
+        ],
+        [
+          0.0,
+          0.999999463558197,
+          -7.105427357601002e-14,
+          0.06086131930351257
+        ],
+        [
+          0.0,
+          7.105427357601002e-14,
+          0.999999463558197,
+          1.3690296411514282
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.9999999403953552
+        ]
+      ],
+      "illustrativeLinearRGB": [
+        0.7,
+        0.67,
+        0.57
+      ],
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0
+    },
+    {
+      "name": "Supraspinatus muscle.r",
+      "parent": "Rotator cuff muscles.g",
+      "vertices": 717,
+      "triangles": 1430,
+      "localSurfaceSha256": "d859e8f9ce785503d4a8c70f5f85578337f26afa281c9615cb64f0c2c5bb5c7c",
+      "nativeMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.15073162317276
+        ],
+        [
+          0.0,
+          0.9999997615814209,
+          -4.263256414560601e-14,
+          0.04367215931415558
+        ],
+        [
+          0.0,
+          4.263256414560601e-14,
+          0.9999997615814209,
+          1.3986226320266724
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "illustrativeLinearRGB": [
+        0.72,
+        0.4,
+        0.12
+      ],
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0
+    },
+    {
+      "name": "Infraspinatus muscle.r",
+      "parent": "Rotator cuff muscles.g",
+      "vertices": 1585,
+      "triangles": 3166,
+      "localSurfaceSha256": "07128597f06ec7c0cfa6c1ba58033448f9a4066afb4f9172d554f144169adfd8",
+      "nativeMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.12891651690006256
+        ],
+        [
+          0.0,
+          0.9999997615814209,
+          -4.263256414560601e-14,
+          0.08004438877105713
+        ],
+        [
+          0.0,
+          4.263256414560601e-14,
+          0.9999997615814209,
+          1.357661247253418
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "illustrativeLinearRGB": [
+        0.53,
+        0.11,
+        0.085
+      ],
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0
+    },
+    {
+      "name": "Teres minor muscle.r",
+      "parent": "Rotator cuff muscles.g",
+      "vertices": 763,
+      "triangles": 1522,
+      "localSurfaceSha256": "9f39b4785f4eacab233e537b795992ed54ce06678224bcb78b3eddf09423e30d",
+      "nativeMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.15092328190803528
+        ],
+        [
+          0.0,
+          0.9999997615814209,
+          -4.263256414560601e-14,
+          0.06443224102258682
+        ],
+        [
+          0.0,
+          4.263256414560601e-14,
+          0.9999997615814209,
+          1.3460909128189087
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "illustrativeLinearRGB": [
+        0.32,
+        0.13,
+        0.39
+      ],
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0
+    },
+    {
+      "name": "Subscapularis muscle.r",
+      "parent": "Rotator cuff muscles.g",
+      "vertices": 1471,
+      "triangles": 2954,
+      "localSurfaceSha256": "15b12902460a05eba58b882b1a6cc6b69670e4b921a1d644349547f31e31ad1c",
+      "nativeMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          -0.11697622388601303
+        ],
+        [
+          0.0,
+          0.9999997615814209,
+          -4.263256414560601e-14,
+          0.051263924688100815
+        ],
+        [
+          0.0,
+          4.263256414560601e-14,
+          0.9999997615814209,
+          1.3585959672927856
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "illustrativeLinearRGB": [
+        0.09,
+        0.38,
+        0.36
+      ],
+      "boundaryEdges": 0,
+      "nonmanifoldEdges": 0
+    }
+  ],
+  "sourceAxes": "Native Blender Z-up; glTF maps (x,y,z) to (x,z,-y)",
+  "geometryChanges": "None; detach selection with effective native matrices; illustrative materials only"
+}
