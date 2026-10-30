@@ -1,0 +1,32 @@
+{
+  "schema": "bounded-sciatic-hip-delivery-v1",
+  "upload": {
+    "action": "bounded direct Git LFS upload",
+    "executor": "Linux cloud; Git LFS3.6.1",
+    "repository": "qianyizhang/med-assets",
+    "commit": "0dd775c60aef90e9e20c9f8485ae1870816e6007",
+    "startedAt": "2026-10-30T07:54:10.969402+00:00",
+    "completedAt": "2026-10-30T07:54:13.054009+00:00",
+    "exitCode": 0,
+    "objectCount": 11,
+    "uniqueBytes": 7186463,
+    "sanitizedResult": "Uploading LFS objects: 100% (11/11), 7.2 MB | 0 B/s, done.\n"
+  },
+  "readback": {
+    "action": "fresh GitHub readback into previously nonexistent empty LFS store",
+    "executor": "Linux cloud; Git LFS3.6.1",
+    "repository": "qianyizhang/med-assets",
+    "commit": "0dd775c60aef90e9e20c9f8485ae1870816e6007",
+    "startedAt": "2026-10-30T07:55:03.261506+00:00",
+    "completedAt": "2026-10-30T07:55:04.066460+00:00",
+    "exitCode": 0,
+    "verifiedPathCount": 11,
+    "verifiedUniqueObjects": 11,
+    "verifiedUniqueBytes": 7186463,
+    "manifestSha256": "e5402a58242477d913787276288c023feb5f1a38138ca9baf56eabd967e2503c",
+    "sanitizedResult": "fetch: Fetching reference 0dd775c60aef90e9e20c9f8485ae1870816e6007\n",
+    "boundary": "Fresh byte identity only; no browser runtime, clinical or GitHub inline rendering pass."
+  },
+  "branch": "wip/sciatic-hip-150",
+  "publication": "Branch and media delivered; draft PR is a separate action. No merge or Site publication."
+}

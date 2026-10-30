@@ -1,0 +1,176 @@
+{
+  "sourceSha256": "9f08a17ea0115fed80b2a73ecdf0a1bc2ab2f6956f37c593ce23d513ea35afcd",
+  "selectedObjects": [
+    "Sciatic nerve.r",
+    "Hip bone.r",
+    "Sacrum",
+    "Femur.r",
+    "Piriformis muscle.r",
+    "Sacrospinous ligament.r",
+    "Sacrotuberous ligament.r"
+  ],
+  "lights": [
+    {
+      "location": [
+        -0.5600000023841858,
+        0.7450000047683716,
+        1.5
+      ],
+      "rotation": [
+        0.9617599248886108,
+        -1.6821454096316302e-07,
+        -2.521343231201172
+      ],
+      "energy": 70,
+      "size": 0.5
+    },
+    {
+      "location": [
+        0.4399999976158142,
+        0.4449999928474426,
+        1.2000000476837158
+      ],
+      "rotation": [
+        1.132647156715393,
+        -1.446442610131271e-08,
+        2.245537281036377
+      ],
+      "energy": 40,
+      "size": 0.5
+    },
+    {
+      "location": [
+        -0.05999999865889549,
+        -0.5550000071525574,
+        1.399999976158142
+      ],
+      "rotation": [
+        0.8760582208633423,
+        -0.0,
+        0.0
+      ],
+      "energy": 45,
+      "size": 0.5
+    }
+  ],
+  "views": [
+    {
+      "file": "whole-posterior.png",
+      "camera": [
+        -0.05999999865889549,
+        1.5325556993484497,
+        0.8692556023597717
+      ],
+      "rotation": [
+        1.4711277484893799,
+        8.698889786273867e-08,
+        3.1415927410125732
+      ],
+      "target": [
+        -0.05999999865889549,
+        0.03999999910593033,
+        0.7200000286102295
+      ],
+      "scale": 0.67,
+      "softContextShown": false,
+      "sha256": "d91971a6a86305c41c4fe638a7e4fe3c64cb5ab1e4dbf53a4311b604b353d084"
+    },
+    {
+      "file": "hip-posterior.png",
+      "camera": [
+        -0.05999999865889549,
+        1.5449999570846558,
+        0.8999999761581421
+      ],
+      "rotation": [
+        -1.570796251296997,
+        3.141592502593994,
+        -0.0
+      ],
+      "target": [
+        -0.05999999865889549,
+        0.04500000178813934,
+        0.8999999761581421
+      ],
+      "scale": 0.27,
+      "softContextShown": false,
+      "sha256": "3a01cf2a2b31b0f0008216ec8810c0f5392656f03bd4748765c009bdd665680f"
+    },
+    {
+      "file": "hip-oblique.png",
+      "camera": [
+        -1.0565584897994995,
+        1.1411761045455933,
+        1.1740440130233765
+      ],
+      "rotation": [
+        1.387068510055542,
+        -5.806198544178187e-08,
+        -2.4087777137756348
+      ],
+      "target": [
+        -0.07000000029802322,
+        0.04500000178813934,
+        0.8999999761581421
+      ],
+      "scale": 0.29,
+      "softContextShown": false,
+      "sha256": "794f0fa4d8e35e3d282ffd40cbf78f983804055641c2990f827cdf481ae1b1e3"
+    },
+    {
+      "file": "hip-soft-posterior.png",
+      "camera": [
+        -0.05999999865889549,
+        1.5449999570846558,
+        0.8999999761581421
+      ],
+      "rotation": [
+        -1.570796251296997,
+        3.141592502593994,
+        -0.0
+      ],
+      "target": [
+        -0.05999999865889549,
+        0.04500000178813934,
+        0.8999999761581421
+      ],
+      "scale": 0.27,
+      "softContextShown": true,
+      "sha256": "a651eb7d5611a1c8b472ec51b800529d46f276ce92382e29e8e594c76eb44414"
+    },
+    {
+      "file": "hip-soft-oblique.png",
+      "camera": [
+        -1.0565584897994995,
+        1.1411761045455933,
+        1.1740440130233765
+      ],
+      "rotation": [
+        1.387068510055542,
+        -5.806198544178187e-08,
+        -2.4087777137756348
+      ],
+      "target": [
+        -0.07000000029802322,
+        0.04500000178813934,
+        0.8999999761581421
+      ],
+      "scale": 0.29,
+      "softContextShown": true,
+      "sha256": "9d416c7890ae58c1854f578a207ff467095cd588a848690efcaee5a6aa233a75"
+    }
+  ],
+  "display": "Illustrative neutral bone, amber nerve, muted red muscle and teal ligaments. All native geometry/effective transforms unchanged.",
+  "screen": {
+    "method": "Native evaluated surface BVH overlap candidate counts; no clearance or penetration proof",
+    "nervePairs": {
+      "Hip bone.r": 0,
+      "Sacrum": 0,
+      "Femur.r": 0,
+      "Piriformis muscle.r": 150,
+      "Sacrospinous ligament.r": 0,
+      "Sacrotuberous ligament.r": 0
+    }
+  },
+  "scope": "Read-only source-native preflight; soft context shown versus hidden is a visibility state, not changed anatomy. No acceptance inferred from names."
+}

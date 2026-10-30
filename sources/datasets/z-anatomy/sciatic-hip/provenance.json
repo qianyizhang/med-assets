@@ -1,0 +1,35 @@
+{
+  "repository": "https://github.com/Z-Anatomy/Models-of-human-anatomy",
+  "commit": "c08bde5325e35a46404d86a6bd458c484297cc2d",
+  "archive": {
+    "url": "https://raw.githubusercontent.com/Z-Anatomy/Models-of-human-anatomy/c08bde5325e35a46404d86a6bd458c484297cc2d/Z-Anatomy.zip",
+    "bytes": 86734957,
+    "sha256": "e029688545627bd0214b269e1063143abb580aad72b2c2445d6d8a9a0d9da736"
+  },
+  "member": {
+    "path": "Z-Anatomy/Startup.blend",
+    "bytes": 306838281,
+    "sha256": "9f08a17ea0115fed80b2a73ecdf0a1bc2ab2f6956f37c593ce23d513ea35afcd"
+  },
+  "selectedObjects": [
+    "Sciatic nerve.r",
+    "Hip bone.r",
+    "Sacrum",
+    "Femur.r"
+  ],
+  "license": "CC BY-SA 4.0 for selected source geometry and derived renders; historical BodyParts3D / Database Center for Life Science CC BY-SA 2.1 Japan credit retained",
+  "licenseFile": {
+    "path": "../ulnar-elbow/License.txt",
+    "sha256": "196b66b56551a862e59872f7cdb70e6d9a6ad84e9105962fca8ec28c14e97520"
+  },
+  "readmeFile": {
+    "path": "../ulnar-elbow/Readme.md",
+    "sha256": "2439e8ccea759c644bbaf2f6fd48551fe054bfda30fd3d97d8384f75273466b3"
+  },
+  "providerRoles": "Kousaku Okubo: original BodyParts3D; Gauthier Kervyn: Z-Anatomy design, 3D and anatomy; Marcin Zielinski: Blender add-on. Provider roles do not establish independently verified per-object authorship.",
+  "modification": "Four source objects selected; curve evaluated to mesh; native renderable surfaces and effective transforms retained. Two illustrative display materials; flattened subset hierarchy; teaching labels added separately. No rerouting, cuts, fusion or registration.",
+  "exportBoundary": "21 unused Sacrum source vertices omitted by GLB exporter. All 24154 source triangles retained in GLB; clean Blender 4.3.2 reimport omits one narrow Sacrum triangle, explicitly checked in the QA receipt.",
+  "scope": "Right posterior hip skeletal locator only. Unresolved source nerve-piriformis relationship excludes soft-tissue/complete-foramen teaching. No complete pelvis, plexus, distal nerve course, clinical, motion, physical-scale or live-runtime claim.",
+  "acquisition": "Retained archive/member freshly rehashed 2026-10-30; no repeated source download. Source auto-execution disabled; add-on not used. Full source archive retained locally, not republished.",
+  "excluded": "Source add-on, full atlas, kidney, inner-ear and cranial-nerve exceptions; left side, piriformis and ligaments excluded from final four-object model."
+}

@@ -1,0 +1,279 @@
+{
+  "artifactSha256": "72077a97a8a935a7a4623443c1c0fd61ab48a9bf4ad895af058345b7a372abd6",
+  "anchors": {
+    "nerve": {
+      "sourceObject": "Sciatic nerve.r",
+      "vertex": 993,
+      "world": [
+        -0.06095549464225769,
+        0.0652715265750885,
+        0.8440161943435669
+      ]
+    },
+    "ischial": {
+      "sourceObject": "Hip bone.r",
+      "vertex": 1362,
+      "world": [
+        -0.06702598929405212,
+        0.04989860951900482,
+        0.816189169883728
+      ]
+    },
+    "trochanter": {
+      "sourceObject": "Femur.r",
+      "vertex": 323,
+      "world": [
+        -0.12593577802181244,
+        0.03341323882341385,
+        0.8534244894981384
+      ]
+    },
+    "proximal": {
+      "sourceObject": "Sciatic nerve.r",
+      "vertex": 3,
+      "world": [
+        -0.029802659526467323,
+        0.032112233340740204,
+        0.9781445264816284
+      ]
+    },
+    "distal": {
+      "sourceObject": "Sciatic nerve.r",
+      "vertex": 1718,
+      "world": [
+        -0.0761394128203392,
+        0.03786693885922432,
+        0.539751410484314
+      ]
+    }
+  },
+  "visibleLabelChecks": [
+    {
+      "view": "hip-posterior",
+      "anchor": "nerve",
+      "firstVisibleSourceObject": "Sciatic nerve.r",
+      "pointDifference": 8.940696716308594e-08,
+      "passed": true
+    },
+    {
+      "view": "hip-oblique",
+      "anchor": "nerve",
+      "firstVisibleSourceObject": "Sciatic nerve.r",
+      "pointDifference": 1.737759081973225e-07,
+      "passed": true
+    },
+    {
+      "view": "hip-posterior",
+      "anchor": "ischial",
+      "firstVisibleSourceObject": "Hip bone.r",
+      "pointDifference": 1.341104507446289e-07,
+      "passed": true
+    },
+    {
+      "view": "hip-oblique",
+      "anchor": "ischial",
+      "firstVisibleSourceObject": "Hip bone.r",
+      "pointDifference": 2.0914776396182476e-07,
+      "passed": true
+    },
+    {
+      "view": "hip-posterior",
+      "anchor": "trochanter",
+      "firstVisibleSourceObject": "Femur.r",
+      "pointDifference": 1.7136335372924805e-07,
+      "passed": true
+    },
+    {
+      "view": "hip-oblique",
+      "anchor": "trochanter",
+      "firstVisibleSourceObject": "Femur.r",
+      "pointDifference": 8.059035112255788e-08,
+      "passed": true
+    }
+  ],
+  "views": [
+    {
+      "file": "whole-posterior.png",
+      "sha256": "742258f0cc988d4ff9dd6dfad531002b8d640eeeb95f8fcf0359b1f5bd4b80b8",
+      "camera": [
+        -0.05999999865889549,
+        1.5325556993484497,
+        0.8692556023597717
+      ],
+      "rotation": [
+        1.4711277484893799,
+        8.698889786273867e-08,
+        3.1415927410125732
+      ],
+      "target": [
+        -0.05999999865889549,
+        0.03999999910593033,
+        0.7200000286102295
+      ],
+      "scale": 0.67,
+      "anchorPixels": {
+        "nerve": [
+          451.2837052345276,
+          287.61584758758545
+        ],
+        "ischial": [
+          459.4381034374237,
+          322.7552533149719
+        ],
+        "trochanter": [
+          538.5706186294556,
+          270.7824110984802
+        ],
+        "proximal": [
+          409.43657755851746,
+          103.9055585861206
+        ],
+        "distal": [
+          471.6800272464752,
+          690.6384855508804
+        ]
+      }
+    },
+    {
+      "file": "hip-posterior.png",
+      "sha256": "da71ec7976f02417cc7ff4ccdeeddee3388bd173f635365d62c07baca924a701",
+      "camera": [
+        -0.05999999865889549,
+        1.5449999570846558,
+        0.8999999761581421
+      ],
+      "rotation": [
+        -1.570796251296997,
+        3.141592502593994,
+        -0.0
+      ],
+      "target": [
+        -0.05999999865889549,
+        0.04500000178813934,
+        0.8999999761581421
+      ],
+      "scale": 0.27,
+      "anchorPixels": {
+        "nerve": [
+          453.18501591682434,
+          636.6129487752914
+        ],
+        "ischial": [
+          473.42002987861633,
+          729.3696910142899
+        ],
+        "trochanter": [
+          669.7859466075897,
+          605.251944065094
+        ],
+        "proximal": [
+          349.3421673774719,
+          189.51855897903442
+        ],
+        "distal": [
+          503.7981927394867,
+          1650.828891992569
+        ]
+      }
+    },
+    {
+      "file": "hip-oblique.png",
+      "sha256": "b3c02d1663b9766d2bcb6a88e2c3156150d00546c7b4ed1446a17a662c596cef",
+      "camera": [
+        -1.0565584897994995,
+        1.1411761045455933,
+        1.1740440130233765
+      ],
+      "rotation": [
+        1.387068510055542,
+        -5.806198544178187e-08,
+        -2.4087777137756348
+      ],
+      "target": [
+        -0.07000000029802322,
+        0.04500000178813934,
+        0.8999999761581421
+      ],
+      "scale": 0.29,
+      "anchorPixels": {
+        "nerve": [
+          387.0497077703476,
+          625.9317487478256
+        ],
+        "ischial": [
+          432.96864330768585,
+          706.661693751812
+        ],
+        "trochanter": [
+          603.0855238437653,
+          608.4452748298645
+        ],
+        "proximal": [
+          384.0290576219559,
+          190.88664650917053
+        ],
+        "distal": [
+          478.97011041641235,
+          1548.5190868377686
+        ]
+      }
+    }
+  ],
+  "lights": [
+    {
+      "location": [
+        -0.5600000023841858,
+        0.7450000047683716,
+        1.5
+      ],
+      "rotation": [
+        0.9617599248886108,
+        -1.6821454096316302e-07,
+        -2.521343231201172
+      ],
+      "energy": 70,
+      "size": 0.5
+    },
+    {
+      "location": [
+        0.4399999976158142,
+        0.4449999928474426,
+        1.2000000476837158
+      ],
+      "rotation": [
+        1.132647156715393,
+        -1.446442610131271e-08,
+        2.245537281036377
+      ],
+      "energy": 40,
+      "size": 0.5
+    },
+    {
+      "location": [
+        -0.05999999865889549,
+        -0.5550000071525574,
+        1.399999976158142
+      ],
+      "rotation": [
+        0.8760582208633423,
+        -0.0,
+        0.0
+      ],
+      "energy": 45,
+      "size": 0.5
+    }
+  ],
+  "render": {
+    "engine": "Blender 4.3.2 Cycles CPU",
+    "samples": 64,
+    "denoising": false,
+    "resolution": [
+      900,
+      900
+    ],
+    "viewTransform": "AgX",
+    "exposure": 0,
+    "gamma": 1
+  },
+  "scope": "All four selected surfaces visible; camera crops only. Exact vertex and first-visible surface checks support labels, not anatomical or clinical validation."
+}
