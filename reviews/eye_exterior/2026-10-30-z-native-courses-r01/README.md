@@ -1,4 +1,4 @@
-# Private v1: source-native eye exterior courses
+# Source-native eye exterior courses
 
 The useful change is a distinct source-authored course around each globe, with a
 visible trochlear turn and bounded optic segment. Parent review of the actual old
@@ -57,8 +57,13 @@ checks and actual visual inspection; they do not replace review.
 The worker inspected all three reimport views, the teaching PNG, grayscale and
 the teaching SVG reopened/rendered by Inkscape 1.4. Native labels remain readable,
 the optic end is visibly bounded and unilateral panels avoid an implied bilateral
-bridge. Source-bound ray hits anchor the nine numbered leaders. Independent private
-build review remains pending. Anatomy/clinical approval and browser runtime remain
+bridge. Source-bound ray hits anchor the nine numbered leaders. Independent review passed at
+`54fcdc2f26f8850213e8b72febe8dfc4d32bc682`: the reviewer verified all 37 private
+bundle entries, independently ran the 32-file payload check, inspected the reopened
+teaching SVG and matched oblique/posterior pixels, and found no blocking presentation
+issue. Unilateral views and explicit optic endpoints resolve the source-witness
+bilateral-bridge concern. No artificial v2 geometry/image edit was made.
+Anatomy/clinical approval and browser runtime remain
 unverified; source labels and source units are not independently calibrated anatomy.
 
 ## Replay
@@ -86,7 +91,11 @@ python3 -m unittest discover -s tests -p test_eye_exterior.py -v
 python3 tools/eye_exterior/verify_payload.py --root .
 ```
 
-Hydrate the package's LFS assets before payload replay. The ordinary complete
-offline gate is required at PR delivery; it is not a runtime or anatomy gate.
-No public delivery, Site change, merge or modification to the anterior study is
-part of this private review checkpoint.
+Hydrate the package's LFS assets before payload replay. The complete offline gate passed on the delivery tree: 213 tests, 26 transport
+manifests, 25 foundation records, 591 import references and 772 LFS pointer
+identities. Hydrated package checks are separate; offline CI does not verify media
+bytes, runtime or anatomy. The delivery follow-up changes this review text and its
+manifest only; reviewed geometry, images, cameras and scripts remain unchanged.
+Draft delivery references #150 without closing its broader collection scope.
+The anterior study and #99 remain unchanged; no merge or Site publication is
+part of this delivery.
