@@ -73,11 +73,11 @@ offline scope described above remains required; it is not a full media/runtime s
 `SHA256SUMS` is immutable evidence of the 2026-10-22 import: 591 files, originally
 370,698,859 bytes. `metadata/asset-manifest.json` and the earlier archive checksums
 retain that historical scope too. Do not regenerate them to conceal later edits.
-`shasum -a 256 -c SHA256SUMS` is appropriate for the original snapshot, not current
-main: head annotation (`5fae2dd`), abdomen label (`6c6a9e1`) and urinary presentation
-(`11b0090`, `d03ec29`) changes legitimately changed three SVGs. Their original/current hashes and reasons are in
-`metadata/current-import-overrides.json`; an unrecorded text change fails. An
-override for an imported LFS file also requires its reviewed `currentBytes`.
+`shasum -a 256 -c SHA256SUMS` is appropriate for the original snapshot. Current
+import-file hashes, reasons and change commits are recorded in
+[`metadata/current-import-overrides.json`](../metadata/current-import-overrides.json);
+an unrecorded text change fails. An override for an imported LFS file also requires
+its reviewed `currentBytes`.
 The recorded change-commit fields are review provenance; offline verification
 does not establish their ancestry or the intent of a change.
 

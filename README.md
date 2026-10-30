@@ -50,8 +50,7 @@ archive entries were merged. No assets were regenerated or edited during import.
 Source ZIPs are not duplicated in Git LFS alongside the extracted files.
 `metadata/asset-manifest.json` records all archive and member hashes and the exact
 extraction paths. `SHA256SUMS` preserves the original hashes of those 591 files;
-it is not a current-checkout checksum list. Later edits to `head.svg` and
-`regions/abdomen.svg` are recorded in
+it is not a current-checkout checksum list. Current import-file updates are recorded in
 [`metadata/current-import-overrides.json`](metadata/current-import-overrides.json).
 The verification command applies those explicit updates without changing the
 historical snapshot, and checks current LFS bytes against their tracked pointers.

@@ -25,6 +25,10 @@ for public issue, PR and follow-up briefs; keep detailed worker evidence in
 linked records. Reference issues without auto-closing them when a PR delivers
 only part of their acceptance criteria.
 
+Before marking ready, include the [retention review](#generated-artifacts-and-retention)
+for large files or repeated generated artifacts added or changed by the PR:
+purpose, canonical source, consumers and why each retained copy is needed.
+
 Mark a PR ready when its scoped acceptance criteria and applicable checks have
 supporting evidence, the exact tested commit is identified, and limitations are
 explicit. Merge only with applicable authorization. Close an issue as completed
