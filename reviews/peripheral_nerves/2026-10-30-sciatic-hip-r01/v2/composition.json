@@ -1,0 +1,52 @@
+{
+  "artifactSha256": "72077a97a8a935a7a4623443c1c0fd61ab48a9bf4ad895af058345b7a372abd6",
+  "inputs": {
+    "bindings.json": "0b09e885c1f22ed35723fc7a0e3473172652b8d8b190101a226b7dbbf8eaaad6",
+    "whole-posterior.png": "742258f0cc988d4ff9dd6dfad531002b8d640eeeb95f8fcf0359b1f5bd4b80b8",
+    "hip-posterior.png": "da71ec7976f02417cc7ff4ccdeeddee3388bd173f635365d62c07baca924a701",
+    "hip-oblique.png": "b3c02d1663b9766d2bcb6a88e2c3156150d00546c7b4ed1446a17a662c596cef"
+  },
+  "outputs": {
+    "teaching-grayscale.png": "841054ac7f5a30cc0d0dd39488a727d4cebfdd2d9494cc898a1160c1477ccc11",
+    "teaching.png": "345e723c1daefc00cdc6dbe4f34ac32f23bf8e320e224378eb0bb1ffc301a6f1"
+  },
+  "labels": [
+    {
+      "view": "hip-posterior.png",
+      "number": 1,
+      "anchor": "nerve"
+    },
+    {
+      "view": "hip-posterior.png",
+      "number": 2,
+      "anchor": "ischial"
+    },
+    {
+      "view": "hip-posterior.png",
+      "number": 3,
+      "anchor": "trochanter"
+    },
+    {
+      "view": "hip-oblique.png",
+      "number": 1,
+      "anchor": "nerve"
+    },
+    {
+      "view": "hip-oblique.png",
+      "number": 2,
+      "anchor": "ischial"
+    },
+    {
+      "view": "hip-oblique.png",
+      "number": 3,
+      "anchor": "trochanter"
+    }
+  ],
+  "wholeLocatorRawPixels": [
+    245,
+    50,
+    650,
+    410
+  ],
+  "scope": "V2 labels and editorial region locator; exact V1 GLB and raw captures reused. Landmark vertices and first-visible checks are canonical in V1 bindings."
+}

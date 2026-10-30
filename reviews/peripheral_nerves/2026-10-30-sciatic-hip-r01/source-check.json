@@ -1,0 +1,69 @@
+{
+  "sourceSha256": "9f08a17ea0115fed80b2a73ecdf0a1bc2ab2f6956f37c593ce23d513ea35afcd",
+  "artifactSha256": "72077a97a8a935a7a4623443c1c0fd61ab48a9bf4ad895af058345b7a372abd6",
+  "result": "passed-with-explicit-import-limits",
+  "objects": [
+    {
+      "sourceObject": "Sciatic nerve.r",
+      "sourceVertices": 2484,
+      "unusedSourceVerticesOmitted": 0,
+      "storedGLBVertices": 2691,
+      "storedGLBTriangles": 4896,
+      "reimportTriangles": 4896,
+      "storedSurfaceTrianglesMatch": true,
+      "maxStoredVertexDifference": 1.1926748300084e-07,
+      "maxReimportVertexDifference": 1.1926748300084e-07,
+      "maxEffectiveMatrixDifference": 2.384185791015625e-07,
+      "knownImporterOmission": []
+    },
+    {
+      "sourceObject": "Hip bone.r",
+      "sourceVertices": 1894,
+      "unusedSourceVerticesOmitted": 0,
+      "storedGLBVertices": 1894,
+      "storedGLBTriangles": 3788,
+      "reimportTriangles": 3788,
+      "storedSurfaceTrianglesMatch": true,
+      "maxStoredVertexDifference": 1.1973200741977053e-07,
+      "maxReimportVertexDifference": 1.1973200741977053e-07,
+      "maxEffectiveMatrixDifference": 2.384185791015625e-07,
+      "knownImporterOmission": []
+    },
+    {
+      "sourceObject": "Sacrum",
+      "sourceVertices": 5832,
+      "unusedSourceVerticesOmitted": 21,
+      "storedGLBVertices": 7251,
+      "storedGLBTriangles": 11676,
+      "reimportTriangles": 11675,
+      "storedSurfaceTrianglesMatch": true,
+      "maxStoredVertexDifference": 6.143906006172983e-08,
+      "maxReimportVertexDifference": 6.143906006172983e-08,
+      "maxEffectiveMatrixDifference": 2.384185791015625e-07,
+      "knownImporterOmission": [
+        [
+          2712,
+          2713,
+          2771
+        ]
+      ]
+    },
+    {
+      "sourceObject": "Femur.r",
+      "sourceVertices": 1899,
+      "unusedSourceVerticesOmitted": 0,
+      "storedGLBVertices": 1899,
+      "storedGLBTriangles": 3794,
+      "reimportTriangles": 3794,
+      "storedSurfaceTrianglesMatch": true,
+      "maxStoredVertexDifference": 6.155189424816854e-08,
+      "maxReimportVertexDifference": 6.155189424816854e-08,
+      "maxEffectiveMatrixDifference": 1.1920928955078125e-07,
+      "knownImporterOmission": []
+    }
+  ],
+  "numericalTolerance": 1e-06,
+  "scope": "All four stored GLB surface vertex clouds/triangles and effective matrices checked. Exact source-coincident seam vertices mapped for triangle comparison. Float32 tolerance only.",
+  "importBoundary": "GLB omits 21 unused Sacrum vertices. Raw GLB retains all 24154 source surface triangles. Blender 4.3.2 reimport omits only source Sacrum triangle (2712,2713,2771), a narrow face with native double-area 1.942817136463481e-8. No artifact repair or route change.",
+  "limitations": "No anatomical, piriformis-clearance, clinical, physical-scale or browser-runtime validation."
+}
