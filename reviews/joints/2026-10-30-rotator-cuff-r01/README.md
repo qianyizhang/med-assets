@@ -45,12 +45,16 @@ tests** (26 transport manifests, 25 historical records, 591 import references,
 773 LFS pointers). Actual Blender wrong-source and existing-output refusals passed.
 The reviewer's missing-label guard finding is fixed and covered by empty, omitted
 and duplicate presentation-label cases. Existing shoulder and unrelated packages
-are unchanged. No hosted CI, remote LFS readback or browser-runtime run is claimed.
+are unchanged. All 13 new LFS payloads (7,495,712 bytes) passed fresh GitHub size/hash
+readback into an empty store after branch upload. No hosted CI or browser-runtime
+run is claimed by this local record.
 
 Publication is not complete: automatic approval review denied the new public issue
 because it did not recognize trusted authorization for that repository/publication.
-No issue was created or retried, and #150 was not edited. Local issue/PR briefs and
-the isolated branch are retained for the coordinator; no merge or Site change.
+No issue was created or retried, and #150 was not edited. The isolated branch is
+uploaded; the concise issue/PR briefs are retained for the coordinator. No merge or
+Site change. Exact tested implementation is `304a1594d5f8bae958f104f3f6e378236100cad6`;
+this follow-up records delivery only and reuses those unchanged checks and artifacts.
 
 ## Replay
 
