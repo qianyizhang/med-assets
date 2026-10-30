@@ -1,0 +1,248 @@
+{
+  "source_sha256": "9f08a17ea0115fed80b2a73ecdf0a1bc2ab2f6956f37c593ce23d513ea35afcd",
+  "artifact_sha256": "1442a5d7f90bc301467e819e0467e01bafbac4c145e5131ffd832b8e3c3453a2",
+  "artifact_bytes": 261972,
+  "surface_level": 1,
+  "blender_version": "4.3.2",
+  "objects": [
+    {
+      "name": "Testis.r",
+      "type": "MESH",
+      "native_matrix": [
+        [
+          0.9999999403953552,
+          0.0,
+          0.0,
+          -0.0206160768866539
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.055998560041189194
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.7421314716339111
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source_modifiers": [
+        {
+          "name": "Subdivision",
+          "type": "SUBSURF",
+          "viewport": 1,
+          "render": 2
+        }
+      ],
+      "vertices": 680,
+      "triangles": 1356,
+      "curve_bevel_depth": null,
+      "curve_capped": null
+    },
+    {
+      "name": "Testis.l",
+      "type": "MESH",
+      "native_matrix": [
+        [
+          -0.9999999403953552,
+          0.0,
+          0.0,
+          0.020616091787815094
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.055998560041189194
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.7421314716339111
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source_modifiers": [
+        {
+          "name": "Subdivision",
+          "type": "SUBSURF",
+          "viewport": 1,
+          "render": 2
+        }
+      ],
+      "vertices": 680,
+      "triangles": 1356,
+      "curve_bevel_depth": null,
+      "curve_capped": null
+    },
+    {
+      "name": "Epididymis.r",
+      "type": "MESH",
+      "native_matrix": [
+        [
+          0.9999999403953552,
+          0.0,
+          0.0,
+          -0.021143639460206032
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.051826078444719315
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.750400722026825
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source_modifiers": [
+        {
+          "name": "Subdivision",
+          "type": "SUBSURF",
+          "viewport": 1,
+          "render": 2
+        }
+      ],
+      "vertices": 218,
+      "triangles": 432,
+      "curve_bevel_depth": null,
+      "curve_capped": null
+    },
+    {
+      "name": "Epididymis.l",
+      "type": "MESH",
+      "native_matrix": [
+        [
+          -0.9999999403953552,
+          0.0,
+          0.0,
+          0.021143654361367226
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.051826078444719315
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.750400722026825
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source_modifiers": [
+        {
+          "name": "Subdivision",
+          "type": "SUBSURF",
+          "viewport": 1,
+          "render": 2
+        }
+      ],
+      "vertices": 218,
+      "triangles": 432,
+      "curve_bevel_depth": null,
+      "curve_capped": null
+    },
+    {
+      "name": "Ductus deferens.r",
+      "type": "CURVE",
+      "native_matrix": [
+        [
+          -0.9999999403953552,
+          0.0,
+          0.0,
+          -0.04595067352056503
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.034270863980054855
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.8224175572395325
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source_modifiers": [],
+      "vertices": 2460,
+      "triangles": 4896,
+      "curve_bevel_depth": 0.0005000000237487257,
+      "curve_capped": false
+    },
+    {
+      "name": "Ductus deferens.l",
+      "type": "CURVE",
+      "native_matrix": [
+        [
+          0.9999999403953552,
+          0.0,
+          0.0,
+          0.04595068842172623
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          -0.034270863980054855
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.8224175572395325
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "source_modifiers": [],
+      "vertices": 2460,
+      "triangles": 4896,
+      "curve_bevel_depth": 0.0005000000237487257,
+      "curve_capped": false
+    }
+  ],
+  "changes": "Selected source objects, evaluated modifiers/curves, display materials; no manual mesh repair or repositioning"
+}

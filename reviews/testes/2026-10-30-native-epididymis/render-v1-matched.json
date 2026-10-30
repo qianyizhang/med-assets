@@ -1,0 +1,73 @@
+{
+  "artifact_sha256": "1442a5d7f90bc301467e819e0467e01bafbac4c145e5131ffd832b8e3c3453a2",
+  "blender": "4.3.2",
+  "engine": "Cycles CPU",
+  "samples": 24,
+  "view_transform": "AgX",
+  "views": [
+    {
+      "file": "pair.png",
+      "sha256": "cdcecf625b8355738e22f285702467389bd5c095e84c8c4756f6d87520fcf940",
+      "target": [
+        0,
+        -0.052,
+        0.744
+      ],
+      "camera": [
+        0.22577302157878876,
+        0.7005767226219177,
+        0.8945153951644897
+      ],
+      "scale": 0.085,
+      "visible_objects": [
+        "Ductus deferens.l",
+        "Ductus deferens.r",
+        "Epididymis.l",
+        "Epididymis.r",
+        "Testis.l",
+        "Testis.r"
+      ]
+    },
+    {
+      "file": "posterior-close.png",
+      "sha256": "3a9cc119444ce5c2a48a4f07af3d702131b9057b7be94c811227044039ad9bb5",
+      "target": [
+        -0.0206,
+        -0.052,
+        0.744
+      ],
+      "camera": [
+        -0.2793605923652649,
+        0.6873160004615784,
+        0.9066495299339294
+      ],
+      "scale": 0.055,
+      "visible_objects": [
+        "Ductus deferens.r",
+        "Epididymis.r",
+        "Testis.r"
+      ]
+    },
+    {
+      "file": "side-close.png",
+      "sha256": "4f6b3caeb5a65bc2ff981ce82af380481c91667ae4d2a09ec2a5efe67a94384f",
+      "target": [
+        -0.0206,
+        -0.052,
+        0.744
+      ],
+      "camera": [
+        -0.8180522322654724,
+        -0.052000001072883606,
+        0.8077961802482605
+      ],
+      "scale": 0.055,
+      "visible_objects": [
+        "Ductus deferens.r",
+        "Epididymis.r",
+        "Testis.r"
+      ]
+    }
+  ],
+  "scope": "Clean GLB import; fixed source-coordinate views, not validated anatomical/physical scale"
+}

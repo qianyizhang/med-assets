@@ -1,0 +1,32 @@
+{
+  "offline": {
+    "status": "passed",
+    "command": "python3 tools/verify.py offline",
+    "tests": 189,
+    "transport_manifests": 26,
+    "historical_foundation_records": 25,
+    "import_references": 591,
+    "lfs_pointer_identities": 690,
+    "scope": "Repository offline sanity; does not verify hydrated media, anatomy or runtime"
+  },
+  "scoped_replay": "7 checks passed; see replay.json",
+  "payload_identity": {
+    "objects": 7,
+    "local_hash_size_and_index_pointer_match": true,
+    "fresh_remote_readback": "all7 passed; see remote-readback.json"
+  },
+  "local_markdown_links": {
+    "checked": 23,
+    "broken": 0
+  },
+  "recipe_sha256": {
+    "verify.py": "f110f40de2d6cbcb59dd58ed4fdc6a6e899a5a8e0a55cfe3c1d760e082b71d90",
+    "build.py": "ca224a01219f182e2ebd688e1e2995824a7b3abd493552e25dd1a5e869d9481d",
+    "render.py": "c61006615cc21cc9e72133f72c8bedb5f67bfa7472723e8ce9e8dc2d15a709a3"
+  },
+  "remaining": [
+    "No browser runtime or clinical approval",
+    "Historical original still Needs revision; count delta0",
+    "Source is simplified, full-tract/lumen/tissue-interface/scale claims excluded"
+  ]
+}
