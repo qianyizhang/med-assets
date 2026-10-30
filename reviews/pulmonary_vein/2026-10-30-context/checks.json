@@ -1,5 +1,5 @@
 {
-  "stage": "private-v2",
+  "stage": "reviewed-v2-draft-delivery",
   "sourceSha256": "9e0454c0a920bcd9292d1aced370ff781b97aa8fb87b0439eb1f0ac21517a593",
   "generatorSha256": {
     "tools/pulmonary_vein_context/build.py": "f5ab5531f956bb4188007fb805a456eadb973c1d7f4c4cf17debe1f4fa9244bd",
@@ -66,10 +66,35 @@
   },
   "gates": {
     "technical": "scoped checks passed",
-    "staticPresentation": "v2 author inspection passed; final independent review pending",
+    "staticPresentation": "independent v2 static presentation review passed",
     "browserRuntime": "unverified; no browser attempt",
     "anatomyClinical": "unverified",
-    "publicDelivery": "not attempted",
-    "requiredOfflinePRGate": "not run at private-v2 stage"
+    "publicDelivery": "separate PR delivery gate; not certified by offline checks",
+    "requiredOfflinePRGate": "passed: 200 tests; 26 transport manifests; 25 foundation records; 591 import references; 691 LFS pointer identities"
+  },
+  "v2IndependentReview": {
+    "commit": "84ae02a46d3b86d2382893b5fc9e267f862b50bb",
+    "manifestEntriesVerified": 38,
+    "actualViewsInspected": [
+      "revised native teaching PNG"
+    ],
+    "reusedReview": [
+      "unchanged detail",
+      "grayscale",
+      "source binding"
+    ],
+    "result": "Passed static educational presentation scope; all overview margins clear and matched camera/detail locator/laterality/coverage readable."
+  },
+  "deliveredPresentation": {
+    "file": "lessons/pulmonary-vein-context/pulmonary-vein-context.png",
+    "bytes": 2641758,
+    "sha256": "7e48448afb63ac42df1dc281cf939c3a9783acc75fdca877a9c65e2abcfc4bac",
+    "matchesIndependentlyReviewedV2": true
+  },
+  "offlinePrCheck": {
+    "command": "python3 tools/verify.py offline",
+    "status": "passed",
+    "tests": 200,
+    "testHarnessFix": "Explicit temporary repository-root import path lets the scoped suite run under the repository verifier as well as unittest discovery. Initial verifier import failure fixed; generator and reviewed pixels unchanged."
   }
 }

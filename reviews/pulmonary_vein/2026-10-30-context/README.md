@@ -1,9 +1,15 @@
-# Pulmonary-vein context — private v2
+# Pulmonary-vein context — reviewed v2
 
-V2 is prepared for final independent review, not public delivery or anatomy
-approval. The combined bilingual sheet, matched overview comparison and grayscale
-were actually inspected. The unchanged detail comparison retains the v1 review.
-Posterior sides and largest-component scope remain visible.
+V2 passed independent static presentation review at
+`84ae02a46d3b86d2382893b5fc9e267f862b50bb`. The reviewer verified all 38 evidence
+entries and inspected the actual revised teaching pixels, confirming overview
+margin, matched cameras, detail locator, side labels and largest-component scope.
+The unchanged detail, grayscale and source-binding review remains applicable.
+This does not establish anatomy, clinical or browser approval.
+
+The [teaching sheet](../../../lessons/pulmonary-vein-context/pulmonary-vein-context.png)
+is the exact reviewed PNG, SHA256
+`7e48448afb63ac42df1dc281cf939c3a9783acc75fdca877a9c65e2abcfc4bac`.
 
 Independent v1 review verified all 38 bundle entries and inspected the teaching,
 overview/detail comparisons and grayscale. It confirmed the source-bound
@@ -29,8 +35,11 @@ identify four veins. This change preserves the retained example and introduces
 no missing components, repairs, branch names, flow or lumen claim. The source-case
 heart is context only and does not modify the active authored-heart work.
 
-No browser execution, public image upload, Site action or PR creation has been
-attempted. V1 remains in Git history and private Library version history. Final
-independent v2 review precedes draft delivery. Full offline verification and
-required CI follow at the PR stage; only relevant framing/source/composition
-checks were rerun for this revision.
+V1 remains in Git and private evidence history. Browser runtime and anatomy/clinical
+gates remain unverified. Draft delivery reuses the reviewed pixels and scoped
+checks. The required offline PR gate passed 200 tests, 26 transport manifests,
+25 foundation records, 591 import references and 691 LFS pointer identities.
+Its first run exposed a test import-path issue; the test now resolves the
+repository root under both entrypoints. No generator or pixel change was needed.
+Hosted CI and remote evidence delivery remain separate PR results.
+No merge or Site publication is part of this change.

@@ -2,12 +2,17 @@
 import copy
 import json
 from pathlib import Path
+import sys
 import tempfile
 import unittest
 
-from tools.pulmonary_vein_context import build, source
-
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+try:
+    from tools.pulmonary_vein_context import build, source
+finally:
+    sys.path.pop(0)
+
 RECEIPT = ROOT / 'reviews/pulmonary_vein/2026-10-30-context/render.json'
 
 

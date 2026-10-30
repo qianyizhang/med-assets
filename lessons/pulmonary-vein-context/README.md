@@ -6,6 +6,10 @@ lobes. A posterior overview locates a matched detail view. The largest-component
 limit is visible on the presentation; no named branch, restored component or
 lumen continuity is inferred.
 
+[Open the reviewed teaching sheet](pulmonary-vein-context.png). The left column
+shows the original retained component; the right adds same-case context. Both
+columns use matched overview and detail cameras.
+
 This addresses the pulmonary-vein coverage/context row of issue #150. It uses
 the old source-case heart only as anatomical context, independently of the
 authored-heart work. Gallbladder teaching and the diaphragm preflight are outside
@@ -90,5 +94,5 @@ and the [label-source Apache-2.0 notice](../../body/anatomy-workshop-r1/docs/lic
 The change adds editorial display materials, same-case visibility comparisons
 and bilingual typography. No source author endorsement is implied.
 
-Private v1/v2 review is recorded in
+The v1/v2 technical and independent static review is recorded in
 [the review record](../../reviews/pulmonary_vein/2026-10-30-context/README.md).
