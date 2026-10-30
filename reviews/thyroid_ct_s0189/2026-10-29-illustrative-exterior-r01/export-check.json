@@ -1,0 +1,67 @@
+{
+  "source_sha256": "4add07e2efed2d67efb1d4ba225a109fe448043c79182e3d2e1a96e671534883",
+  "artifact_sha256": "4c2dee513f713fd8d649e7d1928ba3859ce1d25e81468e707b65a5fbeeee216a",
+  "source": {
+    "vertices": 4172,
+    "triangles": 8340,
+    "components": [
+      4172
+    ],
+    "nonmanifold_edges": 0,
+    "zero_area_faces": 0,
+    "signed_volume_mm3": 19774.841816841494,
+    "nonadjacent_contacts": 0,
+    "first_contacts": [],
+    "bounds_local_mm": [
+      [
+        -28.692785263061523,
+        31.551572799682617
+      ],
+      [
+        -18.021821975708008,
+        16.536191940307617
+      ],
+      [
+        -25.64895248413086,
+        25.66188621520996
+      ]
+    ]
+  },
+  "candidate": {
+    "vertices": 4172,
+    "triangles": 8340,
+    "components": [
+      4172
+    ],
+    "nonmanifold_edges": 0,
+    "zero_area_faces": 0,
+    "signed_volume_mm3": 19774.9523591296,
+    "nonadjacent_contacts": 0,
+    "first_contacts": [],
+    "bounds_local_mm": [
+      [
+        -28.781333923339844,
+        31.575801849365234
+      ],
+      [
+        -17.611757278442383,
+        16.57217788696289
+      ],
+      [
+        -25.476337432861328,
+        25.575817108154297
+      ]
+    ]
+  },
+  "triangle_index_correspondence": true,
+  "displacement_mm": {
+    "max": 0.6090858124284928,
+    "rms": 0.20489197726964034,
+    "p95": 0.35850582416023125,
+    "central_abs_x_lt5_max": 0.27941043535799115
+  },
+  "relative_volume_change": 5.590046642467428e-06,
+  "scope": "Fresh GLB import; no seam weld or mesh modification. BVH plus nonadjacent triangle SAT at1e-7mm finite-precision gap tolerance; not exhaustive exact arithmetic or anatomical proof.",
+  "tracheal_context": "unverified: same-sample context not included",
+  "runtime": "unverified"
+}

@@ -1,0 +1,43 @@
+{
+  "family": "thyroid-illustrative-exterior-r01",
+  "reviewed_at": "2026-10-29T16:31:10Z",
+  "base_revision": "384b785c5f647234077dc34dcae56fbb10b6178c",
+  "source": {
+    "file": "models/thyroid_ct_s0189/exports/source-candidate-02/thyroid_ct_s0189_source_frame.glb",
+    "sha256": "4add07e2efed2d67efb1d4ba225a109fe448043c79182e3d2e1a96e671534883",
+    "bytes": 151580
+  },
+  "artifact": {
+    "file": "models/thyroid_ct_s0189/exports/illustrative-exterior-r01/thyroid-illustrative-exterior.glb",
+    "sha256": "4c2dee513f713fd8d649e7d1928ba3859ce1d25e81468e707b65a5fbeeee216a",
+    "bytes": 152124
+  },
+  "gates": {
+    "technical": {
+      "status": "passed",
+      "scope": "Clean export/reimport, topology and finite-precision nonadjacent surface-contact checks; deterministic byte replay; wrong-source/overwrite guards."
+    },
+    "visual": {
+      "status": "pass-with-limitations",
+      "scope": "Independent actual-pixel review of five matched pairs; builder also inspected grayscale oblique pair. Ridge reduction, gross silhouette, recess and continuous bridge assessed in sampled views."
+    },
+    "anatomy": {
+      "status": "unverified",
+      "scope": "Retained clinical-source shape and provenance only. No new structures, normative claim or specialist/clinical validation."
+    },
+    "tracheal_relationship": {
+      "status": "unverified",
+      "scope": "Exact same-sample trachea remains external and unavailable locally; no replacement/registration used."
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "No live browser or intended-consumer test; Cycles evidence only."
+    }
+  },
+  "references": {
+    "source": "https://zenodo.org/records/10047292",
+    "license": "https://creativecommons.org/licenses/by/4.0/",
+    "prior_provenance": "models/thyroid_ct_s0189/provenance/source-candidate-02/migration-2026-10-24/external-source.json"
+  },
+  "failure_fix": "See failed-v1-record.json; V2 changes localized weighting and comparison camera/light setup; no further smoothing requested by reviewer."
+}

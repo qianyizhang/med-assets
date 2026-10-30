@@ -1,0 +1,16 @@
+[
+  {
+    "check": "wrong-source",
+    "exit_code": 1,
+    "expected_error": "Wrong source identity",
+    "candidate_unchanged": true,
+    "output_created": false
+  },
+  {
+    "check": "existing-output",
+    "exit_code": 1,
+    "expected_error": "Use a new output directory",
+    "candidate_unchanged": true,
+    "output_created": "existing preserved"
+  }
+]
