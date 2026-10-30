@@ -1,0 +1,197 @@
+{
+  "inputs": {
+    "v2/raw-128/whole-posterior.png": "46951c5bd5c5742b360bc59282f81d28601ec1cdecb66fe4fe3c96cd7758c4a6",
+    "v2/raw-128/elbow-posteromedial.png": "585741df745de79a570fd4eba95aa0f2c01223c7f87fc8bdf4dc01b3a19441d4",
+    "v2/raw-128/elbow-medial.png": "01be5a76613d04bca82a6c375b068d8b693a535cf75faeb93ee58a51355e1332",
+    "v1/matched-128/whole-posterior.png": "7df46d7bd51046769e1900e377ffeef9e5098f173eaf320dd717765bada994d9",
+    "v1/matched-128/elbow-posteromedial.png": "d5bb8dbcf9f12349a4d3accc25227a1cc682407851192d3c5dd4802cf253921a"
+  },
+  "locators": [
+    {
+      "panel": "elbow-posteromedial.png",
+      "label": 1,
+      "anchor": {
+        "key": "nerve",
+        "source_object": "Ulnar nerve.r",
+        "vertex": 757,
+        "world": [
+          -0.18418510258197784,
+          0.04352487996220589,
+          1.1163538694381714
+        ],
+        "source_reference": [
+          -0.19599999487400055,
+          0.0430000014603138,
+          1.1200000047683716
+        ],
+        "reference_distance": 0.01237584250342286,
+        "semantic_source": "Named source nerve; elbow-region point",
+        "pixel": [
+          314.12200927734375,
+          343.23129653930664
+        ],
+        "depth": 1.4707680940628052
+      },
+      "displayPixel": [
+        842.032356262207,
+        401.681125164032
+      ]
+    },
+    {
+      "panel": "elbow-posteromedial.png",
+      "label": 2,
+      "anchor": {
+        "key": "medial_epicondyle",
+        "source_object": "Humerus.r",
+        "vertex": 835,
+        "world": [
+          -0.18354324996471405,
+          0.0358806848526001,
+          1.108108639717102
+        ],
+        "source_reference": [
+          -0.18404105305671692,
+          0.036097265779972076,
+          1.108540415763855
+        ],
+        "reference_distance": 0.0006936467199614101,
+        "semantic_source": "Medial epicondyle of humerus.j source graphical endpoint",
+        "pixel": [
+          284.826397895813,
+          384.4574451446533
+        ],
+        "depth": 1.4757195711135864
+      },
+      "displayPixel": [
+        822.2578185796738,
+        429.508775472641
+      ]
+    },
+    {
+      "panel": "elbow-posteromedial.png",
+      "label": 3,
+      "anchor": {
+        "key": "olecranon",
+        "source_object": "Ulna.r",
+        "vertex": 87,
+        "world": [
+          -0.21548126637935638,
+          0.05190961807966232,
+          1.1095699071884155
+        ],
+        "source_reference": [
+          -0.2146892547607422,
+          0.05533192306756973,
+          1.1051441431045532
+        ],
+        "reference_distance": 0.005650384178010283,
+        "semantic_source": "Olecranon.j source graphical endpoint",
+        "pixel": [
+          454.4151782989502,
+          377.15110778808594
+        ],
+        "depth": 1.486968994140625
+      },
+      "displayPixel": [
+        936.7302453517914,
+        424.576997756958
+      ]
+    },
+    {
+      "panel": "elbow-medial.png",
+      "label": 1,
+      "anchor": {
+        "key": "nerve",
+        "source_object": "Ulnar nerve.r",
+        "vertex": 757,
+        "world": [
+          -0.18418510258197784,
+          0.04352487996220589,
+          1.1163538694381714
+        ],
+        "source_reference": [
+          -0.19599999487400055,
+          0.0430000014603138,
+          1.1200000047683716
+        ],
+        "reference_distance": 0.01237584250342286,
+        "semantic_source": "Named source nerve; elbow-region point",
+        "pixel": [
+          442.62471199035645,
+          343.2307720184326
+        ],
+        "depth": 1.467185139656067
+      },
+      "displayPixel": [
+        1518.7716805934906,
+        401.680771112442
+      ]
+    },
+    {
+      "panel": "elbow-medial.png",
+      "label": 2,
+      "anchor": {
+        "key": "medial_epicondyle",
+        "source_object": "Humerus.r",
+        "vertex": 835,
+        "world": [
+          -0.18354324996471405,
+          0.0358806848526001,
+          1.108108639717102
+        ],
+        "source_reference": [
+          -0.18404105305671692,
+          0.036097265779972076,
+          1.108540415763855
+        ],
+        "reference_distance": 0.0006936467199614101,
+        "semantic_source": "Medial epicondyle of humerus.j source graphical endpoint",
+        "pixel": [
+          404.4037342071533,
+          384.4569206237793
+        ],
+        "depth": 1.4665433168411255
+      },
+      "displayPixel": [
+        1492.9725205898285,
+        429.508421421051
+      ]
+    },
+    {
+      "panel": "elbow-medial.png",
+      "label": 3,
+      "anchor": {
+        "key": "olecranon",
+        "source_object": "Ulna.r",
+        "vertex": 87,
+        "world": [
+          -0.21548126637935638,
+          0.05190961807966232,
+          1.1095699071884155
+        ],
+        "source_reference": [
+          -0.2146892547607422,
+          0.05533192306756973,
+          1.1051441431045532
+        ],
+        "reference_distance": 0.005650384178010283,
+        "semantic_source": "Olecranon.j source graphical endpoint",
+        "pixel": [
+          484.5484256744385,
+          377.1505832672119
+        ],
+        "depth": 1.498481273651123
+      },
+      "displayPixel": [
+        1547.070187330246,
+        424.57664370536804
+      ]
+    }
+  ],
+  "outputs": {
+    "teaching-grayscale.png": "fa2fe503de8f7afb64d596eeb0d09ff62482f0c7dfd84ebedb858944e0a2909e",
+    "comparison.png": "e857ed3bc9664496eb6af2666e317f6171e4ec9502b58367a787e6f96ff9ed26",
+    "teaching.png": "4ccb0856f50f6dd771fe53b76d40e0cd5ef9997ebc3885513604f0889d6c6727"
+  },
+  "scope": "Numeric leaders terminate on projected exact reimport mesh vertices; semantic landmarks are based on source graphical endpoints and independent pixel review. No cross-source registration."
+}

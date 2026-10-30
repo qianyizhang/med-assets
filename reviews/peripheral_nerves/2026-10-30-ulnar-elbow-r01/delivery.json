@@ -1,0 +1,46 @@
+{
+  "schema": "bounded-ulnar-elbow-delivery-v1",
+  "upload": {
+    "action": "bounded direct Git LFS upload",
+    "executor": "Linux cloud; Git LFS 3.6.1",
+    "repository": "qianyizhang/med-assets",
+    "commit": "f9dda284d89b3bbfb28132ab38e5c1d08e9bd944",
+    "startedAt": "2026-10-30T03:26:52.598084+00:00",
+    "completedAt": "2026-10-30T03:26:55.383756+00:00",
+    "exitCode": 0,
+    "objectCount": 19,
+    "uniqueBytes": 8766724,
+    "sanitizedResult": "Uploading LFS objects: 100% (19/19), 8.8 MB | 3.8 MB/s, done.\n"
+  },
+  "branchPublication": {
+    "branch": "wip/peripheral-ulnar-elbow-150",
+    "commit": "f9dda284d89b3bbfb28132ab38e5c1d08e9bd944",
+    "exitCode": 0,
+    "result": "New branch pushed to origin using the existing Git LFS hook. Hook reported 36/36 recognized objects, 50 MB, 0 B/s; direct upload above was bounded to the 19 reviewed OIDs. No source archive or old scaffold added."
+  },
+  "readback": {
+    "action": "fresh GitHub LFS readback into previously nonexistent empty store",
+    "executor": "Linux cloud; Git LFS 3.6.1",
+    "repository": "qianyizhang/med-assets",
+    "commit": "f9dda284d89b3bbfb28132ab38e5c1d08e9bd944",
+    "startedAt": "2026-10-30T03:27:54.509997+00:00",
+    "completedAt": "2026-10-30T03:27:55.455436+00:00",
+    "exitCode": 0,
+    "sanitizedResult": "fetch: Fetching reference f9dda284d89b3bbfb28132ab38e5c1d08e9bd944\n",
+    "verifiedPathCount": 20,
+    "verifiedUniqueObjects": 19,
+    "verifiedUniqueBytes": 8766724,
+    "payloadManifest": "payloads.json",
+    "payloadManifestSha256": "73042407372abea3d557fac59a4712c4f970bdeed8a4705ecde0e480af54944c",
+    "boundary": "Fresh byte identity, not browser runtime, clinical approval or GitHub UI rendering."
+  },
+  "gates": {
+    "remoteByteIdentity": "passed for payloads.json",
+    "anatomy": "reference-screened; static gross relationship only",
+    "clinical": "unverified",
+    "runtime": "unverified",
+    "githubInlineRendering": "unverified",
+    "mergeOrReadyPromotion": "not authorized; keep draft"
+  },
+  "retention": "v1, failed first label layout, recipes and exact evidence retained in this branch; a recoverable local bundle is also retained. No new Drive destination was selected."
+}
