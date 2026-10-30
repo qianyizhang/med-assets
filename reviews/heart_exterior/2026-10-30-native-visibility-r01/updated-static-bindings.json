@@ -1,0 +1,126 @@
+{
+  "kind": "exact-export-clean-reimport-proof",
+  "label": "Updated",
+  "source": "static-opaque-exterior.glb",
+  "sha256": "595380d0aff153db4494fc5f9e8ffba062d0732c2bf0886242ebe1a188d3806f",
+  "rendererRecipeSha256": "507c8cd31c6d6b7da6c7fab88452bbd2da671874feec9213a944befcff829172",
+  "matchedBindingSha256": "c631dfafbdbff1b6f7e19acccb72dd2c13cad9aaaac45f491bf337bfac5b5ce6",
+  "frame": 0,
+  "fps": 30,
+  "visibleMeshes": 124,
+  "hiddenCutawayMeshes": [],
+  "highlightedIdentityOnly": [],
+  "bounds": [
+    [
+      -0.020611753687262535,
+      -0.04847919940948486,
+      6.240978837013245e-05
+    ],
+    [
+      0.06765209138393402,
+      0.01667185127735138,
+      0.1444879025220871
+    ]
+  ],
+  "lights": [
+    {
+      "location": [
+        -0.3231010437011719,
+        -0.4202950596809387,
+        0.5344367623329163
+      ],
+      "energy": 4.672354221343994,
+      "size": 0.2888509929180145
+    },
+    {
+      "location": [
+        0.312371164560318,
+        -0.189214289188385,
+        0.1300453543663025
+      ],
+      "energy": 2.336177110671997,
+      "size": 0.2888509929180145
+    },
+    {
+      "location": [
+        0.02352016791701317,
+        0.2729473114013672,
+        0.3611261546611786
+      ],
+      "energy": 3.3373959064483643,
+      "size": 0.2888509929180145
+    }
+  ],
+  "samples": 48,
+  "views": [
+    {
+      "file": "images/updated-static-whole-front.png",
+      "sha256": "caf273a3ab84046ed7e5d6d72c53c88b4b0fd528d7e33f9402e5eb078a96bd72",
+      "camera": [
+        0.02352016791701317,
+        -0.593605637550354,
+        0.07227515429258347
+      ],
+      "rotation": [
+        1.5707964897155762,
+        -0.0,
+        0.0
+      ],
+      "target": [
+        0.02352016791701317,
+        -0.015903674066066742,
+        0.07227515429258347
+      ],
+      "orthoScale": 0.16175655603408814,
+      "view": "whole-front"
+    },
+    {
+      "file": "images/updated-static-seam-front.png",
+      "sha256": "079f28f71b1aa53f38705734a75f19197024e4c454395feb6cfcc66d9df1b914",
+      "camera": [
+        0.012138026766479015,
+        -0.5970723032951355,
+        0.07497432827949524
+      ],
+      "rotation": [
+        1.5707964897155762,
+        -0.0,
+        0.0
+      ],
+      "target": [
+        0.012138026766479015,
+        -0.019370291382074356,
+        0.07497432827949524
+      ],
+      "orthoScale": 0.05777019858360291,
+      "view": "seam-front"
+    },
+    {
+      "file": "images/updated-static-seam-neutral.png",
+      "sha256": "71936635bc0dd4f62ab19d807e054be1e6e385d257d578b38a6e50095fb7e580",
+      "camera": [
+        0.012138026766479015,
+        -0.5970723032951355,
+        0.07497432827949524
+      ],
+      "rotation": [
+        1.5707964897155762,
+        -0.0,
+        0.0
+      ],
+      "target": [
+        0.012138026766479015,
+        -0.019370291382074356,
+        0.07497432827949524
+      ],
+      "orthoScale": 0.05777019858360291,
+      "view": "seam-neutral"
+    }
+  ],
+  "limitations": [
+    "diagnostic override is not material or anatomy improvement",
+    "source visibility restoration is not an RV inlet geometry repair",
+    "no clinical or runtime approval"
+  ],
+  "record_note": "Relocated evidence paths and source basename; original raster bytes, source hashes and camera/light values preserved."
+}

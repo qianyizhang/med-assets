@@ -1,0 +1,36 @@
+{
+  "static": {
+    "all_render_and_animation_data_identical": true,
+    "only_changed_scene_descriptions": {
+      "animation_delivery": {
+        "v1": null,
+        "v2": "Static presentation derivative, not the editable native source"
+      },
+      "pericardial_layers": {
+        "v1": "Endocardium/myocardium/epicardium represented by material-bearing wall surfaces; parietal serous pericardium separate simplified envelope. Epicardium is visceral serous layer. Fibrous sac thickness/reflections simplified.",
+        "v2": "Complete chamber wall surfaces remain. The removable parietal pericardial envelope and internal valve/support nodes are absent from this exterior scene; use the unchanged native source for those views."
+      },
+      "animation_model": {
+        "v1": "Illustrative regional shape-key shortening + torsion; valve timing; no biomechanical or flow simulation",
+        "v2": "Static end-diastolic exterior snapshot; this derivative has no animation clip"
+      }
+    }
+  },
+  "animated-source": {
+    "all_render_and_animation_data_identical": true,
+    "only_changed_scene_descriptions": {
+      "animation_delivery": {
+        "v1": "Portable cardiac-cycle morph clips accompany this editable original. One cycle frames 1\u201325 at 30fps; 0.8 seconds, illustrative 75 BPM. Not biomechanical/CFD simulation.",
+        "v2": "Portable exterior-only 0.8-second source morph clip; not the editable original. Internal animated structures remain available in the unchanged original full/cutaway/native assets."
+      },
+      "pericardial_layers": {
+        "v1": "Endocardium/myocardium/epicardium represented by material-bearing wall surfaces; parietal serous pericardium separate simplified envelope. Epicardium is visceral serous layer. Fibrous sac thickness/reflections simplified.",
+        "v2": "Complete chamber wall surfaces remain. The removable parietal pericardial envelope and internal valve/support nodes are absent from this exterior scene; use the unchanged native source for those views."
+      },
+      "animation_model": {
+        "v1": "Illustrative regional shape-key shortening + torsion; valve timing; no biomechanical or flow simulation",
+        "v2": "Unchanged authored exterior morphs: chamber contraction and surface structures only. No valve/chord motion participates in this scene. No biomechanical or flow simulation."
+      }
+    }
+  }
+}
