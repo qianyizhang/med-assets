@@ -1,0 +1,129 @@
+{
+  "source": {
+    "member": "Z-Anatomy/Startup.blend",
+    "bytes": 306838281,
+    "sha256": "9f08a17ea0115fed80b2a73ecdf0a1bc2ab2f6956f37c593ce23d513ea35afcd",
+    "archiveCommit": "bb293be456f6d2245191f37752d14ec76894740d"
+  },
+  "artifact": {
+    "file": "eye-exterior-courses.glb",
+    "bytes": 674580,
+    "sha256": "39fd2cc18b2352b2ac73b46e76f486aa7eb7a8c0cc301a77a9b178a1cb8f70b9"
+  },
+  "blender": "4.3.2",
+  "sourceBytesUnchanged": true,
+  "autoExec": false,
+  "triangles": 35884,
+  "decodedVerification": {
+    "objects": 20,
+    "sourceSideScenes": 2,
+    "defaultSourceSide": "r",
+    "rows": [
+      {
+        "name": "Cornea.l",
+        "nativeMatrixExact": true,
+        "nativeTriangleCornersExact": true
+      },
+      {
+        "name": "Cornea.r",
+        "nativeMatrixExact": true,
+        "nativeTriangleCornersExact": true
+      },
+      {
+        "name": "Inferior oblique muscle.l",
+        "nativeMatrixExact": true,
+        "nativeTriangleCornersExact": true
+      },
+      {
+        "name": "Inferior oblique muscle.r",
+        "nativeMatrixExact": true,
+        "nativeTriangleCornersExact": true
+      },
+      {
+        "name": "Inferior rectus muscle.l",
+        "nativeMatrixExact": true,
+        "nativeTriangleCornersExact": true
+      },
+      {
+        "name": "Inferior rectus muscle.r",
+        "nativeMatrixExact": true,
+        "nativeTriangleCornersExact": true
+      },
+      {
+        "name": "Lateral rectus muscle.l",
+        "nativeMatrixExact": true,
+        "nativeTriangleCornersExact": true
+      },
+      {
+        "name": "Lateral rectus muscle.r",
+        "nativeMatrixExact": true,
+        "nativeTriangleCornersExact": true
+      },
+      {
+        "name": "Medial rectus muscle.l",
+        "nativeMatrixExact": true,
+        "nativeTriangleCornersExact": true
+      },
+      {
+        "name": "Medial rectus muscle.r",
+        "nativeMatrixExact": true,
+        "nativeTriangleCornersExact": true
+      },
+      {
+        "name": "Optic nerve (II).l",
+        "nativeMatrixExact": true,
+        "nativeTriangleCornersExact": true
+      },
+      {
+        "name": "Optic nerve (II).r",
+        "nativeMatrixExact": true,
+        "nativeTriangleCornersExact": true
+      },
+      {
+        "name": "Sclera.l",
+        "nativeMatrixExact": true,
+        "nativeTriangleCornersExact": true
+      },
+      {
+        "name": "Sclera.r",
+        "nativeMatrixExact": true,
+        "nativeTriangleCornersExact": true
+      },
+      {
+        "name": "Superior oblique muscle.l",
+        "nativeMatrixExact": true,
+        "nativeTriangleCornersExact": true
+      },
+      {
+        "name": "Superior oblique muscle.r",
+        "nativeMatrixExact": true,
+        "nativeTriangleCornersExact": true
+      },
+      {
+        "name": "Superior rectus muscle.l",
+        "nativeMatrixExact": true,
+        "nativeTriangleCornersExact": true
+      },
+      {
+        "name": "Superior rectus muscle.r",
+        "nativeMatrixExact": true,
+        "nativeTriangleCornersExact": true
+      },
+      {
+        "name": "Trochlea of superior oblique muscle.l",
+        "nativeMatrixExact": true,
+        "nativeTriangleCornersExact": true
+      },
+      {
+        "name": "Trochlea of superior oblique muscle.r",
+        "nativeMatrixExact": true,
+        "nativeTriangleCornersExact": true
+      }
+    ]
+  },
+  "deterministicSecondEncoding": true,
+  "geometry": "Exact source-evaluated local triangle corners and normals. Native world matrices recovered exactly from the common glTF basis conversion. Existing source modifier/curve evaluation retained.",
+  "hierarchy": "20 static root nodes retain source world matrices and source-parent names. Annotation/font parents are not exported; no rig or animation is transferred.",
+  "scenes": "Source R is default; Source L is a separate selectable scene. All 20 source surfaces remain in the GLB. No bilateral pathway claim.",
+  "units": "Native source coordinate units; no independently calibrated physical-size claim."
+}

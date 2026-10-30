@@ -1,0 +1,760 @@
+{
+  "candidateSha256": "39fd2cc18b2352b2ac73b46e76f486aa7eb7a8c0cc301a77a9b178a1cb8f70b9",
+  "font": {
+    "file": "NotoSansCJK-Regular.ttc",
+    "sha256": "b76b0433203017ca80401b2ee0dd69350349871c4b19d504c34dbdd80541690a"
+  },
+  "matchedViews": [
+    {
+      "view": "source-R-oblique",
+      "identicalRGB": false,
+      "meanAbsoluteRGBDifference0to255": [
+        0.00013111111111111111,
+        0.00013111111111111111,
+        0.00013444444444444444
+      ],
+      "maximumChannelDifference": 9,
+      "changedPixels": 167,
+      "totalPixels": 900000,
+      "matchingCameraScaleLighting": true
+    },
+    {
+      "view": "source-R-posterior",
+      "identicalRGB": false,
+      "meanAbsoluteRGBDifference0to255": [
+        0.0003177777777777778,
+        0.00035222222222222225,
+        0.00036888888888888887
+      ],
+      "maximumChannelDifference": 15,
+      "changedPixels": 433,
+      "totalPixels": 900000,
+      "matchingCameraScaleLighting": true
+    },
+    {
+      "view": "source-L-oblique",
+      "identicalRGB": false,
+      "meanAbsoluteRGBDifference0to255": [
+        0.00023,
+        0.0002411111111111111,
+        0.00024777777777777775
+      ],
+      "maximumChannelDifference": 16,
+      "changedPixels": 291,
+      "totalPixels": 900000,
+      "matchingCameraScaleLighting": true
+    }
+  ],
+  "leaders": [
+    {
+      "view": "source-R-oblique",
+      "number": 1,
+      "role": "lateral-course",
+      "sourceNode": "Lateral rectus muscle.r",
+      "sourcePixel": [
+        655.845582485199,
+        472.222101688385
+      ],
+      "start": [
+        940,
+        625
+      ],
+      "end": [
+        695.845582485199,
+        562.222101688385
+      ]
+    },
+    {
+      "view": "source-R-oblique",
+      "number": 2,
+      "role": "trochlea",
+      "sourceNode": "Trochlea of superior oblique muscle.r",
+      "sourcePixel": [
+        699.8545527458191,
+        213.0595564842224
+      ],
+      "start": [
+        880,
+        270
+      ],
+      "end": [
+        739.8545527458191,
+        303.0595564842224
+      ]
+    },
+    {
+      "view": "source-R-oblique",
+      "number": 3,
+      "role": "optic-segment",
+      "sourceNode": "Optic nerve (II).r",
+      "sourcePixel": [
+        105.55560141801834,
+        300.641405582428
+      ],
+      "start": [
+        140,
+        300
+      ],
+      "end": [
+        145.55560141801834,
+        390.641405582428
+      ]
+    },
+    {
+      "view": "source-L-oblique",
+      "number": 1,
+      "role": "lateral-course",
+      "sourceNode": "Lateral rectus muscle.l",
+      "sourcePixel": [
+        344.15438771247864,
+        472.22207486629486
+      ],
+      "start": [
+        1180,
+        625
+      ],
+      "end": [
+        1424.1543877124786,
+        562.2220748662949
+      ]
+    },
+    {
+      "view": "source-L-oblique",
+      "number": 2,
+      "role": "trochlea",
+      "sourceNode": "Trochlea of superior oblique muscle.l",
+      "sourcePixel": [
+        300.1454174518585,
+        213.05950284004211
+      ],
+      "start": [
+        1240,
+        270
+      ],
+      "end": [
+        1380.1454174518585,
+        303.0595028400421
+      ]
+    },
+    {
+      "view": "source-L-oblique",
+      "number": 3,
+      "role": "optic-segment",
+      "sourceNode": "Optic nerve (II).l",
+      "sourcePixel": [
+        894.4443464279175,
+        300.641405582428
+      ],
+      "start": [
+        1980,
+        300
+      ],
+      "end": [
+        1974.4443464279175,
+        390.641405582428
+      ]
+    },
+    {
+      "view": "source-R-posterior",
+      "number": 1,
+      "role": "lateral-course",
+      "sourceNode": "Lateral rectus muscle.r",
+      "sourcePixel": [
+        742.4492239952087,
+        391.01248383522034
+      ],
+      "start": [
+        840,
+        1400
+      ],
+      "end": [
+        712.4492239952087,
+        1243.0124838352203
+      ]
+    },
+    {
+      "view": "source-R-posterior",
+      "number": 2,
+      "role": "trochlea",
+      "sourceNode": "Trochlea of superior oblique muscle.r",
+      "sourcePixel": [
+        383.57481360435486,
+        138.51656913757324
+      ],
+      "start": [
+        510,
+        960
+      ],
+      "end": [
+        353.57481360435486,
+        990.5165691375732
+      ]
+    },
+    {
+      "view": "source-R-posterior",
+      "number": 3,
+      "role": "optic-segment",
+      "sourceNode": "Optic nerve (II).r",
+      "sourcePixel": [
+        151.91994607448578,
+        298.3691453933716
+      ],
+      "start": [
+        70,
+        1090
+      ],
+      "end": [
+        121.91994607448578,
+        1150.3691453933716
+      ]
+    }
+  ],
+  "sheets": [
+    {
+      "file": "teaching.png",
+      "bytes": 1522008,
+      "sha256": "c97e8d1af670b82e8551f94fb894a9ea5e06a7fe5637b0f2ebd5042176c60dbb",
+      "size": [
+        2120,
+        1790
+      ],
+      "panels": [
+        {
+          "file": "export-source-R-oblique.png",
+          "sha256": "a42bba9507a80ca62c54223d515582daba17c455d8147925636223105f010d80",
+          "crop": [
+            0,
+            120,
+            1000,
+            700
+          ],
+          "position": [
+            40,
+            210
+          ],
+          "size": [
+            1000,
+            580
+          ],
+          "resampling": false
+        },
+        {
+          "file": "export-source-L-oblique.png",
+          "sha256": "416f7e01877a3d18c33c4488288c1902d88898ba8ad9f8274646510ebe2cc85f",
+          "crop": [
+            0,
+            120,
+            1000,
+            700
+          ],
+          "position": [
+            1080,
+            210
+          ],
+          "size": [
+            1000,
+            580
+          ],
+          "resampling": false
+        },
+        {
+          "file": "export-source-R-posterior.png",
+          "sha256": "c84b01395a1a3e6e655684aca4dddfbaf0d06af91da5e23bb1eb6ec825370875",
+          "crop": [
+            70,
+            40,
+            930,
+            750
+          ],
+          "position": [
+            40,
+            892
+          ],
+          "size": [
+            860,
+            710
+          ],
+          "resampling": false
+        }
+      ],
+      "texts": [
+        {
+          "text": "Globe & extraocular courses / 眼球外形与眼外肌走行",
+          "box": [
+            40,
+            28,
+            1182,
+            78
+          ]
+        },
+        {
+          "text": "Each side shown separately · names follow the source / 分侧显示 · 名称沿用来源",
+          "box": [
+            40,
+            103,
+            1112,
+            136
+          ]
+        },
+        {
+          "text": "Source R · oblique / 来源右 · 斜视",
+          "box": [
+            40,
+            158,
+            505,
+            191
+          ]
+        },
+        {
+          "text": "Source L · oblique / 来源左 · 斜视",
+          "box": [
+            1080,
+            158,
+            1542,
+            191
+          ]
+        },
+        {
+          "text": "Source R · posterior detail / 来源右 · 后方细节",
+          "box": [
+            40,
+            826,
+            756,
+            864
+          ]
+        },
+        {
+          "text": "Follow the same numbers / 循编号对照",
+          "box": [
+            980,
+            925,
+            1622,
+            964
+          ]
+        },
+        {
+          "text": "1  Lateral rectus course / 外直肌走行",
+          "box": [
+            980,
+            1005,
+            1508,
+            1039
+          ]
+        },
+        {
+          "text": "Source: Lateral rectus muscle",
+          "box": [
+            980,
+            1054,
+            1307,
+            1074
+          ]
+        },
+        {
+          "text": "2  Trochlea & superior-oblique turn",
+          "box": [
+            980,
+            1132,
+            1497,
+            1165
+          ]
+        },
+        {
+          "text": "    滑车与上斜肌转折",
+          "box": [
+            980,
+            1182,
+            1265,
+            1214
+          ]
+        },
+        {
+          "text": "Source: Trochlea of superior oblique muscle",
+          "box": [
+            980,
+            1231,
+            1470,
+            1257
+          ]
+        },
+        {
+          "text": "3  Retained optic segment · end shown",
+          "box": [
+            980,
+            1307,
+            1560,
+            1339
+          ]
+        },
+        {
+          "text": "    保留的视神经段 · 标出源端部",
+          "box": [
+            980,
+            1357,
+            1425,
+            1389
+          ]
+        },
+        {
+          "text": "Source: Optic nerve (II)",
+          "box": [
+            980,
+            1406,
+            1234,
+            1432
+          ]
+        },
+        {
+          "text": "Segment only; pathway continuity is unverified.",
+          "box": [
+            980,
+            1488,
+            1576,
+            1516
+          ]
+        },
+        {
+          "text": "仅为来源片段；未验证视路连续性。",
+          "box": [
+            980,
+            1532,
+            1412,
+            1560
+          ]
+        },
+        {
+          "text": "20 source surfaces · neutral display materials · source gaps and overlaps retained",
+          "box": [
+            40,
+            1642,
+            1101,
+            1672
+          ]
+        },
+        {
+          "text": "20个来源表面 · 中性显示材质 · 保留源间隙与重叠；不作附着、肌肉动作或眼前段分层展示。",
+          "box": [
+            40,
+            1685,
+            1192,
+            1714
+          ]
+        },
+        {
+          "text": "Z-Anatomy / BodyParts3D · CC BY-SA 4.0 · Exact source names and attribution in the accompanying manifest.",
+          "box": [
+            40,
+            1740,
+            1254,
+            1766
+          ]
+        }
+      ],
+      "sourcePixelsUnchangedOutsideEditorialOverlay": 1755339
+    },
+    {
+      "file": "matched-source-R-oblique.png",
+      "bytes": 748404,
+      "sha256": "36efbbdc0d57308bcdc6d9855a2360ff17df557e12e310ba699028bc06bb2aa8",
+      "size": [
+        2120,
+        1140
+      ],
+      "panels": [
+        {
+          "file": "source-R-oblique.png",
+          "sha256": "c18210011a660e4aeb41ec48a75c4bc5f1f71456db59b6a394726147bc8ec5a2",
+          "crop": [
+            0,
+            0,
+            1000,
+            900
+          ],
+          "position": [
+            40,
+            195
+          ],
+          "size": [
+            1000,
+            900
+          ],
+          "resampling": false
+        },
+        {
+          "file": "export-source-R-oblique.png",
+          "sha256": "a42bba9507a80ca62c54223d515582daba17c455d8147925636223105f010d80",
+          "crop": [
+            0,
+            0,
+            1000,
+            900
+          ],
+          "position": [
+            1080,
+            195
+          ],
+          "size": [
+            1000,
+            900
+          ],
+          "resampling": false
+        }
+      ],
+      "texts": [
+        {
+          "text": "Native source / 原生来源  →  Export reimport / 导出重载",
+          "box": [
+            40,
+            24,
+            1026,
+            66
+          ]
+        },
+        {
+          "text": "source-R-oblique · matching camera, scale and neutral display / 同视角、比例及中性显示",
+          "box": [
+            40,
+            88,
+            1187,
+            120
+          ]
+        },
+        {
+          "text": "Original source evaluation / 来源求值表面",
+          "box": [
+            40,
+            143,
+            572,
+            175
+          ]
+        },
+        {
+          "text": "Updated GLB reimport / GLB重新导入",
+          "box": [
+            1080,
+            143,
+            1563,
+            175
+          ]
+        },
+        {
+          "text": "Source-labelled exterior scope; not the old schematic baseline. / 来源命名的外形范围；非原示意模型对照。",
+          "box": [
+            40,
+            1108,
+            1166,
+            1134
+          ]
+        }
+      ],
+      "sourcePixelsUnchangedOutsideEditorialOverlay": 1800000
+    },
+    {
+      "file": "matched-source-R-posterior.png",
+      "bytes": 814462,
+      "sha256": "483ef4d577834b6410bead95cef5134277c1abf6ad7829def791781c8d03c789",
+      "size": [
+        2120,
+        1140
+      ],
+      "panels": [
+        {
+          "file": "source-R-posterior.png",
+          "sha256": "f858fe79cb08ae52eed90326f0d34743111ac2f7e76ea0e14f1935765075404c",
+          "crop": [
+            0,
+            0,
+            1000,
+            900
+          ],
+          "position": [
+            40,
+            195
+          ],
+          "size": [
+            1000,
+            900
+          ],
+          "resampling": false
+        },
+        {
+          "file": "export-source-R-posterior.png",
+          "sha256": "c84b01395a1a3e6e655684aca4dddfbaf0d06af91da5e23bb1eb6ec825370875",
+          "crop": [
+            0,
+            0,
+            1000,
+            900
+          ],
+          "position": [
+            1080,
+            195
+          ],
+          "size": [
+            1000,
+            900
+          ],
+          "resampling": false
+        }
+      ],
+      "texts": [
+        {
+          "text": "Native source / 原生来源  →  Export reimport / 导出重载",
+          "box": [
+            40,
+            24,
+            1026,
+            66
+          ]
+        },
+        {
+          "text": "source-R-posterior · matching camera, scale and neutral display / 同视角、比例及中性显示",
+          "box": [
+            40,
+            88,
+            1206,
+            120
+          ]
+        },
+        {
+          "text": "Original source evaluation / 来源求值表面",
+          "box": [
+            40,
+            143,
+            572,
+            175
+          ]
+        },
+        {
+          "text": "Updated GLB reimport / GLB重新导入",
+          "box": [
+            1080,
+            143,
+            1563,
+            175
+          ]
+        },
+        {
+          "text": "Source-labelled exterior scope; not the old schematic baseline. / 来源命名的外形范围；非原示意模型对照。",
+          "box": [
+            40,
+            1108,
+            1166,
+            1134
+          ]
+        }
+      ],
+      "sourcePixelsUnchangedOutsideEditorialOverlay": 1800000
+    },
+    {
+      "file": "matched-source-L-oblique.png",
+      "bytes": 743315,
+      "sha256": "246e4d885722ad10a32d074cd80ba79105577283742ae4d00b2ddb47aea96dbc",
+      "size": [
+        2120,
+        1140
+      ],
+      "panels": [
+        {
+          "file": "source-L-oblique.png",
+          "sha256": "10de4f2d22e44b70be14396c83d98e5b3ea42ac7de6b47b2d52ac30165a334e1",
+          "crop": [
+            0,
+            0,
+            1000,
+            900
+          ],
+          "position": [
+            40,
+            195
+          ],
+          "size": [
+            1000,
+            900
+          ],
+          "resampling": false
+        },
+        {
+          "file": "export-source-L-oblique.png",
+          "sha256": "416f7e01877a3d18c33c4488288c1902d88898ba8ad9f8274646510ebe2cc85f",
+          "crop": [
+            0,
+            0,
+            1000,
+            900
+          ],
+          "position": [
+            1080,
+            195
+          ],
+          "size": [
+            1000,
+            900
+          ],
+          "resampling": false
+        }
+      ],
+      "texts": [
+        {
+          "text": "Native source / 原生来源  →  Export reimport / 导出重载",
+          "box": [
+            40,
+            24,
+            1026,
+            66
+          ]
+        },
+        {
+          "text": "source-L-oblique · matching camera, scale and neutral display / 同视角、比例及中性显示",
+          "box": [
+            40,
+            88,
+            1183,
+            120
+          ]
+        },
+        {
+          "text": "Original source evaluation / 来源求值表面",
+          "box": [
+            40,
+            143,
+            572,
+            175
+          ]
+        },
+        {
+          "text": "Updated GLB reimport / GLB重新导入",
+          "box": [
+            1080,
+            143,
+            1563,
+            175
+          ]
+        },
+        {
+          "text": "Source-labelled exterior scope; not the old schematic baseline. / 来源命名的外形范围；非原示意模型对照。",
+          "box": [
+            40,
+            1108,
+            1166,
+            1134
+          ]
+        }
+      ],
+      "sourcePixelsUnchangedOutsideEditorialOverlay": 1800000
+    }
+  ],
+  "otherFiles": [
+    {
+      "file": "teaching.svg",
+      "bytes": 3486043,
+      "sha256": "f13666709fbb3896183f4ae52bd1cd3f233b5a58567f8c1fe1dba41fea6331cc"
+    },
+    {
+      "file": "teaching-grayscale.png",
+      "bytes": 617773,
+      "sha256": "0d02cc6dd09cd5f5fb5be05f0a641efb4d260c418bee21099e462581969407a3"
+    }
+  ],
+  "limits": "Source names/laterality only; static source-preserving display. No anatomy/clinical or browser-runtime certification."
+}
