@@ -1,0 +1,133 @@
+{
+  "kind": "read-only-source-diagnostic-not-a-candidate",
+  "source": "Heart_Clinical_Animated.glb",
+  "sha256": "6912d439271c3525230a90fe403d586000e6a66ab37f82bf0419604181e52263",
+  "frame": 0,
+  "fps": 30,
+  "visibleMeshes": 247,
+  "hiddenCutawayMeshes": [],
+  "highlightedIdentityOnly": [
+    "RV chordae | papillary 1 leaflet 1 cord 1",
+    "RV chordae | papillary 1 leaflet 1 cord 2",
+    "RV chordae | papillary 1 leaflet 1 cord 3",
+    "RV chordae | papillary 1 leaflet 1 cord 4",
+    "RV chordae | papillary 1 leaflet 1 cord 5",
+    "RV chordae | papillary 1 leaflet 2 cord 1",
+    "RV chordae | papillary 1 leaflet 2 cord 2",
+    "RV chordae | papillary 1 leaflet 2 cord 3",
+    "RV chordae | papillary 1 leaflet 2 cord 4",
+    "RV chordae | papillary 1 leaflet 2 cord 5",
+    "RV chordae | papillary 2 leaflet 2 cord 1",
+    "RV chordae | papillary 2 leaflet 2 cord 2",
+    "RV chordae | papillary 2 leaflet 2 cord 3",
+    "RV chordae | papillary 2 leaflet 2 cord 4",
+    "RV chordae | papillary 2 leaflet 2 cord 5",
+    "RV chordae | papillary 2 leaflet 3 cord 1",
+    "RV chordae | papillary 2 leaflet 3 cord 2",
+    "RV chordae | papillary 2 leaflet 3 cord 3",
+    "RV chordae | papillary 2 leaflet 3 cord 4",
+    "RV chordae | papillary 2 leaflet 3 cord 5",
+    "RV chordae | papillary 3 leaflet 1 cord 1",
+    "RV chordae | papillary 3 leaflet 1 cord 2",
+    "RV chordae | papillary 3 leaflet 1 cord 3",
+    "RV chordae | papillary 3 leaflet 1 cord 4",
+    "RV chordae | papillary 3 leaflet 1 cord 5",
+    "RV chordae | papillary 3 leaflet 3 cord 1",
+    "RV chordae | papillary 3 leaflet 3 cord 2",
+    "RV chordae | papillary 3 leaflet 3 cord 3",
+    "RV chordae | papillary 3 leaflet 3 cord 4",
+    "RV chordae | papillary 3 leaflet 3 cord 5"
+  ],
+  "bounds": [
+    [
+      -0.04399072378873825,
+      -0.03459611162543297,
+      -0.057500001043081284
+    ],
+    [
+      0.049237120896577835,
+      0.03421906754374504,
+      0.09504806250333786
+    ]
+  ],
+  "lights": [
+    {
+      "location": [
+        -0.3634921610355377,
+        -0.4273231029510498,
+        0.5069277882575989
+      ],
+      "energy": 5.212684154510498,
+      "size": 0.3050961196422577
+    },
+    {
+      "location": [
+        0.30771932005882263,
+        -0.1832461953163147,
+        0.07979325205087662
+      ],
+      "energy": 2.606342077255249,
+      "size": 0.3050961196422577
+    },
+    {
+      "location": [
+        0.002623198553919792,
+        0.30490759015083313,
+        0.32387015223503113
+      ],
+      "energy": 3.7233457565307617,
+      "size": 0.3050961196422577
+    }
+  ],
+  "samples": 48,
+  "views": [
+    {
+      "file": "images/original-animated-source-whole-front.png",
+      "sha256": "f4c763a643f0bb286940919b234974605066d95511dc0f9c2df11aec358b63f3",
+      "camera": [
+        0.002623198553919792,
+        -0.6103807687759399,
+        0.01877403073012829
+      ],
+      "rotation": [
+        1.5707964897155762,
+        -0.0,
+        0.0
+      ],
+      "target": [
+        0.002623198553919792,
+        -0.00018852204084396362,
+        0.01877403073012829
+      ],
+      "orthoScale": 0.1708538269996643,
+      "view": "whole-front"
+    },
+    {
+      "file": "images/original-animated-source-seam-front.png",
+      "sha256": "b3277a13691ce9598170c7e76bbf07a1f82ef89ef409ba9b50f7a8485d75f92c",
+      "camera": [
+        -0.009399082511663437,
+        -0.614042341709137,
+        0.02162500098347664
+      ],
+      "rotation": [
+        1.5707964897155762,
+        -0.0,
+        0.0
+      ],
+      "target": [
+        -0.009399082511663437,
+        -0.0038501047529280186,
+        0.02162500098347664
+      ],
+      "orthoScale": 0.06101922392845154,
+      "view": "seam-front"
+    }
+  ],
+  "limitations": [
+    "diagnostic override is not material or anatomy improvement",
+    "no new geometry or source export",
+    "no clinical or runtime approval"
+  ],
+  "record_note": "Relocated evidence paths and source basename; original raster bytes, source hashes and camera/light values preserved."
+}

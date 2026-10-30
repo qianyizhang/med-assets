@@ -1,0 +1,68 @@
+{
+  "scope": "Actual two-source replay, no-overwrite and corruption/identity failure checks; no runtime or anatomy approval",
+  "checks": [
+    {
+      "check": "static deterministic replay",
+      "result": "passed-byte-identical",
+      "sha256": "595380d0aff153db4494fc5f9e8ffba062d0732c2bf0886242ebe1a188d3806f"
+    },
+    {
+      "check": "static existing-output guard",
+      "result": "passed-rejected"
+    },
+    {
+      "check": "static original-candidate differential integrity",
+      "result": "passed"
+    },
+    {
+      "check": "static changed-buffer rejection",
+      "result": "passed-rejected"
+    },
+    {
+      "check": "static changed-wall-transform rejection",
+      "result": "passed-rejected"
+    },
+    {
+      "check": "static changed-membership rejection",
+      "result": "passed-rejected"
+    },
+    {
+      "check": "animated-source deterministic replay",
+      "result": "passed-byte-identical",
+      "sha256": "aec9c13d3b9a0fa919bdc362ed17c582f895f77fc44f5e29cd184cea57599e0f"
+    },
+    {
+      "check": "animated-source existing-output guard",
+      "result": "passed-rejected"
+    },
+    {
+      "check": "animated-source original-candidate differential integrity",
+      "result": "passed"
+    },
+    {
+      "check": "animated-source changed-buffer rejection",
+      "result": "passed-rejected"
+    },
+    {
+      "check": "animated-source changed-wall-transform rejection",
+      "result": "passed-rejected"
+    },
+    {
+      "check": "animated-source changed-membership rejection",
+      "result": "passed-rejected"
+    },
+    {
+      "check": "changed-animation-sampling rejection",
+      "result": "passed-rejected"
+    },
+    {
+      "check": "unhydrated-or-substitute-source rejection",
+      "result": "passed-rejected"
+    },
+    {
+      "check": "altered-native-membership-spec rejection",
+      "result": "passed-rejected"
+    }
+  ],
+  "count": 15
+}
