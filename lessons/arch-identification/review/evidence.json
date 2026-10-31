@@ -1,0 +1,137 @@
+{
+  "base_commit": "cb5df4ab469ff4067cf42ecd29373d812f44906e",
+  "review_kind": "Offline shared-SVG actual-pixel review; no HTML/browser screenshot or WebGL claim",
+  "tools": {
+    "node": "v24.19.0",
+    "inkscape": "Inkscape 1.4 (e7c3feb100, 2024-10-09)",
+    "jsdom": "26.1.0",
+    "playwright_core": "1.57.0"
+  },
+  "code_sha256": {
+    "index.html": "33e93637736e0a9eea9e611d370de3f9ad7f0366b7a0a1af0a02a33566d089ef",
+    "style.css": "a12b71f0ac4c35fe42e0c6d5a9cce718f4c382c5d80afc1b8448f2df55c9c9f4",
+    "app.mjs": "aaa459f942b8b5983469316f7d5502bbe307a4096553691d681f21b830609855",
+    "plate.mjs": "d62b5b6caca942fbec544719c3117cb26a3b7bae44322b1f538bdd3889a6979c",
+    "ui.mjs": "f6b793ef9f68e3d6201ad91a9391f7029a4a71105124567b56646397432e74a6",
+    "tests/capture.mjs": "26f740bc4a8cacec29b9a00a1c9d24ef9ee8c2f23fb2ba7a6c88bbfc3e663143",
+    "tests/plate.test.mjs": "5665dbd18f89dcb8db8c3c1005ea6459aea2cab919c46d9071e137c00fc6765c",
+    "tests/verify_sources.py": "26881b27210fca242209a36512d21488f2e882aafa3bc4df6146197b4bfa3e71",
+    "tests/browser.mjs": "5801796eed810930f359e0bbc0c1433573ebaca71e28030429a5e3bab1ad4dbc"
+  },
+  "source_check": "source-check.json",
+  "retained_raster_bytes": 467040,
+  "renders": {
+    "v1": [
+      {
+        "file": "missing-lower-zh.png",
+        "sha256": "bff70bfa8d44f87d8c8311894b4be4497523a4c023a78feb58429cef1d36ed0c",
+        "bytes": 18433,
+        "repository_copy": null
+      },
+      {
+        "file": "narrow-lower-zh.png",
+        "sha256": "9b1e59c4e829664928918ab583fdd6092acc5df3ca22117a58aad45a4a4a6e44",
+        "bytes": 91602,
+        "repository_copy": null
+      },
+      {
+        "file": "narrow-upper-en.png",
+        "sha256": "9fb29a2c883a1a858212fd28c1b0dec85771cc1672a8ec3420721fa4196c3ae0",
+        "bytes": 92486,
+        "repository_copy": null
+      },
+      {
+        "file": "original-upper.png",
+        "sha256": "d6c7cd20ade6fb90f21110d5f7526be38a25a9a68c09e4dc20e4c820293da2d7",
+        "bytes": 345596,
+        "repository_copy": null
+      },
+      {
+        "file": "updated-lower-zh.png",
+        "sha256": "190d900ffc39923bebf2523647be2c5fad13389139892060c74b1f073e36f617",
+        "bytes": 353761,
+        "repository_copy": null
+      },
+      {
+        "file": "updated-upper-en.png",
+        "sha256": "89b2af035c5fbd9fb156a12eb90cc0f2ca3630506be076795891d3ddbe814238",
+        "bytes": 352075,
+        "repository_copy": null
+      }
+    ],
+    "v2": [
+      {
+        "file": "missing-lower-zh.png",
+        "sha256": "917241e325e4ecebde0473ec2bc807b248eb6798fadde5f2220b453932cc6041",
+        "bytes": 20414,
+        "repository_copy": "lessons/arch-identification/review/missing-lower-zh.png"
+      },
+      {
+        "file": "narrow-lower-zh.png",
+        "sha256": "c4f8855307d4b41e3ce605bc4f009b1ff4083a99b6b791811fe945ec329a3305",
+        "bytes": 91213,
+        "repository_copy": "lessons/arch-identification/review/narrow-lower-zh.png"
+      },
+      {
+        "file": "narrow-upper-en.png",
+        "sha256": "af4a32b0505ab84aee2612386752e2b4d345992bea4b6c97ae92aefdf1f32e8f",
+        "bytes": 91759,
+        "repository_copy": null
+      },
+      {
+        "file": "original-upper.png",
+        "sha256": "d6c7cd20ade6fb90f21110d5f7526be38a25a9a68c09e4dc20e4c820293da2d7",
+        "bytes": 345596,
+        "repository_copy": null
+      },
+      {
+        "file": "updated-lower-zh.png",
+        "sha256": "a9055ca08d01b6da22b8c0415a1f8dc4e36776094f40ec933388ab8be7e3a988",
+        "bytes": 357097,
+        "repository_copy": null
+      },
+      {
+        "file": "updated-upper-en.png",
+        "sha256": "1531aa4730cea3d8ef1bfd0cba4f16a288fa1bc449ee22b3cffdff6aeae5df85",
+        "bytes": 355413,
+        "repository_copy": "lessons/arch-identification/review/updated-upper-en.png"
+      }
+    ]
+  },
+  "checks": {
+    "node_jsdom": {
+      "result": "passed",
+      "tests": 10,
+      "browser_engine": false
+    },
+    "source_binding": {
+      "result": "passed",
+      "ids": 28,
+      "ray_controls": 4,
+      "image_model_hashes": "unchanged"
+    },
+    "http": {
+      "result": "passed",
+      "checks": 7,
+      "scope": "localhost HTTP 200 and exact bytes for page, three code/style files, coverage and two PNGs"
+    },
+    "browser": {
+      "result": "blocked",
+      "scope": "Chromium startup failed: sandbox helper ownership is nobody:nogroup; requires root. No flags/security controls changed. No browser tests or HTML layout claim."
+    },
+    "repository_offline": {
+      "result": "passed",
+      "tests": 232,
+      "transport_manifests": 26,
+      "foundation_records": 25,
+      "import_references": 591,
+      "lfs_pointer_identities": 837,
+      "scope": "Existing offline gate; hydrated media identity is checked separately."
+    }
+  },
+  "limitations": [
+    "Actual browser HTML/CSS responsive layout, image events and accessibility behavior remain unverified.",
+    "Existing contact accuracy fails; no bite or clinical/anatomy acceptance.",
+    "Source coverage lacks 18/28/38/48; no statement about patient absence."
+  ]
+}
