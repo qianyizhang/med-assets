@@ -9,6 +9,8 @@ import tempfile
 import unittest
 
 TOOL = Path(__file__).resolve().parents[1] / 'tools/patch_scene_metadata.py'
+ROOT = TOOL.parent.parent
+HEART_PATCH = ROOT / 'tests/scene_metadata/heart/approved-patch.json'
 
 
 def glb(extras):
@@ -88,6 +90,57 @@ class SceneMetadataTests(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0)
         self.assertEqual(self.output.read_bytes(), b'keep existing output')
         self.assertEqual(self.source.read_bytes(), self.before)
+
+
+class HeartMetadataContractTests(unittest.TestCase):
+    """Bind the additive correction in an offline text/pointer checkout."""
+
+    def test_exact_source_and_derivative_pointer_identities(self):
+        patch = json.loads(HEART_PATCH.read_text())
+        expected = (
+            ('source', 'body/breathing/heart_breathing.glb', 2037364,
+             '3894d51df42a6e5941f0d2b076992d5359279f5e3ddb3b6d4ff6c00f58328086'),
+            ('target', 'models/heart/exports/metadata-cleanup-r01/heart.glb', 2037228,
+             '50c86dcab55701ca1418e16cd269ded70027663d58d02270ec6df0c8afd488fb'),
+        )
+        for prefix, path, size, digest in expected:
+            with self.subTest(artifact=prefix):
+                self.assertEqual((patch[prefix+'Bytes'], patch[prefix+'Sha256']), (size, digest))
+                pointer = subprocess.check_output(['git', 'show', ':'+path], cwd=ROOT)
+                self.assertEqual(pointer, (
+                    f'version https://git-lfs.github.com/spec/v1\noid sha256:{digest}\nsize {size}\n'
+                ).encode())
+        manifest = json.loads((ROOT / 'body/breathing/animation-manifest.json').read_text())
+        heart = next(row for row in manifest['assets'] if row['id'] == 'heart')
+        self.assertEqual((heart['bytes'], heart['sha256']), expected[0][2:])
+        self.assertFalse(heart['cutawaySupport'])
+        self.assertEqual(heart['animation']['durationSeconds'], 4)
+
+    def test_reviewed_seven_field_scope_and_retained_attribution(self):
+        patch = json.loads(HEART_PATCH.read_text())
+        operations = patch['jsonPointerPatch']
+        self.assertEqual(len(operations), 7)
+        expected = {'README': 'replace', 'coordinates': 'remove',
+                    'clinical_status': 'replace', 'reference_phase': 'remove',
+                    'material_set_names': 'remove', 'animation_model': 'replace',
+                    'pericardial_layers': 'remove'}
+        self.assertEqual({op['path']: op['op'] for op in operations},
+                         {'/scenes/0/extras/'+key: value for key, value in expected.items()})
+        # Shared inherited fields match the earlier reviewed source-derived correction.
+        prior = json.loads((ROOT / 'tests/scene_metadata/stomach/approved-patch.json').read_text())
+        self.assertEqual({op['path']: op['oldValue'] for op in operations},
+                         {op['path']: op['oldValue'] for op in prior['jsonPointerPatch']})
+        source_dir = ROOT / 'body/anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy'
+        source = (source_dir / 'heart.json').read_bytes()
+        manifest = json.loads((source_dir / 'manifest.json').read_text())['assets']['heart']
+        self.assertEqual((len(source), hashlib.sha256(source).hexdigest()),
+                         (manifest['bytes'], manifest['asset_sha256']))
+        self.assertEqual(json.loads(source)['source_case'], 's1233')
+        receipt = json.loads((ROOT / 'body/anatomy-workshop-r1/docs/source-receipts.json').read_text())
+        retained = next(row for row in receipt['files'] if row['path'].endswith('/heart.json'))
+        self.assertEqual(retained['ref'], '75ec4e6530abe4d434b07958e90bdc9dec062bef')
+        blob = b'blob '+str(len(source)).encode()+b'\0'+source
+        self.assertEqual(hashlib.sha1(blob).hexdigest(), retained['sha'])
 
 
 if __name__ == '__main__':
