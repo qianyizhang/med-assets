@@ -1,0 +1,31 @@
+{
+  "scope": "Exact approved front Original/Updated overview/detail evidence for draft PR153 only",
+  "approvedAt": "2026-10-30",
+  "reviewedHead": "0512e89bf959aa41e551762d43e98abd641c64e9",
+  "image": {
+    "file": "reviews/brain/2026-10-29-source-cut/screenshots/front-comparison.png",
+    "sha256": "c2ee5ee6cc8db191b0b10d8ff7a12b3a7d0010f7af1ec4d7430307662e66ae28",
+    "bytes": 765180
+  },
+  "sourceModelSha256": "26d39768e2882daee034f997a8d594e915283b5f8a176a8bb60003944a45b886",
+  "license": "BodyParts3D / Anatomography, DBCLS, CC BY 4.0; unchanged attribution is visible on the image",
+  "upload": {
+    "startedAt": "2026-10-30T00:32:20.637100+00:00",
+    "finishedAt": "2026-10-30T00:32:21.927046+00:00",
+    "executor": "managed med-assets cloud environment",
+    "command": "git lfs push --object-id origin c2ee5ee6cc8db191b0b10d8ff7a12b3a7d0010f7af1ec4d7430307662e66ae28",
+    "repository": "qianyizhang/med-assets",
+    "exitCode": 0,
+    "sanitizedResult": "Uploading LFS objects: 100% (1/1), 765 KB | 0 B/s, done."
+  },
+  "freshReadback": {
+    "readAt": "2026-10-30T00:33:01.070104+00:00",
+    "route": "fresh unauthenticated GitHub LFS download batch; no local cache",
+    "repository": "qianyizhang/med-assets",
+    "file": "reviews/brain/2026-10-29-source-cut/screenshots/front-comparison.png",
+    "sha256": "c2ee5ee6cc8db191b0b10d8ff7a12b3a7d0010f7af1ec4d7430307662e66ae28",
+    "bytes": 765180,
+    "verified": true
+  },
+  "limits": "Static comparison image delivery only. Existing independent static review applies; browser and clinical gates remain unverified. No other image, model, Site or merge is included."
+}

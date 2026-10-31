@@ -1,0 +1,126 @@
+{
+  "model": {
+    "file": "models/brain/exports/bodyparts3d-4.0-atlas-r2/brain-source-frame.glb",
+    "sha256": "26d39768e2882daee034f997a8d594e915283b5f8a176a8bb60003944a45b886",
+    "bytes": 4415384,
+    "meshes": 49
+  },
+  "image": {
+    "file": "reviews/brain/bodyparts3d-4.0-atlas-r2/screenshots/contact.png",
+    "sha256": "1de1a0b96d416d08c4d241ee99ef02baa97d3716f5390e72296c67f623e27c79",
+    "bytes": 2133461,
+    "width": 2100,
+    "height": 1586
+  },
+  "views": {
+    "front": {
+      "en": "Front view",
+      "zh": "\u524d\u9762\u89c2",
+      "overview": [
+        0,
+        128,
+        700,
+        700
+      ],
+      "detail": [
+        200,
+        545,
+        300,
+        255
+      ],
+      "bracket": [
+        [
+          322,
+          745
+        ],
+        [
+          322,
+          755
+        ],
+        [
+          379,
+          755
+        ],
+        [
+          379,
+          745
+        ]
+      ],
+      "anchor": [
+        379,
+        755
+      ],
+      "badge": [
+        416,
+        768
+      ]
+    },
+    "left": {
+      "en": "Left view",
+      "zh": "\u5de6\u4fa7\u9762\u89c2",
+      "overview": [
+        700,
+        128,
+        700,
+        700
+      ],
+      "detail": [
+        990,
+        545,
+        300,
+        255
+      ],
+      "bracket": [
+        [
+          1093,
+          748
+        ],
+        [
+          1097,
+          759
+        ],
+        [
+          1148,
+          759
+        ],
+        [
+          1146,
+          749
+        ]
+      ],
+      "anchor": [
+        1148,
+        759
+      ],
+      "badge": [
+        1190,
+        770
+      ]
+    }
+  },
+  "embeddedImage": false,
+  "outputs": [
+    {
+      "file": "front-teaching.svg",
+      "sha256": "bf8da30884081b9736955d84f3b5112e08a5e9efcfd1f3e59518c9c5d73f1796",
+      "bytes": 5217
+    },
+    {
+      "file": "front-comparison.svg",
+      "sha256": "a434bf487dccb3eb71dff211d9797dd5a866fddc20e0d969799f27b025dbc8c5",
+      "bytes": 5498
+    },
+    {
+      "file": "left-teaching.svg",
+      "sha256": "b7e6234de5c51123c69123d635e85456b95f1ee8f9371f56c7c64807d87d3286",
+      "bytes": 5238
+    },
+    {
+      "file": "left-comparison.svg",
+      "sha256": "edf83feaa845daf0899be110d29145a71aca70a682f1b651975f50d5c5334065",
+      "bytes": 5514
+    }
+  ],
+  "renderer": "SVG composition; no 3-D rerender",
+  "modelBytesUnchanged": true
+}
