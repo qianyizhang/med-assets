@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Left kidney · exterior and internal shapes</title>
+<link rel="stylesheet" href="style.css">
+<main>
+  <header>
+    <p class="eyebrow" data-copy="eyebrow">Left kidney · HRA female v1.3</p>
+    <label class="language"><span data-copy="language">Language</span>
+      <select id="language"><option value="en">English</option><option value="zh">中文</option></select>
+    </label>
+    <h1 data-copy="title">Place the internal shapes</h1>
+    <p data-copy="intro">Compare the isolated pyramids and tip surfaces with the exterior in the same recorded view.</p>
+  </header>
+  <form aria-label="View controls">
+    <fieldset>
+      <legend data-copy="view">View</legend>
+      <label><input type="radio" name="view" value="exterior"><span data-copy="exterior">Exterior</span></label>
+      <label><input type="radio" name="view" value="internal" checked><span data-copy="internal">Internal shapes</span></label>
+      <label><input type="radio" name="view" value="paired"><span data-copy="paired">Side by side</span></label>
+    </fieldset>
+    <label class="locator-control"><input id="locator" type="checkbox" checked><span data-copy="locator">Show 2D exterior outline</span></label>
+  </form>
+  <p id="status" role="status" data-copy="loading">Loading the retained image…</p>
+  <section id="views" aria-label="Recorded front review view" hidden>
+    <figure id="exterior-panel">
+      <figcaption data-copy="exteriorCaption">Exterior</figcaption>
+      <svg viewBox="0 0 420 420" role="img" aria-labelledby="exterior-title">
+        <title id="exterior-title">Retained exterior, recorded front review axis</title>
+        <image x="0" y="-112" width="1260" height="1436"/>
+      </svg>
+    </figure>
+    <figure id="internal-panel">
+      <figcaption data-copy="internalCaption">Isolated pyramids + source-labeled tip surfaces</figcaption>
+      <svg viewBox="0 0 420 420" role="img" aria-labelledby="internal-title">
+        <title id="internal-title">Retained internal shapes, recorded front review axis</title>
+        <image x="0" y="-1016" width="1260" height="1436"/>
+        <path id="outline" fill="none" stroke="#c9dbe0" stroke-width="1.6" stroke-dasharray="6 5"/>
+      </svg>
+    </figure>
+  </section>
+  <p id="view-note" class="view-note"></p>
+  <div class="scope">
+    <p data-copy="scope">The dashed line is a 2D editorial locator copied from the exterior silhouette. It shows projected position only: no cutaway, depth or tissue boundary is measured.</p>
+    <p data-copy="tips">Pale patches are source-labeled tip surfaces. No pelvis, calyces, ureter, vessels or collecting route is shown.</p>
+    <p data-copy="axis">“Front” is the recorded review axis, not a new anatomical registration. Source colors are illustrative.</p>
+  </div>
+  <footer>
+    <p><span data-copy="credit">Source: Kristen Browne and Heidi Schlehlein (2024), HRA / HuBMAP, female left kidney v1.3.</span>
+      <a href="https://doi.org/10.48539/HBM449.JPXL.964">DOI</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></p>
+    <p data-copy="changes">Unchanged retained r02 image; presentation changes: matched crops, view switching and optional 2D outline.</p>
+    <p><a href="../../reviews/kidney_left/2026-10-23-hra-female-v1.3-r02/display/contact.webp" data-copy="original">Original contact image</a> · <a href="../../models/kidney_left/ATTRIBUTION.md" data-copy="attribution">Attribution</a></p>
+  </footer>
+</main>
+<script type="module" src="view.js"></script>
+</html>
