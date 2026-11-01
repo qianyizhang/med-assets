@@ -1,0 +1,33 @@
+{
+  "issue": 180,
+  "scope": "Private V3 root-support and synthetic PDL study with source inner-bone volume restored; not full issue completion",
+  "owner": "advance_dental_private_scope",
+  "reviewer": "review_cancellous_failure",
+  "technical": "passed final all-primitive finite/index, preserved V2 tooth/PDL/cortical decoded geometry, clean reimport topology",
+  "visual": "passed independent final detail, occlusal and PDL views; author inspected labeled Original/Updated plate",
+  "anatomy": "unverified",
+  "clinical": "unverified",
+  "runtime": "unverified",
+  "publication": "none",
+  "outputs": [
+    {
+      "file": "molar-support-v3.glb",
+      "sha256": "4989befb8409d951d2a0220948c97a9afaf4ac62193fdfa3b97450201e457a02",
+      "bytes": 3078744,
+      "triangles": 35184
+    },
+    {
+      "file": "synthetic-pdl-v3.glb",
+      "sha256": "0d53613e1fa392657c20e597e04c3945d18150bf41c707f022d73acb37bc7463",
+      "bytes": 3305740,
+      "triangles": 38096
+    }
+  ],
+  "remaining": [
+    "No modeled trabecular microstructure",
+    "No fine crown/internal tooth tissues",
+    "Source registration retained, not independently validated clinically",
+    "No live WebGL check",
+    "Public delivery approval unresolved"
+  ]
+}
