@@ -28,6 +28,13 @@ Three.js and transport APIs are doubles; this is not browser BFCache/WebGL
 coverage. Missing Node, an incomplete suite, skips or unexpected baseline results
 fail verification. No npm install or media payload is required.
 
+The required candidate-context suite checks exact lifecycle-first application
+and runs the full original/updated candidate modules through context-loss and
+existing lifecycle VM cases. Renderer/DOM/transport APIs are doubles; no browser
+or WebGL is launched. Optional composition with the separately reviewed camera
+package is checked outside this branch's default scope. Default tests require
+no unmerged camera files and do not fetch model/media/vendor bytes.
+
 Offline checks also validate all content-addressed transport manifests using the
 existing fixed host/size/hash limits, the fixed historical foundation record set, all
 tracked LFS pointer syntax/OIDs, and the 591 imported path references. For text,
