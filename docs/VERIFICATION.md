@@ -7,7 +7,7 @@ or unknown paths, and missing or empty diffs select the full offline scope. Chan
 to the classifier, workflow, verification guidance, records or manifests run the
 full scope; this is not a blanket exemption for Markdown or docs.
 
-Run from the repository root. The ordinary PR gate needs **Python 3.11+ and Git**,
+Run from the repository root. The ordinary PR gate needs **Python 3.11+, Git and Node.js 18+**,
 a full text/pointer checkout, and no third-party Python packages. It makes no
 network requests, fetches no LFS media and performs no rendering or uploads.
 
@@ -21,6 +21,12 @@ skips, expected failures, module setup/teardown errors, partial execution and
 assertion failures fail the command. Plain
 `unittest discover -s tests` does not recurse into all of this repository's
 non-package test directories; it is not the complete verification command.
+
+The required candidate-lifecycle suite also executes 15 Node VM tests against
+both the actual canonical v40 module and the guarded patched module. Browser,
+Three.js and transport APIs are doubles; this is not browser BFCache/WebGL
+coverage. Missing Node, an incomplete suite, skips or unexpected baseline results
+fail verification. No npm install or media payload is required.
 
 Offline checks also validate all content-addressed transport manifests using the
 existing fixed host/size/hash limits, the fixed historical foundation record set, all
