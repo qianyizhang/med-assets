@@ -41,3 +41,24 @@ Static native rendering and pixel checks do not certify browser behavior.
 
 Attribution and **CC BY-SA 4.0** terms are retained on the sheets and in the
 [teaching guide](../../../lessons/aortic-arch-locators/README.md).
+
+## Published evidence · 2026-11-01
+
+The two retained, independently reviewed comparison PNGs are now delivered with
+PR #157. Their bytes match `visual-binding.json`; no geometry or image was rebuilt.
+This delivery supersedes the preparation-only publication status above and in
+the historical review record.
+
+![Original / Updated overview](overview-comparison.png)
+![Original / Updated junction detail](junction-comparison.png)
+
+These are new recorded-camera views of the exact retained source, not historical
+camera replays. Each pair shares source pixels, crop and scale; only the numbered
+editorial locators differ. The bilingual source-group legend and attribution are
+part of each image. Open/unfused intersections and cropped ends are retained.
+
+Retention: these two canonical native exports are the public overview/detail
+evidence consumed by the PR and teaching guide. Existing source identity, replay
+recipe and immutable review receipts remain authoritative; no duplicate SVG,
+standalone sheet or grayscale output is added. Technical/static visual acceptance
+does not establish specialist anatomy, clinical validity or browser runtime.

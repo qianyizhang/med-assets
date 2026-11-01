@@ -1,6 +1,6 @@
 # Aortic arch branch locators / 主动脉弓分支定位
 
-Private preparation for [issue #149](https://github.com/qianyizhang/med-assets/issues/149).
+Static teaching locators for [issue #149](https://github.com/qianyizhang/med-assets/issues/149).
 One bilingual teaching sheet connects the same four numbered source groups in
 overview and junction detail. Two matched Original/Updated sheets expose the
 editorial change. Every pair uses identical raster bytes, dimensions and crop.
@@ -77,3 +77,9 @@ Gauthier Kervyn; Blender add-on: Marcin Zielinski. New recorded-camera renders a
 editorial locators added 2026-10-29. No endorsement is implied. Retained
 [attribution and upstream license](../../sources/datasets/z-anatomy/small-static-studies/ATTRIBUTION.md)
 remain authoritative for this bounded source package; no whole-atlas license is inferred.
+
+## Published comparison views
+
+The [overview and junction comparison PNGs](../../reviews/aortic_tree_z/2026-10-29-arch-locators/README.md#published-evidence--2026-11-01)
+are the retained reviewed exports delivered by PR #157. Private regeneration
+instructions above describe preparation; publication adds these two outputs only.
