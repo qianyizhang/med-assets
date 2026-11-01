@@ -12,7 +12,7 @@ export function reduce(state, action) {
       if(reducedMotion===state.reducedMotion)return state;
       // Enabling reduced motion holds the current picture. Clearing the
       // preference leaves it paused until the learner resumes or resets.
-      return {...state,reducedMotion,...(reducedMotion?{exchangePaused:true,exchangePhase:state.phase}:{})};
+      return {...state,reducedMotion,...(reducedMotion?{exchangePaused:true,exchangePhase:state.exchangePaused?state.exchangePhase:state.phase}:{})};
     }
     case 'tick': {const dt=Math.max(0,Math.min(.1,Number.isFinite(action.dt)?action.dt:0));const phase=state.playing?Math.min(1,state.phase+dt/6):state.phase;return {...state,elapsed:state.elapsed+(state.exchangePaused?0:dt),breathClock:state.breathClock+(state.playing?dt:0),phase,playing:state.playing&&phase<1};}
     case 'reset': return {...initialState(state.language,{reducedMotion:state.reducedMotion}),assets:state.assets,error:state.error};

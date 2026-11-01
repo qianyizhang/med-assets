@@ -54,6 +54,15 @@ test('turning reduced motion on freezes the current picture without restarting i
   s=reduce(s,{type:'reset'});
   assert.notEqual(exchangeSVG(reduce(s,{type:'tick',dt:.1})),exchangeSVG(s));
 });
+test('enabling reduced motion preserves an already paused illustration during an active breath',()=>{
+  let s=reduce({...initialState(),phase:.25,elapsed:2,playing:true},{type:'exchange-toggle'});
+  const held=exchangeSVG(s);
+  for(let i=0;i<8;i++)s=reduce(s,{type:'tick',dt:.1});
+  assert.equal(exchangeSVG(s),held);
+  s=reduce(s,{type:'motion-preference',value:true});
+  assert.equal(exchangeSVG(s),held,'the preference must retain the existing held outline');
+  assert.equal(exchangeSVG(reduce(s,{type:'tick',dt:.1})),held);
+});
 test('end inspiration is not labeled as the initial resting state',()=>{assert.equal(breath({...initialState(),phase:.5}).phaseName,'peak');for(const language of ['en','zh'])assert.notEqual(COPY[language].phase.peak,COPY[language].phase.rest);});
 
 test('fallback uses the resting frame after reset and labels missing previews in both languages',()=>{assert.equal(fallbackFrame(initialState()),'mechanics-rest');assert.equal(fallbackFrame({...initialState(),phase:.4}),'mechanics-in');assert.equal(fallbackFrame({...initialState(),stage:1}),'airway');for(const c of Object.values(COPY))assert.ok(c.preview&&c.fallbackMissing&&c.snapshot);});

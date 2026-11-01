@@ -75,7 +75,7 @@ node --test lessons/one-breath/tests/state.test.mjs lessons/one-breath/tests/con
 python3 tools/verify.py offline
 ```
 
-The 32 targeted Node checks exercise shared state, reset/stage/language data,
+The 33 targeted Node checks exercise shared state, reset/stage/language data,
 actual pinned GLTFLoader/morph consumption, ports, pause behavior and missing/
 corrupt-asset rejection/retry. The UI event tests run the actual app body with
 DOM, loader and renderer doubles, including detached preview callbacks, independent
