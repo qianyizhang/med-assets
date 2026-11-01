@@ -1,0 +1,591 @@
+{
+  "kind": "fitted-heart-applicability-evidence",
+  "issue": 150,
+  "scope": "Technical applicability of the native opaque-exterior visibility classification to the exact fitted artifact; images and scoped result only, no fitted derivative",
+  "artifacts": {
+    "repository_source": {
+      "file": "heart/Cardiac_Atlas_Animated/Heart_Clinical_Animated.glb",
+      "bytes": 8180224,
+      "sha256": "6912d439271c3525230a90fe403d586000e6a66ab37f82bf0419604181e52263"
+    },
+    "fitted_input": {
+      "identity": "existing canonical fitted heart_animated; not copied into this evidence package",
+      "bytes": 8180452,
+      "sha256": "17b26d1459c0fbbbc71d051452c4074d1237683ffe02c1a8021d7ac83583857a"
+    }
+  },
+  "comparison": {
+    "identical_BIN_bytes": 7799688,
+    "identical_BIN_sha256": "22679367b4ee0c5ef5349cac32dcde0818e3be478b53182f6c5a012cabefe26c",
+    "identical_original_nodes": 248,
+    "equal_fields": [
+      "accessors",
+      "animations",
+      "asset",
+      "bufferViews",
+      "buffers",
+      "materials",
+      "meshes",
+      "scene"
+    ],
+    "only_graph_changes": "Added one fit parent at index 248, with child 247 units-root; sole scene root redirected to 248. All original 248 nodes/transforms untouched.",
+    "fit_parent": {
+      "name": "Independent heart pedagogical fit \u2014 not registered",
+      "children": [
+        247
+      ],
+      "scale": [
+        0.9194066218008459,
+        0.9194066218008459,
+        0.9194066218008459
+      ],
+      "translation": [
+        0.021108382385057828,
+        0.057100088577245474,
+        0.01373262660885548
+      ]
+    },
+    "units_root_scale": [
+      0.025,
+      0.025,
+      0.025
+    ],
+    "native_visibility_spec": {
+      "file": "heart/exterior-presentation-r01/visibility-spec.json",
+      "sha256": "09783d389fec56375a7ebef6796cb63f6c062a69887eeec4081b1223c5e1700e"
+    },
+    "hidden_meshes": 123,
+    "exterior_meshes": 124,
+    "visibility_conditions": {
+      "expression": "cut < .5 and mode < 1.5",
+      "opaque_no_cutaway": {
+        "hidden": 123,
+        "exterior": 124
+      },
+      "transparent_or_cutaway": "Do not apply this exterior mask: native receipt has zero source-hidden internal members for material_set=2 or cutaway=1"
+    }
+  },
+  "animation_evidence": {
+    "blender": "4.3.2",
+    "animation_channels": 228,
+    "channel_type": "LINEAR scalar morph weights; static node transforms; no skins",
+    "key_times_seconds": [
+      0.0,
+      0.03333333507180214,
+      0.06666667014360428,
+      0.10000000149011612,
+      0.13333334028720856,
+      0.1666666716337204,
+      0.20000000298023224,
+      0.23333333432674408,
+      0.2666666805744171,
+      0.30000001192092896,
+      0.3333333432674408,
+      0.36666667461395264,
+      0.4000000059604645,
+      0.4333333373069763,
+      0.46666666865348816,
+      0.5,
+      0.5333333611488342,
+      0.5666666626930237,
+      0.6000000238418579,
+      0.6333333253860474,
+      0.6666666865348816,
+      0.699999988079071,
+      0.7333333492279053,
+      0.7666666507720947,
+      0.800000011920929
+    ],
+    "all_key_coordinate_comparison": {
+      "frames": [
+        {
+          "key": 0,
+          "time_seconds": 0.0,
+          "vertices_all_247_meshes": 122382,
+          "max_absolute_fit_error_m": 1.2907732452327458e-09,
+          "world_coordinate_sha256": "3436670b11a2b620ef7660db44c99470ebd01f8e7d6a081da46905c543bb2a0c"
+        },
+        {
+          "key": 1,
+          "time_seconds": 0.03333333507180214,
+          "vertices_all_247_meshes": 122382,
+          "max_absolute_fit_error_m": 1.2907732452327458e-09,
+          "world_coordinate_sha256": "7c3488382dd6e872c7ec8b96a1455d5fcc52c9f6cca73aa82b1bdeb3537fe1a0"
+        },
+        {
+          "key": 2,
+          "time_seconds": 0.06666667014360428,
+          "vertices_all_247_meshes": 122382,
+          "max_absolute_fit_error_m": 1.2907732452327458e-09,
+          "world_coordinate_sha256": "ff87504a27f6349ffec6d5a63abbd538ca805600f1e9bab61b609f7b6ebdeb9a"
+        },
+        {
+          "key": 3,
+          "time_seconds": 0.10000000149011612,
+          "vertices_all_247_meshes": 122382,
+          "max_absolute_fit_error_m": 1.2907732452327458e-09,
+          "world_coordinate_sha256": "79b46bc29b083192f0942a9fb9f060e8218653cd7db66cb30a1bdeb49d57fbec"
+        },
+        {
+          "key": 4,
+          "time_seconds": 0.13333334028720856,
+          "vertices_all_247_meshes": 122382,
+          "max_absolute_fit_error_m": 1.290119733265982e-09,
+          "world_coordinate_sha256": "daf8d27e4ffe5212be16cb606713bf29ce57075912546f3bddbef4327be94558"
+        },
+        {
+          "key": 5,
+          "time_seconds": 0.1666666716337204,
+          "vertices_all_247_meshes": 122382,
+          "max_absolute_fit_error_m": 1.2884496664034017e-09,
+          "world_coordinate_sha256": "48e323d955ae587b0e00cfd78fd71cfb2b97a80d3a474fffc196fd46f19ce4f6"
+        },
+        {
+          "key": 6,
+          "time_seconds": 0.20000000298023224,
+          "vertices_all_247_meshes": 122382,
+          "max_absolute_fit_error_m": 1.2862168621841086e-09,
+          "world_coordinate_sha256": "88f7523674fec25165fad3609f86d4ca19092db31a641b46bf82c2f3dd73b7b5"
+        },
+        {
+          "key": 7,
+          "time_seconds": 0.23333333432674408,
+          "vertices_all_247_meshes": 122382,
+          "max_absolute_fit_error_m": 1.2839477467330163e-09,
+          "world_coordinate_sha256": "899d496de59864b4072e6fbe21caf6dd1b1cfa3c0b4d8359f444795e4a392243"
+        },
+        {
+          "key": 8,
+          "time_seconds": 0.2666666805744171,
+          "vertices_all_247_meshes": 122382,
+          "max_absolute_fit_error_m": 1.282186919138173e-09,
+          "world_coordinate_sha256": "9ebd8e7735bf0247a8267f893fccf77a9ff115f425d7206086ca02248564ee82"
+        },
+        {
+          "key": 9,
+          "time_seconds": 0.30000001192092896,
+          "vertices_all_247_meshes": 122382,
+          "max_absolute_fit_error_m": 1.2814789576709451e-09,
+          "world_coordinate_sha256": "c1a7acaacef2a2324566d0cc6925fc517c68f66d4cc3ccbde2fee1806703fc87"
+        },
+        {
+          "key": 10,
+          "time_seconds": 0.3333333432674408,
+          "vertices_all_247_meshes": 122382,
+          "max_absolute_fit_error_m": 1.2814789576709451e-09,
+          "world_coordinate_sha256": "c1a7acaacef2a2324566d0cc6925fc517c68f66d4cc3ccbde2fee1806703fc87"
+        },
+        {
+          "key": 11,
+          "time_seconds": 0.36666667461395264,
+          "vertices_all_247_meshes": 122382,
+          "max_absolute_fit_error_m": 1.2814789576709451e-09,
+          "world_coordinate_sha256": "333278c141945ffde7899902b419bccd5da862e90d8e2ac16d56789bcc8c2193"
+        },
+        {
+          "key": 12,
+          "time_seconds": 0.4000000059604645,
+          "vertices_all_247_meshes": 122382,
+          "max_absolute_fit_error_m": 1.2833515847243682e-09,
+          "world_coordinate_sha256": "896ca69e9a93f28909dfeffce72c84703bb3c3a689be6f223ee70d7a75111640"
+        },
+        {
+          "key": 13,
+          "time_seconds": 0.4333333373069763,
+          "vertices_all_247_meshes": 122382,
+          "max_absolute_fit_error_m": 1.287041764830299e-09,
+          "world_coordinate_sha256": "b555f739e790d3485dce731b7c73c3a38e543189d11721b0f49df8a646c1140c"
+        },
+        {
+          "key": 14,
+          "time_seconds": 0.46666666865348816,
+          "vertices_all_247_meshes": 122382,
+          "max_absolute_fit_error_m": 1.2896579290599952e-09,
+          "world_coordinate_sha256": "07513f8585795133704a7e9234a1d20f97fcfe3be4c5ef17856ed4decd530add"
+        },
+        {
+          "key": 15,
+          "time_seconds": 0.5,
+          "vertices_all_247_meshes": 122382,
+          "max_absolute_fit_error_m": 1.2904427804105723e-09,
+          "world_coordinate_sha256": "d14eb4648fbde6299121c30a45e71ca5489d7879b8788cdae9a0d75b7f65afee"
+        },
+        {
+          "key": 16,
+          "time_seconds": 0.5333333611488342,
+          "vertices_all_247_meshes": 122382,
+          "max_absolute_fit_error_m": 1.2907319379973359e-09,
+          "world_coordinate_sha256": "c444c4e91d799ec684137124dc5a97429a205086fbb365ff67f16f91a68d2667"
+        },
+        {
+          "key": 17,
+          "time_seconds": 0.5666666626930237,
+          "vertices_all_247_meshes": 122382,
+          "max_absolute_fit_error_m": 1.2907732452327458e-09,
+          "world_coordinate_sha256": "3436670b11a2b620ef7660db44c99470ebd01f8e7d6a081da46905c543bb2a0c"
+        },
+        {
+          "key": 18,
+          "time_seconds": 0.6000000238418579,
+          "vertices_all_247_meshes": 122382,
+          "max_absolute_fit_error_m": 1.2907732452327458e-09,
+          "world_coordinate_sha256": "3436670b11a2b620ef7660db44c99470ebd01f8e7d6a081da46905c543bb2a0c"
+        },
+        {
+          "key": 19,
+          "time_seconds": 0.6333333253860474,
+          "vertices_all_247_meshes": 122382,
+          "max_absolute_fit_error_m": 1.2907732452327458e-09,
+          "world_coordinate_sha256": "3436670b11a2b620ef7660db44c99470ebd01f8e7d6a081da46905c543bb2a0c"
+        },
+        {
+          "key": 20,
+          "time_seconds": 0.6666666865348816,
+          "vertices_all_247_meshes": 122382,
+          "max_absolute_fit_error_m": 1.2907732452327458e-09,
+          "world_coordinate_sha256": "3436670b11a2b620ef7660db44c99470ebd01f8e7d6a081da46905c543bb2a0c"
+        },
+        {
+          "key": 21,
+          "time_seconds": 0.699999988079071,
+          "vertices_all_247_meshes": 122382,
+          "max_absolute_fit_error_m": 1.2907732452327458e-09,
+          "world_coordinate_sha256": "3436670b11a2b620ef7660db44c99470ebd01f8e7d6a081da46905c543bb2a0c"
+        },
+        {
+          "key": 22,
+          "time_seconds": 0.7333333492279053,
+          "vertices_all_247_meshes": 122382,
+          "max_absolute_fit_error_m": 1.2907732452327458e-09,
+          "world_coordinate_sha256": "3436670b11a2b620ef7660db44c99470ebd01f8e7d6a081da46905c543bb2a0c"
+        },
+        {
+          "key": 23,
+          "time_seconds": 0.7666666507720947,
+          "vertices_all_247_meshes": 122382,
+          "max_absolute_fit_error_m": 1.2907732452327458e-09,
+          "world_coordinate_sha256": "3436670b11a2b620ef7660db44c99470ebd01f8e7d6a081da46905c543bb2a0c"
+        },
+        {
+          "key": 24,
+          "time_seconds": 0.800000011920929,
+          "vertices_all_247_meshes": 122382,
+          "max_absolute_fit_error_m": 1.2907732452327458e-09,
+          "world_coordinate_sha256": "3436670b11a2b620ef7660db44c99470ebd01f8e7d6a081da46905c543bb2a0c"
+        }
+      ],
+      "meshes_per_frame": 247,
+      "max_absolute_fit_error_m": 1.2907732452327458e-09,
+      "absolute_tolerance_m": 1e-07,
+      "loop_coordinates_exact": true,
+      "visibility_mask_retained_coordinates_exact_all_keys": true,
+      "four_wall_max_displacement_m": {
+        "RA | complete wall": 0.0014829434608585013,
+        "RV | complete wall": 0.004745984748791858,
+        "LA | complete wall": 0.0014038245162843414,
+        "LV | complete wall": 0.004640539495479631
+      },
+      "exterior_all_key_bounds_m": [
+        [
+          -0.019336978759124213,
+          -0.045540522381021686,
+          0.0042342068411787
+        ],
+        [
+          0.066377318393946,
+          0.017728611481294454,
+          0.14448790284596225
+        ]
+      ]
+    },
+    "per_mesh_extrema_scope": "All 25 encoded keys; all 228 channels are LINEAR scalar morph weights and all transforms static, no skins. Thus componentwise coordinate extrema lie at keys for glTF linear morph evaluation. Blender evaluation checked at encoded key times, not a browser or physiological validation.",
+    "all_key_weight_loop_exact": true
+  },
+  "images": [
+    {
+      "file": "images/original-whole-front.png",
+      "bytes": 1238800,
+      "sha256": "6d2d1540eefbe7e1f577e13f8e90c843a082ac7b9d6ea742fd6344524e0d6991",
+      "artifactSha256": "17b26d1459c0fbbbc71d051452c4074d1237683ffe02c1a8021d7ac83583857a",
+      "state": "all 247 source meshes visible",
+      "view": "whole-front"
+    },
+    {
+      "file": "images/original-seam-front.png",
+      "bytes": 1714401,
+      "sha256": "48c6ccf30598752131807d07bca9a8d167e2336783c3eff0d5d02bdef8497b3f",
+      "artifactSha256": "17b26d1459c0fbbbc71d051452c4074d1237683ffe02c1a8021d7ac83583857a",
+      "state": "all 247 source meshes visible",
+      "view": "seam-front"
+    },
+    {
+      "file": "images/updated-whole-front.png",
+      "bytes": 1236540,
+      "sha256": "04a6f3aef6674f7f9becb579b6b1395c7251971ef5b37ef869a3ce8cd0caf39b",
+      "artifactSha256": "17b26d1459c0fbbbc71d051452c4074d1237683ffe02c1a8021d7ac83583857a",
+      "state": "native opaque-exterior rule in memory: 123 hidden, 124 visible",
+      "view": "whole-front"
+    },
+    {
+      "file": "images/updated-seam-front.png",
+      "bytes": 1700528,
+      "sha256": "c95bb9e171e1c7be4351bd5553f2dfbe914134124025615b58bfa6c0a6bb1b79",
+      "artifactSha256": "17b26d1459c0fbbbc71d051452c4074d1237683ffe02c1a8021d7ac83583857a",
+      "state": "native opaque-exterior rule in memory: 123 hidden, 124 visible",
+      "view": "seam-front"
+    }
+  ],
+  "render_bindings": [
+    {
+      "label": "Original",
+      "artifactSha256": "17b26d1459c0fbbbc71d051452c4074d1237683ffe02c1a8021d7ac83583857a",
+      "frame": 0,
+      "fps": 30,
+      "visibleMeshes": 247,
+      "opaqueMaskInMemoryOnly": false,
+      "bounds": [
+        [
+          -0.01933697797358036,
+          -0.045540522783994675,
+          0.004234205931425095
+        ],
+        [
+          0.06637731939554214,
+          0.017728611826896667,
+          0.1444879025220871
+        ]
+      ],
+      "lights": [
+        {
+          "location": [
+            -0.31308871507644653,
+            -0.4066162705421448,
+            0.5231728553771973
+          ],
+          "energy": 4.406325817108154,
+          "size": 0.2805073857307434
+        },
+        {
+          "location": [
+            0.3040275573730469,
+            -0.18221040070056915,
+            0.13046252727508545
+          ],
+          "energy": 2.203162908554077,
+          "size": 0.2805073857307434
+        },
+        {
+          "location": [
+            0.023520171642303467,
+            0.26660144329071045,
+            0.35486844182014465
+          ],
+          "energy": 3.1473758220672607,
+          "size": 0.2805073857307434
+        }
+      ],
+      "samples": 48,
+      "views": [
+        {
+          "view": "whole-front",
+          "file": "images/original-whole-front.png",
+          "sha256": "6d2d1540eefbe7e1f577e13f8e90c843a082ac7b9d6ea742fd6344524e0d6991",
+          "camera": [
+            0.023520171642303467,
+            -0.5749207139015198,
+            0.07436105608940125
+          ],
+          "rotation": [
+            1.5707964897155762,
+            -0.0,
+            0.0
+          ],
+          "target": [
+            0.023520171642303467,
+            -0.013905955478549004,
+            0.07436105608940125
+          ],
+          "orthoScale": 0.15708413600921634
+        },
+        {
+          "view": "seam-front",
+          "file": "images/original-seam-front.png",
+          "sha256": "48c6ccf30598752131807d07bca9a8d167e2336783c3eff0d5d02bdef8497b3f",
+          "camera": [
+            0.01246680412441492,
+            -0.5782871842384338,
+            0.07698225975036621
+          ],
+          "rotation": [
+            1.5707964897155762,
+            -0.0,
+            0.0
+          ],
+          "target": [
+            0.01246680412441492,
+            -0.01727243885397911,
+            0.07698225975036621
+          ],
+          "orthoScale": 0.05610147714614869
+        }
+      ]
+    },
+    {
+      "label": "Updated",
+      "artifactSha256": "17b26d1459c0fbbbc71d051452c4074d1237683ffe02c1a8021d7ac83583857a",
+      "frame": 0,
+      "fps": 30,
+      "visibleMeshes": 124,
+      "opaqueMaskInMemoryOnly": true,
+      "bounds": [
+        [
+          -0.01933697797358036,
+          -0.045540522783994675,
+          0.004234205931425095
+        ],
+        [
+          0.06637731939554214,
+          0.017728611826896667,
+          0.1444879025220871
+        ]
+      ],
+      "lights": [
+        {
+          "location": [
+            -0.31308871507644653,
+            -0.4066162705421448,
+            0.5231728553771973
+          ],
+          "energy": 4.406325817108154,
+          "size": 0.2805073857307434
+        },
+        {
+          "location": [
+            0.3040275573730469,
+            -0.18221040070056915,
+            0.13046252727508545
+          ],
+          "energy": 2.203162908554077,
+          "size": 0.2805073857307434
+        },
+        {
+          "location": [
+            0.023520171642303467,
+            0.26660144329071045,
+            0.35486844182014465
+          ],
+          "energy": 3.1473758220672607,
+          "size": 0.2805073857307434
+        }
+      ],
+      "samples": 48,
+      "views": [
+        {
+          "view": "whole-front",
+          "file": "images/updated-whole-front.png",
+          "sha256": "04a6f3aef6674f7f9becb579b6b1395c7251971ef5b37ef869a3ce8cd0caf39b",
+          "camera": [
+            0.023520171642303467,
+            -0.5749207139015198,
+            0.07436105608940125
+          ],
+          "rotation": [
+            1.5707964897155762,
+            -0.0,
+            0.0
+          ],
+          "target": [
+            0.023520171642303467,
+            -0.013905955478549004,
+            0.07436105608940125
+          ],
+          "orthoScale": 0.15708413600921634
+        },
+        {
+          "view": "seam-front",
+          "file": "images/updated-seam-front.png",
+          "sha256": "c95bb9e171e1c7be4351bd5553f2dfbe914134124025615b58bfa6c0a6bb1b79",
+          "camera": [
+            0.01246680412441492,
+            -0.5782871842384338,
+            0.07698225975036621
+          ],
+          "rotation": [
+            1.5707964897155762,
+            -0.0,
+            0.0
+          ],
+          "target": [
+            0.01246680412441492,
+            -0.01727243885397911,
+            0.07698225975036621
+          ],
+          "orthoScale": 0.05610147714614869
+        }
+      ]
+    }
+  ],
+  "independent_review": {
+    "verdict": "PASS_WITH_LIMITATIONS",
+    "reviewed_at_utc": "2026-11-01T08:50:51.146351+00:00",
+    "structural_checks": {
+      "exact_source_sha256": "6912d439271c3525230a90fe403d586000e6a66ab37f82bf0419604181e52263",
+      "exact_fitted_sha256": "17b26d1459c0fbbbc71d051452c4074d1237683ffe02c1a8021d7ac83583857a",
+      "identical_BIN_sha256": "22679367b4ee0c5ef5349cac32dcde0818e3be478b53182f6c5a012cabefe26c",
+      "all_original_248_nodes_identical": true,
+      "meshes_accessors_bufferViews_materials_animations_asset_equal": true,
+      "animation_channels": 228,
+      "all25_times_and_linear_scalar_weights_checked": true,
+      "only_graph_changes": "Added one uniform pedagogical-fit parent, redirected sole scene root from units-root247 to fit-root248; all original transforms untouched",
+      "native_hidden_membership_verified_against_spec_and_native_receipt": true
+    },
+    "units_review": {
+      "source_units_root_m_per_BU": 0.025,
+      "fit_scale_dimensionless": 0.9194066218008459,
+      "net_native_BU_to_m": 0.022985165545021148,
+      "translation_axis_mapping": "glTF(x,y,z) -> Blender(x,-z,y)",
+      "maximum_sampled_error_m": 1.2907732452327458e-09,
+      "maximum_sampled_error_nm": 1.2907732452327458,
+      "reported_all_key_max_supported_by_sample_and_code": true,
+      "tolerance_m": 1e-07,
+      "finding": "No unit conversion correction required; reported 1.3nm is numerically correct, not evidence of anatomical placement accuracy."
+    },
+    "recomputed_meshes": 247,
+    "recomputed_keys": [
+      0,
+      9,
+      24
+    ],
+    "recomputed_coordinate_hashes_match": true,
+    "actual_four_images_inspected": true,
+    "corrections_required": [],
+    "opening_claim": "Unchanged wall opening geometry follows from exact retained mesh/morph/node identity and is visually consistent in both matched views. The visible empty region is not pixel-identical because former internal occluders are removed.",
+    "benefit": "Restores authored opaque-exterior presentation without native-hidden internal clutter; no broader quality/completeness claim.",
+    "residual_visual_findings": "No finding blocks that narrow claim. Residual opening and coarse authored wall/vessel junction remain visible and preclude describing this as an intact or repaired anatomical exterior."
+  },
+  "visual_scope": "Two matched fixed front views at t=0, whole and seam detail. Appearance review is separate from all-25-key technical correspondence.",
+  "conclusion": "Source-defined 123/124 exterior classification transfers by exact mesh/node identity; preserving extra fit root and original animation data is necessary. No global opaque mask is asserted valid for cutaway/transparent/internal views.",
+  "limitations": [
+    "No refit or anatomical registration claim",
+    "Underlying RV inlet/apparatus geometry unresolved",
+    "No new clinical/anatomical or live WebGL approval",
+    "In-memory visibility comparison only; no fitted model derivative or consumer integration."
+  ],
+  "reused_source_evidence": [
+    {
+      "file": "reviews/heart_exterior/2026-10-30-native-visibility-r01/checks/animated-native-visibility-contract.json",
+      "sha256": "49c7270efb3c4835e3c594138b236a7c17bf809b9627392abf8ef970aa30a636"
+    },
+    {
+      "file": "reviews/heart_exterior/2026-10-30-native-visibility-r01/checks/animated-source-reimport-motion.json",
+      "sha256": "3ff44644d7244e60d93a2eb348f5be4e54f2812f747cd0a02283e02a0622fb94"
+    }
+  ],
+  "retention": {
+    "four_images_total_bytes": 5890269,
+    "purpose": "Matched whole/context and seam detail for each in-memory state; each view supplies distinct comparison evidence.",
+    "canonical_sources": "Original fitted and repository-source GLBs retained unchanged at their existing locations; no model is included in this package.",
+    "consumers": "Issue150 and evidence-only draft PR; image hashes and render bindings are retained here.",
+    "private_history": "Full worker/reviewer evidence and original sources remain preserved separately; no private account data included."
+  }
+}
