@@ -5,7 +5,9 @@ export function mount(root, coverage) {
   const stage = root.querySelector('#plate');
   let state = initialState();
   let renderedWidth = 0;
+  let destroyed = false;
   function render(focusTooth = false) {
+    if (destroyed) return;
     const c = COPY[state.lang], id = state.selected[state.arch], t = describe(id, state.lang);
     const wasFocused = stage.contains(doc.activeElement);
     doc.documentElement.lang = state.lang === 'zh' ? 'zh-CN' : 'en';
@@ -23,10 +25,18 @@ export function mount(root, coverage) {
     renderedWidth = stage.getBoundingClientRect().width || 640;
     stage.innerHTML = plateSVG(state, renderedWidth);
     const image = stage.querySelector('image'), arch = state.arch;
-    image?.addEventListener('error', () => dispatch({type: 'image', arch, available: false}), {once: true});
+    image?.addEventListener('error', () => {
+      // Only this mount's current, attached image owns its availability state.
+      if (image.isConnected && stage.querySelector('image') === image) {
+        dispatch({type: 'image', arch, available: false});
+      }
+    }, {once: true});
     if (focusTooth || wasFocused) stage.querySelector(`[role="radio"][data-fdi="${id}"]`).focus();
   }
-  function dispatch(action, focusTooth = false) { state = step(state, action); render(focusTooth); }
+  function dispatch(action, focusTooth = false) {
+    if (destroyed) return;
+    state = step(state, action); render(focusTooth);
+  }
   function click(event) {
     const tooth = event.target.closest('[data-fdi]');
     if (tooth) dispatch({type: 'select', value: tooth.dataset.fdi}, true);
@@ -58,6 +68,7 @@ export function mount(root, coverage) {
   }) : null;
   observer?.observe(stage);
   return {getState: () => structuredClone(state), destroy() {
+    destroyed = true;
     root.removeEventListener('click', click); stage.removeEventListener('keydown', keydown); observer?.disconnect();
   }};
 }
