@@ -1,6 +1,8 @@
 import {COPY,breath} from './state.mjs';
 export function exchangeSVG(state){
- const c=COPY[state.language],b=breath(state),oxy=state.gas==='oxygen',amp=b.amplitude;
+ // Hold the outline as well as the gas markers when the illustration is paused;
+ // the independent breath may keep playing in the background.
+ const c=COPY[state.language],b=breath(state.exchangePaused?{...state,phase:state.exchangePhase}:state),oxy=state.gas==='oxygen',amp=b.amplitude;
  const active=oxy?'#e5b76b':'#78d5d3',oOpacity=oxy?1:.35,cOpacity=oxy?.35:1;
  const oy=239+88*b.exchangeProgress,cy=327-88*b.exchangeProgress;
  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 510" role="img" aria-label="${c.diagram}"><defs><marker id="arrowO" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#e5b76b"/></marker><marker id="arrowC" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#78d5d3"/></marker></defs>

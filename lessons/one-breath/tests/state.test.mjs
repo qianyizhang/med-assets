@@ -1,5 +1,6 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {initialState,reduce,breath,COPY,fallbackFrame,lessonStatus} from '../state.mjs';
+import {exchangeSVG} from '../exchange.mjs';
 test('initial state is paused with no airflow and exchange directions remain defined',()=>{const s=initialState();assert.equal(s.playing,false);assert.equal(breath(s).flow,0);assert.equal(breath(s).oxygenDirection,'air-to-blood');});
 test('one shared phase reverses airflow while lung expansion rises then falls',()=>{const s={...initialState(),phase:.25,playing:true};assert.equal(breath(s).phaseName,'in');assert.equal(breath({...s,phase:.75}).phaseName,'out');assert.ok(breath({...s,phase:.5}).amplitude>breath(s).amplitude);assert.equal(breath({...s,phase:1}).amplitude,0);});
 test('one play completes once and clamps oversized timing steps',()=>{let s=reduce(reduce(initialState(),{type:'loaded'}),{type:'play'});s=reduce(s,{type:'tick',dt:999});assert.ok(s.phase<.02);for(let i=0;i<65;i++)s=reduce(s,{type:'tick',dt:.1});assert.equal(s.phase,1);assert.equal(s.playing,false);assert.equal(reduce(s,{type:'play'}).phase,0);});
@@ -10,6 +11,58 @@ test('diffusion directions do not reverse during exhalation or stop at rest',()=
 test('English and Chinese contain the same complete control and stage vocabulary',()=>{assert.deepEqual(Object.keys(COPY.en).sort(),Object.keys(COPY.zh).sort());for(const lang of ['en','zh']){const c=COPY[lang];assert.equal(c.stages.length,3);assert.equal(c.heading.length,3);assert.equal(c.action.length,3);assert.ok(c.retry&&c.fallback&&c.diagram&&c.exchangeNote);}});
 
 test('pause freezes airway clock and mechanics while exchange clock continues',()=>{const s={...initialState(),assets:'ready',phase:.25,breathClock:2,elapsed:2,playing:false};const n=reduce(s,{type:'tick',dt:.1});assert.equal(n.phase,s.phase);assert.equal(n.breathClock,s.breathClock);assert.equal(breath(n).flow,0);assert.ok(n.elapsed>s.elapsed);assert.equal(breath(n).phaseName,'paused');});
+test('exchange visualization can freeze for reading while the breath continues, then resume',()=>{
+  const running={...initialState(),stage:2,assets:'ready',playing:true,phase:.25,elapsed:2};
+  let s=reduce(running,{type:'exchange-toggle'});
+  const still=exchangeSVG(s);
+  for(let i=0;i<8;i++)s=reduce(s,{type:'tick',dt:.1});
+  assert.equal(exchangeSVG(s),still,'the entire schematic must hold, including the alveolar outline');
+  assert.equal(s.elapsed,running.elapsed);
+  assert.ok(s.phase>running.phase,'pausing the illustration must not pause the breath');
+  s=reduce(s,{type:'language',value:'zh'});
+  s=reduce(s,{type:'gas',value:'carbon-dioxide'});
+  s=reduce(reduce(s,{type:'stage',value:0}),{type:'stage',value:2});
+  const translated=exchangeSVG(s);
+  assert.match(translated,/血液 → 空气/);
+  assert.equal(exchangeSVG(reduce(s,{type:'tick',dt:.1})),translated);
+  s=reduce(s,{type:'exchange-toggle'});
+  assert.notEqual(exchangeSVG(reduce(s,{type:'tick',dt:.1})),exchangeSVG(s));
+});
+test('reduced motion starts and resets to a stable illustration with an explicit resume option',()=>{
+  let s=initialState('zh',{reducedMotion:true});
+  const still=exchangeSVG(s);
+  for(let i=0;i<60;i++)s=reduce(s,{type:'tick',dt:.1});
+  assert.equal(exchangeSVG(s),still);
+  s=reduce(s,{type:'exchange-toggle'});
+  const resumed=exchangeSVG(s);
+  s=reduce(s,{type:'tick',dt:.1});
+  assert.notEqual(exchangeSVG(s),resumed,'explicit resume may animate despite the default preference');
+  s=reduce({...s,assets:'error',error:'HTTP 404'},{type:'reset'});
+  assert.equal(s.language,'zh');assert.equal(s.assets,'error');assert.equal(s.error,'HTTP 404');
+  assert.equal(s.stage,0);assert.equal(s.phase,0);
+  assert.equal(exchangeSVG(reduce(s,{type:'tick',dt:.1})),exchangeSVG(s));
+});
+test('turning reduced motion on freezes the current picture without restarting it when the preference clears',()=>{
+  let s={...initialState(),phase:.3,playing:true,elapsed:1};
+  const before=exchangeSVG(s);
+  s=reduce(s,{type:'motion-preference',value:true});
+  assert.equal(exchangeSVG(s),before);
+  s=reduce(s,{type:'tick',dt:.1});
+  assert.equal(exchangeSVG(s),before);
+  s=reduce(s,{type:'motion-preference',value:false});
+  assert.equal(exchangeSVG(reduce(s,{type:'tick',dt:.1})),before);
+  s=reduce(s,{type:'reset'});
+  assert.notEqual(exchangeSVG(reduce(s,{type:'tick',dt:.1})),exchangeSVG(s));
+});
+test('enabling reduced motion preserves an already paused illustration during an active breath',()=>{
+  let s=reduce({...initialState(),phase:.25,elapsed:2,playing:true},{type:'exchange-toggle'});
+  const held=exchangeSVG(s);
+  for(let i=0;i<8;i++)s=reduce(s,{type:'tick',dt:.1});
+  assert.equal(exchangeSVG(s),held);
+  s=reduce(s,{type:'motion-preference',value:true});
+  assert.equal(exchangeSVG(s),held,'the preference must retain the existing held outline');
+  assert.equal(exchangeSVG(reduce(s,{type:'tick',dt:.1})),held);
+});
 test('end inspiration is not labeled as the initial resting state',()=>{assert.equal(breath({...initialState(),phase:.5}).phaseName,'peak');for(const language of ['en','zh'])assert.notEqual(COPY[language].phase.peak,COPY[language].phase.rest);});
 
 test('fallback uses the resting frame after reset and labels missing previews in both languages',()=>{assert.equal(fallbackFrame(initialState()),'mechanics-rest');assert.equal(fallbackFrame({...initialState(),phase:.4}),'mechanics-in');assert.equal(fallbackFrame({...initialState(),stage:1}),'airway');for(const c of Object.values(COPY))assert.ok(c.preview&&c.fallbackMissing&&c.snapshot);});
