@@ -38,12 +38,19 @@ the authored exchange schematic remains available. Missing previews are disclose
   bronchial ports. Stage changes preserve progress. Smaller branches are omitted.
 - **Exchange:** select O₂ or CO₂. Air and blood remain visibly separated. Gas
   directions do not reverse during exhalation; exchange has its own continuing
-  clock within the shared lesson state.
+  clock within the shared lesson state. **Pause visualization / Resume
+  visualization** holds the schematic for reading, independently of the breath
+  control, including when models or WebGL are unavailable. Pausing this
+  illustration does not represent gas exchange stopping between breaths.
 
 Reset returns to mechanics/rest while retaining language. EN/中文 covers labels,
 actions, loading/error/preview states and short explanations. Reduced-motion
-preference makes camera transitions immediate. Port labels use existing V7
-terminal opening centers in the retained display frame. The guide route follows
+preference makes camera transitions immediate and starts the exchange illustration
+as a still frame. The learner can explicitly resume it. Enabling reduced motion
+during playback holds the current diagram; clearing the preference leaves it
+paused until Resume or Reset. Reset retains language, availability and the motion
+preference, and restores that preference's default illustration state. Port labels
+use existing V7 terminal opening centers in the retained display frame. The guide route follows
 inner-surface slice centers and is editorial, not computed flow.
 
 ## Evidence boundaries
@@ -68,10 +75,12 @@ node --test lessons/one-breath/tests/state.test.mjs lessons/one-breath/tests/con
 python3 tools/verify.py offline
 ```
 
-The 26 targeted Node checks exercise shared state, reset/stage/language data,
+The 32 targeted Node checks exercise shared state, reset/stage/language data,
 actual pinned GLTFLoader/morph consumption, ports, pause behavior and missing/
 corrupt-asset rejection/retry. The UI event tests run the actual app body with
-DOM, loader and renderer doubles, including detached preview callbacks. They do
+DOM, loader and renderer doubles, including detached preview callbacks, independent
+exchange pause/resume and reduced-motion defaults/changes. They check that a held
+schematic remains byte-stable and is not replaced on every animation frame. They do
 not click browser controls, decode preview images or prove layout or WebGL.
 The initial source checkpoint's repository offline gate separately passed 183
 tests and metadata/pointer checks. See the [repository setup receipt](review/repository-setup.json)

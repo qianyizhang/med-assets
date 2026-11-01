@@ -14,7 +14,7 @@ class Element {
   get isConnected(){return this.root||Boolean(this.parent?.isConnected);}
   get textContent(){return this.text+this.children.map(child=>child.textContent).join('');}
   set textContent(value){this.replaceChildren();this.text=value;}
-  set innerHTML(value){this.textContent=value;if(this.tag==='button'){this.bold=new Element('b');this.append(this.bold);}}
+  set innerHTML(value){this.htmlWrites=(this.htmlWrites||0)+1;this.textContent=value;if(this.tag==='button'){this.bold=new Element('b');this.append(this.bold);}}
   get innerHTML(){return this.text;}
   append(...children){for(const child of children){child.parent=this;this.children.push(child);}}
   replaceChildren(...children){for(const child of this.children)child.parent=null;this.children=[];this.text='';this.append(...children);}
@@ -24,7 +24,7 @@ class Element {
   querySelectorAll(selector){return this.children.filter(child=>child.tag===selector);}
   click(){if(!this.disabled)this.onclick?.();}
 }
-async function harness(hasRenderer=false){
+async function harness(hasRenderer=false,{reducedMotion=false}={}){
   const elements=Object.fromEntries([...html.matchAll(/id="([^"]+)"/g)].map(([,id])=>[id,new Element()]));
   for(const element of Object.values(elements))element.root=true;
   const gases=['oxygen','carbon-dioxide'].map(gas=>{const element=new Element('button');element.dataset.gas=gas;return element;});
@@ -35,17 +35,20 @@ async function harness(hasRenderer=false){
   class Vector3 {set(){} }
   class OrthographicCamera {position=new Vector3();lookAt(){} }
   class WebGLRenderer {constructor(){if(!hasRenderer)throw Error('Test: no WebGL');}setPixelRatio(){} }
-  const pending=[];let frame;
+  const pending=[],motionListeners=[];let frame,time=0;
+  const motionPreference={matches:reducedMotion,addEventListener:(type,callback)=>motionListeners.push(callback)};
   vm.runInNewContext(source.replace(/^import .*;\n/gm,''),{
     ...stateModule,document,THREE:{Vector3,OrthographicCamera,WebGLRenderer},
     CAMERAS:{mechanics:{target:[0,0,0],position:[0,0,1],height:1}},
     createLessonScene:()=>({}),loadModels:()=>new Promise((resolve,reject)=>pending.push({resolve,reject})),
     fetch:async()=>({json:async()=>({})}),exchangeSVG,devicePixelRatio:1,
     performance:{now:()=>0},requestAnimationFrame:callback=>{frame=callback;},console:{info(){}},
+    matchMedia:()=>motionPreference,
   },{filename:'app.mjs'});
   const settle=()=>new Promise(resolve=>setImmediate(resolve));
   await settle();
-  return {elements,gases,settle,pending,step:()=>frame(100),
+  return {elements,gases,settle,pending,step:()=>frame(time+=100),
+    setReducedMotion:value=>{motionPreference.matches=value;motionListeners.forEach(callback=>callback(motionPreference));},
     status:()=>({phase:elements.phase.textContent,cue:elements.cue.textContent}),
     stage:index=>elements.stages.children[index].click(),
     image:()=>elements.notice.children.find(child=>child.tag==='img'),
@@ -110,5 +113,51 @@ test('preview load/error callbacks cannot overwrite a later language, stage or r
   e.reset.click();
   assert.deepEqual(app.status(),{phase:'三维视图不可用',cue:'呼吸运动不可用'});
   assert.match(app.image().src,/mechanics-rest\.png$/);
+  assert.equal(e['breath-control'].disabled,true);
+});
+
+for(const hasRenderer of [false,true]) {
+  test(`exchange visualization control pauses independently in EN/中文 (renderer=${hasRenderer})`,async()=>{
+    const app=await harness(hasRenderer),{elements:e}=app;
+    await app.load('HTTP 404');
+    const control=e['exchange-motion'];
+    assert.ok(control,'exchange needs its own visualization control');
+    assert.equal(control.hidden,true);
+    app.stage(2);app.step();
+    assert.equal(control.hidden,false);assert.notEqual(control.disabled,true);
+    assert.equal(control.textContent,'Pause visualization');
+    const moving=e.exchange.innerHTML;app.step();assert.notEqual(e.exchange.innerHTML,moving);
+    control.click();app.step();
+    assert.equal(control.textContent,'Resume visualization');
+    const held=e.exchange.innerHTML,writes=e.exchange.htmlWrites;app.step();app.step();assert.equal(e.exchange.innerHTML,held);
+    assert.equal(e.exchange.htmlWrites,writes,'a held schematic must not be replaced on every frame');
+    e.language.click();app.gases[1].click();app.step();
+    assert.equal(control.textContent,'继续示意动画');
+    assert.match(e.exchange.innerHTML,/血液 → 空气/);
+    const chinese=e.exchange.innerHTML;app.step();assert.equal(e.exchange.innerHTML,chinese);
+    app.stage(1);assert.equal(control.hidden,true);
+    app.stage(2);assert.equal(control.textContent,'继续示意动画');
+    control.click();app.step();assert.notEqual(e.exchange.innerHTML,chinese);
+    assert.equal(control.textContent,'暂停示意动画');
+    e.reset.click();assert.equal(control.hidden,true);
+    app.stage(2);assert.equal(control.textContent,'暂停示意动画');
+    assert.equal(e['breath-control'].hidden,true);
+  });
+}
+
+test('app respects reduced motion at startup, on preference change and after reset',async()=>{
+  const app=await harness(false,{reducedMotion:true}),{elements:e}=app;
+  await app.load();app.stage(2);app.step();
+  const control=e['exchange-motion'];
+  assert.ok(control,'exchange needs its own visualization control');
+  assert.equal(control.textContent,'Resume visualization');
+  const still=e.exchange.innerHTML,writes=e.exchange.htmlWrites;app.step();assert.equal(e.exchange.innerHTML,still);
+  assert.equal(e.exchange.htmlWrites,writes);
+  control.click();app.step();assert.notEqual(e.exchange.innerHTML,still);
+  app.setReducedMotion(false);app.setReducedMotion(true);app.step();
+  const held=e.exchange.innerHTML;app.step();assert.equal(e.exchange.innerHTML,held);
+  e.language.click();e.reset.click();app.stage(2);app.step();
+  assert.equal(control.textContent,'继续示意动画');
+  const reset=e.exchange.innerHTML;app.step();assert.equal(e.exchange.innerHTML,reset);
   assert.equal(e['breath-control'].disabled,true);
 });
