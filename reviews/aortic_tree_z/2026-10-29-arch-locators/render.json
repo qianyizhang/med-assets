@@ -1,0 +1,1099 @@
+{
+  "file": "models/aortic_tree_z/exports/r02/aortic_tree_z_source_frame.glb",
+  "sha256": "d4b3dbd2d09fd76795f47bb96844acdeba5f1b4f48dd630f2a294f33816deaeb",
+  "bytes": 881168,
+  "binaryChunkSha256": "f903230018576406d058a87291bb93f96207ae7462acd4d536dbf12c771d56f8",
+  "meshCount": 9,
+  "sourceStructureCount": 15,
+  "nodes": [
+    {
+      "nodeIndex": 0,
+      "meshIndex": 0,
+      "nodeName": "Ascending aorta + Aortic arch + Thoracic aorta + Abdominal ",
+      "sourceNames": [
+        "Ascending aorta",
+        "Aortic arch",
+        "Thoracic aorta",
+        "Abdominal aorta"
+      ],
+      "vertices": 8980,
+      "triangles": 17920,
+      "minimumSourceM": [
+        -0.009918546304106712,
+        1.028628945350647,
+        -0.04944691061973572
+      ],
+      "maximumSourceM": [
+        0.03196411579847336,
+        1.3968675136566162,
+        0.044504836201667786
+      ],
+      "meanSourceM": [
+        0.01090745021084029,
+        1.2192944580834268,
+        0.006917819386953669
+      ]
+    },
+    {
+      "nodeIndex": 1,
+      "meshIndex": 1,
+      "nodeName": "Brachiocephalic trunk + Right common carotid artery",
+      "sourceNames": [
+        "Brachiocephalic trunk",
+        "Right common carotid artery"
+      ],
+      "vertices": 3220,
+      "triangles": 6400,
+      "minimumSourceM": [
+        -0.03518133983016014,
+        1.3817219734191895,
+        -0.004106796812266111
+      ],
+      "maximumSourceM": [
+        0.01710517331957817,
+        1.4865751266479492,
+        0.022246619686484337
+      ],
+      "meanSourceM": [
+        -0.011074985866604343,
+        1.4229305776379864,
+        0.012414734322703892
+      ]
+    },
+    {
+      "nodeIndex": 2,
+      "meshIndex": 2,
+      "nodeName": "Common iliac artery.r + External iliac artery.r",
+      "sourceNames": [
+        "Common iliac artery.r",
+        "External iliac artery.r"
+      ],
+      "vertices": 3220,
+      "triangles": 6400,
+      "minimumSourceM": [
+        -0.05884123966097832,
+        0.8915339112281799,
+        -0.004662453196942806
+      ],
+      "maximumSourceM": [
+        0.01433498039841652,
+        1.0325058698654175,
+        0.04038181155920029
+      ],
+      "meanSourceM": [
+        -0.03168562623185557,
+        0.9663865400767474,
+        0.014196423935557149
+      ]
+    },
+    {
+      "nodeIndex": 3,
+      "meshIndex": 3,
+      "nodeName": "Common iliac artery.l + External iliac artery.l",
+      "sourceNames": [
+        "Common iliac artery.l",
+        "External iliac artery.l"
+      ],
+      "vertices": 2580,
+      "triangles": 5120,
+      "minimumSourceM": [
+        -0.0034653469920158386,
+        0.8915366530418396,
+        -0.004678250290453434
+      ],
+      "maximumSourceM": [
+        0.058839380741119385,
+        1.0325058698654175,
+        0.04038181155920029
+      ],
+      "meanSourceM": [
+        0.03769551005391332,
+        0.9574329698270605,
+        0.011167507505702223
+      ]
+    },
+    {
+      "nodeIndex": 4,
+      "meshIndex": 4,
+      "nodeName": "Left common carotid artery.001",
+      "sourceNames": [
+        "Left common carotid artery"
+      ],
+      "vertices": 2580,
+      "triangles": 5120,
+      "minimumSourceM": [
+        0.012356199324131012,
+        1.3952093124389648,
+        -0.0041929567232728004
+      ],
+      "maximumSourceM": [
+        0.035192299634218216,
+        1.4865758419036865,
+        0.00988704338669777
+      ],
+      "meanSourceM": [
+        0.01937973751224462,
+        1.4335554124773011,
+        0.003669059226946371
+      ]
+    },
+    {
+      "nodeIndex": 5,
+      "meshIndex": 5,
+      "nodeName": "Right subclavian artery.001",
+      "sourceNames": [
+        "Right subclavian artery"
+      ],
+      "vertices": 1940,
+      "triangles": 3840,
+      "minimumSourceM": [
+        -0.0806180015206337,
+        1.4081710577011108,
+        -0.00553035456687212
+      ],
+      "maximumSourceM": [
+        -0.011243414133787155,
+        1.4235990047454834,
+        0.019063815474510193
+      ],
+      "meanSourceM": [
+        -0.04275057667712729,
+        1.4173082388553422,
+        0.0014630618638847475
+      ]
+    },
+    {
+      "nodeIndex": 6,
+      "meshIndex": 6,
+      "nodeName": "Left subclavian artery.001",
+      "sourceNames": [
+        "Left subclavian artery"
+      ],
+      "vertices": 2580,
+      "triangles": 5120,
+      "minimumSourceM": [
+        0.019088348373770714,
+        1.3888047933578491,
+        -0.008847281336784363
+      ],
+      "maximumSourceM": [
+        0.08061552792787552,
+        1.4273371696472168,
+        0.00432543782517314
+      ],
+      "meanSourceM": [
+        0.04345666475579604,
+        1.4142228915247805,
+        -0.0015934381393467342
+      ]
+    },
+    {
+      "nodeIndex": 7,
+      "meshIndex": 7,
+      "nodeName": "Right renal artery.001",
+      "sourceNames": [
+        "Right renal artery"
+      ],
+      "vertices": 1940,
+      "triangles": 3840,
+      "minimumSourceM": [
+        -0.032073330134153366,
+        1.1036548614501953,
+        0.0018352284096181393
+      ],
+      "maximumSourceM": [
+        0.009767170995473862,
+        1.1234674453735352,
+        0.02095417119562626
+      ],
+      "meanSourceM": [
+        -0.009097552897208178,
+        1.1127266255236163,
+        0.009561038860623946
+      ]
+    },
+    {
+      "nodeIndex": 8,
+      "meshIndex": 8,
+      "nodeName": "Left renal artery.001",
+      "sourceNames": [
+        "Left renal artery"
+      ],
+      "vertices": 660,
+      "triangles": 1280,
+      "minimumSourceM": [
+        0.005013252142816782,
+        1.1115610599517822,
+        0.0034827974159270525
+      ],
+      "maximumSourceM": [
+        0.032486699521541595,
+        1.121553659439087,
+        0.024264272302389145
+      ],
+      "meanSourceM": [
+        0.01981374456787087,
+        1.1160142201365846,
+        0.012834083292435742
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "number": 1,
+      "node": "Brachiocephalic trunk + Right common carotid artery",
+      "en": "Brachiocephalic trunk + right common carotid artery",
+      "zh": "头臂干＋右颈总动脉",
+      "sourceNames": [
+        "Brachiocephalic trunk",
+        "Right common carotid artery"
+      ],
+      "targetSourceM": [
+        0.001,
+        1.4,
+        0.018
+      ]
+    },
+    {
+      "number": 2,
+      "node": "Left common carotid artery.001",
+      "en": "Left common carotid artery",
+      "zh": "左颈总动脉",
+      "sourceNames": [
+        "Left common carotid artery"
+      ],
+      "targetSourceM": [
+        0.018,
+        1.425,
+        0.009
+      ]
+    },
+    {
+      "number": 3,
+      "node": "Left subclavian artery.001",
+      "en": "Left subclavian artery",
+      "zh": "左锁骨下动脉",
+      "sourceNames": [
+        "Left subclavian artery"
+      ],
+      "targetSourceM": [
+        0.044,
+        1.421,
+        0.002
+      ]
+    },
+    {
+      "number": 4,
+      "node": "Right subclavian artery.001",
+      "en": "Right subclavian artery",
+      "zh": "右锁骨下动脉",
+      "sourceNames": [
+        "Right subclavian artery"
+      ],
+      "targetSourceM": [
+        -0.044,
+        1.42,
+        0.007
+      ]
+    }
+  ],
+  "laterality": {
+    "basis": "Source-name checks on three bilateral pairs: +X is source left, -X source right.",
+    "bilateralChecks": [
+      {
+        "leftNode": "Left subclavian artery.001",
+        "rightNode": "Right subclavian artery.001",
+        "leftMeanX": 0.04345666475579604,
+        "rightMeanX": -0.04275057667712729
+      },
+      {
+        "leftNode": "Left renal artery.001",
+        "rightNode": "Right renal artery.001",
+        "leftMeanX": 0.01981374456787087,
+        "rightMeanX": -0.009097552897208178
+      },
+      {
+        "leftNode": "Common iliac artery.l + External iliac artery.l",
+        "rightNode": "Common iliac artery.r + External iliac artery.r",
+        "leftMeanX": 0.03769551005391332,
+        "rightMeanX": -0.03168562623185557
+      }
+    ]
+  },
+  "render": {
+    "blender": "4.3.2",
+    "engine": "Cycles CPU",
+    "samples": 32,
+    "seed": 0,
+    "denoising": false,
+    "viewTransform": "AgX",
+    "look": "AgX - Medium High Contrast",
+    "exposure": 0,
+    "gamma": 1
+  },
+  "imports": {
+    "Ascending aorta + Aortic arch + Thoracic aorta + Abdominal ": {
+      "vertices": 8980,
+      "vertexBytesSha256": "89a840e0074c0b4f05084fc30174aae5f532e22997df6a1f054b5ea45fb1c928",
+      "indexBytesSha256": "5b5c00d323271141dec2c4118f79050e9bee7cfe5d2f186b026bf4364fe4af5c",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "polygons": 17920,
+      "materials": [
+        {
+          "name": "Illustrative arterial red, not tissue measurement",
+          "nodes": [
+            {
+              "name": "Principled BSDF",
+              "baseColor": [
+                0.47999998927116394,
+                0.07500000298023224,
+                0.06499999761581421,
+                1.0
+              ],
+              "roughness": 0.5
+            }
+          ]
+        }
+      ]
+    },
+    "Brachiocephalic trunk + Right common carotid artery": {
+      "vertices": 3220,
+      "vertexBytesSha256": "2004e8591e95e46914ae1710c75aa8ea9fb761c5bdde0f50f7474dd2fc3f3d83",
+      "indexBytesSha256": "a8e193e98b287032bc8e4b9edb6fb6da323244538f7285c43f5569f01ef762b4",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "polygons": 6400,
+      "materials": [
+        {
+          "name": "Illustrative arterial red, not tissue measurement",
+          "nodes": [
+            {
+              "name": "Principled BSDF",
+              "baseColor": [
+                0.47999998927116394,
+                0.07500000298023224,
+                0.06499999761581421,
+                1.0
+              ],
+              "roughness": 0.5
+            }
+          ]
+        }
+      ]
+    },
+    "Common iliac artery.r + External iliac artery.r": {
+      "vertices": 3220,
+      "vertexBytesSha256": "690378a7f29da59c2c2d7335e0a86a06d5ed7bc66bb3d52f2ffd1a3fd4eb03aa",
+      "indexBytesSha256": "a8e193e98b287032bc8e4b9edb6fb6da323244538f7285c43f5569f01ef762b4",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "polygons": 6400,
+      "materials": [
+        {
+          "name": "Illustrative arterial red, not tissue measurement",
+          "nodes": [
+            {
+              "name": "Principled BSDF",
+              "baseColor": [
+                0.47999998927116394,
+                0.07500000298023224,
+                0.06499999761581421,
+                1.0
+              ],
+              "roughness": 0.5
+            }
+          ]
+        }
+      ]
+    },
+    "Common iliac artery.l + External iliac artery.l": {
+      "vertices": 2580,
+      "vertexBytesSha256": "b606bfd2b6a74391627da5ecb3654b82844377e9e2c04058941e10b3e78b2255",
+      "indexBytesSha256": "e488ca914bc35f382c753e96b5450edbbc93370f80287a501e1734d45d2ec054",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "polygons": 5120,
+      "materials": [
+        {
+          "name": "Illustrative arterial red, not tissue measurement",
+          "nodes": [
+            {
+              "name": "Principled BSDF",
+              "baseColor": [
+                0.47999998927116394,
+                0.07500000298023224,
+                0.06499999761581421,
+                1.0
+              ],
+              "roughness": 0.5
+            }
+          ]
+        }
+      ]
+    },
+    "Left common carotid artery.001": {
+      "vertices": 2580,
+      "vertexBytesSha256": "10780df6ce699fea302ab7d4d023355ab45748fa7977562bd5245f3a8d8eb227",
+      "indexBytesSha256": "e488ca914bc35f382c753e96b5450edbbc93370f80287a501e1734d45d2ec054",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "polygons": 5120,
+      "materials": [
+        {
+          "name": "Illustrative arterial red, not tissue measurement",
+          "nodes": [
+            {
+              "name": "Principled BSDF",
+              "baseColor": [
+                0.47999998927116394,
+                0.07500000298023224,
+                0.06499999761581421,
+                1.0
+              ],
+              "roughness": 0.5
+            }
+          ]
+        }
+      ]
+    },
+    "Right subclavian artery.001": {
+      "vertices": 1940,
+      "vertexBytesSha256": "3b7863b9d1e086e6cd5af70b8e8d28f85415fb969a08127d7dfc0b6874d82f23",
+      "indexBytesSha256": "21162d944df06c36bfcf790c487fb161216c0dda5a7babcc0169b5467bfb381f",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "polygons": 3840,
+      "materials": [
+        {
+          "name": "Illustrative arterial red, not tissue measurement",
+          "nodes": [
+            {
+              "name": "Principled BSDF",
+              "baseColor": [
+                0.47999998927116394,
+                0.07500000298023224,
+                0.06499999761581421,
+                1.0
+              ],
+              "roughness": 0.5
+            }
+          ]
+        }
+      ]
+    },
+    "Left subclavian artery.001": {
+      "vertices": 2580,
+      "vertexBytesSha256": "ef03009e4dedcc4571d61abd050098e66ac212a3c4e1e5c5eceeedcda10a18f5",
+      "indexBytesSha256": "e488ca914bc35f382c753e96b5450edbbc93370f80287a501e1734d45d2ec054",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "polygons": 5120,
+      "materials": [
+        {
+          "name": "Illustrative arterial red, not tissue measurement",
+          "nodes": [
+            {
+              "name": "Principled BSDF",
+              "baseColor": [
+                0.47999998927116394,
+                0.07500000298023224,
+                0.06499999761581421,
+                1.0
+              ],
+              "roughness": 0.5
+            }
+          ]
+        }
+      ]
+    },
+    "Right renal artery.001": {
+      "vertices": 1940,
+      "vertexBytesSha256": "5fb2941a86337f84fa58dd22f08427db80a717bdfcf7309654541383f92ec8c4",
+      "indexBytesSha256": "21162d944df06c36bfcf790c487fb161216c0dda5a7babcc0169b5467bfb381f",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "polygons": 3840,
+      "materials": [
+        {
+          "name": "Illustrative arterial red, not tissue measurement",
+          "nodes": [
+            {
+              "name": "Principled BSDF",
+              "baseColor": [
+                0.47999998927116394,
+                0.07500000298023224,
+                0.06499999761581421,
+                1.0
+              ],
+              "roughness": 0.5
+            }
+          ]
+        }
+      ]
+    },
+    "Left renal artery.001": {
+      "vertices": 660,
+      "vertexBytesSha256": "2bc2051a9928af874579195a757cbec72ae14a9d5032172bf3011d419bd29684",
+      "indexBytesSha256": "009625d04fafd5d2e367c7bf5c608a0c2fb2afa31c01f516d35db5ad27f629d0",
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "polygons": 1280,
+      "materials": [
+        {
+          "name": "Illustrative arterial red, not tissue measurement",
+          "nodes": [
+            {
+              "name": "Principled BSDF",
+              "baseColor": [
+                0.47999998927116394,
+                0.07500000298023224,
+                0.06499999761581421,
+                1.0
+              ],
+              "roughness": 0.5
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "sourceToImportCoordinates": [
+    {
+      "nodeName": "Ascending aorta + Aortic arch + Thoracic aorta + Abdominal ",
+      "maxCoordinateErrorM": 0.0
+    },
+    {
+      "nodeName": "Brachiocephalic trunk + Right common carotid artery",
+      "maxCoordinateErrorM": 0.0
+    },
+    {
+      "nodeName": "Common iliac artery.r + External iliac artery.r",
+      "maxCoordinateErrorM": 0.0
+    },
+    {
+      "nodeName": "Common iliac artery.l + External iliac artery.l",
+      "maxCoordinateErrorM": 0.0
+    },
+    {
+      "nodeName": "Left common carotid artery.001",
+      "maxCoordinateErrorM": 0.0
+    },
+    {
+      "nodeName": "Right subclavian artery.001",
+      "maxCoordinateErrorM": 0.0
+    },
+    {
+      "nodeName": "Left subclavian artery.001",
+      "maxCoordinateErrorM": 0.0
+    },
+    {
+      "nodeName": "Right renal artery.001",
+      "maxCoordinateErrorM": 0.0
+    },
+    {
+      "nodeName": "Left renal artery.001",
+      "maxCoordinateErrorM": 0.0
+    }
+  ],
+  "sourceToImportBasis": "glTF (x, y, z) -> Blender (x, -z, y), compared for all source vertices",
+  "views": [
+    {
+      "view": "overview",
+      "file": "overview.png",
+      "sha256": "c99ec690c3af7fb7b9102b006b096812dfc294adc6e6edf4f2847921941f0111",
+      "bytes": 727211,
+      "seconds": 2.040385294000316,
+      "resolution": [
+        900,
+        900
+      ],
+      "targetBlenderM": [
+        0.0,
+        0.0,
+        1.190000057220459
+      ],
+      "cameraBlenderM": [
+        0.0,
+        -1.0,
+        1.190000057220459
+      ],
+      "cameraWorldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.6292068494294654e-07,
+          -1.0,
+          -1.0
+        ],
+        [
+          0.0,
+          1.0,
+          -1.6292068494294654e-07,
+          1.190000057220459
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "orthoScaleM": 0.6800000071525574,
+      "anchors": [
+        {
+          "number": 1,
+          "sourceNode": "Brachiocephalic trunk + Right common carotid artery",
+          "sourceNames": [
+            "Brachiocephalic trunk",
+            "Right common carotid artery"
+          ],
+          "pixel": [
+            449.5,
+            175.5
+          ],
+          "rayHitPolygon": 1631,
+          "hitSourceM": [
+            -0.0003777777892537415,
+            1.3974003791809082,
+            0.019835472106933594
+          ],
+          "projectedHitPixel": [
+            449.5000094175339,
+            175.49972534179688
+          ],
+          "rayHitExactSourceNode": true
+        },
+        {
+          "number": 2,
+          "sourceNode": "Left common carotid artery.001",
+          "sourceNames": [
+            "Left common carotid artery"
+          ],
+          "pixel": [
+            473.5,
+            138.5
+          ],
+          "rayHitPolygon": 2270,
+          "hitSourceM": [
+            0.017755554988980293,
+            1.4253560304641724,
+            0.009711146354675293
+          ],
+          "projectedHitPixel": [
+            473.50001335144043,
+            138.49961757659912
+          ],
+          "rayHitExactSourceNode": true
+        },
+        {
+          "number": 3,
+          "sourceNode": "Left subclavian artery.001",
+          "sourceNames": [
+            "Left subclavian artery"
+          ],
+          "pixel": [
+            508.5,
+            143.5
+          ],
+          "rayHitPolygon": 2751,
+          "hitSourceM": [
+            0.044199999421834946,
+            1.4215781688690186,
+            0.003013312816619873
+          ],
+          "projectedHitPixel": [
+            508.4999978542328,
+            143.49973797798157
+          ],
+          "rayHitExactSourceNode": true
+        },
+        {
+          "number": 4,
+          "sourceNode": "Right subclavian artery.001",
+          "sourceNames": [
+            "Right subclavian artery"
+          ],
+          "pixel": [
+            390.5,
+            144.5
+          ],
+          "rayHitPolygon": 2160,
+          "hitSourceM": [
+            -0.044955555349588394,
+            1.4208226203918457,
+            0.0014604926109313965
+          ],
+          "projectedHitPixel": [
+            390.4999941587448,
+            144.49971914291382
+          ],
+          "rayHitExactSourceNode": true
+        }
+      ]
+    },
+    {
+      "view": "junction",
+      "file": "junction.png",
+      "sha256": "e85942b1dde683da0fac69019c6106d728c34b090e46bda0e825e210d510248d",
+      "bytes": 822366,
+      "seconds": 3.3577415980003025,
+      "resolution": [
+        900,
+        900
+      ],
+      "targetBlenderM": [
+        0.0,
+        -0.004999999888241291,
+        1.3849999904632568
+      ],
+      "cameraBlenderM": [
+        0.0,
+        -1.0049999952316284,
+        1.3849999904632568
+      ],
+      "cameraWorldMatrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          -1.6292068494294654e-07,
+          -1.0,
+          -1.0049999952316284
+        ],
+        [
+          0.0,
+          1.0,
+          -1.6292068494294654e-07,
+          1.3849999904632568
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "orthoScaleM": 0.22499999403953552,
+      "anchors": [
+        {
+          "number": 1,
+          "sourceNode": "Brachiocephalic trunk + Right common carotid artery",
+          "sourceNames": [
+            "Brachiocephalic trunk",
+            "Right common carotid artery"
+          ],
+          "pixel": [
+            448.5,
+            399.5
+          ],
+          "rayHitPolygon": 1630,
+          "hitSourceM": [
+            -0.000375000003259629,
+            1.3976253271102905,
+            0.020075500011444092
+          ],
+          "projectedHitPixel": [
+            448.5000014305115,
+            399.49910044670105
+          ],
+          "rayHitExactSourceNode": true
+        },
+        {
+          "number": 2,
+          "sourceNode": "Left common carotid artery.001",
+          "sourceNames": [
+            "Left common carotid artery"
+          ],
+          "pixel": [
+            522.5,
+            289.5
+          ],
+          "rayHitPolygon": 2270,
+          "hitSourceM": [
+            0.018124999478459358,
+            1.4251253604888916,
+            0.009692251682281494
+          ],
+          "projectedHitPixel": [
+            522.5000023841858,
+            289.49897289276123
+          ],
+          "rayHitExactSourceNode": true
+        },
+        {
+          "number": 3,
+          "sourceNode": "Left subclavian artery.001",
+          "sourceNames": [
+            "Left subclavian artery"
+          ],
+          "pixel": [
+            624.5,
+            305.5
+          ],
+          "rayHitPolygon": 2713,
+          "hitSourceM": [
+            0.04362499713897705,
+            1.4211252927780151,
+            0.0023065805435180664
+          ],
+          "projectedHitPixel": [
+            624.5000123977661,
+            305.4992616176605
+          ],
+          "rayHitExactSourceNode": true
+        },
+        {
+          "number": 4,
+          "sourceNode": "Right subclavian artery.001",
+          "sourceNames": [
+            "Right subclavian artery"
+          ],
+          "pixel": [
+            270.5,
+            307.5
+          ],
+          "rayHitPolygon": 2161,
+          "hitSourceM": [
+            -0.044874999672174454,
+            1.4206253290176392,
+            0.0014331340789794922
+          ],
+          "projectedHitPixel": [
+            270.5000013113022,
+            307.49911665916443
+          ],
+          "rayHitExactSourceNode": true
+        }
+      ]
+    }
+  ],
+  "sourceBytesAndImportedGeometryUnchanged": true,
+  "cameraProvenance": "New recorded +Z-source / +Y-up orthographic cameras. Historical recipes explicitly unbundled; not historical pixel replay.",
+  "scope": "Exact source-node raycast/projection and offline static images only. No clinical or browser approval."
+}
