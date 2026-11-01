@@ -108,3 +108,30 @@ recovery; switch EN/中文, stages and reset; inspect preview-present/missing st
 and both exchange directions. Keep this PR draft until the current visible
 status behavior is inspected. Full 3D, smaller-phone, animation/camera and
 clinical acceptance remain separate; no merge or Site publication is included.
+
+## Recovered current browser evidence · published 2026-11-01
+
+The [2026-10-30 supported cloud Chrome receipt](https://github.com/qianyizhang/med-assets/pull/170#issuecomment-6518769802)
+supersedes the blocked-current-UI status above. These are **Updated/current views**
+of reviewed head `7655a8a59af469d2e0a4b73918f700a4d1928ebc`, not matched
+baseline screenshots. App/state code remains unchanged by evidence delivery.
+
+![Updated desktop EN: 3D and motion unavailable](unavailable-en.jpg)
+![Updated narrow Chinese: 485 px content width, unavailable state](narrow-unavailable-zh.jpg)
+
+The actual browser showed unavailable labels and disabled breath control; stage 3,
+CO₂ selection, language and reset were checked in the receipt. These captures
+show the mechanics state only. No live WebGL, animation/camera pass, preview-image
+load/error or current browser missing/corrupt-asset Retry pass is claimed.
+Issue #140 remains open for broader acceptance.
+
+Retention: these are the two canonical recovered current UI screenshots consumed
+by this record and PR #170. Original handoff filenames ended in `.png`, but the
+unchanged bytes are JPEG and are published as `.jpg`:
+
+| File | Bytes | SHA-256 |
+| --- | ---: | --- |
+| `unavailable-en.jpg` | 47787 | `a8e89e6493318c5845a945febdcd53f44c51815e4776c334626c39624f151466` |
+| `narrow-unavailable-zh.jpg` | 36253 | `92be2f1b6d7afab0c63ada0ddc252045a74bb8a9d153cc3e78ddd973e933bd1f` |
+
+No duplicate captures, model rebuilds or clinical approval are part of delivery.
