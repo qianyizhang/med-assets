@@ -12,11 +12,19 @@ const html = fs.readFileSync(new URL('../index.html', import.meta.url), 'utf8');
 function fixture(width = 640) {
   const dom = new JSDOM(html, {url: 'http://localhost/lessons/arch-identification/'});
   const root = dom.window.document.querySelector('#lesson');
+  let resizeCallback;
+  dom.window.ResizeObserver = class {
+    constructor(callback) { resizeCallback = callback; }
+    observe() {}
+    disconnect() {}
+  };
   root.querySelector('#plate').getBoundingClientRect = () => ({width});
   const app = mount(root, coverage);
   const click = selector => root.querySelector(selector).dispatchEvent(new dom.window.MouseEvent('click', {bubbles: true}));
   const key = value => root.querySelector('[role="radio"][tabindex="0"]').dispatchEvent(new dom.window.KeyboardEvent('keydown', {key: value, bubbles: true, cancelable: true}));
-  return {dom, root, app, click, key, close() {app.destroy(); dom.window.close();}};
+  return {dom, root, app, click, key,
+    resize(value) { width = value; resizeCallback(); },
+    close() {app.destroy(); dom.window.close();}};
 }
 
 test('exactly 28 source-supported IDs; four third-molar slots are unavailable', () => {
@@ -119,6 +127,75 @@ test('image failure removes floating leaders, keeps selection/keyboard/language,
   assert.equal(f.root.querySelector('#image-error').hidden, true);
   assert.equal(f.root.querySelector('#fdi').textContent, 'FDI 47');
   f.close();
+});
+
+for (const [reason, redraw] of [
+  ['language', f => f.click('[data-lang="zh"]')],
+  ['tooth selection', f => f.click('.hit[data-fdi="16"]')],
+  ['keyboard selection', f => f.key('ArrowRight')],
+  ['resize', f => f.resize(292)],
+  ['arch round trip', f => { f.click('[data-arch="lower"]'); f.click('[data-arch="upper"]'); }],
+]) test(`superseded image error after ${reason} cannot hide the current same-arch image`, () => {
+  const f = fixture();
+  try {
+    const oldImage = f.root.querySelector('image');
+    redraw(f);
+    const currentImage = f.root.querySelector('image');
+    const state = f.app.getState();
+    const focus = f.dom.window.document.activeElement;
+    assert.notEqual(currentImage, oldImage);
+    assert.equal(oldImage.isConnected, false);
+    oldImage.dispatchEvent(new f.dom.window.Event('error'));
+    assert.deepEqual(f.app.getState(), state);
+    assert.equal(f.root.querySelector('image'), currentImage);
+    assert.equal(f.root.querySelector('#image-error').hidden, true);
+    assert.equal(f.dom.window.document.activeElement, focus);
+    // Ignoring an obsolete event must not swallow a genuine current failure.
+    currentImage.dispatchEvent(new f.dom.window.Event('error'));
+    assert.equal(f.app.getState().image.upper, false);
+    assert.equal(f.root.querySelector('image'), null);
+    assert.equal(f.root.querySelector('#image-error').hidden, false);
+    f.click('#retry');
+    assert.ok(f.root.querySelector('image'));
+    assert.deepEqual(f.app.getState(), state);
+  } finally { f.close(); }
+});
+
+test('an image removed without a redraw no longer owns image failures', () => {
+  const f = fixture();
+  try {
+    const image = f.root.querySelector('image'), state = f.app.getState();
+    image.remove();
+    image.dispatchEvent(new f.dom.window.Event('error'));
+    assert.deepEqual(f.app.getState(), state);
+    assert.equal(f.root.querySelector('#image-error').hidden, true);
+  } finally { f.close(); }
+});
+
+test('an image in a detached mount cannot mutate its state', () => {
+  const f = fixture();
+  try {
+    const image = f.root.querySelector('image'), state = f.app.getState();
+    f.root.remove();
+    image.dispatchEvent(new f.dom.window.Event('error'));
+    assert.deepEqual(f.app.getState(), state);
+    assert.equal(f.root.querySelector('image'), image);
+  } finally { f.close(); }
+});
+
+test('destroy invalidates retained image error and queued resize callbacks', () => {
+  const f = fixture();
+  try {
+    const image = f.root.querySelector('image'), state = f.app.getState();
+    f.app.destroy();
+    image.dispatchEvent(new f.dom.window.Event('error'));
+    assert.deepEqual(f.app.getState(), state);
+    assert.equal(f.root.querySelector('image'), image);
+    // ResizeObserver delivery can already be queued when disconnect runs.
+    f.resize(292);
+    assert.equal(f.root.querySelector('image'), image);
+    assert.deepEqual(f.app.getState(), state);
+  } finally { f.close(); }
 });
 
 test('responsive SVG labels stay legible, in bounds and separated at 240–1000 px', () => {
