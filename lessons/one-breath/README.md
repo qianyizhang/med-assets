@@ -53,6 +53,21 @@ preference, and restores that preference's default illustration state. Port labe
 use existing V7 terminal opening centers in the retained display frame. The guide route follows
 inner-surface slice centers and is editorial, not computed flow.
 
+## Interrupted 3D rendering
+
+If the WebGL context is lost after startup, breath playback pauses at its current
+progress and the 3D control becomes unavailable. A bilingual notice offers
+**Reload lesson** to restart. Verified model status, language, stage and progress
+are retained until that explicit reload; reload starts a fresh lesson. Native
+context restoration does not resume playback. The independent exchange diagram,
+gas selector and visualization Pause/Resume remain usable. Reset does not claim
+to repair the renderer. This path uses the existing animation loop and does not
+reload assets or attach extra listeners during model Retry.
+
+The post-startup loss tests send event notifications to the actual app with DOM
+and renderer doubles. They are handler evidence, not forced live WebGL loss,
+actual browser recovery or blank-canvas observations.
+
 ## Evidence boundaries
 
 The initial isolated Chromium attempt failed before page launch because its SUID
@@ -75,7 +90,7 @@ node --test lessons/one-breath/tests/state.test.mjs lessons/one-breath/tests/con
 python3 tools/verify.py offline
 ```
 
-The 33 targeted Node checks exercise shared state, reset/stage/language data,
+The 36 targeted Node checks exercise shared state, reset/stage/language data,
 actual pinned GLTFLoader/morph consumption, ports, pause behavior and missing/
 corrupt-asset rejection/retry. The UI event tests run the actual app body with
 DOM, loader and renderer doubles, including detached preview callbacks, independent
