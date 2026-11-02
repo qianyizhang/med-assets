@@ -88,7 +88,9 @@ permanent audit report merely to lower line counts.
   for the intended change. See the [comparison contract](docs/REVIEW_CONTRACT.md#comparing-asset-variants)
   for export/reimport and artifact-binding requirements.
 - For both issue updates and PRs, match camera, scale and lighting; show whole
-  context and zoom subtle details. Reuse existing authorized evidence; do not
+  context and link close-ups to an exact overview locator. Use legible anchored
+  labels, consistent Original / Updated pairs and a short what-changed/why caption
+  as specified in the comparison contract. Reuse existing authorized evidence; do not
   recapture or rerender valid evidence just to satisfy this rule. Image publication
   still needs authorization.
 - For docs/test-only or other nonvisual changes, state screenshots are not
