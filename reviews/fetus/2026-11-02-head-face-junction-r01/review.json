@@ -1,0 +1,53 @@
+{
+  "kind": "bounded-private-fetal-junction-review",
+  "issue": 194,
+  "scope": "Stage-neutral authored head-face surface transition only",
+  "original": {
+    "sha256": "84d3f9559dac7bf175514194554d8ca5929f1d9d2666fae1bbc6b09512b4fca8",
+    "bytes": 292140,
+    "url": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/pelvis/fetus.glb"
+  },
+  "candidate": {
+    "sha256": "3f4becca8672deb66267eac23e173ab62b75ac9e2c63510aecc7cd23f6a84272",
+    "bytes": 454980,
+    "included": false,
+    "activeTriangles": 18248,
+    "originalActiveTriangles": 12248
+  },
+  "source": {
+    "kind": "original procedural educational geometry, not age-calibrated",
+    "generatorFile": "pelvis/build_pelvis.py",
+    "generatorSha256": "7b94e9eb3a7a0ad26f0e79fe061ddab500c3ee75053883a1303e5c0276855dae",
+    "sourceArchiveSha256": "27fc64be3aebf7776e952fdf739b122fee3a26193656580502de158863fec9b0",
+    "claim": "Source record and exact current GLB match; no named third-party license or gestational stage inferred"
+  },
+  "technical": {
+    "status": "passed",
+    "checks": 13,
+    "cleanBlenderReimportUnrelatedMeshNormalMatrixIdentities": 22,
+    "recipeReplaySha256": "3f4becca8672deb66267eac23e173ab62b75ac9e2c63510aecc7cd23f6a84272",
+    "geometryMethod": "Radial smooth union of the two source ellipsoids; 4 mm blending interval, maximum 1 mm radial addition relative to their union",
+    "retention": "Original BIN retained; two original head/face meshes remain inactive. Only head node mesh replaced and face node mesh removed;22 unrelated nodes and materials untouched."
+  },
+  "visual": {
+    "status": "pass-with-limitations",
+    "scope": "Independent actual-pixel review of matched Front/Left/Back whole and Front/Left detail, 10 images; no required geometry v2",
+    "engine": "Blender4.3.2 CyclesCPU24samples; optional denoiser unavailable and disabled equally",
+    "evidence": "render-bindings.json",
+    "newImagesIncluded": false
+  },
+  "runtime": {
+    "status": "unverified"
+  },
+  "anatomy": {
+    "status": "unverified",
+    "scope": "No developmental stage, healthy morphology, clinical or completeness claim"
+  },
+  "limitations": [
+    "Existing schematic proportions, limbs and cord retained",
+    "New head tessellation; back projected outline not exact pixel/vertex identity",
+    "No Site deployment or model/media publication",
+    "GLB/PNG/blend/source archive retained privately and not included in this text package",
+    "Offline guard tests do not replay source geometry or inspect pixels"
+  ]
+}

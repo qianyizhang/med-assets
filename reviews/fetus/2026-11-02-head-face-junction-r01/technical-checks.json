@@ -1,0 +1,25 @@
+{
+  "checks": {
+    "all_original_BIN_bytes_exact": true,
+    "22_unrelated_nodes_exact": true,
+    "all_original_mesh_definitions_exact": true,
+    "materials_exact": true,
+    "scene_roots_exact": true,
+    "node_0_transform_metadata_exact": true,
+    "node_1_transform_metadata_exact": true,
+    "only_node0_replaced_node1_mesh_removed": true,
+    "positions_normals_finite": true,
+    "normals_unit": true,
+    "indices_in_range": true,
+    "no_zero_area_faces": true,
+    "unrelated_accessors_views_exact": true
+  },
+  "passed": 13,
+  "minimum_head_triangle_area_m2": 1.5959398134131153e-07,
+  "new_active_head_triangles": 8800,
+  "limits": [
+    "Technical checks only; render review separate",
+    "No anatomical/clinical or live runtime acceptance",
+    "Original inactive two-head mesh buffers retained, not optimized away"
+  ]
+}
