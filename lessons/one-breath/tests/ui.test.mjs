@@ -19,7 +19,8 @@ class Element {
   append(...children){for(const child of children){child.parent=this;this.children.push(child);}}
   replaceChildren(...children){for(const child of this.children)child.parent=null;this.children=[];this.text='';this.append(...children);}
   setAttribute(name,value){this.attributes[name]=value;}
-  addEventListener(type,callback){this['on'+type]=callback;}
+  addEventListener(type,callback){this.listenerCounts??={};this.listenerCounts[type]=(this.listenerCounts[type]||0)+1;this['on'+type]=callback;}
+  getBoundingClientRect(){return {width:800,height:500};}
   querySelector(selector){return selector==='b'?this.bold:null;}
   querySelectorAll(selector){return this.children.filter(child=>child.tag===selector);}
   click(){if(!this.disabled)this.onclick?.();}
@@ -32,22 +33,22 @@ async function harness(hasRenderer=false,{reducedMotion=false}={}){
   const document={documentElement:{},getElementById:id=>elements[id],createElement:tag=>new Element(tag),
     createTextNode:text=>{const node=new Element('text');node.text=text;return node;},
     querySelector:selector=>selector==='canvas'?canvas:progress,querySelectorAll:()=>gases};
-  class Vector3 {set(){} }
-  class OrthographicCamera {position=new Vector3();lookAt(){} }
-  class WebGLRenderer {constructor(){if(!hasRenderer)throw Error('Test: no WebGL');}setPixelRatio(){} }
-  const pending=[],motionListeners=[];let frame,time=0;
+  class Vector3 {set(){} lerp(){return this;} project(){return this;} }
+  class OrthographicCamera {position=new Vector3();lookAt(){} updateProjectionMatrix(){} }
+  class WebGLRenderer {constructor(){if(!hasRenderer)throw Error('Test: no WebGL');}setPixelRatio(){} setSize(){} render(){} }
+  const pending=[],motionListeners=[];let frame,time=0,rafCount=0,reloads=0;
   const motionPreference={matches:reducedMotion,addEventListener:(type,callback)=>motionListeners.push(callback)};
   vm.runInNewContext(source.replace(/^import .*;\n/gm,''),{
     ...stateModule,document,THREE:{Vector3,OrthographicCamera,WebGLRenderer},
     CAMERAS:{mechanics:{target:[0,0,0],position:[0,0,1],height:1}},
-    createLessonScene:()=>({}),loadModels:()=>new Promise((resolve,reject)=>pending.push({resolve,reject})),
+    applyLessonState:()=>{},sceneLabels:()=>[],createLessonScene:()=>({}),loadModels:()=>new Promise((resolve,reject)=>pending.push({resolve,reject})),
     fetch:async()=>({json:async()=>({})}),exchangeSVG,devicePixelRatio:1,
-    performance:{now:()=>0},requestAnimationFrame:callback=>{frame=callback;},console:{info(){}},
-    matchMedia:()=>motionPreference,
+    performance:{now:()=>0},requestAnimationFrame:callback=>{frame=callback;rafCount++;},console:{info(){}},
+    matchMedia:()=>motionPreference,window:{location:{reload:()=>{reloads++;}}},
   },{filename:'app.mjs'});
   const settle=()=>new Promise(resolve=>setImmediate(resolve));
   await settle();
-  return {elements,gases,settle,pending,step:()=>frame(time+=100),
+  return {elements,gases,settle,pending,canvas,context:type=>canvas['on'+type]?.({preventDefault(){}}),rafCount:()=>rafCount,reloads:()=>reloads,step:()=>frame(time+=100),
     setReducedMotion:value=>{motionPreference.matches=value;motionListeners.forEach(callback=>callback(motionPreference));},
     status:()=>({phase:elements.phase.textContent,cue:elements.cue.textContent}),
     stage:index=>elements.stages.children[index].click(),
@@ -160,4 +161,45 @@ test('app respects reduced motion at startup, on preference change and after res
   assert.equal(control.textContent,'继续示意动画');
   const reset=e.exchange.innerHTML;app.step();assert.equal(e.exchange.innerHTML,reset);
   assert.equal(e['breath-control'].disabled,true);
+});
+
+// These events are notifications to the actual app body, not live WebGL loss.
+for(const language of ['en','zh'])test(`post-startup context loss pauses breath and keeps exchange usable (${language})`,async()=>{
+  const app=await harness(true),{elements:e}=app;
+  await app.load();
+  if(language==='zh')e.language.click();
+  e['breath-control'].click();app.step();
+  const progress=e.progress.style.width,frames=app.rafCount();
+  assert.ok(parseFloat(progress)>0);
+  app.context('webglcontextlost');app.step();
+  assert.equal(e['breath-control'].disabled,true);
+  assert.equal(e.progress.style.width,progress,'unavailable breath must hold its progress');
+  assert.equal(app.rafCount(),frames+1,'context loss must not start another RAF loop');
+  assert.equal(e.phase.textContent,language==='en'?'3D unavailable':'三维视图不可用');
+  assert.match(e.notice.textContent,language==='en'?/Reload/:/重新加载/);
+  assert.doesNotMatch(e.notice.textContent,language==='en'?/models could not/:/模型加载失败/);
+  app.stage(1);assert.equal(e['breath-control'].disabled,true);
+  app.stage(2);app.gases[1].click();app.step();
+  assert.equal(e.notice.textContent,'');assert.equal(e['exchange-motion'].hidden,false);
+  assert.match(e.exchange.innerHTML,language==='en'?/Blood → air/:/血液 → 空气/);
+  e['exchange-motion'].click();app.step();const held=e.exchange.innerHTML;app.step();assert.equal(e.exchange.innerHTML,held);
+  app.context('webglcontextrestored');app.stage(0);app.step();
+  assert.equal(e['breath-control'].disabled,true,'native restoration must not silently resume the lesson');
+  assert.equal(e.progress.style.width,progress);
+  const reload=e.notice.children.find(child=>child.tag==='button');assert.ok(reload);reload.click();assert.equal(app.reloads(),1);
+  e.reset.click();assert.equal(e['breath-control'].disabled,true);assert.equal(e.progress.style.width,progress);
+  app.step();assert.equal(e.progress.style.width,'0%');
+  assert.equal(e.language.textContent,language==='en'?'中文':'EN');
+  assert.equal(app.pending.length,0,'loss must not refetch or invalidate verified models');
+  assert.equal(app.canvas.listenerCounts.webglcontextlost,1);
+});
+test('context loss while models load cannot become ready through load, retry or reset',async()=>{
+  const app=await harness(true),{elements:e}=app;
+  app.context('webglcontextlost');await app.load('HTTP 404');
+  assert.match(e.notice.textContent,/HTTP 404/);
+  await app.retry();await app.load();
+  assert.equal(e['breath-control'].disabled,true);assert.match(e.notice.textContent,/Reload/);
+  e.language.click();e.reset.click();
+  assert.equal(e['breath-control'].disabled,true);assert.match(e.notice.textContent,/重新加载/);
+  assert.equal(app.canvas.listenerCounts.webglcontextlost,1);
 });
