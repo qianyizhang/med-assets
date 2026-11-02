@@ -99,6 +99,22 @@ When a change needs visual review:
 - Compare clean reimports of the actual exports using matching camera position,
   projection and scale, lighting, exposure and background. Record intentional
   differences and inspect the views needed to reveal the changed area.
+- Make each comparison understandable without surrounding chat: pair labels as
+  **Original / Updated**, name the asset or region, and add a short caption stating
+  what changed and why it matters. Do not rely on an abstract close-up alone.
+- Connect each close-up to an overview with a labelled locator marking its exact
+  crop or region. Use the same crop bounds and zoom for Original / Updated, in
+  addition to the matched camera and lighting above. Keep labels and anchors
+  legible at the intended issue/PR display size; a detail must reveal the claimed
+  change rather than merely enlarge an unidentified surface.
+- Anchor identifiers to visible evidence. Use a clearly labelled complementary
+  view for hidden structures rather than placing a marker through an occluder.
+  Distinguish source-provided annotations from independently validated anatomy;
+  a source label alone does not establish anatomical correctness.
+- Say when Original is an unchanged source freshly rerendered, not a historical
+  image. Label derived views and record their relationship to the source camera;
+  do not present them as source-confirmed views. Keep limitations specific and
+  decision-relevant instead of filling panels with generic warning clutter.
 - Check that material names, colors and legends agree across views. Inspect a
   grayscale view as one readability check; it does not certify accessibility or
   anatomy. Label illustrative colors and retain source limitations.
