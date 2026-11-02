@@ -28,6 +28,15 @@ Three.js and transport APIs are doubles; this is not browser BFCache/WebGL
 coverage. Missing Node, an incomplete suite, skips or unexpected baseline results
 fail verification. No npm install or media payload is required.
 
+The candidate-camera applicator has seven required offline source/composition
+checks. Its separate actual-controls CPU suite needs the exact already-acquired
+Three.js/OrbitControls inputs described in
+[`tests/candidate_camera/vendor-binding.json`](../tests/candidate_camera/vendor-binding.json).
+Run `python3 tests/candidate_camera/run_cpu.py --vendor-dir PATH_TO_EXACT_VENDOR`
+and repeat with `--lifecycle` when changing the camera patch. The runner verifies
+input hashes before staging; it downloads nothing and does not load models or
+launch a browser. These actual-vendor CPU cases are not counted by offline mode.
+
 Offline checks also validate all content-addressed transport manifests using the
 existing fixed host/size/hash limits, the fixed historical foundation record set, all
 tracked LFS pointer syntax/OIDs, and the 591 imported path references. For text,
