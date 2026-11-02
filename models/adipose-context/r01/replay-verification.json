@@ -1,0 +1,13 @@
+{
+  "status": "pass-with-limitations",
+  "byte_identical": {
+    "selected-source-pads.glb": true,
+    "overview-pads.png": false,
+    "overview-body.png": false,
+    "detail-pads.png": false,
+    "detail-body.png": false,
+    "comparison-en.png": true,
+    "comparison-zh.png": true
+  },
+  "conclusion": "Exact selected GLB and EN/\u4e2d\u6587 final plates reproduced. Raw Blender PNG byte identity not established; metadata difference suspected but not proven because prior raw bytes were not retained."
+}

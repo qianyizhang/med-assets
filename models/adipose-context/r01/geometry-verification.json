@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "comparison": "Exact equality of canonical world-space triangle multisets, quantized to 1e-6 m; unique vertex coordinates also compared. GLB seam duplicates ignored, connectivity retained.",
+  "source_sha256": "5f7947838971b88f2c29e992290086e21169eee2c72bb5394948e72aee4bad25",
+  "candidate_sha256": "e56010adfe8aa587db77c0cd847c0dcdfbb8951bc90c92eddb27643512a38531",
+  "objects": {
+    "Abdominal subcutaneous pad -1": {
+      "unique_vertices": 222,
+      "triangles": 440
+    },
+    "Abdominal subcutaneous pad 1": {
+      "unique_vertices": 222,
+      "triangles": 440
+    },
+    "Flank pad -1": {
+      "unique_vertices": 222,
+      "triangles": 440
+    },
+    "Flank pad 1": {
+      "unique_vertices": 222,
+      "triangles": 440
+    }
+  },
+  "finite": true
+}
