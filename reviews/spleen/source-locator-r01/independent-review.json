@@ -1,0 +1,92 @@
+{
+  "decision": "pass-with-limitations",
+  "reviewedAt": "2026-11-02T12:29:00Z",
+  "base": "f9fc923189027405589f2a5e43b3b3c475722424",
+  "files": {
+    "reviews/spleen/source-locator-r01/README.md": {
+      "sha256": "363302b4b1d7112d4c702002c9622f898f4f1a1bf7b42b92cc8ce524738d5c5a",
+      "bytes": 3775
+    },
+    "reviews/spleen/source-locator-r01/anchors.json": {
+      "sha256": "099c5bee19675e911ed18ebacbc08a3ff7465822d1e2d20ab8b105a9ccfe9136",
+      "bytes": 3568
+    },
+    "reviews/spleen/source-locator-r01/camera-source.json": {
+      "sha256": "671e6c4db4791e76cef0960f0f3c85864f9a37ed2b73ac1636f93854d9bde064",
+      "bytes": 3938
+    },
+    "reviews/spleen/source-locator-r01/check.py": {
+      "sha256": "97e5fda4d498185f0bcdc07bd2525f3fbf231d592153cd5f6611040e85a802fd",
+      "bytes": 2393
+    },
+    "reviews/spleen/source-locator-r01/comparison-0-en.png": {
+      "sha256": "8cfb0caf00e1d0dd714fc60fa9846f63486096361270b9e1b9465dba201fe17a",
+      "bytes": 873997
+    },
+    "reviews/spleen/source-locator-r01/comparison-0-zh.png": {
+      "sha256": "c72aa1588bbdbeaf45f51dff12f9feca0456907c1fe138e320dd659917166648",
+      "bytes": 853059
+    },
+    "reviews/spleen/source-locator-r01/comparison-1-en.png": {
+      "sha256": "34f0cdb446fdb7db411828d654c77e79ca20399cbd55a7caed9857829e136c87",
+      "bytes": 775129
+    },
+    "reviews/spleen/source-locator-r01/comparison-1-zh.png": {
+      "sha256": "9b48081cc0824d90fe09637d296cb8a702b19a489028b7764cf37531b75fce1a",
+      "bytes": 753769
+    },
+    "reviews/spleen/source-locator-r01/comparison-2-en.png": {
+      "sha256": "5e3285966827155ccca7200514aed2e824dd8093b7a04e1a366454dd6f21fa9b",
+      "bytes": 741647
+    },
+    "reviews/spleen/source-locator-r01/comparison-2-zh.png": {
+      "sha256": "5d13f022ee997cc4391ea0a3282b61cb42062fd8aef0d302daaab93e833a2a2d",
+      "bytes": 717311
+    },
+    "reviews/spleen/source-locator-r01/compose.py": {
+      "sha256": "7522aeb321a6539db45c2c9fe14bbd513e14af6d031cfd2387f94d143361750d",
+      "bytes": 7120
+    },
+    "reviews/spleen/source-locator-r01/render-receipt.json": {
+      "sha256": "8d3e334085e9a8a75d17ac051c077468d6001c2c96b6ea3cbaead58e3329558d",
+      "bytes": 4589
+    },
+    "reviews/spleen/source-locator-r01/render.py": {
+      "sha256": "ed13ec53f624b8c1372aa82b3abf28962a28f699b7ac2e709ae96fff8f587be7",
+      "bytes": 5082
+    },
+    "reviews/spleen/source-locator-r01/source_guard.py": {
+      "sha256": "b00ff9542a4d8fe27924280f718efc4d789ca3e6a31d3096574f3029b3d17bb1",
+      "bytes": 1556
+    },
+    "tests/test_spleen_source_locator.py": {
+      "sha256": "46e9568cc45b44b89e6e70a8a914835d47392c49afdd03fa4dfad620d371d789",
+      "bytes": 1947
+    },
+    "tools/verify.py": {
+      "sha256": "74031caa99054c6cae8148e4b810abb9c9dc1224cdbce817cefe09230d8fef87",
+      "bytes": 15612
+    }
+  },
+  "independentChecks": [
+    "Scoped recipe, checks and 6 PNG allowlist inspected; no source GLB, SVG duplicates, private absolute paths or operational identifiers.",
+    "6 PNG working payloads byte-identical to final V2 pixel-reviewed output; staged LFS SHA/size pointers verified",
+    "compose/check/camera/anchors/render receipt equal final V2",
+    "source_guard extraction inspected: source/camera refusal before output creation; expected_sha override used only by synthetic tests, renderer uses default exact pin",
+    "new 5-test suite executed successfully; existing required suites unchanged"
+  ],
+  "notRun": [
+    "full offline suite delegated to builder; no duplicate run",
+    "remote binary/CI/readback",
+    "browser runtime",
+    "independent anatomical validation"
+  ],
+  "checksRunByBuilder": [
+    "278 full offline tests passed; offline phase does not verify remote media bytes."
+  ],
+  "limitations": [
+    "Source annotations are not independently validated anatomy.",
+    "No live browser runtime test; static offline teaching aid only.",
+    "Public transport and CI pending."
+  ]
+}
