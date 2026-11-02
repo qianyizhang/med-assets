@@ -1,0 +1,27 @@
+{
+  "reviewer": "independent medical coordinator",
+  "reviewed_at": "2026-10-31T12:28:00Z",
+  "verdict": "pass-with-limitations",
+  "scope": "New private source-scene reconstruction for issue151; no claim of recovering old derivative1175f2d",
+  "visual": [
+    "Inspected actual EN, Chinese and grayscale pixels.",
+    "Matched pad renders reused at same framing on both sides.",
+    "Editorial locator establishes abdominal and flank region; detail uses same selected original meshes.",
+    "Numbers and bilingual legend remain readable; leader endpoints visibly meet selected pads.",
+    "Body-outline and other-structure omissions explicitly labelled."
+  ],
+  "technical_review": "Read canonical world-space triangle-multiset and unique-position comparison at1e-6m, plus finite check. Builder ran successful clean GLB reimport; this is code/receipt review, not a second independent Blender replay.",
+  "limitations": [
+    "No clinical/anatomical acceptance.",
+    "No browser runtime or performance claim.",
+    "Primitive original pads retained; no volume or body-habitus measurements.",
+    "Source Blender scene used, not the unavailable historical exact GLB."
+  ],
+  "bindings": {
+    "comparison-en.png": "3afd37e33dfd32cd45b418657fb0167de4a7549d69dd0161d3f0d898fa1593d3",
+    "comparison-zh.png": "b2683d3670f0ad4768de6ee473a6ae6d91597754af35f31e514bb3a192c8343a",
+    "comparison-en-grayscale.png": "05764798206e22a481b3a8438d96e874c5f58097549546c6452dcf25f1ecac45",
+    "selected-source-pads.glb": "e56010adfe8aa587db77c0cd847c0dcdfbb8951bc90c92eddb27643512a38531",
+    "geometry-verification.json": "6b6734969715af8e65d02742057df8996d9780c88da6a2c7f5e698038e1eafb6"
+  }
+}
