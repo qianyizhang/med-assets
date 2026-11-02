@@ -1,0 +1,118 @@
+{
+  "sourceSha256": "4e2637cf6c844aef85ab77c2c1049d4e7647348a13c34d784795b98825f7c8c7",
+  "geometryTransformsBeforeAfter": {
+    "VH_F_colic_surface_of_spleen": "c9fc8ac1ea271bd2781816eda41afadec53d9df2fb7dac811c8fe7764db24794",
+    "VH_F_diaphragmatic_surface_of_spleen": "46b4973265d6c2ef02ee7e73127b2b96d874028359194c7077469f7ae32b5526",
+    "VH_F_gastric_surface_of_spleen": "2694fd9e08bc4294c95c7f1ea62629edfd143542a2e4f11092ead1f69f02c0fa",
+    "VH_F_hilum_of_spleen": "511b295a1f3e9ff966a0a3295600307c8eee6d6259001e99db9b85f8c6e12b2e",
+    "VH_F_renal_surface_of_spleen": "8825efe424d36e65fde90d8e2d96f6c82c3859b6fb47383d7b473e946d0a15ca"
+  },
+  "objects": [
+    "VH_F_gastric_surface_of_spleen",
+    "VH_F_diaphragmatic_surface_of_spleen",
+    "VH_F_colic_surface_of_spleen",
+    "VH_F_hilum_of_spleen",
+    "VH_F_renal_surface_of_spleen"
+  ],
+  "views": [
+    {
+      "file": "candidate_material_oblique.png",
+      "source_evidence_file": "candidate_material_oblique.png",
+      "source_evidence_sha256": "d5a5ebf4793e0a1c55789710f6dd548d8a2edf37ad969fd1fab1af6becadffd9",
+      "position_three": [
+        0.18386970460414886,
+        0.41855666041374207,
+        0.18922311067581177
+      ],
+      "target_three": [
+        0.08155457675457001,
+        0.3367045521736145,
+        -0.1177222803235054
+      ],
+      "up_three": [
+        -0.07755670696496964,
+        0.9694584012031555,
+        -0.23267018795013428
+      ],
+      "ortho_vertical_span": 0.1330096662044525,
+      "hidden_for_inspection_only": [],
+      "visible_source_meshes": null,
+      "mode": "candidate_material",
+      "display_note": "Exact candidate materials and documented named visibility; not measured tissue appearance.",
+      "label": {
+        "en": "Exterior oblique",
+        "zh": "\u5916\u89c2\u659c\u89c6"
+      }
+    },
+    {
+      "position_three": [
+        -0.02076055109500885,
+        0.25485244393348694,
+        -0.42466767132282257
+      ],
+      "target_three": [
+        0.08155457675457001,
+        0.3367045521736145,
+        -0.1177222803235054
+      ],
+      "up_three": [
+        -0.07755670696496964,
+        0.9694584012031555,
+        -0.23267018795013428
+      ],
+      "ortho_vertical_span": 0.1330096662044525,
+      "hidden_for_inspection_only": [],
+      "visible_source_meshes": null,
+      "mode": "candidate_material",
+      "display_note": "Exact candidate materials and documented named visibility; not measured tissue appearance.",
+      "label": {
+        "en": "Derived opposite view",
+        "zh": "\u6d3e\u751f\u53cd\u5411\u89c6\u56fe"
+      },
+      "derivedFrom": {
+        "view": "candidate_material_oblique.png",
+        "transform": "position = 2 * target - original position; unchanged target/up/span"
+      }
+    },
+    {
+      "file": "candidate_material_inferior.png",
+      "source_evidence_file": "candidate_material_inferior.png",
+      "source_evidence_sha256": "49dab064fef76847ccab63b2e3483676ecbdf1059990e13002789c40611eaf38",
+      "position_three": [
+        0.08155457675457001,
+        0.02975916862487793,
+        -0.1177222803235054
+      ],
+      "target_three": [
+        0.08155457675457001,
+        0.3367045521736145,
+        -0.1177222803235054
+      ],
+      "up_three": [
+        8.742277657347586e-08,
+        -8.742277657347586e-08,
+        -1.0
+      ],
+      "ortho_vertical_span": 0.1330096662044525,
+      "hidden_for_inspection_only": [],
+      "visible_source_meshes": null,
+      "mode": "candidate_material",
+      "display_note": "Exact candidate materials and documented named visibility; not measured tissue appearance.",
+      "label": {
+        "en": "Source lower view",
+        "zh": "\u6765\u6e90\u4e0b\u65b9\u89c6\u56fe"
+      }
+    }
+  ],
+  "sourceMaterialsRestored": true,
+  "scope": "Exact source exterior annotation; no new geometry or anatomical validation. ID pass diagnostic only.",
+  "renderedFileHashes": {
+    "view-1-original.png": "ba7fc67868bbacb3293b3fdf840fc61c832143d356a5bbfc584344a831c76eb0",
+    "view-2-ids.png": "2eba25ad2e0001498226908d69e446afd78920c0463bd8a3c1f763e56b0a59c4",
+    "view-0-ids.png": "016c2bfbacb7dba073f6cdfe07725505946d92055abfaebb48482cd30ae42288",
+    "view-1-ids.png": "d627ab5b85bfd96326e572a867a6a8772df5919a5ecc9e8847916c40e56bf9dd",
+    "view-0-original.png": "c67255dcc90cef78eff734b91408700c49c52ef7ec752746726040e186978912",
+    "view-2-original.png": "5b051e5c6fa64f3fbe756c943c3ce86e3cf33b1b374dd8a08c83cb9f2939099f"
+  },
+  "v2Reuse": "V1 final neutral PNGs reused byte-identically; captions/derived-camera metadata and exact cropped detail only."
+}
