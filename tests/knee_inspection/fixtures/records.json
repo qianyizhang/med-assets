@@ -1,0 +1,455 @@
+{
+  "candidates": [
+    {
+      "id": "joints__z-elbow-r01",
+      "assetId": "draft_joints",
+      "name": {
+        "en": "Joints · z-elbow-r01",
+        "zh": "右肘局部 · z-elbow-r01"
+      },
+      "reviewable": true,
+      "source": {
+        "file": "candidates/joints__z-elbow-r01/cd6cd488943fe721101955322b343a8c9441f1d4ff8c5042dd4e1ca7462f7891.glb.gz",
+        "sha256": "cd6cd488943fe721101955322b343a8c9441f1d4ff8c5042dd4e1ca7462f7891",
+        "revision": "z-elbow-r01",
+        "bytes": 158752,
+        "encoding": "gzip",
+        "transportSha256": "caac7941f9298a010bcea2fefd619994f4791ab59e8b5cd21b630ae6e9ae9092",
+        "transportBytes": 128205
+      },
+      "gates": {
+        "technical": "pass-with-limitations",
+        "visual": "passed",
+        "anatomy": "reference-screened",
+        "runtime": "unverified"
+      },
+      "gateDetails": {
+        "technical": {
+          "status": "pass-with-limitations",
+          "scope": "RIGHT elbow selected study only; inherited humerus4boundary/2nonmanifold edges. No tendon/muscle/bursa context or separate articular cartilage.",
+          "warnings": [
+            {
+              "name": "Humerus.r",
+              "open_boundary_edges": 4,
+              "nonmanifold_edges": 2
+            }
+          ]
+        },
+        "visual": {
+          "status": "passed",
+          "scope": "RIGHT elbow selected study only; inherited humerus4boundary/2nonmanifold edges. No tendon/muscle/bursa context or separate articular cartilage."
+        },
+        "anatomy": {
+          "status": "reference-screened",
+          "scope": "Educational static exterior only; no clinical validation."
+        },
+        "runtime": {
+          "status": "unverified"
+        }
+      },
+      "gateNotes": {
+        "en": "Specific technical checks passed with limitations; reference screening is not a complete anatomy pass. Visual acceptance is limited to the stated educational exterior/localization scope. Runtime unverified.",
+        "zh": "特定技术检查通过但有限制；参考初筛不是完整解剖通过。视觉接受仅限声明的教学外观或定位范围。运行未验证。"
+      },
+      "license": "CC BY-SA 4.0",
+      "scope": {
+        "en": "RIGHT elbow selected study only; inherited humerus4boundary/2nonmanifold edges. No tendon/muscle/bursa context or separate articular cartilage.",
+        "zh": "仅右肘选定结构；肱骨保留4条边界边与2条非流形边。无肌腱、肌肉、滑囊背景或独立关节软骨。"
+      },
+      "provenance": {
+        "en": "",
+        "zh": ""
+      },
+      "evidenceIds": [
+        "joints__z-elbow-r01__scoped-review__5",
+        "joints__z-elbow-r01__scoped-review__2"
+      ],
+      "beforeEvidenceIds": [
+        "draft_joints__2026-10-23-v10-exterior-review__3"
+      ],
+      "issueIds": [
+        "joints__z-elbow-r01__scoped-review"
+      ],
+      "history": [
+        "joints__z-elbow-r01__scoped-review"
+      ],
+      "attributionFile": "attribution/f04e87b3f59ee75d359f112ba770218ea46d4b2bfc2100d2eda417359855742b.md",
+      "sourceDownloads": [],
+      "sourceFrame": "Z-Anatomy native evaluated world",
+      "cameraContract": {
+        "glb_sha256": "cd6cd488943fe721101955322b343a8c9441f1d4ff8c5042dd4e1ca7462f7891",
+        "target_three": [
+          -0.2377430498600006,
+          1.0809470415115356,
+          -0.030993029475212097
+        ],
+        "ortho_vertical_span": 0.24,
+        "views": [
+          {
+            "file": "anterior.png",
+            "position_three": [
+              -0.2377430498600006,
+              1.2309470176696777,
+              2.9690070152282715
+            ],
+            "target_three": [
+              -0.2377430498600006,
+              1.0809470415115356,
+              -0.030993029475212097
+            ],
+            "up_three": [
+              0,
+              1,
+              0
+            ],
+            "hidden_for_inspection_only": []
+          },
+          {
+            "file": "lateral.png",
+            "position_three": [
+              -3.2377431392669678,
+              1.1809470653533936,
+              0.06900697201490402
+            ],
+            "target_three": [
+              -0.2377430498600006,
+              1.0809470415115356,
+              -0.030993029475212097
+            ],
+            "up_three": [
+              0,
+              1,
+              0
+            ],
+            "hidden_for_inspection_only": []
+          },
+          {
+            "file": "posterior.png",
+            "position_three": [
+              -0.2377430498600006,
+              1.2309470176696777,
+              -3.0309929847717285
+            ],
+            "target_three": [
+              -0.2377430498600006,
+              1.0809470415115356,
+              -0.030993029475212097
+            ],
+            "up_three": [
+              0,
+              1,
+              0
+            ],
+            "hidden_for_inspection_only": []
+          },
+          {
+            "file": "deep-oblique.png",
+            "position_three": [
+              -0.4877430498600006,
+              1.8309470415115356,
+              0.9690069556236267
+            ],
+            "target_three": [
+              -0.2377430498600006,
+              1.0809470415115356,
+              -0.030993029475212097
+            ],
+            "up_three": [
+              0,
+              1,
+              0
+            ],
+            "hidden_for_inspection_only": [
+              "Articular capsule of elbow joint.r",
+              "Humerus.r"
+            ]
+          }
+        ],
+        "coordinateContract": {
+          "input": "Blender native Z-up evaluated world (manifest nativeWorldTarget)",
+          "output": "glTF / untransformed Three scene Y-up world",
+          "conversion": "(x,y,z) -> (x,z,-y)",
+          "model_transform": "NONE; conversion already baked by glTF exporter",
+          "camera_up": [
+            0,
+            1,
+            0
+          ],
+          "camera_forward": "local -Z; camera.lookAt(target)",
+          "ortho_scale": "Full vertical span for original square render; use top=scale/2,bottom=-scale/2,left=-scale*aspect/2,right=scale*aspect/2; not distance.",
+          "evidence": [
+            "build_regional_joint.py line40 glTF export uses default export_yup=True",
+            "Blender4.3.2 bundled addon: io_scene_gltf2/__init__.py export_yup default True",
+            "Blender4.3.2 bundled addon: io_scene_gltf2/blender/exp/nodes.py __convert_swizzle_location",
+            "export-proof.json positions from exact final GLB reimport in Blender"
+          ],
+          "caution": "Camera region crop preserves full source bones. Deep visibility requires listed named objects hidden; camera alone does not produce deep view."
+        },
+        "sourceFile": "reviews/integration/joint-camera-contract-2026-10-23/contract.json",
+        "contractSha256": "eb51388ada949fc225efaeb0ee27e88c804271f6863f24e747c70dd942188df1"
+      },
+      "recommendedCamera": {
+        "nativeWorldTarget": [
+          -0.2377430498600006,
+          0.030993029475212097,
+          1.0809470415115356
+        ],
+        "orthoScale": 0.24,
+        "note": "Camera only; full source bones retained and camera crops region."
+      },
+      "technicalWarnings": [
+        {
+          "name": "Humerus.r",
+          "open_boundary_edges": 4,
+          "nonmanifold_edges": 2
+        }
+      ],
+      "sourceGaps": [
+        "Tendon/muscle/bursa context not included.",
+        "No separate articular cartilage surfaces."
+      ],
+      "criticalNotes": [
+        {
+          "en": "Source-bound regional camera framing only: Blender Z-up targets are explicitly converted to glTF Y-up. Full source bones remain unchanged. Deep inspection views that hide structures are not enabled in this viewer.",
+          "zh": "仅使用来源绑定的区域相机取景：Blender Z-up 目标已明确转换为 glTF Y-up。完整来源骨骼保持不变；本查看器不启用需隐藏结构的深层审查视图。"
+        }
+      ],
+      "references": [
+        "https://github.com/Z-Anatomy/Models-of-human-anatomy",
+        "https://openstax.org/books/anatomy-and-physiology-2e/pages/9-6-anatomy-of-selected-synovial-joints"
+      ]
+    },
+    {
+      "id": "joints__z-knee-r01",
+      "assetId": "draft_joints",
+      "name": {
+        "en": "Joints · z-knee-r01",
+        "zh": "右膝局部 · z-knee-r01"
+      },
+      "reviewable": true,
+      "source": {
+        "file": "candidates/joints__z-knee-r01/6dcc793e4132e62e4962e504bef0d595bb2e7d3a31881137244f31eadbb53aad.glb.gz",
+        "sha256": "6dcc793e4132e62e4962e504bef0d595bb2e7d3a31881137244f31eadbb53aad",
+        "revision": "z-knee-r01",
+        "bytes": 365864,
+        "encoding": "gzip",
+        "transportSha256": "d6b1090d5e0f73047f71ed917e8804c4a095016b0588e986f00ae0efbfd9facd",
+        "transportBytes": 283338
+      },
+      "gates": {
+        "technical": "pass-with-limitations",
+        "visual": "passed",
+        "anatomy": "reference-screened",
+        "runtime": "unverified"
+      },
+      "gateDetails": {
+        "technical": {
+          "status": "pass-with-limitations",
+          "scope": "RIGHT knee selected structures only;1182 inherited ACL nonmanifold edges and404 capsule boundary edges. No patellar ligament mesh or separate articular cartilage. Not mechanics-ready.",
+          "warnings": [
+            {
+              "name": "Anterior cruciate ligament.r",
+              "open_boundary_edges": 0,
+              "nonmanifold_edges": 1182
+            },
+            {
+              "name": "Articular capsule of knee joint.r",
+              "open_boundary_edges": 404,
+              "nonmanifold_edges": 0
+            }
+          ]
+        },
+        "visual": {
+          "status": "passed",
+          "scope": "RIGHT knee selected structures only;1182 inherited ACL nonmanifold edges and404 capsule boundary edges. No patellar ligament mesh or separate articular cartilage. Not mechanics-ready."
+        },
+        "anatomy": {
+          "status": "reference-screened",
+          "scope": "Educational static exterior only; no clinical validation."
+        },
+        "runtime": {
+          "status": "unverified"
+        }
+      },
+      "gateNotes": {
+        "en": "Specific technical checks passed with limitations; reference screening is not a complete anatomy pass. Visual acceptance is limited to the stated educational exterior/localization scope. Runtime unverified.",
+        "zh": "特定技术检查通过但有限制；参考初筛不是完整解剖通过。视觉接受仅限声明的教学外观或定位范围。运行未验证。"
+      },
+      "license": "CC BY-SA 4.0",
+      "scope": {
+        "en": "RIGHT knee selected structures only;1182 inherited ACL nonmanifold edges and404 capsule boundary edges. No patellar ligament mesh or separate articular cartilage. Not mechanics-ready.",
+        "zh": "仅右膝选定结构；前交叉韧带保留1182条非流形边，关节囊保留404条边界边。无髌韧带网格或独立关节软骨，不用于力学。"
+      },
+      "provenance": {
+        "en": "",
+        "zh": ""
+      },
+      "evidenceIds": [
+        "joints__z-knee-r01__scoped-review__5",
+        "joints__z-knee-r01__scoped-review__2"
+      ],
+      "beforeEvidenceIds": [
+        "draft_joints__2026-10-23-v10-exterior-review__3"
+      ],
+      "issueIds": [
+        "joints__z-knee-r01__scoped-review"
+      ],
+      "history": [
+        "joints__z-knee-r01__scoped-review"
+      ],
+      "attributionFile": "attribution/f04e87b3f59ee75d359f112ba770218ea46d4b2bfc2100d2eda417359855742b.md",
+      "sourceDownloads": [],
+      "sourceFrame": "Z-Anatomy native evaluated world",
+      "cameraContract": {
+        "glb_sha256": "6dcc793e4132e62e4962e504bef0d595bb2e7d3a31881137244f31eadbb53aad",
+        "target_three": [
+          -0.07581962645053864,
+          0.4294162392616272,
+          -0.03563088923692703
+        ],
+        "ortho_vertical_span": 0.25,
+        "views": [
+          {
+            "file": "anterior.png",
+            "position_three": [
+              -0.07581962645053864,
+              0.5794162750244141,
+              2.964369058609009
+            ],
+            "target_three": [
+              -0.07581962645053864,
+              0.4294162392616272,
+              -0.03563088923692703
+            ],
+            "up_three": [
+              0,
+              1,
+              0
+            ],
+            "hidden_for_inspection_only": []
+          },
+          {
+            "file": "lateral.png",
+            "position_three": [
+              -3.075819730758667,
+              0.5294162631034851,
+              0.06436911225318909
+            ],
+            "target_three": [
+              -0.07581962645053864,
+              0.4294162392616272,
+              -0.03563088923692703
+            ],
+            "up_three": [
+              0,
+              1,
+              0
+            ],
+            "hidden_for_inspection_only": []
+          },
+          {
+            "file": "posterior.png",
+            "position_three": [
+              -0.07581962645053864,
+              0.5794162750244141,
+              -3.035630941390991
+            ],
+            "target_three": [
+              -0.07581962645053864,
+              0.4294162392616272,
+              -0.03563088923692703
+            ],
+            "up_three": [
+              0,
+              1,
+              0
+            ],
+            "hidden_for_inspection_only": []
+          },
+          {
+            "file": "deep-oblique.png",
+            "position_three": [
+              -0.32581961154937744,
+              1.1794161796569824,
+              0.9643691182136536
+            ],
+            "target_three": [
+              -0.07581962645053864,
+              0.4294162392616272,
+              -0.03563088923692703
+            ],
+            "up_three": [
+              0,
+              1,
+              0
+            ],
+            "hidden_for_inspection_only": [
+              "Articular capsule of knee joint.r",
+              "Infrapatellar fat pad.r",
+              "Femur.r",
+              "Patella.r"
+            ]
+          }
+        ],
+        "coordinateContract": {
+          "input": "Blender native Z-up evaluated world (manifest nativeWorldTarget)",
+          "output": "glTF / untransformed Three scene Y-up world",
+          "conversion": "(x,y,z) -> (x,z,-y)",
+          "model_transform": "NONE; conversion already baked by glTF exporter",
+          "camera_up": [
+            0,
+            1,
+            0
+          ],
+          "camera_forward": "local -Z; camera.lookAt(target)",
+          "ortho_scale": "Full vertical span for original square render; use top=scale/2,bottom=-scale/2,left=-scale*aspect/2,right=scale*aspect/2; not distance.",
+          "evidence": [
+            "build_regional_joint.py line40 glTF export uses default export_yup=True",
+            "Blender4.3.2 bundled addon: io_scene_gltf2/__init__.py export_yup default True",
+            "Blender4.3.2 bundled addon: io_scene_gltf2/blender/exp/nodes.py __convert_swizzle_location",
+            "export-proof.json positions from exact final GLB reimport in Blender"
+          ],
+          "caution": "Camera region crop preserves full source bones. Deep visibility requires listed named objects hidden; camera alone does not produce deep view."
+        },
+        "sourceFile": "reviews/integration/joint-camera-contract-2026-10-23/contract.json",
+        "contractSha256": "eb51388ada949fc225efaeb0ee27e88c804271f6863f24e747c70dd942188df1"
+      },
+      "recommendedCamera": {
+        "nativeWorldTarget": [
+          -0.07581962645053864,
+          0.03563088923692703,
+          0.4294162392616272
+        ],
+        "orthoScale": 0.25,
+        "note": "Camera only; full source bones retained and camera crops region."
+      },
+      "technicalWarnings": [
+        {
+          "name": "Anterior cruciate ligament.r",
+          "open_boundary_edges": 0,
+          "nonmanifold_edges": 1182
+        },
+        {
+          "name": "Articular capsule of knee joint.r",
+          "open_boundary_edges": 404,
+          "nonmanifold_edges": 0
+        }
+      ],
+      "sourceGaps": [
+        "No patellar ligament mesh: source has only origin/insertion markers, not used as tissue.",
+        "No separate articular cartilage surfaces.",
+        "Not a complete extensor mechanism or validated ligament attachment model."
+      ],
+      "criticalNotes": [
+        {
+          "en": "Source-bound regional camera framing preserves full source bones. Optional deep inspection temporarily hides the articular capsule, infrapatellar fat pad, femur and patella; Restore exterior / Reset restores original visibility. The model and download remain unchanged; no mechanics or clinical validation.",
+          "zh": "来源绑定的区域相机保留完整来源骨骼。可选深层审查临时隐藏关节囊、髌下脂肪垫、股骨和髌骨；“恢复外观 / 重置”恢复原始可见性。模型与下载文件不变；不代表力学或临床验证。"
+        }
+      ],
+      "references": [
+        "https://github.com/Z-Anatomy/Models-of-human-anatomy",
+        "https://openstax.org/books/anatomy-and-physiology-2e/pages/9-6-anatomy-of-selected-synovial-joints"
+      ]
+    }
+  ]
+}
