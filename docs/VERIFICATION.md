@@ -37,6 +37,13 @@ and repeat with `--lifecycle` when changing the camera patch. The runner verifie
 input hashes before staging; it downloads nothing and does not load models or
 launch a browser. These actual-vendor CPU cases are not counted by offline mode.
 
+The required candidate-context suite checks exact lifecycle-first application
+and runs the full original/updated candidate modules through context-loss and
+existing lifecycle VM cases. Renderer/DOM/transport APIs are doubles; no browser
+or WebGL is launched. Optional composition with the separately reviewed camera
+package is checked outside this branch's default scope. Default tests require
+no unmerged camera files and do not fetch model/media/vendor bytes.
+
 Offline checks also validate all content-addressed transport manifests using the
 existing fixed host/size/hash limits, the fixed historical foundation record set, all
 tracked LFS pointer syntax/OIDs, and the 591 imported path references. For text,
