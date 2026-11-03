@@ -1,0 +1,52 @@
+{
+  "assets": [
+    {
+      "id": "eye_anterior_segment",
+      "name": {
+        "en": "Right anterior-eye layer study · not whole eye",
+        "zh": "右眼前节分层研究·非完整眼球"
+      },
+      "group": "sensory",
+      "topicIds": [
+        "eyes"
+      ],
+      "hasBaseline": false,
+      "source": {
+        "file": "candidates/eye_anterior_segment_hra__r01/457b08b1edab5fc39db3b49e09635091721847e06262b7cb937fd006223c6750.glb.gz",
+        "sha256": "457b08b1edab5fc39db3b49e09635091721847e06262b7cb937fd006223c6750",
+        "revision": "hra-r01",
+        "bytes": 10054784,
+        "encoding": "gzip",
+        "transportSha256": "73332bb0f1ef491ab0d411fb6cbf39e20b8e466b93d306d73469fb55685b03a7",
+        "transportBytes": 5320459
+      },
+      "gates": {
+        "technical": "pass-with-limitations",
+        "visual": "passed",
+        "anatomy": "unreviewed",
+        "runtime": "unverified"
+      },
+      "gateDetails": {
+        "technical": {
+          "status": "pass-with-limitations",
+          "scope": "Finite source-preserving accessor/container checks only: all selected POSITION/index bytes and local transforms identical to raw source; normals finite; indices in range; all four variants reproduce byte-identically in fresh directory. Not watertightness or self-intersection pass."
+        },
+        "visual": {
+          "status": "passed",
+          "scope": "STATIC LAYER-STUDY READABILITY ONLY. Root personally inspected exact-export multiview/layers, lens comparison, cornea source-normal comparison, and ghost-sclera context. Explicitly not a polished whole-eye/exterior pass."
+        },
+        "anatomy": {
+          "status": "unreviewed",
+          "scope": "Primary educational diagrams support only broad cornea–iris–lens order and ciliary-ring context; actual source mesh identity crosschecked. Exact insertions, thickness, source morphology, anatomical completeness and clinical truth are unverified."
+        },
+        "runtime": {
+          "status": "unverified",
+          "scope": "Blender 4.3.2 Cycles static exact-GLB reimports only. No intended browser/viewer playback, layer UI, motion or optical runtime verified."
+        }
+      },
+      "evidenceIds": [],
+      "issueIds": [],
+      "history": []
+    }
+  ]
+}
