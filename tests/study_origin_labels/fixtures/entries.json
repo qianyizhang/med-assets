@@ -1,0 +1,1573 @@
+{
+  "assets": [
+    {
+      "id": "aorta",
+      "name": {
+        "en": "Aorta",
+        "zh": "主动脉"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/meshes/aorta.glb"
+      },
+      "gates": {
+        "visual": "needs-review",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "bladder",
+      "name": {
+        "en": "Bladder and ureters",
+        "zh": "膀胱与输尿管"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/meshes/bladder.glb"
+      },
+      "gates": {
+        "visual": "needs-revision",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "blood_cell_study",
+      "name": {
+        "en": "Blood-cell form study · AUTHORED",
+        "zh": "血细胞形态教学 · 人工建模"
+      },
+      "source": {
+        "file": "candidates/blood_cell_study_authored__r05/4c7c738b3ca6ae6cc7e44a449be0f7d26d04ceb9975e43d3b834a2caad96618c.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "reference-screened"
+      },
+      "hasBaseline": false
+    },
+    {
+      "id": "brain",
+      "name": {
+        "en": "Schematic brain",
+        "zh": "示意脑"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/meshes/brain.glb"
+      },
+      "gates": {
+        "visual": "failed",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "bronchial_tree",
+      "name": {
+        "en": "Lobar airway teaching tree",
+        "zh": "肺叶支气管教学树"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/meshes/bronchial_tree.glb"
+      },
+      "gates": {
+        "visual": "needs-revision",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "diaphragm",
+      "name": {
+        "en": "Diaphragm · schematic motion",
+        "zh": "膈肌 · 运动示意"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/motion/diaphragm_breathing.glb"
+      },
+      "gates": {
+        "visual": "needs-revision",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "diaphragm_static_study",
+      "name": {
+        "en": "Diaphragm · gross static study",
+        "zh": "膈肌·大体静态研究"
+      },
+      "source": {
+        "file": "candidates/diaphragm_z__native-static-r01/15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": false
+    },
+    {
+      "id": "draft_adipose",
+      "name": {
+        "en": "Adipose distribution study · draft",
+        "zh": "脂肪分布示意 · 草稿"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/networks/draft_adipose.glb"
+      },
+      "gates": {
+        "visual": "failed",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_adrenals",
+      "name": {
+        "en": "Adrenal glands · draft",
+        "zh": "肾上腺 · 草模"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/head/adrenals.glb"
+      },
+      "gates": {
+        "visual": "needs-revision",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_blood",
+      "name": {
+        "en": "Blood cells — enlarged inset · draft",
+        "zh": "血细胞—放大插图 · 草稿"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/networks/draft_blood.glb"
+      },
+      "gates": {
+        "visual": "needs-revision",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_bone",
+      "name": {
+        "en": "Skeletal scaffold · draft",
+        "zh": "骨骼支架 · 草稿"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/networks/draft_bone.glb"
+      },
+      "gates": {
+        "visual": "failed",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_bone_marrow",
+      "name": {
+        "en": "Bone marrow — sectional inset · draft",
+        "zh": "骨髓—剖面插图 · 草稿"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/networks/draft_bone_marrow.glb"
+      },
+      "gates": {
+        "visual": "needs-revision",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_breasts",
+      "name": {
+        "en": "Mammary glands — skin omitted · draft",
+        "zh": "乳腺（省略皮肤） · 草稿"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/pelvis/breasts.glb"
+      },
+      "gates": {
+        "visual": "failed",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_cartilage",
+      "name": {
+        "en": "Cartilage regions · draft",
+        "zh": "软骨区域 · 草稿"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/networks/draft_cartilage.glb"
+      },
+      "gates": {
+        "visual": "needs-revision",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_ears",
+      "name": {
+        "en": "External, middle and inner ear cues · draft",
+        "zh": "外耳、中耳与内耳示意 · 草模"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/head/ears.glb"
+      },
+      "gates": {
+        "visual": "needs-review",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_esophagus",
+      "name": {
+        "en": "Esophagus · draft",
+        "zh": "食管 · 草稿"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/pelvis/esophagus.glb"
+      },
+      "gates": {
+        "visual": "needs-revision",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_eyes",
+      "name": {
+        "en": "Eyes and optic nerves · draft",
+        "zh": "眼球与视神经 · 草模"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/head/eyes.glb"
+      },
+      "gates": {
+        "visual": "failed",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_fetus",
+      "name": {
+        "en": "Fetus — curled teaching inset · draft",
+        "zh": "胎儿（蜷曲姿态示意） · 草稿"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/pelvis/fetus.glb"
+      },
+      "gates": {
+        "visual": "failed",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_joints",
+      "name": {
+        "en": "Major synovial joint study · draft",
+        "zh": "主要滑膜关节示意 · 草稿"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/networks/draft_joints.glb"
+      },
+      "gates": {
+        "visual": "needs-revision",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_large_intestine",
+      "name": {
+        "en": "Large intestine · draft",
+        "zh": "大肠 · 草稿"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/pelvis/large-intestine.glb"
+      },
+      "gates": {
+        "visual": "failed",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_lymph_nodes",
+      "name": {
+        "en": "Lymph node groups · draft",
+        "zh": "淋巴结群 · 草稿"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/networks/draft_lymph_nodes.glb"
+      },
+      "gates": {
+        "visual": "needs-revision",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_lymph_vessels",
+      "name": {
+        "en": "Lymph collecting routes · draft",
+        "zh": "淋巴回流路径 · 草稿"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/networks/draft_lymph_vessels.glb"
+      },
+      "gates": {
+        "visual": "failed",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_mouth",
+      "name": {
+        "en": "Oral cavity and lips · draft",
+        "zh": "口腔与口唇 · 草模"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/head/mouth.glb"
+      },
+      "gates": {
+        "visual": "failed",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_muscle",
+      "name": {
+        "en": "Major skeletal muscle groups · draft",
+        "zh": "主要骨骼肌群 · 草稿"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/networks/draft_muscle.glb"
+      },
+      "gates": {
+        "visual": "failed",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_nose_sinuses",
+      "name": {
+        "en": "Nasal cavity and paranasal sinuses · draft",
+        "zh": "鼻腔与鼻旁窦 · 草模"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/head/nose-sinuses.glb"
+      },
+      "gates": {
+        "visual": "failed",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_ovaries",
+      "name": {
+        "en": "Ovaries · draft",
+        "zh": "卵巢 · 草稿"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/pelvis/ovaries.glb"
+      },
+      "gates": {
+        "visual": "needs-revision",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_parathyroids",
+      "name": {
+        "en": "Parathyroid glands, common four-gland pattern · draft",
+        "zh": "甲状旁腺：常见四腺模式 · 草模"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/head/parathyroids.glb"
+      },
+      "gates": {
+        "visual": "needs-revision",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_penis",
+      "name": {
+        "en": "Penis — external anatomical form · draft",
+        "zh": "阴茎外部解剖形态 · 草稿"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/pelvis/penis.glb"
+      },
+      "gates": {
+        "visual": "needs-revision",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_peripheral_nerves",
+      "name": {
+        "en": "Peripheral nerve routes · draft",
+        "zh": "周围神经路径 · 草稿"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/networks/draft_peripheral_nerves.glb"
+      },
+      "gates": {
+        "visual": "failed",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_pharynx_larynx",
+      "name": {
+        "en": "Pharynx and larynx · draft",
+        "zh": "咽与喉 · 草模"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/head/pharynx-larynx.glb"
+      },
+      "gates": {
+        "visual": "failed",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_pituitary",
+      "name": {
+        "en": "Pituitary, stalk and hypothalamic region · draft",
+        "zh": "垂体、垂体柄与下丘脑区 · 草模"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/head/pituitary.glb"
+      },
+      "gates": {
+        "visual": "needs-revision",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_placenta",
+      "name": {
+        "en": "Placenta — separate pregnancy inset · draft",
+        "zh": "胎盘（独立妊娠示意） · 草稿"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/pelvis/placenta.glb"
+      },
+      "gates": {
+        "visual": "failed",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_prostate",
+      "name": {
+        "en": "Prostate and seminal vesicles · draft",
+        "zh": "前列腺与精囊 · 草稿"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/pelvis/prostate.glb"
+      },
+      "gates": {
+        "visual": "failed",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_salivary_glands",
+      "name": {
+        "en": "Major salivary glands and ducts · draft",
+        "zh": "主要唾液腺与导管 · 草模"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/head/salivary-glands.glb"
+      },
+      "gates": {
+        "visual": "failed",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_skin",
+      "name": {
+        "en": "Transparent body envelope · draft",
+        "zh": "透明体表包络 · 草稿"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/networks/draft_skin.glb"
+      },
+      "gates": {
+        "visual": "failed",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_small_intestine",
+      "name": {
+        "en": "Small intestine · draft",
+        "zh": "小肠 · 草稿"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/pelvis/small-intestine.glb"
+      },
+      "gates": {
+        "visual": "failed",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_spinal_cord",
+      "name": {
+        "en": "Spinal cord and roots · draft",
+        "zh": "脊髓与神经根 · 草模"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/head/spinal-cord.glb"
+      },
+      "gates": {
+        "visual": "failed",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_teeth_gums",
+      "name": {
+        "en": "Dental arches and gingivae · draft",
+        "zh": "牙列与牙龈 · 草模"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/head/teeth-gums.glb"
+      },
+      "gates": {
+        "visual": "failed",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_tendons_ligaments",
+      "name": {
+        "en": "Tendons and ligaments · draft",
+        "zh": "肌腱与韧带 · 草稿"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/networks/draft_tendons_ligaments.glb"
+      },
+      "gates": {
+        "visual": "needs-revision",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_testes",
+      "name": {
+        "en": "Testes, epididymides and deferent ducts · draft",
+        "zh": "睾丸、附睾与输精管 · 草稿"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/pelvis/testes.glb"
+      },
+      "gates": {
+        "visual": "needs-revision",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_thymus",
+      "name": {
+        "en": "Thymus lobes · draft",
+        "zh": "胸腺双叶 · 草稿"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/networks/draft_thymus.glb"
+      },
+      "gates": {
+        "visual": "failed",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_thyroid",
+      "name": {
+        "en": "Thyroid lobes and isthmus · draft",
+        "zh": "甲状腺双叶与峡部 · 草模"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/head/thyroid.glb"
+      },
+      "gates": {
+        "visual": "failed",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_tongue",
+      "name": {
+        "en": "Tongue and surface landmarks · draft",
+        "zh": "舌与表面标志 · 草模"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/head/tongue.glb"
+      },
+      "gates": {
+        "visual": "failed",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_urethra_female",
+      "name": {
+        "en": "Female urethra · draft",
+        "zh": "女性尿道 · 草稿"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/pelvis/urethra_female.glb"
+      },
+      "gates": {
+        "visual": "needs-revision",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_urethra_male",
+      "name": {
+        "en": "Male urethra · draft",
+        "zh": "男性尿道 · 草稿"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/pelvis/urethra_male.glb"
+      },
+      "gates": {
+        "visual": "needs-revision",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_uterus",
+      "name": {
+        "en": "Uterus and uterine tubes · draft",
+        "zh": "子宫与输卵管 · 草稿"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/pelvis/uterus.glb"
+      },
+      "gates": {
+        "visual": "failed",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_vagina_vulva",
+      "name": {
+        "en": "Vagina and vulva · draft",
+        "zh": "阴道与外阴 · 草稿"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/pelvis/vagina-vulva.glb"
+      },
+      "gates": {
+        "visual": "failed",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "draft_vessels",
+      "name": {
+        "en": "Major systemic vessels · draft",
+        "zh": "主要体循环血管 · 草稿"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/networks/draft_vessels.glb"
+      },
+      "gates": {
+        "visual": "failed",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "eye_anterior_segment",
+      "name": {
+        "en": "Right anterior-eye layer study · not whole eye",
+        "zh": "右眼前节分层研究·非完整眼球"
+      },
+      "source": {
+        "file": "candidates/eye_anterior_segment_hra__r01/457b08b1edab5fc39db3b49e09635091721847e06262b7cb937fd006223c6750.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": false
+    },
+    {
+      "id": "gallbladder",
+      "name": {
+        "en": "Gallbladder",
+        "zh": "胆囊"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/motion/gallbladder_breathing.glb"
+      },
+      "gates": {
+        "visual": "needs-review",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "heart",
+      "name": {
+        "en": "Source heart surface",
+        "zh": "源分割心脏表面"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/motion/heart_breathing.glb"
+      },
+      "gates": {
+        "visual": "needs-revision",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "heart_animated",
+      "name": {
+        "en": "Animated authored heart",
+        "zh": "心脏动画 · 独立创作"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/motion/heart_animated_clinical.glb"
+      },
+      "gates": {
+        "visual": "needs-revision",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "heart_detailed",
+      "name": {
+        "en": "Detailed authored heart",
+        "zh": "详细创作心脏"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/meshes/heart_detailed.glb"
+      },
+      "gates": {
+        "visual": "needs-revision",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "hypothalamus",
+      "name": {
+        "en": "Hypothalamus",
+        "zh": "下丘脑"
+      },
+      "source": {
+        "file": "candidates/hypothalamus__source-candidate-01/b6d73d6b5a33006391a743c650ccc06b65b9b9afaaaebbcf1d05102d4399274c.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "reference-screened"
+      },
+      "hasBaseline": false
+    },
+    {
+      "id": "kidney_left",
+      "name": {
+        "en": "Left kidney",
+        "zh": "左肾"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/motion/kidney_left_breathing.glb"
+      },
+      "gates": {
+        "visual": "needs-revision",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "kidney_right",
+      "name": {
+        "en": "Right kidney",
+        "zh": "右肾"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/motion/kidney_right_breathing.glb"
+      },
+      "gates": {
+        "visual": "needs-revision",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "liver",
+      "name": {
+        "en": "Liver",
+        "zh": "肝脏"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/motion/liver_breathing.glb"
+      },
+      "gates": {
+        "visual": "needs-revision",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "lung_left",
+      "name": {
+        "en": "Left lung · two lobes",
+        "zh": "左肺 · 两叶"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/motion/lung_left_breathing.glb"
+      },
+      "gates": {
+        "visual": "needs-review",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "lung_pair",
+      "name": {
+        "en": "Combined lung pair study",
+        "zh": "双肺组合研究"
+      },
+      "source": {
+        "file": "candidates/lung_pair__hra-female-normals-r02/966a4c225be028e616f6f813e8d4232582995a82b8121a42257c1be53087cb19.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": false
+    },
+    {
+      "id": "lung_right",
+      "name": {
+        "en": "Right lung · three lobes",
+        "zh": "右肺 · 三叶"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/motion/lung_right_breathing.glb"
+      },
+      "gates": {
+        "visual": "needs-review",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "pancreas",
+      "name": {
+        "en": "Pancreas",
+        "zh": "胰腺"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/motion/pancreas_breathing.glb"
+      },
+      "gates": {
+        "visual": "needs-review",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "parotid_glands",
+      "name": {
+        "en": "Parotid glands",
+        "zh": "腮腺"
+      },
+      "source": {
+        "file": "candidates/parotid_glands__source-candidate-02/fc21df4c24bad92c3fb11873adf601ebf5bad066365b60be6e4366aced731d34.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "reference-screened"
+      },
+      "hasBaseline": false
+    },
+    {
+      "id": "pulmonary_vein",
+      "name": {
+        "en": "Pulmonary vein example",
+        "zh": "肺静脉示例"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/meshes/pulmonary_vein.glb"
+      },
+      "gates": {
+        "visual": "needs-review",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "spleen",
+      "name": {
+        "en": "Spleen",
+        "zh": "脾脏"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/motion/spleen_breathing.glb"
+      },
+      "gates": {
+        "visual": "needs-revision",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "stomach",
+      "name": {
+        "en": "Stomach",
+        "zh": "胃"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/motion/stomach_breathing.glb"
+      },
+      "gates": {
+        "visual": "needs-revision",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "stomach_polished",
+      "name": {
+        "en": "Stomach · polished teaching variant",
+        "zh": "胃 · 精修教学示意"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/drafts/stomach/stomach_polished.glb"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "tongue_authored_study",
+      "name": {
+        "en": "Tongue · AUTHORED exterior hybrid",
+        "zh": "舌 · 人工外形混合教学模型"
+      },
+      "source": {
+        "file": "candidates/tongue_authored_hra_hybrid__p11/efabd58b235b72682f067113cf079e3f70fbaceac47062f2b937f09540c1ee1a.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "reference-screened"
+      },
+      "hasBaseline": false
+    },
+    {
+      "id": "trachea",
+      "name": {
+        "en": "Trachea and main bronchi",
+        "zh": "气管与主支气管"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/meshes/trachea.glb"
+      },
+      "gates": {
+        "visual": "needs-revision",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    },
+    {
+      "id": "vertebrae_L3",
+      "name": {
+        "en": "Third lumbar vertebra",
+        "zh": "第三腰椎"
+      },
+      "source": {
+        "file": "https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/assets/meshes/vertebrae_L3.glb"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "unreviewed"
+      },
+      "hasBaseline": true
+    }
+  ],
+  "candidates": [
+    {
+      "id": "adrenals__source-candidate-01",
+      "name": {
+        "en": "Adrenals · source-frame candidate",
+        "zh": "肾上腺 · 原始坐标候选模型"
+      },
+      "source": {
+        "file": "candidates/adrenals__source-candidate-01/c7de1afa5394a7f64b106a62ff979eaa9e0b428db23a13fa34340c2d38ba13a7.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "reference-screened"
+      }
+    },
+    {
+      "id": "aortic_tree_z__r02",
+      "name": {
+        "en": "Aorta + selected major arterial branches · Z-native subset",
+        "zh": "主动脉与部分主要动脉分支 · Z原生坐标子集"
+      },
+      "source": {
+        "file": "candidates/aortic_tree_z__r02/d4b3dbd2d09fd76795f47bb96844acdeba5f1b4f48dd630f2a294f33816deaeb.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "reference-screened"
+      }
+    },
+    {
+      "id": "bladder__hra-female-context-r03",
+      "name": {
+        "en": "Bladder · same-atlas context",
+        "zh": "膀胱·同图谱参照"
+      },
+      "source": {
+        "file": "candidates/bladder__hra-female-context-r03/91f04d1c831a61944da116184f389461517587c90c91fd94e199fba1619aa6b9.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "unreviewed"
+      }
+    },
+    {
+      "id": "blood_cell_study_authored__r05",
+      "name": {
+        "en": "Blood-cell form study · AUTHORED",
+        "zh": "血细胞形态教学 · 人工建模"
+      },
+      "source": {
+        "file": "candidates/blood_cell_study_authored__r05/4c7c738b3ca6ae6cc7e44a449be0f7d26d04ceb9975e43d3b834a2caad96618c.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "reference-screened"
+      }
+    },
+    {
+      "id": "brain__bodyparts3d-4.0-atlas-r2",
+      "name": {
+        "en": "Brain · source-frame candidate",
+        "zh": "脑 · 原始坐标候选模型"
+      },
+      "source": {
+        "file": "candidates/brain__bodyparts3d-4.0-atlas-r2/26d39768e2882daee034f997a8d594e915283b5f8a176a8bb60003944a45b886.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "reference-screened"
+      }
+    },
+    {
+      "id": "breasts_hra__source-candidate-02",
+      "name": {
+        "en": "Breasts Hra · source-candidate-02",
+        "zh": "乳房图谱层次 · source-candidate-02"
+      },
+      "source": {
+        "file": "candidates/breasts_hra__source-candidate-02/905865c4382fb109d14fca74c8ffe809e190f44e9d3086144c3d1d7c3be53964.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "reference-screened"
+      }
+    },
+    {
+      "id": "diaphragm_z__native-static-r01",
+      "name": {
+        "en": "Diaphragm · gross static study",
+        "zh": "膈肌·大体静态研究"
+      },
+      "source": {
+        "file": "candidates/diaphragm_z__native-static-r01/15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "unreviewed"
+      }
+    },
+    {
+      "id": "ears_z__r04",
+      "name": {
+        "en": "Ears Z · r04",
+        "zh": "耳廓 · r04"
+      },
+      "source": {
+        "file": "candidates/ears_z__r04/04ba664cdc219dc7b78e80ddb2b1d5ff39ffe4438bd0ab1bf63c2221c46f5939.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "reference-screened"
+      }
+    },
+    {
+      "id": "eye_anterior_segment_hra__r01",
+      "name": {
+        "en": "Right anterior-eye layer study · not whole eye",
+        "zh": "右眼前节分层研究·非完整眼球"
+      },
+      "source": {
+        "file": "candidates/eye_anterior_segment_hra__r01/457b08b1edab5fc39db3b49e09635091721847e06262b7cb937fd006223c6750.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "unreviewed"
+      }
+    },
+    {
+      "id": "hypothalamus__source-candidate-01",
+      "name": {
+        "en": "Hypothalamus · source-frame candidate",
+        "zh": "下丘脑 · 原始坐标候选模型"
+      },
+      "source": {
+        "file": "candidates/hypothalamus__source-candidate-01/b6d73d6b5a33006391a743c650ccc06b65b9b9afaaaebbcf1d05102d4399274c.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "reference-screened"
+      }
+    },
+    {
+      "id": "joints__z-elbow-r01",
+      "name": {
+        "en": "Joints · z-elbow-r01",
+        "zh": "右肘局部 · z-elbow-r01"
+      },
+      "source": {
+        "file": "candidates/joints__z-elbow-r01/cd6cd488943fe721101955322b343a8c9441f1d4ff8c5042dd4e1ca7462f7891.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "reference-screened"
+      }
+    },
+    {
+      "id": "joints__z-knee-r01",
+      "name": {
+        "en": "Joints · z-knee-r01",
+        "zh": "右膝局部 · z-knee-r01"
+      },
+      "source": {
+        "file": "candidates/joints__z-knee-r01/6dcc793e4132e62e4962e504bef0d595bb2e7d3a31881137244f31eadbb53aad.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "reference-screened"
+      }
+    },
+    {
+      "id": "joints__z-shoulder-r01",
+      "name": {
+        "en": "Joints · z-shoulder-r01",
+        "zh": "右肩局部 · z-shoulder-r01"
+      },
+      "source": {
+        "file": "candidates/joints__z-shoulder-r01/2f2bb36881fb7a5ff346906a6ac8ea9433e31291d0ebb073959d020739e67448.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "reference-screened"
+      }
+    },
+    {
+      "id": "kidney_left__hra-female-r02",
+      "name": {
+        "en": "Left kidney · HRA female matte reference",
+        "zh": "左肾·HRA 女性哑光参考"
+      },
+      "source": {
+        "file": "candidates/kidney_left__hra-female-r02/8e55b5ae48821f067f41bd23ffdd668f68c7ff705cf49e9a40287042fee469fc.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "unreviewed"
+      }
+    },
+    {
+      "id": "kidney_right__hra-female-r02",
+      "name": {
+        "en": "Right kidney · HRA female matte reference",
+        "zh": "右肾·HRA 女性哑光参考"
+      },
+      "source": {
+        "file": "candidates/kidney_right__hra-female-r02/977d0a283de7071a2e8aaeb8900c5a6dc8d0ba770eb458e996dc66cc249c0b56.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "unreviewed"
+      }
+    },
+    {
+      "id": "large-intestine__source-candidate-v4",
+      "name": {
+        "en": "Large-Intestine · source-frame candidate",
+        "zh": "大肠 · 原始坐标候选模型"
+      },
+      "source": {
+        "file": "candidates/large-intestine__source-candidate-v4/a8bd8f8227a3cf53b5aa63bb234c1bcb182bfa432da5eb2e3488788f829df4f5.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "reference-screened"
+      }
+    },
+    {
+      "id": "liver__hra-female-exterior-r02",
+      "name": {
+        "en": "Liver exterior",
+        "zh": "肝脏外形"
+      },
+      "source": {
+        "file": "candidates/liver__hra-female-exterior-r02/e9abb0c2503a3fa9d725988451e630283ec2c902c182b812219f2d73f3ab1038.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "unreviewed"
+      }
+    },
+    {
+      "id": "lung_pair__hra-female-normals-r02",
+      "name": {
+        "en": "Lung pair · HRA female normal-seam revision",
+        "zh": "双肺·HRA 女性法线接缝修订"
+      },
+      "source": {
+        "file": "candidates/lung_pair__hra-female-normals-r02/966a4c225be028e616f6f813e8d4232582995a82b8121a42257c1be53087cb19.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "unreviewed"
+      }
+    },
+    {
+      "id": "lymph_node_hra__r01",
+      "name": {
+        "en": "Single lymph node · original HRA layers",
+        "zh": "单个淋巴结·原始HRA分层"
+      },
+      "source": {
+        "file": "candidates/lymph_node_hra__r01/7b047002cbb1dc06f37baa441783390d76cdb444b6144d6caa623923707953fd.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "reference-screened"
+      }
+    },
+    {
+      "id": "muscle__z-anatomy-r02",
+      "name": {
+        "en": "Muscle · isolated candidate",
+        "zh": "肌肉 · 独立候选模型"
+      },
+      "source": {
+        "file": "candidates/muscle__z-anatomy-r02/7081144bdbca0d2d871311a3568a0aedb1c8e125f7709ae8e7d55345a54bdfb7.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "reference-screened"
+      }
+    },
+    {
+      "id": "pancreas__hra-female-context-r04",
+      "name": {
+        "en": "Pancreas · explicit context roles",
+        "zh": "胰腺·明确参照角色"
+      },
+      "source": {
+        "file": "candidates/pancreas__hra-female-context-r04/aa15f9248027c248886a9cf8d4f5f401b2753176c800851f648b03d88d97ebed.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "unreviewed"
+      }
+    },
+    {
+      "id": "parotid_glands__source-candidate-02",
+      "name": {
+        "en": "Parotid Glands · isolated candidate",
+        "zh": "腮腺 · 独立候选模型"
+      },
+      "source": {
+        "file": "candidates/parotid_glands__source-candidate-02/fc21df4c24bad92c3fb11873adf601ebf5bad066365b60be6e4366aced731d34.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "reference-screened"
+      }
+    },
+    {
+      "id": "pharynx_larynx__r03",
+      "name": {
+        "en": "Pharynx Larynx · r03",
+        "zh": "咽喉解剖外观 · r03"
+      },
+      "source": {
+        "file": "candidates/pharynx_larynx__r03/d691a60f12d448b9b36d362270429c672c01c7fae0f10a8789ef188dd4c08530.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "reference-screened"
+      }
+    },
+    {
+      "id": "pituitary__source-candidate-01",
+      "name": {
+        "en": "Pituitary · source-frame candidate",
+        "zh": "垂体 · 原始坐标候选模型"
+      },
+      "source": {
+        "file": "candidates/pituitary__source-candidate-01/8eae4c6d05b0c9de5128ae6f574a97265cb392a44567fcac5ea0b9b7f1dbca68.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "reference-screened"
+      }
+    },
+    {
+      "id": "placenta_hra__full-term-r02",
+      "name": {
+        "en": "Full-term placenta · gross reference layers",
+        "zh": "足月胎盘·大体参考层次"
+      },
+      "source": {
+        "file": "candidates/placenta_hra__full-term-r02/7f9f215f810003fddc76ede225f051dc7014c67216e804403a4632d628ad82aa.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "unreviewed"
+      }
+    },
+    {
+      "id": "prostate_hra__source-candidate-01",
+      "name": {
+        "en": "Prostate Hra · source-candidate-01",
+        "zh": "前列腺分区 · source-candidate-01"
+      },
+      "source": {
+        "file": "candidates/prostate_hra__source-candidate-01/ec1023e0a1b81f71865872bb720404abc7bb6378a54ac71fa9f24579b097f48a.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "reference-screened"
+      }
+    },
+    {
+      "id": "skeleton__source-candidate-03",
+      "name": {
+        "en": "Skeleton · source-frame candidate",
+        "zh": "骨骼 · 原始坐标候选模型"
+      },
+      "source": {
+        "file": "candidates/skeleton__source-candidate-03/d224985628cc62d0c9c4284019b73505c9ebf14d78d30a040d74a7b33c68620e.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "reference-screened"
+      }
+    },
+    {
+      "id": "skin__bp3d-envelope-r01",
+      "name": {
+        "en": "Skin · source-frame candidate",
+        "zh": "皮肤外包络 · 原始坐标候选模型"
+      },
+      "source": {
+        "file": "candidates/skin__bp3d-envelope-r01/d86719833a17dc7b45c8eb970498f1e2feefd352b5812942f4b147a9ffcfbe4f.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "reference-screened"
+      }
+    },
+    {
+      "id": "small-intestine__source-candidate-v4",
+      "name": {
+        "en": "Small-Intestine · source-frame candidate",
+        "zh": "小肠 · 原始坐标候选模型"
+      },
+      "source": {
+        "file": "candidates/small-intestine__source-candidate-v4/a9459afc67cb13c28084b518615fdbb5e05c135a47eafa3036908139aece94da.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "reference-screened"
+      }
+    },
+    {
+      "id": "spleen__hra-female-r03",
+      "name": {
+        "en": "Spleen reference",
+        "zh": "脾脏参考"
+      },
+      "source": {
+        "file": "candidates/spleen__hra-female-r03/4e2637cf6c844aef85ab77c2c1049d4e7647348a13c34d784795b98825f7c8c7.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "unreviewed"
+      }
+    },
+    {
+      "id": "teeth_gums__r02",
+      "name": {
+        "en": "Teeth Gums · isolated candidate",
+        "zh": "牙齿与牙龈 · 独立候选模型"
+      },
+      "source": {
+        "file": "candidates/teeth_gums__r02/82bfaeead46bb51b1fa5bdfdb06c918dfd01aa23b28acae733ab75ec2cd6897f.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "reference-screened"
+      }
+    },
+    {
+      "id": "thymus__source-candidate-01",
+      "name": {
+        "en": "Thymus · source-frame candidate",
+        "zh": "胸腺 · 原始坐标候选模型"
+      },
+      "source": {
+        "file": "candidates/thymus__source-candidate-01/897d7c9d9885c895862235291e05ce8b85208a276e1624f0cbb273d0a887b2a9.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "reference-screened"
+      }
+    },
+    {
+      "id": "thyroid_ct_s0189__source-candidate-02",
+      "name": {
+        "en": "Thyroid Ct S0189 · isolated candidate",
+        "zh": "甲状腺 CT 样本 · 独立候选模型"
+      },
+      "source": {
+        "file": "candidates/thyroid_ct_s0189__source-candidate-02/4add07e2efed2d67efb1d4ba225a109fe448043c79182e3d2e1a96e671534883.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "reference-screened"
+      }
+    },
+    {
+      "id": "tongue_authored_hra_hybrid__p11",
+      "name": {
+        "en": "Tongue · AUTHORED exterior hybrid",
+        "zh": "舌 · 人工外形混合教学模型"
+      },
+      "source": {
+        "file": "candidates/tongue_authored_hra_hybrid__p11/efabd58b235b72682f067113cf079e3f70fbaceac47062f2b937f09540c1ee1a.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "reference-screened"
+      }
+    },
+    {
+      "id": "uterus_hra__source-candidate-02",
+      "name": {
+        "en": "Uterus Hra · source-candidate-02",
+        "zh": "子宫外观 · source-candidate-02"
+      },
+      "source": {
+        "file": "candidates/uterus_hra__source-candidate-02/627f169a5e02f95102af994f7346cd0f85e454651231867c6829618ef1b0c356.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "reference-screened"
+      }
+    },
+    {
+      "id": "vagina_hra__context-r02",
+      "name": {
+        "en": "Vagina/junction exterior · same-atlas context",
+        "zh": "阴道/交界外形·同图谱参照"
+      },
+      "source": {
+        "file": "candidates/vagina_hra__context-r02/c649de4db766ba00020315029c922de1d018061c1a34bd95c850a05255ab3037.glb.gz"
+      },
+      "gates": {
+        "visual": "passed",
+        "anatomy": "unreviewed"
+      }
+    },
+    {
+      "id": "spinal-cord__authored-roots-r04",
+      "name": {
+        "en": "Spinal roots · r04 relationship study",
+        "zh": "脊神经根 · r04 关系研究"
+      },
+      "source": {
+        "file": "/review/candidates/spinal-cord__authored-roots-r04/candidate.glb.gz"
+      },
+      "gates": {
+        "visual": "pass-with-limitations",
+        "anatomy": "unreviewed"
+      }
+    },
+    {
+      "id": "eye_anterior_segment_hra__r03",
+      "name": {
+        "en": "Anterior-eye editorial cutaway · draft inspection",
+        "zh": "眼前节编辑剖面·草稿审查"
+      },
+      "source": {
+        "file": "candidates/eye_anterior_segment_hra__r03/1fe679f0f2386f2f19cf5c8ffebaffa0bc6ec0d9bd4fd0f97bd32bdc873905c1.glb.gz"
+      },
+      "gates": {
+        "visual": "unreviewed",
+        "anatomy": "unreviewed"
+      }
+    }
+  ]
+}
