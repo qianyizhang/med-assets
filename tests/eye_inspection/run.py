@@ -23,9 +23,11 @@ with tempfile.TemporaryDirectory() as directory:
         'candidate-contract.mjs': ROOT / 'tests/knee_inspection/fixtures/candidate-contract.mjs',
         'viewer-lifecycle.mjs': ROOT / 'gallery/candidate-lifecycle/r01/viewer-lifecycle.mjs',
         'model-media.mjs': HERE / 'fixtures/model-media.mjs',
-        'review-data.json': HERE / 'fixtures/records.json',
-    }.items():
+            }.items():
         shutil.copyfile(source, review / name)
+    data = json.loads((HERE / 'fixtures/records.json').read_text())
+    data['candidates'] = [json.loads((ROOT / 'gallery/eye-inspection/r01/record.json').read_text())]
+    (review / 'review-data.json').write_text(json.dumps(data, ensure_ascii=False))
     (review / 'media').mkdir()
     shutil.copyfile(HERE / 'fixtures/models.json', review / 'media/models.json')
     lines = (HERE / 'eye-inspection.test.mjs').read_text().splitlines(True)
