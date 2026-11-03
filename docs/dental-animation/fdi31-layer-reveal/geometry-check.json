@@ -1,0 +1,33 @@
+{
+  "geometry_identical": true,
+  "relative_source_reset_exact": true,
+  "source_sha256": "90006e54c2b9f79f6c201397a50f92228d9ad6fa4450f20e0ad20c5fe70c19f7",
+  "mesh_signatures": {
+    "enamel": {
+      "vertex_count": 7398,
+      "face_count": 14930,
+      "vertices_sha256": "1b5ba2a055c1d1d12d742b786d1e20e48f0ffc35dcb5cf2e7999eb666b1c7bc4",
+      "topology_sha256": "b09af9a00320d9033ac27dd97a39027313483ed6def1b0b2fa660cb7c70dc8b5"
+    },
+    "dentin": {
+      "vertex_count": 12576,
+      "face_count": 25120,
+      "vertices_sha256": "f34b5134c29f55130b6188c01ce2f3b5572059298b207150800029858a34714c",
+      "topology_sha256": "768172366d3ed92ed05a166227373860995db612931441941a55a8a0f96eb07a"
+    },
+    "pulp": {
+      "vertex_count": 2488,
+      "face_count": 5008,
+      "vertices_sha256": "117d3ddf1ec6fb8623c3268b4e1de0d45d6fe7b665d88389828bb36f25807b98",
+      "topology_sha256": "2b25bb2e0d22ce9ad6d7fb31bd650a6902a05f5b02c24546a1a285d8b8d846cd"
+    },
+    "bone": {
+      "vertex_count": 26461,
+      "face_count": 60288,
+      "vertices_sha256": "f928fc2d760e4a23bf2410ff90e7113dc73edc2e9c391d1ac51dfbf6a9bf799f",
+      "topology_sha256": "53ed5e7c7e5b715952295ba31f7a5e4622aebb07796006edc42d25a64fe49242"
+    }
+  },
+  "clinical_validation": false,
+  "physiological_motion": false
+}
