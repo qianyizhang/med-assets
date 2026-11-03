@@ -51,6 +51,7 @@ ea28c400bc1fbbebd6e4eaa2d5caffc1780fb996042a0168f9fd361dcf2b50b5
 f68e019451b4995d58bf5d03a427ea30a87639886aae68af94fa17d2a69f16ac
 '''.split())
 REQUIRED_SUITES = {
+    'tests/test_gallery_supplement_owner.py': 4,
     'tests/test_gallery_elbow_legend.py': 5,
     'tests/test_gallery_evidence_locale.py': 5,
     'tests/test_gallery_study_url.py': 5,'tests/test_gallery_comparison_navigation.py': 4,
