@@ -1,0 +1,107 @@
+{
+  "title": "Tooth restoration: controlled workflow test",
+  "width": 960,
+  "height": 540,
+  "fps": 30,
+  "duration": 12,
+  "audio": "none",
+  "font": "DejaVu Sans",
+  "beats": [
+    {
+      "start": 0,
+      "end": 3,
+      "title": [
+        "A cavity changes",
+        "tooth structure"
+      ],
+      "subtitle": [
+        "A simplified view of localized decay."
+      ],
+      "tag": "01 / UNDERSTAND"
+    },
+    {
+      "start": 3,
+      "end": 6,
+      "title": [
+        "Assess",
+        "and plan"
+      ],
+      "subtitle": [
+        "Treatment depends on assessment."
+      ],
+      "tag": "02 / ASSESS"
+    },
+    {
+      "start": 6,
+      "end": 9,
+      "title": [
+        "Prepare",
+        "and restore"
+      ],
+      "subtitle": [
+        "Preparation first. Restoration next."
+      ],
+      "tag": "03 / RESTORE"
+    },
+    {
+      "start": 9,
+      "end": 12,
+      "title": [
+        "Review",
+        "and protect"
+      ],
+      "subtitle": [
+        "Ongoing care remains important."
+      ],
+      "tag": "04 / FOLLOW UP"
+    }
+  ],
+  "assets": {
+    "base": "assets/base.svg",
+    "tooth": "assets/tooth.svg",
+    "lesion": "assets/lesion.svg",
+    "cavity": "assets/cavity.svg",
+    "restoration": "assets/restoration.svg",
+    "focus": "assets/focus.svg",
+    "caption0": "assets/caption0.svg",
+    "caption1": "assets/caption1.svg",
+    "caption2": "assets/caption2.svg",
+    "caption3": "assets/caption3.svg"
+  },
+  "timing": {
+    "tooth_fade": [
+      0,
+      0.65
+    ],
+    "lesion_fade": [
+      0.5,
+      1
+    ],
+    "focus_in": [
+      3,
+      3.4
+    ],
+    "focus_out": [
+      5.6,
+      6
+    ],
+    "lesion_out": [
+      6,
+      6.35
+    ],
+    "cavity_in": [
+      6.35,
+      6.65
+    ],
+    "restoration_in": [
+      7.6,
+      8.35
+    ],
+    "caption_fades": 0.35
+  },
+  "safety": "Illustrative shape and sequence only. Not an anatomical model, procedure guide, clinical validation, or representation of every cavity treatment. Colors distinguish states, not a named material.",
+  "sources": [
+    "https://www.nidcr.nih.gov/health-info/tooth-decay",
+    "https://www.fda.gov/medical-devices/dental-amalgam-fillings/treatment-options-dental-caries"
+  ]
+}
