@@ -1,0 +1,11 @@
+directories:
+  cache: ./cache
+  subdirs:
+    output: ./videos
+camera:
+  resolution: (1280, 720)
+  fps: 30
+  background_color: '#101a2a'
+file_writer:
+  video_codec: libx264
+  pixel_format: yuv420p

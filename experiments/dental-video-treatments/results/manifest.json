@@ -1,0 +1,131 @@
+{
+  "format": "dental-video-experiment-results-v1",
+  "createdAt": "2026-11-03",
+  "packagedAt": "2026-11-04",
+  "scope": "Three generic dental storytelling workflow experiments. Not the actual-asset treatment-procedure prototype.",
+  "sourceArchive": {
+    "sha256": "84a8c9fdff86b2f1120e7381c7e430478cb547c5a3f2fdfa53af23569384a4cf",
+    "bytes": 8888471,
+    "note": "Preserved separately; not duplicated beside extracted source."
+  },
+  "artifacts": [
+    {
+      "file": "results/hyperframes.mp4",
+      "sha256": "101901f76e91e0e73efdfcead0dd43ef5b647a59e44332b216e86609ee0f2013",
+      "bytes": 6487372,
+      "durationSeconds": 48,
+      "fps": 30,
+      "frames": 1440,
+      "resolution": [
+        1280,
+        720
+      ],
+      "retention": "Reviewed final export; exact bitwise replay not proven"
+    },
+    {
+      "file": "results/remotion.mp4",
+      "sha256": "1ac075f29da07a749f44a054e977c1d56019328090f00096c88a3df91cad9cd2",
+      "bytes": 3443616,
+      "durationSeconds": 48,
+      "fps": 30,
+      "frames": 1440,
+      "resolution": [
+        1280,
+        720
+      ],
+      "retention": "Reviewed final export; exact bitwise replay not proven"
+    },
+    {
+      "file": "results/manimgl.mp4",
+      "sha256": "d56277636ff853be73f3dfce6d2865c6cec28c6d155767dab2f800e539844c52",
+      "bytes": 3350111,
+      "durationSeconds": 48,
+      "fps": 30,
+      "frames": 1440,
+      "resolution": [
+        1280,
+        720
+      ],
+      "retention": "Reviewed final export; exact bitwise replay not proven"
+    },
+    {
+      "file": "results/comparison.mp4",
+      "sha256": "fbb9a10b148b402d228de6073a97ceefaaf53724a881ce79c9113d1456636a9f",
+      "bytes": 3452133,
+      "durationSeconds": 48,
+      "fps": 30,
+      "frames": 1440,
+      "resolution": [
+        1920,
+        440
+      ],
+      "retention": "Reviewed final export; exact bitwise replay not proven"
+    },
+    {
+      "file": "results/storyboard.jpg",
+      "sha256": "d56f4cdaa135011f59adeb6d005e113d10291c9e080a69f2cc5bf52e5da10265",
+      "bytes": 589101
+    },
+    {
+      "file": "audio/final-mix.wav",
+      "sha256": "e3b3c974ccdf5ceaf2e2ae72f71a6981e84dbe592cd3735014a9ccc659a4e6c4",
+      "bytes": 9216078
+    },
+    {
+      "file": "fonts/DejaVuSans.ttf",
+      "sha256": "57f73e11f51999432bf7ab22ce55b6f945d5eca1bf824404cfa9ec2e3718c84e",
+      "bytes": 759720
+    },
+    {
+      "file": "fonts/DejaVuSans-Bold.ttf",
+      "sha256": "a4c5bc453ca281d90ea079e596da7ae0dfeb5777497c29ec254e76d97ff6f890",
+      "bytes": 708920
+    }
+  ],
+  "originalSourceHashes": {
+    "hyperframes/build_story.py": "a5f08edb52feb3e7efdc52245ae5d21b8d4583656039c6f76f77fd43d3f14d6d",
+    "hyperframes/index.html": "4a2d70fd07a68ec5edf247fcf39c527d1dd2deb042713cbf9e5373789adf2431",
+    "remotion/src/index.tsx": "70ce071469b4ec44e30c8ca2103b8b56d50fa2cca0feda9dc502d02ca8fc497c",
+    "manimgl/mineral_ledger.py": "adcceb4de107d53758611e90292c0b07665f5f1e4ba9232885cd281f3a588e44"
+  },
+  "gates": {
+    "technical": {
+      "status": "passed",
+      "scope": "Original exports: 48s, 30fps, 1440 frames, AAC stereo; all decoded without errors. Exact shared WAV used."
+    },
+    "visual": {
+      "status": "pass-with-limitations",
+      "scope": "Original representative decoded chapter frames reviewed and label/overlap corrections applied. Not exhaustive frame-by-frame review."
+    },
+    "clinical": {
+      "status": "unverified",
+      "scope": "Educational schematics, not validated anatomy or treatment instructions."
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "No supported interactive viewer testing; encoded video tests are separate."
+    },
+    "listening": {
+      "status": "unverified",
+      "scope": "Synthetic voice; direct listening review remains outstanding."
+    }
+  },
+  "reproducibility": {
+    "animationSources": "Frame/time driven with fixed inputs; editable sources preserved.",
+    "mp4BitwiseReplay": "not-proven",
+    "manimNote": "Final reviewed video includes a native nine-second label-correction segment joined to unchanged native footage and re-encoded. Full corrected source retained; no claim its next encode matches final export bytes.",
+    "policy": "Keep exact reviewed MP4s in LFS until repeated complete rebuilds, source/environment identity and target hashes establish that hash-only retention is safe."
+  },
+  "audioCorrelationWithFrozenMaster": {
+    "hyperframes": 0.9998520001943206,
+    "manimgl": 0.9998453120276704,
+    "remotion": 0.9999579296210007,
+    "comparison": 0.9998520001943206,
+    "scope": "Original AAC decoded waveform correlation at zero offset; not listening review."
+  },
+  "packagingNotes": [
+    "Canonical scene programs remain byte-identical to original source archive.",
+    "Vendor GSAP and font license trailing whitespace normalized; license wording retained.",
+    "Generated HTML omitted after two independent source replays matched the original hash."
+  ]
+}
