@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "status": "provisional_editorial_placement_not_anatomical_registration",
+  "frame": "GLTF right-handed Y-up metres; matrices act on column vectors; BP3D native frame",
+  "reference_sha256": "82bfaeead46bb51b1fa5bdfdb06c918dfd01aa23b28acae733ab75ec2cd6897f",
+  "uff": "No preset: FDI, laterality and orientation unknown. Keep separate.",
+  "presets": {
+    "fdi31": {
+      "input_sha256": "90006e54c2b9f79f6c201397a50f92228d9ad6fa4450f20e0ad20c5fe70c19f7",
+      "output_sha256": "e8b181950059cedc9ede18cf023f12fa77ca6296d7c64c9df157801d3fbbd501",
+      "root_name": "FDI31 editorial group transform",
+      "matrix_row_major": [
+        [
+          -0.6521551310469886,
+          -0.9988647513848076,
+          0.11562421580770774,
+          0.011989246325295754
+        ],
+        [
+          -0.7899284625093476,
+          0.4236490387190682,
+          -0.795575629278024,
+          1.4545209650759692
+        ],
+        [
+          0.6221838755205727,
+          -0.5091137065769021,
+          -0.8888737394078109,
+          0.18102931680834833
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "support35-37": {
+      "input_sha256": "4989befb8409d951d2a0220948c97a9afaf4ac62193fdfa3b97450201e457a02",
+      "output_sha256": "37b7db2a30fca6f350c7880904c37abfa3e0877923ec01bb9b96fdfb6c907713",
+      "root_name": "35-37 editorial common group transform",
+      "matrix_row_major": [
+        [
+          1.0413953917249916,
+          -0.14418988860427612,
+          -0.04179019866402139,
+          0.26893876281962253
+        ],
+        [
+          0.13879264457301727,
+          1.0363663015230122,
+          -0.11714519822033946,
+          1.5027933476666968
+        ],
+        [
+          0.05721666271742941,
+          0.11043401504038944,
+          1.0447832734187896,
+          -0.10686656558207988
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "pdl35-37": {
+      "input_sha256": "0d53613e1fa392657c20e597e04c3945d18150bf41c707f022d73acb37bc7463",
+      "output_sha256": "a0f77eb525e3e799206c3189e24d9765267ebb13d1be4261470a830a43eb42fa",
+      "root_name": "35-37 editorial common group transform",
+      "matrix_row_major": [
+        [
+          1.0413953917249916,
+          -0.14418988860427612,
+          -0.04179019866402139,
+          0.26893876281962253
+        ],
+        [
+          0.13879264457301727,
+          1.0363663015230122,
+          -0.11714519822033946,
+          1.5027933476666968
+        ],
+        [
+          0.05721666271742941,
+          0.11043401504038944,
+          1.0447832734187896,
+          -0.10686656558207988
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    }
+  }
+}

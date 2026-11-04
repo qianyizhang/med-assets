@@ -52,6 +52,7 @@ f68e019451b4995d58bf5d03a427ea30a87639886aae68af94fa17d2a69f16ac
 '''.split())
 REQUIRED_SUITES = {
     'tests/test_gallery_study_origin_labels.py': 4,
+    'tests/test_dental_video_treatments.py': 11,
     'tests/test_eye_inspection.py': 6,
     'tests/test_gallery_supplement_owner.py': 4,
     'tests/test_gallery_elbow_legend.py': 5,
