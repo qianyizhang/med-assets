@@ -1,5 +1,52 @@
 # Contributing
 
+## Asset admission: reuse, improve, then expand
+
+**This is a blocking review gate for all future asset expansion**, including
+imports, authored assets, maintained variants and duplicated packages. The goal
+is better quality and useful coverage, not a larger collection to maintain.
+Demonstrably better replacements and variants for different purposes are welcome.
+
+Start from existing assets. Prefer adapting or absorbing the useful parts of a
+source into the owning asset, or using reversible parameters, materials, overlays
+and assemblies, rather than importing everything or maintaining a parallel copy.
+Compare against the intended quality and use, not merely whether an existing
+asset can technically render. Do not force a destructive edit or a lower-quality
+result to avoid an addition.
+
+Add a separately maintained asset or variant only when evidence shows either:
+
+1. Existing assets cannot meet the stated purpose and quality requirements,
+   including a demonstrated quality improvement that warrants replacement; or
+2. Adapting an existing asset would break another named, purposeful use, and the
+   uses cannot safely coexist through non-destructive controls or composition.
+
+Before committing to expansion, record the decision in the existing issue or
+owning asset/review record; the PR must link it. Keep it concise and include:
+
+- **Need and benefit:** intended use, required quality and the concrete improvement
+  or distinct purpose. Novelty, availability or collection size alone is not a need.
+- **Reuse comparison:** existing asset IDs/paths and revisions, options considered
+  (reuse, adaptation, selective integration and non-destructive composition), and
+  concrete evidence for the chosen exception. Use inspected matched output or
+  relevant measurements; an unsupported claim that reuse is unsuitable is insufficient.
+- **Cost and ownership:** added source/export/storage, dependency, review and upkeep
+  burden; the maintenance owner; why the benefit warrants that burden. For a
+  replacement, identify the active role it supersedes and the consumer migration.
+- **Preservation and checks:** other uses/consumers that must keep working, retained
+  masters and provenance, and affected regression/quality checks. Preserve historical
+  evidence without treating every superseded version as another active asset.
+
+**Do not mark ready or merge an expansion with a missing or unsupported decision.**
+If reuse or selective adaptation delivers the intended purpose and quality
+improvement without breaking other uses, prefer it over a separately maintained
+addition. A demonstrably better replacement remains welcome when its benefit
+justifies migration and upkeep. This gate does not authorize
+deletion, destructive replacement, publication or merge, and does not reopen
+settled work. Existing retention, source/licensing, technical, visual,
+anatomical/clinical and runtime gates remain separate and required as applicable;
+neither this decision nor passing CI establishes user or clinical acceptance.
+
 ## Issues and status
 
 Scan for problems and track actionable work in issues. Describe the problem,

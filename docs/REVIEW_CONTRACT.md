@@ -25,6 +25,11 @@ scope](VERIFICATION.md) for what each command actually runs.
 
 ## Medical and dental asset quality ground rules
 
+Before expanding the collection or adding a maintained variant, satisfy the
+blocking [asset-admission gate](../CONTRIBUTING.md#asset-admission-reuse-improve-then-expand).
+Link its reuse comparison, quality or purpose benefit, maintenance cost/owner and
+preservation decision in the owning review record; do not duplicate the policy here.
+
 Apply these rules to each medical or dental asset and revision, within its intended use:
 
 - **Prioritize validity and usefulness.** Gate domain-appropriate anatomical and
