@@ -1,0 +1,73 @@
+{
+  "format": "bounded-lfs-delivery-receipt-v1",
+  "repository": "qianyizhang/med-assets",
+  "objectCount": 8,
+  "totalBytes": 28007051,
+  "objects": [
+    {
+      "file": "results/hyperframes.mp4",
+      "sha256": "101901f76e91e0e73efdfcead0dd43ef5b647a59e44332b216e86609ee0f2013",
+      "bytes": 6487372
+    },
+    {
+      "file": "results/remotion.mp4",
+      "sha256": "1ac075f29da07a749f44a054e977c1d56019328090f00096c88a3df91cad9cd2",
+      "bytes": 3443616
+    },
+    {
+      "file": "results/manimgl.mp4",
+      "sha256": "d56277636ff853be73f3dfce6d2865c6cec28c6d155767dab2f800e539844c52",
+      "bytes": 3350111
+    },
+    {
+      "file": "results/comparison.mp4",
+      "sha256": "fbb9a10b148b402d228de6073a97ceefaaf53724a881ce79c9113d1456636a9f",
+      "bytes": 3452133
+    },
+    {
+      "file": "results/storyboard.jpg",
+      "sha256": "d56f4cdaa135011f59adeb6d005e113d10291c9e080a69f2cc5bf52e5da10265",
+      "bytes": 589101
+    },
+    {
+      "file": "audio/final-mix.wav",
+      "sha256": "e3b3c974ccdf5ceaf2e2ae72f71a6981e84dbe592cd3735014a9ccc659a4e6c4",
+      "bytes": 9216078
+    },
+    {
+      "file": "fonts/DejaVuSans.ttf",
+      "sha256": "57f73e11f51999432bf7ab22ce55b6f945d5eca1bf824404cfa9ec2e3718c84e",
+      "bytes": 759720
+    },
+    {
+      "file": "fonts/DejaVuSans-Bold.ttf",
+      "sha256": "a4c5bc453ca281d90ea079e596da7ae0dfeb5777497c29ec254e76d97ff6f890",
+      "bytes": 708920
+    }
+  ],
+  "upload": {
+    "executor": "Saved med-assets cloud environment, existing authentication",
+    "commandFamily": "git lfs push --object-id origin <reviewed OIDs>",
+    "commands": 2,
+    "exitCodes": [
+      0,
+      0
+    ],
+    "completedAt": "2026-11-04T01:56:12Z"
+  },
+  "readback": {
+    "executor": "Same authenticated cloud environment with a newly empty LFS store",
+    "window": [
+      "2026-11-04T01:56:31Z",
+      "2026-11-04T01:56:40Z"
+    ],
+    "status": "passed",
+    "scope": "Fresh GitHub bytes for all eight objects; every size and SHA-256 matched. No reused LFS cache.",
+    "sourceReceiptSha256": "aa4c53d3aa89ca5735f0028131cb1e7115f647d763e8dfcc641c9bd033fb49be"
+  },
+  "separateBuilderReadback": {
+    "status": "blocked",
+    "reason": "Separate builder has no Git HTTPS credentials; returned only a pointer, so no additional independent remote-byte claim."
+  },
+  "limits": "Transport identity only. No Git refs, credentials, settings, PRs, deployments or clinical/runtime gates changed by transport."
+}
