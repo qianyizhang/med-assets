@@ -1,0 +1,66 @@
+{
+  "family": "fdi36-surface-cleanup-experiment",
+  "schemaVersion": 1,
+  "scope": "Authored external surface cleanup, not accepted restorative baseline",
+  "baseline": {
+    "generatedPath": "baseline/FDI36-authored.glb",
+    "sha256": "54b29904746bf0a53a96143326e09cef84995d2e40a29cd1da634b43908fe38c",
+    "bytes": 10747668
+  },
+  "updated": {
+    "generatedPath": "updated/FDI36-authored.glb",
+    "sha256": "cda5baeb7d517bc69f652bc3dcb3b62af18cfe423a8701e62fe3478b5534b9e4",
+    "bytes": 10747776,
+    "triangles": 446904
+  },
+  "gates": {
+    "technical": {
+      "status": "passed",
+      "scope": "Blender finite/unit normals, nonzero areas, positive volume, closed connected welded topology and decoded export/reimport identity; independent exact lower-region comparison."
+    },
+    "visual": {
+      "status": "pass-with-limitations",
+      "scope": "Repeated scallops substantially removed; crown continuity retained. Hooked central junction and mesial ledge remain."
+    },
+    "anatomy": {
+      "status": "needs-revision",
+      "scope": "Not sufficient high-detail #217 intact baseline; all numerical dimensions authored, no specialist/clinical validation."
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "Offline Blender export inspection only; no browser or runtime claim."
+    }
+  },
+  "unchangedLowerTriangles": {
+    "count": 315893,
+    "maxHeightMm": 3.5,
+    "sha256": "119eab01d71af910ba42de5e74986efdf1aa299fc252ed651a819f7eff759aff",
+    "comparison": "exact decoded coordinates; independent review additionally checked winding"
+  },
+  "evidence": [
+    {
+      "file": "evidence/occlusal-detail.png",
+      "sha256": "97152ab6f5e14ebb485b7cb7843840efa7a8aeb5ec6374bb7943fd9880467e2a",
+      "artifacts": [
+        "baseline",
+        "updated"
+      ],
+      "matched": "camera/projection/scale/lighting/background"
+    },
+    {
+      "file": "evidence/original-updated.png",
+      "sha256": "af5fe869797070f42faecf31070f1bc09a0fca57585046782d06837a04183342",
+      "artifacts": [
+        "baseline",
+        "updated"
+      ],
+      "matched": "camera/projection/scale/lighting/background"
+    }
+  ],
+  "limitations": [
+    "No lesion, preparation, restoration, tissues or clinical promotion.",
+    "No exhaustive self-intersection, bite/occlusion or runtime validation.",
+    "No .blend masters or GLB payloads tracked; generate them locally.",
+    "Public experimental recipes do not register a canonical asset or close #217."
+  ]
+}

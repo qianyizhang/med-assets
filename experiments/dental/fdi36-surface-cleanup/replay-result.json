@@ -1,0 +1,34 @@
+{
+  "blender": "4.3.2",
+  "baseline_glb": {
+    "bytes": 10747668,
+    "sha256": "54b29904746bf0a53a96143326e09cef84995d2e40a29cd1da634b43908fe38c"
+  },
+  "updated_glb": {
+    "bytes": 10747776,
+    "sha256": "cda5baeb7d517bc69f652bc3dcb3b62af18cfe423a8701e62fe3478b5534b9e4"
+  },
+  "baseline_build_seconds": 44.26529667599971,
+  "updated_build_seconds": 75.83124543200393,
+  "updated_triangles": 446904,
+  "decoded_export_identity": true,
+  "evidence_reused": "Exact byte-identical GLBs; existing matched clean-import evidence retained.",
+  "full_repository_offline": "Pending on reconciled publication commit.",
+  "guarded_final_replay_glb": {
+    "bytes": 10747776,
+    "sha256": "cda5baeb7d517bc69f652bc3dcb3b62af18cfe423a8701e62fe3478b5534b9e4"
+  },
+  "source_guard_cases": {
+    "original": "passed",
+    "changed-transform": "correctly rejected",
+    "changed-material": "correctly rejected",
+    "changed-anchor": "correctly rejected",
+    "restored": "passed"
+  },
+  "field_unit_tests": {
+    "passed": 5,
+    "failed": 0
+  },
+  "actual_glb_hash_checked_before_clean_render": true,
+  "publication_status": "Prepared for draft PR; full repository offline gate and publication remain with publisher."
+}
