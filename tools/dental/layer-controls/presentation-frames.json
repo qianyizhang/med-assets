@@ -1,0 +1,501 @@
+{
+  "kind": "actual-app CPU pixel evidence, not browser screenshots",
+  "sourceSha256": "90006e54c2b9f79f6c201397a50f92228d9ad6fa4450f20e0ad20c5fe70c19f7",
+  "resetPixelsExact": true,
+  "reopenPixelsExact": true,
+  "scripts": {
+    "authoring.js": "3259c8fe3e070556890a59ce4f81c448289f7702a91948c377e9ec40782051df",
+    "app.js": "6587075a87553092bde87d45a76f38c63b3ebe9d31bb9b1012c8367d4aca58da",
+    "app-harness.cjs": "2dab926b3d50a9f18c14221b610330c74cc00726b7b38fd8b94e743eead9a567",
+    "renderer.js": "56ffb34cdc5f9c984316af433e3ddb6bf24514b65e232641b97bd018b18f05e2",
+    "controller.js": "4c35fb2e44cee230262359eb5d4f5f704e6cd037c1cec8d662733135b1e7df0f",
+    "render_presentation.cjs": "4446157a78993bb95a6a3325971e7ad80ab77be3df34cfda3319c637588259f0"
+  },
+  "records": [
+    {
+      "name": "original",
+      "label": "Original | default camera and editorial RGB",
+      "width": 630,
+      "height": 440,
+      "pixelSha256": "aff7fb7b855a8a5424d0b7c558e83f0c5e5a1785c58dca362d2f001c284751aa",
+      "evidence": {
+        "reveal": 0,
+        "isolate": null,
+        "playback": {
+          "position": 0,
+          "playing": false,
+          "duration": 8000
+        },
+        "visible": [
+          "enamel",
+          "dentin",
+          "pulp",
+          "bone"
+        ],
+        "triangles": 105370,
+        "sourceSha256": "90006e54c2b9f79f6c201397a50f92228d9ad6fa4450f20e0ad20c5fe70c19f7",
+        "sourceChecked": true,
+        "presentation": {
+          "camera": "fixed-envelope-v1",
+          "target": "full source-and-reveal envelope midpoint",
+          "materials": "opaque editorial RGB; source glTF materials are not imported",
+          "colours": {
+            "enamel": [
+              224,
+              223,
+              201
+            ],
+            "dentin": [
+              211,
+              168,
+              80
+            ],
+            "pulp": [
+              222,
+              82,
+              126
+            ],
+            "bone": [
+              115,
+              145,
+              148
+            ]
+          }
+        },
+        "viewState": {
+          "camera": {
+            "yaw": 0.35,
+            "pitch": 1.15,
+            "zoom": 1,
+            "target": [
+              0,
+              0,
+              0
+            ]
+          },
+          "colours": {
+            "enamel": [
+              224,
+              223,
+              201
+            ],
+            "dentin": [
+              211,
+              168,
+              80
+            ],
+            "pulp": [
+              222,
+              82,
+              126
+            ],
+            "bone": [
+              115,
+              145,
+              148
+            ]
+          }
+        },
+        "camera": {
+          "yaw": 0.35,
+          "pitch": 1.15,
+          "zoom": 1,
+          "center": [
+            0.007263391860760748,
+            0.008583700374700128,
+            0.015004536136984825
+          ],
+          "extent": 0.029654347216466898
+        }
+      }
+    },
+    {
+      "name": "palette",
+      "label": "Updated | palette only, matched original camera",
+      "width": 630,
+      "height": 440,
+      "pixelSha256": "4f6a576eff7da5c0b865bb313a80de43b0dd600702ce0ee1002b3ca529047a4d",
+      "evidence": {
+        "reveal": 0,
+        "isolate": null,
+        "playback": {
+          "position": 0,
+          "playing": false,
+          "duration": 8000
+        },
+        "visible": [
+          "enamel",
+          "dentin",
+          "pulp",
+          "bone"
+        ],
+        "triangles": 105370,
+        "sourceSha256": "90006e54c2b9f79f6c201397a50f92228d9ad6fa4450f20e0ad20c5fe70c19f7",
+        "sourceChecked": true,
+        "presentation": {
+          "camera": "fixed-envelope-v1",
+          "target": "full source-and-reveal envelope midpoint",
+          "materials": "opaque editorial RGB; source glTF materials are not imported",
+          "colours": {
+            "enamel": [
+              224,
+              223,
+              201
+            ],
+            "dentin": [
+              211,
+              168,
+              80
+            ],
+            "pulp": [
+              222,
+              82,
+              126
+            ],
+            "bone": [
+              115,
+              145,
+              148
+            ]
+          }
+        },
+        "viewState": {
+          "camera": {
+            "yaw": 0.35,
+            "pitch": 1.15,
+            "zoom": 1,
+            "target": [
+              0,
+              0,
+              0
+            ]
+          },
+          "colours": {
+            "enamel": [
+              102,
+              182,
+              200
+            ],
+            "dentin": [
+              211,
+              168,
+              80
+            ],
+            "pulp": [
+              222,
+              82,
+              126
+            ],
+            "bone": [
+              145,
+              112,
+              173
+            ]
+          }
+        },
+        "camera": {
+          "yaw": 0.35,
+          "pitch": 1.15,
+          "zoom": 1,
+          "center": [
+            0.007263391860760748,
+            0.008583700374700128,
+            0.015004536136984825
+          ],
+          "extent": 0.029654347216466898
+        }
+      }
+    },
+    {
+      "name": "camera",
+      "label": "Updated | camera only, original palette",
+      "width": 630,
+      "height": 440,
+      "pixelSha256": "8000dedcfe1ed0fbea27d40c24909e5fefeee2214c9d0a7a5d5b341054a415fd",
+      "evidence": {
+        "reveal": 0,
+        "isolate": null,
+        "playback": {
+          "position": 0,
+          "playing": false,
+          "duration": 8000
+        },
+        "visible": [
+          "enamel",
+          "dentin",
+          "pulp",
+          "bone"
+        ],
+        "triangles": 105370,
+        "sourceSha256": "90006e54c2b9f79f6c201397a50f92228d9ad6fa4450f20e0ad20c5fe70c19f7",
+        "sourceChecked": true,
+        "presentation": {
+          "camera": "fixed-envelope-v1",
+          "target": "full source-and-reveal envelope midpoint",
+          "materials": "opaque editorial RGB; source glTF materials are not imported",
+          "colours": {
+            "enamel": [
+              224,
+              223,
+              201
+            ],
+            "dentin": [
+              211,
+              168,
+              80
+            ],
+            "pulp": [
+              222,
+              82,
+              126
+            ],
+            "bone": [
+              115,
+              145,
+              148
+            ]
+          }
+        },
+        "viewState": {
+          "camera": {
+            "yaw": 0.65,
+            "pitch": 1,
+            "zoom": 0.9,
+            "target": [
+              0.03,
+              0,
+              0
+            ]
+          },
+          "colours": {
+            "enamel": [
+              224,
+              223,
+              201
+            ],
+            "dentin": [
+              211,
+              168,
+              80
+            ],
+            "pulp": [
+              222,
+              82,
+              126
+            ],
+            "bone": [
+              115,
+              145,
+              148
+            ]
+          }
+        },
+        "camera": {
+          "yaw": 0.65,
+          "pitch": 1,
+          "zoom": 0.9,
+          "center": [
+            0.008153022277254755,
+            0.008583700374700128,
+            0.015004536136984825
+          ],
+          "extent": 0.029654347216466898
+        }
+      }
+    },
+    {
+      "name": "combined",
+      "label": "Updated | camera and palette edits",
+      "width": 630,
+      "height": 440,
+      "pixelSha256": "608424aae6d620f2e4aedaabe2f60781dfd375cb3509b6241c5815d838428b7a",
+      "evidence": {
+        "reveal": 0,
+        "isolate": null,
+        "playback": {
+          "position": 0,
+          "playing": false,
+          "duration": 8000
+        },
+        "visible": [
+          "enamel",
+          "dentin",
+          "pulp",
+          "bone"
+        ],
+        "triangles": 105370,
+        "sourceSha256": "90006e54c2b9f79f6c201397a50f92228d9ad6fa4450f20e0ad20c5fe70c19f7",
+        "sourceChecked": true,
+        "presentation": {
+          "camera": "fixed-envelope-v1",
+          "target": "full source-and-reveal envelope midpoint",
+          "materials": "opaque editorial RGB; source glTF materials are not imported",
+          "colours": {
+            "enamel": [
+              224,
+              223,
+              201
+            ],
+            "dentin": [
+              211,
+              168,
+              80
+            ],
+            "pulp": [
+              222,
+              82,
+              126
+            ],
+            "bone": [
+              115,
+              145,
+              148
+            ]
+          }
+        },
+        "viewState": {
+          "camera": {
+            "yaw": 0.65,
+            "pitch": 1,
+            "zoom": 0.9,
+            "target": [
+              0.03,
+              0,
+              0
+            ]
+          },
+          "colours": {
+            "enamel": [
+              102,
+              182,
+              200
+            ],
+            "dentin": [
+              211,
+              168,
+              80
+            ],
+            "pulp": [
+              222,
+              82,
+              126
+            ],
+            "bone": [
+              145,
+              112,
+              173
+            ]
+          }
+        },
+        "camera": {
+          "yaw": 0.65,
+          "pitch": 1,
+          "zoom": 0.9,
+          "center": [
+            0.008153022277254755,
+            0.008583700374700128,
+            0.015004536136984825
+          ],
+          "extent": 0.029654347216466898
+        }
+      }
+    },
+    {
+      "name": "reset",
+      "label": "Reset | interrupted playback, original pixels exact",
+      "width": 630,
+      "height": 440,
+      "pixelSha256": "aff7fb7b855a8a5424d0b7c558e83f0c5e5a1785c58dca362d2f001c284751aa",
+      "evidence": {
+        "reveal": 0,
+        "isolate": null,
+        "playback": {
+          "position": 0,
+          "playing": false,
+          "duration": 8000
+        },
+        "visible": [
+          "enamel",
+          "dentin",
+          "pulp",
+          "bone"
+        ],
+        "triangles": 105370,
+        "sourceSha256": "90006e54c2b9f79f6c201397a50f92228d9ad6fa4450f20e0ad20c5fe70c19f7",
+        "sourceChecked": true,
+        "presentation": {
+          "camera": "fixed-envelope-v1",
+          "target": "full source-and-reveal envelope midpoint",
+          "materials": "opaque editorial RGB; source glTF materials are not imported",
+          "colours": {
+            "enamel": [
+              224,
+              223,
+              201
+            ],
+            "dentin": [
+              211,
+              168,
+              80
+            ],
+            "pulp": [
+              222,
+              82,
+              126
+            ],
+            "bone": [
+              115,
+              145,
+              148
+            ]
+          }
+        },
+        "viewState": {
+          "camera": {
+            "yaw": 0.35,
+            "pitch": 1.15,
+            "zoom": 1,
+            "target": [
+              0,
+              0,
+              0
+            ]
+          },
+          "colours": {
+            "enamel": [
+              224,
+              223,
+              201
+            ],
+            "dentin": [
+              211,
+              168,
+              80
+            ],
+            "pulp": [
+              222,
+              82,
+              126
+            ],
+            "bone": [
+              115,
+              145,
+              148
+            ]
+          }
+        },
+        "camera": {
+          "yaw": 0.35,
+          "pitch": 1.15,
+          "zoom": 1,
+          "center": [
+            0.007263391860760748,
+            0.008583700374700128,
+            0.015004536136984825
+          ],
+          "extent": 0.029654347216466898
+        }
+      }
+    }
+  ]
+}
