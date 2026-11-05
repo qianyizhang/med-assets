@@ -1,11 +1,7 @@
 # Local verification
 
-The offline PR job has a narrow fast path for prose-only changes to
-`CONTRIBUTING.md`. It checks diff whitespace; it does not validate links. Code
-examples or active embedded content, deletions, renames, file-type changes, mixed
-or unknown paths, and missing or empty diffs select the full offline scope. Changes
-to the classifier, workflow, verification guidance, records or manifests run the
-full scope; this is not a blanket exemption for Markdown or docs.
+The offline PR job runs the same metadata and behavior checks on every PR.
+There is no separate documentation classifier or historical test-count baseline.
 
 Run from the repository root. The ordinary PR gate needs **Python 3.11+, Git and Node.js 18+**,
 a full text/pointer checkout, and no third-party Python packages. It makes no
@@ -15,21 +11,23 @@ network requests, fetches no LFS media and performs no rendering or uploads.
 python3 tools/verify.py offline
 ```
 
-This runs every top-level and review-record unit test, with explicit required
-suite files and minimum counts. Missing imports, missing or empty required suites,
-skips, expected failures, module setup/teardown errors, partial execution and
-assertion failures fail the command. Plain
+This discovers every `tests/test_*.py` and `tests/review_records/test_*.py` suite.
+An empty discovery, an empty suite, missing imports, skips, expected failures,
+module setup/teardown errors, partial execution and assertion failures fail the
+command. Discovery includes matching Git-index paths and present additions. A
+missing still-indexed suite fails; stage intentional retirements before checking.
+Suite names and test counts are not frozen. Plain
 `unittest discover -s tests` does not recurse into all of this repository's
 non-package test directories; it is not the complete verification command.
 
-The required candidate-lifecycle suite also executes 15 Node VM tests against
+The candidate-lifecycle suite also executes Node VM tests against
 both the actual canonical v40 module and the guarded patched module. Browser,
 Three.js and transport APIs are doubles; this is not browser BFCache/WebGL
 coverage. Missing Node, an incomplete suite, skips or unexpected baseline results
 fail verification. No npm install or media payload is required.
 
-The candidate-camera applicator has seven required offline source/composition
-checks. Its separate actual-controls CPU suite needs the exact already-acquired
+The candidate-camera applicator has offline source/composition checks. Its
+separate actual-controls CPU suite needs the exact already-acquired
 Three.js/OrbitControls inputs described in
 [`tests/candidate_camera/vendor-binding.json`](../tests/candidate_camera/vendor-binding.json).
 Run `python3 tests/candidate_camera/run_cpu.py --vendor-dir PATH_TO_EXACT_VENDOR`
@@ -37,7 +35,7 @@ and repeat with `--lifecycle` when changing the camera patch. The runner verifie
 input hashes before staging; it downloads nothing and does not load models or
 launch a browser. These actual-vendor CPU cases are not counted by offline mode.
 
-The required candidate-context suite checks exact lifecycle-first application
+The candidate-context suite checks exact lifecycle-first application
 and runs the full original/updated candidate modules through context-loss and
 existing lifecycle VM cases. Renderer/DOM/transport APIs are doubles; no browser
 or WebGL is launched. Optional composition with the separately reviewed camera
@@ -45,21 +43,24 @@ package is checked outside this branch's default scope. Default tests require
 no unmerged camera files and do not fetch model/media/vendor bytes.
 
 Offline checks also validate all content-addressed transport manifests using the
-existing fixed host/size/hash limits, the fixed historical foundation record set, all
-tracked LFS pointer syntax/OIDs, and the 591 imported path references. For text,
+existing fixed host/size/hash limits, selected foundation records, all
+tracked LFS pointer syntax/OIDs, and retained imported path references. For text,
 the command hashes working files. For LFS media, it checks reference OIDs against
 the Git index and pointer files when present. It compares pointer sizes against
 the historical import manifest and reviewed transport manifests when a matching
 record exists, and rejects conflicting sizes for the same OID. For OIDs without a
 matching size record, the size is checked only for valid syntax. **It does not
-hash hydrated media.** Stage intended LFS pointer changes before checking their
-index identities.
+hash hydrated media.** Stage intended LFS pointer changes and file retirements
+before checking index identities.
 
-The 25 existing transport manifest IDs and 25 selected historical foundation
-record paths are protected against accidental omission. New transport manifests
-are validated automatically without changing the baseline. New foundation runs
-remain outside this historical selector until explicitly covered by a validator.
-Intentional historical corrections require review and an updated baseline.
+Transport manifest and foundation discovery likewise includes matching Git-index
+paths and present additions: an unstaged omission fails, while a staged retirement
+removes the path from the current scope. Historical filenames are not a retention
+gate. `FOUNDATION_PATTERNS` in `tools/verify.py` explicitly selects the
+foundation record family by package/run. Selected records still require valid
+structure and bound artifact/evidence identities, but no fixed path list or count
+prevents retiring spent review output. Other record families need their own
+validators; a shared `schemaVersion` is not enough to select one.
 
 ## Scope selection and acceptance
 
@@ -87,14 +88,17 @@ not waive required CI, execution/security guards, or known defects.
 Existing protected runtime restrictions still apply. If local E2E is barred or
 prerequisites are unavailable, record it blocked and require a reviewed, explicitly
 authorized local mode where needed; never spoof CI flags or bypass execution guards.
-This guidance changes no workflow, security control or current CI job. The complete
-offline scope described above remains required; it is not a full media/runtime suite.
+The complete offline scope described above remains required; it is not a full
+media/runtime suite.
 
 ## Current and historical integrity
 
 `SHA256SUMS` is immutable evidence of the 2026-10-22 import: 591 files, originally
 370,698,859 bytes. `metadata/asset-manifest.json` and the earlier archive checksums
 retain that historical scope too. Do not regenerate them to conceal later edits.
+Current import checks apply to original paths still tracked in the Git index.
+An intentionally removed path remains in historical provenance without becoming
+a permanent checkout requirement; a missing path still in the index fails.
 `shasum -a 256 -c SHA256SUMS` is appropriate for the original snapshot. Current
 import-file hashes, reasons and change commits are recorded in
 [`metadata/current-import-overrides.json`](../metadata/current-import-overrides.json);
@@ -110,8 +114,8 @@ python3 tools/verify.py payload-integrity
 ```
 
 This includes the offline checks, then verifies size and SHA-256 of **every local
-tracked LFS payload**, strict foundation artifact/evidence hashes, and the 11
-existing bounded-package validators listed in `tools/verify.py`. Unresolved
+tracked LFS payload**, strict foundation artifact/evidence hashes, and the
+bounded-package validators listed in `tools/verify.py`. Unresolved
 pointers fail. No third-party Python dependencies are needed for this mode.
 Do not use Python `-O`, which disables assertions in the retained package checks;
 the entrypoint rejects it. The result is local byte identity and selected package
@@ -120,7 +124,7 @@ consistency, not exhaustive geometry, fresh remote availability or review of pix
 ## Dental tests and replay
 
 The dental suite is separate and required when changing the UFF tool. It includes
-six synthetic/safety tests and one actual pinned-GLB hash assertion; all seven must
+synthetic/safety tests and an actual pinned-GLB hash assertion; every test must
 pass. It is **not included or reported as passed** by either command above.
 
 Use an isolated virtual environment. The historical replay pins are preserved at

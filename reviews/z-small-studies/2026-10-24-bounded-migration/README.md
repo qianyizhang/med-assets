@@ -20,4 +20,4 @@ Geometry and derived candidate renders retain **CC BY-SA 4.0**, with historic Bo
 `presentation-notes.json` records preservation of exact already-public historical evidence. Image wording refers to prior scoped visual review, not new validation; pixels remain unchanged. Final file list and bounded scope were reviewed before transport; unchanged model/evidence identities are retained.
 
 ## Local verification only
-Run `python tests/z_small_studies/verify_bounded.py`. Default mode verifies only files declared in this review's `FILE-HASHES.json`, so unrelated repository files do not fail the check. Use `--strict-package` only for isolated-package exact-file closure. Hash manifest excludes itself. Neither mode downloads, rebuilds, renders, updates gates/counts or establishes clinical/runtime validity.
+Run `python tests/z_small_studies/verify_bounded.py`. It checks retained source, license, media and review identities in `FILE-HASHES.json`; unrelated files are allowed. Verification code and this README are not hash-frozen. It does not download, rebuild, render or establish clinical/runtime validity.

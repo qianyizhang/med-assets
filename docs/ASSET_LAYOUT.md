@@ -1,70 +1,70 @@
 # Asset and review layout
 
-This layout began as an additive foundation, not a completed migration. That
-foundation left the existing `heart/`, `body/`, `metadata/`, import checksums and
-Git LFS links unchanged and added no model or screenshot payload. Subsequent
-reviewed batches can change current assets. Historical `SHA256SUMS` remains the
-2026-10-22 import snapshot; use the [current verification commands](VERIFICATION.md)
-to check today's checkout and its documented import-file updates.
+Each maintained asset has one source owner and one retained export per purposeful
+variant. Keep source, current deliverables and review decisions easy to find;
+put intermediate work under ignored `.artifacts/`.
 
-## Target homes for subsequent reviewed batches
+## Canonical homes
 
 | Path | Responsibility |
 |---|---|
-| `models/<organ>/source/<revision>/` | Editable scenes and recipes; reference shared inputs rather than duplicate them. |
-| `models/<organ>/exports/<revision>/` | Exact exported variants, each with its own hash and scope. |
-| `assemblies/<assembly>/<revision>/` | Explicit same-frame composition; never assume registration across atlases. |
-| `sources/datasets/<provider>/<version>/` | One immutable home for raw public source bytes, metadata and license. |
-| `reviews/<organ>/<run>/` | Immutable review record, exact-export screenshots, failures and retests. |
-| `tests/` | Reusable check code, not generated screenshots or model files. |
-| `gallery/` | Presentation generated from canonical metadata; not another hand-maintained model registry. |
+| `models/<organ>/source/<revision>/` | Editable scenes and organ-specific build/render recipes. Reference shared inputs and tools. |
+| `models/<organ>/exports/<revision>/` | Current exports and their purpose, identity, limits and source links. Keep another revision only for a named consumer or distinct use. |
+| `assemblies/<assembly>/<revision>/` | Same-frame composition and its registration assumptions. |
+| `sources/datasets/<provider>/<version>/` | One home for raw public inputs, source identities, attribution and licenses. |
+| `reviews/<organ>/<run>/` | Outcome README plus evidence and bindings needed by current claims. Keep decisions and unresolved defects; omit routine check dumps. |
+| `tests/` | Reusable behavior checks and the smallest useful fixtures. Call owning build/verification code rather than keep another implementation. |
+| `tools/` | Shared execution, format handling, integrity, transport and replay helpers. |
+| `ci/` | Workflow/runtime fixtures and execution glue. Reuse shared tools for common behavior. |
+| `gallery/` | Version-bound viewer patches and their replay inputs. The deployed gallery is a separate delivery. |
+| `transport/` | Reviewed publication manifests and transport instructions. Policy remains in its executable owner. |
+| `metadata/`, `SHA256SUMS` | Original import provenance and explicit updates to retained import files. |
+| `.artifacts/<outcome>/` | Disposable renders, logs, audit output, staging and trial builds. Never an additional maintained source home. |
 
-Add real folders only with their dependency-complete content. Preserve original
-packages until a reviewed path/hash mapping makes relocation safe. Historical
-failures remain historical; a newer pass never rewrites earlier evidence.
+The existing `heart/` and `body/` bundles remain source owners until their inputs,
+texture paths and consumers have a verified mapping. Some organ recipes still
+live under `tools/<organ>/` or `tests/<organ>/`. Use that existing owner during
+migration; do not create a second copy to fit the table. Historical `SHA256SUMS`
+describes the 2026-10-22 import, not the current checkout. See
+[current verification](VERIFICATION.md) and the
+[retention policy](../CONTRIBUTING.md#generated-artifacts-and-retention).
 
-## Small-batch merge rule
+## Consolidation rules
 
-1. Confirm source/license and exact byte hashes.
-2. Review actual exported views against appropriate references; record limitations.
-3. Follow the [bounded transport flow](../transport/README.md#normal-flow) for
-   manifest-only publication, authorized upload and independent hash/size readback
-   **before** publishing new LFS pointers.
-4. Include the model's source notices, review record, evidence and tests together.
-5. Add the study's README entry only when every referenced dependency exists (see
-   [study discovery](#study-discovery)).
-
-A text-only foundation does not certify any existing asset. Published viewers and
-repository synchronization are separate deliveries. No blanket clinical,
-anatomical, motion or browser-runtime approval is implied.
+- Move source and its callers together. Check imports, CLI commands, dynamic
+  discovery, package manifests, hashes, documentation and workflow paths.
+- Put reusable behavior in the existing owning module. Keep organ-specific
+  parameters and recipes with the asset; avoid a new framework or registry.
+- Verify the retained path and important failure cases, then remove copied
+  scaffolding, compatibility wrappers and spent output that no consumer needs.
+- Keep failure decisions distinct from later passes. When evidence is retired,
+  remove its links and narrow any claim that depended on it.
 
 ## Study discovery
 
 Browse [reviews](../reviews/), [models](../models/), [diagrams](../diagrams/) and
-[assemblies](../assemblies/) using GitHub's directory listing or a local checkout.
-These existing directories are the discovery surface; no generator or second
-metadata registry is needed.
+[assemblies](../assemblies/) directly. A study's owning README links its current
+export, source/licensing, replay instructions, review decision and necessary
+evidence. Reuse existing metadata and the [review contract](REVIEW_CONTRACT.md);
+do not add a second catalog, index or copied package inventory.
 
-For each new batch, add or reuse a README in its own review run or export revision
-(for example, `reviews/<study>/<run>/README.md` or
-`models/<study>/exports/<revision>/README.md`). Give the study a readable title,
-state its scoped status and limits, and link the exact artifact, review record,
-evidence, source/licence notices and replay instructions. Reuse the existing
-[review contract](REVIEW_CONTRACT.md) and package metadata; link to them rather
-than copying records into another registry. A new revision retains prior evidence.
+Independent additions need no global row in `docs/SCOPED-STUDIES.md` or the root
+README. The scoped overview retains its historical 36-study migration snapshot;
+new studies do not change that count. Shared source and policy changes still
+need coordinated review.
 
-Independent study additions need no new row in `docs/SCOPED-STUDIES.md`, the root
-README, a parent directory README or a generated aggregate. The scoped overview
-retains its historical entries and 36-study migration count; new studies do not
-change that bounded count. Correcting an existing claim still needs review.
-
-Separate study/run paths let asset PRs compose independently. Shared source
-changes, review contracts and transport policy still require coordinated review.
-
-Check retained navigation and a two-branch addition with:
+Check navigation links with:
 
 ```sh
 python3 -m unittest discover -s tests -p test_study_navigation.py
 ```
 
-This checks documentation and Git composition, not media bytes or quality gates.
+## Delivery boundaries
+
+Before publishing new LFS pointers, follow the
+[bounded transport flow](../transport/README.md#normal-flow) for source/license
+checks, reviewed manifests, authorized upload and independent size/hash readback.
+Include the source notices, current review decision and necessary evidence with
+the delivered asset. Technical checks, visual review, anatomy/clinical approval,
+browser runtime and publication remain separate gates; none follows from a file
+being present or a navigation check passing.

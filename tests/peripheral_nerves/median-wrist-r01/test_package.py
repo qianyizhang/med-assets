@@ -9,7 +9,7 @@ EXPECTED='6094265d2263f3b501f4e487ff7f859b83205bde99bca9312d48c26f29680c50'
 def load(name):
     s=importlib.util.spec_from_file_location(name,HERE/(name+'.py'))
     m=importlib.util.module_from_spec(s);s.loader.exec_module(m);return m
-build=load('build');compose=load('compose')
+build=load('build')
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 
 class RegionalPackage(unittest.TestCase):
@@ -35,7 +35,6 @@ class RegionalPackage(unittest.TestCase):
 
     def test_exact_retained_export_and_source_receipt(self):
         self.assertEqual(sha(M),EXPECTED)
-        self.assertEqual(M.read_bytes(),(R/'v1/median-wrist-v1.glb').read_bytes())
         data=M.read_bytes();self.assertEqual(struct.unpack_from('<4sII',data),(b'glTF',2,len(data)))
         size,kind=struct.unpack_from('<II',data,12);self.assertEqual(kind,0x4e4f534a)
         doc=json.loads(data[20:20+size]);self.assertEqual({n['extras']['source_object'] for n in doc['nodes']},set(build.NAMES))
@@ -48,20 +47,16 @@ class RegionalPackage(unittest.TestCase):
         self.assertTrue(all(x['surfaceTrianglesMatch'] and x['maxBidirectionalVertexDifference']<1e-6 for x in receipt['objects']))
 
     def test_capture_reuse_and_visible_targets(self):
-        a=json.loads((R/'v1/renders/bindings.json').read_text())
-        b=json.loads((R/'v2-captures/bindings.json').read_text())
-        self.assertEqual(a['artifactSha256'],b['artifactSha256']);self.assertEqual(a['render'],b['render']);self.assertEqual(a['lights'],b['lights'])
-        for v,w in zip(a['views'],b['views']):
-            for k in ['file','sha256','camera','target','orthoScale']:self.assertEqual(v[k],w[k])
-            self.assertEqual(sha(R/'v1/renders'/v['file']),v['sha256'])
-            self.assertEqual((R/'v1/renders'/v['file']).read_bytes(),(R/'v2-captures'/w['file']).read_bytes())
+        captures=json.loads((R/'v2-captures/bindings.json').read_text())
+        self.assertEqual(captures['artifactSha256'],EXPECTED)
+        for view in captures['views']:
+            self.assertEqual(sha(R/'v2-captures'/view['file']),view['sha256'])
         loc=json.loads((R/'v2/locator-check.json').read_text())
         self.assertTrue(loc['passed']);self.assertEqual(len(loc['checks']),6)
         self.assertTrue(all(x['passed'] and x['boundSourceObject']==x['firstVisibleSourceObject'] for x in loc['checks']))
-        failed=json.loads((R/'v2-occluded-landmark/locator-check.json').read_text())
-        self.assertFalse(failed['passed'])
 
     def test_actual_composition_replay_and_refusal(self):
+        compose=load('compose')
         expected=json.loads((R/'v2/composition-bindings.json').read_text())
         with tempfile.TemporaryDirectory() as t:
             out=Path(t)/'teaching';actual=compose.compose(R/'v2-captures',out)

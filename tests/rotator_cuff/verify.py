@@ -96,7 +96,6 @@ def payloads(root=ROOT):
     validate_composition(composition, artifact['sha256'])
     for name, digest in composition['outputs'].items():
         require_hash(root/REVIEW/'v2'/name, digest)
-    require_hash(root/REVIEW/'v1/teaching.png', composition['previousTeachingSha256'])
     for label in composition['labelBindings']:
         view = next(v for v in checks['exportViews'] if v['file'] == label['view']+'.png')
         require(label['anchorId'] in {a['id'] for a in view['anchors']}, 'Presentation label lacks visible source binding')

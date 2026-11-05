@@ -17,8 +17,8 @@ git lfs pull
 python3 tools/verify.py payload-integrity
 ```
 
-Verification requires Python 3.11+ and Git. For a checkout without downloaded
-media, run `python3 tools/verify.py offline`; its success verifies text and
+Verification requires Python 3.11+, Git and Node.js 18+. For a checkout without
+downloaded media, run `python3 tools/verify.py offline`; its success verifies text and
 pointer metadata, **not media bytes**. See [verification modes and prerequisites](docs/VERIFICATION.md)
 for dental tests, package checks and separate authoring replays.
 
@@ -50,7 +50,9 @@ archive entries were merged. No assets were regenerated or edited during import.
 Source ZIPs are not duplicated in Git LFS alongside the extracted files.
 `metadata/asset-manifest.json` records all archive and member hashes and the exact
 extraction paths. `SHA256SUMS` preserves the original hashes of those 591 files;
-it is not a current-checkout checksum list. Current import-file updates are recorded in
+it is not a current-checkout checksum list. Superseded intermediate import output
+may be retired from the current checkout; its original paths and hashes remain in
+the snapshot and Git history. Updates to retained import files are recorded in
 [`metadata/current-import-overrides.json`](metadata/current-import-overrides.json).
 The verification command applies those explicit updates without changing the
 historical snapshot, and checks current LFS bytes against their tracked pointers.
@@ -67,8 +69,9 @@ sibling `body-3d-assets`, `body-3d-source`, and `body-3d-delivery` directories.
 Synthetic-imaging geometry remains separate from the cardiac master. Original
 scripts retain their authoring-environment paths; read the relevant package
 documentation before rebuilding. None of the generation or rebuild scripts was
-run during this import. Source QA reports are retained evidence from delivery,
-not new clinical or visual validation from this sync.
+run during this import. Retained package evidence describes its recorded delivery,
+not current clinical or visual validation. Apply the contributing retention policy
+to spent reports and superseded output.
 
 ## Attribution and scope
 

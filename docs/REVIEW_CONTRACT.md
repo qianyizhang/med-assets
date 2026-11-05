@@ -2,7 +2,9 @@
 
 This small contract supports later organ-sized imports. It is not a claim that the
 full collection has already been migrated or passed. No catalog is introduced by
-this foundation. Existing package records stay unchanged.
+this foundation. Use the owning record for each package; follow the
+[retention policy](../CONTRIBUTING.md#generated-artifacts-and-retention) when
+retiring superseded output.
 
 ## Format selection
 
@@ -12,15 +14,15 @@ purpose, not by that number alone.
 
 | Family | Validator and scope |
 |---|---|
-| Foundation v1 `record.json` in the 2026-10-23 metadata-cleanup and HRA runs | `tests/review_records/validate_record.py`; the 25 existing records are selected explicitly by `FOUNDATION_PATTERNS` in `tools/verify.py`. Offline mode checks shape and text/pointer references; payload-integrity mode checks actual bytes. |
+| Foundation v1 `record.json` in the 2026-10-23 metadata-cleanup and HRA runs | `tests/review_records/validate_record.py`; the record family is selected explicitly by `FOUNDATION_PATTERNS` in `tools/verify.py`. Offline mode checks shape and text/pointer references; payload-integrity mode checks actual bytes. |
 | Bounded migration receipts, including adrenal `bounded-record.json` | Existing package validators, for example `tests/bp3d_glands/verify_bounded_receipt.py`. Identity and migration assertions are package-specific; missing foundation-only fields do not alone invalidate these receipts. The 11 selected package checks are listed in `PAYLOAD_CHECKS`. |
 | Scoped decisions, including salivary `decision.json` | Package README, provenance and its own geometry/failure checks. Salivary verification needs Blender and the pinned source scene; it is not covered by foundation validation. |
 | Accounting and runtime receipts | Their own checks in `tests/review_accounting/` and `tests/runtime_receipts/`; no new runtime or clinical approval from a metadata pass. |
 
 Other record families are outside the foundation gate. When extending coverage,
-add an explicit family selection and its tests; do not rewrite immutable records
-or apply foundation fields mechanically. The fixed selector covers those 25
-historical paths; new foundation runs need explicit coverage. See [verification
+add an explicit family selection and its tests; do not apply foundation fields
+mechanically. The selector defines the supported family, not a frozen historical
+file count; other families need explicit coverage. See [verification
 scope](VERIFICATION.md) for what each command actually runs.
 
 ## Medical and dental asset quality ground rules
@@ -42,7 +44,8 @@ Apply these rules to each medical or dental asset and revision, within its inten
   and record the evidence and decision. Preserve untouched references and provenance.
 - **Set and report scope.** Derive tolerances from source resolution and intended use;
   state the rationale and whether checks are sampled or exhaustive. Keep candidates,
-  failures and approved revisions distinct; retain earlier evidence and decisions.
+  failures and approved revisions distinct; retain decisions and evidence needed by
+  current claims. Apply the retention policy to superseded output.
   Exact source pixels or triangle identity are not universal gates.
 - **Review actual output.** Inspect matched context and detail-zoom exports. Measure
   bytes, triangles and build cost separately from performance in the intended runtime.

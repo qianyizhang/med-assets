@@ -27,6 +27,13 @@ git push origin 'refs/heads/<branch-name>:refs/heads/<branch-name>'
 
 If needed, the corresponding `refs/pull/<number>/head` is another source for the original head. Verify its SHA against the manifest before restoring. Restoration does not require downloading LFS payloads.
 
-## Receipt
+## Outcome and retention
 
-See `execution-receipt.json` and the linked Actions run for the actual deletion list, skipped branches and postflight inventory. Branch counts can change afterward as active work proceeds.
+The [completed run](https://github.com/qianyizhang/med-assets/actions/runs/40076924124)
+removed all 22 eligible branch names with no skips, reducing the then-current
+inventory from 47 to 25. The recovery manifest retains their exact heads and PR
+mappings; the routine execution dump is retired. These counts describe that run,
+not current branch state.
+
+Keep the recovery manifest while branch restoration remains useful. Review the
+need by 2026-11-26; the merged commits remain reachable from main.

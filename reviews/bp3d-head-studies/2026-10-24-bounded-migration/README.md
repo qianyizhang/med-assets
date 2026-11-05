@@ -4,4 +4,4 @@
 
 The native brain contact and unchanged additive canonical record bind the accepted brain GLB. Publication is reported by the v25 handoff; actual browser readback passed per the retained v25 report. The exact media passed reusable transport and independent GitHub LFS readback on 2026-10-24 at 09:12:45 UTC. See transport-readback.json.
 
-Paths are repository-root relative. Run `python tests/bp3d-head-studies/verify_bounded.py`; optional `--strict-package` checks standalone closure. Both modes check local identities, not rendering or source rebuilds. Raw archives, source files, full history and scenes remain external. Source and destination availability were checked for the bounded transfer; this is not a source rebuild or anatomy validation.
+Paths are repository-root relative. Run `python tests/bp3d-head-studies/verify_bounded.py`. The verifier checks local identities, not rendering or source rebuilds. Raw archives, source files, full history and scenes remain external. Source and destination availability were checked for the bounded transfer; this is not a source rebuild or anatomy validation.

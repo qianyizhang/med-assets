@@ -36,24 +36,23 @@ with the same startup/exit flags. It captures full subset, palmar hand and obliq
 wrist views from an exact clean GLB reimport. Camera, lights, sampling and hashes
 are recorded. Current source uses the corrected visible scaphoid point.
 
-The original V1 raw captures stay unchanged. `rebind_landmark.py` reproduces the
-V2 annotation-only correction from that exact original binding file:
+Current raw captures and corrected annotation bindings are retained once under
+`v2-captures/`. Compose directly from those inputs:
 
 ```sh
-blender --background --factory-startup --disable-autoexec --python-exit-code 1 \
-  --python tests/peripheral_nerves/median-wrist-r01/rebind_landmark.py -- \
-  --glb models/peripheral_nerves/exports/median-wrist-r01/right-median-wrist.glb \
-  --captures reviews/peripheral_nerves/2026-10-30-median-wrist-r01/v1/renders \
-  --out /tmp/median-captures-new
-
 python3 tests/peripheral_nerves/median-wrist-r01/compose.py \
-  --renders /tmp/median-captures-new --out /tmp/median-teaching-new
+  --renders reviews/peripheral_nerves/2026-10-30-median-wrist-r01/v2-captures \
+  --out /tmp/median-teaching-new
 ```
+
+The current `render.py` already uses the corrected scaphoid point. The one-off
+V1 rebinding script and duplicate original captures are retired; source and
+annotation findings remain in the review README.
 
 `check_locators.py -- --glb FILE --bindings FILE --out NEW_FILE` checks six
 leaders against exact reimport vertices and the first visible source object.
-An original scaphoid point was hidden by the trapezium; that failed screen and
-composition are retained. The final point is visible in both labelled views.
+An original scaphoid point was hidden by the trapezium; the finding is summarized
+in the review README. The final point is visible in both labelled views.
 Ray hits establish surface targeting, not semantic anatomy; independent image
 review remains required. No geometry, rerouting, fusion or source-master edits.
 

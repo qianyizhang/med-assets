@@ -3,6 +3,7 @@ import contextlib
 import hashlib
 import io
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -21,10 +22,67 @@ class VerificationTests(unittest.TestCase):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)
         self.root = Path(self.temp.name)
+        self.real_git = verify.git
+        git_patch = patch.object(verify, 'git', side_effect=self.fixture_git)
+        git_patch.start()
+        self.addCleanup(git_patch.stop)
+        verify.git(self.root, 'init', '-q')
         self.data = b'synthetic payload, not a model'
         self.digest = hashlib.sha256(self.data).hexdigest()
         self.pointer = (f'version https://git-lfs.github.com/spec/v1\noid sha256:{self.digest}\n'
                         f'size {len(self.data)}\n').encode()
+
+    def fixture_git(self, root, *args, data=None):
+        if Path(root).resolve().is_relative_to(self.root.resolve()):
+            env = dict(os.environ)
+            env.pop('GIT_INDEX_FILE', None)
+            return subprocess.run(['git', *args], cwd=root, env=env, input=data,
+                                  check=True, stdout=subprocess.PIPE,
+                                  stderr=subprocess.PIPE).stdout
+        return self.real_git(root, *args, data=data)
+
+    def track(self, name, data):
+        path = self.root / name
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(data)
+        oid = verify.git(self.root, 'hash-object', '-w', '--stdin', data=data).decode().strip()
+        verify.git(self.root, 'update-index', '--add', '--cacheinfo', '100644', oid, name)
+        return path
+
+    def offline_checkout(self):
+        self.indexed_fixture(self.pointer)
+        for name in ('SHA256SUMS', 'metadata/asset-manifest.json',
+                     'metadata/current-import-overrides.json'):
+            path = self.root / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes((ROOT / name).read_bytes())
+        self.track('tests/test_survivor.py', b'import unittest\n'
+                   b'class Survivor(unittest.TestCase):\n def test_pass(self): pass\n')
+
+    def assert_retirement(self, name, data, check):
+        path = self.track(name, data)
+        with contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
+            check()
+            path.unlink()
+            with self.assertRaisesRegex(ValueError, 'Selected file missing'):
+                check()
+            verify.git(self.root, 'update-index', '--remove', '--', name)
+            check()
+
+    def test_offline_suite_omission_fails_but_staged_retirement_passes(self):
+        self.offline_checkout()
+        self.assert_retirement('tests/test_retired.py',
+                               b'import unittest\nclass Retired(unittest.TestCase):\n def test_pass(self): pass\n',
+                               lambda: verify.offline(self.root))
+
+    def test_transport_omission_fails_but_staged_retirement_passes(self):
+        source = next((ROOT / 'transport/manifests').glob('*.json'))
+        self.assert_retirement('transport/manifests/' + source.name, source.read_bytes(),
+                               lambda: verify.validate_transport_manifests(self.root, {}))
+
+    def test_foundation_omission_fails_but_staged_retirement_passes(self):
+        self.assert_retirement('reviews/synthetic/2026-10-23-metadata-cleanup-r01/record.json',
+                               b'{}', lambda: verify.foundation_records(self.root))
 
     def test_pointer_requires_complete_canonical_fields(self):
         self.assertEqual(verify.parse_pointer(self.pointer), (self.digest, len(self.data)))
@@ -35,7 +93,6 @@ class VerificationTests(unittest.TestCase):
                 verify.parse_pointer(bad)
 
     def indexed_fixture(self, data):
-        subprocess.run(['git', 'init', '-q', str(self.root)], check=True, capture_output=True)
         # Write synthetic Git objects directly: no LFS fetch, clean filter or credentials.
         for name, content in (('.gitattributes', b'*.glb filter=lfs -text\n'), ('asset.glb', data)):
             (self.root / name).write_bytes(content)
@@ -124,6 +181,31 @@ class VerificationTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'LFS import override requires currentBytes'):
                 verify.current_import_checks(ROOT, pointers)
 
+    def imported_checkout(self):
+        # Preserve the complete historical evidence but retain one current text asset.
+        overrides = json.loads((ROOT / 'metadata/current-import-overrides.json').read_text())
+        names = [line.split('  ', 1)[1] for line in (ROOT / 'SHA256SUMS').read_text().splitlines()]
+        name = next(name for name in names if name.endswith('.md') and name not in overrides)
+        for name_to_copy in ('SHA256SUMS', 'metadata/asset-manifest.json',
+                             'metadata/current-import-overrides.json', name):
+            path = self.root / name_to_copy
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes((ROOT / name_to_copy).read_bytes())
+        oid = verify.git(self.root, 'hash-object', '-w', '--stdin',
+                         data=(self.root / name).read_bytes()).decode().strip()
+        verify.git(self.root, 'update-index', '--add', '--cacheinfo', '100644', oid, name)
+        return self.root / name
+
+    def test_retired_import_paths_remain_provenance_not_current_requirements(self):
+        self.imported_checkout()
+        self.assertEqual(verify.current_import_checks(self.root, {}), (1, 0))
+
+    def test_missing_tracked_import_still_fails(self):
+        retained = self.imported_checkout()
+        retained.unlink()
+        with self.assertRaisesRegex(ValueError, 'Missing reference'):
+            verify.current_import_checks(self.root, {})
+
     def test_transport_lfs_pointer_wrong_size_fails(self):
         source = ROOT / 'transport/manifests/96dfb7956224d3331b0a095f26e4d89f34e8d7a4c6054f8b52bc826b041dda45.json'
         obj = json.loads(source.read_text())['objects'][0]
@@ -149,18 +231,6 @@ class VerificationTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'Conflicting transport manifest sizes'):
             verify.validate_transport_manifests(self.root, {})
 
-    def test_missing_historical_transport_manifest_fails(self):
-        directory = self.root / 'transport/manifests'
-        directory.mkdir(parents=True)
-        paths = sorted((ROOT / 'transport/manifests').glob('*.json'))
-        missing = '025a8cd957159caa51c48096ddc9cf4197bb0d51a9b7119d1b08b3a51e41f748'
-        for path in paths:
-            if path.stem == missing:
-                continue
-            (directory / path.name).write_bytes(path.read_bytes())
-        with self.assertRaisesRegex(ValueError, 'Historical transport manifests missing'):
-            verify.validate_transport_manifests(self.root, {})
-
     def test_new_transport_manifest_needs_no_baseline_update(self):
         directory = self.root / 'transport/manifests'
         directory.mkdir(parents=True)
@@ -173,17 +243,6 @@ class VerificationTests(unittest.TestCase):
         data = json.dumps(changed).encode()
         (directory / (hashlib.sha256(data).hexdigest() + '.json')).write_bytes(data)
         self.assertEqual(verify.validate_transport_manifests(self.root, {}), len(paths) + 1)
-
-    def test_missing_historical_foundation_record_fails(self):
-        paths = verify.foundation_records(ROOT)
-        for path in paths:
-            if path.parts[-3] == 'aorta':
-                continue
-            target = self.root / path.relative_to(ROOT)
-            target.parent.mkdir(parents=True, exist_ok=True)
-            target.write_text('{}')
-        with self.assertRaisesRegex(ValueError, 'Historical foundation record set changed or missing'):
-            verify.foundation_records(self.root)
 
     def test_content_addressed_manifest_mutation_fails(self):
         source = next((ROOT / 'transport/manifests').glob('*.json'))
@@ -212,15 +271,15 @@ class VerificationTests(unittest.TestCase):
         path.write_text('import unittest\n' + body)
         return path
 
-    def run_fixture(self, body, minimum=1):
-        return verify.run_suite(self.fixture_suite(body), minimum, stream=io.StringIO())
+    def run_fixture(self, body):
+        return verify.run_suite(self.fixture_suite(body), stream=io.StringIO())
 
     def test_missing_required_suite_fails(self):
         with self.assertRaisesRegex(ValueError, 'Required suite missing'):
             verify.run_suite(self.root / 'missing.py', stream=io.StringIO())
 
     def test_empty_required_suite_fails(self):
-        with self.assertRaisesRegex(ValueError, 'empty or incomplete'):
+        with self.assertRaisesRegex(ValueError, 'suite empty'):
             self.run_fixture('')
 
     def test_missing_required_dependency_fails(self):
@@ -253,12 +312,10 @@ class VerificationTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'execution incomplete'):
             self.run_fixture('class Required(unittest.TestCase):\n'
                              ' def test_a(self): self._outcome.result.stop()\n'
-                             ' def test_b(self): self.fail("must execute")\n', minimum=2)
+                             ' def test_b(self): self.fail("must execute")\n')
 
     def test_complete_required_suite_passes(self):
         self.assertEqual(self.run_fixture('class Required(unittest.TestCase):\n def test_required(self): self.assertEqual(2 + 2, 4)\n'), 1)
-        with self.assertRaisesRegex(ValueError, 'empty or incomplete'):
-            self.run_fixture('class Required(unittest.TestCase):\n def test_required(self): pass\n', minimum=2)
 
 
 if __name__ == '__main__':

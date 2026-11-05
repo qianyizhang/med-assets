@@ -11,7 +11,7 @@ Three **48-second narrated storytelling experiments** share one script, voice an
 | The Mineral Ledger: native causal geometry | [ManimGL MP4](results/manimgl.mp4) | [Original 3b1b scene](manimgl/mineral_ledger.py) |
 | Synchronized comparison, one audio track | [Three-panel MP4](results/comparison.mp4) | [Comparison recipe](comparison.py) |
 
-Read the [shared narration and shot script](SHARED-SCRIPT.md), [comparison findings](COMPARISON.md), [result hashes and review boundaries](results/manifest.json), [fresh collection checks](results/collection-checks.json), [verified LFS delivery](results/lfs-delivery.json), and [replay instructions](REPLAY.md). The three-panel result is for shot/pacing comparison; watch the individual 720p films to judge text. The sheet samples actual decoded films at 3, 10, 19, 27, 36 and 45 seconds. Different art/camera choices are intentional, not matched-anatomy comparisons.
+Read the [shared narration and shot script](SHARED-SCRIPT.md), [comparison findings](COMPARISON.md), [result hashes and review boundaries](results/manifest.json), and [replay instructions](REPLAY.md). The three-panel result is for shot/pacing comparison; watch the individual 720p films to judge text. The sheet samples actual decoded films at 3, 10, 19, 27, 36 and 45 seconds. Different art/camera choices are intentional, not matched-anatomy comparisons.
 
 ## Reuse and status
 
@@ -21,13 +21,27 @@ Read the [shared narration and shot script](SHARED-SCRIPT.md), [comparison findi
 - These are illustrative mechanism/assessment/prevention stories, not validated anatomy, molecular simulation or a procedural training guide. A filling is one common option after assessment, not a universal prescription.
 - Related dental story/lookdev context: [#217](https://github.com/qianyizhang/med-assets/issues/217), [#219](https://github.com/qianyizhang/med-assets/issues/219). This experiment archive does not complete or close those asset/procedure acceptance criteria.
 
+## Recorded collection checks
+
+On 2026-11-04, collection checks verified the hashes and sizes of all eight media
+inputs/results and fully decoded all four retained movies. Two fresh HTML builds
+matched the recorded original hash. New HyperFrames/Remotion movies and the
+comparison re-encode completed but differed from the retained movie hashes;
+ManimGL was not rebuilt because native Cairo/Pango headers were unavailable.
+
+Direct LFS upload and a fresh, empty-store GitHub readback matched all eight
+objects (28,007,051 bytes). A separate builder lacked Git HTTPS credentials, so
+no independent second remote-byte result is claimed. These are historical
+collection results, not a fresh check of this checkout. The result manifest owns
+artifact identities; redundant collection and transport receipt files are retired.
+
 ## Retention decision
 
 The final MP4s are in **Git LFS**, not ordinary Git blobs. Their animation sources are deterministic in intent, but bit-identical complete movie reconstruction has not been established across the recorded browser/GL/encoder pipelines. The final Manim movie includes a natively rerendered label-correction segment and a re-encode; the complete corrected scene source is retained, without pretending that its next encode matches the saved movie hash. Fresh full HyperFrames/Remotion builds and comparison re-encoding succeeded during collection, but all three resulting hashes differed from the retained originals. Preserve the exact reviewed exports until independent repeated rebuilds establish safe hash-only retention.
 
 The HTML generator has been replayed twice and matches its recorded output hash, so generated `index.html` is **not** committed. One shared WAV is retained because voice regeneration is not a guaranteed bit-identical rebuild. Fonts are retained once with their notice; preparation makes disposable consumer copies. The small storyboard is a review entrypoint. The comparison MP4 preserves the already-reviewed synchronized result; it is not a duplicate of any individual movie. Result hashes are authoritative in one manifest.
 
-No source ZIP, renderer caches, installed packages, model weights, TTS runtime, silent intermediates, frame sequences, duplicate WAVs, or generated per-renderer receipts are committed. Preparation and future QA write to new ignored work directories, never over the historical result record. Upstream inputs, failed drafts and previous delivered artifacts are preserved separately, not deleted by this PR.
+No source ZIP, renderer caches, installed packages, model weights, TTS runtime, silent intermediates, frame sequences, duplicate WAVs, or generated per-renderer receipts are committed. Preparation and future QA write to new ignored work directories. Preserve source identities and current deliverables; retire spent intermediates under the [repository retention policy](../../CONTRIBUTING.md#generated-artifacts-and-retention). Review this retained experiment by 2026-12-05 for continued teaching or workflow-comparison use.
 
 ## Rights and sources
 

@@ -83,9 +83,9 @@ before writes, deterministic replay and repeated-application refusal.
 
 V1 source is retained in local implementation commit `b2e142c`; its render/state
 receipts remain in [v1](v1/). V2 camera correction and records are in [v2](v2/).
-The repository offline gate passed all 194 tests. All 18 evidence payloads
-(12,587,844 bytes) passed fresh GitHub hash/size readback into an empty LFS store;
-see [delivery receipt](delivery-receipt.json). Public inline-media display remains
-unverified. Technical checks are recorded separately in `review.json`. No runtime or clinical
+The repository offline gate and fresh GitHub hash/size readback passed on
+2026-10-30 at `dbcffbc`. The routine delivery receipt is retired; this historical
+result does not establish current remote availability. Public inline-media display
+remains unverified. Technical checks are recorded separately in `review.json`. No runtime or clinical
 status is promoted by those checks. #150 remains open; this is a viewer patch
 for one bounded inspection task, with Site integration/deployment still separate.

@@ -7,7 +7,7 @@ anatomical asset or external texture required. Its anatomy references inform the
 teaching organization; they are not imported meshes. The exact two input GLBs
 contain no image textures.
 
-The [workshop manifest](../../../body/anatomy-workshop-r1/manifest.json) marks
+The [workshop manifest](../../../body/anatomy-workshop-r1/body-3d-delivery/manifest.json) marks
 `heart_detailed` as `sourceKind: authored`, `sourceCase: null`, and a prior
 independently authored Cardiac Atlas fitted pedagogically. This is distinct from
 the collection's separately attributed segmented organs. The retained build

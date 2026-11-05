@@ -34,8 +34,8 @@ owning asset/review record; the PR must link it. Keep it concise and include:
   burden; the maintenance owner; why the benefit warrants that burden. For a
   replacement, identify the active role it supersedes and the consumer migration.
 - **Preservation and checks:** other uses/consumers that must keep working, retained
-  masters and provenance, and affected regression/quality checks. Preserve historical
-  evidence without treating every superseded version as another active asset.
+  masters and provenance, and affected regression/quality checks. Preserve decisions
+  and provenance without keeping every superseded version as an active asset.
 
 **Do not mark ready or merge an expansion with a missing or unsupported decision.**
 If reuse or selective adaptation delivers the intended purpose and quality
@@ -111,20 +111,33 @@ a screenshot alone does not establish runtime approval.
 ## Generated artifacts and retention
 
 Keep canonical inputs, source identities, licenses, attribution, replay recipes,
-unique measurements and review decisions. Preserve masters, failed drafts and
-approved derivatives as distinct evidence. Generated files can still be required
-deliverables or historical records; regeneration alone does not make them disposable.
+current delivered assets, unique measurements, review decisions and required
+recovery material. Retain exact artifact/evidence bindings for current claims.
+Original import manifests and checksums remain provenance; do not rewrite them
+to hide later changes.
 
-A file around 1,000 lines warrants a usefulness and duplication review, not a size
-limit. Retain large files when they carry unique evidence, replay inputs or a
-consumer contract. Trace readers, dynamic discovery, packaging and checks before
-removal. Prefer one authoritative record with a pinned reference over copied
-inventories or receipts; materialize consumer-specific copies during preparation.
-Remove a copy only after proving its replacement or repeatable regeneration,
-updating producers and consumers together, and comparing meaningful outputs and
-asset hashes. Keep immutable historical manifests intact. Record the evidence and
-checkout savings in the issue/PR; do not minify, split files arbitrarily or add a
-permanent audit report merely to lower line counts.
+Use ignored `.artifacts/<outcome>/` for intermediate renders, logs, audit dumps,
+source-hash lists and routine check output. Do not commit per-step receipts or
+another copy of a package inventory. Record routine check results in the existing
+issue/PR or owning README. Keep executable integrity hashes where a consumer
+actually uses them.
+
+Keep a durable bundle only for a delivered result or an active finding that needs
+its supporting evidence. Use one bundle and its README for the outcome, source
+revision, check summary, limits and retention reason. Do not duplicate source,
+media or metadata across bundles when a reference serves the consumer.
+
+At closeout, move accepted decisions and unresolved defects to their owners, then
+remove spent intermediates and superseded output. A concise failure note must
+retain the rejected approach, reason and any remaining risk; it does not require
+keeping every failed draft or render. Git history preserves committed old output.
+Trace readers, dynamic discovery, packaging, tests and symlinks before removal;
+repair consumers and retire claims whose supporting evidence is removed.
+
+Review remaining temporary bundles after 30 days. Keep one only with a named
+active need and next review date. Source/licensing obligations and unique recovery
+material need an explicit retention reason. No deletion ledger or automatic
+janitor is required. File size alone is not a reason to keep or delete a file.
 
 ## Visual evidence in issues and PRs
 

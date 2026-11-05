@@ -8,7 +8,6 @@
 - The bundle is the single archived copy of the 24 pilot workflow/script files.
   Redundant branch-named folders and two retired cleanup-workflow copies were
   removed after exact restoration checks. No archived workflow is active.
-- `jobs-evidence.json`: successful terminal job/step results from GitHub, not a claim that test success proves anatomical quality.
 
 Bundle SHA-256: `0cbd5cf4b34c6a38b9e6ec098778ddc67b60282cd531d994d2fe4ddb1598cb27`.
 
@@ -44,10 +43,11 @@ git show 71a77433a5fa731506df880d897eb8d818f6ede0:.github/workflows/consolidate-
 
 ## Verification and limits
 
-Independent bare-repository restoration from main plus this bundle reproduced all 23 heads and all 24 source files exactly. Latest successful jobs were terminal before archival. Historical failures remain linked in the manifest; success does not erase them. Source URLs inside old recipes may expire; the archive preserves what ran, not a promise that old transport URLs stay live.
+Independent bare-repository restoration from main plus this bundle reproduced all 23 heads and all 24 source files exactly. Latest successful jobs were terminal before archival; run links and conclusions remain in the manifest. The [final prune](https://github.com/qianyizhang/med-assets/actions/runs/40078544711) removed 26 branch names, leaving only main at that time. Historical failures remain linked; success does not erase them. Source URLs inside old recipes may expire; the archive preserves what ran, not a promise that old transport URLs stay live.
 
 Merged asset/review branch commits remain directly reachable from main and their PR head refs. This archive does not change models, purge LFS objects, rewrite history, alter repository permissions or clean local worktrees.
 
 Retention: the bundle holds unique deleted-branch history needed for recovery;
-keep it with its manifest and execution evidence. Review that recovery need by
+keep it with its manifest and these restoration instructions. Routine job and
+execution dumps have been retired. Review that recovery need by
 2026-11-26. Regenerate extracted copies only in a temporary directory.
