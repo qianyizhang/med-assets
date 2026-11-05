@@ -1,5 +1,6 @@
 """Synthetic local-only tests for one-file Drive request/receipt preparation."""
 import contextlib
+import asyncio
 import hashlib
 import io
 import json
@@ -517,6 +518,242 @@ class SerializedSyncTests(TransferFixture):
         self.assertGreater(budget['payloadAndManifestDownloadBytes'], budget['payloadReadbackBytes'])
         self.assertFalse(t.capabilities(True)['remoteExecutionBlocked'])
         self.assertFalse(t.capabilities(True)['atomicRemoteCAS'])
+
+
+class TwoLaneTests(TransferFixture):
+    def setUp(self):
+        super().setUp()
+        self.inventory = b.expected_tree(self.repo, self.commit)
+        self.sync_work = self.root / 'sync-controller'
+        self.drive = FakeDrive()
+        self.drive.files['fixture_manifest'] = {'name': 'fixture_current.json',
+            'parent': 'fixture_folder', 'raw': self.manifest_path.read_bytes()}
+        self.counter = 0
+
+    controller = SerializedSyncTests.controller
+    stage_for = SerializedSyncTests.stage_for
+    send = SerializedSyncTests.send
+    flush = SerializedSyncTests.flush
+
+    def controller2(self):
+        raw = self.drive.files['fixture_manifest']['raw']
+        return t.TwoLaneSync(self.sync_work, self.inventory, 'fixture_folder',
+                             'fixture_manifest', raw, hashlib.sha256(raw).hexdigest(), exclusive_writer=True)
+
+    def migrate(self):
+        with self.controller() as sync:
+            state = t.TwoLaneSync.migration_proposal(sync.state, self.inventory)
+            t.atomic_local(self.sync_work / 'journal.json', t.encoded({
+                'state': state, 'sha256': hashlib.sha256(t.encoded(state)).hexdigest()}))
+
+    def wave(self, sync):
+        prepared = [self.stage_for(sync, p) for p in sync.next_paths()]
+        sync.reserve_wave(prepared)
+        requests = sync.dispatch_wave()
+        outcomes = []
+        for item in requests:
+            op = item['operationId']
+            result = self.drive.mutate(item['request'])
+            file_id = t.confirmed_upload(result)
+            downloaded = self.root / ('wave-' + file_id)
+            downloaded.write_bytes(self.drive.files[file_id]['raw'])
+            job = sync.state['lanes'][op]['job']
+            receipt = t.verify_readback(job, file_id, downloaded, self.drive.meta(file_id),
+                self.drive.meta(file_id), '2026-01-02T03:04:05Z', exclusive_writer=True)
+            outcomes.append({'operationId': op, 'result': result, 'receipt': receipt})
+        return outcomes
+
+    def test_two_reversed_waves_keep_one_batch_and_complete_all_mappings(self):
+        self.migrate()
+        with self.controller2() as sync:
+            outcomes = self.wave(sync)
+            self.assertEqual(len(outcomes), 2)
+            self.assertFalse(sync.settle_wave(list(reversed(outcomes)))['halted'])
+            self.assertEqual(len(self.drive.calls), 2)  # no flush per pair
+            self.assertEqual(len(sync.state['batch']), 2)
+            sync.settle_wave(self.wave(sync))
+            self.assertTrue(self.flush(sync)['completeCurrentTree'])
+            self.assertEqual(len(json.loads(self.drive.files['fixture_manifest']['raw'])['files']), 3)
+            self.assertEqual(len(sync.state['done']), 0)
+            self.assertEqual(sync.state['phase'], 'v2:complete')
+
+    def test_two_timeout_drains_sibling_and_preserves_reservation_across_restart(self):
+        self.migrate()
+        with self.controller2() as sync:
+            outcomes = self.wave(sync)  # both really executed in fake Drive
+            unresolved = outcomes[0]
+            outcome = {'operationId': unresolved['operationId'], 'error': 'timeout'}
+            result = sync.settle_wave([outcome, outcomes[1]])
+            self.assertTrue(result['halted'])
+            self.assertEqual(len(sync.state['batch']), 1)
+            self.assertEqual(len(sync.state['lanes']), 1)
+            for action in (lambda: sync.manifest_intent(sync.state['current'].encode()), sync.next_paths):
+                with self.assertRaises(t.TransferBlocked):
+                    action()
+        with self.controller2() as sync:
+            op = unresolved['operationId']
+            file_id = unresolved['receipt']['remote']['fileId']
+            for candidates in ([], [self.drive.meta(file_id)] * 2):
+                with self.assertRaises(t.TransferBlocked):
+                    sync.lane_known(op, candidates=candidates)
+            sync.lane_known(op, candidates=[self.drive.meta(file_id)])
+            sync.lane_verified(op, unresolved['receipt'])
+            sync.lane_verified(op, unresolved['receipt'])  # crash after persistence: idempotent
+            sync.resume_reconciled(sync.state['current'].encode())
+            self.assertEqual(len(sync.state['batch']), 2)
+            self.assertEqual(len(self.drive.calls), 2)
+
+    def test_two_async_rejection_drains_sibling_before_settlement(self):
+        self.migrate()
+        finished = []
+        with self.controller2() as sync:
+            sync.reserve_wave([self.stage_for(sync, p) for p in sync.next_paths()])
+            async def worker(item):
+                if item['operationId'] == next(iter(sync.state['lanes'])):
+                    raise TimeoutError('unknown create')
+                await asyncio.sleep(0)  # yield to the sibling, no real delay/network
+                result = self.drive.mutate(item['request'])
+                file_id = t.confirmed_upload(result)
+                job = sync.state['lanes'][item['operationId']]['job']
+                path = self.root / 'async-readback'
+                path.write_bytes(self.drive.files[file_id]['raw'])
+                receipt = t.verify_readback(job, file_id, path, self.drive.meta(file_id),
+                    self.drive.meta(file_id), exclusive_writer=True)
+                finished.append(file_id)
+                return {'result': result, 'receipt': receipt}
+            result = asyncio.run(t.run_payload_wave(sync, worker))
+            self.assertTrue(result['halted'])
+            self.assertEqual(len(finished), 1)
+            self.assertEqual(len(sync.state['batch']), 1)
+            self.assertEqual(len(sync.state['lanes']), 1)
+
+    def test_two_crash_after_known_id_and_duplicate_content_mapping(self):
+        self.inventory['files'].append(dict(next(r for r in self.inventory['files']
+                                                if r['path'] == 'payload.bin'), path='z-alias.bin'))
+        self.migrate()
+        with self.controller2() as sync:
+            outcomes = self.wave(sync)
+            for outcome in outcomes:
+                sync.lane_known(outcome['operationId'], result=outcome['result'])
+        with self.controller2() as sync:
+            sync.settle_wave(outcomes)
+            sync.settle_wave(self.wave(sync))
+            self.assertTrue(self.flush(sync)['completeCurrentTree'])
+            rows = {r['path']: r for r in json.loads(sync.state['current'])['files']}
+            self.assertEqual(rows['payload.bin']['remote'], rows['z-alias.bin']['remote'])
+            self.assertEqual(sum(c['tool'] == 'google_drive.upload_file' for c in self.drive.calls), 3)
+
+    def test_two_duplicate_reservation_and_aggregate_slot_byte_budget(self):
+        self.migrate()
+        with self.controller2() as sync:
+            pair = [self.stage_for(sync, p) for p in sync.next_paths()]
+            with self.assertRaises(t.TransferBlocked):
+                sync.reserve_wave([pair[0], pair[0]])
+            with patch.object(t, 'BATCH_FILES', 1):
+                self.assertEqual(len(sync.next_paths()), 1)
+                with self.assertRaises(t.TransferBlocked):
+                    sync.reserve_wave(pair)
+            with patch.object(t, 'BATCH_BYTES', pair[0][0]['size']):
+                self.assertEqual(len(sync.next_paths()), 1)
+                with self.assertRaises(t.TransferBlocked):
+                    sync.reserve_wave(pair)
+            sync.reserve_wave(pair)
+            self.assertEqual(sync.status()['unresolvedUploadBudgetBytes'], sum(j['size'] for j, _ in pair))
+            with self.assertRaises(t.TransferBlocked):
+                sync.manifest_intent(sync.state['current'].encode())
+        with self.controller2() as sync:  # crash before dispatch retains safe reserved wave
+            requests = sync.dispatch_wave()
+            self.assertEqual(len(requests), 2)
+            with self.assertRaises(t.TransferBlocked):
+                sync.dispatch_wave()
+
+    def test_two_shared_remote_id_and_wrong_receipt_drain_good_sibling(self):
+        self.migrate()
+        with self.controller2() as sync:
+            outcomes = self.wave(sync)
+            outcomes[1]['result'] = outcomes[0]['result']
+            result = sync.settle_wave(outcomes)
+            self.assertTrue(result['halted'])
+            self.assertEqual(len(sync.state['batch']), 1)
+            self.assertEqual(len(sync.state['lanes']), 1)
+            self.assertTrue(any('different operations' in e for e in result['errors']))
+        # Correct known result may still be reconciled; no new upload is emitted.
+        with self.controller2() as sync:
+            op = outcomes[1]['operationId']
+            candidate = self.drive.meta(outcomes[1]['receipt']['remote']['fileId'])
+            sync.lane_known(op, candidates=[candidate])
+            bad = dict(outcomes[1]['receipt'], size=999)
+            with self.assertRaises(ValueError):
+                sync.lane_verified(op, bad)
+            sync.lane_verified(op, outcomes[1]['receipt'])
+            sync.resume_reconciled(sync.state['current'].encode())
+            with self.assertRaises(t.TransferBlocked):
+                sync.manifest_intent(b'stale remote')
+            self.assertEqual(sync.state['phase'], 'v2:conflict')
+
+    def test_two_strict_loader_and_old_mutator_phase_fence(self):
+        self.migrate()
+        with self.controller2() as sync:
+            state = dict(sync.state)
+        # The old code ignores schemaVersion, but every old mutator rejects v2 phases.
+        old = t.SerializedSync(self.sync_work, self.inventory, 'fixture_folder', exclusive_writer=True)
+        old.fd, old.state = 123, state
+        for action in (lambda: old._phase('idle'), lambda: old._phase('upload_unknown'),
+                       lambda: old._phase('manifest_unknown')):
+            with self.assertRaises(t.TransferBlocked):
+                action()
+        for changed in ({'extra': True}, {'phase': 'idle'}, {'schemaVersion': 3}):
+            tampered = dict(state, **changed)
+            t.atomic_local(self.sync_work / 'journal.json', t.encoded({
+                'state': tampered, 'sha256': hashlib.sha256(t.encoded(tampered)).hexdigest()}))
+            with self.assertRaises(t.TransferBlocked):
+                with self.controller2():
+                    pass
+
+    def test_two_missing_outcome_and_backoff_stop_dispatch_and_manifest_retry(self):
+        self.migrate()
+        with self.controller2() as sync:
+            outcomes = self.wave(sync)
+            self.assertTrue(sync.settle_wave([outcomes[0]], retry_after_seconds=60)['halted'])
+            op = outcomes[1]['operationId']
+            sync.lane_known(op, result=outcomes[1]['result'])
+            sync.lane_verified(op, outcomes[1]['receipt'])
+            with self.assertRaises(t.TransferBlocked):
+                sync.resume_reconciled(sync.state['current'].encode())
+            with patch.object(t.time, 'time', return_value=sync.state['retryNotBefore'] + 1):
+                sync.resume_reconciled(sync.state['current'].encode())
+            old = sync.state['current'].encode()
+            with self.assertRaises(t.TransferBlocked):
+                sync.manifest_intent(old)
+            with patch.object(t.time, 'time', return_value=sync.state['retryNotBefore'] + 1):
+                request = sync.manifest_intent(old)
+            with self.assertRaises(t.TransferBlocked):
+                sync.observe_manifest('fixture_manifest', old)
+            self.assertEqual(len(sync.state['done']), 2)
+            self.drive.mutate(request)
+            sync.observe_manifest('fixture_manifest', self.drive.files['fixture_manifest']['raw'])
+            self.assertEqual(sync.state['done'], {})
+
+    def test_two_migration_refuses_active_or_changed_source_without_dropping_receipts(self):
+        with self.controller() as sync:
+            self.send(sync, 'payload.bin')
+            with self.assertRaises(t.TransferBlocked):
+                t.TwoLaneSync.migration_proposal(sync.state, self.inventory)
+            self.flush(sync)
+            changed = dict(self.inventory, files=[dict(r, sha256='0' * 64) if r['path'] == 'payload.bin' else r
+                                                 for r in self.inventory['files']])
+            with self.assertRaisesRegex(t.TransferBlocked, 'conflicts'):
+                t.TwoLaneSync.migration_proposal(sync.state, changed)
+            target = dict(self.inventory, commit='a' * 40)
+            with self.assertRaisesRegex(t.TransferBlocked, 'Source rebind required'):
+                t.TwoLaneSync.migration_proposal(sync.state, target)
+            rebound = t.TwoLaneSync.source_rebind_proposal(sync.state, target)
+            proposed = t.TwoLaneSync.migration_proposal(sync.state, target, rebound)
+            self.assertEqual(proposed['targetCommit'], 'a' * 40)
+            self.assertEqual(json.loads(rebound)['staged'][0]['remote'],
+                             json.loads(sync.state['current'])['staged'][0]['remote'])
+            self.assertEqual(sync.state['schemaVersion'], 1)  # pure proposal, not installed
+
 
 
 if __name__ == '__main__':

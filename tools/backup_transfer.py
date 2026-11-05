@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Local one-file staging and Drive connector request/receipt boundary. No network."""
 import argparse
+import asyncio
 import copy
 import fcntl
 from datetime import datetime, timezone
@@ -10,6 +11,7 @@ import json
 import os
 from pathlib import Path
 import sys
+import time
 
 import backup_check as check
 
@@ -241,6 +243,8 @@ class SerializedSync:
     Each returned mutation request follows an fsynced intent. The fixed work
     directory is the local lock domain; it does not lock Drive or other machines.
     """
+    JOURNAL_SCHEMA = 1
+
     def __init__(self, work, inventory, folder_id, manifest_id=None, current=None,
                  expected_sha256=None, exclusive_writer=False):
         need(exclusive_writer is True, 'Explicit exclusive-writer agreement required')
@@ -267,6 +271,7 @@ class SerializedSync:
                     need(size <= 3 * check.MAX_MANIFEST_BYTES, 'Oversized journal')
                     envelope = json.loads(stream.read(), object_pairs_hook=check.unique_keys)
                 self.state = envelope['state']
+                need(self.state.get('schemaVersion') == self.JOURNAL_SCHEMA, 'Unsupported journal schema')
                 need(hashlib.sha256(encoded(self.state)).hexdigest() == envelope['sha256'], 'Journal checksum mismatch')
                 need(self.state['targetCommit'] == self.inventory['commit']
                      and self.state['folderId'] == self.folder_id, 'Journal belongs to another sync target')
@@ -488,6 +493,327 @@ class SerializedSync:
                 'unpublishedVerifiedBatchBytes': sum(r['size'] for r in self.state['batch']),
                 'manifestCheckpointBytes': len(self.state['current'].encode()),
                 'guarantee': 'exclusive single writer; local lock only; NOT atomic remote CAS'}
+
+
+class TwoLaneSync(SerializedSync):
+    """One coordinator, fixed waves of at most two host payload operations.
+
+    No network is performed here. Hosts must drain all dispatched operations,
+    including siblings of a failed call, before requesting another wave.
+    """
+    JOURNAL_SCHEMA = 2
+    EXTRA = {'lanes', 'done', 'halted', 'retryNotBefore'}
+    BASE = {'schemaVersion', 'targetCommit', 'folderId', 'manifestId', 'current',
+            'checkpoint', 'phase', 'pending', 'batch', 'seenIds', 'cleanup'}
+    PHASES = {'v2:idle', 'v2:reserved', 'v2:active', 'v2:halted',
+              'v2:manifest_unknown', 'v2:complete', 'v2:cleanup_required', 'v2:conflict'}
+
+    @staticmethod
+    def migration_proposal(old, inventory, verified_rebound=None):
+        """Pure proposal; install only while holding the existing idle v1 lock.
+
+        A source change requires exact readback of source_rebind_proposal().
+        The host must pre-read the old checkpoint before that separate write.
+        """
+        need(set(old) == TwoLaneSync.BASE and old['schemaVersion'] == 1
+             and old['phase'] == 'idle' and old['pending'] is None
+             and not old['batch'] and not old['cleanup'], 'Migration requires positively idle v1 journal')
+        need(hashlib.sha256(old['current'].encode()).hexdigest() == old['checkpoint'], 'Migration checkpoint mismatch')
+        current = decoded_manifest(old['current'].encode())
+        expected = {r['path']: r for r in inventory['files']}
+        for row in current['files'] + current['staged']:
+            need(row['path'] in expected and row['verification']['status'] == 'verified'
+                 and all(row[k] == expected[row['path']][k] for k in ('sha256', 'size')),
+                 'Source migration conflicts with retained receipt: ' + row['path'])
+        state = copy.deepcopy(old)
+        if old['targetCommit'] != inventory['commit']:
+            expected = TwoLaneSync.source_rebind_proposal(old, inventory)
+            need(type(verified_rebound) is bytes and verified_rebound == expected,
+                 'Source rebind required: verify and publish the new manifest checkpoint before migration')
+            state.update(current=expected.decode(), checkpoint=hashlib.sha256(expected).hexdigest(),
+                         targetCommit=inventory['commit'])
+        state.update(schemaVersion=2, phase='v2:idle', lanes={}, done={}, halted=False, retryNotBefore=0)
+        return state
+
+    @staticmethod
+    def source_rebind_proposal(old, inventory):
+        """Pure bytes for a separately journaled, checkpoint-guarded rebind.
+
+        No mutation is returned/performed. Preserve accepted commit/files and
+        every ID; only partial staged target bindings and revision change.
+        """
+        current = decoded_manifest(old['current'].encode())
+        expected = {r['path']: r for r in inventory['files']}
+        for row in current['files'] + current['staged']:
+            need(row['path'] in expected and row['verification']['status'] == 'verified'
+                 and all(row[k] == expected[row['path']][k] for k in ('sha256', 'size')),
+                 'Source migration conflicts with retained receipt: ' + row['path'])
+        for row in current['staged']:
+            row['forCommit'] = inventory['commit']
+        current['revision'] += 1
+        check.validate_current_manifest(current)
+        return encoded(current)
+
+    def __enter__(self):
+        # Bootstrap uses the reviewed v1 handshake first, then explicit idle migration.
+        need((self.work / 'journal.json').is_file(), 'Explicit idle-v1 migration required before two-lane use')
+        super().__enter__()
+        try:
+            self._validate()
+            return self
+        except BaseException:
+            self.__exit__()
+            raise
+
+    def _validate(self):
+        s = self.state
+        need(set(s) == self.BASE | self.EXTRA and type(s['schemaVersion']) is int
+             and s['schemaVersion'] == 2 and s['phase'] in self.PHASES, 'Invalid v2 journal schema/phase')
+        need(type(s['lanes']) is dict and len(s['lanes']) <= 2 and type(s['done']) is dict
+             and type(s['halted']) is bool and type(s['retryNotBefore']) is int
+             and s['retryNotBefore'] >= 0 and type(s['batch']) is list
+             and type(s['seenIds']) is list and len(set(s['seenIds'])) == len(s['seenIds']), 'Invalid v2 reservations')
+        need(s['targetCommit'] == self.inventory['commit'], 'Invalid target commit')
+        need(type(s['cleanup']) is list and type(s['current']) is str
+             and s['manifestId'] is not None and type(s['seenIds']) is list
+             and all(type(x) is str and check.REMOTE_TOKEN.fullmatch(x) for x in s['seenIds']), 'Invalid journal fields')
+        need(s['halted'] == (s['phase'] == 'v2:halted'), 'Invalid halted phase')
+        need(all(type(l) is dict for l in s['lanes'].values()), 'Invalid lane object')
+        need(s['phase'] != 'v2:reserved' or bool(s['lanes']) and all(
+             l.get('phase') == 'reserved' for l in s['lanes'].values()), 'Invalid reserved phase')
+        check.digest(s['checkpoint'])
+        current = decoded_manifest(s['current'].encode())
+        ids = {}
+        for row in current['files'] + current['staged'] + s['batch']:
+            check.manifest_record(row, 'forCommit' in row)
+            file_id, identity = row['remote']['fileId'], (row['sha256'], row['size'])
+            need(file_id not in ids or ids[file_id] == identity, 'Remote ID assigned to different content')
+            ids[file_id] = identity
+        identities = {(r['sha256'], r['size']) for r in s['batch']}
+        need(len(identities) == len(s['batch']) and len(s['done']) == len(s['batch']), 'Invalid completed operations')
+        for op, file_id in s['done'].items():
+            check.digest(op)
+            need(file_id in {r['remote']['fileId'] for r in s['batch']}, 'Completed operation missing receipt')
+        need(len(set(s['done'].values())) == len(s['done']), 'Remote ID assigned to different operations')
+        for op, lane in s['lanes'].items():
+            need(set(lane) == {'job', 'work', 'phase', 'fileId'}
+                 and lane['phase'] in ('reserved', 'unknown', 'known')
+                 and type(lane['work']) is str and op not in s['done'], 'Invalid lane schema')
+            self._validate_job(lane['job'])
+            job = lane['job']
+            need(op == job['operationId'] and (job['sha256'], job['size']) not in identities, 'Duplicate reservation')
+            identities.add((job['sha256'], job['size']))
+            file_id = lane['fileId']
+            need((lane['phase'] == 'known') == (file_id is not None), 'Invalid known lane')
+            if file_id is not None:
+                need(type(file_id) is str and check.REMOTE_TOKEN.fullmatch(file_id)
+                     and file_id != s['manifestId'] and file_id not in ids, 'Remote ID assigned to different operations')
+                ids[file_id] = (job['sha256'], job['size'])
+        sizes = [r['size'] for r in s['batch']] + [r['job']['size'] for r in s['lanes'].values()]
+        need(len(sizes) <= BATCH_FILES and (sum(sizes) <= BATCH_BYTES or len(sizes) == 1), 'Aggregate batch budget exceeded')
+        need(not s['lanes'] or s['phase'] in ('v2:reserved', 'v2:active', 'v2:halted'), 'Unresolved lane at publication barrier')
+        need((s['pending'] is not None) == (s['phase'] == 'v2:manifest_unknown'), 'Invalid manifest pending state')
+        if s['pending'] is not None:
+            need(set(s['pending']) == {'proposed', 'complete', 'cleanup'}
+                 and type(s['pending']['complete']) is bool and type(s['pending']['cleanup']) is list,
+                 'Invalid manifest intent')
+            decoded_manifest(s['pending']['proposed'].encode())
+            proposal, complete, cleanup = self._proposal()
+            need(s['pending']['proposed'].encode() == encoded(proposal)
+                 and s['pending']['complete'] == complete and s['pending']['cleanup'] == cleanup,
+                 'Manifest intent differs from verified batch')
+        if s['phase'] == 'v2:complete':
+            rows = {r['path']: r for r in current['files']}
+            need(current['commit'] == self.inventory['commit'] and not current['staged']
+                 and not s['batch'] and not s['cleanup'] and len(rows) == len(self.inventory['files'])
+                 and all(r['path'] in rows and all(rows[r['path']][k] == r[k] for k in ('sha256', 'size'))
+                         for r in self.inventory['files']), 'Incomplete tree marked complete')
+
+    def _validate_job(self, job):
+        need(type(job) is dict and set(job) == {'path', 'sha256', 'size', 'kind', 'schemaVersion',
+             'commit', 'manifestSha256', 'folderId', 'maxBytes', 'operationId'}, 'Invalid job schema')
+        check.digest(job['operationId'])
+        unsigned = {k: v for k, v in job.items() if k != 'operationId'}
+        need(hashlib.sha256(encoded(unsigned)).hexdigest() == job['operationId'], 'Operation identity mismatch')
+        rows = [r for r in self.inventory['files'] if r['path'] == job['path']]
+        need(len(rows) == 1 and all(rows[0][k] == job[k] for k in ('sha256', 'size', 'kind'))
+             and job['schemaVersion'] == 1 and job['commit'] == self.inventory['commit']
+             and job['folderId'] == self.folder_id and job['manifestSha256'] == self.state['checkpoint']
+             and type(job['maxBytes']) is int and 0 <= job['size'] <= job['maxBytes'] <= MAX_TRANSFER_BYTES,
+             'Prepared job checkpoint/source/budget differs')
+
+    def _save(self):
+        if not self.state['phase'].startswith('v2:'):
+            self.state['phase'] = 'v2:' + self.state['phase']
+        self._validate()
+        super()._save()
+
+    def _phase(self, *phases):
+        super()._phase(*('v2:' + p for p in phases))
+
+    def upload_intent(self, *args, **kwargs):
+        raise TransferBlocked('Two-lane mode requires reserve_wave/dispatch_wave')
+
+    upload_known = payload_verified = bootstrap_intent = bootstrap_known = observe_bootstrap = upload_intent
+
+    def next_paths(self):
+        """Next fixed wave within the original sorted 64-object/byte partition."""
+        self._phase('idle')
+        need(not self.state['halted'] and not self.state['lanes']
+             and time.time() >= self.state['retryNotBefore'], 'Halted/backoff: reconcile before dispatch')
+        plan = check.incremental_plan(self.inventory, decoded_manifest(self.state['current'].encode()), self.state['checkpoint'])
+        done = {(r['sha256'], r['size']) for r in self.state['batch']}
+        count, size, paths = len(done), sum(r['size'] for r in self.state['batch']), []
+        for obj in sorted(plan['objects'], key=lambda r: (r['sha256'], r['size'])):
+            if obj['action'] != 'upload' or (obj['sha256'], obj['size']) in done:
+                continue
+            if count and (count >= BATCH_FILES or size + obj['size'] > BATCH_BYTES):
+                break
+            paths.append(sorted(obj['paths'])[0])
+            count, size = count + 1, size + obj['size']
+            if len(paths) == 2 or size > BATCH_BYTES:
+                break
+        return paths
+
+    def reserve_wave(self, prepared):
+        paths = self.next_paths()
+        need(type(prepared) is list and 1 <= len(prepared) <= 2
+             and [j['path'] for j, _ in prepared] == paths[:len(prepared)], 'Reserve next distinct ordered payloads only')
+        need(not self.state['batch'] or not self._proposal()[2], 'Publish batch and resolve cleanup first')
+        lanes = {}
+        for job, work in prepared:
+            self._validate_job(job)
+            with check.Tree(work).open('payload.bin') as (stream, _):
+                verify_stream(stream, job)
+            need(job['operationId'] not in lanes, 'Duplicate operation reservation')
+            lanes[job['operationId']] = {'job': copy.deepcopy(job), 'work': str(work.absolute()),
+                                         'phase': 'reserved', 'fileId': None}
+        self.state.update(lanes=lanes, phase='v2:reserved')
+        self._save()  # BOTH reservations durable before either request can escape.
+
+    def dispatch_wave(self):
+        self._phase('reserved')
+        need(not self.state['halted'], 'Halted coordinator')
+        for lane in self.state['lanes'].values():
+            need(lane['phase'] == 'reserved', 'Wave was already dispatched; reconcile, never retry')
+            with check.Tree(Path(lane['work'])).open('payload.bin') as (stream, _):
+                verify_stream(stream, lane['job'])
+            lane['phase'] = 'unknown'
+        self.state['phase'] = 'v2:active'
+        self._save()
+        return [{'operationId': op, 'request': request_set(l['job'], Path(l['work']))['upload']}
+                for op, l in self.state['lanes'].items()]
+
+    def lane_known(self, operation, result=None, candidates=None, next_page_token=None):
+        self._phase('active', 'halted')
+        lane = self.state['lanes'][operation]
+        need(lane['phase'] in ('unknown', 'known'), 'Lane not dispatched')
+        file_id = (confirmed_upload(result) if result is not None else
+                   reconcile_one(lane['job'], candidates, next_page_token)['fileId'])
+        need(lane['fileId'] in (None, file_id), 'Operation returned conflicting IDs')
+        current = decoded_manifest(self.state['current'].encode())
+        used = {r['remote']['fileId'] for r in current['files'] + current['staged'] + self.state['batch']}
+        used |= {l['fileId'] for op, l in self.state['lanes'].items() if op != operation}
+        need(file_id != self.state['manifestId'] and file_id not in used, 'Remote ID assigned to different operations')
+        lane.update(fileId=file_id, phase='known')
+        self._save()
+        return file_id
+
+    def lane_verified(self, operation, receipt):
+        self._phase('active', 'halted')
+        if operation in self.state['done']:
+            need(any(r == receipt for r in self.state['batch'])
+                 and self.state['done'][operation] == receipt['remote']['fileId'], 'Conflicting repeated receipt')
+            return
+        lane = self.state['lanes'][operation]
+        check.manifest_record(receipt, True)
+        job = lane['job']
+        need(lane['phase'] == 'known' and receipt['remote']['fileId'] == lane['fileId']
+             and receipt['verification']['status'] == 'verified' and receipt['forCommit'] == job['commit']
+             and all(receipt[k] == job[k] for k in ('path', 'sha256', 'size')), 'Wrong lane readback receipt')
+        self.state['batch'].append(copy.deepcopy(receipt))
+        self.state['seenIds'] = sorted(set(self.state['seenIds']) | {lane['fileId']})
+        self.state['done'][operation] = lane['fileId']
+        del self.state['lanes'][operation]
+        self._save()
+
+    def settle_wave(self, outcomes, retry_after_seconds=0):
+        """Drain ALL settled sibling outcomes; never short-circuit on a rejection.
+
+        The host must await allSettled (or equivalent) before passing outcomes.
+        Missing/failed outcomes retain reservations and block every new mutation.
+        """
+        self._phase('active', 'halted')
+        need(type(outcomes) is list and type(retry_after_seconds) is int and retry_after_seconds >= 0,
+             'Invalid settled outcomes/backoff')
+        expected, seen, errors = set(self.state['lanes']), set(), []
+        for outcome in outcomes:
+            try:
+                op = outcome['operationId']
+                need(op in expected and op not in seen, 'Duplicate/unknown outcome')
+                seen.add(op)
+                if 'result' in outcome:
+                    self.lane_known(op, result=outcome['result'])
+                need(not outcome.get('error'), 'Payload outcome uncertain; reconcile before continuing')
+                self.lane_verified(op, outcome['receipt'])
+            except (ValueError, KeyError, TypeError) as error:
+                errors.append(str(error))
+        halted = bool(errors or expected != seen or self.state['lanes'])
+        self.state.update(halted=halted, phase='v2:halted' if halted else 'v2:idle',
+                          retryNotBefore=max(self.state['retryNotBefore'], int(time.time()) + retry_after_seconds))
+        self._save()
+        return {'halted': halted, 'errors': errors, 'unresolved': sorted(self.state['lanes'])}
+
+    def resume_reconciled(self, observed_current):
+        self._phase('halted')
+        need(not self.state['lanes'] and observed_current == self.state['current'].encode()
+             and time.time() >= self.state['retryNotBefore'], 'Unresolved lane/checkpoint/backoff')
+        self.state.update(halted=False, phase='v2:idle')
+        self._save()
+
+    def manifest_intent(self, observed_current):
+        need(not self.state['lanes'] and not self.state['halted']
+             and time.time() >= self.state['retryNotBefore'], 'No manifest publication with unresolved lanes/backoff')
+        return super().manifest_intent(observed_current)
+
+    def observe_manifest(self, file_id, raw):
+        if (self.state['phase'] in ('v2:idle', 'v2:complete', 'v2:cleanup_required')
+                and self.state['pending'] is None and file_id == self.state['manifestId']
+                and raw == self.state['current'].encode()):
+            return self.status()
+        # Clear replay cache only when the exact proposed bytes have been observed.
+        self._phase('manifest_unknown')
+        need(file_id == self.state['manifestId'] and raw == self.state['pending']['proposed'].encode(),
+             'Manifest update unresolved; do not retry')
+        self.state['done'] = {}
+        return super().observe_manifest(file_id, raw)
+
+    def status(self):
+        status = super().status()
+        status.update(completeCurrentTree=self.state['phase'] == 'v2:complete',
+                      activeOperations=len(self.state['lanes']), halted=self.state['halted'],
+                      unresolvedUploadBudgetBytes=sum(l['job']['size'] for l in self.state['lanes'].values()))
+        return status
+
+
+async def run_payload_wave(controller, worker):
+    """Drain both host workers before one coordinator records settled results.
+
+    worker(item) returns result/receipt or result/error fields; after an unknown
+    mutation it must report uncertainty, never retry. No manifest writes here.
+    """
+    requests = controller.dispatch_wave()
+    settled = await asyncio.gather(*(worker(item) for item in requests), return_exceptions=True)
+    outcomes = []
+    for item, value in zip(requests, settled):
+        if isinstance(value, BaseException):
+            value = {'error': type(value).__name__ + ': ' + str(value)}
+        if type(value) is not dict:
+            value = {'error': 'Worker returned incomplete evidence'}
+        outcomes.append(dict(value, operationId=item['operationId']))
+    delays = [o.get('retryAfterSeconds', 0) for o in outcomes]
+    delay = max([d for d in delays if type(d) is int and d >= 0], default=0)
+    return controller.settle_wave(outcomes, retry_after_seconds=delay)
 
 
 def initial_mirror_budget(inventory, remote_id_bytes=33):

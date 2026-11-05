@@ -296,3 +296,50 @@ pre-reads and writes count as traffic. Provider-managed manifest revision retent
 protocol/file-bridge overhead and free quota are not inferred. The scope is the
 selected exact public commit, not a later PR/merge head; later changes require a
 small fresh incremental pass before claiming a match to new main.
+
+For a host that supports two payload calls concurrently, `TwoLaneSync` retains one
+coordinator and the same work-directory lock. It uses a strict version-2 journal
+with `v2:` phases, which the old version-1 mutators cannot accept. Bootstrap remains
+the version-1 handshake. Stop and release the old runner before migration; only a
+positively idle journal with no pending operation, unpublished batch or cleanup
+can produce `migration_proposal()`. Install its checksum envelope under that same
+local lock only after review. Never run the two coordinators together.
+
+The host stages only `next_paths()` (at most two distinct payloads), then calls
+`reserve_wave()` and `dispatch_wave()`. Both slot/byte reservations are fsynced
+before either upload request escapes. Pending and verified-unpublished payloads
+share the original **64-object / 64 MiB batch**, using the same sorted partition;
+an individually larger permitted object runs alone. This is not a separate budget
+per lane. Source staging plus downloaded readback can temporarily require twice
+the wave's payload bytes; release verified local scratch before staging the next
+wave. Existing source files are outside that scratch estimate.
+
+`run_payload_wave()` uses `asyncio.gather(return_exceptions=True)` to drain both
+host workers, including a successful sibling of a rejected call. Each worker must
+upload once, download by returned ID, check actual SHA-256/size with
+`verify_readback()`, and return its result and receipt. It must preserve a known
+upload result even if its later readback fails. Workers never write journals or
+manifests. `settle_wave()` persists results and receipts through the sole coordinator;
+missing, ambiguous or failed outcomes retain reservations and halt new dispatch.
+There is no automatic mutation retry. `lane_known()` reconciles exact unique
+operation-name search results, `lane_verified()` accepts the verified bytes, and
+`resume_reconciled()` requires no unresolved lanes, the unchanged checkpoint and
+expired shared backoff. A remote ID cannot serve different upload operations.
+After a crash before result persistence, reconcile every dispatched operation;
+never re-dispatch its create. Receipt replay is idempotent within the current batch.
+
+Keep accumulating the bounded batch rather than publishing every pair.
+`manifest_intent()` cannot cross an unresolved-lane barrier. Its pre-read,
+same-ID write and exact-byte readback retain the exclusive-writer guarantee and
+make no atomic remote-CAS claim. An uncertain manifest write remains blocked even
+if a read still returns the old bytes.
+
+A changed source head requires comparing **every** retained path/hash/size against
+the new exact tree. `source_rebind_proposal()` preserves all remote IDs and accepted
+files/commit, advances the revision and changes only staged target bindings.
+It returns bytes, not a mutation request. The host must separately journal that
+intent, pre-read the old checkpoint, write once and read back the exact proposal
+before supplying `verified_rebound` to the pure migration proposal. This module
+never silently changes the remote source binding or installs a migration. A
+conflicting retained path stops for review with no receipt dropped. Publication,
+live migration, resumed transfer and cleanup remain separate operational actions.
