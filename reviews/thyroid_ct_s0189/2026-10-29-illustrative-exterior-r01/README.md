@@ -53,8 +53,8 @@ Reproduce the affected integrity check and validate hydrated evidence from the
 repository root:
 
 ```sh
-blender --background --factory-startup --python-exit-code 1 --python tests/thyroid_exterior/check_export.py -- --root . --candidate models/thyroid_ct_s0189/exports/illustrative-exterior-r01/thyroid-illustrative-exterior.glb --expected-sha256 4c2dee513f713fd8d649e7d1928ba3859ce1d25e81468e707b65a5fbeeee216a --out /tmp/thyroid-export-check.json
-python3 tests/thyroid_exterior/verify_package.py
+blender --background --factory-startup --python-exit-code 1 --python models/thyroid_ct_s0189/recipes/check_export.py -- --root . --candidate models/thyroid_ct_s0189/exports/illustrative-exterior-r01/thyroid-illustrative-exterior.glb --expected-sha256 4c2dee513f713fd8d649e7d1928ba3859ce1d25e81468e707b65a5fbeeee216a --out /tmp/thyroid-export-check.json
+python3 models/thyroid_ct_s0189/recipes/verify_package.py
 python3 tools/verify.py offline
 ```
 

@@ -5,7 +5,7 @@
 ## Tested rebuild
 From repository root, baseline Git LFS bytes fetched:
 ```sh
-blender -b --disable-autoexec -t 2 --python tests/trachea_cband_polish/rebuild.py -- --baseline body/anatomy-workshop-r1/meshes/trachea.glb --output /tmp/trachea-r05-replay
+blender -b --disable-autoexec -t 2 --python models/trachea/recipes/cband-polish/rebuild.py -- --baseline body/anatomy-workshop-r1/meshes/trachea.glb --output /tmp/trachea-r05-replay
 ```
 Output must not exist. Add `--render` for4source-scene diagnostic views. Tested Blender4.3.2 byte-identical GLB export; exact cross-version/render reproducibility not promised. Only existing baseline is needed—no rawCT, Z archive, site files or personal paths.
 

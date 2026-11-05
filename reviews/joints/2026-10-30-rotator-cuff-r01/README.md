@@ -65,9 +65,9 @@ Output directories must be new.
 
 ```sh
 blender -b --factory-startup --disable-autoexec --threads 4 --python-exit-code 1 \
-  --python tests/rotator_cuff/replay.py -- --source /path/Startup.blend --out /tmp/cuff-new
-python3 tests/rotator_cuff/compose.py --run /tmp/cuff-new --out /tmp/cuff-presentation
-python3 tests/rotator_cuff/verify.py
+  --python models/joints/recipes/rotator-cuff/replay.py -- --source /path/Startup.blend --out /tmp/cuff-new
+python3 models/joints/recipes/rotator-cuff/compose.py --run /tmp/cuff-new --out /tmp/cuff-presentation
+python3 models/joints/recipes/rotator-cuff/verify.py
 python3 tests/test_rotator_cuff.py
 python3 tools/verify.py offline
 ```

@@ -69,7 +69,7 @@ flicker. Preserve source geometry; a displacement branch requires its own measur
 geometry review. Record source/license, map hashes, renderer/exporter versions and
 settings. Accept only a visible teaching benefit with measured cost and no hidden
 source defects. Keep technical/export, visual, anatomy/clinical and actual-runtime
-decisions separate under the existing [review contract](REVIEW_CONTRACT.md).
+decisions separate under the existing [review contract](WORKFLOW.md).
 
 First prerequisite: inspect the original guide/media and any downloadable source
 with verified reuse rights. No experiment, benchmark or clinical validation was

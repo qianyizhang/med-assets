@@ -7,7 +7,7 @@ from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 LINK = re.compile(r'\[[^\]]+\]\(([^)]+)\)')
-NAVIGATION_DOCS = ('README.md', 'docs/SCOPED-STUDIES.md', 'docs/ASSET_LAYOUT.md')
+NAVIGATION_DOCS = ('README.md', 'AGENTS.md', 'CONTRIBUTING.md', 'docs/WORKFLOW.md', 'docs/DECISIONS.md')
 
 
 class DirectoryNavigation(unittest.TestCase):

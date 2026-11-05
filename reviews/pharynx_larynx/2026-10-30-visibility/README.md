@@ -82,7 +82,7 @@ patcher checks cover exact baseline identity, unchanged data/camera path, failur
 before writes, deterministic replay and repeated-application refusal.
 
 V1 source is retained in local implementation commit `b2e142c`; its render/state
-receipts remain in [v1](v1/). V2 camera correction and records are in [v2](v2/).
+receipts remain in [v1](v1). V2 camera correction and records are in [v2](v2).
 The repository offline gate and fresh GitHub hash/size readback passed on
 2026-10-30 at `dbcffbc`. The routine delivery receipt is retired; this historical
 result does not establish current remote availability. Public inline-media display

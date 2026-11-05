@@ -12,7 +12,7 @@ Unchanged HRA Prostate Male v1.1 source, retained once as the model. The URL use
 Run `git lfs pull`, then with Blender 4.3.2 on PATH:
 
 ```sh
-python tests/prostate/replay.py --output /tmp/prostate-source-replay
+python models/prostate/recipes/replay.py --output /tmp/prostate-source-replay
 python tests/review_records/validate_record.py --root . reviews/prostate/2026-10-23-hra-v1.1/record.json
 ```
 

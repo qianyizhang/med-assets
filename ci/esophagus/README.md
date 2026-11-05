@@ -79,7 +79,7 @@ file map, appends 18 frame IDs, and routes only those frames to this verifier af
 the global sequence check. The original 37-state prefix, lymph diagnostics imports,
 normal controls, file-map entry, provenance and completion fields are retained.
 
-Sparse checkout includes the existing `tests/esophagus_wall` replay directory.
+Sparse checkout includes the existing `models/esophagus_wall/recipes` replay directory.
 Provenance includes this module, fixture and both replay inputs. The original
 seven resource records and fixture file remain unchanged; 10 MiB download and
 4 MiB POST limits, host allowlist, source hashes, manual/main-only dispatch,
@@ -103,7 +103,8 @@ or runtime evidence; keep issue #102 open.
   boundaries without running a browser.
 - Full offline gate: 146 tests, 25 transport manifests, 25 foundation records,
   591 import references and 673 LFS pointer identities passed. The 18-test
-  esophagus suite is also required by the offline minimum-count guard.
+  esophagus suite remains part of offline test discovery; the current runner
+  requires complete execution without freezing historical suite counts.
 - The existing four lymph JavaScript normal/winding tests passed. Python
   compilation, shared/module JavaScript syntax and whole-branch whitespace
   checks passed. Runtime and Chinese-glyph acceptance remain unrun.

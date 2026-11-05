@@ -44,7 +44,7 @@ rebuilt, replaced or republished by this package.
 | Clinical/runtime | Unverified; no motion or physical-scale validation |
 | Historical delivery | Upload and fresh GitHub payload readback passed on 2026-10-30 at `a13ff28`; this does not establish current remote availability or runtime |
 
-The [recipe](../../../tests/peripheral_nerves/median-wrist-r01/README.md) describes
+The [recipe](../../../models/peripheral_nerves/recipes/median-wrist-r01/README.md) describes
 exact replay and separate scoped tests. The broader offline gate covers only its
 documented repository scope. GLB SHA-256:
 `6094265d2263f3b501f4e487ff7f859b83205bde99bca9312d48c26f29680c50`.

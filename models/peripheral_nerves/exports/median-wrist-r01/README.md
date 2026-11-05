@@ -12,7 +12,7 @@ All selected evaluated surfaces and effective world matrices survive. Source
 hierarchy is flattened and display colors are illustrative; masters are untouched.
 
 [Teaching views and review](../../../../reviews/peripheral_nerves/2026-10-30-median-wrist-r01/README.md)
-· [Recipe and checks](../../../../tests/peripheral_nerves/median-wrist-r01/README.md)
+· [Recipe and checks](../../../../models/peripheral_nerves/recipes/median-wrist-r01/README.md)
 · [Exact source provenance](../../../../sources/datasets/z-anatomy/median-wrist/provenance.json).
 
 **Skeletal localization only.** The native flexor/retinaculum screen left unresolved

@@ -10,7 +10,7 @@ import unittest
 
 TOOL = Path(__file__).resolve().parents[1] / 'tools/patch_scene_metadata.py'
 ROOT = TOOL.parent.parent
-HEART_PATCH = ROOT / 'tests/scene_metadata/heart/approved-patch.json'
+HEART_PATCH = ROOT / 'models/heart/recipes/metadata/approved-patch.json'
 
 
 def glb(extras):
@@ -127,7 +127,7 @@ class HeartMetadataContractTests(unittest.TestCase):
         self.assertEqual({op['path']: op['op'] for op in operations},
                          {'/scenes/0/extras/'+key: value for key, value in expected.items()})
         # Shared inherited fields match the earlier reviewed source-derived correction.
-        prior = json.loads((ROOT / 'tests/scene_metadata/stomach/approved-patch.json').read_text())
+        prior = json.loads((ROOT / 'models/stomach/recipes/metadata/approved-patch.json').read_text())
         self.assertEqual({op['path']: op['oldValue'] for op in operations},
                          {op['path']: op['oldValue'] for op in prior['jsonPointerPatch']})
         source_dir = ROOT / 'body/anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy'

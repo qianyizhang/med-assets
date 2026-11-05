@@ -24,7 +24,7 @@ FOUNDATION_PATTERNS = ('reviews/*/2026-10-23-metadata-cleanup-r01/record.json',
 # Existing package-specific assertions remain authoritative; no schema migration.
 PAYLOAD_CHECKS = (
     ('tests/bp3d_glands/verify_bounded_receipt.py',),
-    ('tests/bladder_pancreas/verify_bounded_receipt.py',),
+    ('assemblies/bladder-pancreas/recipes/verify_bounded_receipt.py',),
     ('tests/thyroid_vagina/verify_receipt.py', '--strict'),
     ('tests/bp3d-head-studies/verify_bounded.py',),
     ('tests/bp3d-body-studies/verify_bounded.py',),

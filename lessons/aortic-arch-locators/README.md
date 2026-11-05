@@ -40,11 +40,11 @@ they are not added to the public repository by this preparation.
 
 ```sh
 blender --background --factory-startup --python-exit-code 1 \
-  --python tools/aortic_arch_locators/render.py -- \
+  --python models/aortic_tree_z/recipes/arch-locators/render.py -- \
   --source PATH_TO_EXACT_GLB --output PRIVATE_DIR/renders
-python3 tools/aortic_arch_locators/build.py \
+python3 models/aortic_tree_z/recipes/arch-locators/build.py \
   --source PATH_TO_EXACT_GLB --renders PRIVATE_DIR/renders --output PRIVATE_DIR/plates
-python3 tools/aortic_arch_locators/check_visuals.py \
+python3 models/aortic_tree_z/recipes/arch-locators/check_visuals.py \
   --source PATH_TO_EXACT_GLB --renders PRIVATE_DIR/renders \
   --plates PRIVATE_DIR/plates --output PRIVATE_DIR/checked
 python3 tools/verify.py offline

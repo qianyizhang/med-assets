@@ -20,7 +20,7 @@ and full external source archive are excluded.
 The broader offline suite does not include these six scoped tests. It does not
 hash hydrated media, validate this package's anatomy, fetch remote payloads or
 run a viewer. Package checks are invoked separately as described in the
-[recipe](../../../tests/peripheral_nerves/ulnar-elbow-r01/README.md).
+[recipe](../../../models/peripheral_nerves/recipes/ulnar-elbow-r01/README.md).
 
 V2 preserves the v1 binary GLB chunk (SHA-256
 `e15913d11d8a080684220192fefce992b8ee43e02955b2f315bc0caa731f5430`),

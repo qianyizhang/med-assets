@@ -11,9 +11,9 @@ Source metadata/license: sources/datasets/hra/placenta-full-term-v1.1. Review/ga
 After git lfs pull, from repository root:
 
 ```sh
-python tests/placenta/rebuild_material_variant.py --source sources/datasets/hra/placenta-full-term-v1.1/3d-vh-f-placenta-full-term.glb --output /tmp/placenta-rebuild.glb --audit /tmp/placenta-material-audit.json
+python models/placenta/recipes/rebuild_material_variant.py --source sources/datasets/hra/placenta-full-term-v1.1/3d-vh-f-placenta-full-term.glb --output /tmp/placenta-rebuild.glb --audit /tmp/placenta-material-audit.json
 python tests/review_records/validate_record.py --root . reviews/placenta/2026-10-23-hra-v1.1-r02/record.json
-blender --background --factory-startup --disable-autoexec --python tests/placenta/render_exact_export.py -- --model models/placenta/exports/hra-v1.1-r02/placenta_full_term.glb --review reviews/placenta/2026-10-23-hra-v1.1-r02 --output /tmp/placenta-render-new
+blender --background --factory-startup --disable-autoexec --python models/placenta/recipes/render_exact_export.py -- --model models/placenta/exports/hra-v1.1-r02/placenta_full_term.glb --review reviews/placenta/2026-10-23-hra-v1.1-r02 --output /tmp/placenta-render-new
 ```
 
 Outputs must be new paths; retained evidence is never overwritten. Material replay must reproduce exact accepted SHA. Render replay uses original cameras, named inspection visibility and lights extracted from the retained authored scene; it is not a promise of identical PNG bytes across platforms.

@@ -80,7 +80,7 @@ in provenance. No upstream scripts execute. The source-derived geometry and
 renders retain CC BY-SA 4.0; reference figures are not reproduced.
 
 ```sh
-python3 tests/testes/replay.py --source /path/Startup.blend --out /tmp/testes-new-check
+python3 models/testes/recipes/replay.py --source /path/Startup.blend --out /tmp/testes-new-check
 blender -b --factory-startup --python-exit-code 1 --threads 6 \
   --python models/testes/source/z-native-epididymis-r01/render.py -- \
   --artifact /tmp/testes-new-check/first/testicular-region.glb --out /tmp/testes-new-views

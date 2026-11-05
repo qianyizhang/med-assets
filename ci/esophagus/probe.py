@@ -76,8 +76,8 @@ def prepare(source, output):
     source, output = Path(source).resolve(), Path(output).resolve()
     exact(source, FIXTURE['baseline'])
     require(not output.exists(), 'Refusing existing output')
-    subprocess.run([sys.executable, str(ROOT / 'tests/esophagus_wall/palette_trial.py'),
-                    '--input', str(source), '--params', str(ROOT / 'tests/esophagus_wall/parameters.json'),
+    subprocess.run([sys.executable, str(ROOT / 'models/esophagus_wall/recipes/palette_trial.py'),
+                    '--input', str(source), '--params', str(ROOT / 'models/esophagus_wall/recipes/parameters.json'),
                     '--output', str(output)], check=True, timeout=30, stdout=subprocess.DEVNULL)
     baseline = output / 'baseline/esophagus-wall-cutaway-r01.glb'
     candidate = output / 'candidate/esophagus-wall-palette-r01.glb'

@@ -2,7 +2,7 @@
 
 Original bilingual teaching diagram; not a clinical or procedural map. 3D statuses and organ-pass counts unchanged.
 
-Display SVGs contain outlined text; PNGs were actually inspected. Editable source and font requirements are in the record. Run `python tests/biliary_pathway/render.py --output <NEW_DIRECTORY>` from this package. Requires Inkscape 1.4 and Pillow; no network/font installation. Reproduction checks decoded RGBA pixels, not anatomical validity.
+Display SVGs contain outlined text; PNGs were actually inspected. Editable source and font requirements are in the record. Run `python diagrams/biliary_pathway/recipes/render.py --output <NEW_DIRECTORY>` from this package. Requires Inkscape 1.4 and Pillow; no network/font installation. Reproduction checks decoded RGBA pixels, not anatomical validity.
 
 References:
 - https://www.niddk.nih.gov/health-information/digestive-diseases/digestive-system-how-it-works

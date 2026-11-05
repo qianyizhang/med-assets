@@ -7,7 +7,7 @@
       "3408ca8e8f394dd268b1dbeafdc59fdc8cc104c0976628e455dbc070ae0a7993"
     ],
     "evidence_type": "Side-by-side source-scene baseline left / candidate right",
-    "camera_reference": "source-scene-qa.json cameras; baseline cameras in tests/bronchial_tree/authored-junction-repair-r07/baseline-cameras.json",
+    "camera_reference": "source-scene-qa.json cameras; baseline cameras in models/bronchial_tree/recipes/authored-junction-repair-r07/baseline-cameras.json",
     "orientation": "Blender X patient left, Y posterior, Z superior per original authored scene; front camera looks along +Y. Not clinically validated registration."
   },
   {
@@ -17,7 +17,7 @@
       "3408ca8e8f394dd268b1dbeafdc59fdc8cc104c0976628e455dbc070ae0a7993"
     ],
     "evidence_type": "Source-scene render",
-    "camera_reference": "source-scene-qa.json cameras; baseline cameras in tests/bronchial_tree/authored-junction-repair-r07/baseline-cameras.json",
+    "camera_reference": "source-scene-qa.json cameras; baseline cameras in models/bronchial_tree/recipes/authored-junction-repair-r07/baseline-cameras.json",
     "orientation": "Blender X patient left, Y posterior, Z superior per original authored scene; front camera looks along +Y. Not clinically validated registration."
   },
   {
@@ -27,7 +27,7 @@
       "3408ca8e8f394dd268b1dbeafdc59fdc8cc104c0976628e455dbc070ae0a7993"
     ],
     "evidence_type": "Source-scene render",
-    "camera_reference": "source-scene-qa.json cameras; baseline cameras in tests/bronchial_tree/authored-junction-repair-r07/baseline-cameras.json",
+    "camera_reference": "source-scene-qa.json cameras; baseline cameras in models/bronchial_tree/recipes/authored-junction-repair-r07/baseline-cameras.json",
     "orientation": "Blender X patient left, Y posterior, Z superior per original authored scene; front camera looks along +Y. Not clinically validated registration."
   },
   {
@@ -37,7 +37,7 @@
       "3408ca8e8f394dd268b1dbeafdc59fdc8cc104c0976628e455dbc070ae0a7993"
     ],
     "evidence_type": "Exact exported GLB reimport render, all original meshes removed",
-    "camera_reference": "source-scene-qa.json cameras; baseline cameras in tests/bronchial_tree/authored-junction-repair-r07/baseline-cameras.json",
+    "camera_reference": "source-scene-qa.json cameras; baseline cameras in models/bronchial_tree/recipes/authored-junction-repair-r07/baseline-cameras.json",
     "orientation": "Blender X patient left, Y posterior, Z superior per original authored scene; front camera looks along +Y. Not clinically validated registration."
   }
 ]

@@ -22,7 +22,7 @@ or network request is made by the build command.
 For a portable local sheet, the builder embeds the verified source PNG once:
 
 ```sh
-python3 tools/brain_source_cut/build.py --output /tmp/brain-source-cut-NEW --embed
+python3 models/brain/recipes/source-cut/build.py --output /tmp/brain-source-cut-NEW --embed
 inkscape /tmp/brain-source-cut-NEW/front-teaching.svg \
   --export-text-to-path --export-filename=/tmp/brain-source-cut-NEW/front-teaching.pdf
 ```

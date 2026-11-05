@@ -22,7 +22,7 @@ spelling. No follicles, ovarian/suspensory ligaments or mesovarium are acquired.
 The ligament/mesovarium mapping rows refer to a different, unacquired export;
 they are not geometry in this package.
 
-The [builder](../../../../tools/ovary_tubal/build.py) fails if any acquired byte
+The [builder](../../../../models/ovaries/recipes/tubal-context/build.py) fails if any acquired byte
 identity changes and checks source spatial identifiers before combining. It
 recovers every original JSON array and complete BIN chunk from the combined
 artifact after reversing only index/offset rebasing. There is no mesh fitting,

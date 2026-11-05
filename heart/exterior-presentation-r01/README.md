@@ -24,15 +24,15 @@ Use Python 3.11+ and actual hydrated source GLBs and native `.blend` files (the 
 ```sh
 python3 heart/exterior-presentation-r01/build.py --repo . --kind static --output /tmp/heart-static-new
 python3 heart/exterior-presentation-r01/build.py --repo . --kind animated-source --output /tmp/heart-animated-new
-python3 tests/heart_exterior/verify_pair.py --source body/anatomy-workshop-r1/meshes/heart_detailed.glb --candidate /tmp/heart-static-new/static-opaque-exterior.glb --spec heart/exterior-presentation-r01/visibility-spec.json --output /tmp/heart-static-check-new.json
-python3 tests/heart_exterior/verify_pair.py --source heart/Cardiac_Atlas_Animated/Heart_Clinical_Animated.glb --candidate /tmp/heart-animated-new/animated-source-opaque-exterior.glb --spec heart/exterior-presentation-r01/visibility-spec.json --output /tmp/heart-animated-check-new.json
-python3 tests/heart_exterior/verify_package.py --source-repo .
+python3 heart/exterior-presentation-r01/recipes/verify_pair.py --source body/anatomy-workshop-r1/meshes/heart_detailed.glb --candidate /tmp/heart-static-new/static-opaque-exterior.glb --spec heart/exterior-presentation-r01/visibility-spec.json --output /tmp/heart-static-check-new.json
+python3 heart/exterior-presentation-r01/recipes/verify_pair.py --source heart/Cardiac_Atlas_Animated/Heart_Clinical_Animated.glb --candidate /tmp/heart-animated-new/animated-source-opaque-exterior.glb --spec heart/exterior-presentation-r01/visibility-spec.json --output /tmp/heart-animated-check-new.json
+python3 heart/exterior-presentation-r01/recipes/verify_package.py --source-repo .
 python3 tools/verify.py offline
 ```
 
 All builder outputs and verification receipt paths must be new. `regression.py` takes a directory containing `static/` and `animated-source/` outputs and checks deterministic replay, no overwrite, source identity and candidate corruption rejection. It is a scoped actual-media check, not part of ordinary offline CI.
 
-Blender 4.3.2 is required for `tests/heart_exterior/reimport_motion.py` and `render.py`. The former compares all 124 retained objects after clean import at every authored sample; use `--animated` for the 25-frame clip. The latter takes a source/candidate GLB, a new output directory and `--match` with a retained original binding record. Logical `view` names preserve cameras after evidence file relocation. Render whole/front detail/neutral as needed; label outputs `Original` or `Updated`. Source static state hides explicit cutaway duplicates. These are offline renders, not browser screenshots.
+Blender 4.3.2 is required for `heart/exterior-presentation-r01/recipes/reimport_motion.py` and `render.py`. The former compares all 124 retained objects after clean import at every authored sample; use `--animated` for the 25-frame clip. The latter takes a source/candidate GLB, a new output directory and `--match` with a retained original binding record. Logical `view` names preserve cameras after evidence file relocation. Render whole/front detail/neutral as needed; label outputs `Original` or `Updated`. Source static state hides explicit cutaway duplicates. These are offline renders, not browser screenshots.
 
 [Actual images, independent review and receipts](../../reviews/heart_exterior/2026-10-30-native-visibility-r01/README.md) document scope and remaining gates.
 

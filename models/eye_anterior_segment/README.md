@@ -14,7 +14,7 @@
 From the repository root, with Python 3 and NumPy installed:
 
 ```sh
-python tests/eye_anterior_segment/replay.py --output /tmp/eye-study-replay
+python models/eye_anterior_segment/recipes/replay.py --output /tmp/eye-study-replay
 python tests/review_records/validate_record.py --root . reviews/eye_anterior_segment/2026-10-23-hra-v1.3-r01/record.json
 ```
 

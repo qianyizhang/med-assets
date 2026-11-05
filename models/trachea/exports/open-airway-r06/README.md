@@ -58,7 +58,7 @@ supports airway continuity, posterior wall closure and division into the primary
 bronchi. It does not validate this specimen envelope or the chosen dimensions.
 No reference artwork was copied. See [attribution](ATTRIBUTION.md).
 
-Use the [focused check/render commands](../../../../tests/trachea_open_airway/README.md).
+Use the [focused check/render commands](../../../../models/trachea/recipes/open-airway/README.md).
 Technical checks, independent actual-pixel review, anatomical reference screening,
 supported runtime and publication are separate. Browser runtime is unverified;
 there is no specialist or clinical approval, gallery promotion or accepted-count change.

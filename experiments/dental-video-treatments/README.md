@@ -41,7 +41,7 @@ The final MP4s are in **Git LFS**, not ordinary Git blobs. Their animation sourc
 
 The HTML generator has been replayed twice and matches its recorded output hash, so generated `index.html` is **not** committed. One shared WAV is retained because voice regeneration is not a guaranteed bit-identical rebuild. Fonts are retained once with their notice; preparation makes disposable consumer copies. The small storyboard is a review entrypoint. The comparison MP4 preserves the already-reviewed synchronized result; it is not a duplicate of any individual movie. Result hashes are authoritative in one manifest.
 
-No source ZIP, renderer caches, installed packages, model weights, TTS runtime, silent intermediates, frame sequences, duplicate WAVs, or generated per-renderer receipts are committed. Preparation and future QA write to new ignored work directories. Preserve source identities and current deliverables; retire spent intermediates under the [repository retention policy](../../CONTRIBUTING.md#generated-artifacts-and-retention). Review this retained experiment by 2026-12-05 for continued teaching or workflow-comparison use.
+No source ZIP, renderer caches, installed packages, model weights, TTS runtime, silent intermediates, frame sequences, duplicate WAVs, or generated per-renderer receipts are committed. Preparation and future QA write to new ignored work directories. Preserve source identities and current deliverables; retire spent intermediates under the [repository retention policy](../../docs/WORKFLOW.md#retention). Review this retained experiment by 2026-12-05 for continued teaching or workflow-comparison use.
 
 ## Rights and sources
 

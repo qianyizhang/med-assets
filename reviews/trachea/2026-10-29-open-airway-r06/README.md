@@ -50,7 +50,7 @@ reference is [OpenStax A&P 2e §22.1](https://openstax.org/books/anatomy-and-phy
 Shell thickness, local reductions, interior color, C-bands and cuts are authored.
 
 See the [build recipe](../../../models/trachea/exports/open-airway-r06/README.md)
-and [targeted checks](../../../tests/trachea_open_airway/README.md).
+and [targeted checks](../../../models/trachea/recipes/open-airway/README.md).
 Local receipt paths identify preserved review files, not public download links.
 Issue #133 stays open for remaining model/gallery delivery; this draft does not
 publish GLBs, change the gallery or grant clinical/runtime approval.

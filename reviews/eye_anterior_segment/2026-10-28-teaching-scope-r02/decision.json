@@ -60,9 +60,9 @@
     "delivery": "PNG outputs reviewed and retained locally; not published to Git/LFS or Sites. Receipts and reproducible recipes are committed. Parent independent review pending."
   },
   "recipeSha256": {
-    "tests/eye_anterior_segment/detail_review.py": "d7dce4bafb7b3344381cb01328d3c1531d0dda4bbafada8e3f711290bc0c7638",
-    "tests/eye_anterior_segment/verify_detail_review.py": "2fe8a63cfbf4e138f6e428853ccc9d1712226705fdb2ceb76f1396314f00827e",
-    "tests/eye_anterior_segment/make_teaching_plate.py": "1bbdf12e4d307373f5aafad295cde349efc7221ef3b637d80d3a0715af95ab07"
+    "models/eye_anterior_segment/recipes/detail_review.py": "d7dce4bafb7b3344381cb01328d3c1531d0dda4bbafada8e3f711290bc0c7638",
+    "models/eye_anterior_segment/recipes/verify_detail_review.py": "2fe8a63cfbf4e138f6e428853ccc9d1712226705fdb2ceb76f1396314f00827e",
+    "models/eye_anterior_segment/recipes/make_teaching_plate.py": "1bbdf12e4d307373f5aafad295cde349efc7221ef3b637d80d3a0715af95ab07"
   },
   "failureAndRetest": {
     "failure": "Initial profile camera cropped corneal poles.",

@@ -25,6 +25,14 @@ for entry in manifest['files']:
     total += len(data)
 assert total == manifest['totalBytes']
 record = json.loads((root / 'record.json').read_text())
+frames = json.loads((root / 'frame-results.json').read_text())['frames']
+assert len(frames) == record['captureCount']
+assert len({frame['id'] for frame in frames}) == len(frames)
+for frame in frames:
+    for key in ['canvasImage', 'displayCropImage']:
+        assert frame[key] in seen and frame[key].endswith('.png')
+for image in record['visualReview']['files']:
+    assert image in seen and image.endswith('.png')
 expected = {
     '7b047002cbb1dc06f37baa441783390d76cdb444b6144d6caa623923707953fd': 7413900,
     '17b26d1459c0fbbbc71d051452c4074d1237683ffe02c1a8021d7ac83583857a': 8180452,

@@ -41,7 +41,7 @@ checksums of the included technical receipts. It is a scoped decision record,
 | Runtime | Unmeasured. Complete 5-way 3-D rendering was not finished; no browser/FPS claim. |
 | Payload | [Bounded upload + fresh readback](https://github.com/qianyizhang/med-assets/actions/runs/40844590953) passed for all 5 objects; separate cloud readback also passed on 2026-10-29. |
 
-Use the [review contract](../../../docs/REVIEW_CONTRACT.md); the medical QA priority
+Use the [review contract](../../../docs/WORKFLOW.md); the medical QA priority
 clarification is proposed separately in [PR93](https://github.com/qianyizhang/med-assets/pull/93).
 This decision does not duplicate or depend on unmerged rule text.
 

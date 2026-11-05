@@ -7,7 +7,7 @@ import struct
 import tempfile
 import unittest
 
-PATH=Path(__file__).resolve().parents[1]/'tools/ovary_tubal/build.py'
+PATH=Path(__file__).resolve().parents[1]/'models/ovaries/recipes/tubal-context/build.py'
 SPEC=importlib.util.spec_from_file_location('ovary_tubal_build',PATH)
 build=importlib.util.module_from_spec(SPEC);SPEC.loader.exec_module(build)
 

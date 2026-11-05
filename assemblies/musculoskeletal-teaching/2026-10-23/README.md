@@ -14,11 +14,11 @@ Pinned archive: https://raw.githubusercontent.com/Z-Anatomy/Models-of-human-anat
 ## Recheck
 Run integrity verification from this repository:
 ```
-python tests/achilles_context/verify_receipt.py
+python assemblies/musculoskeletal-teaching/recipes/verify_receipt.py
 ```
 For reconstruction, use Blender 4.3.2 and a **new empty output location**:
 ```
-blender -b --disable-autoexec -t 2 -P tests/achilles_context/build_proposal.py -- --source /path/to/Startup.blend --output /new/output --skip-renders
+blender -b --disable-autoexec -t 2 -P assemblies/musculoskeletal-teaching/recipes/build_proposal.py -- --source /path/to/Startup.blend --output /new/output --skip-renders
 ```
 Fresh export-only replay reproduced exact reviewed GLB bytes. Native rendering is separate and pixel identity across platforms is not promised. This is dependency-explicit, not self-contained source delivery.
 

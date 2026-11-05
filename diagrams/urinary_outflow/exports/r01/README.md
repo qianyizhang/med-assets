@@ -22,6 +22,6 @@ No separate public license for this newly authored diagram/code is declared by t
 
 ## Re-render
 With Python3/Pillow and Inkscape1.4:
-`python tests/urinary_outflow/render.py --output <NEW_NONEXISTENT_DIRECTORY>`
+`python diagrams/urinary_outflow/recipes/render.py --output <NEW_NONEXISTENT_DIRECTORY>`
 
 Final outlined SVG→PNG decoded-pixel identity is tested. Text-to-outline conversion produced small measured antialias differences; no exact equivalence with editable-text render is claimed. Source review and final outlined image bindings are distinct. No browser visual/interaction pass is claimed.

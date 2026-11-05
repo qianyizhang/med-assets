@@ -6,7 +6,7 @@ from pathlib import Path
 import tempfile
 import unittest
 
-SPEC = importlib.util.spec_from_file_location('cuff_checks', Path(__file__).parent/'rotator_cuff/verify.py')
+SPEC = importlib.util.spec_from_file_location('cuff_checks', Path(__file__).resolve().parents[1]/'models/joints/recipes/rotator-cuff/verify.py')
 CHECK = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(CHECK)
 
