@@ -502,6 +502,7 @@ class TwoLaneSync(SerializedSync):
     including siblings of a failed call, before requesting another wave.
     """
     JOURNAL_SCHEMA = 2
+    PREFIX = 'v2:'
     EXTRA = {'lanes', 'done', 'halted', 'retryNotBefore'}
     BASE = {'schemaVersion', 'targetCommit', 'folderId', 'manifestId', 'current',
             'checkpoint', 'phase', 'pending', 'batch', 'seenIds', 'cleanup'}
@@ -565,21 +566,24 @@ class TwoLaneSync(SerializedSync):
             self.__exit__()
             raise
 
+    def _lane_limit(self):
+        return 2
+
     def _validate(self):
         s = self.state
         need(set(s) == self.BASE | self.EXTRA and type(s['schemaVersion']) is int
-             and s['schemaVersion'] == 2 and s['phase'] in self.PHASES, 'Invalid v2 journal schema/phase')
-        need(type(s['lanes']) is dict and len(s['lanes']) <= 2 and type(s['done']) is dict
+             and s['schemaVersion'] == self.JOURNAL_SCHEMA and s['phase'] in self.PHASES, 'Invalid lane journal schema/phase')
+        need(type(s['lanes']) is dict and len(s['lanes']) <= self._lane_limit() and type(s['done']) is dict
              and type(s['halted']) is bool and type(s['retryNotBefore']) is int
              and s['retryNotBefore'] >= 0 and type(s['batch']) is list
-             and type(s['seenIds']) is list and len(set(s['seenIds'])) == len(s['seenIds']), 'Invalid v2 reservations')
+             and type(s['seenIds']) is list and len(set(s['seenIds'])) == len(s['seenIds']), 'Invalid lane reservations')
         need(s['targetCommit'] == self.inventory['commit'], 'Invalid target commit')
         need(type(s['cleanup']) is list and type(s['current']) is str
              and s['manifestId'] is not None and type(s['seenIds']) is list
              and all(type(x) is str and check.REMOTE_TOKEN.fullmatch(x) for x in s['seenIds']), 'Invalid journal fields')
-        need(s['halted'] == (s['phase'] == 'v2:halted'), 'Invalid halted phase')
+        need(s['halted'] == (s['phase'] == self.PREFIX + 'halted'), 'Invalid halted phase')
         need(all(type(l) is dict for l in s['lanes'].values()), 'Invalid lane object')
-        need(s['phase'] != 'v2:reserved' or bool(s['lanes']) and all(
+        need(s['phase'] != self.PREFIX + 'reserved' or bool(s['lanes']) and all(
              l.get('phase') == 'reserved' for l in s['lanes'].values()), 'Invalid reserved phase')
         check.digest(s['checkpoint'])
         current = decoded_manifest(s['current'].encode())
@@ -611,8 +615,8 @@ class TwoLaneSync(SerializedSync):
                 ids[file_id] = (job['sha256'], job['size'])
         sizes = [r['size'] for r in s['batch']] + [r['job']['size'] for r in s['lanes'].values()]
         need(len(sizes) <= BATCH_FILES and (sum(sizes) <= BATCH_BYTES or len(sizes) == 1), 'Aggregate batch budget exceeded')
-        need(not s['lanes'] or s['phase'] in ('v2:reserved', 'v2:active', 'v2:halted'), 'Unresolved lane at publication barrier')
-        need((s['pending'] is not None) == (s['phase'] == 'v2:manifest_unknown'), 'Invalid manifest pending state')
+        need(not s['lanes'] or s['phase'] in (self.PREFIX + 'reserved', self.PREFIX + 'active', self.PREFIX + 'halted'), 'Unresolved lane at publication barrier')
+        need((s['pending'] is not None) == (s['phase'] == self.PREFIX + 'manifest_unknown'), 'Invalid manifest pending state')
         if s['pending'] is not None:
             need(set(s['pending']) == {'proposed', 'complete', 'cleanup'}
                  and type(s['pending']['complete']) is bool and type(s['pending']['cleanup']) is list,
@@ -622,7 +626,7 @@ class TwoLaneSync(SerializedSync):
             need(s['pending']['proposed'].encode() == encoded(proposal)
                  and s['pending']['complete'] == complete and s['pending']['cleanup'] == cleanup,
                  'Manifest intent differs from verified batch')
-        if s['phase'] == 'v2:complete':
+        if s['phase'] == self.PREFIX + 'complete':
             rows = {r['path']: r for r in current['files']}
             need(current['commit'] == self.inventory['commit'] and not current['staged']
                  and not s['batch'] and not s['cleanup'] and len(rows) == len(self.inventory['files'])
@@ -643,13 +647,13 @@ class TwoLaneSync(SerializedSync):
              'Prepared job checkpoint/source/budget differs')
 
     def _save(self):
-        if not self.state['phase'].startswith('v2:'):
-            self.state['phase'] = 'v2:' + self.state['phase']
+        if not self.state['phase'].startswith(self.PREFIX):
+            self.state['phase'] = self.PREFIX + self.state['phase']
         self._validate()
         super()._save()
 
     def _phase(self, *phases):
-        super()._phase(*('v2:' + p for p in phases))
+        super()._phase(*(self.PREFIX + p for p in phases))
 
     def upload_intent(self, *args, **kwargs):
         raise TransferBlocked('Two-lane mode requires reserve_wave/dispatch_wave')
@@ -671,13 +675,13 @@ class TwoLaneSync(SerializedSync):
                 break
             paths.append(sorted(obj['paths'])[0])
             count, size = count + 1, size + obj['size']
-            if len(paths) == 2 or size > BATCH_BYTES:
+            if len(paths) == self._lane_limit() or size > BATCH_BYTES:
                 break
         return paths
 
     def reserve_wave(self, prepared):
         paths = self.next_paths()
-        need(type(prepared) is list and 1 <= len(prepared) <= 2
+        need(type(prepared) is list and 1 <= len(prepared) <= self._lane_limit()
              and [j['path'] for j, _ in prepared] == paths[:len(prepared)], 'Reserve next distinct ordered payloads only')
         need(not self.state['batch'] or not self._proposal()[2], 'Publish batch and resolve cleanup first')
         lanes = {}
@@ -688,8 +692,8 @@ class TwoLaneSync(SerializedSync):
             need(job['operationId'] not in lanes, 'Duplicate operation reservation')
             lanes[job['operationId']] = {'job': copy.deepcopy(job), 'work': str(work.absolute()),
                                          'phase': 'reserved', 'fileId': None}
-        self.state.update(lanes=lanes, phase='v2:reserved')
-        self._save()  # BOTH reservations durable before either request can escape.
+        self.state.update(lanes=lanes, phase=self.PREFIX + 'reserved')
+        self._save()  # All reservations durable before any request can escape.
 
     def dispatch_wave(self):
         self._phase('reserved')
@@ -699,7 +703,7 @@ class TwoLaneSync(SerializedSync):
             with check.Tree(Path(lane['work'])).open('payload.bin') as (stream, _):
                 verify_stream(stream, lane['job'])
             lane['phase'] = 'unknown'
-        self.state['phase'] = 'v2:active'
+        self.state['phase'] = self.PREFIX + 'active'
         self._save()
         return [{'operationId': op, 'request': request_set(l['job'], Path(l['work']))['upload']}
                 for op, l in self.state['lanes'].items()]
@@ -759,7 +763,7 @@ class TwoLaneSync(SerializedSync):
             except (ValueError, KeyError, TypeError) as error:
                 errors.append(str(error))
         halted = bool(errors or expected != seen or self.state['lanes'])
-        self.state.update(halted=halted, phase='v2:halted' if halted else 'v2:idle',
+        self.state.update(halted=halted, phase=self.PREFIX + 'halted' if halted else self.PREFIX + 'idle',
                           retryNotBefore=max(self.state['retryNotBefore'], int(time.time()) + retry_after_seconds))
         self._save()
         return {'halted': halted, 'errors': errors, 'unresolved': sorted(self.state['lanes'])}
@@ -768,7 +772,7 @@ class TwoLaneSync(SerializedSync):
         self._phase('halted')
         need(not self.state['lanes'] and observed_current == self.state['current'].encode()
              and time.time() >= self.state['retryNotBefore'], 'Unresolved lane/checkpoint/backoff')
-        self.state.update(halted=False, phase='v2:idle')
+        self.state.update(halted=False, phase=self.PREFIX + 'idle')
         self._save()
 
     def manifest_intent(self, observed_current):
@@ -777,7 +781,7 @@ class TwoLaneSync(SerializedSync):
         return super().manifest_intent(observed_current)
 
     def observe_manifest(self, file_id, raw):
-        if (self.state['phase'] in ('v2:idle', 'v2:complete', 'v2:cleanup_required')
+        if (self.state['phase'] in (self.PREFIX + 'idle', self.PREFIX + 'complete', self.PREFIX + 'cleanup_required')
                 and self.state['pending'] is None and file_id == self.state['manifestId']
                 and raw == self.state['current'].encode()):
             return self.status()
@@ -790,14 +794,62 @@ class TwoLaneSync(SerializedSync):
 
     def status(self):
         status = super().status()
-        status.update(completeCurrentTree=self.state['phase'] == 'v2:complete',
+        status.update(completeCurrentTree=self.state['phase'] == self.PREFIX + 'complete',
                       activeOperations=len(self.state['lanes']), halted=self.state['halted'],
                       unresolvedUploadBudgetBytes=sum(l['job']['size'] for l in self.state['lanes'].values()))
         return status
 
 
+class PayloadPoolSync(TwoLaneSync):
+    """Same single coordinator and shared batch, with a persisted 2/4/8 ceiling.
+
+    Hosts may reserve fewer lanes to measure four before using eight. The maximum
+    is a journal invariant, not an independent staging budget for each worker.
+    """
+    JOURNAL_SCHEMA = 3
+    PREFIX = 'v3:'
+    EXTRA = TwoLaneSync.EXTRA | {'maxPayloadLanes'}
+    PHASES = {phase.replace('v2:', 'v3:') for phase in TwoLaneSync.PHASES}
+
+    def _lane_limit(self):
+        value = self.state.get('maxPayloadLanes')
+        need(type(value) is int and value in (2, 4, 8), 'Invalid persisted payload-lane ceiling')
+        return value
+
+    @staticmethod
+    def migration_proposal(old, inventory, max_payload_lanes=8, verified_rebound=None):
+        """Pure idle-v2 -> v3 proposal; never reinterpret v2 state as v1.
+
+        Install under the same held lock only after separately journaled exact
+        remote rebind readback when the selected source changes.
+        """
+        need(type(max_payload_lanes) is int and max_payload_lanes in (2, 4, 8), 'Invalid payload-lane ceiling')
+        need(old.get('schemaVersion') == 2 and old.get('phase') == 'v2:idle'
+             and old.get('pending') is None and not old.get('batch') and not old.get('lanes')
+             and not old.get('done') and not old.get('halted') and not old.get('cleanup'),
+             'Migration requires positively idle v2 journal')
+        validator = TwoLaneSync(Path('/unused-pure-validation'), dict(inventory, commit=old['targetCommit']),
+                                old['folderId'], exclusive_writer=True)
+        validator.state = old
+        validator._validate()
+        need(hashlib.sha256(old['current'].encode()).hexdigest() == old['checkpoint'], 'Migration checkpoint mismatch')
+        # This also checks every retained path/hash/size and verified status.
+        rebound = TwoLaneSync.source_rebind_proposal(old, inventory)
+        state = copy.deepcopy(old)
+        if old['targetCommit'] != inventory['commit']:
+            need(type(verified_rebound) is bytes and verified_rebound == rebound,
+                 'Source rebind required before idle-v2 migration')
+            state.update(targetCommit=inventory['commit'], current=rebound.decode(),
+                         checkpoint=hashlib.sha256(rebound).hexdigest())
+        state.update(schemaVersion=3, phase='v3:idle', maxPayloadLanes=max_payload_lanes)
+        return state
+
+    def status(self):
+        return dict(super().status(), maxPayloadLanes=self._lane_limit())
+
+
 async def run_payload_wave(controller, worker):
-    """Drain both host workers before one coordinator records settled results.
+    """Drain every host worker before one coordinator records settled results.
 
     worker(item) returns result/receipt or result/error fields; after an unknown
     mutation it must report uncertainty, never retry. No manifest writes here.

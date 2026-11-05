@@ -343,3 +343,23 @@ before supplying `verified_rebound` to the pure migration proposal. This module
 never silently changes the remote source binding or installs a migration. A
 conflicting retained path stops for review with no receipt dropped. Publication,
 live migration, resumed transfer and cleanup remain separate operational actions.
+
+`PayloadPoolSync` uses the same coordinator and handshake with a strict version-3
+journal. `maxPayloadLanes` is persisted as exactly **2, 4 or 8**. A host can reserve
+fewer jobs than this ceiling, so it can measure four before admitting eight without
+changing the selected source again. The **64-object / 64 MiB batch is shared across
+all lanes**, including pending and verified unpublished content. It is not eight
+separate budgets. Reservations, sibling draining, backoff, duplicate-ID rejection
+and the empty-pending manifest barrier remain the same. Concurrency alone does not
+establish throughput; measure connector waits and actual verified progress.
+
+Its pure `migration_proposal()` accepts only a strictly validated, positively idle
+**v2** journal with no lanes, pending operation, batch, completed-operation cache or
+cleanup. It preserves every receipt and remote ID. A changed source requires a
+separately journaled exact pre-read/write/readback rebind before supplying
+`verified_rebound`. V3 phases and schema make old loaders/mutators fail closed;
+never relabel a v2 journal as v1. Migration does not perform remote operations or
+install itself. A private host must bind any continuation allowance to the original
+retained baseline and exact remaining identities/bytes durably before dispatch,
+stop on uncertainty, and require explicit reconciliation review after a restart.
+Existing one-shot release records remain preserved and cannot authorize fresh work.

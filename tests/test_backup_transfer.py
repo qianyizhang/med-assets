@@ -756,5 +756,133 @@ class TwoLaneTests(TransferFixture):
 
 
 
+class PayloadPoolTests(TransferFixture):
+    controller = SerializedSyncTests.controller
+    stage_for = SerializedSyncTests.stage_for
+    flush = SerializedSyncTests.flush
+    wave = TwoLaneTests.wave
+
+    def setUp(self):
+        super().setUp()
+        for i in range(8):
+            data = f'pool fixture {i}'.encode()
+            oid = self.git('hash-object', '-w', '--stdin', data=data).decode().strip()
+            self.git('update-index', '--add', '--cacheinfo', '100644', oid, f'pool-{i}.txt')
+        tree = self.git('write-tree').decode().strip()
+        self.commit = self.git('commit-tree', tree, data=b'pool fixture\n').decode().strip()
+        self.inventory = b.expected_tree(self.repo, self.commit)
+        self.sync_work = self.root / 'pool-controller'
+        self.drive = FakeDrive()
+        self.drive.files['fixture_manifest'] = {'name': 'fixture_current.json',
+            'parent': 'fixture_folder', 'raw': self.manifest_path.read_bytes()}
+        self.counter = 0
+
+    def migrate(self, maximum):
+        with self.controller() as sync:
+            v2 = t.TwoLaneSync.migration_proposal(sync.state, self.inventory)
+            state = t.PayloadPoolSync.migration_proposal(v2, self.inventory, maximum)
+            t.atomic_local(self.sync_work / 'journal.json', t.encoded({
+                'state': state, 'sha256': hashlib.sha256(t.encoded(state)).hexdigest()}))
+
+    def pool(self):
+        return t.PayloadPoolSync(self.sync_work, self.inventory, 'fixture_folder', exclusive_writer=True)
+
+    def test_pool_four_and_eight_reversed_completion_and_full_map(self):
+        for maximum in (4, 8):
+            with self.subTest(maximum=maximum):
+                self.sync_work = self.root / ('pool-' + str(maximum))
+                self.drive.files['fixture_manifest']['raw'] = self.manifest_path.read_bytes()
+                self.migrate(maximum)
+                with self.pool() as sync:
+                    first = self.wave(sync)
+                    self.assertEqual(len(first), maximum)
+                    self.assertFalse(sync.settle_wave(list(reversed(first)))['halted'])
+                    while sync.next_paths():
+                        sync.settle_wave(list(reversed(self.wave(sync))))
+                    self.assertTrue(self.flush(sync)['completeCurrentTree'])
+                    self.assertEqual(sync.state['phase'], 'v3:complete')
+                    self.assertEqual(len(json.loads(sync.state['current'])['files']), 11)
+                    self.assertEqual(sync.status()['maxPayloadLanes'], maximum)
+
+    def test_pool_failed_sibling_known_ids_duplicate_callback_and_restart(self):
+        for maximum in (4, 8):
+            with self.subTest(maximum=maximum):
+                self.sync_work = self.root / ('failure-' + str(maximum))
+                self.drive.files['fixture_manifest']['raw'] = self.manifest_path.read_bytes()
+                self.migrate(maximum)
+                with self.pool() as sync:
+                    outcomes = self.wave(sync)
+                    failed = outcomes[0]
+                    bad = dict(failed, error='readback failed after known upload ID')
+                    result = sync.settle_wave([bad] + list(reversed(outcomes[1:])) + [outcomes[1]])
+                    self.assertTrue(result['halted'])
+                    self.assertEqual(len(sync.state['batch']), maximum - 1)
+                    self.assertEqual(sync.state['lanes'][failed['operationId']]['fileId'], failed['receipt']['remote']['fileId'])
+                    with self.assertRaises(t.TransferBlocked):sync.manifest_intent(sync.state['current'].encode())
+                with self.pool() as sync:
+                    self.assertEqual(sync.state['phase'], 'v3:halted')
+                    with self.assertRaises(t.TransferBlocked):sync.dispatch_wave()
+                    sync.lane_verified(failed['operationId'], failed['receipt'])
+                    sync.lane_verified(failed['operationId'], failed['receipt'])
+                    sync.resume_reconciled(sync.state['current'].encode())
+                    self.assertEqual(len(sync.state['batch']), maximum)
+
+    def test_pool_shared_count_byte_caps_and_fewer_admitted_than_maximum(self):
+        self.migrate(8)
+        with self.pool() as sync:
+            paths = sync.next_paths()
+            self.assertEqual(len(paths), 8)
+            prepared = [self.stage_for(sync, p) for p in paths]
+            with patch.object(t, 'BATCH_FILES', 4):
+                self.assertEqual(len(sync.next_paths()), 4)
+                with self.assertRaises(t.TransferBlocked):sync.reserve_wave(prepared)
+            cap = sum(j['size'] for j, _ in prepared[:4])
+            with patch.object(t, 'BATCH_BYTES', cap):
+                self.assertEqual(len(sync.next_paths()), 4)
+                with self.assertRaises(t.TransferBlocked):sync.reserve_wave(prepared)
+            sync.reserve_wave(prepared[:4])
+            self.assertEqual(len(sync.dispatch_wave()), 4)
+            self.assertEqual(sync.status()['activeOperations'], 4)
+            self.assertEqual(sync.status()['maxPayloadLanes'], 8)
+
+    def test_pool_duplicate_remote_id_drains_other_workers(self):
+        self.migrate(8)
+        with self.pool() as sync:
+            outcomes = self.wave(sync)
+            outcomes[1]['result'] = outcomes[0]['result']
+            self.assertTrue(sync.settle_wave(outcomes)['halted'])
+            self.assertEqual(len(sync.state['batch']), 7)
+            self.assertEqual(len(sync.state['lanes']), 1)
+
+    def test_pool_strict_downgrade_fence_and_idle_v2_migration_preserves_receipts(self):
+        with self.controller() as sync:
+            # Produce a real staged receipt through the reviewed v1 handshake.
+            SerializedSyncTests.send(self, sync, 'payload.bin')
+            self.flush(sync)
+            v2 = t.TwoLaneSync.migration_proposal(sync.state, self.inventory)
+            target = dict(self.inventory, commit='c' * 40)
+            rebound = t.TwoLaneSync.source_rebind_proposal(v2, target)
+            with self.assertRaises(t.TransferBlocked):t.PayloadPoolSync.migration_proposal(v2, target, 8)
+            v3 = t.PayloadPoolSync.migration_proposal(v2, target, 8, rebound)
+            self.assertEqual(json.loads(v3['current'])['staged'][0]['remote'], json.loads(v2['current'])['staged'][0]['remote'])
+            self.assertEqual(v3['seenIds'], v2['seenIds'])
+            self.assertEqual(v2['schemaVersion'], 2)
+            for maximum in (0, 3, 16, True):
+                with self.assertRaises(t.TransferBlocked):t.PayloadPoolSync.migration_proposal(v2, self.inventory, maximum)
+            active = dict(v2, phase='v2:active')
+            with self.assertRaises(t.TransferBlocked):t.PayloadPoolSync.migration_proposal(active, self.inventory)
+        self.sync_work = self.root / 'strict-pool'
+        self.drive.files['fixture_manifest']['raw'] = self.manifest_path.read_bytes()
+        self.migrate(8)
+        with self.pool() as sync: state = dict(sync.state)
+        with self.assertRaisesRegex(t.TransferBlocked, 'Unsupported journal schema'):
+            with t.TwoLaneSync(self.sync_work, self.inventory, 'fixture_folder', exclusive_writer=True):pass
+        for changes in ({'maxPayloadLanes': 16}, {'maxPayloadLanes': True}, {'phase': 'v2:idle'}, {'extra': 1}):
+            altered = dict(state, **changes)
+            t.atomic_local(self.sync_work / 'journal.json', t.encoded({'state': altered, 'sha256': hashlib.sha256(t.encoded(altered)).hexdigest()}))
+            with self.assertRaises(t.TransferBlocked):
+                with self.pool():pass
+
+
 if __name__ == '__main__':
     unittest.main()
