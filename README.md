@@ -22,6 +22,10 @@ media, run `python3 tools/verify.py offline`; its success verifies text and
 pointer metadata, **not media bytes**. See [verification modes and prerequisites](docs/VERIFICATION.md)
 for dental tests, package checks and separate authoring replays.
 
+For an offline byte comparison and copy plan against a local downloaded backup
+snapshot, see [backup checking](docs/BACKUP_CHECK.md). This checks one exact
+committed tree, including LFS payloads; it performs no transfer.
+
 ## Collections
 
 Browse [review folders](reviews/), [3D models](models/), [2D teaching aids](diagrams/)
