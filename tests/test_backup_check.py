@@ -1,5 +1,6 @@
 """Offline backup checker safety and behavior, using synthetic bytes only."""
 import contextlib
+import copy
 import hashlib
 import io
 import json
@@ -271,6 +272,225 @@ class BackupCheckTests(unittest.TestCase):
         self.assertFalse(json.loads(out.getvalue())['completeCurrentTree'])
         with contextlib.redirect_stderr(io.StringIO()):
             self.assertEqual(b.main(base + ['--backup-zip', str(self.backup / 'absent.zip')]), 2)
+
+
+class CurrentMirrorPlanTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.temp.cleanup)
+        self.root = Path(self.temp.name)
+        self.path = self.root / 'current.json'
+        self.commit = 'a' * 40
+        self.payloads = {'a.bin': b'alpha', 'duplicate.bin': b'alpha',
+                         'new.bin': b'bravo!', 'note.txt': b'new note'}
+        self.inventory = {'commit': self.commit, 'files': [
+            {'path': path, 'sha256': hashlib.sha256(data).hexdigest(), 'size': len(data),
+             'kind': 'lfs' if path.endswith('.bin') else 'git'}
+            for path, data in self.payloads.items()]}
+
+    def row(self, path, data=b'alpha', remote_id='fixture_alpha', status='verified', staged=False):
+        sha = hashlib.sha256(data).hexdigest()
+        row = {'path': path, 'sha256': sha, 'size': len(data),
+               'remote': {'fileId': remote_id, 'version': 'fixture_version_1',
+                          'sha256': sha if status == 'verified' else None, 'size': len(data)},
+               'verification': {'status': status, 'method': 'none' if status == 'unverified'
+                                else 'sha256-size-readback',
+                                'at': None if status == 'unverified' else '2020-01-02T03:04:05Z'}}
+        if staged:
+            row['forCommit'] = self.commit
+        return row
+
+    def document(self, files=(), staged=()):
+        return {'schemaVersion': 1, 'revision': 3, 'commit': 'b' * 40 if files else None,
+                'files': list(files), 'staged': list(staged)}
+
+    def load(self, document):
+        raw = (json.dumps(document, indent=2) + '\n').encode()
+        self.path.write_bytes(raw)
+        digest = hashlib.sha256(raw).hexdigest()
+        return b.load_current_manifest(self.path, digest), digest
+
+    def plan(self, files=(), staged=()):
+        manifest, digest = self.load(self.document(files, staged))
+        return b.incremental_plan(self.inventory, manifest, digest)
+
+    def test_empty_mirror_plans_only_unique_payloads_and_bounded_staging(self):
+        result = self.plan()
+        budget = result['budget']
+        self.assertEqual((budget['trackedFiles'], budget['uniquePayloadFiles']), (4, 3))
+        self.assertEqual((budget['trackedPathBytes'], budget['desiredUniqueBytes']), (24, 19))
+        self.assertEqual((budget['uploadFiles'], budget['uploadBytes']), (3, 19))
+        self.assertEqual(budget['additionalStagingPeakBytes'], 8)
+        self.assertEqual(budget['initialStepTotalPeakBytes'], 8)
+        self.assertFalse(result['remoteCoverageVerified'])
+        self.assertNotIn('completeCurrentTree', result)
+
+    def test_unchanged_content_deduplicates_paths_and_never_asserts_remote_freshness(self):
+        files = [self.row(path, data, remote_id='fixture_' + hashlib.sha256(data).hexdigest()[:8])
+                 for path, data in self.payloads.items()]
+        result = self.plan(files)
+        self.assertEqual(result['budget']['uploadBytes'], 0)
+        self.assertEqual(result['budget']['reuseCandidateFiles'], 3)
+        self.assertEqual(result['budget']['existingCurrentBytes'], 19)
+        self.assertEqual(result['budget']['uploadBytesIfAllCandidatesFail'], 19)
+        alpha = next(r for r in result['objects'] if r['size'] == 5)
+        self.assertEqual(alpha['paths'], ['a.bin', 'duplicate.bin'])
+        self.assertTrue(all(r['needsRemoteValidation'] for r in result['objects']))
+        self.assertFalse(result['remoteManifestFreshnessChecked'])
+        self.assertFalse(result['atomicRemoteCAS'])
+        self.assertEqual(alpha['candidates'][0]['verification']['at'], '2020-01-02T03:04:05Z')
+
+    def test_changed_and_missing_payloads_have_exact_upload_and_storage_budgets(self):
+        old = self.row('a.bin', b'older data', 'fixture_old')
+        result = self.plan([old])
+        self.assertEqual(result['budget']['uploadBytes'], 19)
+        self.assertEqual(result['budget']['existingCurrentBytes'], 10)
+        self.assertEqual(result['budget']['initialStepTotalPeakBytes'], 18)
+        self.assertEqual(result['replacementCandidates'], [old])
+        self.assertEqual({r['reason'] for r in result['objects']}, {'changed', 'missing'})
+
+    def test_renamed_payload_reuses_content_without_authorizing_retirement(self):
+        old = self.row('old-name.bin')
+        result = self.plan([old])
+        self.assertEqual(result['obsoleteCandidates'], [old])
+        alpha = next(r for r in result['objects'] if r['size'] == 5)
+        self.assertEqual(alpha['action'], 'reuse_candidate')
+        self.assertEqual(alpha['candidates'][0]['remote']['fileId'], old['remote']['fileId'])
+        self.assertEqual(result['budget']['uploadBytes'], 14)
+        self.assertFalse(any(r['action'] in ('delete', 'replace') for r in result['objects']))
+
+    def test_unverified_current_identity_needs_readback_before_reuse(self):
+        result = self.plan([self.row('a.bin', status='unverified')])
+        self.assertEqual(result['budget']['verifyCandidateBytes'], 5)
+        self.assertEqual(result['budget']['reuseCandidateFiles'], 0)
+        self.assertEqual(result['budget']['uploadBytes'], 14)
+        self.assertFalse(result['remoteCoverageVerified'])
+
+    def test_interrupted_upload_stays_separate_from_accepted_current_state(self):
+        old = self.row('a.bin', b'older data', 'fixture_old')
+        staged = self.row('a.bin', remote_id='fixture_staged', status='unverified', staged=True)
+        result = self.plan([old], [staged])
+        self.assertEqual(result['budget']['uploadBytes'], 14)
+        self.assertEqual(result['budget']['existingStagedBytes'], 5)
+        self.assertEqual(result['budget']['temporaryStagingPeakBytes'], 13)
+        self.assertEqual(result['budget']['initialStepTotalPeakBytes'], 23)
+        self.assertEqual(result['stagedReviewCandidates'], [staged])
+        alpha = next(r for r in result['objects'] if r['size'] == 5)
+        self.assertEqual(alpha['action'], 'verify_candidate')
+        self.assertEqual(alpha['candidates'][0]['forCommit'], self.commit)
+
+    def test_verified_staged_file_is_not_automatically_adopted_as_current(self):
+        result = self.plan(staged=[self.row('a.bin', staged=True)])
+        self.assertEqual(result['budget']['verifyCandidateFiles'], 1)
+        self.assertEqual(result['budget']['reuseCandidateFiles'], 0)
+        self.assertEqual(result['budget']['existingCurrentBytes'], 0)
+        self.assertEqual(result['budget']['existingStagedBytes'], 5)
+
+    def test_failed_or_mismatched_staging_cannot_suppress_a_planned_upload(self):
+        for status in ('failed', 'unverified'):
+            row = self.row('a.bin', status=status, staged=True)
+            if status == 'unverified':
+                row['remote']['sha256'] = 'f' * 64
+            result = self.plan(staged=[row])
+            self.assertEqual(result['budget']['uploadBytes'], 19)
+            self.assertEqual(result['budget']['verifyCandidateFiles'], 0)
+            self.assertEqual(result['stagedReviewCandidates'], [row])
+
+    def test_failed_current_content_is_a_replacement_candidate(self):
+        row = self.row('a.bin', status='failed')
+        result = self.plan([row])
+        self.assertEqual(result['budget']['uploadBytes'], 19)
+        self.assertEqual(result['replacementCandidates'], [row])
+        alpha = next(r for r in result['objects'] if r['size'] == 5)
+        self.assertEqual(alpha['reason'], 'unusable_current')
+
+    def test_stale_checkpoint_and_tampered_bytes_fail_closed(self):
+        _, digest = self.load(self.document())
+        with self.assertRaisesRegex(ValueError, 'Stale or changed'):
+            b.load_current_manifest(self.path, '0' * 64)
+        self.path.write_bytes(self.path.read_bytes() + b' ')
+        with self.assertRaisesRegex(ValueError, 'Stale or changed'):
+            b.load_current_manifest(self.path, digest)
+        for missing in (None, 'HEAD', 'A' * 64):
+            with self.assertRaises(ValueError):
+                b.load_current_manifest(self.path, missing)
+
+    def test_exact_schema_and_validated_types(self):
+        mutations = [lambda d: d.update(history=[]), lambda d: d.update(revision=True),
+                     lambda d: d.update(schemaVersion=True), lambda d: d.update(commit=None),
+                     lambda d: d['files'][0].update(size=True),
+                     lambda d: d['files'][0].update(size=-1),
+                     lambda d: d['files'][0]['remote'].update(version=''),
+                     lambda d: d['files'][0]['remote'].update(fileId='https://example.invalid'),
+                     lambda d: d['files'][0]['remote'].update(extra='not accepted'),
+                     lambda d: d['files'][0]['verification'].update(method='metadata-only'),
+                     lambda d: d['files'][0]['verification'].update(at='2026-02-30T00:00:00Z'),
+                     lambda d: d['files'][0]['verification'].update(status='complete'),
+                     lambda d: d['files'][0]['remote'].update(sha256='f' * 64)]
+        for mutate in mutations:
+            document = self.document([self.row('a.bin')])
+            mutate(document)
+            with self.subTest(document=document), self.assertRaises(ValueError):
+                self.load(document)
+
+    def test_duplicate_json_keys_are_rejected_even_with_matching_raw_digest(self):
+        raw = b'{"schemaVersion":1,"revision":1,"revision":2,"commit":null,"files":[],"staged":[]}'
+        self.path.write_bytes(raw)
+        with self.assertRaisesRegex(ValueError, 'Duplicate JSON key'):
+            b.load_current_manifest(self.path, hashlib.sha256(raw).hexdigest())
+
+    def test_duplicate_paths_and_conflicting_remote_objects_are_rejected(self):
+        row = self.row('a.bin')
+        for document in (self.document([row, copy.deepcopy(row)]),
+                         self.document([row, self.row('other.bin', b'different')]),
+                         self.document([row], [self.row('a.bin', staged=True)]),
+                         self.document(staged=[self.row('a.bin', staged=True)] * 2)):
+            with self.subTest(document=document), self.assertRaises(ValueError):
+                self.load(document)
+        other = self.row('other.bin')
+        other['remote']['version'] = 'fixture_version_2'
+        with self.assertRaisesRegex(ValueError, 'Conflicting records'):
+            self.load(self.document([row, other]))
+
+    def test_same_sha256_with_conflicting_sizes_and_unsafe_paths_fail(self):
+        other = self.row('other.bin', remote_id='fixture_other')
+        other.update(size=6)
+        other['remote']['size'] = 6
+        with self.assertRaisesRegex(ValueError, 'Conflicting sizes'):
+            self.load(self.document([self.row('a.bin'), other]))
+        for path in ('../escape', '/absolute', 'a//b', 'a\\b', 'a/./b', 'a\nb'):
+            with self.subTest(path=path), self.assertRaises(ValueError):
+                self.load(self.document([self.row(path)]))
+
+    def test_symlink_and_oversized_manifest_are_refused(self):
+        _, digest = self.load(self.document())
+        link = self.root / 'link.json'
+        link.symlink_to(self.path)
+        with self.assertRaises(OSError):
+            b.load_current_manifest(link, digest)
+        with patch.object(b, 'MAX_MANIFEST_BYTES', 2), self.assertRaises(ValueError):
+            b.load_current_manifest(self.path, digest)
+
+    def test_incorrect_mapping_to_the_exact_selected_commit_fails(self):
+        manifest, digest = self.load(self.document([self.row('a.bin', b'wrong')]))
+        manifest['commit'] = self.commit
+        with self.assertRaisesRegex(ValueError, 'mapping conflicts'):
+            b.incremental_plan(self.inventory, manifest, digest)
+
+    def test_cli_validation_is_metadata_only_and_plan_never_claims_atomic_cas(self):
+        _, digest = self.load(self.document([self.row('a.bin')]))
+        checkpoint = ['--expected-manifest-sha256', digest]
+        with patch.object(b, 'expected_tree', side_effect=AssertionError('No Git needed')):
+            with contextlib.redirect_stdout(io.StringIO()) as out:
+                self.assertEqual(b.main(['--validate-manifest', str(self.path)] + checkpoint), 0)
+        self.assertFalse(json.loads(out.getvalue())['atomicRemoteCAS'])
+        with patch.object(b, 'expected_tree', return_value=self.inventory):
+            with contextlib.redirect_stdout(io.StringIO()) as out:
+                self.assertEqual(b.main(['--commit', self.commit, '--plan-manifest', str(self.path)] + checkpoint), 0)
+        self.assertEqual(json.loads(out.getvalue())['budget']['uploadBytes'], 14)
+        with contextlib.redirect_stderr(io.StringIO()):
+            self.assertEqual(b.main(['--validate-manifest', str(self.path)]), 2)
+            self.assertEqual(b.main(['--plan-manifest', str(self.path)] + checkpoint), 2)
 
 
 if __name__ == '__main__':

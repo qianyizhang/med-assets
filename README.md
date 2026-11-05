@@ -22,9 +22,12 @@ media, run `python3 tools/verify.py offline`; its success verifies text and
 pointer metadata, **not media bytes**. See [verification modes and prerequisites](docs/VERIFICATION.md)
 for dental tests, package checks and separate authoring replays.
 
-For an offline byte comparison and copy plan against a local downloaded backup
-snapshot, see [backup checking](docs/BACKUP_CHECK.md). This checks one exact
-committed tree, including LFS payloads; it performs no transfer.
+For an offline incremental plan against a current mirror manifest, or a byte
+comparison against downloaded files, see [backup checking](docs/BACKUP_CHECK.md).
+This scopes work to one exact committed tree, including LFS payloads; it performs
+no transfer, manifest write, replacement or deletion.
+The linked guide also describes a serialized connector adapter and the explicit
+exclusive-writer guarantee, journal and verification steps it requires.
 
 ## Collections
 
