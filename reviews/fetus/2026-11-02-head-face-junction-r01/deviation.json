@@ -1,0 +1,26 @@
+{
+  "front_back_XY": {
+    "sampled_directions": 720,
+    "max_outward_m": 7.512124023517641e-05,
+    "max_inward_m": 6.414828009942974e-05,
+    "max_absolute_m": 7.512124023517641e-05
+  },
+  "left_YZ": {
+    "sampled_directions": 720,
+    "max_outward_m": 0.00010535456237512064,
+    "max_inward_m": 4.97907155087296e-05,
+    "max_absolute_m": 0.00010535456237512064
+  },
+  "superior_XZ": {
+    "sampled_directions": 720,
+    "max_outward_m": 9.5766859439822e-05,
+    "max_inward_m": 0.00011322635865157471,
+    "max_absolute_m": 0.00011322635865157471
+  },
+  "rear_source_vertices_vs_same_analytic_ellipsoid": {
+    "samples": 437,
+    "max_radial_error_m": 2.9446296859192422e-08,
+    "scope": "original rear surface source points only; tessellation differs, not vertex identity"
+  },
+  "interpretation": "Geometric sampled projected support, not pixel, anatomical or runtime tolerance. Front/back share XY projection; new tessellation and local union alter head boundary sub-millimetrically. Nose/eyelid and22unrelated decoded meshes remain exactly identical."
+}

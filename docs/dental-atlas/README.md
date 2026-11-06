@@ -72,12 +72,10 @@ Crack/fracture, pulpal/apical disease and impaction need dedicated pathology ref
 7. **LOD gate:** retain source-resolution master; separately verified teaching/display derivatives. Report triangle counts and measured simplification error; no universal triangle target. Do not remove canal branches, thin tissue boundaries or diagnostic landmarks merely to meet a budget.
 8. **Review gate:** technical checks, rendered multi-view inspection and dentist/anatomist review are separate statuses. Inspect representative anterior/premolar/molar upper/lower classes and every exception, then all delivered teeth. No claim of dentist-teaching suitability until scoped professional review.
 
-## Next executable work
+## Planned work
 
-- Review this spec and its gaps; confirm source download rights/access before acquisition.
-- Inspect actual dataset labels and coverage; choose a documented representative adult specimen, not an invented complete patient.
-- Acquire a licensed primary source or explicitly commission/reference-author primary anatomy; this remains a separate blocker.
-- Pilot one adult anterior and one molar with supported layers, plus one primary tooth only when evidence exists. Validate frames, tissue semantics and review workflow before scaling to52.
-- Add one coherent restorative/endodontic asset family after dimensions/reference clearance. Keep variants modular; do not create a new framework or dozens of boilerplate folders.
+The [consolidated plan](PLAN.md) owns execution order for future dental work,
+including the deferred caries/restoration and cleaning outcomes. This document
+owns component semantics, source research and acceptance requirements.
 
 Nomenclature: [ADA tooth designation/ISO mappings](https://www.ada.org/-/media/project/ada-organization/ada/ada-org/files/publications/cdt/universal_tooth_designation_system_valueset_2.pdf). Basic tissue distinctions: [ADA tooth anatomy](https://www.mouthhealthy.org/all-topics-a-z/tooth/). Context only, not geometry licenses: [NIDCR fillings](https://www.nidcr.nih.gov/health-info/dental-fillings), [NIDCR gum disease](https://www.nidcr.nih.gov/health-info/gum-disease), [AAE root canal overview](https://www.aae.org/patients/root-canal-treatment/what-is-a-root-canal/root-canal-explained/), [FDA implants](https://www.fda.gov/medical-devices/dental-devices/dental-implants-what-you-should-know), [NHS training equipment guide](https://heeoe.hee.nhs.uk/sites/default/files/educational_supervisor_information_guide_24-25_v1.pdf). No source illustrations copied.
