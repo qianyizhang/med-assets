@@ -31,15 +31,10 @@ Review permanent and primary dentitions separately. Neither a strong isolated to
 
 Minimum review board: whole-mouth frontal and both lateral views; upper/lower occlusal views; isolated class comparison; adjacent-contact close-ups; baseline/variant pairs. Keep missing slots visible in the coverage list, not fabricated placeholder teeth. Add a neutral silhouette option so colour cannot conceal shape errors.
 
-## Next creation batch: a useful whole-set checkpoint
+## Planned work
 
-**Batch 1 — expose the existing coherent exterior assembly.** Reuse the 28 BP3D teeth and 2 gingiva objects without rescaling, repair or repositioning. Add the source-label-to-FDI crosswalk, independent selection, common material/light treatment, whole-arch views and a contact/penetration report. First review target: identity, arrangement and visual coherence, not new layers or a complete 32-tooth claim. Source licence/attribution and exact canonical bytes must stay attached.
-
-**Batch 2 — one controlled condition pair in that assembly.** After selecting an adequately resolved and reviewed molar, reference-author one localized cavitated lesion and a separately selectable restoration, preserving the surrounding baseline and neighbours. Keep these illustrative variants separate from measured BP3D anatomy. Do not start by copying the lesion to all teeth. A reference-backed morphology review must precede calling the condition accurate.
-
-**Batch 3 — extend only after those gates.** Add one supported periodontal segment with paired baseline support; then fill the 4 unavailable adult exterior slots and develop a separately sourced primary set. Primary source/access and developmental-stage evidence remain blockers. Do not mirror/scale adult specimens or fabricate third molars to meet the inventory count. Endodontic demonstrations wait for complete, reviewed canal evidence; the UFF proxy cannot supply it.
-
-This ordering creates a meaningful whole-mouth review immediately while keeping the eventual full 32 / 20 set and layer/condition work visible as unfinished.
+The [consolidated plan](PLAN.md) owns future work and its prerequisites. Whole-set
+and condition-pair acceptance remain here; no unstarted plan is an accepted asset.
 
 ## Condition pairs must show the right differences
 
