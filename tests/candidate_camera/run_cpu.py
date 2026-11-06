@@ -13,10 +13,10 @@ ROOT = Path(__file__).resolve().parents[2]
 
 def run(vendor, baseline=False):
     original = ROOT / 'tests/pharynx_visibility/fixtures/candidate-v40.js'
-    current = ROOT / 'gallery/eye-inspection/r01/candidate.js'
-    source_binding = json.loads((current.parent / 'binding.json').read_text())
+    current = ROOT / 'tests/viewer/candidate.js'
+    source_binding = json.loads((current.parent / 'source.json').read_text())
     expected_source = ('9214093398033ab75beeec8c273d1f85a28408ee6096f3fe0bb91723ecc6f80b'
-                       if baseline else source_binding['outputs']['candidate.js'])
+                       if baseline else source_binding['files']['candidate.js']['sha256'])
     source_raw = (original if baseline else current).read_bytes()
     if hashlib.sha256(source_raw).hexdigest() != expected_source:
         raise ValueError('Wrong exact candidate source')

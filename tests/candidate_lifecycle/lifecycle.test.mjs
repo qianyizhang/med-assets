@@ -15,7 +15,7 @@ test('ordinary unload after repeated cached cycles does not lose final cleanup',
 test('late cancelled RAF, resize and UI callbacks cannot mutate disposed viewer',async()=>{
  const b=await boot();await b.done;const late=b.allFrames[0];b.dispatch('pagehide',false);const before={renders:b.metrics.renders,sizes:b.metrics.sizes,status:b.nodes.get('#viewer-status').textContent};late();b.metrics.observer.fn();b.nodes.get('#language').onclick();b.views[0].onclick();assert.equal(b.metrics.renders,before.renders);assert.equal(b.metrics.sizes,before.sizes);assert.equal(b.nodes.get('#viewer-status').textContent,before.status);assert.equal(b.pending.size,0);
 });
-for(const hold of ['review','reviewJson','fetchModel','body','decode','digest','imports','parse'])test('ordinary unload while awaiting '+hold+' prevents late startup',async()=>{
+for(const hold of ['review','reviewJson','manifest','manifestBody','fetchModel','body','verifyTransport','decode','digest','imports','parse'])test('ordinary unload while awaiting '+hold+' prevents late startup',async()=>{
  const b=await boot({hold});b.dispatch('pagehide',false);const before={renders:b.metrics.renders,sizes:b.metrics.sizes,status:b.nodes.get('#viewer-status')?.textContent};b.gate.resolve();await b.done;assert.equal(b.metrics.renders,before.renders);assert.equal(b.metrics.sizes,before.sizes);assert.equal(b.nodes.get('#viewer-status')?.textContent,before.status);assert.equal(b.pending.size,0);assert.equal(b.metrics.rendererDisposed,hold==='parse'?1:0);assert.deepEqual(b.metrics.revoked,b.metrics.created);
 });
 test('startup finishing while cached stays suspended until persisted show',async()=>{

@@ -31,9 +31,10 @@ accessibility, rendering, or clinical pass.
 
 Read-only comparison with the same v50 Site source confirms that candidate camera,
 lifecycle, context recovery, knee and eye helpers are incorporated byte-for-byte.
-The camera applicator is retired; its CPU suite now uses the retained current
-candidate. Lifecycle/context and knee/eye applicators still construct source-bound
-behavior-test inputs and remain until those consumers are migrated. Pharynx modules
+The camera, lifecycle/context and knee/eye applicators are retired. Current-source
+behavior tests use one bound candidate and per-run private staging through
+`tests/viewer/run.py`; `tests/viewer/source.json` owns exact source identities.
+The camera CPU suite uses that same candidate. Pharynx modules
 are absent from v50 and retain their separate unapplied recipe. See each package
 for exact bindings and independent runtime limits.
 

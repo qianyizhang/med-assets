@@ -1,11 +1,10 @@
 import assert from 'node:assert/strict';
 import vm from 'node:vm';
 import fs from 'node:fs/promises';
-// Execute the actual canonical/patched module supplied by the Python offline suite.
+// Execute the bound current viewer staged by tests/viewer/run.py.
 // Browser, Three.js and transport contract APIs below are doubles, not WebGL.
-assert.ok(process.env.CANDIDATE_LIFECYCLE_SOURCE,'Run through test_candidate_lifecycle_patch.py');
-const code=await fs.readFile(process.env.CANDIDATE_LIFECYCLE_SOURCE,'utf8');
-const lifecycle=await fs.readFile(new URL('../../gallery/candidate-lifecycle/r01/viewer-lifecycle.mjs',import.meta.url),'utf8');
+const sourceURL=new URL('../public/review/',import.meta.url);
+const code=await fs.readFile(new URL('candidate.js',sourceURL),'utf8');
 const turn=()=>new Promise(resolve=>setImmediate(resolve));
 function deferred(){let resolve,reject;const promise=new Promise((a,b)=>{resolve=a;reject=b});return{promise,resolve,reject};}
 export async function boot({hold,throwRender=false,lossDuringRender=false,staticEvidence=false}={}){
@@ -21,7 +20,7 @@ export async function boot({hold,throwRender=false,lossDuringRender=false,static
   set textContent(value){this.text=value;for(const x of this.childNodes)x.isConnected=false;this.childNodes=[]},
   replaceChildren(...children){for(const x of this.childNodes)x.isConnected=false;this.childNodes=children;this.text='';for(const x of children)x.isConnected=this.isConnected},
  });
- const node=id=>{if(!nodes.has(id)){const x=newNode(true);x.ownerDocument=document;nodes.set(id,x)}return nodes.get(id)};
+ const node=id=>{if(id==='#knee-inspection')return null;if(!nodes.has(id)){const x=newNode(true);x.ownerDocument=document;nodes.set(id,x)}return nodes.get(id)};
  const views=['front','back','left'].map(v=>({dataset:{view:v},style:{}}));
  const document={documentElement:{},querySelector:node,querySelectorAll(s){return s==='[data-view]'?views:[]},createElement(){const x=newNode();x.ownerDocument=document;return x},createTextNode(text){const x=newNode();x.textContent=text;x.ownerDocument=document;return x}};
  const record={id:'baseline',asset:{id:'test',name:{en:'Test'}},name:{en:'Test'},source:{encoding:'gzip',sha256:'00',revision:'test'},gates:{}};
@@ -37,19 +36,15 @@ export async function boot({hold,throwRender=false,lossDuringRender=false,static
  class Observer{constructor(fn){this.fn=fn;metrics.observer=this}observe(){metrics.observes++}disconnect(){metrics.disconnects++}}
  class URLs extends URL{static createObjectURL(){const s='blob:test-'+metrics.created.length;metrics.created.push(s);return s}static revokeObjectURL(s){metrics.revoked.push(s)}}
  let fetches=0;
- const ctx=vm.createContext({window:target,document,location:{href:'https://example.invalid/review/candidate.html',search:'',origin:'https://example.invalid',reload(){metrics.reloads++}},URL:URLs,URLSearchParams,Blob,devicePixelRatio:1,ResizeObserver:Observer,Uint8Array,crypto:{subtle:{digest:async()=>delay('digest',new Uint8Array([0]).buffer)}},console:{warn(...x){metrics.warnings.push(x)}},fetch:async()=>{fetches++;if(fetches===1)return delay('review',{ok:true,json:async()=>delay('reviewJson',{records:[]})});return delay('fetchModel',{ok:true,arrayBuffer:async()=>delay('body',new Uint8Array([1,2]).buffer),headers:{get:()=>null}})},requestAnimationFrame(fn){const id=next++;metrics.rafRequested++;pending.set(id,fn);allFrames.push(fn);return id},cancelAnimationFrame(id){pending.delete(id)}});
+ const ctx=vm.createContext({window:target,document,location:{href:'https://example.invalid/review/candidate.html',search:'',origin:'https://example.invalid',reload(){metrics.reloads++}},URL:URLs,URLSearchParams,Blob,devicePixelRatio:1,ResizeObserver:Observer,AbortController,Uint8Array,crypto:{subtle:{digest:async()=>delay('digest',new Uint8Array([0]).buffer)}},console:{warn(...x){metrics.warnings.push(x)}},fetch:async url=>{fetches++;if(String(url)==='media/models.json')return delay('manifest',{ok:true,arrayBuffer:async()=>delay('manifestBody',new ArrayBuffer(0))});if(fetches===1)return delay('review',{ok:true,json:async()=>delay('reviewJson',{records:[]})});return delay('fetchModel',{ok:true,arrayBuffer:async()=>delay('body',new Uint8Array([1,2]).buffer),headers:{get:()=>null}})},requestAnimationFrame(fn){const id=next++;metrics.rafRequested++;pending.set(id,fn);allFrames.push(fn);return id},cancelAnimationFrame(id){pending.delete(id)}});
  const contract={selectRecord:()=>record,allowedModelURL:()=>new URL('https://example.invalid/model.glb'),inspectGLB:()=>{},decodeTransport:async bytes=>delay('decode',{bytes,mode:'gzip'}),cameraSpec:()=>null};
- const defs={'./source-downloads.mjs':{sourceDownloadsHTML:()=>''},'./runtime-evidence.mjs':{runtimeEvidenceHTML:()=>''},'./evidence-view.mjs':{selectEvidence:()=>staticEvidence?[{file:'retained-static.png'}]:[],captionHTML:()=>'',sharedEvidenceNote:()=>''},'./candidate-contract.mjs':contract,'../vendor/three.module.js':THREE,'../vendor/OrbitControls.js':{OrbitControls},'../body/3d/vendor/GLTFLoader.js':{GLTFLoader}};
+ const defs={'./source-downloads.mjs':{sourceDownloadsHTML:()=>''},'./runtime-evidence.mjs':{runtimeEvidenceHTML:()=>''},'./evidence-view.mjs':{selectEvidence:()=>staticEvidence?[{file:'retained-static.png'}]:[],captionHTML:()=>'',sharedEvidenceNote:()=>''},'./candidate-contract.mjs':contract,'./model-media.mjs':{parseModelManifest:()=>({}),resolveModelTransport:()=>({url:'https://example.invalid/model.glb',entry:{bytes:2}}),verifyModelTransport:async()=>delay('verifyTransport',{transportBytesVerified:true})},'../vendor/three.module.js':THREE,'../vendor/OrbitControls.js':{OrbitControls},'../body/3d/vendor/GLTFLoader.js':{GLTFLoader}};
  const modules=new Map();
  async function get(spec){
   if(modules.has(spec))return modules.get(spec);
   let m;
-  if(spec==='./viewer-lifecycle.mjs')m=new vm.SourceTextModule(lifecycle,{context:ctx});
-  else if(spec==='./context-loss.mjs')m=new vm.SourceTextModule(await fs.readFile(new URL('../../gallery/candidate-context/r01/context-loss.mjs',import.meta.url),'utf8'),{context:ctx});
-  else if(spec==='./camera-reset.mjs'){
-   assert.ok(process.env.CANDIDATE_CAMERA_MODULE,'Explicit optional camera composition module required');
-   m=new vm.SourceTextModule(await fs.readFile(process.env.CANDIDATE_CAMERA_MODULE,'utf8'),{context:ctx});
-  }else{
+  if(['./viewer-lifecycle.mjs','./context-loss.mjs','./camera-reset.mjs','./knee-inspection.mjs'].includes(spec))m=new vm.SourceTextModule(await fs.readFile(new URL(spec,sourceURL),'utf8'),{context:ctx});
+  else{
    const values=defs[spec];assert.ok(values,'Unexpected dependency '+spec);
    m=new vm.SyntheticModule(Object.keys(values),function(){for(const[k,v]of Object.entries(values))this.setExport(k,v)},{context:ctx});
   }

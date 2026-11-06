@@ -22,10 +22,9 @@ this operation. No fit-distance, framing tolerance or anatomical claim changes.
 
 ## Current source
 
-The camera helper and the retained `gallery/eye-inspection/r01/candidate.js`
+The camera helper and the retained `tests/viewer/candidate.js`
 match Site v50 source commit `51c0039a8647d10aa35e45358da353966284e8af`
-exactly (read-only source comparison, 2026-11-06). The candidate's existing
-`binding.json` owns its identity; no second candidate snapshot is needed.
+exactly (read-only source comparison, 2026-11-06). `tests/viewer/source.json` owns its identity; no second candidate snapshot is needed.
 The historical v40/lifecycle-v2 applicator has been retired. Change the owning
 Site source, then refresh the retained fixture after review.
 
@@ -52,7 +51,7 @@ Original: no drag then Front is 0 degrees error. An 80 px horizontal drag at a
 measurements, not rendered or actual-browser evidence.
 
 ```sh
-python3 -m unittest discover -s tests -p test_candidate_camera_patch.py -v
+python3 -m unittest discover -s tests -p test_candidate_camera.py -v
 python3 tests/candidate_camera/run_cpu.py --vendor-dir PATH_TO_EXACT_VENDOR --baseline
 python3 tests/candidate_camera/run_cpu.py --vendor-dir PATH_TO_EXACT_VENDOR
 python3 tools/verify.py offline
