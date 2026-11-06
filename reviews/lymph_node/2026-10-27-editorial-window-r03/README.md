@@ -1,6 +1,6 @@
-# Lymph-node editorial window r03 — WIP
+# Lymph-node editorial window r03 — KEEP with limits
 
-Related: [issue 101](https://github.com/qianyizhang/med-assets/issues/101).
+[Issue 101](https://github.com/qianyizhang/med-assets/issues/101) completed the bounded offline KEEP disposition. Optional full-orbit/culling and hardware-cost follow-up [#139](https://github.com/qianyizhang/med-assets/issues/139) was closed as not planned on 2026-11-03; those checks remain unperformed, not passed. No follow-up is scheduled.
 
 The earlier capsule/medulla window exposes internal layers, but the dense front
 network still obscures the follicles and paracortex. R03 applies that same
@@ -9,7 +9,7 @@ surfaces and the enclosing context. It is useful for inspecting the source's
 named regions. The vascular identity remains unresolved; see
 [the primary-evidence decision](LABEL-DECISION.md).
 
-This draft contains a reproducible recipe and review evidence in text form.
+This package contains the reproducible recipe and retained review evidence.
 Generated GLBs, PNGs and Blender scenes remain local. No new LFS pointers,
 transport manifest, upload, canonical replacement or catalog promotion is part
 of this proposal. The intact source remains the exterior reference.
@@ -77,8 +77,8 @@ kept unchanged.
 | Additional surface-support audit | Exact supports and unambiguous winding pass with individually source-traced exceptions; single-sided front-face support and exact normal preservation fail separately. No appearance-equivalence claim. |
 | Blender import → export → reimport | Exact oriented triangle multisets and coordinates match for all seven already-imported meshes. This narrower pass does not erase the preceding failure. |
 | Anatomy / clinical | No new acceptance; no histological identification, flow or patient-specific reconstruction. |
-| Browser runtime | Untested. Local Blender rendering is the demonstrated workflow. |
-| Publication / canonical status | Code-and-text WIP only; generated payload delivery and candidate acceptance remain pending. |
+| Browser runtime | The later exact `f89e9894…` candidate has sampled Firefox/llvmpipe evidence in #101 (43 checks / 21 frames). This does not transfer to older hashes or establish full orbit, production UI or hardware cost. Blender import still has 157 invalid normal corners, including 3 zeros. |
+| Publication / canonical status | Bounded offline KEEP decision complete; no new payload delivery, canonical or anatomical/clinical promotion. |
 
 R02 has 217,275 raw triangles / 10,347,068 bytes; r03 has 167,367 triangles /
 14,190,680 bytes. The source-prefix and full-attribute approach makes the file

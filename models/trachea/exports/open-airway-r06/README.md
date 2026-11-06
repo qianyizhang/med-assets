@@ -5,7 +5,7 @@ three editorial openings and provides a cutaway of the connected Y-shaped airway
 The original r05 file, source attribution and gallery selection are unchanged.
 Related issue: [#133](https://github.com/qianyizhang/med-assets/issues/133).
 
-**Model delivery:** the exact reviewed [open](trachea-open.glb) and [cutaway](trachea-cutaway.glb) GLBs are now referenced through Git LFS on this branch. Both objects passed independent fresh GitHub HTTPS hash/size readback on 2026-10-29; see [delivery receipt](delivery.json). Gallery selection remains unchanged. The
+**Model delivery:** the exact reviewed [open](trachea-open.glb) and [cutaway](trachea-cutaway.glb) GLBs are now referenced through Git LFS. Both objects passed independent fresh GitHub HTTPS hash/size readback on 2026-10-29; see [delivery receipt](delivery.json). [Issue #133](https://github.com/qianyizhang/med-assets/issues/133) records subsequent static Airway gallery v7 delivery; this is historical evidence, not a fresh remote check. The
 [review](../../../../reviews/trachea/2026-10-29-open-airway-r06/README.md) contains
 public geometry projections and exact identities of the privately reviewed renders.
 The source cast is preserved; the inferred wall is a separate authored teaching
@@ -61,4 +61,4 @@ No reference artwork was copied. See [attribution](ATTRIBUTION.md).
 Use the [focused check/render commands](../../../../models/trachea/recipes/open-airway/README.md).
 Technical checks, independent actual-pixel review, anatomical reference screening,
 supported runtime and publication are separate. Browser runtime is unverified;
-there is no specialist or clinical approval, gallery promotion or accepted-count change.
+there is no specialist or clinical approval or accepted-count change. Static gallery delivery does not establish live 3D runtime acceptance.
