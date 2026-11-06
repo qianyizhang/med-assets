@@ -1,28 +1,40 @@
-"""Read-only local manifest-subset identity checks, not source rebuild/render validation."""
+"""Local retained-file checks; no rebuild, network or quality approval."""
 import argparse
+import json
 from pathlib import Path
-import hashlib,json,struct
-argparse.ArgumentParser(description=__doc__).parse_args()
-R=Path(__file__).resolve().parents[2]
-G='reviews/bp3d-body-studies/2026-10-24-bounded-migration'
-S='sources/datasets/bp3d-4.0-body-studies'
-def sha(p):return hashlib.sha256(p.read_bytes()).hexdigest()
-checks=json.loads((R/G/'FILE-HASHES.json').read_text())
-for name,rec in checks.items():
- p=R/name
- assert p.is_file() and p.stat().st_size==rec['bytes'] and sha(p)==rec['sha256'],name
-m=json.loads((R/G/'transport-manifest.json').read_text());src=json.loads((R/S/'external-source-map.json').read_text());seen={};ev=set()
-for s in m['studies']:
- p=R/s['canonicalPath'];t=s['transport'];raw=p.read_bytes();assert sha(p)==t['decodedSha256'] and len(raw)==t['decodedBytes'];assert raw[:4]==b'glTF'
- n,k=struct.unpack('<II',raw[12:20]);g=json.loads(raw[20:20+n]);r=json.loads((R/s['reviewRecord']).read_text());assert len(r['componentIdentityMap'])==r['componentCount'];seen[sha(p)]=len(raw)
- for c in r['componentIdentityMap']:
-  ex=g['nodes'][c['nodeIndex']]['extras'];assert ex['source_file_id']==c['sourceFileId'];assert ex.get('source_concept_id')==c['nodeConceptId'];assert c['sourceSha256']==src['members'][c['sourceFileId']]['sha256'];assert c['sourceHashEmbeddedInGLB'] is False
- assert (R/r['sourceDependencies']).is_file();assert r['evidence']==s['evidence']
- for c in r['componentIdentityMap']:
-  file,fragment=c['sourceIdentityRef'].split('#members/');assert (R/file).is_file() and fragment in src['members']
- for x in r['externalHistoricalRecords']:
-  assert x['bundled'] is False and len(x['sha256'])==64
- for e in s['evidence']:
-  p=R/e['path'];raw=p.read_bytes();assert sha(p)==e['sha256'] and len(raw)==e['bytes'];assert raw[:4]==b'RIFF' and raw[8:12]==b'WEBP';assert e['sha256']!=e['originalPngSha256'];assert e['originalPngExternal']['bundled'] is False;assert e['originalPngExternal']['sha256']==e['originalPngSha256'];seen[sha(p)]=len(raw);ev.add(sha(p))
-assert len(seen)==m['uniqueMediaOids'] and sum(seen.values())==m['uniqueMediaBytes'] and len(ev)==m['uniqueSelectedEvidence']
-print(json.dumps({'identityChecks':'passed','files':len(checks),'uniqueMediaBytes':sum(seen.values()),'status':m['status'],'scope':'Local retained bytes only; external gzip/source archives not re-fetched; no source rebuild,rendering,anatomy or runtime pass'}))
+import sys
+
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / 'tools'))
+from verify_source_package import verify_studies
+
+REVIEW = 'reviews/bp3d-body-studies/2026-10-24-bounded-migration'
+SOURCE = 'sources/datasets/bp3d-4.0-body-studies/external-source-map.json'
+
+
+def check_source(files, study, document):
+    source = files.json(SOURCE)
+    record = files.json(study['reviewRecord'])
+    assert len(record['componentIdentityMap']) == record['componentCount']
+    assert record['evidence'] == study['evidence']
+    files.read(record['sourceDependencies'])
+    for component in record['componentIdentityMap']:
+        extras = document['nodes'][component['nodeIndex']]['extras']
+        assert extras['source_file_id'] == component['sourceFileId']
+        assert extras.get('source_concept_id') == component['nodeConceptId']
+        assert component['sourceSha256'] == source['members'][component['sourceFileId']]['sha256']
+        assert component['sourceHashEmbeddedInGLB'] is False
+        name, fragment = component['sourceIdentityRef'].split('#members/')
+        files.read(name)
+        assert fragment in source['members']
+    for reference in record['externalHistoricalRecords']:
+        assert reference['bundled'] is False and len(reference['sha256']) == 64
+    for evidence in study['evidence']:
+        assert evidence['sha256'] != evidence['originalPngSha256']
+        assert evidence['originalPngExternal']['bundled'] is False
+        assert evidence['originalPngExternal']['sha256'] == evidence['originalPngSha256']
+
+
+if __name__ == '__main__':
+    argparse.ArgumentParser(description=__doc__).parse_args()
+    print(json.dumps(verify_studies(ROOT, REVIEW, check_source)))
