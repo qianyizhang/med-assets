@@ -1,6 +1,6 @@
-# Esophageal wall palette trial — WIP disposition
+# Esophageal wall palette trial — KEEP disposition
 
-[Issue 102](https://github.com/qianyizhang/med-assets/issues/102). **Keep as a local teaching-color candidate; do not replace the canonical GLB or sheets yet.** The candidate makes the inner circular and outer longitudinal muscle bands easier to tell apart in matched oblique and transverse views. The blue and slate layers look like deliberate color codes, not histologic tissue. This is a visual readability gain only.
+[Issue 102](https://github.com/qianyizhang/med-assets/issues/102) completed the bounded offline review: **KEEP as a teaching-color candidate; the baseline remains canonical.** Optional target-viewer follow-up [#139](https://github.com/qianyizhang/med-assets/issues/139) was closed as not planned on 2026-11-03, not passed. The historical 51/55 display run failed; PR #114’s CPU/contract fix is not a post-fix display pass. The candidate makes the inner circular and outer longitudinal muscle bands easier to tell apart in matched oblique and transverse views. The blue and slate layers look like deliberate color codes, not histologic tissue. This is a visual readability gain only.
 
 The independently authored [baseline cutaway](../../../models/esophagus_wall/exports/authored-cutaway-r01/README.md) remains the teaching supplement. Its five meshes represent four tunics, with muscularis externa split into two compartments. Thicknesses, folds, wedge, length, and colors are illustrative. The source's anatomy, clinical, and browser-runtime limits still apply.
 
@@ -78,8 +78,8 @@ delivery and viewer decisions.
 | Gate | Current result |
 | --- | --- |
 | Technical | Passed for the exact material-only diff and clean Blender reimport; geometry unchanged. |
-| Visual usefulness | Local reviewer favors keeping the candidate for teaching-layer discrimination, with the false-color limitation. Hosted reviewer inspection remains pending. |
+| Visual usefulness | Local reviewer favors keeping the candidate for teaching-layer discrimination, with the false-color limitation. Bounded offline disposition is complete in #102; this is not target-viewer acceptance. |
 | Anatomy / clinical | No new acceptance; existing illustrative geometry and omissions remain. |
 | Target viewer / publication | Unrun; no canonical model, media, Site, or transport change. |
 
-Promote only after a reviewer can inspect the exact matched images and the target viewer verifies the candidate's exported colors and bilingual legend. If the false-color treatment conflicts with the broader collection or viewer, revise or reject this candidate without changing the baseline.
+No viewer follow-up is scheduled: #139 was explicitly retired. Keep the candidate, original evidence and failed/unperformed runtime results without canonical promotion. A future promotion needs its own scoped review and authorization; closure does not resume it.
