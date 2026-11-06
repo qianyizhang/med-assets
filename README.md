@@ -34,20 +34,17 @@ python3.12 tools/verify.py offline
 python3.12 tools/fetch_asset.py models/kidney_left/exports/metadata-cleanup-r01/kidney_left.glb --hydrate
 ```
 
-Python 3.11+, Git and Node.js 18+ are required. On-demand R2 retrieval verifies
-Git-pinned bytes and hydrates only an unchanged pointer. For a full LFS recovery
-checkout, run `git lfs pull`, then `python3.12 tools/verify.py payload-integrity`.
-Original paths, licensing and LFS recovery remain preserved. With pointers only, run
-`python3.12 tools/verify.py offline`; it checks metadata and behavior, not media
-bytes. [Verification](docs/WORKFLOW.md#verification) describes dental/replay
-prerequisites and the independent quality/runtime gates.
+Python 3.11+, Git and Node.js 18+ are required. The pointer-only checkout stays
+small; on-demand R2 hydration verifies Git-pinned bytes and preserves source paths.
+See [public downloads and delivery](transport/README.md) for curl, cache and upload
+workflows. For full LFS recovery, run `git lfs pull` followed by
+`python3.12 tools/verify.py payload-integrity`.
 
-For an offline incremental plan against a current mirror manifest, or a byte
-comparison against downloaded files, see [backup checking](docs/BACKUP_CHECK.md).
-This scopes work to one exact committed tree, including LFS payloads; it performs
-no transfer, manifest write, replacement or deletion.
-The linked guide also describes a serialized connector adapter and the explicit
-exclusive-writer guarantee, journal and verification steps it requires.
+The offline gate checks metadata/behavior and may inspect selected local media;
+it does not exhaustively verify payload bytes or remote availability.
+[Verification](docs/WORKFLOW.md#verification) owns the independent checks and gates.
+[Backup checking](docs/BACKUP_CHECK.md) provides read-only full-tree planning and
+comparison; verified R2 payload copies are not a complete Git-tree backup.
 
 ## Provenance and published consumers
 

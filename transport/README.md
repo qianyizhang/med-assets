@@ -1,181 +1,125 @@
-# Asset delivery: direct LFS first
+# Asset storage and delivery
 
-```text
-Reviewed bytes → direct Git LFS upload → fresh GitHub readback → asset-pointer PR
-                      │ unresolved technical failure
-                      └→ authorized Drive/Site source → bounded CI upload → readback
-Drive backup: retain the same verified bytes; not a replacement for repository delivery.
-```
+R2 provides public, on-demand reads. Git/LFS remains the canonical source and
+recovery path. Neither transport changes asset licenses, coordinates, review
+status or historical identities.
 
-## Normal flow
+## Public R2 downloads
 
-### R2 read trial
-
-The Medical model survey Site is trialling public R2 downloads. This is an
-additional read path, not a replacement for the LFS delivery flow below. The
-trial retains every repository payload and LFS pointer; it does not migrate
-history, retire an asset, change its license or promote any review gate.
-
-Fetch the trial model on demand from a committed LFS identity:
+[Asset index](https://med-assets-model-survey.landy123007.chatgpt.site/assets/index.json)
+contains each object's `sha256`, `bytes` and download `name`. Public HTTPS reads
+need no Codex/ChatGPT login or token. URLs use the Site's Worker/domain:
+`https://med-assets-model-survey.landy123007.chatgpt.site/assets/<sha256>/<name>`.
+`/assets/` itself is not a directory listing.
 
 ```sh
+curl --fail -o kidney_left.glb \
+  'https://med-assets-model-survey.landy123007.chatgpt.site/assets/d2139a88cf85b70bdd7981e6134841faff99fcf18d7a480f04224d7e74c73c28/kidney_left.glb'
+
+# Verified ignored cache; --commit defaults to HEAD:
 python3.12 tools/fetch_asset.py models/kidney_left/exports/metadata-cleanup-r01/kidney_left.glb
+
+# Restore only an unchanged matching pointer at its original path:
+python3.12 tools/fetch_asset.py models/kidney_left/exports/metadata-cleanup-r01/kidney_left.glb --hydrate
 ```
 
-The command prints a verified cache path under ignored `.artifacts/asset-cache/`.
-It verifies SHA-256 and byte size against the selected Git commit (`--commit`,
-default `HEAD`), reuses a valid cache entry, and refuses redirects, corrupt or
-partial downloads and symlink cache entries. It never overwrites the asset's
-repository path, changes Git configuration or uploads anything. Only objects
-explicitly published by the Site are available; an absent object fails. The
-Site's `/assets/index.json` identifies the currently published trial objects.
+For manual downloads, compare the file size and SHA-256 with the index.
+The fetcher does this automatically: it binds bytes to the selected Git revision,
+resolves published aliases,
+and checks size/SHA-256. It refuses redirects, encoding changes, corrupt caches,
+symlinks and concurrent edits. Hydration preserves permissions; correct local
+bytes avoid network work. Unpublished objects fail explicitly. Large ordinary
+Git data blobs are identified by their committed content rather than LFS pointers.
 
-### LFS delivery
+On 2026-11-06, all 689 LFS payloads plus five Git data/evidence blobs >=1 MB were
+copied and fully read back: **694 objects / 976,485,579 bytes**, source revision
+`503c33f1dadf403faaec373c1a11a8b40dc523d6`. The index has 1,001 routes including
+retained previews and the frozen framework backup. Upload authorization was
+closed after verification. Original Git/LFS copies remain; history and existing
+storage have not been pruned. [Site build/recovery](../sites/model-survey/README.md)
+and its structured references own deployment and backup details.
 
-- Check the **current executor**, repository remote and existing authentication;
-  connector access does not imply shell access. Try the exact authorized, bounded
-  object upload (for example, `git lfs push --object-id origin <reviewed-oid>`),
-  not a broad ref push. An old environment failure is not a permanent limitation.
-- Record timestamp, executor context, command, exit status and sanitized result.
-  Distinguish missing authentication, network failure, quota and action denial;
-  do not guess the cause or expose tokens, signed URLs or private billing data.
-- Verify size and SHA-256 from a **fresh GitHub download / empty LFS store** before
-  opening the matching asset-pointer PR. Preserve the receipt and exact artifact
-  identity. Upload success alone is not repository delivery or asset approval.
-- Keep a verified backup in the owner's authorized Drive destination. Use Drive
-  or a Site as a source fallback only when direct transport fails and its technical
-  cause remains unresolved; do not build a staging detour when direct upload works.
-- Fallback needs the same byte/hash checks and existing source/publication permissions.
-  Do not change sharing, add credentials, widen allowlists or bypass an access/action
-  denial. The general manifest executor accepts only the Site sources listed below.
-  The separate [Balanced-only Drive fallback](https://github.com/qianyizhang/med-assets/pull/142)
-  requires explicit main dispatch and its fixed reviewed OID; it is not general
-  Drive support. New objects/sources still need separate code review.
-  Known permission, quota or integrity failures must be resolved, not routed around.
+## Add or reverify R2 copies
 
-## Bounded CI fallback
+- `tools/r2_migration.py` plans every LFS payload plus Git blobs >=1 MB at a fixed
+  commit. It verifies local bytes and produces a fresh candidate without network
+  or Git writes. Review selected paths, rights and disclosure scope first.
+- The Site's [delivery manifest](../sites/model-survey/app/src/content/assets/r2-trial.json)
+  is the delivery-reference owner; the historical name
+  remains part of the pinned framework import. Declarations alone do not prove
+  remote availability. The handler admits only named hash/size/type routes,
+  checks MIME/extension pairs and caps one object at 64 MB. Source, volume,
+  SVG/JSON and ZIP bytes are attachments with no sniffing; HTML/JS are excluded.
+- `tools/r2_upload.mjs` takes short-lived authorization through hidden stdin or an
+  in-memory caller. It rechecks Git/local identities, streams <=32 objects / 64 MB
+  per batch with <=4 active requests, and verifies complete fresh anonymous reads.
+  Resume state stays ignored; linked or existing temporary-state paths are refused.
+- Any HTTP, quota, permission or integrity failure stops after the current group.
+  No automatic retry, provider fallback or spending-limit adjustment occurs.
+  Explicit resume repeats readback and avoids reuploading previously verified
+  objects. Close the asset-upload environment and redeploy the same saved version
+  when done; preserve the owner environment and audience.
 
-One reusable executor replaces per-batch workflow copies. It never commits pointers, pushes Git refs, merges PRs, changes settings, or fetches executable source code.
+The selected maximum is 42,497,262 bytes. See [Workers request limits](https://developers.cloudflare.com/workers/platform/limits/)
+and [R2 upload methods](https://developers.cloudflare.com/r2/objects/upload-objects/).
+Retiring a provider or old copy requires complete coverage and consumer checks.
 
-## CI fallback flow
+## Git LFS delivery and recovery
 
-1. Review an exact manifest and the asset/source/privacy/licensing scope. Save its **unchanged UTF-8 bytes** as `transport/manifests/<sha256-of-file>.json`.
-2. Merge a **manifest-only PR adding exactly one file**. This explicitly authorizes that bounded batch. The main-only push trigger compares the event's before/after commits; edits, deletions, multiple files, or mixed code changes stop before any source download/upload. Do not combine executor changes with a transport batch.
-3. The pinned main checkout verifies the manifest filename, file hash, committed bytes and fixed limits; downloads and validates **every** source before any upload; checks which OIDs are missing; uploads only those; then downloads every object from GitHub over fresh HTTPS, not the LFS cache.
-4. Independently run the readback command below in another cloud executor with the reviewed main manifest. Preserve its sanitized receipt and the Actions run URL in the asset PR. Only then publish/merge matching asset pointers and review evidence.
+For authorized canonical uploads, try the exact bounded direct operation first,
+for example `git lfs push --object-id origin <reviewed-oid>`. Verify the current
+executor, remote and existing authentication; connector access does not establish
+shell access. Record sanitized results and distinguish authentication, network,
+quota, integrity and action-denial failures.
 
-This is not a new per-commit gate: unrelated commits and asset-pointer PRs do not trigger transfer. Ordinary PR branch hygiene can follow the user's periodic cadence.
+Verify size/SHA-256 through a fresh GitHub download or empty LFS store before
+merging matching asset pointers. Keep authorized verified backups. A Drive/Site
+fallback is allowed only for an unresolved technical failure of direct transport
+and the same reviewed bytes/rights. Never route around a permission, quota,
+integrity or action denial using another tool, credential or provider.
 
-## Authorized transport PR merges
+## Guarded CI fallback
 
-An assistant may complete a routine transport merge within the owner's existing authorization; this is not authority to merge arbitrary changes or approve an asset candidate. Use the connected GitHub tools, with no new credentials:
+[`bounded-lfs-transport.yml`](../.github/workflows/bounded-lfs-transport.yml) and
+[`tools/lfs_transport.py`](../tools/lfs_transport.py) own the executable gates:
 
-1. Confirm the exact PR is manifest-only, its reviewed batch is authorized, and its full head SHA matches the reviewed changes. Check required reviews, CI and branch rules; `mergeable=true` alone is not sufficient.
-2. If draft, use `mark_pull_request_ready_for_review`; draft PRs cannot merge. Re-read the PR after the transition.
-3. Use `merge_pull_request` with `expected_head_sha` set to the reviewed full SHA and a repository-allowed merge method. If the head changed, stop and review the new changes rather than silently accepting them. Preserve all required checks and protections.
-4. Verify the merged state and merge commit, then the upload workflow result and independent fresh LFS readback described above. A successful merge is not proof of successful transport. Record the run URL and sanitized receipt.
+1. Review the exact asset/source/privacy/licensing scope. Save unchanged manifest
+   bytes as `transport/manifests/<sha256-of-file>.json`.
+2. Merge a manifest-only PR adding exactly one file. Mixed edits, deletions or
+   multiple files do not authorize execution. Keep executor changes separate.
+3. The main-only job validates event/repository/ref, source bytes and fixed bounds;
+   downloads every source before upload; uploads missing OIDs; then freshly reads
+   every object from GitHub. Independently repeat readback from another executor.
+4. Merge matching pointers/evidence only after those checks. Review current CI,
+   branch rules and exact PR head; use guarded `expected_head_sha` merges. Mark a
+   draft ready only within applicable user authorization. Merge success alone
+   does not prove transfer or asset approval.
 
-GitHub repository write permission and approval to execute a particular action are separate. An action-approval denial before execution is not a GitHub permission or CI failure. Stop the denied action; do not retry through CLI, browser, another agent or token, weaken protections, or obtain broader credentials to bypass it. If the exact transition is genuinely outside the existing authorization, request only that specific scope. If adequate authorization already exists but the action remains blocked, report the unresolved block through the supported feedback/handoff path rather than repeatedly asking for the same permission. Knowing this workflow does not mean an approval block has been removed.
+CI manifests use `objects`, `totalBytes` and optional `objectCount`/`scope`.
+Each object binds `file`, `sha256`, `bytes` and `url`; `file` is metadata, never
+an output path. Gzip also binds encoded hash/size. Hash-named manifests are
+immutable: corrections need a newly reviewed file. Duplicate/unknown fields fail.
 
-Auto-merge is an optional supported feature when the repository permits it and required reviews/checks remain pending. The connected wrapper does not expose an expected-head guard; prefer the guarded immediate merge for a frozen reviewed manifest. Auto-merge is not a workaround for a denied action.
-
-Transport authorization covers the reviewed upload only. Keep separate candidate anatomy, visual-quality, clinical and runtime approval unchanged; a draft candidate remains draft unless separately authorized.
-
-**Recorded example:** the owner merged [PR78](https://github.com/qianyizhang/med-assets/pull/78) on 2026-10-26. This was not an assistant workaround for the earlier blocked ready transition and does not establish that future action approval will succeed.
-
-References: [draft/ready transitions](https://docs.github.com/en/pull-requests/how-tos/create-pull-requests/changing-the-stage-of-a-pull-request), [merge requirements](https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/merging-a-pull-request), [merge API SHA guard](https://docs.github.com/en/rest/pulls/pulls#merge-a-pull-request), [auto-merge](https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/automatically-merging-a-pull-request).
-
-## Manifest shape
-
-Use the existing transport format: top-level `objects`, `totalBytes`, optional `objectCount` and `scope`. Each object has `file` (raw identity/display path), `sha256`, `bytes`, and `url`. `file` is metadata only; temporary files are always named by checked OID, never that path.
-
-- Identity transport: no transport-specific fields, optionally `"encoding":"identity"`.
-- Gzip GLB: `"encoding":"gzip"`, `transportSha256`, and `transportBytes`. Both compressed bytes and bounded decoded bytes must match. The LFS OID is the **raw GLB** hash.
-- GLB, WebP and PNG only. WebP bytes are checked independently of any PNG-derived URL basename.
-- Only `https://anatomy-verification.landy123007.chatgpt.site/review/...`, the focused companion `https://anatomy-airway-review.landy123007.chatgpt.site/review/...`, the existing Assets site `https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/review/...`, the dedicated Dental site `https://anatomy-dental-review.landy123007.chatgpt.site/review/...`, and the focused Head/Neck site `https://anatomy-head-neck-review.landy123007.chatgpt.site/review/...` are allowed sources. No credentials, query strings, traversal, other hosts, or cross-origin redirects—even between allowed hosts. Same-origin redirects must still pass the source-path checks. Additional sources/formats require a separate small code review—not manifest-controlled allowlists. A host entry is not batch approval or proof of public availability; every manifest and source byte/hash check remains required.
-- Fixed ceilings: 32 unique OIDs, 40,000,000 raw bytes and 40,000,000 transport bytes per batch, 40,000,000 bytes per object/transport, 128 KiB manifest. These are safety ceilings, **not standing approval to spend or upload arbitrary assets**. Each manifest still needs scope review.
-- The 40,000,000-byte ceiling accommodates the reviewed muscle (30,517,312 bytes) and breast (37,499,672 bytes) exports in separate, explicitly approved bounded batches. It does not authorize those uploads by itself, change spending limits, or include source archives.
-
-Content-addressed filenames are immutable identities. Fix a manifest by adding a newly reviewed hash-named file, not editing the old one. JSON is parsed strictly as data; duplicate/unknown fields and invalid types are rejected.
-
-## Commands
+This CI flow permits GLB/PNG/WebP from code-pinned Site `/review/` origins only.
+Limits are 32 OIDs, 40,000,000 bytes per object and batch (raw and encoded), and
+128 KiB per manifest. Source/format additions require code review. These limits
+are separate from direct R2 delivery and are not standing upload authorization.
 
 ```sh
-# Offline validation; no network or Git writes:
-python3 tools/lfs_transport.py validate --manifest-sha256 <64-lowercase-hex>
-python3 -m unittest discover -s tests -p test_lfs_transport.py
-
-# Read-only independent verification; no user token or LFS cache:
-python3 tools/lfs_transport.py readback --manifest-sha256 <64-lowercase-hex>
+python3.12 tools/lfs_transport.py validate --manifest-sha256 <sha256>
+python3.12 tools/lfs_transport.py readback --manifest-sha256 <sha256>
+python3.12 -m unittest discover -s tests -p test_lfs_transport.py
 ```
 
-An optional manual `workflow_dispatch` accepts only that manifest SHA and only runs on main. It can reverify/retry an already-reviewed manifest; missing-only upload avoids duplicate storage, but readback still consumes bandwidth. Current connected GitHub tools expose reads/reruns, **not dispatch**; the normal reviewed-merge push path avoids new credentials or API workarounds. GitHub also supports manual UI/CLI/REST dispatch with appropriate existing access: [official documentation](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/manually-run-a-workflow).
+Manual dispatch accepts only a reviewed manifest SHA on main. The executor uses
+one serialized, 10-minute job with pinned checkout and the existing ephemeral
+GitHub token. It never commits, pushes refs, merges PRs, changes settings or executes
+downloaded content. Ordinary PRs stay read-only and never trigger uploads. Existing
+[Balanced-only Drive fallback](https://github.com/qianyizhang/med-assets/pull/142)
+is separately scoped; it does not provide general Drive support.
 
-## Security and failure boundaries
-
-- No `pull_request` or `pull_request_target` upload trigger. Repository, event, main ref, checkout commit and manifest hash are checked again in Python.
-- One serialized job, 10-minute timeout, pinned official checkout, `contents: write` only, existing ephemeral `GITHUB_TOKEN` authentication. No PAT, secrets, settings, or new permission request. [GitHub token documentation](https://docs.github.com/en/actions/tutorials/authenticate-with-github_token).
-- Git LFS upload URLs are fixed to this repository with command-scoped overrides, including remote-specific overrides; no manifest-selected destination. [Git LFS configuration](https://github.com/git-lfs/git-lfs/blob/main/docs/man/git-lfs-config.adoc).
-- Source/LFS response sizes and gzip output are bounded. URLs/headers from temporary LFS download actions and raw Git stderr are never logged. Cross-origin redirects are refused rather than forwarding authentication.
-- A source 403/hash mismatch, unexpected destination response, permission failure or quota error stops the batch. Already-uploaded objects may remain if a later operation fails; do not claim success without complete readback. No automatic batch resubmission or spending-limit adjustment. Source fallback follows the preferred-route conditions above; it is never a workaround for a denied action or known permission/quota/integrity failure.
-- This does **not** query billing headroom or guarantee zero fees. Existing budgets/quotas still govern; check known allowance before approving a batch and stop for any new cost decision.
-- Hash/format checks prove transport identity, not anatomy, visual quality, licensing, de-identification or recipe reproducibility. Those remain separately reviewed evidence.
-
-## First execution
-
-The first approved manifest-only merge completed successfully on 2026-10-24: [diaphragm transport run](https://github.com/qianyizhang/med-assets/actions/runs/40079101938/job/120828718881). All 10 objects / 6,620,120 bytes passed source verification, missing-only upload, runner readback and separate fresh GitHub download at 08:44:17 UTC. This establishes that bounded run only, not future source availability, billing headroom or anatomy/runtime acceptance. Offline tests remain distinct from live transfer evidence.
-
-Historical executor provenance is retained in the recovery bundle and restoration
-evidence under `sources/recovery/completed-pilots/`; this
-implementation has no dependency on deleted pilot branch refs or extracted copies.
-
-## Repository payload copies in R2
-
-The user-authorized migration in issue #245 copies Git-pinned payloads to the
-existing public model-survey Site. `tools/r2_migration.py` selects every LFS
-payload plus directly tracked Git data/evidence blobs >=1 MB, checks local bytes
-against a fixed commit, and produces a candidate delivery manifest without
-network access. The Site's existing `r2-trial.json` is the delivery reference
-owner; its historical filename is retained for the pinned framework import.
-
-The direct R2 handler admits only named hash/size/type routes, caps one object at
-64 MB, and validates extension/type pairs. Source/volume/SVG/JSON binaries are
-attachments with no sniffing. No HTML or JavaScript asset type is admitted.
-Streaming R2 checksum validation, immutable object keys and fresh complete
-readback establish byte identity; declaration in the index is not proof that
-an object exists. The 64 MB ceiling fits the selected maximum 42,497,262-byte
-source; see [Workers request limits](https://developers.cloudflare.com/workers/platform/limits/)
-and [R2 upload methods](https://developers.cloudflare.com/r2/objects/upload-objects/).
-
-`tools/r2_upload.mjs` accepts a short-lived upload token only through hidden stdin
-or an in-memory caller. It rechecks each declared payload against Git and the
-local file, processes <=32 objects / 64 MB per batch with <=4 in flight, verifies
-full anonymous readback, and persists resumable state only in ignored output.
-Any unexpected HTTP, permission, quota, size or hash result stops the run after
-its current group. No automatic retry, provider fallback or spending-limit
-adjustment occurs. Explicit resume rechecks readbacks; verified prior objects
-need no upload. Close the temporary asset-upload environment and redeploy the
-same saved version after success. Preserve the owner environment and audience.
-
-Consumers use `tools/fetch_asset.py PATH --commit REV` for a verified ignored
-cache, or `--hydrate` to replace only an exact matching LFS pointer at its original
-path. An already-correct local payload avoids network work; changed files,
-symlinks, mismatched pointers and concurrent edits are preserved and refused.
-Git data blobs can be fetched using their exact committed bytes as identity.
-Published filenames come from the checked delivery reference, including aliases.
-
-Original LFS objects, tracked data files, source/export paths, licenses, review
-records and historical Git identities remain recovery material. This copying
-phase does not rewrite history or claim that existing Git storage has shrunk.
-Retiring an old provider/copy requires complete coverage and consumer checks.
-The earlier guarded CI/LFS publishing workflow and its 40 MB batch limits remain
-unchanged; this direct R2 flow is separately authorized and reviewed. Transport
-replication does not promote technical geometry, visual, anatomy or runtime gates.
-
-Completed copy: 694 unique payloads / 976,485,579 bytes at source revision
-`503c33f1dadf403faaec373c1a11a8b40dc523d6`, verified by complete fresh readback.
-The delivery index has 1,001 named routes including retained previews/backup.
-Publication source `3d1bb000df0376f8f64d15183b1504d858b97d01` is live as public
-Site version 5; temporary asset upload authorization was removed afterward.
-Main/source and LFS recovery were retained, so this is provider migration and
-on-demand retrieval, not historical repository shrinkage.
+Keep tokens, signed URLs and raw credential-bearing errors out of logs/source.
+Existing budgets/quotas govern all flows; checks do not establish billing headroom
+or authorize new spend. Byte identity does not establish geometry, visual,
+clinical/anatomical, licensing, de-identification or runtime approval.
+Historical executor recovery remains in [completed pilots](../sources/recovery/completed-pilots/README.md).

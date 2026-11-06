@@ -1,110 +1,95 @@
-# Model survey Site
+# Model survey and R2 delivery
 
-[Existing public Site](https://med-assets-model-survey.landy123007.chatgpt.site/) · [local preview](http://127.0.0.1:62099/)
+[Public survey](https://med-assets-model-survey.landy123007.chatgpt.site/) ·
+[Public asset index](https://med-assets-model-survey.landy123007.chatgpt.site/assets/index.json)
 
-Dated survey at med-assets `e63006dca598031d58bdf66485fed24a24194558`.
-Asset directories and review records remain authoritative. Source separation does not refresh the survey or change its features. The later
-user-authorized frozen backup adds one public ZIP delivery route.
+The survey covers 62 families, 31 products and 141 GLB paths at
+`e63006dca598031d58bdf66485fed24a24194558`. Its 92 preview rows use 153 image
+pairs. Asset directories and review records remain authoritative; storage changes
+do not refresh the survey or promote review gates. Fetus remains recipe-only,
+the FDI31/46 pilot preview is labelled FDI31, and neutral renders are unreviewed.
 
-## Source ownership
+## Owners
 
-| Path | Owner |
+| Path | Purpose |
 |---|---|
-| `app/src/content/`, `app/src/theme.css` | Survey interface, theme and R2 asset delivery. |
-| `app/.openai/hosting.json`, `app/tests/` | Existing Site identity/bindings and survey-specific Worker tests. |
-| `framework.lock.json` | Exact external framework commit, Git tree and integrity-manifest hash. |
-| `tools/`, repository `tests/test_model_survey_*.py` | Survey reproduction, framework assembly and checks. |
-| `snapshot-reference.json` | Artifact, immutable data, source serialization and publication recovery identities. |
-| `.local/publication/` | Ignored existing Sites Git checkout and source history. Also supplies the pinned framework Git objects. |
-| `.local/app/` | Ignored complete app assembled from the framework plus survey source. Its restored `AGENTS.md` and integrity checks govern builds. Never edit this generated copy. |
-| `.local/preview/` | Preserved original verified split build on port 62099. |
+| `app/src/content/`, `app/src/theme.css`, `app/tests/` | Survey interface, theme, R2 delivery and tests. |
+| `app/.openai/hosting.json` | Existing Site identity and DB/BUCKET bindings. |
+| `framework.lock.json` | Pinned external framework and frozen ZIP URL/size/hash. |
+| `snapshot-reference.json` | Original snapshot identities and current `livePublication` reference. Immutable seed, API response and source serialization have separate hashes. |
+| `tools/` | Survey reproduction, seed restoration, preview preparation and framework assembly. |
+| `.local/publication/` | Ignored publishing Git checkout; retain its remote ancestry. |
+| `.local/app/` | Ignored complete generated project; edit the overlays in `app/` instead. |
+| `.local/preview/` | Original split preview at http://127.0.0.1:62099/. Its Data preview registration resumes at user login until stopped. |
 
-The framework remains in the **existing Sites source repository**, at the locked
-revision, as an external dependency. There is no new Site or framework repository.
-Fresh checkouts can restore the pinned Git dependency from the public frozen ZIP
-in `framework.lock.json`; Sites source authentication is optional for local builds.
-The ZIP's included README covers checksum verification, extraction, direct local
-builds and Git-bundle restore. Clone `model-survey-backup/framework.bundle` into
-`.local/publication/`, then pass that Git directory to `tools/framework.py`.
-Publishing still uses the existing Sites owner/source authorization. An owner can
-also open the existing source with the Sites helper into `.local/publication/`.
-Preparation
-then runs offline and reads the pinned Git object, not the remote branch tip,
-ignored build output or installed plugin template. Keep the remote history.
+R2 retrieval and migration are documented once in the
+[transport guide](../../transport/README.md). Downloads are public HTTPS and need
+no Codex/ChatGPT login. Objects are served by this Site's Worker, not direct bucket
+URLs. `/assets/index.json` is the listing; `/assets/` is not a directory browser.
 
-`tools/framework.py` checks the commit/tree, runtime-manifest hash, Site bindings,
-artifact identity and safe paths, then adds the survey overlays and complete seed.
-The dependency's old survey content is excluded, so removing an authored file
-cannot silently restore an old report. It refuses missing/wrong dependencies,
-links and existing output. Use a fresh
-`--output` directory for another build; source, user data and prior builds are
-never overwritten. No background download, update or cleanup is scheduled.
+## Restore and build locally
 
-## Prepare and build
+Use Node 24, npm, Git and Python 3.11+. No Sites authentication or Data plugin is
+needed for local builds from the frozen backup:
 
-Restore ignored `app/src/data.json` first. The current source seed is 520,272 bytes;
-its hash differs from both the immutable deployed seed and mutable API response.
-`tools/restore_snapshot.py` accepts the original inline-image snapshot, the exact
-immutable R2 seed, or the included frozen source seed, verifies image bindings, and reconstructs the exact source
-serialization. It refuses conflicting output and the reordered API response.
-
-The original immutable manifest remains at
-`.local/recovery/original-publication-source.json`, also recoverable from
-publication commit `f69d31708d87500f761b430de1a0113294ffb1d3`. Use Data's
-`hydratePublicationSource` with that original source checkout/manifest to recover
-the complete historical snapshot. Never use mutable `/api/snapshot` as immutable
-seed recovery. Keep credentials in memory/stdin, outside source and logs.
-
-From the med-assets root, after restoring the pinned Git dependency:
+1. Download `framework.lock.json.backup.url`; verify its exact byte count and
+   SHA-256 before extraction. The ZIP includes its own restore guide.
+2. Set `SURVEY_BACKUP` to the extracted `model-survey-backup/` directory.
+3. In a fresh checkout, run these commands from the repository root:
 
 ```sh
-python3.12 sites/model-survey/tools/restore_snapshot.py PATH_TO_VERIFIED_SNAPSHOT
+git clone "$SURVEY_BACKUP/framework.bundle" sites/model-survey/.local/publication
+python3.12 sites/model-survey/tools/restore_snapshot.py "$SURVEY_BACKUP/app/src/data.json"
 python3.12 sites/model-survey/tools/framework.py
-npm ci --prefix sites/model-survey/.local/app
-node DATA_PLUGIN_ROOT/scripts/data-app.mjs build --project-dir sites/model-survey/.local/app --source
+npm --prefix sites/model-survey/.local/app ci
+npm --prefix sites/model-survey/.local/app run build
 ```
 
-Use Node 24 and the pinned package lock. `DATA_PLUGIN_ROOT` above denotes the
-installed Data plugin path, not another repository dependency. The explicit source
-build preserves the custom R2 Worker. Build modes are mutually exclusive:
-`--source` produces a complete HTML build; do not combine it with `--separate-data`.
-The generated project contains the unchanged protected runtime and its verifier.
+Existing source checkouts can supply the same pinned Git objects. Seed restore
+accepts only the verified original snapshot, immutable R2 seed or frozen source
+seed; it refuses conflicting data and the reordered mutable API response.
+Framework assembly checks the commit/tree, integrity manifest, Site bindings and
+safe paths, excludes old survey content, and refuses existing output. Use a fresh
+`--output` directory when rebuilding the generated project.
 
-For a browser preview of this complete source build, serve its `dist/` with the
-Data preview helper. The existing port-62099 preview and offline export remain
-available without rebuilding. The registered preview resumes at user login until
-stopped. Browser-local presentation belongs to its existing origin.
+Serve the built `dist/` with a local HTTP server. Source-built previews use public
+R2 images. The ZIP's `offline/model-survey.html` embeds images and opens fully
+offline. Node/npm packages are not bundled; `npm ci` needs public npm access or a
+suitable cache. The generated project's unchanged `AGENTS.md` and runtime
+verifier govern its source/build boundaries.
 
-## Publish and recover
+## Publish
 
-Keep project `appgprj_6aed57a59dc88191a981c07e56d283e7`, artifact identity,
-DB/BUCKET bindings, owner environment, stored edits and the **current public**
-audience. The retained trial objects, frozen backup and declared Git-pinned repository
-payloads use public reads;
-writes remain owner-only or require a short-lived scoped upload authorization.
+Use the Data and Sites skills with the generated project. Explicit Data builds
+and packaging use `--source` to preserve the custom Worker; do not combine that
+mode with `--separate-data`. The local npm step builds the client; source packaging compiles the custom Worker.
 
-Use the Data and Sites publishing skills with the assembled complete project.
-Both build and packaging must use `--source` to preserve the custom Worker.
-Reconcile newer remote source, copy the checked materialized source/output into
-the existing `.local/publication/` checkout, and append to its history using the
-Sites helper. Never push the whole med-assets repository. Never rebuild between
-final packaging and publication. Verify full asset uploads/readback as usual.
-Source-only separation required no deployment; the backup delivery addition is
-published through this existing workflow.
+Preserve the existing Site/artifact IDs, public audience, owner environment,
+stored edits and DB/BUCKET bindings. Reconcile newer remote source, copy checked
+materialized source and packaged output into `.local/publication/`, then append
+through the Sites helper. Never push the whole med-assets repository or rebuild
+after final packaging. Verify complete uploaded assets and fresh readback. Close
+temporary asset-upload authorization and redeploy the same saved version afterward.
+Current deployment/source identities belong in `snapshot-reference.json`.
 
-The current public version 5 uses source
-`3d1bb000df0376f8f64d15183b1504d858b97d01`; its deployment and separate immutable,
-API-response and source-seed hashes are recorded in `snapshot-reference.json`.
-All report fields remain unchanged except that 306 image/thumb values use R2 URLs
-binding the original decoded bytes. Variable platform scripts prevent using the
-browser HTML response hash as packaged-byte identity.
+## Recipes and checks
 
-Ignored original offline assets/exports remain in `app/.data-app-*`, the complete
-original authoring history in `.local/recovery/authoring.bundle`, and the exact
-version 2 archive in `.local/deployment-v2.tar.gz`. The retained publication `dist/` now matches version 5. Rebuild changed source
-before new packaging.
+`build_survey.py` refreshes reviewed rows from indexed repository sources;
+`add_previews.py` embeds retained previews; `render_previews.py` uses exact hydrated
+GLBs. These change survey content and require review. `prepare_r2_assets.py`
+prepares image objects/URLs locally without uploading:
 
-## Checks and limits
+```sh
+python3.12 sites/model-survey/tools/prepare_r2_assets.py \
+  --app sites/model-survey/app --output NEW_DIRECTORY \
+  --site-url https://med-assets-model-survey.landy123007.chatgpt.site
+```
+
+Pillow, Blender, Sharp and Playwright/browser are recipe-specific dependencies.
+`MED_ASSETS_REPO` selects another checkout; optional host overrides are
+`MODEL_SURVEY_NODE`, `MODEL_SURVEY_SHARP_MODULE`,
+`MODEL_SURVEY_PLAYWRIGHT_MODULE`, `MODEL_SURVEY_BROWSER` and
+`MODEL_SURVEY_PREVIEW_URL`. Browser captures go to ignored `.local/qa/`.
 
 ```sh
 python3.12 -m unittest discover -s tests -p 'test_model_survey_*.py' -v
@@ -113,82 +98,17 @@ node --test sites/model-survey/app/tests/r2-assets.test.mjs
 python3.12 tools/verify.py offline
 ```
 
-Survey recipes default to this repository; `MED_ASSETS_REPO` can select another
-checkout. Preview generation needs Pillow; neutral renders need Blender and
-hydrated, hash-matching GLBs. SVG rasterization needs Node/Sharp; browser recipes
-need Playwright and a browser. Optional host overrides remain
-`MODEL_SURVEY_NODE`, `MODEL_SURVEY_SHARP_MODULE`,
-`MODEL_SURVEY_PLAYWRIGHT_MODULE`, `MODEL_SURVEY_BROWSER` and
-`MODEL_SURVEY_PREVIEW_URL`. Do not commit regenerated inline-image datasets.
+## Retention
 
-Coverage remains 62 families, 31 products and 141 GLB paths; 92 preview rows use
-153 image pairs. Fetus is recipe-only; the FDI31/46 pilot preview is labelled
-FDI31. Neutral views remain unreviewed. Existing report disagreements retain
-proposed corrections for eye coverage, trabecular spacing and superseded heart
-applicability text. No anatomy/clinical/WebGL acceptance is promoted by builds.
+Keep the frozen ZIP and its delivery entry while the pinned framework or survey
+depends on it. Keep source/data/license references, publishing history, original
+offline exports (`app/.data-app-*`), authoring Git bundle and unique deployment
+archives in the existing ignored recovery locations. The ZIP is never added to
+Git. Historical source recovery also remains in the original publication manifest
+under `.local/recovery/` and publication commit
+`f69d31708d87500f761b430de1a0113294ffb1d3`.
 
-Retain source/data/license references, current publication recovery and original
-history while the Site depends on them. Review scratch renders and QA captures by
-2026-12-06; stop preview users before removing their directory. No automatic
-retirement is scheduled. Follow the configured HTTPS proxy for Node publication
-on this host (`NODE_USE_ENV_PROXY=1`).
-
-## Frozen backup without Sites authentication
-
-`framework.lock.json.backup` pins the public R2 URL, exact 10,710,642-byte size
-and SHA-256 of the frozen ZIP. Verify all three before extraction. It contains
-the complete framework Git bundle, frozen buildable source with the exact seed
-and npm lock, restore instructions, and the original self-contained offline HTML.
-Node/npm dependencies are not bundled; ordinary builds fetch public npm packages
-unless cached. The embedded-image offline HTML needs neither npm nor network.
-
-The archive stays outside Git. Preserve this object while the pinned framework
-or survey depends on it; retain its delivery manifest entry in future deployments.
-The current source's ZIP addition is an overlay on the
-frozen framework; the backup intentionally remains byte-identical to its verified
-f65265c snapshot. The delivery manifest permits this exact object and serves it
-as an attachment. General CI/LFS transport allowlists are unchanged.
-
-Full anonymous R2 readback verified the ZIP's exact size/hash. Anonymous PUT,
-DELETE and unlisted ZIP requests were rejected; the report data and an existing
-preview image still matched. The temporary asset-upload environment was removed
-and version 4 redeployed at environment revision 6; the owner setting is unchanged.
-
-## On-demand retrieval and preview preparation
-
-From the repository root, `python3.12 tools/fetch_asset.py PATH --commit REV`
-reads the exact committed LFS pointer and downloads the matching public R2 object
-into the ignored, content-addressed cache. It refuses redirects, wrong sizes,
-encoding changes, corrupt data and symlink caches. A verified cache hit avoids
-network access. Missing/unpublished objects fail explicitly; this command does
-not overwrite source paths or silently change providers.
-
-`tools/prepare_r2_assets.py --app sites/model-survey/app --output NEW_DIRECTORY
---site-url https://med-assets-model-survey.landy123007.chatgpt.site` prepares
-embedded image bytes and immutable URLs locally, preserving existing manifest
-entries and review metadata. It does not upload. Reassemble the complete project
-with `tools/framework.py` into a fresh ignored directory after changing overlays,
-then follow the source build/publication steps above. The current public trial
-and frozen backup are retained; only the existing owner workflow can publish.
-
-## Repository payload migration
-
-The same R2 delivery manifest now covers all 689 LFS payloads and five directly
-tracked Git data/evidence blobs >=1 MB at the pinned migration revision. The
-copy set is 694 unique payloads / 976,485,579 bytes. Existing preview and backup
-routes remain. Check the completed migration result before assuming a newly
-declared object is available; reads fail explicitly for unavailable storage.
-
-Use the repository's [R2 retrieval/migration guide](../../transport/README.md#repository-payload-copies-in-r2)
-for source verification, bounded upload/readback, on-demand cache/hydration and
-retention. Report data and its review statuses are unchanged.
-
-Migration completed on 2026-11-06: all **694 payloads / 976,485,579 bytes** passed
-complete fresh anonymous SHA-256/size readback in 27 bounded batches. All 1,001
-current routes, the report and frozen ZIP remain available. Version 5 was
-redeployed at environment revision 8 after the asset-upload lease was removed;
-the owner setting and public audience are unchanged. A pointer-only checkout
-successfully fetched/hydrated the 42,497,262-byte Blender source, and retrieved
-a large Git JSON blob. The frozen ZIP's included source seed also restores
-without Sites authentication. Existing Git/LFS copies remain recovery material;
-no history rewrite or original-file retirement has occurred.
+Stop preview users before moving their directory. Review scratch renders/captures
+by 2026-12-06; no background update or deletion is scheduled. Existing eye,
+trabecular-spacing and heart-applicability disagreements remain in the survey
+with proposed corrections; no anatomy/clinical/WebGL acceptance is implied.
