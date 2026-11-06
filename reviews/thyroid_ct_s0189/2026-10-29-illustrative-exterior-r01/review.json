@@ -39,5 +39,5 @@
     "license": "https://creativecommons.org/licenses/by/4.0/",
     "prior_provenance": "models/thyroid_ct_s0189/provenance/source-candidate-02/migration-2026-10-24/external-source.json"
   },
-  "failure_fix": "See failed-v1-record.json; V2 changes localized weighting and comparison camera/light setup; no further smoothing requested by reviewer."
+  "failure_fix": "V1 emphasized the opposite face and used a weak comparison setup. V2 corrects localized weighting, the sampled ridge-face camera and matched lighting without increasing smoothing strength or iterations. Rejected V1 output is retired; no further smoothing was requested."
 }

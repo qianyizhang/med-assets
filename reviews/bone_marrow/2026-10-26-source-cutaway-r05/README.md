@@ -39,4 +39,4 @@
 - r05: bounded local inset correction removed the remaining detected contact without moving the selected source exterior. No larger smoothing or hidden source alteration.
 - r01 的规则格栅和骨干薄条不可信；r02 外观改善但出现 37 处外壳接触；r03 拓扑修正后仍有 23 处；r04 调整构造顺序后剩 1 处，确认来自人工内偏移而非来源；r05 限定局部内偏移后检测为 0，未移动选定来源外表面。**外观合理或流形均不能单独证明几何正确。**
 
-Source/license: `sources/bone_marrow/source-cutaway-r05/`. Reproduction: `tests/bone_marrow/source-cutaway-r05/README.md`. Third-party source and reference rights are preserved; no separate public license is declared for newly authored code/documentation/additions.
+Source/license: `sources/bone_marrow/source-cutaway-r05/`. Reproduction: `models/bone_marrow/recipes/source-cutaway-r05/README.md`. Third-party source and reference rights are preserved; no separate public license is declared for newly authored code/documentation/additions.

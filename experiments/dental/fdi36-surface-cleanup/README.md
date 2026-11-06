@@ -1,6 +1,10 @@
 # FDI36: bounded occlusal-surface cleanup experiment
 
-References #217. **This fixes a surface-generation artifact; it does not deliver or accept the full intact/restoration baseline.**
+References #217. **Retained noncanonical experiment; not an accepted intact/restoration baseline.**
+
+Disposition (2026-11-06): preserve this bounded study on main. The larger caries
+and cleaning scopes are deferred in the [consolidated dental plan](../../../docs/dental-atlas/PLAN.md);
+their issue closure does not mean delivery or validation.
 
 ![Original v5 / Updated v6, matched views](evidence/original-updated.png)
 
@@ -27,7 +31,7 @@ The `gates.visual.scope` text in `review.json` records the original interpretati
 
 This is original educational geometry, not a scan or patient model. [Oral Facial Anatomy Online](https://ecampusontario.pressbooks.pub/oralfacialonline/chapter/tooth-morphology-part-a/) and [Wheeler's indexed mandibular-molar chapter](https://elsevier-elibrary.com/contents/fullcontent/59012/epubcontent_v2/OEBPS/B978141606209700012X.htm) supplied qualitative cusp/root and ridge/fossa relationships. Every numerical dimension, contour and local field is authored. No source images or third-party code were copied; their licences are not inherited by this geometry. No new repository-wide or third-party asset licence is inferred here.
 
-No lesion, prepared state, restoration, internal tissue, clinical guidance, canonical registration, external hosting or issue closure is included. Editable masters and unsuccessful trials stay private. Generated baseline/updated files are ignored by Git; the PR contains recipes, checks and retained review evidence only.
+No lesion, prepared state, restoration, internal tissue, clinical guidance, canonical registration or new external hosting is included. Editable masters and unsuccessful trials stay private. Generated baseline/updated files are ignored by Git; the PR contains recipes, checks and retained review evidence only.
 
 ## Replay
 
@@ -54,4 +58,4 @@ The five focused tests check field bounds, absence of a second depression field,
 
 The two images are retained because they provide independent whole-context and close-up evidence of this visible change. They use the repository's existing PNG/LFS rules. No new Blob/Site transport is introduced. Preserve their bytes when publishing; do not substitute pointer text for an image upload.
 
-Offline technical and limited visual review do not establish anatomical, clinical, bite/occlusion or runtime acceptance. Runtime remains unverified. This experimental slice may be reviewed independently, while #217 remains open.
+Offline technical and limited visual review do not establish anatomical, clinical, bite/occlusion or runtime acceptance. Runtime remains unverified. The bounded study is retained independently of the deferred production outcomes in the plan. #217 is closed by consolidation, not by accepting this experiment as its baseline.

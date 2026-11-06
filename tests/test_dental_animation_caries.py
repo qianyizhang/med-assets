@@ -3,7 +3,7 @@ from pathlib import Path
 import unittest
 import xml.etree.ElementTree as ET
 
-D = Path(__file__).resolve().parents[1] / "docs/dental-animation/caries-restoration"
+D = Path(__file__).resolve().parents[1] / "lessons/dental-animation/caries-restoration"
 
 class CariesStoryboardTests(unittest.TestCase):
     def setUp(self):

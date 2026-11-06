@@ -16,4 +16,4 @@ retain [Z-Anatomy CC BY-SA 4.0 and full attribution](../../../../sources/dataset
 No anatomy/clinical, functional-lumen, physical-scale or viewer-runtime approval.
 
 [Builder](../../source/z-native-epididymis-r01/build.py) ·
-[Scoped replay](../../../../tests/testes/replay.py)
+[Scoped replay](../../../../models/testes/recipes/replay.py)

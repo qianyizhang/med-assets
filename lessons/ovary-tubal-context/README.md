@@ -23,7 +23,7 @@ crop; all geometry remains inside it with at least 84 pixels of vertical margin.
 Recompose after the documented render replay (Pillow and Noto Sans CJK required):
 
 ```sh
-python3 tools/ovary_tubal/compose.py --renders /tmp/ovary-tubal-renders --baseline reviews/ovaries/2026-10-23-v10-exterior-review/draft_ovaries/screenshots/contact.png --output /tmp/ovary-tubal-sheets
+python3 models/ovaries/recipes/tubal-context/compose.py --renders /tmp/ovary-tubal-renders --baseline reviews/ovaries/2026-10-23-v10-exterior-review/draft_ovaries/screenshots/contact.png --output /tmp/ovary-tubal-sheets
 ```
 
 The composer verifies input hashes, matched RGB pixels, named visible leader

@@ -30,7 +30,7 @@ contains the final GLB, recipe, source/reference links and attribution.
 - [Build record](build-record.json): exact sources, union and localized blend, native frame, zero smoothing movement outside the chosen band. The maximum 0.936 mm in-band change describes this edit, not an anatomical tolerance.
 - [Export check](export-check.json): exact GLB reimport and finite-precision topology/contact screen. It is not an exhaustive mathematical or anatomical proof.
 - [Recipe check](recipe-check.json): byte-identical Blender 4.3.2 replay, same-size wrong-source refusal, existing-output refusal and identical V1/V2 decoded triangle positions.
-- [Raster bindings](renders/raster-bindings.json): six image sizes/hashes, model hashes and matched cameras. Render recipe is [here](../../../tests/hypothalamus_pituitary/render.py).
+- [Raster bindings](renders/raster-bindings.json): six image sizes/hashes, model hashes and matched cameras. Render recipe is [here](../../../assemblies/hypothalamus-pituitary/recipes/render.py).
 - [Independent review](independent-review.md): actual pixels, source identities and metadata inspected by a separate reviewer. No duplicate renders or topology tests were run by the reviewer.
 - V1's geometry already resolved the overlap, but lighting washed out region colors, polygon material borders looked jagged and inherited extras misidentified the combined model. V2 reduced matched light energy, used continuous vertex colors, and replaced stale extras. Failed V1 artifacts remain separate from this accepted package.
 - [Satogami et al., 2010](https://pmc.ncbi.nlm.nih.gov/articles/PMC7964128/) supports the stalk connection and taper, not this derivative's dimensions or surface shape. No figures were copied.

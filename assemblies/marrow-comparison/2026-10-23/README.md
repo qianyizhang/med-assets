@@ -15,8 +15,8 @@ Independent dataset: **Kuczynski, Michael (2024), University of Calgary**, DOI h
 
 ## Verification and replay boundary
 ```
-python tests/marrow_comparison/verify_bounded_receipt.py
-python tests/marrow_comparison/prepare_replay.py --output /new/replay-directory
+python assemblies/marrow-comparison/recipes/verify_bounded_receipt.py
+python assemblies/marrow-comparison/recipes/prepare_replay.py --output /new/replay-directory
 ```
 The second command only copies supplied inputs/scripts into a new workspace; it does not execute Blender/VTK. From that workspace, `python tools/check_models.py` reruns limited structural checks; `python tools/extract_reference.py` needs VTK/NumPy and reconstructs unsmoothed PLY; `blender -b --disable-autoexec -P tools/replay_container.py` reconstructs the illustrative container method. Scientific software must already be available. No automatic network fetch/install.
 

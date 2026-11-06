@@ -12,7 +12,7 @@ accounts for the exported nerve's additional vertices. Native evaluated surfaces
 and transforms are preserved; colors are illustrative.
 
 [Teaching views and independent review](../../../../reviews/peripheral_nerves/2026-10-30-ulnar-elbow-r01/README.md)
-· [replay and checks](../../../../tests/peripheral_nerves/ulnar-elbow-r01/README.md)
+· [replay and checks](../../../../models/peripheral_nerves/recipes/ulnar-elbow-r01/README.md)
 · [source provenance](../../../../sources/datasets/z-anatomy/ulnar-elbow/provenance.json).
 
 Selected source geometry and derived renders are **CC BY-SA 4.0**. Attribution:

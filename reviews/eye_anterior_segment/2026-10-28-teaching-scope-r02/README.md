@@ -27,7 +27,7 @@ References were screened on 2026-10-28. NEI and NLM terminology support broad fa
 
 ## Rendering and omitted teaching geometry
 
-The exact export remains [anterior_segment.glb](../../../models/eye_anterior_segment/exports/hra-v1.3-r01/anterior_segment.glb), SHA-256 `457b08b1edab5fc39db3b49e09635091721847e06262b7cb937fd006223c6750`. The reproducible [detail renderer](../../../tests/eye_anterior_segment/detail_review.py) imports it into an empty Blender scene. It makes no geometry, transform or material edits. Full/hidden pairs share camera, projection, scale, lighting and exposure.
+The exact export remains [anterior_segment.glb](../../../models/eye_anterior_segment/exports/hra-v1.3-r01/anterior_segment.glb), SHA-256 `457b08b1edab5fc39db3b49e09635091721847e06262b7cb937fd006223c6750`. The reproducible [detail renderer](../../../models/eye_anterior_segment/recipes/detail_review.py) imports it into an empty Blender scene. It makes no geometry, transform or material edits. Full/hidden pairs share camera, projection, scale, lighting and exposure.
 
 The permitted `anterior-order-three-structures` and `corneal-profile-three-structures` images hide the ciliary body, ciliary muscle, ciliary processes and suspensory-ligament nodes. This **omits** unsupported attachment geometry from the teaching image; it does not reconstruct tissue or turn a hidden-layer image into a physical section. Posterior and oblique endpoint views retain the source labels only for diagnostic review. They are not recommended teaching plates.
 
@@ -39,11 +39,11 @@ With exact existing LFS eye bytes, Python 3.11+, NumPy, Pillow, DejaVu Sans, and
 
 ```sh
 python3 -m unittest discover -s tests -p test_eye_source_coverage.py
-python3 tests/eye_anterior_segment/verify_source_coverage.py
-python3 tests/eye_anterior_segment/replay.py --output /tmp/eye-replay-NEW
-blender -b --python tests/eye_anterior_segment/detail_review.py -- --output /tmp/eye-detail-NEW
-python3 tests/eye_anterior_segment/verify_detail_review.py --output /tmp/eye-detail-NEW
-python3 tests/eye_anterior_segment/make_teaching_plate.py --output /tmp/eye-detail-NEW
+python3 models/eye_anterior_segment/recipes/verify_source_coverage.py
+python3 models/eye_anterior_segment/recipes/replay.py --output /tmp/eye-replay-NEW
+blender -b --python models/eye_anterior_segment/recipes/detail_review.py -- --output /tmp/eye-detail-NEW
+python3 models/eye_anterior_segment/recipes/verify_detail_review.py --output /tmp/eye-detail-NEW
+python3 models/eye_anterior_segment/recipes/make_teaching_plate.py --output /tmp/eye-detail-NEW
 ```
 
 Output directories must be new. Review all native 1000×1000 PNGs, especially both matched endpoint pairs and both full/three-structure pairs. `render-manifest.json` binds the views to the export and records visibility, camera, settings and pixel-file hashes. The captioned `teaching-order.png` retains every decoded render pixel and explicitly distinguishes the lens from the pupil opening; `teaching-order-grayscale.png` is only a readability diagnostic. Rendering success is not visual or anatomical acceptance. No new export means no new downstream export-runtime claim; the retained GLB's browser-runtime gate stays unverified.

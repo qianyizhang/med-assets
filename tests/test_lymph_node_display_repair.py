@@ -4,7 +4,7 @@ import importlib.util
 from pathlib import Path
 import sys
 import unittest
-TOOLS=Path(__file__).resolve().parents[1]/'tools/lymph_node/editorial_window_r03'
+TOOLS=Path(__file__).resolve().parents[1]/'models/lymph_node/recipes/editorial_window_r03'
 spec=importlib.util.spec_from_file_location('lymph_display_repair',TOOLS/'display_repair.py')
 repair=importlib.util.module_from_spec(spec)
 original_path=sys.path[:]

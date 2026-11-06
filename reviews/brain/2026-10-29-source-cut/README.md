@@ -52,7 +52,7 @@ restricted image preview; it was verified in Inkscape against the portable expor
 
 ```sh
 python3 -m unittest discover -s tests -p test_brain_source_cut.py
-python3 tools/brain_source_cut/check_visuals.py --output /tmp/brain-cut-check-NEW
+python3 lessons/brain-source-cut/check_visuals.py --output /tmp/brain-cut-check-NEW
 python3 tools/verify.py offline
 ```
 

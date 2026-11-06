@@ -9,7 +9,7 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 try:
-    from tools.pulmonary_vein_context import build, source
+    from models.pulmonary_vein.recipes.context import build, source
 finally:
     sys.path.pop(0)
 

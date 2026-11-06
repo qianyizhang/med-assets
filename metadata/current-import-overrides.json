@@ -16,5 +16,29 @@
     "currentSha256": "c6a91a1bcb328c279729c6e9705fb84f377d47aa09435e408ca6a45fdb36a83a",
     "changeCommit": "d03ec293dc93a8f221c17eb8916ac1f8c523334c",
     "reason": "Urinary regional context opacity and ureter stroke-color readability changes; all path geometry, stroke widths, labels, IDs and coordinates retained. Detailed masters and import digests remain historical."
+  },
+  "body/2d-v4/whole-body-anatomy-v4-spatial/README.md": {
+    "importSha256": "ef1bc9a5bcf78f42c020cb57570d4d21dd23721eff6afd38038fdf4f32c0d42e",
+    "currentSha256": "34076fdb37d9e0cf1ccec470205fcfb7bf9f9f08e6808af7434e8f3c2e3f94df",
+    "changeCommit": "d21ebf39edfb4792816354d06d7d87ca27724494",
+    "reason": "Describe canonical SVG previews and separate current SVG identities from retained 2026-10-21 review evidence; source artwork and original import records unchanged."
+  },
+  "body/2d-v4/whole-body-anatomy-v4-spatial/manifest.json": {
+    "importSha256": "46577d1fb15b9dc9235e4caca59c062711af1eac109d08121b9bbe024ebbe55d",
+    "currentSha256": "23053da18ce0790abfdd511d1b6e208fe0d273c63dd6f06837966f3a39a1928f",
+    "changeCommit": "d21ebf39edfb4792816354d06d7d87ca27724494",
+    "reason": "Preview references now use canonical SVGs; current head, abdomen and urinary hashes reflect their existing reviewed updates. Historical sourceInputSHA256 remains unchanged."
+  },
+  "body/anatomy-workshop-r1/README.md": {
+    "importSha256": "901b2eea01402cda9fc3fac02c751db0a3256020bf19c15bd0b55c3d9a56b987",
+    "currentSha256": "cf1e07d20abda9e919ede812a789c4e028d5522aa3e623f063bfdbe9f4a99c83",
+    "changeCommit": "d21ebf39edfb4792816354d06d7d87ca27724494",
+    "reason": "Document canonical cardiac export and retained source/license ownership after removing byte-identical source copies."
+  },
+  "body/anatomy-workshop-r1/body-3d-assets/build_collection.py": {
+    "importSha256": "e237e564267b23f2232cd12057adcf37b7e8f2c68273735e9b511e1908b59d8c",
+    "currentSha256": "3ba4e8886ca2939d4026cd9c77dc75c8957cebf7c2b6329df179e7919623f147",
+    "changeCommit": "d21ebf39edfb4792816354d06d7d87ca27724494",
+    "reason": "Read the same exact cardiac GLB bytes from heart/Cardiac_Atlas/exports instead of duplicate local source copies; no geometry or export behavior change."
   }
 }

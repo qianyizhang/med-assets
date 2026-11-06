@@ -12,7 +12,7 @@
   "v2_corrections": [
     "Evaluate native render subdivision2; no authored smoothing algorithm",
     "Isolate source-named .r objects for detail, without repositioning",
-    "Exclude both deferens objects from bounded default export; preserve v1 negative evidence and recipe history"
+    "Exclude both deferens objects from bounded default export; retain the earlier findings and recipe history"
   ],
   "v2_finding": "Ducts no longer obscure the epididymis; superior outline smoother; isolated side removes doubled-cap ambiguity; grayscale preserves readable shape boundaries. No further blocking visual correction within scope.",
   "limitations": [
@@ -22,24 +22,6 @@
     "Historical original remains Needs revision; ledger count delta0"
   ],
   "evidence": [
-    {
-      "file": "evidence/v1-pair.png",
-      "sha256": "cdcecf625b8355738e22f285702467389bd5c095e84c8c4756f6d87520fcf940",
-      "artifact_sha256": "1442a5d7f90bc301467e819e0467e01bafbac4c145e5131ffd832b8e3c3453a2",
-      "kind": "clean-GLB-import Cycles render"
-    },
-    {
-      "file": "evidence/v1-posterior-close.png",
-      "sha256": "3a9cc119444ce5c2a48a4f07af3d702131b9057b7be94c811227044039ad9bb5",
-      "artifact_sha256": "1442a5d7f90bc301467e819e0467e01bafbac4c145e5131ffd832b8e3c3453a2",
-      "kind": "clean-GLB-import Cycles render"
-    },
-    {
-      "file": "evidence/v1-side-close.png",
-      "sha256": "4f6b3caeb5a65bc2ff981ce82af380481c91667ae4d2a09ec2a5efe67a94384f",
-      "artifact_sha256": "1442a5d7f90bc301467e819e0467e01bafbac4c145e5131ffd832b8e3c3453a2",
-      "kind": "clean-GLB-import Cycles render"
-    },
     {
       "file": "evidence/v2-pair.png",
       "sha256": "dd45c4e5a7147e5c5174a6692ddb507f62632c52887a31703a09496baa6e18e1",
@@ -76,5 +58,6 @@
       "artifact_sha256": "e35457062c7bba79d938700beab7de851c75fa8dbbbbc76872d47290f2833d0d",
       "kind": "grayscale diagnostic of corresponding v2 RGB render"
     }
-  ]
+  ],
+  "retention": "Current V2 images and bindings remain; rejected V1 output is retired. V1 findings above remain historical review decisions."
 }

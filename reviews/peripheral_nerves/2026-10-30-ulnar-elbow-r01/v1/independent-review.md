@@ -24,7 +24,9 @@ Required changes:
   context. Do not present a modeled cubital tunnel, complete nerve route or
   motion study.
 
-The reviewer personally inspected all four images and verified hashes:
+The reviewer personally inspected all four images and verified hashes at review
+time. These initial 24-sample images are retired; the current matched 128-sample
+captures remain under `matched-128/`. Historical identities:
 
 | File | SHA-256 |
 |---|---|

@@ -1,0 +1,110 @@
+"""Source-package identity and failure checks using tiny synthetic media."""
+import hashlib
+import json
+from pathlib import Path
+import struct
+import subprocess
+import sys
+import tempfile
+import unittest
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
+from verify_source_package import verify
+
+
+def digest(raw):
+    return hashlib.sha256(raw).hexdigest()
+
+
+class SourcePackageTests(unittest.TestCase):
+    def fixture(self, root, package):
+        review = f'reviews/{package}/2026-10-24-bounded-migration'
+        source_name = 'sources/source.json'
+        model_name = 'models/model.glb'
+        image_name = review + '/evidence.webp'
+        node = {'name': 'candidate', 'extras': {'source_object_name': 'native'}}
+        chunk = json.dumps({'nodes': [node]}).encode()
+        chunk += b' ' * (-len(chunk) % 4)
+        model = struct.pack('<4sIIII', b'glTF', 2, 20 + len(chunk), len(chunk), 0x4e4f534a) + chunk
+        image = b'RIFF\x04\x00\x00\x00WEBP'
+        source = {'selection': [{'sourceObjectName': 'native' if package == 'muscle' else 'candidate'}],
+                  'externalHistoricalRecords': [], 'recipeDependencies': [],
+                  'licenseReceipts': [{'bundled': False, 'sha256': '2' * 64}]}
+        if package == 'muscle':
+            source['sourceCollection'] = 'synthetic'
+        evidence = {'path': image_name, 'sha256': digest(image), 'bytes': len(image),
+                    'originalPNG': {'bundled': False, 'sha256': '3' * 64},
+                    'selectionRole': 'candidate', 'assetBinding': digest(model)}
+        record_name = review + '/bounded-record.json'
+        record = {'evidence': [evidence], 'sourceDependencies': source_name,
+                  'nodeIdentityMap': [{'index': 0, 'name': 'candidate',
+                                       'sourceObjectName': 'native' if package == 'muscle' else None}]}
+        manifest = {'reviewRecord': record_name, 'sourceMap': source_name, 'canonicalPath': model_name,
+                    'transport': {'decodedBytes': len(model), 'decodedSha256': digest(model)},
+                    'evidence': [evidence], 'uniqueMediaBytes': len(model) + len(image),
+                    'uniqueMediaOids': 2, 'status': 'synthetic'}
+        files = {source_name: json.dumps(source).encode(), model_name: model, image_name: image,
+                 record_name: json.dumps(record).encode(),
+                 review + '/transport-manifest.json': json.dumps(manifest).encode()}
+        for name, raw in files.items():
+            path = root / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(raw)
+        checks = {name: {'bytes': len(raw), 'sha256': digest(raw)} for name, raw in files.items()}
+        (root / review / 'FILE-HASHES.json').write_text(json.dumps(checks))
+        return source_name, model_name, image_name
+
+    def test_package_clis_reject_retired_and_unknown_options(self):
+        root = Path(__file__).resolve().parents[1]
+        for folder in ('bp3d-head-studies', 'bp3d-body-studies', 'bp3d_bowels',
+                       'joints', 'hra_lung', 'z_small_studies'):
+            for option in ('--strict-package', '--unexpected'):
+                with self.subTest(package=folder, option=option):
+                    result = subprocess.run(
+                        [sys.executable, str(root / 'tests' / folder / 'verify_bounded.py'), option],
+                        capture_output=True, text=True)
+                    self.assertEqual(result.returncode, 2, result.stdout + result.stderr)
+                    self.assertIn('unrecognized arguments: ' + option, result.stderr)
+                    self.assertNotIn('Traceback', result.stderr)
+
+    def test_both_source_identity_schemes_and_unrelated_files(self):
+        for package in ('muscle', 'breasts_hra'):
+            with self.subTest(package=package), tempfile.TemporaryDirectory() as temporary:
+                root = Path(temporary)
+                self.fixture(root, package)
+                (root / 'unrelated.txt').write_text('not part of this package')
+                self.assertEqual(verify(root, package)['identityChecks'], 'passed')
+
+    def test_missing_or_corrupt_source_model_and_evidence_fail(self):
+        for index in range(3):
+            for corrupt in (False, True):
+                with self.subTest(file=index, corrupt=corrupt), tempfile.TemporaryDirectory() as temporary:
+                    root = Path(temporary)
+                    names = self.fixture(root, 'muscle')
+                    path = root / names[index]
+                    if corrupt:
+                        path.write_bytes(b'corrupted retained bytes')
+                    else:
+                        path.unlink()
+                    with self.assertRaisesRegex(ValueError, 'Missing package file|identity mismatch'):
+                        verify(root, 'muscle')
+
+    def test_changed_source_selection_fails_even_with_updated_file_identity(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source_name, _, _ = self.fixture(root, 'muscle')
+            path = root / source_name
+            source = json.loads(path.read_text())
+            source['selection'][0]['sourceObjectName'] = 'different-source'
+            raw = json.dumps(source).encode()
+            path.write_bytes(raw)
+            manifest = root / 'reviews/muscle/2026-10-24-bounded-migration/FILE-HASHES.json'
+            checks = json.loads(manifest.read_text())
+            checks[source_name] = {'bytes': len(raw), 'sha256': digest(raw)}
+            manifest.write_text(json.dumps(checks))
+            with self.assertRaisesRegex(ValueError, 'Source selection mismatch'):
+                verify(root, 'muscle')
+
+
+if __name__ == '__main__':
+    unittest.main()

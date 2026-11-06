@@ -3,7 +3,7 @@
 ## Useful improvement
 A short, open wedge segment exposes the folded luminal surface and the ordered wall compartments, instead of adding cosmetic texture to the smooth full-organ tube. Five individually named GLB meshes represent **four tunics**: mucosa, submucosa, muscularis externa (inner circular and outer longitudinal compartments), and adventitia. This is an educational supplement, **not a replacement of the original full-organ asset or its animation**.
 
-The sibling canonical review folder contains `teaching-sheet.png` (English), `teaching-sheet-zh-CN.png` (Chinese), and one exact-reimport `oblique.png`. `esophagus-wall-cutaway-r01.glb` is the exact rendered 3D model. Portable generators and parameters in `tests/esophagus_wall/` reproduce the editable Blender scene and renders; redundant native scenes are not duplicated here. All three raw views were reproduced during verification; the retained oblique image and bilingual sheets were made after clearing the Blender scene and reimporting the exported GLB, not by rendering a different native mesh.
+The [canonical review folder](../../../../reviews/esophagus_wall/2026-10-25-authored-teaching/) contains `teaching-sheet.png` (English), `teaching-sheet-zh-CN.png` (Chinese), and one exact-reimport `oblique.png`. `esophagus-wall-cutaway-r01.glb` is the exact rendered 3D model. Portable generators and parameters in `models/esophagus_wall/recipes/` reproduce the editable Blender scene and renders; redundant native scenes are not duplicated here. All three raw views were reproduced during verification; the retained oblique image and bilingual sheets were made after clearing the Blender scene and reimporting the exported GLB, not by rendering a different native mesh.
 
 ## Anatomical content and omissions
 - The mucosa is deliberately one composite compartment. Its non-keratinized stratified squamous epithelium, lamina propria, and muscularis mucosae are **not separately resolved**. The broad luminal folds are a schematic cue, not a measured count or patient-specific lumen shape.
@@ -29,12 +29,12 @@ An alternative smooth exterior study did not materially improve teaching detail 
 
 ## Reproduce / verify
 ```
-python tests/esophagus_wall/replay.py --output /path/to/NEW-output-directory
+python models/esophagus_wall/recipes/replay.py --output /path/to/NEW-output-directory
 # Optional explanatory proportions (never measured anatomy):
-python tests/esophagus_wall/replay.py --params tests/esophagus_wall/parameters.json --output /path/to/another-NEW-directory
+python models/esophagus_wall/recipes/replay.py --params models/esophagus_wall/recipes/parameters.json --output /path/to/another-NEW-directory
 ```
 Blender 4.3.2, Cycles CPU, 96 samples, fixed seed 17, no denoising. The review receipts bind exact GLB SHA-256 and record per-layer finite/positive-volume checks and **1e-8 m tolerance-weld edge diagnostics**, not exact-index topology or manifold proof. Closed solids describe model compartments, not tissue impermeability or a biological lumen validation.
 
-The replay refuses an existing output directory. Dependencies: Blender 4.3.2, Python 3, Pillow, DejaVu Sans and Noto Sans CJK fonts. `parameters.json` exposes illustrative dimensions/folds/wedge and is validated for positive nested layers. The default parameters reproduce the reviewed GLB byte-for-byte. Changing parameters creates a new unreviewed teaching variant, not a validated anatomy model.
+The replay refuses an existing output directory. Dependencies: Blender 4.3.2, Python 3, Pillow, DejaVu Sans and Noto Sans CJK fonts. `parameters.json` exposes illustrative dimensions/folds/wedge and is validated for positive nested layers. The historical default-parameter replay matched the reviewed GLB byte-for-byte; its result and limits are retained in `review-record.json`. Changing parameters creates a new unreviewed teaching variant, not a validated anatomy model.
 
 Coverage accounting: **0 additional whole organs**. This is an approved teaching supplement. PNG metadata was stripped without changing decoded pixels; original hashes are retained in `png-metadata-receipt.json` in the review directory.

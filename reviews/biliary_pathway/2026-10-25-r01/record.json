@@ -18,5 +18,17 @@
     "Shared solid outlet denotes common delivery after the junction, not a fluid-exclusive lumen.",
     "Not patient-specific or procedural guidance."
   ],
-  "rendering": "Display SVG text outlined; no external fonts/assets or network required. Editable SVG requires Noto Sans CJK SC and Noto Sans. Fonts not bundled."
+  "rendering": "Display SVG text outlined; no external fonts/assets or network required. Editable SVG requires Noto Sans CJK SC and Noto Sans. Fonts not bundled.",
+  "editable_sources": [
+    {
+      "file": "sources/authored/biliary_pathway/r01/biliary-pathways-en.svg",
+      "sha256": "75119eef1e5707628397e5f930d448b9778eac19556e1a0254410500e5ad006d",
+      "bytes": 5196
+    },
+    {
+      "file": "sources/authored/biliary_pathway/r01/biliary-pathways-zh.svg",
+      "sha256": "95dc58da37185f57fc8d3c80e48388ea15ea4cf0960cfae312f30052b644f344",
+      "bytes": 5118
+    }
+  ]
 }

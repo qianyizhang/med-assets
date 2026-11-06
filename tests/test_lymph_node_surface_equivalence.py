@@ -5,7 +5,7 @@ from pathlib import Path
 import sys
 import unittest
 
-TOOLS = Path(__file__).resolve().parents[1] / 'tools/lymph_node/editorial_window_r03'
+TOOLS = Path(__file__).resolve().parents[1] / 'models/lymph_node/recipes/editorial_window_r03'
 spec = importlib.util.spec_from_file_location('lymph_import_audit', TOOLS / 'import_audit.py')
 audit = importlib.util.module_from_spec(spec)
 _original_path = sys.path[:]

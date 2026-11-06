@@ -7,7 +7,8 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from tools.aortic_arch_locators import build as builder
+import importlib
+builder = importlib.import_module('models.aortic_tree_z.recipes.arch-locators.build')
 sys.path.pop(0)
 RECORD = ROOT / "reviews/aortic_tree_z/2026-10-29-arch-locators/render.json"
 

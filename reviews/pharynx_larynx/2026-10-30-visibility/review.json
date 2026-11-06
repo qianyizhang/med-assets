@@ -65,7 +65,9 @@
       "status": "passed",
       "objects": 18,
       "bytes": 12587844,
-      "emptyStore": true
+      "emptyStore": true,
+      "checkedAt": "2026-10-30",
+      "scope": "Historical delivery readback only; no current remote availability claim."
     }
   },
   "independentReview": "independent-review.json",
@@ -205,6 +207,5 @@
     "Apply patch to an independently authorized current Site source checkout and evaluate integration",
     "Site publication is outside this task; no deployment performed"
   ],
-  "implementationCommit": "dbcffbc4ee74d1d8b4648ca905e1856ba609dd4f",
-  "deliveryReceipt": "delivery-receipt.json"
+  "implementationCommit": "dbcffbc4ee74d1d8b4648ca905e1856ba609dd4f"
 }

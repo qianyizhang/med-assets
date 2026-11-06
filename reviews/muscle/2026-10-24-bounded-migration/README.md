@@ -14,4 +14,4 @@ Exact media transfer and independent GitHub LFS SHA/size/header readback passed 
 
 Exact canonical GLB plus 3 selected current WebPs, unchanged. Original PNG identity remains separate from actual WebP identity. Historical records and recipes are explicitly external; no portable rebuild or new gate claim.
 
-Run `python tests/muscle/verify_bounded.py`; default checks the manifest subset, while `--strict-package` checks standalone closure. Neither mode fetches sources, renders or validates runtime.
+Run `python3 tools/verify_source_package.py muscle`. It checks retained source, model and evidence identities without fetching, rendering or validating runtime.

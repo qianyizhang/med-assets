@@ -3,7 +3,7 @@ from pathlib import Path
 from unittest.mock import patch
 import numpy as np,trimesh
 ROOT=Path(__file__).resolve().parents[2]
-spec=importlib.util.spec_from_file_location('uff',ROOT/'tools/dental/uff_tomo1b.py');uff=importlib.util.module_from_spec(spec);spec.loader.exec_module(uff)
+spec=importlib.util.spec_from_file_location('uff',ROOT/'models/dental_specimens/uff_tomo1b/recipes/uff_tomo1b.py');uff=importlib.util.module_from_spec(spec);spec.loader.exec_module(uff)
 
 class TestUFF(unittest.TestCase):
  def test_wrong_source_rejected_before_ingestion(self):

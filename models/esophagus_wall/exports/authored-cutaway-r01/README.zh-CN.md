@@ -4,7 +4,7 @@
 - `teaching-sheet-zh-CN.png`：完整中文标注图。
 - `teaching-sheet.png`：对应英文标注图。
 - `esophagus-wall-cutaway-r01.glb`：上述图片实际渲染所用的三维模型。
-- `tests/esophagus_wall/`：可复现生成器与参数，可重新生成可编辑源文件、确切 GLB 重导入场景及所有视图；不重复打包冗余场景。
+- `models/esophagus_wall/recipes/`：可复现生成器与参数，可重新生成可编辑源文件、确切 GLB 重导入场景及所有视图；不重复打包冗余场景。
 
 模型用五个独立命名网格表示**四层管壁**：黏膜、黏膜下层、外肌层（分内环行与外纵行两部分）、外膜。纵向楔形剖切让管壁的层次及折叠的腔面可见。这是教学补充，**不替代原始完整食管模型、两个管腔端部示意或其被动呼吸运动动画**；原动画本身也不代表蠕动。
 
@@ -27,9 +27,9 @@
 
 ## 可复现与检查
 ```
-python tests/esophagus_wall/replay.py --output /path/to/NEW-output-directory
+python models/esophagus_wall/recipes/replay.py --output /path/to/NEW-output-directory
 # 可选：改变教学设定参数，输出到另一个全新目录
-python tests/esophagus_wall/replay.py --params tests/esophagus_wall/parameters.json --output /path/to/another-NEW-directory
+python models/esophagus_wall/recipes/replay.py --params models/esophagus_wall/recipes/parameters.json --output /path/to/another-NEW-directory
 ```
 程序拒绝覆盖任何已有输出目录。依赖 Blender 4.3.2、Python 3、Pillow、DejaVu Sans 与 Noto Sans CJK 字体。默认参数可逐字节复现受检 GLB；改变参数得到的是未经复核的新教学变体，不会自动获得解剖验证。
 

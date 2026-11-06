@@ -1,6 +1,6 @@
-# Esophageal wall palette trial — WIP disposition
+# Esophageal wall palette trial — KEEP disposition
 
-[Issue 102](https://github.com/qianyizhang/med-assets/issues/102). **Keep as a local teaching-color candidate; do not replace the canonical GLB or sheets yet.** The candidate makes the inner circular and outer longitudinal muscle bands easier to tell apart in matched oblique and transverse views. The blue and slate layers look like deliberate color codes, not histologic tissue. This is a visual readability gain only.
+[Issue 102](https://github.com/qianyizhang/med-assets/issues/102) completed the bounded offline review: **KEEP as a teaching-color candidate; the baseline remains canonical.** Optional target-viewer follow-up [#139](https://github.com/qianyizhang/med-assets/issues/139) was closed as not planned on 2026-11-03, not passed. The historical 51/55 display run failed; PR #114’s CPU/contract fix is not a post-fix display pass. The candidate makes the inner circular and outer longitudinal muscle bands easier to tell apart in matched oblique and transverse views. The blue and slate layers look like deliberate color codes, not histologic tissue. This is a visual readability gain only.
 
 The independently authored [baseline cutaway](../../../models/esophagus_wall/exports/authored-cutaway-r01/README.md) remains the teaching supplement. Its five meshes represent four tunics, with muscularis externa split into two compartments. Thicknesses, folds, wedge, length, and colors are illustrative. The source's anatomy, clinical, and browser-runtime limits still apply.
 
@@ -13,12 +13,12 @@ The independently authored [baseline cutaway](../../../models/esophagus_wall/exp
 
 The trial verifier compared parsed GLB JSON after restoring the five `baseColorFactor` fields: everything else matched. Every non-JSON chunk, including mesh data, was byte-identical (binary chunk SHA-256 `53fbd63b3632950d18da9edbf6293489cab43a2aa529eac7113b809921680701`). Both have five meshes and 7,700 triangles; node transforms, names, layer order, alpha, metallic and roughness values are unchanged. Fresh Blender 4.3.2 reimports reported identical cameras and geometry diagnostics. The verifier rejected a changed geometry byte and a changed roughness field. These checks establish a material-only derivative, not new anatomical validity.
 
-The portable [palette replay](../../../tests/esophagus_wall/palette_trial.py) requires the exact hydrated baseline GLB and refuses an existing output directory. It verifies the reviewed candidate hash and writes **local** baseline/candidate files and a receipt:
+The portable [palette replay](../../../models/esophagus_wall/recipes/palette_trial.py) requires the exact hydrated baseline GLB and refuses an existing output directory. It verifies the reviewed candidate hash and writes **local** baseline/candidate files and a receipt:
 
 ```sh
-python3 tests/esophagus_wall/palette_trial.py \
+python3 models/esophagus_wall/recipes/palette_trial.py \
   --input models/esophagus_wall/exports/authored-cutaway-r01/esophagus-wall-cutaway-r01.glb \
-  --params tests/esophagus_wall/parameters.json \
+  --params models/esophagus_wall/recipes/parameters.json \
   --output /tmp/esophagus-palette-NEW
 ```
 
@@ -38,7 +38,7 @@ The local trial rendered both GLBs with the same three cameras, lights, exposure
 
 The closest adjacent median display-luma gap in eroded transverse regions rose from 5.45 to 27.62 on an 8-bit scale. This describes these pixels; it is not an accessibility or anatomy threshold. In grayscale, neighboring bands are easier to follow, though the thin adventitia still relies on its numbered leader at sheet size. The stronger false-color treatment costs naturalistic appearance, so any eventual viewer should label it as an illustrative compartment palette.
 
-Local retained evidence: `oblique-comparison.png` SHA-256 `470c29af2cde1dc0476b7ccff778014762f34d6501468b29d3a74719a12f0da5`; `cross-section-comparison.png` `9c72140ad567105298347c4bdb58365231b1493c7475be54dfcafb5f78c2561b`; grayscale `72368e51985346e760beafb9c60983215b5617c24a6fe379e02c99c66bf4e321`. The bilingual sheets and comparison images are retained in the local trial workspace. No image is attached to this public PR, so independent GitHub-hosted pixel review is still pending.
+Local retained evidence: `oblique-comparison.png` SHA-256 `470c29af2cde1dc0476b7ccff778014762f34d6501468b29d3a74719a12f0da5`; `cross-section-comparison.png` `9c72140ad567105298347c4bdb58365231b1493c7475be54dfcafb5f78c2561b`; grayscale `72368e51985346e760beafb9c60983215b5617c24a6fe379e02c99c66bf4e321`. The bilingual sheets and comparison images are retained in the local trial workspace. This package does not include those local images. The bounded offline KEEP disposition is complete in #102; no new hosted-image delivery or inspection is claimed.
 
 I also inspected a matched native-pixel crop of the upper-right transverse bands, using the same `(520, 170, 900, 610)` source-pixel rectangle in both 1000 × 1100 renders. The local labeled comparison has SHA-256 `52b7884edd8ceb9559f518337f28b01331590329fb46803b65dcc0928ff83be5`; no interpolation or geometry edit was applied to either cropped panel.
 
@@ -47,7 +47,7 @@ Fresh candidate-pixel bilingual sheet SHA-256 values: English `88de3df3f84a07edc
 An independent pixel review found two presentation gaps in those local images:
 the grayscale comparison had colored swatches without numbered region anchors,
 and the standalone English/Chinese sheets did not state that the palette is an
-unapproved local derivative. `tests/esophagus_wall/grayscale_review.py` now
+unapproved local derivative. `models/esophagus_wall/recipes/grayscale_review.py` now
 adds numbers 1–5 to both panels and uses grayscale swatches, guarded by the
 retained comparison SHA-256. The label-sheet generators accept an opt-in
 `--review-status` flag to add the warning in the sheet's own language. Without
@@ -55,14 +55,14 @@ that flag, canonical sheet output remains unchanged. These are annotations
 only; they do not change the GLB, its materials, or its render.
 
 ```sh
-python3 tests/esophagus_wall/grayscale_review.py \
+python3 models/esophagus_wall/recipes/grayscale_review.py \
   --comparison /path/to/retained/cross-section-grayscale-comparison.png \
-  --params tests/esophagus_wall/parameters.json \
+  --params models/esophagus_wall/recipes/parameters.json \
   --output /tmp/esophagus-grayscale-reviewed.png
-python3 tests/esophagus_wall/label_sheet.py \
+python3 models/esophagus_wall/recipes/label_sheet.py \
   --input /path/to/retained/candidate/render --output /tmp/esophagus-en-reviewed \
   --review-status
-python3 tests/esophagus_wall/label_sheet_zh.py \
+python3 models/esophagus_wall/recipes/label_sheet_zh.py \
   --input /path/to/retained/candidate/render --output /tmp/esophagus-zh-reviewed \
   --review-status
 ```
@@ -78,8 +78,8 @@ delivery and viewer decisions.
 | Gate | Current result |
 | --- | --- |
 | Technical | Passed for the exact material-only diff and clean Blender reimport; geometry unchanged. |
-| Visual usefulness | Local reviewer favors keeping the candidate for teaching-layer discrimination, with the false-color limitation. Hosted reviewer inspection remains pending. |
+| Visual usefulness | Local reviewer favors keeping the candidate for teaching-layer discrimination, with the false-color limitation. Bounded offline disposition is complete in #102; this is not target-viewer acceptance. |
 | Anatomy / clinical | No new acceptance; existing illustrative geometry and omissions remain. |
-| Target viewer / publication | Unrun; no canonical model, media, Site, or transport change. |
+| Target viewer / publication | Earlier 51/55 display run failed; post-PR114 display unperformed and optional follow-up retired. No canonical model, media, Site, or transport change. |
 
-Promote only after a reviewer can inspect the exact matched images and the target viewer verifies the candidate's exported colors and bilingual legend. If the false-color treatment conflicts with the broader collection or viewer, revise or reject this candidate without changing the baseline.
+No viewer follow-up is scheduled: #139 was explicitly retired. Keep the candidate, original evidence and failed/unperformed runtime results without canonical promotion. A future promotion needs its own scoped review and authorization; closure does not resume it.

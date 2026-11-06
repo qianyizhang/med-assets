@@ -8,7 +8,7 @@ After git lfs pull, from repo root:
 
 ```sh
 python tests/review_records/validate_record.py --root . reviews/lymph_node/2026-10-23-hra-v1.2/record.json
-blender --background --factory-startup --disable-autoexec --python tests/lymph_node/review_exact_source.py -- --model models/lymph_node/exports/hra-v1.2/NIH_M_Lymph_Node.glb --output /tmp/lymph-review-new --checks-only
+blender --background --factory-startup --disable-autoexec --python models/lymph_node/recipes/review_exact_source.py -- --model models/lymph_node/exports/hra-v1.2/NIH_M_Lymph_Node.glb --output /tmp/lymph-review-new --checks-only
 ```
 
 Omit --checks-only to render the source-native views into a new output directory. Never overwrite retained evidence. Blender 4.3.2 was used for the earlier source review; renderer/platform variation can change image bytes. Reproduction means declared source/camera/visibility/lighting, not a claim of bit-identical PNGs across environments.

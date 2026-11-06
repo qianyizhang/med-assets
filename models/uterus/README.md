@@ -12,7 +12,7 @@ HRA Female Uterus v1.1 derivative: two overlapping anterior/posterior wall solid
 After `git lfs pull`, with Blender 4.3.2 on PATH:
 
 ```sh
-python tests/uterus/replay.py --output /tmp/uterus-exterior-replay
+python models/uterus/recipes/replay.py --output /tmp/uterus-exterior-replay
 python tests/review_records/validate_record.py --root . reviews/uterus/2026-10-23-hra-v1.1-r02/record.json
 ```
 
