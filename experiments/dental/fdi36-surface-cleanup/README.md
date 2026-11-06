@@ -50,7 +50,12 @@ From the repository root:
     python3 -m unittest discover -s tests -p 'test_fdi36_surface_fields.py' -v
     python3 tools/verify.py offline
 
-The five focused tests check field bounds, absence of a second depression field, named ridge controls, preservation assertions and source/output guards. They are not anatomical tests. The full repository offline gate must run on the publisher's reconciled commit; no CI or security configuration is changed.
+The five focused tests check field bounds, absence of a second depression field,
+named ridge controls, the actual projection block on synthetic vertices, and CLI
+refusal of existing output or wrong source without writes. Native-module doubles
+support only those refusal paths; no fresh Blender geometry or anatomy check is
+claimed. The full repository offline gate must run on the publisher's reconciled
+commit; no CI or security configuration is changed.
 
 ## Evidence and retention
 

@@ -2,7 +2,12 @@
 import ast
 import math
 from pathlib import Path
+import runpy
+import sys
+import tempfile
+from types import ModuleType, SimpleNamespace
 import unittest
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / 'experiments/dental/fdi36-surface-cleanup/revise_surface.py'
@@ -18,7 +23,7 @@ class SurfaceFieldTests(unittest.TestCase):
                     isinstance(node, ast.Assign) and any(isinstance(t, ast.Name) and t.id in names for t in node.targets)]
         cls.ns = {'math': math}
         exec(compile(ast.Module(body=selected, type_ignores=[]), str(SCRIPT), 'exec'), cls.ns)
-        cls.source = SCRIPT.read_text()
+        cls.tree = tree
 
     def test_groove_blend_never_deepens_original_maximum(self):
         for i in range(-22, 23):
@@ -42,16 +47,57 @@ class SurfaceFieldTests(unittest.TestCase):
             'MB_triangular_ridge','DB_triangular_ridge','ML_triangular_ridge',
             'DL_triangular_ridge','Mesial_marginal_ridge','Distal_marginal_ridge'})
 
-    def test_projection_keeps_lower_region_and_xy_assertions(self):
-        self.assertIn('if z<=3.5:continue', self.source)
-        self.assertIn('assert all(tuple(v.co)==p', self.source)
-        self.assertIn('assert all(v.co.x==p[0] and v.co.y==p[1]', self.source)
-        self.assertIn("source_check['decoded_triangles_sha256']", self.source)
+    def test_actual_projection_preserves_lower_region_and_xy(self):
+        # Execute the retained recipe's projection block on synthetic vertices.
+        # This exercises its loop and preservation guards without building a model.
+        def assignment(node, name):
+            return isinstance(node, ast.Assign) and any(
+                isinstance(target, ast.Name) and target.id == name for target in node.targets)
+        start = next(i for i, node in enumerate(self.tree.body) if assignment(node, 'original'))
+        end = next(i for i, node in enumerate(self.tree.body) if assignment(node, 'orig_input'))
+        class Coordinate:
+            def __init__(self, z):
+                self.x, self.y, self.z = .001, -.002, z
+            def __iter__(self):
+                return iter((self.x, self.y, self.z))
+        heights = (0, .003499, .0035, .003501, .004, .0045, .006)
+        vertices = [SimpleNamespace(co=Coordinate(z)) for z in heights]
+        namespace = {'ob': SimpleNamespace(data=SimpleNamespace(vertices=vertices, update=lambda: None)),
+                     'height': lambda x, y: 9, 'smoothstep': self.ns['smoothstep']}
+        exec(compile(ast.Module(body=self.tree.body[start:end], type_ignores=[]), str(SCRIPT), 'exec'), namespace)
+        for vertex, original in zip(vertices, heights):
+            self.assertEqual((vertex.co.x, vertex.co.y), (.001, -.002))
+            if original <= .0035:
+                self.assertEqual(vertex.co.z, original)
+            else:
+                self.assertGreater(vertex.co.z, original)
+                self.assertLessEqual(vertex.co.z, .009 + math.ulp(.009))
+                if original >= .0045:
+                    self.assertAlmostEqual(vertex.co.z, .009)
+        self.assertEqual(namespace['changed'], 4)
 
-    def test_fail_closed_output_and_canonical_source(self):
-        self.assertIn("if OUT.exists():raise RuntimeError", self.source)
-        self.assertIn("54b29904746bf0a53a96143326e09cef84995d2e40a29cd1da634b43908fe38c", self.source)
-        self.assertIn("7bb59a58776c4dcfc6e4d7de2792576c62a4322c5b9f7deef0dfda5abfb078e5", self.source)
+    def test_actual_cli_refuses_existing_output_and_wrong_source_without_writes(self):
+        modules = {name: ModuleType(name) for name in ('bpy', 'bmesh', 'numpy', 'mathutils')}
+        modules['mathutils'].Vector = object
+        for existing in (False, True):
+            with self.subTest(existing_output=existing), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory)
+                script = root / SCRIPT.name
+                script.write_bytes(SCRIPT.read_bytes())
+                baseline = root / 'baseline'
+                baseline.mkdir()
+                source = baseline / 'FDI36-authored.glb'
+                source.write_bytes(b'wrong source')
+                output = root / 'candidate'
+                if existing:
+                    output.mkdir()
+                    (output / 'keep').write_bytes(b'previous result')
+                before = {str(p.relative_to(root)): p.read_bytes() for p in root.rglob('*') if p.is_file()}
+                with patch.dict(sys.modules, modules), patch.object(sys, 'argv', [str(script), '--', 'candidate']):
+                    with self.assertRaises(RuntimeError if existing else AssertionError):
+                        runpy.run_path(str(script), run_name='__main__')
+                self.assertEqual({str(p.relative_to(root)): p.read_bytes() for p in root.rglob('*') if p.is_file()}, before)
+                self.assertEqual(output.exists(), existing)
 
 if __name__ == '__main__':
     unittest.main()
