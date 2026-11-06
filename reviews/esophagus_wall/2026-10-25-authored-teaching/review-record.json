@@ -22,5 +22,13 @@
   "source_images_embedded": false,
   "z_anatomy_geometry_embedded": false,
   "coverage_count_increment": 0,
-  "license_scope": "Independent authored analytic geometry; no new public reuse license grant is asserted. Authorized storage/publication does not itself establish a blanket license."
+  "license_scope": "Independent authored analytic geometry; no new public reuse license grant is asserted. Authorized storage/publication does not itself establish a blanket license.",
+  "reconstruction": {
+    "scope": "Historical default-parameter replay of exact_glb_sha256; not a new validation run.",
+    "repeatBuildIdentical": true,
+    "cleanReimportBoundToSameBytes": true,
+    "existingOutputRefused": true,
+    "measurements": "build-receipt.json and reimport-receipt.json retain per-layer measurements and tolerance-weld scope.",
+    "entrypoint": "models/esophagus_wall/recipes/replay.py --output NEW_DIRECTORY"
+  }
 }

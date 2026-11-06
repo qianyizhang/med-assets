@@ -2,7 +2,6 @@
 from pathlib import Path
 import argparse
 import hashlib
-import importlib.util
 import json
 import os
 import shutil
@@ -12,14 +11,15 @@ import tempfile
 ROOT = Path(__file__).resolve().parents[2]
 
 
-def load(path, name):
-    spec = importlib.util.spec_from_file_location(name, path)
-    module = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(module)
-    return module
-
-
-def run(vendor, baseline=False, lifecycle=False):
+def run(vendor, baseline=False):
+    original = ROOT / 'tests/pharynx_visibility/fixtures/candidate-v40.js'
+    current = ROOT / 'gallery/eye-inspection/r01/candidate.js'
+    source_binding = json.loads((current.parent / 'binding.json').read_text())
+    expected_source = ('9214093398033ab75beeec8c273d1f85a28408ee6096f3fe0bb91723ecc6f80b'
+                       if baseline else source_binding['outputs']['candidate.js'])
+    source_raw = (original if baseline else current).read_bytes()
+    if hashlib.sha256(source_raw).hexdigest() != expected_source:
+        raise ValueError('Wrong exact candidate source')
     binding = json.loads((Path(__file__).parent / 'vendor-binding.json').read_text())
     fixture = json.loads((ROOT / binding['existingThreeFixture']).read_text())
     expected = {Path(row['path']).name: row for row in fixture['resources']
@@ -39,11 +39,7 @@ def run(vendor, baseline=False, lifecycle=False):
         (staged / 'package.json').write_text(json.dumps({
             'name': 'three', 'type': 'module', 'exports': './three.module.js'}))
         source = target / 'candidate.js'
-        source.write_bytes((ROOT / 'tests/pharynx_visibility/fixtures/candidate-v40.js').read_bytes())
-        if lifecycle:
-            load(ROOT / 'gallery/candidate-lifecycle/r01/apply.py', 'lifecycle').apply(target)
-        if not baseline:
-            load(ROOT / 'gallery/candidate-camera/r01/apply.py', 'camera').apply(target)
+        source.write_bytes(source_raw)
         env = os.environ.copy()
         env['CAMERA_VENDOR_STAGE'] = str(staged)
         env['CAMERA_SOURCE'] = str(source)
@@ -55,6 +51,5 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--vendor-dir', required=True, type=Path)
     parser.add_argument('--baseline', action='store_true', help='Expected failing-before run')
-    parser.add_argument('--lifecycle', action='store_true', help='Compose after exact lifecycle-v2 patch')
     args = parser.parse_args()
-    raise SystemExit(run(args.vendor_dir, args.baseline, args.lifecycle))
+    raise SystemExit(run(args.vendor_dir, args.baseline))

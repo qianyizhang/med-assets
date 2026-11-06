@@ -20,7 +20,8 @@ occlusion. Actual Cycles PNGs were separately inspected and retained locally;
 | Airway continuity | All three opening seeds connect; 10,484 connected air samples | 1.2 mm sampled screen, not flow or caliber validation |
 | Replay | Both final GLBs reproduced byte for byte | Existing hydrated r05 input; no fresh-checkout test |
 | Anatomy | Public-reference screening of the teaching relationship | No specialist/clinical approval or measured tissue layers |
-| Runtime/delivery | Recipe, SVG proof and text receipts | GLBs local/unpublished; gallery and runtime unchanged |
+| Delivery | Exact GLBs delivered in PR #134; static Airway gallery v7 delivery recorded in [#133](https://github.com/qianyizhang/med-assets/issues/133) | Historical delivery evidence; no fresh remote availability check |
+| Runtime | Live 3D unverified | Static gallery checks do not establish WebGL or clinical acceptance |
 
 The V7 band-cap setback removes the proximal rim hatching. V6 and V7 shell
 positions, normals, indices and node transforms are identical, permitting reuse
@@ -52,7 +53,9 @@ Shell thickness, local reductions, interior color, C-bands and cuts are authored
 See the [build recipe](../../../models/trachea/exports/open-airway-r06/README.md)
 and [targeted checks](../../../models/trachea/recipes/open-airway/README.md).
 Local receipt paths identify preserved review files, not public download links.
-Issue #133 stays open for remaining model/gallery delivery; this draft does not
-publish GLBs, change the gallery or grant clinical/runtime approval.
+[Issue #133](https://github.com/qianyizhang/med-assets/issues/133) closed after bounded
+asset and [static gallery](https://anatomy-airway-review.landy123007.chatgpt.site/review/trachea-r06/)
+delivery. Its recorded EN/中文 browser checks and exact download hashes are historical,
+not a new availability, live 3D or clinical pass.
 
 </details>

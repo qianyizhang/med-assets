@@ -1,5 +1,12 @@
 # Current mirror planning and offline byte checks
 
+**Delivery scope (2026-11-06): tested tooling only.** Remote full-tree sync and
+readback remain **unverified**. The owner explicitly removed remote execution
+acceptance as a prerequisite for merging this code; no completed backup, live
+connector compatibility or remote availability is claimed. Nothing is scheduled.
+A future run still needs an authorized destination, the explicit writer agreement
+and all source, budget, readback and reconciliation controls below.
+
 `tools/backup_check.py` inventories **one exact committed tree** and produces a
 dry-run incremental plan for one current mirror and one small current-state
 manifest. It also checks actual local files or ZIP members against SHA-256 and
@@ -8,8 +15,9 @@ never transfers files, writes a manifest, replaces or deletes objects, downloads
 extracts ZIPs, schedules work or changes Git configuration. It contains no remote
 writer, log history or snapshot builder. No Drive credentials, network service
 or Python packages are needed. Requirements: Python 3.11+,
-[Git 2.45+](https://git-scm.com/docs/git/2.45.0) (`--no-lazy-fetch`) and Linux
-(`dir_fd` / `O_NOFOLLOW`). Git LFS itself is not needed.
+[Git 2.45+](https://git-scm.com/docs/git/2.45.0) (`--no-lazy-fetch`) and a POSIX host with
+`dir_fd` / `O_NOFOLLOW` support. Offline checks have run on Linux CI and macOS;
+Windows support is not established. Git LFS itself is not needed.
 
 ## One current-state manifest
 

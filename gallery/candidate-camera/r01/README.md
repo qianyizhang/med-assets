@@ -20,30 +20,20 @@ Camera position/target/up/span/zoom logic, source-view visibility, transforms an
 model bytes remain unchanged. Invalid source-view requests still return before
 this operation. No fit-distance, framing tolerance or anatomical claim changes.
 
-## Binding and application
+## Current source
 
-The applicator accepts exactly canonical v40, or the exact lifecycle-v2 output
-from the existing package. It rejects other source bytes, existing reset modules
-and repeated application. Lifecycle composition also requires the exact existing
-lifecycle module. Apply to an independent source copy:
+The camera helper and the retained `gallery/eye-inspection/r01/candidate.js`
+match Site v50 source commit `51c0039a8647d10aa35e45358da353966284e8af`
+exactly (read-only source comparison, 2026-11-06). The candidate's existing
+`binding.json` owns its identity; no second candidate snapshot is needed.
+The historical v40/lifecycle-v2 applicator has been retired. Change the owning
+Site source, then refresh the retained fixture after review.
 
-```sh
-python3 gallery/candidate-lifecycle/r01/apply.py PATH_TO_CANONICAL_REVIEW
-python3 gallery/candidate-camera/r01/apply.py PATH_TO_REVIEW
-```
-
-The first command is optional when testing the camera patch alone. No script
-fetches source, pushes, publishes or deploys a Site. Applying the older lifecycle
-patch after this camera patch is intentionally rejected; the supported composition
-order is explicit rather than weakening either source guard.
-
-| Identity | SHA-256 |
-| --- | --- |
-| Canonical input | `9214093398033ab75beeec8c273d1f85a28408ee6096f3fe0bb91723ecc6f80b` |
-| Camera-only output | `89c6c906a06c1765e0b25615e86d4d511dfb5d99e08685b1a85812b5259ecf8f` |
-| Existing lifecycle input | `d11cffd8a69ee32cc70ccd6712064b5e5f4c8c0f9f710614453007c640461b1e` |
-| Lifecycle + camera output | `855b9555acad27bdeb29876d02e3a72216fd659ed772dfa29cd166e16ffc9dc7` |
-| Camera module | `dcce015f6b0778337756ceaaa1f64aabed7e5db0137b17b62290e8bc4138be0f` |
+The current candidate includes lifecycle, context recovery and inspection code.
+The CPU camera suite executes its actual Fit body with the pinned Three/OrbitControls
+and an ineligible inspection fixture. Separate inspection suites own knee/eye
+behavior. Public HTTP byte readback returned 403; source equality is not a new
+live-browser, WebGL or BFCache pass.
 
 ## Evidence and replay
 
@@ -65,16 +55,16 @@ measurements, not rendered or actual-browser evidence.
 python3 -m unittest discover -s tests -p test_candidate_camera_patch.py -v
 python3 tests/candidate_camera/run_cpu.py --vendor-dir PATH_TO_EXACT_VENDOR --baseline
 python3 tests/candidate_camera/run_cpu.py --vendor-dir PATH_TO_EXACT_VENDOR
-python3 tests/candidate_camera/run_cpu.py --vendor-dir PATH_TO_EXACT_VENDOR --lifecycle
 python3 tools/verify.py offline
 ```
 
-The baseline command is expected to fail (5 pass / 9 fail); both updated CPU runs
-pass all 14 cases. Coverage includes no-drag, rotation/pan followed by recorded
+The baseline command is expected to fail (5 pass / 9 fail); the incorporated-source CPU run
+passes all 14 cases. Coverage includes no-drag, rotation/pan followed by recorded
 Front or generic Fit, wheel zoom, 60 subsequent updates, repeated view changes,
 normal post-reset interaction/damping, disabled damping, visibility and transforms.
-The seven required offline source tests cover identity, exact two-anchor diff,
-deterministic application, rejection without writes and lifecycle composition.
+The offline source binding checks the retained candidate and camera helper.
+Historical patch-application/refusal tests were retired with their applicator;
+source-hash refusal remains in the CPU runner.
 
 Vendor retention is bounded: Three module/core hashes reuse existing
 `ci/glb-runtime-fixture.json`; `vendor-binding.json` pins the separately fetched

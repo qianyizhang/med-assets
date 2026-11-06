@@ -5,9 +5,9 @@ is owned by the separate Site source. This repository contains asset inputs,
 source-bound viewer work, and a small offline integration contract; it does not
 contain or deploy that complete application.
 
-On 2026-11-05, the public v49 renderer and three supporting modules matched the
-retained final patch outputs exactly. Their current byte identities and source URL
-are pinned in [the test fixture binding](../tests/gallery/fixtures/source.json).
+The current renderer snapshot and three supporting modules are retained for
+offline integration checks. Their byte identities, public Site version and check
+date are pinned in [the test fixture binding](../tests/gallery/fixtures/source.json).
 The superseded v45–v48 applicators, intermediate renderers, standalone recipes,
 and migration-reversal tests have been retired. Reapplying those recipes is no
 longer a supported maintenance task. Change future gallery behavior in the owning
@@ -24,16 +24,22 @@ Site source, then update the current integration fixture after review.
 exact renderer snapshot and current helper modules run against compact recorded
 entries and synthetic interaction fixtures. Coverage includes bilingual labels,
 URLs, evidence selection, supplement ownership, the elbow correction, focus and
-comparison state. No network or media requests occur. These checks exercise
+comparison state, plus bilingual directory ownership and snapshot guidance.
+No network or media requests occur. These checks exercise
 selected actual source functions; they are not a full Site build, browser,
 accessibility, rendering, or clinical pass.
 
-Candidate lifecycle/camera/context, pharynx, knee, and eye packages retain their
-own source bindings and prerequisites. Incorporation of the main review renderer
-does not by itself establish that those other recipes can be retired.
+Read-only comparison with the same v50 Site source confirms that candidate camera,
+lifecycle, context recovery, knee and eye helpers are incorporated byte-for-byte.
+The camera applicator is retired; its CPU suite now uses the retained current
+candidate. Lifecycle/context and knee/eye applicators still construct source-bound
+behavior-test inputs and remain until those consumers are migrated. Pharynx modules
+are absent from v50 and retain their separate unapplied recipe. See each package
+for exact bindings and independent runtime limits.
 
-The snapshot intentionally retains the external renderer's then-current text.
-Its proposed `models/catalog.json` and `reviews/index.json` do not exist in this
-repository; [the repository workflow](../CONTRIBUTING.md) owns current local
-layout and discovery. Correct that external text in the Site source when next
-editing it, rather than changing the byte-bound fixture independently.
+The refreshed renderer describes asset-owned recipes and directory-based discovery,
+without proposing nonexistent global registries. The [repository workflow](../docs/WORKFLOW.md)
+owns local layout and discovery; the Site remains separately maintained. Historical
+baseline metadata is labelled as a snapshot rather than a repository-wide pending
+sync. This guidance update does not replace model/evidence bytes or change review
+gates. Refresh the byte-bound fixture from the owning Site source, never independently.

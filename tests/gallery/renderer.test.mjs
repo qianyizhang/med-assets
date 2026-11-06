@@ -133,3 +133,17 @@ test('comparison disclosure and layout state restore independently without contr
  restoreComparisonState(document,state);
  assert.equal(first.open,true);assert.equal(second.open,false);assert.equal(candidate.open,false);assert.equal(added.open,true);assert.equal(single,true);
 });
+
+test('bilingual repository guidance follows current owners without a parallel registry',()=>{
+ const ui=vm.runInNewContext(statement('const UI=')+'\nUI');
+ for(const lang of ['en','zh']){
+  const text=ui[lang].canonical;
+  for(const path of ['models/<asset>/','source/','exports/','recipes/','body/','heart/','diagrams/','lessons/','tools/','tests/','reviews/'])assert(text.includes(path),`${lang}: missing ${path}`);
+  assert(!text.includes('models/catalog.json'));
+  assert(!text.includes('reviews/index.json'));
+  assert.match(text,lang==='en'?/no parallel global catalog/:/不另维护全局素材目录/);
+  assert.match(ui[lang].pending,lang==='en'?/Historical baseline snapshot/:/历史基线快照/);
+  assert.match(ui[lang].downloadBlock,lang==='en'?/owning export README and linked review/:/所属导出目录的 README 及所链接的审查记录/);
+  assert.doesNotMatch(ui[lang].downloadBlock,lang==='en'?/synchronization.*pending|repository sync pending/i:/仓库同步尚待完成|待同步仓库/);
+ }
+});

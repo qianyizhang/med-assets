@@ -47,7 +47,7 @@ def verify():
     record = json.loads((DISPLAY.parent / 'record.json').read_text())
     require(record['artifact']['sha256'] == next(iter(EXPECTED.values())), 'Artifact binding')
     require(record['evidence'][0]['originalPngSha256'] == '8479f68fd98b473ab73e55080b6aca8aba64f54391b9a8923ed5e2601ec564c3', 'Historical PNG binding')
-    recipe = (ROOT / 'assemblies/kidney-pair/recipes/recipes/render_exact.py').read_text()
+    recipe = (ROOT / 'assemblies/kidney-pair/recipes/render_exact.py').read_text()
     # Pin the recipe whose whole-model frame and loop order were inspected.
     require(hashlib.sha256(recipe.encode()).hexdigest() ==
             'ad77856fbe21d366dbab314fd4b390e2ef0996539425d4049c029fd556f1055a',
