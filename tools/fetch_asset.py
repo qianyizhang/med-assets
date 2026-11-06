@@ -118,6 +118,7 @@ def hydrate(root: Path, name: str, cached: Path, digest: str, size: int) -> Path
     if target.is_symlink() or target.parent.resolve() != target.parent.absolute():
         raise ValueError('Hydration path must not traverse symlinks')
     before = target.read_bytes()
+    original_mode = stat.S_IMODE(target.stat().st_mode)
     if len(before) == size and hashlib.sha256(before).hexdigest() == digest:
         return target
     if parse_pointer(before) != (digest, size):
@@ -131,6 +132,7 @@ def hydrate(root: Path, name: str, cached: Path, digest: str, size: int) -> Path
             raise ValueError('Hydration copy failed verification')
         if target.is_symlink() or target.read_bytes() != before:
             raise ValueError('Working pointer changed during hydration; refusing overwrite')
+        os.chmod(temporary, original_mode)
         os.replace(temporary, target)
         return target
     finally:

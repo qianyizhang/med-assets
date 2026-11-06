@@ -171,3 +171,11 @@ Retiring an old provider/copy requires complete coverage and consumer checks.
 The earlier guarded CI/LFS publishing workflow and its 40 MB batch limits remain
 unchanged; this direct R2 flow is separately authorized and reviewed. Transport
 replication does not promote technical geometry, visual, anatomy or runtime gates.
+
+Completed copy: 694 unique payloads / 976,485,579 bytes at source revision
+`503c33f1dadf403faaec373c1a11a8b40dc523d6`, verified by complete fresh readback.
+The delivery index has 1,001 named routes including retained previews/backup.
+Publication source `3d1bb000df0376f8f64d15183b1504d858b97d01` is live as public
+Site version 5; temporary asset upload authorization was removed afterward.
+Main/source and LFS recovery were retained, so this is provider migration and
+on-demand retrieval, not historical repository shrinkage.

@@ -1,4 +1,4 @@
-"""Restore the ignored current seed from either exact retained snapshot, offline."""
+"""Restore the ignored current seed from an exact retained snapshot or frozen source seed, offline."""
 import argparse
 import base64
 import hashlib
@@ -13,7 +13,7 @@ def restore(source, output):
     current = reference['livePublication']
     raw = source.read_bytes()
     digest = hashlib.sha256(raw).hexdigest()
-    if digest not in (reference['snapshot']['sha256'], current['snapshotSha256']):
+    if digest not in (reference['snapshot']['sha256'], current['snapshotSha256'], current['sourceSeedSha256']):
         raise ValueError('Input is neither verified snapshot; output was not changed.')
     data = json.loads(raw)
     if data['id'] != reference['artifactId']:
@@ -31,7 +31,7 @@ def restore(source, output):
                 image[kind] = f"{reference['siteUrl']}/assets/{sha}/{asset['name']}"
         # Preserve source key order: API response ordering is a different wire identity.
         raw = json.dumps(data, ensure_ascii=False, separators=(',', ':')).encode()
-    if (hashlib.sha256(raw).hexdigest() != current['snapshotSha256']
+    if digest != current['sourceSeedSha256'] and (hashlib.sha256(raw).hexdigest() != current['snapshotSha256']
             or len(raw) != current['snapshotBytes']):
         raise ValueError('Reconstructed seed differs; output was not changed.')
     raw = (json.dumps(data, ensure_ascii=False, indent=2) + '\n').encode()

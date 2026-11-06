@@ -49,8 +49,8 @@ class SurveyRestoreTests(unittest.TestCase):
         self.scope.start()
         self.addCleanup(self.scope.stop)
 
-    def test_original_and_immutable_seed_restore_exact_source_without_reordering_queries(self):
-        for raw in [self.original, self.immutable]:
+    def test_all_pinned_inputs_restore_exact_source_without_reordering_queries(self):
+        for raw in [self.original, self.immutable, self.source]:
             with self.subTest(source=digest(raw)):
                 self.input.write_bytes(raw)
                 restore.restore(self.input, self.output)

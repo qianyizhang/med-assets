@@ -94,9 +94,10 @@ class FetchAssetTests(unittest.TestCase):
         root=self.cache.parent/'repo';root.mkdir()
         path=root/'model.glb'
         pointer=f'version https://git-lfs.github.com/spec/v1\noid sha256:{self.digest}\nsize {len(self.payload)}\n'.encode()
-        path.write_bytes(pointer);cached=self.download()
+        path.write_bytes(pointer);path.chmod(0o640);cached=self.download()
         self.assertEqual(fetch.hydrate(root,'model.glb',cached,self.digest,len(self.payload)),path)
         self.assertEqual(path.read_bytes(),self.payload)
+        self.assertEqual(path.stat().st_mode & 0o777,0o640)
         path.write_text('user edits')
         with self.assertRaises(ValueError):fetch.hydrate(root,'model.glb',cached,self.digest,len(self.payload))
         self.assertEqual(path.read_text(),'user edits')

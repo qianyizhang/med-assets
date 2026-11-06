@@ -44,8 +44,8 @@ never overwritten. No background download, update or cleanup is scheduled.
 
 Restore ignored `app/src/data.json` first. The current source seed is 520,272 bytes;
 its hash differs from both the immutable deployed seed and mutable API response.
-`tools/restore_snapshot.py` accepts the original inline-image snapshot or the exact
-immutable R2 seed, verifies image bindings, and reconstructs the exact source
+`tools/restore_snapshot.py` accepts the original inline-image snapshot, the exact
+immutable R2 seed, or the included frozen source seed, verifies image bindings, and reconstructs the exact source
 serialization. It refuses conflicting output and the reordered API response.
 
 The original immutable manifest remains at
@@ -92,8 +92,8 @@ final packaging and publication. Verify full asset uploads/readback as usual.
 Source-only separation required no deployment; the backup delivery addition is
 published through this existing workflow.
 
-The current public version 4 uses source
-`c950ac2c059701944e5444d37518edb2f8a8f6f1`; its deployment and separate immutable,
+The current public version 5 uses source
+`3d1bb000df0376f8f64d15183b1504d858b97d01`; its deployment and separate immutable,
 API-response and source-seed hashes are recorded in `snapshot-reference.json`.
 All report fields remain unchanged except that 306 image/thumb values use R2 URLs
 binding the original decoded bytes. Variable platform scripts prevent using the
@@ -101,7 +101,7 @@ browser HTML response hash as packaged-byte identity.
 
 Ignored original offline assets/exports remain in `app/.data-app-*`, the complete
 original authoring history in `.local/recovery/authoring.bundle`, and the exact
-version 2 archive in `.local/deployment-v2.tar.gz`. The retained publication `dist/` now matches version 4. Rebuild changed source
+version 2 archive in `.local/deployment-v2.tar.gz`. The retained publication `dist/` now matches version 5. Rebuild changed source
 before new packaging.
 
 ## Checks and limits
@@ -182,3 +182,13 @@ declared object is available; reads fail explicitly for unavailable storage.
 Use the repository's [R2 retrieval/migration guide](../../transport/README.md#repository-payload-copies-in-r2)
 for source verification, bounded upload/readback, on-demand cache/hydration and
 retention. Report data and its review statuses are unchanged.
+
+Migration completed on 2026-11-06: all **694 payloads / 976,485,579 bytes** passed
+complete fresh anonymous SHA-256/size readback in 27 bounded batches. All 1,001
+current routes, the report and frozen ZIP remain available. Version 5 was
+redeployed at environment revision 8 after the asset-upload lease was removed;
+the owner setting and public audience are unchanged. A pointer-only checkout
+successfully fetched/hydrated the 42,497,262-byte Blender source, and retrieved
+a large Git JSON blob. The frozen ZIP's included source seed also restores
+without Sites authentication. Existing Git/LFS copies remain recovery material;
+no history rewrite or original-file retirement has occurred.
