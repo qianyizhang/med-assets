@@ -1,26 +1,41 @@
 # Medical teaching assets
 
-Reusable cardiac, respiratory, whole-body 2D, and Anatomy Workshop 3D teaching
-assets, imported on 2026-10-22. Binary models, images, and synthetic volumes use
-Git LFS. Documentation, licenses, manifests, SVG artwork, and authoring scripts
-are stored in normal Git.
+Editable models, exports, 2D artwork and teaching experiences with source-specific
+licenses, reproducible recipes and scoped review evidence. These are educational
+assets; a technical check does not establish anatomical or clinical approval.
 
-## Download
+## Find and change an asset
 
-Install Git LFS, then clone and fetch the asset bytes:
+| Content | Owner |
+|---|---|
+| Individual 3D assets and their recipes | [models](models/) |
+| Compositions with explicit registration | [assemblies](assemblies/) |
+| Imported whole-body atlases and cardiac/imaging products | [body](body/), [heart](heart/) |
+| 2D diagrams and runnable lessons | [diagrams](diagrams/), [lessons](lessons/) |
+| Current decisions and exact supporting evidence | [reviews](reviews/) |
+| External source inputs, notices and recovery material | [sources](sources/) |
+| Shared utilities and regression checks | [tools](tools/), [tests](tests/) |
+| External viewer integration and guarded delivery | [gallery](gallery/), [ci](ci/), [transport](transport/) |
+
+Open the asset's export README and linked review for its source, recipe, status
+and limits. Asset-specific build/render/check code belongs in its `recipes/`.
+There is no parallel global catalog. Start contributing with [AGENTS.md](AGENTS.md)
+and the single [architecture/workflow guide](docs/WORKFLOW.md).
+
+## Quick start
 
 ```sh
 git lfs install
 git clone https://github.com/qianyizhang/med-assets.git
 cd med-assets
 git lfs pull
-python3 tools/verify.py payload-integrity
+python3.12 tools/verify.py payload-integrity
 ```
 
-Verification requires Python 3.11+ and Git. For a checkout without downloaded
-media, run `python3 tools/verify.py offline`; its success verifies text and
-pointer metadata, **not media bytes**. See [verification modes and prerequisites](docs/VERIFICATION.md)
-for dental tests, package checks and separate authoring replays.
+Python 3.11+, Git and Node.js 18+ are required. With pointers only, run
+`python3.12 tools/verify.py offline`; it checks metadata and behavior, not media
+bytes. [Verification](docs/WORKFLOW.md#verification) describes dental/replay
+prerequisites and the independent quality/runtime gates.
 
 For an offline incremental plan against a current mirror manifest, or a byte
 comparison against downloaded files, see [backup checking](docs/BACKUP_CHECK.md).
@@ -29,69 +44,21 @@ no transfer, manifest write, replacement or deletion.
 The linked guide also describes a serialized connector adapter and the explicit
 exclusive-writer guarantee, journal and verification steps it requires.
 
-## Collections
+## Provenance and published consumers
 
-Browse [review folders](reviews/), [3D models](models/), [2D teaching aids](diagrams/)
-and [assemblies](assemblies/). Open the study's run/revision README and review
-record for its status, evidence and limits.
+The 2026-10-22 import preserves 17 source bundles and 591 extracted-file identities
+in [SHA256SUMS](SHA256SUMS) and [metadata](metadata/). These are historical records,
+not today's file list. Explicit current exceptions live in
+[current-import-overrides.json](metadata/current-import-overrides.json).
+Original source ZIPs are not duplicated beside extracted content.
 
-[Scoped study files and review evidence](docs/SCOPED-STUDIES.md) retains the
-36-study migration snapshot and earlier scoped additions. New batches follow
-[study discovery](docs/ASSET_LAYOUT.md#study-discovery) without editing a global list.
+Preserve package licenses and attribution. Servier artwork and TotalSegmentator
+surface adaptations carry their own CC BY 4.0 credits; label-source Apache notices
+do not replace surface attribution. Authored cardiac/synthetic-imaging packages
+declare no separate public license. Synthetic volumes are not patient scans.
 
-| Directory | Contents |
-| --- | --- |
-| `heart/Cardiac_Atlas_Animated/` | Three animated heart GLBs, editable Blender source, export scripts, and delivery QA. |
-| `heart/Cardiac_Atlas/` | Earlier editable cardiac master, static GLB/STL exports, baked PBR textures, geometry, and source scripts. |
-| `heart/synthetic-imaging/beating-heart/` | Synthetic teaching volumes in NIfTI, NRRD, NumPy, and raw formats, illustrations, orientation metadata, and generators. These are not patient scans. |
-| `body/breathing/` | Eleven animated organ GLBs, editable Blender assembly, phase renders, scripts, and attribution. |
-| `body/anatomy-workshop-r1/` | Eighteen grouped static 3D assets, Blender source, texture maps, original meshes, rebuild scripts, and provenance. |
-| `body/2d-v4/whole-body-anatomy-v4-spatial/` | SVG anatomy parts, variants, overlays, regional views, previews, coordinate mappings, and provenance. |
-
-The 2026-10-22 import snapshot contains all 17 requested source bundles: four priority animation
-bundles from Library and the earlier 13 original archives from Drive. The 13
-Drive ZIPs match the original SHA-256 checksum list. That snapshot has **591 extracted
-asset files totaling 370,698,859 bytes**. One hundred repeated, byte-identical
-archive entries were merged. No assets were regenerated or edited during import.
-
-Source ZIPs are not duplicated in Git LFS alongside the extracted files.
-`metadata/asset-manifest.json` records all archive and member hashes and the exact
-extraction paths. `SHA256SUMS` preserves the original hashes of those 591 files;
-it is not a current-checkout checksum list. Current import-file updates are recorded in
-[`metadata/current-import-overrides.json`](metadata/current-import-overrides.json).
-The verification command applies those explicit updates without changing the
-historical snapshot, and checks current LFS bytes against their tracked pointers.
-`metadata/earlier-README.md`, `metadata/earlier-SHA256SUMS.txt`, and
-`metadata/earlier-collection.json` retain the original earlier-collection index,
-archive checksums, and completed import status.
-
-## Editing and reuse
-
-For issue, pull request, and review workflow, see [Contributing](CONTRIBUTING.md).
-
-GLBs are self-contained. Preserve the Anatomy Workshop texture paths and the
-sibling `body-3d-assets`, `body-3d-source`, and `body-3d-delivery` directories.
-Synthetic-imaging geometry remains separate from the cardiac master. Original
-scripts retain their authoring-environment paths; read the relevant package
-documentation before rebuilding. None of the generation or rebuild scripts was
-run during this import. Source QA reports are retained evidence from delivery,
-not new clinical or visual validation from this sync.
-
-## Attribution and scope
-
-Preserve each collection's notices, source receipts, and full license texts.
-The 2D adaptations credit Servier Medical Art under CC BY 4.0. Source-derived
-3D organ surfaces credit Jakob Wasserthal, the TotalSegmentator contributors,
-and University Hospital Basel under CC BY 4.0; the retained label-source
-Apache 2.0 notice does not replace that attribution. No blanket license is added
-to this repository. The authored cardiac and synthetic-imaging packages do not
-declare a separate public license.
-
-These are simplified educational assets. Retain the package-specific scope and
-limitations. The Anatomy Workshop collection focuses on thoracic and abdominal
-anatomy with selected extras; it is not a complete 3D body atlas.
-
-Published viewers remain at
-https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/ and
-https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/.
-
+Published [Body & Heart](https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/),
+[3D studio](https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/)
+and [Anatomy Verification](https://anatomy-verification.landy123007.chatgpt.site/)
+have independent deployed sources. Local integration recipes are not deployments.
+See [decisions and outstanding work](docs/DECISIONS.md) for cross-cutting boundaries.

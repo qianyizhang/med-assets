@@ -13,9 +13,9 @@ These are different selections and cameras, not a registered Original / Updated 
   `edf5c2fc5322adc1c75703143b3fba5a2be3ecd87d5559bce1441c1977a4eb30`.
 - **Source preflight:** exact pinned ZIP/member verified; six actual `.r` muscle/bone
   meshes and four native views independently inspected. No attachment-marker tissue.
-- **Iteration:** [V1](v1/teaching.png) had a crowded S/4 legend. V2 shortens only the
-  S caption; model, anatomy pixels, camera, lights and labels' surface targets stay
-  unchanged. The unique failed V1 sheet is retained; duplicate model/captures are not.
+- **Iteration:** V1 had a crowded S/4 legend. V2 shortens only the S caption;
+  model, anatomy pixels, camera, lights and labels' surface targets stay unchanged.
+  The failed V1 sheet is retired; this finding and the replay option remain.
 - **Review:** [independent findings](independent-review.md). Color is preferred:
   [grayscale](v2/grayscale.png) is a diagnostic with weaker tissue contrast.
 - **Limits:** localization only. Source topology warnings and missing structures
@@ -65,10 +65,9 @@ Output directories must be new.
 
 ```sh
 blender -b --factory-startup --disable-autoexec --threads 4 --python-exit-code 1 \
-  --python tests/rotator_cuff/replay.py -- --source /path/Startup.blend --out /tmp/cuff-new
-python3 tests/rotator_cuff/compose.py --run /tmp/cuff-new --out /tmp/cuff-presentation \
-  --previous-teaching reviews/joints/2026-10-30-rotator-cuff-r01/v1/teaching.png
-python3 tests/rotator_cuff/verify.py
+  --python models/joints/recipes/rotator-cuff/replay.py -- --source /path/Startup.blend --out /tmp/cuff-new
+python3 models/joints/recipes/rotator-cuff/compose.py --run /tmp/cuff-new --out /tmp/cuff-presentation
+python3 models/joints/recipes/rotator-cuff/verify.py
 python3 tests/test_rotator_cuff.py
 python3 tools/verify.py offline
 ```

@@ -5,7 +5,7 @@ from pathlib import Path
 import struct
 import unittest
 
-PATH = Path(__file__).resolve().parents[1] / 'tools/eye_teaching/build.py'
+PATH = Path(__file__).resolve().parents[1] / 'models/eye_anterior_segment/recipes/teaching/build.py'
 spec = importlib.util.spec_from_file_location('eye_teaching_build', PATH)
 build = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(build)

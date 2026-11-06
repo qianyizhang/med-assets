@@ -74,21 +74,21 @@ from the source manifest; no source scripts or add-ons are needed or executed.
 
 ```sh
 blender -b --factory-startup --disable-autoexec -t 4 \
-  -P tools/eye_exterior/build_blender.py -- \
+  -P models/eye_exterior/recipes/build_blender.py -- \
   --source /path/to/exact/Startup.blend \
   --reference sources/datasets/z-anatomy/eye-exterior-courses/source-inventory.json \
   --output /tmp/eye-build-new
 blender -b --factory-startup --disable-autoexec -t 4 \
-  -P tools/eye_exterior/render_blender.py -- \
+  -P models/eye_exterior/recipes/render_blender.py -- \
   --candidate /tmp/eye-build-new/eye-exterior-courses.glb \
   --bindings /tmp/eye-build-new/bindings.json \
-  --cameras tools/eye_exterior/cameras.json \
+  --cameras models/eye_exterior/recipes/cameras.json \
   --source-images reviews/eye_exterior/2026-10-30-z-native-courses-r01/renders \
   --output /tmp/eye-render-new
-python3 tools/eye_exterior/compose.py \
+python3 models/eye_exterior/recipes/compose.py \
   --renders /tmp/eye-render-new --output /tmp/eye-presentation-new
 python3 -m unittest discover -s tests -p test_eye_exterior.py -v
-python3 tools/eye_exterior/verify_payload.py --root .
+python3 models/eye_exterior/recipes/verify_payload.py --root .
 ```
 
 Hydrate the package's LFS assets before payload replay. The complete offline gate passed on the delivery tree: 213 tests, 26 transport

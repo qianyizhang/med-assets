@@ -46,6 +46,18 @@ class BackupCheckTests(unittest.TestCase):
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(self.payload if name.endswith('.bin') else data)
 
+    def test_tools_only_commands_do_not_require_review_test_tree(self):
+        tools = self.root / 'standalone-tools'
+        tools.mkdir()
+        for name in ('backup_check.py', 'backup_transfer.py', 'lfs_transport.py'):
+            (tools / name).write_bytes((Path(b.__file__).parent / name).read_bytes())
+        for name in ('backup_check.py', 'backup_transfer.py'):
+            with self.subTest(command=name):
+                result = subprocess.run([sys.executable, str(tools / name), '--help'],
+                                        capture_output=True, text=True, cwd=self.root)
+                self.assertEqual(result.returncode, 0, result.stderr)
+                self.assertIn('usage:', result.stdout)
+
     def command(self, *args, data=None):
         return subprocess.run(['git', *args], cwd=self.root, input=data,
                               env=dict(os.environ, GIT_AUTHOR_NAME='Fixture',

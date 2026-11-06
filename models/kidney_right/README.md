@@ -9,6 +9,6 @@
 
 ## Replay the pair
 
-After `git lfs pull`, run `python tests/kidney_pair/replay.py --output /tmp/kidney-pair-replay`. Add `--render` for offline Blender 4.3.2 views. The fresh output contains exact deterministic exports; unchanged BIN and original JSON recovery are asserted. Diagnostic modes are labeled, not promoted by execution.
+After `git lfs pull`, run `python assemblies/kidney-pair/recipes/replay.py --output /tmp/kidney-pair-replay`. Add `--render` for offline Blender 4.3.2 views. The fresh output contains exact deterministic exports; unchanged BIN and original JSON recovery are asserted. Diagnostic modes are labeled, not promoted by execution.
 
 The 2 public WebPs are lossy derivatives, not native PNGs. Historical pending headers are preserved; later scoped acceptance is recorded separately. Full native renders/scenes, raw-mask trials and rejected overlap history remain deferred. See the precise independent gates and limitations in the review record.

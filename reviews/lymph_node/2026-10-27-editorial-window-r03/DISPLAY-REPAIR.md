@@ -96,13 +96,13 @@ First build the pinned r03 with the existing [recipe](README.md#reproduce-into-n
 Use new output directories for both steps:
 
 ```sh
-python3 tools/lymph_node/editorial_window_r03/display_repair.py \
+python3 models/lymph_node/recipes/editorial_window_r03/display_repair.py \
   --input /tmp/lymph-r03-new/lymph-node-editorial-window-r03.glb \
   --output /tmp/lymph-display-new --full-split
 
 blender --background --factory-startup --disable-autoexec --threads 4 \
   --python-exit-code 1 \
-  --python tools/lymph_node/editorial_window_r03/display_repair_blender.py -- \
+  --python models/lymph_node/recipes/editorial_window_r03/display_repair_blender.py -- \
   --prepared /tmp/lymph-display-new/prepared-display-repair.glb \
   --baseline /tmp/lymph-r03-new/lymph-node-editorial-window-r03.glb \
   --output /tmp/lymph-display-review-new --render

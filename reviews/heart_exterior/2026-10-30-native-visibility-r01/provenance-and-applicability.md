@@ -7,7 +7,7 @@ anatomical asset or external texture required. Its anatomy references inform the
 teaching organization; they are not imported meshes. The exact two input GLBs
 contain no image textures.
 
-The [workshop manifest](../../../body/anatomy-workshop-r1/manifest.json) marks
+The [workshop manifest](../../../body/anatomy-workshop-r1/body-3d-delivery/manifest.json) marks
 `heart_detailed` as `sourceKind: authored`, `sourceCase: null`, and a prior
 independently authored Cardiac Atlas fitted pedagogically. This is distinct from
 the collection's separately attributed segmented organs. The retained build
@@ -53,7 +53,7 @@ retains derived receipts and images, not the original downloaded GLB.
 
 ## What can be verified with existing repository assets
 
-[`compare_canonical_fixture.py`](../../../tests/heart_exterior/compare_canonical_fixture.py)
+[`compare_canonical_fixture.py`](../../../heart/exterior-presentation-r01/recipes/compare_canonical_fixture.py)
 independently decodes the actual repository-source animation and compares it with
 the retained exact-canonical fixture. All 228 track names/node indices, 247 mesh
 and 251 primitive counts, and 912 scalar weights at 0, 0.2, 0.4 and 0.8 seconds
@@ -61,7 +61,7 @@ agree, with zero numerical error. The source has 248 nodes; the canonical receip
 records 249. See [the exact result](checks/canonical-fixture-compatibility.json).
 
 ```sh
-python3 tests/heart_exterior/compare_canonical_fixture.py --source-repo . --output /tmp/heart-canonical-samples-new.json
+python3 heart/exterior-presentation-r01/recipes/compare_canonical_fixture.py --source-repo . --output /tmp/heart-canonical-samples-new.json
 ```
 
 This is recorded-sample compatibility, not proof of canonical mesh data, fitting

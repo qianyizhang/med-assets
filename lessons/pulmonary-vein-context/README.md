@@ -49,9 +49,9 @@ outputs only and require new output directories.
 
 ```sh
 blender --background --factory-startup --disable-autoexec --python-exit-code 1 \
-  --python tools/pulmonary_vein_context/render.py -- \
+  --python models/pulmonary_vein/recipes/context/render.py -- \
   --root . --output /tmp/pulmonary-context-renders
-python3 tools/pulmonary_vein_context/build.py --root . \
+python3 models/pulmonary_vein/recipes/context/build.py --root . \
   --renders /tmp/pulmonary-context-renders --output /tmp/pulmonary-context-teaching
 inkscape /tmp/pulmonary-context-teaching/pulmonary-vein-context.svg \
   --export-type=png --export-filename=/tmp/pulmonary-context-teaching/pulmonary-vein-context.png
@@ -59,7 +59,7 @@ inkscape /tmp/pulmonary-context-teaching/overview-comparison.svg \
   --export-type=png --export-filename=/tmp/pulmonary-context-teaching/overview-comparison.png
 inkscape /tmp/pulmonary-context-teaching/detail-comparison.svg \
   --export-type=png --export-filename=/tmp/pulmonary-context-teaching/detail-comparison.png
-python3 tools/pulmonary_vein_context/check_visuals.py --root . \
+python3 models/pulmonary_vein/recipes/context/check_visuals.py --root . \
   --renders /tmp/pulmonary-context-renders --output /tmp/pulmonary-context-teaching
 python3 -m unittest discover -s tests -p 'test_pulmonary_vein_context.py' -v
 ```

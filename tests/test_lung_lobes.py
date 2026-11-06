@@ -4,7 +4,7 @@ import importlib.util
 from pathlib import Path
 import unittest
 
-spec = importlib.util.spec_from_file_location('lung_build', Path(__file__).resolve().parents[1] / 'tools/lung_lobes/build.py')
+spec = importlib.util.spec_from_file_location('lung_build', Path(__file__).resolve().parents[1] / 'models/lung_pair/recipes/lobes/build.py')
 build = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(build)
 

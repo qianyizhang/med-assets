@@ -22,8 +22,8 @@ tube v1.2, CC BY 4.0. [Exact originals, manifest and credits](../../../../source
 From the repository root, with exact source LFS payloads available:
 
 ```sh
-python3 tools/ovary_tubal/build.py --root . --output /tmp/ovary-tubal-replay/ovary-tubal-context.glb
-blender --background --factory-startup --disable-autoexec --python-exit-code 1 --python tools/ovary_tubal/render.py -- --root . --candidate /tmp/ovary-tubal-replay/ovary-tubal-context.glb --output /tmp/ovary-tubal-renders
+python3 models/ovaries/recipes/tubal-context/build.py --root . --output /tmp/ovary-tubal-replay/ovary-tubal-context.glb
+blender --background --factory-startup --disable-autoexec --python-exit-code 1 --python models/ovaries/recipes/tubal-context/render.py -- --root . --candidate /tmp/ovary-tubal-replay/ovary-tubal-context.glb --output /tmp/ovary-tubal-renders
 ```
 
 Use new output paths. Build replay is byte-identical. Blender 4.3.2 clean-import

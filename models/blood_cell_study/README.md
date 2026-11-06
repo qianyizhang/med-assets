@@ -10,7 +10,7 @@
 Use Blender 4.3.2, from the repository root:
 
 ```sh
-python tests/blood_cell_study/replay.py --output /tmp/blood-baked.glb
+python models/blood_cell_study/recipes/replay.py --output /tmp/blood-baked.glb
 ```
 
 This reopens the baked editable source and checks the exact reviewed GLB SHA. It does **not** rebuild the historical remesh recipe. One retained procedural rebuild matched geometry/shading but not bytes; a fresh procedural run failed strict geometry equivalence on 4 meshes. Its cause is unestablished. The historical recipes and failure summary are retained for learning, not advertised as deterministic.

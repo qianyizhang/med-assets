@@ -43,7 +43,9 @@ GLB verified: **834,404 bytes / 33 meshes / 38,414 triangles**, SHA-256
 V1 capture bindings: `e39564585b530e682dd6e36e4236479930452befa1b8620bc6c06027420ce26f`.
 
 **Source preflight**, completed **06:52:31 UTC**. All seven native diagnostic
-images were independently inspected and hashed. The four soft-tissue views
+images were independently inspected and hashed at review time. Those spent
+preflight images and duplicate V1 captures are now retired; current captures
+and the final V2 sheets remain. The four soft-tissue views
 obscured the main median trunk and risked confusing a lateral branch with it;
 the strong retinaculum/tendon-layer lesson was rejected. Three narrower skeletal
 views had independent teaching value with native digit bones and arm context.

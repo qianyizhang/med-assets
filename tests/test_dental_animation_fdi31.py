@@ -3,7 +3,7 @@ import json
 from pathlib import Path
 import unittest
 
-D = Path(__file__).resolve().parents[1] / "docs/dental-animation/fdi31-layer-reveal"
+D = Path(__file__).resolve().parents[1] / "lessons/dental-animation/fdi31-layer-reveal"
 
 class FDI31AnimaticTests(unittest.TestCase):
     def test_source_identity_and_reset_receipt(self):

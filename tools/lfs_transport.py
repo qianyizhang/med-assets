@@ -27,6 +27,7 @@ MAX_MANIFEST = 131_072
 MAX_OBJECTS = 32
 MAX_TOTAL = 40_000_000
 MAX_OBJECT = 40_000_000
+POINTER = re.compile(rb'version https://git-lfs.github.com/spec/v1\noid sha256:([0-9a-f]{64})\nsize (0|[1-9][0-9]*)\n')
 HEX64 = re.compile(r'[0-9a-f]{64}')
 HEX40 = re.compile(r'[0-9a-f]{40}')
 MANIFEST_PATH = re.compile(r'transport/manifests/([0-9a-f]{64})\.json')
@@ -47,6 +48,13 @@ def unique_keys(pairs):
         require(key not in result, 'Duplicate JSON key')
         result[key] = value
     return result
+
+
+def parse_pointer(data):
+    match = POINTER.fullmatch(data)
+    if match is None:
+        raise ValueError('Malformed LFS pointer')
+    return match[1].decode(), int(match[2])
 
 
 def integer(value, maximum):

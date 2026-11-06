@@ -13,12 +13,12 @@ The independently authored [baseline cutaway](../../../models/esophagus_wall/exp
 
 The trial verifier compared parsed GLB JSON after restoring the five `baseColorFactor` fields: everything else matched. Every non-JSON chunk, including mesh data, was byte-identical (binary chunk SHA-256 `53fbd63b3632950d18da9edbf6293489cab43a2aa529eac7113b809921680701`). Both have five meshes and 7,700 triangles; node transforms, names, layer order, alpha, metallic and roughness values are unchanged. Fresh Blender 4.3.2 reimports reported identical cameras and geometry diagnostics. The verifier rejected a changed geometry byte and a changed roughness field. These checks establish a material-only derivative, not new anatomical validity.
 
-The portable [palette replay](../../../tests/esophagus_wall/palette_trial.py) requires the exact hydrated baseline GLB and refuses an existing output directory. It verifies the reviewed candidate hash and writes **local** baseline/candidate files and a receipt:
+The portable [palette replay](../../../models/esophagus_wall/recipes/palette_trial.py) requires the exact hydrated baseline GLB and refuses an existing output directory. It verifies the reviewed candidate hash and writes **local** baseline/candidate files and a receipt:
 
 ```sh
-python3 tests/esophagus_wall/palette_trial.py \
+python3 models/esophagus_wall/recipes/palette_trial.py \
   --input models/esophagus_wall/exports/authored-cutaway-r01/esophagus-wall-cutaway-r01.glb \
-  --params tests/esophagus_wall/parameters.json \
+  --params models/esophagus_wall/recipes/parameters.json \
   --output /tmp/esophagus-palette-NEW
 ```
 
@@ -47,7 +47,7 @@ Fresh candidate-pixel bilingual sheet SHA-256 values: English `88de3df3f84a07edc
 An independent pixel review found two presentation gaps in those local images:
 the grayscale comparison had colored swatches without numbered region anchors,
 and the standalone English/Chinese sheets did not state that the palette is an
-unapproved local derivative. `tests/esophagus_wall/grayscale_review.py` now
+unapproved local derivative. `models/esophagus_wall/recipes/grayscale_review.py` now
 adds numbers 1–5 to both panels and uses grayscale swatches, guarded by the
 retained comparison SHA-256. The label-sheet generators accept an opt-in
 `--review-status` flag to add the warning in the sheet's own language. Without
@@ -55,14 +55,14 @@ that flag, canonical sheet output remains unchanged. These are annotations
 only; they do not change the GLB, its materials, or its render.
 
 ```sh
-python3 tests/esophagus_wall/grayscale_review.py \
+python3 models/esophagus_wall/recipes/grayscale_review.py \
   --comparison /path/to/retained/cross-section-grayscale-comparison.png \
-  --params tests/esophagus_wall/parameters.json \
+  --params models/esophagus_wall/recipes/parameters.json \
   --output /tmp/esophagus-grayscale-reviewed.png
-python3 tests/esophagus_wall/label_sheet.py \
+python3 models/esophagus_wall/recipes/label_sheet.py \
   --input /path/to/retained/candidate/render --output /tmp/esophagus-en-reviewed \
   --review-status
-python3 tests/esophagus_wall/label_sheet_zh.py \
+python3 models/esophagus_wall/recipes/label_sheet_zh.py \
   --input /path/to/retained/candidate/render --output /tmp/esophagus-zh-reviewed \
   --review-status
 ```

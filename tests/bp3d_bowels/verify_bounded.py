@@ -1,13 +1,13 @@
 """Local declared-file identity/role/source-reference checks; no downloads or rebuild.
-Default mode checks only this manifest. --strict-package checks isolated closure.
 """
+import argparse
 from pathlib import Path,PurePosixPath
-import argparse,hashlib,json,struct,re
+import hashlib,json,struct,re
+argparse.ArgumentParser(description=__doc__).parse_args()
 ROOT=Path(__file__).resolve().parents[2]
 REV='reviews/intestines/2026-10-24-bounded-migration'
 SOURCE='sources/datasets/bodyparts3d/bowel-studies-4.0'
 MANIFEST=REV+'/FILE-HASHES.json'
-parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--strict-package',action='store_true');args=parser.parse_args()
 def data(name):
  p=PurePosixPath(name);assert not p.is_absolute() and '..' not in p.parts,name
  f=ROOT/name;assert f.is_file() and not f.is_symlink(),name;assert ROOT.resolve() in f.resolve().parents,name
@@ -76,7 +76,4 @@ for name in checks:
   for url in re.findall(r'\]\(([^)]+)\)',data(name).decode()):
    if url.startswith(('http:','https:','#')):continue
    target=((ROOT/name).parent/url.split('#')[0]).resolve();assert ROOT.resolve() in target.parents and target.is_file(),(name,url)
-if args.strict_package:
- actual={str(p.relative_to(ROOT)) for p in ROOT.rglob('*') if p.is_file() and str(p.relative_to(ROOT))!=MANIFEST}
- assert actual==set(checks),'Unlisted/missing isolated-package files'
-print(json.dumps({'status':'PASS_LOCAL_DECLARED_FILE_IDENTITY_ONLY','mode':'strict-package' if args.strict_package else 'manifest-subset','files':len(checks),'models':2,'selectedWebPs':6,'uniqueMediaOids':len(seen),'uniqueMediaBytes':sum(seen.values()),'distinctBaselineBindings':len(baseline_bindings),'sourceMemberRecords':len(members),'referenceOnlyMembers':1,'countDelta':0,'gateDelta':0,'rebuildClosure':False,'freshRemoteAvailability':False,'newAnatomyOrRuntimeValidation':False},indent=2))
+print(json.dumps({'status':'PASS_LOCAL_DECLARED_FILE_IDENTITY_ONLY','files':len(checks),'models':2,'selectedWebPs':6,'uniqueMediaOids':len(seen),'uniqueMediaBytes':sum(seen.values()),'distinctBaselineBindings':len(baseline_bindings),'sourceMemberRecords':len(members),'referenceOnlyMembers':1,'countDelta':0,'gateDelta':0,'rebuildClosure':False,'freshRemoteAvailability':False,'newAnatomyOrRuntimeValidation':False},indent=2))

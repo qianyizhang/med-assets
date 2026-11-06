@@ -18,7 +18,7 @@ or relabeled to imply anatomical validity.
 
 ## Exact derivation and preservation
 
-The [recipe](../../../tools/eye_teaching/build.py) accepts only the exact existing
+The [recipe](../../../models/eye_anterior_segment/recipes/teaching/build.py) accepts only the exact existing
 [diagnostic export](../../../models/eye_anterior_segment/exports/hra-v1.3-r01/anterior_segment.glb),
 SHA-256 `457b08b1edab5fc39db3b49e09635091721847e06262b7cb937fd006223c6750`,
 10,054,784 bytes. Its seven nodes are independent scene roots with no nonidentity
@@ -58,11 +58,11 @@ directories; existing artifacts are never overwritten.
 ```sh
 python3 -m unittest discover -s tests -p test_eye_teaching_derivative.py
 python3 -O -m unittest discover -s tests -p test_eye_teaching_derivative.py
-python3 tools/eye_teaching/build.py --source /path/to/anterior_segment.glb --output /tmp/eye-order-NEW
-python3 tools/eye_teaching/build.py --source /path/to/anterior_segment.glb --output /tmp/eye-order-REPLAY
+python3 models/eye_anterior_segment/recipes/teaching/build.py --source /path/to/anterior_segment.glb --output /tmp/eye-order-NEW
+python3 models/eye_anterior_segment/recipes/teaching/build.py --source /path/to/anterior_segment.glb --output /tmp/eye-order-REPLAY
 cmp /tmp/eye-order-NEW/eye-order-study.glb /tmp/eye-order-REPLAY/eye-order-study.glb
-blender -b --python tools/eye_teaching/review_blender.py -- --baseline /path/to/anterior_segment.glb --candidate /tmp/eye-order-NEW/eye-order-study.glb --output /tmp/eye-order-NEW/review
-python3 tools/eye_teaching/compare.py --review /tmp/eye-order-NEW/review
+blender -b --python models/eye_anterior_segment/recipes/teaching/review_blender.py -- --baseline /path/to/anterior_segment.glb --candidate /tmp/eye-order-NEW/eye-order-study.glb --output /tmp/eye-order-NEW/review
+python3 models/eye_anterior_segment/recipes/teaching/compare.py --review /tmp/eye-order-NEW/review
 python3 tools/verify.py offline
 ```
 

@@ -7,22 +7,23 @@ historical flat-strip schematic without inventing duct connections or internal
 coils. Original `draft_testes` remains **Needs revision**, ledger count delta **0**.
 Completed 2D teaching issue #129 is unchanged.
 
-## Matched v1 → v2 evidence
+## Current review evidence
 
-Each pair is a fresh import of its exact GLB with identical camera, projection,
-scale, lights, exposure and background. Close views isolate the same source-named
-right side without repositioning it. V1 includes the subsequently excluded
-deferens; v2 uses the source render subdivision setting instead of viewport detail.
+| Paired context | Posterior detail | Isolated side detail |
+| --- | --- | --- |
+| ![Current paired context](evidence/v2-pair.png) | ![Current posterior detail](evidence/v2-posterior-close.png) | ![Current isolated side detail](evidence/v2-side-close.png) |
 
-| V1: retained diagnostic baseline | V2: bounded current study |
-| --- | --- |
-| ![V1 paired context](evidence/v1-pair.png) | ![V2 paired context](evidence/v2-pair.png) |
-| ![V1 posterior detail, obstructed by duct](evidence/v1-posterior-close.png) | ![V2 posterior detail, epididymis visible](evidence/v2-posterior-close.png) |
-| ![V1 isolated side detail](evidence/v1-side-close.png) | ![V2 isolated side detail](evidence/v2-side-close.png) |
+These are fresh imports of the current exact GLB. Close views isolate the same
+source-named right side without repositioning it. Tan identifies testis and rose
+identifies epididymis; these are illustrative display colors. Camera names denote
+native source directions, not independently validated anatomical axes.
+[Render bindings](render-v2.json) retain current cameras and exact image identities.
 
-Tan identifies testis, rose identifies epididymis; these are illustrative display
-colors. Camera names denote native source directions, not independently validated
-anatomical axes. [Camera/artifact comparison](comparison.json) binds the pair.
+V1 was rejected for a faceted superior contour, doubled-side detail and obscuring,
+unvalidated deferens routing. V2 uses source render subdivision, isolates one side
+for detail and excludes deferens. The rejected V1 renders and routine execution
+receipts are retired; the findings remain in the independent review. Committed
+old output remains in Git history.
 
 The [historical flat-strip image](../2026-10-23-v10-exterior-review/draft_testes/screenshots/contact.png)
 was also inspected. Its original GLB is external to this checkout:
@@ -52,9 +53,9 @@ shape or physical-size comparison is claimed.
 - [Seven scoped checks](replay.json) passed: build, rebuild, byte equality,
   source/export mapping, wrong-source refusal, overwrite refusal and static
   four-object/failure-output checks. GLB replay is byte-identical.
-- [Fresh remote readback](remote-readback.json): direct LFS upload followed by
-  fresh GitHub HTTPS size/hash verification for all **7 objects / 4,478,270 bytes**.
-  No Site, credential change or fallback transport was used.
+- Historical delivery on 2026-10-30: direct LFS upload and fresh GitHub HTTPS
+  size/hash readback passed. This is a past delivery result, not a current remote
+  availability check. No Site or credential change was included.
 
 ## Scope and uncertainty
 
@@ -69,8 +70,7 @@ approval is claimed. The original broader asset is not replaced or promoted.
 The exclusion of deferens removes an unsupported default teaching relationship;
 it is not a repair of the source junction. V1 source-context GLB identity remains
 `1442a5d7f90bc301467e819e0467e01bafbac4c145e5131ffd832b8e3c3453a2`
-(261,972 bytes), retained locally with its negative images and
-[build receipt](build-v1.json). Its initial recipe is preserved in commit
+(261,972 bytes). Its rejected output is retired; the initial recipe is preserved in commit
 `e4c101bb9aaf17c9226ef4e4b49f95f94eb9f76a`. Only the current GLB is packaged.
 
 ## Replay
@@ -80,7 +80,7 @@ in provenance. No upstream scripts execute. The source-derived geometry and
 renders retain CC BY-SA 4.0; reference figures are not reproduced.
 
 ```sh
-python3 tests/testes/replay.py --source /path/Startup.blend --out /tmp/testes-new-check
+python3 models/testes/recipes/replay.py --source /path/Startup.blend --out /tmp/testes-new-check
 blender -b --factory-startup --python-exit-code 1 --threads 6 \
   --python models/testes/source/z-native-epididymis-r01/render.py -- \
   --artifact /tmp/testes-new-check/first/testicular-region.glb --out /tmp/testes-new-views

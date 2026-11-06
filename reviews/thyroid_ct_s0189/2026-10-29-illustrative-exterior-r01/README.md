@@ -30,8 +30,7 @@ Candidate: `4c2dee513f713fd8d649e7d1928ba3859ce1d25e81468e707b65a5fbeeee216a`,
 · [build](build-record.json)
 · [export/reimport](export-check.json)
 · [replay](replay-check.json)
-· [failure guards](failure-guards.json)
-· [V1 finding and V2 fix](failed-v1-record.json).
+· [failure guards](failure-guards.json).
 
 The source is TotalSegmentator v2.0.1 s0189, a public clinical-source sample, not a
 normal atlas. Existing 1.5 mm label-spacing/unit caveats remain. Blender's
@@ -54,8 +53,8 @@ Reproduce the affected integrity check and validate hydrated evidence from the
 repository root:
 
 ```sh
-blender --background --factory-startup --python-exit-code 1 --python tests/thyroid_exterior/check_export.py -- --root . --candidate models/thyroid_ct_s0189/exports/illustrative-exterior-r01/thyroid-illustrative-exterior.glb --expected-sha256 4c2dee513f713fd8d649e7d1928ba3859ce1d25e81468e707b65a5fbeeee216a --out /tmp/thyroid-export-check.json
-python3 tests/thyroid_exterior/verify_package.py
+blender --background --factory-startup --python-exit-code 1 --python models/thyroid_ct_s0189/recipes/check_export.py -- --root . --candidate models/thyroid_ct_s0189/exports/illustrative-exterior-r01/thyroid-illustrative-exterior.glb --expected-sha256 4c2dee513f713fd8d649e7d1928ba3859ce1d25e81468e707b65a5fbeeee216a --out /tmp/thyroid-export-check.json
+python3 models/thyroid_ct_s0189/recipes/verify_package.py
 python3 tools/verify.py offline
 ```
 
@@ -84,6 +83,7 @@ pair. View names refer to the comparison setup, not independently verified axes.
 The earlier retained oblique camera settings were unavailable. These new matched
 views expose the same class of repeated ridge artifact on the exact retained
 source. V1's wrong-face weighting and weak comparison setup were rejected; its
-failed artifact and pixels are retained separately, not delivered as the candidate.
+failed artifact and pixels are retired. V2 corrected the sampled face, detail
+camera and matched lighting without increasing smoothing strength or iterations.
 
 </details>

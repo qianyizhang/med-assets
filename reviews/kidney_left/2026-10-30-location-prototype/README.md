@@ -8,7 +8,7 @@ prototype files remain unchanged.
 
 All three images use Chromium 154.0.8037.57, a 1100 × 1000 viewport, device scale
 1 and the same retained source tiles. The existing
-[browser recipe](../../../tests/kidney_left_location/browser_check.py) records
+[browser recipe](../../../models/kidney_left/recipes/location/browser_check.py) records
 the controls used to reach each captured state.
 
 | Capture | Meaning | Bytes | SHA-256 |
@@ -22,7 +22,7 @@ boundary, measured depth or a cutaway. The historical contact compositor is
 unavailable; alignment was corroborated, not fully replayed. Source-labeled tip
 surfaces are not a complete collecting system. PR #7's rejected columns+medulla
 mode remains excluded. See the unchanged
-[source proof, checks and scope](../../../studies/kidney_left_location/README.md).
+[source proof, checks and scope](../../../lessons/kidney-location/README.md).
 
 Retain these three PNGs (461,811 bytes total) as the canonical repository copies
 needed for immutable inline PR evidence. Original local and Space review evidence

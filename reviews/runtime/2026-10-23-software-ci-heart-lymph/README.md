@@ -21,7 +21,9 @@ Existing review gates are unchanged.
 `record.json` is the concise scope contract. `frame-results.json` retains actual
 morph/visibility evidence; source/browser/code bindings and an independent
 post-download PNG/weight recheck are separate JSON files. `images/` contains
-unmodified original canvas PNGs and actual displayed-canvas crops. Full browser
+unmodified original canvas PNGs and actual displayed-canvas crops. Identical
+captures share one image file; `frame-results.json` retains every capture state,
+time and measurement with references to those exact bytes. Full browser
 screenshots, logs, profiles and ephemeral loopback/temporary paths are intentionally
 excluded. The original verified CI archive remains retained locally; this bundle
 does not depend on the three-day hosted artifact surviving.

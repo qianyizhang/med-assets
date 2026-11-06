@@ -18,13 +18,13 @@ explicit limits. V2 darkens illustrative materials and adds a bilingual teaching
 sheet with three bound locators, a detail-region box and source-extent markers.
 The GLB's binary geometry, mesh definitions and transforms are unchanged from v1.
 
-The initial 24-sample v1 images and their original bindings remain in `v1/`.
-Fair v1/v2 comparison captures use the same cameras, lighting, scale, exposure,
+The current v1/v2 comparison captures use the same cameras, lighting, scale, exposure,
 background and 128-sample settings in `v1/matched-128` and `v2/raw-128`.
-Both are fresh clean reimports of the exact exports. The failed first v2 label
-layout is retained under `v2/initial-label-layout`: its extent leaders crossed
-their text; final composition ends the leaders outside the text. No geometry
-was changed for that correction. A failed denoiser configuration produced no
+Both are fresh clean reimports of the exact exports. The first v2 label
+layout had extent leaders crossing their text; final composition ends the
+leaders outside the text. No geometry changed for that correction. The initial
+24-sample captures and failed label layout were retired; current matched
+captures, comparison inputs and the V1 GLB required for replay remain. A failed denoiser configuration produced no
 image; the render recipe now uses the available non-denoised Cycles path.
 
 ## Original scaffold evidence belongs to a separate review
@@ -71,7 +71,7 @@ accuracy is independently reviewed in the images.
 | Visual | Independent v1 findings addressed in v2; [final review accepted with limitations](independent-v2-review.md) |
 | Anatomy/clinical | Gross relationship reference-screened; no clinical, complete-tunnel or full-route certification |
 | Runtime | Unverified; no browser test or motion evidence |
-| Publication | [Direct upload and fresh GitHub byte readback passed](delivery.json); draft review only, no runtime or clinical promotion |
+| Historical delivery | Direct upload and fresh GitHub byte readback passed on 2026-10-30 at `f9dda28`; this does not establish current remote availability, runtime or clinical approval |
 
 Source-coordinate evidence in `v1/native-check.json` screens all four vertex
 clouds bidirectionally against the full native scene: maximum difference
@@ -89,7 +89,7 @@ The 3D supplement is suitable only for the reviewed static gross relationship.
 V1 GLB: `206915ffa0b6b625ca17e32f35b893e1d1a103f25bce59f41e02d657ab9e7fd5`,
 186,792 bytes. V2 GLB:
 `94a7bde3f8a2882cc632082301d7701a737a769e1d1afe0f55629ecac3013ac3`,
-187,708 bytes. [Recipe and checks](../../../tests/peripheral_nerves/ulnar-elbow-r01/README.md).
+187,708 bytes. [Recipe and checks](../../../models/peripheral_nerves/recipes/ulnar-elbow-r01/README.md).
 
 Selected geometry and derived renders: **CC BY-SA 4.0**. **Z-Anatomy — The libre
 3D atlas of anatomy — CC BY-SA 4.0**; **BodyParts3D — The Database Center for Life

@@ -14,7 +14,7 @@ valve timing, measured physiology or a complete internal heart.
 
 ## Correction and identity
 
-The [seven-field patch](../../../../tests/scene_metadata/heart/approved-patch.json)
+The [seven-field patch](../../../../models/heart/recipes/metadata/approved-patch.json)
 is the authoritative old/new value record. It replaces `README`,
 `clinical_status` and `animation_model` with the source/clip description above.
 It removes unsupported `coordinates`, `reference_phase`, `material_set_names`
@@ -84,9 +84,9 @@ records scoped checks. No duplicate screenshots or copied source payloads are ad
 With the retained GLB payloads available, from repository root:
 
 ```sh
-python3 tools/patch_scene_metadata.py --patch tests/scene_metadata/heart/approved-patch.json body/breathing/heart_breathing.glb /tmp/heart-metadata-replay.glb
-python3 tests/scene_metadata/heart/verify.py
-blender --background --factory-startup --python-exit-code 1 --python tests/scene_metadata/heart/import_check.py
+python3 tools/patch_scene_metadata.py --patch models/heart/recipes/metadata/approved-patch.json body/breathing/heart_breathing.glb /tmp/heart-metadata-replay.glb
+python3 models/heart/recipes/metadata/verify.py
+blender --background --factory-startup --python-exit-code 1 --python models/heart/recipes/metadata/import_check.py
 python3 tools/verify.py offline
 ```
 

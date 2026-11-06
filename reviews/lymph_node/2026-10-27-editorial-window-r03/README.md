@@ -36,14 +36,14 @@ is omitted. This is a visibility trade-off, not a repair of vessel anatomy.
 
 An independent presentation review found that the detail crop is useful for
 local region inspection but lacks whole-organ context on its own. The
-`tools/lymph_node/editorial_window_r03/detail_context.py` recipe pairs the
+`models/lymph_node/recipes/editorial_window_r03/detail_context.py` recipe pairs the
 exact retained r02/r03 detail pixels with the intact/r02/r03 whole-organ panel,
 checking both source image hashes. It labels the vascular network identity as
 unresolved and the window as an editorial omission. It changes no model or
 render pixels and does not establish tissue continuity or runtime behavior.
 
 ```sh
-python3 tools/lymph_node/editorial_window_r03/detail_context.py \
+python3 models/lymph_node/recipes/editorial_window_r03/detail_context.py \
   --detail /path/to/retained/detail-r02-r03.png \
   --context /path/to/retained/source-r02-r03-context.png \
   --output /tmp/lymph-detail-with-context.png
@@ -97,11 +97,11 @@ silently skipped. No downloads, installations or credentials are performed by
 these scripts.
 
 ```sh
-python3 tools/lymph_node/editorial_window_r03/build.py \
+python3 models/lymph_node/recipes/editorial_window_r03/build.py \
   --source models/lymph_node/exports/hra-v1.2/NIH_M_Lymph_Node.glb \
   --output /tmp/lymph-r03-new
 
-python3 tools/lymph_node/editorial_window_r03/check.py \
+python3 models/lymph_node/recipes/editorial_window_r03/check.py \
   --source models/lymph_node/exports/hra-v1.2/NIH_M_Lymph_Node.glb \
   --candidate-dir /tmp/lymph-r03-new \
   --replay-output /tmp/lymph-r03-replay-new \
@@ -109,7 +109,7 @@ python3 tools/lymph_node/editorial_window_r03/check.py \
 
 blender --background --factory-startup --disable-autoexec --threads 4 \
   --python-exit-code 1 \
-  --python tools/lymph_node/editorial_window_r03/render.py -- \
+  --python models/lymph_node/recipes/editorial_window_r03/render.py -- \
   --input /tmp/lymph-r03-new/lymph-node-editorial-window-r03.glb \
   --build-receipt /tmp/lymph-r03-new/build-receipt.json \
   --output /tmp/lymph-r03-renders-new --roundtrip --all-views

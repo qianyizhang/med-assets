@@ -11,11 +11,12 @@ import shutil
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'tools'))
+sys.path.insert(0, str(ROOT))
 from lfs_transport import Stop, download_source, validate_manifest, verify_bytes, require
-from eye_teaching.build import unpack, accessor
+from models.eye_anterior_segment.recipes.teaching.build import unpack, accessor
 
 MANIFEST_SHA256 = 'ab97d341e9490f418a06d4d9943c0ab2743f22713c174446d8d3f3c0b7ee1118'
-MANIFEST = ROOT / 'ci/fdi31-source/manifest.json'
+MANIFEST = ROOT / 'transport/manifests' / (MANIFEST_SHA256 + '.json')
 
 
 def consume(folder, manifest):

@@ -108,11 +108,11 @@ The exact hydrated baseline must already be available; scripts make no network
 requests. Ordinary offline tests need only Python and Git.
 
 ```sh
-python3 tools/lung_lobes/build.py --source models/lung_pair/exports/hra-female-normals-r02/lung_female_hra_normals_r02.glb --revision v1 --output /tmp/lung-study-v1
-python3 tools/lung_lobes/build.py --source models/lung_pair/exports/hra-female-normals-r02/lung_female_hra_normals_r02.glb --revision v2 --output /tmp/lung-study-v2
-blender -b -t 8 --python-exit-code 1 --python tools/lung_lobes/render.py -- --baseline models/lung_pair/exports/hra-female-normals-r02/lung_female_hra_normals_r02.glb --candidate /tmp/lung-study-v1/lung-lobes.glb --revision v1 --output /tmp/lung-render-v1
-blender -b -t 8 --python-exit-code 1 --python tools/lung_lobes/render.py -- --baseline models/lung_pair/exports/hra-female-normals-r02/lung_female_hra_normals_r02.glb --candidate /tmp/lung-study-v2/lung-lobes.glb --revision v2 --candidate-only --output /tmp/lung-render-v2
-python3 tools/lung_lobes/compare.py --v1-renders /tmp/lung-render-v1 --v2-renders /tmp/lung-render-v2 --output /tmp/lung-comparison
+python3 models/lung_pair/recipes/lobes/build.py --source models/lung_pair/exports/hra-female-normals-r02/lung_female_hra_normals_r02.glb --revision v1 --output /tmp/lung-study-v1
+python3 models/lung_pair/recipes/lobes/build.py --source models/lung_pair/exports/hra-female-normals-r02/lung_female_hra_normals_r02.glb --revision v2 --output /tmp/lung-study-v2
+blender -b -t 8 --python-exit-code 1 --python models/lung_pair/recipes/lobes/render.py -- --baseline models/lung_pair/exports/hra-female-normals-r02/lung_female_hra_normals_r02.glb --candidate /tmp/lung-study-v1/lung-lobes.glb --revision v1 --output /tmp/lung-render-v1
+blender -b -t 8 --python-exit-code 1 --python models/lung_pair/recipes/lobes/render.py -- --baseline models/lung_pair/exports/hra-female-normals-r02/lung_female_hra_normals_r02.glb --candidate /tmp/lung-study-v2/lung-lobes.glb --revision v2 --candidate-only --output /tmp/lung-render-v2
+python3 models/lung_pair/recipes/lobes/compare.py --v1-renders /tmp/lung-render-v1 --v2-renders /tmp/lung-render-v2 --output /tmp/lung-comparison
 python3 -m unittest discover -s tests -p test_lung_lobes.py
 python3 tools/verify.py offline
 ```

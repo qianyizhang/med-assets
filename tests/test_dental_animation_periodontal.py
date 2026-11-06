@@ -4,7 +4,7 @@ import unittest
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
-SPEC = importlib.util.spec_from_file_location("periodontal", ROOT / "docs/dental-animation/periodontal-cleaning/render.py")
+SPEC = importlib.util.spec_from_file_location("periodontal", ROOT / "lessons/dental-animation/periodontal-cleaning/render.py")
 M = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(M)
 

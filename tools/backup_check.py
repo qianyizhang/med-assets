@@ -15,8 +15,7 @@ import sys
 import zipfile
 import zlib
 
-from verify import parse_pointer, require
-from lfs_transport import Stop, unique_keys
+from lfs_transport import Stop, parse_pointer, unique_keys
 
 ROOT = Path(__file__).resolve().parents[1]
 SCOPE = ('One committed tree, with LFS payload bytes; excludes Git history, other '
@@ -27,6 +26,11 @@ HEX256 = re.compile(r'[0-9a-f]{64}')
 COMMIT_ID = re.compile(r'[0-9a-f]{40}|[0-9a-f]{64}')
 REMOTE_TOKEN = re.compile(r'[A-Za-z0-9_-]{1,200}')
 MAX_MANIFEST_BYTES = 16 * 1024 * 1024
+
+
+def require(condition, message):
+    if not condition:
+        raise ValueError(message)
 
 
 def safe_path(name):

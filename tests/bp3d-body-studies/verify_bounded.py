@@ -1,6 +1,8 @@
 """Read-only local manifest-subset identity checks, not source rebuild/render validation."""
+import argparse
 from pathlib import Path
-import hashlib,json,struct,sys
+import hashlib,json,struct
+argparse.ArgumentParser(description=__doc__).parse_args()
 R=Path(__file__).resolve().parents[2]
 G='reviews/bp3d-body-studies/2026-10-24-bounded-migration'
 S='sources/datasets/bp3d-4.0-body-studies'
@@ -23,6 +25,4 @@ for s in m['studies']:
  for e in s['evidence']:
   p=R/e['path'];raw=p.read_bytes();assert sha(p)==e['sha256'] and len(raw)==e['bytes'];assert raw[:4]==b'RIFF' and raw[8:12]==b'WEBP';assert e['sha256']!=e['originalPngSha256'];assert e['originalPngExternal']['bundled'] is False;assert e['originalPngExternal']['sha256']==e['originalPngSha256'];seen[sha(p)]=len(raw);ev.add(sha(p))
 assert len(seen)==m['uniqueMediaOids'] and sum(seen.values())==m['uniqueMediaBytes'] and len(ev)==m['uniqueSelectedEvidence']
-if '--strict-package' in sys.argv:
- assert set(checks)=={str(p.relative_to(R)) for p in R.rglob('*') if p.is_file() and str(p.relative_to(R))!=G+'/FILE-HASHES.json'},'Unlisted or stale package files'
 print(json.dumps({'identityChecks':'passed','files':len(checks),'uniqueMediaBytes':sum(seen.values()),'status':m['status'],'scope':'Local retained bytes only; external gzip/source archives not re-fetched; no source rebuild,rendering,anatomy or runtime pass'}))

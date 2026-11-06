@@ -19,6 +19,14 @@ Source exteriors underwent tiny-edge cleanup, outward-normal correction, subdivi
 17 new groups have a single exported shared Teaching UV atlas and actual 1024×1024 BaseColor, Roughness and OpenGL (+Y) tangent-space Normal maps. Base color is sRGB; roughness and normals are non-color/linear data. Maps are baked from artistic organ-specific procedural materials, not photographs, histology or recovered scan texture. Normal relief is intentionally subtle; see controlled normal-on/off proof. UV atlases include all display variants, so some atlas regions belong to hidden section geometry. Two negligible brain triangles have near-zero UV area; renal and gastric replacements have none. Clinical and transparent modes are material presets, not three separate photographic texture sets.
 
 ## Rights and provenance
+The builder reads the existing cardiac GLBs directly from
+`heart/Cardiac_Atlas/exports/` at the repository root. The former copies under
+`body-3d-assets/sources/` were byte-identical and have been removed. Raw source
+JSONs, their manifest and source notice remain under
+`body-3d-source/tb3/presentation/task-explorer/anatomy/`; full delivery licenses
+remain under `docs/licenses/`. Historical import and acquisition records retain
+their original paths and identities.
+
 Source-derived surfaces: Jakob Wasserthal and TotalSegmentator contributors, University Hospital Basel, TotalSegmentator v2.0.1, https://zenodo.org/records/10047263, CC BY 4.0. Source tb3 revision 75ec4e6530abe4d434b07958e90bdc9dec062bef. Retain docs/licenses/NOTICE.md and full licenses, source/version attribution and this modification record in reuse. Raw JSONs are unmodified. The retained label-source license is Apache 2.0; it does not replace the dataset's CC BY 4.0 attribution. No source endorsement is implied.
 
 Educational inspiration and tutorial assets only. Not clinically validated, patient-specific diagnosis, scanner simulation or surgical planning geometry.

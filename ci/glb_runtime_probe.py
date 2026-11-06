@@ -11,7 +11,7 @@ from esophagus import probe as esophagus
 from glb_runtime_fixture import load_fixture as load_base_fixture
 
 HERE=Path(__file__).resolve().parent
-RECIPE=HERE.parent/'tools/lymph_node/editorial_window_r03'
+RECIPE=HERE.parent/'models/lymph_node/recipes/editorial_window_r03'
 OUT=Path.cwd()/'glb-runtime-results'
 HOSTS={'raw.githubusercontent.com','media.githubusercontent.com','heart-anatomy-imaging-lab.landy123007.chatgpt.site'}
 MAX_DOWNLOAD=10*1024*1024
@@ -298,7 +298,7 @@ def main():
  assert all(line.endswith(' c /etc/firefox/syspref.js') for line in integrity['stdout'].splitlines()), 'Unexpected packaged Firefox changes'
  fixture=load_fixture()
  morph_source=HERE.parent/json.loads((HERE/'glb-runtime-fixture.json').read_text())['heart']['tracksSource']['file']
- dump('test-provenance.json',{'githubSHA':os.environ.get('GITHUB_SHA'),'files':{p.name:{'sha256':base.sha(p),'bytes':p.stat().st_size} for p in [HERE/'webgl_probe.py',Path(__file__),HERE/'glb_runtime_probe.mjs',HERE/'lymph_diagnostics.mjs',HERE/'lymph_diagnostics.py',HERE/'glb-runtime-fixture.json',HERE/'glb_runtime_fixture.py',morph_source,HERE/'esophagus/fixture.json',HERE/'esophagus/probe.py',HERE/'esophagus/probe.mjs',HERE.parent/'tests/esophagus_wall/palette_trial.py',HERE.parent/'tests/esophagus_wall/parameters.json',*[RECIPE/p for p in ('build.py','gltf_source.py','check.py','import_audit.py','display_repair.py')]]},'frameIDs':FRAME_IDS})
+ dump('test-provenance.json',{'githubSHA':os.environ.get('GITHUB_SHA'),'files':{p.name:{'sha256':base.sha(p),'bytes':p.stat().st_size} for p in [HERE/'webgl_probe.py',HERE.parent/'tools/glb.py',Path(__file__),HERE/'glb_runtime_probe.mjs',HERE/'lymph_diagnostics.mjs',HERE/'lymph_diagnostics.py',HERE/'glb-runtime-fixture.json',HERE/'glb_runtime_fixture.py',morph_source,HERE/'esophagus/fixture.json',HERE/'esophagus/probe.py',HERE/'esophagus/probe.mjs',HERE.parent/'models/esophagus_wall/recipes/palette_trial.py',HERE.parent/'models/esophagus_wall/recipes/parameters.json',*[RECIPE/p for p in ('build.py','gltf_source.py','check.py','import_audit.py','display_repair.py')]]},'frameIDs':FRAME_IDS})
  with tempfile.TemporaryDirectory(prefix='glb-runtime-') as temporary:
   work=Path(temporary);(work/'framebuffer').mkdir();download_inputs(fixture,work);reconstruct(fixture,work);prepare_esophagus(work)
   args=['xvfb-run','--auto-servernum','--server-args',f'-screen 0 1280x1024x24 -nolisten tcp -fbdir {work}/framebuffer',sys.executable,str(Path(__file__).resolve()),'--inside-xvfb',str(firefox),str(work)]
