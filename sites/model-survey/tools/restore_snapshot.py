@@ -29,16 +29,15 @@ def restore(source, output):
                 if len(payload) != asset['bytes'] or asset['mediaType'] != 'image/webp':
                     raise ValueError('Image binding differs; output was not changed.')
                 image[kind] = f"{reference['siteUrl']}/assets/{sha}/{asset['name']}"
-        # Match the indexed snapshot response ordering retained by the publication.
-        queries = data.pop('queries')
-        for query in queries.values():
-            rows = query.pop('rows')
-            query['rows'] = rows
-        data['queries'] = queries
+        # Preserve source key order: API response ordering is a different wire identity.
         raw = json.dumps(data, ensure_ascii=False, separators=(',', ':')).encode()
     if (hashlib.sha256(raw).hexdigest() != current['snapshotSha256']
             or len(raw) != current['snapshotBytes']):
         raise ValueError('Reconstructed seed differs; output was not changed.')
+    raw = (json.dumps(data, ensure_ascii=False, indent=2) + '\n').encode()
+    if (hashlib.sha256(raw).hexdigest() != current['sourceSeedSha256']
+            or len(raw) != current['sourceSeedBytes']):
+        raise ValueError('Restored source serialization differs; output was not changed.')
     if output.exists():
         if output.read_bytes() != raw:
             raise ValueError('Output has other data; refusing to overwrite it.')

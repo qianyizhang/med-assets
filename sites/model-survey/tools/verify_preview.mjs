@@ -7,7 +7,7 @@ const browser=await chromium.launch({executablePath:process.env.MODEL_SURVEY_BRO
 try{
  const page=await browser.newPage({viewport:{width:1440,height:1000}});
  const errors=[];page.on('pageerror',e=>errors.push(String(e)));
- await page.goto('http://127.0.0.1:62099/',{waitUntil:'networkidle'});
+ await page.goto(process.env.MODEL_SURVEY_PREVIEW_URL || 'http://127.0.0.1:62099/',{waitUntil:'networkidle'});
  const report=page.locator('.sv-report');await report.waitFor();
  const click=async name=>page.getByRole('button',{name,exact:true}).click();
  const checks=[];

@@ -7,7 +7,7 @@ const browser=await chromium.launch({executablePath:process.env.MODEL_SURVEY_BRO
 try{
  const page=await browser.newPage({viewport:{width:1440,height:1000}}),errors=[];
  page.on('pageerror',e=>errors.push(String(e)));
- await page.goto('http://127.0.0.1:62099/?view=1',{waitUntil:'networkidle'});
+ await page.goto(process.env.MODEL_SURVEY_PREVIEW_URL || 'http://127.0.0.1:62099/?view=1',{waitUntil:'networkidle'});
  page.setDefaultTimeout(10000);
  const click=async name=>page.getByRole('button',{name,exact:true}).click();
  await click('Expand');
