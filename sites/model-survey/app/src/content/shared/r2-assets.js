@@ -1,3 +1,12 @@
+const MAX_ASSET_BYTES = 64_000_000;
+const FORMATS = {
+  'model/gltf-binary': /\.glb$/iu, 'image/png': /\.png$/iu,
+  'image/webp': /\.webp$/iu, 'image/jpeg': /\.(jpg|jpeg)$/iu,
+  'application/zip': /\.zip$/iu, 'application/gzip': /\.nii\.gz$/iu,
+  'application/octet-stream': /\.(blend|raw|nii|nrrd|npz|svg|json)$/iu,
+  'audio/wav': /\.wav$/iu, 'video/mp4': /\.mp4$/iu, 'font/ttf': /\.ttf$/iu,
+  'model/stl': /\.stl$/iu, 'model/obj': /\.obj$/iu,
+};
 const HASH = /^[a-f0-9]{64}$/u;
 const headers = { 'access-control-allow-origin': '*', 'x-content-type-options': 'nosniff' };
 
@@ -12,9 +21,10 @@ export function createAssetDelivery(manifest, ownerCanEdit) {
   const entries = new Map();
   for (const asset of manifest.assets) {
     if (!HASH.test(asset.sha256) || !Number.isSafeInteger(asset.bytes) || asset.bytes < 1
-      || asset.bytes > 40_000_000 || !/^[a-zA-Z0-9_.-]+$/u.test(asset.name)
-      || !['model/gltf-binary', 'image/png', 'image/webp', 'image/jpeg', 'application/zip'].includes(asset.mediaType)) throw new Error('Invalid published asset.');
+      || asset.bytes > MAX_ASSET_BYTES || !/^[a-zA-Z0-9_.-]+$/u.test(asset.name)
+      || !Object.hasOwn(FORMATS, asset.mediaType)) throw new Error('Invalid published asset.');
     if (asset.mediaType === 'application/zip' && !asset.name.endsWith('.zip')) throw new Error('ZIP assets need a .zip filename.');
+    if (!FORMATS[asset.mediaType].test(asset.name)) throw new Error('Asset type and extension differ.');
     const route = `/assets/${asset.sha256}/${asset.name}`;
     if (entries.has(route)) throw new Error('Duplicate published asset.');
     entries.set(route, { ...asset, key: `assets/sha256/${asset.sha256}` });
@@ -80,7 +90,7 @@ export function createAssetDelivery(manifest, ownerCanEdit) {
         'content-length': String(asset.bytes), etag: `"${asset.sha256}"`,
         'cache-control': 'public, max-age=31536000, immutable', 'accept-ranges': 'bytes',
         'access-control-expose-headers': 'Content-Length, Content-Range, ETag',
-        ...(asset.mediaType === 'application/zip' ? { 'content-disposition': `attachment; filename="${asset.name}"` } : {}),
+        ...(asset.mediaType.startsWith('application/') ? { 'content-disposition': `attachment; filename="${asset.name}"` } : {}),
       };
       if (request.headers.get('if-none-match') === responseHeaders.etag) {
         delete responseHeaders['content-length'];

@@ -128,3 +128,54 @@ The first approved manifest-only merge completed successfully on 2026-10-24: [di
 Historical executor provenance is retained in the recovery bundle and restoration
 evidence under `sources/recovery/completed-pilots/`; this
 implementation has no dependency on deleted pilot branch refs or extracted copies.
+
+## Repository payload copies in R2
+
+The user-authorized migration in issue #245 copies Git-pinned payloads to the
+existing public model-survey Site. `tools/r2_migration.py` selects every LFS
+payload plus directly tracked Git data/evidence blobs >=1 MB, checks local bytes
+against a fixed commit, and produces a candidate delivery manifest without
+network access. The Site's existing `r2-trial.json` is the delivery reference
+owner; its historical filename is retained for the pinned framework import.
+
+The direct R2 handler admits only named hash/size/type routes, caps one object at
+64 MB, and validates extension/type pairs. Source/volume/SVG/JSON binaries are
+attachments with no sniffing. No HTML or JavaScript asset type is admitted.
+Streaming R2 checksum validation, immutable object keys and fresh complete
+readback establish byte identity; declaration in the index is not proof that
+an object exists. The 64 MB ceiling fits the selected maximum 42,497,262-byte
+source; see [Workers request limits](https://developers.cloudflare.com/workers/platform/limits/)
+and [R2 upload methods](https://developers.cloudflare.com/r2/objects/upload-objects/).
+
+`tools/r2_upload.mjs` accepts a short-lived upload token only through hidden stdin
+or an in-memory caller. It rechecks each declared payload against Git and the
+local file, processes <=32 objects / 64 MB per batch with <=4 in flight, verifies
+full anonymous readback, and persists resumable state only in ignored output.
+Any unexpected HTTP, permission, quota, size or hash result stops the run after
+its current group. No automatic retry, provider fallback or spending-limit
+adjustment occurs. Explicit resume rechecks readbacks; verified prior objects
+need no upload. Close the temporary asset-upload environment and redeploy the
+same saved version after success. Preserve the owner environment and audience.
+
+Consumers use `tools/fetch_asset.py PATH --commit REV` for a verified ignored
+cache, or `--hydrate` to replace only an exact matching LFS pointer at its original
+path. An already-correct local payload avoids network work; changed files,
+symlinks, mismatched pointers and concurrent edits are preserved and refused.
+Git data blobs can be fetched using their exact committed bytes as identity.
+Published filenames come from the checked delivery reference, including aliases.
+
+Original LFS objects, tracked data files, source/export paths, licenses, review
+records and historical Git identities remain recovery material. This copying
+phase does not rewrite history or claim that existing Git storage has shrunk.
+Retiring an old provider/copy requires complete coverage and consumer checks.
+The earlier guarded CI/LFS publishing workflow and its 40 MB batch limits remain
+unchanged; this direct R2 flow is separately authorized and reviewed. Transport
+replication does not promote technical geometry, visual, anatomy or runtime gates.
+
+Completed copy: 694 unique payloads / 976,485,579 bytes at source revision
+`503c33f1dadf403faaec373c1a11a8b40dc523d6`, verified by complete fresh readback.
+The delivery index has 1,001 named routes including retained previews/backup.
+Publication source `3d1bb000df0376f8f64d15183b1504d858b97d01` is live as public
+Site version 5; temporary asset upload authorization was removed afterward.
+Main/source and LFS recovery were retained, so this is provider migration and
+on-demand retrieval, not historical repository shrinkage.

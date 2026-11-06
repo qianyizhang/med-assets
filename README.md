@@ -28,13 +28,16 @@ and the single [architecture/workflow guide](docs/WORKFLOW.md).
 
 ```sh
 git lfs install
-git clone https://github.com/qianyizhang/med-assets.git
+GIT_LFS_SKIP_SMUDGE=1 git clone https://github.com/qianyizhang/med-assets.git
 cd med-assets
-git lfs pull
-python3.12 tools/verify.py payload-integrity
+python3.12 tools/verify.py offline
+python3.12 tools/fetch_asset.py models/kidney_left/exports/metadata-cleanup-r01/kidney_left.glb --hydrate
 ```
 
-Python 3.11+, Git and Node.js 18+ are required. With pointers only, run
+Python 3.11+, Git and Node.js 18+ are required. On-demand R2 retrieval verifies
+Git-pinned bytes and hydrates only an unchanged pointer. For a full LFS recovery
+checkout, run `git lfs pull`, then `python3.12 tools/verify.py payload-integrity`.
+Original paths, licensing and LFS recovery remain preserved. With pointers only, run
 `python3.12 tools/verify.py offline`; it checks metadata and behavior, not media
 bytes. [Verification](docs/WORKFLOW.md#verification) describes dental/replay
 prerequisites and the independent quality/runtime gates.

@@ -81,6 +81,35 @@ class FetchAssetTests(unittest.TestCase):
                 self.download()
         self.assertEqual(list(self.cache.iterdir()), [])
 
+    def test_published_alias_is_selected_only_for_matching_identity(self):
+        root=self.cache.parent/'repo'
+        manifest=root/'sites/model-survey/app/src/content/assets/r2-trial.json'
+        manifest.parent.mkdir(parents=True)
+        import json
+        manifest.write_text(json.dumps({'assets':[{'sha256':self.digest,'bytes':len(self.payload),'name':'safe_name.glb'}]}))
+        self.assertEqual(fetch.route_name(root,self.digest,len(self.payload),'old name.glb'),'safe_name.glb')
+        with self.assertRaises(ValueError):fetch.route_name(root,'0'*64,len(self.payload),'old name.glb')
+
+    def test_hydration_restores_only_exact_pointer_and_preserves_other_work(self):
+        root=self.cache.parent/'repo';root.mkdir()
+        path=root/'model.glb'
+        pointer=f'version https://git-lfs.github.com/spec/v1\noid sha256:{self.digest}\nsize {len(self.payload)}\n'.encode()
+        path.write_bytes(pointer);path.chmod(0o640);cached=self.download()
+        self.assertEqual(fetch.hydrate(root,'model.glb',cached,self.digest,len(self.payload)),path)
+        self.assertEqual(path.read_bytes(),self.payload)
+        self.assertEqual(path.stat().st_mode & 0o777,0o640)
+        path.write_text('user edits')
+        with self.assertRaises(ValueError):fetch.hydrate(root,'model.glb',cached,self.digest,len(self.payload))
+        self.assertEqual(path.read_text(),'user edits')
+        path.write_bytes(pointer)
+        original_copy=fetch.shutil.copyfileobj
+        def changed_during_copy(source,output,*args):
+            original_copy(source,output,*args);path.write_text('new user edits')
+        with patch.object(fetch.shutil,'copyfileobj',side_effect=changed_during_copy):
+            with self.assertRaisesRegex(ValueError,'changed during'):fetch.hydrate(root,'model.glb',cached,self.digest,len(self.payload))
+        self.assertEqual(path.read_text(),'new user edits')
+        self.assertFalse(list(root.glob('.hydrate-*')))
+
     def test_path_traversal_is_refused_before_git(self):
         for name in ['../x.glb', '/x.glb', './x.glb', 'x/../y.glb', 'x\\y.glb']:
             with self.subTest(name=name), self.assertRaises(ValueError):
