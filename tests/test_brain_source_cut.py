@@ -10,7 +10,7 @@ from unittest.mock import patch
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
-loader = importlib.util.spec_from_file_location("brain_source_cut_build", ROOT / "models/brain/recipes/source-cut/build.py")
+loader = importlib.util.spec_from_file_location("brain_source_cut_build", ROOT / "lessons/brain-source-cut/build.py")
 build = importlib.util.module_from_spec(loader)
 loader.loader.exec_module(build)
 SVG = "{http://www.w3.org/2000/svg}"

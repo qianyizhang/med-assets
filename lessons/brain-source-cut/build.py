@@ -14,7 +14,7 @@ import struct
 from xml.sax.saxutils import escape, quoteattr
 
 HERE = Path(__file__).resolve().parent
-ROOT = HERE.parents[3]
+ROOT = HERE.parents[1]
 SPEC = json.loads((HERE / "presentation.json").read_text())
 INK, MUTED, GOLD = "#f1f3f5", "#b9c4d0", "#ffe09a"
 
