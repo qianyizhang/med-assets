@@ -171,7 +171,8 @@ The main-only browser workflow remains separately guarded. Offline Node VM tests
 exercise actual candidate modules with API doubles; they do not test WebGL or
 BFCache. Candidate camera CPU tests need the exact vendored inputs pinned in
 `tests/candidate_camera/vendor-binding.json`; run `run_cpu.py --vendor-dir PATH`
-and again with `--lifecycle` when that patch changes. They download nothing.
+when the current camera source changes. It executes the incorporated viewer Fit
+body; `--baseline` retains the historical failure witness. Neither run downloads anything.
 
 `ci/glb_runtime_fixture.py` loads the hash-pinned heart expectations referenced by
 `ci/glb-runtime-fixture.json`; sparse checkout must include those inputs. Preserve

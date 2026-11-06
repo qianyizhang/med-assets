@@ -29,9 +29,13 @@ No network or media requests occur. These checks exercise
 selected actual source functions; they are not a full Site build, browser,
 accessibility, rendering, or clinical pass.
 
-Candidate lifecycle/camera/context, pharynx, knee, and eye packages retain their
-own source bindings and prerequisites. Incorporation of the main review renderer
-does not by itself establish that those other recipes can be retired.
+Read-only comparison with the same v50 Site source confirms that candidate camera,
+lifecycle, context recovery, knee and eye helpers are incorporated byte-for-byte.
+The camera applicator is retired; its CPU suite now uses the retained current
+candidate. Lifecycle/context and knee/eye applicators still construct source-bound
+behavior-test inputs and remain until those consumers are migrated. Pharynx modules
+are absent from v50 and retain their separate unapplied recipe. See each package
+for exact bindings and independent runtime limits.
 
 The refreshed renderer describes asset-owned recipes and directory-based discovery,
 without proposing nonexistent global registries. The [repository workflow](../docs/WORKFLOW.md)
