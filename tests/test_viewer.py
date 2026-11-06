@@ -1,9 +1,11 @@
 """Current viewer behavior and concurrent staging; no network, models or WebGL."""
 from concurrent.futures import ThreadPoolExecutor
+from contextlib import contextmanager
 import importlib.util
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('viewer_run', ROOT / 'tests/viewer/run.py')
@@ -25,6 +27,16 @@ class CurrentViewerTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'Wrong exact viewer source'):
                 with viewer.stage(root):
                     self.fail('Unbound source must not reach staging')
+
+    def test_empty_required_node_suite_is_not_a_passing_file_placeholder(self):
+        with viewer.stage() as target:
+            (target / 'tests/candidate_lifecycle-lifecycle.test.mjs').write_text('')
+            @contextmanager
+            def existing_stage(*args):
+                yield target
+            with patch.object(viewer, 'stage', existing_stage):
+                with self.assertRaisesRegex(RuntimeError, 'failed or incomplete'):
+                    viewer.run(('lifecycle',))
 
     def test_concurrent_runs_have_private_stages_and_no_source_writes(self):
         original = viewer.read_sources()

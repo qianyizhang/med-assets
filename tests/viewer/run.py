@@ -82,7 +82,11 @@ def run(groups=tuple(SUITES), root=ROOT, whole_fixture=None):
                                 capture_output=True, text=True, timeout=60)
         counts = dict((key, int(value)) for key, value in re.findall(
             r'^# (tests|pass|fail|cancelled|skipped|todo) (\d+)$', result.stdout, re.MULTILINE))
+        # Node reports an empty test file as a passing file-level placeholder.
+        empty = any(re.search(r'^# Subtest: .*[/\\]' + re.escape(Path(path).name) + r'$',
+                              result.stdout, re.MULTILINE) for path in files)
         if (result.returncode or not counts.get('tests') or
+                empty or
                 counts.get('pass') != counts['tests'] or
                 any(counts.get(key) != 0 for key in ('fail', 'cancelled', 'skipped', 'todo'))):
             raise RuntimeError('Viewer suite failed or incomplete:\n' + result.stdout + result.stderr)
