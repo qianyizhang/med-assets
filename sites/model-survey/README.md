@@ -3,8 +3,8 @@
 [Existing public Site](https://med-assets-model-survey.landy123007.chatgpt.site/) · [local preview](http://127.0.0.1:62099/)
 
 Dated survey at med-assets `e63006dca598031d58bdf66485fed24a24194558`.
-Asset directories and review records remain authoritative. Source separation does
-not refresh the survey, change its features, or deploy another version.
+Asset directories and review records remain authoritative. Source separation does not refresh the survey or change its features. The later
+user-authorized frozen backup adds one public ZIP delivery route.
 
 ## Source ownership
 
@@ -21,8 +21,14 @@ not refresh the survey, change its features, or deploy another version.
 
 The framework remains in the **existing Sites source repository**, at the locked
 revision, as an external dependency. There is no new Site or framework repository.
-Fresh checkouts need authenticated access to that existing Sites source; an owner
-uses the Sites source helper to open it into `.local/publication/`. Preparation
+Fresh checkouts can restore the pinned Git dependency from the public frozen ZIP
+in `framework.lock.json`; Sites source authentication is optional for local builds.
+The ZIP's included README covers checksum verification, extraction, direct local
+builds and Git-bundle restore. Clone `model-survey-backup/framework.bundle` into
+`.local/publication/`, then pass that Git directory to `tools/framework.py`.
+Publishing still uses the existing Sites owner/source authorization. An owner can
+also open the existing source with the Sites helper into `.local/publication/`.
+Preparation
 then runs offline and reads the pinned Git object, not the remote branch tip,
 ignored build output or installed plugin template. Keep the remote history.
 
@@ -49,7 +55,7 @@ publication commit `f69d31708d87500f761b430de1a0113294ffb1d3`. Use Data's
 the complete historical snapshot. Never use mutable `/api/snapshot` as immutable
 seed recovery. Keep credentials in memory/stdin, outside source and logs.
 
-From the med-assets root, after opening the existing Sites source:
+From the med-assets root, after restoring the pinned Git dependency:
 
 ```sh
 python3.12 sites/model-survey/tools/restore_snapshot.py PATH_TO_VERIFIED_SNAPSHOT
@@ -73,7 +79,8 @@ stopped. Browser-local presentation belongs to its existing origin.
 
 Keep project `appgprj_6aed57a59dc88191a981c07e56d283e7`, artifact identity,
 DB/BUCKET bindings, owner environment, stored edits and the **current public**
-audience. All 307 trial objects are public reads; writes remain owner-only.
+audience. The 307 trial objects and the one allowlisted frozen backup are public reads;
+writes remain owner-only or require a short-lived scoped upload authorization.
 
 Use the Data and Sites publishing skills with the assembled complete project.
 Both build and packaging must use `--source` to preserve the custom Worker.
@@ -81,10 +88,11 @@ Reconcile newer remote source, copy the checked materialized source/output into
 the existing `.local/publication/` checkout, and append to its history using the
 Sites helper. Never push the whole med-assets repository. Never rebuild between
 final packaging and publication. Verify full asset uploads/readback as usual.
-This source-only separation does not require another deployment.
+Source-only separation required no deployment; the backup delivery addition is
+published through this existing workflow.
 
-The current public version 3 uses source
-`f65265ca3c7d94790a86537e6ef725241fc012ea`; its deployment and separate immutable,
+The current public version 4 uses source
+`c950ac2c059701944e5444d37518edb2f8a8f6f1`; its deployment and separate immutable,
 API-response and source-seed hashes are recorded in `snapshot-reference.json`.
 All report fields remain unchanged except that 306 image/thumb values use R2 URLs
 binding the original decoded bytes. Variable platform scripts prevent using the
@@ -92,8 +100,8 @@ browser HTML response hash as packaged-byte identity.
 
 Ignored original offline assets/exports remain in `app/.data-app-*`, the complete
 original authoring history in `.local/recovery/authoring.bundle`, and the exact
-version 2 archive in `.local/deployment-v2.tar.gz`. The retained publication
-`dist/` is also version 2; rebuild current source before new packaging.
+version 2 archive in `.local/deployment-v2.tar.gz`. The retained publication `dist/` now matches version 4. Rebuild changed source
+before new packaging.
 
 ## Checks and limits
 
@@ -123,3 +131,24 @@ history while the Site depends on them. Review scratch renders and QA captures b
 2026-12-06; stop preview users before removing their directory. No automatic
 retirement is scheduled. Follow the configured HTTPS proxy for Node publication
 on this host (`NODE_USE_ENV_PROXY=1`).
+
+## Frozen backup without Sites authentication
+
+`framework.lock.json.backup` pins the public R2 URL, exact 10,710,642-byte size
+and SHA-256 of the frozen ZIP. Verify all three before extraction. It contains
+the complete framework Git bundle, frozen buildable source with the exact seed
+and npm lock, restore instructions, and the original self-contained offline HTML.
+Node/npm dependencies are not bundled; ordinary builds fetch public npm packages
+unless cached. The embedded-image offline HTML needs neither npm nor network.
+
+The archive stays outside Git. Preserve this object while the pinned framework
+or survey depends on it; retain its delivery manifest entry in future deployments.
+The current source's ZIP addition is an overlay on the
+frozen framework; the backup intentionally remains byte-identical to its verified
+f65265c snapshot. The delivery manifest permits this exact object and serves it
+as an attachment. General CI/LFS transport allowlists are unchanged.
+
+Full anonymous R2 readback verified the ZIP's exact size/hash. Anonymous PUT,
+DELETE and unlisted ZIP requests were rejected; the report data and an existing
+preview image still matched. The temporary asset-upload environment was removed
+and version 4 redeployed at environment revision 6; the owner setting is unchanged.

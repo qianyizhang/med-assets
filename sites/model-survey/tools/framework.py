@@ -16,7 +16,7 @@ SITE = Path(__file__).resolve().parents[1]
 def git(source, *args):
     result = subprocess.run(['git', '-C', str(source), *args], capture_output=True)
     if result.returncode:
-        raise ValueError('Pinned framework is unavailable. Open the existing Site source into .local/publication first.')
+        raise ValueError('Pinned framework is unavailable. Restore its frozen ZIP Git bundle, or open the existing Site source into .local/publication first.')
     return result.stdout
 
 
