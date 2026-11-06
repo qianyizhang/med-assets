@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {mkdtemp,writeFile,readFile,rm,realpath} from 'node:fs/promises';
+import {mkdtemp,writeFile,readFile,rm,realpath,symlink} from 'node:fs/promises';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {execFileSync} from 'node:child_process';
@@ -26,7 +26,7 @@ async function fixture(t,count=3){
       let body=Buffer.alloc(0);for await(const chunk of options.body)body=Buffer.concat([body,chunk]);
       assert.equal(hash(body),asset.sha256);assert.equal(options.headers['content-length'],String(body.length));
       objects.set(asset.sha256,body);
-      return Response.json({sha256:asset.sha256,bytes:asset.bytes});
+      return new Response(JSON.stringify({sha256:asset.sha256,bytes:asset.bytes}),{headers:{'content-type':'application/json'}});
     }
     assert.equal(options.cache,'no-store');
     return new Response(objects.get(asset.sha256));
@@ -67,6 +67,16 @@ test('quota/permission failure has no automatic retry or next group',async t=>{
   const f=await fixture(t,5);let calls=0;
   f.fetchImpl=async()=>{calls++;return new Response('denied',{status:403});};
   await assert.rejects(uploadRepositoryAssets(f),/HTTP 403/);assert.equal(calls,4);
+});
+
+test('resume temporary-state symlinks cannot redirect writes into unrelated files',async t=>{
+  const f=await fixture(t);const outside=join(f.root,'unrelated.json');
+  const fingerprint=hash(Buffer.from(JSON.stringify(f.manifest)));
+  const original=JSON.stringify({revision:f.manifest.repositoryPayloads.revision,manifestSha256:fingerprint,verified:[]});
+  await writeFile(outside,original);await symlink(outside,f.statePath+'.tmp');
+  await assert.rejects(uploadRepositoryAssets(f),/state.*link/);
+  assert.equal(await readFile(outside,'utf8'),original);
+  assert.equal(f.calls.length,0);
 });
 
 test('batch accounting enforces exact object and total byte bounds',()=>{

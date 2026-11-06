@@ -2,7 +2,7 @@
 // Upload only manifest-declared, Git-pinned local bytes. Tokens arrive through stdin.
 import {createHash} from 'node:crypto';
 import {createReadStream,constants} from 'node:fs';
-import {readFile,writeFile,rename,mkdir,lstat,realpath} from 'node:fs/promises';
+import {readFile,rename,mkdir,lstat,realpath,open,unlink} from 'node:fs/promises';
 import {execFileSync} from 'node:child_process';
 import {resolve,dirname,posix} from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -59,6 +59,12 @@ export async function uploadRepositoryAssets({root,manifest,token,origin=ORIGIN,
   const fingerprint=digest(JSON.stringify(manifest));
   let state={revision:manifest.repositoryPayloads.revision,manifestSha256:fingerprint,verified:[]};
   if(statePath){
+    statePath=resolve(statePath);await mkdir(dirname(statePath),{recursive:true});
+    if(await realpath(dirname(statePath))!==dirname(statePath))throw Error('Migration state directory traverses a link');
+    for(const candidate of [statePath,statePath+'.tmp']){
+      try{const info=await lstat(candidate);if(info.isSymbolicLink()||!info.isFile())throw Error('Migration state path is a link or special file');if(candidate.endsWith('.tmp'))throw Error('Migration temporary state already exists');}
+      catch(error){if(error.code!=='ENOENT')throw error;}
+    }
     try{const saved=JSON.parse(await readFile(statePath,'utf8'));if(saved.manifestSha256!==fingerprint)throw Error('Migration state belongs to another manifest');state=saved;}
     catch(error){if(error.code!=='ENOENT')throw error;}
   }
@@ -67,8 +73,11 @@ export async function uploadRepositoryAssets({root,manifest,token,origin=ORIGIN,
     if(!statePath)return;
     await mkdir(dirname(statePath),{recursive:true});
     const temporary=statePath+'.tmp';
-    await writeFile(temporary,JSON.stringify({...state,verified:[...verified]},null,2)+'\n');
-    await rename(temporary,statePath);
+    const handle=await open(temporary,'wx',0o600);
+    try{
+      await handle.writeFile(JSON.stringify({...state,verified:[...verified]},null,2)+'\n');await handle.sync();
+      await handle.close();await rename(temporary,statePath);
+    }catch(error){await handle.close();await unlink(temporary);throw error;}
   }
   async function one(object){
     const url=ORIGIN+'/assets/'+object.sha256+'/'+object.name;

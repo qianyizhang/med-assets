@@ -12,5 +12,5 @@ class UploadBoundaryTests(unittest.TestCase):
                                  str(ROOT/'tests/r2_upload.test.mjs')],
                                 cwd=ROOT, text=True, capture_output=True)
         self.assertEqual(result.returncode, 0, result.stdout+result.stderr)
-        self.assertIn('# tests 5', result.stdout)
+        self.assertIn('# tests 6', result.stdout)
         self.assertIn('# fail 0', result.stdout)
