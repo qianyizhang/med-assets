@@ -1,7 +1,8 @@
-Run from repository root:
+# Esophageal-wall reconstruction
 
-```sh
-python models/esophagus_wall/recipes/replay.py --output /path/to/NEW-directory
-```
-
-Requires Blender 4.3.2, Python 3, Pillow, DejaVu Sans and Noto Sans CJK. Existing output directories are refused. Default parameters reproduce GLB e4f51a86040ef115776fe06a33443982f7b63243332681e53dadaa77f81c05f5. Custom parameters create an unreviewed illustrative variant. No source numerical changes were made during packaging; render receipt scope was clarified to 1e-8 m tolerance-weld diagnostics.
+The [export guide](../exports/authored-cutaway-r01/README.md#reproduce--verify)
+owns the command, dependencies and illustrative-parameter limits.
+The [review record](../../../reviews/esophagus_wall/2026-10-25-authored-teaching/review-record.json)
+retains the historical replay result; per-layer measurements and exact PNG
+identities remain beside it. Running the recipe creates a new local result,
+not a new anatomy, visual or browser-runtime approval.
