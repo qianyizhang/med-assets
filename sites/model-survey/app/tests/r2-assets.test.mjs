@@ -122,5 +122,30 @@ test('listed ZIP backups download as attachments; unlisted archives and anonymou
   assert.equal((await f.serve(new Request(f.url, {headers:{range:'bytes=0-3'}}), f.env)).status, 206);
   assert.equal((await f.serve(new Request(f.url.replace('framework-backup.zip', 'other.zip')), f.env)).status, 404);
   assert.throws(() => fixture({...asset, name:'wrong.html'}), /ZIP assets/);
-  assert.throws(() => fixture({...asset, mediaType:'application/octet-stream'}), /Invalid published asset/);
+  assert.throws(() => fixture({...asset, mediaType:'application/octet-stream'}), /extension/);
+});
+
+test('reviewed source, volume, font and media formats enforce extension and byte limits', async () => {
+  const formats = {
+    'scene.blend':'application/octet-stream', 'scan.nii':'application/octet-stream',
+    'volume.raw':'application/octet-stream', 'volume.nrrd':'application/octet-stream',
+    'array.npz':'application/octet-stream', 'evidence.svg':'application/octet-stream',
+    'meshes.json':'application/octet-stream', 'scan.nii.gz':'application/gzip',
+    'voice.wav':'audio/wav', 'clip.mp4':'video/mp4', 'font.ttf':'font/ttf',
+    'mesh.stl':'model/stl', 'mesh.obj':'model/obj',
+  };
+  for (const [name,mediaType] of Object.entries(formats)) {
+    const f = fixture({...manifest.assets[0],name,mediaType});
+    assert.equal((await f.upload()).status,200);
+    const response=await f.serve(new Request(f.url),f.env);
+    assert.equal(response.headers.get('content-type'),mediaType);
+    assert.deepEqual(Buffer.from(await response.arrayBuffer()),data);
+    if(mediaType.startsWith('application/')) assert.match(response.headers.get('content-disposition'),/^attachment;/);
+  }
+  assert.doesNotThrow(()=>fixture({...manifest.assets[0],name:'scene.blend',mediaType:'application/octet-stream',bytes:42_497_262}));
+  assert.throws(()=>fixture({...manifest.assets[0],bytes:64_000_001}),/Invalid published asset/);
+  for(const name of ['attack.html','attack.js','image.png']) {
+    assert.throws(()=>fixture({...manifest.assets[0],name,mediaType:'application/octet-stream'}),/extension/);
+  }
+  assert.throws(()=>fixture({...manifest.assets[0],name:'mesh.glb',mediaType:'image/png'}),/extension/);
 });

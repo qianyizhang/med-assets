@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-"""Fetch one Git-pinned LFS payload into a verified local cache, without Git writes."""
+"""Fetch one Git-pinned payload into a verified local cache, without Git writes."""
 from __future__ import annotations
 
 import argparse
 import hashlib
+import json
+import shutil
 import os
 from pathlib import Path, PurePosixPath
 import stat
@@ -34,7 +36,9 @@ def pinned_asset(root: Path, revision: str, name: str) -> tuple[str, int]:
         cwd=root, text=True).strip()
     pointer = subprocess.check_output(
         ['git', '--no-lazy-fetch', 'show', commit + ':' + name], cwd=root)
-    return parse_pointer(pointer)
+    if pointer.startswith(b'version https://git-lfs.github.com/spec/v1\n'):
+        return parse_pointer(pointer)
+    return hashlib.sha256(pointer).hexdigest(), len(pointer)
 
 
 def verified_file(path: Path, digest: str, size: int) -> bool:
@@ -52,7 +56,7 @@ def verified_file(path: Path, digest: str, size: int) -> bool:
     return True
 
 
-def fetch_asset(cache: Path, name: str, digest: str, size: int, *, open_url=None) -> Path:
+def fetch_asset(cache: Path, name: str, digest: str, size: int, *, open_url=None, download_name=None) -> Path:
     if len(digest) != 64 or any(c not in '0123456789abcdef' for c in digest) or size < 1:
         raise ValueError('Invalid pinned asset identity')
     cache = cache.absolute()
@@ -62,7 +66,7 @@ def fetch_asset(cache: Path, name: str, digest: str, size: int, *, open_url=None
     target = cache / digest
     if verified_file(target, digest, size):
         return target
-    filename = PurePosixPath(name).name
+    filename = download_name or PurePosixPath(name).name
     url = ASSET_ORIGIN + '/assets/' + digest + '/' + urllib.parse.quote(filename, safe='')
     opener = open_url or urllib.request.build_opener(NoRedirect()).open
     fd, temporary = tempfile.mkstemp(prefix='.asset-', dir=cache)
@@ -97,15 +101,58 @@ def fetch_asset(cache: Path, name: str, digest: str, size: int, *, open_url=None
         Path(temporary).unlink(missing_ok=True)
 
 
+
+def route_name(root: Path, digest: str, size: int, name: str) -> str:
+    manifest = json.loads((root / 'sites/model-survey/app/src/content/assets/r2-trial.json').read_text())
+    for asset in manifest['assets']:
+        if asset['sha256'] == digest and asset['bytes'] == size:
+            filename = asset['name']
+            if not filename or any(c not in 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_.-' for c in filename):
+                raise ValueError('Invalid published asset filename')
+            return filename
+    raise ValueError('Selected Git payload has no published R2 delivery reference')
+
+
+def hydrate(root: Path, name: str, cached: Path, digest: str, size: int) -> Path:
+    target = root / name
+    if target.is_symlink() or target.parent.resolve() != target.parent.absolute():
+        raise ValueError('Hydration path must not traverse symlinks')
+    before = target.read_bytes()
+    if len(before) == size and hashlib.sha256(before).hexdigest() == digest:
+        return target
+    if parse_pointer(before) != (digest, size):
+        raise ValueError('Working file differs from the selected pointer; refusing overwrite')
+    descriptor, temporary = tempfile.mkstemp(prefix='.hydrate-', dir=target.parent)
+    try:
+        with os.fdopen(descriptor, 'wb') as output, cached.open('rb') as source:
+            shutil.copyfileobj(source, output, 1024*1024)
+            output.flush(); os.fsync(output.fileno())
+        if not verified_file(Path(temporary), digest, size):
+            raise ValueError('Hydration copy failed verification')
+        if target.is_symlink() or target.read_bytes() != before:
+            raise ValueError('Working pointer changed during hydration; refusing overwrite')
+        os.replace(temporary, target)
+        return target
+    finally:
+        Path(temporary).unlink(missing_ok=True)
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('path', help='Exact LFS file path at the selected Git commit')
+    parser.add_argument('path', help='Exact payload path at the selected Git commit')
+    parser.add_argument('--hydrate', action='store_true', help='Restore only a matching LFS pointer at its original path')
     parser.add_argument('--commit', default='HEAD')
     parser.add_argument('--cache-dir', type=Path, default=ROOT / '.artifacts/asset-cache')
     args = parser.parse_args()
     try:
         digest, size = pinned_asset(ROOT, args.commit, args.path)
-        print(fetch_asset(args.cache_dir, args.path, digest, size))
+        if args.hydrate:
+            target = ROOT / args.path
+            if target.is_file() and not target.is_symlink() and target.stat().st_size == size and not target.read_bytes().startswith(b'version https://git-lfs.github.com/spec/v1\n') and verified_file(target, digest, size):
+                print(target)
+                return 0
+        filename = route_name(ROOT, digest, size, args.path)
+        cached = fetch_asset(args.cache_dir, args.path, digest, size, download_name=filename)
+        print(hydrate(ROOT, args.path, cached, digest, size) if args.hydrate else cached)
         return 0
     except (OSError, ValueError, subprocess.CalledProcessError) as error:
         parser.exit(1, f'Asset fetch failed: {error}\n')

@@ -79,7 +79,8 @@ stopped. Browser-local presentation belongs to its existing origin.
 
 Keep project `appgprj_6aed57a59dc88191a981c07e56d283e7`, artifact identity,
 DB/BUCKET bindings, owner environment, stored edits and the **current public**
-audience. The 307 trial objects and the one allowlisted frozen backup are public reads;
+audience. The retained trial objects, frozen backup and declared Git-pinned repository
+payloads use public reads;
 writes remain owner-only or require a short-lived scoped upload authorization.
 
 Use the Data and Sites publishing skills with the assembled complete project.
@@ -169,3 +170,15 @@ entries and review metadata. It does not upload. Reassemble the complete project
 with `tools/framework.py` into a fresh ignored directory after changing overlays,
 then follow the source build/publication steps above. The current public trial
 and frozen backup are retained; only the existing owner workflow can publish.
+
+## Repository payload migration
+
+The same R2 delivery manifest now covers all 689 LFS payloads and five directly
+tracked Git data/evidence blobs >=1 MB at the pinned migration revision. The
+copy set is 694 unique payloads / 976,485,579 bytes. Existing preview and backup
+routes remain. Check the completed migration result before assuming a newly
+declared object is available; reads fail explicitly for unavailable storage.
+
+Use the repository's [R2 retrieval/migration guide](../../transport/README.md#repository-payload-copies-in-r2)
+for source verification, bounded upload/readback, on-demand cache/hydration and
+retention. Report data and its review statuses are unchanged.
