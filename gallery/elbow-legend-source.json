@@ -1,0 +1,169 @@
+{
+  "artifactSHA256": "cd6cd488943fe721101955322b343a8c9441f1d4ff8c5042dd4e1ca7462f7891",
+  "source": "models/joints/exports/z-elbow-r01/elbow_z_native.glb",
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "Ligament | illustrative cream",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.5199999809265137,
+          0.4000000059604645,
+          0.18000000715255737,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.699999988079071
+      }
+    },
+    {
+      "alphaMode": "BLEND",
+      "doubleSided": true,
+      "name": "Capsule | illustrative transparency",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.1599999964237213,
+          0.3400000035762787,
+          0.4000000059604645,
+          0.07999999821186066
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.699999988079071
+      }
+    },
+    {
+      "doubleSided": true,
+      "name": "Bone | illustrative ivory",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          0.4399999976158142,
+          0.4000000059604645,
+          0.3199999928474426,
+          1
+        ],
+        "metallicFactor": 0,
+        "roughnessFactor": 0.699999988079071
+      }
+    }
+  ],
+  "nodes": [
+    {
+      "name": "Annular ligament of radius.r candidate",
+      "extras": {
+        "source_object_name": "Annular ligament of radius.r",
+        "component_role": "ligament",
+        "anatomy_id": "joints",
+        "asset_id": "regional_elbow_r01",
+        "view_role": "surface",
+        "source_frame": "Z-Anatomy native evaluated world; not BP3D registered"
+      },
+      "materialIndices": [
+        0
+      ]
+    },
+    {
+      "name": "Articular capsule of elbow joint.r candidate",
+      "extras": {
+        "source_object_name": "Articular capsule of elbow joint.r",
+        "component_role": "capsule",
+        "anatomy_id": "joints",
+        "asset_id": "regional_elbow_r01",
+        "view_role": "surface",
+        "source_frame": "Z-Anatomy native evaluated world; not BP3D registered"
+      },
+      "materialIndices": [
+        1
+      ]
+    },
+    {
+      "name": "Quadrate ligament.r candidate",
+      "extras": {
+        "source_object_name": "Quadrate ligament.r",
+        "component_role": "ligament",
+        "anatomy_id": "joints",
+        "asset_id": "regional_elbow_r01",
+        "view_role": "surface",
+        "source_frame": "Z-Anatomy native evaluated world; not BP3D registered"
+      },
+      "materialIndices": [
+        0
+      ]
+    },
+    {
+      "name": "Radial collateral ligament.r candidate",
+      "extras": {
+        "source_object_name": "Radial collateral ligament.r",
+        "component_role": "ligament",
+        "anatomy_id": "joints",
+        "asset_id": "regional_elbow_r01",
+        "view_role": "surface",
+        "source_frame": "Z-Anatomy native evaluated world; not BP3D registered"
+      },
+      "materialIndices": [
+        0
+      ]
+    },
+    {
+      "name": "Ulnar collateral ligament.r candidate",
+      "extras": {
+        "source_object_name": "Ulnar collateral ligament.r",
+        "component_role": "ligament",
+        "anatomy_id": "joints",
+        "asset_id": "regional_elbow_r01",
+        "view_role": "surface",
+        "source_frame": "Z-Anatomy native evaluated world; not BP3D registered"
+      },
+      "materialIndices": [
+        0
+      ]
+    },
+    {
+      "name": "Humerus.r candidate",
+      "extras": {
+        "source_object_name": "Humerus.r",
+        "component_role": "bone",
+        "anatomy_id": "joints",
+        "asset_id": "regional_elbow_r01",
+        "view_role": "context",
+        "source_frame": "Z-Anatomy native evaluated world; not BP3D registered"
+      },
+      "materialIndices": [
+        2
+      ]
+    },
+    {
+      "name": "Ulna.r candidate",
+      "extras": {
+        "source_object_name": "Ulna.r",
+        "component_role": "bone",
+        "anatomy_id": "joints",
+        "asset_id": "regional_elbow_r01",
+        "view_role": "context",
+        "source_frame": "Z-Anatomy native evaluated world; not BP3D registered"
+      },
+      "materialIndices": [
+        2
+      ]
+    },
+    {
+      "name": "Radius.r candidate",
+      "extras": {
+        "source_object_name": "Radius.r",
+        "component_role": "bone",
+        "anatomy_id": "joints",
+        "asset_id": "regional_elbow_r01",
+        "view_role": "context",
+        "source_frame": "Z-Anatomy native evaluated world; not BP3D registered"
+      },
+      "materialIndices": [
+        2
+      ]
+    }
+  ],
+  "method": "Local retained exact GLB JSON only; no new render, network or geometry edit",
+  "contactEvidence": {
+    "id": "joints__z-elbow-r01__scoped-review__5",
+    "imageSHA256": "5d98b09ffac33ed679ec9087d7dc8da52bbffaf98efcbdc81d2c4a79962d227d",
+    "originalImageSHA256": "fbf48b03427dbb2214532afd20f8eecb0ef414b3e2a1789526668810db452f2f"
+  }
+}

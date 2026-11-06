@@ -1,0 +1,105 @@
+{
+  "exactGLBSHA": "4e2637cf6c844aef85ab77c2c1049d4e7647348a13c34d784795b98825f7c8c7",
+  "coordinateFrame": "HRA native glTF Y-up; Blender vectors converted [x,y,z]->[x,z,-y]; no mesh transform or atlas registration",
+  "primary_view": "candidate_material_negative_y.png",
+  "ortho_vertical_span": 0.1330096662044525,
+  "views": [
+    {
+      "file": "candidate_material_negative_y.png",
+      "source_evidence_file": "candidate_material_negative_y.png",
+      "source_evidence_sha256": "92b34dd9c6ad0e5bf9af3995dda8c790b30d0ba214af0dcd0791d15eddf9e500",
+      "position_three": [
+        0.08155457675457001,
+        0.3367045521736145,
+        0.18922311067581177
+      ],
+      "target_three": [
+        0.08155457675457001,
+        0.3367045521736145,
+        -0.1177222803235054
+      ],
+      "up_three": [
+        0.0,
+        0.9999999403953552,
+        -0.0
+      ],
+      "ortho_vertical_span": 0.1330096662044525,
+      "hidden_for_inspection_only": [],
+      "visible_source_meshes": null,
+      "mode": "candidate_material",
+      "display_note": "Exact candidate materials and documented named visibility; not measured tissue appearance.",
+      "label": {
+        "en": "Source axis view",
+        "zh": "\u6765\u6e90\u8f74\u5411\u89c6\u56fe"
+      }
+    },
+    {
+      "file": "candidate_material_oblique.png",
+      "source_evidence_file": "candidate_material_oblique.png",
+      "source_evidence_sha256": "d5a5ebf4793e0a1c55789710f6dd548d8a2edf37ad969fd1fab1af6becadffd9",
+      "position_three": [
+        0.18386970460414886,
+        0.41855666041374207,
+        0.18922311067581177
+      ],
+      "target_three": [
+        0.08155457675457001,
+        0.3367045521736145,
+        -0.1177222803235054
+      ],
+      "up_three": [
+        -0.07755670696496964,
+        0.9694584012031555,
+        -0.23267018795013428
+      ],
+      "ortho_vertical_span": 0.1330096662044525,
+      "hidden_for_inspection_only": [],
+      "visible_source_meshes": null,
+      "mode": "candidate_material",
+      "display_note": "Exact candidate materials and documented named visibility; not measured tissue appearance.",
+      "label": {
+        "en": "Exterior oblique",
+        "zh": "\u5916\u89c2\u659c\u89c6"
+      }
+    },
+    {
+      "file": "candidate_material_inferior.png",
+      "source_evidence_file": "candidate_material_inferior.png",
+      "source_evidence_sha256": "49dab064fef76847ccab63b2e3483676ecbdf1059990e13002789c40611eaf38",
+      "position_three": [
+        0.08155457675457001,
+        0.02975916862487793,
+        -0.1177222803235054
+      ],
+      "target_three": [
+        0.08155457675457001,
+        0.3367045521736145,
+        -0.1177222803235054
+      ],
+      "up_three": [
+        8.742277657347586e-08,
+        -8.742277657347586e-08,
+        -1.0
+      ],
+      "ortho_vertical_span": 0.1330096662044525,
+      "hidden_for_inspection_only": [],
+      "visible_source_meshes": null,
+      "mode": "candidate_material",
+      "display_note": "Exact candidate materials and documented named visibility; not measured tissue appearance.",
+      "label": {
+        "en": "Source lower view",
+        "zh": "\u6765\u6e90\u4e0b\u65b9\u89c6\u56fe"
+      }
+    }
+  ],
+  "derivedFrom": {
+    "file": "reviews/spleen/hra-female-r03/viewer-camera-contract-three.json",
+    "sha256": "737b0d461ec3294350f0292a7609cc1c010c5e10277ab885a045dbbb3de4f34f"
+  },
+  "scope": "Source-confirmed camera/visibility subset; per-view orthographic spans retained exactly. Static recipe, not runtime verification.",
+  "glb_sha256": "4e2637cf6c844aef85ab77c2c1049d4e7647348a13c34d784795b98825f7c8c7",
+  "sourceViews": true,
+  "coordinateContract": "HRA native glTF Y-up; Blender vectors converted [x,y,z]->[x,z,-y]; no mesh transform or atlas registration",
+  "sourceFile": "reviews/spleen/hra-female-r03/viewer-camera-supported-three.json",
+  "contractSha256": "2990d823e973c5157119e32f5a9a2c484cd6424ef47744e5f22417d0fd7892b8"
+}

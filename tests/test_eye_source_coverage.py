@@ -8,7 +8,7 @@ import sys
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-SCRIPT = ROOT / 'tests/eye_anterior_segment/verify_source_coverage.py'
+SCRIPT = ROOT / 'models/eye_anterior_segment/recipes/verify_source_coverage.py'
 spec = importlib.util.spec_from_file_location('eye_coverage', SCRIPT)
 coverage = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(coverage)

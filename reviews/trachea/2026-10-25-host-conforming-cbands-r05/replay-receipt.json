@@ -6,7 +6,7 @@
   "source_revision_retained": "75ec4e6530abe4d434b07958e90bdc9dec062bef",
   "input_in_package": false,
   "input_requirement": "Fetch existing canonical Git LFS baseline. Script rejects wrong hash and existing output directory.",
-  "script": "tests/trachea_cband_polish/rebuild.py",
+  "script": "models/trachea/recipes/cband-polish/rebuild.py",
   "software": "Blender4.3.2, Python stdlib+bpy+mathutils shipped with Blender. No pip modules required for rebuild.",
   "fresh_output_export_sha256": "af54ca254e47910ded53c6b690b475ab17236ba47d314fbdd5357dc67849bf4d",
   "final_export_sha256": "af54ca254e47910ded53c6b690b475ab17236ba47d314fbdd5357dc67849bf4d",

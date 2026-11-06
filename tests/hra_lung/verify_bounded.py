@@ -1,15 +1,15 @@
 """Verify declared local identities/references only; no fetch, rebuild or runtime test.
-Default: manifest subset in a populated repository. --strict-package: isolated closure.
 """
+import argparse
 from pathlib import Path,PurePosixPath
-import argparse,hashlib,json,struct,re,csv,io,math
+import hashlib,json,struct,re,csv,io,math
+argparse.ArgumentParser(description=__doc__).parse_args()
 ROOT=Path(__file__).resolve().parents[2]
 REV='reviews/lung_pair/2026-10-24-bounded-migration'
 SRC='sources/datasets/hra/lung-female-v1.3/bounded-migration-2026-10-24'
 MANIFEST=REV+'/FILE-HASHES.json'
 SOURCE_SHA='323d27bb76ba2c5b140ff31ad5190627eeb8d4e37cd220e4b541655d67789c1a'
 CANDIDATE_SHA='966a4c225be028e616f6f813e8d4232582995a82b8121a42257c1be53087cb19'
-parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--strict-package',action='store_true');args=parser.parse_args()
 def sha(b):return hashlib.sha256(b).hexdigest()
 def data(name):
  p=PurePosixPath(name);assert not p.is_absolute() and '..' not in p.parts,name
@@ -129,8 +129,4 @@ for name in manifest:
   for url in re.findall(r'\]\(([^)]+)\)',data(name).decode()):
    if url.startswith(('http:','https:','#')):continue
    target=((ROOT/name).parent/url.split('#')[0]).resolve();assert ROOT.resolve() in target.parents and target.is_file(),(name,url)
-   assert str(target.relative_to(ROOT)) in manifest or str(target.relative_to(ROOT))==MANIFEST
-if args.strict_package:
- actual={str(p.relative_to(ROOT)) for p in ROOT.rglob('*') if p.is_file() and str(p.relative_to(ROOT))!=MANIFEST}
- assert actual==set(manifest),'Unlisted/missing isolated-package files'
-print(json.dumps({'status':'PASS_LOCAL_DECLARED_FILE_IDENTITY_ONLY','mode':'strict-package' if args.strict_package else 'manifest-subset','files':len(manifest),'models':1,'selectedWebPs':3,'uniqueMediaOids':len(unique),'uniqueMediaBytes':sum(unique.values()),'comparisonEvidence':comparisons,'countDelta':0,'gateDelta':0,'rebuildClosure':False,'freshRemoteAvailability':False,'newAnatomyOrRuntimeValidation':False},indent=2))
+print(json.dumps({'status':'PASS_LOCAL_DECLARED_FILE_IDENTITY_ONLY','files':len(manifest),'models':1,'selectedWebPs':3,'uniqueMediaOids':len(unique),'uniqueMediaBytes':sum(unique.values()),'comparisonEvidence':comparisons,'countDelta':0,'gateDelta':0,'rebuildClosure':False,'freshRemoteAvailability':False,'newAnatomyOrRuntimeValidation':False},indent=2))

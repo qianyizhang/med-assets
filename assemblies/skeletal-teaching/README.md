@@ -13,7 +13,7 @@ Two bounded views of existing BodyParts3D source geometry, **0 new accepted mode
 The optional narrow adapter verifies delivered exports against those exact sources. The original broad wrapper needed 71 OBJ files and 2 metadata files; it is not falsely described as a 12-input recipe. Geometry-preserving roundtrip passed; fresh generated GLB byte identity is not assumed.
 
 ```sh
-blender --background --threads 4 --python tests/skeletal_teaching/build_wrapper_narrow.py -- --source-root /path/to/content-addressed-obj --dependency-map assemblies/skeletal-teaching/source/dependencies.json --output-root /tmp/skeletal-check --verify-exports assemblies/skeletal-teaching/2026-10-23 --skip-renders
+blender --background --threads 4 --python assemblies/skeletal-teaching/recipes/build_wrapper_narrow.py -- --source-root /path/to/content-addressed-obj --dependency-map assemblies/skeletal-teaching/source/dependencies.json --output-root /tmp/skeletal-check --verify-exports assemblies/skeletal-teaching/2026-10-23 --skip-renders
 ```
 
 BodyParts3D © The Database Center for Life Science, CC Attribution 4.0 International under the current official notice: https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html . Unchanged source OBJ headers retain their historical CC BY-SA 2.1 Japan notice. Source coordinates are preserved, with uniform mm→m and export-axis conversion only; no unrelated-atlas registration.

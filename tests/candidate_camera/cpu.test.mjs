@@ -35,8 +35,8 @@ function setup(recorded=true,damping=true){
   const framing=recorded?{initial:'front',span:11.6,sourceViews:true,views:{front:witness}}:null;
   const center=new THREE.Vector3(-.15,-.35,0),size=new THREE.Vector3(2,3,1);
   const resize=()=>{camera.left=-framing.span/2;camera.right=framing.span/2;camera.top=framing.span/2;camera.bottom=-framing.span/2;camera.updateProjectionMatrix();};
-  // Exact original/patched Fit body. Only its environmental bindings are supplied.
-  const fit=new Function('THREE','camera','controls','model','framing','center','size','originalVisibility','resize','clearPendingOrbit',segment+';return fit;')(
+  // Exact original/current Fit body. Inspection UI is ineligible in this camera fixture.
+  const fit=new Function('THREE','camera','controls','model','framing','center','size','originalVisibility','resize','clearPendingOrbit','const kneeEligible=()=>false,record={},knee=null,modes=null;'+segment+';return fit;')(
     THREE,camera,controls,{scene},framing,center,size,originalVisibility,resize,clearPendingOrbit);
   fit('front');return {camera,dom,controls,fit,scene,framing};
 }

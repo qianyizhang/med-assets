@@ -1,0 +1,71 @@
+{
+  "status": "passed",
+  "scope": "Actual second Blender export/reimport/render and plate composition. GLB bytes and all decoded RGBA pixels match; PNG container byte identity reported separately.",
+  "checks": {
+    "selected-source-routes.glb": {
+      "before_sha256": "ff8c1e9cecc86b4287520d97e71e81792d26eb0b3017e6f302e213f64819b4ca",
+      "after_sha256": "ff8c1e9cecc86b4287520d97e71e81792d26eb0b3017e6f302e213f64819b4ca",
+      "byte_identical": true
+    },
+    "comparison-en.png": {
+      "before_sha256": "01134611886cb5332715c8646c683f3a386fe93c4e27b543a23b4f651a4db632",
+      "after_sha256": "01134611886cb5332715c8646c683f3a386fe93c4e27b543a23b4f651a4db632",
+      "byte_identical": true,
+      "decoded_RGBA_identical": true
+    },
+    "overview-pads.png": {
+      "before_sha256": "082dd931be86d8b4b8ba49879838e99416bd2052e805787f581c2a4baff5ce6e",
+      "after_sha256": "044ba2176dd520c6f5328a72eb92c59a2fb495c8c0b9162f70b89823c83988f4",
+      "byte_identical": false,
+      "decoded_RGBA_identical": true
+    },
+    "detail-route.png": {
+      "before_sha256": "d6265b3fd30a4e28d27d7c30619fde5995b49ff00f9756e951ae14ec627c2012",
+      "after_sha256": "a5805eba844374c1d14a09484b042cd3012ea8715fa6def8573955c13ffcbdc1",
+      "byte_identical": false,
+      "decoded_RGBA_identical": true
+    },
+    "overview-route.png": {
+      "before_sha256": "2400257f29a0c6a1f373339b59a32fb2a5c2df599269730a3ae0aea3294bdd9b",
+      "after_sha256": "3f85f8f9d695ec2cc94f6a158186dbe00f82e2e6b96dfbed1d7f8ed0987c1e70",
+      "byte_identical": false,
+      "decoded_RGBA_identical": true
+    },
+    "comparison-zh-grayscale.png": {
+      "before_sha256": "fd0920becb87c9a1e018680e639ca0593bd03181714779f5eaec34b610e84a1b",
+      "after_sha256": "fd0920becb87c9a1e018680e639ca0593bd03181714779f5eaec34b610e84a1b",
+      "byte_identical": true,
+      "decoded_RGBA_identical": true
+    },
+    "detail-pads.png": {
+      "before_sha256": "36e3f3e7c70202776765777fb471c52e8ac8eb5945817b92fd38aebe23b202c4",
+      "after_sha256": "594dcab0fd37ffef516fcb59ce4b5b3cb7f07b9cab77253650824c4a78ab0bf3",
+      "byte_identical": false,
+      "decoded_RGBA_identical": true
+    },
+    "overview-body.png": {
+      "before_sha256": "8f3332a6607d75d19e20c66d5b7ba1c567f7f4e591a93af6c372a9c77cd66174",
+      "after_sha256": "2fe29682b71f9d8f78218117f4edb3550704586ecc8f0b34527e466847063bb7",
+      "byte_identical": false,
+      "decoded_RGBA_identical": true
+    },
+    "comparison-zh.png": {
+      "before_sha256": "bc7e11f58ce78ccc90bfa29dca34e4a990a66618c34bb27629ada443e5d83ffd",
+      "after_sha256": "bc7e11f58ce78ccc90bfa29dca34e4a990a66618c34bb27629ada443e5d83ffd",
+      "byte_identical": true,
+      "decoded_RGBA_identical": true
+    },
+    "comparison-en-grayscale.png": {
+      "before_sha256": "5ce34dd577da37246d3ef9f0f19fba834e958d86611e9f324fac0585fa2567ac",
+      "after_sha256": "5ce34dd577da37246d3ef9f0f19fba834e958d86611e9f324fac0585fa2567ac",
+      "byte_identical": true,
+      "decoded_RGBA_identical": true
+    },
+    "detail-body.png": {
+      "before_sha256": "27768f116b3bd3efcd9135e79ad83bfe258bd7f0ba2016e55a8c94aebbd9ae42",
+      "after_sha256": "b05875e11e3fe490ddc410cf3cd0aac93c1f872ce4275af1abfff454f87d9c8c",
+      "byte_identical": false,
+      "decoded_RGBA_identical": true
+    }
+  }
+}

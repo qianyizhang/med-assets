@@ -8,7 +8,7 @@ The head → body → tail subline is 20px. No anatomical curve or leader moved.
 
 - [English display SVG](testis-pathway-en.svg)
 - [中文 display SVG](testis-pathway-zh.svg)
-- [Editable sources and bounded builder](../../../../sources/authored/testis_pathway/r02/)
+- [Editable sources and bounded builder](../../../../sources/authored/testis_pathway/r02)
 - [Initial author review and identities](../../../../reviews/testis_pathway/2026-10-29-r02/readability.json)
 - [Independent visual review](../../../../reviews/testis_pathway/2026-10-29-r02/independent-review.json)
 

@@ -20,6 +20,6 @@ No separate public license for the newly authored diagram/code is declared by th
 
 ## Re-render
 From repository root, with Python3/Pillow and Inkscape1.4 installed:
-`python tests/testis_pathway/render.py --output <NEW_NONEXISTENT_DIRECTORY>`
+`python diagrams/testis_pathway/recipes/render.py --output <NEW_NONEXISTENT_DIRECTORY>`
 
 This tests final outlined SVG→PNG decoded-pixel identity. Conversion from editable text to outlines produced tiny antialias differences; those are measured, not described as exact equality. Original editable-render review and final outlined-image bindings remain distinct. No browser visual/interaction pass is claimed.

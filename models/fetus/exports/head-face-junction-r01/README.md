@@ -2,6 +2,10 @@
 
 Related: [#194](https://github.com/qianyizhang/med-assets/issues/194).
 
+**Disposition (2026-11-06):** retain the bounded recipe and historical private
+review on main as a noncanonical study. Further public model/image delivery is
+not planned. This does not promote the original inset or expand its acceptance.
+
 - **Original:** a separate face ellipsoid forms a raised mask-like edge.
 - **Updated:** blend only its overlap with the head. Preserve pose/proportions,
   nose/eyelids and all 22 unrelated meshes. No developmental-age claim.
@@ -16,14 +20,14 @@ Source GLB and output media are **not included**. Obtain bytes only through an
 authorized route; scripts reject the wrong source and never overwrite outputs.
 
 ```sh
-python3 models/fetus/exports/head-face-junction-r01/build.py \
+python3 models/fetus/recipes/head-face-junction-r01/build.py \
   --source /path/to/exact-original.glb --output /new/path/candidate.glb
-python3 models/fetus/exports/head-face-junction-r01/check.py \
+python3 models/fetus/recipes/head-face-junction-r01/check.py \
   --source /path/to/exact-original.glb --candidate /new/path/candidate.glb
-blender -b -t 2 --python models/fetus/exports/head-face-junction-r01/reimport.py -- \
+blender -b -t 2 --python models/fetus/recipes/head-face-junction-r01/reimport.py -- \
   --source /path/to/exact-original.glb --candidate /new/path/candidate.glb \
   --output /new/path/reimport-check
-blender -b -t 4 --python models/fetus/exports/head-face-junction-r01/render.py -- \
+blender -b -t 4 --python models/fetus/recipes/head-face-junction-r01/render.py -- \
   --source /path/to/exact-original.glb --candidate /new/path/candidate.glb \
   --output /new/path/matched-views
 ```

@@ -178,7 +178,7 @@ cp=duplicate(cb,'Cerebellum | section context','brain','cerebellum_cutaway')
 st=ellipsoid('Brainstem | schematic',bc+Vector((0,.016,-.054)),(.012,.014,.033),'brain','brainstem',fibrous,'surface');duplicate(st,'Brainstem | section context','brain','brainstem_cutaway')
 # Keep detailed pre-existing authored heart as optional fitted replacement, with explicit provenance.
 for kind,fn in [('surface','Cardiac_Atlas_Clinical_Full_ED.glb'),('cutaway','Cardiac_Atlas_Clinical_Cutaway_ED.glb')]:
- before=set(bpy.data.objects);bpy.ops.import_scene.gltf(filepath=str(R/'sources'/fn));new=[o for o in bpy.data.objects if o not in before];meshes=[o for o in new if o.type=='MESH'];walls=[o for o in meshes if 'complete wall' in o.name] or meshes
+ before=set(bpy.data.objects);bpy.ops.import_scene.gltf(filepath=str(R.parents[2]/'heart/Cardiac_Atlas/exports'/fn));new=[o for o in bpy.data.objects if o not in before];meshes=[o for o in new if o.type=='MESH'];walls=[o for o in meshes if 'complete wall' in o.name] or meshes
  coords=[o.matrix_world@v.co for o in walls for v in o.data.vertices];lo=Vector([min(v[i] for v in coords) for i in range(3)]);hi=Vector([max(v[i] for v in coords) for i in range(3)]);center=(lo+hi)*.5
  _,_,target,dim=bounds(sources['heart']);scale=min(dim[i]/max(hi[i]-lo[i],.0001) for i in range(3))
  for ob in meshes:

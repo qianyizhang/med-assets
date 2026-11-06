@@ -5,7 +5,10 @@ on:
       - '.github/workflows/fdi31-source-verification.yml'
       - 'ci/verify_fdi31_source.py'
       - 'ci/fdi31-source/**'
+      - 'transport/manifests/ab97d341e9490f418a06d4d9943c0ab2743f22713c174446d8d3f3c0b7ee1118.json'
       - 'tests/test_fdi31_source.py'
+      - 'tools/glb.py'
+      - 'models/eye_anterior_segment/recipes/teaching/build.py'
 permissions:
   contents: read
 jobs:
@@ -24,8 +27,10 @@ jobs:
           submodules: false
           sparse-checkout: |
             ci
+            transport/manifests/ab97d341e9490f418a06d4d9943c0ab2743f22713c174446d8d3f3c0b7ee1118.json
             tools/lfs_transport.py
-            tools/eye_teaching/build.py
+            tools/glb.py
+            models/eye_anterior_segment/recipes/teaching/build.py
             tests/test_fdi31_source.py
           sparse-checkout-cone-mode: false
       - name: Offline failure-path checks

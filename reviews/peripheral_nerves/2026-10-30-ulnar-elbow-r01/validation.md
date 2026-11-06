@@ -2,9 +2,9 @@
 
 Completed in the Linux cloud executor on **2026-10-30**; Blender **4.3.2**,
 Git LFS **3.6.1**. This receipt covers the separate regional supplement.
-The exact payload set is [payloads.json](payloads.json): 20 paths, 19 unique
-objects, **8,766,724 unique bytes**. It excludes the historical scaffold and full
-external source archive.
+The current retained payload set is [payloads.json](payloads.json). Superseded
+24-sample captures and failed layout output are retired. The historical scaffold
+and full external source archive are excluded.
 
 | Check | Result and boundary |
 |---|---|
@@ -20,7 +20,7 @@ external source archive.
 The broader offline suite does not include these six scoped tests. It does not
 hash hydrated media, validate this package's anatomy, fetch remote payloads or
 run a viewer. Package checks are invoked separately as described in the
-[recipe](../../../tests/peripheral_nerves/ulnar-elbow-r01/README.md).
+[recipe](../../../models/peripheral_nerves/recipes/ulnar-elbow-r01/README.md).
 
 V2 preserves the v1 binary GLB chunk (SHA-256
 `e15913d11d8a080684220192fefce992b8ee43e02955b2f315bc0caa731f5430`),

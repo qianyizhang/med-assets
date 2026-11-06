@@ -1,0 +1,37 @@
+{
+  "status": "passed",
+  "comparison": "Exact equality of canonical world-space triangle multisets, quantized to 1e-6 m; unique vertex coordinates also compared. GLB seam duplicates ignored, connectivity retained.",
+  "source_sha256": "5f7947838971b88f2c29e992290086e21169eee2c72bb5394948e72aee4bad25",
+  "candidate_sha256": "ff8c1e9cecc86b4287520d97e71e81792d26eb0b3017e6f302e213f64819b4ca",
+  "objects": {
+    "Cervical collecting lymphatic -1": {
+      "unique_vertices": 16,
+      "triangles": 28
+    },
+    "Cervical collecting lymphatic 1": {
+      "unique_vertices": 16,
+      "triangles": 28
+    },
+    "Leg and pelvic collecting lymphatic -1": {
+      "unique_vertices": 32,
+      "triangles": 60
+    },
+    "Leg and pelvic collecting lymphatic 1": {
+      "unique_vertices": 32,
+      "triangles": 60
+    },
+    "Thoracic duct \u2014 left venous angle": {
+      "unique_vertices": 40,
+      "triangles": 76
+    },
+    "Upper limb collecting lymphatic -1": {
+      "unique_vertices": 32,
+      "triangles": 60
+    },
+    "Upper limb collecting lymphatic 1": {
+      "unique_vertices": 32,
+      "triangles": 60
+    }
+  },
+  "finite": true
+}

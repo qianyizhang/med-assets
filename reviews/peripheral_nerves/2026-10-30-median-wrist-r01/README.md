@@ -11,7 +11,7 @@ The original schematic and merged ulnar/elbow PR161 are preserved.
   Median trunk, common/proper palmar digital groups, native humerus/radius/ulna,
   eight carpals, five metacarpals and fourteen phalanges.
 - **V2:** bilingual group/landmark labels, full-subset locator and source-end notes.
-  Exact V1 GLB and raw captures are reused; geometry and materials are unchanged.
+  The current GLB and retained raw captures are reused; geometry and materials are unchanged.
 - **Scope:** skeletal localization. Soft tissues and the disputed flexor/nerve
   relationships are excluded; no complete branch, skin-territory, tunnel, clinical,
   physical-scale, motion or live-runtime claim.
@@ -42,14 +42,14 @@ rebuilt, replaced or republished by this package.
 | Visual | [Independent V2 review accepted with limitations](independent-review.md); color/detail views preferred because grayscale nerve–bone contrast is reduced |
 | Anatomy | Gross course reference-screened; unresolved soft-tissue relationship remains excluded |
 | Clinical/runtime | Unverified; no motion or physical-scale validation |
-| Publication | [Bounded upload and fresh GitHub payload readback passed](delivery.json); draft PR and runtime remain separate |
+| Historical delivery | Upload and fresh GitHub payload readback passed on 2026-10-30 at `a13ff28`; this does not establish current remote availability or runtime |
 
-The [recipe](../../../tests/peripheral_nerves/median-wrist-r01/README.md) describes
+The [recipe](../../../models/peripheral_nerves/recipes/median-wrist-r01/README.md) describes
 exact replay and separate scoped tests. The broader offline gate covers only its
 documented repository scope. GLB SHA-256:
 `6094265d2263f3b501f4e487ff7f859b83205bde99bca9312d48c26f29680c50`.
 
-<details><summary>Source/export verification and retained failed trials</summary>
+<details><summary>Source/export verification and earlier findings</summary>
 
 Source pin: Z-Anatomy `c08bde5325e35a46404d86a6bd458c484297cc2d`,
 `Z-Anatomy/Startup.blend`, SHA-256
@@ -58,36 +58,27 @@ Source pin: Z-Anatomy `c08bde5325e35a46404d86a6bd458c484297cc2d`,
 includes source archive/member sizes and hashes, selected names, modifications
 and exact retained license references. Source scripts and add-on are disabled.
 
-The native soft-tissue context was inspected first. Main flexor `.r` objects have
-muscle and tendon regions; `.er` insertion markers were not mistaken for tendons.
-The four [soft-tissue diagnostics](preflight/soft-tissue/bindings.json) show the
-retinaculum present versus hidden as **visibility states**, not changed anatomy.
-Even with it hidden, the median trunk was obscured by flexors. A visible lateral
-branch must not be relabelled as the trunk.
+The native soft-tissue context was inspected first. Retinaculum visibility did
+not expose the main median trunk, and a visible lateral branch could not be
+labelled as that trunk. [Surface screening](preflight/relationship-screen.json)
+found wrist-region median nerve overlap candidates with FDP (131), radial FDS
+(60) and humero-ulnar FDS (204). These are screening candidates, not penetration
+or clearance measurements. The soft-tissue lesson remains unsupported and is
+excluded from the retained skeletal study.
 
-[Surface screening](preflight/relationship-screen.json) found wrist-region median
-nerve overlap candidates with FDP (131), radial FDS (60) and humero-ulnar FDS
-(204). These are screening candidates, not a quantitative penetration or clearance
-proof. Together with the pixels, they leave the stronger soft-tissue lesson
-unsupported. Omission does not repair that source relationship. The independent
-reviewer and parent inspected the narrower [skeletal preflight views](preflight/skeletal/bindings.json)
-and found useful localization value; that review alone did not accept the export.
-
-The exact-GLB V1 [raw views](v1/renders/bindings.json) were independently inspected.
 The [source/reimport check](v1/source-reimport-check.json) found maximum vertex
 difference `1.22028140481234e-7` native units with `1e-6` numerical tolerance.
 This is export precision, not anatomical accuracy. All 38,414 evaluated triangles
 were compared after exact coincident-source-coordinate seam welding; source
 surface topology was not repaired or fused.
 
-V2's first header overlap is retained in `v2-initial-layout`. The next trial's
-scaphoid leader was attached to a source vertex hidden by the trapezium in both
-labelled views; the failed [visibility receipt](v2-occluded-landmark/locator-check.json)
-and images remain. The corrected point is scaphoid reimport vertex 47, visible in
-both views. [Six corrected leader checks pass](v2/locator-check.json). Only the
-annotation binding changed; [reused captures](v2-captures/bindings.json) retain
-the exact raw image bytes, cameras, lights and scale. These verification steps are
-separate from the Original/Updated teaching-context comparison above.
+Earlier annotation trials had header overlap and a scaphoid leader hidden by
+the trapezium. The corrected point is scaphoid reimport vertex 47, visible in
+both labelled views; [six corrected leader checks pass](v2/locator-check.json).
+Only annotation binding changed. [Current capture inputs](v2-captures/bindings.json)
+retain the exact raw image bytes, cameras, lights and scale needed for replay.
+Spent preflight renders, failed layouts and duplicate V1 payloads were retired;
+the findings remain here and committed output is recoverable from Git history.
 
 Reference screening: [AAOS's gross median wrist/hand course](https://www.orthoinfo.org/diseases--conditions/carpal-tunnel-syndrome/)
 and [Meyer et al.'s nerve/flexor relationship](https://pmc.ncbi.nlm.nih.gov/articles/PMC6032467/).

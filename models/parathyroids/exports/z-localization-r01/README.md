@@ -16,5 +16,5 @@ One atlas's four-gland example; gland number and location vary. Ectopic position
 仅为单一图谱的四腺示例，数量与位置存在变异，未涵盖异位。颜色仅区分目标与参照；无完整解剖、临床、运动或浏览器运行通过结论。
 
 Review: `reviews/parathyroids/2026-10-25-localization-r01/` (repository-root relative).
-Replay: `tests/parathyroid_localization/README.md`.
+Replay: `models/parathyroids/recipes/README.md`.
 License/source: `ATTRIBUTION.md` and `SOURCE-LICENSE.txt` alongside these exports. Do not extend the candidate license to the separate authored baseline.

@@ -5,7 +5,7 @@ from pathlib import Path
 import struct
 import unittest
 
-spec = importlib.util.spec_from_file_location('eye_glb', Path(__file__).resolve().parents[1]/'tools/eye_exterior/glb.py')
+spec = importlib.util.spec_from_file_location('eye_glb', Path(__file__).resolve().parents[1]/'models/eye_exterior/recipes/glb.py')
 glb = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(glb)
 

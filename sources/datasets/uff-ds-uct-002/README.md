@@ -31,11 +31,11 @@ The slice-space method omits the open terminal channel and produces an algorithm
 From repository root, in a separate working environment:
 
 ```bash
-python -m pip install -r tools/dental/requirements-uff.txt
-python tools/dental/uff_tomo1b.py all \
+python -m pip install -r models/dental_specimens/uff_tomo1b/recipes/requirements-uff.txt
+python models/dental_specimens/uff_tomo1b/recipes/uff_tomo1b.py all \
   --source-zip /path/to/ds-uct-002_root_canal_strain_tomo1b_20um_8bits.zip \
   --work-dir /path/to/uff-replay
-python tools/dental/uff_tomo1b.py verify \
+python models/dental_specimens/uff_tomo1b/recipes/uff_tomo1b.py verify \
   --model models/dental_specimens/uff_tomo1b/exports/r01/uff-tomo1b-display.glb \
   --work-dir /path/to/uff-verification
 python -m unittest discover -s tests/dental -p 'test_uff_tomo1b.py'

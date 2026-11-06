@@ -1,0 +1,87 @@
+{
+  "kind": "dental-named-control-extension-review",
+  "reviewedAt": "2026-11-03T16:13:00Z",
+  "scope": "Generic named control contract and pinned BP3D isolation CPU smoke; unchanged FDI31 default manual controls. Partial issue #216.",
+  "source": {
+    "path": "models/swirendo_fdi31/exports/balanced-20261028/FDI31-balanced.glb",
+    "sha256": "90006e54c2b9f79f6c201397a50f92228d9ad6fa4450f20e0ad20c5fe70c19f7",
+    "bytes": 2052220,
+    "triangles": 105370,
+    "layers": [
+      "enamel",
+      "dentin",
+      "pulp",
+      "bone"
+    ],
+    "geometryModified": false
+  },
+  "technical": {
+    "status": "passed",
+    "scope": "32 Node cases: 17 FDI31 controller/source cases, 5 actual app wiring/queued reset cases with DOM/RAF doubles, 6 generic contract cases and 4 mandatory BP3D actual-source cases. Not playback or browser validation.",
+    "offline": "337 tests passed; new generic suite included, actual-source suite separately passed"
+  },
+  "visual": {
+    "status": "unchanged-baseline",
+    "scope": "No new UI or material change; prior FDI31 previews retained. BP3D adapter is a headless source-isolation smoke contract, no new visual review."
+  },
+  "runtime": {
+    "status": "unverified",
+    "reason": "Cloud browser could not access workspace HTTP server; file URLs are forbidden by its policy. No bypass attempted. Browser input, keyboard, layout, file-origin Web Crypto and performance untested."
+  },
+  "clinicalValidation": false,
+  "physiologicalMotionValidation": false,
+  "limits": [
+    "Prepared T2 specimen, not normal healthy anatomy.",
+    "Buccolingual orientation unresolved; labels are source labels.",
+    "Fixed camera has no user orbit; reset does not claim restoration after camera movement.",
+    "Source-specific GLB parser; not general glTF conformance.",
+    "Source/reset array and pixel identity do not validate clinical anatomy.",
+    "Playback/scrub and editable camera/material reset remain outside this manual controller.",
+    "BP3D zero offsets are intentional: named isolation only, no new separation animation or anatomical registration."
+  ],
+  "files": {
+    "controller.js": "9a527aa67a7d9c4b1bf1f1a296f8670166ccc5efeb6cb45172c88e53306a153d",
+    "renderer.js": "56ffb34cdc5f9c984316af433e3ddb6bf24514b65e232641b97bd018b18f05e2",
+    "app.js": "0cb00e4deccc995b484a8bd50aefb5219e79cc953c353e01dddb27b92d5c1490",
+    "index.template.html": "6c68866282ead4d165b8a158444385016527ef60047da0f92620053a07bee8b2",
+    "build.py": "73d7f8c9157a482d5da6cf9cef4bb82d1d1a227e92a2f2fd30ca588e5d71db5f",
+    "controller.test.cjs": "ab8c1d611eaebd754bc5f44a6edef4a9509ff293f3f3f6673f4133ef987ed532",
+    "app.test.cjs": "393e905072efa376d112c1dbd1b80a0875ec00252ef861014f42fa2334f8329a",
+    "render_preview.cjs": "6a6f7a5a98bc29bcc2427dbdd3577e9c3497391c1cb6f055729015023372587a",
+    "compose_preview.py": "ce289eb180b429938e3ced8ccc0efdb428e5cbe61a356aa5f6a8298f94741fbe",
+    "preview-frames.json": "12cdd712a1d49bc7b063d401f70beba805c3f037585fb49f243b29430859df09",
+    "media/FDI31-reveal-isolate-reset.gif": "977f6f1e54c9012212a279e46ed08a480283d7a6b2a754582eb83646baca5e94",
+    "media/control-pulp.jpg": "03eb18343bb467bdbafba972762a56d6b59facf6c24daa39103493c5d915ecd1",
+    "media/control-reset.jpg": "cfb66953832baccb7cb0a0ee32a07d35f4ca66487bcf21a195fcf9295af773de",
+    "media/control-review-sheet.jpg": "5ae00f5b2e569a5cc8ffc005abfc2f2ea384beec6b23854cf041985dab3f1e84",
+    "media/control-separated.jpg": "d028918435a23a68e95c2f0e5b44c63e6e63e1c4b4bd110fd657f2fce61682be",
+    "media/control-source.jpg": "3e6e324c85c6564ae3f010a82e066aaf2da560c3062042e8f47bc6e3c454eb7a",
+    "named-controller.test.cjs": "1532b54e1a1ef9ad482151e7c6dd213cd2960c86c4b76db99d40d2bb5acef3d8",
+    "bp3d-source.cjs": "d301ec41b38be5473f977b49aaf503827de399b0ba6e78f95e6de07a84e180e3",
+    "bp3d-source.json": "79571e0def6372887e4a765f3ebc9b805c217c88b547561f2bc6ecf61dd9211d",
+    "bp3d-source.test.cjs": "63d50ec18125084a3a632ccc9239d55ac16402c7942f652482962e655bfe9815",
+    "review-fdi31-baseline.json": "a58bf2bb1c8993de64980d12f1b74cc7f6f107030f542a750cfbbc118a54d603"
+  },
+  "next": "Authorized supported-browser review; remain draft and do not close #216.",
+  "previousReview": {
+    "file": "review-fdi31-baseline.json",
+    "sha256": "a58bf2bb1c8993de64980d12f1b74cc7f6f107030f542a750cfbbc118a54d603",
+    "commit": "1ffc4136cd9f064ea0e888709e656b2b3c3a7ada",
+    "scope": "Historical preview/HTML and independent visual review; its code bindings describe that commit only."
+  },
+  "bp3dSource": {
+    "path": "models/teeth_gums/exports/r02/teeth_gums.glb",
+    "sha256": "82bfaeead46bb51b1fa5bdfdb06c918dfd01aa23b28acae733ab75ec2cd6897f",
+    "bytes": 814328,
+    "frame": "BP3D native mm scaled .001; no translation",
+    "licence": "CC BY 4.0 per retained attribution; source OBJ headers retain historical CC BY-SA 2.1 Japan",
+    "provenance": "models/teeth_gums/exports/r02/ATTRIBUTION.md",
+    "contract": "bp3d-source.json",
+    "nodes": 30,
+    "namedTeeth": 28
+  },
+  "independentReview": {
+    "status": "passed-with-scope-limits",
+    "scope": "Separate reviewer reran 32 actual-source Node cases and verified receipt hashes/baseline receipt unchanged. No blocking implementation defect; corrected README test accounting. Not runtime, anatomy or visual approval."
+  }
+}

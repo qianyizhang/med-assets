@@ -34,23 +34,23 @@ blender --background --factory-startup --python-exit-code 1 \
   --out /tmp/spinal-r04-build
 
 blender --background --factory-startup --python-exit-code 1 \
-  --python tests/spinal_cord/authored-roots-r04/render.py -- \
+  --python models/spinal_cord/recipes/authored-roots-r04/render.py -- \
   --baseline models/spinal_cord/exports/authored-relationships-r03/spinal_relationships.glb \
   --candidate /tmp/spinal-r04-build/candidate.glb --out /tmp/spinal-r04-renders
 
 blender --background --factory-startup --python-exit-code 1 \
-  --python tests/spinal_cord/authored-roots-r04/check_geometry.py -- \
+  --python models/spinal_cord/recipes/authored-roots-r04/check_geometry.py -- \
   --candidate /tmp/spinal-r04-build/candidate.glb \
   --expected-sha256 a37783fbd1ad25ba9a2bcfbed1419a2d3f655b42cec643bf32a77266ca82a9d0 \
   --out /tmp/spinal-r04-geometry.json
 
 blender --background --factory-startup --python-exit-code 1 \
-  --python tests/spinal_cord/authored-roots-r04/check_relationships.py -- \
+  --python models/spinal_cord/recipes/authored-roots-r04/check_relationships.py -- \
   --candidate /tmp/spinal-r04-build/candidate.glb \
   --record /tmp/spinal-r04-build/build-record.json --out /tmp/spinal-r04-relationships.json
 
 blender --background --factory-startup --python-exit-code 1 \
-  --python tests/spinal_cord/authored-roots-r04/project.py -- \
+  --python models/spinal_cord/recipes/authored-roots-r04/project.py -- \
   --baseline models/spinal_cord/exports/authored-relationships-r03/spinal_relationships.glb \
   --candidate /tmp/spinal-r04-build/candidate.glb --out /tmp/spinal-r04-projections
 ```

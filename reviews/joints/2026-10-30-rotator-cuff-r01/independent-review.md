@@ -16,7 +16,8 @@ V1 review inspected all four exact-GLB export images, the teaching sheet,
 grayscale sheet and matched posterior Source / Export plate. The seven visible
 label targets agreed with their named surfaces and recorded ray-hit bindings.
 The long posterior S legend crowded the anterior 4 legend; no anatomy repair
-was requested. V1 teaching is retained as the failed presentation diagnostic.
+was requested. The failed V1 sheet is retired; its defect, exact hash and replay
+option remain recorded here and in the package README.
 
 V2 shortens that legend to “Scapular spine / 肩胛冈”. The reviewer inspected all
 three final presentation images and confirmed that the crowding is resolved.

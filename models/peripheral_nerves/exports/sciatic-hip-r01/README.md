@@ -10,7 +10,7 @@ GLB SHA-256: `72077a97a8a935a7a4623443c1c0fd61ab48a9bf4ad895af058345b7a372abd6`.
 
 [Teaching views and review](../../../../reviews/peripheral_nerves/2026-10-30-sciatic-hip-r01/README.md)
 · [source and license](../../../../sources/datasets/z-anatomy/sciatic-hip/provenance.json)
-· [replay and checks](../../../../tests/peripheral_nerves/sciatic-hip-r01/README.md).
+· [replay and checks](../../../../models/peripheral_nerves/recipes/sciatic-hip-r01/README.md).
 
 Source renderable surfaces and effective transforms are retained; colors are
 illustrative. Proximal strands and distal ends are source extents, not complete

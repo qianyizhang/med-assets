@@ -25,10 +25,8 @@ From the repository root:
 
 ```sh
 python tests/hra_lung/verify_bounded.py
-# Optional: exact isolated-draft file closure, not for a populated repository
-python tests/hra_lung/verify_bounded.py --strict-package
 ```
 
-Default verifies only [declared files](FILE-HASHES.json); unrelated repository content is allowed. [File list](FILE-LIST.md), [transport manifest](transport-manifest.json) and [verification report](verification-report.json) define the migration boundary. Existing public gzip/WebP URLs are preserved without a fresh availability/readback claim. Source metadata/license are retained records, not a new provider fetch.
+The verifier checks [retained identities](FILE-HASHES.json); unrelated repository content is allowed. The [transport manifest](transport-manifest.json) records the migration boundary. Verification code and this README are not hash-frozen. Existing public gzip/WebP URLs are preserved without a fresh availability/readback claim. Source metadata/license are retained records, not a new provider fetch.
 
 **简要教训：** 拼片法线会造成假性明暗条带。先区分几何缺口、材质反光和法线伪影；只协调同肺叶保守范围内的法线，不能据此声称补全气道、呼吸或临床解剖。

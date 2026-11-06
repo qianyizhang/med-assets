@@ -1,0 +1,27 @@
+{
+  "reviewer": "independent medical coordinator",
+  "reviewed_at": "2026-10-31T12:34:00Z",
+  "verdict": "pass-with-limitations",
+  "scope": "NEW source-scene reconstruction of named route presentation; not recovery of old99d19b3d derivative",
+  "visual": [
+    "Actual EN, Chinese and grayscale plates inspected.",
+    "Matched overview/detail share framing and source geometry.",
+    "Selected central route readable against dimmed scaffold; numbered source-cap cues point at model endpoints.",
+    "Source nomenclature distinguished from anatomical verification; no venousjunction or continuouslumen asserted.",
+    "Editorial silhouette and cropped peripheralroutes/other tissues explicitly stated."
+  ],
+  "technical_review": "Read canonical world-space triangle-multiset and unique-position verification at1e-6m and finite-position check. Builder performed clean GLB reimport; reviewer did not run a second Blender replay.",
+  "limits": [
+    "Source Blender scene, not unavailable historical exact GLB.",
+    "No anatomical/clinical, browser-runtime or performance approval.",
+    "Schematic source topology and caps retained.",
+    "Updated intentionally changes contextual route brightness; not an identical-pixel claim."
+  ],
+  "bindings": {
+    "comparison-en.png": "01134611886cb5332715c8646c683f3a386fe93c4e27b543a23b4f651a4db632",
+    "comparison-zh.png": "bc7e11f58ce78ccc90bfa29dca34e4a990a66618c34bb27629ada443e5d83ffd",
+    "comparison-en-grayscale.png": "5ce34dd577da37246d3ef9f0f19fba834e958d86611e9f324fac0585fa2567ac",
+    "selected-source-routes.glb": "ff8c1e9cecc86b4287520d97e71e81792d26eb0b3017e6f302e213f64819b4ca",
+    "geometry-verification.json": "49f3bd3353d42952cfb18a17e99b1893031db146326291cdbecd0d509028d8a5"
+  }
+}

@@ -6,7 +6,7 @@ import tempfile
 import unittest
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-SCRIPT = ROOT / 'models/fetus/exports/head-face-junction-r01/build.py'
+SCRIPT = ROOT / 'models/fetus/recipes/head-face-junction-r01/build.py'
 
 
 class FetalJunctionGuardTests(unittest.TestCase):

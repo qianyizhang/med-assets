@@ -16,4 +16,4 @@ The shared `sources/datasets/bodyparts3d/bowel-studies-4.0` directory contains l
 ## Verification / transport
 `transport-manifest.json` preserves existing gzip endpoints and stored-vs-decoded hashes; no endpoint was freshly fetched. `selected-public-map.json` preserves exact current evidence selections, roles, scope and gates. Per-revision model READMEs point to these review/source records without replacing repository/model-root README files.
 
-Run `python tests/bp3d_bowels/verify_bounded.py` for manifest-subset verification. Optional `--strict-package` checks isolated-package exact file closure. Default mode must tolerate unrelated repository files. `FILE-HASHES.json` covers this draft except itself; no root file manifest is introduced.
+Run `python tests/bp3d_bowels/verify_bounded.py` for manifest-subset verification. Unrelated repository files are allowed. `FILE-HASHES.json` protects retained source, license, media and review identities; it does not freeze verification code or this README.

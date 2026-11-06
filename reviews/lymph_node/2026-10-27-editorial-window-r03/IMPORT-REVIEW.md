@@ -74,7 +74,7 @@ use a fresh output directory:
 ```sh
 blender --background --factory-startup --disable-autoexec --threads 4 \
   --python-exit-code 1 \
-  --python tools/lymph_node/editorial_window_r03/import_audit.py -- \
+  --python models/lymph_node/recipes/editorial_window_r03/import_audit.py -- \
   --source models/lymph_node/exports/hra-v1.2/NIH_M_Lymph_Node.glb \
   --candidate-dir /tmp/lymph-r03-new --output /tmp/lymph-r03-import-audit-new
 

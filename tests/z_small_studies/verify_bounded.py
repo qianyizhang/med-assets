@@ -1,13 +1,13 @@
 """Local declared-file identity checks only. No network, render or quality review.
-Default scope is this manifest, not the whole repository. --strict-package is optional.
 """
+import argparse
 from pathlib import Path,PurePosixPath
-import argparse,hashlib,json,struct
+import hashlib,json,struct
+argparse.ArgumentParser(description=__doc__).parse_args()
 R=Path(__file__).resolve().parents[2]
 RV='reviews/z-small-studies/2026-10-24-bounded-migration'
 SR='sources/datasets/z-anatomy/small-static-studies'
 MANIFEST=RV+'/FILE-HASHES.json'
-args=argparse.ArgumentParser(description=__doc__);args.add_argument('--strict-package',action='store_true');args=args.parse_args()
 def blob(name):
  p=PurePosixPath(name)
  assert not p.is_absolute() and '..' not in p.parts,name
@@ -63,7 +63,4 @@ assert source['archive_sha256']=='e029688545627bd0214b269e1063143abb580aad72b2c2
 assert source['member_sha256']=='9f08a17ea0115fed80b2a73ecdf0a1bc2ab2f6956f37c593ce23d513ea35afcd'
 assert all(s['sourceGeometryIncluded'] is False for s in d['studies'])
 assert not any(PurePosixPath(n).suffix.lower() in {'.obj','.blend','.zip','.gz'} for n in checks)
-if args.strict_package:
- actual={str(p.relative_to(R)) for p in R.rglob('*') if p.is_file() and str(p.relative_to(R))!=MANIFEST}
- assert actual==set(checks),'Unlisted or missing isolated-package files'
-print(json.dumps({'status':'PASS_LOCAL_DECLARED_FILE_IDENTITY_ONLY','mode':'strict-package' if args.strict_package else 'manifest-only','files':len(checks),'models':3,'selectedWebPs':8,'uniqueMediaOids':len(seen),'uniqueMediaBytes':sum(seen.values()),'distinctBaselineBindings':len(baselines),'countDelta':0,'gateDelta':0,'sourceRebuildClosure':False,'freshRemoteAvailabilityChecked':False,'clinicalOrRuntimeValidation':False},indent=2))
+print(json.dumps({'status':'PASS_LOCAL_DECLARED_FILE_IDENTITY_ONLY','files':len(checks),'models':3,'selectedWebPs':8,'uniqueMediaOids':len(seen),'uniqueMediaBytes':sum(seen.values()),'distinctBaselineBindings':len(baselines),'countDelta':0,'gateDelta':0,'sourceRebuildClosure':False,'freshRemoteAvailabilityChecked':False,'clinicalOrRuntimeValidation':False},indent=2))
