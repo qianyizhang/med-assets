@@ -40,7 +40,7 @@ read on 2026-10-30; both had empty label lists. No retired or `wontfix` work is 
 | Retained 900 × 900 internal-front WebP | `b140b1200fe8947b2185da28e7dc39d27cc991facbb88d18bcb0e3bd81ef010c` |
 | Render recipe | `ad77856fbe21d366dbab314fd4b390e2ef0996539425d4049c029fd556f1055a` |
 
-[render_exact.py](../../assemblies/kidney-pair/recipes/recipes/render_exact.py) computes whole-model
+[render_exact.py](../../assemblies/kidney-pair/recipes/render_exact.py) computes whole-model
 center/span before changing visibility; all modes use the same orthographic scale
 `1.18 × span` and camera for each review axis. The contact header also states
 matched camera/scale. Its tiles are 420 × 420, at x = 0 / 420 / 840 and y = 112

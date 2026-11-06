@@ -30,8 +30,8 @@ for side, short in [('left', 'l'), ('right', 'r')]:
     assert hashlib.sha256((src / f'3d-vh-f-kidney-{short}.glb').read_bytes()).hexdigest() == expected[side][0]
     dest = out / f'kidney-reference-source-screen/source/hra/kidney-female-{side}'
     shutil.copytree(src, dest)
-for recipe in Path(__file__).with_name('recipes').glob('*.py'):
-    shutil.copy2(recipe, work / recipe.name)
+for name in ('build_candidates.py', 'render_exact.py'):
+    shutil.copy2(Path(__file__).with_name(name), work / name)
 subprocess.run([sys.executable, str(work / 'build_candidates.py')], check=True)
 for side, (_, digest) in expected.items():
     assert hashlib.sha256((work / f'models/kidney_{side}/kidney_{side}_hra_female_r02.glb').read_bytes()).hexdigest() == digest
