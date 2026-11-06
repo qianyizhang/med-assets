@@ -1,0 +1,2473 @@
+{
+  "schemaVersion": 1,
+  "sourceRevision": "e63006dca598031d58bdf66485fed24a24194558",
+  "scope": "One public model, 306 survey image/thumbnail variants and one frozen framework/source recovery ZIP; source/review gates unchanged.",
+  "assets": [
+    {
+      "path": "models/kidney_left/exports/metadata-cleanup-r01/kidney_left.glb",
+      "name": "kidney_left.glb",
+      "sha256": "d2139a88cf85b70bdd7981e6134841faff99fcf18d7a480f04224d7e74c73c28",
+      "bytes": 2527704,
+      "mediaType": "model/gltf-binary",
+      "license": "CC BY 4.0 surface attribution; Apache 2.0 label notice retained.",
+      "source": "https://github.com/qianyizhang/med-assets/tree/e63006dca598031d58bdf66485fed24a24194558/models/kidney_left/exports/metadata-cleanup-r01",
+      "attribution": "TotalSegmentator v2.0.1; preserve embedded and source-package attribution."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "a3acf4e965db3746138691cfe476bd87359c6da639bb4845b817b604160fab37",
+      "bytes": 94390,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "e7571ec63eb116da2879872b580744bef8601a07d5c297960f4a5d7b6210e409",
+      "bytes": 3096,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "6ac15fcbd6b4d9b812f44929a0df4f1be846da7310b29224fc9b11b19d2a5914",
+      "bytes": 30270,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "89734ee5fcc9981c56dda2f90408c652a439edf60e9d6f31f22fdb0ba8ab0c30",
+      "bytes": 2248,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "9633dff859fd0609ca0d05744f098757e1080f61c41f145728493e0ec6fc242a",
+      "bytes": 5970,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "4a4c1fa0116975daeba79c91796240f048102d8b7bf0a1c672fd45dd0860be8f",
+      "bytes": 716,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "3863b41f055cf2e71bc44f8e73d0616e595958e8a4f3e3a930bb9d86708d0af9",
+      "bytes": 24364,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "2866ecb138a6ede139a0ece4d02594fe80a31a571eb9418b79fe56e8ac1f92c7",
+      "bytes": 1600,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "b67e9266478c365db71ddec622d4f7215515b57996b6d4206b3e76e06bf75e33",
+      "bytes": 115140,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "3462ba650030b6f245449ae19449898218d3167f95bbac216b82d7c7190fb998",
+      "bytes": 4570,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "60f0bc1c69f71c699a694247c99d376e4172b1f917b9359747cbe108cc5257ac",
+      "bytes": 133338,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "a0b09383790ca0152dbaf2f5ca076c958f7379f073b9f6361948306403d6f878",
+      "bytes": 5812,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "bf4f4b5636ed3eb0bfd40aabe7a01bae40a793d42c4949a69956dcd66f7c8464",
+      "bytes": 43000,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "619018eb3886cf347fd17f5658df57eb02a4a5826cf6dde335a73e6edbae99ea",
+      "bytes": 2776,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "7b9cfedff7724349be532aa36497088c0f44521c921629f9bbf57d6925fd1976",
+      "bytes": 29438,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "ef6cab21d99346e392fe941d280d1f35a86a8a0b45d2a166d83c0fa05b49473f",
+      "bytes": 1298,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "92700844147c551bc21730448f832a5eea5adf94e1be38b5e4902739dc43206e",
+      "bytes": 36624,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "dba2c905e0afd17ed0b893cb03cd237394523dfac563d850e657d374f3051e7e",
+      "bytes": 2900,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "23821acb7f31bd4c0c24b41f838878a9a792b7e30c0f0151d5a7fbb59fc1807b",
+      "bytes": 37648,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "9954e978eac862834791b03cbc7adbbac765e8ba0cb95e0867e033ebb2499774",
+      "bytes": 2352,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "93d599cde19b1703c710152f062f4c39222da6ef804ac6b789f5a29a0ef95ea6",
+      "bytes": 153560,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "6f49eecf8acbf0d73d8b60ebe74632b62d5e83c10258026d8f9e85e3e0b051a2",
+      "bytes": 5322,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "8cd3d8a8a0f181f2dc455db4b6bd323533fe50544bd768c9c4de70a9b908d77f",
+      "bytes": 151106,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "34dc58605ea24a341708824db9e83bad22152a5e72b92bcf0d65ce8734227a9a",
+      "bytes": 5626,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "83f08203611783735fe8be7df2e81be8965679ee429e4f4331e434b2ecc97b12",
+      "bytes": 115902,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "5a7cf032ee4869e0175003a7b3e625f1e5c99a34b2340ba537d37642d5a9062f",
+      "bytes": 6280,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "8868978f4400df565aad7cadf89240963cd1978a2a49861453868cd070e2adf6",
+      "bytes": 50044,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "5c9e4ec68fde07c4388412ccbcdbfe7e888774b8f4b69a56fc7f089406e91c87",
+      "bytes": 2708,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "ec22a2908f7874462a9eef329721ba6759a784cac19dcd2ebbd2336aa89e4ea4",
+      "bytes": 25738,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "e0fb9cb7a9e1d2b6e0ca3420c7ae7a6aa247be66ca904f02e0c6aad43aa2a33c",
+      "bytes": 1606,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "79355d28353dea99ab51ec8cdd0b2c254675e3ed8c79d0dd40f5cca4a507578a",
+      "bytes": 16720,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "52114044b1f9edb577eb981f771cea280c56b21187d94a4f1cb482d81b0f0049",
+      "bytes": 2300,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "a5f673bbb69254b6b507f957824e9542cfd8c7ff6955011656aab5d5026350a3",
+      "bytes": 13316,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "d4bc50290b68d7fe46341c4410d329d5c09c3d74fdd1963d31cec0dd5aae4b66",
+      "bytes": 1268,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "27a6302ea4bcae17b27e3d79f6eb53875a16d03725575d93dcdb3d7a7513a732",
+      "bytes": 63738,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "57484b4b6524f242ffecf5cea9d373e88b974c67067932ddc24d9045c4dbf824",
+      "bytes": 2446,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "ea4999330146830d950b5e279c32fe3113a892b2766d0a3dbea66d519b2a75bf",
+      "bytes": 55868,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "143cb578ce09952320623be2b270506ce817fb38aba24b4622f628502d7d750b",
+      "bytes": 2558,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "299b1bb3a8ea11b9406996c3473751b9c60f25712a4645a776cedc2721ea66f2",
+      "bytes": 39316,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "bab0c0ca33cc71adb5e9da90bc69fb578b14a1011031ecafe0ac0ecda809b939",
+      "bytes": 2038,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "71f93a56819d683e512bbc1e290d6b9eefaacd3a9dc2705f23d680408545f732",
+      "bytes": 23940,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "e234429805f2562b202cb900c91ff2c8cf128f8b6431727bd12a214b2abcde3d",
+      "bytes": 752,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "7da3705ffedf3236ba1a8c5337311c722d9a411f1872bb5362703270e62ecc2e",
+      "bytes": 8892,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "51c4ce5cd598831e10d699aa25e8b9509ac7d9d687c0a23213b36a0b35a3278c",
+      "bytes": 434,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "c5555ecf61cc2135e74bd5c9fb8ac5e790159dc7e2b6b07b85648f7d1ae7ef4d",
+      "bytes": 19482,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "1dd1aa0ca698bd4945a240e686b01954377621fdede6f63273de569af21121cd",
+      "bytes": 1612,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "81836837ac08503c94e3e0a8a7c2f84da5f147f7f1e49aa517aaafb393428991",
+      "bytes": 29390,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "396775c4e93551f0d92446cd0fb2f40ed65a2a78ed0cfc48df30b29dbf32c887",
+      "bytes": 1250,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "b4ce25a9148c88da3d78dbc5769540d40bfb01f5b4abffd5c5e4563087ec448b",
+      "bytes": 27824,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "187f1b16c99f2872af3e7262d69ff84b9c0cf57bd465631f6b38461261e24ce2",
+      "bytes": 1468,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "443701c16dff0a2eca16e61b8531e46a13a626e9b71ce73c340dbfdb5e7d07df",
+      "bytes": 15324,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "dfedd4850c083c25a6082ea0401e8d45439539a35b9cee9dfe3bc8c28f8452b3",
+      "bytes": 1262,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "008a9f8007d962e1236c24e5d518359547a2771ab30cffff8a2bd05ff35e90fb",
+      "bytes": 101088,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "5183bc491a2abfc14ff0bbbe761c9fb28e1014f4fdc3d2a6aa15fdbac2c14878",
+      "bytes": 3960,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "f1d9160374d879cbde4645c0d67cb262f1c30f0961a7829393eb87ca89e561e9",
+      "bytes": 21304,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "a344215a179ef9c804d14d7e71af21ca411d4c6906621b33394dc8cc6e787906",
+      "bytes": 868,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "c89e5744760e8c3cf83afcb361532fbe5173b2fb0af486a290d28131485b1624",
+      "bytes": 13254,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "a218e064398713d591673f56342c79d93e99f3db7789ebdae23fbf0cdd296ad3",
+      "bytes": 1092,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "e32ead7cf5bad72ed88da6dce97406d9bdcb4d23933362164effebe0aaaf704b",
+      "bytes": 89794,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "977246bf6cdba3c1c04e22d8a534c3c9f5a84ee27feddb3cd61c432cad8ef41f",
+      "bytes": 4910,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "de855c6568a0c4de94a441f17573dc5803d8255f473137808e0c8a4d7489adf5",
+      "bytes": 153760,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "a92241dd10ebad7afefb48c79abd63d8a1301f0373268af52a37bdc9ff92737d",
+      "bytes": 5194,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "6a24cf4fc757a50d2d3e0956e6aa81c699504da9d3756c9cec65be16e1ea8b36",
+      "bytes": 72462,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "a41638f6ca021e8d29ee9f2529c154776f6f0a2475be3803400bcf628921c8e7",
+      "bytes": 2774,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "cbc76513fb4b0c250a2f8930c826bed60a624df177e870ff570b5cc896507564",
+      "bytes": 30812,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "c0b4a4a1c02649cf3a6ee7fa92c4a25a143212fff6f6af6da61c084a8f881415",
+      "bytes": 1612,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "f93eccd4099f08bd8752208982f5aa1b532aa4ddac7ff404d425b56db65b9419",
+      "bytes": 84852,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "faf69422c2828fbbf57d05c3dc0e1c1e130eb604d8e2e836e70a258bc5514aae",
+      "bytes": 3550,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "3a53136f108eeee09be7dcaa026f5fb973346843e11e03c710df1074ed157702",
+      "bytes": 58930,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "4fd8c6d14301757d9ea1b403d170b8454f26a644935d34f6ff7eadc87f57b8b5",
+      "bytes": 3016,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "ae32d0c2c7841a4c0a9efc4d794f95be9280c0b12e72a8ae7cdf2ada6743773c",
+      "bytes": 15526,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "f855de2688558db146dbf3eefd5b65783cd47544fad472a0795acf097830b34b",
+      "bytes": 1302,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "33e50ba90243d0722bce85333048f08a780fffdf3dab2400cc7fd2c329d8bf61",
+      "bytes": 89992,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "ea7f055eac0e1ab4ef21c30a418820f23986cca23215665e07ee9f0942a90207",
+      "bytes": 3924,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "752ac83af1d2639d56b0f4c7e7a5c5b82e1e8026c74ea6480660660281bc247f",
+      "bytes": 110274,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "4a79859dff1febcc67923c0f243fb01827d8761d0379bccf4ec9b07b31043563",
+      "bytes": 4884,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "5482c111ba9f5ed1a80cc83ee74261924bb95cfcb9b07bf7c7d6c96cc8b1b096",
+      "bytes": 98514,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "2869cc2326017dccdc72076c2dd5a4197e47cff3e80b6afe7216e1fd95ec085e",
+      "bytes": 4174,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "48aa2c6eb5aee5559c0fba1ee18c368aa8fa36066f77ce8b1d88c1c066f8a79c",
+      "bytes": 111168,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "a37bd9a0e137151ea47d9e11df77cbbc1397d04f212113c920908ac74b8d695d",
+      "bytes": 4630,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "77a6948fcf372c67b0767d14e806a855374fd475a892be9a4b8f701fe2795137",
+      "bytes": 66350,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "75f893252835096ef9b8a5ef602d2bb7363da6cd7318b86f9eacca35f65734b1",
+      "bytes": 3710,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "b02e97ac4878d25a0b6383a68db3593d3a4d35609c316f077b83345100e85fac",
+      "bytes": 16632,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "e0ab79792b297ce964df404a6b09a41aaeb2d4c2e59adbde81134cb8baca3509",
+      "bytes": 1838,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "7f6aa5989b603b02b70adf64268741786dc052217b15f13a401855b9dc46158a",
+      "bytes": 75692,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "9c7c8187986d81a217da4d6200cc2d65aaa8b57b1198736d77033c972dca478f",
+      "bytes": 4218,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "fef995875e432505d1217472b8f6b71fed05bde7f4a08102d25538053a247e46",
+      "bytes": 18704,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "ec2cf173e72f562accf03427aa2626173d98ad00a2a3bfe3586a83e620b563da",
+      "bytes": 2070,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "e3644eab18db9c547ee5c42aad1ef620f671cb3c2667c55817e1b5f297e4effd",
+      "bytes": 77080,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "107d583347b7997b81cf428928cc8288142bd5c9570c61de25f7749c29aea66b",
+      "bytes": 3460,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "3ad1287c7175e8cba2a87688f3fab935ea14a7e9d2150fa1823268db73b20655",
+      "bytes": 22176,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "7e4d970e4374842eea2efa4b26f45fe965d3efe4cf12a5bed399bde09c298c01",
+      "bytes": 2034,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "c2ebc1bb3ee343a8a6b1924cb63c644918b21b5ffdb12c1f1fa288574128436e",
+      "bytes": 58674,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "ac08f2e20474f0589569ee7bdfdd86d5f0be877086e372dc9c1b5030546e9456",
+      "bytes": 3558,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "adf14275c6ecab5507b0fe24544353f5791981a8e2bc9df92fe40c235e92eb12",
+      "bytes": 9358,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "158c53112802dd98bcc9ed015be2ecda404808caaf0a65b2435dc6916944279b",
+      "bytes": 1270,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "414d915f8fbe7b915972657b6711f886a1a93b95e7c40c340caf754b48161fba",
+      "bytes": 9462,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "a06eb61dea2c5a70c313e704b9ec3715e6057983cd963847b9ef4c8a860194c0",
+      "bytes": 1074,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "bec251ac6a92b376c0e7a0840a4ad0319d108c6caf868dac8bffe8e5359b0018",
+      "bytes": 12350,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "4ad4aaadb92196f6620d7f565124e4d444f29961b2dffe0b7a25cee15e2eb6a4",
+      "bytes": 1176,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "be1fe683252e3208bffd6f4f27ad0a6c0938a410ab667b8e7b68912ff0808d9d",
+      "bytes": 63282,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "1e7f718ffd9110d641f7c3368289408c1e449ffefa8871c126c3466a1602798a",
+      "bytes": 4848,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "1f32e0bdd581d27860dab62f46017f6a0012fbc4de9dfbef4e116524bce3b592",
+      "bytes": 36528,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "6ee174ecbb9e2c8be638086212971dfed0370725b40e62d3423c4b67f0c1f997",
+      "bytes": 3076,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "297f4d2ae6155dc98286937d8422b76c16f4376d512eea25f94c20c8e39be1f5",
+      "bytes": 16078,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "f7f0252a2ec44278ee29cd1da03d0cd1faf3b754e420082b5702708d51839884",
+      "bytes": 1254,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "977410f49fbd7f8dc423a6b1909aedd308000cff38f2ef4068455812d3adc2ca",
+      "bytes": 9420,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "e66ee6345cae6dbb5f811ab8f22a195c8c4c9cb66e2efaaff64d38be79875a7a",
+      "bytes": 970,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "3c454e1166c84082f144f04079d3b1e8223e6484439cbf19f42f4d1dfe186d56",
+      "bytes": 98952,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "18bfdf26a047e11e11295f1fb6ca005881f373ca3fe66926c968ab1195ea1e4d",
+      "bytes": 3080,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "14cd56e68b6b8024b71315a2c3c8020686fc3ac5d4c70488d34c8dd4da4b8a73",
+      "bytes": 109934,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "f7eaa620027bdce51c127b96ce64b9963b4a268807fdce304ad0778a8f364b34",
+      "bytes": 4422,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "dd94ead9abd8208c58d702a17ec7e984180f68528beb28bd51263d684ff6b5ea",
+      "bytes": 116102,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "8fb8fbfdc2836c5f2dc5f9dcd8b3e63f0d2ead1f1c7458e91fe2acb7a2c513d9",
+      "bytes": 4256,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "b5e24f198b5b1db84809da529810f1a1a75d150ee1953423f7bb5320ef97a595",
+      "bytes": 67456,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "372d979e7bbd86ab8670ae8695f94bfc47c36ee72d89e8421338a975c81446ac",
+      "bytes": 2120,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "31a8a39ca7bc3091946010209534e250b54214e2123b0e70d6f52c44de0202f1",
+      "bytes": 69784,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "402ef17635a80e14d0c1367063968d54134d62bf5af0c6051a02c6d24b5d8bcb",
+      "bytes": 2194,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "972942c905e37918595ac124f3556f265bd8d4e72393b1e25fa49b1faebd6969",
+      "bytes": 37212,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "26897efe0e8cfaf24b4870dbb0c599d9282952da38fd7ae6481e90932ed845ab",
+      "bytes": 2112,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "6ecbe055d442724fbe0456201e4422e70d95e2cd88acbf76db4ba803145d8b40",
+      "bytes": 35690,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "56bc0b108d1fdcef8643a03ee249e161bd6380e9e681a6392f590fed438f8671",
+      "bytes": 1954,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "8be17e546a7cb1d054a15e86d8ea45365e9bac326bda28f3e11c9fbc8029862a",
+      "bytes": 86992,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "651dc10027544fb69afe3b356c36afe3826cee7bb12880d37402ddc3c29d63e3",
+      "bytes": 3210,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "e417a87c4490705863948cd7e23c36198cc12256b767c699a1836728081cf284",
+      "bytes": 14290,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "4154278b41864a3321e5dd799d7a916f37340e582e32c52a736b544995034018",
+      "bytes": 1250,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "d37972d01ab388e1ca2888e94e89ce810c41560a5b33f3280d316bacb2810242",
+      "bytes": 42782,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "3310f6ebeb48f8b555f37f85b171051d90cf7eb5260a2bf0300ea93e3d8b436c",
+      "bytes": 3126,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "1d2a5b63b3131a291e8b31e20dbf070b734ad89ac69fbfbacf62e4ba4203fd57",
+      "bytes": 12770,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "8d0c6f59fbefb46ee44c71fd3a09ecb0f736e892067cc2192e861f3c341e9304",
+      "bytes": 1048,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "5ad5b274a2ad1451d8028e869141cb3775a9dd27917c5694a322d9099272b97f",
+      "bytes": 66380,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "344180179b5eb30690246cb5ec7a1ee3aa1fb0e83f9fda3242f2d402645a851f",
+      "bytes": 3940,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "07aecb19c1be5f87c9178311f8f405afee73ea057f1b7857f6b9b929741d0838",
+      "bytes": 10216,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "8a73fc163ae644fed7267136eaa75d8b44b4eca8edefc4c8b8a599c2a1d60bc9",
+      "bytes": 1338,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "e857648a55299f7d098110f28595bbc42b9a154ee424eb263c14bef2e2d17377",
+      "bytes": 33502,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "946d602a8af99b962abe073b00146d9ac55d4ada8bffe1280cf525f1398dac3a",
+      "bytes": 2404,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "f5d1e2af13093fe8aedb0a068ea7d9a6546d626e8475b074165a8cdcb7121220",
+      "bytes": 6318,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "c95d622fcb3d84601da0c37345cad4adff5f3ec08d0e410b9222fb666395f704",
+      "bytes": 730,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "4704ae34c1228e1330bde13886597ec963915e1cef1f23905346a9c8c217e59f",
+      "bytes": 88580,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "059eb6db7fb73f1dd923436685bae29d1c60bbff986898d01bab0d7a81a0d32b",
+      "bytes": 3108,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "4031eab6eaa636c9e009af856ef71cfe4c1ce616e6758be09120bd83cd45720e",
+      "bytes": 9178,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "ae1fec29c4d41db548b35dbc187f2fb4d1b0713d05d86b9f5bc1c6efbdcc217f",
+      "bytes": 836,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "4844dd1f9174285dd9273449875c1c17f73d8139b0b9b054e61d4289574be404",
+      "bytes": 143376,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "467ed935ebe15f251440175484517d4b1f31d63cc09e7460b2160f445efb1eb8",
+      "bytes": 5332,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "ce6db7b578e933e9b356f47a34cf2c898f02cd3b28b3ae5b502092a8498ddbf2",
+      "bytes": 106080,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "5a56649ac5a2b5a5387329361b5ef8c17ed1b67a79f29e7d7c01904eb1cb80ba",
+      "bytes": 4324,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "eb9a4289d9cc2488615b11d8172a6f0cb3e9a5d878569a9aa223a9259fba6dde",
+      "bytes": 121744,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "89e4eafd801241c476aa91b6b13e83bec20fb7c3555ef81ec5328d948184895f",
+      "bytes": 5344,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "ec66b0e94a2e4499f7ef2291bcc7f70a5c89591667f94b20c67788bcad268330",
+      "bytes": 56576,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "2a90eeb06d76b8e6996530701d6388814fe9812a4a9864f335a6abd712a19c7e",
+      "bytes": 2780,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "04269279cc5fe1d710e62a15985990ed4ed905ebad9b0b6460f03b8db94a98ee",
+      "bytes": 17826,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "4f28f13a6f4eb254fd682d59d5b33930b0b851463c716202be94a38bae0e1102",
+      "bytes": 1760,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "267586028bc6ce67514f749ddc6ba0eac1d020ea0032e1f1365cff9ac4066b3c",
+      "bytes": 70976,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "ca61551e316a48ea49ba42905ed7b2b172d1ca934c7d613138f77149fe36a481",
+      "bytes": 3096,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "e102106e9ee08e6e38d2b216782226f35ba444b5a2a7e88e781dcf9947898d8c",
+      "bytes": 11038,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "d1e4a9ddf3b928773ae9fc890ec2724e88411f004f5313d3ffa4b04bbca37d08",
+      "bytes": 1108,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "d2b0e6efae3c6ce035ce834429c222c9f1c5e994b33a97862790824579646df7",
+      "bytes": 110740,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "02d28de5a9193f7dd476c24c3913343d242306380ad7305c749cb82c9a43bf0f",
+      "bytes": 4808,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "5d384fc3df86b5d53ca3f2861f289fe6e94d504f837e4093969e0dcae3c17704",
+      "bytes": 24354,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "eaa6ad00b81d94d45933c50f993d75fc0578c5a7b4e9331aaf8b779e37a99577",
+      "bytes": 1928,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "4c2886f2a8d8d09f4a899c2c98dd9e0eec9054910778d9de8177a91293ecfc64",
+      "bytes": 37030,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "ea89f2faa287f6a34a090c7f5c75ff1d59e3688cb3ebefe9848c00f4d5e0b80c",
+      "bytes": 2374,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "222f75dd8ee23ec13734d87ad6d645f549b6c8c577125723bdcd426544c24911",
+      "bytes": 17814,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "09eef8f6fd9066202cfdd563ebbbf18bc0bb9f690e744962e9dd612400bc6186",
+      "bytes": 1236,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "a158fb102688e89170963cb5f69ebb344afb5da890eaf2b3e7a39a852444348d",
+      "bytes": 115730,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "1704c9d0f6cf8bc865037d2281821df89a3dfe73faf6f06302f6d42517c28d19",
+      "bytes": 4250,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "940b3bd59b246d867e04beb13e451d0192590fce3bb90f3e613264297aa117cc",
+      "bytes": 96208,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "50f34f9ac1a92d0d78fe995ca6e6fe02e8a1fcada6e7d59f172662684c41ac51",
+      "bytes": 4028,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "b8829824a98f4f2ee40c04be08b06d52ee28687e3063bba93b4b1d2db1bce6f1",
+      "bytes": 29880,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "2397db93d6ef755e29822ecd6ed0a8abeee25b8f39694386c989eaacbb6bf49f",
+      "bytes": 1292,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "985dfa2522c5a02bab8406464624f0fda820226eb5c70205508f7511ac069d42",
+      "bytes": 41112,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "910eeaecce872dbba0d117c8685195b5c07165e75d539e967db7f7a775d5504d",
+      "bytes": 2044,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "f169b18f81cbe6e855d93efca65f1011dee43781e06324da8039d9af08605370",
+      "bytes": 42560,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "13b8d2bf9ef78608f9dcedff745e0ec972bc0c4d54ff431f7ef966688d7330be",
+      "bytes": 2042,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "731a38322365e78faacdf14c546675f7fe5f32ad0509706e539146260a73646f",
+      "bytes": 26996,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "c7f987ca62d00a51030ab3b2414313f47f54be6e58cb443adfb2c9bedf38442a",
+      "bytes": 1514,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "6eb010673591235ff657c364d7031f5c75b99a10c9a5ef61776d906bea3e8c64",
+      "bytes": 65198,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "bf386dd9a10618d520663d9416182891081d4049511caca43176c3ea961921ed",
+      "bytes": 1784,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "0d47171df24b9dc7c78e75c3f9100b54639cc92d651c08538006f8aca8568fdc",
+      "bytes": 104782,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "0d5e7821c030d9e6938db8d6face1365efb3957322ce25e248a499a6a6c09c7c",
+      "bytes": 4526,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "e0971e278315673da500ea627c799e3b21cc4c160852fe49660e30fed31c9275",
+      "bytes": 31742,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "2c9589ea479c7dea5f6973e0d9918ec5711423527e1609e88b23af0565dabdf0",
+      "bytes": 2810,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "87787106f840225058c4e29a65697b2bacd1df3977e295d91a2c6ba18a1ba64f",
+      "bytes": 14512,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "2aded68f3fbc230afd5450c4d7615d0beb4722a88abc3bed1203d77775ca2601",
+      "bytes": 1178,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "a7cba01978761e143d30a1a52a340d18110a7ab97009e937dadb6b1d9eee30c3",
+      "bytes": 12978,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "cde4ff74cb8b623497faa63939f3ec310240a0733e7263f16ec397255797a7af",
+      "bytes": 1048,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "bbd30c70ba3b74f77cd3f4a2231ab2b457e73193c642577b08bbc25e3efddbea",
+      "bytes": 8658,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "b45bcd5029fae6570c7c1a715f977bc91e848175cd8e63727b5d3bcaf9989902",
+      "bytes": 1038,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "08c5ec57d67f617bbaf801adbf667e384b2aeb030ec1593167e801a09c2566cc",
+      "bytes": 49472,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "2a419c28c5549e453acf09c0e9066a9c694fdf7bbad77ca83d96f552dc62b75e",
+      "bytes": 3266,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "a9074b2babca756d12d15e53527ba18b8b70098d8e3fa6a6c1a9d7ab67553009",
+      "bytes": 59566,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "c208cd2f761a4c809a902c9ff9926cf90ae5c565724b6877a2124207e475afc2",
+      "bytes": 3072,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "449ba449a55b51f52d1a4ec46266d462f6bb3f973db1c0ed8a36b3a1d65157d8",
+      "bytes": 111056,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "6984314e06d191dc9b37075c3ece845c77ab08748f6e2eca65cd236d3e79dab9",
+      "bytes": 4076,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "819d454c9fc96715a7bf0190e572f88762a2fef00ed153445ebf2ccceb46301b",
+      "bytes": 32388,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "610b686dd51cfc207c74026de9b2fc32e79d8f8244976f90b72d230f69fca1ed",
+      "bytes": 2266,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "209f87ff6dc75ca5ca7c797ef2987914511d515183a9104f0356e5b570c6b3da",
+      "bytes": 33160,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "92275aa143265a1bbec54534da32cd4b934fe7465a5421b3bce8aff2545adcd3",
+      "bytes": 2202,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "ed9904bc0b3399be74b31f14a57cac65fe690bbffc7b3fdac3f9e60fe6237d9a",
+      "bytes": 26638,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "a74be60946c06634427765e295e5dedc18f8f30b9e36b6e55b4049138a3b5b0b",
+      "bytes": 1024,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "df7959c6ae98a4962fc440fd8fff81ff02db657900a2e3f541cd9e4b90e8fcd9",
+      "bytes": 32994,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "7bdd54f5b08ef323916e630fb3b4577d3f3b9d808509ab42724bcd100040df10",
+      "bytes": 946,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "f080ade9ade8b90c348880ee91734ac91296fb878ef947f7d1d7e3a1fc04facd",
+      "bytes": 37894,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "64fae8aa06fd7cf3787ace67b134aa65fce22a29007d59de1281f3ce103398f8",
+      "bytes": 2598,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "ec5b9bd3e185d7e4b80d848924dc0afee108ea113f385ff934183cdc333bc449",
+      "bytes": 10648,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "d8be6e245039c6c0bf2efaa2b4e2cef8fbbb8df738ea81d70db0b796ec943bb8",
+      "bytes": 1168,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "414ebf92df8f1888d7e7853d1c700c6333bb545e44b21ae69406624ae679265e",
+      "bytes": 91770,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "9381f139e24c60d7fc6e0c1e52496996654d026f8a60936b9da2fcf7052d45f9",
+      "bytes": 3246,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "0691998f51b6a00bfb40ebe0a6f41c1223784babe85839772701f0d5f008354a",
+      "bytes": 10290,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "32f80774cadcb17cd5e91d3d665c92ff56648f0747e228c7e077f50a7e9cf508",
+      "bytes": 716,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "7a9104c061208e671bacf578634cce579c72a124083b2fad74aadba066551ae9",
+      "bytes": 10688,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "242543d703437dfec030519543aea0ad91065df1ee7b9cd946b0050b2aa8394a",
+      "bytes": 916,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "5583ada96451c8aad89b6c36826676c52a5940390946d06e133e202f9a41fcbb",
+      "bytes": 16614,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "fa15bf06c51c1a652fd5a3088117246784c8369e3d55380275bbaa02934002b0",
+      "bytes": 978,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "eca85f6633c489b828aaa5284cd8033e55cde20d337cd6bf61678e3a817ec967",
+      "bytes": 7850,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "ca7979eec345bbe271dd3e363a6e38e0913ce70c60838a2c8605e7ee32d1d15e",
+      "bytes": 892,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "aeac84884033fcfe1cb40ccccfd6f775038ddb04436028da663cbf2be3e23598",
+      "bytes": 113644,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "1e6d36eff8eeec806cd000c22e155959326957738c99727e9cd8fcd07ca68889",
+      "bytes": 3136,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "16491273b029a00b8674fa70302cfe70ecd257a5a74409154fab0ef9e9c8870e",
+      "bytes": 10368,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "da60df5f5b805ad64c5b02fc8cb6fb34d5f9176a57ae81967ac62f4f95afea35",
+      "bytes": 954,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "8f3f7f24d731f462aa7c854241116c0be1f330dab0cdd38f0ae809991d39f3eb",
+      "bytes": 44368,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "c9dd468f2fa779398961a3844b0c897ffc9f3ac0cf08ab83d55aa35276794a4b",
+      "bytes": 3140,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "919c81b0bd70bd5d05a8a9731ebacf052e286766b3c4caabf955aa081c3ba5f8",
+      "bytes": 28370,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "0088909f93674e4618953f7a6e4d654d328f9045faaac4d15eabe4d11c1a616f",
+      "bytes": 1258,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "ebb577365f43f73a98638a06264e045291c0fead47b989e07205e8d16140db7d",
+      "bytes": 80524,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "f1fd76855015e7224e9e4a4829e9ae691bdcd275a0bc2a5fb9fc48b43cee843e",
+      "bytes": 3396,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "b91e5182c0e08c79e9977224f2294237f66f00cb00d68cc263a417ac818f6683",
+      "bytes": 22540,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "1be1d90c65f2a68af2ead3659a6468dc33cf272e40094715c47af3ddf5e44fad",
+      "bytes": 1676,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "e419db9a131d58066d7d506ddb84fb844ca3f2c7ac60b611eb782189b6e47cd1",
+      "bytes": 15708,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "681e4268a9baa7053b9061b6f01709d457caa9d179409e0392255cbda42a1594",
+      "bytes": 1388,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "72eb95e03d00ee0d6c40cc56647b5dc1ea5af32f24bfc54e9bc1cea39d77e175",
+      "bytes": 16952,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "6b107a36d3b9c1bd225abae4566562f7b84a2566b49ff63ff7782757f42eebbd",
+      "bytes": 1270,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "dca447723248003d46ebb9afa96a311710cbb23af11034ca0398a5424dcdc1e6",
+      "bytes": 17004,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "b350f8a4fbd0e22d63d87e6e6630b7a65c75ab502de4625bc9038fb7a1b4c32f",
+      "bytes": 1552,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "b6a730e7ec3fc78f1441da3164ac591320e438adc19ba8d0af4724d4b5b5dad1",
+      "bytes": 18366,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "038dde93128e737210f0d94753537af1a8210ee8db38ab92ea314582f306f5a3",
+      "bytes": 1382,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "30b9ebe5d3d8586046843e11e271ecef0d72d6be23e820ec4ee09c586ea99c0a",
+      "bytes": 13832,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "1232aa233b87561545324428ed742a6377ea4560c45023810c9ea20a0beca6d6",
+      "bytes": 1714,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "d0b52cda817edbe5776342ca36ee7757feb6b0c6978a7247227d074cf7d4ffbd",
+      "bytes": 14196,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "4a1dd10c2fe2e4683bc17afa8a8fe11e20a69ca89964f410743c6150c3634580",
+      "bytes": 1758,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "6a853cc6ca891db9635a19e8cfdee814a809f1bcd94b67a711b99ce6d8ef627b",
+      "bytes": 46566,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "b335d56e1031e8ba21d9b6136f114af3301a9a7b6f6750c5e2225e238a43f319",
+      "bytes": 2310,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "cc0d0b61a37cae1426e88b96cf3d6d4ccfdb7119bf063d19b9409cdb9f3a8c70",
+      "bytes": 44894,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "03c12084c1373eb1d6edc18e8b3d52de7de3189099c5caa04f38d7d5a6938970",
+      "bytes": 3560,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "6a6155fcf86e91f8b9b325528c795f3e4b33490008e9efca5cee9f7b48c5167e",
+      "bytes": 95006,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "052397ccb0db5f0059d8bfd65a74ad02f49ba13242447be977cc98d355174690",
+      "bytes": 4426,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "6b47efcb8a3f533f192278be07d213c69f3b031110e43473b3970a6f069fe21d",
+      "bytes": 39390,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "e4e685a987509968b9d438cd0add12915179b943c20c0e7b30adbce4b4751899",
+      "bytes": 2902,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "1c028633e67937f8a4d93dcc570e7f2fdd9f5dadec9e75c4ac16faafc51d3fba",
+      "bytes": 91254,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "d6b221daf38b0aa0110e6fe16e67bf6cb694aa4d4dfdbfbe4b11f43eb5d2b880",
+      "bytes": 3820,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "9beaacd2ad3d8c019dae0ee938f3e79da31eda2c05acc978dc6ef8303b3ff321",
+      "bytes": 55158,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "35f6068e1e404b31e317c9cc524b1e9443defb1821f9cb19280693870784e63b",
+      "bytes": 2822,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "03162127bdfeb8802a995efaf07fac67ed1c15fbd6be21558a9e2811716ad99e",
+      "bytes": 86108,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "8bfc7d78f4092b749cc9dc4a96637e21087d394e316a3db7de86541a30b0e739",
+      "bytes": 3236,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "ce2c7091d54b490a7788eadb331ff95dced2c32ec0fc74701c3be3ac7680e190",
+      "bytes": 46928,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "f418fc1e85166c56f71ff5f7387ada4455a7a7901f7057db5f2e1f72fde18983",
+      "bytes": 1524,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "6e56b383fad9cfc698b028698a18f1d33587510d3a429820c96037f1ecbd8225",
+      "bytes": 18252,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "cd8add1c6c6352e51b3f8de3912f45471b532551ea1e966b519b254cac48d4ec",
+      "bytes": 1210,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "4d205f5e07169d0d5cd3d522fca4bca6dd2d24a5e34902be9387c7af8ca676e7",
+      "bytes": 60080,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "5a9c329b5889351746694b45532794408dec693f84f90ea458d3cbb07bba90c6",
+      "bytes": 1598,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "af1e99673f9a92ca4b2c67ff9149119eded3544f9af55441f6497c6fe4583ccd",
+      "bytes": 118104,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "554c14ec21630f782fdd6482a686febfcfc0703ed3af14c60a591b44fb6eb0ae",
+      "bytes": 5778,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "8e36611418d48bc5a17d420c5db863968b8b6898bf5e6187e14360d02506825a",
+      "bytes": 13956,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "b361aef4083bf6fdaa8fb1317553d9899a09677be69ce38ba93c64eadfbf2510",
+      "bytes": 994,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "14e3424830db7e9c0b2ec0b6a950f096115446a141d5f068df4880e86188b2b8",
+      "bytes": 50784,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "af16fc1c67dbda11489662258dba080f65210e0afaaf482d053391b17f1b989b",
+      "bytes": 1662,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "6d1ad1d3a9f1e283eb4d6ca610d1f9907c4cb238eced635f9c1b2b9cf515e9dc",
+      "bytes": 19236,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "b2c0c5d25ac12616956c348896ecc83a754e3fe958b2c3d41db9823eba7e311f",
+      "bytes": 2174,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "374142e210908fae45feb094727cbbf20bc5444c878412c4bfb056f5fe8369e1",
+      "bytes": 17732,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "e73f35f10ca2c62f1bd5f3c66d67b8dcb2c7b2bcadf3fb447a3c582d11905bfb",
+      "bytes": 1918,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "403ae6e49317d1b24777c166d72bc381117d6644b6dd45b73e9f391f1aef8b8a",
+      "bytes": 53562,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "7c9a828ea50b0a010517f01a8fafbd90818a077b344a934e01909da87e560664",
+      "bytes": 2406,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "d68bdd5379eae7d8bc8bd75347df6c1a6f6014575ac6ab417ac61117f4d83058",
+      "bytes": 69562,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "4c55e706e6c583019167e46ea493c5ddcc059e73db72e73c7b19e4a6d97e820a",
+      "bytes": 3594,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "b735b550c6c00f8a6845330043d4720e1aadbcecec7050077ddc063879faf0a4",
+      "bytes": 23386,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "150b5e5f05803f3ecd82ad60bd7c9b5f14cd8b8e9e37547a543c4f7e98c9a986",
+      "bytes": 3402,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "c3d3ebe8ceafb7d235072f3f419029ca5e9a22846757106b9ab24f3dec8370c5",
+      "bytes": 13978,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "b5b2b922f84f220300fdac212f0e3582c439e1a57c5844413a928b325481ea9b",
+      "bytes": 4636,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "29a8065f841f82252f6b1c45194151a91ad3be71f4b3f99aa1ff5f92ef026271",
+      "bytes": 102230,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "e160dc9115f9bfba08625d3e2e56cb873f64c5d169c5b68d08ffd6e630b5782e",
+      "bytes": 4350,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "0510bf3ffcac3556d481450b76678be8e6540384e385018401b2931f429aee68",
+      "bytes": 41758,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "d4d999f2bb1856e839740bdd9348b0457111c3d309fcc6d8fbf896d71ad760f0",
+      "bytes": 4192,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "f07970f51ef915778ce0e961ab1e48cdf08a9c52575307b97d8d418ffa081192",
+      "bytes": 38318,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "7c772b44372f2e1afe8e0159f6db64883507099f6d77161903bca31100c4e86c",
+      "bytes": 4060,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "a8cc02a985d00fdc30862b9cae10eb8440a0b8edfac65847f14fc731cd4c58d5",
+      "bytes": 60122,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "3a42fff8405d0b5e0ab02d068c479d61337292f720e80ed0a3befce5ac506d0c",
+      "bytes": 3668,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "1ab71329b860bfdb20869d94bcb36693af635466eb0c1982b525985202d361b4",
+      "bytes": 105266,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "cdea0b210a0d7fd7eb859e6166e2b43e890a46671c2a3b193b0471d5a3fe897b",
+      "bytes": 4602,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "7125f33690aa4f2586c925f952e7d1d4b07a03883f4fcae85f0d6978f4692109",
+      "bytes": 92704,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "bf9e2f089e0c50083882a56caa2f108b5def6235532af07a43ca2236c6d368d0",
+      "bytes": 6090,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "c349527b42372fc6f295e2eaef78fb174c4ebcb97eb17051748b09dafe15e9a3",
+      "bytes": 36900,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "2e2292e2f905b1485ffa40c1d4f92eb7346c78ab82912172f1747341d8e44fea",
+      "bytes": 3728,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "77bb5f173fdd9fe380033454a74dd4714c64b207e4482e6c94ca968b771dd753",
+      "bytes": 43910,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "cb391316e916c0dcbdfc5336df5ac6cfa573f49a8bf57be93bf614a0c32c559e",
+      "bytes": 4302,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "3f974d9c311e14b7e2e46af2b63d2445b8c33a3851edbabed13bafe9440edaff",
+      "bytes": 72624,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "42b90f5bdc1bb9ee6e5df1cf15b33560218449a89f138e31a5299f5c2eca6ab5",
+      "bytes": 3938,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "04477929b5bef3017066b8d2e96210e177232a5ac568b7eb53f8e0a45ffe13c9",
+      "bytes": 46666,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "5f524ff2ae27739ee9c10341d793b66d8208dd49c590ef473a86fcf2f0022706",
+      "bytes": 3366,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "60b0d7f96cd0bc24e4836e54370d94828d9051cda7a7d14777def6d83a4a9f0c",
+      "bytes": 72994,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "28a68fd6d4ffab778ac1720cb30f18b951d9f4aeb59e9a4c26803b576058fac5",
+      "bytes": 4426,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "845ca1485c5998c3c1cb04c8f90632c15d285891183c51a4f11c5032a6da083c",
+      "bytes": 91566,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "15870ae910de6125889de4d33180464b4e56252bd9abeb907ab5b9da66addf98",
+      "bytes": 5470,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "d3fcf5f551c05c5f68d8f01102f0d3bd06a7e08b45187ad145d3797501033c54",
+      "bytes": 126824,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "579b1cfdc2b5b6230dfb00d85346d5d418d7856cb411bfa97a2d4033061e4a58",
+      "bytes": 5570,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "92af260326c4b6f5812693670c2affcc2ed05ffec82be0290db2c22438c308d9",
+      "bytes": 77696,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "preview.webp",
+      "sha256": "6c05b125e3c07870ad58d378161af0e41103fc0ede7a58c548c110f93e953c70",
+      "bytes": 4336,
+      "mediaType": "image/webp",
+      "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
+      "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "model-survey-build-backup-f65265c-2026-11-06.zip",
+      "sha256": "002a5bc183ae3e552d3287c55b0d1682f36ea06f691e65af58cc247c528a5156",
+      "bytes": 10710642,
+      "mediaType": "application/zip",
+      "source": "https://github.com/qianyizhang/med-assets/tree/aa26aebc797f2d78bb82069032ae1562aaba807c/sites/model-survey",
+      "attribution": "Frozen framework/source recovery archive; preserve included source-specific provenance, notices and limits. No new blanket asset license."
+    }
+  ]
+}
