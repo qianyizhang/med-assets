@@ -152,3 +152,20 @@ Full anonymous R2 readback verified the ZIP's exact size/hash. Anonymous PUT,
 DELETE and unlisted ZIP requests were rejected; the report data and an existing
 preview image still matched. The temporary asset-upload environment was removed
 and version 4 redeployed at environment revision 6; the owner setting is unchanged.
+
+## On-demand retrieval and preview preparation
+
+From the repository root, `python3.12 tools/fetch_asset.py PATH --commit REV`
+reads the exact committed LFS pointer and downloads the matching public R2 object
+into the ignored, content-addressed cache. It refuses redirects, wrong sizes,
+encoding changes, corrupt data and symlink caches. A verified cache hit avoids
+network access. Missing/unpublished objects fail explicitly; this command does
+not overwrite source paths or silently change providers.
+
+`tools/prepare_r2_assets.py --app sites/model-survey/app --output NEW_DIRECTORY
+--site-url https://med-assets-model-survey.landy123007.chatgpt.site` prepares
+embedded image bytes and immutable URLs locally, preserving existing manifest
+entries and review metadata. It does not upload. Reassemble the complete project
+with `tools/framework.py` into a fresh ignored directory after changing overlays,
+then follow the source build/publication steps above. The current public trial
+and frozen backup are retained; only the existing owner workflow can publish.
