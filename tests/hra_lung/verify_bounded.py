@@ -1,24 +1,23 @@
 """Verify declared local identities/references only; no fetch, rebuild or runtime test.
 """
 import argparse
+import sys
 from pathlib import Path,PurePosixPath
 import hashlib,json,struct,re,csv,io,math
 argparse.ArgumentParser(description=__doc__).parse_args()
 ROOT=Path(__file__).resolve().parents[2]
+sys.path.insert(0,str(ROOT/'tools'))
+from verify_source_package import PackageFiles
 REV='reviews/lung_pair/2026-10-24-bounded-migration'
 SRC='sources/datasets/hra/lung-female-v1.3/bounded-migration-2026-10-24'
 MANIFEST=REV+'/FILE-HASHES.json'
 SOURCE_SHA='323d27bb76ba2c5b140ff31ad5190627eeb8d4e37cd220e4b541655d67789c1a'
 CANDIDATE_SHA='966a4c225be028e616f6f813e8d4232582995a82b8121a42257c1be53087cb19'
 def sha(b):return hashlib.sha256(b).hexdigest()
-def data(name):
- p=PurePosixPath(name);assert not p.is_absolute() and '..' not in p.parts,name
- f=ROOT/name;assert f.is_file() and not f.is_symlink(),name;assert ROOT.resolve() in f.resolve().parents,name
- if 'manifest' in globals() and name!=MANIFEST:assert name in manifest,('Undeclared dependency',name)
- return f.read_bytes()
+def data(name):return package.read(name)
 def read(n):return json.loads(data(n))
-manifest=read(MANIFEST);assert MANIFEST not in manifest
-for n,r in manifest.items():b=data(n);assert len(b)==r['bytes'] and sha(b)==r['sha256'],n
+package=PackageFiles(ROOT,MANIFEST)
+manifest=package.checks
 transport=read(REV+'/transport-manifest.json');public=read(REV+'/selected-public-map.json');rec=read(REV+'/record.json');source=read(SRC+'/external-source-map.json');frame=read(SRC+'/source-frame.json');deps=read(SRC+'/dependency-manifest.json');hist=read(REV+'/historical-technical-scope.json');bytecheck=read(REV+'/local-byte-identity-check.json');camera=read(REV+'/camera-visibility.json')
 assert transport['countDelta']==transport['gateDelta']==rec['countDelta']==rec['gateDelta']==0
 assert transport['remoteAvailabilityChecked'] is False and transport['rawSourceBundled'] is False

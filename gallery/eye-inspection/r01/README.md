@@ -6,13 +6,12 @@ limitations and guarded failure/retry. Whole mode is a seven-component study,
 not a complete eye. No geometry, materials, model manifest or review gate is
 changed; the separate whole-body `draft_eyes` entry remains unchanged.
 
-Run `python3 gallery/eye-inspection/r01/apply.py REVIEW_DIRECTORY` against a
-fresh authorized source copy. All ten input identities, new-module absence,
-the isolated record and all six output identities are checked before writes.
-Unknown source revisions, duplicate records and reapplication are refused.
-The record is appended without rewriting prior records semantically. Existing
-lifecycle, context-loss, knee, camera reset and supplement-routing source are
-retained. Applying the recipe does not publish anything.
+The reviewed v47 change is incorporated in retained Site v50. The historical
+applicator and application-only preservation tests are retired. The current
+candidate is owned by `tests/viewer/candidate.js`; its exact helper identities and
+Site source commit are bound by
+[`tests/viewer/source.json`](../../../tests/viewer/source.json). Change the owning
+Site source before refreshing this fixture; this repository does not deploy it.
 
 ## Model delivery remains separate
 
@@ -26,17 +25,18 @@ No model or duplicate image payload is retained by this recipe.
 
 ## Checks and limits
 
-- `python3 -m unittest discover -s tests -p test_eye_inspection.py`: six required
-  Python cases including 14 actual-source Node checks, no media/network.
-- `python3 tests/eye_inspection/run.py --whole-fixture EXACT_WHOLE_GZIP` adds
-  three actual viewer-composition cases using a separately retained pinned
-  whole fixture. This is CPU/DOM/renderer-double evidence, not browser pixels.
-- The original reviewed eye test sources are retained; the offline runner
-  explicitly selects 14 non-payload cases. Two byte-level model cases and the
-  historical Site-Git preservation case are not counted by that runner.
-- Compact fixtures contain only the selected study/record and one immutable
-  manifest entry. The production helper is byte-bound; the full production
-  manifest is never replaced by the compact test map.
+- `python3 tests/viewer/run.py --suite eye` runs explicit media-free suites;
+  `python3 tools/verify.py offline` includes them through `tests/test_viewer.py`.
+- Current candidate composition now runs camera/zoom retention, lazy switching,
+  failed-switch recovery/retry and disabled controls offline with synthetic
+  transport/parser doubles. Transport integrity is separate from those state tests.
+- `python3 tests/viewer/run.py --suite eye --whole-fixture EXACT_WHOLE_GZIP`
+  adds the actual pinned whole-model transport/hash/embedded-GLB/camera check and
+  reruns composition with actual whole bytes. No cutaway-byte check is claimed by
+  that command. Missing/wrong fixtures fail, never skip.
+- Source suites are selected by file, without rewriting their text. Every run has
+  private staging and source-byte preflight. Compact records and the immutable
+  manifest entry are test inputs, not replacements for the production manifest.
 
 Site integration separately passed 68 Node checks, six DOM suites and a build;
 repository offline checks remain a separate gate. Actual browser rendering,
@@ -44,7 +44,6 @@ orbit, layout, keyboard/AT, runtime performance and anatomical/clinical approval
 remain unverified. Historical r01 static evidence is not a fresh r03 rendering:
 [retained multiview](../../../reviews/eye_anterior_segment/2026-10-23-hra-v1.3-r01/display/final-multiview.webp).
 
-The output source and compact records are canonical replay inputs consumed by
-the applicator and focused tests; existing shared lifecycle/contract fixtures
-are reused. Source attribution and inherited omissions are preserved in the
-record. No optical, whole-eye or new anatomical validity claim is made.
+The reviewed helper, source-bound record, compact fixtures and original attribution
+remain. Historical r01 media are not fresh r03 evidence. No optical, whole-eye or
+new anatomical validity claim is made.

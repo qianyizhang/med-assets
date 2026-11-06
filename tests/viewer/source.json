@@ -1,0 +1,43 @@
+{
+  "siteVersion": 50,
+  "siteSourceCommit": "51c0039a8647d10aa35e45358da353966284e8af",
+  "scope": "Retained incorporated viewer source and exact helpers; DOM/renderer tests are doubles, not a live Site or WebGL pass.",
+  "files": {
+    "candidate.js": {
+      "file": "tests/viewer/candidate.js",
+      "sha256": "4b8295fe8e89e22d950ea9f8cff7922f37f1dfc1b5c992d32ee4f891a1de64e0"
+    },
+    "viewer-lifecycle.mjs": {
+      "file": "gallery/candidate-lifecycle/r01/viewer-lifecycle.mjs",
+      "sha256": "2e2b67adb61140feefa64ffae50207258aa507bb555ebe8549c6b7b0989e8969"
+    },
+    "context-loss.mjs": {
+      "file": "gallery/candidate-context/r01/context-loss.mjs",
+      "sha256": "b1e704c6445c6fd8bdfd3bff644784b4473c2f22642947cbb053d4ac464c0bf8"
+    },
+    "camera-reset.mjs": {
+      "file": "gallery/candidate-camera/r01/camera-reset.mjs",
+      "sha256": "dcce015f6b0778337756ceaaa1f64aabed7e5db0137b17b62290e8bc4138be0f"
+    },
+    "knee-inspection.mjs": {
+      "file": "gallery/knee-inspection/r01/knee-inspection.mjs",
+      "sha256": "bfb467c6b9e73d76f911e331909574e5f7983b5511a92532c92eedde544c393b"
+    },
+    "inspection-modes.mjs": {
+      "file": "gallery/eye-inspection/r01/inspection-modes.mjs",
+      "sha256": "0df75347420fa72d9206447ca5ceaf4ce2928ba03468853ee78b5c990ab58b78"
+    },
+    "candidate-contract.mjs": {
+      "file": "tests/knee_inspection/fixtures/candidate-contract.mjs",
+      "sha256": "d5931d66afae38face1baa5ba96c4daa07f1cfa86f3f621461acc23218cba024"
+    },
+    "model-media.mjs": {
+      "file": "tests/eye_inspection/fixtures/model-media.mjs",
+      "sha256": "540cb44a40ffa213c699166f7bc738245cae1ac168d0409c1342fc395a1d3107"
+    },
+    "eye-record.json": {
+      "file": "gallery/eye-inspection/r01/record.json",
+      "sha256": "7af365d084178f271258312fe5037ffef773e414c9a404123d470e2775a98ecd"
+    }
+  }
+}

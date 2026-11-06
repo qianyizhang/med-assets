@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {boot} from '../candidate_lifecycle/module-harness.mjs';
+import {boot} from './module-harness.mjs';
 
 function lose(b){b.nodes.get('#canvas').emit('webglcontextlost');}
 function unavailable(b){
