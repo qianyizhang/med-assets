@@ -37,6 +37,13 @@ Python 3.11+, Git and Node.js 18+ are required. With pointers only, run
 bytes. [Verification](docs/WORKFLOW.md#verification) describes dental/replay
 prerequisites and the independent quality/runtime gates.
 
+For an offline incremental plan against a current mirror manifest, or a byte
+comparison against downloaded files, see [backup checking](docs/BACKUP_CHECK.md).
+This scopes work to one exact committed tree, including LFS payloads; it performs
+no transfer, manifest write, replacement or deletion.
+The linked guide also describes a serialized connector adapter and the explicit
+exclusive-writer guarantee, journal and verification steps it requires.
+
 ## Provenance and published consumers
 
 The 2026-10-22 import preserves 17 source bundles and 591 extracted-file identities

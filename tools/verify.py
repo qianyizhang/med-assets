@@ -14,11 +14,10 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'tests/review_records'))
 from validate_record import reference, validate, validate_structure
-from lfs_transport import load_manifest, unique_keys
+from lfs_transport import load_manifest, parse_pointer, unique_keys
 
 SNAPSHOT_SHA256 = '903eb7bc1c456e75b9eb3b1246a038f7134046d7c0964b1ebcc9ecfe25c0b821'
 IMPORT_MANIFEST_SHA256 = '48953d622e4ea3730185c90452bd3125b14935fa654541f0636e5f69c031cc30'
-POINTER = re.compile(rb'version https://git-lfs.github.com/spec/v1\noid sha256:([0-9a-f]{64})\nsize (0|[1-9][0-9]*)\n')
 FOUNDATION_PATTERNS = ('reviews/*/2026-10-23-metadata-cleanup-r01/record.json',
                        'reviews/*/2026-10-23-hra-*/record.json')
 # Existing package-specific assertions remain authoritative; no schema migration.
@@ -49,12 +48,6 @@ def sha256(path):
 
 def read_json(path):
     return json.loads(path.read_bytes(), object_pairs_hook=unique_keys)
-
-
-def parse_pointer(data):
-    match = POINTER.fullmatch(data)
-    require(match is not None, 'Malformed LFS pointer')
-    return match[1].decode(), int(match[2])
 
 
 def git(root, *args, data=None):
