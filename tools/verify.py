@@ -221,7 +221,8 @@ def offline(root):
             raise ValueError(f'{path.relative_to(root)}: {error}') from error
     print(f'PASS offline: {count} tests; {manifest_count} transport manifests; {len(records)} foundation records; '
           f'{imported} import references ({updates} documented updates); {len(pointers)} LFS pointer identities.', flush=True)
-    print('Offline phase: media bytes NOT verified. Dental dependencies/payload suite, package payload checks, '
+    print('Offline phase: no exhaustive payload-byte verification; selected suites may inspect local media. '
+          'Dental dependencies/payload suite, package payload checks, '
           'replay, visual/anatomy/runtime and remote transport are outside this phase.', flush=True)
     return pointers, records
 

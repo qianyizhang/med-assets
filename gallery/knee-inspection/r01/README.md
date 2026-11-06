@@ -15,31 +15,26 @@ interactively on request, with exterior default unchanged.
 - Model bytes, transforms, materials, downloads, source omissions and gates stay
   unchanged. Only this candidate's obsolete “not enabled” note is corrected.
 
-## Apply to an authorized private copy
+## Current maintenance and checks
 
-`python3 gallery/knee-inspection/r01/apply.py /path/to/copied/public/review`
+The reviewed v44 change is incorporated in Site v50. The historical applicator,
+v44 candidate copy and application-only tests are retired. Current candidate and
+helper identities are bound in
+[`tests/viewer/source.json`](../../../tests/viewer/source.json). Change the owning
+Site source, then refresh that bound fixture after review.
 
-The complete 5-input hash preflight and output pins run before writes. Existing
-inspection modules and unknown source revisions are refused. The reviewed
-private Site source is `c671a87e28332763d1d1d8df07b6291fd21de45d`, based on v44
-`eb008e4b81d08ab0cf56635b05c425043b88ca08`. Applying is not publishing.
+Run `python3 tests/viewer/run.py --suite knee` or `python3 tools/verify.py offline`.
+The helper and actual current candidate composition exercise exact bindings,
+atomic refusal, bilingual disclosure, inspection/reset, lifecycle and context
+cleanup. Each invocation stages source privately. DOM/renderer doubles establish
+no rendered browser or WebGL pass.
 
-## Checks and boundaries
-
-- 5 Python checks, including the 11 actual-source helper/composition tests:
-  `python3 tests/knee_inspection/run.py`.
-- Composition uses the actual lifecycle/context-loss modules with DOM/EventTarget
-  doubles, not a rendered browser. Compact knee/elbow records and byte-pinned
-  viewer dependencies support no-network regression; no models are bundled.
-- Exact local GLTFLoader CPU inspection resolved all 4 meshes and restored them.
-  Matched Blender proof was independently inspected; no actual WebGL pass.
-- Full private Site build and all 46 nested tests passed. Repo offline verification
-  remains separate from Site tests, model delivery and publication.
-
-The compact input/output recipe is retained for a directly consumable future
-Site update. Failed render attempts, original payload and full proof remain
-privately preserved. One matched comparison PNG is retained as directly readable
-review evidence; no source model or duplicate SVG payload is added here.
+Historical source: v44 `eb008e4b81d08ab0cf56635b05c425043b88ca08`; reviewed
+change `c671a87e28332763d1d1d8df07b6291fd21de45d`. Exact local GLTFLoader CPU
+inspection resolved all four meshes. Matched Blender proof was inspected; the
+private Site build and 46 nested checks passed at delivery. These historical
+results do not establish fresh Site/browser acceptance. The retained comparison
+PNG is readable review evidence; full proof and original payload remain private.
 
 ## Source and educational limits
 

@@ -90,7 +90,8 @@ def fetch_asset(cache: Path, name: str, digest: str, size: int, *, open_url=None
         try:
             os.link(temporary, target)  # Never overwrite another caller's cache entry.
         except FileExistsError:
-            verified_file(target, digest, size)
+            if not verified_file(target, digest, size):
+                raise ValueError('Concurrent cache entry disappeared before verification')
         return target
     finally:
         Path(temporary).unlink(missing_ok=True)

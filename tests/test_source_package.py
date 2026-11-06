@@ -1,5 +1,6 @@
 """Source-package identity and failure checks using tiny synthetic media."""
 import hashlib
+from concurrent.futures import ThreadPoolExecutor
 import json
 from pathlib import Path
 import struct
@@ -9,7 +10,7 @@ import tempfile
 import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
-from verify_source_package import verify
+from verify_source_package import PackageFiles, verify, verify_studies
 
 
 def digest(raw):
@@ -17,6 +18,13 @@ def digest(raw):
 
 
 class SourcePackageTests(unittest.TestCase):
+    def replace_declared(self, root, name, raw):
+        (root / name).write_bytes(raw)
+        path = root / 'reviews/muscle/2026-10-24-bounded-migration/FILE-HASHES.json'
+        checks = json.loads(path.read_bytes())
+        checks[name] = {'bytes': len(raw), 'sha256': digest(raw)}
+        path.write_text(json.dumps(checks))
+
     def fixture(self, root, package):
         review = f'reviews/{package}/2026-10-24-bounded-migration'
         source_name = 'sources/source.json'
@@ -25,7 +33,7 @@ class SourcePackageTests(unittest.TestCase):
         node = {'name': 'candidate', 'extras': {'source_object_name': 'native'}}
         chunk = json.dumps({'nodes': [node]}).encode()
         chunk += b' ' * (-len(chunk) % 4)
-        model = struct.pack('<4sIIII', b'glTF', 2, 20 + len(chunk), len(chunk), 0x4e4f534a) + chunk
+        model = struct.pack('<4sIIII', b'glTF', 2, 28 + len(chunk), len(chunk), 0x4e4f534a) + chunk + struct.pack('<II', 0, 0x004e4942)
         image = b'RIFF\x04\x00\x00\x00WEBP'
         source = {'selection': [{'sourceObjectName': 'native' if package == 'muscle' else 'candidate'}],
                   'externalHistoricalRecords': [], 'recipeDependencies': [],
@@ -104,6 +112,85 @@ class SourcePackageTests(unittest.TestCase):
             manifest.write_text(json.dumps(checks))
             with self.assertRaisesRegex(ValueError, 'Source selection mismatch'):
                 verify(root, 'muscle')
+
+    def test_reads_recheck_bytes_and_contextual_expected_identity(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            _, model, _ = self.fixture(root, 'muscle')
+            files = PackageFiles(root, 'reviews/muscle/2026-10-24-bounded-migration/FILE-HASHES.json')
+            raw = files.read(model)
+            with self.assertRaisesRegex(ValueError, 'identity mismatch'):
+                files.read(model, {'sha256': '0' * 64, 'bytes': len(raw)})
+            (root / model).write_bytes(b'X' + raw[1:])
+            with self.assertRaisesRegex(ValueError, 'identity mismatch'):
+                files.read(model)
+            with self.assertRaisesRegex(ValueError, 'identity mismatch'):
+                verify(root, 'muscle')
+
+    def test_concurrent_roots_do_not_share_identities_or_failures(self):
+        with tempfile.TemporaryDirectory() as directory:
+            roots = [Path(directory) / name for name in ('first', 'second')]
+            for number, root in enumerate(roots):
+                source, _, _ = self.fixture(root, 'muscle')
+                data = json.loads((root / source).read_bytes())
+                data['syntheticRun'] = number
+                self.replace_declared(root, source, json.dumps(data).encode())
+            with ThreadPoolExecutor(max_workers=2) as pool:
+                results = list(pool.map(lambda root: verify(root, 'muscle'), roots))
+            self.assertTrue(all(row['identityChecks'] == 'passed' for row in results))
+            (roots[0] / source).write_bytes(b'corrupt')
+            with ThreadPoolExecutor(max_workers=2) as pool:
+                failed = pool.submit(verify, roots[0], 'muscle')
+                passed = pool.submit(verify, roots[1], 'muscle')
+                with self.assertRaises(ValueError):
+                    failed.result()
+                self.assertEqual(passed.result()['identityChecks'], 'passed')
+
+    def test_paths_and_malformed_container_fail_even_with_matching_hash(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory) / 'checkout'
+            _, model, _ = self.fixture(root, 'muscle')
+            for name in ('../outside', '/absolute'):
+                with self.assertRaisesRegex(ValueError, 'escapes checkout'):
+                    PackageFiles(root, name)
+            path = root / model
+            original = path.read_bytes()
+            path.unlink()
+            target = root / 'target.glb'
+            target.write_bytes(original)
+            path.symlink_to(target)
+            with self.assertRaisesRegex(ValueError, 'symlink'):
+                verify(root, 'muscle')
+            path.unlink()
+            malformed = b'not a GLB'
+            self.replace_declared(root, model, malformed)
+            manifest = 'reviews/muscle/2026-10-24-bounded-migration/transport-manifest.json'
+            data = json.loads((root / manifest).read_bytes())
+            data['transport'].update(decodedSha256=digest(malformed), decodedBytes=len(malformed))
+            self.replace_declared(root, manifest, json.dumps(data).encode())
+            with self.assertRaisesRegex(ValueError, 'Invalid GLB'):
+                verify(root, 'muscle')
+
+    def test_shared_study_accounting_and_package_callback_are_required(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            _, model, image = self.fixture(root, 'muscle')
+            review = 'reviews/muscle/2026-10-24-bounded-migration'
+            name = review + '/transport-manifest.json'
+            data = json.loads((root / name).read_bytes())
+            evidence = data['evidence']
+            evidence[0]['format'] = 'WEBP'
+            data['studies'] = [{'canonicalPath': model, 'transport': data['transport'], 'evidence': evidence}]
+            self.replace_declared(root, name, json.dumps(data).encode())
+            self.assertEqual(verify_studies(root, review)['uniqueMediaOids'], 2)
+            def reject_source(files, study, document):
+                raise ValueError('Package-specific source rejected')
+            with self.assertRaisesRegex(ValueError, 'Package-specific source'):
+                verify_studies(root, review, reject_source)
+            data['uniqueMediaBytes'] += 1
+            self.replace_declared(root, name, json.dumps(data).encode())
+            with self.assertRaisesRegex(ValueError, 'Media accounting mismatch'):
+                verify_studies(root, review)
 
 
 if __name__ == '__main__':

@@ -64,8 +64,9 @@ the complete command.
 Offline mode validates current text, LFS pointer syntax/OID/known sizes,
 content-addressed transport manifests and explicitly selected foundation records.
 `FOUNDATION_PATTERNS` and `PAYLOAD_CHECKS` in `tools/verify.py` own selection.
-It does **not** hash hydrated media or establish geometry, pixels, runtime or
-remote availability. A generic `schemaVersion: 1` does not select a record family.
+It does **not** perform exhaustive payload-byte verification or establish geometry,
+pixels, runtime or remote availability. Selected suites may hash local hydrated
+media. A generic `schemaVersion: 1` does not select a record family.
 
 After actual LFS bytes are available:
 

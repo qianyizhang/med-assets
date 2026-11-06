@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "sourceRevision": "e63006dca598031d58bdf66485fed24a24194558",
-  "scope": "One public model and 306 survey image and thumbnail variants; source/review gates unchanged.",
+  "scope": "One public model, 306 survey image/thumbnail variants and one frozen framework/source recovery ZIP; source/review gates unchanged.",
   "assets": [
     {
       "path": "models/kidney_left/exports/metadata-cleanup-r01/kidney_left.glb",
@@ -2460,6 +2460,14 @@
       "mediaType": "image/webp",
       "source": "https://med-assets-model-survey.landy123007.chatgpt.site",
       "attribution": "Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license."
+    },
+    {
+      "name": "model-survey-build-backup-f65265c-2026-11-06.zip",
+      "sha256": "002a5bc183ae3e552d3287c55b0d1682f36ea06f691e65af58cc247c528a5156",
+      "bytes": 10710642,
+      "mediaType": "application/zip",
+      "source": "https://github.com/qianyizhang/med-assets/tree/aa26aebc797f2d78bb82069032ae1562aaba807c/sites/model-survey",
+      "attribution": "Frozen framework/source recovery archive; preserve included source-specific provenance, notices and limits. No new blanket asset license."
     }
   ]
 }

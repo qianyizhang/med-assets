@@ -7,7 +7,8 @@ const data = Buffer.from('glTF-public-model');
 const hash = createHash('sha256').update(data).digest('hex');
 const manifest = { assets: [{ name: 'model.glb', sha256: hash, bytes: data.length, mediaType: 'model/gltf-binary' }] };
 const url = `https://trial.test/assets/${hash}/model.glb`;
-function fixture() {
+function fixture(asset = manifest.assets[0]) {
+  const target = `https://trial.test/assets/${asset.sha256}/${asset.name}`;
   const objects = new Map();
   const calls = [];
   const env = { BUCKET: {
@@ -27,11 +28,11 @@ function fixture() {
       return { ...object, body: new Response(bytes).body };
     },
   } };
-  const serve = createAssetDelivery(manifest, async request => request.headers.get('test-owner') === 'yes');
-  const upload = (bytes = data) => serve(new Request(url, { method: 'PUT', headers: {
+  const serve = createAssetDelivery({assets:[asset]}, async request => request.headers.get('test-owner') === 'yes');
+  const upload = (bytes = data) => serve(new Request(target, { method: 'PUT', headers: {
     'test-owner': 'yes', 'content-length': String(data.length),
   }, body: bytes }), env);
-  return { env, serve, upload, calls, objects };
+  return { env, serve, upload, calls, objects, url: target };
 }
 
 test('owner upload, anonymous full/HEAD/ranged reads, immutable caching and idempotency', async () => {
@@ -102,4 +103,24 @@ test('invalid ranges fail and expired/wrong tokens cannot write', async () => {
   assert.equal((await f.serve(request(), f.env)).status, 403);
   f.env.ASSET_UPLOAD_TOKEN_EXPIRES_AT = new Date(Date.now() + 60000).toISOString();
   assert.equal((await f.serve(request(), f.env)).status, 200);
+});
+
+
+test('listed ZIP backups download as attachments; unlisted archives and anonymous writes stay denied', async () => {
+  const asset = { ...manifest.assets[0], name: 'framework-backup.zip', mediaType: 'application/zip' };
+  const f = fixture(asset);
+  assert.equal((await f.serve(new Request(f.url, {method:'PUT', body:data}), f.env)).status, 403);
+  assert.equal(f.calls.length, 0);
+  assert.equal((await f.upload()).status, 200);
+  const response = await f.serve(new Request(f.url), f.env);
+  assert.equal(response.headers.get('content-type'), 'application/zip');
+  assert.equal(response.headers.get('content-disposition'), 'attachment; filename="framework-backup.zip"');
+  assert.deepEqual(Buffer.from(await response.arrayBuffer()), data);
+  const head = await f.serve(new Request(f.url, {method:'HEAD'}), f.env);
+  assert.equal(head.body, null);
+  assert.equal(head.headers.get('content-length'), String(data.length));
+  assert.equal((await f.serve(new Request(f.url, {headers:{range:'bytes=0-3'}}), f.env)).status, 206);
+  assert.equal((await f.serve(new Request(f.url.replace('framework-backup.zip', 'other.zip')), f.env)).status, 404);
+  assert.throws(() => fixture({...asset, name:'wrong.html'}), /ZIP assets/);
+  assert.throws(() => fixture({...asset, mediaType:'application/octet-stream'}), /Invalid published asset/);
 });

@@ -1,24 +1,21 @@
 """Local declared-file identity checks only. No network, render or quality review.
 """
 import argparse
+import sys
 from pathlib import Path,PurePosixPath
 import hashlib,json,struct
 argparse.ArgumentParser(description=__doc__).parse_args()
 R=Path(__file__).resolve().parents[2]
+sys.path.insert(0,str(R/'tools'))
+from verify_source_package import PackageFiles
 RV='reviews/z-small-studies/2026-10-24-bounded-migration'
 SR='sources/datasets/z-anatomy/small-static-studies'
 MANIFEST=RV+'/FILE-HASHES.json'
-def blob(name):
- p=PurePosixPath(name)
- assert not p.is_absolute() and '..' not in p.parts,name
- f=R/name;assert f.is_file() and not f.is_symlink(),name
- assert R.resolve() in f.resolve().parents,name
- return f.read_bytes()
+def blob(name):return package.read(name)
 def sha(b):return hashlib.sha256(b).hexdigest()
 def read(name):return json.loads(blob(name))
-checks=read(MANIFEST)
-for name,rec in checks.items():
- b=blob(name);assert len(b)==rec['bytes'] and sha(b)==rec['sha256'],name
+package=PackageFiles(R,MANIFEST)
+checks=package.checks
 assert MANIFEST not in checks
 t=read(RV+'/transport-manifest.json');p=read(RV+'/selected-public-map.json')
 assert t['countDelta']==0 and t['gateDelta']==0 and t['remoteAvailabilityChecked'] is False

@@ -1,22 +1,20 @@
 """Local declared-file identity/role/source-reference checks; no downloads or rebuild.
 """
 import argparse
+import sys
 from pathlib import Path,PurePosixPath
 import hashlib,json,struct,re
 argparse.ArgumentParser(description=__doc__).parse_args()
 ROOT=Path(__file__).resolve().parents[2]
+sys.path.insert(0,str(ROOT/'tools'))
+from verify_source_package import PackageFiles, digest as sha
 REV='reviews/intestines/2026-10-24-bounded-migration'
 SOURCE='sources/datasets/bodyparts3d/bowel-studies-4.0'
 MANIFEST=REV+'/FILE-HASHES.json'
-def data(name):
- p=PurePosixPath(name);assert not p.is_absolute() and '..' not in p.parts,name
- f=ROOT/name;assert f.is_file() and not f.is_symlink(),name;assert ROOT.resolve() in f.resolve().parents,name
- return f.read_bytes()
-def sha(b):return hashlib.sha256(b).hexdigest()
+def data(name):return package.read(name)
 def read(name):return json.loads(data(name))
-checks=read(MANIFEST)
-for name,rec in checks.items():
- b=data(name);assert len(b)==rec['bytes'] and sha(b)==rec['sha256'],name
+package=PackageFiles(ROOT,MANIFEST)
+checks=package.checks
 assert MANIFEST not in checks
 transport=read(REV+'/transport-manifest.json');public=read(REV+'/selected-public-map.json');source=read(SOURCE+'/external-source-map.json');dependencies=read(SOURCE+'/dependency-manifest.json');frame=read(SOURCE+'/source-frame.json');hist=read(REV+'/historical-exterior-checks.json')
 assert transport['countDelta']==transport['gateDelta']==0

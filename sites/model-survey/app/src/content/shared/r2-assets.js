@@ -13,7 +13,8 @@ export function createAssetDelivery(manifest, ownerCanEdit) {
   for (const asset of manifest.assets) {
     if (!HASH.test(asset.sha256) || !Number.isSafeInteger(asset.bytes) || asset.bytes < 1
       || asset.bytes > 40_000_000 || !/^[a-zA-Z0-9_.-]+$/u.test(asset.name)
-      || !['model/gltf-binary', 'image/png', 'image/webp', 'image/jpeg'].includes(asset.mediaType)) throw new Error('Invalid published asset.');
+      || !['model/gltf-binary', 'image/png', 'image/webp', 'image/jpeg', 'application/zip'].includes(asset.mediaType)) throw new Error('Invalid published asset.');
+    if (asset.mediaType === 'application/zip' && !asset.name.endsWith('.zip')) throw new Error('ZIP assets need a .zip filename.');
     const route = `/assets/${asset.sha256}/${asset.name}`;
     if (entries.has(route)) throw new Error('Duplicate published asset.');
     entries.set(route, { ...asset, key: `assets/sha256/${asset.sha256}` });
@@ -79,6 +80,7 @@ export function createAssetDelivery(manifest, ownerCanEdit) {
         'content-length': String(asset.bytes), etag: `"${asset.sha256}"`,
         'cache-control': 'public, max-age=31536000, immutable', 'accept-ranges': 'bytes',
         'access-control-expose-headers': 'Content-Length, Content-Range, ETag',
+        ...(asset.mediaType === 'application/zip' ? { 'content-disposition': `attachment; filename="${asset.name}"` } : {}),
       };
       if (request.headers.get('if-none-match') === responseHeaders.etag) {
         delete responseHeaders['content-length'];

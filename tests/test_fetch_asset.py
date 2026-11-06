@@ -4,7 +4,7 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
 import fetch_asset as fetch
@@ -74,6 +74,12 @@ class FetchAssetTests(unittest.TestCase):
             with self.subTest(status=status, headers=headers), self.assertRaises(ValueError):
                 fetch.fetch_asset(self.cache, 'x.glb', self.digest, len(self.payload),
                                   open_url=lambda *a, **k: response)
+
+    def test_disappearing_concurrent_cache_entry_does_not_report_success(self):
+        with patch.object(fetch.os, 'link', side_effect=FileExistsError):
+            with self.assertRaisesRegex(ValueError, 'disappeared'):
+                self.download()
+        self.assertEqual(list(self.cache.iterdir()), [])
 
     def test_path_traversal_is_refused_before_git(self):
         for name in ['../x.glb', '/x.glb', './x.glb', 'x/../y.glb', 'x\\y.glb']:
