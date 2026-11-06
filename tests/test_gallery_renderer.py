@@ -18,7 +18,7 @@ class GalleryRendererTests(unittest.TestCase):
                                  str(ROOT / 'tests/gallery/renderer.test.mjs')],
                                 capture_output=True, text=True, timeout=30)
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
-        for line in ('# tests 8', '# pass 8', '# fail 0', '# cancelled 0', '# skipped 0', '# todo 0'):
+        for line in ('# tests 9', '# pass 9', '# fail 0', '# cancelled 0', '# skipped 0', '# todo 0'):
             self.assertIn(line, result.stdout)
 
     def test_retained_elbow_material_evidence(self):
