@@ -12,6 +12,7 @@ assets; a technical check does not establish anatomical or clinical approval.
 | Compositions with explicit registration | [assemblies](assemblies/) |
 | Imported whole-body atlases and cardiac/imaging products | [body](body/), [heart](heart/) |
 | 2D diagrams and runnable lessons | [diagrams](diagrams/), [lessons](lessons/) |
+| Dated survey reports and Site authoring | [sites/model-survey](sites/model-survey/) |
 | Current decisions and exact supporting evidence | [reviews](reviews/) |
 | External source inputs, notices and recovery material | [sources](sources/) |
 | Shared utilities and regression checks | [tools](tools/), [tests](tests/) |
@@ -19,7 +20,8 @@ assets; a technical check does not establish anatomical or clinical approval.
 
 Open the asset's export README and linked review for its source, recipe, status
 and limits. Asset-specific build/render/check code belongs in its `recipes/`.
-There is no parallel global catalog. Start contributing with [AGENTS.md](AGENTS.md)
+The [model survey](sites/model-survey/) is a dated derived report, not an asset
+registry. Start contributing with [AGENTS.md](AGENTS.md)
 and the single [architecture/workflow guide](docs/WORKFLOW.md).
 
 ## Quick start

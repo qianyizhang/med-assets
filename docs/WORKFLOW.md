@@ -11,6 +11,7 @@ linked review before changing an asset; presence in the tree is not approval.
 | `assemblies/<name>/` | Same-frame compositions and recipes that intentionally operate on several assets. Preserve registration assumptions. |
 | `body/`, `heart/` | Imported atlas products with their own coordinate, texture and publication contracts. Keep public export paths stable. |
 | `diagrams/<name>/`, `lessons/<name>/` | Editable 2D aids and runnable teaching experiences. Their sources and checks belong with the product. |
+| `sites/<name>/` | Derived reports and Site authoring. Asset records remain authoritative; keep publishing checkouts and inline media payloads ignored. |
 | `sources/` | Shared external inputs, licenses, acquisition identities and unique recovery material. |
 | `reviews/<asset>/` | Current decisions, unresolved defects and the exact evidence those claims need. The owning record defines scope. |
 | `tools/` | Shared format, integrity, transport and verification operations. Asset parameters stay with the asset. |
