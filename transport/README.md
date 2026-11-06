@@ -9,6 +9,29 @@ Drive backup: retain the same verified bytes; not a replacement for repository d
 
 ## Normal flow
 
+### R2 read trial
+
+The Medical model survey Site is trialling public R2 downloads. This is an
+additional read path, not a replacement for the LFS delivery flow below. The
+trial retains every repository payload and LFS pointer; it does not migrate
+history, retire an asset, change its license or promote any review gate.
+
+Fetch the trial model on demand from a committed LFS identity:
+
+```sh
+python3.12 tools/fetch_asset.py models/kidney_left/exports/metadata-cleanup-r01/kidney_left.glb
+```
+
+The command prints a verified cache path under ignored `.artifacts/asset-cache/`.
+It verifies SHA-256 and byte size against the selected Git commit (`--commit`,
+default `HEAD`), reuses a valid cache entry, and refuses redirects, corrupt or
+partial downloads and symlink cache entries. It never overwrites the asset's
+repository path, changes Git configuration or uploads anything. Only objects
+explicitly published by the Site are available; an absent object fails. The
+Site's `/assets/index.json` identifies the currently published trial objects.
+
+### LFS delivery
+
 - Check the **current executor**, repository remote and existing authentication;
   connector access does not imply shell access. Try the exact authorized, bounded
   object upload (for example, `git lfs push --object-id origin <reviewed-oid>`),
