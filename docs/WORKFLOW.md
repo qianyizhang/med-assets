@@ -33,7 +33,7 @@
 | Related 3D views | Consistent materials, matched-scale isometric and straight orthographic views by default, and sections or alternate angles for hidden relationships. [Visual comparisons](#visual-comparisons). |
 | Diagram or lesson | Required relationship visible in the diagram or learner action demonstrated in the running lesson. |
 
-- **Ready/merge gate** · PR links the admission decision, evidence, applicable checks and scoped review results.
+- **Delivery evidence** · Link the admission decision, evidence, applicable checks and scoped review results in the handoff or PR.
 - **Authorization** · Deletion, publication and merge require their own authority.
 
 ## Verification
@@ -89,7 +89,7 @@
 | Viewer offline integration | [Gallery](../gallery/). Actual candidate modules with API doubles. For camera changes, run the [CPU test](../tests/candidate_camera/run_cpu.py) against pinned vendor inputs. WebGL and BFCache require runtime evidence. |
 | Main-only browser runtime | [Guarded workflow](../.github/workflows/firefox-glb-runtime.yml) and [fixture](../ci/glb-runtime-fixture.json). Use only the guarded entry point. Preserve pinned expectations, source/animation/track checks and separate receipts for failed, limited and passing runs. |
 | Missing live viewer access | Mark runtime `unverified`. Medical/dental delivery and authorized merge may proceed when other required checks, reviews, guards and known defects are satisfied. |
-| Media transport | [Transport guide](../transport/README.md). Use authorized guarded paths and verify fresh readback. |
+| Media transport | [Transport acceptance](../transport/README.md#upload-acceptance) covers routine local uploads and guarded delivery. |
 
 ## Retention
 
@@ -101,9 +101,9 @@
 
 | Outcome | Evidence |
 | --- | --- |
-| Bounded scope | Check open PRs before broad changes. One issue with problem, impact, evidence, acceptance and scope. A self-contained small fix may use its PR with the reason. |
-| Reviewable change | Scoped commit and draft PR. Link open work without auto-closing partial acceptance. Record the exact tested revision, checks, results and limits. For large/generated files include source, consumers and retention. |
-| Accepted delivery | Applicable gates and evidence before ready. Authorized merge/publication and readback. Close issues on accepted outcomes or explicit retirement. |
+| Bounded scope | Check open PRs before broad changes. Record the problem, impact, evidence, acceptance and scope in the issue. A self-contained small fix may use its handoff or PR. |
+| Reviewable change | Use a scoped commit on the current branch for local Mac development. Follow the shared GitHub guide for cloud and remote work. Link open work and record the exact tested revision, checks, results and limits. For large or generated files include source, consumers and retention. |
+| Accepted delivery | Meet the applicable gates and obtain any required merge or publication authorization. Verify publication through the affected entry points and apply the transport acceptance for asset uploads. Close issues on accepted outcomes or explicit retirement. |
 | Paused or blocked | Recoverable branch/commit, missing input or decision and next action. Preserve unrelated and paused work. |
 
 [Shared GitHub delivery guide](https://github.com/qianyizhang/repo-kit/blob/main/user/practices/github.md)

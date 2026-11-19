@@ -32,14 +32,41 @@ record visual direction for skin and lymphatic return.
   galleries have separate deployment sources. Their comparison is retained
   for the pending gallery decision.
 
+## Gallery presentation audit
+
+See the [med-assets glossary](../../GLOSSARY.md) for **System assembly**,
+**Asset detail**, and the placement and camera terms used in the audit.
+
+| Status | Systems and remaining work |
+| --- | --- |
+| Native or shared frame | Skeletal and muscular use their native atlases. Respiratory uses the shared thoracic scene, with the upper airway and enlarged terminal airspaces available separately. Urinary uses the Workshop tract, with filtration in detail. The reproductive views keep the two regional source frames and retain the authored male structures. |
+| Partial assembly | Cardiovascular shows the native heart and proximal vessels. Its complete teaching loop is exploded. Digestive shows an upper abdomen and a separate BP3D bowel pair. Their complete route is schematic. A common-frame full assembly needs placement evidence for the remaining joins in both systems. [Cardiovascular review](../../reviews/cardiovascular-loop/README.md) · [Digestive review](../../reviews/digestive-route/r01/README.md). |
+| Illustrative placement | Nervous stages the brain, cord and right sciatic pathway. Endocrine combines independently sourced gland positions with an editorial outline. Lymphatic stages the regional route with an enlarged node and editorial organ locators. A metric body overlay needs evidence for those source registrations and the intended node scale. |
+| Body locator | The integumentary envelope and the skin and nail sections use separate scales. The sections have no documented position in the envelope model. |
+
+The skeletal overview uses the BodyParts3D envelope in its native frame. The
+respiratory overview uses translucent lobes to reveal the lobar tree. Posterior
+views expose thoracic and male pelvic landmarks. The detail pairs retain the
+reviewed pose and source-frame bounds to within one micrometre. Palette changes
+are display-only. Names in the legends identify the colors and anatomical groups.
+
+Gallery replay is offline image evidence. Specialist, pose and runtime coverage
+follow the owning reviews. The completed lesson and study assets continue to
+have their own acceptance scope, distinct from the coverage of these assembly views.
+
+The optional [same-case Workshop update](../../assemblies/workshop-s1233/README.md)
+includes digestive and cardiovascular overviews in the s1233 scan frame.
+Those two sections retain their partial status and show the measured limits
+when the local assembly receipts and renders are present.
+
 ## Restore the media
 
 The archive `med-assets-teaching-c803735.zip` contains 327 files at their
 repository-relative paths. It preserves the 143 teaching files by their
 original Git LFS identities, the survey's baseline media and capture
 receipts, and the separate dental experiment's six generated MP4s with their
-subtitles and results README. The dental build lives at local revision
-`06bfb80` on `codex/dental-image26-experiment`.
+subtitles and results README. The [dental experiment](../../experiments/dental-image26/README.md)
+records the original revision and how to replay the build from frozen inputs.
 
 The **127,459,034-byte** archive has SHA-256
 `ccdf0a5dafadf0a4d251a19b83f14ec157e29abdcfe4b3c1199498700d37b014`.
@@ -83,7 +110,22 @@ passed its 37 Node tests and five-lobe phase sweep.
 
 ## Open or rebuild the survey
 
-After restoring the archive, build both reports from the repository root:
+After restoring the archive, render the gallery from the repository root.
+Use Blender 5.2.3 and a fresh presentation directory. On macOS get
+command-specific approval for headless Blender before the first run.
+
+```sh
+blender -b --factory-startup --disable-autoexec --python-exit-code 1 \
+  -P sites/body-systems-survey/render_gallery.py --
+```
+
+The default gallery render destination is `.artifacts/body-systems-survey-2026-11-19/presentation-r01/`.
+For a repeat render use `--output` with a new directory, inspect the resulting
+receipts, then replace the presentation directory before rebuilding the current
+report. `MED_ASSETS_REPO` can point to the original hydrated checkout when the
+gallery source is being developed in a separate worktree.
+
+Build both reports from the repository root:
 
 ```sh
 python3.12 sites/body-systems-survey/baseline_report.py
@@ -92,10 +134,11 @@ python3.12 sites/body-systems-survey/report.py
 
 Open `.artifacts/body-systems-survey-2026-11-19/index.html` locally. The report
 links to the original gap survey and to each model and review. The current
-report checks each teaching GLB and each matched screenshot against the owning
-render receipt. The survey viewer needs no server. Follow the
-[One Breath setup](../../lessons/one-breath/README.md#open-locally) to run
-that interactive lesson.
+report checks each selected GLB and paired screenshot against its exact
+render receipt. The gallery checks inherited camera directions, pose frames
+and bounds against the owning reviews. Open the image gallery from disk. For
+interactive 3D, start the [local viewer server](#open-in-3d). Follow the [One
+Breath setup](../../lessons/one-breath/README.md#open-locally) to run that lesson.
 
 The original baseline used `2cb53c05577b4cbc2355c4bff293666127d21382`.
 `catalog.py` prints the discovery catalogue for the current checkout.
@@ -109,6 +152,36 @@ blender -b --factory-startup --disable-autoexec --python-exit-code 1 \
   --only skeleton --output .artifacts/body-systems-baseline-replay
 ```
 
-The retained browser exercise uses Chrome and a disposable profile. Run it as
-`node sites/body-systems-survey/verify-browser.mjs --local-only` after building
-the reports.
+## Open in 3D
+
+Start the local server after restoring the gallery media and hydrating its
+selected GLBs. It rebuilds the original gallery and serves it at
+[127.0.0.1:8847](http://127.0.0.1:8847/).
+
+```sh
+python3.12 sites/body-systems-survey/serve.py
+```
+
+Use **Open in 3D** on a System assembly, or open an individual delivered model
+under **Models, review and attribution**. The viewer supports orbit, zoom,
+named structure visibility and, with the same-case digestive assembly restored,
+a fixed-camera stomach comparison. The server checks asset hashes and serves
+the identified GLBs and linked gallery files on loopback. It stops after
+four hours or Ctrl-C. **Open in 3D** links from the disk report use the same
+local server.
+
+The server reuses pinned Three.js modules if they are already cached or
+staged for the repository's runtime fixtures. If the modules are missing,
+start it once with `--fetch-vendor` to fetch and verify those exact modules.
+In an isolated development worktree, point `MED_ASSETS_REPO` at the hydrated
+checkout that holds the gallery artifacts and assets.
+
+Verify in disposable Chrome with the running local server. Use `--with-s1233`
+when the same-case gallery additions are installed.
+
+```sh
+node sites/body-systems-survey/verify-browser.mjs --local-only \
+  --with-s1233 --viewer=http://127.0.0.1:8847
+```
+
+For the screenshot-only report, run the same harness without `--viewer`.
