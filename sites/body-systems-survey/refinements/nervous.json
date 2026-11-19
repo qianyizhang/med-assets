@@ -1,0 +1,22 @@
+[
+  {
+    "id": "right-root-ramus",
+    "system": "nervous",
+    "title": "Dorsal and ventral roots at the mixed nerve",
+    "note": "The rounded ganglion remains part of the continuous teal dorsal root. The ventral root, mixed nerve and illustrative ramus bridge each have their own reusable mesh. The close-up shows their junction.",
+    "matched": true,
+    "inspect3d": true,
+    "review": "assemblies/nervous-senses/root-study-r01/README.md",
+    "details": [{"view": "junction", "title": "Root and ramus junction close-up"}],
+    "before": {
+      "receipt": ".artifacts/body-systems-refinement-2026-11-19/nervous-root/renders/renders.json",
+      "model": "assemblies/nervous-senses/nervous-senses.glb",
+      "view": "original"
+    },
+    "after": {
+      "receipt": ".artifacts/body-systems-refinement-2026-11-19/nervous-root/renders/renders.json",
+      "model": ".artifacts/body-systems-refinement-2026-11-19/nervous-root/right-root-ramus.glb",
+      "view": "updated"
+    }
+  }
+]

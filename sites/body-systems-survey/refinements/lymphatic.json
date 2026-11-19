@@ -1,0 +1,24 @@
+[
+  {
+    "id": "lymphatic-node-section",
+    "system": "lymphatic",
+    "title": "Lymph transit through a node",
+    "note": "The section exposes the capsule, afferent entry, illustrative internal passage and efferent exit. Use the route above to find the separately authored venous-angle junction. The cutaway has its own enlarged teaching frame.",
+    "matched": false,
+    "inspect3d": true,
+    "review": "reviews/lymphatic-return/r02/README.md",
+    "groupParts": [
+      {"label": "Cortical follicles", "pattern": "^Cortical follicle"},
+      {"label": "Afferent entries", "pattern": "^Afferent lymphatic"}
+    ],
+    "beforeLabel": "Existing nodal-entry view",
+    "afterLabel": "Authored section",
+    "details": [{"view": "node-passage", "title": "Isolated nodal passage"}],
+    "before": {"scene": "lymphatic", "view": "nodal-entry"},
+    "after": {
+      "receipt": ".artifacts/body-systems-refinement-2026-11-19/lymphatic/checked-renders/renders.json",
+      "model": ".artifacts/body-systems-refinement-2026-11-19/lymphatic/checked-build/lymph-node-section.glb",
+      "view": "node-section"
+    }
+  }
+]

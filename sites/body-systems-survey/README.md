@@ -112,6 +112,14 @@ This uses the original same-case bundle for the original views. The updated
 plates preserve the scan frame. The report reads the source colon separation
 from the checked mask audit.
 
+Three focused studies add standalone teaching groups:
+
+| Study | Local path under `$round` |
+| --- | --- |
+| [Right root and ramus](../../assemblies/nervous-senses/root-study-r01/README.md) | `nervous-root/` |
+| [Endocrine neck and abdomen](../../assemblies/endocrine-locator/r02/README.md) | `endocrine/` |
+| [Lymph-node section](../../assemblies/lymphatic-return/r02/README.md) | `lymphatic/checked-build/` and `lymphatic/checked-renders/` |
+
 An interrupted or invalid optional same-case restore shows the fallback
 assemblies and reports the failing file in the build log. Restore or rebuild
 both the assembly and its render receipts before reopening the report.

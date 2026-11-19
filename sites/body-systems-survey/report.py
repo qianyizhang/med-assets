@@ -272,7 +272,7 @@ def refinement_panels(plates, catalog):
         related = []
         for detail in item.get("details", ()):
             try:
-                folder, view, _ = evidence({**item["after"], "view": detail["view"]}, plates)
+                folder, view, _ = evidence({**item["after"], **detail}, plates)
                 related.append((detail["title"], folder / view["images"][0]["file"]))
             except (OSError, ValueError, LookupError, TypeError) as exc:
                 print(f"Skipping refinement detail {item['id']}/{detail['view']}: {exc}", file=sys.stderr)
@@ -442,6 +442,8 @@ def build(viewer_port=DEFAULT_PORT):
     plates.update(optional_plates)
     catalog = Catalog(viewer_port, core + workshop)
     refinements = refinement_panels(plates, catalog)
+    comparison_hint = (" Look for <strong>Before and after</strong> within each refined system."
+                       if refinements else "")
     states = [ASSEMBLIES[system["id"]][0] for system in systems]
     native = sum(state.startswith(("Native", "Shared")) for state in states)
     partial = sum(state in {"Partial assembly", "Illustrative placement"} for state in states)
@@ -481,7 +483,7 @@ def build(viewer_port=DEFAULT_PORT):
 <section class="hero" aria-labelledby="page-title">
   <div><p class="eyebrow">Repository survey · 19 November 2026</p>
   <h1 id="page-title">Body systems in 3D</h1>
-  <p class="lede">See how the parts of eleven body systems fit together. Use <strong>Open in 3D</strong> to rotate a local assembly and isolate structures.</p>
+  <p class="lede">See how the parts of eleven body systems fit together. Use <strong>Open in 3D</strong> to rotate a local assembly and isolate structures.{comparison_hint}</p>
   <div class="stats" aria-label="Survey outcomes">{stats}</div></div>
   <figure class="hero-art">{hero}<figcaption>Respiratory system · shared thoracic frame</figcaption></figure>
 </section>
@@ -507,7 +509,7 @@ def build(viewer_port=DEFAULT_PORT):
   <p>Taxonomy reference <a href="{REFERENCE}">OpenStax Anatomy and Physiology 2e, §1.2</a>.</p>
 </section>
 </main>
-<footer><div class="wrap">med-assets · teaching asset revision <code>{rev[:12]}</code> · model and screenshot links open this checkout</div></footer>
+<footer><div class="wrap">med-assets · original teaching revision <code>{rev[:12]}</code> · model and screenshot links open this checkout</div></footer>
 </body></html>
 """
     temporary = HERE / "index.html.next"

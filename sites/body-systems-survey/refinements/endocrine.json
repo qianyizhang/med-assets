@@ -1,0 +1,49 @@
+[
+  {
+    "id": "endocrine-posterior-neck",
+    "system": "endocrine",
+    "title": "Thyroid and parathyroids from behind",
+    "note": "Four independently named parathyroid meshes stand out against the lighter thyroid. Both panels use the atlas teaching frame. The separate s1233 thyroid and trachea view provides scan context with limited superior coverage.",
+    "matched": true,
+    "inspect3d": true,
+    "review": "reviews/endocrine-locator/r02/README.md",
+    "details": [
+      {
+        "view": "thyroid-s1233",
+        "model": ".artifacts/body-systems-refinement-2026-11-19/endocrine/s1233-thyroid.glb",
+        "title": "Same-case thyroid and trachea"
+      }
+    ],
+    "before": {
+      "receipt": ".artifacts/body-systems-refinement-2026-11-19/endocrine/renders/renders.json",
+      "model": "assemblies/endocrine-locator/r01/endocrine-locator.glb",
+      "view": "neck-original"
+    },
+    "after": {
+      "receipt": ".artifacts/body-systems-refinement-2026-11-19/endocrine/renders/renders.json",
+      "model": ".artifacts/body-systems-refinement-2026-11-19/endocrine/atlas-neck-posterior.glb",
+      "view": "neck-updated"
+    }
+  },
+  {
+    "id": "endocrine-adrenal-context",
+    "system": "endocrine",
+    "title": "Adrenal glands in abdominal context",
+    "note": "Compare the illustrative atlas locator with the two adrenals, kidneys and pancreas in one s1233 scan frame. The posterior view exposes the adrenal pair. The atlas and scan retain their separate placements.",
+    "matched": false,
+    "inspect3d": true,
+    "review": "reviews/endocrine-locator/r02/README.md",
+    "beforeLabel": "Atlas locator",
+    "afterLabel": "Same-case scan context",
+    "before": {
+      "receipt": ".artifacts/body-systems-refinement-2026-11-19/endocrine/renders/renders.json",
+      "model": "assemblies/endocrine-locator/r01/endocrine-locator.glb",
+      "view": "abdomen-atlas"
+    },
+    "after": {
+      "receipt": ".artifacts/body-systems-refinement-2026-11-19/endocrine/renders/renders.json",
+      "model": ".artifacts/body-systems-refinement-2026-11-19/endocrine/s1233-adrenals.glb",
+      "view": "abdomen-s1233"
+    }
+  }
+]
