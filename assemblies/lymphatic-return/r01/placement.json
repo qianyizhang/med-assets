@@ -1,0 +1,100 @@
+{
+  "translations": {
+    "node": [
+      0.04915718734264374,
+      0.17474837601184845,
+      -1.0660731792449951
+    ],
+    "spleen": [
+      0.034445419907569885,
+      -0.09672228246927261,
+      -0.45170456171035767
+    ],
+    "thymus": [
+      0.001470150426030159,
+      0.10451550781726837,
+      -1.1886498928070068
+    ]
+  },
+  "junctions": [
+    [
+      [
+        0.067,
+        -0.01,
+        -0.333
+      ],
+      [
+        "Blind initial capillary 2",
+        "Afferent collector from tissue"
+      ]
+    ],
+    [
+      [
+        0.04549263045191765,
+        -0.0016205757856369019,
+        -0.2908070683479309
+      ],
+      [
+        "Yao_afferent_lymphatic_vessel",
+        "Afferent collector from tissue",
+        "Schematic intranodal passage"
+      ]
+    ],
+    [
+      [
+        0.04773477837443352,
+        0.004788056015968323,
+        -0.2651926875114441
+      ],
+      [
+        "Yao_efferent_lymph_node",
+        "Schematic intranodal passage",
+        "Efferent collecting trunk"
+      ]
+    ],
+    [
+      [
+        0.004,
+        0.038,
+        -0.206
+      ],
+      [
+        "Efferent collecting trunk"
+      ]
+    ],
+    [
+      [
+        0,
+        0.04,
+        -0.2
+      ],
+      [
+        "Thoracic duct - source scaffold"
+      ]
+    ],
+    [
+      [
+        0.045,
+        0.005,
+        0.21
+      ],
+      [
+        "Thoracic duct - source scaffold",
+        "Terminal duct bridge"
+      ]
+    ],
+    [
+      [
+        0.061,
+        -0.009,
+        0.202
+      ],
+      [
+        "Terminal duct bridge",
+        "Left internal jugular vein",
+        "Left subclavian vein",
+        "Left brachiocephalic vein"
+      ]
+    ]
+  ]
+}

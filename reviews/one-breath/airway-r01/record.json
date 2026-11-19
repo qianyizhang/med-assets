@@ -1,0 +1,205 @@
+{
+  "schemaVersion": 1,
+  "id": "one-breath-airway-r01-2026-11-19",
+  "assetId": "one-breath",
+  "variantId": "airway-r01",
+  "reviewedAt": "2026-11-19T12:32:00+08:00",
+  "artifact": {
+    "file": "lessons/one-breath/airway-r01/airway-route.glb",
+    "sha256": "92fd447bad48b03489041e16d0de8750b550034ec4f158219b8352571e0e6091",
+    "bytes": 2083460
+  },
+  "sources": [
+    {
+      "file": "lessons/one-breath/airway-r01/airway-route.blend",
+      "sha256": "e6290f086a75aa79bc26b5d983994f8911f66cce7b46abc594e6309255e2f545",
+      "bytes": 2019816
+    },
+    {
+      "file": "lessons/one-breath/airway-r01/build.py",
+      "sha256": "5901a6cf3831078f0d0a5f6549dc1b8370bd5e04e980170ae7befd077bdc77ae",
+      "bytes": 5661
+    },
+    {
+      "file": "lessons/one-breath/airway-r01/inputs.json",
+      "sha256": "1507bb5284460ba0b9ef0f9fa3b2cf7e8d7a7ba9599814a05ae79f4531edaa76",
+      "bytes": 513
+    },
+    {
+      "file": "lessons/one-breath/airway-r01/placement.json",
+      "sha256": "7069718b7d30598c2b7b4add3f05bd0655613f404b7087e4b28287aefe13ad4e",
+      "bytes": 272
+    },
+    {
+      "file": "lessons/one-breath/airway-r01/views.json",
+      "sha256": "bf8791ee7f5d1ebd338fe3166c3ecceb4a4a87c4037cb05c954b6b4d3bdee03f",
+      "bytes": 252
+    },
+    {
+      "file": "lessons/one-breath/airway-r01/check.py",
+      "sha256": "43b8d937368e92a693712d8507aca51244c16e86aa021631698d3118e2cc26ed",
+      "bytes": 2755
+    },
+    {
+      "file": "lessons/one-breath/airway-r01/check-phases.mjs",
+      "sha256": "45f067ae12c81877b98cc260eba8136c57ce238425401b4c5a687fe27f919ef9",
+      "bytes": 2208
+    },
+    {
+      "file": "lessons/one-breath/assets.json",
+      "sha256": "124f2d27dc85acaa56beb353fe6227b544a9a04be8a5ebd516ce9119f6cfc896",
+      "bytes": 5297
+    }
+  ],
+  "evidence": [
+    {
+      "file": "reviews/one-breath/airway-r01/branch-iso.png",
+      "sha256": "0e5aada86c587fa1a684edca7d05b0b8501f97bae4ace8a3fbe77d2c82232f8a",
+      "bytes": 195623,
+      "artifactSha256": "92fd447bad48b03489041e16d0de8750b550034ec4f158219b8352571e0e6091",
+      "kind": "clean-glb-matched-render"
+    },
+    {
+      "file": "reviews/one-breath/airway-r01/branch-ortho.png",
+      "sha256": "d3a43ad4cb674e6a6cc4259396d42914a02f45347c307cc76412404b7634cd3b",
+      "bytes": 224344,
+      "artifactSha256": "92fd447bad48b03489041e16d0de8750b550034ec4f158219b8352571e0e6091",
+      "kind": "clean-glb-matched-render"
+    },
+    {
+      "file": "reviews/one-breath/airway-r01/browser/airway-branch.png",
+      "sha256": "ee40ca679d9b9ca5de883e1a8bcbed77794a14e2752376eb480286f71f45230c",
+      "bytes": 307441,
+      "artifactSha256": "92fd447bad48b03489041e16d0de8750b550034ec4f158219b8352571e0e6091",
+      "kind": "local-webgl-screenshot"
+    },
+    {
+      "file": "reviews/one-breath/airway-r01/browser/airway-terminal.png",
+      "sha256": "d22e61fb6a9b3144287bc7666b090d7780fdeca65040f6e94c9d8f78d2dba6f2",
+      "bytes": 152679,
+      "artifactSha256": "92fd447bad48b03489041e16d0de8750b550034ec4f158219b8352571e0e6091",
+      "kind": "local-webgl-screenshot"
+    },
+    {
+      "file": "reviews/one-breath/airway-r01/browser/airway-upper.png",
+      "sha256": "6d0b608246391f9901f32b924462188167d02fb06b6ce601fc9616ef8708b0a2",
+      "bytes": 123237,
+      "artifactSha256": "92fd447bad48b03489041e16d0de8750b550034ec4f158219b8352571e0e6091",
+      "kind": "local-webgl-screenshot"
+    },
+    {
+      "file": "reviews/one-breath/airway-r01/browser/airway-whole.png",
+      "sha256": "53f830289487619108e910c8172bd8f8d4427db7a5f376b0229d16a78af6561f",
+      "bytes": 188308,
+      "artifactSha256": "92fd447bad48b03489041e16d0de8750b550034ec4f158219b8352571e0e6091",
+      "kind": "local-webgl-screenshot"
+    },
+    {
+      "file": "reviews/one-breath/airway-r01/browser/exchange.png",
+      "sha256": "5005bd2117f15746eca2551697c732cab10df980c03efa65837fc44c5cdc0207",
+      "bytes": 114691,
+      "artifactSha256": "92fd447bad48b03489041e16d0de8750b550034ec4f158219b8352571e0e6091",
+      "kind": "local-webgl-screenshot"
+    },
+    {
+      "file": "reviews/one-breath/airway-r01/browser/mechanics-inspiration.png",
+      "sha256": "0702e0c362cb4637931ecd3be44df9665179a82634dc3f8bc301f048512cc09f",
+      "bytes": 174236,
+      "artifactSha256": "92fd447bad48b03489041e16d0de8750b550034ec4f158219b8352571e0e6091",
+      "kind": "local-webgl-screenshot"
+    },
+    {
+      "file": "reviews/one-breath/airway-r01/browser/mechanics-rest.png",
+      "sha256": "808c2c746da314e645fd13673e930be0b4e65a0898ae5b0461a44bde1da2b649",
+      "bytes": 170010,
+      "artifactSha256": "92fd447bad48b03489041e16d0de8750b550034ec4f158219b8352571e0e6091",
+      "kind": "local-webgl-screenshot"
+    },
+    {
+      "file": "reviews/one-breath/airway-r01/browser/result.json",
+      "sha256": "6d5d721cdddbee2104f11fa4f1ff9302bc2f285610c9a75107988b8babcaf132",
+      "bytes": 3230,
+      "artifactSha256": "92fd447bad48b03489041e16d0de8750b550034ec4f158219b8352571e0e6091",
+      "kind": "local-webgl-state"
+    },
+    {
+      "file": "reviews/one-breath/airway-r01/renders.json",
+      "sha256": "79bddb6089cd8dd6b2c142d8be9c268cc1d3878f7bb4081b684eb1bac5d4ce5b",
+      "bytes": 8582,
+      "artifactSha256": "92fd447bad48b03489041e16d0de8750b550034ec4f158219b8352571e0e6091",
+      "kind": "source-camera-bindings"
+    },
+    {
+      "file": "reviews/one-breath/airway-r01/route-iso.png",
+      "sha256": "306871c6bcad04f965dcdcf8f3bef6c3e1a317e8c071070c80436202dd4e8d51",
+      "bytes": 220620,
+      "artifactSha256": "92fd447bad48b03489041e16d0de8750b550034ec4f158219b8352571e0e6091",
+      "kind": "clean-glb-matched-render"
+    },
+    {
+      "file": "reviews/one-breath/airway-r01/route-ortho.png",
+      "sha256": "df24166eb10dce7726a3a999892be69c33d0008b3fb5df0d4da1084ec738bcc3",
+      "bytes": 245068,
+      "artifactSha256": "92fd447bad48b03489041e16d0de8750b550034ec4f158219b8352571e0e6091",
+      "kind": "clean-glb-matched-render"
+    },
+    {
+      "file": "reviews/one-breath/airway-r01/terminal-iso.png",
+      "sha256": "dd1e6b30fc828fd816fb7879c32730700dab997a4864dae9be5b655620ff9307",
+      "bytes": 278556,
+      "artifactSha256": "92fd447bad48b03489041e16d0de8750b550034ec4f158219b8352571e0e6091",
+      "kind": "clean-glb-matched-render"
+    },
+    {
+      "file": "reviews/one-breath/airway-r01/terminal-ortho.png",
+      "sha256": "7e8328d40e21eaebba6bb08241de7533064c915237630a70e8a24a8bf62cd136",
+      "bytes": 328146,
+      "artifactSha256": "92fd447bad48b03489041e16d0de8750b550034ec4f158219b8352571e0e6091",
+      "kind": "clean-glb-matched-render"
+    },
+    {
+      "file": "reviews/one-breath/airway-r01/upper-iso.png",
+      "sha256": "d116d56650fd6b6c552016d90228fc0f88aba753c796b4aade1c4e48eabc5ce4",
+      "bytes": 229586,
+      "artifactSha256": "92fd447bad48b03489041e16d0de8750b550034ec4f158219b8352571e0e6091",
+      "kind": "clean-glb-matched-render"
+    },
+    {
+      "file": "reviews/one-breath/airway-r01/upper-ortho.png",
+      "sha256": "7c5f4a079ab59c9040d21d913e087b4df76fb55a8bcd1b953b5847aa38aff219",
+      "bytes": 239601,
+      "artifactSha256": "92fd447bad48b03489041e16d0de8750b550034ec4f158219b8352571e0e6091",
+      "kind": "clean-glb-matched-render"
+    }
+  ],
+  "gates": {
+    "technical": {
+      "status": "passed",
+      "scope": "Exact GLB replay and clean import with 14 contacting pairs, four cup-wall rays and 37 consumer/state/UI tests."
+    },
+    "visual": {
+      "status": "passed",
+      "scope": "Eight Blender evidence images and seven browser screenshots inspected."
+    },
+    "anatomy": {
+      "status": "reference-screened",
+      "scope": "OpenStax sequence, retained V7, BP3D cartilage and Workshop branch. Gaps bridged schematically."
+    },
+    "runtime": {
+      "status": "pass-with-limitations",
+      "scope": "Local Chrome WebGL rest and inspiration, 4 airway focus views, exchange, bilingual reset and narrow reflow. Other engines unverified."
+    }
+  },
+  "failureSummary": {
+    "failure": "An interrupted vendor fetch left a partial staging directory blocking retry.",
+    "cause": "Preparation created the output before validating the last download.",
+    "fix": "Verify all dependencies in memory before creating the destination.",
+    "retest": "Injected failure at last vendor, successful retry at the same path, subsequent existing-output refusal.",
+    "lesson": "Protect the normal preparation retry path."
+  },
+  "limitations": [
+    "Schematic nasal passage, pharynx, lumen and terminal units. No measured cross-patient registration.",
+    "Only one left upper lobar path is extended, with omitted intermediate generations and enlarged alveolar cups.",
+    "Illustrative lung morphs and static distal route. Browser testing limited to local Chrome."
+  ]
+}

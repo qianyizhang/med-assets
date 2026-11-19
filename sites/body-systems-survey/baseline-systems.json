@@ -1,0 +1,92 @@
+[
+  {
+    "id":"skeletal","name":"Skeletal","status":"Ready",
+    "function":"Show the skeletal framework that supports the trunk and links it to the limbs.",
+    "verdict":"One body-scale atlas shows bones, cartilage and joints in position. Use the knee, lumbar disc and rib–sternum studies to inspect one local relationship at a time.",
+    "combined":[["skeleton","Whole skeleton","The atlas preserves its native BodyParts3D positions. The model shows gross support and spatial relationships."] ,["knee","Regional assembly · knee","Separate Z-Anatomy joint study. Bone and soft-tissue structures already share the supplied scene."]],
+    "parts":[["skeleton","Axial and appendicular skeleton"],["spinal-joint","Lumbar vertebrae and disc"],["costal-joint","Rib and costal cartilage"],["knee","Knee joint"]],"gaps":["Joint loading and motion are outside the static demo. Atlas mesh counts are source categories."],
+    "sources":[["Skeleton export scope","models/skeleton/exports/source-candidate-03/README.md"],["Regional bone/cartilage teaching scenes","assemblies/skeletal-teaching/README.md"],["Knee inspection","gallery/knee-inspection/r01/README.md"]]
+  },
+  {
+    "id":"muscular","name":"Muscular","status":"Ready",
+    "function":"Trace calf muscle force through the Achilles tendon to the heel.",
+    "verdict":"The whole-body muscle atlas supplies orientation. A separate native Z-Anatomy scene brings calf muscle, tendon and relevant bones together at teaching scale.",
+    "combined":[["achilles","Regional assembly · calf to heel","This reviewer-inspected static supplement shows the tendon and nearby bone landmarks. Use the whole-body atlas as an orientation plate."]],
+    "parts":[["muscles","Whole-body muscle groups"],["achilles","Calf muscles, Achilles and heel"],["rotator","Shoulder and rotator cuff"]],"gaps":["A whole-body model with validated insertions, deforming muscles or a motion rig is outside the retained atlas scope."],
+    "sources":[["Muscle atlas scope and sources","models/muscle/exports/z-anatomy-r02/README.md"],["Achilles regional assembly","assemblies/musculoskeletal-teaching/2026-10-23/README.md"],["Rotator cuff study","reviews/joints/2026-10-30-rotator-cuff-r01/README.md"]]
+  },
+  {
+    "id":"respiratory","name":"Respiratory","status":"Ready",
+    "function":"Show how the diaphragm and lungs change together during one breath.",
+    "verdict":"The breathing collection already provides a spatial lung–diaphragm model. Use the lobar tree and upper-airway studies as supporting views. The lesson adds a separate exchange diagram.",
+    "combined":[["breathing-context","Shared assembly · lungs and diaphragm","Still of paired breathing GLBs and the authored diaphragm in their delivered frame. Motion was not re-evaluated here."],["lobar-context","Shared frame · lungs and lobar airway","Workshop scene with the authored lobar hierarchy. The opaque lung exterior naturally hides distal branches, which are isolated below."]],
+    "parts":[["nose","Nasal passage"],["larynx","Pharynx and larynx"],["trachea","Trachea and main openings"],["bronchi","Lobar bronchi"],["lungs","Five lobes"],["diaphragm","Diaphragm gross shape"]],"gaps":["A full nasal-to-alveolar 3D pathway is unverified. Gas exchange already has a separate 2D teaching view."],
+    "sources":[["Breathing package and motion limits","body/breathing/README.md"],["Workshop coordinates","body/anatomy-workshop-r1/README.md"],["One Breath lesson","lessons/one-breath/README.md"],["Diaphragm study limits","models/diaphragm/exports/z-native-static-r01/README.md"]]
+  },
+  {
+    "id":"urinary","name":"Urinary","status":"Ready",
+    "function":"Trace urine from both kidneys down the ureters to the bladder and outlet.",
+    "verdict":"The Workshop’s paired kidneys, schematic ureters, bladder and outlet form a readable gross-anatomy route in one frame.",
+    "combined":[["urinary-context","Shared assembly · urinary tract","Kidney exteriors and the authored bladder system from the Workshop. The illustrated ureter course and outlet support gross route teaching."]],
+    "parts":[["kidneys","Paired kidneys"],["lower-urinary","Both ureters, bladder and outlet"]],"gaps":["The ureters and outlet are schematic. Kidney filtration microanatomy and physiologic flow are outside this setup."],
+    "sources":[["Workshop geometry and scope","body/anatomy-workshop-r1/README.md"],["Reviewed 2D ureter locator","reviews/urinary_region/README.md"]]
+  },
+  {
+    "id":"cardiovascular","name":"Cardiovascular","status":"Partial",
+    "function":"Follow blood through the pulmonary and systemic loops.",
+    "verdict":"Heart chambers and valves, proximal arterial anatomy and sampled pulmonary venous anatomy exist. Their present context supports named landmarks and regional heart anatomy.",
+    "combined":[["cardio-context","Shared frame · proximal circulation","Workshop heart shell with aorta and pulmonary venous surface. Regions outside this selection and an actual closed loop remain uncovered."]],
+    "parts":[["heart-cut","Four-chamber heart cutaway"],["aortic","Aorta and selected arteries"],["pulmonary-vein","Pulmonary venous surface"]],"gaps":["A teachable closed-loop model needs pulmonary outflow, systemic venous return, and connections among chambers and the two circuits in one documented setup."],
+    "sources":[["Cardiac Atlas documentation","heart/Cardiac_Atlas/docs/README.md"],["Aortic branch scope","models/aortic_tree_z/exports/r02/README.md"],["Workshop shared frame","body/anatomy-workshop-r1/README.md"],["Pulmonary vein context lesson","lessons/pulmonary-vein-context/README.md"]]
+  },
+  {
+    "id":"digestive","name":"Digestive","status":"Partial",
+    "function":"Trace food from intake through the gut, with accessory organs placed relative to their delivery points.",
+    "verdict":"Most gross parts exist. The upper abdominal region and the bowel each have useful compositions. The complete alimentary route spans separate frames and scope-limited studies.",
+    "combined":[["upper-digestive","Shared Workshop frame · upper abdomen","Stomach, liver, gallbladder and pancreas exteriors. Duct continuity is outside this plate."],["bowel-context","Native BP3D frame · intestines","Small and large bowel shown together from their respective native export coordinates. This render illustrates adjacency."]],
+    "parts":[["oral","Teeth and gingiva"],["tongue","Tongue"],["salivary","Salivary glands and ducts"],["esophagus","Esophageal wall"],["stomach","Stomach"],["small-bowel","Small intestine"],["large-bowel","Large intestine"],["liver","Liver"],["gallbladder","Gallbladder"],["pancreas","Pancreas"]],"gaps":["Join the pharynx/esophagus, gastric inlet and outlet, bowel and terminal outlet in one teaching route. Retain the biliary diagram as a supporting view until 3D duct joins are documented."],
+    "sources":[["Workshop shared frame and gastric limits","body/anatomy-workshop-r1/README.md"],["Small bowel source candidate","models/small-intestine/exports/source-candidate-v4/README.md"],["Large bowel source candidate","models/large-intestine/exports/source-candidate-v4/README.md"],["Biliary teaching diagram","diagrams/biliary_pathway/exports/r01/README.md"]]
+  },
+  {
+    "id":"nervous","name":"Nervous","status":"Partial",
+    "function":"Trace a sensory or motor signal from a peripheral pathway through the spinal cord to the brain.",
+    "verdict":"Brain, spinal cord, peripheral nerve studies and several special-sense structures are available at useful scales. The retained studies support local anatomy.",
+    "combined":[["cord","Regional assembly · cord and roots","Authored representative roots shown with vertebral landmarks. The scene covers part of the spinal pathway."]],
+    "parts":[["brain","Brain"],["cord","Cord and representative roots"],["sciatic","Peripheral nerve example"],["eye","Vision · eye and orbital courses"],["ear","Hearing orientation · outer ear"],["nose","Smell · nasal region"],["tongue","Taste · tongue region"]],"gaps":["A shared brain–cord–peripheral route is unverified. Smell and taste have regional form studies. Receptor and pathway geometry would be needed for a signal-tracing demo. The ear asset covers the auricle only. Auditory canal, middle ear, cochlea and vestibular structures are still needed for those demos."],
+    "sources":[["Brain atlas","models/brain/exports/bodyparts3d-4.0-atlas-r2/README.md"],["Spinal roots review","reviews/spinal_cord/2026-10-29-authored-roots-r04/README.md"],["Sciatic study","reviews/peripheral_nerves/2026-10-30-sciatic-hip-r01/README.md"],["Eye courses review","reviews/eye_exterior/2026-10-30-z-native-courses-r01/README.md"],["Auricle export scope","models/ears_z/exports/r04/README.md"]]
+  },
+  {
+    "id":"endocrine","name":"Endocrine","status":"Partial",
+    "function":"Locate major glands and use the hypothalamus–pituitary relationship to introduce endocrine regulation.",
+    "verdict":"We have a regional hypothalamus–pituitary teaching assembly, parathyroid localization and several gland studies. The full spatial locator remains a gap.",
+    "combined":[["pituitary","Regional assembly · hypothalamus and pituitary","Teaching stalk connects regional landmarks. Its authored surface is illustrative."],["thyroid","Regional assembly · thyroid and parathyroids","Local context from the parathyroid export. The straight view is posterior."]],
+    "parts":[["pituitary","Hypothalamus and pituitary"],["thyroid","Thyroid and parathyroids"],["adrenals","Adrenals"],["pancreas","Pancreas exterior"],["ovary","Ovaries"],["testes","Testes"]],"gaps":["The whole-body gland locator and a coordinated example of gland-to-target signalling are missing. Pancreatic islets are outside the exterior model."],
+    "sources":[["Hypothalamus–pituitary teaching assembly","assemblies/hypothalamus-pituitary/teaching-stalk-r01/README.md"],["Parathyroid localization context","models/parathyroids/exports/z-localization-r01/README.md"],["Adrenal scope","models/adrenals/README.md"]]
+  },
+  {
+    "id":"lymphatic","name":"Lymphatic and immune","status":"Partial",
+    "function":"Trace lymph from a body region through a node and a collecting duct toward venous return.",
+    "verdict":"There are illustrative routes, a node, a spleen, and a thymus. The retained route model is a schematic scaffold, and the parts remain useful as adjacent study plates.",
+    "combined":[["lymph-routes","Route scaffold · seven source paths","Preserved source geometry. The visible line ends are caps."]],
+    "parts":[["lymph-node","Lymph node"],["lymph-routes","Collecting vessels / thoracic route"],["thymus","Thymus"],["spleen","Spleen"]],"gaps":["A continuous region-to-node-to-duct-to-vein model with documented joins is missing. The contextual body outline in the existing lesson is editorial."],
+    "concept":"lymph",
+    "sources":[["Original source routes and limits","models/lymph-collecting-routes/source-context-r01/README.md"],["Refined route lesson","models/lymph-collecting-routes/source-context-refined-r01/README.md"],["Thymus candidate","models/thymus/README.md"],["Spleen locator","reviews/spleen/source-locator-r01/README.md"]]
+  },
+  {
+    "id":"reproductive","name":"Reproductive","status":"Partial",
+    "function":"Orient both adult tracts and trace one gamete pathway in each.",
+    "verdict":"Female and male studies both have useful regional context. Neither available set establishes the full route in one assembly.",
+    "combined":[["pelvis-f","Female regional assembly · pelvis","Uterus, cervix and vagina with same-atlas bladder, rectum and bony landmarks. The ovary study is separate."],["urethra-m","Male regional assembly · outlet","Same-source urethral context from the bladder through the prostate and penis. The testis/epididymis study is separate. The outlet context has schematic, unverified lumen connections."]],
+    "parts":[["ovary","Ovaries and fimbrial/tubal ends"],["uterus","Uterus"],["pelvis-f","Cervix and vagina"],["mammary","Breast regional exterior"],["testes","Testes and epididymides"],["prostate","Prostate"],["penis","Penile components"]],"gaps":["Female: document a shared ovary–tube–uterus assembly and connections.","Male: join the epididymis to the outlet pathway with the ductus deferens, seminal vesicles and ejaculatory duct in context."],
+    "sources":[["Ovary/tubal study scope","models/ovaries/exports/hra-ovary-tubal-r01/README.md"],["Female same-atlas pelvic study","models/vagina_hra/provenance/context-r02/migration-2026-10-24/README.md"],["Male urethral context","models/urethra_male/exports/z-native-context-r01/README.md"],["Testis / epididymis scope","models/testes/exports/z-native-epididymis-r01/README.md"],["Existing 2D testicular pathway","diagrams/testis_pathway/exports/r02/testis-pathway-en.svg"]]
+  },
+  {
+    "id":"integumentary","name":"Integumentary","status":"Missing",
+    "function":"Show how the skin barrier is built and where surface structures enter it.",
+    "verdict":"The adult body envelope works as a surface locator. The repository also contains a 2D skin-detail plate. A layered skin 3D model is the missing asset.",
+    "combined":[["skin","Existing context · skin envelope","BodyParts3D male external surface. A continuous exterior silhouette is the evidence available here."]],
+    "parts":[["skin","Skin surface envelope"]],"gaps":["A layered skin block needs epidermis and dermis, plus underlying tissue for context. Hair follicle and sweat gland geometry would make the relationship visible. Nails are also absent from the selected teaching evidence."],
+    "concept":"skin",
+    "sources":[["Skin envelope scope and attribution","models/skin/exports/bp3d-envelope-r01/README.md"],["Existing 2D skin-detail plate","body/2d-v4/whole-body-anatomy-v4-spatial/regions/skin-detail.svg"]]
+  }
+]

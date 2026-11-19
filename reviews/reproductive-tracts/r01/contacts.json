@@ -1,0 +1,41 @@
+{
+  "female": {
+    "sha256": "f5f58c4c4ccdb27a72b9cf1d2ff06a9c08d7240da01bca86ce5faef61f731817",
+    "nodes": 19,
+    "nearestVertexDistancesMm": {
+      "VH_F_left_ovary / VH_F_fibria_of_uterine_tube_L": 2.28131,
+      "VH_F_fibria_of_uterine_tube_L / VH_F_uterine_tube_infundibulum_L": 0.0,
+      "VH_F_uterine_tube_infundibulum_L / VH_F_ampulla_of_uterine_tube_L": 0.0,
+      "VH_F_ampulla_of_uterine_tube_L / VH_F_isthmus_of_fallopian_tube_L": 0.0,
+      "VH_F_isthmus_of_fallopian_tube_L / VH_F_cornua": 0.03487,
+      "VH_F_cornua / VH_F_body_of_uterus": 0.0,
+      "VH_F_right_ovary / VH_F_fibria_of_uterine_tube_R": 2.4871,
+      "VH_F_fibria_of_uterine_tube_R / VH_F_uterine_tube_infundibulum_R": 0.0,
+      "VH_F_uterine_tube_infundibulum_R / VH_F_ampulla_of_uterine_tube_R": 0.0,
+      "VH_F_ampulla_of_uterine_tube_R / VH_F_isthmus_of_fallopian_tube_R": 0.0,
+      "VH_F_isthmus_of_fallopian_tube_R / VH_F_cornua": 0.03428,
+      "VH_F_body_of_uterus / VH_F_lower_uterine_segment": 0.0,
+      "VH_F_lower_uterine_segment / VH_F_cervix": 0.0,
+      "VH_F_cervix / VH_F_cervicovaginal_junction": 0.08728,
+      "VH_F_cervicovaginal_junction / VH_F_vagina": 0.0
+    }
+  },
+  "male": {
+    "sha256": "278f42a5717e63ac3e44aa17a083c9b2794fa62691cf5dc8c537888f8999dffa",
+    "nodes": 15,
+    "nearestVertexDistancesMm": {
+      "Testis.r native study / Epididymis.r native study": 0.09795,
+      "Epididymis.r native study / Ductus deferens.r": 0.11756,
+      "Seminal vesicle.r / Vesicular duct.r": 1.12887,
+      "Vesicular duct.r / Ejaculatory duct.r": 0.16755,
+      "Ductus deferens.r / Ejaculatory duct.r": 0.23269,
+      "Ejaculatory duct.r / Urethra source display": 0.13893,
+      "Testis.l native study / Epididymis.l native study": 0.09795,
+      "Epididymis.l native study / Ductus deferens.l": 0.11757,
+      "Seminal vesicle.l / Vesicular duct.l": 1.12887,
+      "Vesicular duct.l / Ejaculatory duct.l": 0.16755,
+      "Ductus deferens.l / Ejaculatory duct.l": 0.23268,
+      "Ejaculatory duct.l / Urethra source display": 0.13893
+    }
+  }
+}

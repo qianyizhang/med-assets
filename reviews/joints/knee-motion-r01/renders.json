@@ -1,0 +1,177 @@
+{
+  "glb": "knee-motion.glb",
+  "sha256": "3702f9ed5aaa3a4b41945a548eb95843ea24b9d7a4941a160128a3ea9b1a76ea",
+  "blender": "5.2.3 LTS Release Candidate",
+  "viewsSha256": "60bd298dcb868f1ec10f0bc83e5976c7d3b5194e827ccd35947e8b39f3ff5bdd",
+  "views": [
+    {
+      "id": "poses",
+      "frame": 1,
+      "visible": [
+        "Caption | +20\u00b0 flexion",
+        "Caption | Source pose",
+        "Flexion | Femoral load",
+        "Flexion | Femur",
+        "Flexion | Fibula",
+        "Flexion | Tibia",
+        "Flexion | Tibial support",
+        "Source | Femoral load",
+        "Source | Femur",
+        "Source | Fibula",
+        "Source | Tibia",
+        "Source | Tibial support"
+      ],
+      "bounds": [
+        [
+          -0.12800000607967377,
+          -0.19200000166893005,
+          0.2954699993133545
+        ],
+        [
+          -0.031938303261995316,
+          0.06295967102050781,
+          0.550000011920929
+        ]
+      ],
+      "orthographicScale": 0.46407797932624817,
+      "images": [
+        {
+          "file": "poses-iso.png",
+          "sha256": "aac95e9d5efb87b774e61f6291adef270d22e3e1c95d2cd79eac860a5751a5e7",
+          "direction": [
+            -0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            -0.8144631385803223,
+            -0.7989444732666016,
+            1.161832332611084
+          ]
+        },
+        {
+          "file": "poses-ortho.png",
+          "sha256": "761af7d927905c8aee2f2b96ec3a9526a5f8e0d9969c2927b096af579e661423",
+          "direction": [
+            -1.0,
+            0.0,
+            0.0
+          ],
+          "camera": [
+            -1.3547675609588623,
+            -0.06452016532421112,
+            0.4227350056171417
+          ]
+        }
+      ]
+    },
+    {
+      "id": "source",
+      "frame": 1,
+      "visible": [
+        "Source | Femoral load",
+        "Source | Femur",
+        "Source | Fibula",
+        "Source | Tibia",
+        "Source | Tibial support"
+      ],
+      "bounds": [
+        [
+          -0.12700000405311584,
+          -0.017000000923871994,
+          0.3179999887943268
+        ],
+        [
+          -0.031938303261995316,
+          0.06295967102050781,
+          0.550000011920929
+        ]
+      ],
+      "orthographicScale": 0.33775147795677185,
+      "images": [
+        {
+          "file": "source-iso.png",
+          "sha256": "fe95f097cfd32e35236f0d4a73dc2498f748a61fe452a368be079e52e4c0c6f7",
+          "direction": [
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            0.5891166925430298,
+            -0.6474094390869141,
+            1.1042040586471558
+          ]
+        },
+        {
+          "file": "source-ortho.png",
+          "sha256": "c8537c4be79012f946289b369c4664963a3494056cd3b3c5e206a6d5d2d09ada",
+          "direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "camera": [
+            -0.07946915179491043,
+            -1.137020230293274,
+            0.43400001525878906
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flexion",
+      "frame": 1,
+      "visible": [
+        "Flexion | Femoral load",
+        "Flexion | Femur",
+        "Flexion | Fibula",
+        "Flexion | Tibia",
+        "Flexion | Tibial support"
+      ],
+      "bounds": [
+        [
+          -0.12700000405311584,
+          -0.19200000166893005,
+          0.31408873200416565
+        ],
+        [
+          -0.031938303261995316,
+          -0.0681973248720169,
+          0.550000011920929
+        ]
+      ],
+      "orthographicScale": 0.32142916321754456,
+      "images": [
+        {
+          "file": "flexion-iso.png",
+          "sha256": "09c9c909f493715bb434fecab76df1da9a6ba4bff0c41bfdde48e5b7ce071571",
+          "direction": [
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            0.5996164083480835,
+            -0.8118861317634583,
+            1.1142228841781616
+          ]
+        },
+        {
+          "file": "flexion-ortho.png",
+          "sha256": "1b922ac678a8c496754e1ff895db5a51d04c8c4aad899bf1ed3f7a17239ddd18",
+          "direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "camera": [
+            -0.07946915179491043,
+            -1.3096550703048706,
+            0.4320443868637085
+          ]
+        }
+      ]
+    }
+  ]
+}

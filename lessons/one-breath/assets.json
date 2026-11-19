@@ -28,6 +28,13 @@
       "source": "models/trachea/exports/open-airway-r06/trachea-cutaway.glb",
       "bytes": 1564740,
       "sha256": "42b25a9e3de950db1a083da3802d4bb982c9084c425f768824c8973dc08be283"
+    },
+    {
+      "id": "airwayRoute",
+      "file": "airway-route.glb",
+      "source": "lessons/one-breath/airway-r01/airway-route.glb",
+      "bytes": 2083460,
+      "sha256": "92fd447bad48b03489041e16d0de8750b550034ec4f158219b8352571e0e6091"
     }
   ],
   "frame": "Existing s1233 display frame; no new specimen registration or measured wall claim.",
@@ -135,5 +142,183 @@
       ]
     ]
   },
-  "route_scope": "Authored teaching guides: main shaft centers estimated from V7 inner-surface bounds in 2 mm horizontal slices, connected to known editorial ports. Not extracted flow or distal airway reconstruction."
+  "route_scope": "Authored teaching guides: main shaft centers estimated from V7 inner-surface bounds in 2 mm horizontal slices, connected to known editorial ports. Not extracted flow or distal airway reconstruction.",
+  "airwayExtension": {
+    "nasal": [
+      [
+        0.005,
+        0.284,
+        0.064
+      ],
+      [
+        0.005,
+        0.294,
+        0.051
+      ],
+      [
+        0.003,
+        0.294,
+        0.032
+      ],
+      [
+        0.002,
+        0.292,
+        0.015
+      ]
+    ],
+    "pharynx": [
+      [
+        0.002,
+        0.292,
+        0.015
+      ],
+      [
+        0.001,
+        0.288,
+        0.005
+      ],
+      [
+        0,
+        0.277,
+        -0.005
+      ],
+      [
+        0,
+        0.254,
+        -0.011
+      ],
+      [
+        0,
+        0.232,
+        -0.008
+      ],
+      [
+        0,
+        0.218,
+        -0.0008
+      ]
+    ],
+    "larynx": [
+      [
+        0,
+        0.218,
+        -0.0008
+      ],
+      [
+        0,
+        0.21,
+        0.004
+      ],
+      [
+        0,
+        0.197,
+        0.006
+      ],
+      [
+        0,
+        0.185,
+        0.0065
+      ],
+      [
+        -0.00015147,
+        0.17234541,
+        0.00601401
+      ]
+    ],
+    "bronchialBridge": [
+      [
+        0.024,
+        0.07507817,
+        -0.03022069
+      ],
+      [
+        0.034,
+        0.073,
+        -0.023
+      ],
+      [
+        0.042,
+        0.068,
+        -0.008
+      ]
+    ],
+    "lobar": [
+      [
+        0.042,
+        0.068,
+        -0.008
+      ],
+      [
+        0.05799,
+        0.08251,
+        -0.00812
+      ],
+      [
+        0.07108,
+        0.09438,
+        -0.00819
+      ]
+    ],
+    "distal": [
+      [
+        0.07108,
+        0.09438,
+        -0.00819
+      ],
+      [
+        0.081,
+        0.104,
+        -0.01
+      ],
+      [
+        0.09,
+        0.114,
+        -0.007
+      ],
+      [
+        0.099,
+        0.119,
+        -0.004
+      ],
+      [
+        0.106,
+        0.123,
+        -0.003
+      ]
+    ],
+    "terminal": [
+      [
+        0.106,
+        0.123,
+        -0.003
+      ],
+      [
+        0.113,
+        0.127,
+        -0.003
+      ],
+      [
+        0.118,
+        0.13,
+        -0.002
+      ]
+    ],
+    "alveolar": [
+      [
+        0.118,
+        0.13,
+        -0.002
+      ],
+      [
+        0.122,
+        0.133,
+        -0.001
+      ],
+      [
+        0.128,
+        0.133,
+        0
+      ]
+    ]
+  }
 }

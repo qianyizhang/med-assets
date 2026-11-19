@@ -1,0 +1,30 @@
+[
+  {
+    "id": "context"
+  },
+  {
+    "id": "left-pickup",
+    "include": [
+      "*tube_L",
+      "*infundibulum_L",
+      "*left_ovary",
+      "*cornua",
+      "*uterus"
+    ]
+  },
+  {
+    "id": "uterine-entry",
+    "include": [
+      "*isthmus*",
+      "*cornua",
+      "*uterus",
+      "*cervix",
+      "*lower_uterine_segment"
+    ],
+    "front": [
+      0,
+      1,
+      0
+    ]
+  }
+]

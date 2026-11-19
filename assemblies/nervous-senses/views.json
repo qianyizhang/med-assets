@@ -1,0 +1,10 @@
+[
+  {"id":"central","include":["Central | *"],"front":[0,1,0]},
+  {"id":"root","include":["Central | Representative *descending 2 side-1","Central | Ventral ramus*"],"front":[0,1,0]},
+  {"id":"ear","include":["Ear | *"],"front":[0,-1,0]},
+  {"id":"hearing","include":["Ear | Tympanic*","Ear | Malleus*","Ear | Incus*","Ear | Stapes*","Ear | Vestibule*","Ear | Cochlear*","Ear | Organ of Corti*","Ear | Spiral ganglion*","Ear | VIII*"]},
+  {"id":"balance","include":["Ear | *canal","Ear | Utricle","Ear | Saccule","Ear | Utricular*","Ear | Vestibular*","Ear | VIII*"]},
+  {"id":"vision","include":["Vision | *"]},
+  {"id":"smell","include":["Smell | *"]},
+  {"id":"taste","include":["Taste | *"]}
+]

@@ -1,0 +1,201 @@
+{
+  "schemaVersion": 1,
+  "id": "nervous-senses-r01-2026-11-19",
+  "assetId": "nervous-senses",
+  "variantId": "r01",
+  "reviewedAt": "2026-11-19T12:21:00+08:00",
+  "artifact": {
+    "file": "assemblies/nervous-senses/nervous-senses.glb",
+    "sha256": "9566e891615c5c428523f86c691f4e08efe170f02524fff853f5dae125267bdf",
+    "bytes": 8452100
+  },
+  "sources": [
+    {
+      "file": "assemblies/nervous-senses/nervous-senses.blend",
+      "sha256": "19460c63ef4dc44b25f56634e00af5c8dc060706dccad7c4c324491852e0b18a",
+      "bytes": 7937176
+    },
+    {
+      "file": "assemblies/nervous-senses/build.py",
+      "sha256": "1261d7f840083e9c7603f68b07dca4586fe7183431cde6feb659998054802ac3",
+      "bytes": 12654
+    },
+    {
+      "file": "assemblies/nervous-senses/inputs.json",
+      "sha256": "30286e3bebb3830efc89c836e0f46ad137b6653f7b9a28f43bbbfce4ba2441c0",
+      "bytes": 881
+    },
+    {
+      "file": "assemblies/nervous-senses/placements.json",
+      "sha256": "02a946c5ad46f0df58795f287f86b24df70f342726badcdead0fca38b3d2ee38",
+      "bytes": 2090
+    },
+    {
+      "file": "assemblies/nervous-senses/views.json",
+      "sha256": "a67aa8614de9b6379ef2522d00d3faf392b4688576b2351a943cb683453b294b",
+      "bytes": 698
+    },
+    {
+      "file": "assemblies/nervous-senses/check.py",
+      "sha256": "55fe97b924a671eaacc3900e4a2232b0bfcb50e6dbe7ed2cb91e455628f9ba6e",
+      "bytes": 3706
+    },
+    {
+      "file": "assemblies/nervous-senses/compare_replay.py",
+      "sha256": "792e9f2e671c7c60c4f4a6e1f4163b83c9e006226e5cd245e8e6ae3373fef577",
+      "bytes": 1998
+    }
+  ],
+  "evidence": [
+    {
+      "file": "reviews/nervous-senses/balance-iso.png",
+      "sha256": "9f0a8a4fa7fa73a49923820f965e676fa216bf0ba59ac72a9dce0853806c82f8",
+      "bytes": 223806,
+      "artifactSha256": "9566e891615c5c428523f86c691f4e08efe170f02524fff853f5dae125267bdf",
+      "kind": "clean-glb-matched-orthographic"
+    },
+    {
+      "file": "reviews/nervous-senses/balance-ortho.png",
+      "sha256": "df0d8418593022276c13c8c87a0dd9be176d2dcadc390fb042b8c5cc8bc72f56",
+      "bytes": 212018,
+      "artifactSha256": "9566e891615c5c428523f86c691f4e08efe170f02524fff853f5dae125267bdf",
+      "kind": "clean-glb-matched-orthographic"
+    },
+    {
+      "file": "reviews/nervous-senses/central-iso.png",
+      "sha256": "f9029d882f9bad5cf4781dbb2d02fb1034258be5e028116bd362e92bb8fc981d",
+      "bytes": 187544,
+      "artifactSha256": "9566e891615c5c428523f86c691f4e08efe170f02524fff853f5dae125267bdf",
+      "kind": "clean-glb-matched-orthographic"
+    },
+    {
+      "file": "reviews/nervous-senses/central-ortho.png",
+      "sha256": "a395ffa335dc709d917fdacddf4e8ba1e1ecd9911cb795e31c860d4dbd7981d4",
+      "bytes": 196056,
+      "artifactSha256": "9566e891615c5c428523f86c691f4e08efe170f02524fff853f5dae125267bdf",
+      "kind": "clean-glb-matched-orthographic"
+    },
+    {
+      "file": "reviews/nervous-senses/ear-iso.png",
+      "sha256": "e2ff600f594bcf5984d8a9527ce6ab1b9573a2c6cf14d0204423ee920f349b85",
+      "bytes": 255482,
+      "artifactSha256": "9566e891615c5c428523f86c691f4e08efe170f02524fff853f5dae125267bdf",
+      "kind": "clean-glb-matched-orthographic"
+    },
+    {
+      "file": "reviews/nervous-senses/ear-ortho.png",
+      "sha256": "c416e259196b7982381e1405a9b9c77b8262b8c20be4af18c3deec4afeb39f12",
+      "bytes": 273669,
+      "artifactSha256": "9566e891615c5c428523f86c691f4e08efe170f02524fff853f5dae125267bdf",
+      "kind": "clean-glb-matched-orthographic"
+    },
+    {
+      "file": "reviews/nervous-senses/hearing-iso.png",
+      "sha256": "c80a6f0114858007c5eb54c3a1abad453df5ff9b9dc6247ef4ac6fda6898d442",
+      "bytes": 245240,
+      "artifactSha256": "9566e891615c5c428523f86c691f4e08efe170f02524fff853f5dae125267bdf",
+      "kind": "clean-glb-matched-orthographic"
+    },
+    {
+      "file": "reviews/nervous-senses/hearing-ortho.png",
+      "sha256": "88430fb269a535751aa6365d8a5d85da8d5fc00c735bd59f0cca8d638798a9fe",
+      "bytes": 274809,
+      "artifactSha256": "9566e891615c5c428523f86c691f4e08efe170f02524fff853f5dae125267bdf",
+      "kind": "clean-glb-matched-orthographic"
+    },
+    {
+      "file": "reviews/nervous-senses/renders.json",
+      "sha256": "7e534de591a12eb03de1bdbf180395279f6366c513478f06a87cbd06d988c154",
+      "bytes": 18303,
+      "artifactSha256": "9566e891615c5c428523f86c691f4e08efe170f02524fff853f5dae125267bdf",
+      "kind": "render-camera-mesh-bindings"
+    },
+    {
+      "file": "reviews/nervous-senses/root-iso.png",
+      "sha256": "19f75fabeb30378d0bff57e16575ac9f4939f6d263366396dcb14d3e8da4cf3b",
+      "bytes": 192391,
+      "artifactSha256": "9566e891615c5c428523f86c691f4e08efe170f02524fff853f5dae125267bdf",
+      "kind": "clean-glb-matched-orthographic"
+    },
+    {
+      "file": "reviews/nervous-senses/root-ortho.png",
+      "sha256": "a2e54c2dcbc48c5005d8281f86a5b9de2ec32630a074219d3487ad8cac9e9b26",
+      "bytes": 186208,
+      "artifactSha256": "9566e891615c5c428523f86c691f4e08efe170f02524fff853f5dae125267bdf",
+      "kind": "clean-glb-matched-orthographic"
+    },
+    {
+      "file": "reviews/nervous-senses/smell-iso.png",
+      "sha256": "233239ae448786397e20f8b0edd1d33a524cf156767f137f4819107646f8575d",
+      "bytes": 259207,
+      "artifactSha256": "9566e891615c5c428523f86c691f4e08efe170f02524fff853f5dae125267bdf",
+      "kind": "clean-glb-matched-orthographic"
+    },
+    {
+      "file": "reviews/nervous-senses/smell-ortho.png",
+      "sha256": "3d91e436f28fdf11c7cb4bea15f653d94a74711c694664ec92496f898b5c3357",
+      "bytes": 296967,
+      "artifactSha256": "9566e891615c5c428523f86c691f4e08efe170f02524fff853f5dae125267bdf",
+      "kind": "clean-glb-matched-orthographic"
+    },
+    {
+      "file": "reviews/nervous-senses/taste-iso.png",
+      "sha256": "ff70a7bde9c373a49d22423aa1cba6c5a6925f720851cdd751645102cfd6fe4e",
+      "bytes": 251585,
+      "artifactSha256": "9566e891615c5c428523f86c691f4e08efe170f02524fff853f5dae125267bdf",
+      "kind": "clean-glb-matched-orthographic"
+    },
+    {
+      "file": "reviews/nervous-senses/taste-ortho.png",
+      "sha256": "eccba96ede7b123b22b701c7485a5d03811c4d7fa04b48d4ab9c05dfa2bda41b",
+      "bytes": 276253,
+      "artifactSha256": "9566e891615c5c428523f86c691f4e08efe170f02524fff853f5dae125267bdf",
+      "kind": "clean-glb-matched-orthographic"
+    },
+    {
+      "file": "reviews/nervous-senses/vision-iso.png",
+      "sha256": "f5b0b06e2d87ca03fcb418ed0339f425507d19c19d2cb42d8d36c1bc9e9f9172",
+      "bytes": 209751,
+      "artifactSha256": "9566e891615c5c428523f86c691f4e08efe170f02524fff853f5dae125267bdf",
+      "kind": "clean-glb-matched-orthographic"
+    },
+    {
+      "file": "reviews/nervous-senses/vision-ortho.png",
+      "sha256": "8c4b4ade905280e15c69b4e51f483fe5f13d08317e3433cf8ba16be3a38b9b97",
+      "bytes": 237324,
+      "artifactSha256": "9566e891615c5c428523f86c691f4e08efe170f02524fff853f5dae125267bdf",
+      "kind": "clean-glb-matched-orthographic"
+    }
+  ],
+  "gates": {
+    "technical": {
+      "status": "passed",
+      "scope": "Clean import, 45 tested contact pairs and decoded exact replay; distinct byte packing."
+    },
+    "visual": {
+      "status": "pass-with-limitations",
+      "scope": "Inspected all 16 clean GLB images. Full-length thin roots need the regional view."
+    },
+    "anatomy": {
+      "status": "reference-screened",
+      "scope": "OpenStax route and source-based placement; illustrative receptor cartoons and bridges."
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "Interactive browser was not tested for this export."
+    }
+  },
+  "failureSummary": {
+    "failure": "First retinal strip missed the receptor.",
+    "cause": "Schematic rod offset on the viewing axis left a 0.421 mm gap.",
+    "fix": "Moved the rod to the strip and aligned its basal ending.",
+    "retest": "Clean-import paired contact screen and visual inspection passed.",
+    "lesson": "Verify contact in 3D when projected structures appear adjacent."
+  },
+  "limitations": [
+    "Staged atlas and schematic sources with unregistered patient and segment coordinates.",
+    "Outer and inner ear relationship is authored; schematic enlarged sensory cells; incomplete physiological pathways.",
+    "Different GLB byte layout on replay; exact decoded triangles and scene properties matched.",
+    "No clinical or interactive runtime validation."
+  ]
+}

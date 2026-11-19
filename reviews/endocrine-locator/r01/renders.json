@@ -1,0 +1,430 @@
+{
+  "glb": "endocrine-locator.glb",
+  "sha256": "bf7f9d786f354b9c4e9fb73fc63265752a27033371f8fb19353d7a1b4d951469",
+  "blender": "5.2.3 LTS Release Candidate",
+  "viewsSha256": "2b31db019df316774ef2898c1d8336782d36b2fc53305596c49a0a708ff15d6c",
+  "views": [
+    {
+      "id": "overview",
+      "frame": 1,
+      "visible": [
+        "Adrenal - FJ3129 left adrenal gland",
+        "Adrenal - FJ3130 right adrenal gland",
+        "Alternative testis inset - Testis.l native study",
+        "Alternative testis inset - Testis.r native study",
+        "Head to pelvis outline - schematic",
+        "Hypothalamus-pituitary - Hypothalamus\u2013single stalk\u2013pituitary teaching envelope",
+        "Islet alpha cell 1",
+        "Islet alpha cell 4",
+        "Islet alpha cell 8",
+        "Islet beta cell 2",
+        "Islet beta cell 3",
+        "Islet beta cell 5",
+        "Islet beta cell 6",
+        "Islet beta cell 7",
+        "Islet beta cell 9",
+        "Islet capillary",
+        "Islet inset frame",
+        "Male gonad alternative frame",
+        "Neck - Inferior parathyroid gland.l.001",
+        "Neck - Inferior parathyroid gland.r.001",
+        "Neck - Superior parathyroid gland.l.001",
+        "Neck - Superior parathyroid gland.r.001",
+        "Neck - Thyroid gland.001",
+        "Pancreas - VH_F_body_of_pancreas",
+        "Pancreas - VH_F_head_of_pancreas",
+        "Pancreas - VH_F_neck_of_pancreas",
+        "Pancreas - VH_F_tail_of_pancreas",
+        "Pancreas - VH_F_ucinate_process1",
+        "Pelvic ovary - VH_F_left_ovary",
+        "Pelvic ovary - VH_F_right_ovary",
+        "TRH - portal to anterior pituitary direction",
+        "TRH - portal to anterior pituitary path",
+        "TSH - blood to thyroid direction",
+        "TSH - blood to thyroid path"
+      ],
+      "bounds": [
+        [
+          -0.2040363848209381,
+          -0.15218672156333923,
+          0.707192063331604
+        ],
+        [
+          0.33739832043647766,
+          0.012600000947713852,
+          1.6455999612808228
+        ]
+      ],
+      "orthographicScale": 1.363581895828247,
+      "images": [
+        {
+          "file": "overview-iso.png",
+          "sha256": "75e21751b66285c08c6b9ee2421ea25ef0624caa0013357e83ba9a569e49cb1d",
+          "direction": [
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            2.7814910411834717,
+            -2.7509500980377197,
+            3.907280206680298
+          ]
+        },
+        {
+          "file": "overview-ortho.png",
+          "sha256": "7c56ff4bd770483ca14a2ec3aa2ab027554d4f5ca25a05f3046e9cdaadb344f3",
+          "direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "camera": [
+            0.06668096780776978,
+            -4.7618327140808105,
+            1.1763960123062134
+          ]
+        }
+      ]
+    },
+    {
+      "id": "thyroid-axis",
+      "frame": 1,
+      "visible": [
+        "Hypothalamus-pituitary - Hypothalamus\u2013single stalk\u2013pituitary teaching envelope",
+        "Neck - Inferior parathyroid gland.l.001",
+        "Neck - Inferior parathyroid gland.r.001",
+        "Neck - Superior parathyroid gland.l.001",
+        "Neck - Superior parathyroid gland.r.001",
+        "Neck - Thyroid gland.001",
+        "TRH - portal to anterior pituitary direction",
+        "TRH - portal to anterior pituitary path",
+        "TSH - blood to thyroid direction",
+        "TSH - blood to thyroid path"
+      ],
+      "bounds": [
+        [
+          -0.024314459413290024,
+          -0.14778533577919006,
+          1.4149415493011475
+        ],
+        [
+          0.04311395436525345,
+          -0.09223619848489761,
+          1.5535730123519897
+        ]
+      ],
+      "orthographicScale": 0.20481957495212555,
+      "images": [
+        {
+          "file": "thyroid-axis-iso.png",
+          "sha256": "4bf50c2ef4219b2dba4f7992265cdeacc78ea82818f75b327e560c51acc30b92",
+          "direction": [
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            0.40628865361213684,
+            -0.5225807428359985,
+            1.8853819370269775
+          ]
+        },
+        {
+          "file": "thyroid-axis-ortho.png",
+          "sha256": "fca1d7b733b69e61ee39a16e3cd0cf7976944eff23bbec5fa9936441d6399358",
+          "direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "camera": [
+            0.009399747475981712,
+            -0.8131680488586426,
+            1.4842572212219238
+          ]
+        }
+      ]
+    },
+    {
+      "id": "posterior-neck",
+      "frame": 1,
+      "visible": [
+        "Neck - Inferior parathyroid gland.l.001",
+        "Neck - Inferior parathyroid gland.r.001",
+        "Neck - Superior parathyroid gland.l.001",
+        "Neck - Superior parathyroid gland.r.001",
+        "Neck - Thyroid gland.001"
+      ],
+      "bounds": [
+        [
+          -0.024314459413290024,
+          -0.14778533577919006,
+          1.4149415493011475
+        ],
+        [
+          0.02431449107825756,
+          -0.10621467232704163,
+          1.4490586519241333
+        ]
+      ],
+      "orthographicScale": 0.08812696486711502,
+      "images": [
+        {
+          "file": "posterior-neck-iso.png",
+          "sha256": "ff71504cb50f73d1ed3036bb9cc552b3ee036e71d16a632b46519f8b561eea88",
+          "direction": [
+            -0.5773502588272095,
+            0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            -0.14037968218326569,
+            0.013379698619246483,
+            1.5723798274993896
+          ]
+        },
+        {
+          "file": "posterior-neck-ortho.png",
+          "sha256": "5d583ea7827c0c231fe7ab0e2195a240895417b69fda8c5eacb3d4e4b4f966f2",
+          "direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "camera": [
+            1.5832492650247332e-08,
+            0.11614474654197693,
+            1.4320001602172852
+          ]
+        }
+      ]
+    },
+    {
+      "id": "islet",
+      "frame": 1,
+      "visible": [
+        "Islet alpha cell 1",
+        "Islet alpha cell 4",
+        "Islet alpha cell 8",
+        "Islet beta cell 2",
+        "Islet beta cell 3",
+        "Islet beta cell 5",
+        "Islet beta cell 6",
+        "Islet beta cell 7",
+        "Islet beta cell 9",
+        "Islet capillary",
+        "Islet inset frame"
+      ],
+      "bounds": [
+        [
+          0.20260000228881836,
+          -0.10446289926767349,
+          1.010599970817566
+        ],
+        [
+          0.33739832043647766,
+          -0.07559999823570251,
+          1.145400047302246
+        ]
+      ],
+      "orthographicScale": 0.22649939358234406,
+      "images": [
+        {
+          "file": "islet-iso.png",
+          "sha256": "fcb280e2b2bd5d3490c1dd1f917a12cb6304a6d7c03849bff2aa407c8bb8e4c5",
+          "direction": [
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            0.663081169128418,
+            -0.47087424993515015,
+            1.4714781045913696
+          ]
+        },
+        {
+          "file": "islet-ortho.png",
+          "sha256": "a96aa6c299c62b6e71b57d5bfcad84f99b5cdfaaf30a177f508112861e4bbaff",
+          "direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "camera": [
+            0.2699991464614868,
+            -0.7640318274497986,
+            1.0780000686645508
+          ]
+        }
+      ]
+    },
+    {
+      "id": "upper-abdomen",
+      "frame": 1,
+      "visible": [
+        "Adrenal - FJ3129 left adrenal gland",
+        "Adrenal - FJ3130 right adrenal gland",
+        "Pancreas - VH_F_body_of_pancreas",
+        "Pancreas - VH_F_head_of_pancreas",
+        "Pancreas - VH_F_neck_of_pancreas",
+        "Pancreas - VH_F_tail_of_pancreas",
+        "Pancreas - VH_F_ucinate_process1"
+      ],
+      "bounds": [
+        [
+          -0.062534399330616,
+          -0.15218672156333923,
+          1.0437308549880981
+        ],
+        [
+          0.11201586574316025,
+          -0.06313499808311462,
+          1.1082199811935425
+        ]
+      ],
+      "orthographicScale": 0.19025981426239014,
+      "images": [
+        {
+          "file": "upper-abdomen-iso.png",
+          "sha256": "f7c4b89f02b5341259089fd9d745293142a7239950ca8a163fdf12cf3359551b",
+          "direction": [
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            0.5316293239593506,
+            -0.6098862886428833,
+            1.578511118888855
+          ]
+        },
+        {
+          "file": "upper-abdomen-ortho.png",
+          "sha256": "1fe47b32c188600ea6253b7924127b63b6c3bd43eb2457ddadf305b80e442dd9",
+          "direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "camera": [
+            0.024740733206272125,
+            -0.9804122447967529,
+            1.0759754180908203
+          ]
+        }
+      ]
+    },
+    {
+      "id": "posterior-abdomen",
+      "frame": 1,
+      "visible": [
+        "Adrenal - FJ3129 left adrenal gland",
+        "Adrenal - FJ3130 right adrenal gland",
+        "Pancreas - VH_F_body_of_pancreas",
+        "Pancreas - VH_F_head_of_pancreas",
+        "Pancreas - VH_F_neck_of_pancreas",
+        "Pancreas - VH_F_tail_of_pancreas",
+        "Pancreas - VH_F_ucinate_process1"
+      ],
+      "bounds": [
+        [
+          -0.062534399330616,
+          -0.15218672156333923,
+          1.0437308549880981
+        ],
+        [
+          0.11201586574316025,
+          -0.06313499808311462,
+          1.1082199811935425
+        ]
+      ],
+      "orthographicScale": 0.19025981426239014,
+      "images": [
+        {
+          "file": "posterior-abdomen-iso.png",
+          "sha256": "fd87d425286d94e9e8015fe76dc2837953142e94be98538af2088ca785e482c2",
+          "direction": [
+            -0.5773502588272095,
+            0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            -0.47965502738952637,
+            0.40139806270599365,
+            1.574170470237732
+          ]
+        },
+        {
+          "file": "posterior-abdomen-ortho.png",
+          "sha256": "548bd1e2de386aeb89f18aae58cdfd5e842de04076fc5f8d20f17de98197e182",
+          "direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "camera": [
+            0.024740733206272125,
+            0.7650904655456543,
+            1.0759754180908203
+          ]
+        }
+      ]
+    },
+    {
+      "id": "gonads",
+      "frame": 1,
+      "visible": [
+        "Alternative testis inset - Testis.l native study",
+        "Alternative testis inset - Testis.r native study",
+        "Male gonad alternative frame",
+        "Pelvic ovary - VH_F_left_ovary",
+        "Pelvic ovary - VH_F_right_ovary"
+      ],
+      "bounds": [
+        [
+          -0.06360538303852081,
+          -0.10931375622749329,
+          0.7265999913215637
+        ],
+        [
+          0.3183983266353607,
+          -0.07559999823570251,
+          0.8430073857307434
+        ]
+      ],
+      "orthographicScale": 0.41638410091400146,
+      "images": [
+        {
+          "file": "gonads-iso.png",
+          "sha256": "a6d8199f63cf7c543a9a2d80c5c71900f4294d6d63b426ccd29429dd9be880b3",
+          "direction": [
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            1.2294986248016357,
+            -1.1945589780807495,
+            1.8888486623764038
+          ]
+        },
+        {
+          "file": "gonads-ortho.png",
+          "sha256": "e49911cd2e24c0c212a91499beecaf64d7f01511293409dd571ba071b8175dc5",
+          "direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "camera": [
+            0.12739646434783936,
+            -2.0024755001068115,
+            0.7848036885261536
+          ]
+        }
+      ]
+    }
+  ]
+}

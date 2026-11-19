@@ -8,11 +8,17 @@ const camera=new THREE.OrthographicCamera(-.2,.2,.2,-.2,.001,10),look=new THREE.
 const rendererAvailable=()=>Boolean(renderer)&&!rendererLost;
 const dispatch=action=>{state=reduce(state,action);renderUI();};
 function renderStatus(previewLoaded=false){const status=lessonStatus(state,rendererAvailable(),previewLoaded);$('phase').textContent=status.phase;$('cue').textContent=status.cue;}
-function renderUI(){const c=COPY[state.language],b=breath(state),key=[state.stage,state.language,state.playing,state.assets,state.phase>=1,state.gas,b.phaseName,state.exchangePaused,rendererLost].join('|');if(key===uiKey)return;uiKey=key;
+function renderUI(){const c=COPY[state.language],b=breath(state),key=[state.stage,state.routeFocus,state.language,state.playing,state.assets,state.phase>=1,state.gas,b.phaseName,state.exchangePaused,rendererLost].join('|');if(key===uiKey)return;uiKey=key;
  document.documentElement.lang=state.language==='zh'?'zh-CN':'en';$('subtitle').textContent=c.sub;$('language').textContent=c.language;$('reset').textContent=c.reset;$('sources').textContent=c.receipt;
  if(!$('stages').children.length){for(let i=0;i<3;i++){const button=document.createElement('button');button.type='button';button.dataset.stage=i;button.innerHTML=`<span>0${i+1}</span><b></b>`;button.addEventListener('click',()=>dispatch({type:'stage',value:i}));$('stages').append(button);}}
  $('stages').querySelectorAll('button').forEach((button,i)=>{button.querySelector('b').textContent=c.stages[i];button.setAttribute('aria-current',i===state.stage?'step':'false');});
- for(const [id,value] of Object.entries({kicker:c.kicker[state.stage],heading:c.heading[state.stage],explanation:c.body[state.stage],limit:c.limit,'view-label':state.stage===2?c.diagram:c.source,'teaching-note':state.stage===2?c.exchangeNote:state.stage===1?c.routeNote:c.limit,'gas-title':c.action[2]}))$(id).textContent=value;
+ for(const [id,value] of Object.entries({kicker:c.kicker[state.stage],heading:c.heading[state.stage],explanation:c.body[state.stage],limit:c.limit,'view-label':state.stage===2?c.diagram:state.stage===1?c.routeSource:c.source,'teaching-note':state.stage===2?c.exchangeNote:state.stage===1?c.routeNote:c.limit,'gas-title':c.action[2]}))$(id).textContent=value;
+ $('route-tools').hidden=state.stage!==1;
+ $('focus-label').textContent=c.focusLabel;
+ ['whole','upper','branch','terminal'].forEach((key,index)=>{$('focus-'+key).textContent=c.focusNames[index];});
+ $('route-focus').value=state.routeFocus;
+ $('route-focus').disabled=state.assets!=='ready'||!rendererAvailable();
+ $('to-exchange').textContent=c.toExchange;
  renderStatus();
  $('breath-control').hidden=state.stage===2;$('gas-control').hidden=state.stage!==2;$('breath-control').disabled=state.assets!=='ready'||!rendererAvailable();
  $('exchange-motion').hidden=state.stage!==2;$('exchange-motion').textContent=state.exchangePaused?c.resumeVisualization:c.pauseVisualization;
@@ -28,6 +34,8 @@ function renderUI(){const c=COPY[state.language],b=breath(state),key=[state.stag
  else $('notice').replaceChildren();
 }
 $('language').onclick=()=>dispatch({type:'language',value:state.language==='en'?'zh':'en'});$('reset').onclick=()=>dispatch({type:'reset'});$('breath-control').onclick=()=>{if(rendererAvailable())dispatch({type:'play'});};document.querySelectorAll('[data-gas]').forEach(b=>b.onclick=()=>dispatch({type:'gas',value:b.dataset.gas}));
+$('route-focus').onchange=event=>dispatch({type:'route-focus',value:event.target.value});
+$('to-exchange').onclick=()=>dispatch({type:'stage',value:2});
 $('exchange-motion').onclick=()=>dispatch({type:'exchange-toggle'});
 motionPreference.addEventListener('change',event=>dispatch({type:'motion-preference',value:event.matches}));
 async function boot(){const current=++generation;dispatch({type:'retry'});try{manifest=await (await fetch('./assets.json')).json();const models=await loadModels(manifest);if(current!==generation)return;view=createLessonScene(models,manifest);dispatch({type:'loaded'});}catch(e){if(current===generation)dispatch({type:'failed',message:e.message});}}
@@ -38,7 +46,7 @@ try{renderer=new THREE.WebGLRenderer({canvas:document.querySelector('canvas'),an
 renderUI();boot();
 function frame(now){const dt=(now-last)/1000;last=now;state=reduce(state,{type:'tick',dt});renderUI();$('progress').style.width=`${state.phase*100}%`;
  if(state.stage===2){const markup=exchangeSVG(state);if(markup!==exchangeMarkup){$('exchange').innerHTML=markup;exchangeMarkup=markup;}}else if(view&&rendererAvailable()){
-  applyLessonState(view,state);const config=state.stage===1?CAMERAS.airway:CAMERAS.mechanics;const mix=motionPreference.matches?1:Math.min(1,dt*8);camera.position.lerp(new THREE.Vector3(...config.position),mix);look.lerp(new THREE.Vector3(...config.target),mix);cameraHeight+=(config.height-cameraHeight)*mix;camera.lookAt(look);
+  applyLessonState(view,state);const config=state.stage===1?(state.routeFocus==='whole'?CAMERAS.airway:CAMERAS[state.routeFocus]):CAMERAS.mechanics;const mix=motionPreference.matches?1:Math.min(1,dt*8);camera.position.lerp(new THREE.Vector3(...config.position),mix);look.lerp(new THREE.Vector3(...config.target),mix);cameraHeight+=(config.height-cameraHeight)*mix;camera.lookAt(look);
   const box=$('scene').getBoundingClientRect();renderer.setSize(box.width,box.height,false);const aspect=box.width/box.height;camera.left=-cameraHeight*aspect/2;camera.right=cameraHeight*aspect/2;camera.top=cameraHeight/2;camera.bottom=-cameraHeight/2;camera.updateProjectionMatrix();renderer.render(view.scene,camera);
   $('labels').replaceChildren(...sceneLabels(state,manifest).map(label=>{const point=new THREE.Vector3(...label.position).project(camera),el=document.createElement('span');el.className='label';el.textContent=label.text;el.dataset.port=label.id;el.style.left=`${(point.x+1)*50}%`;el.style.top=`${(1-point.y)*50}%`;return el;}));
  }

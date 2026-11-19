@@ -1,0 +1,35 @@
+[
+  {
+    "id": "context",
+    "front": [
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "id": "route",
+    "include": [
+      "Epididymis*",
+      "Testis*",
+      "Ductus*",
+      "Seminal*",
+      "Vesicular*",
+      "Ejaculatory*",
+      "Urethra *"
+    ],
+    "front": [
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "left-confluence",
+    "include": [
+      "Seminal vesicle.l",
+      "Vesicular duct.l",
+      "Ejaculatory duct.l"
+    ]
+  }
+]

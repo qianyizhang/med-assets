@@ -1,0 +1,290 @@
+{
+  "inputs": {
+    "anatomy_meshes.json": "64b6bd5d48d941ecfe330ac5f929b5ad001efc28e2b51f8b876a7e85f3b1946b",
+    "anatomy_details.json": "51891140bf475767ce9842bc83beeea901c7150975d351a6ac7c4eefae2ef871"
+  },
+  "transforms": {
+    "01 Right atrium": {
+      "translate_BU": [
+        -4.125,
+        -0.029999971389770508,
+        -1.3650000095367432
+      ]
+    },
+    "03 Right ventricle": {
+      "translate_BU": [
+        -2.134575366973877,
+        0.323598176240921,
+        0.34999996423721313
+      ]
+    },
+    "07 Left atrium": {
+      "translate_BU": [
+        1.3849999904632568,
+        -0.5949999690055847,
+        -1.3600000143051147
+      ]
+    },
+    "09 Left ventricle": {
+      "translate_BU": [
+        4.454999923706055,
+        -0.009999990463256836,
+        0.5399999618530273
+      ]
+    },
+    "Tricuspid": {
+      "atlas_pivot_BU": [
+        -0.641585648059845,
+        0.05000009015202522,
+        0.7914320826530457
+      ],
+      "diagram_pivot_BU": [
+        -3.5,
+        0,
+        0
+      ],
+      "rotate_Y_degrees": -70
+    },
+    "Pulmonary": {
+      "atlas_pivot_BU": [
+        -0.36520206928253174,
+        -0.43000009655952454,
+        1.1714320182800293
+      ],
+      "diagram_pivot_BU": [
+        -1.9,
+        0,
+        1.95
+      ],
+      "rotate_Y_degrees": -12
+    },
+    "Mitral": {
+      "atlas_pivot_BU": [
+        0.5585933327674866,
+        0.12999998033046722,
+        0.6714323163032532
+      ],
+      "diagram_pivot_BU": [
+        3.5,
+        0,
+        0
+      ],
+      "rotate_Y_degrees": -70
+    },
+    "Aortic": {
+      "atlas_pivot_BU": [
+        0.3243860900402069,
+        0.1700000762939453,
+        1.0214329957962036
+      ],
+      "diagram_pivot_BU": [
+        5.1,
+        0,
+        1.95
+      ],
+      "rotate_Y_degrees": 12
+    }
+  },
+  "joins": [
+    {
+      "bridge": "Bridge 01 to 02",
+      "port": "RA.right",
+      "host": "01 Right atrium",
+      "point_m": [
+        -0.1122446060180664,
+        -6.54192190268077e-05,
+        -0.0009616732713766396
+      ]
+    },
+    {
+      "bridge": "Bridge 01 to 02",
+      "port": "Tricuspid",
+      "host": "02 Tricuspid valve - annulus",
+      "point_m": [
+        -0.08749999850988388,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "bridge": "Bridge 02 to 03",
+      "port": "Tricuspid",
+      "host": "02 Tricuspid valve - annulus",
+      "point_m": [
+        -0.08749999850988388,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "bridge": "Bridge 02 to 03",
+      "port": "RV.left",
+      "host": "03 Right ventricle",
+      "point_m": [
+        -0.07409592717885971,
+        0.0031508677639067173,
+        -7.450580707946131e-10
+      ]
+    },
+    {
+      "bridge": "Bridge 03 to 04",
+      "port": "RV.top",
+      "host": "03 Right ventricle",
+      "point_m": [
+        -0.04720189422369003,
+        0.00876854732632637,
+        0.035750001668930054
+      ]
+    },
+    {
+      "bridge": "Bridge 03 to 04",
+      "port": "Pulmonary",
+      "host": "04 Pulmonary valve - annulus",
+      "point_m": [
+        -0.04749999940395355,
+        0.0,
+        0.048750001937150955
+      ]
+    },
+    {
+      "bridge": "Bridge 04 to 05 pulmonary outflow",
+      "port": "Pulmonary",
+      "host": "04 Pulmonary valve - annulus",
+      "point_m": [
+        -0.04749999940395355,
+        0.0,
+        0.048750001937150955
+      ]
+    },
+    {
+      "bridge": "Bridge 04 to 05 pulmonary outflow",
+      "port": "lung.left",
+      "host": "05 Lung vascular bed - central",
+      "point_m": [
+        -0.020999999716877937,
+        0.0,
+        0.09125000238418579
+      ]
+    },
+    {
+      "bridge": "Bridge 05 to 07 pulmonary venous return",
+      "port": "lung.right",
+      "host": "05 Lung vascular bed - central",
+      "point_m": [
+        0.020999999716877937,
+        0.0,
+        0.09125000238418579
+      ]
+    },
+    {
+      "bridge": "Bridge 05 to 07 pulmonary venous return",
+      "port": "LA.top",
+      "host": "07 Left atrium",
+      "point_m": [
+        0.045875001698732376,
+        0.0008750006672926247,
+        0.016499999910593033
+      ]
+    },
+    {
+      "bridge": "Bridge 07 to 08",
+      "port": "LA.right",
+      "host": "07 Left atrium",
+      "point_m": [
+        0.06480531394481659,
+        -4.5792759920004755e-05,
+        -0.0008635431877337396
+      ]
+    },
+    {
+      "bridge": "Bridge 07 to 08",
+      "port": "Mitral",
+      "host": "08 Mitral valve - annulus",
+      "point_m": [
+        0.08749999850988388,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "bridge": "Bridge 08 to 09",
+      "port": "Mitral",
+      "host": "08 Mitral valve - annulus",
+      "point_m": [
+        0.08749999850988388,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "bridge": "Bridge 08 to 09",
+      "port": "LV.left",
+      "host": "09 Left ventricle",
+      "point_m": [
+        0.11061444133520126,
+        0.0012293907348066568,
+        0.009576304815709591
+      ]
+    },
+    {
+      "bridge": "Bridge 09 to 10",
+      "port": "LV.top",
+      "host": "09 Left ventricle",
+      "point_m": [
+        0.12212499231100082,
+        0.004750000312924385,
+        0.03700000047683716
+      ]
+    },
+    {
+      "bridge": "Bridge 09 to 10",
+      "port": "Aortic",
+      "host": "10 Aortic valve - annulus",
+      "point_m": [
+        0.1274999976158142,
+        0.0,
+        0.048750001937150955
+      ]
+    },
+    {
+      "bridge": "Bridge 10 to 11 aorta to systemic arteries",
+      "port": "Aortic",
+      "host": "10 Aortic valve - annulus",
+      "point_m": [
+        0.1274999976158142,
+        0.0,
+        0.048750001937150955
+      ]
+    },
+    {
+      "bridge": "Bridge 10 to 11 aorta to systemic arteries",
+      "port": "body.right",
+      "host": "11 Systemic vascular bed - central",
+      "point_m": [
+        0.020999999716877937,
+        0.0,
+        -0.08250000327825546
+      ]
+    },
+    {
+      "bridge": "Bridge 11 to 01 systemic veins to vena cava",
+      "port": "body.left",
+      "host": "11 Systemic vascular bed - central",
+      "point_m": [
+        -0.020999999716877937,
+        0.0,
+        -0.08250000327825546
+      ]
+    },
+    {
+      "bridge": "Bridge 11 to 01 systemic veins to vena cava",
+      "port": "RA.left",
+      "host": "01 Right atrium",
+      "point_m": [
+        -0.142755389213562,
+        6.54206596664153e-05,
+        0.0009616732713766396
+      ]
+    }
+  ]
+}

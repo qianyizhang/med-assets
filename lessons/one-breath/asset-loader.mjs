@@ -10,7 +10,7 @@ export async function loadModels(manifest,read=defaultRead){
   if(doc.buffers.some(x=>x.uri)||doc.images?.some(x=>x.uri||!Number.isInteger(x.bufferView))||doc.extensionsRequired?.length)throw Error('Only embedded reviewed models are supported');
   const manager=new THREE.LoadingManager();manager.setURLModifier(()=>{throw Error('Unexpected external model resource')});
   // Intentional neutral teaching palette; source embedded textures are retained in bytes but unused.
-  const loader=new GLTFLoader(manager);loader.register(parser=>({name:'NeutralTeachingMaterial',loadMaterial:index=>{const m=new THREE.MeshStandardMaterial({color:'#c7a28e',roughness:.85});m.name=parser.json.materials[index]?.name||'';return Promise.resolve(m);}}));
+  const loader=new GLTFLoader(manager);if(item.id!=='airwayRoute')loader.register(parser=>({name:'NeutralTeachingMaterial',loadMaterial:index=>{const m=new THREE.MeshStandardMaterial({color:'#c7a28e',roughness:.85});m.name=parser.json.materials[index]?.name||'';return Promise.resolve(m);}}));
   return [item.id,await loader.parseAsync(raw,'')];
  }));return Object.fromEntries(pairs);
 }

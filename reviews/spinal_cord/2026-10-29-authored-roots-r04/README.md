@@ -22,7 +22,7 @@ same-pair locators were clear and unclipped. This is a separate presentation pas
 | Paired roots | 34 dorsal-only ganglia; 68 root/trunk contact candidate groups; ventral clearance at each ganglion | Authored geometry tolerances, not anatomical measurements |
 | Preservation/replay | Cord/filum triangle identities preserved; exact GLB replay | Blender 4.3.2; no supported viewer test |
 | Anatomy | Public-reference screening of the relationship | No specialist/clinical approval or full nerve map |
-| Delivery | Recipe, SVG projections and text receipts | Generated GLB and reviewed PNGs remain local/unpublished |
+| Delivery | Recipe, SVG projections and text receipts. The [later delivery receipt](../../../models/spinal_cord/exports/authored-roots-r04/delivery.json) records independent readback of the exact GLB. | The reviewed raster PNGs remained local at this checkpoint. |
 
 [Independent actual-pixel verdict](independent-review.md),
 [exact raster identities and cameras](raster-bindings.json), and

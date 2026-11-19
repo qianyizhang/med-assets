@@ -1,0 +1,230 @@
+{
+  "glb": "cardiovascular-loop.glb",
+  "sha256": "89f80adddacddb3915c82d971ac7d4c68c180344eb1ae47dda2d659fa55ab4f2",
+  "blender": "5.2.3 LTS Release Candidate",
+  "viewsSha256": "6aa5f8024605e4b35cacf07ce173a4d353c6d1ae9ad09813ffcba72cedc64df4",
+  "views": [
+    {
+      "id": "loop",
+      "frame": 1,
+      "visible": [
+        "01 Right atrium",
+        "02 Tricuspid valve - annulus",
+        "02 Tricuspid valve - leaflet 1",
+        "02 Tricuspid valve - leaflet 2",
+        "02 Tricuspid valve - leaflet 3",
+        "03 Right ventricle",
+        "04 Pulmonary valve - annulus",
+        "04 Pulmonary valve - leaflet 1",
+        "04 Pulmonary valve - leaflet 2",
+        "04 Pulmonary valve - leaflet 3",
+        "05 Lung vascular bed - central",
+        "05 Lung vascular bed - lower",
+        "05 Lung vascular bed - upper",
+        "07 Left atrium",
+        "08 Mitral valve - annulus",
+        "08 Mitral valve - leaflet 1",
+        "08 Mitral valve - leaflet 2",
+        "09 Left ventricle",
+        "10 Aortic valve - annulus",
+        "10 Aortic valve - leaflet 1",
+        "10 Aortic valve - leaflet 2",
+        "10 Aortic valve - leaflet 3",
+        "11 Systemic vascular bed - central",
+        "11 Systemic vascular bed - lower",
+        "11 Systemic vascular bed - upper",
+        "Bridge 01 to 02",
+        "Bridge 02 to 03",
+        "Bridge 03 to 04",
+        "Bridge 04 to 05 pulmonary outflow",
+        "Bridge 05 to 07 pulmonary venous return",
+        "Bridge 07 to 08",
+        "Bridge 08 to 09",
+        "Bridge 09 to 10",
+        "Bridge 10 to 11 aorta to systemic arteries",
+        "Bridge 11 to 01 systemic veins to vena cava",
+        "Direction 04 to 05 pulmonary outflow",
+        "Direction 05 to 07 pulmonary venous return",
+        "Direction 08 to 09",
+        "Direction 10 to 11 aorta to systemic arteries",
+        "Direction 11 to 01 systemic veins to vena cava",
+        "Label Aortic",
+        "Label Body bed",
+        "Label LA",
+        "Label LV",
+        "Label Lung bed",
+        "Label Mitral",
+        "Label Pulmonary",
+        "Label RA",
+        "Label RV",
+        "Label Tricuspid"
+      ],
+      "bounds": [
+        [
+          -0.16919450461864471,
+          -0.02500000037252903,
+          -0.10559000074863434
+        ],
+        [
+          0.16794715821743011,
+          0.023631786927580833,
+          0.11170600354671478
+        ]
+      ],
+      "orthographicScale": 0.367484450340271,
+      "images": [
+        {
+          "file": "loop-iso.png",
+          "sha256": "5fcaf104e0d967818c2a688e57746c20d2565f6d66e1e411bfcf5a83e38d50c7",
+          "direction": [
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            0.9823735356330872,
+            -0.9829972386360168,
+            0.957480251789093
+          ]
+        },
+        {
+          "file": "loop-ortho.png",
+          "sha256": "2b881c0b08d6f68591c8f886cb55414ae8b9d30d5ac7f722a131e1abe81cfaf2",
+          "direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "camera": [
+            -0.0006236732006072998,
+            -1.6863924264907837,
+            0.003058001399040222
+          ]
+        }
+      ]
+    },
+    {
+      "id": "right-valves",
+      "frame": 1,
+      "visible": [
+        "01 Right atrium",
+        "02 Tricuspid valve - annulus",
+        "02 Tricuspid valve - leaflet 1",
+        "02 Tricuspid valve - leaflet 2",
+        "02 Tricuspid valve - leaflet 3",
+        "03 Right ventricle",
+        "04 Pulmonary valve - annulus",
+        "04 Pulmonary valve - leaflet 1",
+        "04 Pulmonary valve - leaflet 2",
+        "04 Pulmonary valve - leaflet 3",
+        "Bridge 01 to 02",
+        "Bridge 02 to 03",
+        "Bridge 03 to 04"
+      ],
+      "bounds": [
+        [
+          -0.142755389213562,
+          -0.023631786927580833,
+          -0.035750001668930054
+        ],
+        [
+          -0.020904067903757095,
+          0.023631786927580833,
+          0.05290830135345459
+        ]
+      ],
+      "orthographicScale": 0.16193479299545288,
+      "images": [
+        {
+          "file": "right-valves-iso.png",
+          "sha256": "3c6abcdb91a3f1855758162a1c83704a33a8c8beb09ee7d868ad9f4f3eacb1df",
+          "direction": [
+            0.5226583480834961,
+            -0.4933154284954071,
+            0.6953187584877014
+          ],
+          "camera": [
+            0.24615229666233063,
+            -0.3051472008228302,
+            0.4217713177204132
+          ]
+        },
+        {
+          "file": "right-valves-ortho.png",
+          "sha256": "86fbe43f31150dc11feba70e8345abc2f3d23cd2e76521b87347cd90f15a6abb",
+          "direction": [
+            0.0,
+            -0.9438583254814148,
+            0.330350399017334
+          ],
+          "camera": [
+            -0.0818297266960144,
+            -0.5759291648864746,
+            0.20734098553657532
+          ]
+        }
+      ]
+    },
+    {
+      "id": "left-valves",
+      "frame": 1,
+      "visible": [
+        "07 Left atrium",
+        "08 Mitral valve - annulus",
+        "08 Mitral valve - leaflet 1",
+        "08 Mitral valve - leaflet 2",
+        "09 Left ventricle",
+        "10 Aortic valve - annulus",
+        "10 Aortic valve - leaflet 1",
+        "10 Aortic valve - leaflet 2",
+        "10 Aortic valve - leaflet 3",
+        "Bridge 07 to 08",
+        "Bridge 08 to 09",
+        "Bridge 09 to 10"
+      ],
+      "bounds": [
+        [
+          0.030194690451025963,
+          -0.014021659269928932,
+          -0.03700000047683716
+        ],
+        [
+          0.14438556134700775,
+          0.014021660201251507,
+          0.05027635022997856
+        ]
+      ],
+      "orthographicScale": 0.1487288624048233,
+      "images": [
+        {
+          "file": "left-valves-iso.png",
+          "sha256": "83ac7a48887dfc944df558eafe178b97115c2edb6209587faeb275d4d526b3d6",
+          "direction": [
+            0.5226583480834961,
+            -0.4933154284954071,
+            0.6953187584877014
+          ],
+          "camera": [
+            0.39151814579963684,
+            -0.28758493065834045,
+            0.3950599730014801
+          ]
+        },
+        {
+          "file": "left-valves-ortho.png",
+          "sha256": "9e0c42a9c109e7e9c55bcb4f66876dabad3bd8d9da6f051e82a8b5bc8f06042a",
+          "direction": [
+            0.0,
+            -0.9438583254814148,
+            0.330350399017334
+          ],
+          "camera": [
+            0.08729013055562973,
+            -0.539236307144165,
+            0.19429230690002441
+          ]
+        }
+      ]
+    }
+  ]
+}

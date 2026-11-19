@@ -1,0 +1,186 @@
+{
+  "glb": "male.glb",
+  "sha256": "278f42a5717e63ac3e44aa17a083c9b2794fa62691cf5dc8c537888f8999dffa",
+  "blender": "5.2.3 LTS Release Candidate",
+  "viewsSha256": "ae4947d6b5f5c4391b655a25aa1daabd25016ec8b4992bea403dbbfcfe400dac",
+  "views": [
+    {
+      "id": "context",
+      "frame": 1,
+      "visible": [
+        "Ductus deferens.l",
+        "Ductus deferens.r",
+        "Ejaculatory duct.l",
+        "Ejaculatory duct.r",
+        "Epididymis.l native study",
+        "Epididymis.r native study",
+        "Prostate source display",
+        "Seminal vesicle.l",
+        "Seminal vesicle.r",
+        "Testis.l native study",
+        "Testis.r native study",
+        "Urethra source display",
+        "Urinary bladder source display",
+        "Vesicular duct.l",
+        "Vesicular duct.r"
+      ],
+      "bounds": [
+        [
+          -0.04829854890704155,
+          -0.0877605602145195,
+          0.7266267538070679
+        ],
+        [
+          0.04829854890704155,
+          0.05147886648774147,
+          0.8805927634239197
+        ]
+      ],
+      "orthographicScale": 0.2514946758747101,
+      "images": [
+        {
+          "file": "context-iso.png",
+          "sha256": "15a00528046d6e474373fd5f400cce135ce8715350d93431ba245f0a26f3d231",
+          "direction": [
+            -0.5773502588272095,
+            0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            -0.4404242932796478,
+            0.4339793920516968,
+            1.2444499731063843
+          ]
+        },
+        {
+          "file": "context-ortho.png",
+          "sha256": "092e67fa73e423a9ea7701c4fd50df6373b42c733a243ee82fe9f77462052951",
+          "direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "camera": [
+            -3.725295627532432e-09,
+            0.7516891956329346,
+            0.8036097884178162
+          ]
+        }
+      ]
+    },
+    {
+      "id": "route",
+      "frame": 1,
+      "visible": [
+        "Ductus deferens.l",
+        "Ductus deferens.r",
+        "Ejaculatory duct.l",
+        "Ejaculatory duct.r",
+        "Epididymis.l native study",
+        "Epididymis.r native study",
+        "Seminal vesicle.l",
+        "Seminal vesicle.r",
+        "Testis.l native study",
+        "Testis.r native study",
+        "Urethra source display",
+        "Vesicular duct.l",
+        "Vesicular duct.r"
+      ],
+      "bounds": [
+        [
+          -0.04829854890704155,
+          -0.0877605602145195,
+          0.7266267538070679
+        ],
+        [
+          0.04829854890704155,
+          0.05147886648774147,
+          0.8635850548744202
+        ]
+      ],
+      "orthographicScale": 0.23493659496307373,
+      "images": [
+        {
+          "file": "route-iso.png",
+          "sha256": "e4c80238859bca45e9118f30963d1a8a1b00dab17cd0f0d656c3959aff70a22a",
+          "direction": [
+            0.5773502588272095,
+            0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            0.39755839109420776,
+            0.3911134600639343,
+            1.1941421031951904
+          ]
+        },
+        {
+          "file": "route-ortho.png",
+          "sha256": "da960575aa8060dbde5b254785e9e4ae8578f335eb8bd992e0023f5580a4c2c2",
+          "direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "camera": [
+            0.6961971521377563,
+            -0.018140846863389015,
+            0.7951059341430664
+          ]
+        }
+      ]
+    },
+    {
+      "id": "left-confluence",
+      "frame": 1,
+      "visible": [
+        "Ejaculatory duct.l",
+        "Seminal vesicle.l",
+        "Vesicular duct.l"
+      ],
+      "bounds": [
+        [
+          -0.0005704400828108191,
+          0.013512550853192806,
+          0.8200615644454956
+        ],
+        [
+          0.03334251791238785,
+          0.05147886648774147,
+          0.8635850548744202
+        ]
+      ],
+      "orthographicScale": 0.06709922105073929,
+      "images": [
+        {
+          "file": "left-confluence-iso.png",
+          "sha256": "f347f2d74fc22738bd6bf91e630dc25c7c2c56563406352b7721d9076c3a8243",
+          "direction": [
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            0.14135420322418213,
+            -0.09247246384620667,
+            0.9688114523887634
+          ]
+        },
+        {
+          "file": "left-confluence-ortho.png",
+          "sha256": "cd43a389cc55e55b5cace7f8e815186a263900a98986b32efc7694836159ffdb",
+          "direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "camera": [
+            0.016386037692427635,
+            -0.18512174487113953,
+            0.8418233394622803
+          ]
+        }
+      ]
+    }
+  ]
+}

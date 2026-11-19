@@ -10,13 +10,17 @@ for item in manifest['assets']:
  raw=source.read_bytes()
  if len(raw)!=item['bytes'] or hashlib.sha256(raw).hexdigest()!=item['sha256']:raise ValueError('Wrong or unresolved local asset: '+item['id'])
  sources.append((item,raw))
-a.out.mkdir(parents=True)
-for item,raw in sources:(a.out/item['file']).write_bytes(raw)
+vendors=[]
 fixture=json.loads((ROOT.parents[1]/'ci/glb-runtime-fixture.json').read_text())
 for item in fixture['resources']:
  if not item['path'].startswith('vendor/'):continue
  with urllib.request.urlopen(item['url'],timeout=45) as r:raw=r.read()
  if len(raw)!=item['bytes'] or hashlib.sha256(raw).hexdigest()!=item['sha256']:raise ValueError('Dependency identity mismatch')
+ vendors.append((item,raw))
+# A failed dependency read leaves the destination available for a clean retry.
+a.out.mkdir(parents=True)
+for item,raw in sources:(a.out/item['file']).write_bytes(raw)
+for item,raw in vendors:
  target=a.out/item['path'];target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(raw)
 (a.out/'vendor/package.json').write_text('{"name":"three","type":"module","exports":"./build/three.module.js"}\n')
 (a.out/'staging-receipt.json').write_text(json.dumps({'assets':manifest['assets'],'threeVersion':fixture['threeVersion'],'source':'Exact hydrated repository models; official dependency bytes pinned by current repository fixture'},indent=2)+'\n')

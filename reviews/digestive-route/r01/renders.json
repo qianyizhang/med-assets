@@ -1,0 +1,294 @@
+{
+  "glb": "digestive-route.glb",
+  "sha256": "f91ee8cb160b182d932b991a1dff61d465213431b87cff535cf907fa8822834a",
+  "blender": "5.2.3 LTS Release Candidate",
+  "viewsSha256": "6ab383f9d5536791b6dd6d52d5ab4a9ff9aa3754be6cad06d48faec82894477f",
+  "views": [
+    {
+      "id": "context",
+      "frame": 1,
+      "visible": [
+        "Accessory Bile - common bile duct",
+        "Accessory Bile - gallbladder and cystic duct",
+        "Accessory Bile - hepatic duct",
+        "Accessory Common channel - duodenal entry",
+        "Accessory Pancreatic - main duct",
+        "Accessory Saliva - parotid to oral vestibule",
+        "Food 01 Oral cavity",
+        "Food 02 Pharynx",
+        "Food 03 Esophagus",
+        "Food 04 Stomach",
+        "Food 05 Duodenum",
+        "Food 06 Jejunum and ileum",
+        "Food 07 Cecum and ascending colon",
+        "Food 08 Transverse colon",
+        "Food 09 Descending and sigmoid colon",
+        "Food 10 Rectum and anal canal",
+        "Source gallbladder",
+        "Source large-intestine",
+        "Source liver",
+        "Source pancreas",
+        "Source small-intestine",
+        "Source stomach"
+      ],
+      "bounds": [
+        [
+          -0.2505462169647217,
+          -0.19687362015247345,
+          -0.15247511863708496
+        ],
+        [
+          0.24717968702316284,
+          0.06665223836898804,
+          0.34939414262771606
+        ]
+      ],
+      "orthographicScale": 0.8496735095977783,
+      "images": [
+        {
+          "file": "context-iso.png",
+          "sha256": "52e4b61c1a5d1035faaa77e9638e9df7f3a493179933dfefaea9d7f94e4eba29",
+          "direction": [
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            1.418566346168518,
+            -1.5036817789077759,
+            1.5859543085098267
+          ]
+        },
+        {
+          "file": "context-ortho.png",
+          "sha256": "847186098dfab9205b359fd5654df2ed794dc1c42f324fa024f3362abf30b7c3",
+          "direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "camera": [
+            -0.001683264970779419,
+            -2.5744569301605225,
+            0.09845951199531555
+          ]
+        }
+      ]
+    },
+    {
+      "id": "food",
+      "frame": 1,
+      "visible": [
+        "Food 01 Oral cavity",
+        "Food 02 Pharynx",
+        "Food 03 Esophagus",
+        "Food 04 Stomach",
+        "Food 05 Duodenum",
+        "Food 06 Jejunum and ileum",
+        "Food 07 Cecum and ascending colon",
+        "Food 08 Transverse colon",
+        "Food 09 Descending and sigmoid colon",
+        "Food 10 Rectum and anal canal"
+      ],
+      "bounds": [
+        [
+          0.08037444949150085,
+          -0.037082649767398834,
+          -0.10202724486589432
+        ],
+        [
+          0.24717968702316284,
+          0.020429063588380814,
+          0.3450000286102295
+        ]
+      ],
+      "orthographicScale": 0.6090747117996216,
+      "images": [
+        {
+          "file": "food-iso.png",
+          "sha256": "e0172c6573d3f49753d631ffdb2f28cef49888927655c5f14d94bb296bcfb4b9",
+          "direction": [
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            1.45265793800354,
+            -1.2994987964630127,
+            1.4128031730651855
+          ]
+        },
+        {
+          "file": "food-ortho.png",
+          "sha256": "8f21c53508bb4e08edffc385e491816c94840246d1162dbbead75aa0ac25fe66",
+          "direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "camera": [
+            0.16377706825733185,
+            -2.2434630393981934,
+            0.12148639559745789
+          ]
+        }
+      ]
+    },
+    {
+      "id": "saliva",
+      "frame": 1,
+      "visible": [
+        "Accessory Saliva - parotid to oral vestibule",
+        "Food 01 Oral cavity"
+      ],
+      "bounds": [
+        [
+          0.12104858458042145,
+          -0.014280000701546669,
+          0.32500001788139343
+        ],
+        [
+          0.17900000512599945,
+          0.014280000701546669,
+          0.34939414262771606
+        ]
+      ],
+      "orthographicScale": 0.07097072899341583,
+      "images": [
+        {
+          "file": "saliva-iso.png",
+          "sha256": "119970506d442bb4669217240bb2401cb4458e66b6e6ae2cc22cf85a287cca67",
+          "direction": [
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            0.3195880651473999,
+            -0.16630373895168304,
+            0.5032035708427429
+          ]
+        },
+        {
+          "file": "saliva-ortho.png",
+          "sha256": "36e5e7d29bc18780757c49d2d0ad2a216e60d62f3c8108335aebf97dd64b2f26",
+          "direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "camera": [
+            0.15002429485321045,
+            -0.28975710272789,
+            0.33719706535339355
+          ]
+        }
+      ]
+    },
+    {
+      "id": "duodenal-entry",
+      "frame": 1,
+      "visible": [
+        "Accessory Bile - common bile duct",
+        "Accessory Bile - gallbladder and cystic duct",
+        "Accessory Bile - hepatic duct",
+        "Accessory Common channel - duodenal entry",
+        "Accessory Pancreatic - main duct",
+        "Food 05 Duodenum"
+      ],
+      "bounds": [
+        [
+          0.08828573673963547,
+          -0.02343928813934326,
+          0.03195306658744812
+        ],
+        [
+          0.2080191969871521,
+          0.006858584005385637,
+          0.12290026247501373
+        ]
+      ],
+      "orthographicScale": 0.15409788489341736,
+      "images": [
+        {
+          "file": "duodenal-entry-iso.png",
+          "sha256": "347df2a7ac7ea410b3155967748e43b11c264f2a51ac24723c563c677d4bbabc",
+          "direction": [
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            0.48916810750961304,
+            -0.3530065417289734,
+            0.428617000579834
+          ]
+        },
+        {
+          "file": "duodenal-entry-ortho.png",
+          "sha256": "6331d23a365b5775466a5ff23d830f2838f333db5748d5ca7aaf023ca6d04f14",
+          "direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "camera": [
+            0.14815247058868408,
+            -0.6069576740264893,
+            0.07742666453123093
+          ]
+        }
+      ]
+    },
+    {
+      "id": "outlet",
+      "frame": 1,
+      "visible": [
+        "Food 10 Rectum and anal canal"
+      ],
+      "bounds": [
+        [
+          0.1603923887014389,
+          -0.008432813920080662,
+          -0.10202724486589432
+        ],
+        [
+          0.1819443553686142,
+          0.008432813920080662,
+          -0.05802811682224274
+        ]
+      ],
+      "orthographicScale": 0.06778629869222641,
+      "images": [
+        {
+          "file": "outlet-iso.png",
+          "sha256": "97a74f2eb74a5c1331d8c26bc51faacd215396dd7077d9bae93828b78222c78d",
+          "direction": [
+            0.7659062147140503,
+            -0.5835740566253662,
+            0.26986828446388245
+          ],
+          "camera": [
+            0.33966439962387085,
+            -0.12838375568389893,
+            -0.020657839253544807
+          ]
+        },
+        {
+          "file": "outlet-ortho.png",
+          "sha256": "61dabf002d16398a6529657a97a9b531c025d3e635221df9075e347dfddc921f",
+          "direction": [
+            0.0,
+            -0.761939287185669,
+            -0.6476483941078186
+          ],
+          "camera": [
+            0.17116837203502655,
+            -0.16762332618236542,
+            -0.222507506608963
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+[
+  {"id":"overview"},
+  {"id":"thyroid-axis","include":["Hypothalamus-*","Neck*","TRH*","TSH*"]},
+  {"id":"posterior-neck","include":["Neck*"],"front":[0,1,0]},
+  {"id":"islet","include":["Islet*"]},
+  {"id":"upper-abdomen","include":["Adrenal*","Pancreas*"]},
+  {"id":"posterior-abdomen","include":["Adrenal*","Pancreas*"],"front":[0,1,0]},
+  {"id":"gonads","include":["Pelvic ovary*","Alternative testis*","Male gonad alternative*"]}
+]

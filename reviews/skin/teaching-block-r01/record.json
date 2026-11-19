@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "id": "skin-teaching-block-r01-2026-11-19",
+  "assetId": "skin",
+  "variantId": "teaching-block-r01",
+  "reviewedAt": "2026-11-19T12:13:00+08:00",
+  "artifact": {
+    "file": "models/skin/teaching-block-r01/skin-block.glb",
+    "sha256": "3c03ee0cf6d966d7e452b82b253153ac841d217def47abb23bfee79b3d5157e7",
+    "bytes": 1852252
+  },
+  "sources": [
+    {
+      "file": "models/skin/teaching-block-r01/build.py",
+      "sha256": "0a1b318808a908b7ddb81be188e1b2357baba08f4ffb1b84287b5f3528369d4b",
+      "bytes": 9546
+    },
+    {
+      "file": "models/skin/teaching-block-r01/skin-block.blend",
+      "sha256": "6d0c672f6e27211a7b38d6a9618d1cd8e4d2420b057aa1199787aae3a02a6978",
+      "bytes": 706354
+    },
+    {
+      "file": "models/skin/teaching-block-r01/check.py",
+      "sha256": "da36d0a84bd45056658d6a466755ac9eca5f44f6144a499ac7dc554120821b82",
+      "bytes": 3905
+    },
+    {
+      "file": "models/skin/teaching-block-r01/views.json",
+      "sha256": "31c63bc4a401ae3dd2245fb72f3be263b4bfeb2b3e046807d940d783efb9e42d",
+      "bytes": 213
+    },
+    {
+      "file": "body/2d-v4/whole-body-anatomy-v4-spatial/regions/skin-detail.svg",
+      "sha256": "6a64a0e94b38f75b5ffd2641fc1a9dcf2655d20c8647098e379c027ad92a0a07",
+      "bytes": 12509
+    },
+    {
+      "file": "models/skin/exports/bp3d-envelope-r01/skin_source_frame.glb",
+      "sha256": "d86719833a17dc7b45c8eb970498f1e2feefd352b5812942f4b147a9ffcfbe4f",
+      "bytes": 4901132
+    }
+  ],
+  "evidence": [
+    {
+      "file": "reviews/skin/teaching-block-r01/appendages-iso.png",
+      "sha256": "1fb32f99b7eb1a545697cef36e04f9fb71de15dad15a87bd18bf9bc2ec0d352a",
+      "bytes": 214544,
+      "artifactSha256": "3c03ee0cf6d966d7e452b82b253153ac841d217def47abb23bfee79b3d5157e7",
+      "kind": "clean-glb-orthographic-render"
+    },
+    {
+      "file": "reviews/skin/teaching-block-r01/appendages-ortho.png",
+      "sha256": "d714b1a0251b129beb4bdf3959dfb5dbaef15325e037b4793b82a083ad9b0d71",
+      "bytes": 231254,
+      "artifactSha256": "3c03ee0cf6d966d7e452b82b253153ac841d217def47abb23bfee79b3d5157e7",
+      "kind": "clean-glb-orthographic-render"
+    },
+    {
+      "file": "reviews/skin/teaching-block-r01/combined-iso.png",
+      "sha256": "31ef1716756678fcf978f579151b7c033416d344025d8f616a5a501ab9310e54",
+      "bytes": 318984,
+      "artifactSha256": "3c03ee0cf6d966d7e452b82b253153ac841d217def47abb23bfee79b3d5157e7",
+      "kind": "clean-glb-orthographic-render"
+    },
+    {
+      "file": "reviews/skin/teaching-block-r01/combined-ortho.png",
+      "sha256": "4e6cd5eeb356322de0a5e959e2ef8ca35b5897b50af0fdbef32946a04ed4198e",
+      "bytes": 303869,
+      "artifactSha256": "3c03ee0cf6d966d7e452b82b253153ac841d217def47abb23bfee79b3d5157e7",
+      "kind": "clean-glb-orthographic-render"
+    },
+    {
+      "file": "reviews/skin/teaching-block-r01/nail-iso.png",
+      "sha256": "0720eb121d48bdf70210a435e134e5a060da6707e923977a53cccec1b3e8312f",
+      "bytes": 282556,
+      "artifactSha256": "3c03ee0cf6d966d7e452b82b253153ac841d217def47abb23bfee79b3d5157e7",
+      "kind": "clean-glb-orthographic-render"
+    },
+    {
+      "file": "reviews/skin/teaching-block-r01/nail-ortho.png",
+      "sha256": "0c6dade5b940a3dc6d6dc88748c2f8d89d42e48543a00e846425612d85df589a",
+      "bytes": 262740,
+      "artifactSha256": "3c03ee0cf6d966d7e452b82b253153ac841d217def47abb23bfee79b3d5157e7",
+      "kind": "clean-glb-orthographic-render"
+    },
+    {
+      "file": "reviews/skin/teaching-block-r01/skin-block-iso.png",
+      "sha256": "2f1a4f7e0b9faed4c5d2cda3818fef8b03dbcb38a376cb175b96110754d42e0c",
+      "bytes": 356349,
+      "artifactSha256": "3c03ee0cf6d966d7e452b82b253153ac841d217def47abb23bfee79b3d5157e7",
+      "kind": "clean-glb-orthographic-render"
+    },
+    {
+      "file": "reviews/skin/teaching-block-r01/skin-block-ortho.png",
+      "sha256": "0aceea4703925ff82b2aa27a49e90b65d99f1b3c86c347697009634b2c42ab46",
+      "bytes": 341143,
+      "artifactSha256": "3c03ee0cf6d966d7e452b82b253153ac841d217def47abb23bfee79b3d5157e7",
+      "kind": "clean-glb-orthographic-render"
+    },
+    {
+      "file": "reviews/skin/teaching-block-r01/renders.json",
+      "sha256": "b6944a3d4bc6b25bc6d4461fad1cabcaaf6f9c88b1113a9795b27c046398655e",
+      "bytes": 7047,
+      "artifactSha256": "3c03ee0cf6d966d7e452b82b253153ac841d217def47abb23bfee79b3d5157e7",
+      "kind": "clean-import-camera-and-image-bindings"
+    }
+  ],
+  "gates": {
+    "technical": {
+      "status": "passed",
+      "scope": "Two exact GLB builds; independent named mesh, local interface, pore, duct join and nail contact checks."
+    },
+    "visual": {
+      "status": "passed",
+      "scope": "Eight matched clean-import images inspected, including isolated appendages and nail cut face."
+    },
+    "anatomy": {
+      "status": "reference-screened",
+      "scope": "OpenStax 5.1 and 5.2 for relationships, local skin SVG for cutaway scope."
+    },
+    "runtime": {
+      "status": "unverified",
+      "scope": "Interactive WebGL loading and navigation were not exercised."
+    }
+  },
+  "failureSummary": {
+    "failure": "Initial grooves projected below the appendages.",
+    "cause": "Channel clearance spanned the whole dermal depth.",
+    "fix": "Restricted cut-face relief by depth.",
+    "retest": "Rebuilt twice, verified clean GLB and inspected all four render pairs.",
+    "lesson": "Inspect the tissue around an isolated route in the combined view."
+  },
+  "limitations": [
+    "Independent side-neutral sections with separate teaching scales.",
+    "No fine histology, complete adnexa or site-specific morphometry.",
+    "The coil is lifted toward the cut for visibility. Clinical and runtime validation remain open."
+  ]
+}

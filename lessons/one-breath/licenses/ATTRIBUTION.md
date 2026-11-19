@@ -25,3 +25,14 @@ Dataset: https://zenodo.org/records/10047263 .
 Source revision: `75ec4e6530abe4d434b07958e90bdc9dec062bef`.
 No source-author endorsement, specialist anatomical approval, clinical validation
 or physiological simulation claim.
+
+The [airway extension](../airway-r01/README.md) retains the V7 tracheal cutaway
+and a selected Workshop left upper lobar bronchus. Workshop sources and derived
+surfaces retain the [collection credits](../../../body/anatomy-workshop-r1/README.md)
+and [source notices](../../../body/anatomy-workshop-r1/docs/licenses/NOTICE.md).
+The translated cricoid, thyroid cartilage and epiglottis are from BodyParts3D,
+© The Database Center for Life Science, [CC BY 4.0](https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html).
+See the [original credits](../../../models/pharynx_larynx/exports/r03/ATTRIBUTION.md).
+The lesson changes their display materials. The sagittal nasal relief, continuous
+guides, distal passages and alveolar cuts are authored schematics. No reference
+figure is embedded.

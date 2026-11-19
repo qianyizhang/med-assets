@@ -1,0 +1,320 @@
+{
+  "glb": "calf-plantarflexion.glb",
+  "sha256": "cfb5242ba5daf9fe3ec176912e0c33e3d5efcf4aa23a1cfc306db35237c8a118",
+  "neutralVsStaticMaxMm": {
+    "Calcaneal tendon": 3.7990655954445174e-05,
+    "Soleus muscle": 1.666000493116826e-05,
+    "Medial head of gastrocnemius": 5.9604644775390625e-05,
+    "Lateral head of gastrocnemius": 1.4901161193847656e-05,
+    "Calcaneus": 4.0122603905956566e-05,
+    "Tibia": 2.686345013103164e-05,
+    "Fibula": 3.1828893298779803e-05,
+    "Talus": 3.889317312655294e-05
+  },
+  "heelRigidTransformErrorMm": 1.862645149230957e-05,
+  "sampledPoses": [
+    {
+      "frame": 0,
+      "displacementMm": {
+        "Calcaneal tendon": 0.0,
+        "Calcaneus": 0.0,
+        "Fibula": 0.0,
+        "Lateral head of gastrocnemius": 0.0,
+        "Medial head of gastrocnemius": 0.0,
+        "Soleus muscle": 0.0,
+        "Talus": 0.0,
+        "Tibia": 0.0
+      },
+      "edgeLengthRatios": {
+        "Calcaneal tendon": [
+          1.0,
+          1.0
+        ],
+        "Calcaneus": [
+          1.0,
+          1.0
+        ],
+        "Fibula": [
+          1.0,
+          1.0
+        ],
+        "Lateral head of gastrocnemius": [
+          1.0,
+          1.0
+        ],
+        "Medial head of gastrocnemius": [
+          1.0,
+          1.0
+        ],
+        "Soleus muscle": [
+          1.0,
+          1.0
+        ],
+        "Talus": [
+          1.0,
+          1.0
+        ],
+        "Tibia": [
+          1.0,
+          1.0
+        ]
+      },
+      "fixedLandmarkSeparationMm": {
+        "Lateral head of gastrocnemius / Calcaneal tendon": 0.25839,
+        "Medial head of gastrocnemius / Calcaneal tendon": 0.17704,
+        "Soleus muscle / Calcaneal tendon": 0.09233,
+        "Calcaneal tendon / Calcaneus": 0.08491
+      },
+      "talusIntersectionPairs": {
+        "Tibia": 0,
+        "Fibula": 31
+      }
+    },
+    {
+      "frame": 6,
+      "displacementMm": {
+        "Calcaneal tendon": 2.3811,
+        "Calcaneus": 2.3773,
+        "Fibula": 0.0,
+        "Lateral head of gastrocnemius": 1.2185,
+        "Medial head of gastrocnemius": 1.5883,
+        "Soleus muscle": 2.3671,
+        "Talus": 1.8393,
+        "Tibia": 0.0
+      },
+      "edgeLengthRatios": {
+        "Calcaneal tendon": [
+          0.97944,
+          1.01533
+        ],
+        "Calcaneus": [
+          0.99999,
+          1.00001
+        ],
+        "Fibula": [
+          1.0,
+          1.0
+        ],
+        "Lateral head of gastrocnemius": [
+          0.97972,
+          1.01418
+        ],
+        "Medial head of gastrocnemius": [
+          0.97939,
+          1.01541
+        ],
+        "Soleus muscle": [
+          0.98115,
+          1.01664
+        ],
+        "Talus": [
+          0.99999,
+          1.00001
+        ],
+        "Tibia": [
+          1.0,
+          1.0
+        ]
+      },
+      "fixedLandmarkSeparationMm": {
+        "Lateral head of gastrocnemius / Calcaneal tendon": 0.26221,
+        "Medial head of gastrocnemius / Calcaneal tendon": 0.17763,
+        "Soleus muscle / Calcaneal tendon": 0.09156,
+        "Calcaneal tendon / Calcaneus": 0.08492
+      },
+      "talusIntersectionPairs": {
+        "Tibia": 0,
+        "Fibula": 19
+      }
+    },
+    {
+      "frame": 12,
+      "displacementMm": {
+        "Calcaneal tendon": 7.6271,
+        "Calcaneus": 7.6149,
+        "Fibula": 0.0,
+        "Lateral head of gastrocnemius": 3.9032,
+        "Medial head of gastrocnemius": 5.0878,
+        "Soleus muscle": 7.5825,
+        "Talus": 5.8916,
+        "Tibia": 0.0
+      },
+      "edgeLengthRatios": {
+        "Calcaneal tendon": [
+          0.93535,
+          1.05119
+        ],
+        "Calcaneus": [
+          0.99999,
+          1.00001
+        ],
+        "Fibula": [
+          1.0,
+          1.0
+        ],
+        "Lateral head of gastrocnemius": [
+          0.93651,
+          1.04708
+        ],
+        "Medial head of gastrocnemius": [
+          0.93526,
+          1.0508
+        ],
+        "Soleus muscle": [
+          0.9406,
+          1.05459
+        ],
+        "Talus": [
+          0.99998,
+          1.00001
+        ],
+        "Tibia": [
+          1.0,
+          1.0
+        ]
+      },
+      "fixedLandmarkSeparationMm": {
+        "Lateral head of gastrocnemius / Calcaneal tendon": 0.27106,
+        "Medial head of gastrocnemius / Calcaneal tendon": 0.17896,
+        "Soleus muscle / Calcaneal tendon": 0.08975,
+        "Calcaneal tendon / Calcaneus": 0.08491
+      },
+      "talusIntersectionPairs": {
+        "Tibia": 0,
+        "Fibula": 4
+      }
+    },
+    {
+      "frame": 18,
+      "displacementMm": {
+        "Calcaneal tendon": 12.8578,
+        "Calcaneus": 12.8372,
+        "Fibula": 0.0,
+        "Lateral head of gastrocnemius": 6.58,
+        "Medial head of gastrocnemius": 8.5769,
+        "Soleus muscle": 12.7824,
+        "Talus": 9.9319,
+        "Tibia": 0.0
+      },
+      "edgeLengthRatios": {
+        "Calcaneal tendon": [
+          0.89183,
+          1.09053
+        ],
+        "Calcaneus": [
+          0.99999,
+          1.00001
+        ],
+        "Fibula": [
+          1.0,
+          1.0
+        ],
+        "Lateral head of gastrocnemius": [
+          0.89599,
+          1.08247
+        ],
+        "Medial head of gastrocnemius": [
+          0.89338,
+          1.08773
+        ],
+        "Soleus muscle": [
+          0.9019,
+          1.09389
+        ],
+        "Talus": [
+          0.99999,
+          1.00001
+        ],
+        "Tibia": [
+          1.0,
+          1.0
+        ]
+      },
+      "fixedLandmarkSeparationMm": {
+        "Lateral head of gastrocnemius / Calcaneal tendon": 0.28041,
+        "Medial head of gastrocnemius / Calcaneal tendon": 0.18033,
+        "Soleus muscle / Calcaneal tendon": 0.08786,
+        "Calcaneal tendon / Calcaneus": 0.08491
+      },
+      "talusIntersectionPairs": {
+        "Tibia": 0,
+        "Fibula": 0
+      }
+    },
+    {
+      "frame": 24,
+      "displacementMm": {
+        "Calcaneal tendon": 15.2216,
+        "Calcaneus": 15.1973,
+        "Fibula": 0.0,
+        "Lateral head of gastrocnemius": 7.7897,
+        "Medial head of gastrocnemius": 10.1537,
+        "Soleus muscle": 15.1325,
+        "Talus": 11.7579,
+        "Tibia": 0.0
+      },
+      "edgeLengthRatios": {
+        "Calcaneal tendon": [
+          0.87251,
+          1.10929
+        ],
+        "Calcaneus": [
+          0.99997,
+          1.00002
+        ],
+        "Fibula": [
+          1.0,
+          1.0
+        ],
+        "Lateral head of gastrocnemius": [
+          0.87869,
+          1.0998
+        ],
+        "Medial head of gastrocnemius": [
+          0.87539,
+          1.10487
+        ],
+        "Soleus muscle": [
+          0.88511,
+          1.11243
+        ],
+        "Talus": [
+          0.99998,
+          1.00003
+        ],
+        "Tibia": [
+          1.0,
+          1.0
+        ]
+      },
+      "fixedLandmarkSeparationMm": {
+        "Lateral head of gastrocnemius / Calcaneal tendon": 0.28479,
+        "Medial head of gastrocnemius / Calcaneal tendon": 0.18097,
+        "Soleus muscle / Calcaneal tendon": 0.08697,
+        "Calcaneal tendon / Calcaneus": 0.08491
+      },
+      "talusIntersectionPairs": {
+        "Tibia": 0,
+        "Fibula": 0
+      }
+    }
+  ],
+  "neutralWitnessVertices": {
+    "Lateral head of gastrocnemius / Calcaneal tendon": [
+      26,
+      1204
+    ],
+    "Medial head of gastrocnemius / Calcaneal tendon": [
+      45,
+      1871
+    ],
+    "Soleus muscle / Calcaneal tendon": [
+      337,
+      946
+    ],
+    "Calcaneal tendon / Calcaneus": [
+      2166,
+      93
+    ]
+  }
+}

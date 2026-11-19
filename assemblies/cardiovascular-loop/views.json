@@ -1,0 +1,39 @@
+[
+  {
+    "id": "loop"
+  },
+  {
+    "id": "right-valves",
+    "include": [
+      "01 *",
+      "02 *",
+      "03 *",
+      "04 *",
+      "Bridge 01*",
+      "Bridge 02*",
+      "Bridge 03*"
+    ],
+    "front": [
+      0,
+      -1,
+      0.35
+    ]
+  },
+  {
+    "id": "left-valves",
+    "include": [
+      "07 *",
+      "08 *",
+      "09 *",
+      "10 *",
+      "Bridge 07*",
+      "Bridge 08*",
+      "Bridge 09*"
+    ],
+    "front": [
+      0,
+      -1,
+      0.35
+    ]
+  }
+]

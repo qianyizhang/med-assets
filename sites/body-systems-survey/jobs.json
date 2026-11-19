@@ -1,0 +1,1021 @@
+[
+  {
+    "id": "skin",
+    "title": "Adult external skin envelope",
+    "inputs": [
+      {
+        "path": "models/skin/exports/bp3d-envelope-r01/skin_source_frame.glb",
+        "sha256": "d86719833a17dc7b45c8eb970498f1e2feefd352b5812942f4b147a9ffcfbe4f",
+        "role": "skin",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "skeleton",
+    "title": "Axial and appendicular skeleton",
+    "inputs": [
+      {
+        "path": "models/skeleton/exports/source-candidate-03/skeleton_source_frame.glb",
+        "sha256": "d224985628cc62d0c9c4284019b73505c9ebf14d78d30a040d74a7b33c68620e",
+        "role": "bone",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "knee",
+    "title": "Knee joint and soft-tissue context",
+    "inputs": [
+      {
+        "path": "models/joints/exports/z-knee-r01/knee_z_native.glb",
+        "sha256": "6dcc793e4132e62e4962e504bef0d595bb2e7d3a31881137244f31eadbb53aad",
+        "role": "bone",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "spinal-joint",
+    "title": "Lumbar vertebrae and disc",
+    "inputs": [
+      {
+        "path": "assemblies/skeletal-teaching/2026-10-23/L3-L4-disc.glb",
+        "sha256": "d476f7efe89cea84fa3a7670b505e557c328ddae10526cc4083e4c95313b80d5",
+        "role": "bone",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "costal-joint",
+    "title": "Rib, costal cartilage and sternum",
+    "inputs": [
+      {
+        "path": "assemblies/skeletal-teaching/2026-10-23/second-costal.glb",
+        "sha256": "181d3e175e93702bb52f98535f2ebfe1d9387425dd432f19318161db7db99f05",
+        "role": "bone",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "muscles",
+    "title": "Whole-body muscle surface study",
+    "inputs": [
+      {
+        "path": "models/muscle/exports/z-anatomy-r02/muscle_z_native_frame.glb",
+        "sha256": "7081144bdbca0d2d871311a3568a0aedb1c8e125f7709ae8e7d55345a54bdfb7",
+        "role": "muscle",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "achilles",
+    "title": "Achilles tendon, lower calf and heel context",
+    "inputs": [
+      {
+        "path": "assemblies/musculoskeletal-teaching/2026-10-23/achilles-right-context.glb",
+        "sha256": "e38e33c1d0ceb791e4a2ad676dedd7923f53b5ad8d7dc8b195202565609354ea",
+        "role": "muscle",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "rotator",
+    "title": "Shoulder and rotator cuff",
+    "inputs": [
+      {
+        "path": "models/joints/exports/z-rotator-cuff-r01/right-rotator-cuff.glb",
+        "sha256": "edf5c2fc5322adc1c75703143b3fba5a2be3ecd87d5559bce1441c1977a4eb30",
+        "role": "muscle",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "brain",
+    "title": "Atlas brain",
+    "inputs": [
+      {
+        "path": "models/brain/exports/bodyparts3d-4.0-atlas-r2/brain-source-frame.glb",
+        "sha256": "26d39768e2882daee034f997a8d594e915283b5f8a176a8bb60003944a45b886",
+        "role": "nerve",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "cord",
+    "title": "Spinal cord and representative roots",
+    "inputs": [
+      {
+        "path": "models/spinal_cord/exports/authored-roots-r04/candidate.glb",
+        "sha256": "a37783fbd1ad25ba9a2bcfbed1419a2d3f655b42cec643bf32a77266ca82a9d0",
+        "role": "nerve",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "sciatic",
+    "title": "Sciatic nerve at the hip",
+    "inputs": [
+      {
+        "path": "models/peripheral_nerves/exports/sciatic-hip-r01/right-sciatic-hip.glb",
+        "sha256": "72077a97a8a935a7a4623443c1c0fd61ab48a9bf4ad895af058345b7a372abd6",
+        "role": "nerve",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "eye",
+    "title": "Eye and orbital nerve courses",
+    "inputs": [
+      {
+        "path": "models/eye_exterior/exports/z-native-courses-r01/eye-exterior-courses.glb",
+        "sha256": "39fd2cc18b2352b2ac73b46e76f486aa7eb7a8c0cc301a77a9b178a1cb8f70b9",
+        "role": "nerve",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "ear",
+    "title": "Auricle exterior",
+    "inputs": [
+      {
+        "path": "models/ears_z/exports/r04/ears_z.glb",
+        "sha256": "04ba664cdc219dc7b78e80ddb2b1d5ff39ffe4438bd0ab1bf63c2221c46f5939",
+        "role": "bone",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "nose",
+    "title": "Nasal airspace",
+    "inputs": [
+      {
+        "path": "models/nose_sinuses/exports/nih3d-airspace-r01/nasal_airspace.glb",
+        "sha256": "3d8c4d56e09d72ae369c697d2bb9435cc3792f9dbe225e7d456ff58174a577be",
+        "role": "air",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "tongue",
+    "title": "Tongue teaching study",
+    "inputs": [
+      {
+        "path": "models/tongue_authored_study/exports/authored-p11/tongue-authored-hra-hybrid-p11.glb",
+        "sha256": "efabd58b235b72682f067113cf079e3f70fbaceac47062f2b937f09540c1ee1a",
+        "role": "organ",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "pituitary",
+    "title": "Hypothalamus and pituitary stalk",
+    "inputs": [
+      {
+        "path": "assemblies/hypothalamus-pituitary/teaching-stalk-r01/hypothalamus-pituitary-teaching.glb",
+        "sha256": "31ddd537a8aa3ac7dcd75a9a9789132fb10bcfeccb4149e14443d845fd7fb373",
+        "role": "gland",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "thyroid",
+    "title": "Thyroid with localized parathyroids",
+    "inputs": [
+      {
+        "path": "models/parathyroids/exports/z-localization-r01/parathyroids_thyroid_context.glb",
+        "sha256": "7759008c5682ac76e77f39f68f5cd421ea42cfe5252cebe9bd82ecc54dc04345",
+        "role": "gland",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "id": "adrenals",
+    "title": "Adrenal glands",
+    "inputs": [
+      {
+        "path": "models/adrenals/exports/source-candidate-01/adrenals_source_frame.glb",
+        "sha256": "c7de1afa5394a7f64b106a62ff979eaa9e0b428db23a13fa34340c2d38ba13a7",
+        "role": "gland",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "pancreas",
+    "title": "Pancreas exterior and regional context",
+    "inputs": [
+      {
+        "path": "models/pancreas/exports/hra-female-context-r04/pancreas_hra_female_context_r04.glb",
+        "sha256": "aa15f9248027c248886a9cf8d4f5f401b2753176c800851f648b03d88d97ebed",
+        "role": "gland",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "heart-cut",
+    "title": "Cardiac Atlas cutaway",
+    "inputs": [
+      {
+        "path": "heart/Cardiac_Atlas/exports/Cardiac_Atlas_Clinical_Cutaway_ED.glb",
+        "sha256": "ca35a510737041d538a43cb24f494a1463605bf6b9bd511a01abf52c15bed12a",
+        "role": "organ",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "aortic",
+    "title": "Aorta and selected arterial branches",
+    "inputs": [
+      {
+        "path": "models/aortic_tree_z/exports/r02/aortic_tree_z_source_frame.glb",
+        "sha256": "d4b3dbd2d09fd76795f47bb96844acdeba5f1b4f48dd630f2a294f33816deaeb",
+        "role": "artery",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "pulmonary-vein",
+    "title": "Pulmonary venous surface",
+    "inputs": [
+      {
+        "path": "body/anatomy-workshop-r1/meshes/pulmonary_vein.glb",
+        "sha256": "9dcafbb0fcc625ad7952443e0b6274d200e4a97c9792ccecaa3645bd80214355",
+        "role": "vein",
+        "surfaceOnly": true
+      }
+    ],
+    "front": [
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "id": "cardio-context",
+    "title": "Heart, aorta and pulmonary venous context",
+    "inputs": [
+      {
+        "path": "body/anatomy-workshop-r1/meshes/heart.glb",
+        "sha256": "8c2ac314c97400f3989dbc5e706827dd5134814ae9b6793768fac60b20198a7e",
+        "role": "organ",
+        "surfaceOnly": true
+      },
+      {
+        "path": "body/anatomy-workshop-r1/meshes/aorta.glb",
+        "sha256": "1a20d6322cefb6c6c85c7c8ed95295e8314e568a12420434ccda40beb4f8cc31",
+        "role": "artery",
+        "surfaceOnly": true
+      },
+      {
+        "path": "body/anatomy-workshop-r1/meshes/pulmonary_vein.glb",
+        "sha256": "9dcafbb0fcc625ad7952443e0b6274d200e4a97c9792ccecaa3645bd80214355",
+        "role": "vein",
+        "surfaceOnly": true
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "lymph-node",
+    "title": "Regional lymph node teaching mesh",
+    "inputs": [
+      {
+        "path": "models/lymph_node/exports/hra-v1.2/NIH_M_Lymph_Node.glb",
+        "sha256": "7b047002cbb1dc06f37baa441783390d76cdb444b6144d6caa623923707953fd",
+        "role": "lymph",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "lymph-routes",
+    "title": "Seven selected collecting routes",
+    "inputs": [
+      {
+        "path": "models/lymph-collecting-routes/source-context-r01/selected-source-routes.glb",
+        "sha256": "ff8c1e9cecc86b4287520d97e71e81792d26eb0b3017e6f302e213f64819b4ca",
+        "role": "lymph",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "thymus",
+    "title": "Thymus exterior",
+    "inputs": [
+      {
+        "path": "models/thymus/exports/source-candidate-01/thymus_source_frame.glb",
+        "sha256": "897d7c9d9885c895862235291e05ce8b85208a276e1624f0cbb273d0a887b2a9",
+        "role": "lymph",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "spleen",
+    "title": "Spleen exterior",
+    "inputs": [
+      {
+        "path": "models/spleen/exports/hra-female-v1.10-r03/spleen.glb",
+        "sha256": "4e2637cf6c844aef85ab77c2c1049d4e7647348a13c34d784795b98825f7c8c7",
+        "role": "organ",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "larynx",
+    "title": "Pharynx and larynx exterior",
+    "inputs": [
+      {
+        "path": "models/pharynx_larynx/exports/r03/pharynx_larynx.glb",
+        "sha256": "d691a60f12d448b9b36d362270429c672c01c7fae0f10a8789ef188dd4c08530",
+        "role": "air",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "trachea",
+    "title": "Trachea and primary bronchial openings",
+    "inputs": [
+      {
+        "path": "models/trachea/exports/open-airway-r06/trachea-cutaway.glb",
+        "sha256": "42b25a9e3de950db1a083da3802d4bb982c9084c425f768824c8973dc08be283",
+        "role": "air",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "bronchi",
+    "title": "Authored lobar bronchial tree",
+    "inputs": [
+      {
+        "path": "body/anatomy-workshop-r1/meshes/bronchial_tree.glb",
+        "sha256": "2d2d4e269995f11179cfa423a302f144d9d163883ccde0995a2987e83dd2e898",
+        "role": "air",
+        "surfaceOnly": true
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "lungs",
+    "title": "Five lung lobes",
+    "inputs": [
+      {
+        "path": "body/anatomy-workshop-r1/meshes/lung_left.glb",
+        "sha256": "6ec2acc585e59f4d11dcc11bbf6bbfdf880a171c8733587bb858fe72476dba9c",
+        "role": "lung",
+        "surfaceOnly": true
+      },
+      {
+        "path": "body/anatomy-workshop-r1/meshes/lung_right.glb",
+        "sha256": "232166f23bff9c4c7142147e4e5f51cdb4519bc183c5aeb81ed1b264659f9b8f",
+        "role": "lung",
+        "surfaceOnly": true
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "diaphragm",
+    "title": "Diaphragm shape study",
+    "inputs": [
+      {
+        "path": "models/diaphragm/exports/z-native-static-r01/diaphragm_z_native_static.glb",
+        "sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+        "role": "muscle",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "breathing-context",
+    "title": "Lungs and diaphragm in the breathing assembly",
+    "inputs": [
+      {
+        "path": "body/breathing/lung_left_breathing.glb",
+        "sha256": "e3439ed20ea7e5f022b71accd9d474e5bd0a8625498d1398ada402d0c035cee0",
+        "role": "lung",
+        "surfaceOnly": true
+      },
+      {
+        "path": "body/breathing/lung_right_breathing.glb",
+        "sha256": "450f49c0733697d3d05f16c4a1f24a28b1ae5f9b09b77f3bf470a00a4386e9b4",
+        "role": "lung",
+        "surfaceOnly": true
+      },
+      {
+        "path": "body/breathing/diaphragm_breathing.glb",
+        "sha256": "7aa24dcf98016381c87857c7ec31a7733a78c5b590f56ff6f2f617a342ae4d33",
+        "role": "muscle",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "lobar-context",
+    "title": "Five lung lobes and illustrative lobar airway",
+    "inputs": [
+      {
+        "path": "body/anatomy-workshop-r1/meshes/lung_left.glb",
+        "sha256": "6ec2acc585e59f4d11dcc11bbf6bbfdf880a171c8733587bb858fe72476dba9c",
+        "role": "lung",
+        "surfaceOnly": true
+      },
+      {
+        "path": "body/anatomy-workshop-r1/meshes/lung_right.glb",
+        "sha256": "232166f23bff9c4c7142147e4e5f51cdb4519bc183c5aeb81ed1b264659f9b8f",
+        "role": "lung",
+        "surfaceOnly": true
+      },
+      {
+        "path": "body/anatomy-workshop-r1/meshes/bronchial_tree.glb",
+        "sha256": "2d2d4e269995f11179cfa423a302f144d9d163883ccde0995a2987e83dd2e898",
+        "role": "air",
+        "surfaceOnly": true
+      }
+    ],
+    "front": [
+      0,
+      1,
+      0
+    ]
+  },
+  {
+    "id": "oral",
+    "title": "Teeth and gingiva",
+    "inputs": [
+      {
+        "path": "models/teeth_gums/exports/r02/teeth_gums.glb",
+        "sha256": "82bfaeead46bb51b1fa5bdfdb06c918dfd01aa23b28acae733ab75ec2cd6897f",
+        "role": "bone",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "salivary",
+    "title": "Salivary glands and source-named parotid ducts",
+    "inputs": [
+      {
+        "path": "models/salivary_glands/exports/z-native-scoped-r02/glands-and-parotid-ducts.glb",
+        "sha256": "a53134ec91195f5c42b8be4cde3536343e62857a7ecf5ab5d11bf3eba6ead515",
+        "role": "gland",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "esophagus",
+    "title": "Esophageal wall cutaway",
+    "inputs": [
+      {
+        "path": "models/esophagus_wall/exports/authored-cutaway-r01/esophagus-wall-cutaway-r01.glb",
+        "sha256": "e4f51a86040ef115776fe06a33443982f7b63243332681e53dadaa77f81c05f5",
+        "role": "organ",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "stomach",
+    "title": "Stomach exterior",
+    "inputs": [
+      {
+        "path": "body/anatomy-workshop-r1/meshes/stomach.glb",
+        "sha256": "cc4a9c4bee03d921b9985fa39b8a96021e31dade3237a285a2cac20ff670a8a6",
+        "role": "organ",
+        "surfaceOnly": true
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "liver",
+    "title": "Liver exterior",
+    "inputs": [
+      {
+        "path": "body/anatomy-workshop-r1/meshes/liver.glb",
+        "sha256": "78e27dd417702c4f872162ef78b2d044f1cc0aba944c9ac672b00e12b6678362",
+        "role": "organ",
+        "surfaceOnly": true
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "gallbladder",
+    "title": "Gallbladder exterior",
+    "inputs": [
+      {
+        "path": "body/anatomy-workshop-r1/meshes/gallbladder.glb",
+        "sha256": "97f24edd4a5770629d959e11ff74d50d0be5d92866a3e937cd44a3f9510d4bad",
+        "role": "duct",
+        "surfaceOnly": true
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "small-bowel",
+    "title": "Small intestine",
+    "inputs": [
+      {
+        "path": "models/small-intestine/exports/source-candidate-v4/small-intestine.glb",
+        "sha256": "a9459afc67cb13c28084b518615fdbb5e05c135a47eafa3036908139aece94da",
+        "role": "organ",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "large-bowel",
+    "title": "Large intestine",
+    "inputs": [
+      {
+        "path": "models/large-intestine/exports/source-candidate-v4/large-intestine.glb",
+        "sha256": "a8bd8f8227a3cf53b5aa63bb234c1bcb182bfa432da5eb2e3488788f829df4f5",
+        "role": "duct",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "upper-digestive",
+    "title": "Upper abdominal digestive organs",
+    "inputs": [
+      {
+        "path": "body/anatomy-workshop-r1/meshes/stomach.glb",
+        "sha256": "cc4a9c4bee03d921b9985fa39b8a96021e31dade3237a285a2cac20ff670a8a6",
+        "role": "organ",
+        "surfaceOnly": true
+      },
+      {
+        "path": "body/anatomy-workshop-r1/meshes/liver.glb",
+        "sha256": "78e27dd417702c4f872162ef78b2d044f1cc0aba944c9ac672b00e12b6678362",
+        "role": "organ",
+        "surfaceOnly": true
+      },
+      {
+        "path": "body/anatomy-workshop-r1/meshes/pancreas.glb",
+        "sha256": "a5c3519a56a5edab37ee4f5808cfb884080e1b2b156a5559b650993b3d9ec591",
+        "role": "gland",
+        "surfaceOnly": true
+      },
+      {
+        "path": "body/anatomy-workshop-r1/meshes/gallbladder.glb",
+        "sha256": "97f24edd4a5770629d959e11ff74d50d0be5d92866a3e937cd44a3f9510d4bad",
+        "role": "duct",
+        "surfaceOnly": true
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "bowel-context",
+    "title": "Small and large bowel in the BP3D source frame",
+    "inputs": [
+      {
+        "path": "models/small-intestine/exports/source-candidate-v4/small-intestine.glb",
+        "sha256": "a9459afc67cb13c28084b518615fdbb5e05c135a47eafa3036908139aece94da",
+        "role": "organ",
+        "surfaceOnly": false
+      },
+      {
+        "path": "models/large-intestine/exports/source-candidate-v4/large-intestine.glb",
+        "sha256": "a8bd8f8227a3cf53b5aa63bb234c1bcb182bfa432da5eb2e3488788f829df4f5",
+        "role": "duct",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "kidneys",
+    "title": "Paired kidneys in the Workshop frame",
+    "inputs": [
+      {
+        "path": "body/anatomy-workshop-r1/meshes/kidney_left.glb",
+        "sha256": "1e99499c4afb6b920475065cb72319e4fcf71426eaa6ea118f6d6fc4b1d78cab",
+        "role": "organ",
+        "surfaceOnly": true
+      },
+      {
+        "path": "body/anatomy-workshop-r1/meshes/kidney_right.glb",
+        "sha256": "02d26dad6603db7426b6b7eca8c7ad851163f064c24a68cde83f9f4e0149d97c",
+        "role": "organ",
+        "surfaceOnly": true
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "lower-urinary",
+    "title": "Bladder, bilateral schematic ureters and outlet",
+    "inputs": [
+      {
+        "path": "body/anatomy-workshop-r1/meshes/bladder.glb",
+        "sha256": "798329114cfcd241d7f8342fc8faa70ff33fdbded6029bb128d82c3d6f50d8c5",
+        "role": "organ",
+        "surfaceOnly": true
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "urinary-context",
+    "title": "Kidneys, ureters, bladder and outlet in the Workshop frame",
+    "inputs": [
+      {
+        "path": "body/anatomy-workshop-r1/meshes/kidney_left.glb",
+        "sha256": "1e99499c4afb6b920475065cb72319e4fcf71426eaa6ea118f6d6fc4b1d78cab",
+        "role": "organ",
+        "surfaceOnly": true
+      },
+      {
+        "path": "body/anatomy-workshop-r1/meshes/kidney_right.glb",
+        "sha256": "02d26dad6603db7426b6b7eca8c7ad851163f064c24a68cde83f9f4e0149d97c",
+        "role": "organ",
+        "surfaceOnly": true
+      },
+      {
+        "path": "body/anatomy-workshop-r1/meshes/bladder.glb",
+        "sha256": "798329114cfcd241d7f8342fc8faa70ff33fdbded6029bb128d82c3d6f50d8c5",
+        "role": "organ",
+        "surfaceOnly": true
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "ovary",
+    "title": "Ovaries with fimbrial and tubal ends",
+    "inputs": [
+      {
+        "path": "models/ovaries/exports/hra-ovary-tubal-r01/ovary-tubal-context.glb",
+        "sha256": "465a44b18df91ece95a236372a8cbe3e1a0de0207525955290e6b0fa519195d1",
+        "role": "organ",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "uterus",
+    "title": "Uterus exterior",
+    "inputs": [
+      {
+        "path": "models/uterus/exports/hra-v1.1-r02/uterus_exterior.glb",
+        "sha256": "627f169a5e02f95102af994f7346cd0f85e454651231867c6829618ef1b0c356",
+        "role": "organ",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "pelvis-f",
+    "title": "Uterus, cervix and vagina in same-atlas pelvic context",
+    "inputs": [
+      {
+        "path": "models/vagina_hra/exports/context-r02/vagina_hra_same_atlas_context_r02.glb",
+        "sha256": "c649de4db766ba00020315029c922de1d018061c1a34bd95c850a05255ab3037",
+        "role": "organ",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "mammary",
+    "title": "Breast exterior study",
+    "inputs": [
+      {
+        "path": "models/breasts_hra/exports/source-candidate-02/breasts_hra_native_frame.glb",
+        "sha256": "905865c4382fb109d14fca74c8ffe809e190f44e9d3086144c3d1d7c3be53964",
+        "role": "organ",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "testes",
+    "title": "Testes with epididymides",
+    "inputs": [
+      {
+        "path": "models/testes/exports/z-native-epididymis-r01/testicular-region.glb",
+        "sha256": "e35457062c7bba79d938700beab7de851c75fa8dbbbbc76872d47290f2833d0d",
+        "role": "organ",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "prostate",
+    "title": "Prostate surface parts",
+    "inputs": [
+      {
+        "path": "models/prostate/exports/hra-v1.1/VH_M_Prostate.glb",
+        "sha256": "ec1023e0a1b81f71865872bb720404abc7bb6378a54ac71fa9f24579b097f48a",
+        "role": "gland",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      0,
+      -1,
+      0
+    ]
+  },
+  {
+    "id": "urethra-m",
+    "title": "Male outlet context",
+    "inputs": [
+      {
+        "path": "models/urethra_male/exports/z-native-context-r01/urethral-context.glb",
+        "sha256": "d2d88c936287f4ea5978aba1f17e86975c587a102e498595dd7a58aa07c269e7",
+        "role": "organ",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "id": "penis",
+    "title": "Penile internal components",
+    "inputs": [
+      {
+        "path": "models/penis/exports/z-native-components-r04/penile_internal_components.glb",
+        "sha256": "c44d35e13be11d2fb35141747d819d4609a45ca0a5527c89e1015618d17cab70",
+        "role": "organ",
+        "surfaceOnly": false
+      }
+    ],
+    "front": [
+      1,
+      0,
+      0
+    ]
+  }
+]

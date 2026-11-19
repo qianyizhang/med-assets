@@ -1,0 +1,38 @@
+[
+  {
+    "id": "context"
+  },
+  {
+    "id": "food",
+    "include": [
+      "Food *"
+    ]
+  },
+  {
+    "id": "saliva",
+    "include": [
+      "Food 01*",
+      "Accessory Saliva*"
+    ]
+  },
+  {
+    "id": "duodenal-entry",
+    "include": [
+      "Food 05*",
+      "Accessory Bile*",
+      "Accessory Pancreatic*",
+      "Accessory Common*"
+    ]
+  },
+  {
+    "id": "outlet",
+    "include": [
+      "Food 10*"
+    ],
+    "front": [
+      0,
+      -1,
+      -0.85
+    ]
+  }
+]

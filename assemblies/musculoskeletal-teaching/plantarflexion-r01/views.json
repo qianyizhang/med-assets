@@ -1,0 +1,54 @@
+[
+  {
+    "id": "neutral",
+    "frame": 0,
+    "front": [
+      1,
+      0,
+      0
+    ],
+    "include": [
+      "*.r diagnostic"
+    ]
+  },
+  {
+    "id": "plantarflexion",
+    "frame": 24,
+    "front": [
+      1,
+      0,
+      0
+    ],
+    "include": [
+      "*.r diagnostic"
+    ]
+  },
+  {
+    "id": "neutral-insertion",
+    "frame": 0,
+    "front": [
+      1,
+      0,
+      0
+    ],
+    "include": [
+      "Calcaneal tendon*",
+      "Calcaneus*",
+      "Talus*"
+    ]
+  },
+  {
+    "id": "flexed-insertion",
+    "frame": 24,
+    "front": [
+      1,
+      0,
+      0
+    ],
+    "include": [
+      "Calcaneal tendon*",
+      "Calcaneus*",
+      "Talus*"
+    ]
+  }
+]

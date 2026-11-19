@@ -12,7 +12,7 @@ assets; a technical check does not establish anatomical or clinical approval.
 | Compositions with explicit registration | [assemblies](assemblies/) |
 | Imported whole-body atlases and cardiac/imaging products | [body](body/), [heart](heart/) |
 | 2D diagrams and runnable lessons | [diagrams](diagrams/), [lessons](lessons/) |
-| Dated survey reports and Site authoring | [sites/model-survey](sites/model-survey/) |
+| Dated survey reports and Site authoring | [model survey](sites/model-survey/), [body-systems survey](sites/body-systems-survey/) |
 | Current decisions and exact supporting evidence | [reviews](reviews/) |
 | External source inputs, notices and recovery material | [sources](sources/) |
 | Shared utilities and regression checks | [tools](tools/), [tests](tests/) |

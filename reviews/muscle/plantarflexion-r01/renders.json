@@ -1,0 +1,226 @@
+{
+  "glb": "calf-plantarflexion.glb",
+  "sha256": "cfb5242ba5daf9fe3ec176912e0c33e3d5efcf4aa23a1cfc306db35237c8a118",
+  "blender": "5.2.3 LTS Release Candidate",
+  "viewsSha256": "71cefb36134dc1ba63b3de1351bdb34c2215a0d0ca87f14fcd6c2d6e337c1e40",
+  "views": [
+    {
+      "id": "neutral",
+      "frame": 0,
+      "visible": [
+        "Calcaneal tendon.r diagnostic",
+        "Calcaneus.r diagnostic",
+        "Fibula.r diagnostic",
+        "Lateral head of gastrocnemius.r diagnostic",
+        "Medial head of gastrocnemius.r diagnostic",
+        "Soleus muscle.r diagnostic",
+        "Talus.r diagnostic",
+        "Tibia.r diagnostic"
+      ],
+      "bounds": [
+        [
+          -0.13460762798786163,
+          -0.005063461139798164,
+          0.011449423618614674
+        ],
+        [
+          -0.034752748906612396,
+          0.10642215609550476,
+          0.5061278939247131
+        ]
+      ],
+      "orthographicScale": 0.6739994287490845,
+      "images": [
+        {
+          "file": "neutral-iso.png",
+          "sha256": "b9f83a8fc2e43257ba69cde5adf7d63d2dd0db4fc95d7ebce1e5599d968a6dee",
+          "direction": [
+            0.5773502588272095,
+            0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            1.34536874294281,
+            1.482023000717163,
+            1.681437373161316
+          ]
+        },
+        {
+          "file": "neutral-ortho.png",
+          "sha256": "5021efd9c1e118d9b940e60af835e90eb0e2f5ed77c0e2756701a7a749b92780",
+          "direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "camera": [
+            2.388712167739868,
+            0.050679344683885574,
+            0.2587886452674866
+          ]
+        }
+      ]
+    },
+    {
+      "id": "plantarflexion",
+      "frame": 24,
+      "visible": [
+        "Calcaneal tendon.r diagnostic",
+        "Calcaneus.r diagnostic",
+        "Fibula.r diagnostic",
+        "Lateral head of gastrocnemius.r diagnostic",
+        "Medial head of gastrocnemius.r diagnostic",
+        "Soleus muscle.r diagnostic",
+        "Talus.r diagnostic",
+        "Tibia.r diagnostic"
+      ],
+      "bounds": [
+        [
+          -0.13460762798786163,
+          -0.005063461139798164,
+          0.017018266022205353
+        ],
+        [
+          -0.034752748906612396,
+          0.10642215609550476,
+          0.5061278939247131
+        ]
+      ],
+      "orthographicScale": 0.6664118766784668,
+      "images": [
+        {
+          "file": "plantarflexion-iso.png",
+          "sha256": "59568318640c22c6a27420f7f466c822e3ca25d9d973ea67bec362360f373cf8",
+          "direction": [
+            0.5773502588272095,
+            0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            1.329938530921936,
+            1.466592788696289,
+            1.666854739189148
+          ]
+        },
+        {
+          "file": "plantarflexion-ortho.png",
+          "sha256": "6a212ef4c25cf237c1711dcb5e186bfa0b4f8bfef57e5bfc95ab04fc7d0c67d3",
+          "direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "camera": [
+            2.360867977142334,
+            0.050679344683885574,
+            0.26157307624816895
+          ]
+        }
+      ]
+    },
+    {
+      "id": "neutral-insertion",
+      "frame": 0,
+      "visible": [
+        "Calcaneal tendon.r diagnostic",
+        "Calcaneus.r diagnostic",
+        "Talus.r diagnostic"
+      ],
+      "bounds": [
+        [
+          -0.11536843329668045,
+          0.0070407516323029995,
+          0.011449423618614674
+        ],
+        [
+          -0.052266743034124374,
+          0.09218180924654007,
+          0.2452821433544159
+        ]
+      ],
+      "orthographicScale": 0.31859707832336426,
+      "images": [
+        {
+          "file": "neutral-insertion-iso.png",
+          "sha256": "27447b270298e91ae8ba5aa41802a46d921982c6eb70db11789e311ea0b2c8a1",
+          "direction": [
+            0.5773502588272095,
+            0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            0.5954279899597168,
+            0.7295463681221008,
+            0.7942357659339905
+          ]
+        },
+        {
+          "file": "neutral-insertion-ortho.png",
+          "sha256": "ac220f063957922d34e74902262ef6083e557315ddd14b26e294aa0e2002a105",
+          "direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "camera": [
+            1.085345983505249,
+            0.04961128160357475,
+            0.12836578488349915
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flexed-insertion",
+      "frame": 24,
+      "visible": [
+        "Calcaneal tendon.r diagnostic",
+        "Calcaneus.r diagnostic",
+        "Talus.r diagnostic"
+      ],
+      "bounds": [
+        [
+          -0.11536843329668045,
+          0.005981549620628357,
+          0.017018266022205353
+        ],
+        [
+          -0.052266743034124374,
+          0.09930378198623657,
+          0.24533434212207794
+        ]
+      ],
+      "orthographicScale": 0.3141974210739136,
+      "images": [
+        {
+          "file": "flexed-insertion-iso.png",
+          "sha256": "c68d80c8cf16dc8f63eb41c4ca42320a5a43141546a402dd7aa88c892ddd4316",
+          "direction": [
+            0.5773502588272095,
+            0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            0.5785582065582275,
+            0.7156765460968018,
+            0.7830417156219482
+          ]
+        },
+        {
+          "file": "flexed-insertion-ortho.png",
+          "sha256": "e8eb04b9583108742ec29656c4901e0d36a69ae84367b3b95f2b0a15f67a0b02",
+          "direction": [
+            1.0,
+            0.0,
+            0.0
+          ],
+          "camera": [
+            1.0577627420425415,
+            0.052642665803432465,
+            0.13117630779743195
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,193 @@
+{
+  "glb": "female.glb",
+  "sha256": "f5f58c4c4ccdb27a72b9cf1d2ff06a9c08d7240da01bca86ce5faef61f731817",
+  "blender": "5.2.3 LTS Release Candidate",
+  "viewsSha256": "4b7ca8db50a3dad8d9ee00fddc40523f479fddce414a8b540cab7bd57c87a7f2",
+  "views": [
+    {
+      "id": "context",
+      "frame": 1,
+      "visible": [
+        "VH_F_ampulla_of_uterine_tube_L",
+        "VH_F_ampulla_of_uterine_tube_R",
+        "VH_F_anterior_wall_of_uterus",
+        "VH_F_body_of_uterus",
+        "VH_F_cervicovaginal_junction",
+        "VH_F_cervix",
+        "VH_F_cornua",
+        "VH_F_fibria_of_uterine_tube_L",
+        "VH_F_fibria_of_uterine_tube_R",
+        "VH_F_fundus_of_uterus",
+        "VH_F_isthmus_of_fallopian_tube_L",
+        "VH_F_isthmus_of_fallopian_tube_R",
+        "VH_F_left_ovary",
+        "VH_F_lower_uterine_segment",
+        "VH_F_posterior_wall_of_uterus",
+        "VH_F_right_ovary",
+        "VH_F_uterine_tube_infundibulum_L",
+        "VH_F_uterine_tube_infundibulum_R",
+        "VH_F_vagina"
+      ],
+      "bounds": [
+        [
+          -0.0767170712351799,
+          0.027496622875332832,
+          -0.05208705738186836
+        ],
+        [
+          0.05068828538060188,
+          0.09038802981376648,
+          0.08535903692245483
+        ]
+      ],
+      "orthographicScale": 0.19710107147693634,
+      "images": [
+        {
+          "file": "context-iso.png",
+          "sha256": "160eafad52ba418124c50e390c81b2ae7d3c220b4e2750d9b9386ab509e52d5f",
+          "direction": [
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            0.3741318881511688,
+            -0.3418295085430145,
+            0.4190358817577362
+          ]
+        },
+        {
+          "file": "context-ortho.png",
+          "sha256": "ecf792410032eade95dc05ecd155ccf155a789507a10244a201e3d014ad1f7ee",
+          "direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "camera": [
+            -0.013014392927289009,
+            -0.6282881498336792,
+            0.016635989770293236
+          ]
+        }
+      ]
+    },
+    {
+      "id": "left-pickup",
+      "frame": 1,
+      "visible": [
+        "VH_F_ampulla_of_uterine_tube_L",
+        "VH_F_anterior_wall_of_uterus",
+        "VH_F_body_of_uterus",
+        "VH_F_cornua",
+        "VH_F_fibria_of_uterine_tube_L",
+        "VH_F_fundus_of_uterus",
+        "VH_F_isthmus_of_fallopian_tube_L",
+        "VH_F_left_ovary",
+        "VH_F_posterior_wall_of_uterus",
+        "VH_F_uterine_tube_infundibulum_L"
+      ],
+      "bounds": [
+        [
+          -0.03974319249391556,
+          0.027496622875332832,
+          0.021398210898041725
+        ],
+        [
+          0.05068828538060188,
+          0.06570125371217728,
+          0.08535903692245483
+        ]
+      ],
+      "orthographicScale": 0.0985703319311142,
+      "images": [
+        {
+          "file": "left-pickup-iso.png",
+          "sha256": "8fee16bc751156ca90ea925763f23f4c932d34ee2aa36002716d18bcdb8dacb0",
+          "direction": [
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            0.26658838987350464,
+            -0.21913814544677734,
+            0.30968528985977173
+          ]
+        },
+        {
+          "file": "left-pickup-ortho.png",
+          "sha256": "76d05921308432996bba12153ba526affeb1eb3b5f04dbac8bc57dee7f642e84",
+          "direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "camera": [
+            0.0054725464433431625,
+            -0.4055584669113159,
+            0.053378622978925705
+          ]
+        }
+      ]
+    },
+    {
+      "id": "uterine-entry",
+      "frame": 1,
+      "visible": [
+        "VH_F_anterior_wall_of_uterus",
+        "VH_F_body_of_uterus",
+        "VH_F_cervix",
+        "VH_F_cornua",
+        "VH_F_fundus_of_uterus",
+        "VH_F_isthmus_of_fallopian_tube_L",
+        "VH_F_isthmus_of_fallopian_tube_R",
+        "VH_F_lower_uterine_segment",
+        "VH_F_posterior_wall_of_uterus"
+      ],
+      "bounds": [
+        [
+          -0.04784681275486946,
+          0.027496622875332832,
+          0.0062188454903662205
+        ],
+        [
+          0.02217910625040531,
+          0.08619216829538345,
+          0.05321197211742401
+        ]
+      ],
+      "orthographicScale": 0.1030833050608635,
+      "images": [
+        {
+          "file": "uterine-entry-iso.png",
+          "sha256": "57733e4eb8d1b91db91c30717c7fc17868945011e141a3c3ad8fd2acc0a4344a",
+          "direction": [
+            -0.5773502588272095,
+            0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            -0.21632565557956696,
+            0.2561304271221161,
+            0.23337982594966888
+          ]
+        },
+        {
+          "file": "uterine-entry-ortho.png",
+          "sha256": "b8877e7c991ca0491d9e66fb86ec0c97d8f1ad6e8404267257ef8b34e50488c9",
+          "direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "camera": [
+            -0.012833851389586926,
+            0.4069739878177643,
+            0.029715411365032196
+          ]
+        }
+      ]
+    }
+  ]
+}

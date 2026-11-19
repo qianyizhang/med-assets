@@ -2,3 +2,8 @@
 
 nav button b{font-weight:400}
 #exchange-motion{margin-top:12px}
+
+#route-tools:not([hidden]){display:grid;grid-template-columns:minmax(0,1fr);gap:.45rem;margin-top:.7rem}
+#route-tools label{font-size:.85rem;font-weight:650}
+#route-focus{font:inherit;padding:.45rem .55rem;border:1px solid #8a9c99;border-radius:.45rem;background:white;color:#223c42;min-width:0}
+#to-exchange{justify-self:start}

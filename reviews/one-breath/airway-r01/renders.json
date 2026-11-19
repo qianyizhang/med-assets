@@ -1,0 +1,288 @@
+{
+  "glb": "airway-route.glb",
+  "sha256": "92fd447bad48b03489041e16d0de8750b550034ec4f158219b8352571e0e6091",
+  "blender": "5.2.3 LTS Release Candidate",
+  "viewsSha256": "bf8791ee7f5d1ebd338fe3166c3ecceb4a4a87c4037cb05c954b6b4d3bdee03f",
+  "views": [
+    {
+      "id": "route",
+      "frame": 1,
+      "visible": [
+        "Branch | Left upper lobar bronchus (Workshop)",
+        "Branch | Main to lobar bridge",
+        "Branch | Smaller airway generations",
+        "Larynx | FJ2769 Cricoid cartilage",
+        "Larynx | FJ2770 Epiglottis",
+        "Larynx | FJ2808 Thyroid cartilage",
+        "Larynx | Laryngeal passage",
+        "Nasal | Conchal shelf 1",
+        "Nasal | Conchal shelf 2",
+        "Nasal | Conchal shelf 3",
+        "Nasal | Passage",
+        "Nasal | Schematic sagittal wall",
+        "Pharynx | Nasal to laryngeal route",
+        "Terminal | Alveolar cup 1",
+        "Terminal | Alveolar cup 2",
+        "Terminal | Alveolar cup 3",
+        "Terminal | Alveolar cup 4",
+        "Terminal | Alveolar cup 5",
+        "Terminal | Duct opening 1",
+        "Terminal | Duct opening 2",
+        "Terminal | Duct opening 3",
+        "Terminal | Duct opening 4",
+        "Terminal | Respiratory bronchiole and alveolar duct",
+        "Terminal | Terminal bronchiole",
+        "V7 guide | left centreline",
+        "V7 guide | main centreline",
+        "V7 guide | right centreline",
+        "V7 | Authored illustrative C-band 1",
+        "V7 | Authored illustrative C-band 10",
+        "V7 | Authored illustrative C-band 11",
+        "V7 | Authored illustrative C-band 12",
+        "V7 | Authored illustrative C-band 13",
+        "V7 | Authored illustrative C-band 14",
+        "V7 | Authored illustrative C-band 15",
+        "V7 | Authored illustrative C-band 16",
+        "V7 | Authored illustrative C-band 17",
+        "V7 | Authored illustrative C-band 18",
+        "V7 | Authored illustrative C-band 2",
+        "V7 | Authored illustrative C-band 3",
+        "V7 | Authored illustrative C-band 4",
+        "V7 | Authored illustrative C-band 5",
+        "V7 | Authored illustrative C-band 6",
+        "V7 | Authored illustrative C-band 7",
+        "V7 | Authored illustrative C-band 8",
+        "V7 | Authored illustrative C-band 9",
+        "V7 | Trachea | authored cutaway teaching shell"
+      ],
+      "bounds": [
+        [
+          -0.027925852686166763,
+          -0.07699999958276749,
+          0.06542375683784485
+        ],
+        [
+          0.14579999446868896,
+          0.03509117662906647,
+          0.3089999854564667
+        ]
+      ],
+      "orthographicScale": 0.3318726420402527,
+      "images": [
+        {
+          "file": "route-iso.png",
+          "sha256": "306871c6bcad04f965dcdcf8f3bef6c3e1a317e8c071070c80436202dd4e8d51",
+          "direction": [
+            0.7609785795211792,
+            -0.29593613743782043,
+            0.5773502588272095
+          ],
+          "camera": [
+            0.9727364182472229,
+            -0.3860122561454773,
+            0.9050871729850769
+          ]
+        },
+        {
+          "file": "route-ortho.png",
+          "sha256": "df24166eb10dce7726a3a999892be69c33d0008b3fb5df0d4da1084ec738bcc3",
+          "direction": [
+            0.4027386009693146,
+            -0.9153150320053101,
+            0.0
+          ],
+          "camera": [
+            0.5538126230239868,
+            -1.1337686777114868,
+            0.18721187114715576
+          ]
+        }
+      ]
+    },
+    {
+      "id": "upper",
+      "frame": 1,
+      "visible": [
+        "Larynx | FJ2769 Cricoid cartilage",
+        "Larynx | FJ2770 Epiglottis",
+        "Larynx | FJ2808 Thyroid cartilage",
+        "Larynx | Laryngeal passage",
+        "Nasal | Conchal shelf 1",
+        "Nasal | Conchal shelf 2",
+        "Nasal | Conchal shelf 3",
+        "Nasal | Passage",
+        "Nasal | Schematic sagittal wall",
+        "Pharynx | Nasal to laryngeal route"
+      ],
+      "bounds": [
+        [
+          -0.019478769972920418,
+          -0.07699999958276749,
+          0.17223170399665833
+        ],
+        [
+          0.01918403059244156,
+          0.013927853666245937,
+          0.3089999854564667
+        ]
+      ],
+      "orthographicScale": 0.1974944770336151,
+      "images": [
+        {
+          "file": "upper-iso.png",
+          "sha256": "d116d56650fd6b6c552016d90228fc0f88aba753c796b4aade1c4e48eabc5ce4",
+          "direction": [
+            0.6920714378356934,
+            0.43324795365333557,
+            0.5773502588272095
+          ],
+          "camera": [
+            0.47248780727386475,
+            0.26611289381980896,
+            0.6351567506790161
+          ]
+        },
+        {
+          "file": "upper-ortho.png",
+          "sha256": "7c5f4a079ab59c9040d21d913e087b4df76fb55a8bcd1b953b5847aa38aff219",
+          "direction": [
+            0.974555253982544,
+            -0.2241477072238922,
+            0.0
+          ],
+          "camera": [
+            0.6662959456443787,
+            -0.18480871617794037,
+            0.2406158447265625
+          ]
+        }
+      ]
+    },
+    {
+      "id": "branch",
+      "frame": 1,
+      "visible": [
+        "Branch | Left upper lobar bronchus (Workshop)",
+        "Branch | Main to lobar bridge",
+        "Branch | Smaller airway generations",
+        "Terminal | Alveolar cup 1",
+        "Terminal | Alveolar cup 2",
+        "Terminal | Alveolar cup 3",
+        "Terminal | Alveolar cup 4",
+        "Terminal | Alveolar cup 5",
+        "Terminal | Duct opening 1",
+        "Terminal | Duct opening 2",
+        "Terminal | Duct opening 3",
+        "Terminal | Duct opening 4",
+        "Terminal | Respiratory bronchiole and alveolar duct",
+        "Terminal | Terminal bronchiole",
+        "V7 guide | left centreline",
+        "V7 guide | main centreline",
+        "V7 guide | right centreline"
+      ],
+      "bounds": [
+        [
+          -0.027925852686166763,
+          -0.006847742013633251,
+          0.06542375683784485
+        ],
+        [
+          0.14579999446868896,
+          0.032409682869911194,
+          0.17393836379051208
+        ]
+      ],
+      "orthographicScale": 0.18936118483543396,
+      "images": [
+        {
+          "file": "branch-iso.png",
+          "sha256": "0e5aada86c587fa1a684edca7d05b0b8501f97bae4ace8a3fbe77d2c82232f8a",
+          "direction": [
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            0.5517662763595581,
+            -0.48649200797080994,
+            0.6320887207984924
+          ]
+        },
+        {
+          "file": "branch-ortho.png",
+          "sha256": "d3a43ad4cb674e6a6cc4259396d42914a02f45347c307cc76412404b7634cd3b",
+          "direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "camera": [
+            0.05893707275390625,
+            -0.8558482527732849,
+            0.11968106031417847
+          ]
+        }
+      ]
+    },
+    {
+      "id": "terminal",
+      "frame": 1,
+      "visible": [
+        "Terminal | Alveolar cup 1",
+        "Terminal | Alveolar cup 2",
+        "Terminal | Alveolar cup 3",
+        "Terminal | Alveolar cup 4",
+        "Terminal | Alveolar cup 5",
+        "Terminal | Duct opening 1",
+        "Terminal | Duct opening 2",
+        "Terminal | Duct opening 3",
+        "Terminal | Duct opening 4",
+        "Terminal | Respiratory bronchiole and alveolar duct",
+        "Terminal | Terminal bronchiole"
+      ],
+      "bounds": [
+        [
+          0.10523097962141037,
+          -0.0036394111812114716,
+          0.11820000410079956
+        ],
+        [
+          0.14579999446868896,
+          0.009792751632630825,
+          0.14979998767375946
+        ]
+      ],
+      "orthographicScale": 0.05241551250219345,
+      "images": [
+        {
+          "file": "terminal-iso.png",
+          "sha256": "dd1e6b30fc828fd816fb7879c32730700dab997a4864dae9be5b655620ff9307",
+          "direction": [
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            0.24348683655261993,
+            -0.11433881521224976,
+            0.24995115399360657
+          ]
+        },
+        {
+          "file": "terminal-ortho.png",
+          "sha256": "7e8328d40e21eaebba6bb08241de7533064c915237630a70e8a24a8bf62cd136",
+          "direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "camera": [
+            0.12551549077033997,
+            -0.19976839423179626,
+            0.1340000033378601
+          ]
+        }
+      ]
+    }
+  ]
+}
