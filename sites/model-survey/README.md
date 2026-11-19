@@ -65,7 +65,7 @@ npm --prefix sites/model-survey/.local/app run build
 | --- | --- |
 | Package custom Worker | Authorized Data/Sites publication from the generated project. Use `--source` without `--separate-data`. npm builds the client. Source packaging compiles the Worker. |
 | Preserve live identity | Reconcile newer remote source. Retain Site/artifact IDs, public audience, owner environment, stored edits, DB/BUCKET and publishing ancestry. Append checked source and exact packaged output through the Sites helper. |
-| Verify publication | Fresh readback of the packaged deployment and uploaded assets. Update `snapshot-reference.json` with deployed identities. [Temporary upload closeout](../../transport/README.md#add-or-reverify-r2-copies). |
+| Verify publication | Check the deployed revision and affected live flow. Apply [transport upload acceptance](../../transport/README.md#upload-acceptance) to uploaded assets. Update `snapshot-reference.json` with deployed identities. [Temporary upload closeout](../../transport/README.md#add-or-reverify-r2-copies). |
 
 ## Recipes and checks
 
