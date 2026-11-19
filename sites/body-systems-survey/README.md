@@ -41,22 +41,39 @@ receipts, and the separate dental experiment's six generated MP4s with their
 subtitles and results README. The dental build lives at local revision
 `06bfb80` on `codex/dental-image26-experiment`.
 
-Archive identity: **127,459,034 bytes**, SHA-256
+The **127,459,034-byte** archive has SHA-256
 `ccdf0a5dafadf0a4d251a19b83f14ec157e29abdcfe4b3c1199498700d37b014`.
 
-Local archive: `.artifacts/teaching-backup/med-assets-teaching-c803735.zip`.
-R2 destination: [Object Library](https://r2-object-library.landy123007.chatgpt.site/)
-under `med-assets/teaching`. The upload is pending the library’s upload password.
+The [public R2 backup](https://r2-object-library.landy123007.chatgpt.site/download?key=library%2Fmed-assets%2Fteaching%2Fafa6ed28-1fa4-40d5-af01-643460a53471--med-assets-teaching-c803735.zip)
+is one Object Library object. A fresh public download on 19 November 2026
+matched the archive size and SHA-256. All 327 extracted files matched the
+[member manifest](backup-sha256.txt). Keep the local ZIP as an independent copy.
 
-From the repository root, verify the archive before extraction. The unzip
-command preserves existing files. The final check identifies any local
-files that differ from the archived set.
+Run from the repository root. Download only if the local archive is missing.
+The checksum gates extraction, and `unzip -n` preserves existing files.
+The final check identifies local files that differ from the archived set.
 
 ```sh
+(
+set -e
 zip=.artifacts/teaching-backup/med-assets-teaching-c803735.zip
-printf '%s  %s\n' ccdf0a5dafadf0a4d251a19b83f14ec157e29abdcfe4b3c1199498700d37b014 "$zip" | shasum -a 256 -c
+key=library/med-assets/teaching/afa6ed28-1fa4-40d5-af01-643460a53471--med-assets-teaching-c803735.zip
+archive=$zip
+if [ ! -e "$zip" ]; then
+  archive=$zip.partial
+  mkdir -p .artifacts/teaching-backup
+  curl --fail --silent --show-error --get \
+    'https://r2-object-library.landy123007.chatgpt.site/download' \
+    --data-urlencode "key=$key" --output "$archive"
+fi
+printf '%s  %s\n' ccdf0a5dafadf0a4d251a19b83f14ec157e29abdcfe4b3c1199498700d37b014 "$archive" |
+  shasum -a 256 -c
+if [ "$archive" != "$zip" ]; then
+  mv "$archive" "$zip"
+fi
 unzip -n "$zip"
 shasum -a 256 -c sites/body-systems-survey/backup-sha256.txt
+)
 ```
 
 The local integration passed the 434-test offline suite and payload integrity
