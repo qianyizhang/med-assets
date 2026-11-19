@@ -4,6 +4,8 @@ Restore the local Blender scene and GLB files from the [body-systems teaching ba
 
 Use the [BP3D envelope](../exports/bp3d-envelope-r01/README.md) for whole-body orientation, then open [the cut sections](skin-block.glb). At the skin cut face, the thin superficial epidermis dips into the deeper dermis. The dark hair passes through its cut follicular sheath. The teal eccrine coil drains through a separate duct and open pore. The lobules belong to the subcutaneous tissue. The second section shows the nail plate over the pink bed and the mauve matrix under its proximal root. Each structure has a named mesh in the GLB and [editable Blender scene](skin-block.blend). Select a named object and use Local View to isolate it.
 
+The [curved nail section](../nail-study-r02/README.md) provides the gallery close-up of the seated plate, exposed bed and free edge.
+
 ## Scope and sources
 
 The compared BP3D model contains one external surface (FJ2810, GLB SHA-256 `d86719833a17dc7b45c8eb970498f1e2feefd352b5812942f4b147a9ffcfbe4f`). Its [source review](../../../reviews/skin/2026-10-24-bp3d-envelope-r01-bounded-migration/bounded-record.json) retains the existing locator and attribution. The [skin-detail plate](../../../body/2d-v4/whole-body-anatomy-v4-spatial/regions/skin-detail.svg) specifies the cutaway features in 2D. This teaching addition supplies editable depth, isolated appendages, a hollow pore and a separate nail insert for the body-systems survey. The skin owner maintains one procedural build, one editable scene, one portable export and four evidence pairs. Neither the atlas nor the SVG is embedded in the GLB.

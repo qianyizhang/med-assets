@@ -1,0 +1,537 @@
+{
+  "blender": "5.2.3 LTS Release Candidate",
+  "recipeSha256": "9c5b3ecf341330319987d9d4ddd849890f4a000feafd962b1ae05a7480c6d9d1",
+  "original": {
+    "file": "s1233-adrenals.glb",
+    "sha256": "84b8af5ad628ae328a2b32fb366c0e77fe84c33633df75fb01832a689659c32f",
+    "bytes": 1346372
+  },
+  "updated": {
+    "file": "s1233-adrenals-teaching.glb",
+    "sha256": "e2bcc2e93a73c027480418109e4db06ce38ea7923b671e5dfe53cfd7d288caa4",
+    "bytes": 254452
+  },
+  "editable": {
+    "file": "s1233-adrenals-teaching.blend",
+    "sha256": "e3dae64deee78add5a2d5614898554ead276d861893fad6f7d6961b26c67f11f"
+  },
+  "voxelSpacingMm": 1.5,
+  "reference": "Same-case r02 clean import. Surface distance estimates sampled at vertices and subtriangle lattice points.",
+  "coordinateFrame": "Blender metres, +X left, +Y posterior, +Z superior",
+  "surfaceIntersectionPairs": [],
+  "glandVolumeAdjustmentMaxMm": {
+    "adrenal-gland-left": 0.19823777675628662,
+    "adrenal-gland-right": 0.1623038947582245
+  },
+  "parts": {
+    "adrenal-gland-left": {
+      "primitives": {
+        "before": 1,
+        "after": 1
+      },
+      "components": [
+        {
+          "before": {
+            "triangles": 3718,
+            "vertices": 1859,
+            "euler": 0,
+            "boundaryEdges": 0,
+            "nonmanifoldEdges": 0,
+            "signedVolumeMm3": 6342.5576171875,
+            "areaCentroidMm": [
+              39.76424026489258,
+              -10.67663288116455,
+              -65.85636901855469
+            ],
+            "boundsMm": [
+              [
+                24.441509246826172,
+                -30.62694549560547,
+                -89.76945495605469
+              ],
+              [
+                54.372283935546875,
+                17.346099853515625,
+                -48.81727600097656
+              ]
+            ],
+            "edgeLengthFractionAbove20Degrees": 0.2413126677274704
+          },
+          "after": {
+            "triangles": 1264,
+            "vertices": 632,
+            "euler": 0,
+            "boundaryEdges": 0,
+            "nonmanifoldEdges": 0,
+            "signedVolumeMm3": 6342.52294921875,
+            "areaCentroidMm": [
+              39.690948486328125,
+              -10.830493927001953,
+              -65.98698425292969
+            ],
+            "boundsMm": [
+              [
+                25.128002166748047,
+                -30.1918888092041,
+                -89.45178985595703
+              ],
+              [
+                53.886165618896484,
+                16.703624725341797,
+                -49.17142105102539
+              ]
+            ],
+            "edgeLengthFractionAbove20Degrees": 0.18920065462589264
+          },
+          "originalToUpdatedMm": {
+            "samples": 21919,
+            "p95": 0.6131909729447216,
+            "max": 1.1522880522534251
+          },
+          "updatedToOriginalMm": {
+            "samples": 20590,
+            "p95": 0.5523784173419698,
+            "max": 1.0834017302840948
+          },
+          "maxBoundsDeltaMm": 0.686492919921875,
+          "areaCentroidShiftMm": 0.21472132097711266,
+          "relativeVolumeDifference": 5.465928863745972e-06
+        }
+      ]
+    },
+    "kidney-left": {
+      "primitives": {
+        "before": 1,
+        "after": 1
+      },
+      "components": [
+        {
+          "before": {
+            "triangles": 26072,
+            "vertices": 13038,
+            "euler": 2,
+            "boundaryEdges": 0,
+            "nonmanifoldEdges": 0,
+            "signedVolumeMm3": 119803.7890625,
+            "areaCentroidMm": [
+              89.6069107055664,
+              -12.329427719116211,
+              -112.81978607177734
+            ],
+            "boundsMm": [
+              [
+                58.712623596191406,
+                -50.31053161621094,
+                -161.7372283935547
+              ],
+              [
+                120.51698303222656,
+                27.78643226623535,
+                -69.83040618896484
+              ]
+            ],
+            "edgeLengthFractionAbove20Degrees": 0.17607539892196655
+          },
+          "after": {
+            "triangles": 4170,
+            "vertices": 2087,
+            "euler": 2,
+            "boundaryEdges": 0,
+            "nonmanifoldEdges": 0,
+            "signedVolumeMm3": 118883.40625,
+            "areaCentroidMm": [
+              89.6624755859375,
+              -12.329202651977539,
+              -112.92134094238281
+            ],
+            "boundsMm": [
+              [
+                59.089271545410156,
+                -50.16737747192383,
+                -161.61886596679688
+              ],
+              [
+                120.4005126953125,
+                27.385986328125,
+                -69.93431854248047
+              ]
+            ],
+            "edgeLengthFractionAbove20Degrees": 0.09149986505508423
+          },
+          "originalToUpdatedMm": {
+            "samples": 155196,
+            "p95": 0.5571698857238516,
+            "max": 1.0287509066984057
+          },
+          "updatedToOriginalMm": {
+            "samples": 126789,
+            "p95": 0.5186696769669651,
+            "max": 0.8976900135166943
+          },
+          "maxBoundsDeltaMm": 0.40044593811035156,
+          "areaCentroidShiftMm": 0.115762249155605,
+          "relativeVolumeDifference": 0.007682418224851384
+        }
+      ]
+    },
+    "pancreas": {
+      "primitives": {
+        "before": 1,
+        "after": 1
+      },
+      "components": [
+        {
+          "before": {
+            "triangles": 17808,
+            "vertices": 8900,
+            "euler": -4,
+            "boundaryEdges": 0,
+            "nonmanifoldEdges": 0,
+            "signedVolumeMm3": 59375.75390625,
+            "areaCentroidMm": [
+              2.231346368789673,
+              -45.157222747802734,
+              -92.57278442382812
+            ],
+            "boundsMm": [
+              [
+                -32.657470703125,
+                -68.3233413696289,
+                -146.75808715820312
+              ],
+              [
+                51.53915023803711,
+                -26.003175735473633,
+                -45.830810546875
+              ]
+            ],
+            "edgeLengthFractionAbove20Degrees": 0.25790494680404663
+          },
+          "after": {
+            "triangles": 3382,
+            "vertices": 1687,
+            "euler": -4,
+            "boundaryEdges": 0,
+            "nonmanifoldEdges": 0,
+            "signedVolumeMm3": 58236.70703125,
+            "areaCentroidMm": [
+              1.7308529615402222,
+              -45.12373733520508,
+              -93.02557373046875
+            ],
+            "boundsMm": [
+              [
+                -32.170692443847656,
+                -68.00279235839844,
+                -146.6392364501953
+              ],
+              [
+                51.39674758911133,
+                -26.099809646606445,
+                -46.129417419433594
+              ]
+            ],
+            "edgeLengthFractionAbove20Degrees": 0.28532081842422485
+          },
+          "originalToUpdatedMm": {
+            "samples": 106122,
+            "p95": 0.6888545758556572,
+            "max": 1.1894511990249157
+          },
+          "updatedToOriginalMm": {
+            "samples": 86322,
+            "p95": 0.6158114469144493,
+            "max": 1.0568328434601426
+          },
+          "maxBoundsDeltaMm": 0.48677825927734375,
+          "areaCentroidShiftMm": 0.6757463131716648,
+          "relativeVolumeDifference": 0.019183703785866424
+        },
+        {
+          "before": {
+            "triangles": 84,
+            "vertices": 44,
+            "euler": 2,
+            "boundaryEdges": 0,
+            "nonmanifoldEdges": 0,
+            "signedVolumeMm3": -42.25139617919922,
+            "areaCentroidMm": [
+              16.111169815063477,
+              -47.960243225097656,
+              -68.5271224975586
+            ],
+            "boundsMm": [
+              [
+                13.861328125,
+                -51.638671875,
+                -70.06946563720703
+              ],
+              [
+                18.361328125,
+                -45.638671875,
+                -67.05000305175781
+              ]
+            ],
+            "edgeLengthFractionAbove20Degrees": 0.5298066735267639
+          },
+          "after": {
+            "triangles": 84,
+            "vertices": 44,
+            "euler": 2,
+            "boundaryEdges": 0,
+            "nonmanifoldEdges": 0,
+            "signedVolumeMm3": -42.25139617919922,
+            "areaCentroidMm": [
+              16.111169815063477,
+              -47.960243225097656,
+              -68.5271224975586
+            ],
+            "boundsMm": [
+              [
+                13.861328125,
+                -51.638671875,
+                -70.06946563720703
+              ],
+              [
+                18.361328125,
+                -45.638671875,
+                -67.05000305175781
+              ]
+            ],
+            "edgeLengthFractionAbove20Degrees": 0.5298066735267639
+          },
+          "originalToUpdatedMm": {
+            "samples": 580,
+            "p95": 1.862645149230957e-06,
+            "max": 7.508562660518692e-06
+          },
+          "updatedToOriginalMm": {
+            "samples": 580,
+            "p95": 1.862645149230957e-06,
+            "max": 7.508562660518692e-06
+          },
+          "maxBoundsDeltaMm": 0.0,
+          "areaCentroidShiftMm": 0.0,
+          "relativeVolumeDifference": 0.0
+        },
+        {
+          "before": {
+            "triangles": 28,
+            "vertices": 16,
+            "euler": 2,
+            "boundaryEdges": 0,
+            "nonmanifoldEdges": 0,
+            "signedVolumeMm3": -7.312509536743164,
+            "areaCentroidMm": [
+              25.111330032348633,
+              -50.138671875,
+              -71.55000305175781
+            ],
+            "boundsMm": [
+              [
+                24.361328125,
+                -51.638671875,
+                -73.05000305175781
+              ],
+              [
+                25.861328125,
+                -48.638671875,
+                -70.05000305175781
+              ]
+            ],
+            "edgeLengthFractionAbove20Degrees": 0.6743133664131165
+          },
+          "after": {
+            "triangles": 28,
+            "vertices": 16,
+            "euler": 2,
+            "boundaryEdges": 0,
+            "nonmanifoldEdges": 0,
+            "signedVolumeMm3": -7.312509536743164,
+            "areaCentroidMm": [
+              25.111330032348633,
+              -50.138671875,
+              -71.55000305175781
+            ],
+            "boundsMm": [
+              [
+                24.361328125,
+                -51.638671875,
+                -73.05000305175781
+              ],
+              [
+                25.861328125,
+                -48.638671875,
+                -70.05000305175781
+              ]
+            ],
+            "edgeLengthFractionAbove20Degrees": 0.6743133664131165
+          },
+          "originalToUpdatedMm": {
+            "samples": 180,
+            "p95": 1.862645149230957e-06,
+            "max": 3.725290298461914e-06
+          },
+          "updatedToOriginalMm": {
+            "samples": 180,
+            "p95": 1.862645149230957e-06,
+            "max": 3.725290298461914e-06
+          },
+          "maxBoundsDeltaMm": 0.0,
+          "areaCentroidShiftMm": 0.0,
+          "relativeVolumeDifference": 0.0
+        }
+      ]
+    },
+    "adrenal-gland-right": {
+      "primitives": {
+        "before": 1,
+        "after": 1
+      },
+      "components": [
+        {
+          "before": {
+            "triangles": 3334,
+            "vertices": 1667,
+            "euler": 0,
+            "boundaryEdges": 0,
+            "nonmanifoldEdges": 0,
+            "signedVolumeMm3": 5105.40478515625,
+            "areaCentroidMm": [
+              -31.314584732055664,
+              12.038900375366211,
+              -64.0066909790039
+            ],
+            "boundsMm": [
+              [
+                -48.92148971557617,
+                -5.212235927581787,
+                -76.26882934570312
+              ],
+              [
+                -16.24955177307129,
+                30.852609634399414,
+                -49.30561065673828
+              ]
+            ],
+            "edgeLengthFractionAbove20Degrees": 0.22628597915172577
+          },
+          "after": {
+            "triangles": 1132,
+            "vertices": 566,
+            "euler": 0,
+            "boundaryEdges": 0,
+            "nonmanifoldEdges": 0,
+            "signedVolumeMm3": 5105.41455078125,
+            "areaCentroidMm": [
+              -31.113679885864258,
+              11.993955612182617,
+              -63.90593338012695
+            ],
+            "boundsMm": [
+              [
+                -48.07804870605469,
+                -4.413544178009033,
+                -76.00804138183594
+              ],
+              [
+                -16.775802612304688,
+                30.169281005859375,
+                -50.16804504394531
+              ]
+            ],
+            "edgeLengthFractionAbove20Degrees": 0.17629022896289825
+          },
+          "originalToUpdatedMm": {
+            "samples": 19185,
+            "p95": 0.6572728394530712,
+            "max": 1.1571812210604548
+          },
+          "updatedToOriginalMm": {
+            "samples": 19105,
+            "p95": 0.5768490605987606,
+            "max": 1.0000718757510185
+          },
+          "maxBoundsDeltaMm": 0.8624343872070312,
+          "areaCentroidShiftMm": 0.22920489238293085,
+          "relativeVolumeDifference": 1.912801317560664e-06
+        }
+      ]
+    },
+    "kidney-right": {
+      "primitives": {
+        "before": 1,
+        "after": 1
+      },
+      "components": [
+        {
+          "before": {
+            "triangles": 23400,
+            "vertices": 11702,
+            "euler": 2,
+            "boundaryEdges": 0,
+            "nonmanifoldEdges": 0,
+            "signedVolumeMm3": 110919.9375,
+            "areaCentroidMm": [
+              -71.74755096435547,
+              -5.577893257141113,
+              -141.0925750732422
+            ],
+            "boundsMm": [
+              [
+                -98.78587341308594,
+                -48.8045539855957,
+                -182.73263549804688
+              ],
+              [
+                -44.498836517333984,
+                36.99062728881836,
+                -98.36890411376953
+              ]
+            ],
+            "edgeLengthFractionAbove20Degrees": 0.17214365303516388
+          },
+          "after": {
+            "triangles": 3744,
+            "vertices": 1874,
+            "euler": 2,
+            "boundaryEdges": 0,
+            "nonmanifoldEdges": 0,
+            "signedVolumeMm3": 110033.6328125,
+            "areaCentroidMm": [
+              -71.78170013427734,
+              -5.58367395401001,
+              -141.11642456054688
+            ],
+            "boundsMm": [
+              [
+                -98.7137222290039,
+                -48.41069793701172,
+                -182.6145782470703
+              ],
+              [
+                -44.64900207519531,
+                36.51679992675781,
+                -98.47276306152344
+              ]
+            ],
+            "edgeLengthFractionAbove20Degrees": 0.08208241313695908
+          },
+          "originalToUpdatedMm": {
+            "samples": 138564,
+            "p95": 0.5400703521445394,
+            "max": 1.0326681658625603
+          },
+          "updatedToOriginalMm": {
+            "samples": 115601,
+            "p95": 0.5014981725253165,
+            "max": 0.9540076716803014
+          },
+          "maxBoundsDeltaMm": 0.4738273620605469,
+          "areaCentroidShiftMm": 0.042052114183945756,
+          "relativeVolumeDifference": 0.00799049032551069
+        }
+      ]
+    }
+  }
+}

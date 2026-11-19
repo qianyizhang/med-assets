@@ -1,0 +1,45 @@
+{
+  "fineMesh": {
+    "primitives": 12,
+    "triangles": 14004,
+    "components": 4
+  },
+  "deliveredMesh": {
+    "primitives": 12,
+    "triangles": 8396,
+    "components": 4
+  },
+  "alphaThreshold": 128,
+  "frames": {
+    "iso": {
+      "foregroundBox": [
+        194,
+        234,
+        626,
+        539
+      ],
+      "fineForegroundBox": [
+        194,
+        234,
+        626,
+        539
+      ],
+      "silhouetteIntersectionOverUnion": 0.99888
+    },
+    "ortho": {
+      "foregroundBox": [
+        116,
+        189,
+        700,
+        501
+      ],
+      "fineForegroundBox": [
+        116,
+        189,
+        700,
+        501
+      ],
+      "silhouetteIntersectionOverUnion": 0.99863
+    }
+  }
+}

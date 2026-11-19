@@ -1,0 +1,388 @@
+{
+  "blender": "5.2.3 LTS Release Candidate",
+  "cameraBounds": [
+    [
+      0.00402,
+      0,
+      0.0003
+    ],
+    [
+      0.00758,
+      0.00147,
+      0.00252
+    ]
+  ],
+  "render": {
+    "resolution": [
+      800,
+      640
+    ],
+    "engine": "Cycles CPU",
+    "samples": 12,
+    "viewTransform": "AgX",
+    "exposure": 0,
+    "transparent": true
+  },
+  "views": [
+    {
+      "id": "original",
+      "frame": 1,
+      "visible": [
+        "Nail | Distal digit tissue",
+        "Nail | Germinal matrix",
+        "Nail | Nail bed",
+        "Nail | Nail plate with free edge",
+        "Nail | Proximal nail fold"
+      ],
+      "bounds": [
+        [
+          0.004050000105053186,
+          0.0,
+          0.0002800000074785203
+        ],
+        [
+          0.007309999782592058,
+          0.0013000000035390258,
+          0.0019600000232458115
+        ]
+      ],
+      "orthographicScale": 0.0052675772458314896,
+      "images": [
+        {
+          "file": "original-iso.png",
+          "sha256": "2adc07a3742371889c33b30a3aeac6b4eb1a9c2d0fea757f3bb0c565e3d5a99e",
+          "direction": [
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            0.016076834872364998,
+            -0.009541835635900497,
+            0.011686835438013077
+          ]
+        },
+        {
+          "file": "original-ortho.png",
+          "sha256": "fabfe29827cf9ab78c05079e077ac9c08da47326666cb554612fd2e6848975de",
+          "direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "camera": [
+            0.005799999926239252,
+            -0.017064999788999557,
+            0.0014100000262260437
+          ]
+        }
+      ],
+      "glb": {
+        "file": "skin-block.glb",
+        "sha256": "3c03ee0cf6d966d7e452b82b253153ac841d217def47abb23bfee79b3d5157e7"
+      },
+      "legend": [
+        {
+          "label": "Distal digit tissue",
+          "color": "#cbaa91",
+          "alpha": 1
+        },
+        {
+          "label": "Proximal nail fold",
+          "color": "#cbaa91",
+          "alpha": 1
+        },
+        {
+          "label": "Germinal matrix",
+          "color": "#9a7891",
+          "alpha": 1
+        },
+        {
+          "label": "Nail bed",
+          "color": "#c6897d",
+          "alpha": 1
+        },
+        {
+          "label": "Nail plate and free edge",
+          "color": "#dbccb0",
+          "alpha": 1
+        }
+      ]
+    },
+    {
+      "id": "original-lifted",
+      "frame": 1,
+      "visible": [
+        "Nail | Distal digit tissue",
+        "Nail | Germinal matrix",
+        "Nail | Nail bed",
+        "Nail | Nail plate with free edge",
+        "Nail | Proximal nail fold"
+      ],
+      "bounds": [
+        [
+          0.004050000105053186,
+          0.0,
+          0.0002800000074785203
+        ],
+        [
+          0.0074699996039271355,
+          0.0013000000035390258,
+          0.002420000033453107
+        ]
+      ],
+      "orthographicScale": 0.0052675772458314896,
+      "images": [
+        {
+          "file": "original-lifted-iso.png",
+          "sha256": "4758cd4f75f875c7a4152038ce7e7fd1ff3170cd39906f54258a4c49914f67f5",
+          "direction": [
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            0.016076834872364998,
+            -0.009541835635900497,
+            0.011686835438013077
+          ]
+        },
+        {
+          "file": "original-lifted-ortho.png",
+          "sha256": "1d36b6362108ed06912e5f40970c400ce1aafe69cd936d851db394e210c3d82b",
+          "direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "camera": [
+            0.005799999926239252,
+            -0.017064999788999557,
+            0.0014100000262260437
+          ]
+        }
+      ],
+      "illustrativeDisplayOffsetMetres": [
+        0.00015999999595806003,
+        0.0,
+        0.000539999979082495
+      ],
+      "glb": {
+        "file": "skin-block.glb",
+        "sha256": "3c03ee0cf6d966d7e452b82b253153ac841d217def47abb23bfee79b3d5157e7"
+      },
+      "legend": [
+        {
+          "label": "Distal digit tissue",
+          "color": "#cbaa91",
+          "alpha": 1
+        },
+        {
+          "label": "Proximal nail fold",
+          "color": "#cbaa91",
+          "alpha": 1
+        },
+        {
+          "label": "Germinal matrix",
+          "color": "#9a7891",
+          "alpha": 1
+        },
+        {
+          "label": "Nail bed",
+          "color": "#c6897d",
+          "alpha": 1
+        },
+        {
+          "label": "Nail plate and free edge",
+          "color": "#dbccb0",
+          "alpha": 1
+        }
+      ]
+    },
+    {
+      "id": "updated",
+      "frame": 1,
+      "visible": [
+        "Nail | Distal digit tissue",
+        "Nail | Germinal matrix",
+        "Nail | Nail bed",
+        "Nail | Nail plate with free edge",
+        "Nail | Proximal nail fold"
+      ],
+      "bounds": [
+        [
+          0.004050000105053186,
+          0.0,
+          0.0003803450963459909
+        ],
+        [
+          0.0073899999260902405,
+          0.0014137020334601402,
+          0.0021440540440380573
+        ]
+      ],
+      "orthographicScale": 0.0052675772458314896,
+      "images": [
+        {
+          "file": "updated-iso.png",
+          "sha256": "37d9907297cdc31110828c111c1f4fa4acd97313e9635ed748636ac5e4e367c5",
+          "direction": [
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            0.016076834872364998,
+            -0.009541835635900497,
+            0.011686835438013077
+          ]
+        },
+        {
+          "file": "updated-ortho.png",
+          "sha256": "13b185e12b0d88227ca3c0c1bcdecd15f6f04d64489da25ad87b9c4c0028aaeb",
+          "direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "camera": [
+            0.005799999926239252,
+            -0.017064999788999557,
+            0.0014100000262260437
+          ]
+        }
+      ],
+      "glb": {
+        "file": "nail.glb",
+        "sha256": "677760b2459c6a94828a6d79fbd9b69620d58fc044c8d079bc23cc84ffa54761"
+      },
+      "legend": [
+        {
+          "label": "Distal digit tissue",
+          "color": "#bd947e",
+          "alpha": 1
+        },
+        {
+          "label": "Proximal nail fold",
+          "color": "#a5755e",
+          "alpha": 1
+        },
+        {
+          "label": "Germinal matrix",
+          "color": "#8a536c",
+          "alpha": 1
+        },
+        {
+          "label": "Nail bed",
+          "color": "#c77c73",
+          "alpha": 1
+        },
+        {
+          "label": "Nail plate",
+          "color": "#c9a694",
+          "alpha": 1
+        },
+        {
+          "label": "Free edge",
+          "color": "#e4d4b4",
+          "alpha": 1
+        }
+      ]
+    },
+    {
+      "id": "updated-lifted",
+      "frame": 1,
+      "visible": [
+        "Nail | Distal digit tissue",
+        "Nail | Germinal matrix",
+        "Nail | Nail bed",
+        "Nail | Nail plate with free edge",
+        "Nail | Proximal nail fold"
+      ],
+      "bounds": [
+        [
+          0.004050000105053186,
+          0.0,
+          0.0003803450963459909
+        ],
+        [
+          0.007549999747425318,
+          0.0014137020334601402,
+          0.0024905966129153967
+        ]
+      ],
+      "orthographicScale": 0.0052675772458314896,
+      "images": [
+        {
+          "file": "updated-lifted-iso.png",
+          "sha256": "9127d6fd50235467e50cc3ce689a95f2e8f5a4bd6fbcbe50e68bfc1b82578d77",
+          "direction": [
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            0.016076834872364998,
+            -0.009541835635900497,
+            0.011686835438013077
+          ]
+        },
+        {
+          "file": "updated-lifted-ortho.png",
+          "sha256": "d6ec7654604811ff1f3b34f1c8b8c35b31a498d37dda284a4063b60d69dd8aab",
+          "direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "camera": [
+            0.005799999926239252,
+            -0.017064999788999557,
+            0.0014100000262260437
+          ]
+        }
+      ],
+      "illustrativeDisplayOffsetMetres": [
+        0.00015999999595806003,
+        0.0,
+        0.000539999979082495
+      ],
+      "glb": {
+        "file": "nail.glb",
+        "sha256": "677760b2459c6a94828a6d79fbd9b69620d58fc044c8d079bc23cc84ffa54761"
+      },
+      "legend": [
+        {
+          "label": "Distal digit tissue",
+          "color": "#bd947e",
+          "alpha": 1
+        },
+        {
+          "label": "Proximal nail fold",
+          "color": "#a5755e",
+          "alpha": 1
+        },
+        {
+          "label": "Germinal matrix",
+          "color": "#8a536c",
+          "alpha": 1
+        },
+        {
+          "label": "Nail bed",
+          "color": "#c77c73",
+          "alpha": 1
+        },
+        {
+          "label": "Nail plate",
+          "color": "#c9a694",
+          "alpha": 1
+        },
+        {
+          "label": "Free edge",
+          "color": "#e4d4b4",
+          "alpha": 1
+        }
+      ]
+    }
+  ]
+}

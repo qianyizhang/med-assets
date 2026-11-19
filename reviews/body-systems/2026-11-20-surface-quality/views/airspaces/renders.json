@@ -1,0 +1,148 @@
+{
+  "blender": "5.2.3 LTS Release Candidate",
+  "display": {
+    "cameraBoundsBlenderMetres": [
+      [
+        0.104,
+        -0.002,
+        0.121
+      ],
+      [
+        0.149,
+        0.006,
+        0.147
+      ]
+    ],
+    "engine": "Cycles CPU",
+    "samples": 12,
+    "denoise": true,
+    "viewTransform": "AgX",
+    "exposure": 0,
+    "background": "transparent",
+    "lighting": "Same Key, Fill, Rim and world rig from tools/render_teaching.py",
+    "materials": "Each GLB's own materials. Original is a fresh rerender without gallery palette overrides."
+  },
+  "views": [
+    {
+      "id": "original",
+      "frame": 1,
+      "visible": [
+        "Terminal | Alveolar cup 1",
+        "Terminal | Alveolar cup 2",
+        "Terminal | Alveolar cup 3",
+        "Terminal | Alveolar cup 4",
+        "Terminal | Alveolar cup 5",
+        "Terminal | Duct opening 1",
+        "Terminal | Duct opening 2",
+        "Terminal | Duct opening 3",
+        "Terminal | Duct opening 4",
+        "Terminal | Respiratory bronchiole and alveolar duct",
+        "Terminal | Terminal bronchiole"
+      ],
+      "bounds": [
+        [
+          0.10523097962141037,
+          -0.0036394111812114716,
+          0.11820000410079956
+        ],
+        [
+          0.14579999446868896,
+          0.009792751632630825,
+          0.14979998767375946
+        ]
+      ],
+      "orthographicScale": 0.05840502679347992,
+      "images": [
+        {
+          "file": "original-iso.png",
+          "sha256": "7777a937db762e64578b39397d7060486398565e02762a03c82d1dd7aa473335",
+          "direction": [
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            0.2564038336277008,
+            -0.12790381908416748,
+            0.26390382647514343
+          ]
+        },
+        {
+          "file": "original-ortho.png",
+          "sha256": "f2d4fd8cceb678d2d2fdbcf7eb51b34b228f1a19dd1f86e46905c2d17975f382",
+          "direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "camera": [
+            0.12650001049041748,
+            -0.22300000488758087,
+            0.1340000033378601
+          ]
+        }
+      ],
+      "glb": {
+        "file": "airway-route.glb",
+        "sha256": "92fd447bad48b03489041e16d0de8750b550034ec4f158219b8352571e0e6091"
+      }
+    },
+    {
+      "id": "updated",
+      "frame": 1,
+      "visible": [
+        "Alveolar duct",
+        "Distal common space and alveoli",
+        "Respiratory bronchiole",
+        "Terminal bronchiole"
+      ],
+      "bounds": [
+        [
+          0.10580000281333923,
+          -0.0036688654217869043,
+          0.12076348811388016
+        ],
+        [
+          0.14837999641895294,
+          0.010444852523505688,
+          0.1435873657464981
+        ]
+      ],
+      "orthographicScale": 0.05840502679347992,
+      "images": [
+        {
+          "file": "updated-iso.png",
+          "sha256": "9a8abfc6b5d3fea00098a0ff875fada88231406146181a07595881c9d02f90e7",
+          "direction": [
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            0.2564038336277008,
+            -0.12790381908416748,
+            0.26390382647514343
+          ]
+        },
+        {
+          "file": "updated-ortho.png",
+          "sha256": "e11047a22af7e537120131c56502aa537f51971ecb535f1b67afb1d149bd37bb",
+          "direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "camera": [
+            0.12650001049041748,
+            -0.22300000488758087,
+            0.1340000033378601
+          ]
+        }
+      ],
+      "glb": {
+        "file": "terminal-airspaces.glb",
+        "sha256": "77f19cc2b261b6d11413c8bb78c949ab8d9c78091f33c47a3dc82a9543781158"
+      }
+    }
+  ]
+}

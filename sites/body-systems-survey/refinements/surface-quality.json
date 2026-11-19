@@ -1,0 +1,65 @@
+[
+  {
+    "id": "surface-adrenal",
+    "system": "endocrine",
+    "title": "Adrenals in their scan frame",
+    "note": "Find the two ochre glands above their respective kidneys in the posterior view. The teaching surface retains the five s1233 labels and the separate pancreatic components. Use the original for the traced label boundaries.",
+    "matched": true,
+    "inspect3d": true,
+    "review": "reviews/body-systems/2026-11-20-surface-quality/README.md",
+    "before": {
+      "receipt": "reviews/body-systems/2026-11-20-surface-quality/views/adrenal/renders.json",
+      "model": ".artifacts/body-systems-refinement-2026-11-19/endocrine/s1233-adrenals.glb",
+      "view": "original"
+    },
+    "after": {
+      "receipt": "reviews/body-systems/2026-11-20-surface-quality/views/adrenal/renders.json",
+      "model": "assemblies/endocrine-locator/adrenal-study-r03/s1233-adrenals-teaching.glb",
+      "view": "updated"
+    }
+  },
+  {
+    "id": "surface-airspaces",
+    "system": "respiratory",
+    "title": "Inside the terminal airspaces",
+    "note": "Follow the open lumen from the bronchiole into the common duct and its side recesses. The enlarged cutaway is authored for teaching. Dimensions and wall thickness are illustrative.",
+    "matched": true,
+    "inspect3d": true,
+    "review": "reviews/body-systems/2026-11-20-surface-quality/README.md",
+    "before": {
+      "receipt": "reviews/body-systems/2026-11-20-surface-quality/views/airspaces/renders.json",
+      "model": "lessons/one-breath/airway-r01/airway-route.glb",
+      "view": "original"
+    },
+    "after": {
+      "receipt": "reviews/body-systems/2026-11-20-surface-quality/views/airspaces/renders.json",
+      "model": "lessons/one-breath/terminal-study-r02/terminal-airspaces.glb",
+      "view": "updated"
+    }
+  },
+  {
+    "id": "surface-nail",
+    "system": "integumentary",
+    "title": "Seated nail plate and free edge",
+    "note": "Follow the nail from its root under the proximal fold, across the bed and out to the free edge. Both models are seated. The lifted detail exposes the supporting tissues at the same illustrative scale.",
+    "matched": true,
+    "inspect3d": true,
+    "review": "reviews/body-systems/2026-11-20-surface-quality/README.md",
+    "before": {
+      "receipt": "reviews/body-systems/2026-11-20-surface-quality/views/nail/renders.json",
+      "model": "models/skin/teaching-block-r01/skin-block.glb",
+      "view": "original"
+    },
+    "after": {
+      "receipt": "reviews/body-systems/2026-11-20-surface-quality/views/nail/renders.json",
+      "model": "models/skin/nail-study-r02/nail.glb",
+      "view": "updated"
+    },
+    "details": [
+      {
+        "view": "updated-lifted",
+        "title": "Lifted plate over the bed and matrix"
+      }
+    ]
+  }
+]

@@ -1,0 +1,123 @@
+{
+  "blender": "5.2.3 LTS Release Candidate",
+  "geometrySha256": "a86315a02fc1bdf167fb63f1f51babff2638ba7115ace8b46d4a478f1de73059",
+  "setup": "Clean imports in the same source bounds. Shared orthographic camera and CPU Cycles lighting.",
+  "views": [
+    {
+      "id": "original",
+      "frame": 1,
+      "visible": [
+        "Left adrenal gland",
+        "Left kidney context",
+        "Pancreas context",
+        "Right adrenal gland",
+        "Right kidney context"
+      ],
+      "bounds": [
+        [
+          -0.0987858772277832,
+          -0.06832334399223328,
+          -0.18273264169692993
+        ],
+        [
+          0.12051698565483093,
+          0.03699062764644623,
+          -0.04583081230521202
+        ]
+      ],
+      "orthographicScale": 0.3328644037246704,
+      "images": [
+        {
+          "file": "original-iso.png",
+          "sha256": "ccd65baf2249b0a93f7ce9ebb8f3844c5834a74f1c5f1e56c87f28e352f37ed6",
+          "direction": [
+            -0.5773502588272095,
+            0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            -0.6222072839736938,
+            0.6174064874649048,
+            0.518791139125824
+          ]
+        },
+        {
+          "file": "original-ortho.png",
+          "sha256": "e0a67d116d73a7e167791eaad3763338d70f09abbb40e13876a415cad0196d87",
+          "direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "camera": [
+            0.010865554213523865,
+            1.080847978591919,
+            -0.11428172886371613
+          ]
+        }
+      ],
+      "glb": {
+        "file": "s1233-adrenals.glb",
+        "sha256": "84b8af5ad628ae328a2b32fb366c0e77fe84c33633df75fb01832a689659c32f"
+      }
+    },
+    {
+      "id": "updated",
+      "frame": 1,
+      "visible": [
+        "Left adrenal gland",
+        "Left kidney context",
+        "Pancreas context",
+        "Right adrenal gland",
+        "Right kidney context"
+      ],
+      "bounds": [
+        [
+          -0.09871372580528259,
+          -0.06800279021263123,
+          -0.18261457979679108
+        ],
+        [
+          0.12040051072835922,
+          0.03651680052280426,
+          -0.046129416674375534
+        ]
+      ],
+      "orthographicScale": 0.3328644037246704,
+      "images": [
+        {
+          "file": "updated-iso.png",
+          "sha256": "8a4062ddd8788dae1b3f3792d97791170159af94a6bc1f277ea72838e0b8349c",
+          "direction": [
+            -0.5773502588272095,
+            0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            -0.6222072839736938,
+            0.6174064874649048,
+            0.518791139125824
+          ]
+        },
+        {
+          "file": "updated-ortho.png",
+          "sha256": "8b85e5499800755af40ba1d31b4663615e95e2b5039b8de67cd645a48d74fde9",
+          "direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "camera": [
+            0.010865554213523865,
+            1.080847978591919,
+            -0.11428172886371613
+          ]
+        }
+      ],
+      "glb": {
+        "file": "s1233-adrenals-teaching.glb",
+        "sha256": "e2bcc2e93a73c027480418109e4db06ce38ea7923b671e5dfe53cfd7d288caa4"
+      }
+    }
+  ]
+}

@@ -1,0 +1,136 @@
+{
+  "blender": "5.2.3 LTS Release Candidate",
+  "original": {
+    "file": "models/skin/teaching-block-r01/skin-block.glb",
+    "sha256": "3c03ee0cf6d966d7e452b82b253153ac841d217def47abb23bfee79b3d5157e7",
+    "fileBytes": 1852252,
+    "boundsMm": [
+      [
+        4.050000105053186,
+        0.0,
+        0.2800000074785203
+      ],
+      [
+        7.309999782592058,
+        1.3000000035390258,
+        1.9600000232458115
+      ]
+    ],
+    "parts": {
+      "Distal digit tissue": {
+        "primitives": 1,
+        "triangles": 668,
+        "weldedComponents": 1,
+        "openOrNonmanifoldEdges": 0,
+        "signedVolumeMm3": 3.7725349192819175
+      },
+      "Germinal matrix": {
+        "primitives": 1,
+        "triangles": 332,
+        "weldedComponents": 1,
+        "openOrNonmanifoldEdges": 0,
+        "signedVolumeMm3": 0.2138499623030588
+      },
+      "Nail bed": {
+        "primitives": 1,
+        "triangles": 374,
+        "weldedComponents": 1,
+        "openOrNonmanifoldEdges": 0,
+        "signedVolumeMm3": 0.34163346890258645
+      },
+      "Nail plate with free edge": {
+        "primitives": 1,
+        "triangles": 668,
+        "weldedComponents": 1,
+        "openOrNonmanifoldEdges": 0,
+        "signedVolumeMm3": 0.5609239436880771
+      },
+      "Proximal nail fold": {
+        "primitives": 1,
+        "triangles": 374,
+        "weldedComponents": 1,
+        "openOrNonmanifoldEdges": 0,
+        "signedVolumeMm3": 0.44571798347994745
+      }
+    },
+    "totalTriangles": 2416,
+    "totalPrimitives": 5
+  },
+  "updated": {
+    "file": ".artifacts/gallery-quality-2026-11-20/nail/build/nail.glb",
+    "sha256": "677760b2459c6a94828a6d79fbd9b69620d58fc044c8d079bc23cc84ffa54761",
+    "fileBytes": 94576,
+    "boundsMm": [
+      [
+        4.050000105053186,
+        0.0,
+        0.3803450963459909
+      ],
+      [
+        7.3899999260902405,
+        1.4137020334601402,
+        2.1440540440380573
+      ]
+    ],
+    "parts": {
+      "Distal digit tissue": {
+        "primitives": 1,
+        "triangles": 1724,
+        "weldedComponents": 1,
+        "openOrNonmanifoldEdges": 0,
+        "signedVolumeMm3": 2.7250476703897224
+      },
+      "Germinal matrix": {
+        "primitives": 1,
+        "triangles": 338,
+        "weldedComponents": 1,
+        "openOrNonmanifoldEdges": 0,
+        "signedVolumeMm3": 0.1500228466783459
+      },
+      "Nail bed": {
+        "primitives": 1,
+        "triangles": 428,
+        "weldedComponents": 1,
+        "openOrNonmanifoldEdges": 0,
+        "signedVolumeMm3": 0.2542074071278829
+      },
+      "Nail plate with free edge": {
+        "primitives": 2,
+        "triangles": 1130,
+        "weldedComponents": 1,
+        "openOrNonmanifoldEdges": 0,
+        "signedVolumeMm3": 0.4079204545698885
+      },
+      "Proximal nail fold": {
+        "primitives": 1,
+        "triangles": 456,
+        "weldedComponents": 1,
+        "openOrNonmanifoldEdges": 0,
+        "signedVolumeMm3": 0.21218393914941516
+      }
+    },
+    "totalTriangles": 4076,
+    "totalPrimitives": 6,
+    "landmarks": {
+      "contacts": {
+        "matrix\u2013plate": {
+          "sampleCount": 6,
+          "maxGapMm": 3.4924596548080444e-07
+        },
+        "bed\u2013plate": {
+          "sampleCount": 8,
+          "maxGapMm": 3.4924596548080444e-07
+        },
+        "proximal fold\u2013plate": {
+          "sampleCount": 6,
+          "maxGapMm": 3.4924596548080444e-07
+        }
+      },
+      "contactToleranceMm": 0.0025,
+      "clearanceUnderFreeEdgeMm": 0.261931330896914,
+      "projectingEdgeXSpanMm": 0.1499999999999999,
+      "transverseCrownDropMm": 0.2915023360401392,
+      "longitudinalCrownRiseMm": 0.10062661021947861
+    }
+  }
+}

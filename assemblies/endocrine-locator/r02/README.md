@@ -21,6 +21,8 @@ superior and +Z anterior. The atlas posterior view represents one four-gland
 example. Its visible midline projection retains the
 [source review qualification](../../../models/parathyroids/exports/z-localization-r01/README.md).
 
+For the gallery close-up, the [smoothed adrenal group](../adrenal-study-r03/README.md) preserves this scan frame and records per-organ deviations from the r02 surfaces.
+
 ## Source and replay
 
 The atlas subset preserves the original world placement and the

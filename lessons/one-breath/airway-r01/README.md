@@ -17,6 +17,8 @@ Restore the local Blender scene and GLB files from the [body-systems teaching ba
 
 The intended consumer is the existing One Breath lesson. The lesson uses its separately loaded V7 shell with this extension. Its scene hides the extension's V7 copy, which allows the exported GLB to stand alone without doubling walls in the lesson. Names, region tags and matched local views keep the editable recipe and one portable export usable at both scales. [Source attribution and rights](../licenses/ATTRIBUTION.md). The sequence was screened against [OpenStax 22.1](https://openstax.org/books/anatomy-and-physiology-2e/pages/22-1-organs-and-structures-of-the-respiratory-system) and [22.2](https://openstax.org/books/anatomy-and-physiology-2e/pages/22-2-the-lungs).
 
+The [terminal airspace cutaway](../terminal-study-r02/README.md) is a standalone gallery detail. Select its airway regions to follow the open duct into the illustrated recesses.
+
 ## Replay
 
 From the repository root with Blender 5.2.3, hydrated inputs and fresh output directories:

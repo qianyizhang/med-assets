@@ -1,0 +1,134 @@
+{
+  "original": {
+    "glb": {
+      "file": "airway-route.glb",
+      "sha256": "92fd447bad48b03489041e16d0de8750b550034ec4f158219b8352571e0e6091"
+    },
+    "sourceFileBytes": 2083460,
+    "parts": {
+      "Terminal | Alveolar cup 1": {
+        "primitives": 1,
+        "triangles": 862,
+        "components": 1
+      },
+      "Terminal | Alveolar cup 2": {
+        "primitives": 1,
+        "triangles": 862,
+        "components": 1
+      },
+      "Terminal | Alveolar cup 3": {
+        "primitives": 1,
+        "triangles": 862,
+        "components": 1
+      },
+      "Terminal | Alveolar cup 4": {
+        "primitives": 1,
+        "triangles": 862,
+        "components": 1
+      },
+      "Terminal | Alveolar cup 5": {
+        "primitives": 1,
+        "triangles": 862,
+        "components": 1
+      },
+      "Terminal | Duct opening 1": {
+        "primitives": 1,
+        "triangles": 308,
+        "components": 1
+      },
+      "Terminal | Duct opening 2": {
+        "primitives": 1,
+        "triangles": 308,
+        "components": 1
+      },
+      "Terminal | Duct opening 3": {
+        "primitives": 1,
+        "triangles": 308,
+        "components": 1
+      },
+      "Terminal | Duct opening 4": {
+        "primitives": 1,
+        "triangles": 308,
+        "components": 1
+      },
+      "Terminal | Respiratory bronchiole and alveolar duct": {
+        "primitives": 1,
+        "triangles": 596,
+        "components": 1
+      },
+      "Terminal | Terminal bronchiole": {
+        "primitives": 1,
+        "triangles": 596,
+        "components": 1
+      }
+    },
+    "total": {
+      "primitives": 11,
+      "triangles": 6734,
+      "components": 11
+    }
+  },
+  "updated": {
+    "glb": {
+      "file": "terminal-airspaces.glb",
+      "sha256": "77f19cc2b261b6d11413c8bb78c949ab8d9c78091f33c47a3dc82a9543781158"
+    },
+    "sourceFileBytes": 171748,
+    "parts": {
+      "Alveolar duct": {
+        "primitives": 3,
+        "triangles": 3792,
+        "components": 1
+      },
+      "Distal common space and alveoli": {
+        "primitives": 3,
+        "triangles": 2240,
+        "components": 1
+      },
+      "Respiratory bronchiole": {
+        "primitives": 3,
+        "triangles": 1416,
+        "components": 1
+      },
+      "Terminal bronchiole": {
+        "primitives": 3,
+        "triangles": 948,
+        "components": 1
+      }
+    },
+    "total": {
+      "primitives": 12,
+      "triangles": 8396,
+      "components": 4
+    },
+    "continuity": {
+      "worldWeldToleranceMetres": 4e-08,
+      "weldedComponents": 1,
+      "nonManifoldEdges": 0,
+      "inconsistentlyWoundEdges": 0,
+      "unobstructedAxisSegmentsDisplayMillimetres": [
+        0.581,
+        6.304,
+        6.322,
+        6.629,
+        4.996,
+        8.713,
+        8.437,
+        1.267
+      ],
+      "unobstructedLumenToRecessSegmentsDisplayMillimetres": [
+        5.662,
+        4.894,
+        7.895,
+        7.185,
+        7.915,
+        9.56,
+        9.714,
+        8.135,
+        8.775,
+        8.001,
+        9.623
+      ]
+    }
+  }
+}

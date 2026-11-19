@@ -64,6 +64,15 @@ when the local assembly receipts and renders are present.
 
 ## Local before-and-after comparisons
 
+The [surface quality review](../../reviews/body-systems/2026-11-20-surface-quality/README.md)
+scores the terminal airspaces, seated nail and s1233 adrenal group against the
+[gallery rubric](../../docs/WORKFLOW.md#body-system-gallery-rubric). It includes
+the matched views and links to the three portable teaching models. In the local
+gallery, open **Before and after** in Respiratory, Integumentary or Endocrine
+to rotate the revised model and isolate its parts. The adrenal comparison also
+needs the original `s1233-adrenals.glb` from the
+[regional endocrine build](../../assemblies/endocrine-locator/r02/README.md).
+
 Open the **Before and after** panels within a system. Each panel links the
 original and updated isometric and orthographic renders to their model
 identities and the owning review. The report checks camera, scale and PNG
