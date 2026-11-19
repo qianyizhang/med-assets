@@ -27,50 +27,21 @@ output directory; never use a delivered export folder as scratch space.
 
 ## Asset admission
 
-### Decide what to create
+| Admission decision | Evidence in the issue or owning package |
+| --- | --- |
+| Teaching goal | Named audience, task and observable result (e.g., a learner can trace drainage from kidney through ureter and bladder to outlet). |
+| New asset or variant | Closest asset IDs and matched views or measurements showing the gap. Reuse, adaptation or composition falls short of the goal or breaks a named use. |
+| Maintenance | Expected improvement, owner, storage and review cost. For replacements, affected consumers, migration plan and retained recovery material. |
 
-In the existing issue or owning package, name the learner or other consumer,
-what they need to identify, trace or do, and what observation would demonstrate
-success. Scope the claim to the structures, relationships and level of detail
-that task requires. For example, locating a kidney and tracing urinary drainage
-are different tasks. The latter requires visible transitions from kidney to
-ureter, bladder and outlet.
+| Deliverable | Acceptance evidence |
+| --- | --- |
+| Every asset | Editable source or identified inputs, exact export, replay instructions and [source credits and terms](#import-and-source-integrity). Anatomical claims cite references. Inferred features, schematics and generated concepts carry explicit labels. |
+| 3D assembly | Units, axes, laterality, shared frame or placement transforms, and authored joins. Clean reimport shows essential parts alone and together. Each claimed route has visible junctions and traceable continuity. Claims stop at unresolved gaps, collisions or occlusion. |
+| Related 3D views | Consistent materials and textures. Matched-scale isometric and straight orthographic views by default. A section or alternate angle reveals hidden relationships. See [visual comparisons](#visual-comparisons). |
+| Diagram or lesson | Required relationship visible in the delivered diagram or learner action demonstrated in the running lesson. |
 
-Compare the closest existing assets by ID. Inspect matched views or relevant
-measurements and identify the specific gap. If the parts exist, try composing
-them or adding a teaching overlay first. Add a maintained asset or variant when
-the evidence shows that reuse or adaptation falls short, or would break another
-named use that cannot coexist through parameters, materials or composition.
-A better replacement is welcome. Record the improvement, maintenance owner,
-source and export storage, review effort, and any consumers to migrate.
-Preserve other uses and required recovery material.
-
-### Demonstrate the result
-
-- **Every asset.** Keep the editable source or identified inputs, exact export
-  identity, build or replay instructions, attribution and license terms with the
-  [owning package](#ownership) or link to their owner. Cite the references for
-  anatomical claims and identify inferred or schematic features. Label generated
-  concept images as design references. Use the delivered asset for acceptance.
-- **3D assemblies.** Record units, axes, laterality and the common source frame
-  or transforms used to place the parts. Identify authored placements and
-  bridges. Inspect the essential parts individually and together in a clean
-  reimport. Trace each claimed route through its named junctions and inspect
-  gaps, unintended intersections and occlusion. A remaining break limits the
-  claim to the demonstrated segment.
-- **Visual evidence.** For related 3D parts and the combined setup, start with
-  an isometric view and a straight orthographic view at matched scale within
-  each pair. Keep material and texture conventions consistent across the set.
-  Choose a section, complementary angle or detail when it shows the required
-  relationship more clearly. For a diagram or runnable lesson, inspect its
-  delivered view or exercise the learner action. Follow [visual comparisons](#visual-comparisons)
-  for revision comparisons.
-
-Link the decision and scoped evidence in the PR. Missing or unsupported
-admission evidence blocks ready/merge. Record the applicable [checks](#verification),
-independent [review results and limits](#review-records), and any unverified
-claims. Admission grants no authority to delete, publish or merge. Apply it to
-proposed changes without reopening settled work.
+- **Ready/merge gate** · PR links the admission decision, supporting evidence, [required checks](#verification) and [scoped review results](#review-records). Missing or unsupported evidence blocks readiness.
+- **Separate authorization** · Deletion, publication and merge.
 
 ## Verification
 
