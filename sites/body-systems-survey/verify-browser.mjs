@@ -67,7 +67,7 @@ async function evaluate(expression) {
 async function goto(url, selector) {
   const outcome = await send("Page.navigate", {url});
   if (outcome.errorText) throw new Error(outcome.errorText);
-  for (let attempt = 0; attempt < 32; attempt++) {
+  for (let attempt = 0; attempt < 95; attempt++) {
     const ready = await evaluate(`document.readyState === "complete" && Boolean(document.querySelector(${JSON.stringify(selector)}))`);
     if (ready && await evaluate(`location.href.startsWith(${JSON.stringify(url)})`)) return;
     await pause(125);
@@ -82,11 +82,14 @@ async function viewport(width, height) {
   await send("Emulation.setDeviceMetricsOverride", {width, height, mobile: false, deviceScaleFactor: 1});
 }
 
+const viewerOrigin = process.argv.find(arg => arg.startsWith("--viewer="))?.split("=", 2)[1];
 const verified = {};
 try {
   await send("Page.enable");
   await viewport(1360, 960);
-  const report = new URL("index.html", reportDir).href;
+  const report = viewerOrigin
+    ? (await fetch(new URL("/", viewerOrigin))).url
+    : new URL("index.html", reportDir).href;
   await goto(report, "#page-title");
   const documentCheck = await evaluate(`(async () => {
     const plates = [...document.querySelectorAll(".system .plate")];
@@ -177,6 +180,100 @@ try {
     } catch (error) {
       verified.gallery = error.message;
     }
+  }
+  if (viewerOrigin) {
+    await goto(report, "#page-title");
+    const actions = await evaluate(`[...document.querySelectorAll(".viewer-action")].map(link => link.href)`);
+    assert.equal(actions.length, verified.gallery.assemblyPlates + 12);
+    assert.ok(actions.every(url => url.startsWith(viewerOrigin + "/viewer/?scene=")));
+    assert.equal((await fetch(new URL("/.git/config", viewerOrigin))).status, 404);
+    assert.equal((await fetch(new URL("/viewer/assets/unknown.glb", viewerOrigin))).status, 404);
+    const catalog = await (await fetch(new URL("/viewer/catalog.json", viewerOrigin))).json();
+    assert.equal(Object.keys(catalog.scenes).length, actions.length);
+
+    async function clickView(selector, system) {
+      const href = await evaluate(`document.querySelector(${JSON.stringify(selector)}).href`);
+      await evaluate(`document.querySelector(${JSON.stringify(selector)}).click()`);
+      for (let i = 0; i < 95; i++) {
+        if (await evaluate(`document.querySelector("#stage")?.dataset.scene === ${JSON.stringify(system)}`)) return href;
+        await pause(125);
+      }
+      throw new Error("No ready viewer for " + system + " " + await evaluate('document.querySelector("#status")?.textContent'));
+    }
+    const triangles = () => evaluate('Number(document.querySelector("canvas").dataset.triangles)');
+    const digestiveLink = "#digestive figure[data-plate=assembly] .viewer-action";
+    await clickView(digestiveLink, "digestive");
+    const full = await triangles();
+    assert.ok(full > 0);
+    assert.equal(await evaluate('document.querySelector("#back").hash'), "#digestive");
+    if (withWorkshop) {
+      assert.equal(await evaluate('document.querySelectorAll("#parts input").length'), 8);
+      await evaluate('[...document.querySelectorAll("#parts label")].find(row => row.textContent.trim() === "Liver").querySelector("input").click()');
+      assert.ok(await triangles() < full);
+      await evaluate('document.querySelector("#show-all").click()');
+      assert.equal(await triangles(), full);
+      await evaluate('document.querySelector("#compare").click()');
+      for (let i = 0; i < 95; i++) {
+        if (await evaluate('document.querySelector("#stage")?.dataset.scene === "stomach"')) break;
+        await pause(125);
+      }
+      assert.equal(await triangles(), 19036);
+      await evaluate('document.querySelector("[value=workshop]").click()');
+      assert.equal(await triangles(), 8400);
+      await capture(join(tmpdir(), "med-gallery-3d-comparison.png"));
+    }
+
+    await goto(report, "#page-title");
+    await clickView("#skeletal figure[data-plate=assembly] .viewer-action", "skeletal");
+    assert.ok(await triangles() > 0);
+    assert.ok(await evaluate('document.querySelector("#parts").textContent.includes("Body envelope")'));
+
+    await goto(report, "#page-title");
+    const model = '#reproductive .downloads .viewer-action';
+    await evaluate('document.querySelector("#reproductive .downloads").parentElement.open = true');
+    await clickView(model, "reproductive");
+    assert.ok(await triangles() > 0);
+
+    await goto(report, "#page-title");
+    const cardio = await clickView("#cardiovascular figure[data-plate=assembly] .viewer-action", "cardiovascular");
+    assert.ok(await triangles() > 0);
+    await evaluate('document.querySelector("canvas").focus()');
+    const facing = await send("Page.captureScreenshot", {format:"png"});
+    await send("Input.dispatchKeyEvent", {type:"keyDown",key:"ArrowRight",code:"ArrowRight",windowsVirtualKeyCode:39});
+    await send("Input.dispatchKeyEvent", {type:"keyUp",key:"ArrowRight",code:"ArrowRight",windowsVirtualKeyCode:39});
+    assert.notEqual(facing.data, (await send("Page.captureScreenshot", {format:"png"})).data);
+
+    await send("Network.enable");
+    await send("Network.setBlockedURLs", {urls: ["*/viewer/assets/*"]});
+    const failed = new URL(cardio);
+    failed.searchParams.set("check", "missing-asset");
+    await goto(failed.href, "#retry:not([hidden])");
+    assert.equal(await evaluate('document.querySelector("#fallback").hidden'), false);
+    await send("Network.setBlockedURLs", {urls: []});
+    await evaluate('document.querySelector("#retry").click()');
+    for (let i = 0; i < 95; i++) {
+      if (await evaluate('document.querySelector("#stage")?.dataset.scene === "cardiovascular"')) break;
+      await pause(125);
+    }
+    assert.ok(await triangles() > 0);
+    await goto(new URL("/viewer/?scene=invalid", viewerOrigin).href, "#status");
+    for (let i = 0; i < 36; i++) {
+      if (await evaluate('document.querySelector("#status")?.textContent.includes("Choose an assembly")')) break;
+      await pause(125);
+    }
+    assert.match(await evaluate('document.querySelector("#status").textContent'), /Choose an assembly/);
+
+    for (const href of actions) {
+      const key = new URL(href).searchParams.get("scene");
+      const { system } = catalog.scenes[key];
+      await goto(href, `#stage[data-scene="${system}"]`);
+      assert.ok(await triangles() > 0, key);
+    }
+    await goto(new URL("index.html", reportDir).href, "#page-title");
+    await clickView(digestiveLink, "digestive");
+    assert.ok(await triangles() > 0);
+    verified.viewer = {launchActions: actions.length, webglScenes: actions.length, diskGalleryLaunch: true,
+      wholeModel: true, keyboardOrbit: true, missingAssetFallbackAndRetry: true, unknownScene: true};
   }
   console.log(JSON.stringify(verified, null, 2));
 } finally {

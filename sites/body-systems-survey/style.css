@@ -119,3 +119,17 @@ footer { border-top: 1px solid var(--line); padding-block: 1.2rem; color: var(--
 @media (forced-colors: active) {
   .legend li span { forced-color-adjust: none; }
 }
+.viewer-action {
+  display: inline-block;
+  width: fit-content;
+  margin-block-start: .65rem;
+  padding: .35rem .63rem;
+  border: 1px solid var(--dark);
+  border-radius: .2rem;
+  background: var(--dark);
+  color: #fffdf6;
+  font-weight: 700;
+  font-size: .83rem;
+  text-decoration: none;
+}
+.viewer-action:hover { background: #345c4e; color: #fffdf6; }

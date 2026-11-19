@@ -152,6 +152,36 @@ blender -b --factory-startup --disable-autoexec --python-exit-code 1 \
   --only skeleton --output .artifacts/body-systems-baseline-replay
 ```
 
-The retained browser exercise uses Chrome and a disposable profile. Run it as
-`node sites/body-systems-survey/verify-browser.mjs --local-only` after building
-the reports.
+## Open in 3D
+
+Start the local server after restoring the gallery media and hydrating its
+selected GLBs. It rebuilds the original gallery and serves it at
+[127.0.0.1:8847](http://127.0.0.1:8847/).
+
+```sh
+python3.12 sites/body-systems-survey/serve.py
+```
+
+Use **Open in 3D** on a System assembly, or open an individual delivered model
+under **Models, review and attribution**. The viewer supports orbit, zoom,
+named structure visibility and, with the same-case digestive assembly restored,
+a fixed-camera stomach comparison. The server checks asset hashes and serves
+the identified GLBs and linked gallery files on loopback. It stops after
+four hours or Ctrl-C. **Open in 3D** links from the disk report use the same
+local server.
+
+The server reuses pinned Three.js modules if they are already cached or
+staged for the repository's runtime fixtures. If the modules are missing,
+start it once with `--fetch-vendor` to fetch and verify those exact modules.
+In an isolated development worktree, point `MED_ASSETS_REPO` at the hydrated
+checkout that holds the gallery artifacts and assets.
+
+Verify in disposable Chrome with the running local server. Use `--with-s1233`
+when the same-case gallery additions are installed.
+
+```sh
+node sites/body-systems-survey/verify-browser.mjs --local-only \
+  --with-s1233 --viewer=http://127.0.0.1:8847
+```
+
+For the screenshot-only report, run the same harness without `--viewer`.

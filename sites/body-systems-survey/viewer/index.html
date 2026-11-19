@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Body Systems · 3D viewer</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">{"imports":{"three":"./vendor/build/three.module.js","three/addons/":"./vendor/examples/jsm/"}}</script>
+<script type="module" src="viewer.mjs"></script>
+</head>
+<body>
+<main>
+  <header class="mast">
+    <div><p class="eyebrow">med-assets / local viewer</p><h1>Body Systems in 3D</h1></div>
+    <nav aria-label="Gallery and comparison">
+      <a id="back" href="/">Back to gallery</a>
+      <button type="button" id="compare" aria-pressed="false" hidden>Compare stomach</button>
+    </nav>
+  </header>
+  <div class="workspace">
+    <section class="viewer" aria-labelledby="scene-name">
+      <header class="toolbar">
+        <h2 id="scene-name">Local model</h2>
+        <div class="buttons" aria-label="Camera views">
+          <button type="button" data-angle="straight" disabled>Straight</button>
+          <button type="button" data-angle="iso" disabled>Isometric</button>
+          <button type="button" data-angle="reverse" disabled>Reverse</button>
+        </div>
+      </header>
+      <div id="stage" class="stage">
+        <p id="loading" role="status">Loading local assets…</p>
+        <figure id="fallback" hidden><img id="fallback-image" alt=""><figcaption>Static gallery image</figcaption></figure>
+      </div>
+      <footer id="controls-hint">Drag to rotate · Scroll to zoom · Right-drag to pan · Arrow keys rotate when focused</footer>
+    </section>
+    <aside aria-labelledby="inspector-heading">
+      <h2 id="inspector-heading">Structures</h2>
+      <fieldset id="comparison" hidden>
+        <legend>Stomach mesh</legend>
+        <label><input type="radio" name="stomach-mesh" value="raw" checked> Mask-derived mesh</label>
+        <label><input type="radio" name="stomach-mesh" value="workshop"> Smoothed Workshop mesh</label>
+      </fieldset>
+      <p id="description" hidden></p>
+      <div id="parts"></div>
+      <button type="button" id="show-all" hidden>Show all structures</button>
+      <p id="status" role="status"></p>
+      <button type="button" id="retry" hidden>Retry loading</button>
+    </aside>
+  </div>
+</main>
+</body>
+</html>

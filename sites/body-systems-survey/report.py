@@ -12,6 +12,8 @@ from gallery_plan import (
     render_plan, study_records,
 )
 
+from viewer_catalog import Catalog, DEFAULT_PORT
+
 MEDIA = HERE / "media"
 REMOTE = "https://github.com/qianyizhang/med-assets/blob"
 REFERENCE = "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-2-structural-organization-of-the-human-body"
@@ -109,7 +111,7 @@ def presentation():
     return plates
 
 
-def gallery_plate(entry, title, *, assembly=False):
+def gallery_plate(entry, title, *, assembly=False, viewer_url=None):
     folder, view = entry
     frames = []
     for item in view["images"]:
@@ -136,9 +138,10 @@ def gallery_plate(entry, title, *, assembly=False):
     width = view["orthographicScale"] * 100
     frame_info = f'<p class="picture-width">Matched camera width · {width:.1f} cm in model units</p>' if assembly else ""
     heading = "h4" if assembly else "strong"
+    action = viewer_link(viewer_url, "Open in 3D") if viewer_url else ""
     return (f'<figure class="plate" data-plate="{"assembly" if assembly else "detail"}"><div class="views">{"".join(frames)}</div>'
             f'<figcaption><{heading}>{escape(title)}</{heading}>{frame_info}<ul class="legend" aria-label="Parts and display colors">'
-            f'{colors}</ul></figcaption></figure>')
+            f'{colors}</ul>{action}</figcaption></figure>')
 
 
 def browser_evidence(study, review):
@@ -171,19 +174,30 @@ WORKSHOP_VIEWS = {
 }
 
 
-def study_section(system, jobs, rev, plates):
+def viewer_link(url, label):
+    return f'<a class="viewer-action" href="{escape(url)}">{escape(label)}</a>'
+
+
+def study_section(system, jobs, rev, plates, catalog):
     study = system["study"]
     key = system["id"]
     owner = REPO / study["owner"]
     review = REPO / study["review"]
     links = [("Replay and attribution", owner / "README.md"), ("Review and checks", review / "README.md")]
     detail = {}
+    model_actions = []
     for receipt, record, model, prefix in study_records(system):
         links.append((model.name, model))
         blend = model.with_suffix(".blend")
         if blend.is_file():
             links.append((blend.name, blend))
         scene = key + ("-" + prefix.rstrip("/") if prefix else "")
+        view = record["views"][0]
+        folder, display = plates[scene, view["id"]]
+        model_actions.append(viewer_link(
+            catalog.register(folder, display, model.stem.replace("-", " ").capitalize(), key, whole=True),
+            f"Open {model.stem} in 3D",
+        ))
         for view in record["views"]:
             name = prefix + view["id"]
             label = name.replace("/", " · ").replace("-", " ").capitalize()
@@ -197,7 +211,9 @@ def study_section(system, jobs, rev, plates):
     if (workshop, "assembly") in plates:
         title, route, note, limits = WORKSHOP_VIEWS[key]
         entries = []
-        combined.append(gallery_plate(plates[workshop, "assembly"], title, assembly=True))
+        entry = plates[workshop, "assembly"]
+        combined.append(gallery_plate(entry, title, assembly=True,
+                                      viewer_url=catalog.register(*entry, title, key)))
         detail["workshop-route"] = gallery_plate(plates[workshop, "route"], route)
         links.extend([
             ("Same-case GLB", WORKSHOP_ASSEMBLIES / f"{key}.glb"),
@@ -216,13 +232,17 @@ def study_section(system, jobs, rev, plates):
             "reproductive-female": ("reproductive-female", "context"),
             "reproductive-male": ("reproductive-male", "context"),
         }.get(entry, (entry, "assembly"))
-        combined.append(gallery_plate(plates[scene, name], TITLES.get(entry, title), assembly=True))
+        entry_title = TITLES.get(entry, title)
+        display = plates[scene, name]
+        combined.append(gallery_plate(display, entry_title, assembly=True,
+                                      viewer_url=catalog.register(*display, entry_title, key)))
         links.append((f"{TITLES.get(entry, title)} display receipt", plates[scene, name][0] / "renders.json"))
     parts = "".join(plate(jobs[id], title) for id, title in system["parts"])
     sources = "".join(source_link(label, file, rev) for label, file in system["sources"])
     if study.get("lesson"):
         links.insert(0, ("Run One Breath locally", REPO / study["lesson"]))
     links_html = "".join(f'<a href="{href(path)}">{escape(label)}</a>' for label, path in links)
+    links_html += "".join(model_actions)
     status_class = "partial" if state in {"Partial assembly", "Illustrative placement"} else "ready"
     return f"""<section id="{key}" class="system" aria-labelledby="{key}-heading">
     <header><div class="system-title"><h2 id="{key}-heading">{escape(system['name'])}</h2>
@@ -256,7 +276,7 @@ def comparison_card(title, href, purpose, overlap, screenshot, fallback):
   </article>"""
 
 
-def build():
+def build(viewer_port=DEFAULT_PORT):
     rev = (SOURCE / "revision.txt").read_text().strip()
     baseline = "2cb53c05577b4cbc2355c4bff293666127d21382"
     systems = load("systems.json")
@@ -264,6 +284,7 @@ def build():
     if len(systems) != 11 or len({system["id"] for system in systems}) != 11:
         raise ValueError("Expected 11 unique systems")
     plates = presentation()
+    catalog = Catalog(viewer_port)
     states = [ASSEMBLIES[system["id"]][0] for system in systems]
     native = sum(state.startswith(("Native", "Shared")) for state in states)
     partial = sum(state in {"Partial assembly", "Illustrative placement"} for state in states)
@@ -275,7 +296,7 @@ def build():
     )
     directory = "".join(f'<li><a href="#{s["id"]}">{escape(s["name"])}</a></li>'
                         for s in systems)
-    sections = "".join(study_section(system, jobs, baseline, plates) for system in systems)
+    sections = "".join(study_section(system, jobs, baseline, plates, catalog) for system in systems)
     survey = comparison_card("Medical Model Survey", "https://med-assets-model-survey.landy123007.chatgpt.site/",
         "Browse individual assets, variants, review states, files and related products across the collection.",
         "It already owns the asset inventory. This body-systems report adds the minimum teaching setup, the assembly evidence, and the missing joins.",
@@ -301,7 +322,7 @@ def build():
 <section class="hero" aria-labelledby="page-title">
   <div><p class="eyebrow">Repository survey · 19 November 2026</p>
   <h1 id="page-title">Body systems in 3D</h1>
-  <p class="lede">See how the parts of eleven body systems fit together. Open Asset detail to follow a route, inspect a junction or compare a pose.</p>
+  <p class="lede">See how the parts of eleven body systems fit together. Use <strong>Open in 3D</strong> to rotate a local assembly and isolate structures.</p>
   <div class="stats" aria-label="Survey outcomes">{stats}</div></div>
   <figure class="hero-art">{hero}<figcaption>Respiratory system · shared thoracic frame</figcaption></figure>
 </section>
@@ -314,6 +335,7 @@ def build():
 </section>
 <section class="method" id="method">
   <h2>How to read the gallery</h2>
+  <p><strong>Local 3D.</strong> Start the gallery server with <code>python3.12 sites/body-systems-survey/serve.py</code>. The screenshots also open directly from disk.</p>
   <p>The survey covers the eleven major adult systems, including both reproductive tracts and the special senses within the nervous system. The scope is gross anatomy teaching for one core function per system.</p>
   <ul>
     <li><strong>System assembly.</strong> The overview shows together the structures supported by the stated frame. Native and shared frames preserve source placement and relative scale. Partial assemblies and illustrative placements have separate audit labels.</li>
@@ -331,6 +353,7 @@ def build():
     temporary = HERE / "index.html.next"
     temporary.write_text(html)
     temporary.replace(HERE / "index.html")
+    return catalog.data()
 
 
 if __name__ == "__main__":
