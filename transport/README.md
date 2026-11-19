@@ -21,11 +21,16 @@ python3.12 tools/fetch_asset.py models/kidney_left/exports/metadata-cleanup-r01/
 
 ## Add or reverify R2 copies
 
+### Upload acceptance
+
+- **Routine local uploads** · On the user's Mac, record successful upload of the intended asset as verified. Use a separate download for an explicit remote byte or restore check, or when a guarded workflow requires one.
+- **Consumer changes** · Exercise the affected consumer when the change is to a live route, download action or recovery flow.
+
 | Goal | Acceptance |
 | --- | --- |
 | Reviewed candidate | [Planner](../tools/r2_migration.py) pins a commit and verifies local bytes for all LFS and Git blobs ≥1 MB. Review paths, rights and disclosure scope. |
-| Valid public delivery | [Delivery manifest](../sites/model-survey/app/src/content/assets/r2-trial.json) owns declared routes. Handler enforces hash, size, MIME/extension, attachment safety and object bounds. Actual availability needs fresh readback. |
-| Bounded upload | [Uploader](../tools/r2_upload.mjs) uses short-lived hidden-stdin or in-memory authorization, verifies identities, keeps state ignored and anonymously reads back all bytes. |
+| Valid public delivery | [Delivery manifest](../sites/model-survey/app/src/content/assets/r2-trial.json) owns declared routes. Handler enforces hash, size, MIME/extension, attachment safety and object bounds. |
+| Bounded upload | [Uploader](../tools/r2_upload.mjs) uses short-lived hidden-stdin or in-memory authorization, verifies identities, keeps state ignored and includes anonymous byte readback in the run. |
 | Failure and resume | HTTP, quota, permission or integrity failure stops after the active group. Explicit resume rechecks readback and preserves verified uploads. Budgets, providers and permissions require their own authority. |
 | Closeout | Close asset-upload authorization and redeploy the same saved version with owner environment and audience intact. Confirm coverage and consumers before retiring any old copy. |
 
@@ -34,7 +39,7 @@ python3.12 tools/fetch_asset.py models/kidney_left/exports/metadata-cleanup-r01/
 ## Git LFS delivery and recovery
 
 - **Direct path** · Authorized exact OID, reviewed remote and executor authentication. Use `git lfs push --object-id origin <reviewed-oid>`. Keep sanitized auth/network/quota/integrity/permission results.
-- **Completion** · Fresh GitHub or empty-store download with matching hash and byte size before pointer merge. Retain authorized verified backups.
+- **Completion** · Apply [upload acceptance](#upload-acceptance) to routine local uploads. For remote pointer delivery, verify size and SHA-256 from a fresh GitHub or empty-store download before merge. Retain authorized verified backups.
 - **Fallback** · Only for unresolved technical failure with the same reviewed bytes and rights. Permission, quota, integrity and action denials require resolution at the owning boundary.
 
 ## Guarded CI fallback
