@@ -21,6 +21,24 @@
 
 - **Asset bytes** · [Public downloads and R2 migration](../../transport/README.md).
 
+## FDI31 prepared specimen
+
+The [FDI31 entry](https://med-assets-model-survey.landy123007.chatgpt.site/?view=1#swirendo_fdi31)
+opens the specimen card with its preview, review, limitations and Balanced GLB.
+The download checks the published manifest and verifies the file size and
+SHA-256 before saving. The card also links to the GitHub export.
+
+The [legacy focus review](https://dental-fdi31-focus-review-oct28.landy123007.chatgpt.site/fdi31/)
+serves the [bilingual notice](retirements/fdi31/index.html) with links to
+the survey and canonical R2 bytes. On 2026-11-19 the survey and legacy
+notice reached public version 7. The survey revision is recorded in
+[`snapshot-reference.json`](snapshot-reference.json). The legacy Site
+source is `75c28214f68cec33cf7a83abcab7bcdcee2d543a` and its deployment
+is `appgdep_6afea201fdb4819185df77820acaa74a`.
+
+Chrome readback matched the public 1,001-route index, Balanced GLB, and
+the pinned framework backup ZIP against their checked-in identities.
+
 ## Restore and build locally
 
 - **Outcome** · Reproducible local build from the pinned framework and immutable seed.
@@ -72,6 +90,7 @@ Pillow, Blender, Sharp and Playwright/browser are recipe-specific dependencies.
 python3.12 -m unittest discover -s tests -p 'test_model_survey_*.py' -v
 node sites/model-survey/.local/app/scripts/verify-protected-runtime.mjs
 node --test sites/model-survey/app/tests/r2-assets.test.mjs
+node --test sites/model-survey/app/tests/fdi31-download.test.mjs
 ```
 
 ## Retention
