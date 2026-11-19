@@ -34,15 +34,13 @@ record visual direction for skin and lymphatic return.
 
 ## Gallery presentation audit
 
-**System assembly** shows structures together in the documented anatomical
-frame. **Asset detail** shows named parts, junctions, isolated routes and
-poses. An anatomical frame defines origin, axes, laterality and units. A
-pose is the configuration of articulated parts. A view is the camera direction.
+See the [med-assets glossary](../../GLOSSARY.md) for **System assembly**,
+**Asset detail**, and the placement and camera terms used in the audit.
 
 | Status | Systems and remaining work |
 | --- | --- |
 | Native or shared frame | Skeletal and muscular use their native atlases. Respiratory uses the shared thoracic scene, with the upper airway and enlarged terminal airspaces available separately. Urinary uses the Workshop tract, with filtration in detail. The reproductive views keep the two regional source frames and retain the authored male structures. |
-| Partial assembly | Cardiovascular shows the native heart and proximal vessels. Its complete teaching loop is exploded. Digestive shows an upper abdomen and a separate BP3D bowel pair. Their complete route is schematic. A common-frame full assembly needs placement evidence for the remaining joins in both systems. |
+| Partial assembly | Cardiovascular shows the native heart and proximal vessels. Its complete teaching loop is exploded. Digestive shows an upper abdomen and a separate BP3D bowel pair. Their complete route is schematic. A common-frame full assembly needs placement evidence for the remaining joins in both systems. [Cardiovascular review](../../reviews/cardiovascular-loop/README.md) · [Digestive review](../../reviews/digestive-route/r01/README.md). |
 | Illustrative placement | Nervous stages the brain, cord and right sciatic pathway. Endocrine combines independently sourced gland positions with an editorial outline. Lymphatic stages the regional route with an enlarged node and editorial organ locators. A metric body overlay needs evidence for those source registrations and the intended node scale. |
 | Body locator | The integumentary envelope and the skin and nail sections use separate scales. The sections have no documented position in the envelope model. |
 
