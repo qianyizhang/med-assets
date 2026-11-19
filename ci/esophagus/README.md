@@ -2,7 +2,7 @@
 
 - **Goal** · Verify the exact palette candidate in the guarded Three r180 software renderer. [Fixture and source identities](fixture.json).
 - **Current evidence** · Pinned-byte reconstruction and local real-loader CPU anchor repair. Full display, Chinese glyphs and supported product-viewer acceptance remain unverified.
-- **Guard** · [Main-only runtime workflow](../../.github/workflows/firefox-glb-runtime.yml). Keep download/origin, sequence, size, timeout and sandbox checks. [Local display proposal](LOCAL_RUNTIME_REVIEW.md).
+- **Guard** · [Main-only runtime workflow](../../.github/workflows/firefox-glb-runtime.yml). Keep download/origin, sequence, size, timeout and sandbox checks. [Local display proposal](#local-display-proposal).
 
 ## Verified input and replay
 
@@ -45,3 +45,10 @@ python3 tests/runtime_receipts/run_esophagus_anchor_regression.py \
 - **Repair** · Cast through the chosen display pixel center. Anchor 3 stays at `[256,116]` and hits inner-circular face 767 at distance `0.27749999821186067`. Preserve source, geometry, material, state and pixel tolerances. Keep exact hit-object checks and camera/ray/UUID diagnostics.
 - **Local retest** · Six CPU cases with both pinned GLBs and five size/hash-pinned Three files. Reproduces the old miss, verifies repaired mapping and unchanged geometry, rejects hidden or wrong-compartment hits.
 - **Completion gap** · Independently review authorized full display evidence and any applicable supported product viewer.
+
+## Local display proposal
+
+- **Status** · Future local mode requires review. The existing probe requires the guarded Actions entry point. The inspected unprivileged Linux executor lacked packaged Firefox, Xvfb and an active display.
+- **Prerequisites** · Reviewed Firefox/Xvfb stack, package and syspref provenance, readable policies, required fonts and a working unprivileged sandbox. Keep browser/profile isolation and warning checks.
+- **Acceptance** · An explicitly approved local entry point verifies already-present pinned public inputs by size and hash, reconstructs in temporary storage and uses the same origin/CSP, limits, WebGL readback, XWD comparison and bounded receipt verifier. Retain failure receipts.
+- **Coverage** · All 18 esophagus captures, including live anchors, grayscale, bilingual legends and hide/restore. The 55-state shared probe covers wider changes and lymph negatives. Each bounded mode needs its own expected sequence and verdict.

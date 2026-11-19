@@ -65,6 +65,7 @@
 
 - **Owner** · Use the package record and its validator. [Foundation v1 validator](../tests/review_records/validate_record.py) owns schema, status values, containment and identity checks.
 - **Evidence** · Use immutable review identity and exact artifact/evidence bindings. Bind each comparison image to its actual artifact. Record gate scope, missing structures, limits and remaining checks.
+- **Metadata-only exports** · [Shared replay, patches and exact reviews](../reviews/accounting/2026-10-23/README.md).
 - **Failures** · Record observed failure, cause or labeled hypothesis, fix, retest and lesson.
 - **Claims** · Technical, visual, anatomical/clinical, runtime and publication status are independent. Reference screening has its own scope. Motion claims need sampled transform, rig or deformation evidence for the claimed behavior.
 
