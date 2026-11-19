@@ -21,6 +21,17 @@
 
 - **Asset bytes** · [Public downloads and R2 migration](../../transport/README.md).
 
+## FDI31 prepared specimen
+
+The [FDI31 entry](https://med-assets-model-survey.landy123007.chatgpt.site/?view=1#swirendo_fdi31)
+opens the specimen card with its preview, review, limitations and Balanced GLB.
+The download checks the published manifest and verifies the file size and
+SHA-256 before saving. The card also links to the GitHub export.
+
+The [legacy FDI31 notice source](retirements/fdi31/index.html) is deployed to
+`/fdi31/` on the separate Focus Review Site after verifying the survey entry.
+Its links resolve to the survey and canonical R2 bytes.
+
 ## Restore and build locally
 
 - **Outcome** · Reproducible local build from the pinned framework and immutable seed.
@@ -72,6 +83,7 @@ Pillow, Blender, Sharp and Playwright/browser are recipe-specific dependencies.
 python3.12 -m unittest discover -s tests -p 'test_model_survey_*.py' -v
 node sites/model-survey/.local/app/scripts/verify-protected-runtime.mjs
 node --test sites/model-survey/app/tests/r2-assets.test.mjs
+node --test sites/model-survey/app/tests/fdi31-download.test.mjs
 ```
 
 ## Retention
