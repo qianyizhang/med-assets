@@ -116,6 +116,30 @@ def render_pair(scene, meshes, view, output):
     )
 
 
+def configure_scene(scene):
+    scene.render.engine = "CYCLES"
+    scene.cycles.device = "CPU"
+    scene.cycles.samples = 12
+    scene.cycles.use_denoising = True
+    scene.render.threads_mode = "FIXED"
+    scene.render.threads = 4
+    scene.render.resolution_x, scene.render.resolution_y = 800, 640
+    scene.render.resolution_percentage = 100
+    scene.render.image_settings.file_format = "PNG"
+    scene.render.image_settings.color_mode = "RGBA"
+    scene.render.film_transparent = True
+    scene.world = bpy.data.worlds.new("Survey world")
+    scene.world.use_nodes = True
+    bg = scene.world.node_tree.nodes["Background"]
+    bg.inputs[0].default_value = (0.60, 0.64, 0.70, 1)
+    bg.inputs[1].default_value = 0.32
+    scene.view_settings.view_transform = "AgX"
+    camera = bpy.data.cameras.new("Evidence projection")
+    camera.type = "ORTHO"
+    scene.camera = bpy.data.objects.new("Evidence camera", camera)
+    scene.collection.objects.link(scene.camera)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     for arg in ("glb", "views", "output"):
@@ -138,27 +162,7 @@ def main():
     for obj in list(scene.objects):
         if obj.type == "LIGHT":
             bpy.data.objects.remove(obj, do_unlink=True)
-    scene.render.engine = "CYCLES"
-    scene.cycles.device = "CPU"
-    scene.cycles.samples = 12
-    scene.cycles.use_denoising = True
-    scene.render.threads_mode = "FIXED"
-    scene.render.threads = 4
-    scene.render.resolution_x, scene.render.resolution_y = 800, 640
-    scene.render.resolution_percentage = 100
-    scene.render.image_settings.file_format = "PNG"
-    scene.render.image_settings.color_mode = "RGBA"
-    scene.render.film_transparent = True
-    scene.world = bpy.data.worlds.new("Survey world")
-    scene.world.use_nodes = True
-    bg = scene.world.node_tree.nodes["Background"]
-    bg.inputs[0].default_value = (0.60, 0.64, 0.70, 1)
-    bg.inputs[1].default_value = 0.32
-    scene.view_settings.view_transform = "AgX"
-    camera = bpy.data.cameras.new("Evidence projection")
-    camera.type = "ORTHO"
-    scene.camera = bpy.data.objects.new("Evidence camera", camera)
-    scene.collection.objects.link(scene.camera)
+    configure_scene(scene)
     results = [render_pair(scene, meshes, view, args.output) for view in views]
     record = dict(
         glb=args.glb.name,

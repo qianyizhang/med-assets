@@ -11,7 +11,9 @@ const browser = spawn("/Applications/Google Chrome.app/Contents/MacOS/Google Chr
   "--headless", "--no-first-run", "--no-default-browser-check", "--disable-background-networking",
   "--remote-debugging-port=0", `--user-data-dir=${profile}`, "about:blank"
 ], {stdio: "ignore"});
-const reportDir = new URL("../../.artifacts/body-systems-survey-2026-11-19/", import.meta.url);
+const reportDir = process.env.MED_ASSETS_REPO
+  ? pathToFileURL(join(process.env.MED_ASSETS_REPO, ".artifacts/body-systems-survey-2026-11-19") + "/")
+  : new URL("../../.artifacts/body-systems-survey-2026-11-19/", import.meta.url);
 const med = new URL("media/", reportDir);
 const out = file => new URL(file, med);
 
@@ -107,9 +109,20 @@ try {
   const deliveries = await evaluate(`[...document.querySelectorAll(".system")].map(s => ({
     id:s.id, models:s.querySelectorAll(".downloads a[href$='.glb']").length,
     visiblePairs:s.querySelectorAll(".combined-grid > .plate").length,
+    legends:[...s.querySelectorAll("figure[data-plate]")].every(p => p.querySelector(".legend li")),
+    detail:s.querySelector(".asset-detail summary")?.textContent,
+    status:s.querySelector(".status")?.textContent,
     evidence:s.querySelector(".downloads")?.textContent.includes("Review and checks")
   }))`);
-  assert.ok(deliveries.every(s=>s.models>0 && s.evidence && s.visiblePairs>0));
+  assert.ok(deliveries.every(s => s.models > 0 && s.evidence && s.visiblePairs > 0
+    && s.legends && s.detail.startsWith("Asset detail")));
+  assert.equal(deliveries.reduce((n, s) => n + s.visiblePairs, 0), 13);
+  assert.equal(deliveries.find(s => s.id === "cardiovascular").status, "Partial assembly");
+  assert.equal(deliveries.find(s => s.id === "nervous").status, "Illustrative placement");
+  assert.equal(await evaluate('document.querySelectorAll("figure[data-plate=detail]").length'), 56);
+  assert.equal(await evaluate(`[...document.querySelectorAll("#urinary figure[data-plate=assembly] .legend li")]
+    .some(e => /glomerular|bowman|filtration/i.test(e.textContent))`), false);
+  verified.gallery = {assemblyPlates: 13, detailPlates: 56, legends: true, scopedStatuses: true};
   verified.deliveredModels = deliveries.reduce((n,s)=>n+s.models,0);
   assert.equal(verified.deliveredModels,12);
   await capture(join(tmpdir(), "med-systems-desktop.png"));
@@ -120,11 +133,14 @@ try {
   await send("Input.dispatchKeyEvent", {type: "keyDown", key: " ", code: "Space", text: " ", windowsVirtualKeyCode: 32});
   await send("Input.dispatchKeyEvent", {type: "keyUp", key: " ", code: "Space", windowsVirtualKeyCode: 32});
   assert.equal(await evaluate(`document.querySelector("#urinary details").open`), true);
-  await viewport(390, 844);
+  await evaluate('document.querySelector("#urinary .view-heading").scrollIntoView()');
+  await pause(200);
+  await capture(join(tmpdir(), "med-systems-assembly.png"));
+  await viewport(1024, 768);
   assert.equal(await evaluate("document.documentElement.scrollWidth > innerWidth"), false);
   await evaluate("scrollTo(0,0)");
-  await capture(join(tmpdir(), "med-systems-mobile.png"));
-  verified.interactions = "System jump, keyboard part disclosure, 390 px reflow";
+  await capture(join(tmpdir(), "med-systems-laptop.png"));
+  verified.interactions = "System jump, keyboard part disclosure, 1024 px laptop reflow";
   await viewport(1360, 960);
   await evaluate('document.querySelector("#comparison").scrollIntoView()');
   await pause(250);

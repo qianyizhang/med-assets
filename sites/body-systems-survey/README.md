@@ -32,6 +32,30 @@ record visual direction for skin and lymphatic return.
   galleries have separate deployment sources. Their comparison is retained
   for the pending gallery decision.
 
+## Gallery presentation audit
+
+**System assembly** shows structures together in the documented anatomical
+frame. **Asset detail** shows named parts, junctions, isolated routes and
+poses. An anatomical frame defines origin, axes, laterality and units. A
+pose is the configuration of articulated parts. A view is the camera direction.
+
+| Status | Systems and remaining work |
+| --- | --- |
+| Native or shared frame | Skeletal and muscular use their native atlases. Respiratory uses the shared thoracic scene, with the upper airway and enlarged terminal airspaces available separately. Urinary uses the Workshop tract, with filtration in detail. The reproductive views keep the two regional source frames and retain the authored male structures. |
+| Partial assembly | Cardiovascular shows the native heart and proximal vessels. Its complete teaching loop is exploded. Digestive shows an upper abdomen and a separate BP3D bowel pair. Their complete route is schematic. A common-frame full assembly needs placement evidence for the remaining joins in both systems. |
+| Illustrative placement | Nervous stages the brain, cord and right sciatic pathway. Endocrine combines independently sourced gland positions with an editorial outline. Lymphatic stages the regional route with an enlarged node and editorial organ locators. A metric body overlay needs evidence for those source registrations and the intended node scale. |
+| Body locator | The integumentary envelope and the skin and nail sections use separate scales. The sections have no documented position in the envelope model. |
+
+The skeletal overview uses the BodyParts3D envelope in its native frame. The
+respiratory overview uses translucent lobes to reveal the lobar tree. Posterior
+views expose thoracic and male pelvic landmarks. The detail pairs retain the
+reviewed pose and source-frame bounds to within one micrometre. Palette changes
+are display-only. Names in the legends identify the colors and anatomical groups.
+
+Gallery replay is offline image evidence. Specialist, pose and runtime coverage
+follow the owning reviews. The completed lesson and study assets continue to
+have their own acceptance scope, distinct from the coverage of these assembly views.
+
 ## Restore the media
 
 The archive `med-assets-teaching-c803735.zip` contains 327 files at their
@@ -83,7 +107,22 @@ passed its 37 Node tests and five-lobe phase sweep.
 
 ## Open or rebuild the survey
 
-After restoring the archive, build both reports from the repository root:
+After restoring the archive, render the gallery from the repository root.
+Use Blender 5.2.3 and a fresh presentation directory. On macOS get
+command-specific approval for headless Blender before the first run.
+
+```sh
+blender -b --factory-startup --disable-autoexec --python-exit-code 1 \
+  -P sites/body-systems-survey/render_gallery.py --
+```
+
+The default gallery render destination is `.artifacts/body-systems-survey-2026-11-19/presentation-r01/`.
+For a repeat render use `--output` with a new directory, inspect the resulting
+receipts, then replace the presentation directory before rebuilding the current
+report. `MED_ASSETS_REPO` can point to the original hydrated checkout when the
+gallery source is being developed in a separate worktree.
+
+Build both reports from the repository root:
 
 ```sh
 python3.12 sites/body-systems-survey/baseline_report.py
@@ -92,8 +131,9 @@ python3.12 sites/body-systems-survey/report.py
 
 Open `.artifacts/body-systems-survey-2026-11-19/index.html` locally. The report
 links to the original gap survey and to each model and review. The current
-report checks each teaching GLB and each matched screenshot against the owning
-render receipt. The survey viewer needs no server. Follow the
+report checks each selected GLB and paired screenshot against its exact
+render receipt. The gallery checks inherited camera directions, pose frames
+and bounds against the owning reviews. The survey viewer needs no server. Follow the
 [One Breath setup](../../lessons/one-breath/README.md#open-locally) to run
 that interactive lesson.
 
