@@ -36,11 +36,13 @@ record visual direction for skin and lymphatic return.
 
 See the [med-assets glossary](../../GLOSSARY.md) for **System assembly**,
 **Asset detail**, and the placement and camera terms used in the audit.
+The [next-round draft](next-round-spec.md) records the checked baseline and
+proposes refinements for all eleven systems.
 
 | Status | Systems and remaining work |
 | --- | --- |
 | Native or shared frame | Skeletal and muscular use their native atlases. Respiratory uses the shared thoracic scene, with the upper airway and enlarged terminal airspaces available separately. Urinary uses the Workshop tract, with filtration in detail. The reproductive views keep the two regional source frames and retain the authored male structures. |
-| Partial assembly | Cardiovascular shows the native heart and proximal vessels. Its complete teaching loop is exploded. Digestive shows an upper abdomen and a separate BP3D bowel pair. Their complete route is schematic. A common-frame full assembly needs placement evidence for the remaining joins in both systems. [Cardiovascular review](../../reviews/cardiovascular-loop/README.md) · [Digestive review](../../reviews/digestive-route/r01/README.md). |
+| Partial assembly | With the optional s1233 bundle, cardiovascular shows the heart and great vessels and digestive shows the esophagus through colon and accessory organs in the same scan frame. The fallback shows the Workshop heart and proximal vessels, and the Workshop upper abdomen and BP3D bowel in separate frames. Full-route teaching remains in the exploded cardiovascular loop and schematic digestive tract. [Same-case audit](../../assemblies/workshop-s1233/README.md) · [Cardiovascular review](../../reviews/cardiovascular-loop/README.md) · [Digestive review](../../reviews/digestive-route/r01/README.md). |
 | Illustrative placement | Nervous stages the brain, cord and right sciatic pathway. Endocrine combines independently sourced gland positions with an editorial outline. Lymphatic stages the regional route with an enlarged node and editorial organ locators. A metric body overlay needs evidence for those source registrations and the intended node scale. |
 | Body locator | The integumentary envelope and the skin and nail sections use separate scales. The sections have no documented position in the envelope model. |
 
@@ -50,9 +52,10 @@ views expose thoracic and male pelvic landmarks. The detail pairs retain the
 reviewed pose and source-frame bounds to within one micrometre. Palette changes
 are display-only. Names in the legends identify the colors and anatomical groups.
 
-Gallery replay is offline image evidence. Specialist, pose and runtime coverage
-follow the owning reviews. The completed lesson and study assets continue to
-have their own acceptance scope, distinct from the coverage of these assembly views.
+Gallery replay supplies offline image evidence. A local Chrome run at
+`ba0bf3d6be59adfa7065cb5cefea8f442476121b` also passed all 24 static 3D
+launches, including missing-model fallback and retry. Specialist review,
+pose, and lesson runtime evidence follow the owning reviews.
 
 The optional [same-case Workshop update](../../assemblies/workshop-s1233/README.md)
 includes digestive and cardiovascular overviews in the s1233 scan frame.
