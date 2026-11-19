@@ -1,0 +1,172 @@
+{
+  "case": "s1233",
+  "dataset": "https://zenodo.org/records/10047263",
+  "archiveMd5": "6b5524af4b15e6ba06ef2d700c0c73e0",
+  "shape": [
+    265,
+    265,
+    401
+  ],
+  "rasMmFromVoxel": [
+    [
+      1.5,
+      0.0,
+      0.0,
+      -215.611328125
+    ],
+    [
+      0.0,
+      1.5,
+      0.0,
+      -37.111328125
+    ],
+    [
+      0.0,
+      0.0,
+      1.5,
+      41.20000076293945
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "maskSha256": {
+    "heart": "bbc9058c113feb505a98bb2364839fc376b781c31a954188fe7553163c070c47",
+    "aorta": "c2751ba8bb12ed2091db7e0446f3f333acf47db5d35e8f75c96fab4c6564ab2e",
+    "pulmonary_vein": "08bf9cc04f61e27090d70487ecf84128e543080b5fc15d883a05468795a44eeb",
+    "inferior_vena_cava": "44504ba513ec6292a4a030c097948f546054ea36fdfbca7b6896103cf1b488e0",
+    "superior_vena_cava": "d1a6feda04ba6b60a87037a0fa0bd45a4056f4bc405d0b9ec53502c9e0946131",
+    "esophagus": "ce2e0e4c709f262555b027986acc0537ccab54c4b0042e768f161f312b7c6ed2",
+    "stomach": "4f6675b32030747cd46d8dd5ce04bd63820833217d1a1f10bbcce8efc1d41e65",
+    "duodenum": "057f1c54ad413a3291e5750c9cdfee74a06cbe0c9d7b8ac42bb90f3b742e9063",
+    "small_bowel": "69a3dc341d7be1f7f8c355a74077c014e7eb212ad178bfd83178d14d20205d7b",
+    "colon": "1c1fb7f2b1684731870ff7fc8d9c1a4d1d2f9f549b26fe2994849c5401d516f6",
+    "liver": "0e37697cde4bf2f6042fa89d338cfbe71d85b4b44e42801840be5612c4785980",
+    "pancreas": "9f11083652d059e85514d419c90124911953dbbce2018ccc549eaa2c73b0968b",
+    "gallbladder": "c5dd1e8886ed87d29dac8225acbac49dfc308c0ead9116690c818e49b1addcc7"
+  },
+  "assemblies": {
+    "digestive": {
+      "parts": {
+        "esophagus": {
+          "label": "Esophagus",
+          "color": "#206C94"
+        },
+        "stomach": {
+          "label": "Stomach",
+          "color": "#E8A34A"
+        },
+        "duodenum": {
+          "label": "Duodenum",
+          "color": "#514587"
+        },
+        "small_bowel": {
+          "label": "Small bowel",
+          "color": "#54BCAD"
+        },
+        "colon": {
+          "label": "Colon",
+          "color": "#8E3B60"
+        },
+        "liver": {
+          "label": "Liver",
+          "color": "#E77459"
+        },
+        "pancreas": {
+          "label": "Pancreas",
+          "color": "#E7CE71"
+        },
+        "gallbladder": {
+          "label": "Gallbladder",
+          "color": "#2B7948"
+        }
+      },
+      "pairs": [
+        [
+          "esophagus",
+          "stomach"
+        ],
+        [
+          "stomach",
+          "duodenum"
+        ],
+        [
+          "duodenum",
+          "small_bowel"
+        ],
+        [
+          "small_bowel",
+          "colon"
+        ]
+      ],
+      "route": [
+        "esophagus",
+        "stomach",
+        "duodenum",
+        "small_bowel",
+        "colon"
+      ],
+      "front": [
+        0,
+        -1,
+        0
+      ]
+    },
+    "cardiovascular": {
+      "parts": {
+        "heart": {
+          "label": "Heart",
+          "color": "#8E3B60"
+        },
+        "aorta": {
+          "label": "Aorta",
+          "color": "#E8A34A"
+        },
+        "pulmonary_vein": {
+          "label": "Pulmonary venous mask",
+          "color": "#54BCAD"
+        },
+        "inferior_vena_cava": {
+          "label": "Inferior vena cava",
+          "color": "#514587"
+        },
+        "superior_vena_cava": {
+          "label": "Superior vena cava",
+          "color": "#206C94"
+        }
+      },
+      "pairs": [
+        [
+          "heart",
+          "aorta"
+        ],
+        [
+          "heart",
+          "pulmonary_vein"
+        ],
+        [
+          "heart",
+          "inferior_vena_cava"
+        ],
+        [
+          "heart",
+          "superior_vena_cava"
+        ]
+      ],
+      "route": [
+        "aorta",
+        "pulmonary_vein",
+        "inferior_vena_cava",
+        "superior_vena_cava"
+      ],
+      "front": [
+        0,
+        1,
+        0
+      ]
+    }
+  }
+}

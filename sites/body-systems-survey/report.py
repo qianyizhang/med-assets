@@ -1,24 +1,22 @@
 """Build the offline body-systems survey from reviewed copy and render receipts."""
 from html import escape
 import hashlib
-import os
+import math
 import json
-from pathlib import Path
+import os
 import struct
 from urllib.parse import quote
 
-SOURCE = Path(__file__).resolve().parent
-REPO = SOURCE.parents[1]
-HERE = REPO / ".artifacts/body-systems-survey-2026-11-19"
+from gallery_plan import (
+    ASSEMBLIES, GALLERY as HERE, GALLERY_VIEWS, REPO, SOURCE, TITLES, WORKSHOP_ASSEMBLIES,
+    render_plan, study_records,
+)
+
+from viewer_catalog import Catalog, DEFAULT_PORT
+
 MEDIA = HERE / "media"
 REMOTE = "https://github.com/qianyizhang/med-assets/blob"
 REFERENCE = "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-2-structural-organization-of-the-human-body"
-CONCEPTS = {
-    "skin": ("Layered skin barrier", "Proposed asset with a hair follicle and sweat gland. Separate layer and appendage meshes would support toggling and close inspection."),
-    "lymph": ("Lymphatic return junction", "Proposed regional node-to-vein teaching model. The draft explores shape and hierarchy. Anatomical placement and venous entry would need reference-based modelling."),
-}
-STATUS_TEXT = {"Ready": "Ready for a scoped demo", "Partial": "Partial assembly", "Missing": "Missing core model"}
-
 
 def load(name):
     return json.loads((SOURCE / name).read_text())
@@ -62,19 +60,6 @@ def source_link(label, path, rev):
     return f'<a href="{REMOTE}/{rev}/{quote(path)}">{escape(label)}</a>'
 
 
-def concept(key):
-    if key not in CONCEPTS:
-        return ""
-    filename = "concept-" + key + ".png"
-    if not (MEDIA / filename).is_file():
-        return ""
-    title, copy = CONCEPTS[key]
-    return f"""<figure class="concept">
-  <a href="media/{filename}" aria-label="{title}. Open full concept image">{image(filename, title + ', paired oblique and straight-on concept views')}</a>
-  <figcaption><p class="eyebrow">ImageGen concept · illustrative</p><h3>{title}</h3><p>{copy}</p><p>Design reference only. A future 3D model requires its own anatomy review.</p></figcaption>
-</figure>"""
-
-
 def href(path):
     if not path.is_file():
         raise ValueError(f"Missing local review file {path}")
@@ -86,68 +71,190 @@ def digest(path):
         return hashlib.file_digest(stream, "sha256").hexdigest()
 
 
-def study_section(system, jobs, rev):
+def presentation():
+    plates = {}
+    for job in render_plan():
+        folder = GALLERY_VIEWS / job["id"]
+        path = folder / "renders.json"
+        record = json.loads(path.read_text())
+        expected = [(source["path"], source["sha256"]) for source in job["inputs"]]
+        got = [(source["path"], source["sha256"]) for source in record["inputs"]]
+        if got != expected or record["id"] != job["id"]:
+            raise ValueError(f"Gallery inputs differ from the plan: {path}")
+        for source, sha in expected:
+            if digest(REPO / source) != sha:
+                raise ValueError(f"Changed gallery source: {source}")
+        if [view["id"] for view in record["views"]] != [view["id"] for view in job["views"]]:
+            raise ValueError(f"Gallery view list differs from the plan: {path}")
+        for expected_view, view in zip(job["views"], record["views"], strict=True):
+            if "include" in expected_view and set(view["visible"]) != set(expected_view["include"]):
+                raise ValueError(f"Visible geometry differs from the plan: {path}/{view['id']}")
+            if "bounds" in expected_view and not all(
+                math.isclose(left, right, abs_tol=1e-6)
+                for expected_corner, actual_corner in zip(expected_view["bounds"], view["bounds"], strict=True)
+                for left, right in zip(expected_corner, actual_corner, strict=True)
+            ):
+                raise ValueError(f"Geometry or pose bounds differ from the review: {path}/{view['id']}")
+            if view["frame"] != expected_view.get("frame", 1):
+                raise ValueError(f"Pose frame differs from the plan: {path}/{view['id']}")
+            straight = view["images"][1]["direction"]
+            if not all(math.isclose(x, y, abs_tol=1e-6)
+                       for x, y in zip(straight, expected_view["front"], strict=True)):
+                raise ValueError(f"View orientation differs from the plan: {path}/{view['id']}")
+            colors = [group["color"] for group in view["legend"]]
+            if not colors or len(set(colors)) != len(colors):
+                raise ValueError(f"Duplicate or missing legend colors: {path}/{view['id']}")
+            for frame in view["images"]:
+                if digest(folder / frame["file"]) != frame["sha256"]:
+                    raise ValueError(f"Gallery image does not match its receipt: {frame['file']}")
+            plates[job["id"], view["id"]] = (folder, view)
+    return plates
+
+
+def gallery_plate(entry, title, *, assembly=False, viewer_url=None):
+    folder, view = entry
+    frames = []
+    for item in view["images"]:
+        path = folder / item["file"]
+        url = href(path)
+        if path.stem.endswith("-iso"):
+            angle = "Isometric"
+        else:
+            direction = tuple(round(v, 4) for v in item["direction"])
+            axes = {
+                (0, -1, 0): ("Anterior", "−Y orthographic"),
+                (0, 1, 0): ("Posterior", "+Y orthographic"),
+                (1, 0, 0): ("Left lateral", "+X orthographic"),
+                (-1, 0, 0): ("Right lateral", "−X orthographic"),
+            }
+            angle = axes.get(direction, ("Straight orthographic",) * 2)[0 if assembly else 1]
+        w, h = png_dimensions(path)
+        alt = escape(f"{title} · {angle}")
+        frames.append(f'<a class="view" href="{url}"><img src="{url}" alt="{alt}" width="{w}" height="{h}" loading="lazy" decoding="async"><span>{angle}</span></a>')
+    if len(frames) != 2:
+        raise ValueError(f"Expected two images for {folder}/{view['id']}")
+    colors = "".join(f'<li><span aria-hidden="true" style="--swatch:{group["color"]}"></span>'
+                     f'{escape(group["label"])}</li>' for group in view["legend"])
+    width = view["orthographicScale"] * 100
+    frame_info = f'<p class="picture-width">Matched camera width · {width:.1f} cm in model units</p>' if assembly else ""
+    heading = "h4" if assembly else "strong"
+    action = viewer_link(viewer_url, "Open in 3D") if viewer_url else ""
+    return (f'<figure class="plate" data-plate="{"assembly" if assembly else "detail"}"><div class="views">{"".join(frames)}</div>'
+            f'<figcaption><{heading}>{escape(title)}</{heading}>{frame_info}<ul class="legend" aria-label="Parts and display colors">'
+            f'{colors}</ul>{action}</figcaption></figure>')
+
+
+def browser_evidence(study, review):
+    if not study.get("lesson"):
+        return ""
+    shots = []
+    for filename, label in (("mechanics-rest", "Rest"), ("mechanics-inspiration", "Paused during inspiration")):
+        path = review / "browser" / (filename + ".png")
+        url = href(path)
+        w, h = png_dimensions(path)
+        shots.append(f'<a class="view" href="{url}"><img src="{url}" width="{w}" height="{h}" alt="One Breath · {label}" loading="lazy"><span>{label}</span></a>')
+    return '<details><summary>Breathing scene in local Chrome</summary><div class="views">' + "".join(shots) + "</div></details>"
+
+
+WORKSHOP_VIEWS = {
+    "cardiovascular": (
+        "Same-case heart and great vessels", "Vessels isolated",
+        "The heart, aorta, pulmonary venous mask and both venae cavae retain their s1233 positions. "
+        "The schematic supplies pulmonary arterial outflow, chamber and valve interiors, and the distal circuits.",
+        "The source vessel masks approach or overlap the heart label. The labels identify the outer heart "
+        "boundary and leave the internal chamber connections unresolved.",
+    ),
+    "digestive": (
+        "Same-case esophagus through colon", "Digestive tract isolated",
+        "The esophagus, stomach, duodenum, small bowel, colon and accessory organs share the s1233 scan frame. "
+        "The schematic supplies the mouth, terminal outlet and accessory duct entry.",
+        "Consecutive label boundaries approach or overlap within 1.5 mm. The two main colon components "
+        "have a 24.6 mm gap. A verified ileocecal landmark and continuous lumen remain open.",
+    ),
+}
+
+
+def viewer_link(url, label):
+    return f'<a class="viewer-action" href="{escape(url)}">{escape(label)}</a>'
+
+
+def study_section(system, jobs, rev, plates, catalog):
     study = system["study"]
+    key = system["id"]
     owner = REPO / study["owner"]
     review = REPO / study["review"]
-    paths = {}
     links = [("Replay and attribution", owner / "README.md"), ("Review and checks", review / "README.md")]
-    for receipt in sorted(review.rglob("renders.json")):
-        record = json.loads(receipt.read_text())
-        model = owner / record["glb"]
-        if not model.is_file():
-            matches = list(owner.rglob(record["glb"]))
-            if len(matches) != 1:
-                raise ValueError(f"Cannot resolve {record['glb']} for {receipt}")
-            model = matches[0]
-        if digest(model) != record["sha256"]:
-            raise ValueError(f"Candidate GLB differs from {receipt}")
-        if model not in (p for _, p in links):
-            links.append((model.name, model))
-            blend = model.with_suffix(".blend")
-            if blend.is_file():
-                links.append((blend.name, blend))
-        folder = receipt.parent.relative_to(review)
+    detail = {}
+    model_actions = []
+    for receipt, record, model, prefix in study_records(system):
+        links.append((model.name, model))
+        blend = model.with_suffix(".blend")
+        if blend.is_file():
+            links.append((blend.name, blend))
+        scene = key + ("-" + prefix.rstrip("/") if prefix else "")
+        view = record["views"][0]
+        folder, display = plates[scene, view["id"]]
+        model_actions.append(viewer_link(
+            catalog.register(folder, display, model.stem.replace("-", " ").capitalize(), key, whole=True),
+            f"Open {model.stem} in 3D",
+        ))
         for view in record["views"]:
-            key = (folder / view["id"]).as_posix()
-            label = key.replace("/", " · ").replace("-", " ").capitalize()
-            frames = []
-            for item in view["images"]:
-                image_path = receipt.parent / item["file"]
-                if digest(image_path) != item["sha256"]:
-                    raise ValueError(f"Screenshot differs from {receipt}: {image_path}")
-                url = href(image_path)
-                angle = "Isometric" if image_path.stem.endswith("-iso") else "Straight"
-                w,h = png_dimensions(image_path)
-                frames.append(f'<a class="view" href="{url}"><img src="{url}" alt="{escape(label)} · {angle.lower()}" width="{w}" height="{h}" loading="lazy" decoding="async"><span>{angle}</span></a>')
-            if len(frames) != 2 or key in paths:
-                raise ValueError(f"Invalid view pair: {key}")
-            paths[key] = f'<figure class="plate"><div class="views">{"".join(frames)}</div><figcaption><h3>{escape(label)}</h3></figcaption></figure>'
-    featured = "".join(paths.pop(key) for key in study["featured"])
-    extras = "".join(paths.values())
+            name = prefix + view["id"]
+            label = name.replace("/", " · ").replace("-", " ").capitalize()
+            detail[name] = gallery_plate(plates[scene, view["id"]], label)
+        links.append((f"Original {prefix.rstrip('/') or 'study'} render receipt", receipt))
+    featured = "".join(detail.pop(name) for name in study["featured"])
+    state, title, note, *entries = ASSEMBLIES[key]
+    combined = []
+    audit = " ".join(system["gaps"])
+    workshop = key + "-s1233"
+    if (workshop, "assembly") in plates:
+        title, route, note, limits = WORKSHOP_VIEWS[key]
+        entries = []
+        entry = plates[workshop, "assembly"]
+        combined.append(gallery_plate(entry, title, assembly=True,
+                                      viewer_url=catalog.register(*entry, title, key)))
+        detail["workshop-route"] = gallery_plate(plates[workshop, "route"], route)
+        links.extend([
+            ("Same-case GLB", WORKSHOP_ASSEMBLIES / f"{key}.glb"),
+            ("Same-case Blender scene", WORKSHOP_ASSEMBLIES / f"{key}.blend"),
+            ("Mask and junction audit", WORKSHOP_ASSEMBLIES / "mask-audit.json"),
+            ("Same-case render receipt", GALLERY_VIEWS / workshop / "renders.json"),
+        ])
+        audit = limits + " " + audit
+    details = featured + "".join(detail.values())
+    for entry in entries:
+        scene, name = {
+            "urinary-overview": ("urinary", "tract"),
+            "nervous-central": ("nervous", "central"),
+            "endocrine-overview": ("endocrine", "locator"),
+            "lymphatic-overview": ("lymphatic", "overview"),
+            "reproductive-female": ("reproductive-female", "context"),
+            "reproductive-male": ("reproductive-male", "context"),
+        }.get(entry, (entry, "assembly"))
+        entry_title = TITLES.get(entry, title)
+        display = plates[scene, name]
+        combined.append(gallery_plate(display, entry_title, assembly=True,
+                                      viewer_url=catalog.register(*display, entry_title, key)))
+        links.append((f"{TITLES.get(entry, title)} display receipt", plates[scene, name][0] / "renders.json"))
     parts = "".join(plate(jobs[id], title) for id, title in system["parts"])
     sources = "".join(source_link(label, file, rev) for label, file in system["sources"])
-    key = system["id"]
     if study.get("lesson"):
         links.insert(0, ("Run One Breath locally", REPO / study["lesson"]))
-    live = ""
-    if study.get("lesson"):
-        shots = []
-        for filename,label in (("mechanics-rest","Rest"),("mechanics-inspiration","Paused during inspiration")):
-            path = review / "browser" / (filename + ".png")
-            url = href(path)
-            w,h = png_dimensions(path)
-            shots.append(f'<a class="view" href="{url}"><img src="{url}" width="{w}" height="{h}" alt="One Breath · {label}" loading="lazy"><span>{label}</span></a>')
-        live = '<details><summary>Breathing scene in local Chrome</summary><div class="views">' + "".join(shots) + '</div></details>'
-    links_html = "".join(f'<a href="{href(path)}">{escape(label)}</a>' for label,path in links)
+    links_html = "".join(f'<a href="{href(path)}">{escape(label)}</a>' for label, path in links)
+    links_html += "".join(model_actions)
+    status_class = "partial" if state in {"Partial assembly", "Illustrative placement"} else "ready"
     return f"""<section id="{key}" class="system" aria-labelledby="{key}-heading">
     <header><div class="system-title"><h2 id="{key}-heading">{escape(system['name'])}</h2>
-    <span class="status ready">Scoped teaching demo</span></div>
-    <p class="function">{escape(system['function'])}</p><p class="verdict">{escape(system['verdict'])}</p></header>
-    <div class="combined-grid">{featured}</div>
-    <div class="source-links downloads">{links_html}</div>
-    <details><summary>Junctions, poses and isolated views ({len(paths)} pairs)</summary><div class="part-grid">{extras}</div></details>
-    {live}<div class="gap"><h3>Verification and limits</h3><p>{escape(' '.join(system['gaps']))}</p></div>
+    <span class="status {status_class}">{escape(state)}</span></div>
+    <p class="function">{escape(system['function'])}</p></header>
+    <h3 class="view-heading">System assembly</h3><p class="verdict">{escape(note)}</p>
+    <div class="combined-grid">{"".join(combined)}</div>
+    <details class="asset-detail"><summary>Asset detail ({len(detail) + len(study['featured'])} pairs)</summary>
+    <p class="verdict">{escape(system['verdict'])}</p><div class="part-grid">{details}</div></details>
+    {browser_evidence(study, review)}
+    <div class="gap"><h3>Audit and limits</h3><p>{escape(audit)}</p></div>
+    <details><summary>Models, review and attribution</summary><div class="source-links downloads">{links_html}</div></details>
     <details><summary>Source assets and baseline screenshots</summary><div class="part-grid">{parts}</div><div class="source-links">{sources}</div></details>
     </section>"""
 
@@ -169,17 +276,27 @@ def comparison_card(title, href, purpose, overlap, screenshot, fallback):
   </article>"""
 
 
-def build():
+def build(viewer_port=DEFAULT_PORT):
     rev = (SOURCE / "revision.txt").read_text().strip()
     baseline = "2cb53c05577b4cbc2355c4bff293666127d21382"
     systems = load("systems.json")
     jobs = {job["id"]: job for job in load("jobs.json")}
     if len(systems) != 11 or len({system["id"] for system in systems}) != 11:
         raise ValueError("Expected 11 unique systems")
-    stats = '<div class="stat ready"><strong>7</strong>New setups</div><div class="stat ready"><strong>4</strong>Refined demos</div><div class="stat ready"><strong>11</strong>Systems reviewed</div>'
+    plates = presentation()
+    catalog = Catalog(viewer_port)
+    states = [ASSEMBLIES[system["id"]][0] for system in systems]
+    native = sum(state.startswith(("Native", "Shared")) for state in states)
+    partial = sum(state in {"Partial assembly", "Illustrative placement"} for state in states)
+    locator = states.count("Body locator")
+    stats = (
+        f'<div class="stat ready"><strong>{native}</strong>Native or shared-frame assemblies</div>'
+        f'<div class="stat partial"><strong>{partial}</strong>Partial or illustrative placements</div>'
+        f'<div class="stat"><strong>{locator}</strong>Body locator with local details</div>'
+    )
     directory = "".join(f'<li><a href="#{s["id"]}">{escape(s["name"])}</a></li>'
                         for s in systems)
-    sections = "".join(study_section(system, jobs, baseline) for system in systems)
+    sections = "".join(study_section(system, jobs, baseline, plates, catalog) for system in systems)
     survey = comparison_card("Medical Model Survey", "https://med-assets-model-survey.landy123007.chatgpt.site/",
         "Browse individual assets, variants, review states, files and related products across the collection.",
         "It already owns the asset inventory. This body-systems report adds the minimum teaching setup, the assembly evidence, and the missing joins.",
@@ -190,9 +307,9 @@ def build():
         "existing-gallery.png" if (MEDIA / "existing-gallery.png").exists() else "gallery-knee.png",
         "Live review gallery · 19 November 2026" if (MEDIA / "existing-gallery.png").exists() else "Retained knee comparison from the gallery integration")
     stylesheet = (SOURCE / "style.css").read_text()
-    hero_path = REPO / "reviews/skin/teaching-block-r01/skin-block-iso.png"
+    hero_path = GALLERY_VIEWS / "thorax/assembly-iso.png"
     width, height = png_dimensions(hero_path)
-    hero = f'<img src="{href(hero_path)}" width="{width}" height="{height}" fetchpriority="high" alt="Layered skin cutaway showing hair follicle, coiled sweat gland and surface opening">'
+    hero = f'<img src="{href(hero_path)}" width="{width}" height="{height}" fetchpriority="high" alt="Translucent lung lobes around the lobar bronchi, above the diaphragm">'
     html = f"""<!doctype html>
 <html lang="en">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -205,9 +322,9 @@ def build():
 <section class="hero" aria-labelledby="page-title">
   <div><p class="eyebrow">Repository survey · 19 November 2026</p>
   <h1 id="page-title">Body systems in 3D</h1>
-  <p class="lede">Explore eleven teaching setups. Follow a route, isolate a junction or compare a pose. Each study includes its editable source, portable model and screenshots from the exported geometry.</p>
+  <p class="lede">See how the parts of eleven body systems fit together. Use <strong>Open in 3D</strong> to rotate a local assembly and isolate structures.</p>
   <div class="stats" aria-label="Survey outcomes">{stats}</div></div>
-  <figure class="hero-art">{hero}<figcaption>Skin section · clean import of the new teaching GLB</figcaption></figure>
+  <figure class="hero-art">{hero}<figcaption>Respiratory system · shared thoracic frame</figcaption></figure>
 </section>
 <nav id="index" class="directory" aria-labelledby="systems-title"><h2 id="systems-title">Jump to a system</h2><ul>{directory}</ul></nav>
 {sections}
@@ -217,22 +334,26 @@ def build():
   <div class="old-grid">{survey}{gallery}</div>
 </section>
 <section class="method" id="method">
-  <h2>What counts as ready</h2>
+  <h2>How to read the gallery</h2>
+  <p><strong>Local 3D.</strong> Start the gallery server with <code>python3.12 sites/body-systems-survey/serve.py</code>. The screenshots also open directly from disk.</p>
   <p>The survey covers the eleven major adult systems, including both reproductive tracts and the special senses within the nervous system. The scope is gross anatomy teaching for one core function per system.</p>
   <ul>
-    <li><strong>Ready.</strong> Essential 3D parts for the stated demo have a documented common frame or supplied regional assembly, and the relationship is visible in the rendered setup.</li>
-    <li><strong>Screenshot standard.</strong> Clean Blender GLB imports, a matched isometric and straight orthographic view at the same scale within each pair, and a matte teaching palette. Straight views use the default source axis or a documented side/reverse axis. Different plates are fitted independently. Original textures and geometry remain in the GLBs.</li>
-    <li><strong>Assembly evidence.</strong> Shared-frame inputs keep their native transforms. Regional views and concept images carry their own labels. Source links and per-plate receipts identify the selected GLB bytes.</li>
-    <li><strong>Review scope.</strong> An introductory educational coverage review. Motion checks are specific to the designated studies and poses. Each owner records clinical and runtime limits independently.</li>
+    <li><strong>System assembly.</strong> The overview shows together the structures supported by the stated frame. Native and shared frames preserve source placement and relative scale. Partial assemblies and illustrative placements have separate audit labels.</li>
+    <li><strong>Asset detail.</strong> Open for named parts, sections, poses, schematic routes and magnified structures. Read the paired views at the same camera scale. Separate plates are fitted independently.</li>
+    <li><strong>Anatomical frame.</strong> Origin, orientation, laterality and units. A pose is an articulated configuration. A view is a camera direction. Axis labels refer to the documented frame or the staged display axes.</li>
+    <li><strong>Color and body context.</strong> Named display colors separate nearby anatomical groups. Any silhouette or translucent organ is context. The report keeps exact input identities and links the owner’s anatomy and runtime review.</li>
   </ul>
-  <p>Source families include TotalSegmentator, BodyParts3D, Z-Anatomy, HuBMAP/HRA and repository-authored studies. Each source record carries its attribution and reuse terms. Baseline plates use survey display materials. New evidence pairs retain the delivered teaching colors and use matched orthographic cameras.</p>
+  <p>Source families include TotalSegmentator, BodyParts3D, Z-Anatomy, HuBMAP/HRA and repository-authored studies. Each source record carries its attribution and reuse terms. Gallery plates use display-only materials. The owning review records retain their original evidence and licenses.</p>
   <p>Taxonomy reference <a href="{REFERENCE}">OpenStax Anatomy and Physiology 2e, §1.2</a>.</p>
 </section>
 </main>
-<footer><div class="wrap">med-assets · local revision <code>{rev[:12]}</code> · model and screenshot links open this checkout</div></footer>
+<footer><div class="wrap">med-assets · teaching asset revision <code>{rev[:12]}</code> · model and screenshot links open this checkout</div></footer>
 </body></html>
 """
-    (HERE / "index.html").write_text(html)
+    temporary = HERE / "index.html.next"
+    temporary.write_text(html)
+    temporary.replace(HERE / "index.html")
+    return catalog.data()
 
 
 if __name__ == "__main__":
