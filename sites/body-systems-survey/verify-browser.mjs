@@ -116,15 +116,25 @@ try {
   }))`);
   assert.ok(deliveries.every(s => s.models > 0 && s.evidence && s.visiblePairs > 0
     && s.legends && s.detail.startsWith("Asset detail")));
-  assert.equal(deliveries.reduce((n, s) => n + s.visiblePairs, 0), 13);
+  const withWorkshop = process.argv.includes("--with-s1233");
+  const assemblyPlates = withWorkshop ? 12 : 13;
+  const detailPlates = withWorkshop ? 58 : 56;
+  assert.equal(deliveries.reduce((n, s) => n + s.visiblePairs, 0), assemblyPlates);
+  if (withWorkshop) {
+    assert.equal(await evaluate(`document.querySelector("#digestive figure[data-plate=assembly] h4").textContent`),
+      "Same-case esophagus through colon");
+    const venousLegend = await evaluate(`document.querySelector("#cardiovascular figure[data-plate=assembly] .legend").textContent`);
+    assert.match(venousLegend, /Inferior vena cava/);
+    assert.match(venousLegend, /Superior vena cava/);
+  }
   assert.equal(deliveries.find(s => s.id === "cardiovascular").status, "Partial assembly");
   assert.equal(deliveries.find(s => s.id === "nervous").status, "Illustrative placement");
-  assert.equal(await evaluate('document.querySelectorAll("figure[data-plate=detail]").length'), 56);
+  assert.equal(await evaluate('document.querySelectorAll("figure[data-plate=detail]").length'), detailPlates);
   assert.equal(await evaluate(`[...document.querySelectorAll("#urinary figure[data-plate=assembly] .legend li")]
     .some(e => /glomerular|bowman|filtration/i.test(e.textContent))`), false);
-  verified.gallery = {assemblyPlates: 13, detailPlates: 56, legends: true, scopedStatuses: true};
+  verified.gallery = {assemblyPlates, detailPlates, legends: true, scopedStatuses: true};
   verified.deliveredModels = deliveries.reduce((n,s)=>n+s.models,0);
-  assert.equal(verified.deliveredModels,12);
+  assert.equal(verified.deliveredModels, withWorkshop ? 14 : 12);
   await capture(join(tmpdir(), "med-systems-desktop.png"));
   await evaluate(`document.querySelector('a[href="#urinary"]').click(); location.hash`);
   assert.equal(await evaluate("location.hash"), "#urinary");

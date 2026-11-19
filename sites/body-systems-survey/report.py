@@ -8,7 +8,7 @@ import struct
 from urllib.parse import quote
 
 from gallery_plan import (
-    ASSEMBLIES, GALLERY as HERE, GALLERY_VIEWS, REPO, SOURCE, TITLES,
+    ASSEMBLIES, GALLERY as HERE, GALLERY_VIEWS, REPO, SOURCE, TITLES, WORKSHOP_ASSEMBLIES,
     render_plan, study_records,
 )
 
@@ -153,6 +153,24 @@ def browser_evidence(study, review):
     return '<details><summary>Breathing scene in local Chrome</summary><div class="views">' + "".join(shots) + "</div></details>"
 
 
+WORKSHOP_VIEWS = {
+    "cardiovascular": (
+        "Same-case heart and great vessels", "Vessels isolated",
+        "The heart, aorta, pulmonary venous mask and both venae cavae retain their s1233 positions. "
+        "The schematic supplies pulmonary arterial outflow, chamber and valve interiors, and the distal circuits.",
+        "The source vessel masks approach or overlap the heart label. The labels identify the outer heart "
+        "boundary and leave the internal chamber connections unresolved.",
+    ),
+    "digestive": (
+        "Same-case esophagus through colon", "Digestive tract isolated",
+        "The esophagus, stomach, duodenum, small bowel, colon and accessory organs share the s1233 scan frame. "
+        "The schematic supplies the mouth, terminal outlet and accessory duct entry.",
+        "Consecutive label boundaries approach or overlap within 1.5 mm. The two main colon components "
+        "have a 24.6 mm gap. A verified ileocecal landmark and continuous lumen remain open.",
+    ),
+}
+
+
 def study_section(system, jobs, rev, plates):
     study = system["study"]
     key = system["id"]
@@ -172,9 +190,23 @@ def study_section(system, jobs, rev, plates):
             detail[name] = gallery_plate(plates[scene, view["id"]], label)
         links.append((f"Original {prefix.rstrip('/') or 'study'} render receipt", receipt))
     featured = "".join(detail.pop(name) for name in study["featured"])
-    details = featured + "".join(detail.values())
     state, title, note, *entries = ASSEMBLIES[key]
     combined = []
+    audit = " ".join(system["gaps"])
+    workshop = key + "-s1233"
+    if (workshop, "assembly") in plates:
+        title, route, note, limits = WORKSHOP_VIEWS[key]
+        entries = []
+        combined.append(gallery_plate(plates[workshop, "assembly"], title, assembly=True))
+        detail["workshop-route"] = gallery_plate(plates[workshop, "route"], route)
+        links.extend([
+            ("Same-case GLB", WORKSHOP_ASSEMBLIES / f"{key}.glb"),
+            ("Same-case Blender scene", WORKSHOP_ASSEMBLIES / f"{key}.blend"),
+            ("Mask and junction audit", WORKSHOP_ASSEMBLIES / "mask-audit.json"),
+            ("Same-case render receipt", GALLERY_VIEWS / workshop / "renders.json"),
+        ])
+        audit = limits + " " + audit
+    details = featured + "".join(detail.values())
     for entry in entries:
         scene, name = {
             "urinary-overview": ("urinary", "tract"),
@@ -201,7 +233,7 @@ def study_section(system, jobs, rev, plates):
     <details class="asset-detail"><summary>Asset detail ({len(detail) + len(study['featured'])} pairs)</summary>
     <p class="verdict">{escape(system['verdict'])}</p><div class="part-grid">{details}</div></details>
     {browser_evidence(study, review)}
-    <div class="gap"><h3>Audit and limits</h3><p>{escape(' '.join(system['gaps']))}</p></div>
+    <div class="gap"><h3>Audit and limits</h3><p>{escape(audit)}</p></div>
     <details><summary>Models, review and attribution</summary><div class="source-links downloads">{links_html}</div></details>
     <details><summary>Source assets and baseline screenshots</summary><div class="part-grid">{parts}</div><div class="source-links">{sources}</div></details>
     </section>"""

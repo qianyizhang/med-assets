@@ -54,6 +54,11 @@ Gallery replay is offline image evidence. Specialist, pose and runtime coverage
 follow the owning reviews. The completed lesson and study assets continue to
 have their own acceptance scope, distinct from the coverage of these assembly views.
 
+The optional [same-case Workshop update](../../assemblies/workshop-s1233/README.md)
+includes digestive and cardiovascular overviews in the s1233 scan frame.
+Those two sections retain their partial status and show the measured limits
+when the local assembly receipts and renders are present.
+
 ## Restore the media
 
 The archive `med-assets-teaching-c803735.zip` contains 327 files at their
