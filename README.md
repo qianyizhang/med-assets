@@ -18,11 +18,9 @@ assets; a technical check does not establish anatomical or clinical approval.
 | Shared utilities and regression checks | [tools](tools/), [tests](tests/) |
 | External viewer integration and guarded delivery | [gallery](gallery/), [ci](ci/), [transport](transport/) |
 
-Open the asset's export README and linked review for its source, recipe, status
-and limits. Asset-specific build/render/check code belongs in its `recipes/`.
-The [model survey](sites/model-survey/) is a dated derived report, not an asset
-registry. Start contributing with [AGENTS.md](AGENTS.md)
-and the single [architecture/workflow guide](docs/WORKFLOW.md).
+- **Asset status** · Export README and linked review
+- **New asset or variant** · [Admission criteria](docs/WORKFLOW.md#asset-admission)
+- **Contributing** · [Repository instructions](AGENTS.md) and [workflow](docs/WORKFLOW.md)
 
 ## Quick start
 

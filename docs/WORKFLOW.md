@@ -27,23 +27,21 @@ output directory; never use a delivered export folder as scratch space.
 
 ## Asset admission
 
-Reuse or improve existing assets before adding a maintained variant. An addition
-needs evidence that existing assets cannot meet its purpose and quality, or that
-adaptation would break another named use which cannot coexist through parameters,
-materials, overlays or composition. A demonstrably better replacement is welcome. Avoid destructive or lower-quality
-adaptation merely to avoid an addition.
+| Admission decision | Evidence in the issue or owning package |
+| --- | --- |
+| Teaching goal | Named audience, task and observable result (e.g., a learner can trace drainage from kidney through ureter and bladder to outlet). |
+| New asset or variant | Closest asset IDs and matched views or measurements showing the gap. Reuse, adaptation or composition falls short of the goal or breaks a named use. |
+| Maintenance | Expected improvement, owner, storage and review cost. For replacements, affected consumers, migration plan and retained recovery material. |
 
-Before committing to expansion, record in the existing issue or owning asset:
+| Deliverable | Acceptance evidence |
+| --- | --- |
+| Every asset | Editable source or identified inputs, exact export, replay instructions and [source credits and terms](#import-and-source-integrity). Anatomical claims cite references. Inferred features, schematics and generated concepts carry explicit labels. |
+| 3D assembly | Units, axes, laterality, shared frame or placement transforms, and authored joins. Clean reimport shows essential parts alone and together. Each claimed route has visible junctions and traceable continuity. Claims stop at unresolved gaps, collisions or occlusion. |
+| Related 3D views | Consistent materials and textures. Matched-scale isometric and straight orthographic views by default. A section or alternate angle reveals hidden relationships. See [visual comparisons](#visual-comparisons). |
+| Diagram or lesson | Required relationship visible in the delivered diagram or learner action demonstrated in the running lesson. |
 
-- Intended use, required quality, concrete improvement and compared asset IDs.
-- Inspected matched output or relevant measurements supporting reuse, selective
-  integration, adaptation or the exception. Availability and novelty are insufficient.
-- Source/export/storage and review cost, maintenance owner, and consumers migrated
-  by a replacement; preserve other uses and required source/recovery material.
-
-Link this decision in the PR. Missing or unsupported admission evidence blocks
-ready/merge. This gate does not authorize deletion, publication or merge and does
-not reopen settled work. A source is evidence, not anatomical ground truth.
+- **Ready/merge gate** · PR links the admission decision, supporting evidence, [required checks](#verification) and [scoped review results](#review-records). Missing or unsupported evidence blocks readiness.
+- **Separate authorization** · Deletion, publication and merge.
 
 ## Verification
 
