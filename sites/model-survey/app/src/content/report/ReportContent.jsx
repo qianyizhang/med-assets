@@ -1,5 +1,7 @@
 import React,{useState,useRef,useEffect} from 'react';
 import {DataComponent,EvidenceChart,useDataApp} from '../../data-app-public.jsx';
+import {BalancedDownload} from './BalancedDownload.jsx';
+import {FDI31_ID} from '../shared/fdi31-download.js';
 import './report.css';
 const TABS=['Anatomy','Purpose','Review','Overlaps','Gaps','Files'];
 const SYSTEMS=['Body & support','Cardiovascular','Respiratory','Digestive','Urinary','Reproductive','Endocrine','Musculoskeletal','Nervous & senses','Oral & dental','Lymphatic & tissue'];
@@ -9,7 +11,7 @@ const tone=t=>/needs revision|failed/i.test(t)?'bad':/needs review|draft|pending
 const bytes=n=>n>=1e6?`${(n/1e6).toFixed(2)} MB`:`${(n/1000).toFixed(1)} kB`;
 function Tag({children,kind}){return <span className={`sv-tag ${kind||tone(String(children))}`}>{children}</span>;}
 function Source({item,children}){return <a href={item.url} target="_blank" rel="noreferrer">{children||item.path.split('/').slice(-2).join('/')} ↗</a>;}
-function Fold({id,title,meta,leading,children,opened,toggle,className=''}){return <details className={`sv-fold ${className}`} open={!!opened}><summary onClick={e=>{e.preventDefault();toggle(id);}}><span className="sv-arrow" aria-hidden="true">›</span>{leading}<span className="sv-node">{title}</span>{meta}</summary>{opened&&<div className="sv-body">{children}</div>}</details>;}
+function Fold({id,anchor,title,meta,leading,children,opened,toggle,className=''}){return <details id={anchor} className={`sv-fold ${className}`} open={!!opened}><summary onClick={e=>{e.preventDefault();toggle(id);}}><span className="sv-arrow" aria-hidden="true">›</span>{leading}<span className="sv-node">{title}</span>{meta}</summary>{opened&&<div className="sv-body">{children}</div>}</details>;}
 function PreviewButton({r,gallery,onPreview,index=0,large=false}){
  const p=gallery[r.previewIds?.[index]];
  return p?<button type="button" className={`sv-preview-button ${large?'sv-preview-large':''}`} aria-label={`Preview ${r.label}${index?' view '+(index+1):''}`} onClick={e=>{e.preventDefault();e.stopPropagation();onPreview(r,index);}}><img src={p.thumb} alt="" loading="lazy" decoding="async"/><span>{large?`${index+1} / ${r.previewIds.length}`:'⤢'}</span></button>:<span className="sv-preview-missing" title={r.previewMissing}>No image</span>;
@@ -34,9 +36,11 @@ function PreviewDialog({viewer,rows,gallery,onChange,onClose}){
 function Media({rows}){return <div data-reviewed-rows>{rows.map(m=><div className="sv-file" key={m.path}><Source item={m}>{m.path}</Source><span>{bytes(m.bytes)}{m.meshes!=null?` · ${m.meshes} meshes`:''}{m.animations?` · ${m.animations} clips`:''}</span><code title={m.sha256}>{m.sha256.slice(0,12)} · {m.availability}</code></div>)}</div>;}
 function Asset({r,prefix,open,toggle,gallery,onPreview}){
  const id=prefix+':'+r.id;
- return <Fold id={id} title={r.label} opened={open.has(id)} toggle={toggle} className="sv-asset" leading={<PreviewButton r={r} gallery={gallery} onPreview={onPreview}/>} meta={<><span className="sv-kind">{r.product?'product':'model family'}</span><Tag>{r.state}</Tag></>}>
+ const isFdi31=r.id===FDI31_ID;
+ return <Fold id={id} anchor={isFdi31&&prefix.startsWith('Anatomy:')?FDI31_ID:undefined} title={r.label} opened={open.has(id)} toggle={toggle} className="sv-asset" leading={<PreviewButton r={r} gallery={gallery} onPreview={onPreview}/>} meta={<><span className="sv-kind">{r.product?'product':'model family'}</span><Tag>{r.state}</Tag></>}>
   {r.previewIds?.length>0?<div className="sv-preview-strip" data-reviewed-rows>{r.previewIds.map((key,index)=><PreviewButton key={key} r={r} gallery={gallery} onPreview={onPreview} index={index} large/>)}<span>{r.previewCaption}</span></div>:<div className="sv-note">{r.previewMissing}</div>}
   <dl className="sv-facts" data-reviewed-rows><dt>Useful scope</dt><dd>{r.use}</dd><dt>Quality limit</dt><dd>{r.limit}</dd><dt>Evidence</dt><dd><Source item={r.evidence}/></dd></dl>
+  {isFdi31&&<BalancedDownload media={r.media}/>}
   <div className="sv-more">
    {!!Object.keys(r.gates).length&&<Fold id={id+':gates'} title="Recorded gates" meta={<small>exact owner wording</small>} opened={open.has(id+':gates')} toggle={toggle}><dl className="sv-gates" data-reviewed-rows>{Object.entries(r.gates).map(([k,v])=><React.Fragment key={k}><dt>{k}</dt><dd>{v}</dd></React.Fragment>)}</dl><div className="sv-note">Dated artifact/scope only · later supplements do not promote the original whole model</div></Fold>}
    <Fold id={id+':media'} title={`Exports · ${r.media.length} GLB paths`} opened={open.has(id+':media')} toggle={toggle}>{r.media.length?<Media rows={r.media}/>:<div className="sv-note">No indexed GLB here · recipe, record or referenced media only</div>}</Fold>
@@ -44,11 +48,41 @@ function Asset({r,prefix,open,toggle,gallery,onPreview}){
   </div>
  </Fold>;
 }
+function hasFdi31Link(){
+ return window.location.hash===`#${FDI31_ID}`;
+}
+function openFdi31(system){
+ const group=`Anatomy:${system}`;
+ return new Set([group,`${group}:${FDI31_ID}`]);
+}
 export function ReportContent(){
  const {snapshot,appTitle,canEdit,mode,setAppTitle}=useDataApp();
  const s=snapshot.survey,families=snapshot.queries.model_survey.rows,products=snapshot.queries.products.rows,files=snapshot.queries.media_inventory.rows,all=[...families,...products];
- const [tab,setTab]=useState('Anatomy'),[search,setSearch]=useState(''),[related,setRelated]=useState(true),[open,setOpen]=useState(new Set(['Anatomy:Cardiovascular']));
+ const fdi31System=families.find(r=>r.id===FDI31_ID)?.system;
+ const [tab,setTab]=useState('Anatomy'),[search,setSearch]=useState(''),[related,setRelated]=useState(true);
+ const [open,setOpen]=useState(()=>fdi31System&&hasFdi31Link()?openFdi31(fdi31System):new Set(['Anatomy:Cardiovascular']));
  const [viewer,setViewer]=useState(null);
+ useEffect(()=>{
+  if(!fdi31System)return;
+  let frame;
+  function scrollToFdi31(){
+   cancelAnimationFrame(frame);
+   frame=requestAnimationFrame(()=>document.getElementById(FDI31_ID)?.scrollIntoView());
+  }
+  function followFdi31Link(){
+   if(!hasFdi31Link())return;
+   setTab('Anatomy');
+   setSearch('');
+   setOpen(openFdi31(fdi31System));
+   scrollToFdi31();
+  }
+  if(hasFdi31Link())scrollToFdi31();
+  window.addEventListener('hashchange',followFdi31Link);
+  return ()=>{
+   window.removeEventListener('hashchange',followFdi31Link);
+   cancelAnimationFrame(frame);
+  };
+ },[fdi31System]);
  const gallery=snapshot.previewGallery||{};
  const showPreview=(r,index=0)=>setViewer({id:r.id,index});
  const q=search.trim().toLowerCase();
