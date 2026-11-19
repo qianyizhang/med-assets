@@ -1,0 +1,214 @@
+{
+  "model": "gpt-image-2.6-sunburst",
+  "request": {
+    "n": 1,
+    "quality": "medium",
+    "complexity": "high",
+    "output_format": "gif",
+    "size": "512x512",
+    "frame_count": 16,
+    "frame_duration_ms": 400
+  },
+  "visual_direction": "Use case: scientific-educational. Create a finished native animated GIF, one continuous full-frame scene, not a storyboard, grid or slideshow. Original polished dental textbook illustration with softly shaded ivory enamel, warm ochre dentin, coral pulp and gingiva, muted tan jawbone, dark brown decay or calculus, and teal intervention highlights, on an unchanging pale warm-gray background. Orthographic front cutaway view, crisp contours, broad readable shapes, generous margins, no text, letters, logos, arrows or watermark. Tooth fills about 75 percent of the image. Keep anatomy, camera, scale, root count, cutaway plane, background and lighting fixed throughout the clip. Tools may enter from the upper right only as needed. Motion must depict the single specified process, not camera movement. The underlying tooth must not wobble, melt or change its root count. Use 16 temporally ordered frames: establish the starting state in frames 1–3, perform the action in frames 4–13, hold the outcome in frames 14–16. Chronological educational action, do not reverse the clinical result or regrow disease to close a loop. Simplified illustration, no blood, splashes, distress or graphic surgical detail.",
+  "stories": [
+    {
+      "id": "01-early-decay",
+      "title": "Before the hole",
+      "condition": "Early noncavitated enamel decay",
+      "procedure": "Fluoride and mineral recovery",
+      "premise": "Show why a mineral-loss lesion can need prevention rather than drilling.",
+      "source": "https://www.nidcr.nih.gov/health-info/tooth-decay",
+      "takeaway": "Early decay can recover. A cavity cannot simply grow closed.",
+      "shots": [
+        {
+          "id": "01a-mineral-loss",
+          "title": "An intact surface can lose minerals",
+          "caption": "EARLY DECAY · no hole yet",
+          "narration": "Early decay can weaken enamel before a hole forms. A dentist checks the stage.",
+          "start": "A single two-root lower molar with continuous intact enamel and a small chalky white patch on its outer crown.",
+          "action": "Reveal a small magnified region within the same cutaway, without an inset panel: a few tiny mineral dots leave only the chalky enamel patch and fade into the surrounding fluid. The outer tooth contour remains fully intact; the white lesion becomes slightly more visible. No brown cavity, drilling, pulp disease or tissue removal.",
+          "review": "Enamel stays continuous; lesion does not become a hole; dots represent minerals rather than literal bacteria."
+        },
+        {
+          "id": "01b-fluoride",
+          "title": "Support mineral recovery",
+          "caption": "FLUORIDE + DAILY CARE · time compressed",
+          "narration": "Fluoride and daily care can support mineral recovery. This takes time and follow-up.",
+          "start": "The same illustrated two-root lower molar with a small white enamel lesion and no cavity; all hard-tissue contours intact.",
+          "action": "A small applicator brushes a thin translucent teal fluoride coating over the intact white enamel patch, then exits. Tiny pale mineral dots settle into the patch and it becomes less chalky gradually. Show a modest improvement, not miraculous complete disappearance. Do not add tooth bulk, fill a hole, restore lost dentin or introduce a drill. This is a symbolic time-compressed remineralization process.",
+          "review": "Fluoride acts on an intact lesion; no instant regrowth of missing tissue."
+        }
+      ]
+    },
+    {
+      "id": "02-cavity-filling",
+      "title": "Repair the cavity",
+      "condition": "Cavitated decay with vital, uninvolved pulp",
+      "procedure": "Composite restoration",
+      "premise": "Separate the disease, removal of damaged tissue, and the man-made repair.",
+      "source": "https://www.nidcr.nih.gov/health-info/tooth-decay",
+      "takeaway": "A filling restores the defect. Prevention still matters.",
+      "shots": [
+        {
+          "id": "02a-cavity",
+          "title": "The surface has broken down",
+          "caption": "CAVITY · enamel and dentin affected",
+          "narration": "Once a cavity forms, missing tooth structure may need a filling after assessment.",
+          "start": "One stationary two-root lower molar in longitudinal cutaway. A distinct small brown occlusal cavity crosses the white enamel into the yellow dentin. Pink pulp remains separated by healthy dentin.",
+          "action": "A soft teal outline slowly traces the existing cavity from its opening to its shallow dentin floor, then settles and fades. Nothing grows or vanishes. Emphasize the actual missing crown tissue and intact pulp boundary. No abscess, exposed pulp, cracking or spontaneous repair.",
+          "review": "Cavity is visibly open and separate from pulp; highlighting does not spread decay."
+        },
+        {
+          "id": "02b-clean",
+          "title": "Remove damaged tissue",
+          "caption": "ILLUSTRATED STEP · preparation",
+          "narration": "The dentist removes damaged tissue and prepares the tooth while preserving sound structure.",
+          "start": "The same two-root molar, isolated conceptually with no saliva. A shallow brown occlusal cavity enters dentin but is well above an intact pink pulp chamber.",
+          "action": "A small dental handpiece approaches the existing cavity. Only the visibly brown damaged material is progressively removed into a small clean preparation; the tool then withdraws. The enamel margins and most healthy dentin are preserved. The pulp remains covered by dentin. No drilling through the tooth, root movement, flying fragments or bleeding. Anesthesia and isolation are outside this simplified view.",
+          "review": "Preparation does not expose pulp; tooth and roots stay fixed; removal stays localized."
+        },
+        {
+          "id": "02c-restore",
+          "title": "Restore the shape",
+          "caption": "COMPOSITE · placed, cured and shaped",
+          "narration": "Tooth-colored composite is placed, hardened with light, and shaped to restore the tooth.",
+          "start": "The same stationary cutaway molar with a small clean occlusal preparation, intact pulp and intact roots.",
+          "action": "An applicator places ivory composite into the preparation until flush with the original crown contour. It exits; a curing-light tip briefly shines blue light only onto the filling, then exits. Finish with a smooth restored occlusal contour and a subtle visible boundary around the filling. No growing enamel, no pulp change, no whole-tooth blue glow. This is a simplified placement-and-cure illustration, not a full bonding protocol.",
+          "review": "Restoration remains inside defect; no overfill, hidden cavity or instant biological regrowth."
+        }
+      ]
+    },
+    {
+      "id": "03-root-canal",
+      "title": "Save the tooth",
+      "condition": "Inflamed or infected pulp in a restorable tooth",
+      "procedure": "Root canal treatment and definitive restoration",
+      "premise": "Follow treatment inside a tooth while its external roots stay in place.",
+      "source": "https://www.aae.org/patients/root-canal-treatment/what-is-a-root-canal/",
+      "takeaway": "The tooth stays. The infected pulp is removed and the space sealed.",
+      "shots": [
+        {
+          "id": "03a-pulp",
+          "title": "The problem reaches the pulp",
+          "caption": "INFECTED PULP · inside the tooth",
+          "narration": "Inflamed or infected pulp may need root canal treatment to retain a restorable tooth.",
+          "start": "One single-root adult premolar in fixed longitudinal cutaway, ivory enamel, ochre dentin, one narrow canal within the root. Deep brown crown decay reaches the central pulp chamber.",
+          "action": "The inflamed coral pulp chamber and its one narrow root canal gently pulse in color once, then settle. Show the problem inside the tooth, not on its outer roots. The tooth remains supported by normal surrounding bone; no giant abscess, swelling animation, tooth removal or extra canals. End with the diseased pulp clearly visible.",
+          "review": "Single-root single-canal schematic; affected tissue stays inside canal."
+        },
+        {
+          "id": "03b-clean",
+          "title": "Clean the internal space",
+          "caption": "ACCESS · clean and disinfect",
+          "narration": "Under anesthesia and isolation, the clinician removes pulp, then cleans and disinfects the canal.",
+          "start": "The same stationary single-root premolar cutaway. A small access opening connects the crown to one canal, conceptually isolated with a teal rubber-dam collar at the crown base.",
+          "action": "A fine endodontic instrument moves through the crown access and within the one existing canal, with two short controlled up-and-down motions. Red pulp material progressively clears only from the chamber and canal. A small translucent teal rinse flows within the canal, remains short of the root tip and disappears into suction at the crown. Instrument never exits the root or pierces its wall. No tooth removal or root shortening. End with an empty clean canal, tooth and bone unchanged.",
+          "review": "Instrument and rinse stay inside root; no leakage beyond apex or disappearing root."
+        },
+        {
+          "id": "03c-seal",
+          "title": "Fill and seal the canal",
+          "caption": "ROOT FILLING · no new pulp",
+          "narration": "The cleaned canal is filled and sealed. The filling material does not regenerate pulp.",
+          "start": "Same single-root premolar in cutaway, a clean empty narrow canal within intact dentin, access opening on crown, no remaining red pulp.",
+          "action": "A slender warm-orange root-filling cone enters from the crown and seats into the existing canal, stopping within the root tip. The canal becomes evenly filled without voids or extrusion. Seal the upper chamber with a small pale core. Keep a visible boundary between filling and dentin. No red tissue reappears, no material exits the root, no root transforms into metal.",
+          "review": "Root filling stays within canal; final state has no regenerated pulp."
+        },
+        {
+          "id": "03d-crown",
+          "title": "Protect the restored tooth",
+          "caption": "FINAL RESTORATION · follow-up required",
+          "narration": "A final restoration protects the tooth; a crown is often used when needed.",
+          "start": "Same single-root premolar, orange-filled canal and pale core; original root fixed in bone. Crown has been conservatively shaped for a protective crown in this illustrative case.",
+          "action": "A tooth-colored ceramic crown moves vertically down onto the prepared crown core and seats snugly at the crown margin. The existing natural root and its orange canal filling remain unchanged and visible in the cutaway. End with an intact outer tooth contour and quiet surrounding gum. No implant screw, no regenerated pulp, no disappearance of the original root.",
+          "review": "Crown covers existing tooth; must not turn root canal case into implant."
+        }
+      ]
+    },
+    {
+      "id": "04-gum-disease",
+      "title": "Below the gumline",
+      "condition": "Periodontitis with subgingival deposits",
+      "procedure": "Scaling, root planing and maintenance",
+      "premise": "Make the hidden root surface visible while keeping bone loss distinct from inflammation.",
+      "source": "https://www.nidcr.nih.gov/health-info/gum-disease",
+      "takeaway": "Control deposits and inflammation. Keep care and reassessment ongoing.",
+      "shots": [
+        {
+          "id": "04a-pocket",
+          "title": "Deposits hide below the gum",
+          "caption": "PERIODONTITIS · an inflamed pocket",
+          "narration": "Periodontitis affects tooth-supporting tissues. Deposits can collect along roots below an inflamed gumline.",
+          "start": "One stationary two-root molar and surrounding jawbone in cutaway. On its right, red swollen gum is separated from the root by a visible periodontal pocket. Brown calculus adheres to that root surface. The supporting bone level is moderately reduced on that side.",
+          "action": "The right gum pocket gently brightens and dims once to reveal the gap and attached brown deposits. The tooth, deposits, gum height and reduced bone crest remain in place. No loose tooth wobble, migrating roots, pus or open surgery. End with clear visual separation of gum, pocket, root and bone.",
+          "review": "Deposit lies on root; pocket outside tooth; bone and pulp not confused."
+        },
+        {
+          "id": "04b-scale",
+          "title": "Clean the root surface",
+          "caption": "DEEP CLEANING · scaling and root planing",
+          "narration": "Professional deep cleaning removes deposits along the root surface. Treatment depends on disease severity.",
+          "start": "Same fixed two-root molar cutaway, right-sided inflamed periodontal pocket, brown deposits on the external root, moderately reduced bone level.",
+          "action": "A slender curved scaler tip enters the existing gum pocket from above and makes two short controlled passes along the external right root surface. Brown deposits detach and disappear through implied suction. Preserve root thickness, gum contours and the reduced bone crest. The tool does not enter the tooth pulp or scrape away the whole root. End with a clean root surface but persistent gum pocket and unchanged bone height.",
+          "review": "Scaler stays outside root; no thick root removal, instant gum closure or bone regrowth."
+        },
+        {
+          "id": "04c-maintain",
+          "title": "Healing needs ongoing care",
+          "caption": "LATER FOLLOW-UP · bone level unchanged",
+          "narration": "Inflammation can improve with treatment and daily care. Lost bone does not instantly regrow.",
+          "start": "Same molar, clean right root surface, red swollen gum and a reduced bone crest matching the previous shot.",
+          "action": "Symbolic time-compressed follow-up: gum color slowly changes from inflamed dark coral to calmer light pink and swelling decreases modestly. The gum stays at a realistic reduced height, with some pocket depth remaining. The original reduced bone crest stays exactly fixed. No tooth whitening, new bone, spontaneous calculus return or total reset to pristine anatomy.",
+          "review": "Only soft-tissue inflammation improves; bone crest remains reduced."
+        }
+      ]
+    },
+    {
+      "id": "05-implant",
+      "title": "Replace the missing tooth",
+      "condition": "One missing tooth after clinical assessment",
+      "procedure": "One possible staged implant restoration",
+      "premise": "Separate placement, biological integration and the crown with a visible time jump.",
+      "source": "https://www.fda.gov/medical-devices/dental-devices/dental-implants-what-you-should-know",
+      "takeaway": "An implant is one option. Healing takes months and suitability varies.",
+      "shots": [
+        {
+          "id": "05a-gap",
+          "title": "Assess the gap and supporting bone",
+          "caption": "MISSING TOOTH · assess options first",
+          "narration": "For a missing tooth, assessment checks bone and health. An implant is one option.",
+          "start": "Fixed frontal cutaway of a jaw segment, two intact neighboring teeth at left and right, one healed central missing-tooth gap with continuous pink gum over adequate tan bone. No root or tooth in the gap.",
+          "action": "A thin translucent teal planned implant silhouette gently fades into the center of the healed gap, entirely within the bone, then fades out. This is planning only: bone and gum remain unchanged and no device has been placed. Neighbors remain fixed. No extraction, shrinking jaw, extra tooth or magical tooth eruption.",
+          "review": "Planning silhouette distinct from actual device; gap and neighbors persist."
+        },
+        {
+          "id": "05b-place",
+          "title": "Place an implant in prepared bone",
+          "caption": "IMPLANT BODY · simplified placement",
+          "narration": "In suitable cases, an implant body is placed in a prepared site in the jawbone.",
+          "start": "Same healed central gap between two intact fixed neighbors, in jaw cross-section. A narrow prepared site already exists centrally in adequate bone under the gum opening. No natural root remains in that site.",
+          "action": "One gray titanium threaded implant body slowly moves down and rotates gently into the existing prepared site. It stops at the planned bone level, entirely below the future crown. Bone outside the prepared site and both neighboring roots remain unchanged. End with a small healing cap at gum level, no crown yet. Do not show a screw passing through intact bone without preparation, no drilling into neighbors, no blood or surgical incision close-up.",
+          "review": "Body occupies prepared bone site; no neighboring-root damage or immediate crown."
+        },
+        {
+          "id": "05c-heal",
+          "title": "Allow integration over months",
+          "caption": "MONTHS LATER · symbolic healing",
+          "narration": "Healing and bone integration can take several months or longer. Success is not guaranteed.",
+          "start": "Fixed jaw cutaway: one gray titanium implant body is fully seated in the central jawbone gap between two stationary natural teeth. The TOP OF THE IMPLANT BODY ends flush with the pink gum opening. There is NO separate healing cap, no abutment, no crown, and no floating object above it. Show only this one-piece titanium body and surrounding gum and bone.",
+          "action": "Symbolic time-lapse over months, with the implant body absolutely stationary: the very narrow tan bone interface directly against its threads gradually becomes slightly more continuous. Gum calmly settles at the same level. Keep the overall bone crest and neighboring teeth fixed. Nothing moves down into position. No separate healing cap or abutment appears at any time; above the implant remains empty background. No hovering cylinder, no detached metal part, no vertical gap in the single solid titanium body, no extra screw, no giant new bone mass. Integration is a conceptual illustration, not literal cellular biology.",
+          "review": "Implant stays immobile and in contact with bone; no floating or separate cap; integration is local and explicitly labeled as months in the edit."
+        },
+        {
+          "id": "05d-restore",
+          "title": "Attach the abutment and crown",
+          "caption": "RESTORATION · continued cleaning and review",
+          "narration": "After healing, an abutment and crown restore the gap. Cleaning and follow-up remain essential.",
+          "start": "Same integrated gray implant between two fixed natural teeth, no crown, small healing cap now removed, gum healed around implant opening.",
+          "action": "A small gray abutment seats on top of the implant. Then one ivory crown descends onto the abutment and comes to rest at the same crown height as the neighbors, with a tiny visible material boundary. The titanium implant body remains inside bone and visible in cross-section; the crown sits above the gumline. Do not insert the crown into bone or turn the implant into a natural tooth root. End on the restored three-tooth row.",
+          "review": "Crown, abutment and implant distinct; crown above gum; neighbors unchanged."
+        }
+      ]
+    }
+  ]
+}
