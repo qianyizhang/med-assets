@@ -1,15 +1,19 @@
-# Baseline review accounting — 23 October 2026
+# Baseline review accounting · 23 October 2026
 
-This standalone ledger records 28 later visual decisions and 16 linked metadata-only equivalence outcomes. It does not migrate the complete local catalog or replace any model.
+| Ledger | Outcome and limits |
+| --- | --- |
+| [Original baselines](baseline-decisions.json) | 62 initial decisions: 26 failed, 27 need revision, 7 need review, 2 scoped visual passes. The 28 later visual decisions bind original GLB identities and public URLs to 32 unmodified native inspection PNGs. Four source-limited cases remain needs-review. |
+| [Metadata equivalence](metadata-equivalence.json) | 16 derivatives with commit-pinned paths and verified LFS pointers. Visual status inherits only the linked scope supported by unchanged BIN and non-metadata JSON. No fresh derivative-pixel or pixel-identity claim. |
+| Independent scope | The separate 35 scoped studies do not change original-baseline counts. Historical reviews retain their own dates, evidence and limits. Anatomy, clinical use and intended-consumer runtime require separate review. |
 
-## What the counts mean
+## Metadata-only replay
 
-The 62 original baselines currently comprise 26 failed, 27 needing revision, 7 needing review and 2 narrowly scoped visual passes. None remains without an initial review decision. This does **not** mean every asset passed: the separate set of 35 scoped studies is not added to baseline coverage. Anatomy and intended-consumer runtime are not approved by this ledger.
+- **Outcome** · Corrected scene extras. Original baseline, geometry, materials, transforms, source-node attribution, BIN and animation data retained. No new study approval or browser/hosted CI claim.
+- **Inputs** · Exact original GLB bytes and the asset's approved patch. Python standard library and a fresh output path.
+- **Acceptance** · Patcher verifies pinned source/target hash and size and reviewed old/new values. Record validator checks the bound evidence. Current visual scope comes from the linked review, with deferred native comparisons identified there.
+- **Credits** · Source-specific notices stay with the originals. Segmented s1233 surfaces use [TotalSegmentator v2.0.1](https://zenodo.org/records/10047263), CC BY 4.0, with the separate Apache 2.0 label notice retained.
 
-`baseline-decisions.json` binds each decision to its original GLB hash and an existing public Assets URL, plus exact native inspection images. Those external model URLs were mapped against retained published bytes; this package does not contain or newly upload the original models. The 32 PNGs are unmodified own-render evidence, not clinical reference images.
-
-`metadata-equivalence.json` binds 16 derivatives to commit-pinned GitHub paths and freshly verified LFS pointers. Their visual outcomes inherit the linked source review through verified unchanged BIN and non-metadata JSON. This is **not** fresh pixel inspection of the derivative hash. Original verification methods and limitations remain explicit; render-repeat noise is not relabeled exact pixel identity.
-
-Historical review records and earlier evidence remain authoritative for their own dates. These later decisions do not erase them. Source-record hashes identify the local immutable originals; they do not imply those full historical packages were uploaded here.
-
-The four source-limited cases remain Needs review. Poor display quality is not automatically proof of anatomically corrupt source data. Functional motion evidence is separate from static exterior-fidelity judgments.
+```sh
+python3 tools/patch_scene_metadata.py --patch "$approved_patch" "$baseline_glb" "$fresh_output"
+python3 tests/review_records/validate_record.py "$review_record"
+```
