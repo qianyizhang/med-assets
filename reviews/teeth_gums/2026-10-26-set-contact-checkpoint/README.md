@@ -38,11 +38,11 @@ Do not fix this result by arbitrarily spacing the teeth until crossings disappea
 
 ## Evidence and replay scope
 
-- Source: existing `models/teeth_gums/exports/r02/teeth_gums.glb`, 814,328 bytes; SHA-256 `82bfaeead46bb51b1fa5bdfdb06c918dfd01aa23b28acae733ab75ec2cd6897f`.
+- Source: unchanged [canonical BP3D exterior GLB](../../../models/teeth_gums/exports/r02/teeth_gums.glb), 814,328 bytes; SHA-256 `82bfaeead46bb51b1fa5bdfdb06c918dfd01aa23b28acae733ab75ec2cd6897f`.
 - Native 28 teeth + 2 gingiva surfaces retained; all node transforms were identity. GLB uses metres; geometric calculations explicitly converted to millimetres. Blender import maps GLB `(x,y,z)` to `(x,-z,y)`.
 - All 28 tooth meshes are closed and winding-consistent, with no boundary/nonmanifold edges or degenerate triangles in this audit. Teeth 17 and 27 each contain 2 face-connected components. Closure alone does not validate neighbouring contacts or internal tissue semantics.
 - 7 primitive tests include crossing, separation and touching-only examples. The 4 positive-gap results match exhaustive enumeration of 6,985,744 triangle pairs. Surface crossings do not quantify penetration depth or overlap volume; fully contained objects are outside this surface-crossing test.
 - 6 final neutral renders, 3 coloured closeups and the source-triangle diagram were personally inspected. Earlier overexposed/dim lighting attempts are not included. All supplied PNGs have empty metadata and preserved decoded pixels after sanitization.
-- Numeric receipts are included for inspection. This package does not claim a new browser/runtime pass, professional anatomy approval, or a complete redistributable dental atlas. Existing source attribution/licence obligations still apply; the repository's canonical attribution must accompany public derivatives.
+- Numerical receipts and triangle witnesses support inspection. Scratch analysis/render scripts are outside the package. The failed contact gate leaves prior exterior acceptance scoped to appearance. Browser, professional anatomy and bite verification remain outstanding. [Canonical attribution](../../../models/teeth_gums/exports/r02/ATTRIBUTION.md) accompanies public derivatives.
 
 Checked 2026-10-26. The exact mesh remains unchanged; this is a validation/presentation checkpoint, not repaired geometry.

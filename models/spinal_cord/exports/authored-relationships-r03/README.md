@@ -12,6 +12,16 @@
 
 显示单一脊髓圆锥、多条沿下段脊髓起始的下行神经根，以及独立的非神经性终丝。17个双侧示意层位不是完整31对脊神经图谱；不把脊髓节段等同于同号椎骨。神经根丝、神经节、脑脊膜、血管和椎骨省略；间距、路径与截断端均为教学示意，不代表患者或临床尺寸。
 
+## Iteration and acceptance
+
+| Version | Outcome |
+| --- | --- |
+| Original | Nominal 31 pairs. Overlapping origins collapsed the lower 14 strands into two visible tails. Conus rendered as a separate overlapping ellipsoid. |
+| R01 and R02 | Rejected projected lattice, then reordered lanes with six unrelated pairs still failing sampled clearance. Fixed-depth origins could float outside the conus. |
+| R03 | Separate depth lanes with original strand radii and starts inside the cord ellipse. All 68 tested root objects attach. The 5,151 screened unrelated pairs had no BVH overlap candidates. [Geometry review](../../../../reviews/spinal_cord/2026-10-26-authored-relationships-r03/GEOMETRY-VERDICT-r03.md). |
+
+- **中文** · 原模型名义上有31对结构，末端重叠成两条尾状束。修订先否决交叉网状布局，再纠正根间过近和圆锥旁悬空起点。接受范围仅限经过图像和导出检查的示意性关系改善。
+
 ## Evidence distinction
 Native before/after WebPs are **lossless**, decoded-pixel identical to exact-GLB-reimport PNGs. Cameras and exact input/output hashes are in render-bindings.json. `annotated-context.png` is a separate bilingual labeled aid, not untouched evidence. Its center strand label explicitly says filum is non-neural. +Z superior and−Y anterior are authored-frame conventions, not registered patient orientation.
 

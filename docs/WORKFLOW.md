@@ -2,232 +2,108 @@
 
 ## Ownership
 
-Start with the asset ID and its owning directory. Read the export README and
-linked review before changing an asset; presence in the tree is not approval.
+| Owner | Scope |
+| --- | --- |
+| [models](../models/) | Individual 3D assets with editable inputs, purposeful exports and asset-owned recipes. |
+| [assemblies](../assemblies/) | Multi-asset compositions and registration. |
+| [body](../body/), [heart](../heart/) | Imported atlas products, coordinate frames and stable public export paths. |
+| [diagrams](../diagrams/), [lessons](../lessons/) | 2D aids and runnable teaching products, with their sources and checks. |
+| [reviews](../reviews/) | Current decisions, unresolved defects and exact supporting evidence. |
+| [sources](../sources/) | Shared inputs, licenses, acquisition identities and unique recovery material. |
+| [metadata](../metadata/) | Original imports and explicit current-file exceptions. |
+| [tools](../tools/), [tests](../tests/) | Shared operations and regression suites. Asset parameters and replay commands stay with the asset. |
+| [gallery](../gallery/), [ci](../ci/), [transport](../transport/) | External-viewer integration, guarded runtime and content-addressed delivery. |
+| [sites](../sites/) | Derived reports and Site authoring. Publishing checkouts and inline media payloads stay ignored. |
 
-| Owner | What belongs here |
-|---|---|
-| `models/<asset>/` | Individual 3D assets: editable `source/`, purposeful `exports/`, and asset-owned `recipes/` for building, rendering and checking. |
-| `assemblies/<name>/` | Same-frame compositions and recipes that intentionally operate on several assets. Preserve registration assumptions. |
-| `body/`, `heart/` | Imported atlas products with their own coordinate, texture and publication contracts. Keep public export paths stable. |
-| `diagrams/<name>/`, `lessons/<name>/` | Editable 2D aids and runnable teaching experiences. Their sources and checks belong with the product. |
-| `sites/<name>/` | Derived reports and Site authoring. Asset records remain authoritative; keep publishing checkouts and inline media payloads ignored. |
-| `sources/` | Shared external inputs, licenses, acquisition identities and unique recovery material. |
-| `reviews/<asset>/` | Current decisions, unresolved defects and the exact evidence those claims need. The owning record defines scope. |
-| `tools/` | Shared format, integrity, transport and verification operations. Asset parameters stay with the asset. |
-| `tests/` | Shared behavior/security regression suites and minimum fixtures. Asset replay/check commands live beside their recipes. |
-| `gallery/`, `ci/`, `transport/` | External-viewer integration, guarded runtime execution, and content-addressed delivery manifests. The deployed viewer is a separate source owner. |
-| `metadata/`, `SHA256SUMS` | Immutable original import identities and explicit current-file exceptions. |
-
-Browse directories rather than maintaining a parallel global asset registry.
-Keep one export per purposeful variant; another revision needs a named consumer,
-replay dependency or unique evidence. Internal recipe snapshots may retain their
-original relative layout when exact reconstruction uses it. Build into a fresh
-output directory; never use a delivered export folder as scratch space.
+- **Discovery** · Start at the asset directory, export README and linked review. Use directory discovery as the inventory.
+- **Variants** · Keep exports with a named use, replay dependency or unique evidence. Preserve snapshot layout where replay depends on it.
 
 ## Asset admission
 
-| Admission decision | Evidence in the issue or owning package |
+| Decision | Evidence in the issue or owning package |
 | --- | --- |
-| Teaching goal | Named audience, task and observable result (e.g., a learner can trace drainage from kidney through ureter and bladder to outlet). |
-| New asset or variant | Closest asset IDs and matched views or measurements showing the gap. Reuse, adaptation or composition falls short of the goal or breaks a named use. |
-| Maintenance | Expected improvement, owner, storage and review cost. For replacements, affected consumers, migration plan and retained recovery material. |
+| Teaching goal | Audience, task and observable learner outcome. |
+| New asset or variant | Closest asset IDs and matched views or measurements. Show where reuse, adaptation or composition falls short or breaks a named use. |
+| Maintenance | Expected improvement, owner, storage and review cost. For replacements, affected consumers, migration and retained recovery material. |
 
 | Deliverable | Acceptance evidence |
 | --- | --- |
-| Every asset | Editable source or identified inputs, exact export, replay instructions and [source credits and terms](#import-and-source-integrity). Anatomical claims cite references. Inferred features, schematics and generated concepts carry explicit labels. |
-| 3D assembly | Units, axes, laterality, shared frame or placement transforms, and authored joins. Clean reimport shows essential parts alone and together. Each claimed route has visible junctions and traceable continuity. Claims stop at unresolved gaps, collisions or occlusion. |
-| Related 3D views | Consistent materials and textures. Matched-scale isometric and straight orthographic views by default. A section or alternate angle reveals hidden relationships. See [visual comparisons](#visual-comparisons). |
-| Diagram or lesson | Required relationship visible in the delivered diagram or learner action demonstrated in the running lesson. |
+| Every asset | Editable source or identified inputs, exact export, replay and [credits and terms](#import-and-source-integrity). Cite anatomical claims. Label inferred features, schematics and generated concepts. |
+| 3D assembly | Units, axes, laterality, frame or transforms, and authored joins. Clean reimport shows parts alone and together. Claimed routes have visible junctions and traceable continuity. Disclose unresolved gaps, collisions and occlusion. Limit continuity claims accordingly. |
+| Related 3D views | Consistent materials, matched-scale isometric and straight orthographic views by default, and sections or alternate angles for hidden relationships. [Visual comparisons](#visual-comparisons). |
+| Diagram or lesson | Required relationship visible in the diagram or learner action demonstrated in the running lesson. |
 
-- **Ready/merge gate** · PR links the admission decision, supporting evidence, [required checks](#verification) and [scoped review results](#review-records). Missing or unsupported evidence blocks readiness.
-- **Separate authorization** · Deletion, publication and merge.
+- **Ready/merge gate** · PR links the admission decision, evidence, applicable checks and scoped review results.
+- **Authorization** · Deletion, publication and merge require their own authority.
 
 ## Verification
 
-Use **Python 3.11+**, Git and Node.js 18+. Ordinary offline checks require no
-third-party Python packages, network, rendering or media download:
+**Runtime** · Python 3.11+, Git and Node.js 18+. Run without Python `-O`.
 
-```sh
-python3.12 tools/verify.py offline
-```
+| When | Gate | Acceptance |
+| --- | --- | --- |
+| Every change | `python3.12 tools/verify.py offline` | Offline regressions, import references, LFS identities, transport manifests and selected foundation records. Selected suites may inspect local media. |
+| Broad changes with hydrated LFS | `python3.12 tools/verify.py payload-integrity` | Offline gate plus all indexed LFS bytes, foundation evidence bindings and selected package checks. Unresolved pointers fail. |
+| UFF dental changes | `python3.12 tools/verify.py dental` | Separate suite including the actual pinned GLB hash. Use an isolated environment with [UFF requirements](../models/dental_specimens/uff_tomo1b/recipes/requirements-uff.txt). Missing dependencies leave coverage unavailable. |
+| Changed recipes, consumers or recovery | Owning recipe and stable entry points | Representative source → export → clean reimport, consumer behavior and changed failure paths. Major refactors and releases need full applicable checks. |
 
-The command discovers indexed and added `tests/test_*.py` and
-`tests/review_records/test_*.py`. Missing indexed suites, empty suites, missing
-imports, skips, expected failures, fixture errors and partial execution fail.
-Stage deliberate file retirements before running index-based checks. There is no
-historical test-count or filename retention gate. Plain unittest discovery is not
-the complete command.
-
-Offline mode validates current text, LFS pointer syntax/OID/known sizes,
-content-addressed transport manifests and explicitly selected foundation records.
-`FOUNDATION_PATTERNS` and `PAYLOAD_CHECKS` in `tools/verify.py` own selection.
-It does **not** perform exhaustive payload-byte verification or establish geometry,
-pixels, runtime or remote availability. Selected suites may hash local hydrated
-media. A generic `schemaVersion: 1` does not select a record family.
-
-After actual LFS bytes are available:
-
-```sh
-python3.12 tools/verify.py payload-integrity
-```
-
-This includes offline mode, hashes and sizes every indexed LFS payload, verifies
-foundation evidence bindings and runs the selected package validators. Unresolved
-pointers fail. Python `-O` is refused because retained package checks use assertions.
-This is byte identity and selected package consistency, not a clinical/visual pass.
-
-Changing the UFF dental tool also requires its separate full suite, including the
-pinned actual GLB hash. Use an isolated environment with
-`models/dental_specimens/uff_tomo1b/recipes/requirements-uff.txt`, then run `tools/verify.py dental`. Missing
-native dependencies are unavailable coverage, never a skipped pass. Dental tests
-are not included in offline or payload-integrity totals.
-
-Choose additional tests by changed behavior. Major refactors/releases require
-full applicable checks. Run representative source→export→clean reimport and
-consumer/failure recovery journeys when those paths change. Record unavailable
-inputs and exact artifacts; use existing valid evidence when inputs are unchanged.
-No mass font, dependency or historical-recipe normalization is required.
-
-Recipes document their prerequisites. For example,
-`models/esophagus_wall/recipes/replay.py --output NEW_DIRECTORY` needs Blender
-4.3.2, Pillow and its recorded Linux fonts. Read `replay-result.json` and inspect
-pixels separately; process exit alone does not establish the expected GLB hash.
-UFF reconstruction additionally needs its pinned public ZIP.
+- **Index** · Stage deliberate retirements before checks. [Verifier](../tools/verify.py) owns suite discovery, selection and failure rules.
+- **Evidence** · Bind checks to exact inputs and outputs. Reuse evidence for unchanged inputs. Record unavailable checks. A replay exit records process completion. Verify output identities and inspect pixels separately.
+- **Scope** · Offline coverage is selective. Payload coverage proves local byte identity and selected consistency. Geometry, pixels, anatomy, runtime and availability require their own evidence.
 
 ## Import and source integrity
 
-`SHA256SUMS` and `metadata/asset-manifest.json` bind the 2026-10-22 import:
-591 extracted files, originally 370,698,859 bytes. Earlier collection records
-retain archive checksums and original source identities. Preserve these bytes;
-do not regenerate history to conceal current edits.
+| Record | Contract |
+| --- | --- |
+| [Original checksums](../SHA256SUMS), [import manifest](../metadata/asset-manifest.json) | Immutable 2026-10-22 import, 591 extracted members. Earlier records retain original archive identities. |
+| [Current overrides](../metadata/current-import-overrides.json) | Changed indexed import paths record original/current hashes, reason and actual change commit. LFS also records `currentBytes`. Missing indexed paths fail. Retired paths remain in historical provenance. Commit fields are provenance declarations. |
 
-Current checks apply to imported paths still indexed. Removed paths remain in
-historical provenance. A missing indexed file fails. Changes to retained imported
-files need `metadata/current-import-overrides.json`: original/current SHA-256,
-reason and actual change commit; an LFS change also needs `currentBytes`.
-`shasum -a 256 -c SHA256SUMS` checks the original snapshot, not today's tree.
-Change-commit fields record provenance; the verifier does not establish ancestry.
-
-Preserve coordinate frames, transforms, material/texture dependencies and
-source→export identities. Keep source-specific attribution and full licenses;
-there is no repository-wide asset license. Public-source research and authorized
-evidence may be committed; credentials, private/signed URLs, conversations and
-personal/internal absolute paths may not.
+- **Asset identity** · Preserve coordinates, transforms, materials, textures, source → export bindings, attribution and full source-specific licenses. See [source records](../sources/).
+- **Public tree** · Use public-source or authorized evidence. Keep credentials, private/signed URLs, conversations and personal/internal paths outside Git.
 
 ## Review records
 
-Use the existing package's record and validator. Do not add a second registry.
-Foundation v1 records are validated by `tests/review_records/validate_record.py`:
-
-- Immutable `id`, `assetId`, `variantId`, ISO8601 `reviewedAt`, `schemaVersion: 1`.
-- `artifact: {file, sha256}` and evidence `{file, sha256, artifactSha256, kind}`
-  bound to the exact export. Comparisons can bind different artifacts explicitly.
-- Independent `technical`, `visual`, `anatomy`, `runtime` gate status/scope.
-- `failureSummary` with failure, cause, fix, retest and lesson; label hypotheses.
-- Specific limitations, missing structures and remaining validation.
-
-Statuses are `unreviewed`, `unverified`, `passed`, `pass-with-limitations`,
-`reference-screened`, `failed`, `needs-review`, `needs-revision`, `not-applicable`.
-Reference screening is not specialist approval. Translation of a whole organ is
-not physiological deformation; motion needs sampled transform/rig/deformation
-checks with explicit coverage.
-
-Bounded migration receipts, scoped decisions, accounting and runtime records
-retain their own validators. Foundation validation checks shape, containment and
-identities; it does not assess anatomy, pixels, rights or remote availability.
-Salivary geometry/failure checks need Blender and their pinned source scene.
+- **Owner** · Use the package record and its validator. [Foundation v1 validator](../tests/review_records/validate_record.py) owns schema, status values, containment and identity checks.
+- **Evidence** · Use immutable review identity and exact artifact/evidence bindings. Bind each comparison image to its actual artifact. Record gate scope, missing structures, limits and remaining checks.
+- **Metadata-only exports** · [Shared replay, patches and exact reviews](../reviews/accounting/2026-10-23/README.md).
+- **Failures** · Record observed failure, cause or labeled hypothesis, fix, retest and lesson.
+- **Claims** · Technical, visual, anatomical/clinical, runtime and publication status are independent. Reference screening has its own scope. Motion claims need sampled transform, rig or deformation evidence for the claimed behavior.
 
 ## Visual comparisons
 
-Prioritize anatomical/geometric validity, technical correctness and usefulness,
-then appearance and measured runtime performance. Document source deviations and
-inferred reconstruction. Derive tolerances from source resolution/intended use;
-triangle identity or exact source pixels are not universal anatomy gates. Desktop
-is the primary target; efficiency limits are soft unless a concrete use requires
-them. Before simplifying geometry, demonstrate the benefit and assess quality cost.
+| Goal | Required evidence |
+| --- | --- |
+| Valid geometry and teaching use | Source deviations, inferred reconstruction and tolerances tied to source resolution and intended use. Geometry simplification shows benefit and quality cost. Use soft efficiency targets unless the use requires a hard limit. |
+| Representative export | Actual export reimported cleanly. Match camera, scale, projection, lighting, exposure and background. Bind artifact/evidence hashes and record decoded tolerances. For material-only geometry claims, compare meshes and transforms. |
+| Readable comparison | Labeled **Original / Updated** overview and relevant detail with a short what/why caption. Close-ups use matched crop and zoom and an overview locator. Anchor legible labels to visible evidence. Verify legends and grayscale readability. |
+| Bounded claims | Label source annotations, illustrative colors, inferred structures and fresh rerenders. Assess accessibility and runtime separately. Report bytes, triangles and build cost separately from measured runtime. Desktop is the primary target unless scope specifies otherwise. |
+| PR evidence | Embed representative, authorized views for assets and visible changes. Reuse valid evidence. Record screenshots as inapplicable for docs-only or nonvisual changes. |
 
-Review clean reimports of actual exports at matched camera, scale, projection,
-lighting, exposure and background. Bind artifact/evidence hashes. Geometry
-identity after material edits requires mesh/transform comparison; a file hash
-alone is insufficient if bytes changed. Record tolerances for decoded comparisons.
-
-Show labelled **Original / Updated** whole context and relevant detail, with a
-short what/why caption. Every close-up needs an overview crop locator, matched crop bounds and zoom.
-Keep labels and anchors legible at the intended issue/PR display size. Anchor
-labels to visible evidence and use complementary views for hidden structures.
-Distinguish source annotations, inferred views, illustrative colors and fresh
-rerenders from validated anatomy or historical images. Check legends/materials
-across views and inspect grayscale readability; that is not accessibility approval.
-Measure bytes, triangles and build cost separately from actual runtime performance.
-
-Asset and visible-feature PRs embed representative authorized matched views;
-docs/code-only refactors state screenshots are not applicable. Reuse valid evidence
-instead of recapturing it. Image publication still needs authorization.
+- **Credits** · Adapted from [lookdev](https://github.com/arjun988/blender-skills/blob/8f778d2405a214b508d4c7d80742be8e43acdd52/.claude/skills/lookdev/SKILL.md) and [qa-review](https://github.com/arjun988/blender-skills/blob/8f778d2405a214b508d4c7d80742be8e43acdd52/.claude/skills/qa-review/SKILL.md), blender-skills contributors © 2026, [MIT](https://github.com/arjun988/blender-skills/blob/8f778d2405a214b508d4c7d80742be8e43acdd52/LICENSE).
 
 ## Runtime and delivery boundaries
 
-The main-only browser workflow remains separately guarded. Offline Node VM tests
-exercise actual candidate modules with API doubles; they do not test WebGL or
-BFCache. Candidate camera CPU tests need the exact vendored inputs pinned in
-`tests/candidate_camera/vendor-binding.json`; run `run_cpu.py --vendor-dir PATH`
-when the current camera source changes. It executes the incorporated viewer Fit
-body; `--baseline` retains the historical failure witness. Neither run downloads anything.
-
-`ci/glb_runtime_fixture.py` loads the hash-pinned heart expectations referenced by
-`ci/glb-runtime-fixture.json`; sparse checkout must include those inputs. Preserve
-source, animation and track-count checks and the independent snapshot checks.
-Keep failed/limited runtime receipts distinct from later passes.
-
-The ordinary PR workflow has read-only contents access, pinned checkout,
-`persist-credentials: false`, no secrets/uploads and no media hydration. Bounded
-LFS transport retains source-host allowlists, size/hash limits and fresh readback.
-Follow [transport instructions](../transport/README.md) before authorized upload.
-Native download success does not authorize uploads or remove transport controls.
-
-Unavailable live viewer testing alone does not block medical/dental PR delivery
-or an otherwise authorized merge. Required CI, offline render review, technical
-checks, execution/security guards and known defects still apply. Record runtime
-as `unverified` until tested. Never spoof CI flags or bypass a runtime guard.
-Technical, visual, anatomical/clinical, runtime and publication gates are separate.
+| Boundary | Owner and completion |
+| --- | --- |
+| Offline PR CI | [Workflow](../.github/workflows/offline-verification.yml). Read-only checkout and offline gate. |
+| Viewer offline integration | [Gallery](../gallery/). Actual candidate modules with API doubles. For camera changes, run the [CPU test](../tests/candidate_camera/run_cpu.py) against pinned vendor inputs. WebGL and BFCache require runtime evidence. |
+| Main-only browser runtime | [Guarded workflow](../.github/workflows/firefox-glb-runtime.yml) and [fixture](../ci/glb-runtime-fixture.json). Use only the guarded entry point. Preserve pinned expectations, source/animation/track checks and separate receipts for failed, limited and passing runs. |
+| Missing live viewer access | Mark runtime `unverified`. Medical/dental delivery and authorized merge may proceed when other required checks, reviews, guards and known defects are satisfied. |
+| Media transport | [Transport guide](../transport/README.md). Use authorized guarded paths and verify fresh readback. |
 
 ## Retention
 
-Retain canonical editable inputs/current exports, licenses, source identities,
-replay recipes, meaningful decisions and exact evidence for current claims or
-unresolved defects. Keep unique recovery material independently of Git history.
-
-Use ignored `.artifacts/<outcome>/` for scratch renders, routine receipts, logs and
-audit dumps. One durable bundle per meaningful outcome, with its README explaining
-revision, results, limits, consumers and retention. Do not duplicate inventories,
-source/media or per-step receipts. Keep hashes where executable integrity uses them.
-
-At closeout, move decisions and defects to their owners, then delete spent output.
-A rejected approach needs its reason and remaining risk, not every failed image.
-Trace imports, dynamic discovery, links, packaging, public URLs and symlinks before
-removal; repair readers and narrow claims whose evidence is retired. Review temporary
-bundles after 30 days; an extension needs an active use and next review date. No
-automatic janitor or deletion ledger is required.
+- **Keep** · Canonical editable inputs and current exports, licenses, source identities, replay, current decisions and exact evidence for active claims or defects. Keep unique recovery material independently of Git history.
+- **Scratch** · Fresh ignored `.artifacts/<outcome>/` directories. Keep one durable bundle per meaningful outcome with revision, result, limits, consumers and retention. Move accepted decisions and remaining defects to their owners.
+- **Retire** · Check imports, discovery, packaging, links, public URLs and symlink targets. Repair readers and narrow claims that lose evidence. Retire spent output after recording its outcome. Review temporary bundles after 30 days. Extensions need an active use and next review date.
 
 ## Contribution and delivery
 
-Use one bounded issue for nontrivial work: problem, impact, evidence, acceptance
-and scope. A tiny self-contained fix may use its PR instead, with the reason.
-Track local/unpushed work, validation pending and delivery blocked separately,
-with recoverable branch/commit and next action. Preserve paused and cancelled work.
+| Outcome | Evidence |
+| --- | --- |
+| Bounded scope | Check open PRs before broad changes. One issue with problem, impact, evidence, acceptance and scope. A self-contained small fix may use its PR with the reason. |
+| Reviewable change | Scoped commit and draft PR. Link open work without auto-closing partial acceptance. Record the exact tested revision, checks, results and limits. For large/generated files include source, consumers and retention. |
+| Accepted delivery | Applicable gates and evidence before ready. Authorized merge/publication and readback. Close issues on accepted outcomes or explicit retirement. |
+| Paused or blocked | Recoverable branch/commit, missing input or decision and next action. Preserve unrelated and paused work. |
 
-Open a draft PR after concrete progress. Link issues without auto-closing partial
-acceptance. Record changed scope, commands/rationale, exact tested revision,
-results and limits; for generated/large artifacts include source, consumers and
-retention reason. Follow the [shared GitHub delivery guide](https://github.com/qianyizhang/repo-kit/blob/main/user/practices/github.md).
-
-Iterate on supported defects; stop when acceptance is met. Mark ready only with
-scoped evidence and applicable checks. Merge/publication need applicable authority.
-Close issues only after acceptance, or explicitly as not planned; neither status
-alone authorizes deletion. After authorized merge, update each relevant issue with
-delivered scope, checks and remaining work. Split oversized outcomes by independently
-closable acceptance, not mechanical commits; do not invent backlog work.
-
-Comparison guidance adapts [lookdev](https://github.com/arjun988/blender-skills/blob/8f778d2405a214b508d4c7d80742be8e43acdd52/.claude/skills/lookdev/SKILL.md)
-and [qa-review](https://github.com/arjun988/blender-skills/blob/8f778d2405a214b508d4c7d80742be8e43acdd52/.claude/skills/qa-review/SKILL.md),
-blender-skills contributors © 2026, [MIT](https://github.com/arjun988/blender-skills/blob/8f778d2405a214b508d4c7d80742be8e43acdd52/LICENSE).
+[Shared GitHub delivery guide](https://github.com/qianyizhang/repo-kit/blob/main/user/practices/github.md)

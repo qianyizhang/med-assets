@@ -1,8 +1,7 @@
-# Review the dental set, not just individual teeth
+# Dental set review
 
-**Current result:** 28 existing adult exterior representations can support a whole-mouth review. The 32-adult / 20-primary target is not complete. No condition variant or coherent teaching set has passed anatomy review.
-
-This adds a set-level acceptance contract to the existing component specification. It does not replace the source-specific pilot limitations or approve new geometry.
+- **Outcome** · Evaluate 28 existing adult exteriors as a native-frame whole mouth.
+- **Status** · Target dentitions remain incomplete. Whole-set and condition-pair anatomical approval pending. [Per-tooth coverage](set-coverage.json).
 
 ## What exists now
 
@@ -14,11 +13,11 @@ This adds a set-level acceptance contract to the existing component specificatio
 | UFF specimen | Unknown-FDI hard boundary and slice-enclosed space proxy | Does not fill a named slot; not a complete canal or separate enamel/dentin |
 | Conditions | 7 families specified | 0 created variants; 0 baseline/condition pairs reviewed |
 
-`set-coverage.json` lists all 52 target teeth, with separate geometry, source, specification and acceptance states. BP3D coverage was checked against the actual r02 GLB source labels, not inferred from a count of 28. Missing coverage is not a claim that a patient lacks those teeth. Earlier spec source-survey statements are historical; this dated coverage record records subsequent pilot work.
+- **Coverage evidence** · Checked actual source labels on the BP3D r02 GLB. Missing geometry records source coverage only.
 
 ## Whole-set acceptance
 
-Review permanent and primary dentitions separately. Neither a strong isolated tooth nor attractive lighting can pass the set.
+- **Scope** · Evaluate permanent and primary dentitions independently. Require evidence for the whole delivered set.
 
 - **Identity:** each named tooth matches its class, arch and patient side. Inspect incisors, canines, premolars and molars at comparable scale; no duplicated generic crowns or mirrored labels without source evidence. Primary morphology and developmental stage need their own evidence, not scaled adult meshes.
 - **Scale and shape:** consistent units and preserved source scale; show a shared ruler. Compare crown dimensions, crown/root proportions, cusp/ridge/fossa detail and silhouette across adjacent teeth. Record measurements against the chosen reference, not invented universal tolerances.
@@ -33,8 +32,7 @@ Minimum review board: whole-mouth frontal and both lateral views; upper/lower oc
 
 ## Planned work
 
-The [consolidated plan](PLAN.md) owns future work and its prerequisites. Whole-set
-and condition-pair acceptance remain here; no unstarted plan is an accepted asset.
+- [Deferred outcomes and prerequisites](PLAN.md).
 
 ## Condition pairs must show the right differences
 

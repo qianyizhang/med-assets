@@ -3,11 +3,8 @@
 [Public survey](https://med-assets-model-survey.landy123007.chatgpt.site/) ·
 [Public asset index](https://med-assets-model-survey.landy123007.chatgpt.site/assets/index.json)
 
-The survey covers 62 families, 31 products and 141 GLB paths at
-`e63006dca598031d58bdf66485fed24a24194558`. Its 92 preview rows use 153 image
-pairs. Asset directories and review records remain authoritative; storage changes
-do not refresh the survey or promote review gates. Fetus remains recipe-only,
-the FDI31/46 pilot preview is labelled FDI31, and neutral renders are unreviewed.
+- **Outcome** · Browse 62 asset families, 31 products and 141 GLB paths at `e63006dca598031d58bdf66485fed24a24194558`. 92 preview rows use 153 image pairs.
+- **Scope** · Dated survey. Asset directories and review records own current status. Fetus is recipe-only, the FDI31/46 pilot preview is FDI31, and neutral renders remain unreviewed.
 
 ## Owners
 
@@ -22,20 +19,13 @@ the FDI31/46 pilot preview is labelled FDI31, and neutral renders are unreviewed
 | `.local/app/` | Ignored complete generated project; edit the overlays in `app/` instead. |
 | `.local/preview/` | Original split preview at http://127.0.0.1:62099/. Its Data preview registration resumes at user login until stopped. |
 
-R2 retrieval and migration are documented once in the
-[transport guide](../../transport/README.md). Downloads are public HTTPS and need
-no Codex/ChatGPT login. Objects are served by this Site's Worker, not direct bucket
-URLs. `/assets/index.json` is the listing; `/assets/` is not a directory browser.
+- **Asset bytes** · [Public downloads and R2 migration](../../transport/README.md).
 
 ## Restore and build locally
 
-Use Node 24, npm, Git and Python 3.11+. No Sites authentication or Data plugin is
-needed for local builds from the frozen backup:
-
-1. Download `framework.lock.json.backup.url`; verify its exact byte count and
-   SHA-256 before extraction. The ZIP includes its own restore guide.
-2. Set `SURVEY_BACKUP` to the extracted `model-survey-backup/` directory.
-3. In a fresh checkout, run these commands from the repository root:
+- **Outcome** · Reproducible local build from the pinned framework and immutable seed.
+- **Inputs** · Node 24, npm, Git and Python 3.11+. Verify the frozen ZIP against `framework.lock.json.backup` before extraction. Set `SURVEY_BACKUP` to its `model-survey-backup/` directory. The ZIP contains its restore guide.
+- **Build** · From the repository root with fresh output paths.
 
 ```sh
 git clone "$SURVEY_BACKUP/framework.bundle" sites/model-survey/.local/publication
@@ -45,32 +35,19 @@ npm --prefix sites/model-survey/.local/app ci
 npm --prefix sites/model-survey/.local/app run build
 ```
 
-Existing source checkouts can supply the same pinned Git objects. Seed restore
-accepts only the verified original snapshot, immutable R2 seed or frozen source
-seed; it refuses conflicting data and the reordered mutable API response.
-Framework assembly checks the commit/tree, integrity manifest, Site bindings and
-safe paths, excludes old survey content, and refuses existing output. Use a fresh
-`--output` directory when rebuilding the generated project.
-
-Serve the built `dist/` with a local HTTP server. Source-built previews use public
-R2 images. The ZIP's `offline/model-survey.html` embeds images and opens fully
-offline. Node/npm packages are not bundled; `npm ci` needs public npm access or a
-suitable cache. The generated project's unchanged `AGENTS.md` and runtime
-verifier govern its source/build boundaries.
+| Check | Acceptance |
+| --- | --- |
+| Seed | Verified snapshot, immutable R2 seed or frozen source seed. Conflicts and the reordered mutable API response fail. |
+| Framework | Pinned commit/tree, integrity manifest, Site bindings and safe paths. Use a fresh `--output`. The generated project's instructions and runtime verifier apply. |
+| Preview | Serve `dist/` locally for a source-built preview with public R2 images. Open the frozen `offline/model-survey.html` directly for embedded images. `npm ci` needs npm access or a populated cache. |
 
 ## Publish
 
-Use the Data and Sites skills with the generated project. Explicit Data builds
-and packaging use `--source` to preserve the custom Worker; do not combine that
-mode with `--separate-data`. The local npm step builds the client; source packaging compiles the custom Worker.
-
-Preserve the existing Site/artifact IDs, public audience, owner environment,
-stored edits and DB/BUCKET bindings. Reconcile newer remote source, copy checked
-materialized source and packaged output into `.local/publication/`, then append
-through the Sites helper. Never push the whole med-assets repository or rebuild
-after final packaging. Verify complete uploaded assets and fresh readback. Close
-temporary asset-upload authorization and redeploy the same saved version afterward.
-Current deployment/source identities belong in `snapshot-reference.json`.
+| Goal | Acceptance |
+| --- | --- |
+| Package custom Worker | Authorized Data/Sites publication from the generated project. Use `--source` without `--separate-data`. npm builds the client. Source packaging compiles the Worker. |
+| Preserve live identity | Reconcile newer remote source. Retain Site/artifact IDs, public audience, owner environment, stored edits, DB/BUCKET and publishing ancestry. Append checked source and exact packaged output through the Sites helper. |
+| Verify publication | Fresh readback of the packaged deployment and uploaded assets. Update `snapshot-reference.json` with deployed identities. [Temporary upload closeout](../../transport/README.md#add-or-reverify-r2-copies). |
 
 ## Recipes and checks
 
@@ -95,7 +72,6 @@ Pillow, Blender, Sharp and Playwright/browser are recipe-specific dependencies.
 python3.12 -m unittest discover -s tests -p 'test_model_survey_*.py' -v
 node sites/model-survey/.local/app/scripts/verify-protected-runtime.mjs
 node --test sites/model-survey/app/tests/r2-assets.test.mjs
-python3.12 tools/verify.py offline
 ```
 
 ## Retention
