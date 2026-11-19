@@ -4,15 +4,18 @@ import hashlib
 import math
 import json
 import os
+import re
 import struct
+import sys
 from urllib.parse import quote
 
 from gallery_plan import (
     ASSEMBLIES, GALLERY as HERE, GALLERY_VIEWS, REPO, SOURCE, TITLES, WORKSHOP_ASSEMBLIES,
-    render_plan, study_records,
+    core_scenes, study_records, workshop_scenes,
 )
 
 from viewer_catalog import Catalog, DEFAULT_PORT
+from refinements import comparable, definitions, evidence, local_path
 
 MEDIA = HERE / "media"
 REMOTE = "https://github.com/qianyizhang/med-assets/blob"
@@ -71,9 +74,9 @@ def digest(path):
         return hashlib.file_digest(stream, "sha256").hexdigest()
 
 
-def presentation():
+def presentation(jobs):
     plates = {}
-    for job in render_plan():
+    for job in jobs:
         folder = GALLERY_VIEWS / job["id"]
         path = folder / "renders.json"
         record = json.loads(path.read_text())
@@ -109,6 +112,47 @@ def presentation():
                     raise ValueError(f"Gallery image does not match its receipt: {frame['file']}")
             plates[job["id"], view["id"]] = (folder, view)
     return plates
+
+
+def workshop_presentation():
+    """Activate optional overviews only when both models and their plates verify."""
+    if not WORKSHOP_ASSEMBLIES.exists():
+        return [], {}, "", None
+    try:
+        jobs = list(workshop_scenes())
+        for job in jobs:
+            model = REPO / job["inputs"][0]["path"]
+            if not model.with_suffix(".blend").is_file():
+                raise FileNotFoundError(f"Missing editable scene for {model.name}")
+        plates = presentation(jobs)
+        audit = json.loads((WORKSHOP_ASSEMBLIES / "mask-audit.json").read_text())
+        colon_gap_copy(audit)
+    except (OSError, ValueError, LookupError, TypeError) as exc:
+        message = (
+            "Same-case s1233 views are unavailable. The gallery shows the Workshop and BodyParts3D "
+            "fallbacks. Restore or rebuild the assembly bundle and its renders using the gallery README."
+        )
+        print(f"{message} ({exc})", file=sys.stderr)
+        return [], {}, message, None
+    return jobs, plates, "", audit
+
+
+def colon_gap_copy(audit):
+    colon = audit["parts"]["colon"]
+    if not isinstance(colon, dict):
+        raise ValueError("Missing colon audit record")
+    counts = colon.get("componentVoxelCounts6")
+    gap = colon.get("largestComponentsMinimumVoxelCentreMm")
+    if counts is None and gap is None:
+        return "The baseline mask review records a 24.6 mm gap between the two main colon components."
+    if (not isinstance(counts, list) or len(counts) < 2
+            or any(type(count) is not int or count <= 0 for count in counts)
+            or counts != sorted(counts, reverse=True)
+            or len(counts) != colon["components6"] or sum(counts) != colon["voxels"]
+            or type(gap) not in (int, float) or not math.isfinite(gap) or gap < 0):
+        raise ValueError("Invalid colon component measurements")
+    sizes = ", ".join(f"{count:,}" for count in counts)
+    return f"The source colon has components of {sizes} voxels. The largest pair is {gap:.3f} mm apart."
 
 
 def gallery_plate(entry, title, *, assembly=False, viewer_url=None):
@@ -168,8 +212,8 @@ WORKSHOP_VIEWS = {
         "Same-case esophagus through colon", "Digestive tract isolated",
         "The esophagus, stomach, duodenum, small bowel, colon and accessory organs share the s1233 scan frame. "
         "The schematic supplies the mouth, terminal outlet and accessory duct entry.",
-        "Consecutive label boundaries approach or overlap within 1.5 mm. The two main colon components "
-        "have a 24.6 mm gap. A verified ileocecal landmark and continuous lumen remain open.",
+        "Consecutive label boundaries approach or overlap within 1.5 mm. "
+        "A verified ileocecal landmark and continuous lumen remain open.",
     ),
 }
 
@@ -178,7 +222,111 @@ def viewer_link(url, label):
     return f'<a class="viewer-action" href="{escape(url)}">{escape(label)}</a>'
 
 
-def study_section(system, jobs, rev, plates, catalog):
+def refinement_figure(entry, heading, title, locators=()):
+    folder, view, _ = entry
+    images = []
+    for frame, angle in zip(view["images"], ("Isometric", "Orthographic"), strict=True):
+        path = folder / frame["file"]
+        url = href(path)
+        w, h = png_dimensions(path)
+        alt = escape(f"{title}, {heading.lower()}, {angle.lower()}")
+        link = (f'<a class="view" href="{url}"><img src="{url}" alt="{alt}" '
+                f'width="{w}" height="{h}" loading="lazy" decoding="async"><span>{angle}</span></a>')
+        if angle == "Orthographic" and locators:
+            markers = "".join(
+                f'<a class="body-marker" href="#refinement-{escape(marker["target"])}" '
+                f'style="--marker-x:{marker["x"]}%;--marker-y:{marker["y"]}%">{escape(marker["title"])}</a>'
+                for marker in locators
+            )
+            link = f'<div class="body-locators">{link}{markers}</div>'
+        images.append(link)
+    legend = ""
+    if heading == "Updated" and view.get("legend"):
+        keys = "".join(f'<li><span aria-hidden="true" style="--swatch:{group["color"]}"></span>'
+                       f'{escape(group["label"])}</li>' for group in view["legend"])
+        legend = f'<ul class="legend" aria-label="Updated display colors">{keys}</ul>'
+    return (f'<figure class="refinement-frame"><figcaption>{escape(heading)}</figcaption>'
+            f'<div class="views">{"".join(images)}</div>{legend}</figure>')
+
+
+def refinement_panels(plates, catalog):
+    ready = []
+    for item in definitions():
+        note = item["note"]
+        try:
+            before, after = (evidence(item[label], plates) for label in ("before", "after"))
+            if item["matched"]:
+                sizes = [[png_dimensions(entry[0] / frame["file"]) for frame in entry[1]["images"]]
+                         for entry in (before, after)]
+                if sizes[0] != sizes[1] or not comparable(before, after):
+                    raise ValueError("Camera position, orientation, scale or image dimensions differ")
+            if item.get("colonAudit"):
+                folder = local_path(after[2][0]["path"]).parent
+                list(workshop_scenes(folder))
+                note += " " + colon_gap_copy(json.loads((folder / "mask-audit.json").read_text()))
+        except (OSError, ValueError, LookupError, TypeError) as exc:
+            if any(local_path(item[label]["receipt"]).exists()
+                   for label in ("before", "after") if "receipt" in item[label]):
+                print(f"Skipping refinement {item['id']}: {exc}", file=sys.stderr)
+            continue
+        related = []
+        for detail in item.get("details", ()):
+            try:
+                folder, view, _ = evidence({**item["after"], "view": detail["view"]}, plates)
+                related.append((detail["title"], folder / view["images"][0]["file"]))
+            except (OSError, ValueError, LookupError, TypeError) as exc:
+                print(f"Skipping refinement detail {item['id']}/{detail['view']}: {exc}", file=sys.stderr)
+        ready.append((item, before, after, note, related))
+
+    panels = {}
+    ready_ids = {item["id"] for item, *_ in ready}
+    for item, before, after, note, related in ready:
+        key, title = item["system"], item["title"]
+        folder, view, inputs = after
+        links = []
+        if item.get("inspect3d"):
+            if len(inputs) != 1:
+                raise ValueError(f"Refinement {item['id']} requires a single model")
+            display_groups = item.get("groups", [])
+            if display_groups:
+                groups = display_groups + list(catalog.plans[item["scene"]]["inputs"][0]["groups"])
+            else:
+                grouped_parts = [
+                    {**group, "color": "#7a7971", "alpha": 1} for group in item.get("groupParts", ())
+                ]
+                groups = grouped_parts + [
+                    dict(label=name, pattern="^" + re.escape(name) + "$", color="#7a7971", alpha=1)
+                    for name in view["visible"]
+                ]
+            styles = {**inputs[0], "label": "Other anatomy", "color": "#7a7971",
+                      "alpha": 1, "groups": groups, "sourceMaterials": not display_groups}
+            url = catalog.add(f"refinement/{item['id']}", folder, view, title, key, [styles], view["visible"])
+            links.append(viewer_link(url, "Open updated view in 3D"))
+            model = local_path(inputs[0]["path"])
+            links.append(f'<a href="{href(model)}">Download GLB</a>')
+            blend = model.with_suffix(".blend")
+            if blend.is_file():
+                links.append(f'<a href="{href(blend)}">Editable Blender scene</a>')
+        for label, entry in (("Original render receipt", before), ("Updated render receipt", after)):
+            links.append(f'<a href="{href(entry[0] / "renders.json")}">{label}</a>')
+        if "review" in item:
+            links.append(f'<a href="{href(local_path(item["review"]))}">Build and checks</a>')
+        for label, path in related:
+            links.append(f'<a href="{href(path)}">{escape(label)}</a>')
+
+        frames = refinement_figure(before, item.get("beforeLabel", "Original"), title)
+        locators = [marker for marker in item.get("locators", ()) if marker["target"] in ready_ids]
+        frames += refinement_figure(after, item.get("afterLabel", "Updated"), title, locators)
+        basis = "Matched camera and scale." if item["matched"] else "Separately framed views."
+        panel = (f'<article class="refinement" id="refinement-{escape(item["id"])}"><h4>{escape(title)}</h4>'
+                 f'<p>{escape(note)} {basis}</p><div class="refinement-grid">{frames}</div>'
+                 f'<div class="source-links">{"".join(links)}</div></article>')
+        panels.setdefault(key, []).append(panel)
+    return {key: '<div class="refinements"><h3 class="view-heading">Before and after</h3>'
+                 + "".join(cards) + "</div>" for key, cards in panels.items()}
+
+
+def study_section(system, jobs, rev, plates, catalog, workshop_audit, workshop_warning, refinement):
     study = system["study"]
     key = system["id"]
     owner = REPO / study["owner"]
@@ -222,6 +370,10 @@ def study_section(system, jobs, rev, plates, catalog):
             ("Same-case render receipt", GALLERY_VIEWS / workshop / "renders.json"),
         ])
         audit = limits + " " + audit
+        if key == "digestive":
+            audit = colon_gap_copy(workshop_audit) + " " + audit
+    if workshop_warning and key in WORKSHOP_VIEWS:
+        audit = workshop_warning + " " + audit
     details = featured + "".join(detail.values())
     for entry in entries:
         scene, name = {
@@ -250,6 +402,7 @@ def study_section(system, jobs, rev, plates, catalog):
     <p class="function">{escape(system['function'])}</p></header>
     <h3 class="view-heading">System assembly</h3><p class="verdict">{escape(note)}</p>
     <div class="combined-grid">{"".join(combined)}</div>
+    {refinement}
     <details class="asset-detail"><summary>Asset detail ({len(detail) + len(study['featured'])} pairs)</summary>
     <p class="verdict">{escape(system['verdict'])}</p><div class="part-grid">{details}</div></details>
     {browser_evidence(study, review)}
@@ -283,8 +436,12 @@ def build(viewer_port=DEFAULT_PORT):
     jobs = {job["id"]: job for job in load("jobs.json")}
     if len(systems) != 11 or len({system["id"] for system in systems}) != 11:
         raise ValueError("Expected 11 unique systems")
-    plates = presentation()
-    catalog = Catalog(viewer_port)
+    core = list(core_scenes())
+    plates = presentation(core)
+    workshop, optional_plates, warning, mask_audit = workshop_presentation()
+    plates.update(optional_plates)
+    catalog = Catalog(viewer_port, core + workshop)
+    refinements = refinement_panels(plates, catalog)
     states = [ASSEMBLIES[system["id"]][0] for system in systems]
     native = sum(state.startswith(("Native", "Shared")) for state in states)
     partial = sum(state in {"Partial assembly", "Illustrative placement"} for state in states)
@@ -296,7 +453,9 @@ def build(viewer_port=DEFAULT_PORT):
     )
     directory = "".join(f'<li><a href="#{s["id"]}">{escape(s["name"])}</a></li>'
                         for s in systems)
-    sections = "".join(study_section(system, jobs, baseline, plates, catalog) for system in systems)
+    sections = "".join(study_section(system, jobs, baseline, plates, catalog, mask_audit, warning,
+                                     refinements.get(system["id"], ""))
+                       for system in systems)
     survey = comparison_card("Medical Model Survey", "https://med-assets-model-survey.landy123007.chatgpt.site/",
         "Browse individual assets, variants, review states, files and related products across the collection.",
         "It already owns the asset inventory. This body-systems report adds the minimum teaching setup, the assembly evidence, and the missing joins.",
@@ -340,10 +499,11 @@ def build(viewer_port=DEFAULT_PORT):
   <ul>
     <li><strong>System assembly.</strong> The overview shows together the structures supported by the stated frame. Native and shared frames preserve source placement and relative scale. Partial assemblies and illustrative placements have separate audit labels.</li>
     <li><strong>Asset detail.</strong> Open for named parts, sections, poses, schematic routes and magnified structures. Read the paired views at the same camera scale. Separate plates are fitted independently.</li>
+    <li><strong>Before and after.</strong> Compare the original with the updated view. Matched pairs share camera and scale. Captions identify independently framed assets, authored geometry and display changes.</li>
     <li><strong>Anatomical frame.</strong> Origin, orientation, laterality and units. A pose is an articulated configuration. A view is a camera direction. Axis labels refer to the documented frame or the staged display axes.</li>
     <li><strong>Color and body context.</strong> Named display colors separate nearby anatomical groups. Any silhouette or translucent organ is context. The report keeps exact input identities and links the owner’s anatomy and runtime review.</li>
   </ul>
-  <p>Source families include TotalSegmentator, BodyParts3D, Z-Anatomy, HuBMAP/HRA and repository-authored studies. Each source record carries its attribution and reuse terms. Gallery plates use display-only materials. The owning review records retain their original evidence and licenses.</p>
+  <p>Source families include TotalSegmentator, BodyParts3D, Z-Anatomy, HuBMAP/HRA and repository-authored studies. Each source record carries its attribution and reuse terms. Updated assets use their GLB materials in 3D. Regional presentations apply the display palette. The owning review records retain their evidence and licenses.</p>
   <p>Taxonomy reference <a href="{REFERENCE}">OpenStax Anatomy and Physiology 2e, §1.2</a>.</p>
 </section>
 </main>

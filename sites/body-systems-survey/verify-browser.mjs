@@ -109,6 +109,23 @@ try {
   assert.equal(documentCheck.invalidAnchors, 0);
   assert.equal(documentCheck.overflow, false);
   verified.report = documentCheck;
+  const refinementCards = await evaluate(`[...document.querySelectorAll(".refinement")].map(card => ({
+    id: card.id, images: card.querySelectorAll("img").length,
+    states: card.querySelectorAll("figcaption").length,
+    system: card.closest(".system").id,
+    launch: Boolean(card.querySelector(".viewer-action"))
+  }))`);
+  assert.ok(refinementCards.every(card => card.images === 4 && card.states === 2));
+  if (process.argv.includes("--require-all-systems-refined")) {
+    assert.equal(new Set(refinementCards.map(card => card.system)).size, 11);
+  }
+  const required = process.argv.find(arg => arg.startsWith("--require-refinements="))?.split("=")[1];
+  if (required) {
+    for (const id of required.split(",")) {
+      assert.ok(refinementCards.some(card => card.id === "refinement-" + id), `Missing refinement ${id}`);
+    }
+  }
+  verified.refinements = refinementCards;
   const deliveries = await evaluate(`[...document.querySelectorAll(".system")].map(s => ({
     id:s.id, models:s.querySelectorAll(".downloads a[href$='.glb']").length,
     visiblePairs:s.querySelectorAll(".combined-grid > .plate").length,
@@ -151,6 +168,18 @@ try {
   await capture(join(tmpdir(), "med-systems-assembly.png"));
   await viewport(1024, 768);
   assert.equal(await evaluate("document.documentElement.scrollWidth > innerWidth"), false);
+  const nailMarker = '.body-marker[href="#refinement-nail-bed"]';
+  if (await evaluate(`Boolean(document.querySelector(${JSON.stringify(nailMarker)}))`)) {
+    await evaluate(`document.querySelector(${JSON.stringify(nailMarker)}).focus()`);
+    await send("Input.dispatchKeyEvent", {type: "keyDown", key: "Enter", code: "Enter", windowsVirtualKeyCode: 13});
+    await send("Input.dispatchKeyEvent", {type: "keyUp", key: "Enter", code: "Enter", windowsVirtualKeyCode: 13});
+    assert.equal(await evaluate("location.hash"), "#refinement-nail-bed");
+    verified.bodyLocatorKeyboardJump = true;
+  }
+  if (refinementCards.length) {
+    await evaluate('document.querySelector(".refinement").scrollIntoView()');
+    await capture(join(tmpdir(), "med-systems-refinement.png"));
+  }
   await evaluate("scrollTo(0,0)");
   await capture(join(tmpdir(), "med-systems-laptop.png"));
   verified.interactions = "System jump, keyboard part disclosure, 1024 px laptop reflow";
@@ -184,7 +213,8 @@ try {
   if (viewerOrigin) {
     await goto(report, "#page-title");
     const actions = await evaluate(`[...document.querySelectorAll(".viewer-action")].map(link => link.href)`);
-    assert.equal(actions.length, verified.gallery.assemblyPlates + 12);
+    assert.equal(actions.length, verified.gallery.assemblyPlates + 12 +
+      refinementCards.filter(card => card.launch).length);
     assert.ok(actions.every(url => url.startsWith(viewerOrigin + "/viewer/?scene=")));
     assert.equal((await fetch(new URL("/.git/config", viewerOrigin))).status, 404);
     assert.equal((await fetch(new URL("/viewer/assets/unknown.glb", viewerOrigin))).status, 404);
@@ -265,9 +295,22 @@ try {
 
     for (const href of actions) {
       const key = new URL(href).searchParams.get("scene");
-      const { system } = catalog.scenes[key];
+      const { system, include, inputs } = catalog.scenes[key];
       await goto(href, `#stage[data-scene="${system}"]`);
-      assert.ok(await triangles() > 0, key);
+      const all = await triangles();
+      assert.ok(all > 0, key);
+      if (key === "refinement/endocrine-gland-locator") {
+        const names = await evaluate('[...document.querySelectorAll("#parts label")].map(label => label.textContent.trim())');
+        assert.ok(names.includes("Thyroid") && names.includes("Parathyroids"), key);
+      }
+      if (key.startsWith("refinement/") && inputs[0]?.sourceMaterials) {
+        const count = await evaluate('document.querySelectorAll("#parts input").length');
+        assert.ok(count > 0 && count <= include.length, key);
+        await evaluate('document.querySelector("#parts input").click()');
+        assert.ok(await triangles() < all, key);
+        await evaluate('document.querySelector("#show-all").click()');
+        assert.equal(await triangles(), all, key);
+      }
     }
     await goto(new URL("index.html", reportDir).href, "#page-title");
     await clickView(digestiveLink, "digestive");

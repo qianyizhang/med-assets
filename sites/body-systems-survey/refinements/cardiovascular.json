@@ -1,0 +1,76 @@
+[
+  {
+    "id": "cardiac-right-valve",
+    "system": "cardiovascular",
+    "title": "Right heart and tricuspid valve",
+    "note": "Follow caval return into the right atrium and find the annulus, leaflets, chordae and papillary muscles of the tricuspid valve. The matched views isolate the same Cardiac Atlas region. The full circulation loop remains under Asset detail.",
+    "matched": true,
+    "inspect3d": true,
+    "review": "reviews/cardiovascular-loop/valve-study-r01/README.md",
+    "groupParts": [
+      {"label": "Right ventricular chordae", "pattern": "^RV chordae"},
+      {"label": "Right ventricular trabeculae", "pattern": "^RV trabecula"},
+      {"label": "Right papillary muscles", "pattern": "^RV papillary"}
+    ],
+    "details": [{"view": "outflow", "title": "Aorta and pulmonary trunk context"}],
+    "beforeLabel": "Original Atlas palette",
+    "afterLabel": "Updated valve study",
+    "before": {
+      "receipt": ".artifacts/body-systems-refinement-2026-11-19/cardiovascular/matched-source/renders.json",
+      "model": ".artifacts/body-systems-refinement-2026-11-19/cardiovascular/build/matched-source.glb",
+      "view": "right-heart"
+    },
+    "after": {
+      "receipt": ".artifacts/body-systems-refinement-2026-11-19/cardiovascular/renders/renders.json",
+      "model": ".artifacts/body-systems-refinement-2026-11-19/cardiovascular/build/heart-valve-cutaway.glb",
+      "view": "right-heart"
+    }
+  },
+  {
+    "id": "cardiac-left-valve",
+    "system": "cardiovascular",
+    "title": "Left heart and mitral valve",
+    "note": "Identify pulmonary venous entry to the atrium, the mitral valve, and the cut ventricular wall. The septal surface and valve apparatus can be isolated in the static 3D view.",
+    "matched": true,
+    "inspect3d": true,
+    "review": "reviews/cardiovascular-loop/valve-study-r01/README.md",
+    "groupParts": [
+      {"label": "Left ventricular chordae", "pattern": "^LV chordae"},
+      {"label": "Left ventricular trabeculae", "pattern": "^LV trabecula"},
+      {"label": "Left papillary muscles", "pattern": "^LV papillary"},
+      {"label": "Pulmonary veins", "pattern": "pulmonary vein$"}
+    ],
+    "beforeLabel": "Original Atlas palette",
+    "afterLabel": "Updated valve study",
+    "before": {
+      "receipt": ".artifacts/body-systems-refinement-2026-11-19/cardiovascular/matched-source/renders.json",
+      "model": ".artifacts/body-systems-refinement-2026-11-19/cardiovascular/build/matched-source.glb",
+      "view": "left-heart"
+    },
+    "after": {
+      "receipt": ".artifacts/body-systems-refinement-2026-11-19/cardiovascular/renders/renders.json",
+      "model": ".artifacts/body-systems-refinement-2026-11-19/cardiovascular/build/heart-valve-cutaway.glb",
+      "view": "left-heart"
+    }
+  },
+  {
+    "id": "mitral-leaflet-lift",
+    "system": "cardiovascular",
+    "title": "Mitral leaflets in place and lifted",
+    "note": "The illustrative lift separates the two leaflets from the annulus to show how they sit together. The chordae and supporting structures stay in the assembled pose. The editable valve study opens with the leaflets seated.",
+    "matched": true,
+    "review": "reviews/cardiovascular-loop/valve-study-r01/README.md",
+    "beforeLabel": "Leaflets seated",
+    "afterLabel": "Illustrative lift",
+    "before": {
+      "receipt": ".artifacts/body-systems-refinement-2026-11-19/cardiovascular/renders/renders.json",
+      "model": ".artifacts/body-systems-refinement-2026-11-19/cardiovascular/build/heart-valve-cutaway.glb",
+      "view": "mitral-seated"
+    },
+    "after": {
+      "receipt": ".artifacts/body-systems-refinement-2026-11-19/cardiovascular/displaced/renders.json",
+      "model": ".artifacts/body-systems-refinement-2026-11-19/cardiovascular/build/mitral-lift-evidence.glb",
+      "view": "mitral-displaced"
+    }
+  }
+]

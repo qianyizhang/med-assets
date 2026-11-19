@@ -1,0 +1,221 @@
+[
+  {
+    "id": "knee-poses",
+    "system": "skeletal",
+    "scene": "skeletal",
+    "view": "poses",
+    "inspect3d": true,
+    "title": "Right knee at source pose and +20°",
+    "note": "The updated view hides the load arrows to make the two poses easier to compare. The tibia and fibula turn together while the femur stays fixed. The panels keep their lateral pose labels.",
+    "review": "reviews/joints/knee-motion-r01/README.md",
+    "hide": "femoral load|tibial support",
+    "groups": [
+      {"label": "Femur", "pattern": "femur$", "color": "#ddba8b", "alpha": 1},
+      {"label": "Tibia", "pattern": "tibia$", "color": "#4b948c", "alpha": 1},
+      {"label": "Fibula", "pattern": "fibula$", "color": "#645477", "alpha": 1}
+    ]
+  },
+  {
+    "id": "calf-neutral",
+    "system": "muscular",
+    "scene": "muscular",
+    "view": "neutral",
+    "title": "Right calf and heel at neutral",
+    "note": "Follow the two gastrocnemius heads and soleus to the Achilles tendon and calcaneus. Muted shank and ankle bones provide orientation. The inherited insertion margin and fibula–talus intersection carry through from the reviewed rig.",
+    "review": "reviews/muscle/plantarflexion-r01/README.md",
+    "groups": [
+      {"label": "Achilles tendon", "pattern": "calcaneal tendon", "color": "#eac45c", "alpha": 1},
+      {"label": "Calcaneus", "pattern": "calcaneus", "color": "#b5a37f", "alpha": 1},
+      {"label": "Shank and talus", "pattern": "fibula|tibia|talus", "color": "#8b887e", "alpha": 0.30},
+      {"label": "Medial gastrocnemius", "pattern": "medial head", "color": "#8e3b60", "alpha": 1},
+      {"label": "Lateral gastrocnemius", "pattern": "lateral head", "color": "#d87260", "alpha": 1},
+      {"label": "Soleus", "pattern": "soleus", "color": "#605297", "alpha": 1}
+    ]
+  },
+  {
+    "id": "calf-plantarflexion",
+    "system": "muscular",
+    "scene": "muscular",
+    "view": "plantarflexion",
+    "style": "calf-neutral",
+    "title": "Right calf and heel at 15° plantarflexion",
+    "note": "Follow the same highlighted chain with the heel raised using the existing skinned clip. The two poses are static render samples.",
+    "review": "reviews/muscle/plantarflexion-r01/README.md"
+  },
+  {
+    "id": "airway-cutaway",
+    "system": "respiratory",
+    "scene": "respiratory",
+    "view": "route",
+    "inspect3d": true,
+    "title": "Nasal passage to left upper lobar bronchus",
+    "note": "Trace the highlighted lumen past the lighter wall and separate cartilage bands. The enlarged terminal inset is under Asset detail. The lung morphs and exchange stage are in One Breath.",
+    "review": "reviews/one-breath/airway-r01/README.md",
+    "hide": "^Terminal",
+    "groups": [
+      {"label": "Airway path", "pattern": "^V7 guide|^Branch|passage|route", "color": "#298277", "alpha": 1},
+      {"label": "Tracheal wall", "pattern": "trachea.*shell", "color": "#b76868", "alpha": 0.45},
+      {"label": "Tracheal cartilage", "pattern": "C-band", "color": "#e9bd74", "alpha": 1},
+      {"label": "Nasal and laryngeal context", "pattern": "^Nasal|^Larynx", "color": "#918584", "alpha": 0.45}
+    ]
+  },
+  {
+    "id": "urinary-bilateral",
+    "system": "urinary",
+    "scene": "urinary",
+    "view": "tract",
+    "inspect3d": true,
+    "title": "Two collecting routes into the trigone",
+    "note": "Each side has its own color through the renal pelvis and authored ureter. The kidney and bladder sections stay visible as context. The authored neck and outlet form a separate group.",
+    "review": "reviews/urinary-junctions/r01/README.md",
+    "hide": "^Flow overlay",
+    "groups": [
+      {"label": "Left renal pelvis and ureter", "pattern": "^Left.*(ureter|pelvis)", "color": "#268984", "alpha": 1},
+      {"label": "Right renal pelvis and ureter", "pattern": "^Right.*(ureter|pelvis)", "color": "#7552a7", "alpha": 1},
+      {"label": "Kidney and bladder sections", "pattern": "closed-back|^bladder.*section", "color": "#be9790", "alpha": 0.52},
+      {"label": "Trigone and outlet", "pattern": "trigone|urethral", "color": "#c3923d", "alpha": 1},
+      {"label": "Calyces", "pattern": "calyx", "color": "#447896", "alpha": 0.9},
+      {"label": "Pyramids", "pattern": "pyramid", "color": "#af785f", "alpha": 0.5}
+    ]
+  },
+  {
+    "id": "nervous-right-afferent",
+    "system": "nervous",
+    "scene": "nervous",
+    "view": "central",
+    "title": "Right sciatic afferent to lower medulla",
+    "note": "Follow the right sciatic nerve, illustrative plexus bridge, selected mixed nerve and dorsal root, then the dorsal-column overlay. The dimmer brain and cord orient the staged route. Other representative root levels are in the original view.",
+    "review": "reviews/nervous-senses/README.md",
+    "inspect3d": true,
+    "hide": "Representative (?!.*descending 2 side-1$)",
+    "groups": [
+      {"label": "Brain", "pattern": "^Central.*Brain", "color": "#aa9390", "alpha": 0.58},
+      {"label": "Cord and cervical bridge", "pattern": "Authored cord|Cervicomedullary", "color": "#be9c75", "alpha": 0.72},
+      {"label": "Dorsal root and ascending overlay", "pattern": "dorsal", "color": "#803c6b", "alpha": 1},
+      {"label": "Ventral root", "pattern": "ventral root", "color": "#9d9b90", "alpha": 0.68},
+      {"label": "Plexus and ramus bridge", "pattern": "ramus", "color": "#c58a3d", "alpha": 1},
+      {"label": "Mixed nerve", "pattern": "mixed nerve", "color": "#53488e", "alpha": 1},
+      {"label": "Right sciatic course", "pattern": "sciatic", "color": "#2d807e", "alpha": 1}
+    ]
+  },
+  {
+    "id": "endocrine-gland-locator",
+    "system": "endocrine",
+    "scene": "endocrine",
+    "view": "locator",
+    "title": "Gland locator with separate thyroid and parathyroids",
+    "note": "The four parathyroids have their own selection and color. A lighter thyroid and pancreas provide orientation for the posterior neck and the adrenal pair. The locator is illustrative and combines independent atlas sources.",
+    "review": "reviews/endocrine-locator/r01/README.md",
+    "inspect3d": true,
+    "groups": [
+      {"label": "Parathyroids", "pattern": "parathyroid", "color": "#684b88", "alpha": 1},
+      {"label": "Thyroid", "pattern": "thyroid gland", "color": "#d8a05b", "alpha": 0.51},
+      {"label": "Adrenals", "pattern": "^Adrenal", "color": "#2b8c80", "alpha": 1},
+      {"label": "Pancreas", "pattern": "^Pancreas", "color": "#b28f80", "alpha": 0.42}
+    ]
+  },
+  {
+    "id": "lymph-return-overview",
+    "system": "lymphatic",
+    "scene": "lymphatic",
+    "view": "overview",
+    "title": "Lymph return from tissue to the venous angle",
+    "note": "Trace the afferent vessel into the enlarged node, then follow the efferent trunk, cisterna chyli and thoracic duct to the venous-angle teaching junction. Spleen and thymus have their own locator under Asset detail.",
+    "review": "reviews/lymphatic-return/r01/README.md",
+    "inspect3d": true,
+    "hide": "^(spleen|thymus) locator",
+    "groups": [
+      {"label": "Tissue drainage", "pattern": "initial capillary|tissue drainage", "color": "#80968e", "alpha": 0.65},
+      {"label": "Node capsule", "pattern": "capsule", "color": "#c08988", "alpha": 0.46},
+      {"label": "Intranodal passage", "pattern": "intranodal", "color": "#604f8f", "alpha": 1},
+      {"label": "Collectors and thoracic duct", "pattern": "afferent|efferent|thoracic duct|cisterna", "color": "#2e8c81", "alpha": 1},
+      {"label": "Authored terminal bridge", "pattern": "terminal duct", "color": "#c18c48", "alpha": 1},
+      {"label": "Veins at the left confluence", "pattern": "vein", "color": "#416685", "alpha": 1}
+    ]
+  },
+  {
+    "id": "female-pickup",
+    "system": "reproductive",
+    "scene": "reproductive-female",
+    "view": "left-pickup",
+    "inspect3d": true,
+    "title": "Left ovarian pickup and uterine entry",
+    "note": "The ovary and fimbriae have separate colors so the open pickup space reads clearly. Follow the ampulla and isthmus into the uterine corner. The geometry retains the female study's source frame.",
+    "review": "reviews/reproductive-tracts/r01/README.md",
+    "groups": [
+      {"label": "Left ovary", "pattern": "left_ovary", "color": "#6b5b91", "alpha": 1},
+      {"label": "Fimbriae and infundibulum", "pattern": "fibria|infundibulum", "color": "#d39337", "alpha": 1},
+      {"label": "Ampulla and isthmus", "pattern": "ampulla|isthmus", "color": "#3b9187", "alpha": 1},
+      {"label": "Uterus", "pattern": "uterus|cornua", "color": "#bc8a81", "alpha": 0.5}
+    ]
+  },
+  {
+    "id": "male-confluence",
+    "system": "reproductive",
+    "scene": "reproductive-male",
+    "view": "context",
+    "inspect3d": true,
+    "title": "Vas and seminal-vesicle confluence",
+    "note": "Subdued bladder and prostate show where the authored ducts meet behind the bladder and enter the native urethral region. The two tracts use separate source frames.",
+    "review": "reviews/reproductive-tracts/r01/README.md",
+    "groups": [
+      {"label": "Bladder and prostate", "pattern": "^urinary bladder|^prostate", "color": "#b19e83", "alpha": 0.19},
+      {"label": "Ductus deferens", "pattern": "^ductus", "color": "#23877b", "alpha": 1},
+      {"label": "Seminal vesicles and vesicular ducts", "pattern": "^seminal|^vesicular", "color": "#bb8535", "alpha": 1},
+      {"label": "Ejaculatory ducts", "pattern": "^ejaculatory", "color": "#914472", "alpha": 1},
+      {"label": "Urethral surface", "pattern": "^urethra", "color": "#665390", "alpha": 1},
+      {"label": "Testes and epididymides", "pattern": "^testis|^epididymis", "color": "#8f867a", "alpha": 0.49}
+    ]
+  },
+  {
+    "id": "skin-surface-locator",
+    "system": "integumentary",
+    "scene": "skin",
+    "view": "assembly",
+    "title": "Locate skin and nail on the body",
+    "note": "Use the forearm and fingertip markers to open illustrative teaching sections. Each section has its own scale and frame.",
+    "review": "models/skin/exports/bp3d-envelope-r01/README.md",
+    "locators": [
+      {"title": "Skin section", "target": "skin-coil-to-pore", "x": 60.3, "y": 42},
+      {"title": "Nail section", "target": "nail-bed", "x": 61.7, "y": 55.9}
+    ],
+    "groups": [
+      {"label": "External body envelope", "pattern": "^FJ2810 skin$", "color": "#c0a68f", "alpha": 1}
+    ]
+  },
+  {
+    "id": "skin-coil-to-pore",
+    "system": "integumentary",
+    "scene": "integumentary",
+    "view": "skin-block",
+    "inspect3d": true,
+    "title": "Hair follicle and eccrine coil to pore",
+    "note": "An enlarged side-neutral section shows the follicle, coiled gland and its duct up to the surface pore. Warmer muted tissue colors put the coil and duct in the foreground.",
+    "review": "reviews/skin/teaching-block-r01/README.md",
+    "groups": [
+      {"label": "Epidermis", "pattern": "epidermis", "color": "#e3ac69", "alpha": 1},
+      {"label": "Dermis", "pattern": "dermis$", "color": "#d98a7f", "alpha": 0.6},
+      {"label": "Subcutaneous tissue", "pattern": "subcutaneous|fat lobule", "color": "#d3b781", "alpha": 0.68},
+      {"label": "Hair shaft", "pattern": "hair root", "color": "#553f51", "alpha": 1},
+      {"label": "Follicle", "pattern": "follicle", "color": "#8d4d71", "alpha": 1},
+      {"label": "Eccrine coil and duct", "pattern": "eccrine|sweat duct", "color": "#207e73", "alpha": 1}
+    ]
+  },
+  {
+    "id": "nail-bed",
+    "system": "integumentary",
+    "scene": "integumentary",
+    "view": "nail",
+    "title": "Nail plate over the bed and matrix",
+    "note": "The comparison lifts the ivory plate off the pink bed to reveal the plum matrix under its proximal root. The editable model and GLB both open with the plate seated.",
+    "review": "reviews/skin/teaching-block-r01/README.md",
+    "offset": {"part": "Nail | Nail plate with free edge", "metres": [0.00016, 0, 0.00054]},
+    "groups": [
+      {"label": "Nail plate", "pattern": "nail plate", "color": "#eadbb4", "alpha": 1},
+      {"label": "Nail bed", "pattern": "nail bed", "color": "#ce837c", "alpha": 1},
+      {"label": "Germinal matrix", "pattern": "matrix", "color": "#795180", "alpha": 1},
+      {"label": "Digit tissue", "pattern": "digit tissue", "color": "#cfaa8a", "alpha": 1},
+      {"label": "Proximal fold", "pattern": "nail fold", "color": "#b78e74", "alpha": 0.46}
+    ]
+  }
+]

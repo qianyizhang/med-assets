@@ -1,0 +1,33 @@
+[
+  {
+    "id": "right-heart",
+    "include": [
+      "RA | anterior section", "RV | anterior section", "Tricuspid valve | *",
+      "RV papillary muscle *", "RV chordae | *", "RV trabecula [1-7]", "* vena cava"
+    ],
+    "front": [-0.55, -1.0, 0.68]
+  },
+  {
+    "id": "left-heart",
+    "include": [
+      "LA | anterior section", "LV | anterior section", "LV | interventricular septal surface",
+      "Mitral valve | *", "LV papillary muscle *", "LV chordae | *",
+      "LV trabecula [1-7]", "* pulmonary vein"
+    ],
+    "front": [0.1, -1.0, 0.75]
+  },
+  {
+    "id": "outflow",
+    "include": [
+      "Aorta | *", "Pulmonary trunk", "* pulmonary artery", "Aortic valve | *",
+      "Pulmonary valve | *"
+    ],
+    "front": [0.70, -1.0, 0.72]
+  },
+  {
+    "id": "mitral-seated",
+    "include": ["Mitral valve | *", "LV papillary muscle *", "LV chordae | *"],
+    "front": [0.36, -0.80, 1.12],
+    "cameraBounds": [[-0.004, -0.009, -0.035], [0.032, 0.015, 0.038]]
+  }
+]

@@ -175,8 +175,11 @@ async function loadModel() {
       mesh.visible = (!included || included.has(name)) && (!input.surfaceOnly || extras.view_role === "surface");
       if (!mesh.visible) continue;
       const style = rules.find(rule => rule.expression.test(`${name}\n${materialName}`))?.style ?? input;
-      mesh.material = material(style);
-      if (!groups.has(style.label)) groups.set(style.label, { color: style.color, meshes: [] });
+      if (!input.sourceMaterials) mesh.material = material(style);
+      const color = input.sourceMaterials && [mesh.material].flat()[0]?.color
+        ? "#" + [mesh.material].flat()[0].color.getHexString()
+        : style.color;
+      if (!groups.has(style.label)) groups.set(style.label, { color, meshes: [] });
       groups.get(style.label).meshes.push(mesh);
       bounds.union(new THREE.Box3().setFromObject(mesh));
     }

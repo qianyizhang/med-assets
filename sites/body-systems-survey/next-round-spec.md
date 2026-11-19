@@ -217,16 +217,13 @@ views. Check that the same parts can be used outside their gallery scene.
   checkout or fresh output to exercise recovery, including a deliberately
   incomplete optional s1233 bundle.
 
-**Repository follow-ups.** The gallery README now identifies both the s1233
-and fallback digestive and cardiovascular views. The owner README and report
-copy give the measured colon gap. `prepare.py` emits the component count in
-`mask-audit.json`. Add the individual sizes and measured separation to that
-receipt and use its values for the gallery copy.
-`gallery_plan.py` activates optional s1233 scenes when it finds
-`assemblies.json`. `report.py` then requires all expected render receipts.
-An interrupted restore can therefore block the entire report. Validate
-bundle readiness before enabling those scenes and report actionable recovery
-information for incomplete or invalid additions.
+**Repository follow-ups.** The s1233 preparation receipt records the colon
+component sizes and measured separation. The gallery reads them from the
+verified derivative audit. `report.py` validates the optional assembly and
+render receipts before enabling the same-case views. An interrupted restore
+shows the fallback views and identifies the failing file in its build log.
+The [gallery replay](README.md#local-before-and-after-comparisons) opens the
+local comparisons and links their owning records.
 
 Local builds and review complete this round. Any hosted integration should
 use the owning gallery source and a separate publication decision.

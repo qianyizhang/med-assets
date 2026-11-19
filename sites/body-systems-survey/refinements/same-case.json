@@ -1,0 +1,38 @@
+[
+  {
+    "id": "cardiovascular-s1233-surface",
+    "system": "cardiovascular",
+    "title": "Heart and great vessels in the s1233 scan frame",
+    "note": "Surface cleanup softens the voxel steps on the heart and major vessels. The unnamed pulmonary venous mask has four voxel components and three connected contour surfaces. Vessel-to-chamber joins remain unresolved in the scan labels.",
+    "matched": true,
+    "inspect3d": true,
+    "review": "assemblies/workshop-s1233/README.md",
+    "before": {
+      "receipt": ".artifacts/body-systems-refinement-2026-11-19/same-case-renders/cardiovascular-s1233-original/renders.json",
+      "view": "assembly"
+    },
+    "after": {
+      "receipt": ".artifacts/body-systems-refinement-2026-11-19/same-case-renders/cardiovascular-s1233-updated/renders.json",
+      "view": "assembly"
+    }
+  },
+  {
+    "id": "digestive-s1233-surface",
+    "system": "digestive",
+    "title": "Esophagus through colon in the s1233 scan frame",
+    "note": "Surface cleanup softens the voxel steps and preserves the source gaps. The updated view makes the liver fainter to reveal more of the stomach. The tract-only image removes the accessory organs.",
+    "matched": true,
+    "inspect3d": true,
+    "colonAudit": true,
+    "details": [{"view": "route", "title": "Digestive tract without accessory organs"}],
+    "review": "assemblies/workshop-s1233/README.md",
+    "before": {
+      "receipt": ".artifacts/body-systems-refinement-2026-11-19/same-case-renders/digestive-s1233-original/renders.json",
+      "view": "assembly"
+    },
+    "after": {
+      "receipt": ".artifacts/body-systems-refinement-2026-11-19/same-case-renders/digestive-s1233-updated/renders.json",
+      "view": "assembly"
+    }
+  }
+]

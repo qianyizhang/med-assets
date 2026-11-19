@@ -11,6 +11,8 @@ from scipy import ndimage
 from scipy.spatial import cKDTree
 from skimage.measure import marching_cubes
 
+from refinement import refine_overviews
+
 OWNER = Path(__file__).resolve().parent
 
 
@@ -32,7 +34,25 @@ def read_mask(path, pin, shape, affine):
     return np.asarray(image.dataobj) != 0
 
 
-def surface(raw, affine):
+def component_summary(mask, shell, shell_ras, *, measure_gap):
+    labels, count = ndimage.label(mask)
+    sizes = np.bincount(labels[mask])
+    order = np.argsort(-sizes[1:], kind="stable") + 1
+    summary = {"components6": count, "componentVoxelCounts6": sizes[order].tolist()}
+    if measure_gap:
+        shell_labels = labels[shell]
+        largest = shell_ras[shell_labels == order[0]]
+        runner_up = shell_ras[shell_labels == order[1]]
+        distances, indices = cKDTree(runner_up).query(largest)
+        point = int(distances.argmin())
+        summary["largestComponentsMinimumVoxelCentreMm"] = round(float(distances[point]), 6)
+        summary["largestComponentsClosestVoxelCentresRasMm"] = [
+            largest[point].tolist(), runner_up[indices[point]].tolist(),
+        ]
+    return summary
+
+
+def surface(raw, affine, *, measure_gap=False):
     extents = ndimage.find_objects(raw.astype(np.uint8))
     if not extents:
         raise ValueError("Empty label")
@@ -43,7 +63,6 @@ def surface(raw, affine):
     if np.any(start == 0) or np.any(stop == shape):
         raise ValueError("Label reaches the scan boundary")
     mask = raw[crop]
-    components = ndimage.label(mask)[1]
     shell = mask & ~ndimage.binary_erosion(mask)
     shell_ras = transform(affine, np.argwhere(shell) + start)
     vertices, faces, _, _ = marching_cubes(
@@ -63,7 +82,8 @@ def surface(raw, affine):
         raise ValueError("Extracted surface has unexpected winding")
     vertices_blender = (vertices_ras * [-1, -1, 1] + [0, 155, -430]) / 1000
     summary = {
-        "voxels": int(mask.sum()), "components6": components, "triangles": len(faces),
+        "voxels": int(mask.sum()), "triangles": len(faces),
+        **component_summary(mask, shell, shell_ras, measure_gap=measure_gap),
         "duplicateTrianglesRemoved": duplicate_triangles,
         "boundsBlenderMetres": [vertices_blender.min(0).tolist(), vertices_blender.max(0).tolist()],
     }
@@ -74,6 +94,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--masks", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--smooth-overview", action="store_true",
+                        help="Keep source topology while reducing voxel steps in a separate derivative")
     args = parser.parse_args()
     config = json.loads((OWNER / "inputs.json").read_text())
     affine = np.array(config["rasMmFromVoxel"])
@@ -81,14 +103,25 @@ def main():
     args.output.mkdir(parents=True, exist_ok=False)
     summaries = {}
     surfaces = {}
+    meshes = {}
     for label, pin in pins.items():
         mask = read_mask(args.masks / f"{label}.nii.gz", pin, config["shape"], affine)
-        vertices, faces, shell, summary = surface(mask, affine)
-        mesh_path = args.output / f"{label}.npz"
-        np.savez(mesh_path, vertices=vertices, faces=faces)
-        summary["meshSha256"] = sha256(mesh_path)
+        vertices, faces, shell, summary = surface(mask, affine, measure_gap=label == "colon")
+        meshes[label] = (vertices, faces)
         summaries[label] = summary
         surfaces[label] = shell
+
+    updates = refine_overviews(meshes, config["assemblies"]) if args.smooth_overview else {}
+    for label, (vertices, faces) in meshes.items():
+        mesh_path = args.output / f"{label}.npz"
+        summary = summaries[label]
+        if label in updates:
+            vertices, evidence = updates[label]
+            summary["sourceBoundsBlenderMetres"] = summary["boundsBlenderMetres"]
+            summary["boundsBlenderMetres"] = [vertices.min(0).tolist(), vertices.max(0).tolist()]
+            summary["overviewRefinement"] = evidence
+        np.savez(mesh_path, vertices=vertices, faces=faces)
+        summary["meshSha256"] = sha256(mesh_path)
 
     pairs = []
     for assembly in config["assemblies"].values():
@@ -105,6 +138,8 @@ def main():
         "case": config["case"], "labelGridRasMm": config["rasMmFromVoxel"],
         "inputs": pins, "parts": summaries, "pairProximity": pairs,
     }
+    if args.smooth_overview:
+        receipt["derivative"] = "bounded-source-surface-smoothing-v1"
     (args.output / "mask-audit.json").write_text(json.dumps(receipt, indent=2) + "\n")
 
 

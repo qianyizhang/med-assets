@@ -62,6 +62,60 @@ includes digestive and cardiovascular overviews in the s1233 scan frame.
 Those two sections retain their partial status and show the measured limits
 when the local assembly receipts and renders are present.
 
+## Local before-and-after comparisons
+
+Open the **Before and after** panels within a system. Each panel links the
+original and updated isometric and orthographic renders to their model
+identities and the owning review. The report checks camera, scale and PNG
+dimensions for matched pairs. Where available, **Open updated view in 3D**
+opens a static preview with named part controls. New exports show their own
+materials. Regional views use the comparison palette. The digestive cutaway
+shows the pyloric opening, and its close-up shows the ducts and papilla.
+The skin envelope markers open the enlarged skin and nail sections.
+
+The teaching archive below restores the original survey. New comparison
+media is local under `.artifacts/body-systems-refinement-2026-11-19/` and uses
+the owning recipes. Build regional before-and-after views from the original
+pinned GLBs and their restored gallery render receipts:
+
+```sh
+round=.artifacts/body-systems-refinement-2026-11-19
+blender -b --factory-startup --disable-autoexec --python-exit-code 1 \
+  -P sites/body-systems-survey/render_gallery.py -- --compare-regions \
+  --output "$round/regional-renders"
+python3.12 sites/body-systems-survey/report.py
+```
+
+Use a fresh output directory for repeat renders. Move a checked replay into
+the expected local path to include it in the report. See the
+[gastroduodenal section recipe](../../assemblies/digestive-route/r02/README.md)
+for the revised cutaway. Its gallery path is `$round/digestive-r03`, with
+the render receipt under `renders/`. Regional views reuse the original model
+bytes. The isolated color treatments and nail lift are display changes.
+For the [Cardiac Atlas cutaway](../../assemblies/cardiovascular-loop/valve-study-r01/README.md),
+use `$round/cardiovascular` as the study directory. It supplies the
+matched right and left valve views and the mitral leaflet lift.
+
+For the smoother same-case overviews, prepare and export the
+[s1233 derivative](../../assemblies/workshop-s1233/README.md) into
+`$round/same-case/assemblies`, then run:
+
+```sh
+blender -b --factory-startup --disable-autoexec --python-exit-code 1 \
+  -P sites/body-systems-survey/render_gallery.py -- \
+  --compare-workshop "$round/same-case/assemblies" \
+  --output "$round/same-case-renders"
+python3.12 sites/body-systems-survey/report.py
+```
+
+This uses the original same-case bundle for the original views. The updated
+plates preserve the scan frame. The report reads the source colon separation
+from the checked mask audit.
+
+An interrupted or invalid optional same-case restore shows the fallback
+assemblies and reports the failing file in the build log. Restore or rebuild
+both the assembly and its render receipts before reopening the report.
+
 ## Restore the media
 
 The archive `med-assets-teaching-c803735.zip` contains 327 files at their
@@ -164,6 +218,9 @@ selected GLBs. It rebuilds the original gallery and serves it at
 ```sh
 python3.12 sites/body-systems-survey/serve.py
 ```
+
+If that port is occupied, pass `--port 8848`. The server rebuilds the report
+with launch links for its listening port.
 
 Use **Open in 3D** on a System assembly, or open an individual delivered model
 under **Models, review and attribution**. The viewer supports orbit, zoom,

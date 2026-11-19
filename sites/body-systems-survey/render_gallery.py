@@ -7,9 +7,12 @@ import re
 import sys
 
 import bpy
+from mathutils import Vector
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from gallery_plan import GALLERY_VIEWS, REPO, render_plan
+from gallery_plan import (
+    GALLERY_VIEWS, REPO, WORKSHOP_ASSEMBLIES, core_scenes, load, render_plan, workshop_scenes,
+)
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "tools"))
 from render_teaching import configure_scene, render_pair, sha256
@@ -74,6 +77,12 @@ def render_scene(job, root):
         imported, colors = import_source(source)
         meshes.extend(imported)
         assignments.update(colors)
+    offset = job.get("offset")
+    if offset:
+        obj, = [mesh for mesh in meshes if mesh.name == offset["part"]]
+        matrix = obj.matrix_world.copy()
+        matrix.translation += Vector(offset["metres"])
+        obj.matrix_world = matrix
     configure_scene(scene)
     scene.view_settings.view_transform = "Standard"
     scene.render.resolution_x, scene.render.resolution_y = 680, 560
@@ -94,7 +103,75 @@ def render_scene(job, root):
                                        for item in job["inputs"]],
                   blender=bpy.app.version_string, transforms="source world transforms; no display placement edits",
                   views=views)
+    if offset:
+        record["transforms"] = {"illustrativeDisplayOffset": offset}
     (folder / "renders.json").write_text(json.dumps(record, indent=2) + "\n")
+
+
+def workshop_comparisons(folder):
+    original, updated = (
+        {scene["id"]: scene for scene in workshop_scenes(path)}
+        for path in (WORKSHOP_ASSEMBLIES, folder)
+    )
+    for key, after in updated.items():
+        before = original[key]
+        receipt = json.loads((GALLERY_VIEWS / key / "renders.json").read_text())
+        if receipt["inputs"] != [{k: s[k] for k in ("path", "sha256")} for s in before["inputs"]]:
+            raise ValueError(f"Baseline render poses are stale for {key}")
+        if key == "digestive-s1233":
+            liver = next(group for group in after["inputs"][0]["groups"] if group["label"] == "Liver")
+            liver["alpha"] = 0.18
+        camera_bounds = {view["id"]: view["bounds"] for view in receipt["views"]}
+        for name, job in (("original", before), ("updated", after)):
+            yield {
+                **job,
+                "id": f"{key}-{name}",
+                "views": [
+                    {**view, "cameraBounds": camera_bounds[view["id"]]} for view in job["views"]
+                ],
+            }
+
+
+def regional_comparisons():
+    base = {scene["id"]: scene for scene in core_scenes()}
+    refinements = {item["id"]: item for item in load("regional-views.json")}
+    for item in refinements.values():
+        job = base[item["scene"]]
+        receipt = json.loads((GALLERY_VIEWS / job["id"] / "renders.json").read_text())
+        names = [view["id"] for view in job["views"]]
+        original = job["views"][names.index(item["view"])]
+        captures = {view["id"]: view for view in receipt["views"]}
+        captured = captures[item["view"]]
+        frames = [captures[other["view"]]["bounds"] for other in refinements.values()
+                  if other.get("style", other["id"]) == item.get("style", item["id"])]
+        camera_bounds = [[limit(frame[side][axis] for frame in frames) for axis in range(3)]
+                         for side, limit in enumerate((min, max))]
+        offset = item.get("offset")
+        if offset:
+            for axis, delta in enumerate(offset["metres"]):
+                camera_bounds[0][axis] += min(delta, 0)
+                camera_bounds[1][axis] += max(delta, 0)
+        view = {**original, "cameraBounds": camera_bounds}
+        groups = refinements[item.get("style", item["id"])]["groups"]
+        visible = captured["visible"]
+        hidden = item.get("hide")
+        if hidden:
+            removed = {name for name in visible if re.search(hidden, name, re.I)}
+            if not removed:
+                raise ValueError(f"No parts matched hidden selection for {item['id']}")
+            visible = [name for name in visible if name not in removed]
+        for group in groups:
+            if not any(re.search(group["pattern"], name, re.I) for name in visible):
+                raise ValueError(f"No parts match {group['label']} in {item['id']}")
+        yield {**job, "id": item["id"] + "-original", "views": [view]}
+        yield {
+            "id": item["id"] + "-updated",
+            "offset": offset,
+            "inputs": [
+                {**source, "groups": groups + list(source["groups"])} for source in job["inputs"]
+            ],
+            "views": [{**view, "include": visible}],
+        }
 
 
 def main():
@@ -103,8 +180,19 @@ def main():
     parser.add_argument("--only", nargs="+")
     parser.add_argument("--index", type=int, default=0)
     parser.add_argument("--stride", type=int, default=1)
+    comparison = parser.add_mutually_exclusive_group()
+    comparison.add_argument("--compare-workshop", type=Path, metavar="ASSEMBLY_FOLDER")
+    comparison.add_argument("--compare-regions", action="store_true")
     args = parser.parse_args(sys.argv[sys.argv.index("--") + 1:])
-    plan = list(render_plan())
+    if (args.compare_workshop or args.compare_regions) and args.output == GALLERY_VIEWS:
+        parser.error("Comparisons require a separate --output")
+    if args.compare_workshop:
+        jobs = workshop_comparisons(args.compare_workshop.resolve())
+    elif args.compare_regions:
+        jobs = regional_comparisons()
+    else:
+        jobs = render_plan()
+    plan = list(jobs)
     if args.only:
         jobs = [job for job in plan if job["id"] in args.only]
         if len(jobs) != len(set(args.only)):

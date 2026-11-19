@@ -3,7 +3,7 @@
 from pathlib import Path
 from urllib.parse import quote, urlencode
 
-from gallery_plan import GALLERY, REPO, render_plan
+from gallery_plan import GALLERY, REPO
 
 DEFAULT_PORT = 8847
 GALLERY_URL = "/" + quote((GALLERY / "index.html").relative_to(REPO).as_posix())
@@ -18,9 +18,9 @@ def relative_url(path):
 
 
 class Catalog:
-    def __init__(self, port):
+    def __init__(self, port, jobs):
         self.port = port
-        self.plans = {job["id"]: job for job in render_plan()}
+        self.plans = {job["id"]: job for job in jobs}
         self.scenes = {}
         self.assets = {}
 
@@ -36,13 +36,17 @@ class Catalog:
         job = self.plans[folder.name]
         planned_view = next(item for item in job["views"] if item["id"] == view["id"])
         key = f"{job['id']}/{'model' if whole else view['id']}"
+        return self.add(key, folder, view, title, system, job["inputs"],
+                        None if whole else planned_view.get("include"))
+
+    def add(self, key, folder, view, title, system, inputs, include):
         straight = view["images"][1]
         x, y, z = straight["direction"]
         self.scenes[key] = {
             "title": title,
             "system": system,
-            "inputs": [self.input(source) for source in job["inputs"]],
-            "include": None if whole else planned_view.get("include"),
+            "inputs": [self.input(source) for source in inputs],
+            "include": include,
             "direction": [x, z, -y],
             "fallback": relative_url(folder / straight["file"]),
         }

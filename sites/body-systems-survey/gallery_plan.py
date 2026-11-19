@@ -10,6 +10,7 @@ SOURCE = Path(__file__).resolve().parent
 REPO = Path(os.environ.get("MED_ASSETS_REPO", SOURCE.parents[1])).resolve()
 GALLERY = REPO / ".artifacts/body-systems-survey-2026-11-19"
 GALLERY_VIEWS = GALLERY / "presentation-r01"
+REFINEMENT = REPO / ".artifacts/body-systems-refinement-2026-11-19"
 WORKSHOP_ASSEMBLIES = GALLERY / "workshop-s1233-r01"
 WORKSHOP_CONFIG = SOURCE.parents[1] / "assemblies/workshop-s1233/inputs.json"
 
@@ -242,23 +243,21 @@ def detail_scene(system, record, model, prefix):
     return dict(id=scene_id, inputs=[source], views=views)
 
 
-def workshop_scenes():
-    receipt_path = WORKSHOP_ASSEMBLIES / "assemblies.json"
-    if not receipt_path.is_file():
-        return
+def workshop_scenes(folder=WORKSHOP_ASSEMBLIES, config_path=WORKSHOP_CONFIG):
+    receipt_path = folder / "assemblies.json"
     receipt = json.loads(receipt_path.read_text())
-    with WORKSHOP_CONFIG.open("rb") as source:
+    with config_path.open("rb") as source:
         if file_digest(source, "sha256").hexdigest() != receipt["configSha256"]:
             raise ValueError("Workshop assembly config differs from its build receipt")
-    with (WORKSHOP_ASSEMBLIES / "mask-audit.json").open("rb") as source:
+    with (folder / "mask-audit.json").open("rb") as source:
         if file_digest(source, "sha256").hexdigest() != receipt["maskAuditSha256"]:
             raise ValueError("Workshop mask audit differs from its build receipt")
-    config = json.loads(WORKSHOP_CONFIG.read_text())
+    config = json.loads(config_path.read_text())
     for key, entry in config["assemblies"].items():
         groups = [dict(label=part["label"], pattern="^" + re.escape(part["label"]) + "$",
                        color=part["color"], alpha=0.55 if label in {"heart", "liver"} else 1)
                   for label, part in entry["parts"].items()]
-        path = WORKSHOP_ASSEMBLIES / f"{key}.glb"
+        path = folder / f"{key}.glb"
         source = dict(path=path.relative_to(REPO).as_posix(), sha256=receipt["artifacts"][key]["sha256"],
                       label="Other anatomy", color=PALETTE[-1], alpha=1, groups=groups)
         views = [dict(id="assembly", front=entry["front"]),
@@ -267,9 +266,19 @@ def workshop_scenes():
         yield dict(id=key + "-s1233", inputs=[source], views=views)
 
 
-def render_plan():
-    yield from original_scenes()
-    yield from workshop_scenes()
+def teaching_scenes():
     for system in load("systems.json"):
         for _, record, model, prefix in study_records(system):
             yield detail_scene(system, record, model, prefix)
+
+
+def core_scenes():
+    yield from original_scenes()
+    yield from teaching_scenes()
+
+
+def render_plan():
+    yield from original_scenes()
+    if (WORKSHOP_ASSEMBLIES / "assemblies.json").is_file():
+        yield from workshop_scenes()
+    yield from teaching_scenes()

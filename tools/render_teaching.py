@@ -48,8 +48,20 @@ def render_pair(scene, meshes, view, output):
     for obj in selected:
         evaluated = obj.evaluated_get(deps)
         points.extend(evaluated.matrix_world @ Vector(p) for p in evaluated.bound_box)
-    lo = Vector([min(p[i] for p in points) for i in range(3)])
-    hi = Vector([max(p[i] for p in points) for i in range(3)])
+    bounds = [
+        [min(p[i] for p in points) for i in range(3)],
+        [max(p[i] for p in points) for i in range(3)],
+    ]
+    if "cameraBounds" in view:
+        lo, hi = map(Vector, view["cameraBounds"])
+        points = [
+            Vector((x, y, z))
+            for x in (lo.x, hi.x)
+            for y in (lo.y, hi.y)
+            for z in (lo.z, hi.z)
+        ]
+    else:
+        lo, hi = map(Vector, bounds)
     extent = max(hi - lo)
     center = (hi + lo) / 2
     front = Vector(view.get("front", (0, -1, 0))).normalized()
@@ -110,7 +122,7 @@ def render_pair(scene, meshes, view, output):
         id=view["id"],
         frame=scene.frame_current,
         visible=sorted(ob.name for ob in selected),
-        bounds=[list(lo), list(hi)],
+        bounds=bounds,
         orthographicScale=camera.data.ortho_scale,
         images=images,
     )

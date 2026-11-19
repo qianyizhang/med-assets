@@ -1,0 +1,22 @@
+[
+  {
+    "id": "gastroduodenal-section",
+    "system": "digestive",
+    "title": "Stomach lining, pylorus and duct entry",
+    "note": "The cut face separates wall and lining. Follow the stomach narrowing into the duodenum. Gold and blue identify the common bile and main pancreatic ducts, which meet in a short violet channel at the illustrated major papilla.",
+    "matched": true,
+    "inspect3d": true,
+    "review": "assemblies/digestive-route/r02/README.md",
+    "details": [{"view": "duct-entry", "title": "Duct entry close-up"}],
+    "before": {
+      "receipt": ".artifacts/body-systems-refinement-2026-11-19/digestive-r03/renders/renders.json",
+      "model": "assemblies/digestive-route/r01/digestive-route.glb",
+      "view": "original"
+    },
+    "after": {
+      "receipt": ".artifacts/body-systems-refinement-2026-11-19/digestive-r03/renders/renders.json",
+      "model": ".artifacts/body-systems-refinement-2026-11-19/digestive-r03/gastroduodenal-section.glb",
+      "view": "updated"
+    }
+  }
+]

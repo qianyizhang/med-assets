@@ -20,7 +20,7 @@ def sha256(path):
         return file_digest(stream, "sha256").hexdigest()
 
 
-def add_mesh(label, spec, source, summary, pin, case):
+def add_mesh(label, spec, source, summary, pin, case, derivative):
     path = source / f"{label}.npz"
     if sha256(path) != summary["meshSha256"]:
         raise ValueError(f"Prepared mesh differs: {path.name}")
@@ -35,6 +35,8 @@ def add_mesh(label, spec, source, summary, pin, case):
     obj["source_label"] = label
     obj["source_sha256"] = pin
     obj["derived_from_binary_label"] = True
+    if derivative:
+        obj["overview_refinement"] = derivative
     srgb = [int(spec["color"][i:i + 2], 16) / 255 for i in (1, 3, 5)]
     linear = tuple(c / 12.92 if c < 0.04045 else ((c + 0.055) / 1.055) ** 2.4 for c in srgb)
     mesh.materials.append(material(spec["label"], linear))
@@ -62,6 +64,10 @@ def check_import(file, specs, audit, case):
             case, label, audit["inputs"][label]
         ):
             raise ValueError(f"Clean import provenance differs for {obj.name}")
+        if obj.get("overview_refinement") != audit.get("derivative"):
+            raise ValueError(f"Clean import derivative identity differs for {obj.name}")
+        if [mat.name for mat in obj.data.materials] != [spec["label"]]:
+            raise ValueError(f"Clean import lost the named material for {obj.name}")
 
 
 def _corners(obj):
@@ -90,11 +96,16 @@ def main():
         bpy.ops.wm.read_factory_settings(use_empty=True)
         bpy.context.scene.unit_settings.system = "METRIC"
         for label, spec in assembly["parts"].items():
-            add_mesh(label, spec, args.prepared, audit["parts"][label], audit["inputs"][label], audit["case"])
+            add_mesh(label, spec, args.prepared, audit["parts"][label], audit["inputs"][label],
+                     audit["case"], audit.get("derivative"))
         export(args.output, key)
         file = args.output / f"{key}.glb"
         check_import(file, assembly["parts"], audit, config["case"])
-        artifacts[key] = {"sha256": sha256(file), "meshes": len(assembly["parts"])}
+        artifacts[key] = {
+            "sha256": sha256(file), "meshes": len(assembly["parts"]), "bytes": file.stat().st_size,
+            "triangles": sum(audit["parts"][label]["triangles"] for label in assembly["parts"]),
+            "blendSha256": sha256(file.with_suffix(".blend")),
+        }
     receipt = {
         "case": config["case"], "configSha256": sha256(config_file),
         "maskAuditSha256": sha256(audit_file), "artifacts": artifacts,
