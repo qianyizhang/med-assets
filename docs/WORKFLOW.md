@@ -27,23 +27,50 @@ output directory; never use a delivered export folder as scratch space.
 
 ## Asset admission
 
-Reuse or improve existing assets before adding a maintained variant. An addition
-needs evidence that existing assets cannot meet its purpose and quality, or that
-adaptation would break another named use which cannot coexist through parameters,
-materials, overlays or composition. A demonstrably better replacement is welcome. Avoid destructive or lower-quality
-adaptation merely to avoid an addition.
+### Decide what to create
 
-Before committing to expansion, record in the existing issue or owning asset:
+In the existing issue or owning package, name the learner or other consumer,
+what they need to identify, trace or do, and what observation would demonstrate
+success. Scope the claim to the structures, relationships and level of detail
+that task requires. For example, locating a kidney and tracing urinary drainage
+are different tasks. The latter requires visible transitions from kidney to
+ureter, bladder and outlet.
 
-- Intended use, required quality, concrete improvement and compared asset IDs.
-- Inspected matched output or relevant measurements supporting reuse, selective
-  integration, adaptation or the exception. Availability and novelty are insufficient.
-- Source/export/storage and review cost, maintenance owner, and consumers migrated
-  by a replacement; preserve other uses and required source/recovery material.
+Compare the closest existing assets by ID. Inspect matched views or relevant
+measurements and identify the specific gap. If the parts exist, try composing
+them or adding a teaching overlay first. Add a maintained asset or variant when
+the evidence shows that reuse or adaptation falls short, or would break another
+named use that cannot coexist through parameters, materials or composition.
+A better replacement is welcome. Record the improvement, maintenance owner,
+source and export storage, review effort, and any consumers to migrate.
+Preserve other uses and required recovery material.
 
-Link this decision in the PR. Missing or unsupported admission evidence blocks
-ready/merge. This gate does not authorize deletion, publication or merge and does
-not reopen settled work. A source is evidence, not anatomical ground truth.
+### Demonstrate the result
+
+- **Every asset.** Keep the editable source or identified inputs, exact export
+  identity, build or replay instructions, attribution and license terms with the
+  [owning package](#ownership) or link to their owner. Cite the references for
+  anatomical claims and identify inferred or schematic features. Label generated
+  concept images as design references. Use the delivered asset for acceptance.
+- **3D assemblies.** Record units, axes, laterality and the common source frame
+  or transforms used to place the parts. Identify authored placements and
+  bridges. Inspect the essential parts individually and together in a clean
+  reimport. Trace each claimed route through its named junctions and inspect
+  gaps, unintended intersections and occlusion. A remaining break limits the
+  claim to the demonstrated segment.
+- **Visual evidence.** For related 3D parts and the combined setup, start with
+  an isometric view and a straight orthographic view at matched scale within
+  each pair. Keep material and texture conventions consistent across the set.
+  Choose a section, complementary angle or detail when it shows the required
+  relationship more clearly. For a diagram or runnable lesson, inspect its
+  delivered view or exercise the learner action. Follow [visual comparisons](#visual-comparisons)
+  for revision comparisons.
+
+Link the decision and scoped evidence in the PR. Missing or unsupported
+admission evidence blocks ready/merge. Record the applicable [checks](#verification),
+independent [review results and limits](#review-records), and any unverified
+claims. Admission grants no authority to delete, publish or merge. Apply it to
+proposed changes without reopening settled work.
 
 ## Verification
 

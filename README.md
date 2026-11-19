@@ -22,7 +22,8 @@ Open the asset's export README and linked review for its source, recipe, status
 and limits. Asset-specific build/render/check code belongs in its `recipes/`.
 The [model survey](sites/model-survey/) is a dated derived report, not an asset
 registry. Start contributing with [AGENTS.md](AGENTS.md)
-and the single [architecture/workflow guide](docs/WORKFLOW.md).
+and the [architecture/workflow guide](docs/WORKFLOW.md). For a new asset or
+variant, use the [creation and admission guidelines](docs/WORKFLOW.md#asset-admission).
 
 ## Quick start
 
