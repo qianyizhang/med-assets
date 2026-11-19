@@ -28,9 +28,16 @@ opens the specimen card with its preview, review, limitations and Balanced GLB.
 The download checks the published manifest and verifies the file size and
 SHA-256 before saving. The card also links to the GitHub export.
 
-The [legacy FDI31 notice source](retirements/fdi31/index.html) is deployed to
-`/fdi31/` on the separate Focus Review Site after verifying the survey entry.
-Its links resolve to the survey and canonical R2 bytes.
+The [legacy focus review](https://dental-fdi31-focus-review-oct28.landy123007.chatgpt.site/fdi31/)
+serves the [bilingual notice](retirements/fdi31/index.html) with links to
+the survey and canonical R2 bytes. On 2026-11-19 the survey and legacy
+notice reached public version 7. The survey revision is recorded in
+[`snapshot-reference.json`](snapshot-reference.json). The legacy Site
+source is `75c28214f68cec33cf7a83abcab7bcdcee2d543a` and its deployment
+is `appgdep_6afea201fdb4819185df77820acaa74a`.
+
+Chrome readback matched the public 1,001-route index, Balanced GLB, and
+the pinned framework backup ZIP against their checked-in identities.
 
 ## Restore and build locally
 
