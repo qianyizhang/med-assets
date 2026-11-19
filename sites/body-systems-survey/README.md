@@ -65,8 +65,8 @@ The archive `med-assets-teaching-c803735.zip` contains 327 files at their
 repository-relative paths. It preserves the 143 teaching files by their
 original Git LFS identities, the survey's baseline media and capture
 receipts, and the separate dental experiment's six generated MP4s with their
-subtitles and results README. The dental build lives at local revision
-`06bfb80` on `codex/dental-image26-experiment`.
+subtitles and results README. The [dental experiment](../../experiments/dental-image26/README.md)
+records the original revision and how to replay the build from frozen inputs.
 
 The **127,459,034-byte** archive has SHA-256
 `ccdf0a5dafadf0a4d251a19b83f14ec157e29abdcfe4b3c1199498700d37b014`.
@@ -136,9 +136,9 @@ Open `.artifacts/body-systems-survey-2026-11-19/index.html` locally. The report
 links to the original gap survey and to each model and review. The current
 report checks each selected GLB and paired screenshot against its exact
 render receipt. The gallery checks inherited camera directions, pose frames
-and bounds against the owning reviews. The survey viewer needs no server. Follow the
-[One Breath setup](../../lessons/one-breath/README.md#open-locally) to run
-that interactive lesson.
+and bounds against the owning reviews. Open the image gallery from disk. For
+interactive 3D, start the [local viewer server](#open-in-3d). Follow the [One
+Breath setup](../../lessons/one-breath/README.md#open-locally) to run that lesson.
 
 The original baseline used `2cb53c05577b4cbc2355c4bff293666127d21382`.
 `catalog.py` prints the discovery catalogue for the current checkout.
