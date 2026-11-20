@@ -309,8 +309,13 @@ def refinement_panels(plates, catalog):
                 links.append(f'<a href="{href(blend)}">Editable Blender scene</a>')
         for label, entry in (("Original render receipt", before), ("Updated render receipt", after)):
             links.append(f'<a href="{href(entry[0] / "renders.json")}">{label}</a>')
+        if "comparisonPage" in item:
+            links.append(f'<a href="{href(local_path(item["comparisonPage"]))}">Compare surfaces before scoring</a>')
         if "review" in item:
             links.append(f'<a href="{href(local_path(item["review"]))}">Build and checks</a>')
+        pilot = HERE / "adrenal-pilot" / "model-survey.html"
+        if item["id"] == "surface-adrenal" and pilot.is_file():
+            links.append(f'<a href="{href(pilot)}?view=1#family-adrenals">Browse adrenal models</a>')
         for label, path in related:
             links.append(f'<a href="{href(path)}">{escape(label)}</a>')
 

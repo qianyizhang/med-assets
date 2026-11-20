@@ -1,0 +1,66 @@
+{
+  "recipeSha256": "915f82af9d9ef04e9a7c8cb66178914ee2e8a8de74924beb6bc639ff9a006346",
+  "geometrySha256": "1661aeb7d1b111ce18ae373077a9bafffdde35b8be2896ba3b2c2ddedff523f8",
+  "rendersSha256": "f5d2aaa493a125cbd570a8e6f1f581bca619195a23a814831af25ddd22fa2f2c",
+  "specimenSha256": "42a2ac7c8719f821e60d5cf57e00cbb924cdc99bd13c4073bff6fb73c4368877",
+  "specimenSource": "https://commons.wikimedia.org/wiki/File:Adrenal_glands.jpg",
+  "silhouetteThresholdAlpha": 128,
+  "rightGlandSilhouette": {
+    "ortho": {
+      "images": [
+        "updated-right-ortho.png",
+        "lighter-right-ortho.png"
+      ],
+      "directed": [
+        {
+          "maxPx": 2.0,
+          "p95Px": 1.0,
+          "worstPixelXY": [
+            536,
+            242
+          ]
+        },
+        {
+          "maxPx": 2.0,
+          "p95Px": 1.0,
+          "worstPixelXY": [
+            537,
+            240
+          ]
+        }
+      ],
+      "changedSilhouettePixels": 644
+    },
+    "iso": {
+      "images": [
+        "updated-right-iso.png",
+        "lighter-right-iso.png"
+      ],
+      "directed": [
+        {
+          "maxPx": 2.23606797749979,
+          "p95Px": 1.4142135623730951,
+          "worstPixelXY": [
+            516,
+            293
+          ]
+        },
+        {
+          "maxPx": 2.23606797749979,
+          "p95Px": 1.4142135623730951,
+          "worstPixelXY": [
+            516,
+            296
+          ]
+        }
+      ],
+      "changedSilhouettePixels": 593
+    }
+  },
+  "figures": {
+    "case-sections.png": "35e5372be9a623d0367d1f232dfa20d6814ad0f7561f98e590336ebc27d858e3",
+    "comparison.jpg": "e5f47ac8893b24adb342b4364bc7bdef6e7d9fbbd5a17c10f19af6e97022f10f",
+    "grayscale.png": "fa6b778731fd36711f984d5dc72c1e767173e73a6c52051477ade063d2596e82",
+    "specimen-comparison.jpg": "a5f520bc90e5d3b02b8467cb747356715a6672d25c5ff8e1b3d928a0a6a374a1"
+  }
+}

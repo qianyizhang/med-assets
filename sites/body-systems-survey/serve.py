@@ -13,6 +13,7 @@ from urllib.parse import unquote, urlsplit
 from urllib.request import urlopen
 
 from gallery_plan import GALLERY, REPO, SOURCE
+from refinements import definitions, local_path
 from report import build, digest
 from viewer_catalog import DEFAULT_PORT, GALLERY_URL, relative_url
 
@@ -34,6 +35,11 @@ def gallery_files():
     """Index explicit document links, including the linked baseline report."""
     files = {}
     pending = [GALLERY / "index.html"]
+    review_pages = {local_path(item["comparisonPage"]) for item in definitions() if "comparisonPage" in item}
+    pilot = GALLERY / "adrenal-pilot/model-survey.html"
+    if pilot.is_file():
+        # The survey creates its exact-version and fallback evidence links in React.
+        pending.extend([pilot, pilot.with_name("verification.html"), *review_pages])
     while pending:
         path = pending.pop().resolve()
         if not path.is_relative_to(REPO) or not path.is_file():
@@ -42,7 +48,7 @@ def gallery_files():
         if url in files:
             continue
         files[url] = path
-        if path.suffix == ".html" and path.is_relative_to(GALLERY):
+        if path.suffix == ".html" and (path.is_relative_to(GALLERY) or path in review_pages):
             links = References()
             links.feed(path.read_text())
             pending.extend(path.parent / link for link in links.paths)

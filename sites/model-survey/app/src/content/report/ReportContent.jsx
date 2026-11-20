@@ -34,12 +34,30 @@ function PreviewDialog({viewer,rows,gallery,onChange,onClose}){
  </dialog>;
 }
 function Media({rows}){return <div data-reviewed-rows>{rows.map(m=><div className="sv-file" key={m.path}><Source item={m}>{m.path}</Source><span>{bytes(m.bytes)}{m.meshes!=null?` · ${m.meshes} meshes`:''}{m.animations?` · ${m.animations} clips`:''}</span><code title={m.sha256}>{m.sha256.slice(0,12)} · {m.availability}</code></div>)}</div>;}
+// Local prototype builds supply a binding checked against the verification record.
+const pilot = import.meta.env.VITE_ADRENAL_PILOT ? JSON.parse(import.meta.env.VITE_ADRENAL_PILOT) : null;
+
+function GalleryLinks({row}) {
+ if (!pilot || row.id !== pilot.family) return null;
+ const exact = row.media.some(file => file.sha256 === pilot.sha256 && file.path === pilot.modelPath);
+ return <nav className="sv-gallery-links" aria-label="Adrenal galleries">
+  {exact ? <a href={`verification.html#candidate-${pilot.candidate}`}><strong>Review this version →</strong><span>BodyParts3D · source-frame export</span></a>
+         : <p>Exact-version review unavailable for this export.</p>}
+  <a href={pilot.study}><strong>{pilot.hasSystemView ? 'Related teaching study →' : 'View retained study images →'}</strong><span>Body Systems · another source, scan s1233</span></a>
+ </nav>;
+}
+
+function familyAnchor(id) {
+ return id === FDI31_ID ? FDI31_ID : `family-${id}`;
+}
+
 function Asset({r,prefix,open,toggle,gallery,onPreview}){
  const id=prefix+':'+r.id;
  const isFdi31=r.id===FDI31_ID;
- return <Fold id={id} anchor={isFdi31&&prefix.startsWith('Anatomy:')?FDI31_ID:undefined} title={r.label} opened={open.has(id)} toggle={toggle} className="sv-asset" leading={<PreviewButton r={r} gallery={gallery} onPreview={onPreview}/>} meta={<><span className="sv-kind">{r.product?'product':'model family'}</span><Tag>{r.state}</Tag></>}>
+ return <Fold id={id} anchor={!r.product&&prefix.startsWith('Anatomy:')?familyAnchor(r.id):undefined} title={r.label} opened={open.has(id)} toggle={toggle} className="sv-asset" leading={<PreviewButton r={r} gallery={gallery} onPreview={onPreview}/>} meta={<><span className="sv-kind">{r.product?'product':'model family'}</span><Tag>{r.state}</Tag></>}>
   {r.previewIds?.length>0?<div className="sv-preview-strip" data-reviewed-rows>{r.previewIds.map((key,index)=><PreviewButton key={key} r={r} gallery={gallery} onPreview={onPreview} index={index} large/>)}<span>{r.previewCaption}</span></div>:<div className="sv-note">{r.previewMissing}</div>}
   <dl className="sv-facts" data-reviewed-rows><dt>Useful scope</dt><dd>{r.use}</dd><dt>Quality limit</dt><dd>{r.limit}</dd><dt>Evidence</dt><dd><Source item={r.evidence}/></dd></dl>
+  <GalleryLinks row={r}/>
   {isFdi31&&<BalancedDownload media={r.media}/>}
   <div className="sv-more">
    {!!Object.keys(r.gates).length&&<Fold id={id+':gates'} title="Recorded gates" meta={<small>exact owner wording</small>} opened={open.has(id+':gates')} toggle={toggle}><dl className="sv-gates" data-reviewed-rows>{Object.entries(r.gates).map(([k,v])=><React.Fragment key={k}><dt>{k}</dt><dd>{v}</dd></React.Fragment>)}</dl><div className="sv-note">Dated artifact/scope only · later supplements do not promote the original whole model</div></Fold>}
@@ -48,41 +66,45 @@ function Asset({r,prefix,open,toggle,gallery,onPreview}){
   </div>
  </Fold>;
 }
-function hasFdi31Link(){
- return window.location.hash===`#${FDI31_ID}`;
+function linkedFamily(families) {
+ const fragment = window.location.hash.slice(1) || (pilot ? familyAnchor(pilot.family) : '');
+ return families.find(row => familyAnchor(row.id) === fragment);
 }
-function openFdi31(system){
- const group=`Anatomy:${system}`;
- return new Set([group,`${group}:${FDI31_ID}`]);
+function familyFolds(row) {
+ const group = `Anatomy:${row.system}`;
+ return new Set([group, `${group}:${row.id}`]);
 }
 export function ReportContent(){
  const {snapshot,appTitle,canEdit,mode,setAppTitle}=useDataApp();
  const s=snapshot.survey,families=snapshot.queries.model_survey.rows,products=snapshot.queries.products.rows,files=snapshot.queries.media_inventory.rows,all=[...families,...products];
- const fdi31System=families.find(r=>r.id===FDI31_ID)?.system;
  const [tab,setTab]=useState('Anatomy'),[search,setSearch]=useState(''),[related,setRelated]=useState(true);
- const [open,setOpen]=useState(()=>fdi31System&&hasFdi31Link()?openFdi31(fdi31System):new Set(['Anatomy:Cardiovascular']));
+ const [open,setOpen]=useState(()=>{
+  const row=linkedFamily(families);
+  return row ? familyFolds(row) : new Set(['Anatomy:Cardiovascular']);
+ });
  const [viewer,setViewer]=useState(null);
  useEffect(()=>{
-  if(!fdi31System)return;
   let frame;
-  function scrollToFdi31(){
-   cancelAnimationFrame(frame);
-   frame=requestAnimationFrame(()=>document.getElementById(FDI31_ID)?.scrollIntoView());
-  }
-  function followFdi31Link(){
-   if(!hasFdi31Link())return;
+  function followFamily(){
+   const row=linkedFamily(families);
+   if(!row)return;
    setTab('Anatomy');
    setSearch('');
-   setOpen(openFdi31(fdi31System));
-   scrollToFdi31();
+   setOpen(familyFolds(row));
+   cancelAnimationFrame(frame);
+   frame=requestAnimationFrame(()=>{
+    const fold=document.getElementById(familyAnchor(row.id));
+    fold?.querySelector('summary')?.focus({preventScroll:true});
+    fold?.scrollIntoView({block:'start'});
+   });
   }
-  if(hasFdi31Link())scrollToFdi31();
-  window.addEventListener('hashchange',followFdi31Link);
+  followFamily();
+  window.addEventListener('hashchange',followFamily);
   return ()=>{
-   window.removeEventListener('hashchange',followFdi31Link);
+   window.removeEventListener('hashchange',followFamily);
    cancelAnimationFrame(frame);
   };
- },[fdi31System]);
+ },[families]);
  const gallery=snapshot.previewGallery||{};
  const showPreview=(r,index=0)=>setViewer({id:r.id,index});
  const q=search.trim().toLowerCase();

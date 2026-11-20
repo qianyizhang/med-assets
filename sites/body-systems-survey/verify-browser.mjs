@@ -318,6 +318,58 @@ try {
     verified.viewer = {launchActions: actions.length, webglScenes: actions.length, diskGalleryLaunch: true,
       wholeModel: true, keyboardOrbit: true, missingAssetFallbackAndRetry: true, unknownScene: true};
   }
+  if (process.argv.includes("--with-gallery-pilot")) {
+    const family = "#family-adrenals[open]";
+    const exact = family + ' nav a[href^="verification.html"]';
+    const related = family + ' nav a[href*="refinement-surface-adrenal"]';
+    const study = "#refinement-surface-adrenal";
+    async function waitFor(selector) {
+      for (let attempt = 0; attempt < 100; attempt++) {
+        if (await evaluate(`!!document.querySelector(${JSON.stringify(selector)})`)) return;
+        await pause(80);
+      }
+      throw new Error(`Missing ${selector} at ${await evaluate("location.href")}`);
+    }
+    async function activate(selector, target) {
+      await evaluate(`document.querySelector(${JSON.stringify(selector)}).focus()`);
+      for (const type of ["keyDown", "keyUp"]) {
+        await send("Input.dispatchKeyEvent", {type, key: "Enter", code: "Enter", windowsVirtualKeyCode: 13});
+      }
+      await waitFor(target);
+    }
+    for (const base of new Set([report, new URL("index.html", reportDir).href])) {
+      const entry = new URL("adrenal-pilot/model-survey.html", base);
+      await goto(entry.href, exact);
+      await capture(join(tmpdir(), "med-adrenal-pilot-family.png"));
+      await activate(exact, "#candidate-adrenals__source-candidate-01");
+      assert.equal(await evaluate("document.querySelector('figure img').complete && document.querySelector('figure img').naturalWidth > 0"), true);
+      await capture(join(tmpdir(), "med-adrenal-pilot-review.png"));
+      await evaluate("history.back()");
+      await waitFor(exact);
+      await activate(related, study);
+      assert.equal(await evaluate("location.hash"), "#refinement-surface-adrenal");
+      await activate(study + ' a[href$="/compare.html"]', ".pair");
+      assert.equal(await evaluate("document.querySelector('.readout').open"), false);
+      for (const pose of ["tissue", "detail", "right", "reverse", "region"]) {
+        assert.equal(await evaluate(`(async () => {
+          document.querySelector('input[value="${pose}"]').click();
+          const images = [...document.querySelectorAll('.pair img')];
+          await Promise.all(images.map(image => image.decode()));
+          return images.every(image => image.naturalWidth > 0) && images[0].src !== images[1].src;
+        })()`), true);
+      }
+      await evaluate("document.querySelector('.readout summary').click()");
+      assert.match(await evaluate("document.querySelector('#key').textContent"), /r0[45].*r0[45]/);
+      await evaluate("history.back()");
+      await waitFor(study);
+      await activate(study + ' a[href*="family-adrenals"]', exact);
+      await send("Page.reload");
+      await waitFor(exact);
+      assert.equal(await evaluate("location.hash"), "#family-adrenals");
+      await goto(entry.href + "?view=1#swirendo_fdi31", "#swirendo_fdi31[open]");
+    }
+    verified.galleryPilot = "Identity-bound review, related study, keyboard return, Back, reload and legacy FDI31 bookmark";
+  }
   console.log(JSON.stringify(verified, null, 2));
 } finally {
   socket.close();

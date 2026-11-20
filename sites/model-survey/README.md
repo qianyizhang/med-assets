@@ -6,7 +6,7 @@
 - **Outcome** · Browse 62 asset families, 31 products and 141 GLB paths at `e63006dca598031d58bdf66485fed24a24194558`. 92 preview rows use 153 image pairs.
 - **Scope** · Dated survey. Asset directories and review records own current status. Fetus is recipe-only, the FDI31/46 pilot preview is FDI31, and neutral renders remain unreviewed.
 
-The [gallery design guide](../../guideline/design.md) maps catalogue entries to verification candidates and related system views.
+The [gallery design guide](../../guideline/design.md) maps catalogue entries to verification candidates and related system views. The [adrenal prototype](../gallery-links/README.md) exercises the round trip in the local survey.
 
 ## Owners
 

@@ -67,7 +67,13 @@ The [first surface review](../../reviews/body-systems/2026-11-20-surface-quality
 scores the terminal airspaces, seated nail and s1233 adrenal group. The
 [adrenal close-up review](../../reviews/endocrine-locator/adrenal-study-r04/README.md)
 applies the [refined rubric](../../guideline/asset-quality.md) to the interpreted
-teaching exterior. Its comparison uses two checked-in GLBs. The earlier
+teaching exterior. The [next adrenal study](../../reviews/endocrine-locator/adrenal-study-r05/README.md)
+compares it to a surface rebuilt against the original s1233 gland labels. The
+[blind comparison](../../reviews/endocrine-locator/adrenal-study-r05/compare.html)
+lets you inspect the two exports before revealing their scores. The
+[local gallery pilot](../gallery-links/README.md) connects this study to the
+adrenal Model Survey family and its separate BodyParts3D verification record.
+The surface comparisons use checked-in GLBs. The earlier
 atlas-to-scan comparison uses the locally restored regional models.
 
 Open **Before and after** within a system. Each panel links the

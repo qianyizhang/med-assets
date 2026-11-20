@@ -3,30 +3,35 @@
     "id": "surface-adrenal",
     "system": "endocrine",
     "title": "Adrenals in their scan frame",
-    "note": "Locate both glands against the kidneys. The updated exterior interprets the scan-derived shape for teaching. It smooths local bumps and closes five tunnels of uncertain anatomical meaning, one in each adrenal and three in the principal pancreatic surface. The kidney recesses remain visible.",
+    "note": "From slightly above and behind, locate each warm-colored gland above and medial to the kidney on the same side. The fold close-up shows the right gland from the front and side. Color and sheen suggest the capsule. Five editorial tunnel closures remain from the previous teaching exterior.",
     "matched": true,
     "inspect3d": true,
-    "review": "reviews/endocrine-locator/adrenal-study-r04/README.md",
+    "review": "reviews/endocrine-locator/adrenal-study-r05/README.md",
     "before": {
-      "receipt": "reviews/endocrine-locator/adrenal-study-r04/renders.json",
-      "model": "assemblies/endocrine-locator/adrenal-study-r03/s1233-adrenals-teaching.glb",
+      "receipt": "reviews/endocrine-locator/adrenal-study-r05/renders.json",
+      "model": "assemblies/endocrine-locator/adrenal-study-r04/s1233-adrenals-illustrative.glb",
       "view": "original"
     },
     "after": {
-      "receipt": "reviews/endocrine-locator/adrenal-study-r04/renders.json",
-      "model": "assemblies/endocrine-locator/adrenal-study-r04/s1233-adrenals-illustrative.glb",
+      "receipt": "reviews/endocrine-locator/adrenal-study-r05/renders.json",
+      "model": "assemblies/endocrine-locator/adrenal-study-r05/s1233-adrenals-regional.glb",
       "view": "updated"
     },
     "details": [
+      {
+        "title": "Right gland fold · tissue finish",
+        "view": "updated-tissue"
+      },
       {
         "title": "Both glands isolated",
         "view": "updated-detail"
       },
       {
-        "title": "Neutral surface inspection",
-        "view": "updated-neutral"
+        "title": "Right gland · neutral surface",
+        "view": "updated-fold"
       }
-    ]
+    ],
+    "comparisonPage": "reviews/endocrine-locator/adrenal-study-r05/compare.html"
   },
   {
     "id": "surface-airspaces",

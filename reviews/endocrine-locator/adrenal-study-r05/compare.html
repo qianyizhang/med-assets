@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Adrenal surface comparison</title><style>
+:root{color-scheme:light;--paper:#f9f7f2;--ink:#273433;--muted:#536260;--line:#c7cdc4;--accent:#155754}*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 "Helvetica Neue",Arial,sans-serif}
+main{max-width:1320px;margin:auto;padding:clamp(24px,4vw,64px)}h1{font:normal clamp(40px,5vw,73px)/1.05 Georgia,serif;letter-spacing:-.045em;margin:0 0 10px}
+p{margin:.4em 0 1em;max-width:74ch}fieldset{padding:0;border:0;margin:0}legend{font-weight:600;margin:0 0 .35em}label{cursor:pointer}
+.tools{display:flex;flex-wrap:wrap;gap:.5em 1.1em;margin:20px 0 10px}.tools label{display:inline-flex;align-items:center;gap:6px;padding-block:.35em}
+input{accent-color:var(--accent);margin:0}a{color:var(--accent);text-underline-offset:3px}
+:focus-visible{outline:3px solid #a15226;outline-offset:3px}
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}figure{margin:0}
+.stage{background:#e5e3da;aspect-ratio:1.65;position:relative;overflow:hidden;border:1px solid #d8dbd1}
+.stage img{width:100%;height:100%;object-fit:cover;display:block}figcaption{display:block;font-weight:650;margin:.4em 0 .65em}
+.readout{background:#fffdf8;border:1px solid var(--line);padding:1rem clamp(12px,2vw,24px);margin-top:1.2em}summary{cursor:pointer;font-weight:650}
+.scores{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:1em 0}.scores div{border-top:1px solid var(--line);padding-top:8px}
+dt{font-size:.9em;color:var(--muted)}dd{margin:0;font-size:1.4em}
+footer{display:flex;gap:1.5em;flex-wrap:wrap;margin-top:1.4em}
+@media(max-width:640px){.pair{grid-template-columns:1fr}.stage{aspect-ratio:1.85}}
+</style></head><body><main>
+<h1>Adrenal surface comparison</h1><p>Inspect the fold along the lower edge of the right gland. Which surface looks more like soft tissue? The camera and scale match. A and B are assigned on opening and stay fixed as you switch views.</p>
+<fieldset class="tools"><legend>Compare views</legend>
+<label><input type="radio" name="view" value="tissue" checked> Right gland · tissue finish</label>
+<label><input type="radio" name="view" value="detail"> Both glands</label>
+<label><input type="radio" name="view" value="right"> Right gland · neutral</label>
+<label><input type="radio" name="view" value="reverse"> Reverse · neutral</label>
+<label><input type="radio" name="view" value="region"> In the body region</label>
+</fieldset>
+<div class="pair">
+<figure><div class="stage"><img id="a" alt="Adrenal surface A"></div><figcaption>Surface A</figcaption></figure>
+<figure><div class="stage"><img id="b" alt="Adrenal surface B"></div><figcaption>Surface B</figcaption></figure>
+</div><noscript>See the <a href="README.md">illustrated review</a> for matched views.</noscript>
+<details class="readout"><summary>Reveal the versions and reviewer’s scores</summary><p id="key"></p>
+<p><strong>r04 · 12/16 &nbsp; → &nbsp; r05 · 16/16</strong> for locating both glands and inspecting their exterior.</p>
+<dl class="scores"><div><dt>Fidelity</dt><dd>3 → 4</dd></div><div><dt>Form and surface</dt><dd>3 → 4</dd></div><div><dt>Teaching readability</dt><dd>3 → 4</dd></div><div><dt>Mesh economy</dt><dd>3 → 4</dd></div></dl>
+<p>The new right gland recovers a fold visible in consecutive case slices. In one matched section, the largest local contour error falls from 5.97 to 0.64 mm. A warmer finish and a softer highlight make that fold readable. The surface is still cleaner than a dissected specimen. The full assessment gives the case measurements, grayscale placement check and lighter-mesh trial.</p>
+<details><summary>Open full-resolution figures</summary><ul><li>Right gland, tissue finish · <a href="original-tissue-ortho.png">r04</a> / <a href="updated-tissue-ortho.png">r05</a></li><li>Both glands · <a href="original-detail-ortho.png">r04</a> / <a href="updated-detail-ortho.png">r05</a></li><li>Right gland · <a href="original-fold-ortho.png">r04</a> / <a href="updated-fold-ortho.png">r05</a></li><li>Reverse · <a href="original-reverse-ortho.png">r04</a> / <a href="updated-reverse-ortho.png">r05</a></li><li>Regional · <a href="original-ortho.png">r04</a> / <a href="updated-ortho.png">r05</a></li></ul></details>
+</details>
+<footer><a href="README.md">Full assessment and measurements</a><a href="renders.json">Camera and export identities</a><a href="../../../guideline/asset-quality.md">Scoring rubric</a></footer>
+</main><script>
+const order = (crypto.getRandomValues(new Uint8Array(1))[0] % 2) ? ['original','updated'] : ['updated','original'];
+const version = {original:'r04',updated:'r05'};
+const poses = {tissue:'-tissue-ortho',detail:'-detail-ortho',right:'-fold-ortho',reverse:'-reverse-ortho',region:'-ortho'};
+const names = {tissue:'The fold along the lower edge of the right gland, seen from the front and side',detail:'Both isolated glands',right:'The isolated right gland under neutral material',reverse:'Reverse view of both glands under neutral material',region:'Both glands in their kidney and pancreas context'};
+function show(pose) {
+ ['a','b'].forEach((id,i)=>{
+   const image=document.getElementById(id);
+   image.src=order[i]+poses[pose]+'.png';
+   image.alt=names[pose]+', surface '+id.toUpperCase();
+ });
+}
+document.getElementById('key').textContent='Surface A is '+version[order[0]]+'. Surface B is '+version[order[1]]+'.';
+document.querySelector('.tools').addEventListener('change',event=>show(event.target.value));
+show(document.querySelector('.tools input:checked').value);
+</script></body></html>
