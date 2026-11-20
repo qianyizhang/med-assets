@@ -13,6 +13,12 @@ The [gallery-wide design guide](../../guideline/design.md) owns navigation, view
 
 See the [inventory of existing galleries and visualizations](existing-visualizations.md) for the current entry points, their owners and how each fits the four surfaces.
 
+## Site and media governance
+
+Publish Asset Library, Use Cases, Compare and 3D Stage as four surfaces of the existing [Model Survey Site](../../sites/model-survey/README.md). Consolidate discovery and navigation there. Link to existing review and teaching pages during migration. Before replacing an entry point, verify its deep links, fallback media and original visitor task at the new destination. Preserve published evidence URLs and asset identities.
+
+Follow the [display image policy](../../guideline/design.md#display-images) and the [storage and delivery policy](../../transport/README.md) when adding or migrating a surface.
+
 ## First complete journey
 
 1. Search for adrenal. The BodyParts3D pair and the s1233 model have separate entries. Select s1233 r05 and inspect its portrait, attributes and rating state.

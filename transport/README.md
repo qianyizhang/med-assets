@@ -3,12 +3,14 @@
 | Need | Owner |
 | --- | --- |
 | Canonical bytes and recovery | Git / Git LFS. Recover the full checkout with `git lfs pull`, then verify [payload integrity](../docs/WORKFLOW.md#verification). |
-| On-demand public bytes | [R2 asset index](https://med-assets-model-survey.landy123007.chatgpt.site/assets/index.json) and [Git-pinned fetcher](../tools/fetch_asset.py). |
+| Live gallery 3D exports | [Model Survey Site R2](#public-r2-downloads) for on-demand viewing and downloads. |
+| Other important retained artifacts | [R2 Object Library](#artifact-backups) for recovery. |
 | Entire committed tree | [Mirror planning and readback](../docs/BACKUP_CHECK.md). |
 
 ## Public R2 downloads
 
-- **URL** · Public HTTPS through the survey Worker at `/assets/<sha256>/<name>`. The index lists downloadable aliases, hashes and sizes.
+- **Gallery release** · Put an exact copy of every 3D export selected for an active gallery entry or published for viewing or download in the Model Survey Site's R2 bucket before the entry goes live. The gallery references the hash-addressed copy and Git / Git LFS retains the canonical export.
+- **URL** · Public HTTPS through the survey Worker at `/assets/<sha256>/<name>`. The [asset index](https://med-assets-model-survey.landy123007.chatgpt.site/assets/index.json) lists downloadable aliases, hashes and sizes. The [Git-pinned fetcher](../tools/fetch_asset.py) retrieves and verifies these objects.
 - **Acceptance** · Verify size and SHA-256. The fetcher checks Git-pinned identity, serves valid cached/local bytes and refuses corrupt caches, redirects, changed encodings, symlinks and concurrent edits. Hydration requires a matching pointer and preserves permissions.
 - **Recorded coverage** · 694 objects / 976,485,579 bytes verified on 2026-11-06 at `503c33f1dadf403faaec373c1a11a8b40dc523d6`: 689 LFS and five Git blobs ≥1 MB. Index then held 1,001 routes including previews and the frozen framework backup. Upload authorization closed. [Site recovery](../sites/model-survey/README.md).
 
@@ -18,6 +20,12 @@ curl --fail -o kidney_left.glb \
 
 python3.12 tools/fetch_asset.py models/kidney_left/exports/metadata-cleanup-r01/kidney_left.glb --hydrate
 ```
+
+## Artifact backups
+
+Back up other important retained artifacts with the [R2 Object Library](https://r2-object-library.landy123007.chatgpt.site/). Examples include unique build and recovery bundles, release archives and evidence that would be costly to recreate. Use this public service only for artifacts cleared for public access. Use approved private storage for restricted material.
+
+Record the source revision, object key, byte size, SHA-256 and restore steps with the owning package. Verify a fresh download before counting the backup as recoverable. For multi-file archives, record and check member hashes on restore. [Teaching media backup example](../sites/body-systems-survey/README.md#restore-the-media)
 
 ## Add or reverify R2 copies
 

@@ -10,7 +10,7 @@ A saved preset pins the asset revisions, pose and placement, part visibility, ma
 
 The library chooses a portrait, a lesson chooses its sequence and Compare chooses the matched pair. Stage reproduces their choices. Historical Blender plates, clinical source sections and gross specimen images retain their provenance as external evidence.
 
-The first export delivers a persistent preset link and a WebP poster. Size gallery previews for their display slot. Use lossy WebP for ordinary portraits and lesson posters after checking the silhouette, labels and teaching detail at display size. For a comparison that depends on subtle surface changes, serve lossless WebP at inspection resolution and verify its decoded pixels against the reference render. The original GLB remains available from the asset page. [Existing survey preview encoder](../../sites/model-survey/tools/add_previews.py) · [WebP formats](https://developers.google.com/speed/webp)
+The first export delivers a persistent preset link and a WebP poster. Apply the shared [display image policy](../../guideline/design.md#display-images) when adopting a poster in the gallery. The original GLB remains available from the asset page.
 
 ## Acceptance example
 
