@@ -10,6 +10,8 @@ Show **fidelity to evidence**, **form and surface**, and **mesh economy** for th
 
 A named teaching assessment adds **teaching readability**. Show a total only when all four axes are rated for that task. For example, **16/16 · regional localization · s1233 r05** links to the [adrenal review](../reviews/endocrine-locator/adrenal-study-r05/README.md). The Asset Library links to this rubric from both scored and unrated profiles.
 
+An agent assessment can appear as soon as its evidence is available. Identify it as agent-reviewed and show the evaluator, review date and supporting views alongside the score. Record a human reviewer’s judgment separately, including disagreements about a visible feature. Keep both judgments attributable to their authors.
+
 ## Score four axes
 
 Use 0–4 on each axis. **0** means a required feature is absent or contradicted. **1** means a defect dominates the teaching view. **2** means the task is possible with a specific distracting defect or incomplete check. Apply the anchors below for **3** and **4**. Mark an axis **unrated** if the necessary evidence is unavailable and omit the total. Give one observation or measurement per score.

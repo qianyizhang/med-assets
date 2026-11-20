@@ -22,4 +22,4 @@ The [gallery-wide design guide](../../guideline/design.md) owns navigation, view
 
 The [local adrenal pilot](../../sites/gallery-links/README.md) demonstrates the exact-export and related-study handoffs. The four PRDs describe the target product. A versioned preset service and Stage-generated posters are future work. Existing Blender renders, sections and photographs keep their original evidence bindings.
 
-**Next rating milestone.** Batch-rate asset revisions using the [rating rubric](../../guideline/asset-quality.md). Coverage must distinguish reviewed, partially rated and unrated revisions. Batch scope, review authority and default revision selection are product decisions for the next round.
+**Next rating milestone.** Review one revision per reusable 3D asset lineage, starting with lineages used in Body Systems. Select the revision that opens by default in the [Asset Library](asset-library.md). Report reviewed, partially rated and unrated coverage against that inventory. Review historical revisions and individual parts when a lesson or comparison needs them. Apply the [rating and attribution rules](../../guideline/asset-quality.md#reading-a-library-rating).

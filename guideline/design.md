@@ -20,6 +20,8 @@ Try the [local cross-gallery prototype](../sites/gallery-links/README.md) before
 
 ## Shared design across four surfaces
 
+Use **Asset Library** and **Use Cases** as the main navigation entries. Place **Compare revisions** beside the revision selector and **Open in 3D Stage** beside the view it opens. Give Compare and 3D Stage direct URLs and list both under **Tools** for visitors starting a new session.
+
 Carry the selected name, source and revision across a handoff. Keep the originating selection available through the return link. Use a common part name and laterality label across images, legends and controls. Keep colors consistent within a teaching sequence and explain a palette change at the view where it happens.
 
 | Surface | Start the visitor here | What the handoff carries |
