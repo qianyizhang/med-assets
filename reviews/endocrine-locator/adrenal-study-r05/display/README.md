@@ -1,0 +1,3 @@
+# Adrenal gallery display files
+
+These WebPs derive from the identically named PNGs one directory above. The regional and right-gland portraits use lossy WebP at quality 85. The original and updated tissue and fold plates and the case-section figure use lossless WebP at source dimensions. Their decoded RGBA pixels match the corresponding PNGs. Tissue and neutral comparisons use the same right-gland camera and part selection. The [render receipt](../renders.json) binds the Blender plates to their exports. The [gallery API](../../../../docs/gallery/routes-and-api.md) describes delivery and separately generated Stage posters.

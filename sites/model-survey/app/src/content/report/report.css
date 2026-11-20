@@ -68,3 +68,5 @@
 .sv-gallery-links a{display:grid;gap:4px;flex:1 1 210px;padding:12px 16px;border:1px solid currentColor;border-radius:6px;text-decoration:none}
 .sv-gallery-links a:hover strong,.sv-gallery-links a:focus-visible strong{text-decoration:underline}
 .sv-gallery-links span{font-size:.85rem;color:var(--text)}
+
+.report-page:has(.ga-gallery){--data-app-layout-intent:authored-report;--data-app-content-width:1180px;margin-inline:auto;width:100%}

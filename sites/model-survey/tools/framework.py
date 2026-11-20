@@ -84,6 +84,10 @@ def prepare(site, source, output):
             target = staged / path.relative_to(site / 'app')
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(path, target)
+        gallery = staged / 'src/content/gallery'
+        if gallery.is_dir():
+            from gallery_runtime import prepare_gallery
+            prepare_gallery(site.parents[1], gallery)
         (staged / 'src/data.json').write_bytes(raw)
         # rename refuses an existing nonempty project; no source/history is replaced.
         if output.exists() or output.is_symlink():

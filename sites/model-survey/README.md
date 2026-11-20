@@ -1,4 +1,4 @@
-# Model survey and R2 delivery
+# Anatomy Gallery on the Model Survey Site
 
 [Public survey](https://med-assets-model-survey.landy123007.chatgpt.site/) ·
 [Public asset index](https://med-assets-model-survey.landy123007.chatgpt.site/assets/index.json)
@@ -7,6 +7,10 @@
 - **Scope** · Dated survey. Asset directories and review records own current status. Fetus is recipe-only, the FDI31/46 pilot preview is FDI31, and neutral renders remain unreviewed.
 
 The [gallery design guide](../../guideline/design.md) maps catalogue entries to verification candidates and related system views. The [adrenal prototype](../gallery-links/README.md) exercises the round trip in the local survey.
+
+## Local gallery foundation
+
+The ordinary report entry now opens Asset Library. The adrenal study runs through Use Cases, Compare and 3D Stage in the same Site. Old family bookmarks and the planning survey remain available. See the [canonical routes and API](../../docs/gallery/routes-and-api.md). This is a local implementation. The November 19 publication receipt below describes the preceding Site.
 
 ## Owners
 
@@ -45,6 +49,7 @@ the pinned framework backup ZIP against their checked-in identities.
 
 - **Outcome** · Reproducible local build from the pinned framework and immutable seed.
 - **Inputs** · Node 24, npm, Git and Python 3.11+. Verify the frozen ZIP against `framework.lock.json.backup` before extraction. Set `SURVEY_BACKUP` to its `model-survey-backup/` directory. The ZIP contains its restore guide.
+- **3D runtime** · Restore the [pinned Body Systems viewer modules](../body-systems-survey/README.md#open-in-3d) before assembling. The builder verifies the vendored inputs and copies them with the MIT license.
 - **Build** · From the repository root with fresh output paths.
 
 ```sh
@@ -59,7 +64,7 @@ npm --prefix sites/model-survey/.local/app run build
 | --- | --- |
 | Seed | Verified snapshot, immutable R2 seed or frozen source seed. Conflicts and the reordered mutable API response fail. |
 | Framework | Pinned commit/tree, integrity manifest, Site bindings and safe paths. Use a fresh `--output`. The generated project's instructions and runtime verifier apply. |
-| Preview | Serve `dist/` locally for a source-built preview with public R2 images. Open the frozen `offline/model-survey.html` directly for embedded images. `npm ci` needs npm access or a populated cache. |
+| Preview | Run `node sites/model-survey/tools/preview_gallery.mjs sites/model-survey/.local/app 8858` for a read-only loopback preview of the built Site, rubric, study API and verified local delivery. Hydrate the study GLBs and WebPs for full local viewing. Open the frozen `offline/model-survey.html` directly for embedded images. `npm ci` needs npm access or a populated cache. |
 
 ## Publish
 

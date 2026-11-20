@@ -1,3 +1,4 @@
+import { studies } from '../gallery/catalog.js';
 const MAX_ASSET_BYTES = 64_000_000;
 const FORMATS = {
   'model/gltf-binary': /\.glb$/iu, 'image/png': /\.png$/iu,
@@ -43,6 +44,12 @@ export function createAssetDelivery(manifest, ownerCanEdit) {
   }
   return async function assetResponse(request, env) {
     const url = new URL(request.url);
+    if (url.pathname === '/rubric' || url.pathname === '/api/gallery/v1/studies') {
+      if (!['GET', 'HEAD'].includes(request.method)) return reply({error: 'Read only.'}, 405);
+      if (url.pathname === '/rubric') return Response.redirect(new URL('/?view=1#/rubric', url), 302);
+      const response = reply(studies);
+      return request.method === 'HEAD' ? new Response(null, response) : response;
+    }
     if (!url.pathname.startsWith('/assets/')) return null;
     if (url.search) return reply({ error: 'Asset query parameters are not supported.' }, 400);
     if (url.pathname === '/assets/index.json') {

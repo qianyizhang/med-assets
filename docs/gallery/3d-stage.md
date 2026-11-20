@@ -18,4 +18,4 @@ The first export delivers a persistent preset link and a WebP poster. Apply the 
 
 From a right-adrenal close-up, save the staged view and export its poster. Opening the link in a fresh session recovers the same gland, angle, finish and framing. Changing the light and saving again gives the new poster a distinct preset revision. If pinned model bytes are unavailable, expose the missing revision and offer the retained poster where available.
 
-The current viewer loads named scenes with authored starting directions. Saving arbitrary composed state and exporting its bound poster are target capabilities. [Current scene bindings](../../sites/body-systems-survey/viewer_catalog.py) · [Gallery product requirements](README.md)
+The local Site now restores the versioned adrenal scene from a shared link and embeds that link in its exported WebP. Visitors can also inspect a local GLB. Future scene types extend the [route and preset contract](routes-and-api.md). The older Body Systems viewer still loads its named scenes. [Current scene bindings](../../sites/body-systems-survey/viewer_catalog.py) · [Gallery product requirements](README.md)

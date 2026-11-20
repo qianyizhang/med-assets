@@ -1,3 +1,4 @@
+import {Gallery} from '../gallery/Gallery.jsx';
 import React,{useState,useRef,useEffect} from 'react';
 import {DataComponent,EvidenceChart,useDataApp} from '../../data-app-public.jsx';
 import {BalancedDownload} from './BalancedDownload.jsx';
@@ -74,7 +75,8 @@ function familyFolds(row) {
  const group = `Anatomy:${row.system}`;
  return new Set([group, `${group}:${row.id}`]);
 }
-export function ReportContent(){
+export function ReportContent(){ return <Gallery Legacy={LegacySurvey}/>; }
+function LegacySurvey(){
  const {snapshot,appTitle,canEdit,mode,setAppTitle}=useDataApp();
  const s=snapshot.survey,families=snapshot.queries.model_survey.rows,products=snapshot.queries.products.rows,files=snapshot.queries.media_inventory.rows,all=[...families,...products];
  const [tab,setTab]=useState('Anatomy'),[search,setSearch]=useState(''),[related,setRelated]=useState(true);
