@@ -4,6 +4,12 @@ Start with one sentence a learner could test. For example, “From behind, ident
 
 For work starting with CT labels or an extracted mesh, follow the [scan-derived surface refinement guide](scan-surface-refinement.md) from source inspection through the lighter-mesh trial.
 
+## Reading a library rating
+
+Show **fidelity to evidence**, **form and surface**, and **mesh economy** for the selected revision. Bind the profile to the exact export, reference, reviewed view, reviewer, date and rubric revision. Use **Unrated** for a missing assessment or axis. A numeric zero is an assessed result with the meaning defined below. A new revision starts unrated until evidence covers it.
+
+A named teaching assessment adds **teaching readability**. Show a total only when all four axes are rated for that task. For example, **16/16 · regional localization · s1233 r05** links to the [adrenal review](../reviews/endocrine-locator/adrenal-study-r05/README.md). The Asset Library links to this rubric from both scored and unrated profiles.
+
 ## Score four axes
 
 Use 0–4 on each axis. **0** means a required feature is absent or contradicted. **1** means a defect dominates the teaching view. **2** means the task is possible with a specific distracting defect or incomplete check. Apply the anchors below for **3** and **4**. Mark an axis **unrated** if the necessary evidence is unavailable and omit the total. Give one observation or measurement per score.

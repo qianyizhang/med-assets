@@ -4,7 +4,7 @@
 - **Use** · Education. See each package's source, license, review scope and limitations.
 - **Find** · [Asset and evidence owners](docs/WORKFLOW.md#ownership), [source studies](sources/), [model survey](sites/model-survey/), [body-systems survey](sites/body-systems-survey/).
 - **Experiment** · [Dental films and offline replay](experiments/dental-image26/).
-- **Contribute** · [Repository instructions](AGENTS.md), [glossary](GLOSSARY.md), [gallery design](guideline/design.md), [teaching-asset rubric](guideline/asset-quality.md), [asset admission](docs/WORKFLOW.md#asset-admission), [verification](docs/WORKFLOW.md#verification), [decisions](docs/DECISIONS.md).
+- **Contribute** · [Repository instructions](AGENTS.md), [glossary](GLOSSARY.md), [gallery product requirements](docs/gallery/README.md), [gallery design](guideline/design.md), [teaching-asset rubric](guideline/asset-quality.md), [asset admission](docs/WORKFLOW.md#asset-admission), [verification](docs/WORKFLOW.md#verification), [decisions](docs/DECISIONS.md).
 
 ## Local checkout
 

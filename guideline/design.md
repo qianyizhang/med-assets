@@ -1,8 +1,10 @@
-# Design a gallery
+# Gallery design
 
 Start with one visitor, one object and one question. “Which adrenal model can I reuse?”, “What changed in this revision?” and “Where are the glands?” deserve different first views of the same collection.
 
-## Connect the medical galleries
+The [gallery product requirements](../docs/gallery/README.md) define the four surfaces and link their individual PRDs. This guide owns how people move between them and how each view serves its purpose.
+
+## Current galleries and pilot
 
 | Entry point | Primary job | Handoff |
 | --- | --- | --- |
@@ -14,18 +16,18 @@ Start with one visitor, one object and one question. “Which adrenal model can 
 
 For the two survey views, carry the visitor’s selection both ways. From **Adrenal pair**, offer **Related teaching study** targeting Body Systems’ existing `#refinement-surface-adrenal` anchor. From that study, **Browse adrenal models** returns to the family, **Compare surfaces before scoring** opens the blind comparison, and **Build and checks** opens the s1233 revision’s own evidence. If the local system gallery is unavailable, offer its checked-in matched views. This makes the catalogue useful to someone choosing an export and the system view useful to someone learning placement. [System anchor builder](../sites/body-systems-survey/report.py) · [s1233 matched views](../reviews/endocrine-locator/adrenal-study-r05/README.md)
 
-Try the [local cross-gallery prototype](../sites/gallery-links/README.md) before moving either site. Group by stable family ID and bind each review by export identity. Read labels, credits and decisions from their owners. Verification already accepts candidate and asset fragments. The local survey source accepts `#family-adrenals` and other family IDs while retaining its FDI31 bookmark. The hosted version has a separate publication cycle. Test direct reload, Back, unmatched variants and old bookmarks. A single front door could later offer **Browse models** and **Review changes** once those handoffs work. [Survey selection](../sites/model-survey/app/src/content/report/ReportContent.jsx) · [Verification selection](../tests/gallery/fixtures/review.js)
+Try the [local cross-gallery prototype](../sites/gallery-links/README.md) before moving either site. Group by stable family ID and bind each review by export identity. Read labels, credits and decisions from their owners. Verification already accepts candidate and asset fragments. The local survey source accepts `#family-adrenals` and other family IDs while retaining its FDI31 bookmark. The hosted version has a separate publication cycle. Test direct reload, Back, unmatched variants and old bookmarks. [Survey selection](../sites/model-survey/app/src/content/report/ReportContent.jsx) · [Verification selection](../tests/gallery/fixtures/review.js)
 
-## Proposed responsibilities for the next iteration
+## Shared design across four surfaces
 
-| Surface | What it owns | Which view serves the visitor |
+Carry the selected name, source and revision across a handoff. Keep the originating selection available through the return link. Use a common part name and laterality label across images, legends and controls. Keep colors consistent within a teaching sequence and explain a palette change at the view where it happens.
+
+| Surface | Start the visitor here | What the handoff carries |
 | --- | --- | --- |
-| Asset library | Discoverable families, source and variant identities, revision history, attributes, rights and links to dated assessments. Distinguish the last asset change, last preview and last review. | An identifying portrait of the selected variant. The adrenal atlas export shows its two glands; the five-part s1233 study has its own identity. |
-| Use-case galleries | A teaching question, the selected assets and the sequence of views. Body Systems is the first use case. | Start with the whole regional relationship, then offer an asset and a part close-up. A lesson may recolor or isolate parts. Keep those choices with the lesson. |
-| Comparison stage | A question about a difference, identified inputs, matched settings and the evidence for a decision. | Start where the difference is visible. For the adrenal, match the lower-rim close-up, switch both sides to neutral material, then inspect a case section. |
-| 3D stage | Load identified assets, compose and save views, reopen them by link and export images. | A saved preset identifies the model revisions, pose, visible parts, material overrides, camera, framing, lights and output settings needed to recover the view. |
-
-For the asset card, a candidate standard is to show the selected revision’s source fidelity, form and finish, and mesh economy beside its preview. Each assessment carries its date, evaluator, reference and closest reviewed view. Show “unreviewed” when a revision lacks that evidence. The existing adrenal **16/16** also includes readability for regional localization; link it as a named teaching assessment. A new export would need its own review before inheriting any scores. [Existing scoring contract](asset-quality.md) · [Adrenal assessment](../reviews/endocrine-locator/adrenal-study-r05/README.md)
+| Asset Library | A portrait that makes the selected export recognizable | The lineage, revision and portrait preset |
+| Use Cases | The overview that answers the lesson question, followed by asset and part details | The selected lesson stop, asset revisions and its view |
+| Compare | The close-up that reveals the difference, with a whole-object locator | Both input identities, comparison settings and the saved finding when available |
+| 3D Stage | The exact composed view opened by the previous surface | The pinned preset revision and exported image |
 
 A useful first test is to open the adrenal from each surface. The library should identify it, the lesson should establish placement and the comparison should reveal the fold. Each should offer the exact staged view behind its poster with a route back to the originating record.
 
