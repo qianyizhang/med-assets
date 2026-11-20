@@ -4,7 +4,7 @@
 
 ## What the visitor sees
 
-A lineage opens on its recommended revision. If a newer candidate exists, show its version and status beside the selector. Until a recommendation exists, open the latest revision with its actual review status. A link to a specific revision always opens that revision.
+The asset maintainer explicitly selects which revision carries **Recommended** for a lineage. A review score is evidence the maintainer can use in that decision. The lineage opens on the recommended revision. If a newer candidate exists, show its version and status beside the selector. Until a recommendation exists, open the latest revision with its actual review status. A link to a specific revision always opens that revision.
 
 - An identifying portrait bound to the selected revision, its source, version, attributes, rights, available export and principal limitation. Distinguish the date the asset changed, the date its preview was rendered and the date someone last reviewed it.
 - The revision’s quality profile and a **Rating rubric** link beside it, including in the empty state. The dedicated product URL is `/rubric`; its content owner is the [canonical rubric](../../guideline/asset-quality.md). A saved assessment identifies the rubric revision used.
