@@ -11,11 +11,13 @@ A learner can find a model, see it used in a lesson, examine a change and reopen
 
 The [gallery-wide design guide](../../guideline/design.md) owns navigation, view choice and presentation across these surfaces. Asset packages own their exports and credits. Reviews own evidence and decisions. Each surface links back to the identified record.
 
-See the [inventory of existing galleries and visualizations](existing-visualizations.md) for the current entry points, their owners and how each fits the four surfaces.
+Use the [glossary](../../GLOSSARY.md#gallery-and-surfaces) for canonical names. The [inventory](existing-visualizations.md) describes what exists. The [migration plan](migration.md) assigns destinations, sequencing and retirement checks.
 
 ## Site and media governance
 
-Publish Asset Library, Use Cases, Compare and 3D Stage as four surfaces of the existing [Model Survey Site](../../sites/model-survey/README.md). Consolidate discovery and navigation there. Link to existing review and teaching pages during migration. Before replacing an entry point, verify its deep links, fallback media and original visitor task at the new destination. Preserve published evidence URLs and asset identities.
+Publish all public gallery experiences on the existing [Model Survey Site](../../sites/model-survey/README.md). Asset Library and Use Cases are its two main entrances. Compare and 3D Stage open from the relevant asset, review or lesson stop and from Tools. During migration an external link may bridge a gap. A migrated experience has its own address on this Site and completes its visitor task there. Old addresses can continue serving bookmarks and exact evidence.
+
+Every publicly listable 3D asset is discoverable in Asset Library, including assets first encountered inside an assembly, lesson or review. Every public interactive 3D showcase uses the shared 3D scene presentation owned by 3D Stage. A visitor can inspect the scene in context or open the same preset in Stage. A lesson or saved review retains control of its narrative, sequence and evidence.
 
 Follow the [display image policy](../../guideline/design.md#display-images) and the [storage and delivery policy](../../transport/README.md) when adding or migrating a surface.
 

@@ -39,7 +39,7 @@ The current Three.js URL selects a named scene. It restores the authored startin
 
 Serve new and migrated gallery raster images as WebP to reduce bandwidth. Commit the display files with their owning package using the repository's Git LFS rules. Size them for their display slot. Check ordinary lossy portraits, thumbnails and lesson posters at display size for readable labels, silhouettes and teaching detail. When a comparison depends on exact pixels, use lossless WebP at inspection resolution and verify the decoded pixels against the reference. Preserve original evidence and its recorded bindings. [Git attributes](../.gitattributes) · [Survey preview encoder](../sites/model-survey/tools/add_previews.py)
 
-## Scaffold for a new gallery
+## Scaffold for a new gallery experience
 
 | Surface | Build | Check |
 | --- | --- | --- |
@@ -48,7 +48,7 @@ Serve new and migrated gallery raster images as WebP to reduce bandwidth. Commit
 | Compare | Show the whole object and one decisive detail. Hold camera, light, scale and pose fixed for surface A/B. Label deliberate offsets. | Switch versions without losing the landmark. Try grayscale or neutral material when appearance could explain the difference. |
 | Reuse or verify | Carry the selected version into its export, review or lesson. Keep provenance and rights one step away. | Check identity at the destination. An unavailable review links to the owner with the status visible. |
 
-Copy this brief into the owning project and build one representative entry end to end.
+Choose the owning surface on the unified Site. Build one representative entry end to end using the [canonical gallery terms](../GLOSSARY.md#gallery-and-surfaces). For interactive 3D, embed the shared scene, carry its preset into Stage and preserve a route back to the originating stop. Reuse the following brief in the owning package.
 
 ~~~text
 Audience and question

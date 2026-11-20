@@ -4,6 +4,8 @@
 
 ## What the visitor sees
 
+Index public 3D assets across model, atlas, assembly, lesson and review packages. A lineage can be found by name, anatomy or the use case that features it. Expose historical revisions within its history. Trace a selected scene object to its exact asset revision when it is independently reusable. A mesh that exists only as part of a larger export links to that export with its part selected. List known public entries with unavailable exports or missing ratings and show their actual state.
+
 The asset maintainer explicitly selects which revision carries **Recommended** for a lineage. A review score is evidence the maintainer can use in that decision. The lineage opens on the recommended revision. If a newer candidate exists, show its version and status beside the selector. Until a recommendation exists, open the latest revision with its actual review status. A link to a specific revision always opens that revision.
 
 - An identifying portrait bound to the selected revision, its source, version, attributes, rights, available export and principal limitation. Distinguish the date the asset changed, the date its preview was rendered and the date someone last reviewed it.

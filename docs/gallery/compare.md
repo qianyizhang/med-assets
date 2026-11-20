@@ -10,6 +10,10 @@ Any two models can be inspected side by side. Enable a spatial overlay or a disp
 
 **Save a review.** Record the question, exact inputs, preset revisions, decisive images, reviewer, date, finding and limits. Attach a scored assessment when the rubric and evidence apply. The review owns its decision; the library and lesson can display it in scope.
 
+## Migrated verification studies
+
+A migrated Anatomy Verification study earns a saved review page when it has identified inputs, evidence and a finding or documented limitation. Preserve cited candidates, sections, images and reviewer attribution. A single-revision inspection can compare a model with source evidence. Link teaching-only material to Use Cases and exact exports to Asset Library. Both sides of an interactive 3D comparison use the shared scene presentation with their own pinned presets. Historical images open in their recorded form.
+
 ## Acceptance example
 
 Starting at s1233 r05, compare the inferior adrenal fold with r04 under the same camera. Switch both sides to neutral, then open the matched case section. A saved review reopens on those revisions after a later model appears. A visitor can recover which side, slice and view support the finding.

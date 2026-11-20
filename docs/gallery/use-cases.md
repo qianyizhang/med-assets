@@ -4,7 +4,9 @@
 
 ## Lesson responsibilities
 
-A lesson names its question and owns the progression from overall assembly to asset to part when those scales help. At each stop, identify the target, its relation to its neighbors and any deliberate color, visibility or scale change. Each stop references its assets and staged preset. Keep a static view and explanatory caption available when interactive 3D is unavailable.
+A lesson names its question and owns the progression from overall assembly to asset to part when those scales help. At each stop, identify the target, its relation to its neighbors and any deliberate color, visibility or scale change. Each interactive 3D stop embeds the shared scene using a scene preset. The lesson owns interactions such as choosing a cardiac phase or advancing an airway animation, and passes the corresponding state to the scene. Static diagrams, sections and video can stand alone. Keep a poster and explanatory caption available when interactive 3D is unavailable.
+
+Give a substantial teaching experience such as Body & Heart its own use case page or collection on the Site. Fold smaller lessons into a relevant stop when they answer the same question. Use the single **Experiments & Archive** collection for a distinct experiment that still has public teaching or historical value. Retire a duplicate public presentation after preserving its unique evidence and resolving its published links.
 
 Use a continuous zoom when the detail has a known position and scale in the overview. For a separately sourced detail without that alignment, mark its anatomical region on the overview, then cut to a labeled view with its own source and scale. If scale is unknown, say so.
 

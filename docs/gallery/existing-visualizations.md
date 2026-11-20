@@ -2,7 +2,7 @@
 
 Inventory at `e3e2d86`, 20 November 2026. Use Model Survey as the starting point for the **Asset Library**, Body Systems as the first **Use Cases** collection, and the Anatomy Verification review routes and adrenal blind study as starting points for **Compare**. The Body Systems viewer is the closest local implementation to **3D Stage**. Its named scene launches recover authored defaults. Saving an edited scene as a versioned preset and exporting its associated poster are future capabilities. [Gallery product requirements](README.md)
 
-Keep canonical models, evidence, authorship, licenses and delivery URLs with their existing owners. Consolidate discovery and handoffs first. An individual surface can later replace a standalone browser shell once exact links, fallback media and the original teaching or review task work at the destination.
+Read the dispositions below as recommendations from the dated census. The [unified Site migration plan](migration.md) supersedes its hosting recommendations and assigns every public experience a destination. Keep canonical models, evidence, authorship, licenses and delivery URLs with their existing owners during the move.
 
 The top-level [gallery/ directory](../../gallery/README.md) is the integration with the separately maintained Anatomy Verification site. It holds viewer controls, the [right-elbow material legend](../../gallery/elbow-legend-source.json), retained inspection examples and one unapplied layer-visibility recipe. Keep these with the tests that bind them to specific Site versions. The collection and pilot builders live under [sites/](../../sites/).
 
@@ -72,14 +72,6 @@ Keep static media with the package that can identify its subject and claim. A si
 | FDI31 local handoff and teaching archive | `.artifacts/fdi31-handoff/` has separate source checkout and verification material for the already completed hosted handoff. The [legacy notice](../../sites/model-survey/retirements/fdi31/index.html) is tracked. The [teaching backup](../../sites/body-systems-survey/README.md#restore-the-media) and Object Library page handle recovery and delivery. Keep recovery dependencies at their owners. The Object Library interface serves transport and storage. |
 | Dental illustrations, films and timing comparisons | [Image 2.6 stories](../../experiments/dental-image26/README.md) use native GIF inputs and frozen narration. [Three video treatments](../../experiments/dental-video-treatments/README.md) compare presentation and pacing at matched times with original schematics. Keep both discoverable as experiments. Link an excerpt from a teaching collection when its author adopts it for a defined purpose and labels its illustrative scope. Keep the editing/pacing comparison with the experiment. |
 | Dental surface trial and authoring checks | [FDI36 cleanup](../../experiments/dental/fdi36-surface-cleanup/README.md) records a controlled experimental comparison. [Shared teaching render](../../tools/render_teaching.py), [scene checks](../../tools/teaching_scene.py), guarded CI fixtures and [local viewer tests](../../tests/viewer/run.py) support generation and QA. Expose scoped findings through the review record if a maintainer evaluates an adoption. Keep harnesses and their generated captures as development tools and evidence. |
-
-## First implementation sequence
-
-1. **Asset maintainers and Model Survey owner.** Add stable exact revision links behind the existing family bookmarks. Use the adrenal split to prove both exact review links and related-study links. Preserve FDI31 and existing download behavior. Record missing ratings explicitly.
-2. **Body Systems and lesson maintainers.** Promote the endocrine overview and close-up to a pinned teaching sequence. Link One Breath and arch identification as independent Use Cases. Publish a revision change only after the lesson author compares and adopts it.
-3. **Compare owner and Anatomy Verification Site owner.** Start with the exact r04/r05 inputs and the existing blind reveal. Offer source-bound close-ups, source sections and review links. Test supported candidate URLs and external return paths before changing them.
-4. **Stage owner.** Start from the Body Systems scene catalogue and the bounded recovery controls from Verification. Prove an edited preset can reopen with the exact input hashes, view and selection, and that its WebP poster renders at the intended display size. The original Blender and other external witnesses stay linked to their original records.
-5. **Each existing owner.** Check old links, fallback media, unique evidence and recovery before asking to retire a redundant shell, local build or historical route. The documented FDI31 handoff is the completed example.
 
 ## Coverage and limits
 
