@@ -36,6 +36,32 @@
 - **Delivery evidence** · Link the admission decision, evidence, applicable checks and scoped review results in the handoff or PR.
 - **Authorization** · Deletion, publication and merge require their own authority.
 
+## Blender workflow
+
+| Work | Use |
+| --- | --- |
+| Explore a cutaway, pose, camera angle or material when the next edit depends on what you see | **Blender MCP.** Open a scratch scene, change one variable at a time and inspect matched views. Read exact Blender coordinates when a rounded scene summary hides millimetre-scale differences. |
+| Apply known edits, sweep predefined settings, build exports or verify the result | **Headless Blender.** Use the owning recipe. Batch known previews in one process when practical. On this Mac, request command-specific approval to run the first headless invocation outside the command sandbox. |
+
+Carry an accepted live edit into the owning recipe or editable source. Replay from clean inputs, reimport the generated GLB and review the actual export using the [applicable checks](#verification) and [matched views](#visual-comparisons). Use this workflow's visual review guidance by default. Consider installing the credited `lookdev` and `qa-review` skills individually if the same review steps recur across projects.
+
+### Local Blender MCP setup
+
+The default setup includes the MCP server and Blender add-on. The tested pair is Blender 5.2.3 with [MCP for Blender 2.3.1](https://pypi.org/project/mcp-for-blender/2.3.1/). Use the version named by the owning recipe for headless replay. If `codex mcp get blender` already shows the server, start with step 3.
+
+1. With `uv` installed, install the pinned server and its matching Blender add-on. The last command prints the absolute path to use in Codex.
+
+   ```sh
+   uv tool install mcp-for-blender==2.3.1
+   blender_mcp="$(uv tool dir --bin)/mcp-for-blender"
+   "$blender_mcp" install-addon
+   printf '%s\n' "$blender_mcp"
+   ```
+
+2. In Codex Settings → MCP servers, add a **STDIO** server named `blender`. Use the absolute executable path and set `BLENDER_HOST=localhost`, `BLENDER_MCP_SAFE_MODE=1` and `DISABLE_TELEMETRY=true` in its environment. For manual configuration, add only the Blender entry to the [Codex MCP configuration](https://developers.openai.com/codex/mcp).
+3. Open Blender and enable **Interface: MCP for Blender** under Preferences → Add-ons. In the 3D Viewport sidebar, open **MCP for Blender** and check that the server is running on localhost. Use **Start MCP Server** if needed.
+4. Open a fresh Codex chat and ask it to inspect the scratch scene and return a preview. Successful setup returns the scene objects and an image. If discovery works but inspection fails, check that Blender is open and that the sidebar listener is running.
+
 ## Verification
 
 **Runtime** · Python 3.11+, Git and Node.js 18+. Run without Python `-O`.

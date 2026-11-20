@@ -16,6 +16,7 @@ python3.12 tools/verify.py offline
 ```
 
 - **Payloads** · [Public downloads and Git/LFS recovery](transport/README.md).
+- **Blender** · [Choose live iteration or headless replay and set up Blender MCP](docs/WORKFLOW.md#blender-workflow).
 - **Backup coverage** · [Exact-tree planning and local byte checks](docs/BACKUP_CHECK.md).
 - **Original import** · [Source identities and current exceptions](docs/WORKFLOW.md#import-and-source-integrity).
 
