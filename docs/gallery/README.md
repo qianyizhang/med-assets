@@ -11,6 +11,8 @@ A learner can find a model, see it used in a lesson, examine a change and reopen
 
 The [gallery-wide design guide](../../guideline/design.md) owns navigation, view choice and presentation across these surfaces. Asset packages own their exports and credits. Reviews own evidence and decisions. Each surface links back to the identified record.
 
+See the [inventory of existing galleries and visualizations](existing-visualizations.md) for the current entry points, their owners and how each fits the four surfaces.
+
 ## First complete journey
 
 1. Search for adrenal. The BodyParts3D pair and the s1233 model have separate entries. Select s1233 r05 and inspect its portrait, attributes and rating state.
