@@ -20,17 +20,16 @@ record visual direction for skin and lymphatic return.
   Nine GLBs replayed byte-for-byte. Endocrine, lymphatic and nervous studies
   reproduced their decoded geometry with different GLB serialization.
 - **Visual and runtime.** The combined survey passed local Chrome checks for
-  image decoding, system links, keyboard disclosure and 390 px reflow. Only
+  image decoding, system links, keyboard disclosure and 390 px reflow. In that original revision, only
   [One Breath](../../reviews/one-breath/airway-r01/README.md) was exercised in
   live local WebGL. Its 3D views and independent exchange schematic have
-  separate checks. Other studies have offline import and render evidence.
+  separate checks. The [adrenal exterior review](../../reviews/endocrine-locator/adrenal-study-r04/README.md) records the later full-gallery WebGL check.
 - **Anatomy.** Reference screening supports the stated introductory uses.
   Specialist approval remains open. Individual records identify schematic
   structures, authored joins, pose limits and exceptions.
 - **Delivery.** The repository carries the recipes, input identities, lesson
   code, report source, review findings and exact media hashes. The existing
-  galleries have separate deployment sources. Their comparison is retained
-  for the pending gallery decision.
+  galleries have separate deployment sources. The [gallery design guide](../../guideline/design.md) proposes how their catalogue and review routes connect to these teaching views.
 
 ## Gallery presentation audit
 
@@ -64,16 +63,14 @@ when the local assembly receipts and renders are present.
 
 ## Local before-and-after comparisons
 
-The [surface quality review](../../reviews/body-systems/2026-11-20-surface-quality/README.md)
-scores the terminal airspaces, seated nail and s1233 adrenal group against the
-[gallery rubric](../../docs/WORKFLOW.md#body-system-gallery-rubric). It includes
-the matched views and links to the three portable teaching models. In the local
-gallery, open **Before and after** in Respiratory, Integumentary or Endocrine
-to rotate the revised model and isolate its parts. The adrenal comparison also
-needs the original `s1233-adrenals.glb` from the
-[regional endocrine build](../../assemblies/endocrine-locator/r02/README.md).
+The [first surface review](../../reviews/body-systems/2026-11-20-surface-quality/README.md)
+scores the terminal airspaces, seated nail and s1233 adrenal group. The
+[adrenal close-up review](../../reviews/endocrine-locator/adrenal-study-r04/README.md)
+applies the [refined rubric](../../guideline/asset-quality.md) to the interpreted
+teaching exterior. Its comparison uses two checked-in GLBs. The earlier
+atlas-to-scan comparison uses the locally restored regional models.
 
-Open the **Before and after** panels within a system. Each panel links the
+Open **Before and after** within a system. Each panel links the
 original and updated isometric and orthographic renders to their model
 identities and the owning review. The report checks camera, scale and PNG
 dimensions for matched pairs. Where available, **Open updated view in 3D**

@@ -3,20 +3,30 @@
     "id": "surface-adrenal",
     "system": "endocrine",
     "title": "Adrenals in their scan frame",
-    "note": "Find the two ochre glands above their respective kidneys in the posterior view. The teaching surface retains the five s1233 labels and the separate pancreatic components. Use the original for the traced label boundaries.",
+    "note": "Locate both glands against the kidneys. The updated exterior interprets the scan-derived shape for teaching. It smooths local bumps and closes five tunnels of uncertain anatomical meaning, one in each adrenal and three in the principal pancreatic surface. The kidney recesses remain visible.",
     "matched": true,
     "inspect3d": true,
-    "review": "reviews/body-systems/2026-11-20-surface-quality/README.md",
+    "review": "reviews/endocrine-locator/adrenal-study-r04/README.md",
     "before": {
-      "receipt": "reviews/body-systems/2026-11-20-surface-quality/views/adrenal/renders.json",
-      "model": ".artifacts/body-systems-refinement-2026-11-19/endocrine/s1233-adrenals.glb",
+      "receipt": "reviews/endocrine-locator/adrenal-study-r04/renders.json",
+      "model": "assemblies/endocrine-locator/adrenal-study-r03/s1233-adrenals-teaching.glb",
       "view": "original"
     },
     "after": {
-      "receipt": "reviews/body-systems/2026-11-20-surface-quality/views/adrenal/renders.json",
-      "model": "assemblies/endocrine-locator/adrenal-study-r03/s1233-adrenals-teaching.glb",
+      "receipt": "reviews/endocrine-locator/adrenal-study-r04/renders.json",
+      "model": "assemblies/endocrine-locator/adrenal-study-r04/s1233-adrenals-illustrative.glb",
       "view": "updated"
-    }
+    },
+    "details": [
+      {
+        "title": "Both glands isolated",
+        "view": "updated-detail"
+      },
+      {
+        "title": "Neutral surface inspection",
+        "view": "updated-neutral"
+      }
+    ]
   },
   {
     "id": "surface-airspaces",

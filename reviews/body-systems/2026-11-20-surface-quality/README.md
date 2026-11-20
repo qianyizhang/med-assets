@@ -2,7 +2,7 @@
 
 20 November 2026 · Local review of eleven body systems
 
-The terminal cutaway now shows where air can pass. The s1233 adrenal group keeps the shape and placement of the glands while shedding 81.5% of its triangles. The seated nail exposes the relationship between a crowned plate, its bed and the free edge. All three revised exports meet the gallery target of at least 3 on every axis.
+The terminal cutaway now shows where air can pass. The s1233 adrenal group keeps the shape and placement of the glands while shedding 81.5% of its triangles. The seated nail exposes the relationship between a crowned plate, its bed and the free edge. All three met the original overview rubric. A [later adrenal close-up review](../../endocrine-locator/adrenal-study-r04/README.md) reopens the surface score and compares an interpreted exterior. The scores below record the first review.
 
 | Teaching asset | Fidelity | Form and surface | Teaching readability | Mesh economy | Total / 16 |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -80,7 +80,7 @@ I screened 103 isometric plates across all eleven systems, including the regiona
 
 Other conspicuous examples included the arrows in the urinary outlet, the sparse nervous overview and the digestive outlet schematic. The urinary arrows are identified teaching cues, the nervous root has a dedicated junction detail, and the current gastroduodenal cutaway already exposes the opening. The selected three still showed a consequential defect in their closest available teaching view.
 
-Use the [canonical scoring anchors and geometry guidance](../../../docs/WORKFLOW.md#body-system-gallery-rubric) to repeat the review. Baseline source revision `53d17abd19386b3435da6e68ec796002a3333ea5`. Sol built the three derivatives. I selected the views, reviewed intermediate exports and assigned the scores after inspecting the final geometry checks and color and grayscale images.
+Use the [canonical scoring anchors and geometry guidance](../../../guideline/asset-quality.md) to repeat the review. Baseline source revision `53d17abd19386b3435da6e68ec796002a3333ea5`. Sol built the three derivatives. I selected the views, reviewed intermediate exports and assigned the scores after inspecting the final geometry checks and color and grayscale images.
 
 ## Verification and scope
 

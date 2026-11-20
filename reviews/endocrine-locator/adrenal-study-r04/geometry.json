@@ -1,0 +1,795 @@
+{
+  "blender": "5.2.3 LTS Release Candidate",
+  "recipeSha256": "83ee1ac4ec95582e0784a73f81b33e55189ed89d3ea287bd32e46efb4155e8d6",
+  "fieldRecipeSha256": "5f8c4b395aca3954bb2aab2709acbf2ae54b35b85738ff976bcb9c9f9a95fbf1",
+  "referenceRecipeSha256": "9c5b3ecf341330319987d9d4ddd849890f4a000feafd962b1ae05a7480c6d9d1",
+  "source": {
+    "file": "s1233-adrenals-teaching.glb",
+    "sha256": "e2bcc2e93a73c027480418109e4db06ce38ea7923b671e5dfe53cfd7d288caa4",
+    "bytes": 254452
+  },
+  "updated": {
+    "file": "s1233-adrenals-illustrative.glb",
+    "sha256": "892a803078e586d6886da23a0435f35ec3792ed604a3acd85cea448ec10b8489",
+    "bytes": 258696
+  },
+  "editable": {
+    "file": "s1233-adrenals-illustrative.blend",
+    "sha256": "ca6ea142d5833b01f83373bf8a1937e4ac252922e608fe6b408a5deda45bef4e",
+    "bytes": 396545
+  },
+  "workGridStepMm": 0.6,
+  "sourceMaskSpacingMm": 1.5,
+  "distanceReference": "Two-way nearest triangle distances sampled on the r03 and r04 GLBs",
+  "frame": "s1233 Blender metres, +X left, +Y posterior, +Z superior",
+  "surfaceIntersectionPairs": [],
+  "parts": {
+    "adrenal-gland-left": {
+      "components": [
+        {
+          "before": {
+            "triangles": 1264,
+            "vertices": 632,
+            "euler": 0,
+            "boundaryEdges": 0,
+            "nonmanifoldEdges": 0,
+            "signedVolumeMm3": 6342.52294921875,
+            "areaCentroidMm": [
+              39.690948486328125,
+              -10.830493927001953,
+              -65.98698425292969
+            ],
+            "boundsMm": [
+              [
+                25.128002166748047,
+                -30.1918888092041,
+                -89.45178985595703
+              ],
+              [
+                53.886165618896484,
+                16.703624725341797,
+                -49.17142105102539
+              ]
+            ],
+            "edgeLengthFractionAbove20Degrees": 0.18920065462589264
+          },
+          "after": {
+            "triangles": 1650,
+            "vertices": 827,
+            "euler": 2,
+            "boundaryEdges": 0,
+            "nonmanifoldEdges": 0,
+            "signedVolumeMm3": 6315.7841796875,
+            "areaCentroidMm": [
+              39.552913665771484,
+              -11.160307884216309,
+              -66.13585662841797
+            ],
+            "boundsMm": [
+              [
+                26.136219024658203,
+                -29.822181701660156,
+                -89.04229736328125
+              ],
+              [
+                53.33651351928711,
+                15.131086349487305,
+                -49.59888458251953
+              ]
+            ],
+            "edgeLengthFractionAbove20Degrees": 0.04418215528130531
+          },
+          "originalToUpdatedMm": {
+            "samples": 20590,
+            "p95": 0.7489508163416757,
+            "max": 2.218222478404641
+          },
+          "updatedToOriginalMm": {
+            "samples": 22164,
+            "p95": 0.5644245975418016,
+            "max": 1.3473723083734512
+          },
+          "worstOriginalVertex": {
+            "originalPositionMm": [
+              53.26348114013672,
+              16.586681365966797,
+              -53.44329071044922
+            ],
+            "updatedShellNearestPointMm": [
+              52.27688217163086,
+              14.740119934082031,
+              -54.176326751708984
+            ],
+            "separationMm": 2.218222478404641,
+            "updatedNormalDotDisplacementMm": 2.104746687109582
+          },
+          "signedVolumeChangePct": -0.4215793895478659,
+          "boundsAbsoluteDeltaMm": [
+            [
+              1.0082168579101562,
+              0.3697071075439453,
+              0.40949249267578125
+            ],
+            [
+              0.549652099609375,
+              1.5725383758544922,
+              0.4274635314941406
+            ]
+          ],
+          "areaCentroidShiftMm": 0.3872903849090763,
+          "nonadjacentIntersectionPairs": {
+            "original": 0,
+            "updated": 0
+          }
+        }
+      ],
+      "primitives": [
+        1,
+        1
+      ],
+      "construction": {
+        "closingRadiusMm": 0.0,
+        "gaussianSigmaMm": 1.55,
+        "measuredInputInteriorVoxels": 29385,
+        "workGridEulerBeforeSmoothing": 1,
+        "isoValueShiftMm": -0.25473079113851765,
+        "measuredOutputInteriorVoxels": 29385,
+        "addedVoxelsBeforeSmoothing": 0,
+        "removedVoxelsBeforeSmoothing": 0
+      },
+      "inferredTunnelClosures": 1
+    },
+    "kidney-left": {
+      "components": [
+        {
+          "before": {
+            "triangles": 4170,
+            "vertices": 2087,
+            "euler": 2,
+            "boundaryEdges": 0,
+            "nonmanifoldEdges": 0,
+            "signedVolumeMm3": 118883.40625,
+            "areaCentroidMm": [
+              89.6624755859375,
+              -12.329202651977539,
+              -112.92134094238281
+            ],
+            "boundsMm": [
+              [
+                59.089271545410156,
+                -50.16737747192383,
+                -161.61886596679688
+              ],
+              [
+                120.4005126953125,
+                27.385986328125,
+                -69.93431854248047
+              ]
+            ],
+            "edgeLengthFractionAbove20Degrees": 0.09149986505508423
+          },
+          "after": {
+            "triangles": 3650,
+            "vertices": 1827,
+            "euler": 2,
+            "boundaryEdges": 0,
+            "nonmanifoldEdges": 0,
+            "signedVolumeMm3": 118690.1953125,
+            "areaCentroidMm": [
+              89.82128143310547,
+              -12.283624649047852,
+              -112.98895263671875
+            ],
+            "boundsMm": [
+              [
+                59.636905670166016,
+                -50.03001403808594,
+                -161.26498413085938
+              ],
+              [
+                119.7125473022461,
+                26.68796730041504,
+                -70.4674072265625
+              ]
+            ],
+            "edgeLengthFractionAbove20Degrees": 0.020371511578559875
+          },
+          "originalToUpdatedMm": {
+            "samples": 126789,
+            "p95": 1.2896313564851878,
+            "max": 3.124720184132457
+          },
+          "updatedToOriginalMm": {
+            "samples": 123131,
+            "p95": 1.0362003231421113,
+            "max": 2.581127220764756
+          },
+          "worstOriginalVertex": {
+            "originalPositionMm": [
+              81.34579467773438,
+              0.33585700392723083,
+              -85.95429229736328
+            ],
+            "updatedShellNearestPointMm": [
+              82.40067291259766,
+              1.198745608329773,
+              -88.76615142822266
+            ],
+            "separationMm": 3.124720184132457,
+            "updatedNormalDotDisplacementMm": -3.1135724566411227
+          },
+          "signedVolumeChangePct": -0.16252136744273615,
+          "boundsAbsoluteDeltaMm": [
+            [
+              0.5476341247558594,
+              0.13736343383789062,
+              0.3538818359375
+            ],
+            [
+              0.6879653930664062,
+              0.6980190277099609,
+              0.5330886840820312
+            ]
+          ],
+          "areaCentroidShiftMm": 0.17851608514856887,
+          "nonadjacentIntersectionPairs": {
+            "original": 0,
+            "updated": 0
+          }
+        }
+      ],
+      "primitives": [
+        1,
+        1
+      ],
+      "construction": {
+        "closingRadiusMm": 0.0,
+        "gaussianSigmaMm": 2.7,
+        "measuredInputInteriorVoxels": 550443,
+        "workGridEulerBeforeSmoothing": 1,
+        "isoValueShiftMm": -0.15498886838476852,
+        "measuredOutputInteriorVoxels": 550443,
+        "addedVoxelsBeforeSmoothing": 0,
+        "removedVoxelsBeforeSmoothing": 0
+      },
+      "inferredTunnelClosures": 0
+    },
+    "pancreas": {
+      "components": [
+        {
+          "before": {
+            "triangles": 3382,
+            "vertices": 1687,
+            "euler": -4,
+            "boundaryEdges": 0,
+            "nonmanifoldEdges": 0,
+            "signedVolumeMm3": 58236.70703125,
+            "areaCentroidMm": [
+              1.7308529615402222,
+              -45.12373733520508,
+              -93.02557373046875
+            ],
+            "boundsMm": [
+              [
+                -32.170692443847656,
+                -68.00279235839844,
+                -146.6392364501953
+              ],
+              [
+                51.39674758911133,
+                -26.099809646606445,
+                -46.129417419433594
+              ]
+            ],
+            "edgeLengthFractionAbove20Degrees": 0.28532081842422485
+          },
+          "after": {
+            "triangles": 3348,
+            "vertices": 1676,
+            "euler": 2,
+            "boundaryEdges": 0,
+            "nonmanifoldEdges": 0,
+            "signedVolumeMm3": 58075.79296875,
+            "areaCentroidMm": [
+              1.112127661705017,
+              -45.15550994873047,
+              -93.4247817993164
+            ],
+            "boundsMm": [
+              [
+                -31.683664321899414,
+                -67.3311538696289,
+                -146.41754150390625
+              ],
+              [
+                51.29233169555664,
+                -25.996795654296875,
+                -47.072898864746094
+              ]
+            ],
+            "edgeLengthFractionAbove20Degrees": 0.03681480512022972
+          },
+          "originalToUpdatedMm": {
+            "samples": 86322,
+            "p95": 1.188381458632648,
+            "max": 7.117579225450754
+          },
+          "updatedToOriginalMm": {
+            "samples": 81627,
+            "p95": 0.712112698238343,
+            "max": 1.7192146042361856
+          },
+          "worstOriginalVertex": {
+            "originalPositionMm": [
+              22.238496780395508,
+              -45.040977478027344,
+              -65.85570526123047
+            ],
+            "updatedShellNearestPointMm": [
+              22.982969284057617,
+              -38.64582824707031,
+              -68.09618377685547
+            ],
+            "separationMm": 6.817028857767582,
+            "updatedNormalDotDisplacementMm": -6.8170290542184375
+          },
+          "signedVolumeChangePct": -0.27631037313571305,
+          "boundsAbsoluteDeltaMm": [
+            [
+              0.4870281219482422,
+              0.6716384887695312,
+              0.2216949462890625
+            ],
+            [
+              0.1044158935546875,
+              0.10301399230957031,
+              0.9434814453125
+            ]
+          ],
+          "areaCentroidShiftMm": 0.7370193877093555,
+          "nonadjacentIntersectionPairs": {
+            "original": 0,
+            "updated": 0
+          }
+        },
+        {
+          "before": {
+            "triangles": 84,
+            "vertices": 44,
+            "euler": 2,
+            "boundaryEdges": 0,
+            "nonmanifoldEdges": 0,
+            "signedVolumeMm3": -42.25139617919922,
+            "areaCentroidMm": [
+              16.111169815063477,
+              -47.960243225097656,
+              -68.5271224975586
+            ],
+            "boundsMm": [
+              [
+                13.861328125,
+                -51.638671875,
+                -70.06946563720703
+              ],
+              [
+                18.361328125,
+                -45.638671875,
+                -67.05000305175781
+              ]
+            ],
+            "edgeLengthFractionAbove20Degrees": 0.5298066735267639
+          },
+          "after": {
+            "triangles": 84,
+            "vertices": 44,
+            "euler": 2,
+            "boundaryEdges": 0,
+            "nonmanifoldEdges": 0,
+            "signedVolumeMm3": -42.25139617919922,
+            "areaCentroidMm": [
+              16.111169815063477,
+              -47.960243225097656,
+              -68.5271224975586
+            ],
+            "boundsMm": [
+              [
+                13.861328125,
+                -51.638671875,
+                -70.06946563720703
+              ],
+              [
+                18.361328125,
+                -45.638671875,
+                -67.05000305175781
+              ]
+            ],
+            "edgeLengthFractionAbove20Degrees": 0.5298066735267639
+          },
+          "originalToUpdatedMm": {
+            "samples": 580,
+            "p95": 1.862645149230957e-06,
+            "max": 7.508562660518692e-06
+          },
+          "updatedToOriginalMm": {
+            "samples": 580,
+            "p95": 1.862645149230957e-06,
+            "max": 7.508562660518692e-06
+          },
+          "worstOriginalVertex": {
+            "originalPositionMm": [
+              13.861328125,
+              -47.888671875,
+              -69.29999542236328
+            ],
+            "updatedShellNearestPointMm": [
+              13.861328125,
+              -47.888671875,
+              -69.29999542236328
+            ],
+            "separationMm": 0.0,
+            "updatedNormalDotDisplacementMm": 0.0
+          },
+          "signedVolumeChangePct": 0.0,
+          "boundsAbsoluteDeltaMm": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "areaCentroidShiftMm": 0.0,
+          "nonadjacentIntersectionPairs": {
+            "original": 0,
+            "updated": 0
+          }
+        },
+        {
+          "before": {
+            "triangles": 28,
+            "vertices": 16,
+            "euler": 2,
+            "boundaryEdges": 0,
+            "nonmanifoldEdges": 0,
+            "signedVolumeMm3": -7.312509536743164,
+            "areaCentroidMm": [
+              25.111330032348633,
+              -50.138671875,
+              -71.55000305175781
+            ],
+            "boundsMm": [
+              [
+                24.361328125,
+                -51.638671875,
+                -73.05000305175781
+              ],
+              [
+                25.861328125,
+                -48.638671875,
+                -70.05000305175781
+              ]
+            ],
+            "edgeLengthFractionAbove20Degrees": 0.6743133664131165
+          },
+          "after": {
+            "triangles": 28,
+            "vertices": 16,
+            "euler": 2,
+            "boundaryEdges": 0,
+            "nonmanifoldEdges": 0,
+            "signedVolumeMm3": -7.312509536743164,
+            "areaCentroidMm": [
+              25.111330032348633,
+              -50.138671875,
+              -71.55000305175781
+            ],
+            "boundsMm": [
+              [
+                24.361328125,
+                -51.638671875,
+                -73.05000305175781
+              ],
+              [
+                25.861328125,
+                -48.638671875,
+                -70.05000305175781
+              ]
+            ],
+            "edgeLengthFractionAbove20Degrees": 0.6743133664131165
+          },
+          "originalToUpdatedMm": {
+            "samples": 180,
+            "p95": 1.862645149230957e-06,
+            "max": 3.725290298461914e-06
+          },
+          "updatedToOriginalMm": {
+            "samples": 180,
+            "p95": 1.862645149230957e-06,
+            "max": 3.725290298461914e-06
+          },
+          "worstOriginalVertex": {
+            "originalPositionMm": [
+              24.361328125,
+              -50.888671875,
+              -72.30000305175781
+            ],
+            "updatedShellNearestPointMm": [
+              24.361328125,
+              -50.888671875,
+              -72.30000305175781
+            ],
+            "separationMm": 0.0,
+            "updatedNormalDotDisplacementMm": 0.0
+          },
+          "signedVolumeChangePct": 0.0,
+          "boundsAbsoluteDeltaMm": [
+            [
+              0.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              0.0
+            ]
+          ],
+          "areaCentroidShiftMm": 0.0,
+          "nonadjacentIntersectionPairs": {
+            "original": 0,
+            "updated": 0
+          }
+        }
+      ],
+      "primitives": [
+        1,
+        1
+      ],
+      "construction": {
+        "closingRadiusMm": 0.0,
+        "gaussianSigmaMm": 1.92,
+        "measuredInputInteriorVoxels": 269630,
+        "workGridEulerBeforeSmoothing": 3,
+        "isoValueShiftMm": -0.17267651375568427,
+        "measuredOutputInteriorVoxels": 269630,
+        "addedVoxelsBeforeSmoothing": 85,
+        "removedVoxelsBeforeSmoothing": 0
+      },
+      "inferredTunnelClosures": 3
+    },
+    "adrenal-gland-right": {
+      "components": [
+        {
+          "before": {
+            "triangles": 1132,
+            "vertices": 566,
+            "euler": 0,
+            "boundaryEdges": 0,
+            "nonmanifoldEdges": 0,
+            "signedVolumeMm3": 5105.41455078125,
+            "areaCentroidMm": [
+              -31.113679885864258,
+              11.993955612182617,
+              -63.90593338012695
+            ],
+            "boundsMm": [
+              [
+                -48.07804870605469,
+                -4.413544178009033,
+                -76.00804138183594
+              ],
+              [
+                -16.775802612304688,
+                30.169281005859375,
+                -50.16804504394531
+              ]
+            ],
+            "edgeLengthFractionAbove20Degrees": 0.17629022896289825
+          },
+          "after": {
+            "triangles": 1550,
+            "vertices": 777,
+            "euler": 2,
+            "boundaryEdges": 0,
+            "nonmanifoldEdges": 0,
+            "signedVolumeMm3": 5090.29638671875,
+            "areaCentroidMm": [
+              -30.82631492614746,
+              11.902482986450195,
+              -63.76222610473633
+            ],
+            "boundsMm": [
+              [
+                -47.03716278076172,
+                -3.546963691711426,
+                -75.6907730102539
+              ],
+              [
+                -17.15907096862793,
+                29.492576599121094,
+                -51.71179962158203
+              ]
+            ],
+            "edgeLengthFractionAbove20Degrees": 0.04304346814751625
+          },
+          "originalToUpdatedMm": {
+            "samples": 19105,
+            "p95": 1.041102595627308,
+            "max": 2.339358674362302
+          },
+          "updatedToOriginalMm": {
+            "samples": 19809,
+            "p95": 0.6883808644488447,
+            "max": 1.455366611480713
+          },
+          "worstOriginalVertex": {
+            "originalPositionMm": [
+              -34.38230895996094,
+              14.412978172302246,
+              -65.06049346923828
+            ],
+            "updatedShellNearestPointMm": [
+              -35.43440246582031,
+              14.670668601989746,
+              -67.13397216796875
+            ],
+            "separationMm": 2.339358674362302,
+            "updatedNormalDotDisplacementMm": -2.3309989537665388
+          },
+          "signedVolumeChangePct": -0.2961202055607126,
+          "boundsAbsoluteDeltaMm": [
+            [
+              1.0408859252929688,
+              0.8665804862976074,
+              0.31726837158203125
+            ],
+            [
+              0.3832683563232422,
+              0.6767044067382812,
+              1.5437545776367188
+            ]
+          ],
+          "areaCentroidShiftMm": 0.33406233300331384,
+          "nonadjacentIntersectionPairs": {
+            "original": 0,
+            "updated": 0
+          }
+        }
+      ],
+      "primitives": [
+        1,
+        1
+      ],
+      "construction": {
+        "closingRadiusMm": 0.0,
+        "gaussianSigmaMm": 1.55,
+        "measuredInputInteriorVoxels": 23647,
+        "workGridEulerBeforeSmoothing": 0,
+        "isoValueShiftMm": -0.244204020850283,
+        "measuredOutputInteriorVoxels": 23647,
+        "addedVoxelsBeforeSmoothing": 0,
+        "removedVoxelsBeforeSmoothing": 0
+      },
+      "inferredTunnelClosures": 1
+    },
+    "kidney-right": {
+      "components": [
+        {
+          "before": {
+            "triangles": 3744,
+            "vertices": 1874,
+            "euler": 2,
+            "boundaryEdges": 0,
+            "nonmanifoldEdges": 0,
+            "signedVolumeMm3": 110033.6328125,
+            "areaCentroidMm": [
+              -71.78170013427734,
+              -5.58367395401001,
+              -141.11642456054688
+            ],
+            "boundsMm": [
+              [
+                -98.7137222290039,
+                -48.41069793701172,
+                -182.6145782470703
+              ],
+              [
+                -44.64900207519531,
+                36.51679992675781,
+                -98.47276306152344
+              ]
+            ],
+            "edgeLengthFractionAbove20Degrees": 0.08208241313695908
+          },
+          "after": {
+            "triangles": 3650,
+            "vertices": 1827,
+            "euler": 2,
+            "boundaryEdges": 0,
+            "nonmanifoldEdges": 0,
+            "signedVolumeMm3": 109824.5234375,
+            "areaCentroidMm": [
+              -71.99822998046875,
+              -5.561439037322998,
+              -141.25701904296875
+            ],
+            "boundsMm": [
+              [
+                -98.55585479736328,
+                -47.98244094848633,
+                -182.3772430419922
+              ],
+              [
+                -45.34886932373047,
+                35.760807037353516,
+                -99.26526641845703
+              ]
+            ],
+            "edgeLengthFractionAbove20Degrees": 0.018899153918027878
+          },
+          "originalToUpdatedMm": {
+            "samples": 115601,
+            "p95": 1.3003729982301593,
+            "max": 2.7548992075026035
+          },
+          "updatedToOriginalMm": {
+            "samples": 112353,
+            "p95": 1.05090809520334,
+            "max": 2.4294268805533648
+          },
+          "worstOriginalVertex": {
+            "originalPositionMm": [
+              -79.77960205078125,
+              -10.744372367858887,
+              -135.700439453125
+            ],
+            "updatedShellNearestPointMm": [
+              -77.04923248291016,
+              -10.605680465698242,
+              -136.04002380371094
+            ],
+            "separationMm": 2.7548992075026035,
+            "updatedNormalDotDisplacementMm": -2.7410326783865457
+          },
+          "signedVolumeChangePct": -0.1900413261428202,
+          "boundsAbsoluteDeltaMm": [
+            [
+              0.157867431640625,
+              0.4282569885253906,
+              0.237335205078125
+            ],
+            [
+              0.6998672485351562,
+              0.7559928894042969,
+              0.7925033569335938
+            ]
+          ],
+          "areaCentroidShiftMm": 0.2591261744772753,
+          "nonadjacentIntersectionPairs": {
+            "original": 0,
+            "updated": 0
+          }
+        }
+      ],
+      "primitives": [
+        1,
+        1
+      ],
+      "construction": {
+        "closingRadiusMm": 0.0,
+        "gaussianSigmaMm": 2.7,
+        "measuredInputInteriorVoxels": 509349,
+        "workGridEulerBeforeSmoothing": 1,
+        "isoValueShiftMm": -0.1567098892603798,
+        "measuredOutputInteriorVoxels": 509349,
+        "addedVoxelsBeforeSmoothing": 0,
+        "removedVoxelsBeforeSmoothing": 0
+      },
+      "inferredTunnelClosures": 0
+    }
+  }
+}

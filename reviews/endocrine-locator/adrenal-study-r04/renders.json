@@ -1,0 +1,466 @@
+{
+  "blender": "5.2.3 LTS Release Candidate",
+  "geometrySha256": "b3b13498f0e5b2f19aec9bfc4bf86630efe9670e555e6f382c7ea46ddaa88a11",
+  "views": [
+    {
+      "id": "original",
+      "frame": 1,
+      "visible": [
+        "Left adrenal gland",
+        "Left kidney context",
+        "Pancreas context",
+        "Right adrenal gland",
+        "Right kidney context"
+      ],
+      "bounds": [
+        [
+          -0.09871372580528259,
+          -0.06800279021263123,
+          -0.18261457979679108
+        ],
+        [
+          0.12040051072835922,
+          0.03651680052280426,
+          -0.046129416674375534
+        ]
+      ],
+      "orthographicScale": 0.33185410499572754,
+      "images": [
+        {
+          "file": "original-iso.png",
+          "sha256": "9911374893d517aeecd11e9a3176b0c5bbe09bbfe65099855586f1308989caa3",
+          "direction": [
+            -0.5773502588272095,
+            0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            -0.6216849088668823,
+            0.6167852878570557,
+            0.5181562900543213
+          ]
+        },
+        {
+          "file": "original-ortho.png",
+          "sha256": "b8333254119d2154133f4697d882a7d97264a6f18f7dad143444367b7a06c406",
+          "direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "camera": [
+            0.010843392461538315,
+            1.0798282623291016,
+            -0.11437200009822845
+          ]
+        }
+      ],
+      "glb": {
+        "file": "s1233-adrenals-teaching.glb",
+        "sha256": "e2bcc2e93a73c027480418109e4db06ce38ea7923b671e5dfe53cfd7d288caa4"
+      },
+      "materials": "Imported GLB materials"
+    },
+    {
+      "id": "updated",
+      "frame": 1,
+      "visible": [
+        "Left adrenal gland",
+        "Left kidney context",
+        "Pancreas context",
+        "Right adrenal gland",
+        "Right kidney context"
+      ],
+      "bounds": [
+        [
+          -0.09855585545301437,
+          -0.06733115762472153,
+          -0.18237724900245667
+        ],
+        [
+          0.11971254646778107,
+          0.03576080873608589,
+          -0.04707289859652519
+        ]
+      ],
+      "orthographicScale": 0.33185410499572754,
+      "images": [
+        {
+          "file": "updated-iso.png",
+          "sha256": "8f71343fcad429c7cae9079862394b8474ca5589dce0ec3f4c2b1197dcf64c92",
+          "direction": [
+            -0.5773502588272095,
+            0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            -0.6216849088668823,
+            0.6167852878570557,
+            0.5181562900543213
+          ]
+        },
+        {
+          "file": "updated-ortho.png",
+          "sha256": "508ed2746c560bf91ac8cbd664e41e1cf1a96c9876fac0d3d0cc2d4daae8e16a",
+          "direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "camera": [
+            0.010843392461538315,
+            1.0798282623291016,
+            -0.11437200009822845
+          ]
+        }
+      ],
+      "glb": {
+        "file": "s1233-adrenals-illustrative.glb",
+        "sha256": "892a803078e586d6886da23a0435f35ec3792ed604a3acd85cea448ec10b8489"
+      },
+      "materials": "Imported GLB materials"
+    },
+    {
+      "id": "original-detail",
+      "frame": 1,
+      "visible": [
+        "Left adrenal gland",
+        "Right adrenal gland"
+      ],
+      "bounds": [
+        [
+          -0.04807804897427559,
+          -0.03019188903272152,
+          -0.08945178985595703
+        ],
+        [
+          0.05388616397976875,
+          0.030169280245900154,
+          -0.04917142167687416
+        ]
+      ],
+      "orthographicScale": 0.1351025551557541,
+      "images": [
+        {
+          "file": "original-detail-iso.png",
+          "sha256": "aee2622a4bfc711dd9fbb97ec9dc8fc0218a3144f84e7c0db41e59533d0be69b",
+          "direction": [
+            -0.5773502588272095,
+            0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            -0.29144126176834106,
+            0.2943340241909027,
+            0.2250337153673172
+          ]
+        },
+        {
+          "file": "original-detail-ortho.png",
+          "sha256": "a20df6eea8fca038aefdadcb5f25ba28fcef796eb657648050aa1d19490a6de8",
+          "direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "camera": [
+            0.002904057502746582,
+            0.5098097324371338,
+            -0.06931160390377045
+          ]
+        }
+      ],
+      "glb": {
+        "file": "s1233-adrenals-teaching.glb",
+        "sha256": "e2bcc2e93a73c027480418109e4db06ce38ea7923b671e5dfe53cfd7d288caa4"
+      },
+      "materials": "Imported GLB materials"
+    },
+    {
+      "id": "updated-detail",
+      "frame": 1,
+      "visible": [
+        "Left adrenal gland",
+        "Right adrenal gland"
+      ],
+      "bounds": [
+        [
+          -0.04703716188669205,
+          -0.029822181910276413,
+          -0.0890422984957695
+        ],
+        [
+          0.05333651229739189,
+          0.0294925756752491,
+          -0.04959888383746147
+        ]
+      ],
+      "orthographicScale": 0.1351025551557541,
+      "images": [
+        {
+          "file": "updated-detail-iso.png",
+          "sha256": "243fd6120fa6062b3f03fe0b376838b6fbf21260b0d73a23ffc58a2f39806e22",
+          "direction": [
+            -0.5773502588272095,
+            0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            -0.29144126176834106,
+            0.2943340241909027,
+            0.2250337153673172
+          ]
+        },
+        {
+          "file": "updated-detail-ortho.png",
+          "sha256": "b991fbdee57f7c4a71953a911fe1c56277defa893dfedd0b2ea2af8625c25fc5",
+          "direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "camera": [
+            0.002904057502746582,
+            0.5098097324371338,
+            -0.06931160390377045
+          ]
+        }
+      ],
+      "glb": {
+        "file": "s1233-adrenals-illustrative.glb",
+        "sha256": "892a803078e586d6886da23a0435f35ec3792ed604a3acd85cea448ec10b8489"
+      },
+      "materials": "Imported GLB materials"
+    },
+    {
+      "id": "original-neutral",
+      "frame": 1,
+      "visible": [
+        "Left adrenal gland",
+        "Left kidney context",
+        "Pancreas context",
+        "Right adrenal gland",
+        "Right kidney context"
+      ],
+      "bounds": [
+        [
+          -0.09871372580528259,
+          -0.06800279021263123,
+          -0.18261457979679108
+        ],
+        [
+          0.12040051072835922,
+          0.03651680052280426,
+          -0.046129416674375534
+        ]
+      ],
+      "orthographicScale": 0.33185410499572754,
+      "images": [
+        {
+          "file": "original-neutral-iso.png",
+          "sha256": "58266e16ed928bfd78cb35f661c5d5cf96cbf374859a67d11919bf1cb13ad16a",
+          "direction": [
+            -0.5773502588272095,
+            0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            -0.6216849088668823,
+            0.6167852878570557,
+            0.5181562900543213
+          ]
+        },
+        {
+          "file": "original-neutral-ortho.png",
+          "sha256": "ef1b8e8fcbb70211e4278fe89988638d9520c3f4df980515f9dddba88f7daa81",
+          "direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "camera": [
+            0.010843392461538315,
+            1.0798282623291016,
+            -0.11437200009822845
+          ]
+        }
+      ],
+      "glb": {
+        "file": "s1233-adrenals-teaching.glb",
+        "sha256": "e2bcc2e93a73c027480418109e4db06ce38ea7923b671e5dfe53cfd7d288caa4"
+      },
+      "materials": "Shared neutral override"
+    },
+    {
+      "id": "updated-neutral",
+      "frame": 1,
+      "visible": [
+        "Left adrenal gland",
+        "Left kidney context",
+        "Pancreas context",
+        "Right adrenal gland",
+        "Right kidney context"
+      ],
+      "bounds": [
+        [
+          -0.09855585545301437,
+          -0.06733115762472153,
+          -0.18237724900245667
+        ],
+        [
+          0.11971254646778107,
+          0.03576080873608589,
+          -0.04707289859652519
+        ]
+      ],
+      "orthographicScale": 0.33185410499572754,
+      "images": [
+        {
+          "file": "updated-neutral-iso.png",
+          "sha256": "e6c059063e07f822575729d8a35f685173a03ca2be41da210e676fdcf6547231",
+          "direction": [
+            -0.5773502588272095,
+            0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            -0.6216849088668823,
+            0.6167852878570557,
+            0.5181562900543213
+          ]
+        },
+        {
+          "file": "updated-neutral-ortho.png",
+          "sha256": "daa2aafbd537912771f8a6415aa14b94406758ff03dc5ddee30c57d6aa7b7605",
+          "direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "camera": [
+            0.010843392461538315,
+            1.0798282623291016,
+            -0.11437200009822845
+          ]
+        }
+      ],
+      "glb": {
+        "file": "s1233-adrenals-illustrative.glb",
+        "sha256": "892a803078e586d6886da23a0435f35ec3792ed604a3acd85cea448ec10b8489"
+      },
+      "materials": "Shared neutral override"
+    },
+    {
+      "id": "original-neutral-detail",
+      "frame": 1,
+      "visible": [
+        "Left adrenal gland",
+        "Right adrenal gland"
+      ],
+      "bounds": [
+        [
+          -0.04807804897427559,
+          -0.03019188903272152,
+          -0.08945178985595703
+        ],
+        [
+          0.05388616397976875,
+          0.030169280245900154,
+          -0.04917142167687416
+        ]
+      ],
+      "orthographicScale": 0.1351025551557541,
+      "images": [
+        {
+          "file": "original-neutral-detail-iso.png",
+          "sha256": "d6193000291e470ea0a61e0cfbe766b3739084747235f813e3234bc2fdc9d65a",
+          "direction": [
+            -0.5773502588272095,
+            0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            -0.29144126176834106,
+            0.2943340241909027,
+            0.2250337153673172
+          ]
+        },
+        {
+          "file": "original-neutral-detail-ortho.png",
+          "sha256": "811081ea1f3a6c4f75c13acd9553fd98c0b2f4310eee71f88fce2b0a8fd9e19d",
+          "direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "camera": [
+            0.002904057502746582,
+            0.5098097324371338,
+            -0.06931160390377045
+          ]
+        }
+      ],
+      "glb": {
+        "file": "s1233-adrenals-teaching.glb",
+        "sha256": "e2bcc2e93a73c027480418109e4db06ce38ea7923b671e5dfe53cfd7d288caa4"
+      },
+      "materials": "Shared neutral override"
+    },
+    {
+      "id": "updated-neutral-detail",
+      "frame": 1,
+      "visible": [
+        "Left adrenal gland",
+        "Right adrenal gland"
+      ],
+      "bounds": [
+        [
+          -0.04703716188669205,
+          -0.029822181910276413,
+          -0.0890422984957695
+        ],
+        [
+          0.05333651229739189,
+          0.0294925756752491,
+          -0.04959888383746147
+        ]
+      ],
+      "orthographicScale": 0.1351025551557541,
+      "images": [
+        {
+          "file": "updated-neutral-detail-iso.png",
+          "sha256": "bf84dfc55c3b1b5fd412824bb3cfb49f6140e354447155bf870e1ce32dd1d45d",
+          "direction": [
+            -0.5773502588272095,
+            0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            -0.29144126176834106,
+            0.2943340241909027,
+            0.2250337153673172
+          ]
+        },
+        {
+          "file": "updated-neutral-detail-ortho.png",
+          "sha256": "8b653d5f82d94b46cf63aa9f596a647a17a0bbdfd5fb8f452b01eeeb4951a180",
+          "direction": [
+            0.0,
+            1.0,
+            0.0
+          ],
+          "camera": [
+            0.002904057502746582,
+            0.5098097324371338,
+            -0.06931160390377045
+          ]
+        }
+      ],
+      "glb": {
+        "file": "s1233-adrenals-illustrative.glb",
+        "sha256": "892a803078e586d6886da23a0435f35ec3792ed604a3acd85cea448ec10b8489"
+      },
+      "materials": "Shared neutral override"
+    }
+  ]
+}

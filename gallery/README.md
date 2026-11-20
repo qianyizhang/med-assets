@@ -1,6 +1,7 @@
 # External viewer integration
 
 - **Published owner** · [Review gallery](https://anatomy-verification.landy123007.chatgpt.site/review/), maintained in the separate Site source.
+- **Relationship to Model Survey and Body Systems** · [Gallery design and handoff](../guideline/design.md).
 - **Local goal** · Test incorporated viewer behavior against pinned source without a Site build or network requests.
 - **Update scope** · Change the owning Site source. After review, refresh the bound fixture from that source. Historical applicators for incorporated features are retired.
 

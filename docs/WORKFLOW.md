@@ -73,55 +73,7 @@
 
 ### Body-system gallery rubric
 
-Score the **specific export, part selection and teaching task**. Name the
-target structures, the relationship a learner should see and the closest
-intended view. A whole-body locator, a sectional diagram and a registered
-scan surface can each earn full marks. Each makes a different promise.
-
-| Axis | What to inspect | Evidence for 3 / 4 |
-| --- | --- | --- |
-| Fidelity to evidence | Identify the source, laterality, frame, scale and protected landmarks or junctions. Mark inferred walls, routes, offsets and magnification where the learner sees them. | **3** · Clean import preserves the named landmarks and intended relationship. **4** · A source comparison also bounds the largest relevant change, including the most vulnerable small part. For a schematic, check the claimed spatial order, contacts and openings against its reference and against the exported geometry. |
-| Form and surface | Inspect the silhouette, varying cross-section, transitions, cut faces and grazing highlights. Look for repeated stock shapes, flat facets on curved anatomy, slice terraces and collapsed thin walls. A planar section face can be intentional. | **3** · The target reads as the intended structure in both views at display size. **4** · It also holds up at the declared close-up. A reviewer can point to the distinguishing shape or interface and find no distracting artifact there. |
-| Teaching readability | Try the named action before reading the legend. Identify, trace or isolate each target in the default view, then check its relation to its neighbors in a second view. Inspect a grayscale copy and use shape, order, labels or a section where colors converge. | **3** · The view pair supports the task and the named parts can be isolated. **4** · The primary teaching view makes the critical relation visible, another angle confirms it, and the task survives removal of hue. Record the targets found or the route followed. |
-| Mesh economy | Count triangles, GLB primitives and connected pieces **per named part**. Report bytes at comparable export scope. Inspect a thin, highly curved or shared boundary on the clean import. | **3** · The distribution is explained by visible features, selection, or motion, with no obvious wasted or starved region. **4** · A measured comparison, such as a lighter candidate or an explicit sampling-error test, shows the benefit and bounds the loss. Extra triangles can earn full marks when they resolve a named defect. |
-
-Use integer scores. **0** means a missing or contradicted requirement, **1**
-a defect that dominates the teaching view, and **2** a usable result with a
-specific visible or evidentiary limitation. Mark missing evidence **unrated**
-and omit the total. Report all four scores with one observation each. A
-review target is **at least 3 on every axis**. Use the total out of 16 to
-compare iterations on the same task. A wrong side, lost landmark, falsely
-continuous route, corrupt export or untraceable source blocks acceptance at
-any total. Clinical and runtime verification retain their own status.
-
-For the gallery palette, give the teaching target the clearest value or
-silhouette contrast. Subdue context while keeping its orientation landmarks
-legible. Differentiate a cut face from the intact exterior. Add gloss,
-roughness variation or surface relief when it helps identify a tissue or
-boundary in the named view. Test highlights on pale structures and check
-the grayscale image for targets that merge with their neighbors.
-
-**Soft geometry guidance.** Start with one selectable part per teaching
-role. One material primitive often suffices for a homogeneous surface.
-Multiple pieces can be correct for a source label, and extra primitives
-can distinguish a wall from its section face. Record those reasons.
-For a static teaching part, a few hundred triangles can describe a simple
-sheet or short tube. A few thousand can describe a curved organ, a fold
-or a cut rim. Above roughly 10,000 triangles on one context organ, try a
-lighter copy and compare the closest intended view. These are prompts to
-inspect the mesh. Branch networks, preserved scan detail and deforming
-surfaces can justify substantially different budgets.
-
-Choose edge length by local curvature and viewing distance. On a smooth
-outline, aim for about one display pixel or less of chord-to-curve error
-at the intended close-up. Wide planar faces can use long edges. Spend
-samples where the outline turns or two surfaces meet. For a scan derivative,
-report voxel spacing, component changes, a typical and a worst-case surface
-deviation in physical units. Inspect the worst small structure separately.
-Distinguish image aliasing from geometry by inspecting a full-resolution
-render at 1:1 and a second orientation. Rerendering at higher resolution
-can fix a jagged image edge. Terraces that follow the model across views
-call for a source-bounded geometry change.
+Use the [teaching-asset rubric](../guideline/asset-quality.md) for fidelity, form and surface, teaching readability, and mesh economy. The [gallery design guide](../guideline/design.md) covers discovery, inspection and handoff between collections.
 
 ### Evidence for comparison
 
