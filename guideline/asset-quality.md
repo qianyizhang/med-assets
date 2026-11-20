@@ -2,6 +2,8 @@
 
 Start with one sentence a learner could test. For example, “From behind, identify each adrenal and its relation to the kidney on the same side.” Name the exact export, target parts, protected landmarks and closest intended view. Specify whether the model shows traced labels, an interpreted teaching exterior or a schematic. A single object can serve different tasks with different scores.
 
+For work starting with CT labels or an extracted mesh, follow the [scan-derived surface refinement guide](scan-surface-refinement.md) from source inspection through the lighter-mesh trial.
+
 ## Score four axes
 
 Use 0–4 on each axis. **0** means a required feature is absent or contradicted. **1** means a defect dominates the teaching view. **2** means the task is possible with a specific distracting defect or incomplete check. Apply the anchors below for **3** and **4**. Mark an axis **unrated** if the necessary evidence is unavailable and omit the total. Give one observation or measurement per score.

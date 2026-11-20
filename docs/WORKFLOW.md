@@ -73,7 +73,7 @@
 
 ### Body-system gallery rubric
 
-Use the [teaching-asset rubric](../guideline/asset-quality.md) for fidelity, form and surface, teaching readability, and mesh economy. The [gallery design guide](../guideline/design.md) covers discovery, inspection and handoff between collections.
+Use the [teaching-asset rubric](../guideline/asset-quality.md) for fidelity, form and surface, teaching readability, and mesh economy. The [scan-derived surface refinement guide](../guideline/scan-surface-refinement.md) covers shape, finish and mesh budget for an interpreted exterior. The [gallery design guide](../guideline/design.md) covers discovery, inspection and handoff between collections.
 
 ### Evidence for comparison
 

@@ -16,6 +16,21 @@ For the two survey views, carry the visitor’s selection both ways. From **Adre
 
 Try the [local cross-gallery prototype](../sites/gallery-links/README.md) before moving either site. Group by stable family ID and bind each review by export identity. Read labels, credits and decisions from their owners. Verification already accepts candidate and asset fragments. The local survey source accepts `#family-adrenals` and other family IDs while retaining its FDI31 bookmark. The hosted version has a separate publication cycle. Test direct reload, Back, unmatched variants and old bookmarks. A single front door could later offer **Browse models** and **Review changes** once those handoffs work. [Survey selection](../sites/model-survey/app/src/content/report/ReportContent.jsx) · [Verification selection](../tests/gallery/fixtures/review.js)
 
+## Proposed responsibilities for the next iteration
+
+| Surface | What it owns | Which view serves the visitor |
+| --- | --- | --- |
+| Asset library | Discoverable families, source and variant identities, revision history, attributes, rights and links to dated assessments. Distinguish the last asset change, last preview and last review. | An identifying portrait of the selected variant. The adrenal atlas export shows its two glands; the five-part s1233 study has its own identity. |
+| Use-case galleries | A teaching question, the selected assets and the sequence of views. Body Systems is the first use case. | Start with the whole regional relationship, then offer an asset and a part close-up. A lesson may recolor or isolate parts. Keep those choices with the lesson. |
+| Comparison stage | A question about a difference, identified inputs, matched settings and the evidence for a decision. | Start where the difference is visible. For the adrenal, match the lower-rim close-up, switch both sides to neutral material, then inspect a case section. |
+| 3D stage | Load identified assets, compose and save views, reopen them by link and export images. | A saved preset identifies the model revisions, pose, visible parts, material overrides, camera, framing, lights and output settings needed to recover the view. |
+
+For the asset card, a candidate standard is to show the selected revision’s source fidelity, form and finish, and mesh economy beside its preview. Each assessment carries its date, evaluator, reference and closest reviewed view. Show “unreviewed” when a revision lacks that evidence. The existing adrenal **16/16** also includes readability for regional localization; link it as a named teaching assessment. A new export would need its own review before inheriting any scores. [Existing scoring contract](asset-quality.md) · [Adrenal assessment](../reviews/endocrine-locator/adrenal-study-r05/README.md)
+
+A useful first test is to open the adrenal from each surface. The library should identify it, the lesson should establish placement and the comparison should reveal the fold. Each should offer the exact staged view behind its poster with a route back to the originating record.
+
+The current Three.js URL selects a named scene. It restores the authored starting direction and selected parts. Orbit and visibility changes are transient. The reviewed adrenal plates currently come from Blender, and its studio light differs visibly from the browser. A versioned preset and image-export path would let a new gallery poster reproduce its browser view. Retain the renderer and revision with historical evidence. Smithsonian Voyager’s state editor provides a precedent for saving camera, light and material changes. [Current Three.js scene bindings](../sites/body-systems-survey/viewer_catalog.py) · [Viewer controls](../sites/body-systems-survey/viewer/viewer.mjs) · [Voyager state editor](https://smithsonian.github.io/dpo-voyager/story/usage/state-editor/)
+
 ## Scaffold for a new gallery
 
 | Surface | Build | Check |
