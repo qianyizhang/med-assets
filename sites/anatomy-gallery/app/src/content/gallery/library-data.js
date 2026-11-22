@@ -171,7 +171,12 @@ function historyFor(row, snapshot) {
   ];
 }
 
-function collectionRow(row, snapshot, authoredReviews, localPreview) {
+function assessmentForFile(campaign, file) {
+  const entry = campaign.get(file.path);
+  return entry && entry.export.sha256 === file.sha256 && entry.export.bytes === file.bytes ? entry : undefined;
+}
+
+function collectionRow(row, snapshot, authoredReviews, campaign, localPreview) {
   const listed = row.media ?? [];
   const native = (nativeDeliveries[row.id] ?? []).map((path) => byPath.get(path));
   const media = [...listed, ...native.filter((asset) => !listed.some((file) => file.path === asset.path))];
@@ -180,14 +185,19 @@ function collectionRow(row, snapshot, authoredReviews, localPreview) {
   const records = historyFor({ ...row, label, media }, snapshot);
   if (local) records.unshift(local);
   const history = records.map((record) => {
-    const assessment = authoredReviews.get(record.library);
-    if (!assessment || !record.exports.some((file) =>
-      file.path === assessment.export.path && file.sha256 === assessment.export.sha256)) return record;
+    const previous = authoredReviews.get(record.library);
+    const previousMatch = previous && record.exports.some((file) =>
+      file.path === previous.export.path && file.sha256 === previous.export.sha256);
+    const assessment = record.exports.map((file) => assessmentForFile(campaign, file)).find(Boolean)
+      ?? (previousMatch ? previous : undefined);
+    if (!assessment) return record;
+    const witness = assessment.views[0];
     return {
       ...record,
       assessment,
+      previousAssessment: previousMatch && previous !== assessment ? previous : undefined,
       axes: assessment.axes.map((axis) => axis.score),
-      preview: record.preview ?? assetUrl(byPath.get(assessment.views[0].path)),
+      preview: record.preview ?? witness?.url ?? (witness && assetUrl(byPath.get(witness.path))),
     };
   });
   const recommended = local ? history[0] : undefined;
@@ -210,6 +220,9 @@ function collectionRow(row, snapshot, authoredReviews, localPreview) {
 
 export function libraryRows(snapshot, teachingReview, { localPreview = false } = {}) {
   const authoredReviews = new Map(teachingReview?.assessments.map((assessment) => [assessment.route, assessment]));
+  const campaign = new Map((localPreview ? teachingReview?.campaign ?? [] : [])
+    .map((assessment) => [assessment.export.path, assessment]));
+  const adrenalAssessment = (revision) => assessmentForFile(campaign, revisions[revision]);
   return [
     {
       id: libraryId,
@@ -221,19 +234,21 @@ export function libraryRows(snapshot, teachingReview, { localPreview = false } =
       state: 'Reviewed for regional localization',
       fileCount: Object.keys(revisions).length,
       formats: ['GLB'],
-      ...ratingProfile(rated[adrenalLibrary.recommended]),
+      ...ratingProfile(adrenalAssessment(adrenalLibrary.recommended)?.axes.map((axis) => axis.score) ?? rated[adrenalLibrary.recommended]),
       path: libraryPath(adrenalLibrary.recommended),
       image: portrait(adrenalLibrary.portrait),
       history: Object.entries(revisions).map(([revision, file]) => ({
         revision,
         library: libraryPath(revision),
         exports: [file],
-        ...ratingProfile(rated[revision]),
+        assessment: adrenalAssessment(revision),
+        ...ratingProfile(adrenalAssessment(revision)?.axes.map((axis) => axis.score) ?? rated[revision]),
       })),
     },
     ...assessments.map((entry) => ({
       ...entry,
-      ...ratingProfile(entry.axes),
+      assessment: assessmentForFile(campaign, byPath.get(entry.exportPath)),
+      ...ratingProfile(assessmentForFile(campaign, byPath.get(entry.exportPath))?.axes.map((axis) => axis.score) ?? entry.axes),
       kind: 'Reviewed revision',
       state: 'Reviewed for teaching task',
       path: 'library/' + entry.id,
@@ -245,7 +260,7 @@ export function libraryRows(snapshot, teachingReview, { localPreview = false } =
     })),
     ...[...snapshot.queries.model_survey.rows, ...snapshot.queries.products.rows, ...additionalLibraryRows]
       .filter((row) => !Object.hasOwn(libraryAliases, row.id))
-      .map((row) => collectionRow(row, snapshot, authoredReviews, localPreview)),
+      .map((row) => collectionRow(row, snapshot, authoredReviews, campaign, localPreview)),
   ];
 }
 
@@ -259,10 +274,13 @@ export function selectLibraryRow(row, search) {
       || file.path.toLowerCase() === needle || file.sha256 === needle));
   if (matches.length !== 1) return row;
   const [record] = matches;
+  const selectedFile = record.exports.find((file) =>
+    [file.name, file.path, file.sha256].some((value) => value.toLowerCase() === needle));
+  const otherExport = record.assessment && selectedFile && selectedFile.path !== record.assessment.export.path;
   return {
     ...row,
-    ...ratingProfile(record.axes),
-    state: record.status ?? (record.axes?.some((value) => value != null) ? 'Reviewed for teaching task' : 'Indexed revision'),
+    ...ratingProfile(otherExport ? [] : record.axes),
+    state: record.status ?? (!otherExport && record.axes?.some((value) => value != null) ? 'Reviewed for teaching task' : 'Indexed revision'),
     path: record.library,
     selectedRevision: record.revision,
     image: record.portrait ? assetUrl(record.portrait.asset) : record.preview,

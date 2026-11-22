@@ -1,0 +1,545 @@
+{
+  "schemaVersion": 1,
+  "evaluator": "Codex (agent review)",
+  "date": "2026-11-22",
+  "rubric": {
+    "path": "docs/guides/asset-quality.md",
+    "sha256": "fefa01945f72db911da1bdd4aa0e4ba1eb9da350c2ac0f416e9c51e47747810f",
+    "revision": "f6f87c4b81e4e9cf069a378d01d075c6cc7df95b"
+  },
+  "assessments": [
+    {
+      "export": {
+        "path": "body/breathing/Breathing_Assembly.blend",
+        "sha256": "fc68b49ca75d02d50330e9d5b5d5182843e6d0e7ca4d43d665cbde48ac23b841",
+        "bytes": 42497262
+      },
+      "task": "Compare expiration to peak inspiration and point out the descending diaphragm dome, descending lung bases and liver shift.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The exact assembly, sampled at frames 1 and 49, shows the upper diaphragm bound descending 20.90 mm, the left lower-lobe base descending 17.60 mm and the liver descending 7.98 mm. At frame 121 these bounds return within 0.034 mm of frame 1. The motion is authored."
+        },
+        {
+          "score": 3,
+          "observation": "Matched neutral lateral close-ups show the broad diaphragm highlight moving down toward its open rim as the lung bases descend. The irregular lower-lobe edges are retained Workshop surfaces. At peak the projected basal edge overlaps the lateral rim, so the image cannot establish contact or attachments."
+        },
+        {
+          "score": 2,
+          "observation": "The retained phase pair shows lower lung edges and a downward liver shift. The liver occludes part of the dome, and the apex shift is subtle at full view. An isolated side view is needed for learners to follow flattening."
+        },
+        {
+          "score": 2,
+          "observation": "The exact assembly has 245,126 source mesh triangles in 67 selectable meshes and 69 exact-position connected pieces, with 183 transform F-curves and six morph F-curves. Only 93,502 triangles belong to the five lobes, diaphragm and liver used for this task. Neighboring moving organs have broader teaching uses but add 151,624 triangles outside this view. No same-scope lighter editable assembly has been compared."
+        }
+      ],
+      "sources": [
+        {
+          "path": "body/breathing/README.md",
+          "label": "Animation design, inputs and phase"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/motion.json",
+          "label": "Exact assembly bounds at frames 1, 49 and 121"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/neutral-motion.json",
+          "label": "Exact neutral phase views and per-mesh topology, material slots and action channels"
+        }
+      ],
+      "views": [
+        {
+          "path": "body/breathing/expiration.webp",
+          "sha256": "e98b187887c5d05694c2e60f885cfde4587500ea17a8592be0d5879243f60e9e",
+          "bytes": 12632,
+          "label": "Retained expiration view"
+        },
+        {
+          "path": "body/breathing/inspiration.webp",
+          "sha256": "887c98a0e09022f664d04303515dbd6df75316c5ad807f9ea52f201017a9ed22",
+          "bytes": 12976,
+          "label": "Retained inspiration view"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/motion-detail.jpg",
+          "sha256": "62690ad6cc3573833c2a351b9e35cafb3ca94be7636982bea70fc0c883f7a961",
+          "bytes": 158769,
+          "label": "Anterior above, lateral below. Compare expiration (frame 1) at left to peak inspiration (frame 49) at right. Follow the tan dome edge beneath the lung base and beside the liver."
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/motion-neutral-detail.jpg",
+          "sha256": "9f1f99fce6821ad526987f3b2f8bf090200d4245e766def63b0fae19b7b5c6f2",
+          "bytes": 57837,
+          "label": "Matched neutral lateral detail at expiration and peak inspiration. The stable outer rim frames the falling crest below the source-derived lung contour."
+        }
+      ],
+      "decision": "Keep the editable assembly for authored gross motion. Test a side view with diaphragm, lung bases and liver before expanding the flattening task.",
+      "teachingView": "reviews/teaching-assessments/2026-11-22-respiratory/motion-detail.jpg"
+    },
+    {
+      "export": {
+        "path": "models/bronchial_tree/exports/distal-sampling-r14/bronchial_distal_sampling.glb",
+        "sha256": "f8d78751f47cf14311138a3c7e2e35d6e28415c9f6e1d2a0e4f6ca2bf1a07fc9",
+        "bytes": 7401328
+      },
+      "task": "Trace the solid teaching exterior from the trunk through the first fork into both main branches.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "Against exact r13, oriented triangle checks retain the central ±28 mm slab, lobar junctions and all 16 protected terminal neighborhoods. The model is an authored exterior."
+        },
+        {
+          "score": 2,
+          "observation": "The Y and tapered daughters remain recognizable in neutral oblique and reverse. The r13/r14 close and opposing underside evidence retains the angular underside and right collar/pocket. Distal simplification does not resolve those distractions at close review."
+        },
+        {
+          "score": 3,
+          "observation": "The front image reveals the trunk split and each first branch; the reverse resolves overlaps farther out. The model traces an exterior and has no patent lumen claim."
+        },
+        {
+          "score": 4,
+          "observation": "Compared with r13, r14 removes 135,604 triangles and 3,254,480 bytes. First-fork outline stays fixed and the worst distal crossing shifts 1.41 px at reviewed scale."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/bronchial_tree/2026-11-21-distal-simplification-trial/README.md",
+          "label": "Source and review boundary"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/renders.json",
+          "label": "Clean-import measurements and view bindings"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/mesh-components.json",
+          "label": "Encoded primitives and exact-coordinate connected components"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/views-1.jpg",
+          "sha256": "19ce748bebde78e94a8edb642cdd82a66322bedf013c0ebd8ce5039b66a2cc8d",
+          "bytes": 106899,
+          "label": "Clean export import · palette front, neutral oblique, neutral reverse"
+        },
+        {
+          "path": "reviews/bronchial_tree/2026-11-21-distal-simplification-trial/evidence/close.webp",
+          "sha256": "140a76cb006f27f8e7bdedef14f80218b879d2a08316c4528176f4c7e4dc3f64",
+          "bytes": 420582,
+          "label": "Matched r13/r14 first-fork detail"
+        }
+      ],
+      "decision": "Keep r14 for first-fork teaching and retain r13 as the control. Preserve the disclaimer on the distal tree."
+    },
+    {
+      "export": {
+        "path": "models/diaphragm/exports/z-native-static-r01/diaphragm_z_native_static.glb",
+        "sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+        "bytes": 701128
+      },
+      "task": "Identify the two dome contours and compare their heights in the isolated Z-Anatomy diaphragm.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "Clean reimport and earlier roundtrip retain the asymmetric source dome and openings in native position. The source record does not assign opening identities."
+        },
+        {
+          "score": 2,
+          "observation": "The broad highlight separates the domes. The neutral oblique and reverse expose conspicuous holes and thin inferior projections whose anatomy is unresolved."
+        },
+        {
+          "score": 3,
+          "observation": "The front and oblique views let the learner distinguish the higher contour and the saddle between the two domes. Use specimen orientation context before naming sides."
+        },
+        {
+          "score": 2,
+          "observation": "One static component and one primitive use 38,868 triangles. Aperture rims and thin projections need samples, but much of the dome is smooth. Same-scope lighter bytes are unavailable."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/diaphragm/exports/z-native-static-r01/README.md",
+          "label": "Source and review boundary"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/renders.json",
+          "label": "Clean-import measurements and view bindings"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/mesh-components.json",
+          "label": "Encoded primitives and exact-coordinate connected components"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/views-2.jpg",
+          "sha256": "d5ef87b6188c90cbb2bd5668eeeaac170d8962caf7ad536da00605f516f7f441",
+          "bytes": 95725,
+          "label": "Clean export import · palette front, neutral oblique, neutral reverse"
+        }
+      ],
+      "decision": "Keep for gross shape. Add a source-anatomy review of openings and projections before any named-opening task."
+    },
+    {
+      "export": {
+        "path": "models/lung_left/exports/metadata-cleanup-r01/lung_left.glb",
+        "sha256": "6d3a6150dc47dba0d16162738caabc1bef3fcd8cf5ab4af492dd1121c1cb8533",
+        "bytes": 2524996
+      },
+      "task": "Find the left upper and lower lobes and follow their oblique fissure.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The metadata correction preserves source geometry and morph channels byte for byte. The two names and separation of the trimmed and smoothed s1233 display lobes survive import."
+        },
+        {
+          "score": 3,
+          "observation": "Neutral oblique and reverse keep the two-lobe silhouette and fissure readable. The irregular lower margin is in the displayed source-derived contour and is outside the task."
+        },
+        {
+          "score": 3,
+          "observation": "Follow the diagonal seam on the palette panel and confirm the lobe boundary in neutral oblique. Both lobes isolate as distinct objects."
+        },
+        {
+          "score": 2,
+          "observation": "The upper and lower lobes use 7,200 and 24,000 triangles and one primitive each. The lower lobe has an unexplained eight-vertex satellite. Metadata correction saves 320 bytes at unchanged tessellation."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/lung_left/2026-10-23-metadata-cleanup-r01/verification.json",
+          "label": "Source and review boundary"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/renders.json",
+          "label": "Clean-import measurements and view bindings"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/mesh-components.json",
+          "label": "Encoded primitives and exact-coordinate connected components"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/views-3.jpg",
+          "sha256": "1a948762b7bdbec108c99a4e7323512b73b2012d1537698b3e1faa1e1c250ae2",
+          "bytes": 92373,
+          "label": "Clean export import · palette front, neutral oblique, neutral reverse"
+        }
+      ],
+      "decision": "Keep for the oblique fissure. Use this display as a case-derived derivative and retain the focus on gross lobar separation."
+    },
+    {
+      "export": {
+        "path": "models/lung_pair/exports/hra-female-normals-r02/lung_female_hra_normals_r02.glb",
+        "sha256": "966a4c225be028e616f6f813e8d4232582995a82b8121a42257c1be53087cb19",
+        "bytes": 23253972
+      },
+      "task": "Compare the right three-lobe and left two-lobe arrangement in the combined HRA source specimen.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "The r02 derivative preserves all non-normal accessors and parts, including the protected fissure boundaries, hilar segments and bronchial geometry. The reimport contains the expected 56 source parts."
+        },
+        {
+          "score": 3,
+          "observation": "Front and reverse views distinguish the interlobar seams from gently highlighted adjacent surfaces. Hilar openings and source patch boundaries remain and do not establish a continuous trachea-to-lung route."
+        },
+        {
+          "score": 3,
+          "observation": "In front, the middle lobe sits below the horizontal seam on the right lung, while the left has one oblique fissure. Reverse verifies incomplete visibility of right lobar boundaries from behind."
+        },
+        {
+          "score": 2,
+          "observation": "There are 56 primitives and 348 per-node components. Fine cartilage can be isolated but two tertiary-cartilage meshes alone use 194,138 of 297,097 triangles across 266 components. Same-scope lighter bytes and thin-ring comparisons are missing."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/lung_pair/2026-10-24-bounded-migration/historical-technical-scope.json",
+          "label": "Source and review boundary"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/renders.json",
+          "label": "Clean-import measurements and view bindings"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/mesh-components.json",
+          "label": "Encoded primitives and exact-coordinate connected components"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/views-4.jpg",
+          "sha256": "e95572199123ed4ca508826951f309f8cb9e9cc0dd341715a2bd6bc14f2f6a0b",
+          "bytes": 106925,
+          "label": "Clean export import · palette front, neutral oblique, neutral reverse"
+        }
+      ],
+      "decision": "Keep HRA r02 as a source specimen. Use the separate grouped-lobe study when learners need to isolate five whole lobes rather than provider patches."
+    },
+    {
+      "export": {
+        "path": "models/nose_sinuses/exports/nih3d-airspace-r01/nasal_airspace.glb",
+        "sha256": "3d8c4d56e09d72ae369c697d2bb9435cc3792f9dbe225e7d456ff58174a577be",
+        "bytes": 4758484
+      },
+      "task": "Distinguish the central nasal airspace from the lateral maxillary recesses in the NIH3D cast.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "The independent source-to-export inverse fit maps all 98,996 positions and preserves oriented triangle topology. The fit is illustrative and keeps the four known triangle intersections."
+        },
+        {
+          "score": 2,
+          "observation": "The lateral recess silhouettes remain distinct. Pronounced roughness around the central passage and the broken-looking inferior boundary distract at this zoom. The source interpretation is a solid CT cast with a retained cyst indentation."
+        },
+        {
+          "score": 3,
+          "observation": "In the source-axis overview the tall central channels sit between two broad side volumes. Oblique rotation confirms their depth offset. Coordinate axes do not establish anatomical sides."
+        },
+        {
+          "score": 2,
+          "observation": "The single static component and primitive use 198,408 triangles, retaining fine source channels and roughness as well as broad smooth recesses. No same-scope trial distinguishes necessary channel sampling from excess on the broad recesses."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/nose_sinuses/2026-10-26-nih3d-airspace-r01/README.md",
+          "label": "Source and review boundary"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/renders.json",
+          "label": "Clean-import measurements and view bindings"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/mesh-components.json",
+          "label": "Encoded primitives and exact-coordinate connected components"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/views-5.jpg",
+          "sha256": "410c39932eac55e3d6af440e9cd68464273113a4bd64e88f1c1b73eed2a18a1a",
+          "bytes": 123396,
+          "label": "Clean export import · palette front, neutral oblique, neutral reverse"
+        }
+      ],
+      "decision": "Keep as a specimen supplement. Clarify cast versus wall and pathology in context before considering any smoothing or drainage-route lesson."
+    },
+    {
+      "export": {
+        "path": "models/pharynx_larynx/exports/r03/pharynx_larynx.glb",
+        "sha256": "d691a60f12d448b9b36d362270429c672c01c7fae0f10a8789ef188dd4c08530",
+        "bytes": 5050088
+      },
+      "task": "Find the epiglottis, thyroid cartilage and cricoid within the dissected pharyngeal exterior.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "Clean import retains the 33 source meshes and the three named cartilages in the existing native frame. Two disputed constrictor side names require neutral display overrides."
+        },
+        {
+          "score": 3,
+          "observation": "The front and oblique show the shield-shaped thyroid and inferior cricoid ring. The epiglottic holes are source-authored and their exact pattern remains unvalidated."
+        },
+        {
+          "score": 3,
+          "observation": "The pale cartilages are distinguishable from surrounding muscle in front. The earlier visibility trial isolates the three targets when reverse context occludes them."
+        },
+        {
+          "score": 2,
+          "observation": "The 33 primitives have 42 per-node components and 278,720 triangles. Paired palatopharyngeus muscles alone account for 82,800 triangles and are context for the cartilage task. No same-scope export tests whether finer eye-level cartilage landmarks can be kept with less context cost."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/pharynx_larynx/exports/r03/README.md",
+          "label": "Source and review boundary"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/renders.json",
+          "label": "Clean-import measurements and view bindings"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/mesh-components.json",
+          "label": "Encoded primitives and exact-coordinate connected components"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/views-6.jpg",
+          "sha256": "2661b3af2375168b45a6bf1eaa909a95ff7d5ace2cd3c0e39390d5ec22235fd4",
+          "bytes": 135128,
+          "label": "Clean export import · palette front, neutral oblique, neutral reverse"
+        },
+        {
+          "path": "reviews/pharynx_larynx/2026-10-30-visibility/v2/cartilage-cartilage-after-fit.png",
+          "sha256": "a6c001c1c69e935595401b443160409bdfc272fed30191cbc8fb3e2f46e4b73d",
+          "bytes": 604730,
+          "label": "Isolated cartilage mode"
+        }
+      ],
+      "decision": "Keep for the cartilage task with the cartilage isolation control. Keep neutral labels on the two disputed source constrictors and avoid a lumen inference."
+    },
+    {
+      "export": {
+        "path": "models/lung_right/exports/metadata-cleanup-r01/lung_right.glb",
+        "sha256": "3f8476ddd9d04448f4c1f63e85408860d7957f099e87170e8099efe635c16a78",
+        "bytes": 2653664
+      },
+      "task": "Distinguish the right upper, middle and lower lobes using the horizontal and oblique fissures.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The metadata correction retains the three s1233 display lobe surfaces and all source transforms and animation data. The three expected named objects survive clean import."
+        },
+        {
+          "score": 3,
+          "observation": "The anterior panel shows a horizontal upper boundary and the lower lobe continuing behind the middle. Neutral reverse reveals the intersecting seams and an irregular basal contour."
+        },
+        {
+          "score": 3,
+          "observation": "The anterior panel locates the middle lobe below the horizontal fissure. The reverse neutral confirms the oblique separation, and the three meshes can be isolated individually."
+        },
+        {
+          "score": 3,
+          "observation": "Three independently selectable single-component lobes have one primitive each. The lower lobe uses 24,000 triangles along the broad basal outline and irregular oblique edge; upper and middle use 7,200 and 4,800. Metadata-cleaned bytes are 2,653,664 at unchanged tessellation."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/lung_right/2026-10-23-metadata-cleanup-r01/verification.json",
+          "label": "Source and review boundary"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/renders.json",
+          "label": "Clean-import measurements and view bindings"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/mesh-components.json",
+          "label": "Encoded primitives and exact-coordinate connected components"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/views-7.jpg",
+          "sha256": "1cae7f48e3ed6c4b8cf5529daeb2d53a8796f973f048398ff97e61f6d9372546",
+          "bytes": 92798,
+          "label": "Clean export import · palette front, neutral oblique, neutral reverse"
+        }
+      ],
+      "decision": "Keep for gross lobes. Use this task with an anterior and an oblique view rather than treating an isolated reverse silhouette as the orientation."
+    },
+    {
+      "export": {
+        "path": "lessons/one-breath/terminal-study-r02/terminal-airspaces.glb",
+        "sha256": "77f19cc2b261b6d11413c8bb78c949ab8d9c78091f33c47a3dc82a9543781158",
+        "bytes": 171748
+      },
+      "task": "Trace the terminal bronchiole through early pockets and the duct into the distal common airspace.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "The exact clean import rejoins as one sectioned tissue component. Eight centerline tests and eleven mouth-to-pocket tests clear the tissue."
+        },
+        {
+          "score": 3,
+          "observation": "The paired clean-import Front and Iso views distinguish bare proximal lumen, progressively deeper pockets and shared septa. Slight edge faceting appears beyond the reviewed zoom."
+        },
+        {
+          "score": 4,
+          "observation": "The pale cut edge reveals the central route from the plain tube to the common space. The oblique angle reveals mouths hidden in front. The labeled grayscale sheet keeps the path and septa readable."
+        },
+        {
+          "score": 4,
+          "observation": "The matched finer trial used 14,004 triangles versus 8,396 chosen. Silhouette IoU exceeds 99.8% in both views. Three primitives distinguish exterior, lumen and cut rim on each of four named parts."
+        }
+      ],
+      "sources": [
+        {
+          "path": "lessons/one-breath/terminal-study-r02/README.md",
+          "label": "Source and review boundary"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/renders.json",
+          "label": "Clean-import measurements and view bindings"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/mesh-components.json",
+          "label": "Encoded primitives and exact-coordinate connected components"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/views-8.jpg",
+          "sha256": "c6f9c068e5bb7cd956bc4fd5c19aa1ce3f91a77ebd22a393ee64bdbbdd4df66e",
+          "bytes": 97503,
+          "label": "Clean export import · palette front, neutral oblique, neutral reverse"
+        },
+        {
+          "path": "reviews/body-systems/2026-11-20-surface-quality/views/airspaces/teaching-labels.png",
+          "sha256": "7f83ff79c52885ec64883812d979a815efd1d982c5249216529e25c9700601c4",
+          "bytes": 91013,
+          "label": "Labeled grayscale section"
+        }
+      ],
+      "decision": "Keep r02. Retain the oblique and labeled grayscale teaching views alongside the anatomical and authored-scale limits."
+    },
+    {
+      "export": {
+        "path": "models/trachea/exports/open-airway-r06/trachea-open.glb",
+        "sha256": "eb3ce52962aacc4d109a9840685aa172ca1d97bfc835367f4e36fd32de6b6cbb",
+        "bytes": 962440
+      },
+      "task": "Locate the proximal mouth and identify the two distal outlets of the authored Y-airway shell.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "All three seed openings connect in the 1.2 mm sample screen. The reuse check verifies that the final rim correction leaves the checked shell unchanged. Thickness and cuts are editorial."
+        },
+        {
+          "score": 3,
+          "observation": "Front and neutral oblique show a continuous proximal rim. Reverse reveals the posterior ring gap and another outlet angle. The disclosed shell is based on a coarse display cast."
+        },
+        {
+          "score": 3,
+          "observation": "The proximal mouth is visible in front and the outlets can be located across the three directions. To follow the hidden split through the lumen, select the separate cutaway."
+        },
+        {
+          "score": 2,
+          "observation": "The rim, lumen and outside justify three shell primitives. Eighteen single-component C-bands preserve the dashed posterior gap but use 40,874 of 50,978 triangles. Same-scope lighter bytes are unavailable for this band-heavy display."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/trachea/2026-10-29-open-airway-r06/README.md",
+          "label": "Source and review boundary"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/renders.json",
+          "label": "Clean-import measurements and view bindings"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/mesh-components.json",
+          "label": "Encoded primitives and exact-coordinate connected components"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/views-9.jpg",
+          "sha256": "7680840943b3d0606022645ff282d6ee4705800d84ed7cfbba65923016bb3a1d",
+          "bytes": 85729,
+          "label": "Clean export import · palette front, neutral oblique, neutral reverse"
+        },
+        {
+          "path": "reviews/trachea/2026-10-29-open-airway-r06/display/comparison-whole.webp",
+          "sha256": "5f71c46d1e1ad38540dd66eccf62f5c31e51ca87def197fc88ac083a9a109344",
+          "bytes": 281112,
+          "label": "Geometry-derived open and cutaway comparison"
+        }
+      ],
+      "decision": "Keep the open shell for the three mouths and use the distinct cutaway when the learner must see the internal Y."
+    }
+  ]
+}

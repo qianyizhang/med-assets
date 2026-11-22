@@ -25,6 +25,20 @@ Use 0–4 on each axis. **0** means a required feature is absent or contradicted
 
 Aim for **at least 3 on every axis**. Use a total out of 16 only to compare revisions on the same task. A wrong side, lost landmark, falsely connected route, corrupt export or untraceable source blocks acceptance. Report specialist review, runtime and distribution separately.
 
+## From a score to an improvement
+
+Name the observation that affected the learner's task. If a relationship is hard to see, inspect it in another view before deciding whether to change the geometry. For a suspected mesh cost, compare a lighter export at the intended zoom and inspect the most vulnerable landmark. For a missing reference or view, record which check would resolve the uncertainty.
+
+State what the proposed change should improve, what it must preserve and how the reviewer will tell. Check the candidate against the same task and baseline. Record a keep, revise or reject decision with the matched evidence. A keep decision can close the review when the current asset already serves its task.
+
+## Review a teaching set
+
+Choose a learner task and protected landmark for each asset. In the overview, use the same projection, orientation conventions, lighting and framing across comparable assets. Preserve physical scale when comparing size. Label independently enlarged details, intentional cuts and schematic joins in the views where they appear. Keep target, context and cut surfaces distinguishable under grayscale. Pick a second angle that answers a real depth, attachment or continuity question.
+
+Inspect the intended lesson alongside the isolated model. A recognizable organ can still disappear behind context, lose its connecting landmark at lesson scale or use a color that changes meaning between stops. Record where this happens and test the smallest correction in that view. When a collection requires a different camera or palette, state what the learner gains and preserve the other orientation cues.
+
+Calibrate reviewers on a previously assessed export and a borderline example. Compare observations axis by axis at the declared viewing size. Record the lead reviewer's agreement or correction alongside the original judgment. Where two defensible treatments lead to different learner outcomes, prepare matched variants and state the choice for the maintainer.
+
 ## When an organ looks like clay
 
 1. **Isolate the part.** Inspect the actual GLB in its gallery pose and in a close-up. Rotate it and compare a neutral material with the intended palette under the same light. Check the full-resolution poster at 1:1. A jagged edge that disappears on a higher-resolution render points to raster sampling. A depression that moves with the model calls for mesh inspection.

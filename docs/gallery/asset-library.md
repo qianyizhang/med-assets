@@ -14,6 +14,12 @@ The asset maintainer explicitly selects which revision carries **Recommended** f
 - The revision’s quality profile and a **Rating rubric** link beside it, including in the empty state. The dedicated product URL is `/rubric`; its content owner is the [canonical rubric](../guides/asset-quality.md). A saved assessment identifies the rubric revision used.
 - Exact-version reviews, related lessons and the 3D preset behind the portrait. Preserve revision selection when returning from these destinations.
 
+## Review coverage
+
+Use the [maintained family register](maintained-models.md) to count progress on the selected teaching assets. Count a family once for its starting file, including an editable assembly selected as a whole. Record the task and exact export identity. For a family with multiple tasks, declare which task the coverage count represents and report other assessments separately. If a Gallery default or published delivery differs from the maintained starting file, identify both revisions.
+
+Report fully rated, partially rated and unrated counts. Full coverage for one starting file requires all four axes for the declared task. A partial assessment identifies the missing axes. A missing assessment keeps the file visible in the denominator. The [teaching-asset rubric](../guides/asset-quality.md) owns the score meanings and evidence requirements.
+
 ## Browsing
 
 Open on a compact list. Cards emphasize the preview. The tree groups the same entries by the survey’s anatomical categories. Show role, teaching purpose, review status, recorded score and indexed file count. Search names, tags and paths, including names of files in revision history. A unique match within a family selects its revision or package delivery. Search by exact path, SHA-256, revision name or short version such as `r13`. When multiple revisions in a family share a filename, search the full path or open the family’s revision history to pick one. Combine anatomical system, teaching purpose, entry type, review status and rating filters. Sort by name, file count or teaching total in either direction. Entries without a total follow complete scores in either score order. Rated includes partial assessments. The [current routes](routes-and-api.md#page-links) list the shareable filter parameters.
@@ -26,4 +32,4 @@ A new revision with no assessment displays **Unrated** and offers the rubric. A 
 
 [Gallery product requirements](README.md) · [Existing Model Survey](../../sites/anatomy-gallery/README.md)
 
-The [discovery audit and pilot](../../records/work-items/items/AG-GAL-018-reconcile-library-revisions.md) account for public exports and replay inputs. The [second cohort](../../records/work-items/items/AG-GAL-025-assess-next-teaching-cohort.md) adds the skin envelope, right rotator cuff and illustrative thyroid.
+The [discovery audit and pilot](../../records/work-items/items/AG-GAL-018-reconcile-library-revisions.md) account for public exports and replay inputs. The [maintained-family review](../../records/campaigns/teaching-asset-review.md) covers the current starting files. The [second cohort](../../records/work-items/items/AG-GAL-025-assess-next-teaching-cohort.md) adds the skin envelope, right rotator cuff and illustrative thyroid.

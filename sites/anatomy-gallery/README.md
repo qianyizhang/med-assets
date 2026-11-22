@@ -156,8 +156,9 @@ Pillow, Blender, Sharp and Playwright/browser are recipe-specific dependencies.
 `MODEL_SURVEY_CAPTURE_DIR`. Set `MODEL_SURVEY_APP_DIR` to the preview's generated app
 directory when it differs from `.local/app`. The verifier walks the ordinary Library
 against the pinned AG-GAL-018 Git baseline and checks exact downloads and teaching evidence.
-The build assembles the dated pilot and owner-held `reviews/<asset>/<review>/teaching-assessment.json`
-files. The focused authoring run uses the same loopback runner as the full Gallery check. It exercises the real s1233 study through all four surfaces, including an unavailable comparison witness, the exact Library download, and a Stage shared view and its WebP.
+The build assembles the dated pilot, owner-held `reviews/<asset>/<review>/teaching-assessment.json` files and the [maintained-file campaign](../../records/campaigns/teaching-asset-review.md). Campaign batches live under `reviews/teaching-assessments/<batch>/campaign-assessments.json`. Bind each review to the export's path, size and SHA-256. Use a local source path or an HTTPS reference, and supply a digest and size for every reviewed image. An optional `teachingView` selects one of those images for the learner. The read-only loopback preview serves these local reviews and checks evidence bytes before delivery. The [coverage report](../../records/campaigns/teaching-asset-review/current-coverage.md) includes native assemblies and explicitly records missing evidence.
+
+The focused authoring run uses the same loopback runner as the full Gallery check. It exercises the real s1233 study through all four surfaces, including an unavailable comparison witness, the exact Library download, and a Stage shared view and its WebP.
 The packaged bookmark replay uses the exact public and a test origin in a disposable browser. Pass the packaged project directory to `verify_survey_bookmarks.mjs`.
 
 ```sh

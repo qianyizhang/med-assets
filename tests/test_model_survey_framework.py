@@ -183,6 +183,44 @@ class FrameworkTests(unittest.TestCase):
         result = json.loads((self.output / 'teaching-assessments.json').read_text())
         self.assertEqual(result['assessments'][0], expected)
 
+    def test_campaign_assessment_rejects_sibling_identity_and_unbound_teaching_view(self):
+        spec = importlib.util.spec_from_file_location('gallery_runtime', recipe.with_name('gallery_runtime.py'))
+        runtime = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(runtime)
+        repo = self.site
+        folder = repo / 'reviews/teaching-assessments/test'
+        folder.mkdir(parents=True)
+        view = {'path': 'reviews/plate.jpg', 'bytes': 1, 'sha256': hashlib.sha256(b'v').hexdigest(),
+                'label': 'Matched teaching view'}
+        (repo / view['path']).write_bytes(b'v')
+        export = {'path': 'models/control.glb', 'bytes': 3, 'sha256': 'a'*64}
+        index = repo / 'delivery-index.json'
+        index.write_text(json.dumps({'assets': [export]}))
+        index.with_name('local-delivery.json').write_text('{"assets":[]}')
+        row = {'task': 'Trace the first fork.', 'export': dict(export), 'views': [view],
+               'axes': [{'score': 3, 'observation': 'The fork is intact.'}] * 4,
+               'sources': [{'path': view['path'], 'label': 'Control view'}], 'teachingView': view['path']}
+        owner = folder / 'campaign-assessments.json'
+        batch = {'schemaVersion': 1, 'evaluator': 'Reviewer', 'date': '2026-11-22',
+                 'rubric': {'revision': 'fixture'}, 'assessments': [row]}
+        owner.write_text(json.dumps(batch))
+        result = runtime.prepare_campaign_reviews(repo, index)
+        self.assertEqual(result[0]['views'][0]['url'], '/review-evidence/' + view['sha256'] + '/plate.jpg')
+        row['export']['sha256'] = 'b'*64
+        owner.write_text(json.dumps(batch))
+        with self.assertRaisesRegex(ValueError, 'Delivery index differs'):
+            runtime.prepare_campaign_reviews(repo, index)
+        row['export'] = export
+        row['teachingView'] = 'reviews/unrelated.jpg'
+        owner.write_text(json.dumps(batch))
+        with self.assertRaisesRegex(ValueError, 'Teaching view is missing'):
+            runtime.prepare_campaign_reviews(repo, index)
+        row['teachingView'] = view['path']
+        owner.write_text(json.dumps(batch))
+        (repo / view['path']).write_bytes(b'x')
+        with self.assertRaisesRegex(ValueError, 'Delivery index differs'):
+            runtime.prepare_campaign_reviews(repo, index)
+
     def test_teaching_assessment_discovery_preserves_batch_metadata_and_rejects_conflicts(self):
         runtime_spec = importlib.util.spec_from_file_location('gallery_runtime', recipe.with_name('gallery_runtime.py'))
         runtime = importlib.util.module_from_spec(runtime_spec)

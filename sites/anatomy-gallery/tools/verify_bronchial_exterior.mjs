@@ -108,7 +108,7 @@ try {
   assert.equal(new URL(page.url()).hash, '#/' + bronchialExterior.library);
   await page.reload();
   await heading(bronchialExterior.title).waitFor();
-  await page.getByText(/Rating · Unrated/).waitFor();
+  await page.getByText(/Rating · 13\/16/).waitFor();
   assert.equal(await page.getByText('11/16', { exact: true }).count(), 0);
   const receiptLink = page.getByRole('link', { name: 'Geometry verification (JSON)' });
   const response = await page.request.get(base + await receiptLink.getAttribute('href'));
@@ -125,7 +125,7 @@ try {
   await search.fill('Bronchial tree');
   await page.getByRole('button', { name: 'Search', exact: true }).click();
   const result = page.locator('.ga-asset[href="#/' + bronchialExterior.library + '"]');
-  await result.getByText('Unrated', { exact: true }).waitFor();
+  await result.getByText('13/16', { exact: true }).waitFor();
   await result.click();
   await heading(bronchialExterior.title).waitFor();
   await page.goto(url('library/bronchial_tree'));

@@ -57,6 +57,18 @@ try {
 } catch (error) {
   if (error.code !== 'ENOENT') throw error;
 }
+const evidenceRoutes = new Map();
+const reviewIndex = path.join(project, 'src/content/gallery/teaching-inputs/teaching-assessments.json');
+try {
+  const review = JSON.parse(await readFile(reviewIndex, 'utf8'));
+  for (const row of review.campaign ?? []) {
+    for (const file of [...row.sources, ...row.views]) {
+      if (file.url?.startsWith('/review-evidence/')) evidenceRoutes.set(file.url, file);
+    }
+  }
+} catch (error) {
+  if (error.code !== 'ENOENT') throw error;
+}
 const indexed = new Map(manifest.assets.map((asset) => [asset.sha256, asset]));
 const legacyDentalRoutes = new Map(legacyDental.assets.map((file) =>
   ['/assets/' + file.sha256 + '/' + file.name, file]));
@@ -133,7 +145,15 @@ const server = http
       const local = localRoutes.get(pathname);
       const receiptPath = receiptRoutes.get(pathname);
       let response;
-      if (receiptPath) {
+      if (evidenceRoutes.has(pathname)) {
+        const file = evidenceRoutes.get(pathname);
+        const bytes = await trackedPayload(file);
+        response = new Response(bytes && req.method === 'GET' ? bytes : null, {
+          status: bytes ? 200 : 503,
+          headers: { 'content-type': file.mediaType, 'content-length': String(bytes?.length ?? 0),
+            'x-content-type-options': 'nosniff', 'content-security-policy': "default-src 'none'; sandbox" },
+        });
+      } else if (receiptPath) {
         const receipt = await repoFile(receiptPath);
         response = new Response(req.method === 'GET' ? receipt : null, {
           status: receipt ? 200 : 404,

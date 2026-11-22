@@ -1,0 +1,160 @@
+{
+  "control": {
+    "sha256": "7b21b74fb3712b2816801337bd4d0732ef8bb035a999ad36558b8235609cfe02",
+    "bytes": 8770012
+  },
+  "lattice": {
+    "vertices": 178163,
+    "triangles": 364734,
+    "edges": 547101,
+    "components": 1,
+    "euler": -4204,
+    "degenerate": 0,
+    "notTwoIncident": 0,
+    "inconsistent": 0
+  },
+  "variants": [
+    {
+      "name": "moderate",
+      "ratio": 0.72,
+      "asset": {
+        "sha256": "3cd5a4de8987eaa5b854c65b47605c4b837a5adc1c28f6aeb565e78650c81155",
+        "bytes": 6318984
+      },
+      "maskVertices": {
+        "interface": 2169,
+        "ordinary": 170715,
+        "thin": 5279
+      },
+      "topology": {
+        "vertices": 127100,
+        "triangles": 262608,
+        "edges": 393912,
+        "components": 1,
+        "euler": -4204,
+        "degenerate": 0,
+        "notTwoIncident": 0,
+        "inconsistent": 0
+      },
+      "protectedDisplacement": {
+        "interface": {
+          "samples": 2169,
+          "maxMeters": 0.0,
+          "pointM": [
+            0.06718365103006363,
+            -0.07423456758260727,
+            0.8047685027122498
+          ]
+        },
+        "thin": {
+          "samples": 5279,
+          "maxMeters": 0.0,
+          "pointM": [
+            0.06874777376651764,
+            -0.0754985436797142,
+            0.8101546168327332
+          ]
+        }
+      },
+      "fromControl": {
+        "meters": 7.241553976200521e-05,
+        "pointM": [
+          0.08006231486797333,
+          -0.06354685127735138,
+          0.819013774394989
+        ],
+        "nearestM": [
+          0.08004476875066757,
+          -0.06352569162845612,
+          0.8190807700157166
+        ],
+        "sample": "vertex"
+      },
+      "toControl": {
+        "meters": 5.0445985834812745e-05,
+        "pointM": [
+          0.09003107994794846,
+          -0.07703664153814316,
+          0.7867110967636108
+        ],
+        "nearestM": [
+          0.090021513402462,
+          -0.0769929364323616,
+          0.786734402179718
+        ],
+        "sample": "face center"
+      }
+    },
+    {
+      "name": "strong",
+      "ratio": 0.48,
+      "asset": {
+        "sha256": "98c2e5ababce25387867803659b77f04ff1849d29c48fab65ad09b387e75b3d7",
+        "bytes": 4218116
+      },
+      "maskVertices": {
+        "interface": 2169,
+        "ordinary": 170715,
+        "thin": 5279
+      },
+      "topology": {
+        "vertices": 83332,
+        "triangles": 175072,
+        "edges": 262608,
+        "components": 1,
+        "euler": -4204,
+        "degenerate": 0,
+        "notTwoIncident": 0,
+        "inconsistent": 0
+      },
+      "protectedDisplacement": {
+        "interface": {
+          "samples": 2169,
+          "maxMeters": 0.0,
+          "pointM": [
+            0.06718365103006363,
+            -0.07423456758260727,
+            0.8047685027122498
+          ]
+        },
+        "thin": {
+          "samples": 5279,
+          "maxMeters": 0.0,
+          "pointM": [
+            0.06874777376651764,
+            -0.0754985436797142,
+            0.8101546168327332
+          ]
+        }
+      },
+      "fromControl": {
+        "meters": 9.712870814837515e-05,
+        "pointM": [
+          0.11898798495531082,
+          -0.07669737190008163,
+          0.7538846135139465
+        ],
+        "nearestM": [
+          0.11890663206577301,
+          -0.07674670219421387,
+          0.7539041638374329
+        ],
+        "sample": "vertex"
+      },
+      "toControl": {
+        "meters": 9.845330350799486e-05,
+        "pointM": [
+          0.08848914504051208,
+          -0.07280264794826508,
+          0.8253148794174194
+        ],
+        "nearestM": [
+          0.0884525403380394,
+          -0.07279659807682037,
+          0.8254060745239258
+        ],
+        "sample": "face center"
+      }
+    }
+  ]
+}

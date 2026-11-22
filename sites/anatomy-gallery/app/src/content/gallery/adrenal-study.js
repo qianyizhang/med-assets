@@ -13,7 +13,7 @@ export const adrenalLibrary = {
   revisions: {
     r05: { suffix: 'regional', axes: [4, 4, 4, 4], review: 'reviews/endocrine-locator/adrenal-study-r05/README.md' },
     r04: { suffix: 'illustrative', axes: [3, 3, 3, 3], review: 'reviews/endocrine-locator/adrenal-study-r05/README.md' },
-    r03: { suffix: 'teaching', axes: [3, 3, 3, 4], review: 'reviews/body-systems/2026-11-20-surface-quality/README.md' },
+    r03: { suffix: 'teaching', axes: [3, 2, 3, 4], review: 'reviews/endocrine-locator/adrenal-study-r04/README.md#reassessment' },
   },
 };
 

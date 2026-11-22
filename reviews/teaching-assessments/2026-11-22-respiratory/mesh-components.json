@@ -1,0 +1,1195 @@
+{
+  "method": "Per glTF node, weld identical encoded POSITION triples across its primitives and count vertex-connected triangle components; no tolerance weld or anatomical continuity claim.",
+  "exports": [
+    {
+      "export": {
+        "path": "models/bronchial_tree/exports/distal-sampling-r14/bronchial_distal_sampling.glb",
+        "sha256": "f8d78751f47cf14311138a3c7e2e35d6e28415c9f6e1d2a0e4f6ca2bf1a07fc9",
+        "bytes": 7401328
+      },
+      "parts": [
+        {
+          "name": "Authored bronchial junction-consolidation experiment",
+          "triangles": 308288,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            154146
+          ]
+        }
+      ]
+    },
+    {
+      "export": {
+        "path": "models/diaphragm/exports/z-native-static-r01/diaphragm_z_native_static.glb",
+        "sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+        "bytes": 701128
+      },
+      "parts": [
+        {
+          "name": "Diaphragm",
+          "triangles": 38868,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            19433
+          ]
+        }
+      ]
+    },
+    {
+      "export": {
+        "path": "models/lung_left/exports/metadata-cleanup-r01/lung_left.glb",
+        "sha256": "6d3a6150dc47dba0d16162738caabc1bef3fcd8cf5ab4af492dd1121c1cb8533",
+        "bytes": 2524996
+      },
+      "parts": [
+        {
+          "name": "Lung Lower Lobe Left | source surface",
+          "triangles": 24000,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            11994,
+            8
+          ]
+        },
+        {
+          "name": "Lung Upper Lobe Left | source surface",
+          "triangles": 7200,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            3600
+          ]
+        }
+      ]
+    },
+    {
+      "export": {
+        "path": "models/lung_pair/exports/hra-female-normals-r02/lung_female_hra_normals_r02.glb",
+        "sha256": "966a4c225be028e616f6f813e8d4232582995a82b8121a42257c1be53087cb19",
+        "bytes": 23253972
+      },
+      "parts": [
+        {
+          "name": "VH_F_hilum_L",
+          "triangles": 1414,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            425,
+            339
+          ]
+        },
+        {
+          "name": "VH_F_hilum_upper_L",
+          "triangles": 792,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            425
+          ]
+        },
+        {
+          "name": "VH_F_lingula_superior_bronchopulmonary_segment",
+          "triangles": 1312,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            738
+          ]
+        },
+        {
+          "name": "VH_F_left_anterior_bronchopulmonary_segment",
+          "triangles": 1024,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            588
+          ]
+        },
+        {
+          "name": "VH_F_left_apical_bronchopulmonary_segment",
+          "triangles": 458,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            268
+          ]
+        },
+        {
+          "name": "VH_F_left_posterior_bronchopulmonary_segment",
+          "triangles": 1028,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            553
+          ]
+        },
+        {
+          "name": "VH_F_lingula_inferior_bronchopulmonary_segment",
+          "triangles": 1142,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            611
+          ]
+        },
+        {
+          "name": "VH_F_left_superior_bronchopulmonary_segment",
+          "triangles": 1359,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            721
+          ]
+        },
+        {
+          "name": "VH_F_left_posterior_basal_bronchopulmonary_segment",
+          "triangles": 1674,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            883
+          ]
+        },
+        {
+          "name": "VH_F_left_anterior_basal_bronchopulmonary_segment",
+          "triangles": 606,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            356
+          ]
+        },
+        {
+          "name": "VH_F_left_lateral_basal_bronchopulmonary_segment",
+          "triangles": 616,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            350
+          ]
+        },
+        {
+          "name": "VH_F_left_medial_basal_bronchopulmonary_segment",
+          "triangles": 1741,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            933
+          ]
+        },
+        {
+          "name": "VH_F_hilum_lower_L",
+          "triangles": 622,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            339
+          ]
+        },
+        {
+          "name": "VH_F_hilum_R",
+          "triangles": 3784,
+          "primitives": 1,
+          "components": 3,
+          "largestConnectedVertexCounts": [
+            1170,
+            548,
+            274
+          ]
+        },
+        {
+          "name": "VH_F_right_medial_basal_bronchopulmonary_segment",
+          "triangles": 434,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            250
+          ]
+        },
+        {
+          "name": "VH_F_right_posterior_basal_bronchopulmonary_segment",
+          "triangles": 1602,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            852
+          ]
+        },
+        {
+          "name": "VH_F_right_anterior_basal_bronchopulmonary_segment",
+          "triangles": 2202,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1164
+          ]
+        },
+        {
+          "name": "VH_F_right_lateral_basal_bronchopulmonary_segment",
+          "triangles": 784,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            450
+          ]
+        },
+        {
+          "name": "VH_F_right_superior_bronchopulmonary_segment",
+          "triangles": 2158,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1131
+          ]
+        },
+        {
+          "name": "VH_F_hilum_lower_R",
+          "triangles": 2276,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1170
+          ]
+        },
+        {
+          "name": "VH_F_right_medial_bronchopulmonary_segment",
+          "triangles": 1950,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1024
+          ]
+        },
+        {
+          "name": "VH_F_right_lateral_bronchopulmonary_segmennt",
+          "triangles": 1134,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            612
+          ]
+        },
+        {
+          "name": "VH_F_hilum_middle_R",
+          "triangles": 482,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            274
+          ]
+        },
+        {
+          "name": "VH_F_right_anterior_bronchopulmonary_segm",
+          "triangles": 2744,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1425
+          ]
+        },
+        {
+          "name": "VH_F_right_apical_bronchopulmonary_segment",
+          "triangles": 1176,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            625
+          ]
+        },
+        {
+          "name": "VH_F_right_posterior_bronchopulmonary_segment",
+          "triangles": 1224,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            656
+          ]
+        },
+        {
+          "name": "VH_F_hilum_upper_R",
+          "triangles": 1026,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            548
+          ]
+        },
+        {
+          "name": "VH_F_cartilage_of_lobar_bronchus_L",
+          "triangles": 21358,
+          "primitives": 1,
+          "components": 13,
+          "largestConnectedVertexCounts": [
+            2216,
+            1740,
+            1318,
+            1291,
+            1063
+          ]
+        },
+        {
+          "name": "VH_F_cartilage_of_tertiary_bronchus_L",
+          "triangles": 88352,
+          "primitives": 1,
+          "components": 126,
+          "largestConnectedVertexCounts": [
+            2716,
+            1988,
+            1922,
+            1756,
+            1754
+          ]
+        },
+        {
+          "name": "VH_F_left_superior_lobar_bronchus",
+          "triangles": 385,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            230
+          ]
+        },
+        {
+          "name": "VH_F_left_inferior_lobar_bronchus",
+          "triangles": 558,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            323
+          ]
+        },
+        {
+          "name": "VH_F_left_anterior_basal_bronchus",
+          "triangles": 395,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            215
+          ]
+        },
+        {
+          "name": "VH_F_left_lingula_superior_bronchus",
+          "triangles": 1052,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            558
+          ]
+        },
+        {
+          "name": "VH_F_left_apical_bronchus",
+          "triangles": 270,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            152
+          ]
+        },
+        {
+          "name": "VH_F_left_posterior_basal_bronchus",
+          "triangles": 750,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            404
+          ]
+        },
+        {
+          "name": "VH_F_left_medial_basal_bronchus",
+          "triangles": 377,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            206
+          ]
+        },
+        {
+          "name": "VH_F_left_superior_bronchus",
+          "triangles": 610,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            329
+          ]
+        },
+        {
+          "name": "VH_F_left_anterior_bronchus",
+          "triangles": 530,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            289
+          ]
+        },
+        {
+          "name": "VH_F_left_posterior_bronchus",
+          "triangles": 666,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            356
+          ]
+        },
+        {
+          "name": "VH_F_left_lateral_basal_bronchus",
+          "triangles": 510,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            274
+          ]
+        },
+        {
+          "name": "VH_F_left_lingula_inferior_bronchi",
+          "triangles": 1055,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            565
+          ]
+        },
+        {
+          "name": "VH_F_cartilage_of_lobar_bronchus_R",
+          "triangles": 29218,
+          "primitives": 1,
+          "components": 14,
+          "largestConnectedVertexCounts": [
+            4734,
+            3032,
+            2726,
+            963,
+            754
+          ]
+        },
+        {
+          "name": "VH_F_cartilage_of_tertiary_bronchus_R",
+          "triangles": 105786,
+          "primitives": 1,
+          "components": 140,
+          "largestConnectedVertexCounts": [
+            3076,
+            2870,
+            2026,
+            1918,
+            1828
+          ]
+        },
+        {
+          "name": "VH_F_right_middle_lobar_bronchus",
+          "triangles": 262,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            153
+          ]
+        },
+        {
+          "name": "VH_F_right_superior_lobar_bronchus",
+          "triangles": 224,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            141
+          ]
+        },
+        {
+          "name": "VH_F_right_inferior_lobar_bronchus",
+          "triangles": 692,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            399
+          ]
+        },
+        {
+          "name": "VH_F_right_anterior_bronchus",
+          "triangles": 1197,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            629
+          ]
+        },
+        {
+          "name": "VH_F_right_lateral_basal_bronchus",
+          "triangles": 376,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            204
+          ]
+        },
+        {
+          "name": "VH_F_right_lateral_bronchus",
+          "triangles": 458,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            251
+          ]
+        },
+        {
+          "name": "VH_F_right_medial_bronchus",
+          "triangles": 612,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            327
+          ]
+        },
+        {
+          "name": "VH_F_right_medial_basal_bronchus",
+          "triangles": 474,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            259
+          ]
+        },
+        {
+          "name": "VH_F_right_posterior_basal_bronchus",
+          "triangles": 522,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            279
+          ]
+        },
+        {
+          "name": "VH_F_right_posterior_bronchus",
+          "triangles": 832,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            442
+          ]
+        },
+        {
+          "name": "VH_F_right_superior_bronchus",
+          "triangles": 708,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            377
+          ]
+        },
+        {
+          "name": "VH_F_right_apical_bronchus",
+          "triangles": 1270,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            677
+          ]
+        },
+        {
+          "name": "VH_F_right_anterior_basal_bronchus",
+          "triangles": 834,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            441
+          ]
+        }
+      ]
+    },
+    {
+      "export": {
+        "path": "models/nose_sinuses/exports/nih3d-airspace-r01/nasal_airspace.glb",
+        "sha256": "3d8c4d56e09d72ae369c697d2bb9435cc3792f9dbe225e7d456ff58174a577be",
+        "bytes": 4758484
+      },
+      "parts": [
+        {
+          "name": "NIH3D_3DPX-002305_airspace_cast",
+          "triangles": 198408,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            98996
+          ]
+        }
+      ]
+    },
+    {
+      "export": {
+        "path": "models/pharynx_larynx/exports/r03/pharynx_larynx.glb",
+        "sha256": "d691a60f12d448b9b36d362270429c672c01c7fae0f10a8789ef188dd4c08530",
+        "bytes": 5050088
+      },
+      "parts": [
+        {
+          "name": "FJ2740 Left inferior pharyngeal constrictor",
+          "triangles": 7422,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            3713
+          ]
+        },
+        {
+          "name": "FJ2742 Right middle pharyngeal constrictor",
+          "triangles": 5904,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            2954
+          ]
+        },
+        {
+          "name": "FJ2743 Left palatopharyngeus",
+          "triangles": 41400,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            20702
+          ]
+        },
+        {
+          "name": "FJ2745 Left salpingopharyngeus",
+          "triangles": 9152,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            4578
+          ]
+        },
+        {
+          "name": "FJ2746 Left stylopharyngeus",
+          "triangles": 3266,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1635
+          ]
+        },
+        {
+          "name": "FJ2747 Left superior pharyngeal constrictor",
+          "triangles": 10702,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            5353
+          ]
+        },
+        {
+          "name": "FJ2749 Pharyngeal raphe",
+          "triangles": 12920,
+          "primitives": 1,
+          "components": 5,
+          "largestConnectedVertexCounts": [
+            6170,
+            237,
+            27,
+            12,
+            9
+          ]
+        },
+        {
+          "name": "FJ2752 Right inferior pharyngeal constrictor",
+          "triangles": 7448,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            3726
+          ]
+        },
+        {
+          "name": "FJ2754 Left middle pharyngeal constrictor",
+          "triangles": 5912,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            2958
+          ]
+        },
+        {
+          "name": "FJ2755 Right palatopharyngeus",
+          "triangles": 41400,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            20702
+          ]
+        },
+        {
+          "name": "FJ2757 Right salpingopharyngeus",
+          "triangles": 9152,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            4578
+          ]
+        },
+        {
+          "name": "FJ2758 Right stylopharyngeus",
+          "triangles": 25752,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            12878
+          ]
+        },
+        {
+          "name": "FJ2759 Right superior pharyngeal constrictor",
+          "triangles": 10702,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            5353
+          ]
+        },
+        {
+          "name": "FJ2769 Cricoid cartilage",
+          "triangles": 1702,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            851
+          ]
+        },
+        {
+          "name": "FJ2770 Epiglottis",
+          "triangles": 3602,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1763
+          ]
+        },
+        {
+          "name": "FJ2771 Hyo-epiglottic ligament",
+          "triangles": 2100,
+          "primitives": 1,
+          "components": 5,
+          "largestConnectedVertexCounts": [
+            1043,
+            5,
+            4,
+            4,
+            4
+          ]
+        },
+        {
+          "name": "FJ2775 Left arytenoid cartilage",
+          "triangles": 536,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            270
+          ]
+        },
+        {
+          "name": "FJ2778 Left lateral crico-arytenoid",
+          "triangles": 6214,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            3109
+          ]
+        },
+        {
+          "name": "FJ2780 Left oblique arytenoid",
+          "triangles": 6304,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            3152
+          ]
+        },
+        {
+          "name": "FJ2782 Left posterior crico-arytenoid",
+          "triangles": 4842,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            2423
+          ]
+        },
+        {
+          "name": "FJ2784 Left thyro-arytenoid",
+          "triangles": 6092,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            3048
+          ]
+        },
+        {
+          "name": "FJ2785 Left thyro-arytenoid",
+          "triangles": 9290,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            4645
+          ]
+        },
+        {
+          "name": "FJ2788 Left vocalis",
+          "triangles": 1152,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            578
+          ]
+        },
+        {
+          "name": "FJ2792 Right arytenoid cartilage",
+          "triangles": 540,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            272
+          ]
+        },
+        {
+          "name": "FJ2796 Right lateral crico-arytenoid",
+          "triangles": 6198,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            3101
+          ]
+        },
+        {
+          "name": "FJ2798 Right oblique arytenoid",
+          "triangles": 6084,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            3042
+          ]
+        },
+        {
+          "name": "FJ2800 Right posterior crico-arytenoid",
+          "triangles": 4812,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            2408
+          ]
+        },
+        {
+          "name": "FJ2802 Right thyro-arytenoid",
+          "triangles": 6092,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            3048
+          ]
+        },
+        {
+          "name": "FJ2803 Right thyro-arytenoid",
+          "triangles": 10650,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            5325
+          ]
+        },
+        {
+          "name": "FJ2806 Right vocalis",
+          "triangles": 1148,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            576
+          ]
+        },
+        {
+          "name": "FJ2807 Thyro-epiglottic ligament",
+          "triangles": 1042,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            519
+          ]
+        },
+        {
+          "name": "FJ2808 Thyroid cartilage",
+          "triangles": 2610,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1307
+          ]
+        },
+        {
+          "name": "FJ2809 Transverse arytenoid",
+          "triangles": 6578,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            3286,
+            5
+          ]
+        }
+      ]
+    },
+    {
+      "export": {
+        "path": "models/lung_right/exports/metadata-cleanup-r01/lung_right.glb",
+        "sha256": "3f8476ddd9d04448f4c1f63e85408860d7957f099e87170e8099efe635c16a78",
+        "bytes": 2653664
+      },
+      "parts": [
+        {
+          "name": "Lung Lower Lobe Right | source surface",
+          "triangles": 24000,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            12002
+          ]
+        },
+        {
+          "name": "Lung Middle Lobe Right | source surface",
+          "triangles": 4800,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            2402
+          ]
+        },
+        {
+          "name": "Lung Upper Lobe Right | source surface",
+          "triangles": 7200,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            3602
+          ]
+        }
+      ]
+    },
+    {
+      "export": {
+        "path": "lessons/one-breath/terminal-study-r02/terminal-airspaces.glb",
+        "sha256": "77f19cc2b261b6d11413c8bb78c949ab8d9c78091f33c47a3dc82a9543781158",
+        "bytes": 171748
+      },
+      "parts": [
+        {
+          "name": "Alveolar duct",
+          "triangles": 3792,
+          "primitives": 3,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1934
+          ]
+        },
+        {
+          "name": "Distal common space and alveoli",
+          "triangles": 2240,
+          "primitives": 3,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1140
+          ]
+        },
+        {
+          "name": "Respiratory bronchiole",
+          "triangles": 1416,
+          "primitives": 3,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            746
+          ]
+        },
+        {
+          "name": "Terminal bronchiole",
+          "triangles": 948,
+          "primitives": 3,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            494
+          ]
+        }
+      ]
+    },
+    {
+      "export": {
+        "path": "models/trachea/exports/open-airway-r06/trachea-open.glb",
+        "sha256": "eb3ce52962aacc4d109a9840685aa172ca1d97bfc835367f4e36fd32de6b6cbb",
+        "bytes": 962440
+      },
+      "parts": [
+        {
+          "name": "Trachea | authored open teaching shell",
+          "triangles": 10104,
+          "primitives": 3,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            5050
+          ]
+        },
+        {
+          "name": "Authored illustrative C-band 1",
+          "triangles": 2324,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1164
+          ]
+        },
+        {
+          "name": "Authored illustrative C-band 2",
+          "triangles": 2324,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1164
+          ]
+        },
+        {
+          "name": "Authored illustrative C-band 3",
+          "triangles": 2324,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1164
+          ]
+        },
+        {
+          "name": "Authored illustrative C-band 4",
+          "triangles": 2324,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1164
+          ]
+        },
+        {
+          "name": "Authored illustrative C-band 5",
+          "triangles": 2324,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1164
+          ]
+        },
+        {
+          "name": "Authored illustrative C-band 6",
+          "triangles": 2324,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1164
+          ]
+        },
+        {
+          "name": "Authored illustrative C-band 7",
+          "triangles": 2324,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1164
+          ]
+        },
+        {
+          "name": "Authored illustrative C-band 8",
+          "triangles": 2324,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1164
+          ]
+        },
+        {
+          "name": "Authored illustrative C-band 9",
+          "triangles": 2324,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1164
+          ]
+        },
+        {
+          "name": "Authored illustrative C-band 10",
+          "triangles": 2324,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1164
+          ]
+        },
+        {
+          "name": "Authored illustrative C-band 11",
+          "triangles": 2324,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1164
+          ]
+        },
+        {
+          "name": "Authored illustrative C-band 12",
+          "triangles": 2324,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1164
+          ]
+        },
+        {
+          "name": "Authored illustrative C-band 13",
+          "triangles": 2324,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1164
+          ]
+        },
+        {
+          "name": "Authored illustrative C-band 14",
+          "triangles": 2324,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1164
+          ]
+        },
+        {
+          "name": "Authored illustrative C-band 15",
+          "triangles": 2324,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1164
+          ]
+        },
+        {
+          "name": "Authored illustrative C-band 16",
+          "triangles": 2324,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1164
+          ]
+        },
+        {
+          "name": "Authored illustrative C-band 17",
+          "triangles": 2352,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1178
+          ]
+        },
+        {
+          "name": "Authored illustrative C-band 18",
+          "triangles": 1338,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            671
+          ]
+        }
+      ]
+    }
+  ]
+}

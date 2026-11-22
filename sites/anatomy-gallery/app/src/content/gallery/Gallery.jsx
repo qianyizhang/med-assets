@@ -143,10 +143,13 @@ export function Gallery() {
       const canonical = Object.hasOwn(libraryAliases, id) ? libraryAliases[id] : id;
       const row = rows.find((entry) => entry.id === canonical);
       const exact = row?.history.find((record) => record.revision === revision ||
-        (!revision && (record === row.recommended || record === salivary || record.library === row.exactLibrary)));
+        (!revision && (record === row.recommended || record.library === salivary.library || record.library === row.exactLibrary)));
       if (!id) page = <Library rows={rows} query={query} />;
-      else if (id === libraryId) page = <Revision revision={revision || adrenalLibrary.recommended} />;
-      else if (row && (exact || !revision)) {
+      else if (id === libraryId) {
+        const selected = revision || adrenalLibrary.recommended;
+        const study = row.history.find((record) => record.revision === selected);
+        page = <Revision revision={selected} assessment={study?.assessment} />;
+      } else if (row && (exact || !revision)) {
         const detail = exact?.family === 'cartilage-assembly' ? skeletalDetail(query) : '';
         page = <CollectionEntry row={row} snapshot={snapshot} exact={exact} lessonQuery={detail ? '?from=' + detail : ''} />;
       }

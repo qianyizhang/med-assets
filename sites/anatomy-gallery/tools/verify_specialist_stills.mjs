@@ -11,7 +11,9 @@ const shot = 'lessons/dental-animation/';
 export async function checkSpecialistStills(page, base, dir) {
   const place = (route) => base + '/#/' + route;
   const heading = (name) => page.getByRole('heading', { name, level: 1, exact: true });
-  const images = page.locator('.ga-source-evidence img');
+  // The local phase comparison has its own exact-byte and recovery checks.
+  const originalImages = '.ga-source-evidence img:not([src^="/review-evidence/"])';
+  const images = page.locator(originalImages);
   const lessons = [
     ['use-cases/systems/cardiovascular', 'use-cases/heart-slice',
       'Read the same heart slice three ways', 'Cardiovascular', [heart]],
@@ -43,10 +45,10 @@ export async function checkSpecialistStills(page, base, dir) {
       await page.getByText('Trachea → left and right main bronchi', { exact: false }).waitFor();
       assert.equal(await page.getByText('气管 → 左右主支气管', { exact: true }).getAttribute('lang'), 'zh');
     }
-    await page.waitForFunction((count) => {
-      const elements = [...document.querySelectorAll('.ga-source-evidence img')];
+    await page.waitForFunction(({ count, selector }) => {
+      const elements = [...document.querySelectorAll(selector)];
       return elements.length === count && elements.every((image) => image.complete && image.naturalWidth > 0);
-    }, paths.length);
+    }, { count: paths.length, selector: originalImages });
     for (const [i, path] of paths.entries()) {
       const src = await images.nth(i).getAttribute('src');
       const payload = src.startsWith('data:')
@@ -73,7 +75,7 @@ export async function checkSpecialistStills(page, base, dir) {
     await page.getByRole('link', { name: 'Open the original in the source repository' }).waitFor();
     await page.unroute(asset);
     await page.reload();
-    await page.waitForFunction(() => document.querySelector('.ga-source-evidence img')?.naturalWidth > 0);
+    await page.waitForFunction((selector) => document.querySelector(selector)?.naturalWidth > 0, originalImages);
     await page.goto(place('use-cases'));
   }
   await linkTo('use-cases/dental-layers').click();

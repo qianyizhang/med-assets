@@ -1,0 +1,1174 @@
+{
+  "schemaVersion": 1,
+  "evaluator": "Codex Sol (agent review)",
+  "date": "2026-11-22",
+  "rubric": {
+    "revision": "f6f87c4b81e4e9cf069a378d01d075c6cc7df95b",
+    "path": "docs/guides/asset-quality.md",
+    "sha256": "fefa01945f72db911da1bdd4aa0e4ba1eb9da350c2ac0f416e9c51e47747810f"
+  },
+  "assessments": [
+    {
+      "export": {
+        "path": "body/anatomy-workshop-r1/Anatomy_Workshop.blend",
+        "sha256": "c773480a49471e697e12ca1a710a4c93314217a8683e6ab224b3fa83d9a12fbc",
+        "bytes": 17571351
+      },
+      "task": "Locate the s1233 heart between the five lung lobes in the native Workshop and identify the lower thoracic space above the liver.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The package records the common s1233 conversion and the authored exceptions. Native opening shows the source heart and lung lobes in that frame."
+        },
+        {
+          "score": 2,
+          "observation": "The enlarged thorax silhouette retains the fissures and heart contour, but irregular lower lung edges and nearby partial organ surfaces compete at the chosen view."
+        },
+        {
+          "score": 3,
+          "observation": "The overview shows the heart between both lobar groups and above the liver. The thorax crop keeps the heart identifiable without color, while the reverse view shows why the posterior angle conceals it."
+        },
+        {
+          "score": 2,
+          "observation": "Visible native selection includes 39 meshes and 286,402 base triangles across the Workshop. The five lobes alone use 67,200 triangles. No same-scope lightweight model or lobar silhouette trial has been made."
+        }
+      ],
+      "sources": [
+        {
+          "path": "body/anatomy-workshop-r1/README.md",
+          "label": "anatomy workshop r1 · README.md"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/01-paired.webp",
+          "sha256": "c36e4069ddf652cddfae0d1b67e80e0825a0fcaf3a546f21057ec5289e6506ef",
+          "bytes": 175736,
+          "label": "Fresh exact-file reimport or native opening · overview and neutral alternate"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/01-heart-lung.webp",
+          "sha256": "48b9b17708398a1a8d55a71f21353d8ef93bb21dfbb3f7327656bfdf6c1c5604",
+          "bytes": 153198,
+          "label": "Native Workshop thorax crop"
+        }
+      ],
+      "decision": "Keep the native educational assembly for coarse orientation. For focused thorax teaching, start in the anterior oblique view and use the Outliner to select the source heart and lung lobes. Material and section controls, alternate organ modes and runtime remain outside this check."
+    },
+    {
+      "export": {
+        "path": "models/adipose-context/r01/selected-source-pads.glb",
+        "sha256": "e56010adfe8aa587db77c0cd847c0dcdfbb8951bc90c92eddb27643512a38531",
+        "bytes": 49724
+      },
+      "task": "Identify the two central abdominal pads and the two smaller flank pads on the illustrative body locator.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "The owner's independent source check compared exact world triangle multisets and unique positions at 1e-6 m. Four authored pads remain separately identifiable."
+        },
+        {
+          "score": 3,
+          "observation": "Both reimport directions preserve the rounded central silhouettes and thinner flanks. The repeated smooth forms are intentional location markers and supply no tissue texture."
+        },
+        {
+          "score": 4,
+          "observation": "The labeled body locator places the central and flank markers. Rotation separates the narrow pads from the center pair, and the retained review records the same identification in grayscale."
+        },
+        {
+          "score": 3,
+          "observation": "Four 440-triangle pads each have one material and retain distinct editable roles, at 49,724 bytes in total. No lighter trial was documented."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/adipose-context/r01/README.md",
+          "label": "r01 · README.md"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/02-paired.webp",
+          "sha256": "7aa8fad81e44cbfbccd1ddab9fa9a2708c9e61c2e63f0281a981bce81ac37b57",
+          "bytes": 264850,
+          "label": "Fresh exact-file reimport or native opening · overview and neutral alternate"
+        },
+        {
+          "path": "models/adipose-context/r01/comparison-en.png",
+          "sha256": "3afd37e33dfd32cd45b418657fb0167de4a7549d69dd0161d3f0d898fa1593d3",
+          "bytes": 275169,
+          "label": "Retained owner evidence"
+        }
+      ],
+      "decision": "Keep the source reconstruction and teach from the labeled locator. The isolated GLB omits the body outline, and the labels describe illustrative placement."
+    },
+    {
+      "export": {
+        "path": "models/skin/exports/bp3d-envelope-r01/skin_source_frame.glb",
+        "sha256": "d86719833a17dc7b45c8eb970498f1e2feefd352b5812942f4b147a9ffcfbe4f",
+        "bytes": 4901132
+      },
+      "task": "Point to the shoulders, waist and hip landmarks on the adult body outline from front and side.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The unchanged BP3D source-frame envelope preserves one complete adult male exterior. Review documents identify the frame and separate skeleton context."
+        },
+        {
+          "score": 3,
+          "observation": "The paired renders and retained close-up preserve major shoulder and waist curves and recognizable hand and foot detail. Broad highlight supports silhouette-level navigation."
+        },
+        {
+          "score": 3,
+          "observation": "Front-to-oblique comparison retains the waist and hip contour without color. The standalone mesh offers no landmark labels or regions to select independently."
+        },
+        {
+          "score": 2,
+          "observation": "One 203,382-triangle mesh occupies 4,901,132 bytes. Hand and foot detail is visible, but the current evidence cannot account for allocation to those features versus the largely broad body surfaces."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/skin/exports/bp3d-envelope-r01/README.md",
+          "label": "bp3d envelope r01 · README.md"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/03-paired.webp",
+          "sha256": "338ce4bccbc7a6ea9081cbdbbac0d0c8aedbe53ac168ca209e051971fe10543f",
+          "bytes": 165166,
+          "label": "Fresh exact-file reimport or native opening · overview and neutral alternate"
+        },
+        {
+          "path": "reviews/skin/2026-11-21-navigation-trial/hands-and-feet.webp",
+          "sha256": "7d3ce3ee2e0d1ec47c1e44762e1af61015375aee106df348d476751ffa989f80",
+          "bytes": 322302,
+          "label": "Retained owner evidence"
+        }
+      ],
+      "decision": "Keep the source-frame export for navigation. Follow up a lower-density derivative only if it preserves fingers, toes and the waist contour at teaching zoom."
+    },
+    {
+      "export": {
+        "path": "models/aorta/exports/metadata-cleanup-r01/aorta.glb",
+        "sha256": "f3c68980cbdbfbc1142751062e79d15f96e4d0dc6690e12d42d294c9d4d3b4ef",
+        "bytes": 1189384
+      },
+      "task": "Follow the case s1233 aortic exterior from its arch into the long descending segment.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The metadata replay preserves the mesh and source placement. The single segmented tube shows the arch and the descending segment as one exterior."
+        },
+        {
+          "score": 3,
+          "observation": "The broad neutral highlight follows the gradual shaft bend and rounded arch. Surface undulation is visible near the arch where the approximate case contour changes direction."
+        },
+        {
+          "score": 3,
+          "observation": "The arch-to-shaft path works in both views. The isolated shaft can be selected as one unit and gives no branch or body orientation context."
+        },
+        {
+          "score": 3,
+          "observation": "One mesh and one material carry 9,600 triangles. The arch and distal outline remain legible from the reverse angle. No lighter export has been tested."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/aorta/2026-10-23-metadata-cleanup-r01/verification.json",
+          "label": "2026 10 23 metadata cleanup r01 · verification.json"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/04-paired.webp",
+          "sha256": "aea3285578cb5c8e1a748bcb7d4ee5952bd2355908f43fa47e61093a5c41caa4",
+          "bytes": 139598,
+          "label": "Fresh exact-file reimport or native opening · overview and neutral alternate"
+        }
+      ],
+      "decision": "Keep for gross case shape only. Use the Z tree with source labels for major branch names."
+    },
+    {
+      "export": {
+        "path": "models/aortic_tree_z/exports/r02/aortic_tree_z_source_frame.glb",
+        "sha256": "d4b3dbd2d09fd76795f47bb96844acdeba5f1b4f48dd630f2a294f33816deaeb",
+        "bytes": 881168
+      },
+      "task": "Locate the brachiocephalic/right-carotid composite, left common carotid and left subclavian at the aortic arch.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "The owner compared every vertex through native reimport and ray-tested eight source locators, preserving source laterality and the composite branch grouping."
+        },
+        {
+          "score": 3,
+          "observation": "Paired overview and junction detail show arch curvature and branch directions. Open rims and unfused intersections are retained editorial limits for this exterior exercise."
+        },
+        {
+          "score": 3,
+          "observation": "The numbered enlarged view lets a learner identify the three named groups. At whole-tree scale the small origins crowd together, and the composite label is needed to avoid an invented split."
+        },
+        {
+          "score": 2,
+          "observation": "Nine material slots serve nine selectable meshes, with 55,040 triangles including 17,920 on the trunk. No lighter trial checks the smallest branches or relation at the arch."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/aortic_tree_z/2026-10-29-arch-locators/README.md",
+          "label": "2026 10 29 arch locators · README.md"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/05-paired.webp",
+          "sha256": "620d97e87bd06255be136ed4656b5037209cbbe6ebc617bf5c7ee08aa18423b3",
+          "bytes": 131326,
+          "label": "Fresh exact-file reimport or native opening · overview and neutral alternate"
+        },
+        {
+          "path": "reviews/aortic_tree_z/2026-10-29-arch-locators/junction-comparison.png",
+          "sha256": "b06efe8944f8b8d987b3b8509cd4332b7aa236fc38ed7abb263e3956658e3ee1",
+          "bytes": 969156,
+          "label": "Retained owner evidence"
+        }
+      ],
+      "decision": "Keep the GLB and teach branch identity with the enlarged numbered locator. Keep lumen continuity outside this task."
+    },
+    {
+      "export": {
+        "path": "heart/Cardiac_Atlas_Animated/Heart_Clinical_Animated.glb",
+        "sha256": "6912d439271c3525230a90fe403d586000e6a66ab37f82bf0419604181e52263",
+        "bytes": 8180224
+      },
+      "task": "Scrub the schematic heartbeat and distinguish ventricular contour change from a rigid shift of the whole heart.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "The exact clip is 0.8 seconds with loop closure. The prior clean import measured 4.793 mm maximum world-vertex change on the LV wall and separately measured moving valve vertices."
+        },
+        {
+          "score": 3,
+          "observation": "Between the imported samples the lower ventricular outline shifts relative to the great vessels. The broad shell highlight remains readable and the neutral reverse view separates great-vessel profiles."
+        },
+        {
+          "score": 2,
+          "observation": "The motion is real but subtle in the opaque overview. Frames and numerical motion evidence support the task. The exterior gives no view of the AV or semilunar leaflets."
+        },
+        {
+          "score": 2,
+          "observation": "There are 247 selectable meshes, 222,336 base triangles and 8,180,224 bytes. Finer components serve separate anatomical study, but the present opaque motion task has no measured simpler candidate."
+        }
+      ],
+      "sources": [
+        {
+          "path": "heart/Cardiac_Atlas_Animated/README.md",
+          "label": "Cardiac_Atlas_Animated · README.md"
+        },
+        {
+          "path": "heart/Cardiac_Atlas_Animated/GLB_VALIDATION.json",
+          "label": "Cardiac_Atlas_Animated · GLB_VALIDATION.json"
+        },
+        {
+          "path": "heart/Cardiac_Atlas_Animated/BLENDER_ROUNDTRIP_QA.json",
+          "label": "Cardiac_Atlas_Animated · BLENDER_ROUNDTRIP_QA.json"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/06-paired.webp",
+          "sha256": "8b36d3b397b6e91eeb1857eb4d54267a7bfa5bce5103bb011a16f16bb5b8b5c8",
+          "bytes": 246148,
+          "label": "Fresh exact-file reimport or native opening · overview and neutral alternate"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/06-motion.webp",
+          "sha256": "629c11ce879c0e2b7c634315dc028a449c3a7df7fc6875dc3581df9ddbad72ee",
+          "bytes": 235272,
+          "label": "Fixed-camera imported motion samples"
+        }
+      ],
+      "decision": "Keep the animated original. Use its cutaway companion for valve timing, with its separate motion evidence and scope. Current Library playback and specialist interpretation were unverified in this batch."
+    },
+    {
+      "export": {
+        "path": "heart/Cardiac_Atlas/exports/Cardiac_Atlas_Clinical_Full_ED.glb",
+        "sha256": "32802a9a36963c2f8935f632f28ba3602d1ce004919e5e203ff87bbdcb52fa2f",
+        "bytes": 4864488
+      },
+      "task": "Distinguish the pulmonary trunk from the aortic arch on the procedural heart’s full static ED exterior.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The ED asset preserves separately named authored outflow vessels and an arch; overlapping joins and ED presentation are declared by the atlas source."
+        },
+        {
+          "score": 3,
+          "observation": "The smooth outflow silhouettes cross at different depths. The neutral reverse view exposes vessel ends and the bend of the arch. Junction overlap remains part of the construction."
+        },
+        {
+          "score": 3,
+          "observation": "Anterior color separates the transverse pulmonary branches from the arch. The reverse direction reveals depth despite the missing palette cues. Internals require a section export."
+        },
+        {
+          "score": 2,
+          "observation": "The 247 meshes and 222,336 triangles bundle internal detail that contributes little to this exterior task. The static exterior derivative supplies a smaller exact alternative with different scope."
+        }
+      ],
+      "sources": [
+        {
+          "path": "heart/Cardiac_Atlas/docs/README.md",
+          "label": "docs · README.md"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/07-paired.webp",
+          "sha256": "a25cd5177c5e61a9af1eb89eaf7c3bc1dd079ac861ad56b7a631132dff7fe9fe",
+          "bytes": 246788,
+          "label": "Fresh exact-file reimport or native opening · overview and neutral alternate"
+        }
+      ],
+      "decision": "Keep the full ED file as a reference with its named internal parts. Prefer the reviewed static exterior for an exterior-only lesson."
+    },
+    {
+      "export": {
+        "path": "models/heart/exports/metadata-cleanup-r01/heart.glb",
+        "sha256": "50c86dcab55701ca1418e16cd269ded70027663d58d02270ec6df0c8afd488fb",
+        "bytes": 2037228
+      },
+      "task": "Recognize the ventricular exterior and major superior contour of the s1233 body-study heart shell.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The metadata cleanup preserves one 24,000-triangle s1233 source shell and no internal anatomy. The retained clip is translation only and is outside this contour task."
+        },
+        {
+          "score": 2,
+          "observation": "The broad ventricular mass reads from both directions, but lumpiness around the superior openings and abrupt contours make individual great-vessel names unreliable."
+        },
+        {
+          "score": 3,
+          "observation": "The low rounded ventricular mass and elevated irregular superior contour remain separable in neutral. The whole shell is one selectable part."
+        },
+        {
+          "score": 2,
+          "observation": "One 24,000-triangle mesh and one material serve gross shell context. No matched trial tests whether fewer triangles preserve the superior openings."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/heart/exports/metadata-cleanup-r01/README.md",
+          "label": "metadata cleanup r01 · README.md"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/08-paired.webp",
+          "sha256": "f225f6c58750e2eb963ed3ec54167f359cb78fc63109a92a9f27602c3cb1d5d3",
+          "bytes": 200326,
+          "label": "Fresh exact-file reimport or native opening · overview and neutral alternate"
+        }
+      ],
+      "decision": "Keep as a case-specific context shell. Follow up only if a focused segmentation/source comparison can account for the superior folds before any smoothing."
+    },
+    {
+      "export": {
+        "path": "models/pulmonary_vein/exports/metadata-cleanup-r01/pulmonary_vein.glb",
+        "sha256": "9e0454c0a920bcd9292d1aced370ff781b97aa8fb87b0439eb1f0ac21517a593",
+        "bytes": 1718704
+      },
+      "task": "Find the two main external profiles of the retained pulmonary-vein component in posterior context.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The exact component is preserved with unchanged decoded coordinates and faces in the context review. The original raw mask is unavailable for testing omitted components."
+        },
+        {
+          "score": 3,
+          "observation": "Two opposing views show the long lobed profiles and narrow intermediate region under broad light. Their cut ends and bumps supply case contours only."
+        },
+        {
+          "score": 3,
+          "observation": "The posterior teaching sheet adds orientation and the detail inset shows the selected component. Branch naming and four-vein interpretation have insufficient source evidence."
+        },
+        {
+          "score": 3,
+          "observation": "The 9,600-triangle single mesh preserves taper and narrow external tips in both directions. No controlled lighter candidate was reviewed."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/pulmonary_vein/2026-10-30-context/README.md",
+          "label": "2026 10 30 context · README.md"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/09-paired.webp",
+          "sha256": "d3d2842355a8330b63d278c06dfe61bbb905abae6abb4ec0c2e384712f8574e8",
+          "bytes": 201506,
+          "label": "Fresh exact-file reimport or native opening · overview and neutral alternate"
+        },
+        {
+          "path": "lessons/pulmonary-vein-context/pulmonary-vein-context.png",
+          "sha256": "7e48448afb63ac42df1dc281cf939c3a9783acc75fdca877a9c65e2abcfc4bac",
+          "bytes": 2641758,
+          "label": "Retained owner evidence"
+        }
+      ],
+      "decision": "Keep the case-specific GLB and the existing posterior teaching sheet. The component alone provides no validated chamber join or continuous lumen."
+    },
+    {
+      "export": {
+        "path": "heart/exterior-presentation-r02/exports/static-opaque-exterior-repacked.glb",
+        "sha256": "221c8be48c44f49ebbc4a52b2ce4094a5c4b15ea1be01db39038ac8a8f4a52b5",
+        "bytes": 3408256
+      },
+      "task": "Identify the aortic arch above the pulmonary trunk on the opaque static heart, then confirm their overlap from behind.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "The r02 review measured identical decoded geometry and materials to r01 for 124 retained selectable objects, with identical matched output pixels."
+        },
+        {
+          "score": 3,
+          "observation": "The arch and pulmonary-trunk silhouettes remain legible in both views. Cut vessel ends and join overlaps are the authored presentation boundaries."
+        },
+        {
+          "score": 3,
+          "observation": "The crossing is legible in color and remains distinguishable by depth in the neutral reverse view. Outflow continuity beyond the displayed surfaces is outside scope."
+        },
+        {
+          "score": 3,
+          "observation": "Lossless r02 saves 5,543,680 bytes (61.93%) over the same 124-object r01 with identical geometry and pixels. Small vessels remain selectable. A lower triangle count has not been tested."
+        }
+      ],
+      "sources": [
+        {
+          "path": "heart/exterior-presentation-r02/README.md",
+          "label": "exterior presentation r02 · README.md"
+        },
+        {
+          "path": "reviews/heart_exterior/2026-11-21-static-repack/checks.json",
+          "label": "2026 11 21 static repack · checks.json"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/10-paired.webp",
+          "sha256": "0714978ccc731487db24c6bf009591126f744939678e5e8ec8b7d19ee1d14a94",
+          "bytes": 245134,
+          "label": "Fresh exact-file reimport or native opening · overview and neutral alternate"
+        }
+      ],
+      "decision": "Keep the adopted r02 as the local exterior view. The reviewed r01 preserves its separate published identity."
+    },
+    {
+      "export": {
+        "path": "models/esophagus_wall/exports/authored-cutaway-r01/esophagus-wall-cutaway-r01.glb",
+        "sha256": "e4f51a86040ef115776fe06a33443982f7b63243332681e53dadaa77f81c05f5",
+        "bytes": 201328
+      },
+      "task": "Read from the lumen to the adventitia and identify the two muscularis externa compartments within the four tunics.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The owner checks the authored nested order and 5 selectable regions in the exact export. The documented folds, wedge and proportions are schematic cues."
+        },
+        {
+          "score": 3,
+          "observation": "The retained broad neutral close-up shows the wedge contour, six-fold lumen relief and flush interfaces in two directions. The teaching palette makes the small outer bands distinguishable again."
+        },
+        {
+          "score": 3,
+          "observation": "The labeled transverse view supports following the layers outward. At the longitudinal angle, the thin outer bands disappear in a neutral override unless the parts are selected."
+        },
+        {
+          "score": 3,
+          "observation": "Five parts use 7,700 triangles and 201,328 bytes. The small bands and curved wall each have an explicit role; no lighter comparison was done."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/esophagus_wall/2026-11-21-form-assessment-r01/README.md",
+          "label": "2026 11 21 form assessment r01 · README.md"
+        },
+        {
+          "path": "models/esophagus_wall/exports/authored-cutaway-r01/README.md",
+          "label": "authored cutaway r01 · README.md"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/11-paired.webp",
+          "sha256": "18f27b18f7e59a1358557e6a9d9386d9ad2ab8e46bbf96a635e4441d4fce1f90",
+          "bytes": 220422,
+          "label": "Fresh exact-file reimport or native opening · overview and neutral alternate"
+        },
+        {
+          "path": "reviews/esophagus_wall/2026-11-21-form-assessment-r01/form-close-esophageal-wall.webp",
+          "sha256": "964934356dd41a74568ff92d129ba53f51fd146023eae4476d9fed22df359f80",
+          "bytes": 1502844,
+          "label": "Retained owner evidence"
+        }
+      ],
+      "decision": "Keep the existing form review and use its labeled transverse view. This campaign readout uses the same export and learner task."
+    },
+    {
+      "export": {
+        "path": "models/gallbladder/exports/metadata-cleanup-r01/gallbladder.glb",
+        "sha256": "faa06e38130b3f63cc0094914eeb9adfb874ba2a2dc78da49e1c255c1f740227",
+        "bytes": 2124988
+      },
+      "task": "Distinguish the source gallbladder exterior from the authored wall section and locate the separate schematic cystic duct.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The retained source exterior and authored section are separately named on clean import. The schematic duct stays a distinct mesh; it represents a teaching cue."
+        },
+        {
+          "score": 2,
+          "observation": "The source-only silhouette has a bulbous end and a narrowing region. Co-visible geometry introduces apparent thin seams, while the isolated section displays an intentional broad cut rim."
+        },
+        {
+          "score": 2,
+          "observation": "All-parts import conceals the section opening. The isolated split view shows both alternatives clearly and retains the schematic duct beside the section even in neutral."
+        },
+        {
+          "score": 3,
+          "observation": "The three meshes total 9,596 triangles and each has a distinct use. This includes 656 triangles in the separate duct and 4,740 in the wall section. No decimation trial was performed."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/gallbladder/2026-10-23-metadata-cleanup-r01/record.json",
+          "label": "2026 10 23 metadata cleanup r01 · record.json"
+        },
+        {
+          "path": "body/anatomy-workshop-r1/README.md",
+          "label": "anatomy workshop r1 · README.md"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/12-paired.webp",
+          "sha256": "f22ef32ded68332c07129ea0dbc6270773a9a3268dec39e1799982450809737c",
+          "bytes": 183118,
+          "label": "Fresh exact-file reimport or native opening · overview and neutral alternate"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/12-isolation.webp",
+          "sha256": "5ee9c01aa129d62072b10f453ab33ca9c1d2f98558631e6eaad5d8812a8e64bc",
+          "bytes": 208228,
+          "label": "Hide the source gallbladder surface to reveal the authored cut rim and see the separate schematic cystic duct."
+        }
+      ],
+      "decision": "Use the matched isolation plate and hide the source mesh when teaching the cut rim. Keep the exact GLB. A route requiring all surfaces reset together needs a verified visibility preset.",
+      "teachingView": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/12-isolation.webp"
+    },
+    {
+      "export": {
+        "path": "models/large-intestine/exports/source-candidate-v4/large-intestine.glb",
+        "sha256": "a8bd8f8227a3cf53b5aa63bb234c1bcb182bfa432da5eb2e3488788f829df4f5",
+        "bytes": 7882016
+      },
+      "task": "Follow the large bowel exterior around the colon and identify the segmental wall contour and longitudinal taenia cues.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The reviewed BP3D derivative preserves ten disconnected exterior components, with teaching taenia ribbons and no continuous lumen assertion."
+        },
+        {
+          "score": 3,
+          "observation": "Alternating haustral contour is visible on both sides. The reversals expose the terminations and ribbon surface without implying tissue-level fidelity."
+        },
+        {
+          "score": 3,
+          "observation": "A learner can follow the frame around the loops in both views. Internal continuity, the missing ileocecal junction and identification of individual taeniae require other evidence."
+        },
+        {
+          "score": 2,
+          "observation": "One mesh with two material slots has 350,748 triangles and takes 7,882,016 bytes. A controlled lower count has yet to protect the ribbon silhouette and separation boundaries."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/large-intestine/exports/source-candidate-v4/README.md",
+          "label": "source candidate v4 · README.md"
+        },
+        {
+          "path": "reviews/intestines/2026-10-24-bounded-migration/large-intestine/record.json",
+          "label": "large intestine · record.json"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/13-paired.webp",
+          "sha256": "58647497678e4772e54417d4ef0b2aa1019aa8bb54bd6edea27c2bca2e5ed6b3",
+          "bytes": 210248,
+          "label": "Fresh exact-file reimport or native opening · overview and neutral alternate"
+        }
+      ],
+      "decision": "Keep for external recognition. Compare a lighter export around turning taeniae and terminal pieces before adopting one."
+    },
+    {
+      "export": {
+        "path": "models/liver/exports/hra-female-v1.10-r02/liver.glb",
+        "sha256": "e9abb0c2503a3fa9d725988451e630283ec2c902c182b812219f2d73f3ab1038",
+        "bytes": 763480
+      },
+      "task": "Find the posterior bare area relative to the anterior surface of the HRA liver.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "The separable capsule, bare area and six ligaments retain HRA positions, indices and normals; the material changes are illustrative."
+        },
+        {
+          "score": 3,
+          "observation": "The capsule retains its broad silhouette in the two directions. The retained HRA review view shows thin ligament margins around the capsule and bare area."
+        },
+        {
+          "score": 3,
+          "observation": "The separately selectable bare-area mesh works alongside the capsule comparison. Turning around the integrated view changes the relationship from the smooth anterior surface to the smaller posterior patch."
+        },
+        {
+          "score": 2,
+          "observation": "The capsule uses 30,034 of 41,470 triangles. The eight meshes carry separately useful parts, but the cost of protecting the small ligament ends with a lighter capsule has yet to be tested."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/liver/README.md",
+          "label": "liver · README.md"
+        },
+        {
+          "path": "reviews/liver/2026-10-23-hra-female-v1.10-r02/record.json",
+          "label": "2026 10 23 hra female v1.10 r02 · record.json"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/14-paired.webp",
+          "sha256": "68b6a363793eae580fdd626ac5dc0e3fb4a053b995e28a24dc4ab8b5339099f2",
+          "bytes": 205340,
+          "label": "Fresh exact-file reimport or native opening · overview and neutral alternate"
+        },
+        {
+          "path": "reviews/liver/2026-10-23-hra-female-v1.10-r02/display/contact.webp",
+          "sha256": "f694e03476862fc2482690244055a75a5cc27e0d39565e16ae148f28841246a2",
+          "bytes": 64202,
+          "label": "Retained owner evidence"
+        }
+      ],
+      "decision": "Keep the HRA liver and use the posterior source view to interpret the bare area. If decimating, test the capsule separately from the ligament meshes."
+    },
+    {
+      "export": {
+        "path": "models/pancreas/exports/hra-female-context-r04/pancreas_hra_female_context_r04.glb",
+        "sha256": "aa15f9248027c248886a9cf8d4f5f401b2753176c800851f648b03d88d97ebed",
+        "bytes": 1373872
+      },
+      "task": "Follow the HRA pancreas from the head in the duodenal bend toward the tail beside the splenic context.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "Five gross regions retain source placement and the named same-atlas context. Open patches, slivers and near-zero normals remain in the source-derived geometry."
+        },
+        {
+          "score": 2,
+          "observation": "The narrow body and enlarged head read in both views. Lumpy contour and localized defects around the ductal/duodenal region limit fine morphology."
+        },
+        {
+          "score": 3,
+          "observation": "The duodenal bend and splenic context anchor the two ends. The reverse view confirms their opposite placement, while the region key carries the fine-part distinctions."
+        },
+        {
+          "score": 3,
+          "observation": "Twenty meshes and 38,598 triangles distribute the regions and context as selectable parts. The ventral duct uses 5,124 triangles. Duct and small-region geometry stays outside this exterior task."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/pancreas/README.md",
+          "label": "pancreas · README.md"
+        },
+        {
+          "path": "reviews/pancreas/hra-female-context-r04/bounded-record.json",
+          "label": "hra female context r04 · bounded-record.json"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/15-paired.webp",
+          "sha256": "2c8c38d7cb4e3624fd5f17b6d096c31b6d4e1fe9e2c16fdc87b44febdc04f97a",
+          "bytes": 207392,
+          "label": "Fresh exact-file reimport or native opening · overview and neutral alternate"
+        },
+        {
+          "path": "reviews/pancreas/hra-female-context-r04/display/candidate-1bf2dc46bf2a.webp",
+          "sha256": "1bf2dc46bf2a8a38a822fdbeaa6a621fbc8e93eb98a7715256b4775a0fb69caf",
+          "bytes": 46564,
+          "label": "Retained owner evidence"
+        }
+      ],
+      "decision": "Keep for gross orientation. Any task that follows ducts must first resolve the junctions and identify the needle-like detail against HRA source geometry."
+    },
+    {
+      "export": {
+        "path": "models/small-intestine/exports/source-candidate-v4/small-intestine.glb",
+        "sha256": "a9459afc67cb13c28084b518615fdbb5e05c135a47eafa3036908139aece94da",
+        "bytes": 2366552
+      },
+      "task": "Find the proximal attachment region and point out the folded small-bowel loops without inferring a continuous path.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The exact source-frame assembly preserves the authors' proximal teaching bridge and the disconnected source exterior pieces. Motion is outside the task."
+        },
+        {
+          "score": 3,
+          "observation": "Alternating light broad highlights reveal the loop silhouettes in both views. The proximal hooked profile differs from the compact distal bowel mass."
+        },
+        {
+          "score": 3,
+          "observation": "The hooked upper region and tightly packed loops are distinguishable in both views. One selectable surface and cropped/overlapping loops limit segment identification."
+        },
+        {
+          "score": 2,
+          "observation": "One 96,240-triangle primitive includes 55 disconnected parts. No measured lighter candidate tests the most crowded loop edges or the authored proximal bridge."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/small-intestine/exports/source-candidate-v4/README.md",
+          "label": "source candidate v4 · README.md"
+        },
+        {
+          "path": "reviews/intestines/2026-10-24-bounded-migration/small-intestine/record.json",
+          "label": "small intestine · record.json"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/16-paired.webp",
+          "sha256": "199316258128031908ce5a036fcaa44c93f24ae980832fc4bf9582a1b156d000",
+          "bytes": 253304,
+          "label": "Fresh exact-file reimport or native opening · overview and neutral alternate"
+        }
+      ],
+      "decision": "Keep the existing exterior for loop recognition. Verify any proposed lighter version against the proximal bridge and local gaps. A traceable internal route requires a different model."
+    },
+    {
+      "export": {
+        "path": "models/stomach/exports/metadata-cleanup-r01/stomach.glb",
+        "sha256": "ad0876f37f92945171750d31d9c53165535a697e60a3d2ac8a3f3f78667fdec6",
+        "bytes": 3402184
+      },
+      "task": "Distinguish the s1233 stomach exterior from the independent authored mucosal section and locate the repeated rugae cues.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The exact GLB retains the segmented, repaired source exterior plus a separate authored closed-back section and illustrative folds. No registration between the two part sets is claimed."
+        },
+        {
+          "score": 2,
+          "observation": "The source silhouette is readable on its own, but the co-visible outline crosses the section. The isolated section makes the authored folds and thick backing intelligible."
+        },
+        {
+          "score": 2,
+          "observation": "With all parts visible, the diagonal exterior visually removes the middle of several rugae. Matched isolation restores the full schematic pattern without moving either source."
+        },
+        {
+          "score": 2,
+          "observation": "Thirteen material slots and 60,456 triangles include 8,400 on the exterior and 52,056 on the section and folds. The gross fold-identification exercise has no matched lower-count trial."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/stomach/2026-10-23-metadata-cleanup-r01/verification.json",
+          "label": "2026 10 23 metadata cleanup r01 · verification.json"
+        },
+        {
+          "path": "body/anatomy-workshop-r1/README.md",
+          "label": "anatomy workshop r1 · README.md"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/17-paired.webp",
+          "sha256": "b1cbe62ca060e22dcfcf7d9686c4157ecb4576c690b716b30d84c65d169fff6b",
+          "bytes": 248654,
+          "label": "Fresh exact-file reimport or native opening · overview and neutral alternate"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/17-isolation.webp",
+          "sha256": "708d235e3206615b6c6e4a0b002a6b07c1ae75fd39f77b18cdf80f2598937528",
+          "bytes": 286164,
+          "label": "Hide the source stomach surface to see the full rugae pattern in the independent schematic section."
+        }
+      ],
+      "decision": "Use the matched plate and select mutually exclusive views when showing the GLB. The section has no gastric inlet or outlet. A consumer preset remains a follow-up; keep canonical bytes.",
+      "teachingView": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/17-isolation.webp"
+    },
+    {
+      "export": {
+        "path": "models/adrenals/exports/source-candidate-01/adrenals_source_frame.glb",
+        "sha256": "c7de1afa5394a7f64b106a62ff979eaa9e0b428db23a13fa34340c2d38ba13a7",
+        "bytes": 115440
+      },
+      "task": "Distinguish the two BP3D adrenal exterior profiles and associate each with the same-side kidney in the retained context view.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The source-frame atlas pair preserves named left/right meshes. The retained atlas evidence supplies kidney localization while the exact gland export holds only the two targets."
+        },
+        {
+          "score": 2,
+          "observation": "The two silhouettes remain distinct, but broad light reveals ridge and hollow irregularities with unclear anatomical meaning at this crop."
+        },
+        {
+          "score": 3,
+          "observation": "The two selectable gland profiles can be confirmed by rotation. Same-source kidneys in the retained still supply orientation needed for the second step."
+        },
+        {
+          "score": 3,
+          "observation": "One primitive each for 3,996 and 2,294 triangles preserves the visible slender margins and lack of overlap between the two targets. No lighter trial was done."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/adrenals/README.md",
+          "label": "adrenals · README.md"
+        },
+        {
+          "path": "reviews/adrenals/2026-10-23-bp3d-bounded-migration/bounded-record.json",
+          "label": "2026 10 23 bp3d bounded migration · bounded-record.json"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/18-paired.webp",
+          "sha256": "16bf2e0e780398256b72e888d9496456354795bac4b982eab1e147a4f10dd29f",
+          "bytes": 142086,
+          "label": "Fresh exact-file reimport or native opening · overview and neutral alternate"
+        },
+        {
+          "path": "reviews/adrenals/2026-10-23-bp3d-bounded-migration/display/candidate-a524ea65d5eb.webp",
+          "sha256": "a524ea65d5eb2d6bd070b4e3e838a8fa69c757dbf749598a868922932625b830",
+          "bytes": 32590,
+          "label": "Retained owner evidence"
+        }
+      ],
+      "decision": "Keep the isolated silhouettes and supply the retained context view. Use the distinct s1233 regional study for manipulating renal context in 3D."
+    },
+    {
+      "export": {
+        "path": "assemblies/endocrine-locator/adrenal-study-r05/s1233-adrenals-regional.glb",
+        "sha256": "20ad1b99a09e13dbbe240ed122bf70e648d8f2c526a79030040fee58472ff118",
+        "bytes": 286832
+      },
+      "task": "Locate the left and right adrenal relative to the same-side kidney, then isolate the glands to inspect their gross exterior.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "Owner measurements against the s1233 reference protect superior and inferior profiles. A local cleft contour error falls from 5.97 mm in r04 to 0.64 mm in r05 at the stated section."
+        },
+        {
+          "score": 4,
+          "observation": "The paired owner views show the recessed face turning into the curved lower rim. Reverse and neutral views and a gross specimen comparison support the fold cue, with editorial polish disclosed."
+        },
+        {
+          "score": 4,
+          "observation": "The paired posterior views and grayscale evidence support finding each gland above and medial to the corresponding kidney, even with pancreas context."
+        },
+        {
+          "score": 4,
+          "observation": "The lighter trial reduced the individual glands to 500 triangles. It displaced the sampled right contour by up to 2.24 pixels in the oblique neutral view."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/endocrine-locator/adrenal-study-r05/README.md",
+          "label": "adrenal study r05 · README.md"
+        },
+        {
+          "path": "reviews/endocrine-locator/adrenal-study-r05/geometry.json",
+          "label": "adrenal study r05 · geometry.json"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/19-paired.webp",
+          "sha256": "c9c33873e858df107706c87542eedae36f6c22305456bdea5d0166d1aa4fda3f",
+          "bytes": 181872,
+          "label": "Fresh exact-file reimport or native opening · overview and neutral alternate"
+        },
+        {
+          "path": "reviews/endocrine-locator/adrenal-study-r05/grayscale.png",
+          "sha256": "fa6b778731fd36711f984d5dc72c1e767173e73a6c52051477ade063d2596e82",
+          "bytes": 126969,
+          "label": "Retained owner evidence"
+        }
+      ],
+      "decision": "Keep the separately attributed r05 16/16 owner judgment and its exact task. The approved camera and grayscale evidence show the gland profiles better than an uncalibrated whole-region view."
+    },
+    {
+      "export": {
+        "path": "models/hypothalamus/exports/source-candidate-01/hypothalamus_source_frame.glb",
+        "sha256": "b6d73d6b5a33006391a743c650ccc06b65b9b9afaaaebbcf1d05102d4399274c",
+        "bytes": 75720
+      },
+      "task": "Identify the paired BP3D hypothalamic envelopes and pick out the inferior stalk-like projection.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "Two named BP3D exterior surfaces reimport in the native frame. The neighboring pituitary shown in prior evidence is contextual and absent from this export."
+        },
+        {
+          "score": 2,
+          "observation": "The seam and inferior projection are visible. The deep posterior depression has no anatomical annotation in the owner record, so it remains unexplained at teaching zoom."
+        },
+        {
+          "score": 3,
+          "observation": "The primary view shows the two surface halves and the projection, and rotation confirms that it comes forward of the rear depression. There are no nuclei to select."
+        },
+        {
+          "score": 3,
+          "observation": "Two selectable meshes total 4,078 triangles and preserve the silhouette around the depression and narrow inferior end. No lighter trial was documented."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/hypothalamus/README.md",
+          "label": "hypothalamus · README.md"
+        },
+        {
+          "path": "reviews/hypothalamus/2026-10-23-bp3d-bounded-migration/bounded-record.json",
+          "label": "2026 10 23 bp3d bounded migration · bounded-record.json"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/20-paired.webp",
+          "sha256": "ff88128720732673f241ea685728cb14339165b191fa3242689539afbdd57b41",
+          "bytes": 205538,
+          "label": "Fresh exact-file reimport or native opening · overview and neutral alternate"
+        },
+        {
+          "path": "reviews/hypothalamus/2026-10-23-bp3d-bounded-migration/display/candidate-a7b1de9bb9cb.webp",
+          "sha256": "a7b1de9bb9cb4fda45e8a1dbff7db7fae51e5a71b62e6517cf34343d6c281a58",
+          "bytes": 65192,
+          "label": "Retained owner evidence"
+        }
+      ],
+      "decision": "Keep this as a coarse source envelope. Resolve the posterior depression against a suitable atlas reference before using it as anatomical detail."
+    },
+    {
+      "export": {
+        "path": "assemblies/hypothalamus-pituitary/teaching-stalk-r01/hypothalamus-pituitary-teaching.glb",
+        "sha256": "31ddd537a8aa3ac7dcd75a9a9789132fb10bcfeccb4149e14443d845fd7fb373",
+        "bytes": 130668
+      },
+      "task": "Trace the labeled authored exterior from hypothalamus through a single inferred stalk to the pituitary.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "The earlier independent check confirms a clean import with one closed surface and a connected taper. The smoothing is local and the inferred area is explicitly disclosed."
+        },
+        {
+          "score": 3,
+          "observation": "The neck narrows between two envelopes in the side and oblique views. The retained small crease and unmatched source depression limit detail."
+        },
+        {
+          "score": 3,
+          "observation": "The single bridge is visible from both directions. Use the retained color-coded view to distinguish the inferred stalk from the two source-derived envelopes."
+        },
+        {
+          "score": 3,
+          "observation": "One 5,370-triangle mesh retains a continuous slender neck without selection seams. No lighter trial protects that local silhouette."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/hypothalamus_pituitary/2026-10-29-teaching-stalk-r01/README.md",
+          "label": "2026 10 29 teaching stalk r01 · README.md"
+        },
+        {
+          "path": "reviews/hypothalamus_pituitary/2026-10-29-teaching-stalk-r01/export-check.json",
+          "label": "2026 10 29 teaching stalk r01 · export-check.json"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/21-paired.webp",
+          "sha256": "a3e7d6cf17eccbe4fd8d47dc3d359ab04f240c078face378e6856b5dcf3f2e4d",
+          "bytes": 181548,
+          "label": "Fresh exact-file reimport or native opening · overview and neutral alternate"
+        },
+        {
+          "path": "reviews/hypothalamus_pituitary/2026-10-29-teaching-stalk-r01/renders/updated-junction-side.png",
+          "sha256": "8c0d0ff4f6a7eddd7238ce2e8f6794ae2d4ecd123e6b547343f3f610e267f61a",
+          "bytes": 1221962,
+          "label": "Retained owner evidence"
+        }
+      ],
+      "decision": "Keep the authored join for the spatial relationship. The earlier separate source models remain appropriate for distinguishing the source envelopes; the join has purposefully authored geometry."
+    },
+    {
+      "export": {
+        "path": "models/parathyroids/exports/z-localization-r01/parathyroids_native.glb",
+        "sha256": "b6fbbabfa7efd12b8c377f5bc56193bd81776daab999a8c1ac8286f693b85b45",
+        "bytes": 11544
+      },
+      "task": "Identify the four atlas parathyroid targets and distinguish upper from lower pairs in a posterior thyroid locator.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The exact glands-only export has four named targets in the Z native frame. The owner measured the related context extraction against native source vertices."
+        },
+        {
+          "score": 2,
+          "observation": "Repeated mirrored ovals preserve the intended marker silhouettes from both directions. Their simplification and the context thyroid's uninterpreted projection limit morphology claims."
+        },
+        {
+          "score": 2,
+          "observation": "The standalone export shows upper/lower separation but no thyroid relation. The owner supplies a separate contextual export and annotated posterior view."
+        },
+        {
+          "score": 3,
+          "observation": "Four 128-triangle meshes separate the landmarks and preserve their small elliptical silhouettes. The portable file is 11,544 bytes, with no measured lower triangle test."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/parathyroids/exports/z-localization-r01/README.md",
+          "label": "z localization r01 · README.md"
+        },
+        {
+          "path": "reviews/parathyroids/2026-10-25-localization-r01/README.md",
+          "label": "2026 10 25 localization r01 · README.md"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/22-paired.webp",
+          "sha256": "076822dea2e023709f1e95eb2ecc18663f1ba88e8a3c82cd5d618a1eb3310a55",
+          "bytes": 107774,
+          "label": "Fresh exact-file reimport or native opening · overview and neutral alternate"
+        },
+        {
+          "path": "reviews/parathyroids/2026-10-25-localization-r01/teaching-posterior.png",
+          "sha256": "8b8c0a92cae7f491282b381f04d2f3a0453e2441fbe0b89a5351054e810f98b1",
+          "bytes": 362317,
+          "label": "Separate same-source context export · annotated posterior view"
+        }
+      ],
+      "decision": "Keep this target-only component. Route the actual localization exercise to the separately reviewed same-source context view and carry atlas shape limits into the lesson."
+    },
+    {
+      "export": {
+        "path": "models/pituitary/exports/source-candidate-01/pituitary_source_frame.glb",
+        "sha256": "8eae4c6d05b0c9de5128ae6f574a97265cb392a44567fcac5ea0b9b7f1dbca68",
+        "bytes": 22296
+      },
+      "task": "Point to the rounded BP3D pituitary envelope and its narrower superior neck from two directions.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The single native-frame atlas mesh is the documented exterior target. The hypothalamus and the source overlap involved in the connection are separate context."
+        },
+        {
+          "score": 3,
+          "observation": "Broad light shows the shoulder between the broad body and narrow neck. A planar face terminates the neck in this simplified envelope."
+        },
+        {
+          "score": 3,
+          "observation": "The body/neck distinction remains visible in the neutral reverse view. The single selection has no lobes or connected hypothalamic part."
+        },
+        {
+          "score": 3,
+          "observation": "One 1,164-triangle mesh maintains its rounded outline and neck. No lower budget comparison was made."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/pituitary/README.md",
+          "label": "pituitary · README.md"
+        },
+        {
+          "path": "reviews/pituitary/2026-10-23-bp3d-bounded-migration/bounded-record.json",
+          "label": "2026 10 23 bp3d bounded migration · bounded-record.json"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/23-paired.webp",
+          "sha256": "98a4ecc3fd625636b33e7eabf4ac254eb6223080d17df56c16cb91292c5aa32f",
+          "bytes": 223628,
+          "label": "Fresh exact-file reimport or native opening · overview and neutral alternate"
+        },
+        {
+          "path": "reviews/pituitary/2026-10-23-bp3d-bounded-migration/display/candidate-13aa81fd2082.webp",
+          "sha256": "13aa81fd20826d2b9cb102c5baa8c4ed0b074195933eaa0a59a89ce27836d666",
+          "bytes": 14960,
+          "label": "Retained owner evidence"
+        }
+      ],
+      "decision": "Keep for envelope recognition. Use the separate continuous instructional assembly for teaching the relationship across the neck."
+    },
+    {
+      "export": {
+        "path": "models/thyroid_ct_s0189/exports/illustrative-exterior-r01/thyroid-illustrative-exterior.glb",
+        "sha256": "4c2dee513f713fd8d649e7d1928ba3859ce1d25e81468e707b65a5fbeeee216a",
+        "bytes": 152124
+      },
+      "task": "Find the narrow bridge between the unequal thyroid lobes below the U-shaped recess in this case-specific exterior.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "The owner confirms exact triangle correspondence to the case export. Maximum movement is 0.279 mm in the protected bridge band and 0.609 mm overall."
+        },
+        {
+          "score": 2,
+          "observation": "The fresh neutral view confirms the continuous bridge and preserves an uneven rear surface. Its prominent lower-band ridges still need interpretation against the case labels."
+        },
+        {
+          "score": 3,
+          "observation": "Both views show that the short bridge links unequal lobes continuously at the base of the recess. A same-case tracheal landmark remains unavailable."
+        },
+        {
+          "score": 3,
+          "observation": "The single 8,340-triangle primitive is 152,124 bytes and preserves the narrow bridge. The same-scope source uses 8,340 triangles and 151,580 bytes. No lighter bridge trial is documented."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/thyroid_ct_s0189/illustrative-exterior-r01/README.md",
+          "label": "illustrative exterior r01 · README.md"
+        },
+        {
+          "path": "reviews/thyroid_ct_s0189/2026-10-29-illustrative-exterior-r01/export-check.json",
+          "label": "2026 10 29 illustrative exterior r01 · export-check.json"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/24-paired.webp",
+          "sha256": "9ac4b520b1a9cd8bc6f2b5162795f187dc936ee3132fcf6a410facec93e48bd7",
+          "bytes": 215052,
+          "label": "Fresh exact-file reimport or native opening · overview and neutral alternate"
+        },
+        {
+          "path": "reviews/thyroid_ct_s0189/2026-10-29-illustrative-exterior-r01/renders/updated-oblique.png",
+          "sha256": "f73b70f64c817eda798e16a23aeee8f78b03ed469096cc9d8e63559dd0d48b22",
+          "bytes": 758624,
+          "label": "Retained owner evidence"
+        }
+      ],
+      "decision": "Keep the illustrative reduction for bridge recognition. The new neutral view supplies evidence for a conservative form score; the earlier owner judgment preserves its original missing neutral check."
+    }
+  ]
+}

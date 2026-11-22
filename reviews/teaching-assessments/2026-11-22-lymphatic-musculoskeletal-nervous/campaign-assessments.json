@@ -1,0 +1,1205 @@
+{
+  "schemaVersion": 1,
+  "evaluator": "Sol (agent review)",
+  "date": "2026-11-22",
+  "rubric": {
+    "path": "docs/guides/asset-quality.md",
+    "sha256": "01c7254cf7b2ceb2e72e59952dad24c44ed59917b25ca59c83d6c458eee64302",
+    "revision": "e0eae25c3914c27cfd81fb72436e443b023bf487"
+  },
+  "assessments": [
+    {
+      "export": {
+        "path": "models/blood_cell_study/exports/authored-r05/blood-cell-authored-study-r05.glb",
+        "sha256": "4c7c738b3ca6ae6cc7e44a449be0f7d26d04ceb9975e43d3b834a2caad96618c",
+        "bytes": 3461004
+      },
+      "task": "Distinguish erythrocytes face-on and edge-on, then locate the segmented neutrophil nucleus in the opening.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The two closed authored RBCs give the depression and profile, and the cutaway shell exposes the connected segmented nucleus. This comparison uses arbitrary display scale."
+        },
+        {
+          "score": 3,
+          "observation": "The depression and thin profile read from both directions. The reverse exposes the intact backs of both neutrophil representations, so the cutaway needs its declared front."
+        },
+        {
+          "score": 3,
+          "observation": "The front presents face and profile together and distinguishes intact from section with labels. The reverse gives an exterior depth check; those same front-facing labels are harder to read there."
+        },
+        {
+          "score": 2,
+          "observation": "The repeated granule pieces illustrate contents, but the 81-part study spends 179,596 triangles. No equal-scale comparison establishes that all of that granule and shell sampling remains visible."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/blood_cell_study/README.md",
+          "label": "Owning reference and assessment scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/render-evidence.json",
+          "label": "A01 · clean import, parts and camera receipt"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A01-review.webp",
+          "sha256": "8cc763e1457f326f461a6fcfd0fa4e9967fbd69e84f472681d3845fa60496e3f",
+          "bytes": 20816,
+          "label": "Clean import, alternate neutral view and selected regional detail"
+        }
+      ],
+      "decision": "Keep the authored task and front pose. Test lighter granule and cell shell models before replacing geometry."
+    },
+    {
+      "export": {
+        "path": "models/lymph-collecting-routes/source-context-r01/selected-source-routes.glb",
+        "sha256": "ff8c1e9cecc86b4287520d97e71e81792d26eb0b3017e6f302e213f64819b4ca",
+        "bytes": 11476
+      },
+      "task": "Follow the highlighted source-named central collecting route and identify where its retained upper and lower ends stop.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The package verifies seven source triangle multisets after clean import. The caps are preserved source ends. They do not establish venous connection or patent lumen."
+        },
+        {
+          "score": 2,
+          "observation": "The central route resolves against darker context in the retained detail. The raw overview shows narrow, abruptly bent tubes with weak contrast and no tissue to imply anatomical calibre."
+        },
+        {
+          "score": 3,
+          "observation": "The owner plate dims context and marks both ends, which are difficult to localize in the bare whole-model view. The body outline serves as an editorial locator."
+        },
+        {
+          "score": 3,
+          "observation": "The entire source selection uses 372 triangles in seven separately selectable routes. The thoracic duct uses 76 triangles through its turns and caps."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/lymph-collecting-routes/source-context-r01/README.md",
+          "label": "Owning reference and assessment scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/render-evidence.json",
+          "label": "A02 · clean import, parts and camera receipt"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A02-review.webp",
+          "sha256": "ba88505637d9531631c3178ae5486752c9dd9d850a51f0326ce6784fd97f993c",
+          "bytes": 15152,
+          "label": "Clean import, alternate neutral view and selected regional detail"
+        },
+        {
+          "path": "models/lymph-collecting-routes/source-context-r01/comparison-en.png",
+          "sha256": "01134611886cb5332715c8646c683f3a386fe93c4e27b543a23b4f651a4db632",
+          "bytes": 208906,
+          "label": "Follow the highlighted central collecting route and identify the two marked source ends."
+        }
+      ],
+      "decision": "Keep the matched locator plate. Begin the task there and name the endpoint limitations when launching the bare export.",
+      "teachingView": "models/lymph-collecting-routes/source-context-r01/comparison-en.png"
+    },
+    {
+      "export": {
+        "path": "models/lymph_node/exports/hra-v1.2/NIH_M_Lymph_Node.glb",
+        "sha256": "7b047002cbb1dc06f37baa441783390d76cdb444b6144d6caa623923707953fd",
+        "bytes": 7413900
+      },
+      "task": "Compare the intact capsule outline with the exposed follicles, paracortex and medulla in the same view.",
+      "axes": [
+        {
+          "score": 2,
+          "observation": "The GLB keeps seven exact source meshes. Source node 7 says blood and its extras say lymph. The matched teaching view hides that disputed network and makes no flow or layer-contact claim."
+        },
+        {
+          "score": 2,
+          "observation": "The neutral capsule has a recognizable oval solid form, while the exposed interiors retain visibly irregular lobules and deep clefts without a suitable close reference for anatomical interpretation."
+        },
+        {
+          "score": 3,
+          "observation": "The aligned layer panel exposes three named tissue meshes that the capsule hides, and captions specify which exterior and vessel meshes were removed. The neutral pair confirms the projection."
+        },
+        {
+          "score": 2,
+          "observation": "The source network and medulla contain 219,873 of 254,663 triangles. The source serves as provenance, while the teaching view omits the conflicting network and has no evidence for its sampling cost."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/lymph_node/README.md",
+          "label": "Owning reference and assessment scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/render-evidence.json",
+          "label": "A03 · clean import, parts and camera receipt"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A03-review.webp",
+          "sha256": "2e8aae7a3d591c0fb9e9fcc18bfd1d19508cc0f891d15ed289910c9ca84f36ee",
+          "bytes": 18762,
+          "label": "Clean import, alternate neutral view and selected regional detail"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A03-lymph-node-layers.webp",
+          "sha256": "a6941e9ff96181c203aebefbf5ed7387f438921e97d047210565a8e0d8531d20",
+          "bytes": 47444,
+          "label": "Compare the intact capsule with the exposed follicles, paracortex and medulla in the same view."
+        }
+      ],
+      "decision": "Use the new exact-source visibility plate for this limited task. Keep the unchanged HRA original and withhold a route or vessel lesson until the label conflict is resolved.",
+      "teachingView": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A03-lymph-node-layers.webp"
+    },
+    {
+      "export": {
+        "path": "models/spleen/exports/hra-female-v1.10-r03/spleen.glb",
+        "sha256": "4e2637cf6c844aef85ab77c2c1049d4e7647348a13c34d784795b98825f7c8c7",
+        "bytes": 278576
+      },
+      "task": "Find the hilum on the concave face and distinguish it from the rounded diaphragmatic surface.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "The source comparison verifies unchanged positions and indices and preserves the hilum across 330 authored interface-normal edits. The export stays in its HRA frame."
+        },
+        {
+          "score": 3,
+          "observation": "The concave color view and neutral exterior show a smooth turn between convex and flatter faces. Colored region boundaries are editorial."
+        },
+        {
+          "score": 3,
+          "observation": "The contrasting concave inset locates the hilar side; rotation separates it from the uninterrupted convex side. This isolated task does not require neighboring organs."
+        },
+        {
+          "score": 3,
+          "observation": "Five source region selections share 8,544 triangles; 1,506 remain on the vulnerable hilum and 4,338 on the broad diaphragmatic surface."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/spleen/README.md",
+          "label": "Owning reference and assessment scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/render-evidence.json",
+          "label": "A04 · clean import, parts and camera receipt"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A04-review.webp",
+          "sha256": "c7c3f81e2b632e95230eb4187d23f9775ad83771ed175ed6ea78ced83bc4628a",
+          "bytes": 17724,
+          "label": "Clean import, alternate neutral view and selected regional detail"
+        }
+      ],
+      "decision": "Keep the export for exterior comparison. Link a separate context locator for organ relationships."
+    },
+    {
+      "export": {
+        "path": "models/thymus/exports/source-candidate-01/thymus_source_frame.glb",
+        "sha256": "897d7c9d9885c895862235291e05ce8b85208a276e1624f0cbb273d0a887b2a9",
+        "bytes": 39696
+      },
+      "task": "Identify the two thymus lobes and compare their outlines from opposite sides.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The same-source lobes survive clean import in their maintained frame; conversion and shading are documented. The export contains no mediastinal structures."
+        },
+        {
+          "score": 3,
+          "observation": "The taller narrowed extension and shorter lobe stay distinct in colored and neutral views. The surface softly reveals lobe edges but does not show histology."
+        },
+        {
+          "score": 3,
+          "observation": "The seam and unequal superior contours identify two lobes; a reverse view shows each lobe as a separate selection. Retrosternal placement needs the owner's separate context."
+        },
+        {
+          "score": 3,
+          "observation": "The two lobe shells total 2,080 triangles and keep the thinner superior extension readable in both views."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/thymus/README.md",
+          "label": "Owning reference and assessment scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/render-evidence.json",
+          "label": "A05 · clean import, parts and camera receipt"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A05-review.webp",
+          "sha256": "99def261b813cd84b6fa8f67583b756aa915f9c16225b9d16c86351e8d80b922",
+          "bytes": 18982,
+          "label": "Clean import, alternate neutral view and selected regional detail"
+        }
+      ],
+      "decision": "Keep the isolated two-lobe task. Link the retained context separately when asking for retrosternal location."
+    },
+    {
+      "export": {
+        "path": "assemblies/marrow-comparison/2026-10-23/illustrative-container-r03.glb",
+        "sha256": "17d3b2a45d4bc369cbb3ca770a48c550e0bf5438f8112b7a7bd31d2cbd12a02c",
+        "bytes": 64456
+      },
+      "task": "Find the opened proximal femur and distinguish the authored inner rim from the preserved exterior shell.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The package preserves the BodyParts3D femur exterior and documents an authored inner boundary of 2.5 mm. The independent segmented-bone specimen is unregistered and separate."
+        },
+        {
+          "score": 3,
+          "observation": "The cut rim traces the neck and shaft in the opened view; the neutral reverse preserves their recognizable exterior. The shell thickness remains illustrative."
+        },
+        {
+          "score": 3,
+          "observation": "The intact reverse and the pale cut border in the front view distinguish exterior from editorial section. The GLB alone has no separate trabecular comparator."
+        },
+        {
+          "score": 3,
+          "observation": "Three meshes use 2,552 triangles, including 288 for the narrow remapped derivative. The retained neck and rim silhouettes are intelligible."
+        }
+      ],
+      "sources": [
+        {
+          "path": "assemblies/marrow-comparison/2026-10-23/README.md",
+          "label": "Owning reference and assessment scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/render-evidence.json",
+          "label": "A06 · clean import, parts and camera receipt"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A06-review.webp",
+          "sha256": "a2c12f987fa96624e908c5525c96060530362a498fb33f259f44b1ee4da02de1",
+          "bytes": 20024,
+          "label": "Clean import, alternate neutral view and selected regional detail"
+        }
+      ],
+      "decision": "Keep the GLB for the shell task. Pair the separately scaled specimen only in the comparison lesson and retain the unresolved header-versus-prose spacing discrepancy."
+    },
+    {
+      "export": {
+        "path": "models/bone_marrow/exports/authored-source-cutaway-r05/marrow_cutaway.glb",
+        "sha256": "7b21b74fb3712b2816801337bd4d0732ef8bb035a999ad36558b8235609cfe02",
+        "bytes": 8770012
+      },
+      "task": "Locate the authored trabecular network inside the cut proximal femur and distinguish it from the outer rim.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The exact decision binds the source exterior and explicitly authored shell, marrow and trabecular network. The mesh is a relationship illustration independent of measured microarchitecture."
+        },
+        {
+          "score": 3,
+          "observation": "The cut rim stays distinct despite dense interior detail, and the reverse shows the closed exterior profile with an evident coarse surface at the greater trochanter."
+        },
+        {
+          "score": 3,
+          "observation": "The cutaway exposes the spanning network and its relation to the rim. The reverse restores exterior orientation; those together avoid teaching the graph as the outer surface."
+        },
+        {
+          "score": 2,
+          "observation": "The illustrative lattice accounts for 364,734 of 369,274 triangles. The subsequent exact-control trial removes 189,662 lattice triangles while retaining the visible openings, cortical rim and branch junctions in the reviewed teaching views."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/bone_marrow/2026-10-26-source-cutaway-r05/review-decision.json",
+          "label": "Owning reference and assessment scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/render-evidence.json",
+          "label": "A07 · clean import, parts and camera receipt"
+        },
+        {
+          "path": "reviews/bone_marrow/2026-11-22-lattice-economy-trial/README.md",
+          "label": "Local mesh trial, protected structures and decision"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A07-review.webp",
+          "sha256": "5f9eba77740ea444c9caedf403fe315888e49a898927f825e7536836a47251a3",
+          "bytes": 37224,
+          "label": "Clean import, alternate neutral view and selected regional detail"
+        },
+        {
+          "path": "reviews/bone_marrow/2026-11-22-lattice-economy-trial/detail.jpg",
+          "sha256": "5a115fbc4c496e30201e808857725f1c6103149485386e3ab8e3614f0ecbb7b7",
+          "bytes": 315896,
+          "label": "Exact r05 at left, with moderate and strong lattice reductions at the same teaching scale"
+        }
+      ],
+      "decision": "Keep r05 as the assessed reference. The lead review accepts the 4,218,116-byte recipe-built option at teaching scale. Enlarged worst-region crops show slight contour straightening and narrowing of a highlight."
+    },
+    {
+      "export": {
+        "path": "assemblies/musculoskeletal-teaching/2026-10-23/achilles-right-context.glb",
+        "sha256": "e38e33c1d0ceb791e4a2ad676dedd7923f53b5ad8d7dc8b195202565609354ea",
+        "bytes": 517676
+      },
+      "task": "Trace the calcaneal tendon down the posterior calf to the calcaneal region.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "Eight same-source right-sided meshes include the tendon, calcaneus and talus. The study establishes regional placement only, without independent tendon attachment validation."
+        },
+        {
+          "score": 3,
+          "observation": "The posterior heel detail shows the long tendon narrowing toward a visibly irregular lower edge. The neutral reverse exposes its separation from the calf outline."
+        },
+        {
+          "score": 3,
+          "observation": "An anterior look hides much of the tendon behind leg bones. The posterior detail exposes its course immediately behind the calcaneal region, with the whole view supplying orientation."
+        },
+        {
+          "score": 3,
+          "observation": "The eight meshes use 28,251 triangles; 4,377 represent the tendon, and the surrounding soleus, gastrocnemius and bone meshes anchor its path."
+        }
+      ],
+      "sources": [
+        {
+          "path": "assemblies/musculoskeletal-teaching/2026-10-23/README.md",
+          "label": "Owning reference and assessment scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/render-evidence.json",
+          "label": "A08 · clean import, parts and camera receipt"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A08-review.webp",
+          "sha256": "f2fc7326e45f38c2690bb44b0d680464d560a1c6a88d5647fc8cf740c7b41e84",
+          "bytes": 30356,
+          "label": "Clean import, alternate neutral view and selected regional detail"
+        }
+      ],
+      "decision": "Keep the tendon and favor a posterior starting view for this task. Do not use the apparent lower edge to teach a measured insertion."
+    },
+    {
+      "export": {
+        "path": "models/joints/exports/z-elbow-r01/elbow_z_native.glb",
+        "sha256": "cd6cd488943fe721101955322b343a8c9441f1d4ff8c5042dd4e1ca7462f7891",
+        "bytes": 158752
+      },
+      "task": "Locate the capsule between the upper-arm bone and the two forearm bones.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The bounded record preserves the exact native-frame humerus, ulna, radius and capsule. The selection does not establish ligament mechanics or attachment accuracy."
+        },
+        {
+          "score": 3,
+          "observation": "The neutral joint close-up shows a separate rounded capsule with overlaps at its margins. The reverse preserves the bent-out forearm contour and condylar region."
+        },
+        {
+          "score": 3,
+          "observation": "The colored capsule locates the joint on three bones in the overview; the close-up confirms the edge against the joint surfaces. Named selection can isolate the capsule."
+        },
+        {
+          "score": 3,
+          "observation": "Eight meshes use 8,332 triangles; the 1,728-triangle capsule retains its recognizable joint outline and consumes less than the humerus."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/joints/exports/z-elbow-r01/README.md",
+          "label": "Owning reference and assessment scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/render-evidence.json",
+          "label": "A09 · clean import, parts and camera receipt"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A09-review.webp",
+          "sha256": "b56a91648758b167aa50a65b62d45df499251fb7f735184a32d3ad692a0feb06",
+          "bytes": 27322,
+          "label": "Clean import, alternate neutral view and selected regional detail"
+        }
+      ],
+      "decision": "Keep the static capsule localization. Use a separate inspection if asking learners to distinguish deeper ligament attachments."
+    },
+    {
+      "export": {
+        "path": "models/joints/exports/z-knee-r01/knee_z_native.glb",
+        "sha256": "6dcc793e4132e62e4962e504bef0d595bb2e7d3a31881137244f31eadbb53aad",
+        "bytes": 365864
+      },
+      "task": "Compare the exterior knee with the inspection view and locate the menisci around the central cruciate region.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "Same-frame changes hide the four source meshes used by the retained inspection mode. Inherited ACL topology and the absent separate cartilage and patellar ligament remain explicit."
+        },
+        {
+          "score": 3,
+          "observation": "The close-ups preserve meniscus rims and the distinction between central crossing bands and surroundings. Source polygon outlines stay visible on some bands; the mesh cannot establish tissue attachments."
+        },
+        {
+          "score": 3,
+          "observation": "At the same camera, the exterior patella and capsule block the central region. Inspection reveals peripheral meniscal crescents and central bands while keeping tibia as orientation."
+        },
+        {
+          "score": 3,
+          "observation": "Twenty-two parts total 18,672 triangles; the 1,576-triangle ACL and 2,944-triangle capsule remain selectable, with distinct roles in the depth reveal."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/joints/knee-inspection-r01/README.md",
+          "label": "Owning reference and assessment scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/render-evidence.json",
+          "label": "A10 · clean import, parts and camera receipt"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A10-review.webp",
+          "sha256": "fe9ffe3177af9b474e96c830c6e1212eb4e83ba60980c61f011dd9187a56eb50",
+          "bytes": 15296,
+          "label": "Clean import, alternate neutral view and selected regional detail"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A10-knee-depth.webp",
+          "sha256": "e6e83e93925c650f0d904618035c8e669ac5e43d131f0490cbb4aa52b3cb9aa5",
+          "bytes": 30850,
+          "label": "Compare the exterior knee and deep inspection at the same angle to see the menisci and central ligaments."
+        }
+      ],
+      "decision": "Keep the existing optional inspection mode and use this matched view pair to make its benefit visible. Preserve both outer and inspection states."
+    },
+    {
+      "export": {
+        "path": "models/vertebrae_L3/exports/metadata-cleanup-r01/vertebrae_L3.glb",
+        "sha256": "ba74f52842207d396bd0e959d40fedc0adf69e787072117e037b0ba9d18eebfe",
+        "bytes": 2034520
+      },
+      "task": "Point to the vertebral body and distinguish it from the posterior projections.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The patch changes only seven scene metadata fields. The Workshop source geometry survives exact GLB import; a single model is insufficient to verify level from neighbors."
+        },
+        {
+          "score": 3,
+          "observation": "The body contour and posterior arch read from different views. The broad front surface is smoother than the short projections and the faceted lower edges are visible."
+        },
+        {
+          "score": 3,
+          "observation": "The body dominates one side; rotation exposes the cluster of posterior projections. There are no separate selectable subparts, which this pointing task does not require."
+        },
+        {
+          "score": 3,
+          "observation": "A single 9,600-triangle mesh retains the thinner posterior projections and continuous body outline. An equivalent lighter silhouette has not been tested."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/vertebrae_L3/README.md",
+          "label": "Owning reference and assessment scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/render-evidence.json",
+          "label": "A11 · clean import, parts and camera receipt"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A11-review.webp",
+          "sha256": "6b22e4915e132343f73c997bf1069b5eabfd2d65a22bdf7ace81d96fbe4ea53b",
+          "bytes": 19456,
+          "label": "Clean import, alternate neutral view and selected regional detail"
+        }
+      ],
+      "decision": "Keep the metadata-cleanup export for gross pointing. Use the L3–L4 context group for level relationships."
+    },
+    {
+      "export": {
+        "path": "assemblies/skeletal-teaching/2026-10-23/L3-L4-disc.glb",
+        "sha256": "d476f7efe89cea84fa3a7670b505e557c328ddae10526cc4083e4c95313b80d5",
+        "bytes": 256144
+      },
+      "task": "Identify the disc exterior between the paired vertebral bodies and locate the posterior elements behind it.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The package documents the BodyParts3D exterior parts and preserves their native placement. Internal annulus or nucleus and facet contact are outside the task."
+        },
+        {
+          "score": 3,
+          "observation": "A continuous band reads between the broad bodies from the front, while the neutral reverse exposes uneven posterior bony edges and coarse seams."
+        },
+        {
+          "score": 3,
+          "observation": "The disc is crisp in the front color view. The reverse lets the learner distinguish the posterior bones whose overlap hides most of the band."
+        },
+        {
+          "score": 3,
+          "observation": "Three source meshes total 10,238 triangles. The disc remains a selectable shell with a visible perimeter against both vertebral bodies."
+        }
+      ],
+      "sources": [
+        {
+          "path": "assemblies/skeletal-teaching/README.md",
+          "label": "Owning reference and assessment scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/render-evidence.json",
+          "label": "A12 · clean import, parts and camera receipt"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A12-review.webp",
+          "sha256": "b46de7e7ddc19dceeea01c4d552de58261e18eb8fa81dbea40882ccd930e32a7",
+          "bytes": 24902,
+          "label": "Clean import, alternate neutral view and selected regional detail"
+        }
+      ],
+      "decision": "Keep the anterior color view and reverse context. Describe the band as the exterior disc only."
+    },
+    {
+      "export": {
+        "path": "models/muscle/exports/z-anatomy-r02/muscle_z_native_frame.glb",
+        "sha256": "7081144bdbca0d2d871311a3568a0aedb1c8e125f7709ae8e7d55345a54bdfb7",
+        "bytes": 30517312
+      },
+      "task": "Locate the superficial chest and abdominal muscle surfaces anteriorly and the paired shoulder/back groups posteriorly.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The owner describes the 462 muscle parts and 47 supports in the Z-Anatomy native frame. The imported overview retains that grouping and shows no measured attachments or rig."
+        },
+        {
+          "score": 3,
+          "observation": "Pectoral, abdominal and back surfaces have distinguishable profiles in the neutral and color views. Several thin seams and tracing boundaries remain visible."
+        },
+        {
+          "score": 3,
+          "observation": "The front and reverse supply whole-body orientation and named objects for isolation. Smaller overlapping muscles require a regional asset and closer pose."
+        },
+        {
+          "score": 2,
+          "observation": "The atlas stores 1,993,160 triangles. An iliotibial tract alone has 48,612 triangles, and no measured whole-view target justifies that density for this task."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/muscle/exports/z-anatomy-r02/README.md",
+          "label": "Owning reference and assessment scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/render-evidence.json",
+          "label": "A13 · clean import, parts and camera receipt"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A13-review.webp",
+          "sha256": "45812d2a9f87cc2fd66cfe7f3cf01e8ebb3c7ea8584150f517b45dcae77c51d5",
+          "bytes": 33700,
+          "label": "Clean import, alternate neutral view and selected regional detail"
+        }
+      ],
+      "decision": "Keep the full atlas for exploration. Use a separate regional subset if the learner only needs a named local group."
+    },
+    {
+      "export": {
+        "path": "models/joints/exports/z-rotator-cuff-r01/right-rotator-cuff.glb",
+        "sha256": "edf5c2fc5322adc1c75703143b3fba5a2be3ecd87d5559bce1441c1977a4eb30",
+        "bytes": 703536
+      },
+      "task": "Find supraspinatus and infraspinatus on opposite sides of the scapular spine, then locate teres minor and subscapularis.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "The retained triangle comparison and seven label rays confirm the exact six source surfaces, including the 1,522-triangle teres minor, in native right-sided placement."
+        },
+        {
+          "score": 3,
+          "observation": "The neutral posterior close-up shows the raised spine and narrow teres-minor strip. Local muscle-edge and blade irregularities remain in the source; the gross shapes persist across opposing views."
+        },
+        {
+          "score": 3,
+          "observation": "The exact teaching sheet puts anterior subscapularis on the reverse and labels the posterior strip. The fresh neutral close-up confirms the spine as a divider without relying on palette."
+        },
+        {
+          "score": 3,
+          "observation": "Six meshes use 38,678 triangles. The scapula contributes 25,326 and preserves the raised spine and curved rim; the small teres minor remains recognizable."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/joints/2026-10-30-rotator-cuff-r01/README.md",
+          "label": "Owning reference and assessment scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/render-evidence.json",
+          "label": "A14 · clean import, parts and camera receipt"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A14-review.webp",
+          "sha256": "1f585b4e0da06b3698187e0fba0882341d9849091d4bf694066ba182fc1fd9eb",
+          "bytes": 37062,
+          "label": "Clean import, alternate neutral view and selected regional detail"
+        },
+        {
+          "path": "reviews/joints/2026-10-30-rotator-cuff-r01/v2/teaching.png",
+          "sha256": "addb75923e5b96edfafbc6045a4c1075b8b93889da8863b2ab99440c349eb482",
+          "bytes": 604105,
+          "label": "Owner’s front and back landmarks"
+        }
+      ],
+      "decision": "Keep the six-surface subset. Use the existing labeled sheet alongside the new neutral close-up to support the front/reverse task."
+    },
+    {
+      "export": {
+        "path": "assemblies/skeletal-teaching/2026-10-23/second-costal.glb",
+        "sha256": "181d3e175e93702bb52f98535f2ebfe1d9387425dd432f19318161db7db99f05",
+        "bytes": 497332
+      },
+      "task": "Distinguish the two second costal cartilages from the adjacent ribs and sternum in the retained context.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The supplement retains the source cartilage, rib, sternal and vertebral context in the same native frame. It does not claim complete chest wall or biomechanics."
+        },
+        {
+          "score": 3,
+          "observation": "The colored anterior view preserves the gently curving connector surfaces; the reverse shows the stacked posterior skeletal context and coarse source seam behavior."
+        },
+        {
+          "score": 3,
+          "observation": "Both cyan bands stand out in the anterior view. Rotation confirms the ribs extend laterally; front/lat orientation should stay visible because the reverse compresses the transition."
+        },
+        {
+          "score": 3,
+          "observation": "Nine meshes use 24,186 triangles, concentrated in the two long ribs. The distinct paired cartilage objects retain narrow curved profiles and can be selected."
+        }
+      ],
+      "sources": [
+        {
+          "path": "assemblies/skeletal-teaching/README.md",
+          "label": "Owning reference and assessment scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/render-evidence.json",
+          "label": "A15 · clean import, parts and camera receipt"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A15-review.webp",
+          "sha256": "c398b6346daf077e9b9078ad7372880a7cf304c60b092153d3252bbc96ff69a8",
+          "bytes": 24790,
+          "label": "Clean import, alternate neutral view and selected regional detail"
+        }
+      ],
+      "decision": "Keep the anterior view with a side or oblique companion. Avoid implying validated attachment from the seam."
+    },
+    {
+      "export": {
+        "path": "models/joints/exports/z-shoulder-r01/shoulder_z_native.glb",
+        "sha256": "2f2bb36881fb7a5ff346906a6ac8ea9433e31291d0ebb073959d020739e67448",
+        "bytes": 671700
+      },
+      "task": "Locate shoulder capsule at the humeral head and orient to the scapula and clavicle.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The exact Z-native group retains ten source structures and the bounds of the regional bones. Native placement does not certify soft-tissue attachment anatomy."
+        },
+        {
+          "score": 3,
+          "observation": "The neutral close-up shows the capsule as a defined cap and band group adjacent to the head. The curved acromial overhang remains clear, while narrow overlapping strips are hard to parse."
+        },
+        {
+          "score": 3,
+          "observation": "Color and close angle orient the capsule against the humeral head, the scapular blade and the clavicle. The reverse gives depth even when small soft tissues are partly hidden."
+        },
+        {
+          "score": 3,
+          "observation": "Ten pieces use 36,698 triangles. The 25,324-triangle scapula supplies the blade and narrow acromial overhang, while the 3,232-triangle capsule is independently selectable."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/joints/exports/z-shoulder-r01/README.md",
+          "label": "Owning reference and assessment scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/render-evidence.json",
+          "label": "A16 · clean import, parts and camera receipt"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A16-review.webp",
+          "sha256": "c80c053f6ea718d0b49edb893c6019e449ce746fb9caea71df19ba46f32ebadf",
+          "bytes": 34310,
+          "label": "Clean import, alternate neutral view and selected regional detail"
+        }
+      ],
+      "decision": "Keep for capsule localization. Use the rotator-cuff subset for identifying individual cuff muscles."
+    },
+    {
+      "export": {
+        "path": "models/skeleton/exports/source-candidate-03/skeleton_source_frame.glb",
+        "sha256": "d224985628cc62d0c9c4284019b73505c9ebf14d78d30a040d74a7b33c68620e",
+        "bytes": 12705356
+      },
+      "task": "Orient the skull, rib cage and pelvis, then distinguish the appendicular bones from the axial trunk.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The BodyParts3D export retains 271 named representation meshes and atlas placement. Its 206 bone-category objects are an inventory convention, not an anatomical completeness count."
+        },
+        {
+          "score": 3,
+          "observation": "The front and posterior outlines distinguish skull, curved ribs, vertebral column and pelvic ring. Regional close-ups are available in the owning review when teaching details."
+        },
+        {
+          "score": 3,
+          "observation": "The two views show the upper and lower limb bones separated from the trunk and the pelvis as their landmark. Named selections are useful when broad views occlude individual parts."
+        },
+        {
+          "score": 2,
+          "observation": "The full atlas stores 622,754 triangles; the two largest mesh counts alone sum to 54,278. Whole-body orientation does not establish that density, and an equal-scope trial is missing."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/skeleton/exports/source-candidate-03/README.md",
+          "label": "Owning reference and assessment scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/render-evidence.json",
+          "label": "A17 · clean import, parts and camera receipt"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A17-review.webp",
+          "sha256": "2f0687ec6917af8d5a44549886cf10a39ea02b39ee263c3c92dd25e8e218febd",
+          "bytes": 29622,
+          "label": "Clean import, alternate neutral view and selected regional detail"
+        }
+      ],
+      "decision": "Keep the anatomy atlas and evaluate a teaching-distance proxy if full atlas download or display becomes a measured bottleneck."
+    },
+    {
+      "export": {
+        "path": "models/ears_z/exports/r04/ears_z.glb",
+        "sha256": "04ba664cdc219dc7b78e80ddb2b1d5ff39ffe4438bd0ab1bf63c2221c46f5939",
+        "bytes": 1752248
+      },
+      "task": "Locate the outer auricular rim and distinguish it from the recessed bowl.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The Z-native compound preserves the bilateral external surface geometry and documented medial open boundaries. The ear canal and internal structures fall outside the task."
+        },
+        {
+          "score": 3,
+          "observation": "The lateral neutral detail shows a turning outer rim and recessed bowl, while the reverse exposes flat medial boundaries that are outside an exterior inspection."
+        },
+        {
+          "score": 3,
+          "observation": "The wider pair orients the two external ears; the side close-up reveals the two relief features without color. The compact default pair alone is too distant for that distinction."
+        },
+        {
+          "score": 2,
+          "observation": "The single bilateral compound stores 96,432 triangles. A protected rim close-up would allow a same-shape trial; whole-pair display has no evidence supporting all of the dense sampling."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/ears_z/exports/r04/README.md",
+          "label": "Owning reference and assessment scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/render-evidence.json",
+          "label": "A18 · clean import, parts and camera receipt"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A18-review.webp",
+          "sha256": "d8bea9f6b30cb3120b9fb47334afedeb2ffdfd02e3e031154637dbace8f43954",
+          "bytes": 30044,
+          "label": "Clean import, alternate neutral view and selected regional detail"
+        }
+      ],
+      "decision": "Keep the source compound and lead with the lateral close-up when asking about relief. Protect the bowl and outer rim in any lighter trial."
+    },
+    {
+      "export": {
+        "path": "models/brain/exports/bodyparts3d-4.0-atlas-r2/brain-source-frame.glb",
+        "sha256": "26d39768e2882daee034f997a8d594e915283b5f8a176a8bb60003944a45b886",
+        "bytes": 4415384
+      },
+      "task": "Distinguish the cerebral hemispheres, cerebellum and exposed brainstem in the exterior atlas.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The retained BodyParts3D atlas selection includes 49 named meshes and preserves the declared native frame. It is exterior only, with a truncated brainstem."
+        },
+        {
+          "score": 3,
+          "observation": "The hemisphere folds, repeated cerebellar ridges and blunt brainstem end are readily distinguished in both views. Reduced-resolution faceting and seam lines remain."
+        },
+        {
+          "score": 3,
+          "observation": "The near-symmetric view separates two hemispheres above the cerebellum. The oblique clarifies depth and shows the stalk descending rather than adding an internal teaching claim."
+        },
+        {
+          "score": 2,
+          "observation": "Forty-nine meshes total 242,358 triangles. Several surfaces exceed 10,000 triangles, and the large-scale three-part task has no lighter equivalent or tested fine-fold threshold."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/brain/exports/bodyparts3d-4.0-atlas-r2/README.md",
+          "label": "Owning reference and assessment scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/render-evidence.json",
+          "label": "A19 · clean import, parts and camera receipt"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A19-review.webp",
+          "sha256": "045e4dec446a773d01cb4891af47dccc05e97b140105ac98f76c8eef826581d8",
+          "bytes": 41956,
+          "label": "Clean import, alternate neutral view and selected regional detail"
+        }
+      ],
+      "decision": "Keep for gross exterior orientation and retain the finer atlas separately if labeling smaller gyri."
+    },
+    {
+      "export": {
+        "path": "models/eye_anterior_segment/exports/hra-v1.3-r01/anterior_segment.glb",
+        "sha256": "457b08b1edab5fc39db3b49e09635091721847e06262b7cb937fd006223c6750",
+        "bytes": 10054784
+      },
+      "task": "Compare the cornea, iris aperture and lens in the three-structure visibility mode.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The provider geometry stays in native frame and the exact source POSITION, index and UV bindings are retained. The prior qualified task excludes the four ciliary and zonular nodes."
+        },
+        {
+          "score": 3,
+          "observation": "The neutral reverse reveals the rounded lens profile, and the front gives the rounded exposed blue region. Annotated owner views distinguish the aperture from the visible surface. Optics are outside scope."
+        },
+        {
+          "score": 2,
+          "observation": "In the all-visible exact export the pupils and ciliary fringe compete visually. The owner needs the separate three-structure visibility view; never present the blue lens as a pupil surface."
+        },
+        {
+          "score": 2,
+          "observation": "The seven meshes use 150,793 triangles, with 54,614 in ciliary muscle and 25,536 in ciliary processes. Those are diagnostic-only for this task."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/eye_anterior_segment/2026-10-28-teaching-scope-r02/README.md",
+          "label": "Owning reference and assessment scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/render-evidence.json",
+          "label": "A20 · clean import, parts and camera receipt"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A20-review.webp",
+          "sha256": "246ca158134439562aacddd6ae11171d86a5b55267e96efa095c0545c890f7b8",
+          "bytes": 56604,
+          "label": "Clean import, alternate neutral view and selected regional detail"
+        },
+        {
+          "path": "reviews/eye_anterior_segment/2026-10-23-hra-v1.3-r01/display/cornea-iris-lens.webp",
+          "sha256": "dee0204dfaf018b03396cfe0fdf7f5bb9372702c5cd66ab894cb2f596a20302c",
+          "bytes": 15610,
+          "label": "Retained layer-isolation evidence"
+        }
+      ],
+      "decision": "Use the retained cornea–pupil–lens display and withhold instruction on ciliary and zonular attachment. Keep the exact source for diagnostic recovery."
+    },
+    {
+      "export": {
+        "path": "models/eye_exterior/exports/z-native-courses-r01/eye-exterior-courses.glb",
+        "sha256": "39fd2cc18b2352b2ac73b46e76f486aa7eb7a8c0cc301a77a9b178a1cb8f70b9",
+        "bytes": 674580
+      },
+      "task": "Find the superior oblique turn beside the globe and distinguish it from the long rectus courses.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The same-source study preserves globe envelopes and sampled muscle courses, including a modeled trochlear turn. The retained optic segment and course names do not prove complete innervation or mechanics."
+        },
+        {
+          "score": 3,
+          "observation": "The reverse shows the bent upper path apart from the straighter bundled courses; the color view preserves recognizable envelope and front corneal bulge."
+        },
+        {
+          "score": 3,
+          "observation": "The owner uses more than one view to identify the turn; the neutral reverse confirms that the bend is off the main rectus bundle. Near-front view alone foreshortens the paths."
+        },
+        {
+          "score": 3,
+          "observation": "The bilateral group has 20 selectable parts and 35,884 triangles. The distinct rings and thin paths remain visible, and both sclerae have 4,544 triangles each."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/eye_exterior/README.md",
+          "label": "Owning reference and assessment scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/render-evidence.json",
+          "label": "A21 · clean import, parts and camera receipt"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A21-review.webp",
+          "sha256": "3acbd7121b582fac6a1d2358b8ad934f85c3c8239057b88dac05cbc26d50f5d9",
+          "bytes": 16786,
+          "label": "Clean import, alternate neutral view and selected regional detail"
+        },
+        {
+          "path": "reviews/eye_exterior/2026-10-30-z-native-courses-r01/presentation/teaching.png",
+          "sha256": "c97e8d1af670b82e8551f94fb894a9ea5e06a7fe5637b0f2ebd5042176c60dbb",
+          "bytes": 1522008,
+          "label": "Unilateral extraocular course teaching sheet"
+        }
+      ],
+      "decision": "Keep the bounded globe-course comparison and use the existing labels to orient each side."
+    },
+    {
+      "export": {
+        "path": "models/peripheral_nerves/exports/median-wrist-r01/right-median-wrist.glb",
+        "sha256": "6094265d2263f3b501f4e487ff7f859b83205bde99bca9312d48c26f29680c50",
+        "bytes": 834404
+      },
+      "task": "Locate the right median trunk at the wrist, then follow the palmar branches in the hand.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The owner binds the nerve and 30 bones to the same native right-arm source. The task uses the retained projected courses and does not claim a validated tunnel roof or tissue passage."
+        },
+        {
+          "score": 3,
+          "observation": "The neutral wrist close-up makes the trunk and thin branches legible against larger carpals, with overlap at several finger routes. The whole arm gives a recognizable course."
+        },
+        {
+          "score": 3,
+          "observation": "An overview alone makes the trunk nearly disappear. The new wrist crop and the retained labeled hand plate expose where it broadens into palmar branches."
+        },
+        {
+          "score": 3,
+          "observation": "Thirty-three parts total 38,414 triangles; the 5,184-triangle trunk and 10,944-triangle digital branches preserve long curved and small routes at the closer teaching scale."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/peripheral_nerves/exports/median-wrist-r01/README.md",
+          "label": "Owning reference and assessment scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/render-evidence.json",
+          "label": "A22 · clean import, parts and camera receipt"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A22-review.webp",
+          "sha256": "4554ee706a005114a912190325a1a6c194079859a8c78be04aca6fa4fd913654",
+          "bytes": 39094,
+          "label": "Clean import, alternate neutral view and selected regional detail"
+        },
+        {
+          "path": "reviews/peripheral_nerves/2026-10-30-median-wrist-r01/v2/teaching.png",
+          "sha256": "e737c552a2f3a2cb7a9af3af1d886502f13299a48eafc60d82a4c9537b0111d4",
+          "bytes": 647557,
+          "label": "Locate the median trunk at the wrist and follow the labeled palmar branches."
+        }
+      ],
+      "decision": "Keep the exact model with the labeled hand detail. Do not widen the task to full tunnel anatomy.",
+      "teachingView": "reviews/peripheral_nerves/2026-10-30-median-wrist-r01/v2/teaching.png"
+    },
+    {
+      "export": {
+        "path": "models/peripheral_nerves/exports/sciatic-hip-r01/right-sciatic-hip.glb",
+        "sha256": "72077a97a8a935a7a4623443c1c0fd61ab48a9bf4ad895af058345b7a372abd6",
+        "bytes": 559144
+      },
+      "task": "Find the retained right sciatic course in posterior proximity to the ischial and greater-trochanter regions.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The retained four native right-sided meshes preserve relative position and nerve contour. The package identifies regions and discloses the omitted muscle and soft-tissue context."
+        },
+        {
+          "score": 3,
+          "observation": "The posterior close-up shows a smooth elongated nerve profile and the angular neighboring bone landmarks. The neutral reverse retains a recognizable outline before the course descends."
+        },
+        {
+          "score": 3,
+          "observation": "The color and neutral posterior views expose the nerve beside the proximal femur. Use the retained labels to identify the two landmarks explicitly."
+        },
+        {
+          "score": 3,
+          "observation": "Four meshes total 24,154 triangles. The 4,896-triangle nerve keeps its curved course and the bony context holds recognizable pelvic/femoral silhouette."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/peripheral_nerves/exports/sciatic-hip-r01/README.md",
+          "label": "Owning reference and assessment scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/render-evidence.json",
+          "label": "A23 · clean import, parts and camera receipt"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A23-review.webp",
+          "sha256": "8a7a146aec89fb4b41293b625a04ffc479932b0cb38c197305f99a3270290061",
+          "bytes": 38962,
+          "label": "Clean import, alternate neutral view and selected regional detail"
+        },
+        {
+          "path": "reviews/peripheral_nerves/2026-10-30-sciatic-hip-r01/v2/teaching.png",
+          "sha256": "345e723c1daefc00cdc6dbe4f34ac32f23bf8e320e224378eb0bb1ffc301a6f1",
+          "bytes": 678982,
+          "label": "Owner posterior hip landmarks"
+        }
+      ],
+      "decision": "Keep this bounded course locator and the labeled posterior detail. Avoid showing it as an in-situ passage through omitted muscles."
+    },
+    {
+      "export": {
+        "path": "models/spinal_cord/exports/authored-roots-r04/candidate.glb",
+        "sha256": "a37783fbd1ad25ba9a2bcfbed1419a2d3f655b42cec643bf32a77266ca82a9d0",
+        "bytes": 2663288
+      },
+      "task": "At one representative level, identify the dorsal-root swelling, separate ventral root and distal mixed-nerve union.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "The independent r04 checks compare the authored route parts and sample intended contacts. The cord, conus and non-neural filum preserve the preceding geometry; the illustrated levels are representative."
+        },
+        {
+          "score": 3,
+          "observation": "The cropped view makes the spindle and adjacent thinner root separable. Their fabricated smooth surfaces and repeated geometry do not imply biological scale or tissue structure."
+        },
+        {
+          "score": 3,
+          "observation": "The whole cord establishes where to look, while the detail separates the two roots by profile and exposes their convergence. Label the representative junction rather than counting every illustrated root."
+        },
+        {
+          "score": 2,
+          "observation": "The 178,960-triangle assembly dedicates thousands of triangles to several long descending root strands; a same-shape optimization with junction protection has not been measured."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/spinal_cord/exports/authored-roots-r04/README.md",
+          "label": "Owning reference and assessment scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/render-evidence.json",
+          "label": "A24 · clean import, parts and camera receipt"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A24-review.webp",
+          "sha256": "c5d70a3d9c5b27a7955a972807f27597634c8cc0845b9797740034fe5a9c93af",
+          "bytes": 32218,
+          "label": "Clean import, alternate neutral view and selected regional detail"
+        }
+      ],
+      "decision": "Keep the illustrative root detail and test density reduction on a spare descending-root pair before changing the junctions."
+    },
+    {
+      "export": {
+        "path": "models/peripheral_nerves/exports/ulnar-elbow-r01/right-ulnar-elbow.glb",
+        "sha256": "94a7bde3f8a2882cc632082301d7701a737a769e1d1afe0f55629ecac3013ac3",
+        "bytes": 187708
+      },
+      "task": "Use the elbow region to locate the retained right ulnar course relative to the olecranon and medial epicondyle.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The four native meshes retain the declared right humerus, ulna, radius and source nerve. The review establishes projection beside landmarks, without a validated cubital tunnel."
+        },
+        {
+          "score": 3,
+          "observation": "The close-up resolves the slender nerve and the much broader bone heads. The owner detail includes a second projection, which guards against learning depth from overlap."
+        },
+        {
+          "score": 3,
+          "observation": "At whole-arm size the nerve is faint; the labeled close views give the groove landmarks and side. The clean neutral detail retains enough contrast to follow the source line."
+        },
+        {
+          "score": 3,
+          "observation": "The four parts total 9,136 triangles; 3,168 go to the long nerve with a thin curved outline. Independent meshes remain useful for isolation."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/peripheral_nerves/exports/ulnar-elbow-r01/README.md",
+          "label": "Owning reference and assessment scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/render-evidence.json",
+          "label": "A25 · clean import, parts and camera receipt"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A25-review.webp",
+          "sha256": "d9db1c3c853f796b2447a32fe26f56b07bf88aa6387907963a327977b0991bfa",
+          "bytes": 28478,
+          "label": "Clean import, alternate neutral view and selected regional detail"
+        },
+        {
+          "path": "reviews/peripheral_nerves/2026-10-30-ulnar-elbow-r01/evidence/teaching.png",
+          "sha256": "4ccb0856f50f6dd771fe53b76d40e0cd5ef9997ebc3885513604f0889d6c6727",
+          "bytes": 455829,
+          "label": "Trace the highlighted ulnar course beside the medial epicondyle and olecranon."
+        }
+      ],
+      "decision": "Keep the landmark plate and close view with the exact scene. Restrict claims to the visible source course.",
+      "teachingView": "reviews/peripheral_nerves/2026-10-30-ulnar-elbow-r01/evidence/teaching.png"
+    }
+  ]
+}

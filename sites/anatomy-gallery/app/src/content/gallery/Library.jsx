@@ -240,10 +240,10 @@ function AxisRatings({ axes }) {
   ));
 }
 
-export function Revision({ revision }) {
+export function Revision({ revision, assessment }) {
   if (!Object.hasOwn(revisions, revision)) return <Missing />;
   const file = revisions[revision];
-  const profile = ratingProfile(rated[revision]);
+  const profile = ratingProfile(assessment?.axes.map((axis) => axis.score) ?? rated[revision]);
   return (
     <>
       <Link to="library">← Asset Library</Link>
@@ -272,11 +272,12 @@ export function Revision({ revision }) {
             <dd>{adrenalLibrary.source}</dd>
             <dt>Assessment</dt>
             <dd>
-              {profile.ratingLabel}{profile.score !== null && ' · regional localization'}
+              {profile.ratingLabel} · {assessment?.task ?? 'regional localization'}
             </dd>
             <AxisRatings axes={profile.axes} />
           </dl>
           <Link to="rubric">Rating rubric</Link>
+          {assessment && <TeachingAssessment assessment={assessment} />}
           <p>
             Agent review · 20 Nov 2026 ·{' '}
             <a href={sourceRoot + adrenalLibrary.revisions[revision].review}>
@@ -298,13 +299,14 @@ export function Revision({ revision }) {
   );
 }
 
-function TeachingAssessment({ assessment }) {
-  const file = byPath.get(assessment.export.path);
+function TeachingAssessment({ assessment, previous = false }) {
+  const file = assessment.export;
   return (
     <details>
-      <summary>Assessment and reviewed views</summary>
+      <summary>{previous ? 'Earlier assessment and reviewed views' : 'Assessment and reviewed views'}</summary>
+      <p>{assessment.task}</p>
       <p>{assessment.evaluator} · {assessment.date} · Rubric {assessment.rubric.revision.slice(0, 8)}</p>
-      <p>Assessed export · {file.name} · SHA-256 <code className="ga-digest">{file.sha256}</code></p>
+      <p>Assessed export · {file.path.split('/').at(-1)} · SHA-256 <code className="ga-digest">{file.sha256}</code></p>
       <dl className="ga-facts">
         {assessment.axes.map((axis, i) => (
           <React.Fragment key={ratingAxes[i]}>
@@ -313,6 +315,7 @@ function TeachingAssessment({ assessment }) {
           </React.Fragment>
         ))}
       </dl>
+      {assessment.decision && <p>{assessment.decision}</p>}
       <h3>Sources and checks</h3>
       <ul>
         {assessment.sources.map((source) => (
@@ -322,7 +325,7 @@ function TeachingAssessment({ assessment }) {
       <h3>Reviewed views</h3>
       <ul>
         {assessment.views.map((view) => (
-          <li key={view.path}><a href={assetUrl(byPath.get(view.path))}>{view.label} ↗</a></li>
+          <li key={view.path}><a href={view.url ?? assetUrl(byPath.get(view.path))}>{view.label} ↗</a></li>
         ))}
       </ul>
     </details>
@@ -333,7 +336,8 @@ export function CollectionEntry({ row, snapshot, exact, lessonQuery = '' }) {
   const file = exact?.exports[0] ?? byPath.get(row.media?.[0]?.path);
   const priorAssessment = !exact && row.exportPath;
   const profile = exact ? ratingProfile(exact.axes) : priorAssessment ? row : ratingProfile();
-  const assessment = exact?.assessment;
+  const assessment = exact?.assessment ?? (priorAssessment ? row.assessment : undefined);
+  const teachingView = assessment?.views.find((view) => view.path === assessment.teachingView);
   const exactPreview = exact?.portrait;
   const preview = snapshot.previewGallery?.[row.previewIds?.[0]];
   const image = exact ? exact.preview : previewUrl(preview?.image) || row.image;
@@ -349,6 +353,12 @@ export function CollectionEntry({ row, snapshot, exact, lessonQuery = '' }) {
       <div className="ga-detail">
         {exact?.scene ? (
           <Scene key={exact.revision} initial={localView(exact)} origin={exact.library} />
+        ) : teachingView ? (
+          <div className="ga-pair ga-source-evidence ga-source-evidence-stacked">
+            <Evidence key={teachingView.url} witness={{
+              title: row.label, displayUrl: teachingView.url, alt: teachingView.label, caption: teachingView.label,
+            }} />
+          </div>
         ) : exactPreview?.sourceUrl ? (
           <div className="ga-pair ga-source-evidence-stacked">
             <Evidence key={row.id + '/' + exact.revision} witness={exactPreview} />
@@ -401,10 +411,12 @@ export function CollectionEntry({ row, snapshot, exact, lessonQuery = '' }) {
           <p>
             Rating · {profile.ratingLabel}
             {assessment ? ' · ' + assessment.task : profile.score != null && ' · teaching task above'}
+            {assessment && exact?.exports.length > 1 && ' · ' + assessment.export.path.split('/').at(-1)}
             {' · '}
             <Link to="rubric">Rating rubric</Link>
           </p>
           {assessment && <TeachingAssessment assessment={assessment} />}
+          {exact?.previousAssessment && <TeachingAssessment assessment={exact.previousAssessment} previous />}
           {exact && (
             <>
               {exact.credit && <p>{exact.credit}{exact.license && <> <a href={exact.license}>Source license and credits ↗</a></>}</p>}
@@ -413,7 +425,7 @@ export function CollectionEntry({ row, snapshot, exact, lessonQuery = '' }) {
                 {exact.inspector && <a href={exact.inspector.href}>{exact.inspector.label} ↗</a>}
                 {exact.lesson && <Link to={exact.lesson + lessonQuery}>{exact.useCase} →</Link>}
                 {exact.compare && (
-                  <Link to={exact.compare}>{exact.compareLabel ?? (exact === salivary ? 'Review the excluded duct course' : 'Open the saved source review')} →</Link>
+                  <Link to={exact.compare}>{exact.compareLabel ?? (exact.library === salivary.library ? 'Review the excluded duct course' : 'Open the saved source review')} →</Link>
                 )}
               </div>
             </>
@@ -437,7 +449,7 @@ export function CollectionEntry({ row, snapshot, exact, lessonQuery = '' }) {
       {!!row.history.length && (
         <nav aria-label="Revision history">
           <h2>Revision history</h2>
-          {exact && !row.recommended && !row.exactLibrary && exact !== salivary && <Link to={'library/' + row.id}>Overview · {row.label}</Link>}
+          {exact && !row.recommended && !row.exactLibrary && exact.library !== salivary.library && <Link to={'library/' + row.id}>Overview · {row.label}</Link>}
           <ul>
             {row.history.map((study) => (
               <li key={study.library}>

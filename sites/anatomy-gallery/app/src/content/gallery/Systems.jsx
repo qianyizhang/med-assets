@@ -2,6 +2,7 @@ import React from 'react';
 import systems from './body-systems.json';
 import { assetUrl, byPath, lessonPath, sourceRoot } from './catalog.js';
 import { Evidence } from './Evidence.jsx';
+import { LessonReviewPlate } from './LessonReviewPlate.jsx';
 import { Heading, Link, Missing } from './GalleryUI.jsx';
 import { PathwayLinks } from './Pathways.jsx';
 import { RegionalLinks } from './Teaching.jsx';
@@ -105,6 +106,17 @@ export function Systems({ id, query }) {
             </select>
           </label>
           <Plate plate={plate} />
+          {selected === 'lymphatic-node-transit' && (
+            <LessonReviewPlate
+              exportPath="models/lymph_node/exports/hra-v1.2/NIH_M_Lymph_Node.glb"
+              title="Look inside the source lymph node"
+              alt="The same node with its outer capsule visible at left and hidden at right, where leaders identify the medulla, follicles and paracortex"
+              width={1322}
+              height={786}
+            >
+              <p>This separate HRA view shows tissue layers. The enlarged route above shows the lesson’s authored passage.</p>
+            </LessonReviewPlate>
+          )}
         </>
       ) : (
         system.plates.filter((p) => p.kind === 'assembly').map((p) => <Plate key={p.title} plate={p} />)

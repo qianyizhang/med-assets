@@ -23,6 +23,10 @@ rg -n '^work_status: (ready|wip|blocked)$' records/work-items/items
 
 The [collection ledger](items/AG-GAL-013-reconcile-gallery-coverage.md#collection-ledger) records the migrations and public cutovers. The [Gallery walkthrough](../campaigns/anatomy-gallery-consolidation.md#between-waves-2-and-3--feel-the-vibe) sets the direction for editorial rework after the moves. [Oral spaces and regional locators](items/AG-GAL-016-integrate-retained-teaching.md#oral-spaces-and-regional-locators) passed the maintainer walkthrough. The maintainer approved the three bilingual pathways, dental arch identification and small archive migrations with recoverable evidence in the same local batch.
 
+## Teaching asset review
+
+The [completed campaign](../campaigns/teaching-asset-review.md) covers 79 maintained families. Start with the [lead review](../campaigns/teaching-asset-review/lead-review.md) for teaching decisions and the [coverage report](../campaigns/teaching-asset-review/current-coverage.md) for exact profiles and remaining evidence gaps.
+
 ## Deferred follow-up
 
 - [AG-GAL-014 — Review backing for the original Airway downloads when a same-origin replacement is available](items/AG-GAL-014-compact-delivery-and-recovery.md)

@@ -1,0 +1,2350 @@
+{
+  "method": "Per glTF node, weld identical encoded POSITION triples across its primitives and count vertex-connected triangle components; no tolerance weld or anatomical continuity claim.",
+  "exports": [
+    {
+      "export": {
+        "path": "models/teeth_gums/exports/r02/teeth_gums.glb",
+        "sha256": "82bfaeead46bb51b1fa5bdfdb06c918dfd01aa23b28acae733ab75ec2cd6897f",
+        "bytes": 814328
+      },
+      "parts": [
+        {
+          "name": "FJ1252 Gingiva of upper jaw",
+          "triangles": 1846,
+          "primitives": 1,
+          "components": 3,
+          "largestConnectedVertexCounts": [
+            909,
+            10,
+            10
+          ]
+        },
+        {
+          "name": "FJ1253 Gingiva of lower jaw",
+          "triangles": 1918,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            961
+          ]
+        },
+        {
+          "name": "FJ1254 Left lower first secondary molar tooth",
+          "triangles": 1762,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            883
+          ]
+        },
+        {
+          "name": "FJ1255 Left lower first secondary premolar tooth",
+          "triangles": 1176,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            590
+          ]
+        },
+        {
+          "name": "FJ1256 Left lower second secondary molar tooth",
+          "triangles": 1616,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            810
+          ]
+        },
+        {
+          "name": "FJ1257 Left lower second secondary premolar tooth",
+          "triangles": 1122,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            563
+          ]
+        },
+        {
+          "name": "FJ1258 Left lower central secondary incisor tooth",
+          "triangles": 918,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            461
+          ]
+        },
+        {
+          "name": "FJ1259 Left lower lateral secondary incisor tooth",
+          "triangles": 960,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            482
+          ]
+        },
+        {
+          "name": "FJ1260 Left lower secondary canine tooth",
+          "triangles": 1180,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            592
+          ]
+        },
+        {
+          "name": "FJ1261 Left upper first secondary molar tooth",
+          "triangles": 2156,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1080
+          ]
+        },
+        {
+          "name": "FJ1262 Left upper first secondary premolar tooth",
+          "triangles": 1610,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            807
+          ]
+        },
+        {
+          "name": "FJ1263 Left upper second secondary molar tooth",
+          "triangles": 1848,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            924,
+            4
+          ]
+        },
+        {
+          "name": "FJ1264 Left upper second secondary premolar tooth",
+          "triangles": 1466,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            735
+          ]
+        },
+        {
+          "name": "FJ1265 Left upper central secondary incisor tooth",
+          "triangles": 1288,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            646
+          ]
+        },
+        {
+          "name": "FJ1266 Left upper lateral secondary incisor tooth",
+          "triangles": 1378,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            691
+          ]
+        },
+        {
+          "name": "FJ1267 Left upper secondary canine tooth",
+          "triangles": 1392,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            698
+          ]
+        },
+        {
+          "name": "FJ1268 Right lower first secondary molar tooth",
+          "triangles": 1762,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            883
+          ]
+        },
+        {
+          "name": "FJ1269 Right lower first secondary premolar tooth",
+          "triangles": 1180,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            592
+          ]
+        },
+        {
+          "name": "FJ1270 Right lower second secondary molar tooth",
+          "triangles": 1620,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            812
+          ]
+        },
+        {
+          "name": "FJ1271 Right lower second secondary premolar tooth",
+          "triangles": 1124,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            564
+          ]
+        },
+        {
+          "name": "FJ1272 Right lower central secondary incisor tooth",
+          "triangles": 920,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            462
+          ]
+        },
+        {
+          "name": "FJ1273 Right lower lateral secondary incisor tooth",
+          "triangles": 958,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            481
+          ]
+        },
+        {
+          "name": "FJ1274 Right lower secondary canine tooth",
+          "triangles": 1178,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            591
+          ]
+        },
+        {
+          "name": "FJ1275 Right upper second secondary molar tooth",
+          "triangles": 1844,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            921,
+            5
+          ]
+        },
+        {
+          "name": "FJ1276 Right upper first secondary molar tooth",
+          "triangles": 2156,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1080
+          ]
+        },
+        {
+          "name": "FJ1277 Right upper first secondary premolar tooth",
+          "triangles": 1610,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            807
+          ]
+        },
+        {
+          "name": "FJ1278 Right upper second secondary premolar tooth",
+          "triangles": 1466,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            735
+          ]
+        },
+        {
+          "name": "FJ1279 Right upper central secondary incisor tooth",
+          "triangles": 1288,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            646
+          ]
+        },
+        {
+          "name": "FJ1280 Right upper lateral secondary incisor tooth",
+          "triangles": 1368,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            686
+          ]
+        },
+        {
+          "name": "FJ1281 Right upper secondary canine tooth",
+          "triangles": 1392,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            698
+          ]
+        }
+      ]
+    },
+    {
+      "export": {
+        "path": "models/swirendo_fdi31/exports/balanced-20261028/FDI31-balanced.glb",
+        "sha256": "90006e54c2b9f79f6c201397a50f92228d9ad6fa4450f20e0ad20c5fe70c19f7",
+        "bytes": 2052220
+      },
+      "parts": [
+        {
+          "name": "SWIRendo_31_T2/enamel",
+          "triangles": 14932,
+          "primitives": 1,
+          "components": 28,
+          "largestConnectedVertexCounts": [
+            6884,
+            144,
+            68,
+            40,
+            26
+          ]
+        },
+        {
+          "name": "SWIRendo_31_T2/dentin",
+          "triangles": 25120,
+          "primitives": 1,
+          "components": 15,
+          "largestConnectedVertexCounts": [
+            12488,
+            10,
+            6,
+            6,
+            6
+          ]
+        },
+        {
+          "name": "SWIRendo_31_T2/pulp",
+          "triangles": 5008,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            2482,
+            6
+          ]
+        },
+        {
+          "name": "SWIRendo_31_T2/bone",
+          "triangles": 60310,
+          "primitives": 1,
+          "components": 656,
+          "largestConnectedVertexCounts": [
+            15034,
+            417,
+            264,
+            224,
+            194
+          ]
+        }
+      ]
+    },
+    {
+      "export": {
+        "path": "models/salivary_glands/exports/z-native-scoped-r02/glands-and-parotid-ducts.glb",
+        "sha256": "a53134ec91195f5c42b8be4cde3536343e62857a7ecf5ab5d11bf3eba6ead515",
+        "bytes": 129736
+      },
+      "parts": [
+        {
+          "name": "Parotid gland.r source display",
+          "triangles": 1704,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            854
+          ]
+        },
+        {
+          "name": "Parotid gland.l source display",
+          "triangles": 1704,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            854
+          ]
+        },
+        {
+          "name": "Submandibular gland.r source display",
+          "triangles": 392,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            198
+          ]
+        },
+        {
+          "name": "Submandibular gland.l source display",
+          "triangles": 392,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            198
+          ]
+        },
+        {
+          "name": "Sublingual gland.r source display",
+          "triangles": 324,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            164
+          ]
+        },
+        {
+          "name": "Sublingual gland.l source display",
+          "triangles": 324,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            164
+          ]
+        },
+        {
+          "name": "Parotid duct.r source display",
+          "triangles": 1152,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            588
+          ]
+        },
+        {
+          "name": "Parotid duct.l source display",
+          "triangles": 1152,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            588
+          ]
+        }
+      ]
+    },
+    {
+      "export": {
+        "path": "models/dental-root-support/v3/molar-support-v3.glb",
+        "sha256": "4989befb8409d951d2a0220948c97a9afaf4ac62193fdfa3b97450201e457a02",
+        "bytes": 3078744
+      },
+      "parts": [
+        {
+          "name": "D35",
+          "triangles": 3404,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1704
+          ]
+        },
+        {
+          "name": "D36",
+          "triangles": 7550,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            3777
+          ]
+        },
+        {
+          "name": "D37",
+          "triangles": 6926,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            3465
+          ]
+        },
+        {
+          "name": "Cortical bone lower jaw with boolean",
+          "triangles": 7506,
+          "primitives": 2,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            3576,
+            179
+          ]
+        },
+        {
+          "name": "Alveolar bone lower jaw with boolean",
+          "triangles": 9798,
+          "primitives": 2,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            4811,
+            88
+          ]
+        }
+      ]
+    },
+    {
+      "export": {
+        "path": "models/parotid_glands/exports/source-candidate-02/parotid_glands_source_frame.glb",
+        "sha256": "fc21df4c24bad92c3fb11873adf601ebf5bad066365b60be6e4366aced731d34",
+        "bytes": 63688
+      },
+      "parts": [
+        {
+          "name": "Parotid_gland.l Parotid gland.l",
+          "triangles": 1704,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            854
+          ]
+        },
+        {
+          "name": "Parotid_gland.r Parotid gland.r",
+          "triangles": 1704,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            854
+          ]
+        }
+      ]
+    },
+    {
+      "export": {
+        "path": "models/tongue_authored_study/exports/authored-p11/tongue-authored-hra-hybrid-p11.glb",
+        "sha256": "efabd58b235b72682f067113cf079e3f70fbaceac47062f2b937f09540c1ee1a",
+        "bytes": 4983044
+      },
+      "parts": [
+        {
+          "name": "HRA-derived external dorsal surface \u2014 original triangles",
+          "triangles": 68029,
+          "primitives": 1,
+          "components": 21,
+          "largestConnectedVertexCounts": [
+            34746,
+            5,
+            5,
+            5,
+            3
+          ]
+        },
+        {
+          "name": "HRA-derived papilla surface patches \u2014 original triangles",
+          "triangles": 2788,
+          "primitives": 1,
+          "components": 55,
+          "largestConnectedVertexCounts": [
+            147,
+            126,
+            123,
+            83,
+            76
+          ]
+        },
+        {
+          "name": "AUTHORED seam transitions and small closure patches",
+          "triangles": 20354,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            11167
+          ]
+        },
+        {
+          "name": "AUTHORED body and ventral surface",
+          "triangles": 113145,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            57169
+          ]
+        }
+      ]
+    },
+    {
+      "export": {
+        "path": "models/dental_specimens/uff_tomo1b/exports/r01/uff-tomo1b-display.glb",
+        "sha256": "46694985ff0162a4220d959528847446ffe48b3be41e481f5890429500e2d3b3",
+        "bytes": 20434544
+      },
+      "parts": [
+        {
+          "name": "uff_tomo1b_hard_tissue_boundary",
+          "triangles": 1013896,
+          "primitives": 1,
+          "components": 62,
+          "largestConnectedVertexCounts": [
+            506070,
+            241,
+            41,
+            24,
+            22
+          ]
+        },
+        {
+          "name": "uff_tomo1b_slice_enclosed_space_proxy",
+          "triangles": 121290,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            60647
+          ]
+        }
+      ]
+    },
+    {
+      "export": {
+        "path": "models/breasts_hra/exports/source-candidate-02/breasts_hra_native_frame.glb",
+        "sha256": "905865c4382fb109d14fca74c8ffe809e190f44e9d3086144c3d1d7c3be53964",
+        "bytes": 37499672
+      },
+      "parts": [
+        {
+          "name": "VH_F_areola_L",
+          "triangles": 23785,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            12476
+          ]
+        },
+        {
+          "name": "VH_F_areolar_tubercles_L",
+          "triangles": 4621,
+          "primitives": 1,
+          "components": 22,
+          "largestConnectedVertexCounts": [
+            205,
+            199,
+            188,
+            150,
+            150
+          ]
+        },
+        {
+          "name": "VH_F_fat_L",
+          "triangles": 66366,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            33119
+          ]
+        },
+        {
+          "name": "VH_F_main_lactiferous_ducts_L",
+          "triangles": 34755,
+          "primitives": 1,
+          "components": 30,
+          "largestConnectedVertexCounts": [
+            2306,
+            1949,
+            1940,
+            1496,
+            1132
+          ]
+        },
+        {
+          "name": "VH_F_main_lactiferous_sinuses_L",
+          "triangles": 11456,
+          "primitives": 1,
+          "components": 15,
+          "largestConnectedVertexCounts": [
+            541,
+            523,
+            522,
+            440,
+            423
+          ]
+        },
+        {
+          "name": "VH_F_mammary_lobes_L",
+          "triangles": 75788,
+          "primitives": 1,
+          "components": 19,
+          "largestConnectedVertexCounts": [
+            3361,
+            3201,
+            2943,
+            2888,
+            2865
+          ]
+        },
+        {
+          "name": "VH_F_nipple_L",
+          "triangles": 9696,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            2616,
+            2398
+          ]
+        },
+        {
+          "name": "VH_F_suspensory_ligaments_L",
+          "triangles": 44278,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            19785,
+            2358
+          ]
+        },
+        {
+          "name": "VH_F_areola_R",
+          "triangles": 23785,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            12476
+          ]
+        },
+        {
+          "name": "VH_F_areolar_tubercles_R",
+          "triangles": 4621,
+          "primitives": 1,
+          "components": 22,
+          "largestConnectedVertexCounts": [
+            205,
+            199,
+            188,
+            150,
+            150
+          ]
+        },
+        {
+          "name": "VH_F_fat_R",
+          "triangles": 373646,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            186541
+          ]
+        },
+        {
+          "name": "VH_F_main_lactiferous_ducts_R",
+          "triangles": 34660,
+          "primitives": 1,
+          "components": 30,
+          "largestConnectedVertexCounts": [
+            2302,
+            1967,
+            1792,
+            1469,
+            1131
+          ]
+        },
+        {
+          "name": "VH_F_main_lactiferous_sinuses_R",
+          "triangles": 11449,
+          "primitives": 1,
+          "components": 15,
+          "largestConnectedVertexCounts": [
+            541,
+            523,
+            522,
+            440,
+            422
+          ]
+        },
+        {
+          "name": "VH_F_mammary_lobes_R",
+          "triangles": 75788,
+          "primitives": 1,
+          "components": 19,
+          "largestConnectedVertexCounts": [
+            3361,
+            3201,
+            2943,
+            2888,
+            2865
+          ]
+        },
+        {
+          "name": "VH_F_nipple_R",
+          "triangles": 9696,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            2616,
+            2398
+          ]
+        },
+        {
+          "name": "VH_F_suspensory_ligaments_R",
+          "triangles": 51682,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            22949,
+            2896
+          ]
+        }
+      ]
+    },
+    {
+      "export": {
+        "path": "models/placenta/exports/hra-v1.1-r02/placenta_full_term.glb",
+        "sha256": "7f9f215f810003fddc76ede225f051dc7014c67216e804403a4632d628ad82aa",
+        "bytes": 4917576
+      },
+      "parts": [
+        {
+          "name": "VH_F_basal_plate",
+          "triangles": 17273,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            8754
+          ]
+        },
+        {
+          "name": "VH_F_chorionic_plate",
+          "triangles": 17219,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            8727
+          ]
+        },
+        {
+          "name": "VH_F_placenta_vessels",
+          "triangles": 75578,
+          "primitives": 1,
+          "components": 4,
+          "largestConnectedVertexCounts": [
+            11930,
+            9146,
+            8547,
+            8174
+          ]
+        },
+        {
+          "name": "VH_F_amnion",
+          "triangles": 14642,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            7323
+          ]
+        },
+        {
+          "name": "VH_F_umbilical_cord",
+          "triangles": 30426,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            15203
+          ]
+        },
+        {
+          "name": "VH_F_umbilical_artery_1",
+          "triangles": 10647,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            5338
+          ]
+        },
+        {
+          "name": "VH_F_umbilical_artery_2",
+          "triangles": 12420,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            6212
+          ]
+        },
+        {
+          "name": "VH_F_umbilical_vein",
+          "triangles": 10160,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            5082
+          ]
+        }
+      ]
+    },
+    {
+      "export": {
+        "path": "models/ovaries/exports/hra-ovary-tubal-r01/ovary-tubal-context.glb",
+        "sha256": "465a44b18df91ece95a236372a8cbe3e1a0de0207525955290e6b0fa519195d1",
+        "bytes": 681552
+      },
+      "parts": [
+        {
+          "name": "VH_F_left_ovary",
+          "triangles": 424,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            214
+          ]
+        },
+        {
+          "name": "VH_F_right_ovary",
+          "triangles": 410,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            207
+          ]
+        },
+        {
+          "name": "VH_F_uterine_tube_infundibulum_L",
+          "triangles": 2116,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            594,
+            504
+          ]
+        },
+        {
+          "name": "VH_F_fibria_of_uterine_tube_L",
+          "triangles": 2871,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1456
+          ]
+        },
+        {
+          "name": "VH_F_isthmus_of_fallopian_tube_L",
+          "triangles": 1870,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            506,
+            470
+          ]
+        },
+        {
+          "name": "VH_F_ampulla_of_uterine_tube_L",
+          "triangles": 11424,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            3124,
+            2628
+          ]
+        },
+        {
+          "name": "VH_F_ampulla_of_uterine_tube_R",
+          "triangles": 10440,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            2660,
+            2600
+          ]
+        },
+        {
+          "name": "VH_F_isthmus_of_fallopian_tube_R",
+          "triangles": 1600,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            420,
+            420
+          ]
+        },
+        {
+          "name": "VH_F_fibria_of_uterine_tube_R",
+          "triangles": 3530,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1785
+          ]
+        },
+        {
+          "name": "VH_F_uterine_tube_infundibulum_R",
+          "triangles": 2200,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            600,
+            540
+          ]
+        }
+      ]
+    },
+    {
+      "export": {
+        "path": "models/penis/exports/z-native-components-r04/penile_internal_components.glb",
+        "sha256": "c44d35e13be11d2fb35141747d819d4609a45ca0a5527c89e1015618d17cab70",
+        "bytes": 61664
+      },
+      "parts": [
+        {
+          "name": "Glans penis source display",
+          "triangles": 1391,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            694
+          ]
+        },
+        {
+          "name": "Corpus spongiosum of penis source display",
+          "triangles": 560,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            282
+          ]
+        },
+        {
+          "name": "Corpus cavernosum of penis source display",
+          "triangles": 1288,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            646
+          ]
+        }
+      ]
+    },
+    {
+      "export": {
+        "path": "models/prostate/exports/hra-v1.1/VH_M_Prostate.glb",
+        "sha256": "ec1023e0a1b81f71865872bb720404abc7bb6378a54ac71fa9f24579b097f48a",
+        "bytes": 4086328
+      },
+      "parts": [
+        {
+          "name": "VH_M_vas_deferens_L",
+          "triangles": 992,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            500
+          ]
+        },
+        {
+          "name": "VH_M_vas_deferens_R",
+          "triangles": 870,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            440
+          ]
+        },
+        {
+          "name": "VH_M_seminal_vesicle",
+          "triangles": 15895,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            7961
+          ]
+        },
+        {
+          "name": "VH_M_ejaculatory_duct",
+          "triangles": 66688,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            16866,
+            16478
+          ]
+        },
+        {
+          "name": "VH_M_prostatic_utricle",
+          "triangles": 60178,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            30091
+          ]
+        },
+        {
+          "name": "VH_M_seminal_colliculus",
+          "triangles": 240,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            180
+          ]
+        },
+        {
+          "name": "VH_M_prostate_duct_R",
+          "triangles": 32004,
+          "primitives": 1,
+          "components": 15,
+          "largestConnectedVertexCounts": [
+            1296,
+            1296,
+            1184,
+            1120,
+            1088
+          ]
+        },
+        {
+          "name": "VH_M_prostate_duct_L",
+          "triangles": 32004,
+          "primitives": 1,
+          "components": 15,
+          "largestConnectedVertexCounts": [
+            1296,
+            1296,
+            1184,
+            1120,
+            1088
+          ]
+        },
+        {
+          "name": "VH_M_apex_of_prostate",
+          "triangles": 500,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            158,
+            136
+          ]
+        },
+        {
+          "name": "VH_M_base_of_prostate",
+          "triangles": 2145,
+          "primitives": 1,
+          "components": 5,
+          "largestConnectedVertexCounts": [
+            431,
+            328,
+            142,
+            138,
+            128
+          ]
+        },
+        {
+          "name": "VH_M_peripheral_zone_of_prostate_R",
+          "triangles": 3012,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1508
+          ]
+        },
+        {
+          "name": "VH_M_peripheral_zone_of_prostate_L",
+          "triangles": 2978,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1491
+          ]
+        },
+        {
+          "name": "VH_M_transition_zone__of_prostate_L",
+          "triangles": 738,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            371
+          ]
+        },
+        {
+          "name": "VH_M_transition_zone_of_prostate_R",
+          "triangles": 834,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            419
+          ]
+        },
+        {
+          "name": "VH_M_central_zone_of_prostate_R",
+          "triangles": 1590,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            785,
+            21
+          ]
+        },
+        {
+          "name": "VH_M_central_zone_of_prostate_L",
+          "triangles": 1436,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            706,
+            24
+          ]
+        },
+        {
+          "name": "VH_M_anterior_fibromuscular_stroma_L",
+          "triangles": 1294,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            649
+          ]
+        },
+        {
+          "name": "VH_M_anterior_fibromuscular_stroma_R",
+          "triangles": 1278,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            641
+          ]
+        }
+      ]
+    },
+    {
+      "export": {
+        "path": "models/testes/exports/z-native-epididymis-r01/testicular-region.glb",
+        "sha256": "e35457062c7bba79d938700beab7de851c75fa8dbbbbc76872d47290f2833d0d",
+        "bytes": 220184
+      },
+      "parts": [
+        {
+          "name": "Testis.r native study",
+          "triangles": 5424,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            2714
+          ]
+        },
+        {
+          "name": "Testis.l native study",
+          "triangles": 5424,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            2714
+          ]
+        },
+        {
+          "name": "Epididymis.r native study",
+          "triangles": 1728,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            866
+          ]
+        },
+        {
+          "name": "Epididymis.l native study",
+          "triangles": 1728,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            866
+          ]
+        }
+      ]
+    },
+    {
+      "export": {
+        "path": "models/uterus/exports/hra-v1.1-r02/uterus_exterior.glb",
+        "sha256": "627f169a5e02f95102af994f7346cd0f85e454651231867c6829618ef1b0c356",
+        "bytes": 291776
+      },
+      "parts": [
+        {
+          "name": "VH_F_abdominal_ostium_of_uterine_tube",
+          "triangles": 546,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            171,
+            142
+          ]
+        },
+        {
+          "name": "VH_F_body_of_uterus",
+          "triangles": 5344,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            1466,
+            1357
+          ]
+        },
+        {
+          "name": "VH_F_external_cervical_os",
+          "triangles": 270,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            162
+          ]
+        },
+        {
+          "name": "VH_F_internal_cervical_os",
+          "triangles": 216,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            135
+          ]
+        },
+        {
+          "name": "VH_F_cervix",
+          "triangles": 3508,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            1474,
+            351
+          ]
+        },
+        {
+          "name": "VH_F_cornua",
+          "triangles": 660,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            209,
+            160
+          ]
+        },
+        {
+          "name": "VH_F_fundus_of_uterus",
+          "triangles": 3062,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            1064,
+            576
+          ]
+        },
+        {
+          "name": "VH_F_lower_uterine_segment",
+          "triangles": 1408,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            549,
+            243
+          ]
+        }
+      ]
+    },
+    {
+      "export": {
+        "path": "models/vagina_hra/exports/context-r02/vagina_hra_same_atlas_context_r02.glb",
+        "sha256": "c649de4db766ba00020315029c922de1d018061c1a34bd95c850a05255ab3037",
+        "bytes": 2718584
+      },
+      "parts": [
+        {
+          "name": "VH_F_vagina",
+          "triangles": 8780,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            2353,
+            2108
+          ]
+        },
+        {
+          "name": "VH_F_cervicovaginal_junction",
+          "triangles": 3766,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1952
+          ]
+        },
+        {
+          "name": "VH_F_abdominal_ostium_of_uterine_tube",
+          "triangles": 546,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            171,
+            142
+          ]
+        },
+        {
+          "name": "VH_F_body_of_uterus",
+          "triangles": 5344,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            1466,
+            1357
+          ]
+        },
+        {
+          "name": "VH_F_fundus_of_uterus",
+          "triangles": 3062,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            1064,
+            576
+          ]
+        },
+        {
+          "name": "VH_F_cornua",
+          "triangles": 660,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            209,
+            160
+          ]
+        },
+        {
+          "name": "VH_F_lower_uterine_segment",
+          "triangles": 1408,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            549,
+            243
+          ]
+        },
+        {
+          "name": "VH_F_posterior_wall_of_uterus",
+          "triangles": 12022,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            6013
+          ]
+        },
+        {
+          "name": "VH_F_anterior_wall_of_uterus",
+          "triangles": 10147,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            5077
+          ]
+        },
+        {
+          "name": "VH_F_cervix",
+          "triangles": 3508,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            1474,
+            351
+          ]
+        },
+        {
+          "name": "VH_F_internal_cervical_os",
+          "triangles": 216,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            135
+          ]
+        },
+        {
+          "name": "VH_F_external_cervical_os",
+          "triangles": 270,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            162
+          ]
+        },
+        {
+          "name": "VH_F_rectum",
+          "triangles": 1880,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            507,
+            458
+          ]
+        },
+        {
+          "name": "VH_F_fundus_of_urinary_bladder_dome",
+          "triangles": 11916,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            5876,
+            262
+          ]
+        },
+        {
+          "name": "VH_F_urinary_bladder_neck_smooth_muscle",
+          "triangles": 1790,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            935
+          ]
+        },
+        {
+          "name": "VH_F_fundus_of_urinary_bladder_base",
+          "triangles": 25526,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            7190,
+            5881
+          ]
+        },
+        {
+          "name": "VH_F_trigone_of_urinary_bladder",
+          "triangles": 1684,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            934
+          ]
+        },
+        {
+          "name": "VH_F_ureteral_orifice_R",
+          "triangles": 180,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            106
+          ]
+        },
+        {
+          "name": "VH_F_ureteral_orifice_L",
+          "triangles": 194,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            118
+          ]
+        },
+        {
+          "name": "VH_F_sacrum",
+          "triangles": 19636,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            9786
+          ]
+        },
+        {
+          "name": "VH_F_coccyx",
+          "triangles": 1390,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            697
+          ]
+        },
+        {
+          "name": "VH_F_ilium_compact_bone_R",
+          "triangles": 11810,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            5907
+          ]
+        },
+        {
+          "name": "VH_F_ilium_compact_bone_L",
+          "triangles": 12684,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            6344
+          ]
+        }
+      ]
+    },
+    {
+      "export": {
+        "path": "models/skin/nail-study-r02/nail.glb",
+        "sha256": "677760b2459c6a94828a6d79fbd9b69620d58fc044c8d079bc23cc84ffa54761",
+        "bytes": 94576
+      },
+      "parts": [
+        {
+          "name": "Nail | Distal digit tissue",
+          "triangles": 1724,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            864
+          ]
+        },
+        {
+          "name": "Nail | Germinal matrix",
+          "triangles": 338,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            171
+          ]
+        },
+        {
+          "name": "Nail | Nail bed",
+          "triangles": 428,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            216
+          ]
+        },
+        {
+          "name": "Nail | Nail plate with free edge",
+          "triangles": 1130,
+          "primitives": 2,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            567
+          ]
+        },
+        {
+          "name": "Nail | Proximal nail fold",
+          "triangles": 456,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            230
+          ]
+        }
+      ]
+    },
+    {
+      "export": {
+        "path": "models/bladder/exports/hra-female-context-r03/bladder_hra_female_context_r03.glb",
+        "sha256": "91f04d1c831a61944da116184f389461517587c90c91fd94e199fba1619aa6b9",
+        "bytes": 2449600
+      },
+      "parts": [
+        {
+          "name": "VH_F_vagina",
+          "triangles": 8780,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            2353,
+            2108
+          ]
+        },
+        {
+          "name": "VH_F_cervicovaginal_junction",
+          "triangles": 3766,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1952
+          ]
+        },
+        {
+          "name": "VH_F_abdominal_ostium_of_uterine_tube",
+          "triangles": 546,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            171,
+            142
+          ]
+        },
+        {
+          "name": "VH_F_body_of_uterus",
+          "triangles": 5344,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            1466,
+            1357
+          ]
+        },
+        {
+          "name": "VH_F_fundus_of_uterus",
+          "triangles": 3062,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            1064,
+            576
+          ]
+        },
+        {
+          "name": "VH_F_cornua",
+          "triangles": 660,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            209,
+            160
+          ]
+        },
+        {
+          "name": "VH_F_lower_uterine_segment",
+          "triangles": 1408,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            549,
+            243
+          ]
+        },
+        {
+          "name": "VH_F_posterior_wall_of_uterus",
+          "triangles": 12022,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            6013
+          ]
+        },
+        {
+          "name": "VH_F_anterior_wall_of_uterus",
+          "triangles": 10148,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            5077
+          ]
+        },
+        {
+          "name": "VH_F_cervix",
+          "triangles": 3508,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            1474,
+            351
+          ]
+        },
+        {
+          "name": "VH_F_internal_cervical_os",
+          "triangles": 216,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            135
+          ]
+        },
+        {
+          "name": "VH_F_external_cervical_os",
+          "triangles": 270,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            162
+          ]
+        },
+        {
+          "name": "VH_F_rectum",
+          "triangles": 1880,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            507,
+            458
+          ]
+        },
+        {
+          "name": "VH_F_right_ureter",
+          "triangles": 12952,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            6478
+          ]
+        },
+        {
+          "name": "VH_F_left_ureter",
+          "triangles": 14944,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            7474
+          ]
+        },
+        {
+          "name": "VH_F_fundus_of_urinary_bladder_dome",
+          "triangles": 11916,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            5876,
+            262
+          ]
+        },
+        {
+          "name": "VH_F_urinary_bladder_neck_smooth_muscle",
+          "triangles": 1790,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            935
+          ]
+        },
+        {
+          "name": "VH_F_fundus_of_urinary_bladder_base",
+          "triangles": 25526,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            7190,
+            5881
+          ]
+        },
+        {
+          "name": "VH_F_trigone_of_urinary_bladder",
+          "triangles": 1684,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            934
+          ]
+        },
+        {
+          "name": "VH_F_ureteral_orifice_R",
+          "triangles": 180,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            106
+          ]
+        },
+        {
+          "name": "VH_F_ureteral_orifice_L",
+          "triangles": 194,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            118
+          ]
+        }
+      ]
+    },
+    {
+      "export": {
+        "path": "models/kidney_left/exports/hra-female-v1.3-r02/kidney_left.glb",
+        "sha256": "8e55b5ae48821f067f41bd23ffdd668f68c7ff705cf49e9a40287042fee469fc",
+        "bytes": 1378060
+      },
+      "parts": [
+        {
+          "name": "VH_F_kidney_capsule_L",
+          "triangles": 10850,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            5427
+          ]
+        },
+        {
+          "name": "VH_F_hilum_of_kidney_L",
+          "triangles": 5927,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            3057
+          ]
+        },
+        {
+          "name": "VH_F_renal_papilla_L_a",
+          "triangles": 70,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            44
+          ]
+        },
+        {
+          "name": "VH_F_renal_papilla_L_b",
+          "triangles": 50,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            33
+          ]
+        },
+        {
+          "name": "VH_F_renal_papilla_L_c",
+          "triangles": 42,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            28
+          ]
+        },
+        {
+          "name": "VH_F_renal_papilla_L_d",
+          "triangles": 78,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            48
+          ]
+        },
+        {
+          "name": "VH_F_renal_papilla_L_e",
+          "triangles": 66,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            42
+          ]
+        },
+        {
+          "name": "VH_F_renal_papilla_L_f",
+          "triangles": 72,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            46
+          ]
+        },
+        {
+          "name": "VH_F_renal_papilla_L_g",
+          "triangles": 50,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            35
+          ]
+        },
+        {
+          "name": "VH_F_renal_papilla_L_h",
+          "triangles": 60,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            38
+          ]
+        },
+        {
+          "name": "VH_F_renal_papilla_L_i",
+          "triangles": 62,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            41
+          ]
+        },
+        {
+          "name": "VH_F_renal_papilla_L_j",
+          "triangles": 86,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            53
+          ]
+        },
+        {
+          "name": "VH_F_renal_papilla_L_k",
+          "triangles": 102,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            60
+          ]
+        },
+        {
+          "name": "VH_F_renal_pyramid_L_a",
+          "triangles": 2782,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1400
+          ]
+        },
+        {
+          "name": "VH_F_renal_pyramid_L_b",
+          "triangles": 1008,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            512
+          ]
+        },
+        {
+          "name": "VH_F_renal_pyramid_L_c",
+          "triangles": 668,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            341
+          ]
+        },
+        {
+          "name": "VH_F_renal_pyramid_L_d",
+          "triangles": 1462,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            740
+          ]
+        },
+        {
+          "name": "VH_F_renal_pyramid_L_e",
+          "triangles": 1334,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            676
+          ]
+        },
+        {
+          "name": "VH_F_renal_pyramid_L_f",
+          "triangles": 1730,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            875
+          ]
+        },
+        {
+          "name": "VH_F_renal_pyramid_L_g",
+          "triangles": 2724,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1372
+          ]
+        },
+        {
+          "name": "VH_F_renal_pyramid_L_h",
+          "triangles": 718,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            367
+          ]
+        },
+        {
+          "name": "VH_F_renal_pyramid_L_i",
+          "triangles": 1266,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            643
+          ]
+        },
+        {
+          "name": "VH_F_renal_pyramid_L_j",
+          "triangles": 1292,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            656
+          ]
+        },
+        {
+          "name": "VH_F_renal_pyramid_L_k",
+          "triangles": 1128,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            573
+          ]
+        },
+        {
+          "name": "VH_F_renal_column_L",
+          "triangles": 26115,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            13107
+          ]
+        },
+        {
+          "name": "VH_F_outer_cortex_of_kidney_L",
+          "triangles": 13784,
+          "primitives": 1,
+          "components": 2,
+          "largestConnectedVertexCounts": [
+            6639,
+            256
+          ]
+        }
+      ]
+    },
+    {
+      "export": {
+        "path": "models/urethra_male/exports/z-native-context-r01/urethral-context.glb",
+        "sha256": "d2d88c936287f4ea5978aba1f17e86975c587a102e498595dd7a58aa07c269e7",
+        "bytes": 195932
+      },
+      "parts": [
+        {
+          "name": "Urethra source display",
+          "triangles": 2880,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1452
+          ]
+        },
+        {
+          "name": "Urinary bladder source display",
+          "triangles": 3036,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1520
+          ]
+        },
+        {
+          "name": "Prostate source display",
+          "triangles": 468,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            236
+          ]
+        },
+        {
+          "name": "Corpus spongiosum of penis source display",
+          "triangles": 560,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            282
+          ]
+        },
+        {
+          "name": "Corpus cavernosum of penis source display",
+          "triangles": 1288,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            646
+          ]
+        },
+        {
+          "name": "Glans penis source display",
+          "triangles": 1391,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            694
+          ]
+        }
+      ]
+    },
+    {
+      "export": {
+        "path": "models/kidney_right/exports/hra-female-v1.3-r02/kidney_right.glb",
+        "sha256": "977d0a283de7071a2e8aaeb8900c5a6dc8d0ba770eb458e996dc66cc249c0b56",
+        "bytes": 1403576
+      },
+      "parts": [
+        {
+          "name": "VH_F_kidney_capsule_R",
+          "triangles": 10642,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            5323
+          ]
+        },
+        {
+          "name": "VH_F_hilum_of_kidney_R",
+          "triangles": 4216,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            2209
+          ]
+        },
+        {
+          "name": "VH_F_outer_cortex_of_kidney_R",
+          "triangles": 13824,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            6914
+          ]
+        },
+        {
+          "name": "VH_F_renal_column_R",
+          "triangles": 23628,
+          "primitives": 1,
+          "components": 4,
+          "largestConnectedVertexCounts": [
+            11825,
+            44,
+            8,
+            4
+          ]
+        },
+        {
+          "name": "VH_F_renal_papilla_R_a",
+          "triangles": 122,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            70
+          ]
+        },
+        {
+          "name": "VH_F_renal_papilla_R_b",
+          "triangles": 58,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            36
+          ]
+        },
+        {
+          "name": "VH_F_renal_papilla_R_c",
+          "triangles": 80,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            48
+          ]
+        },
+        {
+          "name": "VH_F_renal_papilla_R_d",
+          "triangles": 72,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            46
+          ]
+        },
+        {
+          "name": "VH_F_renal_papilla_R_e",
+          "triangles": 106,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            63
+          ]
+        },
+        {
+          "name": "VH_F_renal_papilla_R_f",
+          "triangles": 83,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            51
+          ]
+        },
+        {
+          "name": "VH_F_renal_papilla_R_g",
+          "triangles": 124,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            71
+          ]
+        },
+        {
+          "name": "VH_F_renal_papilla_R_h",
+          "triangles": 26,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            19
+          ]
+        },
+        {
+          "name": "VH_F_renal_papilla_R_i",
+          "triangles": 106,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            63
+          ]
+        },
+        {
+          "name": "VH_F_renal_papilla_R_j",
+          "triangles": 78,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            47
+          ]
+        },
+        {
+          "name": "VH_F_renal_pyramid_R_a",
+          "triangles": 2696,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1357
+          ]
+        },
+        {
+          "name": "VH_F_renal_pyramid_R_b",
+          "triangles": 956,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            485
+          ]
+        },
+        {
+          "name": "VH_F_renal_pyramid_R_c",
+          "triangles": 2254,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1135
+          ]
+        },
+        {
+          "name": "VH_F_renal_pyramid_R_d",
+          "triangles": 2234,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1127
+          ]
+        },
+        {
+          "name": "VH_F_renal_pyramid_R_e",
+          "triangles": 2328,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1174
+          ]
+        },
+        {
+          "name": "VH_F_renal_pyramid_R_f",
+          "triangles": 2267,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1143
+          ]
+        },
+        {
+          "name": "VH_F_renal_pyramid_R_g",
+          "triangles": 2454,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1236
+          ]
+        },
+        {
+          "name": "VH_F_renal_pyramid_R_h",
+          "triangles": 2262,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1137
+          ]
+        },
+        {
+          "name": "VH_F_renal_pyramid_R_i",
+          "triangles": 1660,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            840
+          ]
+        },
+        {
+          "name": "VH_F_renal_pyramid_R_j",
+          "triangles": 2862,
+          "primitives": 1,
+          "components": 1,
+          "largestConnectedVertexCounts": [
+            1439
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -273,40 +273,83 @@ async function checkCollections(p, dest, repo, dir) {
   await p.getByRole('heading', { name: 'Asset Library', exact: true }).waitFor();
   assert.equal(await p.title(), 'Anatomy Gallery');
   await p.screenshot({ path: dir + 'library.png' });
+  const entryCount = p.locator('.ga-browse-tools strong[aria-live="polite"]');
+  const declaredEntries = await entryCount.innerText();
+  const more = p.getByRole('button', { name: 'Show more entries' });
+  const entries = p.locator('.ga-asset');
+  async function expandEntries() {
+    const declared = Number.parseInt(await entryCount.innerText(), 10);
+    while (await entries.count() < declared) {
+      const before = await entries.count();
+      await more.click();
+      await p.waitForFunction((count) => document.querySelectorAll('.ga-asset').length > count, before);
+    }
+    assert.equal(await entries.count(), declared);
+    const routes = await entries.evaluateAll((links) => links.map((link) => link.getAttribute('href')));
+    assert.equal(new Set(routes).size, declared, 'Pagination should not repeat a route');
+  }
+
   await p.getByLabel('Rating', { exact: true }).selectOption('rated');
   await p.waitForFunction(() => document.querySelector('.ga-asset .ga-scored') !== null);
   for (const [sort, direction] of [['rating-low', 1], ['rating-high', -1]]) {
     await p.getByLabel('Sort', { exact: true }).selectOption(sort);
+    await p.waitForURL((url) => new URLSearchParams(url.hash.split('?')[1]).get('sort') === sort);
     await p.waitForFunction((order) => {
-      const ratings = [...document.querySelectorAll('.ga-asset .ga-rating')].map((cell) => cell.textContent);
-      const totals = ratings.filter((rating) => rating.endsWith('/16')).map((rating) => parseInt(rating, 10));
-      return totals.length >= 4 &&
-        totals.every((total, i) => !i || (total - totals[i - 1]) * order >= 0) &&
-        ratings.slice(totals.length).every((rating) => rating === 'Partially rated');
+      const totals = [...document.querySelectorAll('.ga-asset .ga-rating')]
+        .map((cell) => cell.textContent)
+        .filter((rating) => rating.endsWith('/16'))
+        .map((rating) => parseInt(rating, 10));
+      return totals.length >= 4 && totals.every((total, i) => !i || (total - totals[i - 1]) * order >= 0);
     }, direction);
-    const titles = await p.locator('.ga-asset h3').allTextContents();
-    for (const title of ['Esophageal wall', 'Seated nail unit', 'Terminal airspaces', 'Adrenal glands · s1233', 'Ovary + tubal ends']) {
+    await expandEntries();
+    const ratings = await entries.locator('.ga-rating').allTextContents();
+    const totals = ratings.filter((rating) => rating.endsWith('/16')).map((rating) => parseInt(rating, 10));
+    assert.ok(totals.length >= 4);
+    assert.ok(totals.every((total, i) => !i || (total - totals[i - 1]) * direction >= 0));
+    assert.ok(ratings.slice(totals.length).every((rating) => rating === 'Partially rated'));
+    const titles = await entries.locator('h3').allTextContents();
+    for (const title of ['Esophageal wall', 'Seated nail unit', 'Terminal airspaces', 'Adrenal glands · s1233', 'Ovary + tubal ends', 'Bronchial tree']) {
       assert.ok(titles.includes(title), title);
     }
-    assert.ok(!titles.includes('Bronchial tree'), 'The local r14 recommendation is unrated');
   }
+
+  // A cataloged dental tool is outside the maintained-family assessment campaign.
+  const search = p.getByRole('searchbox');
+  const waitForFilter = (name, value) => p.waitForURL(
+    (url) => new URLSearchParams(url.hash.split('?')[1]).get(name) === value,
+  );
+  await search.fill('cotton_tweezers');
+  await p.getByRole('button', { name: 'Search', exact: true }).click();
+  await waitForFilter('q', 'cotton_tweezers');
+  await p.waitForFunction(() => !document.querySelector('.ga-asset .ga-scored'));
   await p.getByLabel('Rating', { exact: true }).selectOption('unrated');
-  await p.getByLabel('System', { exact: true }).selectOption('Endocrine');
+  await waitForFilter('rating', 'unrated');
+  const tweezers = entries.filter({ has: p.getByRole('heading', { name: /Cotton tweezers/ }) });
+  await tweezers.getByText('Unrated', { exact: true }).waitFor();
+  const [system] = (await tweezers.locator('.ga-classification').innerText()).split(' · ');
+  await p.getByLabel('System', { exact: true }).selectOption(system);
+  await waitForFilter('system', system);
   await p.getByRole('button', { name: 'Tree', exact: true }).click();
-  await p.locator('.ga-branch[open]').waitFor();
+  await waitForFilter('layout', 'tree');
+  const branch = p.locator('.ga-branch[open]').filter({ has: tweezers });
+  await branch.waitFor();
   assert.equal(await p.locator('.ga-branch[open]').count(), 1);
   await p.reload();
-  await p.getByRole('heading', { name: 'Adrenal pair · BodyParts3D' }).waitFor();
+  await branch.waitFor();
+  await p.waitForFunction(() => document.querySelector('input[type="search"]')?.value === 'cotton_tweezers');
+  assert.equal(await p.getByLabel('System', { exact: true }).inputValue(), system);
+  assert.equal(await p.getByLabel('Rating', { exact: true }).inputValue(), 'unrated');
   assert.equal(await p.locator('.ga-scored').count(), 0);
   await p.screenshot({ path: dir + 'library-tree.png' });
   await p.getByRole('button', { name: 'Cards', exact: true }).click();
   await p.locator('.ga-asset-cards').first().waitFor();
-  await p.getByRole('searchbox').fill('unfindable-search-record');
+  await search.fill('unfindable-search-record');
   await p.getByRole('button', { name: 'Search', exact: true }).click();
   await p.getByText('No entries match these filters.').waitFor();
   await p.getByRole('link', { name: 'Clear filters' }).click();
-  await p.getByText('98 entries', { exact: true }).waitFor();
+  await p.getByText(declaredEntries, { exact: true }).waitFor();
   assert.equal(await p.getByLabel('Sort', { exact: true }).inputValue(), 'rating-high');
+  await expandEntries();
   for (const [family, revision] of [['uff_tomo1b', 'r01'], ['cotton_tweezers', 'r04'], ['mouth_mirror', 'r01']]) {
     await p.goto(dest + '/#/library?q=' + family);
     await p.locator('a[href="#/library/' + family + '/' + revision + '"]').waitFor();
@@ -466,7 +509,7 @@ async function checkCollections(p, dest, repo, dir) {
   await p.getByText('Sources and attribution').waitFor();
   await p.unroute('**' + missingPlate);
   await p.goto(dest + '/#/library/terminal-airspaces-r02');
-  await p.getByText(/Rating · 14\/16/).waitFor();
+  await p.getByText(/Rating · 15\/16/).waitFor();
   await p.waitForFunction(() => document.querySelector('.ga-study-plate')?.naturalWidth > 0);
   await p.goto(dest + '/rubric');
   await p.getByRole('heading', { name: 'Review a teaching asset' }).waitFor();

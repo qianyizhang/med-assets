@@ -1,0 +1,1051 @@
+{
+  "schemaVersion": 1,
+  "evaluator": "Codex (agent review)",
+  "date": "2026-11-22",
+  "rubric": {
+    "path": "docs/guides/asset-quality.md",
+    "sha256": "fefa01945f72db911da1bdd4aa0e4ba1eb9da350c2ac0f416e9c51e47747810f",
+    "revision": "f6f87c4b81e4e9cf069a378d01d075c6cc7df95b"
+  },
+  "assessments": [
+    {
+      "export": {
+        "path": "models/teeth_gums/exports/r02/teeth_gums.glb",
+        "sha256": "82bfaeead46bb51b1fa5bdfdb06c918dfd01aa23b28acae733ab75ec2cd6897f",
+        "bytes": 814328
+      },
+      "task": "Distinguish the incisors, canines, premolars and molars on the two exposed dental arches.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The exact BP3D derivative preserves 28 individually named teeth and both gingival surfaces in the source frame. The reviewed arches have no third molars or jaw support."
+        },
+        {
+          "score": 3,
+          "observation": "Oblique and reverse neutral views separate the crown shapes and both arches. The protruding tops and bottoms are disclosed exposed cut roots, outside the crown-identification task."
+        },
+        {
+          "score": 3,
+          "observation": "Frontal incisors and canines give orientation. Rotation shows thicker rear crowns and both gingival margins. Individual teeth are selectable."
+        },
+        {
+          "score": 3,
+          "observation": "The 30 primitives support individual selection and 34 vertex-connected components retain source pieces. 43,502 triangles retain cusp shape with moderate per-tooth costs. The bounded migration retains identical same-scope bytes."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/teeth_gums/exports/r02/README.md",
+          "label": "Source, owning review and limits"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/renders.json",
+          "label": "Clean-import viewpoints and mesh measurements"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/mesh-components.json",
+          "label": "Encoded primitives and exact-coordinate connected components"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/views-0.jpg",
+          "sha256": "307a29c114af21cbcc57778d6965429aac50c788c14ceb2499eee03b3537e8c6",
+          "bytes": 134013,
+          "label": "Exact clean import · palette front, neutral oblique and reverse"
+        }
+      ],
+      "decision": "Keep for crown groups on the 28-tooth display with the omitted jaw and exposed-root labels."
+    },
+    {
+      "export": {
+        "path": "models/swirendo_fdi31/exports/balanced-20261028/FDI31-balanced.glb",
+        "sha256": "90006e54c2b9f79f6c201397a50f92228d9ad6fa4450f20e0ad20c5fe70c19f7",
+        "bytes": 2052220
+      },
+      "task": "Locate the enamel crown and root seated in the surrounding bone of the prepared T2 incisor.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The display reimports the four labels in a shared specimen frame. Simplification leaves source islands, open interfaces and truncated boundaries in view."
+        },
+        {
+          "score": 2,
+          "observation": "Oblique and reverse show the crown-to-root contour in the surrounding bone. The prepared specimen edge is truncated and rough in the source and across both matched resolution views. The simplified version further coarsens bone. These limitations cap the close-up form assessment without attributing the specimen boundary to a removable mesh defect."
+        },
+        {
+          "score": 3,
+          "observation": "The matched review reaches a 12 mm detail in which the crown, root region and cut block remain distinguishable. The close views and layer choices resolve overlap in the full view."
+        },
+        {
+          "score": 3,
+          "observation": "Four primitives allow the four labels to be viewed separately. The selected lower-resolution GLB uses 105,370 triangles and 2,052,220 bytes versus 1,328,980 and 26,524,356 detailed. The 701 connected pieces include retained islands. The matched view documents interface limits without a certified worst error."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/swirendo_fdi31/2026-10-28-balanced-focus/README.md",
+          "label": "Source, owning review and limits"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/renders.json",
+          "label": "Clean-import viewpoints and mesh measurements"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/mesh-components.json",
+          "label": "Encoded primitives and exact-coordinate connected components"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/views-1.jpg",
+          "sha256": "1887afba8d97f50e641daa1fd7db00a156a25ea855408cd397417c7cb1ef7ef7",
+          "bytes": 94109,
+          "label": "Exact clean import · palette front, neutral oblique and reverse"
+        },
+        {
+          "path": "reviews/swirendo_fdi31/2026-10-28-balanced-focus/matched-overview-detail.jpg",
+          "sha256": "00586784123c6968d7b7e7525f26e7768d3dffff673db6688bfd17b7ea2845a3",
+          "bytes": 562044,
+          "label": "Matched detailed control and reduced candidates"
+        }
+      ],
+      "decision": "Keep Balanced as the teaching-resolution preparation study. Preserve interface and source-boundary warnings, and refer fine work to the detailed specimen."
+    },
+    {
+      "export": {
+        "path": "models/salivary_glands/exports/z-native-scoped-r02/glands-and-parotid-ducts.glb",
+        "sha256": "a53134ec91195f5c42b8be4cde3536343e62857a7ecf5ab5d11bf3eba6ead515",
+        "bytes": 129736
+      },
+      "task": "Identify the three major gland pairs and follow the visible gross parotid duct course.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The Z-Anatomy source-preserved selection includes six glands and two parotid ducts. A documented left crossing remains, submandibular ducts are excluded and the right course is unaccepted."
+        },
+        {
+          "score": 3,
+          "observation": "The neutral oblique separates each thin duct from the lobed gland bodies. A retained crossing is a source caveat, and no duct outlet is claimed as anatomy."
+        },
+        {
+          "score": 3,
+          "observation": "The upper lateral glands orient the paired smaller lower parts. A second view lets the duct path be followed. Use the original context plate for relationships to the jaw."
+        },
+        {
+          "score": 3,
+          "observation": "Eight single-component one-material meshes use 7,144 triangles and 129,736 bytes. The thin parotid duct silhouettes remain legible while the glands use broad surfaces."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/salivary_glands/2026-10-26-native-scoped-r02/README.md",
+          "label": "Source, owning review and limits"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/renders.json",
+          "label": "Clean-import viewpoints and mesh measurements"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/mesh-components.json",
+          "label": "Encoded primitives and exact-coordinate connected components"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/views-2.jpg",
+          "sha256": "d9bc38cc71abfb90f44ba9fa2d103c966197fe8959cde3fb8274bb8c1ea7acdc",
+          "bytes": 86163,
+          "label": "Exact clean import · palette front, neutral oblique and reverse"
+        }
+      ],
+      "decision": "Keep for gross gland localization and use the separately reviewed context for regional placement."
+    },
+    {
+      "export": {
+        "path": "models/dental-root-support/v3/molar-support-v3.glb",
+        "sha256": "4989befb8409d951d2a0220948c97a9afaf4ac62193fdfa3b97450201e457a02",
+        "bytes": 3078744
+      },
+      "task": "Find the roots of teeth 35–37 in the cut bone and distinguish cortical from inner volume.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The GLB retains three source teeth and two named support volumes in their source positions. Blue and rose planes are editorial surfaces. PDL is a separate synthetic study."
+        },
+        {
+          "score": 3,
+          "observation": "The neutral oblique shows premolar and molar root relationships. The reverse displays triangular facets on the bone block and flatter crown relief, bounded by the cut-volume scope."
+        },
+        {
+          "score": 3,
+          "observation": "Color distinguishes the cut faces and the oblique view resolves individual roots. Preserve the locator for position within the jaw."
+        },
+        {
+          "score": 3,
+          "observation": "The 35,184 triangles occur in seven primitive components across five nodes. Separate cut faces and the shaped roots and sockets remain visible within the 3,078,744-byte export, which includes textures."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/dental-root-support/v3/README.md",
+          "label": "Source, owning review and limits"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/renders.json",
+          "label": "Clean-import viewpoints and mesh measurements"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/mesh-components.json",
+          "label": "Encoded primitives and exact-coordinate connected components"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/views-3.jpg",
+          "sha256": "40d1fefa79bd1d48b676a831a3e2ddf864f24b584f0c213587d64e6b9f34ca86",
+          "bytes": 106262,
+          "label": "Exact clean import · palette front, neutral oblique and reverse"
+        },
+        {
+          "path": "models/dental-root-support/v3/media/detail-plate.png",
+          "sha256": "612360c3592f309fc6fd1553ff393de4e7b1dd9fda12c0701b3dcc76f0a8dc2e",
+          "bytes": 1062264,
+          "label": "Editorial cut planes and root detail"
+        }
+      ],
+      "decision": "Keep for gross roots and support. Exclude microstructure, caries and clinical use."
+    },
+    {
+      "export": {
+        "path": "models/parotid_glands/exports/source-candidate-02/parotid_glands_source_frame.glb",
+        "sha256": "fc21df4c24bad92c3fb11873adf601ebf5bad066365b60be6e4366aced731d34",
+        "bytes": 63688
+      },
+      "task": "Compare the two source-native parotid outer envelopes in the pair.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The two Z-Anatomy envelopes retain their placement and labels. Jaw context belongs to the separate study and ducts are absent."
+        },
+        {
+          "score": 3,
+          "observation": "Bilateral peach silhouettes show the characteristic elongated shapes. The neutral reverse exposes the concave side and verifies the contours."
+        },
+        {
+          "score": 3,
+          "observation": "Front view separates the envelopes, and alternate views distinguish depth. Both meshes are selectable. Use jaw context for placement."
+        },
+        {
+          "score": 3,
+          "observation": "Each envelope is one component and one primitive. The pair uses 3,408 triangles and 63,688 bytes with the curved near rim visibly intact. The current export preserves exact original bytes."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/parotid_glands/exports/source-candidate-02/README.md",
+          "label": "Source, owning review and limits"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/renders.json",
+          "label": "Clean-import viewpoints and mesh measurements"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/mesh-components.json",
+          "label": "Encoded primitives and exact-coordinate connected components"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/views-4.jpg",
+          "sha256": "23f7b64d75415d09ff3f85e0044d9ef5128e3df0d4191c962d97a93dd9b13dfe",
+          "bytes": 66904,
+          "label": "Exact clean import · palette front, neutral oblique and reverse"
+        }
+      ],
+      "decision": "Keep as a source envelope pair and use the gland context asset for ducts or placement."
+    },
+    {
+      "export": {
+        "path": "models/tongue_authored_study/exports/authored-p11/tongue-authored-hra-hybrid-p11.glb",
+        "sha256": "efabd58b235b72682f067113cf079e3f70fbaceac47062f2b937f09540c1ee1a",
+        "bytes": 4983044
+      },
+      "task": "Identify the dorsum, median line and posterior papillae on the gross tongue exterior.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "Retained HRA dorsum and papillae remain identifiable. The body, ventral joins and posterior termination are authored, and the four meshes are provenance partitions."
+        },
+        {
+          "score": 3,
+          "observation": "The oblique broad highlight shows dorsal shape and median groove. Neutral reverse resolves the papilla row. The contact between surfaces is a hybrid join."
+        },
+        {
+          "score": 3,
+          "observation": "The palette/front view orients the tongue and the reverse reveals the papilla row. Keep all provenance meshes visible to preserve the closed visual presentation."
+        },
+        {
+          "score": 2,
+          "observation": "Four primitives total 204,316 triangles and 78 exact-position components. Fine papillae warrant geometry, but the cost of the broad authored surface versus the protected dorsal details has no equivalent lighter comparison."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/tongue_authored_study/README.md",
+          "label": "Source, owning review and limits"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/renders.json",
+          "label": "Clean-import viewpoints and mesh measurements"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/mesh-components.json",
+          "label": "Encoded primitives and exact-coordinate connected components"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/views-5.jpg",
+          "sha256": "c3e7067b03aa58998b7b2d35f8bce1a1e3fb629887bd88e01e053c14832fa0a5",
+          "bytes": 76080,
+          "label": "Exact clean import · palette front, neutral oblique and reverse"
+        }
+      ],
+      "decision": "Keep all four patches shown together for gross exterior. Any next economy trial needs a measured papilla and seam comparison."
+    },
+    {
+      "export": {
+        "path": "models/dental_specimens/uff_tomo1b/exports/r01/uff-tomo1b-display.glb",
+        "sha256": "46694985ff0162a4220d959528847446ffe48b3be41e481f5890429500e2d3b3",
+        "bytes": 20434544
+      },
+      "task": "Recognize the scan-derived exterior of the research tooth and identify where the computed inner-space proxy fails.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The clean import retains the independently selectable tooth boundary and space proxy in one scan frame. Source overlays explain the false closure from slice selection. FDI and orientation remain unknown."
+        },
+        {
+          "score": 2,
+          "observation": "The neutral views show the taper and irregular cut contour. Surface roughness and the algorithmic terminal closure limit detailed interpretation."
+        },
+        {
+          "score": 2,
+          "observation": "Whole-object views show the exterior clearly but hide the proxy. The isolated proxy and terminal overlays must be opened to read the extraction failure."
+        },
+        {
+          "score": 3,
+          "observation": "The two primitives total 1,135,186 triangles and 63 components. Matched source/display views and lower-resolution receipts cover the teaching-scale outer boundary. Dense detail has a research purpose, with distinct costs for the proxy and exterior."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/README.md",
+          "label": "Source, owning review and limits"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/renders.json",
+          "label": "Clean-import viewpoints and mesh measurements"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/mesh-components.json",
+          "label": "Encoded primitives and exact-coordinate connected components"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/views-6.jpg",
+          "sha256": "25076436963411d987c6b9528e4b8a1ecc76d4ab2574feaef22c340a68e60145",
+          "bytes": 69444,
+          "label": "Exact clean import · palette front, neutral oblique and reverse"
+        },
+        {
+          "path": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display-void_side.png",
+          "sha256": "ddb424bcc97a8ecd23ee370a6db5ada77fef28839578846802e11d05cd007775",
+          "bytes": 603500,
+          "label": "Isolated computed space"
+        },
+        {
+          "path": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/terminal-overlays.png",
+          "sha256": "b13bcfafb90944396e07b6bdeee88df351f947e3a3dbb3a785c8fa6202fc7460",
+          "bytes": 435119,
+          "label": "Source terminal overlays and failure"
+        }
+      ],
+      "decision": "Keep as a method review only. Start the proxy discussion from the terminal overlay and never score the computed closure as anatomy."
+    },
+    {
+      "export": {
+        "path": "models/breasts_hra/exports/source-candidate-02/breasts_hra_native_frame.glb",
+        "sha256": "905865c4382fb109d14fca74c8ffe809e190f44e9d3086144c3d1d7c3be53964",
+        "bytes": 37499672
+      },
+      "task": "Locate each areola on the external breast and distinguish its surface position from the posteriorly visible atlas layers.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The authored HRA pair retains source frame and native layers, with a display-only material change. Open and nonmanifold source components remain."
+        },
+        {
+          "score": 3,
+          "observation": "The broad neutral views preserve the anterior silhouette and areolar relief. Posterior open annotation contours stay visible and remain outside the outer-surface task."
+        },
+        {
+          "score": 3,
+          "observation": "The front and side views show the areola on each exterior mound. The reverse shows the source-layer side. Existing layer-isolation evidence supports separating the roles."
+        },
+        {
+          "score": 2,
+          "observation": "The anatomy is divided into 16 selectable primitives, but uses 856,072 triangles and 184 connected components. Dense internal layers are hidden at the gross exterior teaching zoom and same-scope lower-cost views have yet to be checked."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/breasts_hra/exports/source-candidate-02/README.md",
+          "label": "Source, owning review and limits"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/renders.json",
+          "label": "Clean-import viewpoints and mesh measurements"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/mesh-components.json",
+          "label": "Encoded primitives and exact-coordinate connected components"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/views-7.jpg",
+          "sha256": "cc52911980a5e8c324f7c3144a82d87deee5421ad08d0b184018310cfc30cb3f",
+          "bytes": 91563,
+          "label": "Exact clean import · palette front, neutral oblique and reverse"
+        }
+      ],
+      "decision": "Keep the authored atlas for outer orientation with original scope. Compare a lower-cost teaching derivative before embedding the paired layered export broadly."
+    },
+    {
+      "export": {
+        "path": "models/placenta/exports/hra-v1.1-r02/placenta_full_term.glb",
+        "sha256": "7f9f215f810003fddc76ede225f051dc7014c67216e804403a4632d628ad82aa",
+        "bytes": 4917576
+      },
+      "task": "Distinguish the fetal cord-bearing surface from the lobulated maternal surface of the full-term placenta.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "Material-only replay retains the HRA source BIN and geometry/transforms byte for byte, including the cord and rim. The illustrative membrane finish preserves existing annotation openings."
+        },
+        {
+          "score": 3,
+          "observation": "The broad side light outlines the disc and raised cord. Reverse highlights maternal lobulation. Vessel relief and membrane boundaries remain visible at the reviewed scale."
+        },
+        {
+          "score": 4,
+          "observation": "The fetal view exposes the cord and branching surface pattern. The neutral reverse independently identifies the maternal lobulation without relying on color."
+        },
+        {
+          "score": 2,
+          "observation": "The eight primitives and eleven connected pieces preserve distinct selectable layers. The visible 75,578-triangle surface vessels support the fetal-side task. The three separate cord artery/vein meshes add 33,226 triangles and are hidden in the reviewed whole-organ view. Their internal detail is useful on isolation but has no visible purpose for this exterior comparison."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/placenta/README.md",
+          "label": "Source, owning review and limits"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/renders.json",
+          "label": "Clean-import viewpoints and mesh measurements"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/mesh-components.json",
+          "label": "Encoded primitives and exact-coordinate connected components"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/views-8.jpg",
+          "sha256": "67a0d6a3a7891147d0172ee2c2ac0b2947a93cec335611a2f121b6c1cd18410d",
+          "bytes": 111007,
+          "label": "Exact clean import · palette front, neutral oblique and reverse"
+        }
+      ],
+      "decision": "Keep the teaching materials and paired surfaces. Measure a lighter trial before reducing fine vessels or membrane margins."
+    },
+    {
+      "export": {
+        "path": "models/ovaries/exports/hra-ovary-tubal-r01/ovary-tubal-context.glb",
+        "sha256": "465a44b18df91ece95a236372a8cbe3e1a0de0207525955290e6b0fa519195d1",
+        "bytes": 681552
+      },
+      "task": "Locate the fimbrial end next to each source-labeled ovary and point to the gap between them.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "Clean reimport preserved the native transforms and all ten meshes, including the two small fimbrial meshes. Both side-detail renders match the source pixels."
+        },
+        {
+          "score": null,
+          "observation": "The fresh three-angle import and the two earlier neutral close-ups preserve the fimbrial tips and gap. The neutral obliques expose a flattened inferior right contour and angular left edges on the 207- and 214-vertex source ovaries. The HRA source descriptions identify the Visible Human data lineage but lack a registered section or author annotation to distinguish source shape from coarse meshing at those edges."
+        },
+        {
+          "score": 3,
+          "observation": "The bilateral overview orients the two sides. Each labeled detail locates the fimbrial fringe beside the pale ovary, and the grayscale sheet keeps both cues readable. The shared projection direction leaves depth unconfirmed."
+        },
+        {
+          "score": 3,
+          "observation": "Each of the ten named parts has one primitive. The 2,871- and 3,530-triangle fimbriae make the small fringes visible. The two ampullae account for 21,864 of 36,885 triangles and preserve the native arcs. The combined export is 681,552 bytes versus 681,992 across the four same-scope originals. A lighter export has yet to be measured."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-21-library-pilot/assessments.json",
+          "label": "Exact earlier teaching assessment"
+        },
+        {
+          "path": "reviews/ovaries/2026-11-21-form-assessment-r01/README.md",
+          "label": "Prior neutral close-ups and source limits"
+        },
+        {
+          "path": "sources/datasets/hra/ovary-tubal-context/README.md",
+          "label": "Pinned source geometry and lineage"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/views-9.jpg",
+          "sha256": "cd41119a70ea8fc6267a3b025938c78c0492dd445539862132973682efd6192e",
+          "bytes": 70007,
+          "label": "Fresh clean-import overview and two alternate angles"
+        },
+        {
+          "path": "reviews/ovaries/2026-11-21-form-assessment-r01/form-close-left.webp",
+          "sha256": "db2643c74ff80fa0bd0ed68cd063029980e7dff6fecc8ad5853b95830d6674f9",
+          "bytes": 667956,
+          "label": "Source-left ovary, fringe and gap"
+        },
+        {
+          "path": "reviews/ovaries/2026-11-21-form-assessment-r01/form-close-right.webp",
+          "sha256": "10aca3a95d1cc94a3f5ed77f3bfc9c1962de33028d01e4e9139df36fd1a628a0",
+          "bytes": 681730,
+          "label": "Source-right ovary, fringe and gap"
+        },
+        {
+          "path": "reviews/ovaries/2026-10-30-hra-ovary-tubal-r01/screenshots/teaching-grayscale.png",
+          "sha256": "e139532661e6dd808e771878efb026f8d7c5c25b6b803b4df7f930c47062c561",
+          "bytes": 511026,
+          "label": "Existing grayscale teaching plate"
+        }
+      ],
+      "decision": "Keep the gap-localization task and prior scoped score. Leave form unrated until a registered source section or author annotation explains the angular contours."
+    },
+    {
+      "export": {
+        "path": "models/penis/exports/z-native-components-r04/penile_internal_components.glb",
+        "sha256": "c44d35e13be11d2fb35141747d819d4609a45ca0a5527c89e1015618d17cab70",
+        "bytes": 61664
+      },
+      "task": "Distinguish the paired erectile bodies, central spongiosum and distal glans in the isolated atlas components.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "Three native source objects are reimported with source transforms. The peel-back anterior/posterior relationship is a component study, with no skin, prepuce or validated lumen."
+        },
+        {
+          "score": 2,
+          "observation": "Oblique and reverse show paired roots and central curved body. The source glans rim remains irregular at close teaching size."
+        },
+        {
+          "score": 3,
+          "observation": "Viewing the front and reverse locates the distal cap and reveals the paired proximal branches. The three components can be selected separately."
+        },
+        {
+          "score": 3,
+          "observation": "Each source component has one primitive and one connected body. 3,239 triangles and 61,664 bytes preserve the taper and curved thin connections."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/penis/2026-10-26-native-components-r04/README.md",
+          "label": "Source, owning review and limits"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/renders.json",
+          "label": "Clean-import viewpoints and mesh measurements"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/mesh-components.json",
+          "label": "Encoded primitives and exact-coordinate connected components"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/views-10.jpg",
+          "sha256": "8f4cb30a57edb741c2c74db11d0387d53396134d5bfa999fc576533c8bfaa4e8",
+          "bytes": 72143,
+          "label": "Exact clean import · palette front, neutral oblique and reverse"
+        }
+      ],
+      "decision": "Keep for gross internal components and retain the glans-source defect warning."
+    },
+    {
+      "export": {
+        "path": "models/prostate/exports/hra-v1.1/VH_M_Prostate.glb",
+        "sha256": "ec1023e0a1b81f71865872bb720404abc7bb6378a54ac71fa9f24579b097f48a",
+        "bytes": 4086328
+      },
+      "task": "Distinguish the prostate gland outline below the paired seminal vesicles and identify the proximal source ducts.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The exact HRA source export retains prostate zones and accessory source-labeled structures in native coordinates. The contextual bladder is separate."
+        },
+        {
+          "score": 3,
+          "observation": "The outline and paired superior lobulated shapes read from front and oblique. The central hole and open annotated surfaces are source patches without a continuous lumen claim."
+        },
+        {
+          "score": 3,
+          "observation": "Superior paired folds and thin ducts separate from the rounded lower gland in both a palette view and neutral alternate. Layer visibility helps with overlapping outlines."
+        },
+        {
+          "score": 2,
+          "observation": "There are 224,676 triangles in 18 primitives and 54 source-position components. Delicate duct silhouettes need samples, but the gross relative-position task does not account for all visible or hidden zone cost."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/prostate/README.md",
+          "label": "Source, owning review and limits"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/renders.json",
+          "label": "Clean-import viewpoints and mesh measurements"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/mesh-components.json",
+          "label": "Encoded primitives and exact-coordinate connected components"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/views-11.jpg",
+          "sha256": "471e3cb846f8aa74c7404c499251f6babb1427289ea2534bff5c0f298ddcb543",
+          "bytes": 99072,
+          "label": "Exact clean import · palette front, neutral oblique and reverse"
+        }
+      ],
+      "decision": "Keep for accessory-structure orientation with the context and open-patch limit. Test zone and duct efficiency independently before reducing this reference."
+    },
+    {
+      "export": {
+        "path": "models/testes/exports/z-native-epididymis-r01/testicular-region.glb",
+        "sha256": "e35457062c7bba79d938700beab7de851c75fa8dbbbbc76872d47290f2833d0d",
+        "bytes": 220184
+      },
+      "task": "Locate each epididymis along its adjacent testis from the gross exterior.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "Four native Z-Anatomy objects retain their named pair placements and effective transforms. No ductus deferens or internal tract is supplied."
+        },
+        {
+          "score": 3,
+          "observation": "Both testis outlines are ovoid. Neutral reverse reveals the length of the crescent-shaped epididymis that appears cap-like in front."
+        },
+        {
+          "score": 3,
+          "observation": "The palette view separates the two colors and retains bilateral orientation. The reverse confirms that each epididymis extends along the adjacent side, including in neutral finish."
+        },
+        {
+          "score": 3,
+          "observation": "Four selectable components and primitives use 14,304 triangles. The close contours distinguish the thin epididymal edge and broad testis. The single 220,184-byte export avoids duplicating the named pairs."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/testes/2026-10-30-native-epididymis/README.md",
+          "label": "Source, owning review and limits"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/renders.json",
+          "label": "Clean-import viewpoints and mesh measurements"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/mesh-components.json",
+          "label": "Encoded primitives and exact-coordinate connected components"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/views-12.jpg",
+          "sha256": "c698c8d524a62c7108688156859782df9d8564a690f599b57627e40c35f27cfe",
+          "bytes": 80171,
+          "label": "Exact clean import · palette front, neutral oblique and reverse"
+        }
+      ],
+      "decision": "Keep, and show reverse with frontal orientation to avoid teaching an isolated cap."
+    },
+    {
+      "export": {
+        "path": "models/uterus/exports/hra-v1.1-r02/uterus_exterior.glb",
+        "sha256": "627f169a5e02f95102af994f7346cd0f85e454651231867c6829618ef1b0c356",
+        "bytes": 291776
+      },
+      "task": "Locate the convex fundus above the body and the narrower cervical region below.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "The reproducible exterior derivative preserves the retained HRA source coordinate sets within the recorded 0.1 micrometre rounding check and preserves triangle counts. Two overlapping walls were omitted."
+        },
+        {
+          "score": 3,
+          "observation": "Broad highlights show a rounded top and narrowed lower region in both frontal and neutral oblique. Cornual cut ends and open patches are retained atlas boundaries."
+        },
+        {
+          "score": 3,
+          "observation": "The front and alternate views expose the fundus-to-cervix axis and the paired cornual cues. Open ends do not depict a complete tract."
+        },
+        {
+          "score": 3,
+          "observation": "Eight primitives and 14 vertex-connected pieces use 15,014 triangles and 291,776 bytes. Omitting two overlapping wall solids reduces scope while retaining the curved exterior and small transition regions."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/uterus/README.md",
+          "label": "Source, owning review and limits"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/renders.json",
+          "label": "Clean-import viewpoints and mesh measurements"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/mesh-components.json",
+          "label": "Encoded primitives and exact-coordinate connected components"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/views-13.jpg",
+          "sha256": "683ca5f683e62967624d4ffbd5501e87a5051a27c0ff2c380dd21da6a90e8450",
+          "bytes": 83151,
+          "label": "Exact clean import · palette front, neutral oblique and reverse"
+        }
+      ],
+      "decision": "Keep exterior scope with open atlas cuts called out. Do not infer cavity or tubular patency."
+    },
+    {
+      "export": {
+        "path": "models/vagina_hra/exports/context-r02/vagina_hra_same_atlas_context_r02.glb",
+        "sha256": "c649de4db766ba00020315029c922de1d018061c1a34bd95c850a05255ab3037",
+        "bytes": 2718584
+      },
+      "task": "Locate the vaginal exterior below the cervix relative to the neighboring pelvic anatomy.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The preserved 23 HRA meshes retain source transforms and native context. The bladder, rectum and selected bones supply orientation without complete pelvis or mucosal anatomy."
+        },
+        {
+          "score": 2,
+          "observation": "The front outline is coherent and the oblique shows relative depth, but the broad pelvic context dominates the same-scale target and hides it from some angles."
+        },
+        {
+          "score": 3,
+          "observation": "The pink target sits below the cervix in the component colors. The oblique shows separation from context. Start with the front and use targeted visibility when the bones occlude the lower region."
+        },
+        {
+          "score": 2,
+          "observation": "23 primitives and 33 components total 138,419 triangles. Many cost-bearing context meshes lie off the small target. No equivalent reduced context comparison protects all target landmarks."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/vagina_hra/provenance/context-r02/migration-2026-10-24/README.md",
+          "label": "Source, owning review and limits"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/renders.json",
+          "label": "Clean-import viewpoints and mesh measurements"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/mesh-components.json",
+          "label": "Encoded primitives and exact-coordinate connected components"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/views-14.jpg",
+          "sha256": "c4e7fe7cbb882499661c65fa874968976f0b930a3ac0845f0c3e3e85ae7975e3",
+          "bytes": 103577,
+          "label": "Exact clean import · palette front, neutral oblique and reverse"
+        }
+      ],
+      "decision": "Keep as a narrow exterior context study. Give learners an isolated or cropped target alongside whole-pelvis context."
+    },
+    {
+      "export": {
+        "path": "models/skin/nail-study-r02/nail.glb",
+        "sha256": "677760b2459c6a94828a6d79fbd9b69620d58fc044c8d079bc23cc84ffa54761",
+        "bytes": 94576
+      },
+      "task": "Trace the seated nail plate from its covered root over the matrix and bed to the free edge.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "The clean import keeps five selectable shells. The authored relation checks preserve the far-side margin and verify 20 fold, matrix and bed contact samples within 0.0025 mm."
+        },
+        {
+          "score": 3,
+          "observation": "The seated front cut plane and neutral oblique distinguish the rounded dorsal plate and free edge. The section and enlarged matrix are deliberate."
+        },
+        {
+          "score": 3,
+          "observation": "The retained seated orthographic cut-face view exposes the plate over the matrix and bed and its distal overhang. The neutral oblique confirms the rounded plate and free edge but partially occludes the bed. The lifted images are editorial illustrations."
+        },
+        {
+          "score": 3,
+          "observation": "Five closed pieces and six primitives use 4,076 triangles and 94,576 bytes. A separate edge material clarifies the overhang without introducing a selectable extra shell."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/skin/nail-study-r02/README.md",
+          "label": "Source, owning review and limits"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/renders.json",
+          "label": "Clean-import viewpoints and mesh measurements"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/mesh-components.json",
+          "label": "Encoded primitives and exact-coordinate connected components"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/views-15.jpg",
+          "sha256": "1f23cd5c2b24374ba8e60f61357db601833e4f569e998cff46c6cd19a075fe71",
+          "bytes": 78521,
+          "label": "Exact clean import · palette front, neutral oblique and reverse"
+        },
+        {
+          "path": "reviews/body-systems/2026-11-20-surface-quality/views/nail/updated-ortho.png",
+          "sha256": "13b185e12b0d88227ca3c0c1bcdecd15f6f04d64489da25ad87b9c4c0028aaeb",
+          "bytes": 221358,
+          "label": "Seated orthographic cut face · proximal root, supporting bed and distal overhang"
+        }
+      ],
+      "decision": "Keep the seated section as the first view and retain lifted views as explanatory illustrations."
+    },
+    {
+      "export": {
+        "path": "models/bladder/exports/hra-female-context-r03/bladder_hra_female_context_r03.glb",
+        "sha256": "91f04d1c831a61944da116184f389461517587c90c91fd94e199fba1619aa6b9",
+        "bytes": 2449600
+      },
+      "task": "Find the bladder base, neck and paired ureteral entry landmarks in same-atlas context.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "The source-frame derivative preserves protected neck, trigone and paired orifice geometry in the exact study. The six bladder patches remain separate from same-atlas context."
+        },
+        {
+          "score": 2,
+          "observation": "The full-context overview is dominated by long ureters and neighboring pelvic parts. The exact focused view reveals the basin contour, retained source ridge and thin exposed base edge after the dome is hidden."
+        },
+        {
+          "score": 2,
+          "observation": "The full-context overview locates the ureters but occludes the smaller trigone and two orifices. In the supplemental focused view, the two pale lateral landmarks and inferior neck are visible together. A second angle separates the trigone and exposed basin edge."
+        },
+        {
+          "score": 2,
+          "observation": "The 120,796 encoded triangles occupy 21 primitives and 31 components. The base and two ureters alone account for 53,422 triangles. Related landmarks justify their selection, but long context dominates the teaching view."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/bladder/README.md",
+          "label": "Source, owning review and limits"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/renders.json",
+          "label": "Clean-import viewpoints and mesh measurements"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/mesh-components.json",
+          "label": "Encoded primitives and exact-coordinate connected components"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/bladder-view.json",
+          "label": "Exact file, matched cameras and visible parts"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/views-16.jpg",
+          "sha256": "d6cec6135acfd72a1ff08c4029b87caf1cc5be0ad6a635708c75fd5d21955643",
+          "bytes": 86809,
+          "label": "Exact clean import · palette front, neutral oblique and reverse"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/bladder-base-comparison.jpg",
+          "sha256": "7e3a70037607af9dedd4b849d9385dab8c69ce4454a19be8af24abf713173e85",
+          "bytes": 109100,
+          "label": "All parts at left and focused base at right, with unchanged cameras within each row. Find the two pale lateral orifice landmarks and the lower neck. The focused view hides the dome, ureters and pelvic context."
+        }
+      ],
+      "decision": "Keep the same-atlas export and original orientation view. Add the focused base comparison as a supplemental teaching view with the dome and context omission disclosed.",
+      "teachingView": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/bladder-base-comparison.jpg"
+    },
+    {
+      "export": {
+        "path": "models/kidney_left/exports/hra-female-v1.3-r02/kidney_left.glb",
+        "sha256": "8e55b5ae48821f067f41bd23ffdd668f68c7ff705cf49e9a40287042fee469fc",
+        "bytes": 1378060
+      },
+      "task": "Find the left kidney medial hilum and orient the retained exterior.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "The material-only and metadata changes preserve HRA source BIN and geometry, including the hilum and labels. Clean import preserves the left-side asset frame."
+        },
+        {
+          "score": 3,
+          "observation": "The palette view shows the hilum and elongated profile. Neutral reverse confirms the hilar recess as a medial surface feature. The unregistered isolated representation does not establish positions relative to other organs."
+        },
+        {
+          "score": 3,
+          "observation": "The hilar depression is readable in the first view and depth changes in reverse. Named inner parts remain separately selectable."
+        },
+        {
+          "score": 2,
+          "observation": "The exterior and internal annotation pieces use 73,526 encoded triangles, 26 primitives and 27 components. Interior geometry is useful for a second task but hidden behind the exterior in this task."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/kidney_left/README.md",
+          "label": "Source, owning review and limits"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/renders.json",
+          "label": "Clean-import viewpoints and mesh measurements"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/mesh-components.json",
+          "label": "Encoded primitives and exact-coordinate connected components"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/views-17.jpg",
+          "sha256": "801eeaa304d87c10dead2771e2be570ebe033892d350b7cdd3d4684b73114147",
+          "bytes": 78388,
+          "label": "Exact clean import · palette front, neutral oblique and reverse"
+        }
+      ],
+      "decision": "Keep for the hilar landmark and use the retained isolated pyramid views for internal orientation."
+    },
+    {
+      "export": {
+        "path": "models/urethra_male/exports/z-native-context-r01/urethral-context.glb",
+        "sha256": "d2d88c936287f4ea5978aba1f17e86975c587a102e498595dd7a58aa07c269e7",
+        "bytes": 195932
+      },
+      "task": "Locate the gross urethral route in relation to the bladder, prostate and surrounding penile tissues.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The preserved six-object source set retains the gross axis and adjacent tissues. Native source joins and unverified outlets remain distinct from a verified lumen."
+        },
+        {
+          "score": 3,
+          "observation": "The neutral oblique shows the arc and neighboring organs. Reverse confirms the deep curve. Source discontinuities and the stylized bladder crest remain outside continuity claims."
+        },
+        {
+          "score": 2,
+          "observation": "The bladder and prostate are visible, but the tube is obscured by overlapping tissue in neutral context. Use original transparent and isolated views to point along the course."
+        },
+        {
+          "score": 3,
+          "observation": "Six single-component primitives use 9,623 triangles including 2,880 on the slender urethra. The 195,932-byte source set keeps individual selections and curved surroundings."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/urethra_male/2026-10-26-native-context-r01/README.md",
+          "label": "Source, owning review and limits"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/renders.json",
+          "label": "Clean-import viewpoints and mesh measurements"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/mesh-components.json",
+          "label": "Encoded primitives and exact-coordinate connected components"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/views-18.jpg",
+          "sha256": "ea42465f030c71191d81acad0e3a9f6d20bb78052ad2176c3e54cbea95314b8b",
+          "bytes": 86058,
+          "label": "Exact clean import · palette front, neutral oblique and reverse"
+        }
+      ],
+      "decision": "Keep for regional context with the existing transparency aid and retain endpoint and lumen warnings."
+    },
+    {
+      "export": {
+        "path": "models/kidney_right/exports/hra-female-v1.3-r02/kidney_right.glb",
+        "sha256": "977d0a283de7071a2e8aaeb8900c5a6dc8d0ba770eb458e996dc66cc249c0b56",
+        "bytes": 1403576
+      },
+      "task": "Find the right kidney medial hilum and distinguish it from the smooth convex exterior.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "The exact HRA source geometry, frame and BIN remain after material-only and metadata edits. The right hilar patch and named internal objects survive clean import."
+        },
+        {
+          "score": 3,
+          "observation": "Palette and oblique expose the distinct hilar depression and its surrounding ridge. The neutral reverse gives a continuous convex exterior for contrast."
+        },
+        {
+          "score": 3,
+          "observation": "The two angles let a learner switch between medial recess and lateral outline. Internal selections remain separately identifiable through the owner’s isolation views."
+        },
+        {
+          "score": 2,
+          "observation": "24 primitives and 27 components use 75,138 triangles. Interior detail is useful for its own task and is hidden in the hilar overview. The full source detail has no equivalent lighter comparison."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/kidney_right/README.md",
+          "label": "Source, owning review and limits"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/renders.json",
+          "label": "Clean-import viewpoints and mesh measurements"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/mesh-components.json",
+          "label": "Encoded primitives and exact-coordinate connected components"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/views-19.jpg",
+          "sha256": "69aff1337ea129cdcb61cd1a2c0c77b755f73a29e30df17996486fcd22e909ac",
+          "bytes": 84774,
+          "label": "Exact clean import · palette front, neutral oblique and reverse"
+        }
+      ],
+      "decision": "Keep the right source reference and use the separately reviewed pyramid views for internal teaching."
+    }
+  ]
+}

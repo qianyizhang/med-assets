@@ -291,7 +291,10 @@ export async function checkSkeletal(page, dest, dir, delivery) {
     assert.equal(glb.bytes, study.bytes);
     assert.equal(await content.locator('a[download]').count(), 1);
     assert.equal(await content.locator('a[download]').getAttribute('href'), route(glb));
-    await content.getByText(glb.sha256, { exact: true }).waitFor();
+    const exports = content.locator('section').filter({
+      has: page.getByRole('heading', { name: 'Exact exports', exact: true }),
+    });
+    await exports.getByText(glb.sha256, { exact: true }).waitFor();
     await content.getByText(/BodyParts3D © The Database Center for Life Science/).waitFor();
     await checkBytes(glb);
     await page.goBack();

@@ -1,0 +1,1995 @@
+[
+  {
+    "path": "models/bronchial_tree/exports/distal-sampling-r14/bronchial_distal_sampling.glb",
+    "sha256": "f8d78751f47cf14311138a3c7e2e35d6e28415c9f6e1d2a0e4f6ca2bf1a07fc9",
+    "bytes": 7401328,
+    "parts": [
+      {
+        "name": "Authored bronchial junction-consolidation experiment",
+        "triangles": 308288,
+        "materialSlots": {
+          "0": 308288
+        }
+      }
+    ],
+    "views": [
+      {
+        "file": "1-front-palette.png",
+        "sha256": "31a656a3836bf76a0ea1e87388e7429d33262441dde06639639da0a8bc81e3f6",
+        "bytes": 345245,
+        "angle": "front",
+        "material": "palette",
+        "targetM": [
+          0.006643608212471008,
+          -0.006507910788059235,
+          0.0577092319726944
+        ],
+        "orthoScaleM": 0.2494761973619461,
+        "cameraM": [
+          0.006643608212471008,
+          -0.30318883061408997,
+          0.1022113710641861
+        ],
+        "cameraQuaternion": [
+          0.7577402591705322,
+          0.652556300163269,
+          0.0,
+          0.0
+        ],
+        "visibleNodes": [
+          "Authored bronchial junction-consolidation experiment"
+        ]
+      },
+      {
+        "file": "1-oblique-neutral.png",
+        "sha256": "3467b969f725ba09073ffac0932b36fd59733f08b7ea2e753e38b0f32e990482",
+        "bytes": 343598,
+        "angle": "oblique",
+        "material": "neutral",
+        "targetM": [
+          0.006643608212471008,
+          -0.006507910788059235,
+          0.0577092319726944
+        ],
+        "orthoScaleM": 0.2494761973619461,
+        "cameraM": [
+          0.17884264886379242,
+          -0.2217567265033722,
+          0.1760960817337036
+        ],
+        "cameraQuaternion": [
+          0.78797847032547,
+          0.519157350063324,
+          0.1821105182170868,
+          0.276407927274704
+        ],
+        "visibleNodes": [
+          "Authored bronchial junction-consolidation experiment"
+        ]
+      },
+      {
+        "file": "1-reverse-neutral.png",
+        "sha256": "95b126a7c7052b39cafe276d3ac6ac4a9c944ce9188e3994e186b52660c2e1eb",
+        "bytes": 334022,
+        "angle": "reverse",
+        "material": "neutral",
+        "targetM": [
+          0.006643608212471008,
+          -0.006507910788059235,
+          0.0577092319726944
+        ],
+        "orthoScaleM": 0.2494761973619461,
+        "cameraM": [
+          -0.1655554324388504,
+          0.20874089002609253,
+          0.1760960817337036
+        ],
+        "cameraQuaternion": [
+          0.2764078974723816,
+          0.18211060762405396,
+          -0.519157350063324,
+          -0.78797847032547
+        ],
+        "visibleNodes": [
+          "Authored bronchial junction-consolidation experiment"
+        ]
+      }
+    ]
+  },
+  {
+    "path": "models/diaphragm/exports/z-native-static-r01/diaphragm_z_native_static.glb",
+    "sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+    "bytes": 701128,
+    "parts": [
+      {
+        "name": "Diaphragm",
+        "triangles": 38868,
+        "materialSlots": {
+          "0": 38868
+        }
+      }
+    ],
+    "views": [
+      {
+        "file": "2-front-palette.png",
+        "sha256": "1d5e9fb8b28ae21231f89d4d84f70647d14110e89a25f7d3e74c642dfac90a43",
+        "bytes": 365758,
+        "angle": "front",
+        "material": "palette",
+        "targetM": [
+          -0.0004202313721179962,
+          -0.01697428524494171,
+          1.1521989107131958
+        ],
+        "orthoScaleM": 0.2959119439125061,
+        "cameraM": [
+          -0.0004202313721179962,
+          -0.6369702219963074,
+          1.2451982498168945
+        ],
+        "cameraQuaternion": [
+          0.7577401995658875,
+          0.6525563597679138,
+          0.0,
+          0.0
+        ],
+        "visibleNodes": [
+          "Diaphragm"
+        ]
+      },
+      {
+        "file": "2-oblique-neutral.png",
+        "sha256": "cf76b90cf6a0e17338d80c07fc50c837503b93a531d91699aaa8630b8529cf0c",
+        "bytes": 359227,
+        "angle": "oblique",
+        "material": "neutral",
+        "targetM": [
+          -0.0004202313721179962,
+          -0.01697428524494171,
+          1.1521989107131958
+        ],
+        "orthoScaleM": 0.2959119439125061,
+        "cameraM": [
+          0.3594367504119873,
+          -0.46679556369781494,
+          1.399600625038147
+        ],
+        "cameraQuaternion": [
+          0.7879784107208252,
+          0.5191574096679688,
+          0.18211054801940918,
+          0.27640795707702637
+        ],
+        "visibleNodes": [
+          "Diaphragm"
+        ]
+      },
+      {
+        "file": "2-reverse-neutral.png",
+        "sha256": "abd3f104b71a210bbe19ae32754526fe192278565a738839922ee0cb0c2f67a0",
+        "bytes": 372275,
+        "angle": "reverse",
+        "material": "neutral",
+        "targetM": [
+          -0.0004202313721179962,
+          -0.01697428524494171,
+          1.1521989107131958
+        ],
+        "orthoScaleM": 0.2959119439125061,
+        "cameraM": [
+          -0.3602772355079651,
+          0.43284696340560913,
+          1.399600625038147
+        ],
+        "cameraQuaternion": [
+          0.276407927274704,
+          0.18211056292057037,
+          -0.519157350063324,
+          -0.78797847032547
+        ],
+        "visibleNodes": [
+          "Diaphragm"
+        ]
+      }
+    ]
+  },
+  {
+    "path": "models/lung_left/exports/metadata-cleanup-r01/lung_left.glb",
+    "sha256": "6d3a6150dc47dba0d16162738caabc1bef3fcd8cf5ab4af492dd1121c1cb8533",
+    "bytes": 2524996,
+    "parts": [
+      {
+        "name": "Lung Lower Lobe Left | source surface",
+        "triangles": 24000,
+        "materialSlots": {
+          "0": 24000
+        }
+      },
+      {
+        "name": "Lung Upper Lobe Left | source surface",
+        "triangles": 7200,
+        "materialSlots": {
+          "0": 7200
+        }
+      }
+    ],
+    "views": [
+      {
+        "file": "3-front-palette.png",
+        "sha256": "c1f934735ef01b2a59e3edf7ea65814ec0f5e044ef65c6a6ce4ff16563922033",
+        "bytes": 364140,
+        "angle": "front",
+        "material": "palette",
+        "targetM": [
+          0.08073380589485168,
+          0.007918335497379303,
+          0.05828990042209625
+        ],
+        "orthoScaleM": 0.27316268503665925,
+        "cameraM": [
+          0.08073380589485168,
+          -0.2887625992298126,
+          0.10279203951358795
+        ],
+        "cameraQuaternion": [
+          0.7577402591705322,
+          0.652556300163269,
+          0.0,
+          0.0
+        ],
+        "visibleNodes": [
+          "Lung Lower Lobe Left | source surface",
+          "Lung Upper Lobe Left | source surface"
+        ]
+      },
+      {
+        "file": "3-oblique-neutral.png",
+        "sha256": "f2ccf5cc7cd07290719d75b45a12de3355ae9553da397640b2c59ba1a7ec688a",
+        "bytes": 344383,
+        "angle": "oblique",
+        "material": "neutral",
+        "targetM": [
+          0.08073380589485168,
+          0.007918335497379303,
+          0.05828990042209625
+        ],
+        "orthoScaleM": 0.27316268503665925,
+        "cameraM": [
+          0.2529328465461731,
+          -0.20733046531677246,
+          0.17667675018310547
+        ],
+        "cameraQuaternion": [
+          0.7879784107208252,
+          0.519157350063324,
+          0.18211057782173157,
+          0.27640795707702637
+        ],
+        "visibleNodes": [
+          "Lung Lower Lobe Left | source surface",
+          "Lung Upper Lobe Left | source surface"
+        ]
+      },
+      {
+        "file": "3-reverse-neutral.png",
+        "sha256": "10ff1407edee39b8568310552c7bcf4360777283a2535b1b130c6673931d052f",
+        "bytes": 363027,
+        "angle": "reverse",
+        "material": "neutral",
+        "targetM": [
+          0.08073380589485168,
+          0.007918335497379303,
+          0.05828990042209625
+        ],
+        "orthoScaleM": 0.27316268503665925,
+        "cameraM": [
+          -0.09146523475646973,
+          0.22316715121269226,
+          0.17667675018310547
+        ],
+        "cameraQuaternion": [
+          0.2764078378677368,
+          0.1821104884147644,
+          -0.5191574692726135,
+          -0.78797847032547
+        ],
+        "visibleNodes": [
+          "Lung Lower Lobe Left | source surface",
+          "Lung Upper Lobe Left | source surface"
+        ]
+      }
+    ]
+  },
+  {
+    "path": "models/lung_pair/exports/hra-female-normals-r02/lung_female_hra_normals_r02.glb",
+    "sha256": "966a4c225be028e616f6f813e8d4232582995a82b8121a42257c1be53087cb19",
+    "bytes": 23253972,
+    "parts": [
+      {
+        "name": "VH_F_hilum_L",
+        "triangles": 1414,
+        "materialSlots": {
+          "0": 1414
+        }
+      },
+      {
+        "name": "VH_F_hilum_upper_L",
+        "triangles": 792,
+        "materialSlots": {
+          "0": 792
+        }
+      },
+      {
+        "name": "VH_F_lingula_superior_bronchopulmonary_segment",
+        "triangles": 1312,
+        "materialSlots": {
+          "0": 1312
+        }
+      },
+      {
+        "name": "VH_F_left_anterior_bronchopulmonary_segment",
+        "triangles": 1024,
+        "materialSlots": {
+          "0": 1024
+        }
+      },
+      {
+        "name": "VH_F_left_apical_bronchopulmonary_segment",
+        "triangles": 458,
+        "materialSlots": {
+          "0": 458
+        }
+      },
+      {
+        "name": "VH_F_left_posterior_bronchopulmonary_segment",
+        "triangles": 1028,
+        "materialSlots": {
+          "0": 1028
+        }
+      },
+      {
+        "name": "VH_F_lingula_inferior_bronchopulmonary_segment",
+        "triangles": 1142,
+        "materialSlots": {
+          "0": 1142
+        }
+      },
+      {
+        "name": "VH_F_left_superior_bronchopulmonary_segment",
+        "triangles": 1359,
+        "materialSlots": {
+          "0": 1359
+        }
+      },
+      {
+        "name": "VH_F_left_posterior_basal_bronchopulmonary_segment",
+        "triangles": 1674,
+        "materialSlots": {
+          "0": 1674
+        }
+      },
+      {
+        "name": "VH_F_left_anterior_basal_bronchopulmonary_segment",
+        "triangles": 606,
+        "materialSlots": {
+          "0": 606
+        }
+      },
+      {
+        "name": "VH_F_left_lateral_basal_bronchopulmonary_segment",
+        "triangles": 616,
+        "materialSlots": {
+          "0": 616
+        }
+      },
+      {
+        "name": "VH_F_left_medial_basal_bronchopulmonary_segment",
+        "triangles": 1741,
+        "materialSlots": {
+          "0": 1741
+        }
+      },
+      {
+        "name": "VH_F_hilum_lower_L",
+        "triangles": 622,
+        "materialSlots": {
+          "0": 622
+        }
+      },
+      {
+        "name": "VH_F_hilum_R",
+        "triangles": 3784,
+        "materialSlots": {
+          "0": 3784
+        }
+      },
+      {
+        "name": "VH_F_right_medial_basal_bronchopulmonary_segment",
+        "triangles": 434,
+        "materialSlots": {
+          "0": 434
+        }
+      },
+      {
+        "name": "VH_F_right_posterior_basal_bronchopulmonary_segment",
+        "triangles": 1602,
+        "materialSlots": {
+          "0": 1602
+        }
+      },
+      {
+        "name": "VH_F_right_anterior_basal_bronchopulmonary_segment",
+        "triangles": 2202,
+        "materialSlots": {
+          "0": 2202
+        }
+      },
+      {
+        "name": "VH_F_right_lateral_basal_bronchopulmonary_segment",
+        "triangles": 784,
+        "materialSlots": {
+          "0": 784
+        }
+      },
+      {
+        "name": "VH_F_right_superior_bronchopulmonary_segment",
+        "triangles": 2158,
+        "materialSlots": {
+          "0": 2158
+        }
+      },
+      {
+        "name": "VH_F_hilum_lower_R",
+        "triangles": 2276,
+        "materialSlots": {
+          "0": 2276
+        }
+      },
+      {
+        "name": "VH_F_right_medial_bronchopulmonary_segment",
+        "triangles": 1950,
+        "materialSlots": {
+          "0": 1950
+        }
+      },
+      {
+        "name": "VH_F_right_lateral_bronchopulmonary_segmennt",
+        "triangles": 1134,
+        "materialSlots": {
+          "0": 1134
+        }
+      },
+      {
+        "name": "VH_F_hilum_middle_R",
+        "triangles": 482,
+        "materialSlots": {
+          "0": 482
+        }
+      },
+      {
+        "name": "VH_F_right_anterior_bronchopulmonary_segm",
+        "triangles": 2744,
+        "materialSlots": {
+          "0": 2744
+        }
+      },
+      {
+        "name": "VH_F_right_apical_bronchopulmonary_segment",
+        "triangles": 1176,
+        "materialSlots": {
+          "0": 1176
+        }
+      },
+      {
+        "name": "VH_F_right_posterior_bronchopulmonary_segment",
+        "triangles": 1224,
+        "materialSlots": {
+          "0": 1224
+        }
+      },
+      {
+        "name": "VH_F_hilum_upper_R",
+        "triangles": 1026,
+        "materialSlots": {
+          "0": 1026
+        }
+      },
+      {
+        "name": "VH_F_cartilage_of_lobar_bronchus_L",
+        "triangles": 21358,
+        "materialSlots": {
+          "0": 21358
+        }
+      },
+      {
+        "name": "VH_F_cartilage_of_tertiary_bronchus_L",
+        "triangles": 88352,
+        "materialSlots": {
+          "0": 88352
+        }
+      },
+      {
+        "name": "VH_F_left_superior_lobar_bronchus",
+        "triangles": 385,
+        "materialSlots": {
+          "0": 385
+        }
+      },
+      {
+        "name": "VH_F_left_inferior_lobar_bronchus",
+        "triangles": 558,
+        "materialSlots": {
+          "0": 558
+        }
+      },
+      {
+        "name": "VH_F_left_anterior_basal_bronchus",
+        "triangles": 395,
+        "materialSlots": {
+          "0": 395
+        }
+      },
+      {
+        "name": "VH_F_left_lingula_superior_bronchus",
+        "triangles": 1052,
+        "materialSlots": {
+          "0": 1052
+        }
+      },
+      {
+        "name": "VH_F_left_apical_bronchus",
+        "triangles": 270,
+        "materialSlots": {
+          "0": 270
+        }
+      },
+      {
+        "name": "VH_F_left_posterior_basal_bronchus",
+        "triangles": 750,
+        "materialSlots": {
+          "0": 750
+        }
+      },
+      {
+        "name": "VH_F_left_medial_basal_bronchus",
+        "triangles": 377,
+        "materialSlots": {
+          "0": 377
+        }
+      },
+      {
+        "name": "VH_F_left_superior_bronchus",
+        "triangles": 610,
+        "materialSlots": {
+          "0": 610
+        }
+      },
+      {
+        "name": "VH_F_left_anterior_bronchus",
+        "triangles": 530,
+        "materialSlots": {
+          "0": 530
+        }
+      },
+      {
+        "name": "VH_F_left_posterior_bronchus",
+        "triangles": 666,
+        "materialSlots": {
+          "0": 666
+        }
+      },
+      {
+        "name": "VH_F_left_lateral_basal_bronchus",
+        "triangles": 510,
+        "materialSlots": {
+          "0": 510
+        }
+      },
+      {
+        "name": "VH_F_left_lingula_inferior_bronchi",
+        "triangles": 1055,
+        "materialSlots": {
+          "0": 1055
+        }
+      },
+      {
+        "name": "VH_F_cartilage_of_lobar_bronchus_R",
+        "triangles": 29218,
+        "materialSlots": {
+          "0": 29218
+        }
+      },
+      {
+        "name": "VH_F_cartilage_of_tertiary_bronchus_R",
+        "triangles": 105786,
+        "materialSlots": {
+          "0": 105786
+        }
+      },
+      {
+        "name": "VH_F_right_middle_lobar_bronchus",
+        "triangles": 262,
+        "materialSlots": {
+          "0": 262
+        }
+      },
+      {
+        "name": "VH_F_right_superior_lobar_bronchus",
+        "triangles": 224,
+        "materialSlots": {
+          "0": 224
+        }
+      },
+      {
+        "name": "VH_F_right_inferior_lobar_bronchus",
+        "triangles": 692,
+        "materialSlots": {
+          "0": 692
+        }
+      },
+      {
+        "name": "VH_F_right_anterior_bronchus",
+        "triangles": 1197,
+        "materialSlots": {
+          "0": 1197
+        }
+      },
+      {
+        "name": "VH_F_right_lateral_basal_bronchus",
+        "triangles": 376,
+        "materialSlots": {
+          "0": 376
+        }
+      },
+      {
+        "name": "VH_F_right_lateral_bronchus",
+        "triangles": 458,
+        "materialSlots": {
+          "0": 458
+        }
+      },
+      {
+        "name": "VH_F_right_medial_bronchus",
+        "triangles": 612,
+        "materialSlots": {
+          "0": 612
+        }
+      },
+      {
+        "name": "VH_F_right_medial_basal_bronchus",
+        "triangles": 474,
+        "materialSlots": {
+          "0": 474
+        }
+      },
+      {
+        "name": "VH_F_right_posterior_basal_bronchus",
+        "triangles": 522,
+        "materialSlots": {
+          "0": 522
+        }
+      },
+      {
+        "name": "VH_F_right_posterior_bronchus",
+        "triangles": 832,
+        "materialSlots": {
+          "0": 832
+        }
+      },
+      {
+        "name": "VH_F_right_superior_bronchus",
+        "triangles": 708,
+        "materialSlots": {
+          "0": 708
+        }
+      },
+      {
+        "name": "VH_F_right_apical_bronchus",
+        "triangles": 1270,
+        "materialSlots": {
+          "0": 1270
+        }
+      },
+      {
+        "name": "VH_F_right_anterior_basal_bronchus",
+        "triangles": 834,
+        "materialSlots": {
+          "0": 834
+        }
+      }
+    ],
+    "views": [
+      {
+        "file": "4-front-palette.png",
+        "sha256": "edbf0d931f41531c438d4161fc0e7ee96aeb90601bd6de6ec3fefbd4dc05cc8e",
+        "bytes": 393445,
+        "angle": "front",
+        "material": "palette",
+        "targetM": [
+          -0.004961557686328888,
+          0.08011893182992935,
+          0.4785911738872528
+        ],
+        "orthoScaleM": 0.29633900880813596,
+        "cameraM": [
+          -0.004961557686328888,
+          -0.5407717823982239,
+          0.5717247724533081
+        ],
+        "cameraQuaternion": [
+          0.7577401995658875,
+          0.6525563597679138,
+          0.0,
+          0.0
+        ],
+        "visibleNodes": [
+          "VH_F_cartilage_of_lobar_bronchus_L",
+          "VH_F_cartilage_of_lobar_bronchus_R",
+          "VH_F_cartilage_of_tertiary_bronchus_L",
+          "VH_F_cartilage_of_tertiary_bronchus_R",
+          "VH_F_hilum_L",
+          "VH_F_hilum_R",
+          "VH_F_hilum_lower_L",
+          "VH_F_hilum_lower_R",
+          "VH_F_hilum_middle_R",
+          "VH_F_hilum_upper_L",
+          "VH_F_hilum_upper_R",
+          "VH_F_left_anterior_basal_bronchopulmonary_segment",
+          "VH_F_left_anterior_basal_bronchus",
+          "VH_F_left_anterior_bronchopulmonary_segment",
+          "VH_F_left_anterior_bronchus",
+          "VH_F_left_apical_bronchopulmonary_segment",
+          "VH_F_left_apical_bronchus",
+          "VH_F_left_inferior_lobar_bronchus",
+          "VH_F_left_lateral_basal_bronchopulmonary_segment",
+          "VH_F_left_lateral_basal_bronchus",
+          "VH_F_left_lingula_inferior_bronchi",
+          "VH_F_left_lingula_superior_bronchus",
+          "VH_F_left_medial_basal_bronchopulmonary_segment",
+          "VH_F_left_medial_basal_bronchus",
+          "VH_F_left_posterior_basal_bronchopulmonary_segment",
+          "VH_F_left_posterior_basal_bronchus",
+          "VH_F_left_posterior_bronchopulmonary_segment",
+          "VH_F_left_posterior_bronchus",
+          "VH_F_left_superior_bronchopulmonary_segment",
+          "VH_F_left_superior_bronchus",
+          "VH_F_left_superior_lobar_bronchus",
+          "VH_F_lingula_inferior_bronchopulmonary_segment",
+          "VH_F_lingula_superior_bronchopulmonary_segment",
+          "VH_F_right_anterior_basal_bronchopulmonary_segment",
+          "VH_F_right_anterior_basal_bronchus",
+          "VH_F_right_anterior_bronchopulmonary_segm",
+          "VH_F_right_anterior_bronchus",
+          "VH_F_right_apical_bronchopulmonary_segment",
+          "VH_F_right_apical_bronchus",
+          "VH_F_right_inferior_lobar_bronchus",
+          "VH_F_right_lateral_basal_bronchopulmonary_segment",
+          "VH_F_right_lateral_basal_bronchus",
+          "VH_F_right_lateral_bronchopulmonary_segmennt",
+          "VH_F_right_lateral_bronchus",
+          "VH_F_right_medial_basal_bronchopulmonary_segment",
+          "VH_F_right_medial_basal_bronchus",
+          "VH_F_right_medial_bronchopulmonary_segment",
+          "VH_F_right_medial_bronchus",
+          "VH_F_right_middle_lobar_bronchus",
+          "VH_F_right_posterior_basal_bronchopulmonary_segment",
+          "VH_F_right_posterior_basal_bronchus",
+          "VH_F_right_posterior_bronchopulmonary_segment",
+          "VH_F_right_posterior_bronchus",
+          "VH_F_right_superior_bronchopulmonary_segment",
+          "VH_F_right_superior_bronchus",
+          "VH_F_right_superior_lobar_bronchus"
+        ]
+      },
+      {
+        "file": "4-oblique-neutral.png",
+        "sha256": "12c1ba43a6cc9d32417769274bab8a9c8e803d0f56196f85f199776855d4c833",
+        "bytes": 370220,
+        "angle": "oblique",
+        "material": "neutral",
+        "targetM": [
+          -0.004961557686328888,
+          0.08011893182992935,
+          0.4785911738872528
+        ],
+        "orthoScaleM": 0.29633900880813596,
+        "cameraM": [
+          0.35541480779647827,
+          -0.37035152316093445,
+          0.726349949836731
+        ],
+        "cameraQuaternion": [
+          0.78797847032547,
+          0.519157350063324,
+          0.18211057782173157,
+          0.276407927274704
+        ],
+        "visibleNodes": [
+          "VH_F_cartilage_of_lobar_bronchus_L",
+          "VH_F_cartilage_of_lobar_bronchus_R",
+          "VH_F_cartilage_of_tertiary_bronchus_L",
+          "VH_F_cartilage_of_tertiary_bronchus_R",
+          "VH_F_hilum_L",
+          "VH_F_hilum_R",
+          "VH_F_hilum_lower_L",
+          "VH_F_hilum_lower_R",
+          "VH_F_hilum_middle_R",
+          "VH_F_hilum_upper_L",
+          "VH_F_hilum_upper_R",
+          "VH_F_left_anterior_basal_bronchopulmonary_segment",
+          "VH_F_left_anterior_basal_bronchus",
+          "VH_F_left_anterior_bronchopulmonary_segment",
+          "VH_F_left_anterior_bronchus",
+          "VH_F_left_apical_bronchopulmonary_segment",
+          "VH_F_left_apical_bronchus",
+          "VH_F_left_inferior_lobar_bronchus",
+          "VH_F_left_lateral_basal_bronchopulmonary_segment",
+          "VH_F_left_lateral_basal_bronchus",
+          "VH_F_left_lingula_inferior_bronchi",
+          "VH_F_left_lingula_superior_bronchus",
+          "VH_F_left_medial_basal_bronchopulmonary_segment",
+          "VH_F_left_medial_basal_bronchus",
+          "VH_F_left_posterior_basal_bronchopulmonary_segment",
+          "VH_F_left_posterior_basal_bronchus",
+          "VH_F_left_posterior_bronchopulmonary_segment",
+          "VH_F_left_posterior_bronchus",
+          "VH_F_left_superior_bronchopulmonary_segment",
+          "VH_F_left_superior_bronchus",
+          "VH_F_left_superior_lobar_bronchus",
+          "VH_F_lingula_inferior_bronchopulmonary_segment",
+          "VH_F_lingula_superior_bronchopulmonary_segment",
+          "VH_F_right_anterior_basal_bronchopulmonary_segment",
+          "VH_F_right_anterior_basal_bronchus",
+          "VH_F_right_anterior_bronchopulmonary_segm",
+          "VH_F_right_anterior_bronchus",
+          "VH_F_right_apical_bronchopulmonary_segment",
+          "VH_F_right_apical_bronchus",
+          "VH_F_right_inferior_lobar_bronchus",
+          "VH_F_right_lateral_basal_bronchopulmonary_segment",
+          "VH_F_right_lateral_basal_bronchus",
+          "VH_F_right_lateral_bronchopulmonary_segmennt",
+          "VH_F_right_lateral_bronchus",
+          "VH_F_right_medial_basal_bronchopulmonary_segment",
+          "VH_F_right_medial_basal_bronchus",
+          "VH_F_right_medial_bronchopulmonary_segment",
+          "VH_F_right_medial_bronchus",
+          "VH_F_right_middle_lobar_bronchus",
+          "VH_F_right_posterior_basal_bronchopulmonary_segment",
+          "VH_F_right_posterior_basal_bronchus",
+          "VH_F_right_posterior_bronchopulmonary_segment",
+          "VH_F_right_posterior_bronchus",
+          "VH_F_right_superior_bronchopulmonary_segment",
+          "VH_F_right_superior_bronchus",
+          "VH_F_right_superior_lobar_bronchus"
+        ]
+      },
+      {
+        "file": "4-reverse-neutral.png",
+        "sha256": "0758ab87e999dcdb1e3bc162d6b9b7f87774bcf2e22a1fe532d528464481e67e",
+        "bytes": 383162,
+        "angle": "reverse",
+        "material": "neutral",
+        "targetM": [
+          -0.004961557686328888,
+          0.08011893182992935,
+          0.4785911738872528
+        ],
+        "orthoScaleM": 0.29633900880813596,
+        "cameraM": [
+          -0.36533790826797485,
+          0.5305894017219543,
+          0.726349949836731
+        ],
+        "cameraQuaternion": [
+          0.276407927274704,
+          0.18211053311824799,
+          -0.519157350063324,
+          -0.78797847032547
+        ],
+        "visibleNodes": [
+          "VH_F_cartilage_of_lobar_bronchus_L",
+          "VH_F_cartilage_of_lobar_bronchus_R",
+          "VH_F_cartilage_of_tertiary_bronchus_L",
+          "VH_F_cartilage_of_tertiary_bronchus_R",
+          "VH_F_hilum_L",
+          "VH_F_hilum_R",
+          "VH_F_hilum_lower_L",
+          "VH_F_hilum_lower_R",
+          "VH_F_hilum_middle_R",
+          "VH_F_hilum_upper_L",
+          "VH_F_hilum_upper_R",
+          "VH_F_left_anterior_basal_bronchopulmonary_segment",
+          "VH_F_left_anterior_basal_bronchus",
+          "VH_F_left_anterior_bronchopulmonary_segment",
+          "VH_F_left_anterior_bronchus",
+          "VH_F_left_apical_bronchopulmonary_segment",
+          "VH_F_left_apical_bronchus",
+          "VH_F_left_inferior_lobar_bronchus",
+          "VH_F_left_lateral_basal_bronchopulmonary_segment",
+          "VH_F_left_lateral_basal_bronchus",
+          "VH_F_left_lingula_inferior_bronchi",
+          "VH_F_left_lingula_superior_bronchus",
+          "VH_F_left_medial_basal_bronchopulmonary_segment",
+          "VH_F_left_medial_basal_bronchus",
+          "VH_F_left_posterior_basal_bronchopulmonary_segment",
+          "VH_F_left_posterior_basal_bronchus",
+          "VH_F_left_posterior_bronchopulmonary_segment",
+          "VH_F_left_posterior_bronchus",
+          "VH_F_left_superior_bronchopulmonary_segment",
+          "VH_F_left_superior_bronchus",
+          "VH_F_left_superior_lobar_bronchus",
+          "VH_F_lingula_inferior_bronchopulmonary_segment",
+          "VH_F_lingula_superior_bronchopulmonary_segment",
+          "VH_F_right_anterior_basal_bronchopulmonary_segment",
+          "VH_F_right_anterior_basal_bronchus",
+          "VH_F_right_anterior_bronchopulmonary_segm",
+          "VH_F_right_anterior_bronchus",
+          "VH_F_right_apical_bronchopulmonary_segment",
+          "VH_F_right_apical_bronchus",
+          "VH_F_right_inferior_lobar_bronchus",
+          "VH_F_right_lateral_basal_bronchopulmonary_segment",
+          "VH_F_right_lateral_basal_bronchus",
+          "VH_F_right_lateral_bronchopulmonary_segmennt",
+          "VH_F_right_lateral_bronchus",
+          "VH_F_right_medial_basal_bronchopulmonary_segment",
+          "VH_F_right_medial_basal_bronchus",
+          "VH_F_right_medial_bronchopulmonary_segment",
+          "VH_F_right_medial_bronchus",
+          "VH_F_right_middle_lobar_bronchus",
+          "VH_F_right_posterior_basal_bronchopulmonary_segment",
+          "VH_F_right_posterior_basal_bronchus",
+          "VH_F_right_posterior_bronchopulmonary_segment",
+          "VH_F_right_posterior_bronchus",
+          "VH_F_right_superior_bronchopulmonary_segment",
+          "VH_F_right_superior_bronchus",
+          "VH_F_right_superior_lobar_bronchus"
+        ]
+      }
+    ]
+  },
+  {
+    "path": "models/nose_sinuses/exports/nih3d-airspace-r01/nasal_airspace.glb",
+    "sha256": "3d8c4d56e09d72ae369c697d2bb9435cc3792f9dbe225e7d456ff58174a577be",
+    "bytes": 4758484,
+    "parts": [
+      {
+        "name": "NIH3D_3DPX-002305_airspace_cast",
+        "triangles": 198408,
+        "materialSlots": {
+          "0": 198408
+        }
+      }
+    ],
+    "views": [
+      {
+        "file": "5-front-palette.png",
+        "sha256": "f2e85173a54680c0da9c4db700b33d355304f071fdc1af6217125da9ba30ef89",
+        "bytes": 389530,
+        "angle": "front",
+        "material": "palette",
+        "targetM": [
+          -1.4901161193847656e-08,
+          2.9802322387695312e-08,
+          0.0
+        ],
+        "orthoScaleM": 1.18,
+        "cameraM": [
+          -1.4901161193847656e-08,
+          -2.4723408222198486,
+          0.37085115909576416
+        ],
+        "cameraQuaternion": [
+          0.7577402591705322,
+          0.652556300163269,
+          0.0,
+          0.0
+        ],
+        "visibleNodes": [
+          "NIH3D_3DPX-002305_airspace_cast"
+        ]
+      },
+      {
+        "file": "5-oblique-neutral.png",
+        "sha256": "1f9380d566b1b9f0437ea02c7e5e76a1afa98256ac95936e93a2109df13bc9c0",
+        "bytes": 373219,
+        "angle": "oblique",
+        "material": "neutral",
+        "targetM": [
+          -1.4901161193847656e-08,
+          2.9802322387695312e-08,
+          0.0
+        ],
+        "orthoScaleM": 1.18,
+        "cameraM": [
+          1.4349919557571411,
+          -1.793739914894104,
+          0.9865570068359375
+        ],
+        "cameraQuaternion": [
+          0.78797847032547,
+          0.519157350063324,
+          0.18211059272289276,
+          0.276407927274704
+        ],
+        "visibleNodes": [
+          "NIH3D_3DPX-002305_airspace_cast"
+        ]
+      },
+      {
+        "file": "5-reverse-neutral.png",
+        "sha256": "56c248699ad81a47e095e16798b7d9e5923cdc0c7dc8a750982d0a70f9155f6b",
+        "bytes": 400005,
+        "angle": "reverse",
+        "material": "neutral",
+        "targetM": [
+          -1.4901161193847656e-08,
+          2.9802322387695312e-08,
+          0.0
+        ],
+        "orthoScaleM": 1.18,
+        "cameraM": [
+          -1.4349919557571411,
+          1.793739914894104,
+          0.9865570068359375
+        ],
+        "cameraQuaternion": [
+          0.2764078378677368,
+          0.1821105033159256,
+          -0.5191574096679688,
+          -0.78797847032547
+        ],
+        "visibleNodes": [
+          "NIH3D_3DPX-002305_airspace_cast"
+        ]
+      }
+    ]
+  },
+  {
+    "path": "models/pharynx_larynx/exports/r03/pharynx_larynx.glb",
+    "sha256": "d691a60f12d448b9b36d362270429c672c01c7fae0f10a8789ef188dd4c08530",
+    "bytes": 5050088,
+    "parts": [
+      {
+        "name": "FJ2740 Left inferior pharyngeal constrictor",
+        "triangles": 7422,
+        "materialSlots": {
+          "0": 7422
+        }
+      },
+      {
+        "name": "FJ2742 Right middle pharyngeal constrictor",
+        "triangles": 5904,
+        "materialSlots": {
+          "0": 5904
+        }
+      },
+      {
+        "name": "FJ2743 Left palatopharyngeus",
+        "triangles": 41400,
+        "materialSlots": {
+          "0": 41400
+        }
+      },
+      {
+        "name": "FJ2745 Left salpingopharyngeus",
+        "triangles": 9152,
+        "materialSlots": {
+          "0": 9152
+        }
+      },
+      {
+        "name": "FJ2746 Left stylopharyngeus",
+        "triangles": 3266,
+        "materialSlots": {
+          "0": 3266
+        }
+      },
+      {
+        "name": "FJ2747 Left superior pharyngeal constrictor",
+        "triangles": 10702,
+        "materialSlots": {
+          "0": 10702
+        }
+      },
+      {
+        "name": "FJ2749 Pharyngeal raphe",
+        "triangles": 12920,
+        "materialSlots": {
+          "0": 12920
+        }
+      },
+      {
+        "name": "FJ2752 Right inferior pharyngeal constrictor",
+        "triangles": 7448,
+        "materialSlots": {
+          "0": 7448
+        }
+      },
+      {
+        "name": "FJ2754 Left middle pharyngeal constrictor",
+        "triangles": 5912,
+        "materialSlots": {
+          "0": 5912
+        }
+      },
+      {
+        "name": "FJ2755 Right palatopharyngeus",
+        "triangles": 41400,
+        "materialSlots": {
+          "0": 41400
+        }
+      },
+      {
+        "name": "FJ2757 Right salpingopharyngeus",
+        "triangles": 9152,
+        "materialSlots": {
+          "0": 9152
+        }
+      },
+      {
+        "name": "FJ2758 Right stylopharyngeus",
+        "triangles": 25752,
+        "materialSlots": {
+          "0": 25752
+        }
+      },
+      {
+        "name": "FJ2759 Right superior pharyngeal constrictor",
+        "triangles": 10702,
+        "materialSlots": {
+          "0": 10702
+        }
+      },
+      {
+        "name": "FJ2769 Cricoid cartilage",
+        "triangles": 1702,
+        "materialSlots": {
+          "0": 1702
+        }
+      },
+      {
+        "name": "FJ2770 Epiglottis",
+        "triangles": 3602,
+        "materialSlots": {
+          "0": 3602
+        }
+      },
+      {
+        "name": "FJ2771 Hyo-epiglottic ligament",
+        "triangles": 2100,
+        "materialSlots": {
+          "0": 2100
+        }
+      },
+      {
+        "name": "FJ2775 Left arytenoid cartilage",
+        "triangles": 536,
+        "materialSlots": {
+          "0": 536
+        }
+      },
+      {
+        "name": "FJ2778 Left lateral crico-arytenoid",
+        "triangles": 6214,
+        "materialSlots": {
+          "0": 6214
+        }
+      },
+      {
+        "name": "FJ2780 Left oblique arytenoid",
+        "triangles": 6304,
+        "materialSlots": {
+          "0": 6304
+        }
+      },
+      {
+        "name": "FJ2782 Left posterior crico-arytenoid",
+        "triangles": 4842,
+        "materialSlots": {
+          "0": 4842
+        }
+      },
+      {
+        "name": "FJ2784 Left thyro-arytenoid",
+        "triangles": 6092,
+        "materialSlots": {
+          "0": 6092
+        }
+      },
+      {
+        "name": "FJ2785 Left thyro-arytenoid",
+        "triangles": 9290,
+        "materialSlots": {
+          "0": 9290
+        }
+      },
+      {
+        "name": "FJ2788 Left vocalis",
+        "triangles": 1152,
+        "materialSlots": {
+          "0": 1152
+        }
+      },
+      {
+        "name": "FJ2792 Right arytenoid cartilage",
+        "triangles": 540,
+        "materialSlots": {
+          "0": 540
+        }
+      },
+      {
+        "name": "FJ2796 Right lateral crico-arytenoid",
+        "triangles": 6198,
+        "materialSlots": {
+          "0": 6198
+        }
+      },
+      {
+        "name": "FJ2798 Right oblique arytenoid",
+        "triangles": 6084,
+        "materialSlots": {
+          "0": 6084
+        }
+      },
+      {
+        "name": "FJ2800 Right posterior crico-arytenoid",
+        "triangles": 4812,
+        "materialSlots": {
+          "0": 4812
+        }
+      },
+      {
+        "name": "FJ2802 Right thyro-arytenoid",
+        "triangles": 6092,
+        "materialSlots": {
+          "0": 6092
+        }
+      },
+      {
+        "name": "FJ2803 Right thyro-arytenoid",
+        "triangles": 10650,
+        "materialSlots": {
+          "0": 10650
+        }
+      },
+      {
+        "name": "FJ2806 Right vocalis",
+        "triangles": 1148,
+        "materialSlots": {
+          "0": 1148
+        }
+      },
+      {
+        "name": "FJ2807 Thyro-epiglottic ligament",
+        "triangles": 1042,
+        "materialSlots": {
+          "0": 1042
+        }
+      },
+      {
+        "name": "FJ2808 Thyroid cartilage",
+        "triangles": 2610,
+        "materialSlots": {
+          "0": 2610
+        }
+      },
+      {
+        "name": "FJ2809 Transverse arytenoid",
+        "triangles": 6578,
+        "materialSlots": {
+          "0": 6578
+        }
+      }
+    ],
+    "views": [
+      {
+        "file": "6-front-palette.png",
+        "sha256": "373df101c99a8979c9750fdbe5c8a716aa727c67a7696aa8ec9c3bdb2a26e4e6",
+        "bytes": 421557,
+        "angle": "front",
+        "material": "palette",
+        "targetM": [
+          -0.0006480999290943146,
+          -0.1059117466211319,
+          1.4428499937057495
+        ],
+        "orthoScaleM": 0.13584152221679688,
+        "cameraM": [
+          -0.0006480999290943146,
+          -0.40259265899658203,
+          1.4873521327972412
+        ],
+        "cameraQuaternion": [
+          0.7577402591705322,
+          0.652556300163269,
+          0.0,
+          0.0
+        ],
+        "visibleNodes": [
+          "FJ2740 Left inferior pharyngeal constrictor",
+          "FJ2742 Right middle pharyngeal constrictor",
+          "FJ2743 Left palatopharyngeus",
+          "FJ2745 Left salpingopharyngeus",
+          "FJ2746 Left stylopharyngeus",
+          "FJ2747 Left superior pharyngeal constrictor",
+          "FJ2749 Pharyngeal raphe",
+          "FJ2752 Right inferior pharyngeal constrictor",
+          "FJ2754 Left middle pharyngeal constrictor",
+          "FJ2755 Right palatopharyngeus",
+          "FJ2757 Right salpingopharyngeus",
+          "FJ2758 Right stylopharyngeus",
+          "FJ2759 Right superior pharyngeal constrictor",
+          "FJ2769 Cricoid cartilage",
+          "FJ2770 Epiglottis",
+          "FJ2771 Hyo-epiglottic ligament",
+          "FJ2775 Left arytenoid cartilage",
+          "FJ2778 Left lateral crico-arytenoid",
+          "FJ2780 Left oblique arytenoid",
+          "FJ2782 Left posterior crico-arytenoid",
+          "FJ2784 Left thyro-arytenoid",
+          "FJ2785 Left thyro-arytenoid",
+          "FJ2788 Left vocalis",
+          "FJ2792 Right arytenoid cartilage",
+          "FJ2796 Right lateral crico-arytenoid",
+          "FJ2798 Right oblique arytenoid",
+          "FJ2800 Right posterior crico-arytenoid",
+          "FJ2802 Right thyro-arytenoid",
+          "FJ2803 Right thyro-arytenoid",
+          "FJ2806 Right vocalis",
+          "FJ2807 Thyro-epiglottic ligament",
+          "FJ2808 Thyroid cartilage",
+          "FJ2809 Transverse arytenoid"
+        ]
+      },
+      {
+        "file": "6-oblique-neutral.png",
+        "sha256": "3d43080b5849381e12102daa47797be44274d23f82bc47ad505c0d4ac8d86b4d",
+        "bytes": 384586,
+        "angle": "oblique",
+        "material": "neutral",
+        "targetM": [
+          -0.0006480999290943146,
+          -0.1059117466211319,
+          1.4428499937057495
+        ],
+        "orthoScaleM": 0.13584152221679688,
+        "cameraM": [
+          0.1715509444475174,
+          -0.32116055488586426,
+          1.56123685836792
+        ],
+        "cameraQuaternion": [
+          0.7879784107208252,
+          0.519157350063324,
+          0.18211056292057037,
+          0.27640795707702637
+        ],
+        "visibleNodes": [
+          "FJ2740 Left inferior pharyngeal constrictor",
+          "FJ2742 Right middle pharyngeal constrictor",
+          "FJ2743 Left palatopharyngeus",
+          "FJ2745 Left salpingopharyngeus",
+          "FJ2746 Left stylopharyngeus",
+          "FJ2747 Left superior pharyngeal constrictor",
+          "FJ2749 Pharyngeal raphe",
+          "FJ2752 Right inferior pharyngeal constrictor",
+          "FJ2754 Left middle pharyngeal constrictor",
+          "FJ2755 Right palatopharyngeus",
+          "FJ2757 Right salpingopharyngeus",
+          "FJ2758 Right stylopharyngeus",
+          "FJ2759 Right superior pharyngeal constrictor",
+          "FJ2769 Cricoid cartilage",
+          "FJ2770 Epiglottis",
+          "FJ2771 Hyo-epiglottic ligament",
+          "FJ2775 Left arytenoid cartilage",
+          "FJ2778 Left lateral crico-arytenoid",
+          "FJ2780 Left oblique arytenoid",
+          "FJ2782 Left posterior crico-arytenoid",
+          "FJ2784 Left thyro-arytenoid",
+          "FJ2785 Left thyro-arytenoid",
+          "FJ2788 Left vocalis",
+          "FJ2792 Right arytenoid cartilage",
+          "FJ2796 Right lateral crico-arytenoid",
+          "FJ2798 Right oblique arytenoid",
+          "FJ2800 Right posterior crico-arytenoid",
+          "FJ2802 Right thyro-arytenoid",
+          "FJ2803 Right thyro-arytenoid",
+          "FJ2806 Right vocalis",
+          "FJ2807 Thyro-epiglottic ligament",
+          "FJ2808 Thyroid cartilage",
+          "FJ2809 Transverse arytenoid"
+        ]
+      },
+      {
+        "file": "6-reverse-neutral.png",
+        "sha256": "e73e3d4ef45ddd64ba593b82740883da3ff4888b50d0de7f2dafbe36c12b7e08",
+        "bytes": 398613,
+        "angle": "reverse",
+        "material": "neutral",
+        "targetM": [
+          -0.0006480999290943146,
+          -0.1059117466211319,
+          1.4428499937057495
+        ],
+        "orthoScaleM": 0.13584152221679688,
+        "cameraM": [
+          -0.17284713685512543,
+          0.10933706164360046,
+          1.56123685836792
+        ],
+        "cameraQuaternion": [
+          0.27640780806541443,
+          0.1821105182170868,
+          -0.5191574096679688,
+          -0.78797847032547
+        ],
+        "visibleNodes": [
+          "FJ2740 Left inferior pharyngeal constrictor",
+          "FJ2742 Right middle pharyngeal constrictor",
+          "FJ2743 Left palatopharyngeus",
+          "FJ2745 Left salpingopharyngeus",
+          "FJ2746 Left stylopharyngeus",
+          "FJ2747 Left superior pharyngeal constrictor",
+          "FJ2749 Pharyngeal raphe",
+          "FJ2752 Right inferior pharyngeal constrictor",
+          "FJ2754 Left middle pharyngeal constrictor",
+          "FJ2755 Right palatopharyngeus",
+          "FJ2757 Right salpingopharyngeus",
+          "FJ2758 Right stylopharyngeus",
+          "FJ2759 Right superior pharyngeal constrictor",
+          "FJ2769 Cricoid cartilage",
+          "FJ2770 Epiglottis",
+          "FJ2771 Hyo-epiglottic ligament",
+          "FJ2775 Left arytenoid cartilage",
+          "FJ2778 Left lateral crico-arytenoid",
+          "FJ2780 Left oblique arytenoid",
+          "FJ2782 Left posterior crico-arytenoid",
+          "FJ2784 Left thyro-arytenoid",
+          "FJ2785 Left thyro-arytenoid",
+          "FJ2788 Left vocalis",
+          "FJ2792 Right arytenoid cartilage",
+          "FJ2796 Right lateral crico-arytenoid",
+          "FJ2798 Right oblique arytenoid",
+          "FJ2800 Right posterior crico-arytenoid",
+          "FJ2802 Right thyro-arytenoid",
+          "FJ2803 Right thyro-arytenoid",
+          "FJ2806 Right vocalis",
+          "FJ2807 Thyro-epiglottic ligament",
+          "FJ2808 Thyroid cartilage",
+          "FJ2809 Transverse arytenoid"
+        ]
+      }
+    ]
+  },
+  {
+    "path": "models/lung_right/exports/metadata-cleanup-r01/lung_right.glb",
+    "sha256": "3f8476ddd9d04448f4c1f63e85408860d7957f099e87170e8099efe635c16a78",
+    "bytes": 2653664,
+    "parts": [
+      {
+        "name": "Lung Lower Lobe Right | source surface",
+        "triangles": 24000,
+        "materialSlots": {
+          "0": 24000
+        }
+      },
+      {
+        "name": "Lung Middle Lobe Right | source surface",
+        "triangles": 4800,
+        "materialSlots": {
+          "0": 4800
+        }
+      },
+      {
+        "name": "Lung Upper Lobe Right | source surface",
+        "triangles": 7200,
+        "materialSlots": {
+          "0": 7200
+        }
+      }
+    ],
+    "views": [
+      {
+        "file": "7-front-palette.png",
+        "sha256": "3256b110becfa6d80b835d38e0e270dd01d4a6c987bd3e59e353957e798c17c8",
+        "bytes": 364817,
+        "angle": "front",
+        "material": "palette",
+        "targetM": [
+          -0.07454104721546173,
+          -0.0003435276448726654,
+          0.048033349215984344
+        ],
+        "orthoScaleM": 0.2859774276614189,
+        "cameraM": [
+          -0.07454104721546173,
+          -0.2970244586467743,
+          0.09253548830747604
+        ],
+        "cameraQuaternion": [
+          0.7577402591705322,
+          0.652556300163269,
+          0.0,
+          0.0
+        ],
+        "visibleNodes": [
+          "Lung Lower Lobe Right | source surface",
+          "Lung Middle Lobe Right | source surface",
+          "Lung Upper Lobe Right | source surface"
+        ]
+      },
+      {
+        "file": "7-oblique-neutral.png",
+        "sha256": "e7ecf7ff4e4d655107c03d47e069b500999d3dfe28a309e760949361568ce6c3",
+        "bytes": 352065,
+        "angle": "oblique",
+        "material": "neutral",
+        "targetM": [
+          -0.07454104721546173,
+          -0.0003435276448726654,
+          0.048033349215984344
+        ],
+        "orthoScaleM": 0.2859774276614189,
+        "cameraM": [
+          0.09765799343585968,
+          -0.21559233963489532,
+          0.16642019152641296
+        ],
+        "cameraQuaternion": [
+          0.78797847032547,
+          0.519157350063324,
+          0.1821105182170868,
+          0.2764078974723816
+        ],
+        "visibleNodes": [
+          "Lung Lower Lobe Right | source surface",
+          "Lung Middle Lobe Right | source surface",
+          "Lung Upper Lobe Right | source surface"
+        ]
+      },
+      {
+        "file": "7-reverse-neutral.png",
+        "sha256": "35fd71389b1f14756705a51d26ef49c6241da96a33caa0711c1b08c78ea3715e",
+        "bytes": 366976,
+        "angle": "reverse",
+        "material": "neutral",
+        "targetM": [
+          -0.07454104721546173,
+          -0.0003435276448726654,
+          0.048033349215984344
+        ],
+        "orthoScaleM": 0.2859774276614189,
+        "cameraM": [
+          -0.24674008786678314,
+          0.2149052768945694,
+          0.16642019152641296
+        ],
+        "cameraQuaternion": [
+          0.2764078974723816,
+          0.18211059272289276,
+          -0.519157350063324,
+          -0.78797847032547
+        ],
+        "visibleNodes": [
+          "Lung Lower Lobe Right | source surface",
+          "Lung Middle Lobe Right | source surface",
+          "Lung Upper Lobe Right | source surface"
+        ]
+      }
+    ]
+  },
+  {
+    "path": "lessons/one-breath/terminal-study-r02/terminal-airspaces.glb",
+    "sha256": "77f19cc2b261b6d11413c8bb78c949ab8d9c78091f33c47a3dc82a9543781158",
+    "bytes": 171748,
+    "parts": [
+      {
+        "name": "Alveolar duct",
+        "triangles": 3792,
+        "materialSlots": {
+          "0": 1872,
+          "1": 1872,
+          "2": 48
+        }
+      },
+      {
+        "name": "Distal common space and alveoli",
+        "triangles": 2240,
+        "materialSlots": {
+          "0": 1098,
+          "1": 1098,
+          "2": 44
+        }
+      },
+      {
+        "name": "Respiratory bronchiole",
+        "triangles": 1416,
+        "materialSlots": {
+          "0": 696,
+          "1": 696,
+          "2": 24
+        }
+      },
+      {
+        "name": "Terminal bronchiole",
+        "triangles": 948,
+        "materialSlots": {
+          "0": 432,
+          "1": 432,
+          "2": 84
+        }
+      }
+    ],
+    "views": [
+      {
+        "file": "8-front-palette.png",
+        "sha256": "1c2e63025d33a48a6bd29b3dc6905f380ed8f3996bb570c7776006a66cbcb348",
+        "bytes": 364708,
+        "angle": "front",
+        "material": "palette",
+        "targetM": [
+          0.12709000706672668,
+          0.0033879936672747135,
+          0.13217543065547943
+        ],
+        "orthoScaleM": 0.05024439245462417,
+        "cameraM": [
+          0.12709000706672668,
+          -0.29329293966293335,
+          0.17667756974697113
+        ],
+        "cameraQuaternion": [
+          0.7577402591705322,
+          0.652556300163269,
+          0.0,
+          0.0
+        ],
+        "visibleNodes": [
+          "Alveolar duct",
+          "Distal common space and alveoli",
+          "Respiratory bronchiole",
+          "Terminal bronchiole"
+        ]
+      },
+      {
+        "file": "8-oblique-neutral.png",
+        "sha256": "ea5eef3d4031585ae00c0de252318502dd6814388f1cc956b200df261b830124",
+        "bytes": 338932,
+        "angle": "oblique",
+        "material": "neutral",
+        "targetM": [
+          0.12709000706672668,
+          0.0033879936672747135,
+          0.13217543065547943
+        ],
+        "orthoScaleM": 0.05024439245462417,
+        "cameraM": [
+          0.2992890477180481,
+          -0.21186082065105438,
+          0.25056228041648865
+        ],
+        "cameraQuaternion": [
+          0.78797847032547,
+          0.519157350063324,
+          0.1821105182170868,
+          0.2764078974723816
+        ],
+        "visibleNodes": [
+          "Alveolar duct",
+          "Distal common space and alveoli",
+          "Respiratory bronchiole",
+          "Terminal bronchiole"
+        ]
+      },
+      {
+        "file": "8-reverse-neutral.png",
+        "sha256": "8a15cbb823d87c26ec80ee4b67516e3e55ae89c29807baaf16d5bd7f6c00dccf",
+        "bytes": 334735,
+        "angle": "reverse",
+        "material": "neutral",
+        "targetM": [
+          0.12709000706672668,
+          0.0033879936672747135,
+          0.13217543065547943
+        ],
+        "orthoScaleM": 0.05024439245462417,
+        "cameraM": [
+          -0.04510903358459473,
+          0.21863679587841034,
+          0.25056228041648865
+        ],
+        "cameraQuaternion": [
+          0.2764078974723816,
+          0.18211057782173157,
+          -0.519157350063324,
+          -0.78797847032547
+        ],
+        "visibleNodes": [
+          "Alveolar duct",
+          "Distal common space and alveoli",
+          "Respiratory bronchiole",
+          "Terminal bronchiole"
+        ]
+      }
+    ]
+  },
+  {
+    "path": "models/trachea/exports/open-airway-r06/trachea-open.glb",
+    "sha256": "eb3ce52962aacc4d109a9840685aa172ca1d97bfc835367f4e36fd32de6b6cbb",
+    "bytes": 962440,
+    "parts": [
+      {
+        "name": "Trachea | authored open teaching shell",
+        "triangles": 10104,
+        "materialSlots": {
+          "0": 4862,
+          "1": 4862,
+          "2": 380
+        }
+      },
+      {
+        "name": "Authored illustrative C-band 1",
+        "triangles": 2324,
+        "materialSlots": {
+          "0": 2324
+        }
+      },
+      {
+        "name": "Authored illustrative C-band 2",
+        "triangles": 2324,
+        "materialSlots": {
+          "0": 2324
+        }
+      },
+      {
+        "name": "Authored illustrative C-band 3",
+        "triangles": 2324,
+        "materialSlots": {
+          "0": 2324
+        }
+      },
+      {
+        "name": "Authored illustrative C-band 4",
+        "triangles": 2324,
+        "materialSlots": {
+          "0": 2324
+        }
+      },
+      {
+        "name": "Authored illustrative C-band 5",
+        "triangles": 2324,
+        "materialSlots": {
+          "0": 2324
+        }
+      },
+      {
+        "name": "Authored illustrative C-band 6",
+        "triangles": 2324,
+        "materialSlots": {
+          "0": 2324
+        }
+      },
+      {
+        "name": "Authored illustrative C-band 7",
+        "triangles": 2324,
+        "materialSlots": {
+          "0": 2324
+        }
+      },
+      {
+        "name": "Authored illustrative C-band 8",
+        "triangles": 2324,
+        "materialSlots": {
+          "0": 2324
+        }
+      },
+      {
+        "name": "Authored illustrative C-band 9",
+        "triangles": 2324,
+        "materialSlots": {
+          "0": 2324
+        }
+      },
+      {
+        "name": "Authored illustrative C-band 10",
+        "triangles": 2324,
+        "materialSlots": {
+          "0": 2324
+        }
+      },
+      {
+        "name": "Authored illustrative C-band 11",
+        "triangles": 2324,
+        "materialSlots": {
+          "0": 2324
+        }
+      },
+      {
+        "name": "Authored illustrative C-band 12",
+        "triangles": 2324,
+        "materialSlots": {
+          "0": 2324
+        }
+      },
+      {
+        "name": "Authored illustrative C-band 13",
+        "triangles": 2324,
+        "materialSlots": {
+          "0": 2324
+        }
+      },
+      {
+        "name": "Authored illustrative C-band 14",
+        "triangles": 2324,
+        "materialSlots": {
+          "0": 2324
+        }
+      },
+      {
+        "name": "Authored illustrative C-band 15",
+        "triangles": 2324,
+        "materialSlots": {
+          "0": 2324
+        }
+      },
+      {
+        "name": "Authored illustrative C-band 16",
+        "triangles": 2324,
+        "materialSlots": {
+          "0": 2324
+        }
+      },
+      {
+        "name": "Authored illustrative C-band 17",
+        "triangles": 2352,
+        "materialSlots": {
+          "0": 2352
+        }
+      },
+      {
+        "name": "Authored illustrative C-band 18",
+        "triangles": 1338,
+        "materialSlots": {
+          "0": 1338
+        }
+      }
+    ],
+    "views": [
+      {
+        "file": "9-front-palette.png",
+        "sha256": "4edafff669071117e5bc85e408fb7a86c042671d1340d64436523227a90ba924",
+        "bytes": 349303,
+        "angle": "front",
+        "material": "palette",
+        "targetM": [
+          -0.0015000002458691597,
+          0.011106254532933235,
+          0.12385696172714233
+        ],
+        "orthoScaleM": 0.1247911213338375,
+        "cameraM": [
+          -0.0015000002458691597,
+          -0.28557467460632324,
+          0.16835910081863403
+        ],
+        "cameraQuaternion": [
+          0.7577402591705322,
+          0.652556300163269,
+          0.0,
+          0.0
+        ],
+        "visibleNodes": [
+          "Authored illustrative C-band 1",
+          "Authored illustrative C-band 10",
+          "Authored illustrative C-band 11",
+          "Authored illustrative C-band 12",
+          "Authored illustrative C-band 13",
+          "Authored illustrative C-band 14",
+          "Authored illustrative C-band 15",
+          "Authored illustrative C-band 16",
+          "Authored illustrative C-band 17",
+          "Authored illustrative C-band 18",
+          "Authored illustrative C-band 2",
+          "Authored illustrative C-band 3",
+          "Authored illustrative C-band 4",
+          "Authored illustrative C-band 5",
+          "Authored illustrative C-band 6",
+          "Authored illustrative C-band 7",
+          "Authored illustrative C-band 8",
+          "Authored illustrative C-band 9",
+          "Trachea | authored open teaching shell"
+        ]
+      },
+      {
+        "file": "9-oblique-neutral.png",
+        "sha256": "574f05558a5008b6aa8331172ed160b73420f3a9bb12942eee385c4209c848db",
+        "bytes": 332014,
+        "angle": "oblique",
+        "material": "neutral",
+        "targetM": [
+          -0.0015000002458691597,
+          0.011106254532933235,
+          0.12385696172714233
+        ],
+        "orthoScaleM": 0.1247911213338375,
+        "cameraM": [
+          0.17069904506206512,
+          -0.20414255559444427,
+          0.24224379658699036
+        ],
+        "cameraQuaternion": [
+          0.78797847032547,
+          0.519157350063324,
+          0.1821105182170868,
+          0.2764078974723816
+        ],
+        "visibleNodes": [
+          "Authored illustrative C-band 1",
+          "Authored illustrative C-band 10",
+          "Authored illustrative C-band 11",
+          "Authored illustrative C-band 12",
+          "Authored illustrative C-band 13",
+          "Authored illustrative C-band 14",
+          "Authored illustrative C-band 15",
+          "Authored illustrative C-band 16",
+          "Authored illustrative C-band 17",
+          "Authored illustrative C-band 18",
+          "Authored illustrative C-band 2",
+          "Authored illustrative C-band 3",
+          "Authored illustrative C-band 4",
+          "Authored illustrative C-band 5",
+          "Authored illustrative C-band 6",
+          "Authored illustrative C-band 7",
+          "Authored illustrative C-band 8",
+          "Authored illustrative C-band 9",
+          "Trachea | authored open teaching shell"
+        ]
+      },
+      {
+        "file": "9-reverse-neutral.png",
+        "sha256": "8d01951011c14a048f1bbf05ce3a09de5ffc904646ea4cd1d1201ebb7bcb172f",
+        "bytes": 337716,
+        "angle": "reverse",
+        "material": "neutral",
+        "targetM": [
+          -0.0015000002458691597,
+          0.011106254532933235,
+          0.12385696172714233
+        ],
+        "orthoScaleM": 0.1247911213338375,
+        "cameraM": [
+          -0.1736990362405777,
+          0.22635506093502045,
+          0.24224379658699036
+        ],
+        "cameraQuaternion": [
+          0.2764078974723816,
+          0.18211059272289276,
+          -0.5191574096679688,
+          -0.7879784107208252
+        ],
+        "visibleNodes": [
+          "Authored illustrative C-band 1",
+          "Authored illustrative C-band 10",
+          "Authored illustrative C-band 11",
+          "Authored illustrative C-band 12",
+          "Authored illustrative C-band 13",
+          "Authored illustrative C-band 14",
+          "Authored illustrative C-band 15",
+          "Authored illustrative C-band 16",
+          "Authored illustrative C-band 17",
+          "Authored illustrative C-band 18",
+          "Authored illustrative C-band 2",
+          "Authored illustrative C-band 3",
+          "Authored illustrative C-band 4",
+          "Authored illustrative C-band 5",
+          "Authored illustrative C-band 6",
+          "Authored illustrative C-band 7",
+          "Authored illustrative C-band 8",
+          "Authored illustrative C-band 9",
+          "Trachea | authored open teaching shell"
+        ]
+      }
+    ]
+  }
+]

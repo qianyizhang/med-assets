@@ -1,6 +1,7 @@
 import React from 'react';
 import { byPath, dentalLayerSheet, heartSlice, oneBreathStoryboard } from './catalog.js';
 import { Evidence } from './Evidence.jsx';
+import { LessonReviewPlate } from './LessonReviewPlate.jsx';
 import { Heading, Link } from './GalleryUI.jsx';
 import controlSheet from './teaching-inputs/control-review-sheet.jpg';
 import sourcePose from './teaching-inputs/source-pose.jpg';
@@ -58,6 +59,15 @@ export function OneBreath() {
         <li>Trachea → left and right main bronchi · <span lang="zh">气管 → 左右主支气管</span></li>
         <li>O₂: air → blood · CO₂: blood → air · <span lang="zh">氧气进入血液 · 二氧化碳进入肺泡</span></li>
       </ol>
+      <LessonReviewPlate
+        exportPath="body/breathing/Breathing_Assembly.blend"
+        title="Compare expiration and peak inspiration"
+        alt="Matched front and side views show the tan diaphragm dome descending between expiration at left and peak inspiration at right, with the lower lung edges and liver alongside"
+        width={1002}
+        height={1086}
+      >
+        <p>Both poses were sampled from the authored Breathing assembly.</p>
+      </LessonReviewPlate>
       <p>The airway cutaway omits smaller branches. The exchange panel is a separate schematic drawn at a different scale. The storyboard supplies no measured physiology or clinical validation.</p>
       <p lang="zh">气道剖切图省略细小分支。气体交换图为独立示意图，非等比例。非定量生理模拟，不代表临床认可。</p>
       <a href={source + breath + 'README.md'}>Original lesson and replay ↗</a>

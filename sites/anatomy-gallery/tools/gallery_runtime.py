@@ -3,6 +3,7 @@ import argparse
 import hashlib
 import io
 import json
+import mimetypes
 import os
 from pathlib import Path
 import shutil
@@ -10,6 +11,7 @@ import subprocess
 import sys
 import tempfile
 from itertools import chain
+from urllib.parse import quote
 from urllib.request import urlopen
 
 SITE = Path(__file__).resolve().parents[1]
@@ -255,6 +257,20 @@ def prepare_gallery(site: Path, inputs: Path, target: Path):
     prepare_display_images(repo, site, delivery_by_path(index))
 
 
+def validate_teaching_axes(assessment, route):
+    if not assessment['task'].strip() or not assessment['sources']:
+        raise ValueError(f'Missing teaching task or evidence for {route}')
+    axes = assessment['axes']
+    if len(axes) != 4:
+        raise ValueError(f'Expected four teaching assessment axes for {route}')
+    for axis in axes:
+        score = axis['score']
+        if score is not None and (type(score) is not int or not 0 <= score <= 4):
+            raise ValueError(f'Invalid teaching assessment score for {route}')
+        if not isinstance(axis['observation'], str) or not axis['observation'].strip():
+            raise ValueError(f'Missing teaching assessment observation for {route}')
+
+
 def prepare_teaching_assessments(repo, index, teaching):
     owners = sorted((repo / 'reviews').glob('*/*/teaching-assessment.json'))
     by_path = delivery_by_path(index)
@@ -268,22 +284,74 @@ def prepare_teaching_assessments(repo, index, teaching):
             route = assessment['route']
             if route in assessments:
                 raise ValueError(f'Duplicate teaching assessment for {route}')
-            if not assessment['task'].strip() or not assessment['sources'] or not assessment['views']:
-                raise ValueError(f'Missing teaching task or evidence for {route}')
-            axes = assessment['axes']
-            if len(axes) != 4:
-                raise ValueError(f'Expected four teaching assessment axes for {route}')
-            for axis in axes:
-                score = axis['score']
-                if score is not None and (type(score) is not int or not 0 <= score <= 4):
-                    raise ValueError(f'Invalid teaching assessment score for {route}')
-                if not isinstance(axis['observation'], str) or not axis['observation'].strip():
-                    raise ValueError(f'Missing teaching assessment observation for {route}')
+            validate_teaching_axes(assessment, route)
+            if not assessment['views']:
+                raise ValueError(f'Missing reviewed views for {route}')
             for evidence in (assessment['export'], *assessment['views']):
                 check_delivery_identity(by_path, evidence)
             assessments[route] = {**assessment, **metadata}
-    output = {'assessments': list(assessments.values())}
+    campaign = prepare_campaign_reviews(repo, index)
+    output = {'assessments': list(assessments.values()), 'campaign': campaign}
     (teaching / 'teaching-assessments.json').write_text(json.dumps(output, ensure_ascii=False, indent=2) + '\n')
+
+
+def prepare_campaign_reviews(repo, index):
+    """Bind loopback reviews to their exact exports and the evidence inspected."""
+    batches = sorted((repo / 'reviews/teaching-assessments').glob('*/campaign-assessments.json'))
+    if not batches:
+        return []
+    deliveries = {**delivery_by_path(index), **delivery_by_path(index.with_name('local-delivery.json'))}
+    root = repo.resolve()
+    result = {}
+    evidence = {}
+
+    def local_file(relative):
+        path = (root / relative).resolve(strict=True)
+        if path != root / relative or not path.is_relative_to(root) or not path.is_file():
+            raise ValueError(f'Invalid assessment evidence path: {relative}')
+        if relative not in evidence:
+            raw = path.read_bytes()
+            digest = hashlib.sha256(raw).hexdigest()
+            kind = mimetypes.guess_type(path.name)[0]
+            media_type = kind if kind in ('image/webp', 'image/png', 'image/jpeg', 'application/json') else 'text/plain'
+            evidence[relative] = {'path': relative, 'bytes': len(raw), 'sha256': digest,
+                                  'mediaType': media_type, 'url': f'/review-evidence/{digest}/{quote(path.name)}'}
+        return evidence[relative]
+
+    for owner in batches:
+        batch = json.loads(owner.read_text())
+        if batch['schemaVersion'] != 1:
+            raise ValueError(f'Unsupported teaching assessment schema: {owner}')
+        for row in batch['assessments']:
+            export = row['export']
+            path = export['path']
+            if path in result and result[path]['date'] == batch['date']:
+                raise ValueError(f'Duplicate campaign assessment for {path} on {batch["date"]}')
+            check_delivery_identity(deliveries, export)
+            validate_teaching_axes(row, path)
+            if not row['views'] and any(axis['score'] is not None for axis in row['axes']):
+                raise ValueError(f'Missing reviewed views for {path}')
+            views = []
+            for view in row['views']:
+                entry = local_file(view['path'])
+                check_delivery_identity({view['path']: entry}, view)
+                views.append({**view, **entry})
+            if row.get('teachingView') and row['teachingView'] not in {v['path'] for v in views}:
+                raise ValueError(f'Teaching view is missing from the reviewed views for {path}')
+            sources = []
+            for source in row['sources']:
+                if 'path' in source:
+                    entry = local_file(source['path'].split('#', 1)[0])
+                    sources.append({**source, **entry})
+                elif source.get('url', '').startswith('https://'):
+                    sources.append(source)
+                else:
+                    raise ValueError(f'Missing source reference for {path}')
+            if path in result and result[path]['date'] > batch['date']:
+                continue
+            result[path] = {**row, **{key: batch[key] for key in ('evaluator', 'date', 'rubric')},
+                            'sources': sources, 'views': views}
+    return list(result.values())
 
 
 def prepare_retained_lesson(repo, teaching, name, modules):

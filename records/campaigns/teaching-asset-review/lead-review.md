@@ -1,0 +1,44 @@
+# Lead review of the maintained teaching set
+
+At the close of the November 22 review, all 79 starting files had an exact-export assessment for a named teaching task. At the [baseline](../../work-items/items/TAQ-001-establish-review-coverage.md#result) four had four scores. The review closed with 78 complete profiles and one partial. Of the 79, **32 met the rubric target on every axis**, 46 had an observed score below 3, and the ovary–tubal study had three scores at target with one outstanding source question. The [current scorecard](current-coverage.md) follows subsequent changes to the maintained set. These judgments apply to the recorded task, framing and scale.
+
+Sol inspected the assets and authored the assessments. The campaign lead reviewed the collection sheets, inspected matched changes at teaching size, challenged borderline scores and exercised the assembled Library and lessons. The counts below refer to the maintained starting files. Prior and alternate exports retain their own evidence.
+
+| Collection | Complete profiles / families | All axes at target | Teaching decision |
+| --- | ---: | ---: | --- |
+| Body & support | 3 / 3 | 1 | Use the isolated thoracic view when the full Workshop assembly conceals the targets. |
+| Cardiovascular | 7 / 7 | 3 | Use the exterior for gross orientation. The full opaque animation conceals leaflet movement; the separate cutaway owns that task. |
+| Digestive | 7 / 7 | 1 | Separate the source exterior and authored section for the stomach and gallbladder. |
+| Endocrine | 7 / 7 | 3 | Supply regional context for small targets. Retain case-specific surface limits at close zoom. |
+| Lymphatic & tissue | 5 / 5 | 2 | Open the node capsule to reveal layers. Use highlighted collecting routes to make their ends visible. |
+| Musculoskeletal | 12 / 12 | 9 | Use the exterior for orientation and expose the structures needed for depth or attachment questions. |
+| Nervous & senses | 8 / 8 | 4 | Pair colored nerve routes with a bone landmark and regional detail. Keep the anterior eye within its verified visibility scope. |
+| Oral & dental | 7 / 7 | 4 | Distinguish the prepared or cut specimen boundary from a mesh defect before considering smoothing. |
+| Reproductive | 7 / 8 | 2 | The ovary–tubal landmark relationship is visible. Form remains Unrated until the angular source contours can be interpreted. |
+| Respiratory | 10 / 10 | 2 | Pair anterior and lateral views for motion. The neutral phase pair and editable-part inventory completed the assembly's form and economy checks. |
+| Skin | 1 / 1 | 1 | The seated nail section explains the free edge and covered root with its authored cut and reference views. |
+| Urinary | 4 / 4 | 0 | Show pelvic context and a focused bladder base at the same camera so the neck and both ureteral entry landmarks can be found. |
+
+## Decisions that changed the set
+
+**When two representations overlap, separate them at the same camera.** In the stomach GLB, the source exterior crosses the independent schematic wall and hides several folds. Both make sense in separate views. The gallbladder has the same problem at the cut rim. The local Library now opens these teaching plates directly. [Stomach comparison](../../../reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/17-isolation.webp) · [Gallbladder comparison](../../../reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/12-isolation.webp)
+
+**Choose the second view for the relationship it reveals.** The front breathing pair shows both lung bases. The side pair exposes the dome edge beside the liver and shows how its contour changes over the two authored poses. In the lymph node, a fixed camera and labeled internal surfaces let the learner relate the layers to the intact capsule. The original bilingual storyboard and magnified transit illustration keep their own teaching roles. [Breathing phase plate](../../../reviews/teaching-assessments/2026-11-22-respiratory/motion-detail.jpg) · [Lymph node layers](../../../reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A03-lymph-node-layers.webp) · [Lesson placements](../../work-items/items/TAQ-008-use-reviewed-plates-in-lessons.md)
+
+**Make the target visible at the size learners use.** The bare collecting routes and peripheral nerves recede into the background or bony context. The local Library now uses the already bound, high-contrast teaching plates for the collecting routes, median wrist and ulnar elbow. The bladder comparison shows the whole and focused selections together so the learner can recover orientation. [Route and nerve evidence](../../work-items/items/TAQ-006-review-lymphatic-musculoskeletal-nervous.md#teaching-presentation) · [Bladder comparison](../../../reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/bladder-base-comparison.jpg)
+
+**Spend geometry where the learner can see its benefit.** The authored femur cutaway gave us a controlled trial with 364,734 triangles in the lattice alone. At the owner’s overview and close camera, I could follow the same openings through all three versions. The enlarged worst-region crops reveal slight straightening at a junction and a narrower highlight. Keep the strong recipe-built option for these teaching views. It saves 4,551,896 bytes (51.9%) while preserving the checked topology, cortical rim and visible thin struts. The 8,770,012-byte r05 retains its own assessment and recommendation. [Matched teaching close-up](../../../reviews/bone_marrow/2026-11-22-lattice-economy-trial/detail.jpg) · [Geometry, limits and replay](../../../reviews/bone_marrow/2026-11-22-lattice-economy-trial/README.md)
+
+## How the lead review resolved scores
+
+- **Bronchial r14.** Preserve form at 2. The 30.5% lighter export retains the collar and angular underside at the first fork. Its 13/16 profile records the mesh benefit and the visible limit separately. The original r13 remains 11/16. [First-fork comparison](../../../reviews/bronchial_tree/2026-11-21-distal-simplification-trial/evidence/close.webp)
+- **Economy.** Require a defensible part budget and inspection of vulnerable features for 3. A measured lighter trial can earn 4. Respiratory's initial pass withheld economy on several models solely for lack of a lighter trial. Sol returned to the exact meshes, checked connected parts and completed the scores. The editable Breathing assembly uses 245,126 triangles across 67 mesh objects; seven parts supply the motion comparison. Its economy is 2 for that task. [Respiratory review](../../../reviews/teaching-assessments/2026-11-22-respiratory/README.md)
+- **Esophageal cutaway and seated nail.** Fidelity stays at 3 for the cutaway. The repeat inspection supplied no additional measurement of the vulnerable feature to earn 4. Readability stays at 3 for the nail. The covered root and bed need the section evidence. [Digestive assessment](../../../reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/campaign-assessments.json) · [Nail assessment](../../../reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/campaign-assessments.json)
+- **Adrenal r03.** The Library had displayed the older overview's form score of 3. Its author subsequently identified scalloped edges and unexplained tunnels in neutral close-up and explicitly revised the score to 2. The revision page now links the reassessment and shows 12/16. The historical overview remains attributable to its author. [Reassessment](../../../reviews/endocrine-locator/adrenal-study-r04/README.md#reassessment)
+- **Ovary form.** Fresh neutral angles and the older close-ups agree on the angular margins. The reference lineage identifies the specimen, but no registered section or author annotation explains those margins. Keep that axis Unrated and retain the successful fringe-and-gap task. [Ovary evidence and missing reference](../../work-items/items/TAQ-007-review-dental-reproductive-skin-urinary.md#local-evidence--2026-11-22)
+
+## Remaining limits
+
+Review priorities follow learner impact. The single lymph node's disputed blood/lymph labels preclude a flow claim for that network. The trabecular specimen's spacing discrepancy limits quantitative comparisons across specimens. The eye's retained ciliary geometry remains outside attachment teaching. These restrictions stay with the [collection and source records](../../work-items/items/TAQ-006-review-lymphatic-musculoskeletal-nervous.md#teaching-presentation). A source-backed correction or a genuinely different learner task can reopen an assessment.
+
+Across the set, 34 files scored below 3 on economy, 19 on form, nine on readability and one on fidelity. These counts overlap. Each assessment names what should be kept, changed or measured before spending more time on it. No clinical validation or measured browser speedup is claimed by these teaching reviews.

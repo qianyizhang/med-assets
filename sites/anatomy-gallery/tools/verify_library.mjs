@@ -40,7 +40,7 @@ function indexedRoutes(snapshot, tracked, review) {
   const records = new Map();
   const indexed = new Map();
   for (const row of rows) {
-    const history = row.history.length ? row.history : [{ library: row.path, exports: row.media ?? [] }];
+    const history = row.history.length ? row.history : [{ library: row.path, exports: row.media ?? [], assessment: row.assessment }];
     for (const record of history) {
       if (!record.exports.length) continue;
       assert.ok(!records.has(record.library), record.library);
@@ -195,45 +195,56 @@ try {
   await go('library/bronchial_tree/unknown');
   await heading('View unavailable').waitFor();
 
+  const showAll = async () => {
+    const more = page.getByRole('button', { name: 'Show more entries' });
+    while (await more.count()) await more.click();
+  };
   const ratedRows = rows.filter((row) => row.ratingLabel !== 'Unrated');
   const totals = ratedRows.map(({ score }) => score).filter((score) => score !== null).sort((a, b) => a - b);
   const partialCount = ratedRows.length - totals.length;
   await go('library?rating=rated&sort=rating-low');
   await page.getByText(ratedRows.length + ' entries', { exact: true }).waitFor();
+  await showAll();
   assert.deepEqual(await page.locator('.ga-asset .ga-rating').allTextContents(), [
     ...totals.map((score) => score + '/16'), ...Array(partialCount).fill('Partially rated'),
   ]);
   await page.getByLabel('Sort', { exact: true }).selectOption('rating-high');
   await page.waitForFunction((value) => document.querySelector('.ga-asset .ga-rating')?.textContent === value,
     totals.at(-1) + '/16');
+  await showAll();
   assert.equal(await page.getByText('Partially rated', { exact: true }).count(), partialCount);
 
-  for (const assessment of review.assessments) {
+  for (const assessment of [...review.assessments, ...(review.campaign ?? [])]) {
     const { date, evaluator, rubric } = assessment;
     assert.equal(digest(git('cat-file', 'blob', rubric.revision + ':' + rubric.path)), rubric.sha256);
     const expected = indexed.get(assessment.export.path);
-    assert.equal(expected.route, assessment.route);
-    const record = records.get(assessment.route);
-    assert.ok(record.assessment, assessment.route);
-    const scores = assessment.axes.map((axis) => axis.score);
+    const route = expected.route;
+    if (assessment.route) assert.equal(route, assessment.route);
+    const record = records.get(route);
+    const current = record.assessment;
+    assert.ok(current, route);
+    const earlier = current !== assessment;
+    if (earlier) assert.equal(record.previousAssessment, assessment);
+    const scores = current.axes.map((axis) => axis.score);
     const rating = scores.includes(null) ? 'Partially rated' : scores.reduce((sum, score) => sum + score, 0) + '/16';
-    const result = page.locator('.ga-asset[href="#/' + assessment.route + '"]');
-    for (const needle of [assessment.export.sha256, assessment.export.path]) {
+    const result = page.locator('.ga-asset[href="#/' + route + '"]');
+    for (const needle of [current.export.sha256, current.export.path]) {
       await go('library?rating=rated&q=' + encodeURIComponent(needle));
       await result.getByText(rating, { exact: true }).waitFor();
     }
     await result.click();
-    await heading(record.title).waitFor();
-    const visibleRating = page.getByText('Rating · ' + rating, { exact: false });
-    await visibleRating.waitFor();
-    assert.ok((await visibleRating.textContent()).includes(assessment.task));
+    await page.waitForURL((url) => url.hash === '#/' + route);
+    await page.locator('.ga-detail').waitFor();
     await page.getByRole('link', { name: 'Rating rubric', exact: true }).waitFor();
     const displayed = await page.locator('.ga-detail dt').evaluateAll((terms, axes) =>
       terms.filter((term) => axes.includes(term.textContent)).map((term) => term.nextElementSibling.textContent),
       ratingAxes);
-    assert.deepEqual(displayed, scores.map((score) => String(score ?? 'Unrated')), assessment.route);
-    await page.getByText('Assessment and reviewed views', { exact: true }).press('Enter');
-    const details = page.locator('details[open]').filter({ hasText: 'Assessed export' });
+    assert.deepEqual(displayed, scores.map((score) => String(score ?? 'Unrated')), route);
+    const summary = earlier ? 'Earlier assessment and reviewed views' : 'Assessment and reviewed views';
+    const summaryElement = page.getByText(summary, { exact: true });
+    const details = page.locator('details').filter({ has: summaryElement });
+    if (await details.getAttribute('open') === null) await summaryElement.press('Enter');
+    await details.getByText(assessment.task, { exact: true }).waitFor();
     await details.getByText(evaluator + ' · ' + date + ' · Rubric ' + rubric.revision.slice(0, 8)).waitFor();
     await details.getByText(assessment.export.sha256, { exact: true }).waitFor();
     for (const axis of assessment.axes) {
@@ -242,14 +253,20 @@ try {
     for (const source of assessment.sources) {
       assert.equal(await details.getByRole('link', { name: source.label + ' ↗', exact: true }).getAttribute('href'),
         source.url);
-      const [, revision, sourcePath] = new URL(source.url).pathname.split('/blob/')[1].match(/^([^/]+)\/(.+)$/);
-      git('cat-file', '-e', revision + ':' + sourcePath);
+      if (source.url.startsWith('/review-evidence/')) {
+        const response = await page.request.get(base + source.url);
+        assert.equal(response.status(), 200, source.path);
+        assert.equal(digest(await response.body()), source.sha256, source.path);
+      } else if (source.url.includes('github.com/qianyizhang/med-assets/blob/')) {
+        const [, revision, sourcePath] = new URL(source.url).pathname.split('/blob/')[1].match(/^([^/]+)\/(.+)$/);
+        git('cat-file', '-e', revision + ':' + decodeURIComponent(sourcePath));
+      }
     }
     for (const view of assessment.views) {
       const anchor = details.getByRole('link', { name: view.label + ' ↗', exact: true });
       assert.equal(await anchor.isVisible(), true);
       const href = await anchor.getAttribute('href');
-      assert.ok(href.startsWith('/assets/' + view.sha256 + '/'), href);
+      assert.ok(href === view.url || href.startsWith('/assets/' + view.sha256 + '/'), href);
       const response = await page.request.get(base + href);
       assert.equal(response.status(), 200, view.path);
       const bytes = await response.body();
@@ -263,7 +280,14 @@ try {
       }, href);
       assert.ok(dimensions.every((dimension) => dimension > 0), view.path);
     }
-    const portrait = page.locator('.ga-detail img');
+    if (assessment.teachingView) {
+      const view = assessment.views.find((item) => item.path === assessment.teachingView);
+      const portrait = page.locator('.ga-detail figure img').first();
+      assert.equal(await portrait.getAttribute('src'), view.url);
+      await portrait.evaluate((image) => image.decode());
+    }
+    if (!assessment.route) continue;
+    const portrait = page.locator('.ga-detail img').first();
     await portrait.evaluate((image) => image.decode());
     await page.setViewportSize({ width: 1024, height: 768 });
     const layout = await portrait.evaluate((image) => {
@@ -279,7 +303,7 @@ try {
 
   for (const [route, file] of [
     ['library/bronchial_tree/authored-lobar-fairing-r09', 'bronchial_lobar_fairing.glb'],
-    ['library/joints/z-shoulder-r01', 'shoulder_z_native.glb'],
+
     ['library/thyroid_ct_s0189/source-candidate-02', 'thyroid_ct_s0189_source_frame.glb'],
   ]) {
     await go('library?rating=unrated&q=' + file);
@@ -291,6 +315,18 @@ try {
     assert.equal(await page.getByText('Assessment and reviewed views').count(), 0);
   }
 
+  const withPlate = review.campaign?.find((item) => item.teachingView);
+  if (withPlate) {
+    const { url } = withPlate.views.find((item) => item.path === withPlate.teachingView);
+    await page.route('**' + url, (req) => req.fulfill({ status: 503, body: '' }));
+    await go(indexed.get(withPlate.export.path).route);
+    await page.reload();
+    await page.locator('.ga-detail .ga-missing-evidence').waitFor();
+    await page.getByRole('link', { name: 'Rating rubric', exact: true }).waitFor();
+    await page.unroute('**' + url);
+    await page.reload();
+    await page.locator('.ga-detail figure img').first().evaluate((image) => image.decode());
+  }
   const fetched = [];
   const samples = tracked.filter(({ path: file }) =>
     /\.(blend|stl)$/.test(file) || [
@@ -331,6 +367,7 @@ try {
     counts,
     tracked: tracked.map((expected) => ({ ...expected, route: indexed.get(expected.path)?.route })),
     fetched,
+    campaignReviews: review.campaign?.length ?? 0,
     assessments: review.assessments.map(({ route, export: file, axes, evaluator, date, rubric, views }) => ({
       route, export: file, evaluator, date, rubric, axes: axes.map((axis) => axis.score), views,
     })),

@@ -1,6 +1,6 @@
 # Maintained 3D model families
 
-79 teaching families each have one starting file. The two multi-model Blender collections open as assemblies. Use the [Library](asset-library.md) for exact revisions, component meshes, alternatives, credits and evidence. Selection here describes maintenance scope; assessment scores stay with their reviewed export.
+79 teaching families each have one starting file. The two multi-model Blender collections open as assemblies. Use the [Library](asset-library.md) for exact revisions, component meshes, alternatives, credits and evidence. The [current review coverage](../../records/campaigns/teaching-asset-review/current-coverage.md) links these selections to their exact assessments and outstanding evidence needs.
 
 The first-fork and static exterior entries select the adopted r14 and r02 for local reuse. Hosted consumers keep their published r13 and r01 links. Source-only imports, reconstructions retained as negative evidence and unavailable historical models do not add maintained families.
 
