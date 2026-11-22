@@ -1,0 +1,204 @@
+{
+  "schemaVersion": 1,
+  "evaluator": "Codex · campaign lead review",
+  "date": "2026-11-22",
+  "rubric": {
+    "path": "docs/guides/asset-quality.md",
+    "sha256": "2e91264ce7c05b6906a8f113f2e0fc888c4765cd3a6d0d6c8a26b6a420900abb",
+    "revision": "9e6e490fd67468985e2e8a8298995c730e2f55e5"
+  },
+  "assessments": [
+    {
+      "export": {
+        "path": "models/adrenals/exports/atlas-locator-r02/atlas-profiles.glb",
+        "bytes": 213016,
+        "sha256": "de52cd888b8e169e2b729376d749975db05fa4cbca13a65a5e2f943aaf233afa"
+      },
+      "task": "Distinguish the two BP3D adrenal exterior profiles and associate each with the same-side kidney in the retained context view.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "Both atlas kidneys use pinned OBJ members in the original frame. Gland extrema on all three axes match their original bounds; smooth local relief is editorial."
+        },
+        {
+          "score": 3,
+          "observation": "Both profiles remain distinct in the posterior pair and opposite neutral view. The enlarged left profile retains its broad concavity while the distracting pits recede. Both glands retain manifold topology and have zero detected nonadjacent triangle contacts."
+        },
+        {
+          "score": 3,
+          "observation": "The kidney pair now stays in the exact download. The posterior frame and gland-only comparison identify upper-pole association on each side."
+        },
+        {
+          "score": 3,
+          "observation": "Four selectable meshes and 11,582 triangles deliver both gland profiles and the same-side kidney context. The gland indices retain the source tessellation."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/adrenals/exports/atlas-locator-r02/README.md",
+          "label": "Edition, scope and attribution"
+        },
+        {
+          "path": "reviews/teaching-assessments/reopen-regional/clean-import-check.json",
+          "label": "Independent imported mesh and landmark checks"
+        },
+        {
+          "path": "reviews/teaching-assessments/reopen-regional/measurements.json",
+          "label": "Matched cameras and measured source deviations"
+        },
+        {
+          "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/17-6-the-adrenal-glands",
+          "label": "OpenStax · gross anatomical context"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/reopen-regional/views/adrenals-before.webp",
+          "bytes": 34988,
+          "sha256": "e394b63ad98bd16ead003eaa425697f1630d57339194172d6552d85e8c32439c",
+          "label": "Adrenal pair · same-camera source control",
+          "width": 956,
+          "height": 1160
+        },
+        {
+          "path": "reviews/teaching-assessments/reopen-regional/views/adrenals-after.webp",
+          "bytes": 35108,
+          "sha256": "245d87ab3f385a9be2bbc00e1e19bd731c14f9dace2c3bca52da4193db543399",
+          "label": "Adrenal pair · Located the crescent-like left and triangular right gland and followed each to the upper part of its same-side kidney in the posterior atlas view. The reverse isolate exposes the broader gland planes.",
+          "width": 956,
+          "height": 1160
+        }
+      ],
+      "teachingView": "reviews/teaching-assessments/reopen-regional/views/adrenals-after.webp",
+      "decision": "For the BP3D localization lesson use the interpreted gland surfaces and the two kidneys in one native frame. The source gland file remains the reference for the unedited relief."
+    },
+    {
+      "export": {
+        "path": "models/pancreas/exports/gross-locator-r05/gross-locator.glb",
+        "bytes": 596044,
+        "sha256": "ac79b7138619462dbeaf28dda592aa93fc770d53d49eecbc125074594971667b"
+      },
+      "task": "Follow the HRA pancreas from the head in the duodenal bend toward the tail beside the splenic context.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "A reconstructed envelope follows all five original region surfaces. Eleven adjacent source meshes preserve their unique geometric positions and triangle counts on clean import. Sampled source-to-envelope distances include the uncinate and head separately."
+        },
+        {
+          "score": 3,
+          "observation": "The enlarged head reads as a continuous broad surface through the turn into the body; the highlighted seam of the individual atlas patches no longer separates the gross contour. The reverse view preserves the directional change approaching the tail. The mesh has one connected shell and no detected nonadjacent triangle contacts."
+        },
+        {
+          "score": 3,
+          "observation": "The teaching file opens with the pancreatic exterior, the duodenal bend and splenic context. The learner can locate both endpoints in the paired directions and isolate the envelope."
+        },
+        {
+          "score": 3,
+          "observation": "The teaching selection has 28,588 triangles, including 11,088 on the envelope, and occupies about 596 kB. The original has 38,598 triangles and includes internal structures outside the locator task."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/pancreas/exports/gross-locator-r05/README.md",
+          "label": "Edition, scope and attribution"
+        },
+        {
+          "path": "reviews/teaching-assessments/reopen-regional/clean-import-check.json",
+          "label": "Independent imported mesh and landmark checks"
+        },
+        {
+          "path": "reviews/teaching-assessments/reopen-regional/measurements.json",
+          "label": "Matched cameras and measured source deviations"
+        },
+        {
+          "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/23-6-accessory-organs-in-digestion-the-liver-pancreas-and-gallbladder",
+          "label": "OpenStax · gross anatomical context"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/reopen-regional/views/pancreas-before.webp",
+          "bytes": 35128,
+          "sha256": "38016dc51a400f8af1d68432d819f14fcc61e7a9df34a14c04f2ad0cad941564",
+          "label": "Pancreas · same-camera source control",
+          "width": 1224,
+          "height": 596
+        },
+        {
+          "path": "reviews/teaching-assessments/reopen-regional/views/pancreas-after.webp",
+          "bytes": 36364,
+          "sha256": "cf65cba3c5579223b746046b6d4cfdcc9c9b42e0d7b0f44363907d0a74ce212c",
+          "label": "Pancreas · Started at the head inside the duodenal bend, traced the narrowing body, and found the tail beside the splenic surface. The opposite view and enlarged head show one continuous interpreted exterior.",
+          "width": 1224,
+          "height": 596
+        }
+      ],
+      "teachingView": "reviews/teaching-assessments/reopen-regional/views/pancreas-after.webp",
+      "decision": "Use the single gross exterior for head-to-tail localization. The complete r04 retains separately selectable pancreatic regions, ducts and other fine structures."
+    },
+    {
+      "export": {
+        "path": "models/lymph-collecting-routes/source-trace-r02/route-diagram.glb",
+        "bytes": 31592,
+        "sha256": "bebe11ea3241799e83d69f70ea1cccc59283f9ec72eca0dc45877cdd6fc8fd64"
+      },
+      "task": "Follow the highlighted source-named central collecting route and identify where its retained upper and lower ends stop.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "Seven traces use the centers of the octagonal source rings in the original frame. The central line passes through its five recorded stations. The new spherical endpoint symbols are centered on the retained source caps. Intermediate curvature and line widths are editorial."
+        },
+        {
+          "score": 3,
+          "observation": "The two enlarged directions show the corner turning continuously into the upper end. Endpoint symbols identify both limits separately from the width of the stroke and the angle of a cut surface. Neither terminal is extended."
+        },
+        {
+          "score": 3,
+          "observation": "The central trace is emphasized against the muted context in the downloadable scene. The angle change separates its top turn from the side guide; the lower marker identifies the depicted lower stop."
+        },
+        {
+          "score": 3,
+          "observation": "Seven sampled lines and two small end markers use 644 triangles in about 31 kB. The additional faces encode rounded corners and selectable end symbols; no continuous anatomical lumen or flow is represented."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/lymph-collecting-routes/source-trace-r02/README.md",
+          "label": "Edition, scope and attribution"
+        },
+        {
+          "path": "reviews/teaching-assessments/reopen-regional/clean-import-check.json",
+          "label": "Independent imported mesh and landmark checks"
+        },
+        {
+          "path": "reviews/teaching-assessments/reopen-regional/measurements.json",
+          "label": "Matched cameras and measured source deviations"
+        },
+        {
+          "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/21-1-anatomy-of-the-lymphatic-and-immune-systems",
+          "label": "OpenStax · gross anatomical context"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/reopen-regional/views/lymph-before.webp",
+          "bytes": 30526,
+          "sha256": "12fed57b543d8b3302112064acc0326fb18031d1a0a57073a8172c699a1b2a3a",
+          "label": "Lymph collecting routes · same-camera source control",
+          "width": 1224,
+          "height": 596
+        },
+        {
+          "path": "reviews/teaching-assessments/reopen-regional/views/lymph-after.webp",
+          "bytes": 30950,
+          "sha256": "2a4ffcb93f8319ec41642086d0fd5673ea6ad857caa6630fa7ffdd2e1ab5d124",
+          "label": "Lymph collecting routes · Followed the colored central trace through the upper turn and distinguished its upper and lower gold source-limit symbols in the straight and oblique views.",
+          "width": 1224,
+          "height": 596
+        }
+      ],
+      "teachingView": "reviews/teaching-assessments/reopen-regional/views/lymph-after.webp",
+      "decision": "Use the 3D line diagram for tracing the depicted path between the two source limits. The original faceted reconstruction remains available for exact triangle inspection."
+    }
+  ]
+}

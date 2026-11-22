@@ -1,0 +1,30 @@
+{
+  "control": {
+    "path": "models/bronchial_tree/exports/distal-sampling-r14/bronchial_distal_sampling.glb",
+    "sha256": "f8d78751f47cf14311138a3c7e2e35d6e28415c9f6e1d2a0e4f6ca2bf1a07fc9",
+    "bytes": 7401328
+  },
+  "trial": {
+    "file": "bronchial-first-fork.glb",
+    "sha256": "dec2886f07745086e56a31676b96005e0741d4475782fd879f47faf15769a42e",
+    "bytes": 7401468,
+    "triangles": 308288,
+    "changedVertices": 36067,
+    "exactProtectedVertices": 118068,
+    "maxMovementMm": 0.790916188830226,
+    "rmsMovementMm": 0.16886941391484223,
+    "maxDifferenceFromRetainedSourceMm": null,
+    "minimumOrientedFaceNormalDot": 0.7201737182955827,
+    "note": "Bounded fairing of the authored first-fork exterior. Original triangle order, topology and downstream branches retained.",
+    "changedNormalVertices": 35358
+  },
+  "supportCenterGltfM": [
+    -0.001,
+    0.0775,
+    -0.0075
+  ],
+  "supportRadiusM": 0.024,
+  "movementSaturationM": 0.0018,
+  "passes": 700,
+  "compensation": 0.15
+}

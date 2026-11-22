@@ -21,12 +21,6 @@
 | [tools](../tools/) | Repository-wide commands and shared utilities, including the offline verifier. Package-specific parameters and replay stay with their owners. |
 | [transport](../transport/) | Content-addressed delivery, manifests and recovery policy. [Transport tools](../transport/tools/) hold fetch, upload, backup and restore implementations. Keep an old command path where an external consumer requires it. |
 
-### Current paths in transition
-
-| Current path | Destination or retirement condition |
-| --- | --- |
-| [guideline](../guideline/) | Bookmark shims for relocated guides. Review their old links before retiring them. |
-
 - **Discovery** · Start at the asset directory, export README and linked review. Use directory discovery as the inventory.
 - **Variants** · Keep exports with a named use, replay dependency or unique evidence. Preserve snapshot layout where replay depends on it.
 

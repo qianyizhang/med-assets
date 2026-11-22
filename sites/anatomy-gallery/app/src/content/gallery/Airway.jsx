@@ -3,19 +3,23 @@ import { airway, assetUrl } from './catalog.js';
 import { Evidence } from './Evidence.jsx';
 import { Heading, Label, Link } from './GalleryUI.jsx';
 import { bronchialExterior, firstForkPath } from './local-models.js';
+import teachingReview from './teaching-inputs/teaching-assessments.json';
 import { localView } from './presets.js';
 import { Scene } from './Scene.jsx';
+
+const forkReview = teachingReview.campaign.find((item) => item.export.path === bronchialExterior.exports[0].path);
+const forkPoster = forkReview?.views.find((item) => item.path === forkReview.teachingView)?.url;
 
 export function AirwayCards({ localPreview = false }) {
   return airway.slice(0, 3).reverse().map((study) => {
     const teaching = localPreview && study.id === 'bronchial-r13';
     return (
       <Link className="ga-feature" to={teaching ? firstForkPath : study.compare} key={study.id}>
-        <img src={teaching ? bronchialExterior.preview : assetUrl(study.portrait.asset)} alt="" loading="lazy" />
+        <img src={teaching ? forkPoster : assetUrl(study.portrait.asset)} alt="" loading="lazy" />
         <div>
           <Label>Airway Review</Label>
           <h2>{teaching ? bronchialExterior.useCase : study.title}</h2>
-          <p>{teaching ? 'Follow the trunk into both main branches on the lighter r14 exterior.' : study.finding}</p>
+          <p>{teaching ? 'Follow the trunk into both main branches on the reviewed exterior.' : study.finding}</p>
         </div>
       </Link>
     );
@@ -51,7 +55,7 @@ export function FirstForkLesson() {
           <p>{bronchialExterior.status}</p>
           <p>{bronchialExterior.limit}</p>
           <div className="ga-related">
-            <Link to={bronchialExterior.library}>Open r14 in Asset Library →</Link>
+            <Link to={bronchialExterior.library}>Open the reviewed fork in Asset Library →</Link>
             <Link to={bronchialExterior.compare}>{bronchialExterior.compareLabel} →</Link>
           </div>
         </section>

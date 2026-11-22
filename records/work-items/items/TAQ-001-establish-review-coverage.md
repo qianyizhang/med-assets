@@ -35,7 +35,7 @@ surface scores and retain their distinct view scopes.
 
 Run the generator from the repository root for the current report. Confirm the
 tracked scorecard with `--check`. To regenerate a detailed audit of the baseline,
-pass `--repo PATH` with a checkout of `a6f4b3c`.
+pass `--audit --repo PATH` with a checkout of `a6f4b3c`.
 
 ```sh
 python3.12 records/campaigns/teaching-asset-review/coverage.py --check records/campaigns/teaching-asset-review/current-coverage.md

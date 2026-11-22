@@ -1,0 +1,428 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-22",
+  "evaluator": "Codex (agent review, TAQ-017)",
+  "rubric": {
+    "revision": "9e6e490fd67468985e2e8a8298995c730e2f55e5",
+    "path": "docs/guides/asset-quality.md",
+    "sha256": "2e91264ce7c05b6906a8f113f2e0fc888c4765cd3a6d0d6c8a26b6a420900abb"
+  },
+  "assessments": [
+    {
+      "export": {
+        "path": "models/parathyroids/exports/z-localization-r01/parathyroids_thyroid_context.glb",
+        "sha256": "7759008c5682ac76e77f39f68f5cd421ea42cfe5252cebe9bd82ecc54dc04345",
+        "bytes": 59456
+      },
+      "task": "Identify the four atlas parathyroid targets and distinguish upper from lower pairs in a posterior thyroid locator.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "Clean imports of the two variants agree at all gland vertices exactly. Both upper centroids are 19.80 mm above the lower centroids in the same native frame. The owner independently bound the thyroid and targets to the native atlas."
+        },
+        {
+          "score": 2,
+          "observation": "The four mirrored markers are visibly simplified in both side views. The source thyroid contains a prominent central projection of unassigned identity."
+        },
+        {
+          "score": 3,
+          "observation": "The posterior panel distinguishes right and left, upper and lower. Both labeled side views show the same targets behind the same-source thyroid surface. The component alone gives no thyroid placement cue."
+        },
+        {
+          "score": 3,
+          "observation": "Four selectable 128-triangle markers and one 2,600-triangle thyroid mesh support the exercise. The portable companion is 59,456 bytes."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/parathyroids/exports/z-localization-r01/README.md",
+          "label": "z localization r01 · README.md"
+        },
+        {
+          "path": "reviews/parathyroids/2026-10-25-localization-r01/README.md",
+          "label": "2026 10 25 localization r01 · README.md"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-risk/README.md",
+          "label": "Teaching risk refinement evidence and replay"
+        },
+        {
+          "path": "reviews/teaching-assessments/target-risk/measurements.json",
+          "label": "Exact export, clean import and measured comparison"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/target-risk/views/parathyroid.webp",
+          "sha256": "1c321690f21eb59980904092d7de9507241b9d0ef0cec32c5b2ab610d1a9ed44",
+          "bytes": 67558,
+          "width": 1200,
+          "height": 880,
+          "label": "Locate all four targets in the posterior view. Repeat from the patient's left and right and use the thyroid as the depth landmark. The two positions on each side retain the source heights."
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/22-paired.webp",
+          "sha256": "076822dea2e023709f1e95eb2ecc18663f1ba88e8a3c82cd5d618a1eb3310a55",
+          "bytes": 107774,
+          "label": "Fresh exact-file reimport or native opening · overview and neutral alternate"
+        },
+        {
+          "path": "reviews/parathyroids/2026-10-25-localization-r01/teaching-posterior.png",
+          "sha256": "8b8c0a92cae7f491282b381f04d2f3a0453e2441fbe0b89a5351054e810f98b1",
+          "bytes": 362317,
+          "label": "Separate same-source context export · annotated posterior view"
+        },
+        {
+          "path": "reviews/parathyroids/2026-10-25-localization-r01/display/teaching-posterior.webp",
+          "sha256": "b882ea7e8ffd75eb6248d4ea15e3d648a383621a24bb44c133ab2dda000932ee",
+          "bytes": 168434,
+          "width": 1280,
+          "height": 900,
+          "label": "Parathyroid localization · original reviewed view"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-risk/views/parathyroids-targets-and-companion.jpg",
+          "sha256": "adaa7a8d4d234266e8c0a1b6ae397f505b933570f6aeaccd0d44b631c4dbecaf",
+          "bytes": 105642,
+          "width": 1220,
+          "height": 697,
+          "label": "Find the upper and lower gland pairs in the target-only export. The separate posterior companion shows the same four targets with the thyroid."
+        }
+      ],
+      "decision": "Use the same-source thyroid companion for the posterior localization task and keep the target-only file as a component.",
+      "teachingView": "reviews/teaching-assessments/target-risk/views/parathyroid.webp"
+    },
+    {
+      "export": {
+        "path": "models/eye_anterior_segment/exports/eye-order-r01/eye-order-study.glb",
+        "sha256": "f19ee7388a85d9661f8cad7cec7a1033d5406e2fda3ee8e4b98597572d8ba2da",
+        "bytes": 2594032
+      },
+      "task": "Compare the cornea, iris aperture and lens in the three-structure visibility mode.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "Decoded positions, indices, normals, materials and transforms for cornea, iris and lens match the exact control. Clean reimport preserves the fine aperture and corneal rim geometry."
+        },
+        {
+          "score": 3,
+          "observation": "The translucent profile and superior close-up preserve distinct cornea, ring and convex lens surfaces. The angular boundary inherited from source is marked in the plate."
+        },
+        {
+          "score": 3,
+          "observation": "The exact three-object opening shows the lens through the iris aperture. The profile of the matched source selection confirms the order."
+        },
+        {
+          "score": 3,
+          "observation": "Three exact selectable meshes replace seven for this exercise. Encoded scope changes from 150,793 to 44,301 triangles and from 10,054,784 to 2,594,032 bytes."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/eye_anterior_segment/2026-10-28-teaching-scope-r02/README.md",
+          "label": "Owning reference and assessment scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/render-evidence.json",
+          "label": "A20 · clean import, parts and camera receipt"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-risk/README.md",
+          "label": "Teaching risk refinement evidence and replay"
+        },
+        {
+          "path": "reviews/teaching-assessments/target-risk/measurements.json",
+          "label": "Exact export, clean import and measured comparison"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/target-risk/views/eye.webp",
+          "sha256": "0de4be0a89d1bb30d6262c958cf3a046f1682f3e51c065370a1dc46166257877",
+          "bytes": 136040,
+          "width": 1190,
+          "height": 950,
+          "label": "Follow the translucent cornea to the iris ring and identify the pupil as an opening revealing the opaque lens behind. The superior detail and previously accepted profile show all three retained parts."
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A20-review.webp",
+          "sha256": "246ca158134439562aacddd6ae11171d86a5b55267e96efa095c0545c890f7b8",
+          "bytes": 56604,
+          "label": "Clean import, alternate neutral view and selected regional detail"
+        },
+        {
+          "path": "reviews/eye_anterior_segment/2026-10-23-hra-v1.3-r01/display/cornea-iris-lens.webp",
+          "sha256": "dee0204dfaf018b03396cfe0fdf7f5bb9372702c5cd66ab894cb2f596a20302c",
+          "bytes": 15610,
+          "label": "Retained layer-isolation evidence"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-risk/views/eye-anterior-order.jpg",
+          "sha256": "eea0a225f8e5d8228689a193b600b946dcb458fea21de2eb66b163f8db05f153",
+          "bytes": 129614,
+          "width": 1220,
+          "height": 745,
+          "label": "Find the cornea in front, the pupil opening in the iris, and the lens behind it. The light blue surface seen through the opening is the lens."
+        }
+      ],
+      "decision": "Use the compact three-structure selection for broad anterior order, with the seven-part export as a diagnostic source.",
+      "teachingView": "reviews/teaching-assessments/target-risk/views/eye.webp"
+    },
+    {
+      "export": {
+        "path": "heart/Cardiac_Atlas_Animated/exports/wall-motion-r01/ventricular-wall-motion.glb",
+        "sha256": "a57fc0eec4cb8d26dfc50ff0db9360fea346a12096236b64f9d4492695c72905",
+        "bytes": 1158724
+      },
+      "task": "Scrub the schematic heartbeat and distinguish ventricular contour change from a rigid shift of the whole heart.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "The selected LV morph, input times, values, aortic mesh and source root retain exact streams. Twenty integer-frame evaluations match control world vertices exactly. Maximum sampled wall change is 5.047 mm and aortic change is zero."
+        },
+        {
+          "score": 3,
+          "observation": "The neutral same-frame comparison shows the ventricular tip move relative to the fixed aortic reference. The source full-heart reverse view remains available for vessel profiles."
+        },
+        {
+          "score": 3,
+          "observation": "The phase comparison and retained 0.8-second clip expose ventricular contour change against a stationary aorta. The complete atlas supplies context."
+        },
+        {
+          "score": 3,
+          "observation": "Three material primitives on two selectable parts replace the full 247-mesh delivery for this task. 222,336 triangles become 30,646 and 8,180,224 bytes become 1,158,724."
+        }
+      ],
+      "sources": [
+        {
+          "path": "heart/Cardiac_Atlas_Animated/README.md",
+          "label": "Cardiac_Atlas_Animated · README.md"
+        },
+        {
+          "path": "heart/Cardiac_Atlas_Animated/GLB_VALIDATION.json",
+          "label": "Cardiac_Atlas_Animated · GLB_VALIDATION.json"
+        },
+        {
+          "path": "heart/Cardiac_Atlas_Animated/BLENDER_ROUNDTRIP_QA.json",
+          "label": "Cardiac_Atlas_Animated · BLENDER_ROUNDTRIP_QA.json"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-risk/README.md",
+          "label": "Teaching risk refinement evidence and replay"
+        },
+        {
+          "path": "reviews/teaching-assessments/target-risk/measurements.json",
+          "label": "Exact export, clean import and measured comparison"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/target-risk/views/heart.webp",
+          "sha256": "bff67e2b8f5da1463ba4c81f5466889259358f9903956e8a60d81dfbd194e078",
+          "bytes": 57954,
+          "width": 1100,
+          "height": 789,
+          "label": "Match the stationary aortic silhouette across the same clip while the left ventricular wall moves inward at the peak sample. Open the complete atlas to recover whole-heart context."
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/06-paired.webp",
+          "sha256": "8b36d3b397b6e91eeb1857eb4d54267a7bfa5bce5103bb011a16f16bb5b8b5c8",
+          "bytes": 246148,
+          "label": "Fresh exact-file reimport or native opening · overview and neutral alternate"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/06-motion.webp",
+          "sha256": "629c11ce879c0e2b7c634315dc028a449c3a7df7fc6875dc3581df9ddbad72ee",
+          "bytes": 235272,
+          "label": "Fixed-camera imported motion samples"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-risk/views/cardiac-wall-motion.jpg",
+          "sha256": "684526975eaed3a4136a3baa4ac17a35df265b297fb99c8467f51ee399445c14",
+          "bytes": 108328,
+          "width": 1220,
+          "height": 721,
+          "label": "Compare the left ventricular wall with its gold starting outline. The aorta stays fixed while the wall changes shape."
+        }
+      ],
+      "decision": "Use the wall-and-aorta extract for contour motion and retain access to the full atlas for orientation and other structures.",
+      "teachingView": "reviews/teaching-assessments/target-risk/views/heart.webp"
+    },
+    {
+      "export": {
+        "path": "body/breathing/exports/dome-motion-r01/Breathing_Dome.blend",
+        "sha256": "8dfebe7e811000e8dc1c60333fa91e9ac1a2247224d93ff4893db35c34cdb526",
+        "bytes": 8340874
+      },
+      "task": "Compare expiration to peak inspiration and point out the descending diaphragm dome, descending lung bases and liver shift.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "All retained world vertices match the delivered assembly in each of 121 integer frames. Measured descent from frame 1 to 49 is 20.90 mm at the dome crest, 17.60 mm at the left lower-lobe base and 7.98 mm at the inferior liver."
+        },
+        {
+          "score": 3,
+          "observation": "At both phases the neutral side view shows the curved crest, retained open rim and source lobe edge. The dome flattens and the rim remains visible in isolation."
+        },
+        {
+          "score": 3,
+          "observation": "The matched phase and diaphragm-only cards expose the crest shift and reveal the lung and liver motion, keeping the frame and camera fixed."
+        },
+        {
+          "score": 3,
+          "observation": "Seven selectable objects retain 93,502 of 245,126 triangles. The focused compressed Blender file uses 8,340,874 bytes. The checked reduction does not change required movement."
+        }
+      ],
+      "sources": [
+        {
+          "path": "body/breathing/README.md",
+          "label": "Animation design, inputs and phase"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/motion.json",
+          "label": "Exact assembly bounds at frames 1, 49 and 121"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/neutral-motion.json",
+          "label": "Exact neutral phase views and per-mesh topology, material slots and action channels"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-risk/README.md",
+          "label": "Teaching risk refinement evidence and replay"
+        },
+        {
+          "path": "reviews/teaching-assessments/target-risk/measurements.json",
+          "label": "Exact export, clean import and measured comparison"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/target-risk/views/breath.webp",
+          "sha256": "3a5a9b15954fed3bdc87d4a4fee49cccc7528a1d5ceaf1d81233c516cf4bf0ae",
+          "bytes": 80522,
+          "width": 1200,
+          "height": 835,
+          "label": "Compare frames 1 and 49. Find the crest in the dome isolation, then follow the lower lung edge and liver downward in the matched side view."
+        },
+        {
+          "path": "body/breathing/expiration.webp",
+          "sha256": "e98b187887c5d05694c2e60f885cfde4587500ea17a8592be0d5879243f60e9e",
+          "bytes": 12632,
+          "label": "Retained expiration view"
+        },
+        {
+          "path": "body/breathing/inspiration.webp",
+          "sha256": "887c98a0e09022f664d04303515dbd6df75316c5ad807f9ea52f201017a9ed22",
+          "bytes": 12976,
+          "label": "Retained inspiration view"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/motion-detail.jpg",
+          "sha256": "62690ad6cc3573833c2a351b9e35cafb3ca94be7636982bea70fc0c883f7a961",
+          "bytes": 158769,
+          "label": "Anterior above, lateral below. Compare expiration (frame 1) at left to peak inspiration (frame 49) at right. Follow the tan dome edge beneath the lung base and beside the liver."
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-respiratory/motion-neutral-detail.jpg",
+          "sha256": "9f1f99fce6821ad526987f3b2f8bf090200d4245e766def63b0fae19b7b5c6f2",
+          "bytes": 57837,
+          "label": "Matched neutral lateral detail at expiration and peak inspiration. The stable outer rim frames the falling crest below the source-derived lung contour."
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-risk/views/breathing-dome-descent.jpg",
+          "sha256": "9c7c114d410facd501124f782d433673963bace8cc5551fac396cd2ca1e234c1",
+          "bytes": 146208,
+          "width": 1220,
+          "height": 878,
+          "label": "Compare expiration with peak inspiration. Use the dashed reference to see the diaphragm crest descend, then find the lower lung base and liver."
+        }
+      ],
+      "decision": "Use the editable dome assembly for the seven-part phase task and keep the full assembly for surrounding-organ motion.",
+      "teachingView": "reviews/teaching-assessments/target-risk/views/breath.webp"
+    },
+    {
+      "export": {
+        "path": "models/bladder/exports/pelvic-base-r01/bladder-pelvic-base.glb",
+        "sha256": "07de72fc8f3b152291be30f24e24369a08af1232bb1a18f1cb90cdd2440aa15a",
+        "bytes": 1271856
+      },
+      "task": "Find the bladder base, neck and paired ureteral entry landmarks in same-atlas context.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "All retained mesh vertices, buffers and ancestor transforms match the same-atlas control exactly. Both small orifice patches, base, neck, dome and trigone retain distinct selectable surfaces."
+        },
+        {
+          "score": 3,
+          "observation": "Removing neighboring pelvic organs makes the whole bladder outline recognizable. In the opposite oblique the patch edge and retained source ridge are visible separately from the neck and dome."
+        },
+        {
+          "score": 3,
+          "observation": "The rear focus shows the two tiny landmarks against the retained ureters and base. The opposite oblique shows the basin and retained root shape."
+        },
+        {
+          "score": 3,
+          "observation": "Eight task-relevant primitives retain 69,186 of 120,796 triangles and 1,271,856 of 2,449,600 bytes. The ureters orient both entry landmarks and the dome supports intact-form comparison."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/bladder/README.md",
+          "label": "Source, owning review and limits"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/renders.json",
+          "label": "Clean-import viewpoints and mesh measurements"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/mesh-components.json",
+          "label": "Encoded primitives and exact-coordinate connected components"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/bladder-view.json",
+          "label": "Exact file, matched cameras and visible parts"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-risk/README.md",
+          "label": "Teaching risk refinement evidence and replay"
+        },
+        {
+          "path": "reviews/teaching-assessments/target-risk/measurements.json",
+          "label": "Exact export, clean import and measured comparison"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/target-risk/views/bladder.webp",
+          "sha256": "373f21de84442ee1c26b9c14b1538420811097b07b2b86a93b77cda274ad23b1",
+          "bytes": 68494,
+          "width": 1200,
+          "height": 820,
+          "label": "Find the base and neck, hide the dome, point to both tiny ureteral entries in the rear view, then confirm the basin in the opposite oblique."
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/views-16.jpg",
+          "sha256": "d6cec6135acfd72a1ff08c4029b87caf1cc5be0ad6a635708c75fd5d21955643",
+          "bytes": 86809,
+          "label": "Exact clean import · palette front, neutral oblique and reverse"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/bladder-base-comparison.jpg",
+          "sha256": "7e3a70037607af9dedd4b849d9385dab8c69ce4454a19be8af24abf713173e85",
+          "bytes": 109100,
+          "label": "All parts at left and focused base at right, with unchanged cameras within each row. Find the two pale lateral orifice landmarks and the lower neck. The focused view hides the dome, ureters and pelvic context."
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-risk/views/bladder-base-landmarks.jpg",
+          "sha256": "3fa800e18c75aac60109c77c8ffd691372966655686a9b1a0a9458f31a4a678d",
+          "bytes": 112999,
+          "width": 1220,
+          "height": 665,
+          "label": "Find the two ureteral entry landmarks and the lower neck in the focused bladder base. The same camera at left shows the surrounding pelvis."
+        }
+      ],
+      "decision": "Use the bladder and ureter selection for base landmarks. Keep the wider pelvic GLB for adjacent-organ relationships.",
+      "teachingView": "reviews/teaching-assessments/target-risk/views/bladder.webp"
+    }
+  ]
+}

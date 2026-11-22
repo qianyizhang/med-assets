@@ -103,6 +103,22 @@ migration and supplement walkthroughs still served their original HTML after
 cleanup, as did the specialist-still walkthrough and the protected release
 candidate. Both preview media-recovery tests passed.
 
+The closed `static-reviews-final`, `teaching-stills`, and `wave-2-walkthrough`
+builds now resolve dependencies through relative links to
+`../app/node_modules`. Their locks and all 10,795 directory entries per install
+matched the retained tree. Rebuilds through the new links reproduced the exact
+saved HTML for all three builds and two dependent walkthroughs. Their previews
+and the older collection replay still work. The three copies accounted for
+30,180 regular files, 234,065,181 logical bytes, and 327,327,744 allocated
+regular-file bytes. Available volume space increased by 342,540,288 bytes during
+removal. The two canonical physical installs remain in `app` and
+`authoring-candidate`.
+
+For an independent install in a linked build, confirm that its `node_modules`
+is the relative link above, then remove just that link with
+`unlink "$build/node_modules"` before running `npm --prefix "$build" ci`.
+The saved source, lockfile, and `dist` stay in each build directory.
+
 Retired the disposable bronchial trial checkout and duplicate replay under
 `.artifacts/AG-GAL-021-bronchial-distal/`. The retained base and patch recreated
 the complete staged index. All 1,010 cached LFS objects matched the shared

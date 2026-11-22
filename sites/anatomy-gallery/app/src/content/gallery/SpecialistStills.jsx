@@ -62,9 +62,6 @@ export function OneBreath() {
       <LessonReviewPlate
         exportPath="body/breathing/Breathing_Assembly.blend"
         title="Compare expiration and peak inspiration"
-        alt="Matched front and side views show the tan diaphragm dome descending between expiration at left and peak inspiration at right, with the lower lung edges and liver alongside"
-        width={1002}
-        height={1086}
       >
         <p>Both poses were sampled from the authored Breathing assembly.</p>
       </LessonReviewPlate>

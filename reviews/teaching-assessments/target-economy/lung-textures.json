@@ -1,0 +1,70 @@
+{
+  "control": {
+    "path": "models/lung_left/exports/metadata-cleanup-r01/lung_left.glb",
+    "sha256": "6d3a6150dc47dba0d16162738caabc1bef3fcd8cf5ab4af492dd1121c1cb8533",
+    "bytes": 2524996
+  },
+  "candidate": {
+    "sha256": "4cb7524a3843fda941d50adc060d2a3c9d08135bea6cddc99d03284d25bb683c",
+    "bytes": 2093088
+  },
+  "textures": {
+    "lung_left_Normal_OpenGL_1K": {
+      "original": {
+        "sha256": "bea128fc989b241accad8edf0fa451b0ec1c81446cee1accaf46cb2e9630de9b",
+        "bytes": 470582
+      },
+      "updated": {
+        "sha256": "182dcf4831888ee90296069eb874eee364c138dbf9fdc4ef23fd2aedb9c21f58",
+        "bytes": 291845
+      },
+      "decoded": {
+        "mode": "RGBA",
+        "size": [
+          1024,
+          1024
+        ],
+        "sha256": "1cbfc7e2c34bc0fbd11200854b5aad13c9c397f3bd6edda59266ba3fb222656f",
+        "bytes": 4194304
+      }
+    },
+    "lung_left_BaseColor_1K": {
+      "original": {
+        "sha256": "7c419e8b3334e136ac446785682959b58a29ede9b84b230d7f0aa815f6eb2f17",
+        "bytes": 875881
+      },
+      "updated": {
+        "sha256": "460506e83a5873d7d496158791168e32946ae1980f33c897493674007bdf007c",
+        "bytes": 667679
+      },
+      "decoded": {
+        "mode": "RGBA",
+        "size": [
+          1024,
+          1024
+        ],
+        "sha256": "a456f9683132a9b5cd67937df862f16075a3284d43ee4f4f45f105c0d5b590f9",
+        "bytes": 4194304
+      }
+    },
+    "lung_left_Roughness_1K": {
+      "original": {
+        "sha256": "150ef691f856f3351f889346959afc8beb31194741e74ad23f5a1fa77af4cdaa",
+        "bytes": 141576
+      },
+      "updated": {
+        "sha256": "ddb1737d21d664f3e5e63bf5e476920fe7675d853df60d9a9c27e07b2f4d6ade",
+        "bytes": 96609
+      },
+      "decoded": {
+        "mode": "RGB",
+        "size": [
+          1024,
+          1024
+        ],
+        "sha256": "d78ffce7d08f7aaa9faa776366815afdc5f0a9957bf4ac4ad1d3743e30faf221",
+        "bytes": 3145728
+      }
+    }
+  }
+}

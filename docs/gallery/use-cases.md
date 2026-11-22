@@ -51,3 +51,5 @@ In the endocrine lesson, locate both glands relative to their kidneys in the reg
 If s1233 r06 becomes Recommended while the endocrine lesson uses r05, opening and closing the comparison leaves learners on r05. The author can inspect the inferior rim in the lesson’s close-up and adopt r06 if the rim still reads. The updated lesson then opens the r06 asset and its matching preset.
 
 [Gallery product requirements](README.md) · [Body Systems](../../sites/body-systems-survey/README.md)
+
+The local Use Cases page lists [reviewed actions across the other teaching collections](../../reviews/teaching-assessments/use-case-checks.json). The Body Systems collection lists a required teaching check for each of its eleven systems. Open the check to see the action, observed result and link to its assembly or detail. [Reviewed stops](../../lessons/body-systems/reviewed-stops.json)

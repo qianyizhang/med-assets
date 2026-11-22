@@ -1,0 +1,343 @@
+[
+  {
+    "family": "Single lymph node",
+    "baseline": "models/lymph_node/exports/hra-tissue-layers-r01/lymph-node-tissue-layers.glb",
+    "path": "models/lymph_node/exports/hra-tissue-layers-r01/lymph-node-tissue-layers.glb",
+    "controlAssessmentSha256": "5e430c4abdd7c65e6da2207817160869ff9baca6a549f2406d3ea6f25babb243",
+    "assessmentSha256": "5e430c4abdd7c65e6da2207817160869ff9baca6a549f2406d3ea6f25babb243",
+    "status": "passed",
+    "taskCheck": "Trace the capsule in two projections and point to the three named tissue regions after hiding it. The projected edge supplies orientation, and separate selections locate follicles, paracortex and medulla.",
+    "decision": "Retain the tissue-only edition with two axis-specific exceptions. Keep the full, conflicting-network atlas as source history.",
+    "before": {
+      "path": "reviews/teaching-assessments/2026-11-22-lymph-node-tissue-layers/plates/tissue-layers.webp",
+      "sha256": "002ac2dd6229bb7bca714bd7bc998c5f3e09e986ae4e232c3dd4674574440ef1",
+      "bytes": 152376,
+      "label": "Compare the capsule outline and the three named tissue regions at the same scale, then confirm their arrangement in the alternate oblique view."
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/target-risk/views/lymph.webp",
+      "sha256": "325678c06f76e5b0a84228c26fd7f997ec301267713d8145b2fd3b8100423a78",
+      "bytes": 92910,
+      "width": 1180,
+      "height": 760,
+      "label": "Trace the capsule in two projections and point to the three named tissue regions after hiding it. The projected edge supplies orientation, and separate selections locate follicles, paracortex and medulla."
+    },
+    "evidence": [
+      "reviews/teaching-assessments/target-risk/measurements.json",
+      "reviews/teaching-assessments/2026-11-22-lymph-node-tissue-layers/README.md"
+    ],
+    "exemptions": {
+      "1": {
+        "reason": "The actual capsule retains an aperture and the neutral medulla shows deep clefts and irregular relief. A suitable tissue-level comparison has not established which features are anatomical.",
+        "permittedUse": "Gross localization of the three named HRA tissue regions within the projected capsule outline.",
+        "reopen": "A registered specimen or specimen-level source establishes the identity of the implicated aperture and medullary relief."
+      },
+      "3": {
+        "reason": "The 88,388-triangle medulla still dominates 114,498 total triangles. Protected shorter-edge trials either exceeded the 0.8 px criterion by up to 3.94 px or removed under 4% on the lower tested step.",
+        "permittedUse": "Keep the four exact source tissues at the reviewed close-up where the regional boundaries and undulations remain available.",
+        "reopen": "Replay a topology-preserving candidate that improves cost materially with the capsule edge, crevices and named tissue views intact."
+      }
+    },
+    "teaching": {
+      "path": "reviews/teaching-assessments/target-risk/views/lymph.webp",
+      "sha256": "325678c06f76e5b0a84228c26fd7f997ec301267713d8145b2fd3b8100423a78",
+      "bytes": 92910,
+      "width": 1180,
+      "height": 760,
+      "label": "Trace the capsule in two projections and point to the three named tissue regions after hiding it. The projected edge supplies orientation, and separate selections locate follicles, paracortex and medulla."
+    }
+  },
+  {
+    "family": "Parathyroid localization",
+    "baseline": "models/parathyroids/exports/z-localization-r01/parathyroids_native.glb",
+    "path": "models/parathyroids/exports/z-localization-r01/parathyroids_thyroid_context.glb",
+    "controlAssessmentSha256": "9e387acc0b8c4be9193c114793c4603825405695b3d6d82dc43b37b5903e4bdb",
+    "assessmentSha256": "4a27625d646a116e3d16581497498209702c960537db12e724d7e478e320c653",
+    "status": "passed",
+    "taskCheck": "Locate all four targets in the posterior view. Repeat from the patient's left and right and use the thyroid as the depth landmark. The two positions on each side retain the source heights.",
+    "decision": "Use the same-source thyroid companion for the posterior localization task and keep the target-only file as a component.",
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-risk/views/parathyroids-targets-and-companion.jpg",
+      "sha256": "adaa7a8d4d234266e8c0a1b6ae397f505b933570f6aeaccd0d44b631c4dbecaf",
+      "bytes": 105642,
+      "width": 1220,
+      "height": 697,
+      "label": "Find the upper and lower gland pairs in the target-only export. The separate posterior companion shows the same four targets with the thyroid."
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/target-risk/views/parathyroid.webp",
+      "sha256": "1c321690f21eb59980904092d7de9507241b9d0ef0cec32c5b2ab610d1a9ed44",
+      "bytes": 67558,
+      "width": 1200,
+      "height": 880,
+      "label": "Locate all four targets in the posterior view. Repeat from the patient's left and right and use the thyroid as the depth landmark. The two positions on each side retain the source heights."
+    },
+    "evidence": [
+      "reviews/teaching-assessments/target-risk/measurements.json",
+      "reviews/parathyroids/2026-10-25-localization-r01/README.md"
+    ],
+    "exemptions": {
+      "1": {
+        "reason": "The atlas models copied mirror shapes and an unassigned thyroid projection. Shape edits would introduce unsupported gland detail.",
+        "permittedUse": "Posterior localization in one atlas example, with expected variation in number and position.",
+        "reopen": "An appropriate reference or atlas correction supports the modeled target shape and identifies the projection."
+      }
+    }
+  },
+  {
+    "family": "Eye · anterior segment",
+    "baseline": "models/eye_anterior_segment/exports/hra-v1.3-r01/anterior_segment.glb",
+    "path": "models/eye_anterior_segment/exports/eye-order-r01/eye-order-study.glb",
+    "controlAssessmentSha256": "a79c86b8f2255038adef7b7aff732bde7a62e8b294e81aab891a0cb1582bfe1f",
+    "assessmentSha256": "e68811985befe4f9ed126b419145ef776c2d3423fd5816ce8c81a7b940c2c612",
+    "status": "passed",
+    "taskCheck": "Follow the translucent cornea to the iris ring and identify the pupil as an opening revealing the opaque lens behind. The superior detail and previously accepted profile show all three retained parts.",
+    "decision": "Use the compact three-structure selection for broad anterior order, with the seven-part export as a diagnostic source.",
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-risk/views/eye-anterior-order.jpg",
+      "sha256": "eea0a225f8e5d8228689a193b600b946dcb458fea21de2eb66b163f8db05f153",
+      "bytes": 129614,
+      "width": 1220,
+      "height": 745,
+      "label": "Find the cornea in front, the pupil opening in the iris, and the lens behind it. The light blue surface seen through the opening is the lens."
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/target-risk/views/eye.webp",
+      "sha256": "0de4be0a89d1bb30d6262c958cf3a046f1682f3e51c065370a1dc46166257877",
+      "bytes": 136040,
+      "width": 1190,
+      "height": 950,
+      "label": "Follow the translucent cornea to the iris ring and identify the pupil as an opening revealing the opaque lens behind. The superior detail and previously accepted profile show all three retained parts."
+    },
+    "evidence": [
+      "reviews/teaching-assessments/target-risk/measurements.json",
+      "reviews/eye_anterior_segment/2026-10-28-teaching-derivative-r01/README.md"
+    ],
+    "exemptions": {}
+  },
+  {
+    "family": "UFF molar specimen",
+    "baseline": "models/dental_specimens/uff_tomo1b/exports/r01/uff-tomo1b-display.glb",
+    "path": "models/dental_specimens/uff_tomo1b/exports/r01/uff-tomo1b-display.glb",
+    "controlAssessmentSha256": "c25fc151df1173867868d229b38a5890e3762946b0effb1f6075e339a9068798",
+    "assessmentSha256": "c25fc151df1173867868d229b38a5890e3762946b0effb1f6075e339a9068798",
+    "status": "passed",
+    "taskCheck": "Compare the exterior with the isolated proxy, then find the lost interior selection as the channel opens between source slices 969 and 972.",
+    "decision": "Keep the exact roughness and algorithmic closure as evidence for the extraction-method exercise.",
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-risk/views/uff-proxy-terminal-evidence.jpg",
+      "sha256": "dabb8c1595805831be2ab806f9c222b9b0c3c606ff50d4267f1796d5a5366157",
+      "bytes": 169409,
+      "width": 1220,
+      "height": 865,
+      "label": "Compare the exterior with the isolated computed space. In source slice 972 the channel opens to the exterior and the method selects zero voxels inside it."
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/refinement-risk/views/uff-proxy-terminal-evidence.jpg",
+      "sha256": "dabb8c1595805831be2ab806f9c222b9b0c3c606ff50d4267f1796d5a5366157",
+      "bytes": 169409,
+      "width": 1220,
+      "height": 865,
+      "label": "Compare the exterior with the isolated computed space. In source slice 972 the channel opens to the exterior and the method selects zero voxels inside it."
+    },
+    "evidence": [
+      "reviews/teaching-assessments/target-risk/measurements.json",
+      "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/README.md"
+    ],
+    "exemptions": {
+      "1": {
+        "reason": "The rough exterior and algorithmic proxy cap are observable at teaching size. Endpoint repair would remove the failure the exercise identifies and source overlays do not support anatomical correction.",
+        "permittedUse": "Review the scan boundary and identify the early closure of the per-slice extraction.",
+        "reopen": "A separately scoped surface extraction with source-backed channel mapping is needed for anatomical morphology teaching."
+      }
+    }
+  },
+  {
+    "family": "Stomach · s1233",
+    "baseline": "models/stomach/exports/metadata-cleanup-r01/stomach.glb",
+    "path": "models/stomach/exports/metadata-cleanup-r01/stomach.glb",
+    "controlAssessmentSha256": "f0c896058eb681ebf084b63bd087be3857d5ab15a8e6601423ee01de7584ad1d",
+    "assessmentSha256": "f0c896058eb681ebf084b63bd087be3857d5ab15a8e6601423ee01de7584ad1d",
+    "status": "passed",
+    "taskCheck": "Open the exterior profile and then the exclusive section. Trace the section edge and all eleven repeated fold cues in the front and oblique views.",
+    "decision": "Keep the source and separate teaching section in the original exact file. Retain the economy exception after the same-scope trial.",
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-risk/views/stomach-exterior-and-section.jpg",
+      "sha256": "0c26b26b2e6f9e6b88385fb96db2fa285d4394094754fe6d91a7747b1787d2b1",
+      "bytes": 96699,
+      "width": 1220,
+      "height": 676,
+      "label": "Compare the source stomach exterior with the independent authored section. In the section, follow the repeated rugae cues."
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/target-risk/views/stomach.webp",
+      "sha256": "c6cf30c3a1793a38065e6f2318f4d6abda4e73634ca3ee2f2d7ed11edf4f505f",
+      "bytes": 102910,
+      "width": 1200,
+      "height": 1004,
+      "label": "Open the exterior profile and then the exclusive section. Trace the section edge and all eleven repeated fold cues in the front and oblique views."
+    },
+    "evidence": [
+      "reviews/teaching-assessments/target-risk/measurements.json",
+      "reviews/teaching-assessments/target-risk/views/stomach-trial.webp"
+    ],
+    "exemptions": {
+      "3": {
+        "reason": "The bounded trial retained the exterior and rim and removed 1,708 of 60,456 triangles and only 37,216 of 3,402,184 bytes. Larger simplifications exceeded the screen-space allowance on folds 3, 8 and 10. Texture cost and the heavier section tessellation remain.",
+        "permittedUse": "Use the exact exclusive section and exterior presets at their current teaching scale.",
+        "reopen": "Test a meaningful full-scope reduction of fold and texture cost under matched geometry and material views, including the smallest folds."
+      }
+    },
+    "axisChanges": {
+      "1": {
+        "score": 3,
+        "observation": "Neutral front and oblique samples separate the source exterior silhouette from the independent section's backing and repeated fold relief. The former overlapping outline is absent in the exclusive modes. The source surface retains undulations and the folds are authored."
+      }
+    },
+    "teaching": {
+      "path": "reviews/teaching-assessments/target-risk/views/stomach.webp",
+      "sha256": "c6cf30c3a1793a38065e6f2318f4d6abda4e73634ca3ee2f2d7ed11edf4f505f",
+      "bytes": 102910,
+      "width": 1200,
+      "height": 1004,
+      "label": "Open the exterior profile and then the exclusive section. Trace the section edge and all eleven repeated fold cues in the front and oblique views."
+    }
+  },
+  {
+    "family": "Gallbladder",
+    "baseline": "models/gallbladder/exports/metadata-cleanup-r01/gallbladder.glb",
+    "path": "models/gallbladder/exports/metadata-cleanup-r01/gallbladder.glb",
+    "controlAssessmentSha256": "657cfe34508d2cc2b18e41d1aa34232570428a8b713c3956e4510141420c1e58",
+    "assessmentSha256": "657cfe34508d2cc2b18e41d1aa34232570428a8b713c3956e4510141420c1e58",
+    "status": "passed",
+    "taskCheck": "Locate the end and narrowing in the isolated exterior. In the opposite oblique view, identify the authored rim and separately modeled duct.",
+    "decision": "Keep the original export and the established exclusive teaching presets. Judge the independent exterior and section in neutral views.",
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-risk/views/gallbladder-exterior-and-section.jpg",
+      "sha256": "fb1866eb53a9e3b9e72618e133bd6aec7893f7be3e23208320594c03c4ddfe49",
+      "bytes": 83803,
+      "width": 1220,
+      "height": 676,
+      "label": "Compare the source gallbladder exterior with the authored wall section. In the section, find the cut rim and separate schematic cystic duct."
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/target-risk/views/gallbladder.webp",
+      "sha256": "d90416c5ae1d60ed6ba984b65fa482eb3fe8a4b91aa6ec64d8a4ee50bfdf0830",
+      "bytes": 71454,
+      "width": 1200,
+      "height": 1004,
+      "label": "Locate the end and narrowing in the isolated exterior. In the opposite oblique view, identify the authored rim and separately modeled duct."
+    },
+    "evidence": [
+      "reviews/teaching-assessments/target-risk/measurements.json"
+    ],
+    "exemptions": {},
+    "axisChanges": {
+      "1": {
+        "score": 3,
+        "observation": "In both neutral views the isolated exterior shows its bulb and narrowing without the diagnostic co-visibility seams. Side lighting exposes the open cut rim and separate duct. Retained source depressions are visible and carry no structure label."
+      }
+    },
+    "teaching": {
+      "path": "reviews/teaching-assessments/target-risk/views/gallbladder.webp",
+      "sha256": "d90416c5ae1d60ed6ba984b65fa482eb3fe8a4b91aa6ec64d8a4ee50bfdf0830",
+      "bytes": 71454,
+      "width": 1200,
+      "height": 1004,
+      "label": "Locate the end and narrowing in the isolated exterior. In the opposite oblique view, identify the authored rim and separately modeled duct."
+    }
+  },
+  {
+    "family": "Cardiac Atlas · animated",
+    "baseline": "heart/Cardiac_Atlas_Animated/Heart_Clinical_Animated.glb",
+    "path": "heart/Cardiac_Atlas_Animated/exports/wall-motion-r01/ventricular-wall-motion.glb",
+    "controlAssessmentSha256": "4f817f1f0a2958c862ac52ba0705a06a427eb662173a8e623029d0cca166fac8",
+    "assessmentSha256": "c0718c83c76411926645a17b53042b13493ce272a3551604c36ae2733b85745f",
+    "status": "passed",
+    "taskCheck": "Match the stationary aortic silhouette across the same clip while the left ventricular wall moves inward at the peak sample. Open the complete atlas to recover whole-heart context.",
+    "decision": "Use the wall-and-aorta extract for contour motion and retain access to the full atlas for orientation and other structures.",
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-risk/views/cardiac-wall-motion.jpg",
+      "sha256": "684526975eaed3a4136a3baa4ac17a35df265b297fb99c8467f51ee399445c14",
+      "bytes": 108328,
+      "width": 1220,
+      "height": 721,
+      "label": "Compare the left ventricular wall with its gold starting outline. The aorta stays fixed while the wall changes shape."
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/target-risk/views/heart.webp",
+      "sha256": "bff67e2b8f5da1463ba4c81f5466889259358f9903956e8a60d81dfbd194e078",
+      "bytes": 57954,
+      "width": 1100,
+      "height": 789,
+      "label": "Match the stationary aortic silhouette across the same clip while the left ventricular wall moves inward at the peak sample. Open the complete atlas to recover whole-heart context."
+    },
+    "evidence": [
+      "reviews/teaching-assessments/target-risk/measurements.json",
+      "heart/Cardiac_Atlas_Animated/GLB_VALIDATION.json"
+    ],
+    "exemptions": {}
+  },
+  {
+    "family": "Breathing collection",
+    "baseline": "body/breathing/Breathing_Assembly.blend",
+    "path": "body/breathing/exports/dome-motion-r01/Breathing_Dome.blend",
+    "controlAssessmentSha256": "0aff5aa6e30f61c3f642e6f33efb3a132eefc129f6f4cd19be49015b99ee9cf6",
+    "assessmentSha256": "bb0f1f1936f45c3296b290c0ed25e2ead022c6f23d0c93fd2254b5a8bc5616bf",
+    "status": "passed",
+    "taskCheck": "Compare frames 1 and 49. Find the crest in the dome isolation, then follow the lower lung edge and liver downward in the matched side view.",
+    "decision": "Use the editable dome assembly for the seven-part phase task and keep the full assembly for surrounding-organ motion.",
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-risk/views/breathing-dome-descent.jpg",
+      "sha256": "9c7c114d410facd501124f782d433673963bace8cc5551fac396cd2ca1e234c1",
+      "bytes": 146208,
+      "width": 1220,
+      "height": 878,
+      "label": "Compare expiration with peak inspiration. Use the dashed reference to see the diaphragm crest descend, then find the lower lung base and liver."
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/target-risk/views/breath.webp",
+      "sha256": "3a5a9b15954fed3bdc87d4a4fee49cccc7528a1d5ceaf1d81233c516cf4bf0ae",
+      "bytes": 80522,
+      "width": 1200,
+      "height": 835,
+      "label": "Compare frames 1 and 49. Find the crest in the dome isolation, then follow the lower lung edge and liver downward in the matched side view."
+    },
+    "evidence": [
+      "reviews/teaching-assessments/target-risk/measurements.json",
+      "body/breathing/README.md"
+    ],
+    "exemptions": {}
+  },
+  {
+    "family": "Bladder",
+    "baseline": "models/bladder/exports/hra-female-context-r03/bladder_hra_female_context_r03.glb",
+    "path": "models/bladder/exports/pelvic-base-r01/bladder-pelvic-base.glb",
+    "controlAssessmentSha256": "0206f5676698e8925a0ad5851aef226295b5c404c08355e1f33ef93a2cb020df",
+    "assessmentSha256": "26488761d87c6704437e110a522183ec2173c104bda8e34fac58907a018d093a",
+    "status": "passed",
+    "taskCheck": "Find the base and neck, hide the dome, point to both tiny ureteral entries in the rear view, then confirm the basin in the opposite oblique.",
+    "decision": "Use the bladder and ureter selection for base landmarks. Keep the wider pelvic GLB for adjacent-organ relationships.",
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-risk/views/bladder-base-landmarks.jpg",
+      "sha256": "3fa800e18c75aac60109c77c8ffd691372966655686a9b1a0a9458f31a4a678d",
+      "bytes": 112999,
+      "width": 1220,
+      "height": 665,
+      "label": "Find the two ureteral entry landmarks and the lower neck in the focused bladder base. The same camera at left shows the surrounding pelvis."
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/target-risk/views/bladder.webp",
+      "sha256": "373f21de84442ee1c26b9c14b1538420811097b07b2b86a93b77cda274ad23b1",
+      "bytes": 68494,
+      "width": 1200,
+      "height": 820,
+      "label": "Find the base and neck, hide the dome, point to both tiny ureteral entries in the rear view, then confirm the basin in the opposite oblique."
+    },
+    "evidence": [
+      "reviews/teaching-assessments/target-risk/measurements.json",
+      "reviews/bladder/hra-female-context-r03/bounded-record.json"
+    ],
+    "exemptions": {}
+  }
+]

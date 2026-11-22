@@ -1,6 +1,6 @@
 import { adrenalLibrary } from './adrenal-study.js';
 import assessments from './reviewed-entries.json' with { type: 'json' };
-import { localModels } from './local-models.js';
+import { localModels, teachingScenes } from './local-models.js';
 import {
   additionalLibraryRows, assetUrl, byPath, exactLibraryRecords, libraryId, libraryPath,
   portrait, rated, ratingProfile, revisions, salivary,
@@ -176,31 +176,74 @@ function assessmentForFile(campaign, file) {
   return entry && entry.export.sha256 === file.sha256 && entry.export.bytes === file.bytes ? entry : undefined;
 }
 
-function collectionRow(row, snapshot, authoredReviews, campaign, localPreview) {
+export function exactExportPath(record, file) {
+  return file && record.exports.length > 1 && record.defaultFile && file.path !== record.defaultFile
+    ? record.library + '?file=' + file.sha256 : record.library;
+}
+
+export function selectExactExport(record, digest) {
+  if (!digest || !record) return record;
+  const file = record.exports.find((entry) => entry.sha256 === digest);
+  if (!file) return undefined;
+  if (!record.assessment || record.assessment.export.path === file.path) return record;
+  const assessment = record.fileAssessments?.get(file.path);
+  return { ...record, selectedFile: file, scene: undefined, assessment,
+    previousAssessment: undefined, axes: assessment?.axes.map((axis) => axis.score),
+    portrait: undefined, preview: assessment?.views[0]?.url };
+}
+
+function collectionRow(row, snapshot, authoredReviews, campaign, replacements, localPreview) {
   const listed = row.media ?? [];
   const native = (nativeDeliveries[row.id] ?? []).map((path) => byPath.get(path));
   const media = [...listed, ...native.filter((asset) => !listed.some((file) => file.path === asset.path))];
   const label = row.id === 'adrenals' ? 'Adrenal pair · BodyParts3D' : row.label;
   const local = localPreview && localModels.find((model) => model.family === row.id);
   const records = historyFor({ ...row, label, media }, snapshot);
-  if (local) records.unshift(local);
-  const history = records.map((record) => {
+  if (local) records.unshift(...localModels.filter((model) => model.family === row.id));
+
+  const paths = new Set(records.flatMap((record) => record.exports.map((file) => file.path)));
+  for (const assessment of replacements) {
+    if ((!paths.has(assessment.target.baseline) && !paths.has(assessment.target.familyBaseline)) || paths.has(assessment.export.path)) continue;
+    const file = { ...assessment.export, name: assessment.export.path.split('/').at(-1) };
+    const revision = file.path.split('/').at(-2);
+    if (records.some((record) => record.revision === revision)) {
+      throw new Error('Teaching revision collides with an existing package: ' + file.path);
+    }
+    paths.add(file.path);
+    records.unshift({ family: row.id, revision, library: 'library/' + row.id + '/' + revision,
+      title: label + ' · ' + revision, finding: assessment.decision,
+      status: 'Reviewed teaching export · Local preview', record: assessment.sources[0]?.url, exports: [file] });
+  }
+  const history = records.map((original) => {
+    const study = localPreview && teachingScenes.find((model) => model.family === row.id && model.revision === original.revision
+      && original.exports.some((file) => file.path === model.exports[0].path && file.sha256 === model.exports[0].sha256));
+    const record = study
+      ? { ...original, scene: study.scene, exports: [study.exports[0], ...original.exports.filter((f) => f.path !== study.exports[0].path)] }
+      : original;
     const previous = authoredReviews.get(record.library);
-    const previousMatch = previous && record.exports.some((file) =>
-      file.path === previous.export.path && file.sha256 === previous.export.sha256);
-    const assessment = record.exports.map((file) => assessmentForFile(campaign, file)).find(Boolean)
-      ?? (previousMatch ? previous : undefined);
+    const fileAssessments = new Map();
+    for (const file of record.exports) {
+      const current = assessmentForFile(campaign, file)
+        ?? (file.path === previous?.export.path && file.sha256 === previous.export.sha256 ? previous : undefined);
+      if (current) fileAssessments.set(file.path, current);
+    }
+    const available = [...fileAssessments.values()];
+    const assessment = available.find((entry) => entry.maintained) ?? available[0];
     if (!assessment) return record;
+    const previousMatch = previous && assessment.export.path === previous.export.path
+      && assessment.export.sha256 === previous.export.sha256;
     const witness = assessment.views[0];
     return {
       ...record,
-      assessment,
+      record: assessment.sources?.find((source) => record.recordPath && source.path === record.recordPath)?.url ?? record.record,
+      assessment, fileAssessments, defaultFile: assessment.export.path,
       previousAssessment: previousMatch && previous !== assessment ? previous : undefined,
       axes: assessment.axes.map((axis) => axis.score),
       preview: record.preview ?? witness?.url ?? (witness && assetUrl(byPath.get(witness.path))),
     };
   });
-  const recommended = local ? history[0] : undefined;
+  const recommended = history.find((record) => record.assessment?.target && record.assessment.maintained)
+    ?? (local ? history.find((record) => record.revision === local.revision) : undefined);
   const assessed = history.find((record) => record.assessment);
   const files = [...new Map([...media, ...history.flatMap((record) => record.exports)].map((file) => [file.path, file])).values()];
   return {
@@ -222,6 +265,7 @@ export function libraryRows(snapshot, teachingReview, { localPreview = false } =
   const authoredReviews = new Map(teachingReview?.assessments.map((assessment) => [assessment.route, assessment]));
   const campaign = new Map((localPreview ? teachingReview?.campaign ?? [] : [])
     .map((assessment) => [assessment.export.path, assessment]));
+  const replacements = [...campaign.values()].filter((entry) => entry.target && entry.target.baseline !== entry.export.path);
   const adrenalAssessment = (revision) => assessmentForFile(campaign, revisions[revision]);
   return [
     {
@@ -260,7 +304,7 @@ export function libraryRows(snapshot, teachingReview, { localPreview = false } =
     })),
     ...[...snapshot.queries.model_survey.rows, ...snapshot.queries.products.rows, ...additionalLibraryRows]
       .filter((row) => !Object.hasOwn(libraryAliases, row.id))
-      .map((row) => collectionRow(row, snapshot, authoredReviews, campaign, localPreview)),
+      .map((row) => collectionRow(row, snapshot, authoredReviews, campaign, replacements, localPreview)),
   ];
 }
 
@@ -276,12 +320,12 @@ export function selectLibraryRow(row, search) {
   const [record] = matches;
   const selectedFile = record.exports.find((file) =>
     [file.name, file.path, file.sha256].some((value) => value.toLowerCase() === needle));
-  const otherExport = record.assessment && selectedFile && selectedFile.path !== record.assessment.export.path;
+  const exact = selectedFile ? selectExactExport(record, selectedFile.sha256) : record;
   return {
     ...row,
-    ...ratingProfile(otherExport ? [] : record.axes),
-    state: record.status ?? (!otherExport && record.axes?.some((value) => value != null) ? 'Reviewed for teaching task' : 'Indexed revision'),
-    path: record.library,
+    ...ratingProfile(exact.axes),
+    state: record.status ?? (exact.axes?.some((value) => value != null) ? 'Reviewed for teaching task' : 'Indexed revision'),
+    path: exactExportPath(record, selectedFile),
     selectedRevision: record.revision,
     image: record.portrait ? assetUrl(record.portrait.asset) : record.preview,
   };

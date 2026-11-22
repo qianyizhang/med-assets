@@ -5,7 +5,6 @@ from collections import Counter, defaultdict
 import hashlib
 import json
 from pathlib import Path
-import posixpath
 import re
 import subprocess
 import sys
@@ -13,9 +12,10 @@ import sys
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / "transport/tools"))
 from lfs_transport import parse_pointer, unique_keys
+sys.path.insert(0, str(ROOT / "tools"))
+from teaching_assessments import REGISTER, campaign_rows, register_rows
 
 BASELINE = "a6f4b3c"
-REGISTER = "docs/gallery/maintained-models.md"
 GALLERY = "sites/anatomy-gallery/app/src/content/gallery/"
 PILOT = "reviews/teaching-assessments/2026-11-21-library-pilot/assessments.json"
 SURFACES = "reviews/body-systems/2026-11-20-surface-quality"
@@ -48,31 +48,6 @@ def read_json(path):
     return json.loads(path.read_text(), object_pairs_hook=unique_keys)
 
 
-def register_rows(raw):
-    rows = {}
-    collection = ""
-    for line in raw.splitlines():
-        if line.startswith("## "):
-            collection = line[3:].strip()
-        if not line.startswith("|") or line in ("| Family | Starting file |", "| --- | --- |"):
-            continue
-        match = re.fullmatch(r"\| ([^|]+) \| \[([^\]]+)\]\(([^ )]+)\) \|", line)
-        if not match or not collection:
-            raise ValueError(f"Unrecognized maintained register row: {line}")
-        family, label, link = match.groups()
-        path = posixpath.normpath(posixpath.join("docs/gallery", link))
-        if not path.startswith(("models/", "assemblies/", "lessons/", "heart/", "body/")):
-            raise ValueError(f"Invalid starting path: {path}")
-        if Path(path).name != label or Path(path).suffix not in (".blend", ".glb"):
-            raise ValueError(f"Invalid starting-file link: {line}")
-        if path in rows or (collection, family) in rows.values():
-            raise ValueError(f"Ambiguous maintained row: {line}")
-        rows[path] = (collection, family)
-    if not rows:
-        raise ValueError("Empty maintained register")
-    return rows
-
-
 def identity(repo, path):
     file = (repo / path).resolve()
     if not file.is_relative_to(repo) or not file.is_file():
@@ -97,22 +72,24 @@ def expected_match(repo, claim):
 
 def records(repo):
     owners = sorted((repo / "reviews").glob("*/*/teaching-assessment.json"))
-    campaign = sorted((repo / "reviews/teaching-assessments").glob("*/campaign-assessments.json"))
-    for path in (repo / PILOT, *owners, *campaign):
-        document = read_json(path)
-        if document["schemaVersion"] != 1:
-            raise ValueError(f"Unsupported assessment schema in {path}")
-        source = path.relative_to(repo).as_posix()
-        for item in document["assessments"]:
-            yield {
-                **item,
-                "source": source,
-                "source_label": f"{path.name} · {item.get('route', Path(item['export']['path']).stem)}",
-                "campaign": path in campaign,
-                "evaluator": document.get("evaluator"),
-                "date": document.get("date"),
-                "rubric": document.get("rubric"),
-            }
+    def inputs():
+        for path in (repo / PILOT, *owners):
+            document = read_json(path)
+            if document["schemaVersion"] != 1:
+                raise ValueError(f"Unsupported assessment schema in {path}")
+            for item in document["assessments"]:
+                yield path, document, item, False
+        for path, document, item in campaign_rows(repo):
+            yield path, document, item, True
+
+    for path, document, item, campaign in inputs():
+        yield {
+            **item,
+            "source": path.relative_to(repo).as_posix(),
+            "source_label": f"{path.name} · {item.get('route', Path(item['export']['path']).stem)}",
+            "campaign": campaign,
+            "evaluator": document.get("evaluator"), "date": document.get("date"), "rubric": document.get("rubric"),
+        }
 
 
 def bound_views(repo, receipt, view_id, path):
@@ -318,7 +295,7 @@ def assessment_row(repo, item):
     )
 
 
-def report(repo):
+def report(repo, audit=False):
     raw = (repo / REGISTER).read_text()
     maintained = register_rows(raw)
     pinned = subprocess.check_output(
@@ -333,6 +310,8 @@ def report(repo):
         assessments[item["export"]["path"]].append(item)
 
     rows = []
+    scorecard = []
+    target_counts = defaultdict(Counter)
     counts = defaultdict(Counter)
     for path, (collection, family) in maintained.items():
         items = assessments[path]
@@ -344,6 +323,21 @@ def report(repo):
         counts[collection][state] += 1
         sources = ", ".join(link(item["source_label"], item["source"]) for item in items) or "—"
         rows.append((collection, family, link(path, path), f"`{digest}` · {size:,}", state, sources, reason))
+        current = [item for item in items if item.get("campaign") and item["export"]["sha256"] == digest]
+        if current:
+            latest = max(item["date"] for item in current)
+            choices = [item for item in current if item["date"] == latest]
+            if len(choices) == 1:
+                item = choices[0]
+                scores = [axis["score"] if axis["score"] is not None else "—" for axis in item["axes"]]
+                target = item.get("target")
+                if target and target["family"] != family:
+                    raise ValueError(f"Target family differs from the register: {path}")
+                status = "At target" if all(isinstance(n, int) and n >= 3 for n in scores) else (
+                    "Exemption" if target and target["exemptions"] else "Open")
+                target_counts[collection][status] += 1
+                scorecard.append((collection, link(family, path), *scores, status, link("Evidence", item["source"])))
+
 
     summary = [
         (collection, *(count[state] for state in STATES), count.total())
@@ -351,6 +345,26 @@ def report(repo):
     ]
     total = sum(counts.values(), Counter())
     summary.append(("**Total**", *(total[state] for state in STATES), total.total()))
+    if not audit and len(scorecard) == len(maintained) and not total["Unrated"]:
+        lines = [
+            "# Maintained teaching asset scorecard", "",
+            "Each row links the selected file to its task-specific assessment. An em dash marks an unassessed axis.",
+            "Use the [rubric](../../../docs/guides/asset-quality.md) for the anchors and the "
+            "[exemption recheck](../teaching-exemption-recheck.md) for the current before/after decisions and owned follow-ups.", "",
+            "Run `python3.12 records/campaigns/teaching-asset-review/coverage.py --audit` for every identity, "
+            "historical alternate, evidence gap and register change.", "",
+        ]
+        if added or removed or moved:
+            lines.extend([f"Changes from the pinned register include {len(added)} additions, "
+                          f"{len(removed)} replacements or retirements, and {len(moved)} regroupings.", ""])
+        target_columns = ("At target", "Exemption", "Open")
+        lines += table(("Collection", *target_columns, *STATES, "Starting files"), (
+            (label, *((sum(target_counts.values(), Counter()) if label == "**Total**" else target_counts[label])[key]
+                      for key in target_columns), *values) for label, *values in summary
+        ))
+        lines += table(("Collection", "Starting file", "Fidelity", "Form", "Readability", "Economy", "Target", "Review"), scorecard)
+        return "\n".join(lines)
+
     lines = [
         "# Exact-file teaching review coverage", "",
         f"Generated by [coverage.py](coverage.py) from the {link('maintained register', REGISTER)}.",
@@ -400,9 +414,10 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repo", type=Path, default=ROOT, help="Use this repository checkout for the report")
     parser.add_argument("--check", type=Path, help="Check an existing report for drift")
+    parser.add_argument("--audit", action="store_true", help="Include all file identities, historical reviews and coverage decisions")
     args = parser.parse_args()
     try:
-        output = report(args.repo.resolve())
+        output = report(args.repo.resolve(), audit=args.audit)
         if args.check:
             if args.check.read_text() != output:
                 parser.exit(1, "Coverage report drift. Regenerate and review the register or assessment changes.\n")

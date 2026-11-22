@@ -1,0 +1,412 @@
+{
+  "schemaVersion": 1,
+  "group": "1 · Teaching risk",
+  "evaluator": "Sol-high · final review by Codex campaign lead",
+  "date": "2026-11-22",
+  "rubric": {
+    "revision": "75c348b9d3fcce0389c4401696569b660cd29dca",
+    "path": "docs/guides/asset-quality.md",
+    "sha256": "5f7be452c8afc0b2109068e2c9d40e10ed7306459d62d7d006cc05e0de84831b"
+  },
+  "outcomes": [
+    {
+      "family": "Single lymph node",
+      "path": "models/lymph_node/exports/hra-v1.2/NIH_M_Lymph_Node.glb",
+      "sha256": "7b047002cbb1dc06f37baa441783390d76cdb444b6144d6caa623923707953fd",
+      "controlAssessmentSha256": "73f4e9e7f82241dbbe5a237365120c5f48895dfa0fab5e491c752f50182ecd65",
+      "before": {
+        "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A03-lymph-node-layers.webp",
+        "sha256": "a6941e9ff96181c203aebefbf5ed7387f438921e97d047210565a8e0d8531d20",
+        "bytes": 47444,
+        "width": 1322,
+        "height": 786,
+        "label": "Single lymph node · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/2026-11-22-lymph-node-tissue-layers/plates/tissue-layers.webp",
+        "sha256": "002ac2dd6229bb7bca714bd7bc998c5f3e09e986ae4e232c3dd4674574440ef1",
+        "bytes": 152376,
+        "label": "Compare the capsule outline and the three named tissue regions at the same scale, then confirm their arrangement in the alternate oblique view.",
+        "width": 1328,
+        "height": 1058
+      },
+      "finding": "The original export includes a network with conflicting labels. The tissue-only edition removes all vessel meshes and retains the capsule, follicles, paracortex and medulla at their exact source coordinates.",
+      "decision": "Use the tissue-only edition for the capsule-to-interior task. The original keeps its source discrepancy and fidelity score of 2. Four matched tissue views reproduce the original selected meshes pixel for pixel.",
+      "axisChanges": {},
+      "limits": "Source node 7 is named blood vasculature and labeled lymph vasculature in its extras. The publisher’s version record gives provenance but supplies no adjudication. The two projections do not establish layer contacts, conductance, or a flow path.",
+      "useAsTeachingView": false,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-risk/README.md",
+          "label": "Teaching risk refinement evidence and replay"
+        },
+        {
+          "path": "models/lymph_node/exports/hra-tissue-layers-r01/README.md",
+          "label": "Build the tissue-only edition from the pinned source"
+        }
+      ],
+      "teaching": {
+        "path": "reviews/teaching-assessments/refinement-risk/views/lymph-node-capsule-and-regions.jpg",
+        "sha256": "27352f3bd8439b85e1e566e0d6f22af525d090c4ad8d221f3be6ae7bfe409571",
+        "bytes": 163139,
+        "width": 1220,
+        "height": 810,
+        "label": "Follow the thin capsule outline around the follicles, paracortex and medulla. Both angles hide the vascular meshes."
+      },
+      "candidate": {
+        "path": "models/lymph_node/exports/hra-tissue-layers-r01/lymph-node-tissue-layers.glb",
+        "sha256": "bf4ffa85c96459f2666949196915244697f3f5e33ebf485482c8223ba1fcb23e",
+        "bytes": 2984704,
+        "name": "lymph-node-tissue-layers.glb",
+        "scores": [
+          4,
+          2,
+          3,
+          2
+        ],
+        "download": true,
+        "disposition": "Local teaching default",
+        "library": "library/lymph_node/hra-tissue-layers-r01",
+        "recipe": "models/lymph_node/exports/hra-tissue-layers-r01/README.md",
+        "triangles": 114498
+      }
+    },
+    {
+      "family": "Eye · anterior segment",
+      "path": "models/eye_anterior_segment/exports/hra-v1.3-r01/anterior_segment.glb",
+      "sha256": "457b08b1edab5fc39db3b49e09635091721847e06262b7cb937fd006223c6750",
+      "controlAssessmentSha256": "7a2417bfd2ceb7c4b13f7100e125864daf8e410cd965f8e9ebc102b5a2711b45",
+      "before": {
+        "path": "reviews/teaching-assessments/2026-11-22-lymphatic-musculoskeletal-nervous/views/A20-review.webp",
+        "sha256": "246ca158134439562aacddd6ae11171d86a5b55267e96efa095c0545c890f7b8",
+        "bytes": 56604,
+        "width": 1322,
+        "height": 716,
+        "label": "Eye · anterior segment · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-risk/views/eye-anterior-order.jpg",
+        "sha256": "eea0a225f8e5d8228689a193b600b946dcb458fea21de2eb66b163f8db05f153",
+        "bytes": 129614,
+        "width": 1220,
+        "height": 745,
+        "label": "Find the cornea in front, the pupil opening in the iris, and the lens behind it. The light blue surface seen through the opening is the lens."
+      },
+      "finding": "The earlier Gallery opening included all seven source meshes. A clean replay of the owner’s three-structure selection labels the anterior order in an oblique view and separates all three structures in profile.",
+      "decision": "Start the learner from the labeled three-structure view. Keep the diagnostic geometry available in the source export.",
+      "axisChanges": {
+        "2": {
+          "score": 3,
+          "observation": "The front oblique view identifies the lens through the pupil and the profile makes the cornea–iris–lens depth order readable with the target visibility set alone."
+        }
+      },
+      "limits": "The cornea’s angular open rim and the rejected ciliary and zonular geometry remain source limitations. Scope is broad spatial order, without an optics, attachment, or thickness claim.",
+      "useAsTeachingView": true,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-risk/README.md",
+          "label": "Teaching risk refinement evidence and replay"
+        }
+      ]
+    },
+    {
+      "family": "UFF molar specimen",
+      "path": "models/dental_specimens/uff_tomo1b/exports/r01/uff-tomo1b-display.glb",
+      "sha256": "46694985ff0162a4220d959528847446ffe48b3be41e481f5890429500e2d3b3",
+      "controlAssessmentSha256": "38cd68b07e803d0854f6715c48c204ed54fdd3f14659d0010948e17e98d801b5",
+      "before": {
+        "path": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display/display-hard_tissue.webp",
+        "sha256": "15f95e72fcb4b8b544e467e04398dd376384f0925e7aa839db6343a776803815",
+        "bytes": 183454,
+        "width": 900,
+        "height": 900,
+        "label": "UFF molar specimen · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-risk/views/uff-proxy-terminal-evidence.jpg",
+        "sha256": "dabb8c1595805831be2ab806f9c222b9b0c3c606ff50d4267f1796d5a5366157",
+        "bytes": 169409,
+        "width": 1220,
+        "height": 865,
+        "label": "Compare the exterior with the isolated computed space. In source slice 972 the channel opens to the exterior and the method selects zero voxels inside it."
+      },
+      "finding": "The Gallery previously opened the exterior witness. A single plate now shows the exact exterior and proxy plus same-crop source slices 966, 969 and 972, where selected voxels fall from 140 to 128 to zero.",
+      "decision": "Start this research method review from the terminal-evidence plate.",
+      "axisChanges": {
+        "2": {
+          "score": 3,
+          "observation": "The opening image now exposes the previously hidden proxy and explicitly points to the open channel where the terminal slice selection fails."
+        }
+      },
+      "limits": "The isolated mesh represents a per-slice proxy. It has an artificial closing surface where the space becomes exterior-connected in 3D. The specimen’s FDI and anatomical orientation remain unknown.",
+      "useAsTeachingView": true,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-risk/README.md",
+          "label": "Teaching risk refinement evidence and replay"
+        }
+      ]
+    },
+    {
+      "family": "Bladder",
+      "path": "models/bladder/exports/hra-female-context-r03/bladder_hra_female_context_r03.glb",
+      "sha256": "91f04d1c831a61944da116184f389461517587c90c91fd94e199fba1619aa6b9",
+      "controlAssessmentSha256": "580b319bba52998c0570b49c7f64fecc6c86e9cdbb41bf25227cf3767972129e",
+      "before": {
+        "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/bladder-base-comparison.jpg",
+        "sha256": "7e3a70037607af9dedd4b849d9385dab8c69ce4454a19be8af24abf713173e85",
+        "bytes": 109100,
+        "width": 1002,
+        "height": 1086,
+        "label": "Bladder · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-risk/views/bladder-base-landmarks.jpg",
+        "sha256": "3fa800e18c75aac60109c77c8ffd691372966655686a9b1a0a9458f31a4a678d",
+        "bytes": 112999,
+        "width": 1220,
+        "height": 665,
+        "label": "Find the two ureteral entry landmarks and the lower neck in the focused bladder base. The same camera at left shows the surrounding pelvis."
+      },
+      "finding": "The former four-panel view showed the orifice landmarks without leaders. The larger rear pair labels each inlet, neck and base with one matched camera, and anchors the orientation at a visible ureter in the context panel.",
+      "decision": "Open with the labeled context/base view and retain the older alternate angle in the review evidence.",
+      "axisChanges": {
+        "2": {
+          "score": 3,
+          "observation": "A reviewer can locate both tiny ureteral entry landmarks, the neck, and the base without inferring them from color or reading a separate source."
+        }
+      },
+      "limits": "Landmarks are from one female atlas context. The focused view hides the bladder dome, ureters and other pelvic structures. No wall-layer, fill-state, continuity, or whole urinary tract claim.",
+      "useAsTeachingView": true,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-risk/README.md",
+          "label": "Teaching risk refinement evidence and replay"
+        }
+      ]
+    },
+    {
+      "family": "Male urethral context",
+      "path": "models/urethra_male/exports/z-native-context-r01/urethral-context.glb",
+      "sha256": "d2d88c936287f4ea5978aba1f17e86975c587a102e498595dd7a58aa07c269e7",
+      "controlAssessmentSha256": "b39b9cd7aa56d00d3e558d2fe40743337f34768b94d8724576f94fa597ecaf1f",
+      "before": {
+        "path": "reviews/urethra_male/2026-10-26-native-context-r01/annotated-context.webp",
+        "sha256": "8133d5ee6b082b1658bf30dd3052bda15212e8c5bb88a5329d3e51a23d901f22",
+        "bytes": 445002,
+        "width": 1600,
+        "height": 1440,
+        "label": "Male urethral context · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-risk/views/urethra-course-in-context.jpg",
+        "sha256": "3ebfd804be670e24cd7ea65451dca6365b808db2a1215b47756aba8a7f78b567",
+        "bytes": 111667,
+        "width": 1220,
+        "height": 617,
+        "label": "Trace the ochre urethral surface from beneath the bladder through the prostate region and along the surrounding spongiosum."
+      },
+      "finding": "The former learner opening already used the annotated translucent side view. A second, matched oblique comparison now juxtaposes opaque tissue, translucent context and the isolated urethral surface from the same exact context GLB.",
+      "decision": "Use the matched oblique sequence alongside the owner’s labeled side view for orientation.",
+      "axisChanges": {
+        "2": {
+          "score": 3,
+          "observation": "The matched oblique opens the hidden course while preserving adjacent bladder, prostate, and spongiosum, and the separate isolation panel exposes where the single surface begins and ends."
+        }
+      },
+      "limits": "The proximal connection and distal outlet remain unvalidated. The two uncapped model ends do not establish a patent lumen or flow.",
+      "useAsTeachingView": true,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-risk/README.md",
+          "label": "Teaching risk refinement evidence and replay"
+        }
+      ]
+    },
+    {
+      "family": "Breathing collection",
+      "path": "body/breathing/Breathing_Assembly.blend",
+      "sha256": "fc68b49ca75d02d50330e9d5b5d5182843e6d0e7ca4d43d665cbde48ac23b841",
+      "controlAssessmentSha256": "28b13e8bebee1ddbdad19b998539a45a4e1b37cf91b1766bde59be762af9504c",
+      "before": {
+        "path": "reviews/teaching-assessments/2026-11-22-respiratory/motion-detail.jpg",
+        "sha256": "62690ad6cc3573833c2a351b9e35cafb3ca94be7636982bea70fc0c883f7a961",
+        "bytes": 158769,
+        "width": 1002,
+        "height": 1086,
+        "label": "Breathing collection · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-risk/views/breathing-dome-descent.jpg",
+        "sha256": "9c7c114d410facd501124f782d433673963bace8cc5551fac396cd2ca1e234c1",
+        "bytes": 146208,
+        "width": 1220,
+        "height": 878,
+        "label": "Compare expiration with peak inspiration. Use the dashed reference to see the diaphragm crest descend, then find the lower lung base and liver."
+      },
+      "finding": "The former Gallery phase pair left the crest partly obscured. The same lateral camera now pairs context with diaphragm-only views and carries the expiration crest height into the peak inspiration panel.",
+      "decision": "Use the isolated and in-context pairs at the same teaching stop so learners can compare frames 1 and 49.",
+      "axisChanges": {
+        "2": {
+          "score": 3,
+          "observation": "Both phases retain the matched lung-base and liver context. The dome-only pair supplies an unobstructed crest and a fixed height cue."
+        }
+      },
+      "limits": "The source demonstrates authored gross motion. Cropped lung bases and projected overlap do not establish attachments or measured physiology.",
+      "useAsTeachingView": true,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-risk/README.md",
+          "label": "Teaching risk refinement evidence and replay"
+        }
+      ]
+    },
+    {
+      "family": "Cardiac Atlas · animated",
+      "path": "heart/Cardiac_Atlas_Animated/Heart_Clinical_Animated.glb",
+      "sha256": "6912d439271c3525230a90fe403d586000e6a66ab37f82bf0419604181e52263",
+      "controlAssessmentSha256": "674291432edb58052cea09fb440b4ba77be43918f7f4900321100f06d65c4b6c",
+      "before": {
+        "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/06-paired.webp",
+        "sha256": "8b36d3b397b6e91eeb1857eb4d54267a7bfa5bce5103bb011a16f16bb5b8b5c8",
+        "bytes": 246148,
+        "width": 1322,
+        "height": 706,
+        "label": "Cardiac Atlas · animated · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-risk/views/cardiac-wall-motion.jpg",
+        "sha256": "684526975eaed3a4136a3baa4ac17a35df265b297fb99c8467f51ee399445c14",
+        "bytes": 108328,
+        "width": 1220,
+        "height": 721,
+        "label": "Compare the left ventricular wall with its gold starting outline. The aorta stays fixed while the wall changes shape."
+      },
+      "finding": "The earlier Library opening showed the opaque overview. The matched plate selects the left ventricular wall and stationary aorta. Among samples at 24 fps, the wall moved up to 5.05 mm at 0.333 s while the aortic vertices stayed fixed.",
+      "decision": "Use the focused wall and aorta mode to scrub the exact clip, then return to the ordinary full-heart view for orientation.",
+      "axisChanges": {
+        "2": {
+          "score": 3,
+          "observation": "The exact Library clip can be scrubbed in a fixed wall-and-aorta view. Chrome verified visible contour change near 41.7% while the aorta supplies a stationary reference, along with reset and Stage reload."
+        }
+      },
+      "limits": "The plate presents authored contour motion. It does not show valve timing, measured cardiac physiology, or stationarity outside the sampled frames.",
+      "useAsTeachingView": true,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-risk/README.md",
+          "label": "Teaching risk refinement evidence and replay"
+        }
+      ]
+    },
+    {
+      "family": "Gallbladder",
+      "path": "models/gallbladder/exports/metadata-cleanup-r01/gallbladder.glb",
+      "sha256": "faa06e38130b3f63cc0094914eeb9adfb874ba2a2dc78da49e1c255c1f740227",
+      "controlAssessmentSha256": "509c447c2d944c96e3e9b7efabf71095953d2fc3f4ac05e58ddc6dde67bb8944",
+      "before": {
+        "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/12-isolation.webp",
+        "sha256": "5ee9c01aa129d62072b10f453ab33ca9c1d2f98558631e6eaad5d8812a8e64bc",
+        "bytes": 208228,
+        "width": 1976,
+        "height": 706,
+        "label": "Gallbladder · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-risk/views/gallbladder-exterior-and-section.jpg",
+        "sha256": "fb1866eb53a9e3b9e72618e133bd6aec7893f7be3e23208320594c03c4ddfe49",
+        "bytes": 83803,
+        "width": 1220,
+        "height": 676,
+        "label": "Compare the source gallbladder exterior with the authored wall section. In the section, find the cut rim and separate schematic cystic duct."
+      },
+      "finding": "The former Gallery plate already showed visibility isolation. The new matched views call out the cut rim and separate duct directly. The browser uses exclusive source and section presets for the exact GLB.",
+      "decision": "Keep the exact export and start in the source exterior preset. Switching to the teaching section reveals the rim and duct together.",
+      "axisChanges": {
+        "2": {
+          "score": 3,
+          "observation": "The labeled camera pair isolates the cut rim and duct, and the exact model has separate learner modes for the source exterior and the authored teaching section."
+        }
+      },
+      "limits": "The cystic duct is a distinct schematic mesh. The projection shows no verified lumen connection.",
+      "useAsTeachingView": true,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-risk/README.md",
+          "label": "Teaching risk refinement evidence and replay"
+        }
+      ]
+    },
+    {
+      "family": "Stomach · s1233",
+      "path": "models/stomach/exports/metadata-cleanup-r01/stomach.glb",
+      "sha256": "ad0876f37f92945171750d31d9c53165535a697e60a3d2ac8a3f3f78667fdec6",
+      "controlAssessmentSha256": "f2fd3ca7e236b0873ac1da48deb3f924d7506b86bb8193b1aa8db9913e228636",
+      "before": {
+        "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/17-isolation.webp",
+        "sha256": "708d235e3206615b6c6e4a0b002a6b07c1ae75fd39f77b18cdf80f2598937528",
+        "bytes": 286164,
+        "width": 1976,
+        "height": 706,
+        "label": "Stomach · s1233 · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-risk/views/stomach-exterior-and-section.jpg",
+        "sha256": "0c26b26b2e6f9e6b88385fb96db2fa285d4394094754fe6d91a7747b1787d2b1",
+        "bytes": 96699,
+        "width": 1220,
+        "height": 676,
+        "label": "Compare the source stomach exterior with the independent authored section. In the section, follow the repeated rugae cues."
+      },
+      "finding": "The former Gallery plate already isolated the authored section. The new matched views label its edge and rugae. The browser uses exclusive source and section presets for the exact GLB.",
+      "decision": "Keep the exact export and start in the source exterior preset. Switching to the section shows all eleven authored folds.",
+      "axisChanges": {
+        "2": {
+          "score": 3,
+          "observation": "The labeled camera pair and exclusive learner modes prevent the source exterior from hiding the rugae on the exact export."
+        }
+      },
+      "limits": "The section and s1233 exterior are independent alternatives. The authored section omits the gastric inlet and outlet and does not establish spatial registration.",
+      "useAsTeachingView": true,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-risk/README.md",
+          "label": "Teaching risk refinement evidence and replay"
+        }
+      ]
+    },
+    {
+      "family": "Parathyroid localization",
+      "path": "models/parathyroids/exports/z-localization-r01/parathyroids_native.glb",
+      "sha256": "b6fbbabfa7efd12b8c377f5bc56193bd81776daab999a8c1ac8286f693b85b45",
+      "controlAssessmentSha256": "de2756899dd98ae635b8254a593bb741b17c4ca9e50ba973d21ab7904ec852d6",
+      "before": {
+        "path": "reviews/parathyroids/2026-10-25-localization-r01/display/teaching-posterior.webp",
+        "sha256": "b882ea7e8ffd75eb6248d4ea15e3d648a383621a24bb44c133ab2dda000932ee",
+        "bytes": 168434,
+        "width": 1280,
+        "height": 900,
+        "label": "Parathyroid localization · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-risk/views/parathyroids-targets-and-companion.jpg",
+        "sha256": "adaa7a8d4d234266e8c0a1b6ae397f505b933570f6aeaccd0d44b631c4dbecaf",
+        "bytes": 105642,
+        "width": 1220,
+        "height": 697,
+        "label": "Find the upper and lower gland pairs in the target-only export. The separate posterior companion shows the same four targets with the thyroid."
+      },
+      "finding": "The earlier Gallery record opened a companion plate without showing the isolated asset beside it. Clean imports now show both actual exports with one camera and scale. The four target meshes match point for point within 0.0001 mm in the displayed frames.",
+      "decision": "Keep the target-only export as a component. Use the separately identified same-source thyroid companion for the exact posterior localization exercise, and retain readability at 2 for the target-only file.",
+      "axisChanges": {},
+      "limits": "The target-only export contains no thyroid. The companion depicts one atlas with simplified gland forms and a central projection of unassigned identity. Number and position can vary.",
+      "useAsTeachingView": true,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-risk/README.md",
+          "label": "Teaching risk refinement evidence and replay"
+        }
+      ]
+    }
+  ]
+}

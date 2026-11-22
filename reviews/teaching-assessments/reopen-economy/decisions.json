@@ -1,0 +1,296 @@
+[
+  {
+    "family": "Stomach · s1233",
+    "baseline": "models/stomach/exports/metadata-cleanup-r01/stomach.glb",
+    "path": "models/stomach/exports/teaching-economy-r02/stomach.glb",
+    "controlAssessmentSha256": "4166bd54fa2b10b9582b1b93711fbcc29cbd3af091b67c1d5168cef79b0a1973",
+    "assessmentSha256": "11bd8eabec775a356d179d4b906bf12e29a047b889c6f643b84c7e5e643f9628",
+    "taskCheck": "With only the source surface visible, I located the full curved exterior. Switching to the authored section revealed its rim and eleven repeated fold cues in front and at an oblique angle.",
+    "status": "passed",
+    "decision": "Use the complete edition with mutually exclusive exterior and section presets. All three decoded source textures and all fold geometry are exact.",
+    "axisChanges": {
+      "3": {
+        "score": 4,
+        "observation": "The full 13-mesh scene uses 60,456 triangles and 2,992,144 bytes, saving 410,040 bytes (12.1%). The normal, base-color and roughness PNGs decode identically. Four matched exterior and fold views have identical RGBA pixels."
+      }
+    },
+    "exemptions": {},
+    "evidence": [
+      "reviews/teaching-assessments/reopen-economy/measurements.json",
+      "reviews/teaching-assessments/reopen-economy/views/pixels.json",
+      "reviews/teaching-assessments/reopen-economy/README.md"
+    ],
+    "before": {
+      "path": "reviews/teaching-assessments/reopen-economy/views/stomach-original.webp",
+      "sha256": "5e9e01c9f2544175c7bcb522ec54c469a9d1b73bf89306dcfcf0caa2bae0ce4d",
+      "bytes": 51678,
+      "width": 1280,
+      "height": 1406,
+      "label": "Original / Stomach · s1233. With only the source surface visible, I located the full curved exterior. Switching to the authored section revealed its rim and eleven repeated fold cues in front and at an oblique angle."
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/reopen-economy/views/stomach-updated.webp",
+      "sha256": "d90e4e7fe154c6c7298890cddb21758823a9a94cfc5ca07944e92cd26b900dcf",
+      "bytes": 50164,
+      "width": 1280,
+      "height": 1406,
+      "label": "Updated / Stomach · s1233. With only the source surface visible, I located the full curved exterior. Switching to the authored section revealed its rim and eleven repeated fold cues in front and at an oblique angle."
+    },
+    "teaching": {
+      "path": "reviews/teaching-assessments/reopen-economy/views/stomach-updated.webp",
+      "sha256": "d90e4e7fe154c6c7298890cddb21758823a9a94cfc5ca07944e92cd26b900dcf",
+      "bytes": 50164,
+      "width": 1280,
+      "height": 1406,
+      "label": "Updated / Stomach · s1233. With only the source surface visible, I located the full curved exterior. Switching to the authored section revealed its rim and eleven repeated fold cues in front and at an oblique angle."
+    },
+    "reviewedAxes": [
+      "3"
+    ]
+  },
+  {
+    "family": "Liver",
+    "baseline": "models/liver/exports/hra-female-v1.10-r02/liver.glb",
+    "path": "models/liver/exports/teaching-economy-r02/liver.glb",
+    "controlAssessmentSha256": "40e1348befd8bf0b314f6b46e90c04ef2772270f99a7f5e609ef07f5fd0caf75",
+    "assessmentSha256": "250366bdb5897395d3401e8609ff0b2e20d76430e0b1e3474b687786ec04bdb8",
+    "taskCheck": "I turned from the anterior capsule to the posterior patch, then followed its thin bounding ligaments in the enlarged view. The patch remains independently selectable.",
+    "status": "passed",
+    "decision": "Use the full local teaching edition for the same learner task. Packing shading directions makes the file smaller while preserving every selectable part, boundary and source position.",
+    "axisChanges": {
+      "3": {
+        "score": 4,
+        "observation": "The full 8-mesh scene uses 41,470 triangles and 595,352 bytes, saving 168,128 bytes (22.0%). Signed normalized normal packing changes the worst vertex-normal direction by 0.372 degrees on VH_F_bare_area_of_liver. Positions, index streams and rendered silhouettes match exactly. The largest foreground color change in the reviewed channels is 1/255."
+      }
+    },
+    "exemptions": {},
+    "evidence": [
+      "reviews/teaching-assessments/reopen-economy/measurements.json",
+      "reviews/teaching-assessments/reopen-economy/views/pixels.json",
+      "reviews/teaching-assessments/reopen-economy/README.md"
+    ],
+    "before": {
+      "path": "reviews/teaching-assessments/reopen-economy/views/liver-original.webp",
+      "sha256": "75978fb4e22665939573b70bacc77436ac79607a86217a1eedf0a6ec7a824d10",
+      "bytes": 31646,
+      "width": 1920,
+      "height": 726,
+      "label": "Original / Liver. I turned from the anterior capsule to the posterior patch, then followed its thin bounding ligaments in the enlarged view. The patch remains independently selectable."
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/reopen-economy/views/liver-updated.webp",
+      "sha256": "f4dbc043a8c327ceb2d83b15b89816f47bbbf4bc0ee37ba402b7a9f4981c53c3",
+      "bytes": 31810,
+      "width": 1920,
+      "height": 726,
+      "label": "Updated / Liver. I turned from the anterior capsule to the posterior patch, then followed its thin bounding ligaments in the enlarged view. The patch remains independently selectable."
+    },
+    "teaching": {
+      "path": "reviews/teaching-assessments/reopen-economy/views/liver-updated.webp",
+      "sha256": "f4dbc043a8c327ceb2d83b15b89816f47bbbf4bc0ee37ba402b7a9f4981c53c3",
+      "bytes": 31810,
+      "width": 1920,
+      "height": 726,
+      "label": "Updated / Liver. I turned from the anterior capsule to the posterior patch, then followed its thin bounding ligaments in the enlarged view. The patch remains independently selectable."
+    },
+    "reviewedAxes": [
+      "3"
+    ]
+  },
+  {
+    "family": "Muscle atlas",
+    "baseline": "models/muscle/exports/z-anatomy-r02/muscle_z_native_frame.glb",
+    "path": "models/muscle/exports/teaching-economy-r02/muscle_z_native_frame.glb",
+    "controlAssessmentSha256": "04eec32c9469099cc9b588c7c2a73dfef6ac0c61868b91dc3863c10f649a0162",
+    "assessmentSha256": "31a21b8bfbfba44019a6d5b25b5a978bcda8a8f193d3b8326e7ea2380d257cb4",
+    "taskCheck": "I found the pectoral and abdominal surfaces on the anterior torso and the paired shoulder/back groups after turning the atlas. All 509 named meshes survive clean import.",
+    "status": "passed",
+    "decision": "Use the full local teaching edition for the same learner task. Packing shading directions makes the file smaller while preserving every selectable part, boundary and source position.",
+    "axisChanges": {
+      "3": {
+        "score": 4,
+        "observation": "The full 509-mesh scene uses 1,993,160 triangles and 22,558,848 bytes, saving 7,958,464 bytes (26.1%). Signed normalized normal packing changes the worst vertex-normal direction by 0.389 degrees on Epicranial aponeurosis.r evaluated. Positions, index streams and rendered silhouettes match exactly. The largest foreground color change in the reviewed channels is 1/255."
+      }
+    },
+    "exemptions": {},
+    "evidence": [
+      "reviews/teaching-assessments/reopen-economy/measurements.json",
+      "reviews/teaching-assessments/reopen-economy/views/pixels.json",
+      "reviews/teaching-assessments/reopen-economy/README.md"
+    ],
+    "before": {
+      "path": "reviews/teaching-assessments/reopen-economy/views/muscle-original.webp",
+      "sha256": "4233ee0078e978b7ce5c1d7114017b4fc3dd840aac2fec4fe8bce29f94795142",
+      "bytes": 78522,
+      "width": 1920,
+      "height": 726,
+      "label": "Original / Muscle atlas. I found the pectoral and abdominal surfaces on the anterior torso and the paired shoulder/back groups after turning the atlas. All 509 named meshes survive clean import."
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/reopen-economy/views/muscle-updated.webp",
+      "sha256": "4f6862e101ef04a50eed371d8063a6fef0805b3a2c08c24b2174992df1f7bb8c",
+      "bytes": 78432,
+      "width": 1920,
+      "height": 726,
+      "label": "Updated / Muscle atlas. I found the pectoral and abdominal surfaces on the anterior torso and the paired shoulder/back groups after turning the atlas. All 509 named meshes survive clean import."
+    },
+    "teaching": {
+      "path": "reviews/teaching-assessments/reopen-economy/views/muscle-updated.webp",
+      "sha256": "4f6862e101ef04a50eed371d8063a6fef0805b3a2c08c24b2174992df1f7bb8c",
+      "bytes": 78432,
+      "width": 1920,
+      "height": 726,
+      "label": "Updated / Muscle atlas. I found the pectoral and abdominal surfaces on the anterior torso and the paired shoulder/back groups after turning the atlas. All 509 named meshes survive clean import."
+    },
+    "reviewedAxes": [
+      "3"
+    ]
+  },
+  {
+    "family": "Brain",
+    "baseline": "models/brain/exports/bodyparts3d-4.0-atlas-r2/brain-source-frame.glb",
+    "path": "models/brain/exports/teaching-economy-r02/brain-source-frame.glb",
+    "controlAssessmentSha256": "fef87c0e757114965dcb80d50d51bd180da37cd2d35087dea7caf289dbd75806",
+    "assessmentSha256": "bd3e53ed75799926b658747767eb4bc80dd16498d9b537d1da772960f005f414",
+    "taskCheck": "I located the folded cerebral exterior above the cerebellum, then identified the short descending stem. Isolating the cerebellum with its adjacent pons and medulla confirms the lower structures.",
+    "status": "passed",
+    "decision": "Use the full local teaching edition for the same learner task. Packing shading directions makes the file smaller while preserving every selectable part, boundary and source position.",
+    "axisChanges": {
+      "3": {
+        "score": 4,
+        "observation": "The full 49-mesh scene uses 242,358 triangles and 3,446,724 bytes, saving 968,660 bytes (21.9%). Signed normalized normal packing changes the worst vertex-normal direction by 0.382 degrees on FJ1785. Positions, index streams and rendered silhouettes match exactly. The largest foreground color change in the reviewed channels is 1/255."
+      }
+    },
+    "exemptions": {},
+    "evidence": [
+      "reviews/teaching-assessments/reopen-economy/measurements.json",
+      "reviews/teaching-assessments/reopen-economy/views/pixels.json",
+      "reviews/teaching-assessments/reopen-economy/README.md"
+    ],
+    "before": {
+      "path": "reviews/teaching-assessments/reopen-economy/views/brain-original.webp",
+      "sha256": "aa1f76b4eeec0e7f7c63d5e0cbee57ae3efcc84f770b746c1f419b700bbac39b",
+      "bytes": 47318,
+      "width": 1920,
+      "height": 726,
+      "label": "Original / Brain. I located the folded cerebral exterior above the cerebellum, then identified the short descending stem. Isolating the cerebellum with its adjacent pons and medulla confirms the lower structures."
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/reopen-economy/views/brain-updated.webp",
+      "sha256": "8a258592fd5c653c796e085ae8dcf2afde897a0b6a12d50408434972a25c0c03",
+      "bytes": 47394,
+      "width": 1920,
+      "height": 726,
+      "label": "Updated / Brain. I located the folded cerebral exterior above the cerebellum, then identified the short descending stem. Isolating the cerebellum with its adjacent pons and medulla confirms the lower structures."
+    },
+    "teaching": {
+      "path": "reviews/teaching-assessments/reopen-economy/views/brain-updated.webp",
+      "sha256": "8a258592fd5c653c796e085ae8dcf2afde897a0b6a12d50408434972a25c0c03",
+      "bytes": 47394,
+      "width": 1920,
+      "height": 726,
+      "label": "Updated / Brain. I located the folded cerebral exterior above the cerebellum, then identified the short descending stem. Isolating the cerebellum with its adjacent pons and medulla confirms the lower structures."
+    },
+    "reviewedAxes": [
+      "3"
+    ]
+  },
+  {
+    "family": "Spinal cord & roots",
+    "baseline": "models/spinal_cord/exports/authored-roots-r04/candidate.glb",
+    "path": "models/spinal_cord/exports/teaching-economy-r02/candidate.glb",
+    "controlAssessmentSha256": "62e7dca3c9dab91b23766423ee796ce4f691f437c6a7d5c99686bddb9fa2e251",
+    "assessmentSha256": "8add0f60630fb89cd15b201799539fc89fd5444fdb4af9f2a2f68413fc3a451c",
+    "taskCheck": "At upper level 7 I followed the dorsal swelling toward the distal junction, traced the thinner unswollen ventral strand to that point and located the short shared mixed nerve.",
+    "status": "passed",
+    "decision": "Use the full local teaching edition for the same learner task. Packing shading directions makes the file smaller while preserving every selectable part, boundary and source position.",
+    "axisChanges": {
+      "3": {
+        "score": 4,
+        "observation": "The full 104-mesh scene uses 178,960 triangles and 1,948,852 bytes, saving 714,436 bytes (26.8%). Signed normalized normal packing changes the worst vertex-normal direction by 0.385 degrees on Representative ventral root upper 7 side-1.001. Positions, index streams and rendered silhouettes match exactly. The largest foreground color change in the reviewed channels is 1/255."
+      }
+    },
+    "exemptions": {},
+    "evidence": [
+      "reviews/teaching-assessments/reopen-economy/measurements.json",
+      "reviews/teaching-assessments/reopen-economy/views/pixels.json",
+      "reviews/teaching-assessments/reopen-economy/README.md"
+    ],
+    "before": {
+      "path": "reviews/teaching-assessments/reopen-economy/views/spinal_cord-original.webp",
+      "sha256": "2e546169f675b7978a162cc1c4744ad945e422572f05a97dfd973db059c42876",
+      "bytes": 20338,
+      "width": 1280,
+      "height": 726,
+      "label": "Original / Spinal cord & roots. At upper level 7 I followed the dorsal swelling toward the distal junction, traced the thinner unswollen ventral strand to that point and located the short shared mixed nerve."
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/reopen-economy/views/spinal_cord-updated.webp",
+      "sha256": "76440eecd2f9ab113a5d87453e735f445a0802eaaa90d4819583bc5339675b2a",
+      "bytes": 20452,
+      "width": 1280,
+      "height": 726,
+      "label": "Updated / Spinal cord & roots. At upper level 7 I followed the dorsal swelling toward the distal junction, traced the thinner unswollen ventral strand to that point and located the short shared mixed nerve."
+    },
+    "teaching": {
+      "path": "reviews/teaching-assessments/reopen-economy/views/spinal_cord-updated.webp",
+      "sha256": "76440eecd2f9ab113a5d87453e735f445a0802eaaa90d4819583bc5339675b2a",
+      "bytes": 20452,
+      "width": 1280,
+      "height": 726,
+      "label": "Updated / Spinal cord & roots. At upper level 7 I followed the dorsal swelling toward the distal junction, traced the thinner unswollen ventral strand to that point and located the short shared mixed nerve."
+    },
+    "reviewedAxes": [
+      "3"
+    ]
+  },
+  {
+    "family": "Trachea / Y-airway",
+    "baseline": "models/trachea/exports/open-airway-r06/trachea-open.glb",
+    "path": "models/trachea/exports/teaching-economy-r02/trachea-open.glb",
+    "controlAssessmentSha256": "0b86d276058adba1f4781358fe09c8cea7dd4e71a6925dc11db277f3b3da5b41",
+    "assessmentSha256": "fad84d7e6d8eef54802d2bff5e47021a4731e4abea5faa9f58470dd95438b5f7",
+    "taskCheck": "I located the proximal mouth, then viewed each of the two distal openings face-on from opposite obliques. The posterior view and enlargement show the line of gaps between the C-band ends.",
+    "status": "passed",
+    "decision": "Use the full local teaching edition for the same learner task. Packing shading directions makes the file smaller while preserving every selectable part, boundary and source position.",
+    "axisChanges": {
+      "3": {
+        "score": 4,
+        "observation": "The full 19-mesh scene uses 50,978 triangles and 751,300 bytes, saving 211,140 bytes (21.9%). Signed normalized normal packing changes the worst vertex-normal direction by 0.373 degrees on Host conformed illustrative C-band.013. Positions, index streams and rendered silhouettes match exactly. The largest foreground color change in the reviewed channels is 1/255."
+      }
+    },
+    "exemptions": {},
+    "evidence": [
+      "reviews/teaching-assessments/reopen-economy/measurements.json",
+      "reviews/teaching-assessments/reopen-economy/views/pixels.json",
+      "reviews/teaching-assessments/reopen-economy/README.md"
+    ],
+    "before": {
+      "path": "reviews/teaching-assessments/reopen-economy/views/trachea-original.webp",
+      "sha256": "0dc105e1da74a725d5f48edda45616cd0a110958aee8bfe28d63b87603cd2ee0",
+      "bytes": 42446,
+      "width": 1920,
+      "height": 1406,
+      "label": "Original / Trachea / Y-airway. I located the proximal mouth, then viewed each of the two distal openings face-on from opposite obliques. The posterior view and enlargement show the line of gaps between the C-band ends."
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/reopen-economy/views/trachea-updated.webp",
+      "sha256": "4046f72e435b9ed16cd459690608c5b2962cfab449c1f016881db071adbf1746",
+      "bytes": 42568,
+      "width": 1920,
+      "height": 1406,
+      "label": "Updated / Trachea / Y-airway. I located the proximal mouth, then viewed each of the two distal openings face-on from opposite obliques. The posterior view and enlargement show the line of gaps between the C-band ends."
+    },
+    "teaching": {
+      "path": "reviews/teaching-assessments/reopen-economy/views/trachea-updated.webp",
+      "sha256": "4046f72e435b9ed16cd459690608c5b2962cfab449c1f016881db071adbf1746",
+      "bytes": 42568,
+      "width": 1920,
+      "height": 1406,
+      "label": "Updated / Trachea / Y-airway. I located the proximal mouth, then viewed each of the two distal openings face-on from opposite obliques. The posterior view and enlargement show the line of gaps between the C-band ends."
+    },
+    "reviewedAxes": [
+      "3"
+    ]
+  }
+]

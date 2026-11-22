@@ -25,7 +25,12 @@ The [collection ledger](items/AG-GAL-013-reconcile-gallery-coverage.md#collectio
 
 ## Teaching asset review
 
-The [completed campaign](../campaigns/teaching-asset-review.md) covers 79 maintained families. Start with the [lead review](../campaigns/teaching-asset-review/lead-review.md) for teaching decisions and the [coverage report](../campaigns/teaching-asset-review/current-coverage.md) for exact profiles and remaining evidence gaps.
+The [reopened exemption review](../campaigns/teaching-exemption-recheck.md) records the latest decisions across the [79 maintained families](../campaigns/teaching-asset-review/current-coverage.md) and the six owned form follow-ups.
+
+## Next Gallery work
+
+1. [AG-GAL-026 · Consolidate overlapping lessons](items/AG-GAL-026-consolidate-overlapping-lessons.md). Start with one bilingual ovary and tubal-end sequence reached from Reproductive and Regional Locators, then review repeated questions across the Gallery.
+2. [AG-GAL-027 · Merge reusable organ assets](items/AG-GAL-027-merge-reusable-organ-assets.md). Use the resulting lesson requirements to investigate cardiac first. Prove the editable model in two existing lessons with different selections or rigs. Expand to other overlaps where the evidence supports merging.
 
 ## Deferred follow-up
 

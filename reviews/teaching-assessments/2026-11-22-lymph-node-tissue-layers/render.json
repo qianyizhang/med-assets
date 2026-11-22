@@ -1,0 +1,666 @@
+{
+  "blender": "5.2.3 LTS Release Candidate",
+  "build": "fab76e95306d",
+  "engine": "Cycles CPU, 32 samples; AgX; exact source materials or declared neutral override",
+  "resolution": [
+    650,
+    650
+  ],
+  "models": {
+    "source": {
+      "bytes": 7413900,
+      "sha256": "7b047002cbb1dc06f37baa441783390d76cdb444b6144d6caa623923707953fd",
+      "views": [
+        {
+          "file": "source-primary-all.png",
+          "bytes": 247512,
+          "sha256": "5a251acbf45ab7f7aeea5d53984517b6ba61b095435bda4a5432478f262ffcff",
+          "visible": [
+            "Yao_afferent_lymphatic_vessel",
+            "Yao_capsule_of_lymph_node",
+            "Yao_follicles",
+            "Yao_efferent_lymph_node",
+            "Yao_medulla_of_lymph_node",
+            "Yao_paracortex",
+            "Yao_blood_vasculature"
+          ],
+          "finish": "source",
+          "cameraM": [
+            0.015030279755592346,
+            -0.14086270332336426,
+            0.3367912769317627
+          ],
+          "targetM": [
+            -0.0008988305926322937,
+            -0.07160570472478867,
+            0.32848042249679565
+          ],
+          "orthoScaleM": 0.023849850334227082
+        },
+        {
+          "file": "source-primary-capsule.png",
+          "bytes": 218303,
+          "sha256": "13701fc623d7d611a81e3cfd3e6d01a375953551b5bafb8d7ac0ba57c02b8d67",
+          "visible": [
+            "Yao_capsule_of_lymph_node"
+          ],
+          "finish": "source",
+          "cameraM": [
+            0.015030279755592346,
+            -0.14086270332336426,
+            0.3367912769317627
+          ],
+          "targetM": [
+            -0.0008988305926322937,
+            -0.07160570472478867,
+            0.32848042249679565
+          ],
+          "orthoScaleM": 0.023849850334227082
+        },
+        {
+          "file": "source-primary-regions.png",
+          "bytes": 208796,
+          "sha256": "313761a7c898172d94dffb982680ec422c4fe83f703abfa635569ebf58c2cc04",
+          "visible": [
+            "Yao_follicles",
+            "Yao_paracortex",
+            "Yao_medulla_of_lymph_node"
+          ],
+          "finish": "source",
+          "cameraM": [
+            0.015030279755592346,
+            -0.14086270332336426,
+            0.3367912769317627
+          ],
+          "targetM": [
+            -0.0008988305926322937,
+            -0.07160570472478867,
+            0.32848042249679565
+          ],
+          "orthoScaleM": 0.023849850334227082
+        },
+        {
+          "file": "source-reverse-capsule.png",
+          "bytes": 229161,
+          "sha256": "fee3d24bb9ef56059b10eeaea8da67b7c34e3cd06f82843ed13b6c4a420bf9a3",
+          "visible": [
+            "Yao_capsule_of_lymph_node"
+          ],
+          "finish": "source",
+          "cameraM": [
+            -0.05130711942911148,
+            -0.11632275581359863,
+            0.2951458990573883
+          ],
+          "targetM": [
+            -0.0008988305926322937,
+            -0.07160571962594986,
+            0.32848042249679565
+          ],
+          "orthoScaleM": 0.025059482827782628
+        },
+        {
+          "file": "source-reverse-regions.png",
+          "bytes": 235157,
+          "sha256": "601ff56f25b05e5e0a9b3c209abd4d07219bdbfe1ee106a9a35ca5e921b1931c",
+          "visible": [
+            "Yao_follicles",
+            "Yao_paracortex",
+            "Yao_medulla_of_lymph_node"
+          ],
+          "finish": "source",
+          "cameraM": [
+            -0.05130711942911148,
+            -0.11632275581359863,
+            0.2951458990573883
+          ],
+          "targetM": [
+            -0.0008988305926322937,
+            -0.07160571962594986,
+            0.32848042249679565
+          ],
+          "orthoScaleM": 0.025059482827782628
+        }
+      ],
+      "triangles": {
+        "Yao_afferent_lymphatic_vessel": 4526,
+        "Yao_capsule_of_lymph_node": 9442,
+        "Yao_follicles": 5758,
+        "Yao_efferent_lymph_node": 4154,
+        "Yao_medulla_of_lymph_node": 88351,
+        "Yao_paracortex": 10910,
+        "Yao_blood_vasculature": 131309
+      },
+      "world_matrices": {
+        "Yao_afferent_lymphatic_vessel": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "Yao_capsule_of_lymph_node": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "Yao_follicles": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "Yao_efferent_lymph_node": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "Yao_medulla_of_lymph_node": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "Yao_paracortex": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "Yao_blood_vasculature": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      }
+    },
+    "candidate": {
+      "bytes": 2984704,
+      "sha256": "bf4ffa85c96459f2666949196915244697f3f5e33ebf485482c8223ba1fcb23e",
+      "views": [
+        {
+          "file": "candidate-primary-capsule.png",
+          "bytes": 218303,
+          "sha256": "fd413e7c8a456f72adc9fe2f9376b15d2281ddddf5e6256fca02c74aa405d1b3",
+          "visible": [
+            "Yao_capsule_of_lymph_node"
+          ],
+          "finish": "source",
+          "cameraM": [
+            0.015030279755592346,
+            -0.14086270332336426,
+            0.3367912769317627
+          ],
+          "targetM": [
+            -0.0008988305926322937,
+            -0.07160570472478867,
+            0.32848042249679565
+          ],
+          "orthoScaleM": 0.023849850334227082
+        },
+        {
+          "file": "candidate-primary-regions.png",
+          "bytes": 208796,
+          "sha256": "34d5a9b0252ca3ec02dc8f0b50ab5672d5f859d8e37ce996dfbb998dad31cfc7",
+          "visible": [
+            "Yao_follicles",
+            "Yao_paracortex",
+            "Yao_medulla_of_lymph_node"
+          ],
+          "finish": "source",
+          "cameraM": [
+            0.015030279755592346,
+            -0.14086270332336426,
+            0.3367912769317627
+          ],
+          "targetM": [
+            -0.0008988305926322937,
+            -0.07160570472478867,
+            0.32848042249679565
+          ],
+          "orthoScaleM": 0.023849850334227082
+        },
+        {
+          "file": "candidate-reverse-capsule.png",
+          "bytes": 229161,
+          "sha256": "adda26aaf147741b2bb81b4af43bd5d896fc9f8c74dce9adc3a74a788a89a6d6",
+          "visible": [
+            "Yao_capsule_of_lymph_node"
+          ],
+          "finish": "source",
+          "cameraM": [
+            -0.05130711942911148,
+            -0.11632275581359863,
+            0.2951458990573883
+          ],
+          "targetM": [
+            -0.0008988305926322937,
+            -0.07160571962594986,
+            0.32848042249679565
+          ],
+          "orthoScaleM": 0.025059482827782628
+        },
+        {
+          "file": "candidate-reverse-regions.png",
+          "bytes": 235157,
+          "sha256": "f4e093549590fe86a4b52ae28136b236c1db4982e1cde22b99fafcef2fa0a560",
+          "visible": [
+            "Yao_follicles",
+            "Yao_paracortex",
+            "Yao_medulla_of_lymph_node"
+          ],
+          "finish": "source",
+          "cameraM": [
+            -0.05130711942911148,
+            -0.11632275581359863,
+            0.2951458990573883
+          ],
+          "targetM": [
+            -0.0008988305926322937,
+            -0.07160571962594986,
+            0.32848042249679565
+          ],
+          "orthoScaleM": 0.025059482827782628
+        },
+        {
+          "file": "candidate-primary-neutral-capsule.png",
+          "bytes": 210763,
+          "sha256": "8513c0c15364a4d6b1cf985c7fabd2cb77eaf031623e53fad6a463c6446ad1c8",
+          "visible": [
+            "Yao_capsule_of_lymph_node"
+          ],
+          "finish": "neutral",
+          "cameraM": [
+            0.015030279755592346,
+            -0.14086270332336426,
+            0.3367912769317627
+          ],
+          "targetM": [
+            -0.0008988305926322937,
+            -0.07160570472478867,
+            0.32848042249679565
+          ],
+          "orthoScaleM": 0.023849850334227082
+        },
+        {
+          "file": "candidate-primary-neutral-regions.png",
+          "bytes": 208063,
+          "sha256": "027b0b67bb0d77982b7d60214e1978fdbe43deff922c1f8306ae5bd233361466",
+          "visible": [
+            "Yao_follicles",
+            "Yao_paracortex",
+            "Yao_medulla_of_lymph_node"
+          ],
+          "finish": "neutral",
+          "cameraM": [
+            0.015030279755592346,
+            -0.14086270332336426,
+            0.3367912769317627
+          ],
+          "targetM": [
+            -0.0008988305926322937,
+            -0.07160570472478867,
+            0.32848042249679565
+          ],
+          "orthoScaleM": 0.023849850334227082
+        },
+        {
+          "file": "candidate-reverse-neutral-capsule.png",
+          "bytes": 224540,
+          "sha256": "ce8992ffa798c6ce9bfcd1f9ec432a5a4e5422ee3e37d2e98ceccb8ed5a0a3af",
+          "visible": [
+            "Yao_capsule_of_lymph_node"
+          ],
+          "finish": "neutral",
+          "cameraM": [
+            -0.05130711942911148,
+            -0.11632275581359863,
+            0.2951458990573883
+          ],
+          "targetM": [
+            -0.0008988305926322937,
+            -0.07160571962594986,
+            0.32848042249679565
+          ],
+          "orthoScaleM": 0.025059482827782628
+        },
+        {
+          "file": "candidate-reverse-neutral-regions.png",
+          "bytes": 230401,
+          "sha256": "78943390c2c6111b15d7e99351e4d71da8d3768a3a9e98db89d07f17add7f4a5",
+          "visible": [
+            "Yao_follicles",
+            "Yao_paracortex",
+            "Yao_medulla_of_lymph_node"
+          ],
+          "finish": "neutral",
+          "cameraM": [
+            -0.05130711942911148,
+            -0.11632275581359863,
+            0.2951458990573883
+          ],
+          "targetM": [
+            -0.0008988305926322937,
+            -0.07160571962594986,
+            0.32848042249679565
+          ],
+          "orthoScaleM": 0.025059482827782628
+        },
+        {
+          "file": "candidate-primary-follicles.png",
+          "bytes": 176049,
+          "sha256": "8c29c119b5b0508a16ccedacf149517773464059b7fed94258b4e06c43f849eb",
+          "visible": [
+            "Yao_follicles"
+          ],
+          "finish": "source",
+          "cameraM": [
+            0.015030279755592346,
+            -0.14086270332336426,
+            0.3367912769317627
+          ],
+          "targetM": [
+            -0.0008988305926322937,
+            -0.07160570472478867,
+            0.32848042249679565
+          ],
+          "orthoScaleM": 0.023849850334227082
+        },
+        {
+          "file": "candidate-primary-paracortex.png",
+          "bytes": 191295,
+          "sha256": "b93fe4d6f73befae4f10f9df24dd83fe7995eeb65a1363c47db877ad7b221b7d",
+          "visible": [
+            "Yao_paracortex"
+          ],
+          "finish": "source",
+          "cameraM": [
+            0.015030279755592346,
+            -0.14086270332336426,
+            0.3367912769317627
+          ],
+          "targetM": [
+            -0.0008988305926322937,
+            -0.07160570472478867,
+            0.32848042249679565
+          ],
+          "orthoScaleM": 0.023849850334227082
+        },
+        {
+          "file": "candidate-primary-medulla.png",
+          "bytes": 184286,
+          "sha256": "417c1669666eb9e1be7e30a7422f994ed8a0e4b504c338a22e8a4bc9a174a5c5",
+          "visible": [
+            "Yao_medulla_of_lymph_node"
+          ],
+          "finish": "source",
+          "cameraM": [
+            0.015030279755592346,
+            -0.14086270332336426,
+            0.3367912769317627
+          ],
+          "targetM": [
+            -0.0008988305926322937,
+            -0.07160570472478867,
+            0.32848042249679565
+          ],
+          "orthoScaleM": 0.023849850334227082
+        }
+      ],
+      "triangles": {
+        "Yao_capsule_of_lymph_node": 9442,
+        "Yao_follicles": 5758,
+        "Yao_medulla_of_lymph_node": 88351,
+        "Yao_paracortex": 10910
+      },
+      "world_matrices": {
+        "Yao_capsule_of_lymph_node": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "Yao_follicles": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "Yao_medulla_of_lymph_node": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "Yao_paracortex": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ]
+      }
+    }
+  }
+}

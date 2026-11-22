@@ -9,12 +9,13 @@ import { useDataApp } from '../../data-app-public.jsx';
 import { componentPermalinkId, componentPermalinkShortId, readComponentPermalink } from '../../chart-permalink.js';
 import { Library, Revision, CollectionEntry } from './Library.jsx';
 import teachingReview from './teaching-inputs/teaching-assessments.json';
-import { libraryAliases, libraryRows } from './library-data.js';
+import { libraryAliases, libraryRows, selectExactExport } from './library-data.js';
 import { firstForkPath, isLoopbackGallery } from './local-models.js';
 import { UseCases, Lesson } from './UseCases.jsx';
 import { Planning, surveyCoverageId } from './Planning.jsx';
 import { Systems } from './Systems.jsx';
 import { Compare } from './Compare.jsx';
+import { Refinements, TeachingTarget } from './Refinements.jsx';
 import { BodyPartsReview } from './BodyPartsReview.jsx';
 import { SalivaryLesson, SalivaryReview } from './Salivary.jsx';
 import { Archive, DentalFilms } from './Archive.jsx';
@@ -142,9 +143,12 @@ export function Gallery() {
       const rows = libraryRows(snapshot, teachingReview, { localPreview });
       const canonical = Object.hasOwn(libraryAliases, id) ? libraryAliases[id] : id;
       const row = rows.find((entry) => entry.id === canonical);
-      const exact = row?.history.find((record) => record.revision === revision ||
+      const record = row?.history.find((record) => record.revision === revision ||
         (!revision && (record === row.recommended || record.library === salivary.library || record.library === row.exactLibrary)));
-      if (!id) page = <Library rows={rows} query={query} />;
+      const file = new URLSearchParams(query).get('file');
+      const exact = selectExactExport(record, file);
+      if (file && !exact) page = <Missing />;
+      else if (!id) page = <Library rows={rows} query={query} />;
       else if (id === libraryId) {
         const selected = revision || adrenalLibrary.recommended;
         const study = row.history.find((record) => record.revision === selected);
@@ -154,8 +158,8 @@ export function Gallery() {
         page = <CollectionEntry row={row} snapshot={snapshot} exact={exact} lessonQuery={detail ? '?from=' + detail : ''} />;
       }
     } else if (surface === 'use-cases' && (!id || id === studyId))
-      page = id ? <Lesson stop={revision || adrenalLesson.stops[0].id} /> : <UseCases />;
-    else if (surface === 'use-cases' && id === 'systems') page = <Systems id={revision} query={query} />;
+      page = id ? <Lesson stop={revision || adrenalLesson.stops[0].id} /> : <UseCases localPreview={localPreview} />;
+    else if (surface === 'use-cases' && id === 'systems') page = <Systems id={revision} query={query} localPreview={localPreview} />;
     else if (surface === 'use-cases' && id === 'head-and-neck') page = <SalivaryLesson stop={revision} query={query} />;
     else if (surface === 'use-cases' && id === 'airway' && !revision) page = <AirwayLesson localPreview={localPreview} />;
     else if (path === '/' + firstForkPath && localPreview) page = <FirstForkLesson />;
@@ -169,13 +173,17 @@ export function Gallery() {
       page = <DentalArch arch={revision} />;
     else if (surface === 'use-cases' && Object.hasOwn(pathways, id))
       page = <PathwayLesson key={id} id={id} lang={revision} query={query} />;
+    else if (path === '/compare/teaching-target' && localPreview)
+      page = <TeachingTarget assessments={teachingReview.campaign} query={query} />;
+    else if (path === '/compare/teaching-refinements' && localPreview)
+      page = <Refinements assessments={teachingReview.campaign} query={query} />;
     else if (surface === 'compare' && staticReview) page = <StaticReview key={path} study={staticReview} chapter={revision} />;
     else if (surface === 'compare' && !revision && airwayReview) page = <AirwayReview study={airwayReview} />;
     else if (surface === 'compare' && !revision && id === 'salivary-native-r02') page = <SalivaryReview />;
     else if (surface === 'compare' && !revision && id === bodyPartsAdrenal.id)
       page = <BodyPartsReview />;
     else if (surface === 'compare' && !revision && (!id || id === reviewId))
-      page = <Compare detail={!!id} query={query} />;
+      page = <Compare detail={!!id} query={query} refinements={localPreview && teachingReview.campaign.some((row) => row.refinement)} />;
     else if (surface === 'stage' && !revision) page = <Stage key={raw} id={id} query={query} localPreview={localPreview} />;
     else if (surface === 'rubric' && !id) page = <Rubric />;
     else if (surface === 'archive' && !id) page = <Archive />;

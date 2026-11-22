@@ -1,0 +1,150 @@
+{
+  "browser": "157.0.8103.80",
+  "checked": [
+    {
+      "version": "gallbladder-section-v1",
+      "model": "models/gallbladder/exports/metadata-cleanup-r01/gallbladder.glb",
+      "sha256": "faa06e38130b3f63cc0094914eeb9adfb874ba2a2dc78da49e1c255c1f740227",
+      "firstSelection": "Source exterior",
+      "alternateSelection": "Authored section",
+      "position": [
+        -0.026590300000000032,
+        -0.06468190000000003,
+        0.285867
+      ]
+    },
+    {
+      "version": "stomach-section-v1",
+      "model": "models/stomach/exports/metadata-cleanup-r01/stomach.glb",
+      "sha256": "ad0876f37f92945171750d31d9c53165535a697e60a3d2ac8a3f3f78667fdec6",
+      "firstSelection": "Source exterior",
+      "alternateSelection": "Authored section",
+      "position": [
+        0.09040530000000002,
+        -0.012419400000000025,
+        0.3918734000000001
+      ]
+    },
+    {
+      "version": "cardiac-wall-motion-v1",
+      "model": "heart/Cardiac_Atlas_Animated/Heart_Clinical_Animated.glb",
+      "sha256": "6912d439271c3525230a90fe403d586000e6a66ab37f82bf0419604181e52263",
+      "firstSelection": "Wall and fixed aorta",
+      "alternateSelection": "Whole heart",
+      "phase": 0.417,
+      "position": [
+        0.2382792000000001,
+        0.0581365,
+        -0.20693888000000002
+      ]
+    },
+    {
+      "version": "posterior-parathyroids-v1",
+      "model": "models/parathyroids/exports/z-localization-r01/parathyroids_thyroid_context.glb",
+      "sha256": "7759008c5682ac76e77f39f68f5cd421ea42cfe5252cebe9bd82ecc54dc04345",
+      "firstSelection": "Posterior thyroid and glands",
+      "alternateSelection": "Glands alone",
+      "position": [
+        1.83697019872103e-17,
+        1.472,
+        -0.14
+      ]
+    },
+    {
+      "version": "stomach-section-v2",
+      "model": "models/stomach/exports/teaching-economy-r02/stomach.glb",
+      "sha256": "1afedcb4412b0833e07eded5276913250b37d82bbffda578d2e18110021d2452",
+      "firstSelection": "Source exterior",
+      "alternateSelection": "Authored section",
+      "position": [
+        0.09040530000000002,
+        -0.012419400000000025,
+        0.3918734000000001
+      ]
+    },
+    {
+      "version": "lymph-node-tissues-v2",
+      "model": "models/lymph_node/exports/tissue-color-pack-r02/lymph-node.glb",
+      "sha256": "d0b8ac731f187c10e1c7f23a15d6f4ec285b7727cc98bf9feed26fb97e5ee692",
+      "firstSelection": "Capsule",
+      "alternateSelection": "Named tissue regions",
+      "position": [
+        0.015029999999999998,
+        0.336791,
+        0.140863
+      ]
+    },
+    {
+      "version": "lymph-node-tissues-v1",
+      "model": "models/lymph_node/exports/hra-tissue-layers-r01/lymph-node-tissue-layers.glb",
+      "sha256": "bf4ffa85c96459f2666949196915244697f3f5e33ebf485482c8223ba1fcb23e",
+      "firstSelection": "Capsule",
+      "alternateSelection": "Named tissue regions",
+      "position": [
+        0.015029999999999998,
+        0.336791,
+        0.140863
+      ]
+    },
+    {
+      "version": "cardiac-wall-motion-v2",
+      "model": "heart/Cardiac_Atlas_Animated/exports/wall-motion-r01/ventricular-wall-motion.glb",
+      "sha256": "a57fc0eec4cb8d26dfc50ff0db9360fea346a12096236b64f9d4492695c72905",
+      "firstSelection": "Wall and fixed aorta",
+      "alternateSelection": "Ventricular wall",
+      "phase": 0.417,
+      "position": [
+        0.2382792000000001,
+        0.0581365,
+        -0.20693888000000002
+      ]
+    },
+    {
+      "model": "models/liver/exports/teaching-economy-r02/liver.glb",
+      "sha256": "5978654a1e5b8ac608735dde82434e3fe67c1e1883930c4fa1b60d53fe85dd7d",
+      "meshSelections": 8,
+      "stageSelection": "VH_F_bare_area_of_liver"
+    },
+    {
+      "model": "models/muscle/exports/teaching-economy-r02/muscle_z_native_frame.glb",
+      "sha256": "5bd6e93d1daee826f05f9578a036f06480203517f5c3817127277b8e5c934ac3",
+      "meshSelections": 509,
+      "stageSelection": "Clavicular head of pectoralis major muscle.r [candidate]"
+    },
+    {
+      "model": "models/brain/exports/teaching-economy-r02/brain-source-frame.glb",
+      "sha256": "fbd8034279b9119ffb8e7ee5e99208c06c5851d18be753283e8a871a6f1aec3a",
+      "meshSelections": 49,
+      "stageSelection": "cerebellum | FJ1781"
+    },
+    {
+      "model": "models/spinal_cord/exports/teaching-economy-r02/candidate.glb",
+      "sha256": "eba3e49c05e2f1a4f2c08b107eefa48eb32d14796dd1ce5bac9413138b404ca9",
+      "meshSelections": 104,
+      "stageSelection": "Representative dorsal root upper 7 side1"
+    },
+    {
+      "model": "models/trachea/exports/teaching-economy-r02/trachea-open.glb",
+      "sha256": "814dff70dee2f62b7dcb13ee2a3fcde36b6579e440ab10bc38a758be347e97c8",
+      "meshSelections": 19,
+      "stageSelection": "Authored illustrative C-band 8"
+    }
+  ],
+  "stomachTexturedFrameSha256": {
+    "stomach-section-v1": [
+      "88360082419fcd89742a351cba13f2deb97a5cbf0448f5bd0472d99f7b738c6e",
+      "e6bd80292ad8a7de7dee3a8174d7ecef71192f36ad13f7a150f076762da2cc24"
+    ],
+    "stomach-section-v2": [
+      "88360082419fcd89742a351cba13f2deb97a5cbf0448f5bd0472d99f7b738c6e",
+      "e6bd80292ad8a7de7dee3a8174d7ecef71192f36ad13f7a150f076762da2cc24"
+    ]
+  },
+  "lymphSelections": [
+    "Capsule",
+    "Named tissue regions",
+    "Follicles",
+    "Paracortex",
+    "Medulla"
+  ]
+}

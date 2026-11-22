@@ -1,0 +1,950 @@
+[
+  {
+    "name": "skin",
+    "path": "models/skin/exports/bp3d-envelope-r01/skin_source_frame.glb",
+    "sha256": "d86719833a17dc7b45c8eb970498f1e2feefd352b5812942f4b147a9ffcfbe4f",
+    "bytes": 4901132,
+    "task": "Point to the shoulders, waist and hip landmarks on the adult body outline from front and side.",
+    "plan": "reuse",
+    "worldSpan": 1.94300251,
+    "rules": [],
+    "views": [
+      {
+        "direction": [
+          0,
+          -1,
+          0
+        ]
+      },
+      {
+        "direction": [
+          0.7,
+          -1,
+          0.18
+        ],
+        "palette": false
+      }
+    ],
+    "candidate": {
+      "path": ".artifacts/skin-navigation-trial/build/skin_navigation_trial.glb",
+      "triangles": 144188,
+      "sha256": "e89de0c33f094e76ba909ba1d5a46a46cf994c0850c080abbf4be43993600b9d",
+      "bytes": 3480472
+    }
+  },
+  {
+    "name": "aortic_tree_z",
+    "path": "models/aortic_tree_z/exports/r02/aortic_tree_z_source_frame.glb",
+    "sha256": "d4b3dbd2d09fd76795f47bb96844acdeba5f1b4f48dd630f2a294f33816deaeb",
+    "bytes": 881168,
+    "task": "Locate the brachiocephalic/right-carotid composite, left common carotid and left subclavian at the aortic arch.",
+    "plan": "static",
+    "worldSpan": 0.67239738,
+    "rules": [
+      {
+        "match": "iliac|renal",
+        "ratio": 0.42,
+        "minTriangles": 1200,
+        "edgePx": 24
+      },
+      {
+        "match": "ascending aorta",
+        "ratio": 0.58,
+        "minTriangles": 1800,
+        "lockBand": [
+          1,
+          0.73,
+          1
+        ]
+      }
+    ],
+    "views": [
+      {
+        "direction": [
+          0.25,
+          -1,
+          0.17
+        ]
+      },
+      {
+        "direction": [
+          0.2,
+          -1,
+          0.2
+        ],
+        "zoom": 0.46,
+        "offset": [
+          0,
+          0,
+          0.15
+        ],
+        "palette": false
+      }
+    ]
+  },
+  {
+    "name": "heart",
+    "path": "heart/Cardiac_Atlas/exports/Cardiac_Atlas_Clinical_Full_ED.glb",
+    "sha256": "32802a9a36963c2f8935f632f28ba3602d1ce004919e5e203ff87bbdcb52fa2f",
+    "bytes": 4864488,
+    "task": "Distinguish the pulmonary trunk from the aortic arch on the procedural heart\u2019s full static ED exterior.",
+    "plan": "static",
+    "worldSpan": 0.17237931,
+    "rules": [
+      {
+        "match": "complete wall mesh",
+        "ratio": 0.52,
+        "minTriangles": 1800,
+        "edgePx": 18
+      },
+      {
+        "match": "papillary muscle",
+        "ratio": 0.65,
+        "minTriangles": 1800,
+        "edgePx": 13
+      }
+    ],
+    "views": [
+      {
+        "direction": [
+          0.42,
+          -1,
+          0.1
+        ]
+      },
+      {
+        "direction": [
+          0.2,
+          -1,
+          0.24
+        ],
+        "focus": "Aorta | root|Pulmonary trunk",
+        "zoom": 0.92,
+        "palette": false
+      }
+    ]
+  },
+  {
+    "name": "large-intestine",
+    "path": "models/large-intestine/exports/source-candidate-v4/large-intestine.glb",
+    "sha256": "a8bd8f8227a3cf53b5aa63bb234c1bcb182bfa432da5eb2e3488788f829df4f5",
+    "bytes": 7882016,
+    "task": "Follow the large bowel exterior around the colon and identify the segmental wall contour and longitudinal taenia cues.",
+    "plan": "static",
+    "worldSpan": 0.34675655,
+    "rules": [
+      {
+        "match": "FJ2565",
+        "ratio": 0.58,
+        "minTriangles": 1800,
+        "edgePx": 18
+      }
+    ],
+    "views": [
+      {
+        "direction": [
+          0.25,
+          -1,
+          0.17
+        ]
+      },
+      {
+        "direction": [
+          -0.24,
+          -1,
+          0.25
+        ],
+        "zoom": 0.67,
+        "palette": false
+      }
+    ]
+  },
+  {
+    "name": "liver",
+    "path": "models/liver/exports/hra-female-v1.10-r02/liver.glb",
+    "sha256": "e9abb0c2503a3fa9d725988451e630283ec2c902c182b812219f2d73f3ab1038",
+    "bytes": 763480,
+    "task": "Find the posterior bare area relative to the anterior surface of the HRA liver.",
+    "plan": "static",
+    "worldSpan": 0.27923146,
+    "rules": [
+      {
+        "match": "capsule",
+        "ratio": 0.55,
+        "minTriangles": 1800,
+        "edgePx": 18
+      }
+    ],
+    "views": [
+      {
+        "direction": [
+          0.25,
+          -1,
+          0.17
+        ]
+      },
+      {
+        "direction": [
+          0.22,
+          1,
+          0.24
+        ],
+        "palette": true
+      }
+    ],
+    "retainFailedPreview": true,
+    "checkLossless": true
+  },
+  {
+    "name": "small-intestine",
+    "path": "models/small-intestine/exports/source-candidate-v4/small-intestine.glb",
+    "sha256": "a9459afc67cb13c28084b518615fdbb5e05c135a47eafa3036908139aece94da",
+    "bytes": 2366552,
+    "task": "Find the proximal attachment region and point out the folded small-bowel loops without inferring a continuous path.",
+    "plan": "morph",
+    "worldSpan": 0.30640185,
+    "rules": [
+      {
+        "match": "FJ2573",
+        "ratio": 0.62,
+        "edgePx": 13,
+        "maxPx": 0.85,
+        "lockBand": [
+          1,
+          0.75,
+          1
+        ]
+      }
+    ],
+    "views": [
+      {
+        "direction": [
+          0.25,
+          -1,
+          0.17
+        ]
+      },
+      {
+        "direction": [
+          -0.45,
+          -1,
+          0.2
+        ],
+        "zoom": 0.78,
+        "palette": false,
+        "offset": [
+          0,
+          0,
+          0.047
+        ]
+      }
+    ]
+  },
+  {
+    "name": "tongue_authored_study",
+    "path": "models/tongue_authored_study/exports/authored-p11/tongue-authored-hra-hybrid-p11.glb",
+    "sha256": "efabd58b235b72682f067113cf079e3f70fbaceac47062f2b937f09540c1ee1a",
+    "bytes": 4983044,
+    "task": "Identify the dorsum, median line and posterior papillae on the gross tongue exterior.",
+    "plan": "static",
+    "worldSpan": 0.08125825,
+    "rules": [
+      {
+        "match": "AUTHORED body",
+        "ratio": 0.48,
+        "minTriangles": 1800,
+        "edgePx": 16
+      }
+    ],
+    "views": [
+      {
+        "direction": [
+          0.15,
+          -0.42,
+          1
+        ]
+      },
+      {
+        "direction": [
+          0.68,
+          0.3,
+          0.65
+        ],
+        "palette": false
+      }
+    ]
+  },
+  {
+    "name": "breasts_hra",
+    "path": "models/breasts_hra/exports/source-candidate-02/breasts_hra_native_frame.glb",
+    "sha256": "905865c4382fb109d14fca74c8ffe809e190f44e9d3086144c3d1d7c3be53964",
+    "bytes": 37499672,
+    "task": "Locate each areola on the external breast and distinguish its surface position from the posteriorly visible atlas layers.",
+    "plan": "static",
+    "worldSpan": 0.32647303,
+    "rules": [
+      {
+        "match": "fat_",
+        "ratio": 0.56,
+        "minTriangles": 1800,
+        "edgePx": 19
+      },
+      {
+        "match": "mammary_lobes",
+        "ratio": 0.57,
+        "minTriangles": 1800,
+        "edgePx": 12
+      },
+      {
+        "match": "suspensory",
+        "ratio": 0.68,
+        "minTriangles": 1800,
+        "edgePx": 8
+      }
+    ],
+    "views": [
+      {
+        "direction": [
+          0.25,
+          -1,
+          0.17
+        ]
+      },
+      {
+        "direction": [
+          0.2,
+          1,
+          0.15
+        ],
+        "palette": false
+      }
+    ]
+  },
+  {
+    "name": "placenta",
+    "path": "models/placenta/exports/hra-v1.1-r02/placenta_full_term.glb",
+    "sha256": "7f9f215f810003fddc76ede225f051dc7014c67216e804403a4632d628ad82aa",
+    "bytes": 4917576,
+    "task": "Distinguish the fetal cord-bearing surface from the lobulated maternal surface of the full-term placenta.",
+    "plan": "static",
+    "worldSpan": 0.28351392,
+    "rules": [
+      {
+        "match": "umbilical_(artery|vein)",
+        "ratio": 0.44,
+        "minTriangles": 1800,
+        "edgePx": 11
+      },
+      {
+        "match": "cord|amnion",
+        "ratio": 0.68,
+        "minTriangles": 1800,
+        "edgePx": 14
+      }
+    ],
+    "views": [
+      {
+        "direction": [
+          0.38,
+          -0.84,
+          0.65
+        ]
+      },
+      {
+        "direction": [
+          -0.39,
+          1,
+          -0.27
+        ],
+        "palette": true
+      }
+    ]
+  },
+  {
+    "name": "prostate",
+    "path": "models/prostate/exports/hra-v1.1/VH_M_Prostate.glb",
+    "sha256": "ec1023e0a1b81f71865872bb720404abc7bb6378a54ac71fa9f24579b097f48a",
+    "bytes": 4086328,
+    "task": "Distinguish the prostate gland outline below the paired seminal vesicles and identify the proximal source ducts.",
+    "plan": "static",
+    "worldSpan": 0.09375745,
+    "rules": [
+      {
+        "match": "prostatic_utricle|prostate_duct",
+        "ratio": 0.52,
+        "minTriangles": 1800,
+        "edgePx": 13
+      }
+    ],
+    "views": [
+      {
+        "direction": [
+          0.25,
+          -1,
+          0.17
+        ]
+      },
+      {
+        "direction": [
+          0.18,
+          1,
+          0.4
+        ],
+        "palette": false
+      }
+    ]
+  },
+  {
+    "name": "kidney_left",
+    "path": "models/kidney_left/exports/hra-female-v1.3-r02/kidney_left.glb",
+    "sha256": "8e55b5ae48821f067f41bd23ffdd668f68c7ff705cf49e9a40287042fee469fc",
+    "bytes": 1378060,
+    "task": "Find the left kidney medial hilum and orient the retained exterior.",
+    "plan": "static",
+    "worldSpan": 0.1410877,
+    "rules": [
+      {
+        "match": "renal_column|outer_cortex",
+        "ratio": 0.5,
+        "minTriangles": 1800,
+        "edgePx": 20
+      },
+      {
+        "match": "capsule",
+        "ratio": 0.65,
+        "minTriangles": 1800,
+        "edgePx": 14
+      }
+    ],
+    "views": [
+      {
+        "direction": [
+          -1,
+          -0.6,
+          0.1
+        ]
+      },
+      {
+        "direction": [
+          0.9,
+          1,
+          0.2
+        ],
+        "palette": false
+      }
+    ],
+    "retainFailedPreview": true,
+    "checkLossless": true
+  },
+  {
+    "name": "kidney_right",
+    "path": "models/kidney_right/exports/hra-female-v1.3-r02/kidney_right.glb",
+    "sha256": "977d0a283de7071a2e8aaeb8900c5a6dc8d0ba770eb458e996dc66cc249c0b56",
+    "bytes": 1403576,
+    "task": "Find the right kidney medial hilum and distinguish it from the smooth convex exterior.",
+    "plan": "static",
+    "worldSpan": 0.11057582,
+    "rules": [
+      {
+        "match": "renal_column|outer_cortex",
+        "ratio": 0.5,
+        "minTriangles": 1800,
+        "edgePx": 20
+      },
+      {
+        "match": "capsule",
+        "ratio": 0.65,
+        "minTriangles": 1800,
+        "edgePx": 14
+      }
+    ],
+    "views": [
+      {
+        "direction": [
+          1,
+          -0.6,
+          0.1
+        ]
+      },
+      {
+        "direction": [
+          -0.9,
+          1,
+          0.2
+        ],
+        "palette": false
+      }
+    ],
+    "retainFailedPreview": true,
+    "checkLossless": true
+  },
+  {
+    "name": "blood_cell_study",
+    "path": "models/blood_cell_study/exports/authored-r05/blood-cell-authored-study-r05.glb",
+    "sha256": "4c7c738b3ca6ae6cc7e44a449be0f7d26d04ceb9975e43d3b834a2caad96618c",
+    "bytes": 3461004,
+    "task": "Distinguish erythrocytes face-on and edge-on, then locate the segmented neutrophil nucleus in the opening.",
+    "plan": "static",
+    "worldSpan": 11.41922118,
+    "rules": [
+      {
+        "match": "RBC|Sphere.003",
+        "ratio": 0.46,
+        "minTriangles": 1800,
+        "edgePx": 16
+      },
+      {
+        "match": "^Sphere(\\.005)? #",
+        "ratio": 0.54,
+        "minTriangles": 1800,
+        "edgePx": 16
+      },
+      {
+        "match": "Sphere.004 #0",
+        "ratio": 0.6,
+        "minTriangles": 1800,
+        "edgePx": 12
+      }
+    ],
+    "views": [
+      {
+        "direction": [
+          0.02,
+          -1,
+          0.18
+        ]
+      },
+      {
+        "direction": [
+          0.18,
+          -1,
+          0.25
+        ],
+        "focus": "NEUTROPHIL_CUTAWAY",
+        "zoom": 1.35,
+        "palette": false,
+        "visible": "NEUTROPHIL_CUTAWAY|GRANULE_CUTAWAY"
+      }
+    ]
+  },
+  {
+    "name": "bone_marrow",
+    "path": "models/bone_marrow/exports/authored-source-cutaway-r05/marrow_cutaway.glb",
+    "sha256": "7b21b74fb3712b2816801337bd4d0732ef8bb035a999ad36558b8235609cfe02",
+    "bytes": 8770012,
+    "task": "Locate the authored trabecular network inside the cut proximal femur and distinguish it from the outer rim.",
+    "plan": "reuse",
+    "worldSpan": 0.16299008,
+    "rules": [],
+    "views": [
+      {
+        "direction": [
+          0.7,
+          -1,
+          0.15
+        ]
+      },
+      {
+        "direction": [
+          0,
+          -1,
+          0.1
+        ],
+        "zoom": 0.73,
+        "offset": [
+          0,
+          0,
+          0.025
+        ],
+        "palette": false
+      }
+    ],
+    "candidate": {
+      "path": ".artifacts/taq-009/replay/strong.glb",
+      "triangles": 179612,
+      "sha256": "98c2e5ababce25387867803659b77f04ff1849d29c48fab65ad09b387e75b3d7",
+      "bytes": 4218116
+    }
+  },
+  {
+    "name": "muscle",
+    "path": "models/muscle/exports/z-anatomy-r02/muscle_z_native_frame.glb",
+    "sha256": "7081144bdbca0d2d871311a3568a0aedb1c8e125f7709ae8e7d55345a54bdfb7",
+    "bytes": 30517312,
+    "task": "Locate the superficial chest and abdominal muscle surfaces anteriorly and the paired shoulder/back groups posteriorly.",
+    "plan": "static",
+    "worldSpan": 1.92227215,
+    "rules": [
+      {
+        "match": "deltoid|pectoral|oblique|rectus abdominis|trapezius|latissimus",
+        "ratio": 0.75,
+        "minTriangles": 5500,
+        "edgePx": 13
+      },
+      {
+        "match": ".",
+        "ratio": 0.48,
+        "minTriangles": 10500,
+        "edgePx": 14
+      }
+    ],
+    "views": [
+      {
+        "direction": [
+          0.14,
+          -1,
+          0.1
+        ]
+      },
+      {
+        "direction": [
+          -0.16,
+          1,
+          0.12
+        ],
+        "zoom": 0.63,
+        "offset": [
+          0,
+          0,
+          0.28
+        ],
+        "palette": false
+      }
+    ]
+  },
+  {
+    "name": "skeleton",
+    "path": "models/skeleton/exports/source-candidate-03/skeleton_source_frame.glb",
+    "sha256": "d224985628cc62d0c9c4284019b73505c9ebf14d78d30a040d74a7b33c68620e",
+    "bytes": 12705356,
+    "task": "Orient the skull, rib cage and pelvis, then distinguish the appendicular bones from the axial trunk.",
+    "plan": "static",
+    "worldSpan": 1.92862744,
+    "rules": [
+      {
+        "match": ".",
+        "ratio": 0.57,
+        "minTriangles": 5000,
+        "edgePx": 11
+      }
+    ],
+    "views": [
+      {
+        "direction": [
+          0.25,
+          -1,
+          0.17
+        ]
+      },
+      {
+        "direction": [
+          0.25,
+          -1,
+          0.17
+        ],
+        "zoom": 0.62,
+        "offset": [
+          0,
+          0,
+          0.23
+        ],
+        "palette": false
+      }
+    ]
+  },
+  {
+    "name": "ears_z",
+    "path": "models/ears_z/exports/r04/ears_z.glb",
+    "sha256": "04ba664cdc219dc7b78e80ddb2b1d5ff39ffe4438bd0ab1bf63c2221c46f5939",
+    "bytes": 1752248,
+    "task": "Locate the outer auricular rim and distinguish it from the recessed bowl.",
+    "plan": "static",
+    "worldSpan": 0.2108124,
+    "rules": [
+      {
+        "match": ".",
+        "ratio": 0.57,
+        "minTriangles": 1800,
+        "edgePx": 10,
+        "maxPx": 0.65
+      }
+    ],
+    "views": [
+      {
+        "direction": [
+          0.18,
+          -1,
+          0.1
+        ]
+      },
+      {
+        "direction": [
+          0.88,
+          -0.59,
+          0.13
+        ],
+        "zoom": 0.55,
+        "offset": [
+          0.078,
+          0,
+          0
+        ],
+        "palette": false
+      }
+    ]
+  },
+  {
+    "name": "brain",
+    "path": "models/brain/exports/bodyparts3d-4.0-atlas-r2/brain-source-frame.glb",
+    "sha256": "26d39768e2882daee034f997a8d594e915283b5f8a176a8bb60003944a45b886",
+    "bytes": 4415384,
+    "task": "Distinguish the cerebral hemispheres, cerebellum and exposed brainstem in the exterior atlas.",
+    "plan": "static",
+    "worldSpan": 0.20340711,
+    "rules": [
+      {
+        "match": "FJ1742",
+        "ratio": 0.55,
+        "minTriangles": 1800,
+        "edgePx": 14
+      },
+      {
+        "match": ".",
+        "ratio": 0.67,
+        "minTriangles": 5500,
+        "edgePx": 10,
+        "maxPx": 0.78
+      }
+    ],
+    "views": [
+      {
+        "direction": [
+          0.76,
+          -1,
+          0.32
+        ]
+      },
+      {
+        "direction": [
+          0.74,
+          1,
+          -0.4
+        ],
+        "palette": false
+      }
+    ]
+  },
+  {
+    "name": "spinal_cord",
+    "path": "models/spinal_cord/exports/authored-roots-r04/candidate.glb",
+    "sha256": "a37783fbd1ad25ba9a2bcfbed1419a2d3f655b42cec643bf32a77266ca82a9d0",
+    "bytes": 2663288,
+    "task": "At one representative level, identify the dorsal-root swelling, separate ventral root and distal mixed-nerve union.",
+    "plan": "static",
+    "worldSpan": 0.63734214,
+    "rules": [
+      {
+        "match": "Authored cord",
+        "ratio": 0.65,
+        "minTriangles": 1800,
+        "edgePx": 14
+      },
+      {
+        "match": "ventral root descending",
+        "ratio": 0.56,
+        "minTriangles": 1800,
+        "edgePx": 8,
+        "featureZoom": 0.5,
+        "maxPx": 0.65,
+        "lockBand": [
+          1,
+          0,
+          0.18
+        ]
+      }
+    ],
+    "views": [
+      {
+        "direction": [
+          0.25,
+          -1,
+          0.17
+        ]
+      },
+      {
+        "direction": [
+          0.28,
+          -1,
+          0.31
+        ],
+        "focus": "Representative (dorsal root|ventral root|mixed nerve) upper 7 side1",
+        "zoom": 1.2,
+        "palette": true,
+        "visible": "Authored cord|Representative (dorsal root|ventral root|mixed nerve) upper 7 side1"
+      }
+    ]
+  },
+  {
+    "name": "lung_left",
+    "path": "models/lung_left/exports/metadata-cleanup-r01/lung_left.glb",
+    "sha256": "6d3a6150dc47dba0d16162738caabc1bef3fcd8cf5ab4af492dd1121c1cb8533",
+    "bytes": 2524996,
+    "task": "Find the left upper and lower lobes and follow their oblique fissure.",
+    "plan": "morph",
+    "worldSpan": 0.26162759,
+    "rules": [
+      {
+        "match": "Lower Lobe",
+        "ratio": 0.67,
+        "edgePx": 12,
+        "maxPx": 0.73,
+        "lockBand": [
+          1,
+          0.39,
+          1.0
+        ]
+      }
+    ],
+    "views": [
+      {
+        "direction": [
+          0.25,
+          -1,
+          0.17
+        ]
+      },
+      {
+        "direction": [
+          0.82,
+          -1,
+          0.27
+        ],
+        "palette": false
+      }
+    ],
+    "checkLossless": true
+  },
+  {
+    "name": "lung_pair",
+    "path": "models/lung_pair/exports/hra-female-normals-r02/lung_female_hra_normals_r02.glb",
+    "sha256": "966a4c225be028e616f6f813e8d4232582995a82b8121a42257c1be53087cb19",
+    "bytes": 23253972,
+    "task": "Compare the right three-lobe and left two-lobe arrangement in the combined HRA source specimen.",
+    "plan": "static",
+    "worldSpan": 0.28378225,
+    "rules": [
+      {
+        "match": "cartilage_of_tertiary",
+        "ratio": 0.57,
+        "minTriangles": 1800,
+        "edgePx": 7,
+        "maxPx": 0.65
+      },
+      {
+        "match": "cartilage_of_lobar",
+        "ratio": 0.65,
+        "minTriangles": 1800,
+        "edgePx": 8,
+        "maxPx": 0.67
+      }
+    ],
+    "views": [
+      {
+        "direction": [
+          0.25,
+          -1,
+          0.17
+        ]
+      },
+      {
+        "direction": [
+          0.15,
+          1,
+          0.3
+        ],
+        "focus": "cartilage",
+        "visible": "cartilage",
+        "palette": false
+      }
+    ],
+    "checkLossless": true
+  },
+  {
+    "name": "pharynx_larynx",
+    "path": "models/pharynx_larynx/exports/r03/pharynx_larynx.glb",
+    "sha256": "d691a60f12d448b9b36d362270429c672c01c7fae0f10a8789ef188dd4c08530",
+    "bytes": 5050088,
+    "task": "Find the epiglottis, thyroid cartilage and cricoid within the dissected pharyngeal exterior.",
+    "plan": "static",
+    "worldSpan": 0.13008553,
+    "rules": [
+      {
+        "match": "FJ2743|FJ2755|FJ2758|FJ2749|FJ2759|FJ2747",
+        "ratio": 0.47,
+        "minTriangles": 1800,
+        "edgePx": 20
+      }
+    ],
+    "views": [
+      {
+        "direction": [
+          0.52,
+          1,
+          0.4
+        ]
+      },
+      {
+        "direction": [
+          -0.28,
+          -1,
+          0.56
+        ],
+        "focus": "cartilage|epiglottis",
+        "zoom": 1.48,
+        "palette": false
+      }
+    ]
+  },
+  {
+    "name": "trachea",
+    "path": "models/trachea/exports/open-airway-r06/trachea-open.glb",
+    "sha256": "eb3ce52962aacc4d109a9840685aa172ca1d97bfc835367f4e36fd32de6b6cbb",
+    "bytes": 962440,
+    "task": "Locate the proximal mouth and identify the two distal outlets of the authored Y-airway shell.",
+    "plan": "static",
+    "worldSpan": 0.11950336,
+    "rules": [
+      {
+        "match": "C-band",
+        "ratio": 0.52,
+        "minTriangles": 1800,
+        "edgePx": 7,
+        "maxPx": 0.7,
+        "lockBand": [
+          2,
+          0,
+          0.18
+        ]
+      }
+    ],
+    "views": [
+      {
+        "direction": [
+          0.3,
+          -1,
+          0.53
+        ]
+      },
+      {
+        "direction": [
+          -0.21,
+          1,
+          0.32
+        ],
+        "palette": true
+      }
+    ],
+    "retainFailedPreview": true,
+    "checkLossless": true
+  }
+]

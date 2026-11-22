@@ -1,0 +1,177 @@
+{
+  "uff": {
+    "seedSourceRowColumn": [
+      506,
+      537
+    ],
+    "threshold": 80,
+    "sourceRoiOriginRowColumn": [
+      360,
+      308
+    ],
+    "roiShape": [
+      328,
+      356
+    ],
+    "sections": {
+      "965": {
+        "sourceMemberSha256": "59309a9d844623266c354f8df243feadbd235dd1b73ff17963914d06d393df39",
+        "selectedByEnclosure": 131,
+        "seededConnectedPixels": 131,
+        "touchesRoiBorder": false
+      },
+      "966": {
+        "sourceMemberSha256": "7604d207baeb8ae774e10e7856da6f8db71f2ecd449713cb8928374583fb9064",
+        "selectedByEnclosure": 137,
+        "seededConnectedPixels": 137,
+        "touchesRoiBorder": false
+      },
+      "967": {
+        "sourceMemberSha256": "b42ccc0dfc6ad480fd1535aab39b886db9b6ca53bdec46a43a1d6c0914e50043",
+        "selectedByEnclosure": 140,
+        "seededConnectedPixels": 140,
+        "touchesRoiBorder": false
+      },
+      "968": {
+        "sourceMemberSha256": "5f1effd489d0f24476338d34135956f66a82d1218f064ca0ca93fe80c752b8ac",
+        "selectedByEnclosure": 130,
+        "seededConnectedPixels": 130,
+        "touchesRoiBorder": false
+      },
+      "969": {
+        "sourceMemberSha256": "b2a88d72bf04f18467dfa1f4b6d6892662fc04e7d8bc3b149a4255b61b69f20a",
+        "selectedByEnclosure": 129,
+        "seededConnectedPixels": 129,
+        "touchesRoiBorder": false
+      },
+      "970": {
+        "sourceMemberSha256": "633822019b1c987c87a0aa969e498ef2da8ae7cfcfbfc1e84b808e6a5ff34b0f",
+        "selectedByEnclosure": 128,
+        "seededConnectedPixels": 128,
+        "touchesRoiBorder": false
+      },
+      "971": {
+        "sourceMemberSha256": "11e5f5c622f35c2f76313dcf499f1c6d016c76deccf5e32aa9c9dfc8ff3fb55c",
+        "selectedByEnclosure": 0,
+        "seededConnectedPixels": 114446,
+        "touchesRoiBorder": true
+      },
+      "972": {
+        "sourceMemberSha256": "05e0f2339856a2497720fa7831741cb23e2a5c30bdd090fb43cd88beec162373",
+        "selectedByEnclosure": 0,
+        "seededConnectedPixels": 114750,
+        "touchesRoiBorder": true
+      },
+      "973": {
+        "sourceMemberSha256": "804363db917b3388def88d8a50ebfd690f24c3bd0fbc3822ff3df5fe2d7c4eea",
+        "selectedByEnclosure": 0,
+        "seededConnectedPixels": 114909,
+        "touchesRoiBorder": true
+      },
+      "974": {
+        "sourceMemberSha256": "11a708c2adc28e124b715c2bd01144d1a63aa4460ed11725f34e43a5e872f12e",
+        "selectedByEnclosure": 0,
+        "seededConnectedPixels": 115078,
+        "touchesRoiBorder": true
+      },
+      "975": {
+        "sourceMemberSha256": "75d5899d2db001706e066edd49d41707b11dd5aada7966b0ccc67b456278347a",
+        "selectedByEnclosure": 0,
+        "seededConnectedPixels": 115258,
+        "touchesRoiBorder": true
+      }
+    }
+  },
+  "fdi31": {
+    "sourceSha256": "f4eda9fe91b60d78ece366d6f32532862775a1725c664067da5a20aae3c142fe",
+    "paths": [
+      "models/swirendo_fdi31/exports/balanced-20261028/FDI31-balanced.glb",
+      "reviews/swirendo_fdi31/2026-10-27-interface-locked/media/A_1_31_T2_SEG_na__layered.glb"
+    ],
+    "sha256": [
+      "90006e54c2b9f79f6c201397a50f92228d9ad6fa4450f20e0ad20c5fe70c19f7",
+      "c0884a6bcc8fc6175dd97a99f50e53334024b4eb5e033063c7602358f6da1014"
+    ],
+    "sourceSpacingMm": 0.04,
+    "sectionYIndex": [
+      176,
+      195,
+      214
+    ],
+    "comparison": "Sampled 2D distances in both directions. The full-field maximum uses the padded raster's artificial closing line at z=678.5. Interior witnesses and nearest 3D distances are recorded in fdi-bone-trial.json.",
+    "sections": {
+      "176": {
+        "models/swirendo_fdi31/exports/balanced-20261028/FDI31-balanced.glb": {
+          "boneSourceGridP95Mm": [
+            0.08667123205554571,
+            0.0857374825697814
+          ],
+          "boneSourceGridMaxMm": [
+            0.2571766580205505,
+            0.37926843656999576
+          ],
+          "boneSegments": 1244
+        },
+        "reviews/swirendo_fdi31/2026-10-27-interface-locked/media/A_1_31_T2_SEG_na__layered.glb": {
+          "boneSourceGridP95Mm": [
+            0.019999541331979145,
+            0.017888356084904255
+          ],
+          "boneSourceGridMaxMm": [
+            0.044721540213556364,
+            0.3805260654650775
+          ],
+          "boneSegments": 4130
+        }
+      },
+      "195": {
+        "models/swirendo_fdi31/exports/balanced-20261028/FDI31-balanced.glb": {
+          "boneSourceGridP95Mm": [
+            0.08408508940252189,
+            0.0934850103150324
+          ],
+          "boneSourceGridMaxMm": [
+            0.19575137557733124,
+            0.32952088274713404
+          ],
+          "boneSegments": 1243
+        },
+        "reviews/swirendo_fdi31/2026-10-27-interface-locked/media/A_1_31_T2_SEG_na__layered.glb": {
+          "boneSourceGridP95Mm": [
+            0.019999583040277893,
+            0.014142511811053075
+          ],
+          "boneSourceGridMaxMm": [
+            0.03887281820569617,
+            0.3405883634003879
+          ],
+          "boneSegments": 4834
+        }
+      },
+      "214": {
+        "models/swirendo_fdi31/exports/balanced-20261028/FDI31-balanced.glb": {
+          "boneSourceGridP95Mm": [
+            0.09323784412355375,
+            0.12437218001237205
+          ],
+          "boneSourceGridMaxMm": [
+            0.2333021074926497,
+            0.5145320747504413
+          ],
+          "boneSegments": 1225
+        },
+        "reviews/swirendo_fdi31/2026-10-27-interface-locked/media/A_1_31_T2_SEG_na__layered.glb": {
+          "boneSourceGridP95Mm": [
+            0.01999974685357909,
+            0.018856277199159437
+          ],
+          "boneSourceGridMaxMm": [
+            0.04472126305968023,
+            0.5059635331438549
+          ],
+          "boneSegments": 4505
+        }
+      }
+    }
+  }
+}

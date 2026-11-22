@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 1,
+  "evaluator": "Codex (agent review)",
+  "date": "2026-11-22",
+  "rubric": {
+    "path": "docs/guides/asset-quality.md",
+    "sha256": "2e91264ce7c05b6906a8f113f2e0fc888c4765cd3a6d0d6c8a26b6a420900abb",
+    "revision": "9e6e490fd67468985e2e8a8298995c730e2f55e5"
+  },
+  "assessments": [
+    {
+      "export": {
+        "path": "models/bronchial_tree/exports/first-fork-fairing-r15/bronchial-first-fork.glb",
+        "sha256": "dec2886f07745086e56a31676b96005e0741d4475782fd879f47faf15769a42e",
+        "bytes": 7401468
+      },
+      "task": "Trace the solid teaching exterior from the trunk through the first fork into both main branches.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "Clean reimport matches ordered triangle indices, node frame and all positions and normals beyond the local 24 mm support. Maximum displacement 0.791 mm. Finite-precision checks found no new nonadjacent face contacts in the moved neighborhood."
+        },
+        {
+          "score": 3,
+          "observation": "Three neutral 45 mm views show a continuous transition into both main branches after the collar and underside were softened. The prior bright spots recede. A faint local highlight remains, and the distal right lobar pocket is outside the first-fork task."
+        },
+        {
+          "score": 3,
+          "observation": "The whole view locates the split above the next branch divisions. Front and opposite close angles show the trunk dividing into two separate paths without requiring color."
+        },
+        {
+          "score": 4,
+          "observation": "Uses the r14 distal surface sampling and its protected shapes. The matched high-density r13 comparison removed 135,604 triangles, and r15 retains all 308,288 r14 triangles with 140 additional metadata bytes."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/bronchial_tree/exports/first-fork-fairing-r15/README.md",
+          "label": "Authored first-fork edition, attribution and recovery"
+        },
+        {
+          "path": "reviews/teaching-assessments/target-form/bronchial-build.json",
+          "label": "Local fairing bounds, exact control and encoded identity"
+        },
+        {
+          "path": "reviews/teaching-assessments/target-form/render.json",
+          "label": "Exact clean-import camera pairs, displacement and finite-precision contacts"
+        },
+        {
+          "path": "reviews/bronchial_tree/2026-11-21-distal-simplification-trial/README.md",
+          "label": "Same-scope distal sampling evidence against r13"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/target-form/plates/bronchial-first-fork-teaching.webp",
+          "sha256": "25f4c42dd5bd378dc9a2fbcd90758f65d17e4d006de9aedad8eaaa202d0d9281",
+          "bytes": 75748,
+          "width": 1302,
+          "height": 692,
+          "label": "Start at the trunk in the whole schema and trace the first split into both main arms from the front and opposite close angles."
+        },
+        {
+          "path": "reviews/teaching-assessments/target-form/plates/bronchial-comparison.webp",
+          "sha256": "8c5d42f88c0e2f565456f139595d837d746f17e00ed79c4f2cf4f10b171b9384",
+          "bytes": 90748,
+          "width": 1302,
+          "height": 1148,
+          "label": "Neutral r14 and r15 front, lower oblique and opposite at an identical 45 mm field."
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-form/plates/bronchial_tree.webp",
+          "sha256": "9451920c70dc5ee766db45b80bf5772017a6b3aba4aaec41c44cd7adad165bb7",
+          "bytes": 87542,
+          "width": 1328,
+          "height": 778,
+          "label": "Follow the solid trunk into the two main branches at the Y. The enlarged views mark the angular underside and collar where the authored surfaces join."
+        }
+      ],
+      "teachingView": "reviews/teaching-assessments/target-form/plates/bronchial-first-fork-teaching.webp",
+      "decision": "Use r15 to trace the first fork in the authored solid model. The historical r14 export and matched view remain available. Later branches, lumen and case-specific anatomy are outside this approval."
+    },
+    {
+      "export": {
+        "path": "models/vagina_hra/exports/teaching-context-r03/vagina_teaching_context.glb",
+        "sha256": "9147a3872fdceae2d351cd6ca069befbb82be880b770d9ef111b647ee001cd5d",
+        "bytes": 1055764
+      },
+      "task": "Locate the vaginal exterior below the cervix relative to the neighboring pelvic anatomy.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "The seven selected HRA parts retain source transforms, mesh data and their placement in the r02 atlas. Clean imports match ordered triangles and positions. The focused edition keeps the original task landmarks."
+        },
+        {
+          "score": 3,
+          "observation": "Neutral side and opposite views show the preserved exterior, cervix and junction with broad highlights at the same teaching scale. The candidate matches the earlier seven-part r02 focused selection pixel for pixel in both angles."
+        },
+        {
+          "score": 3,
+          "observation": "The labeled side presents the exterior below the cervix, bladder anterior and rectum posterior. The opposing view confirms depth and the position of the same separately selectable parts."
+        },
+        {
+          "score": 3,
+          "observation": "Seven primitives and 57,166 triangles retain the exact landmarks and neighboring structures. Selecting these parts removes 16 surfaces, 81,253 triangles and 1,662,820 GLB bytes from the full atlas delivery for this task."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/vagina_hra/exports/teaching-context-r03/README.md",
+          "label": "Focused pelvic edition, attribution and recovery"
+        },
+        {
+          "path": "reviews/teaching-assessments/target-form/economy-trials.json",
+          "label": "Clean-import exact geometry and matched selection readback"
+        },
+        {
+          "path": "models/vagina_hra/provenance/context-r02/migration-2026-10-24/ATTRIBUTION.md",
+          "label": "HRA sources and shared atlas frame"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/target-form/plates/vagina_hra-comparison.webp",
+          "sha256": "5e66ed97b1927b5182333d103e75d7bcf97e45f276c71645846d9b86635d15d8",
+          "bytes": 94090,
+          "width": 1302,
+          "height": 1074,
+          "label": "Locate the vagina below the labeled cervix in the seven-part side selection. Match the rectum and bladder in the opposite view."
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-form/plates/vagina_hra.webp",
+          "sha256": "2aa554bfd4657cd065fb9481b754c1cd56fc12d50b5ea379aea5419b26a86d0c",
+          "bytes": 81824,
+          "width": 1328,
+          "height": 778,
+          "label": "Compare the first two views at the same scale, then follow the vaginal exterior to the cervix in the enlargement. The bladder lies anteriorly and the rectum posteriorly."
+        }
+      ],
+      "teachingView": "reviews/teaching-assessments/target-form/plates/vagina_hra-comparison.webp",
+      "decision": "Use r03 for cervicovaginal exterior localization. The complete r02 atlas context remains available as an alternate. The selected exterior study does not establish mucosa, lumen or detailed tissue boundaries."
+    }
+  ]
+}

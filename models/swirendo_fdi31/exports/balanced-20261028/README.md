@@ -13,3 +13,5 @@ Source: Benz, Heck & Walter (2024), *Data: Visualization of Pulpal Structures by
 ## 中文
 
 已交付原先审阅的 Balanced 教学 LOD，未改动几何、详细候选或母版。保留原始来源标签、碎片、开放／非流形界面及截断边界；不代表健康解剖参照、临床许可或实时 WebGL／性能验证。来源、改动及 CC BY-SA 4.0 许可见上。
+
+[Registered T2 label sections](../../../../reviews/teaching-assessments/reopen-source/fdi31.webp) show the root seat and the acquisition-edge truncation. Three matched intersections compare Balanced and interface-locked bone to the original segmentation. The finer mesh follows most local bone contours more closely. A [bone-only projection trial](../../../../reviews/teaching-assessments/reopen-source/fdi31-bone-trial.webp) preserves the native-label collar, acquisition boundary and islands. The rough margin remains visible. Excluding the padded acquisition end, the largest in-plane discrepancy at y = 8.56 mm changes from 0.373 to 0.372 mm. This localized contour grazes a thin source-label component.

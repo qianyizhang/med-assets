@@ -1,0 +1,678 @@
+[
+  {
+    "family": "Body envelope",
+    "baseline": "models/skin/exports/bp3d-envelope-r01/skin_source_frame.glb",
+    "path": "models/skin/exports/teaching-economy-r01/skin_source_frame.glb",
+    "taskCheck": "Located the shoulder turns, inward waist and widening hips on the full anterior envelope and checked the same outline in oblique.",
+    "evidence": [
+      "reviews/teaching-assessments/refinement-economy/views/skin-original.webp",
+      "reviews/teaching-assessments/refinement-economy/views/skin-trial.webp",
+      "reviews/teaching-assessments/refinement-economy/measurements.json"
+    ],
+    "exemptions": {},
+    "controlAssessmentSha256": "dbacffabddb00a065eae717598da7e54cadb0a58acc57c5b00bc20fa0f9c34cd",
+    "assessmentSha256": "2156bf58ba4d0a2b40fa9e92ebe7e04428197d9873cc5d7bae55886b4f21e0e9",
+    "status": "passed",
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/skin-original.webp",
+      "sha256": "0ce97523e57891bcca116d6e70078c7f9d6dd078e67734a488fbea431793e7f6",
+      "bytes": 12556,
+      "label": "Body envelope · original reviewed view"
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/skin-trial.webp",
+      "sha256": "76da7806d6909775e2e0e4d676291f1188e78e670b4e8593440b17e97772f997",
+      "bytes": 11920,
+      "label": "Located the shoulder turns, inward waist and widening hips on the full anterior envelope and checked the same outline in oblique."
+    }
+  },
+  {
+    "family": "Aortic tree · Z",
+    "baseline": "models/aortic_tree_z/exports/r02/aortic_tree_z_source_frame.glb",
+    "path": "models/aortic_tree_z/exports/teaching-economy-r01/aortic_tree_z_source_frame.glb",
+    "taskCheck": "Found the composite first, followed by the left common carotid and left subclavian on the enlarged arch. The full view shows their orientation on the trunk.",
+    "evidence": [
+      "reviews/teaching-assessments/refinement-economy/views/aortic_tree_z-original.webp",
+      "reviews/teaching-assessments/refinement-economy/views/aortic_tree_z-trial.webp",
+      "reviews/teaching-assessments/refinement-economy/measurements.json"
+    ],
+    "exemptions": {},
+    "controlAssessmentSha256": "8261130d31f96618298bf03389edbe864f0313202904b7e094109f6b28e44228",
+    "assessmentSha256": "fd53ef70d251470b0c2fec13e114b7512c61d66aee376dd45a5b12ee6d35d99e",
+    "status": "passed",
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/aortic_tree_z-original.webp",
+      "sha256": "48da976937a39ac5535ac3d13040de669a38d7660f946dc2f8ab3a166f50667a",
+      "bytes": 9824,
+      "label": "Aortic tree · Z · original reviewed view"
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/aortic_tree_z-trial.webp",
+      "sha256": "bde7af708db15bc43cad892a78a8df9db3db97f69e4f3b47e843f7d27d24ce94",
+      "bytes": 9206,
+      "label": "Found the composite first, followed by the left common carotid and left subclavian on the enlarged arch. The full view shows their orientation on the trunk."
+    }
+  },
+  {
+    "family": "Cardiac Atlas · native & static",
+    "baseline": "heart/Cardiac_Atlas/exports/Cardiac_Atlas_Clinical_Full_ED.glb",
+    "path": "heart/Cardiac_Atlas/exports/teaching-economy-r01/Cardiac_Atlas_Clinical_Full_ED.glb",
+    "taskCheck": "Distinguished the transverse front pulmonary trunk path from the separately curved arch. The neutral enlargement confirms their ordering and separate visible ends.",
+    "evidence": [
+      "reviews/teaching-assessments/refinement-economy/views/heart-original.webp",
+      "reviews/teaching-assessments/refinement-economy/views/heart-trial.webp",
+      "reviews/teaching-assessments/refinement-economy/measurements.json"
+    ],
+    "exemptions": {},
+    "controlAssessmentSha256": "aba8322a8deb30f7fcc136e1d6f9c7ff48abe052d305986b1b35ecde423c1ff0",
+    "assessmentSha256": "416f980c4a6f95013f1a9b66051a818974669c8a6c34468e59284038233b1972",
+    "status": "passed",
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/heart-original.webp",
+      "sha256": "fdfb249011b22c0a6e33273f4b0caa7ebe0b7ca39457b74c48bf160714074528",
+      "bytes": 27116,
+      "label": "Cardiac Atlas · native & static · original reviewed view"
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/heart-trial.webp",
+      "sha256": "d68602c96c01c06ca77bccd1662877b7376423239c460a073409918cffccb79a",
+      "bytes": 26670,
+      "label": "Distinguished the transverse front pulmonary trunk path from the separately curved arch. The neutral enlargement confirms their ordering and separate visible ends."
+    }
+  },
+  {
+    "family": "Large bowel",
+    "baseline": "models/large-intestine/exports/source-candidate-v4/large-intestine.glb",
+    "path": "models/large-intestine/exports/teaching-economy-r01/large-intestine.glb",
+    "taskCheck": "Followed the colon around its exterior frame and picked out segment bulges and a raised taenia ribbon in the closer neutral view.",
+    "evidence": [
+      "reviews/teaching-assessments/refinement-economy/views/large-intestine-original.webp",
+      "reviews/teaching-assessments/refinement-economy/views/large-intestine-trial.webp",
+      "reviews/teaching-assessments/refinement-economy/measurements.json"
+    ],
+    "exemptions": {},
+    "controlAssessmentSha256": "f74d0d3f16717cb34acd9d6a6bb45e3be2c70298169ee81da7dfe80f625bccca",
+    "assessmentSha256": "ac6ba7578030dc57b8eb977efba73071e9974ecc9701ed106d9dd5a11702988f",
+    "status": "passed",
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/large-intestine-original.webp",
+      "sha256": "fdde6593bff989af9390da7d68e96663c1d93cfc84b42972e7bd9bd908300b10",
+      "bytes": 22758,
+      "label": "Large bowel · original reviewed view"
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/large-intestine-trial.webp",
+      "sha256": "7a1c9d8c88af49104d3a32d69d36c938432101be2f0627b52d3859e28fdbfc23",
+      "bytes": 21728,
+      "label": "Followed the colon around its exterior frame and picked out segment bulges and a raised taenia ribbon in the closer neutral view."
+    }
+  },
+  {
+    "family": "Liver",
+    "baseline": "models/liver/exports/hra-female-v1.10-r02/liver.glb",
+    "path": "models/liver/exports/hra-female-v1.10-r02/liver.glb",
+    "taskCheck": "Oriented from the smooth anterior capsule to the posterior bare area bounded by the thin ligaments. The bare area remains separately selectable.",
+    "evidence": [
+      "reviews/teaching-assessments/refinement-economy/views/liver-original.webp",
+      "reviews/teaching-assessments/refinement-economy/views/liver-rejected.webp",
+      "reviews/teaching-assessments/refinement-economy/measurements.json",
+      "reviews/teaching-assessments/target-economy/followup-measurements.json"
+    ],
+    "exemptions": {
+      "3": {
+        "reason": "The capsule provides the outline framing the posterior bare area. The original trial reduced it but shifted the inferior contour by 2.89 sampled teaching pixels against 1. A follow-up protected the lower band and tried shorter edges, but no capsule candidate passed. Lossless geometry repacking could save at most 828 bytes.",
+        "permittedUse": "Bare-area orientation using the full HRA capsule, posterior patch and ligament selections.",
+        "reopen": "A local capsule method retains the source bare-area and ligament contact contours and passes both directed samples and matched close views while cutting total bytes."
+      }
+    },
+    "controlAssessmentSha256": "88162ec38f89b38dcc9140fc107852ab5f46590c1f6c963fc85956c55c2f75ab",
+    "assessmentSha256": "88162ec38f89b38dcc9140fc107852ab5f46590c1f6c963fc85956c55c2f75ab",
+    "status": "passed",
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/liver-original.webp",
+      "sha256": "ac6267f1f3e471041fa1ac350ea54cb7947bd1c50a052a8f8d895768d3925b1f",
+      "bytes": 13696,
+      "width": 1280,
+      "height": 680,
+      "label": "Liver · original reviewed view"
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/liver-rejected.webp",
+      "sha256": "018dbc3bfa91230a70ec93a4151918401851db2662984a6752000852e30cb310",
+      "bytes": 14554,
+      "width": 1280,
+      "height": 680,
+      "label": "Compare the anterior surface with the posterior ligament-framed bare area. The trial shows the capsule contraction that exceeded the detail limit."
+    }
+  },
+  {
+    "family": "Small bowel",
+    "baseline": "models/small-intestine/exports/source-candidate-v4/small-intestine.glb",
+    "path": "models/small-intestine/exports/teaching-economy-r01/small-intestine.glb",
+    "taskCheck": "Found the proximal hooked attachment and identified packed loop edges in the nearer view. The task ends at the visible exterior without inferring paths through the intervening occlusions.",
+    "evidence": [
+      "reviews/teaching-assessments/refinement-economy/views/small-intestine-original.webp",
+      "reviews/teaching-assessments/refinement-economy/views/small-intestine-trial.webp",
+      "reviews/teaching-assessments/refinement-economy/measurements.json"
+    ],
+    "exemptions": {},
+    "controlAssessmentSha256": "ec980eb5ea61ef8f3c722bdc4c5c6be5b2b80d4d459e32f167fdaa9684111dea",
+    "assessmentSha256": "58f73f73ecffb80088f5e9a60e9aeb95531431d0065a032e7e8550da475c9939",
+    "status": "passed",
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/small-intestine-original.webp",
+      "sha256": "0ad131b66fd5bd016db6e32e977c394206a9a7ffa03abe4b4b6bbc1e717671da",
+      "bytes": 27178,
+      "label": "Small bowel · original reviewed view"
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/small-intestine-trial.webp",
+      "sha256": "6c059ba480768c79fb0644494ece0f4a126fe168522c52fad6d3cecbb8303131",
+      "bytes": 26118,
+      "label": "Found the proximal hooked attachment and identified packed loop edges in the nearer view. The task ends at the visible exterior rather than tracing the intervening occlusions."
+    }
+  },
+  {
+    "family": "Tongue · hybrid",
+    "baseline": "models/tongue_authored_study/exports/authored-p11/tongue-authored-hra-hybrid-p11.glb",
+    "path": "models/tongue_authored_study/exports/teaching-economy-r01/tongue-authored-hra-hybrid-p11.glb",
+    "taskCheck": "Located the dorsum and traced the median groove in the palette view. The second view revealed the row of posterior papillae.",
+    "evidence": [
+      "reviews/teaching-assessments/refinement-economy/views/tongue_authored_study-original.webp",
+      "reviews/teaching-assessments/refinement-economy/views/tongue_authored_study-trial.webp",
+      "reviews/teaching-assessments/refinement-economy/measurements.json"
+    ],
+    "exemptions": {},
+    "controlAssessmentSha256": "c6ff79f6fafcc292c4797729f99706a418af1683f3baaa78ff815c1a72397aa4",
+    "assessmentSha256": "a70e69dbbb0f4f848cec1883460523e08bea1c9220286aa5d452757d2be16c1f",
+    "status": "passed",
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/tongue_authored_study-original.webp",
+      "sha256": "dcfce674101dbce1a526a5e5740a372516b5eccd15b4eb06d141ec42920591da",
+      "bytes": 12208,
+      "label": "Tongue · hybrid · original reviewed view"
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/tongue_authored_study-trial.webp",
+      "sha256": "20ada99e2450c673ccff81c45d4e790629ccf892b3b9788b30259f1e378d8f2b",
+      "bytes": 11668,
+      "label": "Located the dorsum and traced the median groove in the palette view. The second view revealed the row of posterior papillae."
+    }
+  },
+  {
+    "family": "Breast pair",
+    "baseline": "models/breasts_hra/exports/source-candidate-02/breasts_hra_native_frame.glb",
+    "path": "models/breasts_hra/exports/teaching-economy-r01/breasts_hra_native_frame.glb",
+    "taskCheck": "Found both areolae in front and distinguished their superficial positions from the coarse posterior atlas layers.",
+    "evidence": [
+      "reviews/teaching-assessments/refinement-economy/views/breasts_hra-original.webp",
+      "reviews/teaching-assessments/refinement-economy/views/breasts_hra-trial.webp",
+      "reviews/teaching-assessments/refinement-economy/measurements.json"
+    ],
+    "exemptions": {},
+    "controlAssessmentSha256": "28f05dc308bcd0f0b8fbdee4bef90c9afc3376dd544bb63f0dffe909887673b0",
+    "assessmentSha256": "d254c731facb82b0f8b0c88449efea6b78eb8bbc0656c972e92af8abfd1d3442",
+    "status": "passed",
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/breasts_hra-original.webp",
+      "sha256": "ff9748c4ba519bdd433c3c7714d165d604da635388cd806f18aa2a7210144aa8",
+      "bytes": 14134,
+      "label": "Breast pair · original reviewed view"
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/breasts_hra-trial.webp",
+      "sha256": "e31946eb1c7b816741405495895c870e323f80061a614ef748037a3ec20c9e04",
+      "bytes": 13560,
+      "label": "Found both areolae in front and distinguished their superficial positions from the coarse posterior atlas layers."
+    }
+  },
+  {
+    "family": "Full-term placenta",
+    "baseline": "models/placenta/exports/hra-v1.1-r02/placenta_full_term.glb",
+    "path": "models/placenta/exports/teaching-economy-r01/placenta_full_term.glb",
+    "taskCheck": "Located the umbilical cord and its root on the fetal side, then identified the broad maternal lobulation from the opposite face.",
+    "evidence": [
+      "reviews/teaching-assessments/refinement-economy/views/placenta-original.webp",
+      "reviews/teaching-assessments/target-economy/views/placenta-updated.webp",
+      "reviews/teaching-assessments/target-economy/projection-measurements.json"
+    ],
+    "exemptions": {},
+    "controlAssessmentSha256": "2a3ab7a382bea6ce1631f32141fe0b5003ef173602aae1e40ffb9b40e598ea3c",
+    "assessmentSha256": "6ae66f5648be678873e714b003f3a9f655e6b33f88c73b060d6489de1c413186",
+    "status": "passed",
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/placenta-original.webp",
+      "sha256": "dc4e450056fb3d048844dc5816fdd3ae0c57e8c4bfbc607287a9eeea8f9418c6",
+      "bytes": 14492,
+      "label": "Complete HRA atlas · matched teaching views"
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/target-economy/views/placenta-updated.webp",
+      "sha256": "05d64a51249502dcb2391e29bea8d4c034d6e6e6760eb00d05b1dfdf2bb24b8b",
+      "bytes": 14710,
+      "label": "Located the umbilical cord and its root on the fetal side, then identified the broad maternal lobulation from the opposite face."
+    }
+  },
+  {
+    "family": "Prostate",
+    "baseline": "models/prostate/exports/hra-v1.1/VH_M_Prostate.glb",
+    "path": "models/prostate/exports/teaching-economy-r01/VH_M_Prostate.glb",
+    "taskCheck": "Found the gland below the paired seminal vesicles and distinguished the thin proximal duct selections.",
+    "evidence": [
+      "reviews/teaching-assessments/refinement-economy/views/prostate-original.webp",
+      "reviews/teaching-assessments/refinement-economy/views/prostate-trial.webp",
+      "reviews/teaching-assessments/refinement-economy/measurements.json"
+    ],
+    "exemptions": {},
+    "controlAssessmentSha256": "a8fe120937a7ed4f3f84156e46c771139cfdb2c3d92d24ea32578e8391c5e4ab",
+    "assessmentSha256": "6159caea054d3231a5e9fc91577265324bb5b847bba072596c0ae0b2c9a63b66",
+    "status": "passed",
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/prostate-original.webp",
+      "sha256": "f243f183b5b2015a3338b8133cf32049d1b7d408a92824f00f1423da23a18f73",
+      "bytes": 14440,
+      "label": "Prostate · original reviewed view"
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/prostate-trial.webp",
+      "sha256": "078cb677387d358fe9ff9ffdf82041a8e041f9338cedd2787db1a085e54323e6",
+      "bytes": 13692,
+      "label": "Found the gland below the paired seminal vesicles and distinguished the thin proximal duct selections."
+    }
+  },
+  {
+    "family": "Left kidney",
+    "baseline": "models/kidney_left/exports/hra-female-v1.3-r02/kidney_left.glb",
+    "path": "models/kidney_left/exports/teaching-economy-r01/kidney_left.glb",
+    "taskCheck": "Found the left medial recess and separately named hilar patch and contrasted them with the neutral outer contour. The HRA full atlas supplies interior selections.",
+    "evidence": [
+      "reviews/teaching-assessments/refinement-economy/views/kidney_left-original.webp",
+      "reviews/teaching-assessments/target-economy/views/kidney_left-updated.webp",
+      "reviews/teaching-assessments/target-economy/projection-measurements.json"
+    ],
+    "exemptions": {},
+    "controlAssessmentSha256": "8ddf6d4837d090f210df84e67a36b50390be964ecc8672617f3d20f7667a6181",
+    "assessmentSha256": "dacebc52bca5d62b70a588fb550e99207ff8946169b24a7ead9a041b30c79d62",
+    "status": "passed",
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/kidney_left-original.webp",
+      "sha256": "dd65758f616ea09f99751dc96d20ba3ef97cc35694254dcc52e79a0b6df660c3",
+      "bytes": 9654,
+      "label": "Complete HRA atlas · matched teaching views"
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/target-economy/views/kidney_left-updated.webp",
+      "sha256": "70c1abfe511cf3ed4529b291a0f7545f8424d2ee4a25d5884eb5cf6a3a5635a9",
+      "bytes": 9780,
+      "label": "Found the left medial recess and separately named hilar patch and contrasted them with the neutral outer contour. The HRA full atlas supplies interior selections."
+    }
+  },
+  {
+    "family": "Right kidney",
+    "baseline": "models/kidney_right/exports/hra-female-v1.3-r02/kidney_right.glb",
+    "path": "models/kidney_right/exports/teaching-economy-r01/kidney_right.glb",
+    "taskCheck": "Located the right hilar recess within the surrounding ridge and contrasted it with the convex neutral exterior. The HRA full atlas supplies interior selections.",
+    "evidence": [
+      "reviews/teaching-assessments/refinement-economy/views/kidney_right-original.webp",
+      "reviews/teaching-assessments/target-economy/views/kidney_right-updated.webp",
+      "reviews/teaching-assessments/target-economy/projection-measurements.json"
+    ],
+    "exemptions": {},
+    "controlAssessmentSha256": "aef2f1bc55b2be32aa870226111fac490d2c82efd470ad00a54ea8d9e885a183",
+    "assessmentSha256": "a5a458738a3c863b047047c222328d6a2e0d819fa63cb4f6e8a296f9797af897",
+    "status": "passed",
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/kidney_right-original.webp",
+      "sha256": "d8dcec47c648a9a3c189a9b703801085112cf8f619683b8b17f14a4a4b4591b5",
+      "bytes": 9822,
+      "label": "Complete HRA atlas · matched teaching views"
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/target-economy/views/kidney_right-updated.webp",
+      "sha256": "bdcd08fb9ec81df84f5915a0b24c16375e10d03db7b4a913ee258581218ca329",
+      "bytes": 9972,
+      "label": "Located the right hilar recess within the surrounding ridge and contrasted it with the convex neutral exterior. The HRA full atlas supplies interior selections."
+    }
+  },
+  {
+    "family": "Blood-cell forms",
+    "baseline": "models/blood_cell_study/exports/authored-r05/blood-cell-authored-study-r05.glb",
+    "path": "models/blood_cell_study/exports/teaching-economy-r01/blood-cell-authored-study-r05.glb",
+    "taskCheck": "Matched the dimpled erythrocyte to the edge-on profile and found the connected nuclear lobes in the neutrophil cutaway.",
+    "evidence": [
+      "reviews/teaching-assessments/refinement-economy/views/blood_cell_study-original.webp",
+      "reviews/teaching-assessments/refinement-economy/views/blood_cell_study-trial.webp",
+      "reviews/teaching-assessments/refinement-economy/measurements.json"
+    ],
+    "exemptions": {},
+    "controlAssessmentSha256": "10261d0a4370d8af00993730d42108542f8698eb717bcdb2d10e1def4c89f836",
+    "assessmentSha256": "34ca465db43791b5aa15b9157219e2f826ecf54e11baf3f3c7fa91627811ece7",
+    "status": "passed",
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/blood_cell_study-original.webp",
+      "sha256": "53177c1d7d9260a080b563d509002f121eb948214d8dd18a05129e157c87791a",
+      "bytes": 12376,
+      "label": "Blood-cell forms · original reviewed view"
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/blood_cell_study-trial.webp",
+      "sha256": "60ab192d944887aa108bbfaa4c975cdbf72a27937672e07b0aaac82f43aaa832",
+      "bytes": 11844,
+      "label": "Matched the dimpled erythrocyte to the edge-on profile and found the connected nuclear lobes in the neutrophil cutaway."
+    }
+  },
+  {
+    "family": "Bone-marrow cutaway",
+    "baseline": "models/bone_marrow/exports/authored-source-cutaway-r05/marrow_cutaway.glb",
+    "path": "models/bone_marrow/exports/teaching-economy-r01/marrow_cutaway.glb",
+    "taskCheck": "Followed the cortex up to the cut proximal femur and distinguished the authored lattice openings and crossings from the outer rim.",
+    "evidence": [
+      "reviews/teaching-assessments/refinement-economy/views/bone_marrow-original.webp",
+      "reviews/teaching-assessments/refinement-economy/views/bone_marrow-trial.webp",
+      "reviews/teaching-assessments/refinement-economy/measurements.json"
+    ],
+    "exemptions": {},
+    "controlAssessmentSha256": "cd67109eeebd0bb93cca55596c8c9536da157fc2fd0f2e1b76e434802e785a5c",
+    "assessmentSha256": "42b8c01aef9524b5c6ef4909bae78ae1ab94778584861ff631ebc5cd19dfc4ee",
+    "status": "passed",
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/bone_marrow-original.webp",
+      "sha256": "51753731ef18349dd731a0f4fe2ef7a203c3206d9ef36fd48332d821bc2c628c",
+      "bytes": 39472,
+      "label": "Bone-marrow cutaway · original reviewed view"
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/bone_marrow-trial.webp",
+      "sha256": "3fe380d0e3728f036030bac93d08d05c14575ec4512dafa42139ffc2d9d78ed3",
+      "bytes": 38506,
+      "label": "Followed the cortex up to the cut proximal femur and distinguished the authored lattice openings and crossings from the outer rim."
+    }
+  },
+  {
+    "family": "Muscle atlas",
+    "baseline": "models/muscle/exports/z-anatomy-r02/muscle_z_native_frame.glb",
+    "path": "models/muscle/exports/z-anatomy-r02/muscle_z_native_frame.glb",
+    "taskCheck": "Located the superficial chest and abdominal groups in front and the paired shoulder and back groups in reverse. The full model retains named isolation.",
+    "evidence": [
+      "reviews/teaching-assessments/refinement-economy/views/muscle-original.webp",
+      "reviews/teaching-assessments/refinement-economy/views/muscle-trial.webp",
+      "reviews/teaching-assessments/refinement-economy/measurements.json",
+      "reviews/teaching-assessments/target-economy/followup-measurements.json"
+    ],
+    "exemptions": {
+      "3": {
+        "reason": "The matched trial saves 215,380 triangles while keeping named groups, but only 224,444 bytes (0.7%). Shared original vertex streams make further per-primitive copies costly and the current viewer has no mesh compression decoder. The reviewed pictures cover the broad torso, leaving fine selection elsewhere unqualified.",
+        "permittedUse": "Whole-body orientation and source selection of the anterior chest and abdominal groups and posterior shoulder and back groups.",
+        "reopen": "A compatible shared-buffer simplifier or a separately validated superficial torso edition saves substantial delivery bytes while preserving the reviewed landmarks and access to full atlas selections."
+      }
+    },
+    "controlAssessmentSha256": "924aeabc4e420880b59b24873468312f93ff01b68a3393794a2e80cae315b227",
+    "assessmentSha256": "924aeabc4e420880b59b24873468312f93ff01b68a3393794a2e80cae315b227",
+    "status": "passed",
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/muscle-original.webp",
+      "sha256": "bf6ae6c6d823e8a7cd078cf4e934dc996e5056f22a2a735b8294a0f073cbb01e",
+      "bytes": 26808,
+      "width": 1280,
+      "height": 680,
+      "label": "Muscle atlas · original reviewed view"
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/muscle-trial.webp",
+      "sha256": "f2f3b58d210f81d65d79626ea6754901243b742be4eb2e5594265a6c8b7189cd",
+      "bytes": 26196,
+      "width": 1280,
+      "height": 680,
+      "label": "Compare the superficial chest and abdominal groups with the posterior shoulder and back groups."
+    }
+  },
+  {
+    "family": "Skeletal atlas",
+    "baseline": "models/skeleton/exports/source-candidate-03/skeleton_source_frame.glb",
+    "path": "models/skeleton/exports/teaching-economy-r01/skeleton_source_frame.glb",
+    "taskCheck": "Located skull, rib cage and pelvis and identified the limb bones as appendicular structures around the axial trunk.",
+    "evidence": [
+      "reviews/teaching-assessments/refinement-economy/views/skeleton-original.webp",
+      "reviews/teaching-assessments/refinement-economy/views/skeleton-trial.webp",
+      "reviews/teaching-assessments/refinement-economy/measurements.json"
+    ],
+    "exemptions": {},
+    "controlAssessmentSha256": "a0bb07657c4bad5aba139041fe91cc2610d8444d20e918b30906f50dd9934732",
+    "assessmentSha256": "82f1477fd195d907f36cd9cd6223074067b546591bf09f09718c16487c6bb7a1",
+    "status": "passed",
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/skeleton-original.webp",
+      "sha256": "3776dcdc14dadf8add8980b0caa29abddc2be036928963454469cef0f3d572f3",
+      "bytes": 24640,
+      "label": "Skeletal atlas · original reviewed view"
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/skeleton-trial.webp",
+      "sha256": "6725910f1026f1235fae5baf37e5c75e7438ab0b503c0b4deedb6e93a7447401",
+      "bytes": 23886,
+      "label": "Located skull, rib cage and pelvis and identified the limb bones as appendicular structures around the axial trunk."
+    }
+  },
+  {
+    "family": "Auricles / pinnae",
+    "baseline": "models/ears_z/exports/r04/ears_z.glb",
+    "path": "models/ears_z/exports/teaching-economy-r01/ears_z.glb",
+    "taskCheck": "Located both auricles in the overview and followed one helix rim around the recessed bowl in the enlargement.",
+    "evidence": [
+      "reviews/teaching-assessments/refinement-economy/views/ears_z-original.webp",
+      "reviews/teaching-assessments/refinement-economy/views/ears_z-trial.webp",
+      "reviews/teaching-assessments/refinement-economy/measurements.json"
+    ],
+    "exemptions": {},
+    "controlAssessmentSha256": "5c5745cbe7bdc2b621d75a6cff1269f3d2292e13e506c0a96e78c2a29f54b487",
+    "assessmentSha256": "32855dac94fa7fa57c2d4d2ca350850d36478823d28bb76ff2ba70b4330bb52e",
+    "status": "passed",
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/ears_z-original.webp",
+      "sha256": "8e48bd1d5e9969bc6a5cc0d7ff5908edc17219be18fae0af15c85a6f1f6e3bcd",
+      "bytes": 10532,
+      "label": "Auricles / pinnae · original reviewed view"
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/ears_z-trial.webp",
+      "sha256": "f728fc89b8a74f8dffcfee3b6d8ad0db8ed49e72c6613e6a8f799df9d3ebd9ad",
+      "bytes": 9828,
+      "label": "Located both auricles in the overview and followed one helix rim around the recessed bowl in the enlargement."
+    }
+  },
+  {
+    "family": "Brain",
+    "baseline": "models/brain/exports/bodyparts3d-4.0-atlas-r2/brain-source-frame.glb",
+    "path": "models/brain/exports/bodyparts3d-4.0-atlas-r2/brain-source-frame.glb",
+    "taskCheck": "Located the two large hemispheres, folded cerebellum and truncated descending brainstem in the two oblique exterior views.",
+    "evidence": [
+      "reviews/teaching-assessments/refinement-economy/views/brain-original.webp",
+      "reviews/teaching-assessments/refinement-economy/views/brain-trial.webp",
+      "reviews/teaching-assessments/refinement-economy/measurements.json",
+      "reviews/teaching-assessments/target-economy/followup-measurements.json"
+    ],
+    "exemptions": {
+      "3": {
+        "reason": "The first exterior trial retained landmarks with a 249,644-byte saving (5.7%). A finer-edge sweep saved 209,108 bytes (4.7%), with most small high-curvature surfaces held at the 0.78 teaching-pixel budget. Both matched sets cover gross external structures; neither qualifies the replaced tessellation for fine atlas fold inspection.",
+        "permittedUse": "Compare cerebral hemispheres, cerebellum and truncated brainstem in the exact exterior atlas.",
+        "reopen": "Qualify a material byte or triangle reduction with matched close views and tighter sampling at the cerebellar ridges and major sulci, keeping the 49 source selections."
+      }
+    },
+    "controlAssessmentSha256": "dfad5aadc50d29371de2f3d5155acce8e66654622baad308a7bafc47b9c45ef3",
+    "assessmentSha256": "dfad5aadc50d29371de2f3d5155acce8e66654622baad308a7bafc47b9c45ef3",
+    "status": "passed",
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/brain-original.webp",
+      "sha256": "6b8ba1bcdd956d800606bfd2f636ed38c139bc38d6b936a981254eb4504f2596",
+      "bytes": 26510,
+      "width": 1280,
+      "height": 680,
+      "label": "Brain · original reviewed view"
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/brain-trial.webp",
+      "sha256": "839a90292a9be54e114efd7792af9c648fd5fab2976db1592b1d086f9f929e9b",
+      "bytes": 25250,
+      "width": 1280,
+      "height": 680,
+      "label": "Identify the large cerebral hemisphere, cerebellar folds and exposed brainstem from the side and reverse."
+    }
+  },
+  {
+    "family": "Spinal cord & roots",
+    "baseline": "models/spinal_cord/exports/authored-roots-r04/candidate.glb",
+    "path": "models/spinal_cord/exports/authored-roots-r04/candidate.glb",
+    "taskCheck": "At the isolated representative upper level, found the swollen dorsal root, the thinner separate ventral root and their visible convergence into the mixed nerve.",
+    "evidence": [
+      "reviews/teaching-assessments/refinement-economy/views/spinal_cord-original.webp",
+      "reviews/teaching-assessments/refinement-economy/views/spinal_cord-trial.webp",
+      "reviews/teaching-assessments/refinement-economy/measurements.json",
+      "reviews/teaching-assessments/target-economy/followup-measurements.json"
+    ],
+    "exemptions": {
+      "3": {
+        "reason": "The earlier cord-only trial saves 6,082 triangles and 109,448 bytes (4.1%). It leaves the named roots and union exact. The shorter-edge follow-up reduced additional strands, but repacking shared streams failed to reduce the whole file.",
+        "permittedUse": "Trace the dorsal swelling, separate ventral root and mixed-nerve union at the reviewed representative level with the full authored cord.",
+        "reopen": "Try authored root resampling or shared-stream packing and verify the root endpoints, contact samples, thin silhouettes and mixed-nerve union at the current teaching crop."
+      }
+    },
+    "controlAssessmentSha256": "7666f8c28ec4ce06f0147202cf83b3c49b019a79e64df3222ea4c00d0a7fbddc",
+    "assessmentSha256": "7666f8c28ec4ce06f0147202cf83b3c49b019a79e64df3222ea4c00d0a7fbddc",
+    "status": "passed",
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/spinal_cord-original.webp",
+      "sha256": "8c7c71d7d1d2cd916b3fa85b624d7343bada17c890821c819a544d0de3c92320",
+      "bytes": 13044,
+      "width": 1280,
+      "height": 680,
+      "label": "Spinal cord & roots · original reviewed view"
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/spinal_cord-trial.webp",
+      "sha256": "bdd64ebc40952ccf10570c9a50b6bf54db77c71d34e0ef311fdf5c7b71b10573",
+      "bytes": 12764,
+      "width": 1280,
+      "height": 680,
+      "label": "Follow the swollen dorsal root and separate ventral root until they form one mixed nerve. The close view isolates one representative upper level."
+    }
+  },
+  {
+    "family": "Left lung · s1233",
+    "baseline": "models/lung_left/exports/metadata-cleanup-r01/lung_left.glb",
+    "path": "models/lung_left/exports/teaching-economy-r01/lung_left.glb",
+    "taskCheck": "Located the upper and lower lobe and followed the oblique fissure in the palette render and neutral alternate, with the original two mesh selections preserved.",
+    "evidence": [
+      "reviews/teaching-assessments/refinement-economy/views/lung_left-original.webp",
+      "reviews/teaching-assessments/target-economy/views/lung_left-updated.webp",
+      "reviews/teaching-assessments/target-economy/lung-render.json"
+    ],
+    "exemptions": {},
+    "controlAssessmentSha256": "5671b443ed0b3717abb10fb8a9647b4279c3212021873b435a76f62bb895a5bb",
+    "assessmentSha256": "32ab9cccc92b20e84bcfcbb0231f3337151fc057599a04614d7a6badead0e574",
+    "status": "passed",
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/lung_left-original.webp",
+      "sha256": "53ee5ee52aea681db2eac811a26ed2e9bbcbb0fed5d04853ad1d5cbbab023bd0",
+      "bytes": 11424,
+      "label": "Textured control · matched geometry views"
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/target-economy/views/lung_left-updated.webp",
+      "sha256": "b53a5d51169f10e13a985543bee70a817b6b28d8518473e1f2dc92d0183a3303",
+      "bytes": 10838,
+      "label": "Located the upper and lower lobe and followed the oblique fissure in the palette render and neutral alternate, with the original two mesh selections preserved."
+    }
+  },
+  {
+    "family": "Lung pair · HRA",
+    "baseline": "models/lung_pair/exports/hra-female-normals-r02/lung_female_hra_normals_r02.glb",
+    "path": "models/lung_pair/exports/teaching-economy-r01/lung_female_hra_normals_r02.glb",
+    "taskCheck": "Located the right middle lobe between the anterior fissures and compared the left single oblique fissure. The posterior view confirmed orientation.",
+    "evidence": [
+      "reviews/teaching-assessments/target-economy/views/lung_pair-original.webp",
+      "reviews/teaching-assessments/target-economy/views/lung_pair-updated.webp",
+      "reviews/teaching-assessments/target-economy/projection-measurements.json"
+    ],
+    "exemptions": {},
+    "controlAssessmentSha256": "5e68ab12f574b94ea16a6f204c449faf131c6896ef282b034456f1e67ddd688f",
+    "assessmentSha256": "67a97ef8749e5e73b6e62518b2ffffdc4b7507d8a8174f50a13d25baab736942",
+    "status": "passed",
+    "before": {
+      "path": "reviews/teaching-assessments/target-economy/views/lung_pair-original.webp",
+      "sha256": "7a32d26921cfbfbe34e4dafbe043e72e06b538aaaa37ecc5116213ebc8bb05f1",
+      "bytes": 15510,
+      "label": "Complete HRA atlas · matched teaching views"
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/target-economy/views/lung_pair-updated.webp",
+      "sha256": "31ae2a5ca38616ff4f7b25ddbf7cbbfdb9c53c1d7e1c2f847ccfbec223e308e3",
+      "bytes": 15712,
+      "label": "Located the right middle lobe between the anterior fissures and compared the left single oblique fissure. The posterior view confirmed orientation."
+    }
+  },
+  {
+    "family": "Pharynx / larynx",
+    "baseline": "models/pharynx_larynx/exports/r03/pharynx_larynx.glb",
+    "path": "models/pharynx_larynx/exports/teaching-economy-r01/pharynx_larynx.glb",
+    "taskCheck": "Oriented to the pharyngeal shell, then found the epiglottis, thyroid shield and inferior cricoid ring in neutral.",
+    "evidence": [
+      "reviews/teaching-assessments/refinement-economy/views/pharynx_larynx-original.webp",
+      "reviews/teaching-assessments/refinement-economy/views/pharynx_larynx-trial.webp",
+      "reviews/teaching-assessments/refinement-economy/measurements.json"
+    ],
+    "exemptions": {},
+    "controlAssessmentSha256": "f7d84bd9019536e4e2bec094e777f3c553447a7f4e22fc23bcd714790cd39652",
+    "assessmentSha256": "bdc0b1200a1f203d786ae9c3234de321251332c7f33486f16a37596606a3dd94",
+    "status": "passed",
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/pharynx_larynx-original.webp",
+      "sha256": "df2f17d9197c6da4ceacb99a298900d168d07f4017af269bd922c6a0b1f5b97a",
+      "bytes": 21582,
+      "label": "Pharynx / larynx · original reviewed view"
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/pharynx_larynx-trial.webp",
+      "sha256": "927c2084e14d5b2d14fd52d81db69dbd0e1265a8ae38cd3d9f23466fd616b5dd",
+      "bytes": 20616,
+      "label": "Oriented to the pharyngeal shell, then found the epiglottis, thyroid shield and inferior cricoid ring in neutral."
+    }
+  },
+  {
+    "family": "Trachea / Y-airway",
+    "baseline": "models/trachea/exports/open-airway-r06/trachea-open.glb",
+    "path": "models/trachea/exports/open-airway-r06/trachea-open.glb",
+    "taskCheck": "Looked into the proximal mouth and located the two smaller distal outlets over the two directions. The exact model retains the posterior band gaps.",
+    "evidence": [
+      "reviews/teaching-assessments/refinement-economy/views/trachea-original.webp",
+      "reviews/teaching-assessments/refinement-economy/views/trachea-rejected.webp",
+      "reviews/teaching-assessments/refinement-economy/measurements.json",
+      "reviews/teaching-assessments/target-economy/followup-measurements.json"
+    ],
+    "exemptions": {
+      "3": {
+        "reason": "The authored band meshes encode the narrow silhouette and repeated posterior openings. The original candidate exceeded the 0.70-pixel band cap at 2.56 teaching pixels; the shorter-edge follow-up left every selected band below the saving threshold. The tested lossless geometry budget was zero bytes.",
+        "permittedUse": "Locate the three open ends with the exact shell and use the separate cutaway for the hidden split.",
+        "reopen": "Replay a lower-profile band construction with open rims and posterior tips protected, then verify all three seeded openings, exact shell geometry and the narrow-band outlines at the reviewed zoom."
+      }
+    },
+    "controlAssessmentSha256": "1bcb6e81d30c092690a23c63cd5a00eb3a8578c20c35f601ba767543eb44fc15",
+    "assessmentSha256": "1bcb6e81d30c092690a23c63cd5a00eb3a8578c20c35f601ba767543eb44fc15",
+    "status": "passed",
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/trachea-original.webp",
+      "sha256": "9bf26d17702fe86adfc76ae8e687fe16f7f1769b6bb79796f2f100e679ea8f62",
+      "bytes": 11346,
+      "width": 1280,
+      "height": 680,
+      "label": "Trachea / Y-airway · original reviewed view"
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/trachea-rejected.webp",
+      "sha256": "723d7d00913978aa36a6457f9e97d64bd5db00cfba01c3e31fd877e3ea2a3c69",
+      "bytes": 12048,
+      "width": 1280,
+      "height": 680,
+      "label": "Look into the near mouth and locate the two distal outlets. Use the reverse to follow the posterior line of band ends."
+    }
+  }
+]

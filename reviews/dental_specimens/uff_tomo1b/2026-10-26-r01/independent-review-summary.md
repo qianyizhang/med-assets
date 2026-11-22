@@ -10,7 +10,7 @@
 - The source-space proxy remains exterior-connected and terminates with an algorithmic cap. It is not complete canal anatomy.
 - Viewer/browser performance remains unverified. Static render inspection does not close that gate.
 
-Exact numeric receipt: independent-lod-check.json. Display SHA-256: 46694985ff0162a4220d959528847446ffe48b3be41e481f5890429500e2d3b3. Corrected master SHA-256: 7b7e58a7c8149538dffdeebf9f6f079ccb47f6be1fc53db93510b80073ad9790.
+The [exact numeric receipt](independent-check.json) records the component measurements. Display SHA-256: 46694985ff0162a4220d959528847446ffe48b3be41e481f5890429500e2d3b3. Corrected master SHA-256: 7b7e58a7c8149538dffdeebf9f6f079ccb47f6be1fc53db93510b80073ad9790.
 
 This is a concise packaging summary of the independent local review; original detailed local review is retained outside the archive.
 

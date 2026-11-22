@@ -1,0 +1,417 @@
+{
+  "blender": "5.2.3 LTS Release Candidate",
+  "build": "fab76e95306d",
+  "engine": "Blender Workbench, orthographic, Standard, studio light, illustrative object colors",
+  "resolution": [
+    720,
+    720
+  ],
+  "review": {
+    "lymph": {
+      "asset": {
+        "path": "models/lymph_node/exports/hra-v1.2/NIH_M_Lymph_Node.glb",
+        "sha256": "7b047002cbb1dc06f37baa441783390d76cdb444b6144d6caa623923707953fd",
+        "bytes": 7413900
+      },
+      "views": [
+        {
+          "file": "lymph-primary-capsule.png",
+          "sha256": "12c3e4aa88a049c5e88fe26f625a08178e5f374cc5dbea301090be55e290c4a2",
+          "bytes": 216329,
+          "frame": 1,
+          "visibleNodes": [
+            "Yao_capsule_of_lymph_node"
+          ],
+          "cameraM": [
+            0.015030279755592346,
+            -0.14086270332336426,
+            0.3367912769317627
+          ],
+          "targetM": [
+            -0.0008988305926322937,
+            -0.07160570472478867,
+            0.32848042249679565
+          ],
+          "orthoScaleM": 0.023849850334227082
+        },
+        {
+          "file": "lymph-primary-interior.png",
+          "sha256": "7c4292a6c4daafe78983e6f73716a13b005d1494d487cde45cd0cb040b2c1606",
+          "bytes": 242452,
+          "frame": 1,
+          "visibleNodes": [
+            "Yao_follicles",
+            "Yao_medulla_of_lymph_node",
+            "Yao_paracortex"
+          ],
+          "cameraM": [
+            0.015030279755592346,
+            -0.14086270332336426,
+            0.3367912769317627
+          ],
+          "targetM": [
+            -0.0008988305926322937,
+            -0.07160570472478867,
+            0.32848042249679565
+          ],
+          "orthoScaleM": 0.023849850334227082
+        },
+        {
+          "file": "lymph-reverse-capsule.png",
+          "sha256": "b68406d693aaee02cbbbb8aef945909f6869f838ebe45ea2d32822b48212b9fe",
+          "bytes": 223418,
+          "frame": 1,
+          "visibleNodes": [
+            "Yao_capsule_of_lymph_node"
+          ],
+          "cameraM": [
+            -0.05130711942911148,
+            -0.11632275581359863,
+            0.2951458990573883
+          ],
+          "targetM": [
+            -0.0008988305926322937,
+            -0.07160571962594986,
+            0.32848042249679565
+          ],
+          "orthoScaleM": 0.025059482827782628
+        },
+        {
+          "file": "lymph-reverse-interior.png",
+          "sha256": "66333e2326c02fc20aadc5ade03dd8ce6a55a18e7873805a25c760ba4dfeeb76",
+          "bytes": 266503,
+          "frame": 1,
+          "visibleNodes": [
+            "Yao_follicles",
+            "Yao_medulla_of_lymph_node",
+            "Yao_paracortex"
+          ],
+          "cameraM": [
+            -0.05130711942911148,
+            -0.11632275581359863,
+            0.2951458990573883
+          ],
+          "targetM": [
+            -0.0008988305926322937,
+            -0.07160571962594986,
+            0.32848042249679565
+          ],
+          "orthoScaleM": 0.025059482827782628
+        }
+      ]
+    },
+    "breath": {
+      "asset": {
+        "path": "body/breathing/Breathing_Assembly.blend",
+        "sha256": "fc68b49ca75d02d50330e9d5b5d5182843e6d0e7ca4d43d665cbde48ac23b841",
+        "bytes": 42497262
+      },
+      "views": [
+        {
+          "file": "breath-1-context.png",
+          "sha256": "91dd11f7736936b1d9a4698af0efe155b8870dccc70d550f8a55ad43516dc1d5",
+          "bytes": 365489,
+          "frame": 1,
+          "visibleNodes": [
+            "Authored schematic diaphragm",
+            "Liver | source surface",
+            "Lung Lower Lobe Left | source surface",
+            "Lung Lower Lobe Right | source surface",
+            "Lung Middle Lobe Right | source surface",
+            "Lung Upper Lobe Left | source surface",
+            "Lung Upper Lobe Right | source surface"
+          ],
+          "cameraM": [
+            0.9371764659881592,
+            -0.20617884397506714,
+            -0.031884703785181046
+          ],
+          "targetM": [
+            0.0,
+            0.0,
+            -0.05999999865889549
+          ],
+          "orthoScaleM": 0.32
+        },
+        {
+          "file": "breath-1-dome.png",
+          "sha256": "6b133be77bb6e04db7b3b47dc2ab8b8d4f3e24cbca2079c88f16cfb7c40d6d7a",
+          "bytes": 144496,
+          "frame": 1,
+          "visibleNodes": [
+            "Authored schematic diaphragm"
+          ],
+          "cameraM": [
+            0.9371764659881592,
+            -0.20617884397506714,
+            -0.031884703785181046
+          ],
+          "targetM": [
+            0.0,
+            0.0,
+            -0.05999999865889549
+          ],
+          "orthoScaleM": 0.32
+        },
+        {
+          "file": "breath-49-context.png",
+          "sha256": "b7a0c94d8e9237b2ae6ff9e3693110ef1d0d816c2b9c16b76e0715875ec0cdbd",
+          "bytes": 380845,
+          "frame": 49,
+          "visibleNodes": [
+            "Authored schematic diaphragm",
+            "Liver | source surface",
+            "Lung Lower Lobe Left | source surface",
+            "Lung Lower Lobe Right | source surface",
+            "Lung Middle Lobe Right | source surface",
+            "Lung Upper Lobe Left | source surface",
+            "Lung Upper Lobe Right | source surface"
+          ],
+          "cameraM": [
+            0.9371764659881592,
+            -0.20617884397506714,
+            -0.031884703785181046
+          ],
+          "targetM": [
+            0.0,
+            0.0,
+            -0.05999999865889549
+          ],
+          "orthoScaleM": 0.32
+        },
+        {
+          "file": "breath-49-dome.png",
+          "sha256": "11a31457de058b33d0b801c1dc175cbd22b232d98e43bbff6ea0fe54da754fdb",
+          "bytes": 131515,
+          "frame": 49,
+          "visibleNodes": [
+            "Authored schematic diaphragm"
+          ],
+          "cameraM": [
+            0.9371764659881592,
+            -0.20617884397506714,
+            -0.031884703785181046
+          ],
+          "targetM": [
+            0.0,
+            0.0,
+            -0.05999999865889549
+          ],
+          "orthoScaleM": 0.32
+        }
+      ]
+    },
+    "heart": {
+      "asset": {
+        "path": "heart/Cardiac_Atlas_Animated/Heart_Clinical_Animated.glb",
+        "sha256": "6912d439271c3525230a90fe403d586000e6a66ab37f82bf0419604181e52263",
+        "bytes": 8180224
+      },
+      "views": [
+        {
+          "file": "heart-0-context.png",
+          "sha256": "534cc926d7d3fe00156177c7d205fcaa4064942e7342023ae5514c97a55f49a4",
+          "bytes": 242938,
+          "frame": 0,
+          "visibleNodes": [
+            "Aorta | root, ascending, arch and descending",
+            "LV | complete wall"
+          ],
+          "cameraM": [
+            0.36542198061943054,
+            0.3252522647380829,
+            0.08462455868721008
+          ],
+          "targetM": [
+            0.022279225289821625,
+            0.005938881076872349,
+            0.01313648372888565
+          ],
+          "orthoScaleM": 0.158050100505352
+        },
+        {
+          "file": "heart-0-lv.png",
+          "sha256": "c570be8f60af03a45dfcee2dbc28bb78b1e81879e86c4cdf67ce0a5d6a5b4ec7",
+          "bytes": 193896,
+          "frame": 0,
+          "visibleNodes": [
+            "LV | complete wall"
+          ],
+          "cameraM": [
+            0.36542198061943054,
+            0.3252522647380829,
+            0.08462455868721008
+          ],
+          "targetM": [
+            0.022279225289821625,
+            0.005938881076872349,
+            0.01313648372888565
+          ],
+          "orthoScaleM": 0.158050100505352
+        },
+        {
+          "file": "heart-8-context.png",
+          "sha256": "477df854cb63a638f2c88d8941f3e2b0dbe1af34e2c1b8a1514dac8c4485cb01",
+          "bytes": 235137,
+          "frame": 8,
+          "visibleNodes": [
+            "Aorta | root, ascending, arch and descending",
+            "LV | complete wall"
+          ],
+          "cameraM": [
+            0.36542198061943054,
+            0.3252522647380829,
+            0.08462455868721008
+          ],
+          "targetM": [
+            0.022279225289821625,
+            0.005938881076872349,
+            0.01313648372888565
+          ],
+          "orthoScaleM": 0.158050100505352
+        },
+        {
+          "file": "heart-8-lv.png",
+          "sha256": "7bc8f6d5c1ec21b1fb69a7dd7aade7b405318b92764b244abbfd5cfcf63705ab",
+          "bytes": 186611,
+          "frame": 8,
+          "visibleNodes": [
+            "LV | complete wall"
+          ],
+          "cameraM": [
+            0.36542198061943054,
+            0.3252522647380829,
+            0.08462455868721008
+          ],
+          "targetM": [
+            0.022279225289821625,
+            0.005938881076872349,
+            0.01313648372888565
+          ],
+          "orthoScaleM": 0.158050100505352
+        }
+      ],
+      "fps": 24.0,
+      "peakFrame": 8,
+      "maxWorldVertexDisplacementMm": {
+        "LV | complete wall": 5.047319810458945,
+        "Aorta | root, ascending, arch and descending": 0.0
+      }
+    },
+    "parathyroids": {
+      "asset": {
+        "path": "models/parathyroids/exports/z-localization-r01/parathyroids_native.glb",
+        "sha256": "b6fbbabfa7efd12b8c377f5bc56193bd81776daab999a8c1ac8286f693b85b45",
+        "bytes": 11544
+      },
+      "companion": {
+        "path": "models/parathyroids/exports/z-localization-r01/parathyroids_thyroid_context.glb",
+        "bytes": 59456,
+        "sha256": "7759008c5682ac76e77f39f68f5cd421ea42cfe5252cebe9bd82ecc54dc04345"
+      },
+      "views": [
+        {
+          "file": "parathyroids-targets.png",
+          "sha256": "c92f2b2d7e18d9734abfd5f0f030ca1707fb1a0e9d57de5e8702de539f4dd91e",
+          "bytes": 128625,
+          "frame": 1,
+          "visibleNodes": [
+            "Inferior parathyroid gland.l.001",
+            "Inferior parathyroid gland.r.001",
+            "Superior parathyroid gland.l.001",
+            "Superior parathyroid gland.r.001"
+          ],
+          "cameraM": [
+            1.7126623674812436e-08,
+            0.1515265554189682,
+            1.471718192100525
+          ],
+          "targetM": [
+            1.7126623674812436e-08,
+            -0.016243338584899902,
+            1.471718192100525
+          ],
+          "orthoScaleM": 0.05592329949140548
+        },
+        {
+          "file": "parathyroids-context.png",
+          "sha256": "e0a814fccf783d5545f4d5200ef094113cfc2c4b1f4ff1e1bad14d2c9bd582e7",
+          "bytes": 286079,
+          "frame": 1,
+          "visibleNodes": [
+            "Inferior parathyroid gland.l.001",
+            "Inferior parathyroid gland.r.001",
+            "Superior parathyroid gland.l.001",
+            "Superior parathyroid gland.r.001",
+            "Thyroid gland.001"
+          ],
+          "cameraM": [
+            1.7126623674812436e-08,
+            0.1515265554189682,
+            1.471718192100525
+          ],
+          "targetM": [
+            1.7126623674812436e-08,
+            -0.016243338584899902,
+            1.471718192100525
+          ],
+          "orthoScaleM": 0.05592329949140548
+        }
+      ]
+    },
+    "urethra": {
+      "asset": {
+        "path": "models/urethra_male/exports/z-native-context-r01/urethral-context.glb",
+        "sha256": "d2d88c936287f4ea5978aba1f17e86975c587a102e498595dd7a58aa07c269e7",
+        "bytes": 195932
+      },
+      "views": [
+        {
+          "file": "urethra-opaque.png",
+          "sha256": "0269ce43f761fb7222a8aa21e3180d9b4ba75f6ceec88cbddc8e455918413b92",
+          "bytes": 285099,
+          "frame": 1,
+          "visibleNodes": [
+            "Corpus cavernosum of penis source display",
+            "Corpus spongiosum of penis source display",
+            "Glans penis source display",
+            "Prostate source display",
+            "Urethra source display",
+            "Urinary bladder source display"
+          ],
+          "cameraM": [
+            0.34763726592063904,
+            -0.37972044944763184,
+            0.9513967037200928
+          ],
+          "targetM": [
+            0.00038863904774188995,
+            -0.03247184306383133,
+            0.8124972581863403
+          ],
+          "orthoScaleM": 0.1701163798570633
+        },
+        {
+          "file": "urethra-path.png",
+          "sha256": "f95515d6a6fc16523d0187c769c50c335b4a52a875acfeccbb2e370d019f11cc",
+          "bytes": 165323,
+          "frame": 1,
+          "visibleNodes": [
+            "Urethra source display"
+          ],
+          "cameraM": [
+            0.34763726592063904,
+            -0.37972044944763184,
+            0.9513967037200928
+          ],
+          "targetM": [
+            0.00038863904774188995,
+            -0.03247184306383133,
+            0.8124972581863403
+          ],
+          "orthoScaleM": 0.1701163798570633
+        }
+      ]
+    }
+  }
+}

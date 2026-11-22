@@ -9,6 +9,7 @@ import manifest from '../app/src/content/assets/delivery-index.json' with { type
 import localDelivery from '../app/src/content/assets/local-delivery.json' with { type: 'json' };
 import legacyDental from '../app/src/content/assets/legacy-dental-assets.json' with { type: 'json' };
 import binding from '../snapshot-reference.json' with { type: 'json' };
+import { readRetainedProjection } from '../../../reviews/trachea/2026-10-29-open-airway-r06/restore-projections.mjs';
 
 const site = fileURLToPath(new URL('../', import.meta.url));
 const repo = await realpath(path.resolve(site, '../..'));
@@ -58,10 +59,18 @@ try {
   if (error.code !== 'ENOENT') throw error;
 }
 const evidenceRoutes = new Map();
+const reviewCandidates = [];
 const reviewIndex = path.join(project, 'src/content/gallery/teaching-inputs/teaching-assessments.json');
 try {
   const review = JSON.parse(await readFile(reviewIndex, 'utf8'));
   for (const row of review.campaign ?? []) {
+    if (row.target || row.maintained) {
+      const file = row.export;
+      reviewCandidates.push({ ...file, name: path.basename(file.path),
+        mediaType: file.path.endsWith('.glb') ? 'model/gltf-binary' : 'application/octet-stream' });
+    }
+    const candidate = row.refinement?.candidate;
+    if (candidate?.download) reviewCandidates.push({ ...candidate, mediaType: 'model/gltf-binary' });
     for (const file of [...row.sources, ...row.views]) {
       if (file.url?.startsWith('/review-evidence/')) evidenceRoutes.set(file.url, file);
     }
@@ -72,11 +81,14 @@ try {
 const indexed = new Map(manifest.assets.map((asset) => [asset.sha256, asset]));
 const legacyDentalRoutes = new Map(legacyDental.assets.map((file) =>
   ['/assets/' + file.sha256 + '/' + file.name, file]));
-const localRoutes = new Map(localDelivery.assets.map((file) =>
+// Prefer retained model paths when an earlier comparison uses the same content-addressed URL.
+const localAssets = [...reviewCandidates.filter((f) => f.path.startsWith('.artifacts/')), ...localDelivery.assets,
+  ...reviewCandidates.filter((f) => !f.path.startsWith('.artifacts/'))];
+const localRoutes = new Map(localAssets.map((file) =>
   ['/assets/' + file.sha256 + '/' + file.name, file]));
 const receiptRoutes = new Map(localDelivery.receipts.map((file) => ['/' + file, file]));
 const serveDental = createAssetDelivery(legacyDental, async () => false);
-const serveLocal = createAssetDelivery({ assets: localDelivery.assets }, async () => false);
+const serveLocal = createAssetDelivery({ assets: [...localRoutes.values()] }, async () => false);
 async function dentalPayload(file) {
   const bytes = await repoFile('sites/anatomy-gallery/.local/legacy-dental/' + file.sha256);
   return bytes?.length === file.bytes && digest(bytes) === file.sha256 ? bytes : null;
@@ -86,6 +98,8 @@ async function trackedPayload(asset) {
     if (!p) continue;
     const bytes = await repoFile(p);
     if (bytes?.length === asset.bytes && digest(bytes) === asset.sha256) return bytes;
+    const projection = await readRetainedProjection(p, asset);
+    if (projection) return projection;
   }
   return null;
 }

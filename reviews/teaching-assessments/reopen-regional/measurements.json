@@ -1,0 +1,1299 @@
+{
+  "lymph": {
+    "source": "models/lymph-collecting-routes/source-context-r01/selected-source-routes.glb",
+    "sourceSha256": "ff8c1e9cecc86b4287520d97e71e81792d26eb0b3017e6f302e213f64819b4ca",
+    "candidateSha256": "bebe11ea3241799e83d69f70ea1cccc59283f9ec72eca0dc45877cdd6fc8fd64",
+    "bytes": 31592,
+    "geometry": {
+      "Central collecting trace": {
+        "stations": [
+          [
+            0.0,
+            0.03999999910593033,
+            -0.20000000298023224
+          ],
+          [
+            0.00800000037997961,
+            0.04500000178813934,
+            -0.07999999821186066
+          ],
+          [
+            0.012000000104308128,
+            0.04500000178813934,
+            0.05999999865889549
+          ],
+          [
+            0.019999999552965164,
+            0.02500000037252903,
+            0.20000000298023224
+          ],
+          [
+            0.04500000178813934,
+            0.004999999888241291,
+            0.20999999344348907
+          ]
+        ],
+        "radiusM": 0.003
+      },
+      "Leg and pelvic collecting lymphatic -1": {
+        "stations": [
+          [
+            -0.09000000357627869,
+            -0.029999999329447746,
+            -1.1299999952316284
+          ],
+          [
+            -0.09000000357627869,
+            -0.03999999910593033,
+            -0.7799999713897705
+          ],
+          [
+            -0.07999999821186066,
+            -0.03999999910593033,
+            -0.36000001430511475
+          ],
+          [
+            0.0,
+            0.03999999910593033,
+            -0.20000000298023224
+          ]
+        ],
+        "radiusM": 0.00105
+      },
+      "Upper limb collecting lymphatic -1": {
+        "stations": [
+          [
+            -0.30000001192092896,
+            -0.03999999910593033,
+            -0.4300000071525574
+          ],
+          [
+            -0.24500000476837158,
+            -0.04500000178813934,
+            -0.12999999523162842
+          ],
+          [
+            -0.17000000178813934,
+            -0.03500000014901161,
+            0.11999999731779099
+          ],
+          [
+            -0.04500000178813934,
+            0.004999999888241291,
+            0.20999999344348907
+          ]
+        ],
+        "radiusM": 0.00105
+      },
+      "Cervical collecting lymphatic -1": {
+        "stations": [
+          [
+            -0.04500000178813934,
+            0.004999999888241291,
+            0.20999999344348907
+          ],
+          [
+            -0.04500000178813934,
+            -0.02500000037252903,
+            0.33000001311302185
+          ]
+        ],
+        "radiusM": 0.00105
+      },
+      "Leg and pelvic collecting lymphatic 1": {
+        "stations": [
+          [
+            0.09000000357627869,
+            -0.029999999329447746,
+            -1.1299999952316284
+          ],
+          [
+            0.09000000357627869,
+            -0.03999999910593033,
+            -0.7799999713897705
+          ],
+          [
+            0.07999999821186066,
+            -0.03999999910593033,
+            -0.36000001430511475
+          ],
+          [
+            0.0,
+            0.03999999910593033,
+            -0.20000000298023224
+          ]
+        ],
+        "radiusM": 0.00105
+      },
+      "Upper limb collecting lymphatic 1": {
+        "stations": [
+          [
+            0.30000001192092896,
+            -0.03999999910593033,
+            -0.4300000071525574
+          ],
+          [
+            0.24500000476837158,
+            -0.04500000178813934,
+            -0.12999999523162842
+          ],
+          [
+            0.17000000178813934,
+            -0.03500000014901161,
+            0.11999999731779099
+          ],
+          [
+            0.04500000178813934,
+            0.004999999888241291,
+            0.20999999344348907
+          ]
+        ],
+        "radiusM": 0.00105
+      },
+      "Cervical collecting lymphatic 1": {
+        "stations": [
+          [
+            0.04500000178813934,
+            0.004999999888241291,
+            0.20999999344348907
+          ],
+          [
+            0.04500000178813934,
+            -0.02500000037252903,
+            0.33000001311302185
+          ]
+        ],
+        "radiusM": 0.00105
+      },
+      "reimportParts": {
+        "Central collecting trace (diagram)": {
+          "triangles": 132,
+          "indexComponents": [
+            85,
+            4,
+            4
+          ],
+          "edgesOtherThanTwo": 48,
+          "boundsM": [
+            [
+              -0.0025361687876284122,
+              0.0029053017497062683,
+              -0.20023512840270996
+            ],
+            [
+              0.0469944067299366,
+              0.04838255047798157,
+              0.21275052428245544
+            ]
+          ]
+        },
+        "Cervical collecting lymphatic 1 (diagram)": {
+          "triangles": 36,
+          "indexComponents": [
+            25,
+            4,
+            4
+          ],
+          "edgesOtherThanTwo": 24,
+          "boundsM": [
+            [
+              0.043950002640485764,
+              -0.026018649339675903,
+              0.20974533259868622
+            ],
+            [
+              0.04605000093579292,
+              0.006018649786710739,
+              0.3302546739578247
+            ]
+          ]
+        },
+        "Cervical collecting lymphatic -1 (diagram)": {
+          "triangles": 36,
+          "indexComponents": [
+            25,
+            4,
+            4
+          ],
+          "edgesOtherThanTwo": 24,
+          "boundsM": [
+            [
+              -0.04605000093579292,
+              -0.026018649339675903,
+              0.20974533259868622
+            ],
+            [
+              -0.043950002640485764,
+              0.006018649786710739,
+              0.3302546739578247
+            ]
+          ]
+        },
+        "Leg and pelvic collecting lymphatic 1 (diagram)": {
+          "triangles": 100,
+          "indexComponents": [
+            65,
+            4,
+            4
+          ],
+          "edgesOtherThanTwo": 40,
+          "boundsM": [
+            [
+              -0.0009531049290671945,
+              -0.04435525834560394,
+              -1.1300300359725952
+            ],
+            [
+              0.09136649966239929,
+              0.040954187512397766,
+              -0.1995689421892166
+            ]
+          ]
+        },
+        "Leg and pelvic collecting lymphatic -1 (diagram)": {
+          "triangles": 100,
+          "indexComponents": [
+            65,
+            4,
+            4
+          ],
+          "edgesOtherThanTwo": 40,
+          "boundsM": [
+            [
+              -0.09136649966239929,
+              -0.04435525834560394,
+              -1.1300300359725952
+            ],
+            [
+              0.0009531049290671945,
+              0.040954187512397766,
+              -0.1995689421892166
+            ]
+          ]
+        },
+        "Lower source limit (symbol)": {
+          "triangles": 20,
+          "indexComponents": [
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "edgesOtherThanTwo": 60,
+          "boundsM": [
+            [
+              -0.005813762545585632,
+              0.03447083756327629,
+              -0.20650000870227814
+            ],
+            [
+              0.005813762545585632,
+              0.045529160648584366,
+              -0.19349999725818634
+            ]
+          ]
+        },
+        "Upper limb collecting lymphatic 1 (diagram)": {
+          "triangles": 100,
+          "indexComponents": [
+            65,
+            4,
+            4
+          ],
+          "edgesOtherThanTwo": 40,
+          "boundsM": [
+            [
+              0.04435703903436661,
+              -0.04604582488536835,
+              -0.4301901161670685
+            ],
+            [
+              0.30102843046188354,
+              0.005997935310006142,
+              0.21080753207206726
+            ]
+          ]
+        },
+        "Upper limb collecting lymphatic -1 (diagram)": {
+          "triangles": 100,
+          "indexComponents": [
+            65,
+            4,
+            4
+          ],
+          "edgesOtherThanTwo": 40,
+          "boundsM": [
+            [
+              -0.30102843046188354,
+              -0.04604582488536835,
+              -0.4301901161670685
+            ],
+            [
+              -0.04435703903436661,
+              0.005997935310006142,
+              0.21080753207206726
+            ]
+          ]
+        },
+        "Upper source limit (symbol)": {
+          "triangles": 20,
+          "indexComponents": [
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3,
+            3
+          ],
+          "edgesOtherThanTwo": 60,
+          "boundsM": [
+            [
+              0.03918623924255371,
+              -0.0005291602574288845,
+              0.20349998772144318
+            ],
+            [
+              0.050813764333724976,
+              0.010529160499572754,
+              0.21649999916553497
+            ]
+          ]
+        }
+      }
+    },
+    "before": [
+      {
+        "file": "lymph-before-0.png",
+        "sha256": "d8dd3e9684be09573426cb5d8233671b183e6706cc9e95ec26a16615c881513c",
+        "bytes": 229414,
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "camera": [
+          0.0,
+          -4.381181240081787,
+          -0.39981043338775635
+        ],
+        "orthoScale": 1.650357961654663,
+        "palette": true,
+        "visible": [
+          "Cervical collecting lymphatic -1",
+          "Cervical collecting lymphatic 1",
+          "Leg and pelvic collecting lymphatic -1",
+          "Leg and pelvic collecting lymphatic 1",
+          "Thoracic duct \u2014 left venous angle",
+          "Upper limb collecting lymphatic -1",
+          "Upper limb collecting lymphatic 1"
+        ]
+      },
+      {
+        "file": "lymph-before-1.png",
+        "sha256": "91f2a9fe71b5e2bee8197b5c900bb9e1e66703aae7cf7561fd36654b1e5d8bab",
+        "bytes": 253176,
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "camera": [
+          0.022053204476833344,
+          -1.2125816345214844,
+          0.006107747554779053
+        ],
+        "orthoScale": 0.46625226736068726,
+        "palette": true,
+        "visible": [
+          "Cervical collecting lymphatic -1",
+          "Cervical collecting lymphatic 1",
+          "Leg and pelvic collecting lymphatic -1",
+          "Leg and pelvic collecting lymphatic 1",
+          "Thoracic duct \u2014 left venous angle",
+          "Upper limb collecting lymphatic -1",
+          "Upper limb collecting lymphatic 1"
+        ]
+      },
+      {
+        "file": "lymph-before-2.png",
+        "sha256": "e2054aab4a6e9164c29b3c5b2c4a331a5ae4a7b3ad4acdfc2efe55c41a6bac38",
+        "bytes": 250492,
+        "direction": [
+          0.55,
+          -1,
+          0.24
+        ],
+        "camera": [
+          0.6116440296173096,
+          -1.046727180480957,
+          0.26338374614715576
+        ],
+        "orthoScale": 0.47090208530426025,
+        "palette": true,
+        "visible": [
+          "Cervical collecting lymphatic -1",
+          "Cervical collecting lymphatic 1",
+          "Leg and pelvic collecting lymphatic -1",
+          "Leg and pelvic collecting lymphatic 1",
+          "Thoracic duct \u2014 left venous angle",
+          "Upper limb collecting lymphatic -1",
+          "Upper limb collecting lymphatic 1"
+        ]
+      }
+    ],
+    "after": [
+      {
+        "file": "lymph-after-0.png",
+        "sha256": "07ad2971dceb1b3d888a20a4687bbcf06cb1e6f3ca2731fbe3420499f8e9a77e",
+        "bytes": 225498,
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "camera": [
+          0.0,
+          -4.381181240081787,
+          -0.39981043338775635
+        ],
+        "orthoScale": 1.650357961654663,
+        "palette": true,
+        "visible": [
+          "Central collecting trace (diagram)",
+          "Cervical collecting lymphatic -1 (diagram)",
+          "Cervical collecting lymphatic 1 (diagram)",
+          "Leg and pelvic collecting lymphatic -1 (diagram)",
+          "Leg and pelvic collecting lymphatic 1 (diagram)",
+          "Lower source limit (symbol)",
+          "Upper limb collecting lymphatic -1 (diagram)",
+          "Upper limb collecting lymphatic 1 (diagram)",
+          "Upper source limit (symbol)"
+        ]
+      },
+      {
+        "file": "lymph-after-1.png",
+        "sha256": "f4d056453fadb5b564c2165c395b4dd9d0ad5da09f7ec7cbe8bab097ece60946",
+        "bytes": 244629,
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "camera": [
+          0.022053204476833344,
+          -1.2125816345214844,
+          0.006107747554779053
+        ],
+        "orthoScale": 0.46625226736068726,
+        "palette": true,
+        "visible": [
+          "Central collecting trace (diagram)",
+          "Cervical collecting lymphatic -1 (diagram)",
+          "Cervical collecting lymphatic 1 (diagram)",
+          "Leg and pelvic collecting lymphatic -1 (diagram)",
+          "Leg and pelvic collecting lymphatic 1 (diagram)",
+          "Lower source limit (symbol)",
+          "Upper limb collecting lymphatic -1 (diagram)",
+          "Upper limb collecting lymphatic 1 (diagram)",
+          "Upper source limit (symbol)"
+        ]
+      },
+      {
+        "file": "lymph-after-2.png",
+        "sha256": "ff6d73b7a839979004433285e0e16ff75b74965028470dd56b623d372b8c8716",
+        "bytes": 243463,
+        "direction": [
+          0.55,
+          -1,
+          0.24
+        ],
+        "camera": [
+          0.6116440296173096,
+          -1.046727180480957,
+          0.26338374614715576
+        ],
+        "orthoScale": 0.47090208530426025,
+        "palette": true,
+        "visible": [
+          "Central collecting trace (diagram)",
+          "Cervical collecting lymphatic -1 (diagram)",
+          "Cervical collecting lymphatic 1 (diagram)",
+          "Leg and pelvic collecting lymphatic -1 (diagram)",
+          "Leg and pelvic collecting lymphatic 1 (diagram)",
+          "Lower source limit (symbol)",
+          "Upper limb collecting lymphatic -1 (diagram)",
+          "Upper limb collecting lymphatic 1 (diagram)",
+          "Upper source limit (symbol)"
+        ]
+      }
+    ]
+  },
+  "adrenals": {
+    "source": "models/adrenals/exports/source-candidate-01/adrenals_source_frame.glb",
+    "sourceSha256": "c7de1afa5394a7f64b106a62ff979eaa9e0b428db23a13fa34340c2d38ba13a7",
+    "candidateSha256": "de52cd888b8e169e2b729376d749975db05fa4cbca13a65a5e2f943aaf233afa",
+    "bytes": 213016,
+    "geometry": {
+      "FJ3129 left adrenal gland": {
+        "vertices": 2000,
+        "matchedBoundsAxes": 3,
+        "displacementMmP50P95Max": [
+          0.49595655757866924,
+          0.9238792096508242,
+          1.1805201667960743
+        ]
+      },
+      "FJ3130 right adrenal gland": {
+        "vertices": 1149,
+        "matchedBoundsAxes": 3,
+        "displacementMmP50P95Max": [
+          0.5325202181665611,
+          1.0034515529854224,
+          1.3607772180834752
+        ]
+      },
+      "reimportParts": {
+        "FJ3129 left adrenal gland": {
+          "triangles": 3996,
+          "indexComponents": [
+            2000
+          ],
+          "edgesOtherThanTwo": 0,
+          "boundsM": [
+            [
+              0.02731500007212162,
+              -0.08328550308942795,
+              1.0633399486541748
+            ],
+            [
+              0.07549159973859787,
+              -0.06313499808311462,
+              1.1082199811935425
+            ]
+          ]
+        },
+        "FJ3130 right adrenal gland": {
+          "triangles": 2294,
+          "indexComponents": [
+            1149
+          ],
+          "edgesOtherThanTwo": 0,
+          "boundsM": [
+            [
+              -0.062534399330616,
+              -0.10234200209379196,
+              1.0455199480056763
+            ],
+            [
+              -0.03063019923865795,
+              -0.07510550320148468,
+              1.0878000259399414
+            ]
+          ]
+        },
+        "FJ3145 left kidney (context)": {
+          "triangles": 2982,
+          "indexComponents": [
+            1497
+          ],
+          "edgesOtherThanTwo": 10,
+          "boundsM": [
+            [
+              0.032839901745319366,
+              -0.10018499940633774,
+              0.9844939708709717
+            ],
+            [
+              0.09038300067186356,
+              -0.05959140136837959,
+              1.090440034866333
+            ]
+          ]
+        },
+        "FJ3147 right kidney (context)": {
+          "triangles": 2310,
+          "indexComponents": [
+            1163
+          ],
+          "edgesOtherThanTwo": 22,
+          "boundsM": [
+            [
+              -0.08757539838552475,
+              -0.11185500025749207,
+              0.966812014579773
+            ],
+            [
+              -0.0304275993257761,
+              -0.06470009684562683,
+              1.071239948272705
+            ]
+          ]
+        }
+      }
+    },
+    "before": [
+      {
+        "file": "adrenals-before-0.png",
+        "sha256": "16f9f769c8b2af2b5b4f67155157f30006b73da6ad02d86b529489a87636615e",
+        "bytes": 249328,
+        "direction": [
+          0.22,
+          1,
+          0.16
+        ],
+        "camera": [
+          0.09271302074193954,
+          0.312779039144516,
+          1.1398591995239258
+        ],
+        "orthoScale": 0.15431274473667145,
+        "palette": true,
+        "visible": [
+          "FJ3129 left adrenal gland",
+          "FJ3130 right adrenal gland"
+        ]
+      },
+      {
+        "file": "adrenals-before-1.png",
+        "sha256": "4ff27aaff3d09e214bc4c0d9ffa7ee4bc304d844c765b87ef03abc4597634a14",
+        "bytes": 254646,
+        "direction": [
+          -0.45,
+          -1,
+          0.28
+        ],
+        "camera": [
+          -0.1488628089427948,
+          -0.42439863085746765,
+          1.1727019548416138
+        ],
+        "orthoScale": 0.14602504670619965,
+        "palette": false,
+        "visible": [
+          "FJ3129 left adrenal gland",
+          "FJ3130 right adrenal gland"
+        ]
+      },
+      {
+        "file": "adrenals-before-2.png",
+        "sha256": "b1c541f204622f78cad998124ff253e26dbe866ba01f01ee1ce4b4a251af4597",
+        "bytes": 301890,
+        "direction": [
+          -0.45,
+          -1,
+          0.28
+        ],
+        "camera": [
+          -0.011723458766937256,
+          -0.21349194645881653,
+          1.125058889389038
+        ],
+        "orthoScale": 0.05980200693011284,
+        "palette": false,
+        "visible": [
+          "FJ3129 left adrenal gland",
+          "FJ3130 right adrenal gland"
+        ]
+      },
+      {
+        "file": "adrenals-before-3.png",
+        "sha256": "3929c55ed5e9a2939ec39b2821dd6f185235d6136786f803fe929172829a8d93",
+        "bytes": 302548,
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "camera": [
+          0.0014038083609193563,
+          0.448152095079422,
+          1.0375161170959473
+        ],
+        "orthoScale": 0.20109304785728455,
+        "palette": true,
+        "visible": [
+          "FJ3129 left adrenal gland",
+          "FJ3130 right adrenal gland",
+          "FJ3145 left kidney (context)",
+          "FJ3147 right kidney (context)"
+        ]
+      }
+    ],
+    "after": [
+      {
+        "file": "adrenals-after-0.png",
+        "sha256": "091aa49ba5384c765fe54086b59a3e167f8361373cc0372bcc05586f8c28b6e2",
+        "bytes": 245803,
+        "direction": [
+          0.22,
+          1,
+          0.16
+        ],
+        "camera": [
+          0.09271302074193954,
+          0.312779039144516,
+          1.1398591995239258
+        ],
+        "orthoScale": 0.15431274473667145,
+        "palette": true,
+        "visible": [
+          "FJ3129 left adrenal gland",
+          "FJ3130 right adrenal gland"
+        ]
+      },
+      {
+        "file": "adrenals-after-1.png",
+        "sha256": "8205d76e238e012aec2531db208b33e7840a24f4b0c9d45e533f0dad7273040e",
+        "bytes": 250062,
+        "direction": [
+          -0.45,
+          -1,
+          0.28
+        ],
+        "camera": [
+          -0.1488628089427948,
+          -0.42439863085746765,
+          1.1727019548416138
+        ],
+        "orthoScale": 0.14602504670619965,
+        "palette": false,
+        "visible": [
+          "FJ3129 left adrenal gland",
+          "FJ3130 right adrenal gland"
+        ]
+      },
+      {
+        "file": "adrenals-after-2.png",
+        "sha256": "8721fb24110d15700c8a8f1f6ac92448d11e08c7e8b611057dd76381dba374d0",
+        "bytes": 294651,
+        "direction": [
+          -0.45,
+          -1,
+          0.28
+        ],
+        "camera": [
+          -0.011723458766937256,
+          -0.21349194645881653,
+          1.125058889389038
+        ],
+        "orthoScale": 0.05980200693011284,
+        "palette": false,
+        "visible": [
+          "FJ3129 left adrenal gland",
+          "FJ3130 right adrenal gland"
+        ]
+      },
+      {
+        "file": "adrenals-after-3.png",
+        "sha256": "6ccd67dbeb288dc7f40559b28683ca2faf5dd63f610fe65527be2c5f9be294db",
+        "bytes": 300481,
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "camera": [
+          0.0014038083609193563,
+          0.448152095079422,
+          1.0375161170959473
+        ],
+        "orthoScale": 0.20109304785728455,
+        "palette": true,
+        "visible": [
+          "FJ3129 left adrenal gland",
+          "FJ3130 right adrenal gland",
+          "FJ3145 left kidney (context)",
+          "FJ3147 right kidney (context)"
+        ]
+      }
+    ]
+  },
+  "pancreas": {
+    "source": "models/pancreas/exports/hra-female-context-r04/pancreas_hra_female_context_r04.glb",
+    "sourceSha256": "aa15f9248027c248886a9cf8d4f5f401b2753176c800851f648b03d88d97ebed",
+    "candidateSha256": "ac79b7138619462dbeaf28dda592aa93fc770d53d49eecbc125074594971667b",
+    "bytes": 596044,
+    "geometry": {
+      "VH_F_tail_of_pancreas": {
+        "toEnvelopeMmP50P95Max": [
+          0.4191381740383804,
+          1.3716406887397168,
+          2.0204985048621893
+        ]
+      },
+      "VH_F_body_of_pancreas": {
+        "toEnvelopeMmP50P95Max": [
+          0.3867250634357333,
+          1.1324113002046943,
+          1.9634875934571028
+        ]
+      },
+      "VH_F_ucinate_process1": {
+        "toEnvelopeMmP50P95Max": [
+          0.5950995837338269,
+          1.359615009278059,
+          1.9637420773506165
+        ]
+      },
+      "VH_F_head_of_pancreas": {
+        "toEnvelopeMmP50P95Max": [
+          0.502818962559104,
+          1.5551880060229435,
+          2.6383039075881243
+        ]
+      },
+      "VH_F_neck_of_pancreas": {
+        "toEnvelopeMmP50P95Max": [
+          0.3541707410477102,
+          1.1288267560303211,
+          1.4651961391791701
+        ]
+      },
+      "envelopeToSourceMmP50P95Max": [
+        0.528909033164382,
+        1.2915137049276382,
+        1.734531600959599
+      ],
+      "reimportParts": {
+        "Pancreatic gross envelope (interpreted)": {
+          "triangles": 11088,
+          "indexComponents": [
+            5546
+          ],
+          "edgesOtherThanTwo": 0,
+          "boundsM": [
+            [
+              -0.05295776575803757,
+              0.028856316581368446,
+              0.23833481967449188
+            ],
+            [
+              0.1163114383816719,
+              0.11067227274179459,
+              0.29351577162742615
+            ]
+          ]
+        },
+        "VH_F_duodenum_ascending": {
+          "triangles": 504,
+          "indexComponents": [
+            144,
+            144
+          ],
+          "edgesOtherThanTwo": 72,
+          "boundsM": [
+            [
+              -0.005242888815701008,
+              0.024763358756899834,
+              0.23057903349399567
+            ],
+            [
+              0.02155720628798008,
+              0.06619530916213989,
+              0.25613832473754883
+            ]
+          ]
+        },
+        "VH_F_duodenum_descending": {
+          "triangles": 936,
+          "indexComponents": [
+            252,
+            252
+          ],
+          "edgesOtherThanTwo": 72,
+          "boundsM": [
+            [
+              -0.06652910262346268,
+              0.05146569758653641,
+              0.2327936291694641
+            ],
+            [
+              -0.0313403382897377,
+              0.07816566526889801,
+              0.29284408688545227
+            ]
+          ]
+        },
+        "VH_F_duodenum_horizontal": {
+          "triangles": 1080,
+          "indexComponents": [
+            288,
+            288
+          ],
+          "edgesOtherThanTwo": 72,
+          "boundsM": [
+            [
+              -0.05628524348139763,
+              0.045003850013017654,
+              0.21866874396800995
+            ],
+            [
+              0.008575943298637867,
+              0.07272207736968994,
+              0.24616003036499023
+            ]
+          ]
+        },
+        "VH_F_duodenum_superior": {
+          "triangles": 1224,
+          "indexComponents": [
+            324,
+            324
+          ],
+          "edgesOtherThanTwo": 72,
+          "boundsM": [
+            [
+              -0.04969744011759758,
+              0.00022676089429296553,
+              0.2450709044933319
+            ],
+            [
+              -0.011244631372392178,
+              0.0691952183842659,
+              0.2961168587207794
+            ]
+          ]
+        },
+        "VH_F_duodenal_ampulla": {
+          "triangles": 1116,
+          "indexComponents": [
+            576
+          ],
+          "edgesOtherThanTwo": 36,
+          "boundsM": [
+            [
+              -0.03970484808087349,
+              -0.006455487571656704,
+              0.23337292671203613
+            ],
+            [
+              -0.01093993242830038,
+              0.023482434451580048,
+              0.26252466440200806
+            ]
+          ]
+        },
+        "VH_F_sphincter_of_heptopancreatic_ampulla": {
+          "triangles": 4096,
+          "indexComponents": [
+            2145
+          ],
+          "edgesOtherThanTwo": 192,
+          "boundsM": [
+            [
+              -0.04710467532277107,
+              0.059655673801898956,
+              0.2449089139699936
+            ],
+            [
+              -0.04212590679526329,
+              0.06469082087278366,
+              0.2500806748867035
+            ]
+          ]
+        },
+        "VH_F_colic_surface_of_spleen": {
+          "triangles": 130,
+          "indexComponents": [
+            83
+          ],
+          "edgesOtherThanTwo": 34,
+          "boundsM": [
+            [
+              0.1066533625125885,
+              0.08225168287754059,
+              0.2908746600151062
+            ],
+            [
+              0.12320635467767715,
+              0.09163873642683029,
+              0.3087558150291443
+            ]
+          ]
+        },
+        "VH_F_diaphragmatic_surface_of_spleen": {
+          "triangles": 4338,
+          "indexComponents": [
+            2239
+          ],
+          "edgesOtherThanTwo": 138,
+          "boundsM": [
+            [
+              0.036774251610040665,
+              0.0831056758761406,
+              0.2855469882488251
+            ],
+            [
+              0.12633490562438965,
+              0.15319287776947021,
+              0.38786211609840393
+            ]
+          ]
+        },
+        "VH_F_gastric_surface_of_spleen": {
+          "triangles": 1778,
+          "indexComponents": [
+            974
+          ],
+          "edgesOtherThanTwo": 168,
+          "boundsM": [
+            [
+              0.04167570546269417,
+              0.08230707049369812,
+              0.30538928508758545
+            ],
+            [
+              0.1241079717874527,
+              0.1290028989315033,
+              0.38616982102394104
+            ]
+          ]
+        },
+        "VH_F_hilum_of_spleen": {
+          "triangles": 1506,
+          "indexComponents": [
+            816
+          ],
+          "edgesOtherThanTwo": 124,
+          "boundsM": [
+            [
+              0.05695468932390213,
+              0.087284155189991,
+              0.2966853976249695
+            ],
+            [
+              0.10940999537706375,
+              0.12513013184070587,
+              0.3591134250164032
+            ]
+          ]
+        },
+        "VH_F_renal_surface_of_spleen": {
+          "triangles": 792,
+          "indexComponents": [
+            453
+          ],
+          "edgesOtherThanTwo": 112,
+          "boundsM": [
+            [
+              0.04078330472111702,
+              0.08997498452663422,
+              0.28727778792381287
+            ],
+            [
+              0.1115637868642807,
+              0.13478215038776398,
+              0.34087035059928894
+            ]
+          ]
+        }
+      }
+    },
+    "before": [
+      {
+        "file": "pancreas-before-0.png",
+        "sha256": "e0d4f77fc1434e870fc59af96f4998c8561d284b8bc64ca404c5d1979cd735f3",
+        "bytes": 314756,
+        "direction": [
+          0.23,
+          -1,
+          0.12
+        ],
+        "camera": [
+          0.1753145307302475,
+          -0.5298951268196106,
+          0.37895357608795166
+        ],
+        "orthoScale": 0.23815715312957764,
+        "palette": true,
+        "visible": [
+          "VH_F_body_of_pancreas",
+          "VH_F_colic_surface_of_spleen",
+          "VH_F_diaphragmatic_surface_of_spleen",
+          "VH_F_duodenal_ampulla",
+          "VH_F_duodenum_ascending",
+          "VH_F_duodenum_descending",
+          "VH_F_duodenum_horizontal",
+          "VH_F_duodenum_superior",
+          "VH_F_gastric_surface_of_spleen",
+          "VH_F_head_of_pancreas",
+          "VH_F_hilum_of_spleen",
+          "VH_F_neck_of_pancreas",
+          "VH_F_renal_surface_of_spleen",
+          "VH_F_tail_of_pancreas",
+          "VH_F_ucinate_process1"
+        ]
+      },
+      {
+        "file": "pancreas-before-1.png",
+        "sha256": "ad08ee8acb50633abb87aef89bdf489f35f98a6e628351283100416aae25d066",
+        "bytes": 286723,
+        "direction": [
+          -0.59,
+          1,
+          0.33
+        ],
+        "camera": [
+          -0.30018454790115356,
+          0.6504440903663635,
+          0.49182724952697754
+        ],
+        "orthoScale": 0.25915512442588806,
+        "palette": false,
+        "visible": [
+          "VH_F_body_of_pancreas",
+          "VH_F_colic_surface_of_spleen",
+          "VH_F_diaphragmatic_surface_of_spleen",
+          "VH_F_duodenal_ampulla",
+          "VH_F_duodenum_ascending",
+          "VH_F_duodenum_descending",
+          "VH_F_duodenum_horizontal",
+          "VH_F_duodenum_superior",
+          "VH_F_gastric_surface_of_spleen",
+          "VH_F_head_of_pancreas",
+          "VH_F_hilum_of_spleen",
+          "VH_F_neck_of_pancreas",
+          "VH_F_renal_surface_of_spleen",
+          "VH_F_tail_of_pancreas",
+          "VH_F_ucinate_process1"
+        ]
+      },
+      {
+        "file": "pancreas-before-2.png",
+        "sha256": "f50c01f32ad0437db167ee5daf14e48a5a5723d00e05cb943c0d908b745393a9",
+        "bytes": 344703,
+        "direction": [
+          0.23,
+          -1,
+          0.12
+        ],
+        "camera": [
+          0.014181571081280708,
+          -0.11956954002380371,
+          0.29217231273651123
+        ],
+        "orthoScale": 0.06964108347892761,
+        "palette": false,
+        "visible": [
+          "VH_F_body_of_pancreas",
+          "VH_F_head_of_pancreas",
+          "VH_F_neck_of_pancreas",
+          "VH_F_tail_of_pancreas",
+          "VH_F_ucinate_process1"
+        ]
+      }
+    ],
+    "after": [
+      {
+        "file": "pancreas-after-0.png",
+        "sha256": "055f2a38ff1e48a2c51fe3c661036c2d39d5859368a997015e33d3cbc40b8fe1",
+        "bytes": 311908,
+        "direction": [
+          0.23,
+          -1,
+          0.12
+        ],
+        "camera": [
+          0.1753145307302475,
+          -0.5298951268196106,
+          0.37895357608795166
+        ],
+        "orthoScale": 0.23815715312957764,
+        "palette": true,
+        "visible": [
+          "Pancreatic gross envelope (interpreted)",
+          "VH_F_colic_surface_of_spleen",
+          "VH_F_diaphragmatic_surface_of_spleen",
+          "VH_F_duodenal_ampulla",
+          "VH_F_duodenum_ascending",
+          "VH_F_duodenum_descending",
+          "VH_F_duodenum_horizontal",
+          "VH_F_duodenum_superior",
+          "VH_F_gastric_surface_of_spleen",
+          "VH_F_hilum_of_spleen",
+          "VH_F_renal_surface_of_spleen"
+        ]
+      },
+      {
+        "file": "pancreas-after-1.png",
+        "sha256": "b729dd111b6a3589272262ca289e2515843bf2f36da863ac4b40b68b7711bab8",
+        "bytes": 285314,
+        "direction": [
+          -0.59,
+          1,
+          0.33
+        ],
+        "camera": [
+          -0.30018454790115356,
+          0.6504440903663635,
+          0.49182724952697754
+        ],
+        "orthoScale": 0.25915512442588806,
+        "palette": false,
+        "visible": [
+          "Pancreatic gross envelope (interpreted)",
+          "VH_F_colic_surface_of_spleen",
+          "VH_F_diaphragmatic_surface_of_spleen",
+          "VH_F_duodenal_ampulla",
+          "VH_F_duodenum_ascending",
+          "VH_F_duodenum_descending",
+          "VH_F_duodenum_horizontal",
+          "VH_F_duodenum_superior",
+          "VH_F_gastric_surface_of_spleen",
+          "VH_F_hilum_of_spleen",
+          "VH_F_renal_surface_of_spleen"
+        ]
+      },
+      {
+        "file": "pancreas-after-2.png",
+        "sha256": "4df32ca839c9fa4a16a413fc0e41995bc569cf8b1b2fbb864f8457a239459c9f",
+        "bytes": 334556,
+        "direction": [
+          0.23,
+          -1,
+          0.12
+        ],
+        "camera": [
+          0.014181571081280708,
+          -0.11956954002380371,
+          0.29217231273651123
+        ],
+        "orthoScale": 0.06964108347892761,
+        "palette": false,
+        "visible": [
+          "Pancreatic gross envelope (interpreted)"
+        ]
+      }
+    ]
+  }
+}

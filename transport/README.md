@@ -21,6 +21,13 @@ curl --fail -o kidney_left.glb \
 python3.12 transport/tools/fetch_asset.py models/kidney_left/exports/metadata-cleanup-r01/kidney_left.glb --hydrate
 ```
 
+For the two archived trachea r06 SVG projections, use `fetch_asset.py` with
+`--commit 503c33f1dadf403faaec373c1a11a8b40dc523d6` and either original repository
+path under `reviews/trachea/2026-10-29-open-airway-r06/`. The delivery manifest
+still pins that revision and the original digest routes. Restore the exact paths
+from [their local Brotli copies](../reviews/trachea/2026-10-29-open-airway-r06/README.md#restore-the-exact-svgs-offline)
+before local checks against the historical migration manifest.
+
 ## Artifact backups
 
 Back up other important retained artifacts with the [R2 Object Library](https://r2-object-library.landy123007.chatgpt.site/). Examples include unique build and recovery bundles, release archives and evidence that would be costly to recreate. Use this public service only for artifacts cleared for public access. Use approved private storage for restricted material.

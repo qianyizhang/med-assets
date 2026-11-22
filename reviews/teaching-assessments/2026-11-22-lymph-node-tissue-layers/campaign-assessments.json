@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "evaluator": "Codex (agent review)",
+  "date": "2026-11-22",
+  "rubric": {
+    "path": "docs/guides/asset-quality.md",
+    "sha256": "5f7be452c8afc0b2109068e2c9d40e10ed7306459d62d7d006cc05e0de84831b",
+    "revision": "75c348b9d3fcce0389c4401696569b660cd29dca"
+  },
+  "assessments": [
+    {
+      "export": {
+        "path": "models/lymph_node/exports/hra-tissue-layers-r01/lymph-node-tissue-layers.glb",
+        "sha256": "bf4ffa85c96459f2666949196915244697f3f5e33ebf485482c8223ba1fcb23e",
+        "bytes": 2984704
+      },
+      "task": "Compare the intact capsule outline with the exposed follicles, paracortex and medulla in the same view.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "All four retained source meshes match decoded indices, positions, normals, vertex colors, provider node properties and material values. World transforms match after clean import. The small follicles and all four same-selection images retain their exact source geometry and color. All three omitted vessel/network nodes lie outside the stated tissue task."
+        },
+        {
+          "score": 2,
+          "observation": "The smooth capsule silhouette and rounded follicles are recognizable in both neutral angles. The source capsule apertures, conspicuous medullary ridges and deep clefts remain visible. A suitable specimen comparison for their exact identity is unavailable."
+        },
+        {
+          "score": 3,
+          "observation": "At the same angle and scale, the paired plate locates the colored follicles, paracortex and medulla beneath the projected outline. A second angle exposes more follicles and green paracortex. Named isolations confirm each region. Neutral combined views alone make some inner boundaries hard to distinguish."
+        },
+        {
+          "score": 2,
+          "observation": "Omitting three out-of-task meshes saves 4,429,196 bytes and 140,165 triangles. The four retained names each support the task, and the capsule and follicles stay exact. The medulla still uses 88,388 of 114,498 triangles, and its sampling cost lacks a lighter same-task comparison."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/lymph_node/exports/hra-tissue-layers-r01/README.md",
+          "label": "Source, exact export, omissions and attribution"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymph-node-tissue-layers/build.json",
+          "label": "Decoded geometry, material and node identity"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymph-node-tissue-layers/render.json",
+          "label": "Clean reimport, camera and world transform receipt"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymph-node-tissue-layers/comparison.json",
+          "label": "Exact pixels between matched selections and plate bindings"
+        },
+        {
+          "path": "reviews/lymph_node/2026-10-27-editorial-window-r03/LABEL-DECISION.md",
+          "label": "Retained unresolved source network claim"
+        },
+        {
+          "url": "https://histologylab.ctl.columbia.edu/lab08/lymph-nodes/",
+          "label": "Columbia tissue-region landmarks"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymph-node-tissue-layers/plates/tissue-layers.webp",
+          "sha256": "002ac2dd6229bb7bca714bd7bc998c5f3e09e986ae4e232c3dd4674574440ef1",
+          "bytes": 152376,
+          "label": "Compare the capsule outline and the three named tissue regions at the same scale, then confirm their arrangement in the alternate oblique view."
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymph-node-tissue-layers/plates/matched-source.webp",
+          "sha256": "d3b9f5129171af02d73989ca4c3bd6499ae6e2b337965c54742c1cf1a2d7aa96",
+          "bytes": 89364,
+          "label": "Compare all original structures with the selected capsule and tissues. The retained capsule aperture remains visible."
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymph-node-tissue-layers/plates/neutral-form.webp",
+          "sha256": "8266c509b7dc3fac932609850846faa0a1bcd4c6347bc87853c55a1db1bf94bf",
+          "bytes": 102942,
+          "label": "Neutral matched views retain conspicuous capsule apertures, medullary surface irregularities and interior clefts."
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-22-lymph-node-tissue-layers/plates/named-selections.webp",
+          "sha256": "e67ed6e5afe42df553d510a71b95a23fc6eba1efcdfbad82e6d2881e710e6318",
+          "bytes": 51364,
+          "label": "The exact follicles, paracortex and medulla isolated at one camera and scale."
+        }
+      ],
+      "decision": "Use the tissue-only derivative for the original capsule-to-interior task. Keep the full HRA source available. The omitted disputed network remains unresolved, and retained tissue surfaces keep their source apertures, relief and limits.",
+      "teachingView": "reviews/teaching-assessments/2026-11-22-lymph-node-tissue-layers/plates/tissue-layers.webp"
+    }
+  ]
+}

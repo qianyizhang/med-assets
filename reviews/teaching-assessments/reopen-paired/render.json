@@ -1,0 +1,955 @@
+{
+  "anatomy-workshop-r1": {
+    "source": {
+      "asset": {
+        "path": "body/anatomy-workshop-r1/Anatomy_Workshop.blend",
+        "bytes": 17571351,
+        "sha256": "c773480a49471e697e12ca1a710a4c93314217a8683e6ab224b3fa83d9a12fbc"
+      },
+      "views": [
+        {
+          "file": "source-0.png",
+          "sha256": "19f082d8ef23bacc0a7b61a04e5f11b6c858686548de445575d1308b1d855aa6",
+          "camera": [
+            0.23,
+            -1,
+            0.12
+          ],
+          "location": [
+            0.2252252995967865,
+            -0.9737746715545654,
+            0.135859876871109
+          ],
+          "rotation": [
+            0.7422785758972168,
+            0.6605302691459656,
+            0.07498212158679962,
+            0.08426202833652496
+          ],
+          "clip": [
+            3.3699627238092944e-05,
+            4.043954849243164
+          ],
+          "ortho": 0.38080576062202454
+        },
+        {
+          "file": "source-1.png",
+          "sha256": "6a7ae5c9e70c4fcdc228b0594611ead428a02ee8e84fe8d41d84bd83152543b1",
+          "camera": [
+            -0.59,
+            1,
+            0.16
+          ],
+          "location": [
+            -0.554602861404419,
+            0.9372038841247559,
+            0.17202816903591156
+          ],
+          "rotation": [
+            0.1985379457473755,
+            0.173055037856102,
+            -0.6338733434677124,
+            -0.7272133827209473
+          ],
+          "clip": [
+            3.6316399928182364e-05,
+            4.357968330383301
+          ],
+          "ortho": 0.41037532687187195
+        }
+      ],
+      "triangles": {
+        "Aorta | source surface": 9600,
+        "Gallbladder | source surface": 4200,
+        "Heart | source surface": 24000,
+        "Kidney Left | source surface": 8400,
+        "Kidney Right | source surface": 8400,
+        "Liver | source surface": 23998,
+        "Lung Lower Lobe Left | source surface": 24000,
+        "Lung Upper Lobe Left | source surface": 7200,
+        "Lung Lower Lobe Right | source surface": 24000,
+        "Lung Middle Lobe Right | source surface": 4800,
+        "Lung Upper Lobe Right | source surface": 7200,
+        "Pancreas | source surface": 8340,
+        "Pulmonary Vein | source surface": 9600,
+        "Spleen | source surface": 7200,
+        "Stomach | source surface": 8400,
+        "Trachea | source surface": 6000,
+        "Tracheal C cartilage 1": 3460,
+        "Tracheal C cartilage 2": 3460,
+        "Tracheal C cartilage 3": 3460,
+        "Tracheal C cartilage 4": 3460,
+        "Tracheal C cartilage 5": 3460,
+        "Tracheal C cartilage 6": 3460,
+        "Tracheal C cartilage 7": 3460,
+        "Tracheal C cartilage 8": 3460,
+        "Tracheal C cartilage 9": 3460,
+        "Tracheal C cartilage 10": 3460,
+        "Tracheal C cartilage 11": 3460,
+        "Tracheal C cartilage 12": 3460,
+        "Tracheal C cartilage 13": 3460,
+        "Tracheal C cartilage 14": 3460,
+        "Vertebrae L3 | source surface": 9600,
+        "Urinary bladder | authored surface": 2976,
+        "kidney_left ureter to bladder": 976,
+        "kidney_right ureter to bladder": 976,
+        "Single urethral outlet \u00b7 schematic": 336,
+        "Right cerebral hemisphere | schematic folds": 15904,
+        "Left cerebral hemisphere | schematic folds": 15904,
+        "Cerebellum | schematic folia": 2976,
+        "Brainstem | schematic": 2976
+      }
+    },
+    "edition": {
+      "asset": {
+        "path": "body/anatomy-workshop-r1/Anatomy_Workshop_compact.blend",
+        "bytes": 13596421,
+        "sha256": "8903a92dbae60c24a0c9933724d1ec8078628fcf6f3d170fa589371b158077ba"
+      },
+      "views": [
+        {
+          "file": "edition-0.png",
+          "sha256": "a360a089f6a04f3539a1bbc319cd6d98870fea8255fdc4fbb549739dca48d30c",
+          "camera": [
+            0.23,
+            -1,
+            0.12
+          ],
+          "location": [
+            0.2252252995967865,
+            -0.9737746715545654,
+            0.135859876871109
+          ],
+          "rotation": [
+            0.7422785758972168,
+            0.6605302691459656,
+            0.07498212158679962,
+            0.08426202833652496
+          ],
+          "clip": [
+            3.3699627238092944e-05,
+            4.043954849243164
+          ],
+          "ortho": 0.38080576062202454
+        },
+        {
+          "file": "edition-1.png",
+          "sha256": "ac436b65feeb85385e43b796c6a16f674e0722b0a12b9494acdb0e67e621a12c",
+          "camera": [
+            -0.59,
+            1,
+            0.16
+          ],
+          "location": [
+            -0.554602861404419,
+            0.9372038841247559,
+            0.17202816903591156
+          ],
+          "rotation": [
+            0.1985379457473755,
+            0.173055037856102,
+            -0.6338733434677124,
+            -0.7272133827209473
+          ],
+          "clip": [
+            3.6316399928182364e-05,
+            4.357968330383301
+          ],
+          "ortho": 0.41037532687187195
+        }
+      ],
+      "triangles": {
+        "Aorta | source surface": 9600,
+        "Gallbladder | source surface": 4200,
+        "Heart | source surface": 24000,
+        "Kidney Left | source surface": 8400,
+        "Kidney Right | source surface": 8400,
+        "Liver | source surface": 23998,
+        "Lung Lower Lobe Left | source surface": 24000,
+        "Lung Upper Lobe Left | source surface": 7200,
+        "Lung Lower Lobe Right | source surface": 24000,
+        "Lung Middle Lobe Right | source surface": 4800,
+        "Lung Upper Lobe Right | source surface": 7200,
+        "Pancreas | source surface": 8340,
+        "Pulmonary Vein | source surface": 9600,
+        "Spleen | source surface": 7200,
+        "Stomach | source surface": 8400,
+        "Trachea | source surface": 6000,
+        "Tracheal C cartilage 1": 3460,
+        "Tracheal C cartilage 2": 3460,
+        "Tracheal C cartilage 3": 3460,
+        "Tracheal C cartilage 4": 3460,
+        "Tracheal C cartilage 5": 3460,
+        "Tracheal C cartilage 6": 3460,
+        "Tracheal C cartilage 7": 3460,
+        "Tracheal C cartilage 8": 3460,
+        "Tracheal C cartilage 9": 3460,
+        "Tracheal C cartilage 10": 3460,
+        "Tracheal C cartilage 11": 3460,
+        "Tracheal C cartilage 12": 3460,
+        "Tracheal C cartilage 13": 3460,
+        "Tracheal C cartilage 14": 3460,
+        "Vertebrae L3 | source surface": 9600,
+        "Urinary bladder | authored surface": 2976,
+        "kidney_left ureter to bladder": 976,
+        "kidney_right ureter to bladder": 976,
+        "Single urethral outlet \u00b7 schematic": 336,
+        "Right cerebral hemisphere | schematic folds": 15904,
+        "Left cerebral hemisphere | schematic folds": 15904,
+        "Cerebellum | schematic folia": 2976,
+        "Brainstem | schematic": 2976
+      }
+    },
+    "sectionInputs": {
+      "Lung-Lower-Lobe-Left-source-surface.npz": {
+        "sha256": "1ed84a9f4a9a6ec9eb694c729f79cc8b8d68015ff482e36158a77b5a79de3683",
+        "bytes": 254750
+      },
+      "Lung-Lower-Lobe-Right-source-surface.npz": {
+        "sha256": "3a5fb974a687a5b596606d54d2e802c1db62acc6f976e4d5e77d179255ba1cdc",
+        "bytes": 255366
+      }
+    }
+  },
+  "heart": {
+    "source": {
+      "asset": {
+        "path": "models/heart/exports/metadata-cleanup-r01/heart.glb",
+        "bytes": 2037228,
+        "sha256": "50c86dcab55701ca1418e16cd269ded70027663d58d02270ec6df0c8afd488fb"
+      },
+      "views": [
+        {
+          "file": "source-0.png",
+          "sha256": "a0eb719ac1a41fe93b2708f91ffc45d79db6683695d91e798d77dbf361653446",
+          "camera": [
+            0.23,
+            -1,
+            0.12
+          ],
+          "location": [
+            0.1328473687171936,
+            -0.5070931315422058,
+            0.11195006966590881
+          ],
+          "rotation": [
+            0.7422785758972168,
+            0.6605302691459656,
+            0.07498212158679962,
+            0.08426202833652496
+          ],
+          "clip": [
+            1.6859290553838946e-05,
+            2.0231146812438965
+          ],
+          "ortho": 0.19050997495651245
+        },
+        {
+          "file": "source-1.png",
+          "sha256": "66eb7a495b4652cbe2363d1e0432fbb9994e2738f06884348196c09fd343befc",
+          "camera": [
+            -0.59,
+            1,
+            0.33
+          ],
+          "location": [
+            -0.2710092067718506,
+            0.4761318862438202,
+            0.21610653400421143
+          ],
+          "rotation": [
+            0.21015380322933197,
+            0.15874749422073364,
+            -0.5814669132232666,
+            -0.769760251045227
+          ],
+          "clip": [
+            1.9862303815898485e-05,
+            2.3834762573242188
+          ],
+          "ortho": 0.2100256085395813
+        },
+        {
+          "file": "source-2.png",
+          "sha256": "abdc68601cccf3ea52d51e9faa5f6c26c07512959ad6e7f1de1f2d67460988e4",
+          "camera": [
+            0.22,
+            -0.48,
+            0.84
+          ],
+          "location": [
+            0.1527511477470398,
+            -0.306623250246048,
+            0.5591315031051636
+          ],
+          "rotation": [
+            0.9387938380241394,
+            0.2705521583557129,
+            0.05904819071292877,
+            0.20489241182804108
+          ],
+          "clip": [
+            1.9919383703381754e-05,
+            2.3903260231018066
+          ],
+          "ortho": 0.22508902847766876
+        }
+      ],
+      "triangles": {
+        "Heart | source surface": 24000
+      }
+    },
+    "edition": {
+      "asset": {
+        "path": "models/heart/exports/texture-pack-r02/heart.glb",
+        "bytes": 1638296,
+        "sha256": "3e98b4c78ecc561d8ba1a80135ece91f23cabdd68837b2db4a8c23f6cd3c33f3"
+      },
+      "views": [
+        {
+          "file": "edition-0.png",
+          "sha256": "1dd4745f9fd0fa0a8f75b788f1549dab625d87f1f1c985f748116986e44a9e14",
+          "camera": [
+            0.23,
+            -1,
+            0.12
+          ],
+          "location": [
+            0.1328473687171936,
+            -0.5070931315422058,
+            0.11195006966590881
+          ],
+          "rotation": [
+            0.7422785758972168,
+            0.6605302691459656,
+            0.07498212158679962,
+            0.08426202833652496
+          ],
+          "clip": [
+            1.6859290553838946e-05,
+            2.0231146812438965
+          ],
+          "ortho": 0.19050997495651245
+        },
+        {
+          "file": "edition-1.png",
+          "sha256": "9f7465cc083c3999c0113044b432dbb51c3d0c0d7f00abfe0cadc6e51ddaac77",
+          "camera": [
+            -0.59,
+            1,
+            0.33
+          ],
+          "location": [
+            -0.2710092067718506,
+            0.4761318862438202,
+            0.21610653400421143
+          ],
+          "rotation": [
+            0.21015380322933197,
+            0.15874749422073364,
+            -0.5814669132232666,
+            -0.769760251045227
+          ],
+          "clip": [
+            1.9862303815898485e-05,
+            2.3834762573242188
+          ],
+          "ortho": 0.2100256085395813
+        },
+        {
+          "file": "edition-2.png",
+          "sha256": "89606ee8a87d931ba531d1f337fa2c4975a396ec0f50ee00a2f10d611b795765",
+          "camera": [
+            0.22,
+            -0.48,
+            0.84
+          ],
+          "location": [
+            0.1527511477470398,
+            -0.306623250246048,
+            0.5591315031051636
+          ],
+          "rotation": [
+            0.9387938380241394,
+            0.2705521583557129,
+            0.05904819071292877,
+            0.20489241182804108
+          ],
+          "clip": [
+            1.9919383703381754e-05,
+            2.3903260231018066
+          ],
+          "ortho": 0.22508902847766876
+        }
+      ],
+      "triangles": {
+        "Heart | source surface": 24000
+      }
+    },
+    "sectionInputs": {
+      "Heart-source-surface.npz": {
+        "sha256": "6a6f9c904443507ccc672e337552357be5ff860eab4507798e727063c4f590f1",
+        "bytes": 269321
+      }
+    }
+  },
+  "diaphragm": {
+    "source": {
+      "asset": {
+        "path": "models/diaphragm/exports/z-native-static-r01/diaphragm_z_native_static.glb",
+        "bytes": 701128,
+        "sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29"
+      },
+      "views": [
+        {
+          "file": "source-0.png",
+          "sha256": "cc8a099eb47db30b46cea2b73824a064625510c2f83b4a6ba40bbcd05e23178c",
+          "camera": [
+            0,
+            -1,
+            0
+          ],
+          "location": [
+            -0.0004202313721179962,
+            -0.7692928314208984,
+            1.152199149131775
+          ],
+          "rotation": [
+            0.7071067690849304,
+            0.7071067690849304,
+            0.0,
+            0.0
+          ],
+          "clip": [
+            2.507728640921414e-05,
+            3.009274482727051
+          ],
+          "ortho": 0.28337332606315613
+        },
+        {
+          "file": "source-1.png",
+          "sha256": "a96a38cc2ab745518243eeb55e8027bb49d9d7b2b85e8b0ee1411a124263c449",
+          "camera": [
+            0,
+            -0.23,
+            1
+          ],
+          "location": [
+            -0.00042023503920063376,
+            -0.186388298869133,
+            1.8887828588485718
+          ],
+          "rotation": [
+            0.9936184287071228,
+            0.11279349774122238,
+            0.0,
+            0.0
+          ],
+          "clip": [
+            2.5193845431203954e-05,
+            3.023261547088623
+          ],
+          "ortho": 0.2833733558654785
+        },
+        {
+          "file": "source-2.png",
+          "sha256": "535587dc832882d7e5a9764d6473680c1bf868e2b09c5c71e1393a61f1b9a977",
+          "camera": [
+            0,
+            -0.25,
+            -1
+          ],
+          "location": [
+            -0.0004202276759315282,
+            -0.20182731747627258,
+            0.4127866327762604
+          ],
+          "rotation": [
+            0.12218321859836578,
+            0.9925075769424438,
+            0.0,
+            0.0
+          ],
+          "clip": [
+            2.540562672947999e-05,
+            3.048675298690796
+          ],
+          "ortho": 0.28337329626083374
+        }
+      ],
+      "triangles": {
+        "Diaphragm": 38868
+      }
+    },
+    "edition": {
+      "asset": {
+        "path": "models/diaphragm/exports/normal-pack-r02/diaphragm.glb",
+        "bytes": 623504,
+        "sha256": "9857d670bd761ed28b4ce534594ad6b0ad2fc05636ca2a66a86a62db1d9bb8d7"
+      },
+      "views": [
+        {
+          "file": "edition-0.png",
+          "sha256": "a34b8f6e682f4d8e963371515b14c3c70f8daaa14f10e298b4de270d29db9428",
+          "camera": [
+            0,
+            -1,
+            0
+          ],
+          "location": [
+            -0.0004202313721179962,
+            -0.7692928314208984,
+            1.152199149131775
+          ],
+          "rotation": [
+            0.7071067690849304,
+            0.7071067690849304,
+            0.0,
+            0.0
+          ],
+          "clip": [
+            2.507728640921414e-05,
+            3.009274482727051
+          ],
+          "ortho": 0.28337332606315613
+        },
+        {
+          "file": "edition-1.png",
+          "sha256": "bb2b063c26f1673d9a2946325125d3df08ac7bc8a54018805365180cec368c41",
+          "camera": [
+            0,
+            -0.23,
+            1
+          ],
+          "location": [
+            -0.00042023503920063376,
+            -0.186388298869133,
+            1.8887828588485718
+          ],
+          "rotation": [
+            0.9936184287071228,
+            0.11279349774122238,
+            0.0,
+            0.0
+          ],
+          "clip": [
+            2.5193845431203954e-05,
+            3.023261547088623
+          ],
+          "ortho": 0.2833733558654785
+        },
+        {
+          "file": "edition-2.png",
+          "sha256": "ff65b1f17dcc344d46659a152706ec60f43714e20127cd38887e374992b17a92",
+          "camera": [
+            0,
+            -0.25,
+            -1
+          ],
+          "location": [
+            -0.0004202276759315282,
+            -0.20182731747627258,
+            0.4127866327762604
+          ],
+          "rotation": [
+            0.12218321859836578,
+            0.9925075769424438,
+            0.0,
+            0.0
+          ],
+          "clip": [
+            2.540562672947999e-05,
+            3.048675298690796
+          ],
+          "ortho": 0.28337329626083374
+        }
+      ],
+      "triangles": {
+        "Diaphragm": 38868
+      }
+    },
+    "sectionInputs": {}
+  },
+  "lymph": {
+    "source": {
+      "asset": {
+        "path": "models/lymph_node/exports/hra-tissue-layers-r01/lymph-node-tissue-layers.glb",
+        "bytes": 2984704,
+        "sha256": "bf4ffa85c96459f2666949196915244697f3f5e33ebf485482c8223ba1fcb23e"
+      },
+      "views": [
+        {
+          "file": "source-0.png",
+          "sha256": "df873dcd56f3d52e6c3524f278951132fdb5772d5a8e5da2e2063bd767b76f4f",
+          "camera": [
+            0.25,
+            -0.9,
+            0.2
+          ],
+          "location": [
+            0.015665199607610703,
+            -0.1312362253665924,
+            0.34173163771629333
+          ],
+          "rotation": [
+            0.7704898715019226,
+            0.6229801177978516,
+            0.08491740375757217,
+            0.10502418875694275
+          ],
+          "clip": [
+            9.999999747378752e-06,
+            0.2531641721725464
+          ],
+          "ortho": 0.02383962832391262
+        },
+        {
+          "file": "source-1.png",
+          "sha256": "d63da7d464a4a80fda5892e34109373dc73ff9b402e93348106521349a944bce",
+          "camera": [
+            0.25,
+            -0.9,
+            0.2
+          ],
+          "location": [
+            0.015665199607610703,
+            -0.1312362253665924,
+            0.34173163771629333
+          ],
+          "rotation": [
+            0.7704898715019226,
+            0.6229801177978516,
+            0.08491740375757217,
+            0.10502418875694275
+          ],
+          "clip": [
+            9.999999747378752e-06,
+            0.2531641721725464
+          ],
+          "ortho": 0.02383962832391262
+        },
+        {
+          "file": "source-2.png",
+          "sha256": "1ba68a7bdf4874001dfeb1ebb4f8793f109095ab90ca3a29e29432e3f5d28762",
+          "camera": [
+            -0.62,
+            -0.55,
+            -0.41
+          ],
+          "location": [
+            -0.04831722378730774,
+            -0.11367043852806091,
+            0.2971230745315552
+          ],
+          "rotation": [
+            0.4811338782310486,
+            0.7748016119003296,
+            -0.3484036326408386,
+            -0.21635061502456665
+          ],
+          "clip": [
+            9.999999747378752e-06,
+            0.2828773856163025
+          ],
+          "ortho": 0.02462366595864296
+        }
+      ],
+      "triangles": {
+        "Yao_capsule_of_lymph_node": 9442,
+        "Yao_follicles": 5758,
+        "Yao_medulla_of_lymph_node": 88351,
+        "Yao_paracortex": 10910
+      }
+    },
+    "edition": {
+      "asset": {
+        "path": "models/lymph_node/exports/tissue-color-pack-r02/lymph-node.glb",
+        "bytes": 2297224,
+        "sha256": "d0b8ac731f187c10e1c7f23a15d6f4ec285b7727cc98bf9feed26fb97e5ee692"
+      },
+      "views": [
+        {
+          "file": "edition-0.png",
+          "sha256": "df873dcd56f3d52e6c3524f278951132fdb5772d5a8e5da2e2063bd767b76f4f",
+          "camera": [
+            0.25,
+            -0.9,
+            0.2
+          ],
+          "location": [
+            0.015665199607610703,
+            -0.1312362253665924,
+            0.34173163771629333
+          ],
+          "rotation": [
+            0.7704898715019226,
+            0.6229801177978516,
+            0.08491740375757217,
+            0.10502418875694275
+          ],
+          "clip": [
+            9.999999747378752e-06,
+            0.2531641721725464
+          ],
+          "ortho": 0.02383962832391262
+        },
+        {
+          "file": "edition-1.png",
+          "sha256": "d63da7d464a4a80fda5892e34109373dc73ff9b402e93348106521349a944bce",
+          "camera": [
+            0.25,
+            -0.9,
+            0.2
+          ],
+          "location": [
+            0.015665199607610703,
+            -0.1312362253665924,
+            0.34173163771629333
+          ],
+          "rotation": [
+            0.7704898715019226,
+            0.6229801177978516,
+            0.08491740375757217,
+            0.10502418875694275
+          ],
+          "clip": [
+            9.999999747378752e-06,
+            0.2531641721725464
+          ],
+          "ortho": 0.02383962832391262
+        },
+        {
+          "file": "edition-2.png",
+          "sha256": "1ba68a7bdf4874001dfeb1ebb4f8793f109095ab90ca3a29e29432e3f5d28762",
+          "camera": [
+            -0.62,
+            -0.55,
+            -0.41
+          ],
+          "location": [
+            -0.04831722378730774,
+            -0.11367043852806091,
+            0.2971230745315552
+          ],
+          "rotation": [
+            0.4811338782310486,
+            0.7748016119003296,
+            -0.3484036326408386,
+            -0.21635061502456665
+          ],
+          "clip": [
+            9.999999747378752e-06,
+            0.2828773856163025
+          ],
+          "ortho": 0.02462366595864296
+        }
+      ],
+      "triangles": {
+        "Yao_capsule_of_lymph_node": 9442,
+        "Yao_follicles": 5758,
+        "Yao_medulla_of_lymph_node": 88351,
+        "Yao_paracortex": 10910
+      }
+    },
+    "sectionInputs": {
+      "Yao-capsule-of-lymph-node.npz": {
+        "sha256": "ce35b6ba1682673216b7afdd2b373be514eb85be0e41cc31686b6de7dced2e8f",
+        "bytes": 88951
+      },
+      "Yao-follicles.npz": {
+        "sha256": "9d02ab8c45192d1c014b303f51ee691236e06216ab932f91cb5ddec5f76c696a",
+        "bytes": 54331
+      },
+      "Yao-medulla-of-lymph-node.npz": {
+        "sha256": "3d9287984702da1b321472ee8ba92d44abf698d42fc558ba71b2669150ac7103",
+        "bytes": 1090632
+      },
+      "Yao-paracortex.npz": {
+        "sha256": "6f02f634350606d94bd2981835ad1106ce3b7a4409ffba935633f7fcfc2def4d",
+        "bytes": 131529
+      }
+    }
+  },
+  "nose_sinuses": {
+    "source": {
+      "asset": {
+        "path": "models/nose_sinuses/exports/nih3d-airspace-r01/nasal_airspace.glb",
+        "bytes": 4758484,
+        "sha256": "3d8c4d56e09d72ae369c697d2bb9435cc3792f9dbe225e7d456ff58174a577be"
+      },
+      "views": [
+        {
+          "file": "source-0.png",
+          "sha256": "a085aec7ceeaf5a29941d7e7bdaa72e6c3c020d683f58f48c8558e3a827527f4",
+          "camera": [
+            0,
+            -1,
+            0
+          ],
+          "location": [
+            -1.4901160305669237e-08,
+            -3.000000476837158,
+            0.0
+          ],
+          "rotation": [
+            0.7071067690849304,
+            0.7071067690849304,
+            0.0,
+            0.0
+          ],
+          "clip": [
+            0.00010000001202570274,
+            12.000001907348633
+          ],
+          "ortho": 1.130000114440918
+        },
+        {
+          "file": "source-1.png",
+          "sha256": "c2dce388fde1e40fc6a54afe11050cb1dbf8a494648a9036789a7ccf3a802de6",
+          "camera": [
+            0.66,
+            -1,
+            0.31
+          ],
+          "location": [
+            2.210721015930176,
+            -3.3495776653289795,
+            1.038369059562683
+          ],
+          "rotation": [
+            0.7573217153549194,
+            0.5863178968429565,
+            0.17604216933250427,
+            0.22738611698150635
+          ],
+          "clip": [
+            0.00013818331353832036,
+            16.58199691772461
+          ],
+          "ortho": 1.424743413925171
+        },
+        {
+          "file": "source-2.png",
+          "sha256": "9ed7c942bfbf0e8d972d031f40d9510d9a29e4610d62e8f3392d1c3bb51beb85",
+          "camera": [
+            -0.61,
+            1,
+            -0.33
+          ],
+          "location": [
+            -2.09702730178833,
+            3.4377493858337402,
+            -1.1344573497772217
+          ],
+          "rotation": [
+            0.16326797008514404,
+            0.21561948955059052,
+            -0.7675230503082275,
+            -0.581171452999115
+          ],
+          "clip": [
+            0.00013945384125690907,
+            16.734460830688477
+          ],
+          "ortho": 1.4452823400497437
+        }
+      ],
+      "triangles": {
+        "NIH3D_3DPX-002305_airspace_cast": 198408
+      }
+    },
+    "edition": {
+      "asset": {
+        "path": "models/nose_sinuses/exports/index-pack-r02/nasal_airspace.glb",
+        "bytes": 3604296,
+        "sha256": "49a5253df26078a4cb8241788352bc6f142b95ff34266bb699a7f6edceceae50"
+      },
+      "views": [
+        {
+          "file": "edition-0.png",
+          "sha256": "048ff59b214f81117ba9505d928d970037d4b858b505123a34735dc09f8cf382",
+          "camera": [
+            0,
+            -1,
+            0
+          ],
+          "location": [
+            -1.4901160305669237e-08,
+            -3.000000476837158,
+            0.0
+          ],
+          "rotation": [
+            0.7071067690849304,
+            0.7071067690849304,
+            0.0,
+            0.0
+          ],
+          "clip": [
+            0.00010000001202570274,
+            12.000001907348633
+          ],
+          "ortho": 1.130000114440918
+        },
+        {
+          "file": "edition-1.png",
+          "sha256": "2935bd58ff3c06e1458c09b8a4d81aa76738517c29bdb38ecef0e443a2f397d1",
+          "camera": [
+            0.66,
+            -1,
+            0.31
+          ],
+          "location": [
+            2.210721015930176,
+            -3.3495776653289795,
+            1.038369059562683
+          ],
+          "rotation": [
+            0.7573217153549194,
+            0.5863178968429565,
+            0.17604216933250427,
+            0.22738611698150635
+          ],
+          "clip": [
+            0.00013818331353832036,
+            16.58199691772461
+          ],
+          "ortho": 1.424743413925171
+        },
+        {
+          "file": "edition-2.png",
+          "sha256": "0e3fb94473ea07de6475df8092ce480d5b72aaca843e51bef53e4c791055f2b8",
+          "camera": [
+            -0.61,
+            1,
+            -0.33
+          ],
+          "location": [
+            -2.09702730178833,
+            3.4377493858337402,
+            -1.1344573497772217
+          ],
+          "rotation": [
+            0.16326797008514404,
+            0.21561948955059052,
+            -0.7675230503082275,
+            -0.581171452999115
+          ],
+          "clip": [
+            0.00013945384125690907,
+            16.734460830688477
+          ],
+          "ortho": 1.4452823400497437
+        }
+      ],
+      "triangles": {
+        "NIH3D_3DPX-002305_airspace_cast": 198408
+      }
+    },
+    "sectionInputs": {
+      "NIH3D-3DPX-002305-airspace-cast.npz": {
+        "sha256": "11cdcc4d85d4432fda9c5ddffea3f142c8f54a80e153870e810324eb10fb0801",
+        "bytes": 2078327
+      }
+    }
+  }
+}

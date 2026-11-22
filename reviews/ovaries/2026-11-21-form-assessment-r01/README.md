@@ -1,6 +1,6 @@
 # Ovary–tubal context r01 form review
 
-Codex (agent review), 2026-11-21, using [rubric a1115de](../../../docs/guides/asset-quality.md). Locate the fimbrial end next to each source-labeled ovary and point to the gap between them. Form and surface remains **Unrated**.
+Codex (agent review), 2026-11-21, using [rubric a1115de](../../../docs/guides/asset-quality.md). Locate the fimbrial end next to each source-labeled ovary and point to the gap between them. This review left form and surface **Unrated**. The [subsequent review](../../teaching-assessments/target-form/README.md) scored the visible finish at 2, retained the original and documented the localization use.
 
 The [exact GLB](../../../models/ovaries/exports/hra-ovary-tubal-r01/ovary-tubal-context.glb) is 681,552 bytes with SHA-256 `465a44b18df91ece95a236372a8cbe3e1a0de0207525955290e6b0fa519195d1`. The [original review](../2026-10-30-hra-ovary-tubal-r01/README.md) shows the bilateral overview and full sides. Its clean reimport and matched source/export pixels establish that the ten meshes, small fimbrial features and spatial relationship came from the acquired files.
 

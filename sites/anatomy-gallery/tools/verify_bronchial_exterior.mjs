@@ -4,7 +4,8 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import review from '../../../reviews/bronchial_tree/2026-11-21-distal-simplification-trial/geometry.json' with { type: 'json' };
 import { assetUrl } from '../app/src/content/gallery/catalog.js';
-import { bronchialExterior, firstForkPath } from '../app/src/content/gallery/local-models.js';
+import { bronchialExterior, firstForkPath, localModels } from '../app/src/content/gallery/local-models.js';
+import { localView, stagePath } from '../app/src/content/gallery/presets.js';
 
 const capture = process.env.MODEL_SURVEY_CAPTURE_DIR;
 assert.ok(capture, 'Set MODEL_SURVEY_CAPTURE_DIR to a dedicated receipt directory');
@@ -55,7 +56,7 @@ try {
   await stop.press('Enter');
   await heading(bronchialExterior.useCase).waitFor();
   assert.equal(new URL(page.url()).hash, '#/' + firstForkPath);
-  const poster = page.getByRole('img', { name: bronchialExterior.scene.posterAlt });
+  const poster = scene.locator('.ga-viewport img');
   await page.waitForFunction(() => document.querySelector('.ga-viewport img')?.naturalWidth > 0);
 
   await page.route(modelUrl, (route) => route.fulfill({ status: 503 }), { times: 1 });
@@ -70,7 +71,7 @@ try {
   const pending = page.waitForResponse((response) => response.url() === modelUrl && response.status() === 200);
   await page.getByRole('button', { name: 'Retry 3D' }).click();
   const delivered = identity(await (await pending).body());
-  assert.deepEqual(delivered, { bytes: review.updated.bytes, sha256: review.updated.sha256, triangles: 308288 });
+  assert.deepEqual(delivered, { bytes: candidate.bytes, sha256: candidate.sha256, triangles: 308288 });
   await loaded();
   assert.equal(await page.getByLabel('Material', { exact: true }).inputValue(), 'Neutral');
   await page.screenshot({ path: path.join(capture, 'first-fork-loaded.png') });
@@ -103,16 +104,13 @@ try {
   await heading(bronchialExterior.useCase).waitFor();
   await page.reload();
   await heading(bronchialExterior.useCase).waitFor();
-  await page.getByRole('link', { name: 'Open r14 in Asset Library' }).click();
+  await page.getByRole('link', { name: 'Open the reviewed fork in Asset Library' }).click();
   await heading(bronchialExterior.title).waitFor();
   assert.equal(new URL(page.url()).hash, '#/' + bronchialExterior.library);
   await page.reload();
   await heading(bronchialExterior.title).waitFor();
-  await page.getByText(/Rating · 13\/16/).waitFor();
+  await page.getByText(/Rating · 14\/16/).waitFor();
   assert.equal(await page.getByText('11/16', { exact: true }).count(), 0);
-  const receiptLink = page.getByRole('link', { name: 'Geometry verification (JSON)' });
-  const response = await page.request.get(base + await receiptLink.getAttribute('href'));
-  assert.deepEqual(await response.json(), review);
   const [download] = await Promise.all([
     page.waitForEvent('download'),
     page.getByRole('link', { name: candidate.name + ' ↓', exact: true }).click(),
@@ -125,7 +123,7 @@ try {
   await search.fill('Bronchial tree');
   await page.getByRole('button', { name: 'Search', exact: true }).click();
   const result = page.locator('.ga-asset[href="#/' + bronchialExterior.library + '"]');
-  await result.getByText('13/16', { exact: true }).waitFor();
+  await result.getByText('14/16', { exact: true }).waitFor();
   await result.click();
   await heading(bronchialExterior.title).waitFor();
   await page.goto(url('library/bronchial_tree'));
@@ -154,6 +152,37 @@ try {
     assert.equal(digest(await (await page.request.get(base + link)).body()), sha256);
   }
 
+  await page.goto(url('library/bronchial_tree/distal-sampling-r14'));
+  const r14Receipt = page.getByRole('link', { name: 'Geometry verification (JSON)' });
+  assert.deepEqual(await (await page.request.get(base + await r14Receipt.getAttribute('href'))).json(), review);
+  const r14Download = page.locator('a[download]').first();
+  const r14 = identity(await (await page.request.get(base + await r14Download.getAttribute('href'))).body());
+  assert.deepEqual(r14, { bytes: review.updated.bytes, sha256: review.updated.sha256, triangles: 308288 });
+  assert.ok(await page.getByText('Earlier first-fork teaching edition · Local preview', { exact: true }).isVisible());
+  const r14Model = localModels.find((model) => model.scene.version === 'bronchial-first-fork-v1');
+  const legacy = url(stagePath({ ...localView(r14Model), material: 'Tissue' }, firstForkPath));
+  const legacyUrl = base + assetUrl(r14Model.exports[0]);
+  const legacyPayload = page.waitForResponse((response) => response.url() === legacyUrl && response.ok());
+  await page.goto(legacy);
+  assert.deepEqual(identity(await (await legacyPayload).body()), r14);
+  await loaded();
+  await page.getByRole('heading', { name: r14Model.title, exact: true }).waitFor();
+  assert.equal(await page.getByLabel('Material', { exact: true }).inputValue(), 'Tissue');
+  await page.reload();
+  await loaded();
+  await page.getByRole('link', { name: 'Return to first-fork lesson' }).click();
+  await heading(bronchialExterior.useCase).waitFor();
+  await page.getByRole('link', { name: 'Open the reviewed fork in Asset Library' }).click();
+  await heading(bronchialExterior.title).waitFor();
+
+  const currentPoster = await readFile(new URL('../../../' + bronchialExterior.scene.posterPath, import.meta.url));
+  await page.route(modelUrl, (route) => route.fulfill({ status: 503 }), { times: 1 });
+  await page.goto(url(stagePath(localView(bronchialExterior))));
+  await scene.getByRole('status').getByText('The pinned export is unavailable.').waitFor();
+  assert.equal(await poster.getAttribute('src'), '/review-evidence/' + digest(currentPoster) + '/bronchial-first-fork-teaching.webp');
+  await page.getByRole('button', { name: 'Retry 3D' }).click();
+  await loaded();
+
   const manifest = await (await page.request.get(base + '/assets/index.json')).json();
   assert.ok(!manifest.assets.some((asset) => asset.sha256 === candidate.sha256));
   const publicOrigin = 'https://gallery.example.test';
@@ -172,11 +201,11 @@ try {
   assert.deepEqual(errors, []);
   await writeFile(path.join(capture, 'bronchial-exterior.json'), JSON.stringify({
     browser: browser.version(), lesson: url(firstForkPath), library: url(bronchialExterior.library), shared,
-    candidate: delivered, original: retained,
+    candidate: delivered, original: retained, legacy: { preset: legacy, ...r14 },
     retry: '503, same-size corrupt response, successful exact-model retry',
     public: 'Candidate absent from the delivery index and non-loopback visitor routes',
   }, null, 2) + '\n');
-  console.log('PASS bronchial teaching, verified WebGL and download, preset reload, r07/r09/r13 compatibility, retry and local-only visibility');
+  console.log('PASS bronchial teaching, verified WebGL and downloads, both preset versions, r07/r09/r13 compatibility, exact failure poster and local-only visibility');
 } finally {
   await browser.close();
 }

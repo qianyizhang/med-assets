@@ -1,0 +1,121 @@
+{
+  "source": {
+    "path": "models/lymph_node/exports/hra-v1.2/NIH_M_Lymph_Node.glb",
+    "sha256": "7b047002cbb1dc06f37baa441783390d76cdb444b6144d6caa623923707953fd",
+    "bytes": 7413900
+  },
+  "candidate": {
+    "name": "lymph-node-tissue-layers.glb",
+    "sha256": "bf4ffa85c96459f2666949196915244697f3f5e33ebf485482c8223ba1fcb23e",
+    "bytes": 2984704
+  },
+  "sourceTriangles": 254663,
+  "retainedTriangles": 114498,
+  "verifiedRetained": {
+    "Yao_capsule_of_lymph_node": {
+      "label": "Capsule",
+      "providerOntology": "UBERON:0002194",
+      "triangles": 9442,
+      "material": "Lymph_mat",
+      "transforms": {},
+      "identicalDecodedAccessors": {
+        "indices": {
+          "sha256": "e34feac91cb67ecb4a8f202ad08614e70a34f0d3dd361f4525d82e6e74d100a9",
+          "bytes": 56652
+        },
+        "POSITION": {
+          "sha256": "b1ff915b939528b79f9c36019c82f112fccf58d51963375c76362bab88e015d3",
+          "bytes": 56928
+        },
+        "NORMAL": {
+          "sha256": "19bfca3c9ec1f83e47323eab59022f30bca12156ddaf4fb977c704692e6e7225",
+          "bytes": 56928
+        },
+        "COLOR_0": {
+          "sha256": "b6017a6727bd10e21ea57dc58331984768786fc768e498bd077570e4581ddd25",
+          "bytes": 75904
+        }
+      }
+    },
+    "Yao_follicles": {
+      "label": "Follicles",
+      "providerOntology": "UBERON:0010748",
+      "triangles": 5758,
+      "material": "lymph_cortex_mat",
+      "transforms": {},
+      "identicalDecodedAccessors": {
+        "indices": {
+          "sha256": "91be0ae968323f2de00b3333e82f968ab76e7a291cb465b53ad9977896ec3b0a",
+          "bytes": 34548
+        },
+        "POSITION": {
+          "sha256": "e74e9579ae8744280db352388a203a19b6d5190757533364d3949ba1385f90a1",
+          "bytes": 34884
+        },
+        "NORMAL": {
+          "sha256": "49c086ef5bd29dc1079a370969cdfe847f40ab30e64ddef620b100f4f7904cd7",
+          "bytes": 34884
+        },
+        "COLOR_0": {
+          "sha256": "6b5a0326017cb3838cae84c281a95a7441f68d08fbd2b8289ca5d8a201b199a4",
+          "bytes": 46512
+        }
+      }
+    },
+    "Yao_medulla_of_lymph_node": {
+      "label": "Medulla",
+      "providerOntology": "UBERON:0002007",
+      "triangles": 88388,
+      "material": "lymph_medulla_mat",
+      "transforms": {},
+      "identicalDecodedAccessors": {
+        "indices": {
+          "sha256": "9c9df74d276d650a249dc295a908e753b7017b72b0e104a81505a347b23119ce",
+          "bytes": 530328
+        },
+        "POSITION": {
+          "sha256": "53458012a0424f204aa9071ec04f26cb78eebf4fde1f66a13549b8fa4f59feec",
+          "bytes": 530328
+        },
+        "NORMAL": {
+          "sha256": "9c8d851a8f935a3cc527d4c7a5f9316e7a21380edc142cb2dcaae104b85dfa8f",
+          "bytes": 530328
+        },
+        "COLOR_0": {
+          "sha256": "70e334cec92b8668348bf11fe0b37c5a0b2f85d9f851569df7a4bc2fe948e419",
+          "bytes": 707104
+        }
+      }
+    },
+    "Yao_paracortex": {
+      "label": "Paracortex",
+      "providerOntology": "UBERON:0010417",
+      "triangles": 10910,
+      "material": "lymph_paracortex_mat",
+      "transforms": {},
+      "identicalDecodedAccessors": {
+        "indices": {
+          "sha256": "c8f362226c18cf9f044aef1bb7609f5eb2b4e54576a55b422a4dc74d636c5686",
+          "bytes": 65460
+        },
+        "POSITION": {
+          "sha256": "421f00bed43f9ac3473ed048e1645e10f8543ab9e1bb1154ddaa31057af07ec3",
+          "bytes": 65412
+        },
+        "NORMAL": {
+          "sha256": "f8c67fe4ba35b8129e132b44f5fa2e4b1ab53fc1cb308299b50b583dbcb263eb",
+          "bytes": 65412
+        },
+        "COLOR_0": {
+          "sha256": "55c3dcb505dec773ea62dcebb09a2b2f2b4c98aaf47b9263e3dd746628d39975",
+          "bytes": 87216
+        }
+      }
+    }
+  },
+  "intentionalOmissions": {
+    "Yao_afferent_lymphatic_vessel": "Source-named vessel outside the tissue-layer task",
+    "Yao_efferent_lymph_node": "Source-named vessel outside the tissue-layer task",
+    "Yao_blood_vasculature": "Disputed network outside the tissue-layer task; provider fields conflict"
+  }
+}

@@ -1,0 +1,329 @@
+[
+  {
+    "family": "UFF molar specimen",
+    "baseline": "models/dental_specimens/uff_tomo1b/exports/r01/uff-tomo1b-display.glb",
+    "path": "models/dental_specimens/uff_tomo1b/exports/r01/uff-tomo1b-display.glb",
+    "controlAssessmentSha256": "bd09337c234ff416543e422ce03f2f8a6cdefeb5042e3824cc2484dfc384ee4b",
+    "assessmentSha256": "bd09337c234ff416543e422ce03f2f8a6cdefeb5042e3824cc2484dfc384ee4b",
+    "reviewedAxes": [
+      "1"
+    ],
+    "axisChanges": {
+      "1": {
+        "score": 2,
+        "observation": "The surface roughness and closure remain visible. Eleven verified slices localize the extraction failure. Removing the cap would erase the original method’s failure, while extending a seed at this threshold admits exterior background."
+      }
+    },
+    "taskCheck": "Traced the exterior and isolated proxy on the original plate. In matched source sections the seeded alternative changes from 128 pixels in 0970 to 114,446 including exterior in 0971; enclosure loses the selection.",
+    "status": "passed",
+    "decision": "Retain the source-derived proxy closure as the failure the learner identifies.",
+    "evidence": [
+      "reviews/teaching-assessments/reopen-source/dental-sections.json",
+      "reviews/teaching-assessments/reopen-source/README.md",
+      "records/work-items/items/TAQ-025-uff-open-channel.md"
+    ],
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-risk/views/uff-proxy-terminal-evidence.jpg",
+      "sha256": "dabb8c1595805831be2ab806f9c222b9b0c3c606ff50d4267f1796d5a5366157",
+      "bytes": 169409,
+      "width": 1220,
+      "height": 865,
+      "label": "Compare the exterior with the isolated computed space. In source slice 972 the channel opens to the exterior and the method selects zero voxels inside it."
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/reopen-source/uff.webp",
+      "sha256": "59b0d59fbd93907a4f58e867af71e3063fb4f2b3b042c45f989a74ee369ef258",
+      "bytes": 64576,
+      "width": 1024,
+      "height": 750,
+      "label": "Compare per-slice enclosure and a seeded background region on original neighboring TIFFs. At 0971 the seed connects to the exterior."
+    },
+    "teaching": {
+      "path": "reviews/teaching-assessments/refinement-risk/views/uff-proxy-terminal-evidence.jpg",
+      "sha256": "dabb8c1595805831be2ab806f9c222b9b0c3c606ff50d4267f1796d5a5366157",
+      "bytes": 169409,
+      "width": 1220,
+      "height": 865,
+      "label": "Compare the exterior with the isolated computed space. In source slice 972 the channel opens to the exterior and the method selects zero voxels inside it."
+    },
+    "exemptions": {
+      "1": {
+        "reason": "The surface roughness and closure remain visible. Eleven verified slices localize the extraction failure. Removing the cap would erase the original method’s failure, while extending a seed at this threshold admits exterior background.",
+        "permittedUse": "Recognize this scan-derived exterior and demonstrate the computed proxy failure.",
+        "reopen": "For an anatomical-space edition, define and independently annotate the open channel on contiguous source sections before comparing a new constrained estimator."
+      }
+    },
+    "workItem": "records/work-items/items/TAQ-025-uff-open-channel.md"
+  },
+  {
+    "family": "FDI31 · prepared specimen",
+    "baseline": "models/swirendo_fdi31/exports/balanced-20261028/FDI31-balanced.glb",
+    "path": "models/swirendo_fdi31/exports/balanced-20261028/FDI31-balanced.glb",
+    "controlAssessmentSha256": "b3a4e5da4a5665ddd606dab10017758a3d685bc8c13be6d480724ba7c8243261",
+    "assessmentSha256": "b3a4e5da4a5665ddd606dab10017758a3d685bc8c13be6d480724ba7c8243261",
+    "reviewedAxes": [
+      "1"
+    ],
+    "axisChanges": {
+      "1": {
+        "score": 2,
+        "observation": "The exposed-bone projection retains the root collar, acquisition margin and small islands. Moving 478 vertices by at most 0.084 mm leaves a rough margin at 12 mm. At y = 8.56 mm the worst interior label-to-section discrepancy changes from 0.373 to 0.372 mm at a thin, grazing source feature. The separate 0.515 mm padded cut-line discrepancy has no anatomical interpretation."
+      }
+    },
+    "taskCheck": "Located enamel and the bone-seated root in the existing model, then traced its surrounding bone against the source label at y = 7.04, 7.80 and 8.56 mm.",
+    "status": "passed",
+    "decision": "Retain the prepared block and demonstrate its recorded acquisition boundary alongside the root.",
+    "evidence": [
+      "reviews/teaching-assessments/reopen-source/dental-sections.json",
+      "reviews/teaching-assessments/reopen-source/README.md",
+      "reviews/teaching-assessments/reopen-source/fdi-bone-trial.json",
+      "reviews/teaching-assessments/reopen-source/fdi31.webp",
+      "reviews/teaching-assessments/reopen-source/context-trials.json",
+      "records/work-items/items/TAQ-020-fdi31-root-seat.md"
+    ],
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-form/plates/swirendo_fdi31.webp",
+      "sha256": "6101198e540fc0d75edad1ca8986b43a4f21d1fa00a29e09f50ef71485b5f1a3",
+      "bytes": 96666,
+      "width": 1328,
+      "height": 738,
+      "label": "Start at the enamel crown, then compare the same camera with bone hidden to locate the root inside the specimen. The reverse identifies the rough, cut edge of the original block."
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/reopen-source/fdi31-bone-trial.webp",
+      "sha256": "c0e2fd647790b90259434f9c951499eae6e3411d5c314d66b626b0fa4935607e",
+      "bytes": 78708,
+      "width": 792,
+      "height": 997,
+      "label": "Matched whole and 12 mm detail of Balanced against a label-guarded, bone-only projection at the same triangle budget."
+    },
+    "teaching": {
+      "path": "reviews/teaching-assessments/refinement-form/plates/swirendo_fdi31.webp",
+      "sha256": "6101198e540fc0d75edad1ca8986b43a4f21d1fa00a29e09f50ef71485b5f1a3",
+      "bytes": 96666,
+      "width": 1328,
+      "height": 738,
+      "label": "Start at the enamel crown, then compare the same camera with bone hidden to locate the root inside the specimen. The reverse identifies the rough, cut edge of the original block."
+    },
+    "exemptions": {
+      "1": {
+        "reason": "The exposed-bone projection retains the root collar, acquisition margin and small islands. Moving 478 vertices by at most 0.084 mm leaves a rough margin at 12 mm. At y = 8.56 mm the worst interior label-to-section discrepancy changes from 0.373 to 0.372 mm at a thin, grazing source feature. The separate 0.515 mm padded cut-line discrepancy has no anatomical interpretation.",
+        "permittedUse": "Show the crown and root seat in this one prepared T2 specimen.",
+        "reopen": "Test a source-preserving local retessellation around native index (275, 214, 563.5), where the planar bone-label component tapers from 39 to 11 pixels to zero across y = 213–215. Compare the same source planes and local 3D distance; keep the acquisition margin, label interface and remaining islands."
+      }
+    },
+    "workItem": "records/work-items/items/TAQ-020-fdi31-root-seat.md"
+  },
+  {
+    "family": "Penile components",
+    "baseline": "models/penis/exports/z-native-components-r04/penile_internal_components.glb",
+    "path": "models/penis/exports/z-native-components-r04/penile_internal_components.glb",
+    "controlAssessmentSha256": "89b383b3924e320864ae9f3c265edae9f023085c7d40dfc64ba1907094cd31eb",
+    "assessmentSha256": "89b383b3924e320864ae9f3c265edae9f023085c7d40dfc64ba1907094cd31eb",
+    "reviewedAxes": [
+      "1"
+    ],
+    "axisChanges": {
+      "1": {
+        "score": 2,
+        "observation": "The distal spot persists on the isolated glans. The same-atlas urethral surface intersects the glans in 151 triangle pairs, while its 12 terminal vertices lie 8.26–8.84 mm from the three defective glans edges. The native curve therefore supplies no matching rim to repair or name the visible spot."
+      }
+    },
+    "taskCheck": "Identified both proximal sides and the spongiosum-to-glans relationship in the original teaching view. Added the named urethral object without registration offsets and inspected its distal tip from two directions.",
+    "status": "passed",
+    "decision": "Retain the exact source glans and its visibly irregular rim for component identification.",
+    "evidence": [
+      "reviews/teaching-assessments/reopen-source/context-trials.json",
+      "reviews/teaching-assessments/reopen-source/README.md",
+      "records/work-items/items/TAQ-023-distal-glans-rim.md"
+    ],
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-form/plates/penis.webp",
+      "sha256": "71b67fca6faf2fdd241e88d32a2923ab504b6c51f2cf632df53c76a231d731c8",
+      "bytes": 88604,
+      "width": 1328,
+      "height": 768,
+      "label": "Follow the spongiosum under the paired roots into the glans, then inspect the distal rim in the enlargement. Leave the small distal spot unnamed."
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/reopen-source/penis.webp",
+      "sha256": "e85e2791a9fd8df784494281c38a0b594c9014a0086e38962c8d0623c2b83a47",
+      "bytes": 56874,
+      "width": 792,
+      "height": 997,
+      "label": "Components alone and with the independently exported same-atlas urethral surface at two matched distal angles."
+    },
+    "teaching": {
+      "path": "reviews/teaching-assessments/refinement-form/plates/penis.webp",
+      "sha256": "71b67fca6faf2fdd241e88d32a2923ab504b6c51f2cf632df53c76a231d731c8",
+      "bytes": 88604,
+      "width": 1328,
+      "height": 768,
+      "label": "Follow the spongiosum under the paired roots into the glans, then inspect the distal rim in the enlargement. Leave the small distal spot unnamed."
+    },
+    "exemptions": {
+      "1": {
+        "reason": "The distal spot persists on the isolated glans. The same-atlas urethral surface intersects the glans in 151 triangle pairs, while its 12 terminal vertices lie 8.26–8.84 mm from the three defective glans edges. The native curve therefore supplies no matching rim to repair or name the visible spot.",
+        "permittedUse": "Identify the paired proximal sides, central spongiosum and distal glans.",
+        "reopen": "Obtain a source-author distal-rim annotation or a licensed registered distal-glans section and compare the openings layer by layer before editing the termination."
+      }
+    },
+    "workItem": "records/work-items/items/TAQ-023-distal-glans-rim.md"
+  },
+  {
+    "family": "Parathyroid localization",
+    "baseline": "models/parathyroids/exports/z-localization-r01/parathyroids_thyroid_context.glb",
+    "path": "models/parathyroids/exports/z-localization-r01/parathyroids_thyroid_context.glb",
+    "controlAssessmentSha256": "89b861e63aee2a2a2b1c4da8bcfc426ff12d836fe7a44adf3960d4b5ffccc323",
+    "assessmentSha256": "89b861e63aee2a2a2b1c4da8bcfc426ff12d836fe7a44adf3960d4b5ffccc323",
+    "reviewedAxes": [
+      "1"
+    ],
+    "axisChanges": {
+      "1": {
+        "score": 2,
+        "observation": "Oriented ellipsoids preserve the four native centers and upper/lower dimensions (long axes 4.70/4.45 mm). At the posterior and oblique fields they reproduce the same bilateral mirror shapes and unresolved thyroid projection. Equal-size markers also erase upper/lower extents. Neither supplies specimen morphology."
+      }
+    },
+    "taskCheck": "Located all four posterior positions, distinguished upper/lower target sizes, and repeated in the same oblique view with native-extent symbols. The localization stayed readable; both atlas limitations stayed visible.",
+    "status": "passed",
+    "decision": "Retain the source-position companion with the original target extents.",
+    "evidence": [
+      "reviews/teaching-assessments/reopen-source/context-trials.json",
+      "reviews/teaching-assessments/reopen-source/README.md",
+      "reviews/teaching-assessments/reopen-source/parathyroid.webp",
+      "records/work-items/items/TAQ-024-parathyroid-native-form.md"
+    ],
+    "before": {
+      "path": "reviews/teaching-assessments/target-risk/views/parathyroid.webp",
+      "sha256": "1c321690f21eb59980904092d7de9507241b9d0ef0cec32c5b2ab610d1a9ed44",
+      "bytes": 67558,
+      "width": 1200,
+      "height": 880,
+      "label": "Locate all four targets in the posterior view. Repeat from the patient's left and right and use the thyroid as the depth landmark. The two positions on each side retain the source heights."
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/reopen-source/parathyroid-extents.webp",
+      "sha256": "32a41194719644ddb09b51d2f165614d2ae79e1f9cf6aeadae0ccf84c39a144d",
+      "bytes": 49808,
+      "width": 792,
+      "height": 997,
+      "label": "Matched source glands and oriented markers at their native centers and exact principal-axis spans, in posterior and oblique views."
+    },
+    "teaching": {
+      "path": "reviews/teaching-assessments/target-risk/views/parathyroid.webp",
+      "sha256": "1c321690f21eb59980904092d7de9507241b9d0ef0cec32c5b2ab610d1a9ed44",
+      "bytes": 67558,
+      "width": 1200,
+      "height": 880,
+      "label": "Locate all four targets in the posterior view. Repeat from the patient's left and right and use the thyroid as the depth landmark. The two positions on each side retain the source heights."
+    },
+    "exemptions": {
+      "1": {
+        "reason": "Oriented ellipsoids preserve the four native centers and upper/lower dimensions (long axes 4.70/4.45 mm). At the posterior and oblique fields they reproduce the same bilateral mirror shapes and unresolved thyroid projection. Equal-size markers also erase upper/lower extents. Neither supplies specimen morphology.",
+        "permittedUse": "Localize four posterior positions in a single atlas example.",
+        "reopen": "Acquire a rights-cleared same-specimen posterior view with separately annotated glands and thyroid projection. Compare upper and lower extents at the native gland centers before replacing the atlas example."
+      }
+    },
+    "workItem": "records/work-items/items/TAQ-024-parathyroid-native-form.md"
+  },
+  {
+    "family": "Hypothalamus",
+    "baseline": "models/hypothalamus/exports/source-candidate-01/hypothalamus_source_frame.glb",
+    "path": "models/hypothalamus/exports/source-candidate-01/hypothalamus_source_frame.glb",
+    "controlAssessmentSha256": "d879b8f19303d4e4f7914a1ca441682cea5c84be8d17b30520b504e4f9389439",
+    "assessmentSha256": "d879b8f19303d4e4f7914a1ca441682cea5c84be8d17b30520b504e4f9389439",
+    "reviewedAxes": [
+      "1"
+    ],
+    "axisChanges": {
+      "1": {
+        "score": 3,
+        "observation": "The paired silhouettes and inferior projection remain recognizable in the neutral control. Four registered source sections account for the prominent medial recess: the named BP3D third ventricle extends into it. Raster overlap bounds the anatomical claim to this gross atlas relationship."
+      }
+    },
+    "taskCheck": "Located the paired envelopes and inferior stalk in the posterior and side views. Matched coronal cuts show the lower portion of FJ1730 entering the same midline recess at four native y planes.",
+    "status": "passed",
+    "decision": "Keep the source GLB and use the same-frame ventricular evidence to interpret the medial recess.",
+    "evidence": [
+      "reviews/teaching-assessments/reopen-source/ventricle-sections.json",
+      "reviews/teaching-assessments/reopen-source/context-trials.json",
+      "reviews/teaching-assessments/reopen-source/hypothalamus.webp",
+      "reviews/teaching-assessments/reopen-source/README.md"
+    ],
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-form/plates/hypothalamus.webp",
+      "sha256": "ecb104533f981bf38c5ebab22c9b3ebdeba62aeb5b9c81443f60366b5532f2ba",
+      "bytes": 106576,
+      "width": 1328,
+      "height": 808,
+      "label": "Find the seam between the paired envelopes and follow the stalk toward the wireframe pituitary. The reverse panel marks the unassigned posterior depression."
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/reopen-source/hypothalamus-sections.webp",
+      "sha256": "3ecfec1cf3a67f4f6351e61dc2dd4e1853c9e66ad1efda9920cdbbe640e2bcd5",
+      "bytes": 59554,
+      "width": 1176,
+      "height": 625,
+      "label": "Four coronal cuts pass through both original envelopes and their atlas’s third ventricle FJ1730 in its native frame."
+    },
+    "teaching": {
+      "path": "reviews/teaching-assessments/reopen-source/hypothalamus.webp",
+      "sha256": "86fdc8e53e97a95f55c0fed56714cce777482ac50e7b7f606c1dd060644bad30",
+      "bytes": 56006,
+      "width": 792,
+      "height": 997,
+      "label": "Identify the paired source envelopes and inferior projection, then compare the native ventricular reference at the same two camera positions."
+    },
+    "exemptions": {}
+  },
+  {
+    "family": "Ovary + tubal ends",
+    "baseline": "models/ovaries/exports/hra-ovary-tubal-r01/ovary-tubal-context.glb",
+    "path": "models/ovaries/exports/teaching-ovoid-r02/ovary-tubal-teaching.glb",
+    "controlAssessmentSha256": "2a6b21bbca247ac4ef0fd986a43868e0c433dc75307362188fbbbf55b955e087",
+    "assessmentSha256": "5de981057f5cc0a0ed75b186ee0a6431db15ecc83335d6a23ff803d893a051b2",
+    "reviewedAxes": [
+      "1"
+    ],
+    "axisChanges": {
+      "1": {
+        "score": 3,
+        "observation": "The neutral obliques and source-material views show a continuous lower pole on both interpreted ovaries. The asymmetric upper turns retain the source contour nearest each fringe. No added pits, cuts or joins appear at the 38–39 mm field."
+      }
+    },
+    "taskCheck": "Located the native tubal fringe and its gap beside each interpreted ovary on both alternate sides. Each lower pole forms one rounded turn, with the source-derived contour protected closest to the tips.",
+    "status": "passed",
+    "decision": "Use the interpreted ovary exterior for bilateral fimbrial localization, retaining the native HRA contours separately.",
+    "evidence": [
+      "reviews/teaching-assessments/reopen-source/context-trials.json",
+      "reviews/teaching-assessments/reopen-source/material-frames.json",
+      "reviews/teaching-assessments/reopen-source/README.md"
+    ],
+    "before": {
+      "path": "reviews/teaching-assessments/target-form/plates/ovary-source-teaching.webp",
+      "sha256": "0a6655efb733961d10cdaeb89759b53b9ca86e0ea3003a4a96d5619eb5046433",
+      "bytes": 102138,
+      "width": 874,
+      "height": 1181,
+      "label": "Find each source-labeled fingerlike fringe and point to the dark gap beside the ovary in the alternate angle."
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/reopen-source/ovary-comparison.webp",
+      "sha256": "d6276a1547fb8994682b92d1d98b4ac2ed59754b8b63d8fc7b8f9050a4e31685",
+      "bytes": 45770,
+      "width": 792,
+      "height": 997,
+      "label": "Original HRA and interpreted ovary exteriors at the same bilateral neutral close fields. Compare the lower poles without moving the tubal ends."
+    },
+    "teaching": {
+      "path": "reviews/teaching-assessments/reopen-source/ovary-teaching.webp",
+      "sha256": "e0d840cd8d52f5a38234fdcba2861ea9a224f64d02ecb3fe97e63ca4f01d5946",
+      "bytes": 51918,
+      "width": 792,
+      "height": 997,
+      "label": "Locate each source-labeled fringe in the first row. Use the alternate views to see the gap beside each interpreted ovary."
+    },
+    "exemptions": {}
+  }
+]

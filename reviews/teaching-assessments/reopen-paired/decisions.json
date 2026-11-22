@@ -1,0 +1,298 @@
+[
+  {
+    "family": "3D Anatomy Workshop",
+    "baseline": "body/anatomy-workshop-r1/Anatomy_Workshop.blend",
+    "path": "body/anatomy-workshop-r1/Anatomy_Workshop_compact.blend",
+    "controlAssessmentSha256": "ae8e0813897d3ded3de9f5f88d4e316feb1eeea7757829140ab1fd363f83e38c",
+    "assessmentSha256": "b647c9aaa8b9136ee159626500ae343bbd740af172e970496947c546fd236a6b",
+    "reviewedAxes": [
+      "1",
+      "3"
+    ],
+    "taskCheck": "The anterior selection locates the heart between five lobes and the liver below them. The posterior angle separates both lower lobe boundaries. Two registered native-frame CT slices identify the origin of the rounded basal rims.",
+    "status": "passed",
+    "decision": "Use the compact native Workshop to locate the heart and lower thoracic space. Use the matched CT/label cuts to interpret the rounded inferior margins at gross scale.",
+    "axisChanges": {
+      "1": {
+        "score": 3,
+        "observation": "Anterior and posterior views retain both lower contours. At two native coronal CT sections through the largest lower-quarter discrepancies, the sloping rims track the air-to-soft-tissue boundaries. The display rounds the label edges, by up to 2.94 mm left and 2.91 mm right in the sampled vertex-to-label-vertex check. Teach the lower contour at this scale."
+      },
+      "3": {
+        "score": 3,
+        "observation": "The complete editable native payload drops from 17,571,351 to 13,596,421 bytes (22.6%). The earlier frozen mesh trial lost required controls. All 286,402 evaluated default triangles and the alternate native states survive in this edition. Both matched selections are pixel-identical."
+      }
+    },
+    "exemptions": {},
+    "evidence": [
+      "reviews/teaching-assessments/reopen-paired/build.json",
+      "reviews/teaching-assessments/reopen-paired/render.json",
+      "reviews/teaching-assessments/reopen-paired/pixels.json",
+      "reviews/teaching-assessments/reopen-paired/sections.json",
+      "body/anatomy-workshop-r1/COMPACT.md"
+    ],
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-form/plates/anatomy-workshop-r1.webp",
+      "sha256": "f0f87fc03faacd4e898c23d4b35494e64d7ad0507e97a5e9e36ba0b2fa8e2f5c",
+      "bytes": 134256,
+      "width": 1328,
+      "height": 808,
+      "label": "Find the heart between the two lungs. Compare the front and rear views to follow the lower lung contours and locate the liver below them."
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/reopen-paired/plates/anatomy-workshop-r1-comparison.webp",
+      "sha256": "cfce89c5f1e0d3459e67c02a1442ad8de3c5fcc8b9b78aebffe678d61645ce1c",
+      "bytes": 95836,
+      "width": 874,
+      "height": 1181,
+      "label": "Original and compact 3D Anatomy Workshop in the same cameras, with matched visibility and scale."
+    },
+    "teaching": {
+      "path": "reviews/teaching-assessments/reopen-paired/plates/anatomy-workshop-r1-teaching.webp",
+      "sha256": "8ec78e89134e33cac4b20cba4f8d07b6fd9186cf4be8e9dd81c81106b513045c",
+      "bytes": 127360,
+      "width": 1088,
+      "height": 1249,
+      "label": "The anterior selection locates the heart between five lobes and the liver below them. The posterior angle separates both lower lobe boundaries. Two registered native-frame CT slices identify the origin of the rounded basal rims."
+    }
+  },
+  {
+    "family": "Heart · body shell",
+    "baseline": "models/heart/exports/metadata-cleanup-r01/heart.glb",
+    "path": "models/heart/exports/texture-pack-r02/heart.glb",
+    "controlAssessmentSha256": "8094d148173b62a5701b2e88671aa11211be0c9a598cfa06c88555d99ab310aa",
+    "assessmentSha256": "9a1ae5f076605dd150f5947bbc83e0ca1329c2b7292e3cebef81d044e0171ab0",
+    "reviewedAxes": [
+      "1",
+      "3"
+    ],
+    "taskCheck": "The two neutral whole views show the ventricular mass below the curved superior extent. The projected overlap resolves in reverse. The two native CT cuts make the coarse label division at the superior margin visible.",
+    "status": "passed",
+    "decision": "Use the texture-packed shell with the same-case CT cuts to identify the broad ventricular body and its superior segmented extent.",
+    "axisChanges": {
+      "1": {
+        "score": 3,
+        "observation": "The ventricular body and superior sweep separate in front and reverse views. Axial and coronal s1233 CT/label cuts account for the irregular sweep as the closed heart-label boundary alongside the separate aorta label. The worst upper-quarter mesh vertex was 1.984 mm from its nearest label-isosurface vertex. The upper shell cannot demonstrate vessel openings."
+      },
+      "3": {
+        "score": 3,
+        "observation": "The same one-part 24,000-triangle shell, three PNG textures and translation clip use 1,638,296 GLB bytes, down 398,932 bytes (19.6%). The earlier vertex contractions displaced the ventricular margin. The protected geometry and every texture sample are exact, with no matched pixel differences."
+      }
+    },
+    "exemptions": {},
+    "evidence": [
+      "reviews/teaching-assessments/reopen-paired/build.json",
+      "reviews/teaching-assessments/reopen-paired/render.json",
+      "reviews/teaching-assessments/reopen-paired/pixels.json",
+      "reviews/teaching-assessments/reopen-paired/sections.json",
+      "models/heart/exports/texture-pack-r02/README.md"
+    ],
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-form/plates/heart.webp",
+      "sha256": "b72c1625addcadb26cb9597a783a62008c74c6212071b36f329b7d6dc6e7a447",
+      "bytes": 107098,
+      "width": 1328,
+      "height": 768,
+      "label": "Recognize the ventricular mass below the superior sweep. The same-scale retained s1233 source shows which abrupt contours were already present."
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/reopen-paired/plates/heart-comparison.webp",
+      "sha256": "e98a6bdb3dc4a7aaed2ba567572d49f0cbed99b1ca625f738f29c8a3419821ee",
+      "bytes": 105526,
+      "width": 1302,
+      "height": 1148,
+      "label": "Original and compact Heart · body shell in the same cameras, with matched visibility and scale."
+    },
+    "teaching": {
+      "path": "reviews/teaching-assessments/reopen-paired/plates/heart-teaching.webp",
+      "sha256": "9555ae21ec7a38aeccb62d6157f7c0b47f9b532031dda2a073dcf100a0634c24",
+      "bytes": 144640,
+      "width": 1088,
+      "height": 1279,
+      "label": "The two neutral whole views show the ventricular mass below the curved superior extent. The projected overlap resolves in reverse. The two native CT cuts make the coarse label division at the superior margin visible."
+    }
+  },
+  {
+    "family": "Diaphragm",
+    "baseline": "models/diaphragm/exports/z-native-static-r01/diaphragm_z_native_static.glb",
+    "path": "models/diaphragm/exports/normal-pack-r02/diaphragm.glb",
+    "controlAssessmentSha256": "8778700f8fb2a4d8fa70c04838261bb3ed884f078d21f1e340d7cf65b8b8120f",
+    "assessmentSha256": "4e64adeda2f6225c3a629487cb09e973531e01c080849ca823a9bd733184925f",
+    "reviewedAxes": [
+      "1",
+      "3"
+    ],
+    "taskCheck": "The source-axis-checked anterior view puts the higher right dome beside the lower left contour. The inferior view locates the projections, and the two registered insets explain their placement relative to the vena cava and L1.",
+    "status": "passed",
+    "decision": "Use the compact isolated diaphragm to compare dome heights and the source-bound insets to locate the projected caval opening and descending contours alongside L1.",
+    "axisChanges": {
+      "1": {
+        "score": 3,
+        "observation": "The neutral anterior, upper and lower views distinguish both domes. The same-atlas thoracic caval cross-section center falls inside the projected superior opening, 1.53 mm from its centroid. At the lower cut, the two descending contours flank the L1 body. Preserve these source relationships for the gross task. Rims and vessel profiles only partially coincide."
+      },
+      "3": {
+        "score": 3,
+        "observation": "Packing only the normals saves 77,624 bytes (11.1%) with all 38,868 triangles, four original boundary edges, dome crests and narrow rims intact. The maximum normal direction change was 0.00145 degrees. All three 640-pixel silhouettes match and the maximum channel difference was 1/255."
+      }
+    },
+    "exemptions": {},
+    "evidence": [
+      "reviews/teaching-assessments/reopen-paired/build.json",
+      "reviews/teaching-assessments/reopen-paired/render.json",
+      "reviews/teaching-assessments/reopen-paired/pixels.json",
+      "reviews/teaching-assessments/reopen-paired/sections.json",
+      "models/diaphragm/exports/normal-pack-r02/README.md"
+    ],
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-form/plates/diaphragm.webp",
+      "sha256": "5ec21ad01e622871fdac1bdd02cf35a8de10f54385c1955455ee41537927ca3d",
+      "bytes": 106482,
+      "width": 1328,
+      "height": 778,
+      "label": "Compare the higher right and lower left domes from the front, then turn the model over to inspect the openings and projections marked in the plate."
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/reopen-paired/plates/diaphragm-comparison.webp",
+      "sha256": "57c991ebbf131d9ebbc0cd2387cec8815e6d60317a607e5c1ab6c1815340f24d",
+      "bytes": 116228,
+      "width": 1302,
+      "height": 1148,
+      "label": "Original and compact Diaphragm in the same cameras, with matched visibility and scale."
+    },
+    "teaching": {
+      "path": "reviews/teaching-assessments/reopen-paired/plates/diaphragm-teaching.webp",
+      "sha256": "929cf2688af952a15327ffbfbb88bc2f510928c9ebc91e2af5b44e961df1dc4d",
+      "bytes": 119598,
+      "width": 1088,
+      "height": 1279,
+      "label": "The source-axis-checked anterior view puts the higher right dome beside the lower left contour. The inferior view locates the projections, and the two registered insets explain their placement relative to the vena cava and L1."
+    }
+  },
+  {
+    "family": "Single lymph node",
+    "baseline": "models/lymph_node/exports/hra-tissue-layers-r01/lymph-node-tissue-layers.glb",
+    "path": "models/lymph_node/exports/tissue-color-pack-r02/lymph-node.glb",
+    "controlAssessmentSha256": "6715760a426249adb88e1d24d523c7502e10ee64b830f26c5b30d99ffa819cfc",
+    "assessmentSha256": "b0efc6a1f1f4eb60302c58aab4cc9c32d216d5882762dbe04b3b1169789bdd19",
+    "reviewedAxes": [
+      "1",
+      "3"
+    ],
+    "taskCheck": "The capsule supplies the outer outline. Hiding it from the same camera exposes follicles, paracortex and medulla. The two labeled cross-sections repeat these four selections at different levels and show how regional extent changes.",
+    "status": "passed",
+    "decision": "Use the exact-color tissue edition and two section planes for regional localization. Retain the form exemption for fine medullary relief and the capsule aperture.",
+    "axisChanges": {
+      "1": {
+        "score": 2,
+        "observation": "The capsule and tissue regions remain identifiable. Two source-mesh sections resolve the region silhouettes across depth, but show fine irregular medullary loops where there is no linked specimen annotation. The capsule aperture likewise lacks a registered identity. Filling these features could imply an intact capsule or erase a regional interface."
+      },
+      "3": {
+        "score": 3,
+        "observation": "Keeping all 114,498 encoded triangles and four separate tissue primitives preserves the medulla crevices that failed the earlier contraction check. Re-encoding the exactly constant color attributes saves 687,480 bytes (23.0%). The matched capsule, exposed tissues and reverse medulla are pixel-identical."
+      }
+    },
+    "exemptions": {
+      "1": {
+        "reason": "The capsule and tissue regions remain identifiable. Two source-mesh sections resolve the region silhouettes across depth, but show fine irregular medullary loops where there is no linked specimen annotation. The capsule aperture likewise lacks a registered identity. Filling these features could imply an intact capsule or erase a regional interface.",
+        "permittedUse": "Gross localization of the capsule, follicles, paracortex and medulla in the HRA tissue model.",
+        "reopen": "Locate an author-annotated HRA source plane or matched specimen series at the capsule aperture and medullary recess. Register the four tissue outlines and compare the relief before testing any local reconstruction."
+      }
+    },
+    "evidence": [
+      "reviews/teaching-assessments/reopen-paired/build.json",
+      "reviews/teaching-assessments/reopen-paired/render.json",
+      "reviews/teaching-assessments/reopen-paired/pixels.json",
+      "reviews/teaching-assessments/reopen-paired/sections.json",
+      "models/lymph_node/exports/tissue-color-pack-r02/README.md",
+      "records/work-items/items/TAQ-021-lymph-node-clefts.md"
+    ],
+    "before": {
+      "path": "reviews/teaching-assessments/target-risk/views/lymph.webp",
+      "sha256": "325678c06f76e5b0a84228c26fd7f997ec301267713d8145b2fd3b8100423a78",
+      "bytes": 92910,
+      "width": 1180,
+      "height": 760,
+      "label": "Trace the capsule in two projections and point to the three named tissue regions after hiding it. The projected edge supplies orientation, and separate selections locate follicles, paracortex and medulla."
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/reopen-paired/plates/lymph-comparison.webp",
+      "sha256": "48488a4be80b0d99682e335bb1442fba13aab0c6c2f0df6155d17ac61bd3dc23",
+      "bytes": 110774,
+      "width": 1302,
+      "height": 1115,
+      "label": "Original and compact Single lymph node in the same cameras, with matched visibility and scale."
+    },
+    "teaching": {
+      "path": "reviews/teaching-assessments/reopen-paired/plates/lymph-teaching.webp",
+      "sha256": "3cd18449a8d368c164f11abf3684ca5cb21f2b481a7cf0aa567c13730f7df6f9",
+      "bytes": 142098,
+      "width": 1088,
+      "height": 1249,
+      "label": "The capsule supplies the outer outline. Hiding it from the same camera exposes follicles, paracortex and medulla. The two labeled cross-sections repeat these four selections at different levels and show how regional extent changes."
+    },
+    "workItem": "records/work-items/items/TAQ-021-lymph-node-clefts.md"
+  },
+  {
+    "family": "Nasal / sinus airspace",
+    "baseline": "models/nose_sinuses/exports/nih3d-airspace-r01/nasal_airspace.glb",
+    "path": "models/nose_sinuses/exports/index-pack-r02/nasal_airspace.glb",
+    "controlAssessmentSha256": "b4cd9a4ae235ba65d1205e0370082cf9596d90cc4b64bebcbd09cc04069a5c11",
+    "assessmentSha256": "bb824bc729ee1307d36dc9a0890c6d64ea038ed4a91d4bd43c372eaee8f852ba",
+    "reviewedAxes": [
+      "1",
+      "3"
+    ],
+    "taskCheck": "Front and oblique views separate the thin central cast from the broad lateral recesses. Two sections through the same display frame confirm their relative widths and depth. Dimensions and patient-side assignment are outside the source evidence.",
+    "status": "passed",
+    "decision": "Use the index-packed cast and two sections to distinguish the central channels from the broad lateral spaces. Retain the form exemption for specimen relief and the inferior cutoff.",
+    "axisChanges": {
+      "1": {
+        "score": 2,
+        "observation": "The two planar cuts resolve broad lateral spaces around the thin central channels while retaining their exact boundaries. Crowded central relief and the uneven inferior cutoff remain conspicuous externally. The creator identifies a posterior right-maxillary indentation but the released surface has no registered CT, local annotation or patient-side transform to distinguish all nearby relief."
+      },
+      "3": {
+        "score": 3,
+        "observation": "Two ordered 16-bit index ranges reduce GLB bytes by 1,154,188 (24.3%) at identical shape, material and node scope. Splitting the draw repeats 1,474 vertex records. All triangle corners are exact, the three silhouettes match, and at most six pixels per 640-pixel camera differ by 1/255."
+      }
+    },
+    "exemptions": {
+      "1": {
+        "reason": "The two planar cuts resolve broad lateral spaces around the thin central channels while retaining their exact boundaries. Crowded central relief and the uneven inferior cutoff remain conspicuous externally. The creator identifies a posterior right-maxillary indentation but the released surface has no registered CT, local annotation or patient-side transform to distinguish all nearby relief.",
+        "permittedUse": "Gross central-versus-lateral airspace localization in the NIH 3D cast.",
+        "reopen": "Locate the creator’s original MDCT and a patient-side transform or a creator-annotated matching view. Register the posterior maxillary margin and inferior limit against the cast before attempting local fairing."
+      }
+    },
+    "evidence": [
+      "reviews/teaching-assessments/reopen-paired/build.json",
+      "reviews/teaching-assessments/reopen-paired/render.json",
+      "reviews/teaching-assessments/reopen-paired/pixels.json",
+      "reviews/teaching-assessments/reopen-paired/sections.json",
+      "models/nose_sinuses/exports/index-pack-r02/README.md",
+      "records/work-items/items/TAQ-022-nasal-cast-margin.md"
+    ],
+    "before": {
+      "path": "reviews/teaching-assessments/refinement-form/plates/nose_sinuses.webp",
+      "sha256": "a8d7d446f3cc5a764f752e063075c1aacac720865a328385d45d742c10965baf",
+      "bytes": 111046,
+      "width": 1328,
+      "height": 867,
+      "label": "Compare the thin central cast with the lateral maxillary space. The solid depicts where air was present, and the rough lower cutoff belongs to the specimen cast."
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/reopen-paired/plates/nose_sinuses-comparison.webp",
+      "sha256": "e9a4cb5b49497a8d0b848bcafdb635971f39ee61a124245cfa240cd30f2b39d1",
+      "bytes": 126372,
+      "width": 1302,
+      "height": 1148,
+      "label": "Original and compact Nasal / sinus airspace in the same cameras, with matched visibility and scale."
+    },
+    "teaching": {
+      "path": "reviews/teaching-assessments/reopen-paired/plates/nose_sinuses-teaching.webp",
+      "sha256": "7b2f59298ada8a60f730184b9a2aa14be7d7b4779a19ced66f24004127698631",
+      "bytes": 114282,
+      "width": 1088,
+      "height": 1307,
+      "label": "Front and oblique views separate the thin central cast from the broad lateral recesses. Two sections through the same display frame confirm their relative widths and depth. Dimensions and patient-side assignment are outside the source evidence."
+    },
+    "workItem": "records/work-items/items/TAQ-022-nasal-cast-margin.md"
+  }
+]

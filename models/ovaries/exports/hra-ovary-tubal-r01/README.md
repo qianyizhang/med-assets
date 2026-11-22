@@ -32,3 +32,5 @@ matrices and material values against four separate source imports. Three camera,
 scale and lighting matched source/export views have identical RGB pixels.
 Native static checks do not certify browser runtime or anatomy. See the
 [bounded review](../../../../reviews/ovaries/2026-10-30-hra-ovary-tubal-r01/README.md).
+
+The [interpreted localization edition](../teaching-ovoid-r02/README.md) rounds the ovarian exterior and retains the native tube meshes. Use this original edition for the exact HRA contours.

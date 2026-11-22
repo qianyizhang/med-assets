@@ -45,7 +45,7 @@ function Plate({ plate }) {
   );
 }
 
-export function Systems({ id, query }) {
+export function Systems({ id, query, localPreview }) {
   if (!id)
     return (
       <>
@@ -61,6 +61,7 @@ export function Systems({ id, query }) {
                 <span className="ga-classification">{s.status}</span>
                 <h2>{s.name}</h2>
                 <p>{s.function}</p>
+                {localPreview && <small>Required teaching check · {s.check.status}</small>}
               </div>
             </Link>
           ))}
@@ -106,21 +107,36 @@ export function Systems({ id, query }) {
             </select>
           </label>
           <Plate plate={plate} />
+          {selected === 'endocrine-posterior-neck' && (
+            <LessonReviewPlate exportPath="models/parathyroids/exports/z-localization-r01/parathyroids_thyroid_context.glb"
+              title="Locate the four atlas parathyroid glands">
+              <p>Use the thyroid as the landmark. The superior and inferior pairs in this atlas example keep their native positions.</p>
+            </LessonReviewPlate>
+          )}
+          {selected === 'reproductive-female-left-pickup' && (
+            <LessonReviewPlate exportPath="models/ovaries/exports/hra-ovary-tubal-r01/ovary-tubal-context.glb"
+              title="Find the ovary–fimbria gap in the source study">
+              <p>This separate source example shows the fimbrial tips beside each ovary.</p>
+            </LessonReviewPlate>
+          )}
           {selected === 'lymphatic-node-transit' && (
             <LessonReviewPlate
-              exportPath="models/lymph_node/exports/hra-v1.2/NIH_M_Lymph_Node.glb"
+              exportPath="models/lymph_node/exports/hra-tissue-layers-r01/lymph-node-tissue-layers.glb"
               title="Look inside the source lymph node"
-              alt="The same node with its outer capsule visible at left and hidden at right, where leaders identify the medulla, follicles and paracortex"
-              width={1322}
-              height={786}
             >
-              <p>This separate HRA view shows tissue layers. The enlarged route above shows the lesson’s authored passage.</p>
+              <p>This tissue-only HRA edition shows the capsule and three named regions. The enlarged route above shows the lesson’s authored passage.</p>
             </LessonReviewPlate>
           )}
         </>
       ) : (
         system.plates.filter((p) => p.kind === 'assembly').map((p) => <Plate key={p.title} plate={p} />)
       )}
+      {localPreview && <details>
+        <summary>Required teaching check · {system.check.status}</summary>
+        <p>{system.check.action}</p>
+        <p>{system.check.observation}</p>
+        <Link to={address + '?detail=' + system.check.detail}>Open the reviewed detail →</Link>
+      </details>}
       <h2>Scope and limits</h2>
       <p>{system.limit}</p>
       <div className="ga-related">

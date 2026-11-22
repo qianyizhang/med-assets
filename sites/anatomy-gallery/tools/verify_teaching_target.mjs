@@ -1,0 +1,96 @@
+import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
+import { mkdir, readFile } from 'node:fs/promises';
+import path from 'node:path';
+
+const { chromium } = await import(process.env.MODEL_SURVEY_PLAYWRIGHT_MODULE || 'playwright');
+const base = process.env.MODEL_SURVEY_PREVIEW_URL;
+const app = process.env.MODEL_SURVEY_APP_DIR;
+const capture = process.env.MODEL_SURVEY_CAPTURE_DIR;
+await mkdir(capture, { recursive: true });
+const input = path.join(app, 'src/content/gallery');
+const { campaign } = JSON.parse(await readFile(path.join(input, 'teaching-inputs/teaching-assessments.json')));
+const systems = JSON.parse(await readFile(path.join(input, 'body-systems.json')));
+const rows = campaign.filter((r) => r.maintained && r.target);
+assert.equal(rows.length, 45);
+const browser = await chromium.launch({ executablePath: process.env.MODEL_SURVEY_BROWSER, headless: true, chromiumSandbox: true });
+try {
+  const page = await browser.newPage({ viewport: { width: 1220, height: 900 } });
+  const errors = [];
+  page.on('pageerror', (e) => errors.push(String(e)));
+  const go = (fragment) => page.goto(base + '/#/' + fragment);
+  await go('compare');
+  await page.getByRole('link', { name: 'Review current teaching targets →' }).click();
+  const picker = page.getByRole('combobox', { name: 'Reviewed asset' });
+  await picker.waitFor();
+  assert.equal(await picker.locator('option').count(), rows.length);
+  for (const row of rows) {
+    await go('compare/teaching-target?asset=' + row.export.sha256);
+    await page.getByRole('heading', { name: row.target.family, exact: true }).waitFor();
+    assert.equal(await picker.inputValue(), row.export.sha256);
+    assert.deepEqual(await page.locator('tbody tr td:last-child').allTextContents(), row.axes.map((a) => String(a.score)));
+    for (const witness of new Set([row.target.before, row.target.after])) {
+      const view = row.views.find((v) => v.path === witness);
+      const img = page.locator('figure img[src="' + view.url + '"]');
+      await img.evaluate((i) => i.decode());
+      assert.ok(await img.isVisible(), row.target.family + ': ' + witness);
+    }
+    assert.equal(await page.getByRole('heading', { name: /target exemption/ }).count(), Object.keys(row.target.exemptions).length);
+    const name = path.basename(row.export.path);
+    const response = await page.request.get(base + '/assets/' + row.export.sha256 + '/' + name);
+    assert.equal(response.status(), 200, name);
+    const data = await response.body();
+    assert.equal(createHash('sha256').update(data).digest('hex'), row.export.sha256, name);
+  }
+  await go('compare/teaching-target?round=reopened');
+  const reopenedRows = rows.filter((r) => r.target.reviewedAxes);
+  assert.equal(reopenedRows.length, 20);
+  assert.equal(reopenedRows.reduce((n, r) => n + r.target.reviewedAxes.length, 0), 25);
+  await page.waitForFunction((n) => Array.from(document.querySelectorAll('label')).find((l) => l.firstChild?.textContent.trim() === 'Reviewed asset')?.querySelector('select')?.options.length === n, reopenedRows.length);
+  assert.equal(await picker.locator('option').count(), reopenedRows.length);
+  for (const reviewed of reopenedRows.filter((r) => r.target.workItem)) {
+    await picker.selectOption(reviewed.export.sha256);
+    await page.getByRole('heading', { name: reviewed.target.family, exact: true }).waitFor();
+    const followup = page.getByRole('link', { name: 'Open the owned follow-up' });
+    const href = await followup.getAttribute('href');
+    const response = await page.request.get(base + href);
+    assert.equal(href, reviewed.sources.find((s) => s.path === reviewed.target.workItem).url);
+    assert.equal(response.status(), 200, reviewed.target.workItem);
+    assert.match(await response.text(), /Next action/);
+  }
+  await go('compare/teaching-target?asset=missing');
+  await page.getByRole('heading', { name: 'View unavailable' }).waitFor();
+  for (const s of systems) {
+    await go('use-cases/systems/' + s.id);
+    await page.getByText('Required teaching check · ' + s.check.status, { exact: true }).click();
+    await page.getByText(s.check.observation, { exact: true }).waitFor();
+    await page.getByRole('link', { name: 'Open the reviewed detail' }).click();
+    assert.ok(page.url().endsWith('detail=' + s.check.detail), s.id);
+    await page.waitForFunction((detail) => document.querySelector('select[aria-label="Detail view"]')?.value === detail, s.check.detail);
+    await page.locator('.ga-system-plate img').evaluateAll((images) => Promise.all(images.map((i) => i.decode())));
+    if (s.id === 'endocrine' || s.id === 'reproductive') {
+      const title = s.id === 'endocrine' ? 'Locate the four atlas parathyroid glands' : 'Find the ovary–fimbria gap in the source study';
+      await page.getByRole('heading', { name: title }).waitFor();
+      await page.getByRole('link', { name: 'Open full teaching image · ' + title }).locator('img').evaluate((i) => i.decode());
+      await page.screenshot({ path: path.join(capture, s.id + '.png'), fullPage: true });
+    }
+  }
+  const otherChecks = JSON.parse(await readFile(path.join(input, 'teaching-inputs/use-case-checks.json')));
+  await go('use-cases');
+  await page.locator('summary').filter({ hasText: 'Teaching checks' }).click();
+  for (const check of otherChecks) {
+    const link = page.getByRole('link', { name: check.action, exact: true });
+    assert.equal(await link.getAttribute('href'), '#/' + check.route);
+  }
+  for (const check of otherChecks) {
+    await go(check.route);
+    await page.waitForFunction(() => document.querySelector('.ga-heading h1')?.textContent !== 'Use Cases');
+    assert.equal(await page.getByRole('heading', { name: 'View unavailable' }).count(), 0, check.route);
+  }
+  await go('library/parathyroids/z-localization-r01?file=missing');
+  await page.getByRole('heading', { name: 'View unavailable' }).waitFor();
+  assert.deepEqual(errors, []);
+  console.log('PASS 45 before/after reviews, 45 exact current downloads, 11 required Body Systems stops, 18 other use-case checks, invalid file and review recovery.');
+} finally {
+  await browser.close();
+}

@@ -1,0 +1,692 @@
+[
+  {
+    "name": "placenta",
+    "control": {
+      "path": "models/placenta/exports/hra-v1.1-r02/placenta_full_term.glb",
+      "sha256": "7f9f215f810003fddc76ede225f051dc7014c67216e804403a4632d628ad82aa",
+      "bytes": 4917576,
+      "triangles": 188365
+    },
+    "candidate": {
+      "sha256": "1c7fbe97548e365c40b886e31a97d3068e611efd79aef543cf49b9d3208ecf4f",
+      "bytes": 4050904,
+      "triangles": 155138
+    },
+    "scope": "Fetal and maternal surface orientation. Retains the cord, amnion, chorionic and basal plates and placental vessels. Three internal cord vessel meshes remain in the full atlas.",
+    "omittedMeshes": [
+      "VH_F_umbilical_artery_1",
+      "VH_F_umbilical_artery_2",
+      "VH_F_umbilical_vein"
+    ],
+    "retainedMeshes": [
+      "VH_F_amnion",
+      "VH_F_basal_plate",
+      "VH_F_chorionic_plate",
+      "VH_F_placenta_vessels",
+      "VH_F_umbilical_cord"
+    ],
+    "verifiedAccessors": 20,
+    "bindings": {
+      "control": [
+        {
+          "file": "control-0.png",
+          "sha256": "80072a316c29f76bf51bc7ab710beaf77210df43782348ad91d58911a92d1822",
+          "camera": [
+            0.38,
+            -0.84,
+            0.65
+          ],
+          "location": [
+            0.2966945767402649,
+            -0.8464899659156799,
+            0.7245136499404907
+          ],
+          "rotation": [
+            0.867801308631897,
+            0.449972003698349,
+            0.09704530239105225,
+            0.18715837597846985
+          ],
+          "clip": [
+            3.063824988203123e-05,
+            3.6765899658203125
+          ],
+          "ortho": 0.346212238073349
+        },
+        {
+          "file": "control-1.png",
+          "sha256": "171a42204df47c81b2ee4a62521faaf393c04e2409505446ea6b8d6dc73be6a0",
+          "camera": [
+            -0.39,
+            1,
+            -0.27
+          ],
+          "location": [
+            -0.3027406930923462,
+            0.5810464024543762,
+            -0.005748633295297623
+          ],
+          "rotation": [
+            0.11365824937820435,
+            0.14578932523727417,
+            -0.7750606536865234,
+            -0.6042418479919434
+          ],
+          "clip": [
+            2.7415215299697593e-05,
+            3.289825916290283
+          ],
+          "ortho": 0.3097919523715973
+        }
+      ],
+      "candidate": [
+        {
+          "file": "candidate-0.png",
+          "sha256": "9955a4f9d99e875b8feaa2e3fe15218022b08471ee27508bec76270f9eac56b6",
+          "camera": [
+            0.38,
+            -0.84,
+            0.65
+          ],
+          "location": [
+            0.2966945767402649,
+            -0.8464899659156799,
+            0.7245136499404907
+          ],
+          "rotation": [
+            0.867801308631897,
+            0.449972003698349,
+            0.09704530239105225,
+            0.18715837597846985
+          ],
+          "clip": [
+            3.063824988203123e-05,
+            3.6765899658203125
+          ],
+          "ortho": 0.346212238073349
+        },
+        {
+          "file": "candidate-1.png",
+          "sha256": "171a42204df47c81b2ee4a62521faaf393c04e2409505446ea6b8d6dc73be6a0",
+          "camera": [
+            -0.39,
+            1,
+            -0.27
+          ],
+          "location": [
+            -0.3027406930923462,
+            0.5810464024543762,
+            -0.005748633295297623
+          ],
+          "rotation": [
+            0.11365824937820435,
+            0.14578932523727417,
+            -0.7750606536865234,
+            -0.6042418479919434
+          ],
+          "clip": [
+            2.7415215299697593e-05,
+            3.289825916290283
+          ],
+          "ortho": 0.3097919523715973
+        }
+      ]
+    },
+    "silhouetteShiftPx": [
+      3,
+      0
+    ],
+    "changedPixels": [
+      36,
+      0
+    ],
+    "original": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/placenta-original.webp",
+      "sha256": "dc4e450056fb3d048844dc5816fdd3ae0c57e8c4bfbc607287a9eeea8f9418c6",
+      "bytes": 14492
+    },
+    "updated": {
+      "path": "reviews/teaching-assessments/target-economy/views/placenta-updated.webp",
+      "sha256": "05d64a51249502dcb2391e29bea8d4c034d6e6e6760eb00d05b1dfdf2bb24b8b",
+      "bytes": 14710
+    }
+  },
+  {
+    "name": "kidney_left",
+    "control": {
+      "path": "models/kidney_left/exports/hra-female-v1.3-r02/kidney_left.glb",
+      "sha256": "8e55b5ae48821f067f41bd23ffdd668f68c7ff705cf49e9a40287042fee469fc",
+      "bytes": 1378060,
+      "triangles": 73526
+    },
+    "candidate": {
+      "sha256": "e000c2b4408caf1bbbbf2a5649c5e0e3ceaf94b3c2bf794da3a2f30587bb3778",
+      "bytes": 560708,
+      "triangles": 30561
+    },
+    "scope": "Left kidney hilar exterior. Retains capsule, outer cortex and hilum. Internal renal columns, papillae and pyramids remain in the full atlas.",
+    "omittedMeshes": [
+      "VH_F_renal_papilla_L_a",
+      "VH_F_renal_papilla_L_b",
+      "VH_F_renal_papilla_L_c",
+      "VH_F_renal_papilla_L_d",
+      "VH_F_renal_papilla_L_e",
+      "VH_F_renal_papilla_L_f",
+      "VH_F_renal_papilla_L_g",
+      "VH_F_renal_papilla_L_h",
+      "VH_F_renal_papilla_L_i",
+      "VH_F_renal_papilla_L_j",
+      "VH_F_renal_papilla_L_k",
+      "VH_F_renal_pyramid_L_a",
+      "VH_F_renal_pyramid_L_b",
+      "VH_F_renal_pyramid_L_c",
+      "VH_F_renal_pyramid_L_d",
+      "VH_F_renal_pyramid_L_e",
+      "VH_F_renal_pyramid_L_f",
+      "VH_F_renal_pyramid_L_g",
+      "VH_F_renal_pyramid_L_h",
+      "VH_F_renal_pyramid_L_i",
+      "VH_F_renal_pyramid_L_j",
+      "VH_F_renal_pyramid_L_k",
+      "VH_F_renal_column_L"
+    ],
+    "retainedMeshes": [
+      "VH_F_hilum_of_kidney_L",
+      "VH_F_kidney_capsule_L",
+      "VH_F_outer_cortex_of_kidney_L"
+    ],
+    "verifiedAccessors": 9,
+    "bindings": {
+      "control": [
+        {
+          "file": "control-0.png",
+          "sha256": "9c9f5e949cd3b8d4e6eb91ae95fbb0e1749c020ed465c61d7974adab3255c0ea",
+          "camera": [
+            -1,
+            -0.6,
+            0.1
+          ],
+          "location": [
+            -0.2647075057029724,
+            -0.1041921079158783,
+            0.2723357677459717
+          ],
+          "rotation": [
+            0.6410709619522095,
+            0.588452160358429,
+            -0.33317598700523376,
+            -0.3629681468009949
+          ],
+          "clip": [
+            1.3316610420588404e-05,
+            1.59799325466156
+          ],
+          "ortho": 0.15047769248485565
+        },
+        {
+          "file": "control-1.png",
+          "sha256": "7095e686697fb619a6276d80d8a85906e5f9c6ed538136016dc4c8ba9426b129",
+          "camera": [
+            0.9,
+            1,
+            0.2
+          ],
+          "location": [
+            0.35287052392959595,
+            0.40755605697631836,
+            0.29959622025489807
+          ],
+          "rotation": [
+            0.2713175415992737,
+            0.23396532237529755,
+            0.6097038388252258,
+            0.7070419192314148
+          ],
+          "clip": [
+            1.3917000615037978e-05,
+            1.6700401306152344
+          ],
+          "ortho": 0.15726210176944733
+        }
+      ],
+      "candidate": [
+        {
+          "file": "candidate-0.png",
+          "sha256": "1354e8e5c96e6d5a711d8d1d5041b11719bcc8e4672937ac521bbd1b2c94ba93",
+          "camera": [
+            -1,
+            -0.6,
+            0.1
+          ],
+          "location": [
+            -0.2647075057029724,
+            -0.1041921079158783,
+            0.2723357677459717
+          ],
+          "rotation": [
+            0.6410709619522095,
+            0.588452160358429,
+            -0.33317598700523376,
+            -0.3629681468009949
+          ],
+          "clip": [
+            1.3316610420588404e-05,
+            1.59799325466156
+          ],
+          "ortho": 0.15047769248485565
+        },
+        {
+          "file": "candidate-1.png",
+          "sha256": "7095e686697fb619a6276d80d8a85906e5f9c6ed538136016dc4c8ba9426b129",
+          "camera": [
+            0.9,
+            1,
+            0.2
+          ],
+          "location": [
+            0.35287052392959595,
+            0.40755605697631836,
+            0.29959622025489807
+          ],
+          "rotation": [
+            0.2713175415992737,
+            0.23396532237529755,
+            0.6097038388252258,
+            0.7070419192314148
+          ],
+          "clip": [
+            1.3917000615037978e-05,
+            1.6700401306152344
+          ],
+          "ortho": 0.15726210176944733
+        }
+      ]
+    },
+    "silhouetteShiftPx": [
+      0,
+      0
+    ],
+    "changedPixels": [
+      278,
+      0
+    ],
+    "original": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/kidney_left-original.webp",
+      "sha256": "dd65758f616ea09f99751dc96d20ba3ef97cc35694254dcc52e79a0b6df660c3",
+      "bytes": 9654
+    },
+    "updated": {
+      "path": "reviews/teaching-assessments/target-economy/views/kidney_left-updated.webp",
+      "sha256": "70c1abfe511cf3ed4529b291a0f7545f8424d2ee4a25d5884eb5cf6a3a5635a9",
+      "bytes": 9780
+    }
+  },
+  {
+    "name": "kidney_right",
+    "control": {
+      "path": "models/kidney_right/exports/hra-female-v1.3-r02/kidney_right.glb",
+      "sha256": "977d0a283de7071a2e8aaeb8900c5a6dc8d0ba770eb458e996dc66cc249c0b56",
+      "bytes": 1403576,
+      "triangles": 75138
+    },
+    "candidate": {
+      "sha256": "fdddbde55104ab9af2b5ebafea7e52692dad7f94aad85d93a2237cbdd371e3eb",
+      "bytes": 526464,
+      "triangles": 28682
+    },
+    "scope": "Right kidney hilar exterior. Retains capsule, outer cortex and hilum. Internal renal columns, papillae and pyramids remain in the full atlas.",
+    "omittedMeshes": [
+      "VH_F_renal_column_R",
+      "VH_F_renal_papilla_R_a",
+      "VH_F_renal_papilla_R_b",
+      "VH_F_renal_papilla_R_c",
+      "VH_F_renal_papilla_R_d",
+      "VH_F_renal_papilla_R_e",
+      "VH_F_renal_papilla_R_f",
+      "VH_F_renal_papilla_R_g",
+      "VH_F_renal_papilla_R_h",
+      "VH_F_renal_papilla_R_i",
+      "VH_F_renal_papilla_R_j",
+      "VH_F_renal_pyramid_R_a",
+      "VH_F_renal_pyramid_R_b",
+      "VH_F_renal_pyramid_R_c",
+      "VH_F_renal_pyramid_R_d",
+      "VH_F_renal_pyramid_R_e",
+      "VH_F_renal_pyramid_R_f",
+      "VH_F_renal_pyramid_R_g",
+      "VH_F_renal_pyramid_R_h",
+      "VH_F_renal_pyramid_R_i",
+      "VH_F_renal_pyramid_R_j"
+    ],
+    "retainedMeshes": [
+      "VH_F_hilum_of_kidney_R",
+      "VH_F_kidney_capsule_R",
+      "VH_F_outer_cortex_of_kidney_R"
+    ],
+    "verifiedAccessors": 9,
+    "bindings": {
+      "control": [
+        {
+          "file": "control-0.png",
+          "sha256": "fb563cc59c46ad464b15f1ab81c283e9820a81461294d94c37b296062a0bcc1d",
+          "camera": [
+            1,
+            -0.6,
+            0.1
+          ],
+          "location": [
+            0.20147806406021118,
+            -0.06443457305431366,
+            0.2748735547065735
+          ],
+          "rotation": [
+            0.6410709619522095,
+            0.588452160358429,
+            0.33317598700523376,
+            0.3629681468009949
+          ],
+          "clip": [
+            1.0670950359781273e-05,
+            1.2805140018463135
+          ],
+          "ortho": 0.11970123648643494
+        },
+        {
+          "file": "control-1.png",
+          "sha256": "da5c6d70ecdc05870b3ffc446e4c79e71ad981f3ec5d975581195fc40e0b887a",
+          "camera": [
+            -0.9,
+            1,
+            0.2
+          ],
+          "location": [
+            -0.2984798848628998,
+            0.35128313302993774,
+            0.2978461682796478
+          ],
+          "rotation": [
+            0.2713175415992737,
+            0.23396532237529755,
+            -0.6097038388252258,
+            -0.7070419192314148
+          ],
+          "clip": [
+            1.1407789315853734e-05,
+            1.3689347505569458
+          ],
+          "ortho": 0.12612004578113556
+        }
+      ],
+      "candidate": [
+        {
+          "file": "candidate-0.png",
+          "sha256": "55fb9dd39d00387e12766e65ea083b925de2c7fb899b81fa5e3d80fd56638572",
+          "camera": [
+            1,
+            -0.6,
+            0.1
+          ],
+          "location": [
+            0.20147806406021118,
+            -0.06443457305431366,
+            0.2748735547065735
+          ],
+          "rotation": [
+            0.6410709619522095,
+            0.588452160358429,
+            0.33317598700523376,
+            0.3629681468009949
+          ],
+          "clip": [
+            1.0670950359781273e-05,
+            1.2805140018463135
+          ],
+          "ortho": 0.11970123648643494
+        },
+        {
+          "file": "candidate-1.png",
+          "sha256": "da5c6d70ecdc05870b3ffc446e4c79e71ad981f3ec5d975581195fc40e0b887a",
+          "camera": [
+            -0.9,
+            1,
+            0.2
+          ],
+          "location": [
+            -0.2984798848628998,
+            0.35128313302993774,
+            0.2978461682796478
+          ],
+          "rotation": [
+            0.2713175415992737,
+            0.23396532237529755,
+            -0.6097038388252258,
+            -0.7070419192314148
+          ],
+          "clip": [
+            1.1407789315853734e-05,
+            1.3689347505569458
+          ],
+          "ortho": 0.12612004578113556
+        }
+      ]
+    },
+    "silhouetteShiftPx": [
+      0,
+      0
+    ],
+    "changedPixels": [
+      411,
+      0
+    ],
+    "original": {
+      "path": "reviews/teaching-assessments/refinement-economy/views/kidney_right-original.webp",
+      "sha256": "d8dcec47c648a9a3c189a9b703801085112cf8f619683b8b17f14a4a4b4591b5",
+      "bytes": 9822
+    },
+    "updated": {
+      "path": "reviews/teaching-assessments/target-economy/views/kidney_right-updated.webp",
+      "sha256": "bdcd08fb9ec81df84f5915a0b24c16375e10d03db7b4a913ee258581218ca329",
+      "bytes": 9972
+    }
+  },
+  {
+    "name": "lung_pair",
+    "control": {
+      "path": "models/lung_pair/exports/hra-female-normals-r02/lung_female_hra_normals_r02.glb",
+      "sha256": "966a4c225be028e616f6f813e8d4232582995a82b8121a42257c1be53087cb19",
+      "bytes": 23253972,
+      "triangles": 297097
+    },
+    "candidate": {
+      "sha256": "5c56e323c09547b7d3333f2ff222cb165d322e9cac48aa0200733132129abf78",
+      "bytes": 724960,
+      "triangles": 36764
+    },
+    "scope": "Bilateral lobe orientation. Retains all five lobar groups, all their segments and hila. The separate tracheobronchial selection remains in the full atlas.",
+    "omittedMeshes": [
+      "VH_F_cartilage_of_lobar_bronchus_L",
+      "VH_F_cartilage_of_tertiary_bronchus_L",
+      "VH_F_left_superior_lobar_bronchus",
+      "VH_F_left_inferior_lobar_bronchus",
+      "VH_F_left_anterior_basal_bronchus",
+      "VH_F_left_lingula_superior_bronchus",
+      "VH_F_left_apical_bronchus",
+      "VH_F_left_posterior_basal_bronchus",
+      "VH_F_left_medial_basal_bronchus",
+      "VH_F_left_superior_bronchus",
+      "VH_F_left_anterior_bronchus",
+      "VH_F_left_posterior_bronchus",
+      "VH_F_left_lateral_basal_bronchus",
+      "VH_F_left_lingula_inferior_bronchi",
+      "VH_F_cartilage_of_lobar_bronchus_R",
+      "VH_F_cartilage_of_tertiary_bronchus_R",
+      "VH_F_right_middle_lobar_bronchus",
+      "VH_F_right_superior_lobar_bronchus",
+      "VH_F_right_inferior_lobar_bronchus",
+      "VH_F_right_anterior_bronchus",
+      "VH_F_right_lateral_basal_bronchus",
+      "VH_F_right_lateral_bronchus",
+      "VH_F_right_medial_bronchus",
+      "VH_F_right_medial_basal_bronchus",
+      "VH_F_right_posterior_basal_bronchus",
+      "VH_F_right_posterior_bronchus",
+      "VH_F_right_superior_bronchus",
+      "VH_F_right_apical_bronchus",
+      "VH_F_right_anterior_basal_bronchus"
+    ],
+    "retainedMeshes": [
+      "VH_F_hilum_L",
+      "VH_F_hilum_R",
+      "VH_F_hilum_lower_L",
+      "VH_F_hilum_lower_R",
+      "VH_F_hilum_middle_R",
+      "VH_F_hilum_upper_L",
+      "VH_F_hilum_upper_R",
+      "VH_F_left_anterior_basal_bronchopulmonary_segment",
+      "VH_F_left_anterior_bronchopulmonary_segment",
+      "VH_F_left_apical_bronchopulmonary_segment",
+      "VH_F_left_lateral_basal_bronchopulmonary_segment",
+      "VH_F_left_medial_basal_bronchopulmonary_segment",
+      "VH_F_left_posterior_basal_bronchopulmonary_segment",
+      "VH_F_left_posterior_bronchopulmonary_segment",
+      "VH_F_left_superior_bronchopulmonary_segment",
+      "VH_F_lingula_inferior_bronchopulmonary_segment",
+      "VH_F_lingula_superior_bronchopulmonary_segment",
+      "VH_F_right_anterior_basal_bronchopulmonary_segment",
+      "VH_F_right_anterior_bronchopulmonary_segm",
+      "VH_F_right_apical_bronchopulmonary_segment",
+      "VH_F_right_lateral_basal_bronchopulmonary_segment",
+      "VH_F_right_lateral_bronchopulmonary_segmennt",
+      "VH_F_right_medial_basal_bronchopulmonary_segment",
+      "VH_F_right_medial_bronchopulmonary_segment",
+      "VH_F_right_posterior_basal_bronchopulmonary_segment",
+      "VH_F_right_posterior_bronchopulmonary_segment",
+      "VH_F_right_superior_bronchopulmonary_segment"
+    ],
+    "verifiedAccessors": 81,
+    "bindings": {
+      "control": [
+        {
+          "file": "control-0.png",
+          "sha256": "cd9ef0c7452ae2d1a7505b01c9b99a3934e513e5ead2df19e9271453cb92551c",
+          "camera": [
+            0.25,
+            -1,
+            0.17
+          ],
+          "location": [
+            0.19321054220199585,
+            -0.7084259390830994,
+            0.6149994730949402
+          ],
+          "rotation": [
+            0.7567588686943054,
+            0.6421738862991333,
+            0.07905523478984833,
+            0.09316127747297287
+          ],
+          "clip": [
+            2.7534128093975596e-05,
+            3.3040952682495117
+          ],
+          "ortho": 0.3111356496810913
+        },
+        {
+          "file": "control-1.png",
+          "sha256": "0e2a51228811d854a3c4f176d1cc14757c9364dd19da44e11f85f3a8f9eed273",
+          "camera": [
+            0.15,
+            1,
+            0.3
+          ],
+          "location": [
+            0.1099938154220581,
+            0.8386008739471436,
+            0.6993348598480225
+          ],
+          "rotation": [
+            0.05960378050804138,
+            0.044488325715065,
+            0.5964956879615784,
+            0.7991626858711243
+          ],
+          "clip": [
+            2.6692634492064826e-05,
+            3.2031161785125732
+          ],
+          "ortho": 0.3016267716884613
+        }
+      ],
+      "candidate": [
+        {
+          "file": "candidate-0.png",
+          "sha256": "b4ac111aec0bf230d660239096cb3244a48873386fc6b010e0c90ba8e3c9d3e7",
+          "camera": [
+            0.25,
+            -1,
+            0.17
+          ],
+          "location": [
+            0.19321054220199585,
+            -0.7084259390830994,
+            0.6149994730949402
+          ],
+          "rotation": [
+            0.7567588686943054,
+            0.6421738862991333,
+            0.07905523478984833,
+            0.09316127747297287
+          ],
+          "clip": [
+            2.7534128093975596e-05,
+            3.3040952682495117
+          ],
+          "ortho": 0.3111356496810913
+        },
+        {
+          "file": "candidate-1.png",
+          "sha256": "dad70ffec8b74d437f8c9c0442b5248396eefd1524e5f72d254713038876f1cc",
+          "camera": [
+            0.15,
+            1,
+            0.3
+          ],
+          "location": [
+            0.1099938154220581,
+            0.8386008739471436,
+            0.6993348598480225
+          ],
+          "rotation": [
+            0.05960378050804138,
+            0.044488325715065,
+            0.5964956879615784,
+            0.7991626858711243
+          ],
+          "clip": [
+            2.6692634492064826e-05,
+            3.2031161785125732
+          ],
+          "ortho": 0.3016267716884613
+        }
+      ]
+    },
+    "silhouetteShiftPx": [
+      0,
+      0
+    ],
+    "changedPixels": [
+      0,
+      0
+    ],
+    "original": {
+      "path": "reviews/teaching-assessments/target-economy/views/lung_pair-original.webp",
+      "sha256": "7a32d26921cfbfbe34e4dafbe043e72e06b538aaaa37ecc5116213ebc8bb05f1",
+      "bytes": 15510
+    },
+    "updated": {
+      "path": "reviews/teaching-assessments/target-economy/views/lung_pair-updated.webp",
+      "sha256": "31ae2a5ca38616ff4f7b25ddbf7cbbfdb9c53c1d7e1c2f847ccfbec223e308e3",
+      "bytes": 15712
+    }
+  }
+]

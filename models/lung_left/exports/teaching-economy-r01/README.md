@@ -1,0 +1,9 @@
+# Left lung · s1233 · teaching economy edition
+
+Find the left upper and lower lobes and follow their oblique fissure.
+
+Re-encodes the three embedded PNGs with identical channels and metadata. All scene, UV, geometry and morph data stay exact.
+
+The local GLB contains 31,200 triangles in 2,093,088 bytes. Its SHA-256 is `4cb7524a3843fda941d50adc060d2a3c9d08135bea6cddc99d03284d25bb683c`.
+
+[Original export](../metadata-cleanup-r01/lung_left.glb) · [Source and review](../../../../reviews/lung_left/2026-10-23-metadata-cleanup-r01/verification.json) · [Matched view](../../../../reviews/teaching-assessments/target-economy/views/lung_left-updated.webp) · [Replay and edition register](../../../../reviews/teaching-assessments/target-economy/README.md).

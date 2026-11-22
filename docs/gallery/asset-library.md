@@ -33,3 +33,5 @@ A new revision with no assessment displays **Unrated** and offers the rubric. A 
 [Gallery product requirements](README.md) · [Existing Model Survey](../../sites/anatomy-gallery/README.md)
 
 The [discovery audit and pilot](../../records/work-items/items/AG-GAL-018-reconcile-library-revisions.md) account for public exports and replay inputs. The [maintained-family review](../../records/campaigns/teaching-asset-review.md) covers the current starting files. The [second cohort](../../records/work-items/items/AG-GAL-025-assess-next-teaching-cohort.md) adds the skin envelope, right rotator cuff and illustrative thyroid.
+
+For local teaching, promote the exact file that supports the maintained task. In a multi-export package, the isolated component and the contextual assembly each retain their own assessment. A file-specific link selects its own ratings and teaching view. A collection records whether its required learner actions worked in their reviewed settings. See the [teaching target](../guides/asset-quality.md#resolve-the-teaching-target).

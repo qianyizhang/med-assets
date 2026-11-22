@@ -23,7 +23,7 @@ import { baseView, stagePath } from './presets.js';
 import { Link, Label, Heading, Missing } from './GalleryUI.jsx';
 
 
-export function Compare({ detail, query }) {
+export function Compare({ detail, query, refinements }) {
   const [revealed, reveal] = useState(false);
   const [initialReverse] = useState(() => Math.random() < 0.5);
   const params = new URLSearchParams(query);
@@ -46,6 +46,9 @@ export function Compare({ detail, query }) {
         <Heading title="Compare">
           Inspect matched views and the evidence behind a revision decision.
         </Heading>
+        {refinements && <p><Link to="compare/teaching-target?round=reopened">Review reopened exemptions →</Link></p>}
+        {refinements && <p><Link to="compare/teaching-target">Review current teaching targets →</Link></p>}
+        {refinements && <p><Link to="compare/teaching-refinements">Review the below-target teaching assets →</Link></p>}
         <Link className="ga-feature" to={comparePath}>
           <img src={portrait('updated-tissue-ortho')} alt="Right adrenal fold" />
           <div>

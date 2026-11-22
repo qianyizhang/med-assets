@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
-import { byPath } from './catalog.js';
 import { isLoopbackGallery } from './local-models.js';
 import teachingReview from './teaching-inputs/teaching-assessments.json';
 
-export function LessonReviewPlate({ exportPath, title, alt, width, height, children }) {
+export function LessonReviewPlate({ exportPath, title, children }) {
   const [status, setStatus] = useState('loading');
   if (!isLoopbackGallery(globalThis.location?.hostname) || status === 'failed') return null;
 
-  const file = byPath.get(exportPath);
-  const assessment = file && teachingReview.campaign?.find(({ export: reviewed }) =>
-    reviewed.path === exportPath && reviewed.sha256 === file.sha256 && reviewed.bytes === file.bytes);
+  const assessment = teachingReview.campaign?.find((entry) => entry.maintained &&
+    [entry.export.path, entry.target?.baseline, entry.target?.familyBaseline].includes(exportPath))
+    ?? teachingReview.campaign?.find((entry) => entry.export.path === exportPath);
   const view = assessment?.views.find(({ path }) => path === assessment.teachingView);
   if (!view?.url) return null;
+  const { width, height } = view;
 
   return (
     <section hidden={status !== 'ready'}>
@@ -22,11 +22,11 @@ export function LessonReviewPlate({ exportPath, title, alt, width, height, child
           <a href={view.url} aria-label={'Open full teaching image · ' + title}>
             <img
               src={view.url}
-              alt={alt}
+              alt={view.label}
               width={width}
               height={height}
               onLoad={({ currentTarget: img }) =>
-                setStatus(img.naturalWidth === width && img.naturalHeight === height ? 'ready' : 'failed')}
+                setStatus((!width || img.naturalWidth === width) && (!height || img.naturalHeight === height) ? 'ready' : 'failed')}
               onError={() => setStatus('failed')}
             />
           </a>

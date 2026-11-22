@@ -4,14 +4,19 @@
 mouth and two branch outlets are open; the cutaway reveals the continuous Y-shaped
 cavity. The original r05 model is preserved. Related issue: [#133](https://github.com/qianyizhang/med-assets/issues/133).
 
-![Before closed cast; current open shell and cutaway](comparison-whole.svg)
-![Matched proximal detail](comparison-proximal.svg)
+![Before closed cast; current open shell and cutaway](display/comparison-whole.webp)
+![Matched proximal detail](display/comparison-proximal.webp)
 
-These are **geometry-bound SVG projections, not screenshots or Cycles renders**.
-They use the exact baseline/current exports, matched cameras and scale, with
+These WebPs display the geometry-bound SVG projections of the exact
+baseline and current exports. The projections use matched cameras and scale, with
 simplified visibility and illustrative shading. They do not reproduce all raster
 occlusion. Actual Cycles PNGs were separately inspected and retained locally;
 [raster bindings](raster-bindings.json) keep their versions and hashes distinct.
+
+The exact originals are available from the Gallery as the [whole SVG](https://med-assets-model-survey.landy123007.chatgpt.site/assets/9776415517ac344631ba0d6ecfe00149fb87406b1fd0f681178a6613c55b9676/comparison-whole.svg)
+and [proximal SVG](https://med-assets-model-survey.landy123007.chatgpt.site/assets/f0d26593e064d41f581f69041ae4d92188cae3ba2ff4ec4e05db9d79d25c29d8/comparison-proximal.svg).
+The [pinned Git source](https://github.com/qianyizhang/med-assets/tree/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/trachea/2026-10-29-open-airway-r06)
+records the delivered SVGs.
 
 | Gate | Result | Remaining limit |
 |---|---|---|
@@ -59,3 +64,23 @@ delivery. Its recorded EN/中文 browser checks and exact download hashes are hi
 not a new availability, live 3D or clinical pass.
 
 </details>
+
+## Restore the exact SVGs offline
+
+The two `.svg.br` files contain the original SVGs losslessly. They are sufficient
+to restore the historical paths in a fresh checkout. The loopback Gallery
+preview serves the verified original SVG bytes at the ordinary digest URLs.
+The displayed WebPs supply the README and Gallery image previews.
+
+From the repository root with Node 24 or later, run the following before any
+historical replay or transport check that needs the original paths.
+
+```sh
+node reviews/trachea/2026-10-29-open-airway-r06/restore-projections.mjs --output .
+```
+
+Use another existing directory with `--output` to restore there. The restorer
+checks [decoded sizes and SHA-256 hashes](projection-bindings.json), preserves
+exact existing files, and refuses conflicting bytes or links below the output
+directory. Use the [transport guide](../../../transport/README.md#public-r2-downloads)
+for the historical revision selector.

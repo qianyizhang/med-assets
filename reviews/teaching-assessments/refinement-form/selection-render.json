@@ -1,0 +1,792 @@
+{
+  "blender": "5.2.3 LTS Release Candidate",
+  "build": "fab76e95306d",
+  "assets": {
+    "swirendo_fdi31": {
+      "export": {
+        "path": "models/swirendo_fdi31/exports/balanced-20261028/FDI31-balanced.glb",
+        "sha256": "90006e54c2b9f79f6c201397a50f92228d9ad6fa4450f20e0ad20c5fe70c19f7",
+        "bytes": 2052220
+      },
+      "frame": 1,
+      "views": [
+        {
+          "file": "swirendo_fdi31-all.png",
+          "sha256": "2d0bba91b79efe36ac7c4fe4592755e58e84dc684b393fe832a77008b029b28d",
+          "bytes": 303583,
+          "direction": [
+            0.25,
+            -0.72,
+            0.65
+          ],
+          "camera": [
+            0.025764327496290207,
+            -0.07089392095804214,
+            0.05824203044176102
+          ],
+          "orthoScale": 0.027869639918208122,
+          "palette": true,
+          "visible": [
+            "SWIRendo_31_T2/bone",
+            "SWIRendo_31_T2/dentin",
+            "SWIRendo_31_T2/enamel",
+            "SWIRendo_31_T2/pulp"
+          ]
+        },
+        {
+          "file": "swirendo_fdi31-tooth.png",
+          "sha256": "8dad4e0538071485257588cf08f1b4f35017ec395eadf7bf40d446767a3134d2",
+          "bytes": 275299,
+          "direction": [
+            0.25,
+            -0.72,
+            0.65
+          ],
+          "camera": [
+            0.025764327496290207,
+            -0.07089392095804214,
+            0.05824203044176102
+          ],
+          "orthoScale": 0.027869639918208122,
+          "palette": true,
+          "visible": [
+            "SWIRendo_31_T2/dentin",
+            "SWIRendo_31_T2/enamel"
+          ]
+        },
+        {
+          "file": "swirendo_fdi31-reverse.png",
+          "sha256": "cfe877b21b914c4bdb814f12d89cef0a0db021bbcbd7f2b0351e061158f604ef",
+          "bytes": 303562,
+          "direction": [
+            0.78,
+            0.55,
+            0.2
+          ],
+          "camera": [
+            0.07087283581495285,
+            0.029541511088609695,
+            0.024974726140499115
+          ],
+          "orthoScale": 0.030141489580273628,
+          "palette": true,
+          "visible": [
+            "SWIRendo_31_T2/bone",
+            "SWIRendo_31_T2/dentin",
+            "SWIRendo_31_T2/enamel",
+            "SWIRendo_31_T2/pulp"
+          ]
+        },
+        {
+          "file": "swirendo_fdi31-reverse-tooth.png",
+          "sha256": "57df03fb7aeddc91d86259e6424154d70ad11b8e3d2d0e76fa811186f4cf063d",
+          "bytes": 272218,
+          "direction": [
+            0.78,
+            0.55,
+            0.2
+          ],
+          "camera": [
+            0.07087283581495285,
+            0.029541511088609695,
+            0.024974726140499115
+          ],
+          "orthoScale": 0.030141489580273628,
+          "palette": true,
+          "visible": [
+            "SWIRendo_31_T2/dentin",
+            "SWIRendo_31_T2/enamel"
+          ]
+        }
+      ]
+    },
+    "penis": {
+      "export": {
+        "path": "models/penis/exports/z-native-components-r04/penile_internal_components.glb",
+        "sha256": "c44d35e13be11d2fb35141747d819d4609a45ca0a5527c89e1015618d17cab70",
+        "bytes": 61664
+      },
+      "frame": 1,
+      "views": [
+        {
+          "file": "penis-all.png",
+          "sha256": "bea630027909861030ba1c256f52e913f5d0774de49e2d458ee4e04f2781b499",
+          "bytes": 279166,
+          "direction": [
+            0.76,
+            -0.34,
+            -0.72
+          ],
+          "camera": [
+            0.31157559156417847,
+            -0.17261169850826263,
+            0.49168872833251953
+          ],
+          "orthoScale": 0.16991488635540009,
+          "palette": true,
+          "visible": [
+            "Corpus cavernosum of penis source display",
+            "Corpus spongiosum of penis source display",
+            "Glans penis source display"
+          ]
+        },
+        {
+          "file": "penis-spongiosum.png",
+          "sha256": "911d60a20b641a7f27dad272818acfaa70ef76769159db2ef82975f9a781d400",
+          "bytes": 251846,
+          "direction": [
+            0.76,
+            -0.34,
+            -0.72
+          ],
+          "camera": [
+            0.31157559156417847,
+            -0.17261169850826263,
+            0.49168872833251953
+          ],
+          "orthoScale": 0.16991488635540009,
+          "palette": true,
+          "visible": [
+            "Corpus spongiosum of penis source display",
+            "Glans penis source display"
+          ]
+        },
+        {
+          "file": "penis-glans-detail.png",
+          "sha256": "96efad13cca313674ba0ce8893a3d04c8f13a796dcd6f5cd4a15d3454180f50f",
+          "bytes": 318922,
+          "direction": [
+            0.55,
+            0.65,
+            -0.31
+          ],
+          "camera": [
+            0.08710408210754395,
+            0.009409725666046143,
+            0.711037278175354
+          ],
+          "orthoScale": 0.04873296990990639,
+          "palette": false,
+          "visible": [
+            "Corpus cavernosum of penis source display",
+            "Corpus spongiosum of penis source display",
+            "Glans penis source display"
+          ]
+        }
+      ]
+    },
+    "vagina_hra": {
+      "export": {
+        "path": "models/vagina_hra/exports/context-r02/vagina_hra_same_atlas_context_r02.glb",
+        "sha256": "c649de4db766ba00020315029c922de1d018061c1a34bd95c850a05255ab3037",
+        "bytes": 2718584
+      },
+      "frame": 1,
+      "views": [
+        {
+          "file": "vagina_hra-all.png",
+          "sha256": "789ec80a2215bd33025066473edb1da857402811d3fd51dbafd078b7f6c27555",
+          "bytes": 350857,
+          "direction": [
+            1,
+            -0.21,
+            0.16
+          ],
+          "camera": [
+            1.0445295572280884,
+            -0.13645143806934357,
+            0.23638568818569183
+          ],
+          "orthoScale": 0.2760806381702423,
+          "palette": true,
+          "visible": [
+            "VH_F_abdominal_ostium_of_uterine_tube",
+            "VH_F_anterior_wall_of_uterus",
+            "VH_F_body_of_uterus",
+            "VH_F_cervicovaginal_junction",
+            "VH_F_cervix",
+            "VH_F_coccyx",
+            "VH_F_cornua",
+            "VH_F_external_cervical_os",
+            "VH_F_fundus_of_urinary_bladder_base",
+            "VH_F_fundus_of_urinary_bladder_dome",
+            "VH_F_fundus_of_uterus",
+            "VH_F_ilium_compact_bone_L",
+            "VH_F_ilium_compact_bone_R",
+            "VH_F_internal_cervical_os",
+            "VH_F_lower_uterine_segment",
+            "VH_F_posterior_wall_of_uterus",
+            "VH_F_rectum",
+            "VH_F_sacrum",
+            "VH_F_trigone_of_urinary_bladder",
+            "VH_F_ureteral_orifice_L",
+            "VH_F_ureteral_orifice_R",
+            "VH_F_urinary_bladder_neck_smooth_muscle",
+            "VH_F_vagina"
+          ]
+        },
+        {
+          "file": "vagina_hra-selected.png",
+          "sha256": "6b09affdf07b3a28ea8201f0553cecdae13e222c5134ea7502da93c75f6bc98c",
+          "bytes": 261248,
+          "direction": [
+            1,
+            -0.21,
+            0.16
+          ],
+          "camera": [
+            1.0445295572280884,
+            -0.13645143806934357,
+            0.23638568818569183
+          ],
+          "orthoScale": 0.2760806381702423,
+          "palette": true,
+          "visible": [
+            "VH_F_cervicovaginal_junction",
+            "VH_F_cervix",
+            "VH_F_fundus_of_urinary_bladder_base",
+            "VH_F_fundus_of_urinary_bladder_dome",
+            "VH_F_rectum",
+            "VH_F_urinary_bladder_neck_smooth_muscle",
+            "VH_F_vagina"
+          ]
+        },
+        {
+          "file": "vagina_hra-detail.png",
+          "sha256": "4c26dd46f39bd2e4f13dbd42fb8d84f100c114b062af4e0c84184e14d0296c0c",
+          "bytes": 302715,
+          "direction": [
+            1,
+            -0.21,
+            0.16
+          ],
+          "camera": [
+            0.4589982330799103,
+            -0.025548584759235382,
+            0.09576430171728134
+          ],
+          "orthoScale": 0.18085439503192902,
+          "palette": true,
+          "visible": [
+            "VH_F_cervicovaginal_junction",
+            "VH_F_cervix",
+            "VH_F_fundus_of_urinary_bladder_base",
+            "VH_F_fundus_of_urinary_bladder_dome",
+            "VH_F_rectum",
+            "VH_F_urinary_bladder_neck_smooth_muscle",
+            "VH_F_vagina"
+          ]
+        },
+        {
+          "file": "vagina_hra-alternate.png",
+          "sha256": "a16df7f0cc2b1756fed3c4593791b996e599888520386168943846fde14339be",
+          "bytes": 297481,
+          "direction": [
+            -1,
+            -0.24,
+            0.16
+          ],
+          "camera": [
+            -0.45190733671188354,
+            -0.034922145307064056,
+            0.09319232404232025
+          ],
+          "orthoScale": 0.17578798532485962,
+          "palette": false,
+          "visible": [
+            "VH_F_cervicovaginal_junction",
+            "VH_F_cervix",
+            "VH_F_fundus_of_urinary_bladder_base",
+            "VH_F_fundus_of_urinary_bladder_dome",
+            "VH_F_rectum",
+            "VH_F_urinary_bladder_neck_smooth_muscle",
+            "VH_F_vagina"
+          ]
+        }
+      ]
+    },
+    "anatomy-workshop-r1": {
+      "export": {
+        "path": "body/anatomy-workshop-r1/Anatomy_Workshop.blend",
+        "sha256": "c773480a49471e697e12ca1a710a4c93314217a8683e6ab224b3fa83d9a12fbc",
+        "bytes": 17571351
+      },
+      "frame": 1,
+      "views": [
+        {
+          "file": "anatomy-workshop-r1-all.png",
+          "sha256": "f493ad31ac495910ff929030ae4c72ade82089cac1fecbd516e1f0996ede0fde",
+          "bytes": 422226,
+          "direction": [
+            0.23,
+            -1,
+            0.12
+          ],
+          "camera": [
+            0.2252252995967865,
+            -0.9737746715545654,
+            0.135859876871109
+          ],
+          "orthoScale": 0.38080576062202454,
+          "palette": true,
+          "visible": [
+            "Aorta | source surface",
+            "Brainstem | schematic",
+            "Cerebellum | schematic folia",
+            "Gallbladder | source surface",
+            "Heart | source surface",
+            "Kidney Left | source surface",
+            "Kidney Right | source surface",
+            "Left cerebral hemisphere | schematic folds",
+            "Liver | source surface",
+            "Lung Lower Lobe Left | source surface",
+            "Lung Lower Lobe Right | source surface",
+            "Lung Middle Lobe Right | source surface",
+            "Lung Upper Lobe Left | source surface",
+            "Lung Upper Lobe Right | source surface",
+            "Pancreas | source surface",
+            "Pulmonary Vein | source surface",
+            "Right cerebral hemisphere | schematic folds",
+            "Single urethral outlet \u00b7 schematic",
+            "Spleen | source surface",
+            "Stomach | source surface",
+            "Trachea | source surface",
+            "Tracheal C cartilage 1",
+            "Tracheal C cartilage 10",
+            "Tracheal C cartilage 11",
+            "Tracheal C cartilage 12",
+            "Tracheal C cartilage 13",
+            "Tracheal C cartilage 14",
+            "Tracheal C cartilage 2",
+            "Tracheal C cartilage 3",
+            "Tracheal C cartilage 4",
+            "Tracheal C cartilage 5",
+            "Tracheal C cartilage 6",
+            "Tracheal C cartilage 7",
+            "Tracheal C cartilage 8",
+            "Tracheal C cartilage 9",
+            "Urinary bladder | authored surface",
+            "Vertebrae L3 | source surface",
+            "kidney_left ureter to bladder",
+            "kidney_right ureter to bladder"
+          ]
+        },
+        {
+          "file": "anatomy-workshop-r1-selected.png",
+          "sha256": "5a36b824c81a99d464bedb32757c8f928b0ea25dffde82b83136a8dd59557898",
+          "bytes": 369291,
+          "direction": [
+            0.23,
+            -1,
+            0.12
+          ],
+          "camera": [
+            0.2252252995967865,
+            -0.9737746715545654,
+            0.135859876871109
+          ],
+          "orthoScale": 0.38080576062202454,
+          "palette": true,
+          "visible": [
+            "Heart | source surface",
+            "Liver | source surface",
+            "Lung Lower Lobe Left | source surface",
+            "Lung Lower Lobe Right | source surface",
+            "Lung Middle Lobe Right | source surface",
+            "Lung Upper Lobe Left | source surface",
+            "Lung Upper Lobe Right | source surface"
+          ]
+        },
+        {
+          "file": "anatomy-workshop-r1-reverse.png",
+          "sha256": "1a8a01f1867c30f3bef1d8b210f3781bf1598cc355c8089754e7a503f41b754a",
+          "bytes": 344355,
+          "direction": [
+            -0.59,
+            1,
+            0.16
+          ],
+          "camera": [
+            -0.554602861404419,
+            0.9372038841247559,
+            0.17202816903591156
+          ],
+          "orthoScale": 0.41037532687187195,
+          "palette": true,
+          "visible": [
+            "Heart | source surface",
+            "Liver | source surface",
+            "Lung Lower Lobe Left | source surface",
+            "Lung Lower Lobe Right | source surface",
+            "Lung Middle Lobe Right | source surface",
+            "Lung Upper Lobe Left | source surface",
+            "Lung Upper Lobe Right | source surface"
+          ]
+        }
+      ]
+    },
+    "pancreas": {
+      "export": {
+        "path": "models/pancreas/exports/hra-female-context-r04/pancreas_hra_female_context_r04.glb",
+        "sha256": "aa15f9248027c248886a9cf8d4f5f401b2753176c800851f648b03d88d97ebed",
+        "bytes": 1373872
+      },
+      "frame": 1,
+      "views": [
+        {
+          "file": "pancreas-all.png",
+          "sha256": "e6ba7ee041656b10c8f9838a6c6d619839403cd93065b6016f73231fe7628d23",
+          "bytes": 316740,
+          "direction": [
+            0.23,
+            -1,
+            0.12
+          ],
+          "camera": [
+            0.1753145307302475,
+            -0.5298951268196106,
+            0.37895357608795166
+          ],
+          "orthoScale": 0.23815715312957764,
+          "palette": true,
+          "visible": [
+            "VH_F_body_of_pancreas",
+            "VH_F_colic_surface_of_spleen",
+            "VH_F_common_bile_duct",
+            "VH_F_diaphragmatic_surface_of_spleen",
+            "VH_F_dorsal_pancreatic_duct",
+            "VH_F_duodenal_ampulla",
+            "VH_F_duodenum_ascending",
+            "VH_F_duodenum_descending",
+            "VH_F_duodenum_horizontal",
+            "VH_F_duodenum_superior",
+            "VH_F_gastric_surface_of_spleen",
+            "VH_F_head_of_pancreas",
+            "VH_F_hepatopancreatic_ampulla",
+            "VH_F_hilum_of_spleen",
+            "VH_F_neck_of_pancreas",
+            "VH_F_renal_surface_of_spleen",
+            "VH_F_sphincter_of_heptopancreatic_ampulla",
+            "VH_F_tail_of_pancreas",
+            "VH_F_ucinate_process1",
+            "VH_F_ventral_pancreatic_duct"
+          ]
+        },
+        {
+          "file": "pancreas-selected.png",
+          "sha256": "c1ce2cbbc82e0e779ee6c63954e9597a2577a6c5015694b1dbaaaa65dcf2ceb4",
+          "bytes": 314756,
+          "direction": [
+            0.23,
+            -1,
+            0.12
+          ],
+          "camera": [
+            0.1753145307302475,
+            -0.5298951268196106,
+            0.37895357608795166
+          ],
+          "orthoScale": 0.23815715312957764,
+          "palette": true,
+          "visible": [
+            "VH_F_body_of_pancreas",
+            "VH_F_colic_surface_of_spleen",
+            "VH_F_diaphragmatic_surface_of_spleen",
+            "VH_F_duodenal_ampulla",
+            "VH_F_duodenum_ascending",
+            "VH_F_duodenum_descending",
+            "VH_F_duodenum_horizontal",
+            "VH_F_duodenum_superior",
+            "VH_F_gastric_surface_of_spleen",
+            "VH_F_head_of_pancreas",
+            "VH_F_hilum_of_spleen",
+            "VH_F_neck_of_pancreas",
+            "VH_F_renal_surface_of_spleen",
+            "VH_F_sphincter_of_heptopancreatic_ampulla",
+            "VH_F_tail_of_pancreas",
+            "VH_F_ucinate_process1"
+          ]
+        },
+        {
+          "file": "pancreas-reverse.png",
+          "sha256": "7dfb5831bec8a9ac58a024c97026bc98fe307e25b27a5416051a46b2eb473c27",
+          "bytes": 289294,
+          "direction": [
+            -0.59,
+            1,
+            0.33
+          ],
+          "camera": [
+            -0.30018454790115356,
+            0.6504440903663635,
+            0.49182724952697754
+          ],
+          "orthoScale": 0.25915512442588806,
+          "palette": true,
+          "visible": [
+            "VH_F_body_of_pancreas",
+            "VH_F_colic_surface_of_spleen",
+            "VH_F_diaphragmatic_surface_of_spleen",
+            "VH_F_duodenal_ampulla",
+            "VH_F_duodenum_ascending",
+            "VH_F_duodenum_descending",
+            "VH_F_duodenum_horizontal",
+            "VH_F_duodenum_superior",
+            "VH_F_gastric_surface_of_spleen",
+            "VH_F_head_of_pancreas",
+            "VH_F_hilum_of_spleen",
+            "VH_F_neck_of_pancreas",
+            "VH_F_renal_surface_of_spleen",
+            "VH_F_sphincter_of_heptopancreatic_ampulla",
+            "VH_F_tail_of_pancreas",
+            "VH_F_ucinate_process1"
+          ]
+        },
+        {
+          "file": "pancreas-role-0.png",
+          "sha256": "d737ca682877d7e84752e4e1e8640467750716bb1315bc0165e4cde42ba4cd03",
+          "bytes": 212953,
+          "direction": [
+            0.23,
+            -1,
+            0.12
+          ],
+          "camera": [
+            0.1753145307302475,
+            -0.5298951268196106,
+            0.37895357608795166
+          ],
+          "orthoScale": 0.23815715312957764,
+          "palette": true,
+          "visible": [
+            "VH_F_hepatopancreatic_ampulla"
+          ]
+        },
+        {
+          "file": "pancreas-role-1.png",
+          "sha256": "c776bebdee920bc0eb0b5f1b8d927a529889e0d1e77f9b26bdc3e18b292495cc",
+          "bytes": 213626,
+          "direction": [
+            0.23,
+            -1,
+            0.12
+          ],
+          "camera": [
+            0.1753145307302475,
+            -0.5298951268196106,
+            0.37895357608795166
+          ],
+          "orthoScale": 0.23815715312957764,
+          "palette": true,
+          "visible": [
+            "VH_F_dorsal_pancreatic_duct"
+          ]
+        },
+        {
+          "file": "pancreas-role-2.png",
+          "sha256": "14e7c8a5d98d0938374c55ee030431bcb618301dccebb46f4aeeae8b89095e71",
+          "bytes": 218063,
+          "direction": [
+            0.23,
+            -1,
+            0.12
+          ],
+          "camera": [
+            0.1753145307302475,
+            -0.5298951268196106,
+            0.37895357608795166
+          ],
+          "orthoScale": 0.23815715312957764,
+          "palette": true,
+          "visible": [
+            "VH_F_common_bile_duct"
+          ]
+        },
+        {
+          "file": "pancreas-role-3.png",
+          "sha256": "24ddd6300e39d998f3c7daf0a0928ef3ce083c5b9a2f47920aa181649ffdd036",
+          "bytes": 221022,
+          "direction": [
+            0.23,
+            -1,
+            0.12
+          ],
+          "camera": [
+            0.1753145307302475,
+            -0.5298951268196106,
+            0.37895357608795166
+          ],
+          "orthoScale": 0.23815715312957764,
+          "palette": true,
+          "visible": [
+            "VH_F_ventral_pancreatic_duct"
+          ]
+        }
+      ]
+    },
+    "diaphragm": {
+      "export": {
+        "path": "models/diaphragm/exports/z-native-static-r01/diaphragm_z_native_static.glb",
+        "sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+        "bytes": 701128
+      },
+      "frame": 1,
+      "views": [
+        {
+          "file": "diaphragm-front.png",
+          "sha256": "148295a934f974cf1f7089c5ef5f0e5a864f6bcd1d643707096e728f7caa4d2c",
+          "bytes": 343808,
+          "direction": [
+            0,
+            -1,
+            0
+          ],
+          "camera": [
+            -0.0004202313721179962,
+            -0.7692928314208984,
+            1.152199149131775
+          ],
+          "orthoScale": 0.28337332606315613,
+          "palette": false,
+          "visible": [
+            "Diaphragm"
+          ]
+        },
+        {
+          "file": "diaphragm-above.png",
+          "sha256": "46cfb1fd337ec015d9bf96403c6168edd34bc8c65bd2d9a74f0b98b45c57241d",
+          "bytes": 319735,
+          "direction": [
+            0,
+            -0.23,
+            1
+          ],
+          "camera": [
+            -0.00042023503920063376,
+            -0.186388298869133,
+            1.8887828588485718
+          ],
+          "orthoScale": 0.2833733558654785,
+          "palette": false,
+          "visible": [
+            "Diaphragm"
+          ]
+        },
+        {
+          "file": "diaphragm-below.png",
+          "sha256": "5623e8ac4427e214cc89edc222124d0bb9b70081c1d93e2ae0cf948e86be98d7",
+          "bytes": 347336,
+          "direction": [
+            0,
+            -0.25,
+            -1
+          ],
+          "camera": [
+            -0.0004202276759315282,
+            -0.20182731747627258,
+            0.4127866327762604
+          ],
+          "orthoScale": 0.28337329626083374,
+          "palette": false,
+          "visible": [
+            "Diaphragm"
+          ]
+        }
+      ]
+    },
+    "heart": {
+      "export": {
+        "path": "models/heart/exports/metadata-cleanup-r01/heart.glb",
+        "sha256": "50c86dcab55701ca1418e16cd269ded70027663d58d02270ec6df0c8afd488fb",
+        "bytes": 2037228
+      },
+      "frame": 1,
+      "views": [
+        {
+          "file": "heart-control.png",
+          "sha256": "6feb41272467769c0eaf9eb91cd2751f9d337082510b69bfa636df3bc8d783bb",
+          "bytes": 310087,
+          "direction": [
+            0.23,
+            -1,
+            0.12
+          ],
+          "camera": [
+            0.13356506824493408,
+            -0.5112571120262146,
+            0.1125626415014267
+          ],
+          "orthoScale": 0.19224132597446442,
+          "palette": false,
+          "visible": [
+            "Heart | source surface"
+          ]
+        },
+        {
+          "file": "heart-source.png",
+          "sha256": "6a941b0cbc50e7f6085c9d8b0b7580edd9cf9f61115fda3f0893a14dd2bee255",
+          "bytes": 318877,
+          "direction": [
+            0.23,
+            -1,
+            0.12
+          ],
+          "camera": [
+            0.13356506824493408,
+            -0.5112571120262146,
+            0.1125626415014267
+          ],
+          "orthoScale": 0.19224132597446442,
+          "palette": false,
+          "visible": [
+            "s1233 retained source shell"
+          ]
+        },
+        {
+          "file": "heart-control-reverse.png",
+          "sha256": "f3f28e842bd8d15d3e7aeb09be96fffd80dfd822a6cee84e204946ce9dece142",
+          "bytes": 289841,
+          "direction": [
+            -0.59,
+            1,
+            0.33
+          ],
+          "camera": [
+            -0.2744086980819702,
+            0.4816610515117645,
+            0.2179156392812729
+          ],
+          "orthoScale": 0.2119487226009369,
+          "palette": false,
+          "visible": [
+            "Heart | source surface"
+          ]
+        },
+        {
+          "file": "heart-source-reverse.png",
+          "sha256": "a4ee4d955d51f448b23b450c2a5bd2639832786d2bce7054a6ab2ca8224ce841",
+          "bytes": 293198,
+          "direction": [
+            -0.59,
+            1,
+            0.33
+          ],
+          "camera": [
+            -0.2744086980819702,
+            0.4816610515117645,
+            0.2179156392812729
+          ],
+          "orthoScale": 0.2119487226009369,
+          "palette": false,
+          "visible": [
+            "s1233 retained source shell"
+          ]
+        }
+      ],
+      "source": {
+        "path": "body/anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy/heart.json",
+        "sha256": "545f45eb67d47965c6e86aa6bd9442069e603a600adaf278db2b90c11cc5f61d"
+      }
+    }
+  }
+}

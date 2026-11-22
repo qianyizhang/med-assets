@@ -1,0 +1,134 @@
+[
+  {
+    "family": "Adrenal pair",
+    "baseline": "models/adrenals/exports/source-candidate-01/adrenals_source_frame.glb",
+    "path": "models/adrenals/exports/atlas-locator-r02/atlas-profiles.glb",
+    "controlAssessmentSha256": "6e3bcb9ba25ee882a00251627ea340090701c1a1aa5e0749a05a428c0e11edef",
+    "assessmentSha256": "2abeae729e7a45e1d6f3c2ab46afcd518e3d3004a09c8805c844b32f3ef3b08e",
+    "reviewedAxes": [
+      "1"
+    ],
+    "taskCheck": "Located the crescent-like left and triangular right gland and followed each to the upper part of its same-side kidney in the posterior atlas view. The reverse isolate exposes the broader gland planes.",
+    "status": "passed",
+    "decision": "For the BP3D localization lesson use the interpreted gland surfaces and the two kidneys in one native frame. The source gland file remains the reference for the unedited relief.",
+    "exemptions": {},
+    "axisChanges": {},
+    "evidence": [
+      "models/adrenals/exports/atlas-locator-r02/README.md",
+      "reviews/teaching-assessments/reopen-regional/clean-import-check.json",
+      "reviews/teaching-assessments/reopen-regional/measurements.json"
+    ],
+    "before": {
+      "path": "reviews/teaching-assessments/reopen-regional/views/adrenals-before.webp",
+      "bytes": 34988,
+      "sha256": "e394b63ad98bd16ead003eaa425697f1630d57339194172d6552d85e8c32439c",
+      "label": "Adrenal pair · same-camera source control",
+      "width": 956,
+      "height": 1160
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/reopen-regional/views/adrenals-after.webp",
+      "bytes": 35108,
+      "sha256": "245d87ab3f385a9be2bbc00e1e19bd731c14f9dace2c3bca52da4193db543399",
+      "label": "Adrenal pair · Located the crescent-like left and triangular right gland and followed each to the upper part of its same-side kidney in the posterior atlas view. The reverse isolate exposes the broader gland planes.",
+      "width": 956,
+      "height": 1160
+    },
+    "teaching": {
+      "path": "reviews/teaching-assessments/reopen-regional/views/adrenals-after.webp",
+      "bytes": 35108,
+      "sha256": "245d87ab3f385a9be2bbc00e1e19bd731c14f9dace2c3bca52da4193db543399",
+      "label": "Adrenal pair · Located the crescent-like left and triangular right gland and followed each to the upper part of its same-side kidney in the posterior atlas view. The reverse isolate exposes the broader gland planes.",
+      "width": 956,
+      "height": 1160
+    }
+  },
+  {
+    "family": "Pancreas",
+    "baseline": "models/pancreas/exports/hra-female-context-r04/pancreas_hra_female_context_r04.glb",
+    "path": "models/pancreas/exports/gross-locator-r05/gross-locator.glb",
+    "controlAssessmentSha256": "75b352de464137f289fe2fd3ae4e7c8bc9013a9ef92b3ee46e59a11cf99d76c8",
+    "assessmentSha256": "016367e13859d369a21d54be185738dd65efaaa4a5efe3de74ac06a14bb0ee19",
+    "reviewedAxes": [
+      "1"
+    ],
+    "taskCheck": "Started at the head inside the duodenal bend, traced the narrowing body, and found the tail beside the splenic surface. The opposite view and enlarged head show one continuous interpreted exterior.",
+    "status": "passed",
+    "decision": "Use the single gross exterior for head-to-tail localization. The complete r04 retains separately selectable pancreatic regions, ducts and other fine structures.",
+    "exemptions": {},
+    "axisChanges": {},
+    "evidence": [
+      "models/pancreas/exports/gross-locator-r05/README.md",
+      "reviews/teaching-assessments/reopen-regional/clean-import-check.json",
+      "reviews/teaching-assessments/reopen-regional/measurements.json"
+    ],
+    "before": {
+      "path": "reviews/teaching-assessments/reopen-regional/views/pancreas-before.webp",
+      "bytes": 35128,
+      "sha256": "38016dc51a400f8af1d68432d819f14fcc61e7a9df34a14c04f2ad0cad941564",
+      "label": "Pancreas · same-camera source control",
+      "width": 1224,
+      "height": 596
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/reopen-regional/views/pancreas-after.webp",
+      "bytes": 36364,
+      "sha256": "cf65cba3c5579223b746046b6d4cfdcc9c9b42e0d7b0f44363907d0a74ce212c",
+      "label": "Pancreas · Started at the head inside the duodenal bend, traced the narrowing body, and found the tail beside the splenic surface. The opposite view and enlarged head show one continuous interpreted exterior.",
+      "width": 1224,
+      "height": 596
+    },
+    "teaching": {
+      "path": "reviews/teaching-assessments/reopen-regional/views/pancreas-after.webp",
+      "bytes": 36364,
+      "sha256": "cf65cba3c5579223b746046b6d4cfdcc9c9b42e0d7b0f44363907d0a74ce212c",
+      "label": "Pancreas · Started at the head inside the duodenal bend, traced the narrowing body, and found the tail beside the splenic surface. The opposite view and enlarged head show one continuous interpreted exterior.",
+      "width": 1224,
+      "height": 596
+    }
+  },
+  {
+    "family": "Lymph collecting routes",
+    "baseline": "models/lymph-collecting-routes/source-context-r01/selected-source-routes.glb",
+    "path": "models/lymph-collecting-routes/source-trace-r02/route-diagram.glb",
+    "controlAssessmentSha256": "d42837c3832934f0d14c166aa448f2ab692dc163253918e7c2f107eeb25205f3",
+    "assessmentSha256": "4d43ccd4da390749ebf86d487e881e5d03298eaae9c21021c1c9731d29311828",
+    "reviewedAxes": [
+      "1"
+    ],
+    "taskCheck": "Followed the colored central trace through the upper turn and distinguished its upper and lower gold source-limit symbols in the straight and oblique views.",
+    "status": "passed",
+    "decision": "Use the 3D line diagram for tracing the depicted path between the two source limits. The original faceted reconstruction remains available for exact triangle inspection.",
+    "exemptions": {},
+    "axisChanges": {},
+    "evidence": [
+      "models/lymph-collecting-routes/source-trace-r02/README.md",
+      "reviews/teaching-assessments/reopen-regional/clean-import-check.json",
+      "reviews/teaching-assessments/reopen-regional/measurements.json"
+    ],
+    "before": {
+      "path": "reviews/teaching-assessments/reopen-regional/views/lymph-before.webp",
+      "bytes": 30526,
+      "sha256": "12fed57b543d8b3302112064acc0326fb18031d1a0a57073a8172c699a1b2a3a",
+      "label": "Lymph collecting routes · same-camera source control",
+      "width": 1224,
+      "height": 596
+    },
+    "after": {
+      "path": "reviews/teaching-assessments/reopen-regional/views/lymph-after.webp",
+      "bytes": 30950,
+      "sha256": "2a4ffcb93f8319ec41642086d0fd5673ea6ad857caa6630fa7ffdd2e1ab5d124",
+      "label": "Lymph collecting routes · Followed the colored central trace through the upper turn and distinguished its upper and lower gold source-limit symbols in the straight and oblique views.",
+      "width": 1224,
+      "height": 596
+    },
+    "teaching": {
+      "path": "reviews/teaching-assessments/reopen-regional/views/lymph-after.webp",
+      "bytes": 30950,
+      "sha256": "2a4ffcb93f8319ec41642086d0fd5673ea6ad857caa6630fa7ffdd2e1ab5d124",
+      "label": "Lymph collecting routes · Followed the colored central trace through the upper turn and distinguished its upper and lower gold source-limit symbols in the straight and oblique views.",
+      "width": 1224,
+      "height": 596
+    }
+  }
+]

@@ -1,0 +1,96 @@
+{
+  "anatomy-workshop-r1": {
+    "source": {
+      "path": "body/anatomy-workshop-r1/Anatomy_Workshop.blend",
+      "bytes": 17571351,
+      "sha256": "c773480a49471e697e12ca1a710a4c93314217a8683e6ab224b3fa83d9a12fbc"
+    },
+    "edition": {
+      "path": "body/anatomy-workshop-r1/Anatomy_Workshop_compact.blend",
+      "bytes": 13596421,
+      "sha256": "8903a92dbae60c24a0c9933724d1ec8078628fcf6f3d170fa589371b158077ba"
+    },
+    "decodedNativeFile": {
+      "bytes": 71556820,
+      "sha256": "36db1d9d11662dc6d155b813a09931f6cbd39b2ed4ec98474b9c31722801e2cb"
+    }
+  },
+  "heart": {
+    "source": {
+      "path": "models/heart/exports/metadata-cleanup-r01/heart.glb",
+      "bytes": 2037228,
+      "sha256": "50c86dcab55701ca1418e16cd269ded70027663d58d02270ec6df0c8afd488fb"
+    },
+    "edition": {
+      "path": "models/heart/exports/texture-pack-r02/heart.glb",
+      "bytes": 1638296,
+      "sha256": "3e98b4c78ecc561d8ba1a80135ece91f23cabdd68837b2db4a8c23f6cd3c33f3"
+    },
+    "identicalPixels": [
+      {
+        "name": "heart_Normal_OpenGL_1K",
+        "decoded": {
+          "bytes": 4194304,
+          "sha256": "39a1905ab0698fb7cba5ea61e5324609e59d470528566b044a182d5dc36c856d"
+        }
+      },
+      {
+        "name": "heart_BaseColor_1K",
+        "decoded": {
+          "bytes": 4194304,
+          "sha256": "54fcc06fa3364e80de9dcff3b338d86d3ce63c5f467c4055f115c9710c703956"
+        }
+      },
+      {
+        "name": "heart_Roughness_1K",
+        "decoded": {
+          "bytes": 3145728,
+          "sha256": "cf728e4e942bf18166ac3ed9e5fea2bed1f4aacb708b510bc13a979d86ab9551"
+        }
+      }
+    ]
+  },
+  "diaphragm": {
+    "source": {
+      "path": "models/diaphragm/exports/z-native-static-r01/diaphragm_z_native_static.glb",
+      "bytes": 701128,
+      "sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29"
+    },
+    "edition": {
+      "path": "models/diaphragm/exports/normal-pack-r02/diaphragm.glb",
+      "bytes": 623504,
+      "sha256": "9857d670bd761ed28b4ce534594ad6b0ad2fc05636ca2a66a86a62db1d9bb8d7"
+    },
+    "maxNormalAngleDegrees": 0.0014475814629104757
+  },
+  "lymph": {
+    "source": {
+      "path": "models/lymph_node/exports/hra-tissue-layers-r01/lymph-node-tissue-layers.glb",
+      "bytes": 2984704,
+      "sha256": "bf4ffa85c96459f2666949196915244697f3f5e33ebf485482c8223ba1fcb23e"
+    },
+    "edition": {
+      "path": "models/lymph_node/exports/tissue-color-pack-r02/lymph-node.glb",
+      "bytes": 2297224,
+      "sha256": "d0b8ac731f187c10e1c7f23a15d6f4ec285b7727cc98bf9feed26fb97e5ee692"
+    },
+    "normalizedColorsExact": true
+  },
+  "nose_sinuses": {
+    "source": {
+      "path": "models/nose_sinuses/exports/nih3d-airspace-r01/nasal_airspace.glb",
+      "bytes": 4758484,
+      "sha256": "3d8c4d56e09d72ae369c697d2bb9435cc3792f9dbe225e7d456ff58174a577be"
+    },
+    "edition": {
+      "path": "models/nose_sinuses/exports/index-pack-r02/nasal_airspace.glb",
+      "bytes": 3604296,
+      "sha256": "49a5253df26078a4cb8241788352bc6f142b95ff34266bb699a7f6edceceae50"
+    },
+    "verticesPerDraw": [
+      65535,
+      34935
+    ],
+    "orderedCornerAttributesSha256": "4da361831d18111d6e0c9bae8750925f23eb8bfcb0274dcd4851799c0e9d4fa3"
+  }
+}

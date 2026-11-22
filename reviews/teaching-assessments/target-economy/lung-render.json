@@ -1,0 +1,152 @@
+{
+  "name": "lung_left",
+  "control": {
+    "path": "models/lung_left/exports/metadata-cleanup-r01/lung_left.glb",
+    "sha256": "6d3a6150dc47dba0d16162738caabc1bef3fcd8cf5ab4af492dd1121c1cb8533",
+    "bytes": 2524996,
+    "triangles": 31200
+  },
+  "candidate": {
+    "path": "models/lung_left/exports/teaching-economy-r01/lung_left.glb",
+    "sha256": "4cb7524a3843fda941d50adc060d2a3c9d08135bea6cddc99d03284d25bb683c",
+    "bytes": 2093088,
+    "triangles": 31200
+  },
+  "parts": [],
+  "bindings": {
+    "control": [
+      {
+        "file": "control-0.png",
+        "sha256": "1132f8aef9f1482f50cfac8e5218cbecb84c67c351160654f338f51bfd850277",
+        "camera": [
+          0.25,
+          -1,
+          0.17
+        ],
+        "location": [
+          0.26519349217414856,
+          -0.7298803925514221,
+          0.18399807810783386
+        ],
+        "rotation": [
+          0.7567588686943054,
+          0.6421738862991333,
+          0.07905523478984833,
+          0.09316127747297287
+        ],
+        "clip": [
+          2.5700581318233162e-05,
+          3.0840697288513184
+        ],
+        "ortho": 0.29041656851768494
+      },
+      {
+        "file": "control-1.png",
+        "sha256": "7846f48bed8eb6522574b5b25c433ed89d581b9fd58ef85214ed9c628dcb3d7e",
+        "camera": [
+          0.82,
+          -1,
+          0.27
+        ],
+        "location": [
+          0.5795063376426697,
+          -0.6003296375274658,
+          0.22280192375183105
+        ],
+        "rotation": [
+          0.73069828748703,
+          0.5938971042633057,
+          0.21236392855644226,
+          0.2612808048725128
+        ],
+        "clip": [
+          2.6803696528077126e-05,
+          3.2164435386657715
+        ],
+        "ortho": 0.30288177728652954
+      }
+    ],
+    "candidate": [
+      {
+        "file": "candidate-0.png",
+        "sha256": "bdb29d19a167cbcbd5884b26ffb5958ae99d8cd8ae86b2a5343a2fcb9c050dc1",
+        "camera": [
+          0.25,
+          -1,
+          0.17
+        ],
+        "location": [
+          0.26519349217414856,
+          -0.7298803925514221,
+          0.18399807810783386
+        ],
+        "rotation": [
+          0.7567588686943054,
+          0.6421738862991333,
+          0.07905523478984833,
+          0.09316127747297287
+        ],
+        "clip": [
+          2.5700581318233162e-05,
+          3.0840697288513184
+        ],
+        "ortho": 0.29041656851768494
+      },
+      {
+        "file": "candidate-1.png",
+        "sha256": "7846f48bed8eb6522574b5b25c433ed89d581b9fd58ef85214ed9c628dcb3d7e",
+        "camera": [
+          0.82,
+          -1,
+          0.27
+        ],
+        "location": [
+          0.5795063376426697,
+          -0.6003296375274658,
+          0.22280192375183105
+        ],
+        "rotation": [
+          0.73069828748703,
+          0.5938971042633057,
+          0.21236392855644226,
+          0.2612808048725128
+        ],
+        "clip": [
+          2.6803696528077126e-05,
+          3.2164435386657715
+        ],
+        "ortho": 0.30288177728652954
+      }
+    ]
+  },
+  "selectableMeshes": 2,
+  "rejectedPreview": false,
+  "losslessBudget": {
+    "binBytes": 2518684,
+    "unusedVertexBytes": 0,
+    "identicalVertexBytes": 0,
+    "indexWidthBytes": 0,
+    "unusedViewBytes": 0,
+    "upperBoundBytes": 0
+  },
+  "blender": "5.2.3 LTS Release Candidate",
+  "build": "fab76e95306d",
+  "silhouetteShiftPx": [
+    0,
+    0
+  ],
+  "beforeView": {
+    "path": "reviews/teaching-assessments/refinement-economy/views/lung_left-original.webp",
+    "sha256": "53ee5ee52aea681db2eac811a26ed2e9bbcbb0fed5d04853ad1d5cbbab023bd0",
+    "bytes": 11424
+  },
+  "afterView": {
+    "path": "reviews/teaching-assessments/target-economy/views/lung_left-updated.webp",
+    "sha256": "b53a5d51169f10e13a985543bee70a817b6b28d8518473e1f2dc92d0183a3303",
+    "bytes": 10838
+  },
+  "decodedFramesEqual": [
+    true,
+    true
+  ]
+}

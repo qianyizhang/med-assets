@@ -1,0 +1,1040 @@
+{
+  "ovary": {
+    "original": {
+      "frames": [
+        {
+          "file": "ovary-L-native-original.png",
+          "sha256": "1b529134aa01aaa33a499b2a258b723c896b78d44c917d06a8e132b329701a7d",
+          "eye": [
+            0.04297957569360733,
+            -0.25388169288635254,
+            0.06259269267320633
+          ],
+          "quaternion": [
+            0.7071067094802856,
+            0.7071068286895752,
+            0.0,
+            0.0
+          ],
+          "orthoScaleM": 0.03948614373803139,
+          "visible": [
+            "VH_F_ampulla_of_uterine_tube_L",
+            "VH_F_fibria_of_uterine_tube_L",
+            "VH_F_isthmus_of_fallopian_tube_L",
+            "VH_F_left_ovary",
+            "VH_F_uterine_tube_infundibulum_L"
+          ]
+        },
+        {
+          "file": "ovary-L-alternate-original.png",
+          "sha256": "c448889d0177b4f54f21c5b284e5e9d223519d0035cdbc247162d9e2424a7df7",
+          "eye": [
+            0.29036593437194824,
+            -0.04119449853897095,
+            0.20811408758163452
+          ],
+          "quaternion": [
+            0.7034438848495483,
+            0.41421833634376526,
+            0.2930656969547272,
+            0.4976970851421356
+          ],
+          "orthoScaleM": 0.03948614373803139,
+          "visible": [
+            "VH_F_ampulla_of_uterine_tube_L",
+            "VH_F_fibria_of_uterine_tube_L",
+            "VH_F_isthmus_of_fallopian_tube_L",
+            "VH_F_left_ovary",
+            "VH_F_uterine_tube_infundibulum_L"
+          ]
+        },
+        {
+          "file": "ovary-R-native-original.png",
+          "sha256": "029125b5ca1f551a3ecdfb938faff933f4aafffec2d0b0b30f763a14dc56e390",
+          "eye": [
+            -0.07056222856044769,
+            -0.2511548697948456,
+            0.06212553009390831
+          ],
+          "quaternion": [
+            0.7071067094802856,
+            0.7071068286895752,
+            0.0,
+            0.0
+          ],
+          "orthoScaleM": 0.03832817077636719,
+          "visible": [
+            "VH_F_ampulla_of_uterine_tube_R",
+            "VH_F_fibria_of_uterine_tube_R",
+            "VH_F_isthmus_of_fallopian_tube_R",
+            "VH_F_right_ovary",
+            "VH_F_uterine_tube_infundibulum_R"
+          ]
+        },
+        {
+          "file": "ovary-R-alternate-original.png",
+          "sha256": "ba4d4b21e083e55a1414b30b1e26d4df80d913ac116172a12a29284006ab5c5e",
+          "eye": [
+            0.17682413756847382,
+            -0.03846769779920578,
+            0.2076469212770462
+          ],
+          "quaternion": [
+            0.7034438252449036,
+            0.41421836614608765,
+            0.29306572675704956,
+            0.4976970851421356
+          ],
+          "orthoScaleM": 0.03832817077636719,
+          "visible": [
+            "VH_F_ampulla_of_uterine_tube_R",
+            "VH_F_fibria_of_uterine_tube_R",
+            "VH_F_isthmus_of_fallopian_tube_R",
+            "VH_F_right_ovary",
+            "VH_F_uterine_tube_infundibulum_R"
+          ]
+        }
+      ],
+      "measurements": {
+        "L": {
+          "ovaryTriangles": 424,
+          "fringeTriangles": 2871,
+          "fringeMeshContacts": 0,
+          "nearestFringeVertexMm": 2.2724734153598547,
+          "fringeVertexDistanceP10Mm": 3.102574497461319,
+          "sameSideContacts": {
+            "VH_F_ampulla_of_uterine_tube_L": 0,
+            "VH_F_fibria_of_uterine_tube_L": 0,
+            "VH_F_isthmus_of_fallopian_tube_L": 0,
+            "VH_F_uterine_tube_infundibulum_L": 0
+          },
+          "ovarySelfContacts": 0
+        },
+        "R": {
+          "ovaryTriangles": 410,
+          "fringeTriangles": 3530,
+          "fringeMeshContacts": 0,
+          "nearestFringeVertexMm": 2.4752169847488403,
+          "fringeVertexDistanceP10Mm": 3.3470597118139267,
+          "sameSideContacts": {
+            "VH_F_ampulla_of_uterine_tube_R": 0,
+            "VH_F_fibria_of_uterine_tube_R": 0,
+            "VH_F_isthmus_of_fallopian_tube_R": 0,
+            "VH_F_uterine_tube_infundibulum_R": 0
+          },
+          "ovarySelfContacts": 0
+        }
+      },
+      "sha256": "465a44b18df91ece95a236372a8cbe3e1a0de0207525955290e6b0fa519195d1"
+    },
+    "interpreted": {
+      "frames": [
+        {
+          "file": "ovary-L-native-interpreted.png",
+          "sha256": "f362f1964ca9bcc453d93ec980071f09706f73e4589a91545502f8607e129434",
+          "eye": [
+            0.04297957569360733,
+            -0.25388169288635254,
+            0.06259269267320633
+          ],
+          "quaternion": [
+            0.7071067094802856,
+            0.7071068286895752,
+            0.0,
+            0.0
+          ],
+          "orthoScaleM": 0.03948614373803139,
+          "visible": [
+            "VH_F_ampulla_of_uterine_tube_L",
+            "VH_F_fibria_of_uterine_tube_L",
+            "VH_F_isthmus_of_fallopian_tube_L",
+            "VH_F_left_ovary",
+            "VH_F_uterine_tube_infundibulum_L"
+          ]
+        },
+        {
+          "file": "ovary-L-alternate-interpreted.png",
+          "sha256": "9e3086a49386a9dc644b97a5a17610804033357db64adf635b2e5a08dccd254b",
+          "eye": [
+            0.29036593437194824,
+            -0.04119449853897095,
+            0.20811408758163452
+          ],
+          "quaternion": [
+            0.7034438848495483,
+            0.41421833634376526,
+            0.2930656969547272,
+            0.4976970851421356
+          ],
+          "orthoScaleM": 0.03948614373803139,
+          "visible": [
+            "VH_F_ampulla_of_uterine_tube_L",
+            "VH_F_fibria_of_uterine_tube_L",
+            "VH_F_isthmus_of_fallopian_tube_L",
+            "VH_F_left_ovary",
+            "VH_F_uterine_tube_infundibulum_L"
+          ]
+        },
+        {
+          "file": "ovary-R-native-interpreted.png",
+          "sha256": "ee014eb66dd98f72476cf00a22d9f14437261a15e6aab11fe32d0dfeb66e6d45",
+          "eye": [
+            -0.07056222856044769,
+            -0.2511548697948456,
+            0.06212553009390831
+          ],
+          "quaternion": [
+            0.7071067094802856,
+            0.7071068286895752,
+            0.0,
+            0.0
+          ],
+          "orthoScaleM": 0.03832817077636719,
+          "visible": [
+            "VH_F_ampulla_of_uterine_tube_R",
+            "VH_F_fibria_of_uterine_tube_R",
+            "VH_F_isthmus_of_fallopian_tube_R",
+            "VH_F_right_ovary",
+            "VH_F_uterine_tube_infundibulum_R"
+          ]
+        },
+        {
+          "file": "ovary-R-alternate-interpreted.png",
+          "sha256": "f0171240a222fd76400b74e4e6ae69de4dd164278eb1287035c728914a99e055",
+          "eye": [
+            0.17682413756847382,
+            -0.03846769779920578,
+            0.2076469212770462
+          ],
+          "quaternion": [
+            0.7034438252449036,
+            0.41421836614608765,
+            0.29306572675704956,
+            0.4976970851421356
+          ],
+          "orthoScaleM": 0.03832817077636719,
+          "visible": [
+            "VH_F_ampulla_of_uterine_tube_R",
+            "VH_F_fibria_of_uterine_tube_R",
+            "VH_F_isthmus_of_fallopian_tube_R",
+            "VH_F_right_ovary",
+            "VH_F_uterine_tube_infundibulum_R"
+          ]
+        }
+      ],
+      "measurements": {
+        "L": {
+          "ovaryTriangles": 1696,
+          "fringeTriangles": 2871,
+          "fringeMeshContacts": 0,
+          "nearestFringeVertexMm": 2.3414394818246365,
+          "fringeVertexDistanceP10Mm": 3.1593997264280915,
+          "sameSideContacts": {
+            "VH_F_ampulla_of_uterine_tube_L": 0,
+            "VH_F_fibria_of_uterine_tube_L": 0,
+            "VH_F_isthmus_of_fallopian_tube_L": 0,
+            "VH_F_uterine_tube_infundibulum_L": 0
+          },
+          "ovarySelfContacts": 0,
+          "sourceToInterpretation": {
+            "samples": 638,
+            "p50mm": 0.18357030057813972,
+            "maxMm": 1.791359973140061
+          },
+          "interpretationToSource": {
+            "samples": 2546,
+            "p50mm": 0.17500708054285496,
+            "maxMm": 1.6236016526818275
+          }
+        },
+        "R": {
+          "ovaryTriangles": 1640,
+          "fringeTriangles": 3530,
+          "fringeMeshContacts": 0,
+          "nearestFringeVertexMm": 2.5315373204648495,
+          "fringeVertexDistanceP10Mm": 3.4159719478338957,
+          "sameSideContacts": {
+            "VH_F_ampulla_of_uterine_tube_R": 0,
+            "VH_F_fibria_of_uterine_tube_R": 0,
+            "VH_F_isthmus_of_fallopian_tube_R": 0,
+            "VH_F_uterine_tube_infundibulum_R": 0
+          },
+          "ovarySelfContacts": 0,
+          "sourceToInterpretation": {
+            "samples": 617,
+            "p50mm": 0.2086510503431782,
+            "maxMm": 1.935813925229013
+          },
+          "interpretationToSource": {
+            "samples": 2462,
+            "p50mm": 0.20145935559412464,
+            "maxMm": 1.7351150745525956
+          }
+        }
+      },
+      "sha256": "a12171dbb34190eff127a2a4dd743a31db1db9b51f7f801780225be3b3d3ae61"
+    }
+  },
+  "hypothalamus": {
+    "frames": [
+      {
+        "file": "hypothalamus-0-original.png",
+        "sha256": "4dda2afcd6b3c14b88f387b54574f1717299bcb978b440401af05629aa03045e",
+        "eye": [
+          -0.04132956266403198,
+          -0.03226661682128906,
+          1.5649155378341675
+        ],
+        "quaternion": [
+          0.21015380322933197,
+          0.15874749422073364,
+          -0.5814669132232666,
+          -0.769760251045227
+        ],
+        "orthoScaleM": 0.028761588037014008,
+        "visible": [
+          "FJ1760 hypothalamus",
+          "FJ1808 hypothalamus"
+        ]
+      },
+      {
+        "file": "hypothalamus-0-registered.png",
+        "sha256": "042c77a6dfc45204615d16cf58b24a70feaadfee705e6469cc0e3c386e3af1a2",
+        "eye": [
+          -0.04132956266403198,
+          -0.03226661682128906,
+          1.5649155378341675
+        ],
+        "quaternion": [
+          0.21015380322933197,
+          0.15874749422073364,
+          -0.5814669132232666,
+          -0.769760251045227
+        ],
+        "orthoScaleM": 0.028761588037014008,
+        "visible": [
+          "FJ1760 hypothalamus",
+          "FJ1808 hypothalamus",
+          "left thalamus | FJ1782",
+          "midbrain | FJ1770",
+          "midbrain | FJ1817",
+          "right thalamus | FJ1827"
+        ]
+      },
+      {
+        "file": "hypothalamus-0-ventricle.png",
+        "sha256": "f3d62378666cbf7f7d9393c0588c9939144128b8b42abbf7b682ea2a80aadfbd",
+        "eye": [
+          -0.04132956266403198,
+          -0.03226661682128906,
+          1.5649155378341675
+        ],
+        "quaternion": [
+          0.21015380322933197,
+          0.15874749422073364,
+          -0.5814669132232666,
+          -0.769760251045227
+        ],
+        "orthoScaleM": 0.028761588037014008,
+        "visible": [
+          "FJ1760 hypothalamus",
+          "FJ1808 hypothalamus",
+          "Third ventricle | FJ1730"
+        ]
+      },
+      {
+        "file": "hypothalamus-1-original.png",
+        "sha256": "efbc9be692bdef4c6bf5b9b468c8fc1487c8b106486c335ffb1adc954641bdda",
+        "eye": [
+          0.06102585792541504,
+          -0.08763706684112549,
+          1.546482801437378
+        ],
+        "quaternion": [
+          0.45789992809295654,
+          0.4276643693447113,
+          0.531977653503418,
+          0.5695881247520447
+        ],
+        "orthoScaleM": 0.02384399250149727,
+        "visible": [
+          "FJ1760 hypothalamus",
+          "FJ1808 hypothalamus"
+        ]
+      },
+      {
+        "file": "hypothalamus-1-registered.png",
+        "sha256": "ab4be8237cba98ad70f944d19cee5158a795c38085760685c308e9cbfc750c8a",
+        "eye": [
+          0.06102585792541504,
+          -0.08763706684112549,
+          1.546482801437378
+        ],
+        "quaternion": [
+          0.45789992809295654,
+          0.4276643693447113,
+          0.531977653503418,
+          0.5695881247520447
+        ],
+        "orthoScaleM": 0.02384399250149727,
+        "visible": [
+          "FJ1760 hypothalamus",
+          "FJ1808 hypothalamus",
+          "left thalamus | FJ1782",
+          "midbrain | FJ1770",
+          "midbrain | FJ1817",
+          "right thalamus | FJ1827"
+        ]
+      },
+      {
+        "file": "hypothalamus-1-ventricle.png",
+        "sha256": "0ddb901e3f028a79d4bb7d73d46de26500f478a24f4fe5d66dab05d455458b1d",
+        "eye": [
+          0.06102585792541504,
+          -0.08763706684112549,
+          1.546482801437378
+        ],
+        "quaternion": [
+          0.45789992809295654,
+          0.4276643693447113,
+          0.531977653503418,
+          0.5695881247520447
+        ],
+        "orthoScaleM": 0.02384399250149727,
+        "visible": [
+          "FJ1760 hypothalamus",
+          "FJ1808 hypothalamus",
+          "Third ventricle | FJ1730"
+        ]
+      }
+    ],
+    "controlSha256": "b6d73d6b5a33006391a743c650ccc06b65b9b9afaaaebbcf1d05102d4399274c",
+    "companionSha256": "26d39768e2882daee034f997a8d594e915283b5f8a176a8bb60003944a45b886",
+    "measurements": {
+      "FJ1760 hypothalamus": {
+        "commonWitnessNearestMm": 0.0,
+        "context": {
+          "left thalamus | FJ1782": {
+            "intersectingTrianglePairs": 0,
+            "minVertexToSurfaceMm": 3.2080775126814842,
+            "medianVertexToSurfaceMm": 10.063492693006992
+          },
+          "midbrain | FJ1770": {
+            "intersectingTrianglePairs": 156,
+            "minVertexToSurfaceMm": 0.00012834789231419563,
+            "medianVertexToSurfaceMm": 7.7126226387917995
+          },
+          "midbrain | FJ1817": {
+            "intersectingTrianglePairs": 8,
+            "minVertexToSurfaceMm": 0.0029078494208079064,
+            "medianVertexToSurfaceMm": 9.500541724264622
+          },
+          "right thalamus | FJ1827": {
+            "intersectingTrianglePairs": 0,
+            "minVertexToSurfaceMm": 6.151276640594006,
+            "medianVertexToSurfaceMm": 13.966674916446209
+          }
+        }
+      },
+      "FJ1808 hypothalamus": {
+        "commonWitnessNearestMm": 0.0,
+        "context": {
+          "left thalamus | FJ1782": {
+            "intersectingTrianglePairs": 0,
+            "minVertexToSurfaceMm": 6.200588308274746,
+            "medianVertexToSurfaceMm": 13.56574147939682
+          },
+          "midbrain | FJ1770": {
+            "intersectingTrianglePairs": 5,
+            "minVertexToSurfaceMm": 9.575160220265388e-05,
+            "medianVertexToSurfaceMm": 9.549171663820744
+          },
+          "midbrain | FJ1817": {
+            "intersectingTrianglePairs": 161,
+            "minVertexToSurfaceMm": 0.00024389009922742844,
+            "medianVertexToSurfaceMm": 7.734075421467423
+          },
+          "right thalamus | FJ1827": {
+            "intersectingTrianglePairs": 0,
+            "minVertexToSurfaceMm": 3.2589442562311888,
+            "medianVertexToSurfaceMm": 10.002202820032835
+          }
+        }
+      }
+    }
+  },
+  "penis": {
+    "frames": [
+      {
+        "file": "penis-0-original.png",
+        "sha256": "0ee81f45eda24921f1b47d80152cd0551b74a5b000d17f7285c8952104b0cb10",
+        "eye": [
+          0.08710408210754395,
+          0.009409725666046143,
+          0.711037278175354
+        ],
+        "quaternion": [
+          0.19727274775505066,
+          0.28176283836364746,
+          0.7691968679428101,
+          0.538543701171875
+        ],
+        "orthoScaleM": 0.04873296990990639,
+        "visible": [
+          "Corpus cavernosum of penis source display",
+          "Corpus spongiosum of penis source display",
+          "Glans penis source display"
+        ]
+      },
+      {
+        "file": "penis-0-registered.png",
+        "sha256": "437fab5d2eb03615b80c5a76d0f7a6a9b1adf1f982eb37372d52f4d2ed717026",
+        "eye": [
+          0.08710408210754395,
+          0.009409725666046143,
+          0.711037278175354
+        ],
+        "quaternion": [
+          0.19727274775505066,
+          0.28176283836364746,
+          0.7691968679428101,
+          0.538543701171875
+        ],
+        "orthoScaleM": 0.04873296990990639,
+        "visible": [
+          "Corpus cavernosum of penis source display",
+          "Corpus spongiosum of penis source display",
+          "Glans penis source display",
+          "Urethra source display"
+        ]
+      },
+      {
+        "file": "penis-0-glans.png",
+        "sha256": "a23fece51c7370373f83f3ffb0cd535ed2208498f8da2fc30397064d7edb951b",
+        "eye": [
+          0.08710408210754395,
+          0.009409725666046143,
+          0.711037278175354
+        ],
+        "quaternion": [
+          0.19727274775505066,
+          0.28176283836364746,
+          0.7691968679428101,
+          0.538543701171875
+        ],
+        "orthoScaleM": 0.04873296990990639,
+        "visible": [
+          "Glans penis source display"
+        ]
+      },
+      {
+        "file": "penis-1-original.png",
+        "sha256": "98220537c67790640d7d01ccef4c7c595d18d665466cad103494e96da9e688ac",
+        "eye": [
+          -0.08722252398729324,
+          0.00940963625907898,
+          0.7110374569892883
+        ],
+        "quaternion": [
+          0.19727274775505066,
+          0.28176283836364746,
+          -0.7691968679428101,
+          -0.538543701171875
+        ],
+        "orthoScaleM": 0.04873310774564743,
+        "visible": [
+          "Corpus cavernosum of penis source display",
+          "Corpus spongiosum of penis source display",
+          "Glans penis source display"
+        ]
+      },
+      {
+        "file": "penis-1-registered.png",
+        "sha256": "10720a199b23d79be720b165ae1974afbeb30c4c241465b35f63e7c55e968e97",
+        "eye": [
+          -0.08722252398729324,
+          0.00940963625907898,
+          0.7110374569892883
+        ],
+        "quaternion": [
+          0.19727274775505066,
+          0.28176283836364746,
+          -0.7691968679428101,
+          -0.538543701171875
+        ],
+        "orthoScaleM": 0.04873310774564743,
+        "visible": [
+          "Corpus cavernosum of penis source display",
+          "Corpus spongiosum of penis source display",
+          "Glans penis source display",
+          "Urethra source display"
+        ]
+      },
+      {
+        "file": "penis-1-glans.png",
+        "sha256": "51f6d24f96fffa95b1585bf8f473071fc7e8b042fd05d78e8aee5906246df0fe",
+        "eye": [
+          -0.08722252398729324,
+          0.00940963625907898,
+          0.7110374569892883
+        ],
+        "quaternion": [
+          0.19727274775505066,
+          0.28176283836364746,
+          -0.7691968679428101,
+          -0.538543701171875
+        ],
+        "orthoScaleM": 0.04873310774564743,
+        "visible": [
+          "Glans penis source display"
+        ]
+      }
+    ],
+    "controlSha256": "c44d35e13be11d2fb35141747d819d4609a45ca0a5527c89e1015618d17cab70",
+    "companionSha256": "d2d88c936287f4ea5978aba1f17e86975c587a102e498595dd7a58aa07c269e7",
+    "measurements": {
+      "Glans penis source display": {
+        "commonWitnessNearestMm": 0.0,
+        "context": {
+          "Urethra source display": {
+            "intersectingTrianglePairs": 151,
+            "minVertexToSurfaceMm": 0.006776625468774,
+            "medianVertexToSurfaceMm": 7.245111977681518
+          }
+        },
+        "terminalRim": {
+          "exactWorldPositionWeld": true,
+          "glansBoundaryEdges": 1,
+          "glansOverincidentEdges": 2,
+          "distalEndVertices": 12,
+          "distalEndToDefectiveEdgeMinMm": 8.258071899414062,
+          "distalEndToDefectiveEdgeMaxMm": 8.835854530334473
+        }
+      }
+    }
+  },
+  "parathyroid": {
+    "frames": [
+      {
+        "file": "parathyroid-0-original.png",
+        "sha256": "e9702b5a8d40533eefab19c6e12246d5b4fd40fe7aadd2d3108190f0b9b9abb0",
+        "eye": [
+          1.6195301100196957e-08,
+          0.12964355945587158,
+          1.471718192100525
+        ],
+        "quaternion": [
+          5.338507591545749e-08,
+          -5.338507591545749e-08,
+          0.7071067690849304,
+          0.7071067690849304
+        ],
+        "orthoScaleM": 0.05495072901248932,
+        "visible": [
+          "Thyroid gland.001",
+          "Inferior parathyroid gland.l.001",
+          "Inferior parathyroid gland.r.001",
+          "Superior parathyroid gland.l.001",
+          "Superior parathyroid gland.r.001"
+        ]
+      },
+      {
+        "file": "parathyroid-0-symbols.png",
+        "sha256": "66455a4de11f9af9e7e7e8d465db7ea6bc119978812632779c62bbda79e8139b",
+        "eye": [
+          1.6195301100196957e-08,
+          0.12964355945587158,
+          1.471718192100525
+        ],
+        "quaternion": [
+          5.338507591545749e-08,
+          -5.338507591545749e-08,
+          0.7071067690849304,
+          0.7071067690849304
+        ],
+        "orthoScaleM": 0.05495072901248932,
+        "visible": [
+          "Thyroid gland.001",
+          "Inferior parathyroid gland.l.001 | position symbol",
+          "Inferior parathyroid gland.r.001 | position symbol",
+          "Superior parathyroid gland.l.001 | position symbol",
+          "Superior parathyroid gland.r.001 | position symbol"
+        ]
+      },
+      {
+        "file": "parathyroid-0-oriented.png",
+        "sha256": "bbd5decf6ebd63511c9ba6f8d19873089d2955872e5ff7be6262b8bcd4f8a2f9",
+        "eye": [
+          1.6195301100196957e-08,
+          0.12964355945587158,
+          1.471718192100525
+        ],
+        "quaternion": [
+          5.338507591545749e-08,
+          -5.338507591545749e-08,
+          0.7071067690849304,
+          0.7071067690849304
+        ],
+        "orthoScaleM": 0.05495072901248932,
+        "visible": [
+          "Thyroid gland.001",
+          "Inferior parathyroid gland.l.001 | oriented extent symbol",
+          "Inferior parathyroid gland.r.001 | oriented extent symbol",
+          "Superior parathyroid gland.l.001 | oriented extent symbol",
+          "Superior parathyroid gland.r.001 | oriented extent symbol"
+        ]
+      },
+      {
+        "file": "parathyroid-1-original.png",
+        "sha256": "ceb7c6270871844340306ba927baabd46528289750e2a1c879045465c7b0826c",
+        "eye": [
+          0.148147851228714,
+          0.11412674188613892,
+          1.4835697412490845
+        ],
+        "quaternion": [
+          0.2998821437358856,
+          0.28241240978240967,
+          0.6247150301933289,
+          0.6633592247962952
+        ],
+        "orthoScaleM": 0.07156656682491302,
+        "visible": [
+          "Thyroid gland.001",
+          "Inferior parathyroid gland.l.001",
+          "Inferior parathyroid gland.r.001",
+          "Superior parathyroid gland.l.001",
+          "Superior parathyroid gland.r.001"
+        ]
+      },
+      {
+        "file": "parathyroid-1-symbols.png",
+        "sha256": "4e8cf2416767014d7c77190ce118f87aa11689fe87eec9a643169b3ab48d0fa9",
+        "eye": [
+          0.148147851228714,
+          0.11412674188613892,
+          1.4835697412490845
+        ],
+        "quaternion": [
+          0.2998821437358856,
+          0.28241240978240967,
+          0.6247150301933289,
+          0.6633592247962952
+        ],
+        "orthoScaleM": 0.07156656682491302,
+        "visible": [
+          "Thyroid gland.001",
+          "Inferior parathyroid gland.l.001 | position symbol",
+          "Inferior parathyroid gland.r.001 | position symbol",
+          "Superior parathyroid gland.l.001 | position symbol",
+          "Superior parathyroid gland.r.001 | position symbol"
+        ]
+      },
+      {
+        "file": "parathyroid-1-oriented.png",
+        "sha256": "a1c8ae5102b0b7180998e3bd6824e149cadfc66adaba76207853352c6f006075",
+        "eye": [
+          0.148147851228714,
+          0.11412674188613892,
+          1.4835697412490845
+        ],
+        "quaternion": [
+          0.2998821437358856,
+          0.28241240978240967,
+          0.6247150301933289,
+          0.6633592247962952
+        ],
+        "orthoScaleM": 0.07156656682491302,
+        "visible": [
+          "Thyroid gland.001",
+          "Inferior parathyroid gland.l.001 | oriented extent symbol",
+          "Inferior parathyroid gland.r.001 | oriented extent symbol",
+          "Superior parathyroid gland.l.001 | oriented extent symbol",
+          "Superior parathyroid gland.r.001 | oriented extent symbol"
+        ]
+      }
+    ],
+    "controlSha256": "7759008c5682ac76e77f39f68f5cd421ea42cfe5252cebe9bd82ecc54dc04345",
+    "orientedExtents": {
+      "Inferior parathyroid gland.l.001": {
+        "originalPrincipalSpansMm": [
+          1.5420043807925055,
+          1.4952176426167876,
+          4.448146368725143
+        ],
+        "markerPrincipalSpansMm": [
+          1.5420043852146357,
+          1.4952176303090048,
+          4.448146458668852
+        ],
+        "principalAxes": [
+          [
+            0.796726991560351,
+            -0.6042224246037506,
+            -0.011889597350501834
+          ],
+          [
+            0.3527290972124282,
+            0.4489531511903801,
+            0.820989191168759
+          ],
+          [
+            -0.49072220746456724,
+            -0.6582980553231131,
+            0.5708199238454366
+          ]
+        ],
+        "centerErrorMm": 6.929483442079453e-09
+      },
+      "Inferior parathyroid gland.r.001": {
+        "originalPrincipalSpansMm": [
+          1.5420043807925057,
+          1.4952176426167876,
+          4.448146368725144
+        ],
+        "markerPrincipalSpansMm": [
+          1.5420043852146357,
+          1.4952176303090048,
+          4.448146458668852
+        ],
+        "principalAxes": [
+          [
+            0.796726991560351,
+            0.6042224246037506,
+            0.011889597350501834
+          ],
+          [
+            -0.3527290972124282,
+            0.4489531511903801,
+            0.820989191168759
+          ],
+          [
+            0.49072220746456724,
+            -0.6582980553231131,
+            0.5708199238454366
+          ]
+        ],
+        "centerErrorMm": 7.839815571222848e-09
+      },
+      "Superior parathyroid gland.l.001": {
+        "originalPrincipalSpansMm": [
+          1.4986832888783395,
+          2.393239709327375,
+          4.704179557654027
+        ],
+        "markerPrincipalSpansMm": [
+          1.4986833442022371,
+          2.3932397163811445,
+          4.7041796375172655
+        ],
+        "principalAxes": [
+          [
+            -0.3160953871971791,
+            0.5106186503892436,
+            -0.7995950850695199
+          ],
+          [
+            0.5817895357282341,
+            0.7700640630795296,
+            0.2617675970600111
+          ],
+          [
+            0.7494028571534749,
+            -0.3824525233648142,
+            -0.5404862857298922
+          ]
+        ],
+        "centerErrorMm": 3.2686308023738106e-09
+      },
+      "Superior parathyroid gland.r.001": {
+        "originalPrincipalSpansMm": [
+          1.4986832888783395,
+          2.393239709327375,
+          4.704179557654027
+        ],
+        "markerPrincipalSpansMm": [
+          1.4986833442022371,
+          2.3932397163811445,
+          4.7041796375172655
+        ],
+        "principalAxes": [
+          [
+            0.3160953871971791,
+            -0.5106186503892436,
+            -0.7995950850695199
+          ],
+          [
+            0.5817895357282341,
+            0.7700640630795296,
+            -0.2617675970600111
+          ],
+          [
+            0.7494028571534749,
+            -0.3824525233648142,
+            0.5404862857298922
+          ]
+        ],
+        "centerErrorMm": 6.149954679086072e-09
+      }
+    },
+    "symbolDiameterMm": 3.3,
+    "centroidsM": {
+      "Inferior parathyroid gland.l.001 | position symbol": [
+        0.010878232307732105,
+        0.001272398978471756,
+        1.4603369235992432
+      ],
+      "Inferior parathyroid gland.r.001 | position symbol": [
+        -0.010878185741603374,
+        0.001272398978471756,
+        1.4603369235992432
+      ],
+      "Superior parathyroid gland.l.001 | position symbol": [
+        0.01631218008697033,
+        0.0031529234256595373,
+        1.4801325798034668
+      ],
+      "Superior parathyroid gland.r.001 | position symbol": [
+        -0.01631213165819645,
+        0.0031529234256595373,
+        1.4801325798034668
+      ]
+    }
+  },
+  "fdi": {
+    "frames": [
+      {
+        "file": "fdi-0-original.png",
+        "sha256": "3916583e04ba9b5f3c7a303258f4897768e5325e8b23bb7bc4955da3ce51d000",
+        "eye": [
+          0.025764327496290207,
+          -0.07089392095804214,
+          0.05824203044176102
+        ],
+        "quaternion": [
+          0.8953446745872498,
+          0.41315221786499023,
+          0.0696871280670166,
+          0.15101943910121918
+        ],
+        "orthoScaleM": 0.027869639918208122,
+        "visible": [
+          "SWIRendo_31_T2/bone",
+          "SWIRendo_31_T2/dentin",
+          "SWIRendo_31_T2/enamel",
+          "SWIRendo_31_T2/pulp"
+        ]
+      },
+      {
+        "file": "fdi-1-original.png",
+        "sha256": "3609c255d9a526460ba07545b066476019ff3f692b49f18fc0848261ef1a9e39",
+        "eye": [
+          0.07087283581495285,
+          0.029541511088609695,
+          0.024974726140499115
+        ],
+        "quaternion": [
+          0.35729339718818665,
+          0.2901819348335266,
+          0.559683084487915,
+          0.6891232132911682
+        ],
+        "orthoScaleM": 0.030141489580273628,
+        "visible": [
+          "SWIRendo_31_T2/bone",
+          "SWIRendo_31_T2/dentin",
+          "SWIRendo_31_T2/enamel",
+          "SWIRendo_31_T2/pulp"
+        ]
+      },
+      {
+        "file": "fdi-2-original.png",
+        "sha256": "9af019f5ffb5d3cd332e03090c608de42b1648a3439dc8142b4cd964c021feab",
+        "eye": [
+          0.0444347970187664,
+          0.0017809458076953888,
+          0.016829440370202065
+        ],
+        "quaternion": [
+          0.35729339718818665,
+          0.2901819348335266,
+          0.559683084487915,
+          0.6891232132911682
+        ],
+        "orthoScaleM": 0.012000000104308128,
+        "visible": [
+          "SWIRendo_31_T2/bone",
+          "SWIRendo_31_T2/dentin",
+          "SWIRendo_31_T2/enamel",
+          "SWIRendo_31_T2/pulp"
+        ]
+      },
+      {
+        "file": "fdi-0-projected.png",
+        "sha256": "6dc72b54c0575be18efe8fff9d812b76aad96d649049b6d8ebc7748f210fdac8",
+        "eye": [
+          0.025764327496290207,
+          -0.07089392095804214,
+          0.05824203044176102
+        ],
+        "quaternion": [
+          0.8953446745872498,
+          0.41315221786499023,
+          0.0696871280670166,
+          0.15101943910121918
+        ],
+        "orthoScaleM": 0.027869639918208122,
+        "visible": [
+          "SWIRendo_31_T2/bone",
+          "SWIRendo_31_T2/dentin",
+          "SWIRendo_31_T2/enamel",
+          "SWIRendo_31_T2/pulp"
+        ]
+      },
+      {
+        "file": "fdi-1-projected.png",
+        "sha256": "20275ce9f5965fd6cad571568eafc2a2c6154049ad4a50e79d7522a620b872ec",
+        "eye": [
+          0.07087283581495285,
+          0.029541511088609695,
+          0.024974726140499115
+        ],
+        "quaternion": [
+          0.35729339718818665,
+          0.2901819348335266,
+          0.559683084487915,
+          0.6891232132911682
+        ],
+        "orthoScaleM": 0.030141489580273628,
+        "visible": [
+          "SWIRendo_31_T2/bone",
+          "SWIRendo_31_T2/dentin",
+          "SWIRendo_31_T2/enamel",
+          "SWIRendo_31_T2/pulp"
+        ]
+      },
+      {
+        "file": "fdi-2-projected.png",
+        "sha256": "413661dd6b801fa2c9736dce0fa958c465122d334775aa827349f1c42cb17221",
+        "eye": [
+          0.0444347970187664,
+          0.0017809458076953888,
+          0.016829440370202065
+        ],
+        "quaternion": [
+          0.35729339718818665,
+          0.2901819348335266,
+          0.559683084487915,
+          0.6891232132911682
+        ],
+        "orthoScaleM": 0.012000000104308128,
+        "visible": [
+          "SWIRendo_31_T2/bone",
+          "SWIRendo_31_T2/dentin",
+          "SWIRendo_31_T2/enamel",
+          "SWIRendo_31_T2/pulp"
+        ]
+      }
+    ]
+  }
+}

@@ -9,12 +9,24 @@ import { oralSpacesPath, regionalPath } from './teaching-data.js';
 import { SkeletalLessonLink } from './SkeletalLesson.jsx';
 import { dentalLayersPath, heartSlicePath, oneBreathPath } from './SpecialistStills.jsx';
 
-export function UseCases() {
+import checks from './teaching-inputs/use-case-checks.json';
+
+export function UseCases({ localPreview }) {
   return (
     <>
       <Heading title="Use Cases">
         Follow a teaching question from a regional view to the structure that answers it.
       </Heading>
+      {localPreview && <details>
+        <summary>Teaching checks · {checks.filter((c) => c.status === 'passed').length} passed · {checks.filter((c) => c.status === 'blocked').length} blocked</summary>
+        {Array.from(new Set(checks.map((c) => c.collection)), (collection) => <section key={collection}>
+          <h3>{collection}</h3>
+          <ul>{checks.filter((c) => c.collection === collection).map((c) => <li key={c.route}>
+            <Link to={c.route}>{c.action}</Link>{' · '}{c.status}. {c.observation}
+          </li>)}</ul>
+        </section>)}
+        <Link to="use-cases/systems">Review the eleven Body Systems checks →</Link>
+      </details>}
       <div className="ga-collection-link">
         <Link to="use-cases/systems">Body Systems →</Link>
         <p>Eleven systems in paired views, from whole assemblies to named parts.</p>

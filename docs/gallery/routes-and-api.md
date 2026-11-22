@@ -14,6 +14,9 @@ Open the fragment on the Site root, for example `/#/library/s1233-adrenal/r05`. 
 | `/#/use-cases/adrenal-localization/region`, `…/right-gland` | Open the authored regional or isolated lesson stop. Each pins s1233 r05. |
 | `/#/use-cases/head-and-neck/location`, `…/duct-course` | Locate the three major gland pairs and trace the supported parotid surface course. The duct stop links the excluded submandibular course to Compare. |
 | `/#/use-cases/oral-spaces`, `…/en`, `…/zh` | Locate the vestibule in the English or Chinese r01 cutaway. The base address opens English. Use Cases and Head & Neck both link here. The cutaway keeps the originating duct stop with `from=duct-course`. On Head & Neck, `oral=zh` carries the visitor back to the Chinese cutaway. |
+| `/#/compare/teaching-target?round=reopened` | Local matched comparisons for the second review of 20 families. Add `&asset=SHA256` for one edition. |
+| `/#/compare/teaching-target?asset=SHA256` | Local before/after review for a maintained teaching file, including its task and any axis exemptions. |
+| `/#/library/FAMILY/REVISION?file=SHA256` | Select one exact download and assessment inside a multi-export revision. |
 | `/#/use-cases/regional-locators`, `…/aortic-arch`, `…/pulmonary-vein`, `…/brain-source-cut`, `…/ovary-tubal-context` | Open the locator collection or a specific stop. The Cardiovascular, Nervous and Reproductive Body Systems pages link directly to the relevant stops. |
 | `/#/use-cases/biliary-pathway/en`, `/#/use-cases/testis-pathway/en`, `/#/use-cases/urinary-outflow/en`, `/#/use-cases/lymph-collecting-routes/en` | Open the bilingual figures. The base addresses open English and `/zh` opens Chinese. The optional `from` identifies a detail in the associated Body Systems assembly. The lymph figure offers optional directional motion. |
 | `/#/use-cases/dental-arch`, `…/upper`, `…/lower` | Identify a source-labeled crown in either arch. The English and Chinese lesson keeps a selected tooth per arch while open. Missing images leave the FDI selector available. |
@@ -31,8 +34,8 @@ Open the fragment on the Site root, for example `/#/library/s1233-adrenal/r05`. 
 | `/#/compare/salivary-native-r02` | Inspect the rejected original-source crossing and the scoped r02 review. |
 | `/#/library/salivary_glands/z-native-scoped-r02` | Get the exact glands-and-parotid-ducts and same-source context exports. The family route also opens this record. |
 | `/#/use-cases/airway` | Select the nasal airspace, trachea or bronchial fork. It is also reachable from Respiratory Body Systems. The loopback bronchial card opens the first-fork lesson. |
-| `/#/use-cases/airway/first-fork` | Loopback lesson with a 3D view of distal sampling r14, an exact Library link and the saved original r13 comparison. |
-| `/#/library/bronchial_tree/distal-sampling-r14` | Exact r14 model and download, selected by default for the bronchial family in the loopback Gallery. `…/authored-central-fairing-r13` opens the original export and its assessment. |
+| `/#/use-cases/airway/first-fork` | Loopback lesson with a 3D view of first-fork fairing r15, an exact Library link and the saved original r13 comparison. |
+| `/#/library/bronchial_tree/distal-sampling-r14` | Retained exact r14 model and download. The local family now opens `…/first-fork-fairing-r15`. `…/authored-central-fairing-r13` opens the original export and its assessment. |
 | `/#/compare/nasal-airspace-r01`, `…/trachea-r06`, `…/bronchial-r13`, `…/trachea-r05` | Read the revision-specific findings and open the associated exact Library record. The r05 cast and r06 shell have separate evidence and exports. |
 | `/#/compare/adrenal-r04-r05` | Open the blind review. A shared comparison records `finish=tissue\|neutral` and `order=ab\|ba` in the fragment query. Both witnesses use the recorded camera. The findings and scores belong to the saved review. |
 | `/#/compare/adrenals__source-candidate-01` | Read the single-export BodyParts3D review, inspect the exact retained WebP witnesses and return to the same Library family. An unavailable witness leaves its caption, the other evidence, and the links to the review owner and family available. |
@@ -63,6 +66,8 @@ The cross-host candidate maps the [salivary fragments](../../records/work-items/
 The framework continues to own its existing snapshot, presentation and deployment endpoints. The immutable survey seed supplies legacy catalogue facts. The Site worker owns live delivery. The [read-only local preview](../../sites/anatomy-gallery/tools/preview_gallery.mjs) exercises the Gallery reads against verified local bytes. It also serves restored Image 2.6 MP4s by their teaching-backup digests. Those routes are local-only and do not appear in the public asset index.
 
 The loopback preview serves the [static heart r02 GLB](../../heart/exterior-presentation-r02/README.md) from its checked-out package through the same handler. A missing file, Git LFS pointer or different bytes return 503. The route is outside the public asset index and becomes usable in the running preview as soon as the exact local payload is restored.
+
+The local `#/compare/teaching-refinements?asset=<control-sha256>` route opens the evidence for the selected starting file. The stomach and gallbladder Stage presets preserve the selected source or section group. The cardiac wall preset also preserves its normalized cycle phase. The [recovery instructions](../../reviews/teaching-assessments/refinement-economy/README.md#serve-recovered-candidates-locally) describe how candidate downloads become available from the loopback preview.
 
 ## Sharing and authorship
 

@@ -4,8 +4,8 @@ Reviewed localization supplement with limits; **not a whole-quality acceptance**
 
 已审阅的定位补充，仍有明确限制；不表示整体质量通过，不增加已完成资产数量。
 
-- `parathyroids_native.glb`: four source-named target glands, native frame.
-- `parathyroids_thyroid_context.glb`: same targets plus one same-source thyroid context.
+- [`parathyroids_thyroid_context.glb`](parathyroids_thyroid_context.glb) is the local posterior localization edition. The [posterior and side comparisons](../../../../reviews/teaching-assessments/target-risk/views/parathyroid.webp) distinguish all four source positions beside the retained thyroid.
+- [`parathyroids_native.glb`](parathyroids_native.glb) is the reusable four-gland component in the native frame.
 
 The isolated-oval baseline lacked thyroid context. This source-based replacement makes the posterior relationship inspectable, without moving glands to the front to avoid occlusion. Simplified mirrored gland shapes remain; **this is not detailed morphology polish**. Thyroid is context, not a newly approved thyroid model. Its conspicuous midline projection is explicitly uninterpreted, not asserted to be a pyramidal lobe or universal anatomy.
 
@@ -18,3 +18,5 @@ One atlas's four-gland example; gland number and location vary. Ectopic position
 Review: `reviews/parathyroids/2026-10-25-localization-r01/` (repository-root relative).
 Replay: `models/parathyroids/recipes/README.md`.
 License/source: `ATTRIBUTION.md` and `SOURCE-LICENSE.txt` alongside these exports. Do not extend the candidate license to the separate authored baseline.
+
+[A matched centroid-symbol trial](../../../../reviews/teaching-assessments/reopen-source/parathyroid.webp) preserves the four positions but obscures the source glands’ different extents. [Principal-axis-matched symbols](../../../../reviews/teaching-assessments/reopen-source/parathyroid-extents.webp) recover those extents while retaining the same mirrored outlines and unassigned thyroid projection. The posterior teaching edition retains the actual atlas meshes.

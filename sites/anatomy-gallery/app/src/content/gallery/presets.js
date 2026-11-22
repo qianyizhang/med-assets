@@ -1,6 +1,6 @@
 import { adrenalComparison, adrenalLesson, adrenalScene } from './adrenal-study.js';
 import { comparePath, lessonPath, libraryPath, revisions } from './catalog.js';
-import { localModels } from './local-models.js';
+import { localModels, teachingScenes } from './local-models.js';
 
 // A preset version freezes the scene recipe as well as its model identity.
 export const sceneVersion = adrenalScene.version;
@@ -20,7 +20,8 @@ export function localView(model) {
     version: model.scene.version,
     revision: model.revision,
     sha256: model.exports[0].sha256,
-    part: 'All structures',
+    part: model.scene.initialPart ?? 'All structures',
+    ...(model.scene.clip ? { phase: 0 } : {}),
     material: model.scene.material ?? 'Tissue',
     light: 1,
     camera: model.scene.camera ?? null,
@@ -28,7 +29,7 @@ export function localView(model) {
 }
 
 export function localScene(view) {
-  return localModels.find((model) => model.scene.version === view.version && model.revision === view.revision);
+  return [...localModels, ...teachingScenes].find((model) => model.scene.version === view.version && model.revision === view.revision);
 }
 
 export function viewAsset(view) {
@@ -44,9 +45,10 @@ export function validView(v) {
   const model = asset && localScene(v);
   return (
     !!asset && asset.sha256 === v.sha256 &&
-    (v.part === 'All structures' || (model
+    (model?.scene.groups ? Object.hasOwn(model.scene.groups, v.part) : (v.part === 'All structures' || (model
       ? !model.scene.singleMesh && typeof v.part === 'string' && v.part.length > 0 && v.part.length <= 128
-      : adrenalScene.parts.includes(v.part))) &&
+       : adrenalScene.parts.includes(v.part)))) &&
+    (model?.scene.clip ? Number.isFinite(v.phase) && v.phase >= 0 && v.phase <= 1 : v.phase === undefined) &&
     ['Tissue', 'Neutral'].includes(v.material) &&
     [0.75, 1, 1.25].includes(v.light) &&
     (v.camera === null ||

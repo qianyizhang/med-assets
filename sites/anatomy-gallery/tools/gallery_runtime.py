@@ -15,6 +15,9 @@ from urllib.parse import quote
 from urllib.request import urlopen
 
 SITE = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(SITE.parents[1] / 'tools'))
+from teaching_assessments import REGISTER, campaign_rows, maintained_exports, register_rows
+
 DEFAULT_VENDOR = SITE / '.local/viewer-inputs'
 TEACHING_REVIEW = 'reviews/teaching-assessments/2026-11-21-library-pilot/assessments.json'
 DISPLAY_ENCODERS = {'11.3.0': '1.5.0', '12.2.0': '1.6.0'}
@@ -228,10 +231,25 @@ def prepare_gallery(site: Path, inputs: Path, target: Path):
             raw = raw.replace(b"from 'three';", f"from '{module}';".encode())
         destination.write_bytes(raw)
     shutil.copyfile(repo / 'docs/guides/asset-quality.md', target / 'rubric.md')
-    shutil.copyfile(repo / 'lessons/body-systems/display/index.json', target / 'body-systems.json')
+    system_index = repo / 'lessons/body-systems/display/index.json'
+    stops = json.loads((repo / 'lessons/body-systems/reviewed-stops.json').read_text())
+    systems = json.loads(system_index.read_text())
+    if hashlib.sha256(system_index.read_bytes()).hexdigest() != stops['displayIndexSha256']:
+        raise ValueError('Body Systems teaching views changed since the collection review')
+    checks = {c['system']: c for c in stops['stops']}
+    if set(checks) != {s['id'] for s in systems} or len(checks) != len(stops['stops']):
+        raise ValueError('Missing or duplicate Body Systems check')
+    for system in systems:
+        check = checks[system['id']]
+        if (check['detail'] not in {p['id'] for p in system['plates'] if p['kind'] == 'detail'}
+                or check['status'] not in ('passed', 'blocked')):
+            raise ValueError(f"Unknown reviewed stop in {system['id']}")
+        system['check'] = check
+    (target / 'body-systems.json').write_text(json.dumps(systems, ensure_ascii=False))
     teaching = target / 'teaching-inputs'
     teaching.mkdir()
     prepare_teaching_assessments(repo, index, teaching)
+    shutil.copyfile(repo / 'reviews/teaching-assessments/use-case-checks.json', teaching / 'use-case-checks.json')
     shutil.copyfile(repo / 'models/lymph-collecting-routes/source-context-refined-r01/projection-binding.json',
                     teaching / 'lymph-projection.json')
     readability = json.loads((repo / 'reviews/testis_pathway/2026-10-29-r02/readability.json').read_text())
@@ -297,8 +315,8 @@ def prepare_teaching_assessments(repo, index, teaching):
 
 def prepare_campaign_reviews(repo, index):
     """Bind loopback reviews to their exact exports and the evidence inspected."""
-    batches = sorted((repo / 'reviews/teaching-assessments').glob('*/campaign-assessments.json'))
-    if not batches:
+    rows = list(campaign_rows(repo))
+    if not rows:
         return []
     deliveries = {**delivery_by_path(index), **delivery_by_path(index.with_name('local-delivery.json'))}
     root = repo.resolve()
@@ -318,39 +336,63 @@ def prepare_campaign_reviews(repo, index):
                                   'mediaType': media_type, 'url': f'/review-evidence/{digest}/{quote(path.name)}'}
         return evidence[relative]
 
-    for owner in batches:
-        batch = json.loads(owner.read_text())
-        if batch['schemaVersion'] != 1:
-            raise ValueError(f'Unsupported teaching assessment schema: {owner}')
-        for row in batch['assessments']:
-            export = row['export']
-            path = export['path']
-            if path in result and result[path]['date'] == batch['date']:
-                raise ValueError(f'Duplicate campaign assessment for {path} on {batch["date"]}')
+    register = register_rows((repo / REGISTER).read_text()) if (repo / REGISTER).exists() else {}
+    maintained_files = maintained_exports(rows, register)
+    for owner, batch, row in rows:
+        export = row['export']
+        path = export['path']
+        if path in result and result[path]['date'] == batch['date']:
+            raise ValueError(f'Duplicate campaign assessment for {path} on {batch["date"]}')
+        if (row.get('target') or path in register) and path not in deliveries:
+            source = (root / path).resolve(strict=True)
+            if source != root / path or not source.is_relative_to(root) or path.split('/')[0] not in ('models', 'body', 'heart', 'assemblies', 'lessons'):
+                raise ValueError(f'Invalid maintained teaching export: {path}')
+            with source.open('rb') as stream:
+                actual = hashlib.file_digest(stream, 'sha256').hexdigest()
+            check_delivery_identity({path: {'sha256': actual, 'bytes': source.stat().st_size}}, export)
+        else:
             check_delivery_identity(deliveries, export)
-            validate_teaching_axes(row, path)
-            if not row['views'] and any(axis['score'] is not None for axis in row['axes']):
-                raise ValueError(f'Missing reviewed views for {path}')
-            views = []
-            for view in row['views']:
-                entry = local_file(view['path'])
-                check_delivery_identity({view['path']: entry}, view)
-                views.append({**view, **entry})
-            if row.get('teachingView') and row['teachingView'] not in {v['path'] for v in views}:
-                raise ValueError(f'Teaching view is missing from the reviewed views for {path}')
-            sources = []
-            for source in row['sources']:
-                if 'path' in source:
-                    entry = local_file(source['path'].split('#', 1)[0])
-                    sources.append({**source, **entry})
-                elif source.get('url', '').startswith('https://'):
-                    sources.append(source)
-                else:
-                    raise ValueError(f'Missing source reference for {path}')
-            if path in result and result[path]['date'] > batch['date']:
-                continue
-            result[path] = {**row, **{key: batch[key] for key in ('evaluator', 'date', 'rubric')},
-                            'sources': sources, 'views': views}
+        validate_teaching_axes(row, path)
+        if not row['views'] and any(axis['score'] is not None for axis in row['axes']):
+            raise ValueError(f'Missing reviewed views for {path}')
+        views = []
+        for view in row['views']:
+            entry = local_file(view['path'])
+            check_delivery_identity({view['path']: entry}, view)
+            views.append({**view, **entry})
+        if row.get('teachingView') and row['teachingView'] not in {v['path'] for v in views}:
+            raise ValueError(f'Teaching view is missing from the reviewed views for {path}')
+        sources = []
+        for source in row['sources']:
+            if 'path' in source:
+                entry = local_file(source['path'].split('#', 1)[0])
+                sources.append({**source, **entry})
+            elif source.get('url', '').startswith('https://'):
+                sources.append(source)
+            else:
+                raise ValueError(f'Missing source reference for {path}')
+        if path in register:
+            row = {**row, 'maintained': dict(zip(('collection', 'family'), register[path]))}
+        refinement = row.get('refinement')
+        candidate = refinement.get('candidate') if refinement else None
+        if candidate and candidate.get('download'):
+            digest = candidate['sha256']
+            canonical = maintained_files.get((digest, candidate['bytes']))
+            if canonical:
+                candidate = {**candidate, 'path': canonical, 'name': Path(canonical).name}
+            else:
+                expected_store = f'.artifacts/teaching-refinements/candidates/{digest}.glb'
+                if candidate['path'] != expected_store:
+                    check_delivery_identity(deliveries, candidate)
+            name = candidate['name']
+            if (not name.endswith('.glb') or not all(c.isascii() and (c.isalnum() or c in '._-') for c in name)):
+                raise ValueError(f'Invalid recipe-built download: {name}')
+            download = {**candidate, 'url': f'/assets/{digest}/{name}', 'recipeUrl': local_file(candidate['recipe'])['url']}
+            row = {**row, 'refinement': {**refinement, 'candidate': download}}
+        if path in result and result[path]['date'] > batch['date']:
+            continue
+        result[path] = {**row, **{key: batch[key] for key in ('evaluator', 'date', 'rubric')},
+                        'sources': sources, 'views': views}
     return list(result.values())
 
 

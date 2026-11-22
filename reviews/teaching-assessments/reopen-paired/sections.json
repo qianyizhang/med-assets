@@ -1,0 +1,239 @@
+{
+  "nose_sinuses": {
+    "NIH3D-3DPX-002305-airspace-cast": [
+      {
+        "blenderZ": -0.012,
+        "segments": 1938
+      },
+      {
+        "blenderZ": 0.145,
+        "segments": 2344
+      }
+    ]
+  },
+  "lymph": {
+    "Yao-paracortex": [
+      {
+        "blenderZ": 0.3281,
+        "segments": 545
+      },
+      {
+        "blenderZ": 0.3298,
+        "segments": 421
+      }
+    ],
+    "Yao-follicles": [
+      {
+        "blenderZ": 0.3281,
+        "segments": 261
+      },
+      {
+        "blenderZ": 0.3298,
+        "segments": 67
+      }
+    ],
+    "Yao-medulla-of-lymph-node": [
+      {
+        "blenderZ": 0.3281,
+        "segments": 2346
+      },
+      {
+        "blenderZ": 0.3298,
+        "segments": 1975
+      }
+    ],
+    "Yao-capsule-of-lymph-node": [
+      {
+        "blenderZ": 0.3281,
+        "segments": 294
+      },
+      {
+        "blenderZ": 0.3298,
+        "segments": 283
+      }
+    ]
+  },
+  "heart": {
+    "heart": {
+      "inputSha256": "bbc9058c113feb505a98bb2364839fc376b781c31a954188fe7553163c070c47",
+      "testedVertices": 3788,
+      "nearestLabelIsosurfaceVertexMmMedianP95Max": [
+        0.7319526370991305,
+        1.2925285384912608,
+        1.9839953241764505
+      ],
+      "largestSampleRasMm": [
+        35.43968126177788,
+        147.01857764273882,
+        512.034558057785
+      ]
+    }
+  },
+  "anatomy-workshop-r1": {
+    "lung_lower_lobe_left": {
+      "inputSha256": "150432ae2eb7c7e664e8bd842190ad9a6e23253b3843ef32acec09c9a9b06c80",
+      "testedVertices": 3001,
+      "nearestLabelIsosurfaceVertexMmMedianP95Max": [
+        0.858201622902136,
+        1.6439478534622287,
+        2.9376673357393384
+      ],
+      "largestSampleRasMm": [
+        -31.770963221788406,
+        141.24897561967373,
+        403.07999804615974
+      ]
+    },
+    "lung_lower_lobe_right": {
+      "inputSha256": "a0c40d35496bac945d78b1a39d1a1572568af41ae28aa23b2136d76d8454981a",
+      "testedVertices": 3001,
+      "nearestLabelIsosurfaceVertexMmMedianP95Max": [
+        0.8602405799096922,
+        1.686964959317447,
+        2.9092126267374225
+      ],
+      "largestSampleRasMm": [
+        19.002201035618782,
+        125.38890607655048,
+        387.81612396240234
+      ]
+    }
+  },
+  "diaphragm": {
+    "bidirectionalMaxNearestVertexMm": 0.0001201514409696321,
+    "levels": {
+      "Inferior vena cava (abdominal part)": [
+        {
+          "zMetres": 1.2337,
+          "segments": 0
+        },
+        {
+          "zMetres": 1.1177,
+          "segments": 26
+        }
+      ],
+      "Inferior vena cava (thoracic part)": [
+        {
+          "zMetres": 1.2337,
+          "segments": 32
+        },
+        {
+          "zMetres": 1.1177,
+          "segments": 0
+        }
+      ],
+      "Vertebra L1": [
+        {
+          "zMetres": 1.2337,
+          "segments": 0
+        },
+        {
+          "zMetres": 1.1177,
+          "segments": 156
+        }
+      ],
+      "Diaphragm": [
+        {
+          "zMetres": 1.2337,
+          "segments": 700
+        },
+        {
+          "zMetres": 1.1177,
+          "segments": 623
+        }
+      ],
+      "Oesophagus": [
+        {
+          "zMetres": 1.2337,
+          "segments": 196
+        },
+        {
+          "zMetres": 1.1177,
+          "segments": 0
+        }
+      ],
+      "Thoracic aorta": [
+        {
+          "zMetres": 1.2337,
+          "segments": 26
+        },
+        {
+          "zMetres": 1.1177,
+          "segments": 0
+        }
+      ],
+      "Abdominal aorta": [
+        {
+          "zMetres": 1.2337,
+          "segments": 0
+        },
+        {
+          "zMetres": 1.1177,
+          "segments": 32
+        }
+      ]
+    },
+    "projectedPixelMm": 0.25,
+    "cavalCentreInsideProjectedAperture": true,
+    "cavalCentreToProjectedHoleCentroidMm": 1.5282646985516122,
+    "apertureCentroidMm": [
+      -16.281802442135966,
+      -20.007198833606715
+    ]
+  },
+  "inputs": {
+    "atlas": {
+      "sourceSha256": "9f08a17ea0115fed80b2a73ecdf0a1bc2ab2f6956f37c593ce23d513ea35afcd",
+      "sectionInputs": {
+        "Abdominal aorta.npz": {
+          "sha256": "c24c58cd60f8378c4a0445ef89fdad9b44c2db0c9cbc2ec83824f5b0e747e946",
+          "bytes": 20007
+        },
+        "Diaphragm.npz": {
+          "sha256": "deafd12fd857c9a4696791415098d3b9e31a0519f3288cbfc8b929f1b90d7f98",
+          "bytes": 415347
+        },
+        "Inferior vena cava (abdominal part).npz": {
+          "sha256": "97fafe1f97f01a316a5adae2c53f784fa1738e9298e63264a92d455c04688f79",
+          "bytes": 6167
+        },
+        "Inferior vena cava (thoracic part).npz": {
+          "sha256": "a644a0629a590d1d04eb87319c09d7e2f7c19aca1d019785b8159a5a8b7b50df",
+          "bytes": 8914
+        },
+        "Oesophagus.npz": {
+          "sha256": "fbc81b24a948ae968a723e3619a4d82763a34365552c941547d9be1bb64c8a8a",
+          "bytes": 152251
+        },
+        "Thoracic aorta.npz": {
+          "sha256": "020bc6c3bc60eaaa5358d1bf75f631f31c675b45361cc33796bd12ba333e5dd4",
+          "bytes": 8915
+        },
+        "Vertebra L1.npz": {
+          "sha256": "3e0139a6f2d0bf4577f9e7a883fe80827238fd3677b2693fa4086edb1ec5f9de",
+          "bytes": 29212
+        }
+      }
+    },
+    "masksSha256": {
+      "heart": "bbc9058c113feb505a98bb2364839fc376b781c31a954188fe7553163c070c47",
+      "aorta": "c2751ba8bb12ed2091db7e0446f3f333acf47db5d35e8f75c96fab4c6564ab2e",
+      "pulmonary_vein": "08bf9cc04f61e27090d70487ecf84128e543080b5fc15d883a05468795a44eeb",
+      "lung_lower_lobe_left": "150432ae2eb7c7e664e8bd842190ad9a6e23253b3843ef32acec09c9a9b06c80",
+      "lung_lower_lobe_right": "a0c40d35496bac945d78b1a39d1a1572568af41ae28aa23b2136d76d8454981a"
+    },
+    "ctSha256": "5352376d8fd9c0ab582a7fca1443f28762a66b9782d59c645b976771587c0cfc",
+    "sectionsSha256": {
+      "anatomy-workshop-r1-0.png": "2020ea52c6de69c78643f149cf4c6957ab75212182fbdb348427688e5403d77e",
+      "anatomy-workshop-r1-1.png": "9bc6c4e3bb5e1bfbe0d8af7a0969f058e1722429fff0488f47d89e0872b6df96",
+      "diaphragm-0.png": "48316b8136cb4a8e3344385f7160550ebfca60f76d08bdc1fdfebd1b4da86da6",
+      "diaphragm-1.png": "35563d88f44c91813d065f1168b3229901e70ab3c55f6d3a403cb419394205fc",
+      "heart-0.png": "3c2f59bf6b8a6cacd0d200595d5d1ac5e833bea3caf2dc030ec70d1f69c76262",
+      "heart-1.png": "eb60f3f830cc619f81a901e373db8d49092dacabf7b14c03551bfe87e30d82d5",
+      "lymph-0.png": "88a288db36fa479ba59392e390a243217fd94e2ef0c477c31f998cbc9ddd65ab",
+      "lymph-1.png": "0135843cce8e6ce5adaf88b5b1ed530438467538abf1fbfa1036817655f8361b",
+      "nose_sinuses-0.png": "afaa46ee19b1d41958f07e1d63ca396e3d5ebed768e5c13ce9711f75ae604998",
+      "nose_sinuses-1.png": "490eb2f8617dc3d3baa6bc38adf125e70543c955faa3ffe1caa64d05e501cb05"
+    }
+  }
+}

@@ -2,6 +2,8 @@
 
 Eleven GLB clips add illustrative respiratory motion to the retained Anatomy Workshop organ surfaces and an authored diaphragm. They use the [Workshop coordinate frame](../anatomy-workshop-r1/README.md#geometry-and-coordinates) in glTF metres, with +Y superior. Motion is authored for teaching and has no patient-specific or clinical validation.
 
+Open the [diaphragm, lungs and liver teaching edition](exports/dome-motion-r01/README.md) for the two-phase crest comparison. The source assembly and individual clips below cover the wider respiratory presentation.
+
 ## What moves
 
 - Five lung lobes share an inspiration field. At peak inspiration the most superior vertices descend about 0.18 mm on the left and 0.30 mm on the right. Lower regions descend up to about 18 mm and widen preferentially in lateral and anterior directions. Each lobe deforms at the vertex level.

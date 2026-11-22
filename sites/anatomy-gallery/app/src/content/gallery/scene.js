@@ -3,7 +3,7 @@ import * as T from './vendor/build/three.module.js';
 import { OrbitControls } from './vendor/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader } from './vendor/examples/jsm/loaders/GLTFLoader.js';
 
-export async function loadScene(container, buffer, view, signal) {
+export async function loadScene(container, buffer, view, signal, recipe) {
   const manager = new T.LoadingManager();
   manager.setURLModifier((url) => {
     if (url.startsWith('blob:') || url.startsWith('data:')) return url;
@@ -24,8 +24,10 @@ export async function loadScene(container, buffer, view, signal) {
     });
   });
   const neutral = new T.MeshStandardMaterial({ color: 0xc7beb0, roughness: 0.78 });
-  let renderer, controls, observer;
+  let renderer, controls, observer, mixer;
   function dispose() {
+    mixer?.stopAllAction();
+    mixer?.uncacheRoot(root);
     observer?.disconnect();
     controls?.dispose();
     const resources = new Set([neutral]);
@@ -74,10 +76,29 @@ export async function loadScene(container, buffer, view, signal) {
       camera.updateProjectionMatrix();
       draw();
     }
+    const clip = recipe?.clip && gltf.animations.find((animation) => animation.name === recipe.clip);
+    if (recipe?.clip && !clip) throw Error('The authored animation is unavailable.');
+    const action = clip && (mixer = new T.AnimationMixer(root)).clipAction(clip);
+    if (action) {
+      action.setLoop(T.LoopOnce, 1);
+      action.clampWhenFinished = true;
+      action.play();
+    }
+    const nodeNames = new Set(meshes.map((part) => part.name));
+    for (const group of Object.values(recipe?.groups ?? {})) {
+      if (group?.some((name) => !nodeNames.has(name))) throw Error('The teaching selection differs from the pinned export.');
+    }
     function apply(v) {
+      if (action) {
+        action.paused = false;
+        action.enabled = true;
+        mixer.setTime(v.phase * clip.duration);
+        root.updateMatrixWorld(true);
+      }
+      const group = recipe?.groups?.[v.part];
       const bounds = new T.Box3();
       for (const { mesh, name, original } of meshes) {
-        mesh.visible = v.part === 'All structures' || name === v.part;
+        mesh.visible = recipe?.groups ? !group || group.includes(name) : v.part === 'All structures' || name === v.part;
         mesh.material = v.material === 'Neutral' ? neutral : original;
         if (mesh.visible) bounds.union(new T.Box3().setFromObject(mesh));
       }

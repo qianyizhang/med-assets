@@ -7,3 +7,5 @@ Source-backed gross internal shapes provide a clearer comparison than the origin
 - [Replay instructions](../../../../models/penis/recipes/native-components-r04/README.md)
 
 Original remains **Needs revision**. The glans retains source edge defects; skin, prepuce, tunica, vessels, nerves, internal septum and a continuous urethral lumen are not supplied. No clinical, full-anatomy, motion or runtime approval; study-count change is zero.
+
+[Matched distal views](../../../../reviews/teaching-assessments/reopen-source/penis.webp) add the same atlas’s urethral surface at its native transform. Its terminal ring lies 8.26–8.84 mm from the three defective glans edges. The small visible spot persists on the isolated glans. These are distinct observations. The same-frame curve supplies no shared contour for repairing or naming the spot.

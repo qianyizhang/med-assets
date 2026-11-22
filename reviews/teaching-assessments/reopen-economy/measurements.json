@@ -1,0 +1,182 @@
+{
+  "stomach": {
+    "control": {
+      "path": "models/stomach/exports/metadata-cleanup-r01/stomach.glb",
+      "sha256": "ad0876f37f92945171750d31d9c53165535a697e60a3d2ac8a3f3f78667fdec6",
+      "bytes": 3402184
+    },
+    "edition": {
+      "path": "models/stomach/exports/teaching-economy-r02/stomach.glb",
+      "sha256": "1afedcb4412b0833e07eded5276913250b37d82bbffda578d2e18110021d2452",
+      "bytes": 2992144
+    },
+    "bytesSaved": 410040,
+    "meshCount": 13,
+    "primitives": 13,
+    "triangles": 60456,
+    "textures": {
+      "stomach_Normal_OpenGL_1K": {
+        "original": {
+          "sha256": "87189f215bf2423f3352b57a17cef7554b58046fc1e588c78661b6fdcbdb5a57",
+          "bytes": 490056
+        },
+        "updated": {
+          "sha256": "7307eb65fc1d49ff23eb30ba43397f1cf33e924001a957cd157ca7eeca0e7252",
+          "bytes": 313712
+        },
+        "decoded": {
+          "mode": "RGBA",
+          "size": [
+            1024,
+            1024
+          ],
+          "sha256": "1d1b90e9f7b5be027cf586d2097095305f624732ff8cc9ff3e94487b8cf41e57",
+          "bytes": 4194304
+        }
+      },
+      "stomach_BaseColor_1K": {
+        "original": {
+          "sha256": "851040c5c2981dae6bd2fb827a3765822265b1dc3853a2243a12c8c807768f3b",
+          "bytes": 838527
+        },
+        "updated": {
+          "sha256": "d4fb30f2da9b6713f0ecaf65ab8eb8606a3930604702705e02331ba2cb8496e6",
+          "bytes": 664767
+        },
+        "decoded": {
+          "mode": "RGBA",
+          "size": [
+            1024,
+            1024
+          ],
+          "sha256": "c910e3273ad6313e9c539c453517a354d364a83f64b4b95ccdcc7f1ba0394dce",
+          "bytes": 4194304
+        }
+      },
+      "stomach_Roughness_1K": {
+        "original": {
+          "sha256": "0815036408ce944f2da00f9432aacfcb4b2f0aa1a6e14c96475d61de21f21e82",
+          "bytes": 185644
+        },
+        "updated": {
+          "sha256": "ef7eef2bccb8c7b7248939b7ee6aaf01b42fcd7061ddc7cba70db8fa60b0d91d",
+          "bytes": 125705
+        },
+        "decoded": {
+          "mode": "RGB",
+          "size": [
+            1024,
+            1024
+          ],
+          "sha256": "1cb569d998802f2ec1e83b32a83e47ca24dbb70d12c61d20f147f6bafb8d6a15",
+          "bytes": 3145728
+        }
+      }
+    }
+  },
+  "liver": {
+    "control": {
+      "path": "models/liver/exports/hra-female-v1.10-r02/liver.glb",
+      "sha256": "e9abb0c2503a3fa9d725988451e630283ec2c902c182b812219f2d73f3ab1038",
+      "bytes": 763480
+    },
+    "edition": {
+      "path": "models/liver/exports/teaching-economy-r02/liver.glb",
+      "sha256": "5978654a1e5b8ac608735dde82434e3fe67c1e1883930c4fa1b60d53fe85dd7d",
+      "bytes": 595352
+    },
+    "bytesSaved": 168128,
+    "meshCount": 8,
+    "primitives": 8,
+    "triangles": 41470,
+    "normalCount": 21059,
+    "sourceZeroNormalsRetained": 0,
+    "maxNormalDegrees": 0.372364,
+    "worstMesh": "VH_F_bare_area_of_liver",
+    "exactNonNormalViews": 16
+  },
+  "muscle": {
+    "control": {
+      "path": "models/muscle/exports/z-anatomy-r02/muscle_z_native_frame.glb",
+      "sha256": "7081144bdbca0d2d871311a3568a0aedb1c8e125f7709ae8e7d55345a54bdfb7",
+      "bytes": 30517312
+    },
+    "edition": {
+      "path": "models/muscle/exports/teaching-economy-r02/muscle_z_native_frame.glb",
+      "sha256": "5bd6e93d1daee826f05f9578a036f06480203517f5c3817127277b8e5c934ac3",
+      "bytes": 22558848
+    },
+    "bytesSaved": 7958464,
+    "meshCount": 509,
+    "primitives": 509,
+    "triangles": 1993160,
+    "normalCount": 996883,
+    "sourceZeroNormalsRetained": 0,
+    "maxNormalDegrees": 0.388751,
+    "worstMesh": "Epicranial aponeurosis.r evaluated",
+    "exactNonNormalViews": 765
+  },
+  "brain": {
+    "control": {
+      "path": "models/brain/exports/bodyparts3d-4.0-atlas-r2/brain-source-frame.glb",
+      "sha256": "26d39768e2882daee034f997a8d594e915283b5f8a176a8bb60003944a45b886",
+      "bytes": 4415384
+    },
+    "edition": {
+      "path": "models/brain/exports/teaching-economy-r02/brain-source-frame.glb",
+      "sha256": "fbd8034279b9119ffb8e7ee5e99208c06c5851d18be753283e8a871a6f1aec3a",
+      "bytes": 3446724
+    },
+    "bytesSaved": 968660,
+    "meshCount": 49,
+    "primitives": 49,
+    "triangles": 242358,
+    "normalCount": 121291,
+    "sourceZeroNormalsRetained": 0,
+    "maxNormalDegrees": 0.382178,
+    "worstMesh": "FJ1785",
+    "exactNonNormalViews": 98
+  },
+  "spinal_cord": {
+    "control": {
+      "path": "models/spinal_cord/exports/authored-roots-r04/candidate.glb",
+      "sha256": "a37783fbd1ad25ba9a2bcfbed1419a2d3f655b42cec643bf32a77266ca82a9d0",
+      "bytes": 2663288
+    },
+    "edition": {
+      "path": "models/spinal_cord/exports/teaching-economy-r02/candidate.glb",
+      "sha256": "eba3e49c05e2f1a4f2c08b107eefa48eb32d14796dd1ce5bac9413138b404ca9",
+      "bytes": 1948852
+    },
+    "bytesSaved": 714436,
+    "meshCount": 104,
+    "primitives": 104,
+    "triangles": 178960,
+    "normalCount": 89733,
+    "sourceZeroNormalsRetained": 0,
+    "maxNormalDegrees": 0.385076,
+    "worstMesh": "Representative ventral root upper 7 side-1.001",
+    "exactNonNormalViews": 131
+  },
+  "trachea": {
+    "control": {
+      "path": "models/trachea/exports/open-airway-r06/trachea-open.glb",
+      "sha256": "eb3ce52962aacc4d109a9840685aa172ca1d97bfc835367f4e36fd32de6b6cbb",
+      "bytes": 962440
+    },
+    "edition": {
+      "path": "models/trachea/exports/teaching-economy-r02/trachea-open.glb",
+      "sha256": "814dff70dee2f62b7dcb13ee2a3fcde36b6579e440ab10bc38a758be347e97c8",
+      "bytes": 751300
+    },
+    "bytesSaved": 211140,
+    "meshCount": 19,
+    "primitives": 21,
+    "triangles": 50978,
+    "normalCount": 26488,
+    "sourceZeroNormalsRetained": 0,
+    "maxNormalDegrees": 0.373208,
+    "worstMesh": "Host conformed illustrative C-band.013",
+    "exactNonNormalViews": 42
+  }
+}

@@ -27,7 +27,7 @@ export async function checkSpecialistStills(page, base, dir) {
       ['fdi31-layer-reveal/source-pose.jpg', 'fdi31-layer-reveal/editorial-reveal.jpg',
         'caries-restoration/poster.svg', 'periodontal-cleaning/poster.svg'].map((file) => shot + file)],
   ];
-  const linkTo = (route) => page.locator('.ga-content').locator('a[href="#/' + route + '"]').first();
+  const linkTo = (route) => page.locator('.ga-content').locator('a[href="#/' + route + '"]').filter({ visible: true }).first();
   const catalogue = await (await page.request.get(base + '/api/gallery/v1/studies')).json();
   for (const [, route] of lessons.slice(0, 3)) {
     assert.deepEqual(catalogue.lessons.find(({ id }) => route === 'use-cases/' + id)?.stops, []);

@@ -2,9 +2,10 @@ import bpy,bmesh,pathlib,json,hashlib,argparse,sys
 from mathutils import Vector
 from mathutils.bvhtree import BVHTree
 D=pathlib.Path(__file__).resolve().parent;ap=argparse.ArgumentParser();ap.add_argument('--baseline',required=True);ap.add_argument('--output',required=True);a=ap.parse_args(sys.argv[sys.argv.index('--')+1:]);O=pathlib.Path(a.output);O.mkdir(parents=True,exist_ok=True);P=pathlib.Path(a.baseline);assert hashlib.sha256(P.read_bytes()).hexdigest()=='2d2d4e269995f11179cfa423a302f144d9d163883ccde0995a2987e83dd2e898';bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False);bpy.ops.import_scene.gltf(filepath=str(P));originals=[o for o in bpy.context.scene.objects if o.type=='MESH'];new=[];records=[]
+LOBE_SOURCES = D.parents[3] / 'body/anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy'
 starts={'lung_upper_lobe_right':Vector((-.028,.009,.060)),'lung_middle_lobe_right':Vector((-.042,.008,.033)),'lung_lower_lobe_right':Vector((-.042,.008,.033)),'lung_upper_lobe_left':Vector((.042,.008,.068)),'lung_lower_lobe_left':Vector((.042,.008,.068))}
 for lobe,start in starts.items():
- j=json.load(open(D/'recipe-source'/(lobe+'.json')));v=[Vector((-p[0]/1000,-(p[1]-155)/1000,(p[2]-430)/1000)) for p in j['vertices']];me=bpy.data.meshes.new('recipe source bounds');me.from_pydata(v,[],j['faces']);me.update();src=bpy.data.objects.new('recipe source bounds',me);bpy.context.scene.collection.objects.link(src);bm=bmesh.new();bm.from_mesh(me);bmesh.ops.remove_doubles(bm,verts=list(bm.verts),dist=.000001);bmesh.ops.dissolve_degenerate(bm,edges=list(bm.edges),dist=.0000003);seen=set();dups=[]
+ j=json.loads((LOBE_SOURCES/(lobe+'.json')).read_text());v=[Vector((-p[0]/1000,-(p[1]-155)/1000,(p[2]-430)/1000)) for p in j['vertices']];me=bpy.data.meshes.new('recipe source bounds');me.from_pydata(v,[],j['faces']);me.update();src=bpy.data.objects.new('recipe source bounds',me);bpy.context.scene.collection.objects.link(src);bm=bmesh.new();bm.from_mesh(me);bmesh.ops.remove_doubles(bm,verts=list(bm.verts),dist=.000001);bmesh.ops.dissolve_degenerate(bm,edges=list(bm.edges),dist=.0000003);seen=set();dups=[]
  for f in bm.faces:
   key=frozenset(f.verts)
   if key in seen or f.calc_area()<1e-12:dups.append(f)

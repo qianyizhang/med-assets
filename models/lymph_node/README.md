@@ -1,5 +1,7 @@
 # HRA single lymph-node teaching study
 
+The [compact tissue edition](exports/tissue-color-pack-r02/README.md) opens the local capsule and named tissue comparison. The [original four-tissue selection](exports/hra-tissue-layers-r01/README.md) records how the tissue meshes were isolated from the complete atlas. The source study below records the complete original HRA v1.2 export and its retained label conflict.
+
 One unchanged source GLB, not a whole-body lymphatic system or a new clinical model. Seven source meshes; 851 boundary and 1,602 non-two-incidence edges remain. Source node key 7 says blood while extras say lymph: use neutral “Source vascular network (label conflict)”. Static visual approval is scoped to prior inspected layer contacts; anatomy reference screening is not clinical approval. Runtime unverified.
 
 The source GLB is also the export; do not duplicate it. Source/license metadata is in sources/datasets/hra/lymph-node-v1.2. Review record and 3 lossy published WebP derivatives are in reviews/lymph_node/2026-10-23-hra-v1.2. Historical render-evidence.json records original PNG hashes and visibility settings; those lossless PNGs and native Blender scene are deferred, not missing claimed dependencies of this small import.

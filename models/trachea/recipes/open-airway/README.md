@@ -60,5 +60,7 @@ repeat render; GLB replay identity is recorded separately.
 `project.py` creates illustrative SVG triangle projections from the same exports.
 They are not screenshots or Cycles renders; simplified visibility and flat shading
 cannot replace actual-pixel review. Both scripts emit camera and SHA256 bindings.
+For the exact reviewed and subsequently packaged SVG bytes, use the
+[lossless restore recipe](../../../../reviews/trachea/2026-10-29-open-airway-r06/README.md#restore-the-exact-svgs-offline).
 The ordinary offline gate covers repository integrity, not these media checks,
 clinical validation or the supported browser viewer.

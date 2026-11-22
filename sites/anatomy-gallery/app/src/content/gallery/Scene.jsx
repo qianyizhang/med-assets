@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { adrenalScene } from './adrenal-study.js';
 import { assetUrl, portrait, route } from './catalog.js';
 import { localScene, stagePath, viewAsset } from './presets.js';
+import teachingReview from './teaching-inputs/teaching-assessments.json';
 import { loadScene } from './scene.js';
 
 async function modelBytes(file, initial, signal) {
@@ -59,7 +60,7 @@ export function Scene({ initial, origin, stage = false, auto = false, file = nul
     (async () => {
       const bytes = await modelBytes(file, initial, controller.signal);
       controller.signal.throwIfAborted();
-      owned = await loadScene(host, bytes, latest.current, controller.signal);
+      owned = await loadScene(host, bytes, latest.current, controller.signal, model?.scene);
       if (controller.signal.aborted) {
         owned.dispose();
         return;
@@ -106,7 +107,11 @@ export function Scene({ initial, origin, stage = false, auto = false, file = nul
       setStatus(e.message);
     }
   }
-  const poster = model?.preview ?? portrait(
+  const assessment = model && (origin === model.library || model.scene.posterPath || model.lesson === origin) && teachingReview.campaign.find((entry) =>
+    entry.export.path === model.exports[0].path && entry.export.sha256 === model.exports[0].sha256);
+  const reviewedView = assessment?.views.find((image) =>
+    image.path === (assessment.teachingView ?? model.scene.posterPath));
+  const poster = reviewedView?.url ?? model?.preview ?? portrait(
     (initial.revision === 'r04' ? 'original' : 'updated') +
       (initial.part === 'Right adrenal gland' ? '-right-iso' : '-iso'),
   );
@@ -115,7 +120,7 @@ export function Scene({ initial, origin, stage = false, auto = false, file = nul
       <div className="ga-viewport">
         <div ref={container} className="ga-canvas" hidden={!ready} />
         {!ready && !file && initial.revision !== 'r03' && (
-          <img src={poster} alt={model?.scene.posterAlt ?? 'Reference render of the reviewed adrenal study'} />
+          <img src={poster} alt={reviewedView?.label ?? model?.scene.posterAlt ?? 'Reference render of the reviewed adrenal study'} />
         )}
         {!ready && (
           <button
@@ -129,23 +134,29 @@ export function Scene({ initial, origin, stage = false, auto = false, file = nul
         )}
       </div>
       {!ready && !file && initial.revision !== 'r03' && (
-        <p>{model?.scene.posterCaption ??
+        <p>{reviewedView?.label ?? model?.scene.posterCaption ??
           'Blender reference · ' + (initial.part === 'Right adrenal gland' ? 'isolated right gland' : 'regional view')}</p>
       )}
+      {ready && model?.scene.groups && <p>{model.scene.posterCaption}</p>}
       {status && <p role="status">{status}</p>}
       <div className="ga-controls">
         {!model?.scene.singleMesh && <label>
-          Structure
+          {model?.scene.groups ? 'Teaching view' : 'Structure'}
           <select
-            aria-label="Structure"
+            aria-label={model?.scene.groups ? 'Teaching view' : 'Structure'}
             disabled={!ready}
             value={view.part}
-            onChange={(e) => change({ ...view, part: e.target.value, camera: null })}
+            onChange={(e) => change({ ...view, part: e.target.value, camera: model?.scene.groups ? state().camera : null })}
           >
-            {['All structures', ...names].map((n) => (
+            {(model?.scene.groups ? Object.keys(model.scene.groups) : ['All structures', ...names]).map((n) => (
               <option key={n}>{n}</option>
             ))}
           </select>
+        </label>}
+        {model?.scene.clip && <label>
+          Cycle phase · {Math.round(view.phase * 100)}%
+          <input type="range" aria-label="Cycle phase" min="0" max="1" step="0.001" disabled={!ready}
+            value={view.phase} onChange={(e) => change({ ...state(), phase: Number(e.target.value) })} />
         </label>}
         <label>
           Material

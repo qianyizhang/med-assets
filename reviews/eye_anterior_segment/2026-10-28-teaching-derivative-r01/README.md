@@ -1,5 +1,7 @@
 # Three-structure eye order study — local draft derivative
 
+This is the original draft review. The [later teaching target review](../../teaching-assessments/target-risk/README.md) selected the exact derivative for the local broad-order task and retained the seven-part diagnostic export.
+
 This successor to [issue100](https://github.com/qianyizhang/med-assets/issues/100)
 and [PR113](https://github.com/qianyizhang/med-assets/pull/113) removes unsupported
 ciliary/zonular geometry from an actual export. It retains only cornea, iris and

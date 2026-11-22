@@ -1,0 +1,424 @@
+{
+  "blender": "5.2.3 LTS Release Candidate",
+  "build": "fab76e95306d",
+  "assets": {
+    "thyroid_ct_s0189": {
+      "original": {
+        "glb": {
+          "bytes": 152124,
+          "sha256": "4c2dee513f713fd8d649e7d1928ba3859ce1d25e81468e707b65a5fbeeee216a"
+        },
+        "triangles": 8340,
+        "views": [
+          {
+            "file": "thyroid_ct_s0189-original-whole.png",
+            "sha256": "695e5acecd4be4309e48f92135eb6b8f7789a9d8b662ed8cbd23f9f4dfb3517d",
+            "bytes": 302649,
+            "camera": [
+              0.0,
+              -0.019999995827674866,
+              0.6600000262260437
+            ],
+            "orthoScale": 0.07800000160932541,
+            "palette": false,
+            "visible": [
+              "s0189 thyroid \u2014 illustrative ridge reduction"
+            ],
+            "rotation": [
+              0.7656306028366089,
+              0.6432805061340332,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "file": "thyroid_ct_s0189-original-reverse.png",
+            "sha256": "d3349340ed0d172d4568829df2e2b1dda0f130765d0cd43197362791a1a6f925",
+            "bytes": 306308,
+            "camera": [
+              0.0,
+              0.3799999952316284,
+              0.6600000262260437
+            ],
+            "orthoScale": 0.07800000160932541,
+            "palette": false,
+            "visible": [
+              "s0189 thyroid \u2014 illustrative ridge reduction"
+            ],
+            "rotation": [
+              5.780350420536706e-08,
+              -4.8566324295507e-08,
+              0.6432805061340332,
+              0.7656306028366089
+            ]
+          },
+          {
+            "file": "thyroid_ct_s0189-original-oblique.png",
+            "sha256": "4cb352cb595fd43c071478f3dc0fe96e4eb24b1ef14ffc489b1efd865e109e0b",
+            "bytes": 311646,
+            "camera": [
+              0.07500000298023224,
+              -0.019999995827674866,
+              0.6899999976158142
+            ],
+            "orthoScale": 0.07400000095367432,
+            "palette": false,
+            "visible": [
+              "s0189 thyroid \u2014 illustrative ridge reduction"
+            ],
+            "rotation": [
+              0.7905764579772949,
+              0.5857930183410645,
+              0.10622454434633255,
+              0.14335885643959045
+            ]
+          },
+          {
+            "file": "thyroid_ct_s0189-original-ridge-detail.png",
+            "sha256": "6da48422ba02324b17f13956d2c36266b93590b8b946e5dc0bb5faaeaf31ef4c",
+            "bytes": 318130,
+            "camera": [
+              0.05900000035762787,
+              -0.027000010013580322,
+              0.6819999814033508
+            ],
+            "orthoScale": 0.04100000113248825,
+            "palette": false,
+            "visible": [
+              "s0189 thyroid \u2014 illustrative ridge reduction"
+            ],
+            "rotation": [
+              0.7905764579772949,
+              0.5857930183410645,
+              0.10622454434633255,
+              0.14335885643959045
+            ]
+          },
+          {
+            "file": "thyroid_ct_s0189-original-rear-band.png",
+            "sha256": "bc6e570346b283fce8ff96d9c0ceca51af040cc5a98a00a2f079e9aa8ad6d9a2",
+            "bytes": 321922,
+            "camera": [
+              -0.04500000178813934,
+              0.33000001311302185,
+              0.6669999957084656
+            ],
+            "orthoScale": 0.04100000113248825,
+            "palette": false,
+            "visible": [
+              "s0189 thyroid \u2014 illustrative ridge reduction"
+            ],
+            "rotation": [
+              0.07349584251642227,
+              0.05399879068136215,
+              -0.5896217823028564,
+              -0.8025139570236206
+            ]
+          }
+        ]
+      },
+      "trial": {
+        "glb": {
+          "bytes": 152288,
+          "sha256": "6bc4f4da8bc91a058da8f9c78fca8618e3ace90580cac499adf48981bc18608e"
+        },
+        "triangles": 8340,
+        "views": [
+          {
+            "file": "thyroid_ct_s0189-trial-whole.png",
+            "sha256": "f634fd9949e66d8e5e97ccfac84b7610b026a4e920cf989aee50f46ebebcc1ad",
+            "bytes": 302650,
+            "camera": [
+              0.0,
+              -0.019999995827674866,
+              0.6600000262260437
+            ],
+            "orthoScale": 0.07800000160932541,
+            "palette": false,
+            "visible": [
+              "s0189 thyroid \u2014 illustrative ridge reduction"
+            ],
+            "rotation": [
+              0.7656306028366089,
+              0.6432805061340332,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "file": "thyroid_ct_s0189-trial-reverse.png",
+            "sha256": "1a5c3067e0daf170ccbb8853c54f92c0872a6d9fb49317b0c7e9851ce455907d",
+            "bytes": 303358,
+            "camera": [
+              0.0,
+              0.3799999952316284,
+              0.6600000262260437
+            ],
+            "orthoScale": 0.07800000160932541,
+            "palette": false,
+            "visible": [
+              "s0189 thyroid \u2014 illustrative ridge reduction"
+            ],
+            "rotation": [
+              5.780350420536706e-08,
+              -4.8566324295507e-08,
+              0.6432805061340332,
+              0.7656306028366089
+            ]
+          },
+          {
+            "file": "thyroid_ct_s0189-trial-oblique.png",
+            "sha256": "79487852e0a18ea4c50b875521f55adf60a57faa9ecf70f7d5eb07c0342c7b47",
+            "bytes": 311494,
+            "camera": [
+              0.07500000298023224,
+              -0.019999995827674866,
+              0.6899999976158142
+            ],
+            "orthoScale": 0.07400000095367432,
+            "palette": false,
+            "visible": [
+              "s0189 thyroid \u2014 illustrative ridge reduction"
+            ],
+            "rotation": [
+              0.7905764579772949,
+              0.5857930183410645,
+              0.10622454434633255,
+              0.14335885643959045
+            ]
+          },
+          {
+            "file": "thyroid_ct_s0189-trial-ridge-detail.png",
+            "sha256": "04b58f9f54848d80e8fbaf469adce8bd725de23ca636f224fd7ff1c91504ef06",
+            "bytes": 317986,
+            "camera": [
+              0.05900000035762787,
+              -0.027000010013580322,
+              0.6819999814033508
+            ],
+            "orthoScale": 0.04100000113248825,
+            "palette": false,
+            "visible": [
+              "s0189 thyroid \u2014 illustrative ridge reduction"
+            ],
+            "rotation": [
+              0.7905764579772949,
+              0.5857930183410645,
+              0.10622454434633255,
+              0.14335885643959045
+            ]
+          },
+          {
+            "file": "thyroid_ct_s0189-trial-rear-band.png",
+            "sha256": "19477e835255eb5e50792d028ffcd072950fcd05f6a7f4237c2bac4af91cf306",
+            "bytes": 321059,
+            "camera": [
+              -0.04500000178813934,
+              0.33000001311302185,
+              0.6669999957084656
+            ],
+            "orthoScale": 0.04100000113248825,
+            "palette": false,
+            "visible": [
+              "s0189 thyroid \u2014 illustrative ridge reduction"
+            ],
+            "rotation": [
+              0.07349584251642227,
+              0.05399879068136215,
+              -0.5896217823028564,
+              -0.8025139570236206
+            ]
+          }
+        ]
+      }
+    },
+    "bronchial_tree": {
+      "original": {
+        "glb": {
+          "bytes": 7401328,
+          "sha256": "f8d78751f47cf14311138a3c7e2e35d6e28415c9f6e1d2a0e4f6ca2bf1a07fc9"
+        },
+        "triangles": 308288,
+        "views": [
+          {
+            "file": "bronchial_tree-original-whole.png",
+            "sha256": "2519a50d0fb0337a8e4a71eea7329485c23d2c7fe54b6f43d1fb4e990767c102",
+            "bytes": 243282,
+            "camera": [
+              0.5217775106430054,
+              -0.6504648923873901,
+              0.25081557035446167
+            ],
+            "orthoScale": 0.23714761435985565,
+            "palette": false,
+            "visible": [
+              "Authored bronchial junction-consolidation experiment"
+            ],
+            "rotation": [
+              0.7394354343414307,
+              0.586233377456665,
+              0.2056395709514618,
+              0.2593800127506256
+            ]
+          },
+          {
+            "file": "bronchial_tree-original-close.png",
+            "sha256": "ecd5c33465fe95fdff92654eb8dcd87c8b565cb03be034bca35fd4c8d84f55f7",
+            "bytes": 287820,
+            "camera": [
+              0.0,
+              -0.8352524638175964,
+              0.1662752479314804
+            ],
+            "orthoScale": 0.04500000178813934,
+            "palette": false,
+            "visible": [
+              "Authored bronchial junction-consolidation experiment"
+            ],
+            "rotation": [
+              0.7414525747299194,
+              0.6710053086280823,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "file": "bronchial_tree-original-rotated-close.png",
+            "sha256": "43befc86368a59923a2008a710a09700b0de568bf1e5a5adb520889869cf8fb0",
+            "bytes": 281956,
+            "camera": [
+              0.41218307614326477,
+              -0.6794717907905579,
+              -0.1927887350320816
+            ],
+            "orthoScale": 0.04500000178813934,
+            "palette": false,
+            "visible": [
+              "Authored bronchial junction-consolidation experiment"
+            ],
+            "rotation": [
+              0.5600987672805786,
+              0.7842422127723694,
+              0.21722249686717987,
+              0.15513835847377777
+            ]
+          },
+          {
+            "file": "bronchial_tree-original-opposite-close.png",
+            "sha256": "516aaa2b22430d2cdca352f188bfe7688ed77fc8eeecda1d0776aa47edd0a6cb",
+            "bytes": 290917,
+            "camera": [
+              0.0,
+              0.8502524495124817,
+              0.1662752479314804
+            ],
+            "orthoScale": 0.04500000178813934,
+            "palette": false,
+            "visible": [
+              "Authored bronchial junction-consolidation experiment"
+            ],
+            "rotation": [
+              -3.2249083403712575e-09,
+              -6.157964804742733e-08,
+              0.671005368232727,
+              0.7414524555206299
+            ]
+          }
+        ]
+      },
+      "trial": {
+        "glb": {
+          "bytes": 7401440,
+          "sha256": "9f9196f9a131910a4b2d7ad08b4680b17b14cf4076062ba652c0910db5d2fc46"
+        },
+        "triangles": 308288,
+        "views": [
+          {
+            "file": "bronchial_tree-trial-whole.png",
+            "sha256": "f033f9dc99e1c8bc55e4f63a228f6c0fcf8ad003610f7464efd51235092f8335",
+            "bytes": 243268,
+            "camera": [
+              0.5217775106430054,
+              -0.6504648923873901,
+              0.25081557035446167
+            ],
+            "orthoScale": 0.23714761435985565,
+            "palette": false,
+            "visible": [
+              "Authored bronchial junction-consolidation experiment"
+            ],
+            "rotation": [
+              0.7394354343414307,
+              0.586233377456665,
+              0.2056395709514618,
+              0.2593800127506256
+            ]
+          },
+          {
+            "file": "bronchial_tree-trial-close.png",
+            "sha256": "ea5e7bfc23942daeb5ad65b9b47cc66c8808537a1a5d9c4920f7374eb9ac15b1",
+            "bytes": 286993,
+            "camera": [
+              0.0,
+              -0.8352524638175964,
+              0.1662752479314804
+            ],
+            "orthoScale": 0.04500000178813934,
+            "palette": false,
+            "visible": [
+              "Authored bronchial junction-consolidation experiment"
+            ],
+            "rotation": [
+              0.7414525747299194,
+              0.6710053086280823,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "file": "bronchial_tree-trial-rotated-close.png",
+            "sha256": "a18c39767e8290339e94abe382b6a52241747401a3085b634eaa529c28e37743",
+            "bytes": 281970,
+            "camera": [
+              0.41218307614326477,
+              -0.6794717907905579,
+              -0.1927887350320816
+            ],
+            "orthoScale": 0.04500000178813934,
+            "palette": false,
+            "visible": [
+              "Authored bronchial junction-consolidation experiment"
+            ],
+            "rotation": [
+              0.5600987672805786,
+              0.7842422127723694,
+              0.21722249686717987,
+              0.15513835847377777
+            ]
+          },
+          {
+            "file": "bronchial_tree-trial-opposite-close.png",
+            "sha256": "fa936a20c4971bd3502e25a071ce4a8c2688d55a580d4c7df9b1e42df571d232",
+            "bytes": 290351,
+            "camera": [
+              0.0,
+              0.8502524495124817,
+              0.1662752479314804
+            ],
+            "orthoScale": 0.04500000178813934,
+            "palette": false,
+            "visible": [
+              "Authored bronchial junction-consolidation experiment"
+            ],
+            "rotation": [
+              -3.2249083403712575e-09,
+              -6.157964804742733e-08,
+              0.671005368232727,
+              0.7414524555206299
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

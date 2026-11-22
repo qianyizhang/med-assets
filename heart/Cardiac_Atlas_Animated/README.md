@@ -8,6 +8,8 @@ The prior GLBs were end-diastolic static snapshots. These files carry an actual 
 - `Heart_Tissue_Animated.glb`: full heart with the original actual baked 2K wall PBR maps; fine anatomy retains standard clinical materials. Three maps are embedded, not external.
 - `Cardiac_Atlas_Animated_Source.blend`: original editable driver/shape-key source and packed texture maps. Four main controls remain on `HEART CONTROL • material + cutaway + pulse`; native tissue, clinical and transparent presets remain. Timeline 1–25 at 30fps. The export recipe is embedded as a Blender text block.
 
+For the focused comparison of ventricular contour and the fixed aorta, open the [wall-motion teaching edition](exports/wall-motion-r01/README.md). The controls and structure inventory below describe the complete atlas.
+
 ## Playback
 One cycle = frames 1–25 native = seconds 0–0.8 GLB. Loop with an animation mixer. Phase = clip time / 0.8. Changing playback speed changes educational playback rate, not the anatomical model. Play/pause and scrub refer to this clip.
 

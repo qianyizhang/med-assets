@@ -6,7 +6,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import snapshotReference from '../snapshot-reference.json' with { type: 'json' };
 import { assetUrl, ratingAxes } from '../app/src/content/gallery/catalog.js';
-import { libraryRows } from '../app/src/content/gallery/library-data.js';
+import { exactExportPath, libraryRows, selectExactExport } from '../app/src/content/gallery/library-data.js';
 
 const baseline = 'e8399bd107cc6129db2d3712113e9cb5a3628664';
 const repo = fileURLToPath(new URL('../../../', import.meta.url));
@@ -47,7 +47,7 @@ function indexedRoutes(snapshot, tracked, review) {
       records.set(record.library, record);
       for (const file of record.exports) {
         assert.ok(!indexed.has(file.path), file.path + ' has multiple revision owners');
-        indexed.set(file.path, { file, route: record.library });
+        indexed.set(file.path, { file, route: exactExportPath(record, file), record });
       }
     }
   }
@@ -141,6 +141,7 @@ try {
     const match = page.locator('.ga-asset[href="#/' + indexed.get(expected.path).route + '"]');
     await match.waitFor({ timeout: 5000 });
   }
+  console.log('Checked Library revision history, export ownership and exact-file discovery');
 
   async function search(query, expectedRoute) {
     await go('library');
@@ -150,6 +151,25 @@ try {
     await link.waitFor();
     return link;
   }
+  const parathyroidContext = 'models/parathyroids/exports/z-localization-r01/parathyroids_thyroid_context.glb';
+  const parathyroidIsolated = 'models/parathyroids/exports/z-localization-r01/parathyroids_native.glb';
+  const parathyroidFiles = [parathyroidContext, parathyroidIsolated];
+  const context = indexed.get(parathyroidContext);
+  const isolated = indexed.get(parathyroidIsolated);
+  assert.ok(context && isolated, 'The two parathyroid editions remain discoverable');
+  assert.equal(context.route, context.record.library);
+  assert.notEqual(isolated.route, context.route);
+  await (await search('parathyroid', context.route)).click();
+  await page.waitForURL((url) => url.hash === '#/' + context.route);
+  await page.getByText('Rating · 12/16', { exact: false }).waitFor();
+  await page.getByRole('link', { name: 'Review parathyroids_native.glb', exact: true }).click();
+  await page.waitForURL((url) => url.hash === '#/' + isolated.route);
+  await page.getByText('Rating · 10/16', { exact: false }).waitFor();
+  await page.reload();
+  await page.getByText('Rating · 10/16', { exact: false }).waitFor();
+  await page.getByRole('link', { name: 'Review parathyroids_thyroid_context.glb', exact: true }).click();
+  await page.waitForURL((url) => url.hash === '#/' + context.route);
+
   const r13Route = 'library/bronchial_tree/authored-central-fairing-r13';
   for (const term of ['R13', 'authored-central-fairing-r13', 'bronchial_central_fairing.glb']) {
     const r13 = await search(term, r13Route);
@@ -219,8 +239,8 @@ try {
     assert.equal(digest(git('cat-file', 'blob', rubric.revision + ':' + rubric.path)), rubric.sha256);
     const expected = indexed.get(assessment.export.path);
     const route = expected.route;
-    if (assessment.route) assert.equal(route, assessment.route);
-    const record = records.get(route);
+    if (assessment.route) assert.equal(expected.record.library, assessment.route);
+    const record = selectExactExport(expected.record, expected.file.sha256);
     const current = record.assessment;
     assert.ok(current, route);
     const earlier = current !== assessment;
@@ -247,9 +267,10 @@ try {
     await details.getByText(assessment.task, { exact: true }).waitFor();
     await details.getByText(evaluator + ' · ' + date + ' · Rubric ' + rubric.revision.slice(0, 8)).waitFor();
     await details.getByText(assessment.export.sha256, { exact: true }).waitFor();
-    for (const axis of assessment.axes) {
-      await details.getByText(axis.observation, { exact: true }).waitFor();
-    }
+    assert.deepEqual(await details.locator('dl > dt').allTextContents(),
+      assessment.axes.map((axis, i) => `${ratingAxes[i]} · ${axis.score ?? 'Unrated'}`), route);
+    assert.deepEqual(await details.locator('dl > dd').allTextContents(),
+      assessment.axes.map((axis) => axis.observation), route);
     for (const source of assessment.sources) {
       assert.equal(await details.getByRole('link', { name: source.label + ' ↗', exact: true }).getAttribute('href'),
         source.url);
@@ -280,9 +301,9 @@ try {
       }, href);
       assert.ok(dimensions.every((dimension) => dimension > 0), view.path);
     }
-    if (assessment.teachingView) {
+    if (!earlier && assessment.teachingView) {
       const view = assessment.views.find((item) => item.path === assessment.teachingView);
-      const portrait = page.locator('.ga-detail figure img').first();
+      const portrait = page.locator(record.scene ? '.ga-detail .ga-viewport img' : '.ga-detail figure img').first();
       assert.equal(await portrait.getAttribute('src'), view.url);
       await portrait.evaluate((image) => image.decode());
     }
@@ -300,6 +321,7 @@ try {
     await page.setViewportSize({ width: 1280, height: 900 });
     await page.screenshot({ path: path.join(capture, assessment.route.split('/')[1] + '-rating.png'), fullPage: true });
   }
+  console.log('Checked current and earlier Library assessments and exact evidence');
 
   for (const [route, file] of [
     ['library/bronchial_tree/authored-lobar-fairing-r09', 'bronchial_lobar_fairing.glb'],
@@ -315,7 +337,7 @@ try {
     assert.equal(await page.getByText('Assessment and reviewed views').count(), 0);
   }
 
-  const withPlate = review.campaign?.find((item) => item.teachingView);
+  const withPlate = review.campaign?.find((item) => item.teachingView && !records.get(indexed.get(item.export.path).route)?.scene);
   if (withPlate) {
     const { url } = withPlate.views.find((item) => item.path === withPlate.teachingView);
     await page.route('**' + url, (req) => req.fulfill({ status: 503, body: '' }));
@@ -328,25 +350,34 @@ try {
     await page.locator('.ga-detail figure img').first().evaluate((image) => image.decode());
   }
   const fetched = [];
-  const samples = tracked.filter(({ path: file }) =>
+  const samples = new Set(tracked.filter(({ path: file }) =>
     /\.(blend|stl)$/.test(file) || [
       historical,
       ...review.assessments.map((assessment) => assessment.export.path),
       'models/dental_specimens/uff_tomo1b/exports/r01/uff-tomo1b-display.glb',
       'reviews/swirendo_fdi31/2026-10-27-interface-locked/media/A_1_31_T2_SEG_na__layered.glb',
       'heart/exterior-presentation-r01/exports/static-opaque-exterior.glb',
-    ].includes(file));
-  for (const expected of samples) {
-    const { file, route } = indexed.get(expected.path);
+    ].includes(file)).map(({ path: file }) => file));
+  for (const file of parathyroidFiles) samples.add(file);
+  for (const entry of review.campaign ?? []) {
+    const baselinePath = entry.target?.baseline;
+    if (baselinePath && baselinePath !== entry.export.path) {
+      samples.add(entry.export.path);
+      samples.add(baselinePath);
+    }
+  }
+  for (const filePath of samples) {
+    const { file, route } = indexed.get(filePath);
     await go(route);
     const href = assetUrl(file);
     await page.locator('a[href="' + href + '"]').first().waitFor();
     const response = await page.request.get(base + href);
-    assert.equal(response.status(), 200, expected.path);
+    assert.equal(response.status(), 200, filePath);
     const bytes = await response.body();
-    assert.equal(bytes.length, expected.bytes, expected.path);
-    assert.equal(digest(bytes), expected.sha256, expected.path);
-    fetched.push(expected.path);
+    assert.equal(bytes.length, file.bytes, filePath);
+    assert.equal(digest(bytes), file.sha256, filePath);
+    await response.dispose();
+    fetched.push(filePath);
   }
   await go(metadataRoute);
   const [download] = await Promise.all([

@@ -38,3 +38,20 @@ def encode(document, binary, *, pad_binary=True):
     return (struct.pack('<4sII', b'glTF', 2, 28 + len(text) + len(binary))
             + struct.pack('<II', len(text), JSON_CHUNK) + text
             + struct.pack('<II', len(binary), BIN_CHUNK) + binary)
+
+
+def buffer_view_bytes(binary, view):
+    """Read a checked range from the one embedded GLB buffer."""
+    start = view.get('byteOffset', 0)
+    end = start + view['byteLength']
+    if view.get('buffer') != 0 or not 0 <= start <= end <= len(binary):
+        raise ValueError('Invalid embedded buffer view')
+    return binary[start:end]
+
+
+def pack_buffer_view(binary, view, data):
+    """Append a range at four-byte alignment and return its updated view."""
+    binary.extend(b'\0' * (-len(binary) % 4))
+    result = {**view, 'byteOffset': len(binary), 'byteLength': len(data)}
+    binary.extend(data)
+    return result

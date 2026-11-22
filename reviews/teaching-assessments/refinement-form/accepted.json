@@ -1,0 +1,476 @@
+{
+  "schemaVersion": 1,
+  "group": "2 · Form",
+  "evaluator": "Sol-high · final review by Codex campaign lead",
+  "date": "2026-11-22",
+  "rubric": {
+    "revision": "75c348b9d3fcce0389c4401696569b660cd29dca",
+    "path": "docs/guides/asset-quality.md",
+    "sha256": "5f7be452c8afc0b2109068e2c9d40e10ed7306459d62d7d006cc05e0de84831b"
+  },
+  "outcomes": [
+    {
+      "family": "FDI31 · prepared specimen",
+      "path": "models/swirendo_fdi31/exports/balanced-20261028/FDI31-balanced.glb",
+      "sha256": "90006e54c2b9f79f6c201397a50f92228d9ad6fa4450f20e0ad20c5fe70c19f7",
+      "controlAssessmentSha256": "793b9ced953124c489ebbff58d479a8bea268db007372733e15eb39c256d0869",
+      "before": {
+        "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/views-1.jpg",
+        "sha256": "1887afba8d97f50e641daa1fd7db00a156a25ea855408cd397417c7cb1ef7ef7",
+        "bytes": 94109,
+        "width": 1920,
+        "height": 640,
+        "label": "FDI31 · prepared specimen · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-form/plates/swirendo_fdi31.webp",
+        "sha256": "6101198e540fc0d75edad1ca8986b43a4f21d1fa00a29e09f50ef71485b5f1a3",
+        "bytes": 96666,
+        "width": 1328,
+        "height": 738,
+        "label": "Start at the enamel crown, then compare the same camera with bone hidden to locate the root inside the specimen. The reverse identifies the rough, cut edge of the original block."
+      },
+      "finding": "In the matched views, hiding bone exposes the root while the reverse isolates the rough truncation of the prepared block. Similar irregularities are visible on the detailed specimen reference.",
+      "decision": "Keep Balanced and use the bone-on, bone-off comparison to expose the root without restoring missing specimen shape.",
+      "axisChanges": {},
+      "limits": "Prepared T2 specimen. Source segmentation, bone truncation and simplified rough bone remain; the plate leaves full canal anatomy and specimen restoration unverified.",
+      "useAsTeachingView": true,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-form/README.md",
+          "label": "Form refinement evidence and replay"
+        }
+      ]
+    },
+    {
+      "family": "Penile components",
+      "path": "models/penis/exports/z-native-components-r04/penile_internal_components.glb",
+      "sha256": "c44d35e13be11d2fb35141747d819d4609a45ca0a5527c89e1015618d17cab70",
+      "controlAssessmentSha256": "5ab71f0512676eb7234cb1cd3a1a375eda55d9954e9cb6bf987c168fb6755d2a",
+      "before": {
+        "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/views-10.jpg",
+        "sha256": "8f4cb30a57edb741c2c74db11d0387d53396134d5bfa999fc576533c8bfaa4e8",
+        "bytes": 72143,
+        "width": 1920,
+        "height": 640,
+        "label": "Penile components · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-form/plates/penis.webp",
+        "sha256": "71b67fca6faf2fdd241e88d32a2923ab504b6c51f2cf632df53c76a231d731c8",
+        "bytes": 88604,
+        "width": 1328,
+        "height": 768,
+        "label": "Follow the spongiosum under the paired roots into the glans, then inspect the distal rim in the enlargement. Leave the small distal spot unnamed."
+      },
+      "finding": "Exact import inspection shows the two proximal cavernosa as a single source mesh, the ventral spongiosum as separately selectable, and definite irregularity at the enlarged distal glans.",
+      "decision": "Keep the atlas components for the existing shape task. Use the spongiosum/glans selection and mark the irregular distal rim.",
+      "axisChanges": {},
+      "limits": "Open and nonmanifold edges remain in the source glans. The view leaves meatus, urethral lumen, tissue fusion and an internal septum unverified.",
+      "useAsTeachingView": true,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-form/README.md",
+          "label": "Form refinement evidence and replay"
+        }
+      ]
+    },
+    {
+      "family": "Vaginal / cervical context",
+      "path": "models/vagina_hra/exports/context-r02/vagina_hra_same_atlas_context_r02.glb",
+      "sha256": "c649de4db766ba00020315029c922de1d018061c1a34bd95c850a05255ab3037",
+      "controlAssessmentSha256": "5d78a4d879b15da59d3e05b26631956083f92becc348425362ecf58cf702f07e",
+      "before": {
+        "path": "reviews/teaching-assessments/2026-11-22-dental-reproductive-skin-urinary/views-14.jpg",
+        "sha256": "c4e7fe7cbb882499661c65fa874968976f0b930a3ac0845f0c3e3e85ae7975e3",
+        "bytes": 103577,
+        "width": 1920,
+        "height": 640,
+        "label": "Vaginal / cervical context · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-form/plates/vagina_hra.webp",
+        "sha256": "2aa554bfd4657cd065fb9481b754c1cd56fc12d50b5ea379aea5419b26a86d0c",
+        "bytes": 81824,
+        "width": 1328,
+        "height": 778,
+        "label": "Compare the first two views at the same scale, then follow the vaginal exterior to the cervix in the enlargement. The bladder lies anteriorly and the rectum posteriorly."
+      },
+      "finding": "At identical scale and side angle, hiding 16 surrounding atlas parts makes the cervicovaginal junction and vaginal exterior simultaneously visible. The same-frame enlarged detail places it between the bladder and rectum.",
+      "decision": "Use the focused seven-node atlas selection alongside the pelvic overview for the original task.",
+      "axisChanges": {
+        "1": {
+          "score": 3,
+          "observation": "The same-camera focus and enlarged uncluttered view reveal the continuous vaginal exterior up to the separately selected cervix. A neutral alternate confirms the exterior contour from the other direction and the broad highlight exposes the surface at the intended task scale. Opposite view: reviews/teaching-assessments/refinement-form/plates/vagina-neutral.webp."
+        }
+      },
+      "limits": "The plates show a partial pelvis and selected exterior surfaces. The lumen, mucosa and detailed tissue boundaries remain unverified.",
+      "useAsTeachingView": true,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-form/README.md",
+          "label": "Form refinement evidence and replay"
+        }
+      ]
+    },
+    {
+      "family": "Lymph collecting routes",
+      "path": "models/lymph-collecting-routes/source-context-r01/selected-source-routes.glb",
+      "sha256": "ff8c1e9cecc86b4287520d97e71e81792d26eb0b3017e6f302e213f64819b4ca",
+      "controlAssessmentSha256": "64e7f295592393a1e55cb8f5c42158954e46aba090105d331d17a02bde33ca48",
+      "before": {
+        "path": "models/lymph-collecting-routes/source-context-r01/comparison-en.png",
+        "sha256": "01134611886cb5332715c8646c683f3a386fe93c4e27b543a23b4f651a4db632",
+        "bytes": 208906,
+        "width": 1520,
+        "height": 1960,
+        "label": "Lymph collecting routes · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-form/plates/lymph-collecting-routes.webp",
+        "sha256": "49baf1a9c4a8f5136902d53114ba94f6c280045dbc854069405c1ea19860cda9",
+        "bytes": 110754,
+        "width": 1328,
+        "height": 867,
+        "label": "Follow the bright path between the labeled caps. Compare both ends with the pale surrounding routes, whose angular bends are schematic."
+      },
+      "finding": "The selected model stops at two visible caps while nearby schematic routes continue. The matched detail distinguishes their angular path points from verified caliber or anatomical junctions.",
+      "decision": "Keep the source contour and its exact endings. Use the endpoint interpretation beside the isolated route.",
+      "axisChanges": {},
+      "limits": "The editorial body outline serves orientation. The model has no verified venous junction, cisterna chyli, anatomical caliber or patent lumen.",
+      "useAsTeachingView": true,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-form/README.md",
+          "label": "Form refinement evidence and replay"
+        }
+      ]
+    },
+    {
+      "family": "Bronchial tree · first fork",
+      "path": "models/bronchial_tree/exports/distal-sampling-r14/bronchial_distal_sampling.glb",
+      "sha256": "f8d78751f47cf14311138a3c7e2e35d6e28415c9f6e1d2a0e4f6ca2bf1a07fc9",
+      "controlAssessmentSha256": "757265553993b39e57103f375a080d88522b50504b5ddf6d75c55d76e0c48230",
+      "before": {
+        "path": "reviews/teaching-assessments/2026-11-22-respiratory/views-1.jpg",
+        "sha256": "19ce748bebde78e94a8edb642cdd82a66322bedf013c0ebd8ce5039b66a2cc8d",
+        "bytes": 106899,
+        "width": 1920,
+        "height": 640,
+        "label": "Bronchial tree · first fork · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-form/plates/bronchial_tree.webp",
+        "sha256": "9451920c70dc5ee766db45b80bf5772017a6b3aba4aaec41c44cd7adad165bb7",
+        "bytes": 87542,
+        "width": 1328,
+        "height": 778,
+        "label": "Follow the solid trunk into the two main branches at the Y. The enlarged views mark the angular underside and collar where the authored surfaces join."
+      },
+      "finding": "The local trial softens part of the angular lower fork, but an opposite collar remains and small bright bumps appear along the adjacent branch. The actual r14 first fork works at overview scale and remains limited at the close-up.",
+      "decision": "Keep r14 for the stated first-fork task. Use the focused annotated plate, and reject the trial as a replacement.",
+      "axisChanges": {},
+      "limits": "The authored schematic is an exterior. No lumen, distal anatomy, or clinical validation is claimed. The fairing test did not address the more distal right-lobar pocket.",
+      "useAsTeachingView": true,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-form/README.md",
+          "label": "Form refinement evidence and replay"
+        }
+      ]
+    },
+    {
+      "family": "Diaphragm",
+      "path": "models/diaphragm/exports/z-native-static-r01/diaphragm_z_native_static.glb",
+      "sha256": "15e909d630027974f064525c3a36a717365abffbe8c4a9d2c96d1c94c1513f29",
+      "controlAssessmentSha256": "098ea7a6da0f5c963cc40c2cf0ebf49b24e2b554b26d0bfbad9b97adce7e33a4",
+      "before": {
+        "path": "reviews/teaching-assessments/2026-11-22-respiratory/views-2.jpg",
+        "sha256": "d5ef87b6188c90cbb2bd5668eeeaac170d8962caf7ad536da00605f516f7f441",
+        "bytes": 95725,
+        "width": 1920,
+        "height": 640,
+        "label": "Diaphragm · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-form/plates/diaphragm.webp",
+        "sha256": "5ec21ad01e622871fdac1bdd02cf35a8de10f54385c1955455ee41537927ca3d",
+        "bytes": 106482,
+        "width": 1328,
+        "height": 778,
+        "label": "Compare the higher right and lower left domes from the front, then turn the model over to inspect the openings and projections marked in the plate."
+      },
+      "finding": "Axis-checked anterior view separates the two dome heights. Superior and inferior views expose the model openings and inferior projections, but no source registration identifies their tissues or crossing structures.",
+      "decision": "Keep the source geometry and use the comparative dome and openings plate. Defer any opening assignment or repair.",
+      "axisChanges": {},
+      "limits": "Atlas source geometry. The named anatomical hiatuses require verification against matched vessels, esophagus, crura and vertebrae. Tissue layers, attachments and motion are unverified.",
+      "useAsTeachingView": true,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-form/README.md",
+          "label": "Form refinement evidence and replay"
+        }
+      ]
+    },
+    {
+      "family": "Nasal / sinus airspace",
+      "path": "models/nose_sinuses/exports/nih3d-airspace-r01/nasal_airspace.glb",
+      "sha256": "3d8c4d56e09d72ae369c697d2bb9435cc3792f9dbe225e7d456ff58174a577be",
+      "controlAssessmentSha256": "7e6b5795be368dc117e7beaa019d7cda5dbed72625c75b6be5ed1e37e4c36d47",
+      "before": {
+        "path": "reviews/teaching-assessments/2026-11-22-respiratory/views-5.jpg",
+        "sha256": "410c39932eac55e3d6af440e9cd68464273113a4bd64e88f1c1b73eed2a18a1a",
+        "bytes": 123396,
+        "width": 1920,
+        "height": 640,
+        "label": "Nasal / sinus airspace · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-form/plates/nose_sinuses.webp",
+        "sha256": "a8d7d446f3cc5a764f752e063075c1aacac720865a328385d45d742c10965baf",
+        "bytes": 111046,
+        "width": 1328,
+        "height": 867,
+        "label": "Compare the thin central cast with the lateral maxillary space. The solid depicts where air was present, and the rough lower cutoff belongs to the specimen cast."
+      },
+      "finding": "The front and oblique surfaces distinguish the narrow central cast and lateral maxillary spaces. The inferior cutoff is a retained cast feature, and the creator reports a right maxillary retention-cyst indentation.",
+      "decision": "Keep the original specimen geometry. Use the callouts to distinguish airspace from surrounding tissue and identify the inferior truncation.",
+      "axisChanges": {},
+      "limits": "Source camera directions have no anatomical laterality guarantee. The creator-reported cyst indentation is unmarked. Mucosa, drainage, clinical normals and patency are unverified.",
+      "useAsTeachingView": true,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-form/README.md",
+          "label": "Form refinement evidence and replay"
+        }
+      ]
+    },
+    {
+      "family": "3D Anatomy Workshop",
+      "path": "body/anatomy-workshop-r1/Anatomy_Workshop.blend",
+      "sha256": "c773480a49471e697e12ca1a710a4c93314217a8683e6ab224b3fa83d9a12fbc",
+      "controlAssessmentSha256": "ced4c5295ac588d37008ab5cec804f9b32ba484950ea767b87ecb93d0e1bd836",
+      "before": {
+        "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/01-paired.webp",
+        "sha256": "c36e4069ddf652cddfae0d1b67e80e0825a0fcaf3a546f21057ec5289e6506ef",
+        "bytes": 175736,
+        "width": 1322,
+        "height": 706,
+        "label": "3D Anatomy Workshop · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-form/plates/anatomy-workshop-r1.webp",
+        "sha256": "f0f87fc03faacd4e898c23d4b35494e64d7ad0507e97a5e9e36ba0b2fa8e2f5c",
+        "bytes": 134256,
+        "width": 1328,
+        "height": 808,
+        "label": "Find the heart between the two lungs. Compare the front and rear views to follow the lower lung contours and locate the liver below them."
+      },
+      "finding": "A camera-matched selection of the exact evaluated heart, liver and five source lung lobes removes unrelated occlusion. The lower edges still reflect the irregular source-case surface, and the rear shows the lower left lobe more directly.",
+      "decision": "Use the seven-part selection and opposite view while preserving the native Workshop.",
+      "axisChanges": {},
+      "limits": "Case-derived lobes were processed for display. The selected seven structures omit the diaphragm. Contact, attachment, workshop material controls and browser behavior remain unverified here.",
+      "useAsTeachingView": true,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-form/README.md",
+          "label": "Form refinement evidence and replay"
+        }
+      ]
+    },
+    {
+      "family": "Heart · body shell",
+      "path": "models/heart/exports/metadata-cleanup-r01/heart.glb",
+      "sha256": "50c86dcab55701ca1418e16cd269ded70027663d58d02270ec6df0c8afd488fb",
+      "controlAssessmentSha256": "26119de7a54aa6128bebc97e02be936e8ceadbe8db08f903c4c2cab0e7d4b36a",
+      "before": {
+        "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/08-paired.webp",
+        "sha256": "f225f6c58750e2eb963ed3ec54167f359cb78fc63109a92a9f27602c3cb1d5d3",
+        "bytes": 200326,
+        "width": 1322,
+        "height": 706,
+        "label": "Heart · body shell · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-form/plates/heart.webp",
+        "sha256": "b72c1625addcadb26cb9597a783a62008c74c6212071b36f329b7d6dc6e7a447",
+        "bytes": 107098,
+        "width": 1328,
+        "height": 768,
+        "label": "Recognize the ventricular mass below the superior sweep. The same-scale retained s1233 source shows which abrupt contours were already present."
+      },
+      "finding": "A matched affine conversion of the pinned s1233 source shell reproduces the superior sweep and abrupt branch contours already present before display remeshing. The exact GLB clarifies the broad ventricular mass without identifying individual vessels.",
+      "decision": "Keep the reviewed s1233 shell and its source comparison. Defer a shape or vessel-label edit until same-case labeled voxels or segmentations identify the intended boundaries.",
+      "axisChanges": {},
+      "limits": "The triangulated case surface does not establish individual vessel openings, wall thickness, internal chambers or clinical use.",
+      "useAsTeachingView": true,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-form/README.md",
+          "label": "Form refinement evidence and replay"
+        }
+      ]
+    },
+    {
+      "family": "Pancreas",
+      "path": "models/pancreas/exports/hra-female-context-r04/pancreas_hra_female_context_r04.glb",
+      "sha256": "aa15f9248027c248886a9cf8d4f5f401b2753176c800851f648b03d88d97ebed",
+      "controlAssessmentSha256": "83ce27ebba12ec519fe88e0b8a9f05e0895e26c54a8bbc102311b936964c3660",
+      "before": {
+        "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/15-paired.webp",
+        "sha256": "2c8c38d7cb4e3624fd5f17b6d096c31b6d4e1fe9e2c16fdc87b44febdc04f97a",
+        "bytes": 207392,
+        "width": 1322,
+        "height": 706,
+        "label": "Pancreas · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-form/plates/pancreas.webp",
+        "sha256": "ceded0979a293fd5f0153b3f87b342e05ac50331c4082b7a94b55b207d6b31a8",
+        "bytes": 90240,
+        "width": 1328,
+        "height": 808,
+        "label": "In the source view identify the thin common bile duct node, then follow the pancreatic head inside the duodenal bend through the body to the tail beside the spleen."
+      },
+      "finding": "With exact role isolation, the needle-like projection matches HRA's named common bile duct node. A camera-matched duct-hidden plate exposes the protected duodenal-head relationship and body-to-tail path, with the splenic context retained.",
+      "decision": "Use the selected exterior and keep the full HRA source association in the companion panel.",
+      "axisChanges": {},
+      "limits": "Duct and sphincter continuity, surface defects around the head, duct lumen and microscopy remain unverified.",
+      "useAsTeachingView": true,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-form/README.md",
+          "label": "Form refinement evidence and replay"
+        }
+      ]
+    },
+    {
+      "family": "Adrenal pair",
+      "path": "models/adrenals/exports/source-candidate-01/adrenals_source_frame.glb",
+      "sha256": "c7de1afa5394a7f64b106a62ff979eaa9e0b428db23a13fa34340c2d38ba13a7",
+      "controlAssessmentSha256": "1d7f9cde9f373b0b01fdba7b9b2a9eab9f268280d468810538297de1a37dcad8",
+      "before": {
+        "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/18-paired.webp",
+        "sha256": "16bf2e0e780398256b72e888d9496456354795bac4b982eab1e147a4f10dd29f",
+        "bytes": 142086,
+        "width": 1322,
+        "height": 706,
+        "label": "Adrenal pair · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-form/plates/adrenals.webp",
+        "sha256": "0ca6245f9f27235ecd50fbead4c0b571782f4090cbb721e6cc85953d5d261cb7",
+        "bytes": 89214,
+        "width": 1328,
+        "height": 738,
+        "label": "Match the crescent-like left and triangular right adrenal outlines with their kidneys, then compare the irregular relief in the reverse view."
+      },
+      "finding": "The source posterior context gives both glands’ corresponding kidneys. Alternate neutral view shows unexplained ridges and hollows on the retained BP3D surfaces.",
+      "decision": "Use the paired posterior landmarks. Keep the alternate neutral view for recognizing the unverified surface relief.",
+      "axisChanges": {},
+      "limits": "The kidneys are retained review context outside the GLB. Separate panels are independently framed. Ridge identity and adrenal tissue layers remain unverified.",
+      "useAsTeachingView": true,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-form/README.md",
+          "label": "Form refinement evidence and replay"
+        }
+      ]
+    },
+    {
+      "family": "Hypothalamus",
+      "path": "models/hypothalamus/exports/source-candidate-01/hypothalamus_source_frame.glb",
+      "sha256": "b6d73d6b5a33006391a743c650ccc06b65b9b9afaaaebbcf1d05102d4399274c",
+      "controlAssessmentSha256": "5c1f2f389f0883f5eb3577bb8ff48f2913e127b59170d9000ba8a293e4623515",
+      "before": {
+        "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/20-paired.webp",
+        "sha256": "ff88128720732673f241ea685728cb14339165b191fa3242689539afbdd57b41",
+        "bytes": 205538,
+        "width": 1322,
+        "height": 706,
+        "label": "Hypothalamus · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-form/plates/hypothalamus.webp",
+        "sha256": "ecb104533f981bf38c5ebab22c9b3ebdeba62aeb5b9c81443f60366b5532f2ba",
+        "bytes": 106576,
+        "width": 1328,
+        "height": 808,
+        "label": "Find the seam between the paired envelopes and follow the stalk toward the wireframe pituitary. The reverse panel marks the unassigned posterior depression."
+      },
+      "finding": "The actual two meshes and an established side view with wireframe pituitary localize the inferior stalk-like projection. The deep posterior depression has no confirmed identity in the source record.",
+      "decision": "Use the matched envelope and stalk callouts and the retained pituitary context. Preserve the uncertain posterior shape.",
+      "axisChanges": {},
+      "limits": "BP3D has overlapping source stalk/context surfaces here. Nuclei, tissue subdivisions and third-ventricle anatomy remain unverified.",
+      "useAsTeachingView": true,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-form/README.md",
+          "label": "Form refinement evidence and replay"
+        }
+      ]
+    },
+    {
+      "family": "Thyroid · s0189",
+      "path": "models/thyroid_ct_s0189/exports/illustrative-exterior-r01/thyroid-illustrative-exterior.glb",
+      "sha256": "4c2dee513f713fd8d649e7d1928ba3859ce1d25e81468e707b65a5fbeeee216a",
+      "controlAssessmentSha256": "1a28752382b2590ab91c3822d3c6d589cd326429680d05155a63571b04ddd8fb",
+      "before": {
+        "path": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/24-paired.webp",
+        "sha256": "9ac4b520b1a9cd8bc6f2b5162795f187dc936ee3132fcf6a410facec93e48bd7",
+        "bytes": 215052,
+        "width": 1322,
+        "height": 706,
+        "label": "Thyroid r01 · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-form/plates/thyroid-r02.webp",
+        "sha256": "0ebe11505c05f11106d38d3c7594bea50c7dd04028cbd4ab29828d80799bc922",
+        "bytes": 87946,
+        "width": 1328,
+        "height": 738,
+        "label": "Compare the same rear oblique camera before and after local fairing, then locate the bridge below the recess and compare the two unequal lobes in the second r02 view."
+      },
+      "finding": "Matching neutral close-ups show lower-band corrugation receding without displacing the bridge or changing the gross lobe profiles. Independent reimport finds no nonmanifold edges, degenerate triangles or nonadjacent face contacts in the checked mesh.",
+      "decision": "Use r02 for the local bridge teaching task. The r01 control retains its form score of 2.",
+      "axisChanges": {},
+      "limits": "Local illustrative s0189 contour only. No raw-label reconstruction, case tracheal context, clinical validation or runtime acceptance.",
+      "useAsTeachingView": false,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-form/README.md",
+          "label": "Form refinement evidence and replay"
+        },
+        {
+          "path": "models/thyroid_ct_s0189/exports/illustrative-exterior-r02/README.md",
+          "label": "Thyroid r02 source and replay"
+        }
+      ],
+      "candidate": {
+        "sha256": "6bc4f4da8bc91a058da8f9c78fca8618e3ace90580cac499adf48981bc18608e",
+        "bytes": 152288,
+        "triangles": 8340,
+        "scores": [
+          4,
+          3,
+          3,
+          3
+        ],
+        "path": "models/thyroid_ct_s0189/exports/illustrative-exterior-r02/thyroid-illustrative-exterior.glb",
+        "download": true,
+        "name": "thyroid-r02.glb",
+        "recipe": "models/thyroid_ct_s0189/exports/illustrative-exterior-r02/README.md",
+        "disposition": "Local teaching default",
+        "library": "library/thyroid_ct_s0189/illustrative-exterior-r02"
+      },
+      "teaching": {
+        "path": "reviews/teaching-assessments/refinement-form/plates/thyroid_ct_s0189.webp",
+        "sha256": "c9c5d681bc83712b297de710c7b268d857129c31988253b76f574c1c1a10e95a",
+        "bytes": 76164,
+        "width": 1328,
+        "height": 837,
+        "label": "Find the narrow bridge under the U-shaped recess in both faces, then compare the lower rear ridges with the broader profiles of the unequal lobes."
+      }
+    }
+  ]
+}

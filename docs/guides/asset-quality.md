@@ -31,6 +31,14 @@ Name the observation that affected the learner's task. If a relationship is hard
 
 State what the proposed change should improve, what it must preserve and how the reviewer will tell. Check the candidate against the same task and baseline. Record a keep, revise or reject decision with the matched evidence. A keep decision can close the review when the current asset already serves its task.
 
+### Resolve a below-target score
+
+Work first on a plausible false inference, then on a learner action that fails at teaching size. Review form and mesh cost in terms of the same action. Give each asset one primary work item and record secondary defects there.
+
+Use the previously delivered experience as the control. Identify the exact file, named task, first view and any selection a learner already had. A control and candidate with a changed camera, hidden structure, illustrative color or additional source must disclose that difference. The reviewer should be able to repeat the selection or inspect the matched views and point to the landmark. A newly surfaced existing witness can improve teaching readability. It supplies no evidence that the source geometry changed.
+
+Record what happened to every previously low axis. Raise a score when the same task meets its anchor in the delivered experience. A source limitation stays attached to the original file. Evaluate a lighter candidate under its own identity, including its closest useful view, worst affected feature and any data lost from the export. The original retains its measured cost.
+
 ## Review a teaching set
 
 Choose a learner task and protected landmark for each asset. In the overview, use the same projection, orientation conventions, lighting and framing across comparable assets. Preserve physical scale when comparing size. Label independently enlarged details, intentional cuts and schematic joins in the views where they appear. Keep target, context and cut surfaces distinguishable under grayscale. Pick a second angle that answers a real depth, attachment or continuity question.
@@ -67,3 +75,11 @@ A few hundred triangles can describe a short tube or simple sheet. A few thousan
 > **Evidence** · Link the exact export, matched whole views, target close-up and measurements.
 >
 > **Decision** · Fidelity __ / Form __ / Readability __ / Economy __. Give the reason for each and the next unresolved limit.
+
+## Resolve the teaching target
+
+Keep the four scores on the exact file and learner task. Inspect the visible finish at the closest intended teaching view. If a contour is visibly distracting, score the observed finish and record any uncertainty about its cause. A registered section or source-author explanation can support a claim about specimen morphology. Preserve the source contour when its origin is uncertain. Label an interpreted derivative, cite the reference that supports the change, and keep the original available.
+
+For a task that depends on several structures, review the delivered composition as a separate learner action. Record the view or selection used, what the reviewer could locate or trace, and any step that failed. A collection lists its required actions and their outcomes. A blocked relationship stays visible even when every component has high scores.
+
+A score below 3 can remain when a tested alternative loses a protected feature, the source cannot support the proposed correction, or a delivery constraint prevents a faithful replacement. Record the exact axis, attempted fix, evidence, permitted use and condition for reopening. The lead reviewer accepts each exception individually. Keep its actual score visible. An exception to surface or delivery quality only permits the learner action that the evidence demonstrates.

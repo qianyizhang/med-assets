@@ -8,27 +8,23 @@ const dest = process.env.MODEL_SURVEY_PREVIEW_URL || 'http://127.0.0.1:8858';
 const captures = process.env.MODEL_SURVEY_CAPTURE_DIR || '.artifacts/taq-008/browser';
 await mkdir(captures, { recursive: true });
 
-const batches = new URL('../../../reviews/teaching-assessments/', import.meta.url);
+const decisions = (await Promise.all(['reopen-paired', 'target-risk'].map(async (batch) =>
+  JSON.parse(await readFile(new URL('../../../reviews/teaching-assessments/' + batch + '/decisions.json', import.meta.url)))
+))).flat();
 const cases = [
   {
     slug: 'one-breath-mechanics',
     route: 'use-cases/one-breath',
-    batch: '2026-11-22-respiratory',
     exportPath: 'body/breathing/Breathing_Assembly.blend',
     title: 'Compare expiration and peak inspiration',
     original: /Three panels show the diaphragm/,
-    width: 1002,
-    height: 1086,
   },
   {
     slug: 'lymphatic-node-transit',
     route: 'use-cases/systems/lymphatic?detail=lymphatic-node-transit',
-    batch: '2026-11-22-lymphatic-musculoskeletal-nervous',
-    exportPath: 'models/lymph_node/exports/hra-v1.2/NIH_M_Lymph_Node.glb',
+    exportPath: 'models/lymph_node/exports/hra-tissue-layers-r01/lymph-node-tissue-layers.glb',
     title: 'Look inside the source lymph node',
     original: /Node transit · Isometric/,
-    width: 1322,
-    height: 786,
   },
 ];
 
@@ -42,9 +38,8 @@ try {
   const errors = [];
   page.on('pageerror', (e) => errors.push(String(e)));
   for (const item of cases) {
-    const batch = JSON.parse(await readFile(new URL(item.batch + '/campaign-assessments.json', batches)));
-    const reviewed = batch.assessments.find((row) => row.export.path === item.exportPath);
-    const view = reviewed.views.find((v) => v.path === reviewed.teachingView);
+    const decision = decisions.find((row) => row.baseline === item.exportPath);
+    const view = decision.teaching ?? decision.after;
     const address = dest + '/#/' + item.route;
     const region = page.locator('section').filter({ has: page.getByRole('heading', { name: item.title, exact: true }) });
     const img = region.getByRole('img');
@@ -56,7 +51,7 @@ try {
       assert.ok(await img.evaluate((element, item) =>
         element.naturalWidth === item.width && element.naturalHeight === item.height &&
         element.getBoundingClientRect().width >= 700 && document.documentElement.scrollWidth <= innerWidth + 1,
-      { width: item.width, height: item.height }));
+      { width: view.width, height: view.height }));
       const url = await img.getAttribute('src');
       assert.equal(url, '/review-evidence/' + view.sha256 + '/' + encodeURIComponent(path.basename(view.path)));
       assert.equal(createHash('sha256').update(await (await page.request.get(dest + url)).body()).digest('hex'), view.sha256);

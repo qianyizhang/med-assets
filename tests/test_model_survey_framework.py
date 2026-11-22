@@ -102,6 +102,9 @@ class FrameworkTests(unittest.TestCase):
         # Exercise the normal command with a valid framework and a mismatched delivery row.
         site = self.site
         (site/'tools').mkdir()
+        shared = site.parents[1] / 'tools/teaching_assessments.py'
+        shared.parent.mkdir(exist_ok=True)
+        shared.write_bytes((recipe.parents[3] / 'tools/teaching_assessments.py').read_bytes())
         for name in ('framework.py', 'gallery_runtime.py'):
             (site/'tools'/name).write_bytes((recipe.parent/name).read_bytes())
         gallery = site/'app/src/content/gallery'
@@ -220,6 +223,51 @@ class FrameworkTests(unittest.TestCase):
         (repo / view['path']).write_bytes(b'x')
         with self.assertRaisesRegex(ValueError, 'Delivery index differs'):
             runtime.prepare_campaign_reviews(repo, index)
+
+    def test_refinement_download_uses_the_exact_maintained_export(self):
+        spec = importlib.util.spec_from_file_location('gallery_runtime', recipe.with_name('gallery_runtime.py'))
+        runtime = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(runtime)
+        repo = self.site
+        for directory in ('docs/gallery', 'models', 'reviews'):
+            (repo / directory).mkdir(parents=True)
+        (repo / runtime.REGISTER).write_text(
+            '## Test\n\n| Family | Starting file |\n| --- | --- |\n'
+            '| Selected | [selected.glb](../../models/selected.glb) |\n'
+        )
+        (repo / 'models/selected.glb').write_bytes(b'new')
+        (repo / 'models/replay.py').write_text('# recipe\n')
+        (repo / 'reviews/view.jpg').write_bytes(b'v')
+        view = {'path': 'reviews/view.jpg', 'bytes': 1, 'sha256': hashlib.sha256(b'v').hexdigest()}
+        selected = {'path': 'models/selected.glb', 'bytes': 3, 'sha256': hashlib.sha256(b'new').hexdigest()}
+        control = {'path': 'models/control.glb', 'bytes': 3, 'sha256': hashlib.sha256(b'old').hexdigest()}
+        index = repo / 'delivery-index.json'
+        index.write_text(json.dumps({'assets': [control]}))
+        index.with_name('local-delivery.json').write_text('{"assets":[]}')
+        review = {'task': 'Trace the structure.', 'views': [view], 'sources': [view],
+                  'axes': [{'score': 3, 'observation': 'The landmark is visible.'}] * 4}
+        owner = repo / 'reviews/assessments.json'
+        batch = {'evaluator': 'Reviewer', 'date': '2026-11-22', 'rubric': {'revision': 'fixture'}}
+        digest = selected['sha256']
+        candidate = {'path': f'.artifacts/teaching-refinements/candidates/{digest}.glb',
+                     'bytes': 3, 'sha256': digest, 'name': 'earlier-name.glb',
+                     'recipe': 'models/replay.py', 'download': True}
+
+        def prepared_download(item):
+            rows = [(owner, batch, {**review, 'export': control, 'refinement': {'candidate': item}}),
+                    (owner, batch, {**review, 'export': selected})]
+            with patch.object(runtime, 'campaign_rows', return_value=rows):
+                return runtime.prepare_campaign_reviews(repo, index)[0]['refinement']['candidate']
+
+        promoted = prepared_download(candidate)
+        self.assertEqual(promoted['path'], selected['path'])
+        self.assertEqual(promoted['url'], f'/assets/{digest}/selected.glb')
+        self.assertEqual(promoted['name'], 'selected.glb')
+        self.assertEqual(candidate['name'], 'earlier-name.glb')
+
+        unmatched = prepared_download({**candidate, 'bytes': 4})
+        self.assertEqual(unmatched['url'], f'/assets/{digest}/earlier-name.glb')
+        self.assertEqual(unmatched['path'], candidate['path'])
 
     def test_teaching_assessment_discovery_preserves_batch_metadata_and_rejects_conflicts(self):
         runtime_spec = importlib.util.spec_from_file_location('gallery_runtime', recipe.with_name('gallery_runtime.py'))

@@ -5,7 +5,7 @@ import sys
 import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from tools.glb import decode, encode
+from tools.glb import buffer_view_bytes, decode, encode, pack_buffer_view
 
 
 def container(json_bytes=b'{}  ', binary=b'abcd', *, kinds=(0x4E4F534A, 0x004E4942)):
@@ -90,3 +90,18 @@ class GLBTests(unittest.TestCase):
     def test_leaves_buffer_and_accessor_policy_to_asset(self):
         document = {'buffers': [{'uri': 'source.bin', 'byteLength': 4}]}
         self.assertEqual(decode(encode(document, b'')), (document, b''))
+
+    def test_preserves_view_metadata_while_packing_at_aligned_offsets(self):
+        source = {'buffer': 0, 'byteLength': 3, 'byteOffset': 1, 'name': 'original'}
+        packed = bytearray(b'abc')
+        view = pack_buffer_view(packed, source, buffer_view_bytes(b'1234', source))
+        self.assertEqual(source['byteOffset'], 1)
+        self.assertEqual(view, {**source, 'byteOffset': 4})
+        self.assertEqual(packed, b'abc\x00234')
+        self.assertEqual(buffer_view_bytes(packed, view), b'234')
+
+    def test_rejects_external_and_out_of_bounds_buffer_views(self):
+        valid = {'buffer': 0, 'byteLength': 2}
+        for changed in ({'buffer': 1}, {'byteOffset': -1}, {'byteOffset': 3}, {'byteLength': -1}):
+            with self.subTest(changed=changed), self.assertRaisesRegex(ValueError, 'Invalid embedded buffer view'):
+                buffer_view_bytes(b'1234', {**valid, **changed})

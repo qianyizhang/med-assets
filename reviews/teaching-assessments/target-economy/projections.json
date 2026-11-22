@@ -1,0 +1,22 @@
+{
+  "kidney_left": {
+    "omit": ["VH_F_renal_medulla_L", "VH_F_renal_column_L"],
+    "scope": "Left kidney hilar exterior. Retains capsule, outer cortex and hilum. Internal renal columns, papillae and pyramids remain in the full atlas."
+  },
+  "kidney_right": {
+    "omit": ["VH_F_renal_medulla_R", "VH_F_renal_column_R"],
+    "scope": "Right kidney hilar exterior. Retains capsule, outer cortex and hilum. Internal renal columns, papillae and pyramids remain in the full atlas."
+  },
+  "placenta": {
+    "omit": ["VH_F_umbilical_artery_1", "VH_F_umbilical_artery_2", "VH_F_umbilical_vein"],
+    "scope": "Fetal and maternal surface orientation. Retains the cord, amnion, chorionic and basal plates and placental vessels. Three internal cord vessel meshes remain in the full atlas."
+  },
+  "lung_pair": {
+    "omit": ["VH_F_tracheobronchial_tree"],
+    "scope": "Bilateral lobe orientation. Retains all five lobar groups, all their segments and hila. The separate tracheobronchial selection remains in the full atlas.",
+    "views": [
+      {"direction": [0.25, -1, 0.17]},
+      {"direction": [0.15, 1, 0.3], "palette": false}
+    ]
+  }
+}

@@ -14,11 +14,12 @@ import {
   salivary,
 } from './catalog.js';
 import { adrenalLibrary } from './adrenal-study.js';
-import { exportRole, librarySearchText, selectLibraryRow } from './library-data.js';
+import { exactExportPath, exportRole, librarySearchText, selectLibraryRow } from './library-data.js';
 import { baseView, localView } from './presets.js';
 import { Scene } from './Scene.jsx';
 import { BalancedDownload } from './BalancedDownload.jsx';
 import { AdrenalReviewLinks } from './BodyPartsReview.jsx';
+import { refinementPath } from './Refinements.jsx';
 import { Evidence } from './Evidence.jsx';
 import { Link, Label, Heading, Missing } from './GalleryUI.jsx';
 
@@ -277,6 +278,8 @@ export function Revision({ revision, assessment }) {
             <AxisRatings axes={profile.axes} />
           </dl>
           <Link to="rubric">Rating rubric</Link>
+          {assessment?.target && <p><Link to={'compare/teaching-target?asset=' + assessment.export.sha256}>Review the current teaching target →</Link></p>}
+          {assessment?.refinement && <p><Link to={refinementPath(assessment.export.sha256)}>Compare the teaching refinement →</Link></p>}
           {assessment && <TeachingAssessment assessment={assessment} />}
           <p>
             Agent review · 20 Nov 2026 ·{' '}
@@ -315,6 +318,13 @@ function TeachingAssessment({ assessment, previous = false }) {
           </React.Fragment>
         ))}
       </dl>
+      {assessment.target && <>
+        <h3>Teaching task · {assessment.target.status}</h3><p>{assessment.target.taskCheck}</p>
+        {Object.entries(assessment.target.exemptions).map(([index, exemption]) => <section key={index}>
+          <h4>{ratingAxes[index]} · target exemption</h4>
+          <p>{exemption.reason}</p><p>Permitted use · {exemption.permittedUse}</p><p>Reopen when · {exemption.reopen}</p>
+        </section>)}
+      </>}
       {assessment.decision && <p>{assessment.decision}</p>}
       <h3>Sources and checks</h3>
       <ul>
@@ -333,7 +343,7 @@ function TeachingAssessment({ assessment, previous = false }) {
 }
 
 export function CollectionEntry({ row, snapshot, exact, lessonQuery = '' }) {
-  const file = exact?.exports[0] ?? byPath.get(row.media?.[0]?.path);
+  const file = exact?.selectedFile ?? exact?.exports.find((entry) => entry.path === exact.assessment?.export.path) ?? exact?.exports[0] ?? byPath.get(row.media?.[0]?.path);
   const priorAssessment = !exact && row.exportPath;
   const profile = exact ? ratingProfile(exact.axes) : priorAssessment ? row : ratingProfile();
   const assessment = exact?.assessment ?? (priorAssessment ? row.assessment : undefined);
@@ -415,6 +425,8 @@ export function CollectionEntry({ row, snapshot, exact, lessonQuery = '' }) {
             {' · '}
             <Link to="rubric">Rating rubric</Link>
           </p>
+          {assessment?.target && <p><Link to={'compare/teaching-target?asset=' + assessment.export.sha256}>Review the current teaching target →</Link></p>}
+          {assessment?.refinement && <p><Link to={refinementPath(assessment.export.sha256)}>Compare the teaching refinement →</Link></p>}
           {assessment && <TeachingAssessment assessment={assessment} />}
           {exact?.previousAssessment && <TeachingAssessment assessment={exact.previousAssessment} previous />}
           {exact && (
@@ -453,7 +465,7 @@ export function CollectionEntry({ row, snapshot, exact, lessonQuery = '' }) {
           <ul>
             {row.history.map((study) => (
               <li key={study.library}>
-                <Link to={study.library + lessonQuery} aria-current={study === exact ? 'page' : undefined}>
+                <Link to={study.library + lessonQuery} aria-current={study.revision === exact?.revision ? 'page' : undefined}>
                   {study.title}
                 </Link>
                 {study.status && ' · ' + study.status}
@@ -475,6 +487,7 @@ export function CollectionEntry({ row, snapshot, exact, lessonQuery = '' }) {
                 </dt>
                 <dd>
                   {exportRole(exported) && <>{exportRole(exported)} · </>}{exported.bytes.toLocaleString('en-US')} bytes · SHA-256 <code className="ga-digest">{exported.sha256}</code>
+                  {exact.fileAssessments?.size > 1 && <p><Link to={exactExportPath(exact, exported)}>Review {exported.name}</Link></p>}
                   {exported.unavailable && <p>{exported.unavailable}</p>}
                 </dd>
               </React.Fragment>

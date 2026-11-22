@@ -1,0 +1,2706 @@
+[
+  {
+    "name": "liver",
+    "control": {
+      "path": "models/liver/exports/hra-female-v1.10-r02/liver.glb",
+      "sha256": "e9abb0c2503a3fa9d725988451e630283ec2c902c182b812219f2d73f3ab1038",
+      "bytes": 763480,
+      "triangles": 41470
+    },
+    "candidate": null,
+    "parts": [
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "name": "VH_F_capsule_of_the_liver",
+        "beforeTriangles": 30034,
+        "afterTriangles": 30034,
+        "attempts": [
+          {
+            "triangles": 19222,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.64,
+            "worstSamplePixels": 2.598860083324193
+          },
+          {
+            "triangles": 29182,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.81
+          }
+        ],
+        "vertices": 15133,
+        "lockedVertices": 3624,
+        "exactProtectedFaces": 6463,
+        "maximumSampleDistance": 0.00043629915625,
+        "maximumEdge": 0.0030540940937499998,
+        "forward": 0.0011338804615661502,
+        "reverse": 0.0008560638525523245,
+        "worstLocalPosition": [
+          0.062342312186956406,
+          0.39707040786743164,
+          -0.07901721447706223
+        ],
+        "edgeFactor": 1.0,
+        "worstSamplePixels": 2.598860083324193,
+        "requestedRatio": 0.64,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      }
+    ],
+    "blender": "5.2.3 LTS Release Candidate",
+    "build": "fab76e95306d"
+  },
+  {
+    "name": "kidney_left",
+    "control": {
+      "path": "models/kidney_left/exports/hra-female-v1.3-r02/kidney_left.glb",
+      "sha256": "8e55b5ae48821f067f41bd23ffdd668f68c7ff705cf49e9a40287042fee469fc",
+      "bytes": 1378060,
+      "triangles": 73526
+    },
+    "candidate": null,
+    "parts": [
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "name": "VH_F_kidney_capsule_L",
+        "beforeTriangles": 10850,
+        "afterTriangles": 10850,
+        "attempts": [
+          {
+            "triangles": 10850,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.66
+          }
+        ],
+        "vertices": 5427,
+        "lockedVertices": 3648,
+        "exactProtectedFaces": 7080,
+        "maximumSampleDistance": 0.00019840457812500003,
+        "maximumEdge": 0.00110224765625,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 24,
+        "primitive": 0,
+        "name": "VH_F_renal_column_L",
+        "beforeTriangles": 26115,
+        "afterTriangles": 26115,
+        "attempts": [
+          {
+            "triangles": 15597,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.59,
+            "worstSamplePixels": 5.171963792245302
+          },
+          {
+            "triangles": 23165,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.76,
+            "worstSamplePixels": 3.5875125117243796
+          },
+          {
+            "triangles": 26057,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.87
+          }
+        ],
+        "vertices": 13107,
+        "lockedVertices": 4381,
+        "exactProtectedFaces": 8165,
+        "maximumSampleDistance": 0.00019840457812500003,
+        "maximumEdge": 0.0013226971875000002,
+        "forward": 0.0007908654515631497,
+        "reverse": 0.0006397240795195103,
+        "worstLocalPosition": [
+          0.08046934008598328,
+          0.2681616246700287,
+          -0.1213383674621582
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 3.5875125117243796,
+        "requestedRatio": 0.76,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      }
+    ],
+    "blender": "5.2.3 LTS Release Candidate",
+    "build": "fab76e95306d"
+  },
+  {
+    "name": "kidney_right",
+    "control": {
+      "path": "models/kidney_right/exports/hra-female-v1.3-r02/kidney_right.glb",
+      "sha256": "977d0a283de7071a2e8aaeb8900c5a6dc8d0ba770eb458e996dc66cc249c0b56",
+      "bytes": 1403576,
+      "triangles": 75138
+    },
+    "candidate": null,
+    "parts": [
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "name": "VH_F_kidney_capsule_R",
+        "beforeTriangles": 10642,
+        "afterTriangles": 10642,
+        "attempts": [
+          {
+            "triangles": 10642,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.66
+          }
+        ],
+        "vertices": 5323,
+        "lockedVertices": 3264,
+        "exactProtectedFaces": 6316,
+        "maximumSampleDistance": 0.000155497246875,
+        "maximumEdge": 0.0008638735937499999,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 2,
+        "primitive": 0,
+        "name": "VH_F_outer_cortex_of_kidney_R",
+        "beforeTriangles": 13824,
+        "afterTriangles": 13824,
+        "attempts": [
+          {
+            "triangles": 13456,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.66
+          }
+        ],
+        "vertices": 6914,
+        "lockedVertices": 3770,
+        "exactProtectedFaces": 7293,
+        "maximumSampleDistance": 0.000155497246875,
+        "maximumEdge": 0.0008638735937499999,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 3,
+        "primitive": 0,
+        "name": "VH_F_renal_column_R",
+        "beforeTriangles": 23628,
+        "afterTriangles": 23628,
+        "attempts": [
+          {
+            "triangles": 14880,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.59,
+            "worstSamplePixels": 6.711902868644623
+          },
+          {
+            "triangles": 22118,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.76,
+            "worstSamplePixels": 2.985386930969199
+          },
+          {
+            "triangles": 23564,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.87
+          }
+        ],
+        "vertices": 11894,
+        "lockedVertices": 3295,
+        "exactProtectedFaces": 6004,
+        "maximumSampleDistance": 0.000155497246875,
+        "maximumEdge": 0.0010366483125,
+        "forward": 0.000515799387358129,
+        "reverse": 0.0003856557887047529,
+        "worstLocalPosition": [
+          -0.0955410972237587,
+          0.24098224937915802,
+          -0.08270376175642014
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 2.985386930969199,
+        "requestedRatio": 0.76,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      }
+    ],
+    "blender": "5.2.3 LTS Release Candidate",
+    "build": "fab76e95306d"
+  },
+  {
+    "name": "placenta",
+    "control": {
+      "path": "models/placenta/exports/hra-v1.1-r02/placenta_full_term.glb",
+      "sha256": "7f9f215f810003fddc76ede225f051dc7014c67216e804403a4632d628ad82aa",
+      "bytes": 4917576,
+      "triangles": 188365
+    },
+    "candidate": {
+      "sha256": "3c1ce4211bbf7e5e339767469f90761360b4d1d67bab82df50581472377da306",
+      "bytes": 4767408,
+      "triangles": 182585
+    },
+    "parts": [
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "name": "VH_F_basal_plate",
+        "beforeTriangles": 17273,
+        "afterTriangles": 17273,
+        "attempts": [
+          {
+            "triangles": 10881,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.63,
+            "worstSamplePixels": 1.828641817073338
+          },
+          {
+            "triangles": 14807,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.8,
+            "worstSamplePixels": 2.2127434876099294
+          },
+          {
+            "triangles": 16875,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.91
+          }
+        ],
+        "vertices": 8754,
+        "lockedVertices": 462,
+        "exactProtectedFaces": 460,
+        "maximumSampleDistance": 0.00039869144999999995,
+        "maximumEdge": 0.0026579429999999994,
+        "forward": 0.0009802243439480662,
+        "reverse": 0.0007796637946739793,
+        "worstLocalPosition": [
+          -0.055312469601631165,
+          0.24546489119529724,
+          0.14947232604026794
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 2.2127434876099294,
+        "requestedRatio": 0.8,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 1,
+        "primitive": 0,
+        "name": "VH_F_chorionic_plate",
+        "beforeTriangles": 17219,
+        "afterTriangles": 17219,
+        "attempts": [
+          {
+            "triangles": 10847,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.63,
+            "worstSamplePixels": 1.680541270483492
+          },
+          {
+            "triangles": 16699,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.8
+          }
+        ],
+        "vertices": 8727,
+        "lockedVertices": 442,
+        "exactProtectedFaces": 445,
+        "maximumSampleDistance": 0.00039869144999999995,
+        "maximumEdge": 0.0026579429999999994,
+        "forward": 0.0007444638176821172,
+        "reverse": 0.0006506002973765135,
+        "worstLocalPosition": [
+          0.05566096305847168,
+          0.1150575652718544,
+          0.13266679644584656
+        ],
+        "edgeFactor": 1.0,
+        "worstSamplePixels": 1.680541270483492,
+        "requestedRatio": 0.63,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 3,
+        "primitive": 0,
+        "name": "VH_F_amnion",
+        "beforeTriangles": 14642,
+        "afterTriangles": 14642,
+        "attempts": [
+          {
+            "triangles": 10518,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.63,
+            "worstSamplePixels": 5.157492784192999
+          },
+          {
+            "triangles": 13752,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.8,
+            "worstSamplePixels": 4.012238934419877
+          },
+          {
+            "triangles": 14642,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.91
+          }
+        ],
+        "vertices": 7323,
+        "lockedVertices": 42,
+        "exactProtectedFaces": 36,
+        "maximumSampleDistance": 0.00039869144999999995,
+        "maximumEdge": 0.0026579429999999994,
+        "forward": 0.0017773837316781282,
+        "reverse": 0.0010261614806950092,
+        "worstLocalPosition": [
+          -0.11268152296543121,
+          0.11346662044525146,
+          0.12615881860256195
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 4.012238934419877,
+        "requestedRatio": 0.8,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 4,
+        "primitive": 0,
+        "name": "VH_F_umbilical_cord",
+        "beforeTriangles": 30426,
+        "afterTriangles": 24646,
+        "attempts": [
+          {
+            "triangles": 19472,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.64,
+            "worstSamplePixels": 1.518280751217699
+          },
+          {
+            "triangles": 24646,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.81,
+            "worstSamplePixels": 0.6492413263433546
+          }
+        ],
+        "vertices": 15211,
+        "lockedVertices": 2123,
+        "exactProtectedFaces": 4064,
+        "maximumSampleDistance": 0.00023593910154886543,
+        "maximumEdge": 0.0028837001300416887,
+        "forward": 0.00017020157247316092,
+        "reverse": 0.0001200353290187195,
+        "worstLocalPosition": [
+          -0.014179497957229614,
+          0.13494521379470825,
+          0.22444455325603485
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 0.6492413263433546,
+        "requestedRatio": 0.81
+      }
+    ],
+    "blender": "5.2.3 LTS Release Candidate",
+    "build": "fab76e95306d"
+  },
+  {
+    "name": "small-intestine",
+    "control": {
+      "path": "models/small-intestine/exports/source-candidate-v4/small-intestine.glb",
+      "sha256": "a9459afc67cb13c28084b518615fdbb5e05c135a47eafa3036908139aece94da",
+      "bytes": 2366552,
+      "triangles": 96240
+    },
+    "candidate": {
+      "sha256": "b5bb67aae18a3fa305cbf29f7d1464cdfdc9d9d22b8dbb6de6c48efb03f0b190",
+      "bytes": 2140672,
+      "triangles": 86616
+    },
+    "parts": [
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "name": "FJ2573",
+        "beforeTriangles": 96240,
+        "afterTriangles": 86616,
+        "attempts": [
+          {
+            "triangles": 59668,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.62,
+            "worstSamplePixels": 2.4623981290279917
+          },
+          {
+            "triangles": 76030,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.79,
+            "worstSamplePixels": 1.5409402495825515
+          },
+          {
+            "triangles": 86616,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.9,
+            "worstSamplePixels": 0.8283099531233025
+          }
+        ],
+        "vertices": 48610,
+        "lockedVertices": 6014,
+        "exactProtectedFaces": 10843,
+        "maximumSampleDistance": 0.00040693995703124997,
+        "maximumEdge": 0.006223787578124999,
+        "forward": 0.0003965557843912393,
+        "reverse": 0.00021272928279358894,
+        "worstLocalPosition": [
+          0.02348416857421398,
+          0.964620053768158,
+          0.1605890542268753
+        ],
+        "edgeFactor": 0.2,
+        "worstSamplePixels": 0.8283099531233025,
+        "requestedRatio": 0.9,
+        "morphSampleDistances": [
+          0.0003965557843912393,
+          0.0003965557843912393
+        ]
+      }
+    ],
+    "blender": "5.2.3 LTS Release Candidate",
+    "build": "fab76e95306d"
+  },
+  {
+    "name": "brain",
+    "control": {
+      "path": "models/brain/exports/bodyparts3d-4.0-atlas-r2/brain-source-frame.glb",
+      "sha256": "26d39768e2882daee034f997a8d594e915283b5f8a176a8bb60003944a45b886",
+      "bytes": 4415384,
+      "triangles": 242358
+    },
+    "candidate": {
+      "sha256": "05c972fb1dfdfb7f5c1b6f3c0964bb2d9b430b25a2d089c74ab173ffbdbb1459",
+      "bytes": 4206276,
+      "triangles": 230726
+    },
+    "parts": [
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "name": "FJ1769",
+        "beforeTriangles": 6036,
+        "afterTriangles": 6036,
+        "attempts": [
+          {
+            "triangles": 4346,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 1.046258754612393
+          },
+          {
+            "triangles": 5372,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 0.8669628308451138
+          },
+          {
+            "triangles": 5792,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94,
+            "worstSamplePixels": 0.9920802388517442
+          }
+        ],
+        "vertices": 3020,
+        "lockedVertices": 58,
+        "exactProtectedFaces": 54,
+        "maximumSampleDistance": 0.00012577500427141786,
+        "maximumEdge": 0.0008062500273808837,
+        "forward": 0.0001599729439476505,
+        "reverse": 6.949586531845853e-05,
+        "worstLocalPosition": [
+          0.0001570191961945966,
+          0.35384002327919006,
+          -0.009843351319432259
+        ],
+        "edgeFactor": 0.2,
+        "worstSamplePixels": 0.9920802388517442,
+        "requestedRatio": 0.94,
+        "rejection": "A sampled surface shifted beyond the screen-space allowance"
+      },
+      {
+        "mesh": 1,
+        "primitive": 0,
+        "name": "FJ1831",
+        "beforeTriangles": 6060,
+        "afterTriangles": 5738,
+        "attempts": [
+          {
+            "triangles": 4364,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 1.2017256359886133
+          },
+          {
+            "triangles": 5394,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 0.7933005421163547
+          },
+          {
+            "triangles": 5738,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94,
+            "worstSamplePixels": 0.47489887208898535
+          }
+        ],
+        "vertices": 3032,
+        "lockedVertices": 44,
+        "exactProtectedFaces": 38,
+        "maximumSampleDistance": 0.00012577500427141786,
+        "maximumEdge": 0.0008062500273808837,
+        "forward": 7.657744572497904e-05,
+        "reverse": 5.1756480388576165e-05,
+        "worstLocalPosition": [
+          -0.0011149788042530417,
+          0.35346001386642456,
+          -0.01143335085362196
+        ],
+        "edgeFactor": 0.2,
+        "worstSamplePixels": 0.47489887208898535,
+        "requestedRatio": 0.94
+      },
+      {
+        "mesh": 2,
+        "primitive": 0,
+        "name": "FJ1770",
+        "beforeTriangles": 6468,
+        "afterTriangles": 6468,
+        "attempts": [
+          {
+            "triangles": 4656,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 1.2978806784814678
+          },
+          {
+            "triangles": 5756,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 1.0104218001284206
+          },
+          {
+            "triangles": 6080,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94,
+            "worstSamplePixels": 0.9284505558928142
+          }
+        ],
+        "vertices": 3236,
+        "lockedVertices": 48,
+        "exactProtectedFaces": 45,
+        "maximumSampleDistance": 8.941054169554264e-05,
+        "maximumEdge": 0.0005731444980483502,
+        "forward": 0.00010642726556397974,
+        "reverse": 3.690197627292946e-05,
+        "worstLocalPosition": [
+          0.0005975001840852201,
+          0.39264002442359924,
+          -0.0035063510295003653
+        ],
+        "edgeFactor": 0.2,
+        "worstSamplePixels": 0.9284505558928142,
+        "requestedRatio": 0.94,
+        "rejection": "A sampled surface shifted beyond the screen-space allowance"
+      },
+      {
+        "mesh": 3,
+        "primitive": 0,
+        "name": "FJ1817",
+        "beforeTriangles": 6440,
+        "afterTriangles": 6054,
+        "attempts": [
+          {
+            "triangles": 4636,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 1.1554983483763295
+          },
+          {
+            "triangles": 5732,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 1.0292679080875455
+          },
+          {
+            "triangles": 6054,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94,
+            "worstSamplePixels": 0.6858066797930545
+          }
+        ],
+        "vertices": 3222,
+        "lockedVertices": 53,
+        "exactProtectedFaces": 48,
+        "maximumSampleDistance": 8.947422931669281e-05,
+        "maximumEdge": 0.000573552752030082,
+        "forward": 7.866926171118394e-05,
+        "reverse": 3.210987779311836e-05,
+        "worstLocalPosition": [
+          6.649119313806295e-05,
+          0.39246001839637756,
+          -0.005711150821298361
+        ],
+        "edgeFactor": 0.2,
+        "worstSamplePixels": 0.6858066797930545,
+        "requestedRatio": 0.94
+      },
+      {
+        "mesh": 4,
+        "primitive": 0,
+        "name": "FJ1775",
+        "beforeTriangles": 10304,
+        "afterTriangles": 10304,
+        "attempts": [],
+        "vertices": 5154,
+        "lockedVertices": 88,
+        "exactProtectedFaces": 85,
+        "maximumSampleDistance": 0.00010483077785465867,
+        "maximumEdge": 0.0006719921657349914,
+        "rejection": "A contraction changed face count outside the contracted links"
+      },
+      {
+        "mesh": 5,
+        "primitive": 0,
+        "name": "FJ1822",
+        "beforeTriangles": 10342,
+        "afterTriangles": 9806,
+        "attempts": [
+          {
+            "triangles": 7446,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 1.6396735542703085
+          },
+          {
+            "triangles": 9204,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 0.9821344568464241
+          },
+          {
+            "triangles": 9806,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94,
+            "worstSamplePixels": 0.6229336972492324
+          }
+        ],
+        "vertices": 5171,
+        "lockedVertices": 62,
+        "exactProtectedFaces": 58,
+        "maximumSampleDistance": 0.00010481463745236397,
+        "maximumEdge": 0.0006718887016177177,
+        "forward": 8.370842260774225e-05,
+        "reverse": 5.2982974011683837e-05,
+        "worstLocalPosition": [
+          -0.0017578387632966042,
+          0.3517500162124634,
+          0.004647248890250921
+        ],
+        "edgeFactor": 0.2,
+        "worstSamplePixels": 0.6229336972492324,
+        "requestedRatio": 0.94
+      },
+      {
+        "mesh": 6,
+        "primitive": 0,
+        "name": "FJ1781",
+        "beforeTriangles": 23818,
+        "afterTriangles": 21198,
+        "attempts": [
+          {
+            "triangles": 17148,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 0.9124634302460637
+          },
+          {
+            "triangles": 21198,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 0.6846866826151495
+          }
+        ],
+        "vertices": 11911,
+        "lockedVertices": 43,
+        "exactProtectedFaces": 37,
+        "maximumSampleDistance": 0.00017145739373518155,
+        "maximumEdge": 0.0010990858572768047,
+        "forward": 0.00015050588990561664,
+        "reverse": 8.608373900642619e-05,
+        "worstLocalPosition": [
+          0.045054201036691666,
+          0.3602500259876251,
+          -0.022016651928424835
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 0.6846866826151495,
+        "requestedRatio": 0.89
+      },
+      {
+        "mesh": 7,
+        "primitive": 0,
+        "name": "FJ1830",
+        "beforeTriangles": 23882,
+        "afterTriangles": 21254,
+        "attempts": [
+          {
+            "triangles": 17196,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 0.9258880470377695
+          },
+          {
+            "triangles": 21254,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 0.69142814218283
+          }
+        ],
+        "vertices": 11943,
+        "lockedVertices": 39,
+        "exactProtectedFaces": 33,
+        "maximumSampleDistance": 0.00017150096828117968,
+        "maximumEdge": 0.0010993651812896132,
+        "forward": 0.00015202640497591347,
+        "reverse": 7.808285590726882e-05,
+        "worstLocalPosition": [
+          -0.001458158832974732,
+          0.38715001940727234,
+          -0.04090625047683716
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 0.69142814218283,
+        "requestedRatio": 0.89
+      },
+      {
+        "mesh": 8,
+        "primitive": 0,
+        "name": "FJ1837",
+        "beforeTriangles": 1804,
+        "afterTriangles": 1804,
+        "attempts": [
+          {
+            "triangles": 1298,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 2.1609382273492557
+          },
+          {
+            "triangles": 1640,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 1.4230956579959442
+          },
+          {
+            "triangles": 1804,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 904,
+        "lockedVertices": 39,
+        "exactProtectedFaces": 33,
+        "maximumSampleDistance": 0.00022486243222374469,
+        "maximumEdge": 0.001441425847588107,
+        "forward": 0.00041025737300515175,
+        "reverse": 0.00022219429956749082,
+        "worstLocalPosition": [
+          0.03684930130839348,
+          0.39903002977371216,
+          0.0261431485414505
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 1.4230956579959442,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 9,
+        "primitive": 0,
+        "name": "FJ1838",
+        "beforeTriangles": 1892,
+        "afterTriangles": 1892,
+        "attempts": [
+          {
+            "triangles": 1362,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 2.771312097080015
+          },
+          {
+            "triangles": 1688,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 1.2490842269180806
+          },
+          {
+            "triangles": 1888,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 948,
+        "lockedVertices": 45,
+        "exactProtectedFaces": 39,
+        "maximumSampleDistance": 0.0002250830177217722,
+        "maximumEdge": 0.0014428398571908474,
+        "forward": 0.0003604457015171647,
+        "reverse": 0.00027493498055264354,
+        "worstLocalPosition": [
+          -0.051240600645542145,
+          0.3993600308895111,
+          0.028621148318052292
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 1.2490842269180806,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 10,
+        "primitive": 0,
+        "name": "FJ1742",
+        "beforeTriangles": 30232,
+        "afterTriangles": 25092,
+        "attempts": [
+          {
+            "triangles": 16628,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.55,
+            "worstSamplePixels": 1.4295091201090604
+          },
+          {
+            "triangles": 21768,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.7200000000000001,
+            "worstSamplePixels": 1.4295091201090604
+          },
+          {
+            "triangles": 25092,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.8300000000000001,
+            "worstSamplePixels": 0.6674672332806826
+          }
+        ],
+        "vertices": 15118,
+        "lockedVertices": 49,
+        "exactProtectedFaces": 44,
+        "maximumSampleDistance": 0.000317823609375,
+        "maximumEdge": 0.00444953053125,
+        "forward": 0.00021213684522081167,
+        "reverse": 9.405545279150829e-05,
+        "worstLocalPosition": [
+          -0.0012523387558758259,
+          0.42153000831604004,
+          0.004640948958694935
+        ],
+        "edgeFactor": 0.2,
+        "worstSamplePixels": 0.6674672332806826,
+        "requestedRatio": 0.8300000000000001
+      },
+      {
+        "mesh": 11,
+        "primitive": 0,
+        "name": "FJ1760",
+        "beforeTriangles": 2050,
+        "afterTriangles": 2050,
+        "attempts": [
+          {
+            "triangles": 1498,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 2.3272084409487555
+          },
+          {
+            "triangles": 1924,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 1.3953676247813944
+          },
+          {
+            "triangles": 2048,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 1029,
+        "lockedVertices": 56,
+        "exactProtectedFaces": 51,
+        "maximumSampleDistance": 6.054135505110026e-05,
+        "maximumEdge": 0.0003880856093019247,
+        "forward": 0.00010830441897269338,
+        "reverse": 8.846431592246518e-05,
+        "worstLocalPosition": [
+          0.0003082311886828393,
+          0.3815600275993347,
+          0.024599149823188782
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 1.3953676247813944,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 12,
+        "primitive": 0,
+        "name": "FJ1808",
+        "beforeTriangles": 2028,
+        "afterTriangles": 2028,
+        "attempts": [
+          {
+            "triangles": 1460,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 3.091479108359356
+          },
+          {
+            "triangles": 1846,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 1.2201695299118378
+          },
+          {
+            "triangles": 2028,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 1018,
+        "lockedVertices": 39,
+        "exactProtectedFaces": 34,
+        "maximumSampleDistance": 6.054135505110026e-05,
+        "maximumEdge": 0.0003880856093019247,
+        "forward": 9.470604709349573e-05,
+        "reverse": 6.311106699286029e-05,
+        "worstLocalPosition": [
+          7.203919813036919e-05,
+          0.38576000928878784,
+          0.019826848059892654
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 1.2201695299118378,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 13,
+        "primitive": 0,
+        "name": "FJ1782",
+        "beforeTriangles": 1702,
+        "afterTriangles": 1702,
+        "attempts": [
+          {
+            "triangles": 1632,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 1.238829036512608
+          },
+          {
+            "triangles": 1702,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89
+          }
+        ],
+        "vertices": 853,
+        "lockedVertices": 40,
+        "exactProtectedFaces": 35,
+        "maximumSampleDistance": 0.00011148180405143649,
+        "maximumEdge": 0.0007146269490476698,
+        "forward": 0.00017706012295093387,
+        "reverse": 0.00012825320300180465,
+        "worstLocalPosition": [
+          0.009528230875730515,
+          0.40599003434181213,
+          0.018068749457597733
+        ],
+        "edgeFactor": 1.0,
+        "worstSamplePixels": 1.238829036512608,
+        "requestedRatio": 0.72,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 14,
+        "primitive": 0,
+        "name": "FJ1793",
+        "beforeTriangles": 2750,
+        "afterTriangles": 2750,
+        "attempts": [
+          {
+            "triangles": 1980,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 2.033617951216916
+          },
+          {
+            "triangles": 2448,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 1.502122271487985
+          },
+          {
+            "triangles": 2748,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 1379,
+        "lockedVertices": 44,
+        "exactProtectedFaces": 38,
+        "maximumSampleDistance": 0.00020474270568229258,
+        "maximumEdge": 0.0013124532415531576,
+        "forward": 0.0003942930488847196,
+        "reverse": 0.00019864746718667448,
+        "worstLocalPosition": [
+          0.009987721219658852,
+          0.4005400240421295,
+          0.05051114782691002
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 1.502122271487985,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 15,
+        "primitive": 0,
+        "name": "FJ1794",
+        "beforeTriangles": 2568,
+        "afterTriangles": 2568,
+        "attempts": [
+          {
+            "triangles": 1848,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 2.805783636633746
+          },
+          {
+            "triangles": 2286,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 1.2885039492550883
+          },
+          {
+            "triangles": 2566,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 1288,
+        "lockedVertices": 40,
+        "exactProtectedFaces": 34,
+        "maximumSampleDistance": 0.0002049136214191094,
+        "maximumEdge": 0.0013135488552507013,
+        "forward": 0.00033850257750600576,
+        "reverse": 0.00021171955449972302,
+        "worstLocalPosition": [
+          -0.02558019943535328,
+          0.39107000827789307,
+          0.03750414773821831
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 1.2885039492550883,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 16,
+        "primitive": 0,
+        "name": "FJ1839",
+        "beforeTriangles": 2264,
+        "afterTriangles": 2264,
+        "attempts": [
+          {
+            "triangles": 1630,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 2.7639199154706877
+          },
+          {
+            "triangles": 2106,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 0.9661214658081397
+          },
+          {
+            "triangles": 2264,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 1134,
+        "lockedVertices": 41,
+        "exactProtectedFaces": 35,
+        "maximumSampleDistance": 0.00022460007690824568,
+        "maximumEdge": 0.0014397440827451646,
+        "forward": 0.0002781935327220708,
+        "reverse": 0.00020740179752465338,
+        "worstLocalPosition": [
+          0.04682040214538574,
+          0.4166800081729889,
+          -0.0393296517431736
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 0.9661214658081397,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 17,
+        "primitive": 0,
+        "name": "FJ1840",
+        "beforeTriangles": 2264,
+        "afterTriangles": 2264,
+        "attempts": [
+          {
+            "triangles": 1630,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 2.067022090049621
+          },
+          {
+            "triangles": 2118,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 1.3967427041184535
+          },
+          {
+            "triangles": 2262,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 1134,
+        "lockedVertices": 40,
+        "exactProtectedFaces": 34,
+        "maximumSampleDistance": 0.0002251256728777662,
+        "maximumEdge": 0.0014431132876779884,
+        "forward": 0.00040313159115612507,
+        "reverse": 0.00026228773640468717,
+        "worstLocalPosition": [
+          -0.056612998247146606,
+          0.4120900332927704,
+          -0.038393452763557434
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 1.3967427041184535,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 19,
+        "primitive": 0,
+        "name": "FJ1732",
+        "beforeTriangles": 3588,
+        "afterTriangles": 3588,
+        "attempts": [
+          {
+            "triangles": 2584,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 1.8798501089193471
+          },
+          {
+            "triangles": 3236,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 1.8474440165843344
+          },
+          {
+            "triangles": 3588,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 1796,
+        "lockedVertices": 41,
+        "exactProtectedFaces": 35,
+        "maximumSampleDistance": 0.00019308043643832207,
+        "maximumEdge": 0.0012376951053738594,
+        "forward": 0.00045731448335573077,
+        "reverse": 0.0002618942817207426,
+        "worstLocalPosition": [
+          0.05197710171341896,
+          0.4365300238132477,
+          -0.04607795178890228
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 1.8474440165843344,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 20,
+        "primitive": 0,
+        "name": "FJ1739",
+        "beforeTriangles": 2416,
+        "afterTriangles": 2416,
+        "attempts": [
+          {
+            "triangles": 1740,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 3.3513144450101553
+          },
+          {
+            "triangles": 2150,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 1.2176885327051152
+          },
+          {
+            "triangles": 2412,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 1210,
+        "lockedVertices": 44,
+        "exactProtectedFaces": 38,
+        "maximumSampleDistance": 0.00024790241531250003,
+        "maximumEdge": 0.001589118046875,
+        "forward": 0.0003870101645588875,
+        "reverse": 0.0002834650513250381,
+        "worstLocalPosition": [
+          0.005340734496712685,
+          0.3980800211429596,
+          0.04253914952278137
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 1.2176885327051152,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 22,
+        "primitive": 0,
+        "name": "FJ1744",
+        "beforeTriangles": 3290,
+        "afterTriangles": 3290,
+        "attempts": [
+          {
+            "triangles": 2368,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 2.5348958512482445
+          },
+          {
+            "triangles": 3022,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 1.3946861213371713
+          },
+          {
+            "triangles": 3284,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 1649,
+        "lockedVertices": 49,
+        "exactProtectedFaces": 44,
+        "maximumSampleDistance": 0.00019271331606432796,
+        "maximumEdge": 0.001235341769643128,
+        "forward": 0.0003445828042458743,
+        "reverse": 0.00017025170382112265,
+        "worstLocalPosition": [
+          0.02926340140402317,
+          0.4192400276660919,
+          0.042792148888111115
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 1.3946861213371713,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 23,
+        "primitive": 0,
+        "name": "FJ1746",
+        "beforeTriangles": 2732,
+        "afterTriangles": 2732,
+        "attempts": [
+          {
+            "triangles": 1968,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 2.2672941429594515
+          },
+          {
+            "triangles": 2432,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 1.1931582436738795
+          },
+          {
+            "triangles": 2732,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 1368,
+        "lockedVertices": 48,
+        "exactProtectedFaces": 42,
+        "maximumSampleDistance": 0.00024790241531250003,
+        "maximumEdge": 0.001589118046875,
+        "forward": 0.0003792138595599681,
+        "reverse": 0.0002499439870007336,
+        "worstLocalPosition": [
+          0.04982930049300194,
+          0.37899670004844666,
+          0.014038115739822388
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 1.1931582436738795,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 24,
+        "primitive": 0,
+        "name": "FJ1748",
+        "beforeTriangles": 2448,
+        "afterTriangles": 2448,
+        "attempts": [
+          {
+            "triangles": 1762,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 3.117803464487752
+          },
+          {
+            "triangles": 2312,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 1.7010342781879444
+          },
+          {
+            "triangles": 2446,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 1226,
+        "lockedVertices": 42,
+        "exactProtectedFaces": 36,
+        "maximumSampleDistance": 0.0001573080156231299,
+        "maximumEdge": 0.001008384715532884,
+        "forward": 0.000343059393344447,
+        "reverse": 0.0001669982448220253,
+        "worstLocalPosition": [
+          0.04181529954075813,
+          0.41373002529144287,
+          0.01141704898327589
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 1.7010342781879444,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 25,
+        "primitive": 0,
+        "name": "FJ1787",
+        "beforeTriangles": 3416,
+        "afterTriangles": 3416,
+        "attempts": [
+          {
+            "triangles": 2460,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 2.0628605077076787
+          },
+          {
+            "triangles": 3040,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 1.2490750209917862
+          },
+          {
+            "triangles": 3414,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 1710,
+        "lockedVertices": 42,
+        "exactProtectedFaces": 36,
+        "maximumSampleDistance": 0.00024790241531250003,
+        "maximumEdge": 0.001589118046875,
+        "forward": 0.0003969855315517634,
+        "reverse": 0.00022954086307436228,
+        "worstLocalPosition": [
+          0.024382000789046288,
+          0.46480002999305725,
+          0.018069949001073837
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 1.2490750209917862,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 26,
+        "primitive": 0,
+        "name": "FJ1789",
+        "beforeTriangles": 2710,
+        "afterTriangles": 2710,
+        "attempts": [
+          {
+            "triangles": 1952,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 2.702733672619206
+          },
+          {
+            "triangles": 2412,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 0.9967736281110988
+          },
+          {
+            "triangles": 2708,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 1357,
+        "lockedVertices": 42,
+        "exactProtectedFaces": 36,
+        "maximumSampleDistance": 0.00024790241531250003,
+        "maximumEdge": 0.001589118046875,
+        "forward": 0.0003167981922160834,
+        "reverse": 0.00023534316278528422,
+        "worstLocalPosition": [
+          0.04856939986348152,
+          0.38593003153800964,
+          -0.05908365175127983
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 0.9967736281110988,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 27,
+        "primitive": 0,
+        "name": "FJ1791",
+        "beforeTriangles": 4390,
+        "afterTriangles": 4390,
+        "attempts": [
+          {
+            "triangles": 3160,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 2.8152931610438934
+          },
+          {
+            "triangles": 3926,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 1.4481121275804905
+          },
+          {
+            "triangles": 4390,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 2197,
+        "lockedVertices": 42,
+        "exactProtectedFaces": 36,
+        "maximumSampleDistance": 0.0001927501824684441,
+        "maximumEdge": 0.0012355780927464366,
+        "forward": 0.00035785112413577735,
+        "reverse": 0.00026177268591709435,
+        "worstLocalPosition": [
+          0.01427910104393959,
+          0.40390002727508545,
+          -0.05270535126328468
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 1.4481121275804905,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 29,
+        "primitive": 0,
+        "name": "FJ1797",
+        "beforeTriangles": 3604,
+        "afterTriangles": 3604,
+        "attempts": [
+          {
+            "triangles": 2594,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 3.6409493098140455
+          },
+          {
+            "triangles": 3342,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 1.7650501632939835
+          },
+          {
+            "triangles": 3604,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 1804,
+        "lockedVertices": 42,
+        "exactProtectedFaces": 36,
+        "maximumSampleDistance": 0.00020284281461499632,
+        "maximumEdge": 0.0013002744526602328,
+        "forward": 0.0004590099269989878,
+        "reverse": 0.0002536216634325683,
+        "worstLocalPosition": [
+          0.03770330175757408,
+          0.4272700250148773,
+          -0.012779351323843002
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 1.7650501632939835,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 30,
+        "primitive": 0,
+        "name": "FJ1800",
+        "beforeTriangles": 4042,
+        "afterTriangles": 4042,
+        "attempts": [
+          {
+            "triangles": 2910,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 2.8052915718455447
+          },
+          {
+            "triangles": 3706,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 1.568225481504631
+          },
+          {
+            "triangles": 4040,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 2023,
+        "lockedVertices": 41,
+        "exactProtectedFaces": 35,
+        "maximumSampleDistance": 0.0002010632841847837,
+        "maximumEdge": 0.001288867206312716,
+        "forward": 0.00040424687904305756,
+        "reverse": 0.00021176115842536092,
+        "worstLocalPosition": [
+          0.05542140081524849,
+          0.4393000304698944,
+          0.004482348915189505
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 1.568225481504631,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 31,
+        "primitive": 0,
+        "name": "FJ1833",
+        "beforeTriangles": 6452,
+        "afterTriangles": 6452,
+        "attempts": [
+          {
+            "triangles": 4646,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 2.590622837139479
+          },
+          {
+            "triangles": 5742,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 1.5329911002645051
+          },
+          {
+            "triangles": 6436,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 3230,
+        "lockedVertices": 38,
+        "exactProtectedFaces": 32,
+        "maximumSampleDistance": 0.00024790241531250003,
+        "maximumEdge": 0.001589118046875,
+        "forward": 0.00048722076462581754,
+        "reverse": 0.00030143908224999905,
+        "worstLocalPosition": [
+          0.004355151206254959,
+          0.4217800199985504,
+          0.06446114927530289
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 1.5329911002645051,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 32,
+        "primitive": 0,
+        "name": "FJ1835",
+        "beforeTriangles": 5364,
+        "afterTriangles": 5364,
+        "attempts": [
+          {
+            "triangles": 3862,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 2.4666474460070185
+          },
+          {
+            "triangles": 4816,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 2.1788018052702873
+          },
+          {
+            "triangles": 5362,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 2684,
+        "lockedVertices": 44,
+        "exactProtectedFaces": 38,
+        "maximumSampleDistance": 0.00020566404797136783,
+        "maximumEdge": 0.0013183592818677425,
+        "forward": 0.0005744887166656554,
+        "reverse": 0.0005120802670717239,
+        "worstLocalPosition": [
+          0.007490551099181175,
+          0.44930002093315125,
+          -0.062021151185035706
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 2.1788018052702873,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 33,
+        "primitive": 0,
+        "name": "FJ1841",
+        "beforeTriangles": 2344,
+        "afterTriangles": 2344,
+        "attempts": [
+          {
+            "triangles": 1712,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 3.927206111994791
+          },
+          {
+            "triangles": 2234,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 0.9307954249178035
+          },
+          {
+            "triangles": 2344,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 1174,
+        "lockedVertices": 38,
+        "exactProtectedFaces": 32,
+        "maximumSampleDistance": 0.00013904961117077618,
+        "maximumEdge": 0.0008913436613511294,
+        "forward": 0.00016593172040302306,
+        "reverse": 0.00012007015175186098,
+        "worstLocalPosition": [
+          0.051552001386880875,
+          0.423630028963089,
+          -0.01806035079061985
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 0.9307954249178035,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 34,
+        "primitive": 0,
+        "name": "FJ1733",
+        "beforeTriangles": 3554,
+        "afterTriangles": 3554,
+        "attempts": [
+          {
+            "triangles": 2558,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 2.9282024676824245
+          },
+          {
+            "triangles": 3214,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 1.3726187297133636
+          },
+          {
+            "triangles": 3552,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 1779,
+        "lockedVertices": 40,
+        "exactProtectedFaces": 34,
+        "maximumSampleDistance": 0.00019314145669341087,
+        "maximumEdge": 0.001238086260855198,
+        "forward": 0.000339884078130126,
+        "reverse": 0.00018791713227983564,
+        "worstLocalPosition": [
+          -0.057204198092222214,
+          0.41391003131866455,
+          -0.043617650866508484
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 1.3726187297133636,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 35,
+        "primitive": 0,
+        "name": "FJ1740",
+        "beforeTriangles": 2346,
+        "afterTriangles": 2346,
+        "attempts": [
+          {
+            "triangles": 1690,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 2.2094536153215563
+          },
+          {
+            "triangles": 2094,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 1.2109838855621888
+          },
+          {
+            "triangles": 2342,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 1175,
+        "lockedVertices": 43,
+        "exactProtectedFaces": 37,
+        "maximumSampleDistance": 0.00024790241531250003,
+        "maximumEdge": 0.001589118046875,
+        "forward": 0.0003848792694043368,
+        "reverse": 0.00023764889920130372,
+        "worstLocalPosition": [
+          -0.014518998563289642,
+          0.41572001576423645,
+          0.05932214856147766
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 1.2109838855621888,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 37,
+        "primitive": 0,
+        "name": "FJ1745",
+        "beforeTriangles": 3292,
+        "afterTriangles": 3292,
+        "attempts": [
+          {
+            "triangles": 2370,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 2.551939542363241
+          },
+          {
+            "triangles": 2970,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 1.7157159810051834
+          },
+          {
+            "triangles": 3292,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 1650,
+        "lockedVertices": 45,
+        "exactProtectedFaces": 39,
+        "maximumSampleDistance": 0.0001922127138823271,
+        "maximumEdge": 0.0012321327812969685,
+        "forward": 0.00042279798071831465,
+        "reverse": 0.0002937015669886023,
+        "worstLocalPosition": [
+          -0.04560469463467598,
+          0.44449999928474426,
+          0.02292514778673649
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 1.7157159810051834,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 38,
+        "primitive": 0,
+        "name": "FJ1747",
+        "beforeTriangles": 2768,
+        "afterTriangles": 2768,
+        "attempts": [
+          {
+            "triangles": 1992,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 2.41967150479612
+          },
+          {
+            "triangles": 2464,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 1.1765670876035328
+          },
+          {
+            "triangles": 2764,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 1386,
+        "lockedVertices": 44,
+        "exactProtectedFaces": 38,
+        "maximumSampleDistance": 0.00024790241531250003,
+        "maximumEdge": 0.001589118046875,
+        "forward": 0.00037394079845398664,
+        "reverse": 0.00024790456518530846,
+        "worstLocalPosition": [
+          -0.037643998861312866,
+          0.36660000681877136,
+          0.03409015014767647
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 1.1765670876035328,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 39,
+        "primitive": 0,
+        "name": "FJ1749",
+        "beforeTriangles": 2448,
+        "afterTriangles": 2448,
+        "attempts": [
+          {
+            "triangles": 1762,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 2.6834104942159933
+          },
+          {
+            "triangles": 2324,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 1.2026024250426
+          },
+          {
+            "triangles": 2446,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 1226,
+        "lockedVertices": 44,
+        "exactProtectedFaces": 38,
+        "maximumSampleDistance": 0.0001576684619067237,
+        "maximumEdge": 0.001010695268632844,
+        "forward": 0.00024309291620738804,
+        "reverse": 0.0001818703458411619,
+        "worstLocalPosition": [
+          -0.03967049717903137,
+          0.41937002539634705,
+          0.007820448838174343
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 1.2026024250426,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 40,
+        "primitive": 0,
+        "name": "FJ1788",
+        "beforeTriangles": 3326,
+        "afterTriangles": 3326,
+        "attempts": [
+          {
+            "triangles": 2394,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 1.9424722712890523
+          },
+          {
+            "triangles": 2960,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 1.424541782137441
+          },
+          {
+            "triangles": 3320,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 1665,
+        "lockedVertices": 41,
+        "exactProtectedFaces": 35,
+        "maximumSampleDistance": 0.00024790241531250003,
+        "maximumEdge": 0.001589118046875,
+        "forward": 0.00045275301090441644,
+        "reverse": 0.00023422039521392435,
+        "worstLocalPosition": [
+          -0.03138149902224541,
+          0.42051002383232117,
+          0.06130814924836159
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 1.424541782137441,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 41,
+        "primitive": 0,
+        "name": "FJ1790",
+        "beforeTriangles": 2754,
+        "afterTriangles": 2754,
+        "attempts": [
+          {
+            "triangles": 1982,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 2.2046836155991554
+          },
+          {
+            "triangles": 2452,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 1.15037100734653
+          },
+          {
+            "triangles": 2752,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 1379,
+        "lockedVertices": 45,
+        "exactProtectedFaces": 39,
+        "maximumSampleDistance": 0.00024790241531250003,
+        "maximumEdge": 0.001589118046875,
+        "forward": 0.00036561506567522883,
+        "reverse": 0.0002164267498301342,
+        "worstLocalPosition": [
+          -0.04919460043311119,
+          0.388450026512146,
+          -0.006285351235419512
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 1.15037100734653,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 42,
+        "primitive": 0,
+        "name": "FJ1792",
+        "beforeTriangles": 4564,
+        "afterTriangles": 4564,
+        "attempts": [
+          {
+            "triangles": 3286,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 2.8396088514070503
+          },
+          {
+            "triangles": 4062,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 1.417428638577446
+          },
+          {
+            "triangles": 4562,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 2284,
+        "lockedVertices": 47,
+        "exactProtectedFaces": 41,
+        "maximumSampleDistance": 0.00019260303466580808,
+        "maximumEdge": 0.0012346348376013339,
+        "forward": 0.00035000135540030897,
+        "reverse": 0.00021506495249923319,
+        "worstLocalPosition": [
+          -0.037529297173023224,
+          0.38235002756118774,
+          -0.02991255186498165
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 1.417428638577446,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 44,
+        "primitive": 0,
+        "name": "FJ1798",
+        "beforeTriangles": 3604,
+        "afterTriangles": 3604,
+        "attempts": [
+          {
+            "triangles": 2594,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 3.126115920215813
+          },
+          {
+            "triangles": 3340,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 1.1247343366498492
+          },
+          {
+            "triangles": 3602,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 1804,
+        "lockedVertices": 41,
+        "exactProtectedFaces": 35,
+        "maximumSampleDistance": 0.00020307241240516305,
+        "maximumEdge": 0.0013017462333664298,
+        "forward": 0.0002928237372543663,
+        "reverse": 0.00022240770340431482,
+        "worstLocalPosition": [
+          -0.05990459769964218,
+          0.4250900149345398,
+          -0.0028904511127620935
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 1.1247343366498492,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 45,
+        "primitive": 0,
+        "name": "FJ1801",
+        "beforeTriangles": 4042,
+        "afterTriangles": 4042,
+        "attempts": [
+          {
+            "triangles": 2910,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 3.5863248913005688
+          },
+          {
+            "triangles": 3748,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 2.1077692379593
+          },
+          {
+            "triangles": 4038,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 2023,
+        "lockedVertices": 42,
+        "exactProtectedFaces": 36,
+        "maximumSampleDistance": 0.0002010937943123281,
+        "maximumEdge": 0.0012890627840533853,
+        "forward": 0.0005434093764051795,
+        "reverse": 0.00021007098257541656,
+        "worstLocalPosition": [
+          -0.05796869844198227,
+          0.4316600263118744,
+          0.00480034900829196
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 2.1077692379593,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 46,
+        "primitive": 0,
+        "name": "FJ1834",
+        "beforeTriangles": 6450,
+        "afterTriangles": 6450,
+        "attempts": [
+          {
+            "triangles": 4644,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 2.373640503827446
+          },
+          {
+            "triangles": 5776,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 1.5239391810370266
+          },
+          {
+            "triangles": 6436,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 3229,
+        "lockedVertices": 44,
+        "exactProtectedFaces": 38,
+        "maximumSampleDistance": 0.00024790241531250003,
+        "maximumEdge": 0.001589118046875,
+        "forward": 0.0004843438509851694,
+        "reverse": 0.00043381599243730307,
+        "worstLocalPosition": [
+          -0.026393398642539978,
+          0.43386003375053406,
+          0.07204315066337585
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 1.5239391810370266,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 47,
+        "primitive": 0,
+        "name": "FJ1836",
+        "beforeTriangles": 5640,
+        "afterTriangles": 5640,
+        "attempts": [
+          {
+            "triangles": 4060,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 3.7071778691533304
+          },
+          {
+            "triangles": 5020,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89,
+            "worstSamplePixels": 1.6489779660650103
+          },
+          {
+            "triangles": 5636,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 2822,
+        "lockedVertices": 45,
+        "exactProtectedFaces": 39,
+        "maximumSampleDistance": 0.00020557260839268565,
+        "maximumEdge": 0.001317773130722344,
+        "forward": 0.00043459577136673033,
+        "reverse": 0.00025614452897571027,
+        "worstLocalPosition": [
+          -0.007039008662104607,
+          0.42490002512931824,
+          -0.059377752244472504
+        ],
+        "edgeFactor": 0.45,
+        "worstSamplePixels": 1.6489779660650103,
+        "requestedRatio": 0.89,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 48,
+        "primitive": 0,
+        "name": "FJ1842",
+        "beforeTriangles": 2314,
+        "afterTriangles": 2314,
+        "attempts": [
+          {
+            "triangles": 1686,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.72,
+            "worstSamplePixels": 4.05500301881928
+          },
+          {
+            "triangles": 2228,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.89
+          }
+        ],
+        "vertices": 1159,
+        "lockedVertices": 40,
+        "exactProtectedFaces": 34,
+        "maximumSampleDistance": 0.00013806395698338748,
+        "maximumEdge": 0.0008850253652781248,
+        "forward": 0.0007177561055868864,
+        "reverse": 0.0005315598682500422,
+        "worstLocalPosition": [
+          -0.02698429860174656,
+          0.439380019903183,
+          -0.03193935006856918
+        ],
+        "edgeFactor": 1.0,
+        "worstSamplePixels": 4.05500301881928,
+        "requestedRatio": 0.72,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      }
+    ],
+    "blender": "5.2.3 LTS Release Candidate",
+    "build": "fab76e95306d"
+  },
+  {
+    "name": "lung_left",
+    "control": {
+      "path": "models/lung_left/exports/metadata-cleanup-r01/lung_left.glb",
+      "sha256": "6d3a6150dc47dba0d16162738caabc1bef3fcd8cf5ab4af492dd1121c1cb8533",
+      "bytes": 2524996,
+      "triangles": 31200
+    },
+    "candidate": null,
+    "parts": [
+      {
+        "mesh": 0,
+        "primitive": 0,
+        "name": "Lung Lower Lobe Left | source surface",
+        "beforeTriangles": 24000,
+        "afterTriangles": 24000,
+        "attempts": [
+          {
+            "triangles": 21220,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.78,
+            "worstSamplePixels": 0.8142003579193123
+          },
+          {
+            "triangles": 23730,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.94
+          }
+        ],
+        "vertices": 14706,
+        "lockedVertices": 11130,
+        "exactProtectedFaces": 15576,
+        "maximumSampleDistance": 0.00029841896984375,
+        "maximumEdge": 0.0016351724375,
+        "forward": 0.0003328394959680736,
+        "reverse": 0.0002996066468767822,
+        "worstLocalPosition": [
+          0.12318834662437439,
+          0.002288262592628598,
+          0.046863481402397156
+        ],
+        "edgeFactor": 1.0,
+        "worstSamplePixels": 0.8142003579193123,
+        "requestedRatio": 0.78,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 1,
+        "primitive": 0,
+        "name": "Lung Upper Lobe Left | source surface",
+        "beforeTriangles": 7200,
+        "afterTriangles": 7200,
+        "attempts": [
+          {
+            "triangles": 7188,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.77
+          }
+        ],
+        "vertices": 4441,
+        "lockedVertices": 3211,
+        "exactProtectedFaces": 4137,
+        "maximumSampleDistance": 0.00029841896984375,
+        "maximumEdge": 0.0016351724375,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      }
+    ],
+    "blender": "5.2.3 LTS Release Candidate",
+    "build": "fab76e95306d"
+  },
+  {
+    "name": "trachea",
+    "control": {
+      "path": "models/trachea/exports/open-airway-r06/trachea-open.glb",
+      "sha256": "eb3ce52962aacc4d109a9840685aa172ca1d97bfc835367f4e36fd32de6b6cbb",
+      "bytes": 962440,
+      "triangles": 50978
+    },
+    "candidate": null,
+    "parts": [
+      {
+        "mesh": 1,
+        "primitive": 0,
+        "name": "Host conformed illustrative C-band",
+        "beforeTriangles": 2324,
+        "afterTriangles": 2324,
+        "attempts": [
+          {
+            "triangles": 2324,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.76
+          }
+        ],
+        "vertices": 1164,
+        "lockedVertices": 232,
+        "exactProtectedFaces": 401,
+        "maximumSampleDistance": 4.410010660649277e-05,
+        "maximumEdge": 0.00011970028936048038,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 2,
+        "primitive": 0,
+        "name": "Host conformed illustrative C-band.001",
+        "beforeTriangles": 2324,
+        "afterTriangles": 2324,
+        "attempts": [
+          {
+            "triangles": 2324,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.76
+          }
+        ],
+        "vertices": 1164,
+        "lockedVertices": 221,
+        "exactProtectedFaces": 379,
+        "maximumSampleDistance": 4.381037142593413e-05,
+        "maximumEdge": 0.00011891386529896408,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 3,
+        "primitive": 0,
+        "name": "Host conformed illustrative C-band.002",
+        "beforeTriangles": 2324,
+        "afterTriangles": 2324,
+        "attempts": [
+          {
+            "triangles": 2324,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.76
+          }
+        ],
+        "vertices": 1164,
+        "lockedVertices": 217,
+        "exactProtectedFaces": 371,
+        "maximumSampleDistance": 4.484420351218432e-05,
+        "maximumEdge": 0.00012171998096164315,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 4,
+        "primitive": 0,
+        "name": "Host conformed illustrative C-band.003",
+        "beforeTriangles": 2324,
+        "afterTriangles": 2324,
+        "attempts": [
+          {
+            "triangles": 2324,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.76
+          }
+        ],
+        "vertices": 1164,
+        "lockedVertices": 210,
+        "exactProtectedFaces": 356,
+        "maximumSampleDistance": 4.2814514017663896e-05,
+        "maximumEdge": 0.00011621082376223058,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 5,
+        "primitive": 0,
+        "name": "Host conformed illustrative C-band.004",
+        "beforeTriangles": 2324,
+        "afterTriangles": 2324,
+        "attempts": [
+          {
+            "triangles": 2324,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.76
+          }
+        ],
+        "vertices": 1164,
+        "lockedVertices": 237,
+        "exactProtectedFaces": 408,
+        "maximumSampleDistance": 4.134295450057834e-05,
+        "maximumEdge": 0.00011221659078728407,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 6,
+        "primitive": 0,
+        "name": "Host conformed illustrative C-band.005",
+        "beforeTriangles": 2324,
+        "afterTriangles": 2324,
+        "attempts": [
+          {
+            "triangles": 2324,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.76
+          }
+        ],
+        "vertices": 1164,
+        "lockedVertices": 238,
+        "exactProtectedFaces": 412,
+        "maximumSampleDistance": 3.8231470534810795e-05,
+        "maximumEdge": 0.00010377113430877216,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 7,
+        "primitive": 0,
+        "name": "Host conformed illustrative C-band.006",
+        "beforeTriangles": 2324,
+        "afterTriangles": 2324,
+        "attempts": [
+          {
+            "triangles": 2324,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.76
+          }
+        ],
+        "vertices": 1164,
+        "lockedVertices": 229,
+        "exactProtectedFaces": 394,
+        "maximumSampleDistance": 3.9780362203600814e-05,
+        "maximumEdge": 0.00010797526883834507,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 8,
+        "primitive": 0,
+        "name": "Host conformed illustrative C-band.007",
+        "beforeTriangles": 2324,
+        "afterTriangles": 2324,
+        "attempts": [
+          {
+            "triangles": 2324,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.76
+          }
+        ],
+        "vertices": 1164,
+        "lockedVertices": 227,
+        "exactProtectedFaces": 389,
+        "maximumSampleDistance": 4.015615413663909e-05,
+        "maximumEdge": 0.00010899527551373467,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 9,
+        "primitive": 0,
+        "name": "Host conformed illustrative C-band.008",
+        "beforeTriangles": 2324,
+        "afterTriangles": 2324,
+        "attempts": [
+          {
+            "triangles": 2324,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.76
+          }
+        ],
+        "vertices": 1164,
+        "lockedVertices": 231,
+        "exactProtectedFaces": 399,
+        "maximumSampleDistance": 3.904544573742896e-05,
+        "maximumEdge": 0.00010598049557302146,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 10,
+        "primitive": 0,
+        "name": "Host conformed illustrative C-band.009",
+        "beforeTriangles": 2324,
+        "afterTriangles": 2324,
+        "attempts": [
+          {
+            "triangles": 2324,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.76
+          }
+        ],
+        "vertices": 1164,
+        "lockedVertices": 231,
+        "exactProtectedFaces": 400,
+        "maximumSampleDistance": 3.7251631147228176e-05,
+        "maximumEdge": 0.0001011115702567622,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 11,
+        "primitive": 0,
+        "name": "Host conformed illustrative C-band.010",
+        "beforeTriangles": 2324,
+        "afterTriangles": 2324,
+        "attempts": [
+          {
+            "triangles": 2324,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.76
+          }
+        ],
+        "vertices": 1164,
+        "lockedVertices": 217,
+        "exactProtectedFaces": 371,
+        "maximumSampleDistance": 3.761709667742252e-05,
+        "maximumEdge": 0.00010210354812443256,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 12,
+        "primitive": 0,
+        "name": "Host conformed illustrative C-band.011",
+        "beforeTriangles": 2324,
+        "afterTriangles": 2324,
+        "attempts": [
+          {
+            "triangles": 2324,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.76
+          }
+        ],
+        "vertices": 1164,
+        "lockedVertices": 223,
+        "exactProtectedFaces": 381,
+        "maximumSampleDistance": 3.631866165960673e-05,
+        "maximumEdge": 9.857922450464684e-05,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 13,
+        "primitive": 0,
+        "name": "Host conformed illustrative C-band.012",
+        "beforeTriangles": 2324,
+        "afterTriangles": 2324,
+        "attempts": [
+          {
+            "triangles": 2324,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.76
+          }
+        ],
+        "vertices": 1164,
+        "lockedVertices": 203,
+        "exactProtectedFaces": 340,
+        "maximumSampleDistance": 3.7785247695865105e-05,
+        "maximumEdge": 0.00010255995803163386,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 14,
+        "primitive": 0,
+        "name": "Host conformed illustrative C-band.013",
+        "beforeTriangles": 2324,
+        "afterTriangles": 2324,
+        "attempts": [
+          {
+            "triangles": 2324,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.76
+          }
+        ],
+        "vertices": 1164,
+        "lockedVertices": 211,
+        "exactProtectedFaces": 358,
+        "maximumSampleDistance": 3.860483557218685e-05,
+        "maximumEdge": 0.00010478455369593575,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 15,
+        "primitive": 0,
+        "name": "Host conformed illustrative C-band.014",
+        "beforeTriangles": 2324,
+        "afterTriangles": 2324,
+        "attempts": [
+          {
+            "triangles": 2324,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.76
+          }
+        ],
+        "vertices": 1164,
+        "lockedVertices": 203,
+        "exactProtectedFaces": 340,
+        "maximumSampleDistance": 3.7497045559575776e-05,
+        "maximumEdge": 0.00010177769509027711,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 16,
+        "primitive": 0,
+        "name": "Host conformed illustrative C-band.015",
+        "beforeTriangles": 2324,
+        "afterTriangles": 2324,
+        "attempts": [
+          {
+            "triangles": 2324,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.76
+          }
+        ],
+        "vertices": 1164,
+        "lockedVertices": 209,
+        "exactProtectedFaces": 348,
+        "maximumSampleDistance": 3.8007320108590646e-05,
+        "maximumEdge": 0.00010316272600903176,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      },
+      {
+        "mesh": 17,
+        "primitive": 0,
+        "name": "Host conformed illustrative C-band.016",
+        "beforeTriangles": 2352,
+        "afterTriangles": 2352,
+        "attempts": [
+          {
+            "triangles": 2352,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.76
+          }
+        ],
+        "vertices": 1283,
+        "lockedVertices": 324,
+        "exactProtectedFaces": 364,
+        "maximumSampleDistance": 4.069907081429846e-05,
+        "maximumEdge": 0.00011046890649595297,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      }
+    ],
+    "blender": "5.2.3 LTS Release Candidate",
+    "build": "fab76e95306d"
+  },
+  {
+    "name": "spinal_cord",
+    "error": "Candidate bytes did not decrease"
+  }
+]

@@ -15,6 +15,8 @@ Shared terms for the public gallery and the anatomical relationships it presents
 | 3D Stage | Surface for composing, inspecting, saving and exporting a 3D scene. |
 | Asset lineage | A reusable model or assembly with a shared source and revision history. A family groups related lineages for discovery. |
 | Asset revision | An identified version within a lineage. An **export** is a particular downloadable representation of that revision. **Recommended** identifies the revision selected by its maintainer. |
+| Teaching assessment | Four scores for a named learner task on an exact export. An exemption keeps the observed score and records its permitted use and reopening condition. |
+| Collection teaching check | An action reviewed in its delivered lesson view or scene. The collection reports which required actions pass and which remain blocked. |
 | 3D scene | One or more asset revisions composed for interactive display, including their placement, visible parts and appearance. |
 | Scene preset | A saved, versioned configuration that reopens a scene in its intended view and state. Its persistent link identifies that preset revision. |
 | Poster | A still image representing a view. A Stage-exported poster identifies the scene preset that produced it. |

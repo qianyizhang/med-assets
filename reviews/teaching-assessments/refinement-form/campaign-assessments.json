@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "evaluator": "Codex (agent review)",
+  "date": "2026-11-22",
+  "rubric": {
+    "path": "docs/guides/asset-quality.md",
+    "sha256": "5f7be452c8afc0b2109068e2c9d40e10ed7306459d62d7d006cc05e0de84831b",
+    "revision": "75c348b9d3fcce0389c4401696569b660cd29dca"
+  },
+  "assessments": [
+    {
+      "export": {
+        "path": "models/thyroid_ct_s0189/exports/illustrative-exterior-r02/thyroid-illustrative-exterior.glb",
+        "sha256": "6bc4f4da8bc91a058da8f9c78fca8618e3ace90580cac499adf48981bc18608e",
+        "bytes": 152288
+      },
+      "task": "Find the narrow bridge between the unequal thyroid lobes below the U-shaped recess in this case-specific exterior.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "Triangle/index correspondence across reference and candidate, a maximum 0.609 mm displacement vs unretouched retained source, unchanged r01 bridge coordinates and finite-precision clean-reimport surface checks."
+        },
+        {
+          "score": 3,
+          "observation": "Same-camera neutral close-ups show repetitive rear ridges reduced at intended zoom, with large convex margins and the two recognizable silhouettes intact. Remaining broader folds belong to the preserved case contour."
+        },
+        {
+          "score": 3,
+          "observation": "The same bridge and unequal lobes can be identified in both r02 neutral directions. Matched r01 and r02 include source and local fairing bounds."
+        },
+        {
+          "score": 3,
+          "observation": "One mesh and one primitive retain the r01 8,340 triangles at a 164-byte metadata increase. Existing lineage retains the case exterior and no lighter r02 trial is claimed."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/thyroid_ct_s0189/exports/illustrative-exterior-r02/README.md",
+          "label": "s0189 thyroid r02 source, modification and license"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-form/thyroid-integrity.json",
+          "label": "Independent clean-import surface integrity and retained-source comparison"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-form/trial-build.json",
+          "label": "Protected bridge and exact r01-to-r02 displacement"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-form/trial-render.json",
+          "label": "Clean-import matched neutral camera and image identities"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/refinement-form/plates/thyroid-r02.webp",
+          "sha256": "0ebe11505c05f11106d38d3c7594bea50c7dd04028cbd4ab29828d80799bc922",
+          "bytes": 87946,
+          "label": "Compare the same rear oblique camera before and after local fairing, then locate the bridge below the recess and compare the two unequal lobes in the second r02 view."
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-form/plates/thyroid-detail.webp",
+          "sha256": "465995493bc0747ea548086e10b2ca8bffc997a7c2401346d98de860d61971fb",
+          "bytes": 59236,
+          "label": "Matched rear-band enlargement. Small ridges recede in r02 while the broad lobe contour remains."
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-form/plates/thyroid_ct_s0189.webp",
+          "sha256": "c9c5d681bc83712b297de710c7b268d857129c31988253b76f574c1c1a10e95a",
+          "bytes": 76164,
+          "label": "r01 control. Locate the protected bridge and compare the lower rear ridges in the reverse view."
+        }
+      ],
+      "teachingView": "reviews/teaching-assessments/refinement-form/plates/thyroid-r02.webp",
+      "decision": "Use r02 for the s0189 bridge task after local fairing of its rear surface. Keep r01 as the comparison. Local illustrative s0189 contour only. No raw-label reconstruction, case tracheal context, clinical validation or runtime acceptance."
+    }
+  ]
+}

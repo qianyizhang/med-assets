@@ -1,0 +1,1144 @@
+{
+  "schemaVersion": 1,
+  "evaluator": "Codex (agent review)",
+  "date": "2026-11-22",
+  "rubric": {
+    "path": "docs/guides/asset-quality.md",
+    "revision": "9e6e490fd67468985e2e8a8298995c730e2f55e5",
+    "sha256": "2e91264ce7c05b6906a8f113f2e0fc888c4765cd3a6d0d6c8a26b6a420900abb"
+  },
+  "assessments": [
+    {
+      "export": {
+        "path": "models/skin/exports/teaching-economy-r01/skin_source_frame.glb",
+        "sha256": "e89de0c33f094e76ba909ba1d5a46a46cf994c0850c080abbf4be43993600b9d",
+        "bytes": 3480472
+      },
+      "task": "Point to the shoulders, waist and hip landmarks on the adult body outline from front and side.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "Clean reimport retains the source-frame envelope and source positions at shoulders, hands and feet. The owner check keeps every incident face in those bands and records the worst outline movement on the head."
+        },
+        {
+          "score": 3,
+          "observation": "Front and neutral oblique keep the shoulder turn, inward waist and broader hips. Enlarged hands and feet retain fingers, toe and heel contours from the owner evidence."
+        },
+        {
+          "score": 3,
+          "observation": "The front lets me point to both shoulders, then indentations at the waist and the wider hips below them. The oblique confirms their depth on the same unlabelled envelope."
+        },
+        {
+          "score": 4,
+          "observation": "The envelope saves 59,194 triangles and 29.0% of bytes. Shoulder, hand and foot faces stay exact, and the largest measured outline shift is 0.25 display pixels at the head in the matched navigation views."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/skin/exports/bp3d-envelope-r01/README.md",
+          "label": "bp3d envelope r01 · README.md"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Exact control, comparison and recovery"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/measurements.json",
+          "label": "Matched clean imports and exact-file measurements"
+        },
+        {
+          "path": "models/skin/exports/bp3d-envelope-r01/ATTRIBUTION.md",
+          "label": "Source attribution and license"
+        },
+        {
+          "path": "models/skin/exports/teaching-economy-r01/README.md",
+          "label": "Package scope and replay link"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/views/skin-trial.webp",
+          "sha256": "76da7806d6909775e2e0e4d676291f1188e78e670b4e8593440b17e97772f997",
+          "bytes": 11920,
+          "label": "Located the shoulder turns, inward waist and widening hips on the full anterior envelope and checked the same outline in oblique."
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/views/skin-original.webp",
+          "sha256": "0ce97523e57891bcca116d6e70078c7f9d6dd078e67734a488fbea431793e7f6",
+          "bytes": 12556,
+          "label": "Body envelope · original reviewed view"
+        }
+      ],
+      "teachingView": "reviews/teaching-assessments/refinement-economy/views/skin-trial.webp",
+      "decision": "Use this local edition for the reviewed task. Whole-body navigation use. For hand and foot detail use the owner crops."
+    },
+    {
+      "export": {
+        "path": "models/aortic_tree_z/exports/teaching-economy-r01/aortic_tree_z_source_frame.glb",
+        "sha256": "a5835c72254467451cd295b7bcae5115a93c7a3df8de87e593a857a8929998b6",
+        "bytes": 700032
+      },
+      "task": "Locate the brachiocephalic/right-carotid composite, left common carotid and left subclavian at the aortic arch.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "All three target arch meshes preserve their source accessor bytes. Their independent shapes, imported transforms and branch order survive the trunk/context edits."
+        },
+        {
+          "score": 3,
+          "observation": "The neutral arch enlargement retains the bend and visible branch rims. The anterior overview retains the distal trunk silhouette and branches, with the source exterior intersections still visible."
+        },
+        {
+          "score": 3,
+          "observation": "I located the composite and the two following origins in order at the neutral arch enlargement. The anterior overview supplies orientation; the composite retains its declared label."
+        },
+        {
+          "score": 4,
+          "observation": "The arch trial saves 15,218 triangles and 20.6% of bytes. All three arch branch meshes stay exact, and the right renal artery has the largest measured local shift at 0.90 teaching pixels."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/aortic_tree_z/2026-10-29-arch-locators/README.md",
+          "label": "2026 10 29 arch locators · README.md"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Exact control, comparison and recovery"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/measurements.json",
+          "label": "Matched clean imports and exact-file measurements"
+        },
+        {
+          "path": "sources/datasets/z-anatomy/small-static-studies/ATTRIBUTION.md",
+          "label": "Source attribution and license"
+        },
+        {
+          "path": "models/aortic_tree_z/exports/teaching-economy-r01/README.md",
+          "label": "Package scope and replay link"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/views/aortic_tree_z-trial.webp",
+          "sha256": "bde7af708db15bc43cad892a78a8df9db3db97f69e4f3b47e843f7d27d24ce94",
+          "bytes": 9206,
+          "label": "Found the composite first, followed by the left common carotid and left subclavian on the enlarged arch. The full view shows their orientation on the trunk."
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/views/aortic_tree_z-original.webp",
+          "sha256": "48da976937a39ac5535ac3d13040de669a38d7660f946dc2f8ab3a166f50667a",
+          "bytes": 9824,
+          "label": "Aortic tree · Z · original reviewed view"
+        }
+      ],
+      "teachingView": "reviews/teaching-assessments/refinement-economy/views/aortic_tree_z-trial.webp",
+      "decision": "Use this local edition for the reviewed task. The review covers the arch task and overview; it does not verify small-branch teaching at arbitrary zoom."
+    },
+    {
+      "export": {
+        "path": "heart/Cardiac_Atlas/exports/teaching-economy-r01/Cardiac_Atlas_Clinical_Full_ED.glb",
+        "sha256": "342e445b8d460458d322a7e5db875d462867b1e7f99043c711bce73c34c9a813",
+        "bytes": 4248224
+      },
+      "task": "Distinguish the pulmonary trunk from the aortic arch on the procedural heart’s full static ED exterior.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "The 247 imported mesh selections preserve scene placement, and the arch and pulmonary meshes retain their exact streams. The measured reductions are in four complete chamber walls."
+        },
+        {
+          "score": 3,
+          "observation": "The pulmonary crossing stays smooth on the front and on the enlarged neutral view. The base still has the procedural assembly's overlapping junctions."
+        },
+        {
+          "score": 3,
+          "observation": "I followed the transverse pulmonary branches in front of the arch and confirmed the arch's bend and vessel ends in the neutral enlargement. This is the static ED exercise."
+        },
+        {
+          "score": 3,
+          "observation": "The full ED scene saves 40,414 triangles and 12.7% of bytes from chamber walls while keeping great-vessel meshes exact. The largest measured change is on the left ventricular wall, whose internal face lies outside this comparison."
+        }
+      ],
+      "sources": [
+        {
+          "path": "heart/Cardiac_Atlas/docs/README.md",
+          "label": "docs · README.md"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Exact control, comparison and recovery"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/measurements.json",
+          "label": "Matched clean imports and exact-file measurements"
+        },
+        {
+          "path": "heart/Cardiac_Atlas/exports/teaching-economy-r01/README.md",
+          "label": "Package scope and replay link"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/views/heart-trial.webp",
+          "sha256": "d68602c96c01c06ca77bccd1662877b7376423239c460a073409918cffccb79a",
+          "bytes": 26670,
+          "label": "Distinguished the transverse front pulmonary trunk path from the separately curved arch. The neutral enlargement confirms their ordering and separate visible ends."
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/views/heart-original.webp",
+          "sha256": "fdfb249011b22c0a6e33273f4b0caa7ebe0b7ca39457b74c48bf160714074528",
+          "bytes": 27116,
+          "label": "Cardiac Atlas · native & static · original reviewed view"
+        }
+      ],
+      "teachingView": "reviews/teaching-assessments/refinement-economy/views/heart-trial.webp",
+      "decision": "Use this local edition for the reviewed task. Use the exact clinical ED variant for chamber-wall or internal-part studies. The existing Workshop opaque exterior has separate source, material and visibility scope."
+    },
+    {
+      "export": {
+        "path": "models/large-intestine/exports/teaching-economy-r01/large-intestine.glb",
+        "sha256": "4ba211f975eb8820d12e6f975051a73691efb69c83806a7d56794f48c00c232a",
+        "bytes": 4846448
+      },
+      "task": "Follow the large bowel exterior around the colon and identify the segmental wall contour and longitudinal taenia cues.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "The two source material regions and their protected inter-region faces survive clean import. The nearest samples bound the change to 0.90 teaching pixels, with the source-frame disconnected exterior retained."
+        },
+        {
+          "score": 3,
+          "observation": "Both directions retain the recurring segment bulges, and the close neutral view separates the raised ribbon from its wall. The exterior ends remain visible."
+        },
+        {
+          "score": 3,
+          "observation": "I traced the colon frame and picked out the longitudinal ribbon through the descending and curved segments in the close view. The task stops at the depicted exterior terminations."
+        },
+        {
+          "score": 4,
+          "observation": "The colon saves 132,084 triangles and 38.5% of bytes with both material regions and their seam intact. The worst sampled displacement is 0.90 teaching pixels, and the close view retains the segmented bulges and longitudinal ribbon."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/large-intestine/exports/source-candidate-v4/README.md",
+          "label": "source candidate v4 · README.md"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Exact control, comparison and recovery"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/measurements.json",
+          "label": "Matched clean imports and exact-file measurements"
+        },
+        {
+          "path": "models/large-intestine/exports/teaching-economy-r01/README.md",
+          "label": "Package scope and replay link"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/views/large-intestine-trial.webp",
+          "sha256": "7a1c9d8c88af49104d3a32d69d36c938432101be2f0627b52d3859e28fdbfc23",
+          "bytes": 21728,
+          "label": "Followed the colon around its exterior frame and picked out segment bulges and a raised taenia ribbon in the closer neutral view."
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/views/large-intestine-original.webp",
+          "sha256": "fdde6593bff989af9390da7d68e96663c1d93cfc84b42972e7bd9bd908300b10",
+          "bytes": 22758,
+          "label": "Large bowel · original reviewed view"
+        }
+      ],
+      "teachingView": "reviews/teaching-assessments/refinement-economy/views/large-intestine-trial.webp",
+      "decision": "Use this local edition for the reviewed task. The exported atlas depicts the exterior. This trial does not establish identification of every ribbon at close inspection."
+    },
+    {
+      "export": {
+        "path": "models/small-intestine/exports/teaching-economy-r01/small-intestine.glb",
+        "sha256": "b5bb67aae18a3fa305cbf29f7d1464cdfdc9d9d22b8dbb6de6c48efb03f0b190",
+        "bytes": 2140672
+      },
+      "task": "Find the proximal attachment region and point out the folded small-bowel loops without inferring a continuous path.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "The proximal attachment band and sparse nonzero morph vertices and faces stay exact. Clean import preserves the source grouping and animation data, with posed geometry checked at weights 0, 0.5 and 1."
+        },
+        {
+          "score": 3,
+          "observation": "The proximal hood and closely spaced turns have the same recognizable contours under broad light. The close neutral view leaves the strongest gaps open and distinguishable."
+        },
+        {
+          "score": 3,
+          "observation": "I located the upper hooked attachment, then pointed to several adjacent folded profiles in the neutral detail. Occluded runs stay outside the tracing task."
+        },
+        {
+          "score": 4,
+          "observation": "The equal-scope contraction saves 9,624 triangles and 225,880 bytes (9.5%). The proximal band, animated sparse region and adjacent faces stay exact. The nearest-surface maximum is 0.83 teaching pixels, with no more than one sampled pixel of silhouette change across the two views."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/small-intestine/exports/source-candidate-v4/README.md",
+          "label": "source candidate v4 · README.md"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Exact control, comparison and recovery"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/measurements.json",
+          "label": "Matched clean imports and exact-file measurements"
+        },
+        {
+          "path": "models/small-intestine/exports/teaching-economy-r01/README.md",
+          "label": "Package scope and replay link"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/views/small-intestine-trial.webp",
+          "sha256": "6c059ba480768c79fb0644494ece0f4a126fe168522c52fad6d3cecbb8303131",
+          "bytes": 26118,
+          "label": "Found the proximal hooked attachment and identified packed loop edges in the nearer view. The task ends at the visible exterior rather than tracing the intervening occlusions."
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/views/small-intestine-original.webp",
+          "sha256": "0ad131b66fd5bd016db6e32e977c394206a9a7ffa03abe4b4b6bbc1e717671da",
+          "bytes": 27178,
+          "label": "Small bowel · original reviewed view"
+        }
+      ],
+      "teachingView": "reviews/teaching-assessments/refinement-economy/views/small-intestine-trial.webp",
+      "decision": "Use this local edition for the reviewed task. Use this file for the static proximal-attachment and folded-loop task. Source animation data and protected sparse rows are retained. The three sampled weights do not qualify the full continuous clip."
+    },
+    {
+      "export": {
+        "path": "models/tongue_authored_study/exports/teaching-economy-r01/tongue-authored-hra-hybrid-p11.glb",
+        "sha256": "44ece7903283ba0eadf045b588bcfb3fb02dba86566d4468c760e36352af7a8f",
+        "bytes": 3245136
+      },
+      "task": "Identify the dorsum, median line and posterior papillae on the gross tongue exterior.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "The HRA dorsal and papilla meshes and authored join patches retain their exact bytes in the hybrid frame. Only the authored body and ventral surface change within 0.14 sampled teaching pixels."
+        },
+        {
+          "score": 3,
+          "observation": "The dorsal outline and median groove remain visible in the first view. The broad neutral close-up resolves the posterior papilla row with the retained hybrid transition."
+        },
+        {
+          "score": 3,
+          "observation": "I located the dorsum and ran along the median groove in the palette view, then found the line of larger papillae on the reverse close view."
+        },
+        {
+          "score": 4,
+          "observation": "The trial removes 58,836 triangles from the authored body and saves 34.9% of bytes. The adjusted body and ventral surface shift at most 0.14 teaching pixels in the samples, and the dorsal median line and papilla meshes stay exact."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/tongue_authored_study/README.md",
+          "label": "Source, owning review and limits"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Exact control, comparison and recovery"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/measurements.json",
+          "label": "Matched clean imports and exact-file measurements"
+        },
+        {
+          "path": "models/tongue_authored_study/source/ATTRIBUTION.md",
+          "label": "Source attribution and license"
+        },
+        {
+          "path": "models/tongue_authored_study/exports/teaching-economy-r01/README.md",
+          "label": "Package scope and replay link"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/views/tongue_authored_study-trial.webp",
+          "sha256": "20ada99e2450c673ccff81c45d4e790629ccf892b3b9788b30259f1e378d8f2b",
+          "bytes": 11668,
+          "label": "Located the dorsum and traced the median groove in the palette view. The second view revealed the row of posterior papillae."
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/views/tongue_authored_study-original.webp",
+          "sha256": "dcfce674101dbce1a526a5e5740a372516b5eccd15b4eb06d141ec42920591da",
+          "bytes": 12208,
+          "label": "Tongue · hybrid · original reviewed view"
+        }
+      ],
+      "teachingView": "reviews/teaching-assessments/refinement-economy/views/tongue_authored_study-trial.webp",
+      "decision": "Use this local edition for the reviewed task. The retained hybrid and illustrative surface distinctions still apply."
+    },
+    {
+      "export": {
+        "path": "models/breasts_hra/exports/teaching-economy-r01/breasts_hra_native_frame.glb",
+        "sha256": "2a7d6d05e06fa8d86adffdf0fd324389cf23ac736b3b659f7c227b96e499fe51",
+        "bytes": 32567624
+      },
+      "task": "Locate each areola on the external breast and distinguish its surface position from the posteriorly visible atlas layers.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "Both areolae, nipples, ducts and mammary-lobe streams stay exact in the retained HRA coordinate frame. The measured reduction is in right adipose context; layer names and transforms survive reimport."
+        },
+        {
+          "score": 3,
+          "observation": "Both areolar domes and the two exterior contours stay recognizable. The posterior neutral view retains coarse layer separation and shows a local adipose highlight change."
+        },
+        {
+          "score": 3,
+          "observation": "I found each areola on the external mound in the paired anterior view and distinguished those sites from the broad, exposed posterior layers. The full atlas remains useful for isolated sublayers."
+        },
+        {
+          "score": 3,
+          "observation": "The right adipose layer saves 164,404 triangles and 13.2% of total bytes. The areola surfaces stay exact and the posterior layers remain distinct, with a local adipose highlight change and isolated sublayers beyond the tested zoom."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/breasts_hra/exports/source-candidate-02/README.md",
+          "label": "Source, owning review and limits"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Exact control, comparison and recovery"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/measurements.json",
+          "label": "Matched clean imports and exact-file measurements"
+        },
+        {
+          "path": "models/breasts_hra/exports/source-candidate-02/ATTRIBUTION.md",
+          "label": "Source attribution and license"
+        },
+        {
+          "path": "models/breasts_hra/exports/teaching-economy-r01/README.md",
+          "label": "Package scope and replay link"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/views/breasts_hra-trial.webp",
+          "sha256": "e31946eb1c7b816741405495895c870e323f80061a614ef748037a3ec20c9e04",
+          "bytes": 13560,
+          "label": "Found both areolae in front and distinguished their superficial positions from the coarse posterior atlas layers."
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/views/breasts_hra-original.webp",
+          "sha256": "ff9748c4ba519bdd433c3c7714d165d604da635388cd806f18aa2a7210144aa8",
+          "bytes": 14134,
+          "label": "Breast pair · original reviewed view"
+        }
+      ],
+      "teachingView": "reviews/teaching-assessments/refinement-economy/views/breasts_hra-trial.webp",
+      "decision": "Use this local edition for the reviewed task. The covered task is gross external location and posterior overview. Color interpolation and isolated sublayers at higher zoom still need their own review."
+    },
+    {
+      "export": {
+        "path": "models/placenta/exports/teaching-economy-r01/placenta_full_term.glb",
+        "sha256": "1c7fbe97548e365c40b886e31a97d3068e611efd79aef543cf49b9d3208ecf4f",
+        "bytes": 4050904
+      },
+      "task": "Distinguish the fetal cord-bearing surface from the lobulated maternal surface of the full-term placenta.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "The cord, amnion, placental vessels and both plates retain all accessor bytes, names, material data and position. Three umbilical artery and vein models are intentionally omitted."
+        },
+        {
+          "score": 3,
+          "observation": "The fetal disc silhouette and broad cord profile remain recognizable; the maternal neutral reverse is pixel-identical and retains the lobule relief. The tiny cord-tip projection changes by three pixels."
+        },
+        {
+          "score": 3,
+          "observation": "I identified the cord-bearing face and its cord root, then turned to the broad lobulated maternal side. Individual umbilical vessels are available in the full atlas."
+        },
+        {
+          "score": 4,
+          "observation": "Five exact meshes supply the two surface views in 155,138 triangles and 4,050,904 bytes, 17.6% fewer bytes than the full atlas. Loss is limited to the three named cord vessel selections, with the measured visual change at the tip."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/placenta/README.md",
+          "label": "Source, owning review and limits"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Exact control, comparison and recovery"
+        },
+        {
+          "path": "reviews/teaching-assessments/target-economy/projection-measurements.json",
+          "label": "Matched clean imports and exact-file measurements"
+        },
+        {
+          "path": "sources/datasets/hra/placenta-full-term-v1.1/LICENSE.txt",
+          "label": "Source attribution and license"
+        },
+        {
+          "path": "models/placenta/exports/teaching-economy-r01/README.md",
+          "label": "Package scope and replay link"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/target-economy/views/placenta-updated.webp",
+          "sha256": "05d64a51249502dcb2391e29bea8d4c034d6e6e6760eb00d05b1dfdf2bb24b8b",
+          "bytes": 14710,
+          "label": "Located the umbilical cord and its root on the fetal side, then identified the broad maternal lobulation from the opposite face."
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/views/placenta-original.webp",
+          "sha256": "dc4e450056fb3d048844dc5816fdd3ae0c57e8c4bfbc607287a9eeea8f9418c6",
+          "bytes": 14492,
+          "label": "Complete HRA atlas · matched teaching views"
+        }
+      ],
+      "teachingView": "reviews/teaching-assessments/target-economy/views/placenta-updated.webp",
+      "decision": "Use this local edition for the reviewed task. Fetal and maternal surface orientation. Retains the cord, amnion, chorionic and basal plates and placental vessels. Three internal cord vessel meshes remain in the full atlas."
+    },
+    {
+      "export": {
+        "path": "models/prostate/exports/teaching-economy-r01/VH_M_Prostate.glb",
+        "sha256": "b46de84b02283254f06855274831657641dbd8c3e94f558f3677ecaa8255c700",
+        "bytes": 3013520
+      },
+      "task": "Distinguish the prostate gland outline below the paired seminal vesicles and identify the proximal source ducts.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "HRA gland, vesicles and ejaculatory-duct streams stay exact in the imported native frame. The affected source prostatic duct and utricle changes are bounded at 0.81 teaching pixels."
+        },
+        {
+          "score": 3,
+          "observation": "Both views retain the broad gland and irregular paired superior vesicles, with the finer tube silhouettes still present. Source openings remain visibly open."
+        },
+        {
+          "score": 3,
+          "observation": "I picked out the paired vesicles above the rounded gland and found the source proximal ducts in the paired views. Their visibility supports location without a patency claim."
+        },
+        {
+          "score": 4,
+          "observation": "The duct and utricle trial saves 59,610 triangles and 26.3% of bytes. The left prostatic duct has the largest sampled shift at 0.81 teaching pixels, and both overview silhouettes and the exact gland and vesicle meshes are preserved."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/prostate/README.md",
+          "label": "Source, owning review and limits"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Exact control, comparison and recovery"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/measurements.json",
+          "label": "Matched clean imports and exact-file measurements"
+        },
+        {
+          "path": "models/prostate/ATTRIBUTION.md",
+          "label": "Source attribution and license"
+        },
+        {
+          "path": "models/prostate/exports/teaching-economy-r01/README.md",
+          "label": "Package scope and replay link"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/views/prostate-trial.webp",
+          "sha256": "078cb677387d358fe9ff9ffdf82041a8e041f9338cedd2787db1a085e54323e6",
+          "bytes": 13692,
+          "label": "Found the gland below the paired seminal vesicles and distinguished the thin proximal duct selections."
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/views/prostate-original.webp",
+          "sha256": "f243f183b5b2015a3338b8133cf32049d1b7d408a92824f00f1423da23a18f73",
+          "bytes": 14440,
+          "label": "Prostate · original reviewed view"
+        }
+      ],
+      "teachingView": "reviews/teaching-assessments/refinement-economy/views/prostate-trial.webp",
+      "decision": "Use this local edition for the reviewed task. The evidence supports gross orientation, with no claim of continuous duct patency or fine internal-zone inspection."
+    },
+    {
+      "export": {
+        "path": "models/kidney_left/exports/teaching-economy-r01/kidney_left.glb",
+        "sha256": "e000c2b4408caf1bbbbf2a5649c5e0e3ceaf94b3c2bf794da3a2f30587bb3778",
+        "bytes": 560708
+      },
+      "task": "Find the left kidney medial hilum and orient the retained exterior.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "The left capsule, outer cortex and labeled hilar patch retain source positions, normals, materials and world transforms byte for byte. The HRA internal selections are explicitly omitted."
+        },
+        {
+          "score": 3,
+          "observation": "Medial and convex silhouettes match. The neutral convex view has identical decoded pixels. Small color differences inside the existing hilar aperture follow the omission of underlying tissue."
+        },
+        {
+          "score": 3,
+          "observation": "I found the medial hilar recess and the retained patch in the first view, then matched the smooth convex surface on the reverse. The patch remains a selectable HRA source structure."
+        },
+        {
+          "score": 4,
+          "observation": "The same exterior task uses three exact meshes and 30,561 triangles in 560,708 bytes, 59.3% fewer bytes than the full atlas. The outer masks are identical and the visible difference is confined to the deep hilar aperture."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/kidney_left/README.md",
+          "label": "Source, owning review and limits"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Exact control, comparison and recovery"
+        },
+        {
+          "path": "reviews/teaching-assessments/target-economy/projection-measurements.json",
+          "label": "Matched clean imports and exact-file measurements"
+        },
+        {
+          "path": "sources/datasets/hra/kidney-female-left-v1.3/metadata.json",
+          "label": "Source attribution and license"
+        },
+        {
+          "path": "models/kidney_left/exports/teaching-economy-r01/README.md",
+          "label": "Package scope and replay link"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/target-economy/views/kidney_left-updated.webp",
+          "sha256": "70c1abfe511cf3ed4529b291a0f7545f8424d2ee4a25d5884eb5cf6a3a5635a9",
+          "bytes": 9780,
+          "label": "Found the left medial recess and separately named hilar patch and contrasted them with the neutral outer contour. The HRA full atlas supplies interior selections."
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/views/kidney_left-original.webp",
+          "sha256": "dd65758f616ea09f99751dc96d20ba3ef97cc35694254dcc52e79a0b6df660c3",
+          "bytes": 9654,
+          "label": "Complete HRA atlas · matched teaching views"
+        }
+      ],
+      "teachingView": "reviews/teaching-assessments/target-economy/views/kidney_left-updated.webp",
+      "decision": "Use this local edition for the reviewed task. Left kidney hilar exterior. Retains capsule, outer cortex and hilum. Internal renal columns, papillae and pyramids remain in the full atlas."
+    },
+    {
+      "export": {
+        "path": "models/kidney_right/exports/teaching-economy-r01/kidney_right.glb",
+        "sha256": "fdddbde55104ab9af2b5ebafea7e52692dad7f94aad85d93a2237cbdd371e3eb",
+        "bytes": 526464
+      },
+      "task": "Find the right kidney medial hilum and distinguish it from the smooth convex exterior.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "The right capsule, outer cortex and labeled hilar patch retain source coordinates, vertex streams, assigned materials and placement. Internal meshes remain available on the full atlas."
+        },
+        {
+          "score": 3,
+          "observation": "The medial outline, separate hilar recesses and convex reverse stay visible. The neutral view is pixel-identical; small shading changes inside the source gaps reflect the omitted underlying meshes."
+        },
+        {
+          "score": 3,
+          "observation": "I located the patch within the medial depression and used the neutral reverse to distinguish it from the smooth convex contour. The retained hilar patch still isolates."
+        },
+        {
+          "score": 4,
+          "observation": "Three exact meshes provide the exterior task in 28,682 triangles and 526,464 bytes, a 62.5% byte saving. Both foreground masks match, and the changed pixels are inside the existing hilar openings."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/kidney_right/README.md",
+          "label": "Source, owning review and limits"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Exact control, comparison and recovery"
+        },
+        {
+          "path": "reviews/teaching-assessments/target-economy/projection-measurements.json",
+          "label": "Matched clean imports and exact-file measurements"
+        },
+        {
+          "path": "sources/datasets/hra/kidney-female-right-v1.3/metadata.json",
+          "label": "Source attribution and license"
+        },
+        {
+          "path": "models/kidney_right/exports/teaching-economy-r01/README.md",
+          "label": "Package scope and replay link"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/target-economy/views/kidney_right-updated.webp",
+          "sha256": "bdcd08fb9ec81df84f5915a0b24c16375e10d03db7b4a913ee258581218ca329",
+          "bytes": 9972,
+          "label": "Located the right hilar recess within the surrounding ridge and contrasted it with the convex neutral exterior. The HRA full atlas supplies interior selections."
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/views/kidney_right-original.webp",
+          "sha256": "d8dcec47c648a9a3c189a9b703801085112cf8f619683b8b17f14a4a4b4591b5",
+          "bytes": 9822,
+          "label": "Complete HRA atlas · matched teaching views"
+        }
+      ],
+      "teachingView": "reviews/teaching-assessments/target-economy/views/kidney_right-updated.webp",
+      "decision": "Use this local edition for the reviewed task. Right kidney hilar exterior. Retains capsule, outer cortex and hilum. Internal renal columns, papillae and pyramids remain in the full atlas."
+    },
+    {
+      "export": {
+        "path": "models/blood_cell_study/exports/teaching-economy-r01/blood-cell-authored-study-r05.glb",
+        "sha256": "cd34b007869be3d77a0e8493b21c51f5bd99fc86c0e496aee9716f698055d4b6",
+        "bytes": 2722128
+      },
+      "task": "Distinguish erythrocytes face-on and edge-on, then locate the segmented neutrophil nucleus in the opening.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "Clean reimport retains selectable parts and relative display placements in the authored study. Measured contractions leave the exposed nucleus, small granule selections and labels in their source roles; the exercise uses independent display scales."
+        },
+        {
+          "score": 3,
+          "observation": "The front still shows the broad dimple and thin edge-on profile. Neutral close-up keeps the nuclear lobes and the cut rim distinct with subtle highlight changes."
+        },
+        {
+          "score": 3,
+          "observation": "I identified both red-cell profiles and the segmented nucleus within the cut opening. The overview establishes display labels and the detail confirms the lobes."
+        },
+        {
+          "score": 4,
+          "observation": "The display saves 68,294 triangles and 21.3% of bytes. The intact neutrophil shell has the largest sampled shift at 0.87 teaching pixels while both red-cell profiles and the exposed lobes of the cutaway nucleus remain distinct."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/blood_cell_study/README.md",
+          "label": "Owning reference and assessment scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Exact control, comparison and recovery"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/measurements.json",
+          "label": "Matched clean imports and exact-file measurements"
+        },
+        {
+          "path": "models/blood_cell_study/exports/teaching-economy-r01/README.md",
+          "label": "Package scope and replay link"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/views/blood_cell_study-trial.webp",
+          "sha256": "60ab192d944887aa108bbfaa4c975cdbf72a27937672e07b0aaac82f43aaa832",
+          "bytes": 11844,
+          "label": "Matched the dimpled erythrocyte to the edge-on profile and found the connected nuclear lobes in the neutrophil cutaway."
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/views/blood_cell_study-original.webp",
+          "sha256": "53177c1d7d9260a080b563d509002f121eb948214d8dd18a05129e157c87791a",
+          "bytes": 12376,
+          "label": "Blood-cell forms · original reviewed view"
+        }
+      ],
+      "teachingView": "reviews/teaching-assessments/refinement-economy/views/blood_cell_study-trial.webp",
+      "decision": "Use this local edition for the reviewed task. The authored study compares independent display scales. This trial supports appearance and gross discrimination only."
+    },
+    {
+      "export": {
+        "path": "models/bone_marrow/exports/teaching-economy-r01/marrow_cutaway.glb",
+        "sha256": "98c2e5ababce25387867803659b77f04ff1849d29c48fab65ad09b387e75b3d7",
+        "bytes": 4218116
+      },
+      "task": "Locate the authored trabecular network inside the cut proximal femur and distinguish it from the outer rim.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "The authored lattice measurements cover the nearest surface and protected thin regions. Cortex and marrow backing retain exact buffers through clean import, and the source and illustrative regions remain documented."
+        },
+        {
+          "score": 3,
+          "observation": "The cut rim, neighboring lattice passages and coarse outer femur read in both compared scales. The closest view shows a slight highlight change near a crossing."
+        },
+        {
+          "score": 3,
+          "observation": "I used the long cortex to orient the cut proximal femur and distinguished the trabecular openings and crossings from that cortex in the enlargement."
+        },
+        {
+          "score": 4,
+          "observation": "The lattice saves 189,662 triangles and 51.9% of file bytes while cortex and backing stay exact. The largest sampled shift is 98.45 μm, and the enlarged crossing changes highlight while retaining the adjacent opening."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/bone_marrow/2026-10-26-source-cutaway-r05/review-decision.json",
+          "label": "Owning reference and assessment scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Exact control, comparison and recovery"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/measurements.json",
+          "label": "Matched clean imports and exact-file measurements"
+        },
+        {
+          "path": "models/bone_marrow/exports/teaching-economy-r01/README.md",
+          "label": "Package scope and replay link"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/views/bone_marrow-trial.webp",
+          "sha256": "3fe380d0e3728f036030bac93d08d05c14575ec4512dafa42139ffc2d9d78ed3",
+          "bytes": 38506,
+          "label": "Followed the cortex up to the cut proximal femur and distinguished the authored lattice openings and crossings from the outer rim."
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/views/bone_marrow-original.webp",
+          "sha256": "51753731ef18349dd731a0f4fe2ef7a203c3206d9ef36fd48332d821bc2c628c",
+          "bytes": 39472,
+          "label": "Bone-marrow cutaway · original reviewed view"
+        }
+      ],
+      "teachingView": "reviews/teaching-assessments/refinement-economy/views/bone_marrow-trial.webp",
+      "decision": "Use this local edition for the reviewed task. The lattice is illustrative. The owner review defines the closest supported crop and includes the worst directed-displacement views."
+    },
+    {
+      "export": {
+        "path": "models/skeleton/exports/teaching-economy-r01/skeleton_source_frame.glb",
+        "sha256": "ca10c44878ec836c63882855b9af29193e637773059dbc33b15daff044c2bb3c",
+        "bytes": 11048256
+      },
+      "task": "Orient the skull, rib cage and pelvis, then distinguish the appendicular bones from the axial trunk.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "Clean import retains atlas source placement and named bones. The measured reductions across 23 primitives leave the closest reviewed rib profile within 0.98 teaching pixels."
+        },
+        {
+          "score": 3,
+          "observation": "The skull, rib cage and pelvic ring have recognizable profiles in the overview and trunk detail. The rib outlines remain distinct in the neutral enlargement."
+        },
+        {
+          "score": 3,
+          "observation": "I identified the skull, ribs and pelvis on the whole view and distinguished the limb bones from the axial trunk in the closer view."
+        },
+        {
+          "score": 4,
+          "observation": "The atlas saves 92,112 triangles and 13.0% of bytes across 23 dense meshes. The right second rib has the largest estimated shift at 0.98 teaching pixels, and the torso close-up retains the rib contours."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/skeleton/exports/source-candidate-03/README.md",
+          "label": "Owning reference and assessment scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Exact control, comparison and recovery"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/measurements.json",
+          "label": "Matched clean imports and exact-file measurements"
+        },
+        {
+          "path": "models/skeleton/exports/source-candidate-03/ATTRIBUTION.md",
+          "label": "Source attribution and license"
+        },
+        {
+          "path": "models/skeleton/exports/teaching-economy-r01/README.md",
+          "label": "Package scope and replay link"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/views/skeleton-trial.webp",
+          "sha256": "6725910f1026f1235fae5baf37e5c75e7438ab0b503c0b4deedb6e93a7447401",
+          "bytes": 23886,
+          "label": "Located skull, rib cage and pelvis and identified the limb bones as appendicular structures around the axial trunk."
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/views/skeleton-original.webp",
+          "sha256": "3776dcdc14dadf8add8980b0caa29abddc2be036928963454469cef0f3d572f3",
+          "bytes": 24640,
+          "label": "Skeletal atlas · original reviewed view"
+        }
+      ],
+      "teachingView": "reviews/teaching-assessments/refinement-economy/views/skeleton-trial.webp",
+      "decision": "Use this local edition for the reviewed task. Use the exact atlas for individual landmarks beyond the reviewed body views."
+    },
+    {
+      "export": {
+        "path": "models/ears_z/exports/teaching-economy-r01/ears_z.glb",
+        "sha256": "cb5f38d7d5b8d617df11b53c65ef9d1fe11eb0c3f208d161209bda534917deed",
+        "bytes": 1005904
+      },
+      "task": "Locate the outer auricular rim and distinguish it from the recessed bowl.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "The bilateral compound keeps both external ears, their source scale and medial boundaries. The directed sample stays below 0.59 teaching pixels at the declared rim-and-bowl view."
+        },
+        {
+          "score": 3,
+          "observation": "The exterior silhouette is recognizable in the pair and the neutral detail. The enlarged ear retains the continuous helix rim against the recessed bowl."
+        },
+        {
+          "score": 3,
+          "observation": "I located both ear surfaces in the pair and traced the outer rim around the bowl in the enlarged neutral view."
+        },
+        {
+          "score": 4,
+          "observation": "The two-ear compound saves 41,466 triangles and 42.6% of bytes. The worst measured surface shift is 0.58 teaching pixels, and the enlarged neutral view keeps the helix rim and recessed bowl distinct."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/ears_z/exports/r04/README.md",
+          "label": "Owning reference and assessment scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Exact control, comparison and recovery"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/measurements.json",
+          "label": "Matched clean imports and exact-file measurements"
+        },
+        {
+          "path": "sources/datasets/z-anatomy/small-static-studies/ATTRIBUTION.md",
+          "label": "Source attribution and license"
+        },
+        {
+          "path": "models/ears_z/exports/teaching-economy-r01/README.md",
+          "label": "Package scope and replay link"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/views/ears_z-trial.webp",
+          "sha256": "f728fc89b8a74f8dffcfee3b6d8ad0db8ed49e72c6613e6a8f799df9d3ebd9ad",
+          "bytes": 9828,
+          "label": "Located both auricles in the overview and followed one helix rim around the recessed bowl in the enlargement."
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/views/ears_z-original.webp",
+          "sha256": "8e48bd1d5e9969bc6a5cc0d7ff5908edc17219be18fae0af15c85a6f1f6e3bcd",
+          "bytes": 10532,
+          "label": "Auricles / pinnae · original reviewed view"
+        }
+      ],
+      "teachingView": "reviews/teaching-assessments/refinement-economy/views/ears_z-trial.webp",
+      "decision": "Use this local edition for the reviewed task. This comparison supports the tested views of the external ear, with no finer landmark or canal claim."
+    },
+    {
+      "export": {
+        "path": "models/lung_left/exports/teaching-economy-r01/lung_left.glb",
+        "sha256": "4cb7524a3843fda941d50adc060d2a3c9d08135bea6cddc99d03284d25bb683c",
+        "bytes": 2093088
+      },
+      "task": "Find the left upper and lower lobes and follow their oblique fissure.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "Both lobe positions, UVs, material assignments and animation accessors are byte-identical. The three images keep exact decoded RGB or RGBA pixels and retained PNG metadata."
+        },
+        {
+          "score": 3,
+          "observation": "The repacked GLB's clean-import views are pixel-identical. Both oblique and reverse show the two profiles and the diagonal fissure with the same lower margin."
+        },
+        {
+          "score": 3,
+          "observation": "I followed the fissure between the upper and lower lobes, and the reverse confirms the same boundary. Both lobes remain distinct imported meshes."
+        },
+        {
+          "score": 4,
+          "observation": "The same 31,200 triangles and both morph-ready meshes are preserved. Lossless PNG repacking saves 431,908 bytes (17.1%) with identical decoded texels and untouched geometry and motion streams."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/lung_left/2026-10-23-metadata-cleanup-r01/verification.json",
+          "label": "Source and review boundary"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Exact control, comparison and recovery"
+        },
+        {
+          "path": "reviews/teaching-assessments/target-economy/lung-textures.json",
+          "label": "Encoded identities and exact decoded texels"
+        },
+        {
+          "path": "reviews/teaching-assessments/target-economy/lung-render.json",
+          "label": "Matched clean imports and exact-file measurements"
+        },
+        {
+          "path": "models/lung_left/exports/teaching-economy-r01/README.md",
+          "label": "Package scope and replay link"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/target-economy/views/lung_left-updated.webp",
+          "sha256": "b53a5d51169f10e13a985543bee70a817b6b28d8518473e1f2dc92d0183a3303",
+          "bytes": 10838,
+          "label": "Located the upper and lower lobe and followed the oblique fissure in the palette render and neutral alternate, with the original two mesh selections preserved."
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/views/lung_left-original.webp",
+          "sha256": "53ee5ee52aea681db2eac811a26ed2e9bbcbb0fed5d04853ad1d5cbbab023bd0",
+          "bytes": 11424,
+          "label": "Textured control · matched geometry views"
+        }
+      ],
+      "teachingView": "reviews/teaching-assessments/target-economy/views/lung_left-updated.webp",
+      "decision": "Use this local edition for the reviewed task. Re-encodes the three embedded PNGs with identical channels and metadata. All scene, UV, geometry and morph data stay exact."
+    },
+    {
+      "export": {
+        "path": "models/lung_pair/exports/teaching-economy-r01/lung_female_hra_normals_r02.glb",
+        "sha256": "5c56e323c09547b7d3333f2ff222cb165d322e9cac48aa0200733132129abf78",
+        "bytes": 724960
+      },
+      "task": "Compare the right three-lobe and left two-lobe arrangement in the combined HRA source specimen.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "All 27 pulmonary meshes preserve their source streams, names, world placements, materials and five lobar groups. Only the separate tracheobronchial branch is omitted."
+        },
+        {
+          "score": 3,
+          "observation": "Anterior and neutral posterior clean reimports match the originals pixel for pixel. Fissures and visible hila keep their source contours and known posterior occlusion."
+        },
+        {
+          "score": 3,
+          "observation": "I used the right horizontal seam to locate the middle lobe beneath the upper lobe and compared it with the single left oblique fissure. The neutral posterior view confirms orientation without resolving every right boundary."
+        },
+        {
+          "score": 4,
+          "observation": "The 27 exact lung meshes use 36,764 triangles and 724,960 bytes, 96.9% fewer bytes than the complete HRA lung and bronchi atlas. The two task views are pixel-identical. The separately selectable bronchial tree remains in the full atlas."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/lung_pair/2026-10-24-bounded-migration/historical-technical-scope.json",
+          "label": "Source and review boundary"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Exact control, comparison and recovery"
+        },
+        {
+          "path": "reviews/teaching-assessments/target-economy/projection-measurements.json",
+          "label": "Matched clean imports and exact-file measurements"
+        },
+        {
+          "path": "models/lung_pair/exports/hra-female-normals-r02/README.md",
+          "label": "Source attribution and license"
+        },
+        {
+          "path": "models/lung_pair/exports/teaching-economy-r01/README.md",
+          "label": "Package scope and replay link"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/target-economy/views/lung_pair-updated.webp",
+          "sha256": "31ae2a5ca38616ff4f7b25ddbf7cbbfdb9c53c1d7e1c2f847ccfbec223e308e3",
+          "bytes": 15712,
+          "label": "Located the right middle lobe between the anterior fissures and compared the left single oblique fissure. The posterior view confirmed orientation."
+        },
+        {
+          "path": "reviews/teaching-assessments/target-economy/views/lung_pair-original.webp",
+          "sha256": "7a32d26921cfbfbe34e4dafbe043e72e06b538aaaa37ecc5116213ebc8bb05f1",
+          "bytes": 15510,
+          "label": "Complete HRA atlas · matched teaching views"
+        }
+      ],
+      "teachingView": "reviews/teaching-assessments/target-economy/views/lung_pair-updated.webp",
+      "decision": "Use this local edition for the reviewed task. Bilateral lobe orientation. Retains all five lobar groups, all their segments and hila. The separate tracheobronchial selection remains in the full atlas."
+    },
+    {
+      "export": {
+        "path": "models/pharynx_larynx/exports/teaching-economy-r01/pharynx_larynx.glb",
+        "sha256": "6145abfa541670441bdc7b61978121dc4f5d2730731b873a76b9fff1428d7bff",
+        "bytes": 3834688
+      },
+      "task": "Find the epiglottis, thyroid cartilage and cricoid within the dissected pharyngeal exterior.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "Native placement and all 33 selections survive clean import. The three named cartilage streams stay exact and the edits are in six surrounding muscle or raphe meshes."
+        },
+        {
+          "score": 3,
+          "observation": "The neutral detail retains the shield, inferior ring and epiglottic shape below the dissected muscles. Source epiglottic holes and the existing editorial labels remain bounded in the owner notes."
+        },
+        {
+          "score": 3,
+          "observation": "I oriented to the pharyngeal shell in the overview and located the epiglottis, thyroid shield and cricoid ring in the closer neutral view."
+        },
+        {
+          "score": 4,
+          "observation": "Reducing six context meshes saves 67,536 triangles and 24.1% of bytes. The right superior constrictor has the largest measured shift at 0.98 teaching pixels, while the epiglottis, thyroid cartilage and cricoid meshes stay exact."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/pharynx_larynx/exports/r03/README.md",
+          "label": "Source and review boundary"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Exact control, comparison and recovery"
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/measurements.json",
+          "label": "Matched clean imports and exact-file measurements"
+        },
+        {
+          "path": "models/pharynx_larynx/exports/r03/ATTRIBUTION.md",
+          "label": "Source attribution and license"
+        },
+        {
+          "path": "models/pharynx_larynx/exports/teaching-economy-r01/README.md",
+          "label": "Package scope and replay link"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/views/pharynx_larynx-trial.webp",
+          "sha256": "927c2084e14d5b2d14fd52d81db69dbd0e1265a8ae38cd3d9f23466fd616b5dd",
+          "bytes": 20616,
+          "label": "Oriented to the pharyngeal shell, then found the epiglottis, thyroid shield and inferior cricoid ring in neutral."
+        },
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/views/pharynx_larynx-original.webp",
+          "sha256": "df2f17d9197c6da4ceacb99a298900d168d07f4017af269bd922c6a0b1f5b97a",
+          "bytes": 21582,
+          "label": "Pharynx / larynx · original reviewed view"
+        }
+      ],
+      "teachingView": "reviews/teaching-assessments/refinement-economy/views/pharynx_larynx-trial.webp",
+      "decision": "Use this local edition for the reviewed task. This comparison covers cartilage location. The lighter muscles have not been qualified for close fiber study."
+    }
+  ]
+}

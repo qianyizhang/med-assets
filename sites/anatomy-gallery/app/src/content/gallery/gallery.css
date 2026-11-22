@@ -790,3 +790,8 @@
 .ga-balanced-download [role="status"] {
   color: var(--ga-ink);
 }
+
+.ga-refinement-nav { display: flex; flex-wrap: wrap; align-items: end; gap: 0.8rem; }
+.ga-refinement-nav label { display: grid; gap: 0.25rem; }
+.ga-refinement-nav select { max-width: 100%; font: inherit; }
+.ga-compare-choice { display: inline-flex; align-items: center; gap: 0.4rem; margin-block: 0.5rem; }

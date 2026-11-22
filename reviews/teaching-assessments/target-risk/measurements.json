@@ -1,0 +1,2562 @@
+{
+  "blender": "5.2.3 LTS Release Candidate (fab76e95306d)",
+  "testedBase": "c179a58",
+  "renderSetup": "Matched orthographic cameras, Blender Workbench studio light, neutral or documented illustrative object colors. Eye paired Cycles CPU review.",
+  "eyeBuild": {
+    "baseline": {
+      "sha256": "457b08b1edab5fc39db3b49e09635091721847e06262b7cb937fd006223c6750",
+      "bytes": 10054784,
+      "nodes": 7,
+      "triangles": 150793
+    },
+    "candidate": {
+      "file": "eye-order-study.glb",
+      "sha256": "f19ee7388a85d9661f8cad7cec7a1033d5406e2fda3ee8e4b98597572d8ba2da",
+      "bytes": 2594032,
+      "nodes": 3,
+      "triangles": 44301,
+      "accessors": 9,
+      "retainedDataAndMaterialsExact": true,
+      "unreferencedPayloadRemoved": true
+    },
+    "omittedNodes": [
+      "VH_M_ciliary_body_R",
+      "VH_M_ciliary_muscle_R",
+      "VH_M_ciliary_processes_R",
+      "VH_M_suspensory_ligament_of_lens_R"
+    ],
+    "scope": "Draft editorial omission study: broad cornea / iris surrounding pupil opening / lens order only. Pupil is an opening; opaque blue disk is lens. Missing support tissues are omitted, not absent anatomy. No attachment, corneal shape/thickness, optics, accommodation, normal-atlas or clinical validity.",
+    "sourceUnchanged": true
+  },
+  "eyeReimport": {
+    "baselineSha256": "457b08b1edab5fc39db3b49e09635091721847e06262b7cb937fd006223c6750",
+    "candidateSha256": "f19ee7388a85d9661f8cad7cec7a1033d5406e2fda3ee8e4b98597572d8ba2da",
+    "renderer": "5.2.3 LTS Release Candidate",
+    "engine": "Cycles CPU",
+    "samples": 48,
+    "seed": 0,
+    "resolution": [
+      1000,
+      1000
+    ],
+    "viewTransform": "AgX",
+    "look": "AgX - Medium High Contrast",
+    "denoising": false,
+    "exposure": 0,
+    "gamma": 1,
+    "imports": [
+      {
+        "variant": "baseline",
+        "seconds": 0.2806067090132274,
+        "meshes": {
+          "VH_M_cornea_R": {
+            "vertices": 19572,
+            "polygons": 9788,
+            "geometryAndNormalsSha256": "3c29dd4b18ed793347c17e9f253f31191c627a1ccf87f19ae8ac6550acf0ab4f",
+            "worldMatrix": [
+              [
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "materials": [
+              "VH_M_cornea_R illustrative teaching color, not measured tissue"
+            ]
+          },
+          "VH_M_iris_R": {
+            "vertices": 65666,
+            "polygons": 32829,
+            "geometryAndNormalsSha256": "8733e92088b9e2b7be449f532da5898b7e7fabbe798582412e6443110af75840",
+            "worldMatrix": [
+              [
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "materials": [
+              "VH_M_iris_R illustrative teaching color, not measured tissue"
+            ]
+          },
+          "VH_M_lens_R": {
+            "vertices": 3368,
+            "polygons": 1684,
+            "geometryAndNormalsSha256": "08b441246ed12acdb1a62e91606fe8e6e61113cf55e7398d9a6915983abd2926",
+            "worldMatrix": [
+              [
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "materials": [
+              "VH_M_lens_R illustrative teaching color, not measured tissue"
+            ]
+          },
+          "VH_M_ciliary_body_R": {
+            "vertices": 31767,
+            "polygons": 15886,
+            "geometryAndNormalsSha256": "d3b20ef020edd702a0f0c78e41e85f2b5d7d6dfa345c721272ac6b47e4f7cdba",
+            "worldMatrix": [
+              [
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "materials": [
+              "VH_M_ciliary_body_R illustrative teaching color, not measured tissue"
+            ]
+          },
+          "VH_M_ciliary_muscle_R": {
+            "vertices": 112809,
+            "polygons": 54614,
+            "geometryAndNormalsSha256": "719bed743219d75b63641f754df158c7e5f1be623e963d088acfb79c25d14f2b",
+            "worldMatrix": [
+              [
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "materials": [
+              "VH_M_ciliary_muscle_R illustrative teaching color, not measured tissue"
+            ]
+          },
+          "VH_M_ciliary_processes_R": {
+            "vertices": 76608,
+            "polygons": 25536,
+            "geometryAndNormalsSha256": "614072b1ff26c653c7673815f01a5fad2e4bd69343572006a467f93774339a69",
+            "worldMatrix": [
+              [
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "materials": [
+              "VH_M_ciliary_processes_R illustrative teaching color, not measured tissue"
+            ]
+          },
+          "VH_M_suspensory_ligament_of_lens_R": {
+            "vertices": 31366,
+            "polygons": 10456,
+            "geometryAndNormalsSha256": "eeeb6e6930172ea1a20819720d12ce499d86b6123969e73ec6017a8f1883b187",
+            "worldMatrix": [
+              [
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "materials": [
+              "VH_M_suspensory_ligament_of_lens_R illustrative teaching color, not measured tissue"
+            ]
+          }
+        }
+      },
+      {
+        "variant": "candidate",
+        "seconds": 0.0716934580123052,
+        "meshes": {
+          "VH_M_cornea_R": {
+            "vertices": 19572,
+            "polygons": 9788,
+            "geometryAndNormalsSha256": "3c29dd4b18ed793347c17e9f253f31191c627a1ccf87f19ae8ac6550acf0ab4f",
+            "worldMatrix": [
+              [
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "materials": [
+              "VH_M_cornea_R illustrative teaching color, not measured tissue"
+            ]
+          },
+          "VH_M_iris_R": {
+            "vertices": 65666,
+            "polygons": 32829,
+            "geometryAndNormalsSha256": "8733e92088b9e2b7be449f532da5898b7e7fabbe798582412e6443110af75840",
+            "worldMatrix": [
+              [
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "materials": [
+              "VH_M_iris_R illustrative teaching color, not measured tissue"
+            ]
+          },
+          "VH_M_lens_R": {
+            "vertices": 3368,
+            "polygons": 1684,
+            "geometryAndNormalsSha256": "08b441246ed12acdb1a62e91606fe8e6e61113cf55e7398d9a6915983abd2926",
+            "worldMatrix": [
+              [
+                1.0,
+                0.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                1.0,
+                0.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                1.0,
+                0.0
+              ],
+              [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ]
+            ],
+            "materials": [
+              "VH_M_lens_R illustrative teaching color, not measured tissue"
+            ]
+          }
+        }
+      }
+    ],
+    "views": [
+      {
+        "variant": "baseline",
+        "view": "context",
+        "file": "baseline-context.png",
+        "sha256": "efd70e91863e78d5e097dcc6eaeb3d7fd087f2534b78576c02be7007ac3cc4d0",
+        "bytes": 1008577,
+        "seconds": 15.726859999995213,
+        "visibleNodes": [
+          "VH_M_ciliary_body_R",
+          "VH_M_ciliary_muscle_R",
+          "VH_M_ciliary_processes_R",
+          "VH_M_cornea_R",
+          "VH_M_iris_R",
+          "VH_M_lens_R",
+          "VH_M_suspensory_ligament_of_lens_R"
+        ],
+        "cameraLocation": [
+          1.9648369550704956,
+          -1.0930123329162598,
+          1.2111257314682007
+        ],
+        "target": [
+          -0.035162992775440216,
+          -0.09301231801509857,
+          0.8111257553100586
+        ],
+        "orthoScaleM": 0.018125224858522415
+      },
+      {
+        "variant": "baseline",
+        "view": "detail",
+        "file": "baseline-detail.png",
+        "sha256": "0db852a56de8b7be913fd5fe5a5dc29f8a350c00f8e9645823357f2c715f1bd1",
+        "bytes": 1894568,
+        "seconds": 35.258377916004974,
+        "visibleNodes": [
+          "VH_M_ciliary_body_R",
+          "VH_M_ciliary_muscle_R",
+          "VH_M_ciliary_processes_R",
+          "VH_M_cornea_R",
+          "VH_M_iris_R",
+          "VH_M_lens_R",
+          "VH_M_suspensory_ligament_of_lens_R"
+        ],
+        "cameraLocation": [
+          0.9648370146751404,
+          1.9069876670837402,
+          1.4159257411956787
+        ],
+        "target": [
+          -0.035162992775440216,
+          -0.09301231801509857,
+          0.8159257769584656
+        ],
+        "orthoScaleM": 0.005499999970197678
+      },
+      {
+        "variant": "candidate",
+        "view": "context",
+        "file": "candidate-context.png",
+        "sha256": "da014ee037d85d596c061371b05bfe324d455b0510c400269313423b1b43e761",
+        "bytes": 846940,
+        "seconds": 11.020572999957949,
+        "visibleNodes": [
+          "VH_M_cornea_R",
+          "VH_M_iris_R",
+          "VH_M_lens_R"
+        ],
+        "cameraLocation": [
+          1.9648369550704956,
+          -1.0930123329162598,
+          1.2111257314682007
+        ],
+        "target": [
+          -0.035162992775440216,
+          -0.09301231801509857,
+          0.8111257553100586
+        ],
+        "orthoScaleM": 0.018125224858522415
+      },
+      {
+        "variant": "candidate",
+        "view": "detail",
+        "file": "candidate-detail.png",
+        "sha256": "45e4bbace9eb870bdac6e4653819fb24ba8f1b6bd9851aa5e034b915e10549e4",
+        "bytes": 1379306,
+        "seconds": 18.569037208042573,
+        "visibleNodes": [
+          "VH_M_cornea_R",
+          "VH_M_iris_R",
+          "VH_M_lens_R"
+        ],
+        "cameraLocation": [
+          0.9648370146751404,
+          1.9069876670837402,
+          1.4159257411956787
+        ],
+        "target": [
+          -0.035162992775440216,
+          -0.09301231801509857,
+          0.8159257769584656
+        ],
+        "orthoScaleM": 0.005499999970197678
+      }
+    ],
+    "scope": "Clean native GLB imports and matched pixels; no browser, anatomical or clinical acceptance."
+  },
+  "selectionRepack": {
+    "bladder": {
+      "source": {
+        "path": "models/bladder/exports/hra-female-context-r03/bladder_hra_female_context_r03.glb",
+        "sha256": "91f04d1c831a61944da116184f389461517587c90c91fd94e199fba1619aa6b9",
+        "bytes": 2449600,
+        "triangles": 120796,
+        "channels": 0
+      },
+      "candidate": {
+        "file": "bladder-pelvic-base.glb",
+        "sha256": "07de72fc8f3b152291be30f24e24369a08af1232bb1a18f1cb90cdd2440aa15a",
+        "bytes": 1271856,
+        "triangles": 69186,
+        "channels": 0
+      },
+      "retained": [
+        "VH_F_right_ureter",
+        "VH_F_left_ureter",
+        "VH_F_fundus_of_urinary_bladder_dome",
+        "VH_F_urinary_bladder_neck_smooth_muscle",
+        "VH_F_fundus_of_urinary_bladder_base",
+        "VH_F_trigone_of_urinary_bladder",
+        "VH_F_ureteral_orifice_R",
+        "VH_F_ureteral_orifice_L"
+      ],
+      "retainedViewsIdentical": 24
+    },
+    "heart": {
+      "source": {
+        "path": "heart/Cardiac_Atlas_Animated/Heart_Clinical_Animated.glb",
+        "sha256": "6912d439271c3525230a90fe403d586000e6a66ab37f82bf0419604181e52263",
+        "bytes": 8180224,
+        "triangles": 222336,
+        "channels": 228
+      },
+      "candidate": {
+        "file": "ventricular-wall-motion.glb",
+        "sha256": "a57fc0eec4cb8d26dfc50ff0db9360fea346a12096236b64f9d4492695c72905",
+        "bytes": 1158724,
+        "triangles": 30646,
+        "channels": 1
+      },
+      "retained": [
+        "LV | complete wall",
+        "Aorta | root, ascending, arch and descending"
+      ],
+      "retainedViewsIdentical": 20
+    }
+  },
+  "parathyroid": {
+    "control": {
+      "path": "models/parathyroids/exports/z-localization-r01/parathyroids_native.glb",
+      "sha256": "b6fbbabfa7efd12b8c377f5bc56193bd81776daab999a8c1ac8286f693b85b45",
+      "bytes": 11544
+    },
+    "candidate": {
+      "path": "models/parathyroids/exports/z-localization-r01/parathyroids_thyroid_context.glb",
+      "sha256": "7759008c5682ac76e77f39f68f5cd421ea42cfe5252cebe9bd82ecc54dc04345",
+      "bytes": 59456
+    },
+    "centroidsMmBlender": {
+      "Superior parathyroid gland.r.001": [
+        -16.31213,
+        3.15292,
+        1480.13258
+      ],
+      "Superior parathyroid gland.l.001": [
+        16.31218,
+        3.15292,
+        1480.13258
+      ],
+      "Inferior parathyroid gland.r.001": [
+        -10.87819,
+        1.2724,
+        1460.33692
+      ],
+      "Inferior parathyroid gland.l.001": [
+        10.87823,
+        1.2724,
+        1460.33692
+      ],
+      "Thyroid gland.001": [
+        1e-05,
+        -11.8785,
+        1470.22986
+      ]
+    },
+    "maxGlandVertexDriftMm": 0.0,
+    "views": [
+      {
+        "file": "candidate-posterior.png",
+        "sha256": "498da6060526795df7e1cf882b243113d84e3876c6b6f454ea6e6dfb11a7e18e",
+        "bytes": 230713,
+        "frame": 1,
+        "visibleNodes": [
+          "Inferior parathyroid gland.l.001",
+          "Inferior parathyroid gland.r.001",
+          "Superior parathyroid gland.l.001",
+          "Superior parathyroid gland.r.001",
+          "Thyroid gland.001"
+        ],
+        "cameraM": [
+          1.7126623674812436e-08,
+          0.1515265554189682,
+          1.471718192100525
+        ],
+        "targetM": [
+          1.7126623674812436e-08,
+          -0.016243338584899902,
+          1.471718192100525
+        ],
+        "orthoScaleM": 0.05592329949140548,
+        "targetProjection": {
+          "Superior parathyroid gland.r.001": [
+            0.7916874885559082,
+            0.6504629850387573
+          ],
+          "Superior parathyroid gland.l.001": [
+            0.20831148326396942,
+            0.6504630446434021
+          ],
+          "Inferior parathyroid gland.r.001": [
+            0.6945196390151978,
+            0.2964842915534973
+          ],
+          "Inferior parathyroid gland.l.001": [
+            0.3054792881011963,
+            0.2964843511581421
+          ]
+        }
+      },
+      {
+        "file": "candidate-patient-right.png",
+        "sha256": "75949b7849a85031a6126abf47e0a2bfea6bb0235fe57befa3367caf278bbc6e",
+        "bytes": 254351,
+        "frame": 1,
+        "visibleNodes": [
+          "Inferior parathyroid gland.l.001",
+          "Inferior parathyroid gland.r.001",
+          "Superior parathyroid gland.l.001",
+          "Superior parathyroid gland.r.001",
+          "Thyroid gland.001"
+        ],
+        "cameraM": [
+          -0.15094859898090363,
+          0.017739102244377136,
+          1.4839524030685425
+        ],
+        "targetM": [
+          -0.0031852126121520996,
+          -0.013924479484558105,
+          1.4718900918960571
+        ],
+        "orthoScaleM": 0.05053282529115676,
+        "targetProjection": {
+          "Superior parathyroid gland.r.001": [
+            0.22398366034030914,
+            0.6367469429969788
+          ],
+          "Superior parathyroid gland.l.001": [
+            0.08871021121740341,
+            0.6869759559631348
+          ],
+          "Inferior parathyroid gland.r.001": [
+            0.2378402054309845,
+            0.25523823499679565
+          ],
+          "Inferior parathyroid gland.l.001": [
+            0.14762939512729645,
+            0.2887347936630249
+          ]
+        }
+      },
+      {
+        "file": "candidate-patient-left.png",
+        "sha256": "4332c82855a074af8db478dc03355e99396a6390f65e6fd819b88162885d23ab",
+        "bytes": 255414,
+        "frame": 1,
+        "visibleNodes": [
+          "Inferior parathyroid gland.l.001",
+          "Inferior parathyroid gland.r.001",
+          "Superior parathyroid gland.l.001",
+          "Superior parathyroid gland.r.001",
+          "Thyroid gland.001"
+        ],
+        "cameraM": [
+          0.1509489268064499,
+          0.01773916557431221,
+          1.4839524030685425
+        ],
+        "targetM": [
+          0.0031852424144744873,
+          -0.013924479484558105,
+          1.4718900918960571
+        ],
+        "orthoScaleM": 0.050532928109169005,
+        "targetProjection": {
+          "Superior parathyroid gland.r.001": [
+            0.9112886190414429,
+            0.686977744102478
+          ],
+          "Superior parathyroid gland.l.001": [
+            0.7760154604911804,
+            0.6367490291595459
+          ],
+          "Inferior parathyroid gland.r.001": [
+            0.852369487285614,
+            0.28873512148857117
+          ],
+          "Inferior parathyroid gland.l.001": [
+            0.7621589303016663,
+            0.25523871183395386
+          ]
+        }
+      },
+      {
+        "file": "control-posterior.png",
+        "sha256": "cc074206d730cd1b5aea9a861b7bb9496eb0e83fd70db780579e6857f71d633a",
+        "bytes": 102734,
+        "frame": 1,
+        "visibleNodes": [
+          "Inferior parathyroid gland.l.001",
+          "Inferior parathyroid gland.r.001",
+          "Superior parathyroid gland.l.001",
+          "Superior parathyroid gland.r.001"
+        ],
+        "cameraM": [
+          1.7126623674812436e-08,
+          0.1515265554189682,
+          1.471718192100525
+        ],
+        "targetM": [
+          1.7126623674812436e-08,
+          -0.016243338584899902,
+          1.471718192100525
+        ],
+        "orthoScaleM": 0.05592329949140548,
+        "targetProjection": {
+          "Superior parathyroid gland.r.001": [
+            0.7916874885559082,
+            0.6504629850387573
+          ],
+          "Superior parathyroid gland.l.001": [
+            0.20831148326396942,
+            0.6504630446434021
+          ],
+          "Inferior parathyroid gland.r.001": [
+            0.6945196390151978,
+            0.2964842915534973
+          ],
+          "Inferior parathyroid gland.l.001": [
+            0.3054792881011963,
+            0.2964843511581421
+          ]
+        }
+      },
+      {
+        "file": "control-patient-right.png",
+        "sha256": "a8d9d3e96614c7cf0b372b67ad57515ac6927a5a2b14b4420a64ed51bf0791ca",
+        "bytes": 106328,
+        "frame": 1,
+        "visibleNodes": [
+          "Inferior parathyroid gland.l.001",
+          "Inferior parathyroid gland.r.001",
+          "Superior parathyroid gland.l.001",
+          "Superior parathyroid gland.r.001"
+        ],
+        "cameraM": [
+          -0.15094859898090363,
+          0.017739102244377136,
+          1.4839524030685425
+        ],
+        "targetM": [
+          -0.0031852126121520996,
+          -0.013924479484558105,
+          1.4718900918960571
+        ],
+        "orthoScaleM": 0.05053282529115676,
+        "targetProjection": {
+          "Superior parathyroid gland.r.001": [
+            0.22398366034030914,
+            0.6367469429969788
+          ],
+          "Superior parathyroid gland.l.001": [
+            0.08871021121740341,
+            0.6869759559631348
+          ],
+          "Inferior parathyroid gland.r.001": [
+            0.2378402054309845,
+            0.25523823499679565
+          ],
+          "Inferior parathyroid gland.l.001": [
+            0.14762939512729645,
+            0.2887347936630249
+          ]
+        }
+      },
+      {
+        "file": "control-patient-left.png",
+        "sha256": "54ccd207820a333f5398baa54ac91e3d82848107e94208b80782c028f6616d5d",
+        "bytes": 107724,
+        "frame": 1,
+        "visibleNodes": [
+          "Inferior parathyroid gland.l.001",
+          "Inferior parathyroid gland.r.001",
+          "Superior parathyroid gland.l.001",
+          "Superior parathyroid gland.r.001"
+        ],
+        "cameraM": [
+          0.1509489268064499,
+          0.01773916557431221,
+          1.4839524030685425
+        ],
+        "targetM": [
+          0.0031852424144744873,
+          -0.013924479484558105,
+          1.4718900918960571
+        ],
+        "orthoScaleM": 0.050532928109169005,
+        "targetProjection": {
+          "Superior parathyroid gland.r.001": [
+            0.9112886190414429,
+            0.686977744102478
+          ],
+          "Superior parathyroid gland.l.001": [
+            0.7760154604911804,
+            0.6367490291595459
+          ],
+          "Inferior parathyroid gland.r.001": [
+            0.852369487285614,
+            0.28873512148857117
+          ],
+          "Inferior parathyroid gland.l.001": [
+            0.7621589303016663,
+            0.25523871183395386
+          ]
+        }
+      }
+    ]
+  },
+  "lymph": {
+    "control": {
+      "path": "models/lymph_node/exports/hra-tissue-layers-r01/lymph-node-tissue-layers.glb",
+      "sha256": "bf4ffa85c96459f2666949196915244697f3f5e33ebf485482c8223ba1fcb23e",
+      "bytes": 2984704
+    },
+    "candidate": null,
+    "views": [
+      {
+        "file": "control-front-interior.png",
+        "sha256": "8fe9caa818b3f15b13dbc5da1ed5931003ce45589f6db93829b79f7091a15bf7",
+        "bytes": 239482,
+        "frame": 1,
+        "visibleNodes": [
+          "Yao_follicles",
+          "Yao_medulla_of_lymph_node",
+          "Yao_paracortex"
+        ],
+        "cameraM": [
+          0.014282381162047386,
+          -0.12629207968711853,
+          0.3406059443950653
+        ],
+        "targetM": [
+          -0.0009551346302032471,
+          -0.07143701612949371,
+          0.3284159302711487
+        ],
+        "orthoScaleM": 0.019407491013407704
+      },
+      {
+        "file": "control-front-medulla.png",
+        "sha256": "894a5b931f4484d5bb9ab98fc842bf5880b4c8f17e294a0cf5912663b1f401f2",
+        "bytes": 220054,
+        "frame": 1,
+        "visibleNodes": [
+          "Yao_medulla_of_lymph_node"
+        ],
+        "cameraM": [
+          0.014282381162047386,
+          -0.12629207968711853,
+          0.3406059443950653
+        ],
+        "targetM": [
+          -0.0009551346302032471,
+          -0.07143701612949371,
+          0.3284159302711487
+        ],
+        "orthoScaleM": 0.019407491013407704
+      },
+      {
+        "file": "control-front-capsule.png",
+        "sha256": "c97c70e5d082838dd38cba12d2e10125afa64b93ec5e230cd36d7f24a58a6b14",
+        "bytes": 207925,
+        "frame": 1,
+        "visibleNodes": [
+          "Yao_capsule_of_lymph_node"
+        ],
+        "cameraM": [
+          0.014282381162047386,
+          -0.12629207968711853,
+          0.3406059443950653
+        ],
+        "targetM": [
+          -0.0009551346302032471,
+          -0.07143701612949371,
+          0.3284159302711487
+        ],
+        "orthoScaleM": 0.019407491013407704
+      },
+      {
+        "file": "control-oblique-interior.png",
+        "sha256": "3b5b3eeecb09b108806070003a1cf4c511aa87ca640cfb0db9ed7a33b5651705",
+        "bytes": 271336,
+        "frame": 1,
+        "visibleNodes": [
+          "Yao_follicles",
+          "Yao_medulla_of_lymph_node",
+          "Yao_paracortex"
+        ],
+        "cameraM": [
+          -0.04058397188782692,
+          -0.106602743268013,
+          0.3030022382736206
+        ],
+        "targetM": [
+          -0.0009213387966156006,
+          -0.0714181512594223,
+          0.32923075556755066
+        ],
+        "orthoScaleM": 0.01971749160438776
+      },
+      {
+        "file": "control-oblique-medulla.png",
+        "sha256": "1fdc41f06c878aaca65e73de50e28a394fad945867677f4e18c0697ddc1eb941",
+        "bytes": 270583,
+        "frame": 1,
+        "visibleNodes": [
+          "Yao_medulla_of_lymph_node"
+        ],
+        "cameraM": [
+          -0.04058397188782692,
+          -0.106602743268013,
+          0.3030022382736206
+        ],
+        "targetM": [
+          -0.0009213387966156006,
+          -0.0714181512594223,
+          0.32923075556755066
+        ],
+        "orthoScaleM": 0.01971749160438776
+      },
+      {
+        "file": "control-oblique-capsule.png",
+        "sha256": "db02be85a2dc6311a4e60635bbb8831c3c7669be65ad299dea53eb77bcd0a7bb",
+        "bytes": 222467,
+        "frame": 1,
+        "visibleNodes": [
+          "Yao_capsule_of_lymph_node"
+        ],
+        "cameraM": [
+          -0.04058397188782692,
+          -0.106602743268013,
+          0.3030022382736206
+        ],
+        "targetM": [
+          -0.0009213387966156006,
+          -0.0714181512594223,
+          0.32923075556755066
+        ],
+        "orthoScaleM": 0.01971749160438776
+      }
+    ]
+  },
+  "breath": {
+    "control": {
+      "path": "body/breathing/Breathing_Assembly.blend",
+      "sha256": "fc68b49ca75d02d50330e9d5b5d5182843e6d0e7ca4d43d665cbde48ac23b841",
+      "bytes": 42497262
+    },
+    "candidate": {
+      "path": "body/breathing/exports/dome-motion-r01/Breathing_Dome.blend",
+      "sha256": "8dfebe7e811000e8dc1c60333fa91e9ac1a2247224d93ff4893db35c34cdb526",
+      "bytes": 8340874
+    },
+    "controlTriangles": 245126,
+    "candidateTriangles": 93502,
+    "retainedTriangles": {
+      "Lung Lower Lobe Left | source surface": 24000,
+      "Lung Upper Lobe Left | source surface": 7200,
+      "Authored schematic diaphragm": 2304,
+      "Liver | source surface": 23998,
+      "Lung Lower Lobe Right | source surface": 24000,
+      "Lung Middle Lobe Right | source surface": 4800,
+      "Lung Upper Lobe Right | source surface": 7200
+    },
+    "samples": 121,
+    "comparedFrames": [
+      1,
+      49,
+      121
+    ],
+    "maxCandidateVsControlMm": 0.0,
+    "views": [
+      {
+        "file": "control-1-phase.png",
+        "sha256": "942d559fab3321c0e1b3a015418aba5db256c32a72be90fdc0b86f0b82c1c09b",
+        "bytes": 293669,
+        "frame": 1,
+        "visibleNodes": [
+          "Authored schematic diaphragm",
+          "Liver | source surface",
+          "Lung Lower Lobe Left | source surface",
+          "Lung Lower Lobe Right | source surface",
+          "Lung Middle Lobe Right | source surface",
+          "Lung Upper Lobe Left | source surface",
+          "Lung Upper Lobe Right | source surface"
+        ],
+        "cameraM": [
+          0.9371764659881592,
+          -0.20617884397506714,
+          -0.031884703785181046
+        ],
+        "targetM": [
+          0.0,
+          0.0,
+          -0.05999999865889549
+        ],
+        "orthoScaleM": 0.32
+      },
+      {
+        "file": "control-1-isolated.png",
+        "sha256": "1e17beee4d94d708bd36a013be516e3c3299e4f82f6c75d089562b0e211adf36",
+        "bytes": 115102,
+        "frame": 1,
+        "visibleNodes": [
+          "Authored schematic diaphragm"
+        ],
+        "cameraM": [
+          0.9371764659881592,
+          -0.20617884397506714,
+          -0.031884703785181046
+        ],
+        "targetM": [
+          0.0,
+          0.0,
+          -0.05999999865889549
+        ],
+        "orthoScaleM": 0.32
+      },
+      {
+        "file": "control-49-phase.png",
+        "sha256": "e7ea06083e34255dbcc96e3a4301028c3a0e537dd71eeb4ce08ef2f00548323a",
+        "bytes": 307328,
+        "frame": 49,
+        "visibleNodes": [
+          "Authored schematic diaphragm",
+          "Liver | source surface",
+          "Lung Lower Lobe Left | source surface",
+          "Lung Lower Lobe Right | source surface",
+          "Lung Middle Lobe Right | source surface",
+          "Lung Upper Lobe Left | source surface",
+          "Lung Upper Lobe Right | source surface"
+        ],
+        "cameraM": [
+          0.9371764659881592,
+          -0.20617884397506714,
+          -0.031884703785181046
+        ],
+        "targetM": [
+          0.0,
+          0.0,
+          -0.05999999865889549
+        ],
+        "orthoScaleM": 0.32
+      },
+      {
+        "file": "control-49-isolated.png",
+        "sha256": "4aebdcc5822dd0a0d33a5ca55e0f5f73d8332aa7d698650fbc5b01d368e241fd",
+        "bytes": 106298,
+        "frame": 49,
+        "visibleNodes": [
+          "Authored schematic diaphragm"
+        ],
+        "cameraM": [
+          0.9371764659881592,
+          -0.20617884397506714,
+          -0.031884703785181046
+        ],
+        "targetM": [
+          0.0,
+          0.0,
+          -0.05999999865889549
+        ],
+        "orthoScaleM": 0.32
+      },
+      {
+        "file": "candidate-1-phase.png",
+        "sha256": "ed4dbd3637e851bb5daf4a92f87d27f6685a22ddec658d022329682298807491",
+        "bytes": 293679,
+        "frame": 1,
+        "visibleNodes": [
+          "Authored schematic diaphragm",
+          "Liver | source surface",
+          "Lung Lower Lobe Left | source surface",
+          "Lung Lower Lobe Right | source surface",
+          "Lung Middle Lobe Right | source surface",
+          "Lung Upper Lobe Left | source surface",
+          "Lung Upper Lobe Right | source surface"
+        ],
+        "cameraM": [
+          0.9371764659881592,
+          -0.20617884397506714,
+          -0.031884703785181046
+        ],
+        "targetM": [
+          0.0,
+          0.0,
+          -0.05999999865889549
+        ],
+        "orthoScaleM": 0.32
+      },
+      {
+        "file": "candidate-1-isolated.png",
+        "sha256": "b4871aef297c0544e0dcf681ed5b49ba6390ee1d976bc76bea1c556affe2a4f8",
+        "bytes": 115112,
+        "frame": 1,
+        "visibleNodes": [
+          "Authored schematic diaphragm"
+        ],
+        "cameraM": [
+          0.9371764659881592,
+          -0.20617884397506714,
+          -0.031884703785181046
+        ],
+        "targetM": [
+          0.0,
+          0.0,
+          -0.05999999865889549
+        ],
+        "orthoScaleM": 0.32
+      },
+      {
+        "file": "candidate-49-phase.png",
+        "sha256": "0e0254abd61d683779eb5a1fb9b3c23420d253fe538f4088e894b57591176edc",
+        "bytes": 307338,
+        "frame": 49,
+        "visibleNodes": [
+          "Authored schematic diaphragm",
+          "Liver | source surface",
+          "Lung Lower Lobe Left | source surface",
+          "Lung Lower Lobe Right | source surface",
+          "Lung Middle Lobe Right | source surface",
+          "Lung Upper Lobe Left | source surface",
+          "Lung Upper Lobe Right | source surface"
+        ],
+        "cameraM": [
+          0.9371764659881592,
+          -0.20617884397506714,
+          -0.031884703785181046
+        ],
+        "targetM": [
+          0.0,
+          0.0,
+          -0.05999999865889549
+        ],
+        "orthoScaleM": 0.32
+      },
+      {
+        "file": "candidate-49-isolated.png",
+        "sha256": "30861c290030febb28a9d6f99009272ba25aadbe3fa1b58ec344a14f9457fa23",
+        "bytes": 106308,
+        "frame": 49,
+        "visibleNodes": [
+          "Authored schematic diaphragm"
+        ],
+        "cameraM": [
+          0.9371764659881592,
+          -0.20617884397506714,
+          -0.031884703785181046
+        ],
+        "targetM": [
+          0.0,
+          0.0,
+          -0.05999999865889549
+        ],
+        "orthoScaleM": 0.32
+      }
+    ],
+    "superiorDomeDescentMm": 20.900893956422806,
+    "inferiorLeftLowerLobeDescentMm": 17.60360598564148,
+    "inferiorLiverDescentMm": 7.981449365615845,
+    "fps": 30
+  },
+  "bladder": {
+    "control": {
+      "path": "models/bladder/exports/hra-female-context-r03/bladder_hra_female_context_r03.glb",
+      "sha256": "91f04d1c831a61944da116184f389461517587c90c91fd94e199fba1619aa6b9",
+      "bytes": 2449600
+    },
+    "candidate": {
+      "path": "models/bladder/exports/pelvic-base-r01/bladder-pelvic-base.glb",
+      "sha256": "07de72fc8f3b152291be30f24e24369a08af1232bb1a18f1cb90cdd2440aa15a",
+      "bytes": 1271856
+    },
+    "maxVertexDriftMm": 0.0,
+    "views": [
+      {
+        "file": "control-rear-context.png",
+        "sha256": "0b6b6742daeefd20d522a636bf60dc726131208dae098f8a181d4cb6f4944d5d",
+        "bytes": 311138,
+        "frame": 1,
+        "visibleNodes": [
+          "VH_F_abdominal_ostium_of_uterine_tube",
+          "VH_F_anterior_wall_of_uterus",
+          "VH_F_body_of_uterus",
+          "VH_F_cervicovaginal_junction",
+          "VH_F_cervix",
+          "VH_F_cornua",
+          "VH_F_external_cervical_os",
+          "VH_F_fundus_of_urinary_bladder_base",
+          "VH_F_fundus_of_urinary_bladder_dome",
+          "VH_F_fundus_of_uterus",
+          "VH_F_internal_cervical_os",
+          "VH_F_left_ureter",
+          "VH_F_lower_uterine_segment",
+          "VH_F_posterior_wall_of_uterus",
+          "VH_F_rectum",
+          "VH_F_right_ureter",
+          "VH_F_trigone_of_urinary_bladder",
+          "VH_F_ureteral_orifice_L",
+          "VH_F_ureteral_orifice_R",
+          "VH_F_urinary_bladder_neck_smooth_muscle",
+          "VH_F_vagina"
+        ],
+        "cameraM": [
+          -0.014551949687302113,
+          0.2353212535381317,
+          0.17948904633522034
+        ],
+        "targetM": [
+          -0.014551949687302113,
+          0.03331116586923599,
+          0.007780454587191343
+        ],
+        "orthoScaleM": 0.08837541830539702
+      },
+      {
+        "file": "control-rear-base.png",
+        "sha256": "058feadc1be52f37d6146817874224dd6ff87c17bd4d2ce9a48c8f5f212bf403",
+        "bytes": 224143,
+        "frame": 1,
+        "visibleNodes": [
+          "VH_F_fundus_of_urinary_bladder_base",
+          "VH_F_trigone_of_urinary_bladder",
+          "VH_F_ureteral_orifice_L",
+          "VH_F_ureteral_orifice_R",
+          "VH_F_urinary_bladder_neck_smooth_muscle"
+        ],
+        "cameraM": [
+          -0.014551949687302113,
+          0.2353212535381317,
+          0.17948904633522034
+        ],
+        "targetM": [
+          -0.014551949687302113,
+          0.03331116586923599,
+          0.007780454587191343
+        ],
+        "orthoScaleM": 0.08837541830539702
+      },
+      {
+        "file": "control-rear-ureters.png",
+        "sha256": "d79293b43a402259d09ffaf76086ce928b949bc928d3ce70bdd31bb557af4350",
+        "bytes": 236991,
+        "frame": 1,
+        "visibleNodes": [
+          "VH_F_fundus_of_urinary_bladder_base",
+          "VH_F_left_ureter",
+          "VH_F_right_ureter",
+          "VH_F_trigone_of_urinary_bladder",
+          "VH_F_ureteral_orifice_L",
+          "VH_F_ureteral_orifice_R",
+          "VH_F_urinary_bladder_neck_smooth_muscle"
+        ],
+        "cameraM": [
+          -0.014551949687302113,
+          0.2353212535381317,
+          0.17948904633522034
+        ],
+        "targetM": [
+          -0.014551949687302113,
+          0.03331116586923599,
+          0.007780454587191343
+        ],
+        "orthoScaleM": 0.08837541830539702
+      },
+      {
+        "file": "control-reverse-context.png",
+        "sha256": "b495e7f10359f121f6287ffcb8d25046d6fadcdb2a5e315692b2cfc4be6c66cb",
+        "bytes": 328839,
+        "frame": 1,
+        "visibleNodes": [
+          "VH_F_abdominal_ostium_of_uterine_tube",
+          "VH_F_anterior_wall_of_uterus",
+          "VH_F_body_of_uterus",
+          "VH_F_cervicovaginal_junction",
+          "VH_F_cervix",
+          "VH_F_cornua",
+          "VH_F_external_cervical_os",
+          "VH_F_fundus_of_urinary_bladder_base",
+          "VH_F_fundus_of_urinary_bladder_dome",
+          "VH_F_fundus_of_uterus",
+          "VH_F_internal_cervical_os",
+          "VH_F_left_ureter",
+          "VH_F_lower_uterine_segment",
+          "VH_F_posterior_wall_of_uterus",
+          "VH_F_rectum",
+          "VH_F_right_ureter",
+          "VH_F_trigone_of_urinary_bladder",
+          "VH_F_ureteral_orifice_L",
+          "VH_F_ureteral_orifice_R",
+          "VH_F_urinary_bladder_neck_smooth_muscle",
+          "VH_F_vagina"
+        ],
+        "cameraM": [
+          0.055681753903627396,
+          -0.13614724576473236,
+          0.1561051607131958
+        ],
+        "targetM": [
+          -0.01240910217165947,
+          0.0340798981487751,
+          0.011412088759243488
+        ],
+        "orthoScaleM": 0.07785293965041637
+      },
+      {
+        "file": "control-reverse-base.png",
+        "sha256": "7dec4c7f9c7351a392dbfda2122031becb81790c967bd7bdf7c29c7e7343e47a",
+        "bytes": 203205,
+        "frame": 1,
+        "visibleNodes": [
+          "VH_F_fundus_of_urinary_bladder_base",
+          "VH_F_trigone_of_urinary_bladder",
+          "VH_F_ureteral_orifice_L",
+          "VH_F_ureteral_orifice_R",
+          "VH_F_urinary_bladder_neck_smooth_muscle"
+        ],
+        "cameraM": [
+          0.055681753903627396,
+          -0.13614724576473236,
+          0.1561051607131958
+        ],
+        "targetM": [
+          -0.01240910217165947,
+          0.0340798981487751,
+          0.011412088759243488
+        ],
+        "orthoScaleM": 0.07785293965041637
+      },
+      {
+        "file": "control-reverse-ureters.png",
+        "sha256": "86a45f33db30af76ed53765845aeaaa9beaa482210790c3d7bd3e9a6659c2890",
+        "bytes": 225909,
+        "frame": 1,
+        "visibleNodes": [
+          "VH_F_fundus_of_urinary_bladder_base",
+          "VH_F_left_ureter",
+          "VH_F_right_ureter",
+          "VH_F_trigone_of_urinary_bladder",
+          "VH_F_ureteral_orifice_L",
+          "VH_F_ureteral_orifice_R",
+          "VH_F_urinary_bladder_neck_smooth_muscle"
+        ],
+        "cameraM": [
+          0.055681753903627396,
+          -0.13614724576473236,
+          0.1561051607131958
+        ],
+        "targetM": [
+          -0.01240910217165947,
+          0.0340798981487751,
+          0.011412088759243488
+        ],
+        "orthoScaleM": 0.07785293965041637
+      },
+      {
+        "file": "candidate-rear-context.png",
+        "sha256": "d1ac29018a6a4ed78255234147becec52c55bc6437fc0191d5534a3c83c6ce9a",
+        "bytes": 235889,
+        "frame": 1,
+        "visibleNodes": [
+          "VH_F_fundus_of_urinary_bladder_base",
+          "VH_F_fundus_of_urinary_bladder_dome",
+          "VH_F_left_ureter",
+          "VH_F_right_ureter",
+          "VH_F_trigone_of_urinary_bladder",
+          "VH_F_ureteral_orifice_L",
+          "VH_F_ureteral_orifice_R",
+          "VH_F_urinary_bladder_neck_smooth_muscle"
+        ],
+        "cameraM": [
+          -0.014551949687302113,
+          0.2353212535381317,
+          0.17948904633522034
+        ],
+        "targetM": [
+          -0.014551949687302113,
+          0.03331116586923599,
+          0.007780454587191343
+        ],
+        "orthoScaleM": 0.08837541830539702
+      },
+      {
+        "file": "candidate-rear-base.png",
+        "sha256": "058feadc1be52f37d6146817874224dd6ff87c17bd4d2ce9a48c8f5f212bf403",
+        "bytes": 224143,
+        "frame": 1,
+        "visibleNodes": [
+          "VH_F_fundus_of_urinary_bladder_base",
+          "VH_F_trigone_of_urinary_bladder",
+          "VH_F_ureteral_orifice_L",
+          "VH_F_ureteral_orifice_R",
+          "VH_F_urinary_bladder_neck_smooth_muscle"
+        ],
+        "cameraM": [
+          -0.014551949687302113,
+          0.2353212535381317,
+          0.17948904633522034
+        ],
+        "targetM": [
+          -0.014551949687302113,
+          0.03331116586923599,
+          0.007780454587191343
+        ],
+        "orthoScaleM": 0.08837541830539702
+      },
+      {
+        "file": "candidate-rear-ureters.png",
+        "sha256": "d79293b43a402259d09ffaf76086ce928b949bc928d3ce70bdd31bb557af4350",
+        "bytes": 236991,
+        "frame": 1,
+        "visibleNodes": [
+          "VH_F_fundus_of_urinary_bladder_base",
+          "VH_F_left_ureter",
+          "VH_F_right_ureter",
+          "VH_F_trigone_of_urinary_bladder",
+          "VH_F_ureteral_orifice_L",
+          "VH_F_ureteral_orifice_R",
+          "VH_F_urinary_bladder_neck_smooth_muscle"
+        ],
+        "cameraM": [
+          -0.014551949687302113,
+          0.2353212535381317,
+          0.17948904633522034
+        ],
+        "targetM": [
+          -0.014551949687302113,
+          0.03331116586923599,
+          0.007780454587191343
+        ],
+        "orthoScaleM": 0.08837541830539702
+      },
+      {
+        "file": "candidate-reverse-context.png",
+        "sha256": "5290c27531ae7a067910b36440217287ee8d0461bf18585d0701e189481f47fe",
+        "bytes": 219766,
+        "frame": 1,
+        "visibleNodes": [
+          "VH_F_fundus_of_urinary_bladder_base",
+          "VH_F_fundus_of_urinary_bladder_dome",
+          "VH_F_left_ureter",
+          "VH_F_right_ureter",
+          "VH_F_trigone_of_urinary_bladder",
+          "VH_F_ureteral_orifice_L",
+          "VH_F_ureteral_orifice_R",
+          "VH_F_urinary_bladder_neck_smooth_muscle"
+        ],
+        "cameraM": [
+          0.055681753903627396,
+          -0.13614724576473236,
+          0.1561051607131958
+        ],
+        "targetM": [
+          -0.01240910217165947,
+          0.0340798981487751,
+          0.011412088759243488
+        ],
+        "orthoScaleM": 0.07785293965041637
+      },
+      {
+        "file": "candidate-reverse-base.png",
+        "sha256": "7dec4c7f9c7351a392dbfda2122031becb81790c967bd7bdf7c29c7e7343e47a",
+        "bytes": 203205,
+        "frame": 1,
+        "visibleNodes": [
+          "VH_F_fundus_of_urinary_bladder_base",
+          "VH_F_trigone_of_urinary_bladder",
+          "VH_F_ureteral_orifice_L",
+          "VH_F_ureteral_orifice_R",
+          "VH_F_urinary_bladder_neck_smooth_muscle"
+        ],
+        "cameraM": [
+          0.055681753903627396,
+          -0.13614724576473236,
+          0.1561051607131958
+        ],
+        "targetM": [
+          -0.01240910217165947,
+          0.0340798981487751,
+          0.011412088759243488
+        ],
+        "orthoScaleM": 0.07785293965041637
+      },
+      {
+        "file": "candidate-reverse-ureters.png",
+        "sha256": "86a45f33db30af76ed53765845aeaaa9beaa482210790c3d7bd3e9a6659c2890",
+        "bytes": 225909,
+        "frame": 1,
+        "visibleNodes": [
+          "VH_F_fundus_of_urinary_bladder_base",
+          "VH_F_left_ureter",
+          "VH_F_right_ureter",
+          "VH_F_trigone_of_urinary_bladder",
+          "VH_F_ureteral_orifice_L",
+          "VH_F_ureteral_orifice_R",
+          "VH_F_urinary_bladder_neck_smooth_muscle"
+        ],
+        "cameraM": [
+          0.055681753903627396,
+          -0.13614724576473236,
+          0.1561051607131958
+        ],
+        "targetM": [
+          -0.01240910217165947,
+          0.0340798981487751,
+          0.011412088759243488
+        ],
+        "orthoScaleM": 0.07785293965041637
+      }
+    ]
+  },
+  "heart": {
+    "control": {
+      "path": "heart/Cardiac_Atlas_Animated/Heart_Clinical_Animated.glb",
+      "sha256": "6912d439271c3525230a90fe403d586000e6a66ab37f82bf0419604181e52263",
+      "bytes": 8180224
+    },
+    "candidate": {
+      "path": "heart/Cardiac_Atlas_Animated/exports/wall-motion-r01/ventricular-wall-motion.glb",
+      "sha256": "a57fc0eec4cb8d26dfc50ff0db9360fea346a12096236b64f9d4492695c72905",
+      "bytes": 1158724
+    },
+    "controlTriangles": 222336,
+    "candidateTriangles": 30646,
+    "retainedTriangles": {
+      "LV | complete wall": 24246,
+      "Aorta | root, ascending, arch and descending": 6400
+    },
+    "samples": 20,
+    "comparedFrames": [
+      0,
+      8,
+      19
+    ],
+    "maxCandidateVsControlMm": 0.0,
+    "views": [
+      {
+        "file": "control-0-phase.png",
+        "sha256": "9a264f2fe4387d47fd2190065a767878859e7b17fa314e726b1af596794e273e",
+        "bytes": 195809,
+        "frame": 0,
+        "visibleNodes": [
+          "Aorta | root, ascending, arch and descending",
+          "LV | complete wall"
+        ],
+        "cameraM": [
+          0.36542198061943054,
+          0.3252522647380829,
+          0.08462455868721008
+        ],
+        "targetM": [
+          0.022279225289821625,
+          0.005938881076872349,
+          0.01313648372888565
+        ],
+        "orthoScaleM": 0.158050100505352
+      },
+      {
+        "file": "control-8-phase.png",
+        "sha256": "55e1c32f1e427a64c57df820eeeb65ccb063ed0c5abb01536b69caccd2b4aba5",
+        "bytes": 188727,
+        "frame": 8,
+        "visibleNodes": [
+          "Aorta | root, ascending, arch and descending",
+          "LV | complete wall"
+        ],
+        "cameraM": [
+          0.36542198061943054,
+          0.3252522647380829,
+          0.08462455868721008
+        ],
+        "targetM": [
+          0.022279225289821625,
+          0.005938881076872349,
+          0.01313648372888565
+        ],
+        "orthoScaleM": 0.158050100505352
+      },
+      {
+        "file": "candidate-0-phase.png",
+        "sha256": "d23497eece0f5d01ffd02d0866d15eb4a97e9cfe6e958c8df7bdfc024f098223",
+        "bytes": 195809,
+        "frame": 0,
+        "visibleNodes": [
+          "Aorta | root, ascending, arch and descending",
+          "LV | complete wall"
+        ],
+        "cameraM": [
+          0.36542198061943054,
+          0.3252522647380829,
+          0.08462455868721008
+        ],
+        "targetM": [
+          0.022279225289821625,
+          0.005938881076872349,
+          0.01313648372888565
+        ],
+        "orthoScaleM": 0.158050100505352
+      },
+      {
+        "file": "candidate-8-phase.png",
+        "sha256": "55e1c32f1e427a64c57df820eeeb65ccb063ed0c5abb01536b69caccd2b4aba5",
+        "bytes": 188727,
+        "frame": 8,
+        "visibleNodes": [
+          "Aorta | root, ascending, arch and descending",
+          "LV | complete wall"
+        ],
+        "cameraM": [
+          0.36542198061943054,
+          0.3252522647380829,
+          0.08462455868721008
+        ],
+        "targetM": [
+          0.022279225289821625,
+          0.005938881076872349,
+          0.01313648372888565
+        ],
+        "orthoScaleM": 0.158050100505352
+      }
+    ],
+    "peakDisplacementMm": {
+      "LV | complete wall": 5.047319810458945,
+      "Aorta | root, ascending, arch and descending": 0.0
+    },
+    "fps": 24
+  },
+  "stomach": {
+    "control": {
+      "path": "models/stomach/exports/metadata-cleanup-r01/stomach.glb",
+      "sha256": "ad0876f37f92945171750d31d9c53165535a697e60a3d2ac8a3f3f78667fdec6",
+      "bytes": 3402184
+    },
+    "candidate": {
+      "path": "candidate.glb",
+      "sha256": "68ecf8debf2c6d3ffe2f7d85b3a7bdc218eec38f0608169967be8d7e7074fada",
+      "bytes": 3364968
+    },
+    "views": [
+      {
+        "file": "control-front-all.png",
+        "sha256": "466270f6d469d3ee2ce4b78397658d2332f4e43c73abd15808af09c97d9fc15a",
+        "bytes": 310726,
+        "frame": 1,
+        "visibleNodes": [
+          "Gastric mucosal fold 1",
+          "Gastric mucosal fold 10",
+          "Gastric mucosal fold 11",
+          "Gastric mucosal fold 2",
+          "Gastric mucosal fold 3",
+          "Gastric mucosal fold 4",
+          "Gastric mucosal fold 5",
+          "Gastric mucosal fold 6",
+          "Gastric mucosal fold 7",
+          "Gastric mucosal fold 8",
+          "Gastric mucosal fold 9",
+          "Stomach | source surface",
+          "stomach | authored closed-back teaching section"
+        ],
+        "cameraM": [
+          0.09147147834300995,
+          -0.3964371681213379,
+          -0.012232951819896698
+        ],
+        "targetM": [
+          0.011304352432489395,
+          -0.047884419560432434,
+          -0.05405928194522858
+        ],
+        "orthoScaleM": 0.12003019303083419
+      },
+      {
+        "file": "control-front-exterior.png",
+        "sha256": "63570345e86111cb3de1867c5960dac16459d9d0ef0beed52feaaa9797fc49fa",
+        "bytes": 216770,
+        "frame": 1,
+        "visibleNodes": [
+          "Stomach | source surface"
+        ],
+        "cameraM": [
+          0.09147147834300995,
+          -0.3964371681213379,
+          -0.012232951819896698
+        ],
+        "targetM": [
+          0.011304352432489395,
+          -0.047884419560432434,
+          -0.05405928194522858
+        ],
+        "orthoScaleM": 0.12003019303083419
+      },
+      {
+        "file": "control-front-section.png",
+        "sha256": "0808f7d2b090eb7aa40147779b06a01ba40b9638f33cf13c01246fdb0daabb19",
+        "bytes": 292245,
+        "frame": 1,
+        "visibleNodes": [
+          "Gastric mucosal fold 1",
+          "Gastric mucosal fold 10",
+          "Gastric mucosal fold 11",
+          "Gastric mucosal fold 2",
+          "Gastric mucosal fold 3",
+          "Gastric mucosal fold 4",
+          "Gastric mucosal fold 5",
+          "Gastric mucosal fold 6",
+          "Gastric mucosal fold 7",
+          "Gastric mucosal fold 8",
+          "Gastric mucosal fold 9",
+          "stomach | authored closed-back teaching section"
+        ],
+        "cameraM": [
+          0.09147147834300995,
+          -0.3964371681213379,
+          -0.012232951819896698
+        ],
+        "targetM": [
+          0.011304352432489395,
+          -0.047884419560432434,
+          -0.05405928194522858
+        ],
+        "orthoScaleM": 0.12003019303083419
+      },
+      {
+        "file": "control-oblique-exterior.png",
+        "sha256": "f3bb498aaccf69781f14ebf639beede7813b277b84f4b34e195e4d99ac6921bf",
+        "bytes": 226766,
+        "frame": 1,
+        "visibleNodes": [
+          "Stomach | source surface"
+        ],
+        "cameraM": [
+          -0.1676228642463684,
+          -0.33503344655036926,
+          0.047412559390068054
+        ],
+        "targetM": [
+          0.02215651236474514,
+          -0.043065186589956284,
+          -0.057696014642715454
+        ],
+        "orthoScaleM": 0.12124790102243423
+      },
+      {
+        "file": "control-oblique-section.png",
+        "sha256": "72679b7c3436ff108f48c27900b33f1d129e61750ded4de6becab68cd401a365",
+        "bytes": 266962,
+        "frame": 1,
+        "visibleNodes": [
+          "Gastric mucosal fold 1",
+          "Gastric mucosal fold 10",
+          "Gastric mucosal fold 11",
+          "Gastric mucosal fold 2",
+          "Gastric mucosal fold 3",
+          "Gastric mucosal fold 4",
+          "Gastric mucosal fold 5",
+          "Gastric mucosal fold 6",
+          "Gastric mucosal fold 7",
+          "Gastric mucosal fold 8",
+          "Gastric mucosal fold 9",
+          "stomach | authored closed-back teaching section"
+        ],
+        "cameraM": [
+          -0.1676228642463684,
+          -0.33503344655036926,
+          0.047412559390068054
+        ],
+        "targetM": [
+          0.02215651236474514,
+          -0.043065186589956284,
+          -0.057696014642715454
+        ],
+        "orthoScaleM": 0.12124790102243423
+      },
+      {
+        "file": "candidate-front-exterior.png",
+        "sha256": "63570345e86111cb3de1867c5960dac16459d9d0ef0beed52feaaa9797fc49fa",
+        "bytes": 216770,
+        "frame": 1,
+        "visibleNodes": [
+          "Stomach | source surface"
+        ],
+        "cameraM": [
+          0.09147147834300995,
+          -0.3964371681213379,
+          -0.012232951819896698
+        ],
+        "targetM": [
+          0.011304352432489395,
+          -0.047884419560432434,
+          -0.05405928194522858
+        ],
+        "orthoScaleM": 0.12003019303083419
+      },
+      {
+        "file": "candidate-front-section.png",
+        "sha256": "9fa4d3c4d4189bf76c6a5b70d79dab1da147498abc9328126e3fa1417dd79bf6",
+        "bytes": 292781,
+        "frame": 1,
+        "visibleNodes": [
+          "Gastric mucosal fold 1",
+          "Gastric mucosal fold 10",
+          "Gastric mucosal fold 11",
+          "Gastric mucosal fold 2",
+          "Gastric mucosal fold 3",
+          "Gastric mucosal fold 4",
+          "Gastric mucosal fold 5",
+          "Gastric mucosal fold 6",
+          "Gastric mucosal fold 7",
+          "Gastric mucosal fold 8",
+          "Gastric mucosal fold 9",
+          "stomach | authored closed-back teaching section"
+        ],
+        "cameraM": [
+          0.09147147834300995,
+          -0.3964371681213379,
+          -0.012232951819896698
+        ],
+        "targetM": [
+          0.011304352432489395,
+          -0.047884419560432434,
+          -0.05405928194522858
+        ],
+        "orthoScaleM": 0.12003019303083419
+      },
+      {
+        "file": "candidate-oblique-exterior.png",
+        "sha256": "f3bb498aaccf69781f14ebf639beede7813b277b84f4b34e195e4d99ac6921bf",
+        "bytes": 226766,
+        "frame": 1,
+        "visibleNodes": [
+          "Stomach | source surface"
+        ],
+        "cameraM": [
+          -0.1676228642463684,
+          -0.33503344655036926,
+          0.047412559390068054
+        ],
+        "targetM": [
+          0.02215651236474514,
+          -0.043065186589956284,
+          -0.057696014642715454
+        ],
+        "orthoScaleM": 0.12124790102243423
+      },
+      {
+        "file": "candidate-oblique-section.png",
+        "sha256": "925abbff9fa5a5c73ac82e2548e39aeac3bd459038097cf01da0468e47a75761",
+        "bytes": 267018,
+        "frame": 1,
+        "visibleNodes": [
+          "Gastric mucosal fold 1",
+          "Gastric mucosal fold 10",
+          "Gastric mucosal fold 11",
+          "Gastric mucosal fold 2",
+          "Gastric mucosal fold 3",
+          "Gastric mucosal fold 4",
+          "Gastric mucosal fold 5",
+          "Gastric mucosal fold 6",
+          "Gastric mucosal fold 7",
+          "Gastric mucosal fold 8",
+          "Gastric mucosal fold 9",
+          "stomach | authored closed-back teaching section"
+        ],
+        "cameraM": [
+          -0.1676228642463684,
+          -0.33503344655036926,
+          0.047412559390068054
+        ],
+        "targetM": [
+          0.02215651236474514,
+          -0.043065186589956284,
+          -0.057696014642715454
+        ],
+        "orthoScaleM": 0.12124790102243423
+      }
+    ]
+  },
+  "gallbladder": {
+    "control": {
+      "path": "models/gallbladder/exports/metadata-cleanup-r01/gallbladder.glb",
+      "sha256": "faa06e38130b3f63cc0094914eeb9adfb874ba2a2dc78da49e1c255c1f740227",
+      "bytes": 2124988
+    },
+    "candidate": null,
+    "views": [
+      {
+        "file": "control-front-all.png",
+        "sha256": "9c5ef522418563cfd1a0bad7a5a6b47a659b73f3e827afa9768a7ef63115868e",
+        "bytes": 207361,
+        "frame": 1,
+        "visibleNodes": [
+          "Cystic duct · schematic",
+          "Gallbladder | source surface",
+          "gallbladder | anterior teaching section"
+        ],
+        "cameraM": [
+          -0.02030886337161064,
+          -0.3101349472999573,
+          -0.060385990887880325
+        ],
+        "targetM": [
+          -0.07668077200651169,
+          -0.06503970175981522,
+          -0.08979742228984833
+        ],
+        "orthoScaleM": 0.08440280929207801
+      },
+      {
+        "file": "control-front-exterior.png",
+        "sha256": "7b534389da7b4625953e30d7464676f50b0d34b3a6ea7bca577ce5ed7b080003",
+        "bytes": 187459,
+        "frame": 1,
+        "visibleNodes": [
+          "Gallbladder | source surface"
+        ],
+        "cameraM": [
+          -0.02030886337161064,
+          -0.3101349472999573,
+          -0.060385990887880325
+        ],
+        "targetM": [
+          -0.07668077200651169,
+          -0.06503970175981522,
+          -0.08979742228984833
+        ],
+        "orthoScaleM": 0.08440280929207801
+      },
+      {
+        "file": "control-front-section.png",
+        "sha256": "97bbc12da0c393cf59bd3ca53de15b9b89a56355f9b98317b4ae76ccba021dba",
+        "bytes": 191945,
+        "frame": 1,
+        "visibleNodes": [
+          "Cystic duct · schematic",
+          "gallbladder | anterior teaching section"
+        ],
+        "cameraM": [
+          -0.02030886337161064,
+          -0.3101349472999573,
+          -0.060385990887880325
+        ],
+        "targetM": [
+          -0.07668077200651169,
+          -0.06503970175981522,
+          -0.08979742228984833
+        ],
+        "orthoScaleM": 0.08440280929207801
+      },
+      {
+        "file": "control-oblique-exterior.png",
+        "sha256": "36b755e494aee0062939500094e77ac30dde27f714a6cd129c5a9798105b3a3d",
+        "bytes": 253767,
+        "frame": 1,
+        "visibleNodes": [
+          "Gallbladder | source surface"
+        ],
+        "cameraM": [
+          -0.1668621003627777,
+          -0.18978995084762573,
+          -0.048226498067379
+        ],
+        "targetM": [
+          -0.08277224004268646,
+          -0.06042095646262169,
+          -0.09479933977127075
+        ],
+        "orthoScaleM": 0.05372405648231506
+      },
+      {
+        "file": "control-oblique-section.png",
+        "sha256": "2c3b823a86b048825fff2095c99ebab081be89b3dda5d49092a156f7fc878dcc",
+        "bytes": 257788,
+        "frame": 1,
+        "visibleNodes": [
+          "Cystic duct · schematic",
+          "gallbladder | anterior teaching section"
+        ],
+        "cameraM": [
+          -0.1668621003627777,
+          -0.18978995084762573,
+          -0.048226498067379
+        ],
+        "targetM": [
+          -0.08277224004268646,
+          -0.06042095646262169,
+          -0.09479933977127075
+        ],
+        "orthoScaleM": 0.05372405648231506
+      }
+    ]
+  },
+  "lymphAggressiveTrial": {
+    "control": {
+      "path": "models/lymph_node/exports/hra-tissue-layers-r01/lymph-node-tissue-layers.glb",
+      "sha256": "bf4ffa85c96459f2666949196915244697f3f5e33ebf485482c8223ba1fcb23e",
+      "bytes": 2984704
+    },
+    "candidate": null,
+    "parts": [
+      {
+        "mesh": 2,
+        "primitive": 0,
+        "name": "Yao_medulla_of_lymph_node",
+        "beforeTriangles": 88388,
+        "afterTriangles": 88388,
+        "attempts": [
+          {
+            "triangles": 40678,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.46,
+            "worstSamplePixels": 3.9416897509779245
+          },
+          {
+            "triangles": 55698,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.63,
+            "worstSamplePixels": 2.5184550100848786
+          },
+          {
+            "triangles": 65416,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.74,
+            "worstSamplePixels": 2.5184550100848786
+          }
+        ],
+        "vertices": 44194,
+        "lockedVertices": 1325,
+        "exactProtectedFaces": 1234,
+        "maximumSampleDistance": 2.6250000000000004e-05,
+        "maximumEdge": 0.0007218750000000001,
+        "forward": 8.263680501841009e-05,
+        "reverse": 4.892543802270666e-05,
+        "worstLocalPosition": [
+          0.0025697515811771154,
+          0.32783740758895874,
+          0.07614253461360931
+        ],
+        "edgeFactor": 0.2,
+        "worstSamplePixels": 2.5184550100848786,
+        "requestedRatio": 0.74,
+        "rejection": "A sampled surface shifted beyond the screen-space allowance"
+      }
+    ],
+    "controlTriangles": 114498,
+    "candidateTriangles": 114498,
+    "rules": [
+      {
+        "match": "medulla",
+        "ratio": 0.46,
+        "edgePx": 22,
+        "minTriangles": 10000,
+        "featureZoom": 2,
+        "maxPx": 0.8
+      }
+    ]
+  },
+  "lymphConservativeTrial": {
+    "control": {
+      "path": "models/lymph_node/exports/hra-tissue-layers-r01/lymph-node-tissue-layers.glb",
+      "sha256": "bf4ffa85c96459f2666949196915244697f3f5e33ebf485482c8223ba1fcb23e",
+      "bytes": 2984704
+    },
+    "candidate": null,
+    "parts": [
+      {
+        "mesh": 2,
+        "primitive": 0,
+        "name": "Yao_medulla_of_lymph_node",
+        "beforeTriangles": 88388,
+        "afterTriangles": 88388,
+        "attempts": [
+          {
+            "triangles": 65416,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.74,
+            "worstSamplePixels": 2.5184550100848786
+          },
+          {
+            "triangles": 85480,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.91
+          }
+        ],
+        "vertices": 44194,
+        "lockedVertices": 1325,
+        "exactProtectedFaces": 1234,
+        "maximumSampleDistance": 2.6250000000000004e-05,
+        "maximumEdge": 0.00013125000000000002,
+        "forward": 8.263680501841009e-05,
+        "reverse": 5.348118793335743e-05,
+        "worstLocalPosition": [
+          0.0025697515811771154,
+          0.32783740758895874,
+          0.07614253461360931
+        ],
+        "edgeFactor": 1.0,
+        "worstSamplePixels": 2.5184550100848786,
+        "requestedRatio": 0.74,
+        "rejection": "Seams, boundaries or edge limits leave under 4% saving"
+      }
+    ],
+    "controlTriangles": 114498,
+    "candidateTriangles": 114498,
+    "rules": [
+      {
+        "match": "medulla",
+        "ratio": 0.74,
+        "edgePx": 4,
+        "minTriangles": 10000,
+        "featureZoom": 2,
+        "maxPx": 0.8
+      }
+    ]
+  },
+  "stomachTrial": {
+    "control": {
+      "path": "models/stomach/exports/metadata-cleanup-r01/stomach.glb",
+      "sha256": "ad0876f37f92945171750d31d9c53165535a697e60a3d2ac8a3f3f78667fdec6",
+      "bytes": 3402184
+    },
+    "candidate": {
+      "path": "candidate.glb",
+      "sha256": "68ecf8debf2c6d3ffe2f7d85b3a7bdc218eec38f0608169967be8d7e7074fada",
+      "bytes": 3364968
+    },
+    "parts": [
+      {
+        "mesh": 4,
+        "primitive": 0,
+        "name": "Gastric mucosal fold 3.001",
+        "beforeTriangles": 4676,
+        "afterTriangles": 4676,
+        "attempts": [
+          {
+            "triangles": 4404,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.48,
+            "worstSamplePixels": 1.2470226402910896
+          },
+          {
+            "triangles": 4404,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.65,
+            "worstSamplePixels": 1.2470226402910896
+          },
+          {
+            "triangles": 4430,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.76,
+            "worstSamplePixels": 1.2470226402910896
+          }
+        ],
+        "vertices": 3034,
+        "lockedVertices": 2843,
+        "exactProtectedFaces": 3209,
+        "maximumSampleDistance": 0.0001303834840655327,
+        "maximumEdge": 0.004074483877047896,
+        "forward": 0.00019950933346990496,
+        "reverse": 0.0002032389456871897,
+        "worstLocalPosition": [
+          -0.008290983736515045,
+          -0.07262770086526871,
+          0.051274631172418594
+        ],
+        "edgeFactor": 0.2,
+        "worstSamplePixels": 1.2470226402910896,
+        "requestedRatio": 0.76,
+        "rejection": "A sampled surface shifted beyond the screen-space allowance"
+      },
+      {
+        "mesh": 5,
+        "primitive": 0,
+        "name": "Gastric mucosal fold 4.001",
+        "beforeTriangles": 4996,
+        "afterTriangles": 4670,
+        "attempts": [
+          {
+            "triangles": 4670,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.48,
+            "worstSamplePixels": 0.7633965941818864
+          }
+        ],
+        "vertices": 3252,
+        "lockedVertices": 3035,
+        "exactProtectedFaces": 3442,
+        "maximumSampleDistance": 0.00013910370878875256,
+        "maximumEdge": 0.004346990899648517,
+        "forward": 0.0001327391219092533,
+        "reverse": 0.00010424733045510948,
+        "worstLocalPosition": [
+          -0.0014997272519394755,
+          -0.07113128155469894,
+          0.05119222775101662
+        ],
+        "edgeFactor": 1.0,
+        "worstSamplePixels": 0.7633965941818864,
+        "requestedRatio": 0.48
+      },
+      {
+        "mesh": 6,
+        "primitive": 0,
+        "name": "Gastric mucosal fold 5.001",
+        "beforeTriangles": 5156,
+        "afterTriangles": 4846,
+        "attempts": [
+          {
+            "triangles": 4846,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.48,
+            "worstSamplePixels": 0.7437246464191051
+          }
+        ],
+        "vertices": 3334,
+        "lockedVertices": 3119,
+        "exactProtectedFaces": 3521,
+        "maximumSampleDistance": 0.0001436871849000454,
+        "maximumEdge": 0.004490224528126419,
+        "forward": 0.00012741902901325375,
+        "reverse": 0.00013357962598092854,
+        "worstLocalPosition": [
+          0.002032622927799821,
+          -0.031868498772382736,
+          0.051274631172418594
+        ],
+        "edgeFactor": 1.0,
+        "worstSamplePixels": 0.7437246464191051,
+        "requestedRatio": 0.48
+      },
+      {
+        "mesh": 7,
+        "primitive": 0,
+        "name": "Gastric mucosal fold 6.001",
+        "beforeTriangles": 5156,
+        "afterTriangles": 4870,
+        "attempts": [
+          {
+            "triangles": 4842,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.48,
+            "worstSamplePixels": 1.126365531210586
+          },
+          {
+            "triangles": 4842,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.65,
+            "worstSamplePixels": 1.126365531210586
+          },
+          {
+            "triangles": 4870,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.76,
+            "worstSamplePixels": 0.6218982658422948
+          }
+        ],
+        "vertices": 3341,
+        "lockedVertices": 3124,
+        "exactProtectedFaces": 3527,
+        "maximumSampleDistance": 0.00014366626739501954,
+        "maximumEdge": 0.00448957085609436,
+        "forward": 0.00011168225319124758,
+        "reverse": 9.798217070056126e-05,
+        "worstLocalPosition": [
+          0.007497089449316263,
+          -0.06657247245311737,
+          0.05119222775101662
+        ],
+        "edgeFactor": 0.2,
+        "worstSamplePixels": 0.6218982658422948,
+        "requestedRatio": 0.76
+      },
+      {
+        "mesh": 8,
+        "primitive": 0,
+        "name": "Gastric mucosal fold 7.001",
+        "beforeTriangles": 5156,
+        "afterTriangles": 4832,
+        "attempts": [
+          {
+            "triangles": 4832,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.48,
+            "worstSamplePixels": 0.6480944519364122
+          }
+        ],
+        "vertices": 3339,
+        "lockedVertices": 3120,
+        "exactProtectedFaces": 3539,
+        "maximumSampleDistance": 0.00014388130977749825,
+        "maximumEdge": 0.00449629093054682,
+        "forward": 0.0001165608482551761,
+        "reverse": 9.907591447699815e-05,
+        "worstLocalPosition": [
+          0.014051944017410278,
+          -0.04835069179534912,
+          0.05119222775101662
+        ],
+        "edgeFactor": 1.0,
+        "worstSamplePixels": 0.6480944519364122,
+        "requestedRatio": 0.48
+      },
+      {
+        "mesh": 9,
+        "primitive": 0,
+        "name": "Gastric mucosal fold 8.001",
+        "beforeTriangles": 5156,
+        "afterTriangles": 5156,
+        "attempts": [
+          {
+            "triangles": 4844,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.48,
+            "worstSamplePixels": 0.9852761427965895
+          },
+          {
+            "triangles": 4844,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.65,
+            "worstSamplePixels": 0.9852761427965895
+          },
+          {
+            "triangles": 4872,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.76,
+            "worstSamplePixels": 1.1259110211117898
+          }
+        ],
+        "vertices": 3338,
+        "lockedVertices": 3120,
+        "exactProtectedFaces": 3539,
+        "maximumSampleDistance": 0.00014367311261594297,
+        "maximumEdge": 0.004489784769248217,
+        "forward": 0.00018571321561466902,
+        "reverse": 0.00020220392616465688,
+        "worstLocalPosition": [
+          0.01848059892654419,
+          -0.0381639190018177,
+          0.051274631172418594
+        ],
+        "edgeFactor": 0.2,
+        "worstSamplePixels": 1.1259110211117898,
+        "requestedRatio": 0.76,
+        "rejection": "A sampled surface shifted beyond the screen-space allowance"
+      },
+      {
+        "mesh": 10,
+        "primitive": 0,
+        "name": "Gastric mucosal fold 9.001",
+        "beforeTriangles": 4836,
+        "afterTriangles": 4562,
+        "attempts": [
+          {
+            "triangles": 4562,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.48,
+            "worstSamplePixels": 0.6745278424788838
+          }
+        ],
+        "vertices": 3163,
+        "lockedVertices": 2973,
+        "exactProtectedFaces": 3355,
+        "maximumSampleDistance": 0.00013583354651927948,
+        "maximumEdge": 0.004244798328727484,
+        "forward": 0.00011452938633738086,
+        "reverse": 0.00010566508717602119,
+        "worstLocalPosition": [
+          0.023824114352464676,
+          -0.0735543742775917,
+          0.05119222775101662
+        ],
+        "edgeFactor": 1.0,
+        "worstSamplePixels": 0.6745278424788838,
+        "requestedRatio": 0.48
+      },
+      {
+        "mesh": 11,
+        "primitive": 0,
+        "name": "Gastric mucosal fold 10.001",
+        "beforeTriangles": 4516,
+        "afterTriangles": 4516,
+        "attempts": [
+          {
+            "triangles": 4220,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.48,
+            "worstSamplePixels": 0.8038455191904391
+          },
+          {
+            "triangles": 4222,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.65,
+            "worstSamplePixels": 0.8038455191904391
+          },
+          {
+            "triangles": 4254,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.76,
+            "worstSamplePixels": 1.0686964813654014
+          }
+        ],
+        "vertices": 2920,
+        "lockedVertices": 2720,
+        "exactProtectedFaces": 3073,
+        "maximumSampleDistance": 0.00012620029971003533,
+        "maximumEdge": 0.003943759365938604,
+        "forward": 0.0001527329586679116,
+        "reverse": 0.00016858727030921727,
+        "worstLocalPosition": [
+          0.029301002621650696,
+          -0.05933459475636482,
+          0.051274631172418594
+        ],
+        "edgeFactor": 0.2,
+        "worstSamplePixels": 1.0686964813654014,
+        "requestedRatio": 0.76,
+        "rejection": "A sampled surface shifted beyond the screen-space allowance"
+      },
+      {
+        "mesh": 12,
+        "primitive": 0,
+        "name": "Gastric mucosal fold 11.001",
+        "beforeTriangles": 3556,
+        "afterTriangles": 3368,
+        "attempts": [
+          {
+            "triangles": 3312,
+            "edgeFactor": 1.0,
+            "requestedRatio": 0.48,
+            "worstSamplePixels": 1.082041202765856
+          },
+          {
+            "triangles": 3312,
+            "edgeFactor": 0.45,
+            "requestedRatio": 0.65,
+            "worstSamplePixels": 1.082041202765856
+          },
+          {
+            "triangles": 3368,
+            "edgeFactor": 0.2,
+            "requestedRatio": 0.76,
+            "worstSamplePixels": 0.7875629141346355
+          }
+        ],
+        "vertices": 2303,
+        "lockedVertices": 2140,
+        "exactProtectedFaces": 2430,
+        "maximumSampleDistance": 9.8205441609025e-05,
+        "maximumEdge": 0.003068920050282031,
+        "forward": 9.667870472185314e-05,
+        "reverse": 8.255778811872005e-05,
+        "worstLocalPosition": [
+          0.03663935884833336,
+          -0.05425695702433586,
+          0.051274631172418594
+        ],
+        "edgeFactor": 0.2,
+        "worstSamplePixels": 0.7875629141346355,
+        "requestedRatio": 0.76
+      }
+    ],
+    "controlTriangles": 60456,
+    "candidateTriangles": 58748,
+    "rules": [
+      {
+        "match": "Gastric mucosal fold (?:[3-9]|1[01])\\.001 #",
+        "ratio": 0.48,
+        "edgePx": 25,
+        "minTriangles": 3000,
+        "featureZoom": 2,
+        "maxPx": 0.8
+      }
+    ]
+  },
+  "plates": {
+    "bladder.webp": {
+      "path": "reviews/teaching-assessments/target-risk/views/bladder.webp",
+      "sha256": "373f21de84442ee1c26b9c14b1538420811097b07b2b86a93b77cda274ad23b1",
+      "bytes": 68494
+    },
+    "breath.webp": {
+      "path": "reviews/teaching-assessments/target-risk/views/breath.webp",
+      "sha256": "3a5a9b15954fed3bdc87d4a4fee49cccc7528a1d5ceaf1d81233c516cf4bf0ae",
+      "bytes": 80522
+    },
+    "eye.webp": {
+      "path": "reviews/teaching-assessments/target-risk/views/eye.webp",
+      "sha256": "0de4be0a89d1bb30d6262c958cf3a046f1682f3e51c065370a1dc46166257877",
+      "bytes": 136040
+    },
+    "gallbladder.webp": {
+      "path": "reviews/teaching-assessments/target-risk/views/gallbladder.webp",
+      "sha256": "d90416c5ae1d60ed6ba984b65fa482eb3fe8a4b91aa6ec64d8a4ee50bfdf0830",
+      "bytes": 71454
+    },
+    "heart.webp": {
+      "path": "reviews/teaching-assessments/target-risk/views/heart.webp",
+      "sha256": "bff67e2b8f5da1463ba4c81f5466889259358f9903956e8a60d81dfbd194e078",
+      "bytes": 57954
+    },
+    "lymph.webp": {
+      "path": "reviews/teaching-assessments/target-risk/views/lymph.webp",
+      "sha256": "325678c06f76e5b0a84228c26fd7f997ec301267713d8145b2fd3b8100423a78",
+      "bytes": 92910
+    },
+    "parathyroid.webp": {
+      "path": "reviews/teaching-assessments/target-risk/views/parathyroid.webp",
+      "sha256": "1c321690f21eb59980904092d7de9507241b9d0ef0cec32c5b2ab610d1a9ed44",
+      "bytes": 67558
+    },
+    "stomach-trial.webp": {
+      "path": "reviews/teaching-assessments/target-risk/views/stomach-trial.webp",
+      "sha256": "22c2192192afca0faf6b694c5852ada27096475f728b94b6bd580125caed9656",
+      "bytes": 53218
+    },
+    "stomach.webp": {
+      "path": "reviews/teaching-assessments/target-risk/views/stomach.webp",
+      "sha256": "c6cf30c3a1793a38065e6f2318f4d6abda4e73634ca3ee2f2d7ed11edf4f505f",
+      "bytes": 102910
+    }
+  }
+}

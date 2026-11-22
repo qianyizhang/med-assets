@@ -1,0 +1,1030 @@
+{
+  "schemaVersion": 1,
+  "group": "3 · Mesh economy",
+  "evaluator": "Sol-high · final review by Codex campaign lead",
+  "date": "2026-11-22",
+  "rubric": {
+    "revision": "75c348b9d3fcce0389c4401696569b660cd29dca",
+    "path": "docs/guides/asset-quality.md",
+    "sha256": "5f7be452c8afc0b2109068e2c9d40e10ed7306459d62d7d006cc05e0de84831b"
+  },
+  "outcomes": [
+    {
+      "family": "Body envelope",
+      "path": "models/skin/exports/bp3d-envelope-r01/skin_source_frame.glb",
+      "sha256": "d86719833a17dc7b45c8eb970498f1e2feefd352b5812942f4b147a9ffcfbe4f",
+      "controlAssessmentSha256": "70ff0c3ea5ccecc7a73e6650d2e37fbda35463740adea0fdbce366252ff0f18a",
+      "before": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/skin-original.webp",
+        "sha256": "0ce97523e57891bcca116d6e70078c7f9d6dd078e67734a488fbea431793e7f6",
+        "bytes": 12556,
+        "width": 1280,
+        "height": 680,
+        "label": "Body envelope · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/skin-trial.webp",
+        "sha256": "76da7806d6909775e2e0e4d676291f1188e78e670b4e8593440b17e97772f997",
+        "bytes": 11920,
+        "width": 1280,
+        "height": 680,
+        "label": "Point out the shoulders, waist and hips in front and oblique views. Compare the shoulder contour with the hands and feet as orientation cues."
+      },
+      "finding": "The owner trial preserved exact shoulder, wrist, hand and foot faces, with a 0.25-pixel maximum outline movement at its pinned supersampled view. The trial has 144,188 of 203,382 triangles and 3,480,472 of 4,901,132 bytes. The maximum sampled outline change is 1 native pixel(s) across the retained views.",
+      "decision": "Keep the recovered navigation option for whole-body orientation.",
+      "axisChanges": {},
+      "limits": "Whole-body navigation use. For hand and foot detail use the owner crops.",
+      "useAsTeachingView": false,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Mesh economy refinement evidence and replay"
+        }
+      ],
+      "candidate": {
+        "sha256": "e89de0c33f094e76ba909ba1d5a46a46cf994c0850c080abbf4be43993600b9d",
+        "bytes": 3480472,
+        "triangles": 144188,
+        "disposition": "local-teaching-option",
+        "download": true,
+        "name": "skin_source_frame-teaching.glb",
+        "path": ".artifacts/teaching-refinements/candidates/e89de0c33f094e76ba909ba1d5a46a46cf994c0850c080abbf4be43993600b9d.glb",
+        "recipe": "reviews/teaching-assessments/refinement-economy/README.md",
+        "scores": [
+          null,
+          null,
+          null,
+          4
+        ],
+        "economyObservation": "The envelope saves 59,194 triangles and 29.0% of bytes. Shoulder, hand and foot faces stay exact, and the largest measured outline shift is 0.25 display pixels at the head in the matched navigation views."
+      }
+    },
+    {
+      "family": "Aortic tree · Z",
+      "path": "models/aortic_tree_z/exports/r02/aortic_tree_z_source_frame.glb",
+      "sha256": "d4b3dbd2d09fd76795f47bb96844acdeba5f1b4f48dd630f2a294f33816deaeb",
+      "controlAssessmentSha256": "2c50b75bccf72d9a6cbb7f2c3359a017cdeb10360d599abc9273a38c8d88a797",
+      "before": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/aortic_tree_z-original.webp",
+        "sha256": "48da976937a39ac5535ac3d13040de669a38d7660f946dc2f8ab3a166f50667a",
+        "bytes": 9824,
+        "width": 1280,
+        "height": 680,
+        "label": "Aortic tree · Z · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/aortic_tree_z-trial.webp",
+        "sha256": "bde7af708db15bc43cad892a78a8df9db3db97f69e4f3b47e843f7d27d24ce94",
+        "bytes": 9206,
+        "width": 1280,
+        "height": 680,
+        "label": "Start with the branching tree, then trace the brachiocephalic composite, left common carotid and left subclavian at the enlarged arch."
+      },
+      "finding": "The full anterior view and neutral close-up retain the arch forks and their order. All three target branch objects retain their accessor bytes; the trunk and distal context carry the reductions. The trial has 39,822 of 55,040 triangles and 700,032 of 881,168 bytes. The maximum sampled outline change is 1 native pixel(s) across the retained views.",
+      "decision": "Keep the lighter option for the three-branch arch task.",
+      "axisChanges": {},
+      "limits": "The review covers the arch task and overview; it does not verify small-branch teaching at arbitrary zoom.",
+      "useAsTeachingView": false,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Mesh economy refinement evidence and replay"
+        }
+      ],
+      "candidate": {
+        "sha256": "a5835c72254467451cd295b7bcae5115a93c7a3df8de87e593a857a8929998b6",
+        "bytes": 700032,
+        "triangles": 39822,
+        "disposition": "local-teaching-option",
+        "download": true,
+        "name": "aortic_tree_z_source_frame-teaching.glb",
+        "path": ".artifacts/teaching-refinements/candidates/a5835c72254467451cd295b7bcae5115a93c7a3df8de87e593a857a8929998b6.glb",
+        "recipe": "reviews/teaching-assessments/refinement-economy/README.md",
+        "scores": [
+          null,
+          null,
+          null,
+          4
+        ],
+        "economyObservation": "The arch trial saves 15,218 triangles and 20.6% of bytes. All three arch branch meshes stay exact, and the right renal artery has the largest measured local shift at 0.90 teaching pixels."
+      }
+    },
+    {
+      "family": "Cardiac Atlas · native & static",
+      "path": "heart/Cardiac_Atlas/exports/Cardiac_Atlas_Clinical_Full_ED.glb",
+      "sha256": "32802a9a36963c2f8935f632f28ba3602d1ce004919e5e203ff87bbdcb52fa2f",
+      "controlAssessmentSha256": "bfdd787d2ef6fe8f4a60f1bfe6d828605a74184464ad272e6765ccdbbf183df7",
+      "before": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/heart-original.webp",
+        "sha256": "fdfb249011b22c0a6e33273f4b0caa7ebe0b7ca39457b74c48bf160714074528",
+        "bytes": 27116,
+        "width": 1280,
+        "height": 680,
+        "label": "Cardiac Atlas · native & static · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/heart-trial.webp",
+        "sha256": "d68602c96c01c06ca77bccd1662877b7376423239c460a073409918cffccb79a",
+        "bytes": 26670,
+        "width": 1280,
+        "height": 680,
+        "label": "Identify the blue pulmonary trunk in front of the red aortic arch. The neutral close-up shows the crossing and separate branch ends."
+      },
+      "finding": "The great vessel meshes remain exact. Four complete chamber walls received the reduction; the inspected front crossing and branch ends stay visible. Internal detail was not a teaching target. The trial has 181,922 of 222,336 triangles and 4,248,224 of 4,864,488 bytes. The maximum sampled outline change is 1 native pixel(s) across the retained views.",
+      "decision": "Keep the same-scene trial for local static arch and pulmonary-trunk orientation.",
+      "axisChanges": {},
+      "limits": "Use the exact clinical ED variant for chamber-wall or internal-part studies. The existing Workshop opaque exterior has separate source, material and visibility scope.",
+      "useAsTeachingView": false,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Mesh economy refinement evidence and replay"
+        }
+      ],
+      "candidate": {
+        "sha256": "342e445b8d460458d322a7e5db875d462867b1e7f99043c711bce73c34c9a813",
+        "bytes": 4248224,
+        "triangles": 181922,
+        "disposition": "local-teaching-option",
+        "download": true,
+        "name": "Cardiac_Atlas_Clinical_Full_ED-teaching.glb",
+        "path": ".artifacts/teaching-refinements/candidates/342e445b8d460458d322a7e5db875d462867b1e7f99043c711bce73c34c9a813.glb",
+        "recipe": "reviews/teaching-assessments/refinement-economy/README.md",
+        "scores": [
+          null,
+          null,
+          null,
+          3
+        ],
+        "economyObservation": "The full ED scene saves 40,414 triangles and 12.7% of bytes from chamber walls while keeping great-vessel meshes exact. The largest measured change is on the left ventricular wall, whose internal face lies outside this comparison."
+      }
+    },
+    {
+      "family": "Large bowel",
+      "path": "models/large-intestine/exports/source-candidate-v4/large-intestine.glb",
+      "sha256": "a8bd8f8227a3cf53b5aa63bb234c1bcb182bfa432da5eb2e3488788f829df4f5",
+      "controlAssessmentSha256": "bcebb15e852921b15e4295850e23c055fa88e4abf4fcc96a8691e16e9691b26c",
+      "before": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/large-intestine-original.webp",
+        "sha256": "fdde6593bff989af9390da7d68e96663c1d93cfc84b42972e7bd9bd908300b10",
+        "bytes": 22758,
+        "width": 1280,
+        "height": 680,
+        "label": "Large bowel · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/large-intestine-trial.webp",
+        "sha256": "7a1c9d8c88af49104d3a32d69d36c938432101be2f0627b52d3859e28fdbfc23",
+        "bytes": 21728,
+        "width": 1280,
+        "height": 680,
+        "label": "Follow the outer colon from the overview. Compare the repeated wall bulges and longitudinal ribbon cues in the close view."
+      },
+      "finding": "Both material primitives remain selectable through the original mesh. Their source seam faces are retained and both matched views keep the curved wall bulges and longitudinal ribbons distinct. The trial has 218,664 of 350,748 triangles and 4,846,448 of 7,882,016 bytes. The maximum sampled outline change is 1 native pixel(s) across the retained views.",
+      "decision": "Keep the lighter option for the gross colon, segmented wall and taenia overview.",
+      "axisChanges": {},
+      "limits": "The exported atlas depicts the exterior. This trial does not establish identification of every ribbon at close inspection.",
+      "useAsTeachingView": false,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Mesh economy refinement evidence and replay"
+        }
+      ],
+      "candidate": {
+        "sha256": "4ba211f975eb8820d12e6f975051a73691efb69c83806a7d56794f48c00c232a",
+        "bytes": 4846448,
+        "triangles": 218664,
+        "disposition": "local-teaching-option",
+        "download": true,
+        "name": "large-intestine-teaching.glb",
+        "path": ".artifacts/teaching-refinements/candidates/4ba211f975eb8820d12e6f975051a73691efb69c83806a7d56794f48c00c232a.glb",
+        "recipe": "reviews/teaching-assessments/refinement-economy/README.md",
+        "scores": [
+          null,
+          null,
+          null,
+          4
+        ],
+        "economyObservation": "The colon saves 132,084 triangles and 38.5% of bytes with both material regions and their seam intact. The worst sampled displacement is 0.90 teaching pixels, and the close view retains the segmented bulges and longitudinal ribbon."
+      }
+    },
+    {
+      "family": "Liver",
+      "path": "models/liver/exports/hra-female-v1.10-r02/liver.glb",
+      "sha256": "e9abb0c2503a3fa9d725988451e630283ec2c902c182b812219f2d73f3ab1038",
+      "controlAssessmentSha256": "9d2daa1b10f1cf7447e5bd94613be9aa87cb285bdde7b65521735d55af349c89",
+      "before": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/liver-original.webp",
+        "sha256": "ac6267f1f3e471041fa1ac350ea54cb7947bd1c50a052a8f8d895768d3925b1f",
+        "bytes": 13696,
+        "width": 1280,
+        "height": 680,
+        "label": "Liver · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/liver-rejected.webp",
+        "sha256": "018dbc3bfa91230a70ec93a4151918401851db2662984a6752000852e30cb310",
+        "bytes": 14554,
+        "width": 1280,
+        "height": 680,
+        "label": "Compare the anterior surface with the posterior ligament-framed bare area. The trial shows the capsule contraction that exceeded the detail limit."
+      },
+      "finding": "The actual rejected capsule trial leaves the bare-area and ligament buffers intact, but the capsule moves beyond its one-pixel geometric allowance near an inferior contour. The lossless payload saving is at most 828 bytes under the examined techniques. The trial has 27,954 of 41,470 triangles and 520,280 of 763,480 bytes. The rejected part reaches 2.89 estimated teaching pixels in the directed surface samples.",
+      "decision": "Retain the original for liver capsule and posterior bare-area teaching.",
+      "axisChanges": {},
+      "limits": "The simplification fails its geometric guard even where the matched surface is recognizable.",
+      "useAsTeachingView": false,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Mesh economy refinement evidence and replay"
+        }
+      ],
+      "candidate": {
+        "sha256": "9883594e255260ee7b7f38460d7981f92a58c7208a9b7a326707d105a1b1496c",
+        "bytes": 520280,
+        "triangles": 27954,
+        "disposition": "rejected"
+      }
+    },
+    {
+      "family": "Small bowel",
+      "path": "models/small-intestine/exports/source-candidate-v4/small-intestine.glb",
+      "sha256": "a9459afc67cb13c28084b518615fdbb5e05c135a47eafa3036908139aece94da",
+      "controlAssessmentSha256": "da49ddc7b6f6178a26cd8f236ce0dff864c662c34c35a223d8541c2160e6fefc",
+      "before": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/small-intestine-original.webp",
+        "sha256": "0ad131b66fd5bd016db6e32e977c394206a9a7ffa03abe4b4b6bbc1e717671da",
+        "bytes": 27178,
+        "width": 1280,
+        "height": 680,
+        "label": "Small bowel · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/small-intestine-trial.webp",
+        "sha256": "6c059ba480768c79fb0644494ece0f4a126fe168522c52fad6d3cecbb8303131",
+        "bytes": 26118,
+        "width": 1280,
+        "height": 680,
+        "label": "Find the proximal attachment above the compact folded loops. Use the close-up to compare the upper loop edges next to the attachment."
+      },
+      "finding": "The source-index contraction locks the nonzero sparse motion region, surrounding faces and superior attachment band. Both posed samples remain within budget; the gross and closer stills retain the top bridge and adjacent gaps. The trial has 86,616 of 96,240 triangles and 2,140,672 of 2,366,552 bytes. The maximum sampled outline change is 1 native pixel(s) across the retained views.",
+      "decision": "Retain the original for normal use. Keep the lighter file as a bounded gross-view trial.",
+      "axisChanges": {},
+      "limits": "The trial checks morph weights 0, 0.5 and 1 and preserves animation data. The full interpolated clip and the most crowded deep surfaces were not reviewed.",
+      "useAsTeachingView": false,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Mesh economy refinement evidence and replay"
+        }
+      ],
+      "candidate": {
+        "sha256": "b5bb67aae18a3fa305cbf29f7d1464cdfdc9d9d22b8dbb6de6c48efb03f0b190",
+        "bytes": 2140672,
+        "triangles": 86616,
+        "disposition": "measurement-only"
+      }
+    },
+    {
+      "family": "Tongue · hybrid",
+      "path": "models/tongue_authored_study/exports/authored-p11/tongue-authored-hra-hybrid-p11.glb",
+      "sha256": "efabd58b235b72682f067113cf079e3f70fbaceac47062f2b937f09540c1ee1a",
+      "controlAssessmentSha256": "a230a27c8eae1df7aecfed1b9ebe5c6b41cde146acaefead63886df53c811303",
+      "before": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/tongue_authored_study-original.webp",
+        "sha256": "dcfce674101dbce1a526a5e5740a372516b5eccd15b4eb06d141ec42920591da",
+        "bytes": 12208,
+        "width": 1280,
+        "height": 680,
+        "label": "Tongue · hybrid · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/tongue_authored_study-trial.webp",
+        "sha256": "20ada99e2450c673ccff81c45d4e790629ccf892b3b9788b30259f1e378d8f2b",
+        "bytes": 11668,
+        "width": 1280,
+        "height": 680,
+        "label": "Follow the median line on the dorsum. In the neutral oblique view, identify the papillae at the back above the authored ventral surface."
+      },
+      "finding": "Only the authored body and ventral surface are edited. The retained HRA dorsal surface, papilla patches and authored transition pieces retain their exact bytes. Gross outline and dorsal landmarks are readable in both views. The trial has 145,480 of 204,316 triangles and 3,245,136 of 4,983,044 bytes. The maximum sampled outline change is 1 native pixel(s) across the retained views.",
+      "decision": "Keep the lighter option for the gross tongue exterior.",
+      "axisChanges": {},
+      "limits": "The retained hybrid and illustrative surface distinctions still apply.",
+      "useAsTeachingView": false,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Mesh economy refinement evidence and replay"
+        }
+      ],
+      "candidate": {
+        "sha256": "44ece7903283ba0eadf045b588bcfb3fb02dba86566d4468c760e36352af7a8f",
+        "bytes": 3245136,
+        "triangles": 145480,
+        "disposition": "local-teaching-option",
+        "download": true,
+        "name": "tongue-authored-hra-hybrid-p11-teaching.glb",
+        "path": ".artifacts/teaching-refinements/candidates/44ece7903283ba0eadf045b588bcfb3fb02dba86566d4468c760e36352af7a8f.glb",
+        "recipe": "reviews/teaching-assessments/refinement-economy/README.md",
+        "scores": [
+          null,
+          null,
+          null,
+          4
+        ],
+        "economyObservation": "The trial removes 58,836 triangles from the authored body and saves 34.9% of bytes. The adjusted body and ventral surface shift at most 0.14 teaching pixels in the samples, and the dorsal median line and papilla meshes stay exact."
+      }
+    },
+    {
+      "family": "Breast pair",
+      "path": "models/breasts_hra/exports/source-candidate-02/breasts_hra_native_frame.glb",
+      "sha256": "905865c4382fb109d14fca74c8ffe809e190f44e9d3086144c3d1d7c3be53964",
+      "controlAssessmentSha256": "b28253740b81ff432e4024865e189e4d082bf23239882fc8a99d07634f8583c4",
+      "before": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/breasts_hra-original.webp",
+        "sha256": "ff9748c4ba519bdd433c3c7714d165d604da635388cd806f18aa2a7210144aa8",
+        "bytes": 14134,
+        "width": 1280,
+        "height": 680,
+        "label": "Breast pair · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/breasts_hra-trial.webp",
+        "sha256": "e31946eb1c7b816741405495895c870e323f80061a614ef748037a3ec20c9e04",
+        "bytes": 13560,
+        "width": 1280,
+        "height": 680,
+        "label": "Locate both areolae in the front view. Turn the pair to distinguish the posterior cut layers from the outer surface."
+      },
+      "finding": "The candidate reduces the largest adipose surface. Both areolae, nipples, ducts and lobe geometry remain exact. The neutral posterior comparison retains coarse layering and shows minor changes in the right adipose highlight. The trial has 691,668 of 856,072 triangles and 32,567,624 of 37,499,672 bytes. The maximum sampled outline change is 1 native pixel(s) across the retained views.",
+      "decision": "Keep the lighter option for the areola and posterior-layer overview.",
+      "axisChanges": {},
+      "limits": "The covered task is gross external location and posterior overview. Color interpolation and isolated sublayers at higher zoom still need their own review.",
+      "useAsTeachingView": false,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Mesh economy refinement evidence and replay"
+        }
+      ],
+      "candidate": {
+        "sha256": "2a7d6d05e06fa8d86adffdf0fd324389cf23ac736b3b659f7c227b96e499fe51",
+        "bytes": 32567624,
+        "triangles": 691668,
+        "disposition": "local-teaching-option",
+        "download": true,
+        "name": "breasts_hra_native_frame-teaching.glb",
+        "path": ".artifacts/teaching-refinements/candidates/2a7d6d05e06fa8d86adffdf0fd324389cf23ac736b3b659f7c227b96e499fe51.glb",
+        "recipe": "reviews/teaching-assessments/refinement-economy/README.md",
+        "scores": [
+          null,
+          null,
+          null,
+          3
+        ],
+        "economyObservation": "The right adipose layer saves 164,404 triangles and 13.2% of total bytes. The areola surfaces stay exact and the posterior layers remain distinct, with a local adipose highlight change and isolated sublayers beyond the tested zoom."
+      }
+    },
+    {
+      "family": "Full-term placenta",
+      "path": "models/placenta/exports/hra-v1.1-r02/placenta_full_term.glb",
+      "sha256": "7f9f215f810003fddc76ede225f051dc7014c67216e804403a4632d628ad82aa",
+      "controlAssessmentSha256": "1af47082bedfc362168eac627aa41c522d431aaf1954ae67a1340a0cb93cee0c",
+      "before": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/placenta-original.webp",
+        "sha256": "dc4e450056fb3d048844dc5816fdd3ae0c57e8c4bfbc607287a9eeea8f9418c6",
+        "bytes": 14492,
+        "width": 1280,
+        "height": 680,
+        "label": "Full-term placenta · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/placenta-trial.webp",
+        "sha256": "dbf121baa93517a02f4d3a0ccf8a8ce1674bc48dc86a7d3b6b63875ed0c2b157",
+        "bytes": 13900,
+        "width": 1280,
+        "height": 680,
+        "label": "Find the cord insertion on the fetal surface, then compare it with the lobulated maternal face from behind."
+      },
+      "finding": "The vessel tree, fetal and maternal plates and amnion remain exact. The accepted contractions affect the cord and two of its internal vessels. The maternal mask matches exactly and the cord-bearing outline shifts one native pixel or less. The trial has 171,189 of 188,365 triangles and 4,471,204 of 4,917,576 bytes. The maximum sampled outline change is 1 native pixel(s) across the retained views.",
+      "decision": "Retain the original for normal use. Keep the lighter variant as an exterior trial.",
+      "axisChanges": {},
+      "limits": "Separate umbilical artery and vein isolation at high zoom was not reviewed.",
+      "useAsTeachingView": false,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Mesh economy refinement evidence and replay"
+        }
+      ],
+      "candidate": {
+        "sha256": "7d89ee7d6e6e49db16dd25b29cef594409c307a9585aff42d0195270e06cd626",
+        "bytes": 4471204,
+        "triangles": 171189,
+        "disposition": "measurement-only"
+      }
+    },
+    {
+      "family": "Prostate",
+      "path": "models/prostate/exports/hra-v1.1/VH_M_Prostate.glb",
+      "sha256": "ec1023e0a1b81f71865872bb720404abc7bb6378a54ac71fa9f24579b097f48a",
+      "controlAssessmentSha256": "30f7e9e88b77947639ee0eed2b3dc7fc013a18c5f17304598871b69865cda5cd",
+      "before": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/prostate-original.webp",
+        "sha256": "f243f183b5b2015a3338b8133cf32049d1b7d408a92824f00f1423da23a18f73",
+        "bytes": 14440,
+        "width": 1280,
+        "height": 680,
+        "label": "Prostate · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/prostate-trial.webp",
+        "sha256": "078cb677387d358fe9ff9ffdf82041a8e041f9338cedd2787db1a085e54323e6",
+        "bytes": 13692,
+        "width": 1280,
+        "height": 680,
+        "label": "Find the gland below the paired seminal vesicles. Use the reverse view to locate the proximal ducts and check their projected separation."
+      },
+      "finding": "The paired prostatic ducts and utricle carry the trial. Gland zones, vesicles and ejaculatory ducts retain their exact bytes. The outer silhouette masks match; the proximal landmarks remain visible. The trial has 165,066 of 224,676 triangles and 3,013,520 of 4,086,328 bytes. The maximum sampled outline change is 0 native pixel(s) across the retained views.",
+      "decision": "Keep the lighter option for the gland, paired seminal vesicles and proximal ducts.",
+      "axisChanges": {},
+      "limits": "The evidence supports gross orientation, with no claim of continuous duct patency or fine internal-zone inspection.",
+      "useAsTeachingView": false,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Mesh economy refinement evidence and replay"
+        }
+      ],
+      "candidate": {
+        "sha256": "b46de84b02283254f06855274831657641dbd8c3e94f558f3677ecaa8255c700",
+        "bytes": 3013520,
+        "triangles": 165066,
+        "disposition": "local-teaching-option",
+        "download": true,
+        "name": "VH_M_Prostate-teaching.glb",
+        "path": ".artifacts/teaching-refinements/candidates/b46de84b02283254f06855274831657641dbd8c3e94f558f3677ecaa8255c700.glb",
+        "recipe": "reviews/teaching-assessments/refinement-economy/README.md",
+        "scores": [
+          null,
+          null,
+          null,
+          4
+        ],
+        "economyObservation": "The duct and utricle trial saves 59,610 triangles and 26.3% of bytes. The left prostatic duct has the largest sampled shift at 0.81 teaching pixels, and both overview silhouettes and the exact gland and vesicle meshes are preserved."
+      }
+    },
+    {
+      "family": "Left kidney",
+      "path": "models/kidney_left/exports/hra-female-v1.3-r02/kidney_left.glb",
+      "sha256": "8e55b5ae48821f067f41bd23ffdd668f68c7ff705cf49e9a40287042fee469fc",
+      "controlAssessmentSha256": "b0387a864c2a31da6c358206806a5bb27826e3907fecb6c3c6b186247cd0c13c",
+      "before": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/kidney_left-original.webp",
+        "sha256": "dd65758f616ea09f99751dc96d20ba3ef97cc35694254dcc52e79a0b6df660c3",
+        "bytes": 9654,
+        "width": 1280,
+        "height": 680,
+        "label": "Left kidney · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/kidney_left-rejected.webp",
+        "sha256": "30cddc6b21d154c2b72c0fbf170eba37681b63f1dc76ce6e216b51d2d0326bfd",
+        "bytes": 11714,
+        "width": 1280,
+        "height": 680,
+        "label": "Turn the left kidney from the medial recess to the convex outer face. The trial keeps the hilum object and tests the surrounding capsule."
+      },
+      "finding": "The rejected capsule trial exceeds the one-pixel projected surface allowance near the medial capsule, and the separate outer cortex has a duplicate face that blocks this contraction method. The lossless payload saving is at most 2,218 bytes under the examined techniques. The trial has 69,728 of 73,526 triangles and 1,309,772 of 1,378,060 bytes. The rejected part reaches 4.72 estimated teaching pixels in the directed surface samples.",
+      "decision": "Retain the original for left kidney hilar orientation.",
+      "axisChanges": {},
+      "limits": "The full interior remains useful for isolation. Exterior simplification needs a more local guard around the hilum and a separate check of the existing duplicate face.",
+      "useAsTeachingView": false,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Mesh economy refinement evidence and replay"
+        }
+      ],
+      "candidate": {
+        "sha256": "9c2a39658dbcbb71299364061a4a4040b9317d8420f4c66dcb7983277822a130",
+        "bytes": 1309772,
+        "triangles": 69728,
+        "disposition": "rejected"
+      }
+    },
+    {
+      "family": "Right kidney",
+      "path": "models/kidney_right/exports/hra-female-v1.3-r02/kidney_right.glb",
+      "sha256": "977d0a283de7071a2e8aaeb8900c5a6dc8d0ba770eb458e996dc66cc249c0b56",
+      "controlAssessmentSha256": "d3f3b73d9682f4794fe8b3ef62dc6b9957c091ca6aafba9e69e591e13c9026bf",
+      "before": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/kidney_right-original.webp",
+        "sha256": "d8dcec47c648a9a3c189a9b703801085112cf8f619683b8b17f14a4a4b4591b5",
+        "bytes": 9822,
+        "width": 1280,
+        "height": 680,
+        "label": "Right kidney · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/kidney_right-rejected.webp",
+        "sha256": "d96da285b44d7d4418143c5be10614d432049a3e271a871ec2f9f3ed37356bcb",
+        "bytes": 10900,
+        "width": 1280,
+        "height": 680,
+        "label": "Locate the right hilar recess in the medial view, then compare it with the smooth convex outer face."
+      },
+      "finding": "The trial leaves the named hilum exact, but the capsule and the affected interior structures exceed the one-pixel geometric budget before the gentlest setting achieves a meaningful reduction. The lossless payload saving is at most 2,617 bytes under the examined techniques. The trial has 71,626 of 75,138 triangles and 1,340,452 of 1,403,576 bytes. The rejected part reaches 5.54 estimated teaching pixels in the directed surface samples.",
+      "decision": "Retain the original for right kidney hilar orientation.",
+      "axisChanges": {},
+      "limits": "The retained source supports the internal isolation task. The lighter trial remains diagnostic.",
+      "useAsTeachingView": false,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Mesh economy refinement evidence and replay"
+        }
+      ],
+      "candidate": {
+        "sha256": "7969bf2a2109350ca990d266be2823eb6577e4b8e9c58b168b2288f55cbcbc81",
+        "bytes": 1340452,
+        "triangles": 71626,
+        "disposition": "rejected"
+      }
+    },
+    {
+      "family": "Blood-cell forms",
+      "path": "models/blood_cell_study/exports/authored-r05/blood-cell-authored-study-r05.glb",
+      "sha256": "4c7c738b3ca6ae6cc7e44a449be0f7d26d04ceb9975e43d3b834a2caad96618c",
+      "controlAssessmentSha256": "2d9d3f9c7831ef2a3d0d5ba1f827c9275c898b06c4af0585da679cd85626bd0f",
+      "before": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/blood_cell_study-original.webp",
+        "sha256": "53177c1d7d9260a080b563d509002f121eb948214d8dd18a05129e157c87791a",
+        "bytes": 12376,
+        "width": 1280,
+        "height": 680,
+        "label": "Blood-cell forms · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/blood_cell_study-trial.webp",
+        "sha256": "60ab192d944887aa108bbfaa4c975cdbf72a27937672e07b0aaac82f43aaa832",
+        "bytes": 11844,
+        "width": 1280,
+        "height": 680,
+        "label": "Compare the face-on disk with the edge-on red blood cell. In the close view, follow the exposed segmented nucleus and the surrounding granules."
+      },
+      "finding": "The two biconcave profiles, connected nucleus and cutaway remain legible. Local highlight and edge changes are subtle in the matched views; the small granule objects and labels remain exact. The trial has 111,302 of 179,596 triangles and 2,722,128 of 3,461,004 bytes. The maximum sampled outline change is 1 native pixel(s) across the retained views.",
+      "decision": "Keep the lighter option for the face-on and edge-on cell comparison and neutrophil cutaway.",
+      "axisChanges": {},
+      "limits": "The authored study compares independent display scales. This trial supports appearance and gross discrimination only.",
+      "useAsTeachingView": false,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Mesh economy refinement evidence and replay"
+        }
+      ],
+      "candidate": {
+        "sha256": "cd34b007869be3d77a0e8493b21c51f5bd99fc86c0e496aee9716f698055d4b6",
+        "bytes": 2722128,
+        "triangles": 111302,
+        "disposition": "local-teaching-option",
+        "download": true,
+        "name": "blood-cell-authored-study-r05-teaching.glb",
+        "path": ".artifacts/teaching-refinements/candidates/cd34b007869be3d77a0e8493b21c51f5bd99fc86c0e496aee9716f698055d4b6.glb",
+        "recipe": "reviews/teaching-assessments/refinement-economy/README.md",
+        "scores": [
+          null,
+          null,
+          null,
+          4
+        ],
+        "economyObservation": "The display saves 68,294 triangles and 21.3% of bytes. The intact neutrophil shell has the largest sampled shift at 0.87 teaching pixels while both red-cell profiles and the exposed lobes of the cutaway nucleus remain distinct."
+      }
+    },
+    {
+      "family": "Bone-marrow cutaway",
+      "path": "models/bone_marrow/exports/authored-source-cutaway-r05/marrow_cutaway.glb",
+      "sha256": "7b21b74fb3712b2816801337bd4d0732ef8bb035a999ad36558b8235609cfe02",
+      "controlAssessmentSha256": "410ba9c08323ef58f1dd1a7fd592b3c9284055576f2540d173e986e8b6929f0b",
+      "before": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/bone_marrow-original.webp",
+        "sha256": "51753731ef18349dd731a0f4fe2ef7a203c3206d9ef36fd48332d821bc2c628c",
+        "bytes": 39472,
+        "width": 1280,
+        "height": 680,
+        "label": "Bone-marrow cutaway · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/bone_marrow-trial.webp",
+        "sha256": "3fe380d0e3728f036030bac93d08d05c14575ec4512dafa42139ffc2d9d78ed3",
+        "bytes": 38506,
+        "width": 1280,
+        "height": 680,
+        "label": "Find the cortical rim, then follow adjacent trabecular struts around one opening in the illustrated network above the red backing."
+      },
+      "finding": "The owner trial preserves the cortex and backing byte for byte. Reference and strong candidate retain the visible windows and branch crossings, with slight contour and highlight shifts at diagnostic magnification. The trial has 179,612 of 369,274 triangles and 4,218,116 of 8,770,012 bytes. The maximum sampled outline change is 0 native pixel(s) across the retained views.",
+      "decision": "Keep the recovered strong lattice option for the reviewed static cutaway.",
+      "axisChanges": {},
+      "limits": "The lattice is illustrative. The owner review defines the closest supported crop and includes the worst directed-displacement views.",
+      "useAsTeachingView": false,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Mesh economy refinement evidence and replay"
+        }
+      ],
+      "candidate": {
+        "sha256": "98c2e5ababce25387867803659b77f04ff1849d29c48fab65ad09b387e75b3d7",
+        "bytes": 4218116,
+        "triangles": 179612,
+        "disposition": "local-teaching-option",
+        "download": true,
+        "name": "marrow_cutaway-teaching.glb",
+        "path": ".artifacts/teaching-refinements/candidates/98c2e5ababce25387867803659b77f04ff1849d29c48fab65ad09b387e75b3d7.glb",
+        "recipe": "reviews/teaching-assessments/refinement-economy/README.md",
+        "scores": [
+          null,
+          null,
+          null,
+          4
+        ],
+        "economyObservation": "The lattice saves 189,662 triangles and 51.9% of file bytes while cortex and backing stay exact. The largest sampled shift is 98.45 μm, and the enlarged crossing changes highlight while retaining the adjacent opening."
+      }
+    },
+    {
+      "family": "Muscle atlas",
+      "path": "models/muscle/exports/z-anatomy-r02/muscle_z_native_frame.glb",
+      "sha256": "7081144bdbca0d2d871311a3568a0aedb1c8e125f7709ae8e7d55345a54bdfb7",
+      "controlAssessmentSha256": "a244672ebafe73973ffd25065ec3d41ddebbee8eda5dd58f7fbd94320ec05537",
+      "before": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/muscle-original.webp",
+        "sha256": "bf6ae6c6d823e8a7cd078cf4e934dc996e5056f22a2a735b8294a0f073cbb01e",
+        "bytes": 26808,
+        "width": 1280,
+        "height": 680,
+        "label": "Muscle atlas · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/muscle-trial.webp",
+        "sha256": "f2f3b58d210f81d65d79626ea6754901243b742be4eb2e5594265a6c8b7189cd",
+        "bytes": 26196,
+        "width": 1280,
+        "height": 680,
+        "label": "Compare the superficial chest and abdominal groups with the posterior shoulder and back groups."
+      },
+      "finding": "The matched images retain the broad anatomical groups. The triangle count falls substantially, but indexing shared by the original atlas makes the encoded byte savings under one percent. The trial has 1,777,780 of 1,993,160 triangles and 30,292,868 of 30,517,312 bytes. The maximum sampled outline change is 1 native pixel(s) across the retained views.",
+      "decision": "Retain the exact atlas for routine use. The lighter triangle trial is a measurement only.",
+      "axisChanges": {},
+      "limits": "There is no demonstrated delivery advantage from this specific binary or new coverage of close anatomical structure.",
+      "useAsTeachingView": false,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Mesh economy refinement evidence and replay"
+        }
+      ],
+      "candidate": {
+        "sha256": "a58cd4b0c9d3f7034196aa0794e1019c8786ed07d5b7985a3123d48dbf6f1e85",
+        "bytes": 30292868,
+        "triangles": 1777780,
+        "disposition": "measurement-only"
+      }
+    },
+    {
+      "family": "Skeletal atlas",
+      "path": "models/skeleton/exports/source-candidate-03/skeleton_source_frame.glb",
+      "sha256": "d224985628cc62d0c9c4284019b73505c9ebf14d78d30a040d74a7b33c68620e",
+      "controlAssessmentSha256": "3ba46567ed24862bc9a86c5a42a92d03a3d868b736cfe4cba99e10a63c34a58a",
+      "before": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/skeleton-original.webp",
+        "sha256": "3776dcdc14dadf8add8980b0caa29abddc2be036928963454469cef0f3d572f3",
+        "bytes": 24640,
+        "width": 1280,
+        "height": 680,
+        "label": "Skeletal atlas · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/skeleton-trial.webp",
+        "sha256": "6725910f1026f1235fae5baf37e5c75e7438ab0b503c0b4deedb6e93a7447401",
+        "bytes": 23886,
+        "width": 1280,
+        "height": 680,
+        "label": "Find skull, rib cage and pelvis in the whole figure. Use the closer neutral view to check the rib contours and the bones attached to the trunk."
+      },
+      "finding": "The whole and closer trunk views preserve the silhouette and segmentation of the axial and appendicular bones. Twenty-three dense primitives were reduced while larger local deviations were rejected. The trial has 530,642 of 622,754 triangles and 11,048,256 of 12,705,356 bytes. The maximum sampled outline change is 1 native pixel(s) across the retained views.",
+      "decision": "Keep the lighter option for whole-body axial and appendicular orientation.",
+      "axisChanges": {},
+      "limits": "Use the exact atlas for individual landmarks beyond the reviewed body views.",
+      "useAsTeachingView": false,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Mesh economy refinement evidence and replay"
+        }
+      ],
+      "candidate": {
+        "sha256": "ca10c44878ec836c63882855b9af29193e637773059dbc33b15daff044c2bb3c",
+        "bytes": 11048256,
+        "triangles": 530642,
+        "disposition": "local-teaching-option",
+        "download": true,
+        "name": "skeleton_source_frame-teaching.glb",
+        "path": ".artifacts/teaching-refinements/candidates/ca10c44878ec836c63882855b9af29193e637773059dbc33b15daff044c2bb3c.glb",
+        "recipe": "reviews/teaching-assessments/refinement-economy/README.md",
+        "scores": [
+          null,
+          null,
+          null,
+          4
+        ],
+        "economyObservation": "The atlas saves 92,112 triangles and 13.0% of bytes across 23 dense meshes. The right second rib has the largest estimated shift at 0.98 teaching pixels, and the torso close-up retains the rib contours."
+      }
+    },
+    {
+      "family": "Auricles / pinnae",
+      "path": "models/ears_z/exports/r04/ears_z.glb",
+      "sha256": "04ba664cdc219dc7b78e80ddb2b1d5ff39ffe4438bd0ab1bf63c2221c46f5939",
+      "controlAssessmentSha256": "c19381718b2834078a231c6ec92cec2f1f8fd75d935b7b991655e4a5743db0a9",
+      "before": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/ears_z-original.webp",
+        "sha256": "8e48bd1d5e9969bc6a5cc0d7ff5908edc17219be18fae0af15c85a6f1f6e3bcd",
+        "bytes": 10532,
+        "width": 1280,
+        "height": 680,
+        "label": "Auricles / pinnae · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/ears_z-trial.webp",
+        "sha256": "f728fc89b8a74f8dffcfee3b6d8ad0db8ed49e72c6613e6a8f799df9d3ebd9ad",
+        "bytes": 9828,
+        "width": 1280,
+        "height": 680,
+        "label": "Locate both auricles in the pair, then follow the outer rim around the recessed bowl of one ear in the enlarged neutral view."
+      },
+      "finding": "Both ears stay present. The nearest-surface shift is under 0.59 estimated teaching pixels and the enlarged view retains an uninterrupted outer rim and inner depression. The trial has 54,966 of 96,432 triangles and 1,005,904 of 1,752,248 bytes. The maximum sampled outline change is 1 native pixel(s) across the retained views.",
+      "decision": "Keep the lighter option for rim-to-bowl orientation.",
+      "axisChanges": {},
+      "limits": "This comparison supports the tested views of the external ear, with no finer landmark or canal claim.",
+      "useAsTeachingView": false,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Mesh economy refinement evidence and replay"
+        }
+      ],
+      "candidate": {
+        "sha256": "cb5f38d7d5b8d617df11b53c65ef9d1fe11eb0c3f208d161209bda534917deed",
+        "bytes": 1005904,
+        "triangles": 54966,
+        "disposition": "local-teaching-option",
+        "download": true,
+        "name": "ears_z-teaching.glb",
+        "path": ".artifacts/teaching-refinements/candidates/cb5f38d7d5b8d617df11b53c65ef9d1fe11eb0c3f208d161209bda534917deed.glb",
+        "recipe": "reviews/teaching-assessments/refinement-economy/README.md",
+        "scores": [
+          null,
+          null,
+          null,
+          4
+        ],
+        "economyObservation": "The two-ear compound saves 41,466 triangles and 42.6% of bytes. The worst measured surface shift is 0.58 teaching pixels, and the enlarged neutral view keeps the helix rim and recessed bowl distinct."
+      }
+    },
+    {
+      "family": "Brain",
+      "path": "models/brain/exports/bodyparts3d-4.0-atlas-r2/brain-source-frame.glb",
+      "sha256": "26d39768e2882daee034f997a8d594e915283b5f8a176a8bb60003944a45b886",
+      "controlAssessmentSha256": "df83d0ae70d5deebb001367aa04f8161c099d7b86f29047041498e3e4e4c2a39",
+      "before": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/brain-original.webp",
+        "sha256": "6b8ba1bcdd956d800606bfd2f636ed38c139bc38d6b936a981254eb4504f2596",
+        "bytes": 26510,
+        "width": 1280,
+        "height": 680,
+        "label": "Brain · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/brain-trial.webp",
+        "sha256": "839a90292a9be54e114efd7792af9c648fd5fab2976db1592b1d086f9f929e9b",
+        "bytes": 25250,
+        "width": 1280,
+        "height": 680,
+        "label": "Identify the large cerebral hemisphere, cerebellar folds and exposed brainstem from the side and reverse."
+      },
+      "finding": "The approved primitive edits keep the major landmarks in the exterior pair. The densest high-curvature folded parts remained exact where the sampling threshold blocked further reduction. The trial has 228,474 of 242,358 triangles and 4,165,740 of 4,415,384 bytes. The maximum sampled outline change is 1 native pixel(s) across the retained views.",
+      "decision": "Retain the source atlas for normal use. Keep the lighter file as an exterior trial.",
+      "axisChanges": {},
+      "limits": "The result saves under six percent of the file and has no narrower fine-fold or internal anatomy check.",
+      "useAsTeachingView": false,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Mesh economy refinement evidence and replay"
+        }
+      ],
+      "candidate": {
+        "sha256": "cfd50528b75c0465e05940474936bdeda258e6a1d1eb16e07224ffff884925b2",
+        "bytes": 4165740,
+        "triangles": 228474,
+        "disposition": "measurement-only"
+      }
+    },
+    {
+      "family": "Spinal cord & roots",
+      "path": "models/spinal_cord/exports/authored-roots-r04/candidate.glb",
+      "sha256": "a37783fbd1ad25ba9a2bcfbed1419a2d3f655b42cec643bf32a77266ca82a9d0",
+      "controlAssessmentSha256": "11ebab306913557c573da12579c997bd4753abeeecae88baffbdfdeb7f477250",
+      "before": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/spinal_cord-original.webp",
+        "sha256": "8c7c71d7d1d2cd916b3fa85b624d7343bada17c890821c819a544d0de3c92320",
+        "bytes": 13044,
+        "width": 1280,
+        "height": 680,
+        "label": "Spinal cord & roots · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/spinal_cord-trial.webp",
+        "sha256": "bdd64ebc40952ccf10570c9a50b6bf54db77c71d34e0ef311fdf5c7b71b10573",
+        "bytes": 12764,
+        "width": 1280,
+        "height": 680,
+        "label": "Follow the swollen dorsal root and separate ventral root until they form one mixed nerve. The close view isolates one representative upper level."
+      },
+      "finding": "The root, swelling and mixed-nerve meshes remain exact. Only the main cord reduces; the long ventral strands do not achieve a stable reduction within the protected-end and surface limits. The trial has 172,878 of 178,960 triangles and 2,553,840 of 2,663,288 bytes. The maximum sampled outline change is 1 native pixel(s) across the retained views.",
+      "decision": "Retain r04 for normal use. Keep the cord-only trial as a measurement.",
+      "axisChanges": {},
+      "limits": "This still-view comparison neither measures nerve continuity elsewhere nor supports replacing the full root assembly for a four-percent byte gain.",
+      "useAsTeachingView": false,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Mesh economy refinement evidence and replay"
+        }
+      ],
+      "candidate": {
+        "sha256": "658dde711b2a304e07ab844bfc950aed6594b436ef9d8ddb63968e83723e854a",
+        "bytes": 2553840,
+        "triangles": 172878,
+        "disposition": "measurement-only"
+      }
+    },
+    {
+      "family": "Left lung · s1233",
+      "path": "models/lung_left/exports/metadata-cleanup-r01/lung_left.glb",
+      "sha256": "6d3a6150dc47dba0d16162738caabc1bef3fcd8cf5ab4af492dd1121c1cb8533",
+      "controlAssessmentSha256": "7af7f038dcf1f4a13c56d14586b07cddde9348cb898e7fd5f69fe54db40f1ea4",
+      "before": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/lung_left-original.webp",
+        "sha256": "53ee5ee52aea681db2eac811a26ed2e9bbcbb0fed5d04853ad1d5cbbab023bd0",
+        "bytes": 11424,
+        "width": 1280,
+        "height": 680,
+        "label": "Left lung · s1233 · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/lung_left-failed-diagnostic.webp",
+        "sha256": "1d43101b8d3065b6cb8360c9e1818329a100c83201f2dac82991c435f400bd18",
+        "bytes": 27058,
+        "width": 1280,
+        "height": 680,
+        "label": "Trace the diagonal fissure between upper and lower lobes, then confirm the same division in the oblique view."
+      },
+      "finding": "The lower-lobe trial holds the junction band and duplicated index seams and keeps source UV and morph data in scope. The intermediate pass removes 3,706 of 24,000 lower-lobe triangles but shifts its sampled surface by 1.12 px against a 0.73 px cap. The gentlest pass removes only 868 triangles, below the 4% minimum. There is no compatible candidate to render. The lossless payload saving is at most 0 bytes under the examined techniques.",
+      "decision": "Retain the textured two-lobe export.",
+      "axisChanges": {},
+      "limits": "The texture maps, authored morphs and small lower-lobe satellite remain part of the exact control. The retained plates show geometry.",
+      "useAsTeachingView": false,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Mesh economy refinement evidence and replay"
+        }
+      ]
+    },
+    {
+      "family": "Lung pair · HRA",
+      "path": "models/lung_pair/exports/hra-female-normals-r02/lung_female_hra_normals_r02.glb",
+      "sha256": "966a4c225be028e616f6f813e8d4232582995a82b8121a42257c1be53087cb19",
+      "controlAssessmentSha256": "610a4b561684fb3e633166717bbd0007cd73cb9317295a0224f2d60f86bb635e",
+      "before": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/lung_pair-original.webp",
+        "sha256": "16e74a0c6708fdacfdb37cef7e2c52b18739d986c8599eae9babd0a393d2094b",
+        "bytes": 22688,
+        "width": 1280,
+        "height": 680,
+        "label": "Lung pair · HRA · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/lung_pair-failed-diagnostic.webp",
+        "sha256": "2b2d35ed7131f983a5bb7527156352877f9e2389f8bf3d9f3d142e81b42ea1fb",
+        "bytes": 38020,
+        "width": 1280,
+        "height": 680,
+        "label": "Compare the right three-lobe and left two-lobe formations. The isolated reverse cartilage view shows the fragmented rings that constrain simplification."
+      },
+      "finding": "All four selected cartilage primitives keep their exact index seams and small component boundaries. The protection covers all 489,402 selected vertex entries and prevents any reduction at the tested scale, so the recipe emits no lighter GLB. The lossless payload saving is at most 9,557 bytes under the examined techniques.",
+      "decision": "Retain the two lungs and full exact cartilage selection.",
+      "axisChanges": {},
+      "limits": "This trial preserves the 56 primitive selections. The isolated cartilage is a source depiction, and it does not establish complete rings or a lumen.",
+      "useAsTeachingView": false,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Mesh economy refinement evidence and replay"
+        }
+      ]
+    },
+    {
+      "family": "Pharynx / larynx",
+      "path": "models/pharynx_larynx/exports/r03/pharynx_larynx.glb",
+      "sha256": "d691a60f12d448b9b36d362270429c672c01c7fae0f10a8789ef188dd4c08530",
+      "controlAssessmentSha256": "cebae8c2bb1c39070b024b2aece68f4e3547e530647004522418dbf0184b08cb",
+      "before": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/pharynx_larynx-original.webp",
+        "sha256": "df2f17d9197c6da4ceacb99a298900d168d07f4017af269bd922c6a0b1f5b97a",
+        "bytes": 21582,
+        "width": 1280,
+        "height": 680,
+        "label": "Pharynx / larynx · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/pharynx_larynx-trial.webp",
+        "sha256": "927c2084e14d5b2d14fd52d81db69dbd0e1265a8ae38cd3d9f23466fd616b5dd",
+        "bytes": 20616,
+        "width": 1280,
+        "height": 680,
+        "label": "Orient to the pharyngeal shell, then find the epiglottis, thyroid shield and cricoid ring in the enlarged neutral view."
+      },
+      "finding": "The six reductions are in contextual muscles or the raphe. The three named cartilage meshes remain byte-identical, with their visible outline retained in the matched view. The trial has 211,184 of 278,720 triangles and 3,834,688 of 5,050,088 bytes. The maximum sampled outline change is 1 native pixel(s) across the retained views.",
+      "decision": "Keep the lighter option for cartilage identification in the reviewed dissection.",
+      "axisChanges": {},
+      "limits": "This comparison covers cartilage location. The lighter muscles have not been qualified for close fiber study.",
+      "useAsTeachingView": false,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Mesh economy refinement evidence and replay"
+        }
+      ],
+      "candidate": {
+        "sha256": "6145abfa541670441bdc7b61978121dc4f5d2730731b873a76b9fff1428d7bff",
+        "bytes": 3834688,
+        "triangles": 211184,
+        "disposition": "local-teaching-option",
+        "download": true,
+        "name": "pharynx_larynx-teaching.glb",
+        "path": ".artifacts/teaching-refinements/candidates/6145abfa541670441bdc7b61978121dc4f5d2730731b873a76b9fff1428d7bff.glb",
+        "recipe": "reviews/teaching-assessments/refinement-economy/README.md",
+        "scores": [
+          null,
+          null,
+          null,
+          4
+        ],
+        "economyObservation": "Reducing six context meshes saves 67,536 triangles and 24.1% of bytes. The right superior constrictor has the largest measured shift at 0.98 teaching pixels, while the epiglottis, thyroid cartilage and cricoid meshes stay exact."
+      }
+    },
+    {
+      "family": "Trachea / Y-airway",
+      "path": "models/trachea/exports/open-airway-r06/trachea-open.glb",
+      "sha256": "eb3ce52962aacc4d109a9840685aa172ca1d97bfc835367f4e36fd32de6b6cbb",
+      "controlAssessmentSha256": "8d3c5bbf19b1a57c31ff011c3f611edffbd98df5d88b60ac810ab34bf01c0a7e",
+      "before": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/trachea-original.webp",
+        "sha256": "9bf26d17702fe86adfc76ae8e687fe16f7f1769b6bb79796f2f100e679ea8f62",
+        "bytes": 11346,
+        "width": 1280,
+        "height": 680,
+        "label": "Trachea / Y-airway · original reviewed view"
+      },
+      "after": {
+        "path": "reviews/teaching-assessments/refinement-economy/views/trachea-rejected.webp",
+        "sha256": "723d7d00913978aa36a6457f9e97d64bd5db00cfba01c3e31fd877e3ea2a3c69",
+        "bytes": 12048,
+        "width": 1280,
+        "height": 680,
+        "label": "Look into the near mouth and locate the two distal outlets. Use the reverse to follow the posterior line of band ends."
+      },
+      "finding": "Keeping the authored shell, all rim faces and the posterior band-tip region fixed, the gentlest band settings do not reach a useful reduction. The retained rejected preview shows an over-budget band contraction. The lossless payload saving is at most 0 bytes under the examined techniques. The trial has 49,862 of 50,978 triangles and 942,392 of 962,440 bytes. The rejected part reaches 2.56 estimated teaching pixels in the directed surface samples.",
+      "decision": "Retain r06 for the three airway openings and band study.",
+      "axisChanges": {},
+      "limits": "The authorial shell and rings are illustrative and do not establish real wall thickness or tissue geometry.",
+      "useAsTeachingView": false,
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/refinement-economy/README.md",
+          "label": "Mesh economy refinement evidence and replay"
+        }
+      ],
+      "candidate": {
+        "sha256": "2d41279d297d364e143150b57031a69888522680af3f12ea91347295a9f3cf9c",
+        "bytes": 942392,
+        "triangles": 49862,
+        "disposition": "rejected"
+      }
+    }
+  ]
+}

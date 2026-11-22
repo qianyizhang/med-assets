@@ -49,6 +49,107 @@ class TeachingReviewCoverage(unittest.TestCase):
             cwd=repo, text=True, check=False, capture_output=True,
         )
 
+    def test_candidate_collection_verifies_identity_and_preserves_conflicts(self):
+        from hashlib import sha256
+        from unittest.mock import patch
+        from teaching_assessments import collect_candidates
+        with tempfile.TemporaryDirectory() as temporary:
+            repo = Path(temporary)
+            recovered = repo / "replay.glb"
+            recovered.write_bytes(b"verified teaching geometry")
+            digest = sha256(recovered.read_bytes()).hexdigest()
+            relative = f".artifacts/teaching-refinements/candidates/{digest}.glb"
+            candidate = {"path": relative, "sha256": digest, "bytes": recovered.stat().st_size, "download": True}
+            register = repo / coverage.REGISTER
+            register.parent.mkdir(parents=True)
+            register.write_text("## Test\n| Selected | [selected.glb](../../models/selected.glb) |\n")
+            control = {"path": "models/control.glb", "sha256": "a" * 64, "bytes": 1}
+            rows = [(None, None, {"export": control, "refinement": {"candidate": candidate}})]
+            with patch("teaching_assessments.campaign_rows", return_value=rows):
+                self.assertEqual(collect_candidates(repo, [recovered]), (1, []))
+                self.assertEqual(collect_candidates(repo, []), (1, []))
+                target = repo / relative
+                self.assertEqual(target.read_bytes(), recovered.read_bytes())
+                target.write_bytes(b"concurrent change")
+                with self.assertRaisesRegex(ValueError, "Existing candidate differs"):
+                    collect_candidates(repo, [recovered])
+                self.assertEqual(target.read_bytes(), b"concurrent change")
+
+            promoted = {"path": "models/selected.glb", "sha256": digest, "bytes": candidate["bytes"]}
+            with patch("teaching_assessments.campaign_rows", return_value=[*rows, (None, None, {"export": promoted})]):
+                self.assertEqual(collect_candidates(repo, []), (0, []))
+
+    def test_refinement_requires_exact_original_assessment_and_views(self):
+        from teaching_assessments import assessment_digest, campaign_rows
+        with tempfile.TemporaryDirectory() as temporary:
+            repo = Path(temporary)
+            folder = repo / "reviews/teaching-assessments/trial"
+            folder.mkdir(parents=True)
+            original = json.loads((ROOT / coverage.PILOT).read_text())["assessments"][0]
+            control = folder / "campaign-assessments.json"
+            control.write_text(json.dumps({"schemaVersion": 1, "assessments": [original]}))
+            first = original["views"][0]
+            change = {"path": original["export"]["path"], "sha256": original["export"]["sha256"],
+                      "controlAssessmentSha256": assessment_digest(original), "family": "Test",
+                      "before": first, "after": first, "finding": "Matched witness.", "decision": "Keep.",
+                      "axisChanges": {}, "limits": "Original task."}
+            accepted = folder / "accepted.json"
+            accepted.write_text(json.dumps({"schemaVersion": 1, "group": "Form", "outcomes": [change]}))
+            self.assertEqual(list(campaign_rows(repo))[0][2]["axes"], original["axes"])
+            original["task"] += " A different task."
+            control.write_text(json.dumps({"schemaVersion": 1, "assessments": [original]}))
+            with self.assertRaisesRegex(ValueError, "does not match its control"):
+                list(campaign_rows(repo))
+            change["controlAssessmentSha256"] = assessment_digest(original)
+            change["after"] = {**first, "sha256": "d"*64}
+            accepted.write_text(json.dumps({"schemaVersion": 1, "group": "Form", "outcomes": [change]}))
+            with self.assertRaisesRegex(ValueError, "changes an existing view identity"):
+                list(campaign_rows(repo))
+
+    def test_target_requires_bound_original_and_individual_exemptions(self):
+        from teaching_assessments import assessment_digest, campaign_rows
+        with tempfile.TemporaryDirectory() as tmp:
+            repo = Path(tmp).resolve()
+            folder = repo / 'reviews/teaching-assessments/target-test'
+            folder.mkdir(parents=True)
+            entry = json.loads((ROOT / coverage.PILOT).read_text())['assessments'][0]
+            entry['axes'] = [{'score': s, 'observation': 'Inspected.'} for s in (3, 2, 3, 3)]
+            batch = {'schemaVersion': 1, 'assessments': [entry]}
+            (folder / 'campaign-assessments.json').write_text(json.dumps(batch))
+            (folder.parent / 'target-standard.json').write_text('{"schemaVersion": 1}')
+            digest = assessment_digest(entry)
+            view = entry['views'][0]
+            decision = {'family': 'Test', 'baseline': entry['export']['path'], 'path': entry['export']['path'],
+                        'controlAssessmentSha256': digest, 'assessmentSha256': digest, 'taskCheck': 'Found both landmarks.',
+                        'before': view, 'after': view, 'status': 'passed', 'evidence': ['witness.md'], 'exemptions': {}}
+            (repo / 'witness.md').write_text('Witness')
+            path = folder / 'decisions.json'
+            path.write_text(json.dumps([decision]))
+            with self.assertRaisesRegex(ValueError, 'Unresolved teaching target axes'):
+                list(campaign_rows(repo))
+            decision['exemptions']['1'] = {'reason': 'Visible corner.', 'permittedUse': 'Localization.', 'reopen': 'Source section.'}
+            path.write_text(json.dumps([decision]))
+            prior = list(campaign_rows(repo))[0][2]
+            self.assertEqual(prior['axes'][1]['score'], 2)
+            second = folder.parent / 'reopen-test/decisions.json'
+            second.parent.mkdir()
+            reopened = {**decision, 'controlAssessmentSha256': assessment_digest(prior),
+                        'assessmentSha256': assessment_digest(prior), 'reviewedAxes': ['1'], 'exemptions': {},
+                        'axisChanges': {'1': {'score': 3, 'observation': 'Registered source section explains the contour.'}}}
+            second.write_text(json.dumps([reopened]))
+            current = list(campaign_rows(repo))[0][2]
+            self.assertEqual(current['axes'][1]['score'], 3)
+            self.assertEqual(current['target']['beforeScores'], [3, 2, 3, 3])
+            reopened['reviewedAxes'] = ['3']
+            second.write_text(json.dumps([reopened]))
+            with self.assertRaisesRegex(ValueError, 'preceding exemptions'):
+                list(campaign_rows(repo))
+            second.unlink()
+            decision['controlAssessmentSha256'] = 'a' * 64
+            path.write_text(json.dumps([decision]))
+            with self.assertRaisesRegex(ValueError, 'differs from its reviewed file or task'):
+                list(campaign_rows(repo))
+
     def test_exact_native_and_wrong_or_ambiguous_export(self):
         with tempfile.TemporaryDirectory() as temp:
             repo = Path(temp).resolve()
@@ -69,7 +170,8 @@ class TeachingReviewCoverage(unittest.TestCase):
 
             pilot = coverage.read_json(repo / coverage.PILOT)
             control = next(item for item in pilot["assessments"] if "bronchial_tree" in item["route"])
-            sibling = next(path for path in coverage.GAPS if "distal-sampling" in path)
+            sibling = next(path for path, (_, family) in coverage.register_rows((repo / coverage.REGISTER).read_text()).items()
+                           if family == "Bronchial tree · first fork")
             original_digest = control["export"]["sha256"]
             suspect = {**control, "export": {**control["export"], "path": sibling}}
             injected = repo / "reviews/teaching-assessments/test/campaign-assessments.json"
@@ -97,7 +199,7 @@ class TeachingReviewCoverage(unittest.TestCase):
             report.write_text(normal.stdout)
             self.assertEqual(self.run_report(repo, "--check", report).returncode, 0)
             register = repo / coverage.REGISTER
-            register.write_text(register.read_text().replace("| Left lung · s1233 |", "| Left lung · renamed |"))
+            register.write_text(register.read_text().replace("| Right lung · s1233 |", "| Right lung · renamed |"))
             drift = self.run_report(repo, "--check", report)
             self.assertEqual(drift.returncode, 1)
             self.assertIn("Coverage report drift.", drift.stderr)

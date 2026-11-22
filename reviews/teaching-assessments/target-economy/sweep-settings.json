@@ -1,0 +1,58 @@
+{
+  "liver": {
+    "retainFailedPreview": false,
+    "rules": [
+      {"match": "capsule", "ratio": 0.64, "edgePx": 7, "maxPx": 1, "lockBand": [1, 0, 0.17]}
+    ]
+  },
+  "kidney_left": {
+    "retainFailedPreview": false,
+    "rules": [
+      {"match": "capsule", "ratio": 0.66, "edgePx": 5, "maxPx": 0.9, "lockBand": [0, 0, 0.49]},
+      {"match": "renal_column", "ratio": 0.59, "edgePx": 6, "maxPx": 0.9, "lockBand": [0, 0, 0.4]}
+    ]
+  },
+  "kidney_right": {
+    "retainFailedPreview": false,
+    "rules": [
+      {"match": "capsule|outer_cortex", "ratio": 0.66, "edgePx": 5, "maxPx": 0.9, "lockBand": [0, 0.51, 1]},
+      {"match": "renal_column", "ratio": 0.59, "edgePx": 6, "maxPx": 0.9, "lockBand": [0, 0.6, 1]}
+    ]
+  },
+  "placenta": {
+    "rules": [
+      {"match": "cord", "ratio": 0.64, "edgePx": 11, "maxPx": 0.9, "lockBand": [2, 0, 0.14]},
+      {"match": "amnion|basal_plate|chorionic_plate", "ratio": 0.63, "edgePx": 6, "maxPx": 0.9}
+    ]
+  },
+  "small-intestine": {
+    "rules": [
+      {"match": "FJ2573", "ratio": 0.62, "edgePx": 13, "maxPx": 0.85, "lockBand": [1, 0.75, 1]}
+    ]
+  },
+  "brain": {
+    "rules": [
+      {"match": "FJ1742", "ratio": 0.55, "minTriangles": 1800, "edgePx": 14},
+      {"match": ".", "ratio": 0.72, "minTriangles": 1700, "edgePx": 5, "maxPx": 0.78}
+    ]
+  },
+  "spinal_cord": {
+    "rules": [
+      {"match": "Authored cord", "ratio": 0.65, "minTriangles": 1800, "edgePx": 14},
+      {"match": "root descending", "ratio": 0.63, "minTriangles": 1800, "edgePx": 4.5, "featureZoom": 1.2, "maxPx": 0.77, "lockBand": [1, 0, 0.17]}
+    ]
+  },
+  "lung_left": {
+    "retainFailedPreview": false,
+    "rules": [
+      {"match": "Lower Lobe", "ratio": 0.78, "edgePx": 4, "maxPx": 0.73, "lockBand": [1, 0.39, 1.0]},
+      {"match": "Upper Lobe", "ratio": 0.77, "edgePx": 4, "maxPx": 0.73, "lockBand": [1, 0, 0.4]}
+    ]
+  },
+  "trachea": {
+    "retainFailedPreview": false,
+    "rules": [
+      {"match": "C-band", "ratio": 0.76, "minTriangles": 1800, "edgePx": 1.9, "maxPx": 0.7, "lockBand": [2, 0, 0.18]}
+    ]
+  }
+}

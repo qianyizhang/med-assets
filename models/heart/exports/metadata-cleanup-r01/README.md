@@ -3,8 +3,7 @@
 Local correctness maintenance under [collection #150](https://github.com/qianyizhang/med-assets/issues/150).
 This separate derivative corrects inherited cardiac descriptions on the retained
 source-heart surface. It is **not a geometric asset improvement or a new approved
-study**. The original `body/breathing/heart_breathing.glb` remains unchanged and
-canonical; no catalog, viewer manifest or historical review is redirected.
+study**. The original `body/breathing/heart_breathing.glb` remains the source for the breathing manifest. The later [compact teaching edition](../texture-pack-r02/README.md) derives from this metadata correction and opens the local Gallery shell study.
 
 The exact source has one node, `Heart | source surface`, one mesh/material and
 24,000 triangles. Its one clip, `Illustrative breathing · 4 seconds`, contains one

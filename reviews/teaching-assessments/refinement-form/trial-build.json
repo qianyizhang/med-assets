@@ -1,0 +1,58 @@
+{
+  "thyroid_ct_s0189": {
+    "control": {
+      "path": "models/thyroid_ct_s0189/exports/illustrative-exterior-r01/thyroid-illustrative-exterior.glb",
+      "sha256": "4c2dee513f713fd8d649e7d1928ba3859ce1d25e81468e707b65a5fbeeee216a",
+      "bytes": 152124,
+      "batch": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/campaign-assessments.json",
+      "beforeView": "reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/views/24-paired.webp",
+      "scores": [
+        4,
+        2,
+        3,
+        3
+      ]
+    },
+    "trial": {
+      "file": "thyroid-trial.glb",
+      "sha256": "6bc4f4da8bc91a058da8f9c78fca8618e3ace90580cac499adf48981bc18608e",
+      "bytes": 152288,
+      "triangles": 8340,
+      "changedVertices": 984,
+      "exactProtectedVertices": 3187,
+      "maxMovementMm": 0.3809605456303308,
+      "rmsMovementMm": 0.06930453240378924,
+      "maxDifferenceFromRetainedSourceMm": 0.6090859174728394,
+      "minimumOrientedFaceNormalDot": 0.9256733245674248,
+      "note": "Rear-facing localized ridge treatment; representative trial on the retained s0189 label exterior. The midline bridge is pinned. No new segmentation."
+    }
+  },
+  "bronchial_tree": {
+    "control": {
+      "path": "models/bronchial_tree/exports/distal-sampling-r14/bronchial_distal_sampling.glb",
+      "sha256": "f8d78751f47cf14311138a3c7e2e35d6e28415c9f6e1d2a0e4f6ca2bf1a07fc9",
+      "bytes": 7401328,
+      "batch": "reviews/teaching-assessments/2026-11-22-respiratory/campaign-assessments.json",
+      "beforeView": "reviews/teaching-assessments/2026-11-22-respiratory/views-1.jpg",
+      "scores": [
+        4,
+        2,
+        3,
+        4
+      ]
+    },
+    "trial": {
+      "file": "airway-trial.glb",
+      "sha256": "9f9196f9a131910a4b2d7ad08b4680b17b14cf4076062ba652c0910db5d2fc46",
+      "bytes": 7401440,
+      "triangles": 308288,
+      "changedVertices": 19510,
+      "exactProtectedVertices": 134608,
+      "maxMovementMm": 0.28214629913038153,
+      "rmsMovementMm": 0.02575891535217105,
+      "maxDifferenceFromRetainedSourceMm": null,
+      "minimumOrientedFaceNormalDot": 0.8720078658798419,
+      "note": "Localized junction fairing of the authored exterior. No lumen, new branch or anatomy validation."
+    }
+  }
+}

@@ -52,3 +52,5 @@ Bounds include 0.00001 mm numerical allowance. Source grid: 0.020002117 mm. Near
 - [Attribution and changes](ATTRIBUTION.md)
 
 Raw source ZIP, ROI, high-poly master and rejected candidates are external replay inputs/outputs, not repository payloads. No clinical, complete-canal, tissue-interface or simulation approval follows from publishing this DRAFT review candidate.
+
+[Adjacent source sections 0969–0972](../../../../../reviews/teaching-assessments/reopen-source/uff.webp) locate the transition to an open channel. At the same seed, a connected-background alternative selects 128 pixels in 0970 and reaches the exterior in 0971. The original per-slice extraction drops its interior selection there. The source-view comparison supports the extraction-method lesson.

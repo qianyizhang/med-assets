@@ -1,0 +1,36 @@
+[
+  {
+    "name": "diaphragm",
+    "plan": "static",
+    "worldSpan": 0.2834,
+    "rules": [{"match": ".*", "ratio": 0.58, "edgePx": 22, "maxPx": 1.0, "lockBand": [0, 0.33, 0.67]}],
+    "views": [
+      {"direction": [0, -1, 0], "palette": false},
+      {"direction": [0, -0.23, 1], "palette": false},
+      {"direction": [0, -0.25, -1], "palette": false}
+    ]
+  },
+  {
+    "name": "nose_sinuses",
+    "plan": "static",
+    "worldSpan": 1.0,
+    "rules": [{"match": ".*", "ratio": 0.66, "edgePx": 20, "maxPx": 0.85, "lockBand": [0, 0.24, 0.76]}],
+    "views": [
+      {"direction": [0, -1, 0], "palette": false},
+      {"direction": [0.66, -1, 0.31], "palette": false},
+      {"direction": [-0.61, 1, -0.33], "palette": false}
+    ]
+  },
+  {
+    "name": "heart",
+    "worldSpan": 0.178,
+    "rules": [{"match": ".*", "ratio": 0.56, "edgePx": 18, "maxPx": 0.85, "lockBand": [1, 0.59, 1]}],
+    "views": [
+      {"direction": [0.23, -1, 0.12], "palette": false},
+      {"direction": [-0.59, 1, 0.33], "palette": false},
+      {"direction": [0.22, -0.48, 0.84], "palette": false}
+    ]
+  },
+  {"name": "vagina_hra"},
+  {"name": "anatomy-workshop-r1"}
+]

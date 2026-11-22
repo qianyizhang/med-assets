@@ -1,0 +1,128 @@
+[
+  {
+    "collection": "Regional locators",
+    "route": "use-cases/regional-locators/aortic-arch",
+    "action": "Find the three direct branch origins.",
+    "observation": "The arch detail separates the two left branches and the first composite trunk. The numbered right subclavian branches from that trunk.",
+    "status": "passed"
+  },
+  {
+    "collection": "Regional locators",
+    "route": "use-cases/regional-locators/pulmonary-vein",
+    "action": "Locate the retained pulmonary-vein component.",
+    "observation": "The pink isolated component remains identifiable beside the transparent heart and lungs in the matched posterior view.",
+    "status": "passed"
+  },
+  {
+    "collection": "Regional locators",
+    "route": "use-cases/regional-locators/brain-source-cut",
+    "action": "Find the inferior limit of the retained brain.",
+    "observation": "The dashed leader points to the flat source boundary at the bottom of the brainstem.",
+    "status": "passed"
+  },
+  {
+    "collection": "Regional locators",
+    "route": "use-cases/regional-locators/ovary-tubal-context",
+    "action": "Point from each ovary to its adjacent fimbrial end.",
+    "observation": "The two enlarged source-side views distinguish the fringed end from the nearby pale ovary across an open space.",
+    "status": "passed"
+  },
+  {
+    "collection": "Head and neck",
+    "route": "use-cases/head-and-neck/duct-course",
+    "action": "Follow the supported parotid duct course.",
+    "observation": "The side and paired views identify the duct leaving each parotid. The independently unresolved submandibular crossing stays excluded.",
+    "status": "passed"
+  },
+  {
+    "collection": "Oral spaces",
+    "route": "use-cases/oral-spaces/en",
+    "action": "Locate the oral vestibule in the coronal cutaway.",
+    "observation": "The cheek-side space is outside the teeth and gingiva. The oral cavity proper is on the tongue side.",
+    "status": "passed"
+  },
+  {
+    "collection": "Airway Review",
+    "route": "use-cases/airway/first-fork",
+    "action": "Follow the first fork into both main branches.",
+    "observation": "The neutral close view and its opposite show the two arms leaving the same trunk. The fairing reduces the previous collar under the bifurcation.",
+    "status": "passed"
+  },
+  {
+    "collection": "One Breath",
+    "route": "use-cases/one-breath",
+    "action": "Compare the diaphragm at expiration and peak inspiration.",
+    "observation": "Across the two sampled poses the dome crest descends, with the lung bases and liver moving down in the same view.",
+    "status": "passed"
+  },
+  {
+    "collection": "Cardiac slice",
+    "route": "use-cases/heart-slice",
+    "action": "Identify the same two ventricular regions in three displays.",
+    "observation": "Both chambers can be matched by position between the color key and the two grayscale displays of this synthetic slice.",
+    "status": "passed"
+  },
+  {
+    "collection": "Pathway diagrams",
+    "route": "use-cases/biliary-pathway/en",
+    "action": "Follow the illustrated bile and pancreatic paths to their entry region.",
+    "observation": "The two highlighted paths converge beside the duodenal curve. The schematic marks the joining pattern as variable.",
+    "status": "passed"
+  },
+  {
+    "collection": "Pathway diagrams",
+    "route": "use-cases/testis-pathway/en",
+    "action": "Trace the illustrated route through the epididymis.",
+    "observation": "The outlet from the ductules reaches the epididymal head, follows the body to the tail and continues into the ductus deferens.",
+    "status": "passed"
+  },
+  {
+    "collection": "Pathway diagrams",
+    "route": "use-cases/urinary-outflow/en",
+    "action": "Compare the two illustrated outflow routes below the bladder.",
+    "observation": "The two panels show separate urethral and vaginal openings on the female side and the prostatic segment on the male side.",
+    "status": "passed"
+  },
+  {
+    "collection": "Skeletal relationships",
+    "route": "use-cases/skeletal-relationships/second-costal",
+    "action": "Locate the second costal cartilages against the sternum.",
+    "observation": "Paired blue segments bridge the selected ribs to the sternum. The side view retains the neighboring bone landmarks.",
+    "status": "passed"
+  },
+  {
+    "collection": "Skeletal relationships",
+    "route": "use-cases/skeletal-relationships/l3-l4-disc",
+    "action": "Locate the disc between the two vertebral bodies.",
+    "observation": "The blue disc sits between the bodies and anterior to the posterior processes in the side view.",
+    "status": "passed"
+  },
+  {
+    "collection": "Dental arch identification",
+    "route": "use-cases/dental-arch/upper",
+    "action": "Select FDI 16 and identify its arch and side.",
+    "observation": "The upper-arch selection highlights the first molar and identifies the patient’s right.",
+    "status": "passed"
+  },
+  {
+    "collection": "Dental arch identification",
+    "route": "use-cases/dental-arch/lower",
+    "action": "Select FDI 46 and identify its arch and side.",
+    "observation": "The lower-arch selection identifies the right first molar. The orientation cue switches with the arch.",
+    "status": "passed"
+  },
+  {
+    "collection": "Prepared incisor",
+    "route": "use-cases/dental-layers",
+    "action": "Distinguish enamel, dentin and surrounding specimen bone.",
+    "observation": "The three isolated views can be matched to the source pose on the four-panel teaching sheet.",
+    "status": "passed"
+  },
+  {
+    "collection": "Adrenal localization",
+    "route": "use-cases/adrenal-localization/right-gland",
+    "action": "Follow the lower rim of the right gland.",
+    "observation": "The isolated right gland can be reopened from the regional model with the same reviewed revision and camera preset.",
+    "status": "passed"
+  }
+]

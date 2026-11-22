@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "evaluator": "Codex (agent review)",
+  "date": "2026-11-22",
+  "rubric": {
+    "path": "docs/guides/asset-quality.md",
+    "sha256": "2e91264ce7c05b6906a8f113f2e0fc888c4765cd3a6d0d6c8a26b6a420900abb",
+    "revision": "9e6e490fd67468985e2e8a8298995c730e2f55e5"
+  },
+  "assessments": [
+    {
+      "export": {
+        "path": "models/ovaries/exports/teaching-ovoid-r02/ovary-tubal-teaching.glb",
+        "sha256": "a12171dbb34190eff127a2a4dd743a31db1db9b51f7f801780225be3b3d3ae61",
+        "bytes": 726976
+      },
+      "task": "Locate the fimbrial end next to each source-labeled ovary and point to the gap between them.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "All eight tubal meshes retain identical clean-import vertices, indices and transforms. No tested same-side contacts or nonadjacent self-contacts. Nearest fimbrial vertex-to-ovary distances shift 0.069 mm left and 0.056 mm right. Worst sampled ovarian displacement from the traced reference is 1.94 mm."
+        },
+        {
+          "score": 3,
+          "observation": "The neutral obliques and source-material views show a continuous lower pole on both interpreted ovaries. The asymmetric upper turns retain the source contour nearest each fringe. No added pits, cuts or joins appear at the 38–39 mm field."
+        },
+        {
+          "score": 3,
+          "observation": "Located the fringes beside the appropriate L/R ovary, then pointed to the visible gap from both alternate angles. Native HRA materials identify the targets and the neutral pair preserves their distinct outlines."
+        },
+        {
+          "score": 3,
+          "observation": "One selectable primitive per original leaf. Two ovary exteriors use 1,696 and 1,640 triangles; 36,051 tube triangles are retained. The same-scope GLB grows from 681,552 to 726,976 bytes. The original 424/410-triangle ovaries lose the rounded lower pole at the required close field."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/ovaries/exports/teaching-ovoid-r02/README.md",
+          "label": "Interpreted edition, reference, credits and replay"
+        },
+        {
+          "path": "reviews/teaching-assessments/reopen-source/context-trials.json",
+          "label": "Clean-import relationships and sampled deviation"
+        },
+        {
+          "path": "reviews/teaching-assessments/reopen-source/material-frames.json",
+          "label": "Matched source-material and neutral Cycles cameras"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/reopen-source/ovary-teaching.webp",
+          "sha256": "e0d840cd8d52f5a38234fdcba2861ea9a224f64d02ecb3fe97e63ca4f01d5946",
+          "bytes": 51918,
+          "width": 792,
+          "height": 997,
+          "label": "Locate each source-labeled fringe in the first row. Use the alternate views to see the gap beside each interpreted ovary."
+        },
+        {
+          "path": "reviews/teaching-assessments/reopen-source/ovary-comparison.webp",
+          "sha256": "d6276a1547fb8994682b92d1d98b4ac2ed59754b8b63d8fc7b8f9050a4e31685",
+          "bytes": 45770,
+          "width": 792,
+          "height": 997,
+          "label": "Original HRA and interpreted ovary exteriors at the same bilateral neutral close fields. Compare the lower poles without moving the tubal ends."
+        }
+      ],
+      "teachingView": "reviews/teaching-assessments/reopen-source/ovary-teaching.webp",
+      "decision": "Use the interpreted ovary exterior for bilateral fimbrial localization, retaining the native HRA contours separately."
+    }
+  ]
+}

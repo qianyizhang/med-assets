@@ -1,0 +1,270 @@
+{
+  "artifact": {
+    "file": "models/eye_anterior_segment/exports/hra-v1.3-r01/anterior_segment.glb",
+    "sha256": "457b08b1edab5fc39db3b49e09635091721847e06262b7cb937fd006223c6750"
+  },
+  "renderer": "5.2.3 LTS Release Candidate",
+  "engine": "Cycles CPU",
+  "samples": 48,
+  "seed": 0,
+  "denoising": false,
+  "resolution": [
+    1000,
+    1000
+  ],
+  "viewTransform": "AgX",
+  "look": "AgX - Medium High Contrast",
+  "exposure": 0,
+  "gamma": 1,
+  "geometryAndMaterialsEdited": false,
+  "scope": "Exact-export diagnostic pixels. Visibility changes are not physical sections or anatomical validation.",
+  "views": [
+    {
+      "view": "posterior-context",
+      "file": "posterior-context.png",
+      "sha256": "8bbc52dd3bef9de8869043535095326bf0cd75ee72225c54500d13fed7743c66",
+      "bytes": 1502845,
+      "cameraLocation": [
+        -0.035162992775440216,
+        1.9069876670837402,
+        1.0111258029937744
+      ],
+      "target": [
+        -0.035162992775440216,
+        -0.09301231801509857,
+        0.8111257553100586
+      ],
+      "orthoScaleM": 0.018125224858522415,
+      "visibleNodes": [
+        "VH_M_ciliary_body_R",
+        "VH_M_ciliary_muscle_R",
+        "VH_M_ciliary_processes_R",
+        "VH_M_cornea_R",
+        "VH_M_iris_R",
+        "VH_M_lens_R",
+        "VH_M_suspensory_ligament_of_lens_R"
+      ],
+      "hiddenNodes": []
+    },
+    {
+      "view": "posterior-detail-full",
+      "file": "posterior-detail-full.png",
+      "sha256": "43268198777d9e4de688ce8745e50c0e2db4489f6fb880d367f547d84167bd2a",
+      "bytes": 1929674,
+      "cameraLocation": [
+        -0.035162992775440216,
+        1.9069876670837402,
+        1.0159257650375366
+      ],
+      "target": [
+        -0.035162992775440216,
+        -0.09301231801509857,
+        0.8159257769584656
+      ],
+      "orthoScaleM": 0.005499999970197678,
+      "visibleNodes": [
+        "VH_M_ciliary_body_R",
+        "VH_M_ciliary_muscle_R",
+        "VH_M_ciliary_processes_R",
+        "VH_M_cornea_R",
+        "VH_M_iris_R",
+        "VH_M_lens_R",
+        "VH_M_suspensory_ligament_of_lens_R"
+      ],
+      "hiddenNodes": []
+    },
+    {
+      "view": "posterior-detail-isolated",
+      "file": "posterior-detail-isolated.png",
+      "sha256": "12f57b698f5d94980ccc40436ed09c4c415382c87a42f0db5caa7e45c76df96d",
+      "bytes": 1605088,
+      "cameraLocation": [
+        -0.035162992775440216,
+        1.9069876670837402,
+        1.0159257650375366
+      ],
+      "target": [
+        -0.035162992775440216,
+        -0.09301231801509857,
+        0.8159257769584656
+      ],
+      "orthoScaleM": 0.005499999970197678,
+      "visibleNodes": [
+        "VH_M_ciliary_processes_R",
+        "VH_M_lens_R",
+        "VH_M_suspensory_ligament_of_lens_R"
+      ],
+      "hiddenNodes": [
+        "VH_M_ciliary_body_R",
+        "VH_M_ciliary_muscle_R",
+        "VH_M_cornea_R",
+        "VH_M_iris_R"
+      ]
+    },
+    {
+      "view": "oblique-detail-full",
+      "file": "oblique-detail-full.png",
+      "sha256": "89326207c11536c83f2d347dd9dd66f02df764eb8b0dd346cbec1c29c0ef2033",
+      "bytes": 1873137,
+      "cameraLocation": [
+        0.9648370146751404,
+        1.9069876670837402,
+        1.4159257411956787
+      ],
+      "target": [
+        -0.035162992775440216,
+        -0.09301231801509857,
+        0.8159257769584656
+      ],
+      "orthoScaleM": 0.005499999970197678,
+      "visibleNodes": [
+        "VH_M_ciliary_body_R",
+        "VH_M_ciliary_muscle_R",
+        "VH_M_ciliary_processes_R",
+        "VH_M_cornea_R",
+        "VH_M_iris_R",
+        "VH_M_lens_R",
+        "VH_M_suspensory_ligament_of_lens_R"
+      ],
+      "hiddenNodes": []
+    },
+    {
+      "view": "oblique-detail-isolated",
+      "file": "oblique-detail-isolated.png",
+      "sha256": "97c1be26b705e088d4401d709db3e3abea58af10a0dbf04f687f24de665df92d",
+      "bytes": 1584994,
+      "cameraLocation": [
+        0.9648370146751404,
+        1.9069876670837402,
+        1.4159257411956787
+      ],
+      "target": [
+        -0.035162992775440216,
+        -0.09301231801509857,
+        0.8159257769584656
+      ],
+      "orthoScaleM": 0.005499999970197678,
+      "visibleNodes": [
+        "VH_M_ciliary_processes_R",
+        "VH_M_lens_R",
+        "VH_M_suspensory_ligament_of_lens_R"
+      ],
+      "hiddenNodes": [
+        "VH_M_ciliary_body_R",
+        "VH_M_ciliary_muscle_R",
+        "VH_M_cornea_R",
+        "VH_M_iris_R"
+      ]
+    },
+    {
+      "view": "anterior-order-full",
+      "file": "anterior-order-full.png",
+      "sha256": "b84a7236b9b8bb3088431866aeb3f46befcf44c17a6c70db69d99047f54e0ace",
+      "bytes": 936011,
+      "cameraLocation": [
+        1.9648369550704956,
+        -1.0930123329162598,
+        1.2111257314682007
+      ],
+      "target": [
+        -0.035162992775440216,
+        -0.09301231801509857,
+        0.8111257553100586
+      ],
+      "orthoScaleM": 0.018125224858522415,
+      "visibleNodes": [
+        "VH_M_ciliary_body_R",
+        "VH_M_ciliary_muscle_R",
+        "VH_M_ciliary_processes_R",
+        "VH_M_cornea_R",
+        "VH_M_iris_R",
+        "VH_M_lens_R",
+        "VH_M_suspensory_ligament_of_lens_R"
+      ],
+      "hiddenNodes": []
+    },
+    {
+      "view": "anterior-order-three-structures",
+      "file": "anterior-order-three-structures.png",
+      "sha256": "e9fd6639eafb6efdcdb376ee3cb980f9950f916e5bfeace0c889fef494b6ef10",
+      "bytes": 767155,
+      "cameraLocation": [
+        1.9648369550704956,
+        -1.0930123329162598,
+        1.2111257314682007
+      ],
+      "target": [
+        -0.035162992775440216,
+        -0.09301231801509857,
+        0.8111257553100586
+      ],
+      "orthoScaleM": 0.018125224858522415,
+      "visibleNodes": [
+        "VH_M_cornea_R",
+        "VH_M_iris_R",
+        "VH_M_lens_R"
+      ],
+      "hiddenNodes": [
+        "VH_M_ciliary_body_R",
+        "VH_M_ciliary_muscle_R",
+        "VH_M_ciliary_processes_R",
+        "VH_M_suspensory_ligament_of_lens_R"
+      ]
+    },
+    {
+      "view": "corneal-profile-full",
+      "file": "corneal-profile-full.png",
+      "sha256": "744899e38cea49e8a617d4d26b8a00348384ac75a0a40328f12beddb9dcd7a8b",
+      "bytes": 960415,
+      "cameraLocation": [
+        1.9648369550704956,
+        -0.09301231801509857,
+        0.8111257553100586
+      ],
+      "target": [
+        -0.035162992775440216,
+        -0.09301231801509857,
+        0.8111257553100586
+      ],
+      "orthoScaleM": 0.01585957035422325,
+      "visibleNodes": [
+        "VH_M_ciliary_body_R",
+        "VH_M_ciliary_muscle_R",
+        "VH_M_ciliary_processes_R",
+        "VH_M_cornea_R",
+        "VH_M_iris_R",
+        "VH_M_lens_R",
+        "VH_M_suspensory_ligament_of_lens_R"
+      ],
+      "hiddenNodes": []
+    },
+    {
+      "view": "corneal-profile-three-structures",
+      "file": "corneal-profile-three-structures.png",
+      "sha256": "39d7cdc1117467daaaec30f43b9f3d4469054ccd453c416256bed1f31b8d5a21",
+      "bytes": 835242,
+      "cameraLocation": [
+        1.9648369550704956,
+        -0.09301231801509857,
+        0.8111257553100586
+      ],
+      "target": [
+        -0.035162992775440216,
+        -0.09301231801509857,
+        0.8111257553100586
+      ],
+      "orthoScaleM": 0.01585957035422325,
+      "visibleNodes": [
+        "VH_M_cornea_R",
+        "VH_M_iris_R",
+        "VH_M_lens_R"
+      ],
+      "hiddenNodes": [
+        "VH_M_ciliary_body_R",
+        "VH_M_ciliary_muscle_R",
+        "VH_M_ciliary_processes_R",
+        "VH_M_suspensory_ligament_of_lens_R"
+      ]
+    }
+  ]
+}
