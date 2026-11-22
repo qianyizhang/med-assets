@@ -96,7 +96,7 @@ test('supplement links retain their own asset owner in either locale',()=>{
 });
 
 test('elbow correction requires all three identities and precedes the caption',()=>{
- const proof=JSON.parse(fs.readFileSync(new URL('../../gallery/elbow-legend-source.json',import.meta.url)));
+ const proof=JSON.parse(fs.readFileSync(new URL('./fixtures/elbow-legend-source.json',import.meta.url)));
  const item={id:proof.contactEvidence.id,sha256:proof.contactEvidence.imageSHA256,assetBinding:proof.artifactSHA256,label:{en:'Elbow',zh:'肘'}};
  for(const lang of ['en','zh']){
   const notice=elbowLegendCorrection(item,lang);assert(notice.includes('data-elbow-legend-correction'));

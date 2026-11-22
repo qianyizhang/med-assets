@@ -12,10 +12,10 @@ A saved preset pins the asset revisions, pose and placement, part visibility, ma
 
 The library chooses a portrait, a lesson chooses its sequence and Compare chooses the matched pair. Stage reproduces their choices. Historical Blender plates, clinical source sections and gross specimen images retain their provenance as external evidence.
 
-The first export delivers a persistent preset link and a WebP poster. Apply the shared [display image policy](../../guideline/design.md#display-images) when adopting a poster in the gallery. The original GLB remains available from the asset page.
+The first export delivers a persistent preset link and a WebP poster. Apply the shared [display image policy](design.md#display-images) when adopting a poster in the gallery. The original GLB remains available from the asset page.
 
 ## Acceptance example
 
 From a right-adrenal close-up, save the staged view and export its poster. Opening the link in a fresh session recovers the same gland, angle, finish and framing. Changing the light and saving again gives the new poster a distinct preset revision. If pinned model bytes are unavailable, expose the missing revision and offer the retained poster where available.
 
-The local Site now restores the versioned adrenal scene from a shared link and embeds that link in its exported WebP. Visitors can also inspect a local GLB. Future scene types extend the [route and preset contract](routes-and-api.md). The older Body Systems viewer still loads its named scenes. [Current scene bindings](../../sites/body-systems-survey/viewer_catalog.py) · [Gallery product requirements](README.md)
+The current Stage page links to the selected asset revision. Returning directly to the originating lesson stop or review is part of the [ordinary Site handoff](../../records/work-items/items/AG-GAL-002-absorb-adrenal-pilot.md). The local Site restores the versioned adrenal scene from a shared link and embeds that link in its exported WebP. Visitors can also inspect a local GLB. Future scene types extend the [route and preset contract](routes-and-api.md). The older Body Systems viewer still loads its named scenes. [Current scene bindings](../../sites/body-systems-survey/viewer_catalog.py) · [Gallery product requirements](README.md)

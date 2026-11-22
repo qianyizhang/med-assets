@@ -1,0 +1,87 @@
+export const pathways = {
+  'lymph-collecting-routes': {
+    system: 'lymphatic',
+    systemName: { en: 'Lymphatic and immune', zh: '淋巴和免疫系统' },
+    folder: 'models/lymph-collecting-routes/source-context-refined-r01',
+    file: 'comparison',
+    en: {
+      title: 'Lymph collecting routes',
+      cue: 'Find the thoracic route in the updated overview and oblique detail. Follow the optional highlight from the lower model cap toward the upper cap.',
+      alt: 'Matched Original and Updated overview and oblique detail. The same seven source routes and cap markers appear against the revised illustrative body contour.',
+      limits: 'The outline and regional cues are illustrative, with no measured body scale or registration. The highlight covers only the source-named thoracic route. The other six routes stay static. The caps mark source mesh limits. The motion gives a teaching direction and supplies no measured speed, pulse, continuous lumen or verified vein connection.',
+      credit: 'Original artwork and retained source geometry. OpenStax informs the regional cues and the typical drainage toward the left venous angle. The right head and neck, right thorax and right upper limb follow a different drainage route.',
+    },
+    zh: {
+      title: '淋巴集合路径',
+      cue: '在更新后的总览与斜向近景中找到胸导管路径。开启可选高亮，沿下端模型封口向上端封口追踪。',
+      alt: '原始版与更新版的匹配总览和斜向近景。更新后的示意身体轮廓中保留相同的七条源路径和封口标记。',
+      limits: '身体轮廓与区域提示仅作示意，无实测比例或配准。高亮仅沿源模型命名的胸导管路径移动，其余六条路径保持静态。封口标记表示源网格边界。动画只提示教学方向，不表示实测速度、搏动、连续管腔或已验证的静脉连接。',
+      credit: '原创图像，保留源几何。区域提示及典型的左静脉角引流关系参考 OpenStax。右侧头颈、胸部及上肢的引流路径不同。',
+    },
+  },
+  'biliary-pathway': {
+    system: 'digestive',
+    systemName: { en: 'Digestive', zh: '消化系统' },
+    folder: 'diagrams/biliary_pathway/exports/r01',
+    file: 'biliary-pathways',
+    review: 'reviews/biliary_pathway/2026-10-25-r01/record.json',
+    en: {
+      title: 'Biliary and pancreatic pathways',
+      cue: 'Follow bile from the liver through the biliary tree and pancreatic juice through the pancreatic duct. Find where the two routes typically meet before entering the duodenum.',
+      alt: 'Biliary tree, gallbladder and pancreatic duct with different arrows for filling, emptying and flow to the duodenum.',
+      limits: 'The tissue contours and duct positions are schematic. There is no measured scale or duct diameter. The typical shared junction omits variation and sphincters. The cystic arrows mark different filling and emptying phases. The common outlet represents shared delivery.',
+      credit: 'Original diagram. Teaching references include NIDDK, the National Cancer Institute and OpenStax.',
+    },
+    zh: {
+      title: '胆道与胰管路径',
+      cue: '追踪胆汁从肝脏流经胆道，以及胰液流经胰管的路径，找出两条路径通常在进入十二指肠前的汇合处。',
+      alt: '胆管树、胆囊与胰管示意图，以不同箭头标明胆囊充盈、排空与流向十二指肠的路径。',
+      limits: '器官轮廓和管道位置经过简化，无测量比例或管径。典型汇合处省略变异和括约肌。胆囊管双向箭头表示不同的充盈与排空阶段，共同出口表示汇合后的共同排出。',
+      credit: '原创示意图。教学参考包括美国国立糖尿病、消化和肾脏疾病研究所、美国国家癌症研究所和 OpenStax。',
+    },
+  },
+  'testis-pathway': {
+    system: 'reproductive',
+    systemName: { en: 'Reproductive', zh: '生殖系统' },
+    folder: 'diagrams/testis_pathway/exports/r02',
+    file: 'testis-pathway',
+    review: 'reviews/testis_pathway/2026-10-29-r02/independent-review.json',
+    en: {
+      title: 'Testis pathway',
+      cue: 'Follow the route from the seminiferous tubules through the rete testis and efferent ductules, then through the epididymal head, body and tail to the ascending ductus deferens.',
+      alt: 'Testis, epididymis and ductus deferens with labeled transport sequence and grouped internal and external landmarks.',
+      limits: 'Static relationship teaching. Lobule, coil and duct counts are symbolic, and epididymal duct coiling is omitted. The diagram has no specimen geometry or measured scale. The original 3D testis still needs revision.',
+      credit: 'Original diagram with retained OpenStax attribution and NCI SEER anatomy references. The r02 summary increases label legibility.',
+    },
+    zh: {
+      title: '睾丸输送路径',
+      cue: '从曲细精管出发，经睾丸网和输出小管，依次追踪附睾头、体、尾，最后沿输精管向上。',
+      alt: '睾丸、附睾及输精管示意图，标注输送顺序并分组呈现内外结构。',
+      limits: '仅用于静态结构关系教学。小叶、卷曲和管道数量为示意，省略附睾内部管道卷曲。图中无标本几何或测量比例。原三维睾丸模型仍需修改。',
+      credit: '原创示意图，保留 OpenStax 来源署名及美国国家癌症研究所 SEER 解剖参考。r02 提高了路径摘要的可读性。',
+    },
+  },
+  'urinary-outflow': {
+    system: 'urinary',
+    systemName: { en: 'Urinary', zh: '泌尿系统' },
+    folder: 'diagrams/urinary_outflow/exports/r01',
+    file: 'urinary-outflow',
+    review: 'reviews/urinary_outflow/2026-10-25-r01/record.json',
+    en: {
+      title: 'Urinary outflow',
+      cue: 'Distinguish ureters carrying urine to the bladder from the urethra carrying it out. Compare the separate female urethral and vaginal openings with the male route through the prostate and penis.',
+      alt: 'Female and male urinary outflow in parallel, with ureters, bladder, urethra and the outlet relationships labeled.',
+      limits: 'Typical simplified relationships at no measured scale. The short male intramural segment has no separate label. Sphincters, reproductive ducts and other pelvic structures are omitted. Existing 3D urethra assets still need revision.',
+      credit: 'Original diagram. Teaching references include NIDDK and OpenStax.',
+    },
+    zh: {
+      title: '尿液排出',
+      cue: '区分把尿液送入膀胱的输尿管与把尿液排出的尿道。对照女性分离的尿道口、阴道口与男性经前列腺及阴茎的尿道走行。',
+      alt: '并排显示男女尿液排出路径，标注输尿管、膀胱、尿道及各出口的关系。',
+      limits: '仅表示典型的简化关系，无测量比例。男性短的膀胱壁内段未单独标注，省略括约肌、生殖管道和其他盆腔结构。现有三维尿道资产仍需修改。',
+      credit: '原创示意图。教学参考包括美国国立糖尿病、消化和肾脏疾病研究所及 OpenStax。',
+    },
+  },
+};
+
+export const pathwayPath = (id, lang = 'en') => 'use-cases/' + id + '/' + lang;

@@ -1,6 +1,6 @@
 # Gallery product requirements
 
-A learner can find a model, see it used in a lesson, examine a change and reopen the exact 3D view behind a poster. An author can build those presentations from the same revision while giving each one its own camera, selection and purpose.
+Anatomy Gallery brings the maintained public views of med-assets into one Site. A learner can find a model, see it used in a lesson, examine a change and reopen the exact 3D view behind a Stage-exported poster. An author can build those presentations from the same revision while giving each one its own camera, selection and purpose.
 
 | Surface PRD | Visitor’s question | Record it owns |
 | --- | --- | --- |
@@ -9,27 +9,35 @@ A learner can find a model, see it used in a lesson, examine a change and reopen
 | [Compare](compare.md) | What changed, and does it matter? | Comparison session and saved review |
 | [3D Stage](3d-stage.md) | How do I compose, share or export this view? | Versioned preset and its exported image |
 
-The [gallery-wide design guide](../../guideline/design.md) owns navigation, view choice and presentation across these surfaces. Asset packages own their exports and credits. Reviews own evidence and decisions. Each surface links back to the identified record.
+The [gallery-wide design guide](design.md) owns navigation, view choice and presentation across these surfaces. Asset packages own their exports and credits. Reviews own evidence and decisions. Each surface links back to the identified record.
 
-Use the [glossary](../../GLOSSARY.md#gallery-and-surfaces) for canonical names. The [inventory](existing-visualizations.md) describes what exists. The [migration plan](migration.md) assigns destinations, sequencing and retirement checks.
+Use the [glossary](../../GLOSSARY.md#gallery-and-surfaces) for canonical names. The [inventory](existing-visualizations.md) records the pre-migration baseline. The [migration contract](migration.md) assigns collection destinations and compatibility checks. The [campaign](../../records/campaigns/anatomy-gallery-consolidation.md) owns sequencing and links to work items.
 
 ## Site and media governance
 
-Publish all public gallery experiences on the existing [Model Survey Site](../../sites/model-survey/README.md). Asset Library and Use Cases are its two main entrances. Compare and 3D Stage open from the relevant asset, review or lesson stop and from Tools. During migration an external link may bridge a gap. A migrated experience has its own address on this Site and completes its visitor task there. Old addresses can continue serving bookmarks and exact evidence.
+Publish all public gallery experiences on the existing Site as [Anatomy Gallery](../../sites/anatomy-gallery/README.md). Model Survey remains the name of the dated catalogue. Asset Library and Use Cases are the two main entrances. Compare and 3D Stage open from the relevant asset, review or lesson stop and from Tools. During migration an external link may bridge a gap. A migrated experience has its own address on this Site and completes its visitor task there. Old addresses can continue serving bookmarks and exact evidence.
 
 Every publicly listable 3D asset is discoverable in Asset Library, including assets first encountered inside an assembly, lesson or review. Every public interactive 3D showcase uses the shared 3D scene presentation owned by 3D Stage. A visitor can inspect the scene in context or open the same preset in Stage. A lesson or saved review retains control of its narrative, sequence and evidence.
 
-Follow the [display image policy](../../guideline/design.md#display-images) and the [storage and delivery policy](../../transport/README.md) when adding or migrating a surface.
+Follow the [display image policy](design.md#display-images) and the [storage and delivery policy](../../transport/README.md) when adding or migrating a surface.
 
-## First complete journey
+## Author a Gallery entry
 
-1. Search for adrenal. The BodyParts3D pair and the s1233 model have separate entries. Select s1233 r05 and inspect its portrait, attributes and rating state.
-2. Open the regional localization lesson. See both glands in relation to their kidneys, isolate a gland and inspect the inferior rim. Return to the originating revision.
-3. Open the r04/r05 comparison. A matched close-up and a case section explain the changed fold. The 16/16 score names the regional teaching task and identifies r05.
-4. Open a poster’s preset in 3D Stage. Reopen its link in a fresh session and recover the models, framing and appearance used for the export. Saving an edit produces another revision.
+Start with the asset package's exact export and a visitor question. The package owns the model and credit. The review owns the finding, evidence and limits. Bind those inputs through the [delivery index](../../sites/anatomy-gallery/app/src/content/assets/delivery-index.json) and keep the Gallery's stable IDs when updating an existing entry. Use the maintained s1233 adrenal study as a [working example](../../sites/anatomy-gallery/app/src/content/gallery/adrenal-study.js). Its Library record, lesson stops, comparison inputs and Stage version all run in the ordinary Gallery.
+
+| Surface | Minimal scaffold | Add it to the ordinary Gallery |
+| --- | --- | --- |
+| Asset Library | Copy the shape of the seated nail record in [reviewed entries](../../sites/anatomy-gallery/app/src/content/gallery/reviewed-entries.json) for a single reviewed export. Supply a stable ID, name, category, use, limits, exact export, portrait and review. Record only assessed axes. | The normal Library reads these entries and opens `#/library/<id>`. For a revision series, use the s1233 Library record above. Keep each rating on the revision the review assessed. |
+| Use Cases | Use the s1233 lesson stops for a model-backed lesson. Each stop has an ID, label, instruction and initial selection. Use the [retained still lessons](../../sites/anatomy-gallery/app/src/content/gallery/SpecialistStills.jsx) for an image-led stop with a source link. | Link the lesson from [Use Cases](../../sites/anatomy-gallery/app/src/content/gallery/UseCases.jsx) or its owning collection and register its route in [Gallery](../../sites/anatomy-gallery/app/src/content/gallery/Gallery.jsx). Expose stable stop IDs through the [study catalogue](../../sites/anatomy-gallery/app/src/content/gallery/catalog.js). Link the exact Library record and the saved review. |
+| Compare | Use the [static review records](../../sites/anatomy-gallery/app/src/content/gallery/static-reviews.json) for an evidence page. Bind the review record, revision, section, witness and finding. Use the s1233 pair for a matched revision comparison with shared ordering and finish. | Static review records already feed the Compare index, page and study API. Use the shared [Evidence](../../sites/anatomy-gallery/app/src/content/gallery/Evidence.jsx) view so an unavailable optional image leaves its caption and the source link reachable. |
+| 3D Stage | From an exact model-backed record or lesson stop, open **Inspect in 3D**, then **Open in 3D Stage**. Frame the question, choose the part and appearance, and save **Share this view** and **Export WebP**. The URL is the preset. It stores the exact export and camera, with an optional return path. | Use [the existing Scene](../../sites/anatomy-gallery/app/src/content/gallery/Scene.jsx) or link the saved preset. The [preset codec](../../sites/anatomy-gallery/app/src/content/gallery/presets.js) binds the allowed version, model and return destinations. Use a new version for a new scene recipe. The s1233 scene record is the minimal example. |
+
+Build and serve the [ordinary Site locally](../../sites/anatomy-gallery/README.md#restore-and-build-locally). Run the [focused browser journey](../../sites/anatomy-gallery/README.md#recipes-and-checks) to search the Library, download the exact r05, follow its lesson into Compare, and find the review while an optional section image is unavailable. Open the same r05 in Stage, share the view, reopen it in a fresh session and check the part, appearance and camera. The WebP embeds the shared URL and the view returns to the originating stop.
 
 ## Milestones
 
-The [local adrenal pilot](../../sites/gallery-links/README.md) demonstrates the exact-export and related-study handoffs. The ordinary Site now implements the adrenal journey locally, including shareable versioned views and WebP export. The [routes and API](routes-and-api.md) describe the foundation and compatibility bookmarks. Legacy-host migrations follow in a separate scope. Existing Blender renders, sections and photographs keep their original evidence bindings.
+The published Gallery includes both adrenal journeys. The [release readback](../../records/work-items/items/AG-GAL-013-reconcile-gallery-coverage.md#public-release-and-readback) exercised the s1233 journey through all four surfaces. The s1233 lesson and revision comparison support shareable versioned views and WebP export. The BodyParts3D family opens its exact source review and keeps a return path to the selected family. The [routes and API](routes-and-api.md) describe the compatibility bookmarks. Existing Blender renders, sections and photographs keep their original evidence bindings.
 
-**Next rating milestone.** Review one revision per reusable 3D asset lineage, starting with lineages used in Body Systems. Select the revision that opens by default in the [Asset Library](asset-library.md). Report reviewed, partially rated and unrated coverage against that inventory. Review historical revisions and individual parts when a lesson or comparison needs them. Apply the [rating and attribution rules](../../guideline/asset-quality.md#reading-a-library-rating).
+General two-model comparison and author adoption of a newer lesson revision are product requirements. Schedule them with the first collection that needs them. The [route contract](routes-and-api.md) identifies the authored journeys available today.
+
+**Library coverage.** Reconcile lineages as each collection moves. Schedule broader rating work after the collection has a usable Gallery destination. Review one revision per reusable 3D asset lineage, starting with lineages used in Body Systems. Select the revision that opens by default in the [Asset Library](asset-library.md). Report reviewed, partially rated and unrated coverage against that inventory. Review historical revisions and individual parts when a lesson or comparison needs them. Apply the [rating and attribution rules](../guides/asset-quality.md#reading-a-library-rating).

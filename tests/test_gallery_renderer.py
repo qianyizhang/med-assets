@@ -22,7 +22,7 @@ class GalleryRendererTests(unittest.TestCase):
             self.assertIn(line, result.stdout)
 
     def test_retained_elbow_material_evidence(self):
-        proof = json.loads((ROOT / 'gallery/elbow-legend-source.json').read_text())
+        proof = json.loads((ROOT / 'tests/gallery/fixtures/elbow-legend-source.json').read_text())
         self.assertEqual(proof['artifactSHA256'], 'cd6cd488943fe721101955322b343a8c9441f1d4ff8c5042dd4e1ca7462f7891')
         self.assertEqual(proof['contactEvidence']['imageSHA256'], '5d98b09ffac33ed679ec9087d7dc8da52bbffaf98efcbdc81d2c4a79962d227d')
         selected = [node for node in proof['nodes'] if node['materialIndices'] == [1]]

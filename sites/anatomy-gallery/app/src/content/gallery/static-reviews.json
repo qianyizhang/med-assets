@@ -1,0 +1,1527 @@
+[
+  {
+    "id": "abdomen-label-r01",
+    "title": "Abdomen locator · stomach label r01",
+    "status": "Readability correction",
+    "finding": "The revised leader takes a clearer route to the stomach and the label aligns with its neighbors. Only its path and label height changed.",
+    "limit": "The previous endpoint already fell inside the stomach and outside the spleen. The review covers the English locator and visual ambiguity. The original organ shapes, materials, positions and metadata were preserved.",
+    "credit": "Original whole-body atlas artwork and credits are retained in the SVG.",
+    "record": "https://anatomy-verification.landy123007.chatgpt.site/review/biliary-label-2026-10-25/#label",
+    "sections": [
+      {
+        "title": "Matched locator plates",
+        "paired": true,
+        "views": [
+          {
+            "path": "body/2d-v4/whole-body-anatomy-v4-spatial/recipes/abdomen-label-clarity-r01/before.png",
+            "title": "Original stomach leader",
+            "width": 1000,
+            "height": 689,
+            "display": "body/2d-v4/whole-body-anatomy-v4-spatial/recipes/abdomen-label-clarity-r01/display/before.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/patches/abdomen-label-clarity-r01/before.png"
+          },
+          {
+            "path": "body/2d-v4/whole-body-anatomy-v4-spatial/recipes/abdomen-label-clarity-r01/after.png",
+            "title": "Updated stomach leader",
+            "width": 1000,
+            "height": 689,
+            "display": "body/2d-v4/whole-body-anatomy-v4-spatial/recipes/abdomen-label-clarity-r01/display/after.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/patches/abdomen-label-clarity-r01/after.png"
+          }
+        ]
+      }
+    ],
+    "related": [
+      {
+        "to": "use-cases/biliary-pathway/en",
+        "label": "Open the biliary pathway lesson"
+      }
+    ],
+    "sources": [
+      {
+        "href": "https://github.com/qianyizhang/med-assets/blob/9d70d2646ec2642f0312ab7ca6d17dc9e7dbd4ef/body/2d-v4/whole-body-anatomy-v4-spatial/regions/abdomen.svg",
+        "label": "Exact corrected abdomen SVG"
+      }
+    ],
+    "collection": "Anatomy Verification"
+  },
+  {
+    "id": "bronchial-r09",
+    "title": "Bronchial tree · lobar junction r09",
+    "status": "Local improvement · whole asset needs revision",
+    "finding": "Compared with r07, r09 removes the visible near-side dimple at the displayed resolution, reduces the narrow collar and softens the opposite-side ridge. The r08 trial was rejected because its small displacements gave too little visible improvement.",
+    "limit": "Exact GLB reimport and matched Blender stills support the local finding. Measured maximum displacement was 0.420132 mm. Angular routing, thin schematic branches, closed ends, other irregularities and an unrelated foreground crossing remain. The sampled areas cover whole-mesh sections. Airway caliber and flow are outside the review scope.",
+    "credit": "Associated source: Jakob Wasserthal, TotalSegmentator contributors and University Hospital Basel, CC BY 4.0. The authored airway geometry has its own recorded scope.",
+    "record": "https://github.com/qianyizhang/med-assets/blob/9d70d2646ec2642f0312ab7ca6d17dc9e7dbd4ef/models/bronchial_tree/exports/authored-lobar-fairing-r09/README.md",
+    "sections": [
+      {
+        "title": "Matched near-side close-up",
+        "paired": true,
+        "views": [
+          {
+            "path": "reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/before-close.png",
+            "title": "Before · r07",
+            "width": 1000,
+            "height": 850,
+            "display": "reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/display/before-close.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/before-close.png"
+          },
+          {
+            "path": "reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/after-close.png",
+            "title": "After · r09",
+            "width": 1000,
+            "height": 850,
+            "display": "reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/display/after-close.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/after-close.png"
+          }
+        ]
+      },
+      {
+        "title": "Opposite-side check",
+        "paired": true,
+        "collapsed": true,
+        "views": [
+          {
+            "path": "reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/before-opposite-close.png",
+            "title": "Before · r07",
+            "width": 1000,
+            "height": 850,
+            "display": "reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/display/before-opposite-close.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/before-opposite-close.png"
+          },
+          {
+            "path": "reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/after-opposite-close.png",
+            "title": "After · r09",
+            "width": 1000,
+            "height": 850,
+            "display": "reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/display/after-opposite-close.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/after-opposite-close.png"
+          }
+        ]
+      },
+      {
+        "title": "Whole-tree context",
+        "paired": true,
+        "collapsed": true,
+        "views": [
+          {
+            "path": "reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/before-whole.png",
+            "title": "Before · r07",
+            "width": 1000,
+            "height": 850,
+            "display": "reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/display/before-whole.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/before-whole.png"
+          },
+          {
+            "path": "reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/after-whole.png",
+            "title": "After · r09",
+            "width": 1000,
+            "height": 850,
+            "display": "reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/display/after-whole.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/after-whole.png"
+          }
+        ]
+      },
+      {
+        "title": "Engineering support on the r07 baseline",
+        "collapsed": true,
+        "views": [
+          {
+            "path": "reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/support-close.png",
+            "title": "Support region",
+            "width": 1000,
+            "height": 850,
+            "display": "reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/display/support-close.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/support-close.png",
+            "caption": "Diagnostic colors show the region selected for refinement."
+          }
+        ]
+      }
+    ],
+    "family": "bronchial_tree",
+    "revision": "authored-lobar-fairing-r09",
+    "exportPaths": [
+      "models/bronchial_tree/exports/authored-lobar-fairing-r09/bronchial_lobar_fairing.glb"
+    ],
+    "related": [
+      {
+        "to": "compare/polish-appendix/bronchial",
+        "label": "Review the earlier r07 repair"
+      },
+      {
+        "to": "compare/bronchial-r13",
+        "label": "Review the separate r13 central fork study"
+      }
+    ],
+    "sources": [
+      {
+        "href": "https://github.com/qianyizhang/med-assets/blob/9d70d2646ec2642f0312ab7ca6d17dc9e7dbd4ef/reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence-bindings.json",
+        "label": "Exact render and GLB bindings"
+      },
+      {
+        "href": "https://anatomy-verification.landy123007.chatgpt.site/review/bronchial-r09-2026-10-26/payload/reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/independent-review.md",
+        "label": "Original independent review"
+      }
+    ],
+    "collection": "Anatomy Verification",
+    "portraitPath": "reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/after-whole.png"
+  },
+  {
+    "id": "head-label-r01",
+    "title": "Head locator · salivary labels r01",
+    "status": "Readability correction",
+    "finding": "Three salivary sublabels grew from 10.5–11 px to 15 px with more contrast. The submandibular and group labels moved lower, and three leaders were rerouted. Independent XML review isolated 43 annotation-attribute changes.",
+    "limit": "The simplified head geometry, wording, metadata and credits are unchanged. The Chinese plates use the source’s existing strings. Inkscape stills and XML checks cover this locator and leave live atlas navigation and 3D behavior unverified.",
+    "credit": "Original whole-body atlas artwork and credits are retained. The review record credits the original English artwork and existing Chinese strings.",
+    "record": "https://github.com/qianyizhang/med-assets/blob/9d70d2646ec2642f0312ab7ca6d17dc9e7dbd4ef/reviews/head_label_readability/2026-10-25-r01/scope-and-findings.md",
+    "sections": [
+      {
+        "title": "English plates",
+        "paired": true,
+        "views": [
+          {
+            "path": "reviews/head_label_readability/2026-10-25-r01/baseline-head.png",
+            "title": "Before · original head labels",
+            "width": 900,
+            "height": 700,
+            "display": "reviews/head_label_readability/2026-10-25-r01/display/baseline-head.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/head_label_readability/2026-10-25-r01/baseline-head.png"
+          },
+          {
+            "path": "reviews/head_label_readability/2026-10-25-r01/candidate-head.png",
+            "title": "After · enlarged sublabels and stronger leaders",
+            "width": 900,
+            "height": 700,
+            "display": "reviews/head_label_readability/2026-10-25-r01/display/candidate-head.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/head_label_readability/2026-10-25-r01/candidate-head.png"
+          }
+        ]
+      },
+      {
+        "title": "Chinese plates",
+        "paired": true,
+        "views": [
+          {
+            "path": "reviews/head_label_readability/2026-10-25-r01/baseline-head-zh.png",
+            "title": "修订前 · 原始头部标注",
+            "width": 900,
+            "height": 700,
+            "display": "reviews/head_label_readability/2026-10-25-r01/display/baseline-head-zh.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/head_label_readability/2026-10-25-r01/baseline-head-zh.png",
+            "lang": "zh"
+          },
+          {
+            "path": "reviews/head_label_readability/2026-10-25-r01/candidate-head-zh.png",
+            "title": "修订后 · 唾液腺标签与引线",
+            "width": 900,
+            "height": 700,
+            "display": "reviews/head_label_readability/2026-10-25-r01/display/candidate-head-zh.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/head_label_readability/2026-10-25-r01/candidate-head-zh.png",
+            "lang": "zh"
+          }
+        ]
+      }
+    ],
+    "related": [
+      {
+        "to": "use-cases/head-and-neck",
+        "label": "Open the separate 3D salivary teaching review"
+      }
+    ],
+    "sources": [
+      {
+        "href": "https://github.com/qianyizhang/med-assets/blob/9d70d2646ec2642f0312ab7ca6d17dc9e7dbd4ef/body/2d-v4/whole-body-anatomy-v4-spatial/head.svg",
+        "label": "Exact corrected head SVG"
+      }
+    ],
+    "collection": "Anatomy Verification"
+  },
+  {
+    "id": "polish-appendix",
+    "title": "Polish appendix · three scoped findings",
+    "status": "Localization, repair and teaching supplement",
+    "collection": "Anatomy Verification",
+    "chapters": [
+      {
+        "id": "parathyroids",
+        "title": "Parathyroids · posterior localization r01",
+        "status": "Localization only · morphology unresolved",
+        "finding": "The posterior teaching view locates four illustrated glands relative to one thyroid. The neutral comparison preserves the visual evidence for the scoped localization decision.",
+        "limit": "The glands are simplified, mirrored ovals and the thyroid retains angular surfaces. The superior midline projection remains uninterpreted. Variation, ectopic positions and anatomical morphology are outside the finding.",
+        "credit": "Z-Anatomy and BodyParts3D / DBCLS contributors. License and upstream attribution remain with the exact source package.",
+        "record": "https://github.com/qianyizhang/med-assets/blob/9d70d2646ec2642f0312ab7ca6d17dc9e7dbd4ef/models/parathyroids/exports/z-localization-r01/README.md",
+        "sections": [
+          {
+            "title": "",
+            "views": [
+              {
+                "path": "reviews/parathyroids/2026-10-25-localization-r01/teaching-posterior.png",
+                "title": "Posterior teaching plate",
+                "width": 1280,
+                "height": 900,
+                "display": "reviews/parathyroids/2026-10-25-localization-r01/display/teaching-posterior.webp",
+                "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/parathyroids/2026-10-25-localization-r01/teaching-posterior.png"
+              },
+              {
+                "path": "reviews/parathyroids/2026-10-25-localization-r01/neutral-comparison.png",
+                "title": "Neutral comparison composite",
+                "width": 960,
+                "height": 1119,
+                "display": "reviews/parathyroids/2026-10-25-localization-r01/display/neutral-comparison.webp",
+                "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/parathyroids/2026-10-25-localization-r01/neutral-comparison.png"
+              },
+              {
+                "path": "reviews/parathyroids/2026-10-25-localization-r01/posterior-oblique-display.png",
+                "title": "Posterior oblique context",
+                "width": 640,
+                "height": 640,
+                "display": "reviews/parathyroids/2026-10-25-localization-r01/display/posterior-oblique-display.webp",
+                "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/parathyroids/2026-10-25-localization-r01/posterior-oblique-display.png"
+              }
+            ]
+          }
+        ],
+        "family": "parathyroids",
+        "revision": "z-localization-r01",
+        "exportPaths": [
+          "models/parathyroids/exports/z-localization-r01/parathyroids_native.glb",
+          "models/parathyroids/exports/z-localization-r01/parathyroids_thyroid_context.glb"
+        ]
+      },
+      {
+        "id": "bronchial",
+        "title": "Bronchial tree · junction repair r07",
+        "status": "Local improvement · whole asset needs revision",
+        "finding": "The authored junction repair reconnects and smooths selected branch joins. The left lobar close-up preserves the remaining ridge or lip and the dark focal dimple.",
+        "limit": "Angular branches, thin schematic offshoots, foreground crossing and closed ends remain. The review covers static exterior joins. Rejected intermediate geometry stays part of the owning review history.",
+        "credit": "Associated source: Jakob Wasserthal, TotalSegmentator contributors and University Hospital Basel, CC BY 4.0. The authored airway geometry has its own recorded scope.",
+        "record": "https://github.com/qianyizhang/med-assets/blob/9d70d2646ec2642f0312ab7ca6d17dc9e7dbd4ef/models/bronchial_tree/exports/authored-junction-repair-r07/README.md",
+        "sections": [
+          {
+            "title": "",
+            "views": [
+              {
+                "path": "reviews/bronchial_tree/2026-10-25-authored-junction-repair-r07/evidence/before-after-whole.png",
+                "title": "Whole tree · before and after",
+                "width": 1432,
+                "height": 611,
+                "display": "reviews/bronchial_tree/2026-10-25-authored-junction-repair-r07/evidence/display/before-after-whole.webp",
+                "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/bronchial_tree/2026-10-25-authored-junction-repair-r07/evidence/before-after-whole.png"
+              },
+              {
+                "path": "reviews/bronchial_tree/2026-10-25-authored-junction-repair-r07/evidence/export-lobar-close.png",
+                "title": "Left lobar detail · residual ridge and dimple",
+                "width": 1000,
+                "height": 850,
+                "display": "reviews/bronchial_tree/2026-10-25-authored-junction-repair-r07/evidence/display/export-lobar-close.webp",
+                "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/bronchial_tree/2026-10-25-authored-junction-repair-r07/evidence/export-lobar-close.png"
+              }
+            ]
+          },
+          {
+            "title": "Supporting viewpoints",
+            "paired": true,
+            "views": [
+              {
+                "path": "reviews/bronchial_tree/2026-10-25-authored-junction-repair-r07/evidence/candidate-main-close.png",
+                "title": "Main branch close-up",
+                "width": 1000,
+                "height": 850,
+                "display": "reviews/bronchial_tree/2026-10-25-authored-junction-repair-r07/evidence/display/candidate-main-close.webp",
+                "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/bronchial_tree/2026-10-25-authored-junction-repair-r07/evidence/candidate-main-close.png"
+              },
+              {
+                "path": "reviews/bronchial_tree/2026-10-25-authored-junction-repair-r07/evidence/candidate-oblique.png",
+                "title": "Candidate oblique view",
+                "width": 1000,
+                "height": 850,
+                "display": "reviews/bronchial_tree/2026-10-25-authored-junction-repair-r07/evidence/display/candidate-oblique.webp",
+                "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/bronchial_tree/2026-10-25-authored-junction-repair-r07/evidence/candidate-oblique.png"
+              }
+            ]
+          }
+        ],
+        "family": "bronchial_tree",
+        "revision": "authored-junction-repair-r07",
+        "exportPaths": [
+          "models/bronchial_tree/exports/authored-junction-repair-r07/bronchial_authored_junction_repair.glb"
+        ],
+        "related": [
+          {
+            "to": "compare/bronchial-r09",
+            "label": "Continue to the exact r09 lobar refinement"
+          }
+        ],
+        "portraitPath": "reviews/bronchial_tree/2026-10-25-authored-junction-repair-r07/evidence/candidate-oblique.png"
+      },
+      {
+        "id": "esophagus",
+        "title": "Esophagus wall · authored cutaway r01",
+        "status": "Teaching supplement",
+        "finding": "Five named meshes show four wall layers. The inner circular and outer longitudinal meshes together show the muscularis externa.",
+        "limit": "Layer thickness, six folds, color and the 90° cut illustrate relationships. The cutaway is a standalone static teaching supplement with no registration to the historical organ or motion rig.",
+        "credit": "Authored for med-assets. The package retains its source and attribution terms.",
+        "record": "https://github.com/qianyizhang/med-assets/blob/9d70d2646ec2642f0312ab7ca6d17dc9e7dbd4ef/reviews/esophagus_wall/2026-10-25-authored-teaching/review-record.json",
+        "sections": [
+          {
+            "title": "",
+            "views": [
+              {
+                "path": "reviews/esophagus_wall/2026-10-25-authored-teaching/teaching-sheet.png",
+                "title": "English teaching sheet",
+                "width": 2400,
+                "height": 1450,
+                "display": "reviews/esophagus_wall/2026-10-25-authored-teaching/display/teaching-sheet.webp",
+                "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/esophagus_wall/2026-10-25-authored-teaching/teaching-sheet.png"
+              },
+              {
+                "path": "reviews/esophagus_wall/2026-10-25-authored-teaching/teaching-sheet-zh-CN.png",
+                "title": "中文教学图",
+                "width": 2400,
+                "height": 1450,
+                "display": "reviews/esophagus_wall/2026-10-25-authored-teaching/display/teaching-sheet-zh-CN.webp",
+                "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/esophagus_wall/2026-10-25-authored-teaching/teaching-sheet-zh-CN.png",
+                "lang": "zh"
+              },
+              {
+                "path": "reviews/esophagus_wall/2026-10-25-authored-teaching/oblique.png",
+                "title": "Oblique source render",
+                "width": 1000,
+                "height": 1100,
+                "display": "reviews/esophagus_wall/2026-10-25-authored-teaching/display/oblique.webp",
+                "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/esophagus_wall/2026-10-25-authored-teaching/oblique.png"
+              }
+            ]
+          }
+        ],
+        "family": "esophagus_wall",
+        "revision": "authored-cutaway-r01",
+        "exportPaths": [
+          "models/esophagus_wall/exports/authored-cutaway-r01/esophagus-wall-cutaway-r01.glb"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "spinal-relationships-r03",
+    "title": "Spinal cord · relationships r03",
+    "status": "Static relationship study · whole asset needs revision",
+    "finding": "The lower detail shows one continuous conus, a separate non-neural filum and descending roots arising along the lower cord. The whole view retains two subtle enlargements and illustrative anterior and posterior attachments.",
+    "limit": "The 17 representative bilateral levels leave the complete 31-pair map, rootlets, ganglia, meninges, vessels and vertebrae outside scope. Dimensions and routes are authored. The remaining angular joins and cut ends are visible in the exact export.",
+    "credit": "Authored for med-assets. The package retains its source and attribution terms.",
+    "record": "https://github.com/qianyizhang/med-assets/blob/9d70d2646ec2642f0312ab7ca6d17dc9e7dbd4ef/reviews/spinal_cord/2026-10-26-authored-relationships-r03/VISUAL-REVIEW-r03.md",
+    "sections": [
+      {
+        "title": "Matched lower-cord detail",
+        "paired": true,
+        "views": [
+          {
+            "path": "reviews/spinal_cord/2026-10-26-authored-relationships-r03/evidence/before-lower.webp",
+            "title": "Before · historical study",
+            "width": 950,
+            "height": 1100,
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/spinal_cord/2026-10-26-authored-relationships-r03/evidence/before-lower.webp"
+          },
+          {
+            "path": "reviews/spinal_cord/2026-10-26-authored-relationships-r03/evidence/after-lower.webp",
+            "title": "After · r03",
+            "width": 950,
+            "height": 1100,
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/spinal_cord/2026-10-26-authored-relationships-r03/evidence/after-lower.webp"
+          }
+        ]
+      },
+      {
+        "title": "Whole cord",
+        "paired": true,
+        "collapsed": true,
+        "views": [
+          {
+            "path": "reviews/spinal_cord/2026-10-26-authored-relationships-r03/evidence/before-whole.webp",
+            "title": "Before · whole study",
+            "width": 950,
+            "height": 1100,
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/spinal_cord/2026-10-26-authored-relationships-r03/evidence/before-whole.webp"
+          },
+          {
+            "path": "reviews/spinal_cord/2026-10-26-authored-relationships-r03/evidence/after-whole.webp",
+            "title": "After · r03 whole cord",
+            "width": 950,
+            "height": 1100,
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/spinal_cord/2026-10-26-authored-relationships-r03/evidence/after-whole.webp"
+          }
+        ]
+      },
+      {
+        "title": "Alternate angles",
+        "paired": true,
+        "collapsed": true,
+        "views": [
+          {
+            "path": "reviews/spinal_cord/2026-10-26-authored-relationships-r03/evidence/after-side.webp",
+            "title": "r03 · side",
+            "width": 950,
+            "height": 1100,
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/spinal_cord/2026-10-26-authored-relationships-r03/evidence/after-side.webp"
+          },
+          {
+            "path": "reviews/spinal_cord/2026-10-26-authored-relationships-r03/evidence/after-lower-oblique.webp",
+            "title": "r03 · lower oblique",
+            "width": 950,
+            "height": 1100,
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/spinal_cord/2026-10-26-authored-relationships-r03/evidence/after-lower-oblique.webp"
+          }
+        ]
+      },
+      {
+        "title": "Annotated context",
+        "collapsed": true,
+        "views": [
+          {
+            "path": "reviews/spinal_cord/2026-10-26-authored-relationships-r03/annotated-context.png",
+            "title": "Authored structures and relationships",
+            "width": 1050,
+            "height": 780,
+            "display": "reviews/spinal_cord/2026-10-26-authored-relationships-r03/display/annotated-context.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/spinal_cord/2026-10-26-authored-relationships-r03/annotated-context.png"
+          }
+        ]
+      }
+    ],
+    "family": "spinal_cord",
+    "revision": "authored-relationships-r03",
+    "exportPaths": [
+      "models/spinal_cord/exports/authored-relationships-r03/spinal_relationships.glb"
+    ],
+    "related": [
+      {
+        "to": "compare/spinal-roots-r04",
+        "label": "See the later draft root-pair study"
+      }
+    ],
+    "collection": "Anatomy Verification",
+    "portraitPath": "reviews/spinal_cord/2026-10-26-authored-relationships-r03/evidence/after-whole.webp"
+  },
+  {
+    "id": "spinal-roots-r04",
+    "title": "Spinal cord · paired roots r04",
+    "status": "Draft relationship study · whole asset needs revision",
+    "finding": "The r04 draft brings the dorsal root with its ganglion and the separate ventral root into one readable mixed nerve. The earlier r03 export remains independently reviewable.",
+    "limit": "The plates project exact imported GLB silhouettes at matched camera and scale. Flat fills omit shading and some depth ordering. Independent offline raster review retained a left-lower overlap, and the raster set remains local to the original reviewer. Browser runtime and specialist approval were outside the review.",
+    "credit": "Authored for med-assets. The package retains its source and attribution terms.",
+    "record": "https://github.com/qianyizhang/med-assets/blob/9d70d2646ec2642f0312ab7ca6d17dc9e7dbd4ef/reviews/spinal_cord/2026-10-29-authored-roots-r04/README.md",
+    "sections": [
+      {
+        "title": "",
+        "views": [
+          {
+            "path": "reviews/spinal_cord/2026-10-29-authored-roots-r04/comparison-whole.svg",
+            "title": "Whole models and pair locators",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/9d70d2646ec2642f0312ab7ca6d17dc9e7dbd4ef/reviews/spinal_cord/2026-10-29-authored-roots-r04/comparison-whole.svg",
+            "display": "reviews/spinal_cord/2026-10-29-authored-roots-r04/display/comparison-whole.webp",
+            "width": 1800,
+            "height": 1170
+          },
+          {
+            "path": "reviews/spinal_cord/2026-10-29-authored-roots-r04/comparison-pair.svg",
+            "title": "Matched root-pair detail",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/9d70d2646ec2642f0312ab7ca6d17dc9e7dbd4ef/reviews/spinal_cord/2026-10-29-authored-roots-r04/comparison-pair.svg",
+            "display": "reviews/spinal_cord/2026-10-29-authored-roots-r04/display/comparison-pair.webp",
+            "width": 1800,
+            "height": 1170
+          },
+          {
+            "path": "reviews/spinal_cord/2026-10-29-authored-roots-r04/comparison-lower.svg",
+            "title": "Descending root projections",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/9d70d2646ec2642f0312ab7ca6d17dc9e7dbd4ef/reviews/spinal_cord/2026-10-29-authored-roots-r04/comparison-lower.svg",
+            "display": "reviews/spinal_cord/2026-10-29-authored-roots-r04/display/comparison-lower.webp",
+            "width": 1800,
+            "height": 1170
+          }
+        ]
+      }
+    ],
+    "family": "spinal_cord",
+    "revision": "authored-roots-r04",
+    "exportPaths": [
+      "models/spinal_cord/exports/authored-roots-r04/candidate.glb"
+    ],
+    "related": [
+      {
+        "to": "compare/spinal-relationships-r03",
+        "label": "Return to the earlier r03 relationship study"
+      }
+    ],
+    "collection": "Anatomy Verification"
+  },
+  {
+    "id": "achilles-context-20261023",
+    "title": "Right calf, Achilles and heel · source context",
+    "status": "Static context supplement",
+    "finding": "In the exact same-source export, the calf, Achilles tendon and heel read as an anatomical relationship. The posterior, lateral and neutral views make the relationship visible where the historical floating rods showed routes alone.",
+    "limit": "Eight right-sided meshes, including the talus, keep the native Z-Anatomy frame. Distal scalloping remains. Attachment, mechanics and whole-model anatomy were outside the static review.",
+    "credit": "Z-Anatomy, BodyParts3D / DBCLS and contributing authors Kousaku Okubo, Gauthier Kervyn and Marcin Zielinski. Selected source geometry and diagnostic stills, CC BY-SA 4.0.",
+    "record": "https://github.com/qianyizhang/med-assets/blob/9d70d2646ec2642f0312ab7ca6d17dc9e7dbd4ef/reviews/draft_muscle/2026-10-23-achilles-context/PORTABLE-HANDOFF.md",
+    "sections": [
+      {
+        "title": "Whole context",
+        "paired": true,
+        "views": [
+          {
+            "path": "reviews/draft_muscle/2026-10-23-achilles-context/evidence/export-posterior.png",
+            "title": "Posterior · diagnostic materials",
+            "width": 900,
+            "height": 1100,
+            "display": "reviews/draft_muscle/2026-10-23-achilles-context/evidence/display/export-posterior.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/draft_muscle/2026-10-23-achilles-context/evidence/export-posterior.png"
+          },
+          {
+            "path": "reviews/draft_muscle/2026-10-23-achilles-context/evidence/export-lateral.png",
+            "title": "Lateral · diagnostic materials",
+            "width": 900,
+            "height": 1100,
+            "display": "reviews/draft_muscle/2026-10-23-achilles-context/evidence/display/export-lateral.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/draft_muscle/2026-10-23-achilles-context/evidence/export-lateral.png"
+          },
+          {
+            "path": "reviews/draft_muscle/2026-10-23-achilles-context/evidence/neutral-oblique.png",
+            "title": "Oblique · neutral gray",
+            "width": 900,
+            "height": 1100,
+            "display": "reviews/draft_muscle/2026-10-23-achilles-context/evidence/display/neutral-oblique.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/draft_muscle/2026-10-23-achilles-context/evidence/neutral-oblique.png"
+          }
+        ]
+      },
+      {
+        "title": "Heel detail",
+        "paired": true,
+        "views": [
+          {
+            "path": "reviews/draft_muscle/2026-10-23-achilles-context/evidence/heel-close-lateral.png",
+            "title": "Lateral · diagnostic materials",
+            "width": 900,
+            "height": 1100,
+            "display": "reviews/draft_muscle/2026-10-23-achilles-context/evidence/display/heel-close-lateral.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/draft_muscle/2026-10-23-achilles-context/evidence/heel-close-lateral.png"
+          },
+          {
+            "path": "reviews/draft_muscle/2026-10-23-achilles-context/evidence/heel-close-posterior.png",
+            "title": "Posterior · diagnostic materials",
+            "width": 900,
+            "height": 1100,
+            "display": "reviews/draft_muscle/2026-10-23-achilles-context/evidence/display/heel-close-posterior.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/draft_muscle/2026-10-23-achilles-context/evidence/heel-close-posterior.png"
+          },
+          {
+            "path": "reviews/draft_muscle/2026-10-23-achilles-context/evidence/heel-close-neutral-oblique.png",
+            "title": "Oblique · neutral gray",
+            "width": 900,
+            "height": 1100,
+            "display": "reviews/draft_muscle/2026-10-23-achilles-context/evidence/display/heel-close-neutral-oblique.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/draft_muscle/2026-10-23-achilles-context/evidence/heel-close-neutral-oblique.png"
+          }
+        ]
+      }
+    ],
+    "family": "achilles-assembly",
+    "revision": "context-20261023",
+    "exportPaths": [
+      "assemblies/musculoskeletal-teaching/2026-10-23/achilles-right-context.glb"
+    ],
+    "related": [
+      {
+        "to": "use-cases/systems/musculoskeletal",
+        "label": "Trace the Achilles relationship in Body Systems"
+      }
+    ],
+    "collection": "Anatomy Verification"
+  },
+  {
+    "id": "marrow-comparison-20261023",
+    "title": "Femur container and independent micro-CT reference",
+    "status": "Supplement · marrow replacement incomplete",
+    "finding": "The two panels compare an authored femur container with an independent segmented bone surface. The trabecular reference makes the illustrative container’s flat loops easier to recognize as schematic.",
+    "limit": "The panels use independent framing and scale. The 2.5 mm inset is illustrative, and the micro-CT surface segments bone. The source spacing discrepancy (17.409 versus 17.59 µm), bone site, donor details and anatomical orientation remain unresolved. The static and bounded geometry checks leave a marrow replacement incomplete.",
+    "credit": "BodyParts3D © DBCLS and M. Kuczynski (2024), Zenodo 11061947, CC BY 4.0. The authorship and provenance of the two panels are separate.",
+    "record": "https://github.com/qianyizhang/med-assets/blob/9d70d2646ec2642f0312ab7ca6d17dc9e7dbd4ef/reviews/draft_bone/2026-10-23-marrow-comparison/bounded-record.json",
+    "sections": [
+      {
+        "title": "",
+        "views": [
+          {
+            "path": "reviews/draft_bone/2026-10-23-marrow-comparison/evidence/two-panel-intended.png",
+            "title": "Illustrative container and independent source",
+            "width": 1500,
+            "height": 1030,
+            "display": "reviews/draft_bone/2026-10-23-marrow-comparison/evidence/display/two-panel-intended.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/draft_bone/2026-10-23-marrow-comparison/evidence/two-panel-intended.png",
+            "caption": "Each panel has its own frame and scale."
+          },
+          {
+            "path": "reviews/draft_bone/2026-10-23-marrow-comparison/evidence/two-panel-neutral.png",
+            "title": "Neutral materials",
+            "width": 1500,
+            "height": 1030,
+            "display": "reviews/draft_bone/2026-10-23-marrow-comparison/evidence/display/two-panel-neutral.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/draft_bone/2026-10-23-marrow-comparison/evidence/two-panel-neutral.png",
+            "caption": "Independent panels."
+          }
+        ]
+      }
+    ],
+    "family": "marrow-assembly",
+    "revision": "comparison-20261023",
+    "exportPaths": [
+      "assemblies/marrow-comparison/2026-10-23/illustrative-container-r03.glb",
+      "assemblies/marrow-comparison/2026-10-23/independent-measured-trabecular-reference.glb",
+      "assemblies/marrow-comparison/2026-10-23/bp3d-right-femur-exterior.glb"
+    ],
+    "related": [
+      {
+        "to": "compare/marrow-cutaway-r05",
+        "label": "Open the separate left-femur cutaway r05"
+      }
+    ],
+    "sources": [
+      {
+        "href": "https://github.com/qianyizhang/med-assets/blob/9d70d2646ec2642f0312ab7ca6d17dc9e7dbd4ef/reviews/draft_bone/2026-10-23-marrow-comparison/evidence/panel-bindings.json",
+        "label": "Exact panel and artifact bindings"
+      }
+    ],
+    "collection": "Anatomy Verification"
+  },
+  {
+    "id": "adipose-region-context-r01",
+    "title": "Adipose pads · abdominal and flank locator r01",
+    "status": "Static context supplement · historical derivative unavailable",
+    "finding": "The matched overview and detail add a body locator and regional labels to four unchanged authored pads. The source-scene reconstruction makes abdominal and flank placement easier to read.",
+    "limit": "The locator is schematic. Fitted skin, measured fat volume, representative body habitus and cutaway validation are outside scope. The exact GLB contains the four source pads. The historical derivative is a different, unavailable artifact.",
+    "credit": "Original commissioned geometry. The package records the scope of the reconstruction and the historical source.",
+    "record": "https://github.com/qianyizhang/med-assets/blob/9d70d2646ec2642f0312ab7ca6d17dc9e7dbd4ef/models/adipose-context/r01/README.md",
+    "sections": [
+      {
+        "title": "",
+        "views": [
+          {
+            "path": "models/adipose-context/r01/comparison-en.png",
+            "title": "Original and updated · English",
+            "width": 1520,
+            "height": 1860,
+            "display": "models/adipose-context/r01/display/comparison-en.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/models/adipose-context/r01/comparison-en.png"
+          },
+          {
+            "path": "models/adipose-context/r01/comparison-zh.png",
+            "title": "原始与更新 · 中文",
+            "width": 1520,
+            "height": 1860,
+            "display": "models/adipose-context/r01/display/comparison-zh.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/models/adipose-context/r01/comparison-zh.png",
+            "lang": "zh"
+          }
+        ]
+      }
+    ],
+    "family": "adipose-context",
+    "revision": "r01",
+    "exportPaths": [
+      "models/adipose-context/r01/selected-source-pads.glb"
+    ],
+    "sources": [
+      {
+        "href": "https://github.com/qianyizhang/med-assets/blob/9d70d2646ec2642f0312ab7ca6d17dc9e7dbd4ef/models/adipose-context/r01/package-manifest.json",
+        "label": "Exact reconstruction package binding"
+      }
+    ],
+    "collection": "Anatomy Verification"
+  },
+  {
+    "id": "oral-context-rejected-20261023",
+    "title": "Whole-mouth context · rejected closed-pose trial",
+    "status": "Rejected prototype · whole-mouth readability failed",
+    "finding": "The local floor-of-mouth and gingival seam improved, but the matched color and neutral views still show the closed-pose walls and tongue hiding the repair. The whole-mouth view failed its readability goal.",
+    "limit": "Both diagnostic exports use the same buccal display window and omit six gland meshes. The gold faces mark the display cut. The historical review publishes the exact image and both artifact identities. It deliberately omits the control and prototype GLBs.",
+    "credit": "Heidi Schlehlein / HRA-HuBMAP, Mouth Female v1.0, CC BY 4.0. The derivative adds the matched diagnostic window and the prototype’s localized transition.",
+    "record": "https://github.com/qianyizhang/med-assets/blob/9d70d2646ec2642f0312ab7ca6d17dc9e7dbd4ef/reviews/draft_mouth/2026-10-23-context-rejected/record.json",
+    "sections": [
+      {
+        "title": "",
+        "views": [
+          {
+            "path": "reviews/draft_mouth/2026-10-23-context-rejected/context-before-after-comparison.png",
+            "title": "Matched diagnostic views · rejected whole-mouth presentation",
+            "width": 1680,
+            "height": 1440,
+            "display": "reviews/draft_mouth/2026-10-23-context-rejected/display/context-before-after-comparison.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/draft_mouth/2026-10-23-context-rejected/context-before-after-comparison.png"
+          }
+        ]
+      }
+    ],
+    "related": [
+      {
+        "to": "use-cases/oral-spaces/en",
+        "label": "Open the separate oral-spaces teaching cutaway"
+      }
+    ],
+    "sources": [
+      {
+        "href": "https://github.com/qianyizhang/med-assets/blob/9d70d2646ec2642f0312ab7ca6d17dc9e7dbd4ef/reviews/draft_mouth/2026-10-23-context-rejected/comparison-bindings.json",
+        "label": "Exact control, prototype and image bindings"
+      }
+    ],
+    "collection": "Anatomy Verification"
+  },
+  {
+    "id": "marrow-cutaway-r05",
+    "title": "Femur and marrow cutaway r05",
+    "status": "Teaching appendix · baseline needs revision",
+    "finding": "The cutaway puts the cortex, exposed trabecular scaffold and shaft marrow inside the recognizable proximal femur. The r05 repair removes the last detected local shell contact while preserving the selected source exterior.",
+    "limit": "Only the left femur exterior is source-derived. The inset, network, marrow, cut edges and red/yellow display are authored. The meshes intentionally overlap. The before/after composite uses independently fitted views. The scoped checks cover teaching relationships and geometry, with clinical, histological and runtime acceptance outside scope.",
+    "credit": "Exterior: BodyParts3D left femur FJ3259, © DBCLS, CC BY 4.0. The source retains its original headers. Authored internal additions have their own recorded terms.",
+    "record": "https://github.com/qianyizhang/med-assets/blob/9d70d2646ec2642f0312ab7ca6d17dc9e7dbd4ef/reviews/bone_marrow/2026-10-26-source-cutaway-r05/README.md",
+    "sections": [
+      {
+        "title": "",
+        "views": [
+          {
+            "path": "reviews/bone_marrow/2026-10-26-source-cutaway-r05/before-after.png",
+            "title": "Baseline and r05 · display composite",
+            "width": 1600,
+            "height": 1150,
+            "display": "reviews/bone_marrow/2026-10-26-source-cutaway-r05/display/before-after.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/bone_marrow/2026-10-26-source-cutaway-r05/before-after.png",
+            "caption": "Separate framing and scale."
+          }
+        ]
+      },
+      {
+        "title": "Native views",
+        "paired": true,
+        "views": [
+          {
+            "path": "reviews/bone_marrow/2026-10-26-source-cutaway-r05/front.webp",
+            "title": "Front",
+            "width": 1000,
+            "height": 1200,
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/bone_marrow/2026-10-26-source-cutaway-r05/front.webp"
+          },
+          {
+            "path": "reviews/bone_marrow/2026-10-26-source-cutaway-r05/oblique.webp",
+            "title": "Oblique",
+            "width": 1000,
+            "height": 1200,
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/bone_marrow/2026-10-26-source-cutaway-r05/oblique.webp"
+          },
+          {
+            "path": "reviews/bone_marrow/2026-10-26-source-cutaway-r05/reverse.webp",
+            "title": "Reverse",
+            "width": 1000,
+            "height": 1200,
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/bone_marrow/2026-10-26-source-cutaway-r05/reverse.webp"
+          },
+          {
+            "path": "reviews/bone_marrow/2026-10-26-source-cutaway-r05/close.webp",
+            "title": "Window detail",
+            "width": 1000,
+            "height": 1200,
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/bone_marrow/2026-10-26-source-cutaway-r05/close.webp"
+          }
+        ]
+      },
+      {
+        "title": "Annotated context",
+        "views": [
+          {
+            "path": "reviews/bone_marrow/2026-10-26-source-cutaway-r05/annotated-context.png",
+            "title": "Bilingual annotated cutaway",
+            "width": 1600,
+            "height": 1260,
+            "display": "reviews/bone_marrow/2026-10-26-source-cutaway-r05/display/annotated-context.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/bone_marrow/2026-10-26-source-cutaway-r05/annotated-context.png"
+          }
+        ]
+      }
+    ],
+    "family": "bone_marrow",
+    "revision": "authored-source-cutaway-r05",
+    "exportPaths": [
+      "models/bone_marrow/exports/authored-source-cutaway-r05/marrow_cutaway.glb"
+    ],
+    "related": [
+      {
+        "to": "use-cases/systems/musculoskeletal",
+        "label": "Open the Musculoskeletal teaching assembly"
+      }
+    ],
+    "collection": "Body & Heart",
+    "portraitPath": "reviews/bone_marrow/2026-10-26-source-cutaway-r05/oblique.webp"
+  },
+  {
+    "id": "penile-components-r04",
+    "title": "Penile internal components r04",
+    "status": "Scoped source study · baseline needs revision",
+    "finding": "The source-native export makes the curved cavernosa, proximal bulb, ventral spongiosum and distal glans easier to distinguish. The final replay uses evaluated source transforms after an earlier stale-matrix check was rejected.",
+    "limit": "Cavernosa form one connected source mesh. The glans retains boundary and nonmanifold edges. Glans–spongiosum contacts leave fusion and lumen continuity unproven. The dark distal point has no verified outlet identity. Skin, prepuce, septum, tunica, vessels and nerves are outside this static study.",
+    "credit": "Z-Anatomy and upstream BodyParts3D / DBCLS contributors, including Kousaku Okubo, Gauthier Kervyn and Marcin Zielinski. Derived geometry and stills: CC BY-SA 4.0. The source record retains the historical CC BY-SA 2.1 Japan notice.",
+    "record": "https://github.com/qianyizhang/med-assets/blob/9d70d2646ec2642f0312ab7ca6d17dc9e7dbd4ef/reviews/penis/2026-10-26-native-components-r04/README.md",
+    "sections": [
+      {
+        "title": "",
+        "views": [
+          {
+            "path": "reviews/penis/2026-10-26-native-components-r04/annotated-context.png",
+            "title": "Bilingual component and orientation labels",
+            "width": 1700,
+            "height": 1120,
+            "display": "reviews/penis/2026-10-26-native-components-r04/display/annotated-context.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/penis/2026-10-26-native-components-r04/annotated-context.png"
+          },
+          {
+            "path": "reviews/penis/2026-10-26-native-components-r04/review-comparison.png",
+            "title": "Original draft and source study",
+            "width": 1800,
+            "height": 1020,
+            "display": "reviews/penis/2026-10-26-native-components-r04/display/review-comparison.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/penis/2026-10-26-native-components-r04/review-comparison.png",
+            "caption": "Separate models, scale and framing."
+          }
+        ]
+      },
+      {
+        "title": "Native exact-export views",
+        "paired": true,
+        "views": [
+          {
+            "path": "reviews/penis/2026-10-26-native-components-r04/plus-y.webp",
+            "title": "Source +Y",
+            "width": 1000,
+            "height": 1000,
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/penis/2026-10-26-native-components-r04/plus-y.webp"
+          },
+          {
+            "path": "reviews/penis/2026-10-26-native-components-r04/side.webp",
+            "title": "Source side",
+            "width": 1000,
+            "height": 1000,
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/penis/2026-10-26-native-components-r04/side.webp"
+          },
+          {
+            "path": "reviews/penis/2026-10-26-native-components-r04/oblique.webp",
+            "title": "Source oblique",
+            "width": 1000,
+            "height": 1000,
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/penis/2026-10-26-native-components-r04/oblique.webp"
+          },
+          {
+            "path": "reviews/penis/2026-10-26-native-components-r04/inferior-source.webp",
+            "title": "Source underside",
+            "width": 1000,
+            "height": 1000,
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/penis/2026-10-26-native-components-r04/inferior-source.webp",
+            "caption": "Source camera direction."
+          }
+        ]
+      }
+    ],
+    "family": "penis",
+    "revision": "z-native-components-r04",
+    "exportPaths": [
+      "models/penis/exports/z-native-components-r04/penile_internal_components.glb"
+    ],
+    "related": [
+      {
+        "to": "compare/urethral-context-r01",
+        "label": "Open the separate urethral localization study"
+      }
+    ],
+    "collection": "Body & Heart"
+  },
+  {
+    "id": "urethral-context-r01",
+    "title": "Male urethra · source context r01",
+    "status": "Gross localization only · baseline needs revision",
+    "finding": "The source-native assembly places the isolated urethral surface in context with the bladder, prostate, spongiosum and glans. Transparency makes their relative positions visible.",
+    "limit": "The uncapped single surface leaves the bladder connection, distal outlet, wall and lumen unvalidated. The view omits kidneys, ureters and much of the pelvic floor. The isolated view comes from a diagnostic replay GLB. The Library offers the exact six-object context export.",
+    "credit": "Z-Anatomy and upstream BodyParts3D / DBCLS contributors, including Kousaku Okubo, Gauthier Kervyn and Marcin Zielinski. Derived geometry and stills: CC BY-SA 4.0. The source record retains the historical CC BY-SA 2.1 Japan notice.",
+    "record": "https://github.com/qianyizhang/med-assets/blob/9d70d2646ec2642f0312ab7ca6d17dc9e7dbd4ef/reviews/urethra_male/2026-10-26-native-context-r01/README.md",
+    "sections": [
+      {
+        "title": "",
+        "views": [
+          {
+            "path": "reviews/urethra_male/2026-10-26-native-context-r01/annotated-context.webp",
+            "title": "Translucent context with explanatory labels",
+            "width": 1600,
+            "height": 1440,
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/urethra_male/2026-10-26-native-context-r01/annotated-context.webp"
+          },
+          {
+            "path": "reviews/urethra_male/2026-10-26-native-context-r01/review-comparison.webp",
+            "title": "Original draft and source-context assembly",
+            "width": 1600,
+            "height": 1080,
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/urethra_male/2026-10-26-native-context-r01/review-comparison.webp",
+            "caption": "Different models with independent framing and scale."
+          }
+        ]
+      },
+      {
+        "title": "Native render details",
+        "paired": true,
+        "views": [
+          {
+            "path": "reviews/urethra_male/2026-10-26-native-context-r01/context-oblique.webp",
+            "title": "Source-context assembly",
+            "width": 1100,
+            "height": 1100,
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/urethra_male/2026-10-26-native-context-r01/context-oblique.webp"
+          },
+          {
+            "path": "reviews/urethra_male/2026-10-26-native-context-r01/urethra-oblique.webp",
+            "title": "Isolated diagnostic view",
+            "width": 1100,
+            "height": 1100,
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/urethra_male/2026-10-26-native-context-r01/urethra-oblique.webp",
+            "caption": "A single source surface."
+          }
+        ]
+      }
+    ],
+    "family": "urethra_male",
+    "revision": "z-native-context-r01",
+    "exportPaths": [
+      "models/urethra_male/exports/z-native-context-r01/urethral-context.glb"
+    ],
+    "related": [
+      {
+        "to": "compare/penile-components-r04",
+        "label": "Open the distinct penile-components review"
+      },
+      {
+        "to": "use-cases/urinary-outflow/en",
+        "label": "Open the schematic urinary outflow lesson"
+      }
+    ],
+    "collection": "Body & Heart"
+  },
+  {
+    "id": "uff-tomo1b-r01",
+    "title": "UFF specimen · extracted boundary and space proxy r01",
+    "status": "Draft research · proxy endpoint failed",
+    "finding": "The simplified display retains the extracted outer boundary and estimated inner space at the reviewed scale. At the terminal source overlay, the channel opens to the exterior while the slice-derived proxy closes it.",
+    "limit": "The two overview images use different views and leave registration untested. The endpoint cap comes from the algorithm. Tooth identity, health, orientation and separate enamel, dentin and pulp remain unknown. Source-X clipping opens an unsealed cut in the display. It has no anatomical orientation or measured section depth.",
+    "credit": "Pereira, Tonelli, Antunes, Miranda and Silveira (2020), source dataset DOI 10.5281/zenodo.3877625, CC BY 4.0. The model is a derived display export.",
+    "record": "https://github.com/qianyizhang/med-assets/blob/9d70d2646ec2642f0312ab7ca6d17dc9e7dbd4ef/reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/README.md",
+    "sections": [
+      {
+        "title": "Candidate overview",
+        "paired": true,
+        "views": [
+          {
+            "path": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display-hard_tissue.png",
+            "title": "Scan-derived outer boundary",
+            "width": 900,
+            "height": 900,
+            "display": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display/display-hard_tissue.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display-hard_tissue.png"
+          },
+          {
+            "path": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display-void_side.png",
+            "title": "Estimated inner space",
+            "width": 900,
+            "height": 900,
+            "display": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display/display-void_side.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display-void_side.png",
+            "caption": "Different camera. The space is a proxy."
+          }
+        ]
+      },
+      {
+        "title": "Engineering comparison · hard boundary, side",
+        "paired": true,
+        "collapsed": true,
+        "views": [
+          {
+            "path": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/master-hard_side.png",
+            "title": "Extracted master",
+            "width": 900,
+            "height": 900,
+            "display": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display/master-hard_side.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/master-hard_side.png"
+          },
+          {
+            "path": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display-hard_side.png",
+            "title": "Simplified display",
+            "width": 900,
+            "height": 900,
+            "display": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display/display-hard_side.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display-hard_side.png"
+          }
+        ]
+      },
+      {
+        "title": "Engineering comparison · hard boundary, oblique",
+        "paired": true,
+        "collapsed": true,
+        "views": [
+          {
+            "path": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/master-hard_tissue.png",
+            "title": "Extracted master",
+            "width": 900,
+            "height": 900,
+            "display": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display/master-hard_tissue.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/master-hard_tissue.png"
+          },
+          {
+            "path": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display-hard_tissue.png",
+            "title": "Simplified display",
+            "width": 900,
+            "height": 900,
+            "display": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display/display-hard_tissue.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display-hard_tissue.png"
+          }
+        ]
+      },
+      {
+        "title": "Engineering comparison · space proxy, side",
+        "paired": true,
+        "collapsed": true,
+        "views": [
+          {
+            "path": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/master-void_side.png",
+            "title": "Extracted master",
+            "width": 900,
+            "height": 900,
+            "display": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display/master-void_side.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/master-void_side.png"
+          },
+          {
+            "path": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display-void_side.png",
+            "title": "Simplified display",
+            "width": 900,
+            "height": 900,
+            "display": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display/display-void_side.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display-void_side.png"
+          }
+        ]
+      },
+      {
+        "title": "Source endpoint and native overlays",
+        "views": [
+          {
+            "path": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/terminal-overlays.png",
+            "title": "Terminal overlays",
+            "width": 1500,
+            "height": 800,
+            "display": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display/terminal-overlays.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/terminal-overlays.png",
+            "caption": "The source channel remains open at the extraction cap."
+          },
+          {
+            "path": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/native-overlays.png",
+            "title": "Native source overlays",
+            "width": 1500,
+            "height": 1080,
+            "display": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display/native-overlays.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/native-overlays.png"
+          }
+        ]
+      }
+    ],
+    "family": "uff_tomo1b",
+    "revision": "r01",
+    "exportPaths": [
+      "models/dental_specimens/uff_tomo1b/exports/r01/uff-tomo1b-display.glb"
+    ],
+    "collection": "Dental Review",
+    "libraryRow": "Specimen research",
+    "inspector": {
+      "href": "https://anatomy-dental-review.landy123007.chatgpt.site/viewer/",
+      "label": "Inspect the two boundaries in 3D on Dental Review"
+    }
+  },
+  {
+    "id": "fdi31-interface-locked",
+    "title": "FDI31 · interface-locked candidate",
+    "status": "Unapproved research · smaller trials rejected",
+    "finding": "The retained candidate preserves protected source interfaces while simplifying exterior surfaces. Three earlier local witnesses align with the master at the sampled interfaces. Smaller trials were rejected after geometric islands contracted and a dentin detail flattened in the strongest reduction.",
+    "limit": "The prepared T2 specimen retains in-progress segmentation, truncation and inherited defects. The finding covers three matched interface witnesses. Global separation remains unverified. Rejected trials are shown as stills. The complete five-way 3D presentation and runtime measurements remain unavailable.",
+    "credit": "Benz, Heck and Walter (2024), Data: Visualization of Pulpal Structures by SWIR in Endodontic Access Preparation, Open Data LMU, DOI 10.5282/ubm/data.477, CC BY-SA 4.0. Derivative changes are limited to protected-interface and exterior simplification work.",
+    "record": "https://github.com/qianyizhang/med-assets/blob/9d70d2646ec2642f0312ab7ca6d17dc9e7dbd4ef/reviews/swirendo_fdi31/2026-10-27-interface-locked/README.md",
+    "sections": [
+      {
+        "title": "",
+        "views": [
+          {
+            "path": "reviews/swirendo_fdi31/2026-10-27-interface-locked/media/witness-1-enamel-dentin-matched.png",
+            "title": "Enamel–dentin interface",
+            "width": 2484,
+            "height": 1620,
+            "display": "reviews/swirendo_fdi31/2026-10-27-interface-locked/media/display/witness-1-enamel-dentin-matched.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/swirendo_fdi31/2026-10-27-interface-locked/media/witness-1-enamel-dentin-matched.png"
+          },
+          {
+            "path": "reviews/swirendo_fdi31/2026-10-27-interface-locked/media/witness-2-dentin-pulp-matched.png",
+            "title": "Dentin–pulp interface",
+            "width": 2484,
+            "height": 1620,
+            "display": "reviews/swirendo_fdi31/2026-10-27-interface-locked/media/display/witness-2-dentin-pulp-matched.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/swirendo_fdi31/2026-10-27-interface-locked/media/witness-2-dentin-pulp-matched.png"
+          },
+          {
+            "path": "reviews/swirendo_fdi31/2026-10-27-interface-locked/media/witness-3-bone-dentin-matched.png",
+            "title": "Bone–dentin interface",
+            "width": 2484,
+            "height": 1620,
+            "display": "reviews/swirendo_fdi31/2026-10-27-interface-locked/media/display/witness-3-bone-dentin-matched.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/swirendo_fdi31/2026-10-27-interface-locked/media/witness-3-bone-dentin-matched.png"
+          },
+          {
+            "path": "reviews/swirendo_fdi31/2026-10-27-interface-locked/media/FDI31-one-round-no-change-comparison.png",
+            "title": "Rejected simplification comparison",
+            "width": 2520,
+            "height": 1620,
+            "display": "reviews/swirendo_fdi31/2026-10-27-interface-locked/media/display/FDI31-one-round-no-change-comparison.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/swirendo_fdi31/2026-10-27-interface-locked/media/FDI31-one-round-no-change-comparison.png"
+          }
+        ]
+      }
+    ],
+    "family": "swirendo_fdi31",
+    "revision": "interface-locked-20261027",
+    "exportPaths": [
+      "reviews/swirendo_fdi31/2026-10-27-interface-locked/media/A_1_31_T2_SEG_na__layered.glb"
+    ],
+    "related": [
+      {
+        "to": "library/swirendo_fdi31",
+        "label": "Open the separate Balanced specimen entry"
+      }
+    ],
+    "sources": [
+      {
+        "href": "https://github.com/qianyizhang/med-assets/blob/9d70d2646ec2642f0312ab7ca6d17dc9e7dbd4ef/reviews/swirendo_fdi31/2026-10-27-interface-locked/evidence-index.json",
+        "label": "Exact witness and decision bindings"
+      }
+    ],
+    "collection": "Dental Review"
+  },
+  {
+    "id": "bp3d-dental-contacts-r02",
+    "title": "BodyParts3D dental set · contacts r02",
+    "status": "Exterior reference · contact accuracy failed",
+    "finding": "The revised views make the two crown-facing arches easier to inspect. Independent checks corroborated surface crossings in 22 of the 26 within-arch neighbor pairs. The three examples locate visible crossings in the unchanged source meshes.",
+    "limit": "The model contains 28 exteriors and two gingiva surfaces. Wisdom-tooth slots, jaw support, separate tooth tissues, primary teeth and condition variants are absent. The remaining four gaps are mesh distances. Opposing-arch bite and clinical conditions are outside scope.",
+    "credit": "BodyParts3D © Database Center for Life Science (DBCLS), CC BY 4.0. The review images preserve source positioning.",
+    "record": "https://github.com/qianyizhang/med-assets/blob/9d70d2646ec2642f0312ab7ca6d17dc9e7dbd4ef/reviews/teeth_gums/2026-10-26-set-contact-checkpoint/README.md",
+    "sections": [
+      {
+        "title": "Crown-facing source views",
+        "paired": true,
+        "views": [
+          {
+            "path": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/upper-occlusal-teeth.png",
+            "title": "Upper arch",
+            "width": 1100,
+            "height": 1000,
+            "display": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/display/upper-occlusal-teeth.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/upper-occlusal-teeth.png",
+            "caption": "Patient right is screen left."
+          },
+          {
+            "path": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/lower-occlusal-teeth.png",
+            "title": "Lower arch",
+            "width": 1100,
+            "height": 1000,
+            "display": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/display/lower-occlusal-teeth.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/lower-occlusal-teeth.png",
+            "caption": "Patient right is screen right."
+          }
+        ]
+      },
+      {
+        "title": "Visible crossing · 12-11",
+        "collapsed": true,
+        "views": [
+          {
+            "path": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/pair-12-11.png",
+            "title": "Pair 12-11",
+            "width": 1000,
+            "height": 900,
+            "display": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/display/pair-12-11.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/pair-12-11.png",
+            "caption": "Colors distinguish the two source teeth."
+          }
+        ]
+      },
+      {
+        "title": "Visible crossing · 17-16",
+        "collapsed": true,
+        "views": [
+          {
+            "path": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/pair-17-16.png",
+            "title": "Pair 17-16",
+            "width": 1000,
+            "height": 900,
+            "display": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/display/pair-17-16.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/pair-17-16.png",
+            "caption": "Colors distinguish the two source teeth."
+          }
+        ]
+      },
+      {
+        "title": "Visible crossing · 35-36",
+        "collapsed": true,
+        "views": [
+          {
+            "path": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/pair-35-36.png",
+            "title": "Pair 35-36",
+            "width": 1000,
+            "height": 900,
+            "display": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/display/pair-35-36.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/pair-35-36.png",
+            "caption": "Colors distinguish the two source teeth."
+          }
+        ]
+      },
+      {
+        "title": "Additional source views and triangle witnesses",
+        "collapsed": true,
+        "views": [
+          {
+            "path": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/whole-front.png",
+            "title": "Whole set · front",
+            "width": 1100,
+            "height": 1000,
+            "display": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/display/whole-front.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/whole-front.png"
+          },
+          {
+            "path": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/whole-patient-left.png",
+            "title": "Whole set · patient left",
+            "width": 1100,
+            "height": 1000,
+            "display": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/display/whole-patient-left.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/whole-patient-left.png"
+          },
+          {
+            "path": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/upper-occlusal-context.png",
+            "title": "Upper arch with gingiva",
+            "width": 1100,
+            "height": 1000,
+            "display": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/display/upper-occlusal-context.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/upper-occlusal-context.png"
+          },
+          {
+            "path": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/lower-occlusal-context.png",
+            "title": "Lower arch with gingiva",
+            "width": 1100,
+            "height": 1000,
+            "display": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/display/lower-occlusal-context.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/lower-occlusal-context.png"
+          },
+          {
+            "path": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/triangle-witnesses.png",
+            "title": "Triangle witnesses",
+            "width": 1800,
+            "height": 600,
+            "display": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/display/triangle-witnesses.webp",
+            "sourceUrl": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/triangle-witnesses.png"
+          }
+        ]
+      }
+    ],
+    "family": "teeth_gums",
+    "revision": "r02",
+    "exportPaths": [
+      "models/teeth_gums/exports/r02/teeth_gums.glb"
+    ],
+    "related": [
+      {
+        "to": "use-cases/dental-arch",
+        "label": "Open source-label arch identification"
+      }
+    ],
+    "collection": "Dental Review"
+  },
+  {
+    "id": "fdi31-source-layers-r03",
+    "title": "FDI31 · source layers r03",
+    "status": "Supplemental research still",
+    "finding": "The prepared specimen’s enamel, dentin and pulp-space labels appear side by side at the same scale. Separate visibility and illustrative materials show the relative form of each retained source label.",
+    "limit": "The prepared LMU31 T2 specimen retains in-progress labels, open contacts and small islands. Bone is hidden. These are isolated surfaces with matched cameras. Source labels establish neither living tissue detail nor a healthy baseline. The historical r03 export is recorded in Library with its original digest.",
+    "credit": "Benz, Heck and Walter (2024), Data: Visualization of Pulpal Structures by SWIR in Endodontic Access Preparation, Open Data LMU, DOI 10.5282/ubm/data.477, CC BY-SA 4.0. The figure changes visibility and materials while retaining the source mesh.",
+    "record": "https://anatomy-dental-review.landy123007.chatgpt.site/review/prepared-31-layer-research/README.md",
+    "sections": [
+      {
+        "title": "",
+        "views": [
+          {
+            "path": "dental-review/prepared-31-layer-research/prepared-31-layers.png",
+            "title": "Bilingual source-layer comparison",
+            "caption": "Same camera and scale for each rendered panel.",
+            "sourceUrl": "https://anatomy-dental-review.landy123007.chatgpt.site/review/prepared-31-layer-research/prepared-31-layers.png",
+            "display": "reviews/swirendo_fdi31/prepared-31-layer-research/display/prepared-31-layers.webp",
+            "width": 1920,
+            "height": 1320
+          }
+        ]
+      }
+    ],
+    "sources": [
+      {
+        "href": "https://anatomy-dental-review.landy123007.chatgpt.site/review/prepared-31-layer-research/render-bindings.json",
+        "label": "Original layer and camera bindings"
+      },
+      {
+        "href": "https://anatomy-dental-review.landy123007.chatgpt.site/review/prepared-31-layer-research/prepared-31-layers.svg",
+        "label": "Original composed SVG"
+      }
+    ],
+    "collection": "Dental Review",
+    "family": "swirendo-pilot",
+    "revision": "fdi31-prepared-r03",
+    "unavailableExports": [
+      {
+        "path": "swirendo-pilot/A_1_31_T2_SEG_na__layered.glb",
+        "name": "A_1_31_T2_SEG_na__layered.glb",
+        "sha256": "23e59040c6c2497ef864cf229d90dbd9e347489f1c9f4a8860bd48422cc2ec21",
+        "bytes": 13239300,
+        "unavailable": "Historical r03 GLB unavailable locally. Follow the owning evidence link for its exact source receipt."
+      }
+    ]
+  },
+  {
+    "id": "cotton-tweezers-r04",
+    "title": "Cotton tweezers · spring body r04",
+    "status": "Generic authored tool · static scope",
+    "finding": "The revised slender jaws reveal inner serrations. Grip grooves and the joined heel remain legible. The earlier blunt rectangular jaw ends were rejected. The five named regions describe one continuous body.",
+    "limit": "These are source-studio renders. Static opening and visual recognizability leave closure, spring force, sterilization, manufacturing and clinical behavior outside scope.",
+    "credit": "Generic project-authored geometry and procedural work. The original source declares its own terms. Render grain comes from sampling.",
+    "record": "https://anatomy-dental-review.landy123007.chatgpt.site/review/tools/cotton-tweezers-r04/payload/README.md",
+    "sections": [
+      {
+        "title": "",
+        "views": [
+          {
+            "path": "dental-review/cotton-tweezers-r04/overview.png",
+            "title": "Open spring body",
+            "caption": "Angle, grip and joined heel in the source studio.",
+            "sourceUrl": "https://anatomy-dental-review.landy123007.chatgpt.site/review/tools/cotton-tweezers-r04/payload/overview.png",
+            "display": "reviews/dental_tools/cotton_tweezers/2026-10-26-r04/display/overview.webp",
+            "width": 1000,
+            "height": 700
+          }
+        ]
+      },
+      {
+        "title": "Native source-studio details",
+        "views": [
+          {
+            "path": "dental-review/cotton-tweezers-r04/inner-jaw.png",
+            "title": "Inner-jaw serrations",
+            "caption": "The narrowed tips expose the transverse details.",
+            "sourceUrl": "https://anatomy-dental-review.landy123007.chatgpt.site/review/tools/cotton-tweezers-r04/payload/inner-jaw.png",
+            "display": "reviews/dental_tools/cotton_tweezers/2026-10-26-r04/display/inner-jaw.webp",
+            "width": 1000,
+            "height": 700
+          },
+          {
+            "path": "dental-review/cotton-tweezers-r04/grip-closeup.png",
+            "title": "Outer grip grooves",
+            "caption": "Flat normals retain the authored surface transitions.",
+            "sourceUrl": "https://anatomy-dental-review.landy123007.chatgpt.site/review/tools/cotton-tweezers-r04/payload/grip-closeup.png",
+            "display": "reviews/dental_tools/cotton_tweezers/2026-10-26-r04/display/grip-closeup.webp",
+            "width": 1000,
+            "height": 700
+          },
+          {
+            "path": "dental-review/cotton-tweezers-r04/heel-closeup.png",
+            "title": "Joined rounded heel",
+            "caption": "The two arms meet in one continuous body.",
+            "sourceUrl": "https://anatomy-dental-review.landy123007.chatgpt.site/review/tools/cotton-tweezers-r04/payload/heel-closeup.png",
+            "display": "reviews/dental_tools/cotton_tweezers/2026-10-26-r04/display/heel-closeup.webp",
+            "width": 1000,
+            "height": 700
+          }
+        ]
+      }
+    ],
+    "family": "cotton_tweezers",
+    "revision": "r04",
+    "exportPaths": [
+      "dental-review/cotton-tweezers-r04/cotton-tweezers.glb"
+    ],
+    "sources": [
+      {
+        "href": "https://anatomy-dental-review.landy123007.chatgpt.site/review/tools/cotton-tweezers-r04/supported-files.json",
+        "label": "Original exact file inventory"
+      }
+    ],
+    "collection": "Dental Review",
+    "libraryRow": "Authored tools"
+  },
+  {
+    "id": "mouth-mirror-r01",
+    "title": "Mouth mirror · four-part form r01",
+    "status": "Generic authored tool · static scope",
+    "finding": "Four named meshes give the mirror a recognizable profile. The head detail preserves a narrow reflected light band in the source-studio render.",
+    "limit": "The studio lighting demonstrates the authored form. Exact real-time reflections, local scene reflections, a threaded socket, manufacturing tolerances and device performance remain outside scope.",
+    "credit": "Generic project-authored geometry and procedural work, with dimensions informed by catalogue categories. The original source declares its own terms.",
+    "record": "https://anatomy-dental-review.landy123007.chatgpt.site/review/tools/mouth-mirror-r01/payload/reviews/dental_tools/mouth_mirror/2026-10-26-r01/README.md",
+    "sections": [
+      {
+        "title": "",
+        "views": [
+          {
+            "path": "dental-review/mouth-mirror-r01/overview.png",
+            "title": "Mouth mirror overview",
+            "caption": "Grooved handle, bent shank, head frame and reflective surface.",
+            "sourceUrl": "https://anatomy-dental-review.landy123007.chatgpt.site/review/tools/mouth-mirror-r01/payload/reviews/dental_tools/mouth_mirror/2026-10-26-r01/overview.png",
+            "display": "reviews/dental_tools/mouth_mirror/2026-10-26-r01/display/overview.webp",
+            "width": 1200,
+            "height": 800
+          }
+        ]
+      },
+      {
+        "title": "Native source-studio details",
+        "views": [
+          {
+            "path": "dental-review/mouth-mirror-r01/head-closeup.png",
+            "title": "Mirror head detail",
+            "caption": "Flat front-face normals reflect a narrow studio light.",
+            "sourceUrl": "https://anatomy-dental-review.landy123007.chatgpt.site/review/tools/mouth-mirror-r01/payload/reviews/dental_tools/mouth_mirror/2026-10-26-r01/head-closeup.png",
+            "display": "reviews/dental_tools/mouth_mirror/2026-10-26-r01/display/head-closeup.webp",
+            "width": 1200,
+            "height": 800
+          },
+          {
+            "path": "dental-review/mouth-mirror-r01/side.png",
+            "title": "Side profile",
+            "caption": "The stem sits inside the authored head-frame backing.",
+            "sourceUrl": "https://anatomy-dental-review.landy123007.chatgpt.site/review/tools/mouth-mirror-r01/payload/reviews/dental_tools/mouth_mirror/2026-10-26-r01/side.png",
+            "display": "reviews/dental_tools/mouth_mirror/2026-10-26-r01/display/side.webp",
+            "width": 1200,
+            "height": 800
+          }
+        ]
+      }
+    ],
+    "family": "mouth_mirror",
+    "revision": "r01",
+    "exportPaths": [
+      "dental-review/mouth-mirror-r01/mouth-mirror.glb"
+    ],
+    "sources": [
+      {
+        "href": "https://anatomy-dental-review.landy123007.chatgpt.site/review/tools/mouth-mirror-r01/supported-files.json",
+        "label": "Original exact file inventory"
+      }
+    ],
+    "collection": "Dental Review",
+    "libraryRow": "Authored tools"
+  }
+]

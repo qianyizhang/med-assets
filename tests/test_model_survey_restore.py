@@ -10,7 +10,7 @@ from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 SPEC = importlib.util.spec_from_file_location(
-    'restore_snapshot', ROOT / 'sites/model-survey/tools/restore_snapshot.py')
+    'restore_snapshot', ROOT / 'transport/tools/restore_snapshot.py')
 restore = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(restore)
 digest = lambda value: hashlib.sha256(value).hexdigest()
@@ -36,12 +36,12 @@ class SurveyRestoreTests(unittest.TestCase):
         self.source = (json.dumps(current, ensure_ascii=False, indent=2) + '\n').encode()
         self.reference = {'artifactId': 'fixture', 'siteUrl': 'https://example.org',
                           'snapshot': {'sha256': digest(self.original)},
-                          'livePublication': {'snapshotSha256': digest(self.immutable),
+                          'surveySeedPublication': {'snapshotSha256': digest(self.immutable),
                                               'snapshotBytes': len(self.immutable),
                                               'sourceSeedSha256': digest(self.source),
                                               'sourceSeedBytes': len(self.source)}}
         (self.root / 'snapshot-reference.json').write_text(json.dumps(self.reference))
-        (self.directory / 'r2-trial.json').write_text(json.dumps({'assets': [
+        (self.directory / 'delivery-index.json').write_text(json.dumps({'assets': [
             {'sha256': image_hash, 'bytes': len(payload), 'mediaType': 'image/webp', 'name': 'preview.webp'}]}))
         self.input = self.root / 'input.json'
         self.output = self.root / 'restored.json'
