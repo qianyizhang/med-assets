@@ -3,7 +3,7 @@ import * as THREE from '../.local/vendor/build/three.module.js';import {loadMode
 const manifest=JSON.parse(await fs.readFile(new URL('../assets.json',import.meta.url)));const read=async item=>{const b=await fs.readFile(new URL('../.local/'+item.file,import.meta.url));return b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength);};
 let models;
 test('pinned real GLBs load using the actual lesson loader',async()=>{models=await loadModels(manifest,read);assert.equal(Object.keys(models).length,5);let lobes=0;for(const id of ['lungLeft','lungRight'])models[id].scene.traverse(o=>{if(o.isMesh){lobes++;assert.ok(o.morphTargetInfluences?.length);}});assert.equal(lobes,5);});
-test('missing and corrupt assets reject, then an unchanged retry loads',async()=>{await assert.rejects(loadModels(manifest,async item=>{if(item.id==='tracheaCutaway')throw Error('HTTP 404');return read(item);}),/HTTP 404/);await assert.rejects(loadModels(manifest,async item=>{const raw=await read(item);if(item.id==='lungLeft')new Uint8Array(raw)[raw.byteLength-1]^=1;return raw;}),/identity mismatch/);assert.equal(Object.keys(await loadModels(manifest,read)).length,5);});
+test('missing and corrupt assets reject, then an unchanged retry loads',async()=>{await assert.rejects(loadModels(manifest,async item=>{if(item.id==='tracheaCutaway')throw Error('HTTP 404');return read(item);}),/HTTP 404/);await assert.rejects(loadModels(manifest,async item=>{const raw=await read(item);if(item.id==='airwayRoute')new Uint8Array(raw)[raw.byteLength-1]^=1;return raw;}),/identity mismatch/);assert.equal(Object.keys(await loadModels(manifest,read)).length,5);});
 test('shared state deforms actual lungs and reset restores their loaded geometry',()=>{const view=createLessonScene(models,manifest),state={...initialState(),assets:'ready'};applyLessonState(view,state);const meshes=[];view.lungs.traverse(o=>{if(o.isMesh)meshes.push(o);});const p=new THREE.Vector3();const before=meshes.map(m=>m.getVertexPosition(50,p).clone());applyLessonState(view,{...state,phase:.5});assert.ok(meshes.some((m,i)=>m.getVertexPosition(50,p).distanceTo(before[i])>1e-5));applyLessonState(view,state);assert.ok(meshes.every((m,i)=>m.getVertexPosition(50,p).distanceTo(before[i])<1e-12));});
 test('airway stage uses cutaway, retained lung context and explicit semantic ports',()=>{const view=createLessonScene(models,manifest);applyLessonState(view,{...initialState(),stage:1,phase:.25,elapsed:1,breathClock:1,playing:true});assert.equal(view.airwayOpen.visible,false);assert.equal(view.airwayCutaway.visible,true);assert.equal(view.ports.children.length,3);assert.ok(view.particles.visible);for(const id of ['left','right'])assert.deepEqual(manifest.route[id].at(-1),manifest.ports[id].position);for(const c of Object.values(CAMERAS))assert.ok(c.height>0&&[...c.position,...c.target].every(Number.isFinite));});
 test('bilingual exchange is explicitly schematic and includes both opposite gas routes',()=>{for(const language of ['en','zh']){const svg=exchangeSVG({...initialState(language),stage:2});assert.match(svg,/O₂/);assert.match(svg,/CO₂/);assert.match(svg,language==='en'?/not to scale/:/非等比例/);assert.match(svg,/arrowO/);assert.match(svg,/arrowC/);}});
@@ -15,6 +15,13 @@ test('full pathway is continuous and each focus isolates the selected anatomical
  const segments=[p.nasal,p.pharynx,p.larynx,manifest.route.main,manifest.route.left,p.bronchialBridge,p.lobar,p.distal,p.terminal,p.alveolar];
  for(let i=1;i<segments.length;i++)assert.deepEqual(segments[i-1].at(-1),segments[i][0]);
  const view=createLessonScene(models,manifest);
+ const counts=new Map();
+ view.extension.traverse(o=>{
+   if(!o.isMesh)return;
+   const region=o.userData.lessonRegion;
+   counts.set(region,(counts.get(region)??0)+1);
+ });
+ assert.deepEqual(Object.fromEntries(counts),{Branch:3,Larynx:4,Nasal:5,Pharynx:1,Terminal:11,'V7 guide':3});
  for(const phase of [0,.5]){
    for(const routeFocus of ['whole','upper','branch','terminal']){
      applyLessonState(view,{...initialState(),stage:1,routeFocus,phase});

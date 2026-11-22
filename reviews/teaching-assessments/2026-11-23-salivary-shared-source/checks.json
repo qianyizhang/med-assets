@@ -1,0 +1,570 @@
+{
+  "control_checkout": "3db3f60",
+  "blender_build_and_clean_import": "4.3.2",
+  "source": {
+    "sha256": "9f08a17ea0115fed80b2a73ecdf0a1bc2ab2f6956f37c593ce23d513ea35afcd",
+    "bytes": 306838281
+  },
+  "independent_replay_matches_each_release_sha256": true,
+  "wrong_member_rejected_before_output": true,
+  "disposable_edit": "Translate right parotid source mesh vertices 1 mm along native +X before evaluating source modifiers. The left gland's original data is protected by a separate disposable data copy.",
+  "excluded_source_crossing": {
+    "source_sha256": "9f08a17ea0115fed80b2a73ecdf0a1bc2ab2f6956f37c593ce23d513ea35afcd",
+    "source_objects": [
+      "Submandibular duct.l",
+      "Mylohyoid muscle.l"
+    ],
+    "sampled_intersections": [
+      [
+        0.02408721297979355,
+        -0.03846992179751396,
+        1.5188453197479248
+      ],
+      [
+        0.02136845514178276,
+        -0.039884407073259354,
+        1.519557237625122
+      ]
+    ]
+  },
+  "shared_parts": {
+    "same_world_vertices_and_oriented_faces": [
+      "Parotid gland.r",
+      "Parotid gland.l"
+    ],
+    "all_primary_parts_same_world_vertices_and_oriented_faces_in_context": [
+      "Parotid gland.r",
+      "Parotid gland.l",
+      "Submandibular gland.r",
+      "Submandibular gland.l",
+      "Sublingual gland.r",
+      "Sublingual gland.l",
+      "Parotid duct.r",
+      "Parotid duct.l"
+    ]
+  },
+  "exports": {
+    "parotid-pair": {
+      "original": {
+        "path": "models/parotid_glands/exports/source-candidate-02/parotid_glands_source_frame.glb",
+        "sha256": "fc21df4c24bad92c3fb11873adf601ebf5bad066365b60be6e4366aced731d34",
+        "bytes": 63688
+      },
+      "updated": {
+        "path": "models/parotid_glands/exports/source-shared-r01/parotid-pair.glb",
+        "sha256": "d0ee5a98c2668ab9159ae94f9a00c27e207fa541e611d71decc688bd7c482c3e",
+        "bytes": 53656
+      },
+      "selection": [
+        "Parotid gland.r",
+        "Parotid gland.l"
+      ],
+      "triangles": 3408,
+      "largest_world_vertex_error_mm": 0.00023844768293201923,
+      "largest_world_normal_angle_delta_degrees": 0.03246891894863505,
+      "changed_oriented_triangles": 1704,
+      "reversed_duplicate_or_collapsed_triangles": 0,
+      "all_materials_match_control": true,
+      "edited_right_parotid_expected_offset_native_mm": [
+        1,
+        0,
+        0
+      ],
+      "max_error_from_expected_offset_mm": 0.00011922384146600962,
+      "largest_other_part_motion_mm": 0.0,
+      "left_parotid": {
+        "matrix_determinants": [
+          1.0,
+          -0.9999997615814209
+        ],
+        "quad_diagonal_swaps": 852,
+        "sampled_surface_error_mm": 0.37249657907523215
+      }
+    },
+    "glands-ducts": {
+      "original": {
+        "path": "models/salivary_glands/exports/z-native-scoped-r02/glands-and-parotid-ducts.glb",
+        "sha256": "a53134ec91195f5c42b8be4cde3536343e62857a7ecf5ab5d11bf3eba6ead515",
+        "bytes": 129736
+      },
+      "updated": {
+        "path": "models/salivary_glands/exports/z-native-shared-r01/glands-and-parotid-ducts.glb",
+        "sha256": "ef588f09db83560185c486a15dacbba929967bfefda0cbee4a0dc16495ce16da",
+        "bytes": 116896
+      },
+      "selection": [
+        "Parotid gland.r",
+        "Parotid gland.l",
+        "Submandibular gland.r",
+        "Submandibular gland.l",
+        "Sublingual gland.r",
+        "Sublingual gland.l",
+        "Parotid duct.r",
+        "Parotid duct.l"
+      ],
+      "triangles": 7144,
+      "largest_world_vertex_error_mm": 0.00011926748300084,
+      "largest_world_normal_angle_delta_degrees": 0.019481802658847913,
+      "changed_oriented_triangles": 0,
+      "reversed_duplicate_or_collapsed_triangles": 0,
+      "all_materials_match_control": true,
+      "edited_right_parotid_expected_offset_native_mm": [
+        1,
+        0,
+        0
+      ],
+      "max_error_from_expected_offset_mm": 0.00011922384146600962,
+      "largest_other_part_motion_mm": 0.0,
+      "parotid_ducts": {
+        "Parotid duct.r": {
+          "position_error_mm": 0.0,
+          "world_normal_angle_deg": 0.0075447146485503455,
+          "oriented_triangles_removed": 0,
+          "oriented_triangles_added": 0,
+          "exactly_reversed": 0,
+          "material_match": true,
+          "vertices": [
+            637,
+            588
+          ],
+          "triangle_summary": [
+            {
+              "triangles": 1152,
+              "duplicate_unoriented": 0,
+              "collapsed": 0
+            },
+            {
+              "triangles": 1152,
+              "duplicate_unoriented": 0,
+              "collapsed": 0
+            }
+          ]
+        },
+        "Parotid duct.l": {
+          "position_error_mm": 0.0,
+          "world_normal_angle_deg": 0.00754472739263447,
+          "oriented_triangles_removed": 0,
+          "oriented_triangles_added": 0,
+          "exactly_reversed": 0,
+          "material_match": true,
+          "vertices": [
+            637,
+            588
+          ],
+          "triangle_summary": [
+            {
+              "triangles": 1152,
+              "duplicate_unoriented": 0,
+              "collapsed": 0
+            },
+            {
+              "triangles": 1152,
+              "duplicate_unoriented": 0,
+              "collapsed": 0
+            }
+          ]
+        }
+      }
+    },
+    "context": {
+      "original": {
+        "path": "models/salivary_glands/exports/z-native-scoped-r02/same-source-context.glb",
+        "sha256": "1764c63011e698b9047d1abe79c647b8b609b7d8f9b18b740b17cdc65db930f8",
+        "bytes": 763124
+      },
+      "updated": {
+        "path": "models/salivary_glands/exports/z-native-shared-r01/same-source-context.glb",
+        "sha256": "22406f58d0d2852a7cc5dee93f307a5240ca2004d4eb34259cb46749cb630501",
+        "bytes": 654988
+      },
+      "selection": [
+        "Parotid gland.r",
+        "Parotid gland.l",
+        "Submandibular gland.r",
+        "Submandibular gland.l",
+        "Sublingual gland.r",
+        "Sublingual gland.l",
+        "Parotid duct.r",
+        "Parotid duct.l",
+        "Mandible",
+        "Mylohyoid muscle.r",
+        "Mylohyoid muscle.l",
+        "Superficial part of masseter.r",
+        "Superficial part of masseter.l",
+        "Genioglossus muscle.r",
+        "Genioglossus muscle.l"
+      ],
+      "triangles": 38522,
+      "largest_world_vertex_error_mm": 0.00011944189282075968,
+      "largest_world_normal_angle_delta_degrees": 0.019481802658847913,
+      "changed_oriented_triangles": 0,
+      "reversed_duplicate_or_collapsed_triangles": 0,
+      "all_materials_match_control": true,
+      "edited_right_parotid_expected_offset_native_mm": [
+        1,
+        0,
+        0
+      ],
+      "max_error_from_expected_offset_mm": 0.00011922384146600962,
+      "largest_other_part_motion_mm": 0.0,
+      "mandible": {
+        "position_error_mm": 0.0,
+        "vertices": [
+          10135,
+          9549
+        ],
+        "world_normal_angle_deg": 0.01763796490513097,
+        "triangle_summary": [
+          {
+            "triangles": 18834,
+            "duplicate_unoriented": 0,
+            "collapsed": 0
+          },
+          {
+            "triangles": 18834,
+            "duplicate_unoriented": 0,
+            "collapsed": 0
+          }
+        ],
+        "oriented_triangles_removed": 0,
+        "oriented_triangles_added": 0,
+        "exactly_reversed": 0,
+        "matrix_determinants": [
+          1.0,
+          1.0
+        ],
+        "material_match": true
+      },
+      "parotid_ducts": {
+        "Parotid duct.r": {
+          "position_error_mm": 0.0,
+          "world_normal_angle_deg": 0.0075447146485503455,
+          "oriented_triangles_removed": 0,
+          "oriented_triangles_added": 0,
+          "exactly_reversed": 0,
+          "material_match": true,
+          "vertices": [
+            637,
+            588
+          ],
+          "triangle_summary": [
+            {
+              "triangles": 1152,
+              "duplicate_unoriented": 0,
+              "collapsed": 0
+            },
+            {
+              "triangles": 1152,
+              "duplicate_unoriented": 0,
+              "collapsed": 0
+            }
+          ]
+        },
+        "Parotid duct.l": {
+          "position_error_mm": 0.0,
+          "world_normal_angle_deg": 0.00754472739263447,
+          "oriented_triangles_removed": 0,
+          "oriented_triangles_added": 0,
+          "exactly_reversed": 0,
+          "material_match": true,
+          "vertices": [
+            637,
+            588
+          ],
+          "triangle_summary": [
+            {
+              "triangles": 1152,
+              "duplicate_unoriented": 0,
+              "collapsed": 0
+            },
+            {
+              "triangles": 1152,
+              "duplicate_unoriented": 0,
+              "collapsed": 0
+            }
+          ]
+        }
+      },
+      "native_mandible_validation": {
+        "blender": "4.3.2",
+        "disposable_copy": true,
+        "source_triangles_before": 18838,
+        "unique_after_validation": 18834,
+        "retained_vertex_count": 9388,
+        "duplicate_source_triangles": 4
+      }
+    }
+  },
+  "renders": {
+    "blender": "5.2.3 LTS Release Candidate",
+    "width": 720,
+    "height": 576,
+    "cycles_cpu_samples": 16,
+    "views": [
+      {
+        "view": "parotid",
+        "export_role": "parotid-pair",
+        "included_objects": [
+          "*"
+        ],
+        "camera_bounds": [
+          [
+            -0.0649879202246666,
+            -0.03630548715591431,
+            1.5288841724395752
+          ],
+          [
+            0.06498803943395615,
+            -0.0032304360065609217,
+            1.5765336751937866
+          ]
+        ],
+        "maximum_projected_outline_shift_px": 0.0005972733847824903,
+        "orthographic_scale": 0.14370419085025787,
+        "original": "fc21df4c24bad92c3fb11873adf601ebf5bad066365b60be6e4366aced731d34",
+        "updated": "d0ee5a98c2668ab9159ae94f9a00c27e207fa541e611d71decc688bd7c482c3e",
+        "capture": [
+          {
+            "direction": [
+              0.5773502588272095,
+              -0.5773502588272095,
+              0.5773502588272095
+            ],
+            "camera": [
+              0.3752082884311676,
+              -0.3949761986732483,
+              1.9279171228408813
+            ],
+            "original_png_sha256": "836e3dceaab3d25096ee5a5c872c5639aa52c59a5d0c8c4ffcd76ff9bf7e39d0",
+            "updated_png_sha256": "01790fe42391b92b04db202247c2a0ffbaff1a3350df352a801d6e9d998a5297"
+          },
+          {
+            "direction": [
+              0.0,
+              -1.0,
+              0.0
+            ],
+            "camera": [
+              5.960464477539063e-08,
+              -0.669647753238678,
+              1.5527088642120361
+            ],
+            "original_png_sha256": "dbef7591e92b4b5319c71ad9e9d68068f643aa5a14d3acca8adc8dca04f98a99",
+            "updated_png_sha256": "57333c8f298d37f657a960eab7c118fb271b683e538d4222626c356624eb1731"
+          }
+        ]
+      },
+      {
+        "view": "duct-course",
+        "export_role": "glands-ducts",
+        "included_objects": [
+          "*"
+        ],
+        "camera_bounds": [
+          [
+            -0.0649879202246666,
+            -0.07020922750234604,
+            1.5040680170059204
+          ],
+          [
+            0.06498803943395615,
+            -0.00323043717071414,
+            1.576533555984497
+          ]
+        ],
+        "maximum_projected_outline_shift_px": 0.0,
+        "orthographic_scale": 0.1945735365152359,
+        "original": "a53134ec91195f5c42b8be4cde3536343e62857a7ecf5ab5d11bf3eba6ead515",
+        "updated": "ef588f09db83560185c486a15dacbba929967bfefda0cbee4a0dc16495ce16da",
+        "capture": [
+          {
+            "direction": [
+              0.7807912230491638,
+              -0.16470694541931152,
+              0.602691113948822
+            ],
+            "camera": [
+              0.5074204802513123,
+              -0.14375954866409302,
+              1.93197762966156
+            ],
+            "original_png_sha256": "885934d287ed8cd83e405ceed01819afaf842968ff1b583394f8a5c9efda67ae",
+            "updated_png_sha256": "d967c463efd6700636205ce396b05a104384c4bfacc7778e37cb26bfd465382b"
+          },
+          {
+            "direction": [
+              0.543766438961029,
+              -0.8365638256072998,
+              0.06692510098218918
+            ],
+            "camera": [
+              0.3533828854560852,
+              -0.5803858041763306,
+              1.583794116973877
+            ],
+            "original_png_sha256": "9dcd266a9f0ea30d707210049a157d382850016f13a31cc1891a88821c889a37",
+            "updated_png_sha256": "310577bc18ba007b65937396c18a4c33edf1f2c871ec2332b8ef725aa4dfe28b"
+          }
+        ]
+      },
+      {
+        "view": "jaw-context",
+        "export_role": "context",
+        "included_objects": [
+          "*"
+        ],
+        "camera_bounds": [
+          [
+            -0.0649879202246666,
+            -0.08370994031429291,
+            1.4962966442108154
+          ],
+          [
+            0.06498803943395615,
+            -0.0017980113625526428,
+            1.5786473751068115
+          ]
+        ],
+        "maximum_projected_outline_shift_px": 0.0004559607246830776,
+        "orthographic_scale": 0.1882414072751999,
+        "original": "1764c63011e698b9047d1abe79c647b8b609b7d8f9b18b740b17cdc65db930f8",
+        "updated": "22406f58d0d2852a7cc5dee93f307a5240ca2004d4eb34259cb46749cb630501",
+        "capture": [
+          {
+            "direction": [
+              0.8112404346466064,
+              0.41419199109077454,
+              0.4127154052257538
+            ],
+            "camera": [
+              0.5272088646888733,
+              0.22642101347446442,
+              1.805687427520752
+            ],
+            "original_png_sha256": "bd7694caca6bbd82258fdff1f54958a2a7d0deb9a88d5bb00554e04554dc2c4b",
+            "updated_png_sha256": "ac079c45a9edf8a09c2b5c77c7bec5ad82b5edf02a9dbcf74e89d44e40cfeba8"
+          },
+          {
+            "direction": [
+              0.8667219281196594,
+              -0.31931862235069275,
+              -0.3831823170185089
+            ],
+            "camera": [
+              0.5632651448249817,
+              -0.2502726912498474,
+              1.2884495258331299
+            ],
+            "original_png_sha256": "f0930e4e250dd677ffda78e930f43441a71eec996e5a6b504fb7509fee5ff4a2",
+            "updated_png_sha256": "9222d190dd0cdc6ce2a9fbc936b2e848384ae4c4388130502071811e0f1700a1"
+          }
+        ]
+      },
+      {
+        "view": "oral-floor",
+        "export_role": "context",
+        "included_objects": [
+          "Mandible source display",
+          "Submandibular gland.*",
+          "Sublingual gland.*"
+        ],
+        "camera_bounds": [
+          [
+            -0.051664017140865326,
+            -0.08370994031429291,
+            1.4962966442108154
+          ],
+          [
+            0.051664017140865326,
+            -0.0017980113625526428,
+            1.5786473751068115
+          ]
+        ],
+        "maximum_projected_outline_shift_px": 0.0,
+        "orthographic_scale": 0.1800030767917633,
+        "original": "1764c63011e698b9047d1abe79c647b8b609b7d8f9b18b740b17cdc65db930f8",
+        "updated": "22406f58d0d2852a7cc5dee93f307a5240ca2004d4eb34259cb46749cb630501",
+        "capture": [
+          {
+            "direction": [
+              0.44728508591651917,
+              -0.017877107486128807,
+              0.8942128419876099
+            ],
+            "camera": [
+              0.23108543455600739,
+              -0.05199000984430313,
+              1.9994583129882812
+            ],
+            "original_png_sha256": "d11a94ac211e4016919de6c0ff69bda271a3506b433bd0fe90fb1175b43d0f65",
+            "updated_png_sha256": "ddd95062e9819dfc3340fec4a68d8c6cf835dfa78590060e5c34ac691a10947f"
+          },
+          {
+            "direction": [
+              0.0,
+              -0.039968039840459824,
+              0.9992009997367859
+            ],
+            "camera": [
+              0.0,
+              -0.06340306997299194,
+              2.053699493408203
+            ],
+            "original_png_sha256": "67bd37e1aec2be06ae830e593cc1e1e9a34abc356b4a444894eafbc072501974",
+            "updated_png_sha256": "2f8efd4af416aec2524a2c3c63158b8f0fcda4360386703065ca0b55f5e34c92"
+          }
+        ]
+      }
+    ]
+  },
+  "plates": [
+    {
+      "path": "reviews/teaching-assessments/2026-11-23-salivary-shared-source/views/parotid-matched.webp",
+      "sha256": "1bc96dfcaa515f5151747e24f29e8292df3cf0a85c24bc74e586df2c5ccbd2f0",
+      "bytes": 27252,
+      "width": 978,
+      "height": 902,
+      "label": "Anterior and oblique views of the exact original and updated envelopes"
+    },
+    {
+      "path": "reviews/teaching-assessments/2026-11-23-salivary-shared-source/views/parotid-poster.webp",
+      "sha256": "105f8a3976fe1e15c6b2ede9280e5ebe06b68fff2d32352e38fc40b3d217978e",
+      "bytes": 14692,
+      "width": 1182,
+      "height": 522,
+      "label": "Anterior and oblique views of the current parotid pair"
+    },
+    {
+      "path": "reviews/teaching-assessments/2026-11-23-salivary-shared-source/views/duct-course-matched.webp",
+      "sha256": "58040c83adb11c7ca4f5fc5fef379832e8778598b57e98652d4d1453b29eae0b",
+      "bytes": 40742,
+      "width": 978,
+      "height": 902,
+      "label": "Two fixed views of the original and updated gland and duct selections"
+    },
+    {
+      "path": "reviews/teaching-assessments/2026-11-23-salivary-shared-source/views/duct-course-poster.webp",
+      "sha256": "0ffe2b05008b9f209364a34d07402c4a83fc19edfd3b86284e6f0128c4c0748f",
+      "bytes": 23138,
+      "width": 1182,
+      "height": 522,
+      "label": "Current isolated selection and the current lateral jaw-context view"
+    },
+    {
+      "path": "reviews/teaching-assessments/2026-11-23-salivary-shared-source/views/jaw-context-matched.webp",
+      "sha256": "1103bf144bc26505f7ad9e45a77a0bbf4c386abfe2b2a37c30095aa19aec722e",
+      "bytes": 47574,
+      "width": 978,
+      "height": 902,
+      "label": "Matched lateral jaw context and superior lower-gland selection"
+    },
+    {
+      "path": "reviews/teaching-assessments/2026-11-23-salivary-shared-source/views/jaw-context-poster.webp",
+      "sha256": "97451b4a75e402a333fc25c8da490d142693b704ff9b6da3eb5c94c35e6e5851",
+      "bytes": 25914,
+      "width": 1182,
+      "height": 522,
+      "label": "Current lateral context and superior jaw with lower glands isolated"
+    }
+  ]
+}

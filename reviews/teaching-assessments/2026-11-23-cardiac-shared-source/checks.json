@@ -1,0 +1,1165 @@
+{
+  "blender": "5.2.3 LTS Release Candidate",
+  "build": "fab76e95306d",
+  "nativeImports": {
+    "historical": {
+      "file": "Cardiac_Atlas.blend",
+      "sha256": "9655499d29c8498de84c172c2e160d329950ecedf06bee86c2668e0f42b9c837",
+      "bytes": 42381432
+    },
+    "shared": {
+      "file": "Cardiac_Atlas_Animated_Source.blend",
+      "sha256": "6c8051cc269c9ca8af392ac58f19e22c24cde678b4c95159f5e3a6a19c20d01b",
+      "bytes": 42393708
+    },
+    "identicalTargets": {
+      "Aorta | root, ascending, arch and descending": {
+        "vertices": 3200,
+        "polygons": 3200,
+        "sha256": "27e30f6ef1d31c863a7f48f22737684f94fb39eae91ecdef90a3b4ba58dffced"
+      },
+      "Pulmonary trunk": {
+        "vertices": 1408,
+        "polygons": 1408,
+        "sha256": "308ed20e28306fbce3c04e14529013d04bfafbbeae67779b3e2aefe067cb00c7"
+      },
+      "Left pulmonary artery": {
+        "vertices": 1408,
+        "polygons": 1408,
+        "sha256": "fe64874af2834932382166e37a1cfc578627884d59064d02ad91d7f0cd316f95"
+      },
+      "Right pulmonary artery": {
+        "vertices": 1408,
+        "polygons": 1408,
+        "sha256": "af03b92520c2fd53982f7e5a93adcc39764c0cb5915615ce876fcb2368adcd06"
+      },
+      "LV | complete wall": {
+        "vertices": 12127,
+        "polygons": 24246,
+        "sha256": "e2184446a5a47f27a4dfdd59cd7858dbd167dcfa9dbab231d7dec9f5346d0399"
+      },
+      "LV | anterior section": {
+        "vertices": 7553,
+        "polygons": 15102,
+        "sha256": "4afafda73d5250d26b0a41ccc38c16ad92093c6709d321f80beaf05997fdf3d2"
+      }
+    }
+  },
+  "exports": {
+    "staticControl": {
+      "file": "Cardiac_Atlas_Clinical_Full_ED.glb",
+      "sha256": "342e445b8d460458d322a7e5db875d462867b1e7f99043c711bce73c34c9a813",
+      "bytes": 4248224,
+      "triangles": 181922,
+      "meshes": 247,
+      "primitives": 251
+    },
+    "staticOriginal": {
+      "file": "Cardiac_Atlas_Clinical_Full_ED.glb",
+      "sha256": "32802a9a36963c2f8935f632f28ba3602d1ce004919e5e203ff87bbdcb52fa2f",
+      "bytes": 4864488,
+      "triangles": 222336,
+      "meshes": 247,
+      "primitives": 251
+    },
+    "staticCandidate": {
+      "file": "cardiac-static-ed.glb",
+      "sha256": "cd392e97d472c10fc4ab0b6f8679b3496f09d27ce527f257e434b1dc998e4480",
+      "bytes": 3501292,
+      "triangles": 222336,
+      "meshes": 247,
+      "primitives": 251
+    },
+    "motionControl": {
+      "file": "ventricular-wall-motion.glb",
+      "sha256": "a57fc0eec4cb8d26dfc50ff0db9360fea346a12096236b64f9d4492695c72905",
+      "bytes": 1158724,
+      "triangles": 30646,
+      "meshes": 2,
+      "primitives": 3,
+      "clipSeconds": 0.8,
+      "clipChannels": 1
+    },
+    "motionCandidate": {
+      "file": "ventricular-wall-motion.glb",
+      "sha256": "9c6ac294f4080165770824b61d2d813b6a7f537261d80c7177fc387336866413",
+      "bytes": 850364,
+      "triangles": 30646,
+      "meshes": 2,
+      "primitives": 3,
+      "clipSeconds": 0.8,
+      "clipChannels": 1
+    },
+    "fullControl": {
+      "file": "Heart_Clinical_Animated.glb",
+      "sha256": "6912d439271c3525230a90fe403d586000e6a66ab37f82bf0419604181e52263",
+      "bytes": 8180224,
+      "triangles": 222336,
+      "meshes": 247,
+      "primitives": 251,
+      "clipSeconds": 0.8,
+      "clipChannels": 228
+    },
+    "fullCandidate": {
+      "file": "full-atlas.glb",
+      "sha256": "93c3b116bbfa133f3dd1e2631242bfcb68b32b388ec73261793ee9f8b9b27f68",
+      "bytes": 5839284,
+      "triangles": 222336,
+      "meshes": 247,
+      "primitives": 251,
+      "clipSeconds": 0.8,
+      "clipChannels": 228
+    }
+  },
+  "toleranceMm": 0.002,
+  "animationMaxWeightDifference": {
+    "focused": 0.0,
+    "full": 0.0
+  },
+  "staticProtectedVertexErrorMm": {
+    "Aorta | root, ascending, arch and descending": 0.0,
+    "Pulmonary trunk": 0.0,
+    "Left pulmonary artery": 0.0,
+    "Right pulmonary artery": 0.0
+  },
+  "staticOriginalAllMeshMaxVertexErrorMm": 7.508562660518692e-06,
+  "fullModelCleanReimport": {
+    "fullVersusOriginalMm": {
+      "Aorta | root, ascending, arch and descending": 0.0,
+      "Pulmonary trunk": 0.0,
+      "Left pulmonary artery": 0.0,
+      "Right pulmonary artery": 0.0,
+      "LV | complete wall": 0.0,
+      "LA | complete wall": 0.0,
+      "Mitral valve | leaflet 1": 5.101064015633483e-06,
+      "Aortic valve | leaflet 1": 4.656612873077393e-06
+    },
+    "fullMaxMovementMm": {
+      "Aorta | root, ascending, arch and descending": 0.0,
+      "Pulmonary trunk": 0.0,
+      "Left pulmonary artery": 0.0,
+      "Right pulmonary artery": 0.0,
+      "LV | complete wall": 5.047319810458945,
+      "LA | complete wall": 1.5268809527295861,
+      "Mitral valve | leaflet 1": 10.21579974076033,
+      "Aortic valve | leaflet 1": 7.572047050999757
+    },
+    "sharedEdPositionErrorMm": {
+      "staticVersusFull": {
+        "Aorta | root, ascending, arch and descending": 0.0,
+        "Pulmonary trunk": 0.0,
+        "Left pulmonary artery": 0.0,
+        "Right pulmonary artery": 0.0,
+        "LV | complete wall": 0.0
+      },
+      "motionVersusStatic": {
+        "Aorta | root, ascending, arch and descending": 0.0,
+        "LV | complete wall": 0.0
+      }
+    }
+  },
+  "focusedMotionMaxWorldVertexErrorMm": {
+    "Aorta | root, ascending, arch and descending": 0.0,
+    "LV | complete wall": 0.0
+  },
+  "focusedMaxWorldMotionMm": {
+    "Aorta | root, ascending, arch and descending": 0.0,
+    "LV | complete wall": 5.047319810458945
+  },
+  "disposableSourceEdit": {
+    "cardiac-static-ed.glb": {
+      "axis": "Blender +X, patient left",
+      "sourceTranslationMm": 1.0,
+      "expectedAortaWorldPositionResidualMm": 3.725290298461914e-06,
+      "unchangedMeshes": 246,
+      "maxUnchangedMeshWorldPositionErrorMm": 0.0,
+      "editedBytes": {
+        "file": "cardiac-static-ed.glb",
+        "sha256": "0483eb88c54dd5897ebb2a35c26c7f02fceb0d8be7904b17efbf2afd13dba758",
+        "bytes": 3501284
+      }
+    },
+    "ventricular-wall-motion.glb": {
+      "axis": "Blender +X, patient left",
+      "sourceTranslationMm": 1.0,
+      "expectedAortaWorldPositionResidualMm": 3.725290298461914e-06,
+      "unchangedMeshes": 1,
+      "maxUnchangedMeshWorldPositionErrorMm": 0.0,
+      "editedBytes": {
+        "file": "ventricular-wall-motion.glb",
+        "sha256": "9ce986365003bc403b4bd7adcbdf4faa74c6306d2728e390b2032e3ca80efee0",
+        "bytes": 850356
+      }
+    }
+  },
+  "render": {
+    "static": {
+      "cameraBindingBlender": {
+        "overview": {
+          "position": [
+            0.18687303364276886,
+            -0.42832934856414795,
+            0.06088520586490631
+          ],
+          "target": [
+            0.006310507655143738,
+            0.001581430435180664,
+            0.01789412647485733
+          ],
+          "rotation": [
+            0.7242991328239441,
+            0.6605920195579529,
+            0.13309316337108612,
+            0.14592860639095306
+          ],
+          "near": 1.5608913599862717e-05,
+          "far": 1.8730695247650146,
+          "height": 0.1763807088136673
+        },
+        "detail": {
+          "position": [
+            0.05149105191230774,
+            -0.2499956339597702,
+            0.10783547908067703
+          ],
+          "target": [
+            -0.00033169612288475037,
+            0.00911809504032135,
+            0.045648183673620224
+          ],
+          "rotation": [
+            0.7801112532615662,
+            0.617832362651825,
+            0.061177466064691544,
+            0.07724623382091522
+          ],
+          "near": 9.999999747378752e-06,
+          "far": 1.085856556892395,
+          "height": 0.10225149244070053
+        },
+        "reverse": {
+          "position": [
+            -0.1601133793592453,
+            0.20296071469783783,
+            0.1386924386024475
+          ],
+          "target": [
+            0.0043104588985443115,
+            0.007881566882133484,
+            0.04672655463218689
+          ],
+          "rotation": [
+            0.280708372592926,
+            0.19720250368118286,
+            -0.5399599671363831,
+            -0.7686073184013367
+          ],
+          "near": 9.999999747378752e-06,
+          "far": 1.0847952365875244,
+          "height": 0.1021515503525734
+        }
+      },
+      "views": {
+        "original": [
+          {
+            "file": "static-original-overview.png",
+            "sha256": "3a2df7e7651e8326e0e4c9f055a53d7c4e7c09fbe0bdc2c0d42934d3905f10b1",
+            "bytes": 352691,
+            "direction": [
+              0.42,
+              -1,
+              0.1
+            ],
+            "camera": [
+              0.18687303364276886,
+              -0.42832934856414795,
+              0.06088520586490631
+            ],
+            "orthoScale": 0.1763807088136673,
+            "palette": true,
+            "visible": [
+              "Aorta | root, ascending, arch and descending",
+              "Aortic valve | annulus",
+              "Aortic valve | leaflet 1",
+              "Aortic valve | leaflet 2",
+              "Aortic valve | leaflet 3",
+              "Brachiocephalic trunk",
+              "Circumflex coronary",
+              "Coronary sinus",
+              "Epicardial fat | AV groove 0",
+              "Epicardial fat | AV groove 1",
+              "Epicardial fat | AV groove 10",
+              "Epicardial fat | AV groove 11",
+              "Epicardial fat | AV groove 12",
+              "Epicardial fat | AV groove 13",
+              "Epicardial fat | AV groove 14",
+              "Epicardial fat | AV groove 15",
+              "Epicardial fat | AV groove 16",
+              "Epicardial fat | AV groove 17",
+              "Epicardial fat | AV groove 18",
+              "Epicardial fat | AV groove 19",
+              "Epicardial fat | AV groove 2",
+              "Epicardial fat | AV groove 20",
+              "Epicardial fat | AV groove 21",
+              "Epicardial fat | AV groove 22",
+              "Epicardial fat | AV groove 23",
+              "Epicardial fat | AV groove 24",
+              "Epicardial fat | AV groove 25",
+              "Epicardial fat | AV groove 26",
+              "Epicardial fat | AV groove 27",
+              "Epicardial fat | AV groove 28",
+              "Epicardial fat | AV groove 29",
+              "Epicardial fat | AV groove 3",
+              "Epicardial fat | AV groove 30",
+              "Epicardial fat | AV groove 31",
+              "Epicardial fat | AV groove 32",
+              "Epicardial fat | AV groove 33",
+              "Epicardial fat | AV groove 34",
+              "Epicardial fat | AV groove 35",
+              "Epicardial fat | AV groove 36",
+              "Epicardial fat | AV groove 37",
+              "Epicardial fat | AV groove 38",
+              "Epicardial fat | AV groove 39",
+              "Epicardial fat | AV groove 4",
+              "Epicardial fat | AV groove 40",
+              "Epicardial fat | AV groove 41",
+              "Epicardial fat | AV groove 5",
+              "Epicardial fat | AV groove 50",
+              "Epicardial fat | AV groove 51",
+              "Epicardial fat | AV groove 52",
+              "Epicardial fat | AV groove 53",
+              "Epicardial fat | AV groove 54",
+              "Epicardial fat | AV groove 55",
+              "Epicardial fat | AV groove 56",
+              "Epicardial fat | AV groove 57",
+              "Epicardial fat | AV groove 58",
+              "Epicardial fat | AV groove 59",
+              "Epicardial fat | AV groove 6",
+              "Epicardial fat | AV groove 7",
+              "Epicardial fat | AV groove 8",
+              "Epicardial fat | AV groove 9",
+              "Epicardial fat | LAD groove 0",
+              "Epicardial fat | LAD groove 1",
+              "Epicardial fat | LAD groove 10",
+              "Epicardial fat | LAD groove 11",
+              "Epicardial fat | LAD groove 12",
+              "Epicardial fat | LAD groove 13",
+              "Epicardial fat | LAD groove 14",
+              "Epicardial fat | LAD groove 15",
+              "Epicardial fat | LAD groove 16",
+              "Epicardial fat | LAD groove 17",
+              "Epicardial fat | LAD groove 18",
+              "Epicardial fat | LAD groove 19",
+              "Epicardial fat | LAD groove 2",
+              "Epicardial fat | LAD groove 20",
+              "Epicardial fat | LAD groove 21",
+              "Epicardial fat | LAD groove 22",
+              "Epicardial fat | LAD groove 23",
+              "Epicardial fat | LAD groove 24",
+              "Epicardial fat | LAD groove 25",
+              "Epicardial fat | LAD groove 26",
+              "Epicardial fat | LAD groove 27",
+              "Epicardial fat | LAD groove 28",
+              "Epicardial fat | LAD groove 29",
+              "Epicardial fat | LAD groove 3",
+              "Epicardial fat | LAD groove 30",
+              "Epicardial fat | LAD groove 31",
+              "Epicardial fat | LAD groove 4",
+              "Epicardial fat | LAD groove 5",
+              "Epicardial fat | LAD groove 6",
+              "Epicardial fat | LAD groove 7",
+              "Epicardial fat | LAD groove 8",
+              "Epicardial fat | LAD groove 9",
+              "Great cardiac vein",
+              "Inferior vena cava",
+              "LA auricular appendage",
+              "LA | complete wall",
+              "LAD diagonal branch 1",
+              "LAD diagonal branch 2",
+              "LAD diagonal branch 3",
+              "LAD diagonal branch 4",
+              "LAD diagonal branch 5",
+              "LAD | anterior interventricular artery",
+              "LV chordae | papillary 1 leaflet 1 cord 1",
+              "LV chordae | papillary 1 leaflet 1 cord 2",
+              "LV chordae | papillary 1 leaflet 1 cord 3",
+              "LV chordae | papillary 1 leaflet 1 cord 4",
+              "LV chordae | papillary 1 leaflet 1 cord 5",
+              "LV chordae | papillary 1 leaflet 2 cord 1",
+              "LV chordae | papillary 1 leaflet 2 cord 2",
+              "LV chordae | papillary 1 leaflet 2 cord 3",
+              "LV chordae | papillary 1 leaflet 2 cord 4",
+              "LV chordae | papillary 1 leaflet 2 cord 5",
+              "LV chordae | papillary 2 leaflet 1 cord 1",
+              "LV chordae | papillary 2 leaflet 1 cord 2",
+              "LV chordae | papillary 2 leaflet 1 cord 3",
+              "LV chordae | papillary 2 leaflet 1 cord 4",
+              "LV chordae | papillary 2 leaflet 1 cord 5",
+              "LV chordae | papillary 2 leaflet 2 cord 1",
+              "LV chordae | papillary 2 leaflet 2 cord 2",
+              "LV chordae | papillary 2 leaflet 2 cord 3",
+              "LV chordae | papillary 2 leaflet 2 cord 4",
+              "LV chordae | papillary 2 leaflet 2 cord 5",
+              "LV papillary muscle 1",
+              "LV papillary muscle 2",
+              "LV trabecula 1",
+              "LV trabecula 10",
+              "LV trabecula 11",
+              "LV trabecula 12",
+              "LV trabecula 13",
+              "LV trabecula 14",
+              "LV trabecula 2",
+              "LV trabecula 3",
+              "LV trabecula 4",
+              "LV trabecula 5",
+              "LV trabecula 6",
+              "LV trabecula 7",
+              "LV trabecula 8",
+              "LV trabecula 9",
+              "LV transverse trabecula 1",
+              "LV transverse trabecula 2",
+              "LV transverse trabecula 3",
+              "LV transverse trabecula 4",
+              "LV transverse trabecula 5",
+              "LV transverse trabecula 6",
+              "LV | complete wall",
+              "Left common carotid",
+              "Left inferior pulmonary vein",
+              "Left main coronary",
+              "Left pulmonary artery",
+              "Left subclavian",
+              "Left superior pulmonary vein",
+              "Middle cardiac vein",
+              "Mitral valve | annulus",
+              "Mitral valve | leaflet 1",
+              "Mitral valve | leaflet 2",
+              "Posterior descending artery",
+              "Pulmonary trunk",
+              "Pulmonary valve | annulus",
+              "Pulmonary valve | leaflet 1",
+              "Pulmonary valve | leaflet 2",
+              "Pulmonary valve | leaflet 3",
+              "RA auricular appendage",
+              "RA pectinate ridge 1",
+              "RA pectinate ridge 10",
+              "RA pectinate ridge 11",
+              "RA pectinate ridge 12",
+              "RA pectinate ridge 2",
+              "RA pectinate ridge 3",
+              "RA pectinate ridge 4",
+              "RA pectinate ridge 5",
+              "RA pectinate ridge 6",
+              "RA pectinate ridge 7",
+              "RA pectinate ridge 8",
+              "RA pectinate ridge 9",
+              "RA | complete wall",
+              "RCA ventricular branch 1",
+              "RCA ventricular branch 2",
+              "RCA ventricular branch 3",
+              "RCA ventricular branch 4",
+              "RV chordae | papillary 1 leaflet 1 cord 1",
+              "RV chordae | papillary 1 leaflet 1 cord 2",
+              "RV chordae | papillary 1 leaflet 1 cord 3",
+              "RV chordae | papillary 1 leaflet 1 cord 4",
+              "RV chordae | papillary 1 leaflet 1 cord 5",
+              "RV chordae | papillary 1 leaflet 2 cord 1",
+              "RV chordae | papillary 1 leaflet 2 cord 2",
+              "RV chordae | papillary 1 leaflet 2 cord 3",
+              "RV chordae | papillary 1 leaflet 2 cord 4",
+              "RV chordae | papillary 1 leaflet 2 cord 5",
+              "RV chordae | papillary 2 leaflet 2 cord 1",
+              "RV chordae | papillary 2 leaflet 2 cord 2",
+              "RV chordae | papillary 2 leaflet 2 cord 3",
+              "RV chordae | papillary 2 leaflet 2 cord 4",
+              "RV chordae | papillary 2 leaflet 2 cord 5",
+              "RV chordae | papillary 2 leaflet 3 cord 1",
+              "RV chordae | papillary 2 leaflet 3 cord 2",
+              "RV chordae | papillary 2 leaflet 3 cord 3",
+              "RV chordae | papillary 2 leaflet 3 cord 4",
+              "RV chordae | papillary 2 leaflet 3 cord 5",
+              "RV chordae | papillary 3 leaflet 1 cord 1",
+              "RV chordae | papillary 3 leaflet 1 cord 2",
+              "RV chordae | papillary 3 leaflet 1 cord 3",
+              "RV chordae | papillary 3 leaflet 1 cord 4",
+              "RV chordae | papillary 3 leaflet 1 cord 5",
+              "RV chordae | papillary 3 leaflet 3 cord 1",
+              "RV chordae | papillary 3 leaflet 3 cord 2",
+              "RV chordae | papillary 3 leaflet 3 cord 3",
+              "RV chordae | papillary 3 leaflet 3 cord 4",
+              "RV chordae | papillary 3 leaflet 3 cord 5",
+              "RV moderator band",
+              "RV papillary muscle 1",
+              "RV papillary muscle 2",
+              "RV papillary muscle 3",
+              "RV trabecula 1",
+              "RV trabecula 10",
+              "RV trabecula 11",
+              "RV trabecula 12",
+              "RV trabecula 13",
+              "RV trabecula 14",
+              "RV trabecula 2",
+              "RV trabecula 3",
+              "RV trabecula 4",
+              "RV trabecula 5",
+              "RV trabecula 6",
+              "RV trabecula 7",
+              "RV trabecula 8",
+              "RV trabecula 9",
+              "RV transverse trabecula 1",
+              "RV transverse trabecula 2",
+              "RV transverse trabecula 3",
+              "RV transverse trabecula 4",
+              "RV transverse trabecula 5",
+              "RV transverse trabecula 6",
+              "RV | complete wall",
+              "Right common carotid",
+              "Right coronary artery",
+              "Right inferior pulmonary vein",
+              "Right marginal artery",
+              "Right pulmonary artery",
+              "Right subclavian",
+              "Right superior pulmonary vein",
+              "Small cardiac vein",
+              "Superior vena cava",
+              "Tricuspid valve | annulus",
+              "Tricuspid valve | leaflet 1",
+              "Tricuspid valve | leaflet 2",
+              "Tricuspid valve | leaflet 3"
+            ],
+            "timeSeconds": 0.0,
+            "targetM": [
+              0.006310507655143738,
+              0.001581430435180664,
+              0.01789412647485733
+            ]
+          },
+          {
+            "file": "static-original-detail.png",
+            "sha256": "b3238a6ea5ec5a09863d22045724b38677b25087a278becaf3ce2934580ad3c7",
+            "bytes": 320296,
+            "direction": [
+              0.2,
+              -1,
+              0.24
+            ],
+            "camera": [
+              0.05149105191230774,
+              -0.2499956339597702,
+              0.10783547908067703
+            ],
+            "orthoScale": 0.10225149244070053,
+            "palette": true,
+            "visible": [
+              "Aorta | root, ascending, arch and descending",
+              "Left pulmonary artery",
+              "Pulmonary trunk",
+              "Right pulmonary artery"
+            ],
+            "timeSeconds": 0.0,
+            "targetM": [
+              -0.00033169612288475037,
+              0.00911809504032135,
+              0.045648183673620224
+            ]
+          },
+          {
+            "file": "static-original-reverse.png",
+            "sha256": "e088956a3ebdfb498d78d1e69f96fd43670af3f9e7eeb6a9fc9f7098289fb2f7",
+            "bytes": 312890,
+            "direction": [
+              -0.59,
+              0.7,
+              0.33
+            ],
+            "camera": [
+              -0.1601133793592453,
+              0.20296071469783783,
+              0.1386924386024475
+            ],
+            "orthoScale": 0.1021515503525734,
+            "palette": false,
+            "visible": [
+              "Aorta | root, ascending, arch and descending",
+              "Left pulmonary artery",
+              "Pulmonary trunk",
+              "Right pulmonary artery"
+            ],
+            "timeSeconds": 0.0,
+            "targetM": [
+              0.0043104588985443115,
+              0.007881566882133484,
+              0.04672655463218689
+            ]
+          }
+        ],
+        "updated": [
+          {
+            "file": "static-updated-overview.png",
+            "sha256": "ba8660dd75f38a36da0a02500c08892e4fb83383a72807b09185bd218f473d86",
+            "bytes": 352805,
+            "direction": [
+              0.42,
+              -1,
+              0.1
+            ],
+            "camera": [
+              0.18687303364276886,
+              -0.42832934856414795,
+              0.06088520586490631
+            ],
+            "orthoScale": 0.1763807088136673,
+            "palette": true,
+            "visible": [
+              "Aorta | root, ascending, arch and descending",
+              "Aortic valve | annulus",
+              "Aortic valve | leaflet 1",
+              "Aortic valve | leaflet 2",
+              "Aortic valve | leaflet 3",
+              "Brachiocephalic trunk",
+              "Circumflex coronary",
+              "Coronary sinus",
+              "Epicardial fat | AV groove 0",
+              "Epicardial fat | AV groove 1",
+              "Epicardial fat | AV groove 10",
+              "Epicardial fat | AV groove 11",
+              "Epicardial fat | AV groove 12",
+              "Epicardial fat | AV groove 13",
+              "Epicardial fat | AV groove 14",
+              "Epicardial fat | AV groove 15",
+              "Epicardial fat | AV groove 16",
+              "Epicardial fat | AV groove 17",
+              "Epicardial fat | AV groove 18",
+              "Epicardial fat | AV groove 19",
+              "Epicardial fat | AV groove 2",
+              "Epicardial fat | AV groove 20",
+              "Epicardial fat | AV groove 21",
+              "Epicardial fat | AV groove 22",
+              "Epicardial fat | AV groove 23",
+              "Epicardial fat | AV groove 24",
+              "Epicardial fat | AV groove 25",
+              "Epicardial fat | AV groove 26",
+              "Epicardial fat | AV groove 27",
+              "Epicardial fat | AV groove 28",
+              "Epicardial fat | AV groove 29",
+              "Epicardial fat | AV groove 3",
+              "Epicardial fat | AV groove 30",
+              "Epicardial fat | AV groove 31",
+              "Epicardial fat | AV groove 32",
+              "Epicardial fat | AV groove 33",
+              "Epicardial fat | AV groove 34",
+              "Epicardial fat | AV groove 35",
+              "Epicardial fat | AV groove 36",
+              "Epicardial fat | AV groove 37",
+              "Epicardial fat | AV groove 38",
+              "Epicardial fat | AV groove 39",
+              "Epicardial fat | AV groove 4",
+              "Epicardial fat | AV groove 40",
+              "Epicardial fat | AV groove 41",
+              "Epicardial fat | AV groove 5",
+              "Epicardial fat | AV groove 50",
+              "Epicardial fat | AV groove 51",
+              "Epicardial fat | AV groove 52",
+              "Epicardial fat | AV groove 53",
+              "Epicardial fat | AV groove 54",
+              "Epicardial fat | AV groove 55",
+              "Epicardial fat | AV groove 56",
+              "Epicardial fat | AV groove 57",
+              "Epicardial fat | AV groove 58",
+              "Epicardial fat | AV groove 59",
+              "Epicardial fat | AV groove 6",
+              "Epicardial fat | AV groove 7",
+              "Epicardial fat | AV groove 8",
+              "Epicardial fat | AV groove 9",
+              "Epicardial fat | LAD groove 0",
+              "Epicardial fat | LAD groove 1",
+              "Epicardial fat | LAD groove 10",
+              "Epicardial fat | LAD groove 11",
+              "Epicardial fat | LAD groove 12",
+              "Epicardial fat | LAD groove 13",
+              "Epicardial fat | LAD groove 14",
+              "Epicardial fat | LAD groove 15",
+              "Epicardial fat | LAD groove 16",
+              "Epicardial fat | LAD groove 17",
+              "Epicardial fat | LAD groove 18",
+              "Epicardial fat | LAD groove 19",
+              "Epicardial fat | LAD groove 2",
+              "Epicardial fat | LAD groove 20",
+              "Epicardial fat | LAD groove 21",
+              "Epicardial fat | LAD groove 22",
+              "Epicardial fat | LAD groove 23",
+              "Epicardial fat | LAD groove 24",
+              "Epicardial fat | LAD groove 25",
+              "Epicardial fat | LAD groove 26",
+              "Epicardial fat | LAD groove 27",
+              "Epicardial fat | LAD groove 28",
+              "Epicardial fat | LAD groove 29",
+              "Epicardial fat | LAD groove 3",
+              "Epicardial fat | LAD groove 30",
+              "Epicardial fat | LAD groove 31",
+              "Epicardial fat | LAD groove 4",
+              "Epicardial fat | LAD groove 5",
+              "Epicardial fat | LAD groove 6",
+              "Epicardial fat | LAD groove 7",
+              "Epicardial fat | LAD groove 8",
+              "Epicardial fat | LAD groove 9",
+              "Great cardiac vein",
+              "Inferior vena cava",
+              "LA auricular appendage",
+              "LA | complete wall",
+              "LAD diagonal branch 1",
+              "LAD diagonal branch 2",
+              "LAD diagonal branch 3",
+              "LAD diagonal branch 4",
+              "LAD diagonal branch 5",
+              "LAD | anterior interventricular artery",
+              "LV chordae | papillary 1 leaflet 1 cord 1",
+              "LV chordae | papillary 1 leaflet 1 cord 2",
+              "LV chordae | papillary 1 leaflet 1 cord 3",
+              "LV chordae | papillary 1 leaflet 1 cord 4",
+              "LV chordae | papillary 1 leaflet 1 cord 5",
+              "LV chordae | papillary 1 leaflet 2 cord 1",
+              "LV chordae | papillary 1 leaflet 2 cord 2",
+              "LV chordae | papillary 1 leaflet 2 cord 3",
+              "LV chordae | papillary 1 leaflet 2 cord 4",
+              "LV chordae | papillary 1 leaflet 2 cord 5",
+              "LV chordae | papillary 2 leaflet 1 cord 1",
+              "LV chordae | papillary 2 leaflet 1 cord 2",
+              "LV chordae | papillary 2 leaflet 1 cord 3",
+              "LV chordae | papillary 2 leaflet 1 cord 4",
+              "LV chordae | papillary 2 leaflet 1 cord 5",
+              "LV chordae | papillary 2 leaflet 2 cord 1",
+              "LV chordae | papillary 2 leaflet 2 cord 2",
+              "LV chordae | papillary 2 leaflet 2 cord 3",
+              "LV chordae | papillary 2 leaflet 2 cord 4",
+              "LV chordae | papillary 2 leaflet 2 cord 5",
+              "LV papillary muscle 1",
+              "LV papillary muscle 2",
+              "LV trabecula 1",
+              "LV trabecula 10",
+              "LV trabecula 11",
+              "LV trabecula 12",
+              "LV trabecula 13",
+              "LV trabecula 14",
+              "LV trabecula 2",
+              "LV trabecula 3",
+              "LV trabecula 4",
+              "LV trabecula 5",
+              "LV trabecula 6",
+              "LV trabecula 7",
+              "LV trabecula 8",
+              "LV trabecula 9",
+              "LV transverse trabecula 1",
+              "LV transverse trabecula 2",
+              "LV transverse trabecula 3",
+              "LV transverse trabecula 4",
+              "LV transverse trabecula 5",
+              "LV transverse trabecula 6",
+              "LV | complete wall",
+              "Left common carotid",
+              "Left inferior pulmonary vein",
+              "Left main coronary",
+              "Left pulmonary artery",
+              "Left subclavian",
+              "Left superior pulmonary vein",
+              "Middle cardiac vein",
+              "Mitral valve | annulus",
+              "Mitral valve | leaflet 1",
+              "Mitral valve | leaflet 2",
+              "Posterior descending artery",
+              "Pulmonary trunk",
+              "Pulmonary valve | annulus",
+              "Pulmonary valve | leaflet 1",
+              "Pulmonary valve | leaflet 2",
+              "Pulmonary valve | leaflet 3",
+              "RA auricular appendage",
+              "RA pectinate ridge 1",
+              "RA pectinate ridge 10",
+              "RA pectinate ridge 11",
+              "RA pectinate ridge 12",
+              "RA pectinate ridge 2",
+              "RA pectinate ridge 3",
+              "RA pectinate ridge 4",
+              "RA pectinate ridge 5",
+              "RA pectinate ridge 6",
+              "RA pectinate ridge 7",
+              "RA pectinate ridge 8",
+              "RA pectinate ridge 9",
+              "RA | complete wall",
+              "RCA ventricular branch 1",
+              "RCA ventricular branch 2",
+              "RCA ventricular branch 3",
+              "RCA ventricular branch 4",
+              "RV chordae | papillary 1 leaflet 1 cord 1",
+              "RV chordae | papillary 1 leaflet 1 cord 2",
+              "RV chordae | papillary 1 leaflet 1 cord 3",
+              "RV chordae | papillary 1 leaflet 1 cord 4",
+              "RV chordae | papillary 1 leaflet 1 cord 5",
+              "RV chordae | papillary 1 leaflet 2 cord 1",
+              "RV chordae | papillary 1 leaflet 2 cord 2",
+              "RV chordae | papillary 1 leaflet 2 cord 3",
+              "RV chordae | papillary 1 leaflet 2 cord 4",
+              "RV chordae | papillary 1 leaflet 2 cord 5",
+              "RV chordae | papillary 2 leaflet 2 cord 1",
+              "RV chordae | papillary 2 leaflet 2 cord 2",
+              "RV chordae | papillary 2 leaflet 2 cord 3",
+              "RV chordae | papillary 2 leaflet 2 cord 4",
+              "RV chordae | papillary 2 leaflet 2 cord 5",
+              "RV chordae | papillary 2 leaflet 3 cord 1",
+              "RV chordae | papillary 2 leaflet 3 cord 2",
+              "RV chordae | papillary 2 leaflet 3 cord 3",
+              "RV chordae | papillary 2 leaflet 3 cord 4",
+              "RV chordae | papillary 2 leaflet 3 cord 5",
+              "RV chordae | papillary 3 leaflet 1 cord 1",
+              "RV chordae | papillary 3 leaflet 1 cord 2",
+              "RV chordae | papillary 3 leaflet 1 cord 3",
+              "RV chordae | papillary 3 leaflet 1 cord 4",
+              "RV chordae | papillary 3 leaflet 1 cord 5",
+              "RV chordae | papillary 3 leaflet 3 cord 1",
+              "RV chordae | papillary 3 leaflet 3 cord 2",
+              "RV chordae | papillary 3 leaflet 3 cord 3",
+              "RV chordae | papillary 3 leaflet 3 cord 4",
+              "RV chordae | papillary 3 leaflet 3 cord 5",
+              "RV moderator band",
+              "RV papillary muscle 1",
+              "RV papillary muscle 2",
+              "RV papillary muscle 3",
+              "RV trabecula 1",
+              "RV trabecula 10",
+              "RV trabecula 11",
+              "RV trabecula 12",
+              "RV trabecula 13",
+              "RV trabecula 14",
+              "RV trabecula 2",
+              "RV trabecula 3",
+              "RV trabecula 4",
+              "RV trabecula 5",
+              "RV trabecula 6",
+              "RV trabecula 7",
+              "RV trabecula 8",
+              "RV trabecula 9",
+              "RV transverse trabecula 1",
+              "RV transverse trabecula 2",
+              "RV transverse trabecula 3",
+              "RV transverse trabecula 4",
+              "RV transverse trabecula 5",
+              "RV transverse trabecula 6",
+              "RV | complete wall",
+              "Right common carotid",
+              "Right coronary artery",
+              "Right inferior pulmonary vein",
+              "Right marginal artery",
+              "Right pulmonary artery",
+              "Right subclavian",
+              "Right superior pulmonary vein",
+              "Small cardiac vein",
+              "Superior vena cava",
+              "Tricuspid valve | annulus",
+              "Tricuspid valve | leaflet 1",
+              "Tricuspid valve | leaflet 2",
+              "Tricuspid valve | leaflet 3"
+            ],
+            "timeSeconds": 0.0,
+            "targetM": [
+              0.006310507655143738,
+              0.001581430435180664,
+              0.01789412647485733
+            ]
+          },
+          {
+            "file": "static-updated-detail.png",
+            "sha256": "b3238a6ea5ec5a09863d22045724b38677b25087a278becaf3ce2934580ad3c7",
+            "bytes": 320296,
+            "direction": [
+              0.2,
+              -1,
+              0.24
+            ],
+            "camera": [
+              0.05149105191230774,
+              -0.2499956339597702,
+              0.10783547908067703
+            ],
+            "orthoScale": 0.10225149244070053,
+            "palette": true,
+            "visible": [
+              "Aorta | root, ascending, arch and descending",
+              "Left pulmonary artery",
+              "Pulmonary trunk",
+              "Right pulmonary artery"
+            ],
+            "timeSeconds": 0.0,
+            "targetM": [
+              -0.00033169612288475037,
+              0.00911809504032135,
+              0.045648183673620224
+            ]
+          },
+          {
+            "file": "static-updated-reverse.png",
+            "sha256": "e088956a3ebdfb498d78d1e69f96fd43670af3f9e7eeb6a9fc9f7098289fb2f7",
+            "bytes": 312890,
+            "direction": [
+              -0.59,
+              0.7,
+              0.33
+            ],
+            "camera": [
+              -0.1601133793592453,
+              0.20296071469783783,
+              0.1386924386024475
+            ],
+            "orthoScale": 0.1021515503525734,
+            "palette": false,
+            "visible": [
+              "Aorta | root, ascending, arch and descending",
+              "Left pulmonary artery",
+              "Pulmonary trunk",
+              "Right pulmonary artery"
+            ],
+            "timeSeconds": 0.0,
+            "targetM": [
+              0.0043104588985443115,
+              0.007881566882133484,
+              0.04672655463218689
+            ]
+          }
+        ]
+      }
+    },
+    "motion": {
+      "cameraBindingBlender": {
+        "rest": {
+          "position": [
+            0.23827920854091644,
+            0.20693889260292053,
+            0.05813650041818619
+          ],
+          "target": [
+            0.022279199212789536,
+            0.005938880145549774,
+            0.013136499561369419
+          ],
+          "rotation": [
+            0.30283260345458984,
+            0.2601481080055237,
+            0.5974424481391907,
+            0.6954695582389832
+          ],
+          "near": 9.999999747378752e-06,
+          "far": 8.0,
+          "height": 0.15805010497570038
+        },
+        "peak": {
+          "position": [
+            0.23827920854091644,
+            0.20693889260292053,
+            0.05813650041818619
+          ],
+          "target": [
+            0.022279199212789536,
+            0.005938880145549774,
+            0.013136499561369419
+          ],
+          "rotation": [
+            0.30283260345458984,
+            0.2601481080055237,
+            0.5974424481391907,
+            0.6954695582389832
+          ],
+          "near": 9.999999747378752e-06,
+          "far": 8.0,
+          "height": 0.15805010497570038
+        },
+        "reverse": {
+          "position": [
+            -0.20516419410705566,
+            -0.3616020977497101,
+            0.11228123307228088
+          ],
+          "target": [
+            0.016691923141479492,
+            0.008158117532730103,
+            0.015219181776046753
+          ],
+          "rotation": [
+            0.7525612711906433,
+            0.601995050907135,
+            -0.16674301028251648,
+            -0.2084473818540573
+          ],
+          "near": 1.4733326679561287e-05,
+          "far": 1.7679991722106934,
+          "height": 0.16648659110069275
+        }
+      },
+      "views": {
+        "original": [
+          {
+            "file": "motion-original-rest.png",
+            "sha256": "44a1fdd7f6022670ac9fc24e55dcf68540800cfb588aa4fe837696b3d9fe1341",
+            "bytes": 271202,
+            "direction": [
+              0.216,
+              0.201,
+              0.045
+            ],
+            "camera": [
+              0.23827920854091644,
+              0.20693889260292053,
+              0.05813650041818619
+            ],
+            "orthoScale": 0.15805010497570038,
+            "palette": true,
+            "visible": [
+              "Aorta | root, ascending, arch and descending",
+              "LV | complete wall"
+            ],
+            "timeSeconds": 0.0,
+            "targetM": [
+              0.022279199212789536,
+              0.005938880145549774,
+              0.013136499561369419
+            ]
+          },
+          {
+            "file": "motion-original-peak.png",
+            "sha256": "884f3e3529c8deb7764d2c2d5cc7262e379bf778c28da631012069fa5b362bdd",
+            "bytes": 266257,
+            "direction": [
+              0.216,
+              0.201,
+              0.045
+            ],
+            "camera": [
+              0.23827920854091644,
+              0.20693889260292053,
+              0.05813650041818619
+            ],
+            "orthoScale": 0.15805010497570038,
+            "palette": true,
+            "visible": [
+              "Aorta | root, ascending, arch and descending",
+              "LV | complete wall"
+            ],
+            "timeSeconds": 0.3333333333333333,
+            "targetM": [
+              0.022279199212789536,
+              0.005938880145549774,
+              0.013136499561369419
+            ]
+          },
+          {
+            "file": "motion-original-reverse.png",
+            "sha256": "02649fbbca7f621248ec4f72eecaf23784040a02c4f74b17460bc8be75641629",
+            "bytes": 267851,
+            "direction": [
+              -0.48,
+              -0.8,
+              0.21
+            ],
+            "camera": [
+              -0.20516419410705566,
+              -0.3616020977497101,
+              0.11228123307228088
+            ],
+            "orthoScale": 0.16648659110069275,
+            "palette": false,
+            "visible": [
+              "Aorta | root, ascending, arch and descending",
+              "LV | complete wall"
+            ],
+            "timeSeconds": 0.3333333333333333,
+            "targetM": [
+              0.016691923141479492,
+              0.008158117532730103,
+              0.015219181776046753
+            ]
+          }
+        ],
+        "updated": [
+          {
+            "file": "motion-updated-rest.png",
+            "sha256": "f0cd20a79e9a1852be3536cfe6f9d412f03a73cd76b740cc9c02a352aaebd1ad",
+            "bytes": 271229,
+            "direction": [
+              0.216,
+              0.201,
+              0.045
+            ],
+            "camera": [
+              0.23827920854091644,
+              0.20693889260292053,
+              0.05813650041818619
+            ],
+            "orthoScale": 0.15805010497570038,
+            "palette": true,
+            "visible": [
+              "Aorta | root, ascending, arch and descending",
+              "LV | complete wall"
+            ],
+            "timeSeconds": 0.0,
+            "targetM": [
+              0.022279199212789536,
+              0.005938880145549774,
+              0.013136499561369419
+            ]
+          },
+          {
+            "file": "motion-updated-peak.png",
+            "sha256": "f3a60a6e63aa454a55fb04f618c8699054f98f99865aea6d88fc8067a175a91a",
+            "bytes": 266235,
+            "direction": [
+              0.216,
+              0.201,
+              0.045
+            ],
+            "camera": [
+              0.23827920854091644,
+              0.20693889260292053,
+              0.05813650041818619
+            ],
+            "orthoScale": 0.15805010497570038,
+            "palette": true,
+            "visible": [
+              "Aorta | root, ascending, arch and descending",
+              "LV | complete wall"
+            ],
+            "timeSeconds": 0.3333333333333333,
+            "targetM": [
+              0.022279199212789536,
+              0.005938880145549774,
+              0.013136499561369419
+            ]
+          },
+          {
+            "file": "motion-updated-reverse.png",
+            "sha256": "8df4ae72cc6a5ddf3e87e93e4c44c11be7abe723b9e063dc3afd5cfeebc85fe9",
+            "bytes": 267749,
+            "direction": [
+              -0.48,
+              -0.8,
+              0.21
+            ],
+            "camera": [
+              -0.20516419410705566,
+              -0.3616020977497101,
+              0.11228123307228088
+            ],
+            "orthoScale": 0.16648659110069275,
+            "palette": false,
+            "visible": [
+              "Aorta | root, ascending, arch and descending",
+              "LV | complete wall"
+            ],
+            "timeSeconds": 0.3333333333333333,
+            "targetM": [
+              0.016691923141479492,
+              0.008158117532730103,
+              0.015219181776046753
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

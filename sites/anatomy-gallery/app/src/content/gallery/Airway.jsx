@@ -2,7 +2,8 @@ import React from 'react';
 import { airway, assetUrl } from './catalog.js';
 import { Evidence } from './Evidence.jsx';
 import { Heading, Label, Link } from './GalleryUI.jsx';
-import { bronchialExterior, firstForkPath } from './local-models.js';
+import { oneBreathPath, tracheaReviewPath } from './airway-data.js';
+import { bronchialExterior, firstForkPath, openTrachea } from './local-models.js';
 import teachingReview from './teaching-inputs/teaching-assessments.json';
 import { localView } from './presets.js';
 import { Scene } from './Scene.jsx';
@@ -73,6 +74,14 @@ export function AirwayReview({ study }) {
       <Link to="compare">← Compare</Link>
       <Heading title={study.title}>Airway Review · Saved source review</Heading>
       <p>{study.reviewFinding ?? study.finding}</p>
+      {study.compare === tracheaReviewPath && (
+        <section>
+          <h2>Locate the three openings</h2>
+          <p>Rotate the open shell to see the proximal rim and the two branch outlets. Isolate the wall to see where the illustrative C-bands end.</p>
+          <Scene initial={localView(openTrachea)} origin={tracheaReviewPath} />
+          <Link to={oneBreathPath}>Follow the airway in One Breath →</Link>
+        </section>
+      )}
       <div className={study.evidenceLayout === 'stacked'
         ? 'ga-pair ga-source-evidence ga-source-evidence-stacked'
         : 'ga-pair ga-source-evidence'}>

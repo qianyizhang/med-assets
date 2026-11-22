@@ -12,7 +12,13 @@ const input = path.join(app, 'src/content/gallery');
 const { campaign } = JSON.parse(await readFile(path.join(input, 'teaching-inputs/teaching-assessments.json')));
 const systems = JSON.parse(await readFile(path.join(input, 'body-systems.json')));
 const rows = campaign.filter((r) => r.maintained && r.target);
-assert.equal(rows.length, 45);
+// The shared cardiac selections supersede two files from the original target round.
+const cardiacControls = campaign.filter((row) => !row.maintained && row.target && [
+  'heart/Cardiac_Atlas/exports/teaching-economy-r01/Cardiac_Atlas_Clinical_Full_ED.glb',
+  'heart/Cardiac_Atlas_Animated/exports/wall-motion-r01/ventricular-wall-motion.glb',
+].includes(row.export.path));
+assert.equal(cardiacControls.length, 2);
+assert.equal(rows.length + cardiacControls.length, 45);
 const browser = await chromium.launch({ executablePath: process.env.MODEL_SURVEY_BROWSER, headless: true, chromiumSandbox: true });
 try {
   const page = await browser.newPage({ viewport: { width: 1220, height: 900 } });
@@ -24,7 +30,7 @@ try {
   const picker = page.getByRole('combobox', { name: 'Reviewed asset' });
   await picker.waitFor();
   assert.equal(await picker.locator('option').count(), rows.length);
-  for (const row of rows) {
+  for (const row of [...rows, ...cardiacControls]) {
     await go('compare/teaching-target?asset=' + row.export.sha256);
     await page.getByRole('heading', { name: row.target.family, exact: true }).waitFor();
     assert.equal(await picker.inputValue(), row.export.sha256);
@@ -67,9 +73,17 @@ try {
     await page.getByRole('link', { name: 'Open the reviewed detail' }).click();
     assert.ok(page.url().endsWith('detail=' + s.check.detail), s.id);
     await page.waitForFunction((detail) => document.querySelector('select[aria-label="Detail view"]')?.value === detail, s.check.detail);
-    await page.locator('.ga-system-plate img').evaluateAll((images) => Promise.all(images.map((i) => i.decode())));
-    if (s.id === 'endocrine' || s.id === 'reproductive') {
-      const title = s.id === 'endocrine' ? 'Locate the four atlas parathyroid glands' : 'Find the ovary–fimbria gap in the source study';
+    if (s.id === 'reproductive') {
+      await page.getByRole('heading', { name: 'Where is the fimbrial end relative to the ovary?' }).waitFor();
+      const images = page.locator('section[aria-labelledby^="ovary-"] img');
+      assert.equal(await images.count(), 2);
+      await images.evaluateAll((nodes) => Promise.all(nodes.map((node) => node.decode())));
+      await page.screenshot({ path: path.join(capture, s.id + '.png'), fullPage: true });
+    } else {
+      await page.locator('.ga-system-plate img').evaluateAll((images) => Promise.all(images.map((i) => i.decode())));
+    }
+    if (s.id === 'endocrine') {
+      const title = 'Locate the four atlas parathyroid glands';
       await page.getByRole('heading', { name: title }).waitFor();
       await page.getByRole('link', { name: 'Open full teaching image · ' + title }).locator('img').evaluate((i) => i.decode());
       await page.screenshot({ path: path.join(capture, s.id + '.png'), fullPage: true });
@@ -90,7 +104,7 @@ try {
   await go('library/parathyroids/z-localization-r01?file=missing');
   await page.getByRole('heading', { name: 'View unavailable' }).waitFor();
   assert.deepEqual(errors, []);
-  console.log('PASS 45 before/after reviews, 45 exact current downloads, 11 required Body Systems stops, 18 other use-case checks, invalid file and review recovery.');
+  console.log('PASS 45 current and historical before/after reviews and exact downloads, 11 required Body Systems stops, 18 other use-case checks, invalid file and review recovery.');
 } finally {
   await browser.close();
 }

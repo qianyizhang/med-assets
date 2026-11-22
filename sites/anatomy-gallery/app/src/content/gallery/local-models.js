@@ -1,5 +1,6 @@
 import localDelivery from '../assets/local-delivery.json' with { type: 'json' };
 import { assetUrl, byPath } from './catalog.js';
+import { oneBreathPath, tracheaReviewPath } from './airway-data.js';
 
 const assets = new Map(localDelivery.assets.map((file) => [file.path, file]));
 const heartPoster = 'reviews/heart_exterior/2026-10-30-native-visibility-r01/images/updated-static-whole-front.png';
@@ -141,6 +142,36 @@ export const lymphNodeTissues = {
 const exterior = 'Source exterior';
 const section = 'Authored section';
 
+function tracheaSelection(variant, lesson, returnLabel, camera) {
+  const family = 'trachea';
+  const revision = 'open-airway-r06';
+  const description = variant === 'open' ? 'Open tracheal shell' : 'Tracheal cutaway';
+  const file = byPath.get('models/trachea/exports/' + revision + '/trachea-' + variant + '.glb');
+  const comparison = 'reviews/trachea/2026-10-29-open-airway-r06/display/comparison-whole.webp';
+  return {
+    family, revision, lesson, returnLabel, title: description,
+    library: 'library/' + family + '/' + revision + '?file=' + file.sha256,
+    exports: [file],
+    preview: assetUrl(byPath.get(comparison)),
+    scene: {
+      version: 'trachea-' + variant + '-v1', camera,
+      posterAlt: 'Matched projections of the source cast, open tracheal shell and cutaway',
+      posterCaption: 'Matched reference projections · closed cast, open shell and cutaway',
+      initialPart: description + ' and C-bands',
+      groups: {
+        [description + ' and C-bands']: null,
+        [description + ' alone']: ['Trachea | authored ' + variant + ' teaching shell'],
+      },
+    },
+  };
+}
+
+export const openTrachea = tracheaSelection('open', tracheaReviewPath, 'Return to the trachea review',
+  { position: [0.16, 0.28, 0.47], target: [0, 0.117, -0.015], height: 0.135 });
+export const cutawayTrachea = tracheaSelection('cutaway', oneBreathPath, 'Return to One Breath',
+  { position: [0.11, 0.13, 0.44], target: [0.01, 0.117, -0.014], height: 0.14 });
+export const trachealLessonScenes = [openTrachea, cutawayTrachea];
+
 function sectionStudy(family, title, position, height, groups, caption, posterPath) {
   const revision = 'metadata-cleanup-r01';
   const direction = [0.23, 0.12, 1];
@@ -223,7 +254,31 @@ teachingScenes.push(
     'Compare the capsule outline with the follicles, paracortex and medulla. The capsule aperture and deep medullary clefts have no linked specimen annotation.'),
 );
 
-export const localModels = [cardiacExterior, bronchialExterior, distalSampling, thyroidExterior, lymphNodeTissues, wallMotion];
+const cardiacSelections = 'heart/Cardiac_Atlas_Animated/exports/shared-source-r01/';
+const cardiacReview = 'reviews/teaching-assessments/2026-11-23-cardiac-shared-source/';
+const greatVesselsED = {
+  family: 'cardiac-static', revision: 'great-vessels-ed-r01', library: 'library/cardiac-atlas/great-vessels-ed-r01',
+  title: 'Distinguish the pulmonary trunk and aortic arch',
+  status: 'Shared Cardiac Atlas · end diastole', recordPath: cardiacReview + 'README.md',
+  exports: [assets.get(cardiacSelections + 'cardiac-static-ed.glb')],
+  scene: { version: 'cardiac-great-vessels-v1', initialPart: 'Whole heart at end diastole',
+    groups: { 'Whole heart at end diastole': null, 'Arch and pulmonary trunk': [
+      'Aorta | root, ascending, arch and descending', 'Pulmonary trunk', 'Right pulmonary artery', 'Left pulmonary artery',
+    ] },
+    camera: { position: [0.186873, 0.060885, 0.428329], target: [0.006311, 0.017894, -0.001581], height: 0.176381 },
+    posterPath: cardiacReview + 'views/great-vessels-poster.webp',
+    posterCaption: 'Identify the arch behind the pulmonary trunk. Rotate the isolated vessels to check which passes in front. The joins are schematic.' },
+};
+const sharedWallMotion = {
+  ...wallMotion, revision: 'wall-motion-shared-r01', library: 'library/cardiac-atlas/wall-motion-shared-r01',
+  title: 'Compare ventricular motion with the fixed aorta',
+  status: 'Shared Cardiac Atlas · authored cycle', recordPath: cardiacReview + 'README.md',
+  exports: [assets.get(cardiacSelections + 'ventricular-wall-motion.glb')],
+  scene: { ...wallMotion.scene, version: 'cardiac-wall-motion-v3',
+    posterPath: cardiacReview + 'views/wall-motion-poster.webp' },
+};
+
+export const localModels = [greatVesselsED, sharedWallMotion, cardiacExterior, bronchialExterior, distalSampling, thyroidExterior, lymphNodeTissues, wallMotion];
 
 export function isLoopbackGallery(hostname) {
   return ['127.0.0.1', 'localhost', '[::1]'].includes(hostname);

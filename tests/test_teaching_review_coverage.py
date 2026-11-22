@@ -49,6 +49,24 @@ class TeachingReviewCoverage(unittest.TestCase):
             cwd=repo, text=True, check=False, capture_output=True,
         )
 
+    def test_shared_family_declares_each_selected_export_once(self):
+        first = "[full.glb](../../heart/study/full.glb)"
+        second = "[wall.glb](../../heart/study/wall.glb)"
+        row = f"## Cardiovascular\n| Cardiac Atlas | {first}<br>{second} |"
+        selections = coverage.register_rows(row)
+        self.assertEqual(len(selections), 2)
+        self.assertEqual(set(selections.values()), {("Cardiovascular", "Cardiac Atlas")})
+        shared = "[Pelvis](../../assemblies/pelvis/README.md)"
+        cross_list = f"## Urinary\n| Bladder · {shared} | {first} |\n## Reproductive\n| Cervix · {shared} | {second} |"
+        pelvic = coverage.register_selections(cross_list).values()
+        self.assertEqual({item.family for item in pelvic}, {"Pelvis"})
+        self.assertEqual({item.label for item in pelvic}, {"Bladder", "Cervix"})
+        self.assertEqual({item.shared_owner for item in pelvic}, {"assemblies/pelvis/README.md"})
+        with self.assertRaisesRegex(ValueError, "Duplicate maintained selection"):
+            coverage.register_rows(row.replace(second, first))
+        with self.assertRaisesRegex(ValueError, "Ambiguous maintained row"):
+            coverage.register_rows(row + f"\n| Cardiac Atlas | {second} |")
+
     def test_candidate_collection_verifies_identity_and_preserves_conflicts(self):
         from hashlib import sha256
         from unittest.mock import patch

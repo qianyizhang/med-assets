@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-23",
+  "evaluator": "Codex (agent review, AG-GAL-027)",
+  "rubric": {
+    "revision": "9e6e490fd67468985e2e8a8298995c730e2f55e5",
+    "path": "docs/guides/asset-quality.md",
+    "sha256": "2e91264ce7c05b6906a8f113f2e0fc888c4765cd3a6d0d6c8a26b6a420900abb"
+  },
+  "assessments": [
+    {
+      "export": {
+        "path": "heart/Cardiac_Atlas_Animated/exports/shared-source-r01/cardiac-static-ed.glb",
+        "sha256": "cd392e97d472c10fc4ab0b6f8679b3496f09d27ce527f257e434b1dc998e4480",
+        "bytes": 3501292
+      },
+      "task": "Distinguish the pulmonary trunk from the aortic arch on the procedural heart’s full static ED exterior.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "The arch, pulmonary trunk and both pulmonary arteries have zero vertex error against the previous teaching edition. The new end-diastolic pose recovers all 247 original mesh selections with at most 0.000008 mm of vertex difference from the uncompacted source export."
+        },
+        {
+          "score": 3,
+          "observation": "The arch curve, pulmonary crossing and outlet rims stay clear in anterior and neutral posterior views. A visible gap at the schematic pulmonary branch junction remains."
+        },
+        {
+          "score": 4,
+          "observation": "The whole view shows the blue pulmonary path crossing in front of the red arch. The isolated anterior and neutral reverse views preserve the distinction using shape and occlusion."
+        },
+        {
+          "score": 3,
+          "observation": "Unused UVs are omitted. At 3,501,292 bytes the full-color atlas is 17.6% smaller than the previously selected edition. It restores the four walls’ exact native tessellation and gains 40,414 triangles. Their other compatible use is full-source orientation."
+        }
+      ],
+      "sources": [
+        {
+          "path": "heart/Cardiac_Atlas_Animated/exports/shared-source-r01/README.md",
+          "label": "Shared editable source and build"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-23-cardiac-shared-source/README.md",
+          "label": "Matched teaching review and disposable edit replay"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-23-cardiac-shared-source/checks.json",
+          "label": "Clean-import registration and motion checks"
+        },
+        {
+          "path": "heart/Cardiac_Atlas/docs/README.md",
+          "label": "Original procedural Atlas and anatomy references"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-23-cardiac-shared-source/views/great-vessels.webp",
+          "sha256": "58b8d5d82d2594336d5b5a94fadc3a4a8a4309203667774cacd4b66090bc587b",
+          "bytes": 39646,
+          "width": 742,
+          "height": 1284,
+          "label": "Whole model and two vessel detail views at fixed matched scale"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-23-cardiac-shared-source/views/great-vessels-poster.webp",
+          "sha256": "968360131e24b650750adc72980c9be49b05bc8068e27f446ad6ab8c89c9796c",
+          "bytes": 11432,
+          "width": 640,
+          "height": 640,
+          "label": "Anterior full-atlas teaching view in clinical colors"
+        }
+      ],
+      "teachingView": "reviews/teaching-assessments/2026-11-23-cardiac-shared-source/views/great-vessels.webp",
+      "decision": "Use the anterior whole view then isolate the arch and pulmonary vessels. The lesson covers their relative position. The source junctions are schematic."
+    },
+    {
+      "export": {
+        "path": "heart/Cardiac_Atlas_Animated/exports/shared-source-r01/ventricular-wall-motion.glb",
+        "sha256": "9c6ac294f4080165770824b61d2d813b6a7f537261d80c7177fc387336866413",
+        "bytes": 850364
+      },
+      "task": "Scrub the schematic heartbeat and distinguish ventricular contour change from a rigid shift of the whole heart.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "Twenty-five clean-import samples match the preceding focus edition exactly for both retained meshes. The original morph weights are unchanged. The LV moves up to 5.047 mm and the aorta stays fixed."
+        },
+        {
+          "score": 3,
+          "observation": "The ventricle tip's changing contour can be seen at the sampled peak and the aortic silhouette stays stable. The neutral reverse close view shows the smooth profiles and the schematic overlap."
+        },
+        {
+          "score": 3,
+          "observation": "The fixed-camera start and peak samples show the moving lower wall against the stable aortic shape. The full atlas restores orientation and provides the other structures."
+        },
+        {
+          "score": 4,
+          "observation": "The two-object edition is 26.6% smaller after removing unused UV streams. It keeps all 30,646 triangles, three material primitives and the original clip. The vulnerable LV tip matches at rest, at peak and throughout the sampled loop."
+        }
+      ],
+      "sources": [
+        {
+          "path": "heart/Cardiac_Atlas_Animated/exports/shared-source-r01/README.md",
+          "label": "Shared editable source and build"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-23-cardiac-shared-source/README.md",
+          "label": "Matched teaching review and disposable edit replay"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-23-cardiac-shared-source/checks.json",
+          "label": "Clean-import registration and motion checks"
+        },
+        {
+          "path": "heart/Cardiac_Atlas/docs/README.md",
+          "label": "Original procedural Atlas and anatomy references"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-23-cardiac-shared-source/views/wall-motion.webp",
+          "sha256": "518c03fc92e0146b5a164c8e8a7845062763607a2d2fc413428da91cfc34144c",
+          "bytes": 24940,
+          "width": 742,
+          "height": 1284,
+          "label": "Matching rest and peak samples with a neutral reverse view"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-23-cardiac-shared-source/views/wall-motion-poster.webp",
+          "sha256": "80985f27ab5fcf6b12034622a2a4e8cae1c10743d238e98fefc1f52956d20a6c",
+          "bytes": 5592,
+          "width": 660,
+          "height": 353,
+          "label": "Matched reference and peak at the same teaching scale"
+        }
+      ],
+      "teachingView": "reviews/teaching-assessments/2026-11-23-cardiac-shared-source/views/wall-motion.webp",
+      "decision": "Use the focused export to compare local contour movement. Recover orientation in the shared static atlas. The motion remains an authored illustration."
+    }
+  ]
+}

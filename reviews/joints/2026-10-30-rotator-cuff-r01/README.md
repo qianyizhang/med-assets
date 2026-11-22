@@ -56,26 +56,24 @@ uploaded; the concise issue/PR briefs are retained for the coordinator. No merge
 Site change. Exact tested implementation is `304a1594d5f8bae958f104f3f6e378236100cad6`;
 this follow-up records delivery only and reuses those unchanged checks and artifacts.
 
-## Replay
+## Rebuild and recompose
 
-Blender 4.3.2, Python 3.11+, Pillow 12.3.0 and Noto Sans CJK Regular are used.
-Obtain the exact `Startup.blend` using the inventory's pinned archive route, verify
-both hashes, and extract only that member. Do not run source scripts or add-ons.
-Output directories must be new.
+The [shared right-arm recipe](../../../models/joints/recipes/z-right-arm/README.md)
+reproduces the exact cuff GLB from the pinned member in Blender 4.3.2.
+Recompose the teaching evidence from the retained, exact source and export
+captures with Python 3.11+, Pillow and Noto Sans CJK Regular.
 
 ```sh
-blender -b --factory-startup --disable-autoexec --threads 4 --python-exit-code 1 \
-  --python models/joints/recipes/rotator-cuff/replay.py -- --source /path/Startup.blend --out /tmp/cuff-new
-python3 models/joints/recipes/rotator-cuff/compose.py --run /tmp/cuff-new --out /tmp/cuff-presentation
+python3 models/joints/recipes/rotator-cuff/compose.py \
+  --run reviews/joints/2026-10-30-rotator-cuff-r01 --out /tmp/cuff-presentation
 python3 models/joints/recipes/rotator-cuff/verify.py
 python3 tests/test_rotator_cuff.py
 python3 tools/verify.py offline
 ```
 
-Use `--no-render` for source/export geometry replay, not visual approval.
-`compose.py --version 1` reconstructs the failed V1 caption. Native renderer uses
-Cycles CPU, 64 samples, no denoising, 900×900 pixels, AgX, exposure 0, gamma 1.
-Only labels and layout are composed; no anatomy pixels are edited.
+`compose.py --version 1` reconstructs the first V1 caption. The retained captures
+used Cycles CPU, 64 samples, 900 × 900 pixels, AgX, exposure 0 and gamma 1.
+Composition draws the labels and layout around the anatomy pixels.
 
 Resolved preparation failures: factory-empty scenes need an explicit World;
 this Blender build lacks OpenImageDenoise, so denoising is disabled; Blender's

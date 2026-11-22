@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / "transport/tools"))
 from lfs_transport import parse_pointer, unique_keys
 sys.path.insert(0, str(ROOT / "tools"))
-from teaching_assessments import REGISTER, campaign_rows, register_rows
+from teaching_assessments import REGISTER, campaign_rows, register_rows, register_selections
 
 BASELINE = "a6f4b3c"
 GALLERY = "sites/anatomy-gallery/app/src/content/gallery/"
@@ -297,7 +297,8 @@ def assessment_row(repo, item):
 
 def report(repo, audit=False):
     raw = (repo / REGISTER).read_text()
-    maintained = register_rows(raw)
+    selections = register_selections(raw)
+    maintained = {path: (item.collection, item.label) for path, item in selections.items()}
     pinned = subprocess.check_output(
         ["git", "-C", str(repo), "show", f"{BASELINE}:{REGISTER}"], text=True,
     )
@@ -311,6 +312,9 @@ def report(repo, audit=False):
 
     rows = []
     scorecard = []
+    family_exports = Counter(maintained.values())
+    family_keys = {item.shared_owner or (item.collection, item.family) for item in selections.values()}
+    families = Counter(collection for collection, _ in {(item.collection, item.family) for item in selections.values()})
     target_counts = defaultdict(Counter)
     counts = defaultdict(Counter)
     for path, (collection, family) in maintained.items():
@@ -336,19 +340,23 @@ def report(repo, audit=False):
                 status = "At target" if all(isinstance(n, int) and n >= 3 for n in scores) else (
                     "Exemption" if target and target["exemptions"] else "Open")
                 target_counts[collection][status] += 1
-                scorecard.append((collection, link(family, path), *scores, status, link("Evidence", item["source"])))
+                label = family if family_exports[(collection, family)] == 1 else f"{family} · {Path(path).stem}"
+                if selections[path].shared_owner:
+                    label = selections[path].family + " · " + label
+                scorecard.append((collection, link(label, path), *scores, status, link("Evidence", item["source"])))
 
 
     summary = [
         (collection, *(count[state] for state in STATES), count.total())
         for collection, count in counts.items()
     ]
+    families["**Total**"] = len(family_keys)
     total = sum(counts.values(), Counter())
     summary.append(("**Total**", *(total[state] for state in STATES), total.total()))
     if not audit and len(scorecard) == len(maintained) and not total["Unrated"]:
         lines = [
             "# Maintained teaching asset scorecard", "",
-            "Each row links the selected file to its task-specific assessment. An em dash marks an unassessed axis.",
+            "The total counts each shared family once across collections. Coverage and target counts apply to the selected files. Each file has its own learner task and four scores.",
             "Use the [rubric](../../../docs/guides/asset-quality.md) for the anchors and the "
             "[exemption recheck](../teaching-exemption-recheck.md) for the current before/after decisions and owned follow-ups.", "",
             "Run `python3.12 records/campaigns/teaching-asset-review/coverage.py --audit` for every identity, "
@@ -358,8 +366,8 @@ def report(repo, audit=False):
             lines.extend([f"Changes from the pinned register include {len(added)} additions, "
                           f"{len(removed)} replacements or retirements, and {len(moved)} regroupings.", ""])
         target_columns = ("At target", "Exemption", "Open")
-        lines += table(("Collection", *target_columns, *STATES, "Starting files"), (
-            (label, *((sum(target_counts.values(), Counter()) if label == "**Total**" else target_counts[label])[key]
+        lines += table(("Collection", "Families", *target_columns, *STATES, "Selected files"), (
+            (label, families[label], *((sum(target_counts.values(), Counter()) if label == "**Total**" else target_counts[label])[key]
                       for key in target_columns), *values) for label, *values in summary
         ))
         lines += table(("Collection", "Starting file", "Fidelity", "Form", "Readability", "Economy", "Target", "Review"), scorecard)
@@ -385,7 +393,8 @@ def report(repo, audit=False):
     for label, paths in (("Added", added), ("Removed", removed), ("Renamed or regrouped", moved)):
         lines.extend(f"- {label} · `{path}`" for path in sorted(paths))
     lines += ["", "## Coverage counts", ""]
-    lines += table(("Collection", *STATES, "Starting files"), summary)
+    lines += table(("Collection", "Families", *STATES, "Selected files"),
+                   ((label, families[label], *rest) for label, *rest in summary))
     lines += ["## Starting files", ""]
     lines += table(("Collection", "Family", "Starting file", "SHA-256 · bytes", "Coverage", "Assessments", "Result or evidence gap"), rows)
     columns = ("File", "Assessment SHA-256", "Source", "Attribution", "Date", "Task", "Fidelity / Form / Readability / Economy", "Binding and coverage")

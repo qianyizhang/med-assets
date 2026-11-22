@@ -4,34 +4,60 @@ import json
 import posixpath
 import re
 from pathlib import Path
+from typing import NamedTuple
 
 
 REGISTER = "docs/gallery/maintained-models.md"
 
 
-def register_rows(raw):
+class Selection(NamedTuple):
+    collection: str
+    label: str
+    family: str
+    shared_owner: str | None
+
+
+def register_selections(raw):
     rows = {}
+    families = set()
     collection = ""
     for line in raw.splitlines():
         if line.startswith("## "):
             collection = line[3:].strip()
         if not line.startswith("|") or line in ("| Family | Starting file |", "| --- | --- |"):
             continue
-        match = re.fullmatch(r"\| ([^|]+) \| \[([^\]]+)\]\(([^ )]+)\) \|", line)
-        if not match or not collection:
+        cells = line.split("|")
+        if len(cells) != 4 or cells[0] or cells[-1] or not collection:
             raise ValueError(f"Unrecognized maintained register row: {line}")
-        family, label, link = match.groups()
-        path = posixpath.normpath(posixpath.join("docs/gallery", link))
-        if not path.startswith(("models/", "assemblies/", "lessons/", "heart/", "body/")):
-            raise ValueError(f"Invalid starting path: {path}")
-        if Path(path).name != label or Path(path).suffix not in (".blend", ".glb"):
-            raise ValueError(f"Invalid starting-file link: {line}")
-        if path in rows or (collection, family) in rows.values():
+        label = cells[1].strip()
+        shared = re.fullmatch(r"([^|]+) · \[([^\]]+)\]\((\.\./\.\./(?:assemblies|models|heart)/[^) ]+/README\.md)\)", label)
+        if not shared and ("[" in label or "]" in label):
+            raise ValueError(f"Invalid shared family link: {label}")
+        label, family, owner = shared.groups() if shared else (label, label, None)
+        selection = Selection(collection, label, family, posixpath.normpath(posixpath.join("docs/gallery", owner)) if owner else None)
+        if not family or (collection, family) in families:
             raise ValueError(f"Ambiguous maintained row: {line}")
-        rows[path] = (collection, family)
+        families.add((collection, family))
+        for file in cells[2].strip().split("<br>"):
+            match = re.fullmatch(r"\[([^\]]+)\]\(([^ )]+)\)", file.strip())
+            if not match:
+                raise ValueError(f"Invalid starting-file link: {file}")
+            label, link = match.groups()
+            path = posixpath.normpath(posixpath.join("docs/gallery", link))
+            if not path.startswith(("models/", "assemblies/", "lessons/", "heart/", "body/")):
+                raise ValueError(f"Invalid starting path: {path}")
+            if Path(path).name != label or Path(path).suffix not in (".blend", ".glb"):
+                raise ValueError(f"Invalid starting-file link: {file}")
+            if path in rows:
+                raise ValueError(f"Duplicate maintained selection: {path}")
+            rows[path] = selection
     if not rows:
         raise ValueError("Empty maintained register")
     return rows
+
+
+def register_rows(raw):
+    return {path: (item.collection, item.label) for path, item in register_selections(raw).items()}
 
 
 def maintained_exports(rows, register):
@@ -209,7 +235,7 @@ def collect_candidates(repo, directories):
 
     repo = repo.resolve()
     rows = list(campaign_rows(repo))
-    register = register_rows((repo / REGISTER).read_text())
+    register = register_selections((repo / REGISTER).read_text())
     maintained = maintained_exports(rows, register)
     wanted = {}
     for _, _, row in rows:

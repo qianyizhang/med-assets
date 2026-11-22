@@ -9,3 +9,5 @@ python3.12 sites/body-systems-survey/export_gallery.py
 ```
 
 The exporter validates the selected PNGs against their render receipts and writes the display WebPs, collection index and Site delivery entries. Verify the display in the ordinary Gallery and preserve the original image identities when moving or replacing a plate. Restore the archived report through its [member manifest](../../sites/body-systems-survey/README.md#restore-the-media).
+
+The Reproductive left-pickup stop uses the [shared ovary lesson](../ovary-tubal-context/README.md) for pelvic orientation, enlarged HRA-derived views and the source comparison. The display index preserves the original survey plates.

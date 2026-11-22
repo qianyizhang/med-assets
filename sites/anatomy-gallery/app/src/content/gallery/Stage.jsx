@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { trachealLessonScenes } from './local-models.js';
 import { adrenalLibrary } from './adrenal-study.js';
 import { libraryPath } from './catalog.js';
 import { baseView, localScene, readView, stageReturn } from './presets.js';
@@ -10,7 +11,7 @@ export function Stage({ id, query, localPreview }) {
     [seq, setSeq] = useState(0);
   const view = id ? readView(query) : baseView(adrenalLibrary.recommended);
   const model = view && localScene(view);
-  if (!view || (id && id !== view.version) || (model && !localPreview)) return <Missing />;
+  if (!view || (id && id !== view.version) || (model && !localPreview && !trachealLessonScenes.includes(model))) return <Missing />;
   const record = model?.library ?? libraryPath(view.revision);
   const origin = id && stageReturn(new URLSearchParams(query).get('from'), view);
   return (

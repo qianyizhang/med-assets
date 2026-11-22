@@ -1,0 +1,393 @@
+{
+  "blender": "5.2.3 LTS Release Candidate",
+  "build": "fab76e95306d",
+  "source": {
+    "path": "models/trachea/exports/open-airway-r06/trachea-cutaway.glb",
+    "file": "trachea-cutaway.glb",
+    "sha256": "42b25a9e3de950db1a083da3802d4bb982c9084c425f768824c8973dc08be283",
+    "bytes": 1564740,
+    "triangles": 24942,
+    "meshes": 19,
+    "primitives": 21,
+    "shellTriangles": 6812,
+    "materials": [
+      "Illustrative external display surface.001",
+      "Illustrative inner shell - not segmented mucosa.001",
+      "Editorial cut face - not anatomical termination.001",
+      "Retained illustrative C-bands.001"
+    ]
+  },
+  "encodingTrial": {
+    "asset": {
+      "file": "cutaway-normal-trial.glb",
+      "sha256": "c6d42872143397ff553a02e6991c9e012572db018cebfc34ad3130ee4d16edf2",
+      "bytes": 1100744,
+      "triangles": 24942,
+      "meshes": 19,
+      "primitives": 21,
+      "shellTriangles": 6812,
+      "materials": [
+        "Illustrative external display surface.001",
+        "Illustrative inner shell - not segmented mucosa.001",
+        "Editorial cut face - not anatomical termination.001",
+        "Retained illustrative C-bands.001"
+      ]
+    },
+    "normalCount": 58095,
+    "sourceZeroNormalsRetained": 0,
+    "maxNormalDegrees": 0.371771,
+    "worstMesh": "Editorial depth-following cut.012",
+    "exactNonNormalViews": 42
+  },
+  "portAnchorsM": {
+    "leftMain": [
+      0.024,
+      0.07507817,
+      -0.03022069
+    ],
+    "rightMain": [
+      -0.027,
+      0.08174657,
+      -0.02473285
+    ],
+    "fork": [
+      -0.009604,
+      0.096,
+      -0.024011
+    ]
+  },
+  "views": {
+    "original": [
+      {
+        "file": "original-complete.png",
+        "sha256": "1201aa221fbb4f9e1575f73e627e807e745c22f68fcae7575d6c00b670f2f327",
+        "bytes": 265023,
+        "direction": [
+          0.06800000369548798,
+          -0.45399999618530273,
+          0.025999993085861206
+        ],
+        "camera": [
+          0.08569205552339554,
+          -0.6001791954040527,
+          0.15905871987342834
+        ],
+        "orthoScale": 0.1469999998807907,
+        "palette": true,
+        "visible": [
+          "Authored illustrative C-band 1",
+          "Authored illustrative C-band 10",
+          "Authored illustrative C-band 11",
+          "Authored illustrative C-band 12",
+          "Authored illustrative C-band 13",
+          "Authored illustrative C-band 14",
+          "Authored illustrative C-band 15",
+          "Authored illustrative C-band 16",
+          "Authored illustrative C-band 17",
+          "Authored illustrative C-band 18",
+          "Authored illustrative C-band 2",
+          "Authored illustrative C-band 3",
+          "Authored illustrative C-band 4",
+          "Authored illustrative C-band 5",
+          "Authored illustrative C-band 6",
+          "Authored illustrative C-band 7",
+          "Authored illustrative C-band 8",
+          "Authored illustrative C-band 9",
+          "Trachea | authored cutaway teaching shell"
+        ],
+        "targetM": [
+          -0.006000000052154064,
+          0.012000000104308128,
+          0.12399999797344208
+        ]
+      },
+      {
+        "file": "original-wall.png",
+        "sha256": "0ccba6a8d3abaadf38c9bdd9fc0b0c8a7dfaf019361506a245f7cc0b5aa9ab4b",
+        "bytes": 263473,
+        "direction": [
+          0.06800000369548798,
+          -0.45399999618530273,
+          0.025999993085861206
+        ],
+        "camera": [
+          0.08569205552339554,
+          -0.6001791954040527,
+          0.15905871987342834
+        ],
+        "orthoScale": 0.1469999998807907,
+        "palette": true,
+        "visible": [
+          "Trachea | authored cutaway teaching shell"
+        ],
+        "targetM": [
+          -0.006000000052154064,
+          0.012000000104308128,
+          0.12399999797344208
+        ],
+        "projectedLessonGuides": {
+          "leftMain": [
+            0.720190703868866,
+            0.8270481079816818
+          ],
+          "rightMain": [
+            0.3715493381023407,
+            0.7809391766786575
+          ],
+          "fork": [
+            0.48785656690597534,
+            0.6853980422019958
+          ]
+        }
+      },
+      {
+        "file": "original-branch.png",
+        "sha256": "ad1e1821752381e59ca645448ac75fd2727ea32a9a5cbca83e648b2b9fa91f6c",
+        "bytes": 293107,
+        "direction": [
+          0.4000000059604645,
+          -1.0,
+          0.3100000023841858
+        ],
+        "camera": [
+          0.22127868235111237,
+          -0.5291967391967773,
+          0.26249098777770996
+        ],
+        "orthoScale": 0.07100000232458115,
+        "palette": false,
+        "visible": [
+          "Trachea | authored cutaway teaching shell"
+        ],
+        "targetM": [
+          0.0,
+          0.024000000208616257,
+          0.09099999815225601
+        ],
+        "projectedLessonGuides": {
+          "leftMain": [
+            0.8463911414146423,
+            0.7277255058288574
+          ],
+          "rightMain": [
+            0.15075108408927917,
+            0.5835295021533966
+          ],
+          "fork": [
+            0.37446504831314087,
+            0.41838955879211426
+          ]
+        }
+      },
+      {
+        "file": "original-context.png",
+        "sha256": "9180c960697a13174a4f7a3e2e991442b4219b4317ecebe0e052676e19a42316",
+        "bytes": 260034,
+        "direction": [
+          0.949999988079071,
+          0.550000011920929,
+          0.27000001072883606
+        ],
+        "camera": [
+          0.5150349736213684,
+          0.31365182995796204,
+          0.2720836400985718
+        ],
+        "orthoScale": 0.1469999998807907,
+        "palette": true,
+        "visible": [
+          "Authored illustrative C-band 1",
+          "Authored illustrative C-band 10",
+          "Authored illustrative C-band 11",
+          "Authored illustrative C-band 12",
+          "Authored illustrative C-band 13",
+          "Authored illustrative C-band 14",
+          "Authored illustrative C-band 15",
+          "Authored illustrative C-band 16",
+          "Authored illustrative C-band 17",
+          "Authored illustrative C-band 18",
+          "Authored illustrative C-band 2",
+          "Authored illustrative C-band 3",
+          "Authored illustrative C-band 4",
+          "Authored illustrative C-band 5",
+          "Authored illustrative C-band 6",
+          "Authored illustrative C-band 7",
+          "Authored illustrative C-band 8",
+          "Authored illustrative C-band 9",
+          "Trachea | authored cutaway teaching shell"
+        ],
+        "targetM": [
+          -0.006000000052154064,
+          0.012000000104308128,
+          0.12399999797344208
+        ]
+      }
+    ],
+    "trial": [
+      {
+        "file": "trial-complete.png",
+        "sha256": "227ab49fced7db52453104971035dbccb7e5f07a12ae5b9bb10bdff36d30cac6",
+        "bytes": 264848,
+        "direction": [
+          0.06800000369548798,
+          -0.45399999618530273,
+          0.025999993085861206
+        ],
+        "camera": [
+          0.08569205552339554,
+          -0.6001791954040527,
+          0.15905871987342834
+        ],
+        "orthoScale": 0.1469999998807907,
+        "palette": true,
+        "visible": [
+          "Authored illustrative C-band 1",
+          "Authored illustrative C-band 10",
+          "Authored illustrative C-band 11",
+          "Authored illustrative C-band 12",
+          "Authored illustrative C-band 13",
+          "Authored illustrative C-band 14",
+          "Authored illustrative C-band 15",
+          "Authored illustrative C-band 16",
+          "Authored illustrative C-band 17",
+          "Authored illustrative C-band 18",
+          "Authored illustrative C-band 2",
+          "Authored illustrative C-band 3",
+          "Authored illustrative C-band 4",
+          "Authored illustrative C-band 5",
+          "Authored illustrative C-band 6",
+          "Authored illustrative C-band 7",
+          "Authored illustrative C-band 8",
+          "Authored illustrative C-band 9",
+          "Trachea | authored cutaway teaching shell"
+        ],
+        "targetM": [
+          -0.006000000052154064,
+          0.012000000104308128,
+          0.12399999797344208
+        ]
+      },
+      {
+        "file": "trial-wall.png",
+        "sha256": "f7cd7698fb898e9db813d0b0f984cf7d7be7d195009c4be6a9e5a51ead5c6be9",
+        "bytes": 263272,
+        "direction": [
+          0.06800000369548798,
+          -0.45399999618530273,
+          0.025999993085861206
+        ],
+        "camera": [
+          0.08569205552339554,
+          -0.6001791954040527,
+          0.15905871987342834
+        ],
+        "orthoScale": 0.1469999998807907,
+        "palette": true,
+        "visible": [
+          "Trachea | authored cutaway teaching shell"
+        ],
+        "targetM": [
+          -0.006000000052154064,
+          0.012000000104308128,
+          0.12399999797344208
+        ],
+        "projectedLessonGuides": {
+          "leftMain": [
+            0.720190703868866,
+            0.8270481079816818
+          ],
+          "rightMain": [
+            0.3715493381023407,
+            0.7809391766786575
+          ],
+          "fork": [
+            0.48785656690597534,
+            0.6853980422019958
+          ]
+        }
+      },
+      {
+        "file": "trial-branch.png",
+        "sha256": "ef10735d3a5de17bf79ea43beaddf06f2eb97199a7ee9d4180317e3fdfc89969",
+        "bytes": 293114,
+        "direction": [
+          0.4000000059604645,
+          -1.0,
+          0.3100000023841858
+        ],
+        "camera": [
+          0.22127868235111237,
+          -0.5291967391967773,
+          0.26249098777770996
+        ],
+        "orthoScale": 0.07100000232458115,
+        "palette": false,
+        "visible": [
+          "Trachea | authored cutaway teaching shell"
+        ],
+        "targetM": [
+          0.0,
+          0.024000000208616257,
+          0.09099999815225601
+        ],
+        "projectedLessonGuides": {
+          "leftMain": [
+            0.8463911414146423,
+            0.7277255058288574
+          ],
+          "rightMain": [
+            0.15075108408927917,
+            0.5835295021533966
+          ],
+          "fork": [
+            0.37446504831314087,
+            0.41838955879211426
+          ]
+        }
+      },
+      {
+        "file": "trial-context.png",
+        "sha256": "86aedbe2a74345a5075c2e22a5689c3145139b65cdd6066dd24b6d7f60117db9",
+        "bytes": 259910,
+        "direction": [
+          0.949999988079071,
+          0.550000011920929,
+          0.27000001072883606
+        ],
+        "camera": [
+          0.5150349736213684,
+          0.31365182995796204,
+          0.2720836400985718
+        ],
+        "orthoScale": 0.1469999998807907,
+        "palette": true,
+        "visible": [
+          "Authored illustrative C-band 1",
+          "Authored illustrative C-band 10",
+          "Authored illustrative C-band 11",
+          "Authored illustrative C-band 12",
+          "Authored illustrative C-band 13",
+          "Authored illustrative C-band 14",
+          "Authored illustrative C-band 15",
+          "Authored illustrative C-band 16",
+          "Authored illustrative C-band 17",
+          "Authored illustrative C-band 18",
+          "Authored illustrative C-band 2",
+          "Authored illustrative C-band 3",
+          "Authored illustrative C-band 4",
+          "Authored illustrative C-band 5",
+          "Authored illustrative C-band 6",
+          "Authored illustrative C-band 7",
+          "Authored illustrative C-band 8",
+          "Authored illustrative C-band 9",
+          "Trachea | authored cutaway teaching shell"
+        ],
+        "targetM": [
+          -0.006000000052154064,
+          0.012000000104308128,
+          0.12399999797344208
+        ]
+      }
+    ]
+  }
+}

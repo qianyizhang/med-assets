@@ -1,5 +1,7 @@
 # Medical teaching assets
 
+This repository is in beta. We ship in small, verified iterations and retire superseded assets and manifest entries as their readers migrate. See the [beta retention policy](docs/WORKFLOW.md#retention).
+
 - **Contents** · Editable 3D models, registered assemblies, 2D diagrams and runnable lessons.
 - **Use** · Education. See each package's source, license, review scope and limitations.
 - **Find** · [Asset and evidence owners](docs/WORKFLOW.md#ownership), [source studies](sources/), [live Anatomy Gallery](https://med-assets-model-survey.landy123007.chatgpt.site/), [Gallery source and authoring](sites/anatomy-gallery/), [Body Systems replay](sites/body-systems-survey/).
@@ -7,7 +9,7 @@
 - **Contribute** · [Repository instructions](AGENTS.md), [glossary](GLOSSARY.md), [gallery product requirements](docs/gallery/README.md), [gallery design](docs/gallery/design.md), [teaching-asset rubric](docs/guides/asset-quality.md), [asset admission](docs/WORKFLOW.md#asset-admission), [verification](docs/WORKFLOW.md#verification), [decisions](docs/DECISIONS.md).
 - **Follow work** · [Gallery consolidation campaign](records/campaigns/anatomy-gallery-consolidation.md) and [work-item backlog](records/work-items/backlog.md).
 
-The [maintained 3D family list](docs/gallery/maintained-models.md) selects a starting file for each reusable teaching family. The [collection archives](transport/README.md#restore-an-archived-collection) restore cold replay inputs and historical evidence.
+The [maintained 3D family list](docs/gallery/maintained-models.md) identifies each maintained family and its selected teaching files. The [collection archives](transport/README.md#restore-an-archived-collection) restore cold replay inputs and historical evidence.
 
 ## Local checkout
 

@@ -11,7 +11,7 @@ The seven selected meshes retain the exact native frame, position, index, normal
 
 Retain the [HRA source attribution and terms](../../provenance/context-r02/migration-2026-10-24/ATTRIBUTION.md), including the attribution for the source parts and the r02 assembly. This edition adds only a teaching selection and container bookkeeping changes.
 
-Recover from the hydrated exact r02 with the [selection recipe](../../recipes/teaching-context-r03/build.py), from the repository root. Use a fresh output path.
+The [shared female HRA pelvis recipe](../../../../assemblies/hra-female-pelvis/README.md) rebuilds these seven structures with positions and topology from the same editable group as the bladder-base export. The hydrated exact r02 still supplies the reviewed display normals and materials. The [original command](../../recipes/teaching-context-r03/build.py) uses that shared recipe and keeps its single-file output. Use a fresh path from the repository root.
 
 ```sh
 python3.12 models/vagina_hra/recipes/teaching-context-r03/build.py .artifacts/vagina-teaching-context-r03.glb

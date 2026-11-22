@@ -1,0 +1,195 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-23",
+  "evaluator": "Codex (agent review, AG-GAL-028)",
+  "rubric": {
+    "revision": "7d95ddd7f5d9e9d288beefa8f3c5b430e61a7d36",
+    "path": "docs/guides/asset-quality.md",
+    "sha256": "a38e552869511cd5bceacaa5ea4456f4d0530e58e7dce2bc6855587a98b0e684"
+  },
+  "assessments": [
+    {
+      "export": {
+        "path": "models/parotid_glands/exports/source-shared-r01/parotid-pair.glb",
+        "sha256": "d0ee5a98c2668ab9159ae94f9a00c27e207fa541e611d71decc688bd7c482c3e",
+        "bytes": 53656
+      },
+      "route": "library/parotid_glands/source-shared-r01",
+      "task": "Compare the two source-native parotid outer envelopes in the pair.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "Both envelopes match the same selections in the two salivary exports exactly in world position and oriented tessellation. Against the old exterior, the largest vertex position error is 0.00024 mm. The left has 852 source quad diagonal changes and a sampled interior difference of up to 0.373 mm, with no reversed, duplicate or collapsed faces."
+        },
+        {
+          "score": 3,
+          "observation": "Anterior and oblique views retain the elongated envelopes, near rim and concave surface. The same rose material and broad highlights give the contours the same reading at teaching scale."
+        },
+        {
+          "score": 3,
+          "observation": "The anterior view separates the right and left envelopes. The oblique view makes depth and the near rim legible. The readout uses two selectable structures and refers placement to the jaw-context export."
+        },
+        {
+          "score": 4,
+          "observation": "Both one-primitive envelopes retain 854 vertices and 1,704 triangles each. A shared local representation encodes the same 3,408 triangles in 53,656 bytes, saving 15.8%. Largest measured projection change at the outline is below 0.001 pixel in the matched views."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-23-salivary-shared-source/README.md",
+          "label": "Shared source, matched review and replay"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-23-salivary-shared-source/checks.json",
+          "label": "Geometry, source edit, negative crossing and fixed-camera checks"
+        },
+        {
+          "path": "models/parotid_glands/exports/source-shared-r01/README.md",
+          "label": "Export scope and source attribution"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-23-salivary-shared-source/views/parotid-matched.webp",
+          "sha256": "1bc96dfcaa515f5151747e24f29e8292df3cf0a85c24bc74e586df2c5ccbd2f0",
+          "bytes": 27252,
+          "width": 978,
+          "height": 902,
+          "label": "Anterior and oblique views of the exact original and updated envelopes"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-23-salivary-shared-source/views/parotid-poster.webp",
+          "sha256": "105f8a3976fe1e15c6b2ede9280e5ebe06b68fff2d32352e38fc40b3d217978e",
+          "bytes": 14692,
+          "width": 1182,
+          "height": 522,
+          "label": "Anterior and oblique views of the current parotid pair"
+        }
+      ],
+      "teachingView": "reviews/teaching-assessments/2026-11-23-salivary-shared-source/views/parotid-poster.webp",
+      "decision": "Keep the exterior-only selection to compare the native envelope shapes. The jaw-context selection supplies relative placement."
+    },
+    {
+      "export": {
+        "path": "models/salivary_glands/exports/z-native-shared-r01/glands-and-parotid-ducts.glb",
+        "sha256": "ef588f09db83560185c486a15dacbba929967bfefda0cbee4a0dc16495ce16da",
+        "bytes": 116896
+      },
+      "route": "library/salivary_glands/z-native-shared-r01",
+      "task": "Identify the three major gland pairs and follow the visible gross parotid duct course.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "Both named parotid ducts match the previous export at every world vertex and every oriented triangle. The six glands retain placement. The left source submandibular crossing was independently reproduced and both submandibular ducts are excluded."
+        },
+        {
+          "score": 3,
+          "observation": "The oblique and anterior-oblique views separate the thin ducts from the upper envelopes. The visible endpoints remain narrow. The model covers the gross course up to the displayed tips."
+        },
+        {
+          "score": 3,
+          "observation": "The isolated selection separates the six glands and exposes the gross duct course. Its companion lateral view shows the selected duct passing over the modeled masseter."
+        },
+        {
+          "score": 4,
+          "observation": "The eight one-primitive meshes retain 7,144 oriented triangles. The untextured model saves 9.9% at 116,896 bytes by dropping unused UVs and retaining 1,152 triangles per duct with zero world vertex error."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-23-salivary-shared-source/README.md",
+          "label": "Shared source, matched review and replay"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-23-salivary-shared-source/checks.json",
+          "label": "Geometry, source edit, negative crossing and fixed-camera checks"
+        },
+        {
+          "path": "models/salivary_glands/exports/z-native-shared-r01/README.md",
+          "label": "Export scope and source attribution"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-23-salivary-shared-source/views/duct-course-matched.webp",
+          "sha256": "58040c83adb11c7ca4f5fc5fef379832e8778598b57e98652d4d1453b29eae0b",
+          "bytes": 40742,
+          "width": 978,
+          "height": 902,
+          "label": "Two fixed views of the original and updated gland and duct selections"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-23-salivary-shared-source/views/duct-course-poster.webp",
+          "sha256": "0ffe2b05008b9f209364a34d07402c4a83fc19edfd3b86284e6f0128c4c0748f",
+          "bytes": 23138,
+          "width": 1182,
+          "height": 522,
+          "label": "Current isolated selection and the current lateral jaw-context view"
+        }
+      ],
+      "teachingView": "reviews/teaching-assessments/2026-11-23-salivary-shared-source/views/duct-course-poster.webp",
+      "decision": "Use the isolated selection to follow the visible course, then compare its position against the masseter in the context export."
+    },
+    {
+      "export": {
+        "path": "models/salivary_glands/exports/z-native-shared-r01/same-source-context.glb",
+        "sha256": "22406f58d0d2852a7cc5dee93f307a5240ca2004d4eb34259cb46749cb630501",
+        "bytes": 654988
+      },
+      "route": "library/salivary_glands/z-native-shared-r01",
+      "task": "Locate the parotid by the mandibular ramus and distinguish the lower gland pairs along the oral floor.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "All 15 source-native structures and their world placement survive clean import. The jaw and both parotid ducts have zero world vertex error and preserve every oriented face. Both submandibular duct objects remain absent."
+        },
+        {
+          "score": 3,
+          "observation": "The lateral view preserves the parotid envelope against the ramus and masseter. The superior view reveals the mandibular arch and the inner lower glands. Empty sockets and the coarse muscle surfaces belong to the source context."
+        },
+        {
+          "score": 3,
+          "observation": "The full lateral context and an isolated superior selection let the learner use the jaw as a landmark. The superior view hides other soft-tissue layers so that the lower gland envelopes stay visible."
+        },
+        {
+          "score": 4,
+          "observation": "The 15 one-material selections retain all 38,522 triangles, including 18,834 in the mandible. Dropping unused texture coordinates cuts the file by 14.2% to 654,988 bytes and removes 586 UV-split jaw vertices while preserving the entire jaw position set, socket rims and duct silhouettes."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-23-salivary-shared-source/README.md",
+          "label": "Shared source, matched review and replay"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-23-salivary-shared-source/checks.json",
+          "label": "Geometry, source edit, negative crossing and fixed-camera checks"
+        },
+        {
+          "path": "models/salivary_glands/exports/z-native-shared-r01/README.md",
+          "label": "Export scope and source attribution"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-23-salivary-shared-source/views/jaw-context-matched.webp",
+          "sha256": "1103bf144bc26505f7ad9e45a77a0bbf4c386abfe2b2a37c30095aa19aec722e",
+          "bytes": 47574,
+          "width": 978,
+          "height": 902,
+          "label": "Matched lateral jaw context and superior lower-gland selection"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-23-salivary-shared-source/views/jaw-context-poster.webp",
+          "sha256": "97451b4a75e402a333fc25c8da490d142693b704ff9b6da3eb5c94c35e6e5851",
+          "bytes": 25914,
+          "width": 1182,
+          "height": 522,
+          "label": "Current lateral context and superior jaw with lower glands isolated"
+        }
+      ],
+      "teachingView": "reviews/teaching-assessments/2026-11-23-salivary-shared-source/views/jaw-context-poster.webp",
+      "decision": "Start at the mandibular ramus from the side, then use the superior jaw and lower-gland selection for the oral floor."
+    }
+  ]
+}

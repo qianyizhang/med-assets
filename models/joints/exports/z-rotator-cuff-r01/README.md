@@ -7,8 +7,8 @@ to locate the posterior muscle surfaces around the scapular spine and the
 subscapularis surface on the opposing face. Whole-subset and close views explain
 the humeral-shaft crop; the model retains the full selected bones.
 
-This is a separate supplement. The accepted
-[ligament/labrum study](../z-shoulder-r01/README.md) remains unchanged.
+Use the [ligament/labrum study](../z-shoulder-r02/README.md) for capsule and
+glenoid relationships.
 No origin/insertion marker has been converted into tissue. No complete attachment,
 tendon continuity, bursae, cartilage, muscle action, motion, clinical validity,
 physical-scale calibration or browser-runtime approval is claimed.
@@ -43,4 +43,5 @@ the exact archive/member hashes and source commit are in the inventory.
 was consulted for cuff membership and broad location only. No source text or figure
 was reproduced; that reference does not validate this mesh or extend its claims.
 
-[Review and replay](../../../../reviews/joints/2026-10-30-rotator-cuff-r01/README.md).
+[Exact-byte shared replay](../../recipes/z-right-arm/README.md) ·
+[Review and teaching evidence](../../../../reviews/joints/2026-10-30-rotator-cuff-r01/README.md).

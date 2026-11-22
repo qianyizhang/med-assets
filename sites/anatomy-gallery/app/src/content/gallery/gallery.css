@@ -727,6 +727,12 @@
 .ga-source-evidence-stacked {
   grid-template-columns: minmax(0, 1fr);
 }
+.ga-ovary-orientation .ga-source-evidence {
+  max-width: 36rem;
+}
+.ga-ovary-localization .ga-source-evidence {
+  max-width: 49.5rem;
+}
 
 .ga-lymph-controls {
   position: sticky;

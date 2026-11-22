@@ -1,0 +1,153 @@
+{
+  "schemaVersion": 1,
+  "evaluator": "Codex (matched source replay review)",
+  "date": "2026-11-23",
+  "rubric": {
+    "path": "docs/guides/asset-quality.md",
+    "sha256": "01c7254cf7b2ceb2e72e59952dad24c44ed59917b25ca59c83d6c458eee64302",
+    "revision": "e0eae25c3914c27cfd81fb72436e443b023bf487"
+  },
+  "assessments": [
+    {
+      "route": "library/joints/z-elbow-r02",
+      "export": {
+        "path": "models/joints/exports/z-elbow-r02/elbow_z_native.glb",
+        "sha256": "d4d209057d331f2154e33941c68fc1030fe86ac47f281c974360a887cfc3eab9",
+        "bytes": 158752
+      },
+      "task": "Locate the capsule between the upper-arm bone and the two forearm bones.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "Eight exact source-named meshes preserve native placement and all 8,332 oriented triangles. The shared bone context supports static location while attachment mechanics remain outside scope."
+        },
+        {
+          "score": 3,
+          "observation": "Matched anterior and deep oblique captures preserve the capsular region, rounded bony landmarks and annular relationship. The joint surfaces retain source irregularities."
+        },
+        {
+          "score": 3,
+          "observation": "The colored capsule stays visible at the elbow on three bones. Hiding capsule and humerus reveals the selected deeper ligament structures."
+        },
+        {
+          "score": 3,
+          "observation": "Eight meshes retain 8,332 triangles and the same download size. The 1,728-triangle capsule remains independently selectable."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/joints/exports/z-elbow-r02/README.md",
+          "label": "Selected export and teaching scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-23-z-right-arm-replay/README.md",
+          "label": "Shared replay and matched technical checks"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-23-z-right-arm-replay/views/elbow-teaching.webp",
+          "sha256": "aa7afea7a5e66e6cd941dada5001b1a5da4e04973be21dd5e16ad358d06af126",
+          "bytes": 48290,
+          "label": "Anterior capsule and deep annular-ligament view with the radius and ulna."
+        }
+      ],
+      "decision": "Use the static capsule localization and optional deep inspection.",
+      "teachingView": "reviews/teaching-assessments/2026-11-23-z-right-arm-replay/views/elbow-teaching.webp"
+    },
+    {
+      "route": "library/joints/z-shoulder-r02",
+      "export": {
+        "path": "models/joints/exports/z-shoulder-r02/shoulder_z_native.glb",
+        "sha256": "f2d746dfafb7b74bdcf91561a26c8806dc4e4fd05887c9c1d95fafd92a3ab09a",
+        "bytes": 671712
+      },
+      "task": "Locate shoulder capsule at the humeral head and orient to the scapula and clavicle.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "Ten exact source-named meshes preserve the static pose and oriented nonzero-area faces. Two decoded zero-area scapular faces are confined to a 1.14 mm patch remote from the recorded spine and labrum anchors."
+        },
+        {
+          "score": 3,
+          "observation": "Matched exterior and deep oblique captures retain the capsule beside the humeral head, the acromial outline and the glenoid rim. Narrow soft-tissue overlaps persist."
+        },
+        {
+          "score": 3,
+          "observation": "Bone silhouette and colored soft tissues orient the learner to the capsule, scapular blade and clavicle. Hiding capsule and humerus exposes the regional glenoid relationships."
+        },
+        {
+          "score": 3,
+          "observation": "Ten pieces use 36,700 triangles with a 12-byte increase. The scapula preserves the blade and acromial contour, and the 3,232-triangle capsule is individually selectable."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/joints/exports/z-shoulder-r02/README.md",
+          "label": "Selected export and teaching scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-23-z-right-arm-replay/README.md",
+          "label": "Shared replay and matched technical checks"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-23-z-right-arm-replay/views/shoulder-teaching.webp",
+          "sha256": "73549ad2b75731c57eac85ea0cce1047b3cb8f9327ebaa8c0c2a8a3d948d8662",
+          "bytes": 54640,
+          "label": "Anterior capsule and exposed glenoid labrum beside the scapula and clavicle."
+        }
+      ],
+      "decision": "Keep the capsule and glenoid inspection. Use the cuff subset for individual muscle localization.",
+      "teachingView": "reviews/teaching-assessments/2026-11-23-z-right-arm-replay/views/shoulder-teaching.webp"
+    },
+    {
+      "route": "library/peripheral_nerves/ulnar-elbow-r02",
+      "export": {
+        "path": "models/peripheral_nerves/exports/ulnar-elbow-r02/right-ulnar-elbow.glb",
+        "sha256": "18dee1b0333b31f04dc07b52d4d4c58ec94f8c65108475c0f02467b06dd2cc83",
+        "bytes": 186972
+      },
+      "task": "Use the elbow region to locate the retained right ulnar course relative to the olecranon and medial epicondyle.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "Native placement, oriented faces and world bone positions are preserved. The displayed nerve course replays within 0.000015 mm and remains a static gross locator."
+        },
+        {
+          "score": 3,
+          "observation": "Both detail views reproduce identical pixels. The fine nerve remains distinct against the broader medial epicondyle and olecranon."
+        },
+        {
+          "score": 3,
+          "observation": "The landmark plate follows the ochre nerve against the two named bones from medial and posteromedial angles. Whole-arm scale requires the detail crop for the nerve."
+        },
+        {
+          "score": 3,
+          "observation": "Four separately selectable meshes use 9,136 triangles, of which 3,168 draw the thin source nerve. The download is 736 bytes smaller."
+        }
+      ],
+      "sources": [
+        {
+          "path": "models/peripheral_nerves/exports/ulnar-elbow-r02/README.md",
+          "label": "Selected export and teaching scope"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-23-z-right-arm-replay/README.md",
+          "label": "Shared replay and matched technical checks"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-23-z-right-arm-replay/views/ulnar-teaching.webp",
+          "sha256": "cc0239353a5724f39350decbc1f2516524e14cfca15094b890d908213ad1e2b3",
+          "bytes": 48820,
+          "label": "Trace the ulnar nerve beside the medial epicondyle and olecranon in two views."
+        }
+      ],
+      "decision": "Use the two matched landmark views to trace the visible nerve course.",
+      "teachingView": "reviews/teaching-assessments/2026-11-23-z-right-arm-replay/views/ulnar-teaching.webp"
+    }
+  ]
+}

@@ -2,8 +2,10 @@ import React from 'react';
 import { assetUrl, byPath, salivary } from './catalog.js';
 import { Evidence } from './Evidence.jsx';
 import { Heading, Link, Missing } from './GalleryUI.jsx';
+import ovaryLesson from './teaching-inputs/ovary-tubal-context/lesson.json';
+import ovaryCloseups from './teaching-inputs/ovary-tubal-context/ovary-teaching.webp';
 import {
-  oralFolder, oralSpaces, oralSpacesPath, regionalLessons, regionalPath, teachingDisplayPath,
+  oralFolder, oralSpaces, oralSpacesPath, ovaryLocator, regionalLessons, regionalPath, teachingDisplayPath,
 } from './teaching-data.js';
 
 const source = 'https://github.com/qianyizhang/med-assets/blob/e63006dca598031d58bdf66485fed24a24194558/';
@@ -66,10 +68,76 @@ export function OralSpacesLesson({ lang = 'en', query }) {
   );
 }
 
-export function RegionalLinks({ system }) {
+export function RegionalLinks({ system, ovaryHref }) {
   return regionalLessons.filter((lesson) => lesson.system === system).map((lesson) => (
-    <Link to={regionalPath + '/' + lesson.id} key={lesson.id}>{lesson.name} →</Link>
+    <Link to={(lesson === ovaryLocator && ovaryHref) || regionalPath + '/' + lesson.id} key={lesson.id}>
+      {lesson.name} →
+    </Link>
   ));
+}
+
+function BilingualText({ en, zh }) {
+  return <><p>{en}</p><p lang="zh">{zh}</p></>;
+}
+
+export function OvaryTubalLesson({ children }) {
+  const { question, questionZh, orientation, localization, source: native } = ovaryLesson;
+  const pelvicPlate = byPath.get(orientation.plate.path);
+  const nativeModel = byPath.get(native.model);
+  return (
+    <>
+      <Heading title={question}><span lang="zh">{questionZh}</span></Heading>
+      {children}
+      <section className="ga-ovary-orientation" aria-labelledby="ovary-pelvis-heading">
+        <h2 id="ovary-pelvis-heading">
+          {orientation.heading} · <span lang="zh">{orientation.headingZh}</span>
+        </h2>
+        <BilingualText en={orientation.cue} zh={orientation.cueZh} />
+        <div className="ga-pair ga-source-evidence ga-source-evidence-stacked">
+          <Evidence witness={{
+            ...orientation.plate,
+            asset: pelvicPlate,
+            caption: <span lang="zh">{orientation.plate.titleZh}</span>,
+            sourceUrl: 'https://github.com/qianyizhang/med-assets/blob/' +
+              orientation.plate.sourceRevision + '/' + orientation.plate.path,
+          }} />
+        </div>
+      </section>
+      <section className="ga-ovary-localization" aria-labelledby="ovary-gap-heading">
+        <h2 id="ovary-gap-heading">
+          {localization.heading} · <span lang="zh">{localization.headingZh}</span>
+        </h2>
+        <BilingualText en={localization.transition} zh={localization.transitionZh} />
+        <BilingualText en={localization.cue} zh={localization.cueZh} />
+        <div className="ga-pair ga-source-evidence ga-source-evidence-stacked">
+          <Evidence witness={{
+            ...localization.plate,
+            displayUrl: ovaryCloseups,
+            caption: <span lang="zh">{localization.plate.titleZh}</span>,
+          }} />
+        </div>
+        <BilingualText en={localization.limit} zh={localization.limitZh} />
+      </section>
+      <details>
+        <summary>{native.heading} · <span lang="zh">{native.headingZh}</span></summary>
+        <BilingualText en={native.cue} zh={native.cueZh} />
+        <div className="ga-pair ga-source-evidence ga-source-evidence-stacked">
+          <TeachingPlate plate={{
+            ...native.plate,
+            loading: 'lazy',
+            caption: <span lang="zh">{native.plate.titleZh}</span>,
+          }} />
+        </div>
+        <BilingualText en={native.credit} zh={native.creditZh} />
+        <div className="ga-related">
+          {nativeModel && (
+            <a href={assetUrl(nativeModel)}>Exact HRA r01 GLB · <span lang="zh">HRA r01 源模型</span></a>
+          )}
+          <a href={source + native.attribution}>Source credits and license · <span lang="zh">来源署名与许可</span></a>
+        </div>
+      </details>
+    </>
+  );
 }
 
 export function RegionalLocators({ stop }) {
@@ -89,6 +157,15 @@ export function RegionalLocators({ stop }) {
   );
   const lesson = regionalLessons.find(({ id }) => id === stop);
   if (!lesson) return <Missing />;
+  if (lesson === ovaryLocator) return (
+    <>
+      <Link to={regionalPath}>← Regional locators</Link>
+      <OvaryTubalLesson />
+      <div className="ga-related">
+        <Link to={systemPath(lesson.system)}>See the reproductive assembly in Body Systems →</Link>
+      </div>
+    </>
+  );
   const model = byPath.get(lesson.model);
   return (
     <>

@@ -14,13 +14,19 @@ When the [Asset Library](asset-library.md) recommendation changes, offer each af
 
 ## Body Systems collection
 
-Body Systems has a direct navigation shortcut. The collection opens on eleven anatomical systems. Each system starts at its assembly with its placement basis, teaching purpose, two labeled views and color legend. Asset detail opens the original study’s named view pairs. Keep the limits beside the teaching material and provide a link to the corresponding Library category. A reviewed revision or regional lesson may have its own explicit link.
+Body Systems has a direct navigation shortcut. The collection opens on eleven anatomical systems. Each system starts at its assembly with its placement basis, teaching purpose, two labeled views and color legend. A detail opens its named view pair or shared lesson. Keep the limits beside the teaching material and provide a link to the corresponding Library category. A reviewed revision or regional lesson may have its own explicit link.
+
+One Breath links its route step to the Respiratory airway sequence. Its cutaway lets the learner trace the inner wall into the left main bronchus. Airway Review uses the open shell to identify the proximal mouth and both distal outlets. The mechanics and gas-exchange stops retain their own questions and scale cues.
+
+The female HRA pelvis supplies two different actions. From the left vesical detail, locate the bladder base, neck and ureteral entry landmarks. From the reproductive female context, use the bladder and rectum to locate the cervix and vaginal exterior. Each link identifies the atlas change.
 
 ## Oral spaces and regional locators
 
+In the local Head & Neck lesson, **Gland locations** uses the shared Z-Anatomy selection with its jaw context. **Parotid duct course** uses the isolated gland and duct selection alongside the side view of the masseter. Each stop links to the exact file it teaches. The source comparison explains the excluded submandibular crossing.
+
 Oral spaces opens the authored English coronal cutaway with a direct link to the separate Chinese illustration. Head & Neck links to this lesson from the salivary gland stops. The dated review accepts the cutaways for 2D teaching and records the rejected 3D mouth reconstruction separately.
 
-Regional locators groups the aortic arch and pulmonary-vein stops under Cardiovascular, the brainstem source cut under Nervous and senses, and the ovary and tubal end under Reproductive. The corresponding Body Systems assemblies link to those stops. The arch and vein use separate sources. Each composite has room for its labels, with matched views still alongside one another inside their original plates. The ovary comparison identifies two source alternatives with independent scales. The brain uses the reviewed front comparison and links to the source package for the other authored views.
+Regional locators groups the aortic arch and pulmonary-vein stops under Cardiovascular, the brainstem source cut under Nervous and senses, and the ovary and tubal end under Reproductive. The corresponding Body Systems assemblies link to those stops. The arch and vein use separate sources. Each composite has room for its labels, with matched views still alongside one another inside their original plates. Reproductive left pickup and the Regional ovary stop open the same [bilingual lesson](../../lessons/ovary-tubal-context/README.md) and return to their respective collections. It moves from pelvic orientation to the interpreted HRA close-ups and marks the change of frame and scale. **Compare with source** reveals the original contours. The brain uses the reviewed front comparison and links to the source package for the other authored views.
 
 Regional locator plates serve lossless WebP at the original dimensions and fall back to the retained PNG. If neither loads, the page keeps its teaching text, scale notes, links to the source and review, and any other available plate. See the [direct routes](routes-and-api.md#page-links).
 

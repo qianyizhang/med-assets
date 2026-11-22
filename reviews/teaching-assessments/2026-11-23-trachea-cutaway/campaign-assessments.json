@@ -1,0 +1,80 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-23",
+  "evaluator": "Codex (agent review, AG-GAL-027)",
+  "rubric": {
+    "revision": "9e6e490fd67468985e2e8a8298995c730e2f55e5",
+    "path": "docs/guides/asset-quality.md",
+    "sha256": "2e91264ce7c05b6906a8f113f2e0fc888c4765cd3a6d0d6c8a26b6a420900abb"
+  },
+  "assessments": [
+    {
+      "export": {
+        "path": "models/trachea/exports/open-airway-r06/trachea-cutaway.glb",
+        "sha256": "42b25a9e3de950db1a083da3802d4bb982c9084c425f768824c8973dc08be283",
+        "bytes": 1564740
+      },
+      "task": "Trace the exposed tracheal channel to the left main bronchus.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "The exact V7 clean import preserves the continuous cutaway shell, both distal rims and the lateralized outlet positions. The finite-precision contact screen found no shell self-contacts. The separately authored cut and wall are explicitly identified."
+        },
+        {
+          "score": 3,
+          "observation": "The anterior view shows the long concave inner surface and the split. A neutral oblique enlargement confirms the cut rims around each branch. Some coarse inherited small ridges remain visible without interrupting the traced channel."
+        },
+        {
+          "score": 4,
+          "observation": "The isolated anterior view exposes the route down the shaft into the patient-left branch. An independent neutral angle confirms the fork, distinct outlets and relative position. Rotating to the external bands recovers orienting context."
+        },
+        {
+          "score": 3,
+          "observation": "The 6,812-triangle shell has distinct outer, inner and cut regions. The 18 band selections account for the rest of the 24,942 triangles. A matched normal-packing trial saved 463,996 bytes while keeping position and index streams exact. The selected V7 remains 1,564,740 bytes."
+        }
+      ],
+      "sources": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-23-trachea-cutaway/README.md",
+          "label": "Scope, results and reproducibility"
+        },
+        {
+          "path": "reviews/trachea/2026-10-29-open-airway-r06/cutaway-geometry.json",
+          "label": "Fresh reimport, closed surface and self-contact screen"
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-23-trachea-cutaway/render.json",
+          "label": "Matched exact-export captures and teaching port positions"
+        },
+        {
+          "path": "models/trachea/exports/open-airway-r06/ATTRIBUTION.md",
+          "label": "Underlying source and license"
+        },
+        {
+          "path": "reviews/trachea/2026-10-29-open-airway-r06/independent-review.md",
+          "label": "Independent exact V7 render review"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/teaching-assessments/2026-11-23-trachea-cutaway/views/left-main-teaching.webp",
+          "sha256": "d4615dc9ff1e271953c3ea7447c2766613fdf4ae93fdd1f35a591adb44fb157c",
+          "bytes": 27220,
+          "width": 954,
+          "height": 518,
+          "label": "Trace the tracheal channel past the branch point and verify the patient-left opening in a neutral detail."
+        },
+        {
+          "path": "reviews/teaching-assessments/2026-11-23-trachea-cutaway/views/left-main-encoding-comparison.webp",
+          "sha256": "740bb172f27efa0fcd07c33eeaf71d6287731befb32220d8b698095a6b874616",
+          "bytes": 25080,
+          "width": 728,
+          "height": 1145,
+          "label": "Matched V7 and compact-normal trial at anterior, close branch and oblique exterior views. The compact GLB is trial evidence."
+        }
+      ],
+      "teachingView": "reviews/teaching-assessments/2026-11-23-trachea-cutaway/views/left-main-teaching.webp",
+      "decision": "Keep the exact V7 cutaway for One Breath. Verify left and right in the isolated and neutral oblique views. The authored channel represents the teaching route and fits the existing cast frame."
+    }
+  ]
+}

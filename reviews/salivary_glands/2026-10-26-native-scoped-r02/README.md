@@ -22,7 +22,7 @@ Independent source verification checked effective matrices and nearest-source ve
 Native views, annotations, comparison and failure closeup were actually inspected. Replay results are separate. No browser-runtime or clinical-expert pass is claimed. Existing accepted parotid-envelope history remains unchanged; this is not a duplicate whole-organ promotion.
 
 ## Lesson
-A faithful export can faithfully preserve a misleading anatomical relationship. We excluded the unaccepted components and kept clear negative evidence rather than moving a duct to make a collision test pass. Both excluded objects are absent from default exports; the optional original-source diagnostic can be reproduced with an explicitly named diagnostic-only build flag.
+A faithful export can faithfully preserve a misleading anatomical relationship. We excluded the unaccepted components and kept clear negative evidence rather than moving a duct to make a collision test pass. Both excluded objects are absent from the [maintained selections and normal source replay](../../../models/salivary_glands/exports/z-native-shared-r01/README.md). The [current clean-import review](../../teaching-assessments/2026-11-23-salivary-shared-source/README.md) repeats the native centerline check. This historical diagnostic plate preserves the original failure evidence.
 
 ## References
 - WSU Lab22, pp19–20: https://learning.medicine.wsu.edu/wp-content/uploads/sites/4/2022/09/PDF-Lab-22.pdf — text and actual teaching figure inspected. The Netter-derived image/PDF is NOT redistributed.

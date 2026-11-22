@@ -1,6 +1,8 @@
 export const oralSpacesPath = 'use-cases/oral-spaces';
 export const regionalPath = 'use-cases/regional-locators';
 export const oralFolder = 'diagrams/oral_spaces/exports/r01/';
+export const ovaryLocator = { id: 'ovary-tubal-context', system: 'reproductive', name: 'Ovary and tubal end' };
+export const ovaryPickupDetail = 'reproductive-female-left-pickup';
 
 export function teachingDisplayPath(original) {
   const slash = original.lastIndexOf('/');
@@ -94,32 +96,5 @@ export const regionalLessons = [
     package: 'lessons/brain-source-cut/README.md',
     review: 'reviews/brain/2026-10-29-source-cut/README.md',
   },
-  {
-    id: 'ovary-tubal-context',
-    system: 'reproductive',
-    name: 'Ovary and tubal end',
-    zh: '卵巢与输卵管末端',
-    question: 'Where is the fimbrial end relative to the ovary?',
-    cue: 'Locate both sides in the overview. Follow 1 to the ovary and 2 to the fimbrial end in each enlarged view. Source R appears on the left and Source L on the right in the native overview.',
-    cueZh: '先在总览中定位两侧，再在各自的放大图中沿编号 1 找到卵巢，沿编号 2 找到伞端。原生总览中，来源 R 在画面左侧，来源 L 在右侧。',
-    plates: [
-      {
-        original: 'lessons/ovary-tubal-context/teaching.png',
-        title: 'HRA overview and enlarged side views',
-        alt: 'The native overview places the two ovaries and tubal ends. Enlarged views point to the ovary with 1 and the fimbrial end with 2.',
-      },
-      {
-        original: 'lessons/ovary-tubal-context/original-updated.png',
-        title: 'Source alternatives · Schematic and HRA',
-        alt: 'Earlier schematic exterior above the separate HRA source-native alternative.',
-        caption: 'Different models, independent views and scales. Their geometry is unregistered.',
-      },
-    ],
-    scale: 'The two side views enlarge the overview. The schematic and HRA alternative use independent scales. R and L reproduce source names and do not establish patient orientation.',
-    limit: 'The HRA ovary-tubal r01 export retains the gaps and cut ends of the supplied meshes. Use it for gross relative position. Tissue attachment and lumen continuity are unresolved.',
-    credit: 'Human Reference Atlas ovary v1.3 and fallopian tube v1.2 source meshes. See source-specific credits and licenses in the package.',
-    model: 'models/ovaries/exports/hra-ovary-tubal-r01/ovary-tubal-context.glb',
-    package: 'lessons/ovary-tubal-context/README.md',
-    review: 'reviews/ovaries/2026-10-30-hra-ovary-tubal-r01/README.md',
-  },
+  ovaryLocator,
 ];

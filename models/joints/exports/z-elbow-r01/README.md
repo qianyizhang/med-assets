@@ -1,4 +1,8 @@
-# RIGHT elbow — dependency-explicit migration draft
+# Right elbow — retained r01 edition
+
+Use the [current elbow study](../z-elbow-r02/README.md) and the
+[shared native recipe](../../recipes/z-right-arm/README.md) for today's replay.
+This package retains the previously reviewed exact r01 file and its evidence.
 
 Selected static regional structures only. Reviewer-inspected static visual acceptance of the annotated improvement on this exact GLB; no new promotion by this draft.
 
@@ -16,4 +20,7 @@ Selected static regional structures only. Reviewer-inspected static visual accep
 Surface-fidelity checks with source topology warnings are not a blanket technical pass. No watertightness, rigging, physics, validated attachment, clinical or new browser-runtime claim. Detailed frozen review: `reviews/joints/2026-10-24-elbow-bounded-migration/bounded-record.json`; current public statuses are preserved verbatim in the evidence map, not widened.
 
 ## Dependency boundary
-Exact stored identities are retained; fresh-machine source rebuild and deterministic pixel replay are not established. Upstream original member is externally pinned in `sources/datasets/z-anatomy/joint-regional-studies/external-source-map.json`; no full archive duplication. Replay limits and missing prerequisites are in `sources/datasets/z-anatomy/joint-regional-studies/REPLAY-BOUNDARY.md`. No executable recipe is provided as functional in this bounded draft.
+Exact stored identities are retained. Upstream original member is externally
+pinned in `sources/datasets/z-anatomy/joint-regional-studies/external-source-map.json`.
+The [historical replay boundary](../../../../sources/datasets/z-anatomy/joint-regional-studies/REPLAY-BOUNDARY.md)
+describes the r01 authoring inputs and remaining pixel replay limits.

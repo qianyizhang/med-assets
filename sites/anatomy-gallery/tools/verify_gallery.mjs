@@ -10,8 +10,9 @@ import { balanced, checkBalancedDownload } from './verify_survey_bookmarks.mjs';
 import { checkArchive } from './verify_archive.mjs';
 import { checkSpecialistStills } from './verify_specialist_stills.mjs';
 import { checkDentalArch, checkLymph, checkPathways, checkSkeletal } from './verify_retained_teaching.mjs';
+import { checkOvaryLesson } from './verify_ovary_lesson.mjs';
 import {
-  oralFolder, oralSpaces, oralSpacesPath, regionalLessons, regionalPath, teachingDisplayPath,
+  oralFolder, oralSpaces, oralSpacesPath, ovaryLocator, regionalLessons, regionalPath, teachingDisplayPath,
 } from '../app/src/content/gallery/teaching-data.js';
 
 async function checkTeaching(page, dest, dir, delivery) {
@@ -94,7 +95,7 @@ async function checkTeaching(page, dest, dir, delivery) {
   await page.getByRole('link', { name: 'Regional locators →' }).click();
   await heading('Regional locators').waitFor();
   await page.screenshot({ path: dir + 'regional-locators.png' });
-  for (const lesson of regionalLessons) {
+  for (const lesson of regionalLessons.filter((entry) => entry !== ovaryLocator)) {
     await page.getByRole('link', { name: lesson.name + ' →', exact: true }).press('Enter');
     await heading(lesson.question).waitFor();
     assert.equal(new URL(page.url()).hash, '#/' + regionalPath + '/' + lesson.id);
@@ -140,7 +141,7 @@ async function checkTeaching(page, dest, dir, delivery) {
   await page.reload();
   await waitForPlates(2);
   assert.equal(await images.first().getAttribute('src'), assetPath(display));
-  console.log('PASS oral spaces and four regional locators, exact model and plate responses, keyboard, reload and returns, laptop layouts, PNG fallback and missing media.');
+  console.log('PASS oral spaces and three regional locators, exact model and plate responses, keyboard, reload and returns, laptop layouts, PNG fallback and missing media.');
 }
 
 async function checkAuthoring(browser, page, base, dir) {
@@ -383,8 +384,10 @@ async function checkCollections(p, dest, repo, dir) {
   await p.getByRole('link', { name: 'Use Cases', exact: true }).click();
   await p.getByRole('link', { name: 'Head & Neck' }).click();
   await p.getByRole('heading', { name: 'Find the three gland pairs' }).waitFor();
+  await p.locator('.ga-source-evidence img[src^="/review-evidence/"]').evaluate((image) => image.decode());
+  await p.getByText('Source views from the r02 study', { exact: true }).click();
   await p.waitForFunction(() =>
-    [...document.querySelectorAll('.ga-source-evidence img')].filter(i => i.naturalWidth > 0).length === 3,
+    [...document.querySelectorAll('.ga-source-evidence img')].filter(i => i.naturalWidth > 0 && i.src.includes('/assets/')).length === 3,
   );
   await p.getByRole('link', { name: 'Parotid duct course', exact: true }).press('Enter');
   await p.getByRole('heading', { name: 'Follow the parotid duct over the masseter' }).waitFor();
@@ -397,6 +400,10 @@ async function checkCollections(p, dest, repo, dir) {
   await p.screenshot({ path: dir + 'salivary-review.png' });
   await p.getByRole('link', { name: 'Return to the parotid duct lesson' }).click();
   assert.equal(new URL(p.url()).hash, '#/use-cases/head-and-neck/duct-course');
+  await p.getByRole('link', { name: 'Open this lesson’s export in Asset Library' }).click();
+  assert.match(new URL(p.url()).hash, /^#\/library\/salivary_glands\/z-native-shared-r01\?file=[0-9a-f]{64}$/);
+  await p.getByRole('link', { name: 'glands-and-parotid-ducts.glb ↓', exact: true }).waitFor();
+  await p.goto(dest + '/#/compare/salivary-native-r02');
   await p.getByRole('link', { name: 'Open the exact r02 exports in Asset Library' }).click();
   assert.equal(new URL(p.url()).hash, '#/library/salivary_glands/z-native-scoped-r02');
   assert.match(await p.locator('.ga-study-plate').getAttribute('src'), /\/glands-ducts-front-source\.webp$/);
@@ -479,7 +486,7 @@ async function checkCollections(p, dest, repo, dir) {
     for (const name of filenames) {
       const entry = delivery.assets.find((asset) =>
         (asset.paths ?? [asset.path]).some((file) => file?.endsWith('/' + revision + '/' + name)));
-      const link = p.getByRole('link', { name, exact: false });
+      const link = p.getByRole('link', { name: name + ' ↓', exact: true });
       assert.equal(await link.getAttribute('href'), '/assets/' + entry.sha256 + '/' + name);
       const response = await p.request.get(new URL(await link.getAttribute('href'), dest).href);
       assert.equal(response.status(), 200);
@@ -489,6 +496,7 @@ async function checkCollections(p, dest, repo, dir) {
     }
   }
   await checkTeaching(p, dest, dir, delivery);
+  await checkOvaryLesson(p, dest, dir, delivery);
   await checkPathways(p, dest, dir, delivery);
   await checkLymph(p, dest, dir);
   await checkSkeletal(p, dest, dir, delivery);
@@ -630,8 +638,14 @@ try {
     ? path.resolve(process.env.MODEL_SURVEY_CAPTURE_DIR) + path.sep
     : path.join(repo, '.artifacts/gallery-library-systems/');
   await mkdir(dir, { recursive: true });
-  await checkAuthoring(browser, p, dest, dir);
-  if (!process.argv.includes('--authoring')) {
+  if (process.argv.includes('--ovary')) {
+    const delivery = JSON.parse(await readFile(path.join(repo,
+      'sites/anatomy-gallery/app/src/content/assets/delivery-index.json'), 'utf8'));
+    await checkOvaryLesson(p, dest, dir, delivery);
+  } else {
+    await checkAuthoring(browser, p, dest, dir);
+  }
+  if (!process.argv.includes('--authoring') && !process.argv.includes('--ovary')) {
     await checkCollections(p, dest, repo, dir);
     console.log(
       'PASS all eleven systems, BodyParts3D adrenal review, Head & Neck, Airway, exact evidence, bookmarks, rubric, FDI31 exact and failed downloads, archive and invalid or local presets.',

@@ -1,3 +1,6 @@
+export const tracheaReviewPath = 'compare/trachea-r06';
+export const oneBreathPath = 'use-cases/one-breath';
+
 // Each review pins its exports and display witnesses to package-owned paths.
 export const airwayStudies = [
   {

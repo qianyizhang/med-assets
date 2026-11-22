@@ -47,6 +47,8 @@ Inspect the intended lesson alongside the isolated model. A recognizable organ c
 
 Calibrate reviewers on a previously assessed export and a borderline example. Compare observations axis by axis at the declared viewing size. Record the lead reviewer's agreement or correction alongside the original judgment. Where two defensible treatments lead to different learner outcomes, prepare matched variants and state the choice for the maintainer.
 
+For lessons built from one editable model, mark the shared structures and verify their registration and units. Rebuild after a disposable edit to a shared landmark and check that each export reflects that edit while retaining its own selection or motion. Review each delivered file at its lesson camera and phase. The [register](../gallery/maintained-models.md) groups ownership, while the [scorecard](../../records/campaigns/teaching-asset-review/current-coverage.md) keeps the individual assessments.
+
 ## When an organ looks like clay
 
 1. **Isolate the part.** Inspect the actual GLB in its gallery pose and in a close-up. Rotate it and compare a neutral material with the intended palette under the same light. Check the full-resolution poster at 1:1. A jagged edge that disappears on a higher-resolution render points to raster sampling. A depression that moves with the model calls for mesh inspection.

@@ -11,6 +11,12 @@ public geometry projections and exact identities of the privately reviewed rende
 The source cast is preserved; the inferred wall is a separate authored teaching
 derivative. This is not recovered specimen wall, normal lumen caliber or histology.
 
+The Gallery opens the exact open shell in **Airway Review → Trachea** and the
+exact cutaway in [**One Breath**](../../../../lessons/one-breath/README.md).
+Each lesson has its own camera and can isolate the wall from its illustrative bands.
+Both variants rebuild from this one recipe and source cast. The interactive
+One Breath context is staged separately so the cutaway loads once.
+
 ## Reproduce
 
 Requires Blender **4.3.2** (including its NumPy), Python 3.11+ for the optional
@@ -59,6 +65,4 @@ bronchi. It does not validate this specimen envelope or the chosen dimensions.
 No reference artwork was copied. See [attribution](ATTRIBUTION.md).
 
 Use the [focused check/render commands](../../../../models/trachea/recipes/open-airway/README.md).
-Technical checks, independent actual-pixel review, anatomical reference screening,
-supported runtime and publication are separate. Browser runtime is unverified;
-there is no specialist or clinical approval or accepted-count change. Static gallery delivery does not establish live 3D runtime acceptance.
+The original hosted review covered static projections. The later [local Gallery verification](../../../../records/campaigns/organ-and-lesson-overlaps.md#verified-rollout) exercised both exact GLBs, view selection, failures, retry and Stage return. The [cutaway teaching assessment](../../../../reviews/teaching-assessments/2026-11-23-trachea-cutaway/README.md) bounds the left-main-bronchus task. Hosted WebGL, specialist review and clinical use remain unverified.

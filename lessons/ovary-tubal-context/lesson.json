@@ -1,0 +1,51 @@
+{
+  "question": "Where is the fimbrial end relative to the ovary?",
+  "questionZh": "输卵管伞端在卵巢的什么位置？",
+  "orientation": {
+    "heading": "Orient in the pelvis",
+    "headingZh": "在盆腔中定位",
+    "cue": "Start at the purple uterus. Follow each tube outward to its gold fringed end beside a blue ovary.",
+    "cueZh": "从紫色子宫出发，沿两侧输卵管向外，找到蓝色卵巢旁金黄色的伞端。",
+    "plate": {
+      "path": "lessons/body-systems/display/reproductive-female-context-ortho.webp",
+      "sourceRevision": "345aebcba265c5d6fd2a7cb4534d130c118e2090",
+      "title": "Female pelvic assembly, anterior view",
+      "titleZh": "女性盆腔组合模型，前视图",
+      "alt": "The tubes extend from the central uterus to the blue ovaries and gold fringes at the outer ends."
+    }
+  },
+  "localization": {
+    "heading": "Find the fringe and the gap",
+    "headingZh": "找出伞端和间隙",
+    "transition": "Switch from the pelvic assembly to enlarged views of the HRA-derived teaching ovoid r02. The camera framing and scale change.",
+    "transitionZh": "接下来切换到基于 HRA 来源的 r02 卵巢教学模型放大图。取景范围和比例均有变化。",
+    "cue": "In each column, find the pale ovary and the pink finger-like fimbriae. Use the lower views to point to the dark space between them. L and R are the source labels.",
+    "cueZh": "在每列找出浅色卵巢和粉色指状伞缘，再用下排视图指出两者之间的暗色间隙。L 和 R 沿用来源的左右标记。",
+    "limit": "Only the ovary exteriors are interpreted. The tube contours are preserved from HRA. These views show gross placement. Tissue attachment and lumen continuity remain unresolved.",
+    "limitZh": "卵巢外形经过教学性处理，输卵管轮廓保留自 HRA。这些图用于观察大体位置关系，组织附着与管腔连续性尚未确定。",
+    "review": "reviews/teaching-assessments/reopen-source/campaign-assessments.json",
+    "export": "models/ovaries/exports/teaching-ovoid-r02/ovary-tubal-teaching.glb",
+    "plate": {
+      "path": "reviews/teaching-assessments/reopen-source/ovary-teaching.webp",
+      "title": "Teaching ovoid r02, source L and R",
+      "titleZh": "r02 卵巢教学模型，来源 L 和 R",
+      "alt": "The native and alternate views show the pink fimbrial tips across a dark gap from each pale ovary. Alternate views make the gap easier to see."
+    }
+  },
+  "source": {
+    "heading": "Compare with source (HRA r01)",
+    "headingZh": "对照来源（HRA r01）",
+    "cue": "In the native overview, Source R is image-left and Source L is image-right. In the two enlarged views, 1 marks the ovary and 2 marks the fimbrial end. The source sheet preserves the cut ends and gaps.",
+    "cueZh": "原生总览中，来源 R 在画面左侧，来源 L 在右侧。两幅放大图中，1 指向卵巢，2 指向输卵管伞端。原图保留来源模型的截断边缘和间隙。",
+    "credit": "Ovary v1.3 and fallopian tube v1.2 by Kristen Browne and Heidi Schlehlein, HuBMAP Human Reference Atlas, CC BY 4.0.",
+    "creditZh": "卵巢 v1.3 与输卵管 v1.2 由 Kristen Browne 和 Heidi Schlehlein 制作，来源为 HuBMAP 人体参考图谱，采用 CC BY 4.0 许可。",
+    "model": "models/ovaries/exports/hra-ovary-tubal-r01/ovary-tubal-context.glb",
+    "attribution": "sources/datasets/hra/ovary-tubal-context/ATTRIBUTION.md",
+    "plate": {
+      "original": "lessons/ovary-tubal-context/teaching.png",
+      "title": "Native HRA overview and enlarged side views",
+      "titleZh": "HRA 原生总览与两侧放大图",
+      "alt": "The native overview shows both ovaries and tubal ends. The enlarged views mark the ovaries with 1 and the fimbrial ends with 2."
+    }
+  }
+}

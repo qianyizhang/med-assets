@@ -64,3 +64,17 @@ For the exact reviewed and subsequently packaged SVG bytes, use the
 [lossless restore recipe](../../../../reviews/trachea/2026-10-29-open-airway-r06/README.md#restore-the-exact-svgs-offline).
 The ordinary offline gate covers repository integrity, not these media checks,
 clinical validation or the supported browser viewer.
+
+## Shared-shell replay check
+
+On Blender 5.2.3, the command below builds both lesson selections from the same
+cast, repeats with a temporary 5% thickness change and cleanly reimports all four
+outputs and both retained deliveries. It records the changed inner-wall positions
+and verifies that outer and C-band positions and object selections remain exact
+across the two same-version builds. This compares the edit between 5.2.3 builds.
+The exact retained deliveries were exported in 4.3.2 and keep their original identities.
+
+```sh
+blender -b --factory-startup --disable-autoexec --python-exit-code 1 \
+  -P models/trachea/recipes/open-airway/check_shared_shell.py -- .artifacts/trachea-shared-replay
+```

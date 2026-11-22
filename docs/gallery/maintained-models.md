@@ -1,6 +1,6 @@
 # Maintained 3D model families
 
-79 teaching families each have one starting file. Each multi-model Blender entry opens an editable assembly for its stated task. Use the [Library](asset-library.md) for exact revisions, component meshes, alternatives, credits and evidence. The [current review coverage](../../records/campaigns/teaching-asset-review/current-coverage.md) links these selections to their exact assessments and outstanding evidence needs.
+Each row identifies one maintained family. A shared editable model can supply several selected teaching exports, each assessed for its own lesson. Each multi-model Blender entry opens an editable assembly for its stated task. Use the [Library](asset-library.md) for exact revisions, component meshes, alternatives, credits and evidence. The [current review coverage](../../records/campaigns/teaching-asset-review/current-coverage.md) links these selections to their exact assessments and outstanding evidence needs.
 
 Each selection serves the learner task recorded in the scorecard. Source studies, editable masters and alternate views remain available through revision history. The [exemption recheck](../../records/campaigns/teaching-exemption-recheck.md) identifies local default changes, their before/after evidence and exceptions. Existing published routes retain their original deliveries.
 
@@ -18,8 +18,7 @@ Each selection serves the learner task recorded in the scorecard. Source studies
 | --- | --- |
 | Aorta · s1233 | [aorta.glb](../../models/aorta/exports/metadata-cleanup-r01/aorta.glb) |
 | Aortic tree · Z | [aortic_tree_z_source_frame.glb](../../models/aortic_tree_z/exports/teaching-economy-r01/aortic_tree_z_source_frame.glb) |
-| Cardiac Atlas · animated | [ventricular-wall-motion.glb](../../heart/Cardiac_Atlas_Animated/exports/wall-motion-r01/ventricular-wall-motion.glb) |
-| Cardiac Atlas · native & static | [Cardiac_Atlas_Clinical_Full_ED.glb](../../heart/Cardiac_Atlas/exports/teaching-economy-r01/Cardiac_Atlas_Clinical_Full_ED.glb) |
+| Cardiac Atlas | [cardiac-static-ed.glb](../../heart/Cardiac_Atlas_Animated/exports/shared-source-r01/cardiac-static-ed.glb)<br>[ventricular-wall-motion.glb](../../heart/Cardiac_Atlas_Animated/exports/shared-source-r01/ventricular-wall-motion.glb) |
 | Heart · body shell | [heart.glb](../../models/heart/exports/texture-pack-r02/heart.glb) |
 | Pulmonary-vein component | [pulmonary_vein.glb](../../models/pulmonary_vein/exports/metadata-cleanup-r01/pulmonary_vein.glb) |
 | Static cardiac exterior | [static-opaque-exterior-repacked.glb](../../heart/exterior-presentation-r02/exports/static-opaque-exterior-repacked.glb) |
@@ -65,14 +64,14 @@ Each selection serves the learner task recorded in the scorecard. Source studies
 | Bone / trabecula comparison | [illustrative-container-r03.glb](../../assemblies/marrow-comparison/2026-10-23/illustrative-container-r03.glb) |
 | Bone-marrow cutaway | [marrow_cutaway.glb](../../models/bone_marrow/exports/teaching-economy-r01/marrow_cutaway.glb) |
 | Calf–Achilles–heel | [achilles-right-context.glb](../../assemblies/musculoskeletal-teaching/2026-10-23/achilles-right-context.glb) |
-| Elbow | [elbow_z_native.glb](../../models/joints/exports/z-elbow-r01/elbow_z_native.glb) |
+| Elbow | [elbow_z_native.glb](../../models/joints/exports/z-elbow-r02/elbow_z_native.glb) |
 | Knee | [knee_z_native.glb](../../models/joints/exports/z-knee-r01/knee_z_native.glb) |
 | L3 vertebra | [vertebrae_L3.glb](../../models/vertebrae_L3/exports/metadata-cleanup-r01/vertebrae_L3.glb) |
 | L3–L4 disc | [L3-L4-disc.glb](../../assemblies/skeletal-teaching/2026-10-23/L3-L4-disc.glb) |
 | Muscle atlas | [muscle_z_native_frame.glb](../../models/muscle/exports/teaching-economy-r02/muscle_z_native_frame.glb) |
 | Right rotator cuff | [right-rotator-cuff.glb](../../models/joints/exports/z-rotator-cuff-r01/right-rotator-cuff.glb) |
 | Second costal cartilage | [second-costal.glb](../../assemblies/skeletal-teaching/2026-10-23/second-costal.glb) |
-| Shoulder | [shoulder_z_native.glb](../../models/joints/exports/z-shoulder-r01/shoulder_z_native.glb) |
+| Shoulder | [shoulder_z_native.glb](../../models/joints/exports/z-shoulder-r02/shoulder_z_native.glb) |
 | Skeletal atlas | [skeleton_source_frame.glb](../../models/skeleton/exports/teaching-economy-r01/skeleton_source_frame.glb) |
 
 ## Nervous & senses
@@ -86,7 +85,7 @@ Each selection serves the learner task recorded in the scorecard. Source studies
 | Median nerve at wrist | [right-median-wrist.glb](../../models/peripheral_nerves/exports/median-wrist-r01/right-median-wrist.glb) |
 | Sciatic nerve at hip | [right-sciatic-hip.glb](../../models/peripheral_nerves/exports/sciatic-hip-r01/right-sciatic-hip.glb) |
 | Spinal cord & roots | [candidate.glb](../../models/spinal_cord/exports/teaching-economy-r02/candidate.glb) |
-| Ulnar nerve at elbow | [right-ulnar-elbow.glb](../../models/peripheral_nerves/exports/ulnar-elbow-r01/right-ulnar-elbow.glb) |
+| Ulnar nerve at elbow | [right-ulnar-elbow.glb](../../models/peripheral_nerves/exports/ulnar-elbow-r02/right-ulnar-elbow.glb) |
 
 ## Oral & dental
 
@@ -94,9 +93,9 @@ Each selection serves the learner task recorded in the scorecard. Source studies
 | --- | --- |
 | Adult teeth & gingiva | [teeth_gums.glb](../../models/teeth_gums/exports/r02/teeth_gums.glb) |
 | FDI31 · prepared specimen | [FDI31-balanced.glb](../../models/swirendo_fdi31/exports/balanced-20261028/FDI31-balanced.glb) |
-| Major salivary glands | [glands-and-parotid-ducts.glb](../../models/salivary_glands/exports/z-native-scoped-r02/glands-and-parotid-ducts.glb) |
+| Major salivary glands | [glands-and-parotid-ducts.glb](../../models/salivary_glands/exports/z-native-shared-r01/glands-and-parotid-ducts.glb)<br>[same-source-context.glb](../../models/salivary_glands/exports/z-native-shared-r01/same-source-context.glb) |
 | Molar root & support | [molar-support-v3.glb](../../models/dental-root-support/v3/molar-support-v3.glb) |
-| Parotid pair | [parotid_glands_source_frame.glb](../../models/parotid_glands/exports/source-candidate-02/parotid_glands_source_frame.glb) |
+| Parotid pair | [parotid-pair.glb](../../models/parotid_glands/exports/source-shared-r01/parotid-pair.glb) |
 | Tongue · hybrid | [tongue-authored-hra-hybrid-p11.glb](../../models/tongue_authored_study/exports/teaching-economy-r01/tongue-authored-hra-hybrid-p11.glb) |
 | UFF molar specimen | [uff-tomo1b-display.glb](../../models/dental_specimens/uff_tomo1b/exports/r01/uff-tomo1b-display.glb) |
 
@@ -111,7 +110,7 @@ Each selection serves the learner task recorded in the scorecard. Source studies
 | Prostate | [VH_M_Prostate.glb](../../models/prostate/exports/teaching-economy-r01/VH_M_Prostate.glb) |
 | Testis–epididymis | [testicular-region.glb](../../models/testes/exports/z-native-epididymis-r01/testicular-region.glb) |
 | Uterus exterior | [uterus_exterior.glb](../../models/uterus/exports/hra-v1.1-r02/uterus_exterior.glb) |
-| Vaginal / cervical context | [vagina_teaching_context.glb](../../models/vagina_hra/exports/teaching-context-r03/vagina_teaching_context.glb) |
+| Vaginal / cervical context · [HRA female pelvis](../../assemblies/hra-female-pelvis/README.md) | [vagina_teaching_context.glb](../../models/vagina_hra/exports/teaching-context-r03/vagina_teaching_context.glb) |
 
 ## Respiratory
 
@@ -126,7 +125,7 @@ Each selection serves the learner task recorded in the scorecard. Source studies
 | Pharynx / larynx | [pharynx_larynx.glb](../../models/pharynx_larynx/exports/teaching-economy-r01/pharynx_larynx.glb) |
 | Right lung · s1233 | [lung_right.glb](../../models/lung_right/exports/metadata-cleanup-r01/lung_right.glb) |
 | Terminal airspace study | [terminal-airspaces.glb](../../lessons/one-breath/terminal-study-r02/terminal-airspaces.glb) |
-| Trachea / Y-airway | [trachea-open.glb](../../models/trachea/exports/teaching-economy-r02/trachea-open.glb) |
+| Trachea / Y-airway | [trachea-open.glb](../../models/trachea/exports/teaching-economy-r02/trachea-open.glb)<br>[trachea-cutaway.glb](../../models/trachea/exports/open-airway-r06/trachea-cutaway.glb) |
 
 ## Skin
 
@@ -138,7 +137,7 @@ Each selection serves the learner task recorded in the scorecard. Source studies
 
 | Family | Starting file |
 | --- | --- |
-| Bladder | [bladder-pelvic-base.glb](../../models/bladder/exports/pelvic-base-r01/bladder-pelvic-base.glb) |
+| Bladder · [HRA female pelvis](../../assemblies/hra-female-pelvis/README.md) | [bladder-pelvic-base.glb](../../models/bladder/exports/pelvic-base-r01/bladder-pelvic-base.glb) |
 | Left kidney | [kidney_left.glb](../../models/kidney_left/exports/teaching-economy-r01/kidney_left.glb) |
 | Male urethral context | [urethral-context.glb](../../models/urethra_male/exports/z-native-context-r01/urethral-context.glb) |
 | Right kidney | [kidney_right.glb](../../models/kidney_right/exports/teaching-economy-r01/kidney_right.glb) |

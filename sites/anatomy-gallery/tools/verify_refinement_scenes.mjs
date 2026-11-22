@@ -45,6 +45,16 @@ try {
     await scene.getByRole('button', { name: 'Inspect in 3D' }).click();
     await scene.getByText('The pinned export is unavailable.').waitFor();
     assert.ok(await picker.isDisabled());
+    if (study.library.startsWith('library/cardiac-atlas/')) {
+      const lessons = page.getByRole('navigation', { name: 'Lessons from this model' });
+      assert.equal(await lessons.getByRole('link').count(), 2);
+      const original = await (await page.request.get(address)).body();
+      original[original.length - 1] ^= 1;
+      await page.route(address, (route) => route.fulfill({ status: 200, body: original }), { times: 1 });
+      await scene.getByRole('button', { name: 'Retry 3D' }).click();
+      await scene.getByText('The export differs from the pinned revision.').waitFor();
+      assert.ok(await scene.getByRole('img').evaluate(async (image) => { await image.decode(); return image.naturalWidth > 0; }));
+    }
     const response = page.waitForResponse((response) => response.url() === address && response.ok());
     await scene.getByRole('button', { name: 'Retry 3D' }).click();
     const bytes = await (await response).body();
@@ -64,6 +74,7 @@ try {
     }
     await page.waitForFunction((first) => document.querySelector('.ga-scene canvas').toDataURL() !== first, before);
     const after = await canvas.evaluate((c) => c.toDataURL());
+    await canvas.evaluate((element) => element.scrollIntoView({ block: 'center', behavior: 'instant' }));
     await canvas.screenshot({ path: path.join(capture, key + '-changed.png') });
     if (study.scene.clip) {
       await phases.fill('0');

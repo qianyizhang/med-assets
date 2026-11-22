@@ -24,7 +24,7 @@
     "collection": "Regional locators",
     "route": "use-cases/regional-locators/ovary-tubal-context",
     "action": "Point from each ovary to its adjacent fimbrial end.",
-    "observation": "The two enlarged source-side views distinguish the fringed end from the nearby pale ovary across an open space.",
+    "observation": "The interpreted bilateral close-ups show the fringe, pale ovary and open gap. Compare with source opens the original HRA contours at their own scale.",
     "status": "passed"
   },
   {
@@ -49,10 +49,17 @@
     "status": "passed"
   },
   {
+    "collection": "Airway Review",
+    "route": "compare/trachea-r06",
+    "action": "Locate the three cuts on the open tracheal shell.",
+    "observation": "The proximal mouth and the two branch outlets remain in the open shell when its bands are hidden. The saved comparison supplies matched reference projections, and the shared 3D view loads the exact r06 export.",
+    "status": "passed"
+  },
+  {
     "collection": "One Breath",
     "route": "use-cases/one-breath",
-    "action": "Compare the diaphragm at expiration and peak inspiration.",
-    "observation": "Across the two sampled poses the dome crest descends, with the lung bases and liver moving down in the same view.",
+    "action": "Compare the diaphragm at expiration and peak inspiration, then follow the cutaway into the left main bronchus.",
+    "observation": "Across the sampled poses the dome crest, lung bases and liver descend. The exact tracheal cutaway exposes the left main bronchus inside the wall, and the Body Systems route continues to the lobar branch and enlarged terminal cluster.",
     "status": "passed"
   },
   {

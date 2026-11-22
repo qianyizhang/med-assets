@@ -1,6 +1,6 @@
 import { adrenalComparison, adrenalLesson, adrenalScene } from './adrenal-study.js';
 import { comparePath, lessonPath, libraryPath, revisions } from './catalog.js';
-import { localModels, teachingScenes } from './local-models.js';
+import { localModels, teachingScenes, trachealLessonScenes } from './local-models.js';
 
 // A preset version freezes the scene recipe as well as its model identity.
 export const sceneVersion = adrenalScene.version;
@@ -29,7 +29,8 @@ export function localView(model) {
 }
 
 export function localScene(view) {
-  return [...localModels, ...teachingScenes].find((model) => model.scene.version === view.version && model.revision === view.revision);
+  return [...localModels, ...teachingScenes, ...trachealLessonScenes]
+    .find((model) => model.scene.version === view.version && model.revision === view.revision);
 }
 
 export function viewAsset(view) {
@@ -64,7 +65,7 @@ export function stageReturn(path, view) {
   const model = localScene(view);
   if (model) {
     if (path === model.library) return { path, label: 'Return to asset record' };
-    if (model.lesson && path === model.lesson) return { path, label: 'Return to first-fork lesson' };
+    if (model.lesson && path === model.lesson) return { path, label: model.returnLabel ?? 'Return to first-fork lesson' };
     return null;
   }
   const { revision } = view;

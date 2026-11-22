@@ -1,8 +1,12 @@
 import React from 'react';
-import { byPath, dentalLayerSheet, heartSlice, oneBreathStoryboard } from './catalog.js';
+import { assetUrl, byPath, dentalLayerSheet, heartSlice, oneBreathStoryboard } from './catalog.js';
+import { oneBreathPath, tracheaReviewPath } from './airway-data.js';
 import { Evidence } from './Evidence.jsx';
 import { LessonReviewPlate } from './LessonReviewPlate.jsx';
 import { Heading, Link } from './GalleryUI.jsx';
+import { cutawayTrachea } from './local-models.js';
+import { localView } from './presets.js';
+import { Scene } from './Scene.jsx';
 import controlSheet from './teaching-inputs/control-review-sheet.jpg';
 import sourcePose from './teaching-inputs/source-pose.jpg';
 import editorialReveal from './teaching-inputs/editorial-reveal.jpg';
@@ -10,7 +14,7 @@ import cariesPoster from './teaching-inputs/caries-poster.svg';
 import periodontalPoster from './teaching-inputs/periodontal-poster.svg';
 
 export const heartSlicePath = 'use-cases/' + heartSlice.id;
-export const oneBreathPath = 'use-cases/' + oneBreathStoryboard.id;
+export { oneBreathPath };
 export const dentalLayersPath = 'use-cases/' + dentalLayerSheet.id;
 export const dentalShotsPath = 'archive/dental-shot-studies';
 
@@ -49,14 +53,13 @@ export function OneBreath() {
       <Link to="use-cases/systems/respiratory">← Respiratory</Link>
       <Heading title={<>{oneBreathStoryboard.title} · <span lang="zh">一次呼吸</span></>}>Mechanics → airway route → gas exchange</Heading>
       <p lang="zh">呼吸力学 → 气道路径 → 气体交换</p>
-      <div className="ga-pair ga-source-evidence ga-source-evidence-stacked">
-        <Plate path={breath + 'review/offline-storyboard.png'} title="Original bilingual offline storyboard"
-          alt="Three panels show the diaphragm and lungs, the trachea dividing into the two main bronchi, and gas exchange in a separate schematic"
-          width={1800} height={930} />
-      </div>
       <ol>
         <li>Diaphragm down → lungs expand · <span lang="zh">膈肌下降 → 肺随之扩张</span></li>
-        <li>Trachea → left and right main bronchi · <span lang="zh">气管 → 左右主支气管</span></li>
+        <li>
+          <Link to="use-cases/systems/respiratory?detail=respiratory-route">
+            Follow the airway to the terminal cluster · <span lang="zh">沿气道追踪到肺泡簇</span>
+          </Link>
+        </li>
         <li>O₂: air → blood · CO₂: blood → air · <span lang="zh">氧气进入血液 · 二氧化碳进入肺泡</span></li>
       </ol>
       <LessonReviewPlate
@@ -65,8 +68,26 @@ export function OneBreath() {
       >
         <p>Both poses were sampled from the authored Breathing assembly.</p>
       </LessonReviewPlate>
+      <section>
+        <h2>Follow the branch from the inside</h2>
+        <p>Through the cut wall, follow the trachea into the left main bronchus, on the right in the opening view. The whole-airway views continue to the left lobar branch and enlarged terminal cluster.</p>
+        <p lang="zh">从剖开的管壁内沿气管进入左主支气管，初始视图中它在画面右侧。完整气道视图继续显示左侧叶支气管和放大的肺泡簇。</p>
+        <Scene initial={localView(cutawayTrachea)} origin={oneBreathPath} />
+        <div className="ga-related">
+          <a href={assetUrl(cutawayTrachea.exports[0])}>Exact cutaway GLB</a>
+          <Link to={tracheaReviewPath}>Compare with the open shell in Airway Review →</Link>
+        </div>
+      </section>
       <p>The airway cutaway omits smaller branches. The exchange panel is a separate schematic drawn at a different scale. The storyboard supplies no measured physiology or clinical validation.</p>
       <p lang="zh">气道剖切图省略细小分支。气体交换图为独立示意图，非等比例。非定量生理模拟，不代表临床认可。</p>
+      <details>
+        <summary>Original bilingual storyboard · <span lang="zh">原始双语分镜</span></summary>
+        <div className="ga-pair ga-source-evidence ga-source-evidence-stacked">
+          <Plate path={breath + 'review/offline-storyboard.png'} title="Original bilingual offline storyboard"
+            alt="Three panels show the diaphragm and lungs, the trachea dividing into the two main bronchi, and gas exchange in a separate schematic"
+            width={1800} height={930} />
+        </div>
+      </details>
       <a href={source + breath + 'README.md'}>Original lesson and replay ↗</a>
     </>
   );
@@ -87,7 +108,7 @@ export function DentalLayers() {
       <p>Enamel, dentin, pulp and bone are source labels on the SWIRendo prepared T2 specimen. The colors and offsets are editorial. Buccolingual orientation remains unresolved.</p>
       <div className="ga-related">
         <a href={source + controls + 'README.md'}>Original controls, credits and replay ↗</a>
-        <Link to="library/swirendo_fdi31">Find the Balanced specimen download →</Link>
+        <Link to="library/swirendo_fdi31/balanced-20261028">Find the Balanced specimen download →</Link>
         <Link to={dentalShotsPath}>Compare the authored shot studies →</Link>
       </div>
     </>

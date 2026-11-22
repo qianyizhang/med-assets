@@ -2,11 +2,11 @@
 
 **Outcome.** A visitor picking a reusable model can distinguish sources, select a revision and see what evidence supports using it. One entry represents one model lineage. Revisions share its history. A common anatomical name makes two lineages discoverable together.
 
-The [maintained family list](maintained-models.md) selects one starting file per family for authoring and storage planning. The Library continues to serve exact consumer revisions.
+The [maintained family list](maintained-models.md) identifies each editable lineage and its selected teaching files. The Library continues to serve exact consumer revisions.
 
 ## What the visitor sees
 
-Index public 3D assets across model, atlas, assembly, lesson and review packages. A lineage can be found by name, anatomy or the use case that features it. Expose historical revisions within its history. Trace a selected scene object to its exact asset revision when it is independently reusable. A mesh that exists only as part of a larger export links to that export with its part selected. List known public entries with unavailable exports or missing ratings and show their actual state.
+Index public 3D assets across model, atlas, assembly, lesson and review packages. A lineage can be found by name, anatomy or the use case that features it. Include prior revisions that still serve a lesson, consumer or review under the [beta retention policy](../WORKFLOW.md#retention). Trace a selected scene object to its exact asset revision when it is independently reusable. A mesh that exists only as part of a larger export links to that export with its part selected. List known public entries with unavailable exports or missing ratings and show their actual state.
 
 The asset maintainer explicitly selects which revision carries **Recommended** for a lineage. A review score is evidence the maintainer can use in that decision. The lineage opens on the recommended revision. If a newer candidate exists, show its version and status beside the selector. Until a recommendation exists, open the latest revision with its actual review status. A link to a specific revision always opens that revision.
 
@@ -16,9 +16,11 @@ The asset maintainer explicitly selects which revision carries **Recommended** f
 
 ## Review coverage
 
-Use the [maintained family register](maintained-models.md) to count progress on the selected teaching assets. Count a family once for its starting file, including an editable assembly selected as a whole. Record the task and exact export identity. For a family with multiple tasks, declare which task the coverage count represents and report other assessments separately. If a Gallery default or published delivery differs from the maintained starting file, identify both revisions.
+Use the [maintained family register](maintained-models.md) to count progress on the selected teaching assets. Count a demonstrated shared model once. Include every selected lesson export in coverage, with its learner task, exact file identity and four independent scores. A source edit must propagate to both lesson exports in a disposable rebuild before grouping their family. An editable assembly used as a whole counts as one selection. If a Gallery default or published delivery differs from the maintained starting file, identify both revisions.
 
 Report fully rated, partially rated and unrated counts. Full coverage for one starting file requires all four axes for the declared task. A partial assessment identifies the missing axes. A missing assessment keeps the file visible in the denominator. The [teaching-asset rubric](../guides/asset-quality.md) owns the score meanings and evidence requirements.
+
+The two Cardiac Atlas selections share a local Library entry. Its static and animated bookmarks still open the original histories. The shared female pelvic atlas spans Urinary and Reproductive. Each exact study links to its sibling, and both collections count toward task coverage. The total counts the atlas once. Other specimens in either package retain their original identities.
 
 ## Browsing
 

@@ -1,5 +1,9 @@
 # Right ulnar nerve and elbow bones
 
+The [r02 selection](../ulnar-elbow-r02/README.md) uses the shared right-arm
+source recipe. This package retains the exact r01 regional supplement and
+its evidence.
+
 A separate four-part source-native teaching supplement: the right ulnar nerve
 relative to the humerus, ulna and radius. The labelled sheet locates the medial
 epicondyle and olecranon and supplies whole-arm context plus two detail views.
@@ -12,7 +16,7 @@ accounts for the exported nerve's additional vertices. Native evaluated surfaces
 and transforms are preserved; colors are illustrative.
 
 [Teaching views and independent review](../../../../reviews/peripheral_nerves/2026-10-30-ulnar-elbow-r01/README.md)
-· [replay and checks](../../../../models/peripheral_nerves/recipes/ulnar-elbow-r01/README.md)
+· [historical evidence reproduction and checks](../../recipes/ulnar-elbow-r01/README.md)
 · [source provenance](../../../../sources/datasets/z-anatomy/ulnar-elbow/provenance.json).
 
 Selected source geometry and derived renders are **CC BY-SA 4.0**. Attribution:

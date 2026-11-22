@@ -8,9 +8,10 @@ The third stage shows gas exchange in an original alveolar/capillary schematic.
 ## Open locally
 
 Requires Git LFS, Python 3.11+ and a browser supporting WebGL2. Both lung models
-and both reviewed V7 trachea variants use Git LFS. Restore the new airway-route
-GLB from the [body-systems teaching backup](../../sites/body-systems-survey/README.md#restore-the-media)
-before preparing the lesson. Preparation checks all five pinned model inputs.
+and both reviewed V7 trachea variants use Git LFS. Restore the portable airway
+route GLB from the [body-systems teaching backup](../../sites/body-systems-survey/README.md#restore-the-media)
+before preparing the lesson. Preparation derives the smaller airway context
+from that portable, keeping the reviewed V7 cutaway as a separate download.
 
 ```sh
 git lfs install --local
@@ -21,13 +22,19 @@ python3 lessons/one-breath/serve.py --port 8766
 
 Open `http://127.0.0.1:8766`. The server binds only to loopback. Preparation resolves
 every model from this script's repository, regardless of the working directory;
-`--asset-root` optionally selects another hydrated checkout. It checks all five
-input sizes/hashes before downloading the five official Three.js 0.180.0 files
-already pinned in `tests/runtime/glb-runtime-fixture.json`. A failed dependency read leaves the destination free for retry. A new `.local/` output is required;
+`--asset-root` optionally selects another hydrated checkout. It checks the input and
+generated selection identities before staging the official Three.js 0.180.0 files
+pinned in `tests/runtime/glb-runtime-fixture.json`. Pass `--vendor-dir` with a previously
+staged `vendor/` directory to reuse those bytes offline. A failed dependency read leaves
+the destination free for retry. A new `.local/` output is required;
 existing files are not overwritten. The model loader rejects missing, altered or
 externally dependent assets. Asset failures show a retry action. A no-WebGL view
 disables breath motion and labels any optional offline composition as static;
 the authored exchange schematic remains available. Missing previews are disclosed.
+
+In the ordinary Gallery, **One Breath** links the Body Systems respiratory route and
+opens the same V7 cutaway in the 3D scene. **Airway Review → Trachea** opens the
+corresponding open shell. Both selections share the [tracheal geometry recipe](../../models/trachea/exports/open-airway-r06/README.md).
 
 ## Learner controls
 

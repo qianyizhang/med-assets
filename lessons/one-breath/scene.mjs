@@ -42,7 +42,7 @@ export function applyLessonState(view,state){
  view.extension.traverse(o=>{
    if(!o.isMesh)return;
    const region=o.userData.lessonRegion;
-   o.visible=region!=='V7'&&(focus==='whole'||regions[focus]?.includes(region));
+   o.visible=focus==='whole'||regions[focus]?.includes(region);
  });
  view.lungs.visible=!route||focus==='whole'||focus==='branch';
  view.ribs.visible=!route;view.diaphragm.visible=!route;view.ports.visible=route&&focus==='branch';

@@ -17,10 +17,12 @@ and full external source archive are excluded.
 | `python3 tools/verify.py offline` | Passed at 03:25 UTC: **189 tests; 26 transport manifests; 25 foundation records; 591 import references (3 documented updates); 710 LFS pointer identities** |
 | Changed-file whitespace | Owned files passed; the two byte-exact upstream license/README copies retain provider whitespace, with their recorded hashes verified |
 
-The broader offline suite does not include these six scoped tests. It does not
-hash hydrated media, validate this package's anatomy, fetch remote payloads or
-run a viewer. Package checks are invoked separately as described in the
-[recipe](../../../models/peripheral_nerves/recipes/ulnar-elbow-r01/README.md).
+The listed tests and payload checks are historical receipts for the original
+regional supplement. The
+[shared right-arm verification](../../../models/joints/recipes/z-right-arm/README.md)
+now owns rebuild and clean-import checks for the current native ulnar-elbow
+selection. The offline suite's scope is documented in the
+[repository workflow](../../../docs/WORKFLOW.md#verification).
 
 V2 preserves the v1 binary GLB chunk (SHA-256
 `e15913d11d8a080684220192fefce992b8ee43e02955b2f315bc0caa731f5430`),

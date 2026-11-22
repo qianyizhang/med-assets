@@ -187,7 +187,7 @@ export function selectExactExport(record, digest) {
   if (!file) return undefined;
   if (!record.assessment || record.assessment.export.path === file.path) return record;
   const assessment = record.fileAssessments?.get(file.path);
-  return { ...record, selectedFile: file, scene: undefined, assessment,
+  return { ...record, selectedFile: file, scene: undefined, assessment, finding: assessment?.decision ?? record.finding,
     previousAssessment: undefined, axes: assessment?.axes.map((axis) => axis.score),
     portrait: undefined, preview: assessment?.views[0]?.url };
 }
@@ -202,17 +202,30 @@ function collectionRow(row, snapshot, authoredReviews, campaign, replacements, l
   if (local) records.unshift(...localModels.filter((model) => model.family === row.id));
 
   const paths = new Set(records.flatMap((record) => record.exports.map((file) => file.path)));
+  const editions = new Map();
   for (const assessment of replacements) {
-    if ((!paths.has(assessment.target.baseline) && !paths.has(assessment.target.familyBaseline)) || paths.has(assessment.export.path)) continue;
-    const file = { ...assessment.export, name: assessment.export.path.split('/').at(-1) };
-    const revision = file.path.split('/').at(-2);
-    if (records.some((record) => record.revision === revision)) {
-      throw new Error('Teaching revision collides with an existing package: ' + file.path);
+    const path = assessment.export.path;
+    if (paths.has(path)) continue;
+    const target = assessment.target;
+    const declared = assessment.maintained && assessment.route?.startsWith('library/' + row.id + '/');
+    if (!declared && !(target && (paths.has(target.baseline) || paths.has(target.familyBaseline)))) continue;
+    const revision = declared ? assessment.route.split('/')[2] : path.split('/').at(-2);
+    if ((!declared || !editions.has(revision)) && records.some((record) => record.revision === revision)) {
+      throw new Error('Teaching revision collides with an existing package: ' + path);
     }
-    paths.add(file.path);
-    records.unshift({ family: row.id, revision, library: 'library/' + row.id + '/' + revision,
-      title: label + ' · ' + revision, finding: assessment.decision,
-      status: 'Reviewed teaching export · Local preview', record: assessment.sources[0]?.url, exports: [file] });
+    if (!editions.has(revision)) {
+      const edition = { family: row.id, revision, library: 'library/' + row.id + '/' + revision,
+        title: (assessment.maintained?.label ?? assessment.maintained?.family ?? label) + ' · ' + revision,
+        finding: assessment.decision, status: 'Reviewed teaching export · Local preview',
+        record: assessment.sources[0]?.url, exports: [] };
+      if (row.id === salivary.family) Object.assign(edition, {
+        credit: salivary.credit, license: salivary.license, compare: salivary.compare,
+      });
+      editions.set(revision, edition);
+      records.unshift(edition);
+    }
+    editions.get(revision).exports.push({ ...assessment.export, name: path.split('/').at(-1) });
+    paths.add(path);
   }
   const history = records.map((original) => {
     const study = localPreview && teachingScenes.find((model) => model.family === row.id && model.revision === original.revision
@@ -232,7 +245,7 @@ function collectionRow(row, snapshot, authoredReviews, campaign, replacements, l
     if (!assessment) return record;
     const previousMatch = previous && assessment.export.path === previous.export.path
       && assessment.export.sha256 === previous.export.sha256;
-    const witness = assessment.views[0];
+    const witness = assessment.views.find((view) => view.path === assessment.teachingView) ?? assessment.views[0];
     return {
       ...record,
       record: assessment.sources?.find((source) => record.recordPath && source.path === record.recordPath)?.url ?? record.record,
@@ -242,7 +255,7 @@ function collectionRow(row, snapshot, authoredReviews, campaign, replacements, l
       preview: record.preview ?? witness?.url ?? (witness && assetUrl(byPath.get(witness.path))),
     };
   });
-  const recommended = history.find((record) => record.assessment?.target && record.assessment.maintained)
+  const recommended = history.find((record) => record.assessment?.maintained && (record.assessment.target || editions.has(record.revision)))
     ?? (local ? history.find((record) => record.revision === local.revision) : undefined);
   const assessed = history.find((record) => record.assessment);
   const files = [...new Map([...media, ...history.flatMap((record) => record.exports)].map((file) => [file.path, file])).values()];
@@ -265,8 +278,42 @@ export function libraryRows(snapshot, teachingReview, { localPreview = false } =
   const authoredReviews = new Map(teachingReview?.assessments.map((assessment) => [assessment.route, assessment]));
   const campaign = new Map((localPreview ? teachingReview?.campaign ?? [] : [])
     .map((assessment) => [assessment.export.path, assessment]));
-  const replacements = [...campaign.values()].filter((entry) => entry.target && entry.target.baseline !== entry.export.path);
+  const replacements = [...campaign.values()].filter((entry) => (entry.maintained && entry.route)
+    || (entry.target && entry.target.baseline !== entry.export.path));
   const adrenalAssessment = (revision) => assessmentForFile(campaign, revisions[revision]);
+  const collections = [...snapshot.queries.model_survey.rows, ...snapshot.queries.products.rows, ...additionalLibraryRows]
+    .filter((row) => !Object.hasOwn(libraryAliases, row.id))
+    .map((row) => collectionRow(row, snapshot, authoredReviews, campaign, replacements, localPreview));
+  if (localPreview) {
+    const sharedLessons = new Map();
+    for (const row of collections) {
+      for (const record of row.history) {
+        const selection = record.assessment?.maintained;
+        if (!selection?.sharedOwner) continue;
+        if (!sharedLessons.has(selection.sharedOwner)) sharedLessons.set(selection.sharedOwner, []);
+        const lessons = sharedLessons.get(selection.sharedOwner);
+        lessons.push({ library: record.library, title: selection.label });
+        record.sharedLessons = lessons;
+      }
+    }
+    const still = collections.find((row) => row.id === 'cardiac-static');
+    const motion = collections.find((row) => row.id === 'cardiac-animated');
+    if (still && motion) {
+      const history = [...still.history, ...motion.history];
+      const lessons = history.filter((record) => record.assessment?.maintained?.family === 'Cardiac Atlas');
+      if (lessons.length === 2) {
+        collections.splice(collections.indexOf(motion), 1);
+        collections[collections.indexOf(still)] = {
+          ...still, id: 'cardiac-atlas', label: 'Cardiac Atlas',
+          aliases: [still.id, motion.id], history,
+          lessons, path: lessons[0].library, recommended: lessons[0],
+          media: [...still.media, ...motion.media], fileCount: still.fileCount + motion.fileCount,
+          formats: [...new Set([...still.formats, ...motion.formats])],
+          use: 'Distinguish the great vessels at end diastole or scrub the ventricular wall against the fixed aorta.',
+        };
+      }
+    }
+  }
   return [
     {
       id: libraryId,
@@ -302,9 +349,7 @@ export function libraryRows(snapshot, teachingReview, { localPreview = false } =
       media: [byPath.get(entry.exportPath)],
       history: [],
     })),
-    ...[...snapshot.queries.model_survey.rows, ...snapshot.queries.products.rows, ...additionalLibraryRows]
-      .filter((row) => !Object.hasOwn(libraryAliases, row.id))
-      .map((row) => collectionRow(row, snapshot, authoredReviews, campaign, replacements, localPreview)),
+    ...collections,
   ];
 }
 

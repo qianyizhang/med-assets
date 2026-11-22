@@ -87,11 +87,13 @@ export function matchesBodyPartsExport(row) {
 
 const salivaryReviewRoot = 'reviews/salivary_glands/2026-10-26-native-scoped-r02/';
 const salivaryExportRoot = 'models/salivary_glands/exports/z-native-scoped-r02/';
+const salivaryLessonFiles = { 'duct-course': 'glands-and-parotid-ducts.glb', location: 'same-source-context.glb' };
 export const salivary = {
   family: 'salivary_glands',
   revision: 'z-native-scoped-r02',
   library: 'library/salivary_glands/z-native-scoped-r02',
   lesson: 'use-cases/head-and-neck',
+  lessonFiles: salivaryLessonFiles,
   compare: 'compare/salivary-native-r02',
   record: sourceRoot + salivaryReviewRoot + 'README.md',
   title: 'Major salivary glands',
@@ -99,9 +101,7 @@ export const salivary = {
   limit: 'Both submandibular ducts excluded. The left source crossing is confirmed.',
   credit: 'Z-Anatomy and upstream contributors · CC BY-SA 4.0.',
   license: sourceRoot + 'sources/datasets/z-anatomy/salivary-region/License.txt',
-  exports: ['glands-and-parotid-ducts', 'same-source-context'].map(
-    (name) => byPath.get(salivaryExportRoot + name + '.glb'),
-  ),
+  exports: Object.values(salivaryLessonFiles).map((name) => byPath.get(salivaryExportRoot + name)),
   useCase: 'Find the glands in Head & Neck',
   portrait: {
     asset: byPath.get(salivaryReviewRoot + 'glands-ducts-front-source.webp'),

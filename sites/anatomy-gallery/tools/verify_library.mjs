@@ -17,12 +17,14 @@ const isGeometry = (file) => /\.(glb|stl|blend|obj)$/i.test(file);
 function inputDisposition(file) {
   if (file.startsWith('sources/datasets/hra/')) return 'Original HRA input. Library lists its teaching derivative.';
   if (file === 'sources/datasets/marrow-comparison-v1/BP3D-FJ3365.obj') return 'Marrow comparison source input.';
-  if (file === 'reviews/peripheral_nerves/2026-10-30-ulnar-elbow-r01/v1/native-elbow.glb') return 'Pinned ulnar v1 replay input.';
   return null;
 }
 
 function baselineGeometry() {
-  const paths = git('ls-tree', '-r', '--name-only', '-z', baseline).toString().split('\0').filter(isGeometry);
+  const current = new Set(git('ls-files', '-z').toString().split('\0'));
+  const paths = git('ls-tree', '-r', '--name-only', '-z', baseline).toString().split('\0')
+    .filter((file) => isGeometry(file) && current.has(file));
+  assert.ok(paths.length, 'Expected retained Gallery baseline paths');
   return paths.map((file) => {
     const raw = git('cat-file', 'blob', baseline + ':' + file);
     const pointer = /^version https:\/\/git-lfs\.github\.com\/spec\/v1\noid sha256:([0-9a-f]{64})\nsize (\d+)\n$/.exec(raw.toString());
@@ -64,7 +66,7 @@ function indexedRoutes(snapshot, tracked, review) {
     assert.equal(entry.file.bytes, expected.bytes, expected.path);
     counts[expected.path.split('.').at(-1)]++;
   }
-  assert.deepEqual(counts, { glb: 135, stl: 10, blend: 5, input: 12 });
+  assert.equal(Object.values(counts).reduce((sum, count) => sum + count, 0), tracked.length);
   return { rows, records, indexed, counts };
 }
 

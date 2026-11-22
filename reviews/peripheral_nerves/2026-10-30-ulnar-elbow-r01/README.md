@@ -23,8 +23,11 @@ background and 128-sample settings in `v1/matched-128` and `v2/raw-128`.
 Both are fresh clean reimports of the exact exports. The first v2 label
 layout had extent leaders crossing their text; final composition ends the
 leaders outside the text. No geometry changed for that correction. The initial
-24-sample captures and failed label layout were retired; current matched
-captures, comparison inputs and the V1 GLB required for replay remain. A failed denoiser configuration produced no
+24-sample captures and failed label layout were retired. The matched captures
+remain bound to their original files. The V1 GLB is recoverable from Git
+history, and the current native GLB builds from the
+[shared right-arm recipe](../../../models/joints/recipes/z-right-arm/README.md).
+A failed denoiser configuration produced no
 image; the render recipe now uses the available non-denoised Cycles path.
 
 ## Original scaffold evidence belongs to a separate review
@@ -89,7 +92,7 @@ The 3D supplement is suitable only for the reviewed static gross relationship.
 V1 GLB: `206915ffa0b6b625ca17e32f35b893e1d1a103f25bce59f41e02d657ab9e7fd5`,
 186,792 bytes. V2 GLB:
 `94a7bde3f8a2882cc632082301d7701a737a769e1d1afe0f55629ecac3013ac3`,
-187,708 bytes. [Recipe and checks](../../../models/peripheral_nerves/recipes/ulnar-elbow-r01/README.md).
+187,708 bytes. [Historical view recipe](../../../models/peripheral_nerves/recipes/ulnar-elbow-r01/README.md).
 
 Selected geometry and derived renders: **CC BY-SA 4.0**. **Z-Anatomy — The libre
 3D atlas of anatomy — CC BY-SA 4.0**; **BodyParts3D — The Database Center for Life

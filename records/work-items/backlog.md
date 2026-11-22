@@ -2,7 +2,7 @@
 description: Discover and triage cross-session med-assets work.
 scope: backlog
 status: stable
-last_update: 2026-11-21
+last_update: 2026-11-23
 document_class: coordination
 ---
 
@@ -25,12 +25,13 @@ The [collection ledger](items/AG-GAL-013-reconcile-gallery-coverage.md#collectio
 
 ## Teaching asset review
 
-The [reopened exemption review](../campaigns/teaching-exemption-recheck.md) records the latest decisions across the [79 maintained families](../campaigns/teaching-asset-review/current-coverage.md) and the six owned form follow-ups.
+The [exemption review](../campaigns/teaching-exemption-recheck.md) owns the six remaining form follow-ups. The [current scorecard](../campaigns/teaching-asset-review/current-coverage.md) counts shared models once and scores their selected lesson files individually.
 
-## Next Gallery work
+## Shared Gallery lessons and models
 
-1. [AG-GAL-026 · Consolidate overlapping lessons](items/AG-GAL-026-consolidate-overlapping-lessons.md). Start with one bilingual ovary and tubal-end sequence reached from Reproductive and Regional Locators, then review repeated questions across the Gallery.
-2. [AG-GAL-027 · Merge reusable organ assets](items/AG-GAL-027-merge-reusable-organ-assets.md). Use the resulting lesson requirements to investigate cardiac first. Prove the editable model in two existing lessons with different selections or rigs. Expand to other overlaps where the evidence supports merging.
+- [AG-GAL-026 · Consolidate overlapping lessons](items/AG-GAL-026-consolidate-overlapping-lessons.md) records the bilingual ovary sequence and shared respiratory route.
+- [AG-GAL-027 · Merge reusable organ assets](items/AG-GAL-027-merge-reusable-organ-assets.md) records the Cardiac Atlas pilot, tracheal shell and pelvic selections, including their exact exports and learner checks.
+- [AG-GAL-028 · Reuse Z atlas components](items/AG-GAL-028-reuse-z-atlas-components.md) records the reviewed shared right-arm and salivary selections.
 
 ## Deferred follow-up
 

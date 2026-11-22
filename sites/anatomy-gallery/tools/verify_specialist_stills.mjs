@@ -8,6 +8,86 @@ const heart = 'heart/synthetic-imaging/beating-heart/imaging/start_here_same_sli
 const breath = 'lessons/one-breath/review/offline-storyboard.png';
 const shot = 'lessons/dental-animation/';
 
+export async function checkSharedAirway(page, base, dir) {
+  const manifest = JSON.parse(await readFile(new URL('lessons/one-breath/assets.json', repo)));
+  const address = (route) => base + '/#/' + route;
+  const scene = page.getByRole('region', { name: 'Interactive scene' });
+  for (const [route, id, variant, title, returnLabel] of [
+    ['compare/trachea-r06', 'tracheaOpen', 'open', 'Open tracheal shell', 'Return to the trachea review'],
+    ['use-cases/one-breath', 'tracheaCutaway', 'cutaway', 'Tracheal cutaway', 'Return to One Breath'],
+  ]) {
+    const asset = manifest.assets.find((item) => item.id === id);
+    const url = `${base}/assets/${asset.sha256}/${asset.file}`;
+    await page.goto(address(route));
+    await scene.getByRole('img').evaluate((image) => image.decode());
+    await page.route(url, (request) => request.fulfill({ status: 404 }), { times: 1 });
+    await scene.getByRole('button', { name: 'Inspect in 3D' }).click();
+    await scene.getByText('The pinned export is unavailable.', { exact: true }).waitFor();
+    const altered = Buffer.from(await readFile(new URL(asset.source, repo)));
+    altered[altered.length - 1] ^= 1;
+    await page.route(url, (request) => request.fulfill({ body: altered }), { times: 1 });
+    await scene.getByRole('button', { name: 'Retry 3D' }).click();
+    await scene.getByText('The export differs from the pinned revision.', { exact: true }).waitFor();
+    const delivered = page.waitForResponse((response) => response.url() === url && response.ok());
+    await scene.getByRole('button', { name: 'Retry 3D' }).click();
+    const payload = await (await delivered).body();
+    assert.equal(payload.length, asset.bytes);
+    assert.equal(digest(payload), asset.sha256);
+    const canvas = scene.locator('canvas');
+    const picker = scene.getByRole('combobox', { name: 'Teaching view' });
+    await canvas.waitFor();
+    assert.equal(await picker.inputValue(), title + ' and C-bands');
+    const full = await canvas.screenshot({ path: dir + 'trachea-' + variant + '-bands.png' });
+    await picker.selectOption(title + ' alone');
+    const wall = await canvas.screenshot({ path: dir + 'trachea-' + variant + '-wall.png' });
+    assert.ok(!wall.equals(full), 'Isolating the shell must visibly remove C-bands');
+    await scene.getByRole('link', { name: 'Open in 3D Stage ↗' }).click();
+    await page.waitForURL((url) => url.hash.startsWith('#/stage/trachea-' + variant + '-v1'));
+    await canvas.waitFor();
+    assert.equal(await picker.inputValue(), title + ' alone');
+    const back = page.getByRole('link', { name: returnLabel });
+    assert.equal(await back.getAttribute('href'), '#/' + route);
+    await back.press('Enter');
+    await page.waitForURL((url) => url.hash === '#/' + route);
+  }
+  const download = page.getByRole('link', { name: 'Exact cutaway GLB', exact: true });
+  const cutaway = manifest.assets.find((asset) => asset.id === 'tracheaCutaway');
+  const payload = await (await page.request.get(new URL(await download.getAttribute('href'), base).href)).body();
+  assert.equal(digest(payload), cutaway.sha256);
+  await page.getByRole('link', { name: /Follow the airway to the terminal cluster/ }).click();
+  await page.waitForURL((url) => url.hash === '#/use-cases/systems/respiratory?detail=respiratory-route');
+  assert.equal(await page.getByLabel('Detail view').inputValue(), 'respiratory-route');
+  console.log('PASS shared airway selections, exact payloads, missing/corrupt recovery, Stage return and route lesson.');
+}
+
+// Replay public-origin routing entirely against the local build. Only the public V7
+// deliveries may open these Stage links without the loopback assessment store.
+async function checkPublicAirway(context, base) {
+  const page = await context.newPage();
+  const host = 'https://gallery.invalid';
+  try {
+    await page.route(host + '/**', async (route) => {
+      const url = new URL(route.request().url());
+      const response = await page.request.get(base + url.pathname + url.search);
+      await route.fulfill({ response });
+    });
+    for (const [lesson, variant] of [['use-cases/one-breath', 'cutaway'], ['compare/trachea-r06', 'open']]) {
+      await page.goto(host + '/#/' + lesson);
+      const scene = page.getByRole('region', { name: 'Interactive scene' });
+      await scene.getByRole('img').evaluate((poster) => poster.decode());
+      await scene.getByRole('button', { name: 'Inspect in 3D' }).click();
+      await scene.locator('canvas').waitFor();
+      await scene.getByRole('link', { name: /Open in 3D Stage/ }).click();
+      await page.waitForURL((url) => url.hash.startsWith('#/stage/trachea-' + variant));
+      await scene.locator('canvas').waitFor();
+      const record = page.getByRole('link', { name: 'View asset record →' });
+      assert.match(await record.getAttribute('href'), /library\/trachea\/open-airway-r06\?file=[a-f0-9]{64}$/);
+    }
+  } finally {
+    await page.close();
+  }
+}
+
 export async function checkSpecialistStills(page, base, dir) {
   const place = (route) => base + '/#/' + route;
   const heading = (name) => page.getByRole('heading', { name, level: 1, exact: true });
@@ -42,8 +122,9 @@ export async function checkSpecialistStills(page, base, dir) {
     await page.reload();
     await heading(title).waitFor();
     if (paths.includes(breath)) {
-      await page.getByText('Trachea → left and right main bronchi', { exact: false }).waitFor();
-      assert.equal(await page.getByText('气管 → 左右主支气管', { exact: true }).getAttribute('lang'), 'zh');
+      await page.getByRole('link', { name: /Follow the airway to the terminal cluster/ }).waitFor();
+      assert.equal(await page.getByText('沿气道追踪到肺泡簇', { exact: true }).getAttribute('lang'), 'zh');
+      await page.locator('summary').filter({ hasText: 'Original bilingual storyboard' }).click();
     }
     await page.waitForFunction(({ count, selector }) => {
       const elements = [...document.querySelectorAll(selector)];
@@ -67,14 +148,18 @@ export async function checkSpecialistStills(page, base, dir) {
   for (const route of ['use-cases/heart-slice', 'use-cases/one-breath']) {
     await linkTo(route).waitFor();
     await linkTo(route).press('Enter');
+    const storyboard = page.locator('summary').filter({ hasText: 'Original bilingual storyboard' });
+    if (route.endsWith('/one-breath')) await storyboard.click();
     const src = await images.first().getAttribute('src');
     const asset = '**' + src;
     await page.route(asset, (request) => request.fulfill({ status: 404 }));
     await page.reload();
+    if (route.endsWith('/one-breath')) await storyboard.click();
     await page.getByRole('status').filter({ hasText: 'unavailable' }).waitFor();
     await page.getByRole('link', { name: 'Open the original in the source repository' }).waitFor();
     await page.unroute(asset);
     await page.reload();
+    if (route.endsWith('/one-breath')) await storyboard.click();
     await page.waitForFunction((selector) => document.querySelector(selector)?.naturalWidth > 0, originalImages);
     await page.goto(place('use-cases'));
   }
@@ -88,5 +173,7 @@ export async function checkSpecialistStills(page, base, dir) {
     assert.equal(new URL(page.url()).hash, '#/archive/dental-image26/' + id);
   }
   await page.setViewportSize({ width: 1280, height: 900 });
+  await checkSharedAirway(page, base, dir);
+  await checkPublicAirway(page.context(), base);
   console.log('PASS specialist still discovery, exact source bytes, deep links, return paths, and missing-image recovery.');
 }

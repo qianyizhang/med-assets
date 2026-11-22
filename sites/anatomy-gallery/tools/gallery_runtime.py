@@ -16,7 +16,7 @@ from urllib.request import urlopen
 
 SITE = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(SITE.parents[1] / 'tools'))
-from teaching_assessments import REGISTER, campaign_rows, maintained_exports, register_rows
+from teaching_assessments import REGISTER, campaign_rows, maintained_exports, register_selections
 
 DEFAULT_VENDOR = SITE / '.local/viewer-inputs'
 TEACHING_REVIEW = 'reviews/teaching-assessments/2026-11-21-library-pilot/assessments.json'
@@ -249,6 +249,7 @@ def prepare_gallery(site: Path, inputs: Path, target: Path):
     teaching = target / 'teaching-inputs'
     teaching.mkdir()
     prepare_teaching_assessments(repo, index, teaching)
+    prepare_ovary_lesson(repo, teaching)
     shutil.copyfile(repo / 'reviews/teaching-assessments/use-case-checks.json', teaching / 'use-case-checks.json')
     shutil.copyfile(repo / 'models/lymph-collecting-routes/source-context-refined-r01/projection-binding.json',
                     teaching / 'lymph-projection.json')
@@ -336,7 +337,7 @@ def prepare_campaign_reviews(repo, index):
                                   'mediaType': media_type, 'url': f'/review-evidence/{digest}/{quote(path.name)}'}
         return evidence[relative]
 
-    register = register_rows((repo / REGISTER).read_text()) if (repo / REGISTER).exists() else {}
+    register = register_selections((repo / REGISTER).read_text()) if (repo / REGISTER).exists() else {}
     maintained_files = maintained_exports(rows, register)
     for owner, batch, row in rows:
         export = row['export']
@@ -372,7 +373,11 @@ def prepare_campaign_reviews(repo, index):
             else:
                 raise ValueError(f'Missing source reference for {path}')
         if path in register:
-            row = {**row, 'maintained': dict(zip(('collection', 'family'), register[path]))}
+            selection = register[path]
+            maintained = {'collection': selection.collection, 'family': selection.family}
+            if selection.shared_owner:
+                maintained.update(label=selection.label, sharedOwner=selection.shared_owner)
+            row = {**row, 'maintained': maintained}
         refinement = row.get('refinement')
         candidate = refinement.get('candidate') if refinement else None
         if candidate and candidate.get('download'):
@@ -394,6 +399,24 @@ def prepare_campaign_reviews(repo, index):
         result[path] = {**row, **{key: batch[key] for key in ('evaluator', 'date', 'rubric')},
                         'sources': sources, 'views': views}
     return list(result.values())
+
+
+def prepare_ovary_lesson(repo, teaching):
+    owner = 'ovary-tubal-context'
+    lesson = json.loads((repo / 'lessons' / owner / 'lesson.json').read_text())
+    localization = lesson['localization']
+    plate = localization['plate']
+    review = json.loads((repo / localization['review']).read_text())
+    assessment = next((row for row in review['assessments']
+                       if row['export']['path'] == localization['export']), None)
+    if not assessment or assessment['teachingView'] != plate['path']:
+        raise ValueError(f"Ovary close-ups do not match the reviewed teaching view: {plate['path']}")
+    view = next(row for row in assessment['views'] if row['path'] == plate['path'])
+    plate.update(width=view['width'], height=view['height'])
+    target = teaching / owner
+    target.mkdir()
+    (target / 'ovary-teaching.webp').write_bytes(verified(view, (repo / plate['path']).read_bytes()))
+    (target / 'lesson.json').write_text(json.dumps(lesson, ensure_ascii=False, indent=2) + '\n')
 
 
 def prepare_retained_lesson(repo, teaching, name, modules):

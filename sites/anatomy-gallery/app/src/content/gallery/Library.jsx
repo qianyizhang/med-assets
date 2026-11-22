@@ -344,6 +344,9 @@ function TeachingAssessment({ assessment, previous = false }) {
 
 export function CollectionEntry({ row, snapshot, exact, lessonQuery = '' }) {
   const file = exact?.selectedFile ?? exact?.exports.find((entry) => entry.path === exact.assessment?.export.path) ?? exact?.exports[0] ?? byPath.get(row.media?.[0]?.path);
+  const salivaryStop = exact?.family === salivary.family && Object.keys(salivary.lessonFiles)
+    .find((stop) => salivary.lessonFiles[stop] === file?.name);
+  const lesson = salivaryStop ? salivary.lesson + '/' + salivaryStop : exact?.lesson;
   const priorAssessment = !exact && row.exportPath;
   const profile = exact ? ratingProfile(exact.axes) : priorAssessment ? row : ratingProfile();
   const assessment = exact?.assessment ?? (priorAssessment ? row.assessment : undefined);
@@ -354,12 +357,17 @@ export function CollectionEntry({ row, snapshot, exact, lessonQuery = '' }) {
   const files = exact?.exports ?? row.media;
   const formats = [...new Set(files?.map((asset) => asset.path.split('.').at(-1).toUpperCase()))];
   const status = exact ? exact.status : row.state;
+  const lessons = row.lessons ?? (exact?.assessment?.maintained?.sharedOwner && exact.sharedLessons);
   return (
     <>
       <Link to="library">← Asset Library</Link>
       <Heading title={exact?.title ?? row.label}>
         {row.system} · {row.purpose}
       </Heading>
+      {lessons && <nav className="ga-related" aria-label="Lessons from this model">
+        {lessons.map((study) => <Link key={study.library} to={study.library}
+          aria-current={study.library === exact?.library ? 'page' : undefined}>{study.title}</Link>)}
+      </nav>}
       <div className="ga-detail">
         {exact?.scene ? (
           <Scene key={exact.revision} initial={localView(exact)} origin={exact.library} />
@@ -435,7 +443,7 @@ export function CollectionEntry({ row, snapshot, exact, lessonQuery = '' }) {
               <div className="ga-related">
                 {exact.verification && <a href={exact.verification.href}>{exact.verification.label}</a>}
                 {exact.inspector && <a href={exact.inspector.href}>{exact.inspector.label} ↗</a>}
-                {exact.lesson && <Link to={exact.lesson + lessonQuery}>{exact.useCase} →</Link>}
+                {lesson && <Link to={lesson + lessonQuery}>{salivaryStop ? 'Open this Head & Neck lesson' : exact.useCase} →</Link>}
                 {exact.compare && (
                   <Link to={exact.compare}>{exact.compareLabel ?? (exact.library === salivary.library ? 'Review the excluded duct course' : 'Open the saved source review')} →</Link>
                 )}
@@ -465,7 +473,7 @@ export function CollectionEntry({ row, snapshot, exact, lessonQuery = '' }) {
           <ul>
             {row.history.map((study) => (
               <li key={study.library}>
-                <Link to={study.library + lessonQuery} aria-current={study.revision === exact?.revision ? 'page' : undefined}>
+                <Link to={study.library + lessonQuery} aria-current={study.library === exact?.library ? 'page' : undefined}>
                   {study.title}
                 </Link>
                 {study.status && ' · ' + study.status}

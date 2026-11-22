@@ -28,7 +28,7 @@ import { DentalArch } from './DentalArch.jsx';
 import { PathwayLesson } from './Pathways.jsx';
 import { pathways } from './pathway-data.js';
 import { OralSpacesLesson, RegionalLocators } from './Teaching.jsx';
-import { oralSpacesPath, regionalPath } from './teaching-data.js';
+import { oralSpacesPath, ovaryPickupDetail, regionalPath } from './teaching-data.js';
 import { SkeletalLesson, skeletalDetail } from './SkeletalLesson.jsx';
 import { skeletalPath } from './skeletal-data.js';
 import { AirwayLesson, AirwayReview, FirstForkLesson } from './Airway.jsx';
@@ -117,11 +117,14 @@ export function Gallery() {
   const raw = useRoute();
   const [path, query = ''] = raw.split('?'),
     [surface, id, revision, ...extra] = (path.replace(/^\//, '') || 'library').split('/');
+  const pickup = surface === 'use-cases' && id === 'systems' && revision === 'reproductive' &&
+    new URLSearchParams(query).get('detail') === ovaryPickupDetail;
+  const focusPath = pickup ? path + '?' + ovaryPickupDetail : path;
   const titleRef = useRef(null),
-    lastPath = useRef(path);
+    lastPath = useRef(focusPath);
   useEffect(() => {
-    if (lastPath.current !== path) {
-      lastPath.current = path;
+    if (lastPath.current !== focusPath) {
+      lastPath.current = focusPath;
       const restore = path === '/library' && history.state?.libraryReturn;
       if (restore) {
         const frame = requestAnimationFrame(() => {
@@ -134,7 +137,7 @@ export function Gallery() {
       titleRef.current?.focus({ preventScroll: true });
       window.scrollTo(0, 0);
     }
-  }, [path]);
+  }, [focusPath, path]);
   let page = <Missing />;
   if (path.startsWith('/') && !extra.length) {
     const airwayReview = airway.find((record) => record.id === id);
@@ -142,9 +145,11 @@ export function Gallery() {
     if (surface === 'library') {
       const rows = libraryRows(snapshot, teachingReview, { localPreview });
       const canonical = Object.hasOwn(libraryAliases, id) ? libraryAliases[id] : id;
-      const row = rows.find((entry) => entry.id === canonical);
-      const record = row?.history.find((record) => record.revision === revision ||
-        (!revision && (record === row.recommended || record.library === salivary.library || record.library === row.exactLibrary)));
+      const row = rows.find((entry) => entry.id === canonical || entry.aliases?.includes(canonical));
+      const home = row?.lessons?.find((entry) => entry.family === id) ?? row?.recommended;
+      const record = revision
+        ? row?.history.find((entry) => entry.library === 'library/' + canonical + '/' + revision)
+        : home ?? row?.history.find((entry) => entry.library === salivary.library || entry.library === row.exactLibrary);
       const file = new URLSearchParams(query).get('file');
       const exact = selectExactExport(record, file);
       if (file && !exact) page = <Missing />;
@@ -160,7 +165,7 @@ export function Gallery() {
     } else if (surface === 'use-cases' && (!id || id === studyId))
       page = id ? <Lesson stop={revision || adrenalLesson.stops[0].id} /> : <UseCases localPreview={localPreview} />;
     else if (surface === 'use-cases' && id === 'systems') page = <Systems id={revision} query={query} localPreview={localPreview} />;
-    else if (surface === 'use-cases' && id === 'head-and-neck') page = <SalivaryLesson stop={revision} query={query} />;
+    else if (surface === 'use-cases' && id === 'head-and-neck') page = <SalivaryLesson stop={revision} query={query} localPreview={localPreview} />;
     else if (surface === 'use-cases' && id === 'airway' && !revision) page = <AirwayLesson localPreview={localPreview} />;
     else if (path === '/' + firstForkPath && localPreview) page = <FirstForkLesson />;
     else if (path === '/' + heartSlicePath) page = <HeartSlice />;
