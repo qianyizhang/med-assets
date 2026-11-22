@@ -19,3 +19,5 @@ blender --background --threads 4 --python assemblies/skeletal-teaching/recipes/b
 BodyParts3D © The Database Center for Life Science, CC Attribution 4.0 International under the current official notice: https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html . Unchanged source OBJ headers retain their historical CC BY-SA 2.1 Japan notice. Source coordinates are preserved, with uniform mm→m and export-axis conversion only; no unrelated-atlas registration.
 
 See `reviews/skeletal_teaching/2026-10-23/record.json` for exact evidence, labels, limits and failed-marker lesson. Eight WebPs are display derivatives, not byte-identical native PNGs. Reference links only; no external textbook images included.
+
+The [Gallery teaching record](../../records/work-items/items/AG-GAL-016-integrate-retained-teaching.md#legacy-teaching-supplements) records the two local plate lessons and their exact Library revisions. The delivered GLBs matched the verified source labels and metre-scaled bounds. The browser checks covered the static plates and downloads.

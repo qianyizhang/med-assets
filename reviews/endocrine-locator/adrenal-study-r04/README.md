@@ -10,7 +10,7 @@ The revised teaching model uses a smoother exterior, retains the glands’ separ
 
 ## Reassessment
 
-The task is to locate each gland above its ipsilateral kidney, then inspect its gross exterior. The oblique assembly and posterior view use the exported materials. Isolated views expose both gland outlines. Neutral-material pairs use the same override, lighting and camera on both models so that loss of fine relief can be judged independently of color. [Full-resolution views and hashes](renders.json) · [Scoring anchors](../../../guideline/asset-quality.md)
+The task is to locate each gland above its ipsilateral kidney, then inspect its gross exterior. The oblique assembly and posterior view use the exported materials. Isolated views expose both gland outlines. Neutral-material pairs use the same override, lighting and camera on both models so that loss of fine relief can be judged independently of color. [Full-resolution views and hashes](renders.json) · [Scoring anchors](../../../docs/guides/asset-quality.md)
 
 | Axis | Previous → updated | Reason |
 | --- | --- | --- |

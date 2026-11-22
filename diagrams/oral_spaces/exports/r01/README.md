@@ -4,9 +4,11 @@ Independent EN and 中文 coronal teaching cutaways. The vestibule lies lateral 
 
 冠状面教学示意：口腔前庭位于牙齿／牙龈外侧，固有口腔位于内侧；两者相通。黏膜反折经牙槽／牙龈区域，不是从颊直接接到硬腭。
 
-Not a measured slice, tooth morphology chart, histology, clinical anatomy certification or3D improvement. Roots/glands/muscles omitted; colors and separation are teaching cues. Posterior fauces and anterior lips are explained in text, not combined into this section plane.
+The cutaways teach gross relationships with no measured scale. Roots, glands and muscles are omitted. Colors and separation are teaching cues. The posterior fauces and anterior lips are explained in text and lie outside the section plane.
 
-Portable SVGs contain outlined labels and no external fonts/assets. PNGs are rendered from these exact SVGs. Editable text SVGs are separately retained and need DejaVu Sans/Noto Sans CJK SC; those fonts are not bundled. Outlined SVG is not text-searchable; use editable SVG for accessible text.
+Portable SVGs contain outlined labels and no external fonts/assets. PNGs are rendered from these exact SVGs. [Editable text SVGs](../../recipes/r01/) are separately retained and need DejaVu Sans/Noto Sans CJK SC; those fonts are not bundled. Outlined SVG is not text-searchable; use editable SVG for accessible text.
+
+The Anatomy Gallery displays the copies in `display/` as lossless WebP at the original PNG dimensions. The retained PNGs are its browser fallback.
 
 Original authored illustration, not a copied textbook image. Sources are linked in the review record. No separate public license for newly authored diagram/code is declared; references retain their respective licenses. No private account data or conversation content included.
 

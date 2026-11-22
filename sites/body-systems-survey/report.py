@@ -57,10 +57,10 @@ def plate(job, title, note="", combined=False):
     return f'<figure class="plate"><div class="views">{iso}{ortho}</div><figcaption>{heading}{caption}</figcaption></figure>'
 
 
-def source_link(label, path, rev):
+def source_link(rev, label, path, pinned_path=None):
     if not (REPO / path).is_file():
         raise ValueError(f"Missing source link: {path}")
-    return f'<a href="{REMOTE}/{rev}/{quote(path)}">{escape(label)}</a>'
+    return f'<a href="{REMOTE}/{rev}/{quote(pinned_path or path)}">{escape(label)}</a>'
 
 
 def href(path):
@@ -313,9 +313,6 @@ def refinement_panels(plates, catalog):
             links.append(f'<a href="{href(local_path(item["comparisonPage"]))}">Compare surfaces before scoring</a>')
         if "review" in item:
             links.append(f'<a href="{href(local_path(item["review"]))}">Build and checks</a>')
-        pilot = HERE / "adrenal-pilot" / "model-survey.html"
-        if item["id"] == "surface-adrenal" and pilot.is_file():
-            links.append(f'<a href="{href(pilot)}?view=1#family-adrenals">Browse adrenal models</a>')
         for label, path in related:
             links.append(f'<a href="{href(path)}">{escape(label)}</a>')
 
@@ -395,7 +392,7 @@ def study_section(system, jobs, rev, plates, catalog, workshop_audit, workshop_w
                                       viewer_url=catalog.register(*display, entry_title, key)))
         links.append((f"{TITLES.get(entry, title)} display receipt", plates[scene, name][0] / "renders.json"))
     parts = "".join(plate(jobs[id], title) for id, title in system["parts"])
-    sources = "".join(source_link(label, file, rev) for label, file in system["sources"])
+    sources = "".join(source_link(rev, *source) for source in system["sources"])
     if study.get("lesson"):
         links.insert(0, ("Run One Breath locally", REPO / study["lesson"]))
     links_html = "".join(f'<a href="{href(path)}">{escape(label)}</a>' for label, path in links)

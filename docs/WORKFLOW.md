@@ -2,18 +2,30 @@
 
 ## Ownership
 
+### Target layout
+
 | Owner | Scope |
 | --- | --- |
 | [models](../models/) | Individual 3D assets with editable inputs, purposeful exports and asset-owned recipes. |
 | [assemblies](../assemblies/) | Multi-asset compositions and registration. |
-| [body](../body/), [heart](../heart/) | Imported atlas products, coordinate frames and stable public export paths. |
-| [diagrams](../diagrams/), [lessons](../lessons/) | 2D aids and runnable teaching products, with their sources and checks. |
-| [reviews](../reviews/) | Current decisions, unresolved defects and exact supporting evidence. |
-| [sources](../sources/) | Shared inputs, licenses, acquisition identities and unique recovery material. |
-| [metadata](../metadata/) | Original imports and explicit current-file exceptions. |
-| [tools](../tools/), [tests](../tests/) | Shared operations and regression suites. Asset parameters and replay commands stay with the asset. |
-| [gallery](../gallery/), [ci](../ci/), [transport](../transport/) | External-viewer integration, guarded runtime and content-addressed delivery. |
-| [sites](../sites/) | Derived reports and Site authoring. Publishing checkouts and inline media payloads stay ignored. |
+| [body](../body/), [heart](../heart/) | Imported atlas packages, coordinate frames and stable public export paths. Package-level pruning can proceed with reader and recovery checks. A major move to `atlases/` is [deferred outside the gallery campaign](../records/work-items/items/AG-ATL-001-rehome-imported-atlases.md). |
+| [diagrams](../diagrams/) | Reusable illustrations with their editable sources, generators, exports and checks. |
+| [lessons](../lessons/) | Authored teaching sequences and interactions, including plates made for a single lesson. Reference shared diagrams and exact asset revisions from their packages. Body Systems owns its maintained display export here. |
+| [experiments](../experiments/) | Bounded trials with their replay, retained results and limits. |
+| [reviews](../reviews/) | Findings, unresolved defects and exact evidence, including historical and rejected witnesses. |
+| [sources](../sources/) | Shared inputs, acquisition records, licenses and unique recovery material. [Import records](../sources/imports/) hold the immutable import records and current-file exceptions. Single-use authored inputs live with their packages. |
+| [docs](../docs/) | Product requirements, shared guides and repository policy. |
+| [records](../records/) | Campaigns and work items with scope, acceptance and delivery evidence. |
+| [sites](../sites/) | Anatomy Gallery source in `sites/anatomy-gallery/`. Keep report and replay tooling with its maintained collection or historical package. Publishing checkouts and inline media payloads stay ignored. |
+| [tests](../tests/), [.github/workflows](../.github/workflows/) | Regression suites and pinned executable fixtures. Browser probes belong under `tests/runtime/` and source checks under `tests/source_checks/`. Workflow definitions own online invocation and guards. |
+| [tools](../tools/) | Repository-wide commands and shared utilities, including the offline verifier. Package-specific parameters and replay stay with their owners. |
+| [transport](../transport/) | Content-addressed delivery, manifests and recovery policy. [Transport tools](../transport/tools/) hold fetch, upload, backup and restore implementations. Keep an old command path where an external consumer requires it. |
+
+### Current paths in transition
+
+| Current path | Destination or retirement condition |
+| --- | --- |
+| [guideline](../guideline/) | Bookmark shims for relocated guides. Review their old links before retiring them. |
 
 - **Discovery** · Start at the asset directory, export README and linked review. Use directory discovery as the inventory.
 - **Variants** · Keep exports with a named use, replay dependency or unique evidence. Preserve snapshot layout where replay depends on it.
@@ -81,8 +93,8 @@ The default setup includes the MCP server and Blender add-on. The tested pair is
 
 | Record | Contract |
 | --- | --- |
-| [Original checksums](../SHA256SUMS), [import manifest](../metadata/asset-manifest.json) | Immutable 2026-10-22 import, 591 extracted members. Earlier records retain original archive identities. |
-| [Current overrides](../metadata/current-import-overrides.json) | Changed indexed import paths record original/current hashes, reason and actual change commit. LFS also records `currentBytes`. Missing indexed paths fail. Retired paths remain in historical provenance. Commit fields are provenance declarations. |
+| [Original checksums](../sources/imports/SHA256SUMS), [import manifest](../sources/imports/asset-manifest.json) | Immutable 2026-10-22 import, 591 extracted members. Earlier records retain original archive identities. |
+| [Current overrides](../sources/imports/current-import-overrides.json) | Changed indexed import paths record original/current hashes, reason and actual change commit. LFS also records `currentBytes`. Missing indexed paths fail. Retired paths remain in historical provenance. Commit fields are provenance declarations. |
 
 - **Asset identity** · Preserve coordinates, transforms, materials, textures, source → export bindings, attribution and full source-specific licenses. See [source records](../sources/).
 - **Public tree** · Use public-source or authorized evidence. Keep credentials, private/signed URLs, conversations and personal/internal paths outside Git.
@@ -99,7 +111,7 @@ The default setup includes the MCP server and Blender add-on. The tested pair is
 
 ### Body-system gallery rubric
 
-Use the [teaching-asset rubric](../guideline/asset-quality.md) for fidelity, form and surface, teaching readability, and mesh economy. The [scan-derived surface refinement guide](../guideline/scan-surface-refinement.md) covers shape, finish and mesh budget for an interpreted exterior. The [gallery design guide](../guideline/design.md) covers discovery, inspection and handoff between collections.
+Use the [teaching-asset rubric](guides/asset-quality.md) for fidelity, form and surface, teaching readability, and mesh economy. The [scan-derived surface refinement guide](guides/scan-surface-refinement.md) covers shape, finish and mesh budget for an interpreted exterior. The [gallery design guide](gallery/design.md) covers discovery, inspection and handoff between collections.
 
 ### Evidence for comparison
 
@@ -118,22 +130,25 @@ Use the [teaching-asset rubric](../guideline/asset-quality.md) for fidelity, for
 | Boundary | Owner and completion |
 | --- | --- |
 | Offline PR CI | [Workflow](../.github/workflows/offline-verification.yml). Read-only checkout and offline gate. |
-| Viewer offline integration | [Gallery](../gallery/). Actual candidate modules with API doubles. For camera changes, run the [CPU test](../tests/candidate_camera/run_cpu.py) against pinned vendor inputs. WebGL and BFCache require runtime evidence. |
-| Main-only browser runtime | [Guarded workflow](../.github/workflows/firefox-glb-runtime.yml) and [fixture](../ci/glb-runtime-fixture.json). Use only the guarded entry point. Preserve pinned expectations, source/animation/track checks and separate receipts for failed, limited and passing runs. |
+| Viewer offline integration | [Legacy Anatomy Verification fixtures](../tests/viewer/README.md). Actual candidate modules with API doubles. For camera changes, run the [CPU test](../tests/candidate_camera/run_cpu.py) against pinned vendor inputs. WebGL and BFCache require runtime evidence. |
+| Main-only browser runtime | [Guarded workflow](../.github/workflows/firefox-glb-runtime.yml) and [fixture](../tests/runtime/glb-runtime-fixture.json). Use only the guarded entry point. Preserve pinned expectations, source/animation/track checks and separate receipts for failed, limited and passing runs. |
 | Missing live viewer access | Mark runtime `unverified`. Medical/dental delivery and authorized merge may proceed when other required checks, reviews, guards and known defects are satisfied. |
 | Media transport | [Transport acceptance](../transport/README.md#upload-acceptance) covers routine local uploads and guarded delivery. |
 
 ## Retention
 
-- **Keep** · Canonical editable inputs and current exports, licenses, source identities, replay, current decisions and exact evidence for active claims or defects. Keep unique recovery material independently of Git history. Follow the [artifact backup policy](../transport/README.md#artifact-backups).
+- **Keep** · Canonical editable inputs and current exports, licenses, source identities, replay, current decisions and exact evidence for active claims or defects. Keep unique recovery material independently of Git history. [Cold collection archives](../transport/README.md#restore-an-archived-collection) retain infrequently replayed inputs outside the normal checkout. Follow the [artifact backup policy](../transport/README.md#artifact-backups).
+- **Derived files** · Keep the canonical input and a reproducible recipe. Generate display and delivery variants during assembly. Track a derivative when it supplies unique review evidence or a named consumer or recovery need requires the file. Before untracking one, replay from a clean checkout, verify the required encoded bytes and consumer behavior, and preserve published addresses and original fallbacks.
 - **Scratch** · Fresh ignored `.artifacts/<outcome>/` directories. Keep one durable bundle per meaningful outcome with revision, result, limits, consumers and retention. Move accepted decisions and remaining defects to their owners.
 - **Retire** · Check imports, discovery, packaging, links, public URLs and symlink targets. Repair readers and narrow claims that lose evidence. Retire spent output after recording its outcome. Review temporary bundles after 30 days. Extensions need an active use and next review date.
 
 ## Contribution and delivery
 
+Use a [campaign record](../records/campaigns/anatomy-gallery-consolidation.md) for a bounded destination that spans multiple sessions. It records the sequence, unknowns and current frontier. The [local backlog](../records/work-items/backlog.md) leads to work items that own scope, acceptance criteria and verification. Link related GitHub issues and PRs from the work item. GitHub owns the state of those external records. Keep settled requirements and evidence with their existing owners.
+
 | Outcome | Evidence |
 | --- | --- |
-| Bounded scope | Check open PRs before broad changes. Record the problem, impact, evidence, acceptance and scope in the issue. A self-contained small fix may use its handoff or PR. |
+| Bounded scope | Check open PRs before broad changes. Record the problem, impact, evidence, acceptance and scope in the work item or issue. A self-contained small fix may use its handoff or PR. |
 | Reviewable change | Use a scoped commit on the current branch for local Mac development. Follow the shared GitHub guide for cloud and remote work. Link open work and record the exact tested revision, checks, results and limits. For large or generated files include source, consumers and retention. |
 | Accepted delivery | Meet the applicable gates and obtain any required merge or publication authorization. Verify publication through the affected entry points and apply the transport acceptance for asset uploads. Close issues on accepted outcomes or explicit retirement. |
 | Paused or blocked | Recoverable branch/commit, missing input or decision and next action. Preserve unrelated and paused work. |

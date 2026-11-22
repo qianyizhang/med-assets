@@ -5,7 +5,7 @@ import {createHash} from 'node:crypto';
 import {resolve} from 'node:path';
 import {pathToFileURL} from 'node:url';
 import assert from 'node:assert/strict';
-import {createInspection, fitVisibleParts, SOURCE_SHA256} from '../../gallery/pharynx_larynx/visibility-r01/pharynx-inspection.mjs';
+import {createInspection, fitVisibleParts, SOURCE_SHA256} from './visibility-r01/pharynx-inspection.mjs';
 const require = createRequire(pathToFileURL(resolve(process.env.PHARYNX_TEST_DEPS, 'package.json')));
 const {GLTFLoader} = await import(pathToFileURL(require.resolve('three/examples/jsm/loaders/GLTFLoader.js')));
 const THREE = require('three');
@@ -33,4 +33,4 @@ fitVisibleParts(scene, camera, controls, THREE); capture('cartilage-after-fit', 
 controller.select('all'); fitVisibleParts(scene, camera, controls, THREE); capture('all-fitted', 'baseline');
 controller.select('cartilage'); fitVisibleParts(scene, camera, controls, THREE);
 controller.select('all'); fitVisibleParts(scene, camera, controls, THREE); capture('reset-fitted', 'reset');
-writeFileSync(process.argv[2], JSON.stringify({sourceSha256: SOURCE_SHA256, controllerSha256: sha(readFileSync(new URL('../../gallery/pharynx_larynx/visibility-r01/pharynx-inspection.mjs', import.meta.url))), threeVersion: require('three').REVISION, states, cameras}, null, 2) + '\n');
+writeFileSync(process.argv[2], JSON.stringify({sourceSha256: SOURCE_SHA256, controllerSha256: sha(readFileSync(new URL('./visibility-r01/pharynx-inspection.mjs', import.meta.url))), threeVersion: require('three').REVISION, states, cameras}, null, 2) + '\n');

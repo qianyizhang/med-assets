@@ -7,7 +7,7 @@ import tempfile
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / 'ci'))
+sys.path.insert(0, str(ROOT / 'tests/runtime'))
 import glb_runtime_fixture as fixture
 import glb_runtime_probe as runtime
 
@@ -17,9 +17,9 @@ class RuntimeFixtureTests(unittest.TestCase):
         temporary = tempfile.TemporaryDirectory()
         self.addCleanup(temporary.cleanup)
         self.root = Path(temporary.name)
-        self.config_path = self.root / 'ci/glb-runtime-fixture.json'
-        self.config_path.parent.mkdir()
-        self.config = json.loads((ROOT / 'ci/glb-runtime-fixture.json').read_text())
+        self.config_path = self.root / 'tests/runtime/glb-runtime-fixture.json'
+        self.config_path.parent.mkdir(parents=True)
+        self.config = json.loads((ROOT / 'tests/runtime/glb-runtime-fixture.json').read_text())
         self.source = self.root / self.config['heart']['tracksSource']['file']
         self.source.parent.mkdir(parents=True)
         self.source.write_bytes((ROOT / self.config['heart']['tracksSource']['file']).read_bytes())

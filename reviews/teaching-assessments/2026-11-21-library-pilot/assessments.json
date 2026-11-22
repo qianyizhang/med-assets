@@ -1,0 +1,231 @@
+{
+  "schemaVersion": 1,
+  "evaluator": "Codex (agent review)",
+  "date": "2026-11-21",
+  "rubric": {
+    "revision": "a1115defec3676d942d3432242d29431109693f9",
+    "path": "docs/guides/asset-quality.md",
+    "sha256": "76965de563c60a29f5c27a53f8a29081ee25dc4c5e0b6713c567243b1d5e0e4e"
+  },
+  "assessments": [
+    {
+      "route": "library/ovaries/hra-ovary-tubal-r01",
+      "export": {
+        "path": "models/ovaries/exports/hra-ovary-tubal-r01/ovary-tubal-context.glb",
+        "sha256": "465a44b18df91ece95a236372a8cbe3e1a0de0207525955290e6b0fa519195d1",
+        "bytes": 681552
+      },
+      "task": "Locate the fimbrial end next to each source-labeled ovary and point to the gap between them.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "Clean reimport preserved the native transforms and all ten meshes, including the two small fimbrial meshes. Both side-detail renders match the source pixels."
+        },
+        {
+          "score": null,
+          "observation": "Matched neutral and alternate close-ups show the fringe, adjacent ovary and gap. The coarse ovarian contours remain angular at close-up scale. The source meshes have the same contours. A registered HRA source section or feature annotation is still needed to explain those edges."
+        },
+        {
+          "score": 3,
+          "observation": "The bilateral overview orients the two sides. Each labeled detail locates the fimbrial fringe beside the pale ovary, and the grayscale sheet keeps both cues readable. The shared projection direction leaves depth unconfirmed."
+        },
+        {
+          "score": 3,
+          "observation": "Each of the ten named parts has one primitive. The 2,871- and 3,530-triangle fimbriae make the small fringes visible. The two ampullae account for 21,864 of 36,885 triangles and preserve the native arcs. The combined export is 681,552 bytes versus 681,992 across the four same-scope originals. A lighter export has yet to be measured."
+        }
+      ],
+      "sources": [
+        {
+          "label": "HRA ovary v1.3 and fallopian tube v1.2 · source review",
+          "url": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/ovaries/2026-10-30-hra-ovary-tubal-r01/README.md"
+        },
+        {
+          "label": "Clean import and matched source/export views",
+          "url": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/ovaries/2026-10-30-hra-ovary-tubal-r01/reimport-render.json"
+        },
+        {
+          "label": "Four source identities and native geometry recovery",
+          "url": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/models/ovaries/exports/hra-ovary-tubal-r01/ovary-tubal-context.build.json"
+        },
+        {
+          "label": "HRA source intake · geometry resolution and native frame",
+          "url": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/sources/datasets/hra/ovary-tubal-context/README.md"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/ovaries/2026-10-30-hra-ovary-tubal-r01/screenshots/export-overview.png",
+          "sha256": "d3db3ba1efb5f34b5f9483c8960c11b4e446496e96bdf2174882a56a22d55db2",
+          "bytes": 798948,
+          "label": "Exact-export bilateral overview"
+        },
+        {
+          "path": "reviews/ovaries/2026-10-30-hra-ovary-tubal-r01/screenshots/export-detail-L.png",
+          "sha256": "61464b70fc7f7302b3efd4dc59386ed235ac54815836a81ea177c0ec327ef15f",
+          "bytes": 734001,
+          "label": "Source-left ovary and tubal fringe"
+        },
+        {
+          "path": "reviews/ovaries/2026-10-30-hra-ovary-tubal-r01/screenshots/export-detail-R.png",
+          "sha256": "d4eac58ccd3bc2f9ac94a998adb76094c836aa7b47289f17cf2effb65e482129",
+          "bytes": 719800,
+          "label": "Source-right ovary and tubal fringe"
+        },
+        {
+          "path": "reviews/ovaries/2026-10-30-hra-ovary-tubal-r01/screenshots/teaching-grayscale.png",
+          "sha256": "e139532661e6dd808e771878efb026f8d7c5c25b6b803b4df7f930c47062c561",
+          "bytes": 511026,
+          "label": "Labeled grayscale teaching sheet"
+        },
+        {
+          "path": "reviews/ovaries/2026-11-21-form-assessment-r01/form-close-left.webp",
+          "sha256": "db2643c74ff80fa0bd0ed68cd063029980e7dff6fecc8ad5853b95830d6674f9",
+          "bytes": 667956,
+          "label": "Source-left fringe, ovary and gap · matched and alternate close-ups"
+        },
+        {
+          "path": "reviews/ovaries/2026-11-21-form-assessment-r01/form-close-right.webp",
+          "sha256": "10aca3a95d1cc94a3f5ed77f3bfc9c1962de33028d01e4e9139df36fd1a628a0",
+          "bytes": 681730,
+          "label": "Source-right fringe, ovary and gap · matched and alternate close-ups"
+        }
+      ]
+    },
+    {
+      "route": "library/bronchial_tree/authored-central-fairing-r13",
+      "export": {
+        "path": "models/bronchial_tree/exports/authored-central-fairing-r13/bronchial_central_fairing.glb",
+        "sha256": "c9e2eb595d677203b52aa870a9f0203f059a8f686a65056983fcc59ccd607587",
+        "bytes": 10655808
+      },
+      "task": "Trace the first fork of the authored exterior from the trunk into both main branches.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "The exact r09 authored baseline is the reference. Independent decode confirmed oriented triangle connectivity and a maximum movement of 0.185 mm. Protected termini and the accepted left blend agree with r09. This task covers the authored branch graph."
+        },
+        {
+          "score": 2,
+          "observation": "The broad neutral highlight shows a smoother focal dimple. Both close directions still show an angular underside, and the retained collar competes with the reading of the branch contour."
+        },
+        {
+          "score": 3,
+          "observation": "The neutral overview identifies the trunk and both main branches. The isolated close views let the eye follow the split on both sides of the fork. The asset is one exterior mesh with capped ends."
+        },
+        {
+          "score": 2,
+          "observation": "One primitive keeps the outer fork silhouette continuous, but 443,892 triangles and 10,655,808 bytes cover the whole tree for this local teaching task. Both counts equal r09. The retained review measures the junction movement. The visible benefit of dense distal sampling remains untested."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Authored r09 source, r13 changes and anatomy scope",
+          "url": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/models/bronchial_tree/exports/authored-central-fairing-r13/README.md"
+        },
+        {
+          "label": "Triangle connectivity and displacement check",
+          "url": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/bronchial_tree/2026-10-26-authored-central-fairing-r13/independent-export-check.json"
+        },
+        {
+          "label": "Protected terminal neighborhoods",
+          "url": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/bronchial_tree/2026-10-26-authored-central-fairing-r13/terminal-protected-check.json"
+        },
+        {
+          "label": "Exact view bindings",
+          "url": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/bronchial_tree/2026-10-26-authored-central-fairing-r13/render-bindings.json"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/bronchial_tree/2026-10-26-authored-central-fairing-r13/evidence/after-whole.png",
+          "sha256": "c8d4264c82cf9f391d4a2a8110355dce8f4ffd359be3ea85dab7a2383254f6e1",
+          "bytes": 433074,
+          "label": "Neutral r13 overview"
+        },
+        {
+          "path": "reviews/bronchial_tree/2026-10-26-authored-central-fairing-r13/evidence/after-close.png",
+          "sha256": "91e6d8caf29d3f1fcca92902a1055d68b29a953ca1c725c6ef162bfa7f818062",
+          "bytes": 607561,
+          "label": "Neutral r13 central close view"
+        },
+        {
+          "path": "reviews/bronchial_tree/2026-10-26-authored-central-fairing-r13/evidence/after-opposite-close.png",
+          "sha256": "d22d5728d3eb1a7b1f015061dabf86dd0c9205cadfa21a784bd6d9efef19aa35",
+          "bytes": 600368,
+          "label": "Neutral r13 reverse close view"
+        },
+        {
+          "path": "reviews/bronchial_tree/2026-10-26-authored-central-fairing-r13/evidence/before-close.png",
+          "sha256": "f6e5d97c00cfe7824cb268eebfe320bc6030e0991daa4b8b19b13b44c97a4b13",
+          "bytes": 608489,
+          "label": "Matched reference close view · r09"
+        }
+      ]
+    },
+    {
+      "route": "library/esophagus_wall/authored-cutaway-r01",
+      "export": {
+        "path": "models/esophagus_wall/exports/authored-cutaway-r01/esophagus-wall-cutaway-r01.glb",
+        "sha256": "e4f51a86040ef115776fe06a33443982f7b63243332681e53dadaa77f81c05f5",
+        "bytes": 201328
+      },
+      "task": "Read from the lumen to the adventitia and identify the two muscularis externa compartments within the four tunics.",
+      "axes": [
+        {
+          "score": 3,
+          "observation": "Clean import retains the five named compartments. The transverse section shows composite mucosa, submucosa, inner circular muscle, outer longitudinal muscle and adventitia in the reviewed order. The source record identifies the folded lumen and all thicknesses as illustrative."
+        },
+        {
+          "score": 3,
+          "observation": "The fold, open contour and wedge edges read in both neutral close views. The flush outer bands read in the matched palette and labeled section. The folds, thicknesses and cut faces are authored cues. Matched anatomy for the fold shape and finish is unavailable."
+        },
+        {
+          "score": 3,
+          "observation": "The oblique view orients the wedge, then the numbered transverse section lets me follow all five compartments in order. The similarly pale outer bands make the adventitia harder to identify without its leader."
+        },
+        {
+          "score": 3,
+          "observation": "The five selectable shells have one primitive and 1,540 triangles each. The fold and cut rims read in the oblique and transverse views. The 201,328-byte export and 201,344-byte palette trial share the same 7,700 triangles and BIN. The palette trial tests color, with a lighter geometry trial still outstanding."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Authored schematic scope and histology references",
+          "url": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/models/esophagus_wall/exports/authored-cutaway-r01/README.md"
+        },
+        {
+          "label": "Existing static teaching-supplement judgment",
+          "url": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/esophagus_wall/2026-10-25-authored-teaching/review-record.json"
+        },
+        {
+          "label": "Exact clean import and compartment diagnostics",
+          "url": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/esophagus_wall/2026-10-25-authored-teaching/reimport-receipt.json"
+        },
+        {
+          "label": "Same-geometry palette trial and baseline limits",
+          "url": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/esophagus_wall/2026-10-27-palette-trial/README.md"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/esophagus_wall/2026-10-25-authored-teaching/oblique.png",
+          "sha256": "67a9eaf72a5801ff7e0fa989338c6f4096a8ca6bc630946c79c6aca407e29185",
+          "bytes": 660785,
+          "label": "Exact reimport oblique view"
+        },
+        {
+          "path": "reviews/esophagus_wall/2026-10-25-authored-teaching/teaching-sheet.png",
+          "sha256": "c2b8dc96d57f8a0489bf95e62935fa14db9c439973a83db338a1260f0f5fb358",
+          "bytes": 916509,
+          "label": "Oblique and labeled transverse section"
+        },
+        {
+          "path": "reviews/esophagus_wall/2026-11-21-form-assessment-r01/form-close-esophageal-wall.webp",
+          "sha256": "964934356dd41a74568ff92d129ba53f51fd146023eae4476d9fed22df359f80",
+          "bytes": 1502844,
+          "label": "Folded lumen, wedge and outer bands · matched and alternate close-ups"
+        }
+      ]
+    }
+  ]
+}

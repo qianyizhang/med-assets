@@ -36,10 +36,6 @@ def gallery_files():
     files = {}
     pending = [GALLERY / "index.html"]
     review_pages = {local_path(item["comparisonPage"]) for item in definitions() if "comparisonPage" in item}
-    pilot = GALLERY / "adrenal-pilot/model-survey.html"
-    if pilot.is_file():
-        # The survey creates its exact-version and fallback evidence links in React.
-        pending.extend([pilot, pilot.with_name("verification.html"), *review_pages])
     while pending:
         path = pending.pop().resolve()
         if not path.is_relative_to(REPO) or not path.is_file():
@@ -56,7 +52,7 @@ def gallery_files():
 
 
 def viewer_vendor(fetch):
-    fixture = json.loads((SOURCE.parents[1] / "ci/glb-runtime-fixture.json").read_text())
+    fixture = json.loads((SOURCE.parents[1] / "tests/runtime/glb-runtime-fixture.json").read_text())
     controls_path = SOURCE.parents[1] / "tests/candidate_camera/vendor-binding.json"
     controls = json.loads(controls_path.read_text())["orbitControls"]
     orbit = "vendor/examples/jsm/controls/OrbitControls.js"

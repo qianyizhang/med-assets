@@ -11,14 +11,14 @@ import sys
 import tempfile
 
 ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(ROOT / 'ci'))
+sys.path.insert(0, str(ROOT / 'tests/runtime'))
 from esophagus import probe
 
 
 def run(vendor_root, source):
     if not shutil.which('node'):
         raise RuntimeError('Preinstalled Node is required; no installation attempted')
-    fixture = json.loads((ROOT / 'ci/glb-runtime-fixture.json').read_text())
+    fixture = json.loads((ROOT / 'tests/runtime/glb-runtime-fixture.json').read_text())
     libraries = [item for item in fixture['resources'] if item['path'].startswith('vendor/')]
     if len(libraries) != 5:
         raise ValueError('Expected the five reviewed Three resources, including LICENSE')

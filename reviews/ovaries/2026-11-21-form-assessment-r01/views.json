@@ -1,0 +1,267 @@
+{
+  "blender": "5.2.3 LTS Release Candidate",
+  "blenderBuild": "fab76e95306d",
+  "capture": {
+    "resolution": [
+      960,
+      960
+    ],
+    "engine": "Cycles CPU",
+    "samples": 48,
+    "seed": 17,
+    "denoising": false,
+    "display": "AgX",
+    "worldColor": [
+      0.1,
+      0.1,
+      0.1
+    ],
+    "lightOffsetsAndPowers": [
+      [
+        [
+          -0.6,
+          -0.7,
+          0.8
+        ],
+        14
+      ],
+      [
+        [
+          0.5,
+          -0.3,
+          0.1
+        ],
+        7
+      ],
+      [
+        [
+          0,
+          0.5,
+          0.5
+        ],
+        10
+      ]
+    ],
+    "rigFactor": "orthoScaleM / 0.15",
+    "diskSizeFactor": 0.4,
+    "neutralBaseColor": [
+      0.44,
+      0.39,
+      0.34,
+      1
+    ],
+    "neutralRoughness": 0.8
+  },
+  "export": {
+    "path": "models/ovaries/exports/hra-ovary-tubal-r01/ovary-tubal-context.glb",
+    "sha256": "465a44b18df91ece95a236372a8cbe3e1a0de0207525955290e6b0fa519195d1",
+    "bytes": 681552
+  },
+  "plateAssembly": "Unscaled RGB frames in left-to-right order. Captions below the 960 \u00d7 960 panels. Lossless WebP verified against the decoded composite.",
+  "plates": [
+    {
+      "path": "reviews/ovaries/2026-11-21-form-assessment-r01/form-close-left.webp",
+      "sha256": "db2643c74ff80fa0bd0ed68cd063029980e7dff6fecc8ad5853b95830d6674f9",
+      "bytes": 667956,
+      "width": 2880,
+      "height": 1024,
+      "framesLeftToRight": [
+        {
+          "file": "ovary-L-native-palette.png",
+          "sha256": "463ed0ae305894655b082249f03b44b7a04ae33a106a0f18d45639c7f62b58cb",
+          "bytes": 723056,
+          "angle": "native",
+          "material": "palette",
+          "targetM": [
+            0.04297957569360733,
+            0.04611833393573761,
+            0.06259269267320633
+          ],
+          "orthoScaleM": 0.039486144296824933,
+          "cameraM": [
+            0.04297957569360733,
+            -0.25388169288635254,
+            0.06259269267320633
+          ],
+          "cameraQuaternion": [
+            0.7071067094802856,
+            0.7071068286895752,
+            0.0,
+            0.0
+          ],
+          "visibleNodes": [
+            "VH_F_ampulla_of_uterine_tube_L",
+            "VH_F_fibria_of_uterine_tube_L",
+            "VH_F_isthmus_of_fallopian_tube_L",
+            "VH_F_left_ovary",
+            "VH_F_uterine_tube_infundibulum_L"
+          ]
+        },
+        {
+          "file": "ovary-L-native-neutral.png",
+          "sha256": "06c19d645fb98a6f4f319da5fb08f75d4f9437c1dc189d17cb04670710b7c6ef",
+          "bytes": 699515,
+          "angle": "native",
+          "material": "neutral",
+          "targetM": [
+            0.04297957569360733,
+            0.04611833393573761,
+            0.06259269267320633
+          ],
+          "orthoScaleM": 0.039486144296824933,
+          "cameraM": [
+            0.04297957569360733,
+            -0.25388169288635254,
+            0.06259269267320633
+          ],
+          "cameraQuaternion": [
+            0.7071067094802856,
+            0.7071068286895752,
+            0.0,
+            0.0
+          ],
+          "visibleNodes": [
+            "VH_F_ampulla_of_uterine_tube_L",
+            "VH_F_fibria_of_uterine_tube_L",
+            "VH_F_isthmus_of_fallopian_tube_L",
+            "VH_F_left_ovary",
+            "VH_F_uterine_tube_infundibulum_L"
+          ]
+        },
+        {
+          "file": "ovary-L-alternate-neutral.png",
+          "sha256": "7d5f574ae8d0fa1fa43ffed8b2a373331459cc9658c895158b3c7c57273ba002",
+          "bytes": 671948,
+          "angle": "alternate",
+          "material": "neutral",
+          "targetM": [
+            0.04297957569360733,
+            0.04611833393573761,
+            0.06259269267320633
+          ],
+          "orthoScaleM": 0.039486144296824933,
+          "cameraM": [
+            0.29036593437194824,
+            -0.04119449853897095,
+            0.20811408758163452
+          ],
+          "cameraQuaternion": [
+            0.7034438848495483,
+            0.41421833634376526,
+            0.2930656969547272,
+            0.4976970851421356
+          ],
+          "visibleNodes": [
+            "VH_F_ampulla_of_uterine_tube_L",
+            "VH_F_fibria_of_uterine_tube_L",
+            "VH_F_isthmus_of_fallopian_tube_L",
+            "VH_F_left_ovary",
+            "VH_F_uterine_tube_infundibulum_L"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "reviews/ovaries/2026-11-21-form-assessment-r01/form-close-right.webp",
+      "sha256": "10aca3a95d1cc94a3f5ed77f3bfc9c1962de33028d01e4e9139df36fd1a628a0",
+      "bytes": 681730,
+      "width": 2880,
+      "height": 1024,
+      "framesLeftToRight": [
+        {
+          "file": "ovary-R-native-palette.png",
+          "sha256": "74d4cfd2570253aa98ff7e71c2bf10df9c2e8b003128fb8ae0dcd0d31646baaa",
+          "bytes": 693722,
+          "angle": "native",
+          "material": "palette",
+          "targetM": [
+            -0.07056222856044769,
+            0.04884513467550278,
+            0.06212553009390831
+          ],
+          "orthoScaleM": 0.03832817189395427,
+          "cameraM": [
+            -0.07056222856044769,
+            -0.2511548697948456,
+            0.06212553009390831
+          ],
+          "cameraQuaternion": [
+            0.7071067094802856,
+            0.7071068286895752,
+            0.0,
+            0.0
+          ],
+          "visibleNodes": [
+            "VH_F_ampulla_of_uterine_tube_R",
+            "VH_F_fibria_of_uterine_tube_R",
+            "VH_F_isthmus_of_fallopian_tube_R",
+            "VH_F_right_ovary",
+            "VH_F_uterine_tube_infundibulum_R"
+          ]
+        },
+        {
+          "file": "ovary-R-native-neutral.png",
+          "sha256": "c62656b2473b4f905dee97e984f9b2bb0e986442f32feccb1d93333754c1f1f6",
+          "bytes": 706074,
+          "angle": "native",
+          "material": "neutral",
+          "targetM": [
+            -0.07056222856044769,
+            0.04884513467550278,
+            0.06212553009390831
+          ],
+          "orthoScaleM": 0.03832817189395427,
+          "cameraM": [
+            -0.07056222856044769,
+            -0.2511548697948456,
+            0.06212553009390831
+          ],
+          "cameraQuaternion": [
+            0.7071067094802856,
+            0.7071068286895752,
+            0.0,
+            0.0
+          ],
+          "visibleNodes": [
+            "VH_F_ampulla_of_uterine_tube_R",
+            "VH_F_fibria_of_uterine_tube_R",
+            "VH_F_isthmus_of_fallopian_tube_R",
+            "VH_F_right_ovary",
+            "VH_F_uterine_tube_infundibulum_R"
+          ]
+        },
+        {
+          "file": "ovary-R-alternate-neutral.png",
+          "sha256": "631540f587d0ca59dab083d06f9668b4a6e5a9bb44c43dcdf329b629cc333a09",
+          "bytes": 714175,
+          "angle": "alternate",
+          "material": "neutral",
+          "targetM": [
+            -0.07056222856044769,
+            0.04884513467550278,
+            0.06212553009390831
+          ],
+          "orthoScaleM": 0.03832817189395427,
+          "cameraM": [
+            0.17682413756847382,
+            -0.03846769779920578,
+            0.2076469212770462
+          ],
+          "cameraQuaternion": [
+            0.7034438252449036,
+            0.41421836614608765,
+            0.29306572675704956,
+            0.4976970851421356
+          ],
+          "visibleNodes": [
+            "VH_F_ampulla_of_uterine_tube_R",
+            "VH_F_fibria_of_uterine_tube_R",
+            "VH_F_isthmus_of_fallopian_tube_R",
+            "VH_F_right_ovary",
+            "VH_F_uterine_tube_infundibulum_R"
+          ]
+        }
+      ]
+    }
+  ]
+}

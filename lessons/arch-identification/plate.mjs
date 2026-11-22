@@ -111,14 +111,14 @@ export function plateHeight(state, width) {
   return state.image[state.arch] ? 1000 : (7 * (width < 500 ? 36 : 44) + 16) * 1100 / Math.max(240, width);
 }
 // Shared by the live page and offline render review. No embedded raster copies.
-export function plateSVG(state, width = 640, {media = MEDIA, original = false} = {}) {
+export function plateSVG(state, width = 640, {media = MEDIA, imageUrl = media + state.arch + '-occlusal-teeth.png', original = false} = {}) {
   const available = state.image[state.arch], height = plateHeight(state, width);
   const c = COPY[state.lang], selected = state.selected[state.arch], unit = 1100 / Math.max(240, width);
   const marks = geometry(state, width);
   return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1100 ${height}" width="${width}" height="${width * height / 1100}" role="radiogroup" aria-label="${c[state.arch]} · FDI" aria-describedby="keyboard-help">
     <style>.tooth{cursor:pointer;outline:none}.tooth:focus .tag{stroke:#fff;stroke-width:3px}.hit{cursor:pointer}</style>
     <rect width="1100" height="${height}" fill="#232729"/>
-    ${available ? `<image href="${escapeXML(media + state.arch + '-occlusal-teeth.png')}" xlink:href="${escapeXML(media + state.arch + '-occlusal-teeth.png')}" width="1100" height="1000"/>` : ''}
+    ${available ? `<image href="${escapeXML(imageUrl)}" xlink:href="${escapeXML(imageUrl)}" width="1100" height="1000"/>` : ''}
     ${original ? '' : marks.map(p => {
       const active = p.fdi === selected, color = active ? '#a8f0df' : '#b3c2c5';
       return `${available ? `<g aria-hidden="true" fill="none" stroke="${color}" stroke-width="${active ? 2 : 1}" vector-effect="non-scaling-stroke">

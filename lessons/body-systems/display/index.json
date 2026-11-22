@@ -1,0 +1,3156 @@
+[
+  {
+    "id": "skeletal",
+    "name": "Skeletal",
+    "function": "Show the skeletal framework that supports the trunk and links it to the limbs.",
+    "status": "Native frame",
+    "overview": "BodyParts3D skeleton and translucent envelope share the source frame.",
+    "detail": "Compare the right knee in its source pose and at 20° more flexion. The femur stays fixed, the tibia and fibula rotate together, and arrows indicate qualitative load directions.",
+    "limit": "The tibial plateau clears the femur in both sampled poses. The hinge omits rolling, gliding and soft-tissue loading. The skeleton’s 271 representation meshes include bone, cartilage/disc and dental categories.",
+    "sources": [
+      [
+        "Skeleton export scope",
+        "models/skeleton/exports/source-candidate-03/README.md"
+      ],
+      [
+        "Regional bone/cartilage teaching scenes",
+        "assemblies/skeletal-teaching/README.md"
+      ],
+      [
+        "Knee inspection",
+        "reviews/joints/knee-inspection-r01/README.md",
+        "gallery/knee-inspection/r01/README.md"
+      ]
+    ],
+    "plates": [
+      {
+        "kind": "assembly",
+        "title": "Whole-body skeleton",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/skeleton-assembly-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "64d56808eee5b6149872993eabd4f8c0af51f1b0508a3b949a10b4a5eb1792f9"
+          },
+          {
+            "path": "lessons/body-systems/display/skeleton-assembly-ortho.webp",
+            "angle": "Anterior",
+            "sourceSha256": "12b59995d42946db8965d2fe1b2b6f54ea900b73c92478cd8dbd385d6825bef5"
+          }
+        ],
+        "legend": [
+          [
+            "Body envelope",
+            "#6CAFE3"
+          ],
+          [
+            "Cartilage and discs",
+            "#E8A34A"
+          ],
+          [
+            "Lower limbs",
+            "#E7CE71"
+          ],
+          [
+            "Other bones",
+            "#4D6773"
+          ],
+          [
+            "Pelvis",
+            "#E77459"
+          ],
+          [
+            "Ribs and sternum",
+            "#514587"
+          ],
+          [
+            "Skull and jaw",
+            "#54BCAD"
+          ],
+          [
+            "Teeth",
+            "#206C94"
+          ],
+          [
+            "Upper limbs",
+            "#2B7948"
+          ],
+          [
+            "Vertebrae",
+            "#8E3B60"
+          ]
+        ],
+        "id": "skeleton-assembly",
+        "scale": "Matched camera width · 237.6 cm in model units"
+      },
+      {
+        "kind": "detail",
+        "title": "Poses",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/skeletal-poses-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "a0ea256db81a948710e68ae136a3ccd540b376977a8f1275fb0d184861139d8b"
+          },
+          {
+            "path": "lessons/body-systems/display/skeletal-poses-ortho.webp",
+            "angle": "−X orthographic",
+            "sourceSha256": "b5c11befb4701c8c341e45ff341f3b8e315388050f974a7dce918c98a91704f8"
+          }
+        ],
+        "legend": [
+          [
+            "Femur",
+            "#206C94"
+          ],
+          [
+            "Fibula",
+            "#8E3B60"
+          ],
+          [
+            "Load and support",
+            "#54BCAD"
+          ],
+          [
+            "Pose labels",
+            "#514587"
+          ],
+          [
+            "Tibia",
+            "#E8A34A"
+          ]
+        ],
+        "id": "skeletal-poses"
+      },
+      {
+        "kind": "detail",
+        "title": "Source",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/skeletal-source-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "0e410e9d1e0a832286af809de1e486dd2bb8bb6a6d8f4533ce47d429b513d36c"
+          },
+          {
+            "path": "lessons/body-systems/display/skeletal-source-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "16d80582e853905e472fa95b72a7f5dd0c252f66471f28c82899fa19ba8185fc"
+          }
+        ],
+        "legend": [
+          [
+            "Femur",
+            "#206C94"
+          ],
+          [
+            "Fibula",
+            "#8E3B60"
+          ],
+          [
+            "Load and support",
+            "#54BCAD"
+          ],
+          [
+            "Tibia",
+            "#E8A34A"
+          ]
+        ],
+        "id": "skeletal-source"
+      },
+      {
+        "kind": "detail",
+        "title": "Flexion",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/skeletal-flexion-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "d68f47526ec9bf8c5560e47e8324d6aaea40ca6a0a132b6b3b58104237cdff5d"
+          },
+          {
+            "path": "lessons/body-systems/display/skeletal-flexion-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "c5a52828d1d5ad153762b188d0a79efdeba5b2c8ef87950b9fe326546d31b09c"
+          }
+        ],
+        "legend": [
+          [
+            "Femur",
+            "#206C94"
+          ],
+          [
+            "Fibula",
+            "#8E3B60"
+          ],
+          [
+            "Load and support",
+            "#54BCAD"
+          ],
+          [
+            "Tibia",
+            "#E8A34A"
+          ]
+        ],
+        "id": "skeletal-flexion"
+      }
+    ]
+  },
+  {
+    "id": "muscular",
+    "name": "Muscular",
+    "function": "Trace calf muscle force through the Achilles tendon to the heel.",
+    "status": "Native frame",
+    "overview": "Z-Anatomy positions and dimensions are retained. Plantarflexion is a separate regional pose.",
+    "detail": "Follow gastrocnemius and soleus through the Achilles tendon to the calcaneus in neutral and 15° plantarflexion.",
+    "limit": "Five sampled poses preserve the distal 0.085 mm attachment witness. The native talus and fibula overlap in neutral. Whole-body insertions, clinical biomechanics and rig coverage remain open.",
+    "sources": [
+      [
+        "Muscle atlas scope and sources",
+        "models/muscle/exports/z-anatomy-r02/README.md"
+      ],
+      [
+        "Achilles regional assembly",
+        "assemblies/musculoskeletal-teaching/2026-10-23/README.md"
+      ],
+      [
+        "Rotator cuff study",
+        "reviews/joints/2026-10-30-rotator-cuff-r01/README.md"
+      ]
+    ],
+    "plates": [
+      {
+        "kind": "assembly",
+        "title": "Whole-body muscle atlas",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/muscles-assembly-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "5434c82e913916665aaf87fb61424c8ece0eb3c4dd1907b8dd66ad7245ea5d03"
+          },
+          {
+            "path": "lessons/body-systems/display/muscles-assembly-ortho.webp",
+            "angle": "Anterior",
+            "sourceSha256": "4e1a775bbf1620ac3ad0c38c0c3beb5d5d5fba5e5ad0f12a02d05146a83de7ae"
+          }
+        ],
+        "legend": [
+          [
+            "Arm muscles",
+            "#54BCAD"
+          ],
+          [
+            "Chest and abdomen",
+            "#8E3B60"
+          ],
+          [
+            "Head and facial muscles",
+            "#206C94"
+          ],
+          [
+            "Hip and thigh muscles",
+            "#514587"
+          ],
+          [
+            "Leg muscles",
+            "#E77459"
+          ],
+          [
+            "Other muscle groups",
+            "#4D6773"
+          ],
+          [
+            "Superficial shoulder and back",
+            "#E8A34A"
+          ],
+          [
+            "Supporting connective tissue",
+            "#2B7948"
+          ]
+        ],
+        "id": "muscles-assembly",
+        "scale": "Matched camera width · 225.2 cm in model units"
+      },
+      {
+        "kind": "detail",
+        "title": "Neutral",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/muscular-neutral-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "a1c3c31bac26cd78e27fe05060b26609f0ebaf26fddc88726b07254a4d773767"
+          },
+          {
+            "path": "lessons/body-systems/display/muscular-neutral-ortho.webp",
+            "angle": "+X orthographic",
+            "sourceSha256": "1463bb992050a93499fc6c43d67c4f68aebe01854a4ff2b2c4b3c8a7fce664e0"
+          }
+        ],
+        "legend": [
+          [
+            "Achilles tendon",
+            "#206C94"
+          ],
+          [
+            "Fibula",
+            "#E7CE71"
+          ],
+          [
+            "Heel bone",
+            "#E8A34A"
+          ],
+          [
+            "Lateral gastrocnemius",
+            "#514587"
+          ],
+          [
+            "Medial gastrocnemius",
+            "#8E3B60"
+          ],
+          [
+            "Soleus",
+            "#54BCAD"
+          ],
+          [
+            "Talus",
+            "#2B7948"
+          ],
+          [
+            "Tibia",
+            "#E77459"
+          ]
+        ],
+        "id": "muscular-neutral"
+      },
+      {
+        "kind": "detail",
+        "title": "Plantarflexion",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/muscular-plantarflexion-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "2d2066d74fc37ec9f2f7e28b289247239a40b5268a027bc1cde903c94d1e1708"
+          },
+          {
+            "path": "lessons/body-systems/display/muscular-plantarflexion-ortho.webp",
+            "angle": "+X orthographic",
+            "sourceSha256": "7dcac96a04db280067a1844bb609738245a93d1323f60a7c4a826bb640314701"
+          }
+        ],
+        "legend": [
+          [
+            "Achilles tendon",
+            "#206C94"
+          ],
+          [
+            "Fibula",
+            "#E7CE71"
+          ],
+          [
+            "Heel bone",
+            "#E8A34A"
+          ],
+          [
+            "Lateral gastrocnemius",
+            "#514587"
+          ],
+          [
+            "Medial gastrocnemius",
+            "#8E3B60"
+          ],
+          [
+            "Soleus",
+            "#54BCAD"
+          ],
+          [
+            "Talus",
+            "#2B7948"
+          ],
+          [
+            "Tibia",
+            "#E77459"
+          ]
+        ],
+        "id": "muscular-plantarflexion"
+      },
+      {
+        "kind": "detail",
+        "title": "Neutral insertion",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/muscular-neutral-insertion-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "308af0fbdd4222804806ea05e06e0bd14871b8721376fdc4ce51a27432c09442"
+          },
+          {
+            "path": "lessons/body-systems/display/muscular-neutral-insertion-ortho.webp",
+            "angle": "+X orthographic",
+            "sourceSha256": "e447696f1f5db7db6790637600261e1b799035988e57af6056c62903287991ba"
+          }
+        ],
+        "legend": [
+          [
+            "Achilles tendon",
+            "#206C94"
+          ],
+          [
+            "Heel bone",
+            "#E8A34A"
+          ],
+          [
+            "Talus",
+            "#2B7948"
+          ]
+        ],
+        "id": "muscular-neutral-insertion"
+      },
+      {
+        "kind": "detail",
+        "title": "Flexed insertion",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/muscular-flexed-insertion-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "a817bbdf9a216d28d02a3825addeae8ea9642a738910c20f8203b28e4a405233"
+          },
+          {
+            "path": "lessons/body-systems/display/muscular-flexed-insertion-ortho.webp",
+            "angle": "+X orthographic",
+            "sourceSha256": "2857b231ae87aeef9e3d0e16b81056918156893c8c880e84cdbe2a687ff0061c"
+          }
+        ],
+        "legend": [
+          [
+            "Achilles tendon",
+            "#206C94"
+          ],
+          [
+            "Heel bone",
+            "#E8A34A"
+          ],
+          [
+            "Talus",
+            "#2B7948"
+          ]
+        ],
+        "id": "muscular-flexed-insertion"
+      }
+    ]
+  },
+  {
+    "id": "respiratory",
+    "name": "Respiratory",
+    "function": "Show how the diaphragm and lungs change together during one breath.",
+    "status": "Shared thoracic frame",
+    "overview": "The Workshop lung lobes and illustrative lobar tree share coordinates with the breathing diaphragm. The upper airway and enlarged alveoli are under Asset detail.",
+    "detail": "Follow air from the nasal cavity through the pharynx and larynx, along the trachea to a left lobar branch and an enlarged alveolar cluster. Open the gas-exchange stage from the terminal focus.",
+    "limit": "Fourteen neighbour checks and four cup-wall ray tests passed. The lobar and smaller airways are schematic and compressed. The local Chrome lesson was exercised at rest and during inspiration, through all four airway views and into the separate exchange diagram.",
+    "sources": [
+      [
+        "Breathing package and motion limits",
+        "body/breathing/README.md"
+      ],
+      [
+        "Workshop coordinates",
+        "body/anatomy-workshop-r1/README.md"
+      ],
+      [
+        "One Breath lesson",
+        "lessons/one-breath/README.md"
+      ],
+      [
+        "Diaphragm study limits",
+        "models/diaphragm/exports/z-native-static-r01/README.md"
+      ]
+    ],
+    "plates": [
+      {
+        "kind": "assembly",
+        "title": "Lungs, lobar bronchi and diaphragm",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/thorax-assembly-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "86f465082c85c70b233ea0360cdeab5dcb7d39a26c577b05999b6c1c6714592e"
+          },
+          {
+            "path": "lessons/body-systems/display/thorax-assembly-ortho.webp",
+            "angle": "Posterior",
+            "sourceSha256": "cc8b8cf6e26ac57cf2265480b0a49135288c5d6ecec2b674c7223b98e80f66ff"
+          }
+        ],
+        "legend": [
+          [
+            "Diaphragm",
+            "#2B7948"
+          ],
+          [
+            "Left lower lobe",
+            "#E77459"
+          ],
+          [
+            "Left upper lobe",
+            "#54BCAD"
+          ],
+          [
+            "Lobar bronchi",
+            "#784533"
+          ],
+          [
+            "Right lower lobe",
+            "#514587"
+          ],
+          [
+            "Right middle lobe",
+            "#E7CE71"
+          ],
+          [
+            "Right upper lobe",
+            "#206C94"
+          ]
+        ],
+        "id": "thorax-assembly",
+        "scale": "Matched camera width · 52.2 cm in model units"
+      },
+      {
+        "kind": "detail",
+        "title": "Route",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/respiratory-route-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "3f96fe03c950e0f494fc213d65061592ee33db7fd53c6e7e5ab1d5a223824cfc"
+          },
+          {
+            "path": "lessons/body-systems/display/respiratory-route-ortho.webp",
+            "angle": "Straight orthographic",
+            "sourceSha256": "0d9a1b8e430f62a7b3c4c003941589e0f032ea64f32ac28dee1ca01c0c86d41c"
+          }
+        ],
+        "legend": [
+          [
+            "Alveolar cups",
+            "#ABC373"
+          ],
+          [
+            "Conchae",
+            "#514587"
+          ],
+          [
+            "Laryngeal cartilage",
+            "#E7CE71"
+          ],
+          [
+            "Laryngeal passage",
+            "#784533"
+          ],
+          [
+            "Lobar branch",
+            "#6CAFE3"
+          ],
+          [
+            "Main bronchial route",
+            "#8E3B60"
+          ],
+          [
+            "Nasal passage",
+            "#E77459"
+          ],
+          [
+            "Nasal wall",
+            "#54BCAD"
+          ],
+          [
+            "Pharyngeal route",
+            "#2B7948"
+          ],
+          [
+            "Terminal bronchioles and ducts",
+            "#AD528C"
+          ],
+          [
+            "Tracheal cartilage",
+            "#E8A34A"
+          ],
+          [
+            "Tracheal shell",
+            "#206C94"
+          ]
+        ],
+        "id": "respiratory-route"
+      },
+      {
+        "kind": "detail",
+        "title": "Upper",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/respiratory-upper-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "7feb45c9c39b0b60ea34f6c20a9c98618d4985e917b80f732c3ed77f7e036982"
+          },
+          {
+            "path": "lessons/body-systems/display/respiratory-upper-ortho.webp",
+            "angle": "Straight orthographic",
+            "sourceSha256": "1b97a80fd12e26c07fb70c234c20059d85935af18cdc312a2dd4ba16c4adb00c"
+          }
+        ],
+        "legend": [
+          [
+            "Conchae",
+            "#514587"
+          ],
+          [
+            "Laryngeal cartilage",
+            "#E7CE71"
+          ],
+          [
+            "Laryngeal passage",
+            "#784533"
+          ],
+          [
+            "Nasal passage",
+            "#E77459"
+          ],
+          [
+            "Nasal wall",
+            "#54BCAD"
+          ],
+          [
+            "Pharyngeal route",
+            "#2B7948"
+          ]
+        ],
+        "id": "respiratory-upper"
+      },
+      {
+        "kind": "detail",
+        "title": "Branch",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/respiratory-branch-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "0d56b7a378c8876fe2823d6c98514f20b1f64f22063799dee0a7d8f3981c624b"
+          },
+          {
+            "path": "lessons/body-systems/display/respiratory-branch-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "571b17819b486d40a6507c51296ece7bdab5945ca9cbba68c53901df1c3a922b"
+          }
+        ],
+        "legend": [
+          [
+            "Alveolar cups",
+            "#ABC373"
+          ],
+          [
+            "Lobar branch",
+            "#6CAFE3"
+          ],
+          [
+            "Main bronchial route",
+            "#8E3B60"
+          ],
+          [
+            "Terminal bronchioles and ducts",
+            "#AD528C"
+          ]
+        ],
+        "id": "respiratory-branch"
+      },
+      {
+        "kind": "detail",
+        "title": "Terminal",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/respiratory-terminal-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "426b8c2aca91e96a0347299256fa6d97312e7bff1e7ef6fcea9949c34c11526c"
+          },
+          {
+            "path": "lessons/body-systems/display/respiratory-terminal-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "85b471ef887318b3eade4df5175a6d12f3ae5d20ba70e63d520bc5c6dced46b6"
+          }
+        ],
+        "legend": [
+          [
+            "Alveolar cups",
+            "#ABC373"
+          ],
+          [
+            "Terminal bronchioles and ducts",
+            "#AD528C"
+          ]
+        ],
+        "id": "respiratory-terminal"
+      }
+    ]
+  },
+  {
+    "id": "urinary",
+    "name": "Urinary",
+    "function": "Trace urine from both kidneys down the ureters to the bladder and outlet.",
+    "status": "Shared regional frame",
+    "overview": "Workshop kidney and bladder sections keep their placement. The ureters are authored. The enlarged filtration inset is in Asset detail.",
+    "detail": "Inspect each renal pelvis, ureter, trigone entry and the shared outlet in Workshop coordinates. The enlarged renal corpuscle separates the blood and filtrate paths.",
+    "limit": "Ten junctions were checked on both participating surfaces. Teaching sections, added ureters, flow arrows and the filtration inset are schematic. Seams remain visible between some adjoining tubes.",
+    "sources": [
+      [
+        "Workshop geometry and scope",
+        "body/anatomy-workshop-r1/README.md"
+      ],
+      [
+        "Reviewed 2D ureter locator",
+        "reviews/urinary_region/README.md"
+      ]
+    ],
+    "plates": [
+      {
+        "kind": "assembly",
+        "title": "Bilateral urinary tract",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/urinary-tract-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "346bddb2986a889a57ab4503e7b86c4f3303c9e5d1c57140fc13aa67caa850f0"
+          },
+          {
+            "path": "lessons/body-systems/display/urinary-tract-ortho.webp",
+            "angle": "Anterior",
+            "sourceSha256": "e18fad121de430e056f88b37173c0dea959423694dd590919cbdfdf0a463e73e"
+          }
+        ],
+        "legend": [
+          [
+            "Bladder",
+            "#E77459"
+          ],
+          [
+            "Bladder neck and urethra",
+            "#E7CE71"
+          ],
+          [
+            "Calyces",
+            "#8E3B60"
+          ],
+          [
+            "Flow cues",
+            "#784533"
+          ],
+          [
+            "Kidney sections",
+            "#206C94"
+          ],
+          [
+            "Medullary pyramids",
+            "#E8A34A"
+          ],
+          [
+            "Renal pelvis",
+            "#54BCAD"
+          ],
+          [
+            "Trigone",
+            "#2B7948"
+          ],
+          [
+            "Ureters",
+            "#514587"
+          ]
+        ],
+        "id": "urinary-tract",
+        "scale": "Matched camera width · 35.3 cm in model units"
+      },
+      {
+        "kind": "detail",
+        "title": "Overview",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/urinary-overview-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "801f76f569b56a57fe2fc7f5f944250938d408ec15ee41eb6500c2d1746653b5"
+          },
+          {
+            "path": "lessons/body-systems/display/urinary-overview-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "f884fff25db989f31df5252c46dd5a22ec9571f55b48db6c41351ff23e965ee0"
+          }
+        ],
+        "legend": [
+          [
+            "Arterioles",
+            "#6CAFE3"
+          ],
+          [
+            "Bladder",
+            "#E77459"
+          ],
+          [
+            "Bladder neck and urethra",
+            "#E7CE71"
+          ],
+          [
+            "Bowman capsule",
+            "#ABC373"
+          ],
+          [
+            "Calyces",
+            "#8E3B60"
+          ],
+          [
+            "Flow cues",
+            "#784533"
+          ],
+          [
+            "Glomerular tuft",
+            "#AD528C"
+          ],
+          [
+            "Kidney sections",
+            "#206C94"
+          ],
+          [
+            "Medullary pyramids",
+            "#E8A34A"
+          ],
+          [
+            "Proximal tubule",
+            "#4D6773"
+          ],
+          [
+            "Renal pelvis",
+            "#54BCAD"
+          ],
+          [
+            "Trigone",
+            "#2B7948"
+          ],
+          [
+            "Ureters",
+            "#514587"
+          ]
+        ],
+        "id": "urinary-overview"
+      },
+      {
+        "kind": "detail",
+        "title": "Filtration",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/urinary-filtration-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "d99effa325b20be8b3a5b5c05f74d5b92ea10f6261c2e0fec66e81df07347298"
+          },
+          {
+            "path": "lessons/body-systems/display/urinary-filtration-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "af118594c715b86697175ffeb7dd4061eb595edd64f5d7c5e20a47a4680ae6b7"
+          }
+        ],
+        "legend": [
+          [
+            "Arterioles",
+            "#6CAFE3"
+          ],
+          [
+            "Bowman capsule",
+            "#ABC373"
+          ],
+          [
+            "Flow cues",
+            "#784533"
+          ],
+          [
+            "Glomerular tuft",
+            "#AD528C"
+          ],
+          [
+            "Proximal tubule",
+            "#4D6773"
+          ]
+        ],
+        "id": "urinary-filtration"
+      },
+      {
+        "kind": "detail",
+        "title": "Left renal",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/urinary-left-renal-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "c930ee6767c0933bda2d29ba0031ab8b9188df65ee2fa0d3c2f1dafe80f659f0"
+          },
+          {
+            "path": "lessons/body-systems/display/urinary-left-renal-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "94f465c40347efd4e64d3c77f48c65753ec1977db1095b3dc8a744e6de174d24"
+          }
+        ],
+        "legend": [
+          [
+            "Renal pelvis",
+            "#54BCAD"
+          ],
+          [
+            "Ureters",
+            "#514587"
+          ]
+        ],
+        "id": "urinary-left-renal"
+      },
+      {
+        "kind": "detail",
+        "title": "Right renal",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/urinary-right-renal-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "4a891ec369171de759afb6f30ed10212ab8af06009e40ed4751f6a710abb631e"
+          },
+          {
+            "path": "lessons/body-systems/display/urinary-right-renal-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "12a386aee8490ef850ae16133d39ee9f925279964b9b421f17c472d6bc167b3b"
+          }
+        ],
+        "legend": [
+          [
+            "Renal pelvis",
+            "#54BCAD"
+          ],
+          [
+            "Ureters",
+            "#514587"
+          ]
+        ],
+        "id": "urinary-right-renal"
+      },
+      {
+        "kind": "detail",
+        "title": "Left vesical",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/urinary-left-vesical-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "0f214e1f248f89eea82648c357930be7da59eb139f845815cfa98914b0f1e6cc"
+          },
+          {
+            "path": "lessons/body-systems/display/urinary-left-vesical-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "56ec65630f3940d09b9169fe5a392b0dd59f8d1391f56fda312ecc63e986ddf4"
+          }
+        ],
+        "legend": [
+          [
+            "Bladder neck and urethra",
+            "#E7CE71"
+          ],
+          [
+            "Trigone",
+            "#2B7948"
+          ],
+          [
+            "Ureters",
+            "#514587"
+          ]
+        ],
+        "id": "urinary-left-vesical"
+      },
+      {
+        "kind": "detail",
+        "title": "Right vesical",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/urinary-right-vesical-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "b8ff694c90b143189e5da970ffaebc1c92c64808f5dc81cc65f481fbfcef6b0f"
+          },
+          {
+            "path": "lessons/body-systems/display/urinary-right-vesical-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "dace89fb94e60442e94c903aa9e4c706c0a340d051510c3a2ef8e03920b19343"
+          }
+        ],
+        "legend": [
+          [
+            "Bladder neck and urethra",
+            "#E7CE71"
+          ],
+          [
+            "Trigone",
+            "#2B7948"
+          ],
+          [
+            "Ureters",
+            "#514587"
+          ]
+        ],
+        "id": "urinary-right-vesical"
+      },
+      {
+        "kind": "detail",
+        "title": "Outlet",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/urinary-outlet-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "c88e6aa1ab7454c836520432ae701d0157c12029723580cb14038166ccb28da0"
+          },
+          {
+            "path": "lessons/body-systems/display/urinary-outlet-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "82e5d4240e00657ce61886eeab2e3b8d6a39ee3d7b3743b9e95355f5392ea72a"
+          }
+        ],
+        "legend": [
+          [
+            "Bladder neck and urethra",
+            "#E7CE71"
+          ],
+          [
+            "Flow cues",
+            "#784533"
+          ],
+          [
+            "Trigone",
+            "#2B7948"
+          ]
+        ],
+        "id": "urinary-outlet"
+      }
+    ]
+  },
+  {
+    "id": "cardiovascular",
+    "name": "Cardiovascular",
+    "function": "Follow blood through the pulmonary and systemic loops.",
+    "status": "Partial assembly",
+    "overview": "The heart, aorta, pulmonary venous mask and both venae cavae retain their s1233 positions. The schematic supplies pulmonary arterial outflow, chamber and valve interiors, and the distal circuits.",
+    "detail": "Trace one directional loop through both sides of the heart, its four valves and the schematic pulmonary and systemic vascular beds.",
+    "limit": "The source vessel masks approach or overlap the heart label. The labels identify the outer heart boundary and leave the internal chamber connections unresolved. All twenty endpoints were checked at ten transitions. The source chamber and leaflet shapes occupy exploded teaching positions. Vessel bridges and beds are authored.",
+    "sources": [
+      [
+        "Cardiac Atlas documentation",
+        "heart/Cardiac_Atlas/docs/README.md"
+      ],
+      [
+        "Aortic branch scope",
+        "models/aortic_tree_z/exports/r02/README.md"
+      ],
+      [
+        "Workshop shared frame",
+        "body/anatomy-workshop-r1/README.md"
+      ],
+      [
+        "Pulmonary vein context lesson",
+        "lessons/pulmonary-vein-context/README.md"
+      ]
+    ],
+    "plates": [
+      {
+        "kind": "assembly",
+        "title": "Same-case heart and great vessels",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/cardiovascular-s1233-assembly-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "bdcf697e4e9d60f276775a2335b4324b1d3603c516d7d5508568cf9c756547dc"
+          },
+          {
+            "path": "lessons/body-systems/display/cardiovascular-s1233-assembly-ortho.webp",
+            "angle": "Posterior",
+            "sourceSha256": "6b957026e3dded9118cabdc0b6e1294670d17eca5ed77fec857d467a78a8e448"
+          }
+        ],
+        "legend": [
+          [
+            "Aorta",
+            "#E8A34A"
+          ],
+          [
+            "Heart",
+            "#8E3B60"
+          ],
+          [
+            "Inferior vena cava",
+            "#514587"
+          ],
+          [
+            "Pulmonary venous mask",
+            "#54BCAD"
+          ],
+          [
+            "Superior vena cava",
+            "#206C94"
+          ]
+        ],
+        "id": "cardiovascular-s1233-assembly",
+        "scale": "Matched camera width · 44.3 cm in model units"
+      },
+      {
+        "kind": "detail",
+        "title": "Loop",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/cardiovascular-loop-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "87b42800552483fcf5739ad2cf4d8922de35106dae4c5d10cbfc56085d583fda"
+          },
+          {
+            "path": "lessons/body-systems/display/cardiovascular-loop-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "caf6b9111021d0be338165a6db053b7e4f3daaf229fda17af2328879f1e707ae"
+          }
+        ],
+        "legend": [
+          [
+            "Aortic valve",
+            "#784533"
+          ],
+          [
+            "Connectors",
+            "#AD528C"
+          ],
+          [
+            "Direction cues",
+            "#ABC373"
+          ],
+          [
+            "Labels",
+            "#4D6773"
+          ],
+          [
+            "Left atrium",
+            "#E77459"
+          ],
+          [
+            "Left ventricle",
+            "#E7CE71"
+          ],
+          [
+            "Mitral valve",
+            "#2B7948"
+          ],
+          [
+            "Pulmonary bed",
+            "#514587"
+          ],
+          [
+            "Pulmonary valve",
+            "#54BCAD"
+          ],
+          [
+            "Right atrium",
+            "#206C94"
+          ],
+          [
+            "Right ventricle",
+            "#8E3B60"
+          ],
+          [
+            "Systemic bed",
+            "#6CAFE3"
+          ],
+          [
+            "Tricuspid valve",
+            "#E8A34A"
+          ]
+        ],
+        "id": "cardiovascular-loop"
+      },
+      {
+        "kind": "detail",
+        "title": "Right valves",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/cardiovascular-right-valves-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "7883c126b95233db1fb7022449243f8da3df78880d0f34c15cb96efbe55e8328"
+          },
+          {
+            "path": "lessons/body-systems/display/cardiovascular-right-valves-ortho.webp",
+            "angle": "Straight orthographic",
+            "sourceSha256": "25eb246d56174a8dd3777e7470c1d75aa170ef809e30d9c3e8e96f6afb9652be"
+          }
+        ],
+        "legend": [
+          [
+            "Connectors",
+            "#AD528C"
+          ],
+          [
+            "Pulmonary valve",
+            "#54BCAD"
+          ],
+          [
+            "Right atrium",
+            "#206C94"
+          ],
+          [
+            "Right ventricle",
+            "#8E3B60"
+          ],
+          [
+            "Tricuspid valve",
+            "#E8A34A"
+          ]
+        ],
+        "id": "cardiovascular-right-valves"
+      },
+      {
+        "kind": "detail",
+        "title": "Left valves",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/cardiovascular-left-valves-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "985ea04cef6d86597511458f8585af3018b73e0f72e6f6972611570c13709840"
+          },
+          {
+            "path": "lessons/body-systems/display/cardiovascular-left-valves-ortho.webp",
+            "angle": "Straight orthographic",
+            "sourceSha256": "42611a8b1631cc760eed8fa8075b197e46f879ed82b95f6061c443d2980c462a"
+          }
+        ],
+        "legend": [
+          [
+            "Aortic valve",
+            "#784533"
+          ],
+          [
+            "Connectors",
+            "#AD528C"
+          ],
+          [
+            "Left atrium",
+            "#E77459"
+          ],
+          [
+            "Left ventricle",
+            "#E7CE71"
+          ],
+          [
+            "Mitral valve",
+            "#2B7948"
+          ]
+        ],
+        "id": "cardiovascular-left-valves"
+      },
+      {
+        "kind": "detail",
+        "title": "Vessels isolated",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/cardiovascular-s1233-route-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "54d230820e7b4bb193d985c6a127416d428b3ec89a11ce0d5dea6aef46c23853"
+          },
+          {
+            "path": "lessons/body-systems/display/cardiovascular-s1233-route-ortho.webp",
+            "angle": "+Y orthographic",
+            "sourceSha256": "6a31edc0d37a7fe74972de283a067bc69d48ef42506683ff34f872065eb8796e"
+          }
+        ],
+        "legend": [
+          [
+            "Aorta",
+            "#E8A34A"
+          ],
+          [
+            "Inferior vena cava",
+            "#514587"
+          ],
+          [
+            "Pulmonary venous mask",
+            "#54BCAD"
+          ],
+          [
+            "Superior vena cava",
+            "#206C94"
+          ]
+        ],
+        "id": "cardiovascular-s1233-route"
+      }
+    ]
+  },
+  {
+    "id": "digestive",
+    "name": "Digestive",
+    "function": "Trace food from intake through the gut, with accessory organs placed relative to their delivery points.",
+    "status": "Partial assembly",
+    "overview": "The esophagus, stomach, duodenum, small bowel, colon and accessory organs share the s1233 scan frame. The schematic supplies the mouth, terminal outlet and accessory duct entry.",
+    "detail": "Follow the opened, uncoiled food route from mouth to outlet, alongside the source exteriors. Isolate salivary entry or bile and pancreatic secretion at the duodenum.",
+    "limit": "The baseline mask review records a 24.6 mm gap between the two main colon components. Consecutive label boundaries approach or overlap within 1.5 mm. A verified ileocecal landmark and continuous lumen remain open. Nine food-segment rims coincide. The accessory overlays meet recipient surfaces. The exterior plate preserves local anatomy, while the separate conduit shows route order.",
+    "sources": [
+      [
+        "Workshop shared frame and gastric limits",
+        "body/anatomy-workshop-r1/README.md"
+      ],
+      [
+        "Small bowel source candidate",
+        "models/small-intestine/exports/source-candidate-v4/README.md"
+      ],
+      [
+        "Large bowel source candidate",
+        "models/large-intestine/exports/source-candidate-v4/README.md"
+      ],
+      [
+        "Biliary teaching diagram",
+        "diagrams/biliary_pathway/exports/r01/README.md"
+      ]
+    ],
+    "plates": [
+      {
+        "kind": "assembly",
+        "title": "Same-case esophagus through colon",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/digestive-s1233-assembly-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "1680c9e493cce2c9aec860215c98b9db2f48d03691cf0e702d528e8be2478070"
+          },
+          {
+            "path": "lessons/body-systems/display/digestive-s1233-assembly-ortho.webp",
+            "angle": "Anterior",
+            "sourceSha256": "299eb6a74d6eb8635ce8be584a41c3ee2aa1d83cc0c0b27a75ed6a427fba38e7"
+          }
+        ],
+        "legend": [
+          [
+            "Colon",
+            "#8E3B60"
+          ],
+          [
+            "Duodenum",
+            "#514587"
+          ],
+          [
+            "Esophagus",
+            "#206C94"
+          ],
+          [
+            "Gallbladder",
+            "#2B7948"
+          ],
+          [
+            "Liver",
+            "#E77459"
+          ],
+          [
+            "Pancreas",
+            "#E7CE71"
+          ],
+          [
+            "Small bowel",
+            "#54BCAD"
+          ],
+          [
+            "Stomach",
+            "#E8A34A"
+          ]
+        ],
+        "id": "digestive-s1233-assembly",
+        "scale": "Matched camera width · 74.6 cm in model units"
+      },
+      {
+        "kind": "detail",
+        "title": "Context",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/digestive-context-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "a0f836d3e61b668fd50105650a49f0a0d660e3a593f462ff3a7494311e395639"
+          },
+          {
+            "path": "lessons/body-systems/display/digestive-context-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "4d85ce427d8d8f1d22af97f8d37ab644c6eaf4fe7f51ec797505173cdb552041"
+          }
+        ],
+        "legend": [
+          [
+            "Ascending colon",
+            "#2B7948"
+          ],
+          [
+            "Common channel",
+            "#8A6C2A"
+          ],
+          [
+            "Descending colon",
+            "#784533"
+          ],
+          [
+            "Duodenum",
+            "#514587"
+          ],
+          [
+            "Esophagus",
+            "#8E3B60"
+          ],
+          [
+            "Gallbladder and bile ducts",
+            "#4D6773"
+          ],
+          [
+            "Large bowel exterior",
+            "#AD528C"
+          ],
+          [
+            "Liver",
+            "#ABC373"
+          ],
+          [
+            "Oral cavity",
+            "#206C94"
+          ],
+          [
+            "Pancreas and duct",
+            "#EB957B"
+          ],
+          [
+            "Pharynx",
+            "#E8A34A"
+          ],
+          [
+            "Rectum and anal canal",
+            "#6CAFE3"
+          ],
+          [
+            "Salivary duct",
+            "#453444"
+          ],
+          [
+            "Small bowel",
+            "#E77459"
+          ],
+          [
+            "Stomach",
+            "#54BCAD"
+          ],
+          [
+            "Transverse colon",
+            "#E7CE71"
+          ]
+        ],
+        "id": "digestive-context"
+      },
+      {
+        "kind": "detail",
+        "title": "Food",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/digestive-food-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "3c8b55e0aef009b2a21473e9b2ad85035449eb11ef68ae52881bb238886eda12"
+          },
+          {
+            "path": "lessons/body-systems/display/digestive-food-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "47715f79c3be09e049878bc32733c5458e558faa7921fdf98f1e7cfeaf2a6dd2"
+          }
+        ],
+        "legend": [
+          [
+            "Ascending colon",
+            "#2B7948"
+          ],
+          [
+            "Descending colon",
+            "#784533"
+          ],
+          [
+            "Duodenum",
+            "#514587"
+          ],
+          [
+            "Esophagus",
+            "#8E3B60"
+          ],
+          [
+            "Oral cavity",
+            "#206C94"
+          ],
+          [
+            "Pharynx",
+            "#E8A34A"
+          ],
+          [
+            "Rectum and anal canal",
+            "#6CAFE3"
+          ],
+          [
+            "Small bowel",
+            "#E77459"
+          ],
+          [
+            "Stomach",
+            "#54BCAD"
+          ],
+          [
+            "Transverse colon",
+            "#E7CE71"
+          ]
+        ],
+        "id": "digestive-food"
+      },
+      {
+        "kind": "detail",
+        "title": "Saliva",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/digestive-saliva-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "58d3c89caf2e14d75e89eb68e0fa78f5bda810445da42978ce68d3bb2371fbb1"
+          },
+          {
+            "path": "lessons/body-systems/display/digestive-saliva-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "b3bd3997fcc87254f7b84c620f38748a8e702d46d65c8d3b0e5579335de7d847"
+          }
+        ],
+        "legend": [
+          [
+            "Oral cavity",
+            "#206C94"
+          ],
+          [
+            "Salivary duct",
+            "#453444"
+          ]
+        ],
+        "id": "digestive-saliva"
+      },
+      {
+        "kind": "detail",
+        "title": "Duodenal entry",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/digestive-duodenal-entry-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "c3aaf37ed18a2641724aa5f31c14ab990ef09336ee49eb87aa6c7e6ef7d5ff32"
+          },
+          {
+            "path": "lessons/body-systems/display/digestive-duodenal-entry-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "36dd461917274282747a4d99c79fe0189a4df84f1f676c3d57491f192b307b1d"
+          }
+        ],
+        "legend": [
+          [
+            "Common channel",
+            "#8A6C2A"
+          ],
+          [
+            "Duodenum",
+            "#514587"
+          ],
+          [
+            "Gallbladder and bile ducts",
+            "#4D6773"
+          ],
+          [
+            "Pancreas and duct",
+            "#EB957B"
+          ]
+        ],
+        "id": "digestive-duodenal-entry"
+      },
+      {
+        "kind": "detail",
+        "title": "Outlet",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/digestive-outlet-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "c7b19c7f54145f4e8d36a59f2e39824887fb212fb95ec6b5025e88c7d8c4b4b8"
+          },
+          {
+            "path": "lessons/body-systems/display/digestive-outlet-ortho.webp",
+            "angle": "Straight orthographic",
+            "sourceSha256": "82d3fe4dfb8d143bf8654c2f6f6cba8cbe0d3a2272ff36bc0f78b6d958cce6af"
+          }
+        ],
+        "legend": [
+          [
+            "Rectum and anal canal",
+            "#6CAFE3"
+          ]
+        ],
+        "id": "digestive-outlet"
+      },
+      {
+        "kind": "detail",
+        "title": "Digestive tract isolated",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/digestive-s1233-route-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "9d1208d2fa95403a9ca09e627d346ed6e62908e89b95eb8af3b488264d896d79"
+          },
+          {
+            "path": "lessons/body-systems/display/digestive-s1233-route-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "14087afbe71adc85cb4370d19cd6f7f7967dd6e6df47ff9f79e98e41fe334f5b"
+          }
+        ],
+        "legend": [
+          [
+            "Colon",
+            "#8E3B60"
+          ],
+          [
+            "Duodenum",
+            "#514587"
+          ],
+          [
+            "Esophagus",
+            "#206C94"
+          ],
+          [
+            "Small bowel",
+            "#54BCAD"
+          ],
+          [
+            "Stomach",
+            "#E8A34A"
+          ]
+        ],
+        "id": "digestive-s1233-route"
+      }
+    ]
+  },
+  {
+    "id": "nervous",
+    "name": "Nervous",
+    "function": "Trace a sensory or motor signal from a peripheral pathway through the spinal cord to the brain.",
+    "status": "Illustrative placement",
+    "overview": "The central pathway stages independent source groups with authored bridges. Regional sensory insets have separate scales.",
+    "detail": "Trace a representative right sciatic route into the cord and medulla. Inspect the eye, ear, olfactory neuron and taste receptor, with separate hearing and balance pathways.",
+    "limit": "The staged pathway uses authored connections between independent source frames. The selected spinal model contains cord and representative roots. Several roots overlap in the straight view.",
+    "sources": [
+      [
+        "Brain atlas",
+        "models/brain/exports/bodyparts3d-4.0-atlas-r2/README.md"
+      ],
+      [
+        "Spinal roots review",
+        "reviews/spinal_cord/2026-10-29-authored-roots-r04/README.md"
+      ],
+      [
+        "Sciatic study",
+        "reviews/peripheral_nerves/2026-10-30-sciatic-hip-r01/README.md"
+      ],
+      [
+        "Eye courses review",
+        "reviews/eye_exterior/2026-10-30-z-native-courses-r01/README.md"
+      ],
+      [
+        "Auricle export scope",
+        "models/ears_z/exports/r04/README.md"
+      ]
+    ],
+    "plates": [
+      {
+        "kind": "assembly",
+        "title": "Brain, cord and right sciatic pathway",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/nervous-central-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "9a9c9c60edcadfafa2f555a7fc07e9332635269e25d8d9f7e9742596dd63ff68"
+          },
+          {
+            "path": "lessons/body-systems/display/nervous-central-ortho.webp",
+            "angle": "Posterior",
+            "sourceSha256": "fa0b7151cde5bbe4465da51677a708bd80b1385a4f06def2c88da9b84c51f196"
+          }
+        ],
+        "legend": [
+          [
+            "Brain",
+            "#206C94"
+          ],
+          [
+            "Cord and bridge",
+            "#E8A34A"
+          ],
+          [
+            "Dorsal roots and column",
+            "#8E3B60"
+          ],
+          [
+            "Mixed nerves",
+            "#514587"
+          ],
+          [
+            "Sciatic nerve",
+            "#E77459"
+          ],
+          [
+            "Ventral roots and ramus",
+            "#54BCAD"
+          ]
+        ],
+        "id": "nervous-central",
+        "scale": "Matched camera width · 147.3 cm in model units"
+      },
+      {
+        "kind": "detail",
+        "title": "Central",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/nervous-central-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "9a9c9c60edcadfafa2f555a7fc07e9332635269e25d8d9f7e9742596dd63ff68"
+          },
+          {
+            "path": "lessons/body-systems/display/nervous-central-ortho.webp",
+            "angle": "+Y orthographic",
+            "sourceSha256": "fa0b7151cde5bbe4465da51677a708bd80b1385a4f06def2c88da9b84c51f196"
+          }
+        ],
+        "legend": [
+          [
+            "Brain",
+            "#206C94"
+          ],
+          [
+            "Cord and bridge",
+            "#E8A34A"
+          ],
+          [
+            "Dorsal roots and column",
+            "#8E3B60"
+          ],
+          [
+            "Mixed nerves",
+            "#514587"
+          ],
+          [
+            "Sciatic nerve",
+            "#E77459"
+          ],
+          [
+            "Ventral roots and ramus",
+            "#54BCAD"
+          ]
+        ],
+        "id": "nervous-central"
+      },
+      {
+        "kind": "detail",
+        "title": "Ear",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/nervous-ear-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "872d04cdebf9a2ad9a874b4f37316355cf52fd4fda69318508785561f2241d5e"
+          },
+          {
+            "path": "lessons/body-systems/display/nervous-ear-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "3d9f1a69aa25fe611d556e1a124adceb53de17e2c60508b2d2cd8b99096dfcce"
+          }
+        ],
+        "legend": [
+          [
+            "Cochlear structures",
+            "#6CAFE3"
+          ],
+          [
+            "Common nerve VIII",
+            "#ABC373"
+          ],
+          [
+            "Ossicles",
+            "#784533"
+          ],
+          [
+            "Outer ear and canal",
+            "#2B7948"
+          ],
+          [
+            "Tympanic membrane",
+            "#E7CE71"
+          ],
+          [
+            "Vestibular structures",
+            "#AD528C"
+          ]
+        ],
+        "id": "nervous-ear"
+      },
+      {
+        "kind": "detail",
+        "title": "Root",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/nervous-root-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "c3cac70ce90ef08f66bed9e09a205f2a350efe516167249fe59b47c90f117b8a"
+          },
+          {
+            "path": "lessons/body-systems/display/nervous-root-ortho.webp",
+            "angle": "+Y orthographic",
+            "sourceSha256": "627b906175e24646f34632cfe15f5f66118105d441443c80fe9595e3df07869e"
+          }
+        ],
+        "legend": [
+          [
+            "Dorsal roots and column",
+            "#8E3B60"
+          ],
+          [
+            "Mixed nerves",
+            "#514587"
+          ],
+          [
+            "Ventral roots and ramus",
+            "#54BCAD"
+          ]
+        ],
+        "id": "nervous-root"
+      },
+      {
+        "kind": "detail",
+        "title": "Hearing",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/nervous-hearing-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "7e57e10ba6a6606101e42019ec7a67019f68cd9bc56758586d98b6721855e6c0"
+          },
+          {
+            "path": "lessons/body-systems/display/nervous-hearing-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "7e69e45bb6dffb6099cdb562486069c6858773d78aef97770199955f15f18b7e"
+          }
+        ],
+        "legend": [
+          [
+            "Cochlear structures",
+            "#6CAFE3"
+          ],
+          [
+            "Common nerve VIII",
+            "#ABC373"
+          ],
+          [
+            "Ossicles",
+            "#784533"
+          ],
+          [
+            "Tympanic membrane",
+            "#E7CE71"
+          ],
+          [
+            "Vestibular structures",
+            "#AD528C"
+          ]
+        ],
+        "id": "nervous-hearing"
+      },
+      {
+        "kind": "detail",
+        "title": "Balance",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/nervous-balance-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "75340a4e23f7c69bf0032d060a378b8d96d0fd760451deb344054745bdd4ef92"
+          },
+          {
+            "path": "lessons/body-systems/display/nervous-balance-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "4067e11be564f7d267b7722c854a42eb5898df1d1f878c82496a31f66204260c"
+          }
+        ],
+        "legend": [
+          [
+            "Common nerve VIII",
+            "#ABC373"
+          ],
+          [
+            "Vestibular structures",
+            "#AD528C"
+          ]
+        ],
+        "id": "nervous-balance"
+      },
+      {
+        "kind": "detail",
+        "title": "Vision",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/nervous-vision-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "f80e3a2be7fbbdea6b7e728bf789c22fe18fafb39d647baf7f66fca149dbe007"
+          },
+          {
+            "path": "lessons/body-systems/display/nervous-vision-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "20ebd73d72826f5631f081f4978cc0dc7a7adca2da3dc5153cec2c422b5007e1"
+          }
+        ],
+        "legend": [
+          [
+            "Globe and epithelium",
+            "#4D6773"
+          ],
+          [
+            "Relay and afferent neurons",
+            "#453444"
+          ],
+          [
+            "Sensory receptors",
+            "#EB957B"
+          ]
+        ],
+        "id": "nervous-vision"
+      },
+      {
+        "kind": "detail",
+        "title": "Smell",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/nervous-smell-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "b1d0cfe0902e84a2bf684db0a9865f0e350342b98e5fabe683d34dbfcaad3328"
+          },
+          {
+            "path": "lessons/body-systems/display/nervous-smell-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "30456ab10871eced2b2d8c274f919744467c26831882d5e37e48a65434a663d1"
+          }
+        ],
+        "legend": [
+          [
+            "Globe and epithelium",
+            "#4D6773"
+          ],
+          [
+            "Relay and afferent neurons",
+            "#453444"
+          ],
+          [
+            "Sensory receptors",
+            "#EB957B"
+          ]
+        ],
+        "id": "nervous-smell"
+      },
+      {
+        "kind": "detail",
+        "title": "Taste",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/nervous-taste-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "6dab255d032fd1482db7c41cf997206227401cdbb1954f98119e5635837dcaff"
+          },
+          {
+            "path": "lessons/body-systems/display/nervous-taste-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "a99baa4440b7376e71b8e07df1a7b59d8e74685b00f14d03e5c3105a26b306f2"
+          }
+        ],
+        "legend": [
+          [
+            "Globe and epithelium",
+            "#4D6773"
+          ],
+          [
+            "Relay and afferent neurons",
+            "#453444"
+          ],
+          [
+            "Sensory receptors",
+            "#EB957B"
+          ]
+        ],
+        "id": "nervous-taste"
+      }
+    ]
+  },
+  {
+    "id": "endocrine",
+    "name": "Endocrine",
+    "function": "Locate major glands and use the hypothalamus–pituitary relationship to introduce endocrine regulation.",
+    "status": "Illustrative placement",
+    "overview": "The source groups retain their individual sizes. Their positions mix atlas sources and use a schematic outline. The alternate gonads, islet and signal route are in Asset detail.",
+    "detail": "Locate the glands from head to pelvis. Follow TRH and TSH from the hypothalamus through the anterior pituitary to the thyroid, then inspect the enlarged pancreatic islet.",
+    "limit": "The outline and placements provide orientation. The second gonad set sits in an alternative regional inset. The signal arrows and cell cluster are schematic.",
+    "sources": [
+      [
+        "Hypothalamus–pituitary teaching assembly",
+        "assemblies/hypothalamus-pituitary/teaching-stalk-r01/README.md"
+      ],
+      [
+        "Parathyroid localization context",
+        "models/parathyroids/exports/z-localization-r01/README.md"
+      ],
+      [
+        "Adrenal scope",
+        "models/adrenals/README.md"
+      ]
+    ],
+    "plates": [
+      {
+        "kind": "assembly",
+        "title": "Head-to-pelvis gland locator",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/endocrine-locator-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "57e2e0dde9919117fe77c8766853b172d1b06692c3311a83cf927821c229d9a3"
+          },
+          {
+            "path": "lessons/body-systems/display/endocrine-locator-ortho.webp",
+            "angle": "Anterior",
+            "sourceSha256": "a0698ed573ac9018187b09ec6c9dc98264127f0d3c098428a6b2e80434cbff5f"
+          }
+        ],
+        "legend": [
+          [
+            "Adrenals",
+            "#54BCAD"
+          ],
+          [
+            "Hypothalamus and pituitary",
+            "#206C94"
+          ],
+          [
+            "Outline and inset frames",
+            "#4D6773"
+          ],
+          [
+            "Ovaries",
+            "#E77459"
+          ],
+          [
+            "Pancreas",
+            "#514587"
+          ],
+          [
+            "Thyroid",
+            "#E8A34A"
+          ]
+        ],
+        "id": "endocrine-locator",
+        "scale": "Matched camera width · 124.2 cm in model units"
+      },
+      {
+        "kind": "detail",
+        "title": "Overview",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/endocrine-overview-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "0214b7324ad819c955b41c407468b635610e3114e03e65658ffa9841571ee03f"
+          },
+          {
+            "path": "lessons/body-systems/display/endocrine-overview-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "0009f7c6224685ab6b240ad00f8390bb42a0a49df64afa1cb8b35f0663e3328d"
+          }
+        ],
+        "legend": [
+          [
+            "Adrenals",
+            "#54BCAD"
+          ],
+          [
+            "Hypothalamus and pituitary",
+            "#206C94"
+          ],
+          [
+            "Islet alpha cells",
+            "#6CAFE3"
+          ],
+          [
+            "Islet beta cells",
+            "#AD528C"
+          ],
+          [
+            "Islet capillary",
+            "#ABC373"
+          ],
+          [
+            "Outline and inset frames",
+            "#4D6773"
+          ],
+          [
+            "Ovaries",
+            "#E77459"
+          ],
+          [
+            "Pancreas",
+            "#514587"
+          ],
+          [
+            "Testes",
+            "#2B7948"
+          ],
+          [
+            "Thyroid",
+            "#E8A34A"
+          ],
+          [
+            "TRH signal",
+            "#E7CE71"
+          ],
+          [
+            "TSH signal",
+            "#784533"
+          ]
+        ],
+        "id": "endocrine-overview"
+      },
+      {
+        "kind": "detail",
+        "title": "Thyroid axis",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/endocrine-thyroid-axis-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "c7080958d5aaab71bff53350180c76a389c03dfd49fc7520ffa94da5091b50de"
+          },
+          {
+            "path": "lessons/body-systems/display/endocrine-thyroid-axis-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "9ab24df38fa2b2bb0d1f03e5e2d0b723ce6e5fd4393ddbacfc25224697db767c"
+          }
+        ],
+        "legend": [
+          [
+            "Hypothalamus and pituitary",
+            "#206C94"
+          ],
+          [
+            "Thyroid",
+            "#E8A34A"
+          ],
+          [
+            "TRH signal",
+            "#E7CE71"
+          ],
+          [
+            "TSH signal",
+            "#784533"
+          ]
+        ],
+        "id": "endocrine-thyroid-axis"
+      },
+      {
+        "kind": "detail",
+        "title": "Posterior neck",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/endocrine-posterior-neck-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "8286211d0bfee46760dde2accbcd6f3d6ae81ffcf8b9706d5949b62530d307e4"
+          },
+          {
+            "path": "lessons/body-systems/display/endocrine-posterior-neck-ortho.webp",
+            "angle": "+Y orthographic",
+            "sourceSha256": "6444e95cc559b0c2e03af1483f43bed68b447a3e5ca6c4cb6ce09e339996966c"
+          }
+        ],
+        "legend": [
+          [
+            "Thyroid",
+            "#E8A34A"
+          ]
+        ],
+        "id": "endocrine-posterior-neck"
+      },
+      {
+        "kind": "detail",
+        "title": "Islet",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/endocrine-islet-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "ab0999bebee5933c444fa1345bb5775f60c9218bb24cbdd2ffe2865f27e44eba"
+          },
+          {
+            "path": "lessons/body-systems/display/endocrine-islet-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "98c8130fef3a603c30c533c35760ae8061b326477d0a631d7ebc5689b3186a03"
+          }
+        ],
+        "legend": [
+          [
+            "Islet alpha cells",
+            "#6CAFE3"
+          ],
+          [
+            "Islet beta cells",
+            "#AD528C"
+          ],
+          [
+            "Islet capillary",
+            "#ABC373"
+          ],
+          [
+            "Outline and inset frames",
+            "#4D6773"
+          ]
+        ],
+        "id": "endocrine-islet"
+      },
+      {
+        "kind": "detail",
+        "title": "Upper abdomen",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/endocrine-upper-abdomen-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "481c0081e9ba8bbeba26006877c31b69b81a8f004cb39f82d8d55b731ff03db9"
+          },
+          {
+            "path": "lessons/body-systems/display/endocrine-upper-abdomen-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "4cc993530a70f495e5e558525dc2ca728ef11db10c45aefae0f5f18cb2453b57"
+          }
+        ],
+        "legend": [
+          [
+            "Adrenals",
+            "#54BCAD"
+          ],
+          [
+            "Pancreas",
+            "#514587"
+          ]
+        ],
+        "id": "endocrine-upper-abdomen"
+      },
+      {
+        "kind": "detail",
+        "title": "Posterior abdomen",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/endocrine-posterior-abdomen-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "f52f3f48d3a82d9ab7c554131f17f20104bffcd5c986289c28d0505e36094714"
+          },
+          {
+            "path": "lessons/body-systems/display/endocrine-posterior-abdomen-ortho.webp",
+            "angle": "+Y orthographic",
+            "sourceSha256": "d0f71888c2d48bee6203e807e036371e371838046ba7242fbf591a202f7e531d"
+          }
+        ],
+        "legend": [
+          [
+            "Adrenals",
+            "#54BCAD"
+          ],
+          [
+            "Pancreas",
+            "#514587"
+          ]
+        ],
+        "id": "endocrine-posterior-abdomen"
+      },
+      {
+        "kind": "detail",
+        "title": "Gonads",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/endocrine-gonads-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "6abfb22a1f8e65305628873c47d9d19a3fa2801c08487f8097b2ede72bff85c8"
+          },
+          {
+            "path": "lessons/body-systems/display/endocrine-gonads-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "dfe1b36febe80059fe03525526a880f7f72e61f2ac09f40e5298b4be764bcff0"
+          }
+        ],
+        "legend": [
+          [
+            "Outline and inset frames",
+            "#4D6773"
+          ],
+          [
+            "Ovaries",
+            "#E77459"
+          ],
+          [
+            "Testes",
+            "#2B7948"
+          ]
+        ],
+        "id": "endocrine-gonads"
+      }
+    ]
+  },
+  {
+    "id": "lymphatic",
+    "name": "Lymphatic and immune",
+    "function": "Trace lymph from a body region through a node and a collecting duct toward venous return.",
+    "status": "Illustrative placement",
+    "overview": "The source duct anchors the route. The node is 2.4× source size. The organ locators and terminal bridge are editorial.",
+    "detail": "Follow lower-body tissue fluid into a node, a collecting trunk, the thoracic duct and the left venous angle. The thymus and spleen are shown separately from this route.",
+    "limit": "Sixteen surface samples and two cisterna containment checks passed. Named bridges connect the capped source duct. The straight node isolate includes a small disconnected source feature.",
+    "sources": [
+      [
+        "Original source routes and limits",
+        "models/lymph-collecting-routes/source-context-r01/README.md"
+      ],
+      [
+        "Refined route lesson",
+        "models/lymph-collecting-routes/source-context-refined-r01/README.md"
+      ],
+      [
+        "Thymus candidate",
+        "models/thymus/README.md"
+      ],
+      [
+        "Spleen locator",
+        "reviews/spleen/source-locator-r01/README.md"
+      ]
+    ],
+    "plates": [
+      {
+        "kind": "assembly",
+        "title": "Lymphatic return and organ landmarks",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/lymphatic-overview-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "ed48a9e0863d11704ce3f82c26f411792387cf5316eba3d74ea93a8d64ee7453"
+          },
+          {
+            "path": "lessons/body-systems/display/lymphatic-overview-ortho.webp",
+            "angle": "Anterior",
+            "sourceSha256": "d8c7bc15aa2dee85bb623cc6893937adf29eba0204c125a311723664fd102f56"
+          }
+        ],
+        "legend": [
+          [
+            "Afferent vessels",
+            "#E8A34A"
+          ],
+          [
+            "Cisterna chyli",
+            "#E77459"
+          ],
+          [
+            "Efferent vessels",
+            "#514587"
+          ],
+          [
+            "Intranodal passage",
+            "#54BCAD"
+          ],
+          [
+            "Node capsule",
+            "#8E3B60"
+          ],
+          [
+            "Spleen",
+            "#784533"
+          ],
+          [
+            "Thoracic duct",
+            "#2B7948"
+          ],
+          [
+            "Thymus",
+            "#6CAFE3"
+          ],
+          [
+            "Tissue and initial capillaries",
+            "#206C94"
+          ],
+          [
+            "Venous confluence",
+            "#E7CE71"
+          ]
+        ],
+        "id": "lymphatic-overview",
+        "scale": "Matched camera width · 80.8 cm in model units"
+      },
+      {
+        "kind": "detail",
+        "title": "Overview",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/lymphatic-overview-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "ed48a9e0863d11704ce3f82c26f411792387cf5316eba3d74ea93a8d64ee7453"
+          },
+          {
+            "path": "lessons/body-systems/display/lymphatic-overview-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "d8c7bc15aa2dee85bb623cc6893937adf29eba0204c125a311723664fd102f56"
+          }
+        ],
+        "legend": [
+          [
+            "Afferent vessels",
+            "#E8A34A"
+          ],
+          [
+            "Cisterna chyli",
+            "#E77459"
+          ],
+          [
+            "Efferent vessels",
+            "#514587"
+          ],
+          [
+            "Intranodal passage",
+            "#54BCAD"
+          ],
+          [
+            "Node capsule",
+            "#8E3B60"
+          ],
+          [
+            "Spleen",
+            "#784533"
+          ],
+          [
+            "Thoracic duct",
+            "#2B7948"
+          ],
+          [
+            "Thymus",
+            "#6CAFE3"
+          ],
+          [
+            "Tissue and initial capillaries",
+            "#206C94"
+          ],
+          [
+            "Venous confluence",
+            "#E7CE71"
+          ]
+        ],
+        "id": "lymphatic-overview"
+      },
+      {
+        "kind": "detail",
+        "title": "Venous angle",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/lymphatic-venous-angle-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "c7a0b4e44d834ee734beb274212a1b5bb695743ed7b2c78800f177424464971e"
+          },
+          {
+            "path": "lessons/body-systems/display/lymphatic-venous-angle-ortho.webp",
+            "angle": "+Y orthographic",
+            "sourceSha256": "db2bba5872b5285361ab164654487874d132d10a29203caee1b24a7fccd651ea"
+          }
+        ],
+        "legend": [
+          [
+            "Thoracic duct",
+            "#2B7948"
+          ],
+          [
+            "Venous confluence",
+            "#E7CE71"
+          ]
+        ],
+        "id": "lymphatic-venous-angle"
+      },
+      {
+        "kind": "detail",
+        "title": "Nodal entry",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/lymphatic-nodal-entry-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "9eda62d9ae2f9682b52b00ddd1942f9e1326cf0596c1c12624ebeb433fa191ef"
+          },
+          {
+            "path": "lessons/body-systems/display/lymphatic-nodal-entry-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "eb3bba2bad0fe6e28bfb3b1c53e1f8d8fbb1f87f60380d481e9ebe9a6c938f5d"
+          }
+        ],
+        "legend": [
+          [
+            "Afferent vessels",
+            "#E8A34A"
+          ],
+          [
+            "Efferent vessels",
+            "#514587"
+          ],
+          [
+            "Node capsule",
+            "#8E3B60"
+          ],
+          [
+            "Tissue and initial capillaries",
+            "#206C94"
+          ]
+        ],
+        "id": "lymphatic-nodal-entry"
+      },
+      {
+        "kind": "detail",
+        "title": "Node transit",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/lymphatic-node-transit-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "d60295dfc7f0ca727bc75f478430cff54e04d277c1f1fcfd27ff35c780eafc04"
+          },
+          {
+            "path": "lessons/body-systems/display/lymphatic-node-transit-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "51820b4782f708e55470a39535c4e090027ff7c9c2bc0b9cf1f2647063e7426c"
+          }
+        ],
+        "legend": [
+          [
+            "Afferent vessels",
+            "#E8A34A"
+          ],
+          [
+            "Efferent vessels",
+            "#514587"
+          ],
+          [
+            "Intranodal passage",
+            "#54BCAD"
+          ]
+        ],
+        "id": "lymphatic-node-transit"
+      },
+      {
+        "kind": "detail",
+        "title": "Organ locators",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/lymphatic-organ-locators-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "6ad8170bd80534e25e0f08bbe183bd8b5ec6f7b988304d8ca3e27126a8523188"
+          },
+          {
+            "path": "lessons/body-systems/display/lymphatic-organ-locators-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "730a01389c95af111ee3c44b8c11b748b0551b03e337100e60571f93d3e38f05"
+          }
+        ],
+        "legend": [
+          [
+            "Spleen",
+            "#784533"
+          ],
+          [
+            "Thoracic duct",
+            "#2B7948"
+          ],
+          [
+            "Thymus",
+            "#6CAFE3"
+          ]
+        ],
+        "id": "lymphatic-organ-locators"
+      }
+    ]
+  },
+  {
+    "id": "reproductive",
+    "name": "Reproductive",
+    "function": "Orient both adult tracts and trace one gamete pathway in each.",
+    "status": "Shared regional frames",
+    "overview": "Each tract keeps its own source frame. Male duct and vesicle geometry includes authored segments. The breast remains a regional source view.",
+    "detail": "Explore the female and male tracts as separate models. Compare fimbrial pickup with tubal entry into the uterus, then trace epididymis, ductus deferens, seminal-vesicle contribution and outlet.",
+    "limit": "Both ovary–fimbria gaps are deliberately open. The male ducts and vesicles include authored anatomy. Local adjacency does not establish patent lumens. The breast study remains a separate regional view.",
+    "sources": [
+      [
+        "Ovary/tubal study scope",
+        "models/ovaries/exports/hra-ovary-tubal-r01/README.md"
+      ],
+      [
+        "Female same-atlas pelvic study",
+        "models/vagina_hra/provenance/context-r02/migration-2026-10-24/README.md"
+      ],
+      [
+        "Male urethral context",
+        "models/urethra_male/exports/z-native-context-r01/README.md"
+      ],
+      [
+        "Testis / epididymis scope",
+        "models/testes/exports/z-native-epididymis-r01/README.md"
+      ],
+      [
+        "Existing 2D testicular pathway",
+        "diagrams/testis_pathway/exports/r02/testis-pathway-en.svg"
+      ]
+    ],
+    "plates": [
+      {
+        "kind": "assembly",
+        "title": "Female pelvis",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/reproductive-female-context-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "6cff95fa591506bc33184753c5fb8bf94d1673424026c170e67289f3f7d6876b"
+          },
+          {
+            "path": "lessons/body-systems/display/reproductive-female-context-ortho.webp",
+            "angle": "Anterior",
+            "sourceSha256": "2db42ced94f6aa855009f93da87d8e3e044dcae0ec7c406f2c2e7c80b4253c55"
+          }
+        ],
+        "legend": [
+          [
+            "Cervix",
+            "#E77459"
+          ],
+          [
+            "Fimbriae and infundibula",
+            "#E8A34A"
+          ],
+          [
+            "Ovaries",
+            "#206C94"
+          ],
+          [
+            "Tubal ampullae",
+            "#8E3B60"
+          ],
+          [
+            "Tubal isthmuses",
+            "#54BCAD"
+          ],
+          [
+            "Uterus",
+            "#514587"
+          ],
+          [
+            "Vagina",
+            "#2B7948"
+          ]
+        ],
+        "id": "reproductive-female-context",
+        "scale": "Matched camera width · 19.1 cm in model units"
+      },
+      {
+        "kind": "assembly",
+        "title": "Male pelvis",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/reproductive-male-context-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "aa51bf217588435e53bd03b770c43dc964d771a703557c07a89e9562a03d8348"
+          },
+          {
+            "path": "lessons/body-systems/display/reproductive-male-context-ortho.webp",
+            "angle": "Posterior",
+            "sourceSha256": "55356aa3c81f592262069eea65477bc9ad10728d871bdbb1122c72ac6c2b455a"
+          }
+        ],
+        "legend": [
+          [
+            "Bladder",
+            "#E7CE71"
+          ],
+          [
+            "Ductus deferens",
+            "#8E3B60"
+          ],
+          [
+            "Ejaculatory ducts",
+            "#E77459"
+          ],
+          [
+            "Epididymides",
+            "#E8A34A"
+          ],
+          [
+            "Prostate",
+            "#2B7948"
+          ],
+          [
+            "Seminal vesicles",
+            "#54BCAD"
+          ],
+          [
+            "Testes",
+            "#206C94"
+          ],
+          [
+            "Urethra",
+            "#784533"
+          ],
+          [
+            "Vesicular ducts",
+            "#514587"
+          ]
+        ],
+        "id": "reproductive-male-context",
+        "scale": "Matched camera width · 24.4 cm in model units"
+      },
+      {
+        "kind": "detail",
+        "title": "Female · context",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/reproductive-female-context-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "6cff95fa591506bc33184753c5fb8bf94d1673424026c170e67289f3f7d6876b"
+          },
+          {
+            "path": "lessons/body-systems/display/reproductive-female-context-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "2db42ced94f6aa855009f93da87d8e3e044dcae0ec7c406f2c2e7c80b4253c55"
+          }
+        ],
+        "legend": [
+          [
+            "Cervix",
+            "#E77459"
+          ],
+          [
+            "Fimbriae and infundibula",
+            "#E8A34A"
+          ],
+          [
+            "Ovaries",
+            "#206C94"
+          ],
+          [
+            "Tubal ampullae",
+            "#8E3B60"
+          ],
+          [
+            "Tubal isthmuses",
+            "#54BCAD"
+          ],
+          [
+            "Uterus",
+            "#514587"
+          ],
+          [
+            "Vagina",
+            "#2B7948"
+          ]
+        ],
+        "id": "reproductive-female-context"
+      },
+      {
+        "kind": "detail",
+        "title": "Male · context",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/reproductive-male-context-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "aa51bf217588435e53bd03b770c43dc964d771a703557c07a89e9562a03d8348"
+          },
+          {
+            "path": "lessons/body-systems/display/reproductive-male-context-ortho.webp",
+            "angle": "+Y orthographic",
+            "sourceSha256": "55356aa3c81f592262069eea65477bc9ad10728d871bdbb1122c72ac6c2b455a"
+          }
+        ],
+        "legend": [
+          [
+            "Bladder",
+            "#E7CE71"
+          ],
+          [
+            "Ductus deferens",
+            "#8E3B60"
+          ],
+          [
+            "Ejaculatory ducts",
+            "#E77459"
+          ],
+          [
+            "Epididymides",
+            "#E8A34A"
+          ],
+          [
+            "Prostate",
+            "#2B7948"
+          ],
+          [
+            "Seminal vesicles",
+            "#54BCAD"
+          ],
+          [
+            "Testes",
+            "#206C94"
+          ],
+          [
+            "Urethra",
+            "#784533"
+          ],
+          [
+            "Vesicular ducts",
+            "#514587"
+          ]
+        ],
+        "id": "reproductive-male-context"
+      },
+      {
+        "kind": "detail",
+        "title": "Female · left pickup",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/reproductive-female-left-pickup-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "98d01a897bf237d8b9675870183ba46d21a2ab62d6f2df6afe4ec4fd160a9464"
+          },
+          {
+            "path": "lessons/body-systems/display/reproductive-female-left-pickup-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "dc7cd4a4951d77f3962c617ffb7cc2447b6f9543983a968311264ef985e7067c"
+          }
+        ],
+        "legend": [
+          [
+            "Fimbriae and infundibula",
+            "#E8A34A"
+          ],
+          [
+            "Ovaries",
+            "#206C94"
+          ],
+          [
+            "Tubal ampullae",
+            "#8E3B60"
+          ],
+          [
+            "Tubal isthmuses",
+            "#54BCAD"
+          ],
+          [
+            "Uterus",
+            "#514587"
+          ]
+        ],
+        "id": "reproductive-female-left-pickup"
+      },
+      {
+        "kind": "detail",
+        "title": "Female · uterine entry",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/reproductive-female-uterine-entry-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "cb8becb23de894d141a308607b97a0e3cc85b7dee45964964caa42d56924bcac"
+          },
+          {
+            "path": "lessons/body-systems/display/reproductive-female-uterine-entry-ortho.webp",
+            "angle": "+Y orthographic",
+            "sourceSha256": "6920c9bebd09fada6638f794614597e3304749981a9c56ff0152abd20075f09c"
+          }
+        ],
+        "legend": [
+          [
+            "Cervix",
+            "#E77459"
+          ],
+          [
+            "Tubal isthmuses",
+            "#54BCAD"
+          ],
+          [
+            "Uterus",
+            "#514587"
+          ]
+        ],
+        "id": "reproductive-female-uterine-entry"
+      },
+      {
+        "kind": "detail",
+        "title": "Male · route",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/reproductive-male-route-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "c037ad90651f410ed33ecd75a99a3b4cad5b972b494e9901631ecc69da69a9ec"
+          },
+          {
+            "path": "lessons/body-systems/display/reproductive-male-route-ortho.webp",
+            "angle": "+X orthographic",
+            "sourceSha256": "90d69d46355e808a1955f9e74007682fce58af1ba6344389f18b64dc22865490"
+          }
+        ],
+        "legend": [
+          [
+            "Ductus deferens",
+            "#8E3B60"
+          ],
+          [
+            "Ejaculatory ducts",
+            "#E77459"
+          ],
+          [
+            "Epididymides",
+            "#E8A34A"
+          ],
+          [
+            "Seminal vesicles",
+            "#54BCAD"
+          ],
+          [
+            "Testes",
+            "#206C94"
+          ],
+          [
+            "Urethra",
+            "#784533"
+          ],
+          [
+            "Vesicular ducts",
+            "#514587"
+          ]
+        ],
+        "id": "reproductive-male-route"
+      },
+      {
+        "kind": "detail",
+        "title": "Male · left confluence",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/reproductive-male-left-confluence-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "e3f12f2e209b3f338e6c9ae45f13890a81ae06368e7ea33de6b7a367fc20319e"
+          },
+          {
+            "path": "lessons/body-systems/display/reproductive-male-left-confluence-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "98851d4038388b5f288330bb887e3d65d7e9e65fb0092a7fbdd63a084d29f0bc"
+          }
+        ],
+        "legend": [
+          [
+            "Ejaculatory ducts",
+            "#E77459"
+          ],
+          [
+            "Seminal vesicles",
+            "#54BCAD"
+          ],
+          [
+            "Vesicular ducts",
+            "#514587"
+          ]
+        ],
+        "id": "reproductive-male-left-confluence"
+      }
+    ]
+  },
+  {
+    "id": "integumentary",
+    "name": "Integumentary",
+    "function": "Show how the skin barrier is built and where surface structures enter it.",
+    "status": "Body locator",
+    "overview": "The envelope gives body context. The skin block and nail are independent local samples with illustrative dimensions.",
+    "detail": "Isolate the skin layers, dermal hair follicle, eccrine coil and its open duct. A separate nail section exposes the plate, bed and matrix.",
+    "limit": "Two local teaching scales. The body envelope remains the whole-body locator. The reproduced meshes establish contacts in the illustrated block. Thickness and appendage dimensions are illustrative.",
+    "sources": [
+      [
+        "Skin envelope scope and attribution",
+        "models/skin/exports/bp3d-envelope-r01/README.md"
+      ],
+      [
+        "Existing 2D skin-detail plate",
+        "body/2d-v4/whole-body-anatomy-v4-spatial/regions/skin-detail.svg"
+      ]
+    ],
+    "plates": [
+      {
+        "kind": "assembly",
+        "title": "External body envelope",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/skin-assembly-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "546497ee949a2adbd32f30a10c0a239036b1065442718fe3200cf8eb24a71476"
+          },
+          {
+            "path": "lessons/body-systems/display/skin-assembly-ortho.webp",
+            "angle": "Anterior",
+            "sourceSha256": "ca3deb6a834578e3caa5a39a954aec5f01c0953c8d52732aa0260c23c459fc59"
+          }
+        ],
+        "legend": [
+          [
+            "External skin surface",
+            "#2B7948"
+          ]
+        ],
+        "id": "skin-assembly",
+        "scale": "Matched camera width · 237.6 cm in model units"
+      },
+      {
+        "kind": "detail",
+        "title": "Combined",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/integumentary-combined-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "8eafad1dd20828b0595978d8df6d229e78f540537616597531df5ba1cd7ae555"
+          },
+          {
+            "path": "lessons/body-systems/display/integumentary-combined-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "55a289c013a9743b807e91dfb05bae45d744137d9349b4f3a490a924f729c96e"
+          }
+        ],
+        "legend": [
+          [
+            "Dermis",
+            "#E8A34A"
+          ],
+          [
+            "Epidermis",
+            "#206C94"
+          ],
+          [
+            "Follicle",
+            "#514587"
+          ],
+          [
+            "Hair",
+            "#54BCAD"
+          ],
+          [
+            "Nail bed",
+            "#784533"
+          ],
+          [
+            "Nail matrix",
+            "#6CAFE3"
+          ],
+          [
+            "Nail plate",
+            "#E7CE71"
+          ],
+          [
+            "Subcutaneous tissue",
+            "#8E3B60"
+          ],
+          [
+            "Sweat gland",
+            "#E77459"
+          ]
+        ],
+        "id": "integumentary-combined"
+      },
+      {
+        "kind": "detail",
+        "title": "Skin block",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/integumentary-skin-block-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "9f1f7d822a4e5555e144662d8f74fae099d910ab01acf3b22a2e6f800768ddec"
+          },
+          {
+            "path": "lessons/body-systems/display/integumentary-skin-block-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "226aaf8f7d05db204ef496a948275d5a5d3f484f43eaecb449597571a31b273a"
+          }
+        ],
+        "legend": [
+          [
+            "Dermis",
+            "#E8A34A"
+          ],
+          [
+            "Epidermis",
+            "#206C94"
+          ],
+          [
+            "Follicle",
+            "#514587"
+          ],
+          [
+            "Hair",
+            "#54BCAD"
+          ],
+          [
+            "Subcutaneous tissue",
+            "#8E3B60"
+          ],
+          [
+            "Sweat gland",
+            "#E77459"
+          ]
+        ],
+        "id": "integumentary-skin-block"
+      },
+      {
+        "kind": "detail",
+        "title": "Appendages",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/integumentary-appendages-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "869e1cdc7dcf9ad0ec5c83b7134e69ffbfdb3379a4608a28b41b9c5095474f54"
+          },
+          {
+            "path": "lessons/body-systems/display/integumentary-appendages-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "abd7bad031260511b4161f6d6b9c574a947c8db8c1f5535fd82479f41bffbe38"
+          }
+        ],
+        "legend": [
+          [
+            "Follicle",
+            "#514587"
+          ],
+          [
+            "Hair",
+            "#54BCAD"
+          ],
+          [
+            "Sweat gland",
+            "#E77459"
+          ]
+        ],
+        "id": "integumentary-appendages"
+      },
+      {
+        "kind": "detail",
+        "title": "Nail",
+        "frames": [
+          {
+            "path": "lessons/body-systems/display/integumentary-nail-iso.webp",
+            "angle": "Isometric",
+            "sourceSha256": "fc989d087b0da40da6dfd90692bb9972a292b76637f4444413b475854a80b7ed"
+          },
+          {
+            "path": "lessons/body-systems/display/integumentary-nail-ortho.webp",
+            "angle": "−Y orthographic",
+            "sourceSha256": "9bfbebae43efae252e2d4dcc1183949b7a5ca305a31392bd536550f500cf06ba"
+          }
+        ],
+        "legend": [
+          [
+            "Epidermis",
+            "#206C94"
+          ],
+          [
+            "Nail bed",
+            "#784533"
+          ],
+          [
+            "Nail matrix",
+            "#6CAFE3"
+          ],
+          [
+            "Nail plate",
+            "#E7CE71"
+          ]
+        ],
+        "id": "integumentary-nail"
+      }
+    ]
+  }
+]

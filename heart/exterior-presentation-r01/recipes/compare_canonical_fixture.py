@@ -10,12 +10,12 @@ from pathlib import Path
 from verify_pair import read
 
 ROOT = Path(__file__).resolve().parents[3]
-sys.path.insert(0, str(ROOT / 'ci'))
+sys.path.insert(0, str(ROOT / 'tests/runtime'))
 from glb_runtime_fixture import load_fixture
 SOURCE = 'heart/Cardiac_Atlas_Animated/Heart_Clinical_Animated.glb'
 SOURCE_SHA = '6912d439271c3525230a90fe403d586000e6a66ab37f82bf0419604181e52263'
 CANONICAL_SHA = '17b26d1459c0fbbbc71d051452c4074d1237683ffe02c1a8021d7ac83583857a'
-FIXTURE = 'reviews/runtime/2026-10-23-software-ci-heart-lymph/source-expected-morph-fixture.json'
+FIXTURE = 'tests/runtime/fixtures/source-expected-morph-fixture.json'
 
 
 def compare(source_repo):

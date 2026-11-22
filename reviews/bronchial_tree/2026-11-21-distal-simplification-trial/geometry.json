@@ -1,0 +1,228 @@
+{
+  "blender": "5.2.3 LTS Release Candidate",
+  "blenderBuild": "fab76e95306d",
+  "original": {
+    "name": "Authored bronchial junction-consolidation experiment",
+    "worldMatrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "vertices": 221948,
+    "triangles": 443892,
+    "euler": 2,
+    "oneComponent": true,
+    "nonManifoldEdges": 0,
+    "inconsistentEdges": 0,
+    "degenerateFaces": 0,
+    "signedVolumeCubicMeters": 2.389222058286868e-05,
+    "boundsMeters": [
+      [
+        -0.09906664490699768,
+        -0.04632671922445297,
+        -0.025066761299967766
+      ],
+      [
+        0.1123538613319397,
+        0.0333108976483345,
+        0.1404852271080017
+      ]
+    ],
+    "sha256": "c9e2eb595d677203b52aa870a9f0203f059a8f686a65056983fcc59ccd607587",
+    "bytes": 10655808
+  },
+  "updated": {
+    "name": "Authored bronchial junction-consolidation experiment",
+    "worldMatrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "vertices": 154146,
+    "triangles": 308288,
+    "euler": 2,
+    "oneComponent": true,
+    "nonManifoldEdges": 0,
+    "inconsistentEdges": 0,
+    "degenerateFaces": 0,
+    "signedVolumeCubicMeters": 2.3850226371246438e-05,
+    "boundsMeters": [
+      [
+        -0.09906664490699768,
+        -0.04632671922445297,
+        -0.025066761299967766
+      ],
+      [
+        0.1123538613319397,
+        0.0333108976483345,
+        0.1404852271080017
+      ]
+    ],
+    "sha256": "f8d78751f47cf14311138a3c7e2e35d6e28415c9f6e1d2a0e4f6ca2bf1a07fc9",
+    "bytes": 7401328
+  },
+  "protectedRegions": {
+    "central slab": {
+      "vertices": 71239,
+      "exactIncidentTriangles": 142757
+    },
+    "accepted left lobar": {
+      "vertices": 11246,
+      "exactIncidentTriangles": 22797
+    },
+    "right lobar": {
+      "vertices": 12178,
+      "exactIncidentTriangles": 24685
+    },
+    "distal tracheal teaching-axis top": {
+      "vertices": 1388,
+      "exactIncidentTriangles": 2922
+    },
+    "lung_upper_lobe_right distal illustration 1": {
+      "vertices": 383,
+      "exactIncidentTriangles": 779
+    },
+    "lung_upper_lobe_right distal illustration 2": {
+      "vertices": 383,
+      "exactIncidentTriangles": 786
+    },
+    "lung_upper_lobe_right distal illustration 3": {
+      "vertices": 387,
+      "exactIncidentTriangles": 790
+    },
+    "lung_middle_lobe_right distal illustration 1": {
+      "vertices": 387,
+      "exactIncidentTriangles": 787
+    },
+    "lung_middle_lobe_right distal illustration 2": {
+      "vertices": 433,
+      "exactIncidentTriangles": 885
+    },
+    "lung_middle_lobe_right distal illustration 3": {
+      "vertices": 372,
+      "exactIncidentTriangles": 760
+    },
+    "lung_lower_lobe_right distal illustration 1": {
+      "vertices": 377,
+      "exactIncidentTriangles": 766
+    },
+    "lung_lower_lobe_right distal illustration 2": {
+      "vertices": 368,
+      "exactIncidentTriangles": 751
+    },
+    "lung_lower_lobe_right distal illustration 3": {
+      "vertices": 376,
+      "exactIncidentTriangles": 768
+    },
+    "lung_upper_lobe_left distal illustration 1": {
+      "vertices": 362,
+      "exactIncidentTriangles": 736
+    },
+    "lung_upper_lobe_left distal illustration 2": {
+      "vertices": 357,
+      "exactIncidentTriangles": 728
+    },
+    "lung_upper_lobe_left distal illustration 3": {
+      "vertices": 362,
+      "exactIncidentTriangles": 738
+    },
+    "lung_lower_lobe_left distal illustration 1": {
+      "vertices": 374,
+      "exactIncidentTriangles": 766
+    },
+    "lung_lower_lobe_left distal illustration 2": {
+      "vertices": 347,
+      "exactIncidentTriangles": 711
+    },
+    "lung_lower_lobe_left distal illustration 3": {
+      "vertices": 373,
+      "exactIncidentTriangles": 759
+    }
+  },
+  "originalToUpdated": {
+    "vertices": {
+      "samples": 221948,
+      "p95Mm": 0.03085432490479433,
+      "maxMm": 0.15248938871081918,
+      "worstPointMeters": [
+        0.10903196781873703,
+        0.003150000236928463,
+        0.006150000263005495
+      ]
+    },
+    "faceCenters": {
+      "samples": 443892,
+      "p95Mm": 0.02187563368352127,
+      "maxMm": 0.12831867206841707,
+      "worstPointMeters": [
+        0.07335726171731949,
+        0.012966572307050228,
+        0.11195000261068344
+      ]
+    }
+  },
+  "updatedToOriginal": {
+    "vertices": {
+      "samples": 154146,
+      "p95Mm": 0.0,
+      "maxMm": 0.0,
+      "worstPointMeters": [
+        4.574960144054785e-07,
+        0.013800068758428097,
+        0.10529623925685883
+      ]
+    },
+    "faceCenters": {
+      "samples": 308288,
+      "p95Mm": 0.019828064796456598,
+      "maxMm": 0.14672271208837628,
+      "worstPointMeters": [
+        0.10894479602575302,
+        0.002921411534771323,
+        0.0061429752968251705
+      ]
+    }
+  }
+}

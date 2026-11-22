@@ -96,7 +96,7 @@ Inspect actual pixels separately from the technical receipt.
   remains pending; this is not approved-asset promotion.
 - Anatomy: reuse only the accepted broad-order reference screening; no new approval.
 - Runtime: browser/actual review-gallery acceptance remains unverified. The existing
-  `ci/glb_runtime_probe.py` is restricted to its reviewed GitHub Actions job; it was
+  `tests/runtime/glb_runtime_probe.py` is restricted to its reviewed GitHub Actions job; it was
   not run locally or bypassed. Issue99 consumer work remains paused and separate.
   Native Blender import/render does not establish browser runtime.
 - Delivery: code, recipes and text receipts only. GLB/PNG outputs remain local.

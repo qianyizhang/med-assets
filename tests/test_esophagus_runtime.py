@@ -14,10 +14,10 @@ import base64
 import struct
 
 ROOT=Path(__file__).resolve().parents[1]
-spec=importlib.util.spec_from_file_location('esophagus_probe',ROOT/'ci/esophagus/probe.py')
+spec=importlib.util.spec_from_file_location('esophagus_probe',ROOT/'tests/runtime/esophagus/probe.py')
 probe=importlib.util.module_from_spec(spec);spec.loader.exec_module(probe)
 F=probe.FIXTURE
-sys.path.insert(0,str(ROOT/'ci'))
+sys.path.insert(0,str(ROOT/'tests/runtime'))
 import glb_runtime_probe as runtime
 
 
@@ -49,11 +49,11 @@ class EsophagusRuntimeTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temporary:
             root=Path(temporary);source=root/'source.glb';source.write_bytes(b'wrong');out=root/'new'
             with self.assertRaisesRegex(ValueError,'size'):probe.prepare(source,out)
-            result=subprocess.run([sys.executable,'-O',str(ROOT/'ci/esophagus/probe.py'),'--input',str(source),'--output',str(out)],capture_output=True)
+            result=subprocess.run([sys.executable,'-O',str(ROOT/'tests/runtime/esophagus/probe.py'),'--input',str(source),'--output',str(out)],capture_output=True)
             self.assertNotEqual(result.returncode,0);self.assertFalse(out.exists())
 
     def test_no_network_or_browser_launch_in_prepare_module(self):
-        code=(ROOT/'ci/esophagus/probe.py').read_text()
+        code=(ROOT/'tests/runtime/esophagus/probe.py').read_text()
         self.assertNotIn('urlopen',code);self.assertNotIn('Popen(',code)
 
     def test_truncated_chunk_rejected(self):
@@ -160,7 +160,7 @@ class EsophagusRuntimeTests(unittest.TestCase):
         self.assertEqual(len(set(runtime.FRAME_IDS)),55)
 
     def test_fixture_extension_keeps_original_inputs_and_is_repeatable(self):
-        original=json.loads((ROOT/'ci/glb-runtime-fixture.json').read_text())
+        original=json.loads((ROOT/'tests/runtime/glb-runtime-fixture.json').read_text())
         resolved=runtime.load_base_fixture()
         for _ in range(2):
             fixture=runtime.load_fixture()
@@ -169,7 +169,7 @@ class EsophagusRuntimeTests(unittest.TestCase):
             for key,value in resolved.items():
                 if key!='resources':self.assertEqual(fixture[key],value)
             self.assertNotIn('url',fixture['esophagus']['candidate'])
-        self.assertEqual(json.loads((ROOT/'ci/glb-runtime-fixture.json').read_text()),original)
+        self.assertEqual(json.loads((ROOT/'tests/runtime/glb-runtime-fixture.json').read_text()),original)
 
     def test_shared_dispatch_requires_sequence_and_keeps_lymph_validation(self):
         row={'id':probe.FRAME_IDS[0]};previous={name:b'' for name in runtime.FRAME_IDS[:37]}

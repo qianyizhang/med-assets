@@ -10,7 +10,7 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-SPEC = importlib.util.spec_from_file_location('lfs_transport', Path(__file__).parents[1] / 'tools/lfs_transport.py')
+SPEC = importlib.util.spec_from_file_location('lfs_transport', Path(__file__).parents[1] / 'transport/tools/lfs_transport.py')
 t = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(t)
 GLB = b'glTF' + struct.pack('<II', 2, 24) + struct.pack('<I4s', 4, b'JSON') + b'{}  '
@@ -203,7 +203,7 @@ class TriggerAndExecution(unittest.TestCase):
     def test_modified_deleted_multiple_mixed_or_bad_name(self):
         path = 'transport/manifests/' + self.digest + '.json'
         for diff in ('M\t' + path, 'D\t' + path, 'A\t' + path + '\nA\tother.json',
-                     'A\t' + path + '\nM\ttools/lfs_transport.py', 'A\ttransport/manifests/free-form.json', ''):
+                     'A\t' + path + '\nM\ttransport/tools/lfs_transport.py', 'A\ttransport/manifests/free-form.json', ''):
             with self.subTest(diff=diff), self.assertRaises(t.Stop):
                 self.select(diff)
 

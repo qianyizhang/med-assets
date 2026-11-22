@@ -1,7 +1,7 @@
 // CPU helper tests, not a WebGL sensitivity pass. Run with node --test.
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {auditGeometry,validNormals,mutateGeometry} from '../../ci/lymph_diagnostics.mjs';
+import {auditGeometry,validNormals,mutateGeometry} from '../runtime/lymph_diagnostics.mjs';
 class Attribute {
  constructor(array,itemSize){this.array=new Float32Array(array);this.itemSize=itemSize;this.count=array.length/itemSize;}
  getX(i){return this.array[i*this.itemSize];} getY(i){return this.array[i*this.itemSize+1];} getZ(i){return this.array[i*this.itemSize+2];}

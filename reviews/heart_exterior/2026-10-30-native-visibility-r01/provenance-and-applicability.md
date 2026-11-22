@@ -17,7 +17,7 @@ The repository owner's import commits
 [`b1a42b7`](https://github.com/qianyizhang/med-assets/commit/b1a42b7e744de0e7845cb467fb84605260ef9510)
 and [`82bc1c6`](https://github.com/qianyizhang/med-assets/commit/82bc1c6bb32aae9da3392c995df212b7edb098fc)
 already distributed the original animation, editable generator and static
-collection. The [import manifest](../../../metadata/asset-manifest.json) preserves
+collection. The [import manifest](../../../sources/imports/asset-manifest.json) preserves
 their Library/Drive archive identities. Existing
 [runtime attribution](../../runtime/2026-10-23-software-ci-heart-lymph/ATTRIBUTION.md)
 also identifies the fitted animation as project-authored.
@@ -40,7 +40,7 @@ source upload, Site deployment or clinical claim.
 The canonical URL is recorded in
 [`source-provenance.json`](../../runtime/2026-10-23-software-ci-heart-lymph/source-provenance.json).
 It has **no identified tracked repository path**. `assets/heart.glb` in
-`ci/glb-runtime-fixture.json` is the runtime harness's transient download
+`tests/runtime/glb-runtime-fixture.json` is the runtime harness's transient download
 destination, not a retained repository asset.
 
 The exact fitted bytes were absent from the available checkout/history and local

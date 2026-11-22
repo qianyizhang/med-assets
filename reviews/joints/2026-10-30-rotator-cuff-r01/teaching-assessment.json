@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "evaluator": "Codex (agent review)",
+  "date": "2026-11-21",
+  "rubric": {
+    "revision": "a1115defec3676d942d3432242d29431109693f9",
+    "path": "docs/guides/asset-quality.md",
+    "sha256": "76965de563c60a29f5c27a53f8a29081ee25dc4c5e0b6713c567243b1d5e0e4e"
+  },
+  "assessments": [
+    {
+      "route": "library/joints/z-rotator-cuff-r01",
+      "export": {
+        "path": "models/joints/exports/z-rotator-cuff-r01/right-rotator-cuff.glb",
+        "sha256": "edf5c2fc5322adc1c75703143b3fba5a2be3ecd87d5559bce1441c1977a4eb30",
+        "bytes": 703536
+      },
+      "task": "Locate supraspinatus above the right scapular spine, infraspinatus below it, teres minor along the lateral edge, and subscapularis on the opposite face.",
+      "axes": [
+        {
+          "score": 4,
+          "observation": "All 38,678 world-space triangles match the pinned native surface selection within 1.24 × 10⁻⁷ native units, including the 1,522-triangle teres minor. All seven label rays hit the named mesh in both the source and clean GLB reimport. The plate uses illustrative colors and source-right laterality."
+        },
+        {
+          "score": null,
+          "observation": "The close views retain the thin scapular spine and the narrow teres minor outline. The anterior subscapularis edge has visible fine irregularities. The existing grayscale sheet preserves shaded pixels from the colored render. A neutral-material close-up is needed to assess the edge and surface cues."
+        },
+        {
+          "score": 3,
+          "observation": "The whole-subset panel orients both bones and discloses the close-up crop of the shaft. The posterior labels separate the spine and the three posterior muscles. The opposite view locates subscapularis. The grayscale numbered leaders still work, with weaker border contrast between the muscles."
+        },
+        {
+          "score": 3,
+          "observation": "Six selectable meshes use six primitives and 703,536 bytes. Teres minor uses 1,522 triangles for the narrow strip. The scapula uses 25,326 of 38,678 triangles and supplies both the raised spine and the curved anterior rim in the close views. This supports keeping those landmarks in scope. No lighter equivalent subset has been measured."
+        }
+      ],
+      "sources": [
+        {
+          "label": "Cuff source, replay and review scope",
+          "url": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/joints/2026-10-30-rotator-cuff-r01/README.md"
+        },
+        {
+          "label": "Matched triangular surfaces and reimport label rays",
+          "url": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/joints/2026-10-30-rotator-cuff-r01/checks.json"
+        },
+        {
+          "label": "Exact teaching plate and view inputs",
+          "url": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/reviews/joints/2026-10-30-rotator-cuff-r01/v2/composition.json"
+        },
+        {
+          "label": "Native source and per-mesh accounting",
+          "url": "https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/models/joints/exports/z-rotator-cuff-r01/inventory.json"
+        }
+      ],
+      "views": [
+        {
+          "path": "reviews/joints/2026-10-30-rotator-cuff-r01/v2/teaching.png",
+          "sha256": "addb75923e5b96edfafbc6045a4c1075b8b93889da8863b2ab99440c349eb482",
+          "bytes": 604105,
+          "label": "Whole subset and opposing close views"
+        },
+        {
+          "path": "reviews/joints/2026-10-30-rotator-cuff-r01/v2/grayscale.png",
+          "sha256": "7834414cc6606debd8e028db3de2cea962d89573b0feeb874797ef600082a78c",
+          "bytes": 271757,
+          "label": "Grayscale localization plate"
+        },
+        {
+          "path": "reviews/joints/2026-10-30-rotator-cuff-r01/v2/source-export.png",
+          "sha256": "a968d4d3992e2ec7ed6b9bb7451e60cfc0b10f48b358cac91ec36da742847cdf",
+          "bytes": 513254,
+          "label": "Matched native source and clean GLB reimport"
+        },
+        {
+          "path": "reviews/joints/2026-10-30-rotator-cuff-r01/export/lateral.png",
+          "sha256": "156bc72418dfb4ed0596d2ab4e5881c37629c78a49eb7d6deb39e78434e4caba",
+          "bytes": 639651,
+          "label": "Lateral close view of the spine and teres minor"
+        }
+      ]
+    }
+  ]
+}

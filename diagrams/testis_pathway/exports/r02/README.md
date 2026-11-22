@@ -8,7 +8,7 @@ The head → body → tail subline is 20px. No anatomical curve or leader moved.
 
 - [English display SVG](testis-pathway-en.svg)
 - [中文 display SVG](testis-pathway-zh.svg)
-- [Editable sources and bounded builder](../../../../sources/authored/testis_pathway/r02)
+- [Editable sources and bounded builder](../../recipes/r02)
 - [Initial author review and identities](../../../../reviews/testis_pathway/2026-10-29-r02/readability.json)
 - [Independent visual review](../../../../reviews/testis_pathway/2026-10-29-r02/independent-review.json)
 
@@ -35,7 +35,7 @@ Rebuild from the repository root with Python 3, Inkscape 1.4 and Noto Sans CJK S
 Noto Sans installed. Use a new output directory:
 
 ```sh
-python3 sources/authored/testis_pathway/r02/build.py --output /tmp/testis-r02-new
+python3 diagrams/testis_pathway/recipes/r02/build.py --output /tmp/testis-r02-new
 inkscape diagrams/testis_pathway/exports/r02/testis-pathway-en.svg --export-width=800 --export-filename=/tmp/testis-r02-en.png
 ```
 

@@ -13,17 +13,17 @@ import tempfile
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
-spec = importlib.util.spec_from_file_location('lymph_diagnostics', ROOT/'ci/lymph_diagnostics.py')
+spec = importlib.util.spec_from_file_location('lymph_diagnostics', ROOT/'tests/runtime/lymph_diagnostics.py')
 d = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(d)
-sys.path.insert(0, str(ROOT/'ci'))
+sys.path.insert(0, str(ROOT/'tests/runtime'))
 import glb_runtime_probe as probe
 sys.path.pop(0)
 
 
 class LymphDiagnosticTests(unittest.TestCase):
     def setUp(self):
-        self.fixture = json.loads((ROOT/'ci/glb-runtime-fixture.json').read_text())
+        self.fixture = json.loads((ROOT/'tests/runtime/glb-runtime-fixture.json').read_text())
         rows = []
         for asset in ('lymph', 'lymphCandidate'):
             sha = self.fixture['lymphCandidate']['sha256'] if asset == 'lymphCandidate' else next(

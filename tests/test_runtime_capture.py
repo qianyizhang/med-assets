@@ -8,7 +8,7 @@ import unittest
 import zlib
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / 'ci'))
+sys.path.insert(0, str(ROOT / 'tests/runtime'))
 import glb_runtime_probe as glb
 import webgl_probe as webgl
 sys.path.pop(0)

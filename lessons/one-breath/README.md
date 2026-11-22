@@ -23,7 +23,7 @@ Open `http://127.0.0.1:8766`. The server binds only to loopback. Preparation res
 every model from this script's repository, regardless of the working directory;
 `--asset-root` optionally selects another hydrated checkout. It checks all five
 input sizes/hashes before downloading the five official Three.js 0.180.0 files
-already pinned in `ci/glb-runtime-fixture.json`. A failed dependency read leaves the destination free for retry. A new `.local/` output is required;
+already pinned in `tests/runtime/glb-runtime-fixture.json`. A failed dependency read leaves the destination free for retry. A new `.local/` output is required;
 existing files are not overwritten. The model loader rejects missing, altered or
 externally dependent assets. Asset failures show a retry action. A no-WebGL view
 disables breath motion and labels any optional offline composition as static;

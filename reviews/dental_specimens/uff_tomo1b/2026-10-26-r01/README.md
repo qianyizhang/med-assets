@@ -24,4 +24,10 @@ The space proxy is 3D exterior-connected. Per-slice selection loses an open chan
 
 Unknown FDI, health, laterality and anatomical orientation remain unknown. No enamel/dentin/cementum separation, expert label validation, clinical teaching approval or simulation claim.
 
-The hosted page, static images and exact downloads passed browser checks. The cloud browser reached file verification but could not initialize WebGL. Static Blender images are not an interactive render test; runtime and performance remain unverified.
+The hosted page, static images and exact downloads passed browser checks. The cloud browser reached file verification but could not initialize WebGL. That check left interactive rendering open.
+
+### Hosted inspector follow-up · 2026-11-21
+
+The [historical inspector](https://anatomy-dental-review.landy123007.chatgpt.site/viewer/) rendered the 20,434,544-byte r01 GLB in disposable Chrome for Testing using SwiftShader on this Mac. The page verified the full candidate digest above. Hiding each named component in turn changed the rendered view. At two slider positions (25% and 75%), source-X clipping produced distinct images of the hard boundary. Reload reopened both components with clipping off.
+
+During forced WebGL context loss the page still reported ready and left its controls visible. After the browser restored the context, resetting the camera and toggling the hard boundary produced distinct renders again. This run covers the historical inspector in this browser. Gallery-native presets, loss feedback and performance remain open. The original proxy endpoint finding stands.

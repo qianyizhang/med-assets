@@ -3,7 +3,7 @@
 - **Goal** · One current mirror of an exact Git commit, with LFS payloads at their repository paths.
 - **Delivery status** · Tested tooling only, 2026-11-06. Remote full-tree sync, connector compatibility, readback and restore remain unverified. [Acceptance decision](DECISIONS.md).
 - **Requirements** · Python 3.11+, Git 2.45+ and POSIX `dir_fd` / `O_NOFOLLOW`. Local checks run offline. Use a stable, fully downloaded snapshot.
-- **Owners** · [Read-only CLI and manifest validation](../tools/backup_check.py), [connector request/response contracts](../tools/backup_transfer.py), [byte-check regressions](../tests/test_backup_check.py), [transfer regressions](../tests/test_backup_transfer.py).
+- **Owners** · [Read-only CLI and manifest validation](../transport/tools/backup_check.py), [connector request/response contracts](../transport/tools/backup_transfer.py), [byte-check regressions](../tests/test_backup_check.py), [transfer regressions](../tests/test_backup_transfer.py).
 
 ## Inventory and actual local byte checks
 
@@ -15,7 +15,7 @@
 
 ```sh
 commit=$(git rev-parse HEAD)
-python3 tools/backup_check.py --commit "$commit" --backup-tree /path/to/downloaded-tree
+python3 transport/tools/backup_check.py --commit "$commit" --backup-tree /path/to/downloaded-tree
 ```
 
 - **Exit codes** · `0` successful operation, `1` byte-check gaps, `2` invalid input or check failure. Confirm `completeCurrentTree: true` for coverage. Inventory and planning give no coverage verdict.
@@ -31,9 +31,11 @@ python3 tools/backup_check.py --commit "$commit" --backup-tree /path/to/download
 | Historical archives | [Import identities](WORKFLOW.md#import-and-source-integrity) cover another path layout. Compare exact member hashes and sizes with a separate path mapping. Split archives, filenames, timestamps and CRCs provide no current-mirror coverage. |
 | Live backup | Requires independent remote readback and restore evidence. A local check confers no transfer, replacement or cleanup authority. |
 
+For the earlier ZIP set, run `shasum -a 256 -c /absolute/path/to/med-assets/sources/imports/earlier-SHA256SUMS.txt` from the directory containing the original ZIPs. Use [the import manifest](../sources/imports/asset-manifest.json) and [extracted-member checksums](../sources/imports/SHA256SUMS) for the later extracted layout. Resolve member paths against the historical extraction root.
+
 ## One current-state manifest
 
-- **Private checkpoint** · One manifest with `schemaVersion`, `revision`, exact commit identity, accepted `files` and interrupted/unpublished `staged` entries. Schema and limit live in [the validator](../tools/backup_check.py).
+- **Private checkpoint** · One manifest with `schemaVersion`, `revision`, exact commit identity, accepted `files` and interrupted/unpublished `staged` entries. Schema and limit live in [the validator](../transport/tools/backup_check.py).
 - **Byte and object identity** · Each row binds path, expected hash/size, exact remote ID/version and evidence. Staged rows bind a `forCommit`. Verified staged rows need explicit adoption.
 - **Digest** · Pin the intended local checkpoint SHA-256. Fresh remote reads and concurrency control are independent requirements.
 
@@ -42,7 +44,7 @@ python3 tools/backup_check.py --commit "$commit" --backup-tree /path/to/download
 ```
 
 ```sh
-python3 tools/backup_check.py --commit "$commit" --plan-manifest "$manifest_path" \
+python3 transport/tools/backup_check.py --commit "$commit" --plan-manifest "$manifest_path" \
   --expected-manifest-sha256 "$expected_digest"
 ```
 

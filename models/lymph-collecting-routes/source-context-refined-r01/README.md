@@ -14,7 +14,9 @@
 
 [OpenStax §1.6/Fig1.12](https://openstax.org/books/anatomy-and-physiology-2e/pages/1-6-anatomical-terminology) informs qualitative regional relationships, not population proportions. [§21.1/Fig21.4](https://openstax.org/books/anatomy-and-physiology-2e/pages/21-1-anatomy-of-the-lymphatic-and-immune-systems) supports typical thoracic drainage toward the left venous angle and the right-upper-region exception. Source names/caps do not prove these anatomical endpoints. Original artwork; no source illustrations copied. Current reference notice CC BY-NC-SA4.0; no blanket license inferred for commissioned geometry.
 
-Actual static EN/中文 comparisons and Inkscape-rendered example highlight phases were independently inspected. Nineteen source-bound Node/DOM-double assertions test controls; exact input-image and projected-path checks bind the lesson to this evidence. **Browser animation, responsive layout and live interactions were not verified:** the permitted environment could not launch/reach the private browser preview. No security settings were weakened. Static or simulated checks are not browser passes.
+Actual static EN/中文 comparisons and Inkscape-rendered example highlight phases were independently inspected. Nineteen source-bound Node/DOM-double assertions test the controls. The original review stopped at static and simulated checks because its environment could not reach the browser preview.
+
+The 2026-11-21 [Gallery verification](../../../records/work-items/items/AG-GAL-016-integrate-retained-teaching.md#legacy-teaching-supplements) checked both rendered route overlays, cap masks, language controls, reduced motion and laptop layout in disposable Chrome. The regenerated standalone page also opened offline and passed a bilingual play/pause smoke check. Keep this self-contained HTML for offline use and replay.
 
 ## Reproduce and check
 

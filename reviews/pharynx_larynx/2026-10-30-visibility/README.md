@@ -70,7 +70,7 @@ pair as visibility-only; that metadata correction required no rerender.
 
 ## Checks and delivery
 
-[Viewer patch and replay instructions](../../../gallery/pharynx_larynx/visibility-r01/README.md)
+[Viewer patch and replay instructions](../../../tests/pharynx_visibility/visibility-r01/README.md)
 · [Patched file hashes](patched-viewer-hashes.json)
 · [Scoped technical receipt](review.json)
 

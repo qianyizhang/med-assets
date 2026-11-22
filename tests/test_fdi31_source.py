@@ -7,7 +7,7 @@ import tempfile
 from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
-spec = importlib.util.spec_from_file_location('fdi31_source', ROOT / 'ci/verify_fdi31_source.py')
+spec = importlib.util.spec_from_file_location('fdi31_source', ROOT / 'tests/source_checks/verify_fdi31_source.py')
 source = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(source)
 

@@ -3,11 +3,12 @@ on:
   pull_request:
     paths:
       - '.github/workflows/fdi31-source-verification.yml'
-      - 'ci/verify_fdi31_source.py'
-      - 'ci/fdi31-source/**'
+      - 'tests/source_checks/verify_fdi31_source.py'
+      - 'tests/source_checks/fdi31-source/**'
       - 'transport/manifests/ab97d341e9490f418a06d4d9943c0ab2743f22713c174446d8d3f3c0b7ee1118.json'
       - 'tests/test_fdi31_source.py'
       - 'tools/glb.py'
+      - 'transport/tools/lfs_transport.py'
       - 'models/eye_anterior_segment/recipes/teaching/build.py'
 permissions:
   contents: read
@@ -26,9 +27,9 @@ jobs:
           lfs: false
           submodules: false
           sparse-checkout: |
-            ci
+            tests/source_checks
             transport/manifests/ab97d341e9490f418a06d4d9943c0ab2743f22713c174446d8d3f3c0b7ee1118.json
-            tools/lfs_transport.py
+            transport/tools/lfs_transport.py
             tools/glb.py
             models/eye_anterior_segment/recipes/teaching/build.py
             tests/test_fdi31_source.py
@@ -36,4 +37,4 @@ jobs:
       - name: Offline failure-path checks
         run: python3 -m unittest discover -s tests -p test_fdi31_source.py
       - name: Fetch exact 5 staged objects and verify sizes, hashes and headers
-        run: python3 ci/verify_fdi31_source.py --output "$RUNNER_TEMP/fdi31-verified-review"
+        run: python3 tests/source_checks/verify_fdi31_source.py --output "$RUNNER_TEMP/fdi31-verified-review"

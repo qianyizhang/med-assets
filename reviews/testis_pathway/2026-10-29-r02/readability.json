@@ -6,9 +6,9 @@
       "language": "en",
       "artifacts": {
         "editable": {
-          "baseline": "sources/authored/testis_pathway/r01/testis-pathway-en-editable.svg",
+          "baseline": "diagrams/testis_pathway/recipes/r01/testis-pathway-en-editable.svg",
           "baseline_sha256": "d2e0d0a576ff8230ffe1fca7f9a261e53816e3b4b2076bfc445d208352bbf4bc",
-          "current": "sources/authored/testis_pathway/r02/testis-pathway-en-editable.svg",
+          "current": "diagrams/testis_pathway/recipes/r02/testis-pathway-en-editable.svg",
           "current_sha256": "2ee421d5a128b86d85d23cbbe087276eaf886b9506bd48a865e1431b35392f0b",
           "bytes": 8865
         },
@@ -81,9 +81,9 @@
       "language": "zh",
       "artifacts": {
         "editable": {
-          "baseline": "sources/authored/testis_pathway/r01/testis-pathway-zh-editable.svg",
+          "baseline": "diagrams/testis_pathway/recipes/r01/testis-pathway-zh-editable.svg",
           "baseline_sha256": "502635908a84a638fb7052dacc357291c78fc09c9c7e29f8ce98b7c832b776e0",
-          "current": "sources/authored/testis_pathway/r02/testis-pathway-zh-editable.svg",
+          "current": "diagrams/testis_pathway/recipes/r02/testis-pathway-zh-editable.svg",
           "current_sha256": "0c2805dc409daa411c75a2f67259c620747d4a5337bc7e642c7cd2f596380875",
           "bytes": 8490
         },
@@ -284,7 +284,7 @@
     "scope": "Repository offline gate only; no payload hydration, viewer runtime or anatomical approval."
   },
   "builderReplay": {
-    "command": "python3 sources/authored/testis_pathway/r02/build.py --output <NEW_DIRECTORY>",
+    "command": "python3 diagrams/testis_pathway/recipes/r02/build.py --output <NEW_DIRECTORY>",
     "result": "All four regenerated SVGs byte-identical to the reviewed v2 outputs.",
     "frozenR01Changed": false
   }

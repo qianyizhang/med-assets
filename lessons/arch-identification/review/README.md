@@ -45,12 +45,11 @@ The final label selected in the narrow lower view is FDI 47, patient right.
   26 transport manifests, 25 foundation records, 591 import references and
   837 LFS identities (834 existing + three review captures). That gate does not hash hydrated media;
   the scoped source check above does.
-- **Browser blocked:** normal Chromium through Playwright 1.57.0 failed at
+- **Browser blocked in the 2026-10-30 environment:** normal Chromium through Playwright 1.57.0 failed at
   startup because `/usr/lib/chromium/chrome-sandbox` was owned by `nobody:nogroup`
   rather than root. No browser launched. Sandbox was neither disabled nor
-  changed. Actual HTML/CSS desktop/narrow reflow, browser image error/retry,
-  focus/accessibility exposure and image rendering remain unverified. The
-  checked-in browser journey is pending. There is no WebGL requirement.
+  changed. That run left desktop and narrow reflow, image error and retry,
+  focus and image rendering unverified. The later result appears below.
 - **Anatomy remains unapproved:** existing adjacent contacts fail, bite is
   unvalidated and fine crown morphology is limited. 18/28/38/48 remain
   unavailable source coverage. No repair or new anatomy is claimed.
@@ -70,6 +69,4 @@ Original images are linked, not copied. Other V1/V2 renders remain in the worker
 evidence directory; the capture recipe and hashes retain their identities.
 No model, historical receipt, global ledger, workflow or security setting changed.
 
-Next: review the bounded draft and run the supplied browser journey in an
-already-authorized environment with a working sandbox. Keep issue #174 open for
-that browser acceptance. No merge, Site publication or collection promotion.
+The standalone journey passed in disposable Chrome on 2026-11-21, including both orientations, keyboard travel, 320 px layout and image fallback. The [Gallery delivery record](../../../records/work-items/items/AG-GAL-016-integrate-retained-teaching.md#dental-arch-identification) links that check and the separate Gallery verification.

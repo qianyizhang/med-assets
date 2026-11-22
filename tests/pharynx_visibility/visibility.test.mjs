@@ -5,7 +5,7 @@ import {createHash} from 'node:crypto';
 import {createRequire} from 'node:module';
 import {resolve} from 'node:path';
 import {pathToFileURL} from 'node:url';
-import {createInspection, mountInspection, fitVisibleParts, SOURCE_SHA256} from '../../gallery/pharynx_larynx/visibility-r01/pharynx-inspection.mjs';
+import {createInspection, mountInspection, fitVisibleParts, SOURCE_SHA256} from './visibility-r01/pharynx-inspection.mjs';
 
 const deps = process.env.PHARYNX_TEST_DEPS;
 assert.ok(deps, 'Set PHARYNX_TEST_DEPS to the isolated directory containing pinned three and jsdom packages');

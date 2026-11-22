@@ -3,7 +3,8 @@ on:
   pull_request:
     paths:
       - '.github/workflows/public-drive-source-probe.yml'
-      - 'tools/balanced_drive_fallback.py'
+      - 'transport/tools/balanced_drive_fallback.py'
+      - 'transport/tools/lfs_transport.py'
       - 'tests/test_balanced_drive_fallback.py'
   workflow_dispatch:
     inputs:
@@ -28,12 +29,12 @@ jobs:
           persist-credentials: false
           lfs: false
           sparse-checkout: |
-            tools/lfs_transport.py
-            tools/balanced_drive_fallback.py
+            transport/tools/lfs_transport.py
+            transport/tools/balanced_drive_fallback.py
             tests/test_balanced_drive_fallback.py
           sparse-checkout-cone-mode: false
       - run: python3 -m unittest discover -s tests -p test_balanced_drive_fallback.py
-      - run: python3 tools/balanced_drive_fallback.py source-check
+      - run: python3 transport/tools/balanced_drive_fallback.py source-check
   transfer:
     if: github.event_name == 'workflow_dispatch' && github.repository == 'qianyizhang/med-assets' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-24.04
@@ -52,10 +53,10 @@ jobs:
           lfs: false
           submodules: false
           sparse-checkout: |
-            tools/lfs_transport.py
-            tools/balanced_drive_fallback.py
+            transport/tools/lfs_transport.py
+            transport/tools/balanced_drive_fallback.py
             tests/test_balanced_drive_fallback.py
           sparse-checkout-cone-mode: false
       - run: python3 -m unittest discover -s tests -p test_balanced_drive_fallback.py
       - name: Exact ZIP and member verification, missing-object upload, fresh readback
-        run: python3 tools/balanced_drive_fallback.py upload
+        run: python3 transport/tools/balanced_drive_fallback.py upload

@@ -4,7 +4,7 @@ Shared terms for the public gallery and the anatomical relationships it presents
 
 ## Gallery and surfaces
 
-**Gallery** is the unified public teaching-asset Site. **Surface** is a destination within it. Model Survey is the name of the existing Site being extended.
+**Anatomy Gallery** is the unified public teaching-asset Site. **Surface** is a destination within it. **Model Survey** is the dated catalogue imported by Anatomy Gallery and retained in its archive.
 
 | Canonical term | Meaning |
 | --- | --- |

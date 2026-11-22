@@ -11,7 +11,7 @@ for item in manifest['assets']:
  if len(raw)!=item['bytes'] or hashlib.sha256(raw).hexdigest()!=item['sha256']:raise ValueError('Wrong or unresolved local asset: '+item['id'])
  sources.append((item,raw))
 vendors=[]
-fixture=json.loads((ROOT.parents[1]/'ci/glb-runtime-fixture.json').read_text())
+fixture=json.loads((ROOT.parents[1]/'tests/runtime/glb-runtime-fixture.json').read_text())
 for item in fixture['resources']:
  if not item['path'].startswith('vendor/'):continue
  with urllib.request.urlopen(item['url'],timeout=45) as r:raw=r.read()

@@ -21,11 +21,11 @@ is included. The source case is retained solely for traceability.
 
 Retain CC BY 4.0 attribution with these derived assets. Its full text is included
 in CC-BY-4.0.txt. The selected-source receipt additionally records Apache-2.0 for
-labels; that full license is retained in ../assets/Apache-2.0.txt. No source author
+labels. See the [retained label-source license](../anatomy-workshop-r1/docs/licenses/TotalSegmentator-v2.0.1-LICENSE.txt). No source author
 endorses these illustrations.
 
 Source and output SHA-256 values, affine matrices and extraction settings are in
-manifest.json. Derivation: keep the largest mask component, smooth sigma 0.65
+the [source manifest](../anatomy-workshop-r1/body-3d-source/tb3/presentation/task-explorer/anatomy/manifest.json). Derivation: keep the largest mask component, smooth sigma 0.65
 voxels, extract at 0.5, apply 15 windowed-sinc iterations with passband 0.1, reduce
 triangles by quadrics, retain a smaller assembly mesh (at most 300 triangles per
 organ) for the distant torso overview, and round vertices to 0.01 mm. The close

@@ -36,10 +36,10 @@ jobs:
           show-progress: false
           sparse-checkout-cone-mode: false
           sparse-checkout: |
-            /tools/lfs_transport.py
+            /transport/tools/lfs_transport.py
             /tests/test_lfs_transport.py
             /transport/manifests/
       - name: Offline safety tests
         run: python3 -m unittest discover -s tests -p test_lfs_transport.py
       - name: Verify all sources, upload missing OIDs, fresh HTTP readback
-        run: python3 tools/lfs_transport.py run
+        run: python3 transport/tools/lfs_transport.py run

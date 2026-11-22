@@ -20,6 +20,8 @@ const copy = {
     outlineAlt: ', with a dashed 2D editorial exterior locator',
     same: 'Same camera, scale and position when switching views.',
     pairNote: 'Same camera and scale in both panels.',
+    findingTitle: 'Provisional finding',
+    finding: 'The outline made the top and bottom margins and the projected location of the internal clusters visible in one frame. The equal-scale side-by-side view remains the control. Switching views without the outline showed no advantage over that control in this visual inspection.',
     locatorNote: 'Dashed line: 2D exterior locator.', controls: 'View controls', region: 'Recorded front review view',
   },
   zh: {
@@ -41,64 +43,90 @@ const copy = {
     outlineAlt: '，叠加虚线二维外形定位线',
     same: '切换时保持相同视角、比例和画面位置。',
     pairNote: '两幅图保持相同视角与比例。',
+    findingTitle: '初步观察',
+    finding: '轮廓将上下边缘的余量及内部结构的投影位置显示在同一画面中。同尺度并排视图保留为对照。在此次视觉检查中，只切换视图而不显示轮廓，未观察到相较并排对照的优势。',
     locatorNote: '虚线：二维外形定位线。', controls: '视图控制', region: '记录中的正面审阅视图',
   },
 };
-const $ = selector => document.querySelector(selector);
-const params = new URLSearchParams(location.search);
 const validViews = ['exterior', 'internal', 'paired'];
-let view = validViews.includes(params.get('view')) ? params.get('view') : 'internal';
-let language = params.get('lang') === 'zh' ? 'zh' : 'en';
-let loadState = 'loading';
-$('#locator').checked = params.get('outline') !== '0';
-$('#outline').setAttribute('d', outlinePath);
 
-function update() {
-  const t = copy[language];
-  document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en';
-  document.title = t.eyebrow + ' · ' + t.title;
-  $('[name="view"][value="' + view + '"]').checked = true;
-  $('#language').value = language;
-  document.querySelectorAll('[data-copy]').forEach(el => { el.textContent = t[el.dataset.copy]; });
-  $('form').setAttribute('aria-label', t.controls);
-  $('#views').setAttribute('aria-label', t.region);
-  $('#status').hidden = loadState === 'ready';
-  $('#status').textContent = t[loadState === 'error' ? 'error' : 'loading'];
-  $('#views').hidden = loadState !== 'ready';
-  $('#exterior-panel').hidden = view === 'internal';
-  $('#internal-panel').hidden = view === 'exterior';
-  $('#locator').disabled = view === 'exterior' || loadState !== 'ready';
-  const showOutline = $('#locator').checked && view !== 'exterior';
-  $('#outline').hidden = !showOutline;
-  // SVG elements do not implement HTMLElement.hidden consistently.
-  $('#outline').style.display = showOutline ? '' : 'none';
-  $('#exterior-title').textContent = t.exteriorAlt;
-  $('#internal-title').textContent = t.internalAlt + (showOutline ? t.outlineAlt : '');
-  $('#view-note').textContent = loadState === 'ready'
-    ? (view === 'paired' ? t.pairNote : t.same) + (showOutline ? ' ' + t.locatorNote : '') : '';
-}
-$('form').addEventListener('change', event => {
-  if (event.target.name === 'view') view = event.target.value;
+export function mount(root, { params = new URLSearchParams(location.search), imageUrl = source.url, standalone = true } = {}) {
+  const $ = selector => root.querySelector(selector);
+  const form = $('form');
+  const languageSelect = $('#language');
+  const locator = $('#locator');
+  const abort = new AbortController();
+  let view = validViews.includes(params.get('view')) ? params.get('view') : 'internal';
+  let language = params.get('lang') === 'zh' ? 'zh' : 'en';
+  let loadState = 'loading';
+  let objectUrl;
+  locator.checked = params.get('outline') !== '0';
+  $('#outline').setAttribute('d', outlinePath);
+
+  function update() {
+    const t = copy[language];
+    root.lang = language === 'zh' ? 'zh-CN' : 'en';
+    if (standalone) {
+      document.documentElement.lang = root.lang;
+      document.title = t.eyebrow + ' · ' + t.title;
+    }
+    $('[name="view"][value="' + view + '"]').checked = true;
+    languageSelect.value = language;
+    root.querySelectorAll('[data-copy]').forEach(el => { el.textContent = t[el.dataset.copy]; });
+    form.setAttribute('aria-label', t.controls);
+    $('#views').setAttribute('aria-label', t.region);
+    $('#status').hidden = loadState === 'ready';
+    $('#status').textContent = t[loadState === 'error' ? 'error' : 'loading'];
+    $('#views').hidden = loadState !== 'ready';
+    $('#exterior-panel').hidden = view === 'internal';
+    $('#internal-panel').hidden = view === 'exterior';
+    locator.disabled = view === 'exterior' || loadState !== 'ready';
+    const showOutline = locator.checked && view !== 'exterior';
+    $('#outline').style.display = showOutline ? '' : 'none';
+    $('#exterior-title').textContent = t.exteriorAlt;
+    $('#internal-title').textContent = t.internalAlt + (showOutline ? t.outlineAlt : '');
+    $('#view-note').textContent = loadState === 'ready'
+      ? (view === 'paired' ? t.pairNote : t.same) + (showOutline ? ' ' + t.locatorNote : '') : '';
+  }
+
+  const listenerOptions = { signal: abort.signal };
+  form.addEventListener('change', event => {
+    if (event.target.name === 'view') view = event.target.value;
+    update();
+  }, listenerOptions);
+  languageSelect.addEventListener('change', event => {
+    language = event.target.value;
+    update();
+  }, listenerOptions);
   update();
-});
-$('#language').addEventListener('change', event => { language = event.target.value; update(); });
-update();
 
-try {
-  const response = await fetch(source.url);
-  if (!response.ok) throw new Error('Missing retained image');
-  const bytes = await response.arrayBuffer();
-  const digest = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))]
-    .map(x => x.toString(16).padStart(2, '0')).join('');
-  if (digest !== source.sha256) throw new Error('Source identity mismatch');
-  const blob = new Blob([bytes], { type: 'image/webp' });
-  const bitmap = await createImageBitmap(blob);
-  if (bitmap.width !== 1260 || bitmap.height !== 1436) throw new Error('Unexpected image dimensions');
-  bitmap.close();
-  const url = URL.createObjectURL(blob);
-  document.querySelectorAll('svg image').forEach(el => el.setAttribute('href', url));
-  loadState = 'ready';
-} catch {
-  loadState = 'error';
+  async function load() {
+    try {
+      if (!imageUrl) throw new Error('Missing retained image');
+      const response = await fetch(imageUrl, listenerOptions);
+      if (!response.ok) throw new Error('Missing retained image');
+      const bytes = await response.arrayBuffer();
+      const digest = [...new Uint8Array(await crypto.subtle.digest('SHA-256', bytes))]
+        .map(x => x.toString(16).padStart(2, '0')).join('');
+      if (digest !== source.sha256) throw new Error('Source identity mismatch');
+      const blob = new Blob([bytes], { type: 'image/webp' });
+      const bitmap = await createImageBitmap(blob);
+      const correctSize = bitmap.width === 1260 && bitmap.height === 1436;
+      bitmap.close();
+      if (!correctSize) throw new Error('Unexpected image dimensions');
+      if (abort.signal.aborted) return;
+      objectUrl = URL.createObjectURL(blob);
+      root.querySelectorAll('svg image').forEach(el => el.setAttribute('href', objectUrl));
+      loadState = 'ready';
+    } catch {
+      if (abort.signal.aborted) return;
+      loadState = 'error';
+    }
+    update();
+  }
+  void load();
+  return () => {
+    abort.abort();
+    if (objectUrl) URL.revokeObjectURL(objectUrl);
+  };
 }
-update();

@@ -32,9 +32,26 @@ python3 tools/verify.py offline
 
 All builder outputs and verification receipt paths must be new. `regression.py` takes a directory containing `static/` and `animated-source/` outputs and checks deterministic replay, no overwrite, source identity and candidate corruption rejection. It is a scoped actual-media check, not part of ordinary offline CI.
 
-Blender 4.3.2 is required for `heart/exterior-presentation-r01/recipes/reimport_motion.py` and `render.py`. The former compares all 124 retained objects after clean import at every authored sample; use `--animated` for the 25-frame clip. The latter takes a source/candidate GLB, a new output directory and `--match` with a retained original binding record. Logical `view` names preserve cameras after evidence file relocation. Render whole/front detail/neutral as needed; label outputs `Original` or `Updated`. Source static state hides explicit cutaway duplicates. These are offline renders, not browser screenshots.
+Use Blender 4.3.2 to reproduce the original r01 import and render evidence. The later [static repack comparison](../../reviews/heart_exterior/2026-11-21-static-repack/README.md) used Blender 5.2.3 LTS Release Candidate for both imports and both sides of each matched view. The former compares all 124 retained objects after clean import at every authored sample; use `--animated` for the 25-frame clip. The latter takes a source/candidate GLB, a new output directory and `--match` with a retained original binding record. Logical `view` names preserve cameras after evidence file relocation. Render whole/front detail/neutral as needed; label outputs `Original` or `Updated`. Source static state hides explicit cutaway duplicates. These are offline renders, not browser screenshots.
 
 [Actual images, independent review and receipts](../../reviews/heart_exterior/2026-10-30-native-visibility-r01/README.md) document scope and remaining gates.
+
+## Static repack candidate
+
+`repack_static.py` takes only the exact hydrated static r01 GLB above. It drops unreachable meshes, materials, accessors and buffer views, then copies the retained views into a new aligned BIN chunk. The output path must be new and its parent directory must exist. The original export remains the input and comparison control.
+
+From the repository root, choose a fresh directory under `.artifacts/`:
+
+```sh
+evidence=.artifacts/heart-static-repack-replay
+mkdir -p "$evidence"
+source_glb=heart/exterior-presentation-r01/exports/static-opaque-exterior.glb
+candidate_glb="$evidence/static-opaque-exterior-repacked.glb"
+python3.12 heart/exterior-presentation-r01/repack_static.py --source "$source_glb" --output "$candidate_glb"
+python3.12 heart/exterior-presentation-r01/verify_repack.py --source "$source_glb" --candidate "$candidate_glb"
+```
+
+The [static repack review](../../reviews/heart_exterior/2026-11-21-static-repack/README.md) records the exact result and the paired Blender checks. The verified result is tracked in the [r02 package](../exterior-presentation-r02/README.md) and is the recommended static export in the local Gallery.
 
 ## Attribution and limits
 

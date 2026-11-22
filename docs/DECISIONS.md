@@ -1,6 +1,6 @@
 # Decisions and outstanding work
 
-- **Scope** · Cross-cutting decisions. [Asset reviews](../reviews/) own individual status. GitHub owns task state.
+- **Scope** · Cross-cutting decisions. [Asset reviews](../reviews/) own individual status. See [contribution and delivery](WORKFLOW.md#contribution-and-delivery) for work-item and GitHub ownership.
 
 | Date | Scope | Decision or finding | Status | Reference |
 |---|---|---|---|---|

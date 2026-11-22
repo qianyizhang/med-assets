@@ -1,0 +1,165 @@
+{
+  "blender": "5.2.3 LTS Release Candidate",
+  "blenderBuild": "fab76e95306d",
+  "capture": {
+    "resolution": [
+      960,
+      960
+    ],
+    "engine": "Cycles CPU",
+    "samples": 48,
+    "seed": 17,
+    "denoising": false,
+    "display": "AgX",
+    "worldColor": [
+      0.1,
+      0.1,
+      0.1
+    ],
+    "lightOffsetsAndPowers": [
+      [
+        [
+          -0.6,
+          -0.7,
+          0.8
+        ],
+        14
+      ],
+      [
+        [
+          0.5,
+          -0.3,
+          0.1
+        ],
+        7
+      ],
+      [
+        [
+          0,
+          0.5,
+          0.5
+        ],
+        10
+      ]
+    ],
+    "rigFactor": "orthoScaleM / 0.15",
+    "diskSizeFactor": 0.4,
+    "neutralBaseColor": [
+      0.44,
+      0.39,
+      0.34,
+      1
+    ],
+    "neutralRoughness": 0.8
+  },
+  "export": {
+    "path": "models/esophagus_wall/exports/authored-cutaway-r01/esophagus-wall-cutaway-r01.glb",
+    "sha256": "e4f51a86040ef115776fe06a33443982f7b63243332681e53dadaa77f81c05f5",
+    "bytes": 201328
+  },
+  "plateAssembly": "Unscaled RGB frames in left-to-right order. Captions below the 960 \u00d7 960 panels. Lossless WebP verified against the decoded composite.",
+  "plates": [
+    {
+      "path": "reviews/esophagus_wall/2026-11-21-form-assessment-r01/form-close-esophageal-wall.webp",
+      "sha256": "964934356dd41a74568ff92d129ba53f51fd146023eae4476d9fed22df359f80",
+      "bytes": 1502844,
+      "width": 2880,
+      "height": 1024,
+      "framesLeftToRight": [
+        {
+          "file": "wall-wedge-palette.png",
+          "sha256": "7a4d9c26728e606c056cf1d831335daaa9232b9afcb677b630ec0a53a3dee97d",
+          "bytes": 1176233,
+          "angle": "wedge",
+          "material": "palette",
+          "targetM": [
+            0.0,
+            0.0,
+            0.03700000047683716
+          ],
+          "orthoScaleM": 0.034,
+          "cameraM": [
+            0.09411820769309998,
+            -0.23529554903507233,
+            0.1975545883178711
+          ],
+          "cameraQuaternion": [
+            0.8603142499923706,
+            0.4733896553516388,
+            0.09116651117801666,
+            0.165681391954422
+          ],
+          "visibleNodes": [
+            "01 Mucosa - composite",
+            "02 Submucosa",
+            "03 Muscularis externa - inner circular",
+            "04 Muscularis externa - outer longitudinal",
+            "05 Adventitia"
+          ]
+        },
+        {
+          "file": "wall-wedge-neutral.png",
+          "sha256": "25d44aba1cf5936e41d3bf43fc430a62a36682d74d2d8ba0caec4f625169abdc",
+          "bytes": 1082953,
+          "angle": "wedge",
+          "material": "neutral",
+          "targetM": [
+            0.0,
+            0.0,
+            0.03700000047683716
+          ],
+          "orthoScaleM": 0.034,
+          "cameraM": [
+            0.09411820769309998,
+            -0.23529554903507233,
+            0.1975545883178711
+          ],
+          "cameraQuaternion": [
+            0.8603142499923706,
+            0.4733896553516388,
+            0.09116651117801666,
+            0.165681391954422
+          ],
+          "visibleNodes": [
+            "01 Mucosa - composite",
+            "02 Submucosa",
+            "03 Muscularis externa - inner circular",
+            "04 Muscularis externa - outer longitudinal",
+            "05 Adventitia"
+          ]
+        },
+        {
+          "file": "wall-alternate-neutral.png",
+          "sha256": "a22a0403206e22f36c2567a06662f20d0ba5576c2ddcf181350d04404232f66e",
+          "bytes": 1052111,
+          "angle": "alternate",
+          "material": "neutral",
+          "targetM": [
+            0.0,
+            0.0,
+            0.03700000047683716
+          ],
+          "orthoScaleM": 0.034,
+          "cameraM": [
+            -0.10763519257307053,
+            -0.2065431922674179,
+            0.22608883678913116
+          ],
+          "cameraQuaternion": [
+            0.8769342303276062,
+            0.4176003932952881,
+            -0.10228364914655685,
+            -0.21478910744190216
+          ],
+          "visibleNodes": [
+            "01 Mucosa - composite",
+            "02 Submucosa",
+            "03 Muscularis externa - inner circular",
+            "04 Muscularis externa - outer longitudinal",
+            "05 Adventitia"
+          ]
+        }
+      ]
+    }
+  ]
+}

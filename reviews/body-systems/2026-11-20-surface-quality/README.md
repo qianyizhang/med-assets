@@ -80,7 +80,7 @@ I screened 103 isometric plates across all eleven systems, including the regiona
 
 Other conspicuous examples included the arrows in the urinary outlet, the sparse nervous overview and the digestive outlet schematic. The urinary arrows are identified teaching cues, the nervous root has a dedicated junction detail, and the current gastroduodenal cutaway already exposes the opening. The selected three still showed a consequential defect in their closest available teaching view.
 
-Use the [canonical scoring anchors and geometry guidance](../../../guideline/asset-quality.md) to repeat the review. Baseline source revision `53d17abd19386b3435da6e68ec796002a3333ea5`. Sol built the three derivatives. I selected the views, reviewed intermediate exports and assigned the scores after inspecting the final geometry checks and color and grayscale images.
+Use the [canonical scoring anchors and geometry guidance](../../../docs/guides/asset-quality.md) to repeat the review. Baseline source revision `53d17abd19386b3435da6e68ec796002a3333ea5`. Sol built the three derivatives. I selected the views, reviewed intermediate exports and assigned the scores after inspecting the final geometry checks and color and grayscale images.
 
 ## Verification and scope
 

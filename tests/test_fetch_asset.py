@@ -1,3 +1,4 @@
+from contextlib import redirect_stderr
 import hashlib
 import io
 from pathlib import Path
@@ -6,7 +7,7 @@ import tempfile
 import unittest
 from unittest.mock import Mock, patch
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'tools'))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'transport/tools'))
 import fetch_asset as fetch
 
 
@@ -83,7 +84,7 @@ class FetchAssetTests(unittest.TestCase):
 
     def test_published_alias_is_selected_only_for_matching_identity(self):
         root=self.cache.parent/'repo'
-        manifest=root/'sites/model-survey/app/src/content/assets/r2-trial.json'
+        manifest=root/'sites/anatomy-gallery/app/src/content/assets/delivery-index.json'
         manifest.parent.mkdir(parents=True)
         import json
         manifest.write_text(json.dumps({'assets':[{'sha256':self.digest,'bytes':len(self.payload),'name':'safe_name.glb'}]}))
@@ -109,6 +110,29 @@ class FetchAssetTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'changed during'):fetch.hydrate(root,'model.glb',cached,self.digest,len(self.payload))
         self.assertEqual(path.read_text(),'new user edits')
         self.assertFalse(list(root.glob('.hydrate-*')))
+
+    def test_hydrate_cli_identifies_local_edits_before_delivery_lookup(self):
+        root = self.cache.parent
+        target = root / 'model.glb'
+        for edit in (b'local edit', b'x' * len(self.payload)):
+            with self.subTest(size=len(edit)):
+                target.write_bytes(edit)
+                stderr = io.StringIO()
+                with (
+                    patch.object(fetch, 'ROOT', root),
+                    patch.object(sys, 'argv', ['fetch_asset.py', 'model.glb', '--hydrate']),
+                    patch.object(fetch, 'pinned_asset', return_value=(self.digest, len(self.payload))),
+                    patch.object(fetch, 'route_name') as lookup,
+                    patch.object(fetch, 'fetch_asset') as download,
+                    redirect_stderr(stderr),
+                    self.assertRaises(SystemExit) as stopped,
+                ):
+                    fetch.main()
+                self.assertEqual(stopped.exception.code, 1)
+                self.assertIn('preserving local contents', stderr.getvalue())
+                lookup.assert_not_called()
+                download.assert_not_called()
+                self.assertEqual(target.read_bytes(), edit)
 
     def test_path_traversal_is_refused_before_git(self):
         for name in ['../x.glb', '/x.glb', './x.glb', 'x/../y.glb', 'x\\y.glb']:

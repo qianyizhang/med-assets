@@ -2,6 +2,7 @@
 
 - **Authority** · Asset-owned records bind exact source versions, applicable terms, changes and review limits. Check actual provider terms before reuse.
 - **Scope** · Selected uses and exclusions. Reference-only material supplies evidence for teaching decisions. Authored geometry and code retain their own terms.
+- **Original imports** · [Import records](imports/) retain archive and extracted-member identities. See the [import contract](../docs/WORKFLOW.md#import-and-source-integrity) for current overrides and verification.
 
 | Source | Scoped use or finding | Record |
 | --- | --- | --- |

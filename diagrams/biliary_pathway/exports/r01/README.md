@@ -2,7 +2,7 @@
 
 Original bilingual teaching diagram; not a clinical or procedural map. 3D statuses and organ-pass counts unchanged.
 
-Display SVGs contain outlined text; PNGs were actually inspected. Editable source and font requirements are in the record. Run `python diagrams/biliary_pathway/recipes/render.py --output <NEW_DIRECTORY>` from this package. Requires Inkscape 1.4 and Pillow; no network/font installation. Reproduction checks decoded RGBA pixels, not anatomical validity.
+Display SVGs contain outlined text; PNGs were actually inspected. Editable source and font requirements are in the record. Run `python diagrams/biliary_pathway/recipes/render.py --output <NEW_DIRECTORY>` from the repository root. Requires Inkscape 1.4 and Pillow; no network/font installation. Reproduction checks decoded RGBA pixels, not anatomical validity.
 
 References:
 - https://www.niddk.nih.gov/health-information/digestive-diseases/digestive-system-how-it-works
@@ -10,3 +10,7 @@ References:
 - https://openstax.org/books/anatomy-and-physiology-2e/pages/23-6-accessory-organs-in-digestion-the-liver-pancreas-and-gallbladder
 
 No separate public license for the newly authored diagram or code is declared.
+
+Editable bilingual SVGs and the builder live in [the r01 recipe](../../recipes/r01/).
+
+The Gallery uses the lossless WebPs in [display](display/). Each preserves the original PNG dimensions and all decoded RGBA pixels. The original PNG and vector remain available.

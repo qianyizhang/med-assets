@@ -71,5 +71,4 @@ NODE_PATH=/tmp/arch-identification-qa/node_modules node lessons/arch-identificat
 This journey tests both languages, all IDs and both keyboard orientations,
 320 px HTML layout, image failure and retry, and saves actual screenshots. It
 requires the normal Chromium sandbox and fails without it. Never disable that
-sandbox to manufacture a pass. Current browser coverage is blocked as recorded
-in the review; the script is a pending journey, not a result.
+sandbox to manufacture a pass. The standalone journey passed in disposable Chrome on 2026-11-21. The earlier review records the blocked attempt. The [Gallery lesson](../../docs/gallery/use-cases.md#dental-arch-identification) uses this same selector and runs its own Gallery journey.

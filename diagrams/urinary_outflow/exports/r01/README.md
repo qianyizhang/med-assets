@@ -1,6 +1,6 @@
 # Urinary outflow · original 2D teaching aid / 尿液排出教学示意
 
-EN/中文 each has an outlined display SVG and PNG. Display SVGs contain glyph paths, no external fonts, images, scripts or network dependencies. Editable text versions and generator are in `sources/authored/urinary_outflow/r01/`; text editing/rebuild requires Noto Sans CJK SC and Noto Sans. Font files are not bundled. Renderer: Inkscape 1.4 (e7c3feb100, 2024-10-09).
+EN/中文 each has an outlined display SVG and PNG. Display SVGs contain glyph paths, no external fonts, images, scripts or network dependencies. Editable text versions and generator are in `diagrams/urinary_outflow/recipes/r01/`; text editing/rebuild requires Noto Sans CJK SC and Noto Sans. Font files are not bundled. Renderer: Inkscape 1.4 (e7c3feb100, 2024-10-09).
 
 **Purpose:** distinguish ureter from urethra; compare separate female urethral/vaginal outlets with the male urethral route through the prostate and penis. Original geometry and layout, not a copied reference figure. Typical simplified relationships only—not a measured section or clinical guidance.
 
@@ -25,3 +25,5 @@ With Python3/Pillow and Inkscape1.4:
 `python diagrams/urinary_outflow/recipes/render.py --output <NEW_NONEXISTENT_DIRECTORY>`
 
 Final outlined SVG→PNG decoded-pixel identity is tested. Text-to-outline conversion produced small measured antialias differences; no exact equivalence with editable-text render is claimed. Source review and final outlined image bindings are distinct. No browser visual/interaction pass is claimed.
+
+The Gallery uses the lossless WebPs in [display](display/). Each preserves the original PNG dimensions and all decoded RGBA pixels. The original PNG and vector remain available.

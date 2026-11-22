@@ -15,7 +15,7 @@ All 559,390 selected space-proxy voxels connect to exterior in 3D. Per-slice fil
 ## What is verified, and what still needs work
 
 - The published surface matches the reviewed output, and the extraction can be repeated from the pinned source scan.
-- The browser page, static images and exact file downloads were checked. The cloud browser could not initialize WebGL, so interactive rendering and performance are **not verified**.
+- The initial cloud browser verified the page and downloads but could not initialize WebGL. A [later Mac browser check](../../../../../reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/README.md#hosted-inspector-follow-up--2026-11-21) verified the hosted inspector’s two component toggles and source-X clipping on this exact export. Performance remains unmeasured.
 - Tooth number, side, health and anatomical orientation are unknown. Enamel, dentin and cementum are not separated. Expert tissue labeling and a complete canal reconstruction remain open work.
 
 <details>

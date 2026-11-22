@@ -7,7 +7,7 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 SPEC = importlib.util.spec_from_file_location(
-    'prepare_r2_assets', ROOT / 'sites/model-survey/tools/prepare_r2_assets.py')
+    'prepare_r2_assets', ROOT / 'transport/tools/prepare_r2_assets.py')
 prepare = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(prepare)
 
@@ -19,7 +19,7 @@ class PreviewPreparationTests(unittest.TestCase):
         self.root = Path(self.temp.name)
         self.app = self.root / 'app'
         (self.app / 'src/content/assets').mkdir(parents=True)
-        self.index = self.app / 'src/content/assets/r2-trial.json'
+        self.index = self.app / 'src/content/assets/delivery-index.json'
         self.snapshot = self.app / 'src/data.json'
         self.index.write_text('{"assets": [{"sha256": "retained-old-object"}]}')
 

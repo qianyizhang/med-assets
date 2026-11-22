@@ -6,13 +6,13 @@ import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {pathToFileURL} from 'node:url';
 import {resolve} from 'node:path';
-import {resolveAnchors,setEsophagusView} from '../../ci/esophagus/probe.mjs';
+import {resolveAnchors,setEsophagusView} from '../runtime/esophagus/probe.mjs';
 const root=process.env.ESOPHAGUS_VENDOR_ROOT;
 assert.ok(root,'Exact Three fixture root required');
 const THREE=await import(pathToFileURL(resolve(root,'build/three.module.js')));
 const {GLTFLoader}=await import(pathToFileURL(resolve(root,'examples/jsm/loaders/GLTFLoader.js')));
 assert.equal(THREE.REVISION,'180');
-const fixture=JSON.parse(readFileSync(new URL('../../ci/esophagus/fixture.json',import.meta.url)));
+const fixture=JSON.parse(readFileSync(new URL('../runtime/esophagus/fixture.json',import.meta.url)));
 const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
 async function load(variant){
   const path=process.env['ESOPHAGUS_'+variant.toUpperCase()];assert.ok(path,'Pinned GLB path required');

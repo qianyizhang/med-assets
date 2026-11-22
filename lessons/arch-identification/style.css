@@ -1,7 +1,8 @@
-:root { color-scheme: dark; font-family: system-ui, sans-serif; color: #eef3f2; background: #11181b; }
+:root, :host { color-scheme: dark; font-family: system-ui, sans-serif; color: #eef3f2; background: #11181b; }
+:host { display: block; border-radius: 10px; }
 * { box-sizing: border-box; }
 body { margin: 0; }
-main { max-width: 1060px; margin: 0 auto; padding: 28px 24px 20px; }
+main, .lesson-body { max-width: 1060px; margin: 0 auto; padding: 28px 24px 20px; }
 header { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
 h1 { margin: 5px 0 0; font-size: clamp(25px, 4vw, 34px); font-weight: 600; letter-spacing: -.035em; }
 .eyebrow { margin: 0; color: #a5b9ba; font-size: 11px; letter-spacing: .09em; }
@@ -39,7 +40,7 @@ a { color: #a8f0df; }
 #image-error p { margin: 8px 0; }
 #image-error p + p { font-size: 13px; color: #b0c1c1; }
 @media (max-width: 660px) {
-  main { padding: 20px 14px; }
+  main, .lesson-body { padding: 20px 14px; }
   header { gap: 10px; }
   .eyebrow { font-size: 10px; letter-spacing: .035em; }
   .content { grid-template-columns: minmax(0, 1fr); gap: 12px; }

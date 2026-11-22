@@ -6,7 +6,7 @@ import tempfile
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
-TOOL = ROOT / 'gallery/pharynx_larynx/visibility-r01/apply.py'
+TOOL = ROOT / 'tests/pharynx_visibility/visibility-r01/apply.py'
 spec = importlib.util.spec_from_file_location('pharynx_visibility_patch', TOOL)
 patch = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(patch)

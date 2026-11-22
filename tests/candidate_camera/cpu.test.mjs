@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {pathToFileURL} from 'node:url';
-import {clearPendingOrbit} from '../../gallery/candidate-camera/r01/camera-reset.mjs';
+import {clearPendingOrbit} from './fixtures/camera-reset.mjs';
 
 assert.ok(process.env.CAMERA_VENDOR_STAGE && process.env.CAMERA_SOURCE, 'Use run_cpu.py');
 const THREE=await import(pathToFileURL(process.env.CAMERA_VENDOR_STAGE+'/three.module.js'));

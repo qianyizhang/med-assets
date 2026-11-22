@@ -9,8 +9,8 @@ from unittest import mock
 import sys
 
 ROOT=Path(__file__).resolve().parents[1]
-sys.path.insert(0,str(ROOT/'ci'))
-spec=importlib.util.spec_from_file_location('glb_runtime_probe',ROOT/'ci/glb_runtime_probe.py')
+sys.path.insert(0,str(ROOT/'tests/runtime'))
+spec=importlib.util.spec_from_file_location('glb_runtime_probe',ROOT/'tests/runtime/glb_runtime_probe.py')
 probe=importlib.util.module_from_spec(spec);spec.loader.exec_module(probe)
 sys.path.pop(0)
 
@@ -26,7 +26,7 @@ class RuntimeReconstructionTests(unittest.TestCase):
    with self.assertRaises(ValueError):probe.verify_generated(path,3,digest)
 
  def test_pins_bind_exact_recipe_and_distinct_retained_identity(self):
-  fixture=json.loads((ROOT/'ci/glb-runtime-fixture.json').read_text())
+  fixture=json.loads((ROOT/'tests/runtime/glb-runtime-fixture.json').read_text())
   decision=json.loads((ROOT/'reviews/lymph_node/2026-10-27-editorial-window-r03/decision.json').read_text())
   candidate=fixture['lymphCandidate'];source=next(x for x in fixture['resources'] if x.get('id')=='lymph')
   self.assertEqual(source['sha256'],decision['source']['sha256'])

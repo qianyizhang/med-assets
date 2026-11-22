@@ -46,3 +46,5 @@ Do not fix this result by arbitrarily spacing the teeth until crossings disappea
 - Numerical receipts and triangle witnesses support inspection. Scratch analysis/render scripts are outside the package. The failed contact gate leaves prior exterior acceptance scoped to appearance. Browser, professional anatomy and bite verification remain outstanding. [Canonical attribution](../../../models/teeth_gums/exports/r02/ATTRIBUTION.md) accompanies public derivatives.
 
 Checked 2026-10-26. The exact mesh remains unchanged; this is a validation/presentation checkpoint, not repaired geometry.
+
+[Gallery assembly](../../../sites/anatomy-gallery/README.md#restore-and-build-locally) generates the upper and lower crown displays for the dental arch lesson and the eight contact-review WebPs. The [original upper](media/upper-occlusal-teeth.png) and [lower](media/lower-occlusal-teeth.png) crowns and the other [PNG evidence](media/) remain the fallback. The Gallery serves the established WebP download identities.

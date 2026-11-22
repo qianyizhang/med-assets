@@ -1,0 +1,130 @@
+{
+  "comparisonSha256": "c25a33df7990fbb6d3269490036ee6c9bf77a531e765789c1d21a9925219e2c5",
+  "evidence": {
+    "overview.webp": {
+      "sha256": "b02b5a54e92c6fc40b9aa728234ab4de6868dc0c72db2c0e7f207aaa33954dfd",
+      "bytes": 155112
+    },
+    "hands-and-feet.webp": {
+      "sha256": "7d3ce3ee2e0d1ec47c1e44762e1af61015375aee106df348d476751ffa989f80",
+      "bytes": 322302
+    }
+  },
+  "views": {
+    "ortho": {
+      "maxShiftDisplayPx": 0.25,
+      "changedSamples": 365,
+      "worstXYDisplayPx": [
+        337.0,
+        34.0
+      ],
+      "displayResolutionCheck": {
+        "maxShiftDisplayPx": 1.0,
+        "changedSamples": 31,
+        "worstXYDisplayPx": [
+          320.0,
+          44.0
+        ]
+      },
+      "exactPinnedOriginalPngReplay": false,
+      "matchesPinnedTeachingMask": true,
+      "regions": {
+        "Right wrist and hand": {
+          "maxShiftDisplayPx": 0.0,
+          "changedSamples": 0,
+          "worstXYDisplayPx": null,
+          "cropDisplayXYXY": [
+            237,
+            254,
+            283,
+            323
+          ]
+        },
+        "Left wrist and hand": {
+          "maxShiftDisplayPx": 0.0,
+          "changedSamples": 0,
+          "worstXYDisplayPx": null,
+          "cropDisplayXYXY": [
+            395,
+            254,
+            442,
+            323
+          ]
+        },
+        "Both ankles, toes and heels": {
+          "maxShiftDisplayPx": 0.25,
+          "changedSamples": 1,
+          "worstXYDisplayPx": [
+            372.5,
+            474.75
+          ],
+          "cropDisplayXYXY": [
+            279,
+            474,
+            400,
+            532
+          ]
+        }
+      }
+    },
+    "iso": {
+      "maxShiftDisplayPx": 0.25,
+      "changedSamples": 180,
+      "worstXYDisplayPx": [
+        346.0,
+        70.25
+      ],
+      "displayResolutionCheck": {
+        "maxShiftDisplayPx": 1.0,
+        "changedSamples": 16,
+        "worstXYDisplayPx": [
+          359.0,
+          73.0
+        ]
+      },
+      "exactPinnedOriginalPngReplay": false,
+      "matchesPinnedTeachingMask": true,
+      "regions": {
+        "Right wrist and hand": {
+          "maxShiftDisplayPx": 0.25,
+          "changedSamples": 7,
+          "worstXYDisplayPx": [
+            283.5,
+            218.0
+          ],
+          "cropDisplayXYXY": [
+            244,
+            218,
+            296,
+            299
+          ]
+        },
+        "Left wrist and hand": {
+          "maxShiftDisplayPx": 0.0,
+          "changedSamples": 0,
+          "worstXYDisplayPx": null,
+          "cropDisplayXYXY": [
+            356,
+            278,
+            404,
+            362
+          ]
+        },
+        "Both ankles, toes and heels": {
+          "maxShiftDisplayPx": 0.25,
+          "changedSamples": 12,
+          "worstXYDisplayPx": [
+            344.5,
+            423.25
+          ],
+          "cropDisplayXYXY": [
+            273,
+            422,
+            386,
+            518
+          ]
+        }
+      }
+    }
+  }
+}

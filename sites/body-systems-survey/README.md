@@ -6,6 +6,10 @@ junction or compare two poses. [The study brief](study-brief.md) records the
 baseline gaps, acceptance criteria and package links. Each package owns its
 build and check commands, source attribution, and scope of review.
 
+## Body Systems on the unified Site
+
+The ordinary Site reads the [Body Systems collection export](../../lessons/body-systems/README.md). Rebuild this report and use its export command when the collection adopts a new reviewed plate. This directory owns the dated report, its local 3D replay and archive recovery.
+
 ## Outcome
 
 The original teaching revision was
@@ -13,7 +17,8 @@ The original teaching revision was
 It produced twelve editable Blender scenes, twelve GLBs, 56 matched
 clean-import view pairs and seven One Breath browser captures. The survey
 also retained the baseline plates from 55 render jobs. Two concept plates
-record visual direction for skin and lymphatic return.
+record visual direction for skin and lymphatic return. The [study brief
+records their prompts](study-brief.md#imagegen-concept-prompts).
 
 - **Technical.** Blender 5.2.3 opened all twelve editable scenes with
   auto-execution disabled. Each package records its check and replay results.
@@ -29,14 +34,15 @@ record visual direction for skin and lymphatic return.
   structures, authored joins, pose limits and exceptions.
 - **Delivery.** The repository carries the recipes, input identities, lesson
   code, report source, review findings and exact media hashes. The existing
-  galleries have separate deployment sources. The [gallery design guide](../../guideline/design.md) proposes how their catalogue and review routes connect to these teaching views.
+  galleries have separate deployment sources. The [gallery design guide](../../docs/gallery/design.md) proposes how their catalogue and review routes connect to these teaching views.
 
 ## Gallery presentation audit
 
 See the [med-assets glossary](../../GLOSSARY.md) for **System assembly**,
 **Asset detail**, and the placement and camera terms used in the audit.
-The [next-round draft](next-round-spec.md) records the checked baseline and
-proposes refinements for all eleven systems.
+The [19 November refinement proposal](next-round-spec.md) records the checked
+baseline and the original proposals for all eleven systems. The dated reviews
+below record the results.
 
 | Status | Systems and remaining work |
 | --- | --- |
@@ -66,13 +72,13 @@ when the local assembly receipts and renders are present.
 The [first surface review](../../reviews/body-systems/2026-11-20-surface-quality/README.md)
 scores the terminal airspaces, seated nail and s1233 adrenal group. The
 [adrenal close-up review](../../reviews/endocrine-locator/adrenal-study-r04/README.md)
-applies the [refined rubric](../../guideline/asset-quality.md) to the interpreted
+applies the [refined rubric](../../docs/guides/asset-quality.md) to the interpreted
 teaching exterior. The [next adrenal study](../../reviews/endocrine-locator/adrenal-study-r05/README.md)
 compares it to a surface rebuilt against the original s1233 gland labels. The
 [blind comparison](../../reviews/endocrine-locator/adrenal-study-r05/compare.html)
-lets you inspect the two exports before revealing their scores. The
-[local gallery pilot](../gallery-links/README.md) connects this study to the
-adrenal Model Survey family and its separate BodyParts3D verification record.
+lets you inspect five matched views before revealing their scores. The
+[Anatomy Gallery](../anatomy-gallery/README.md) links the s1233 study to the
+separate BodyParts3D verification record and expanded family.
 The surface comparisons use checked-in GLBs. The earlier
 atlas-to-scan comparison uses the locally restored regional models.
 

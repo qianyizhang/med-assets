@@ -1,6 +1,6 @@
 # Testis pathway · original 2D teaching aid / 睾丸输送路径教学示意
 
-EN/中文 each has an outlined display SVG and PNG. Display SVGs contain glyph paths, no external fonts, raster assets, scripts or network dependencies. Editable text versions and generator are in `sources/authored/testis_pathway/r01/`; text editing/rebuild requires Noto Sans CJK SC and Noto Sans. Font files are not bundled. Renderer: Inkscape 1.4 (e7c3feb100, 2024-10-09).
+EN/中文 each has an outlined display SVG and PNG. Display SVGs contain glyph paths, no external fonts, raster assets, scripts or network dependencies. Editable text versions and generator are in `diagrams/testis_pathway/recipes/r01/`; text editing/rebuild requires Noto Sans CJK SC and Noto Sans. Font files are not bundled. Renderer: Inkscape 1.4 (e7c3feb100, 2024-10-09).
 
 **Purpose:** distinguish internal rete/efferent ductules from the external epididymal head, body, tail and ascending ductus deferens. Original curves and layout, not a copied textbook figure. Static relationship teaching only; not precise anatomy, a 3D repair, or an organ-quality pass.
 

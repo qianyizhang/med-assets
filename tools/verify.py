@@ -13,9 +13,11 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'tests/review_records'))
+sys.path.insert(0, str(ROOT / 'transport/tools'))
 from validate_record import reference, validate, validate_structure
 from lfs_transport import load_manifest, parse_pointer, unique_keys
 
+IMPORT_RECORDS = Path('sources/imports')
 SNAPSHOT_SHA256 = '903eb7bc1c456e75b9eb3b1246a038f7134046d7c0964b1ebcc9ecfe25c0b821'
 IMPORT_MANIFEST_SHA256 = '48953d622e4ea3730185c90452bd3125b14935fa654541f0636e5f69c031cc30'
 FOUNDATION_PATTERNS = ('reviews/*/2026-10-23-metadata-cleanup-r01/record.json',
@@ -105,7 +107,8 @@ def index_pointers(root):
 
 
 def current_import_checks(root, pointers):
-    snapshot = root / 'SHA256SUMS'
+    records = root / IMPORT_RECORDS
+    snapshot = records / 'SHA256SUMS'
     require(sha256(snapshot) == SNAPSHOT_SHA256, 'Historical SHA256SUMS changed; preserve import snapshot')
     expected = {}
     for line in snapshot.read_text().splitlines():
@@ -113,7 +116,7 @@ def current_import_checks(root, pointers):
         require(name not in expected, 'Duplicate imported path')
         expected[name] = digest
     require(len(expected) == 591, 'Import snapshot must contain 591 paths')
-    manifest_path = root / 'metadata/asset-manifest.json'
+    manifest_path = records / 'asset-manifest.json'
     require(sha256(manifest_path) == IMPORT_MANIFEST_SHA256,
             'Historical asset manifest changed; preserve import evidence')
     sizes = {}
@@ -125,7 +128,7 @@ def current_import_checks(root, pointers):
             require(name not in sizes or sizes[name] == size, 'Conflicting import size: ' + name)
             sizes[name] = size
     require(set(sizes) == set(expected), 'Import manifest/snapshot paths differ')
-    overrides = read_json(root / 'metadata/current-import-overrides.json')
+    overrides = read_json(records / 'current-import-overrides.json')
     for name, row in overrides.items():
         require(name in expected and row['importSha256'] == expected[name], 'Override must bind original import hash: ' + name)
         require(re.fullmatch(r'[0-9a-f]{7,40}', row['changeCommit']) and row['reason'].strip(), 'Override requires change provenance')
@@ -209,9 +212,9 @@ def foundation_records(root):
 def offline(root):
     suites = selected_files(root, 'tests/test_*.py', 'tests/review_records/test_*.py')
     require(suites, 'No offline test suites found; full checkout required')
-    count = sum(run_suite(path) for path in suites)
     pointers = index_pointers(root)
     imported, updates = current_import_checks(root, pointers)
+    count = sum(run_suite(path) for path in suites)
     manifest_count = validate_transport_manifests(root, pointers)  # No transport call.
     records = foundation_records(root)
     for path in records:

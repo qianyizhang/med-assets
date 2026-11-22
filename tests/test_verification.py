@@ -51,8 +51,8 @@ class VerificationTests(unittest.TestCase):
 
     def offline_checkout(self):
         self.indexed_fixture(self.pointer)
-        for name in ('SHA256SUMS', 'metadata/asset-manifest.json',
-                     'metadata/current-import-overrides.json'):
+        for name in ('sources/imports/SHA256SUMS', 'sources/imports/asset-manifest.json',
+                     'sources/imports/current-import-overrides.json'):
             path = self.root / name
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes((ROOT / name).read_bytes())
@@ -148,14 +148,15 @@ class VerificationTests(unittest.TestCase):
                                    {'file': 'asset.glb', 'sha256': '0'*64})
 
     def test_historical_checksum_rewrite_fails(self):
-        (self.root / 'SHA256SUMS').write_bytes(b'new checksums hide drift\n')
+        (self.root / 'sources/imports').mkdir(parents=True)
+        (self.root / 'sources/imports/SHA256SUMS').write_bytes(b'new checksums hide drift\n')
         with self.assertRaisesRegex(ValueError, 'Historical SHA256SUMS changed'):
             verify.current_import_checks(self.root, {})
 
     def test_historical_import_manifest_rewrite_fails(self):
-        (self.root / 'SHA256SUMS').write_bytes((ROOT / 'SHA256SUMS').read_bytes())
-        path = self.root / 'metadata/asset-manifest.json'
-        path.parent.mkdir()
+        (self.root / 'sources/imports').mkdir(parents=True)
+        (self.root / 'sources/imports/SHA256SUMS').write_bytes((ROOT / 'sources/imports/SHA256SUMS').read_bytes())
+        path = self.root / 'sources/imports/asset-manifest.json'
         path.write_text('{}')
         with self.assertRaisesRegex(ValueError, 'Historical asset manifest changed'):
             verify.current_import_checks(self.root, {})
@@ -171,7 +172,7 @@ class VerificationTests(unittest.TestCase):
     def test_lfs_import_override_requires_current_size(self):
         pointers = verify.index_pointers(ROOT)
         name = 'heart/Cardiac_Atlas_Animated/Heart_Clinical_Animated.glb'
-        overrides = json.loads((ROOT / 'metadata/current-import-overrides.json').read_text())
+        overrides = json.loads((ROOT / 'sources/imports/current-import-overrides.json').read_text())
         overrides[name] = {'importSha256': pointers[name][0], 'currentSha256': '1'*64,
                            'changeCommit': '5fae2dd', 'reason': 'synthetic fixture'}
         read_json = verify.read_json
@@ -183,11 +184,11 @@ class VerificationTests(unittest.TestCase):
 
     def imported_checkout(self):
         # Preserve the complete historical evidence but retain one current text asset.
-        overrides = json.loads((ROOT / 'metadata/current-import-overrides.json').read_text())
-        names = [line.split('  ', 1)[1] for line in (ROOT / 'SHA256SUMS').read_text().splitlines()]
+        overrides = json.loads((ROOT / 'sources/imports/current-import-overrides.json').read_text())
+        names = [line.split('  ', 1)[1] for line in (ROOT / 'sources/imports/SHA256SUMS').read_text().splitlines()]
         name = next(name for name in names if name.endswith('.md') and name not in overrides)
-        for name_to_copy in ('SHA256SUMS', 'metadata/asset-manifest.json',
-                             'metadata/current-import-overrides.json', name):
+        for name_to_copy in ('sources/imports/SHA256SUMS', 'sources/imports/asset-manifest.json',
+                             'sources/imports/current-import-overrides.json', name):
             path = self.root / name_to_copy
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes((ROOT / name_to_copy).read_bytes())

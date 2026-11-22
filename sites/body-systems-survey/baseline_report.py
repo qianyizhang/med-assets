@@ -55,10 +55,10 @@ def plate(job, title, note="", combined=False):
     return f'<figure class="plate"><div class="views">{iso}{ortho}</div><figcaption>{heading}{caption}</figcaption></figure>'
 
 
-def source_link(label, path, rev):
+def source_link(rev, label, path, pinned_path=None):
     if not (REPO / path).is_file():
         raise ValueError(f"Missing source link: {path}")
-    return f'<a href="{REMOTE}/{rev}/{quote(path)}">{escape(label)}</a>'
+    return f'<a href="{REMOTE}/{rev}/{quote(pinned_path or path)}">{escape(label)}</a>'
 
 
 def concept(key):
@@ -79,7 +79,7 @@ def system_section(system, jobs, rev):
     combined = "".join(plate(jobs[id], title, note, True) for id, title, note in system["combined"])
     parts = "".join(plate(jobs[id], title) for id, title in system["parts"])
     gaps = "".join(f"<li>{escape(item)}</li>" for item in system["gaps"])
-    links = "".join(source_link(label, file, rev) for label, file in system["sources"])
+    links = "".join(source_link(rev, *source) for source in system["sources"])
     selected = dict.fromkeys([a[0] for a in system["combined"]] + [a[0] for a in system["parts"]])
     files = "".join(f'<li><a href="media/{id}.json">{escape(jobs[id]["title"])}</a></li>' for id in selected)
     gap_label = "Limits of this setup" if state == "Ready" else "What the setup still needs"

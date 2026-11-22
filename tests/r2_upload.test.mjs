@@ -5,7 +5,7 @@ import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {execFileSync} from 'node:child_process';
 import {createHash} from 'node:crypto';
-import {uploadRepositoryAssets,groups} from '../tools/r2_upload.mjs';
+import {uploadRepositoryAssets,groups} from '../transport/tools/r2_upload.mjs';
 const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
 async function fixture(t,count=3){
   const root=await realpath(await mkdtemp(join(tmpdir(),'r2-upload-test-')));t.after(()=>rm(root,{recursive:true,force:true}));

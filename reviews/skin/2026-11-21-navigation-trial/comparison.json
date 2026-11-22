@@ -1,0 +1,311 @@
+{
+  "blenderBuild": "fab76e95306d",
+  "orthographicWidthMetres": 2.3763959407806396,
+  "displaySize": [
+    680,
+    560
+  ],
+  "neutralScale": 4,
+  "plates": {
+    "ortho": {
+      "webpSha256": "58d9d731c6e5ffe763ff9986d61c3e6feee4466b89f16ccc1f9ece298be4325b",
+      "originalPngSha256": "ca3deb6a834578e3caa5a39a954aec5f01c0953c8d52732aa0260c23c459fc59",
+      "camera": [
+        -0.0006469935178756714,
+        -8.698123931884766,
+        0.781624436378479
+      ]
+    },
+    "iso": {
+      "webpSha256": "bcdba8977509992a8d0e487c454016b8431e7f0d1ec07ba7320d2000e52ee268",
+      "originalPngSha256": "546497ee949a2adbd32f30a10c0a239036b1065442718fe3200cf8eb24a71476",
+      "camera": [
+        4.963038921356201,
+        -5.064453601837158,
+        5.745310306549072
+      ]
+    }
+  },
+  "original": {
+    "sha256": "d86719833a17dc7b45c8eb970498f1e2feefd352b5812942f4b147a9ffcfbe4f",
+    "bytes": 4901132,
+    "name": "FJ2810 skin",
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "boundsMetres": [
+      [
+        -0.3341189920902252,
+        -0.24678300321102142,
+        -0.0781112015247345
+      ],
+      [
+        0.3328250050544739,
+        0.045247599482536316,
+        1.6413600444793701
+      ]
+    ],
+    "vertices": 102467,
+    "triangles": 203382,
+    "components": 100,
+    "euler": 20,
+    "boundaryEdges": 1512,
+    "nonManifoldEdgesExcludingBoundary": 0,
+    "inconsistentWindingEdges": 0,
+    "degenerateFaces": 0
+  },
+  "updated": {
+    "sha256": "e89de0c33f094e76ba909ba1d5a46a46cf994c0850c080abbf4be43993600b9d",
+    "bytes": 3480472,
+    "name": "FJ2810 skin",
+    "matrix": [
+      [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        1.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        1.0,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ]
+    ],
+    "boundsMetres": [
+      [
+        -0.3341189920902252,
+        -0.24678300321102142,
+        -0.0781112015247345
+      ],
+      [
+        0.3328250050544739,
+        0.045247599482536316,
+        1.6413600444793701
+      ]
+    ],
+    "vertices": 72870,
+    "triangles": 144188,
+    "components": 100,
+    "euler": 20,
+    "boundaryEdges": 1512,
+    "nonManifoldEdgesExcludingBoundary": 0,
+    "inconsistentWindingEdges": 0,
+    "degenerateFaces": 0
+  },
+  "protectedIncidentTriangles": {
+    "left shoulder": 5701,
+    "right shoulder": 5876,
+    "left wrist and hand": 19748,
+    "right wrist and hand": 20132,
+    "left ankle and foot": 15532,
+    "right ankle and foot": 15476,
+    "index seams": 2526,
+    "envelope extrema": 40
+  },
+  "distances": {
+    "originalToUpdated": {
+      "vertices": {
+        "samples": 102467,
+        "maxMm": 1.6761502483859658,
+        "p95Mm": 0.34108731197193265,
+        "worstPointMetres": [
+          0.0066427499987185,
+          0.004313250072300434,
+          0.7702860236167908
+        ]
+      },
+      "faceCentres": {
+        "samples": 203382,
+        "maxMm": 1.6387157374992967,
+        "p95Mm": 0.26624850288499136,
+        "worstPointMetres": [
+          0.005579593125730753,
+          0.004999190103262663,
+          0.7718222737312317
+        ]
+      }
+    },
+    "updatedToOriginal": {
+      "vertices": {
+        "samples": 72870,
+        "maxMm": 0.0,
+        "p95Mm": 0.0,
+        "worstPointMetres": [
+          -0.33389800786972046,
+          -0.1781120002269745,
+          0.7202579975128174
+        ]
+      },
+      "faceCentres": {
+        "samples": 144188,
+        "maxMm": 1.4692378463223577,
+        "p95Mm": 0.23228528007166457,
+        "worstPointMetres": [
+          0.0032166466116905212,
+          0.005856029689311981,
+          0.7719886302947998
+        ]
+      }
+    }
+  },
+  "captures": {
+    "original": {
+      "glbSha256": "d86719833a17dc7b45c8eb970498f1e2feefd352b5812942f4b147a9ffcfbe4f",
+      "images": {
+        "display-iso": {
+          "file": "original-display-iso.png",
+          "sha256": "6b9bbcafcbc29092b3646bdeeddbbfa969418562adcc0f9a949ad44a2dd8fa77",
+          "direction": [
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            4.963038921356201,
+            -5.064453601837158,
+            5.745310306549072
+          ]
+        },
+        "display-ortho": {
+          "file": "original-display-ortho.png",
+          "sha256": "8463e4b75e7a5e75734fafd3dfb7720d0bc92727fa48a9133860fe003db62b29",
+          "direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "camera": [
+            -0.0006469935178756714,
+            -8.698123931884766,
+            0.781624436378479
+          ]
+        },
+        "neutral-iso": {
+          "file": "original-neutral-iso.png",
+          "sha256": "17dc1773836fbeef02892c58785396974788179f2553ff94ddee460a76d8cb23",
+          "direction": [
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            4.963038921356201,
+            -5.064453601837158,
+            5.745310306549072
+          ]
+        },
+        "neutral-ortho": {
+          "file": "original-neutral-ortho.png",
+          "sha256": "f2b6c816a2043ad7d79c74a4c39618b0f0607f579b70b580c59e0267194517ba",
+          "direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "camera": [
+            -0.0006469935178756714,
+            -8.698123931884766,
+            0.781624436378479
+          ]
+        }
+      }
+    },
+    "updated": {
+      "glbSha256": "e89de0c33f094e76ba909ba1d5a46a46cf994c0850c080abbf4be43993600b9d",
+      "images": {
+        "display-iso": {
+          "file": "updated-display-iso.png",
+          "sha256": "0d90971110881327a0a30f158dfc70c031c8a3483bac5f1b248e40b80198e7e6",
+          "direction": [
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            4.963038921356201,
+            -5.064453601837158,
+            5.745310306549072
+          ]
+        },
+        "display-ortho": {
+          "file": "updated-display-ortho.png",
+          "sha256": "37a18ced9d49699a5ff2aae195929283840d3146449a576ef9c1d9fdfae144c1",
+          "direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "camera": [
+            -0.0006469935178756714,
+            -8.698123931884766,
+            0.781624436378479
+          ]
+        },
+        "neutral-iso": {
+          "file": "updated-neutral-iso.png",
+          "sha256": "d8950e0ec2ce11e3ef142e8d1f27d28135a59f349eb7c3b02180207aec12030d",
+          "direction": [
+            0.5773502588272095,
+            -0.5773502588272095,
+            0.5773502588272095
+          ],
+          "camera": [
+            4.963038921356201,
+            -5.064453601837158,
+            5.745310306549072
+          ]
+        },
+        "neutral-ortho": {
+          "file": "updated-neutral-ortho.png",
+          "sha256": "54e3564b289d2bafa290dc498adeb65463ff77b116c465d2001c6254d0b5c975",
+          "direction": [
+            0.0,
+            -1.0,
+            0.0
+          ],
+          "camera": [
+            -0.0006469935178756714,
+            -8.698123931884766,
+            0.781624436378479
+          ]
+        }
+      }
+    }
+  }
+}

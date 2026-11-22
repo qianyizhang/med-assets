@@ -41,6 +41,10 @@
     </figure>
   </section>
   <p id="view-note" class="view-note"></p>
+  <section class="finding">
+    <h2 data-copy="findingTitle">Provisional finding</h2>
+    <p data-copy="finding"></p>
+  </section>
   <div class="scope">
     <p data-copy="scope">The dashed line is a 2D editorial locator copied from the exterior silhouette. It shows projected position only: no cutaway, depth or tissue boundary is measured.</p>
     <p data-copy="tips">Pale patches are source-labeled tip surfaces. No pelvis, calyces, ureter, vessels or collecting route is shown.</p>
@@ -53,5 +57,8 @@
     <p><a href="../../reviews/kidney_left/2026-10-23-hra-female-v1.3-r02/display/contact.webp" data-copy="original">Original contact image</a> · <a href="../../models/kidney_left/ATTRIBUTION.md" data-copy="attribution">Attribution</a></p>
   </footer>
 </main>
-<script type="module" src="view.js"></script>
+<script type="module">
+  import { mount } from './view.js';
+  mount(document.querySelector('main'));
+</script>
 </html>
