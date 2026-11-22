@@ -2,9 +2,12 @@
 
 - **Contents** · Editable 3D models, registered assemblies, 2D diagrams and runnable lessons.
 - **Use** · Education. See each package's source, license, review scope and limitations.
-- **Find** · [Asset and evidence owners](docs/WORKFLOW.md#ownership), [source studies](sources/), [model survey](sites/model-survey/), [body-systems survey](sites/body-systems-survey/).
+- **Find** · [Asset and evidence owners](docs/WORKFLOW.md#ownership), [source studies](sources/), [live Anatomy Gallery](https://med-assets-model-survey.landy123007.chatgpt.site/), [Gallery source and authoring](sites/anatomy-gallery/), [Body Systems replay](sites/body-systems-survey/).
 - **Experiment** · [Dental films and offline replay](experiments/dental-image26/).
-- **Contribute** · [Repository instructions](AGENTS.md), [glossary](GLOSSARY.md), [gallery product requirements](docs/gallery/README.md), [gallery design](guideline/design.md), [teaching-asset rubric](guideline/asset-quality.md), [asset admission](docs/WORKFLOW.md#asset-admission), [verification](docs/WORKFLOW.md#verification), [decisions](docs/DECISIONS.md).
+- **Contribute** · [Repository instructions](AGENTS.md), [glossary](GLOSSARY.md), [gallery product requirements](docs/gallery/README.md), [gallery design](docs/gallery/design.md), [teaching-asset rubric](docs/guides/asset-quality.md), [asset admission](docs/WORKFLOW.md#asset-admission), [verification](docs/WORKFLOW.md#verification), [decisions](docs/DECISIONS.md).
+- **Follow work** · [Gallery consolidation campaign](records/campaigns/anatomy-gallery-consolidation.md) and [work-item backlog](records/work-items/backlog.md).
+
+The [maintained 3D family list](docs/gallery/maintained-models.md) selects a starting file for each reusable teaching family. The [collection archives](transport/README.md#restore-an-archived-collection) restore cold replay inputs and historical evidence.
 
 ## Local checkout
 
@@ -24,6 +27,6 @@ python3.12 tools/verify.py offline
 
 | Site | Entry |
 | --- | --- |
-| Model survey | [Survey](https://med-assets-model-survey.landy123007.chatgpt.site/) · [Build and recovery](sites/model-survey/) |
+| Anatomy Gallery | [Public Site](https://med-assets-model-survey.landy123007.chatgpt.site/) · [Build and recovery](sites/anatomy-gallery/) |
 | Body & Heart | [Atlas](https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/) · [3D studio](https://heart-anatomy-imaging-lab.landy123007.chatgpt.site/body/3d/) |
-| Anatomy Verification | [Site](https://anatomy-verification.landy123007.chatgpt.site/) · [Viewer integration](gallery/) |
+| Anatomy Verification | [Site](https://anatomy-verification.landy123007.chatgpt.site/) · [Viewer integration](tests/viewer/README.md) |
