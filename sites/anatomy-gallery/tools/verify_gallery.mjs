@@ -384,7 +384,7 @@ async function checkCollections(p, dest, repo, dir) {
   await p.getByRole('link', { name: 'Use Cases', exact: true }).click();
   await p.getByRole('link', { name: 'Head & Neck' }).click();
   await p.getByRole('heading', { name: 'Find the three gland pairs' }).waitFor();
-  await p.locator('.ga-source-evidence img[src^="/review-evidence/"]').evaluate((image) => image.decode());
+  await p.locator('.ga-part-frame img').evaluate((image) => image.decode());
   await p.getByText('Source views from the r02 study', { exact: true }).click();
   await p.waitForFunction(() =>
     [...document.querySelectorAll('.ga-source-evidence img')].filter(i => i.naturalWidth > 0 && i.src.includes('/assets/')).length === 3,

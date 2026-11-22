@@ -1,0 +1,65 @@
+{
+  "location": {
+    "camera": {
+      "position": [0.03, 1.863, 0.403],
+      "target": [0, 1.543, 0.043],
+      "height": 0.128
+    },
+    "layers": [
+      {
+        "id": "jaw",
+        "file": "same-source-context.glb",
+        "nodes": [
+          "Mandible source display",
+          "Mylohyoid muscle.r source display",
+          "Mylohyoid muscle.l source display",
+          "Parotid gland.r source display",
+          "Parotid gland.l source display",
+          "Submandibular gland.r source display",
+          "Submandibular gland.l source display",
+          "Sublingual gland.r source display",
+          "Sublingual gland.l source display"
+        ]
+      },
+      {
+        "id": "floor",
+        "file": "glands-and-parotid-ducts.glb",
+        "nodes": [
+          "Parotid gland.r source display",
+          "Parotid gland.l source display",
+          "Submandibular gland.r source display",
+          "Submandibular gland.l source display",
+          "Sublingual gland.r source display",
+          "Sublingual gland.l source display"
+        ]
+      }
+    ]
+  },
+  "duct-course": {
+    "camera": {
+      "position": [0.52, 1.576, 0.124],
+      "target": [0.048, 1.544, 0.047],
+      "height": 0.101
+    },
+    "layers": [
+      {
+        "id": "masseter",
+        "file": "same-source-context.glb",
+        "nodes": [
+          "Mandible source display",
+          "Superficial part of masseter.l source display",
+          "Parotid gland.l source display",
+          "Parotid duct.l source display"
+        ]
+      },
+      {
+        "id": "duct",
+        "file": "glands-and-parotid-ducts.glb",
+        "nodes": [
+          "Parotid gland.l source display",
+          "Parotid duct.l source display"
+        ]
+      }
+    ]
+  }
+}

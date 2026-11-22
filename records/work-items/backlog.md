@@ -33,6 +33,10 @@ The [exemption review](../campaigns/teaching-exemption-recheck.md) owns the six 
 - [AG-GAL-027 · Merge reusable organ assets](items/AG-GAL-027-merge-reusable-organ-assets.md) records the Cardiac Atlas pilot, tracheal shell and pelvic selections, including their exact exports and learner checks.
 - [AG-GAL-028 · Reuse Z atlas components](items/AG-GAL-028-reuse-z-atlas-components.md) records the reviewed shared right-arm and salivary selections.
 
+## Part-based lessons
+
+The [right arm](items/AG-GAL-029-right-arm-part-lessons.md), [Head & Neck](items/AG-GAL-030-salivary-part-lessons.md) and [female pelvis](items/AG-GAL-031-pelvic-part-lessons.md) each use two point-and-reveal tasks with the existing teaching exports.
+
 ## Deferred follow-up
 
 - [AG-GAL-014 — Review backing for the original Airway downloads when a same-origin replacement is available](items/AG-GAL-014-compact-delivery-and-recovery.md)

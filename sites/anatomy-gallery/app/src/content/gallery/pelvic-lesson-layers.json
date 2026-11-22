@@ -1,0 +1,55 @@
+{
+  "urinary-left-vesical": {
+    "path": "models/bladder/exports/pelvic-base-r01/bladder-pelvic-base.glb",
+    "camera": {
+      "position": [-0.014552, 0.179489, -0.235321],
+      "target": [-0.014552, 0.00778, -0.033311],
+      "height": 0.077
+    },
+    "layers": [
+      {
+        "id": "bladder-outline",
+        "nodes": [
+          "VH_F_fundus_of_urinary_bladder_dome",
+          "VH_F_fundus_of_urinary_bladder_base",
+          "VH_F_urinary_bladder_neck_smooth_muscle"
+        ]
+      },
+      {
+        "id": "bladder-dome-hidden",
+        "nodes": [
+          "VH_F_fundus_of_urinary_bladder_base",
+          "VH_F_urinary_bladder_neck_smooth_muscle",
+          "VH_F_trigone_of_urinary_bladder",
+          "VH_F_left_ureter",
+          "VH_F_right_ureter",
+          "VH_F_ureteral_orifice_L",
+          "VH_F_ureteral_orifice_R"
+        ]
+      }
+    ],
+    "answerLayer": "bladder-dome-hidden"
+  },
+  "reproductive-female-context": {
+    "path": "models/vagina_hra/exports/teaching-context-r03/vagina_teaching_context.glb",
+    "camera": {
+      "position": [0.261, 0.068, -0.015],
+      "target": [-0.009, 0.024, -0.072],
+      "height": 0.17
+    },
+    "layers": [
+      {
+        "id": "cervix-pelvic-neighbors"
+      },
+      {
+        "id": "cervix-center",
+        "nodes": [
+          "VH_F_vagina",
+          "VH_F_cervicovaginal_junction",
+          "VH_F_cervix"
+        ]
+      }
+    ],
+    "answerLayer": "cervix-pelvic-neighbors"
+  }
+}

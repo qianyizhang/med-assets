@@ -104,7 +104,7 @@ try {
   await go('library/parathyroids/z-localization-r01?file=missing');
   await page.getByRole('heading', { name: 'View unavailable' }).waitFor();
   assert.deepEqual(errors, []);
-  console.log('PASS 45 current and historical before/after reviews and exact downloads, 11 required Body Systems stops, 18 other use-case checks, invalid file and review recovery.');
+  console.log(`PASS 45 current and historical before/after reviews and exact downloads, 11 required Body Systems stops, ${otherChecks.length} other use-case checks, invalid file and review recovery.`);
 } finally {
   await browser.close();
 }

@@ -12,17 +12,23 @@ Use a continuous zoom when the detail has a known position and scale in the over
 
 When the [Asset Library](asset-library.md) recommendation changes, offer each affected lesson author a [comparison](compare.md) between the lesson’s pinned revision and the recommended one. Open both in the lesson’s camera, colors and part selection so the author can judge the teaching landmark. The lesson keeps its pinned revision until its author explicitly adopts the update.
 
+## Practising an anatomical relationship
+
+Open on a question and an unlabelled view. A learner can mark a spot, keep it in place across matched tissue layers, and reveal a labelled answer immediately. Each switch preserves the shared anatomical frame, camera and scale. In 3D it also preserves the learner’s rotation and zoom. A matched still covers each layer when a model is unavailable. The point and answer state last only for the current visit.
+
+The [right-arm lessons](../../records/work-items/items/AG-GAL-029-right-arm-part-lessons.md) link from Use Cases and the relevant Body Systems entries. At the elbow, the shared bones orient the switch from capsule to ulnar nerve. At the shoulder, the glenoid and scapular spine orient the switch to the cuff. The answer adds anterior and posterior views where a single angle would hide a muscle.
+
 ## Body Systems collection
 
 Body Systems has a direct navigation shortcut. The collection opens on eleven anatomical systems. Each system starts at its assembly with its placement basis, teaching purpose, two labeled views and color legend. A detail opens its named view pair or shared lesson. Keep the limits beside the teaching material and provide a link to the corresponding Library category. A reviewed revision or regional lesson may have its own explicit link.
 
 One Breath links its route step to the Respiratory airway sequence. Its cutaway lets the learner trace the inner wall into the left main bronchus. Airway Review uses the open shell to identify the proximal mouth and both distal outlets. The mechanics and gas-exchange stops retain their own questions and scale cues.
 
-The female HRA pelvis supplies two different actions. From the left vesical detail, locate the bladder base, neck and ureteral entry landmarks. From the reproductive female context, use the bladder and rectum to locate the cervix and vaginal exterior. Each link identifies the atlas change.
+The [pelvic exercises](../../records/work-items/items/AG-GAL-031-pelvic-part-lessons.md) live in the existing left vesical and female reproductive context stops. The first hides the dome to expose the ureteral entries, base and neck. The second hides the bladder and rectum to isolate the cervix and vaginal exterior. Each identifies the change from the system illustration to the HRA atlas. The original system plates and neighboring steps remain accessible.
 
 ## Oral spaces and regional locators
 
-In the local Head & Neck lesson, **Gland locations** uses the shared Z-Anatomy selection with its jaw context. **Parotid duct course** uses the isolated gland and duct selection alongside the side view of the masseter. Each stop links to the exact file it teaches. The source comparison explains the excluded submandibular crossing.
+In Head & Neck, **Gland locations** starts with the jaw and oral floor, then hides both landmarks to let the learner match the three gland pairs. **Parotid duct course** starts with the visible left duct against the superficial masseter, then isolates the gland and duct. Each stop keeps its frame across layers, offers unlabelled images when 3D is unavailable, and reveals numbered evidence on request. Each stop links to its teaching export. The source comparison explains the excluded submandibular crossing. [Salivary part lessons](../../records/work-items/items/AG-GAL-030-salivary-part-lessons.md)
 
 Oral spaces opens the authored English coronal cutaway with a direct link to the separate Chinese illustration. Head & Neck links to this lesson from the salivary gland stops. The dated review accepts the cutaways for 2D teaching and records the rejected 3D mouth reconstruction separately.
 

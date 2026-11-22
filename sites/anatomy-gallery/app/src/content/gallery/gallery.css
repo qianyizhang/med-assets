@@ -801,3 +801,21 @@
 .ga-refinement-nav label { display: grid; gap: 0.25rem; }
 .ga-refinement-nav select { max-width: 100%; font: inherit; }
 .ga-compare-choice { display: inline-flex; align-items: center; gap: 0.4rem; margin-block: 0.5rem; }
+
+.ga-part-lesson { margin-block: 1.25rem; }
+.ga-part-layout { display: grid; grid-template-columns: minmax(0, 49rem) minmax(11rem, 1fr); gap: 1.25rem; align-items: start; }
+.ga-part-frame { position: relative; aspect-ratio: 4 / 3; overflow: hidden; border-radius: 8px; background: var(--ga-panel); cursor: crosshair; }
+.ga-part-frame:focus-visible { outline: 3px solid #bf7a2a; outline-offset: 3px; }
+.ga-part-frame > img, .ga-part-canvas, .ga-part-canvas canvas { width: 100%; height: 100%; display: block; }
+.ga-part-frame > img { position: absolute; inset: 0; object-fit: contain; pointer-events: none; }
+.ga-part-unavailable { position: absolute; inset: 1rem; }
+.ga-part-point { position: absolute; width: 14px; height: 14px; border: 2px solid white; border-radius: 50%; box-shadow: 0 0 0 2px #202330; transform: translate(-50%, -50%); pointer-events: none; }
+.ga-part-options { display: grid; justify-items: start; gap: .65rem; }
+.ga-part-options fieldset { margin: 0 0 .3rem; padding: 0; border: 0; }
+.ga-part-options legend { font-weight: 600; margin-bottom: .35rem; }
+.ga-part-options label { display: flex; align-items: baseline; gap: .5rem; padding-block: .2rem; cursor: pointer; }
+.ga-part-options button.ga-part-reveal { background: var(--ga-accent); color: var(--ga-panel); }
+.ga-part-hint { font-size: .9rem; color: var(--ga-muted); margin: .25rem 0; }
+.ga-part-answer { max-width: 62rem; scroll-margin-block: 5rem 1rem; }
+.ga-part-answer img { display: block; max-width: 100%; height: auto; }
+@media (max-width: 740px) { .ga-part-layout { grid-template-columns: 1fr; } }

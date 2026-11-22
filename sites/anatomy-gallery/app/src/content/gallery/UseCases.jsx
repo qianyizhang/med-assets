@@ -30,6 +30,7 @@ export function UseCases({ localPreview }) {
       <div className="ga-collection-link">
         <Link to="use-cases/systems">Body Systems →</Link>
         <p>Eleven systems in paired views, from whole assemblies to named parts.</p>
+        <Link to="use-cases/right-arm/elbow">Practice the right elbow and shoulder →</Link>
       </div>
       <div className="ga-collection-link">
         <Link to={salivary.lesson + '/location'}>Head &amp; Neck →</Link>

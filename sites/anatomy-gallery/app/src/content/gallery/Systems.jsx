@@ -4,7 +4,9 @@ import { assetUrl, byPath, lessonPath, sourceRoot } from './catalog.js';
 import { Evidence } from './Evidence.jsx';
 import { LessonReviewPlate } from './LessonReviewPlate.jsx';
 import { Heading, Link, Missing } from './GalleryUI.jsx';
+import { PartLesson } from './PartLesson.jsx';
 import { PathwayLinks } from './Pathways.jsx';
+import { pelvicTasks } from './pelvic-tasks.js';
 import { OvaryTubalLesson, RegionalLinks } from './Teaching.jsx';
 import { ovaryPickupDetail } from './teaching-data.js';
 import { SkeletalLessonLink } from './SkeletalLesson.jsx';
@@ -18,18 +20,6 @@ const anatomy = {
   nervous: 'Nervous & senses',
   integumentary: 'Body & support',
   lymphatic: 'Lymphatic & tissue',
-};
-const pelvicLinks = {
-  'urinary-left-vesical': {
-    target: 'library/bladder/pelvic-base-r01',
-    label: 'Locate both entry landmarks in the female HRA bladder →',
-    cue: 'A separate female atlas model shows the bladder base, neck and ureteral landmarks in its own frame.',
-  },
-  'reproductive-female-context': {
-    target: 'library/vagina_hra/teaching-context-r03',
-    label: 'Locate the cervix and vaginal exterior in the female HRA pelvis →',
-    cue: 'Use the same-atlas bladder and rectum to find the cervix and vaginal exterior between them.',
-  },
 };
 
 function Plate({ plate }) {
@@ -87,7 +77,7 @@ export function Systems({ id, query, localPreview }) {
   const details = system.plates.filter((p) => p.kind === 'detail');
   const selected = new URLSearchParams(query).get('detail');
   const plate = selected && details.find((p) => p.id === selected);
-  const pelvicLink = pelvicLinks[selected];
+  const pelvicTask = Object.hasOwn(pelvicTasks, selected) ? pelvicTasks[selected] : null;
   if (selected && !plate) return <Missing />;
   const teachingScale = (
     <nav className="ga-tabs" aria-label="Teaching scale">
@@ -136,15 +126,26 @@ export function Systems({ id, query, localPreview }) {
       <Link to={root}>← Body Systems</Link>
       <Heading title={system.name}>{system.function}</Heading>
       {teachingScale}
-      <p>{plate ? system.detail : system.overview}</p>
+      {!pelvicTask && <p>{plate ? system.detail : system.overview}</p>}
       {plate ? (
         <>
           {detailPicker}
-          <Plate plate={plate} />
-          {pelvicLink && <div className="ga-related">
-            <p>{pelvicLink.cue}</p>
-            <Link to={pelvicLink.target}>{pelvicLink.label}</Link>
-          </div>}
+          {pelvicTask ? (
+            <>
+              <p>{pelvicTask.transition}</p>
+              <PartLesson key={selected} task={pelvicTask} />
+              <p>{pelvicTask.limit}</p>
+              <div className="ga-related">
+                {localPreview && <Link to={pelvicTask.exactLibrary}>Open this export in Asset Library →</Link>}
+                <Link to={pelvicTask.historicalLibrary}>Open the wider atlas view in Asset Library →</Link>
+              </div>
+              <details>
+                <summary>Original system plate</summary>
+                <p>{system.detail}</p>
+                <Plate plate={plate} />
+              </details>
+            </>
+          ) : <Plate plate={plate} />}
           {selected === 'endocrine-posterior-neck' && (
             <LessonReviewPlate exportPath="models/parathyroids/exports/z-localization-r01/parathyroids_thyroid_context.glb"
               title="Locate the four atlas parathyroid glands">
@@ -187,12 +188,20 @@ export function Systems({ id, query, localPreview }) {
         {id === 'endocrine' && <Link to={lessonPath + '/region'}>Locate the adrenal glands →</Link>}
         <RegionalLinks system={id} ovaryHref={address + '?detail=' + ovaryPickupDetail} />
         {id === 'skeletal' && <SkeletalLessonLink detail={selected} />}
+        {['skeletal', 'nervous'].includes(id) &&
+          <Link to="use-cases/right-arm/elbow">Locate the ulnar nerve at the right elbow →</Link>}
+        {['skeletal', 'muscular'].includes(id) &&
+          <Link to="use-cases/right-arm/shoulder">Compare the shoulder capsule and rotator cuff →</Link>}
         <Link to={'library?system=' + encodeURIComponent(anatomy[id] || system.name)}>
           Browse related assets →
         </Link>
       </div>
       <details>
         <summary>Sources and attribution</summary>
+        {pelvicTask && <p>
+          Pelvic model and lesson images derive from HRA United Female v1.10 by Kristen Browne and Heidi Schlehlein.
+          {' '}<a href={sourceRoot + pelvicTask.attribution}>Original attribution and CC BY 4.0 terms</a>.
+        </p>}
         <ul>
           {system.sources.map(([title, path, pinnedPath = path]) => (
             <li key={path}>

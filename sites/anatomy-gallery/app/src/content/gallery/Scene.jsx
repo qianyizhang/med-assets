@@ -1,9 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { adrenalScene } from './adrenal-study.js';
-import { assetUrl, portrait, route } from './catalog.js';
+import { portrait, route } from './catalog.js';
 import { localScene, stagePath, viewAsset } from './presets.js';
 import teachingReview from './teaching-inputs/teaching-assessments.json';
 import { isLoopbackGallery } from './local-models.js';
+import { fetchModelBytes } from './model-bytes.js';
 import { loadScene } from './scene.js';
 
 async function modelBytes(file, initial, signal) {
@@ -12,15 +13,7 @@ async function modelBytes(file, initial, signal) {
     return file.arrayBuffer();
   }
   const asset = viewAsset(initial);
-  const response = await fetch(assetUrl(asset), { signal, redirect: 'error' });
-  if (!response.ok) throw Error('The pinned export is unavailable.');
-  const bytes = await response.arrayBuffer();
-  if (bytes.byteLength !== asset.bytes) throw Error('The export has a different size.');
-  const hash = Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256', bytes)), (b) =>
-    b.toString(16).padStart(2, '0'),
-  ).join('');
-  if (hash !== asset.sha256) throw Error('The export differs from the pinned revision.');
-  return bytes;
+  return fetchModelBytes(asset, signal);
 }
 
 export function Scene({ initial, origin, stage = false, auto = false, file = null }) {

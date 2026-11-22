@@ -54,6 +54,13 @@ class FrameworkTests(unittest.TestCase):
     def prepare(self):
         return framework.prepare(self.site, self.source, self.output)
 
+    def test_unhydrated_lesson_image_fails_before_installing_the_app(self):
+        image = self.site / 'app/src/content/lesson.webp'
+        image.write_text('version https://git-lfs.github.com/spec/v1\n')
+        with self.assertRaisesRegex(ValueError, 'hydrated WebP image'):
+            self.prepare()
+        self.assertFalse(self.output.exists())
+
     def test_fresh_project_combines_pinned_runtime_overlay_and_complete_seed(self):
         self.prepare()
         self.assertEqual((self.output/'runtime.js').read_bytes(), (self.source/'runtime.js').read_bytes())

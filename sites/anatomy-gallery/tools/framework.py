@@ -82,6 +82,11 @@ def prepare(site, source, output, viewer_inputs=None):
                 target.write_bytes(archive.extractfile(member).read())
                 target.chmod(member.mode & 0o777)
         for path in overlays:
+            if path.suffix == '.webp':
+                with path.open('rb') as stream:
+                    header = stream.read(12)
+                if header[:4] != b'RIFF' or header[8:] != b'WEBP':
+                    raise ValueError(f'Expected a hydrated WebP image: {path.relative_to(site)}')
             target = staged / path.relative_to(site / 'app')
             target.parent.mkdir(parents=True, exist_ok=True)
             shutil.copyfile(path, target)

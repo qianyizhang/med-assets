@@ -13,6 +13,7 @@ import { libraryAliases, libraryRows, selectExactExport } from './library-data.j
 import { firstForkPath, isLoopbackGallery } from './local-models.js';
 import { UseCases, Lesson } from './UseCases.jsx';
 import { Planning, surveyCoverageId } from './Planning.jsx';
+import { ArmLessons } from './ArmLessons.jsx';
 import { Systems } from './Systems.jsx';
 import { Compare } from './Compare.jsx';
 import { Refinements, TeachingTarget } from './Refinements.jsx';
@@ -164,6 +165,7 @@ export function Gallery() {
       }
     } else if (surface === 'use-cases' && (!id || id === studyId))
       page = id ? <Lesson stop={revision || adrenalLesson.stops[0].id} /> : <UseCases localPreview={localPreview} />;
+    else if (surface === 'use-cases' && id === 'right-arm') page = <ArmLessons id={revision || 'elbow'} />;
     else if (surface === 'use-cases' && id === 'systems') page = <Systems id={revision} query={query} localPreview={localPreview} />;
     else if (surface === 'use-cases' && id === 'head-and-neck') page = <SalivaryLesson stop={revision} query={query} localPreview={localPreview} />;
     else if (surface === 'use-cases' && id === 'airway' && !revision) page = <AirwayLesson localPreview={localPreview} />;

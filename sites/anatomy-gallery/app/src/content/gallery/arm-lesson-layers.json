@@ -1,0 +1,87 @@
+{
+  "elbow": {
+    "camera": {
+      "position": [
+        0.84366,
+        1.105,
+        -1.09566
+      ],
+      "target": [
+        -0.217,
+        1.105,
+        -0.035
+      ],
+      "height": 0.16
+    },
+    "layers": [
+      {
+        "id": "capsule",
+        "route": "library/joints/z-elbow-r02",
+        "path": "models/joints/exports/z-elbow-r02/elbow_z_native.glb",
+        "sha256": "d4d209057d331f2154e33941c68fc1030fe86ac47f281c974360a887cfc3eab9",
+        "bytes": 158752,
+        "nodes": [
+          "Articular capsule of elbow joint.r candidate",
+          "Humerus.r candidate",
+          "Radius.r candidate",
+          "Ulna.r candidate"
+        ]
+      },
+      {
+        "id": "nerve",
+        "route": "library/peripheral_nerves/ulnar-elbow-r02",
+        "path": "models/peripheral_nerves/exports/ulnar-elbow-r02/right-ulnar-elbow.glb",
+        "sha256": "18dee1b0333b31f04dc07b52d4d4c58ec94f8c65108475c0f02467b06dd2cc83",
+        "bytes": 186972,
+        "nodes": [
+          "Ulnar nerve.r",
+          "Humerus.r",
+          "Radius.r",
+          "Ulna.r"
+        ]
+      }
+    ]
+  },
+  "shoulder": {
+    "camera": {
+      "position": [
+        -1.438,
+        1.488,
+        -0.803
+      ],
+      "target": [
+        -0.123,
+        1.355,
+        -0.073
+      ],
+      "height": 0.22
+    },
+    "layers": [
+      {
+        "id": "glenoid",
+        "route": "library/joints/z-shoulder-r02",
+        "path": "models/joints/exports/z-shoulder-r02/shoulder_z_native.glb",
+        "sha256": "f2d746dfafb7b74bdcf91561a26c8806dc4e4fd05887c9c1d95fafd92a3ab09a",
+        "bytes": 671712,
+        "nodes": [
+          "Glenoid labrum.r candidate",
+          "Scapula.r candidate"
+        ]
+      },
+      {
+        "id": "cuff",
+        "route": "library/joints/z-rotator-cuff-r01",
+        "path": "models/joints/exports/z-rotator-cuff-r01/right-rotator-cuff.glb",
+        "sha256": "edf5c2fc5322adc1c75703143b3fba5a2be3ecd87d5559bce1441c1977a4eb30",
+        "bytes": 703536,
+        "nodes": [
+          "Scapula.r",
+          "Supraspinatus muscle.r",
+          "Infraspinatus muscle.r",
+          "Teres minor muscle.r",
+          "Subscapularis muscle.r"
+        ]
+      }
+    ]
+  }
+}

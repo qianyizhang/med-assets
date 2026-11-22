@@ -2,6 +2,8 @@ import React from 'react';
 import { salivary } from './catalog.js';
 import { Evidence } from './Evidence.jsx';
 import { Heading, Link, Missing } from './GalleryUI.jsx';
+import { PartLesson } from './PartLesson.jsx';
+import { salivaryLocalEdition, salivaryTask } from './salivary-tasks.js';
 import teachingReview from './teaching-inputs/teaching-assessments.json';
 import { oralSpacesPath } from './teaching-data.js';
 
@@ -9,12 +11,10 @@ const stops = {
   location: {
     title: 'Find the three gland pairs',
     views: ['annotated-context', 'context-superior-source', 'context-inferior-source'],
-    text: 'Find the parotid beside the jaw, the submandibular below the jaw and the sublingual in the floor of the mouth. Use the superior and inferior views to see structures hidden by the jaw from the side.',
   },
   'duct-course': {
     title: 'Follow the parotid duct over the masseter',
     views: ['context-side-source', 'glands-ducts-front-source'],
-    text: 'Trace the tube forward from the parotid across the outside of the masseter. The front view separates the paired ducts and glands from the surrounding anatomy. The export supports this gross surface course only.',
   },
 };
 
@@ -28,9 +28,9 @@ const evidence = {
   comparison: ['Draft and scoped source views', 'The original draft and source-preserved gland shapes shown in separate poses.', 'The sources and poses differ. Use this comparison to inspect the change in teaching scope.'],
 };
 
-function SalivaryEvidence({ names, stacked = false }) {
+function SalivaryEvidence({ names }) {
   return (
-    <div className={'ga-pair ga-source-evidence' + (stacked ? ' ga-source-evidence-stacked' : '')}>
+    <div className="ga-pair ga-source-evidence">
       {names.map((name) => {
         const [title, alt, caption] = evidence[name];
         return <Evidence key={name} witness={{ asset: salivary.witness(name), title, alt, caption }} />;
@@ -42,9 +42,9 @@ function SalivaryEvidence({ names, stacked = false }) {
 export function SalivaryLesson({ stop = 'location', query, localPreview }) {
   if (!Object.hasOwn(stops, stop)) return <Missing />;
   const view = stops[stop];
+  const localLibrary = 'library/' + salivary.family + '/' + salivaryLocalEdition;
   const current = localPreview && teachingReview.campaign.find((row) => row.maintained &&
-    row.route?.startsWith('library/' + salivary.family + '/') && row.export.path.endsWith('/' + salivary.lessonFiles[stop]));
-  const plate = current && current.views.find((item) => item.path === current.teachingView);
+    row.route === localLibrary && row.export.path.endsWith('/' + salivary.lessonFiles[stop]));
   const library = current ? current.route + '?file=' + current.export.sha256 : salivary.library;
   const chinese = new URLSearchParams(query).get('oral') === 'zh';
   const language = chinese ? '?oral=zh' : '';
@@ -62,7 +62,7 @@ export function SalivaryLesson({ stop = 'location', query, localPreview }) {
         </Link>
       </nav>
       <h2>{view.title}</h2>
-      <p>{view.text}</p>
+      <PartLesson key={stop} task={salivaryTask(stop, Boolean(current))} />
       {stop === 'duct-course' && (
         <section>
           <h3>The submandibular crossing remains unresolved</h3>
@@ -74,17 +74,11 @@ export function SalivaryLesson({ stop = 'location', query, localPreview }) {
           <Link to={salivary.compare}>See the rejected reconstruction in Compare →</Link>
         </section>
       )}
-      {plate ? <>
-        {stop === 'location' && <SalivaryEvidence names={['annotated-context']} stacked />}
-        <div className="ga-pair ga-source-evidence ga-source-evidence-stacked">
-          <Evidence key={plate.url} witness={{ title: view.title, alt: plate.label, displayUrl: plate.url,
-            caption: stop === 'duct-course' ? 'The left view shows the downloadable glands and ducts. The right view adds the masseter from the jaw-context export.' : undefined }} />
-        </div>
-        <details>
-          <summary>Source views from the r02 study</summary>
-          <SalivaryEvidence names={view.views.filter((name) => name !== 'annotated-context')} />
-        </details>
-      </> : <SalivaryEvidence names={view.views} />}
+      <details>
+        <summary>Source views from the r02 study</summary>
+        <SalivaryEvidence names={view.views} />
+        <a href={salivary.license}>Z-Anatomy source license and credits ↗</a>
+      </details>
       <div className="ga-related">
         {stop === 'location' && <Link to={salivary.lesson + '/duct-course' + language}>Follow the parotid duct →</Link>}
         <Link to={library}>Open this lesson’s export in Asset Library →</Link>

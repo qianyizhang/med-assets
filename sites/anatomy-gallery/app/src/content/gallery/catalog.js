@@ -212,6 +212,7 @@ export const studies = Object.freeze({
       title: 'Locate the major salivary glands',
       stops: ['location', 'duct-course'],
     },
+    { id: 'right-arm', title: 'Right elbow and shoulder', stops: ['elbow', 'shoulder'] },
     { id: oralSpacesPath.split('/').at(-1), title: 'Oral spaces', stops: Object.keys(oralSpaces) },
     { id: regionalPath.split('/').at(-1), title: 'Regional locators', stops: regionalLessons.map(({ id }) => id) },
     { id: skeletalPath.split('/').at(-1), title: 'Skeletal relationships', stops: skeletalStops.map(({ id }) => id) },

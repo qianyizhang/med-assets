@@ -13,6 +13,7 @@ Open the fragment on the Site root, for example `/#/library/s1233-adrenal/r05`. 
 | `/#/use-cases/systems`, `/#/use-cases/systems/<system-id>` | Open the Body Systems collection or a system assembly. The optional fragment parameter `detail` selects a teaching detail. Reproductive `reproductive-female-left-pickup` opens the shared ovary lesson in the system sequence. |
 | `/#/use-cases/adrenal-localization/region`, `…/right-gland` | Open the authored regional or isolated lesson stop. Each pins s1233 r05. |
 | `/#/use-cases/head-and-neck/location`, `…/duct-course` | Locate the three major gland pairs and trace the supported parotid surface course. The duct stop links the excluded submandibular course to Compare. |
+| `/#/use-cases/right-arm/elbow`, `…/shoulder` | Locate the elbow nerve or shoulder cuff against shared bones. The base route opens the elbow stop. Each question has unlabelled layers and an optional labelled answer. |
 | `/#/use-cases/oral-spaces`, `…/en`, `…/zh` | Locate the vestibule in the English or Chinese r01 cutaway. The base address opens English. Use Cases and Head & Neck both link here. The cutaway keeps the originating duct stop with `from=duct-course`. On Head & Neck, `oral=zh` carries the visitor back to the Chinese cutaway. |
 | `/#/compare/teaching-target?round=reopened` | Local matched comparisons for the second review of 20 families. Add `&asset=SHA256` for one edition. |
 | `/#/compare/teaching-target?asset=SHA256` | Local before/after review for a maintained teaching file, including its task and any axis exemptions. |
