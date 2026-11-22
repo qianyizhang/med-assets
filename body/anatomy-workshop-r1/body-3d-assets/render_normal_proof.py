@@ -3,7 +3,15 @@ from pathlib import Path
 from mathutils import Vector
 from PIL import Image
 import numpy as np
-R=Path(__file__).resolve().parent;D=R.parent/'body-3d-delivery';path=D/'textures/pancreas_Normal_OpenGL_1K.png';arr=np.array(Image.open(path));best=None
+R = Path(__file__).resolve().parent
+D = R.parent / 'body-3d-delivery'
+path = D / 'textures/pancreas_Normal_OpenGL_1K.png'
+if not path.is_file():
+    from runpy import run_path
+    run_path(str(R.parents[2] / 'tools/restore_textures.py'))['restore']('workshop')
+    path = R.parent / 'textures' / path.name
+arr = np.array(Image.open(path))
+best = None
 for y in range(0,961,16):
  for x in range(0,961,16):
   a=arr[y:y+64,x:x+64];good=((a[:,:,3]>250)&(a[:,:,2]>245)).mean()

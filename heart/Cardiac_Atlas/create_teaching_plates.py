@@ -1,6 +1,9 @@
 import os
 from PIL import Image,ImageDraw,ImageFont
 import numpy as np,os,json
+from texture_inputs import ensure_wall_textures
+
+ensure_wall_textures()
 R=os.path.dirname(os.path.abspath(__file__))
 font='/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf';bold='/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
 def F(size,b=False):return ImageFont.truetype(bold if b else font,size)

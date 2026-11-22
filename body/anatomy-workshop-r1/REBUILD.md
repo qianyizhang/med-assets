@@ -1,4 +1,7 @@
 # Rebuild recipe
+
+For the repository’s frozen scene, restore the external base-color and normal maps from the repository root with `python3.12 tools/restore_textures.py workshop`. To use Blender’s Python, run `blender -b --factory-startup --python-exit-code 1 --python tools/restore_textures.py -- workshop`. Then open the package-root `Anatomy_Workshop.blend`. The steps below describe the original authoring layout: a fresh bake produces its own maps under `body-3d-delivery/textures/`.
+
 Blender 4.3.2, Python3 with Pillow and NumPy (available in build environment). Extract this archive preserving body-3d-assets, body-3d-source and body-3d-delivery siblings. Create body-3d-delivery/{textures,meshes,renders,docs}. First run blender -b --python body-3d-assets/build_collection.py. Then for each script below run blender -b body-3d-delivery/Anatomy_Workshop.blend --python body-3d-assets/SCRIPT.py:
 1. refine_and_preview
 2. finalize_geometry

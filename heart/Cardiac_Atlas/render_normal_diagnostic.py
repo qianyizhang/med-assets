@@ -1,6 +1,10 @@
 import os
 import bpy,json,os
 from mathutils import Vector
+from pathlib import Path
+from runpy import run_path
+
+run_path(str(Path(__file__).with_name("texture_inputs.py")))["ensure_wall_textures"]()
 R=os.path.dirname(os.path.abspath(__file__));qa=json.load(open(R+'/textures/Normal_QA.json'))
 bpy.ops.object.select_all(action='SELECT');bpy.ops.object.delete(use_global=False)
 s=bpy.context.scene;s.render.engine='CYCLES';s.cycles.samples=32;s.cycles.use_denoising=False;s.render.resolution_x=s.render.resolution_y=640;s.world.color=(.015,.015,.015)

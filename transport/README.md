@@ -38,6 +38,8 @@ The [archive index](collection-archives.json) pins each ZIP by immutable Object 
 
 From the repository root, run `python3.12 transport/tools/restore_collection.py hra-replay-sources` or substitute the other collection name. For an offline restore, pass `--from-zip PATH`. Use `--output DIRECTORY` to restore into an empty tree. The command verifies the ZIP and member digests, installs missing payloads at their original paths, and refuses conflicting bytes.
 
+The Workshop and Cardiac Atlas base-color and normal PNGs restore directly from their retained GLBs. Run `python3.12 tools/restore_textures.py workshop` or `python3.12 tools/restore_textures.py cardiac` from a hydrated checkout. These exact bytes are verified against the [original import checksums](../sources/imports/SHA256SUMS).
+
 ## Add or reverify R2 copies
 
 ### Upload acceptance
