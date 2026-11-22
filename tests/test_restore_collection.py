@@ -5,6 +5,7 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 import sys
 import unittest
+from unittest.mock import patch
 from zipfile import ZipFile
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "transport/tools"))
@@ -36,6 +37,16 @@ class CollectionRestoreTests(unittest.TestCase):
         self.assertEqual(self.run_restore(), 2)
         self.assertEqual((self.output / "sources/a.glb").read_bytes(), b"a")
         self.assertEqual(self.run_restore(), 0)
+
+    def test_download_uses_the_object_library_client(self):
+        row = {**self.row, "key": "library/med-assets/collections/test.zip"}
+        with patch("restore_collection.build_opener") as opener:
+            read = opener.return_value.open
+            read.return_value = io.BytesIO(self.archive.read_bytes())
+            self.assertEqual(restore(row, self.output), 2)
+            request = read.call_args.args[0]
+            self.assertEqual(request.get_header("User-agent"), "ObjectLibraryCLI/1.1")
+            self.assertEqual(request.full_url, "https://r2-object-library.landy123007.chatgpt.site/download?key=library%2Fmed-assets%2Fcollections%2Ftest.zip")
 
     def test_conflict_prevents_partial_write(self):
         folder = self.output / "sources"

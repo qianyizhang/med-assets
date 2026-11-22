@@ -7,7 +7,7 @@ import os
 from pathlib import Path, PurePosixPath
 import tempfile
 from urllib.parse import urlencode
-from urllib.request import HTTPRedirectHandler, build_opener
+from urllib.request import HTTPRedirectHandler, Request, build_opener
 from zipfile import ZipFile
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -40,7 +40,8 @@ def restore(row, root, local_zip=None):
         data = local_zip.read_bytes()
     else:
         url = ENDPOINT + "?" + urlencode({"key": row["key"]})
-        with build_opener(NoRedirect()).open(url, timeout=180) as response:
+        request = Request(url, headers={"User-Agent": "ObjectLibraryCLI/1.1"})
+        with build_opener(NoRedirect()).open(request, timeout=180) as response:
             data = response.read(row["bytes"] + 1)
     check(data, row, row["file"])
     with ZipFile(io.BytesIO(data)) as archive:
