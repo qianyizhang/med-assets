@@ -8,7 +8,7 @@ document_class: coordination
 
 # Backlog
 
-Start with the [Anatomy Gallery campaign](../campaigns/anatomy-gallery-consolidation.md) for wave order and scope. Each work item's status, dependencies, acceptance and verification live in its [record](items/). Gallery and atlas items keep their established `AG-GAL` and `AG-ATL` IDs. Use the record structure from the [repo-kit work-item format](https://github.com/qianyizhang/repo-kit/blob/main/template/docs/rules/doc.md#work-item-records).
+Start with the [Anatomy Gallery campaign](../campaigns/anatomy-gallery-consolidation.md) for wave order and scope. Open work items carry their status, dependencies and acceptance in their [records](items/). Completed items may be recorded together with their campaign’s verified results. Gallery and atlas items keep their established `AG-GAL` and `AG-ATL` IDs. Use the record structure from the [repo-kit work-item format](https://github.com/qianyizhang/repo-kit/blob/main/template/docs/rules/doc.md#work-item-records).
 
 | Tag | Scope |
 | --- | --- |
@@ -25,7 +25,7 @@ The [collection ledger](items/AG-GAL-013-reconcile-gallery-coverage.md#collectio
 
 ## Teaching asset review
 
-The [maintained-state campaign](../campaigns/maintained-state/README.md) owns portable verification, bounded uploads, accepted assessment selection, reproducible Gallery releases and the arm and pelvic recipe promotions.
+The [maintained-state campaign](../campaigns/maintained-state/README.md) and [asset toolkit campaign](../campaigns/asset-toolkit.md) record the implementation and its checks. Use the [asset workflow](../../docs/WORKFLOW.md#maintaining-an-asset) for current rebuild, promotion, release and retention operations.
 
 The [exemption review](../campaigns/teaching-exemption-recheck.md) owns the six remaining form follow-ups. The [current scorecard](../campaigns/teaching-asset-review/current-coverage.md) counts shared models once and scores their selected lesson files individually.
 

@@ -25,6 +25,17 @@
 - **Discovery** · Start at the asset directory, export README and linked review. Use directory discovery as the inventory.
 - **Variants** · Keep exports with a named use, replay dependency or unique evidence. Preserve snapshot layout where replay depends on it.
 
+## Maintaining an asset
+
+| Change | Edit | Verify the result |
+| --- | --- | --- |
+| Rebuild an export or lesson plate | Start with the package README and its recipe. Keep the selected inputs, camera, tolerances and export identity there. Use the existing [portable](../tools/rebuild_asset.py) or [Blender](../tools/rebuild_mesh.py) rebuild command when it supports the operation. | Replay into a fresh directory. Compare exact output bytes or the package’s declared geometry, motion or pixel tolerances. The [dependency check](../tools/verify_recipe_dependencies.py) follows the maintained recipe inputs. |
+| Accept a reviewed teaching task | Put the observation and evidence with the exact export. Preview and apply the [promotion](guides/teaching-assessments.md) to select a starting file or retain an alternative. | `python3.12 tools/maintained_teaching.py --check` resolves every accepted export/task and compares the generated register and scorecard. |
+| Make the revision available in Gallery | Declare the package, revision route, rights and teaching evidence in the [Gallery release inputs](gallery/asset-library.md#making-a-release-selection). The compiler assembles the Library, studies and resources for the selected release. | [Build the local release](../sites/anatomy-gallery/README.md#restore-and-build-locally) and check its model, evidence and behavior. Public download and upload admission have their own [transport acceptance](../transport/README.md#upload-acceptance). |
+| Restore or retire a file | Check its known readers with `python3.12 tools/verify.py retained PATH`. For archived members, use the [collection restore command](../transport/README.md#restore-an-archived-collection). | Verify the restored bytes, or migrate the remaining readers and exercise them. The [retention policy](#retention) covers public URLs, source records and unique evidence. |
+
+The [artifact module](../lib/med_assets/artifacts.py) owns path checks and file identity. Metadata checks can use an LFS pointer. Delivery and restore verify the actual bytes. [Display derivatives](../sources/display-derivatives.json) bind an output to its source, recipe and expected identity.
+
 ## Asset admission
 
 | Decision | Evidence in the issue or owning package |
@@ -75,7 +86,7 @@ The default setup includes the MCP server and Blender add-on. The tested pair is
 
 | When | Gate | Acceptance |
 | --- | --- | --- |
-| Every change | `python3.12 tools/verify.py offline` | Offline regressions, portable Gallery Node suites, all accepted teaching tasks, maintained register and scorecard, import references, LFS identities, transport manifests and selected foundation records. Runs in a shallow LFS-pointer checkout. |
+| Every change | `python3.12 tools/verify.py offline` | Offline regressions, portable Gallery tests, the maintained recipe graph, all accepted teaching tasks and their generated views, import references, LFS identities, transport manifests and selected foundation records. Runs in a shallow LFS-pointer checkout. |
 | Broad changes with hydrated LFS | `python3.12 tools/verify.py payload-integrity` | Offline gate plus all indexed LFS bytes, foundation evidence bindings and selected package checks. Unresolved pointers fail. |
 | UFF dental changes | `python3.12 tools/verify.py dental` | Separate suite including the actual pinned GLB hash. Use an isolated environment with [UFF requirements](../models/dental_specimens/uff_tomo1b/recipes/requirements-uff.txt). Missing dependencies leave coverage unavailable. |
 | Changed recipes, consumers or recovery | Owning recipe and stable entry points | Representative source → export → clean reimport, consumer behavior and changed failure paths. Major refactors and releases need full applicable checks. |
@@ -149,7 +160,7 @@ current archive availability need separate evidence before retirement.
 
 ## Contribution and delivery
 
-Use a [campaign record](../records/campaigns/anatomy-gallery-consolidation.md) for a bounded destination that spans multiple sessions. It records the sequence, unknowns and current frontier. The [local backlog](../records/work-items/backlog.md) leads to work items that own scope, acceptance criteria and verification. Link related GitHub issues and PRs from the work item. GitHub owns the state of those external records. Keep settled requirements and evidence with their existing owners.
+Use a [campaign record](../records/campaigns/anatomy-gallery-consolidation.md) for a bounded destination that spans multiple sessions. It records the sequence, unknowns and current frontier. The [local backlog](../records/work-items/backlog.md) leads to open work items. A completed item can live in its campaign record once its ID, evidence and limits are preserved and its readers have moved. Keep standalone records referenced by an assessment or a dependency. Link related GitHub issues and PRs from the work item. GitHub owns the state of those external records. Keep settled requirements and evidence with their existing owners.
 
 | Outcome | Evidence |
 | --- | --- |

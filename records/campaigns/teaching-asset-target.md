@@ -4,9 +4,9 @@ The November 22 starting register at `c179a58` has 34 families at target, 44 wit
 
 | Work item | Owner | Acceptance |
 | --- | --- | --- |
-| [TAQ-017](../work-items/items/TAQ-017-repair-teaching-context.md) · Correct teaching risks | Sol-high | Make the thyroid context the parathyroid starting view. Protect the implicated spatial relationships, source-bound structures and motion in the other risk cases. |
+| TAQ-017 ([nine risk cases](../../reviews/teaching-assessments/target-risk/decisions.json)) · Correct teaching risks | Sol-high | Make the thyroid context the parathyroid starting view. Protect the implicated spatial relationships, source-bound structures and motion in the other risk cases. |
 | [TAQ-016](../work-items/items/TAQ-016-resolve-visible-form.md) · Resolve visible form | Sol-high | Test surface changes at intended zoom. Reassess the ovary's visible contour and preserve uncertainty about the specimen. |
-| [TAQ-015](../work-items/items/TAQ-015-qualify-lighter-teaching-models.md) · Qualify lighter models | Sol-high | Check all four axes for each recommended file, reimport it and compare its vulnerable features with the full delivery. |
+| TAQ-015 ([23 economy controls](../../reviews/teaching-assessments/target-economy/decisions.json)) · Qualify lighter models | Sol-high | Check all four axes for each recommended file, reimport it and compare its vulnerable features with the full delivery. |
 | [TAQ-018](../work-items/items/TAQ-018-review-teaching-target.md) · Review tasks, integrate and prune | Campaign lead | Review matched evidence across the set. Bind starting files, assessments and collection checks to the normal local Gallery. Record justified exceptions and verify the four-axis target across all 79. |
 
 ## Lead review
