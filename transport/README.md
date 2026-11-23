@@ -23,10 +23,9 @@ python3.12 transport/tools/fetch_asset.py models/kidney_left/exports/metadata-cl
 
 For the two archived trachea r06 SVG projections, use `fetch_asset.py` with
 `--commit 503c33f1dadf403faaec373c1a11a8b40dc523d6` and either original repository
-path under `reviews/trachea/2026-10-29-open-airway-r06/`. The delivery manifest
-still pins that revision and the original digest routes. Restore the exact paths
-from [their local Brotli copies](../reviews/trachea/2026-10-29-open-airway-r06/README.md#restore-the-exact-svgs-offline)
-before local checks against the historical migration manifest.
+path under `reviews/trachea/2026-10-29-open-airway-r06/`. The delivery index
+retains the original digest routes and the dated migration receipt. For offline
+recovery, [restore the exact SVGs from the local Brotli copies](../reviews/trachea/2026-10-29-open-airway-r06/README.md#restore-the-exact-svgs-offline).
 
 ## Artifact backups
 
@@ -56,13 +55,33 @@ The Workshop and Cardiac Atlas base-color and normal PNGs restore directly from 
 
 | Goal | Acceptance |
 | --- | --- |
-| Reviewed candidate | [Planner](tools/r2_migration.py) pins a commit and verifies local bytes for all LFS and Git blobs ≥1 MB. Review paths, rights and disclosure scope. |
-| Valid public delivery | [Delivery manifest](../sites/anatomy-gallery/app/src/content/assets/delivery-index.json) owns declared routes. Handler enforces hash, size, MIME/extension, attachment safety and object bounds. |
-| Bounded upload | [Uploader](tools/r2_upload.mjs) uses short-lived hidden-stdin or in-memory authorization, verifies identities, keeps state ignored and includes anonymous byte readback in the run. |
+| Reviewed candidate | [Planner](tools/r2_migration.py) verifies exact selected Git or hydrated LFS paths at checkout HEAD. Review paths, rights and disclosure scope. |
+| Valid public delivery | [Delivery index](../sites/anatomy-gallery/app/src/content/assets/delivery-index.json) declares immutable routes and current aliases. The Worker enforces hash, size, MIME/extension, attachment safety and object bounds. |
+| Bounded upload | [Uploader](tools/r2_upload.mjs) checks the plan against the approved index and checkout HEAD. It uses short-lived hidden-stdin or in-memory authorization and includes anonymous byte readback. |
 | Failure and resume | HTTP, quota, permission or integrity failure stops after the active group. Explicit resume rechecks readback and preserves verified uploads. Budgets, providers and permissions require their own authority. |
 | Closeout | Close asset-upload authorization and redeploy the same saved version with owner environment and audience intact. Confirm coverage and consumers before retiring any old copy. |
 
 - **Provider limits** · [Workers request limits](https://developers.cloudflare.com/workers/platform/limits/) · [R2 upload methods](https://developers.cloudflare.com/r2/objects/upload-objects/).
+
+### Plan and preflight a transfer
+
+1. From the repository root, choose exact tracked sources cleared for this delivery. Repeat `--path` for each. Keep each plan within 32 selected paths and 64 MB of selected file bytes. Use a fresh ignored directory.
+
+   ```sh
+   mkdir -p .artifacts/r2-transfer
+   python3.12 transport/tools/r2_migration.py \
+     --path models/kidney_left/exports/metadata-cleanup-r01/kidney_left.glb \
+     --plan-output .artifacts/r2-transfer/plan.json \
+     --catalog-output .artifacts/r2-transfer/delivery-index.json
+   node transport/tools/r2_upload.mjs --check .artifacts/r2-transfer/plan.json \
+     .artifacts/r2-transfer/delivery-index.json
+   ```
+
+2. Review both files. The plan lists the selected local source and exact digest, name, size and media type for each upload. Identical digests transfer once. The catalog preserves the historical `repositoryPayloads` receipt and each admitted digest/name route. Its current aliases use `paths` when present, or `path` alone. A replacement moves the previous alias to `historicalPaths` on the older route. Use `--retire-path OLD` for a removed path absent from HEAD. For a rename, also select the new path. A catalog-only retirement needs only `--catalog-output`.
+
+3. Have the destination Worker use the approved catalog before transfer. If admission changes checkout HEAD, generate and check a fresh plan for that HEAD. Pass the approved plan and catalog to the uploader with one hidden stdin JSON line containing `planPath`, `catalogPath`, `token` and an ignored `statePath`. Leave the token out of files and command arguments.
+
+4. If interrupted, resume with the same plan and state path. The uploader validates the whole plan before transfer, saves readback progress after each active group, and freshly reads back verified objects before reporting success.
 
 ## Git LFS delivery and recovery
 

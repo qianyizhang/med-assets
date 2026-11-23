@@ -1,4 +1,3 @@
-import copy
 import hashlib
 import json
 from pathlib import Path
@@ -8,60 +7,115 @@ import tempfile
 import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'transport/tools'))
-import r2_migration as migration
+from delivery_catalog import DELIVERY_INDEX, assets_by_path
 import fetch_asset
+import r2_migration as migration
 
 
 class MigrationTests(unittest.TestCase):
     def setUp(self):
-        self.temporary = tempfile.TemporaryDirectory(); self.addCleanup(self.temporary.cleanup)
-        self.root = Path(self.temporary.name).resolve()
+        temporary = tempfile.TemporaryDirectory()
+        self.addCleanup(temporary.cleanup)
+        self.root = Path(temporary.name).resolve()
         self.payload = b'glTF-fixture'
         self.digest = hashlib.sha256(self.payload).hexdigest()
-        self.pointer = f'version https://git-lfs.github.com/spec/v1\noid sha256:{self.digest}\nsize {len(self.payload)}\n'.encode()
-        self.path = self.root/'model.glb'; self.path.write_bytes(self.pointer)
-        (self.root/'large drawing.svg').write_bytes(b'x'*1_000_001)
-        self.git('init','-q'); self.git('add','.')
-        self.git('-c','user.name=Fixture','-c','user.email=fixture@example.invalid','commit','-qm','fixture')
+        self.pointer = (f'version https://git-lfs.github.com/spec/v1\noid sha256:{self.digest}\n'
+                        f'size {len(self.payload)}\n').encode()
+        self.path = self.root / 'model.glb'
+        self.path.write_bytes(self.pointer)
+        (self.root / 'large drawing.svg').write_bytes(b'x' * 1_000_001)
+        self.git('init', '-q')
+        self.commit()
         self.path.write_bytes(self.payload)
 
-    def git(self,*args):
-        return subprocess.check_output(['git','-C',str(self.root),*args],text=True).strip()
+    def git(self, *args):
+        return subprocess.check_output(['git', '-C', str(self.root), *args], text=True).strip()
+
+    def commit(self):
+        self.git('add', '.')
+        self.git('-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '-qm', 'fixture')
+
+    def plan(self, *paths):
+        return migration.plan_upload(self.root, 'HEAD', {'assets': []}, list(paths), [])
 
     def test_lfs_and_large_git_blobs_bind_actual_bytes_to_one_revision(self):
-        revision, payloads = migration.inventory(self.root,'HEAD')
-        self.assertEqual(revision,self.git('rev-parse','HEAD'))
-        by_path={p.path:p for p in payloads}
-        self.assertEqual(by_path['model.glb'].sha256,self.digest)
-        self.assertEqual(by_path['large drawing.svg'].name,'large_drawing.svg')
-        self.assertEqual(by_path['large drawing.svg'].mediaType,'application/octet-stream')
-        self.assertEqual(sum(p.bytes for p in payloads),1_000_001+len(self.payload))
-        self.assertEqual(fetch_asset.pinned_asset(self.root,'HEAD','model.glb'),(self.digest,len(self.payload)))
-        blob=by_path['large drawing.svg']
-        self.assertEqual(fetch_asset.pinned_asset(self.root,'HEAD',blob.path),(blob.sha256,blob.bytes))
+        plan, catalog = self.plan('model.glb', 'large drawing.svg')
+        self.assertEqual(plan['revision'], self.git('rev-parse', 'HEAD'))
+        self.assertEqual(plan['objectCount'], 2)
+        self.assertEqual(plan['totalBytes'], 1_000_001 + len(self.payload))
+        by_path = assets_by_path(catalog)
+        selected = {item['sourcePath']: item for item in plan['objects']}
+        self.assertEqual(by_path['model.glb']['sha256'], self.digest)
+        blob = by_path['large drawing.svg']
+        self.assertEqual(blob['name'], 'large_drawing.svg')
+        self.assertEqual(blob['mediaType'], 'application/octet-stream')
+        for name, item in selected.items():
+            self.assertEqual(fetch_asset.pinned_asset(self.root, 'HEAD', name), (item['sha256'], item['bytes']))
 
-    def test_changed_unhydrated_or_linked_inputs_stop_before_any_transfer(self):
-        for body in [b'x'*len(self.payload),self.pointer]:
+    def test_changed_unhydrated_or_linked_inputs_are_refused(self):
+        for body in [b'x' * len(self.payload), self.pointer]:
             self.path.write_bytes(body)
-            with self.assertRaises(ValueError): migration.inventory(self.root,'HEAD')
-        self.path.unlink(); outside=self.root/'outside';outside.write_bytes(self.payload)
+            with self.assertRaises(ValueError):
+                self.plan('model.glb')
+        self.path.unlink()
+        outside = self.root / 'outside'
+        outside.write_bytes(self.payload)
         self.path.symlink_to(outside)
-        with self.assertRaisesRegex(ValueError,'link'):migration.inventory(self.root,'HEAD')
+        with self.assertRaisesRegex(ValueError, 'link'):
+            self.plan('model.glb')
 
-    def test_unknown_large_formats_require_review(self):
-        (self.root/'page.html').write_bytes(b'x'*1_000_001)
-        self.git('add','page.html');self.git('-c','user.name=Fixture','-c','user.email=fixture@example.invalid','commit','-qm','extra')
-        with self.assertRaisesRegex(ValueError,'format needs review'):migration.inventory(self.root,'HEAD')
+    def test_select_before_inspecting_unselected_payloads(self):
+        unknown = self.root / 'page.html'
+        unknown.write_bytes(b'x' * 1_000_001)
+        self.path.write_bytes(self.pointer)
+        self.commit()
+        unknown.unlink()
+        self.path.write_bytes(self.payload)
+        plan, _ = self.plan('model.glb')
+        self.assertEqual(plan['objectCount'], 1)
+        with self.assertRaisesRegex(ValueError, 'format needs review'):
+            self.plan('page.html')
 
-    def test_manifest_keeps_existing_backup_and_merges_content_aliases(self):
-        prior={'assets':[{'sha256':'a'*64,'name':'backup.zip','bytes':7,'mediaType':'application/zip'}]}
-        original=copy.deepcopy(prior)
-        one=migration.Payload('a/model.glb',self.digest,len(self.payload),'model.glb','model/gltf-binary')
-        two=migration.Payload('b/alias.glb',self.digest,len(self.payload),'alias.glb','model/gltf-binary')
-        result=migration.extend_manifest(prior,'f'*40,[one,two])
-        self.assertEqual(prior,original)
-        self.assertEqual(result['assets'][0],prior['assets'][0])
-        self.assertEqual(len(result['assets']),2)
-        self.assertEqual(result['assets'][1]['paths'],['a/model.glb','b/alias.glb'])
-        wrong=copy.deepcopy(prior);wrong['assets'].append({'sha256':self.digest,'name':'wrong.png','bytes':99,'mediaType':'image/png'})
-        with self.assertRaises(ValueError):migration.extend_manifest(wrong,'f'*40,[one])
+    def test_catalog_keeps_original_address_and_git_pinned_recovery(self):
+        old_revision = self.git('rev-parse', 'HEAD')
+        old_url_name = 'approved_original_filename.glb'
+        old = {'path': 'model.glb', 'name': old_url_name, 'sha256': self.digest,
+               'bytes': len(self.payload), 'mediaType': 'model/gltf-binary'}
+        alternate = {**old, 'name': 'alternate.glb', 'path': 'alternate.glb'}
+        original = {'assets': [alternate, old], 'repositoryPayloads': {'count': 694}}
+        self.path.write_bytes(b'glTF-changed')
+        self.commit()
+        plan, updates = migration.plan_upload(self.root, 'HEAD', original, ['model.glb'], [])
+        self.assertEqual(len(updates['assets']), 3)
+        self.assertEqual(updates['repositoryPayloads'], original['repositoryPayloads'])
+        self.assertEqual(updates['assets'][0], alternate)
+        self.assertEqual(updates['assets'][1]['name'], old_url_name)
+        self.assertEqual(updates['assets'][1]['historicalPaths'], ['model.glb'])
+        manifest = self.root / DELIVERY_INDEX
+        manifest.parent.mkdir(parents=True)
+        manifest.write_text(json.dumps(updates))
+        digest, size = fetch_asset.pinned_asset(self.root, old_revision, 'model.glb')
+        self.assertEqual(fetch_asset.route_name(self.root, digest, size, 'model.glb'), old_url_name)
+        new = plan['objects'][0]
+        self.assertEqual(fetch_asset.route_name(self.root, new['sha256'], new['bytes'], 'model.glb'), 'model.glb')
+
+    def test_plan_rejects_unbounded_selection_stale_commit_and_retiring_live_paths(self):
+        with self.assertRaisesRegex(ValueError, 'distinct'):
+            self.plan(*(f'{index}.glb' for index in range(33)))
+        with self.assertRaisesRegex(ValueError, 'repository-relative'):
+            self.plan('../model.glb')
+        self.path.write_bytes(self.pointer)
+        plan, catalog = self.plan('large drawing.svg')
+        with self.assertRaisesRegex(ValueError, 'absent from Git HEAD'):
+            migration.plan_upload(self.root, 'HEAD', catalog, [], ['large drawing.svg'])
+        self.git('-c', 'user.name=Fixture', '-c', 'user.email=fixture@example.invalid', 'commit', '--allow-empty', '-qm', 'new revision')
+        with self.assertRaisesRegex(ValueError, 'revision differs'):
+            migration.plan_upload(self.root, plan['revision'], catalog, ['large drawing.svg'], [])
+
+    def test_oversized_committed_lfs_pointer_stops_before_reading_any_working_bytes(self):
+        (self.root / 'huge.glb').write_bytes(self.pointer.replace(f'size {len(self.payload)}'.encode(), b'size 64000001'))
+        self.path.write_bytes(self.pointer)
+        self.commit()
+        self.path.unlink()
+        with self.assertRaisesRegex(ValueError, 'byte bound'):
+            self.plan('model.glb', 'huge.glb')

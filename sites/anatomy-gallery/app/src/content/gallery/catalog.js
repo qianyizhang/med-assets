@@ -9,15 +9,10 @@ import {
 } from './skeletal-data.js';
 import delivery from '../assets/delivery-index.json' with { type: 'json' };
 import legacyDental from '../assets/legacy-dental-assets.json' with { type: 'json' };
+import { assetRoute, assetsByPath } from '../shared/asset-index.mjs';
 
-export function assetUrl(file) {
-  return '/assets/' + file.sha256 + '/' + file.name;
-}
-export const byPath = new Map(
-  [...delivery.assets, ...legacyDental.assets].flatMap((file) =>
-    (file.paths ?? [file.path]).filter(Boolean).map((path) => [path, file]),
-  ),
-);
+export const assetUrl = assetRoute;
+export const byPath = assetsByPath(delivery, legacyDental);
 const folder = 'assemblies/endocrine-locator/adrenal-study-';
 const gallery = 'reviews/endocrine-locator/adrenal-study-r05/display/';
 export const portraitAsset = (name) => byPath.get(gallery + name + '.webp');

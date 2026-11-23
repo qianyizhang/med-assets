@@ -14,6 +14,7 @@ import tempfile
 import urllib.parse
 import urllib.request
 
+from delivery_catalog import DELIVERY_INDEX, current_paths, source_path
 from lfs_transport import parse_pointer
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -26,11 +27,7 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
 
 
 def pinned_asset(root: Path, revision: str, name: str) -> tuple[str, int]:
-    path = PurePosixPath(name)
-    if (not name or path.is_absolute() or str(path) != name
-            or any(part in ('.', '..') for part in path.parts)
-            or '\\' in name or any(ord(c) < 32 for c in name)):
-        raise ValueError('Use an exact repository-relative file path')
+    source_path(name)
     commit = subprocess.check_output(
         ['git', '--no-lazy-fetch', 'rev-parse', '--verify', '--end-of-options', revision + '^{commit}'],
         cwd=root, text=True).strip()
@@ -103,14 +100,19 @@ def fetch_asset(cache: Path, name: str, digest: str, size: int, *, open_url=None
 
 
 def route_name(root: Path, digest: str, size: int, name: str) -> str:
-    manifest = json.loads((root / 'sites/anatomy-gallery/app/src/content/assets/delivery-index.json').read_text())
-    for asset in manifest['assets']:
-        if asset['sha256'] == digest and asset['bytes'] == size:
-            filename = asset['name']
-            if not filename or any(c not in 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_.-' for c in filename):
-                raise ValueError('Invalid published asset filename')
-            return filename
-    raise ValueError('Selected Git payload has no published R2 delivery reference')
+    manifest = json.loads((root / DELIVERY_INDEX).read_text())
+    matches = [asset for asset in manifest['assets'] if (asset['sha256'], asset['bytes']) == (digest, size)]
+    current = [asset for asset in matches if name in current_paths(asset)]
+    historical = [asset for asset in matches if name in asset.get('historicalPaths', [])]
+    preferred = current or historical or matches
+    if len(preferred) > 1:
+        preferred = [asset for asset in preferred if asset['name'] == PurePosixPath(name).name]
+    if len(preferred) != 1:
+        raise ValueError('Selected Git payload has no unambiguous published R2 delivery reference')
+    filename = preferred[0]['name']
+    if not filename or any(c not in 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_.-' for c in filename):
+        raise ValueError('Invalid published asset filename')
+    return filename
 
 
 def working_pointer(target: Path, digest: str, size: int) -> bytes | None:
