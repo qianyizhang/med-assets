@@ -1,5 +1,6 @@
 import importlib.util
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -11,6 +12,8 @@ SCRIPT = ROOT / "records/campaigns/teaching-asset-review/coverage.py"
 spec = importlib.util.spec_from_file_location("teaching_review_coverage", SCRIPT)
 coverage = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(coverage)
+from assessment_identity import (AssessmentIdentities, DELIVERY_INDEX, DISPLAY_RECIPE,
+                                 GALLERY_SITE, file_identity)
 
 
 class TeachingReviewCoverage(unittest.TestCase):
@@ -18,6 +21,7 @@ class TeachingReviewCoverage(unittest.TestCase):
         """Mirror the assessed inputs as pointers so the gate works without hydration."""
         documents = [
             coverage.REGISTER, coverage.PILOT,
+            str(DELIVERY_INDEX), str(GALLERY_SITE / DISPLAY_RECIPE),
             *(path.relative_to(ROOT).as_posix()
               for path in (ROOT / "reviews").glob("*/*/teaching-assessment.json")),
             coverage.GALLERY + "reviewed-entries.json", coverage.GALLERY + "adrenal-study.js",
@@ -38,7 +42,7 @@ class TeachingReviewCoverage(unittest.TestCase):
         for path in inputs:
             if not (ROOT / path).is_file():
                 continue
-            digest, size = coverage.identity(ROOT, path)
+            digest, size = file_identity(ROOT, path)
             target = repo / path
             target.parent.mkdir(parents=True, exist_ok=True)
             target.write_text(f"version https://git-lfs.github.com/spec/v1\noid sha256:{digest}\nsize {size}\n")
@@ -171,16 +175,12 @@ class TeachingReviewCoverage(unittest.TestCase):
     def test_exact_native_and_wrong_or_ambiguous_export(self):
         with tempfile.TemporaryDirectory() as temp:
             repo = Path(temp).resolve()
-            git_directory = subprocess.check_output(
-                ["git", "rev-parse", "--absolute-git-dir"], cwd=ROOT, text=True,
-            ).strip()
-            (repo / ".git").write_text(f"gitdir: {git_directory}\n")
             self.fixture(repo)
             normal = self.run_report(repo)
             self.assertEqual(normal.returncode, 0, normal.stderr)
             rows = normal.stdout.splitlines()
             for name, state in (
-                ("Terminal airspace study", "Full"),
+                ("Terminal airspace study", "Unrated"),
                 ("Bronchial tree · first fork", "Unrated"),
                 ("Breathing collection", "Unrated"),
             ):
@@ -202,7 +202,7 @@ class TeachingReviewCoverage(unittest.TestCase):
                                               if "| Bronchial tree · first fork |" in line))
             self.assertIn(original_digest, wrong.stdout)
 
-            digest, size = coverage.identity(repo, sibling)
+            digest, size = file_identity(repo, sibling)
             suspect["export"].update(sha256=digest, bytes=size)
             competing = {**suspect, "task": "A second task for the same file", "route": "distinct-claim"}
             injected.write_text(json.dumps({**pilot, "assessments": [suspect, competing]}))
@@ -216,12 +216,68 @@ class TeachingReviewCoverage(unittest.TestCase):
             report = repo / "saved-report.md"
             report.write_text(normal.stdout)
             self.assertEqual(self.run_report(repo, "--check", report).returncode, 0)
+            self.assertIn("must be supplied together", self.run_report(repo, "--audit").stderr)
             register = repo / coverage.REGISTER
+            env = dict(os.environ)
+            env.pop("GIT_INDEX_FILE", None)
+            for command in (("init", "-q"), ("add", coverage.REGISTER),
+                            ("-c", "user.name=Fixture", "-c", "user.email=fixture@example.invalid",
+                             "commit", "-qm", "Test baseline")):
+                subprocess.run(["git", *command], cwd=repo, env=env, check=True)
             register.write_text(register.read_text().replace("| Right lung · s1233 |", "| Right lung · renamed |"))
             drift = self.run_report(repo, "--check", report)
             self.assertEqual(drift.returncode, 1)
             self.assertIn("Coverage report drift.", drift.stderr)
-            self.assertIn("Renamed or regrouped", self.run_report(repo).stdout)
+            audit = self.run_report(repo, "--audit", "--baseline", "HEAD")
+            self.assertEqual(audit.returncode, 0, audit.stderr)
+            self.assertIn("Renamed or regrouped", audit.stdout)
+            self.assertIn("| Full |", next(line for line in audit.stdout.splitlines()
+                                           if "| Terminal airspace study |" in line))
+
+    def test_generated_witnesses_bind_source_and_derivative_without_cache(self):
+        accepted = "reviews/teaching-assessments/refinement-risk/accepted.json"
+        outcomes = coverage.read_json(ROOT / accepted)["outcomes"]
+        recipe = GALLERY_SITE / DISPLAY_RECIPE
+        bindings = coverage.read_json(ROOT / recipe)
+        witnesses = [item["before"] for item in outcomes
+                     if "/display/" in item["before"]["path"] and item["before"]["path"].endswith(".webp")]
+        self.assertEqual(len(witnesses), 2)
+        with tempfile.TemporaryDirectory() as temporary:
+            repo = Path(temporary).resolve()
+            for relative in (recipe, DELIVERY_INDEX):
+                destination = repo / relative
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                destination.write_bytes((ROOT / relative).read_bytes())
+            for claim in witnesses:
+                path = claim["path"]
+                with self.subTest(witness=path):
+                    source = next(source for pairs in bindings.values() for source, target in pairs if target == path)
+                    original = repo / source
+                    original.parent.mkdir(parents=True, exist_ok=True)
+                    digest, size = file_identity(ROOT, source)
+                    pointer = f"version https://git-lfs.github.com/spec/v1\noid sha256:{digest}\nsize {size}\n"
+                    original.write_text(pointer)
+                    target = repo / path
+                    self.assertFalse(target.exists())
+                    identities = AssessmentIdentities(repo)
+                    self.assertEqual(identities.check(claim), (claim["sha256"], claim["bytes"]))
+
+                    original.write_text(pointer.replace(digest, "0" * 64))
+                    with self.assertRaisesRegex(ValueError, "Display source identity mismatch"):
+                        identities.check(claim)
+                    original.write_text(pointer)
+                    with self.assertRaisesRegex(ValueError, "Identity mismatch"):
+                        identities.check({**claim, "sha256": "0" * 64})
+
+                    target.parent.mkdir(parents=True, exist_ok=True)
+                    target.write_bytes(b"unused display cache")
+                    self.assertEqual(identities.check(claim), (claim["sha256"], claim["bytes"]))
+                    wrong = {version: [pair for pair in pairs if pair[1] != path]
+                             for version, pairs in bindings.items()}
+                    (repo / recipe).write_text(json.dumps(wrong))
+                    with self.assertRaisesRegex(ValueError, "Invalid display source binding"):
+                        AssessmentIdentities(repo).check(claim)
+                    (repo / recipe).write_text(json.dumps(bindings))
 
 
 if __name__ == "__main__":

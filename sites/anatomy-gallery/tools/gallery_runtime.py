@@ -16,11 +16,11 @@ from urllib.request import urlopen
 
 SITE = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(SITE.parents[1] / 'tools'))
+from assessment_identity import DISPLAY_ENCODERS, delivery_by_path, display_recipes, validate_display_paths
 from teaching_assessments import REGISTER, campaign_rows, maintained_exports, register_selections
 
 DEFAULT_VENDOR = SITE / '.local/viewer-inputs'
 TEACHING_REVIEW = 'reviews/teaching-assessments/2026-11-21-library-pilot/assessments.json'
-DISPLAY_ENCODERS = {'11.3.0': '1.5.0', '12.2.0': '1.6.0'}
 
 
 def resources(site: Path):
@@ -35,17 +35,10 @@ def verified(resource, raw: bytes) -> bytes:
 
 def prepare_display_images(repo, site, by_path):
     repo = repo.resolve()
-    targets = set()
-    recipe = json.loads((site / 'display-images.json').read_text())
-    for pillow, bindings in recipe.items():
-        if pillow not in DISPLAY_ENCODERS:
-            raise ValueError(f'Unknown display encoder: {pillow}')
+    for pillow, bindings in display_recipes(site).items():
         pending = []
         for source_path, target_path in bindings:
             source, target = repo / source_path, repo / target_path
-            if not source.is_relative_to(repo) or not target.is_relative_to(repo) or target in targets:
-                raise ValueError(f'Invalid or duplicate display binding: {target_path}')
-            targets.add(target)
             original = {**by_path[source_path], 'path': source_path}
             display = {**by_path[target_path], 'path': target_path}
             if pillow == '11.3.0':
@@ -66,11 +59,7 @@ def prepare_display_images(repo, site, by_path):
 def display_input(source, target, original, display):
     if source.resolve() != source or target.resolve() != target:
         raise ValueError(f'Display recipe paths must not traverse links: {target}')
-    output_dir = target.parent.parent
-    if (source.suffix != '.png' or target.name != source.with_suffix('.webp').name
-            or target.parent.name != 'display'
-            or source.parent not in (output_dir, output_dir / 'media')):
-        raise ValueError(f'Display destination does not match its source: {target}')
+    validate_display_paths(source, target)
     raw = source.read_bytes()
     pointer = f"version https://git-lfs.github.com/spec/v1\noid sha256:{original['sha256']}\nsize {original['bytes']}\n"
     hydrated = raw != pointer.encode()
@@ -139,13 +128,6 @@ def airway_export_bindings(repo: Path):
     record = json.loads((repo / 'reviews/trachea/2026-10-29-open-airway-r06/build-record.json').read_text())
     for variant in record['variants']:
         yield {**variant, 'file': 'models/trachea/exports/open-airway-r06/' + variant['file']}
-
-
-def delivery_by_path(index: Path):
-    return {
-        path: asset for asset in json.loads(index.read_text())['assets']
-        for path in asset.get('paths', [asset.get('path')])
-    }
 
 
 def check_delivery_identity(by_path, expected):

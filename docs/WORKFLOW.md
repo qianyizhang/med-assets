@@ -70,18 +70,18 @@ The default setup includes the MCP server and Blender add-on. The tested pair is
 
 ## Verification
 
-**Runtime** · Python 3.11+, Git and Node.js 18+. Run without Python `-O`.
+**Runtime** · Python 3.11+, Git and Node.js 24. Run without Python `-O`.
 
 | When | Gate | Acceptance |
 | --- | --- | --- |
-| Every change | `python3.12 tools/verify.py offline` | Offline regressions, import references, LFS identities, transport manifests and selected foundation records. Selected suites may inspect local media. |
+| Every change | `python3.12 tools/verify.py offline` | Offline regressions, portable Gallery Node suites, current teaching scorecard, import references, LFS identities, transport manifests and selected foundation records. Runs in a shallow LFS-pointer checkout. |
 | Broad changes with hydrated LFS | `python3.12 tools/verify.py payload-integrity` | Offline gate plus all indexed LFS bytes, foundation evidence bindings and selected package checks. Unresolved pointers fail. |
 | UFF dental changes | `python3.12 tools/verify.py dental` | Separate suite including the actual pinned GLB hash. Use an isolated environment with [UFF requirements](../models/dental_specimens/uff_tomo1b/recipes/requirements-uff.txt). Missing dependencies leave coverage unavailable. |
 | Changed recipes, consumers or recovery | Owning recipe and stable entry points | Representative source → export → clean reimport, consumer behavior and changed failure paths. Major refactors and releases need full applicable checks. |
 
 - **Index** · Stage deliberate retirements before checks. [Verifier](../tools/verify.py) owns suite discovery, selection and failure rules.
 - **Evidence** · Bind checks to exact inputs and outputs. Reuse evidence for unchanged inputs. Record unavailable checks. A replay exit records process completion. Verify output identities and inspect pixels separately.
-- **Scope** · Offline coverage is selective. Payload coverage proves local byte identity and selected consistency. Geometry, pixels, anatomy, runtime and availability require their own evidence.
+- **Scope** · Offline coverage is selective. The scorecard verifies declared display bindings and source identities. Gallery assembly and serving verify actual display bytes. Payload coverage proves local byte identity and selected consistency. Geometry, pixels, anatomy, runtime and availability require their own evidence.
 
 ## Import and source integrity
 

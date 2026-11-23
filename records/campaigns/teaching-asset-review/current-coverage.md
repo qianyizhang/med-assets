@@ -3,9 +3,7 @@
 The total counts each shared family once across collections. Coverage and target counts apply to the selected files. Each file has its own learner task and four scores.
 Use the [rubric](../../../docs/guides/asset-quality.md) for the anchors and the [exemption recheck](../teaching-exemption-recheck.md) for the current before/after decisions and owned follow-ups.
 
-Run `python3.12 records/campaigns/teaching-asset-review/coverage.py --audit` for every identity, historical alternate, evidence gap and register change.
-
-Changes from the pinned register include 48 additions, 46 replacements or retirements, and 0 regroupings.
+Run `python3.12 records/campaigns/teaching-asset-review/coverage.py --audit --baseline a6f4b3c` for every identity, historical alternate, evidence gap and register change.
 
 | Collection | Families | At target | Exemption | Open | Full | Partial | Unrated | Selected files |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |

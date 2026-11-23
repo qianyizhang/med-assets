@@ -22,6 +22,8 @@ SNAPSHOT_SHA256 = '903eb7bc1c456e75b9eb3b1246a038f7134046d7c0964b1ebcc9ecfe25c0b
 IMPORT_MANIFEST_SHA256 = '48953d622e4ea3730185c90452bd3125b14935fa654541f0636e5f69c031cc30'
 FOUNDATION_PATTERNS = ('reviews/*/2026-10-23-metadata-cleanup-r01/record.json',
                        'reviews/*/2026-10-23-hra-*/record.json')
+TEACHING_COVERAGE = Path('records/campaigns/teaching-asset-review')
+GALLERY_NODE_TESTS = 'sites/anatomy-gallery/app/tests/*.test.mjs'
 # Existing package-specific assertions remain authoritative; no schema migration.
 PAYLOAD_CHECKS = (
     ('tools/restore_textures.py', 'workshop', '--check'),
@@ -211,12 +213,26 @@ def foundation_records(root):
     return selected_files(root, *FOUNDATION_PATTERNS)
 
 
+def run_gallery_suites(root):
+    suites = selected_files(root, GALLERY_NODE_TESTS)
+    require(suites, 'No portable Gallery Node test suites found; full checkout required')
+    subprocess.run(['node', '--test', *(str(path.relative_to(root)) for path in suites)], cwd=root, check=True)
+    return len(suites)
+
+
+def check_scorecard(root):
+    subprocess.run([sys.executable, str(TEACHING_COVERAGE / 'coverage.py'), '--check',
+                    str(TEACHING_COVERAGE / 'current-coverage.md')], cwd=root, check=True)
+
+
 def offline(root):
     suites = selected_files(root, 'tests/test_*.py', 'tests/review_records/test_*.py')
     require(suites, 'No offline test suites found; full checkout required')
     pointers = index_pointers(root)
     imported, updates = current_import_checks(root, pointers)
     count = sum(run_suite(path) for path in suites)
+    gallery_suites = run_gallery_suites(root)
+    check_scorecard(root)
     manifest_count = validate_transport_manifests(root, pointers)  # No transport call.
     records = foundation_records(root)
     for path in records:
@@ -224,7 +240,8 @@ def offline(root):
             validate_structure(read_json(path), lambda entry: check_reference(root, pointers, entry))
         except (ValueError, KeyError, TypeError) as error:
             raise ValueError(f'{path.relative_to(root)}: {error}') from error
-    print(f'PASS offline: {count} tests; {manifest_count} transport manifests; {len(records)} foundation records; '
+    print(f'PASS offline: {count} Python tests; {gallery_suites} Gallery Node suites; current scorecard; '
+          f'{manifest_count} transport manifests; {len(records)} foundation records; '
           f'{imported} import references ({updates} documented updates); {len(pointers)} LFS pointer identities.', flush=True)
     print('Offline phase: no exhaustive payload-byte verification; selected suites may inspect local media. '
           'Dental dependencies/payload suite, package payload checks, '

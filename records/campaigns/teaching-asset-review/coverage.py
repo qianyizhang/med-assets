@@ -2,7 +2,6 @@
 """Regenerate the exact-file coverage report from the register and review owners."""
 import argparse
 from collections import Counter, defaultdict
-import hashlib
 import json
 from pathlib import Path
 import re
@@ -11,11 +10,11 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / "transport/tools"))
-from lfs_transport import parse_pointer, unique_keys
+from lfs_transport import unique_keys
 sys.path.insert(0, str(ROOT / "tools"))
+from assessment_identity import AssessmentIdentities, file_identity
 from teaching_assessments import REGISTER, campaign_rows, register_rows, register_selections
 
-BASELINE = "a6f4b3c"
 GALLERY = "sites/anatomy-gallery/app/src/content/gallery/"
 PILOT = "reviews/teaching-assessments/2026-11-21-library-pilot/assessments.json"
 SURFACES = "reviews/body-systems/2026-11-20-surface-quality"
@@ -48,25 +47,11 @@ def read_json(path):
     return json.loads(path.read_text(), object_pairs_hook=unique_keys)
 
 
-def identity(repo, path):
-    file = (repo / path).resolve()
-    if not file.is_relative_to(repo) or not file.is_file():
-        raise ValueError(f"Missing or outside repository: {path}")
-    with file.open("rb") as stream:
-        header = stream.read(128)
-        if header.startswith(b"version https://git-lfs.github.com/spec/"):
-            return parse_pointer(header + stream.read())
-        stream.seek(0)
-        return hashlib.file_digest(stream, "sha256").hexdigest(), file.stat().st_size
-
-
-def expected_match(repo, claim):
+def expected_match(identities, claim):
     try:
-        digest, size = identity(repo, claim["path"])
+        identities.check(claim)
     except ValueError as error:
         return str(error)
-    if digest != claim.get("sha256") or (claim.get("bytes") is not None and size != claim["bytes"]):
-        return f"Identity mismatch for {claim['path']}"
     return ""
 
 
@@ -214,7 +199,7 @@ def historical(repo):
         }
 
 
-def rate(repo, item):
+def rate(identities, item):
     axes = item["axes"]
     if len(axes) != 4 or any(
         axis["score"] is not None and (type(axis["score"]) is not int or not 0 <= axis["score"] <= 4)
@@ -227,7 +212,7 @@ def rate(repo, item):
     if not all(axis.get("observation", "").strip() for axis in axes):
         return "Unrated", "Missing score observations."
     for claim in (item["export"], *item["views"]):
-        reason = expected_match(repo, claim)
+        reason = expected_match(identities, claim)
         if reason:
             return "Unrated", reason + "."
     missing = [name for name, axis in zip(AXES, axes) if axis["score"] is None]
@@ -240,9 +225,9 @@ def rate(repo, item):
     )
 
 
-def select(repo, items):
-    rated = [(item, *rate(repo, item)) for item in items]
-    campaign = [r for r in rated if r[0].get("campaign") and not expected_match(repo, r[0]["export"])]
+def select(identities, items):
+    rated = [(item, *rate(identities, item)) for item in items]
+    campaign = [r for r in rated if r[0].get("campaign") and not expected_match(identities, r[0]["export"])]
     if campaign:
         newest = max(item["date"] for item, _, _ in campaign)
         rated = [r for r in campaign if r[0]["date"] == newest]
@@ -282,9 +267,9 @@ def table(columns, rows):
     ]
 
 
-def assessment_row(repo, item):
+def assessment_row(repo, identities, item):
     export = item["export"]
-    state, reason = rate(repo, item)
+    state, reason = rate(identities, item)
     scores = " / ".join("—" if axis["score"] is None else str(axis["score"]) for axis in item["axes"])
     return (
         link(Path(export["path"]).name, export["path"]) if (repo / export["path"]).is_file() else f"`{export['path']}`",
@@ -295,20 +280,17 @@ def assessment_row(repo, item):
     )
 
 
-def report(repo, audit=False):
+def report(repo, *, baseline=None):
     raw = (repo / REGISTER).read_text()
     selections = register_selections(raw)
     maintained = {path: (item.collection, item.label) for path, item in selections.items()}
-    pinned = subprocess.check_output(
-        ["git", "-C", str(repo), "show", f"{BASELINE}:{REGISTER}"], text=True,
-    )
-    baseline = register_rows(pinned)
-    added = maintained.keys() - baseline.keys()
-    removed = baseline.keys() - maintained.keys()
-    moved = [path for path in maintained.keys() & baseline.keys() if maintained[path] != baseline[path]]
+    identities = AssessmentIdentities(repo)
     assessments = defaultdict(list)
-    for item in (*records(repo), *historical(repo)):
+    for item in records(repo):
         assessments[item["export"]["path"]].append(item)
+    if baseline is not None:
+        for item in historical(repo):
+            assessments[item["export"]["path"]].append(item)
 
     rows = []
     scorecard = []
@@ -319,16 +301,16 @@ def report(repo, audit=False):
     counts = defaultdict(Counter)
     for path, (collection, family) in maintained.items():
         items = assessments[path]
-        state, reason = select(repo, items)
+        state, reason = select(identities, items)
         if not items and path in GAPS:
             gap, evidence = GAPS[path]
             reason = f"{gap} {link('Existing evidence', evidence)}."
-        digest, size = identity(repo, path)
+        digest, size = file_identity(repo, path)
         counts[collection][state] += 1
         sources = ", ".join(link(item["source_label"], item["source"]) for item in items) or "—"
         rows.append((collection, family, link(path, path), f"`{digest}` · {size:,}", state, sources, reason))
-        current = [item for item in items if item.get("campaign") and item["export"]["sha256"] == digest]
-        if current:
+        current = [item for item in items if item.get("campaign") and not expected_match(identities, item["export"])]
+        if current and state != "Unrated":
             latest = max(item["date"] for item in current)
             choices = [item for item in current if item["date"] == latest]
             if len(choices) == 1:
@@ -353,18 +335,15 @@ def report(repo, audit=False):
     families["**Total**"] = len(family_keys)
     total = sum(counts.values(), Counter())
     summary.append(("**Total**", *(total[state] for state in STATES), total.total()))
-    if not audit and len(scorecard) == len(maintained) and not total["Unrated"]:
+    if baseline is None and len(scorecard) == len(maintained) and not total["Unrated"]:
         lines = [
             "# Maintained teaching asset scorecard", "",
             "The total counts each shared family once across collections. Coverage and target counts apply to the selected files. Each file has its own learner task and four scores.",
             "Use the [rubric](../../../docs/guides/asset-quality.md) for the anchors and the "
             "[exemption recheck](../teaching-exemption-recheck.md) for the current before/after decisions and owned follow-ups.", "",
-            "Run `python3.12 records/campaigns/teaching-asset-review/coverage.py --audit` for every identity, "
+            "Run `python3.12 records/campaigns/teaching-asset-review/coverage.py --audit --baseline a6f4b3c` for every identity, "
             "historical alternate, evidence gap and register change.", "",
         ]
-        if added or removed or moved:
-            lines.extend([f"Changes from the pinned register include {len(added)} additions, "
-                          f"{len(removed)} replacements or retirements, and {len(moved)} regroupings.", ""])
         target_columns = ("At target", "Exemption", "Open")
         lines += table(("Collection", "Families", *target_columns, *STATES, "Selected files"), (
             (label, families[label], *((sum(target_counts.values(), Counter()) if label == "**Total**" else target_counts[label])[key]
@@ -376,30 +355,48 @@ def report(repo, audit=False):
     lines = [
         "# Exact-file teaching review coverage", "",
         f"Generated by [coverage.py](coverage.py) from the {link('maintained register', REGISTER)}.",
-        f"The campaign baseline at `{BASELINE}` has {len(baseline)} starting files in "
-        f"{len({collection for collection, _ in baseline.values()})} collections.", "",
+        "",
         "Full coverage requires an attributable four-axis assessment for the same task and exact file.",
         "Partial coverage has a verified task and some axes with scores. An unrated file may have technical,",
         "visual or teaching evidence that still needs a rubric decision.",
         "Hashes identify the local file bytes or, for an unresolved LFS pointer, its declared object.",
-        "Reviewed-view files use the same identity rule. Geometry, image interpretation, anatomy and hosted availability",
-        "require separate verification.",
+        "Declared display derivatives bind to a pinned source and delivery identity. Display bytes, geometry,",
+        "image interpretation, anatomy and hosted availability require separate verification.",
         "When an exact-file campaign task exists, its newest dated assessment supplies the coverage decision.",
         "Multiple campaign tasks on the same date or unresolved earlier score conflicts are flagged.",
-        "", "## Register changes", "",
+        "",
     ]
-    if not (added or removed or moved):
-        lines += ["No collection, family or path changes from the campaign baseline."]
-    for label, paths in (("Added", added), ("Removed", removed), ("Renamed or regrouped", moved)):
-        lines.extend(f"- {label} · `{path}`" for path in sorted(paths))
-    lines += ["", "## Coverage counts", ""]
+    if baseline is not None:
+        commit = subprocess.check_output(
+            ["git", "-C", str(repo), "rev-parse", "--verify", "--end-of-options", f"{baseline}^{{commit}}"],
+            text=True,
+        ).strip()
+        pinned = register_rows(subprocess.check_output(
+            ["git", "-C", str(repo), "show", f"{commit}:{REGISTER}"], text=True,
+        ))
+        added = maintained.keys() - pinned.keys()
+        removed = pinned.keys() - maintained.keys()
+        moved = [path for path in maintained.keys() & pinned.keys() if maintained[path] != pinned[path]]
+        lines += [
+            "## Register changes", "",
+            f"The baseline at `{commit}` has {len(pinned)} starting files in "
+            f"{len({collection for collection, _ in pinned.values()})} collections.", "",
+        ]
+        if not (added or removed or moved):
+            lines += ["No collection, family or path changes from the baseline."]
+        for label, paths in (("Added", added), ("Removed", removed), ("Renamed or regrouped", moved)):
+            lines.extend(f"- {label} · `{path}`" for path in sorted(paths))
+        lines += [""]
+    lines += ["## Coverage counts", ""]
     lines += table(("Collection", "Families", *STATES, "Selected files"),
                    ((label, families[label], *rest) for label, *rest in summary))
     lines += ["## Starting files", ""]
     lines += table(("Collection", "Family", "Starting file", "SHA-256 · bytes", "Coverage", "Assessments", "Result or evidence gap"), rows)
     columns = ("File", "Assessment SHA-256", "Source", "Attribution", "Date", "Task", "Fidelity / Form / Readability / Economy", "Binding and coverage")
     lines += ["## Starting-file assessment evidence", ""]
-    lines += table(columns, (assessment_row(repo, item) for path in maintained for item in assessments[path]))
+    lines += table(columns, (assessment_row(repo, identities, item) for path in maintained for item in assessments[path]))
+    if baseline is None:
+        return "\n".join(lines)
     lines += [
         "## Alternate, historical and hosted revisions", "",
         "The bronchial r13 assessment covers the retained hosted first-fork export.",
@@ -415,7 +412,8 @@ def report(repo, audit=False):
         "", "Older primary-organ quality-audit plates provide comparison images. No attributable four-axis rating "
         "record with an exact starting-file identity and named task was found beside those plates.", "",
     ]
-    lines += table(columns, (assessment_row(repo, item) for path, items in assessments.items() if path not in maintained for item in items))
+    lines += table(columns, (assessment_row(repo, identities, item) for path, items in assessments.items()
+                            if path not in maintained for item in items))
     return "\n".join(lines)
 
 
@@ -424,9 +422,12 @@ def main():
     parser.add_argument("--repo", type=Path, default=ROOT, help="Use this repository checkout for the report")
     parser.add_argument("--check", type=Path, help="Check an existing report for drift")
     parser.add_argument("--audit", action="store_true", help="Include all file identities, historical reviews and coverage decisions")
+    parser.add_argument("--baseline", help="Local Git revision to compare in audit mode")
     args = parser.parse_args()
+    if args.audit != bool(args.baseline):
+        parser.error("--audit and --baseline REVISION must be supplied together")
     try:
-        output = report(args.repo.resolve(), audit=args.audit)
+        output = report(args.repo.resolve(), baseline=args.baseline)
         if args.check:
             if args.check.read_text() != output:
                 parser.exit(1, "Coverage report drift. Regenerate and review the register or assessment changes.\n")

@@ -58,6 +58,8 @@ class VerificationTests(unittest.TestCase):
             path.write_bytes((ROOT / name).read_bytes())
         self.track('tests/test_survivor.py', b'import unittest\n'
                    b'class Survivor(unittest.TestCase):\n def test_pass(self): pass\n')
+        self.track('sites/anatomy-gallery/app/tests/survivor.test.mjs',
+                   b'import test from "node:test"; test("survivor", () => {});\n')
 
     def assert_retirement(self, name, data, check):
         path = self.track(name, data)
@@ -71,9 +73,16 @@ class VerificationTests(unittest.TestCase):
 
     def test_offline_suite_omission_fails_but_staged_retirement_passes(self):
         self.offline_checkout()
-        self.assert_retirement('tests/test_retired.py',
-                               b'import unittest\nclass Retired(unittest.TestCase):\n def test_pass(self): pass\n',
-                               lambda: verify.offline(self.root))
+        with patch.object(verify, 'check_scorecard'), patch.object(verify, 'run_gallery_suites'):
+            self.assert_retirement('tests/test_retired.py',
+                                   b'import unittest\nclass Retired(unittest.TestCase):\n def test_pass(self): pass\n',
+                                   lambda: verify.offline(self.root))
+
+    def test_gallery_suite_omission_fails_but_staged_retirement_passes(self):
+        self.offline_checkout()
+        self.assert_retirement('sites/anatomy-gallery/app/tests/retired.test.mjs',
+                               b'import test from "node:test"; test("retired", () => {});\n',
+                               lambda: verify.run_gallery_suites(self.root))
 
     def test_transport_omission_fails_but_staged_retirement_passes(self):
         source = next((ROOT / 'transport/manifests').glob('*.json'))
