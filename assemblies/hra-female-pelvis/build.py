@@ -8,13 +8,13 @@ from pathlib import Path
 import sys
 
 ROOT = Path(__file__).resolve().parents[2]
+HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(ROOT))
 from tools.glb import buffer_view_bytes, decode, encode, pack_buffer_view
 from tools.glb_selection import select
 
 STYLE = ROOT / 'models/vagina_hra/exports/context-r02/vagina_hra_same_atlas_context_r02.glb'
 SHA256 = 'c649de4db766ba00020315029c922de1d018061c1a34bd95c850a05255ab3037'
-REVIEW_SELECTIONS = ROOT / 'reviews/teaching-assessments/target-risk/selections.json'
 VAGINA_FILE = 'vagina_teaching_context.glb'
 KEEP = {
     'VH_F_vagina', 'VH_F_cervix', 'VH_F_cervicovaginal_junction', 'VH_F_rectum',
@@ -103,8 +103,12 @@ def build(master, style, bladder):
     return {bladder['file']: bladder_delivery, VAGINA_FILE: vagina_selection(style, master)}
 
 
+def read_bladder_selection():
+    return json.loads((HERE / 'bladder-selection.json').read_text())
+
+
 def read_inputs():
-    bladder = json.loads(REVIEW_SELECTIONS.read_text())['bladder']
+    bladder = read_bladder_selection()
     return (ROOT / bladder['source']).read_bytes(), STYLE.read_bytes(), bladder
 
 

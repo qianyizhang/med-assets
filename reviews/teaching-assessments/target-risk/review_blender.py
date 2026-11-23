@@ -16,11 +16,12 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
 sys.path.insert(0, str(ROOT))
 from tools.glb import decode
+sys.path.insert(0, str(ROOT / 'assemblies/hra-female-pelvis'))
+from build import read_bladder_selection
 
 CONTROL = {
     "breath": ("body/breathing/Breathing_Assembly.blend", "fc68b49ca75d02d50330e9d5b5d5182843e6d0e7ca4d43d665cbde48ac23b841"),
     "heart": ("heart/Cardiac_Atlas_Animated/Heart_Clinical_Animated.glb", "6912d439271c3525230a90fe403d586000e6a66ab37f82bf0419604181e52263"),
-    "bladder": ("models/bladder/exports/hra-female-context-r03/bladder_hra_female_context_r03.glb", "91f04d1c831a61944da116184f389461517587c90c91fd94e199fba1619aa6b9"),
     "parathyroid": ("models/parathyroids/exports/z-localization-r01/parathyroids_native.glb", "b6fbbabfa7efd12b8c377f5bc56193bd81776daab999a8c1ac8286f693b85b45"),
     "lymph": ("models/lymph_node/exports/hra-tissue-layers-r01/lymph-node-tissue-layers.glb", "bf4ffa85c96459f2666949196915244697f3f5e33ebf485482c8223ba1fcb23e"),
     "stomach": ("models/stomach/exports/metadata-cleanup-r01/stomach.glb", "ad0876f37f92945171750d31d9c53165535a697e60a3d2ac8a3f3f78667fdec6"),
@@ -221,9 +222,12 @@ def parathyroid(helper, folder):
 
 
 def bladder(helper, folder):
-    control = check_source("bladder")
+    selection = read_bladder_selection()
+    control = identity(Path(selection["source"]))
+    if control["sha256"] != selection["sha256"]:
+        raise ValueError("Wrong source for bladder")
     candidate = identity(Path(CANDIDATE["bladder"]))
-    retained = json.loads((HERE / "selections.json").read_text())["bladder"]["retain"]
+    retained = selection["retain"]
     focus = {n for n in retained if any(word in n for word in ("_base", "_neck", "trigone", "orifice"))}
     context = set(retained)
     no_dome = {n for n in retained if "_dome" not in n}
@@ -353,7 +357,7 @@ def lymph(helper, folder, candidate):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("family", choices=CONTROL)
+    parser.add_argument("family", choices=(*CONTROL, "bladder"))
     parser.add_argument("output", type=Path)
     parser.add_argument("--fine", action="store_true", help="Try shorter medulla edge contractions")
     args = parser.parse_args(sys.argv[sys.argv.index("--") + 1:])

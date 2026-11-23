@@ -9,11 +9,14 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
 sys.path.insert(0, str(ROOT))
 from tools.glb_selection import select
+sys.path.insert(0, str(ROOT / 'assemblies/hra-female-pelvis'))
+from build import read_bladder_selection
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     selections = json.loads((HERE / "selections.json").read_text())
+    selections["bladder"] = read_bladder_selection()
     parser.add_argument("family", choices=selections)
     parser.add_argument("output", type=Path, help="Fresh output directory")
     args = parser.parse_args()

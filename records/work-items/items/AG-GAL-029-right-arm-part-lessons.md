@@ -21,27 +21,13 @@ tags: gallery, lessons
 | Right elbow | Switch from the joint capsule to the ulnar nerve while retaining the humerus, radius and ulna at the same scale and in the same posteromedial view. Compare the medial epicondyle and olecranon, then identify the nerve beside both. The capsule is partly occluded from that side. The named bone silhouettes stay in place and the two source displays retain their different shading. |
 | Right shoulder | Find the glenoid socket and its labral rim, then switch to the cuff muscles while retaining the scapula. The posterolateral view exposes both the glenoid and scapular spine. The separate posterior and anterior answer panels locate supraspinatus above the spine, infraspinatus and teres minor below it, and subscapularis on the anterior face. Both layers hide the humerus to expose the landmarks. |
 
-The [Gallery lesson configuration](../../../sites/anatomy-gallery/app/src/content/gallery/arm-lesson-layers.json) pins the four exact assessed GLBs and their node selections. Downloads retain their original task and evidence. Delivery adds two stops to the existing Use Cases and six WebPs totaling 117,752 bytes. The [arm replay review](../../../reviews/teaching-assessments/2026-11-23-z-right-arm-replay/README.md), [cuff review](../../../reviews/joints/2026-10-30-rotator-cuff-r01/README.md) and [ulnar review](../../../reviews/peripheral_nerves/2026-10-30-ulnar-elbow-r01/README.md) bind the earlier exact evidence. [Body-donor elbow study](https://link.springer.com/article/10.1007/s00276-024-03327-8) · [OpenStax shoulder orientation](https://openstax.org/books/anatomy-and-physiology-2e/pages/11-5-muscles-of-the-pectoral-girdle-and-upper-limbs)
+The [Gallery lesson configuration](../../../lessons/right-arm-parts/arm-lesson-layers.json) pins the four exact assessed GLBs and their node selections. Downloads retain their original task and evidence. Delivery adds two stops to the existing Use Cases and six WebPs totaling 117,752 bytes. The [arm replay review](../../../reviews/teaching-assessments/2026-11-23-z-right-arm-replay/README.md), [cuff review](../../../reviews/joints/2026-10-30-rotator-cuff-r01/README.md) and [ulnar review](../../../reviews/peripheral_nerves/2026-10-30-ulnar-elbow-r01/README.md) bind the earlier exact evidence. [Body-donor elbow study](https://link.springer.com/article/10.1007/s00276-024-03327-8) · [OpenStax shoulder orientation](https://openstax.org/books/anatomy-and-physiology-2e/pages/11-5-muscles-of-the-pectoral-girdle-and-upper-limbs)
 
 The static atlas surfaces illustrate gross anatomical relationships. The nerve edition omits much of the soft-tissue tunnel. Cuff surface extents do not establish tendon continuity, attachments or motion. Colors distinguish surfaces. [Z-Anatomy and historical BodyParts3D attribution](../../../sources/datasets/z-anatomy/joint-regional-studies/upstream/ATTRIBUTION.md) applies to the source geometry and to the lesson render derivatives.
 
 ## Media replay
 
-Run from the repository root with the four GLBs hydrated. The [render command](../../../lessons/right-arm-parts/render.py) reads the live lesson configuration and verifies the pinned GLB hashes and named selections. It cleanly reimports each GLB, uses the same 4:3 orthographic camera for a stop's two tissue layers, and retains the same world span for the extra shoulder views. The [plate command](../../../lessons/right-arm-parts/plates.py) encodes the native renders and places leaders on the answer figures. Bone, nerve and cuff labels use landmarks from the source reviews. The visible glenoid, labral rim and capsular-edge labels were placed on their clean-import renders.
-
-```sh
-arm_replay="$(mktemp -d)"
-blender --background --factory-startup --disable-autoexec --threads 6 --python-exit-code 1 \
-  --python lessons/right-arm-parts/render.py -- --out "$arm_replay/renders"
-python3 lessons/right-arm-parts/plates.py --renders "$arm_replay/renders" --out "$arm_replay/webp"
-(
-  for arm_image in "$arm_replay"/webp/arm-*.webp; do
-    cmp "$arm_image" "sites/anatomy-gallery/app/src/content/gallery/part-images/${arm_image##*/}" || exit 1
-  done
-)
-```
-
-Two fresh render sets from the final cameras encoded all six files byte for byte using Blender 5.2.3 release candidate (`fab76e95306d`, Cycles CPU), Pillow 11.3.0 with libwebp 1.5.0 and macOS Supplemental Arial. The four unmarked practice views decode at 640 × 480. The labeled elbow and shoulder figures decode at 1290 × 528 and 1940 × 528 respectively. The lead Gallery verification covers local runtime, entry points and media failures.
+Two fresh render sets from the final cameras encoded all six files byte for byte. The [lesson's replay](../../../lessons/right-arm-parts/README.md#rebuild-and-compare) gives the current commands, environment and dimensions.
 
 The campaign lead checked both stops before and after in the ordinary Gallery. Each reference layer and labelled answer decoded, and the live camera returned to the same rotated frame after switching tissues. Missing and same-size corrupt GLBs preserved the reference exercise and supported retry. The six-task browser check also exercised the stills without WebGL. [Shared acceptance check](../../../sites/anatomy-gallery/tools/verify_part_lessons.mjs)
 

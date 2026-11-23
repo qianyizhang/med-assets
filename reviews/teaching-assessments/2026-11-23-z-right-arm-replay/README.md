@@ -58,7 +58,8 @@ asset identities in the [assessments](campaign-assessments.json).
 Run from the repository root with the assessed GLBs hydrated. The
 [renderer](render.py) reads their identities from the assessment and renders the
 six crops. It uses the original joint camera contract and the retained ulnar
-view targets. The [plate script](plates.py) owns the bilingual titles, legend
+view targets with [shared scene setup](../../../lessons/right-arm-parts/arm_scene.py).
+The [plate script](plates.py) owns the bilingual titles, legend
 and projected label positions. Verification checks each produced WebP against
 its recorded byte count and SHA-256.
 

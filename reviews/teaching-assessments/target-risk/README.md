@@ -47,3 +47,5 @@ python3.12 "$review/plates.py" "$scratch" "$scratch/views"
 ```
 
 The two GLB selections are exact repacks with embedded resources. Their readback checks compare every retained buffer view, and their fresh imports compare transforms and evaluated positions. Use the retained provenance and licenses with each export. The parathyroid companion keeps its independently reviewed original identity.
+
+The [shared female HRA pelvis assembly](../../../assemblies/hra-female-pelvis/README.md) owns the bladder selection and the active rebuild for both pelvic outputs. This review retains its original task measurements and figure bindings. The bladder commands above use the assembly's selection to reproduce the reviewed bladder export.

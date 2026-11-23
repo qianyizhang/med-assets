@@ -11,6 +11,8 @@ The [21-part editorial atlas group](../../models/bladder/exports/hra-female-cont
 
 The retained [reproductive r02 edition](../../models/vagina_hra/provenance/context-r02/migration-2026-10-24/README.md) supplies its own normals, materials and export layout. Both selections preserve their reviewed appearance and byte identity. R02 also carries four additional bony landmarks and evidence for its wider historical scope. The separate Workshop junction illustration and male Z-Anatomy outlet keep their own frames and uses. [Bladder source terms](../../models/bladder/ATTRIBUTION.md) · [Reproductive source terms](../../models/vagina_hra/provenance/context-r02/migration-2026-10-24/ATTRIBUTION.md)
 
+The assembly owns the [bladder selection and source identity](bladder-selection.json) and the [seven reproductive parts](build.py). The earlier target review keeps the original geometry measurements, clean-import comparisons and assessment bindings. Its bladder replay reads the assembly selection. [Historical evidence](../../reviews/teaching-assessments/target-risk/README.md)
+
 Rebuild both exact exports from hydrated inputs using Python 3.11+ and a fresh destination. The check compares both rebuilt files against their reviewed payloads, moves one dome vertex 0.10 mm in a disposable model and verifies that both selections reach the same new position. It also rejects an incompatible vertex count. The retained files are read-only during either command.
 
 ```sh

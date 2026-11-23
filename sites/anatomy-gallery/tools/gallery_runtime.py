@@ -213,6 +213,7 @@ def prepare_gallery(site: Path, inputs: Path, target: Path):
             raw = raw.replace(b"from 'three';", f"from '{module}';".encode())
         destination.write_bytes(raw)
     shutil.copyfile(repo / 'docs/guides/asset-quality.md', target / 'rubric.md')
+    shutil.copyfile(repo / 'lessons/right-arm-parts/arm-lesson-layers.json', target / 'arm-lesson-layers.json')
     system_index = repo / 'lessons/body-systems/display/index.json'
     stops = json.loads((repo / 'lessons/body-systems/reviewed-stops.json').read_text())
     systems = json.loads(system_index.read_text())

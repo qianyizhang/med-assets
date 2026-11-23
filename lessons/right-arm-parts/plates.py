@@ -2,12 +2,14 @@
 
 import argparse
 import hashlib
+from io import BytesIO
 import json
 from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
 
 FONT = Path('/System/Library/Fonts/Supplemental/Arial.ttf')
+DELIVERY = Path(__file__).resolve().parents[2] / 'sites/anatomy-gallery/app/src/content/gallery/part-images'
 INK = '#19303a'
 PAPER = '#f5f2ed'
 WIDTH = 640
@@ -83,17 +85,24 @@ def answer(views, renders, projected, font):
     return result
 
 
-def encode(renders, out, font_path):
-    out.mkdir(parents=True, exist_ok=True)
+def encode(renders, out, font_path, *, verify=False):
     font = ImageFont.truetype(str(font_path), 29)
     projected = json.loads((renders / 'projections.json').read_text())
     images = {key: load_view(renders, key) for key in PRACTICE}
     images.update({f'{key}-answer': answer(views, renders, projected, font) for key, views in ANSWERS.items()})
+    outputs = {}
     for key, image in images.items():
-        path = out / f'arm-{key}.webp'
-        image.save(path, format='WEBP', quality=90, method=6)
-        data = path.read_bytes()
-        print(f'{hashlib.sha256(data).hexdigest()}  {len(data):7}  {path.name}')
+        buffer = BytesIO()
+        image.save(buffer, format='WEBP', quality=90, method=6)
+        name = f'arm-{key}.webp'
+        data = buffer.getvalue()
+        if verify and data != (DELIVERY / name).read_bytes():
+            raise ValueError(f'Plate differs from the retained Gallery delivery: {name}')
+        outputs[name] = data
+    out.mkdir(parents=True, exist_ok=True)
+    for name, data in outputs.items():
+        (out / name).write_bytes(data)
+        print(f'{hashlib.sha256(data).hexdigest()}  {len(data):7}  {name}')
 
 
 if __name__ == '__main__':
@@ -101,5 +110,6 @@ if __name__ == '__main__':
     parser.add_argument('--renders', type=Path, required=True)
     parser.add_argument('--out', type=Path, required=True)
     parser.add_argument('--font', type=Path, default=FONT)
+    parser.add_argument('--verify', action='store_true', help='Compare all six plates to the retained Gallery files')
     arguments = parser.parse_args()
-    encode(arguments.renders, arguments.out, arguments.font)
+    encode(arguments.renders, arguments.out, arguments.font, verify=arguments.verify)
