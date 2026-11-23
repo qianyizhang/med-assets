@@ -2,7 +2,7 @@
 
 Anatomy Gallery uses the existing Site and serves one HTML application. A page link identifies where a visitor was working. An asset URL identifies exact bytes. An API response supplies data. Preserve these three contracts independently when adding a collection or migrating a host.
 
-The build selects the candidate or the last approved public release. Candidate routes work at any origin serving that build. The published selection reproduces the recorded v10 source and its delivery declarations. [Build and preview](../../sites/anatomy-gallery/README.md#restore-and-build-locally)
+The build selects the candidate or the last approved public release. The client selects the same lessons at any origin serving that build. The loopback preview supplies additional model, evidence and receipt routes. At `aa2d63c` the candidate Worker uses the public delivery manifest, so some model URLs used in those lessons return 404 through the Worker. The published selection reproduces the recorded v10 source and its delivery declarations. [Build and preview](../../sites/anatomy-gallery/README.md#restore-and-build-locally)
 
 Both selections serve the exact tracheal cutaway GLB. In v10 One Breath opens its storyboard. The candidate adds interactive tracheal Stage presets and retains the storyboard. A v10 visitor can still use the adrenal Stage.
 
@@ -39,15 +39,15 @@ Open the fragment on the Site root, for example `/#/library/s1233-adrenal/r05`. 
 | `/#/library/cardiac-animated/fitted-canonical` | Inspect the identity and provenance of the unavailable fitted Site animation. The original authored animation variants are under `…/repository-source`. |
 | `/#/compare/salivary-native-r02` | Inspect the rejected original-source crossing and the scoped r02 review. |
 | `/#/library/salivary_glands/z-native-scoped-r02` | Get the exact glands-and-parotid-ducts and same-source context exports. The family route also opens this record. |
-| `/#/use-cases/airway` | Select the nasal airspace, trachea or bronchial fork. It is also reachable from Respiratory Body Systems. The loopback bronchial card opens the first-fork lesson. |
-| `/#/use-cases/airway/first-fork` | Loopback lesson with a 3D view of first-fork fairing r15, an exact Library link and the saved original r13 comparison. |
-| `/#/library/bronchial_tree/distal-sampling-r14` | Retained exact r14 model and download. The local family now opens `…/first-fork-fairing-r15`. `…/authored-central-fairing-r13` opens the original export and its assessment. |
+| `/#/use-cases/airway` | Select the nasal airspace, trachea or bronchial fork. It is also reachable from Respiratory Body Systems. The candidate bronchial card opens the first-fork lesson. |
+| `/#/use-cases/airway/first-fork` | Candidate lesson with a 3D view of first-fork fairing r15, an exact Library link and the saved original r13 comparison. |
+| `/#/library/bronchial_tree/distal-sampling-r14` | Retained exact r14 model and download. The candidate family opens `…/first-fork-fairing-r15`. `…/authored-central-fairing-r13` opens the original export and its assessment. |
 | `/#/compare/nasal-airspace-r01`, `…/trachea-r06`, `…/bronchial-r13`, `…/trachea-r05` | Read the revision-specific findings and open the associated exact Library record. The r05 cast and r06 shell have separate evidence and exports. |
 | `/#/compare/adrenal-r04-r05` | Open the blind review. A shared comparison records `finish=tissue\|neutral` and `order=ab\|ba` in the fragment query. Both witnesses use the recorded camera. The findings and scores belong to the saved review. |
 | `/#/compare/adrenals__source-candidate-01` | Read the single-export BodyParts3D review, inspect the exact retained WebP witnesses and return to the same Library family. An unavailable witness leaves its caption, the other evidence, and the links to the review owner and family available. |
 | `/#/stage/adrenal-v1?view=<encoded JSON>` | Restore a pinned scene recipe and exact export. An optional encoded `from` carries a supported referring Library revision, lesson stop or comparison with its finish and side order. Bare `/#/stage` opens the authored starting view and also accepts a local GLB. |
 | `/#/stage/cardiac-exterior-v1?view=<encoded JSON>` | Restore the candidate-only static r02 model, selected structure and camera. An optional encoded `from` returns to its exact Library record. |
-| `/#/stage/bronchial-first-fork-v1?view=<encoded JSON>` | Restore the candidate-only r14 model with its shared camera and appearance. The optional encoded `from` returns to the first-fork lesson or exact Library record. |
+| `/#/stage/bronchial-first-fork-v1?view=<encoded JSON>`, `…/bronchial-first-fork-v2?view=<encoded JSON>` | Restore the candidate r14 model with v1 or r15 with v2, including its shared camera and appearance. The optional encoded `from` returns to the first-fork lesson or exact Library record. |
 | `/rubric` | Stable public rubric address. GET or HEAD returns 302 to `/#/rubric`. The build reads the [canonical rubric](../guides/asset-quality.md). |
 | `/#/archive/kidney-outline-trial` | Compare the HRA female left-kidney exterior and isolated shapes. Start with `view=exterior\|internal\|paired`, `outline=0\|1` and `lang=en\|zh` in the fragment query. |
 | `/#/archive/dental-video-treatments`, `…/hyperframes`, `…/remotion`, `…/manimgl`, `…/comparison` | Play the four exact reviewed exports with shared narration, captions and the original study records. |
