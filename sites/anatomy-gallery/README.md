@@ -75,7 +75,7 @@ python3.12 sites/anatomy-gallery/tools/bootstrap.py --selection candidate \
 node sites/anatomy-gallery/tools/preview_gallery.mjs sites/anatomy-gallery/.local/gallery-candidate 8858
 ```
 
-Use `--offline` for subsequent fresh outputs with the pinned viewer files, npm packages and uv wheels already available. Bootstrap verifies the local framework commit, tree, runtime manifest, Site bindings and seed identity on each run. The first run can fetch the pinned Three.js files and MIT license, install the lockfile's npm packages, and fetch the exact Pillow versions. A build appears at `--output` after protected runtime verification and client compilation.
+Use `--offline` for subsequent fresh outputs with the pinned viewer files, npm packages and uv wheels already available. Bootstrap verifies the local framework commit, tree, runtime manifest, Site bindings and seed identity on each run. The first run can fetch the pinned Three.js files and MIT license, install the lockfile's npm packages, and fetch the exact Pillow versions. A build appears at `--output` after protected runtime verification and client compilation. For byte-for-byte rehearsal comparisons, prefix the bootstrap command with `env -u CODEX_SESSION_ID -u CODEX_THREAD_ID`. The pinned framework embeds a local chat link in the HTML when either variable contains a valid thread ID.
 
 - **Framework and seed** · Bootstrap can use the existing `.local/publication` checkout and `app/src/data.json`, or recover missing inputs from the verified ZIP into `.local/bootstrap`. Supply another pinned checkout with `--source` and an exact seed or immutable snapshot with `--seed`. The restored Model Survey seed keeps its recorded bytes. The assembled app uses the Anatomy Gallery title.
 - **Viewer inputs** · Bootstrap verifies the sizes and hashes in [the viewer lock](viewer.lock.json). Use `--viewer-inputs` to point at another copy. To recover from a corrupt cache, restore into a fresh path with [the viewer command](tools/gallery_runtime.py) and use that directory.
@@ -160,8 +160,9 @@ Pillow, Blender, Sharp and Playwright/browser are recipe-specific dependencies.
 `MED_ASSETS_REPO` selects another checkout; optional host overrides are
 `MODEL_SURVEY_NODE`, `MODEL_SURVEY_SHARP_MODULE`,
 `MODEL_SURVEY_PLAYWRIGHT_MODULE`, `MODEL_SURVEY_BROWSER` and
-`MODEL_SURVEY_PREVIEW_URL`. The Gallery browser runner writes one receipt and capture directory per case under
-`.artifacts/gallery-verification/` by default. Set `MODEL_SURVEY_CAPTURE_DIR` for a dedicated run. Set `MODEL_SURVEY_APP_DIR` to the preview's generated app
+`MODEL_SURVEY_PREVIEW_URL`. The Gallery browser runner prints results and saves
+captures and any case receipts in case directories under `.artifacts/gallery-verification/`.
+Set `MODEL_SURVEY_CAPTURE_DIR` for a dedicated run. Set `MODEL_SURVEY_APP_DIR` to the preview's generated app
 directory when it differs from `.local/gallery-candidate`. The Library verifier compares the built
 catalog with the pinned AG-GAL-018 Git baseline and checks exact downloads and teaching evidence.
 The build assembles the dated pilot, owner-held `reviews/<asset>/<review>/teaching-assessment.json` files and the [current teaching assessments](../../reviews/teaching-assessments/current-assessments.json). Each current record pins its base assessment and carries accepted changes and reviewer attribution. The [maintained selections](../../docs/gallery/maintained-selections.json) bind each export and stable learner task ID to that accepted record. The [shared resolver](../../lib/med_assets/teaching.py) supplies those records to the Gallery and [scorecard](../../records/campaigns/teaching-asset-review/current-coverage.md). Run `python3.12 tools/maintained_teaching.py` from the repository root to print the generated Markdown to stdout. Its tracked destination is `docs/gallery/maintained-models.md`. Pass `--check` to validate all accepted tasks and verify the register and scorecard. Use the [promotion workflow](../../docs/guides/teaching-assessments.md) to update the accepted state.
