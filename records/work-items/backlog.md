@@ -25,6 +25,8 @@ The [collection ledger](items/AG-GAL-013-reconcile-gallery-coverage.md#collectio
 
 ## Teaching asset review
 
+The [maintained-state campaign](../campaigns/maintained-state/README.md) owns portable verification, bounded uploads, accepted assessment selection, reproducible Gallery releases and the arm and pelvic recipe promotions.
+
 The [exemption review](../campaigns/teaching-exemption-recheck.md) owns the six remaining form follow-ups. The [current scorecard](../campaigns/teaching-asset-review/current-coverage.md) counts shared models once and scores their selected lesson files individually.
 
 ## Shared Gallery lessons and models
