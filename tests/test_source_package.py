@@ -64,12 +64,15 @@ class SourcePackageTests(unittest.TestCase):
 
     def test_package_clis_reject_retired_and_unknown_options(self):
         root = Path(__file__).resolve().parents[1]
-        for folder in ('bp3d-head-studies', 'bp3d-body-studies', 'bp3d_bowels',
-                       'joints', 'hra_lung', 'z_small_studies'):
+        commands = [('tests/' + folder + '/verify_bounded.py',)
+                    for folder in ('bp3d-head-studies', 'bp3d-body-studies', 'bp3d_bowels',
+                                   'hra_lung', 'z_small_studies')]
+        commands.append(('tools/verify_source_package.py', 'joints'))
+        for command in commands:
             for option in ('--strict-package', '--unexpected'):
-                with self.subTest(package=folder, option=option):
+                with self.subTest(command=command, option=option):
                     result = subprocess.run(
-                        [sys.executable, str(root / 'tests' / folder / 'verify_bounded.py'), option],
+                        [sys.executable, str(root / command[0]), *command[1:], option],
                         capture_output=True, text=True)
                     self.assertEqual(result.returncode, 2, result.stdout + result.stderr)
                     self.assertIn('unrecognized arguments: ' + option, result.stderr)

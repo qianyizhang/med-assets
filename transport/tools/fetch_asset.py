@@ -16,9 +16,8 @@ import tempfile
 import urllib.parse
 import urllib.request
 
-from delivery_catalog import DELIVERY_INDEX, current_paths, source_path
-from med_assets.artifacts import install_verified
-from lfs_transport import parse_pointer
+from delivery_catalog import DELIVERY_INDEX, current_paths
+from med_assets.artifacts import install_verified_bytes, parse_pointer, source_path
 
 ROOT = Path(__file__).resolve().parents[2]
 ASSET_ORIGIN = 'https://med-assets-model-survey.landy123007.chatgpt.site'
@@ -175,10 +174,8 @@ def restore_compressed(target: Path, digest: str, size: int) -> bool:
         return False
     if packed.absolute() != packed.resolve() or target.is_symlink():
         raise ValueError('Compressed hydration must not traverse symlinks')
-    with gzip.open(packed, 'rb') as stream, tempfile.NamedTemporaryFile(dir=target.parent) as staged:
-        staged.write(stream.read(size + 1))
-        staged.flush()
-        install_verified(Path(staged.name), target, {'path': target.name, 'sha256': digest, 'bytes': size})
+    with gzip.open(packed, 'rb') as stream:
+        install_verified_bytes(stream.read(size + 1), target, {'path': target.name, 'sha256': digest, 'bytes': size})
     return True
 
 

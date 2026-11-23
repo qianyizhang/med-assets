@@ -4,6 +4,7 @@ import os
 from pathlib import Path, PurePosixPath
 import re
 import stat
+from tempfile import NamedTemporaryFile
 
 HEX64 = re.compile(r'[0-9a-f]{64}')
 POINTER_PREFIX = b'version https://git-lfs.github.com/spec/'
@@ -113,3 +114,11 @@ def install_verified(staged: Path, destination: Path, claim, *, replace=False) -
         verify_payload(destination, claim)
         return False
     return True
+
+
+def install_verified_bytes(data: bytes, destination: Path, claim) -> bool:
+    """Stage bytes on the destination volume and use the same verified install."""
+    with NamedTemporaryFile(dir=destination.parent) as staged:
+        staged.write(data)
+        staged.flush()
+        return install_verified(Path(staged.name), destination, claim)

@@ -265,7 +265,7 @@ class FakeDrive:
                 'parent_ids': [record['parent']]}
 
 
-class SerializedSyncTests(TransferFixture):
+class SyncFixture(TransferFixture):
     def setUp(self):
         super().setUp()
         self.inventory = b.expected_tree(self.repo, self.commit)
@@ -307,6 +307,27 @@ class SerializedSyncTests(TransferFixture):
         self.drive.mutate(request)
         return sync.observe_manifest(file_id, self.drive.files[file_id]['raw'])
 
+    def write_journal(self, state):
+        t.atomic_local(self.sync_work / 'journal.json', t.encoded({
+            'state': state, 'sha256': hashlib.sha256(t.encoded(state)).hexdigest()}))
+
+    def wave(self, sync):
+        sync.reserve_wave([self.stage_for(sync, path) for path in sync.next_paths()])
+        outcomes = []
+        for item in sync.dispatch_wave():
+            operation = item['operationId']
+            result = self.drive.mutate(item['request'])
+            file_id = t.confirmed_upload(result)
+            downloaded = self.root / ('wave-' + file_id)
+            downloaded.write_bytes(self.drive.files[file_id]['raw'])
+            job = sync.state['lanes'][operation]['job']
+            receipt = t.verify_readback(job, file_id, downloaded, self.drive.meta(file_id),
+                self.drive.meta(file_id), '2026-01-02T03:04:05Z', exclusive_writer=True)
+            outcomes.append({'operationId': operation, 'result': result, 'receipt': receipt})
+        return outcomes
+
+
+class SerializedSyncTests(SyncFixture):
     def test_explicit_agreement_and_concurrent_local_run_rejection(self):
         with self.assertRaises(t.TransferBlocked):
             t.SerializedSync(self.sync_work, self.inventory, 'fixture_folder')
@@ -520,21 +541,7 @@ class SerializedSyncTests(TransferFixture):
         self.assertFalse(t.capabilities(True)['atomicRemoteCAS'])
 
 
-class TwoLaneTests(TransferFixture):
-    def setUp(self):
-        super().setUp()
-        self.inventory = b.expected_tree(self.repo, self.commit)
-        self.sync_work = self.root / 'sync-controller'
-        self.drive = FakeDrive()
-        self.drive.files['fixture_manifest'] = {'name': 'fixture_current.json',
-            'parent': 'fixture_folder', 'raw': self.manifest_path.read_bytes()}
-        self.counter = 0
-
-    controller = SerializedSyncTests.controller
-    stage_for = SerializedSyncTests.stage_for
-    send = SerializedSyncTests.send
-    flush = SerializedSyncTests.flush
-
+class TwoLaneTests(SyncFixture):
     def controller2(self):
         raw = self.drive.files['fixture_manifest']['raw']
         return t.TwoLaneSync(self.sync_work, self.inventory, 'fixture_folder',
@@ -542,26 +549,7 @@ class TwoLaneTests(TransferFixture):
 
     def migrate(self):
         with self.controller() as sync:
-            state = t.TwoLaneSync.migration_proposal(sync.state, self.inventory)
-            t.atomic_local(self.sync_work / 'journal.json', t.encoded({
-                'state': state, 'sha256': hashlib.sha256(t.encoded(state)).hexdigest()}))
-
-    def wave(self, sync):
-        prepared = [self.stage_for(sync, p) for p in sync.next_paths()]
-        sync.reserve_wave(prepared)
-        requests = sync.dispatch_wave()
-        outcomes = []
-        for item in requests:
-            op = item['operationId']
-            result = self.drive.mutate(item['request'])
-            file_id = t.confirmed_upload(result)
-            downloaded = self.root / ('wave-' + file_id)
-            downloaded.write_bytes(self.drive.files[file_id]['raw'])
-            job = sync.state['lanes'][op]['job']
-            receipt = t.verify_readback(job, file_id, downloaded, self.drive.meta(file_id),
-                self.drive.meta(file_id), '2026-01-02T03:04:05Z', exclusive_writer=True)
-            outcomes.append({'operationId': op, 'result': result, 'receipt': receipt})
-        return outcomes
+            self.write_journal(t.TwoLaneSync.migration_proposal(sync.state, self.inventory))
 
     def test_two_reversed_waves_keep_one_batch_and_complete_all_mappings(self):
         self.migrate()
@@ -703,9 +691,7 @@ class TwoLaneTests(TransferFixture):
             with self.assertRaises(t.TransferBlocked):
                 action()
         for changed in ({'extra': True}, {'phase': 'idle'}, {'schemaVersion': 3}):
-            tampered = dict(state, **changed)
-            t.atomic_local(self.sync_work / 'journal.json', t.encoded({
-                'state': tampered, 'sha256': hashlib.sha256(t.encoded(tampered)).hexdigest()}))
+            self.write_journal(dict(state, **changed))
             with self.assertRaises(t.TransferBlocked):
                 with self.controller2():
                     pass
@@ -756,12 +742,7 @@ class TwoLaneTests(TransferFixture):
 
 
 
-class PayloadPoolTests(TransferFixture):
-    controller = SerializedSyncTests.controller
-    stage_for = SerializedSyncTests.stage_for
-    flush = SerializedSyncTests.flush
-    wave = TwoLaneTests.wave
-
+class PayloadPoolTests(SyncFixture):
     def setUp(self):
         super().setUp()
         for i in range(8):
@@ -771,18 +752,11 @@ class PayloadPoolTests(TransferFixture):
         tree = self.git('write-tree').decode().strip()
         self.commit = self.git('commit-tree', tree, data=b'pool fixture\n').decode().strip()
         self.inventory = b.expected_tree(self.repo, self.commit)
-        self.sync_work = self.root / 'pool-controller'
-        self.drive = FakeDrive()
-        self.drive.files['fixture_manifest'] = {'name': 'fixture_current.json',
-            'parent': 'fixture_folder', 'raw': self.manifest_path.read_bytes()}
-        self.counter = 0
 
     def migrate(self, maximum):
         with self.controller() as sync:
             v2 = t.TwoLaneSync.migration_proposal(sync.state, self.inventory)
-            state = t.PayloadPoolSync.migration_proposal(v2, self.inventory, maximum)
-            t.atomic_local(self.sync_work / 'journal.json', t.encoded({
-                'state': state, 'sha256': hashlib.sha256(t.encoded(state)).hexdigest()}))
+            self.write_journal(t.PayloadPoolSync.migration_proposal(v2, self.inventory, maximum))
 
     def pool(self):
         return t.PayloadPoolSync(self.sync_work, self.inventory, 'fixture_folder', exclusive_writer=True)
@@ -857,7 +831,7 @@ class PayloadPoolTests(TransferFixture):
     def test_pool_strict_downgrade_fence_and_idle_v2_migration_preserves_receipts(self):
         with self.controller() as sync:
             # Produce a real staged receipt through the reviewed v1 handshake.
-            SerializedSyncTests.send(self, sync, 'payload.bin')
+            self.send(sync, 'payload.bin')
             self.flush(sync)
             v2 = t.TwoLaneSync.migration_proposal(sync.state, self.inventory)
             target = dict(self.inventory, commit='c' * 40)
@@ -878,8 +852,7 @@ class PayloadPoolTests(TransferFixture):
         with self.assertRaisesRegex(t.TransferBlocked, 'Unsupported journal schema'):
             with t.TwoLaneSync(self.sync_work, self.inventory, 'fixture_folder', exclusive_writer=True):pass
         for changes in ({'maxPayloadLanes': 16}, {'maxPayloadLanes': True}, {'phase': 'v2:idle'}, {'extra': 1}):
-            altered = dict(state, **changes)
-            t.atomic_local(self.sync_work / 'journal.json', t.encoded({'state': altered, 'sha256': hashlib.sha256(t.encoded(altered)).hexdigest()}))
+            self.write_journal(dict(state, **changes))
             with self.assertRaises(t.TransferBlocked):
                 with self.pool():pass
 

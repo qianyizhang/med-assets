@@ -5,14 +5,15 @@ import json
 from pathlib import Path
 import stat
 import sys
-import tempfile
 from urllib.parse import urlencode
 from urllib.request import HTTPRedirectHandler, Request, build_opener
 from zipfile import ZipFile
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / 'lib'))
-from med_assets.artifacts import HEX64, install_verified, repo_file, source_path, unique_keys, verify_bytes, verify_payload
+from med_assets.artifacts import (
+    HEX64, install_verified_bytes, repo_file, source_path, unique_keys, verify_bytes, verify_payload,
+)
 
 CATALOG = ROOT / "transport/collection-archives.json"
 ENDPOINT = "https://r2-object-library.landy123007.chatgpt.site/download"
@@ -108,10 +109,7 @@ def restore(row, root, local_zip=None, *, subset=None, repo=ROOT):
             raise ValueError('No payloads match the selected collection or subset')
         for path, identity in pending:
             path.parent.mkdir(parents=True, exist_ok=True)
-            with tempfile.NamedTemporaryFile(dir=path.parent) as staged:
-                staged.write(archive.read(identity['path']))
-                staged.flush()
-                install_verified(Path(staged.name), path, identity)
+            install_verified_bytes(archive.read(identity['path']), path, identity)
     return len(pending)
 
 

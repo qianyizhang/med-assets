@@ -35,7 +35,7 @@ PAYLOAD_CHECKS = (
     ('tests/bp3d-head-studies/verify_bounded.py',),
     ('tests/bp3d-body-studies/verify_bounded.py',),
     ('tests/bp3d_bowels/verify_bounded.py',),
-    ('tests/joints/verify_bounded.py',),
+    ('tools/verify_source_package.py', 'joints'),
     ('tools/verify_source_package.py', 'muscle'),
     ('tools/verify_source_package.py', 'breasts_hra'),
     ('tests/hra_lung/verify_bounded.py',),

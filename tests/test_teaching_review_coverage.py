@@ -24,7 +24,7 @@ from med_assets.teaching import (
     CurrentTeaching, assessment_digest, render_register, render_scorecard,
 )
 from med_assets import teaching_promotion
-from med_assets.artifacts import install_verified, verify_payload
+from med_assets.artifacts import install_verified, install_verified_bytes, verify_payload
 from teaching_fixture import install_assessments, write_fixture
 
 
@@ -624,20 +624,25 @@ class TeachingPromotionTests(unittest.TestCase):
         claim = self.claim("models/staged.glb", raw)
         staged = self.repo / claim["path"]
         target = self.repo / "models/restored.glb"
-        target.write_text(f"version https://git-lfs.github.com/spec/v1\noid sha256:{claim['sha256']}\nsize {len(raw)}\n")
-        self.assertEqual(declared_identity(self.repo, "models/restored.glb"), (claim["sha256"], len(raw)))
-        with self.assertRaisesRegex(ValueError, "Unresolved LFS pointer"):
-            verify_payload(target, claim)
-        with self.assertRaisesRegex(ValueError, "Unresolved LFS pointer"):
-            install_verified(staged, target, claim)
-        target.unlink()
-        target.symlink_to(staged)
-        with self.assertRaisesRegex(ValueError, "Linked artifact path"):
-            install_verified(staged, target, claim)
-        target.unlink()
-        self.assertTrue(install_verified(staged, target, claim))
-        self.assertFalse(install_verified(staged, target, claim))
-        self.assertEqual(target.read_bytes(), raw)
+        original_paths = set(target.parent.iterdir())
+        for install, source in ((install_verified, staged), (install_verified_bytes, raw)):
+            with self.subTest(install=install.__name__):
+                target.write_text(f"version https://git-lfs.github.com/spec/v1\noid sha256:{claim['sha256']}\nsize {len(raw)}\n")
+                self.assertEqual(declared_identity(self.repo, "models/restored.glb"), (claim["sha256"], len(raw)))
+                with self.assertRaisesRegex(ValueError, "Unresolved LFS pointer"):
+                    verify_payload(target, claim)
+                with self.assertRaisesRegex(ValueError, "Unresolved LFS pointer"):
+                    install(source, target, claim)
+                target.unlink()
+                target.symlink_to(staged)
+                with self.assertRaisesRegex(ValueError, "Linked artifact path"):
+                    install(source, target, claim)
+                target.unlink()
+                self.assertTrue(install(source, target, claim))
+                self.assertFalse(install(source, target, claim))
+                self.assertEqual(target.read_bytes(), raw)
+                target.unlink()
+                self.assertEqual(set(target.parent.iterdir()), original_paths)
 
     def test_concurrent_apply_serializes_and_reuses_the_result(self):
         row, review = self.replacement_review()

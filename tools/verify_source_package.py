@@ -7,7 +7,7 @@ from pathlib import Path, PurePosixPath
 
 from glb import decode
 
-PACKAGES = ('muscle', 'breasts_hra')
+PACKAGES = ('muscle', 'breasts_hra', 'joints')
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -89,9 +89,11 @@ def verify_studies(root, review, check_study=None):
 
 def verify(root, package):
     require(package in PACKAGES, 'Unknown source package: ' + package)
-    review = root / 'reviews' / package / '2026-10-24-bounded-migration'
-    files = PackageFiles(root, str(review.relative_to(root)) + '/FILE-HASHES.json')
-    manifest = files.json(str(review.relative_to(root)) + '/transport-manifest.json')
+    review = f'reviews/{package}/2026-10-24-bounded-migration'
+    if package == 'joints':
+        return verify_studies(root, review)
+    files = PackageFiles(root, review + '/FILE-HASHES.json')
+    manifest = files.json(review + '/transport-manifest.json')
     record = files.json(manifest['reviewRecord'])
     source = files.json(manifest['sourceMap'])
     transport = manifest['transport']

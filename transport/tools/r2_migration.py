@@ -14,8 +14,8 @@ import stat
 import subprocess
 import urllib.parse
 
-from delivery_catalog import DELIVERY_INDEX, assets_by_path, current_paths, source_path
-from lfs_transport import parse_pointer
+from delivery_catalog import DELIVERY_INDEX, assets_by_path, current_paths
+from med_assets.artifacts import parse_pointer, source_path
 
 ROOT = Path(__file__).resolve().parents[2]
 MAX_SELECTION = 32

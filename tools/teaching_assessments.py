@@ -11,7 +11,7 @@ from typing import NamedTuple
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "lib"))
-from med_assets.artifacts import install_verified, verify_payload
+from med_assets.artifacts import install_verified_bytes, verify_payload
 from med_assets.teaching import CurrentTeaching, assessment_digest
 
 
@@ -221,8 +221,6 @@ def target_round(repo, rows, paths, review, *, reopened=False):
 
 def collect_candidates(repo, directories):
     """Install only reviewed recipe outputs into the loopback preview's content store."""
-    from tempfile import NamedTemporaryFile
-
     repo = repo.resolve()
     current = CurrentTeaching(repo)
     maintained = current.maintained_exports()
@@ -258,13 +256,10 @@ def collect_candidates(repo, directories):
             target = destination / (digest + '.glb')
             if len(raw) != wanted[digest]['bytes']:
                 raise ValueError(f'Candidate size differs: {path}')
-            with NamedTemporaryFile(dir=destination) as stage:
-                stage.write(raw)
-                stage.flush()
-                try:
-                    install_verified(Path(stage.name), target, wanted[digest])
-                except ValueError as error:
-                    raise ValueError(f'Existing candidate differs: {target}') from error
+            try:
+                install_verified_bytes(raw, target, wanted[digest])
+            except ValueError as error:
+                raise ValueError(f'Existing candidate differs: {target}') from error
             pending.remove(digest)
     return len(wanted) - len(pending), sorted(pending)
 

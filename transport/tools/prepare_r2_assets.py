@@ -17,7 +17,10 @@ def prepare(app: Path, output: Path, site_url: str) -> dict:
     snapshot = app / 'src/data.json'
     index = app / 'src/content/assets/delivery-index.json'
     manifest = json.loads(index.read_text())
-    originals = {item['sha256']: item for item in manifest['assets']}
+    assets = manifest['assets']
+    by_digest = {}
+    for asset in assets:
+        by_digest.setdefault(asset['sha256'], []).append(asset)
     images = {}
 
     def replace(value):
@@ -38,10 +41,22 @@ def prepare(app: Path, output: Path, site_url: str) -> dict:
             digest = hashlib.sha256(data).hexdigest()
             extension, media = extensions[prefix]
             name = 'preview.' + extension
-            images[digest] = data
-            originals.setdefault(digest, {'name': name, 'sha256': digest, 'bytes': len(data),
-                'mediaType': media, 'source': site_url,
-                'attribution': 'Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license.'})
+            if images.setdefault(digest, data) != data:
+                raise ValueError(f'Conflicting preview bytes for {digest}')
+            if digest in by_digest:
+                existing = by_digest[digest]
+                if any(type(asset['bytes']) is not int or asset['bytes'] != len(data) for asset in existing):
+                    raise ValueError(f'Conflicting delivery size for preview {digest}')
+                names = [asset['name'] for asset in existing if asset['mediaType'] == media]
+                if not names:
+                    raise ValueError(f'No published image route matches the preview format for {digest}')
+                if name not in names:
+                    name = names[0]
+            else:
+                asset = {'name': name, 'sha256': digest, 'bytes': len(data), 'mediaType': media, 'source': site_url,
+                         'attribution': 'Survey preview. Preserve the source-specific provenance, notices and quality limits in the corresponding report row; no new blanket license.'}
+                assets.append(asset)
+                by_digest[digest] = [asset]
             return site_url + '/assets/' + digest + '/' + name
         return value
 
@@ -49,7 +64,6 @@ def prepare(app: Path, output: Path, site_url: str) -> dict:
     output.mkdir(parents=True, exist_ok=False)
     for digest, payload in images.items():
         (output / digest).write_bytes(payload)
-    manifest['assets'] = list(originals.values())
     index.write_text(json.dumps(manifest, indent=2) + '\n')
     snapshot.write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n')
     return {'preparedObjects': len(images), 'preparedBytes': sum(map(len, images.values())),
