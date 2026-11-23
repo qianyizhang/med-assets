@@ -6,8 +6,8 @@ import hashlib
 import json
 from pathlib import Path
 import sys
-sys.path.insert(0, str(Path(__file__).resolve().parents[4]))
-from tools.glb import decode as decode_glb, encode as encode_glb
+sys.path.insert(0, str(Path(__file__).resolve().parents[4] / 'lib'))
+from med_assets.glb import accessor_view as accessor, decode_single_buffer as unpack, encode as encode_glb
 
 BASELINE_SHA256 = '457b08b1edab5fc39db3b49e09635091721847e06262b7cb937fd006223c6750'
 BASELINE_BYTES = 10054784
@@ -28,24 +28,8 @@ def sha(data):
     return hashlib.sha256(data).hexdigest()
 
 
-def unpack(raw):
-    doc, blob = decode_glb(raw)
-    require(doc['buffers'] == [{'byteLength': len(blob)}], 'Expected one embedded buffer')
-    return doc, blob
-
-
 def pack(doc, blob):
     return encode_glb(doc, blob, pad_binary=False)
-
-
-def accessor(doc, blob, index):
-    """Return decoded layout metadata and referenced bytes for this pinned layout."""
-    a = copy.deepcopy(doc['accessors'][index])
-    view = copy.deepcopy(doc['bufferViews'][a.pop('bufferView')])
-    start = view.pop('byteOffset', 0)
-    length = view.pop('byteLength')
-    require(view.pop('buffer') == 0 and 0 <= start < start + length <= len(blob), 'Bad view range')
-    return a, view, blob[start:start + length]
 
 
 def node_signature(doc, blob, node):

@@ -6,6 +6,7 @@ import unittest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from tools.glb import buffer_view_bytes, decode, encode, pack_buffer_view
+from med_assets.glb import accessor_view, decode_single_buffer
 
 
 def container(json_bytes=b'{}  ', binary=b'abcd', *, kinds=(0x4E4F534A, 0x004E4942)):
@@ -87,9 +88,15 @@ class GLBTests(unittest.TestCase):
             with self.subTest(value=value), self.assertRaises(ValueError):
                 decode(value)
 
-    def test_leaves_buffer_and_accessor_policy_to_asset(self):
+    def test_single_buffer_reader_requires_the_exact_embedded_size(self):
         document = {'buffers': [{'uri': 'source.bin', 'byteLength': 4}]}
         self.assertEqual(decode(encode(document, b'')), (document, b''))
+        with self.assertRaisesRegex(ValueError, 'Expected one embedded buffer'):
+            decode_single_buffer(encode(document, b'abcd'))
+        document['buffers'] = [{'byteLength': 4}]
+        self.assertEqual(decode_single_buffer(encode(document, b'abcd')), (document, b'abcd'))
+        with self.assertRaisesRegex(ValueError, 'Expected one embedded buffer'):
+            decode_single_buffer(encode(document, b''))
 
     def test_preserves_view_metadata_while_packing_at_aligned_offsets(self):
         source = {'buffer': 0, 'byteLength': 3, 'byteOffset': 1, 'name': 'original'}
@@ -105,3 +112,6 @@ class GLBTests(unittest.TestCase):
         for changed in ({'buffer': 1}, {'byteOffset': -1}, {'byteOffset': 3}, {'byteLength': -1}):
             with self.subTest(changed=changed), self.assertRaisesRegex(ValueError, 'Invalid embedded buffer view'):
                 buffer_view_bytes(b'1234', {**valid, **changed})
+        with self.assertRaisesRegex(ValueError, 'Empty accessor buffer view'):
+            accessor_view({'accessors': [{'bufferView': 0}], 'bufferViews': [{'buffer': 0, 'byteLength': 0}]},
+                          b'1234', 0)

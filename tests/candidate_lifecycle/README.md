@@ -7,7 +7,7 @@ resources and revokes document-owned downloads once. Startup failure preserves
 verified downloads and language-switchable static fallback until unload.
 
 The historical exact-v40 applicator and its application-only tests are retired.
-The v40 fixture remains for the unapplied pharynx recipe and camera failure witness.
+The [v40 fixture](../candidate_camera/fixtures/candidate-v40.js) supplies the camera failure witness.
 Current source identities are owned by
 [`tests/viewer/source.json`](../viewer/source.json).
 

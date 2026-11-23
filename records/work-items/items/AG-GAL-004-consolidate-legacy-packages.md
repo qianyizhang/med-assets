@@ -22,7 +22,7 @@ Put the Anatomy Verification fixtures with their test consumers and the abdomen 
 
 ## Acceptance Criteria
 
-- [x] Keep the pinned v50 inputs and regression coverage intact. Give eye and knee evidence a review owner and retain the pharynx recipe with its test and unapplied status.
+- [x] Keep the pinned v50 inputs and regression coverage intact. Give eye and knee evidence a review owner and record the pharynx prototype’s unapplied status and keep its historical evidence.
 - [x] Put the replay of the already-applied label correction with the atlas recipes. Retain exact before/after evidence and verify public file addresses still serve the recorded types and bytes when touched.
 - [x] Fix imports, binding paths and documentation. Verify retained byte identities and supported replay and check entry points before closing the old directories.
 
@@ -41,7 +41,7 @@ See the [Verification integration](../../../tests/viewer/README.md), [fixture so
 
 ### Local result
 
-The [viewer integration](../../../tests/viewer/README.md) owns the v50 candidate, camera/lifecycle/context helpers and elbow fixture. The eye and knee tests consume exact bound modules. Their earlier [eye templates](../../../reviews/eye_anterior_segment/2026-10-30-viewer-v47/README.md) and [knee comparison](../../../reviews/joints/knee-inspection-r01/README.md) live with review evidence. The [pharynx recipe](../../../tests/pharynx_visibility/visibility-r01/README.md) remains unapplied. Its historical source record stays pinned to the original review revision.
+The [viewer integration](../../../tests/viewer/README.md) owns the v50 candidate, camera/lifecycle/context helpers and elbow fixture. The eye and knee tests consume exact bound modules. Their earlier [eye templates](../../../reviews/eye_anterior_segment/2026-10-30-viewer-v47/README.md) and [knee comparison](../../../reviews/joints/knee-inspection-r01/README.md) live with review evidence. The [pharynx prototype review](../../../reviews/pharynx_larynx/2026-10-30-visibility/README.md) retains the matched figures and pinned replay source. The v40 patch was never incorporated and its working implementation has since been retired.
 
 The abdomen replay is with the 2D atlas. From its pinned baseline it reproduced the current abdomen SVG byte for byte. A mismatched input was refused before creating output. Both local PNGs matched the retained transport record. All four URLs in the historical manifest returned 307 to public object addresses. Direct readback of those four targets returned the exact PNGs. The original cross-origin responses still require a compatibility decision for the guarded transport, which refuses cross-origin redirects. No hosted change was made.
 

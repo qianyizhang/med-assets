@@ -8,7 +8,7 @@
 light and exposure within each plate. These are visibility illustrations, not
 browser/UI screenshots or a new model.*
 
-- **Change:** a reusable patch to the v40 isolated viewer for #150 adds cartilage
+- **Prototype:** the October 2026 patch to the v40 isolated viewer for #150 demonstrated cartilage
   (5 parts), muscles plus cartilage (30), reset (33) and an explicit camera-fit
   action. The posterior muscle covering previously prevented interactive
   cartilage isolation; the existing static close-up was cropped.
@@ -65,20 +65,17 @@ pair as visibility-only; that metadata correction required no rerender.
   the coordinator reported a different local tar container hash.
 - Canonical `review-data.json`: SHA-256
   `a9ed5c5621899b8d99054848d7e8ef3574ffe16cb1cd0c414b6e1711522550f2`,
-  1,061,189 bytes. Only the supplied candidate record is retained as a test
-  excerpt; it is not a complete dataset or that file's byte identity.
+  1,061,189 bytes. The historical test fixture contains the supplied candidate record excerpt.
 
 ## Checks and delivery
 
-[Viewer patch and replay instructions](../../../tests/pharynx_visibility/visibility-r01/README.md)
-· [Patched file hashes](patched-viewer-hashes.json)
-· [Scoped technical receipt](review.json)
+The v40 patch was retired without incorporation into the v50 viewer. To reproduce the V2 figures, check out med-assets at `aa2d63c2d2faad5c7f26f10c0512f90dd812eac5` in a separate directory, hydrate the r03 GLB, and follow the capture, render and composition commands in that checkout. This revision includes the original fixture, controller, and Blender scripts. [Pinned replay instructions](https://github.com/qianyizhang/med-assets/blob/aa2d63c2d2faad5c7f26f10c0512f90dd812eac5/tests/pharynx_visibility/visibility-r01/README.md#verification) · [Patched file hashes](patched-viewer-hashes.json) · [Scoped technical receipt](review.json)
 
-Nine scoped Node checks use the actual GLB and pinned Three r180/jsdom 26.1.0.
-They cover group membership, hidden-state restoration, source/missing-part
+The historical nine Node checks used the actual GLB and pinned Three r180/jsdom 26.1.0.
+They covered group membership, hidden-state restoration, source/missing-part
 failures, neutral labels, DOM clicks/language changes, direction-preserving fit
-at wide/narrow aspects, invisible ancestors and reset/full framing. Five Python
-patcher checks cover exact baseline identity, unchanged data/camera path, failure
+at wide/narrow aspects, invisible ancestors and reset/full framing. Five historical Python
+patcher checks covered exact baseline identity, unchanged data/camera path, failure
 before writes, deterministic replay and repeated-application refusal.
 
 V1 source is retained in local implementation commit `b2e142c`; its render/state
@@ -87,5 +84,4 @@ The repository offline gate and fresh GitHub hash/size readback passed on
 2026-10-30 at `dbcffbc`. The routine delivery receipt is retired; this historical
 result does not establish current remote availability. Public inline-media display
 remains unverified. Technical checks are recorded separately in `review.json`. No runtime or clinical
-status is promoted by those checks. #150 remains open; this is a viewer patch
-for one bounded inspection task, with Site integration/deployment still separate.
+status is promoted by those checks.

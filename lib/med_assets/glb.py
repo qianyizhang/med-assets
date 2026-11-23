@@ -1,4 +1,5 @@
-"""Strict GLB 2 JSON/BIN containers; asset and accessor policies belong to callers."""
+"""Read and write GLB 2 containers and their embedded binary views."""
+from copy import deepcopy
 import json
 import struct
 
@@ -26,6 +27,14 @@ def decode(data):
     return document, data[cursor + 8:]
 
 
+def decode_single_buffer(data):
+    """Decode the exact single embedded buffer layout used by pinned exports."""
+    document, binary = decode(data)
+    if document.get('buffers') != [{'byteLength': len(binary)}]:
+        raise ValueError('Expected one embedded buffer')
+    return document, binary
+
+
 def encode(document, binary, *, pad_binary=True):
     """Encode compact UTF-8 JSON; retain BIN bytes, optionally adding zero padding."""
     if not isinstance(document, dict):
@@ -47,6 +56,18 @@ def buffer_view_bytes(binary, view):
     if view.get('buffer') != 0 or not 0 <= start <= end <= len(binary):
         raise ValueError('Invalid embedded buffer view')
     return binary[start:end]
+
+
+def accessor_view(document, binary, index):
+    """Return independent accessor/view metadata and all bytes of its nonempty view."""
+    accessor = deepcopy(document['accessors'][index])
+    view = deepcopy(document['bufferViews'][accessor.pop('bufferView')])
+    payload = buffer_view_bytes(binary, view)
+    if not payload:
+        raise ValueError('Empty accessor buffer view')
+    del view['buffer'], view['byteLength']
+    view.pop('byteOffset', None)
+    return accessor, view, payload
 
 
 def pack_buffer_view(binary, view, data):

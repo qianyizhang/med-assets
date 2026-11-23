@@ -10,11 +10,10 @@ import subprocess
 import shutil
 
 ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(ROOT / 'tools'))
+sys.path.insert(0, str(ROOT / 'lib'))
 sys.path.insert(0, str(ROOT / 'transport/tools'))
-sys.path.insert(0, str(ROOT))
 from lfs_transport import Stop, download_source, validate_manifest, verify_bytes, require
-from models.eye_anterior_segment.recipes.teaching.build import unpack, accessor
+from med_assets.glb import accessor_view, decode_single_buffer
 
 MANIFEST_SHA256 = 'ab97d341e9490f418a06d4d9943c0ab2743f22713c174446d8d3f3c0b7ee1118'
 MANIFEST = ROOT / 'transport/manifests' / (MANIFEST_SHA256 + '.json')
@@ -25,7 +24,7 @@ def consume(folder, manifest):
     for obj in manifest['objects']:
         verify_bytes((folder / Path(obj['file']).name).read_bytes(), obj)
     model = folder / Path(manifest['objects'][0]['file']).name
-    doc, binary = unpack(model.read_bytes())
+    doc, binary = decode_single_buffer(model.read_bytes())
     mesh_nodes = [n for n in doc['nodes'] if 'mesh' in n]
     expected = {'SWIRendo_31_T2/' + name for name in ('bone', 'pulp', 'dentin', 'enamel')}
     require({n.get('name') for n in mesh_nodes} == expected, 'Unexpected FDI31 layers')
@@ -34,7 +33,7 @@ def consume(folder, manifest):
         for prim in doc['meshes'][node['mesh']]['primitives']:
             require(prim.get('mode', 4) == 4, 'Expected triangles')
             for i in [prim['indices'], *prim['attributes'].values()]:
-                accessor(doc, binary, i)  # Existing parser checks the referenced byte range.
+                accessor_view(doc, binary, i)
             count = doc['accessors'][prim['indices']]['count']
             require(count % 3 == 0, 'Incomplete triangle indices')
             triangles += count // 3

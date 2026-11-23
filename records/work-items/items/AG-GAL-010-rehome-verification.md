@@ -42,7 +42,7 @@ Retire the top-level `ci/` directory after the Site prepares its own vendor depe
 
 ### Local verification
 
-Moved browser sources, runtime recipes and pins from `ci/` to [tests/runtime](../../../tests/runtime/) and the FDI31 source-only command to [tests/source_checks](../../../tests/source_checks/). Updated the workflow invocations, sparse entries, change filters, One Breath, the historical Body Systems viewer, the heart fixture comparison and local regressions. The FDI31 workflow now also watches its transport helper.
+Moved browser sources, runtime recipes and pins from `ci/` to [tests/runtime](../../../tests/runtime/) and the FDI31 source-only command to [tests/source_checks](../../../tests/source_checks/). Updated the workflow invocations, sparse entries, change filters, One Breath, the historical Body Systems viewer, the heart fixture comparison and local regressions. At that revision, changing the transport helper also triggered FDI31 verification. The source workflow now runs on manual dispatch.
 
 The workflow reads the byte-identical test-owned morph expectations. The original bundle member remains with the historical manifest and prior run evidence. Current preparation produced the same 38,076-byte served fixture and preserved all 228 node tracks, 912 sampled values and 232 render primitives. Missing, corrupt and wrong-scope fixture paths failed in the offline regression. A direct run outside Actions refused before browser or network work. The source-only FDI31 suite passed and the command refused an existing destination before transfer.
 

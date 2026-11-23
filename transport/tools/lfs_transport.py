@@ -30,7 +30,6 @@ MAX_OBJECT = 40_000_000
 POINTER = re.compile(rb'version https://git-lfs.github.com/spec/v1\noid sha256:([0-9a-f]{64})\nsize (0|[1-9][0-9]*)\n')
 HEX64 = re.compile(r'[0-9a-f]{64}')
 HEX40 = re.compile(r'[0-9a-f]{40}')
-MANIFEST_PATH = re.compile(r'transport/manifests/([0-9a-f]{64})\.json')
 
 
 class Stop(RuntimeError):
@@ -156,23 +155,13 @@ def git(root, *args, data=None, storage=None):
 def select_run_manifest(root, env):
     require(env.get('GITHUB_ACTIONS') == 'true' and env.get('GITHUB_REPOSITORY') == REPOSITORY, 'Wrong execution repository')
     require(env.get('GITHUB_REF') == 'refs/heads/main', 'Only main may upload')
+    require(env.get('GITHUB_EVENT_NAME') == 'workflow_dispatch', 'Only manual dispatch may upload')
     sha = env.get('GITHUB_SHA', '')
     require(HEX40.fullmatch(sha) is not None, 'Invalid main commit')
     require(git(root, 'rev-parse', 'HEAD').decode().strip() == sha, 'Checkout does not match triggering commit')
-    event = env.get('GITHUB_EVENT_NAME')
-    if event == 'workflow_dispatch':
-        digest = env.get('MANIFEST_SHA256', '')
-        require(HEX64.fullmatch(digest) is not None, 'Invalid dispatch manifest SHA-256')
-        return digest
-    require(event == 'push', 'Untrusted trigger refused')
-    before = env.get('PUSH_BEFORE', '')
-    require(HEX40.fullmatch(before) is not None and before != '0' * 40, 'Invalid push base')
-    # Exactly one manifest-only addition. No updates/deletions, mixed code edits or multi-batch pushes.
-    changes = git(root, 'diff', '--name-status', '--no-renames', before, sha).decode().splitlines()
-    require(len(changes) == 1 and changes[0].startswith('A\t'), 'Push must add exactly one manifest and no other files')
-    match = MANIFEST_PATH.fullmatch(changes[0][2:])
-    require(match is not None, 'Push did not add a content-addressed manifest')
-    return match.group(1)
+    digest = env.get('MANIFEST_SHA256', '')
+    require(HEX64.fullmatch(digest) is not None, 'Invalid dispatch manifest SHA-256')
+    return digest
 
 
 class SameOriginRedirect(urllib.request.HTTPRedirectHandler):

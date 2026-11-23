@@ -25,7 +25,7 @@ this operation. No fit-distance, framing tolerance or anatomical claim changes.
 The camera helper and the retained `tests/viewer/candidate.js`
 match Site v50 source commit `51c0039a8647d10aa35e45358da353966284e8af`
 exactly (read-only source comparison, 2026-11-06). `tests/viewer/source.json` owns its identity; no second candidate snapshot is needed.
-The historical v40/lifecycle-v2 applicator has been retired. Change the owning
+The [v40 camera failure witness](fixtures/candidate-v40.js) is the baseline for the CPU comparison below. Change the owning
 Site source, then refresh the retained fixture after review.
 
 The current candidate includes lifecycle, context recovery and inspection code.

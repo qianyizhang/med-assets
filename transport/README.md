@@ -95,7 +95,7 @@ The Workshop and Cardiac Atlas base-color and normal PNGs restore directly from 
 | Outcome | Required evidence |
 | --- | --- |
 | Reviewed scope | Exact asset, source, privacy and licensing scope. One manifest-only PR adding `transport/manifests/<sha256-of-file>.json`. Corrected manifests use new hashes. |
-| Guarded execution | [Main-only workflow](../.github/workflows/bounded-lfs-transport.yml) and [executor](tools/lfs_transport.py) own event, repository, ref, origin, format, size, count and schema bounds. Fetch and verify all sources before upload. Manual dispatch uses a reviewed manifest SHA on main. |
+| Guarded execution | [Main-only workflow](../.github/workflows/bounded-lfs-transport.yml) and [executor](tools/lfs_transport.py) own event, repository, ref, origin, format, size, count and schema bounds. Fetch and verify all sources before upload. After the manifest lands on main, an authorized operator starts the workflow manually with that exact manifest SHA. |
 | Byte proof | Job fetches all uploaded or existing OIDs from GitHub. Independently repeat readback from another executor. |
 | Separate pointer delivery | Current CI, branch rules and exact head. Guarded merge with `expected_head_sha` and applicable authorization for readiness and merge. |
 

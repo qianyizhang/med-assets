@@ -89,6 +89,7 @@ The default setup includes the MCP server and Blender add-on. The tested pair is
 | Every change | `python3.12 tools/verify.py offline` | Offline regressions, portable Gallery tests, the maintained recipe graph, all accepted teaching tasks and their generated views, import references, LFS identities, transport manifests and selected foundation records. Runs in a shallow LFS-pointer checkout. |
 | Broad changes with hydrated LFS | `python3.12 tools/verify.py payload-integrity` | Offline gate plus all indexed LFS bytes, foundation evidence bindings and selected package checks. Unresolved pointers fail. |
 | UFF dental changes | `python3.12 tools/verify.py dental` | Separate suite including the actual pinned GLB hash. Use an isolated environment with [UFF requirements](../models/dental_specimens/uff_tomo1b/recipes/requirements-uff.txt). Missing dependencies leave coverage unavailable. |
+| Dental film production changes | [Film replay checks](../experiments/dental-video-treatments/REPLAY.md) | The ordinary gate pins the retained films, captions and credits. Run the package replay suite explicitly for renderer or production changes. |
 | Changed recipes, consumers or recovery | Owning recipe and stable entry points | Representative source → export → clean reimport, consumer behavior and changed failure paths. Major refactors and releases need full applicable checks. |
 
 - **Index** · Stage deliberate retirements before checks. [Verifier](../tools/verify.py) owns suite discovery, selection and failure rules.
@@ -136,11 +137,11 @@ Use the [teaching-asset rubric](guides/asset-quality.md) for fidelity, form and 
 
 | Boundary | Owner and completion |
 | --- | --- |
-| Offline PR CI | [Workflow](../.github/workflows/offline-verification.yml). Read-only checkout and offline gate. |
+| Offline PR CI | [Workflow](../.github/workflows/offline-verification.yml). Every PR runs the read-only offline gate. The [FDI31 source check](../.github/workflows/fdi31-source-verification.yml) is a manual download and byte check for the five staged objects. |
 | Viewer offline integration | [Legacy Anatomy Verification fixtures](../tests/viewer/README.md). Actual candidate modules with API doubles. For camera changes, run the [CPU test](../tests/candidate_camera/run_cpu.py) against pinned vendor inputs. WebGL and BFCache require runtime evidence. |
 | Main-only browser runtime | [Guarded workflow](../.github/workflows/firefox-glb-runtime.yml) and [fixture](../tests/runtime/glb-runtime-fixture.json). Use only the guarded entry point. Preserve pinned expectations, source/animation/track checks and separate receipts for failed, limited and passing runs. |
 | Missing live viewer access | Mark runtime `unverified`. Medical/dental delivery and authorized merge may proceed when other required checks, reviews, guards and known defects are satisfied. |
-| Media transport | [Transport acceptance](../transport/README.md#upload-acceptance) covers routine local uploads and guarded delivery. |
+| Media transport | [Transport acceptance](../transport/README.md#upload-acceptance) covers routine local uploads and manual dispatch of a reviewed LFS manifest on main. |
 
 ## Retention
 

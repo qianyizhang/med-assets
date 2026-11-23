@@ -10,7 +10,6 @@
 | Gallery renderer | [Fixture binding](../gallery/fixtures/source.json) and [offline tests](../test_gallery_renderer.py). Bilingual labels and directory guidance, selection URLs/evidence order, supplement ownership, focus and comparison state. |
 | Right-elbow legend | [Exact material evidence](../gallery/fixtures/elbow-legend-source.json) and [correction](https://github.com/qianyizhang/med-assets/issues/209). |
 | Candidate camera, lifecycle and context recovery, knee and eye | Incorporated byte-for-byte in v50. [Candidate source binding](source.json) and [test runner](run.py) own exact identities and private staging. Camera CPU uses that same source. |
-| Pharynx visibility | [Unapplied recipe](../pharynx_visibility/visibility-r01/README.md), absent from v50. |
 | Live behavior | Browser/rendering, BFCache, accessibility and clinical status need separate evidence. [Repository gates](../../docs/WORKFLOW.md#runtime-and-delivery-boundaries). |
 
 - **Decision references** · [Comparison state](https://github.com/qianyizhang/med-assets/issues/205), [focus](https://github.com/qianyizhang/med-assets/issues/206), [selection URLs](https://github.com/qianyizhang/med-assets/issues/207), [evidence order](https://github.com/qianyizhang/med-assets/issues/208), [supplements](https://github.com/qianyizhang/med-assets/issues/210), [study-only labels](https://github.com/qianyizhang/med-assets/issues/150).

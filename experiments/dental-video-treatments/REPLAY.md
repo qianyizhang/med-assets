@@ -1,16 +1,24 @@
 # Replay and checks
 
-Run from the repository root. Python 3.11+ and Git are sufficient for source checks. Media checks additionally need FFmpeg/ffprobe. Real rendering needs the separately installed, pinned engine dependencies. No render runs during ordinary offline CI.
+Run from the repository root. The ordinary offline gate has one dental film check. It compares the eight indexed LFS identities, including all four films, with the [result manifest](results/manifest.json) and checks the retained captions and credit records. It works in a pointer-only checkout.
+
+Run the package regression suite explicitly when changing the experiment sources, preparation or renderer dependencies. Python 3.11+ and Git suffice. The suite rebuilds the generated HyperFrames HTML twice and checks its original digest, verifies caption timing against the narration and exercises preparation failures. Full movie rendering uses the separately installed engine dependencies below.
 
 ```sh
 P=experiments/dental-video-treatments
-git lfs pull --include="$P/**"
-python3 "$P/replay.py" check --payloads
-python3 "$P/replay.py" check --movies
-python3 tools/verify.py offline
+python3.12 tools/verify.py offline
+python3.12 "$P/replay_tests.py"
 ```
 
-`--payloads` rejects missing LFS bytes and checks hashes/sizes. `--movies` also fully decodes all retained movies and checks duration, frame count, dimensions and audio format. Neither is listening, clinical approval or browser interaction QA. The whole-repository payload gate is separate and requires all unrelated historical media.
+For actual media-byte verification, hydrate the experiment and its shared fonts. The movie check additionally requires FFmpeg and ffprobe.
+
+```sh
+git lfs pull --include="$P/**,sources/fonts/dejavu/*.ttf"
+python3.12 "$P/replay.py" check --payloads
+python3.12 "$P/replay.py" check --movies
+```
+
+`--payloads` checks actual file sizes and hashes. `--movies` also decodes all four films and checks duration, frame count, dimensions and audio format. Direct listening, clinical review and browser interaction each require separate evidence.
 
 ## Prepare isolated builds
 

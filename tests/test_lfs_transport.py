@@ -189,37 +189,26 @@ class TriggerAndExecution(unittest.TestCase):
         quiet = patch('builtins.print')
         quiet.start()
         self.addCleanup(quiet.stop)
-        self.env = {'GITHUB_ACTIONS': 'true', 'GITHUB_REPOSITORY': t.REPOSITORY, 'GITHUB_REF': 'refs/heads/main',
-                    'GITHUB_SHA': '1' * 40, 'GITHUB_EVENT_NAME': 'push', 'PUSH_BEFORE': '2' * 40}
         self.digest = encode(MANIFEST)[1]
+        self.env = {'GITHUB_ACTIONS': 'true', 'GITHUB_REPOSITORY': t.REPOSITORY, 'GITHUB_REF': 'refs/heads/main',
+                    'GITHUB_SHA': '1' * 40, 'GITHUB_EVENT_NAME': 'workflow_dispatch', 'MANIFEST_SHA256': self.digest}
 
-    def select(self, diff, env=None):
-        with patch.object(t, 'git', side_effect=[b'1' * 40 + b'\n', diff.encode()]):
-            return t.select_run_manifest(Path('.'), env or self.env)
-
-    def test_single_new_manifest(self):
-        self.assertEqual(self.select('A\ttransport/manifests/' + self.digest + '.json\n'), self.digest)
-
-    def test_modified_deleted_multiple_mixed_or_bad_name(self):
-        path = 'transport/manifests/' + self.digest + '.json'
-        for diff in ('M\t' + path, 'D\t' + path, 'A\t' + path + '\nA\tother.json',
-                     'A\t' + path + '\nM\ttransport/tools/lfs_transport.py', 'A\ttransport/manifests/free-form.json', ''):
-            with self.subTest(diff=diff), self.assertRaises(t.Stop):
-                self.select(diff)
+    def select(self, **changes):
+        with patch.object(t, 'git', return_value=b'1' * 40 + b'\n'):
+            return t.select_run_manifest(Path('.'), {**self.env, **changes})
 
     def test_untrusted_execution_contexts(self):
-        for key, value in [('GITHUB_REPOSITORY', 'evil/fork'), ('GITHUB_REF', 'refs/pull/1/merge'),
-                           ('GITHUB_EVENT_NAME', 'pull_request'), ('GITHUB_ACTIONS', 'false'), ('PUSH_BEFORE', '0' * 40)]:
-            env = dict(self.env, **{key: value})
-            with self.assertRaises(t.Stop):
-                self.select('A\ttransport/manifests/' + self.digest + '.json', env)
+        for key, value in [('GITHUB_REPOSITORY', 'other/fork'), ('GITHUB_REF', 'refs/heads/topic'),
+                           ('GITHUB_EVENT_NAME', 'pull_request'), ('GITHUB_EVENT_NAME', 'push'),
+                           ('GITHUB_ACTIONS', 'false'), ('GITHUB_SHA', 'invalid'), ('GITHUB_SHA', '2' * 40)]:
+            with self.subTest(key=key, value=value), self.assertRaises(t.Stop):
+                self.select(**{key: value})
 
     def test_manual_digest(self):
-        env = dict(self.env, GITHUB_EVENT_NAME='workflow_dispatch', MANIFEST_SHA256=self.digest)
-        self.assertEqual(self.select('', env), self.digest)
-        env['MANIFEST_SHA256'] = '../../escape'
-        with self.assertRaises(t.Stop):
-            self.select('', env)
+        self.assertEqual(self.select(), self.digest)
+        for digest in ('', '../../escape'):
+            with self.subTest(digest=digest), self.assertRaises(t.Stop):
+                self.select(MANIFEST_SHA256=digest)
 
     def test_no_upload_if_any_source_fails(self):
         other = dict(OBJ, sha256='2' * 64)

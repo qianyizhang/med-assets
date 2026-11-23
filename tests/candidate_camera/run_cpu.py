@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[2]
 
 
 def run(vendor, baseline=False):
-    original = ROOT / 'tests/pharynx_visibility/fixtures/candidate-v40.js'
+    original = ROOT / 'tests/candidate_camera/fixtures/candidate-v40.js'
     current = ROOT / 'tests/viewer/candidate.js'
     source_binding = json.loads((current.parent / 'source.json').read_text())
     expected_source = ('9214093398033ab75beeec8c273d1f85a28408ee6096f3fe0bb91723ecc6f80b'
