@@ -19,20 +19,33 @@ const sourceFork = 'library/bronchial_tree/authored-central-fairing-r13';
 const origins = ['http://127.0.0.1:19852', 'https://gallery-release.invalid'];
 const [candidateURL, publishedURL, candidateProject, publishedProject] = process.argv.slice(2);
 const capture = process.env.MODEL_SURVEY_CAPTURE_DIR;
+const workerOnly = process.argv.includes('--worker-only');
 assert.ok(candidateURL && publishedURL && candidateProject && publishedProject && capture,
   'Pass CANDIDATE_URL PUBLISHED_URL CANDIDATE_PROJECT PUBLISHED_PROJECT and set MODEL_SURVEY_CAPTURE_DIR.');
 
 async function checkCompiledCatalog(project, candidate) {
   const gallery = resolve(project, 'src/content/gallery');
-  const { libraryRows } = await import(pathToFileURL(join(gallery, 'library-data.js')));
+  const { libraryRows } = await import(pathToFileURL(join(gallery, candidate ? 'library-compiler.js' : 'library-data.js')));
   const compiled = await import(pathToFileURL(join(gallery, 'selected-library.js')));
   const read = async (name) => JSON.parse(await readFile(join(gallery, name), 'utf8'));
-  const expected = libraryRows(await read('../../data.json'), await read('teaching-inputs/teaching-assessments.json'),
-    { localPreview: candidate });
-  const data = (rows) => JSON.parse(JSON.stringify(rows,
-    (_, value) => value instanceof Map ? Object.fromEntries(value) : value));
+  const rawReview = await read('teaching-inputs/teaching-assessments.json');
+  const expected = candidate ? libraryRows(rawReview)
+    : libraryRows(await read('../../data.json'), rawReview, { localPreview: false });
+  const projection = rows => rows.map(({ id, path, history, recommended, lessons }) => ({
+    id, path, recommended: recommended?.library, lessons: lessons?.map(record => record.library),
+    history: history.map(({ library, exports, assessment, fileAssessments }) => ({
+      library, exports: exports.map(file => [file.path, file.sha256, file.bytes, file.license]),
+      assessment: assessment?.export.sha256, assessments: [...(fileAssessments ?? [])]
+        .map(([path, row]) => [path, row.export.sha256, row.axes.map(axis => axis.score)]),
+    })),
+  }));
   assert.equal(compiled.candidate, candidate);
-  assert.deepEqual(data(compiled.rows), data(expected), 'Compiled catalog lost a selected record or assessment');
+  assert.deepEqual(projection(compiled.rows), projection(expected), 'Compiled catalog lost a selected record or assessment');
+  if (candidate) {
+    const fork = compiled.rows.find(row => row.id === 'bronchial_tree').recommended.exports[0];
+    assert.equal(fork.license, 'CC BY 4.0');
+    assert.match(fork.credit, /Jakob Wasserthal/);
+  }
   return expected.length;
 }
 
@@ -56,8 +69,8 @@ async function checkWorker(project, origin, expected, candidate) {
   const worker = createDataAppWorker({
     deploymentAssets: { html: publication.livePublication.html, snapshot: publication.livePublication.snapshot },
   });
-  const bucket = new Proxy({}, { get() { assert.fail('A read-only rejection or value route must not read private storage'); } });
-  const request = (path, method = 'GET') => worker.fetch(new Request(origin + path, { method }), { BUCKET: bucket });
+  const deniedBucket = new Proxy({}, { get() { assert.fail('A rejection or value route must not access storage'); } });
+  const request = (path, method = 'GET') => worker.fetch(new Request(origin + path, { method }), { BUCKET: deniedBucket });
   const study = await request('/api/gallery/v1/studies');
   assert.equal(study.status, 200);
   assert.deepEqual(await study.json(), expected);
@@ -68,6 +81,68 @@ async function checkWorker(project, origin, expected, candidate) {
   assert.equal((await request('/api/deployment-assets/html')).status, 403);
   assert.equal((await request('/api/deployment-assets/snapshot')).status, 403);
   assert.equal((await request(address(candidate ? publishedFile : retiredElbow), 'PUT')).status, 403);
+  const release = JSON.parse(await readFile(resolve(project, 'src/content/assets/gallery-release.json')));
+  assert.equal(release.selection, candidate ? 'candidate' : 'published');
+  assert.equal((await request('/assets/index.json')).status, 200);
+  if (!candidate) {
+    assert.equal((await request(address(candidateFile))).status, 404);
+    return;
+  }
+
+  const model = release.resources.find(file => file.url === address(candidateFile));
+  const evidence = release.resources.find(file =>
+    file.sha256 === '25f4c42dd5bd378dc9a2fbcd90758f65d17e4d006de9aedad8eaaa202d0d9281');
+  const receipt = release.resources.find(file =>
+    file.path === 'reviews/bronchial_tree/2026-11-21-distal-simplification-trial/geometry.json');
+  assert.equal(release.resources.filter(file => file.localOnly).length, 16);
+  assert.equal(release.resources.filter(file => file.immutable === false).length, 4);
+  const index = await (await request('/assets/index.json')).json();
+  assert.equal(index.assets.some(file => file.sha256 === model.sha256), false);
+  const publicModel = index.assets.find(file => file.sha256 === publishedFile.sha256);
+  for (const entry of [model, evidence, receipt, { ...publicModel, url: address(publicModel) }]) {
+    const bytes = await readFile(new URL('../../../' + entry.path, import.meta.url));
+    assertBytes(bytes, entry);
+    const key = 'assets/sha256/' + entry.sha256;
+    let object;
+    const fake = {
+      head: async actual => {
+        assert.equal(actual, key);
+        return object?.metadata;
+      },
+      get: async (actual, options) => {
+        assert.equal(actual, key);
+        const range = options?.range;
+        return object && { body: range ? bytes.subarray(range.offset, range.offset + range.length) : bytes };
+      },
+      put: () => assert.fail('Read-only Worker probe attempted a write'),
+    };
+    function read(method = 'GET', headers) {
+      return worker.fetch(new Request(origin + entry.url, { method, headers }), { BUCKET: fake });
+    }
+    assert.equal((await read()).status, 503);
+    assert.equal((await read('HEAD')).status, 503);
+    object = { metadata: { size: bytes.length, customMetadata: { sha256: 'wrong' } } };
+    assert.equal((await read()).status, 503);
+    object.metadata.customMetadata.sha256 = entry.sha256;
+    const response = await read();
+    assert.equal(response.status, 200);
+    assert.equal(response.headers.get('content-type'), entry.mediaType);
+    assertBytes(Buffer.from(await response.arrayBuffer()), entry);
+    const head = await read('HEAD');
+    assert.equal(head.status, 200);
+    assert.equal(head.headers.get('content-length'), String(entry.bytes));
+    assert.equal(await head.text(), '');
+    const partial = await read('GET', { Range: 'bytes=0-15' });
+    assert.equal(partial.status, 206);
+    assert.equal(partial.headers.get('content-range'), 'bytes 0-15/' + entry.bytes);
+    assert.deepEqual(Buffer.from(await partial.arrayBuffer()), bytes.subarray(0, 16));
+    assert.equal((await read('GET', { Range: 'bytes=' + entry.bytes + '-' })).status, 416);
+    assert.equal((await request(entry.url, 'PUT')).status, entry === model || entry === evidence || entry === receipt ? 405 : 403);
+  }
+
+  assert.equal((await request(address(retiredElbow))).status, 404);
+  assert.equal((await request('/review-evidence/' + evidence.sha256 + '/unselected.webp')).status, 404);
+  assert.equal((await request(receipt.url + '.other')).status, 404);
 }
 
 async function checkDownload(browser, origin, path, file, html) {
@@ -228,6 +303,13 @@ async function checkRelease(browser, origin, upstream, candidate, candidateStage
 }
 
 await mkdir(capture, { recursive: true });
+const builds = [['candidate', candidateURL, candidateProject], ['published', publishedURL, publishedProject]];
+for (const [name, , project] of builds) {
+  const release = JSON.parse(await readFile(resolve(project, 'src/content/assets/gallery-release.json')));
+  for (const origin of origins) await checkWorker(project, origin, release.studies, name === 'candidate');
+  console.log('PASS generated Worker', name, origins.join(', '));
+}
+if (workerOnly) process.exit(0);
 const { chromium } = await import(process.env.MODEL_SURVEY_PLAYWRIGHT_MODULE || 'playwright');
 const browser = await chromium.launch({
   executablePath: process.env.MODEL_SURVEY_BROWSER, headless: true, chromiumSandbox: true,
@@ -235,7 +317,7 @@ const browser = await chromium.launch({
 });
 try {
   const releases = {};
-  for (const [name, upstream, project] of [['candidate', candidateURL, candidateProject], ['published', publishedURL, publishedProject]]) {
+  for (const [name, upstream, project] of builds) {
     const libraryRows = await checkCompiledCatalog(project, name === 'candidate');
     const html = await readFile(join(project, 'dist/index.html'));
     const htmlSha256 = digest(html);
@@ -244,7 +326,6 @@ try {
     const results = [];
     for (const origin of origins) {
       const observed = await checkRelease(browser, origin, upstream, name === 'candidate', releases.candidate?.stage);
-      await checkWorker(project, origin, observed.studies, name === 'candidate');
       results.push(observed);
       console.log('PASS', name, origin, observed.score, observed.archive);
     }

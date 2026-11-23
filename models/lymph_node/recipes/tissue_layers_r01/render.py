@@ -10,9 +10,7 @@ import bpy
 from mathutils import Vector
 
 ROOT = Path(__file__).resolve().parents[4]
-OWNER = ROOT / "reviews/teaching-assessments/2026-11-22-lymph-node-tissue-layers"
-BASE = ROOT / "reviews/teaching-assessments/refinement-risk/render-receipt.json"
-BUILD = OWNER / "build.json"
+SELECTION = Path(__file__).with_name('selection.json')
 CAPSULE = "Yao_capsule_of_lymph_node"
 FOLLICLES = "Yao_follicles"
 MEDULLA = "Yao_medulla_of_lymph_node"
@@ -123,13 +121,12 @@ def inspection_inputs(key, names):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--build-report", type=Path, required=True)
     parser.add_argument("--candidate", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args(sys.argv[sys.argv.index("--") + 1:])
-    build = json.loads(BUILD.read_text())
-    prior = json.loads(BASE.read_text())
-    poses = {angle: next(r for r in prior["review"]["lymph"]["views"] if r["file"] == f"lymph-{angle}-capsule.png")
-             for angle in ("primary", "reverse")}
+    build = json.loads(args.build_report.read_text())
+    poses = json.loads(SELECTION.read_text())['cameras']
     args.output.mkdir(parents=True, exist_ok=False)
     result = {"blender": bpy.app.version_string, "build": bpy.app.build_hash.decode(),
               "engine": "Cycles CPU, 32 samples; AgX; exact source materials or declared neutral override",

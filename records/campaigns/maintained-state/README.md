@@ -1,5 +1,7 @@
 # Make maintained assets verifiable from their current inputs
 
+The [asset toolkit campaign](../asset-toolkit.md) follows the second independent review and records the next round of implementation and acceptance.
+
 Starting at `e613024`, the same checked-in assessments give different scores in two clean environments, and the retained delivery catalog cannot describe one bounded upload. The [independent audit findings](audit.md) identify the reproductions and the owners. The maintainer approved local implementation on November 23.
 
 ## Approved work and order

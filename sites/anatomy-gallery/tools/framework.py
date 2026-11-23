@@ -13,7 +13,8 @@ from pathlib import Path, PurePosixPath
 
 SITE = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(SITE.parents[1]))
-from transport.tools.restore_snapshot import verify_source_seed
+sys.path.insert(0, str(SITE / 'tools'))
+from restore_snapshot import verify_source_seed
 
 
 def git(source, *args):
@@ -41,13 +42,15 @@ def extract_project(source, commit, output, *, omit_overlay=False):
 
 
 def compile_library(site, project, selection):
-    subprocess.run(['node', str(site / 'tools/compile_library.mjs'), str(project), selection], check=True)
+    reference = json.loads((site / 'snapshot-reference.json').read_text())
+    subprocess.run(['node', str(site / 'tools/compile_library.mjs'), str(project), selection,
+                    reference['sourceSnapshotSha256']], check=True)
 
 
 def read_seed(site, reference, seed_path):
     snapshot = site / 'app/src/data.json' if seed_path is None else seed_path
     if not snapshot.is_file() or snapshot.is_symlink():
-        raise ValueError('Restore app/src/data.json with the Gallery bootstrap or transport/tools/restore_snapshot.py.')
+        raise ValueError('Restore app/src/data.json with the Gallery bootstrap or sites/anatomy-gallery/tools/restore_snapshot.py.')
     raw = snapshot.read_bytes()
     verify_source_seed(raw, reference)
     if json.loads(raw).get('id') != reference['artifactId']:
@@ -78,7 +81,8 @@ def prepare_published(site, source, output, *, seed_path=None):
         (project / 'src/data.json').write_text(json.dumps(seed, ensure_ascii=False, indent=2) + '\n')
         gallery = project / 'src/content/gallery'
         compile_library(site, project, 'published')
-        shutil.copyfile(site / 'app/src/content/gallery/selected-library.js', gallery / 'selected-library.js')
+        for name in ('selected-library.js', 'decode-library.js'):
+            shutil.copyfile(site / 'app/src/content/gallery' / name, gallery / name)
         # The v10 source has one host switch. Adapt only its catalog reads for local rehearsal.
         replacements = {
             'Gallery.jsx': [

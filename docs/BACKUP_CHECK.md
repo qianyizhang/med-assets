@@ -2,6 +2,7 @@
 
 - **Goal** · One current mirror of an exact Git commit, with LFS payloads at their repository paths.
 - **Delivery status** · Tested tooling only, 2026-11-06. Remote full-tree sync, connector compatibility, readback and restore remain unverified. [Acceptance decision](DECISIONS.md).
+- **Supported scope** · The exact-tree checker is supported. Full Drive sync remains experimental and frozen. Retire the coordinator only after locating its real journals and deciding how to preserve or retire each one.
 - **Requirements** · Python 3.11+, Git 2.45+ and POSIX `dir_fd` / `O_NOFOLLOW`. Local checks run offline. Use a stable, fully downloaded snapshot.
 - **Owners** · [Read-only CLI and manifest validation](../transport/tools/backup_check.py), [connector request/response contracts](../transport/tools/backup_transfer.py), [byte-check regressions](../tests/test_backup_check.py), [transfer regressions](../tests/test_backup_transfer.py).
 

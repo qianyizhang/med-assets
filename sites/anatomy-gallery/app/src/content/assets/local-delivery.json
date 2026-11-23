@@ -1,9 +1,29 @@
 {
   "receipts": [
-    "reviews/heart_exterior/2026-11-21-static-repack/checks.json",
-    "reviews/bronchial_tree/2026-11-21-distal-simplification-trial/geometry.json",
-    "reviews/teaching-assessments/refinement-form/thyroid-integrity.json",
-    "reviews/teaching-assessments/2026-11-22-lymph-node-tissue-layers/build.json"
+    {
+      "path": "reviews/heart_exterior/2026-11-21-static-repack/checks.json",
+      "bytes": 7195,
+      "sha256": "733f8c093d2b7514bb5be653d7f5ccc17dee15d539adb39f51d8fc1135bb2a15",
+      "mediaType": "application/json"
+    },
+    {
+      "path": "reviews/bronchial_tree/2026-11-21-distal-simplification-trial/geometry.json",
+      "bytes": 5208,
+      "sha256": "bb55d116e6c9061342bd1a6453f08d8e201b63788ae4d2bd636eb4c3c1c8cc26",
+      "mediaType": "application/json"
+    },
+    {
+      "path": "reviews/teaching-assessments/refinement-form/thyroid-integrity.json",
+      "bytes": 1745,
+      "sha256": "4411550e21fe572aab2bcff1a40281cd74f68a9e545d83d35362b8a863fd19a1",
+      "mediaType": "application/json"
+    },
+    {
+      "path": "reviews/teaching-assessments/2026-11-22-lymph-node-tissue-layers/build.json",
+      "bytes": 4042,
+      "sha256": "b83c9cdccb9b2747d5da441f3a6038c68b2d8f0ea9ef46ed4fdcf3384ac05507",
+      "mediaType": "application/json"
+    }
   ],
   "assets": [
     {
@@ -62,7 +82,10 @@
       "sha256": "dec2886f07745086e56a31676b96005e0741d4475782fd879f47faf15769a42e",
       "bytes": 7401468,
       "name": "bronchial-first-fork.glb",
-      "mediaType": "model/gltf-binary"
+      "mediaType": "model/gltf-binary",
+      "license": "CC BY 4.0",
+      "credit": "Jakob Wasserthal, the TotalSegmentator contributors and University Hospital Basel",
+      "source": "https://github.com/qianyizhang/med-assets/blob/main/models/bronchial_tree/exports/first-fork-fairing-r15/README.md"
     },
     {
       "path": "heart/Cardiac_Atlas_Animated/exports/wall-motion-r01/ventricular-wall-motion.glb",

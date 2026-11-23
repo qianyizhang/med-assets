@@ -9,7 +9,7 @@ from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont
 
 FONT = Path('/System/Library/Fonts/Supplemental/Arial.ttf')
-DELIVERY = Path(__file__).resolve().parents[2] / 'sites/anatomy-gallery/app/src/content/gallery/part-images'
+DELIVERY = Path(__file__).resolve().parent / 'plates'
 INK = '#19303a'
 PAPER = '#f5f2ed'
 WIDTH = 640
@@ -97,7 +97,7 @@ def encode(renders, out, font_path, *, verify=False):
         name = f'arm-{key}.webp'
         data = buffer.getvalue()
         if verify and data != (DELIVERY / name).read_bytes():
-            raise ValueError(f'Plate differs from the retained Gallery delivery: {name}')
+            raise ValueError(f'Plate differs from the retained lesson plate: {name}')
         outputs[name] = data
     out.mkdir(parents=True, exist_ok=True)
     for name, data in outputs.items():

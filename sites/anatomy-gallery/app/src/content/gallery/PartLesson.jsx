@@ -1,9 +1,8 @@
-import { candidate } from './selected-library.js';
+import { teachingReview, candidate } from './selected-library.js';
 import React, { useEffect, useId, useRef, useState } from 'react';
 import { byPath } from './catalog.js';
 import { fetchModelBytes } from './model-bytes.js';
 import { loadScene } from './scene.js';
-import teachingReview from './teaching-inputs/teaching-assessments.json';
 
 function lessonFile(path) {
   const published = byPath.get(path);

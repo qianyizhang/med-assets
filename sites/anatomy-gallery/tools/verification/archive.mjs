@@ -1,10 +1,9 @@
 import assert from 'node:assert/strict';
-import { createHash } from 'node:crypto';
+import { sha256 as hash } from './assertions.mjs';
 import { readFile } from 'node:fs/promises';
-import { readCaptions } from '../app/src/content/gallery/archive-captions.js';
+import { readCaptions } from '../../app/src/content/gallery/archive-captions.js';
 
-const repo = new URL('../../../', import.meta.url);
-const hash = (bytes) => createHash('sha256').update(bytes).digest('hex');
+const repo = new URL('../../../../', import.meta.url);
 
 async function checkKidney(page, dest, dir, delivery) {
   const kidneyPath = dest + '/#/archive/kidney-outline-trial';
@@ -69,7 +68,8 @@ async function checkFilms(page, dest, dir) {
   const treatments = 'experiments/dental-video-treatments/';
   const image26 = 'experiments/dental-image26/';
   const manifest = JSON.parse(await readFile(new URL(treatments + 'results/manifest.json', repo), 'utf8'));
-  const members = await readFile(new URL('sites/body-systems-survey/backup-sha256.txt', repo), 'utf8');
+  const collections = JSON.parse(await readFile(new URL('transport/collection-archives.json', repo), 'utf8'));
+  const members = await readFile(new URL(collections['teaching-media'].checksumList.path, repo), 'utf8');
   const paths = new Map(members.trim().split('\n').map((entry) => entry.split('  ').reverse()));
   const treatmentIds = manifest.artifacts.filter(({ file }) => file.endsWith('.mp4')).map(({ file, sha256 }) => ({
     file, sha256, owner: treatments, id: file.split('/').at(-1).replace('.mp4', ''),

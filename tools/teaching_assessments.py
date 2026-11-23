@@ -4,11 +4,15 @@ from html import unescape
 import json
 import posixpath
 import re
+import sys
 from pathlib import Path
 from typing import NamedTuple
 
 
-REGISTER = "docs/gallery/maintained-models.md"
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "lib"))
+from med_assets.artifacts import install_verified, verify_payload
+from med_assets.teaching import CurrentTeaching, assessment_digest
 
 
 class Selection(NamedTuple):
@@ -60,11 +64,6 @@ def register_selections(raw):
 
 def register_rows(raw):
     return {path: (item.collection, item.label) for path, item in register_selections(raw).items()}
-
-
-def assessment_digest(row):
-    data = json.dumps(row, ensure_ascii=False, sort_keys=True, separators=(',', ':')).encode()
-    return hashlib.sha256(data).hexdigest()
 
 
 def refinement_rows(repo: Path):
@@ -222,9 +221,7 @@ def target_round(repo, rows, paths, review, *, reopened=False):
 
 def collect_candidates(repo, directories):
     """Install only reviewed recipe outputs into the loopback preview's content store."""
-    import os
     from tempfile import NamedTemporaryFile
-    from maintained_teaching import CurrentTeaching
 
     repo = repo.resolve()
     current = CurrentTeaching(repo)
@@ -242,11 +239,13 @@ def collect_candidates(repo, directories):
         raise ValueError(f'Linked candidate directory: {destination}')
     destination.mkdir(parents=True, exist_ok=True)
     pending = set(wanted)
-    for digest in wanted:
+    for digest, claim in wanted.items():
         target = destination / (digest + '.glb')
-        if target.is_symlink() or (target.exists() and hashlib.sha256(target.read_bytes()).hexdigest() != digest):
-            raise ValueError(f'Existing candidate differs: {target}')
-        if target.is_file():
+        if target.exists() or target.is_symlink():
+            try:
+                verify_payload(target, claim)
+            except ValueError as error:
+                raise ValueError(f'Existing candidate differs: {target}') from error
             pending.remove(digest)
     for folder in directories:
         for path in folder.rglob('*.glb') if folder.is_dir() else [folder]:
@@ -263,10 +262,9 @@ def collect_candidates(repo, directories):
                 stage.write(raw)
                 stage.flush()
                 try:
-                    os.link(stage.name, target)
-                except FileExistsError:
-                    if target.is_symlink() or hashlib.sha256(target.read_bytes()).hexdigest() != digest:
-                        raise ValueError(f'Existing candidate differs: {target}')
+                    install_verified(Path(stage.name), target, wanted[digest])
+                except ValueError as error:
+                    raise ValueError(f'Existing candidate differs: {target}') from error
             pending.remove(digest)
     return len(wanted) - len(pending), sorted(pending)
 

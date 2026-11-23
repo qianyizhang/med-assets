@@ -1,16 +1,11 @@
 """Path bindings for immutable Anatomy Gallery delivery routes."""
-from pathlib import Path, PurePosixPath
+from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / "lib"))
+from med_assets.artifacts import source_path
 
 DELIVERY_INDEX = Path('sites/anatomy-gallery/app/src/content/assets/delivery-index.json')
-
-
-def source_path(name: str) -> str:
-    if (not isinstance(name, str) or not 0 < len(name) <= 4096
-            or PurePosixPath(name).is_absolute() or '\\' in name
-            or any(ord(c) < 32 or ord(c) == 127 for c in name)
-            or any(part.lower() in ('', '.', '..', '.git') for part in name.split('/'))):
-        raise ValueError('Use an exact repository-relative file path')
-    return name
 
 
 def current_paths(asset: dict) -> list[str]:

@@ -1,15 +1,16 @@
 """Restore the legacy Dental Review payloads used by the loopback preview."""
 import argparse
 import json
-import os
 from pathlib import Path
 import subprocess
 import sys
 import tempfile
 
-SITE = Path(__file__).resolve().parents[2] / 'sites/anatomy-gallery'
-sys.path.insert(0, str(SITE / 'tools'))
-from gallery_runtime import verified
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(ROOT / 'lib'))
+from med_assets.artifacts import claim_identity, install_verified, regular_path, verify_payload
+
+SITE = ROOT / 'sites/anatomy-gallery'
 
 MANIFEST = SITE / 'app/src/content/assets/legacy-dental-assets.json'
 CACHE = SITE / '.local/legacy-dental'
@@ -19,11 +20,12 @@ def restore():
     CACHE.mkdir(parents=True, exist_ok=True)
     failures = []
     for file in json.loads(MANIFEST.read_text())['assets']:
-        target = CACHE / file['sha256']
         try:
+            digest, _ = claim_identity(file)
+            target = regular_path(CACHE / digest, exists=False)
             if target.is_file():
                 try:
-                    verified(file, target.read_bytes())
+                    verify_payload(target, file)
                     continue
                 except ValueError:
                     pass
@@ -35,8 +37,7 @@ def restore():
                     '--max-time', '25', '--max-filesize', str(file['bytes']),
                     '--output', str(staged), file['source'],
                 ], check=True)
-                verified(file, staged.read_bytes())
-                os.replace(staged, target)
+                install_verified(staged, target, file, replace=True)
             print(f"Restored {file['path']}")
         except (OSError, ValueError, subprocess.CalledProcessError) as error:
             failures.append(f"{file['path']}: {error}")

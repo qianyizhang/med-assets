@@ -9,6 +9,8 @@ on:
       - 'tests/test_fdi31_source.py'
       - 'tools/glb.py'
       - 'transport/tools/lfs_transport.py'
+      - 'lib/med_assets/__init__.py'
+      - 'lib/med_assets/glb.py'
       - 'models/eye_anterior_segment/recipes/teaching/build.py'
 permissions:
   contents: read
@@ -27,6 +29,8 @@ jobs:
           lfs: false
           submodules: false
           sparse-checkout: |
+            lib/med_assets/__init__.py
+            lib/med_assets/glb.py
             tests/source_checks
             transport/manifests/ab97d341e9490f418a06d4d9943c0ab2743f22713c174446d8d3f3c0b7ee1118.json
             transport/tools/lfs_transport.py

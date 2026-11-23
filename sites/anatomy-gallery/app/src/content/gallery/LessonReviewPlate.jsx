@@ -1,6 +1,5 @@
-import { candidate } from './selected-library.js';
+import { teachingReview, candidate } from './selected-library.js';
 import React, { useState } from 'react';
-import teachingReview from './teaching-inputs/teaching-assessments.json';
 
 export function LessonReviewPlate({ exportPath, title, children }) {
   const [status, setStatus] = useState('loading');

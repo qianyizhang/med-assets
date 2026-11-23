@@ -29,7 +29,7 @@ The static atlas surfaces illustrate gross anatomical relationships. The nerve e
 
 Two fresh render sets from the final cameras encoded all six files byte for byte. The [lesson's replay](../../../lessons/right-arm-parts/README.md#rebuild-and-compare) gives the current commands, environment and dimensions.
 
-The campaign lead checked both stops before and after in the ordinary Gallery. Each reference layer and labelled answer decoded, and the live camera returned to the same rotated frame after switching tissues. Missing and same-size corrupt GLBs preserved the reference exercise and supported retry. The six-task browser check also exercised the stills without WebGL. [Shared acceptance check](../../../sites/anatomy-gallery/tools/verify_part_lessons.mjs)
+The campaign lead checked both stops before and after in the ordinary Gallery. Each reference layer and labelled answer decoded, and the live camera returned to the same rotated frame after switching tissues. Missing and same-size corrupt GLBs preserved the reference exercise and supported retry. The six-task browser check also exercised the stills without WebGL. [Shared acceptance check](../../../sites/anatomy-gallery/tools/verification/layer-lessons.mjs)
 
 ## Integrated batch acceptance
 

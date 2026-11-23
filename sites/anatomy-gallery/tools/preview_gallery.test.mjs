@@ -8,6 +8,7 @@ import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 import { brotliCompressSync } from 'node:zlib';
 import delivery from '../app/src/content/assets/delivery-index.json' with { type: 'json' };
+import { compileResources } from '../app/src/content/shared/release-resources.js';
 import localDelivery from '../app/src/content/assets/local-delivery.json' with { type: 'json' };
 
 const repo = fileURLToPath(new URL('../../../', import.meta.url));
@@ -39,7 +40,14 @@ async function withPreview(script, project, check) {
 async function prepareProject(project) {
   const content = path.join(project, 'src/content');
   await cp(path.join(site, 'app/src/content'), content, { recursive: true });
-  await writeFile(path.join(content, 'gallery/selected-library.json'), JSON.stringify({ candidate: true }));
+  await writeFile(path.join(project, 'package.json'), JSON.stringify({ type: 'module' }));
+}
+
+async function release(project, { archive = [], reviews = {} } = {}) {
+  const resources = compileResources({ selection: 'candidate', publicIndex: delivery,
+    localDelivery, legacyDental: { assets: [] }, archive, reviews });
+  await writeFile(path.join(project, 'src/content/assets/gallery-release.json'),
+    JSON.stringify({ selection: 'candidate', resources, studies: {} }));
 }
 
 async function fixtureCheckout(t, prefix) {
@@ -74,9 +82,9 @@ test('a restored film becomes available without restarting or publishing its loc
   const file = path.join(project, name);
   const inputs = path.join(project, 'src/content/gallery/teaching-inputs');
   await mkdir(inputs, { recursive: true });
-  await writeFile(path.join(inputs, 'image26-media.json'), JSON.stringify([
-    { path: path.relative(repo, file), name, sha256 },
-  ]));
+  await release(project, { archive: [
+    { path: path.relative(repo, file), name, sha256, bytes: bytes.length, mediaType: 'video/mp4' },
+  ] });
   await mkdir(path.join(project, 'dist'));
   await writeFile(path.join(project, 'dist/index.html'), 'fixture');
 
@@ -99,12 +107,15 @@ test('a restored film becomes available without restarting or publishing its loc
 test('local model delivery rejects missing or corrupt bytes and retains exact routes after recovery', async (t) => {
   const { checkout, script } = await fixtureCheckout(t, 'model-preview-restore-test-');
 
+  await release(checkout);
   await withPreview(script, checkout, async (origin) => {
-    for (const reviewPath of localDelivery.receipts) {
+    for (const { path: reviewPath } of localDelivery.receipts) {
       const receiptUrl = origin + '/' + reviewPath;
-      assert.equal((await fetch(receiptUrl)).status, 404);
+      assert.equal((await fetch(receiptUrl)).status, 503);
       const receiptFile = path.join(checkout, reviewPath);
       await mkdir(path.dirname(receiptFile), { recursive: true });
+      await writeFile(receiptFile, '{}');
+      assert.equal((await fetch(receiptUrl)).status, 503);
       await cp(path.join(repo, reviewPath), receiptFile);
       const receipt = await fetch(receiptUrl);
       assert.equal(receipt.headers.get('content-type'), 'application/json');
@@ -135,6 +146,7 @@ test('trachea projection routes serve verified SVG bytes from bounded local stor
   assert.equal(projections.length, 2);
   const revision = '503c33f1dadf403faaec373c1a11a8b40dc523d6';
 
+  await release(checkout);
   await withPreview(script, checkout, async (origin) => {
     assert.deepEqual(await (await fetch(origin + '/assets/index.json')).json(), delivery);
     for (const asset of projections) {
@@ -193,13 +205,11 @@ test('refinement downloads use the declared files and retire superseded candidat
   const digest = createHash('sha256').update(build).digest('hex');
   const unpromoted = { path: '.artifacts/candidate.glb', name: 'trial.glb', sha256: digest, bytes: build.length, download: true };
   const common = { sources: [], views: [] };
-  const inputs = path.join(checkout, 'src/content/gallery/teaching-inputs');
-  await mkdir(inputs, { recursive: true });
-  await writeFile(path.join(inputs, 'teaching-assessments.json'), JSON.stringify({ campaign: [
+  await release(checkout, { reviews: { campaign: [
     { ...common, refinement: { candidate: { ...retained, name: 'selected.glb', download: true } } },
     { ...common, maintained: {}, export: retained },
     { ...common, refinement: { candidate: unpromoted } },
-  ] }));
+  ] } });
   await mkdir(path.join(checkout, 'models'));
   await mkdir(path.join(checkout, '.artifacts'));
   await withPreview(script, checkout, async (origin) => {

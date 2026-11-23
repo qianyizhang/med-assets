@@ -31,7 +31,7 @@ The original stop explained the answer beside a teaching plate. The new stop ask
 
 ## Plate replay and evidence
 
-The [view definition](../../../sites/anatomy-gallery/app/src/content/gallery/salivary-views.json) supplies each exact node selection and orthographic view in glTF metres to the Gallery and [Blender render](../../../lessons/salivary-practice/render.py). The [plate compositor](../../../lessons/salivary-practice/plates.py) adds numbers solely to the two answer plates. The six WebPs are imported by the lesson and total 90,560 bytes. The source is the CC BY-SA 4.0 [Z-Anatomy derivative](../../../sources/datasets/z-anatomy/salivary-region/License.txt), with the upstream BodyParts3D and contributor credits carried by that record.
+The [view definition](../../../lessons/salivary-practice/views.json) supplies each exact node selection and orthographic view in glTF metres to the Gallery and [Blender render](../../../lessons/salivary-practice/render.py). The [plate compositor](../../../lessons/salivary-practice/plates.py) adds numbers solely to the two answer plates. The six WebPs are imported by the lesson and total 90,560 bytes. The source is the CC BY-SA 4.0 [Z-Anatomy derivative](../../../sources/datasets/z-anatomy/salivary-region/License.txt), with the upstream BodyParts3D and contributor credits carried by that record.
 
 From the repository root, use Blender 5.2.3 and Pillow 11.3.0 with a fresh output directory. `replay` is the path of a new scratch directory.
 

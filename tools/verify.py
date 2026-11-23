@@ -14,15 +14,16 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'tests/review_records'))
 sys.path.insert(0, str(ROOT / 'transport/tools'))
+sys.path.insert(0, str(ROOT / 'lib'))
 from validate_record import reference, validate, validate_structure
-from lfs_transport import load_manifest, parse_pointer, unique_keys
+from lfs_transport import load_manifest
+from med_assets.artifacts import parse_pointer, unique_keys, verify_payload
 
 IMPORT_RECORDS = Path('sources/imports')
 SNAPSHOT_SHA256 = '903eb7bc1c456e75b9eb3b1246a038f7134046d7c0964b1ebcc9ecfe25c0b821'
 IMPORT_MANIFEST_SHA256 = '48953d622e4ea3730185c90452bd3125b14935fa654541f0636e5f69c031cc30'
 FOUNDATION_PATTERNS = ('reviews/*/2026-10-23-metadata-cleanup-r01/record.json',
                        'reviews/*/2026-10-23-hra-*/record.json')
-TEACHING_COVERAGE = Path('records/campaigns/teaching-asset-review')
 GALLERY_NODE_TESTS = 'sites/anatomy-gallery/app/tests/*.test.mjs'
 # Existing package-specific assertions remain authoritative; no schema migration.
 PAYLOAD_CHECKS = (
@@ -220,10 +221,12 @@ def run_gallery_suites(root):
     return len(suites)
 
 
-def check_scorecard(root):
+def check_recipe_dependencies(root):
+    subprocess.run([sys.executable, 'tools/verify_recipe_dependencies.py'], cwd=root, check=True)
+
+
+def check_teaching(root):
     subprocess.run([sys.executable, 'tools/maintained_teaching.py', '--check'], cwd=root, check=True)
-    subprocess.run([sys.executable, str(TEACHING_COVERAGE / 'coverage.py'), '--check',
-                    str(TEACHING_COVERAGE / 'current-coverage.md')], cwd=root, check=True)
 
 
 def offline(root):
@@ -233,7 +236,8 @@ def offline(root):
     imported, updates = current_import_checks(root, pointers)
     count = sum(run_suite(path) for path in suites)
     gallery_suites = run_gallery_suites(root)
-    check_scorecard(root)
+    check_teaching(root)
+    check_recipe_dependencies(root)
     manifest_count = validate_transport_manifests(root, pointers)  # No transport call.
     records = foundation_records(root)
     for path in records:
@@ -241,7 +245,7 @@ def offline(root):
             validate_structure(read_json(path), lambda entry: check_reference(root, pointers, entry))
         except (ValueError, KeyError, TypeError) as error:
             raise ValueError(f'{path.relative_to(root)}: {error}') from error
-    print(f'PASS offline: {count} Python tests; {gallery_suites} Gallery Node suites; maintained register and scorecard; '
+    print(f'PASS offline: {count} Python tests; {gallery_suites} Gallery Node suites; accepted teaching, maintained register and scorecard; '
           f'{manifest_count} transport manifests; {len(records)} foundation records; '
           f'{imported} import references ({updates} documented updates); {len(pointers)} LFS pointer identities.', flush=True)
     print('Offline phase: no exhaustive payload-byte verification; selected suites may inspect local media. '
@@ -254,10 +258,7 @@ def payload_integrity(root, pointers, records):
     total = 0
     for name, (digest, size) in pointers.items():
         path, _ = reference(root, {'file': name, 'sha256': digest})
-        with path.open('rb') as stream:
-            require(not stream.read(100).startswith(b'version https://git-lfs.github.com/spec/'),
-                    'Unresolved LFS pointer; fetch payload first: ' + name)
-        require(path.stat().st_size == size and sha256(path) == digest, 'Payload size/SHA-256 mismatch: ' + name)
+        verify_payload(path, {'path': name, 'sha256': digest, 'bytes': size})
         total += size
     for path in records:
         validate(read_json(path), root)  # Existing strict byte validator, unchanged contract.
@@ -272,8 +273,17 @@ def payload_integrity(root, pointers, records):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('mode', choices=('offline', 'payload-integrity', 'dental'))
+    parser.add_argument('mode', choices=('offline', 'payload-integrity', 'dental', 'retained'))
+    parser.add_argument('paths', nargs='*', help='Exact repository paths for retained')
     args = parser.parse_args()
+    if args.mode == 'retained':
+        if not args.paths:
+            parser.error('retained requires at least one repository path')
+        from retention import print_explanation
+        print_explanation(ROOT, args.paths)
+        return
+    if args.paths:
+        parser.error('Path arguments are only available for retained')
     require(not sys.flags.optimize, 'Do not use Python -O: package checks require assertions')
     if args.mode == 'dental':
         count = run_suite(ROOT / 'tests/dental/test_uff_tomo1b.py')

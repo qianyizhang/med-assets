@@ -1,4 +1,4 @@
-import { candidate, rows } from './selected-library.js';
+import { teachingReview, candidate, rows } from './selected-library.js';
 import React, { useEffect, useRef, useState } from 'react';
 import {
   route, libraryId, studyId, reviewId, bodyPartsAdrenal, comparePath, bodyPartsReviewPath,
@@ -9,8 +9,7 @@ import { FDI31_ID } from '../shared/fdi31-download.js';
 import { useDataApp } from '../../data-app-public.jsx';
 import { componentPermalinkId, componentPermalinkShortId, readComponentPermalink } from '../../chart-permalink.js';
 import { Library, Revision, CollectionEntry } from './Library.jsx';
-import teachingReview from './teaching-inputs/teaching-assessments.json';
-import { libraryAliases, selectExactExport } from './library-data.js';
+import { libraryAliases, selectExactExport } from './library-view.js';
 import { firstForkPath } from './local-models.js';
 import { UseCases, Lesson } from './UseCases.jsx';
 import { Planning, surveyCoverageId } from './Planning.jsx';
@@ -150,8 +149,9 @@ export function Gallery() {
       const record = revision
         ? row?.history.find((entry) => entry.library === 'library/' + canonical + '/' + revision)
         : home ?? row?.history.find((entry) => entry.library === salivary.library || entry.library === row.exactLibrary);
-      const file = new URLSearchParams(query).get('file');
-      const exact = selectExactExport(record, file);
+      const selection = new URLSearchParams(query);
+      const file = selection.get('file');
+      const exact = selectExactExport(record, file, selection.get('export'));
       if (file && !exact) page = <Missing />;
       else if (!id) page = <Library rows={rows} query={query} />;
       else if (id === libraryId) {
@@ -160,7 +160,7 @@ export function Gallery() {
         page = <Revision revision={selected} assessment={study?.assessment} />;
       } else if (row && (exact || !revision)) {
         const detail = exact?.family === 'cartilage-assembly' ? skeletalDetail(query) : '';
-        page = <CollectionEntry row={row} snapshot={snapshot} exact={exact} lessonQuery={detail ? '?from=' + detail : ''} />;
+        page = <CollectionEntry row={row} exact={exact} lessonQuery={detail ? '?from=' + detail : ''} />;
       }
     } else if (surface === 'use-cases' && (!id || id === studyId))
       page = id ? <Lesson stop={revision || adrenalLesson.stops[0].id} /> : <UseCases localPreview={candidate} />;

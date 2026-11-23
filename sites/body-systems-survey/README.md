@@ -159,31 +159,11 @@ is one Object Library object. A fresh public download on 19 November 2026
 matched the archive size and SHA-256. All 327 extracted files matched the
 [member manifest](backup-sha256.txt). Keep the local ZIP as an independent copy.
 
-Run from the repository root. Download only if the local archive is missing.
-The checksum gates extraction, and `unzip -n` preserves existing files.
-The final check identifies local files that differ from the archived set.
+From the repository root, restore to the original paths with the verified collection command. Omit `--from-zip` to download the pinned ZIP, or pass `--output DIRECTORY` to rehearse in an empty tree. Existing conflicting files stop restoration before any missing members are installed.
 
 ```sh
-(
-set -e
-zip=.artifacts/teaching-backup/med-assets-teaching-c803735.zip
-key=library/med-assets/teaching/afa6ed28-1fa4-40d5-af01-643460a53471--med-assets-teaching-c803735.zip
-archive=$zip
-if [ ! -e "$zip" ]; then
-  archive=$zip.partial
-  mkdir -p .artifacts/teaching-backup
-  curl --fail --silent --show-error --get \
-    'https://r2-object-library.landy123007.chatgpt.site/download' \
-    --data-urlencode "key=$key" --output "$archive"
-fi
-printf '%s  %s\n' ccdf0a5dafadf0a4d251a19b83f14ec157e29abdcfe4b3c1199498700d37b014 "$archive" |
-  shasum -a 256 -c
-if [ "$archive" != "$zip" ]; then
-  mv "$archive" "$zip"
-fi
-unzip -n "$zip"
-shasum -a 256 -c sites/body-systems-survey/backup-sha256.txt
-)
+python3.12 transport/tools/restore_collection.py teaching-media \
+  --from-zip .artifacts/teaching-backup/med-assets-teaching-c803735.zip
 ```
 
 The local integration passed the 434-test offline suite and payload integrity

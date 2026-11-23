@@ -1,35 +1,18 @@
 import assert from 'node:assert/strict';
-import { createHash } from 'node:crypto';
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { sha256 as digest, galleryRoute } from './assertions.mjs';
+import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import review from '../../../reviews/heart_exterior/2026-11-21-static-repack/checks.json' with { type: 'json' };
-import { cardiacExterior } from '../app/src/content/gallery/local-models.js';
-import { assetUrl } from '../app/src/content/gallery/catalog.js';
+import review from '../../../../reviews/heart_exterior/2026-11-21-static-repack/checks.json' with { type: 'json' };
+import { cardiacExterior } from '../../app/src/content/gallery/local-models.js';
+import { assetUrl } from '../../app/src/content/gallery/catalog.js';
 
-const capture = process.env.MODEL_SURVEY_CAPTURE_DIR;
-assert.ok(capture, 'Set MODEL_SURVEY_CAPTURE_DIR to a dedicated receipt directory');
-await mkdir(capture, { recursive: true });
-const base = process.env.MODEL_SURVEY_PREVIEW_URL || 'http://127.0.0.1:8858';
-const { chromium } = await import(process.env.MODEL_SURVEY_PLAYWRIGHT_MODULE || 'playwright');
-const digest = (value) => createHash('sha256').update(value).digest('hex');
-const old = 'library/cardiac-exterior/static-opaque-exterior';
-const current = cardiacExterior.library;
-const model = assetUrl(cardiacExterior.exports[0]);
-const url = (route) => base + '/#/' + route;
-const part = 'Aorta | root, ascending, arch and descending';
-
-const browser = await chromium.launch({
-  executablePath: process.env.MODEL_SURVEY_BROWSER,
-  headless: true,
-  chromiumSandbox: true,
-  args: ['--enable-unsafe-swiftshader'],
-});
-try {
-  const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
-  const errors = [];
-  context.on('page', (page) => page.on('pageerror', (error) => errors.push(String(error))));
-  await context.route('**/*', (request) => request.request().url().startsWith(base + '/')
-    ? request.continue() : request.abort());
+export async function checkCardiacScenes({ browser, base, capture }) {
+  const old = 'library/cardiac-exterior/static-opaque-exterior';
+  const current = cardiacExterior.library;
+  const model = assetUrl(cardiacExterior.exports[0]);
+  const url = (route) => galleryRoute(base, route);
+  const part = 'Aorta | root, ascending, arch and descending';
+  const context = await browser.newContext();
   const page = await context.newPage();
   const search = page.getByRole('searchbox', { name: 'Search assets' });
   await page.goto(base + '/');
@@ -129,7 +112,6 @@ try {
   await fresh.getByRole('button', { name: 'Retry 3D' }).click();
   await fresh.locator('.ga-canvas canvas').waitFor();
   assert.ok(await structures(fresh).isEnabled());
-  assert.deepEqual(errors, []);
   await writeFile(path.join(capture, 'heart-exterior.json'), JSON.stringify({
     browser: browser.version(), recordLink, shared, part, selectableObjects: names.length, namesSha256,
     candidate: { bytes: bytes.length, sha256: digest(bytes) },
@@ -137,6 +119,4 @@ try {
     failedFetchAndRetry: '503 then successful retry of the same exact export',
   }, null, 2) + '\n');
   console.log('PASS static heart discovery, WebGL structure selection, exact download, shared view reload, original delivery and retry');
-} finally {
-  await browser.close();
 }

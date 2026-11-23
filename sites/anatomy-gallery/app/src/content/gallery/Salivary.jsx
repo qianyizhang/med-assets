@@ -4,7 +4,7 @@ import { Evidence } from './Evidence.jsx';
 import { Heading, Link, Missing } from './GalleryUI.jsx';
 import { PartLesson } from './PartLesson.jsx';
 import { salivaryLocalEdition, salivaryTask } from './salivary-tasks.js';
-import teachingReview from './teaching-inputs/teaching-assessments.json';
+import { teachingReview } from './selected-library.js';
 import { oralSpacesPath } from './teaching-data.js';
 
 const stops = {

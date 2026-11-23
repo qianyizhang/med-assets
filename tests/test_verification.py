@@ -73,7 +73,8 @@ class VerificationTests(unittest.TestCase):
 
     def test_offline_suite_omission_fails_but_staged_retirement_passes(self):
         self.offline_checkout()
-        with patch.object(verify, 'check_scorecard'), patch.object(verify, 'run_gallery_suites'):
+        with (patch.object(verify, 'check_teaching'), patch.object(verify, 'check_recipe_dependencies'),
+              patch.object(verify, 'run_gallery_suites')):
             self.assert_retirement('tests/test_retired.py',
                                    b'import unittest\nclass Retired(unittest.TestCase):\n def test_pass(self): pass\n',
                                    lambda: verify.offline(self.root))
@@ -147,7 +148,7 @@ class VerificationTests(unittest.TestCase):
         with patch.object(verify, 'PAYLOAD_CHECKS', ()), contextlib.redirect_stdout(io.StringIO()):
             verify.payload_integrity(self.root, pointers, [])
         path.write_bytes(b'X' + self.data[1:])  # Same length, wrong hash.
-        with self.assertRaisesRegex(ValueError, 'Payload size/SHA-256 mismatch'):
+        with self.assertRaisesRegex(ValueError, 'File differs from its recorded size or SHA-256'):
             verify.payload_integrity(self.root, pointers, [])
 
     def test_pointer_reference_mismatch_fails(self):

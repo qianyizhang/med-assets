@@ -41,6 +41,20 @@ class FetchAssetTests(unittest.TestCase):
                 self.download(body)
             self.assertEqual(list(self.cache.iterdir()), [])
 
+    def test_compressed_checkout_restores_exact_bytes_and_preserves_edits(self):
+        import gzip
+        destination = self.cache.parent / 'geometry.json'
+        packed = destination.with_suffix('.json.gz')
+        packed.write_bytes(gzip.compress(self.payload))
+        with self.assertRaises(ValueError):
+            fetch.restore_compressed(destination, '0' * 64, len(self.payload))
+        self.assertFalse(destination.exists())
+        self.assertTrue(fetch.restore_compressed(destination, self.digest, len(self.payload)))
+        self.assertEqual(destination.read_bytes(), self.payload)
+        destination.write_bytes(b'edited')
+        self.assertFalse(fetch.restore_compressed(destination, self.digest, len(self.payload)))
+        self.assertEqual(destination.read_bytes(), b'edited')
+
     def test_corrupt_cache_is_not_silently_overwritten(self):
         target = self.download()
         target.write_bytes(b'x' * len(self.payload))

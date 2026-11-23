@@ -254,7 +254,7 @@ def main():
         '- Captions are burned in, with companion SRT files. No third-party music.\n'
         '- Each GIF plays once in the edit, followed by a final-frame hold; no reversed treatment.\n'
         '- Sources and exact prompts: `../stories.json` and `../SCRIPTS.md`.\n'
-        '- Review frames: `shot-review.jpg`. Shared DejaVu fonts retain the sibling experiment license.\n\n'
+        '- Review frames: `shot-review.jpg`. Shared DejaVu fonts retain the license in sources/fonts/dejavu/LICENSE.txt.\n\n'
         + '\n'.join(summaries) + '\n\n'
         '## Review\n\nSee `../README.md` for retained verification and review limits.\n\n'
         '## Retention\n\nRetain this requested bundle while reviewed or used. Review temporary edit files by 2026-12-06. '

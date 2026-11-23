@@ -1,0 +1,1019 @@
+{
+  "schemaVersion": 1,
+  "derivatives": [
+    {
+      "source": {
+        "path": "body/2d-v4/whole-body-anatomy-v4-spatial/recipes/abdomen-label-clarity-r01/after.png",
+        "sha256": "24822287ed85767628522d5d457637f7b29cbc86126ec1bf2974ff5d399b5397",
+        "bytes": 265534
+      },
+      "output": {
+        "path": "body/2d-v4/whole-body-anatomy-v4-spatial/recipes/abdomen-label-clarity-r01/display/after.webp",
+        "sha256": "962047ee61717c18854c8318aec869c67013c099e776f72d4aadad1a05bbdf34",
+        "bytes": 146076
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "body/2d-v4/whole-body-anatomy-v4-spatial/recipes/abdomen-label-clarity-r01/before.png",
+        "sha256": "3af40157a147b7576d381531da7fb714718ddd61656175534108a0757a9a8017",
+        "bytes": 265891
+      },
+      "output": {
+        "path": "body/2d-v4/whole-body-anatomy-v4-spatial/recipes/abdomen-label-clarity-r01/display/before.webp",
+        "sha256": "484c784e59f1442b83bec6e75700384e58df6b74b73e38c8db8132ea80a96c18",
+        "bytes": 146158
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "models/adipose-context/r01/comparison-en.png",
+        "sha256": "3afd37e33dfd32cd45b418657fb0167de4a7549d69dd0161d3f0d898fa1593d3",
+        "bytes": 275169
+      },
+      "output": {
+        "path": "models/adipose-context/r01/display/comparison-en.webp",
+        "sha256": "33063117583be39fbf67c9039e6cfc1c4d71d31827aa919bcb9af24a45756447",
+        "bytes": 203188
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "models/adipose-context/r01/comparison-zh.png",
+        "sha256": "b2683d3670f0ad4768de6ee473a6ae6d91597754af35f31e514bb3a192c8343a",
+        "bytes": 320540
+      },
+      "output": {
+        "path": "models/adipose-context/r01/display/comparison-zh.webp",
+        "sha256": "3a69deeaebe953d4fdc8957309c85bbc68620e88a0f2294349afeab1893e16c8",
+        "bytes": 214830
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/bone_marrow/2026-10-26-source-cutaway-r05/annotated-context.png",
+        "sha256": "863019e3630ace03a509730e819d140547d072e13bae11933bf6f8107962557c",
+        "bytes": 806371
+      },
+      "output": {
+        "path": "reviews/bone_marrow/2026-10-26-source-cutaway-r05/display/annotated-context.webp",
+        "sha256": "b8098f8eb8e6a4c20662e51a85df1610839fea32dd70850b9c8b64743a9df6be",
+        "bytes": 458106
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/bone_marrow/2026-10-26-source-cutaway-r05/before-after.png",
+        "sha256": "f9e3dbe2b5a83185ad4df8ca47a591e1c48f2ed4d837d3577e44f2d57d2bec9e",
+        "bytes": 821621
+      },
+      "output": {
+        "path": "reviews/bone_marrow/2026-10-26-source-cutaway-r05/display/before-after.webp",
+        "sha256": "57990884bb13d0354ed727b74b48275aaf3c8a83c70beb59eee98fe964e45803",
+        "bytes": 512352
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/bronchial_tree/2026-10-25-authored-junction-repair-r07/evidence/before-after-whole.png",
+        "sha256": "d7d0689dc9d949951755cf6580ce612bc55c08b773202cc3342214a3659ef54b",
+        "bytes": 1746939
+      },
+      "output": {
+        "path": "reviews/bronchial_tree/2026-10-25-authored-junction-repair-r07/evidence/display/before-after-whole.webp",
+        "sha256": "84678790e290212500873b56014df8a7fcaf50e318e8daad30acd04fcea27fce",
+        "bytes": 220546
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/bronchial_tree/2026-10-25-authored-junction-repair-r07/evidence/candidate-main-close.png",
+        "sha256": "f8e4255dac5115b002b9e11d5335b94c1cb3562f05c872c50da79a19d10f22d2",
+        "bytes": 599268
+      },
+      "output": {
+        "path": "reviews/bronchial_tree/2026-10-25-authored-junction-repair-r07/evidence/display/candidate-main-close.webp",
+        "sha256": "eea467139b2243a728a378bcf69e61c97d9950e82e0faf39e03f11b2103c35b3",
+        "bytes": 312784
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/bronchial_tree/2026-10-25-authored-junction-repair-r07/evidence/candidate-oblique.png",
+        "sha256": "f010a2ea7f99416c9f05fa298e7dafd4e149a4176c6efb16f71ae31599a4318f",
+        "bytes": 418025
+      },
+      "output": {
+        "path": "reviews/bronchial_tree/2026-10-25-authored-junction-repair-r07/evidence/display/candidate-oblique.webp",
+        "sha256": "c2ef8c5358f3812153984afb920c04bc1c2ce42d64639b059538b98d20e42d68",
+        "bytes": 190534
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/bronchial_tree/2026-10-25-authored-junction-repair-r07/evidence/export-lobar-close.png",
+        "sha256": "43e58542712f9feecc5a219afa4239094861a1eaf70069ca898e8897727f5c02",
+        "bytes": 571627
+      },
+      "output": {
+        "path": "reviews/bronchial_tree/2026-10-25-authored-junction-repair-r07/evidence/display/export-lobar-close.webp",
+        "sha256": "a67037fbb0f2dc34fed09b9359c226566504729cf8693d6f955f60d85381fcea",
+        "bytes": 309478
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/after-close.png",
+        "sha256": "6ed8e6d0592195c04b7ee464beb9a0264d4b4c2b36e9a059e686e2ede7baaeb0",
+        "bytes": 593830
+      },
+      "output": {
+        "path": "reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/display/after-close.webp",
+        "sha256": "c8b76dfa350ed51125975f4949fddc68b1fcf8aa203c0a832551d1055de9ebfe",
+        "bytes": 309792
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/after-opposite-close.png",
+        "sha256": "6868f825ac066c76f668c3d0927a70f6b39017f94cef1ac603b7e4820048110a",
+        "bytes": 561627
+      },
+      "output": {
+        "path": "reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/display/after-opposite-close.webp",
+        "sha256": "2195f56ec414604c45aa84f7f04e60dab2ad322d8f8c9611d24f0614f3182779",
+        "bytes": 300660
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/after-whole.png",
+        "sha256": "560d6fcff1e3c0acd8ae043bc46d649fc37f92fc8e71224a5e9627718dc88ae5",
+        "bytes": 433195
+      },
+      "output": {
+        "path": "reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/display/after-whole.webp",
+        "sha256": "113455b70bb8e1cb54b4ea1a6de4cdee6faa4aeca69c25dc738e83c6bbbdcf55",
+        "bytes": 190462
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/before-close.png",
+        "sha256": "6ae079f5a0bd7344b7c822db24ad0cc0763c4ae4a897243f1a3a90978b453969",
+        "bytes": 594699
+      },
+      "output": {
+        "path": "reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/display/before-close.webp",
+        "sha256": "3b7dea55f251275646f3aa110056bb21fc953280f2ec5a5fb9a6d999098350a4",
+        "bytes": 309528
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/before-opposite-close.png",
+        "sha256": "0bb0b75529a36eafd092f515ea6268269bc57d5267c78d600322759b0fe4d881",
+        "bytes": 563230
+      },
+      "output": {
+        "path": "reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/display/before-opposite-close.webp",
+        "sha256": "cd731cd8c2de51906e8a41e5f1b2dea3aee151b0991f68799cc309c18a0d46a6",
+        "bytes": 301972
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/before-whole.png",
+        "sha256": "b72ae05230554a0d94513b107bb50757483f6c3439756afa13f4dd7b287e481f",
+        "bytes": 433468
+      },
+      "output": {
+        "path": "reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/display/before-whole.webp",
+        "sha256": "148cd3289f588c94b9e572ed5499be7c8b8ba26e5cf871f391380c223c92d877",
+        "bytes": 190248
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/support-close.png",
+        "sha256": "e9bd587547b0ce9e675d125ed51cf2d68e31b95f083c57c6f9f8cbc431de2693",
+        "bytes": 631837
+      },
+      "output": {
+        "path": "reviews/bronchial_tree/2026-10-26-authored-lobar-fairing-r09/evidence/display/support-close.webp",
+        "sha256": "c1a1c9a41f42b9dd43e2b86594e9f4530c7943922dd5fc6c40a78b1f190b69aa",
+        "bytes": 330876
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display-hard_side.png",
+        "sha256": "a8b676619307f07fa1da5ca1f33ada00520849bef6f41b1207b7e36a610a218e",
+        "bytes": 671382
+      },
+      "output": {
+        "path": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display/display-hard_side.webp",
+        "sha256": "007066e17e5e81af0b16e1251d6a0203c7055b24a497ef2705f7b328913319aa",
+        "bytes": 139562
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display-hard_tissue.png",
+        "sha256": "52c4a04074f8dd84d9955b14364595fbcbbac0dc55dd568d55a18ce380c04bb7",
+        "bytes": 727479
+      },
+      "output": {
+        "path": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display/display-hard_tissue.webp",
+        "sha256": "15f95e72fcb4b8b544e467e04398dd376384f0925e7aa839db6343a776803815",
+        "bytes": 183454
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display-void_side.png",
+        "sha256": "ddb424bcc97a8ecd23ee370a6db5ada77fef28839578846802e11d05cd007775",
+        "bytes": 603500
+      },
+      "output": {
+        "path": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display/display-void_side.webp",
+        "sha256": "b623a190528b0eec58d997d510ca5063a79a81ab6421ac793bb7cd80a8673665",
+        "bytes": 46696
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/master-hard_side.png",
+        "sha256": "da8af7542e3bdba9e9c0401d5cabc1a498194941148ad007be117aa558b0c590",
+        "bytes": 676199
+      },
+      "output": {
+        "path": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display/master-hard_side.webp",
+        "sha256": "e99a916288d2440fe9f4dc342514589cc7715abf3ec6c52be0a0ae66fa5d632e",
+        "bytes": 142126
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/master-hard_tissue.png",
+        "sha256": "ee7738663b550137ac22155c650f4f5f36ce36f813205f869159d79ce68ad3c1",
+        "bytes": 727752
+      },
+      "output": {
+        "path": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display/master-hard_tissue.webp",
+        "sha256": "945b7437c4d73f16a00f30c8e0b52cd7d961576a343c8869762b5027694272fe",
+        "bytes": 186972
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/master-void_side.png",
+        "sha256": "8de44d6376dfa802983977e80cc03ff6fc61d4e2f139d007a65ea550afcd1414",
+        "bytes": 604582
+      },
+      "output": {
+        "path": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display/master-void_side.webp",
+        "sha256": "595a77ce3ed50cc7f4d6e4af789c3f092653368c9250e0c522a77039a21523ed",
+        "bytes": 46926
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/native-overlays.png",
+        "sha256": "2b45e38062d06a79b767cc3a6eaaec87f09084d036a149a66ea88c673e6279ef",
+        "bytes": 391249
+      },
+      "output": {
+        "path": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display/native-overlays.webp",
+        "sha256": "2662811bbd0848191b756ab7db2f6d2e055075b3d15a3c5b9e5997689e331782",
+        "bytes": 224958
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/terminal-overlays.png",
+        "sha256": "b13bcfafb90944396e07b6bdeee88df351f947e3a3dbb3a785c8fa6202fc7460",
+        "bytes": 435119
+      },
+      "output": {
+        "path": "reviews/dental_specimens/uff_tomo1b/2026-10-26-r01/media/display/terminal-overlays.webp",
+        "sha256": "c209189eb6bcc82a32a24a904e8dce7bcc3b0d2637acb33b389e72f01821049d",
+        "bytes": 225584
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/draft_bone/2026-10-23-marrow-comparison/evidence/two-panel-intended.png",
+        "sha256": "477fdb6a756a02ef96766831fbe51e84f9bc76032bd6312b5461570aaa5f167e",
+        "bytes": 910263
+      },
+      "output": {
+        "path": "reviews/draft_bone/2026-10-23-marrow-comparison/evidence/display/two-panel-intended.webp",
+        "sha256": "b8030353b9e3abce03f30881b42473b5dc4810939d72a0b0efa06c4fb1407453",
+        "bytes": 437372
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/draft_bone/2026-10-23-marrow-comparison/evidence/two-panel-neutral.png",
+        "sha256": "fa1ff3691bff9b95b266ecaa64702db7887c026a0422b5e06bcf486a904698a1",
+        "bytes": 899043
+      },
+      "output": {
+        "path": "reviews/draft_bone/2026-10-23-marrow-comparison/evidence/display/two-panel-neutral.webp",
+        "sha256": "be220f7a8d1b5e8394f62a497e50e15accde3554fe92ed6c8bc37534237342d6",
+        "bytes": 430846
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/draft_mouth/2026-10-23-context-rejected/context-before-after-comparison.png",
+        "sha256": "3d66cb2e502a66cad6c15137fb8a82750e43da911f2be7a6102a7dd87d5d979a",
+        "bytes": 500392
+      },
+      "output": {
+        "path": "reviews/draft_mouth/2026-10-23-context-rejected/display/context-before-after-comparison.webp",
+        "sha256": "ecef23e4f8d81489004ea6d4235d15cbc3524d18cd87f1f65503cbd18a0727fe",
+        "bytes": 329240
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/draft_muscle/2026-10-23-achilles-context/evidence/export-lateral.png",
+        "sha256": "e2e1ad69e7baa9c05fae709e0b5089999029d95483f5842d8cf2c3b17766d1eb",
+        "bytes": 717801
+      },
+      "output": {
+        "path": "reviews/draft_muscle/2026-10-23-achilles-context/evidence/display/export-lateral.webp",
+        "sha256": "a6fb2599ddc32da41ac6408266b5bd582dfaae3770fe21982f2b27cc4ccfdeea",
+        "bytes": 196034
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/draft_muscle/2026-10-23-achilles-context/evidence/export-posterior.png",
+        "sha256": "40ff9f62ad55f9300510b5526b868e27a5bbcf30f93b68f6330a72b9d86b0599",
+        "bytes": 711734
+      },
+      "output": {
+        "path": "reviews/draft_muscle/2026-10-23-achilles-context/evidence/display/export-posterior.webp",
+        "sha256": "780a8ffcd909df3fcd5c1697627434a93a83292800244f4b4e954f9add860609",
+        "bytes": 210650
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/draft_muscle/2026-10-23-achilles-context/evidence/heel-close-lateral.png",
+        "sha256": "e996453161275bf8088825ac4907c0d021a203c235a542194d1b95c829cca599",
+        "bytes": 988898
+      },
+      "output": {
+        "path": "reviews/draft_muscle/2026-10-23-achilles-context/evidence/display/heel-close-lateral.webp",
+        "sha256": "f208236354c047e14422373ba1ec47ae85d2b335524ca5830109a67bc8f75544",
+        "bytes": 402676
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/draft_muscle/2026-10-23-achilles-context/evidence/heel-close-neutral-oblique.png",
+        "sha256": "dfda037da0870a22d17745eebd52ceaefc6113b277a37ff3074480d9200ecde7",
+        "bytes": 667857
+      },
+      "output": {
+        "path": "reviews/draft_muscle/2026-10-23-achilles-context/evidence/display/heel-close-neutral-oblique.webp",
+        "sha256": "bae26e5fac8943a0d99a6c2dab0a8426417f1e6fb770354ffd471a5db3d3e69e",
+        "bytes": 220152
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/draft_muscle/2026-10-23-achilles-context/evidence/heel-close-posterior.png",
+        "sha256": "6297742f44760ccdf7af60c0efe50aebf6ed6f80f439f492ab1639a83fd15f48",
+        "bytes": 1035265
+      },
+      "output": {
+        "path": "reviews/draft_muscle/2026-10-23-achilles-context/evidence/display/heel-close-posterior.webp",
+        "sha256": "0b44d4f868afc23b5696dc8f4a4008b7456f6be81c5311db111537542209c7f5",
+        "bytes": 414404
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/draft_muscle/2026-10-23-achilles-context/evidence/neutral-oblique.png",
+        "sha256": "00f0bb0465300403cb92db32a2fc1b2d9c29d79ae11f6d28802491b0ab5e4da1",
+        "bytes": 571982
+      },
+      "output": {
+        "path": "reviews/draft_muscle/2026-10-23-achilles-context/evidence/display/neutral-oblique.webp",
+        "sha256": "420fd1ee606e4011cc14a54535cccb0e229dc8d18e714976761fc91d37f2e467",
+        "bytes": 110072
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/esophagus_wall/2026-10-25-authored-teaching/oblique.png",
+        "sha256": "67a9eaf72a5801ff7e0fa989338c6f4096a8ca6bc630946c79c6aca407e29185",
+        "bytes": 660785
+      },
+      "output": {
+        "path": "reviews/esophagus_wall/2026-10-25-authored-teaching/display/oblique.webp",
+        "sha256": "12c812def694af4166660f853a279da61c0359e1637c97d2ec3f95b1f71d93c4",
+        "bytes": 298896
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/esophagus_wall/2026-10-25-authored-teaching/teaching-sheet-zh-CN.png",
+        "sha256": "177fabd3f6bd3e8d441562f992a0a9f2c0bce27ffdb839e8cd1a02de18add542",
+        "bytes": 987121
+      },
+      "output": {
+        "path": "reviews/esophagus_wall/2026-10-25-authored-teaching/display/teaching-sheet-zh-CN.webp",
+        "sha256": "be31beade8a168d2f75212bcdeb36343d799b49a8ff033ac34003c7ab461d5d0",
+        "bytes": 579214
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/esophagus_wall/2026-10-25-authored-teaching/teaching-sheet.png",
+        "sha256": "c2b8dc96d57f8a0489bf95e62935fa14db9c439973a83db338a1260f0f5fb358",
+        "bytes": 916509
+      },
+      "output": {
+        "path": "reviews/esophagus_wall/2026-10-25-authored-teaching/display/teaching-sheet.webp",
+        "sha256": "5a64a5b3a570b0a97ac7b2658a7863597cdbacb47df64b95e11f2c156d78dc7c",
+        "bytes": 549594
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/head_label_readability/2026-10-25-r01/baseline-head-zh.png",
+        "sha256": "ec42de15de9c940bcfdb035cf1e7ce7f3e91d22b6d903205056dbf39c313de00",
+        "bytes": 175407
+      },
+      "output": {
+        "path": "reviews/head_label_readability/2026-10-25-r01/display/baseline-head-zh.webp",
+        "sha256": "e4070f5f2233d074a8d4c825fbfd1b57f6ca30e83a8da1410afb30d4e31fa70e",
+        "bytes": 89974
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/head_label_readability/2026-10-25-r01/baseline-head.png",
+        "sha256": "eb6317b73169e8592a3c920ca764394f366a41bc2ac46dfc457888b744bfabc4",
+        "bytes": 189621
+      },
+      "output": {
+        "path": "reviews/head_label_readability/2026-10-25-r01/display/baseline-head.webp",
+        "sha256": "5e4b83bb1941cfdd6c71207635481ac543aa95d05f6cc03e059661bbc2651dea",
+        "bytes": 96782
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/head_label_readability/2026-10-25-r01/candidate-head-zh.png",
+        "sha256": "5406c1cc0d323131ed4f6c2b22344e4c651d10ef0e7ec74a34a3aa40fffb1388",
+        "bytes": 177772
+      },
+      "output": {
+        "path": "reviews/head_label_readability/2026-10-25-r01/display/candidate-head-zh.webp",
+        "sha256": "868ebd782e2b63368e52133923d158a38add77c986cafe280d3ce8e77415a745",
+        "bytes": 91044
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/head_label_readability/2026-10-25-r01/candidate-head.png",
+        "sha256": "f8509001b05b36955c369220a32e2cc5da73e9307dc0f0b78080dced80c56b40",
+        "bytes": 192752
+      },
+      "output": {
+        "path": "reviews/head_label_readability/2026-10-25-r01/display/candidate-head.webp",
+        "sha256": "0b95962023bc83b838df5282349794e6055410479713bad2e87dcb515152ac44",
+        "bytes": 97916
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/parathyroids/2026-10-25-localization-r01/neutral-comparison.png",
+        "sha256": "1e1bd718715653aed704cc30710cfea892af5f5bb3550f2c054f43397bd0cd1a",
+        "bytes": 351467
+      },
+      "output": {
+        "path": "reviews/parathyroids/2026-10-25-localization-r01/display/neutral-comparison.webp",
+        "sha256": "59c9763c40d20891530c5588580b963c5cdb73901743a1cde82ab7f024666b20",
+        "bytes": 160986
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/parathyroids/2026-10-25-localization-r01/posterior-oblique-display.png",
+        "sha256": "6dc4391bb2af938f17f246be9bf39a072bafc4ee517cd4aba9da8ce78c5865cb",
+        "bytes": 258857
+      },
+      "output": {
+        "path": "reviews/parathyroids/2026-10-25-localization-r01/display/posterior-oblique-display.webp",
+        "sha256": "f419bbdd65dcf78271c8a02dac0a282c6588c6c203ca57e19e1d75e73128f18d",
+        "bytes": 127342
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/parathyroids/2026-10-25-localization-r01/teaching-posterior.png",
+        "sha256": "8b8c0a92cae7f491282b381f04d2f3a0453e2441fbe0b89a5351054e810f98b1",
+        "bytes": 362317
+      },
+      "output": {
+        "path": "reviews/parathyroids/2026-10-25-localization-r01/display/teaching-posterior.webp",
+        "sha256": "b882ea7e8ffd75eb6248d4ea15e3d648a383621a24bb44c133ab2dda000932ee",
+        "bytes": 168434
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/penis/2026-10-26-native-components-r04/annotated-context.png",
+        "sha256": "6b5dc0b2afb399ae60adb1dae20fb444e9612c73533e575e5afb029d0fcd5f88",
+        "bytes": 634424
+      },
+      "output": {
+        "path": "reviews/penis/2026-10-26-native-components-r04/display/annotated-context.webp",
+        "sha256": "0218f505c96da2cc9a22ddeb16a1480719ce8e3899ce836a997afb877ae29d31",
+        "bytes": 333922
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/penis/2026-10-26-native-components-r04/review-comparison.png",
+        "sha256": "d7b9a4b026db5090de73ea6af8fdbf85d5b371bb687d99d6179c82bbd46b33d0",
+        "bytes": 428389
+      },
+      "output": {
+        "path": "reviews/penis/2026-10-26-native-components-r04/display/review-comparison.webp",
+        "sha256": "8d5c62e257b0066bf1de11b70ea35d70580e9e18fbc9e00d1107e61bb9f58820",
+        "bytes": 267538
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/spinal_cord/2026-10-26-authored-relationships-r03/annotated-context.png",
+        "sha256": "0c92ef09008c28fe14da8660d6cd8b441d40537ede805bfdd1d77e9329189c69",
+        "bytes": 297184
+      },
+      "output": {
+        "path": "reviews/spinal_cord/2026-10-26-authored-relationships-r03/display/annotated-context.webp",
+        "sha256": "38c02a9be42b500a817360b06f4078968e8e97d787d4f4fe8c9cf6ccc1594c48",
+        "bytes": 118690
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/swirendo_fdi31/2026-10-27-interface-locked/media/FDI31-one-round-no-change-comparison.png",
+        "sha256": "f0d9a6259f98961e30568c9e4d359e284fedbd0d91bc16b1243fca64f0942c34",
+        "bytes": 244293
+      },
+      "output": {
+        "path": "reviews/swirendo_fdi31/2026-10-27-interface-locked/media/display/FDI31-one-round-no-change-comparison.webp",
+        "sha256": "b44d06851ab63670c7cf755becd8c03a12d4afd7a6c7b3844790e38982c14a00",
+        "bytes": 77482
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/swirendo_fdi31/2026-10-27-interface-locked/media/witness-1-enamel-dentin-matched.png",
+        "sha256": "379186586c7e7bee4029e2998293b696058483df6b6854ea6f24f23fcefa1158",
+        "bytes": 267458
+      },
+      "output": {
+        "path": "reviews/swirendo_fdi31/2026-10-27-interface-locked/media/display/witness-1-enamel-dentin-matched.webp",
+        "sha256": "ac401f84a40fe1d99b55ad66da2a87773ba713c6662971faf51305c5cd89185b",
+        "bytes": 92442
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/swirendo_fdi31/2026-10-27-interface-locked/media/witness-2-dentin-pulp-matched.png",
+        "sha256": "00156890840ae82264b3d072b84cbff511de3a19b6a32db72d90e70c5adf7b6e",
+        "bytes": 247126
+      },
+      "output": {
+        "path": "reviews/swirendo_fdi31/2026-10-27-interface-locked/media/display/witness-2-dentin-pulp-matched.webp",
+        "sha256": "18b5db988dde912723694b2b35a4b506fcfd0711d4dc5bcec2a16c6a84ce2a06",
+        "bytes": 88436
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/swirendo_fdi31/2026-10-27-interface-locked/media/witness-3-bone-dentin-matched.png",
+        "sha256": "f2058b0f83ce75d5c139660901d168c0e3adee425f22ffb4eb78c2694eaab118",
+        "bytes": 310667
+      },
+      "output": {
+        "path": "reviews/swirendo_fdi31/2026-10-27-interface-locked/media/display/witness-3-bone-dentin-matched.webp",
+        "sha256": "2a84b2e94819adc08a0c64b1b10d7901cc7dc732b4431e617f7ff5e2009b8d35",
+        "bytes": 104614
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/lower-occlusal-context.png",
+        "sha256": "b700b97100500ede06eedce13ec23eeaddd166d9e77f408bbb1a373131433b19",
+        "bytes": 1077523
+      },
+      "output": {
+        "path": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/display/lower-occlusal-context.webp",
+        "sha256": "7b4b8acf290058000abed033294390b9b12da36ce907db7abaee357005817ba4",
+        "bytes": 388966
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/pair-12-11.png",
+        "sha256": "8f116ed9a6f297457a5a449bb69e29a9a6c1971c529443b68b672106e9bd6a41",
+        "bytes": 986998
+      },
+      "output": {
+        "path": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/display/pair-12-11.webp",
+        "sha256": "9a5cb540b689bd45498d2694e3045da036381c8e78438f7fd162c943d78973a8",
+        "bytes": 466152
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/pair-17-16.png",
+        "sha256": "871027cb0608e9bd789e632258311841b256a0d9d4e5a494830f19379013c2a7",
+        "bytes": 1301992
+      },
+      "output": {
+        "path": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/display/pair-17-16.webp",
+        "sha256": "895e0350dc76b90cf2f3f4072d926e5bd6f10d1659f842cccb75f175985290d7",
+        "bytes": 791196
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/pair-35-36.png",
+        "sha256": "9a84ef41a9073c574bd31f9185fce7f326ff885e4f085581da1e0f26d04e4da4",
+        "bytes": 1131127
+      },
+      "output": {
+        "path": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/display/pair-35-36.webp",
+        "sha256": "a6edaae7c8d47f58ebe186d9bfa652ef3b8cfd8994a9c5073518734d88b86bcc",
+        "bytes": 562410
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/triangle-witnesses.png",
+        "sha256": "9f595117c2a8b67d7041bbe58861a71ef1fc44f50a7964d8bf9c212fa57b4c78",
+        "bytes": 67174
+      },
+      "output": {
+        "path": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/display/triangle-witnesses.webp",
+        "sha256": "35e6575ed6fbe508418d88f852f01142b275fcd7fd36e5d91d1326f717cc4305",
+        "bytes": 25710
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/upper-occlusal-context.png",
+        "sha256": "022885155f8eee7d19a8b9119fd1536896cf3288147e169523f4b131c006eb34",
+        "bytes": 1195878
+      },
+      "output": {
+        "path": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/display/upper-occlusal-context.webp",
+        "sha256": "d0c210146375a82a516eacd36a641ca8bcc392a3cbca4739f49ffd737277e0ae",
+        "bytes": 521226
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/whole-front.png",
+        "sha256": "78af258e7e406819060b296b249d54516447c9261cb3a0c8542ebfc51730c875",
+        "bytes": 1226541
+      },
+      "output": {
+        "path": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/display/whole-front.webp",
+        "sha256": "b86357beafc387e3f2ae222dd99ac23c0304da9fec3c4fb3906f1e39267f77e3",
+        "bytes": 564466
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/whole-patient-left.png",
+        "sha256": "f67ee8f1a514c9460c1aafdd2c6c4b955206640c640d2f14f9f9b2430f261dfa",
+        "bytes": 1319797
+      },
+      "output": {
+        "path": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/display/whole-patient-left.webp",
+        "sha256": "6404d8c6c92915f01b0e1ecd166ff3d003d4d626ee1afac0a482f36b531b9ac5",
+        "bytes": 611410
+      },
+      "recipe": "pillow-webp-11.3.0"
+    },
+    {
+      "source": {
+        "path": "diagrams/biliary_pathway/exports/r01/biliary-pathways-en.png",
+        "sha256": "e3280f853825ed69fb39a9c5bfc894155fe7b1f488353cd36712406093ecdebb",
+        "bytes": 220644
+      },
+      "output": {
+        "path": "diagrams/biliary_pathway/exports/r01/display/biliary-pathways-en.webp",
+        "sha256": "c30d7d2ba799fedab18ce35d01c0be5d4c4bf0e806e74ab929da023ff2b71760",
+        "bytes": 74670
+      },
+      "recipe": "pillow-webp-12.2.0"
+    },
+    {
+      "source": {
+        "path": "diagrams/biliary_pathway/exports/r01/biliary-pathways-zh.png",
+        "sha256": "77d10e69a9336ed0797795671707afd605b9b45831645a697d746b7f71e25e5a",
+        "bytes": 200950
+      },
+      "output": {
+        "path": "diagrams/biliary_pathway/exports/r01/display/biliary-pathways-zh.webp",
+        "sha256": "6b5ee94c549cf47060d0956dcdbb857f0ed843bda5b9165afaab0f50565c736b",
+        "bytes": 66256
+      },
+      "recipe": "pillow-webp-12.2.0"
+    },
+    {
+      "source": {
+        "path": "diagrams/oral_spaces/exports/r01/oral-spaces-en.png",
+        "sha256": "94d1b4a9c0127b74f5a0aca933776f81e2bc930a75f39d99833689a1f9b0e913",
+        "bytes": 250002
+      },
+      "output": {
+        "path": "diagrams/oral_spaces/exports/r01/display/oral-spaces-en.webp",
+        "sha256": "e55cca4ee43417803c0b4af0a04f78d4d35c1e44eaf231edcc44ef49130ea9d1",
+        "bytes": 101230
+      },
+      "recipe": "pillow-webp-12.2.0"
+    },
+    {
+      "source": {
+        "path": "diagrams/oral_spaces/exports/r01/oral-spaces-zh.png",
+        "sha256": "6bb250b847b3d3b1857d5a48b9805f5b20a9e42c8465c2e2cf0025d9f52e4de8",
+        "bytes": 228358
+      },
+      "output": {
+        "path": "diagrams/oral_spaces/exports/r01/display/oral-spaces-zh.webp",
+        "sha256": "4671d75f667e283db4c21beb8411e3d4696e17f3801da7081af3424257f646da",
+        "bytes": 91638
+      },
+      "recipe": "pillow-webp-12.2.0"
+    },
+    {
+      "source": {
+        "path": "diagrams/urinary_outflow/exports/r01/urinary-outflow-en.png",
+        "sha256": "0abc809f485a84efc2b1cb11c63fda7681996c1583a23e7b6533c5c338cb47aa",
+        "bytes": 218863
+      },
+      "output": {
+        "path": "diagrams/urinary_outflow/exports/r01/display/urinary-outflow-en.webp",
+        "sha256": "92b3faadb626ffdf881c976bafa4034eb2d9eb671a55d0af64258109a4c89d88",
+        "bytes": 77238
+      },
+      "recipe": "pillow-webp-12.2.0"
+    },
+    {
+      "source": {
+        "path": "diagrams/urinary_outflow/exports/r01/urinary-outflow-zh.png",
+        "sha256": "74c762fdf24fd187be58fd8f34b6923315764e845f4a8fa8ae2e88a013928587",
+        "bytes": 201665
+      },
+      "output": {
+        "path": "diagrams/urinary_outflow/exports/r01/display/urinary-outflow-zh.webp",
+        "sha256": "82ab510e4495feb9c40675187786cc2eba02c8d4cadeaea4612712bf68f69038",
+        "bytes": 65098
+      },
+      "recipe": "pillow-webp-12.2.0"
+    },
+    {
+      "source": {
+        "path": "lessons/ovary-tubal-context/original-updated.png",
+        "sha256": "0fca8f8dceda88627e51ad51f478d5b97f090957ab65e871a9aab6c0b21cc532",
+        "bytes": 744012
+      },
+      "output": {
+        "path": "lessons/ovary-tubal-context/display/original-updated.webp",
+        "sha256": "32aa2bb0c854833bd50dab3554f22048f018eb5ce404263fd4c02cea81120c14",
+        "bytes": 271918
+      },
+      "recipe": "pillow-webp-12.2.0"
+    },
+    {
+      "source": {
+        "path": "lessons/ovary-tubal-context/teaching.png",
+        "sha256": "e37da6c0c382693dd348db4d78da599be0efe3da7d7af486fbdd53fcbffacb60",
+        "bytes": 1241258
+      },
+      "output": {
+        "path": "lessons/ovary-tubal-context/display/teaching.webp",
+        "sha256": "dbf9d7faa086471492fd3035978e7bbec451d03f6e9131f7a647f03c3d98e785",
+        "bytes": 451338
+      },
+      "recipe": "pillow-webp-12.2.0"
+    },
+    {
+      "source": {
+        "path": "lessons/pulmonary-vein-context/pulmonary-vein-context.png",
+        "sha256": "7e48448afb63ac42df1dc281cf939c3a9783acc75fdca877a9c65e2abcfc4bac",
+        "bytes": 2641758
+      },
+      "output": {
+        "path": "lessons/pulmonary-vein-context/display/pulmonary-vein-context.webp",
+        "sha256": "1d2edea40067ea22d7491f9bf95c2621d6d5c21f2fdb3b761853dc93eb1e9a4c",
+        "bytes": 1202402
+      },
+      "recipe": "pillow-webp-12.2.0"
+    },
+    {
+      "source": {
+        "path": "reviews/aortic_tree_z/2026-10-29-arch-locators/junction-comparison.png",
+        "sha256": "b06efe8944f8b8d987b3b8509cd4332b7aa236fc38ed7abb263e3956658e3ee1",
+        "bytes": 969156
+      },
+      "output": {
+        "path": "reviews/aortic_tree_z/2026-10-29-arch-locators/display/junction-comparison.webp",
+        "sha256": "c0c8d9413e4ba58c4fb21ac546d90da3531bef18247304233f8cb6561f17f302",
+        "bytes": 454728
+      },
+      "recipe": "pillow-webp-12.2.0"
+    },
+    {
+      "source": {
+        "path": "reviews/aortic_tree_z/2026-10-29-arch-locators/overview-comparison.png",
+        "sha256": "d11775c80d7e3a098ee1a62d2b45eae2656b4ec7c7263a147c20f4e5e6c52d3b",
+        "bytes": 857413
+      },
+      "output": {
+        "path": "reviews/aortic_tree_z/2026-10-29-arch-locators/display/overview-comparison.webp",
+        "sha256": "47e3414db224e14b2254472764eea25b05d42849676da05e1342e76a68740550",
+        "bytes": 195718
+      },
+      "recipe": "pillow-webp-12.2.0"
+    },
+    {
+      "source": {
+        "path": "reviews/brain/2026-10-29-source-cut/screenshots/front-comparison.png",
+        "sha256": "c2ee5ee6cc8db191b0b10d8ff7a12b3a7d0010f7af1ec4d7430307662e66ae28",
+        "bytes": 765180
+      },
+      "output": {
+        "path": "reviews/brain/2026-10-29-source-cut/screenshots/display/front-comparison.webp",
+        "sha256": "965e8ffbe208755db9fffb979f824afdf94624b517e20f6a7c14a5962740a554",
+        "bytes": 424958
+      },
+      "recipe": "pillow-webp-12.2.0"
+    },
+    {
+      "source": {
+        "path": "reviews/bronchial_tree/2026-10-26-authored-central-fairing-r13/evidence/after-close.png",
+        "sha256": "91e6d8caf29d3f1fcca92902a1055d68b29a953ca1c725c6ef162bfa7f818062",
+        "bytes": 607561
+      },
+      "output": {
+        "path": "reviews/bronchial_tree/2026-10-26-authored-central-fairing-r13/evidence/display/after-close.webp",
+        "sha256": "e555b9661c6842211550686bcc2fc41be55348252213d54607a41ca2b312dfeb",
+        "bytes": 313398
+      },
+      "recipe": "pillow-webp-12.2.0"
+    },
+    {
+      "source": {
+        "path": "reviews/bronchial_tree/2026-10-26-authored-central-fairing-r13/evidence/after-whole.png",
+        "sha256": "c8d4264c82cf9f391d4a2a8110355dce8f4ffd359be3ea85dab7a2383254f6e1",
+        "bytes": 433074
+      },
+      "output": {
+        "path": "reviews/bronchial_tree/2026-10-26-authored-central-fairing-r13/evidence/display/after-whole.webp",
+        "sha256": "18d93080132258b96eaacac4710c2b226a9f95571dcaa1d62960d44013a65fb2",
+        "bytes": 191642
+      },
+      "recipe": "pillow-webp-12.2.0"
+    },
+    {
+      "source": {
+        "path": "reviews/bronchial_tree/2026-10-26-authored-central-fairing-r13/evidence/before-close.png",
+        "sha256": "f6e5d97c00cfe7824cb268eebfe320bc6030e0991daa4b8b19b13b44c97a4b13",
+        "bytes": 608489
+      },
+      "output": {
+        "path": "reviews/bronchial_tree/2026-10-26-authored-central-fairing-r13/evidence/display/before-close.webp",
+        "sha256": "39d9de6999b4701c53b6e3c1cc453610bbff53b63d935475396f2b11a3fedf5b",
+        "bytes": 314304
+      },
+      "recipe": "pillow-webp-12.2.0"
+    },
+    {
+      "source": {
+        "path": "reviews/nose_sinuses/2026-10-26-nih3d-airspace-r01/baseline-source-comparison.png",
+        "sha256": "8796ae156be8c2918a055be015cedcdfdfb077fb1a99340fa11e9ac479e0f753",
+        "bytes": 636525
+      },
+      "output": {
+        "path": "reviews/nose_sinuses/2026-10-26-nih3d-airspace-r01/display/baseline-source-comparison.webp",
+        "sha256": "d581f200e3b2b44002edbeeb5774871c992cd5714689f4ea1727fefbfeb95393",
+        "bytes": 373306
+      },
+      "recipe": "pillow-webp-12.2.0"
+    },
+    {
+      "source": {
+        "path": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/lower-occlusal-teeth.png",
+        "sha256": "eb10757347d6c0c05a5f004ced83f2e7ee3c8aa9728f48ef116ba825e2c4bf5f",
+        "bytes": 1016875
+      },
+      "output": {
+        "path": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/display/lower-occlusal-teeth.webp",
+        "sha256": "b7f990eac57098e8c3ad379a230f6000ee003c440eb0c14fe3aa8b170b544db1",
+        "bytes": 310520
+      },
+      "recipe": "pillow-webp-12.2.0"
+    },
+    {
+      "source": {
+        "path": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/media/upper-occlusal-teeth.png",
+        "sha256": "a40a4b75d745c78f239a9492befe97e6c580d7e56d9f0604cc99fa5ccee7716c",
+        "bytes": 1006188
+      },
+      "output": {
+        "path": "reviews/teeth_gums/2026-10-26-set-contact-checkpoint/display/upper-occlusal-teeth.webp",
+        "sha256": "c66833c298621c78dc50357d76ddf0f081ddf80b3e25029e011a46fbb885c776",
+        "bytes": 314558
+      },
+      "recipe": "pillow-webp-12.2.0"
+    },
+    {
+      "source": {
+        "path": "reviews/trachea/2026-10-25-host-conforming-cbands-r05/evidence/baseline-r05-comparison.png",
+        "sha256": "8e66afd737df5dc27689a3b46ec4577f0761eea2198fb1796280db06d8b3afcd",
+        "bytes": 567609
+      },
+      "output": {
+        "path": "reviews/trachea/2026-10-25-host-conforming-cbands-r05/evidence/display/baseline-r05-comparison.webp",
+        "sha256": "8f845a8841eadc02f7e590a08f7eafbc85a97535b3fe001b6b5c2a0608b93bf3",
+        "bytes": 338760
+      },
+      "recipe": "pillow-webp-12.2.0"
+    }
+  ]
+}

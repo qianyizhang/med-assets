@@ -16,7 +16,7 @@ python3 lessons/right-arm-parts/plates.py \
   --renders "$arm_replay/renders" --out "$arm_replay/webp" --verify
 ```
 
-The renderer checks every input identity before opening a GLB and starting a render. The plate command compares all six WebPs with the retained Gallery copies before writing verified outputs. The four practice views are 640 × 480. The elbow and shoulder answer images are 1290 × 528 and 1940 × 528.
+The renderer checks every input identity before opening a GLB and starting a render. The plate command compares all six WebPs with the [retained lesson plates](plates/) before writing verified outputs. The four practice views are 640 × 480. The elbow and shoulder answer images are 1290 × 528 and 1940 × 528.
 
 The [earlier right-arm source replay review](../../reviews/teaching-assessments/2026-11-23-z-right-arm-replay/README.md) retains its own three bilingual plates, camera targets and asset identities. Both renderers use the lesson's [orthographic scene setup](arm_scene.py).
 

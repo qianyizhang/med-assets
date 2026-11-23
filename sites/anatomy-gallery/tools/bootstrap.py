@@ -9,8 +9,9 @@ import tempfile
 import zipfile
 
 from framework import SITE, prepare, prepare_published, read_seed, verified_framework_revision
-from gallery_runtime import restore_viewer, verified
-from transport.tools.restore_snapshot import restore
+from gallery_runtime import restore_viewer
+from med_assets.artifacts import verify_bytes
+from restore_snapshot import restore
 
 
 def present(path):
@@ -22,7 +23,7 @@ def restore_backup(site, backup, scratch, *, framework=None, seed=None):
         raise ValueError('Missing framework or Survey seed. Supply the frozen recovery ZIP with --backup.')
     resource = json.loads((site / 'framework.lock.json').read_text())['backup']
     with backup.open('rb') as handle:
-        raw = verified({**resource, 'path': backup.name}, handle.read(resource['bytes'] + 1))
+        raw = verify_bytes(handle.read(resource['bytes'] + 1), {**resource, 'path': backup.name})
     with zipfile.ZipFile(io.BytesIO(raw)) as archive:
         if framework is not None:
             bundle = scratch / 'framework.bundle'

@@ -74,7 +74,7 @@ An isolated hydrated checkout of `6abbadd` passed the combined repository gate a
 
 ## Gallery display replay
 
-The follow-up from `276f825` retires 70 display WebPs totaling **17,572,300 current-tree LFS bytes** and adds no LFS objects. The [Gallery recipe](../../../sites/anatomy-gallery/display-images.json) retains the canonical PNGs and the existing download bindings. A clean assembly reproduced the encoded size, SHA-256 and decoded RGBA of all 70 WebPs, plus the eight previously retired contact-review displays.
+The follow-up from `276f825` retires 70 display WebPs totaling **17,572,300 current-tree LFS bytes** and adds no LFS objects. The [display derivative declarations](../../../sources/display-derivatives.json) retains the canonical PNGs and the existing download bindings. A clean assembly reproduced the encoded size, SHA-256 and decoded RGBA of all 70 WebPs, plus the eight previously retired contact-review displays.
 
 The [r14 first-fork comparison](../../../reviews/bronchial_tree/2026-11-21-distal-simplification-trial/evidence/close.webp) remains loose for its Gallery reader. Its eight supplementary sheets are retained in the [verified bronchial archive](../../../transport/README.md#restore-an-archived-collection). The trachea r06 and spinal roots r04 comparison plates lack matching canonical PNGs. The legacy dental tool and prepared-incisor originals come from the separate [recovery cache](../../../sites/anatomy-gallery/README.md#legacy-dental-review-media). Their tracked displays keep that dependency optional. Historical snapshot thumbnails and the independently maintained Body Systems and adrenal displays retain their existing bindings.
 

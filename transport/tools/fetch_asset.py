@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import gzip
+import io
 import json
 import shutil
 import os
@@ -15,6 +17,7 @@ import urllib.parse
 import urllib.request
 
 from delivery_catalog import DELIVERY_INDEX, current_paths, source_path
+from med_assets.artifacts import install_verified
 from lfs_transport import parse_pointer
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -31,8 +34,22 @@ def pinned_asset(root: Path, revision: str, name: str) -> tuple[str, int]:
     commit = subprocess.check_output(
         ['git', '--no-lazy-fetch', 'rev-parse', '--verify', '--end-of-options', revision + '^{commit}'],
         cwd=root, text=True).strip()
-    pointer = subprocess.check_output(
-        ['git', '--no-lazy-fetch', 'show', commit + ':' + name], cwd=root)
+    raw = subprocess.run(['git', '--no-lazy-fetch', 'show', commit + ':' + name],
+                         cwd=root, capture_output=True)
+    if raw.returncode:
+        # Some package exports preserve their original identity in a tracked gzip member.
+        if not name.endswith('.json'):
+            raw.check_returncode()
+        packed = subprocess.check_output(['git', '--no-lazy-fetch', 'show', commit + ':' + name + '.gz'], cwd=root)
+        contract_name = str(PurePosixPath(name).with_name('EXPORT_CONTRACT.json'))
+        contract = json.loads(subprocess.check_output(['git', '--no-lazy-fetch', 'show', commit + ':' + contract_name], cwd=root))
+        with gzip.GzipFile(fileobj=io.BytesIO(packed)) as stream:
+            decoded = stream.read(64_000_001)
+        digest = hashlib.sha256(decoded).hexdigest()
+        if len(decoded) > 64_000_000 or contract['sha256'].get(PurePosixPath(name).name) != digest:
+            raise ValueError('Compressed export differs from the pinned export contract')
+        return digest, len(decoded)
+    pointer = raw.stdout
     if pointer.startswith(b'version https://git-lfs.github.com/spec/v1\n'):
         return parse_pointer(pointer)
     return hashlib.sha256(pointer).hexdigest(), len(pointer)
@@ -152,6 +169,19 @@ def hydrate(root: Path, name: str, cached: Path, digest: str, size: int) -> Path
     finally:
         Path(temporary).unlink(missing_ok=True)
 
+def restore_compressed(target: Path, digest: str, size: int) -> bool:
+    packed = target.with_suffix('.json.gz')
+    if target.exists() or target.suffix != '.json' or not packed.is_file():
+        return False
+    if packed.absolute() != packed.resolve() or target.is_symlink():
+        raise ValueError('Compressed hydration must not traverse symlinks')
+    with gzip.open(packed, 'rb') as stream, tempfile.NamedTemporaryFile(dir=target.parent) as staged:
+        staged.write(stream.read(size + 1))
+        staged.flush()
+        install_verified(Path(staged.name), target, {'path': target.name, 'sha256': digest, 'bytes': size})
+    return True
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('path', help='Exact payload path at the selected Git commit')
@@ -161,8 +191,11 @@ def main() -> int:
     args = parser.parse_args()
     try:
         digest, size = pinned_asset(ROOT, args.commit, args.path)
+        target = ROOT / args.path
+        if args.hydrate and restore_compressed(target, digest, size):
+            print(target)
+            return 0
         if args.hydrate:
-            target = ROOT / args.path
             if working_pointer(target, digest, size) is None:
                 print(target)
                 return 0

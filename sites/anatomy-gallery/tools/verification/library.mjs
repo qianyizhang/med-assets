@@ -1,104 +1,91 @@
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { createHash } from 'node:crypto';
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { sha256 as digest } from './assertions.mjs';
+import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import snapshotReference from '../snapshot-reference.json' with { type: 'json' };
-import { assetUrl, ratingAxes } from '../app/src/content/gallery/catalog.js';
-import { exactExportPath, libraryRows, selectExactExport } from '../app/src/content/gallery/library-data.js';
+import snapshotReference from '../../snapshot-reference.json' with { type: 'json' };
+import { assetUrl, ratingAxes } from '../../app/src/content/gallery/catalog.js';
+import { libraryRows } from '../../app/src/content/gallery/library-compiler.js';
+import { exactExportPath, selectExactExport } from '../../app/src/content/gallery/library-view.js';
 
-const baseline = 'e8399bd107cc6129db2d3712113e9cb5a3628664';
-const repo = fileURLToPath(new URL('../../../', import.meta.url));
-const git = (...args) => execFileSync('git', args, { cwd: repo, maxBuffer: 20 * 1024 * 1024 });
-const digest = (bytes) => createHash('sha256').update(bytes).digest('hex');
-const isGeometry = (file) => /\.(glb|stl|blend|obj)$/i.test(file);
+export async function checkLibrary({ browser, base, capture, builtApp }) {
+  const baseline = 'e8399bd107cc6129db2d3712113e9cb5a3628664';
+  const repo = fileURLToPath(new URL('../../../../', import.meta.url));
+  const git = (...args) => execFileSync('git', args, { cwd: repo, maxBuffer: 20 * 1024 * 1024 });
+  const isGeometry = (file) => /\.(glb|stl|blend|obj)$/i.test(file);
 
-function inputDisposition(file) {
-  if (file.startsWith('sources/datasets/hra/')) return 'Original HRA input. Library lists its teaching derivative.';
-  if (file === 'sources/datasets/marrow-comparison-v1/BP3D-FJ3365.obj') return 'Marrow comparison source input.';
-  return null;
-}
+  function inputDisposition(file) {
+    if (file.startsWith('sources/datasets/hra/')) return 'Original HRA input. Library lists its teaching derivative.';
+    if (file === 'sources/datasets/marrow-comparison-v1/BP3D-FJ3365.obj') return 'Marrow comparison source input.';
+    return null;
+  }
 
-function baselineGeometry() {
-  const current = new Set(git('ls-files', '-z').toString().split('\0'));
-  const paths = git('ls-tree', '-r', '--name-only', '-z', baseline).toString().split('\0')
-    .filter((file) => isGeometry(file) && current.has(file));
-  assert.ok(paths.length, 'Expected retained Gallery baseline paths');
-  return paths.map((file) => {
-    const raw = git('cat-file', 'blob', baseline + ':' + file);
-    const pointer = /^version https:\/\/git-lfs\.github\.com\/spec\/v1\noid sha256:([0-9a-f]{64})\nsize (\d+)\n$/.exec(raw.toString());
-    return {
-      path: file,
-      sha256: pointer ? pointer[1] : digest(raw),
-      bytes: pointer ? Number(pointer[2]) : raw.length,
-      disposition: inputDisposition(file),
-    };
-  });
-}
+  function baselineGeometry() {
+    const current = new Set(git('ls-files', '-z').toString().split('\0'));
+    const paths = git('ls-tree', '-r', '--name-only', '-z', baseline).toString().split('\0')
+      .filter((file) => isGeometry(file) && current.has(file));
+    assert.ok(paths.length, 'Expected retained Gallery baseline paths');
+    return paths.map((file) => {
+      const raw = git('cat-file', 'blob', baseline + ':' + file);
+      const pointer = /^version https:\/\/git-lfs\.github\.com\/spec\/v1\noid sha256:([0-9a-f]{64})\nsize (\d+)\n$/.exec(raw.toString());
+      return {
+        path: file,
+        sha256: pointer ? pointer[1] : digest(raw),
+        bytes: pointer ? Number(pointer[2]) : raw.length,
+        disposition: inputDisposition(file),
+      };
+    });
+  }
 
-function indexedRoutes(snapshot, tracked, review) {
-  const rows = libraryRows(snapshot, review, { localPreview: true });
-  const records = new Map();
-  const indexed = new Map();
-  for (const row of rows) {
-    const history = row.history.length ? row.history : [{ library: row.path, exports: row.media ?? [], assessment: row.assessment }];
-    for (const record of history) {
-      if (!record.exports.length) continue;
-      assert.ok(!records.has(record.library), record.library);
-      records.set(record.library, record);
-      for (const file of record.exports) {
-        assert.ok(!indexed.has(file.path), file.path + ' has multiple revision owners');
-        indexed.set(file.path, { file, route: exactExportPath(record, file), record });
+  function indexedRoutes(tracked, review) {
+    const rows = libraryRows(review, { localPreview: true });
+    const records = new Map();
+    const indexed = new Map();
+    for (const row of rows) {
+      const history = row.history.length ? row.history : [{ library: row.path, exports: row.media ?? [], assessment: row.assessment }];
+      for (const record of history) {
+        if (!record.exports.length) continue;
+        assert.ok(!records.has(record.library), record.library);
+        records.set(record.library, record);
+        for (const file of record.exports) {
+          assert.ok(!indexed.has(file.path), file.path + ' has multiple revision owners');
+          indexed.set(file.path, { file, route: exactExportPath(record, file), record });
+        }
       }
     }
-  }
-  const counts = { glb: 0, stl: 0, blend: 0, input: 0 };
-  for (const expected of tracked) {
-    const entry = indexed.get(expected.path);
-    if (expected.disposition) {
-      assert.equal(entry, undefined, expected.path);
-      counts.input++;
-      continue;
+    const counts = { glb: 0, stl: 0, blend: 0, input: 0 };
+    for (const expected of tracked) {
+      const entry = indexed.get(expected.path);
+      if (expected.disposition) {
+        assert.equal(entry, undefined, expected.path);
+        counts.input++;
+        continue;
+      }
+      assert.ok(entry && !entry.file.unavailable, expected.path);
+      assert.equal(entry.file.sha256, expected.sha256, expected.path);
+      assert.equal(entry.file.bytes, expected.bytes, expected.path);
+      counts[expected.path.split('.').at(-1)]++;
     }
-    assert.ok(entry && !entry.file.unavailable, expected.path);
-    assert.equal(entry.file.sha256, expected.sha256, expected.path);
-    assert.equal(entry.file.bytes, expected.bytes, expected.path);
-    counts[expected.path.split('.').at(-1)]++;
+    assert.equal(Object.values(counts).reduce((sum, count) => sum + count, 0), tracked.length);
+    return { rows, records, indexed, counts };
   }
-  assert.equal(Object.values(counts).reduce((sum, count) => sum + count, 0), tracked.length);
-  return { rows, records, indexed, counts };
-}
 
-const capture = process.env.MODEL_SURVEY_CAPTURE_DIR;
-assert.ok(capture, 'Set MODEL_SURVEY_CAPTURE_DIR to a dedicated receipt directory');
-await mkdir(capture, { recursive: true });
-const base = process.env.MODEL_SURVEY_PREVIEW_URL || 'http://127.0.0.1:8858';
-const { chromium } = await import(process.env.MODEL_SURVEY_PLAYWRIGHT_MODULE || 'playwright');
-const seed = await readFile(path.join(repo, 'sites/anatomy-gallery/app/src/data.json'));
-assert.equal(digest(seed), snapshotReference.surveySeedPublication.sourceSeedSha256, 'Frozen Survey seed');
-const builtApp = process.env.MODEL_SURVEY_APP_DIR || path.join(repo, 'sites/anatomy-gallery/.local/app');
-const review = JSON.parse(await readFile(path.join(builtApp,
-  'src/content/gallery/teaching-inputs/teaching-assessments.json')));
-assert.deepEqual(Object.fromEntries(review.assessments.filter(({ route }) => [
-  'library/ovaries/hra-ovary-tubal-r01', 'library/bronchial_tree/authored-central-fairing-r13',
-  'library/esophagus_wall/authored-cutaway-r01',
-].includes(route)).map(({ route, axes }) => [route, axes.map(({ score }) => score)])), {
-  'library/ovaries/hra-ovary-tubal-r01': [4, null, 3, 3],
-  'library/bronchial_tree/authored-central-fairing-r13': [4, 2, 3, 2],
-  'library/esophagus_wall/authored-cutaway-r01': [3, 3, 3, 3],
-});
-const tracked = baselineGeometry();
-const { rows, records, indexed, counts } = indexedRoutes(JSON.parse(seed), tracked, review);
-const browser = await chromium.launch({
-  executablePath: process.env.MODEL_SURVEY_BROWSER,
-  headless: true,
-});
-try {
-  const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
-  await page.route('**/*', (route) => route.request().url().startsWith(base + '/') ? route.continue() : route.abort());
-  const errors = [];
-  page.on('pageerror', (error) => errors.push(String(error)));
+  const seed = await readFile(path.join(repo, 'sites/anatomy-gallery/app/src/data.json'));
+  assert.equal(digest(seed), snapshotReference.surveySeedPublication.sourceSeedSha256, 'Frozen Survey seed');
+  const review = JSON.parse(await readFile(path.join(builtApp,
+    'src/content/gallery/teaching-inputs/teaching-assessments.json')));
+  assert.deepEqual(Object.fromEntries(review.assessments.filter(({ route }) => [
+    'library/ovaries/hra-ovary-tubal-r01', 'library/bronchial_tree/authored-central-fairing-r13',
+    'library/esophagus_wall/authored-cutaway-r01',
+  ].includes(route)).map(({ route, axes }) => [route, axes.map(({ score }) => score)])), {
+    'library/ovaries/hra-ovary-tubal-r01': [4, null, 3, 3],
+    'library/bronchial_tree/authored-central-fairing-r13': [4, 2, 3, 2],
+    'library/esophagus_wall/authored-cutaway-r01': [3, 3, 3, 3],
+  });
+  const tracked = baselineGeometry();
+  const { rows, records, indexed, counts } = indexedRoutes(tracked, review);
+  const page = await browser.newPage();
   const go = (route) => page.goto(base + '/#/' + route);
   const heading = (name) => page.getByRole('heading', { name, level: 1, exact: true });
   const searchBox = page.getByRole('searchbox', { name: 'Search assets' });
@@ -392,7 +379,6 @@ try {
   const wrong = await page.request.get(base + '/assets/' + '0'.repeat(64) + '/wall_LA.stl');
   assert.equal(wrong.status(), 404);
 
-  assert.deepEqual(errors, []);
   const receipt = {
     baseline,
     rows: rows.length,
@@ -407,6 +393,4 @@ try {
   };
   await writeFile(path.join(capture, 'discovery.json'), JSON.stringify(receipt, null, 2) + '\n');
   console.log('PASS Library discovery', counts, records.size + ' routes', fetched.length + ' exact download responses');
-} finally {
-  await browser.close();
 }

@@ -1,9 +1,9 @@
 import assert from 'node:assert/strict';
-import { createHash } from 'node:crypto';
+import { sha256 as assetHash } from './assertions.mjs';
 import { readFile } from 'node:fs/promises';
-import { ovaryLocator, ovaryPickupDetail, regionalPath, teachingDisplayPath } from '../app/src/content/gallery/teaching-data.js';
+import { ovaryLocator, ovaryPickupDetail, regionalPath, teachingDisplayPath } from '../../app/src/content/gallery/teaching-data.js';
 
-const repo = new URL('../../../', import.meta.url);
+const repo = new URL('../../../../', import.meta.url);
 const load = async (file) => JSON.parse(await readFile(new URL(file, repo), 'utf8'));
 
 export async function checkOvaryLesson(page, dest, dir, delivery) {
@@ -17,7 +17,6 @@ export async function checkOvaryLesson(page, dest, dir, delivery) {
   const next = reproductive + '?detail=reproductive-female-uterine-entry';
   const go = (fragment) => page.goto(dest + '/#/' + fragment);
   const where = () => new URL(page.url()).hash;
-  const assetHash = (raw) => createHash('sha256').update(raw).digest('hex');
   const asset = (path) => delivery.assets.find((entry) => entry.path === path);
   const url = (entry) => '/assets/' + entry.sha256 + '/' + entry.name;
   const decode = (image) => image.evaluate((node) => node.decode());

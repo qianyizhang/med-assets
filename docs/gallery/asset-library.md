@@ -14,6 +14,12 @@ The asset maintainer explicitly selects which revision carries **Recommended** f
 - The revision’s quality profile and a **Rating rubric** link beside it, including in the empty state. The dedicated product URL is `/rubric`; its content owner is the [canonical rubric](../guides/asset-quality.md). A saved assessment identifies the rubric revision used.
 - Exact-version reviews, related lessons and the 3D preset behind the portrait. Preserve revision selection when returning from these destinations.
 
+## Making a release selection
+
+Declare package membership and stable revision routes in the [Library package declarations](../../sites/anatomy-gallery/app/src/content/gallery/library-packages.json). A newly selected teaching export in an existing family can supply its named route through the accepted assessment. The [retained edition routes](../../sites/anatomy-gallery/app/src/content/gallery/library-editions.json) preserve current bookmarks for accepted assessments that predate named routes. A family with one maintained revision uses that revision as its candidate recommendation. The [Library recommendations](../../sites/anatomy-gallery/app/src/content/gallery/library-recommendations.json) record editorial choices across families with multiple maintained revisions. The [teaching register](maintained-models.md) owns the exact reviewed exports and learner tasks.
+
+Assembly binds each revision’s downloads, attribution, evidence and per-export assessments. A multi-file Library link uses the file digest to open its assessment, with the export path as a second identifier when two filenames share the same bytes.
+
 ## Review coverage
 
 Use the [maintained family register](maintained-models.md) to count progress on the selected teaching assets. Count a demonstrated shared model once. Include every selected lesson export in coverage, with its learner task, exact file identity and four independent scores. A source edit must propagate to both lesson exports in a disposable rebuild before grouping their family. An editable assembly used as a whole counts as one selection. If a Gallery default or published delivery differs from the maintained starting file, identify both revisions.

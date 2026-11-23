@@ -15,11 +15,17 @@ from urllib.parse import quote
 from urllib.request import urlopen
 
 SITE = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(SITE.parents[1] / 'tools'))
-from assessment_identity import DISPLAY_ENCODERS, delivery_by_path, display_recipes, validate_display_paths
-from maintained_teaching import CurrentTeaching, validate_teaching_axes
+sys.path.insert(0, str(SITE.parents[1] / 'lib'))
+sys.path.insert(0, str(SITE.parents[1] / 'transport/tools'))
+from delivery_catalog import assets_by_path
+from med_assets.artifacts import (
+    POINTER_PREFIX, claim_identity, install_verified, parse_pointer, unique_keys, verify_bytes,
+)
+from med_assets.derivatives import display_derivatives
+from med_assets.teaching import CurrentTeaching, check_promotion_journal, locked_store, validate_teaching_axes
 
 DEFAULT_VENDOR = SITE / '.local/viewer-inputs'
+DISPLAY_ENCODERS = {'11.3.0': '1.5.0', '12.2.0': '1.6.0'}
 TEACHING_REVIEW = 'reviews/teaching-assessments/2026-11-21-library-pilot/assessments.json'
 
 
@@ -27,36 +33,51 @@ def resources(site: Path):
     return json.loads((site / 'viewer.lock.json').read_text())['resources']
 
 
-def verified(resource, raw: bytes) -> bytes:
-    if len(raw) != resource['bytes'] or hashlib.sha256(raw).hexdigest() != resource['sha256']:
-        raise ValueError(f"File differs from its recorded size or SHA-256: {resource['path']}")
-    return raw
+def delivery_by_path(index):
+    return assets_by_path(json.loads(index.read_text(), object_pairs_hook=unique_keys))
 
 
-def prepare_display_images(repo, site, by_path, *, offline=True):
+def validate_display_paths(source, target):
+    output_dir = target.parent.parent
+    if (source.suffix != '.png' or target.name != source.with_suffix('.webp').name
+            or target.parent.name != 'display'
+            or source.parent not in (output_dir, output_dir / 'media')):
+        raise ValueError(f'Display destination does not match its source: {target}')
+
+
+def prepare_display_images(repo, by_path, *, offline=True):
     repo = repo.resolve()
-    for pillow, bindings in display_recipes(site).items():
-        pending = []
-        for source_path, target_path in bindings:
-            source, target = repo / source_path, repo / target_path
-            original = {**by_path[source_path], 'path': source_path}
-            display = {**by_path[target_path], 'path': target_path}
-            if display_input(source, target, original, display) is not None:
-                pending.append([str(source), str(target), original, display])
-        if pending:
-            if encoder_available(pillow):
-                for source, target, original, display in pending:
-                    generate_display(Path(source), Path(target), original, display, pillow)
-                continue
-            uv_flags = ['--offline'] if offline else []
-            result = subprocess.run(
-                ['uv', 'run', *uv_flags, '--no-project', '--python', '3.12',
-                 '--with', f'Pillow=={pillow}', 'python', '-I', str(Path(__file__).resolve()),
-                 '--encode-displays', pillow],
-                input=json.dumps(pending), text=True,
-            )
-            if result.returncode:
-                raise ValueError(f'Display replay with Pillow {pillow} failed. See the Gallery build recipe.')
+    derivatives = display_derivatives(repo)
+    if not derivatives:
+        raise ValueError('Missing display derivative declarations.')
+    pending_by_encoder = {}
+    for binding in derivatives.values():
+        pillow = binding['recipe'].removeprefix('pillow-webp-')
+        if not binding['recipe'].startswith('pillow-webp-') or pillow not in DISPLAY_ENCODERS:
+            raise ValueError(f"Unknown display encoder: {binding['recipe']}")
+        original, display = binding['source'], binding['output']
+        for claim in (original, display):
+            published = by_path.get(claim['path'])
+            if not published or claim_identity(claim) != (published['sha256'], published['bytes']):
+                raise ValueError(f"Delivery differs from the declared display binding: {claim['path']}")
+        source, target = repo / original['path'], repo / display['path']
+        if display_input(source, target, original, display) is not None:
+            pending_by_encoder.setdefault(pillow, []).append([str(source), str(target), original, display])
+
+    for pillow, pending in pending_by_encoder.items():
+        if encoder_available(pillow):
+            for source, target, original, display in pending:
+                generate_display(Path(source), Path(target), original, display, pillow)
+            continue
+        uv_flags = ['--offline'] if offline else []
+        result = subprocess.run(
+            ['uv', 'run', *uv_flags, '--no-project', '--python', '3.12',
+             '--with', f'Pillow=={pillow}', 'python', '-I', str(Path(__file__).resolve()),
+             '--encode-displays', pillow],
+            input=json.dumps(pending), text=True,
+        )
+        if result.returncode:
+            raise ValueError(f'Display replay with Pillow {pillow} failed. See the Gallery build recipe.')
 
 
 def encoder_available(pillow):
@@ -72,12 +93,13 @@ def display_input(source, target, original, display):
         raise ValueError(f'Display recipe paths must not traverse links: {target}')
     validate_display_paths(source, target)
     raw = source.read_bytes()
-    pointer = f"version https://git-lfs.github.com/spec/v1\noid sha256:{original['sha256']}\nsize {original['bytes']}\n"
-    hydrated = raw != pointer.encode()
+    hydrated = not raw.startswith(POINTER_PREFIX)
     if hydrated:
-        verified(original, raw)
+        verify_bytes(raw, original)
+    elif parse_pointer(raw) != claim_identity(original):
+        raise ValueError(f"Display source identity mismatch for {original['path']}")
     if target.exists():
-        verified(display, target.read_bytes())
+        verify_bytes(target.read_bytes(), display)
         return None
     return raw if hydrated else None  # A pointer-only checkout can still build the Gallery shell.
 
@@ -97,16 +119,13 @@ def generate_display(source, target, original, display, pillow='11.3.0'):
     with Image.open(io.BytesIO(raw)) as image:
         output = io.BytesIO()
         image.convert('RGBA').save(output, format='WEBP', lossless=True, exact=True, method=6)
-    encoded = verified(display, output.getvalue())
+    encoded = output.getvalue()
     target.parent.mkdir(parents=True, exist_ok=True)
     with tempfile.NamedTemporaryFile(dir=target.parent) as staged:
         staged.write(encoded)
         staged.flush()
         os.fchmod(staged.fileno(), source.stat().st_mode & 0o666)
-        try:
-            os.link(staged.name, target)
-        except FileExistsError:
-            verified(display, target.read_bytes())
+        install_verified(Path(staged.name), target, display)
 
 
 def restore_viewer(site: Path, output: Path):
@@ -117,7 +136,7 @@ def restore_viewer(site: Path, output: Path):
         staged = Path(temporary) / 'inputs'
         for resource in resources(site):
             with urlopen(resource['url'], timeout=30) as response:
-                raw = verified(resource, response.read(resource['bytes'] + 1))
+                raw = verify_bytes(response.read(resource['bytes'] + 1), resource)
             destination = staged / resource['path']
             destination.parent.mkdir(parents=True, exist_ok=True)
             destination.write_bytes(raw)
@@ -154,7 +173,13 @@ def check_local_delivery(repo: Path, index: Path):
     geometry = json.loads((repo / bronchial / 'geometry.json').read_text())
     pixels = json.loads((repo / bronchial / 'pixels.json').read_text())
     public = delivery_by_path(index)
-    local = delivery_by_path(index.with_name('local-delivery.json'))
+    local_index = index.with_name('local-delivery.json')
+    local = delivery_by_path(local_index)
+    for receipt in json.loads(local_index.read_text())['receipts']:
+        path = repo / receipt['path']
+        if path.resolve(strict=True) != path or not path.is_relative_to(repo):
+            raise ValueError(f'Invalid release receipt path: {path}')
+        verify_bytes(path.read_bytes(), receipt)
     check_delivery_identity(public, {
         **heart['baseline'], 'path': 'heart/exterior-presentation-r01/exports/static-opaque-exterior.glb',
     })
@@ -216,7 +241,7 @@ def prepare_gallery(site: Path, inputs: Path, target: Path, *, offline=True):
             raise ValueError(
                 f'Missing viewer input {name}. Run tools/gallery_runtime.py to restore the pinned inputs.'
             ) from error
-        raw = verified(resource, raw)
+        raw = verify_bytes(raw, resource)
         destination = target / name
         destination.parent.mkdir(parents=True, exist_ok=True)
         if 'examples' in name.parts:
@@ -224,7 +249,20 @@ def prepare_gallery(site: Path, inputs: Path, target: Path, *, offline=True):
             raw = raw.replace(b"from 'three';", f"from '{module}';".encode())
         destination.write_bytes(raw)
     shutil.copyfile(repo / 'docs/guides/asset-quality.md', target / 'rubric.md')
-    shutil.copyfile(repo / 'lessons/right-arm-parts/arm-lesson-layers.json', target / 'arm-lesson-layers.json')
+    for lesson, config, destination in (
+        ('right-arm-parts', 'arm-lesson-layers.json', 'arm-lesson-layers.json'),
+        ('salivary-practice', 'views.json', 'salivary-views.json'),
+    ):
+        owner = repo / 'lessons' / lesson
+        shutil.copyfile(owner / config, target / destination)
+        plates = sorted((owner / 'plates').glob('*.webp'))
+        if len(plates) != 6:
+            raise ValueError(f'Missing lesson layers or answers: {lesson}')
+        for plate in plates:
+            with plate.open('rb') as stream:
+                if stream.read(12)[8:] != b'WEBP':
+                    raise ValueError(f'Expected hydrated lesson plate: {plate.name}')
+            shutil.copyfile(plate, target / 'part-images' / plate.name)
     system_index = repo / 'lessons/body-systems/display/index.json'
     stops = json.loads((repo / 'lessons/body-systems/reviewed-stops.json').read_text())
     systems = json.loads(system_index.read_text())
@@ -240,7 +278,7 @@ def prepare_gallery(site: Path, inputs: Path, target: Path, *, offline=True):
             raise ValueError(f"Unknown reviewed stop in {system['id']}")
         system['check'] = check
     (target / 'body-systems.json').write_text(json.dumps(systems, ensure_ascii=False))
-    prepare_display_images(repo, site, delivery_by_path(index), offline=offline)
+    prepare_display_images(repo, delivery_by_path(index), offline=offline)
     teaching = target / 'teaching-inputs'
     teaching.mkdir()
     prepare_teaching_assessments(repo, index, teaching)
@@ -252,8 +290,8 @@ def prepare_gallery(site: Path, inputs: Path, target: Path, *, offline=True):
     for result in readability['results']:
         display = result['artifacts']['display']
         original = repo / display['current']
-        raw = verified({'path': display['current'], 'bytes': display['bytes'],
-                        'sha256': display['current_sha256']}, original.read_bytes())
+        raw = verify_bytes(original.read_bytes(), {'path': display['current'], 'bytes': display['bytes'],
+                                                   'sha256': display['current_sha256']})
         (teaching / original.name).write_bytes(raw)
     prepare_retained_lesson(repo, teaching, 'arch-identification', ('ui.mjs', 'plate.mjs'))
     shutil.copyfile(repo / 'docs/dental-atlas/set-coverage.json', teaching / 'arch-identification/set-coverage.json')
@@ -296,7 +334,12 @@ def prepare_teaching_assessments(repo, index, teaching):
 
 def prepare_campaign_reviews(repo, index):
     """Attach delivery metadata to the accepted teaching reviews."""
-    current = CurrentTeaching(repo)
+    with locked_store(repo.resolve()):
+        check_promotion_journal(repo)
+        current = CurrentTeaching(repo)
+        current.validate_current()
+        gallery = tuple(current.gallery())
+        maintained_files = current.maintained_exports()
     deliveries = {**delivery_by_path(index), **delivery_by_path(index.with_name('local-delivery.json'))}
     root = repo.resolve()
     result = {}
@@ -315,12 +358,11 @@ def prepare_campaign_reviews(repo, index):
                                   'mediaType': media_type, 'url': f'/review-evidence/{digest}/{quote(path.name)}'}
         return evidence[relative]
 
-    maintained_files = current.maintained_exports()
-    for accepted in current.gallery():
+    for accepted in gallery:
         row = accepted.row
         export = row['export']
         path = export['path']
-        if (row.get('target') or path in current.selections) and path not in deliveries:
+        if (row.get('route') or row.get('target') or path in current.selections) and path not in deliveries:
             source = (root / path).resolve(strict=True)
             if source != root / path or not source.is_relative_to(root) or path.split('/')[0] not in ('models', 'body', 'heart', 'assemblies', 'lessons'):
                 raise ValueError(f'Invalid maintained teaching export: {path}')
@@ -364,9 +406,10 @@ def prepare_campaign_reviews(repo, index):
             name = candidate['name']
             if (not name.endswith('.glb') or not all(c.isascii() and (c.isalnum() or c in '._-') for c in name)):
                 raise ValueError(f'Invalid recipe-built download: {name}')
-            download = {**candidate, 'url': f'/assets/{digest}/{name}', 'recipeUrl': local_file(candidate['recipe'])['url']}
-            row = {**row, 'refinement': {**refinement, 'candidate': download}}
-        result[path] = {**row, **accepted.attribution, 'sources': sources, 'views': views}
+            recipe = local_file(candidate['recipe'])
+            download = {**candidate, 'url': f'/assets/{digest}/{name}', 'recipeUrl': recipe['url']}
+            row = {**row, 'releaseEvidence': [recipe], 'refinement': {**refinement, 'candidate': download}}
+        result[path] = {**row, **accepted.attribution, 'taskId': accepted.task_id, 'sources': sources, 'views': views}
     return list(result.values())
 
 
@@ -384,7 +427,7 @@ def prepare_ovary_lesson(repo, teaching):
     plate.update(width=view['width'], height=view['height'])
     target = teaching / owner
     target.mkdir()
-    (target / 'ovary-teaching.webp').write_bytes(verified(view, (repo / plate['path']).read_bytes()))
+    (target / 'ovary-teaching.webp').write_bytes(verify_bytes((repo / plate['path']).read_bytes(), view))
     (target / 'lesson.json').write_text(json.dumps(lesson, ensure_ascii=False, indent=2) + '\n')
 
 
@@ -405,12 +448,12 @@ def prepare_archive_films(repo, teaching):
     results = 'experiments/dental-image26/results/'
     paths = [results + 'dental-condition-to-treatment.mp4']
     paths.extend(results + 'films/' + story['id'] + '.mp4' for story in stories)
-    members = {}
-    for line in (repo / 'sites/body-systems-survey/backup-sha256.txt').read_text().splitlines():
-        digest, path = line.split('  ', 1)
-        members[path] = digest
+    from transport.tools.restore_collection import checksum_members
+    collection = json.loads((repo / 'transport/collection-archives.json').read_text())['teaching-media']
+    members = checksum_members(repo, collection)
     (teaching / 'image26-media.json').write_text(json.dumps([
-        {'path': path, 'name': Path(path).name, 'sha256': members[path]} for path in paths
+        {'path': path, 'name': Path(path).name, 'sha256': members[path]['sha256'],
+         'bytes': members[path]['bytes'], 'mediaType': 'video/mp4'} for path in paths
     ], indent=2) + '\n')
     shutil.copyfile(story_file, teaching / 'image26-stories.json')
     shutil.copyfile(image26 / 'audio/narration.srt', teaching / 'image26-narration.srt')

@@ -1,16 +1,15 @@
 import assert from 'node:assert/strict';
-import { createHash } from 'node:crypto';
+import { sha256 as digest, galleryRoute } from './assertions.mjs';
 import { readFile } from 'node:fs/promises';
 
-const repo = new URL('../../../', import.meta.url);
-const digest = (bytes) => createHash('sha256').update(bytes).digest('hex');
+const repo = new URL('../../../../', import.meta.url);
 const heart = 'heart/synthetic-imaging/beating-heart/imaging/start_here_same_slice.png';
 const breath = 'lessons/one-breath/review/offline-storyboard.png';
 const shot = 'lessons/dental-animation/';
 
 export async function checkSharedAirway(page, base, dir) {
   const manifest = JSON.parse(await readFile(new URL('lessons/one-breath/assets.json', repo)));
-  const address = (route) => base + '/#/' + route;
+  const address = (route) => galleryRoute(base, route);
   const scene = page.getByRole('region', { name: 'Interactive scene' });
   for (const [route, id, variant, title, returnLabel] of [
     ['compare/trachea-r06', 'tracheaOpen', 'open', 'Open tracheal shell', 'Return to the trachea review'],
@@ -88,7 +87,7 @@ async function checkAirwayAtAnotherOrigin(context, base) {
 }
 
 export async function checkSpecialistStills(page, base, dir) {
-  const place = (route) => base + '/#/' + route;
+  const place = (route) => galleryRoute(base, route);
   const heading = (name) => page.getByRole('heading', { name, level: 1, exact: true });
   // The local phase comparison has its own exact-byte and recovery checks.
   const originalImages = '.ga-source-evidence img:not([src^="/review-evidence/"])';

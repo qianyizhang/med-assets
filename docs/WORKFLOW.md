@@ -18,7 +18,8 @@
 | [records](../records/) | Campaigns and work items with scope, acceptance and delivery evidence. |
 | [sites](../sites/) | Anatomy Gallery source in `sites/anatomy-gallery/`. Keep report and replay tooling with its maintained collection or historical package. Publishing checkouts and inline media payloads stay ignored. |
 | [tests](../tests/), [.github/workflows](../.github/workflows/) | Regression suites and pinned executable fixtures. Browser probes belong under `tests/runtime/` and source checks under `tests/source_checks/`. Workflow definitions own online invocation and guards. |
-| [tools](../tools/) | Repository-wide commands and shared utilities, including the offline verifier. Package-specific parameters and replay stay with their owners. |
+| [lib/med_assets](../lib/med_assets/) | Shared artifact, teaching and recipe contracts used by repository commands. |
+| [tools](../tools/) | Repository-wide commands, including the offline verifier. Package-specific parameters and replay stay with their owners. |
 | [transport](../transport/) | Content-addressed delivery, manifests and recovery policy. [Transport tools](../transport/tools/) hold fetch, upload, backup and restore implementations. Keep an old command path where an external consumer requires it. |
 
 - **Discovery** · Start at the asset directory, export README and linked review. Use directory discovery as the inventory.
@@ -74,7 +75,7 @@ The default setup includes the MCP server and Blender add-on. The tested pair is
 
 | When | Gate | Acceptance |
 | --- | --- | --- |
-| Every change | `python3.12 tools/verify.py offline` | Offline regressions, portable Gallery Node suites, maintained teaching register and scorecard, import references, LFS identities, transport manifests and selected foundation records. Runs in a shallow LFS-pointer checkout. |
+| Every change | `python3.12 tools/verify.py offline` | Offline regressions, portable Gallery Node suites, all accepted teaching tasks, maintained register and scorecard, import references, LFS identities, transport manifests and selected foundation records. Runs in a shallow LFS-pointer checkout. |
 | Broad changes with hydrated LFS | `python3.12 tools/verify.py payload-integrity` | Offline gate plus all indexed LFS bytes, foundation evidence bindings and selected package checks. Unresolved pointers fail. |
 | UFF dental changes | `python3.12 tools/verify.py dental` | Separate suite including the actual pinned GLB hash. Use an isolated environment with [UFF requirements](../models/dental_specimens/uff_tomo1b/recipes/requirements-uff.txt). Missing dependencies leave coverage unavailable. |
 | Changed recipes, consumers or recovery | Owning recipe and stable entry points | Representative source → export → clean reimport, consumer behavior and changed failure paths. Major refactors and releases need full applicable checks. |
@@ -96,6 +97,7 @@ The default setup includes the MCP server and Blender add-on. The tested pair is
 ## Review records
 
 - **Owner** · Use the package record and its validator. [Foundation v1 validator](../tests/review_records/validate_record.py) owns schema, status values, containment and identity checks.
+- **Accepted teaching** · Use the [promotion workflow](guides/teaching-assessments.md) to bind an exact owner review to a maintained selection or retained alternative.
 - **Evidence** · Use immutable review identity and exact artifact/evidence bindings. Bind each comparison image to its actual artifact. Record gate scope, missing structures, limits and remaining checks.
 - **Metadata-only exports** · [Shared replay, patches and exact reviews](../reviews/accounting/2026-10-23/README.md).
 - **Failures** · Record observed failure, cause or labeled hypothesis, fix, retest and lesson.
@@ -135,8 +137,15 @@ The repository is in beta. Prefer a small, verified iteration that migrates curr
 
 - **Keep** · Canonical editable inputs and current exports, licenses, source identities, replay, current decisions and exact evidence for active claims or defects. Keep unique recovery material independently of Git history. [Cold collection archives](../transport/README.md#restore-an-archived-collection) retain infrequently replayed inputs outside the normal checkout. Follow the [artifact backup policy](../transport/README.md#artifact-backups).
 - **Derived files** · Keep the canonical input and a reproducible recipe. Generate display and delivery variants during assembly. Track a derivative when it supplies unique review evidence or a named consumer or recovery need requires the file. When a consumer requires exact bytes, verify them on replay or migrate the consumer to its reviewed replacement. Check live delivery before retiring an address used outside the repository.
-- **Scratch** · Fresh ignored `.artifacts/<outcome>/` directories. Keep one durable bundle per meaningful outcome with revision, result, limits, consumers and retention. Move accepted decisions and remaining defects to their owners.
+- **Scratch** · Fresh ignored `.artifacts/<outcome>/` directories. Keep one reproducible working bundle per meaningful outcome with revision, result, limits, consumers and retention. Bind unique evidence supporting an active claim to a tracked record or a verified archive identity and restore command. Move accepted decisions and remaining defects to their owners.
 - **Retire** · Check imports, discovery, packaging, links, public URLs and symlink targets. Repair readers and narrow claims that lose evidence. Retire spent output after recording its outcome. Review temporary bundles after 30 days. Extensions need an active use and next review date.
+
+Run `python3.12 tools/verify.py retained PATH [PATH ...]` from the repository root
+to trace exact repository-relative paths. The report checks accepted teaching and
+comparison evidence, delivery declarations, the known recipe graph, licenses,
+open work items and recovery records. The recorded public index is checked when
+its commit is in local Git history. External consumers, dynamic lookups and
+current archive availability need separate evidence before retirement.
 
 ## Contribution and delivery
 

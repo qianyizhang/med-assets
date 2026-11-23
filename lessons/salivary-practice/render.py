@@ -10,7 +10,7 @@ from mathutils import Vector
 
 
 ROOT = Path(__file__).resolve().parents[2]
-VIEWS = ROOT / "sites/anatomy-gallery/app/src/content/gallery/salivary-views.json"
+VIEWS = Path(__file__).with_name("views.json")
 EXPORTS = ROOT / "models/salivary_glands/exports"
 
 sys.path.insert(0, str(ROOT / "tools"))

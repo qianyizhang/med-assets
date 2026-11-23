@@ -4,7 +4,7 @@ import { Evidence } from './Evidence.jsx';
 import { Heading, Label, Link } from './GalleryUI.jsx';
 import { oneBreathPath, tracheaReviewPath } from './airway-data.js';
 import { bronchialExterior, firstForkPath, openTrachea } from './local-models.js';
-import teachingReview from './teaching-inputs/teaching-assessments.json';
+import { teachingReview } from './selected-library.js';
 import { localView } from './presets.js';
 import { Scene } from './Scene.jsx';
 

@@ -1,14 +1,13 @@
 import assert from 'node:assert/strict';
-import { createHash } from 'node:crypto';
+import { sha256 as hash } from './assertions.mjs';
 import { readFile } from 'node:fs/promises';
-import { teachingDisplayPath } from '../app/src/content/gallery/teaching-data.js';
-import { pathways, pathwayPath } from '../app/src/content/gallery/pathway-data.js';
+import { teachingDisplayPath } from '../../app/src/content/gallery/teaching-data.js';
+import { pathways, pathwayPath } from '../../app/src/content/gallery/pathway-data.js';
 import {
   skeletalLibraryPath, skeletalPath, skeletalReview, skeletalStops,
-} from '../app/src/content/gallery/skeletal-data.js';
+} from '../../app/src/content/gallery/skeletal-data.js';
 
-const repo = new URL('../../../', import.meta.url);
-const hash = (bytes) => createHash('sha256').update(bytes).digest('hex');
+const repo = new URL('../../../../', import.meta.url);
 
 export async function checkPathways(page, dest, dir, delivery) {
   const go = (path) => page.goto(dest + '/#/' + path);
@@ -342,7 +341,7 @@ export async function checkSkeletal(page, dest, dir, delivery) {
 }
 
 export async function checkDentalArch(page, dest, dir, delivery) {
-  const { order } = await import('../../../lessons/arch-identification/plate.mjs');
+  const { order } = await import('../../../../lessons/arch-identification/plate.mjs');
   const packagePath = 'reviews/teeth_gums/2026-10-26-set-contact-checkpoint/';
   const routeFor = (asset) => '/assets/' + asset.sha256 + '/' + asset.name;
   const lookup = (path) => delivery.assets.find((entry) => entry.path === packagePath + path);

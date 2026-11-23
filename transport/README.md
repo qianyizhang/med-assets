@@ -35,10 +35,11 @@ Record the source revision, object key, byte size, SHA-256 and restore steps wit
 
 ### Restore an archived collection
 
-The [archive index](collection-archives.json) pins each ZIP by immutable Object Library key, size and SHA-256. Each ZIP includes a member manifest, original repository paths and attribution. The original Gallery downloads keep their exact addresses. The teaching-media archive has its [own restore guide](../sites/body-systems-survey/README.md#restore-the-media).
+The [archive index](collection-archives.json) pins each ZIP by immutable Object Library key, size and SHA-256. The collection declares an embedded member manifest or a pinned external checksum list, with original paths and attribution. The original Gallery downloads keep their exact addresses. The teaching-media collection has a [source and recovery record](../sites/body-systems-survey/README.md#restore-the-media).
 
 | Collection | Contents | When to restore |
 | --- | --- | --- |
+| `teaching-media` | 327 teaching and recovery files, including 13 dental result files | Restore the full survey or use `--subset dental-image26` for the six films and companions |
 | `hra-replay-sources` | Ten HRA source GLBs and their credit records | Before running the derivative packages' source replay or source-byte audit |
 | `bronchial-trial-plates` | Eight r13/r14 comparison plates, attribution and measurement records | To inspect the full simplification trial; the first-fork plate remains in Git |
 
@@ -97,7 +98,6 @@ The Workshop and Cardiac Atlas base-color and normal PNGs restore directly from 
 | Guarded execution | [Main-only workflow](../.github/workflows/bounded-lfs-transport.yml) and [executor](tools/lfs_transport.py) own event, repository, ref, origin, format, size, count and schema bounds. Fetch and verify all sources before upload. Manual dispatch uses a reviewed manifest SHA on main. |
 | Byte proof | Job fetches all uploaded or existing OIDs from GitHub. Independently repeat readback from another executor. |
 | Separate pointer delivery | Current CI, branch rules and exact head. Guarded merge with `expected_head_sha` and applicable authorization for readiness and merge. |
-| Narrow exception | [Balanced-only Drive fallback](https://github.com/qianyizhang/med-assets/pull/142). Its approval is specific to that payload. |
 
 ```sh
 python3.12 transport/tools/lfs_transport.py validate --manifest-sha256 "$manifest_sha256"

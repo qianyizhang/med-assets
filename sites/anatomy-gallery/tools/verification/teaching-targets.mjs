@@ -1,29 +1,21 @@
 import assert from 'node:assert/strict';
-import { createHash } from 'node:crypto';
-import { mkdir, readFile } from 'node:fs/promises';
+import { sha256 } from './assertions.mjs';
+import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 
-const { chromium } = await import(process.env.MODEL_SURVEY_PLAYWRIGHT_MODULE || 'playwright');
-const base = process.env.MODEL_SURVEY_PREVIEW_URL;
-const app = process.env.MODEL_SURVEY_APP_DIR;
-const capture = process.env.MODEL_SURVEY_CAPTURE_DIR;
-await mkdir(capture, { recursive: true });
-const input = path.join(app, 'src/content/gallery');
-const { campaign } = JSON.parse(await readFile(path.join(input, 'teaching-inputs/teaching-assessments.json')));
-const systems = JSON.parse(await readFile(path.join(input, 'body-systems.json')));
-const rows = campaign.filter((r) => r.maintained && r.target);
-// The shared cardiac selections supersede two files from the original target round.
-const cardiacControls = campaign.filter((row) => !row.maintained && row.target && [
-  'heart/Cardiac_Atlas/exports/teaching-economy-r01/Cardiac_Atlas_Clinical_Full_ED.glb',
-  'heart/Cardiac_Atlas_Animated/exports/wall-motion-r01/ventricular-wall-motion.glb',
-].includes(row.export.path));
-assert.equal(cardiacControls.length, 2);
-assert.equal(rows.length + cardiacControls.length, 45);
-const browser = await chromium.launch({ executablePath: process.env.MODEL_SURVEY_BROWSER, headless: true, chromiumSandbox: true });
-try {
+export async function checkTeachingTargets({ browser, base, capture, builtApp: app }) {
+  const input = path.join(app, 'src/content/gallery');
+  const { campaign } = JSON.parse(await readFile(path.join(input, 'teaching-inputs/teaching-assessments.json')));
+  const systems = JSON.parse(await readFile(path.join(input, 'body-systems.json')));
+  const rows = campaign.filter((r) => r.maintained && r.target);
+  // The shared cardiac selections supersede two files from the original target round.
+  const cardiacControls = campaign.filter((row) => !row.maintained && row.target && [
+    'heart/Cardiac_Atlas/exports/teaching-economy-r01/Cardiac_Atlas_Clinical_Full_ED.glb',
+    'heart/Cardiac_Atlas_Animated/exports/wall-motion-r01/ventricular-wall-motion.glb',
+  ].includes(row.export.path));
+  assert.equal(cardiacControls.length, 2);
+  assert.equal(rows.length + cardiacControls.length, 45);
   const page = await browser.newPage({ viewport: { width: 1220, height: 900 } });
-  const errors = [];
-  page.on('pageerror', (e) => errors.push(String(e)));
   const go = (fragment) => page.goto(base + '/#/' + fragment);
   await go('compare');
   await page.getByRole('link', { name: 'Review current teaching targets →' }).click();
@@ -46,7 +38,7 @@ try {
     const response = await page.request.get(base + '/assets/' + row.export.sha256 + '/' + name);
     assert.equal(response.status(), 200, name);
     const data = await response.body();
-    assert.equal(createHash('sha256').update(data).digest('hex'), row.export.sha256, name);
+    assert.equal(sha256(data), row.export.sha256, name);
   }
   await go('compare/teaching-target?round=reopened');
   const reopenedRows = rows.filter((r) => r.target.reviewedAxes);
@@ -103,8 +95,5 @@ try {
   }
   await go('library/parathyroids/z-localization-r01?file=missing');
   await page.getByRole('heading', { name: 'View unavailable' }).waitFor();
-  assert.deepEqual(errors, []);
   console.log(`PASS 45 current and historical before/after reviews and exact downloads, 11 required Body Systems stops, ${otherChecks.length} other use-case checks, invalid file and review recovery.`);
-} finally {
-  await browser.close();
 }

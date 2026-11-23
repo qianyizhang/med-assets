@@ -79,8 +79,20 @@ Use `--offline` for subsequent fresh outputs with the pinned viewer files, npm p
 
 - **Framework and seed** · Bootstrap can use the existing `.local/publication` checkout and `app/src/data.json`, or recover missing inputs from the verified ZIP into `.local/bootstrap`. Supply another pinned checkout with `--source` and an exact seed or immutable snapshot with `--seed`. The restored Model Survey seed keeps its recorded bytes. The assembled app uses the Anatomy Gallery title.
 - **Viewer inputs** · Bootstrap verifies the sizes and hashes in [the viewer lock](viewer.lock.json). Use `--viewer-inputs` to point at another copy. To recover from a corrupt cache, restore into a fresh path with [the viewer command](tools/gallery_runtime.py) and use that directory.
-- **Generated WebPs** · [Display bindings](display-images.json) select Pillow 11.3.0 with libwebp 1.5.0 or Pillow 12.2.0 with libwebp 1.6.0. Bootstrap verifies the hydrated PNGs and any cached WebPs, and fills missing display bytes before validating campaign evidence. The lossless WebP settings preserve exact RGBA.
+- **Generated WebPs** · [Display bindings](../../sources/display-derivatives.json) select Pillow 11.3.0 with libwebp 1.5.0 or Pillow 12.2.0 with libwebp 1.6.0. Bootstrap verifies the hydrated PNGs and any cached WebPs, and fills missing display bytes before validating campaign evidence. The lossless WebP settings preserve exact RGBA.
 - **Published rehearsal** · Use `--selection published --source /path/to/site-checkout` and a fresh `--output`. The selected checkout must contain the exact commit in [the live publication record](snapshot-reference.json). Bootstrap verifies the seed-derived snapshot before building the rehearsal.
+
+Assembly writes the Library and study API read models and the release’s resource
+manifest into the built project. Preview uses the selected project’s read handler
+and verifies exact local payload bytes. The generated candidate Worker uses the
+same read rules with R2. The public asset index owns upload admission. See
+[Library selections](../../docs/gallery/asset-library.md#making-a-release-selection)
+and the [route and API contract](../../docs/gallery/routes-and-api.md).
+
+The v10 rehearsal uses the frozen publication source and a catalog adapter so its
+selection is independent of preview hostname. Retain the adapter while v10
+requires source reconstruction. Once a compatible immutable release bundle
+replays the UI, API and resource routes, retire the source patch for that release.
 
 For legacy catalogue thumbnails and portraits, the loopback preview can also read
 the exact original snapshot from `.local/preview/dist/snapshot.<sourceSnapshotSha256>.json`.
@@ -92,12 +104,8 @@ recovery paths. Neither supplies the Site's Three.js modules.
 A hydrated checkout supplies the dental video treatments and the retained kidney contact WebP through the usual Gallery preview. The six Image 2.6 films use the existing [teaching backup](../body-systems-survey/README.md#restore-the-media). To restore only this study, from the repository root:
 
 ```sh
-zip=.artifacts/teaching-backup/med-assets-teaching-c803735.zip
-printf '%s  %s\n' ccdf0a5dafadf0a4d251a19b83f14ec157e29abdcfe4b3c1199498700d37b014 "$zip" |
-  shasum -a 256 -c &&
-  unzip -n "$zip" 'experiments/dental-image26/results/*' &&
-  rg '  experiments/dental-image26/results/' sites/body-systems-survey/backup-sha256.txt |
-  shasum -a 256 -c
+python3.12 transport/tools/restore_collection.py teaching-media --subset dental-image26 \
+  --from-zip .artifacts/teaching-backup/med-assets-teaching-c803735.zip
 ```
 
 After restoring a film, select **Retry video** in the running preview. The preview serves those six MP4s only when local content matches the member digests. The Gallery uses its existing public delivery index for other media. Image 2.6 playback has a separate public delivery decision.
@@ -144,19 +152,18 @@ Pillow, Blender, Sharp and Playwright/browser are recipe-specific dependencies.
 `MED_ASSETS_REPO` selects another checkout; optional host overrides are
 `MODEL_SURVEY_NODE`, `MODEL_SURVEY_SHARP_MODULE`,
 `MODEL_SURVEY_PLAYWRIGHT_MODULE`, `MODEL_SURVEY_BROWSER` and
-`MODEL_SURVEY_PREVIEW_URL`. The ordinary Gallery browser check writes to
-`.artifacts/gallery-library-systems/` by default. Give the Library verifier a dedicated
-`MODEL_SURVEY_CAPTURE_DIR`. Set `MODEL_SURVEY_APP_DIR` to the preview's generated app
+`MODEL_SURVEY_PREVIEW_URL`. The Gallery browser runner writes one receipt and capture directory per case under
+`.artifacts/gallery-verification/` by default. Set `MODEL_SURVEY_CAPTURE_DIR` for a dedicated run. Set `MODEL_SURVEY_APP_DIR` to the preview's generated app
 directory when it differs from `.local/app`. The verifier walks the ordinary Library
 against the pinned AG-GAL-018 Git baseline and checks exact downloads and teaching evidence.
-The build assembles the dated pilot, owner-held `reviews/<asset>/<review>/teaching-assessment.json` files and the [current teaching assessments](../../reviews/teaching-assessments/current-assessments.json). Each current record pins its base assessment and carries accepted changes and reviewer attribution. The [maintained selections](../../docs/gallery/maintained-selections.json) bind each export and stable learner task ID to that accepted record. The [shared resolver](../../tools/maintained_teaching.py) supplies those records to the Gallery and [scorecard](../../records/campaigns/teaching-asset-review/current-coverage.md). Run `python3.12 tools/maintained_teaching.py` from the repository root to print the generated Markdown to stdout. Its tracked destination is `docs/gallery/maintained-models.md`. Pass `--check` to verify the saved file.
+The build assembles the dated pilot, owner-held `reviews/<asset>/<review>/teaching-assessment.json` files and the [current teaching assessments](../../reviews/teaching-assessments/current-assessments.json). Each current record pins its base assessment and carries accepted changes and reviewer attribution. The [maintained selections](../../docs/gallery/maintained-selections.json) bind each export and stable learner task ID to that accepted record. The [shared resolver](../../lib/med_assets/teaching.py) supplies those records to the Gallery and [scorecard](../../records/campaigns/teaching-asset-review/current-coverage.md). Run `python3.12 tools/maintained_teaching.py` from the repository root to print the generated Markdown to stdout. Its tracked destination is `docs/gallery/maintained-models.md`. Pass `--check` to validate all accepted tasks and verify the register and scorecard. Use the [promotion workflow](../../docs/guides/teaching-assessments.md) to update the accepted state.
 
 Bind each review to the exact export's path, size and SHA-256. Use a local source path or HTTPS reference and give every reviewed image a digest and size. An optional `teachingView` selects one image for the learner. Preview verifies evidence bytes before delivery. An accepted local review can declare its exact `library/<family>/<revision>` route. Files that share a route keep their own tasks, views and scores. When a refinement candidate matches a maintained export in SHA-256 and size, the download uses that export's filename and verified bytes.
 
 The [first target review](../../records/campaigns/teaching-asset-target.md), [reopened exemptions](../../records/campaigns/teaching-exemption-recheck.md), and [refinement review](../../records/campaigns/teaching-asset-refinement.md) retain the earlier decisions and comparison evidence. The scorecard links to the explicit historical audit.
 
 The focused authoring run uses the same loopback runner as the full Gallery check. It exercises the real s1233 study through all four surfaces, including an unavailable comparison witness, the exact Library download, and a Stage shared view and its WebP.
-The packaged bookmark replay uses the exact public and a test origin in a disposable browser. Pass the packaged project directory to `verify_survey_bookmarks.mjs`.
+Run the browser suites against the local candidate preview with hydrated media. The Library case requires the AG-GAL-018 Git baseline. Archive playback requires the restored teaching-media selection. The lesson-plates case also uses `MODEL_SURVEY_PUBLISHED_PREVIEW_URL` for a separate published rehearsal to check what is included there. The packaged bookmark replay uses the exact public and a test origin in a disposable browser. Pass the packaged project directory to `verify_survey_bookmarks.mjs`.
 
 ```sh
 python3.12 -m unittest discover -s tests -p 'test_model_survey_*.py' -v
@@ -166,10 +173,11 @@ node --test sites/anatomy-gallery/app/tests/fdi31-download.test.mjs
 node --test sites/anatomy-gallery/tools/preview_gallery.test.mjs
 node sites/anatomy-gallery/tools/verify_gallery.mjs --authoring
 node sites/anatomy-gallery/tools/verify_gallery.mjs
-MODEL_SURVEY_CAPTURE_DIR=.artifacts/library-verification node sites/anatomy-gallery/tools/verify_library.mjs
-MODEL_SURVEY_CAPTURE_DIR=.artifacts/teaching-target-verification node sites/anatomy-gallery/tools/verify_teaching_target.mjs
-MODEL_SURVEY_CAPTURE_DIR=.artifacts/heart-exterior-verification node sites/anatomy-gallery/tools/verify_heart_exterior.mjs
-MODEL_SURVEY_CAPTURE_DIR=.artifacts/bronchial-exterior-verification node sites/anatomy-gallery/tools/verify_bronchial_exterior.mjs
+node sites/anatomy-gallery/tools/verify_gallery.mjs --list
+node sites/anatomy-gallery/tools/verify_gallery.mjs --suite catalog --suite scenes
+node sites/anatomy-gallery/tools/verify_gallery.mjs --suite lessons --suite evidence
+node sites/anatomy-gallery/tools/verify_gallery.mjs --case library
+node sites/anatomy-gallery/tools/verify_gallery.mjs --all
 ```
 
 ## Retention
@@ -187,6 +195,6 @@ by 2026-12-06; no background update or deletion is scheduled. Existing eye,
 trabecular-spacing and heart-applicability disagreements remain in the survey
 with proposed corrections; no anatomy/clinical/WebGL acceptance is implied.
 
-Exercise the two bilingual ovary entries and image recovery with `node sites/anatomy-gallery/tools/verify_gallery.mjs --ovary` using the browser settings above. The [shared Cardiac Atlas](../../heart/Cardiac_Atlas_Animated/exports/shared-source-r01/) is exercised by `verify_refinement_scenes.mjs` through both ordinary Library lessons.
+Exercise the two bilingual ovary entries and image recovery with `node sites/anatomy-gallery/tools/verify_gallery.mjs --ovary` using the browser settings above. The [shared Cardiac Atlas](../../heart/Cardiac_Atlas_Animated/exports/shared-source-r01/) is exercised by the `refinement-scenes` case through both ordinary Library lessons.
 
-Run `node sites/anatomy-gallery/tools/verify_part_lessons.mjs` with the browser settings above to exercise the six right-arm, salivary and pelvic tasks. It checks landmark marking, camera retention, exact-byte rejection, retry and usable answers with WebGL unavailable. Hydrate the small WebP inputs under `app/src/content/gallery/part-images/` when assembling the Gallery.
+Run `node sites/anatomy-gallery/tools/verify_gallery.mjs --case layer-lessons` with the browser settings above to exercise the six right-arm, salivary and pelvic tasks. It checks landmark marking, camera retention, exact-byte rejection, retry and usable answers with WebGL unavailable. Hydrate the small WebP inputs under `app/src/content/gallery/part-images/` when assembling the Gallery.

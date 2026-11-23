@@ -5,7 +5,7 @@ import hashlib
 import json
 from pathlib import Path
 
-SITE = Path(__file__).resolve().parents[2] / 'sites/anatomy-gallery'
+SITE = Path(__file__).resolve().parents[1]
 
 
 def verify_source_seed(raw, reference):

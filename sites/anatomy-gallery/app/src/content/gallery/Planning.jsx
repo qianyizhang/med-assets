@@ -1,7 +1,7 @@
 import React from 'react';
 import { DataComponent, useDataApp } from '../../data-app-public.jsx';
 import { planning } from './selected-library.js';
-import { libraryAliases } from './library-data.js';
+import { libraryAliases } from './library-view.js';
 import { Heading, Label, Link, Missing } from './GalleryUI.jsx';
 
 export const surveyCoverageId = 'survey-coverage';

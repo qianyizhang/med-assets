@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
   assetUrl,
-  byPath,
   sourceRoot,
   revisions,
   rated,
@@ -14,7 +13,7 @@ import {
   salivary,
 } from './catalog.js';
 import { adrenalLibrary } from './adrenal-study.js';
-import { exactExportPath, exportRole, librarySearchText, selectLibraryRow } from './library-data.js';
+import { exactExportPath, exportRole, librarySearchText, revisionStatus, selectLibraryRow } from './library-view.js';
 import { baseView, localView } from './presets.js';
 import { Scene } from './Scene.jsx';
 import { BalancedDownload } from './BalancedDownload.jsx';
@@ -23,10 +22,6 @@ import { refinementPath } from './Refinements.jsx';
 import { Evidence } from './Evidence.jsx';
 import { Link, Label, Heading, Missing } from './GalleryUI.jsx';
 
-function previewUrl(url) {
-  const origin = 'https://med-assets-model-survey.landy123007.chatgpt.site';
-  return url?.startsWith(origin + '/assets/') ? url.slice(origin.length) : url;
-}
 
 const fields = [
   ['system', 'System'],
@@ -335,15 +330,15 @@ function TeachingAssessment({ assessment, previous = false }) {
       <h3>Reviewed views</h3>
       <ul>
         {assessment.views.map((view) => (
-          <li key={view.path}><a href={view.url ?? assetUrl(byPath.get(view.path))}>{view.label} ↗</a></li>
+          <li key={view.path}><a href={view.url}>{view.label} ↗</a></li>
         ))}
       </ul>
     </details>
   );
 }
 
-export function CollectionEntry({ row, snapshot, exact, lessonQuery = '' }) {
-  const file = exact?.selectedFile ?? exact?.exports.find((entry) => entry.path === exact.assessment?.export.path) ?? exact?.exports[0] ?? byPath.get(row.media?.[0]?.path);
+export function CollectionEntry({ row, exact, lessonQuery = '' }) {
+  const file = exact?.selectedFile ?? exact?.exports.find((entry) => entry.path === exact.assessment?.export.path) ?? exact?.exports[0] ?? row.media?.[0];
   const salivaryStop = exact?.family === salivary.family && Object.keys(salivary.lessonFiles)
     .find((stop) => salivary.lessonFiles[stop] === file?.name);
   const lesson = salivaryStop ? salivary.lesson + '/' + salivaryStop : exact?.lesson;
@@ -352,11 +347,10 @@ export function CollectionEntry({ row, snapshot, exact, lessonQuery = '' }) {
   const assessment = exact?.assessment ?? (priorAssessment ? row.assessment : undefined);
   const teachingView = assessment?.views.find((view) => view.path === assessment.teachingView);
   const exactPreview = exact?.portrait;
-  const preview = snapshot.previewGallery?.[row.previewIds?.[0]];
-  const image = exact ? exact.preview : previewUrl(preview?.image) || row.image;
+  const image = exact ? exact.preview : row.detailImage ?? row.image;
   const files = exact?.exports ?? row.media;
   const formats = [...new Set(files?.map((asset) => asset.path.split('.').at(-1).toUpperCase()))];
-  const status = exact ? exact.status : row.state;
+  const status = exact ? revisionStatus(exact, row.recommended) : row.state;
   const lessons = row.lessons ?? (exact?.assessment?.maintained?.sharedOwner && exact.sharedLessons);
   return (
     <>
@@ -415,14 +409,14 @@ export function CollectionEntry({ row, snapshot, exact, lessonQuery = '' }) {
             ) : (
               <>
                 <dt>Survey date</dt>
-                <dd>{snapshot.generatedAt.slice(0, 10)}</dd>
+                <dd>{row.indexedDate}</dd>
               </>
             )}
             {(exact || priorAssessment) && <AxisRatings axes={profile.axes} />}
             {file?.license && (
               <>
                 <dt>Export rights</dt>
-                <dd>{file.license}</dd>
+                <dd>{file.license}{file.credit && ' · ' + file.credit}</dd>
               </>
             )}
           </dl>
@@ -471,14 +465,17 @@ export function CollectionEntry({ row, snapshot, exact, lessonQuery = '' }) {
           <h2>Revision history</h2>
           {exact && !row.recommended && !row.exactLibrary && exact.library !== salivary.library && <Link to={'library/' + row.id}>Overview · {row.label}</Link>}
           <ul>
-            {row.history.map((study) => (
-              <li key={study.library}>
-                <Link to={study.library + lessonQuery} aria-current={study.library === exact?.library ? 'page' : undefined}>
-                  {study.title}
-                </Link>
-                {study.status && ' · ' + study.status}
-              </li>
-            ))}
+            {row.history.map((study) => {
+              const status = revisionStatus(study, row.recommended);
+              return (
+                <li key={study.library}>
+                  <Link to={study.library + lessonQuery} aria-current={study.library === exact?.library ? 'page' : undefined}>
+                    {study.title}
+                  </Link>
+                  {status && ' · ' + status}
+                </li>
+              );
+            })}
           </ul>
         </nav>
       )}
@@ -508,7 +505,7 @@ export function CollectionEntry({ row, snapshot, exact, lessonQuery = '' }) {
           <summary>All indexed files ({row.media.length})</summary>
           {row.media.map((m) => (
             <p key={m.path}>
-              <a href={byPath.has(m.path) ? assetUrl(byPath.get(m.path)) : m.url}>{m.path}</a>
+              <a href={m.name ? assetUrl(m) : m.url}>{m.path}</a>
             </p>
           ))}
         </details>

@@ -1,18 +1,11 @@
 import assert from 'node:assert/strict';
-import { createHash } from 'node:crypto';
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { sha256 } from './assertions.mjs';
+import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { localModels, teachingScenes } from '../app/src/content/gallery/local-models.js';
-import { assetUrl } from '../app/src/content/gallery/catalog.js';
-import { readView, stagePath } from '../app/src/content/gallery/presets.js';
+import { localModels, teachingScenes } from '../../app/src/content/gallery/local-models.js';
+import { assetUrl } from '../../app/src/content/gallery/catalog.js';
+import { readView, stagePath } from '../../app/src/content/gallery/presets.js';
 
-const { chromium } = await import(process.env.MODEL_SURVEY_PLAYWRIGHT_MODULE || 'playwright');
-const base = process.env.MODEL_SURVEY_PREVIEW_URL || 'http://127.0.0.1:8858';
-const capture = process.env.MODEL_SURVEY_CAPTURE_DIR;
-assert.ok(capture, 'Set MODEL_SURVEY_CAPTURE_DIR to a dedicated receipt directory');
-await mkdir(capture, { recursive: true });
-// The controls can become ready one ResizeObserver delivery before the hidden
-// viewport receives its final drawing-buffer dimensions.
 async function renderedFrame(canvas) {
   await canvas.page().waitForFunction((element) => {
     const parent = element.parentElement;
@@ -24,15 +17,13 @@ async function renderedFrame(canvas) {
   return canvas.evaluate((element) => element.toDataURL());
 }
 
-const browser = await chromium.launch({ executablePath: process.env.MODEL_SURVEY_BROWSER, headless: true,
-  chromiumSandbox: true, args: ['--enable-unsafe-swiftshader'] });
-try {
-  const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
-  const errors = [];
+export async function checkRefinementScenes({ browser, base, capture }) {
+  // The controls can become ready one ResizeObserver delivery before the hidden
+  // viewport receives its final drawing-buffer dimensions.
+  const page = await browser.newPage();
   const checked = [];
   const stomachFrames = new Map();
   const lymphSelections = [];
-  page.on('pageerror', (error) => errors.push(String(error)));
   for (const study of [...teachingScenes, ...localModels.filter((model) => model.scene.groups)]) {
     const second = Object.keys(study.scene.groups)[1];
     const key = study.scene.version;
@@ -59,7 +50,7 @@ try {
     await scene.getByRole('button', { name: 'Retry 3D' }).click();
     const bytes = await (await response).body();
     assert.equal(bytes.length, study.exports[0].bytes);
-    assert.equal(createHash('sha256').update(bytes).digest('hex'), study.exports[0].sha256);
+    assert.equal(sha256(bytes), study.exports[0].sha256);
     await canvas.waitFor();
     await page.waitForFunction(() => document.querySelector('.ga-scene select')?.disabled === false);
     assert.equal(await picker.inputValue(), study.scene.initialPart);
@@ -88,7 +79,7 @@ try {
     }
     if (study.family === 'stomach') {
       stomachFrames.set(study.scene.version, [before, after].map((frame) =>
-        createHash('sha256').update(frame).digest('hex')));
+        sha256(frame)));
     }
     if (study.scene.version === 'lymph-node-tissues-v2') {
       const groupFrames = new Set([before, after]);
@@ -128,8 +119,8 @@ try {
       await scene.getByText('The pinned export is unavailable.').waitFor();
       const fallback = scene.getByRole('img');
       const posterPath = study.scene.posterPath;
-      const poster = await readFile(new URL('../../../' + posterPath, import.meta.url));
-      const posterDigest = createHash('sha256').update(poster).digest('hex');
+      const poster = await readFile(new URL('../../../../' + posterPath, import.meta.url));
+      const posterDigest = sha256(poster);
       assert.equal(await fallback.getAttribute('src'), '/review-evidence/' + posterDigest + '/' + path.basename(posterPath));
       assert.ok(await fallback.evaluate(async (image) => { await image.decode(); return image.naturalWidth > 0; }));
       await scene.getByRole('button', { name: 'Retry 3D' }).click();
@@ -146,7 +137,7 @@ try {
 
   // Open exactly the bytes downloaded from the ordinary Library record in the shipped Stage.
   const results = JSON.parse(await readFile(new URL(
-    '../../../reviews/teaching-assessments/reopen-economy/measurements.json', import.meta.url)));
+    '../../../../reviews/teaching-assessments/reopen-economy/measurements.json', import.meta.url)));
   for (const [family, match] of Object.entries({
     liver: /bare_area/i, muscle: /pectoralis major/i, brain: /cerebellum/i,
     spinal_cord: /Representative dorsal root upper 7 side1/i, trachea: /C-band 8$/i,
@@ -158,7 +149,7 @@ try {
     await page.getByRole('link', { name: filename + ' ↓', exact: true }).click();
     const download = await downloadReady;
     const bytes = await readFile(await download.path());
-    assert.equal(createHash('sha256').update(bytes).digest('hex'), edition.sha256);
+    assert.equal(sha256(bytes), edition.sha256);
     await page.goto(base + '/#/stage');
     await page.getByLabel('Open local GLB').setInputFiles({
       name: filename, mimeType: 'model/gltf-binary', buffer: bytes,
@@ -179,10 +170,7 @@ try {
     checked.push({ model: edition.path, sha256: edition.sha256, meshSelections: names.length - 1,
       stageSelection: part });
   }
-  assert.deepEqual(errors, []);
   await writeFile(path.join(capture, 'scenes.json'), JSON.stringify({ browser: browser.version(), checked,
     stomachTexturedFrameSha256: Object.fromEntries(stomachFrames), lymphSelections }, null, 2) + '\n');
   console.log('PASS full-scene Stage selections, textured stomach equality, tissue views, sampled cardiac phase, shared presets, reload and failed-file recovery.');
-} finally {
-  await browser.close();
 }

@@ -1,23 +1,12 @@
 import assert from 'node:assert/strict';
-import { createHash } from 'node:crypto';
-import { mkdir, readFile } from 'node:fs/promises';
-import displayImages from '../display-images.json' with { type: 'json' };
-import { airway, staticReviews, assetUrl, byPath } from '../app/src/content/gallery/catalog.js';
+import { exactResponse, sha256 as hash } from './assertions.mjs';
+import { readFile } from 'node:fs/promises';
+import displayImages from '../../../../sources/display-derivatives.json' with { type: 'json' };
+import { airway, staticReviews, assetUrl, byPath } from '../../app/src/content/gallery/catalog.js';
 
-const { chromium } = await import(process.env.MODEL_SURVEY_PLAYWRIGHT_MODULE || 'playwright');
-const base = process.env.MODEL_SURVEY_PREVIEW_URL || 'http://127.0.0.1:8889';
-const captures = process.env.MODEL_SURVEY_STATIC_CAPTURES;
-const route = (to) => '/#/' + to;
-const hash = (bytes) => createHash('sha256').update(bytes).digest('hex');
-
-const browser = await chromium.launch({
-  executablePath: process.env.MODEL_SURVEY_BROWSER,
-  headless: true,
-  chromiumSandbox: true,
-});
-try {
-  if (captures) await mkdir(captures, { recursive: true });
-  const page = await browser.newPage({ viewport: { width: 1280, height: 900 }, acceptDownloads: true });
+export async function checkStaticReviews({ browser, base, capture: captures }) {
+  const route = (to) => '/#/' + to;
+  const page = await browser.newPage();
   const go = (path) => page.goto(base + route(path));
   const content = page.locator('.ga-content');
   const heading = (title) => content.getByRole('heading', { name: title, level: 1, exact: true });
@@ -26,11 +15,7 @@ try {
   async function verifyAsset(file) {
     if (checked.has(file.sha256)) return;
     const response = await page.request.get(base + assetUrl(file));
-    assert.equal(response.status(), 200, file.path);
-    assert.match(response.headers()['content-type'], new RegExp('^' + file.mediaType));
-    const bytes = await response.body();
-    assert.equal(bytes.length, file.bytes, file.path);
-    assert.equal(hash(bytes), file.sha256, file.path);
+    await exactResponse(response, file, { contentType: file.mediaType });
     checked.add(file.sha256);
   }
 
@@ -151,11 +136,9 @@ try {
   await page.reload();
   await content.locator('img[src="' + assetUrl(first.asset) + '"]').evaluate((image) => image.decode());
 
-  for (const bindings of Object.values(displayImages)) {
-    for (const [source, display] of bindings) {
-      await verifyAsset(byPath.get(display));
-      await verifyAsset(byPath.get(source));
-    }
+  for (const { source, output } of displayImages.derivatives) {
+    await verifyAsset(byPath.get(output.path));
+    await verifyAsset(byPath.get(source.path));
   }
   for (const study of airway.filter(({ evidence }) => evidence.some((view) => view.original))) {
     await go(study.compare);
@@ -187,6 +170,4 @@ try {
     assert.deepEqual(api.reviews.find(({id}) => id === study.id).revisions, expected);
   }
   console.log(`PASS Chrome: ${staticReviews.length} Compare entries, ${checked.size} exact display, source and export identities, direct links, reload, missing evidence and return navigation.`);
-} finally {
-  await browser.close();
 }

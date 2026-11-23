@@ -40,7 +40,7 @@ class DentalVideoTreatments(unittest.TestCase):
             name=row['file'];self.assertNotIn(name,names);names.add(name)
             self.assertNotIn('..',Path(name).parts);self.assertFalse(Path(name).is_absolute())
             self.assertRegex(row['sha256'],r'^[a-f0-9]{64}$');self.assertGreater(row['bytes'],0)
-            path='experiments/dental-video-treatments/'+name
+            path=replay.asset_file(ROOT/'experiments/dental-video-treatments', name).relative_to(ROOT).as_posix()
             attr=subprocess.check_output(['git','check-attr','filter','--',path],cwd=ROOT,text=True).strip()
             self.assertTrue(attr.endswith(': lfs'),attr)
             b=subprocess.check_output(['git','show',':'+path],cwd=ROOT)

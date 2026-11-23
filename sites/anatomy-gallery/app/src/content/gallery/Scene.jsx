@@ -1,9 +1,8 @@
-import { candidate } from './selected-library.js';
+import { teachingReview, candidate } from './selected-library.js';
 import React, { useEffect, useRef, useState } from 'react';
 import { adrenalScene } from './adrenal-study.js';
 import { portrait, route } from './catalog.js';
 import { localScene, stagePath, viewAsset } from './presets.js';
-import teachingReview from './teaching-inputs/teaching-assessments.json';
 import { fetchModelBytes } from './model-bytes.js';
 import { loadScene } from './scene.js';
 

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { createAssetDelivery } from '../src/content/shared/r2-assets.js';
+import { createAssetDelivery } from '../src/content/shared/asset-delivery.js';
 
 const data = Buffer.from('glTF-public-model');
 const hash = createHash('sha256').update(data).digest('hex');

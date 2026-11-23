@@ -1,22 +1,11 @@
 import assert from 'node:assert/strict';
-import { createHash } from 'node:crypto';
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { sha256 as digest, galleryRoute } from './assertions.mjs';
+import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import review from '../../../reviews/bronchial_tree/2026-11-21-distal-simplification-trial/geometry.json' with { type: 'json' };
-import { assetUrl } from '../app/src/content/gallery/catalog.js';
-import { bronchialExterior, firstForkPath, localModels } from '../app/src/content/gallery/local-models.js';
-import { localView, stagePath } from '../app/src/content/gallery/presets.js';
-
-const capture = process.env.MODEL_SURVEY_CAPTURE_DIR;
-assert.ok(capture, 'Set MODEL_SURVEY_CAPTURE_DIR to a dedicated receipt directory');
-await mkdir(capture, { recursive: true });
-const { chromium } = await import(process.env.MODEL_SURVEY_PLAYWRIGHT_MODULE || 'playwright');
-const base = process.env.MODEL_SURVEY_PREVIEW_URL || 'http://127.0.0.1:8858';
-const digest = (bytes) => createHash('sha256').update(bytes).digest('hex');
-const url = (route) => base + '/#/' + route;
-const original = 'library/bronchial_tree/authored-central-fairing-r13';
-const [candidate] = bronchialExterior.exports;
-const modelUrl = base + assetUrl(candidate);
+import review from '../../../../reviews/bronchial_tree/2026-11-21-distal-simplification-trial/geometry.json' with { type: 'json' };
+import { assetUrl } from '../../app/src/content/gallery/catalog.js';
+import { bronchialExterior, firstForkPath, localModels } from '../../app/src/content/gallery/local-models.js';
+import { localView, stagePath } from '../../app/src/content/gallery/presets.js';
 
 function identity(bytes) {
   const length = bytes.readUInt32LE(12);
@@ -27,18 +16,12 @@ function identity(bytes) {
   return { bytes: bytes.length, sha256: digest(bytes), triangles: gltf.accessors[primitive.indices].count / 3 };
 }
 
-const browser = await chromium.launch({
-  executablePath: process.env.MODEL_SURVEY_BROWSER,
-  headless: true,
-  chromiumSandbox: true,
-  args: ['--enable-unsafe-swiftshader'],
-});
-try {
-  const context = await browser.newContext({ viewport: { width: 1280, height: 900 } });
-  const errors = [];
-  context.on('page', (page) => page.on('pageerror', (error) => errors.push(String(error))));
-  await context.route('**/*', (route) => route.request().url().startsWith(base + '/')
-    ? route.continue() : route.abort());
+export async function checkBronchialScenes({ browser, base, capture }) {
+  const url = (route) => galleryRoute(base, route);
+  const original = 'library/bronchial_tree/authored-central-fairing-r13';
+  const [candidate] = bronchialExterior.exports;
+  const modelUrl = base + assetUrl(candidate);
+  const context = await browser.newContext();
   const page = await context.newPage();
   const heading = (name) => page.getByRole('heading', { level: 1, name, exact: true });
   const canvas = page.locator('.ga-canvas canvas');
@@ -175,7 +158,7 @@ try {
   await page.getByRole('link', { name: 'Open the reviewed fork in Asset Library' }).click();
   await heading(bronchialExterior.title).waitFor();
 
-  const currentPoster = await readFile(new URL('../../../' + bronchialExterior.scene.posterPath, import.meta.url));
+  const currentPoster = await readFile(new URL('../../../../' + bronchialExterior.scene.posterPath, import.meta.url));
   await page.route(modelUrl, (route) => route.fulfill({ status: 503 }), { times: 1 });
   await page.goto(url(stagePath(localView(bronchialExterior))));
   await scene.getByRole('status').getByText('The pinned export is unavailable.').waitFor();
@@ -201,7 +184,6 @@ try {
   await alternate.locator('.ga-canvas canvas').waitFor();
   await alternate.close();
 
-  assert.deepEqual(errors, []);
   await writeFile(path.join(capture, 'bronchial-exterior.json'), JSON.stringify({
     browser: browser.version(), lesson: url(firstForkPath), library: url(bronchialExterior.library), shared,
     candidate: delivered, original: retained, legacy: { preset: legacy, ...r14 },
@@ -210,6 +192,4 @@ try {
     visibility: 'Candidate lesson, Library record and saved Stage view on both origins. Public index excludes the candidate asset.',
   }, null, 2) + '\n');
   console.log('PASS bronchial teaching, verified WebGL and downloads, both preset versions, r07/r09/r13 compatibility, exact failure poster and candidate routes on both origins');
-} finally {
-  await browser.close();
 }

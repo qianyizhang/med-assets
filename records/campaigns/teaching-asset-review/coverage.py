@@ -9,12 +9,12 @@ import subprocess
 import sys
 
 ROOT = Path(__file__).resolve().parents[3]
-sys.path.insert(0, str(ROOT / "transport/tools"))
-from lfs_transport import unique_keys
+sys.path.insert(0, str(ROOT / "lib"))
+from med_assets.artifacts import declared_identity, unique_keys
+from med_assets.derivatives import AssessmentIdentities
+from med_assets.teaching import CurrentTeaching, REGISTER, link, render_scorecard, selections as current_selections, table
 sys.path.insert(0, str(ROOT / "tools"))
-from assessment_identity import AssessmentIdentities, file_identity
-from maintained_teaching import CurrentTeaching, markdown_label, selections as current_selections
-from teaching_assessments import REGISTER, campaign_rows, register_rows
+from teaching_assessments import campaign_rows, register_rows
 
 GALLERY = "sites/anatomy-gallery/app/src/content/gallery/"
 PILOT = "reviews/teaching-assessments/2026-11-21-library-pilot/assessments.json"
@@ -249,24 +249,6 @@ def select(identities, items):
     return "Unrated", "No attributable rubric assessment for this starting file and a named task."
 
 
-def link(label, path):
-    if path.startswith("https://"):
-        return f"[{label}]({path})"
-    return f"[{label}](../../../{path})"
-
-
-def cell(value):
-    return str(value).replace("|", r"\|").replace("\n", " ")
-
-
-def table(columns, rows):
-    return [
-        "| " + " | ".join(columns) + " |",
-        "| " + " | ".join("---" for _ in columns) + " |",
-        *("| " + " | ".join(map(cell, row)) + " |" for row in rows),
-        "",
-    ]
-
 
 def assessment_row(repo, identities, item):
     export = item["export"]
@@ -282,48 +264,7 @@ def assessment_row(repo, identities, item):
 
 
 def current_scorecard(repo):
-    current = CurrentTeaching(repo)
-    rows = []
-    counts = defaultdict(Counter)
-    families = defaultdict(set)
-    family_exports = Counter((item.collection, item.family_id) for item in current.selections.values())
-    for selection, assessment in current.selected():
-        row = assessment.row
-        scores = [axis["score"] for axis in row["axes"]]
-        rated = sum(score is not None for score in scores)
-        coverage = "Full" if rated == len(AXES) else "Partial" if rated else "Unrated"
-        target = "At target" if all(score is not None and score >= 3 for score in scores) else (
-            "Exemption" if row.get("target", {}).get("exemptions") else "Open")
-        collection = selection.collection
-        counts[collection].update({target: 1, coverage: 1, "Selected files": 1})
-        families[collection].add(selection.family_id)
-        label = selection.label
-        if family_exports[collection, selection.family_id] > 1:
-            label += f" · {Path(selection.path).stem}"
-        if selection.shared_owner:
-            label = f"{selection.family} · {label}"
-        rows.append((markdown_label(collection), link(markdown_label(label), selection.path),
-                     *("—" if score is None else score for score in scores),
-                     target, link("Evidence", assessment.owner.relative_to(current.repo).as_posix())))
-
-    families["**Total**"] = set().union(*families.values())
-    counts["**Total**"] = sum(counts.values(), Counter())
-    lines = [
-        "# Maintained teaching asset scorecard", "",
-        "The total counts each shared family once across collections. Coverage and target counts apply to the selected files. Each file has its own learner task and four scores.",
-        "Use the [rubric](../../../docs/guides/asset-quality.md) for the anchors and the "
-        "[exemption recheck](../teaching-exemption-recheck.md) for the current before/after decisions and owned follow-ups.", "",
-        "Run `python3.12 records/campaigns/teaching-asset-review/coverage.py --audit --baseline a6f4b3c` for every identity, "
-        "historical alternate, evidence gap and register change.", "",
-    ]
-    count_columns = ("At target", "Exemption", "Open", *STATES, "Selected files")
-    lines += table(("Collection", "Families", *count_columns), (
-        (markdown_label(collection) if collection != "**Total**" else collection,
-         len(families[collection]), *(count[column] for column in count_columns))
-        for collection, count in counts.items()
-    ))
-    lines += table(("Collection", "Starting file", "Fidelity", "Form", "Readability", "Economy", "Target", "Review"), rows)
-    return "\n".join(lines)
+    return render_scorecard(CurrentTeaching(repo))
 
 
 def historical_report(repo, baseline):
@@ -346,7 +287,7 @@ def historical_report(repo, baseline):
         if not items and path in GAPS:
             gap, evidence = GAPS[path]
             reason = f"{gap} {link('Existing evidence', evidence)}."
-        digest, size = file_identity(repo, path)
+        digest, size = declared_identity(repo, path)
         counts[collection][state] += 1
         sources = ", ".join(link(item["source_label"], item["source"]) for item in items) or "—"
         rows.append((collection, family, link(path, path), f"`{digest}` · {size:,}", state, sources, reason))

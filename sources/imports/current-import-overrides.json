@@ -31,9 +31,9 @@
   },
   "body/anatomy-workshop-r1/README.md": {
     "importSha256": "901b2eea01402cda9fc3fac02c751db0a3256020bf19c15bd0b55c3d9a56b987",
-    "currentSha256": "201867548e37f2faee3c9ecda8871c6b39e07bc3701591aabe53bc4b51d87dfc",
-    "changeCommit": "f005cb2a94baf510ecb617a88f0cf9aee71f848d",
-    "reason": "Documented canonical cardiac sources and exact embedded-texture recovery for the frozen package."
+    "currentSha256": "44ecc5254f65866b8b8cf7d16d3cd7b7b309a3753a3dfdfdc74b30eaca51049f",
+    "changeCommit": "ea29d928dd85e2168de1b9536125f6286b96cc73",
+    "reason": "Point compact Workshop replay to its package-owned declaration and verified native compression operation."
   },
   "body/anatomy-workshop-r1/body-3d-assets/build_collection.py": {
     "importSha256": "e237e564267b23f2232cd12057adcf37b7e8f2c68273735e9b511e1908b59d8c",
@@ -91,15 +91,15 @@
   },
   "heart/Cardiac_Atlas/docs/README.md": {
     "importSha256": "123845eb681078c61f813c5d8ee0eb54570b13c038b8dd5ffa88a4263abb13a8",
-    "currentSha256": "57e22965234002e1123fde9bbd0ea6f1b625fb6b150b2c08bd71325f058fb036",
-    "changeCommit": "f005cb2a94baf510ecb617a88f0cf9aee71f848d",
-    "reason": "Documented exact embedded-texture recovery for the frozen package."
+    "currentSha256": "6fd10b99941ac566542ae66a4e5d875ccfa5b7a17aa27bb840e53922865d74e0",
+    "changeCommit": "fcb63fd93cec29ffa5a678ccd454bbbbbd27063f",
+    "reason": "Restore the original Cardiac geometry bytes on demand and resolve shared Atlas inputs for synthetic imaging."
   },
   "heart/Cardiac_Atlas/package_deliverables.py": {
     "importSha256": "a9efbe569f28df5e0206b73905628914850210ddd3dff8d6276267aa8e6714b0",
-    "currentSha256": "06e8d4c3621409b60217aaf27f6456838be12f283266fea1a51c5009efe16527",
-    "changeCommit": "f005cb2a94baf510ecb617a88f0cf9aee71f848d",
-    "reason": "Restore missing external base-color and normal maps from the verified package GLBs."
+    "currentSha256": "d808f52425b4ccd3616ad2cfc119caacf9676d88169bc3881efe922369c33900",
+    "changeCommit": "fcb63fd93cec29ffa5a678ccd454bbbbbd27063f",
+    "reason": "Restore the original Cardiac geometry bytes on demand and resolve shared Atlas inputs for synthetic imaging."
   },
   "heart/Cardiac_Atlas/render_normal_diagnostic.py": {
     "importSha256": "4bd8c13e13ccef32627c79f5869ced34daee24fa464dd7c253f6968b338d23f6",
@@ -112,5 +112,41 @@
     "currentSha256": "5665bc9d10f643a31fbaa30e2f9b3ad81b3fcdf9a3cfda17a1a27de352535de0",
     "changeCommit": "a4fc834fba4c3e84bc9fa1503c9ee27427ced5c3",
     "reason": "Link the reviewed ventricular wall and fixed-aorta teaching edition while identifying the complete atlas as the owner of its original controls and inventory."
+  },
+  "heart/Cardiac_Atlas/export_details.py": {
+    "importSha256": "3f7eeb08e0fc89386f0dc1e0c062e96bc25a27caa2a5616b3f4559feced879b1",
+    "currentSha256": "c509f0320a2a01a3a5eb64f4ed8942d19665aafe03b30aa57beb0fc4118d9b9c",
+    "changeCommit": "fcb63fd93cec29ffa5a678ccd454bbbbbd27063f",
+    "reason": "Restore the original Cardiac geometry bytes on demand and resolve shared Atlas inputs for synthetic imaging."
+  },
+  "heart/Cardiac_Atlas/prepare_portable_exports.py": {
+    "importSha256": "c986054270853cd8d4425b4fbbc34aff462cdb26d33503f947138ca65cc82e86",
+    "currentSha256": "c935b627d359f18ec58cc0b08f940651d41bccdd73594cdf638acde359b1bd4b",
+    "changeCommit": "fcb63fd93cec29ffa5a678ccd454bbbbbd27063f",
+    "reason": "Restore the original Cardiac geometry bytes on demand and resolve shared Atlas inputs for synthetic imaging."
+  },
+  "heart/synthetic-imaging/beating-heart/imaging/README.md": {
+    "importSha256": "ba1564fa1242e9289d0f41e5df8b8b0e6fe61523d2026e7080bba13fe8eeadb7",
+    "currentSha256": "f3b10db590ae036c160a7ea0845db31488771828ca6b4eb5f4861c28216aa7da",
+    "changeCommit": "fcb63fd93cec29ffa5a678ccd454bbbbbd27063f",
+    "reason": "Restore the original Cardiac geometry bytes on demand and resolve shared Atlas inputs for synthetic imaging."
+  },
+  "heart/synthetic-imaging/beating-heart/imaging/generate_samples.py": {
+    "importSha256": "b82deb04769d0223309a18cedca0c8a6f4827c5fbea41d6ecf4fdf68ee92ca6b",
+    "currentSha256": "d537fdc16c3376403e10b3265adfce1ff2354d6e7a73f5e091d9ea0993eddf14",
+    "changeCommit": "fcb63fd93cec29ffa5a678ccd454bbbbbd27063f",
+    "reason": "Restore the original Cardiac geometry bytes on demand and resolve shared Atlas inputs for synthetic imaging."
+  },
+  "heart/synthetic-imaging/beating-heart/imaging/occupancy.py": {
+    "importSha256": "4cfe3f952a484762061c00f7ac9395161758372effdfa4deddbb0216e659e8e5",
+    "currentSha256": "b81bb68167107664c5c2252a713f15ff406f286cc6f15b144ee5ae7375333037",
+    "changeCommit": "fcb63fd93cec29ffa5a678ccd454bbbbbd27063f",
+    "reason": "Restore the original Cardiac geometry bytes on demand and resolve shared Atlas inputs for synthetic imaging."
+  },
+  "heart/synthetic-imaging/beating-heart/imaging/validate_samples.py": {
+    "importSha256": "615018f95188c56b424fb115b7e7f3da3a6015f374161dbd88992547f5356d08",
+    "currentSha256": "6209323660f1dea0dfb80d781153ccde9b773b24904bed86bb3ce78a5d65a6b8",
+    "changeCommit": "fcb63fd93cec29ffa5a678ccd454bbbbbd27063f",
+    "reason": "Restore the original Cardiac geometry bytes on demand and resolve shared Atlas inputs for synthetic imaging."
   }
 }

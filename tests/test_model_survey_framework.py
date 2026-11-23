@@ -125,13 +125,13 @@ class FrameworkTests(unittest.TestCase):
         # Exercise the normal command with a valid framework and a mismatched delivery row.
         site = self.site
         (site/'tools').mkdir()
-        for name in ('tools/teaching_assessments.py', 'tools/assessment_identity.py', 'tools/maintained_teaching.py',
-                     'transport/tools/lfs_transport.py', 'transport/tools/delivery_catalog.py',
-                     'transport/tools/restore_snapshot.py'):
+        for name in ('lib/med_assets/__init__.py', 'lib/med_assets/artifacts.py',
+                     'lib/med_assets/derivatives.py', 'lib/med_assets/teaching.py',
+                     'transport/tools/delivery_catalog.py'):
             shared = site.parents[1] / name
             shared.parent.mkdir(parents=True, exist_ok=True)
             shared.write_bytes((recipe.parents[3] / name).read_bytes())
-        for name in ('framework.py', 'gallery_runtime.py'):
+        for name in ('framework.py', 'gallery_runtime.py', 'restore_snapshot.py'):
             (site/'tools'/name).write_bytes((recipe.parent/name).read_bytes())
         gallery = site/'app/src/content/gallery'
         gallery.mkdir()

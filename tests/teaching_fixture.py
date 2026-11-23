@@ -1,9 +1,7 @@
 """Small on-disk fixtures for the current teaching record contract."""
 import json
 
-from assessment_identity import DELIVERY_INDEX, DISPLAY_RECIPE, GALLERY_SITE
-from maintained_teaching import ASSESSMENTS, SELECTIONS
-from teaching_assessments import assessment_digest
+from med_assets.teaching import ASSESSMENTS, SELECTIONS, assessment_digest
 
 
 def write_fixture(repo, relative, value):
@@ -33,5 +31,3 @@ def install_assessments(repo, rows, *, selected_task):
             {"path": selected["path"], "taskId": selected_task, "assessmentSha256": selected["sha256"]},
         ]}]}],
     })
-    write_fixture(repo, DELIVERY_INDEX, {"assets": []})
-    write_fixture(repo, GALLERY_SITE / DISPLAY_RECIPE, {})

@@ -29,7 +29,7 @@ new claim about the disputed HRA vascular mesh or measured physiology.
 
 ## Verification
 
-The protected Gallery build and [focused Chrome check](../../../sites/anatomy-gallery/tools/verify_lesson_review_plates.mjs)
+The protected Gallery build and [focused Chrome check](../../../sites/anatomy-gallery/tools/verification/lesson-plates.mjs)
 passed on `e0eae25c3914c27cfd81fb72436e443b023bf487` plus the local teaching changes. The
 generated HTML SHA-256 was `17d430f5e0330811f196f8a1d672a4030a62400e9b21722ab75f5056b0ba8c2c`.
 The check exercised both routes at 1280 and 1024 pixels, confirmed each image’s
@@ -43,5 +43,5 @@ Start the read-only preview as described in the [Gallery workflow](../../../site
 Run the focused check with the Gallery Playwright and browser environment variables.
 
 ```sh
-node sites/anatomy-gallery/tools/verify_lesson_review_plates.mjs
+node sites/anatomy-gallery/tools/verify_gallery.mjs --case lesson-plates
 ```

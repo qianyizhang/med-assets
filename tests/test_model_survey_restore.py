@@ -10,7 +10,7 @@ from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 SPEC = importlib.util.spec_from_file_location(
-    'restore_snapshot', ROOT / 'transport/tools/restore_snapshot.py')
+    'restore_snapshot', ROOT / 'sites/anatomy-gallery/tools/restore_snapshot.py')
 restore = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(restore)
 digest = lambda value: hashlib.sha256(value).hexdigest()

@@ -1,29 +1,20 @@
 import assert from 'node:assert/strict';
-import { createHash } from 'node:crypto';
-import { mkdir, writeFile } from 'node:fs/promises';
+import { sha256 } from './assertions.mjs';
+import { writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
-const { chromium } = await import(process.env.MODEL_SURVEY_PLAYWRIGHT_MODULE || 'playwright');
-const base = process.env.MODEL_SURVEY_PREVIEW_URL;
-const capture = process.env.MODEL_SURVEY_CAPTURE_DIR;
-assert.ok(base && capture, 'Set a local Gallery URL and a capture directory.');
-await mkdir(capture, { recursive: true });
-const routes = {
-  elbow: 'use-cases/right-arm/elbow',
-  shoulder: 'use-cases/right-arm/shoulder',
-  location: 'use-cases/head-and-neck/location',
-  duct: 'use-cases/head-and-neck/duct-course',
-  bladder: 'use-cases/systems/urinary?detail=urinary-left-vesical',
-  cervix: 'use-cases/systems/reproductive?detail=reproductive-female-context',
-};
-const browser = await chromium.launch({ executablePath: process.env.MODEL_SURVEY_BROWSER,
-  headless: true, chromiumSandbox: true, args: ['--enable-unsafe-swiftshader'] });
-const checks = [];
-try {
+export async function checkLayerLessons({ browser, base, capture }) {
+  const routes = {
+    elbow: 'use-cases/right-arm/elbow',
+    shoulder: 'use-cases/right-arm/shoulder',
+    location: 'use-cases/head-and-neck/location',
+    duct: 'use-cases/head-and-neck/duct-course',
+    bladder: 'use-cases/systems/urinary?detail=urinary-left-vesical',
+    cervix: 'use-cases/systems/reproductive?detail=reproductive-female-context',
+  };
+  const checks = [];
   for (const [id, route] of Object.entries(routes)) {
-    const page = await browser.newPage({ viewport: { width: 1280, height: 900 } });
-    const errors = [];
-    page.on('pageerror', (error) => errors.push(String(error)));
+    const page = await browser.newPage();
     const lesson = page.locator('.ga-part-lesson');
     const frame = lesson.locator('.ga-part-frame');
     const still = frame.locator('img');
@@ -82,7 +73,7 @@ try {
       const response = page.waitForResponse((r) => r.url().endsWith('.glb') && r.ok());
       await lesson.getByRole('button', { name: 'Retry 3D' }).click();
       const file = await response;
-      const sha = createHash('sha256').update(await file.body()).digest('hex');
+      const sha = sha256(await file.body());
       assert.ok(file.url().includes('/assets/' + sha + '/'));
       await lesson.getByRole('button', { name: 'Use reference image' }).waitFor();
       await page.waitForFunction(() => {
@@ -125,7 +116,6 @@ try {
       assert.equal(await layers.first().isChecked(), true);
       await page.setViewportSize({ width: 1024, height: 768 });
       assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
-      assert.deepEqual(errors, []);
       checks.push({ id, route, question: await lesson.getByRole('heading').innerText(), layers: labels, firstExport: sha });
       console.log('PASS', id, labels.join(' / '));
     } finally { await page.close(); }
@@ -163,4 +153,4 @@ try {
   await page.close();
   console.log('PASS all six tasks without WebGL, source-index fallback and invalid stop recovery.');
   await writeFile(path.join(capture, 'checks.json'), JSON.stringify(checks, null, 2) + '\n');
-} finally { await browser.close(); }
+}

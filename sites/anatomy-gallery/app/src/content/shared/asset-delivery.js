@@ -57,42 +57,53 @@ export function createAssetDelivery(manifest, ownerCanEdit) {
         return reply({ sha256: asset.sha256, bytes: result.size });
       } catch { return reply({ error: 'Asset upload failed integrity or storage validation.' }, 400); }
     }
-    if (!['GET', 'HEAD', 'OPTIONS'].includes(request.method)) return reply({ error: 'Method not allowed.' }, 405);
-    if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: {
-      ...headers, 'access-control-allow-methods': 'GET, HEAD, OPTIONS',
-      'access-control-allow-headers': 'Range',
-    } });
-    try {
-      const metadata = await env.BUCKET.head(key);
-      if (!metadata || metadata.size !== asset.bytes || metadata.customMetadata?.sha256 !== asset.sha256) {
-        return reply({ error: 'Published asset is unavailable.' }, 503);
-      }
-      const responseHeaders = { ...headers, 'content-type': asset.mediaType,
-        'content-length': String(asset.bytes), etag: `"${asset.sha256}"`,
-        'cache-control': 'public, max-age=31536000, immutable', 'accept-ranges': 'bytes',
-        'access-control-expose-headers': 'Content-Length, Content-Range, ETag',
-        ...(asset.mediaType.startsWith('application/') ? { 'content-disposition': `attachment; filename="${asset.name}"` } : {}),
-      };
-      if (request.headers.get('if-none-match') === responseHeaders.etag) {
-        delete responseHeaders['content-length'];
-        return new Response(null, { status: 304, headers: responseHeaders });
-      }
-      if (request.method === 'HEAD') return new Response(null, { headers: responseHeaders });
-      let range;
-      if (request.headers.has('range')) {
-        const match = /^bytes=(\d+)-(\d*)$/u.exec(request.headers.get('range'));
-        const offset = match ? Number(match[1]) : NaN;
-        const end = match?.[2] ? Number(match[2]) : asset.bytes - 1;
-        if (!Number.isSafeInteger(offset) || !Number.isSafeInteger(end) || offset > end || offset >= asset.bytes) {
-          return reply({ error: 'Unsupported byte range.' }, 416, { 'content-range': `bytes */${asset.bytes}` });
-        }
-        range = { offset, length: Math.min(end, asset.bytes - 1) - offset + 1 };
-        responseHeaders['content-length'] = String(range.length);
-        responseHeaders['content-range'] = `bytes ${offset}-${offset + range.length - 1}/${asset.bytes}`;
-      }
-      const object = await env.BUCKET.get(key, range ? { range } : undefined);
-      if (!object?.body) return reply({ error: 'Published asset is unavailable.' }, 503);
-      return new Response(object.body, { status: range ? 206 : 200, headers: responseHeaders });
-    } catch { return reply({ error: 'Asset storage is unavailable.' }, 503); }
+    return readAsset(request, env.BUCKET, asset);
   };
+}
+
+export async function readAsset(request, bucket, asset) {
+  const key = `assets/sha256/${asset.sha256}`;
+  function unavailable(error) {
+    const response = reply({ error }, 503);
+    return request.method === 'HEAD' ? new Response(null, response) : response;
+  }
+  if (!['GET', 'HEAD', 'OPTIONS'].includes(request.method)) return reply({ error: 'Method not allowed.' }, 405);
+  if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: {
+    ...headers, 'access-control-allow-methods': 'GET, HEAD, OPTIONS',
+    'access-control-allow-headers': 'Range',
+  } });
+  try {
+    const metadata = await bucket?.head(key);
+    if (!metadata || metadata.size !== asset.bytes || metadata.customMetadata?.sha256 !== asset.sha256) {
+      return unavailable('Published asset is unavailable.');
+    }
+    const responseHeaders = { ...headers, 'content-type': asset.mediaType,
+      'content-length': String(asset.bytes), etag: `"${asset.sha256}"`,
+      'cache-control': asset.immutable === false ? 'no-store' : 'public, max-age=31536000, immutable',
+      'accept-ranges': 'bytes',
+      'access-control-expose-headers': 'Content-Length, Content-Range, ETag',
+      ...(asset.sandbox ? { 'content-security-policy': "default-src 'none'; sandbox" } : {}),
+      ...(asset.mediaType.startsWith('application/') && !asset.inline ? { 'content-disposition': `attachment; filename="${asset.name}"` } : {}),
+    };
+    if (request.headers.get('if-none-match') === responseHeaders.etag) {
+      delete responseHeaders['content-length'];
+      return new Response(null, { status: 304, headers: responseHeaders });
+    }
+    if (request.method === 'HEAD') return new Response(null, { headers: responseHeaders });
+    let range;
+    if (request.headers.has('range')) {
+      const match = /^bytes=(\d+)-(\d*)$/u.exec(request.headers.get('range'));
+      const offset = match ? Number(match[1]) : NaN;
+      const end = match?.[2] ? Number(match[2]) : asset.bytes - 1;
+      if (!Number.isSafeInteger(offset) || !Number.isSafeInteger(end) || offset > end || offset >= asset.bytes) {
+        return reply({ error: 'Unsupported byte range.' }, 416, { 'content-range': `bytes */${asset.bytes}` });
+      }
+      range = { offset, length: Math.min(end, asset.bytes - 1) - offset + 1 };
+      responseHeaders['content-length'] = String(range.length);
+      responseHeaders['content-range'] = `bytes ${offset}-${offset + range.length - 1}/${asset.bytes}`;
+    }
+    const object = await bucket.get(key, range ? { range } : undefined);
+    if (!object?.body) return unavailable('Published asset is unavailable.');
+    return new Response(object.body, { status: range ? 206 : 200, headers: responseHeaders });
+  } catch { return unavailable('Asset storage is unavailable.'); }
 }
