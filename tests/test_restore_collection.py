@@ -38,6 +38,12 @@ class CollectionRestoreTests(unittest.TestCase):
         self.assertEqual((self.output / "sources/a.glb").read_bytes(), b"a")
         self.assertEqual(self.run_restore(), 0)
 
+    def test_wrong_catalog_totals_fail_before_install(self):
+        for totals in ({"payloads": 1}, {"payloadBytes": 3}):
+            with self.subTest(totals=totals), self.assertRaisesRegex(ValueError, "count or total size"):
+                restore({**self.row, **totals}, self.output, self.archive)
+            self.assertFalse(self.output.exists())
+
     def test_download_uses_the_object_library_client(self):
         row = {**self.row, "key": "library/med-assets/collections/test.zip"}
         with patch("restore_collection.build_opener") as opener:

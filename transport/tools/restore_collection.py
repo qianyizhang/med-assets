@@ -45,8 +45,9 @@ def manifest(archive, row, repo):
     infos = {}
     for info in archive.infolist():
         source_path(info.filename.rstrip('/') if info.is_dir() else info.filename)
-        if stat.S_ISLNK(info.external_attr >> 16):
-            raise ValueError(f'Linked archive member: {info.filename}')
+        kind = stat.S_IFMT(info.external_attr >> 16)
+        if kind not in (0, stat.S_IFDIR if info.is_dir() else stat.S_IFREG):
+            raise ValueError(f'Non-regular archive member: {info.filename}')
         if info.filename in infos:
             raise ValueError(f'Duplicate archive member: {info.filename}')
         infos[info.filename] = info
@@ -65,6 +66,10 @@ def manifest(archive, row, repo):
         size = infos[name].file_size
         if record.setdefault('bytes', size) != size:
             raise ValueError(f'Archive member size differs: {name}')
+    payloads = [record for record in members.values() if record['role'] == 'payload']
+    if (len(payloads) != row.get('payloads', len(payloads)) or
+            ('payloadBytes' in row and sum(record['bytes'] for record in payloads) != row['payloadBytes'])):
+        raise ValueError('Archive payload count or total size differs from the catalog')
     return members
 
 

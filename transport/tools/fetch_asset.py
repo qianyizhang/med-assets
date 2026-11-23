@@ -185,7 +185,7 @@ def restore_compressed(target: Path, digest: str, size: int) -> bool:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('path', help='Exact payload path at the selected Git commit')
-    parser.add_argument('--hydrate', action='store_true', help='Restore only a matching LFS pointer at its original path')
+    parser.add_argument('--hydrate', action='store_true', help='Restore the exact asset at its original path from a matching LFS pointer or its verified compressed source')
     parser.add_argument('--commit', default='HEAD')
     parser.add_argument('--cache-dir', type=Path, default=ROOT / '.artifacts/asset-cache')
     args = parser.parse_args()
