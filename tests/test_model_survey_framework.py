@@ -39,17 +39,24 @@ class FrameworkTests(unittest.TestCase):
                      'tree': self.command('rev-parse', 'HEAD^{tree}'),
                      'runtimeManifestSha256': hashlib.sha256(manifest).hexdigest()}
         self.save_lock()
-        (self.site/'snapshot-reference.json').write_text('{"artifactId":"report:test"}')
         (self.site/'app/src/content').mkdir(parents=True)
         (self.site/'app/src/content/report.jsx').write_text('survey specific source')
         (self.site/'app/src/theme.css').write_text('survey theme')
         (self.site/'app/src/data.json').write_text('{"id":"report:test","queries":{"rows":[1,2,3]}}')
+        self.save_reference()
 
     def command(self, *args):
         return subprocess.check_output(['git', '-C', str(self.source), *args], text=True).strip()
 
     def save_lock(self):
         (self.site/'framework.lock.json').write_text(json.dumps(self.lock))
+
+    def save_reference(self):
+        raw = (self.site / 'app/src/data.json').read_bytes()
+        reference = {'artifactId': 'report:test', 'surveySeedPublication': {
+            'sourceSeedSha256': hashlib.sha256(raw).hexdigest(), 'sourceSeedBytes': len(raw),
+        }}
+        (self.site / 'snapshot-reference.json').write_text(json.dumps(reference))
 
     def prepare(self):
         return framework.prepare(self.site, self.source, self.output)
@@ -81,9 +88,10 @@ class FrameworkTests(unittest.TestCase):
         index.parent.mkdir()
         payload = b'{"assets": []}\n'
         index.write_bytes(payload)
-        runtime = SimpleNamespace(prepare_gallery=lambda *_: None)
-        with patch.dict(sys.modules, {'gallery_runtime': runtime}):
+        runtime = SimpleNamespace(prepare_gallery=lambda *_, **__: None)
+        with patch.dict(sys.modules, {'gallery_runtime': runtime}), patch.object(framework, 'compile_library') as compile_library:
             self.prepare()
+        compile_library.assert_called_once()
         generated = self.output / 'src/content/assets'
         self.assertEqual((generated / index.name).read_bytes(), payload)
         self.assertEqual((generated / 'r2-trial.json').read_bytes(), payload)
@@ -102,15 +110,24 @@ class FrameworkTests(unittest.TestCase):
         with self.assertRaises(ValueError): self.prepare()
         file.write_bytes(old)
         (self.site/'app/src/data.json').write_text('{"id":"another-artifact"}')
+        self.save_reference()
         with self.assertRaises(ValueError): self.prepare()
+        self.assertFalse(self.output.exists())
+
+    def test_same_artifact_with_changed_source_seed_is_rejected(self):
+        seed = self.site / 'app/src/data.json'
+        seed.write_bytes(seed.read_bytes().replace(b'[1,2,3]', b'[0,2,3]'))
+        with self.assertRaisesRegex(ValueError, 'Source seed differs from its recorded size or SHA-256'):
+            self.prepare()
         self.assertFalse(self.output.exists())
 
     def test_gallery_build_refuses_a_changed_review_export(self):
         # Exercise the normal command with a valid framework and a mismatched delivery row.
         site = self.site
         (site/'tools').mkdir()
-        for name in ('tools/teaching_assessments.py', 'tools/assessment_identity.py',
-                     'transport/tools/lfs_transport.py', 'transport/tools/delivery_catalog.py'):
+        for name in ('tools/teaching_assessments.py', 'tools/assessment_identity.py', 'tools/maintained_teaching.py',
+                     'transport/tools/lfs_transport.py', 'transport/tools/delivery_catalog.py',
+                     'transport/tools/restore_snapshot.py'):
             shared = site.parents[1] / name
             shared.parent.mkdir(parents=True, exist_ok=True)
             shared.write_bytes((recipe.parents[3] / name).read_bytes())
@@ -190,7 +207,8 @@ class FrameworkTests(unittest.TestCase):
                 self.assertFalse((self.output / 'teaching-assessments.json').exists())
         axis.update(score=0, observation='Assessed and absent.')
         record.write_text(json.dumps(review))
-        runtime.prepare_teaching_assessments(self.site, index, self.output)
+        with patch.object(runtime, 'prepare_campaign_reviews', return_value=[]):
+            runtime.prepare_teaching_assessments(self.site, index, self.output)
         expected = {**review['assessments'][0], **{key: review[key] for key in ('evaluator', 'date', 'rubric')}}
         result = json.loads((self.output / 'teaching-assessments.json').read_text())
         self.assertEqual(result['assessments'][0], expected)
@@ -200,37 +218,38 @@ class FrameworkTests(unittest.TestCase):
         runtime = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(runtime)
         repo = self.site
-        folder = repo / 'reviews/teaching-assessments/test'
-        folder.mkdir(parents=True)
+        from teaching_fixture import install_assessments
+        (repo / 'reviews').mkdir()
+        (repo / 'models').mkdir()
+        (repo / 'models/control.glb').write_bytes(b'old')
         view = {'path': 'reviews/plate.jpg', 'bytes': 1, 'sha256': hashlib.sha256(b'v').hexdigest(),
                 'label': 'Matched teaching view'}
         (repo / view['path']).write_bytes(b'v')
-        export = {'path': 'models/control.glb', 'bytes': 3, 'sha256': 'a'*64}
+        export = {'path': 'models/control.glb', 'bytes': 3, 'sha256': hashlib.sha256(b'old').hexdigest()}
         index = repo / 'delivery-index.json'
         index.write_text(json.dumps({'assets': [export]}))
         index.with_name('local-delivery.json').write_text('{"assets":[]}')
         row = {'task': 'Trace the first fork.', 'export': dict(export), 'views': [view],
                'axes': [{'score': 3, 'observation': 'The fork is intact.'}] * 4,
                'sources': [{'path': view['path'], 'label': 'Control view'}], 'teachingView': view['path']}
-        owner = folder / 'campaign-assessments.json'
-        batch = {'schemaVersion': 1, 'evaluator': 'Reviewer', 'date': '2026-11-22',
-                 'rubric': {'revision': 'fixture'}, 'assessments': [row]}
-        owner.write_text(json.dumps(batch))
+        install_assessments(repo, [('first-fork', row)], selected_task='first-fork')
         result = runtime.prepare_campaign_reviews(repo, index)
         self.assertEqual(result[0]['views'][0]['url'], '/review-evidence/' + view['sha256'] + '/plate.jpg')
+        self.assertEqual(result[0]['maintained']['taskId'], 'first-fork')
+        self.assertEqual(result[0]['maintained']['familyId'], 'fixture-family')
         row['export']['sha256'] = 'b'*64
-        owner.write_text(json.dumps(batch))
-        with self.assertRaisesRegex(ValueError, 'Delivery index differs'):
+        install_assessments(repo, [('first-fork', row)], selected_task='first-fork')
+        with self.assertRaisesRegex(ValueError, 'Identity mismatch'):
             runtime.prepare_campaign_reviews(repo, index)
         row['export'] = export
         row['teachingView'] = 'reviews/unrelated.jpg'
-        owner.write_text(json.dumps(batch))
-        with self.assertRaisesRegex(ValueError, 'Teaching view is missing'):
+        install_assessments(repo, [('first-fork', row)], selected_task='first-fork')
+        with self.assertRaisesRegex(ValueError, 'Teaching view is outside'):
             runtime.prepare_campaign_reviews(repo, index)
         row['teachingView'] = view['path']
-        owner.write_text(json.dumps(batch))
+        install_assessments(repo, [('first-fork', row)], selected_task='first-fork')
         (repo / view['path']).write_bytes(b'x')
-        with self.assertRaisesRegex(ValueError, 'Delivery index differs'):
+        with self.assertRaisesRegex(ValueError, 'Identity mismatch'):
             runtime.prepare_campaign_reviews(repo, index)
 
     def test_refinement_download_uses_the_exact_maintained_export(self):
@@ -238,13 +257,11 @@ class FrameworkTests(unittest.TestCase):
         runtime = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(runtime)
         repo = self.site
-        for directory in ('docs/gallery', 'models', 'reviews'):
+        from teaching_fixture import install_assessments
+        for directory in ('models', 'reviews'):
             (repo / directory).mkdir(parents=True)
-        (repo / runtime.REGISTER).write_text(
-            '## Test\n\n| Family | Starting file |\n| --- | --- |\n'
-            '| Selected | [selected.glb](../../models/selected.glb) |\n'
-        )
         (repo / 'models/selected.glb').write_bytes(b'new')
+        (repo / 'models/control.glb').write_bytes(b'old')
         (repo / 'models/replay.py').write_text('# recipe\n')
         (repo / 'reviews/view.jpg').write_bytes(b'v')
         view = {'path': 'reviews/view.jpg', 'bytes': 1, 'sha256': hashlib.sha256(b'v').hexdigest()}
@@ -255,18 +272,17 @@ class FrameworkTests(unittest.TestCase):
         index.with_name('local-delivery.json').write_text('{"assets":[]}')
         review = {'task': 'Trace the structure.', 'views': [view], 'sources': [view],
                   'axes': [{'score': 3, 'observation': 'The landmark is visible.'}] * 4}
-        owner = repo / 'reviews/assessments.json'
-        batch = {'evaluator': 'Reviewer', 'date': '2026-11-22', 'rubric': {'revision': 'fixture'}}
         digest = selected['sha256']
         candidate = {'path': f'.artifacts/teaching-refinements/candidates/{digest}.glb',
                      'bytes': 3, 'sha256': digest, 'name': 'earlier-name.glb',
                      'recipe': 'models/replay.py', 'download': True}
 
         def prepared_download(item):
-            rows = [(owner, batch, {**review, 'export': control, 'refinement': {'candidate': item}}),
-                    (owner, batch, {**review, 'export': selected})]
-            with patch.object(runtime, 'campaign_rows', return_value=rows):
-                return runtime.prepare_campaign_reviews(repo, index)[0]['refinement']['candidate']
+            comparison = {'candidate': item, 'before': view['path'], 'after': view['path']}
+            rows = [('control-task', {**review, 'export': control, 'refinement': comparison}),
+                    ('selected-task', {**review, 'export': selected})]
+            install_assessments(repo, rows, selected_task='selected-task')
+            return runtime.prepare_campaign_reviews(repo, index)[0]['refinement']['candidate']
 
         promoted = prepared_download(candidate)
         self.assertEqual(promoted['path'], selected['path'])
@@ -309,7 +325,8 @@ class FrameworkTests(unittest.TestCase):
 
         assessment['views'][0]['sha256'] = correct
         batch.write_text(json.dumps(batch_data))
-        runtime.prepare_teaching_assessments(self.site, index, self.output)
+        with patch.object(runtime, 'prepare_campaign_reviews', return_value=[]):
+            runtime.prepare_teaching_assessments(self.site, index, self.output)
         entries = json.loads(output.read_text())['assessments']
         self.assertEqual([entry['route'] for entry in entries],
                          [entry['route'] for entry in json.loads(original)['assessments']])

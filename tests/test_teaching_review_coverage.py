@@ -5,6 +5,7 @@ from pathlib import Path
 import subprocess
 import sys
 import tempfile
+from types import SimpleNamespace
 import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -12,15 +13,19 @@ SCRIPT = ROOT / "records/campaigns/teaching-asset-review/coverage.py"
 spec = importlib.util.spec_from_file_location("teaching_review_coverage", SCRIPT)
 coverage = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(coverage)
+from teaching_assessments import register_rows, register_selections
 from assessment_identity import (AssessmentIdentities, DELIVERY_INDEX, DISPLAY_RECIPE,
                                  GALLERY_SITE, file_identity)
+from maintained_teaching import ASSESSMENTS, SELECTIONS, CurrentTeaching, render_register
+from teaching_fixture import install_assessments
 
 
 class TeachingReviewCoverage(unittest.TestCase):
     def fixture(self, repo):
         """Mirror the assessed inputs as pointers so the gate works without hydration."""
         documents = [
-            coverage.REGISTER, coverage.PILOT,
+            coverage.REGISTER, coverage.PILOT, SELECTIONS,
+            *(family["owner"] for family in coverage.read_json(ROOT / SELECTIONS)["families"].values() if "owner" in family),
             str(DELIVERY_INDEX), str(GALLERY_SITE / DISPLAY_RECIPE),
             *(path.relative_to(ROOT).as_posix()
               for path in (ROOT / "reviews").glob("*/*/teaching-assessment.json")),
@@ -31,8 +36,8 @@ class TeachingReviewCoverage(unittest.TestCase):
               for revision in ("r04", "r05") for file in ("README.md", "renders.json")),
         ]
         raw_register = (ROOT / coverage.REGISTER).read_text()
-        inputs = set(coverage.register_rows(raw_register))
-        for assessment in (*coverage.records(ROOT), *coverage.historical(ROOT)):
+        inputs = set(register_rows(raw_register))
+        for assessment in (*coverage.read_json(ROOT / coverage.PILOT)["assessments"], *coverage.historical(ROOT)):
             inputs.add(assessment["export"]["path"])
             inputs.update(claim["path"] for claim in assessment["views"])
         for path in documents:
@@ -57,19 +62,19 @@ class TeachingReviewCoverage(unittest.TestCase):
         first = "[full.glb](../../heart/study/full.glb)"
         second = "[wall.glb](../../heart/study/wall.glb)"
         row = f"## Cardiovascular\n| Cardiac Atlas | {first}<br>{second} |"
-        selections = coverage.register_rows(row)
+        selections = register_rows(row)
         self.assertEqual(len(selections), 2)
         self.assertEqual(set(selections.values()), {("Cardiovascular", "Cardiac Atlas")})
         shared = "[Pelvis](../../assemblies/pelvis/README.md)"
         cross_list = f"## Urinary\n| Bladder · {shared} | {first} |\n## Reproductive\n| Cervix · {shared} | {second} |"
-        pelvic = coverage.register_selections(cross_list).values()
+        pelvic = register_selections(cross_list).values()
         self.assertEqual({item.family for item in pelvic}, {"Pelvis"})
         self.assertEqual({item.label for item in pelvic}, {"Bladder", "Cervix"})
         self.assertEqual({item.shared_owner for item in pelvic}, {"assemblies/pelvis/README.md"})
         with self.assertRaisesRegex(ValueError, "Duplicate maintained selection"):
-            coverage.register_rows(row.replace(second, first))
+            register_rows(row.replace(second, first))
         with self.assertRaisesRegex(ValueError, "Ambiguous maintained row"):
-            coverage.register_rows(row + f"\n| Cardiac Atlas | {second} |")
+            register_rows(row + f"\n| Cardiac Atlas | {second} |")
 
     def test_candidate_collection_verifies_identity_and_preserves_conflicts(self):
         from hashlib import sha256
@@ -82,12 +87,10 @@ class TeachingReviewCoverage(unittest.TestCase):
             digest = sha256(recovered.read_bytes()).hexdigest()
             relative = f".artifacts/teaching-refinements/candidates/{digest}.glb"
             candidate = {"path": relative, "sha256": digest, "bytes": recovered.stat().st_size, "download": True}
-            register = repo / coverage.REGISTER
-            register.parent.mkdir(parents=True)
-            register.write_text("## Test\n| Selected | [selected.glb](../../models/selected.glb) |\n")
             control = {"path": "models/control.glb", "sha256": "a" * 64, "bytes": 1}
-            rows = [(None, None, {"export": control, "refinement": {"candidate": candidate}})]
-            with patch("teaching_assessments.campaign_rows", return_value=rows):
+            record = SimpleNamespace(row={"export": control, "refinement": {"candidate": candidate}})
+            current = SimpleNamespace(gallery=lambda: [record], maintained_exports=lambda: {})
+            with patch("maintained_teaching.CurrentTeaching", return_value=current):
                 self.assertEqual(collect_candidates(repo, [recovered]), (1, []))
                 self.assertEqual(collect_candidates(repo, []), (1, []))
                 target = repo / relative
@@ -98,7 +101,8 @@ class TeachingReviewCoverage(unittest.TestCase):
                 self.assertEqual(target.read_bytes(), b"concurrent change")
 
             promoted = {"path": "models/selected.glb", "sha256": digest, "bytes": candidate["bytes"]}
-            with patch("teaching_assessments.campaign_rows", return_value=[*rows, (None, None, {"export": promoted})]):
+            current.maintained_exports = lambda: {(digest, candidate["bytes"]): promoted["path"]}
+            with patch("maintained_teaching.CurrentTeaching", return_value=current):
                 self.assertEqual(collect_candidates(repo, []), (0, []))
 
     def test_refinement_requires_exact_original_assessment_and_views(self):
@@ -176,11 +180,20 @@ class TeachingReviewCoverage(unittest.TestCase):
         with tempfile.TemporaryDirectory() as temp:
             repo = Path(temp).resolve()
             self.fixture(repo)
-            normal = self.run_report(repo)
+            self.assertIn("must be supplied together", self.run_report(repo, "--audit").stderr)
+            register = repo / coverage.REGISTER
+            env = dict(os.environ)
+            env.pop("GIT_INDEX_FILE", None)
+            for command in (("init", "-q"), ("add", coverage.REGISTER),
+                            ("-c", "user.name=Fixture", "-c", "user.email=fixture@example.invalid",
+                             "commit", "-qm", "Test baseline")):
+                subprocess.run(["git", *command], cwd=repo, env=env, check=True)
+            audit_args = ("--audit", "--baseline", "HEAD")
+            normal = self.run_report(repo, *audit_args)
             self.assertEqual(normal.returncode, 0, normal.stderr)
             rows = normal.stdout.splitlines()
             for name, state in (
-                ("Terminal airspace study", "Unrated"),
+                ("Terminal airspace study", "Full"),
                 ("Bronchial tree · first fork", "Unrated"),
                 ("Breathing collection", "Unrated"),
             ):
@@ -188,14 +201,14 @@ class TeachingReviewCoverage(unittest.TestCase):
 
             pilot = coverage.read_json(repo / coverage.PILOT)
             control = next(item for item in pilot["assessments"] if "bronchial_tree" in item["route"])
-            sibling = next(path for path, (_, family) in coverage.register_rows((repo / coverage.REGISTER).read_text()).items()
+            sibling = next(path for path, (_, family) in register_rows((repo / coverage.REGISTER).read_text()).items()
                            if family == "Bronchial tree · first fork")
             original_digest = control["export"]["sha256"]
             suspect = {**control, "export": {**control["export"], "path": sibling}}
             injected = repo / "reviews/teaching-assessments/test/campaign-assessments.json"
             injected.parent.mkdir(parents=True)
             injected.write_text(json.dumps({**pilot, "assessments": [suspect]}))
-            wrong = self.run_report(repo)
+            wrong = self.run_report(repo, *audit_args)
             self.assertEqual(wrong.returncode, 0, wrong.stderr)
             self.assertIn(f"Identity mismatch for {sibling}", wrong.stdout)
             self.assertIn("| Unrated |", next(line for line in wrong.stdout.splitlines()
@@ -206,7 +219,7 @@ class TeachingReviewCoverage(unittest.TestCase):
             suspect["export"].update(sha256=digest, bytes=size)
             competing = {**suspect, "task": "A second task for the same file", "route": "distinct-claim"}
             injected.write_text(json.dumps({**pilot, "assessments": [suspect, competing]}))
-            ambiguous = self.run_report(repo)
+            ambiguous = self.run_report(repo, *audit_args)
             self.assertEqual(ambiguous.returncode, 0, ambiguous.stderr)
             row = next(line for line in ambiguous.stdout.splitlines() if "| Bronchial tree · first fork |" in line)
             self.assertIn("| Unrated |", row)
@@ -215,24 +228,82 @@ class TeachingReviewCoverage(unittest.TestCase):
             injected.unlink()
             report = repo / "saved-report.md"
             report.write_text(normal.stdout)
-            self.assertEqual(self.run_report(repo, "--check", report).returncode, 0)
-            self.assertIn("must be supplied together", self.run_report(repo, "--audit").stderr)
-            register = repo / coverage.REGISTER
-            env = dict(os.environ)
-            env.pop("GIT_INDEX_FILE", None)
-            for command in (("init", "-q"), ("add", coverage.REGISTER),
-                            ("-c", "user.name=Fixture", "-c", "user.email=fixture@example.invalid",
-                             "commit", "-qm", "Test baseline")):
-                subprocess.run(["git", *command], cwd=repo, env=env, check=True)
-            register.write_text(register.read_text().replace("| Right lung · s1233 |", "| Right lung · renamed |"))
-            drift = self.run_report(repo, "--check", report)
+            self.assertEqual(self.run_report(repo, *audit_args, "--check", report).returncode, 0)
+            register.write_text("Editorial formatting cannot change the current selections.")
+            self.assertEqual(self.run_report(repo, *audit_args, "--check", report).returncode, 0)
+            config = repo / SELECTIONS
+            changed = coverage.read_json(config)
+            family = next(family for family in changed["families"].values() if family["label"] == "Right lung · s1233")
+            family["label"] = "Right lung · renamed"
+            config.write_text(json.dumps(changed))
+            drift = self.run_report(repo, *audit_args, "--check", report)
             self.assertEqual(drift.returncode, 1)
             self.assertIn("Coverage report drift.", drift.stderr)
-            audit = self.run_report(repo, "--audit", "--baseline", "HEAD")
+            audit = self.run_report(repo, *audit_args)
             self.assertEqual(audit.returncode, 0, audit.stderr)
             self.assertIn("Renamed or regrouped", audit.stdout)
             self.assertIn("| Full |", next(line for line in audit.stdout.splitlines()
                                            if "| Terminal airspace study |" in line))
+
+    def test_current_selection_binds_task_and_review_without_historical_replay(self):
+        with tempfile.TemporaryDirectory() as temp:
+            repo = Path(temp).resolve()
+            (repo / "models").mkdir()
+            export, view = "models/control.glb", "models/view.jpg"
+            for path, data in ((export, b"test3d"), (view, b"test image")):
+                (repo / path).write_bytes(data)
+            identities = {}
+            for path in (export, view):
+                digest, size = file_identity(repo, path)
+                identities[path] = {"path": path, "sha256": digest, "bytes": size}
+            row = {"export": identities[export], "task": "Locate the branches.",
+                   "axes": [{"score": 3, "observation": "Both branches visible."}] * 4,
+                   "sources": [{"path": view, "label": "Inspected view"}], "views": [identities[view]]}
+            alternate = {**row, "task": "Explain the parent trunk."}
+            install_assessments(repo, [("branches", row), ("trunk", alternate)], selected_task="branches")
+            history = repo / "reviews/teaching-assessments/refinement-historical/accepted.json"
+            history.parent.mkdir(parents=True)
+            history.write_text("An unrelated legacy decision can be unreadable.")
+            base = repo / "reviews/fixture/assessment.json"
+            owner = coverage.read_json(base)
+            owner["assessments"].extend([{"unused": "Historical control"}] * 2)
+            base.write_text(json.dumps(owner))
+            current = CurrentTeaching(repo)
+            selection, selected = next(current.selected())
+            self.assertEqual(selected.row, row)
+            self.assertEqual(list(current.gallery()), [selected])
+            self.assertEqual(current.resolve(export, "trunk").row, alternate)
+            report = self.run_report(repo)
+            self.assertEqual(report.returncode, 0, report.stderr)
+
+            catalog = coverage.read_json(repo / SELECTIONS)
+            catalog["families"]["fixture-family"]["label"] = "Renamed [family] | *example*"
+            (repo / SELECTIONS).write_text(json.dumps(catalog))
+            current = CurrentTeaching(repo)
+            self.assertEqual(next(current.selected())[0].family_id, selection.family_id)
+            register = render_register(current.selections)
+            self.assertIn("| Renamed &#91;family&#93; &#124; &#42;example&#42; |", register)
+            self.assertEqual(register_selections(register)[export].family, "Renamed [family] | *example*")
+            pin = catalog["collections"][0]["families"][0]["exports"][0]
+            pin["taskId"] = "trunk"
+            (repo / SELECTIONS).write_text(json.dumps(catalog))
+            self.assertIn("Stale maintained assessment pin", self.run_report(repo).stderr)
+
+            pin["taskId"] = "branches"
+            (repo / SELECTIONS).write_text(json.dumps(catalog))
+            records = coverage.read_json(repo / ASSESSMENTS)
+            records["assessments"][0]["review"] = "reviews/fixture/missing-review.json"
+            (repo / ASSESSMENTS).write_text(json.dumps(records))
+            self.assertIn("Missing or linked accepted review", self.run_report(repo).stderr)
+            del records["assessments"][0]["review"]
+            (repo / ASSESSMENTS).write_text(json.dumps(records))
+            owner["assessments"][0]["task"] = "A different task."
+            base.write_text(json.dumps(owner))
+            self.assertIn("Base assessment pin differs", self.run_report(repo).stderr)
+
+            records["assessments"].append(records["assessments"][0])
+            (repo / ASSESSMENTS).write_text(json.dumps(records))
+            self.assertIn("Duplicate assessment", self.run_report(repo).stderr)
 
     def test_generated_witnesses_bind_source_and_derivative_without_cache(self):
         accepted = "reviews/teaching-assessments/refinement-risk/accepted.json"

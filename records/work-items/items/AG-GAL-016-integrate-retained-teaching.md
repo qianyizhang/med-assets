@@ -44,6 +44,8 @@ The maintainer accepted the oral-spaces and regional-locator walkthrough at `69c
 
 ## Implementation Ledger
 
+The legacy HTTP results below describe the local migration period. The later [public release and readback](AG-GAL-013-reconcile-gallery-coverage.md#public-release-and-readback) restored the bronchial r13 handoff with Airway v8. [AG-GAL-014](AG-GAL-014-compact-delivery-and-recovery.md) records the separate decision to retain the same-origin downloads.
+
 ### Oral spaces and regional locators
 
 Use Cases now links `/#/use-cases/oral-spaces` and `/#/use-cases/regional-locators`. Head & Neck links to oral spaces. Cardiovascular, Nervous and Reproductive Body Systems pages link to their locator stops.
@@ -93,7 +95,7 @@ Tested runtime and verifier commit `cce7e55f608048ab50432bd49b3c76e042bcaeb4` in
 
 Chrome passed the ordinary Gallery journey, including both new teaching slices. It verified the kidney’s original control pair and outline at equal scale, both languages, and missing/corrupt image rejection. The original standalone route also passed, and the package verifier corroborated the source crops and 180-point outline. Chrome played and sought through all ten dental films, matched full bytes and caption cues, and checked retry after a failed video. A preview with the Image 2.6 archive declarations absent kept its transcript and provenance available and still played the original dental treatments. The teaching ZIP and all 13 Image 2.6 result members matched their digests both in the archive and at the restored paths. FFmpeg decoded all ten movies. The local walkthrough and captures are in `.artifacts/anatomy-gallery-migration-batch/`.
 
-The legacy [2D teaching-aids](https://anatomy-verification.landy123007.chatgpt.site/review/teaching-2d-2026-10-25/) and [biliary review](https://anatomy-verification.landy123007.chatgpt.site/review/biliary-label-2026-10-25/) pages both returned HTTP 200. The [known bronchial 404](AG-GAL-013-reconcile-gallery-coverage.md#airway-review) remains legacy triage. Public cutover, fresh hosted payload acceptance and [AG-GAL-014](AG-GAL-014-compact-delivery-and-recovery.md) remain deferred. One Breath, dental layer editing and authored motion retain their separate interaction and author review dependencies.
+The legacy [2D teaching-aids](https://anatomy-verification.landy123007.chatgpt.site/review/teaching-2d-2026-10-25/) and [biliary review](https://anatomy-verification.landy123007.chatgpt.site/review/biliary-label-2026-10-25/) pages both returned HTTP 200. The [known bronchial 404](AG-GAL-013-reconcile-gallery-coverage.md#airway-review) was still under triage during this batch. At that point public cutover, fresh hosted payload acceptance and [AG-GAL-014](AG-GAL-014-compact-delivery-and-recovery.md) were deferred. One Breath, dental layer editing and authored motion retain their separate interaction and author review dependencies.
 
 **Preview recovery follow-up.** A film missing when the preview started previously stayed unavailable after restoration. The preview now verifies the requested backup member on each request and reuses those verified bytes for that response. The same running process served exact range bytes after restore, refused same-size corruption and recovered again. The public delivery index excluded the local-only film throughout. The full Gallery browser journey and all 28 dental crown endpoint checks passed.
 

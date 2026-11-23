@@ -1,6 +1,7 @@
 import React from 'react';
 import { DataComponent, useDataApp } from '../../data-app-public.jsx';
-import { libraryAliases, libraryRows } from './library-data.js';
+import { planning } from './selected-library.js';
+import { libraryAliases } from './library-data.js';
 import { Heading, Label, Link, Missing } from './GalleryUI.jsx';
 
 export const surveyCoverageId = 'survey-coverage';
@@ -58,7 +59,6 @@ function Coverage({ snapshot }) {
 
 export function Planning({ snapshot, section }) {
   const survey = snapshot.survey;
-  const rows = section === 'overlaps' ? libraryRows(snapshot) : [];
   if (!['coverage', 'overlaps', 'gaps'].includes(section)) return <Missing />;
   return (
     <>
@@ -85,7 +85,7 @@ export function Planning({ snapshot, section }) {
           <p>{record.detail}</p>
           <div className="ga-actions">
             {record.ids.map((id) => {
-              const r = rows.find((row) => row.id === (libraryAliases[id] ?? id));
+              const r = planning.find((row) => row.id === (libraryAliases[id] ?? id));
               return (
                 r && (
                   <Link key={id} to={r.path}>

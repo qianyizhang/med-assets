@@ -6,11 +6,14 @@ import json
 import re
 import shutil
 import subprocess
+import sys
 import tarfile
 import tempfile
 from pathlib import Path, PurePosixPath
 
 SITE = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(SITE.parents[1]))
+from transport.tools.restore_snapshot import verify_source_seed
 
 
 def git(source, *args):
@@ -20,10 +23,87 @@ def git(source, *args):
     return result.stdout
 
 
-def prepare(site, source, output, viewer_inputs=None):
-    """Create a fresh full project; never overwrite an existing destination."""
+def extract_project(source, commit, output, *, omit_overlay=False):
+    with tarfile.open(fileobj=io.BytesIO(git(source, 'archive', '--format=tar', commit))) as archive:
+        for member in archive.getmembers():
+            path = PurePosixPath(member.name)
+            if path.is_absolute() or '..' in path.parts or '.git' in path.parts or not (member.isfile() or member.isdir()):
+                raise ValueError('Framework archive contains an unsafe path or link.')
+            if omit_overlay and (member.name.startswith('src/content/') or member.name == 'src/theme.css'):
+                continue
+            target = output / path
+            if member.isdir():
+                target.mkdir(parents=True, exist_ok=True)
+            else:
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_bytes(archive.extractfile(member).read())
+                target.chmod(member.mode & 0o777)
+
+
+def compile_library(site, project, selection):
+    subprocess.run(['node', str(site / 'tools/compile_library.mjs'), str(project), selection], check=True)
+
+
+def read_seed(site, reference, seed_path):
+    snapshot = site / 'app/src/data.json' if seed_path is None else seed_path
+    if not snapshot.is_file() or snapshot.is_symlink():
+        raise ValueError('Restore app/src/data.json with the Gallery bootstrap or transport/tools/restore_snapshot.py.')
+    raw = snapshot.read_bytes()
+    verify_source_seed(raw, reference)
+    if json.loads(raw).get('id') != reference['artifactId']:
+        raise ValueError('Snapshot belongs to another artifact.')
+    return raw
+
+
+def prepare_published(site, source, output, *, seed_path=None):
+    """Rehearse the approved Site source with its public catalog on any preview origin."""
+    reference = json.loads((site / 'snapshot-reference.json').read_text())
+    release = reference['livePublication']
+    seed = json.loads(read_seed(site, reference, seed_path))
+    commit = release['publicationCommit']
+    if not re.fullmatch('[0-9a-f]{40}', commit):
+        raise ValueError('Published Gallery needs an exact Site source revision.')
     if output.exists() or output.is_symlink():
         raise ValueError('Output already exists; choose a fresh build directory.')
+    output.parent.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix='published-gallery-', dir=output.parent) as temp:
+        project = Path(temp) / 'app'
+        project.mkdir()
+        extract_project(source, commit, project)
+        seed['title'] = 'Anatomy Gallery'
+        compact = json.dumps(seed, ensure_ascii=False, separators=(',', ':')).encode()
+        pinned = release['snapshot']
+        if len(compact) != pinned['bytes'] or hashlib.sha256(compact).hexdigest() != pinned['sha256']:
+            raise ValueError('Frozen Survey seed does not reproduce the published snapshot.')
+        (project / 'src/data.json').write_text(json.dumps(seed, ensure_ascii=False, indent=2) + '\n')
+        gallery = project / 'src/content/gallery'
+        compile_library(site, project, 'published')
+        shutil.copyfile(site / 'app/src/content/gallery/selected-library.js', gallery / 'selected-library.js')
+        # The v10 source has one host switch. Adapt only its catalog reads for local rehearsal.
+        replacements = {
+            'Gallery.jsx': [
+                ('const localPreview = isLoopbackGallery(location.hostname);', 'const localPreview = false;'),
+                ('const rows = libraryRows(snapshot, teachingReview, { localPreview });', ''),
+            ],
+            'Planning.jsx': [("const rows = section === 'overlaps' ? libraryRows(snapshot) : [];",
+                              "const rows = planning;")],
+        }
+        for name, changes in replacements.items():
+            file = gallery / name
+            body = file.read_text()
+            for old, new in changes:
+                if body.count(old) != 1:
+                    raise ValueError(f'Published Gallery source needs a reviewed catalog adapter: {name}')
+                body = body.replace(old, new)
+            symbol = 'rows' if name == 'Gallery.jsx' else 'planning'
+            file.write_text(f"import {{ {symbol} }} from './selected-library.js';\n" + body)
+        if output.exists() or output.is_symlink():
+            raise ValueError('Output was created meanwhile; refusing to replace it.')
+        project.rename(output)
+    return output
+
+
+def verified_framework_revision(site, source):
     lock = json.loads((site / 'framework.lock.json').read_text())
     commit = lock['commit']
     if not re.fullmatch('[0-9a-f]{40}', commit):
@@ -38,21 +118,18 @@ def prepare(site, source, output, viewer_inputs=None):
     overlay_hosting = json.loads((site / 'app/.openai/hosting.json').read_text())
     if hosting != overlay_hosting or hosting['project_id'] != lock['projectId']:
         raise ValueError('Site identity/bindings differ; refusing to assemble another Site.')
+    return commit
+
+
+def prepare(site, source, output, viewer_inputs=None, *, seed_path=None, offline=True):
+    """Create a fresh full project; never overwrite an existing destination."""
+    if output.exists() or output.is_symlink():
+        raise ValueError('Output already exists; choose a fresh build directory.')
+    commit = verified_framework_revision(site, source)
     reference = json.loads((site / 'snapshot-reference.json').read_text())
-    snapshot = site / 'app/src/data.json'
-    if not snapshot.is_file() or snapshot.is_symlink():
-        raise ValueError('Restore app/src/data.json with transport/tools/restore_snapshot.py first.')
-    raw = snapshot.read_bytes()
+    raw = read_seed(site, reference, seed_path)
     seed = json.loads(raw)
-    if seed.get('id') != reference['artifactId']:
-        raise ValueError('Snapshot belongs to another artifact.')
     # Read source, never an old ignored dist or dependency cache.
-    archive = tarfile.open(fileobj=io.BytesIO(git(source, 'archive', '--format=tar', commit)))
-    members = archive.getmembers()
-    for member in members:
-        path = PurePosixPath(member.name)
-        if path.is_absolute() or '..' in path.parts or '.git' in path.parts or not (member.isfile() or member.isdir()):
-            raise ValueError('Framework archive contains an unsafe path or link.')
     overlays = []
     for directory in ('src/content', '.openai', 'tests'):
         base = site / 'app' / directory
@@ -70,17 +147,7 @@ def prepare(site, source, output, viewer_inputs=None):
     with tempfile.TemporaryDirectory(prefix='survey-framework-', dir=output.parent) as temporary:
         staged = Path(temporary) / 'project'
         staged.mkdir()
-        for member in members:
-            # Survey content is owned here, never silently restored from the old Site.
-            if member.name.startswith('src/content/') or member.name == 'src/theme.css':
-                continue
-            target = staged / member.name
-            if member.isdir():
-                target.mkdir(parents=True, exist_ok=True)
-            else:
-                target.parent.mkdir(parents=True, exist_ok=True)
-                target.write_bytes(archive.extractfile(member).read())
-                target.chmod(member.mode & 0o777)
+        extract_project(source, commit, staged, omit_overlay=True)
         for path in overlays:
             if path.suffix == '.webp':
                 with path.open('rb') as stream:
@@ -93,7 +160,7 @@ def prepare(site, source, output, viewer_inputs=None):
         gallery = staged / 'src/content/gallery'
         if gallery.is_dir():
             from gallery_runtime import prepare_gallery
-            prepare_gallery(site, viewer_inputs or site / '.local/viewer-inputs', gallery)
+            prepare_gallery(site, viewer_inputs or site / '.local/viewer-inputs', gallery, offline=offline)
             # The protected Worker at the pinned framework revision still imports this filename.
             index = gallery.parent / 'assets/delivery-index.json'
             shutil.copyfile(index, index.with_name('r2-trial.json'))
@@ -101,6 +168,8 @@ def prepare(site, source, output, viewer_inputs=None):
             seed['title'] = 'Anatomy Gallery'
             raw = (json.dumps(seed, ensure_ascii=False, indent=2) + '\n').encode()
         (staged / 'src/data.json').write_bytes(raw)
+        if gallery.is_dir():
+            compile_library(site, staged, 'candidate')
         # rename refuses an existing nonempty project; no source/history is replaced.
         if output.exists() or output.is_symlink():
             raise ValueError('Output was created meanwhile; refusing to replace it.')
@@ -113,9 +182,14 @@ if __name__ == '__main__':
     parser.add_argument('--source', type=Path, default=SITE / '.local/publication')
     parser.add_argument('--output', type=Path, default=SITE / '.local/app')
     parser.add_argument('--viewer-inputs', type=Path, help='Directory restored by tools/gallery_runtime.py')
+    parser.add_argument('--selection', choices=('candidate', 'published'), default='candidate')
+    parser.add_argument('--publication-source', type=Path, help='Owner Site Git checkout containing the approved release')
     args = parser.parse_args()
     try:
-        result = prepare(SITE, args.source, args.output, args.viewer_inputs)
-    except (ValueError, OSError, KeyError, json.JSONDecodeError) as error:
+        if args.selection == 'published':
+            result = prepare_published(SITE, args.publication_source or args.source, args.output)
+        else:
+            result = prepare(SITE, args.source, args.output, args.viewer_inputs)
+    except (ValueError, OSError, KeyError, subprocess.CalledProcessError) as error:
         parser.exit(1, f'{error}\n')
     print(f'Prepared pinned framework plus Anatomy Gallery source: {result}')

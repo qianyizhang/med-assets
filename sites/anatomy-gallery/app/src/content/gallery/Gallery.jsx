@@ -1,3 +1,4 @@
+import { candidate, rows } from './selected-library.js';
 import React, { useEffect, useRef, useState } from 'react';
 import {
   route, libraryId, studyId, reviewId, bodyPartsAdrenal, comparePath, bodyPartsReviewPath,
@@ -9,8 +10,8 @@ import { useDataApp } from '../../data-app-public.jsx';
 import { componentPermalinkId, componentPermalinkShortId, readComponentPermalink } from '../../chart-permalink.js';
 import { Library, Revision, CollectionEntry } from './Library.jsx';
 import teachingReview from './teaching-inputs/teaching-assessments.json';
-import { libraryAliases, libraryRows, selectExactExport } from './library-data.js';
-import { firstForkPath, isLoopbackGallery } from './local-models.js';
+import { libraryAliases, selectExactExport } from './library-data.js';
+import { firstForkPath } from './local-models.js';
 import { UseCases, Lesson } from './UseCases.jsx';
 import { Planning, surveyCoverageId } from './Planning.jsx';
 import { ArmLessons } from './ArmLessons.jsx';
@@ -114,7 +115,6 @@ function Header({ surface, id }) {
 
 export function Gallery() {
   const { snapshot } = useDataApp();
-  const localPreview = isLoopbackGallery(location.hostname);
   const raw = useRoute();
   const [path, query = ''] = raw.split('?'),
     [surface, id, revision, ...extra] = (path.replace(/^\//, '') || 'library').split('/');
@@ -144,7 +144,6 @@ export function Gallery() {
     const airwayReview = airway.find((record) => record.id === id);
     const staticReview = staticReviews.find((record) => record.id === id);
     if (surface === 'library') {
-      const rows = libraryRows(snapshot, teachingReview, { localPreview });
       const canonical = Object.hasOwn(libraryAliases, id) ? libraryAliases[id] : id;
       const row = rows.find((entry) => entry.id === canonical || entry.aliases?.includes(canonical));
       const home = row?.lessons?.find((entry) => entry.family === id) ?? row?.recommended;
@@ -164,12 +163,12 @@ export function Gallery() {
         page = <CollectionEntry row={row} snapshot={snapshot} exact={exact} lessonQuery={detail ? '?from=' + detail : ''} />;
       }
     } else if (surface === 'use-cases' && (!id || id === studyId))
-      page = id ? <Lesson stop={revision || adrenalLesson.stops[0].id} /> : <UseCases localPreview={localPreview} />;
+      page = id ? <Lesson stop={revision || adrenalLesson.stops[0].id} /> : <UseCases localPreview={candidate} />;
     else if (surface === 'use-cases' && id === 'right-arm') page = <ArmLessons id={revision || 'elbow'} />;
-    else if (surface === 'use-cases' && id === 'systems') page = <Systems id={revision} query={query} localPreview={localPreview} />;
-    else if (surface === 'use-cases' && id === 'head-and-neck') page = <SalivaryLesson stop={revision} query={query} localPreview={localPreview} />;
-    else if (surface === 'use-cases' && id === 'airway' && !revision) page = <AirwayLesson localPreview={localPreview} />;
-    else if (path === '/' + firstForkPath && localPreview) page = <FirstForkLesson />;
+    else if (surface === 'use-cases' && id === 'systems') page = <Systems id={revision} query={query} localPreview={candidate} />;
+    else if (surface === 'use-cases' && id === 'head-and-neck') page = <SalivaryLesson stop={revision} query={query} localPreview={candidate} />;
+    else if (surface === 'use-cases' && id === 'airway' && !revision) page = <AirwayLesson localPreview={candidate} />;
+    else if (path === '/' + firstForkPath && candidate) page = <FirstForkLesson />;
     else if (path === '/' + heartSlicePath) page = <HeartSlice />;
     else if (path === '/' + oneBreathPath) page = <OneBreath />;
     else if (path === '/' + dentalLayersPath) page = <DentalLayers />;
@@ -180,9 +179,9 @@ export function Gallery() {
       page = <DentalArch arch={revision} />;
     else if (surface === 'use-cases' && Object.hasOwn(pathways, id))
       page = <PathwayLesson key={id} id={id} lang={revision} query={query} />;
-    else if (path === '/compare/teaching-target' && localPreview)
+    else if (path === '/compare/teaching-target' && candidate)
       page = <TeachingTarget assessments={teachingReview.campaign} query={query} />;
-    else if (path === '/compare/teaching-refinements' && localPreview)
+    else if (path === '/compare/teaching-refinements' && candidate)
       page = <Refinements assessments={teachingReview.campaign} query={query} />;
     else if (surface === 'compare' && staticReview) page = <StaticReview key={path} study={staticReview} chapter={revision} />;
     else if (surface === 'compare' && !revision && airwayReview) page = <AirwayReview study={airwayReview} />;
@@ -190,8 +189,8 @@ export function Gallery() {
     else if (surface === 'compare' && !revision && id === bodyPartsAdrenal.id)
       page = <BodyPartsReview />;
     else if (surface === 'compare' && !revision && (!id || id === reviewId))
-      page = <Compare detail={!!id} query={query} refinements={localPreview && teachingReview.campaign.some((row) => row.refinement)} />;
-    else if (surface === 'stage' && !revision) page = <Stage key={raw} id={id} query={query} localPreview={localPreview} />;
+      page = <Compare detail={!!id} query={query} refinements={candidate && teachingReview.campaign.some((row) => row.refinement)} />;
+    else if (surface === 'stage' && !revision) page = <Stage key={raw} id={id} query={query} localPreview={candidate} />;
     else if (surface === 'rubric' && !id) page = <Rubric />;
     else if (surface === 'archive' && !id) page = <Archive />;
     else if (path === '/' + dentalShotsPath) page = <DentalShotStudies />;

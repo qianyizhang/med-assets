@@ -8,8 +8,16 @@ from pathlib import Path
 SITE = Path(__file__).resolve().parents[2] / 'sites/anatomy-gallery'
 
 
-def restore(source, output):
-    reference = json.loads((SITE / 'snapshot-reference.json').read_text())
+def verify_source_seed(raw, reference):
+    current = reference['surveySeedPublication']
+    if (len(raw) != current['sourceSeedBytes']
+            or hashlib.sha256(raw).hexdigest() != current['sourceSeedSha256']):
+        raise ValueError('Source seed differs from its recorded size or SHA-256.')
+
+
+def restore(source, output, *, site=None):
+    site = SITE if site is None else site
+    reference = json.loads((site / 'snapshot-reference.json').read_text())
     current = reference['surveySeedPublication']
     raw = source.read_bytes()
     digest = hashlib.sha256(raw).hexdigest()
@@ -19,7 +27,7 @@ def restore(source, output):
     if data['id'] != reference['artifactId']:
         raise ValueError('Artifact identity differs; output was not changed.')
     if digest == reference['snapshot']['sha256']:
-        manifest = json.loads((SITE / 'app/src/content/assets/delivery-index.json').read_text())
+        manifest = json.loads((site / 'app/src/content/assets/delivery-index.json').read_text())
         assets = {a['sha256']: a for a in manifest['assets']}
         for image in data['previewGallery'].values():
             for kind in ('image', 'thumb'):
@@ -35,9 +43,9 @@ def restore(source, output):
             or len(raw) != current['snapshotBytes']):
         raise ValueError('Reconstructed seed differs; output was not changed.')
     raw = (json.dumps(data, ensure_ascii=False, indent=2) + '\n').encode()
-    if (hashlib.sha256(raw).hexdigest() != current['sourceSeedSha256']
-            or len(raw) != current['sourceSeedBytes']):
-        raise ValueError('Restored source serialization differs; output was not changed.')
+    verify_source_seed(raw, reference)
+    if output.is_symlink():
+        raise ValueError('Seed output must not be a symlink.')
     if output.exists():
         if output.read_bytes() != raw:
             raise ValueError('Output has other data; refusing to overwrite it.')

@@ -32,6 +32,8 @@ Three details change how to implement these proposals.
 
 ## Documentation and executable contracts to reconcile
 
+The implementation rehearsal subsequently resolved a baseline ambiguity above. The tracheal Stage presets worked on non-loopback origins at `e613024`. The released v10 source predates that feature. Its cutaway GLB and One Breath storyboard remain available, and the candidate supplies the later Stage interaction. [Release verification](../../../sites/anatomy-gallery/tools/verify_release_builds.mjs)
+
 | Owner | Correction needed |
 | --- | --- |
 | [Gallery bootstrap README](../../../sites/anatomy-gallery/README.md) and [Gallery assembler](../../../sites/anatomy-gallery/tools/gallery_runtime.py) | The README says hydrating PNG masters and rerunning assembly fills the display cache. With the needed campaign inputs hydrated and the generated files absent, assessment preparation raised `FileNotFoundError` on the parathyroid witness. It runs before derivative generation. Repair that order and exercise a fresh build. Also verify the pinned seed digest in direct assembly, which currently checks the artifact ID. |

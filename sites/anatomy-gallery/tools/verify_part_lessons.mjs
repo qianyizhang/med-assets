@@ -130,7 +130,7 @@ try {
       console.log('PASS', id, labels.join(' / '));
     } finally { await page.close(); }
   }
-  // Exercise the shipped fallback without publishing anything or contacting a remote host.
+  // The candidate's reference images and controls must also work without WebGL on another origin.
   const page = await browser.newPage();
   const publicOrigin = 'https://gallery.invalid';
   await page.route(publicOrigin + '/**', async (route) => {

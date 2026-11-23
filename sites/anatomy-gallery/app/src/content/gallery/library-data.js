@@ -300,11 +300,11 @@ export function libraryRows(snapshot, teachingReview, { localPreview = false } =
     const motion = collections.find((row) => row.id === 'cardiac-animated');
     if (still && motion) {
       const history = [...still.history, ...motion.history];
-      const lessons = history.filter((record) => record.assessment?.maintained?.family === 'Cardiac Atlas');
+      const lessons = history.filter((record) => record.assessment?.maintained?.familyId === 'cardiac-atlas');
       if (lessons.length === 2) {
         collections.splice(collections.indexOf(motion), 1);
         collections[collections.indexOf(still)] = {
-          ...still, id: 'cardiac-atlas', label: 'Cardiac Atlas',
+          ...still, id: 'cardiac-atlas', label: lessons[0].assessment.maintained.family,
           aliases: [still.id, motion.id], history,
           lessons, path: lessons[0].library, recommended: lessons[0],
           media: [...still.media, ...motion.media], fileCount: still.fileCount + motion.fileCount,

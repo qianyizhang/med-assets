@@ -1,9 +1,9 @@
+import { candidate } from './selected-library.js';
 import React, { useEffect, useRef, useState } from 'react';
 import { adrenalScene } from './adrenal-study.js';
 import { portrait, route } from './catalog.js';
 import { localScene, stagePath, viewAsset } from './presets.js';
 import teachingReview from './teaching-inputs/teaching-assessments.json';
-import { isLoopbackGallery } from './local-models.js';
 import { fetchModelBytes } from './model-bytes.js';
 import { loadScene } from './scene.js';
 
@@ -101,7 +101,7 @@ export function Scene({ initial, origin, stage = false, auto = false, file = nul
       setStatus(e.message);
     }
   }
-  const showReview = model && isLoopbackGallery(globalThis.location?.hostname)
+  const showReview = model && candidate
     && (origin === model.library || model.scene.posterPath || model.lesson === origin);
   const assessment = showReview ? teachingReview.campaign.find((entry) =>
     entry.export.path === model.exports[0].path && entry.export.sha256 === model.exports[0].sha256) : undefined;

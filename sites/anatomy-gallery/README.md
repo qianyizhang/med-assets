@@ -23,11 +23,11 @@ The Breathing delivery groups its editable assembly with the eleven animated GLB
 
 ### Static opaque heart exterior
 
-Search for **Cardiac opaque exteriors** in the loopback Gallery to open static r02. **Inspect in 3D** opens the exact model with individual structure selection. **Exact exports** offers the pinned GLB download. The static r01 and repository-source animation are in the same revision history. The [r02 package](../../heart/exterior-presentation-r02/README.md) owns replay and recovery. The recommended revision and its shareable 3D preset are available on the local preview. Public release is tracked separately in [AG-GAL-020](../../records/work-items/items/AG-GAL-020-adopt-static-heart-repack.md#public-release).
+Search for **Cardiac opaque exteriors** in the candidate Gallery to open static r02. **Inspect in 3D** opens the exact model with individual structure selection. **Exact exports** offers the pinned GLB download. The static r01 and repository-source animation are in the same revision history. The [r02 package](../../heart/exterior-presentation-r02/README.md) owns replay and recovery. The recommended revision and its shareable 3D preset belong to the candidate build. Public release is tracked separately in [AG-GAL-020](../../records/work-items/items/AG-GAL-020-adopt-static-heart-repack.md#public-release).
 
 ### First bronchial fork
 
-From **Use Cases → Airway Review → Trace the first bronchial fork**, select **Inspect in 3D** to load the locally faired r15 at the central Y. The [r15 package](../../models/bronchial_tree/exports/first-fork-fairing-r15/README.md) owns replay. Revision history retains the r14 distal simplification and r13 source comparison, including their exact downloads and saved Stage presets.
+From **Use Cases → Airway Review → Trace the first bronchial fork**, select **Inspect in 3D** in the candidate build to load the faired r15 at the central Y. The [r15 package](../../models/bronchial_tree/exports/first-fork-fairing-r15/README.md) owns replay. Revision history retains the r14 distal simplification and r13 source comparison, including their exact downloads and saved Stage presets.
 
 ## Owners
 
@@ -67,27 +67,20 @@ the pinned framework backup ZIP against their checked-in identities.
 
 ## Restore and build locally
 
-- **Outcome** · Reproducible local build from the pinned framework and immutable seed.
-- **Inputs** · Node 24, npm, Git and Python 3.11+. Verify the frozen ZIP against `framework.lock.json.backup` before extraction. Set `SURVEY_BACKUP` to its `model-survey-backup/` directory. The ZIP contains its restore guide.
-- **3D runtime** · Run the Site's viewer command once with network access to fetch the exact upstream modules and MIT license in [the lock](viewer.lock.json). Framework assembly uses those files offline and checks every size and digest before promoting the output. If an input is missing or differs, restore to a fresh directory with `gallery_runtime.py --output DIRECTORY` and pass it to `framework.py --viewer-inputs DIRECTORY`.
-- **Build** · From the repository root with fresh output paths.
+Run the [bootstrap](tools/bootstrap.py) from the repository root with Python 3.12, uv, Git, Node 24 and npm. Start with the Gallery's tracked media and reviewed PNG masters hydrated. Supply the frozen ZIP from the [framework lock](framework.lock.json) if the pinned framework checkout or Survey seed is missing.
 
 ```sh
-git clone "$SURVEY_BACKUP/framework.bundle" sites/anatomy-gallery/.local/publication
-python3.12 transport/tools/restore_snapshot.py "$SURVEY_BACKUP/app/src/data.json"
-python3.12 sites/anatomy-gallery/tools/gallery_runtime.py
-uv run --python 3.12 --with 'Pillow==12.2.0' python -c 'from PIL import features; assert features.version("webp") == "1.6.0"'
-uv run --python 3.12 --with 'Pillow==11.3.0' sites/anatomy-gallery/tools/framework.py
-npm --prefix sites/anatomy-gallery/.local/app ci
-npm --prefix sites/anatomy-gallery/.local/app run build
+python3.12 sites/anatomy-gallery/tools/bootstrap.py --selection candidate \
+  --backup "$SURVEY_BACKUP_ZIP" --output sites/anatomy-gallery/.local/gallery-candidate
+node sites/anatomy-gallery/tools/preview_gallery.mjs sites/anatomy-gallery/.local/gallery-candidate 8858
 ```
 
-| Check | Acceptance |
-| --- | --- |
-| Seed | Verified snapshot, immutable R2 seed or frozen source seed. Conflicts and the reordered mutable API response fail. The generated app uses the Anatomy Gallery title while the restored Model Survey seed retains its recorded bytes. |
-| Framework | Pinned commit/tree, integrity manifest, Site bindings and safe paths. Use a fresh `--output`. The generated project's instructions and runtime verifier apply. |
-| Generated WebPs | [Source and display bindings](display-images.json) select Pillow 11.3.0 with libwebp 1.5.0 or Pillow 12.2.0 with libwebp 1.6.0. Both use RGBA, lossless, exact alpha and method 6. Assembly uses the older encoder in the current process and runs the newer encoder through the offline uv cache when needed. It verifies each source and the delivery size and digest before caching the WebP at its ignored package path. Hydrate the PNGs and rerun assembly to fill a pointer-only checkout. Use `uv run --offline` for assembly after caching both wheels. |
-| Preview | Run `node sites/anatomy-gallery/tools/preview_gallery.mjs sites/anatomy-gallery/.local/app 8858` for a read-only loopback preview of the built Site, rubric, study API and verified local delivery. Hydrate the study GLBs and WebPs for full local viewing. Open the frozen `offline/model-survey.html` directly for embedded images. `npm ci` needs npm access or a populated cache. |
+Use `--offline` for subsequent fresh outputs with the pinned viewer files, npm packages and uv wheels already available. Bootstrap verifies the local framework commit, tree, runtime manifest, Site bindings and seed identity on each run. The first run can fetch the pinned Three.js files and MIT license, install the lockfile's npm packages, and fetch the exact Pillow versions. A build appears at `--output` after protected runtime verification and client compilation.
+
+- **Framework and seed** · Bootstrap can use the existing `.local/publication` checkout and `app/src/data.json`, or recover missing inputs from the verified ZIP into `.local/bootstrap`. Supply another pinned checkout with `--source` and an exact seed or immutable snapshot with `--seed`. The restored Model Survey seed keeps its recorded bytes. The assembled app uses the Anatomy Gallery title.
+- **Viewer inputs** · Bootstrap verifies the sizes and hashes in [the viewer lock](viewer.lock.json). Use `--viewer-inputs` to point at another copy. To recover from a corrupt cache, restore into a fresh path with [the viewer command](tools/gallery_runtime.py) and use that directory.
+- **Generated WebPs** · [Display bindings](display-images.json) select Pillow 11.3.0 with libwebp 1.5.0 or Pillow 12.2.0 with libwebp 1.6.0. Bootstrap verifies the hydrated PNGs and any cached WebPs, and fills missing display bytes before validating campaign evidence. The lossless WebP settings preserve exact RGBA.
+- **Published rehearsal** · Use `--selection published --source /path/to/site-checkout` and a fresh `--output`. The selected checkout must contain the exact commit in [the live publication record](snapshot-reference.json). Bootstrap verifies the seed-derived snapshot before building the rehearsal.
 
 For legacy catalogue thumbnails and portraits, the loopback preview can also read
 the exact original snapshot from `.local/preview/dist/snapshot.<sourceSnapshotSha256>.json`.
@@ -156,7 +149,11 @@ Pillow, Blender, Sharp and Playwright/browser are recipe-specific dependencies.
 `MODEL_SURVEY_CAPTURE_DIR`. Set `MODEL_SURVEY_APP_DIR` to the preview's generated app
 directory when it differs from `.local/app`. The verifier walks the ordinary Library
 against the pinned AG-GAL-018 Git baseline and checks exact downloads and teaching evidence.
-The build assembles the dated pilot, owner-held `reviews/<asset>/<review>/teaching-assessment.json` files and the [maintained-file campaign](../../records/campaigns/teaching-asset-review.md). Campaign batches live under `reviews/teaching-assessments/<batch>/campaign-assessments.json`. Bind each review to the export's path, size and SHA-256. Use a local source path or an HTTPS reference, and supply a digest and size for every reviewed image. An optional `teachingView` selects one of those images for the learner. The read-only loopback preview serves these local reviews and checks evidence bytes before delivery. The [coverage report](../../records/campaigns/teaching-asset-review/current-coverage.md) includes native assemblies and missing scores. Both the report and Gallery read accepted refinement decisions through the [shared loader](../../tools/teaching_assessments.py). A decision binds to the previous task and assessment as well as to the exact export. The [first target review](../../records/campaigns/teaching-asset-target.md) links the 45 follow-up decisions, retained exemptions and collection checks. The [reopened exemptions](../../records/campaigns/teaching-exemption-recheck.md) cover every remaining low score and retain owned follow-ups. The [previous refinement review](../../records/campaigns/teaching-asset-refinement.md) retains the 46 original comparisons. A maintained local export can declare its exact `library/<family>/<revision>` route in that assessment. The build verifies its bytes and groups files that share a route. Each file keeps its own task, views and scores. When a refinement candidate matches a maintained export in SHA-256 and size, the download uses that export's filename and verified bytes.
+The build assembles the dated pilot, owner-held `reviews/<asset>/<review>/teaching-assessment.json` files and the [current teaching assessments](../../reviews/teaching-assessments/current-assessments.json). Each current record pins its base assessment and carries accepted changes and reviewer attribution. The [maintained selections](../../docs/gallery/maintained-selections.json) bind each export and stable learner task ID to that accepted record. The [shared resolver](../../tools/maintained_teaching.py) supplies those records to the Gallery and [scorecard](../../records/campaigns/teaching-asset-review/current-coverage.md). Run `python3.12 tools/maintained_teaching.py` from the repository root to regenerate the readable register.
+
+Bind each review to the exact export's path, size and SHA-256. Use a local source path or HTTPS reference and give every reviewed image a digest and size. An optional `teachingView` selects one image for the learner. Preview verifies evidence bytes before delivery. An accepted local review can declare its exact `library/<family>/<revision>` route. Files that share a route keep their own tasks, views and scores. When a refinement candidate matches a maintained export in SHA-256 and size, the download uses that export's filename and verified bytes.
+
+The [first target review](../../records/campaigns/teaching-asset-target.md), [reopened exemptions](../../records/campaigns/teaching-exemption-recheck.md), and [refinement review](../../records/campaigns/teaching-asset-refinement.md) retain the earlier decisions and comparison evidence. The scorecard links to the explicit historical audit.
 
 The focused authoring run uses the same loopback runner as the full Gallery check. It exercises the real s1233 study through all four surfaces, including an unavailable comparison witness, the exact Library download, and a Stage shared view and its WebP.
 The packaged bookmark replay uses the exact public and a test origin in a disposable browser. Pass the packaged project directory to `verify_survey_bookmarks.mjs`.

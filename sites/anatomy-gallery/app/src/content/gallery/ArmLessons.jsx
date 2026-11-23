@@ -1,7 +1,7 @@
+import { candidate } from './selected-library.js';
 import React from 'react';
 import { byPath } from './catalog.js';
 import { Heading, Link, Missing } from './GalleryUI.jsx';
-import { isLoopbackGallery } from './local-models.js';
 import { PartLesson } from './PartLesson.jsx';
 import selections from './arm-lesson-layers.json';
 import elbowCapsule from './part-images/arm-elbow-capsule.webp';
@@ -69,9 +69,8 @@ function armTask(id) {
 }
 
 function AssetLinks({ layers }) {
-  const local = isLoopbackGallery(globalThis.location?.hostname);
   return <ul>{layers.map(({ label, route, path, publicSource }) => {
-    if (local || byPath.has(path)) return <li key={route}><Link to={route}>{label} · exact Library revision</Link></li>;
+    if (candidate || byPath.has(path)) return <li key={route}><Link to={route}>{label} · exact Library revision</Link></li>;
     const related = byPath.get(publicSource);
     return related?.source ? <li key={route}><a href={related.source}>{label} · earlier source revision</a></li> : null;
   })}</ul>;

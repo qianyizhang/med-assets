@@ -185,27 +185,31 @@ try {
 
   const manifest = await (await page.request.get(base + '/assets/index.json')).json();
   assert.ok(!manifest.assets.some((asset) => asset.sha256 === candidate.sha256));
-  const publicOrigin = 'https://gallery.example.test';
-  const html = await (await page.request.get(base + '/')).text();
-  const publicPage = await context.newPage();
-  await publicPage.route(publicOrigin + '/**', (route) => route.request().isNavigationRequest()
-    ? route.fulfill({ contentType: 'text/html', body: html }) : route.abort());
-  await publicPage.goto(publicOrigin + '/#/use-cases/airway');
-  await publicPage.locator('.ga-feature[href="#/compare/bronchial-r13"]').waitFor();
-  assert.equal(await publicPage.locator('a[href="#/' + firstForkPath + '"]').count(), 0);
-  await publicPage.goto(publicOrigin + '/#/' + bronchialExterior.library);
-  await publicPage.getByRole('heading', { name: 'View unavailable' }).waitFor();
-  await publicPage.goto(publicOrigin + '/' + new URL(shared).hash);
-  await publicPage.getByRole('heading', { name: 'View unavailable' }).waitFor();
+  // verify_release_builds.mjs checks the separate published v10 project.
+  const testOrigin = 'https://gallery.example.test';
+  const alternate = await context.newPage();
+  await alternate.route(testOrigin + '/**', async route => {
+    const url = new URL(route.request().url());
+    return route.fulfill({ response: await alternate.request.get(base + url.pathname + url.search) });
+  });
+  await alternate.goto(testOrigin + '/#/use-cases/airway');
+  await alternate.locator('a[href="#/' + firstForkPath + '"]').waitFor();
+  await alternate.goto(testOrigin + '/#/' + bronchialExterior.library);
+  await alternate.getByRole('heading', { level: 1, name: bronchialExterior.title }).waitFor();
+  await alternate.goto(testOrigin + '/' + new URL(shared).hash);
+  await alternate.getByRole('heading', { level: 1, name: '3D Stage' }).waitFor();
+  await alternate.locator('.ga-canvas canvas').waitFor();
+  await alternate.close();
 
   assert.deepEqual(errors, []);
   await writeFile(path.join(capture, 'bronchial-exterior.json'), JSON.stringify({
     browser: browser.version(), lesson: url(firstForkPath), library: url(bronchialExterior.library), shared,
     candidate: delivered, original: retained, legacy: { preset: legacy, ...r14 },
     retry: '503, same-size corrupt response, successful exact-model retry',
-    public: 'Candidate absent from the delivery index and non-loopback visitor routes',
+    alternateOrigin: testOrigin,
+    visibility: 'Candidate lesson, Library record and saved Stage view on both origins. Public index excludes the candidate asset.',
   }, null, 2) + '\n');
-  console.log('PASS bronchial teaching, verified WebGL and downloads, both preset versions, r07/r09/r13 compatibility, exact failure poster and local-only visibility');
+  console.log('PASS bronchial teaching, verified WebGL and downloads, both preset versions, r07/r09/r13 compatibility, exact failure poster and candidate routes on both origins');
 } finally {
   await browser.close();
 }

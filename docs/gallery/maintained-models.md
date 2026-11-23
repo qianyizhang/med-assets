@@ -1,5 +1,7 @@
 # Maintained 3D model families
 
+Generated from the [exact family, export and task selections](maintained-selections.json).
+
 Each row identifies one maintained family. A shared editable model can supply several selected teaching exports, each assessed for its own lesson. Each multi-model Blender entry opens an editable assembly for its stated task. Use the [Library](asset-library.md) for exact revisions, component meshes, alternatives, credits and evidence. The [current review coverage](../../records/campaigns/teaching-asset-review/current-coverage.md) links these selections to their exact assessments and outstanding evidence needs.
 
 Each selection serves the learner task recorded in the scorecard. Source studies, editable masters and alternate views remain available through revision history. The [exemption recheck](../../records/campaigns/teaching-exemption-recheck.md) identifies local default changes, their before/after evidence and exceptions. Existing published routes retain their original deliveries.

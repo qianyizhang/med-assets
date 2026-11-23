@@ -1,13 +1,13 @@
+import { candidate } from './selected-library.js';
 import React, { useEffect, useId, useRef, useState } from 'react';
 import { byPath } from './catalog.js';
-import { isLoopbackGallery } from './local-models.js';
 import { fetchModelBytes } from './model-bytes.js';
 import { loadScene } from './scene.js';
 import teachingReview from './teaching-inputs/teaching-assessments.json';
 
 function lessonFile(path) {
   const published = byPath.get(path);
-  if (published || !isLoopbackGallery(globalThis.location?.hostname)) return published;
+  if (published || !candidate) return published;
   const file = teachingReview.campaign.find((row) => row.maintained && row.export.path === path)?.export;
   return file && { ...file, name: path.split('/').at(-1) };
 }

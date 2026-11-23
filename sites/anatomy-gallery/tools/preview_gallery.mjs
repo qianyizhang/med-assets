@@ -1,13 +1,10 @@
 // Read-only loopback preview of the built Site. Serve only manifest-bound bytes.
 import http from 'node:http';
 import { createHash } from 'node:crypto';
+import { execFileSync } from 'node:child_process';
 import { readFile, realpath } from 'node:fs/promises';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import path from 'node:path';
-import { createAssetDelivery } from '../app/src/content/shared/r2-assets.js';
-import manifest from '../app/src/content/assets/delivery-index.json' with { type: 'json' };
-import localDelivery from '../app/src/content/assets/local-delivery.json' with { type: 'json' };
-import legacyDental from '../app/src/content/assets/legacy-dental-assets.json' with { type: 'json' };
 import binding from '../snapshot-reference.json' with { type: 'json' };
 import { readRetainedProjection } from '../../../reviews/trachea/2026-10-29-open-airway-r06/restore-projections.mjs';
 
@@ -16,6 +13,13 @@ const repo = await realpath(path.resolve(site, '../..'));
 const project = path.resolve(process.argv[2] || path.join(site, '.local/gallery-work'));
 const htmlPath = path.join(project, 'dist/index.html');
 await readFile(htmlPath);
+const content = path.join(project, 'src/content');
+const projectJson = async (name) => JSON.parse(await readFile(path.join(content, name), 'utf8'));
+const { candidate } = await projectJson('gallery/selected-library.json');
+const { createAssetDelivery } = await import(pathToFileURL(path.join(content, 'shared/r2-assets.js')));
+const manifest = await projectJson('assets/delivery-index.json');
+const localDelivery = candidate ? await projectJson('assets/local-delivery.json') : { assets: [], receipts: [] };
+const legacyDental = candidate ? await projectJson('assets/legacy-dental-assets.json') : { assets: [] };
 const port = Number(process.argv[3] || 8858);
 const digest = (b) => createHash('sha256').update(b).digest('hex');
 const previews = new Map();
@@ -52,7 +56,7 @@ async function repoFile(relative) {
 const archiveRoutes = new Map();
 const mediaIndex = path.join(project, 'src/content/gallery/teaching-inputs/image26-media.json');
 try {
-  for (const entry of JSON.parse(await readFile(mediaIndex, 'utf8'))) {
+  for (const entry of candidate ? JSON.parse(await readFile(mediaIndex, 'utf8')) : []) {
     archiveRoutes.set('/assets/' + entry.sha256 + '/' + entry.name, entry);
   }
 } catch (error) {
@@ -62,7 +66,7 @@ const evidenceRoutes = new Map();
 const reviewCandidates = [];
 const reviewIndex = path.join(project, 'src/content/gallery/teaching-inputs/teaching-assessments.json');
 try {
-  const review = JSON.parse(await readFile(reviewIndex, 'utf8'));
+  const review = candidate ? JSON.parse(await readFile(reviewIndex, 'utf8')) : {};
   for (const row of review.campaign ?? []) {
     if (row.target || row.maintained) {
       const file = row.export;
@@ -78,7 +82,11 @@ try {
 } catch (error) {
   if (error.code !== 'ENOENT') throw error;
 }
-const indexed = new Map(manifest.assets.map((asset) => [asset.sha256, asset]));
+const indexed = new Map();
+for (const asset of manifest.assets) {
+  if (!indexed.has(asset.sha256)) indexed.set(asset.sha256, []);
+  indexed.get(asset.sha256).push(asset);
+}
 const legacyDentalRoutes = new Map(legacyDental.assets.map((file) =>
   ['/assets/' + file.sha256 + '/' + file.name, file]));
 // Prefer retained model paths when an earlier comparison uses the same content-addressed URL.
@@ -94,7 +102,7 @@ async function dentalPayload(file) {
   return bytes?.length === file.bytes && digest(bytes) === file.sha256 ? bytes : null;
 }
 async function trackedPayload(asset) {
-  for (const p of asset.paths ?? [asset.path]) {
+  for (const p of [...(asset.paths ?? [asset.path]), ...(asset.historicalPaths ?? [])]) {
     if (!p) continue;
     const bytes = await repoFile(p);
     if (bytes?.length === asset.bytes && digest(bytes) === asset.sha256) return bytes;
@@ -105,9 +113,37 @@ async function trackedPayload(asset) {
 }
 async function payload(key) {
   const hash = key.split('/').at(-1);
-  const asset = indexed.get(hash);
-  if (!asset) return null;
-  return previews.get(hash) ?? trackedPayload(asset);
+  const routes = indexed.get(hash);
+  if (!routes) return null;
+  if (previews.has(hash)) return previews.get(hash);
+  for (const asset of routes) {
+    const bytes = await trackedPayload(asset);
+    if (bytes) return bytes;
+  }
+  if (!candidate) return publishedLfsBytes(routes[0]);
+  return null;
+}
+// A retained public address may outlive the working-tree path of its LFS payload.
+let lfsDirectory;
+async function publishedLfsBytes(asset) {
+  if (!/^[a-f0-9]{64}$/u.test(asset.sha256)) return null;
+  if (lfsDirectory === undefined) {
+    try {
+      const env = execFileSync('git', ['lfs', 'env'], { cwd: repo, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] });
+      lfsDirectory = /^LocalMediaDir=(.+)$/mu.exec(env)?.[1] || null;
+    } catch { lfsDirectory = null; }
+  }
+  if (!lfsDirectory) return null;
+  const hash = asset.sha256;
+  const file = path.join(lfsDirectory, hash.slice(0, 2), hash.slice(2, 4), hash);
+  try {
+    if (await realpath(file) !== file) return null;
+    const bytes = await readFile(file);
+    return bytes.length === asset.bytes && digest(bytes) === hash ? bytes : null;
+  } catch (error) {
+    if (error.code !== 'ENOENT') throw error;
+    return null;
+  }
 }
 const assets = createAssetDelivery(manifest, async () => false);
 // Keep verified bytes only for this request so head and range reads agree.

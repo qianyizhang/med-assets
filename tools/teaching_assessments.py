@@ -1,5 +1,6 @@
-"""Read the export-bound teaching reviews used by both the Gallery and coverage report."""
+"""Replay historical teaching reviews and collect approved recipe-built candidates."""
 import hashlib
+from html import unescape
 import json
 import posixpath
 import re
@@ -23,7 +24,7 @@ def register_selections(raw):
     collection = ""
     for line in raw.splitlines():
         if line.startswith("## "):
-            collection = line[3:].strip()
+            collection = unescape(line[3:].strip())
         if not line.startswith("|") or line in ("| Family | Starting file |", "| --- | --- |"):
             continue
         cells = line.split("|")
@@ -34,6 +35,7 @@ def register_selections(raw):
         if not shared and ("[" in label or "]" in label):
             raise ValueError(f"Invalid shared family link: {label}")
         label, family, owner = shared.groups() if shared else (label, label, None)
+        label, family = unescape(label), unescape(family)
         selection = Selection(collection, label, family, posixpath.normpath(posixpath.join("docs/gallery", owner)) if owner else None)
         if not family or (collection, family) in families:
             raise ValueError(f"Ambiguous maintained row: {line}")
@@ -58,16 +60,6 @@ def register_selections(raw):
 
 def register_rows(raw):
     return {path: (item.collection, item.label) for path, item in register_selections(raw).items()}
-
-
-def maintained_exports(rows, register):
-    """Look up the maintained GLB for an exact reviewed candidate identity."""
-    exports = {}
-    for _, _, row in rows:
-        file = row['export']
-        if file['path'] in register and file['path'].endswith('.glb'):
-            exports.setdefault((file['sha256'], file['bytes']), file['path'])
-    return exports
 
 
 def assessment_digest(row):
@@ -232,14 +224,14 @@ def collect_candidates(repo, directories):
     """Install only reviewed recipe outputs into the loopback preview's content store."""
     import os
     from tempfile import NamedTemporaryFile
+    from maintained_teaching import CurrentTeaching
 
     repo = repo.resolve()
-    rows = list(campaign_rows(repo))
-    register = register_selections((repo / REGISTER).read_text())
-    maintained = maintained_exports(rows, register)
+    current = CurrentTeaching(repo)
+    maintained = current.maintained_exports()
     wanted = {}
-    for _, _, row in rows:
-        item = row.get('refinement', {}).get('candidate')
+    for assessment in current.gallery():
+        item = assessment.row.get('refinement', {}).get('candidate')
         if (item and item.get('download') and item['path'].startswith('.artifacts/teaching-refinements/candidates/')
                 and (item['sha256'], item['bytes']) not in maintained):
             wanted[item['sha256']] = item

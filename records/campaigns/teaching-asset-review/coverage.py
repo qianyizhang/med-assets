@@ -13,7 +13,8 @@ sys.path.insert(0, str(ROOT / "transport/tools"))
 from lfs_transport import unique_keys
 sys.path.insert(0, str(ROOT / "tools"))
 from assessment_identity import AssessmentIdentities, file_identity
-from teaching_assessments import REGISTER, campaign_rows, register_rows, register_selections
+from maintained_teaching import CurrentTeaching, markdown_label, selections as current_selections
+from teaching_assessments import REGISTER, campaign_rows, register_rows
 
 GALLERY = "sites/anatomy-gallery/app/src/content/gallery/"
 PILOT = "reviews/teaching-assessments/2026-11-21-library-pilot/assessments.json"
@@ -280,24 +281,64 @@ def assessment_row(repo, identities, item):
     )
 
 
-def report(repo, *, baseline=None):
-    raw = (repo / REGISTER).read_text()
-    selections = register_selections(raw)
+def current_scorecard(repo):
+    current = CurrentTeaching(repo)
+    rows = []
+    counts = defaultdict(Counter)
+    families = defaultdict(set)
+    family_exports = Counter((item.collection, item.family_id) for item in current.selections.values())
+    for selection, assessment in current.selected():
+        row = assessment.row
+        scores = [axis["score"] for axis in row["axes"]]
+        rated = sum(score is not None for score in scores)
+        coverage = "Full" if rated == len(AXES) else "Partial" if rated else "Unrated"
+        target = "At target" if all(score is not None and score >= 3 for score in scores) else (
+            "Exemption" if row.get("target", {}).get("exemptions") else "Open")
+        collection = selection.collection
+        counts[collection].update({target: 1, coverage: 1, "Selected files": 1})
+        families[collection].add(selection.family_id)
+        label = selection.label
+        if family_exports[collection, selection.family_id] > 1:
+            label += f" · {Path(selection.path).stem}"
+        if selection.shared_owner:
+            label = f"{selection.family} · {label}"
+        rows.append((markdown_label(collection), link(markdown_label(label), selection.path),
+                     *("—" if score is None else score for score in scores),
+                     target, link("Evidence", assessment.owner.relative_to(current.repo).as_posix())))
+
+    families["**Total**"] = set().union(*families.values())
+    counts["**Total**"] = sum(counts.values(), Counter())
+    lines = [
+        "# Maintained teaching asset scorecard", "",
+        "The total counts each shared family once across collections. Coverage and target counts apply to the selected files. Each file has its own learner task and four scores.",
+        "Use the [rubric](../../../docs/guides/asset-quality.md) for the anchors and the "
+        "[exemption recheck](../teaching-exemption-recheck.md) for the current before/after decisions and owned follow-ups.", "",
+        "Run `python3.12 records/campaigns/teaching-asset-review/coverage.py --audit --baseline a6f4b3c` for every identity, "
+        "historical alternate, evidence gap and register change.", "",
+    ]
+    count_columns = ("At target", "Exemption", "Open", *STATES, "Selected files")
+    lines += table(("Collection", "Families", *count_columns), (
+        (markdown_label(collection) if collection != "**Total**" else collection,
+         len(families[collection]), *(count[column] for column in count_columns))
+        for collection, count in counts.items()
+    ))
+    lines += table(("Collection", "Starting file", "Fidelity", "Form", "Readability", "Economy", "Target", "Review"), rows)
+    return "\n".join(lines)
+
+
+def historical_report(repo, baseline):
+    selections = current_selections(repo)
     maintained = {path: (item.collection, item.label) for path, item in selections.items()}
     identities = AssessmentIdentities(repo)
     assessments = defaultdict(list)
     for item in records(repo):
         assessments[item["export"]["path"]].append(item)
-    if baseline is not None:
-        for item in historical(repo):
-            assessments[item["export"]["path"]].append(item)
+    for item in historical(repo):
+        assessments[item["export"]["path"]].append(item)
 
     rows = []
-    scorecard = []
-    family_exports = Counter(maintained.values())
-    family_keys = {item.shared_owner or (item.collection, item.family) for item in selections.values()}
-    families = Counter(collection for collection, _ in {(item.collection, item.family) for item in selections.values()})
-    target_counts = defaultdict(Counter)
+    family_keys = {item.family_id for item in selections.values()}
+    families = Counter(collection for collection, _ in {(item.collection, item.family_id) for item in selections.values()})
     counts = defaultdict(Counter)
     for path, (collection, family) in maintained.items():
         items = assessments[path]
@@ -309,24 +350,6 @@ def report(repo, *, baseline=None):
         counts[collection][state] += 1
         sources = ", ".join(link(item["source_label"], item["source"]) for item in items) or "—"
         rows.append((collection, family, link(path, path), f"`{digest}` · {size:,}", state, sources, reason))
-        current = [item for item in items if item.get("campaign") and not expected_match(identities, item["export"])]
-        if current and state != "Unrated":
-            latest = max(item["date"] for item in current)
-            choices = [item for item in current if item["date"] == latest]
-            if len(choices) == 1:
-                item = choices[0]
-                scores = [axis["score"] if axis["score"] is not None else "—" for axis in item["axes"]]
-                target = item.get("target")
-                if target and target["family"] != family:
-                    raise ValueError(f"Target family differs from the register: {path}")
-                status = "At target" if all(isinstance(n, int) and n >= 3 for n in scores) else (
-                    "Exemption" if target and target["exemptions"] else "Open")
-                target_counts[collection][status] += 1
-                label = family if family_exports[(collection, family)] == 1 else f"{family} · {Path(path).stem}"
-                if selections[path].shared_owner:
-                    label = selections[path].family + " · " + label
-                scorecard.append((collection, link(label, path), *scores, status, link("Evidence", item["source"])))
-
 
     summary = [
         (collection, *(count[state] for state in STATES), count.total())
@@ -335,23 +358,6 @@ def report(repo, *, baseline=None):
     families["**Total**"] = len(family_keys)
     total = sum(counts.values(), Counter())
     summary.append(("**Total**", *(total[state] for state in STATES), total.total()))
-    if baseline is None and len(scorecard) == len(maintained) and not total["Unrated"]:
-        lines = [
-            "# Maintained teaching asset scorecard", "",
-            "The total counts each shared family once across collections. Coverage and target counts apply to the selected files. Each file has its own learner task and four scores.",
-            "Use the [rubric](../../../docs/guides/asset-quality.md) for the anchors and the "
-            "[exemption recheck](../teaching-exemption-recheck.md) for the current before/after decisions and owned follow-ups.", "",
-            "Run `python3.12 records/campaigns/teaching-asset-review/coverage.py --audit --baseline a6f4b3c` for every identity, "
-            "historical alternate, evidence gap and register change.", "",
-        ]
-        target_columns = ("At target", "Exemption", "Open")
-        lines += table(("Collection", "Families", *target_columns, *STATES, "Selected files"), (
-            (label, families[label], *((sum(target_counts.values(), Counter()) if label == "**Total**" else target_counts[label])[key]
-                      for key in target_columns), *values) for label, *values in summary
-        ))
-        lines += table(("Collection", "Starting file", "Fidelity", "Form", "Readability", "Economy", "Target", "Review"), scorecard)
-        return "\n".join(lines)
-
     lines = [
         "# Exact-file teaching review coverage", "",
         f"Generated by [coverage.py](coverage.py) from the {link('maintained register', REGISTER)}.",
@@ -366,27 +372,26 @@ def report(repo, *, baseline=None):
         "Multiple campaign tasks on the same date or unresolved earlier score conflicts are flagged.",
         "",
     ]
-    if baseline is not None:
-        commit = subprocess.check_output(
-            ["git", "-C", str(repo), "rev-parse", "--verify", "--end-of-options", f"{baseline}^{{commit}}"],
-            text=True,
-        ).strip()
-        pinned = register_rows(subprocess.check_output(
-            ["git", "-C", str(repo), "show", f"{commit}:{REGISTER}"], text=True,
-        ))
-        added = maintained.keys() - pinned.keys()
-        removed = pinned.keys() - maintained.keys()
-        moved = [path for path in maintained.keys() & pinned.keys() if maintained[path] != pinned[path]]
-        lines += [
-            "## Register changes", "",
-            f"The baseline at `{commit}` has {len(pinned)} starting files in "
-            f"{len({collection for collection, _ in pinned.values()})} collections.", "",
-        ]
-        if not (added or removed or moved):
-            lines += ["No collection, family or path changes from the baseline."]
-        for label, paths in (("Added", added), ("Removed", removed), ("Renamed or regrouped", moved)):
-            lines.extend(f"- {label} · `{path}`" for path in sorted(paths))
-        lines += [""]
+    commit = subprocess.check_output(
+        ["git", "-C", str(repo), "rev-parse", "--verify", "--end-of-options", f"{baseline}^{{commit}}"],
+        text=True,
+    ).strip()
+    pinned = register_rows(subprocess.check_output(
+        ["git", "-C", str(repo), "show", f"{commit}:{REGISTER}"], text=True,
+    ))
+    added = maintained.keys() - pinned.keys()
+    removed = pinned.keys() - maintained.keys()
+    moved = [path for path in maintained.keys() & pinned.keys() if maintained[path] != pinned[path]]
+    lines += [
+        "## Register changes", "",
+        f"The baseline at `{commit}` has {len(pinned)} starting files in "
+        f"{len({collection for collection, _ in pinned.values()})} collections.", "",
+    ]
+    if not (added or removed or moved):
+        lines += ["No collection, family or path changes from the baseline."]
+    for label, paths in (("Added", added), ("Removed", removed), ("Renamed or regrouped", moved)):
+        lines.extend(f"- {label} · `{path}`" for path in sorted(paths))
+    lines += [""]
     lines += ["## Coverage counts", ""]
     lines += table(("Collection", "Families", *STATES, "Selected files"),
                    ((label, families[label], *rest) for label, *rest in summary))
@@ -395,8 +400,6 @@ def report(repo, *, baseline=None):
     columns = ("File", "Assessment SHA-256", "Source", "Attribution", "Date", "Task", "Fidelity / Form / Readability / Economy", "Binding and coverage")
     lines += ["## Starting-file assessment evidence", ""]
     lines += table(columns, (assessment_row(repo, identities, item) for path in maintained for item in assessments[path]))
-    if baseline is None:
-        return "\n".join(lines)
     lines += [
         "## Alternate, historical and hosted revisions", "",
         "The bronchial r13 assessment covers the retained hosted first-fork export.",
@@ -427,7 +430,8 @@ def main():
     if args.audit != bool(args.baseline):
         parser.error("--audit and --baseline REVISION must be supplied together")
     try:
-        output = report(args.repo.resolve(), baseline=args.baseline)
+        repo = args.repo.resolve()
+        output = historical_report(repo, args.baseline) if args.audit else current_scorecard(repo)
         if args.check:
             if args.check.read_text() != output:
                 parser.exit(1, "Coverage report drift. Regenerate and review the register or assessment changes.\n")

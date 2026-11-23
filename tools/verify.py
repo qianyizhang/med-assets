@@ -221,6 +221,7 @@ def run_gallery_suites(root):
 
 
 def check_scorecard(root):
+    subprocess.run([sys.executable, 'tools/maintained_teaching.py', '--check'], cwd=root, check=True)
     subprocess.run([sys.executable, str(TEACHING_COVERAGE / 'coverage.py'), '--check',
                     str(TEACHING_COVERAGE / 'current-coverage.md')], cwd=root, check=True)
 
@@ -240,7 +241,7 @@ def offline(root):
             validate_structure(read_json(path), lambda entry: check_reference(root, pointers, entry))
         except (ValueError, KeyError, TypeError) as error:
             raise ValueError(f'{path.relative_to(root)}: {error}') from error
-    print(f'PASS offline: {count} Python tests; {gallery_suites} Gallery Node suites; current scorecard; '
+    print(f'PASS offline: {count} Python tests; {gallery_suites} Gallery Node suites; maintained register and scorecard; '
           f'{manifest_count} transport manifests; {len(records)} foundation records; '
           f'{imported} import references ({updates} documented updates); {len(pointers)} LFS pointer identities.', flush=True)
     print('Offline phase: no exhaustive payload-byte verification; selected suites may inspect local media. '

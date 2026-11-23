@@ -279,7 +279,3 @@ const sharedWallMotion = {
 };
 
 export const localModels = [greatVesselsED, sharedWallMotion, cardiacExterior, bronchialExterior, distalSampling, thyroidExterior, lymphNodeTissues, wallMotion];
-
-export function isLoopbackGallery(hostname) {
-  return ['127.0.0.1', 'localhost', '[::1]'].includes(hostname);
-}

@@ -1,10 +1,10 @@
+import { candidate } from './selected-library.js';
 import React, { useState } from 'react';
-import { isLoopbackGallery } from './local-models.js';
 import teachingReview from './teaching-inputs/teaching-assessments.json';
 
 export function LessonReviewPlate({ exportPath, title, children }) {
   const [status, setStatus] = useState('loading');
-  if (!isLoopbackGallery(globalThis.location?.hostname) || status === 'failed') return null;
+  if (!candidate || status === 'failed') return null;
 
   const assessment = teachingReview.campaign?.find((entry) => entry.maintained &&
     [entry.export.path, entry.target?.baseline, entry.target?.familyBaseline].includes(exportPath))

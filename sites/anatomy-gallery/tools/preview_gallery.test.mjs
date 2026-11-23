@@ -36,13 +36,20 @@ async function withPreview(script, project, check) {
   }
 }
 
+async function prepareProject(project) {
+  const content = path.join(project, 'src/content');
+  await cp(path.join(site, 'app/src/content'), content, { recursive: true });
+  await writeFile(path.join(content, 'gallery/selected-library.json'), JSON.stringify({ candidate: true }));
+}
+
 async function fixtureCheckout(t, prefix) {
   const scratch = path.join(repo, '.artifacts');
   await mkdir(scratch, { recursive: true });
   const checkout = await mkdtemp(path.join(scratch, prefix));
   t.after(() => rm(checkout, { recursive: true, force: true }));
   const fixtureSite = path.join(checkout, 'sites/anatomy-gallery');
-  await cp(path.join(site, 'app/src/content'), path.join(fixtureSite, 'app/src/content'), { recursive: true });
+  await prepareProject(checkout);
+  await mkdir(fixtureSite, { recursive: true });
   await cp(path.join(site, 'snapshot-reference.json'), path.join(fixtureSite, 'snapshot-reference.json'));
   for (const name of ['projection-bindings.json', 'restore-projections.mjs']) {
     await cp(path.join(repo, trachea, name), path.join(checkout, trachea, name));
@@ -60,6 +67,7 @@ test('a restored film becomes available without restarting or publishing its loc
   const project = await mkdtemp(path.join(scratch, 'preview-restore-test-'));
   t.after(() => rm(project, { recursive: true, force: true }));
 
+  await prepareProject(project);
   const bytes = Buffer.from('retained film fixture');
   const sha256 = createHash('sha256').update(bytes).digest('hex');
   const name = 'film.mp4';

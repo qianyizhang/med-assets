@@ -60,9 +60,8 @@ export async function checkSharedAirway(page, base, dir) {
   console.log('PASS shared airway selections, exact payloads, missing/corrupt recovery, Stage return and route lesson.');
 }
 
-// Replay public-origin routing entirely against the local build. Only the public V7
-// deliveries may open these Stage links without the loopback assessment store.
-async function checkPublicAirway(context, base) {
+// Exercise shared airway Stage links on another origin against the same build.
+async function checkAirwayAtAnotherOrigin(context, base) {
   const page = await context.newPage();
   const host = 'https://gallery.invalid';
   try {
@@ -174,6 +173,6 @@ export async function checkSpecialistStills(page, base, dir) {
   }
   await page.setViewportSize({ width: 1280, height: 900 });
   await checkSharedAirway(page, base, dir);
-  await checkPublicAirway(page.context(), base);
+  await checkAirwayAtAnotherOrigin(page.context(), base);
   console.log('PASS specialist still discovery, exact source bytes, deep links, return paths, and missing-image recovery.');
 }

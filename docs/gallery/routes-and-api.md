@@ -2,6 +2,10 @@
 
 Anatomy Gallery uses the existing Site and serves one HTML application. A page link identifies where a visitor was working. An asset URL identifies exact bytes. An API response supplies data. Preserve these three contracts independently when adding a collection or migrating a host.
 
+The build selects the candidate or the last approved public release. Candidate routes work at any origin serving that build. The published selection reproduces the recorded v10 source and its delivery declarations. [Build and preview](../../sites/anatomy-gallery/README.md#restore-and-build-locally)
+
+Both selections serve the exact tracheal cutaway GLB. In v10 One Breath opens its storyboard. The candidate adds interactive tracheal Stage presets and retains the storyboard. A v10 visitor can still use the adrenal Stage.
+
 ## Page links
 
 Open the fragment on the Site root, for example `/#/library/s1233-adrenal/r05`. The pinned Data Site shell can append `?view=1` before the fragment. This marks a complete dashboard state, including its defaults, for recipients with saved dashboard settings. Gallery links can omit it. The browser owns the fragment, so a deep link, reload or Back navigation can use the same Worker entry. A legacy public file URL must still return its expected media. The [migration plan](migration.md#page-addresses-and-file-addresses) owns cross-host delivery and cutover.
@@ -13,7 +17,7 @@ Open the fragment on the Site root, for example `/#/library/s1233-adrenal/r05`. 
 | `/#/use-cases/systems`, `/#/use-cases/systems/<system-id>` | Open the Body Systems collection or a system assembly. The optional fragment parameter `detail` selects a teaching detail. Reproductive `reproductive-female-left-pickup` opens the shared ovary lesson in the system sequence. |
 | `/#/use-cases/adrenal-localization/region`, `…/right-gland` | Open the authored regional or isolated lesson stop. Each pins s1233 r05. |
 | `/#/use-cases/head-and-neck/location`, `…/duct-course` | Locate the three major gland pairs and trace the supported parotid surface course. The duct stop links the excluded submandibular course to Compare. |
-| `/#/use-cases/right-arm/elbow`, `…/shoulder` | Locate the elbow nerve or shoulder cuff against shared bones. The base route opens the elbow stop. Each question has unlabelled layers and an optional labelled answer. |
+| `/#/use-cases/right-arm/elbow`, `…/shoulder` | In the candidate build, locate the elbow nerve or shoulder cuff against shared bones. The base route opens the elbow stop. Each question has unlabelled layers and an optional labelled answer. |
 | `/#/use-cases/oral-spaces`, `…/en`, `…/zh` | Locate the vestibule in the English or Chinese r01 cutaway. The base address opens English. Use Cases and Head & Neck both link here. The cutaway keeps the originating duct stop with `from=duct-course`. On Head & Neck, `oral=zh` carries the visitor back to the Chinese cutaway. |
 | `/#/compare/teaching-target?round=reopened` | Local matched comparisons for the second review of 20 families. Add `&asset=SHA256` for one edition. |
 | `/#/compare/teaching-target?asset=SHA256` | Local before/after review for a maintained teaching file, including its task and any axis exemptions. |
@@ -29,9 +33,9 @@ Open the fragment on the Site root, for example `/#/library/s1233-adrenal/r05`. 
 | `/#/compare/polish-appendix`, `…/parathyroids`, `…/bronchial`, `…/esophagus` | Read the original appendix in section order or reopen one section directly. Each section provides its own exact Library handoff. |
 | `/#/compare/fdi31-interface-locked`, `/#/compare/fdi31-source-layers-r03` | Inspect the interface candidate or the earlier source-layer plate. The Balanced specimen remains on `/#/library/swirendo_fdi31`. |
 | `/#/library/<family>/<revision>` | Open a named revision or package delivery. Search the filename or full path to reach its record, or follow the family’s revision history. The record gives the byte count and SHA-256 and links the owning evidence. An unavailable export shows its recorded identity and availability. |
-| `/#/library/cardiac-exterior`, `…/static-opaque-exterior-r02` | The loopback Gallery opens the recommended static r02 export. `…/static-opaque-exterior` still opens the exact original r01 and `…/animated-source-opaque-exterior` opens the repository-source animation. |
+| `/#/library/cardiac-exterior`, `…/static-opaque-exterior-r02` | The candidate Gallery opens the recommended static r02 export. `…/static-opaque-exterior` still opens the exact original r01 and `…/animated-source-opaque-exterior` opens the repository-source animation. |
 | `/#/library/uff_tomo1b/r01`, `/#/library/dental_specimens` | Open the same UFF Tomo1B revision. Either catalogue ID finds the one Library entry. |
-| `/#/library/cardiac-atlas/great-vessels-ed-r01`, `…/wall-motion-shared-r01` | In the local Gallery, inspect two studies from one editable Cardiac Atlas. Both original static and animated families retain their exact-revision bookmarks. |
+| `/#/library/cardiac-atlas/great-vessels-ed-r01`, `…/wall-motion-shared-r01` | In the candidate Gallery, inspect two studies from one editable Cardiac Atlas. Both original static and animated families retain their exact-revision bookmarks. |
 | `/#/library/cardiac-animated/fitted-canonical` | Inspect the identity and provenance of the unavailable fitted Site animation. The original authored animation variants are under `…/repository-source`. |
 | `/#/compare/salivary-native-r02` | Inspect the rejected original-source crossing and the scoped r02 review. |
 | `/#/library/salivary_glands/z-native-scoped-r02` | Get the exact glands-and-parotid-ducts and same-source context exports. The family route also opens this record. |
@@ -42,8 +46,8 @@ Open the fragment on the Site root, for example `/#/library/s1233-adrenal/r05`. 
 | `/#/compare/adrenal-r04-r05` | Open the blind review. A shared comparison records `finish=tissue\|neutral` and `order=ab\|ba` in the fragment query. Both witnesses use the recorded camera. The findings and scores belong to the saved review. |
 | `/#/compare/adrenals__source-candidate-01` | Read the single-export BodyParts3D review, inspect the exact retained WebP witnesses and return to the same Library family. An unavailable witness leaves its caption, the other evidence, and the links to the review owner and family available. |
 | `/#/stage/adrenal-v1?view=<encoded JSON>` | Restore a pinned scene recipe and exact export. An optional encoded `from` carries a supported referring Library revision, lesson stop or comparison with its finish and side order. Bare `/#/stage` opens the authored starting view and also accepts a local GLB. |
-| `/#/stage/cardiac-exterior-v1?view=<encoded JSON>` | Restore the loopback-only static r02 model, selected structure and camera. An optional encoded `from` returns to its exact Library record. |
-| `/#/stage/bronchial-first-fork-v1?view=<encoded JSON>` | Restore the loopback-only r14 model with its shared camera and appearance. The optional encoded `from` returns to the first-fork lesson or exact Library record. |
+| `/#/stage/cardiac-exterior-v1?view=<encoded JSON>` | Restore the candidate-only static r02 model, selected structure and camera. An optional encoded `from` returns to its exact Library record. |
+| `/#/stage/bronchial-first-fork-v1?view=<encoded JSON>` | Restore the candidate-only r14 model with its shared camera and appearance. The optional encoded `from` returns to the first-fork lesson or exact Library record. |
 | `/rubric` | Stable public rubric address. GET or HEAD returns 302 to `/#/rubric`. The build reads the [canonical rubric](../guides/asset-quality.md). |
 | `/#/archive/kidney-outline-trial` | Compare the HRA female left-kidney exterior and isolated shapes. Start with `view=exterior\|internal\|paired`, `outline=0\|1` and `lang=en\|zh` in the fragment query. |
 | `/#/archive/dental-video-treatments`, `…/hyperframes`, `…/remotion`, `…/manimgl`, `…/comparison` | Play the four exact reviewed exports with shared narration, captions and the original study records. |
@@ -54,7 +58,7 @@ Open the fragment on the Site root, for example `/#/library/s1233-adrenal/r05`. 
 | `/_data/components/survey-coverage`, `/_data/components/<origin-specific short ID>` | Open the dated Survey coverage page and focus **Collection at a glance**. The framework generates the short ID from this Site's origin. |
 | `/#family-adrenals`, `/#candidate-adrenals__source-candidate-01`, `/#refinement-surface-adrenal` | Open the BodyParts3D family in the Library, exact BodyParts3D review, and related s1233 comparison, respectively. The two reviews each link back to the selected family. |
 
-The cross-host candidate maps the [salivary fragments](../../records/work-items/items/AG-GAL-003-migrate-head-and-neck.md#2026-11-22-release-rehearsal) and [Airway bookmarks](../../records/work-items/items/AG-GAL-013-reconcile-gallery-coverage.md#airway-legacy-entries). The old bronchial bookmark opens the exact r13 review in either Gallery mode. The separate first-fork teaching lesson remains loopback-only.
+The released Head & Neck and Airway handoffs map the [salivary fragments](../../records/work-items/items/AG-GAL-003-migrate-head-and-neck.md#2026-11-22-release-rehearsal) and [Airway bookmarks](../../records/work-items/items/AG-GAL-013-reconcile-gallery-coverage.md#airway-legacy-entries). The old bronchial bookmark opens the exact r13 review in either Gallery mode. The separate first-fork teaching lesson belongs to the candidate build. [Public readback](../../records/work-items/items/AG-GAL-013-reconcile-gallery-coverage.md#public-release-and-readback)
 
 ## Data and file endpoints
 
