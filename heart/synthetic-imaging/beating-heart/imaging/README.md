@@ -11,7 +11,7 @@
 An anatomical slice cuts the three-dimensional shape: a hollow chamber becomes a bright oval surrounded by a darker wall. Moving through the shape changes that cross-section. The grayscale teaching presets preserve this geometric relationship without claiming diagnostic appearance.
 
 ## Files and reproducibility
-- `generate_samples.py`: run with Python, NumPy, SciPy and Matplotlib. Imports shared `../heart_geometry.py`, `../vessel_geometry.json` and `occupancy.py`; uses no downloaded or AI-generated unrelated anatomy.
+- `generate_samples.py`: run with Python, NumPy, SciPy and Matplotlib. Reads the Cardiac Atlas [chamber geometry](../../../Cardiac_Atlas/heart_geometry.py) and [vessel geometry](../../../Cardiac_Atlas/vessel_geometry.json) through `occupancy.py`; uses no downloaded or AI-generated unrelated anatomy.
 - `volume_io.py`: dependency-light NIfTI-1 and NRRD writers.
 - `render_examples.py`: reslices volumes and generates comparison figures and geometric ultrasound-style fan.
 - `structure_labels.nii.gz` / `.nrrd`: integer segmentation IDs.
@@ -48,3 +48,5 @@ These explain orientation and the physical modalities; they do not validate this
 
 ## Overlap and teaching-model topology
 The primitive geometric surfaces are not all disjoint. The shared label function gives chamber blood pools priority over overlapping wall envelopes; the native ventricular display walls are clipped against the opposite ventricle's pool to reflect that priority. At the supplied 1 mm grid, cross-circuit chamber blood-pool overlaps are zero. The LV/LA primitives have a 25-voxel contact overlap at the idealized atrioventricular junction. The RV pool intersects the LV outer envelope at 893 voxels, which is resolved as RV blood pool rather than LV wall in the label volume. These are construction/label-precedence details, not measured anatomy. The model is not a conforming multi-material mesh, flow domain, CFD topology or physiological chamber-volume benchmark. See `validation.json` for reproducible counts.
+
+For a standalone copy of the beating-heart imaging directory, include those two Atlas inputs at the package root under their original names. Missing vessel geometry stops generation before a volume is written.

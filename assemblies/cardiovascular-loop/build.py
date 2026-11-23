@@ -96,6 +96,8 @@ def arrow(name, start, end, mat):
 
 
 def build(out):
+    from runpy import run_path
+    run_path(str(ATLAS.parent / 'geometry_inputs.py'))['ensure_geometry_exports'](ATLAS)
     chambers, details = (read_source(path) for path in PINS)
     out.mkdir(parents=True, exist_ok=False)
     bpy.ops.wm.read_factory_settings(use_empty=True)

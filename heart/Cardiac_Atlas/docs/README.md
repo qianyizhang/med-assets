@@ -49,6 +49,8 @@ Blender coordinates: +X patient left, +Y posterior, +Z superior. One Blender uni
 
 RAS millimetres = **(-25X, -25Y, +25Z)**. The origin is an arbitrary model origin near the ventricular base, not a patient reference. The affine and label definitions are in `geometry_spec.json`. Exact chamber occupancy and reference-surface functions are in `heart_geometry.py`; lumen centerline samples are in `vessel_geometry.json`.
 
+Run `python3 geometry_inputs.py` from the atlas package to restore both original JSON files from their compressed copies. The STL and packaging commands do this automatically and check the original SHA-256 values. The standalone ZIP contains the uncompressed files.
+
 `exports/anatomy_meshes.json` holds closed reference ED chamber wall/pool meshes and septa. `exports/anatomy_details.json` holds static ED detail meshes without duplicate main wall/pool objects. Detail objects with label 0 are not resolved in the synthetic imaging volume. Do not imply that every chord or trabecula is visible in the illustrative images.
 
 ### Reproduce

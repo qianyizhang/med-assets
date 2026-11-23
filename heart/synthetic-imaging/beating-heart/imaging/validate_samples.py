@@ -3,8 +3,7 @@ from pathlib import Path
 import gzip,json,struct,sys
 import numpy as np
 ROOT=Path(__file__).resolve().parent;sys.path.insert(0,str(ROOT.parent))
-import heart_geometry as hg
-from occupancy import sample_labels
+from occupancy import hg, sample_labels
 meta=json.loads((ROOT/'metadata.json').read_text());npz=np.load(ROOT/'synthetic_volumes.npz');shape=tuple(meta['shape_ijk']);A=np.array(meta['voxel_center_to_RAS_mm'])
 checks={}
 for name,key in [('structure_labels','labels'),('ct_like_arbitrary_contrast','ct_like'),('mri_like_bright_blood','mri_like')]:

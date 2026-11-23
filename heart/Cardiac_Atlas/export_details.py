@@ -1,5 +1,5 @@
 import os
-import bpy, json, re, os, gzip
+import bpy, json, re, os
 R=os.path.dirname(os.path.abspath(__file__));s=bpy.context.scene;s.frame_set(1)
 c=bpy.data.objects['HEART CONTROL • material + cutaway + pulse'];c['cutaway']=1;c['material_set']=1;bpy.context.view_layer.update()
 vessels={v['anatomy_id']:v['label'] for v in json.load(open(R+'/vessel_geometry.json'))}
@@ -18,5 +18,4 @@ for col in bpy.data.collections:
   ev.to_mesh_clear()
 obj={'format':'static ED anatomical detail meshes','phase':1,'coordinates':'native Blender BU; RASmm=(-25X,-25Y,+25Z)','units_mm_per_BU':25,'note':'Detail-only; no duplicate main chamber walls/pools/septa. label0 details are not resolved in the synthetic imaging volume.','meshes':details}
 p=R+'/exports/anatomy_details.json';json.dump(obj,open(p,'w'),separators=(',',':'))
-with open(p,'rb') as f,gzip.open(p+'.gz','wb',compresslevel=9) as out:out.write(f.read())
 print('EXPORTED',len(details),'detail objects',os.path.getsize(p),'bytes')

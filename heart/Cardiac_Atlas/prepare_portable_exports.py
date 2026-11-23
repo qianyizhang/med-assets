@@ -1,5 +1,7 @@
 import os,json,struct,math,hashlib
 import numpy as np
+from geometry_inputs import ensure_geometry_exports
+ensure_geometry_exports()
 R=os.path.dirname(os.path.abspath(__file__))
 # Explicit glTF metre conversion is required: Blender 4.3 exporter retains BU.
 for name in ('Cardiac_Atlas_Clinical_Full_ED.glb','Cardiac_Atlas_Clinical_Cutaway_ED.glb','Cardiac_Walls_Baked_PBR_ED.glb'):
