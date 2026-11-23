@@ -1,0 +1,27 @@
+{
+  "source": {
+    "path": "body/breathing/Breathing_Assembly.blend",
+    "sha256": "fc68b49ca75d02d50330e9d5b5d5182843e6d0e7ca4d43d665cbde48ac23b841",
+    "bytes": 42497262
+  },
+  "reference": {
+    "path": "body/breathing/exports/dome-motion-r01/Breathing_Dome.blend",
+    "sha256": "8dfebe7e811000e8dc1c60333fa91e9ac1a2247224d93ff4893db35c34cdb526",
+    "bytes": 8340874
+  },
+  "retainedTriangles": {
+    "Lung Lower Lobe Left | source surface": 24000,
+    "Lung Upper Lobe Left | source surface": 7200,
+    "Authored schematic diaphragm": 2304,
+    "Liver | source surface": 23998,
+    "Lung Lower Lobe Right | source surface": 24000,
+    "Lung Middle Lobe Right | source surface": 4800,
+    "Lung Upper Lobe Right | source surface": 7200
+  },
+  "frames": [
+    1,
+    121
+  ],
+  "openingFrame": 1,
+  "maximumWorldErrorMm": 0.0001
+}

@@ -1,0 +1,17 @@
+{
+  "operation": "native-zstd",
+  "source": {
+    "path": "body/anatomy-workshop-r1/Anatomy_Workshop.blend",
+    "bytes": 17571351,
+    "sha256": "c773480a49471e697e12ca1a710a4c93314217a8683e6ab224b3fa83d9a12fbc"
+  },
+  "output": {
+    "path": "body/anatomy-workshop-r1/Anatomy_Workshop_compact.blend",
+    "bytes": 13596421,
+    "sha256": "8903a92dbae60c24a0c9933724d1ec8078628fcf6f3d170fa589371b158077ba"
+  },
+  "parameters": {
+    "level": 17,
+    "threads": 1
+  }
+}

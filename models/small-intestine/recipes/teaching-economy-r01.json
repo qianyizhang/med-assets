@@ -1,0 +1,34 @@
+{
+  "operation": "mesh-contraction",
+  "source": {
+    "path": "models/small-intestine/exports/source-candidate-v4/small-intestine.glb",
+    "bytes": 2366552,
+    "sha256": "a9459afc67cb13c28084b518615fdbb5e05c135a47eafa3036908139aece94da"
+  },
+  "output": {
+    "path": "models/small-intestine/exports/teaching-economy-r01/small-intestine.glb",
+    "bytes": 2140672,
+    "sha256": "b5bb67aae18a3fa305cbf29f7d1464cdfdc9d9d22b8dbb6de6c48efb03f0b190",
+    "triangles": 86616
+  },
+  "parameters": {
+    "name": "small-intestine",
+    "task": "Find the proximal attachment region and point out the folded small-bowel loops without inferring a continuous path.",
+    "plan": "morph",
+    "worldSpan": 0.30640185,
+    "rules": [
+      {
+        "match": "FJ2573",
+        "ratio": 0.62,
+        "edgePx": 13,
+        "maxPx": 0.85,
+        "lockBand": [
+          1,
+          0.75,
+          1
+        ]
+      }
+    ],
+    "comparisonPixels": 640
+  }
+}

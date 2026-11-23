@@ -13,7 +13,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 from generate import ROOT, specification, validate_gif
 
-FONTS = ROOT.parent / 'dental-video-treatments' / 'fonts'
+FONTS = ROOT.parents[1] / 'sources/fonts/dejavu'
 BG = '#102333'
 WHITE = '#F4F0E8'
 TEAL = '#78D6C0'

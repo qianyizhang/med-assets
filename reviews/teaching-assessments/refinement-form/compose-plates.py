@@ -9,7 +9,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
-FONT = ROOT / "experiments/dental-video-treatments/fonts/DejaVuSans.ttf"
+FONT = ROOT / "sources/fonts/dejavu/DejaVuSans.ttf"
 WIDTH = 1328
 GUTTER = 20
 PAGE = "#f5f2e9"

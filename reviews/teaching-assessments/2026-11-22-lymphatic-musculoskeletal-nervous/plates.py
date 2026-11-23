@@ -6,7 +6,7 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw, ImageFont
 
-FONT = "experiments/dental-video-treatments/fonts/DejaVuSans.ttf"
+FONT = "sources/fonts/dejavu/DejaVuSans.ttf"
 TITLES = {
     "main": "Imported whole view",
     "reverse": "Alternate direction · neutral",

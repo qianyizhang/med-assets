@@ -12,8 +12,9 @@ from mathutils import Vector
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
-sys.path.insert(0, str(ROOT))
-from tools.glb import decode
+sys.path[:0] = [str(ROOT / "lib"), str(ROOT)]
+from med_assets.glb import decode
+from med_assets.glb_repack import compact_normals
 
 MODEL = "models/trachea/exports/open-airway-r06/trachea-cutaway.glb"
 SHA256 = "42b25a9e3de950db1a083da3802d4bb982c9084c425f768824c8973dc08be283"
@@ -111,8 +112,7 @@ def main():
     }
     if guides["leftMain"][0] <= 0 or guides["rightMain"][0] >= 0:
         raise ValueError("Lesson ports lost their left/right locations")
-    pack = runpy.run_path(str(HERE.parent / "reopen-economy/repack.py"))["compact_normals"]
-    packed, metrics = pack(raw)
+    packed, metrics = compact_normals(raw)
     trial = output / "cutaway-normal-trial.glb"
     trial.write_bytes(packed)
     packed_inventory = inventory(trial, packed)

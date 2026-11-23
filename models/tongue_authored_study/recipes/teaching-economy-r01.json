@@ -1,0 +1,29 @@
+{
+  "operation": "mesh-contraction",
+  "source": {
+    "path": "models/tongue_authored_study/exports/authored-p11/tongue-authored-hra-hybrid-p11.glb",
+    "bytes": 4983044,
+    "sha256": "efabd58b235b72682f067113cf079e3f70fbaceac47062f2b937f09540c1ee1a"
+  },
+  "output": {
+    "path": "models/tongue_authored_study/exports/teaching-economy-r01/tongue-authored-hra-hybrid-p11.glb",
+    "bytes": 3245136,
+    "sha256": "44ece7903283ba0eadf045b588bcfb3fb02dba86566d4468c760e36352af7a8f",
+    "triangles": 145480
+  },
+  "parameters": {
+    "name": "tongue_authored_study",
+    "task": "Identify the dorsum, median line and posterior papillae on the gross tongue exterior.",
+    "plan": "static",
+    "worldSpan": 0.08125825,
+    "rules": [
+      {
+        "match": "AUTHORED body",
+        "ratio": 0.48,
+        "minTriangles": 1800,
+        "edgePx": 16
+      }
+    ],
+    "comparisonPixels": 640
+  }
+}

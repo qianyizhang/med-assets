@@ -9,3 +9,11 @@ The neutral anterior, upper and lower views distinguish both domes. The same-atl
 [Teaching plate](../../../../reviews/teaching-assessments/reopen-paired/plates/diaphragm-teaching.webp) · [Original and updated views](../../../../reviews/teaching-assessments/reopen-paired/plates/diaphragm-comparison.webp) · [Replay and evidence](../../../../reviews/teaching-assessments/reopen-paired/README.md) · [Exact input and output](../../../../reviews/teaching-assessments/reopen-paired/build.json)
 
 Z-Anatomy, Kousaku Okubo, Gauthier Kervyn and Marcin Zielinski. BodyParts3D / The Database Center for Life Science. Source-derived edition and renders retain CC BY-SA 4.0 and historical CC BY-SA 2.1 Japan credit. [Source](https://github.com/Z-Anatomy/Models-of-human-anatomy) · [Attribution and original scope](../z-native-static-r01/ATTRIBUTION.md)
+
+## Rebuild
+
+From the repository root, use the hydrated source and Python 3.12. The recipe checks the new output against the reviewed SHA-256 and byte count before writing it to a fresh directory.
+
+```sh
+python3.12 tools/rebuild_asset.py models/diaphragm/recipes/normal-pack-r02.json .artifacts/rebuild-diaphragm-normal-pack-r02
+```

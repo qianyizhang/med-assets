@@ -1,0 +1,30 @@
+{
+  "operation": "mesh-contraction",
+  "source": {
+    "path": "models/ears_z/exports/r04/ears_z.glb",
+    "bytes": 1752248,
+    "sha256": "04ba664cdc219dc7b78e80ddb2b1d5ff39ffe4438bd0ab1bf63c2221c46f5939"
+  },
+  "output": {
+    "path": "models/ears_z/exports/teaching-economy-r01/ears_z.glb",
+    "bytes": 1005904,
+    "sha256": "cb5f38d7d5b8d617df11b53c65ef9d1fe11eb0c3f208d161209bda534917deed",
+    "triangles": 54966
+  },
+  "parameters": {
+    "name": "ears_z",
+    "task": "Locate the outer auricular rim and distinguish it from the recessed bowl.",
+    "plan": "static",
+    "worldSpan": 0.2108124,
+    "rules": [
+      {
+        "match": ".",
+        "ratio": 0.57,
+        "minTriangles": 1800,
+        "edgePx": 10,
+        "maxPx": 0.65
+      }
+    ],
+    "comparisonPixels": 640
+  }
+}

@@ -44,14 +44,14 @@ The shared DejaVu fonts are existing repository assets and are covered by
 Git LFS. Hydrate them separately when needed:
 
 ```sh
-git lfs pull --include="experiments/dental-video-treatments/fonts/*" --exclude=""
+git lfs pull --include="sources/fonts/dejavu/*" --exclude=""
 ```
 
 ## Replay
 
 Rebuild needs Python 3.11+, Pillow, FFmpeg/ffprobe with H.264/AAC support, the
 restored inputs, and the sibling experiment's retained DejaVu fonts and license at
-`../dental-video-treatments/fonts/`. It does not need macOS speech services.
+`../../sources/fonts/dejavu/`. It does not need macOS speech services.
 Optional new GIF generation needs network/API access and an authorized key.
 The native GIF API is called directly because the installed imagegen CLI rejects
 GIF output. No shared skill/helper files are changed.

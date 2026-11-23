@@ -12,7 +12,8 @@ from mathutils import Vector
 import numpy as np
 
 REPO = Path(__file__).resolve().parents[4]
-sys.path.insert(0, str(REPO))
+sys.path[:0] = [str(REPO / "lib"), str(REPO)]
+from med_assets.triangle_geometry import edges, neighbors, oriented, preserves_faces
 from tools.glb import decode, encode
 
 CONTROL_SHA = "d86719833a17dc7b45c8eb970498f1e2feefd352b5812942f4b147a9ffcfbe4f"
@@ -46,11 +47,6 @@ def mesh_data(data):
             array(primitive["indices"], 1).reshape(-1, 3))
 
 
-def edges(faces):
-    directed = np.concatenate((faces[:, [0, 1]], faces[:, [1, 2]], faces[:, [2, 0]]))
-    return np.unique(np.sort(directed, axis=1), axis=0, return_counts=True)
-
-
 def protection(positions, faces):
     """Source glTF axes are patient left, superior and anterior."""
     x, height, _ = positions.T
@@ -74,27 +70,6 @@ def protection(positions, faces):
         "index seams": seams,
         "envelope extrema": extrema,
     }
-
-
-def oriented(faces):
-    start = faces.argmin(axis=1)
-    rotated = np.take_along_axis(faces, (start[:, None] + np.arange(3)) % 3, axis=1)
-    return rotated[np.lexsort(rotated.T[::-1])]
-
-
-def neighbors(vertex):
-    return {edge.other_vert(vertex) for edge in vertex.link_edges}
-
-
-def preserves_faces(keep, remove):
-    for face in remove.link_faces:
-        if keep in face.verts:
-            continue
-        a, b, c = (keep.co if vertex == remove else vertex.co for vertex in face.verts)
-        normal = (b - a).cross(c - a)
-        if normal.length_squared < 1e-26 or normal.normalized().dot(face.normal) < MIN_FACE_COSINE:
-            return False
-    return True
 
 
 def simplify(positions, triangles, locked):
@@ -132,9 +107,9 @@ def simplify(positions, triangles, locked):
             if len(opposite) != 2 or a_neighbors & b_neighbors != opposite:
                 continue
             keep, remove = a, b
-            if not preserves_faces(keep, remove):
+            if not preserves_faces(keep, remove, MIN_FACE_COSINE):
                 keep, remove = b, a
-                if not preserves_faces(keep, remove):
+                if not preserves_faces(keep, remove, MIN_FACE_COSINE):
                     continue
             mapping[remove] = keep
             occupied.update(a_neighbors | b_neighbors | {a, b})

@@ -10,7 +10,7 @@ from PIL import Image, ImageDraw, ImageFont
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
 PRIOR = HERE.parent / "refinement-form/compose-plates.py"
-FONT = ROOT / "experiments/dental-video-treatments/fonts/DejaVuSans.ttf"
+FONT = ROOT / "sources/fonts/dejavu/DejaVuSans.ttf"
 PAPER, INK, BACK = "#f5f2e9", "#17242c", "#292a2b"
 GAP, SIZE = 18, 410
 

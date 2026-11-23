@@ -22,7 +22,7 @@ python3 "$P/replay.py" prepare remotion --output "$P/.work/remotion"
 python3 "$P/replay.py" prepare manimgl --output "$P/.work/manimgl"
 ```
 
-The working directories contain no dependencies. Install only the engine being evaluated. The collection replay used Node.js 24.22.1 for the browser renderers. DejaVu Sans must be available to the operating system for Remotion and Pango/ManimGL; its exact regular/bold files are included in `fonts/`. HyperFrames loads the included files directly.
+The working directories contain no dependencies. Install only the engine being evaluated. The collection replay used Node.js 24.22.1 for the browser renderers. DejaVu Sans must be available to the operating system for Remotion and Pango/ManimGL; its exact regular/bold files are in [shared font sources](../../sources/fonts/dejavu/). HyperFrames loads the included files directly.
 
 ### HyperFrames
 

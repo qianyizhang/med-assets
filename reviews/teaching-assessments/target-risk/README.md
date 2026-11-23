@@ -24,8 +24,8 @@ Run from the repository root with Blender 5.2.3 build fab76e95306d, Python 3.12,
 review=reviews/teaching-assessments/target-risk
 scratch=.artifacts/taq-017-replay
 mkdir "$scratch"
-python3.12 "$review/select_glb.py" heart "$scratch/heart"
-python3.12 "$review/select_glb.py" bladder "$scratch/bladder"
+python3.12 tools/rebuild_asset.py heart/Cardiac_Atlas_Animated/recipes/wall-motion-r01.json "$scratch/heart"
+python3.12 assemblies/hra-female-pelvis/build.py "$scratch/pelvis"
 eye=models/eye_anterior_segment/recipes/teaching
 baseline=models/eye_anterior_segment/exports/hra-v1.3-r01/anterior_segment.glb
 candidate=models/eye_anterior_segment/exports/eye-order-r01/eye-order-study.glb
@@ -48,4 +48,4 @@ python3.12 "$review/plates.py" "$scratch" "$scratch/views"
 
 The two GLB selections are exact repacks with embedded resources. Their readback checks compare every retained buffer view, and their fresh imports compare transforms and evaluated positions. Use the retained provenance and licenses with each export. The parathyroid companion keeps its independently reviewed original identity.
 
-The [shared female HRA pelvis assembly](../../../assemblies/hra-female-pelvis/README.md) owns the bladder selection and the active rebuild for both pelvic outputs. This review retains its original task measurements and figure bindings. The bladder commands above use the assembly's selection to reproduce the reviewed bladder export.
+The [shared female HRA pelvis assembly](../../../assemblies/hra-female-pelvis/README.md) owns the bladder selection and the active rebuild for both pelvic outputs. The [animated atlas](../../../heart/Cardiac_Atlas_Animated/exports/wall-motion-r01/README.md) owns the retained wall-motion recipe. This review retains the original task measurements, rejected options and figure bindings.

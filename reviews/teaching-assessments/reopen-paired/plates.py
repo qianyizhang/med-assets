@@ -12,7 +12,7 @@ from PIL import Image, ImageDraw, ImageFont
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
 layout = runpy.run_path(str(HERE.parent / "target-form/plates.py"))
-FONT = ROOT / "experiments/dental-video-treatments/fonts/DejaVuSans.ttf"
+FONT = ROOT / "sources/fonts/dejavu/DejaVuSans.ttf"
 NAMES = {
     "anatomy-workshop-r1": (
         "Workshop thorax",

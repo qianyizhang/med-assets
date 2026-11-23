@@ -13,7 +13,7 @@ def command(output):
     films=[('HyperFrames','Before the hole','hyperframes.mp4'),('Remotion','The Decay File','remotion.mp4'),('ManimGL','The Mineral Ledger','manimgl.mp4')]
     args=['ffmpeg','-hide_banner','-loglevel','error','-filter_complex_threads','2']
     for _,_,name in films:args+=['-threads','2','-i',str(ROOT/'results'/name)]
-    regular=(ROOT/'fonts/DejaVuSans.ttf').as_posix();bold=(ROOT/'fonts/DejaVuSans-Bold.ttf').as_posix()
+    regular=(ROOT.parents[1]/'sources/fonts/dejavu/DejaVuSans.ttf').as_posix();bold=(ROOT.parents[1]/'sources/fonts/dejavu/DejaVuSans-Bold.ttf').as_posix()
     filters=[]
     for i,(engine,title,_) in enumerate(films):
         filters.append(f'[{i}:v]scale=640:360,pad=640:440:0:52:color=0x10232a,drawtext=fontfile={bold}:text={engine}:fontsize=22:fontcolor=white:x=20:y=15,drawtext=fontfile={regular}:text={title}:fontsize=14:fontcolor=0xa6c7c2:x=20:y=419[v{i}]')

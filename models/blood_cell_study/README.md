@@ -7,7 +7,7 @@
 
 ## Reproduce the stored export
 
-Use Blender 4.3.2, from the repository root:
+Use Blender 4.3.2 from the repository root. Supply its executable with `--blender` if it is outside PATH.
 
 ```sh
 python models/blood_cell_study/recipes/replay.py --output /tmp/blood-baked.glb

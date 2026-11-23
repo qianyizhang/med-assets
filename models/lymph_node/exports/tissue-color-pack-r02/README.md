@@ -9,3 +9,11 @@ The capsule and tissue regions remain identifiable. Two source-mesh sections res
 [Teaching plate](../../../../reviews/teaching-assessments/reopen-paired/plates/lymph-teaching.webp) · [Original and updated views](../../../../reviews/teaching-assessments/reopen-paired/plates/lymph-comparison.webp) · [Replay and evidence](../../../../reviews/teaching-assessments/reopen-paired/README.md) · [Exact input and output](../../../../reviews/teaching-assessments/reopen-paired/build.json)
 
 Kristen Browne and Heidi Schlehlein, 2022. 3D Reference Organ for Lymph Node, Male v1.2, HuBMAP. CC BY 4.0. [Source](https://doi.org/10.48539/HBM299.VVXH.634) · [Attribution and original scope](../../ATTRIBUTION.md)
+
+## Rebuild
+
+From the repository root, use the hydrated source and Python 3.12. The recipe checks the new output against the reviewed SHA-256 and byte count before writing it to a fresh directory.
+
+```sh
+python3.12 tools/rebuild_asset.py models/lymph_node/recipes/tissue-color-pack-r02.json .artifacts/rebuild-lymph_node-tissue-color-pack-r02
+```

@@ -1,0 +1,19 @@
+{
+  "operation": "exterior",
+  "source": {
+    "path": "models/lung_pair/exports/hra-female-normals-r02/lung_female_hra_normals_r02.glb",
+    "bytes": 23253972,
+    "sha256": "966a4c225be028e616f6f813e8d4232582995a82b8121a42257c1be53087cb19"
+  },
+  "output": {
+    "path": "models/lung_pair/exports/teaching-economy-r01/lung_female_hra_normals_r02.glb",
+    "bytes": 724960,
+    "sha256": "5c56e323c09547b7d3333f2ff222cb165d322e9cac48aa0200733132129abf78"
+  },
+  "parameters": {
+    "omit": [
+      "VH_F_tracheobronchial_tree"
+    ],
+    "scope": "Bilateral lobe orientation. Retains all five lobar groups, all their segments and hila. The separate tracheobronchial selection remains in the full atlas."
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "operation": "mesh-contraction",
+  "source": {
+    "path": "heart/Cardiac_Atlas/exports/Cardiac_Atlas_Clinical_Full_ED.glb",
+    "bytes": 4864488,
+    "sha256": "32802a9a36963c2f8935f632f28ba3602d1ce004919e5e203ff87bbdcb52fa2f"
+  },
+  "output": {
+    "path": "heart/Cardiac_Atlas/exports/teaching-economy-r01/Cardiac_Atlas_Clinical_Full_ED.glb",
+    "bytes": 4248224,
+    "sha256": "342e445b8d460458d322a7e5db875d462867b1e7f99043c711bce73c34c9a813",
+    "triangles": 181922
+  },
+  "parameters": {
+    "name": "heart",
+    "task": "Distinguish the pulmonary trunk from the aortic arch on the procedural heart’s full static ED exterior.",
+    "plan": "static",
+    "worldSpan": 0.17237931,
+    "rules": [
+      {
+        "match": "complete wall mesh",
+        "ratio": 0.52,
+        "minTriangles": 1800,
+        "edgePx": 18
+      },
+      {
+        "match": "papillary muscle",
+        "ratio": 0.65,
+        "minTriangles": 1800,
+        "edgePx": 13
+      }
+    ],
+    "comparisonPixels": 640
+  }
+}

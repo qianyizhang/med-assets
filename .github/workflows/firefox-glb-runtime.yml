@@ -19,6 +19,7 @@ jobs:
           sparse-checkout: |
             /tests/runtime/
             /tools/glb.py
+            /lib/med_assets/glb.py
             /models/lymph_node/recipes/editorial_window_r03/
             /models/esophagus_wall/recipes/
       - name: Exact GLB render and deterministic scene-state probe

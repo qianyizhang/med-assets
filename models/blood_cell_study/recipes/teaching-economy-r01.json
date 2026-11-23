@@ -1,0 +1,41 @@
+{
+  "operation": "mesh-contraction",
+  "source": {
+    "path": "models/blood_cell_study/exports/authored-r05/blood-cell-authored-study-r05.glb",
+    "bytes": 3461004,
+    "sha256": "4c7c738b3ca6ae6cc7e44a449be0f7d26d04ceb9975e43d3b834a2caad96618c"
+  },
+  "output": {
+    "path": "models/blood_cell_study/exports/teaching-economy-r01/blood-cell-authored-study-r05.glb",
+    "bytes": 2722128,
+    "sha256": "cd34b007869be3d77a0e8493b21c51f5bd99fc86c0e496aee9716f698055d4b6",
+    "triangles": 111302
+  },
+  "parameters": {
+    "name": "blood_cell_study",
+    "task": "Distinguish erythrocytes face-on and edge-on, then locate the segmented neutrophil nucleus in the opening.",
+    "plan": "static",
+    "worldSpan": 11.41922118,
+    "rules": [
+      {
+        "match": "RBC|Sphere.003",
+        "ratio": 0.46,
+        "minTriangles": 1800,
+        "edgePx": 16
+      },
+      {
+        "match": "^Sphere(\\.005)? #",
+        "ratio": 0.54,
+        "minTriangles": 1800,
+        "edgePx": 16
+      },
+      {
+        "match": "Sphere.004 #0",
+        "ratio": 0.6,
+        "minTriangles": 1800,
+        "edgePx": 12
+      }
+    ],
+    "comparisonPixels": 640
+  }
+}

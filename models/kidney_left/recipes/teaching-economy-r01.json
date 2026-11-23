@@ -1,0 +1,20 @@
+{
+  "operation": "exterior",
+  "source": {
+    "path": "models/kidney_left/exports/hra-female-v1.3-r02/kidney_left.glb",
+    "bytes": 1378060,
+    "sha256": "8e55b5ae48821f067f41bd23ffdd668f68c7ff705cf49e9a40287042fee469fc"
+  },
+  "output": {
+    "path": "models/kidney_left/exports/teaching-economy-r01/kidney_left.glb",
+    "bytes": 560708,
+    "sha256": "e000c2b4408caf1bbbbf2a5649c5e0e3ceaf94b3c2bf794da3a2f30587bb3778"
+  },
+  "parameters": {
+    "omit": [
+      "VH_F_renal_medulla_L",
+      "VH_F_renal_column_L"
+    ],
+    "scope": "Left kidney hilar exterior. Retains capsule, outer cortex and hilum. Internal renal columns, papillae and pyramids remain in the full atlas."
+  }
+}

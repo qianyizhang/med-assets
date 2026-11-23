@@ -8,6 +8,10 @@ import sys
 import bpy
 from mathutils import Vector
 
+ROOT = Path(__file__).resolve().parents[3]
+sys.path.insert(0, str(ROOT / "lib"))
+from med_assets.blender_scene import evaluated_positions
+
 
 OUTPUT = Path(sys.argv[sys.argv.index("--") + 1])
 OWNER = Path("reviews/teaching-assessments")
@@ -135,11 +139,6 @@ def breathing():
             views.append(take(scene, camera, meshes, f"breath-{frame}-{name}", nodes, target,
                               direction, baseline["orthoScaleM"]))
     return {"asset": asset, "views": views}
-
-
-def evaluated_positions(obj):
-    mesh = obj.evaluated_get(bpy.context.evaluated_depsgraph_get())
-    return [mesh.matrix_world @ vertex.co for vertex in mesh.data.vertices]
 
 
 def frame_points(points, direction):

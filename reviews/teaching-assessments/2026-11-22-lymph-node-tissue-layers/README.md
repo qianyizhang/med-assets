@@ -15,7 +15,7 @@ The [export owner](../../../models/lymph_node/exports/hra-tissue-layers-r01/READ
 
 ## Replay
 
-From the repository root, require the original hydrated source, Python 3.12, Blender 5.2.3 LTS Release Candidate `fab76e95306d`, Pillow 11.3.0 and libwebp 1.5.0. Use a fresh scratch directory. The builder uses the standard library and the repository's exact GLB reader. The two cameras come from the earlier teaching-risk review. Lighting, crop and label projection are recorded in the local recipes.
+From the repository root, require the original hydrated source, Python 3.12, Blender 5.2.3 LTS Release Candidate `fab76e95306d`, Pillow 11.3.0 and libwebp 1.5.0. Use a fresh scratch directory. The builder uses the standard library and the repository's exact GLB reader. The recipe holds the two cameras accepted in the earlier teaching-risk review. Lighting, crop and label projection are recorded in the local recipes.
 
 ```sh
 recipe=models/lymph_node/recipes/tissue_layers_r01
@@ -24,7 +24,7 @@ mkdir "$scratch"
 python3.12 "$recipe/build.py" --output "$scratch/lymph-node-tissue-layers.glb" --report "$scratch/build.json"
 python3.12 "$recipe/build.py" --output "$scratch/lymph-node-tissue-layers.glb" --check
 blender --background --factory-startup --disable-autoexec --threads 6 --python-exit-code 1 \
-  --python "$recipe/render.py" -- --candidate "$scratch/lymph-node-tissue-layers.glb" --output "$scratch/render"
+  --python "$recipe/render.py" -- --build-report "$scratch/build.json" --candidate "$scratch/lymph-node-tissue-layers.glb" --output "$scratch/render"
 python3.12 "$recipe/plates.py" "$scratch/render" "$scratch/plates"
 ```
 

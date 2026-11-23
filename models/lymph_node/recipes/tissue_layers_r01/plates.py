@@ -8,7 +8,7 @@ from pathlib import Path
 from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont
 
 ROOT = Path(__file__).resolve().parents[4]
-FONT = ROOT / "experiments/dental-video-treatments/fonts/DejaVuSans.ttf"
+FONT = ROOT / "sources/fonts/dejavu/DejaVuSans.ttf"
 PAPER = "#f5f2e9"
 INK = "#17242c"
 DARK = "#242830"

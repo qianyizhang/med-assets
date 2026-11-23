@@ -1,0 +1,29 @@
+{
+  "operation": "mesh-contraction",
+  "source": {
+    "path": "models/large-intestine/exports/source-candidate-v4/large-intestine.glb",
+    "bytes": 7882016,
+    "sha256": "a8bd8f8227a3cf53b5aa63bb234c1bcb182bfa432da5eb2e3488788f829df4f5"
+  },
+  "output": {
+    "path": "models/large-intestine/exports/teaching-economy-r01/large-intestine.glb",
+    "bytes": 4846448,
+    "sha256": "4ba211f975eb8820d12e6f975051a73691efb69c83806a7d56794f48c00c232a",
+    "triangles": 218664
+  },
+  "parameters": {
+    "name": "large-intestine",
+    "task": "Follow the large bowel exterior around the colon and identify the segmental wall contour and longitudinal taenia cues.",
+    "plan": "static",
+    "worldSpan": 0.34675655,
+    "rules": [
+      {
+        "match": "FJ2565",
+        "ratio": 0.58,
+        "minTriangles": 1800,
+        "edgePx": 18
+      }
+    ],
+    "comparisonPixels": 640
+  }
+}

@@ -84,26 +84,12 @@ def mesh_inventory(meshes):
 
 
 def make_breathing(source, output):
-    bpy.ops.wm.open_mainfile(filepath=str(Path(source["path"]).resolve()), load_ui=False)
-    scene = bpy.context.scene
-    selected = {o for o in scene.objects if o.type == "MESH" and
-                (o.name.startswith("Lung ") or o.name in (DOME, LIVER))}
-    if len(selected) != 7:
-        raise ValueError("Expected exact five lobes, diaphragm and liver")
-    keep = set(selected)
-    for obj in selected:
-        parent = obj.parent
-        while parent:
-            keep.add(parent)
-            parent = parent.parent
-    for obj in list(scene.objects):
-        if obj not in keep:
-            bpy.data.objects.remove(obj, do_unlink=True)
-    bpy.data.orphans_purge(do_recursive=True)
-    scene.frame_set(1)
-    scene["teaching_selection"] = "Five lung lobes, authored diaphragm and liver. Gross phase comparison."
-    scene["control_sha256"] = source["sha256"]
-    bpy.ops.wm.save_as_mainfile(filepath=str(output.resolve()), compress=True)
+    recipe = ROOT / "body/breathing/recipes/dome-motion-r01/build.py"
+    build = runpy.run_path(str(recipe))["make_breathing"]
+    historical = json.loads((HERE / "measurements.json").read_text())["breath"]
+    selection = {"retainedTriangles": historical["retainedTriangles"], "openingFrame": 1,
+                 "source": source}
+    build(Path(source["path"]), output, selection)
     return identity(output)
 
 
@@ -311,10 +297,11 @@ def simplify(family, folder, fine=False):
                   "minTriangles": 10000, "featureZoom": 2, "maxPx": .8}]
         span = .021
     row = {"rules": rules}
+    contraction = trial["simplify"]
     if family == "lymph":
-        operations = trial["geometry_replacements"].__globals__
-        operations["simplify"] = lock_duplicate_faces(operations["simplify"], trial["SKIN"]["oriented"])
-    replacements, rebindings, sparse, parts, before, after = trial["geometry_replacements"](row, doc, binary, span)
+        contraction = lock_duplicate_faces(contraction, trial["oriented"])
+    replacements, rebindings, sparse, parts, before, after = trial["geometry_replacements"](
+        row, doc, binary, span, contract_faces=contraction)
     candidate = None
     if replacements:
         data = trial["replace_accessors"](doc, binary, replacements, rebindings, sparse)

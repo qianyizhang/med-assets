@@ -16,8 +16,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from simplify import HERE, R13, mesh_data, oriented, protection
 from tools.render_teaching import area_light
 
-REPO = HERE.parents[3]
-CAMERAS = REPO / 'reviews/bronchial_tree/2026-10-26-authored-central-fairing-r13/render-bindings.json'
+CAMERAS = HERE / 'r13-cameras.json'
 OLD_CAMERAS = HERE.parent / 'authored-central-fairing-r13' / 'baseline-cameras.json'
 
 
@@ -146,8 +145,9 @@ def render_pairs(source, candidate, output):
     scene.view_settings.view_transform = 'AgX'
 
     original = json.loads(CAMERAS.read_text())
-    views = {row['file'].removeprefix('after-').removesuffix('.png'): row
-             for row in original if row['glb_sha256'] == R13}
+    if original['sourceSha256'] != R13:
+        raise ValueError('Expected camera coordinates bound to exact r13')
+    views = original['views']
     whole = views['whole']
     center = Vector(whole['target'])
     scale = whole['ortho_scale'] / (1.12 * .15)

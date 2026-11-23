@@ -1,0 +1,39 @@
+{
+  "operation": "mesh-contraction",
+  "source": {
+    "path": "models/aortic_tree_z/exports/r02/aortic_tree_z_source_frame.glb",
+    "bytes": 881168,
+    "sha256": "d4b3dbd2d09fd76795f47bb96844acdeba5f1b4f48dd630f2a294f33816deaeb"
+  },
+  "output": {
+    "path": "models/aortic_tree_z/exports/teaching-economy-r01/aortic_tree_z_source_frame.glb",
+    "bytes": 700032,
+    "sha256": "a5835c72254467451cd295b7bcae5115a93c7a3df8de87e593a857a8929998b6",
+    "triangles": 39822
+  },
+  "parameters": {
+    "name": "aortic_tree_z",
+    "task": "Locate the brachiocephalic/right-carotid composite, left common carotid and left subclavian at the aortic arch.",
+    "plan": "static",
+    "worldSpan": 0.67239738,
+    "rules": [
+      {
+        "match": "iliac|renal",
+        "ratio": 0.42,
+        "minTriangles": 1200,
+        "edgePx": 24
+      },
+      {
+        "match": "ascending aorta",
+        "ratio": 0.58,
+        "minTriangles": 1800,
+        "lockBand": [
+          1,
+          0.73,
+          1
+        ]
+      }
+    ],
+    "comparisonPixels": 640
+  }
+}

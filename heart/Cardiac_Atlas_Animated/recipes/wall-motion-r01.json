@@ -1,0 +1,21 @@
+{
+  "operation": "scene-selection",
+  "source": {
+    "path": "heart/Cardiac_Atlas_Animated/Heart_Clinical_Animated.glb",
+    "bytes": 8180224,
+    "sha256": "6912d439271c3525230a90fe403d586000e6a66ab37f82bf0419604181e52263"
+  },
+  "output": {
+    "path": "heart/Cardiac_Atlas_Animated/exports/wall-motion-r01/ventricular-wall-motion.glb",
+    "bytes": 1158724,
+    "sha256": "a57fc0eec4cb8d26dfc50ff0db9360fea346a12096236b64f9d4492695c72905"
+  },
+  "parameters": {
+    "title": "Ventricular wall motion with fixed aortic reference",
+    "scope": "Editorial selection of LV wall and aorta with original transform and 0.8-second authored LV morph. The complete atlas supplies full-heart orientation.",
+    "retain": [
+      "LV | complete wall",
+      "Aorta | root, ascending, arch and descending"
+    ]
+  }
+}

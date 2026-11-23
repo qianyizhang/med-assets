@@ -1,0 +1,41 @@
+{
+  "operation": "mesh-contraction",
+  "source": {
+    "path": "models/breasts_hra/exports/source-candidate-02/breasts_hra_native_frame.glb",
+    "bytes": 37499672,
+    "sha256": "905865c4382fb109d14fca74c8ffe809e190f44e9d3086144c3d1d7c3be53964"
+  },
+  "output": {
+    "path": "models/breasts_hra/exports/teaching-economy-r01/breasts_hra_native_frame.glb",
+    "bytes": 32567624,
+    "sha256": "2a7d6d05e06fa8d86adffdf0fd324389cf23ac736b3b659f7c227b96e499fe51",
+    "triangles": 691668
+  },
+  "parameters": {
+    "name": "breasts_hra",
+    "task": "Locate each areola on the external breast and distinguish its surface position from the posteriorly visible atlas layers.",
+    "plan": "static",
+    "worldSpan": 0.32647303,
+    "rules": [
+      {
+        "match": "fat_",
+        "ratio": 0.56,
+        "minTriangles": 1800,
+        "edgePx": 19
+      },
+      {
+        "match": "mammary_lobes",
+        "ratio": 0.57,
+        "minTriangles": 1800,
+        "edgePx": 12
+      },
+      {
+        "match": "suspensory",
+        "ratio": 0.68,
+        "minTriangles": 1800,
+        "edgePx": 8
+      }
+    ],
+    "comparisonPixels": 640
+  }
+}

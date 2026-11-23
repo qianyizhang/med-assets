@@ -6,7 +6,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
-FNT = ROOT / "experiments/dental-video-treatments/fonts/DejaVuSans.ttf"
+FNT = ROOT / "sources/fonts/dejavu/DejaVuSans.ttf"
 BG = "#f2f1eb"
 INK = "#253337"
 M = 16

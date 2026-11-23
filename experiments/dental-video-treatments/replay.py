@@ -37,10 +37,16 @@ def check_sources(root=ROOT):
         raise ValueError('Captions differ from shared narration')
     return data
 
+def asset_file(root, name):
+    if name.startswith('fonts/'):
+        return root.parents[1] / 'sources/fonts/dejavu' / Path(name).name
+    return root / name
+
+
 def check_payloads(root=ROOT):
     data = check_sources(root)
     for row in data['artifacts']:
-        path = root / row['file']
+        path = asset_file(root, row['file'])
         if not path.is_file() or path.stat().st_size != row['bytes'] or digest(path) != row['sha256']:
             raise ValueError('Missing or altered payload (fetch scoped LFS): ' + row['file'])
     return data
@@ -60,7 +66,7 @@ def prepare(engine, output, root=ROOT):
         raise ValueError('Audio master missing or altered; fetch its LFS payload')
     for name in ('DejaVuSans.ttf', 'DejaVuSans-Bold.ttf'):
         row = next(r for r in data['artifacts'] if r['file'] == 'fonts/'+name)
-        if digest(root/row['file']) != row['sha256']:
+        if digest(asset_file(root, row['file'])) != row['sha256']:
             raise ValueError('Font payload missing or altered')
     shutil.copytree(root/engine, output)
     audio = output/({'hyperframes':'assets','remotion':'public','manimgl':'audio'}[engine])
@@ -70,7 +76,7 @@ def prepare(engine, output, root=ROOT):
         shutil.copy2(root/'audio'/name, audio/name)
     if engine == 'hyperframes':
         for name in ('DejaVuSans.ttf','DejaVuSans-Bold.ttf'):
-            shutil.copy2(root/'fonts'/name, output/'assets'/name)
+            shutil.copy2(asset_file(root, 'fonts/'+name), output/'assets'/name)
         subprocess.run(['python3', str(output/'build_story.py')], check=True)
         if digest(output/'index.html') != data['originalSourceHashes']['hyperframes/index.html']:
             raise ValueError('Generated HTML differs from the reviewed original')
@@ -82,7 +88,7 @@ def check_movies(root=ROOT):
     for row in data['artifacts']:
         if not row['file'].endswith('.mp4'):
             continue
-        path = root / row['file']
+        path = asset_file(root, row['file'])
         info = json.loads(subprocess.check_output(['ffprobe','-v','error','-show_streams','-show_format','-of','json',str(path)]))
         v = next(s for s in info['streams'] if s['codec_type']=='video')
         a = next(s for s in info['streams'] if s['codec_type']=='audio')

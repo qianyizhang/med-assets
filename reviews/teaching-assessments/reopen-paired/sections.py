@@ -20,7 +20,7 @@ from tools.glb import decode, buffer_view_bytes
 
 SIZE = 520
 SKY, GOLD, CORAL, MINT, INK = "#8eddf0", "#f1c873", "#fa9786", "#91d5b4", "#17272e"
-FONT = ROOT / "experiments/dental-video-treatments/fonts/DejaVuSans.ttf"
+FONT = ROOT / "sources/fonts/dejavu/DejaVuSans.ttf"
 SCI = json.loads((ROOT / "assemblies/workshop-s1233/inputs.json").read_text())
 SOURCE_MASKS = {
     **{k: SCI["maskSha256"][k] for k in ("heart", "aorta", "pulmonary_vein")},

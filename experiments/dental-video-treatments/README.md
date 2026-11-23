@@ -45,6 +45,6 @@ No source ZIP, renderer caches, installed packages, model weights, TTS runtime, 
 
 ## Rights and sources
 
-All tooth/prop illustrations and scene code were authored for these experiments. No source mesh, artwork or code was copied from a style gallery. Dependencies retain their own terms; no blanket license is added here. DejaVu notices are in [fonts/LICENSE.txt](fonts/LICENSE.txt); GSAP retains its header notice. Check [Remotion licensing](https://www.remotion.dev/docs/license/pricing) for the intended organization/use.
+All tooth/prop illustrations and scene code were authored for these experiments. No source mesh, artwork or code was copied from a style gallery. Dependencies retain their own terms; no blanket license is added here. DejaVu notices are in [DejaVu license](../../sources/fonts/dejavu/LICENSE.txt); GSAP retains its header notice. Check [Remotion licensing](https://www.remotion.dev/docs/license/pricing) for the intended organization/use.
 
 Educational sources: [NIDCR tooth decay](https://www.nidcr.nih.gov/health-info/tooth-decay), [the decay process](https://www.nidcr.nih.gov/health-info/tooth-decay/more-info/tooth-decay-process). Technical skills/source links and workflow failures are documented in [COMPARISON.md](COMPARISON.md). A human listening pass and qualified dental review are required before patient-facing publication.

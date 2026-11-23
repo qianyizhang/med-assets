@@ -1,0 +1,21 @@
+{
+  "operation": "exterior",
+  "source": {
+    "path": "models/placenta/exports/hra-v1.1-r02/placenta_full_term.glb",
+    "bytes": 4917576,
+    "sha256": "7f9f215f810003fddc76ede225f051dc7014c67216e804403a4632d628ad82aa"
+  },
+  "output": {
+    "path": "models/placenta/exports/teaching-economy-r01/placenta_full_term.glb",
+    "bytes": 4050904,
+    "sha256": "1c7fbe97548e365c40b886e31a97d3068e611efd79aef543cf49b9d3208ecf4f"
+  },
+  "parameters": {
+    "omit": [
+      "VH_F_umbilical_artery_1",
+      "VH_F_umbilical_artery_2",
+      "VH_F_umbilical_vein"
+    ],
+    "scope": "Fetal and maternal surface orientation. Retains the cord, amnion, chorionic and basal plates and placental vessels. Three internal cord vessel meshes remain in the full atlas."
+  }
+}

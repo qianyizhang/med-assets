@@ -33,7 +33,7 @@ def font(size):
         return ImageFont.truetype("Arial.ttf", size)
     except OSError:
         return ImageFont.truetype(
-            ROOT / "experiments/dental-video-treatments/fonts/DejaVuSans.ttf", size
+            ROOT / "sources/fonts/dejavu/DejaVuSans.ttf", size
         )
 
 

@@ -1,0 +1,29 @@
+{
+  "operation": "mesh-contraction",
+  "source": {
+    "path": "models/skeleton/exports/source-candidate-03/skeleton_source_frame.glb",
+    "bytes": 12705356,
+    "sha256": "d224985628cc62d0c9c4284019b73505c9ebf14d78d30a040d74a7b33c68620e"
+  },
+  "output": {
+    "path": "models/skeleton/exports/teaching-economy-r01/skeleton_source_frame.glb",
+    "bytes": 11048256,
+    "sha256": "ca10c44878ec836c63882855b9af29193e637773059dbc33b15daff044c2bb3c",
+    "triangles": 530642
+  },
+  "parameters": {
+    "name": "skeleton",
+    "task": "Orient the skull, rib cage and pelvis, then distinguish the appendicular bones from the axial trunk.",
+    "plan": "static",
+    "worldSpan": 1.92862744,
+    "rules": [
+      {
+        "match": ".",
+        "ratio": 0.57,
+        "minTriangles": 5000,
+        "edgePx": 11
+      }
+    ],
+    "comparisonPixels": 640
+  }
+}

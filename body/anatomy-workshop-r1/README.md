@@ -32,3 +32,11 @@ their original paths and identities.
 Source-derived surfaces: Jakob Wasserthal and TotalSegmentator contributors, University Hospital Basel, TotalSegmentator v2.0.1, https://zenodo.org/records/10047263, CC BY 4.0. Source tb3 revision 75ec4e6530abe4d434b07958e90bdc9dec062bef. Retain docs/licenses/NOTICE.md and full licenses, source/version attribution and this modification record in reuse. Raw JSONs are unmodified. The retained label-source license is Apache 2.0; it does not replace the dataset's CC BY 4.0 attribution. No source endorsement is implied.
 
 Educational inspiration and tutorial assets only. Not clinically validated, patient-specific diagnosis, scanner simulation or surgical planning geometry.
+
+## Rebuild
+
+From the repository root, use the hydrated source, Python 3.12 and Zstandard CLI 1.5.7. The recipe checks the new output against the reviewed SHA-256 and byte count before writing it to a fresh directory.
+
+```sh
+python3.12 tools/rebuild_asset.py body/anatomy-workshop-r1/recipes/compact.json .artifacts/rebuild-anatomy-workshop-r1-compact
+```

@@ -9,3 +9,11 @@ The two planar cuts resolve broad lateral spaces around the thin central channel
 [Teaching plate](../../../../reviews/teaching-assessments/reopen-paired/plates/nose_sinuses-teaching.webp) · [Original and updated views](../../../../reviews/teaching-assessments/reopen-paired/plates/nose_sinuses-comparison.webp) · [Replay and evidence](../../../../reviews/teaching-assessments/reopen-paired/README.md) · [Exact input and output](../../../../reviews/teaching-assessments/reopen-paired/build.json)
 
 Nevit Dilmen (nevitdilmen), Upper respiratory airways cast, NIH 3D 3DPX-002305. CC BY 4.0. [Source](https://3d.nih.gov/entries/2305) · [Attribution and original scope](../../../../sources/nose_sinuses/nih3d-airspace-r01/ATTRIBUTION.md)
+
+## Rebuild
+
+From the repository root, use the hydrated source and Python 3.12. The recipe checks the new output against the reviewed SHA-256 and byte count before writing it to a fresh directory.
+
+```sh
+python3.12 tools/rebuild_asset.py models/nose_sinuses/recipes/index-pack-r02.json .artifacts/rebuild-nose_sinuses-index-pack-r02
+```

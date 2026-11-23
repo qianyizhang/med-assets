@@ -22,7 +22,7 @@ def compose(input_dir, output, views, headings):
             columns.append(decoded.convert("RGB"))
 
     font = ImageFont.truetype(
-        "experiments/dental-video-treatments/fonts/DejaVuSans.ttf", size=26
+        "sources/fonts/dejavu/DejaVuSans.ttf", size=26
     )
     width, height = columns[0].size
     gap = 14
