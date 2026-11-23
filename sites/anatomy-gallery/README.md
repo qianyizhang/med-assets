@@ -41,7 +41,7 @@ From **Use Cases → Airway Review → Trace the first bronchial fork**, select 
 | `tools/` | Survey reproduction, local preview and framework assembly. |
 | [Transport tools](../../transport/tools/) | Seed and legacy media restore, delivery manifest preparation, fetch and upload. |
 | `.local/publication/` | Ignored publishing Git checkout; retain its remote ancestry. |
-| `.local/app/` | Ignored complete generated project; edit the overlays in `app/` instead. |
+| `.local/gallery-candidate/` | Default location for the candidate preview and browser checks. Bootstrap assembles the generated project from the `app/` overlays. |
 | `.local/preview/` | Retained split preview and original snapshot. The old preview was stopped during the package move. Use the loopback command below for the current Gallery. |
 
 - **Asset bytes** · [Public downloads and R2 migration](../../transport/README.md).
@@ -88,6 +88,11 @@ and verifies exact local payload bytes. The generated candidate Worker uses the
 same read rules with R2. The public asset index owns upload admission. See
 [Library selections](../../docs/gallery/asset-library.md#making-a-release-selection)
 and the [route and API contract](../../docs/gallery/routes-and-api.md).
+
+The [Library package declarations](app/src/content/gallery/library-packages.json)
+record the Survey source revision and date for the catalogued families. Media
+entries pin their recorded byte counts and SHA-256 values. Entries marked
+`deliveryOnly` have no archived Survey source link.
 
 The v10 rehearsal uses the frozen publication source and a catalog adapter so its
 selection is independent of preview hostname. Retain the adapter while v10
@@ -139,12 +144,15 @@ these exact routes needs a separate delivery decision.
 
 `build_survey.py` refreshes reviewed rows from indexed repository sources;
 `add_previews.py` embeds retained previews; `render_previews.py` uses exact hydrated
-GLBs. These change survey content and require review. `prepare_r2_assets.py`
-prepares image objects/URLs locally without uploading:
+GLBs. These change survey content and require review. Use `prepare_r2_assets.py`
+after a reviewed inline-preview refresh. It writes the prepared image bytes to a
+fresh directory and rewrites the preview URLs and delivery index in the supplied
+app. Use a scratch app containing the generated `src/data.json` and a copy of
+`src/content/assets/delivery-index.json`.
 
 ```sh
 python3.12 transport/tools/prepare_r2_assets.py \
-  --app sites/anatomy-gallery/app --output NEW_DIRECTORY \
+  --app "$survey_app" --output "$preview_objects" \
   --site-url https://med-assets-model-survey.landy123007.chatgpt.site
 ```
 
@@ -154,8 +162,8 @@ Pillow, Blender, Sharp and Playwright/browser are recipe-specific dependencies.
 `MODEL_SURVEY_PLAYWRIGHT_MODULE`, `MODEL_SURVEY_BROWSER` and
 `MODEL_SURVEY_PREVIEW_URL`. The Gallery browser runner writes one receipt and capture directory per case under
 `.artifacts/gallery-verification/` by default. Set `MODEL_SURVEY_CAPTURE_DIR` for a dedicated run. Set `MODEL_SURVEY_APP_DIR` to the preview's generated app
-directory when it differs from `.local/app`. The verifier walks the ordinary Library
-against the pinned AG-GAL-018 Git baseline and checks exact downloads and teaching evidence.
+directory when it differs from `.local/gallery-candidate`. The Library verifier compares the built
+catalog with the pinned AG-GAL-018 Git baseline and checks exact downloads and teaching evidence.
 The build assembles the dated pilot, owner-held `reviews/<asset>/<review>/teaching-assessment.json` files and the [current teaching assessments](../../reviews/teaching-assessments/current-assessments.json). Each current record pins its base assessment and carries accepted changes and reviewer attribution. The [maintained selections](../../docs/gallery/maintained-selections.json) bind each export and stable learner task ID to that accepted record. The [shared resolver](../../lib/med_assets/teaching.py) supplies those records to the Gallery and [scorecard](../../records/campaigns/teaching-asset-review/current-coverage.md). Run `python3.12 tools/maintained_teaching.py` from the repository root to print the generated Markdown to stdout. Its tracked destination is `docs/gallery/maintained-models.md`. Pass `--check` to validate all accepted tasks and verify the register and scorecard. Use the [promotion workflow](../../docs/guides/teaching-assessments.md) to update the accepted state.
 
 Bind each review to the exact export's path, size and SHA-256. Use a local source path or HTTPS reference and give every reviewed image a digest and size. An optional `teachingView` selects one image for the learner. Preview verifies evidence bytes before delivery. An accepted local review can declare its exact `library/<family>/<revision>` route. Files that share a route keep their own tasks, views and scores. When a refinement candidate matches a maintained export in SHA-256 and size, the download uses that export's filename and verified bytes.
@@ -163,11 +171,11 @@ Bind each review to the exact export's path, size and SHA-256. Use a local sourc
 The [first target review](../../records/campaigns/teaching-asset-target.md), [reopened exemptions](../../records/campaigns/teaching-exemption-recheck.md), and [refinement review](../../records/campaigns/teaching-asset-refinement.md) retain the earlier decisions and comparison evidence. The scorecard links to the explicit historical audit.
 
 The focused authoring run uses the same loopback runner as the full Gallery check. It exercises the real s1233 study through all four surfaces, including an unavailable comparison witness, the exact Library download, and a Stage shared view and its WebP.
-Run the browser suites against the local candidate preview with hydrated media. The Library case requires the AG-GAL-018 Git baseline. Archive playback requires the restored teaching-media selection. The lesson-plates case also uses `MODEL_SURVEY_PUBLISHED_PREVIEW_URL` for a separate published rehearsal to check what is included there. The packaged bookmark replay uses the exact public and a test origin in a disposable browser. Pass the packaged project directory to `verify_survey_bookmarks.mjs`.
+Run the browser suites against the local candidate preview with hydrated media. The default run exercises authoring, collections and the shared ovary lesson. Selecting `collections` includes the ovary lesson. The Library case requires the AG-GAL-018 Git baseline. Archive playback requires the restored teaching-media selection. The lesson-plates case also uses `MODEL_SURVEY_PUBLISHED_PREVIEW_URL` for a separate published rehearsal to check what is included there. The packaged bookmark replay uses the exact public and a test origin in a disposable browser. Pass the packaged project directory to `verify_survey_bookmarks.mjs`.
 
 ```sh
 python3.12 -m unittest discover -s tests -p 'test_model_survey_*.py' -v
-node sites/anatomy-gallery/.local/app/scripts/verify-protected-runtime.mjs
+node sites/anatomy-gallery/.local/gallery-candidate/scripts/verify-protected-runtime.mjs
 node --test sites/anatomy-gallery/app/tests/r2-assets.test.mjs
 node --test sites/anatomy-gallery/app/tests/fdi31-download.test.mjs
 node --test sites/anatomy-gallery/tools/preview_gallery.test.mjs

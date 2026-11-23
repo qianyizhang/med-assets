@@ -10,6 +10,16 @@ import editionsByPath from './library-editions.json' with { type: 'json' };
 import declarations from './library-packages.json' with { type: 'json' };
 import recommendations from './library-recommendations.json' with { type: 'json' };
 
+const { sourceRoot: surveySource, indexedDate } = declarations.survey;
+const surveyPackages = declarations.packages.map(({ media, ...row }) => ({
+  ...row,
+  ...(row.evidence && { evidence: { ...row.evidence, url: row.evidence.url ?? surveySource + row.evidence.path } }),
+  media: (media ?? []).map(({ deliveryOnly, ...file }) => deliveryOnly ? file : {
+    ...file, url: file.url ?? surveySource + file.path,
+  }),
+  indexedDate: row.indexedDate ?? indexedDate,
+}));
+
 const ownerRoot = 'https://github.com/qianyizhang/med-assets/blob/503c33f1dadf403faaec373c1a11a8b40dc523d6/';
 const fittedHeart = {
   family: 'cardiac-animated',
@@ -133,7 +143,7 @@ function collectionRow(row, authoredReviews, campaign, replacements, localPrevie
   };
 }
 
-export function libraryRows(teachingReview, { localPreview = true, packages = declarations, selected = recommendations } = {}) {
+export function libraryRows(teachingReview, { localPreview = true, packages = surveyPackages, selected = recommendations } = {}) {
   const authoredReviews = new Map(teachingReview?.assessments.map((assessment) => [assessment.route, assessment]));
   const campaign = new Map((localPreview ? teachingReview?.campaign ?? [] : [])
     .map((assessment) => [assessment.export.path, assessment]));

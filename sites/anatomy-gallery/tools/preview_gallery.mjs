@@ -10,7 +10,7 @@ import { readRetainedProjection } from '../../../reviews/trachea/2026-10-29-open
 
 const site = fileURLToPath(new URL('../', import.meta.url));
 const repo = await realpath(path.resolve(site, '../..'));
-const project = path.resolve(process.argv[2] || path.join(site, '.local/gallery-work'));
+const project = path.resolve(process.argv[2] || path.join(site, '.local/gallery-candidate'));
 const html = await readFile(path.join(project, 'dist/index.html'));
 const content = path.join(project, 'src/content');
 const projectJson = async (name) => JSON.parse(await readFile(path.join(content, name), 'utf8'));

@@ -1,12 +1,11 @@
 import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
-import { sha256 as digest } from './assertions.mjs';
+import { exactResponse, sha256 as digest } from './assertions.mjs';
 import { readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import snapshotReference from '../../snapshot-reference.json' with { type: 'json' };
 import { assetUrl, ratingAxes } from '../../app/src/content/gallery/catalog.js';
-import { libraryRows } from '../../app/src/content/gallery/library-compiler.js';
 import { exactExportPath, selectExactExport } from '../../app/src/content/gallery/library-view.js';
 
 export async function checkLibrary({ browser, base, capture, builtApp }) {
@@ -38,8 +37,7 @@ export async function checkLibrary({ browser, base, capture, builtApp }) {
     });
   }
 
-  function indexedRoutes(tracked, review) {
-    const rows = libraryRows(review, { localPreview: true });
+  function indexedRoutes(tracked, rows) {
     const records = new Map();
     const indexed = new Map();
     for (const row of rows) {
@@ -68,13 +66,14 @@ export async function checkLibrary({ browser, base, capture, builtApp }) {
       counts[expected.path.split('.').at(-1)]++;
     }
     assert.equal(Object.values(counts).reduce((sum, count) => sum + count, 0), tracked.length);
-    return { rows, records, indexed, counts };
+    return { records, indexed, counts };
   }
 
   const seed = await readFile(path.join(repo, 'sites/anatomy-gallery/app/src/data.json'));
   assert.equal(digest(seed), snapshotReference.surveySeedPublication.sourceSeedSha256, 'Frozen Survey seed');
-  const review = JSON.parse(await readFile(path.join(builtApp,
-    'src/content/gallery/teaching-inputs/teaching-assessments.json')));
+  const { candidate, rows, teachingReview: review } = await import(pathToFileURL(path.join(builtApp,
+    'src/content/gallery/selected-library.js')));
+  assert.equal(candidate, true, 'The Library case requires a candidate build');
   assert.deepEqual(Object.fromEntries(review.assessments.filter(({ route }) => [
     'library/ovaries/hra-ovary-tubal-r01', 'library/bronchial_tree/authored-central-fairing-r13',
     'library/esophagus_wall/authored-cutaway-r01',
@@ -84,7 +83,7 @@ export async function checkLibrary({ browser, base, capture, builtApp }) {
     'library/esophagus_wall/authored-cutaway-r01': [3, 3, 3, 3],
   });
   const tracked = baselineGeometry();
-  const { rows, records, indexed, counts } = indexedRoutes(tracked, review);
+  const { records, indexed, counts } = indexedRoutes(tracked, rows);
   const page = await browser.newPage();
   const go = (route) => page.goto(base + '/#/' + route);
   const heading = (name) => page.getByRole('heading', { name, level: 1, exact: true });
@@ -276,12 +275,8 @@ export async function checkLibrary({ browser, base, capture, builtApp }) {
       const anchor = details.getByRole('link', { name: view.label + ' ↗', exact: true });
       assert.equal(await anchor.isVisible(), true);
       const href = await anchor.getAttribute('href');
-      assert.ok(href === view.url || href.startsWith('/assets/' + view.sha256 + '/'), href);
-      const response = await page.request.get(base + href);
-      assert.equal(response.status(), 200, view.path);
-      const bytes = await response.body();
-      assert.equal(bytes.length, view.bytes, view.path);
-      assert.equal(digest(bytes), view.sha256, view.path);
+      assert.equal(href, view.url, view.path);
+      await exactResponse(await page.request.get(base + href), view);
       const dimensions = await page.evaluate(async (url) => {
         const image = new Image();
         image.src = url;

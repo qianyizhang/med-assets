@@ -23,14 +23,8 @@ async function checkTeaching(page, dest, dir, delivery) {
     const plates = [...document.querySelectorAll('.ga-source-evidence img')];
     return plates.length === expected && plates.every((image) => image.complete && image.naturalWidth > 0);
   }, count);
-  const checkAsset = async (asset) => {
-    const response = await page.request.get(dest + assetPath(asset));
-    assert.equal(response.status(), 200, asset.path);
-    assert.equal(response.headers()['content-type'], asset.mediaType);
-    const raw = await response.body();
-    assert.equal(raw.length, asset.bytes);
-    assert.equal(sha256(raw), asset.sha256);
-  };
+  const checkAsset = async (asset) => exactResponse(await page.request.get(dest + assetPath(asset)),
+    asset, { contentType: asset.mediaType });
   const checkPlates = async (originalPaths) => {
     await waitForPlates(originalPaths.length);
     const shown = await images.evaluateAll((elements) => elements.map((image) => ({
@@ -501,7 +495,6 @@ async function checkCollections(p, dest, repo, dir) {
     }
   }
   await checkTeaching(p, dest, dir, delivery);
-  await checkOvaryLesson(p, dest, dir, delivery);
   await checkPathways(p, dest, dir, delivery);
   await checkLymph(p, dest, dir);
   await checkSkeletal(p, dest, dir, delivery);

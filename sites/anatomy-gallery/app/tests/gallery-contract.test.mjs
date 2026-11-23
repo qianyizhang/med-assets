@@ -77,6 +77,16 @@ test('the candidate recommendation leaves the original and public catalogue rout
   assert.equal(readView(wrong), null);
 });
 
+test('a newer payload at the same delivery path cannot take over Survey media evidence', () => {
+  const delivered = byPath.get('heart/exterior-presentation-r01/exports/static-opaque-exterior.glb');
+  const recorded = { path: delivered.path, bytes: delivered.bytes - 1, sha256: 'e'.repeat(64),
+    url: 'https://github.com/qianyizhang/med-assets/blob/e63006dca598031d58bdf66485fed24a24194558/' + delivered.path };
+  const packages = [{ id: 'fixture', media: [recorded] }];
+  const row = libraryRows(undefined, { packages, selected: {} }).find(row => row.id === 'fixture');
+  assert.deepEqual(row.media, [recorded]);
+  assert.equal(row.media[0].name, undefined);
+});
+
 test('bronchial recommendation and assessment bind to their own revisions', () => {
   const source = byPath.get('models/bronchial_tree/exports/authored-central-fairing-r13/bronchial_central_fairing.glb');
   const packages = [{ id: 'bronchial_tree', label: 'Bronchial tree', media: [source] }];

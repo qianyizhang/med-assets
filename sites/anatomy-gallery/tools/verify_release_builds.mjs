@@ -1,12 +1,11 @@
 import assert from 'node:assert/strict';
-import { createHash } from 'node:crypto';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import publication from '../snapshot-reference.json' with { type: 'json' };
 import airway from '../../../lessons/one-breath/assets.json' with { type: 'json' };
+import { assertIdentity, sha256 as digest } from './verification/assertions.mjs';
 
-const digest = bytes => createHash('sha256').update(bytes).digest('hex');
 const address = ({ sha256, name }) => `/assets/${sha256}/${name}`;
 const candidateFile = { name: 'bronchial-first-fork.glb', bytes: 7401468,
   sha256: 'dec2886f07745086e56a31676b96005e0741d4475782fd879f47faf15769a42e' };
@@ -42,16 +41,18 @@ async function checkCompiledCatalog(project, candidate) {
   assert.equal(compiled.candidate, candidate);
   assert.deepEqual(projection(compiled.rows), projection(expected), 'Compiled catalog lost a selected record or assessment');
   if (candidate) {
+    // The built Library is the browser check's catalog input. Independently check
+    // that it includes every assessment and evidence identity supplied to the build.
+    const evidenceIdentities = ({ assessments, campaign }) => (assessments.concat(campaign ?? []))
+      .map(({ releaseEvidence, views, ...assessment }) => ({
+        ...assessment, views: views.map(({ url, ...view }) => view),
+      }));
+    assert.deepEqual(evidenceIdentities(compiled.teachingReview), evidenceIdentities(rawReview));
     const fork = compiled.rows.find(row => row.id === 'bronchial_tree').recommended.exports[0];
     assert.equal(fork.license, 'CC BY 4.0');
     assert.match(fork.credit, /Jakob Wasserthal/);
   }
   return expected.length;
-}
-
-function assertBytes(bytes, expected) {
-  assert.equal(bytes.length, expected.bytes);
-  assert.equal(digest(bytes), expected.sha256);
 }
 
 function browseAsset(page, name) {
@@ -101,7 +102,7 @@ async function checkWorker(project, origin, expected, candidate) {
   const publicModel = index.assets.find(file => file.sha256 === publishedFile.sha256);
   for (const entry of [model, evidence, receipt, { ...publicModel, url: address(publicModel) }]) {
     const bytes = await readFile(new URL('../../../' + entry.path, import.meta.url));
-    assertBytes(bytes, entry);
+    assertIdentity(bytes, entry);
     const key = 'assets/sha256/' + entry.sha256;
     let object;
     const fake = {
@@ -127,7 +128,7 @@ async function checkWorker(project, origin, expected, candidate) {
     const response = await read();
     assert.equal(response.status, 200);
     assert.equal(response.headers.get('content-type'), entry.mediaType);
-    assertBytes(Buffer.from(await response.arrayBuffer()), entry);
+    assertIdentity(Buffer.from(await response.arrayBuffer()), entry);
     const head = await read('HEAD');
     assert.equal(head.status, 200);
     assert.equal(head.headers.get('content-length'), String(entry.bytes));
@@ -152,11 +153,11 @@ async function checkDownload(browser, origin, path, file, html) {
     const page = await context.newPage();
     const response = await page.goto(origin + '/#/' + path);
     assert.equal(response?.status(), 200);
-    assertBytes(await response.body(), html);
+    assertIdentity(await response.body(), html);
     const download = page.getByRole('link', { name: file.name + ' ↓', exact: true });
     const [saved] = await Promise.all([page.waitForEvent('download'), download.click()]);
     assert.equal(saved.suggestedFilename(), file.name);
-    assertBytes(await readFile(await saved.path()), file);
+    assertIdentity(await readFile(await saved.path()), file);
   } finally {
     await context.close();
   }

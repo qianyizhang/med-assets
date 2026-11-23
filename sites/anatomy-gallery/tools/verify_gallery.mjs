@@ -63,6 +63,8 @@ if (values.list) {
     selected.add('authoring');
     selected.add('collections');
   }
+  // Collections also covers the shared ovary lesson, regardless of case selection.
+  if (selected.has('collections')) selected.add('ovary');
   for (const name of selected) {
     assert.ok(Object.hasOwn(cases, name), 'Unknown verification case ' + name);
   }
@@ -80,7 +82,7 @@ if (values.list) {
   }
   const published = publishedPreview ? loopback(publishedPreview) : undefined;
   const builtApp = path.resolve(process.env.MODEL_SURVEY_APP_DIR
-    || path.join(repo, 'sites/anatomy-gallery/.local/app'));
+    || path.join(repo, 'sites/anatomy-gallery/.local/gallery-candidate'));
   const output = path.resolve(process.env.MODEL_SURVEY_CAPTURE_DIR
     || path.join(repo, '.artifacts/gallery-verification'));
   const { chromium } = await import(process.env.MODEL_SURVEY_PLAYWRIGHT_MODULE || 'playwright');
