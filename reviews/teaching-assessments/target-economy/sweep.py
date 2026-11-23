@@ -14,7 +14,7 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", type=Path, required=True)
     parser.add_argument("--only", action="append", default=[])
-    parser.add_argument("--repacked-lung", type=Path, help="Directory from lung-textures.py")
+    parser.add_argument("--repacked-lung", type=Path, help="Directory from the s1233 lung owner rebuild")
     args = parser.parse_args(sys.argv[sys.argv.index("--") + 1:])
     controls = {row["name"]: row for row in json.loads((PREVIOUS / "trials.json").read_text())}
     plans = json.loads((HERE / "sweep-settings.json").read_text())
@@ -22,11 +22,11 @@ def main():
         folder = args.repacked_lung.resolve()
         if not folder.is_relative_to(ROOT / ".artifacts"):
             parser.error("Use the texture repack under .artifacts")
-        receipt = json.loads((folder / "receipt.json").read_text())
+        reviewed = json.loads((HERE / "lung-render.json").read_text())["candidate"]
+        candidate = folder / Path(reviewed["path"]).name
         plans["lung_left"] = {
             "plan": "reuse",
-            "candidate": {**receipt["candidate"], "triangles": 31_200,
-                          "path": str((folder / "candidate.glb").relative_to(ROOT))},
+            "candidate": {**reviewed, "path": str(candidate.relative_to(ROOT))},
         }
     selected = set(args.only) if args.only else set(plans)
     if selected - set(plans):

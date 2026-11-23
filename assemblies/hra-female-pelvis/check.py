@@ -6,8 +6,8 @@ from pathlib import Path
 import struct
 
 from build import ROOT, VAGINA_FILE, build, read_inputs
-from tools.glb import decode, encode
-from tools.glb_selection import identity
+from med_assets.glb import decode, encode
+from med_assets.glb_selection import identity
 
 PATCH = 'VH_F_fundus_of_urinary_bladder_dome'
 RETAINED = {

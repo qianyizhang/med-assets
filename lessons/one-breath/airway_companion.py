@@ -1,7 +1,7 @@
 """Select the context that One Breath renders beside its separately loaded trachea."""
 
-from tools.glb import decode, encode
-from tools.glb_selection import select
+from med_assets.glb import decode, encode
+from med_assets.glb_selection import select
 
 
 def build_companion(raw, asset):

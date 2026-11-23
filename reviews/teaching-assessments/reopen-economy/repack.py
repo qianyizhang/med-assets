@@ -1,23 +1,15 @@
 """Rebuild six full-scene teaching editions from their exact hydrated controls."""
 import argparse
-import hashlib
 import json
 from pathlib import Path
 import sys
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
-sys.path.insert(0, str(ROOT))
-sys.path.insert(0, str(ROOT / "lib"))
-from tools.glb import decode
-from med_assets.glb_repack import compact_normals, compact_png
-
-
-def identity(data):
-    return {"sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data)}
-
-
-from med_assets.glb_repack import compact_normals, compact_png
+sys.path[:0] = [str(ROOT / "lib"), str(ROOT)]
+from med_assets.artifacts import verify_bytes
+from med_assets.glb import decode
+from tools.rebuild_asset import build
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
@@ -28,29 +20,31 @@ def main():
         parser.error("Choose a fresh scratch output under .artifacts")
     folder.mkdir(parents=True, exist_ok=False)
     receipts = {}
-    for name, settings in json.loads((HERE / "editions.json").read_text()).items():
-        source = (ROOT / settings["path"]).read_bytes()
-        if identity(source)["sha256"] != settings["sha256"]:
-            raise ValueError(f"Incorrect or unhydrated source for {name}")
-        if name == "stomach":
-            data, textures = compact_png(source)
-            result = {"textures": textures}
-        else:
-            data, result = compact_normals(source)
-        target = folder / name / Path(settings["output"]).name
+    reviewed = json.loads((HERE / "measurements.json").read_text())
+    for name, expected in reviewed.items():
+        control, edition = expected["control"], expected["edition"]
+        recipe = json.loads((ROOT / f"models/{name}/recipes/teaching-economy-r02.json").read_text())
+        if recipe["source"] != control or recipe["output"] != edition:
+            raise ValueError(f"Owner recipe pins differ from the full-scene review for {name}")
+        data, metrics = build(recipe)
+        verify_bytes(data, edition)
+        doc, _ = decode(data)
+        parts = [part for mesh in doc["meshes"] for part in mesh["primitives"]]
+        result = {
+            "control": control,
+            "edition": edition,
+            "bytesSaved": control["bytes"] - len(data),
+            "meshCount": len(doc["meshes"]),
+            "primitives": len(parts),
+            "triangles": sum(doc["accessors"][part["indices"]]["count"] // 3 for part in parts),
+            **metrics,
+        }
+        if result != expected:
+            raise ValueError(f"Rebuilt measurements differ from the full-scene review for {name}")
+        target = folder / name / Path(edition["path"]).name
         target.parent.mkdir()
         target.write_bytes(data)
-        doc, _ = decode(data)
-        parts = []
-        for mesh in doc["meshes"]:
-            parts.append({"mesh": mesh["name"], "triangles": sum(
-                doc["accessors"][p["indices"]]["count"] // 3 for p in mesh["primitives"]),
-                "primitives": len(mesh["primitives"])})
-        receipts[name] = {"control": {"path": settings["path"], **identity(source)},
-                          "edition": {"path": settings["output"], **identity(data)},
-                          "bytesSaved": len(source) - len(data), "meshCount": len(parts),
-                          "primitives": sum(r["primitives"] for r in parts),
-                          "triangles": sum(r["triangles"] for r in parts), **result}
+        receipts[name] = result
     (folder / "measurements.json").write_text(json.dumps(receipts, indent=2) + "\n")
 
 

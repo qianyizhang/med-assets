@@ -21,7 +21,7 @@ The prior contractions moved the ventricular margin, inferior diaphragm rim and 
 
 ## Replay
 
-The starting revision is `0bc388a5b48d65ddb53060840470164ff1c6ce6a`. The comparison uses Python 3.12, Pillow 11.3.0, NumPy 2.2.6, SciPy 1.16.1, nibabel 5.4.2, scikit-image 0.25.2, Zstandard CLI 1.5.7 and Blender 5.2.3 LTS Release Candidate `fab76e95306d`. Run at repository root with hydrated historical payloads. Supply the external source directory for case s1233 with `ct.nii.gz` and `segmentations/`, and the hash-verified Z-Anatomy `Startup.blend`. The recipes do not download the source archive or execute its scripts.
+The starting revision is `0bc388a5b48d65ddb53060840470164ff1c6ce6a`. The comparison uses Python 3.12, Pillow 11.3.0, NumPy 2.2.6, SciPy 1.16.1, nibabel 5.4.2, scikit-image 0.25.2, Zstandard CLI 1.5.7 and Blender 5.2.3 LTS Release Candidate `fab76e95306d`. Run at repository root with hydrated historical payloads. The build runs the asset-owned recipes and checks their output against the [recorded editions and measurements](build.json). Supply the external source directory for case s1233 with `ct.nii.gz` and `segmentations/`, and the hash-verified Z-Anatomy `Startup.blend`. The recipes do not download the source archive or execute its scripts.
 
 ```sh
 pack=reviews/teaching-assessments/reopen-paired

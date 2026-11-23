@@ -29,11 +29,10 @@ Start at the repository root. The maintained GLBs are under the `path` entries i
 
    Each task directory contains `candidate.glb` and the source and updated renders. [Projection settings](projections.json) name each deliberate omission. The [projection receipt](projection-measurements.json) records hashes, retained and omitted meshes, camera bindings and decoded pixel differences. Matched views reuse the original cameras when the trial had two relevant whole/exterior directions. The HRA pair uses an additional neutral posterior view for both control and candidate to inspect its five lobar groups.
 
-3. For the s1233 texture repack, use the following command. [Texture results](lung-textures.json) include the encoded size and exact decoded identity for each texture. [Render results](lung-render.json) bind the clean-import image pair.
+3. Rebuild the s1233 texture repack using the lung package's recipe. [Texture results](lung-textures.json) include the encoded size and exact decoded identity for each texture. [Render results](lung-render.json) pin the edition used for the clean-import image pair.
 
    ```sh
-   python3.12 reviews/teaching-assessments/target-economy/lung-textures.py \
-     --out .artifacts/taq-015-lung-replay
+   python3.12 tools/rebuild_asset.py models/lung_left/recipes/teaching-economy-r01.json .artifacts/taq-015-lung-replay
    blender --background --factory-startup --disable-autoexec --threads 6 --python-exit-code 1 \
      --python reviews/teaching-assessments/target-economy/sweep.py -- \
      --out .artifacts/taq-015-lung-render --only lung_left --repacked-lung .artifacts/taq-015-lung-replay

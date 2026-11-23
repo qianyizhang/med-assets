@@ -12,6 +12,8 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[2]
 sys.path[:0] = [str(ROOT / "lib"), str(ROOT)]
 from med_assets.blender_scene import scene_import
+from med_assets.glb import decode
+from med_assets.glb_selection import identity
 from med_assets.mesh_contraction import (
     contract,
     geometry_replacements,
@@ -21,8 +23,6 @@ from med_assets.mesh_contraction import (
     verify_streams,
 )
 from med_assets.triangle_geometry import oriented
-from tools.glb import decode
-from tools.glb_selection import identity
 
 VIEWS = runpy.run_path(str(HERE.parent / "2026-11-22-body-cardiovascular-digestive-endocrine/render.py"))
 

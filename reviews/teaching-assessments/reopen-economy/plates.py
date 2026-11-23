@@ -6,7 +6,14 @@ from pathlib import Path
 
 from PIL import Image, ImageChops, ImageDraw, ImageFont, ImageStat
 
-HERE = Path(__file__).resolve().parent
+TITLES = {
+    "brain": "Brain",
+    "liver": "Liver",
+    "muscle": "Muscle atlas",
+    "spinal_cord": "Spinal cord & roots",
+    "trachea": "Trachea / Y-airway",
+    "stomach": "Stomach · s1233",
+}
 LABELS = {
     "brain": ["Cerebral hemispheres", "Cerebellum and exposed stem", "Cerebellar surface in isolation"],
     "liver": ["Anterior capsule", "Posterior bare area and ligaments", "Bare-area margin in neutral light"],
@@ -46,7 +53,6 @@ def main():
     parser.add_argument("destination", type=Path)
     args = parser.parse_args()
     args.destination.mkdir(parents=True, exist_ok=False)
-    settings = json.loads((HERE / "editions.json").read_text())
     measurements = {}
     for name, labels in LABELS.items():
         folder = args.frames / name
@@ -73,7 +79,7 @@ def main():
             })
         for side, group in images.items():
             write_plate(args.destination / f"{name}-{side}.webp", group, labels,
-                        f"{side.capitalize()}  /  {settings[name]['family']}")
+                        f"{side.capitalize()}  /  {TITLES[name]}")
         measurements[name] = differences
     (args.destination / "pixels.json").write_text(json.dumps(measurements, indent=2) + "\n")
 

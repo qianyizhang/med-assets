@@ -19,7 +19,7 @@ The [pixel comparisons](views/pixels.json) use native 640 × 640 RGBA captures b
 
 ## Rebuild and compare
 
-Use the repository root, the hydrated [source exports](editions.json), Python 3.12 with Pillow 13.0.0, and Blender 5.2.3 LTS Release Candidate `fab76e95306d`. Each output path must be new. The source revision was `0bc388a5b48d65ddb53060840470164ff1c6ce6a`. The edition manifest pins each control independently.
+Use the repository root, the hydrated source exports pinned in [measurements.json](measurements.json), Python 3.12 with Pillow 13.0.0, and Blender 5.2.3 LTS Release Candidate `fab76e95306d`. Each output path must be new. The source revision was `0bc388a5b48d65ddb53060840470164ff1c6ce6a`. The comparison runs the asset-owned recipes and checks their output against the recorded editions and measurements.
 
 ```sh
 python3.12 reviews/teaching-assessments/reopen-economy/repack.py .artifacts/economy-rebuild

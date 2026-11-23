@@ -9,9 +9,9 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
-sys.path.insert(0, str(ROOT))
-from tools.glb import buffer_view_bytes, decode, encode, pack_buffer_view
-from tools.glb_selection import select
+sys.path.insert(0, str(ROOT / 'lib'))
+from med_assets.glb import buffer_view_bytes, decode, encode, pack_buffer_view
+from med_assets.glb_selection import select
 
 STYLE = ROOT / 'models/vagina_hra/exports/context-r02/vagina_hra_same_atlas_context_r02.glb'
 SHA256 = 'c649de4db766ba00020315029c922de1d018061c1a34bd95c850a05255ab3037'

@@ -8,10 +8,10 @@ import urllib.request
 
 ROOT = Path(__file__).resolve().parent
 REPO = ROOT.parents[1]
-sys.path.insert(0, str(REPO))
+sys.path.insert(0, str(REPO / 'lib'))
 
 from airway_companion import build_companion
-from tools.glb_selection import identity
+from med_assets.glb_selection import identity
 
 
 def checked(raw, byte_count, sha256, message):
