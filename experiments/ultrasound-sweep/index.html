@@ -44,7 +44,16 @@
           <figure class="panel" id="scenePanel">
             <figcaption>
               <span>Probe and scan plane</span>
-              <button class="viewButton" id="resetView" aria-label="Reset 3D view" disabled>Reset view</button>
+              <div class="cameraTools">
+                <fieldset id="orbitCenters" disabled>
+                  <legend class="sr">Orbit around</legend>
+                  <span aria-hidden="true">Orbit around</span>
+                  <label><input type="radio" name="orbitCenter" value="sector" checked /><span>Sector midpoint</span></label>
+                  <label><input type="radio" name="orbitCenter" value="contact" /><span>Probe contact</span></label>
+                  <label><input type="radio" name="orbitCenter" value="organ" /><span>Gallbladder</span></label>
+                </fieldset>
+                <button class="viewButton" id="resetView" aria-label="Reset 3D view" disabled>Reset view</button>
+              </div>
             </figcaption>
             <div class="view sceneView">
               <canvas id="sceneCanvas" aria-label="Probe, scan sector, torso and internal abdominal anatomy" aria-describedby="sceneHelp" tabindex="0" hidden></canvas>

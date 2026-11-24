@@ -232,6 +232,28 @@ main { padding: 12px 0 24px; }
 .panelFoot, .panel small { color: var(--screen-quiet); font-size: 12px; font-weight: 450; }
 .panelFoot { min-height: 33px; }
 #scenePanel { grid-column: 1 / -1; }
+#scenePanel figcaption, .cameraTools { flex-wrap: wrap; }
+.cameraTools, #orbitCenters { display: flex; align-items: center; gap: 4px; }
+.cameraTools { column-gap: 12px; }
+#orbitCenters { border: 0; margin: 0; padding: 0; font-size: 12px; flex-wrap: wrap; }
+#orbitCenters > span { margin-inline-end: 4px; color: var(--screen-quiet); font-weight: 450; }
+#orbitCenters label { position: relative; cursor: pointer; }
+#orbitCenters input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+#orbitCenters label span { display: block; padding: 4px 8px; border-radius: 4px; border: 1px solid transparent; }
+#orbitCenters label:hover span { border-color: #829993; }
+#orbitCenters input:checked + span { color: #172f30; background: #dce9e5; }
+#orbitCenters input:focus-visible + span { outline: 2px solid #ffc17f; outline-offset: 1px; }
+#orbitCenters:disabled { opacity: .55; }
+.orbitPivot {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  transform: translate(-50%, -50%);
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px #213032, inset 0 0 0 1px #213032;
+  pointer-events: none;
+}
 .sceneFoot { justify-content: space-between; flex-wrap: wrap; padding-block: 5px; }
 .legend .sector { color: #a4d5e9; }
 .opacityControl { display: flex; flex-wrap: wrap; align-items: center; column-gap: 8px; }

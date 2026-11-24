@@ -187,6 +187,7 @@ async function startScene() {
     status.hidden = true;
     $('sceneHelp').hidden = false;
     $('resetView').disabled = false;
+    $('orbitCenters').disabled = false;
     torsoOpacity.disabled = false;
   } catch (error) {
     state.scene?.dispose();
@@ -197,6 +198,9 @@ async function startScene() {
   }
 }
 
+$('orbitCenters').onchange = (event) => {
+  if (event.target.checked) state.scene?.setOrbitCenter(event.target.value);
+};
 $('resetView').onclick = () => state.scene?.resetView();
 torsoOpacity.oninput = () => {
   const value = torsoOpacity.value + '%';

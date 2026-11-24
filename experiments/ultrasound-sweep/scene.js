@@ -121,12 +121,14 @@ function viewport(canvas, { target, direction, up, span, showOrientation = false
 
   const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.25, 1900);
   camera.up.copy(up);
-  const toYUp = new THREE.Quaternion().setFromUnitVectors(up, vec(0, 1, 0));
-  const fromYUp = toYUp.clone().invert();
-  const initial = new THREE.Spherical().setFromVector3(
-    direction.clone().normalize().multiplyScalar(650).applyQuaternion(toYUp),
-  );
-  const orbit = initial.clone();
+  const home = target.clone().addScaledVector(direction.clone().normalize(), 650);
+  const pivot = target.clone();
+  const pivotMarker = document.createElement('span');
+  pivotMarker.className = 'orbitPivot';
+  pivotMarker.setAttribute('aria-hidden', 'true');
+  pivotMarker.hidden = true;
+  canvas.after(pivotMarker);
+  let pivotTimer = 0;
   let magnification = 1;
   let pending = 0;
   let pointer = null;
@@ -151,26 +153,66 @@ function viewport(canvas, { target, direction, up, span, showOrientation = false
     camera.bottom = -halfHeight;
     camera.left = -halfHeight * aspect;
     camera.right = -camera.left;
-    orbit.makeSafe();
-    camera.position.copy(vec(0, 0, 0).setFromSpherical(orbit).applyQuaternion(fromYUp).add(target));
-    camera.lookAt(target);
     camera.updateProjectionMatrix();
     renderer.render(scene, camera);
     marker?.render(renderer, camera, width, height);
+    if (pivotTimer) {
+      const point = pivot.clone().project(camera);
+      pivotMarker.hidden = Math.abs(point.x) > 1 || Math.abs(point.y) > 1 || Math.abs(point.z) > 1;
+      pivotMarker.style.left = `${canvas.offsetLeft + (point.x + 1) * width / 2}px`;
+      pivotMarker.style.top = `${canvas.offsetTop + (1 - point.y) * height / 2}px`;
+    }
   }
 
   function invalidate() {
     if (!pending) pending = requestAnimationFrame(render);
   }
 
-  function reset() {
-    orbit.copy(initial);
-    magnification = 1;
+  function hidePivot() {
+    window.clearTimeout(pivotTimer);
+    pivotTimer = 0;
+    pivotMarker.hidden = true;
+  }
+
+  function showPivot() {
+    window.clearTimeout(pivotTimer);
+    pivotTimer = window.setTimeout(hidePivot, 800);
     invalidate();
   }
 
+  function reset() {
+    camera.position.copy(home);
+    camera.lookAt(target);
+    magnification = 1;
+    hidePivot();
+    invalidate();
+  }
+
+  function orbit(yaw, pitch) {
+    const aroundUp = new THREE.Quaternion().setFromAxisAngle(up, yaw);
+    const heading = camera.quaternion.clone().premultiply(aroundUp);
+    const right = vec(1, 0, 0).applyQuaternion(heading);
+    const outward = vec(0, 0, 1).applyQuaternion(heading);
+    const polar = Math.acos(THREE.MathUtils.clamp(outward.dot(up), -1, 1));
+    const nextPolar = THREE.MathUtils.clamp(polar + pitch, .02, Math.PI - .02);
+    const rotation = new THREE.Quaternion().setFromAxisAngle(right, nextPolar - polar).multiply(aroundUp);
+    // Apply the same rigid rotation to the camera's position and orientation about the
+    // selected point. Its camera-space coordinates, including depth, then stay fixed.
+    camera.position.sub(pivot).applyQuaternion(rotation).add(pivot);
+    camera.quaternion.premultiply(rotation).normalize();
+    showPivot();
+  }
+
   function zoom(scale) {
-    magnification = THREE.MathUtils.clamp(magnification * scale, .65, 3.2);
+    const next = THREE.MathUtils.clamp(magnification * scale, .65, 3.2);
+    const right = vec(1, 0, 0).applyQuaternion(camera.quaternion);
+    const vertical = vec(0, 1, 0).applyQuaternion(camera.quaternion);
+    const offset = pivot.clone().sub(camera.position);
+    const shift = 1 - magnification / next;
+    camera.position.addScaledVector(right, shift * offset.dot(right));
+    camera.position.addScaledVector(vertical, shift * offset.dot(vertical));
+    magnification = next;
+    invalidate();
   }
 
   function listen(type, handler, options = {}) {
@@ -178,6 +220,7 @@ function viewport(canvas, { target, direction, up, span, showOrientation = false
   }
 
   listen('webglcontextrestored', invalidate);
+  listen('webglcontextlost', hidePivot);
   listen('pointerdown', (event) => {
     if (!event.isPrimary || event.button !== 0) return;
     pointer = { id: event.pointerId, x: event.clientX, y: event.clientY };
@@ -186,26 +229,23 @@ function viewport(canvas, { target, direction, up, span, showOrientation = false
   listen('pointermove', (event) => {
     if (pointer?.id !== event.pointerId) return;
     const scale = Math.PI / Math.max(1, canvas.clientHeight);
-    orbit.theta -= (event.clientX - pointer.x) * scale;
-    orbit.phi -= (event.clientY - pointer.y) * scale;
+    orbit(-(event.clientX - pointer.x) * scale, -(event.clientY - pointer.y) * scale);
     pointer.x = event.clientX;
     pointer.y = event.clientY;
-    invalidate();
   });
   listen('lostpointercapture', () => { pointer = null; });
   listen('wheel', (event) => {
     event.preventDefault();
     const step = event.deltaMode === WheelEvent.DOM_DELTA_LINE ? .075 : .0015;
     zoom(Math.exp(-event.deltaY * step));
-    invalidate();
   }, { passive: false });
   listen('keydown', (event) => {
     if (event.altKey || event.metaKey || event.ctrlKey) return;
     switch (event.key) {
-      case 'ArrowLeft': orbit.theta += .16; break;
-      case 'ArrowRight': orbit.theta -= .16; break;
-      case 'ArrowUp': orbit.phi += .16; break;
-      case 'ArrowDown': orbit.phi -= .16; break;
+      case 'ArrowLeft': orbit(.16, 0); break;
+      case 'ArrowRight': orbit(-.16, 0); break;
+      case 'ArrowUp': orbit(0, .16); break;
+      case 'ArrowDown': orbit(0, -.16); break;
       case '+':
       case '=': zoom(1.16); break;
       case '-': zoom(1 / 1.16); break;
@@ -214,14 +254,17 @@ function viewport(canvas, { target, direction, up, span, showOrientation = false
     }
     event.preventDefault();
     event.stopPropagation();
-    invalidate();
   });
   const resize = new ResizeObserver(invalidate);
   resize.observe(canvas);
-  invalidate();
+  reset();
 
   return {
     scene, invalidate, reset,
+    setPivot(point, reveal) {
+      pivot.copy(point);
+      if (reveal) showPivot();
+    },
     dispose() {
       resize.disconnect();
       cancelAnimationFrame(pending);
@@ -232,6 +275,8 @@ function viewport(canvas, { target, direction, up, span, showOrientation = false
         object.material?.dispose();
       });
       marker?.dispose();
+      hidePivot();
+      pivotMarker.remove();
       renderer.dispose();
     },
   };
@@ -307,7 +352,7 @@ export async function createSweepScene({ canvas, frames }) {
   const reference = transforms[Math.min(12, transforms.length - 1)];
   const center = meshes.gallbladder.boundingBox.getCenter(vec(0, 0, 0));
   const view = viewport(canvas, {
-    target: center.lerp(reference.position, .35).add(vec(-8, 2, 48)),
+    target: center.clone().lerp(reference.position, .35).add(vec(-8, 2, 48)),
     direction: vec(.57, .94, .22), up: vec(-.63, .04, .78).normalize(), span: 219,
     showOrientation: true,
   });
@@ -329,6 +374,23 @@ export async function createSweepScene({ canvas, frames }) {
   view.scene.add(torso, probe, cable, internal);
   const last = transforms.length - 1;
   let selected = -1;
+  let orbitCenter = 'sector';
+
+  function updatePivot(reveal = false) {
+    const midpoint = vec(0, 0, -dimensions.sectorDepthMm / (2 * dimensions.voxelMm));
+    const choices = {
+      sector: midpoint.applyQuaternion(probe.quaternion).add(probe.position),
+      contact: probe.position,
+      organ: center,
+    };
+    view.setPivot(choices[orbitCenter], reveal);
+  }
+
+  function setOrbitCenter(mode) {
+    if (!['sector', 'contact', 'organ'].includes(mode) || mode === orbitCenter) return;
+    orbitCenter = mode;
+    updatePivot(true);
+  }
 
   function setFrame(index) {
     const frame = THREE.MathUtils.clamp(index, 0, last);
@@ -341,6 +403,7 @@ export async function createSweepScene({ canvas, frames }) {
     probe.quaternion.copy(transforms[lo].orientation).slerp(transforms[hi].orientation, mix);
     sector.position.copy(probe.position);
     sector.quaternion.copy(probe.quaternion);
+    updatePivot();
 
     const outward = vec(0, 0, 1).applyQuaternion(probe.quaternion);
     const end = probe.position.clone().addScaledVector(outward, 60);
@@ -374,5 +437,5 @@ export async function createSweepScene({ canvas, frames }) {
 
   setTorsoOpacity(.32);
   setFrame(0);
-  return { setFrame, setTorsoOpacity, resetView: view.reset, dispose: view.dispose };
+  return { setFrame, setTorsoOpacity, setOrbitCenter, resetView: view.reset, dispose: view.dispose };
 }

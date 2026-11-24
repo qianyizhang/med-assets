@@ -15,6 +15,35 @@ try {
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto(url);
   await page.waitForFunction(() => !document.querySelector('#resetView').disabled);
+  // Identical gestures must keep the selected world point stationary on screen.
+  const canvas = page.locator('#sceneCanvas');
+  const marker = page.locator('.orbitPivot');
+  const markerPosition = () => marker.evaluate((node) => ({
+    x: parseFloat(node.style.left), y: parseFloat(node.style.top),
+  }));
+  const rect = await canvas.boundingBox();
+  const x = rect.x + rect.width / 2;
+  const y = rect.y + rect.height / 2;
+  const projections = [];
+  for (const name of ['Probe contact', 'Gallbladder', 'Sector midpoint']) {
+    await page.click('#resetView');
+    await page.locator('#orbitCenters label').filter({ hasText: name }).click();
+    await marker.waitFor({ state: 'visible' });
+    const start = await markerPosition();
+    await page.mouse.move(x, y);
+    await page.mouse.down();
+    await page.mouse.move(x + 74, y + 26, { steps: 6 });
+    await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+    const end = await markerPosition();
+    await page.mouse.up();
+    assert.ok(Math.hypot(end.x - start.x, end.y - start.y) < 1, name + ' pivot slipped during orbit');
+    for (const previous of projections) {
+      assert.ok(Math.hypot(start.x - previous.x, start.y - previous.y) > 2, name + ' pivot duplicated');
+    }
+    projections.push(start);
+  }
+  await page.click('#resetView');
+  assert.equal(await page.locator('input[name="orbitCenter"]:checked').inputValue(), 'sector');
   await page.getByRole('button', { name: 'Short axis reference keyframe' }).click();
   await page.waitForFunction(() => document.querySelector('#ref')?.src.endsWith('acquired-short.webp'));
   const opacity = page.getByRole('slider', { name: 'Torso opacity' });
