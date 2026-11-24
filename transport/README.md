@@ -27,6 +27,14 @@ path under `reviews/trachea/2026-10-29-open-airway-r06/`. The delivery index
 retains the original digest routes and the dated migration receipt. For offline
 recovery, [restore the exact SVGs from the local Brotli copies](../reviews/trachea/2026-10-29-open-airway-r06/README.md#restore-the-exact-svgs-offline).
 
+## Legacy file addresses
+
+A consumed model or evidence URL must return its expected media, byte size and SHA-256. Keep original evidence bytes while active readers need them, including when Gallery uses a WebP display copy. For compressed transport entries, verify both the recorded transport and decoded identities. A delivery-index match establishes a recorded copy. Live responses need their own checks. [Display images](../docs/gallery/design.md#display-images)
+
+The [guarded LFS downloader](tools/lfs_transport.py) permits same-origin redirects within its source rules and refuses cross-origin redirects. Preserve a compatible exact-byte response on the original host until its consumers pass a reviewed replacement or retirement. Keep manifests used for download, recovery or integrity checks. The Git-pinned Gallery fetcher above refuses all redirects.
+
+Page handoffs can coexist with continued file delivery. The [Head & Neck shutdown decision](../records/work-items/items/AG-GAL-008-retire-head-and-neck-host.md) and [Airway retention decision](../records/work-items/items/AG-GAL-014-compact-delivery-and-recovery.md#decision--retain-the-public-airway-downloads) identify original files still required after the released handoffs. The [collection readback](../records/work-items/items/AG-GAL-015-verify-static-reviews.md#2026-11-22-collection-checks) records remaining Verification, Dental and Body & Heart consumers. Before retiring their backing, check full responses against the pins and exercise the affected download or recovery entry point. Restore original mappings and bytes together on failure, then repeat those checks. [Page handoffs and rollback](../docs/gallery/routes-and-api.md#legacy-page-handoffs)
+
 ## Artifact backups
 
 Back up other important retained artifacts with the [R2 Object Library](https://r2-object-library.landy123007.chatgpt.site/). Examples include unique build and recovery bundles, release archives and evidence that would be costly to recreate. Use this public service only for artifacts cleared for public access. Use approved private storage for restricted material.

@@ -11,11 +11,11 @@ Anatomy Gallery brings the maintained public views of med-assets into one Site. 
 
 The [gallery-wide design guide](design.md) owns navigation, view choice and presentation across these surfaces. Asset packages own their exports and credits. Reviews own evidence and decisions. Each surface links back to the identified record.
 
-Use the [glossary](../../GLOSSARY.md#gallery-and-surfaces) for canonical names. The [inventory](existing-visualizations.md) records the pre-migration baseline. The [migration contract](migration.md) assigns collection destinations and compatibility checks. The [campaign](../../records/campaigns/anatomy-gallery-consolidation.md) owns sequencing and links to work items.
+Use the [glossary](../../GLOSSARY.md#gallery-and-surfaces) for canonical names. The [inventory](existing-visualizations.md) records the pre-migration baseline. The [collection ledger](../../records/work-items/items/AG-GAL-013-reconcile-gallery-coverage.md#collection-ledger) records implemented destinations and retained external viewers. The [route guide](routes-and-api.md#legacy-page-handoffs) owns page compatibility and the [campaign](../../records/campaigns/anatomy-gallery-consolidation.md) records completion and follow-up work.
 
 ## Site and media governance
 
-Publish all public gallery experiences on the existing Site as [Anatomy Gallery](../../sites/anatomy-gallery/README.md). Model Survey remains the name of the dated catalogue. Asset Library and Use Cases are the two main entrances. Compare and 3D Stage open from the relevant asset, review or lesson stop and from Tools. During migration an external link may bridge a gap. A migrated experience has its own address on this Site and completes its visitor task there. Old addresses can continue serving bookmarks and exact evidence.
+Publish all public gallery experiences on the existing Site as [Anatomy Gallery](../../sites/anatomy-gallery/README.md). Model Survey remains the name of the dated catalogue. Asset Library and Use Cases are the two main entrances. Compare and 3D Stage open from the relevant asset, review or lesson stop and from Tools. Retained external tools have an explicit disposition in the collection ledger. Each Gallery experience has its own address on this Site and completes its visitor task there. Old addresses can continue serving bookmarks and exact evidence.
 
 Every publicly listable 3D asset is discoverable in Asset Library, including assets first encountered inside an assembly, lesson or review. Every public interactive 3D showcase uses the shared 3D scene presentation owned by 3D Stage. A visitor can inspect the scene in context or open the same preset in Stage. A lesson or saved review retains control of its narrative, sequence and evidence.
 

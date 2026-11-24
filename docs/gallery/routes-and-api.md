@@ -8,7 +8,7 @@ Both selections serve the exact tracheal cutaway GLB. In v10 One Breath opens it
 
 ## Page links
 
-Open the fragment on the Site root, for example `/#/library/s1233-adrenal/r05`. The pinned Data Site shell can append `?view=1` before the fragment. This marks a complete dashboard state, including its defaults, for recipients with saved dashboard settings. Gallery links can omit it. The browser owns the fragment, so a deep link, reload or Back navigation can use the same Worker entry. A legacy public file URL must still return its expected media. The [migration plan](migration.md#page-addresses-and-file-addresses) owns cross-host delivery and cutover.
+Open the fragment on the Site root, for example `/#/library/s1233-adrenal/r05`. The pinned Data Site shell can append `?view=1` before the fragment. This marks a complete dashboard state, including its defaults, for recipients with saved dashboard settings. Gallery links can omit it. The browser owns the fragment, so a deep link, reload or Back navigation can use the same Worker entry. [Legacy file delivery](../../transport/README.md#legacy-file-addresses) owns original model and evidence URLs.
 
 | Address on this Site | Visitor action and owner |
 | --- | --- |
@@ -59,6 +59,12 @@ Open the fragment on the Site root, for example `/#/library/s1233-adrenal/r05`. 
 | `/#family-adrenals`, `/#candidate-adrenals__source-candidate-01`, `/#refinement-surface-adrenal` | Open the BodyParts3D family in the Library, exact BodyParts3D review, and related s1233 comparison, respectively. The two reviews each link back to the selected family. |
 
 The released Head & Neck and Airway handoffs map the [salivary fragments](../../records/work-items/items/AG-GAL-003-migrate-head-and-neck.md#2026-11-22-release-rehearsal) and [Airway bookmarks](../../records/work-items/items/AG-GAL-013-reconcile-gallery-coverage.md#airway-legacy-entries). The old bronchial bookmark opens the exact r13 review in either Gallery mode. The separate first-fork teaching lesson belongs to the candidate build. [Public readback](../../records/work-items/items/AG-GAL-013-reconcile-gallery-coverage.md#public-release-and-readback)
+
+### Legacy page handoffs
+
+The [collection ledger](../../records/work-items/items/AG-GAL-013-reconcile-gallery-coverage.md#collection-ledger) records each former experience's Gallery destination and retained external viewers. Before replacing a consumed page address, test its path and fragments through the destination, reload, Back and return links. Match handoff rules to the named HTML paths. Retire internal beta aliases when their readers move under the [retention policy](../WORKFLOW.md#retention).
+
+Keep page and file mappings independently restorable. After a failed handoff, restore the previous page mapping and recheck its bookmarks and pinned file responses. A Gallery rollback also restores its snapshot and presentation bindings. The [public release record](../../records/work-items/items/AG-GAL-013-reconcile-gallery-coverage.md#public-release-and-readback) identifies the independent rollback points. Replacing a retained specialist viewer requires checking its selected interactions and saved state. Full host shutdown has its own [consumer and recovery decision](../../records/work-items/items/AG-GAL-008-retire-head-and-neck-host.md).
 
 ## Data and file endpoints
 

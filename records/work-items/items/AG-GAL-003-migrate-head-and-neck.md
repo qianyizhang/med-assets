@@ -24,7 +24,7 @@ Deliver the salivary teaching stop, exact Library exports and saved review on th
 
 - [x] Give every referenced asset an exact Library disposition. Verify the gland and context exports and preserve their attribution.
 - [x] Teach gland location and the supported duct course. Describe the unresolved crossing at the relevant lesson view and link to the rejected reconstruction and its evidence in Compare.
-- [x] Check the new journey, source limitation, old page bookmarks and actual responses at all nine file addresses against the [migration contract](../../../docs/gallery/migration.md#page-addresses-and-file-addresses). After authorized publication and successful readback, replace the old visitor interface with its compatibility page or redirect. Record its destination, the remaining file routes and live checks.
+- [x] Check the new journey, source limitation, old page bookmarks and actual responses at all nine file addresses against the [page handoff](../../../docs/gallery/routes-and-api.md#legacy-page-handoffs) and [file delivery](../../../transport/README.md#legacy-file-addresses) contracts. After authorized publication and successful readback, replace the old visitor interface with its compatibility page or redirect. Record its destination, the remaining file routes and live checks.
 
 ## Context and Trade-offs
 

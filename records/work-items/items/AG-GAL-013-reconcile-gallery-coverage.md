@@ -22,7 +22,7 @@ Start after the local Head & Neck journey passes. Its public cutover can remain 
 
 ## Acceptance Criteria
 
-- [x] Reconcile the [dated census](../../../docs/gallery/existing-visualizations.md) with current package owners and the [collection destinations](../../../docs/gallery/migration.md#destinations). For each public experience, record its owner, old entry points, Gallery destination or retirement reason, and work item or acceptance evidence. Group duplicate entry points under the same experience.
+- [x] Reconcile the [dated census](../../../docs/gallery/existing-visualizations.md) with current package owners and the [collection destinations](#collection-ledger). For each public experience, record its owner, old entry points, Gallery destination or retirement reason, and work item or acceptance evidence. Group duplicate entry points under the same experience.
 - [x] Select and migrate the next collection that can reuse its present assets. Check its visitor task, exact Library revisions or parent exports, old bookmarks and file responses. Distinguish local acceptance from published readback. Retire superseded presentation files once readers and recovery have been checked.
 - [x] Assign remaining light migrations to bounded items. Bring candidate rebuilds and their observed gaps to the Gallery walkthrough before setting their scope. Confirm that each publicly listable model in the collection maps to a Library lineage and revision, including unavailable exports. Report partial and missing ratings against this inventory. Link the remaining work for campaign closeout.
 

@@ -23,7 +23,7 @@ Start after the remaining teaching stills have a verified local Gallery destinat
 - [x] Check preview readers, commands, symlinks, and unique restore inputs. Retire superseded rebuildable local outputs after confirming the retained walkthrough and its recovery work. Record actual disk space recovered.
 - [x] Reconcile local LFS prune candidates with retained revisions and available remote objects. Keep the working checkout, unpublished work and independent recovery intact. Report local cache savings separately from hosted LFS storage.
 - [x] Compare read-only inventories for hosted LFS, Gallery R2 delivery and the Object Library backups with current consumers, public aliases, retained revisions and archive members. Record inventory coverage and access gaps. Approve any subsequent retirement only after identifying its exact object or version, size, consumers and tested independent restore.
-- [x] Verify the Gallery, on-demand fetch and any affected archive restore after cleanup. Record which copies still serve different delivery or recovery needs. The [legacy Airway proposal](AG-GAL-014-compact-delivery-and-recovery.md) stays at public cutover.
+- [x] Verify the Gallery, on-demand fetch and any affected archive restore after cleanup. Record which copies still serve different delivery or recovery needs. The [Airway retention decision](AG-GAL-014-compact-delivery-and-recovery.md#decision--retain-the-public-airway-downloads) keeps the consumed original downloads after public cutover.
 
 ## Status History
 
@@ -78,7 +78,7 @@ The follow-up from `276f825` retires 70 display WebPs totaling **17,572,300 curr
 
 The [r14 first-fork comparison](../../../reviews/bronchial_tree/2026-11-21-distal-simplification-trial/evidence/close.webp) remains loose for its Gallery reader. Its eight supplementary sheets are retained in the [verified bronchial archive](../../../transport/README.md#restore-an-archived-collection). The trachea r06 and spinal roots r04 comparison plates lack matching canonical PNGs. The legacy dental tool and prepared-incisor originals come from the separate [recovery cache](../../../sites/anatomy-gallery/README.md#legacy-dental-review-media). Their tracked displays keep that dependency optional. Historical snapshot thumbnails and the independently maintained Body Systems and adrenal displays retain their existing bindings.
 
-This is a reduction in current Git LFS references. Generated local files and historical objects still occupy storage. Public cutover, remote retirement and Git history changes remain deferred.
+This was a reduction in current Git LFS references. Generated local files and historical objects still occupied storage. Public cutover was deferred at this checkpoint and later passed the [November 22 release readback](AG-GAL-013-reconcile-gallery-coverage.md#public-release-and-readback). This cleanup authorized no remote retirement or Git history changes.
 
 ## 2026-11-22 collection cleanup
 
@@ -88,7 +88,7 @@ The removed directories contained 327,327,744 bytes of allocated regular-file bl
 
 After cleanup, the two retained walkthroughs and the protected release candidate served their exact HTML. Both preview regressions passed. The pinned on-demand fetch filled an empty disposable cache with the kidney GLB, and the existing teaching ZIP and its gum-disease film matched their recorded digests. The earlier full recovery and decoded film checks remain applicable. Local cleanup measurements and check output are under `.artifacts/gallery-collection-readback/`.
 
-The published Gallery index still listed 1,001 routes. The 63 exact public reads in [AG-GAL-015](AG-GAL-015-verify-static-reviews.md#2026-11-22-collection-checks) include live legacy consumers of original evidence. Keep the current delivery and recovery objects. The next storage decision with identified readers remains the [Airway cutover item](AG-GAL-014-compact-delivery-and-recovery.md), after its compatibility and restore conditions are met. Physical object versions and provider billing data remain unavailable. This batch identified no additional remote retirement or billed savings.
+The published Gallery index still listed 1,001 routes. The 63 exact public reads in [AG-GAL-015](AG-GAL-015-verify-static-reviews.md#2026-11-22-collection-checks) include live legacy consumers of original evidence. Keep the current delivery and recovery objects. The [Airway backing review](AG-GAL-014-compact-delivery-and-recovery.md) remains deferred until a compatible same-origin replacement is available. Physical object versions and provider billing data were unavailable. This batch identified no additional remote retirement or billed savings.
 
 ## Release closeout cleanup
 

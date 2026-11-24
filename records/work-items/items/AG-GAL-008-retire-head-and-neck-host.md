@@ -28,7 +28,7 @@ Decide whether the legacy Head & Neck host can stop serving traffic after its vi
 
 ## Context and Trade-offs
 
-The [Head & Neck migration](AG-GAL-003-migrate-head-and-neck.md) can complete with the host in compatibility-only service. The [guarded transport contract](../../../docs/gallery/migration.md#page-addresses-and-file-addresses) refuses cross-origin redirects. The [Head & Neck manifest](../../../transport/manifests/7b3860f7d29b8cf4e19190dee4bf7499bbe69e9924c7057021460edc4239fe53.json) preserves the original addresses.
+The [Head & Neck migration](AG-GAL-003-migrate-head-and-neck.md) completed with the host in compatibility-only service. The [legacy file delivery contract](../../../transport/README.md#legacy-file-addresses) preserves exact-byte responses for guarded transport, which refuses cross-origin redirects. The [Head & Neck manifest](../../../transport/manifests/7b3860f7d29b8cf4e19190dee4bf7499bbe69e9924c7057021460edc4239fe53.json) preserves the original addresses.
 
 ## Status History
 
