@@ -283,6 +283,16 @@ def prepare_gallery(site: Path, inputs: Path, target: Path, *, offline=True):
     teaching.mkdir()
     prepare_teaching_assessments(repo, index, teaching)
     prepare_ovary_lesson(repo, teaching)
+    ultrasound_pose = repo / 'lessons/ultrasound-anatomy/abdomen-gallbladder.json'
+    locator = json.loads(ultrasound_pose.read_text())['locator']
+    locator_path = repo / locator['path']
+    if not locator_path.is_relative_to(repo) or locator_path.resolve(strict=True) != locator_path:
+        raise ValueError('Invalid ultrasound locator path.')
+    atlas = locator_path.read_bytes()
+    if hashlib.sha256(atlas).hexdigest() != locator['sha256']:
+        raise ValueError('The ultrasound locator differs from its pinned atlas source.')
+    (teaching / 'ultrasound-body-locator.svg').write_bytes(atlas)
+    shutil.copyfile(ultrasound_pose, teaching / 'ultrasound-abdomen.json')
     shutil.copyfile(repo / 'reviews/teaching-assessments/use-case-checks.json', teaching / 'use-case-checks.json')
     shutil.copyfile(repo / 'models/lymph-collecting-routes/source-context-refined-r01/projection-binding.json',
                     teaching / 'lymph-projection.json')

@@ -13,6 +13,7 @@ import { checkRefinementPlates } from './verification/refinement-plates.mjs';
 import { checkRefinementScenes } from './verification/refinement-scenes.mjs';
 import { checkStaticReviews } from './verification/static-reviews.mjs';
 import { checkTeachingTargets } from './verification/teaching-targets.mjs';
+import { checkUltrasound } from './verification/ultrasound.mjs';
 
 const cases = {
   authoring: checkGalleryAuthoring,
@@ -27,6 +28,7 @@ const cases = {
   'static-reviews': checkStaticReviews,
   'refinement-plates': checkRefinementPlates,
   'teaching-targets': checkTeachingTargets,
+  ultrasound: checkUltrasound,
 };
 const suites = {
   catalog: ['authoring', 'collections', 'library'],

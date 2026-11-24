@@ -1,0 +1,24 @@
+{
+  "case": "s1233",
+  "sliceIndex": 195,
+  "contactRasMm": [72, 298.9, 333.7],
+  "depthMm": 125,
+  "fieldOriginBehindContactMm": 40,
+  "halfAngleDegrees": 34,
+  "display": {
+    "width": 760,
+    "height": 560,
+    "mmPerPixel": 0.26,
+    "probeRow": 34
+  },
+  "targets": [
+    {"label": "A", "part": "gallbladder", "xPercent": 44.7, "yPercent": 58.9},
+    {"label": "B", "part": "liver", "xPercent": 29.6, "yPercent": 70.5}
+  ],
+  "locator": {
+    "path": "body/2d-v4/whole-body-anatomy-v4-spatial/body-locator.svg",
+    "sha256": "710443b3b50b9c3f671a045cdbdf2b40dcef2dd3717f51e75aa9d06d922e0a74",
+    "xPercent": 38,
+    "yPercent": 37
+  }
+}

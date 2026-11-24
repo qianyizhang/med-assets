@@ -9,7 +9,7 @@ A learner can answer an anatomy question by following a sequence of authored vie
 | [Regional locators](regional-locators.md) | Place a local structure in its region and interpret the corresponding close-up. |
 | [Pathway diagrams](pathway-diagrams.md) | Trace a named route through its structures using a bilingual figure. |
 | [Dental arch identification](dental-arch-identification.md) | Identify a crown, its FDI number, its arch and the patient's side. |
-| [Ultrasound Anatomy](ultrasound-anatomy.md) · Draft | Relate a probe position, anatomical section and ultrasound-style view. |
+| [Ultrasound Anatomy](ultrasound-anatomy.md) · Local candidate | Relate a probe position, anatomical section and ultrasound-style view. |
 | [Experiments & Archive](archive.md) | Explore retained studies and historical presentations within their recorded scope. |
 
 The [route contract](../routes-and-api.md#page-links) lists the individual lesson addresses. The [local teaching checks](../../../reviews/teaching-assessments/use-case-checks.json) record the actions reviewed outside Body Systems.

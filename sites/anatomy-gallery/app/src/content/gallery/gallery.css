@@ -819,3 +819,136 @@
 .ga-part-answer { max-width: 62rem; scroll-margin-block: 5rem 1rem; }
 .ga-part-answer img { display: block; max-width: 100%; height: auto; }
 @media (max-width: 740px) { .ga-part-layout { grid-template-columns: 1fr; } }
+
+.ga-ultrasound-board {
+  display: grid;
+  grid-template-columns: minmax(145px, 0.72fr) minmax(0, 2fr);
+  align-items: stretch;
+  gap: 16px;
+  margin-block: 12px;
+}
+
+.ga-ultrasound-board figure,
+.ga-ultrasound-evidence-locator figure {
+  margin: 0;
+  border: 1px solid var(--ga-line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--ga-panel);
+}
+
+.ga-ultrasound-board figcaption,
+.ga-ultrasound-evidence-locator figcaption {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--ga-line);
+  font-weight: 650;
+}
+
+.ga-ultrasound-monitor figcaption span,
+.ga-ultrasound-locator p,
+.ga-ultrasound-note {
+  color: var(--ga-muted);
+  font-size: 0.875rem;
+  font-weight: 400;
+}
+
+.ga-ultrasound-locator {
+  display: flex;
+  flex-direction: column;
+}
+
+.ga-ultrasound-body {
+  display: grid;
+  flex: 1;
+  min-height: 180px;
+  padding: 10px;
+  place-items: center;
+}
+
+.ga-ultrasound-body-image {
+  position: relative;
+  width: min(100%, 118px);
+  background: #fff;
+  border-radius: 5px;
+}
+
+.ga-ultrasound-body img,
+.ga-ultrasound-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.ga-ultrasound-probe {
+  position: absolute;
+  width: 24px;
+  height: 12px;
+  background: #344aa1;
+  border: 2px solid white;
+  border-radius: 6px;
+  box-shadow: 0 0 0 1px #344aa1;
+  transform: translate(-50%, -50%) rotate(-22deg);
+}
+
+.ga-ultrasound-locator p,
+.ga-ultrasound-legend {
+  margin: 0;
+  padding: 8px 12px;
+}
+
+.ga-ultrasound-image {
+  position: relative;
+  width: min(100%, 560px);
+  margin-inline: auto;
+  background: #000;
+}
+
+.ga-ultrasound-image > p {
+  padding: 12px;
+  color: #fff;
+}
+
+.ga-gallery .ga-ultrasound-target {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  transform: translate(-50%, -50%);
+  border: 2px solid white;
+  border-radius: 50%;
+  background: #121622;
+  color: white;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ga-gallery .ga-ultrasound-target[aria-pressed="true"] {
+  border: 3px double #142865;
+  background: #eef1ff;
+  color: #162348;
+}
+
+.ga-ultrasound-monitor {
+  display: flex;
+  flex-direction: column;
+}
+
+.ga-ultrasound-legend span { margin-inline-start: 1rem; }
+.ga-ultrasound-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; }
+.ga-ultrasound-controls button[aria-pressed="true"] { font-weight: 700; box-shadow: inset 0 -3px var(--ga-accent); }
+.ga-ultrasound-answer:empty { margin: 0; }
+.ga-ultrasound-review { margin-block: 16px; }
+.ga-ultrasound-evidence-locator { max-width: 280px; margin-block: 12px; }
+.ga-ultrasound-geometry { display: grid; grid-template-columns: max-content 1fr; gap: 4px 16px; }
+.ga-ultrasound-geometry dt { font-weight: 650; }
+.ga-ultrasound-geometry dd { margin: 0; }
+
+@media (max-width: 620px) {
+  .ga-ultrasound-board { grid-template-columns: 1fr; }
+  .ga-ultrasound-body { min-height: 0; }
+  .ga-ultrasound-body-image { width: 65px; }
+  .ga-ultrasound-geometry { grid-template-columns: minmax(0, 1fr); }
+}

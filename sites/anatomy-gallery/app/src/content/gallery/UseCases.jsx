@@ -8,6 +8,7 @@ import { PathwayLinks } from './Pathways.jsx';
 import { oralSpacesPath, regionalPath } from './teaching-data.js';
 import { SkeletalLessonLink } from './SkeletalLesson.jsx';
 import { dentalLayersPath, heartSlicePath, oneBreathPath } from './SpecialistStills.jsx';
+import { ultrasoundCollection } from './ultrasound-data.js';
 
 import checks from './teaching-inputs/use-case-checks.json';
 
@@ -52,6 +53,10 @@ export function UseCases({ localPreview }) {
         <Link to={heartSlicePath}>Read the same heart slice three ways →</Link>
         <p>Compare three synthetic displays of the same cardiac plane.</p>
       </div>
+      {localPreview && <div className="ga-collection-link">
+        <Link to={ultrasoundCollection}>Ultrasound Anatomy →</Link>
+        <p>Use the probe location and matching section to identify anatomy in a synthetic scan.</p>
+      </div>}
       <div className="ga-collection-link">
         <Link to={regionalPath}>Regional locators →</Link>
         <p>Locate aortic arch branches, the pulmonary vein, the brainstem source cut and the tubal end.</p>

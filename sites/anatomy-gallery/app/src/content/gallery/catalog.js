@@ -2,6 +2,7 @@ import { adrenalComparison, adrenalLesson, adrenalLibrary } from './adrenal-stud
 import retainedReviews from './static-reviews.json' with { type: 'json' };
 import { pathways } from './pathway-data.js';
 import { airwayStudies } from './airway-data.js';
+import { abdomenTour } from './ultrasound-data.js';
 import { oralSpaces, oralSpacesPath, regionalLessons, regionalPath } from './teaching-data.js';
 import {
   skeletalCredit, skeletalExportPath, skeletalLibraryPath, skeletalLicense, skeletalPackage, skeletalPath,
@@ -216,6 +217,7 @@ export const studies = Object.freeze({
     heartSlice,
     oneBreathStoryboard,
     dentalLayerSheet,
+    { id: abdomenTour.id, title: abdomenTour.title, stops: abdomenTour.stops.map(({ id }) => id) },
   ],
   reviews: [
     ...staticReviews.map((study) => ({
