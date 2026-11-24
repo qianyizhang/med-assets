@@ -8,11 +8,13 @@ import tempfile
 
 import build_abdomen
 import build_breast
+import build_early_pregnancy
+import build_gestational
 import build_pregnancy
 import build_thyroid
 from breast_anatomy import FEMALE_SKIN_SHA, MAMMARY_SHA
-from delivery import sha256, sweep_files, validate_image, validate_mesh, verify_inventory
-from geometry import KEYFRAMES, SECTOR_DEPTH_MM, SECTOR_HALF_ANGLE_DEG, LENS_RADIUS_MM, VOXEL_MM
+from delivery import detail_files, sha256, sweep_files, validate_image, validate_mesh, verify_inventory
+from geometry import FRAME_COUNT, KEYFRAMES, SECTOR_DEPTH_MM, SECTOR_HALF_ANGLE_DEG, LENS_RADIUS_MM, VOXEL_MM
 from prepare_scenes import read_vendor, shared_geometry
 
 HERE = Path(__file__).resolve().parent
@@ -58,6 +60,8 @@ def reference_sources(regional_sources):
         if source == 'normal-landmarks.json':
             landmarks.update(group)
         for key, ref in group.items():
+            if ref.get('role') in ('related', 'comparison-and-related'):
+                landmarks.add(key)
             if key in refs:
                 raise ValueError(f'Duplicate reference {key}')
             name = Path(ref['path']).name
@@ -83,10 +87,14 @@ def verify_track(root, track, stops, builder):
     if builder is build_breast and (receipt.get('mammaryAtlasSha256') != MAMMARY_SHA
                                     or receipt.get('femaleSkinSha256') != FEMALE_SKIN_SHA):
         raise ValueError(f'Rebuild {slug} for the current breast atlas inputs.')
-    if builder is build_pregnancy:
+    if builder in (build_pregnancy, build_early_pregnancy, build_gestational):
         if not (root / 'delivery.json').is_file():
             raise ValueError(f'Missing pregnancy sweep delivery inventory: {slug}')
-        if receipt.get('pregnancyRecipeSha256') != builder.pregnancy_recipe_sha256():
+        if builder is build_pregnancy:
+            model_matches = receipt.get('pregnancyRecipeSha256') == builder.pregnancy_recipe_sha256()
+        else:
+            model_matches = receipt.get('modelRecipeSha256') == builder.model_recipe_sha256()
+        if not model_matches:
             raise ValueError(f'Rebuild {slug} for the current pregnancy anatomy and sampler.')
     expected_pose = builder.pose_recipe_sha256(slug)
     if (track.get('requirePoseReceipt', False) or 'poseRecipeSha256' in receipt) and (
@@ -110,8 +118,36 @@ def verify_track(root, track, stops, builder):
         raise ValueError(f'Rebuild {slug} for the configured exterior, depth, case and keyframes.')
 
 
+def configure_timeline(tour):
+    slug = tour['id']
+    if 'stops' in tour:
+        stops = tour.pop('stops')
+    else:
+        stops = [dict(frame=frame, label=label, referenceId=f'{slug}-{frame}')
+                 for frame, label in zip(KEYFRAMES, tour.pop('keyframeLabels'), strict=True)]
+        if entry := tour.pop('entryReference', None):
+            if entry['frame'] != 0:
+                raise ValueError(f'Entry comparison must start at frame zero: {slug}')
+            stops.insert(0, entry)
+            tour['initialFrame'] = KEYFRAMES[0]
+    frames = [stop['frame'] for stop in stops]
+    if (not frames or any(type(frame) is not int or frame not in range(FRAME_COUNT) for frame in frames)
+            or frames != sorted(set(frames)) or tour.get('initialFrame', frames[0]) not in frames):
+        raise ValueError(f'Invalid comparison frames: {slug}')
+    tour['keyframes'] = stops
+    if 'phases' not in tour:
+        split = next(frame for frame in frames if frame > 0)
+        tour['phases'] = [dict(frame=frame, label=label) for frame, label in
+                          zip((0, split), tour.pop('phaseLabels'), strict=True)]
+    phase_frames = [phase['frame'] for phase in tour['phases']]
+    if (not phase_frames or phase_frames[0] != 0 or phase_frames != sorted(set(phase_frames))
+            or any(type(frame) is not int or frame not in range(FRAME_COUNT - 1) for frame in phase_frames)):
+        raise ValueError(f'Invalid sweep phases: {slug}')
+
+
 def configured_tours(output, refs, files, landmark_refs, tracks):
     tours, identities, used_references = [], {}, set()
+    pregnancy_stages = json.loads((HERE / 'pregnancy-stages.json').read_text())
     for track, builder in tracks:
         tour = track.copy()
         slug = tour['id']
@@ -141,36 +177,45 @@ def configured_tours(output, refs, files, landmark_refs, tracks):
             if tour.get('exterior') == 'fitted-atlas' else
             f'External body surface and internal structures sampled from the same {case} CT.'
         ))
-        stops = [dict(frame=frame, label=label, referenceId=f'{slug}-{frame}')
-                 for frame, label in zip(KEYFRAMES, tour.pop('keyframeLabels'), strict=True)]
-        if entry := tour.pop('entryReference', None):
-            if entry['frame'] != 0:
-                raise ValueError(f'Entry comparison must start at frame zero: {slug}')
-            stops.insert(0, entry)
-            tour['initialFrame'] = KEYFRAMES[0]
-        tour['keyframes'] = stops
+        configure_timeline(tour)
+        stops = tour['keyframes']
+        if tour.get('bodyRegion') == 'Pregnancy':
+            tour['pregnancyStage'] = pregnancy_stages[tour['pregnancyStage']]
         for stop in stops:
             ref_id = stop['referenceId']
-            if ref_id not in refs or ref_id in landmark_refs:
+            if ref_id not in refs or (ref_id in landmark_refs and refs[ref_id].get('role') != 'comparison-and-related'):
                 raise ValueError(f'Missing acquired comparison: {ref_id}')
             used_references.add(ref_id)
-        tour['phases'] = [dict(frame=frame, label=label) for frame, label in
-                          zip((0, KEYFRAMES[0]), tour.pop('phaseLabels'), strict=True)]
         landmarks = tour.setdefault('landmarks', [])
         if not isinstance(landmarks, list) or len(set(landmarks)) != len(landmarks) or set(landmarks) - landmark_refs:
             raise ValueError(f'Invalid supporting landmark reference: {slug}')
         used_references.update(landmarks)
 
-        inventory = sweep_files(mesh_names)
+        if detail_frames := tour.pop('detailFrames', []):
+            receipt = json.loads((output / root / 'verification.json').read_text())
+            rois = receipt['detailRois']
+            if set(map(str, detail_frames)) != set(rois) or set(detail_frames) - {stop['frame'] for stop in stops}:
+                raise ValueError(f'Unexpected magnified keyframes: {slug}')
+            for stop in stops:
+                if stop['frame'] in detail_frames:
+                    stop['detail'] = {'roi': rois[str(stop['frame'])]}
+        for stop in stops:
+            if 'detail' in stop:
+                grid = build_abdomen.ImagingGrid(tour['sectorDepthMm'], stop['detail']['roi'])
+                half_pixel = (grid.x[0, 1] - grid.x[0, 0]) / 2
+                stop['detail']['boundsMm'] = [round(float(bound), 4) for bound in
+                    (grid.x[0, 0] - half_pixel, grid.y[0, 0] - half_pixel,
+                     grid.x[0, -1] + half_pixel, grid.y[-1, 0] + half_pixel)]
+        inventory = sweep_files(mesh_names) + detail_files(stops)
         if slug == 'gallbladder':
             inventory += [ref['path'] for ref in GALLBLADDER_REFERENCES.values()]
         else:
             verify_track(output / root, track, stops, builder)
             tour.pop('requirePoseReceipt', None)
             tour.pop('requirePaletteReceipt', None)
-            if builder is build_pregnancy:
-                tour.pop('windows')
-                tour.pop('landmarkMinimums')
+            if tour.get('pregnancyStage'):
+                for key in ('windows', 'landmarkMinimums', 'requireModelReceipt'):
+                    tour.pop(key, None)
         verify_inventory(output / root, inventory)
         for relative in inventory:
             path = root.removeprefix('./') + relative
@@ -204,7 +249,9 @@ def assemble(output, delivery=None):
     regional_sources = []
     for region, builder, group in [('thyroid', build_thyroid, build_thyroid.read_thyroid_tracks()),
                                    ('breast', build_breast, build_breast.read_breast_tracks()),
-                                   ('pregnancy', build_pregnancy, build_pregnancy.read_pregnancy_tracks())]:
+                                   ('early-pregnancy', build_early_pregnancy, build_early_pregnancy.read_tracks()),
+                                   ('pregnancy', build_pregnancy, build_pregnancy.read_pregnancy_tracks()),
+                                   ('gestational', build_gestational, build_gestational.read_tracks())]:
         if any((output / 'sweeps' / track['id']).exists() for track in group):
             missing = [track['id'] for track in group if not (output / 'sweeps' / track['id']).is_dir()]
             if missing:

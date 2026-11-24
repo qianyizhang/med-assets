@@ -1,0 +1,331 @@
+{
+  "shared": {
+    "bodyRegion": "Pregnancy",
+    "exterior": "authored-gravid-abdomen",
+    "probeType": "curved",
+    "fieldShape": "sector",
+    "voxelMm": 1.5,
+    "referenceContext": "Acquired comparison",
+    "requirePoseReceipt": true,
+    "requirePaletteReceipt": true,
+    "simulationNote": "A curved probe samples the 3D anatomy. Tissue brightness is illustrative."
+  },
+  "stages": {
+    "mid": {
+      "case": "authored-pregnancy-20-weeks",
+      "region": "Mid-trimester anatomy · about 20 weeks",
+      "anatomySource": {
+        "label": "ISUOG · Routine mid-trimester fetal ultrasound",
+        "url": "https://doi.org/10.1002/uog.24888"
+      },
+      "additionalAnatomySources": [
+        {
+          "label": "ISUOG · Fetal cardiac screening",
+          "url": "https://doi.org/10.1002/uog.26224"
+        }
+      ]
+    },
+    "late": {
+      "case": "authored-pregnancy-32-weeks",
+      "region": "Third-trimester anatomy · about 32 weeks",
+      "anatomySource": {
+        "label": "ISUOG · Third-trimester obstetric ultrasound",
+        "url": "https://doi.org/10.1002/uog.27538"
+      },
+      "additionalAnatomySources": [
+        {
+          "label": "ISUOG · Use of Doppler velocimetry in obstetrics",
+          "url": "https://doi.org/10.1002/uog.23698"
+        }
+      ]
+    }
+  },
+  "parts": {
+    "uterus": ["Uterine wall and cervix", "#c28c9e", 0.25],
+    "amniotic_cavity": ["Amniotic cavity", "#8bc8d2", 0.09],
+    "placenta": ["Placenta", "#be657a", 0.83],
+    "maternal_bladder": ["Maternal bladder", "#dfbb75", 0.43],
+    "cord": ["Umbilical cord", "#ab98d7", 0.82],
+    "fetus": ["Fetal exterior", "#e7a48a", 0.32],
+    "calvarium": ["Calvarium", "#ded0b0", 0.78],
+    "falx": ["Midline falx", "#9eb5d5", 0.49],
+    "ventricles": ["Lateral ventricles", "#76accd", 0.73],
+    "choroid": ["Choroid plexuses", "#d8d18e", 0.82],
+    "cavum": ["Cavum septi pellucidi", "#8ee0d9", 0.81],
+    "thalami": ["Thalami", "#ba8eaa", 0.74],
+    "cerebellum": ["Cerebellum", "#a595d0", 0.87],
+    "cisterna_magna": ["Cisterna magna", "#81c9d9", 0.73],
+    "orbits": ["Eye globes", "#85c1c8", 0.86],
+    "nasal_bone": ["Nasal bone", "#edd1a9", 0.83],
+    "spine": ["Developing spine", "#e1c7a6", 0.93],
+    "heart": ["Myocardium", "#dc7881", 0.37],
+    "lungs": ["Lungs", "#c698a9", 0.46],
+    "left_atrium": ["Left atrium", "#d3a6d0", 0.82],
+    "right_atrium": ["Right atrium", "#91bdd8", 0.82],
+    "left_ventricle": ["Left ventricle", "#e9a8ac", 0.85],
+    "right_ventricle": ["Right ventricle", "#9ab9e2", 0.85],
+    "aortic_outflow": ["Aorta", "#df899b", 0.92],
+    "pulmonary_outflow": ["Pulmonary trunk and ductal course", "#ad9bdc", 0.87],
+    "superior_vena_cava": ["Superior vena cava", "#83b1d3", 0.88],
+    "trachea": ["Trachea", "#acdad4", 0.82],
+    "stomach": ["Stomach", "#90cacc", 0.84],
+    "umbilical_vein": ["Intra-abdominal umbilical vein", "#a29cdd", 0.85],
+    "kidneys": ["Kidneys", "#c88f8a", 0.84],
+    "renal_pelves": ["Renal pelves", "#8bd2cb", 0.83],
+    "fetal_bladder": ["Fetal bladder", "#dfc183", 0.79],
+    "umbilical_arteries": ["Umbilical arteries", "#c491bc", 0.81],
+    "femur": ["Femoral shafts", "#f4d9ab", 0.92],
+    "hands": ["Hand bones", "#ead4ad", 0.93],
+    "feet": ["Foot bones", "#dec3a2", 0.92],
+    "fluid_span": ["Clear vertical fluid span", "#8ed4e4", 0.86],
+    "cervical_canal": ["Cervical canal", "#a9d8df", 0.8],
+    "diaphragm": ["Diaphragm contour", "#d5c3b8", 0.58],
+    "upper_lip": ["Upper lip", "#eebfa1", 0.85],
+    "nares": ["Paired nares", "#ae9ed3", 0.84]
+  },
+  "tracks": [
+    {
+      "id": "pregnancy-mid-brain",
+      "pregnancyStage": "mid",
+      "title": "Fetal brain and face",
+      "organ": "calvarium",
+      "sectorDepthMm": 192,
+      "parts": ["uterus", "amniotic_cavity", "fetus", "calvarium", "falx", "ventricles", "choroid", "cavum", "thalami", "cerebellum", "cisterna_magna", "orbits", "nasal_bone", "placenta", "upper_lip", "nares"],
+      "fetusOpacity": 0.23,
+      "overlayParts": ["calvarium", "falx", "ventricles", "choroid", "cavum", "thalami", "cerebellum", "cisterna_magna", "orbits", "nasal_bone", "upper_lip", "nares"],
+      "obliqueDirection": [0.8, 1, 1.15],
+      "stops": [
+        {"frame": 12, "label": "Transventricular head", "referenceId": "pregnancy-mid-brain-12"},
+        {"frame": 20, "label": "Transthalamic head", "referenceId": "pregnancy-mid-brain-20"},
+        {"frame": 28, "label": "Posterior fossa", "referenceId": "pregnancy-mid-brain-28"},
+        {"frame": 38, "label": "Coronal nose and upper lip", "referenceId": "pregnancy-mid-brain-38"},
+        {"frame": 48, "label": "Midsagittal profile", "referenceId": "pregnancy-mid-brain-48"}
+      ],
+      "initialFrame": 12,
+      "phases": [
+        {"frame": 0, "label": "Find the head"},
+        {"frame": 12, "label": "Angle toward the posterior fossa"},
+        {"frame": 28, "label": "Turn through the face"}
+      ],
+      "windows": [
+        {"frame": 0, "point": [0, 0, 114.5], "marker": [1, 0, 0], "outward": [0.08, 1, 0.06], "space": "template", "minimums": {}},
+        {"frame": 12, "point": [0, 0, 111.9], "marker": [1, 0, 0], "outward": [0, 1, 0], "space": "template", "minimums": {"calvarium": 80, "ventricles": 30, "choroid": 15, "falx": 12}},
+        {"frame": 20, "point": [0, -1, 105.8], "marker": [1, 0, 0], "outward": [0, 1, 0.025], "space": "template", "minimums": {"calvarium": 75, "cavum": 15, "thalami": 24, "falx": 10}},
+        {"frame": 28, "point": [0, -13, 99.0], "marker": [1, 0, 0], "outward": [0, 1, 0.19], "space": "template", "minimums": {"calvarium": 65, "cerebellum": 25, "cisterna_magna": 9}},
+        {"frame": 38, "point": [0, 32.2, 96.8], "marker": [1, 0, 0], "outward": [0, 0.62, 1], "space": "template", "minimums": {"upper_lip": 18, "nares": 9, "fetus": 250}},
+        {"frame": 48, "point": [0, 14, 103], "marker": [0, 0, 1], "outward": [0, 1, 0], "space": "template", "minimums": {"fetus": 450, "nasal_bone": 6, "calvarium": 60}}
+      ],
+      "sourceNote": "Authored singleton at about 20 weeks in one transverse-oblique lie, with a posterior-left placenta. The gray image samples a static teaching volume. The brain and face landmarks illustrate the corresponding tissue planes."
+    },
+    {
+      "id": "pregnancy-mid-heart",
+      "pregnancyStage": "mid",
+      "title": "Fetal heart and great vessels",
+      "organ": "heart",
+      "sectorDepthMm": 167,
+      "parts": ["uterus", "amniotic_cavity", "fetus", "spine", "lungs", "diaphragm", "heart", "left_atrium", "right_atrium", "left_ventricle", "right_ventricle", "aortic_outflow", "pulmonary_outflow", "superior_vena_cava", "trachea", "placenta"],
+      "fetusOpacity": 0.23,
+      "overlayParts": ["spine", "lungs", "diaphragm", "heart", "left_atrium", "right_atrium", "left_ventricle", "right_ventricle", "aortic_outflow", "pulmonary_outflow", "superior_vena_cava", "trachea"],
+      "obliqueDirection": [-1.35, 1, 0.1],
+      "stops": [
+        {"frame": 8, "label": "Four-chamber view", "tickLabel": "Four chambers", "referenceId": "pregnancy-mid-heart-8"},
+        {"frame": 22, "label": "Left ventricular outflow", "tickLabel": "Left outflow", "referenceId": "pregnancy-mid-heart-22"},
+        {"frame": 35, "label": "Right ventricular outflow", "tickLabel": "Right outflow", "referenceId": "pregnancy-mid-heart-35"},
+        {"frame": 42, "label": "Three-vessel view", "tickLabel": "Three vessels", "referenceId": "pregnancy-mid-heart-42"},
+        {"frame": 48, "label": "Three vessels and trachea", "tickLabel": "Vessels and trachea", "referenceId": "pregnancy-mid-heart-48"}
+      ],
+      "initialFrame": 8,
+      "phases": [
+        {"frame": 0, "label": "Find the four chambers"},
+        {"frame": 8, "label": "Tilt through the ventricular outlets"},
+        {"frame": 35, "label": "Sweep toward the upper chest"}
+      ],
+      "windows": [
+        {"frame": 0, "point": [-4, 0, 38.8], "marker": [1, 0, 0], "outward": [0.03, 1, 0.07], "space": "template", "minimums": {}},
+        {"frame": 8, "point": [-4, 0, 42.5], "marker": [1, 0, 0], "outward": [0, 1, 0], "space": "template", "minimums": {"left_atrium": 16, "right_atrium": 16, "left_ventricle": 16, "right_ventricle": 16, "lungs": 30}},
+        {"frame": 22, "point": [-6, 5, 50.8], "marker": [1, -0.1, 1.1], "outward": [0, 1, 0.13], "space": "template", "minimums": {"left_ventricle": 20, "aortic_outflow": 14}},
+        {"frame": 35, "point": [-1, 8, 50.9], "marker": [1, 0, 0], "outward": [0, 1, 1], "space": "template", "minimums": {"right_ventricle": 10, "pulmonary_outflow": 16}},
+        {"frame": 42, "point": [0, 7, 58.6], "marker": [1, 0, 0], "outward": [0, 1, 0], "space": "template", "minimums": {"aortic_outflow": 12, "pulmonary_outflow": 12, "superior_vena_cava": 8}},
+        {"frame": 48, "point": [-1.4, 3.9, 64.25], "marker": [1, 0, 0], "outward": [0, 1, 0], "space": "template", "minimums": {"aortic_outflow": 10, "pulmonary_outflow": 10, "superior_vena_cava": 8, "trachea": 8}}
+      ],
+      "sourceNote": "Authored singleton at about 20 weeks in one transverse-oblique lie, with a posterior-left placenta. The gray image samples a static teaching volume. The chamber and outflow paths are fixed anatomical teaching shapes."
+    },
+    {
+      "id": "pregnancy-mid-abdomen",
+      "pregnancyStage": "mid",
+      "title": "Fetal abdomen and urinary tract",
+      "organ": "fetus",
+      "sectorDepthMm": 170,
+      "parts": ["uterus", "amniotic_cavity", "fetus", "spine", "stomach", "umbilical_vein", "kidneys", "renal_pelves", "fetal_bladder", "umbilical_arteries", "cord", "placenta"],
+      "fetusOpacity": 0.23,
+      "overlayParts": ["spine", "stomach", "umbilical_vein", "kidneys", "renal_pelves", "fetal_bladder", "umbilical_arteries", "cord"],
+      "obliqueDirection": [0.6, 1, 1.15],
+      "stops": [
+        {"frame": 10, "label": "Abdominal circumference plane", "referenceId": "pregnancy-mid-abdomen-10"},
+        {"frame": 24, "label": "Kidneys", "referenceId": "pregnancy-mid-abdomen-24"},
+        {"frame": 36, "label": "Fetal bladder", "referenceId": "pregnancy-mid-abdomen-36"},
+        {"frame": 48, "label": "Fetal cord insertion", "referenceId": "pregnancy-mid-abdomen-48"}
+      ],
+      "initialFrame": 10,
+      "phases": [
+        {"frame": 0, "label": "Find the stomach and umbilical vein"},
+        {"frame": 10, "label": "Sweep toward the pelvis"},
+        {"frame": 36, "label": "Turn toward the cord insertion"}
+      ],
+      "windows": [
+        {"frame": 0, "point": [0, 2.3, 19], "marker": [1, 0, 0], "outward": [0.045, 1, 0.04], "space": "template", "minimums": {}},
+        {"frame": 10, "point": [0, 2.3, 16.1], "marker": [1, 0, 0], "outward": [0, 1, 0], "space": "template", "minimums": {"fetus": 550, "stomach": 25, "umbilical_vein": 16}},
+        {"frame": 24, "point": [0, -8, 5.6], "marker": [1, 0, 0], "outward": [0, 1, 0], "space": "template", "minimums": {"kidneys": 45, "renal_pelves": 9}},
+        {"frame": 36, "point": [0, 5.4, -12.5], "marker": [1, 0, 0], "outward": [0, 1, 0], "space": "template", "minimums": {"fetal_bladder": 45, "umbilical_arteries": 9}},
+        {"frame": 48, "point": [0, 22.7, 11.7], "marker": [0, 0, 1], "outward": [0, 1, 0], "space": "template", "minimums": {"cord": 28, "umbilical_vein": 11}}
+      ],
+      "sourceNote": "Authored singleton at about 20 weeks in one transverse-oblique lie, with a posterior-left placenta. The gray image samples a static teaching volume."
+    },
+    {
+      "id": "pregnancy-mid-spine-limbs",
+      "pregnancyStage": "mid",
+      "title": "Fetal spine and limbs",
+      "organ": "spine",
+      "sectorDepthMm": 166,
+      "parts": ["uterus", "amniotic_cavity", "fetus", "spine", "femur", "hands", "feet", "placenta"],
+      "fetusOpacity": 0.66,
+      "overlayParts": ["spine", "femur", "hands", "feet"],
+      "obliqueDirection": [-1.3, 1, 0.75],
+      "stops": [
+        {"frame": 10, "label": "Sagittal spine", "referenceId": "pregnancy-mid-spine-limbs-10"},
+        {"frame": 24, "label": "Femur length plane", "referenceId": "pregnancy-mid-spine-limbs-24"},
+        {"frame": 36, "label": "Hand", "referenceId": "pregnancy-mid-spine-limbs-36"},
+        {"frame": 48, "label": "Foot", "referenceId": "pregnancy-mid-spine-limbs-48"}
+      ],
+      "initialFrame": 10,
+      "phases": [
+        {"frame": 0, "label": "Find the developing spine"},
+        {"frame": 10, "label": "Follow the bones of the leg"},
+        {"frame": 24, "label": "Turn to the hand and foot"}
+      ],
+      "windows": [
+        {"frame": 0, "point": [4, -12, 38], "marker": [0, 0, 1], "outward": [0, 1, 0.1], "space": "template", "minimums": {}},
+        {"frame": 10, "point": [0, -14, 36], "marker": [0, 0, 1], "outward": [0, 1, 0.07], "space": "template", "minimums": {"spine": 30, "fetus": 470}},
+        {"frame": 24, "point": [17, 11, -26], "marker": [10, 18, -24], "outward": [0, 1, 0.02], "space": "local", "minimums": {"femur": 55}},
+        {"frame": 36, "point": [25, 36, 55], "marker": [-8, 0, -2], "outward": [-2, 7, 8], "space": "local", "minimums": {"hands": 15, "fetus": 400}},
+        {"frame": 48, "point": [20, 30, -8], "marker": [0, -0.34, 1], "outward": [0, 1, 0.04], "space": "local", "minimums": {"feet": 12, "fetus": 400}}
+      ],
+      "sourceNote": "Authored singleton at about 20 weeks in one transverse-oblique lie, with a posterior-left placenta. The gray image samples a static teaching volume."
+    },
+    {
+      "id": "pregnancy-late-presentation",
+      "pregnancyStage": "late",
+      "title": "Fetal presentation, placenta and fluid",
+      "organ": "amniotic_cavity",
+      "sectorDepthMm": 216,
+      "parts": ["uterus", "amniotic_cavity", "fetus", "calvarium", "placenta", "maternal_bladder", "fluid_span", "cord", "cervical_canal"],
+      "fetusOpacity": 0.94,
+      "overlayParts": ["calvarium", "placenta", "maternal_bladder", "fluid_span", "cord", "cervical_canal"],
+      "obliqueDirection": [-1.35, 1, 0.1],
+      "stops": [
+        {"frame": 12, "label": "Cephalic presentation", "referenceId": "pregnancy-late-presentation-12"},
+        {"frame": 30, "label": "Placental location", "referenceId": "pregnancy-late-presentation-30"},
+        {"frame": 48, "label": "Vertical fluid pocket", "referenceId": "pregnancy-late-presentation-48"}
+      ],
+      "initialFrame": 12,
+      "phases": [
+        {"frame": 0, "label": "Find the presenting head"},
+        {"frame": 12, "label": "Slide toward the anterior placenta"},
+        {"frame": 30, "label": "Find the cord-free fluid window"}
+      ],
+      "windows": [
+        {"frame": 0, "point": [14, 0, -53], "marker": [0, 0, 1], "outward": [0.1, 1, 0.13], "space": "maternal", "minimums": {}},
+        {"frame": 12, "point": [0, 26, -65], "marker": [0, 0, 1], "outward": [0, 1, 0.13], "space": "maternal", "minimums": {"calvarium": 80, "maternal_bladder": 60, "uterus": 350, "cervical_canal": 16}},
+        {"frame": 30, "point": [12, 94, 183], "marker": [0, 0, 1], "outward": [-0.1, 1, 0.23], "space": "maternal", "minimums": {"placenta": 500, "uterus": 350}},
+        {"frame": 48, "point": [44, 67, 95], "marker": [0, 0, 1], "outward": [0, 1, 0], "space": "maternal", "minimums": {"fluid_span": 40, "fetus": 120, "uterus": 140}}
+      ],
+      "sourceNote": "Authored singleton at about 32 weeks in a cephalic lie, with a high anterior placenta. The gray image samples a static teaching volume. The vertical locator spans the clear fluid bounded by the fetus and uterine wall.",
+      "landmarks": ["pregnancy-related-placenta-cervix"]
+    },
+    {
+      "id": "pregnancy-late-biometry",
+      "pregnancyStage": "late",
+      "title": "Fetal growth planes",
+      "organ": "fetus",
+      "sectorDepthMm": 244,
+      "parts": ["uterus", "amniotic_cavity", "fetus", "calvarium", "falx", "cavum", "thalami", "stomach", "umbilical_vein", "spine", "femur", "placenta"],
+      "fetusOpacity": 0.5,
+      "overlayParts": ["calvarium", "falx", "cavum", "thalami", "stomach", "umbilical_vein", "spine", "femur"],
+      "obliqueDirection": [0.85, 1, 1.15],
+      "stops": [
+        {"frame": 12, "label": "Head circumference plane", "referenceId": "pregnancy-late-biometry-12"},
+        {"frame": 30, "label": "Abdominal circumference plane", "referenceId": "pregnancy-late-biometry-30"},
+        {"frame": 48, "label": "Femur length plane", "referenceId": "pregnancy-late-biometry-48"}
+      ],
+      "initialFrame": 12,
+      "phases": [
+        {"frame": 0, "label": "Find the axial head plane"},
+        {"frame": 12, "label": "Slide to the abdomen"},
+        {"frame": 30, "label": "Turn along the femur"}
+      ],
+      "windows": [
+        {"frame": 0, "point": [0, 2.0, 111], "marker": [1, 0, 0], "outward": [0.04, 1, 0.03], "space": "template", "minimums": {}},
+        {"frame": 12, "point": [0, 1, 107.5], "marker": [1, 0, 0], "outward": [0, 1, 0], "space": "template", "minimums": {"calvarium": 130, "cavum": 14, "thalami": 35, "falx": 14}},
+        {"frame": 30, "point": [0, 3, 16.1], "marker": [1, 0, 0], "outward": [0, 1, 0], "space": "template", "minimums": {"fetus": 800, "stomach": 35, "umbilical_vein": 16}},
+        {"frame": 48, "point": [25.5, 11, -53.5], "marker": [11, 22, -51], "outward": [0, 1, 0], "space": "local", "minimums": {"femur": 95}}
+      ],
+      "sourceNote": "Authored singleton at about 32 weeks in a cephalic lie, with a high anterior placenta. The gray image samples a static teaching volume. The planes illustrate the anatomical level of common growth measurements."
+    },
+    {
+      "id": "pregnancy-late-cord",
+      "pregnancyStage": "late",
+      "title": "Umbilical cord sampling site",
+      "organ": "cord",
+      "sectorDepthMm": 190,
+      "parts": ["uterus", "amniotic_cavity", "fetus", "placenta", "cord", "umbilical_vein"],
+      "fetusOpacity": 0.23,
+      "overlayParts": ["placenta", "cord", "umbilical_vein"],
+      "obliqueDirection": [1.3, 1, 1.15],
+      "stops": [
+        {"frame": 12, "label": "Fetal cord insertion", "referenceId": "pregnancy-late-cord-12"},
+        {"frame": 48, "label": "Free-loop sampling site", "referenceId": "pregnancy-late-cord-48"}
+      ],
+      "initialFrame": 12,
+      "phases": [
+        {"frame": 0, "label": "Find the fetal cord insertion"},
+        {"frame": 12, "label": "Follow the cord to a free loop"}
+      ],
+      "windows": [
+        {"frame": 0, "point": [2, 22, 12], "marker": [0, 0, 1], "outward": [0.1, 1, 0], "space": "template", "minimums": {}},
+        {"frame": 12, "point": [0, 24, 11.6], "marker": [0, 0, 1], "outward": [0, 1, 0], "space": "template", "minimums": {"cord": 35, "umbilical_vein": 15}},
+        {"frame": 48, "point": [35, 77, 133], "marker": [1, 0, 0], "outward": [0.1, 1, 0.03], "space": "maternal", "minimums": {"cord": 75}}
+      ],
+      "sourceNote": "Authored singleton at about 32 weeks in a cephalic lie, with a high anterior placenta. The gray image samples a static teaching volume. The acquired image alone shows measured Doppler flow.",
+      "landmarks": ["pregnancy-related-middle-cerebral-doppler", "pregnancy-related-uterine-artery-doppler"]
+    },
+    {
+      "id": "pregnancy-mid-placenta",
+      "pregnancyStage": "mid",
+      "title": "Placenta, cervix and cord insertion",
+      "organ": "placenta",
+      "sectorDepthMm": 192,
+      "parts": ["uterus", "cervical_canal", "amniotic_cavity", "fetus", "placenta", "maternal_bladder", "cord"],
+      "fetusOpacity": 0.33,
+      "overlayParts": ["uterus", "cervical_canal", "placenta", "maternal_bladder", "cord"],
+      "obliqueDirection": [-0.88, 1, 0.36],
+      "stops": [
+        {"frame": 12, "label": "Posterior placental edge and cervix", "referenceId": "pregnancy-related-placenta-cervix"},
+        {"frame": 48, "label": "Placental cord insertion", "referenceId": "pregnancy-mid-placenta-48"}
+      ],
+      "initialFrame": 12,
+      "phases": [
+        {"frame": 0, "label": "Find the cervix behind the bladder"},
+        {"frame": 12, "label": "Slide and turn toward the placental insertion"}
+      ],
+      "windows": [
+        {"frame": 0, "point": [8, 25.721, 59.362], "marker": [0, 0, 1], "outward": [-0.025, 1, -0.13], "space": "maternal", "minimums": {}},
+        {"frame": 12, "point": [0, 23.721, 58.362], "marker": [0, 0, 1], "outward": [0, 1, -0.04], "space": "maternal", "minimums": {"uterus": 3800, "cervical_canal": 190, "placenta": 2100, "maternal_bladder": 250}},
+        {"frame": 48, "point": [-1.154, 13.224, 120.805], "marker": [-0.3668, -0.1045, 0.9244], "outward": [0.12, 1, 0.12], "space": "maternal", "minimums": {"placenta": 2100, "cord": 625}}
+      ],
+      "additionalAnatomySources": [
+        {"label": "Ann E. Quinton et al. · Placenta position and cervical landmarks", "url": "https://doi.org/10.1002/sono.12526"}
+      ],
+      "sourceNote": "This model shows one posterior placenta at about 20 weeks. Follow its lower edge in relation to the internal opening of the maternal cervix, then identify where the cord meets the fetal surface of the placenta. The calipers in the acquired comparison belong to the published case."
+    }
+  ]
+}

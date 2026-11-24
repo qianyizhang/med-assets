@@ -40,6 +40,7 @@ const state = {
   frame: 0,
   shownFrame: null,
   section: false,
+  magnified: false,
   assets: false,
   group: 'anatomy',
   ready: false,
@@ -113,34 +114,59 @@ function drawReadout(frame) {
   }
 }
 
+function scanDimensions(bounds) {
+  if (bounds) {
+    const [left, near, right, far] = bounds;
+    const cm = (mm) => Number((mm / 10).toFixed(1));
+    return 'Magnified area · ' + cm(right - left) + ' × ' + cm(far - near) + ' cm';
+  }
+  const probe = isLinear() ? 'High-frequency linear array' : 'Curved array';
+  return probe + ' · ' + (selectedTour.sectorDepthMm ?? 133) / 10 + ' cm depth';
+}
+
 function renderFrame(frame, scenePosition = frame) {
   state.frame = frame;
   updatePlay();
   const request = ++state.viewRequest;
   const kind = state.section ? 'section' : 'scan';
-  const scan = prepare(imageFile(kind, frame));
   const keyframe = nearestKeyframe(frame);
+  const detail = frame === keyframe.frame && keyframe.detail;
+  if (frame !== state.shownFrame || !detail) state.magnified = false;
+  const full = prepare(imageFile(kind, frame));
+  const enlarged = state.magnified ? prepare(imageFile('detail-' + kind, frame)) : null;
   const acquired = acquiredFor(keyframe);
   const reference = prepare(acquired?.path);
   const commit = () => {
     if (request !== state.viewRequest) return;
     state.scene?.setFrame(scenePosition);
     drawReadout(frame);
+    const zoomFailed = enlarged && !enlarged.image;
+    if (zoomFailed) state.magnified = false;
+    state.scene?.setMagnifiedBounds(state.magnified ? detail.boundsMm : null);
+    $('scanZoom').disabled = !detail;
+    on('scanZoom', state.magnified);
+    $('scanZoom').textContent = state.magnified ? 'Full field' : 'Magnify section';
     $('scanTitle').textContent = state.section ? 'Anatomical section' : 'Simulated scan';
+    if (state.magnified) $('scanTitle').textContent += ' · magnified';
+    if (zoomFailed) $('scanTitle').textContent += ' · detail unavailable';
+    $('scanDetail').textContent = scanDimensions(state.magnified ? detail.boundsMm : null);
     $('scanDetail').hidden = state.section;
     $('legend').hidden = !state.section;
     on('section', state.section);
-    showImage('scanArea', 'scan', scan, $('scanTitle').textContent + ' at frame ' + frame + '.', 'Scan unavailable for this frame.');
+    showImage('scanArea', 'scan', state.magnified ? enlarged : full, $('scanTitle').textContent + ' at frame ' + frame + '.', 'Scan unavailable for this frame.');
     showImage('referenceArea', 'ref', reference, acquired?.title ?? 'Acquired ultrasound.', 'Clinical reference unavailable.');
     $('referenceDepth').textContent = [selectedTour.referenceContext ?? 'Different case', acquired?.depthLabel].filter(Boolean).join(' · ');
     $('referenceNote').textContent = acquired ? referenceNote(frame, keyframe) : 'Reference unavailable';
+    const finding = selectedTour.pregnancyStage && frame === keyframe.frame && acquired?.reason;
+    $('comparisonFinding').textContent = finding || '';
+    $('comparisonFinding').hidden = !finding;
     state.shownFrame = frame;
   };
-  if (scan.finished && reference.finished) commit();
+  if (full.finished && (!enlarged || enlarged.finished) && reference.finished) commit();
   else {
     $('scanArea').setAttribute('aria-busy', 'true');
     $('referenceArea').setAttribute('aria-busy', 'true');
-    Promise.all([scan.pending, reference.pending]).then(commit);
+    Promise.all([full.pending, enlarged?.pending, reference.pending]).then(commit);
   }
 }
 
@@ -186,6 +212,11 @@ function selectFrame(frame) {
 
 $('play').onclick = play;
 $('position').oninput = (event) => selectFrame(event.currentTarget.valueAsNumber);
+$('scanZoom').onclick = () => {
+  pause();
+  state.magnified = !state.magnified;
+  renderFrame(state.frame);
+};
 $('section').onclick = async () => {
   const next = !state.section;
   $('section').disabled = true;
@@ -208,7 +239,9 @@ async function startScene() {
     const { createSweepScene } = await import('./scene.js');
     canvas.hidden = false;
     state.scene = await createSweepScene({ canvas, frames: poses, config: selectedTour, onViewPresetChange: showCameraPreset });
-    state.scene.setFrame(state.shownFrame ?? state.frame);
+    const shown = state.shownFrame ?? state.frame;
+    state.scene.setFrame(shown);
+    if (state.magnified) state.scene.setMagnifiedBounds(nearestKeyframe(shown).detail?.boundsMm);
     updateTorsoOpacity();
     status.hidden = true;
     $('sceneHelp').hidden = false;
@@ -468,18 +501,79 @@ relatedAnatomy.addEventListener('toggle', () => {
   }
 });
 
+function pregnancyNavigation(tours) {
+  if (!selectedTour.pregnancyStage) return;
+  const stages = new Map();
+  for (const tour of tours.filter((tour) => tour.pregnancyStage)) {
+    const age = tour.pregnancyStage.age;
+    if (!stages.has(age)) stages.set(age, []);
+    stages.get(age).push(tour);
+  }
+  const links = (tour, parent) => {
+    const target = new URL(location.href);
+    target.searchParams.set('sweep', tour.id);
+    target.hash = '';
+    const link = document.createElement('a');
+    link.href = target.href;
+    parent.append(link);
+    return link;
+  };
+  for (const [age, routes] of stages) {
+    const active = age === selectedTour.pregnancyStage.age;
+    const first = active ? selectedTour : routes[0];
+    const stage = links(first, $('pregnancyStages'));
+    const ageLabel = document.createElement('strong');
+    ageLabel.textContent = age;
+    stage.append(ageLabel, first.pregnancyStage.focus);
+    stage.setAttribute('aria-label', first.pregnancyStage.name + ', ' + age + ', ' + first.pregnancyStage.focus);
+    if (!active) continue;
+    stage.setAttribute('aria-current', 'step');
+    if (routes.length > 1) {
+      for (const route of routes) {
+        const link = links(route, $('pregnancyRoutes'));
+        link.textContent = route.title.replace(/ sweep$/, '');
+        if (route.id === selectedTour.id) link.setAttribute('aria-current', 'page');
+      }
+    }
+  }
+  $('pregnancyRoutes').hidden = !$('pregnancyRoutes').childElementCount;
+  $('pregnancyNavigation').hidden = false;
+}
+
 function configureTimeline() {
   const ticks = $('ticks');
+  if (selectedTour.pregnancyStage && keyframes.length > 2) {
+    ticks.classList.add('pregnancyTicks');
+    ticks.style.setProperty('--stop-count', keyframes.length);
+    const edges = [0, ...keyframes.slice(1).map((key, i) => (key.frame + keyframes[i].frame) / 2), last];
+    ticks.style.setProperty('--stop-columns', edges.slice(1).map((end, i) =>
+      'minmax(max-content, ' + (end - edges[i]) + 'fr)').join(' '));
+    const marks = document.createElement('div');
+    marks.className = 'keyMarks';
+    marks.setAttribute('aria-hidden', 'true');
+    for (const key of keyframes) {
+      const mark = document.createElement('span');
+      mark.style.left = (key.frame / last) * 100 + '%';
+      marks.append(mark);
+    }
+    ticks.before(marks);
+  }
+  $('scanZoom').hidden = !keyframes.some((key) => key.detail);
   if (keyframes.length === 3 && keyframes[0].frame === 0 && keyframes[2].frame === last) {
     ticks.classList.add('with-start-keyframe');
     ticks.style.setProperty('--start-tick-gap', keyframes[1].frame / last * 100 + '%');
   }
   $('position').max = last;
   $('position').disabled = false;
-  const split = phases[1]?.frame / last || 0;
-  const timeline = $('position').parentElement;
-  timeline.style.setProperty('--first-phase', split * 100 + '%');
-  timeline.style.setProperty('--phase-thumb-offset', (0.5 - split) * 18 + 'px');
+  const phaseLengths = phases.map((phase, i) => (phases[i + 1]?.frame ?? last) - phase.frame);
+  $('phases').style.gridTemplateColumns = phaseLengths.map(n => 'minmax(0,' + n + 'fr)').join(' ');
+  const stops = phases.map((phase, i) => {
+    const start = phase.frame / last;
+    const end = (phase.frame + phaseLengths[i]) / last;
+    const point = (fraction) => 'calc(' + (fraction * 100) + '% + ' + ((.5 - fraction) * 18) + 'px)';
+    return (i % 2 ? 'var(--turn)' : 'transparent') + ' ' + point(start) + ' ' + point(end);
+  });
+  $('position').style.setProperty('--phase-track', 'linear-gradient(to right,' + stops.join(',') + '), var(--hatch)');
   for (const phase of phases) {
     const item = document.createElement('li');
     item.textContent = phase.label;
@@ -584,10 +678,11 @@ async function startTour() {
     currentURL.searchParams.delete('sweep');
     history.replaceState(null, '', currentURL);
   }
+  pregnancyNavigation(tours);
   const picker = $('sweepPicker');
   const regions = new Map();
   for (const tour of tours) {
-    const region = tour.bodyRegion ?? 'Abdomen';
+    const region = tour.pregnancyStage ? 'Pregnancy · ' + tour.pregnancyStage.age : tour.bodyRegion ?? 'Abdomen';
     if (!regions.has(region)) {
       const group = document.createElement('optgroup');
       group.label = region;
@@ -619,8 +714,10 @@ async function startTour() {
     { frame: keyframes.find(({ frame }) => frame > 0)?.frame ?? last, label: 'Rotate probe' },
   ];
   configureTimeline();
-  const probeLabel = isLinear() ? 'High-frequency linear array' : 'Curved array';
-  $('scanDetail').textContent = probeLabel + ' · ' + (selectedTour.sectorDepthMm ?? 133) / 10 + ' cm depth';
+  $('scanDetail').textContent = scanDimensions();
+  if (selectedTour.pregnancyStage) {
+    $('sceneCanvas').setAttribute('aria-label', 'Probe, scan sector and maternal and fetal anatomy at ' + selectedTour.pregnancyStage.age.toLowerCase());
+  }
   if (isLinear()) {
     $('surfaceOpacityLabel').textContent = 'Skin opacity';
     $('sceneCanvas').setAttribute('aria-label', `Linear probe, rectangular imaging field, ${selectedTour.region.toLowerCase()} and internal anatomy with patient orientation`);

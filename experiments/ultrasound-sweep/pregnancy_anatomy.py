@@ -20,8 +20,8 @@ TORSO_PROFILE = PchipInterpolator(
 
 CORD_POINTS = CubicSpline(
     np.linspace(0, 1, 6),
-    [[0, 10, 2], [3, 17, 3], [12, 16, 7], [22, 3, 9],
-     [24, -13, 9], [21, -29, 9]],
+    [[0, 10, 2], [3, 17, 3], [13, 16, 7], [18, 3, 9],
+     [17, -6, 9], [13, -18, 9]],
     axis=0,
 )(np.linspace(0, 1, 15))
 
@@ -71,27 +71,39 @@ def uterine_coordinates(xyz):
     return x, .974*y - .227*z, .227*y + .974*z
 
 
+def sac_coordinates(xyz):
+    x, y, z = uterine_coordinates(xyz)
+    y, z = y - 12.5, z + 3
+    return x, .909 * y + .417 * z, -.417 * y + .909 * z
+
+
 def cavity(xyz):
-    return ellipsoid(uterine_coordinates(xyz), (0, .8, 1), (57, 39, 48))
+    return ellipsoid(sac_coordinates(xyz), (0, 0, 0), (24, 24, 51))
+
+
+def placental_disc(xyz, margin=0):
+    radii = np.array((25, 13, 34)) + margin
+    return ellipsoid(sac_coordinates(xyz), (2, -24, 2), radii)
 
 
 def placenta(xyz):
-    local = uterine_coordinates(xyz)
-    # Lens-shaped implantation with a broad basal attachment following the
-    # posterior wall. The fluid-facing plate projects into the cavity.
-    disc = ellipsoid(local, (8, -39, 2), (48, 20, 36))
-    return np.maximum(disc, ellipsoid(local, (0, 0, 0), (61, 44, 52)))
+    # The fetal surface follows the sac. The basal plate lies against myometrium.
+    return np.maximum(placental_disc(xyz), -cavity(xyz))
+
+
+def uterine_envelope(xyz):
+    corpus = ellipsoid(sac_coordinates(xyz), (0, 0, 0), (30, 30, 57))
+    outside = smooth_union(corpus, placental_disc(xyz, 4), 4)
+    cervix = tapered_segment(xyz, (0, 10, -27), (0, -15, -53), 14, 10)
+    return smooth_union(outside, cervix, 9)
 
 
 def uterus(xyz):
-    corpus = ellipsoid(uterine_coordinates(xyz), (0, 0, 0), (63, 45.5, 54.5))
-    cervix = tapered_segment(xyz, (0, -16, -28), (0, -24, -54), 17, 12)
-    outside = smooth_union(corpus, cervix, 11)
-    return np.maximum.reduce([outside, -cavity(xyz), -placenta(xyz)])
+    return np.maximum.reduce([uterine_envelope(xyz), -cavity(xyz), -placenta(xyz)])
 
 
 def maternal_bladder(xyz):
-    return ellipsoid(xyz, (0, 41, -31), (37, 18, 21))
+    return np.maximum(ellipsoid(xyz, (0, 41, -31), (37, 18, 21)), 1.2 - uterine_envelope(xyz))
 
 
 def cranium(xyz):
@@ -154,6 +166,18 @@ def fetal_bladder(xyz):
     return ellipsoid(xyz, (0, 4, -5.1), (2, 2.6, 3.0))
 
 
+def nasal_bone(xyz):
+    return tapered_segment(xyz, (0, 16.55, 31.6), (0, 18.45, 29.2), .48, .34)
+
+
+def nuchal_space(xyz):
+    """Thin subcutaneous fluid layer along the posterior neck in the sagittal profile."""
+    x, y, z = xyz
+    skin = smooth_union(head(xyz), body(xyz), 2.6)
+    patch = ellipsoid(xyz, (0, -13, 21.5), (5.2, 6.4, 8.0))
+    return np.maximum(patch, np.abs(skin + 1.35) - .78)
+
+
 def spinal_echoes(xyz):
     # Separate ossification echoes along the posterior aspect of the trunk.
     x, y, z = xyz
@@ -199,11 +223,13 @@ def amniotic_fluid(xyz):
 # convert to the legacy 1.5-mm scene unit only when writing a scene mesh.
 FIELDS = {
     'torso': (torso, (-172, -108, -121), (172, 105, 181), 2.0),
-    'uterus': (uterus, (-68, -58, -72), (68, 54, 73), 1.2),
-    'amniotic_fluid': (amniotic_fluid, (-60, -53, -42), (60, 45, 65), 1.2),
-    'placenta': (placenta, (-45, -57, -24), (60, -18, 55), .8),
+    'uterus': (uterus, (-42, -57, -72), (42, 60, 77), 1.0),
+    'amniotic_fluid': (amniotic_fluid, (-27, -47, -55), (27, 50, 69), 1.2),
+    'placenta': (placenta, (-32, -55, -36), (35, 22, 57), .65),
     'maternal_bladder': (maternal_bladder, (-39, 20, -56), (39, 62, -5), .9),
     'fetus': (fetus, (-22, -18, -27), (22, 27, 52), .42),
+    'nasal_bone': (nasal_bone, (-1, 15, 28), (1, 20, 33), .12),
+    'nuchal_space': (nuchal_space, (-6, -21, 13), (6, -6, 30), .18),
     'fetal_bladder': (fetal_bladder, (-4, -.2, -9), (4, 9, -1), .4),
     'umbilical_cord': (cord, (-5, -33, -2), (28, 22, 13), .53),
     'calvarium': (calvarium, (-14, -16, 24), (14, 18, 51), .35),

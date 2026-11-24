@@ -68,6 +68,33 @@ nav button { font-size: 14px; }
 nav button[aria-pressed='false'] { border-color: transparent; background: transparent; }
 main { padding: 12px 0 24px; }
 
+.scanTools { display: flex; flex-wrap: wrap; gap: 4px; }
+#comparisonFinding { color: var(--quiet); font-size: 14px; padding: 10px 2px 0; }
+#pregnancyNavigation { margin: 0 0 12px; }
+#pregnancyStages {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 12rem), 1fr));
+  gap: 2px;
+}
+#pregnancyStages a {
+  display: grid;
+  gap: 2px;
+  padding: 7px 12px 9px;
+  border-bottom: 2px solid var(--line);
+  color: var(--quiet);
+  text-decoration: none;
+  font-size: 13px;
+}
+#pregnancyStages a strong { font-size: 15px; color: var(--ink); }
+#pregnancyStages a[aria-current] { border-color: var(--teal); background: #e4ede6; }
+#pregnancyRoutes { gap: 5px 16px; margin: 8px 8px 0; }
+#pregnancyRoutes a { color: var(--quiet); font-size: 14px; text-underline-offset: 3px; }
+#pregnancyRoutes a[aria-current] { color: var(--ink); font-weight: 650; }
+#pregnancyStages a:hover strong { text-decoration: underline; }
+@media (max-width: 590px) {
+  #pregnancyStages { grid-template-columns: 1fr 1fr; }
+}
+
 .transport {
   position: sticky;
   top: 0;
@@ -161,10 +188,6 @@ main { padding: 12px 0 24px; }
   --turn: #637076;
 }
 
-#position {
-  --track-split: calc(var(--first-phase) + var(--phase-thumb-offset));
-  --phase-track: linear-gradient(to right, transparent var(--track-split), var(--turn) var(--track-split)), var(--hatch);
-}
 .ticks { position: relative; height: 29px; margin-inline: calc(var(--thumb-size) / 2); }
 
 .tick {
@@ -207,6 +230,22 @@ main { padding: 12px 0 24px; }
 .with-start-keyframe .tick.edge:not([data-frame='0']) { max-inline-size: 32%; text-align: end; }
 .tick[aria-current='true'] { text-decoration: underline; text-underline-offset: 0.25em; font-weight: 700; }
 
+.keyMarks { display: block; position: relative; height: 0; margin-inline: 9px; }
+.keyMarks span { position: absolute; top: -8px; height: 6px; border-left: 1px solid #637076; }
+.ticks.pregnancyTicks {
+  display: grid; grid-template-columns: var(--stop-columns);
+  height: auto; min-height: 32px;
+}
+.ticks.pregnancyTicks button.tick, .ticks.pregnancyTicks button.tick.edge,
+.ticks.pregnancyTicks.with-start-keyframe button.tick {
+  position: static; transform: none; text-align: center; max-inline-size: none;
+  inline-size: auto; min-inline-size: 0; padding-inline: 3px;
+  white-space: normal; overflow-wrap: anywhere;
+}
+.pregnancyTicks .tick::before { display: none; }
+@media (max-width: 720px) {
+  .ticks.pregnancyTicks { grid-template-columns: repeat(var(--stop-count), minmax(0, 1fr)); }
+}
 .legend {
   display: flex;
   align-items: center;
@@ -218,7 +257,6 @@ main { padding: 12px 0 24px; }
 
 .phases {
   display: grid;
-  grid-template-columns: var(--first-phase) minmax(0, 1fr);
   margin: 4px calc(var(--thumb-size) / 2) -4px;
   padding: 0;
   list-style: none;

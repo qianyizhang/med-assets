@@ -6,10 +6,9 @@ import struct
 import numpy as np
 from PIL import Image
 
-from build_abdomen import ImagingGrid
-from build_pregnancy import read_pregnancy_tracks, sample_section
+from build_abdomen import ImagingGrid, overlay, section_palette
+from build_pregnancy import comparison_frames, read_pregnancy_tracks, sample_section
 from delivery import read_poses
-from geometry import KEYFRAMES
 
 
 def plane_segments(path, pose, voxel_mm):
@@ -50,29 +49,47 @@ def rasterize(segments, grid):
     return mask & grid.field
 
 
+def verify_rasters(root, track, frame, pose, landmarks, sampler, roi=None, cropped_out=()):
+    grid = ImagingGrid(track['sectorDepthMm'], roi)
+    gray, masks, regions = sampler(grid, pose)
+    section = overlay(gray, regions, section_palette(track))
+    prefix = 'detail-' if roi is not None else ''
+    for kind, mode, expected, limit in [('scan', 'L', gray, 1.6), ('section', 'RGB', section, 3.2)]:
+        path = root / 'media' / f'{prefix}{kind}-{frame:02}.webp'
+        with Image.open(path) as image:
+            delivered = np.asarray(image.convert(mode), dtype=float)
+        if np.abs(delivered - expected)[grid.field].mean() > limit:
+            raise ValueError(f'{kind} mismatch at {path}')
+
+    scores = {}
+    for name in landmarks:
+        lines = plane_segments(root / 'scenes' / f'{name}.mesh', pose, track['voxelMm'])
+        cut = rasterize(lines, grid)
+        expected = masks[name]
+        denominator = cut.sum() + expected.sum()
+        if not denominator and roi is not None and name in cropped_out:
+            continue
+        score = 2 * (cut & expected).sum() / denominator if denominator else 0
+        if score < .95:
+            raise ValueError(f'{root.name}, {prefix}frame {frame}, {name}: mesh/section Dice {score:.3f}')
+        scores[name] = round(float(score), 4)
+    return scores
+
+
 def verify(sweeps):
     for track in read_pregnancy_tracks():
         root = sweeps / track['id']
         poses = read_poses(root / 'sweep.js')
-        grid = ImagingGrid(track['sectorDepthMm'])
-        for frame, landmarks in zip(KEYFRAMES, track['landmarkMinimums'], strict=True):
-            pose = poses[frame]
-            gray, masks, _ = sample_section(grid, pose)
-            with Image.open(root / 'media' / f'scan-{frame:02}.webp') as image:
-                delivered = np.asarray(image.convert('L'), dtype=float)
-            # Allow WebP compression, while detecting a different frame or a reversed image.
-            assert np.abs(delivered - gray).mean() < 1.5, f'Scan mismatch: {root.name}, frame {frame}'
-            for name in landmarks:
-                lines = plane_segments(root / 'scenes' / f'{name}.mesh', pose, track['voxelMm'])
-                cut = rasterize(lines, grid)
-                expected = masks[name]
-                denominator = cut.sum() + expected.sum()
-                score = 2 * (cut & expected).sum() / denominator if denominator else 0
-                assert score > .95, f'{root.name}, frame {frame}, {name}: mesh/section Dice {score:.3f}'
-                print(f'{root.name} {frame} {name} {score:.4f}')
+        details = {stop['frame']: stop['detail']['roi'] for stop in track.get('stops', []) if stop.get('detail')}
+        for frame, landmarks in zip(comparison_frames(track), track['landmarkMinimums'], strict=True):
+            scores = verify_rasters(root, track, frame, poses[frame], landmarks, sample_section)
+            if frame in details:
+                scores.update({f'detail {name}': value for name, value in verify_rasters(
+                    root, track, frame, poses[frame], landmarks, sample_section, details[frame]).items()})
+            print(f'{root.name} {frame}: {scores}')
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('sweeps', type=Path, help='Staging sweeps directory containing both pregnancy routes')
+    parser.add_argument('sweeps', type=Path, help='Staging directory containing the two 11–14-week routes')
     verify(parser.parse_args().sweeps)

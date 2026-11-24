@@ -13,7 +13,7 @@ from scipy.spatial.transform import Rotation, Slerp
 
 from build_abdomen import ImagingGrid, axes, measure_landmark, overlay, section_palette, section_palette_sha256
 from build_study import fine_scatter
-from delivery import sha256, sweep_files, write_manifest
+from delivery import detail_files, sha256, sweep_files, write_manifest
 from fit_abdomen import outer_contact_offsets
 from geometry import FRAME_COUNT, KEYFRAMES, LENS_RADIUS_MM, SECTOR_HALF_ANGLE_DEG, VOXEL_MM
 import pregnancy_anatomy as anatomy
@@ -22,7 +22,7 @@ from prepare_scenes import mesh_bytes
 HERE = Path(__file__).resolve().parent
 TRACK_PATH = HERE / 'pregnancy-tracks.json'
 STATIONS = (0, *KEYFRAMES)
-FETAL_INTERNAL = ('spinal_echoes', 'fetal_bladder', 'calvarium', 'falx', 'choroid_plexus')
+FETAL_INTERNAL = ('spinal_echoes', 'fetal_bladder', 'nuchal_space', 'nasal_bone', 'calvarium', 'falx', 'choroid_plexus')
 
 
 def read_pregnancy_tracks():
@@ -30,9 +30,13 @@ def read_pregnancy_tracks():
     return [{**data['shared'], **sweep} for sweep in data['sweeps']]
 
 
+def comparison_frames(track):
+    return tuple(stop['frame'] for stop in track['stops']) if 'stops' in track else KEYFRAMES
+
+
 def pose_recipe_sha256(sweep_id):
     track = next(track for track in read_pregnancy_tracks() if track['id'] == sweep_id)
-    return sha256(json.dumps([STATIONS, track['windows'], track['landmarkMinimums']],
+    return sha256(json.dumps([STATIONS, track['windows'], track['landmarkMinimums'], track.get('stops')],
                              separators=(',', ':')).encode())
 
 
@@ -88,7 +92,7 @@ def sample_section(grid, frame):
         labels['fetus'] | labels['placenta'] | labels['umbilical_cord'])
     regions['umbilical_cord'] &= ~(labels['fetus'] | labels['placenta'])
     skin_distance = -fields['torso']
-    fine = fine_scatter(xyz)
+    fine = .68 * fine_scatter(xyz) + .32 * fine_scatter(xyz * 2.7)
     coarse_noise = fine_scatter(xyz * .31)
     speckle = 99 * fine + 25 * coarse_noise
     tissue = 44 + speckle
@@ -112,6 +116,8 @@ def sample_section(grid, frame):
         ('umbilical_cord', 72 + .96 * speckle),
         ('fetus', fetal_stroma),
         ('fetal_bladder', 5 + .10 * speckle),
+        ('nuchal_space', 6 + .12 * speckle),
+        ('nasal_bone', 202 + .34 * speckle),
         ('spinal_echoes', 192 + .41 * speckle),
         ('calvarium', 190 + .39 * speckle),
         ('falx', 62 + 119 * falx_strength + .4 * speckle),
@@ -125,7 +131,8 @@ def sample_section(grid, frame):
     dy, dx = np.gradient(soft)
     edge = np.abs(dy * np.cos(grid.angle) + dx * np.sin(grid.angle))
     skin = np.exp(-((skin_distance - .7) / .85)**2)
-    gray = (soft + 1.25 * edge + 83 * skin) * np.exp(-np.maximum(grid.depth, 0) / 275)
+    surface = np.exp(-((fields['fetus'] + .35) / .53)**2)
+    gray = (soft + 1.25 * edge + 83 * skin + 38 * surface) * np.exp(-np.maximum(grid.depth, 0) / 275)
     gray = np.where(grid.field & labels['torso'], np.clip(gray, 0, 243), 0).astype(np.uint8)
     return gray, labels, regions
 
@@ -144,7 +151,14 @@ def check_anatomy(meshes):
     end_placenta = float(anatomy.placenta(tuple(anatomy.CORD_POINTS[-1])))
     if max(end_fetus, end_placenta) >= 0:
         raise ValueError('The cord does not join both the fetus and the placenta')
+    # Sample the actual fluid compartment, excluding the fetus and cord, in mL.
+    points = np.ogrid[-26:27:1.5, -44:51:1.5, -54:68:1.5]
+    fluid = (anatomy.cavity(points) < 0) & (anatomy.fetus(points) > 0) & (anatomy.cord(points) > 0)
+    fluid_ml = np.count_nonzero(fluid) * 1.5**3 / 1000
+    if not 60 < fluid_ml < 125 or anatomy.uterine_envelope(millimetres['maternal_bladder']).min() < 0:
+        raise ValueError('Recheck first-trimester sac size and maternal bladder separation')
     return {
+        'modeledFluidVolumeMl': round(fluid_ml, 1),
         'minMaternalSkinClearanceMm': round(min(margins.values()), 2),
         'minFetalCavityClearanceFieldMm': round(fetal_margin, 2),
         'cordInsertionSignedFieldMm': [round(end_fetus, 2), round(end_placenta, 2)],
@@ -171,14 +185,16 @@ def build_track(track, output, meshes, mesh_data, anatomy_receipt):
     scenes.mkdir()
     for name in names:
         (scenes / f'{name}.mesh').write_bytes(mesh_data[name])
+    minimums_by_frame = dict(zip(comparison_frames(track), track['landmarkMinimums'], strict=True))
+    details = {stop['frame']: stop['detail']['roi'] for stop in track.get('stops', []) if 'detail' in stop}
     evidence = {}
     for i, frame in enumerate(frames):
         gray, labels, regions = sample_section(grid, frame)
         if np.count_nonzero(labels[track['organ']]) < 350:
             raise ValueError(f'{track["id"]} frame {i} misses the sweep target')
-        if i in KEYFRAMES:
+        if i in minimums_by_frame:
             measured = {name: measure_landmark(labels[name], gray) for name in names if name != 'torso'}
-            minimums = track['landmarkMinimums'][KEYFRAMES.index(i)]
+            minimums = minimums_by_frame[i]
             for name, minimum in minimums.items():
                 if measured[name]['largestSectionPixels'] < minimum:
                     raise ValueError(f'{track["id"]} frame {i} misses {name}: {measured[name]}')
@@ -188,6 +204,12 @@ def build_track(track, output, meshes, mesh_data, anatomy_receipt):
                     raise ValueError(f'Frame {i} has insufficient depth to show wall beyond the placenta')
                 measured['posteriorWallRays'] = wall_rays
             evidence[str(i)] = measured
+        if i in details:
+            detail_grid = ImagingGrid(track['sectorDepthMm'], details[i])
+            detail_gray, _, detail_masks = sample_section(detail_grid, frame)
+            Image.fromarray(detail_gray).save(media / f'detail-scan-{i:02}.webp', quality=91)
+            Image.fromarray(overlay(detail_gray, detail_masks, palette)).save(
+                media / f'detail-section-{i:02}.webp', quality=88)
         Image.fromarray(gray).save(media / f'scan-{i:02}.webp', quality=91)
         Image.fromarray(overlay(gray, regions, palette)).save(media / f'section-{i:02}.webp', quality=88)
     (output / 'sweep.js').write_text('const sweep = ' + json.dumps(frames, separators=(',', ':')) + ';\n')
@@ -206,7 +228,7 @@ def build_track(track, output, meshes, mesh_data, anatomy_receipt):
         **anatomy_receipt,
         'frames': evidence,
     }, indent=2) + '\n')
-    write_manifest(output, sweep_files(names))
+    write_manifest(output, sweep_files(names) + detail_files(track.get('stops', [])))
     print(f'{track["id"]}: {len(frames)} poses, {contact_receipt["skinTravelMm"]:.1f} mm skin travel, '
           f'{contact_receipt["surfaceMaxOuterContactErrorMm"]:.3f} mm maximum central contact error', flush=True)
 

@@ -1,0 +1,59 @@
+{
+  "id": "pregnancy-early",
+  "case": "authored-pregnancy-7-weeks",
+  "title": "Gestational sac and embryo",
+  "bodyRegion": "Pregnancy",
+  "pregnancyStage": "early",
+  "region": "Lower abdomen · about 7 weeks",
+  "organ": "embryo",
+  "exterior": "authored-lower-abdomen",
+  "probeType": "curved",
+  "fieldShape": "sector",
+  "sectorDepthMm": 126,
+  "voxelMm": 1.5,
+  "obliqueDirection": [-0.79, 0.97, 0.57],
+  "initialFrame": 12,
+  "referenceContext": "Acquired comparison",
+  "stops": [
+    {"frame": 12, "label": "Intrauterine gestational sac", "referenceId": "pregnancy-early-sac", "detail": {"roi": [196, 194, 296, 264]}},
+    {"frame": 29, "label": "Yolk sac and embryo", "referenceId": "pregnancy-early-crl", "detail": {"roi": [198, 197, 298, 267]}},
+    {"frame": 48, "label": "Site of cardiac activity", "referenceId": "pregnancy-early-cardiac", "detail": {"roi": [205, 198, 305, 268]}}
+  ],
+  "phaseLabels": ["Find the uterus above the pubis", "Turn toward the yolk sac and embryo"],
+  "parts": [
+    {"id": "uterus", "label": "Uterus and cervix", "color": "#c28c9e", "opacity": 0.2},
+    {"id": "maternal_bladder", "label": "Maternal bladder", "color": "#e5c279", "opacity": 0.39},
+    {"id": "gestational_rim", "label": "Chorionic rim", "color": "#c6718d", "opacity": 0.42},
+    {"id": "gestational_sac", "label": "Chorionic cavity", "color": "#8bc8d2", "opacity": 0.14},
+    {"id": "amnion", "label": "Amnion", "color": "#91baf2", "opacity": 0.32},
+    {"id": "yolk_sac", "label": "Yolk sac", "color": "#ecce71", "opacity": 0.8},
+    {"id": "embryo", "label": "Embryo", "color": "#f8a184", "opacity": 0.86},
+    {"id": "cardiac_region", "label": "Embryonic cardiac region", "color": "#fa8db4", "opacity": 0.93}
+  ],
+  "overlayParts": ["uterus", "maternal_bladder", "gestational_rim", "gestational_sac", "amnion", "yolk_sac", "embryo", "cardiac_region"],
+  "anatomySource": {
+    "label": "Shuchi K. Rodgers et al. · SRU first-trimester ultrasound lexicon",
+    "shortLabel": "Early-pregnancy ultrasound anatomy",
+    "url": "https://doi.org/10.1148/radiol.240122"
+  },
+  "additionalAnatomySources": [
+    {"label": "Daniel L. Rolnik et al. · Sonographic anatomy from 7 to 10 weeks", "url": "https://doi.org/10.1002/uog.21921"},
+    {"label": "Venkatesh A. Murugan et al. · First-trimester ultrasound landmarks", "url": "https://doi.org/10.14366/usg.19043"}
+  ],
+  "sourceNote": "In this authored singleton at about 7 weeks, the bladder is anterior to the anteverted uterus. The approximately 10 mm embryo is inside the amnion. The nearby yolk sac lies outside the amnion but within the gestational sac.",
+  "simulationNote": "The curved probe stays on the lower abdominal skin. The colored cardiac region marks an anatomical location in the static model. Movement of the probe changes the section. Cardiac motion is documented by the acquired comparison.",
+  "requirePoseReceipt": true,
+  "requirePaletteReceipt": true,
+  "requireModelReceipt": true,
+  "windows": [
+    {"frame": 0, "skinSiteMm": [-17, -30], "outward": [-0.12, 1, -0.29], "marker": [1, 0, 0]},
+    {"frame": 12, "skinSiteMm": [-7, -23], "outward": [-0.1, 1, -0.225], "marker": [1, 0, 0]},
+    {"frame": 29, "skinSiteMm": [4, -15], "outward": [0, 1, -0.156], "marker": [0, 0, 1]},
+    {"frame": 48, "skinSiteMm": [13, -8], "outward": [0.105, 1, -0.108], "marker": [0.49, 0, 0.87]}
+  ],
+  "landmarkMinimums": {
+    "12": {"uterus": 4500, "maternal_bladder": 550, "gestational_sac": 1500, "gestational_rim": 550},
+    "29": {"gestational_sac": 1200, "embryo": 180, "yolk_sac": 38, "amnion": 125},
+    "48": {"gestational_sac": 1200, "embryo": 160, "cardiac_region": 15}
+  }
+}

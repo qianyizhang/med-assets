@@ -20,6 +20,11 @@ def sweep_files(mesh_names):
             *(f'media/{kind}-{i:02}.webp' for kind in ('scan', 'section') for i in range(FRAME_COUNT))]
 
 
+def detail_files(stops):
+    return [f'media/detail-{kind}-{stop["frame"]:02}.webp'
+            for stop in stops if stop.get('detail') for kind in ('scan', 'section')]
+
+
 def write_manifest(root, names):
     inventory = {name: sha256((root / name).read_bytes()) for name in names}
     (root / 'delivery.json').write_text(json.dumps(inventory, indent=2, sort_keys=True) + '\n')
@@ -81,4 +86,4 @@ def verify_inventory(root, names):
         if name == 'sweep.js':
             read_poses(path)
         elif name.endswith('.webp'):
-            validate_image(path, sweep_frame=Path(name).name.startswith(('scan-', 'section-')))
+            validate_image(path, sweep_frame=Path(name).name.startswith(('scan-', 'section-', 'detail-')))
