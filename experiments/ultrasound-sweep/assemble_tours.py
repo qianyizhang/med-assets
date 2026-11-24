@@ -8,6 +8,7 @@ import tempfile
 
 import build_abdomen
 import build_breast
+import build_pregnancy
 import build_thyroid
 from breast_anatomy import FEMALE_SKIN_SHA, MAMMARY_SHA
 from delivery import sha256, sweep_files, validate_image, validate_mesh, verify_inventory
@@ -82,6 +83,11 @@ def verify_track(root, track, stops, builder):
     if builder is build_breast and (receipt.get('mammaryAtlasSha256') != MAMMARY_SHA
                                     or receipt.get('femaleSkinSha256') != FEMALE_SKIN_SHA):
         raise ValueError(f'Rebuild {slug} for the current breast atlas inputs.')
+    if builder is build_pregnancy:
+        if not (root / 'delivery.json').is_file():
+            raise ValueError(f'Missing pregnancy sweep delivery inventory: {slug}')
+        if receipt.get('pregnancyRecipeSha256') != builder.pregnancy_recipe_sha256():
+            raise ValueError(f'Rebuild {slug} for the current pregnancy anatomy and sampler.')
     expected_pose = builder.pose_recipe_sha256(slug)
     if (track.get('requirePoseReceipt', False) or 'poseRecipeSha256' in receipt) and (
             receipt.get('poseRecipeSha256') != expected_pose):
@@ -162,6 +168,9 @@ def configured_tours(output, refs, files, landmark_refs, tracks):
             verify_track(output / root, track, stops, builder)
             tour.pop('requirePoseReceipt', None)
             tour.pop('requirePaletteReceipt', None)
+            if builder is build_pregnancy:
+                tour.pop('windows')
+                tour.pop('landmarkMinimums')
         verify_inventory(output / root, inventory)
         for relative in inventory:
             path = root.removeprefix('./') + relative
@@ -194,7 +203,8 @@ def assemble(output, delivery=None):
     tracks = [(track, build_abdomen) for track in [GALLBLADDER, *build_abdomen.read_tracks()]]
     regional_sources = []
     for region, builder, group in [('thyroid', build_thyroid, build_thyroid.read_thyroid_tracks()),
-                                   ('breast', build_breast, build_breast.read_breast_tracks())]:
+                                   ('breast', build_breast, build_breast.read_breast_tracks()),
+                                   ('pregnancy', build_pregnancy, build_pregnancy.read_pregnancy_tracks())]:
         if any((output / 'sweeps' / track['id']).exists() for track in group):
             missing = [track['id'] for track in group if not (output / 'sweeps' / track['id']).is_dir()]
             if missing:

@@ -539,7 +539,7 @@ export async function createSweepScene({ canvas, frames, config, onViewPresetCha
   const sector = rectangular ? rectangleGeometry(dimensions) : sectorGeometry(dimensions);
   const framing = config.bodyRegion === 'Neck'
     ? neckFraming(pivot, meshes.torso.boundingBox, dimensions.voxelMm)
-    : undefined;
+    : { direction: config.obliqueDirection ? vector(config.obliqueDirection) : undefined };
   const view = viewport(canvas, {
     pivot,
     presets: cameraPresets(config.organ, pivot, fitBounds, transforms, probe, sector, framing),

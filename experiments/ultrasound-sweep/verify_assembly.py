@@ -125,6 +125,26 @@ def verify(source):
                     (breast / 'delivery.json', None, 'Missing linear sweep delivery inventory', False),
                     (research / 'acquired/breast-48.webp', b'invalid', 'Unexpected acquired image identity', False),
                 ])
+            maternal = staging / 'sweeps/pregnancy-placenta'
+            fetal = staging / 'sweeps/pregnancy-fetus'
+            if maternal.exists():
+                fetal.rename(work / 'fetal')
+                reject(staging, broken, 'Incomplete pregnancy study')
+                maternal.rename(work / 'maternal')
+                legacy = work / 'without-pregnancy'
+                assemble_tours.assemble(staging, legacy)
+                previous = javascript_value(legacy / 'abdomen-tours.js', 'abdomenTours')
+                assert previous == [tour for tour in tours if tour.get('bodyRegion') != 'Pregnancy']
+                (work / 'fetal').rename(fetal)
+                (work / 'maternal').rename(maternal)
+                receipt = maternal / 'verification.json'
+                stale_anatomy = {**json.loads(receipt.read_text()), 'pregnancyRecipeSha256': '0' * 64}
+                cases.extend([
+                    (receipt, json.dumps(stale_anatomy).encode(), 'current pregnancy anatomy', False),
+                    (fetal / 'delivery.json', None, 'Missing pregnancy sweep delivery inventory', False),
+                    (research / 'acquired/pregnancy-placenta-12.webp', b'invalid',
+                     'Unexpected acquired image identity', False),
+                ])
             for path, bad, expected, reseal in cases:
                 original = path.read_bytes()
                 if bad is None:

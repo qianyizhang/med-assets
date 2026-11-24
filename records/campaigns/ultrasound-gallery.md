@@ -1,6 +1,6 @@
 # Ultrasound Anatomy gallery
 
-Build interactive sweeps across Abdomen, abdominal aortic aneurysm, thyroid, breast and pregnancy. The [tour specification](../../docs/gallery/use-cases/ultrasound-anatomy.md) owns the settled interaction, abdomen, thyroid and breast coverage, acceptance and remaining decisions.
+Build interactive sweeps across Abdomen, abdominal aortic aneurysm, thyroid, breast and pregnancy. The [tour specification](../../docs/gallery/use-cases/ultrasound-anatomy.md) owns the settled interaction, abdomen, thyroid, breast and pregnancy coverage, acceptance and remaining decisions.
 
 | Stage | Outcome |
 | --- | --- |
@@ -10,7 +10,8 @@ Build interactive sweeps across Abdomen, abdominal aortic aneurysm, thyroid, bre
 | Normal anatomy review | Each sweep pairs two acquired comparison stops with its modeled anatomy. Four supporting acquired views cover ductal, hepatic venous, pancreatic tail and hepatorenal anatomy. The [reference inventory](../../experiments/ultrasound-sweep/research/README.md) records each view and its use. |
 | Thyroid tour | Right and left lobe sweeps use a linear transducer, rectangular field, same-case thyroid, trachea and carotids. Five published images cover both lobe axes and the isthmus. [Thyroid scope](../../docs/gallery/use-cases/ultrasound-anatomy.md#thyroid-coverage) |
 | Breast tour | A right breast sweep moves from peripheral tissue layers to a duct beneath the nipple. Its two acquired references preserve the original anatomical labels. [Breast scope](../../docs/gallery/use-cases/ultrasound-anatomy.md#breast-coverage) |
+| Pregnancy tour | Two local late first-trimester routes connect the probe and section to the posterior placenta, fetal profile and axial head. Four acquired views are licensed for comparison. [Pregnancy scope](../../docs/gallery/use-cases/ultrasound-anatomy.md#pregnancy-coverage) |
 | Next joint decision | Walk the completed abdomen set with the owner, then design the ultrasound asset-management and display experience together. |
-| Later topics | Add or adapt assets for scans that reveal an abnormal finding in a separate milestone. Scope AAA and Pregnancy against their own anatomy, reference images and acquisition requirements. Revisit rendering fidelity using the acquired comparison set. |
+| Later topics | Add or adapt assets for scans that reveal an abnormal finding in a separate milestone. Scope AAA against its own anatomy, reference images and acquisition requirements. Revisit rendering fidelity using the acquired comparison set. |
 
 The source-specific terms apply independently to each acquired reference. Public release and clinical qualification remain open.

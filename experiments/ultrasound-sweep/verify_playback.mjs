@@ -189,6 +189,13 @@ try {
       assert.equal(await page.locator('#readout').textContent(), key.label);
       assert.ok((await page.locator('#referenceNote').textContent()).includes(key.referenceLabel));
       assert.equal(await page.locator('#referenceDepth').textContent(), [tour.referenceContext, key.depthLabel].filter(Boolean).join(' · '));
+      if (tour.region === 'Pregnancy') {
+        await capture(tour.id + '-' + key.frame);
+        await page.locator('#section').click();
+        await page.waitForFunction(() => document.querySelector('#scan')?.src.includes('/section-'));
+        await capture(tour.id + '-' + key.frame + '-section');
+        await page.locator('#section').click();
+      }
       if (tour.id === 'breast') await capture('breast-' + key.frame + '-1021x1197');
       if (tour.region === 'Neck' && tour.keys.length === 3) {
         if (key.frame === 0 && tour.id === 'thyroid-right') await capture('thyroid-midline-1021x1197');
@@ -245,7 +252,7 @@ try {
     await page.locator('[data-asset="simulation"]').click();
     await page.waitForFunction(() => document.querySelector('#assetEvidence img')?.src.includes('/scan-'));
     assert.deepEqual(await sources(), [tour.anatomySource.url, ...tour.additionalSources]);
-    if (tour.id === 'breast') {
+    if (tour.id === 'breast' || tour.region === 'Pregnancy') {
       assert.doesNotMatch(await page.locator('#assetFinding').innerText(), /CT-derived|from the CT/i);
       assert.doesNotMatch(await page.locator('#anatomySource').textContent(), /TotalSegmentator|CT-derived/i);
     }
