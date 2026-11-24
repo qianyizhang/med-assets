@@ -19,7 +19,7 @@ const state = {
   playback: null,
   viewRequest: 0,
   assetRequest: 0,
-  scenes: null,
+  scene: null,
 };
 
 const images = new Map();
@@ -95,7 +95,7 @@ function renderFrame(frame, scenePosition = frame) {
   const commit = () => {
     if (request !== state.viewRequest) return;
     const currentAxis = axisName(frame);
-    state.scenes?.setFrame(scenePosition);
+    state.scene?.setFrame(scenePosition);
     drawReadout(frame);
     $('scanTitle').textContent = state.section ? 'Anatomical section' : 'Simulated scan';
     $('scanDetail').hidden = state.section;
@@ -125,7 +125,7 @@ function pause() {
   if (!state.playback) return;
   cancelAnimationFrame(state.playback.request);
   state.playback = null;
-  state.scenes?.setFrame(state.frame);
+  state.scene?.setFrame(state.frame);
   updatePlay();
 }
 
@@ -142,7 +142,7 @@ function play() {
     const position = Math.min(last, playback.origin + (now - playback.started) / frameDuration);
     const frame = Math.round(position);
     if (frame !== state.frame) renderFrame(frame, position);
-    else state.scenes?.setFrame(position);
+    else state.scene?.setFrame(position);
     if (position === last) pause();
     else playback.request = requestAnimationFrame(advance);
   }
@@ -172,37 +172,39 @@ document.addEventListener('visibilitychange', () => {
   if (document.hidden) pause();
 });
 
-const sceneViews = [
-  { name: 'pose', canvas: $('poseCanvas'), status: $('poseStatus'), help: $('poseHelp'), reset: $('resetPose') },
-  { name: 'plane', canvas: $('planeCanvas'), status: $('planeStatus'), help: $('planeHelp'), reset: $('resetPlane') },
-];
+const scenePanel = $('scenePanel');
+const torsoOpacity = $('torsoOpacity');
 
-async function startScenes() {
+async function startScene() {
+  const canvas = $('sceneCanvas');
+  const status = $('sceneStatus');
   try {
-    const { createSweepScenes } = await import('./scene.js');
-    sceneViews.forEach(({ canvas }) => { canvas.hidden = false; });
-    state.scenes = await createSweepScenes({
-      poseCanvas: $('poseCanvas'),
-      planeCanvas: $('planeCanvas'),
-      frames: sweep,
-    });
-    state.scenes.setFrame(state.shownFrame ?? state.frame);
-    sceneViews.forEach(({ name, status, help, reset }) => {
-      status.hidden = true;
-      help.hidden = false;
-      reset.disabled = false;
-      reset.onclick = () => state.scenes.resetView(name);
-    });
+    const { createSweepScene } = await import('./scene.js');
+    canvas.hidden = false;
+    state.scene = await createSweepScene({ canvas, frames: sweep });
+    state.scene.setFrame(state.shownFrame ?? state.frame);
+    state.scene.setTorsoOpacity(torsoOpacity.valueAsNumber / 100);
+    status.hidden = true;
+    $('sceneHelp').hidden = false;
+    $('resetView').disabled = false;
+    torsoOpacity.disabled = false;
   } catch (error) {
-    console.warn('Gallbladder 3D views unavailable.', error);
-    sceneViews.forEach(({ name, canvas, status }) => {
-      canvas.hidden = true;
-      status.textContent = name === 'pose' ? '3D probe pose unavailable.' : '3D scan plane unavailable.';
-    });
+    state.scene?.dispose();
+    state.scene = null;
+    canvas.hidden = true;
+    status.textContent = '3D probe and scan plane unavailable.';
+    console.warn('Gallbladder 3D view unavailable.', error);
   }
 }
 
-const panels = [$('posePanel'), $('planePanel')];
+$('resetView').onclick = () => state.scene?.resetView();
+torsoOpacity.oninput = () => {
+  const value = torsoOpacity.value + '%';
+  $('torsoOpacityValue').value = value;
+  torsoOpacity.setAttribute('aria-valuetext', value);
+  state.scene?.setTorsoOpacity(torsoOpacity.valueAsNumber / 100);
+};
+
 const groups = ['Probe pose', 'Scan plane', 'Simulated scan', 'Acquired ultrasound'];
 
 groups.forEach((label, i) => {
@@ -215,10 +217,9 @@ groups.forEach((label, i) => {
   $('assetControls').append(button);
 });
 
-function restoreScenePanels() {
+function restoreScenePanel() {
   const stage = $('stage');
-  if (panels[0].parentElement === stage && panels[1].parentElement === stage) return;
-  stage.prepend(...panels);
+  if (scenePanel.parentElement !== stage) stage.prepend(scenePanel);
 }
 
 function showAssets(visible) {
@@ -229,7 +230,7 @@ function showAssets(visible) {
   on('assetTab', visible);
   on('tourTab', !visible);
   if (visible) drawAssets();
-  else restoreScenePanels();
+  else restoreScenePanel();
 }
 
 $('assetTab').onclick = () => showAssets(true);
@@ -248,14 +249,14 @@ function drawAssets() {
   const title = groups[group];
   const useLong = referenceFor(frame) === 'long';
   const bindings = [
-    'TotalSegmentator s1233 · right upper abdominal surface',
+    'BodyParts3D exterior · s1233 contact window',
     'TotalSegmentator s1233 · gallbladder, liver and right ribs',
     'Frame ' + frame + ' of 0–' + last + ' · 13.3 cm modeled depth · 72° sector',
     (frame === long || frame === last ? axisName(frame) + ' reference' : 'Nearest reference · ' + axisName(frame))
       + (useLong ? ' · Figure 2' : ' · Cine frame at 1.2 s'),
   ];
   const context = [
-    'Contact follows the CT surface. The probe shape and grip are authored.',
+    'The fitted atlas supplies the body silhouette. Near the probe, its abdominal surface follows the CT-derived contact window.',
     'The wireframe shows the sampled field. Its intersection with the gallbladder changes as the probe rotates.',
     'Compare the lumen boundary and surrounding echoes. The simulated wall still blends into adjacent tissue.',
     'The acquired image shows a different case and a fixed imaging plane.',
@@ -265,17 +266,17 @@ function drawAssets() {
   $('binding').textContent = bindings[group];
   $('assetFinding').textContent = context[group];
   const acquired = useLong ? 'https://doi.org/10.3390/life15060941' : 'https://www.thepocusatlas.com/pedsbiliary';
-  $('assetSource').href = group < 2 ? 'https://zenodo.org/records/10047263' : acquired;
+  $('assetSource').href = ['https://dbarchive.biosciencedbc.jp/en/bodyparts3d/desc.html', 'https://zenodo.org/records/10047263', acquired, acquired][group];
   $('assetSource').textContent = group < 2 ? 'Anatomy source ↗' : 'Acquired image source ↗';
   [...$('assetControls').children].forEach((button, i) => button.setAttribute('aria-pressed', String(i === group)));
 
   const evidence = $('assetEvidence');
-  if (group < panels.length && evidence.firstElementChild === panels[group]) return;
-  restoreScenePanels();
+  if (group < 2 && scenePanel.parentElement === evidence) return;
+  restoreScenePanel();
   evidence.replaceChildren();
   evidence.className = group === 2 ? 'paired' : '';
-  if (group < panels.length) {
-    evidence.append(panels[group]);
+  if (group < 2) {
+    evidence.append(scenePanel);
     return;
   }
   const kinds = group === 2 ? [imageFile('scan', frame), refFile(frame)] : [refFile(frame)];
@@ -307,7 +308,7 @@ window.addEventListener('hashchange', () => {
 });
 
 renderFrame(state.frame);
-startScenes();
+startScene();
 Promise.all([
   prepareSequence('scan', state.frame),
   prepare(refFile(long)).pending,

@@ -14,15 +14,27 @@ try {
   const errors = [];
   page.on('pageerror', (error) => errors.push(error.message));
   await page.goto(url);
-  await page.waitForFunction(() => !document.querySelector('#resetPose').disabled);
+  await page.waitForFunction(() => !document.querySelector('#resetView').disabled);
   await page.getByRole('button', { name: 'Short axis reference keyframe' }).click();
   await page.waitForFunction(() => document.querySelector('#ref')?.src.endsWith('acquired-short.webp'));
+  const opacity = page.getByRole('slider', { name: 'Torso opacity' });
+  for (const value of ['0', '100', '32']) {
+    await opacity.fill(value);
+    assert.equal(await opacity.getAttribute('aria-valuetext'), value + '%');
+    assert.equal(await page.locator('#position').inputValue(), '48');
+  }
+  await opacity.press('ArrowRight');
+  assert.equal(await opacity.inputValue(), '33');
+  await page.click('#assetTab');
+  await page.click('#return');
+  await page.click('#resetView');
+  assert.equal(await opacity.inputValue(), '33');
   const replay = page.getByRole('button', { name: 'Replay sweep' });
   await replay.waitFor();
   await page.waitForFunction(() => !document.querySelector('#play').disabled);
 
   const result = await page.evaluate(async () => {
-    const elements = ['play', 'position', 'readout', 'angle', 'poseCanvas', 'planeCanvas', 'scan', 'ref'];
+    const elements = ['play', 'position', 'readout', 'angle', 'sceneCanvas', 'torsoOpacity', 'torsoOpacityValue', 'scan', 'ref'];
     const bounds = () => elements.flatMap((id) => {
       const { x, y, width, height } = document.getElementById(id).getBoundingClientRect();
       return [x, y, width, height];

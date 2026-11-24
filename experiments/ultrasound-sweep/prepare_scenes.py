@@ -1,4 +1,4 @@
-"""Stage orbitable 3D scenes in an existing, locally built gallbladder sweep."""
+"""Stage the registered 3D view in an existing gallbladder sweep build."""
 
 import argparse
 import hashlib
@@ -10,6 +10,7 @@ from pathlib import Path
 
 import numpy as np
 
+from display_body import fitted_surface, check_contacts
 from geometry import (
     LENS_RADIUS_MM,
     PIP_POSITION,
@@ -58,11 +59,17 @@ def read_vendor(vendor_dir):
 
 
 def stage(output, vendor_dir=None):
+    poses = json.loads((output / 'sweep.js').read_text().removeprefix('const sweep = ').strip().removesuffix(';'))
+    contacts = np.array([frame['contact'] for frame in poses])
     files = {}
-    for name in ('torso', 'liver', 'ribs', 'gallbladder'):
+    for name in ('liver', 'ribs', 'gallbladder'):
         with np.load(output / f'{name}.npz') as mesh:
-            # marching_cubes returns the opposite winding used by the exterior renderer.
+            # Marching cubes and the GLB atlas use opposite windings.
             files[f'scenes/{name}.mesh'] = mesh_bytes(mesh['vertices'], mesh['faces'][:, ::-1])
+    with np.load(output / 'torso.npz') as torso, np.load(output / 'ribs.npz') as ribs:
+        vertices, faces = fitted_surface(torso['vertices'], ribs['vertices'], contacts)
+    check_contacts(vertices, faces, contacts, np.array([frame['beam'] for frame in poses]))
+    files['scenes/torso.mesh'] = mesh_bytes(vertices, faces)
     for name, rings in PROBE_RINGS.items():
         positions, faces = probe_geometry(rings)
         triangles = [(face[0], face[i], face[i + 1]) for face in faces for i in range(1, len(face) - 1)]

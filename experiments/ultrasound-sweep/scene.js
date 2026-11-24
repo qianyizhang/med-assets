@@ -99,14 +99,23 @@ function viewport(canvas, { target, direction, up, span, showOrientation = false
   if (!context) throw new Error('This browser could not start WebGL 2 for the orbitable views.');
   const renderer = new THREE.WebGLRenderer({ canvas, context });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.toneMapping = THREE.NeutralToneMapping;
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
   const scene = new THREE.Scene();
-  scene.background = new THREE.Color('#142426');
-  scene.add(new THREE.HemisphereLight('#e7f6ff', '#513633', 1.9));
-  const key = new THREE.DirectionalLight('#fff6e8', 2.05);
-  key.position.set(370, 490, 560);
-  scene.add(key);
-  const fill = new THREE.DirectionalLight('#8baebc', 0.65);
+  scene.background = new THREE.Color('#142224');
+  scene.add(new THREE.HemisphereLight('#dce6ed', '#64616a', 1.45));
+  const key = new THREE.DirectionalLight('#fff6e8', 1.85);
+  key.target.position.copy(target);
+  key.position.copy(target).add(vec(-150, 340, 220));
+  key.castShadow = true;
+  key.shadow.mapSize.set(1024, 1024);
+  Object.assign(key.shadow.camera, { left: -110, right: 110, top: 110, bottom: -110, near: 10, far: 650 });
+  key.shadow.normalBias = .32;
+  key.shadow.intensity = .36;
+  scene.add(key, key.target);
+  const fill = new THREE.DirectionalLight('#9dc8d4', 0.78);
   fill.position.set(-335, -260, 210);
   scene.add(fill);
 
@@ -259,10 +268,10 @@ function sectorGeometry({ voxelMm, lensRadiusMm, sectorDepthMm, sectorHalfAngleD
     const geometry = new THREE.BufferGeometry();
     geometry.setAttribute('position', new THREE.Float32BufferAttribute(points, 3));
     const material = new THREE.LineBasicMaterial({
-      color: '#84d4f3', transparent: true, opacity, depthTest: false, depthWrite: false,
+      color: '#8ad8f8', transparent: true, opacity, depthWrite: false, toneMapped: false,
     });
     const lines = new THREE.LineSegments(geometry, material);
-    lines.renderOrder = 10;
+    lines.renderOrder = 3;
     group.add(lines);
   }
   return group;
@@ -287,7 +296,7 @@ function transformForFrame(frame) {
   return { position, orientation: new THREE.Quaternion().setFromRotationMatrix(basis) };
 }
 
-export async function createSweepScenes({ poseCanvas, planeCanvas, frames }) {
+export async function createSweepScene({ canvas, frames }) {
   if (!frames?.length) throw new Error('The sweep has no probe poses.');
   const names = ['torso', 'ribs', 'liver', 'gallbladder', 'lens', 'housing', 'relief'];
   const [dimensions, ...geometries] = await Promise.all([
@@ -295,36 +304,29 @@ export async function createSweepScenes({ poseCanvas, planeCanvas, frames }) {
   ]);
   const meshes = Object.fromEntries(names.map((name, index) => [name, geometries[index]]));
   const transforms = frames.map(transformForFrame);
-  const reference = transforms[Math.floor(transforms.length / 2)];
-  const start = transforms[0].position;
-  const target = meshes.gallbladder.boundingBox.getCenter(vec(0, 0, 0));
-  const pose = viewport(poseCanvas, {
-    target: vec(141, 149, 193), direction: vec(.43, .86, .19), up: vec(0, 0, 1), span: 433,
+  const reference = transforms[Math.min(12, transforms.length - 1)];
+  const center = meshes.gallbladder.boundingBox.getCenter(vec(0, 0, 0));
+  const view = viewport(canvas, {
+    target: center.lerp(reference.position, .35).add(vec(-8, 2, 48)),
+    direction: vec(.57, .94, .22), up: vec(-.63, .04, .78).normalize(), span: 219,
     showOrientation: true,
   });
-  let plane;
-  try {
-    const outward = vec(0, 0, 1).applyQuaternion(reference.orientation);
-    const normal = vec(0, 1, .1).normalize().applyQuaternion(reference.orientation);
-    const up = outward.clone().addScaledVector(normal, -outward.dot(normal)).normalize();
-    plane = viewport(planeCanvas, {
-      target: target.clone().lerp(start, .16), direction: normal, up, span: 183,
-    });
-  } catch (error) {
-    pose.dispose();
-    throw error;
-  }
-  pose.scene.add(solid(meshes.torso, '#bf866d'));
+  const torso = solid(meshes.torso, '#be9885');
+  torso.material.roughness = .95;
+  torso.renderOrder = 4;
+  torso.receiveShadow = true;
   const probe = transducer(meshes, dimensions);
-  const cable = solid(new THREE.BufferGeometry(), '#2a3a3b');
-  pose.scene.add(probe, cable);
-  plane.scene.add(
-    solid(meshes.gallbladder, '#3fbf9e'),
-    solid(meshes.liver, '#ad6155', .30),
-    solid(meshes.ribs, '#dacaad', .28),
-  );
+  probe.traverse((object) => { if (object.isMesh) object.castShadow = true; });
+  const cable = solid(new THREE.BufferGeometry(), '#4c5657');
+  const gallbladder = solid(meshes.gallbladder, '#3fbf9e');
+  const liver = solid(meshes.liver, '#ad6155', .58);
+  const ribs = solid(meshes.ribs, '#dacaad', .78);
+  liver.renderOrder = 1;
+  ribs.renderOrder = 2;
   const sector = sectorGeometry(dimensions);
-  plane.scene.add(sector);
+  const internal = new THREE.Group();
+  internal.add(gallbladder, liver, ribs, sector);
+  view.scene.add(torso, probe, cable, internal);
   const last = transforms.length - 1;
   let selected = -1;
 
@@ -350,20 +352,27 @@ export async function createSweepScenes({ poseCanvas, planeCanvas, frames }) {
     ]);
     cable.geometry.dispose();
     cable.geometry = new THREE.TubeGeometry(path, 24, 1.55, 8, false);
-    pose.invalidate();
-    plane.invalidate();
+    view.invalidate();
   }
 
+  function setTorsoOpacity(value) {
+    if (!Number.isFinite(value)) return;
+    const opacity = THREE.MathUtils.clamp(value, 0, 1);
+    const transparent = opacity < 1;
+    torso.visible = opacity > 0;
+    // The opaque endpoint represents the external view. The modeled field can
+    // extend beyond the sampled body, so hide the entire internal layer here.
+    internal.visible = transparent;
+    torso.material.opacity = opacity;
+    if (torso.material.transparent !== transparent) {
+      torso.material.transparent = transparent;
+      torso.material.depthWrite = !transparent;
+      torso.material.needsUpdate = true;
+    }
+    view.invalidate();
+  }
+
+  setTorsoOpacity(.32);
   setFrame(0);
-  return {
-    setFrame,
-    resetView(which) {
-      if (which !== 'plane') pose.reset();
-      if (which !== 'pose') plane.reset();
-    },
-    dispose() {
-      pose.dispose();
-      plane.dispose();
-    },
-  };
+  return { setFrame, setTorsoOpacity, resetView: view.reset, dispose: view.dispose };
 }

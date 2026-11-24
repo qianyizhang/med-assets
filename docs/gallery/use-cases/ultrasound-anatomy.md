@@ -4,7 +4,7 @@
 
 ## Purpose and outcomes
 
-**Sweep.** Inspect how probe placement changes the image. Dragging the camera orbits the **probe pose** on the patient. A separate scene shows the **scan plane** through the internal anatomy, with the **imaging sector** outlined in wireframe. Use the timeline to move the probe. The simulated scan and optional labeled anatomical section follow the same pose. See the [ultrasound vocabulary](../../../GLOSSARY.md#ultrasound-acquisition).
+**Sweep.** Inspect how probe placement changes the image. Dragging the camera orbits the **probe pose** on the patient. The same scene shows the **scan plane** through the internal anatomy, with the **imaging sector** outlined in wireframe. Adjust torso opacity to move between surface contact and the internal path while holding the pose and camera angle. Use the timeline to move the probe. The simulated scan and optional labeled anatomical section follow the same pose. See the [ultrasound vocabulary](../../../GLOSSARY.md#ultrasound-acquisition).
 
 **Reference comparison.** Mark each reference keyframe on the timeline. Distinguish phases by position, pattern or label. Keep anatomical colors with their structures. A still from a different case stays identified as a reference to its named view throughout playback. Put media credits and acquisition details in Sources.
 
@@ -16,7 +16,7 @@ Use **Ultrasound Anatomy** as the collection name. The topics have different exa
 
 ## First example
 
-Show the external probe pose, a separate internal scan plane, and paired simulated and acquired images. The labeled section shows the same anatomy sampled for the simulated image. Record probe position, plane orientation, image orientation, depth, units and source identity. Keep the labeled section and grayscale view aligned so a learner can trace the same landmark. When a locator and detail come from different frames, label the transition.
+Show the probe on the body and its imaging sector in one orbitable view above the paired simulated and acquired images. The labeled section shows the same anatomy sampled for the simulated image. Record probe position, plane orientation, image orientation, depth, units and source identity. Keep the labeled section and grayscale view aligned so a learner can trace the same landmark. When a locator and detail come from different frames, label the transition.
 
 Echodemo uses one probe pose to drive a torso view, labeled anatomy and synthetic B-mode. It cuts a common 3D source or supplies authored cross-section shapes, then applies a tissue-specific grayscale renderer. Use the correspondence as a teaching pattern. The existing cardiac imaging package supplies a local example of storing the plane and orientation with a synthetic image. Its ultrasound-style fan has its own plane. [Echodemo development notes](https://github.com/douyang/echodemo/blob/main/DEVELOPMENT.md) · [Cardiac imaging package](../../../heart/synthetic-imaging/beating-heart/imaging/README.md)
 
@@ -38,7 +38,7 @@ The initial inventory used med-assets `e51891b`. Local s1233 masks shared a spat
 
 ## Decisions and progression
 
-1. Review the gallbladder sweep by orbiting the two spatial views at a fixed keyframe, then scrubbing between the long and short axes without losing either camera angle. Both reference ticks must land on the matching scan and acquired comparison.
+1. Review the gallbladder sweep by changing torso opacity at a fixed keyframe, then scrubbing between long and short axes with the selected camera angle and opacity preserved. Both reference ticks must land on the matching scan and acquired comparison.
 2. Assemble comparable views across the scoped tours. The [reference study](../../../experiments/ultrasound-sweep/research/README.md) records the source identity, terms, case limits and differences at each named view. Use that set to prioritize improvements to simulated ultrasound appearance.
 3. Review the assets contributing to a discrepancy from its keyframe. Keep shared model revisions with their existing Library owners. The first fixed-stop Gallery candidate still has flat part tabs.
 4. Once the inspection design is settled, draft the full campaign specification. Sol owns the main implementation work. The campaign owner steers, reviews, integrates and polishes each slice.

@@ -41,34 +41,29 @@
         </div>
 
         <div id="stage">
-          <figure class="panel" id="posePanel">
+          <figure class="panel" id="scenePanel">
             <figcaption>
-              <span>Probe pose</span>
-              <button class="viewButton" id="resetPose" aria-label="Reset probe pose view" disabled>Reset view</button>
+              <span>Probe and scan plane</span>
+              <button class="viewButton" id="resetView" aria-label="Reset 3D view" disabled>Reset view</button>
             </figcaption>
-            <div class="view sceneView" id="poseArea">
-              <canvas id="poseCanvas" aria-label="Probe and external body surface" aria-describedby="poseHelp" tabindex="0" hidden></canvas>
-              <p class="mediaStatus" id="poseStatus">Loading probe pose…</p>
-              <span class="orbitHelp" id="poseHelp" hidden>Drag or use arrow keys to orbit · ± to zoom</span>
+            <div class="view sceneView">
+              <canvas id="sceneCanvas" aria-label="Probe, scan sector, torso and internal abdominal anatomy" aria-describedby="sceneHelp" tabindex="0" hidden></canvas>
+              <p class="mediaStatus" id="sceneStatus">Loading 3D view…</p>
+              <span class="orbitHelp" id="sceneHelp" hidden>Drag or use arrow keys to orbit · ± to zoom</span>
             </div>
-            <div class="panelFoot">Right upper abdomen</div>
-          </figure>
-
-          <figure class="panel" id="planePanel">
-            <figcaption>
-              <span>Scan plane</span>
-              <button class="viewButton" id="resetPlane" aria-label="Reset scan plane view" disabled>Reset view</button>
-            </figcaption>
-            <div class="view sceneView" id="planeArea">
-              <canvas id="planeCanvas" aria-label="Scan sector and internal abdominal anatomy" aria-describedby="planeHelp" tabindex="0" hidden></canvas>
-              <p class="mediaStatus" id="planeStatus">Loading scan plane…</p>
-              <span class="orbitHelp" id="planeHelp" hidden>Drag or use arrow keys to orbit · ± to zoom</span>
+            <div class="panelFoot sceneFoot">
+              <ul class="legend" aria-label="3D scene">
+                <li class="sector">Imaging sector</li>
+                <li class="gb">Gallbladder</li>
+                <li class="liver">Liver</li>
+                <li class="rib">Ribs</li>
+              </ul>
+              <div class="opacityControl">
+                <label for="torsoOpacity">Torso opacity</label>
+                <input id="torsoOpacity" type="range" min="0" max="100" step="1" value="32" aria-valuetext="32%" disabled />
+                <output id="torsoOpacityValue" for="torsoOpacity" aria-live="off">32%</output>
+              </div>
             </div>
-            <ul class="panelFoot legend" id="planeLegend" aria-label="Scan plane anatomy">
-              <li class="gb">Gallbladder</li>
-              <li class="liver">Liver</li>
-              <li class="rib">Ribs</li>
-            </ul>
           </figure>
 
           <figure class="panel" id="scanPanel">
@@ -127,9 +122,11 @@
         <details>
           <summary>Sources</summary>
           <p>
-            Torso and sections adapted from
+            Organs, scan sections and the probe-contact surface are adapted from
             <a href="https://zenodo.org/records/10047263">TotalSegmentator s1233, Jakob Wasserthal and colleagues</a>
-            (CC BY 4.0). The transducer and tissue appearance are authored. Simulated brightness is illustrative.
+            (CC BY 4.0). The illustrative exterior is fitted from the BodyParts3D adult skin and rib models,
+            © The Database Center for Life Science (DBCLS), <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html">CC BY 4.0</a>.
+            The skin follows the CT in the contact window. The transducer and tissue appearance are authored. Simulated brightness is illustrative.
           </p>
           <p>
             Long axis · resized figure 2 from

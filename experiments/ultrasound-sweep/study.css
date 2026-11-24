@@ -231,7 +231,14 @@ main { padding: 12px 0 24px; }
 .panel figcaption { justify-content: space-between; font-size: 14px; font-weight: 700; }
 .panelFoot, .panel small { color: var(--screen-quiet); font-size: 12px; font-weight: 450; }
 .panelFoot { min-height: 33px; }
-.panelFoot.legend { column-gap: 15px; }
+#scenePanel { grid-column: 1 / -1; }
+.sceneFoot { justify-content: space-between; flex-wrap: wrap; padding-block: 5px; }
+.legend .sector { color: #a4d5e9; }
+.opacityControl { display: flex; flex-wrap: wrap; align-items: center; column-gap: 8px; }
+.opacityControl input { inline-size: clamp(86px, 13vw, 160px); min-height: 26px; accent-color: #80c8b9; cursor: pointer; }
+.opacityControl input:focus-visible { outline-color: #ffc17f; }
+.opacityControl input:disabled { cursor: default; }
+.opacityControl output { min-width: 4ch; text-align: end; font-variant-numeric: tabular-nums; }
 .legend .gb { color: #70d5bd; }
 .legend .liver { color: #e0a38c; }
 .legend .rib { color: #d6d0bd; }
@@ -261,6 +268,7 @@ main { padding: 12px 0 24px; }
 }
 
 .rasterView { background: #080a0a; }
+.view.sceneView { aspect-ratio: 2.15; min-block-size: 265px; max-block-size: 455px; }
 
 .view img, .view canvas {
   display: block;
@@ -314,4 +322,5 @@ a { color: var(--teal); }
 [hidden] { display: none !important; }
 @media (max-width: 620px) {
   #stage, .assetLayout { grid-template-columns: minmax(0, 1fr); }
+  .view.sceneView { aspect-ratio: 1.35; }
 }
