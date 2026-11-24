@@ -1,18 +1,22 @@
 # Ultrasound Anatomy
 
-**Status.** Design brief in discussion. The first learner task, page structure and visual treatment are proposed.
+**Status.** The learner and asset-review jobs are agreed. Navigation between them, tour stops, and visual treatment are in design.
 
-## Purpose and proposed outcome
+## Purpose and outcomes
 
-Help a learner connect the location and orientation of an ultrasound probe to the anatomy a scan plane crosses. In the first worked example, the learner should be able to find the gallbladder in a synthetic grayscale view and use the matching anatomical section to explain its position relative to the liver.
+**Tour.** A learner who knows basic anatomy and is new to ultrasound connects a probe pose on the body to the projected scan. Give each topic its own tour divided into meaningful stops on a shared scaffold. At each stop, show the probe and synthetic scan together. Reveal the matching anatomical section when it helps explain the image. In the first worked example, the learner should find the gallbladder in grayscale and explain its position relative to the liver.
+
+**Asset review.** An author can see what a tour uses, identify the part or prop that limits its teaching value and open the exact asset or review to work on it. Organize by tour and stop, then by anatomy, body context, props and derived views as relevant. Explain each item's role in the view. Use the existing Asset Library for revision and download identity, and Compare or the owning review for findings. Link between a tour stop and its asset breakdown with the stop preserved on return.
 
 Use **Ultrasound Anatomy** as the collection name. The topics have different exam purposes. Use *screening* for a specifically named context such as abdominal aortic aneurysm (AAA) screening. The page teaches spatial relationships. Any synthetic grayscale image is identified as an illustration. [AIUM abdominal aorta practice parameter](https://onlinelibrary.wiley.com/doi/10.1002/jum.70167) · [USPSTF breast guidance](https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/breast-cancer-screening) · [USPSTF thyroid guidance](https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/thyroid-cancer-screening)
 
-## Proposed first example
+## First example
 
 Show the probe on a regional locator, a labelled section through the source anatomy and a synthetic grayscale view of that same section. Record probe position, plane orientation, image orientation, depth, units and source identity. Keep the labeled section and grayscale view aligned so a learner can trace the same landmark. When a locator and detail come from different frames, label the transition.
 
 Echodemo uses one probe pose to drive a torso view, labeled anatomy and synthetic B-mode. It cuts a common 3D source or supplies authored cross-section shapes, then applies a tissue-specific grayscale renderer. Use the correspondence as a teaching pattern. The existing cardiac imaging package supplies a local example of storing the plane and orientation with a synthetic image. Its ultrasound-style fan has its own plane. [Echodemo development notes](https://github.com/douyang/echodemo/blob/main/DEVELOPMENT.md) · [Cardiac imaging package](../../../heart/synthetic-imaging/beating-heart/imaging/README.md)
+
+The asset review for this stop should name the liver, gallbladder, body locator, probe and generated views. Begin with the view that supports the learner's task, then show matched overview, orthographic or section evidence where it exposes a strength or a defect. Record revision, camera or plane, scale, material and source. Pair a concrete observation with its consequence for the tour. For example, a reference image may be needed to review the wall's grayscale appearance. Use the existing [visual comparison requirements](../../WORKFLOW.md#visual-comparisons) and [teaching-asset rubric](../../guides/asset-quality.md).
 
 ## Starting assets and open gaps
 
@@ -28,7 +32,7 @@ The initial inventory used med-assets `e51891b`. Local s1233 masks shared a spat
 
 ## Decisions and progression
 
-1. Agree on the primary learner, the job the page should serve for them and the action that demonstrates the outcome.
-2. Prototype viable page openings and how a learner moves between the probe, section and grayscale view. Use the prototypes to settle whether the opening presents an orientation, a worked example or an exercise.
+1. Compare linked sibling pages and persistent Tour / Assets tabs using the same first stop. Decide whether the asset review should be visible at the collection level or opened from the stop that needs it.
+2. Settle the first tour's stops and access to the anatomical section. Try locating the gallbladder, then open the evidence for one asset used in that view and return to the same stop.
 3. Build the selected first stop in the ordinary Gallery with actual assets. Walk the learner action and record the exact source revisions, views and observed failures or limitations.
 4. Refine the page and specific assets that prevented the learner action. Repeat that action after each material change. Use the result to decide which topic to add next and which views still need new sources.
