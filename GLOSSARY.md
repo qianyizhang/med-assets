@@ -49,6 +49,17 @@ placement.
 The configuration of articulated structures at a particular state, such as
 the knee at 20° of flexion.
 
+## Ultrasound acquisition
+
+| Term | Meaning |
+| --- | --- |
+| Probe pose | Position and orientation of the transducer relative to the patient, including its contact point and indicator direction. Orbiting the viewing camera preserves the probe pose. |
+| Scan plane | The two-dimensional slice through the anatomy defined by the beam direction and the lateral axis of the probe. |
+| Imaging sector | The bounded, fan-shaped region sampled within the scan plane by a curved or phased array. Its width and imaging depth determine how much of the slice appears in the image. |
+| Anatomical section | The anatomy intersected by the scan plane. Labels identify structures in that slice. |
+| Sweep | An ordered movement through probe poses. A phase describes a portion of the movement, such as finding the acoustic window or rotating the probe. |
+| Reference keyframe | A named pose in a sweep with a corresponding acquired ultrasound for comparison. A reference from another case illustrates the view and retains its own scale and anatomy. |
+
 ## Gallery presentation
 
 **System assembly**

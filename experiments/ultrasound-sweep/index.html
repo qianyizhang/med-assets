@@ -9,121 +9,127 @@
     <script defer src="study.js"></script>
   </head>
   <body>
-    <header>
+    <header class="mast">
       <div class="bar">
-        <span class="brand">Anatomy Gallery</span><span class="divider">/</span> Ultrasound Anatomy
-        <nav aria-label="Study pages">
-          <button id="tourTab" aria-pressed="true">Tour</button
-          ><button id="assetTab" aria-pressed="false">Keyframe assets</button>
+        <h1>Gallbladder sweep</h1>
+        <nav aria-label="Study views">
+          <button id="tourTab" aria-pressed="true">Sweep</button>
+          <button id="assetTab" aria-pressed="false">Keyframe assets</button>
         </nav>
       </div>
     </header>
     <main>
-      <div class="mast">
-        <div>
-          <p class="eyebrow">Abdomen ultrasound</p>
-          <h1>Gallbladder sweep</h1>
+      <section id="tour" aria-label="Gallbladder sweep">
+        <div class="transport">
+          <div class="transportTop">
+            <button class="primary" id="play" disabled>Play sweep</button>
+            <div class="current">
+              <output id="readout" for="position" aria-live="off">Long axis</output>
+              <span id="angle">0°</span>
+              <span id="frameNumber">12 / 48</span>
+            </div>
+          </div>
+          <div class="timeline">
+            <label class="sr" for="position">Sweep position</label>
+            <ol class="phases" aria-label="Sweep phases"><li>Find window</li><li>Rotate probe</li></ol>
+            <input id="position" type="range" min="0" max="48" step="1" value="12" />
+            <div class="ticks">
+              <button id="longTick" aria-label="Long axis reference keyframe" class="tick" type="button">Long axis</button>
+              <button id="shortTick" aria-label="Short axis reference keyframe" class="tick" type="button">Short axis</button>
+            </div>
+          </div>
         </div>
-        <label class="mode" for="variant"
-          >Interaction design<select id="variant">
-            <option value="probe">A · Probe control</option>
-            <option value="guide">B · Guided stops</option>
-          </select></label
-        >
-      </div>
-      <div id="tour">
-        <p id="instruction"></p>
-        <div class="steps" id="steps" aria-label="Sweep stops"></div>
+
         <div id="stage">
           <figure class="panel" id="posePanel">
-            <figcaption><span>Probe position</span><small>Right upper abdomen</small></figcaption>
-            <div id="drag" class="view bodyview">
-              <img id="pose" alt="3D transducer in contact with the right upper abdomen." draggable="false" />
-              <div class="locator">
-                <img
-                  src="media/locator.webp"
-                  alt="Anterior body atlas with the right upper abdominal region marked."
-                /><i></i>
-              </div>
-              <span class="gesture" id="gripHint">↔ Drag to sweep</span>
-            </div>
-          </figure>
-          <figure class="panel">
             <figcaption>
-              <span id="scanTitle">Simulated scan</span><small id="orientation">Curved array</small>
+              <span>Probe pose</span>
+              <button class="viewButton" id="resetPose" aria-label="Reset probe pose view" disabled>Reset view</button>
             </figcaption>
-            <div class="view" id="scanArea">
-              <img id="scan" alt="Simulated scan at the selected probe pose." draggable="false" /><button
-                id="identify"
-                hidden
-                aria-label="Point to the gallbladder in the simulated scan"
-              ></button>
+            <div class="view sceneView" id="poseArea">
+              <canvas id="poseCanvas" aria-label="Probe and external body surface" aria-describedby="poseHelp" tabindex="0" hidden></canvas>
+              <p class="mediaStatus" id="poseStatus">Loading probe pose…</p>
+              <span class="orbitHelp" id="poseHelp" hidden>Drag or use arrow keys to orbit · ± to zoom</span>
+            </div>
+            <div class="panelFoot">Right upper abdomen</div>
+          </figure>
+
+          <figure class="panel" id="planePanel">
+            <figcaption>
+              <span>Scan plane</span>
+              <button class="viewButton" id="resetPlane" aria-label="Reset scan plane view" disabled>Reset view</button>
+            </figcaption>
+            <div class="view sceneView" id="planeArea">
+              <canvas id="planeCanvas" aria-label="Scan sector and internal abdominal anatomy" aria-describedby="planeHelp" tabindex="0" hidden></canvas>
+              <p class="mediaStatus" id="planeStatus">Loading scan plane…</p>
+              <span class="orbitHelp" id="planeHelp" hidden>Drag or use arrow keys to orbit · ± to zoom</span>
+            </div>
+            <ul class="panelFoot legend" id="planeLegend" aria-label="Scan plane anatomy">
+              <li class="gb">Gallbladder</li>
+              <li class="liver">Liver</li>
+              <li class="rib">Ribs</li>
+            </ul>
+          </figure>
+
+          <figure class="panel" id="scanPanel">
+            <figcaption>
+              <span id="scanTitle">Simulated scan</span>
+              <button id="section" class="viewButton" aria-pressed="false">Anatomy overlay</button>
+            </figcaption>
+            <div class="view rasterView" id="scanArea" aria-busy="true">
+              <p class="mediaStatus" id="scanStatus">Loading scan…</p>
+            </div>
+            <div class="panelFoot">
+              <span id="scanDetail">Curved array · 13.3 cm depth</span>
+              <ul class="legend sectionLegend" id="legend" aria-label="Section anatomy" hidden>
+                <li class="gb">Gallbladder</li>
+                <li class="liver">Liver</li>
+                <li class="vein">Portal and splenic veins</li>
+              </ul>
             </div>
           </figure>
-          <figure class="panel" id="refPanel" hidden>
-            <figcaption><span>Acquired scan</span><small>Different case</small></figcaption>
-            <div class="view"><img id="ref" alt="" /></div>
+
+          <figure class="panel" id="refPanel">
+            <figcaption><span>Acquired ultrasound</span><small>Different case</small></figcaption>
+            <div class="view rasterView" id="referenceArea" aria-busy="true">
+              <p class="mediaStatus" id="refStatus">Loading comparison…</p>
+            </div>
+            <div class="panelFoot" id="referenceNote">Long axis reference</div>
           </figure>
         </div>
-        <div class="transport">
-          <button class="primary" id="play">Play sweep</button
-          ><label for="position" class="sr">Sweep position</label
-          ><input id="position" type="range" min="0" max="48" step="1" value="12" /><output
-            id="readout"
-            for="position"
-          ></output>
+      </section>
+
+      <section id="assets" aria-labelledby="assetTitle" hidden>
+        <div class="assetHeader">
+          <h2 id="assetTitle">Keyframe assets</h2>
+          <label for="assetFrame">Frame
+            <select id="assetFrame">
+              <option value="-1">Current transition</option>
+              <option value="12">Long axis</option>
+              <option value="48">Short axis</option>
+            </select>
+          </label>
         </div>
-        <div class="tools">
-          <button id="section" aria-pressed="false">Reveal anatomy</button
-          ><button id="compare" aria-pressed="false">Compare real scan</button
-          ><button id="test" aria-pressed="false">Identify gallbladder</button>
-        </div>
-        <p id="feedback" role="status"></p>
-        <div id="choices" hidden>
-          <span>Keyboard answer · choose a marked region</span> <button data-choice="0">Region A</button>
-          <button data-choice="1">Region B</button>
-        </div>
-        <p id="legend" hidden>
-          Teal · gallbladder &nbsp; Ochre · liver &nbsp; Blue · sampled portal and splenic vein label
-        </p>
-        <p id="referenceNote" hidden></p>
-      </div>
-      <section id="assets" hidden>
-        <p class="eyebrow">Asset review</p>
-        <h2 id="assetTitle"></h2>
-        <p id="assetIntro"></p>
-        <div class="tools" id="keyframes">
-          <label for="assetFrame">Teaching keyframe</label
-          ><select id="assetFrame">
-            <option value="-1">Current transition</option>
-            <option value="12">Long axis</option>
-            <option value="48">Short axis</option>
-          </select>
-        </div>
-        <div id="assetControls" class="tools"></div>
+        <div id="assetControls" class="assetControls" aria-label="Assets"></div>
         <div class="assetLayout">
           <div id="assetEvidence"></div>
           <div>
             <h3 id="assetName"></h3>
-            <p id="assetFinding"></p>
             <p id="binding"></p>
-            <a id="assetSource" target="_blank" rel="noreferrer">Open source ↗</a>
+            <p id="assetFinding"></p>
+            <a id="assetSource">Source record ↗</a>
           </div>
         </div>
         <button id="return">Return to this pose</button>
       </section>
+
       <footer>
-        Illustrative sweep · TotalSegmentator s1233
         <details>
-          <summary>Sources and image credits</summary>
+          <summary>Sources</summary>
           <p>
-            CT-derived torso and sections adapted from
-            <a href="https://zenodo.org/records/10047263"
-              >Jakob Wasserthal and TotalSegmentator contributors, University Hospital Basel</a
-            >
-            (CC BY 4.0). The transducer, cutaway window and tissue appearance are authored. Regional locator
-            cropped from the BodyParts3D skin model review, © DBCLS,
-            <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html">CC BY 4.0</a>.
+            Torso and sections adapted from
+            <a href="https://zenodo.org/records/10047263">TotalSegmentator s1233, Jakob Wasserthal and colleagues</a>
+            (CC BY 4.0). The transducer and tissue appearance are authored. Simulated brightness is illustrative.
           </p>
           <p>
             Long axis · resized figure 2 from
@@ -132,7 +138,7 @@
             still at 1.2 s from “Normal Gallbladder, Short Axis,” Kathryn Pade, MD, Rady Children’s Hospital
             San Diego, <a href="https://www.thepocusatlas.com/pedsbiliary">The POCUS Atlas</a>,
             <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>. The latter is an
-            adolescent case. Comparisons illustrate shape across cases.
+            adolescent case.
           </p>
         </details>
       </footer>

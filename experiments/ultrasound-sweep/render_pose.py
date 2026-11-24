@@ -9,6 +9,13 @@ import numpy as np
 from mathutils import Matrix, Vector
 from bpy_extras.object_utils import world_to_camera_view
 
+# Blender may invoke this as a text block without adding its directory to sys.path.
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from geometry import (
+    LENS_RADIUS_MM, PIP_POSITION, PIP_SCALE, PROBE_RINGS,
+    SECTOR_DEPTH_MM, SECTOR_HALF_ANGLE_DEG, VOXEL_MM, probe_geometry,
+)
+
 
 def material(name, color):
     mat = bpy.data.materials.new(name)
@@ -29,17 +36,7 @@ def mesh_object(name, vertices, faces, mat):
 
 
 def grip(name, rings, mat, parent):
-    # Elliptical sections broaden into the convex footprint at the contact face.
-    vertices, faces = [], []
-    for z, w, d, curvature in rings:
-        for i in range(48):
-            a = 2 * math.pi * i / 48
-            vertices.append((w*math.cos(a), d*math.sin(a), z + curvature*math.cos(a)**2))
-    for j in range(len(rings)-1):
-        for i in range(48):
-            a, b = 48*j+i, 48*j+(i+1)%48
-            faces.append((a, b, b+48, a+48))
-    faces.extend([tuple(reversed(range(48))), tuple(range(len(vertices)-48, len(vertices)))])
+    vertices, faces = probe_geometry(rings)
     obj = mesh_object(name, vertices, faces, mat)
     obj.parent = parent
     return obj
@@ -66,16 +63,15 @@ def main():
     rubber = material('Acoustic lens', (.024, .045, .048))
     white = material('Transducer housing', (.84, .89, .87))
     teal = material('Orientation marker', (.022, .40, .39))
-    grip('Convex face', [(-.7,14,3,2.5),(1,16,4.4,3),(3,16,4.5,3)],rubber,probe)
-    grip('Housing', [(2.6,16,4.5,3),(5,17,5,2.5),(10,15,5.7,1.2),(18,10,5.2,0),
-                     (30,7,4.4,0),(45,7.3,4.8,0),(49,5,4,0),(50,3.5,3.1,0)],white,probe)
-    grip('Strain relief', [(49,3.5,3.0,0),(55,3.3,2.9,0),(60,2.0,2.0,0)],rubber,probe)
+    grip('Convex face', PROBE_RINGS['lens'], rubber, probe)
+    grip('Housing', PROBE_RINGS['housing'], white, probe)
+    grip('Strain relief', PROBE_RINGS['relief'], rubber, probe)
     bpy.ops.mesh.primitive_uv_sphere_add(segments=24, ring_count=12)
     dot=bpy.context.object
     dot.name='Orientation pip on image-left end'
     dot.parent=probe
-    dot.location=(-13.8,0,11)
-    dot.scale=(2,2.1,2.7)
+    dot.location=PIP_POSITION
+    dot.scale=PIP_SCALE
     dot.data.materials.append(teal)
     curve=bpy.data.curves.new('Cable','CURVE')
     curve.dimensions='3D'
@@ -154,10 +150,12 @@ def main():
             point.handle_left_type=point.handle_right_type='AUTO'
         # Project the actual sector boundaries into the pose camera (millimetres to voxels).
         outline = []
-        for radius, angles in [(38, range(-36, 37, 3)), (171, range(36, -37, -3))]:
+        half_angle = SECTOR_HALF_ANGLE_DEG
+        for radius, angles in [(LENS_RADIUS_MM, range(-half_angle, half_angle+1, 3)),
+                               (LENS_RADIUS_MM + SECTOR_DEPTH_MM, range(half_angle, -half_angle-1, -3))]:
             for degrees in angles:
                 a = math.radians(degrees)
-                point = pos + (lateral*(radius*math.sin(a))-outward*(radius*math.cos(a)-38))/1.5
+                point = pos + (lateral*(radius*math.sin(a))-outward*(radius*math.cos(a)-LENS_RADIUS_MM))/VOXEL_MM
                 uv = world_to_camera_view(scene, cam, point)
                 outline.append([uv.x*650, (1-uv.y)*455])
         projected.append(outline)

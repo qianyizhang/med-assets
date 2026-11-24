@@ -12,6 +12,8 @@ from PIL import Image
 from scipy import ndimage as nd
 from skimage.measure import find_contours, marching_cubes
 
+from geometry import LENS_RADIUS_MM, SECTOR_DEPTH_MM, SECTOR_HALF_ANGLE_DEG, VOXEL_MM
+
 HERE = Path(__file__).resolve().parent
 WORKSHOP = json.loads((HERE.parents[1] / 'assemblies/workshop-s1233/inputs.json').read_text())
 CT_SHA = '5352376d8fd9c0ab582a7fca1443f28762a66b9782d59c645b976771587c0cfc'
@@ -67,8 +69,8 @@ def fine_scatter(coordinates):
 
 
 def body_surface(ct):
-    # Isolate the external torso before smoothing, excluding the bed and the head.
-    solid = ct[:, :, 84:333:2][::2, ::2] > -380
+    # Keep the same-case thorax, abdomen, and pelvis in the exterior view.
+    solid = ct[::2, ::2, ::2] > -380
     solid = nd.binary_opening(solid, iterations=1)
     components, _ = nd.label(solid)
     counts = np.bincount(components.ravel())
@@ -76,7 +78,7 @@ def body_surface(ct):
     solid = np.stack([nd.binary_fill_holes(a) for a in solid.transpose(2, 0, 1)], axis=2)
     shell = nd.gaussian_filter(solid.astype('f'), 1.15)
     vertices, faces, _, _ = marching_cubes(shell, 0.5, step_size=1)
-    vertices = vertices * 2 + [0, 0, 84]
+    vertices = vertices * 2
     return shell, vertices, faces
 
 
@@ -115,9 +117,10 @@ def render(case, output):
     row, col = np.mgrid[:H, :W]
     x = (col - W / 2) * .41
     y = (row - 12) * .41
-    radius = np.hypot(x, y + 38)
-    depth = radius - 38
-    field = (depth >= 0) & (depth <= 133) & (np.abs(np.arctan2(x, y + 38)) < np.deg2rad(36))
+    radius = np.hypot(x, y + LENS_RADIUS_MM)
+    depth = radius - LENS_RADIUS_MM
+    angle_in_plane = np.abs(np.arctan2(x, y + LENS_RADIUS_MM))
+    field = (depth >= 0) & (depth <= SECTOR_DEPTH_MM) & (angle_in_plane < np.deg2rad(SECTOR_HALF_ANGLE_DEG))
     rng = np.random.default_rng(931)
     # Sample one stationary scatter field so tissues retain texture as the probe moves.
     scatter = rng.standard_normal(SHAPE, dtype=np.float32)
@@ -128,15 +131,15 @@ def render(case, output):
         target = center + cross * max(0, 1 - i / LONG) * 13
         steps = np.arange(0, 135, .1)
         ray = target[:, None] + outward[:, None] * steps
-        inside = material_at(shell, (ray - np.array([0, 0, 84])[:, None]) / 2) > .5
+        inside = material_at(shell, ray / 2) > .5
         contact = ray[:, np.flatnonzero(~inside)[0]]
-        xyz = contact[:, None, None] + (lateral[:, None, None] * x + beam[:, None, None] * y) / 1.5
+        xyz = contact[:, None, None] + (lateral[:, None, None] * x + beam[:, None, None] * y) / VOXEL_MM
         hu = nd.gaussian_filter(material_at(ct, xyz), 1)
         gb, liver, vessel = (nd.gaussian_filter(material_at(m, xyz), 1.5) for m in masks.values())
         grain = nd.gaussian_filter(material_at(scatter, xyz), (.65, 1.65))
         # CT supplies interfaces and relative attenuation cues, not measured acoustic properties.
         dy, dx = np.gradient(hu)
-        edge = nd.gaussian_filter(np.abs(dy + dx * x / (y + 38)), (.75, 1.5))
+        edge = nd.gaussian_filter(np.abs(dy + dx * x / (y + LENS_RADIUS_MM)), (.75, 1.5))
         interface = np.clip(edge * 2.7, 0, 105)
         wall = np.clip(np.abs(np.gradient(gb, axis=0)) * 490, 0, 83)
         posterior = np.clip(np.cumsum(gb, axis=0) * .27, 0, 21)
@@ -151,12 +154,12 @@ def render(case, output):
             alpha = (opacity * mask * field)[..., None]
             rgb = rgb * (1-alpha) + np.array(color) * alpha
         Image.fromarray(rgb.astype('u1')).save(media / f'section-{i:02}.webp', quality=86)
-        outlines = find_contours((gb * field), .50)
-        poly = max(outlines, key=len)[::3, ::-1].round(1).tolist() if outlines else []
-        frames.append(dict(contact=contact.tolist(), width=lateral.tolist(), beam=beam.tolist(), degrees=round(np.rad2deg(angle), 1), outline=poly))
-    for i in (LONG, LAST):
-        if len(frames[i]['outline']) < 12:
-            raise ValueError(f'Missing target at teaching frame {i}')
+        if i in (LONG, LAST):
+            outlines = find_contours(gb * field, .50)
+            if not outlines or len(max(outlines, key=len)[::3]) < 12:
+                raise ValueError(f'Missing target at teaching frame {i}')
+        frames.append(dict(contact=contact.tolist(), width=lateral.tolist(), beam=beam.tolist(),
+                           degrees=round(np.rad2deg(angle), 1)))
     (output / 'sweep.js').write_text('const sweep = ' + json.dumps(frames, separators=(',', ':')) + ';\n')
 
 
@@ -179,9 +182,6 @@ def main():
     with Image.open(args.short_reference) as im:
         im.seek(12)
         im.convert('RGB').save(media / 'acquired-short.webp', quality=94)
-    locator = HERE.parents[1] / 'reviews/teaching-assessments/refinement-economy/views/skin-trial.webp'
-    with Image.open(locator) as im:
-        im.crop((196, 67, 435, 345)).save(media / 'locator.webp', quality=90)
     render(args.case, args.output)
     for filename in ('index.html', 'study.css', 'study.js'):
         shutil.copyfile(HERE / filename, args.output / filename)

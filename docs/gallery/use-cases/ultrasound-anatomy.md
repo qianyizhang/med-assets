@@ -1,26 +1,28 @@
 # Ultrasound Anatomy
 
-**Status.** The Gallery candidate has a fixed Abdomen stop and linked asset review. The [gallbladder sweep study](../../../experiments/ultrasound-sweep/README.md) adds two playable interaction prototypes. The other four tours are planned in the [campaign](../../../records/campaigns/ultrasound-gallery.md).
+**Status.** The Gallery candidate has a fixed Abdomen stop and linked asset review. The [gallbladder sweep study](../../../experiments/ultrasound-sweep/README.md) is the active inspection prototype. The other four tours are planned in the [campaign](../../../records/campaigns/ultrasound-gallery.md).
 
 ## Purpose and outcomes
 
-**Tour.** A learner who knows basic anatomy and is new to ultrasound connects a probe pose on the body to the projected scan. Give each topic its own tour divided into meaningful stops on a shared scaffold. At each stop, show the probe and synthetic scan together. Reveal the matching anatomical section when it helps explain the image. In the first worked example, the learner should find the gallbladder in grayscale and explain its position relative to the liver.
+**Sweep.** Inspect how probe placement changes the image. Dragging the camera orbits the **probe pose** on the patient. A separate scene shows the **scan plane** through the internal anatomy, with the **imaging sector** outlined in wireframe. Use the timeline to move the probe. The simulated scan and optional labeled anatomical section follow the same pose. See the [ultrasound vocabulary](../../../GLOSSARY.md#ultrasound-acquisition).
 
-**Asset review.** An author can see what a tour uses, identify the part or prop that limits its teaching value and open the exact asset or review to work on it. Organize by tour and stop, then by anatomy, body context, props and derived views as relevant. Explain each item's role in the view. Use the existing Asset Library for revision and download identity, and Compare or the owning review for findings. Link between a tour stop and its asset breakdown with the stop preserved on return.
+**Reference comparison.** Mark each reference keyframe on the timeline. Distinguish phases by position, pattern or label. Keep anatomical colors with their structures. A still from a different case stays identified as a reference to its named view throughout playback. Put media credits and acquisition details in Sources.
 
-Use linked pages. The collection opens either the tour or its asset review, and each stop links straight to the relevant part. Use an authored sweep between teaching keyframes. The learner can play, pause, scrub and identify the organ. Drive the pictured probe, section and simulated scan from the same pose. The same ordered poses should support a later video export.
+**Asset review.** Organize the contributing geometry and images by tour, stop and keyframe. From a sweep, open the selected frame’s assets, inspect the discrepancy and return to that pose. Use the existing Asset Library for revision and download identity, and Compare or the owning review for findings.
+
+The current scope is exploration and comparison. Identification exercises may be considered later. Preserve the ordered poses so the same sequence can drive a future video export.
 
 Use **Ultrasound Anatomy** as the collection name. The topics have different exam purposes. Use *screening* for a specifically named context such as abdominal aortic aneurysm (AAA) screening. The page teaches spatial relationships. Any synthetic grayscale image is identified as an illustration. [AIUM abdominal aorta practice parameter](https://onlinelibrary.wiley.com/doi/10.1002/jum.70167) · [USPSTF breast guidance](https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/breast-cancer-screening) · [USPSTF thyroid guidance](https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/thyroid-cancer-screening)
 
 ## First example
 
-Show the probe on a regional locator, a labelled section through the source anatomy and a synthetic grayscale view of that same section. Record probe position, plane orientation, image orientation, depth, units and source identity. Keep the labeled section and grayscale view aligned so a learner can trace the same landmark. When a locator and detail come from different frames, label the transition.
+Show the external probe pose, a separate internal scan plane, and paired simulated and acquired images. The labeled section shows the same anatomy sampled for the simulated image. Record probe position, plane orientation, image orientation, depth, units and source identity. Keep the labeled section and grayscale view aligned so a learner can trace the same landmark. When a locator and detail come from different frames, label the transition.
 
 Echodemo uses one probe pose to drive a torso view, labeled anatomy and synthetic B-mode. It cuts a common 3D source or supplies authored cross-section shapes, then applies a tissue-specific grayscale renderer. Use the correspondence as a teaching pattern. The existing cardiac imaging package supplies a local example of storing the plane and orientation with a synthetic image. Its ultrasound-style fan has its own plane. [Echodemo development notes](https://github.com/douyang/echodemo/blob/main/DEVELOPMENT.md) · [Cardiac imaging package](../../../heart/synthetic-imaging/beating-heart/imaging/README.md)
 
 The asset review for this stop should name the liver, gallbladder, body locator, probe and generated views. Begin with the view that supports the learner's task, then show matched overview, orthographic or section evidence where it exposes a strength or a defect. Record revision, camera or plane, scale, material and source. Pair a concrete observation with its consequence for the tour. For example, a reference image may be needed to review the wall's grayscale appearance. Use the existing [visual comparison requirements](../../WORKFLOW.md#visual-comparisons) and [teaching-asset rubric](../../guides/asset-quality.md).
 
-The [Abdomen lesson package](../../../lessons/ultrasound-anatomy/README.md) owns the first pose, paired views, replay and source limits. The learner identifies a marker in the grayscale and can reveal the same section to check its relationship to the liver. The asset review identifies the probe placement and grayscale appearance as the next evidence gaps.
+The earlier fixed-stop [Abdomen lesson package](../../../lessons/ultrasound-anatomy/README.md) owns the first pose, paired views, replay and source limits. The learner identifies a marker in the grayscale and can reveal the same section to check its relationship to the liver. The asset review identifies the probe placement and grayscale appearance as the next evidence gaps.
 
 ## Starting assets and open gaps
 
@@ -36,7 +38,7 @@ The initial inventory used med-assets `e51891b`. Local s1233 masks shared a spat
 
 ## Decisions and progression
 
-1. Compare direct probe control with guided stops on the gallbladder sweep. The learner finds the window, follows the long axis, turns to the short axis and identifies the organ in both views. Select the preferred interaction after walking both variants.
-2. At each teaching keyframe, compare the simulated image with an attributed acquired ultrasound from the corresponding view. The [reference study](../../../experiments/ultrasound-sweep/research/README.md) records source identity, terms, changes, visible differences and case limits. Generated concepts can assist visual exploration. Acquired scans supply the independent appearance comparison.
-3. Organize the asset review by tour, stop and keyframe, then by patient and probe, internal anatomy, simulation and reference. Lead with the image from the selected pose and its specific deficiency. Keep shared model revisions with their existing Library owners. The first Gallery candidate still has flat part tabs.
-4. After interaction selection, draft the full campaign specification. Delegate the main implementation to Sol, with the campaign owner handling integration, review, steering, fixes and polish. Verify the learner action, return to the same keyframe, and later tour selection against the accepted prototype.
+1. Review the gallbladder sweep by orbiting the two spatial views at a fixed keyframe, then scrubbing between the long and short axes without losing either camera angle. Both reference ticks must land on the matching scan and acquired comparison.
+2. Assemble comparable views across the scoped tours. The [reference study](../../../experiments/ultrasound-sweep/research/README.md) records the source identity, terms, case limits and differences at each named view. Use that set to prioritize improvements to simulated ultrasound appearance.
+3. Review the assets contributing to a discrepancy from its keyframe. Keep shared model revisions with their existing Library owners. The first fixed-stop Gallery candidate still has flat part tabs.
+4. Once the inspection design is settled, draft the full campaign specification. Sol owns the main implementation work. The campaign owner steers, reviews, integrates and polishes each slice.

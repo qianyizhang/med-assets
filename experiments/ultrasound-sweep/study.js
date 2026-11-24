@@ -1,372 +1,319 @@
 'use strict';
+
 const $ = (id) => document.getElementById(id);
-const long = 12,
-  last = sweep.length - 1;
-const stops = [
-  [0, 'Find the window'],
-  [long, 'Long axis'],
-  [last, 'Short axis'],
-];
-const source = {
-  case: 'https://zenodo.org/records/10047263',
-  long: 'https://doi.org/10.3390/life15060941',
-  short: 'https://www.thepocusatlas.com/pedsbiliary',
-};
-const guided = () => $('variant').value === 'guide';
+const long = 12;
+const last = sweep.length - 1;
+const frameDuration = 110;
+const imageFile = (kind, frame) => 'media/' + kind + '-' + String(frame).padStart(2, '0') + '.webp';
+const referenceFor = (frame) => (frame <= (long + last) / 2 ? 'long' : 'short');
+const refFile = (frame) => 'media/acquired-' + referenceFor(frame) + '.webp';
+const axisName = (frame) => (referenceFor(frame) === 'long' ? 'Long axis' : 'Short axis');
+const on = (id, value) => $(id).setAttribute('aria-pressed', String(value));
 const state = {
-  frame: long,
+  frame: location.hash === '#guided' ? 0 : long,
+  shownFrame: null,
   section: false,
-  compare: false,
-  exercise: false,
   assets: false,
   group: 0,
-  timer: null,
+  ready: false,
+  playback: null,
+  viewRequest: 0,
+  assetRequest: 0,
+  scenes: null,
 };
-const imageFile = (kind, frame) => 'media/' + kind + '-' + String(frame).padStart(2, '0') + '.webp';
-const anchor = () => (state.frame <= (long + last) / 2 ? 'long' : 'short');
-const refFile = () => 'media/acquired-' + anchor() + '.webp';
-const axisName = () => (anchor() === 'long' ? 'Long axis' : 'Short axis');
-const on = (id, value) => $(id).setAttribute('aria-pressed', String(value));
-const refCredit = () =>
-  anchor() === 'long'
-    ? 'Claudia Lucius et al. · Fig. 2 · CC BY 4.0'
-    : 'Kathryn Pade, MD · The POCUS Atlas · adolescent case · 1.2 s · CC BY-NC 4.0';
 
-function media(id, path) {
-  const img = $(id);
-  if (img.getAttribute('src') === path) return;
-  img.hidden = false;
-  img.parentElement.querySelector('.error')?.remove();
-  img.src = path;
+const images = new Map();
+function prepare(path) {
+  if (!images.has(path)) {
+    const image = new Image();
+    image.src = path;
+    const record = { image: null, finished: false, pending: null };
+    record.pending = image.decode().then(
+      () => { record.image = image; },
+      () => {},
+    ).finally(() => { record.finished = true; });
+    images.set(path, record);
+  }
+  return images.get(path);
 }
-for (const id of ['pose', 'scan', 'ref']) {
-  $(id).addEventListener('error', () => {
-    const img = $(id);
-    img.hidden = true;
-    const msg = document.createElement('p');
-    msg.className = 'error';
-    msg.textContent =
-      { pose: 'Probe view', scan: 'Scan', ref: 'Clinical reference' }[id] + ' unavailable for this frame.';
-    msg.setAttribute('role', 'status');
-    img.parentElement.append(msg);
-    if (id === 'scan') {
-      endExercise();
-      $('test').disabled = true;
-    }
-  });
-  if (id === 'scan')
-    $(id).addEventListener('load', () => {
-      $('test').disabled = ![long, last].includes(state.frame);
-      if (state.exercise) drawMarkers();
-    });
+
+async function prepareSequence(kind, start) {
+  const paths = sweep.map((_, i) => imageFile(kind, (start + i) % sweep.length));
+  for (let offset = 0; offset < paths.length; offset += 8) {
+    await Promise.all(paths.slice(offset, offset + 8).map((path) => prepare(path).pending));
+  }
 }
-function endExercise() {
-  state.exercise = false;
-  $('identify').hidden = $('choices').hidden = true;
-  $('scanArea')
-    .querySelectorAll('.mark')
-    .forEach((el) => el.remove());
-  $('feedback').textContent = '';
-  on('test', false);
+
+function showImage(areaId, id, record, alt, error) {
+  const area = $(areaId);
+  const previous = $(id);
+  const status = $(id + 'Status');
+  area.setAttribute('aria-busy', 'false');
+  if (!record.image) {
+    previous?.remove();
+    status.hidden = false;
+    status.textContent = error;
+    return;
+  }
+  const img = record.image;
+  img.alt = alt;
+  if (img !== previous) {
+    img.id = id;
+    img.draggable = false;
+    if (previous) previous.replaceWith(img);
+    else area.append(img);
+  }
+  status.hidden = true;
 }
-function setFrame(frame) {
-  endExercise();
-  state.frame = Math.max(0, Math.min(last, Math.round(frame)));
-  draw();
+
+function phaseName(frame) {
+  if (frame < long) return 'Find window';
+  if (frame === long || frame === last) return axisName(frame);
+  return 'Rotate probe';
 }
-function nameOfFrame() {
-  const i = state.frame;
-  if (i === long) return 'Long axis · 0°';
-  if (i === last) return 'Short axis · 90°';
-  if (i < long) return 'Finding the window';
-  return 'Rotating · ' + sweep[i].degrees + '°';
+
+function drawReadout(frame) {
+  const name = phaseName(frame);
+  const angle = Math.round(sweep[frame].degrees) + '°';
+  $('position').value = frame;
+  $('position').setAttribute('aria-valuetext', name + ', ' + angle + ', frame ' + frame + ' of ' + last);
+  $('readout').textContent = name;
+  $('angle').textContent = angle;
+  $('frameNumber').textContent = frame + ' / ' + last;
+  $('frameNumber').setAttribute('aria-label', 'Frame ' + frame + ' of ' + last);
+  $('longTick').setAttribute('aria-current', String(frame === long));
+  $('shortTick').setAttribute('aria-current', String(frame === last));
 }
-function labelPlay() {
-  $('play').textContent = state.timer
-    ? 'Pause'
-    : guided()
-      ? state.frame < long
-        ? 'Find long axis'
-        : state.frame < last
-          ? 'Turn to short axis'
-          : 'Restart tour'
-      : state.frame === last
-        ? 'Replay sweep'
-        : 'Play sweep';
+
+function renderFrame(frame, scenePosition = frame) {
+  state.frame = frame;
+  updatePlay();
+  const request = ++state.viewRequest;
+  const kind = state.section ? 'section' : 'scan';
+  const scan = prepare(imageFile(kind, frame));
+  const reference = prepare(refFile(frame));
+  const commit = () => {
+    if (request !== state.viewRequest) return;
+    const currentAxis = axisName(frame);
+    state.scenes?.setFrame(scenePosition);
+    drawReadout(frame);
+    $('scanTitle').textContent = state.section ? 'Anatomical section' : 'Simulated scan';
+    $('scanDetail').hidden = state.section;
+    $('legend').hidden = !state.section;
+    on('section', state.section);
+    showImage('scanArea', 'scan', scan, $('scanTitle').textContent + ' at frame ' + frame + '.', 'Scan unavailable for this frame.');
+    showImage('referenceArea', 'ref', reference, 'Acquired ' + currentAxis.toLowerCase() + ' gallbladder ultrasound in a different case.', 'Clinical reference unavailable.');
+    $('referenceNote').textContent = frame === long || frame === last
+      ? currentAxis + ' reference'
+      : 'Nearest reference · ' + currentAxis;
+    state.shownFrame = frame;
+  };
+  if (scan.finished && reference.finished) commit();
+  else {
+    $('scanArea').setAttribute('aria-busy', 'true');
+    $('referenceArea').setAttribute('aria-busy', 'true');
+    Promise.all([scan.pending, reference.pending]).then(commit);
+  }
 }
+
+function updatePlay() {
+  $('play').disabled = !state.ready;
+  $('play').textContent = state.playback ? 'Pause' : state.frame === last ? 'Replay sweep' : 'Play sweep';
+}
+
 function pause() {
-  clearInterval(state.timer);
-  state.timer = null;
-  labelPlay();
+  if (!state.playback) return;
+  cancelAnimationFrame(state.playback.request);
+  state.playback = null;
+  state.scenes?.setFrame(state.frame);
+  updatePlay();
 }
+
 function play() {
-  if (state.timer) {
+  if (state.playback) {
     pause();
     return;
   }
-  if (state.frame === last) setFrame(0);
-  const end = guided() && state.frame < long ? long : last;
-  state.timer = setInterval(() => {
-    setFrame(state.frame + 1);
-    if (state.frame >= end) pause();
-  }, 110);
-  labelPlay();
-}
-function draw() {
-  const i = state.frame;
-  document.body.className = guided() ? 'guide-mode' : 'probe-mode';
-  $('instruction').textContent = guided()
-    ? 'Follow the sweep one stop at a time. Playback pauses at each teaching view so you can compare it and identify the organ.'
-    : 'Drag across the probe view to find the window and rotate through the gallbladder. Watch its outline change on the monitor.';
-  $('gripHint').hidden = guided();
-  $('tour').hidden = state.assets;
-  $('assets').hidden = !state.assets;
-  on('assetTab', state.assets);
-  on('tourTab', !state.assets);
-  $('position').value = i;
-  $('position').setAttribute('aria-valuetext', nameOfFrame());
-  $('readout').textContent = nameOfFrame();
-  labelPlay();
-  $('scanTitle').textContent = state.section ? 'Anatomical section' : 'Simulated scan';
-  $('legend').hidden = !state.section;
-  $('test').disabled = ![long, last].includes(i) || $('scan').hidden;
-  on('section', state.section);
-  on('compare', state.compare);
-  $('refPanel').hidden = $('referenceNote').hidden = !state.compare;
-  $('stage').classList.toggle('comparing', state.compare);
-  media('pose', imageFile('pose', i));
-  media('scan', imageFile(state.section ? 'section' : 'scan', i));
-  if (state.compare) {
-    media('ref', refFile());
-    $('ref').alt = 'Acquired ' + axisName().toLowerCase() + ' gallbladder ultrasound in a different case.';
-    $('referenceNote').textContent =
-      (i === long || i === last ? 'Reference for this teaching view' : 'Nearest teaching reference') +
-      ' · ' +
-      axisName() +
-      ' · ' +
-      refCredit();
+  if (state.frame === last) renderFrame(0);
+  const playback = { origin: state.frame, started: null, request: null };
+  state.playback = playback;
+  function advance(now) {
+    playback.started ??= now;
+    const position = Math.min(last, playback.origin + (now - playback.started) / frameDuration);
+    const frame = Math.round(position);
+    if (frame !== state.frame) renderFrame(frame, position);
+    else state.scenes?.setFrame(position);
+    if (position === last) pause();
+    else playback.request = requestAnimationFrame(advance);
   }
-  $('steps')
-    .querySelectorAll('button')
-    .forEach((b, k) => {
-      const active = stops[k][0] === i;
-      b.setAttribute('aria-current', active ? 'step' : 'false');
-      b.setAttribute('aria-pressed', String(active));
-    });
+  playback.request = requestAnimationFrame(advance);
+  updatePlay();
+}
+
+function selectFrame(frame) {
+  pause();
+  renderFrame(frame);
   if (state.assets) drawAssets();
 }
-stops.forEach(([frame, name]) => {
-  const b = document.createElement('button');
-  b.textContent = name;
-  b.onclick = () => {
-    pause();
-    setFrame(frame);
-  };
-  $('steps').append(b);
-});
+
 $('play').onclick = play;
-$('position').oninput = (e) => {
-  pause();
-  setFrame(Number(e.target.value));
-};
-$('variant').value = location.hash === '#guided' ? 'guide' : 'probe';
-if (guided()) state.frame = 0;
-$('variant').onchange = () => {
-  pause();
-  endExercise();
-  history.replaceState(null, '', guided() ? '#guided' : '#probe');
-  draw();
-};
-window.addEventListener('hashchange', () => {
-  pause();
-  endExercise();
-  $('variant').value = location.hash === '#guided' ? 'guide' : 'probe';
-  draw();
-});
-$('section').onclick = () => {
-  pause();
-  endExercise();
-  state.section = !state.section;
-  draw();
-};
-$('compare').onclick = () => {
-  pause();
-  state.compare = !state.compare;
-  draw();
-  if (state.exercise) drawMarkers();
-};
-function showAssets(visible) {
-  pause();
-  endExercise();
-  state.assets = visible;
-  draw();
-}
-$('assetTab').onclick = () => showAssets(true);
-$('tourTab').onclick = $('return').onclick = () => showAssets(false);
-let start;
-$('drag').onpointerdown = (e) => {
-  if (guided() || e.button !== 0 || !e.isPrimary) return;
-  pause();
-  start = { x: e.clientX, frame: state.frame };
-  e.currentTarget.setPointerCapture(e.pointerId);
-};
-$('drag').onpointermove = (e) => {
-  if (!start || !e.currentTarget.hasPointerCapture(e.pointerId)) return;
-  setFrame(start.frame + (last * (e.clientX - start.x)) / (e.currentTarget.clientWidth * 0.75));
-};
-$('drag').onlostpointercapture = () => {
-  start = null;
+$('longTick').onclick = () => selectFrame(long);
+$('shortTick').onclick = () => selectFrame(last);
+$('position').oninput = (event) => selectFrame(event.currentTarget.valueAsNumber);
+$('section').onclick = async () => {
+  const next = !state.section;
+  $('section').disabled = true;
+  if (next) await prepareSequence('section', state.frame);
+  state.section = next;
+  renderFrame(state.frame);
+  $('section').disabled = false;
 };
 document.addEventListener('visibilitychange', () => {
   if (document.hidden) pause();
 });
 
-function inside(x, y, polygon) {
-  let hit = false;
-  for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
-    const [a, b] = polygon[i],
-      [c, d] = polygon[j];
-    if (b > y !== d > y && x < ((c - a) * (y - b)) / (d - b) + a) hit = !hit;
-  }
-  return hit;
-}
-function scanRect() {
-  const box = $('scanArea').getBoundingClientRect();
-  const scale = Math.min(box.width / 500, box.height / 350);
-  return { box, scale, x: (box.width - 500 * scale) / 2, y: (box.height - 350 * scale) / 2 };
-}
-function answerPoints() {
-  const outline = sweep[state.frame].outline;
-  const center = outline.reduce(
-    (sum, p) => [sum[0] + p[0] / outline.length, sum[1] + p[1] / outline.length],
-    [0, 0],
-  );
-  const liver = [center[0], center[1] - 66];
-  return state.frame === long ? [center, liver] : [liver, center];
-}
-function drawMarkers() {
-  $('scanArea')
-    .querySelectorAll('.mark')
-    .forEach((el) => el.remove());
-  const rect = scanRect();
-  answerPoints().forEach(([x, y], i) => {
-    const span = document.createElement('span');
-    span.className = 'mark';
-    span.textContent = i ? 'B' : 'A';
-    span.style.left = rect.x + x * rect.scale + 'px';
-    span.style.top = rect.y + y * rect.scale + 'px';
-    $('scanArea').append(span);
-  });
-}
-new ResizeObserver(() => {
-  if (state.exercise) drawMarkers();
-}).observe($('scanArea'));
-function check(x, y) {
-  const hit = inside(x, y, sweep[state.frame].outline);
-  $('feedback').textContent = hit
-    ? 'Correct. You found the gallbladder beside the liver in this view.'
-    : 'Try again. Follow the dark lumen to its boundary with the liver.';
-}
-$('test').onclick = () => {
-  pause();
-  if (state.exercise) {
-    endExercise();
-    return;
-  }
-  state.section = false;
-  state.exercise = true;
-  draw();
-  $('identify').hidden = $('choices').hidden = false;
-  on('test', true);
-  $('feedback').textContent = 'Point inside the gallbladder, or choose a marked region.';
-  drawMarkers();
-};
-$('identify').onclick = (e) => {
-  if (!e.detail) {
-    $('choices').querySelector('button').focus();
-    return;
-  }
-  const r = scanRect();
-  check((e.clientX - r.box.left - r.x) / r.scale, (e.clientY - r.box.top - r.y) / r.scale);
-};
-$('choices')
-  .querySelectorAll('button')
-  .forEach((b, i) => {
-    b.onclick = () => check(...answerPoints()[i]);
-  });
+const sceneViews = [
+  { name: 'pose', canvas: $('poseCanvas'), status: $('poseStatus'), help: $('poseHelp'), reset: $('resetPose') },
+  { name: 'plane', canvas: $('planeCanvas'), status: $('planeStatus'), help: $('planeHelp'), reset: $('resetPlane') },
+];
 
-const groups = ['Patient & probe', 'Internal anatomy', 'Simulated scan', 'Acquired reference'];
+async function startScenes() {
+  try {
+    const { createSweepScenes } = await import('./scene.js');
+    sceneViews.forEach(({ canvas }) => { canvas.hidden = false; });
+    state.scenes = await createSweepScenes({
+      poseCanvas: $('poseCanvas'),
+      planeCanvas: $('planeCanvas'),
+      frames: sweep,
+    });
+    state.scenes.setFrame(state.shownFrame ?? state.frame);
+    sceneViews.forEach(({ name, status, help, reset }) => {
+      status.hidden = true;
+      help.hidden = false;
+      reset.disabled = false;
+      reset.onclick = () => state.scenes.resetView(name);
+    });
+  } catch (error) {
+    console.warn('Gallbladder 3D views unavailable.', error);
+    sceneViews.forEach(({ name, canvas, status }) => {
+      canvas.hidden = true;
+      status.textContent = name === 'pose' ? '3D probe pose unavailable.' : '3D scan plane unavailable.';
+    });
+  }
+}
+
+const panels = [$('posePanel'), $('planePanel')];
+const groups = ['Probe pose', 'Scan plane', 'Simulated scan', 'Acquired ultrasound'];
+
 groups.forEach((label, i) => {
-  const b = document.createElement('button');
-  b.textContent = label;
-  b.onclick = () => {
+  const button = document.createElement('button');
+  button.textContent = label;
+  button.onclick = () => {
     state.group = i;
     drawAssets();
   };
-  $('assetControls').append(b);
+  $('assetControls').append(button);
 });
-$('assetFrame').onchange = (e) => {
-  if (+e.target.value >= 0) setFrame(+e.target.value);
+
+function restoreScenePanels() {
+  const stage = $('stage');
+  if (panels[0].parentElement === stage && panels[1].parentElement === stage) return;
+  stage.prepend(...panels);
+}
+
+function showAssets(visible) {
+  pause();
+  state.assets = visible;
+  $('tour').hidden = visible;
+  $('assets').hidden = !visible;
+  on('assetTab', visible);
+  on('tourTab', !visible);
+  if (visible) drawAssets();
+  else restoreScenePanels();
+}
+
+$('assetTab').onclick = () => showAssets(true);
+$('tourTab').onclick = () => showAssets(false);
+$('return').onclick = () => {
+  showAssets(false);
+  $('position').focus();
 };
+$('assetFrame').options[0].disabled = true;
+$('assetFrame').onchange = (event) => selectFrame(Number(event.currentTarget.value));
+
 function drawAssets() {
-  const i = state.frame;
-  $('assetFrame').value = [long, last].includes(i) ? String(i) : '-1';
-  $('assetFrame').options[0].disabled = true;
-  $('assetTitle').textContent = 'Gallbladder · ' + nameOfFrame();
-  $('assetIntro').textContent = 'Abdomen tour / Gallbladder sweep / ' + nameOfFrame();
-  const groupsData = [
-    [
-      'Probe contact',
-      'The torso surface and beam share the s1233 CT coordinates. The curved housing and orientation dot are authored. Contact and angle still need scanning-technique review.',
-      [imageFile('pose', i)],
-      source.case,
-    ],
-    [
-      'Liver and gallbladder',
-      'The section follows the current probe plane. The gallbladder label supplies its outer silhouette. A separate layered wall was not segmented.',
-      [imageFile('section', i)],
-      source.case,
-    ],
-    [
-      'Tissue appearance',
-      'Compare the lumen, wall brightness, and echoes behind it. The tissue response is illustrative. The two cases differ in depth and shape.',
-      [imageFile('scan', i), refFile()],
-      anchor() === 'long' ? source.long : source.short,
-    ],
-    [
-      axisName() + ' comparison',
-      refCredit() +
-        '. The acquired image is a comparison for the named endpoint. The intermediate poses have no registered clinical counterpart.',
-      [refFile()],
-      anchor() === 'long' ? source.long : source.short,
-    ],
-  ];
-  const [title, note, images, url] = groupsData[state.group];
+  const frame = state.frame;
+  const request = ++state.assetRequest;
+  const { group } = state;
+  const title = groups[group];
+  const useLong = referenceFor(frame) === 'long';
   const bindings = [
-    's1233 external envelope · authored curved array · same-case right ribs 6–10',
-    's1233 segmentations · liver, gallbladder, portal and splenic vein',
-    'Frame ' + i + ' of 0–48 · 13.3 cm modeled depth · 72° sector',
-    anchor() === 'long'
-      ? 'Figure 2 · complete frame, resized'
-      : 'Cine frame 12 · full frame, converted to WebP',
+    'TotalSegmentator s1233 · right upper abdominal surface',
+    'TotalSegmentator s1233 · gallbladder, liver and right ribs',
+    'Frame ' + frame + ' of 0–' + last + ' · 13.3 cm modeled depth · 72° sector',
+    (frame === long || frame === last ? axisName(frame) + ' reference' : 'Nearest reference · ' + axisName(frame))
+      + (useLong ? ' · Figure 2' : ' · Cine frame at 1.2 s'),
   ];
-  $('binding').textContent = bindings[state.group];
+  const context = [
+    'Contact follows the CT surface. The probe shape and grip are authored.',
+    'The wireframe shows the sampled field. Its intersection with the gallbladder changes as the probe rotates.',
+    'Compare the lumen boundary and surrounding echoes. The simulated wall still blends into adjacent tissue.',
+    'The acquired image shows a different case and a fixed imaging plane.',
+  ];
+  $('assetFrame').value = frame === long || frame === last ? String(frame) : '-1';
   $('assetName').textContent = title;
-  $('assetFinding').textContent = note;
-  $('assetSource').href = url;
-  $('assetControls')
-    .querySelectorAll('button')
-    .forEach((b, k) => b.setAttribute('aria-pressed', String(k === state.group)));
+  $('binding').textContent = bindings[group];
+  $('assetFinding').textContent = context[group];
+  const acquired = useLong ? 'https://doi.org/10.3390/life15060941' : 'https://www.thepocusatlas.com/pedsbiliary';
+  $('assetSource').href = group < 2 ? 'https://zenodo.org/records/10047263' : acquired;
+  $('assetSource').textContent = group < 2 ? 'Anatomy source ↗' : 'Acquired image source ↗';
+  [...$('assetControls').children].forEach((button, i) => button.setAttribute('aria-pressed', String(i === group)));
+
   const evidence = $('assetEvidence');
+  if (group < panels.length && evidence.firstElementChild === panels[group]) return;
+  restoreScenePanels();
   evidence.replaceChildren();
-  evidence.className = images.length > 1 ? 'paired' : '';
-  images.forEach((path, k) => {
-    const img = document.createElement('img');
-    img.className = 'evidenceImage';
-    img.src = path;
-    img.alt = images.length === 1 ? title : k ? 'Acquired comparison' : 'Simulation';
-    img.onerror = () => img.replaceWith(document.createTextNode(img.alt + ' unavailable.'));
-    evidence.append(img);
+  evidence.className = group === 2 ? 'paired' : '';
+  if (group < panels.length) {
+    evidence.append(panels[group]);
+    return;
+  }
+  const kinds = group === 2 ? [imageFile('scan', frame), refFile(frame)] : [refFile(frame)];
+  Promise.all(kinds.map((path) => prepare(path).pending)).then(() => {
+    if (!state.assets || request !== state.assetRequest) return;
+    kinds.forEach((path) => {
+      const record = prepare(path);
+      const label = path === refFile(frame) ? axisName(frame) + ' acquired ultrasound' : 'Simulated scan';
+      if (!record.image) {
+        const note = document.createElement('p');
+        note.textContent = label + ' unavailable.';
+        evidence.append(note);
+        return;
+      }
+      const image = record.image.cloneNode();
+      image.className = 'evidenceImage';
+      image.removeAttribute('id');
+      image.alt = label;
+      evidence.append(image);
+    });
   });
 }
-draw();
+
+window.addEventListener('hashchange', () => {
+  if (location.hash === '#probe' || location.hash === '#guided') {
+    showAssets(false);
+    selectFrame(location.hash === '#guided' ? 0 : long);
+  }
+});
+
+renderFrame(state.frame);
+startScenes();
+Promise.all([
+  prepareSequence('scan', state.frame),
+  prepare(refFile(long)).pending,
+  prepare(refFile(last)).pending,
+]).then(() => {
+  state.ready = true;
+  updatePlay();
+  return prepareSequence('section', state.frame);
+});
