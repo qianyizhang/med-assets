@@ -30,14 +30,14 @@ The core set uses general abdominal ultrasound regions in the [AIUM abdominal im
 | Gallbladder | Long axis beside the liver | Short axis through the same organ |
 | Liver | Oblique view through portal branches | Hepatic tissue beside the IVC |
 | Portal vein | Along the main portal vein | Across the main portal vein |
-| Pancreas | Body and splenic vein | Oblique head |
-| Spleen | Splenic long axis | Short axis toward the hilum |
+| Pancreas | Body and portal venous landmark | Oblique head |
+| Spleen | Splenic long axis | Cross-section compared with an acquired hilar view |
 | Right kidney | Right renal long axis | Right renal short axis |
 | Left kidney | Left renal long axis | Left renal short axis |
 | Abdominal aorta | Long axis | Transverse with adjacent IVC |
 | Inferior vena cava | Long axis | Transverse with adjacent aorta |
 
-The case has no independent bile-duct or hepatic-vein segmentation. A portal vein label supports a vessel comparison at the porta hepatis. Duct tracing and measurements, hepatic-vein assessment, Doppler flow, and pathology require other evidence. The ordinary aortic sweep identifies vessel orientation. The separate AAA topic requires a reviewed aneurysm, wall and lumen. This prototype does not establish completeness of a diagnostic abdominal examination.
+Four supporting acquired views show the extrahepatic bile duct, a hepatic vein below the diaphragm, the pancreatic tail through the spleen, and the right kidney beside the liver. The first two have no independent segmentation in s1233. The right renal long-axis model includes only small fragments of liver. The acquired views supply a point of comparison for those gaps. Duct tracing and measurements, hepatic-vein assessment, Doppler flow and pathology require other evidence. The ordinary aortic sweep identifies vessel orientation. The separate AAA topic requires a reviewed aneurysm, wall and lumen. This prototype does not establish completeness of a diagnostic abdominal examination.
 
 ## Content, assembly and acceptance
 
@@ -47,7 +47,7 @@ Accept a sweep after replay from pinned inputs, verifying the target inside the 
 
 ## Asset display and integration
 
-Preserve the existing return from an asset to its originating keyframe. The abdominal set now gives us concrete material to review together: shared models and props, sweep-specific placements, image pairs, revisions, rights, and defects. The asset hierarchy, display and editing workflow remain open for that session. The broader [Asset Library](../asset-library.md) owns revision and download identity.
+The current review groups a keyframe into 3D anatomy, simulated scan, and acquired ultrasound. The visitor can orbit the combined probe and sector, inspect the origin of either image, open related anatomy where available, and return to the same frame. The abdominal set now gives us concrete material to review together: shared models and props, sweep-specific placements, image pairs, revisions, rights, and defects. The asset hierarchy, display and editing workflow remain open for that session. The broader [Asset Library](../asset-library.md) owns revision and download identity.
 
 The earlier [fixed gallbladder stop](../../../lessons/ultrasound-anatomy/README.md) is still the built-in Anatomy Gallery candidate. The local sweep study is the tour under review. Public site integration, transport admission, and publication are later delivery decisions. The Echodemo project and the repository’s cardiac section package supply precedents for synchronized geometry and images. [Echodemo development notes](https://github.com/douyang/echodemo/blob/main/DEVELOPMENT.md) · [Cardiac imaging package](../../../heart/synthetic-imaging/beating-heart/imaging/README.md)
 
@@ -57,7 +57,7 @@ The initial inventory used med-assets `e51891b`. Local s1233 masks shared a spat
 
 | Topic | Available starting point | What the next level needs |
 | --- | --- | --- |
-| Abdomen | Same-case s1233 liver, gallbladder and right kidney. Sampled liver–gallbladder and liver–kidney mesh cuts produced closed contours. [Workshop anatomy](../../../body/anatomy-workshop-r1/README.md) · [Digestive assembly](../../../assemblies/workshop-s1233/README.md) | The local abdomen tour now covers nine sweeps. Review the two acquired comparisons for each. Bile ducts and hepatic veins have no independent label in this case. |
+| Abdomen | Same-case s1233 liver, gallbladder and right kidney. Sampled liver–gallbladder and liver–kidney mesh cuts produced closed contours. [Workshop anatomy](../../../body/anatomy-workshop-r1/README.md) · [Digestive assembly](../../../assemblies/workshop-s1233/README.md) | The local abdomen tour now covers nine sweeps. Each has two acquired comparisons. Four supporting views extend the available normal anatomy. Bile ducts and hepatic veins have no independent label in this case. |
 | Abdominal aortic aneurysm | The s1233 aorta, inferior vena cava and L3 appear on common axial slices. The retained iliac artery labels stop short of the aorta label. [Vascular sources](../../../assemblies/workshop-s1233/README.md) | Author and review the infrarenal aneurysm, wall and lumen to teach a measurement. Review the bifurcation before depicting it as continuous. |
 | Thyroid | The s1233 thyroid, trachea and paired carotids appear on common axial slices. The separate s0189 asset supports exterior orientation. [Same-case assembly](../../../assemblies/endocrine-locator/r02/README.md) · [s0189 exterior](../../../models/thyroid_ct_s0189/exports/illustrative-exterior-r02/README.md) | Review the isthmus, superficial tissue and intended probe view. |
 | Breast | The editable regional plate shows fat, lobules and ducts. The HRA breast pair provides gross exterior and posterior context. [Breast plate](../../../body/2d-v4/whole-body-anatomy-v4-spatial/regions/breast.svg) · [HRA breast pair](../../../models/breasts_hra/exports/teaching-economy-r01/README.md) | Review a section through skin, fat, glandular tissue and chest wall before building a paired grayscale view. Give any lesion example its own source and review. |

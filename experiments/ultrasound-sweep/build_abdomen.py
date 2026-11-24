@@ -15,14 +15,14 @@ from skimage.measure import label, marching_cubes
 from build_study import (
     CT_SHA, H, LAST, LONG, W, WORKSHOP, body_surface, fine_scatter, material_at, unit, volume,
 )
+from delivery import read_poses, sha256, sweep_files, verify_inventory, write_manifest
 from display_body import BONES_SHA, SKIN_SHA, registered_atlas
 from fit_abdomen import CONTACT_TOLERANCE_MM, fit_window, max_outer_error, open_flanks
-from geometry import LENS_RADIUS_MM, SECTOR_HALF_ANGLE_DEG, VOXEL_MM
+from geometry import KEYFRAMES, LENS_RADIUS_MM, SECTOR_HALF_ANGLE_DEG, VOXEL_MM
 from prepare_scenes import mesh_bytes
 
 HERE = Path(__file__).resolve().parent
 LUMENS = {'gallbladder', 'portal_vein_and_splenic_vein', 'aorta', 'inferior_vena_cava'}
-KEYFRAMES = (LONG, LAST)
 PINS = {
     **WORKSHOP['maskSha256'],
     'pancreas': '9f11083652d059e85514d419c90124911953dbbce2018ccc549eaa2c73b0968b',
@@ -67,8 +67,9 @@ POSES = {
         ((153, 160, 188), (.08, .995, -.06), (.28, 0, .96)),
     ),
     'spleen': (
-        ((75, 107, 231), (-.94, .32, -.09), (.12, -.46, 1)),
-        ((75, 107, 232), (-.94, .32, -.09), (.36, 1, .41)),
+        # A posterior window separates splenic length from thickness on rotation.
+        ((80, 103, 226), (-.342, -.915, -.215), (.928, -.365, .078)),
+        ((80, 103, 226), (-.342, -.915, -.215), (-.150, -.173, .974)),
     ),
     'kidney-right': (
         ((193, 132, 166), (.98, .13, -.12), (-.08, -.74, .67)),
@@ -100,6 +101,17 @@ LANDMARKS = {
     'aorta': (None, 'inferior_vena_cava'),
     'ivc': ('liver', None),
 }
+
+
+def read_tracks():
+    catalogue = json.loads((HERE / 'abdomen-tracks.json').read_text())
+    structures = catalogue['structures']
+    return [{**track, 'parts': [{'id': key, **structures[key]} for key in track['parts']]}
+            for track in catalogue['sweeps']]
+
+
+def pose_recipe_sha256(sweep_id):
+    return sha256(json.dumps(POSES[sweep_id], separators=(',', ':')).encode())
 
 
 def axes(outward, marker):
@@ -212,6 +224,16 @@ class ImagingGrid:
         return gray, labels
 
 
+def section_palette(track):
+    return sorted((part for part in track['parts'] if part['id'] in track['overlayParts']),
+                  key=lambda part: (part['id'] == track['organ'], part['id'] in LUMENS))
+
+
+def section_palette_sha256(track):
+    palette = [[part[key] for key in ('id', 'color', 'opacity')] for part in section_palette(track)]
+    return sha256(json.dumps(palette, separators=(',', ':')).encode())
+
+
 def overlay(gray, labels, parts):
     rgb = np.repeat(gray[..., None], 3, axis=2).astype('f')
     for part in parts:
@@ -265,7 +287,8 @@ def fit_exterior(track, frames, shell, torso, source):
     else:
         raw, faces, flank = source
         posed, arm_weight = flank if lateral else (raw, np.zeros(len(raw)))
-        vertices = fit_window(posed, shell, contacts, beams, arm_weight)
+        # Use the left/right flank sheet even when a posterolateral beam points mostly forward.
+        vertices = fit_window(posed, shell, contacts, beams, arm_weight, axis=0 if lateral else None)
         error = max_outer_error(vertices, faces, contacts, beams)
         result.update(atlasSkinSha256=SKIN_SHA, atlasBonesSha256=BONES_SHA,
                       registrationMaskSha256={name: PINS[name] for name in FIT_RIBS},
@@ -283,23 +306,24 @@ def refresh_exteriors(tracks, sweeps_dir, shell, torso, source):
     updated = []
     for track in tracks:
         output = sweeps_dir / track['id']
-        frames = json.loads((output / 'sweep.js').read_text().removeprefix('const sweep = ').strip().removesuffix(';'))
-        if len(frames) != LAST + 1:
-            raise ValueError(f'{track["id"]}: existing sweep has an unexpected frame count')
+        frames = read_poses(output / 'sweep.js')
         receipt_path = output / 'verification.json'
         receipt = json.loads(receipt_path.read_text())
         if receipt['ctSha256'] != CT_SHA:
             raise ValueError(f'{track["id"]}: existing sweep has a different source CT')
+        names = sweep_files(['torso', *(part['id'] for part in track['parts'])])
+        verify_inventory(output, names)
         mesh, exterior = fit_exterior(track, frames, shell, torso, source)
         receipt.pop('surfaceMaxCenterlineErrorMm', None)
-        updated.append((output, mesh, {**receipt, **exterior}))
-    for output, mesh, receipt in updated:
+        updated.append((output, mesh, {**receipt, **exterior}, names))
+    for output, mesh, receipt, names in updated:
         for path, data in ((output / 'scenes/torso.mesh', mesh),
                            (output / 'verification.json', (json.dumps(receipt, indent=2) + '\n').encode())):
             with tempfile.NamedTemporaryFile(dir=path.parent, delete=False) as stream:
                 stream.write(data)
             os.chmod(stream.name, path.stat().st_mode & 0o777)
             os.replace(stream.name, path)
+        write_manifest(output, names)
         print(f'{output.name}: {receipt["exterior"]}, maximum incoming-ray error '
               f'{receipt["surfaceMaxOuterContactErrorMm"]:.3f} mm', flush=True)
 
@@ -317,8 +341,7 @@ def build_track(track, output, shell, ct, masks, torso, source):
         # Only the abdominal portions belong in these locators. CT sampling uses full masks.
         bounds = (140, 271) if name in {'aorta', 'inferior_vena_cava'} else None
         (scenes / f'{name}.mesh').write_bytes(mesh_from_mask(mask, bounds))
-    overlay_order = sorted((part for part in track['parts'] if part['id'] in track['overlayParts']),
-                           key=lambda part: (part['id'] == track['organ'], part['id'] in LUMENS))
+    overlay_order = section_palette(track)
     sample_masks = {part['id']: masks[part['id']] for part in overlay_order}
     receipt = {}
     for i, frame in enumerate(frames):
@@ -338,11 +361,13 @@ def build_track(track, output, shell, ct, masks, torso, source):
         'case': 's1233', 'coordinateFrame': 'source voxel grid, RAS axes', 'voxelMm': VOXEL_MM,
         'sectorDepthMm': track['sectorDepthMm'],
         'sectorHalfAngleDeg': SECTOR_HALF_ANGLE_DEG, 'lensRadiusMm': LENS_RADIUS_MM,
-        'ctSha256': CT_SHA, **exterior_receipt,
+        'ctSha256': CT_SHA, 'poseRecipeSha256': pose_recipe_sha256(sweep_id),
+        'sectionPaletteSha256': section_palette_sha256(track), **exterior_receipt,
         'maskSha256': {key: PINS[key] for key in PINS if key in masks or
                        ('ribs' in masks and key in rib_names(sweep_id))},
         'frames': receipt,
     }, indent=2) + '\n')
+    write_manifest(output, sweep_files(['torso', *masks]))
     print(f'{sweep_id}: {track["exterior"]}, maximum incoming-ray error '
           f'{exterior_receipt["surfaceMaxOuterContactErrorMm"]:.3f} mm', flush=True)
 
@@ -362,7 +387,7 @@ def main():
     parser.add_argument('--refresh-exteriors', action='store_true',
                         help='Replace torso meshes and update exterior receipts for an existing sweep build.')
     args = parser.parse_args()
-    tracks = [track for track in json.loads((HERE / 'abdomen-tracks.json').read_text())
+    tracks = [track for track in read_tracks()
               if args.track is None or track['id'] in args.track]
     for track in tracks:
         if not args.refresh_exteriors and (args.sweeps_dir / track['id']).exists():

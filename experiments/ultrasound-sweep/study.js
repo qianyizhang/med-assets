@@ -2,6 +2,8 @@
 
 const $ = (id) => document.getElementById(id);
 const frameDuration = 110;
+const ctSource = 'https://zenodo.org/records/10047263';
+const atlasSource = 'https://dbarchive.biosciencedbc.jp/en/bodyparts3d/desc.html';
 const cameraPresets = [['oblique', 'Oblique'], ['axial', 'Axial'], ['coronal', 'Coronal'], ['sagittal', 'Sagittal']];
 const unavailableImage = { image: null, finished: true, pending: Promise.resolve() };
 let selectedTour;
@@ -13,7 +15,8 @@ const imageFile = (kind, frame) =>
   selectedTour.assetRoot + 'media/' + kind + '-' + String(frame).padStart(2, '0') + '.webp';
 const nearestKeyframe = (frame) => keyframes.reduce((nearest, candidate) =>
   Math.abs(candidate.frame - frame) < Math.abs(nearest.frame - frame) ? candidate : nearest);
-const acquiredFor = (keyframe) => typeof abdomenReferences === 'undefined' ? null : abdomenReferences[keyframe.referenceId];
+const referenceById = (id) => typeof abdomenReferences === 'undefined' ? null : abdomenReferences[id];
+const acquiredFor = (keyframe) => referenceById(keyframe.referenceId);
 const usesAtlas = (tour) => (tour.exterior ?? (tour.id === 'gallbladder' ? 'fitted-atlas' : 'case-ct')) === 'fitted-atlas';
 const referenceLabel = (keyframe) => keyframe.referenceLabel ?? acquiredFor(keyframe)?.label ?? keyframe.label;
 const referenceNote = (frame, keyframe) => {
@@ -27,7 +30,7 @@ const state = {
   shownFrame: null,
   section: false,
   assets: false,
-  group: 0,
+  group: 'anatomy',
   ready: false,
   playback: null,
   viewRequest: 0,
@@ -53,8 +56,8 @@ function prepare(path) {
 
 async function prepareSequence(kind, start) {
   const paths = poses.map((_, i) => imageFile(kind, (start + i) % poses.length));
-  for (let offset = 0; offset < paths.length; offset += 8) {
-    await Promise.all(paths.slice(offset, offset + 8).map((path) => prepare(path).pending));
+  for (let offset = 0; offset < paths.length; offset += 4) {
+    await Promise.all(paths.slice(offset, offset + 4).map((path) => prepare(path).pending));
   }
 }
 
@@ -192,7 +195,7 @@ async function startScene() {
   try {
     const { createSweepScene } = await import('./scene.js');
     canvas.hidden = false;
-    state.scene = await createSweepScene({ canvas, frames: poses, config: selectedTour });
+    state.scene = await createSweepScene({ canvas, frames: poses, config: selectedTour, onViewPresetChange: showCameraPreset });
     state.scene.setFrame(state.shownFrame ?? state.frame);
     updateTorsoOpacity();
     status.hidden = true;
@@ -202,10 +205,15 @@ async function startScene() {
   } catch (error) {
     state.scene?.dispose();
     state.scene = null;
+    showCameraPreset(null);
     canvas.hidden = true;
     status.textContent = '3D probe and scan plane unavailable.';
     console.warn('Ultrasound sweep 3D view unavailable.', error);
   }
+}
+
+function showCameraPreset(active) {
+  for (const [id] of cameraPresets) on('cameraPreset-' + id, id === active);
 }
 
 for (const [id, label] of cameraPresets) {
@@ -214,6 +222,7 @@ for (const [id, label] of cameraPresets) {
   button.className = 'viewButton';
   button.type = 'button';
   button.textContent = label;
+  button.setAttribute('aria-pressed', 'false');
   button.onclick = () => state.scene?.setViewPreset(id);
   $('cameraPresets').append(button);
 }
@@ -226,17 +235,23 @@ function updateTorsoOpacity() {
 }
 torsoOpacity.oninput = updateTorsoOpacity;
 
-const groups = ['Probe pose', 'Scan plane', 'Simulated scan', 'Acquired ultrasound'];
-
-groups.forEach((label, i) => {
+const assetGroups = [
+  ['anatomy', '3D anatomy'],
+  ['simulation', 'Simulated scan'],
+  ['acquired', 'Acquired ultrasound'],
+];
+for (const [id, label] of assetGroups) {
   const button = document.createElement('button');
+  button.type = 'button';
+  button.dataset.asset = id;
   button.textContent = label;
   button.onclick = () => {
-    state.group = i;
+    if (state.group === id) return;
+    state.group = id;
     drawAssets();
   };
   $('assetControls').append(button);
-});
+}
 
 function restoreScenePanel() {
   const stage = $('stage');
@@ -250,8 +265,15 @@ function showAssets(visible) {
   $('assets').hidden = !visible;
   on('assetTab', visible);
   on('tourTab', !visible);
-  if (visible) drawAssets();
-  else restoreScenePanel();
+  if (visible) {
+    drawAssets();
+    loadRelatedPlates();
+  } else {
+    state.assetRequest += 1;
+    relatedRequest += 1;
+    $('relatedPlates').setAttribute('aria-busy', 'false');
+    restoreScenePanel();
+  }
 }
 
 $('assetTab').onclick = () => showAssets(true);
@@ -263,69 +285,172 @@ $('return').onclick = () => {
 $('assetFrame').options[0].disabled = true;
 $('assetFrame').onchange = (event) => selectFrame(Number(event.currentTarget.value));
 
+function describeAsset(frame, group) {
+  if (group === 'anatomy') {
+    const partNames = selectedTour.parts.map((part) => part.label).join(', ');
+    const region = selectedTour.region ?? selectedTour.title;
+    return {
+      binding: region + ' · ' + partNames,
+      note: selectedTour.sourceNote ?? '',
+      sources: usesAtlas(selectedTour)
+        ? [['BodyParts3D exterior', atlasSource], ['TotalSegmentator s1233 anatomy', ctSource]]
+        : [['TotalSegmentator s1233 anatomy', ctSource]],
+    };
+  }
+  if (group === 'simulation') {
+    return {
+      path: imageFile('scan', frame),
+      alt: 'Simulated scan at frame ' + frame,
+      binding: 'Frame ' + frame + ' of 0–' + last + ' · ' + (selectedTour.sectorDepthMm ?? 133) / 10 + ' cm modeled depth',
+      note: 'Illustrative ultrasound derived from the CT anatomy.',
+      sources: [['TotalSegmentator s1233 anatomy', ctSource]],
+    };
+  }
+  const keyframe = nearestKeyframe(frame);
+  const acquired = acquiredFor(keyframe);
+  return {
+    path: acquired?.path,
+    alt: acquired?.title ?? 'Acquired ultrasound',
+    binding: acquired ? referenceNote(frame, keyframe) : 'Reference unavailable',
+    note: acquired?.note ?? '',
+    reference: acquired,
+  };
+}
+
+function assetImage(record, alt) {
+  if (!record.image) {
+    const status = document.createElement('p');
+    status.setAttribute('role', 'status');
+    status.textContent = 'Image unavailable.';
+    return status;
+  }
+  const image = record.image.cloneNode();
+  image.className = 'evidenceImage';
+  image.removeAttribute('id');
+  image.alt = alt;
+  return image;
+}
+
 function drawAssets() {
   const frame = state.frame;
   const request = ++state.assetRequest;
   const { group } = state;
-  const title = groups[group];
-  const keyframe = nearestKeyframe(frame);
-  const acquired = acquiredFor(keyframe);
-  const partNames = selectedTour.parts.map((part) => part.label).join(', ');
-  const bindings = [
-    selectedTour.region ?? selectedTour.title,
-    partNames,
-    'Frame ' + frame + ' of 0–' + last + ' · ' + (selectedTour.sectorDepthMm ?? 133) / 10 + ' cm modeled depth',
-    referenceNote(frame, keyframe),
-  ];
-  const context = [
-    selectedTour.sourceNote ?? '',
-    'The wireframe marks the sampled plane at this probe pose.',
-    'The simulation and acquired image represent different cases.',
-    acquired?.note ?? acquired?.title ?? 'Clinical reference unavailable.',
-  ];
+  const asset = describeAsset(frame, group);
   $('assetFrame').value = keyframes.some((key) => key.frame === frame) ? String(frame) : '-1';
-  $('assetName').textContent = title;
-  $('binding').textContent = bindings[group];
-  $('assetFinding').textContent = context[group];
-  $('assetFinding').hidden = !context[group];
-  const ctSource = 'https://zenodo.org/records/10047263';
-  const exteriorSource = usesAtlas(selectedTour)
-    ? 'https://dbarchive.biosciencedbc.jp/en/bodyparts3d/desc.html'
-    : ctSource;
-  $('assetSource').href = [exteriorSource, ctSource, acquired?.url, acquired?.url][group] ?? '';
-  $('assetSource').hidden = group >= 2 && !acquired?.url;
-  $('assetSource').textContent = group < 2 ? 'Anatomy source ↗' : 'Acquired image source ↗';
-  [...$('assetControls').children].forEach((button, i) => button.setAttribute('aria-pressed', String(i === group)));
+  $('assetName').textContent = assetGroups.find(([id]) => id === group)[1];
+  $('binding').textContent = asset.binding;
+  $('assetFinding').textContent = asset.note;
+  $('assetFinding').hidden = !asset.note;
+
+  const sources = $('assetSources');
+  sources.replaceChildren();
+  if (asset.reference) appendReferenceCredit(sources, asset.reference);
+  asset.sources?.forEach(([label, href], i) => {
+    if (i) sources.append(' · ');
+    addSourceLink(sources, label, href);
+  });
+  sources.hidden = !sources.childNodes.length;
+  for (const button of $('assetControls').children) {
+    button.setAttribute('aria-pressed', String(button.dataset.asset === group));
+  }
 
   const evidence = $('assetEvidence');
-  if (group < 2 && scenePanel.parentElement === evidence) return;
-  restoreScenePanel();
-  evidence.replaceChildren();
-  evidence.className = group === 2 ? 'paired' : '';
-  if (group < 2) {
-    evidence.append(scenePanel);
+  if (group === 'anatomy') {
+    evidence.setAttribute('aria-busy', 'false');
+    if (scenePanel.parentElement !== evidence) evidence.replaceChildren(scenePanel);
     return;
   }
-  const reference = [acquired?.path, acquired?.title ?? 'Acquired ultrasound'];
-  const kinds = group === 2 ? [[imageFile('scan', frame), 'Simulated scan'], reference] : [reference];
-  Promise.all(kinds.map(([path]) => prepare(path).pending)).then(() => {
+  restoreScenePanel();
+  evidence.replaceChildren();
+  const record = prepare(asset.path);
+  evidence.setAttribute('aria-busy', String(!record.finished));
+  const commit = () => {
     if (!state.assets || request !== state.assetRequest) return;
-    kinds.forEach(([path, label]) => {
-      const record = prepare(path);
-      if (!record.image) {
-        const note = document.createElement('p');
-        note.textContent = label + ' unavailable.';
-        evidence.append(note);
-        return;
-      }
-      const image = record.image.cloneNode();
-      image.className = 'evidenceImage';
-      image.removeAttribute('id');
-      image.alt = label;
-      evidence.append(image);
-    });
-  });
+    evidence.replaceChildren(assetImage(record, asset.alt));
+    evidence.setAttribute('aria-busy', 'false');
+  };
+  if (record.finished) commit();
+  else {
+    const status = document.createElement('p');
+    status.textContent = 'Loading image…';
+    evidence.append(status);
+    record.pending.then(commit);
+  }
 }
+
+let relatedReferences = [];
+let relatedRequest = 0;
+let relatedReady = false;
+let relatedSharedLicense = false;
+const relatedAnatomy = $('relatedAnatomy');
+
+function configureRelatedPlates() {
+  const acquiredPaths = keyframes.map((key) => acquiredFor(key)?.path).filter(Boolean);
+  const paths = new Set(acquiredPaths.map((path) => new URL(path, document.baseURI).href));
+  for (const id of selectedTour.landmarks ?? []) {
+    const reference = referenceById(id);
+    if (!reference?.path) continue;
+    const path = new URL(reference.path, document.baseURI).href;
+    if (paths.has(path)) continue;
+    paths.add(path);
+    relatedReferences.push(reference);
+  }
+  relatedAnatomy.hidden = !relatedReferences.length;
+  const first = relatedReferences[0];
+  relatedSharedLicense = relatedReferences.length > 1 && Boolean(first.license) &&
+    relatedReferences.every(({ license, licenseUrl }) => license === first.license && licenseUrl === first.licenseUrl);
+  if (relatedSharedLicense) {
+    const license = $('relatedLicense');
+    license.append('Plate license · ');
+    if (first.licenseUrl) addSourceLink(license, first.license, first.licenseUrl);
+    else license.append(first.license);
+    license.hidden = false;
+  }
+}
+
+function relatedPlate(reference, record) {
+  const figure = document.createElement('figure');
+  const caption = document.createElement('figcaption');
+  const name = document.createElement('h3');
+  name.textContent = reference.label ?? reference.title ?? 'Normal anatomy';
+  caption.append(name);
+  const context = reference.reason ?? reference.note;
+  if (context) {
+    const note = document.createElement('p');
+    note.textContent = context;
+    caption.append(note);
+  }
+  const credit = document.createElement('p');
+  credit.className = 'assetSources';
+  appendReferenceCredit(credit, reference, !relatedSharedLicense);
+  if (credit.childNodes.length) caption.append(credit);
+  figure.append(assetImage(record, reference.title ?? name.textContent), caption);
+  return figure;
+}
+
+async function loadRelatedPlates() {
+  if (!state.assets || !relatedAnatomy.open || relatedReady || !relatedReferences.length) return;
+  const request = ++relatedRequest;
+  const target = $('relatedPlates');
+  target.setAttribute('aria-busy', 'true');
+  const placeholder = document.createElement('p');
+  placeholder.textContent = 'Loading related anatomy…';
+  target.replaceChildren(placeholder);
+  const records = relatedReferences.map((reference) => prepare(reference.path));
+  await Promise.all(records.map((record) => record.pending));
+  if (!state.assets || !relatedAnatomy.open || request !== relatedRequest) return;
+  target.replaceChildren(...relatedReferences.map((reference, i) => relatedPlate(reference, records[i])));
+  target.setAttribute('aria-busy', 'false');
+  relatedReady = true;
+}
+
+relatedAnatomy.addEventListener('toggle', () => {
+  if (relatedAnatomy.open) loadRelatedPlates();
+  else {
+    relatedRequest += 1;
+    $('relatedPlates').setAttribute('aria-busy', 'false');
+  }
+});
 
 function configureTimeline() {
   $('position').max = last;
@@ -371,22 +496,26 @@ function addSourceLink(parent, label, href) {
   parent.append(link);
 }
 
+function appendReferenceCredit(parent, reference, includeLicense = true) {
+  if (reference.url) addSourceLink(parent, reference.credit ?? 'Acquired image source', reference.url);
+  else if (reference.credit) parent.append(reference.credit);
+  if (includeLicense && reference.license) {
+    if (parent.childNodes.length) parent.append(' · ');
+    if (reference.licenseUrl) addSourceLink(parent, reference.license, reference.licenseUrl);
+    else parent.append(reference.license);
+  }
+}
+
 function configureSources() {
   $('atlasSource').hidden = !usesAtlas(selectedTour);
   $('tourSourceNote').textContent = selectedTour.sourceNote ?? '';
   $('tourSourceNote').hidden = !selectedTour.sourceNote;
-  for (const id of new Set(keyframes.map((key) => key.referenceId))) {
-    const reference = acquiredFor({ referenceId: id });
-    if (!reference) continue;
+  const comparisonIds = new Set(keyframes.map((key) => key.referenceId));
+  const comparisons = [...comparisonIds].map(referenceById).filter(Boolean);
+  for (const reference of [...comparisons, ...relatedReferences]) {
     const item = document.createElement('p');
     if (reference.title) item.append(reference.title + ' · ');
-    if (reference.url) addSourceLink(item, reference.credit ?? 'Acquired image source', reference.url);
-    else if (reference.credit) item.append(reference.credit);
-    if (reference.license) {
-      item.append(' · ');
-      if (reference.licenseUrl) addSourceLink(item, reference.license, reference.licenseUrl);
-      else item.append(reference.license);
-    }
+    appendReferenceCredit(item, reference);
     if (reference.note) item.append('. ' + reference.note);
     $('referenceSources').append(item);
   }
@@ -445,6 +574,7 @@ async function startTour() {
   $('scanDetail').textContent = 'Curved array · ' + (selectedTour.sectorDepthMm ?? 133) / 10 + ' cm depth';
   configureLegend($('sceneLegend'), [{ label: 'Imaging sector', color: '#84b5d1' }, ...selectedTour.parts]);
   configureLegend($('legend'), selectedTour.overlayParts ?? selectedTour.parts);
+  configureRelatedPlates();
   configureSources();
   state.frame = legacyInitialFrame();
   drawReadout(state.frame);

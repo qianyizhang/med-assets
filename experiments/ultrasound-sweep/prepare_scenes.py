@@ -10,6 +10,7 @@ from pathlib import Path
 
 import numpy as np
 
+from delivery import read_poses, sweep_files, write_manifest
 from display_body import fitted_surface, check_contacts
 from geometry import (
     LENS_RADIUS_MM,
@@ -58,18 +59,8 @@ def read_vendor(vendor_dir):
     return files
 
 
-def stage(output, vendor_dir=None):
-    poses = json.loads((output / 'sweep.js').read_text().removeprefix('const sweep = ').strip().removesuffix(';'))
-    contacts = np.array([frame['contact'] for frame in poses])
+def shared_geometry():
     files = {}
-    for name in ('liver', 'ribs', 'gallbladder'):
-        with np.load(output / f'{name}.npz') as mesh:
-            # Marching cubes and the GLB atlas use opposite windings.
-            files[f'scenes/{name}.mesh'] = mesh_bytes(mesh['vertices'], mesh['faces'][:, ::-1])
-    with np.load(output / 'torso.npz') as torso, np.load(output / 'ribs.npz') as ribs:
-        vertices, faces = fitted_surface(torso['vertices'], ribs['vertices'], contacts)
-    check_contacts(vertices, faces, contacts, np.array([frame['beam'] for frame in poses]))
-    files['scenes/torso.mesh'] = mesh_bytes(vertices, faces)
     for name, rings in PROBE_RINGS.items():
         positions, faces = probe_geometry(rings)
         triangles = [(face[0], face[i], face[i + 1]) for face in faces for i in range(1, len(face) - 1)]
@@ -82,11 +73,29 @@ def stage(output, vendor_dir=None):
         'pipPosition': PIP_POSITION,
         'pipScale': PIP_SCALE,
     }).encode()
+    return files
+
+
+def stage(output, vendor_dir=None):
+    poses = read_poses(output / 'sweep.js')
+    contacts = np.array([frame['contact'] for frame in poses])
+    files = {}
+    for name in ('liver', 'ribs', 'gallbladder'):
+        with np.load(output / f'{name}.npz') as mesh:
+            # Marching cubes and the GLB atlas use opposite windings.
+            files[f'scenes/{name}.mesh'] = mesh_bytes(mesh['vertices'], mesh['faces'][:, ::-1])
+    with np.load(output / 'torso.npz') as torso, np.load(output / 'ribs.npz') as ribs:
+        vertices, faces = fitted_surface(torso['vertices'], ribs['vertices'], contacts)
+    check_contacts(vertices, faces, contacts, np.array([frame['beam'] for frame in poses]))
+    files['scenes/torso.mesh'] = mesh_bytes(vertices, faces)
+    files.update(shared_geometry())
     files.update(read_vendor(vendor_dir))
     for relative, raw in files.items():
         path = output / relative
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_bytes(raw)
+    write_manifest(output, sweep_files(('torso', 'liver', 'ribs', 'gallbladder')) +
+                   ['media/acquired-long.webp', 'media/acquired-short.webp'])
     shutil.copyfile(HERE / 'scene.js', output / 'scene.js')
 
 

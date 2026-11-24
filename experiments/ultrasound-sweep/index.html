@@ -101,17 +101,22 @@
             </select>
           </label>
         </div>
-        <div id="assetControls" class="assetControls" aria-label="Assets"></div>
+        <div id="assetControls" class="assetControls" role="group" aria-label="Keyframe review"></div>
         <div class="assetLayout">
-          <div id="assetEvidence"></div>
+          <div id="assetEvidence" aria-busy="false"></div>
           <div>
             <h3 id="assetName"></h3>
             <p id="binding"></p>
             <p id="assetFinding"></p>
-            <a id="assetSource">Source record ↗</a>
+            <p id="assetSources" class="assetSources" hidden></p>
           </div>
         </div>
         <button id="return">Return to this pose</button>
+        <details id="relatedAnatomy" class="relatedAnatomy" hidden>
+          <summary>Related anatomy</summary>
+          <div id="relatedPlates" class="relatedPlates" aria-busy="false"></div>
+          <p id="relatedLicense" class="assetSources relatedLicense" hidden></p>
+        </details>
       </section>
 
       <footer>

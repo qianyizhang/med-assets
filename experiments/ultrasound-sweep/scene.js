@@ -9,8 +9,8 @@ async function readAsset(path, format) {
   return response[format]();
 }
 
-async function loadMesh(name, root = import.meta.url) {
-  const data = await readAsset(new URL(`scenes/${name}.mesh`, root), 'arrayBuffer');
+async function loadMesh(name, path = `scenes/${name}.mesh`) {
+  const data = await readAsset(path, 'arrayBuffer');
   const header = new DataView(data);
   if (header.byteLength < 8) throw new Error(`Incomplete mesh: ${name}`);
   const vertices = header.getUint32(0, true);
@@ -95,7 +95,7 @@ function orientationMarker() {
   };
 }
 
-function viewport(canvas, { pivot, presets, shadowTarget }) {
+function viewport(canvas, { pivot, presets, shadowTarget, onViewPresetChange }) {
   const context = canvas.getContext('webgl2', { alpha: false, antialias: true });
   if (!context) throw new Error('This browser could not start WebGL 2 for the orbitable views.');
   const renderer = new THREE.WebGLRenderer({ canvas, context });
@@ -121,7 +121,9 @@ function viewport(canvas, { pivot, presets, shadowTarget }) {
   scene.add(fill);
 
   const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.25, 1900);
-  let preset = presets.oblique;
+  let presetName = 'oblique';
+  let preset = presets[presetName];
+  let activePreset;
   let magnification = 1;
   let pending = 0;
   let pointer = null;
@@ -155,21 +157,30 @@ function viewport(canvas, { pivot, presets, shadowTarget }) {
     if (!pending) pending = requestAnimationFrame(render);
   }
 
+  function reportPreset(name) {
+    if (name === activePreset) return;
+    activePreset = name;
+    onViewPresetChange?.(name);
+  }
+
   function reset() {
     camera.up.copy(preset.up);
     camera.position.copy(preset.target).addScaledVector(preset.direction, 650);
     camera.lookAt(preset.target);
     magnification = 1;
+    reportPreset(presetName);
     invalidate();
   }
 
   function setViewPreset(name) {
     if (!Object.hasOwn(presets, name)) return;
+    presetName = name;
     preset = presets[name];
     reset();
   }
 
   function orbit(yaw, pitch) {
+    if (!yaw && !pitch) return;
     const aroundUp = new THREE.Quaternion().setFromAxisAngle(camera.up, yaw);
     const heading = camera.quaternion.clone().premultiply(aroundUp);
     const right = vec(1, 0, 0).applyQuaternion(heading);
@@ -181,6 +192,7 @@ function viewport(canvas, { pivot, presets, shadowTarget }) {
     // selected point. Its camera-space coordinates, including depth, then stay fixed.
     camera.position.sub(pivot).applyQuaternion(rotation).add(pivot);
     camera.quaternion.premultiply(rotation).normalize();
+    reportPreset(null);
     invalidate();
   }
 
@@ -378,7 +390,7 @@ function cameraPresets(organ, pivot, fitBounds, transforms, probe, sector) {
   };
 }
 
-export async function createSweepScene({ canvas, frames, config }) {
+export async function createSweepScene({ canvas, frames, config, onViewPresetChange }) {
   if (!frames?.length) throw new Error('The sweep has no probe poses.');
   if (!config?.parts?.some(({ id }) => id === config.organ)) {
     throw new Error('The sweep has no configured target mesh.');
@@ -388,7 +400,8 @@ export async function createSweepScene({ canvas, frames, config }) {
   const probeNames = ['lens', 'housing', 'relief'];
   const [commonDimensions, geometries, probeGeometries] = await Promise.all([
     readAsset('scenes/geometry.json', 'json'),
-    Promise.all(names.map((name) => loadMesh(name, assetRoot))),
+    Promise.all(names.map((name) => loadMesh(name, config.meshPaths?.[name]
+      ?? new URL(`scenes/${name}.mesh`, assetRoot)))),
     Promise.all(probeNames.map((name) => loadMesh(name))),
   ]);
   const dimensions = { ...commonDimensions, sectorDepthMm: config.sectorDepthMm ?? commonDimensions.sectorDepthMm };
@@ -411,6 +424,7 @@ export async function createSweepScene({ canvas, frames, config }) {
     pivot,
     presets: cameraPresets(config.organ, pivot, fitBounds, transforms, probe, sector),
     shadowTarget: transforms[Math.min(12, transforms.length - 1)].position,
+    onViewPresetChange,
   });
   const torso = solid(meshes.torso, '#be9885');
   torso.material.roughness = .95;

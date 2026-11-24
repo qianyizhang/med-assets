@@ -6,7 +6,20 @@ Use the acquired image for each reference keyframe to judge the shape of the lum
 
 The [hepatopancreatic record](hepatopancreatic.json) covers liver, portal vein and pancreas. Four cropped panels from Figure 1 show the labeled liver and pancreas views. Two POCUS Atlas stills show the main portal vein along and across its course. The record pins original and exported hashes, crop coordinates, attribution, and transformations. WebP derivatives use Pillow 11.3.0, quality 94 and method 6. [Okaniwa et al., abdominal ultrasound manual](https://doi.org/10.1007/s10396-022-01272-w) · [POCUS Atlas biliary collection](https://www.thepocusatlas.com/hepatobiliary)
 
-The [renal and splenic records](renal-splenic.json) preserve side and axis, while the [source receipt](renal-splenic-receipt.md) records each original and crop. The [great-vessel records](great-vessels.json) and [extraction receipt](great-vessels-sources.json) identify the acquired windows and clinical level differences. Crops and stills retain their source-specific terms. Several POCUS Atlas images are licensed for noncommercial reuse. These 16 selected derivatives live in [acquired](acquired/). The two gallbladder frames below are reconstructed from the original files by the gallbladder builder.
+The [renal and splenic records](renal-splenic.json) preserve side and axis, while the [source receipt](renal-splenic-receipt.md) records each original and crop. The [great-vessel records](great-vessels.json) and [extraction receipt](great-vessels-sources.json) identify the acquired windows and clinical level differences. Crops and stills retain their source-specific terms. Several POCUS Atlas images are licensed for noncommercial reuse. These records cover 16 endpoint stills. The gallbladder builder extracts its two endpoint stills from the originals below.
+
+The modeled spleen rotates at one left posterior contact. The section spans about 88 mm along the organ’s dominant axis at the long-axis stop and 16 mm at the short-axis stop. These distances describe the sampled CT mask. The acquired transverse image specifically shows the hilum.
+
+## Supporting normal anatomy
+
+Four additional panels from the same published figure fill specific gaps in the endpoint comparisons. Open **Keyframe assets → Related anatomy** on a listed sweep. Each panel comes from a separate acquisition and is displayed once per sweep. The [landmark record](normal-landmarks.json) binds each crop in original pixels to the source and exported file hashes. [Published Figure 1 and section key](https://pmc.ncbi.nlm.nih.gov/articles/PMC9868003/figure/Fig1/)
+
+| Acquired view | Sweeps | Reason to include it |
+| --- | --- | --- |
+| Extrahepatic bile duct, panel 14 | Gallbladder, liver, portal vein | Shows the duct in a right subcostal oblique view. The model has no separate duct mask. |
+| Hepatic vein below the diaphragm, panel 21 | Liver, IVC | Shows hepatic venous anatomy in a region where the model labels only the IVC. |
+| Pancreatic tail through the spleen, panel 3 | Pancreas, spleen | Adds the left intercostal window to the modeled pancreatic body and head views. |
+| Right kidney and posterior liver, bottom-right panel | Right kidney, liver | Shows the two organs together. The modeled right renal long axis includes little liver. The published key calls this section 25 and the panel is printed as 26. |
 
 ## Gallbladder
 

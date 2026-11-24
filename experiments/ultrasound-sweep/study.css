@@ -321,7 +321,26 @@ main { padding: 12px 0 24px; }
 .assetLayout { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: 16px; margin-block: 12px; }
 .assetLayout p { margin-top: 9px; color: var(--quiet); }
 .evidenceImage { display: block; width: 100%; background: #080a0a; border-radius: 5px; }
-.paired { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px; align-items: center; }
+.assetSources { font-size: 13px; overflow-wrap: anywhere; }
+.relatedAnatomy {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fcfdf9;
+  margin-top: 14px;
+  padding: 8px 12px;
+}
+.relatedAnatomy summary { font-weight: 650; }
+.relatedPlates {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17.5rem), 1fr));
+  gap: 14px;
+  margin-top: 12px;
+}
+.relatedPlates figure { max-inline-size: 24rem; min-inline-size: 0; }
+.relatedPlates figcaption { padding-top: 7px; }
+.relatedPlates h3 { font-size: 15px; }
+.relatedPlates figcaption p { color: var(--quiet); margin-top: 4px; font-size: 13px; }
+.relatedLicense { color: var(--quiet); margin-top: 12px; }
 
 footer { border-top: 1px solid var(--line); margin-top: 14px; padding-top: 9px; font-size: 13px; color: var(--quiet); }
 summary { cursor: pointer; }

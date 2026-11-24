@@ -1,16 +1,22 @@
 """Assemble the inspected abdominal sweeps and their acquired references for a local gallery."""
 import argparse
-import hashlib
 import json
 from pathlib import Path
+import re
 import shutil
+import tempfile
+
+from build_abdomen import pose_recipe_sha256, read_tracks, section_palette_sha256
+from delivery import sha256, sweep_files, validate_image, validate_mesh, verify_inventory
+from geometry import KEYFRAMES, SECTOR_DEPTH_MM, SECTOR_HALF_ANGLE_DEG, LENS_RADIUS_MM, VOXEL_MM
+from prepare_scenes import read_vendor, shared_geometry
 
 HERE = Path(__file__).resolve().parent
 RESEARCH = HERE / 'research'
 GALLBLADDER = {
     'id': 'gallbladder', 'title': 'Gallbladder', 'organ': 'gallbladder',
     'region': 'Right upper abdomen', 'exterior': 'fitted-atlas',
-    'sectorDepthMm': 133, 'keyframeLabels': ['Long axis', 'Short axis'],
+    'sectorDepthMm': SECTOR_DEPTH_MM, 'keyframeLabels': ['Long axis', 'Short axis'],
     'phaseLabels': ['Find window', 'Rotate probe'],
     'parts': [
         {'id': 'gallbladder', 'label': 'Gallbladder', 'color': '#3fbf9e', 'opacity': 1},
@@ -18,6 +24,7 @@ GALLBLADDER = {
         {'id': 'ribs', 'label': 'Ribs', 'color': '#dacaad', 'opacity': .78},
     ],
     'overlayParts': ['gallbladder', 'liver', 'portal_vein_and_splenic_vein'],
+    'landmarks': ['extrahepatic-duct'],
 }
 GALLBLADDER_REFERENCES = {
     'gallbladder-12': {
@@ -36,29 +43,45 @@ GALLBLADDER_REFERENCES = {
 }
 
 
-def assemble(output):
+def reference_sources():
     refs = dict(GALLBLADDER_REFERENCES)
     files = {}
-    for source in ('hepatopancreatic.json', 'renal-splenic.json', 'great-vessels.json'):
-        for key, ref in json.loads((RESEARCH / source).read_text()).items():
+    landmarks = set()
+    for source in ('hepatopancreatic.json', 'renal-splenic.json', 'great-vessels.json', 'normal-landmarks.json'):
+        group = json.loads((RESEARCH / source).read_text())
+        if source == 'normal-landmarks.json':
+            landmarks.update(group)
+        for key, ref in group.items():
             if key in refs:
                 raise ValueError(f'Duplicate reference {key}')
             name = Path(ref['path']).name
-            if ref['path'] != 'references/' + name:
+            if ref['path'] != 'references/' + name or not re.fullmatch(r'[a-z0-9][a-z0-9-]*\.webp', name):
                 raise ValueError(f'Invalid reference path {key}')
-            data = (RESEARCH / 'acquired' / name).read_bytes()
-            if hashlib.sha256(data).hexdigest() != ref['sha256']:
+            if ref['path'] in files:
+                raise ValueError(f'Duplicate reference output: {ref["path"]}')
+            path = RESEARCH / 'acquired' / name
+            if sha256(path.read_bytes()) != ref['sha256']:
                 raise ValueError(f'Unexpected acquired image identity: {name}')
-            files[ref['path']] = data
+            validate_image(path)
+            files[ref['path']] = path
             refs[key] = ref
+    return refs, files, landmarks
 
-    tracks = json.loads((HERE / 'abdomen-tracks.json').read_text())
-    tours = []
+
+def configured_tours(output, refs, files, landmark_refs):
+    tracks = read_tracks()
+    tours, identities, used_references = [], {}, set()
     for track in [GALLBLADDER, *tracks]:
         tour = track.copy()
         slug = tour['id']
+        if not re.fullmatch(r'[a-z0-9][a-z0-9-]*', slug) or any(item['id'] == slug for item in tours):
+            raise ValueError(f'Invalid or repeated sweep ID: {slug}')
         root = './' if slug == 'gallbladder' else f'sweeps/{slug}/'
         parts = {part['id']: part for part in tour['parts']}
+        mesh_names = ['torso', *parts]
+        if (len(parts) != len(tour['parts']) or tour['organ'] not in parts or 'torso' in parts
+                or any(not re.fullmatch(r'[a-z0-9][a-z0-9_]*', part) for part in parts)):
+            raise ValueError(f'Invalid or repeated scene part: {slug}')
         if slug == 'gallbladder':
             parts['portal_vein_and_splenic_vein'] = {
                 'id': 'portal_vein_and_splenic_vein', 'label': 'Portal and splenic veins', 'color': '#799ac4',
@@ -69,45 +92,98 @@ def assemble(output):
         tour['sourceNote'] = ('Illustrative BodyParts3D exterior fitted to the s1233 probe-contact window.'
                               if tour.get('exterior') == 'fitted-atlas'
                               else 'External body surface and internal structures sampled from the same s1233 CT.')
-        if slug != 'gallbladder':
-            receipt = json.loads((output / root / 'verification.json').read_text())
-            if (receipt['exterior'] != tour['exterior'] or
-                    receipt['sectorDepthMm'] != tour['sectorDepthMm'] or receipt['case'] != 's1233'):
-                raise ValueError(f'Rebuild {slug} for the configured exterior, depth and source case.')
         tour['keyframes'] = []
-        for frame, label in zip((12, 48), tour.pop('keyframeLabels'), strict=True):
+        for frame, label in zip(KEYFRAMES, tour.pop('keyframeLabels'), strict=True):
             ref_id = f'{slug}-{frame}'
-            if ref_id not in refs:
+            if ref_id not in refs or ref_id in landmark_refs:
                 raise ValueError(f'Missing acquired comparison: {ref_id}')
-            key = {'frame': frame, 'label': label, 'referenceId': ref_id}
-            tour['keyframes'].append(key)
+            tour['keyframes'].append({'frame': frame, 'label': label, 'referenceId': ref_id})
+            used_references.add(ref_id)
         tour['phases'] = [dict(frame=frame, label=label) for frame, label in
-                          zip((0, 12), tour.pop('phaseLabels'), strict=True)]
-        # Check candidate delivery through the same filenames that the tour reads.
-        for kind in ('scan', 'section'):
-            for i in range(49):
-                if not (output / root / 'media' / f'{kind}-{i:02}.webp').is_file():
-                    raise ValueError(f'Missing {slug} {kind} at frame {i}')
-        mesh_names = ['torso', *(part['id'] for part in tour['parts'])]
-        for name in ['sweep.js', *(f'scenes/{part}.mesh' for part in mesh_names)]:
-            if not (output / root / name).is_file():
-                raise ValueError(f'Missing {slug} input: {name}')
+                          zip((0, KEYFRAMES[0]), tour.pop('phaseLabels'), strict=True)]
+        landmarks = tour.setdefault('landmarks', [])
+        if not isinstance(landmarks, list) or len(set(landmarks)) != len(landmarks) or set(landmarks) - landmark_refs:
+            raise ValueError(f'Invalid supporting landmark reference: {slug}')
+        used_references.update(landmarks)
+
+        inventory = sweep_files(mesh_names)
+        if slug == 'gallbladder':
+            inventory += [ref['path'] for ref in GALLBLADDER_REFERENCES.values()]
+        else:
+            receipt = json.loads((output / root / 'verification.json').read_text())
+            expected_pose = pose_recipe_sha256(slug)
+            if (tour.pop('requirePoseReceipt', False) or 'poseRecipeSha256' in receipt) and (
+                    receipt.get('poseRecipeSha256') != expected_pose):
+                raise ValueError(f'Rebuild {slug} with build_abdomen.py --track {slug} for the current pose recipe.')
+            expected_palette = section_palette_sha256(track)
+            if (tour.pop('requirePaletteReceipt', False) or 'sectionPaletteSha256' in receipt) and (
+                    receipt.get('sectionPaletteSha256') != expected_palette):
+                raise ValueError(f'Rebuild {slug} with build_abdomen.py --track {slug} for the current section palette.')
+            if (receipt['exterior'] != tour['exterior'] or receipt['sectorDepthMm'] != tour['sectorDepthMm']
+                    or receipt['case'] != 's1233' or receipt['voxelMm'] != VOXEL_MM
+                    or receipt['lensRadiusMm'] != LENS_RADIUS_MM or receipt['sectorHalfAngleDeg'] != SECTOR_HALF_ANGLE_DEG
+                    or set(receipt['frames']) != {str(k) for k in KEYFRAMES}):
+                raise ValueError(f'Rebuild {slug} for the configured exterior, depth, case and keyframes.')
+        verify_inventory(output / root, inventory)
+        for relative in inventory:
+            path = root.removeprefix('./') + relative
+            source = output / path
+            if relative.startswith('scenes/'):
+                raw = source.read_bytes()
+                validate_mesh(raw, source)
+                identity = sha256(raw)
+                canonical = identities.setdefault(identity, path)
+                if canonical != path:
+                    tour.setdefault('meshPaths', {})[source.stem] = canonical
+                    continue
+            files[path] = source
         tours.append(tour)
-    for info in GALLBLADDER_REFERENCES.values():
-        if not (output / info['path']).is_file():
-            raise ValueError(f'Missing gallbladder comparison: {info["path"]}')
-    for path, data in files.items():
-        dest = output / path
-        dest.parent.mkdir(exist_ok=True)
-        dest.write_bytes(data)
+    if refs.keys() != used_references:
+        raise ValueError(f'Unassigned acquired references: {sorted(refs.keys() - used_references)}')
+    return tours
+
+
+def write_catalogue(destination, refs, tours):
     for name, variable, content in [('references.js', 'abdomenReferences', refs), ('abdomen-tours.js', 'abdomenTours', tours)]:
-        (output / name).write_text(f'const {variable} = ' + json.dumps(content, ensure_ascii=False, indent=2) + ';\n')
+        (destination / name).write_text(f'const {variable} = ' + json.dumps(content, ensure_ascii=False, indent=2) + ';\n')
     for name in ('index.html', 'study.css', 'study.js', 'scene.js'):
-        shutil.copyfile(HERE / name, output / name)
+        shutil.copyfile(HERE / name, destination / name)
+
+
+def assemble(output, delivery=None):
+    if delivery is not None and delivery.exists():
+        raise ValueError(f'Choose a fresh delivery directory: {delivery}')
+    refs, files, landmarks = reference_sources()
+    for path, expected in shared_geometry().items():
+        if (output / path).read_bytes() != expected:
+            raise ValueError(f'Stale shared probe geometry: {path}')
+        files[path] = output / path
+    for path in read_vendor(output / 'vendor'):
+        files[path] = output / path
+    tours = configured_tours(output, refs, files, landmarks)
+    if delivery is None:
+        for path, source in files.items():
+            if path.startswith('references/'):
+                dest = output / path
+                dest.parent.mkdir(exist_ok=True)
+                shutil.copyfile(source, dest)
+        write_catalogue(output, refs, tours)
+    else:
+        delivery.parent.mkdir(parents=True, exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=delivery.parent) as stage_dir:
+            stage = Path(stage_dir) / 'study'
+            for path, source in files.items():
+                dest = stage / path
+                dest.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(source, dest)
+            write_catalogue(stage, refs, tours)
+            stage.rename(delivery)
     print(f'Assembled {len(tours)} sweeps with {len(refs)} reference bindings.')
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('output', type=Path)
-    assemble(parser.parse_args().output)
+    parser.add_argument('output', type=Path, help='Staging tree with generated sweeps and prepared gallbladder scene')
+    parser.add_argument('--delivery', type=Path, help='Write a fresh serving tree without duplicate mesh files')
+    args = parser.parse_args()
+    assemble(args.output, args.delivery)

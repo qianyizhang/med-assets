@@ -12,7 +12,7 @@ from PIL import Image
 from scipy import ndimage as nd
 from skimage.measure import find_contours, marching_cubes
 
-from geometry import LENS_RADIUS_MM, SECTOR_DEPTH_MM, SECTOR_HALF_ANGLE_DEG, VOXEL_MM
+from geometry import KEYFRAMES, LENS_RADIUS_MM, RASTER_SIZE, SECTOR_DEPTH_MM, SECTOR_HALF_ANGLE_DEG, VOXEL_MM
 
 HERE = Path(__file__).resolve().parent
 WORKSHOP = json.loads((HERE.parents[1] / 'assemblies/workshop-s1233/inputs.json').read_text())
@@ -21,8 +21,8 @@ FIG_SHA = 'f62a0d6d988c87a8a53b304fb12f5b0152fe5a45d896de42a4a164e6f923ae43'
 CINE_SHA = '5c58e3797b0e6f105353e169b05d13a4db359ac1127f2717a9c122497c8abfeb'
 SHAPE = tuple(WORKSHOP['shape'])
 AFFINE = np.array(WORKSHOP['rasMmFromVoxel'])
-W, H = 500, 350
-LONG, LAST = 12, 48
+W, H = RASTER_SIZE
+LONG, LAST = KEYFRAMES
 
 
 def checked(path, sha):

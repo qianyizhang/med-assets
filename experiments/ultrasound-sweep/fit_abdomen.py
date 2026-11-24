@@ -75,10 +75,11 @@ def surface_height(shell, axis, side):
     return np.where(valid, height * 2, np.nan)
 
 
-def fit_window(vertices, shell, contacts, beams, arm_weight):
+def fit_window(vertices, shell, contacts, beams, arm_weight, axis=None):
     """Conform a bounded front or flank patch to the sampled CT exterior."""
     outward = -beams.mean(0)
-    axis = int(np.argmax(np.abs(outward)))
+    if axis is None:
+        axis = int(np.argmax(np.abs(outward)))
     side = int(np.sign(outward[axis]))
     tangent = [coordinate for coordinate in range(3) if coordinate != axis]
     projected = vertices[:, tangent]
