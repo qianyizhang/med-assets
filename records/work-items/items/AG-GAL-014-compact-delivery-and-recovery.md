@@ -28,7 +28,7 @@ Apply the choice supported by [AG-GAL-007](AG-GAL-007-plan-r2-and-recovery.md) a
 
 ## Context and Trade-offs
 
-This item owns the asset and storage change. [AG-GAL-012](AG-GAL-012-consolidate-transport-tools.md) owns the tool and index path moves. Preserve historical manifests and source-specific rights.
+This item owns the asset and storage change. [AG-GAL-012](../../campaigns/anatomy-gallery-consolidation.md#ag-gal-012) owns the tool and index path moves. Preserve historical manifests and source-specific rights.
 
 ## Status History
 
