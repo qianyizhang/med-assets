@@ -22,7 +22,7 @@ tags: gallery, lessons
 
 - [x] Give the teaching sequence one content owner. Both existing entry links, **Reproductive → left pickup** and **Regional Locators → ovary and tubal end**, reach it. Keep each collection's return path and the reproductive sequence's neighboring steps. A learner can point to the ovary, fringed end and intervening gap from either entry.
 - [x] Compare learner questions across the [Body Systems stops](../../../lessons/body-systems/reviewed-stops.json) and [other use cases](../../../reviews/teaching-assessments/use-case-checks.json). Consolidate confirmed repeats across the Gallery. Where shared anatomy serves distinct actions, keep those actions discoverable and record the distinction briefly in the existing review. The two check lists are starting points for discovery. Inspect the actual routes and neighboring stops.
-- [x] Exercise both entry and return journeys, old bookmarks, the source/scale cue and the missing-image fallback in the local Gallery. Update the [use-case guide](../../../docs/gallery/use-cases.md), lesson checks and affected links. Remove redundant beta lesson content once its readers use the retained version. Run the [applicable gates](../../../docs/WORKFLOW.md#verification).
+- [x] Exercise both entry and return journeys, old bookmarks, the source/scale cue and the missing-image fallback in the local Gallery. Update the [use-case guide](../../../docs/gallery/use-cases/README.md), lesson checks and affected links. Remove redundant beta lesson content once its readers use the retained version. Run the [applicable gates](../../../docs/WORKFLOW.md#verification).
 
 Use the resulting lesson requirements to select the [shared organ model pilot](AG-GAL-027-merge-reusable-organ-assets.md).
 

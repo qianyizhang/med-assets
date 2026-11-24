@@ -100,7 +100,7 @@ Repository offline validation passed **232 tests**, 26 transport manifests,
 25 foundation records, 591 import references and 834 LFS pointer identities.
 This is local 2D browser coverage, not a 3D runtime pass.
 
-The [Gallery archive trial](../../docs/gallery/use-cases.md#experiments--archive) reuses this lesson’s controls, language copy, verified contact image and outline. The fragment query accepts the same view controls. Gallery browser evidence is recorded in [AG-GAL-016](../../records/work-items/items/AG-GAL-016-integrate-retained-teaching.md).
+The [Gallery archive trial](../../docs/gallery/use-cases/archive.md) reuses this lesson’s controls, language copy, verified contact image and outline. The fragment query accepts the same view controls. Gallery browser evidence is recorded in [AG-GAL-016](../../records/work-items/items/AG-GAL-016-integrate-retained-teaching.md).
 
 ## Scope and attribution
 

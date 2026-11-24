@@ -5,7 +5,7 @@ Anatomy Gallery brings the maintained public views of med-assets into one Site. 
 | Surface PRD | Visitor’s question | Record it owns |
 | --- | --- | --- |
 | [Asset Library](asset-library.md) | Which model and revision can I use? | Discoverable lineage and its revision page |
-| [Use Cases](use-cases.md) | What can these structures explain together? | Teaching sequence and its views |
+| [Use Cases](use-cases/README.md) | What can these structures explain together? | Teaching sequence and its views |
 | [Compare](compare.md) | What changed, and does it matter? | Comparison session and saved review |
 | [3D Stage](3d-stage.md) | How do I compose, share or export this view? | Versioned preset and its exported image |
 
