@@ -1,0 +1,50 @@
+{
+  "atlasLicense": "https://www.thepocusatlas.com/legal",
+  "extraction": "With Pillow 11.3.0, verify the original SHA-256, seek to the zero-based GIF frame, convert to RGB, clear metadata, and save the unchanged full display frame as WebP with quality=94.",
+  "sources": {
+    "aorta-12": {
+      "mediaUrl": "https://images.squarespace-cdn.com/content/v1/58118909e3df282037abfad7/1605901091126-6B5XTERJVRMUZ76BWM8A/image-asset.gif",
+      "mediaSha256": "8c81f9b9eef09b8a7175a265993a95b01a783791dbd13438c5b5a30a71fff27b",
+      "frame": 22,
+      "frameStartMs": 1440,
+      "totalFrames": 49,
+      "dimensions": [
+        471,
+        415
+      ]
+    },
+    "aorta-48": {
+      "mediaUrl": "https://images.squarespace-cdn.com/content/v1/58118909e3df282037abfad7/1604504358519-HOI7XUNJVJN1K10XD1VQ/image-asset.gif",
+      "mediaSha256": "4f87081bd09269d9df72f15fd2c6edaa6df2314152f06b7c0084c26e29b03164",
+      "frame": 14,
+      "frameStartMs": 910,
+      "totalFrames": 76,
+      "dimensions": [
+        455,
+        575
+      ]
+    },
+    "ivc-12": {
+      "mediaUrl": "https://images.squarespace-cdn.com/content/v1/58118909e3df282037abfad7/1515618754085-8GLR2N3BJNYT4C9SUCSY/ezgif.com-optimize%2B%2816%29.gif",
+      "mediaSha256": "7a466dc48b0405709016c50be480ac24d0c28a7138c5066e5b9a765485846d7e",
+      "frame": 11,
+      "frameStartMs": 1100,
+      "totalFrames": 21,
+      "dimensions": [
+        600,
+        450
+      ]
+    },
+    "ivc-48": {
+      "mediaUrl": "https://images.squarespace-cdn.com/content/v1/58118909e3df282037abfad7/1515766527217-ENE3R8HJHFOPERYO15MC/ezgif.com-optimize%2B%2818%29.gif",
+      "mediaSha256": "1123a34e3df923a454a0a2a0d77a007761a52379b0f4c0a9dba50ac7dbbdbe68",
+      "frame": 18,
+      "frameStartMs": 1800,
+      "totalFrames": 21,
+      "dimensions": [
+        600,
+        450
+      ]
+    }
+  }
+}

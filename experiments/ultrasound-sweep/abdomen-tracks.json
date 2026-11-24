@@ -1,0 +1,358 @@
+[
+  {
+    "id": "liver",
+    "title": "Liver",
+    "organ": "liver",
+    "parts": [
+      {
+        "id": "liver",
+        "label": "Liver",
+        "color": "#b57356",
+        "opacity": 0.69
+      },
+      {
+        "id": "portal_vein_and_splenic_vein",
+        "label": "Portal and splenic veins",
+        "color": "#799ac4",
+        "opacity": 0.92
+      },
+      {
+        "id": "inferior_vena_cava",
+        "label": "Inferior vena cava",
+        "color": "#709cba",
+        "opacity": 0.92
+      },
+      {
+        "id": "gallbladder",
+        "label": "Gallbladder",
+        "color": "#3bbfa2",
+        "opacity": 0.9
+      }
+    ],
+    "overlayParts": [
+      "liver",
+      "portal_vein_and_splenic_vein",
+      "inferior_vena_cava",
+      "gallbladder"
+    ],
+    "region": "Right subcostal",
+    "keyframeLabels": [
+      "Oblique portal view",
+      "Hepatic parenchyma and IVC"
+    ],
+    "phaseLabels": [
+      "Find liver",
+      "Sweep medially"
+    ],
+    "sectorDepthMm": 166,
+    "focus": [
+      175,
+      155,
+      219
+    ],
+    "focusRadius": 57,
+    "exterior": "fitted-atlas"
+  },
+  {
+    "id": "portal-vein",
+    "title": "Portal vein",
+    "organ": "portal_vein_and_splenic_vein",
+    "parts": [
+      {
+        "id": "portal_vein_and_splenic_vein",
+        "label": "Portal and splenic veins",
+        "color": "#799ac4",
+        "opacity": 0.92
+      },
+      {
+        "id": "liver",
+        "label": "Liver",
+        "color": "#b57356",
+        "opacity": 0.69
+      },
+      {
+        "id": "gallbladder",
+        "label": "Gallbladder",
+        "color": "#3bbfa2",
+        "opacity": 0.9
+      }
+    ],
+    "overlayParts": [
+      "portal_vein_and_splenic_vein",
+      "liver",
+      "gallbladder"
+    ],
+    "region": "Right subcostal",
+    "keyframeLabels": [
+      "Main portal vein long axis",
+      "Main portal vein short axis"
+    ],
+    "phaseLabels": [
+      "Find the main portal vein",
+      "Rotate to short axis"
+    ],
+    "sectorDepthMm": 155,
+    "focus": [
+      157,
+      150,
+      206
+    ],
+    "focusRadius": 42,
+    "exterior": "fitted-atlas"
+  },
+  {
+    "id": "pancreas",
+    "title": "Pancreas",
+    "organ": "pancreas",
+    "parts": [
+      {
+        "id": "pancreas",
+        "label": "Pancreas",
+        "color": "#d6ab6c",
+        "opacity": 0.89
+      },
+      {
+        "id": "portal_vein_and_splenic_vein",
+        "label": "Portal and splenic veins",
+        "color": "#799ac4",
+        "opacity": 0.92
+      },
+      {
+        "id": "aorta",
+        "label": "Aorta",
+        "color": "#d47466",
+        "opacity": 0.92
+      },
+      {
+        "id": "inferior_vena_cava",
+        "label": "Inferior vena cava",
+        "color": "#709cba",
+        "opacity": 0.92
+      }
+    ],
+    "overlayParts": [
+      "pancreas",
+      "portal_vein_and_splenic_vein",
+      "aorta",
+      "inferior_vena_cava"
+    ],
+    "region": "Epigastrium",
+    "keyframeLabels": [
+      "Pancreatic body and splenic vein",
+      "Oblique pancreatic head"
+    ],
+    "phaseLabels": [
+      "Find the body",
+      "Sweep toward the head"
+    ],
+    "sectorDepthMm": 155,
+    "exterior": "fitted-atlas"
+  },
+  {
+    "id": "spleen",
+    "title": "Spleen",
+    "organ": "spleen",
+    "parts": [
+      {
+        "id": "spleen",
+        "label": "Spleen",
+        "color": "#b97197",
+        "opacity": 0.89
+      },
+      {
+        "id": "kidney_left",
+        "label": "Left kidney",
+        "color": "#a85568",
+        "opacity": 0.89
+      },
+      {
+        "id": "ribs",
+        "label": "Ribs",
+        "color": "#e0ceb0",
+        "opacity": 0.5
+      }
+    ],
+    "overlayParts": [
+      "spleen",
+      "kidney_left"
+    ],
+    "region": "Left lateral",
+    "keyframeLabels": [
+      "Splenic long axis",
+      "Splenic short axis"
+    ],
+    "phaseLabels": [
+      "Find the long axis",
+      "Rotate to short axis"
+    ],
+    "sectorDepthMm": 133,
+    "exterior": "fitted-atlas"
+  },
+  {
+    "id": "kidney-right",
+    "title": "Right kidney",
+    "organ": "kidney_right",
+    "parts": [
+      {
+        "id": "kidney_right",
+        "label": "Right kidney",
+        "color": "#a85568",
+        "opacity": 0.89
+      },
+      {
+        "id": "liver",
+        "label": "Liver",
+        "color": "#b57356",
+        "opacity": 0.69
+      },
+      {
+        "id": "ribs",
+        "label": "Ribs",
+        "color": "#e0ceb0",
+        "opacity": 0.5
+      }
+    ],
+    "overlayParts": [
+      "kidney_right",
+      "liver"
+    ],
+    "region": "Right flank",
+    "keyframeLabels": [
+      "Right renal long axis",
+      "Right renal short axis"
+    ],
+    "phaseLabels": [
+      "Find the long axis",
+      "Rotate to short axis"
+    ],
+    "sectorDepthMm": 133,
+    "exterior": "fitted-atlas"
+  },
+  {
+    "id": "kidney-left",
+    "title": "Left kidney",
+    "organ": "kidney_left",
+    "parts": [
+      {
+        "id": "kidney_left",
+        "label": "Left kidney",
+        "color": "#a85568",
+        "opacity": 0.89
+      },
+      {
+        "id": "spleen",
+        "label": "Spleen",
+        "color": "#b97197",
+        "opacity": 0.89
+      },
+      {
+        "id": "ribs",
+        "label": "Ribs",
+        "color": "#e0ceb0",
+        "opacity": 0.5
+      }
+    ],
+    "overlayParts": [
+      "kidney_left",
+      "spleen"
+    ],
+    "region": "Left flank",
+    "keyframeLabels": [
+      "Left renal long axis",
+      "Left renal short axis"
+    ],
+    "phaseLabels": [
+      "Find the long axis",
+      "Rotate to short axis"
+    ],
+    "sectorDepthMm": 133,
+    "exterior": "fitted-atlas"
+  },
+  {
+    "id": "aorta",
+    "title": "Abdominal aorta",
+    "organ": "aorta",
+    "parts": [
+      {
+        "id": "aorta",
+        "label": "Aorta",
+        "color": "#d47466",
+        "opacity": 0.92
+      },
+      {
+        "id": "inferior_vena_cava",
+        "label": "Inferior vena cava",
+        "color": "#709cba",
+        "opacity": 0.92
+      }
+    ],
+    "overlayParts": [
+      "aorta",
+      "inferior_vena_cava"
+    ],
+    "region": "Epigastrium",
+    "keyframeLabels": [
+      "Aortic long axis",
+      "Aortic transverse view"
+    ],
+    "phaseLabels": [
+      "Find the long axis",
+      "Rotate to transverse"
+    ],
+    "sectorDepthMm": 166,
+    "focus": [
+      134,
+      139,
+      170
+    ],
+    "focusRadius": 42,
+    "exterior": "fitted-atlas"
+  },
+  {
+    "id": "ivc",
+    "title": "Inferior vena cava",
+    "organ": "inferior_vena_cava",
+    "parts": [
+      {
+        "id": "inferior_vena_cava",
+        "label": "Inferior vena cava",
+        "color": "#709cba",
+        "opacity": 0.92
+      },
+      {
+        "id": "aorta",
+        "label": "Aorta",
+        "color": "#d47466",
+        "opacity": 0.92
+      },
+      {
+        "id": "liver",
+        "label": "Liver",
+        "color": "#b57356",
+        "opacity": 0.69
+      }
+    ],
+    "overlayParts": [
+      "inferior_vena_cava",
+      "aorta",
+      "liver"
+    ],
+    "region": "Right subcostal",
+    "keyframeLabels": [
+      "IVC long axis",
+      "IVC transverse view"
+    ],
+    "phaseLabels": [
+      "Find the long axis",
+      "Rotate to transverse"
+    ],
+    "sectorDepthMm": 166,
+    "focus": [
+      156,
+      139,
+      205
+    ],
+    "focusRadius": 45,
+    "exterior": "fitted-atlas"
+  }
+]

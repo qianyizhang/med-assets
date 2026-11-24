@@ -3,23 +3,31 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Gallbladder sweep · Ultrasound Anatomy</title>
+    <title>Abdomen ultrasound</title>
     <link rel="stylesheet" href="study.css" />
-    <script defer src="sweep.js"></script>
+    <script defer src="abdomen-tours.js"></script>
+    <script defer src="references.js"></script>
     <script defer src="study.js"></script>
   </head>
   <body>
     <header class="mast">
       <div class="bar">
-        <h1>Gallbladder sweep</h1>
+        <div class="tourHeading">
+          <h1 id="tourTitle">Abdomen ultrasound</h1>
+          <label class="sweepPickerLabel" for="sweepPicker">
+            <span>Sweep</span>
+            <select id="sweepPicker" disabled></select>
+          </label>
+        </div>
         <nav aria-label="Study views">
-          <button id="tourTab" aria-pressed="true">Sweep</button>
-          <button id="assetTab" aria-pressed="false">Keyframe assets</button>
+          <button id="tourTab" disabled aria-pressed="true">Sweep</button>
+          <button id="assetTab" disabled aria-pressed="false">Keyframe assets</button>
         </nav>
       </div>
     </header>
     <main>
-      <section id="tour" aria-label="Gallbladder sweep">
+      <p id="tourStatus" role="status" hidden></p>
+      <section id="tour" aria-labelledby="tourTitle" hidden>
         <div class="transport">
           <div class="transportTop">
             <button class="primary" id="play" disabled>Play sweep</button>
@@ -31,12 +39,9 @@
           </div>
           <div class="timeline">
             <label class="sr" for="position">Sweep position</label>
-            <ol class="phases" aria-label="Sweep phases"><li>Find window</li><li>Rotate probe</li></ol>
-            <input id="position" type="range" min="0" max="48" step="1" value="12" />
-            <div class="ticks">
-              <button id="longTick" aria-label="Long axis reference keyframe" class="tick" type="button">Long axis</button>
-              <button id="shortTick" aria-label="Short axis reference keyframe" class="tick" type="button">Short axis</button>
-            </div>
+            <ol id="phases" class="phases" aria-label="Sweep phases"></ol>
+            <input id="position" type="range" min="0" max="48" step="1" value="12" disabled />
+            <div id="ticks" class="ticks" aria-label="Reference keyframes"></div>
           </div>
         </div>
 
@@ -44,16 +49,9 @@
           <figure class="panel" id="scenePanel">
             <figcaption>
               <span>Probe and scan plane</span>
-              <div class="cameraTools">
-                <fieldset id="orbitCenters" disabled>
-                  <legend class="sr">Orbit around</legend>
-                  <span aria-hidden="true">Orbit around</span>
-                  <label><input type="radio" name="orbitCenter" value="sector" checked /><span>Sector midpoint</span></label>
-                  <label><input type="radio" name="orbitCenter" value="contact" /><span>Probe contact</span></label>
-                  <label><input type="radio" name="orbitCenter" value="organ" /><span>Gallbladder</span></label>
-                </fieldset>
-                <button class="viewButton" id="resetView" aria-label="Reset 3D view" disabled>Reset view</button>
-              </div>
+              <fieldset id="cameraPresets" class="cameraTools" disabled>
+                <legend class="sr">Camera views</legend>
+              </fieldset>
             </figcaption>
             <div class="view sceneView">
               <canvas id="sceneCanvas" aria-label="Probe, scan sector, torso and internal abdominal anatomy" aria-describedby="sceneHelp" tabindex="0" hidden></canvas>
@@ -61,12 +59,7 @@
               <span class="orbitHelp" id="sceneHelp" hidden>Drag or use arrow keys to orbit · ± to zoom</span>
             </div>
             <div class="panelFoot sceneFoot">
-              <ul class="legend" aria-label="3D scene">
-                <li class="sector">Imaging sector</li>
-                <li class="gb">Gallbladder</li>
-                <li class="liver">Liver</li>
-                <li class="rib">Ribs</li>
-              </ul>
+              <ul id="sceneLegend" class="legend" aria-label="3D scene"></ul>
               <div class="opacityControl">
                 <label for="torsoOpacity">Torso opacity</label>
                 <input id="torsoOpacity" type="range" min="0" max="100" step="1" value="32" aria-valuetext="32%" disabled />
@@ -84,12 +77,8 @@
               <p class="mediaStatus" id="scanStatus">Loading scan…</p>
             </div>
             <div class="panelFoot">
-              <span id="scanDetail">Curved array · 13.3 cm depth</span>
-              <ul class="legend sectionLegend" id="legend" aria-label="Section anatomy" hidden>
-                <li class="gb">Gallbladder</li>
-                <li class="liver">Liver</li>
-                <li class="vein">Portal and splenic veins</li>
-              </ul>
+              <span id="scanDetail">Curved array</span>
+              <ul class="legend" id="legend" aria-label="Section anatomy" hidden></ul>
             </div>
           </figure>
 
@@ -98,7 +87,7 @@
             <div class="view rasterView" id="referenceArea" aria-busy="true">
               <p class="mediaStatus" id="refStatus">Loading comparison…</p>
             </div>
-            <div class="panelFoot" id="referenceNote">Long axis reference</div>
+            <div class="panelFoot" id="referenceNote"></div>
           </figure>
         </div>
       </section>
@@ -109,8 +98,6 @@
           <label for="assetFrame">Frame
             <select id="assetFrame">
               <option value="-1">Current transition</option>
-              <option value="12">Long axis</option>
-              <option value="48">Short axis</option>
             </select>
           </label>
         </div>
@@ -131,21 +118,18 @@
         <details>
           <summary>Sources</summary>
           <p>
-            Organs, scan sections and the probe-contact surface are adapted from
+            The CT-derived anatomy is adapted from
             <a href="https://zenodo.org/records/10047263">TotalSegmentator s1233, Jakob Wasserthal and colleagues</a>
-            (CC BY 4.0). The illustrative exterior is fitted from the BodyParts3D adult skin and rib models,
-            © The Database Center for Life Science (DBCLS), <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html">CC BY 4.0</a>.
-            The skin follows the CT in the contact window. The transducer and tissue appearance are authored. Simulated brightness is illustrative.
+            (CC BY 4.0). The transducer and tissue appearance are authored.
           </p>
-          <p>
-            Long axis · resized figure 2 from
-            <a href="https://doi.org/10.3390/life15060941">Lucius and colleagues, Life (2025)</a>, C. L.’s
-            collection, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Short axis ·
-            still at 1.2 s from “Normal Gallbladder, Short Axis,” Kathryn Pade, MD, Rady Children’s Hospital
-            San Diego, <a href="https://www.thepocusatlas.com/pedsbiliary">The POCUS Atlas</a>,
-            <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>. The latter is an
-            adolescent case.
+          <p id="atlasSource" hidden>
+            This tour’s exterior is fitted from the BodyParts3D adult skin and rib models,
+            © The Database Center for Life Science (DBCLS),
+            <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html">CC BY 4.0</a>.
+            The fit is anchored to the CT surface near this tour’s probe contact.
           </p>
+          <p id="tourSourceNote" hidden></p>
+          <div id="referenceSources"></div>
         </details>
       </footer>
     </main>

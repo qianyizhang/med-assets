@@ -1,16 +1,29 @@
 'use strict';
 
 const $ = (id) => document.getElementById(id);
-const long = 12;
-const last = sweep.length - 1;
 const frameDuration = 110;
-const imageFile = (kind, frame) => 'media/' + kind + '-' + String(frame).padStart(2, '0') + '.webp';
-const referenceFor = (frame) => (frame <= (long + last) / 2 ? 'long' : 'short');
-const refFile = (frame) => 'media/acquired-' + referenceFor(frame) + '.webp';
-const axisName = (frame) => (referenceFor(frame) === 'long' ? 'Long axis' : 'Short axis');
+const cameraPresets = [['oblique', 'Oblique'], ['axial', 'Axial'], ['coronal', 'Coronal'], ['sagittal', 'Sagittal']];
+const unavailableImage = { image: null, finished: true, pending: Promise.resolve() };
+let selectedTour;
+let poses;
+let last;
+let keyframes;
+let phases;
+const imageFile = (kind, frame) =>
+  selectedTour.assetRoot + 'media/' + kind + '-' + String(frame).padStart(2, '0') + '.webp';
+const nearestKeyframe = (frame) => keyframes.reduce((nearest, candidate) =>
+  Math.abs(candidate.frame - frame) < Math.abs(nearest.frame - frame) ? candidate : nearest);
+const acquiredFor = (keyframe) => typeof abdomenReferences === 'undefined' ? null : abdomenReferences[keyframe.referenceId];
+const usesAtlas = (tour) => (tour.exterior ?? (tour.id === 'gallbladder' ? 'fitted-atlas' : 'case-ct')) === 'fitted-atlas';
+const referenceLabel = (keyframe) => keyframe.referenceLabel ?? acquiredFor(keyframe)?.label ?? keyframe.label;
+const referenceNote = (frame, keyframe) => {
+  const label = referenceLabel(keyframe);
+  if (frame !== keyframe.frame) return 'Nearest reference · ' + label;
+  return label === keyframe.label ? label + ' reference' : 'Comparison · ' + label;
+};
 const on = (id, value) => $(id).setAttribute('aria-pressed', String(value));
 const state = {
-  frame: location.hash === '#guided' ? 0 : long,
+  frame: 0,
   shownFrame: null,
   section: false,
   assets: false,
@@ -24,6 +37,7 @@ const state = {
 
 const images = new Map();
 function prepare(path) {
+  if (!path) return unavailableImage;
   if (!images.has(path)) {
     const image = new Image();
     image.src = path;
@@ -38,7 +52,7 @@ function prepare(path) {
 }
 
 async function prepareSequence(kind, start) {
-  const paths = sweep.map((_, i) => imageFile(kind, (start + i) % sweep.length));
+  const paths = poses.map((_, i) => imageFile(kind, (start + i) % poses.length));
   for (let offset = 0; offset < paths.length; offset += 8) {
     await Promise.all(paths.slice(offset, offset + 8).map((path) => prepare(path).pending));
   }
@@ -67,22 +81,22 @@ function showImage(areaId, id, record, alt, error) {
 }
 
 function phaseName(frame) {
-  if (frame < long) return 'Find window';
-  if (frame === long || frame === last) return axisName(frame);
-  return 'Rotate probe';
+  return keyframes.find((key) => key.frame === frame)?.label ??
+    phases.findLast((phase) => phase.frame <= frame)?.label ?? '';
 }
 
 function drawReadout(frame) {
   const name = phaseName(frame);
-  const angle = Math.round(sweep[frame].degrees) + '°';
+  const angle = Math.round(poses[frame].degrees) + '°';
   $('position').value = frame;
   $('position').setAttribute('aria-valuetext', name + ', ' + angle + ', frame ' + frame + ' of ' + last);
   $('readout').textContent = name;
   $('angle').textContent = angle;
   $('frameNumber').textContent = frame + ' / ' + last;
   $('frameNumber').setAttribute('aria-label', 'Frame ' + frame + ' of ' + last);
-  $('longTick').setAttribute('aria-current', String(frame === long));
-  $('shortTick').setAttribute('aria-current', String(frame === last));
+  for (const button of $('ticks').children) {
+    button.setAttribute('aria-current', String(Number(button.dataset.frame) === frame));
+  }
 }
 
 function renderFrame(frame, scenePosition = frame) {
@@ -91,10 +105,11 @@ function renderFrame(frame, scenePosition = frame) {
   const request = ++state.viewRequest;
   const kind = state.section ? 'section' : 'scan';
   const scan = prepare(imageFile(kind, frame));
-  const reference = prepare(refFile(frame));
+  const keyframe = nearestKeyframe(frame);
+  const acquired = acquiredFor(keyframe);
+  const reference = prepare(acquired?.path);
   const commit = () => {
     if (request !== state.viewRequest) return;
-    const currentAxis = axisName(frame);
     state.scene?.setFrame(scenePosition);
     drawReadout(frame);
     $('scanTitle').textContent = state.section ? 'Anatomical section' : 'Simulated scan';
@@ -102,10 +117,8 @@ function renderFrame(frame, scenePosition = frame) {
     $('legend').hidden = !state.section;
     on('section', state.section);
     showImage('scanArea', 'scan', scan, $('scanTitle').textContent + ' at frame ' + frame + '.', 'Scan unavailable for this frame.');
-    showImage('referenceArea', 'ref', reference, 'Acquired ' + currentAxis.toLowerCase() + ' gallbladder ultrasound in a different case.', 'Clinical reference unavailable.');
-    $('referenceNote').textContent = frame === long || frame === last
-      ? currentAxis + ' reference'
-      : 'Nearest reference · ' + currentAxis;
+    showImage('referenceArea', 'ref', reference, acquired?.title ?? 'Acquired ultrasound.', 'Clinical reference unavailable.');
+    $('referenceNote').textContent = acquired ? referenceNote(frame, keyframe) : 'Reference unavailable';
     state.shownFrame = frame;
   };
   if (scan.finished && reference.finished) commit();
@@ -157,8 +170,6 @@ function selectFrame(frame) {
 }
 
 $('play').onclick = play;
-$('longTick').onclick = () => selectFrame(long);
-$('shortTick').onclick = () => selectFrame(last);
 $('position').oninput = (event) => selectFrame(event.currentTarget.valueAsNumber);
 $('section').onclick = async () => {
   const next = !state.section;
@@ -181,33 +192,39 @@ async function startScene() {
   try {
     const { createSweepScene } = await import('./scene.js');
     canvas.hidden = false;
-    state.scene = await createSweepScene({ canvas, frames: sweep });
+    state.scene = await createSweepScene({ canvas, frames: poses, config: selectedTour });
     state.scene.setFrame(state.shownFrame ?? state.frame);
-    state.scene.setTorsoOpacity(torsoOpacity.valueAsNumber / 100);
+    updateTorsoOpacity();
     status.hidden = true;
     $('sceneHelp').hidden = false;
-    $('resetView').disabled = false;
-    $('orbitCenters').disabled = false;
+    $('cameraPresets').disabled = false;
     torsoOpacity.disabled = false;
   } catch (error) {
     state.scene?.dispose();
     state.scene = null;
     canvas.hidden = true;
     status.textContent = '3D probe and scan plane unavailable.';
-    console.warn('Gallbladder 3D view unavailable.', error);
+    console.warn('Ultrasound sweep 3D view unavailable.', error);
   }
 }
 
-$('orbitCenters').onchange = (event) => {
-  if (event.target.checked) state.scene?.setOrbitCenter(event.target.value);
-};
-$('resetView').onclick = () => state.scene?.resetView();
-torsoOpacity.oninput = () => {
+for (const [id, label] of cameraPresets) {
+  const button = document.createElement('button');
+  button.id = 'cameraPreset-' + id;
+  button.className = 'viewButton';
+  button.type = 'button';
+  button.textContent = label;
+  button.onclick = () => state.scene?.setViewPreset(id);
+  $('cameraPresets').append(button);
+}
+
+function updateTorsoOpacity() {
   const value = torsoOpacity.value + '%';
   $('torsoOpacityValue').value = value;
   torsoOpacity.setAttribute('aria-valuetext', value);
   state.scene?.setTorsoOpacity(torsoOpacity.valueAsNumber / 100);
-};
+}
+torsoOpacity.oninput = updateTorsoOpacity;
 
 const groups = ['Probe pose', 'Scan plane', 'Simulated scan', 'Acquired ultrasound'];
 
@@ -251,26 +268,32 @@ function drawAssets() {
   const request = ++state.assetRequest;
   const { group } = state;
   const title = groups[group];
-  const useLong = referenceFor(frame) === 'long';
+  const keyframe = nearestKeyframe(frame);
+  const acquired = acquiredFor(keyframe);
+  const partNames = selectedTour.parts.map((part) => part.label).join(', ');
   const bindings = [
-    'BodyParts3D exterior · s1233 contact window',
-    'TotalSegmentator s1233 · gallbladder, liver and right ribs',
-    'Frame ' + frame + ' of 0–' + last + ' · 13.3 cm modeled depth · 72° sector',
-    (frame === long || frame === last ? axisName(frame) + ' reference' : 'Nearest reference · ' + axisName(frame))
-      + (useLong ? ' · Figure 2' : ' · Cine frame at 1.2 s'),
+    selectedTour.region ?? selectedTour.title,
+    partNames,
+    'Frame ' + frame + ' of 0–' + last + ' · ' + (selectedTour.sectorDepthMm ?? 133) / 10 + ' cm modeled depth',
+    referenceNote(frame, keyframe),
   ];
   const context = [
-    'The fitted atlas supplies the body silhouette. Near the probe, its abdominal surface follows the CT-derived contact window.',
-    'The wireframe shows the sampled field. Its intersection with the gallbladder changes as the probe rotates.',
-    'Compare the lumen boundary and surrounding echoes. The simulated wall still blends into adjacent tissue.',
-    'The acquired image shows a different case and a fixed imaging plane.',
+    selectedTour.sourceNote ?? '',
+    'The wireframe marks the sampled plane at this probe pose.',
+    'The simulation and acquired image represent different cases.',
+    acquired?.note ?? acquired?.title ?? 'Clinical reference unavailable.',
   ];
-  $('assetFrame').value = frame === long || frame === last ? String(frame) : '-1';
+  $('assetFrame').value = keyframes.some((key) => key.frame === frame) ? String(frame) : '-1';
   $('assetName').textContent = title;
   $('binding').textContent = bindings[group];
   $('assetFinding').textContent = context[group];
-  const acquired = useLong ? 'https://doi.org/10.3390/life15060941' : 'https://www.thepocusatlas.com/pedsbiliary';
-  $('assetSource').href = ['https://dbarchive.biosciencedbc.jp/en/bodyparts3d/desc.html', 'https://zenodo.org/records/10047263', acquired, acquired][group];
+  $('assetFinding').hidden = !context[group];
+  const ctSource = 'https://zenodo.org/records/10047263';
+  const exteriorSource = usesAtlas(selectedTour)
+    ? 'https://dbarchive.biosciencedbc.jp/en/bodyparts3d/desc.html'
+    : ctSource;
+  $('assetSource').href = [exteriorSource, ctSource, acquired?.url, acquired?.url][group] ?? '';
+  $('assetSource').hidden = group >= 2 && !acquired?.url;
   $('assetSource').textContent = group < 2 ? 'Anatomy source ↗' : 'Acquired image source ↗';
   [...$('assetControls').children].forEach((button, i) => button.setAttribute('aria-pressed', String(i === group)));
 
@@ -283,12 +306,12 @@ function drawAssets() {
     evidence.append(scenePanel);
     return;
   }
-  const kinds = group === 2 ? [imageFile('scan', frame), refFile(frame)] : [refFile(frame)];
-  Promise.all(kinds.map((path) => prepare(path).pending)).then(() => {
+  const reference = [acquired?.path, acquired?.title ?? 'Acquired ultrasound'];
+  const kinds = group === 2 ? [[imageFile('scan', frame), 'Simulated scan'], reference] : [reference];
+  Promise.all(kinds.map(([path]) => prepare(path).pending)).then(() => {
     if (!state.assets || request !== state.assetRequest) return;
-    kinds.forEach((path) => {
+    kinds.forEach(([path, label]) => {
       const record = prepare(path);
-      const label = path === refFile(frame) ? axisName(frame) + ' acquired ultrasound' : 'Simulated scan';
       if (!record.image) {
         const note = document.createElement('p');
         note.textContent = label + ' unavailable.';
@@ -304,21 +327,153 @@ function drawAssets() {
   });
 }
 
+function configureTimeline() {
+  $('position').max = last;
+  $('position').disabled = false;
+  const split = phases[1]?.frame / last || 0;
+  const timeline = $('position').parentElement;
+  timeline.style.setProperty('--first-phase', split * 100 + '%');
+  timeline.style.setProperty('--phase-thumb-offset', (0.5 - split) * 18 + 'px');
+  for (const phase of phases) {
+    const item = document.createElement('li');
+    item.textContent = phase.label;
+    $('phases').append(item);
+  }
+  keyframes.forEach((keyframe, index) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'tick';
+    button.id = index === 0 ? 'longTick' : index === keyframes.length - 1 ? 'shortTick' : 'tick-' + keyframe.frame;
+    button.dataset.frame = keyframe.frame;
+    button.textContent = keyframe.label;
+    button.setAttribute('aria-label', keyframe.label + ' reference keyframe');
+    button.style.setProperty('--tick-point', (keyframe.frame / last) * 100 + '%');
+    if (keyframe.frame === 0 || keyframe.frame === last) button.classList.add('edge');
+    button.onclick = () => selectFrame(keyframe.frame);
+    $('ticks').append(button);
+    $('assetFrame').add(new Option(keyframe.label, keyframe.frame));
+  });
+}
+
+function configureLegend(list, parts) {
+  for (const part of parts) {
+    const item = document.createElement('li');
+    item.textContent = part.label;
+    if (part.color) item.style.setProperty('--part-color', part.color);
+    list.append(item);
+  }
+}
+
+function addSourceLink(parent, label, href) {
+  const link = document.createElement('a');
+  link.textContent = label;
+  link.href = href;
+  parent.append(link);
+}
+
+function configureSources() {
+  $('atlasSource').hidden = !usesAtlas(selectedTour);
+  $('tourSourceNote').textContent = selectedTour.sourceNote ?? '';
+  $('tourSourceNote').hidden = !selectedTour.sourceNote;
+  for (const id of new Set(keyframes.map((key) => key.referenceId))) {
+    const reference = acquiredFor({ referenceId: id });
+    if (!reference) continue;
+    const item = document.createElement('p');
+    if (reference.title) item.append(reference.title + ' · ');
+    if (reference.url) addSourceLink(item, reference.credit ?? 'Acquired image source', reference.url);
+    else if (reference.credit) item.append(reference.credit);
+    if (reference.license) {
+      item.append(' · ');
+      if (reference.licenseUrl) addSourceLink(item, reference.license, reference.licenseUrl);
+      else item.append(reference.license);
+    }
+    if (reference.note) item.append('. ' + reference.note);
+    $('referenceSources').append(item);
+  }
+}
+
+function loadPoses(assetRoot) {
+  return new Promise((resolve, reject) => {
+    const script = document.createElement('script');
+    script.src = assetRoot + 'sweep.js';
+    script.onload = () => {
+      if (typeof sweep !== 'undefined' && Array.isArray(sweep) && sweep.length > 1) resolve(sweep);
+      else reject(new Error('Sweep frames unavailable.'));
+    };
+    script.onerror = () => reject(new Error('Sweep frames failed to load.'));
+    document.head.append(script);
+  });
+}
+
+function legacyInitialFrame() {
+  return selectedTour.id === 'gallbladder' && location.hash === '#guided' ? 0 : keyframes[0].frame;
+}
+
+async function startTour() {
+  const tours = typeof abdomenTours === 'undefined' ? [] : abdomenTours;
+  if (!tours.length) throw new Error('Tour catalogue unavailable.');
+  const currentURL = new URL(location.href);
+  const requested = currentURL.searchParams.get('sweep');
+  selectedTour = tours.find((tour) => tour.id === requested) ??
+    tours.find((tour) => tour.id === 'gallbladder') ?? tours[0];
+  if (requested && requested !== selectedTour.id) {
+    currentURL.searchParams.delete('sweep');
+    history.replaceState(null, '', currentURL);
+  }
+  const picker = $('sweepPicker');
+  for (const tour of tours) picker.add(new Option(tour.title, tour.id));
+  picker.value = selectedTour.id;
+  picker.disabled = false;
+  picker.onchange = () => {
+    const url = new URL(location.href);
+    url.searchParams.set('sweep', picker.value);
+    url.hash = '';
+    location.assign(url);
+  };
+  window.addEventListener('pageshow', () => {
+    picker.value = selectedTour.id;
+    updateTorsoOpacity();
+  });
+  $('tourTitle').textContent = selectedTour.title;
+  document.title = selectedTour.title + ' · Ultrasound Anatomy';
+  poses = await loadPoses(selectedTour.assetRoot);
+  last = poses.length - 1;
+  keyframes = selectedTour.keyframes.filter((key) => key.frame >= 0 && key.frame <= last).sort((a, b) => a.frame - b.frame);
+  if (!keyframes.length) throw new Error('Reference keyframes unavailable.');
+  phases = selectedTour.phases ?? [{ frame: 0, label: 'Find window' }, { frame: keyframes[0].frame, label: 'Rotate probe' }];
+  configureTimeline();
+  $('scanDetail').textContent = 'Curved array · ' + (selectedTour.sectorDepthMm ?? 133) / 10 + ' cm depth';
+  configureLegend($('sceneLegend'), [{ label: 'Imaging sector', color: '#84b5d1' }, ...selectedTour.parts]);
+  configureLegend($('legend'), selectedTour.overlayParts ?? selectedTour.parts);
+  configureSources();
+  state.frame = legacyInitialFrame();
+  drawReadout(state.frame);
+  const currentKeyframe = nearestKeyframe(state.frame);
+  $('referenceNote').textContent = acquiredFor(currentKeyframe) ? referenceNote(state.frame, currentKeyframe) : 'Reference unavailable';
+  $('tour').hidden = false;
+  $('assetTab').disabled = false;
+  $('tourTab').disabled = false;
+  renderFrame(state.frame);
+  startScene();
+  await Promise.all([
+    prepareSequence('scan', state.frame),
+    ...keyframes.map((key) => prepare(acquiredFor(key)?.path).pending),
+  ]);
+  state.ready = true;
+  updatePlay();
+  prepareSequence('section', state.frame);
+}
+
 window.addEventListener('hashchange', () => {
-  if (location.hash === '#probe' || location.hash === '#guided') {
+  if (selectedTour?.id === 'gallbladder' && keyframes &&
+      (location.hash === '#probe' || location.hash === '#guided')) {
     showAssets(false);
-    selectFrame(location.hash === '#guided' ? 0 : long);
+    selectFrame(legacyInitialFrame());
   }
 });
 
-renderFrame(state.frame);
-startScene();
-Promise.all([
-  prepareSequence('scan', state.frame),
-  prepare(refFile(long)).pending,
-  prepare(refFile(last)).pending,
-]).then(() => {
-  state.ready = true;
-  updatePlay();
-  return prepareSequence('section', state.frame);
+startTour().catch((error) => {
+  $('tourStatus').textContent = 'This sweep is unavailable. Select another sweep if available.';
+  $('tourStatus').hidden = false;
+  console.warn('Ultrasound sweep unavailable.', error);
 });

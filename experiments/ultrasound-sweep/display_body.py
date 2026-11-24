@@ -74,7 +74,7 @@ def smooth_atlas(vertices, faces):
     return vertices + weight[:, None] * delta
 
 
-def fitted_surface(torso_vertices, rib_vertices, contacts):
+def registered_atlas(rib_vertices):
     doc, binary = atlas(SKIN, SKIN_SHA)
     prim = doc['meshes'][0]['primitives'][0]
     vertices = ras_from_gltf(primitive_stream(doc, binary, prim['attributes']['POSITION']).reshape(-1, 3))
@@ -82,8 +82,11 @@ def fitted_surface(torso_vertices, rib_vertices, contacts):
     vertices = smooth_atlas(vertices, faces)
     low, high = atlas_rib_bounds()
     scale = np.ptp(rib_vertices, axis=0) / (high-low)
-    vertices = (vertices-low) * scale + rib_vertices.min(0)
+    return (vertices-low) * scale + rib_vertices.min(0), faces
 
+
+def fitted_surface(torso_vertices, rib_vertices, contacts):
+    vertices, faces = registered_atlas(rib_vertices)
     front = anterior_surface(torso_vertices, contacts)
     projected = vertices[:, [0, 2]]
     distance, _ = cKDTree(contacts[:, [0, 2]]).query(projected)

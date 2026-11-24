@@ -9,8 +9,8 @@ async function readAsset(path, format) {
   return response[format]();
 }
 
-async function loadMesh(name) {
-  const data = await readAsset(`scenes/${name}.mesh`, 'arrayBuffer');
+async function loadMesh(name, root = import.meta.url) {
+  const data = await readAsset(new URL(`scenes/${name}.mesh`, root), 'arrayBuffer');
   const header = new DataView(data);
   if (header.byteLength < 8) throw new Error(`Incomplete mesh: ${name}`);
   const vertices = header.getUint32(0, true);
@@ -64,6 +64,7 @@ function orientationMarker() {
       const inverseView = view.quaternion.clone().invert();
       for (const axis of axes) {
         const endpoint = axis.vector.clone().applyQuaternion(inverseView).multiplyScalar(28);
+        axis.line.visible = axis.label.visible = Math.hypot(endpoint.x, endpoint.y) > 3;
         const x = width - 44;
         const y = 44;
         // Draw near axes above far axes when a view makes them overlap.
@@ -94,7 +95,7 @@ function orientationMarker() {
   };
 }
 
-function viewport(canvas, { target, direction, up, span, showOrientation = false }) {
+function viewport(canvas, { pivot, presets, shadowTarget }) {
   const context = canvas.getContext('webgl2', { alpha: false, antialias: true });
   if (!context) throw new Error('This browser could not start WebGL 2 for the orbitable views.');
   const renderer = new THREE.WebGLRenderer({ canvas, context });
@@ -107,8 +108,8 @@ function viewport(canvas, { target, direction, up, span, showOrientation = false
   scene.background = new THREE.Color('#142224');
   scene.add(new THREE.HemisphereLight('#dce6ed', '#64616a', 1.45));
   const key = new THREE.DirectionalLight('#fff6e8', 1.85);
-  key.target.position.copy(target);
-  key.position.copy(target).add(vec(-150, 340, 220));
+  key.target.position.copy(shadowTarget);
+  key.position.copy(shadowTarget).add(vec(-150, 340, 220));
   key.castShadow = true;
   key.shadow.mapSize.set(1024, 1024);
   Object.assign(key.shadow.camera, { left: -110, right: 110, top: 110, bottom: -110, near: 10, far: 650 });
@@ -120,22 +121,14 @@ function viewport(canvas, { target, direction, up, span, showOrientation = false
   scene.add(fill);
 
   const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.25, 1900);
-  camera.up.copy(up);
-  const home = target.clone().addScaledVector(direction.clone().normalize(), 650);
-  const pivot = target.clone();
-  const pivotMarker = document.createElement('span');
-  pivotMarker.className = 'orbitPivot';
-  pivotMarker.setAttribute('aria-hidden', 'true');
-  pivotMarker.hidden = true;
-  canvas.after(pivotMarker);
-  let pivotTimer = 0;
+  let preset = presets.oblique;
   let magnification = 1;
   let pending = 0;
   let pointer = null;
   let previousWidth = 0;
   let previousHeight = 0;
   const events = new AbortController();
-  const marker = showOrientation ? orientationMarker() : null;
+  const marker = orientationMarker();
 
   function render() {
     pending = 0;
@@ -148,59 +141,47 @@ function viewport(canvas, { target, direction, up, span, showOrientation = false
       previousHeight = height;
     }
     const aspect = width / height;
-    const halfHeight = span / (2 * Math.min(1, aspect * 1.22) * magnification);
+    const halfHeight = Math.max(preset.halfHeight, preset.halfWidth / aspect) / magnification;
     camera.top = halfHeight;
     camera.bottom = -halfHeight;
     camera.left = -halfHeight * aspect;
     camera.right = -camera.left;
     camera.updateProjectionMatrix();
     renderer.render(scene, camera);
-    marker?.render(renderer, camera, width, height);
-    if (pivotTimer) {
-      const point = pivot.clone().project(camera);
-      pivotMarker.hidden = Math.abs(point.x) > 1 || Math.abs(point.y) > 1 || Math.abs(point.z) > 1;
-      pivotMarker.style.left = `${canvas.offsetLeft + (point.x + 1) * width / 2}px`;
-      pivotMarker.style.top = `${canvas.offsetTop + (1 - point.y) * height / 2}px`;
-    }
+    marker.render(renderer, camera, width, height);
   }
 
   function invalidate() {
     if (!pending) pending = requestAnimationFrame(render);
   }
 
-  function hidePivot() {
-    window.clearTimeout(pivotTimer);
-    pivotTimer = 0;
-    pivotMarker.hidden = true;
-  }
-
-  function showPivot() {
-    window.clearTimeout(pivotTimer);
-    pivotTimer = window.setTimeout(hidePivot, 800);
-    invalidate();
-  }
-
   function reset() {
-    camera.position.copy(home);
-    camera.lookAt(target);
+    camera.up.copy(preset.up);
+    camera.position.copy(preset.target).addScaledVector(preset.direction, 650);
+    camera.lookAt(preset.target);
     magnification = 1;
-    hidePivot();
     invalidate();
+  }
+
+  function setViewPreset(name) {
+    if (!Object.hasOwn(presets, name)) return;
+    preset = presets[name];
+    reset();
   }
 
   function orbit(yaw, pitch) {
-    const aroundUp = new THREE.Quaternion().setFromAxisAngle(up, yaw);
+    const aroundUp = new THREE.Quaternion().setFromAxisAngle(camera.up, yaw);
     const heading = camera.quaternion.clone().premultiply(aroundUp);
     const right = vec(1, 0, 0).applyQuaternion(heading);
     const outward = vec(0, 0, 1).applyQuaternion(heading);
-    const polar = Math.acos(THREE.MathUtils.clamp(outward.dot(up), -1, 1));
+    const polar = Math.acos(THREE.MathUtils.clamp(outward.dot(camera.up), -1, 1));
     const nextPolar = THREE.MathUtils.clamp(polar + pitch, .02, Math.PI - .02);
     const rotation = new THREE.Quaternion().setFromAxisAngle(right, nextPolar - polar).multiply(aroundUp);
     // Apply the same rigid rotation to the camera's position and orientation about the
     // selected point. Its camera-space coordinates, including depth, then stay fixed.
     camera.position.sub(pivot).applyQuaternion(rotation).add(pivot);
     camera.quaternion.premultiply(rotation).normalize();
-    showPivot();
+    invalidate();
   }
 
   function zoom(scale) {
@@ -220,7 +201,6 @@ function viewport(canvas, { target, direction, up, span, showOrientation = false
   }
 
   listen('webglcontextrestored', invalidate);
-  listen('webglcontextlost', hidePivot);
   listen('pointerdown', (event) => {
     if (!event.isPrimary || event.button !== 0) return;
     pointer = { id: event.pointerId, x: event.clientX, y: event.clientY };
@@ -260,11 +240,7 @@ function viewport(canvas, { target, direction, up, span, showOrientation = false
   reset();
 
   return {
-    scene, invalidate, reset,
-    setPivot(point, reveal) {
-      pivot.copy(point);
-      if (reveal) showPivot();
-    },
+    scene, invalidate, reset, setViewPreset,
     dispose() {
       resize.disconnect();
       cancelAnimationFrame(pending);
@@ -274,9 +250,7 @@ function viewport(canvas, { target, direction, up, span, showOrientation = false
         object.geometry?.dispose();
         object.material?.dispose();
       });
-      marker?.dispose();
-      hidePivot();
-      pivotMarker.remove();
+      marker.dispose();
       renderer.dispose();
     },
   };
@@ -290,7 +264,7 @@ function solid(geometry, color, opacity = 1) {
 
 function sectorGeometry({ voxelMm, lensRadiusMm, sectorDepthMm, sectorHalfAngleDeg }) {
   const angle = THREE.MathUtils.degToRad(sectorHalfAngleDeg);
-  const radii = [lensRadiusMm, ...[33, 66, 99].map((depth) => lensRadiusMm + depth),
+  const radii = [lensRadiusMm, ...[.25, .5, .75].map((fraction) => lensRadiusMm + sectorDepthMm * fraction),
     lensRadiusMm + sectorDepthMm];
   const grid = [];
   const border = [];
@@ -341,56 +315,125 @@ function transformForFrame(frame) {
   return { position, orientation: new THREE.Quaternion().setFromRotationMatrix(basis) };
 }
 
-export async function createSweepScene({ canvas, frames }) {
+function boundsCorners(bounds) {
+  const { min, max } = bounds;
+  return [min.x, max.x].flatMap((x) => [min.y, max.y].flatMap((y) =>
+    [min.z, max.z].map((z) => vec(x, y, z))));
+}
+
+function cameraPresets(organ, pivot, fitBounds, transforms, probe, sector) {
+  const keyframe = transforms[Math.min(12, transforms.length - 1)];
+  const points = boundsCorners(fitBounds);
+  const probeCorners = boundsCorners(new THREE.Box3().setFromObject(probe));
+  const fieldOutline = sector.children[0].geometry.getAttribute('position');
+  const localPoints = [
+    ...probeCorners,
+    ...Array.from({ length: fieldOutline.count }, (_, index) =>
+      vec(0, 0, 0).fromBufferAttribute(fieldOutline, index)),
+  ];
+  for (const pose of transforms) {
+    for (const point of localPoints) {
+      points.push(point.clone().applyQuaternion(pose.orientation).add(pose.position));
+    }
+  }
+
+  function fitted(direction, up) {
+    direction.normalize();
+    up.addScaledVector(direction, -up.dot(direction)).normalize();
+    const right = up.clone().cross(direction);
+    const min = new THREE.Vector2(Infinity, Infinity);
+    const max = new THREE.Vector2(-Infinity, -Infinity);
+    for (const point of points) {
+      const x = point.dot(right);
+      const y = point.dot(up);
+      min.set(Math.min(min.x, x), Math.min(min.y, y));
+      max.set(Math.max(max.x, x), Math.max(max.y, y));
+    }
+    const target = pivot.clone()
+      .addScaledVector(right, (min.x + max.x) / 2 - pivot.dot(right))
+      .addScaledVector(up, (min.y + max.y) / 2 - pivot.dot(up));
+    return {
+      target, direction, up,
+      halfWidth: (max.x - min.x) * .58 + 8,
+      halfHeight: (max.y - min.y) * .58 + 8,
+    };
+  }
+
+  const outward = vec(0, 0, 1).applyQuaternion(keyframe.orientation);
+  const normal = vec(0, 1, 0).applyQuaternion(keyframe.orientation);
+  // Use the side of the plane that leaves the probe on the near side of the target.
+  const viewDirection = outward.clone().addScaledVector(normal, normal.y >= 0 ? .7 : -.7);
+  return {
+    oblique: organ === 'gallbladder' ? {
+      target: pivot.clone().lerp(keyframe.position, .35).add(vec(-8, 2, 48)),
+      direction: vec(.57, .94, .22).normalize(),
+      up: vec(-.63, .04, .78).normalize(),
+      halfHeight: 109.5, halfWidth: 109.5 / 1.22,
+    } : fitted(viewDirection, vec(0, 0, 1)),
+    // RAS patient coordinates. Radiological axial looks up from the feet,
+    // coronal looks in from the front, sagittal looks in from patient left.
+    axial: fitted(vec(0, 0, -1), vec(0, 1, 0)),
+    coronal: fitted(vec(0, 1, 0), vec(0, 0, 1)),
+    sagittal: fitted(vec(-1, 0, 0), vec(0, 0, 1)),
+  };
+}
+
+export async function createSweepScene({ canvas, frames, config }) {
   if (!frames?.length) throw new Error('The sweep has no probe poses.');
-  const names = ['torso', 'ribs', 'liver', 'gallbladder', 'lens', 'housing', 'relief'];
-  const [dimensions, ...geometries] = await Promise.all([
-    readAsset('scenes/geometry.json', 'json'), ...names.map(loadMesh),
+  if (!config?.parts?.some(({ id }) => id === config.organ)) {
+    throw new Error('The sweep has no configured target mesh.');
+  }
+  const assetRoot = new URL(config.assetRoot, document.baseURI);
+  const names = ['torso', ...config.parts.map(({ id }) => id)];
+  const probeNames = ['lens', 'housing', 'relief'];
+  const [commonDimensions, geometries, probeGeometries] = await Promise.all([
+    readAsset('scenes/geometry.json', 'json'),
+    Promise.all(names.map((name) => loadMesh(name, assetRoot))),
+    Promise.all(probeNames.map((name) => loadMesh(name))),
   ]);
+  const dimensions = { ...commonDimensions, sectorDepthMm: config.sectorDepthMm ?? commonDimensions.sectorDepthMm };
   const meshes = Object.fromEntries(names.map((name, index) => [name, geometries[index]]));
+  const probeMeshes = Object.fromEntries(probeNames.map((name, index) => [name, probeGeometries[index]]));
   const transforms = frames.map(transformForFrame);
-  const reference = transforms[Math.min(12, transforms.length - 1)];
-  const center = meshes.gallbladder.boundingBox.getCenter(vec(0, 0, 0));
+  const bounds = meshes[config.organ].boundingBox;
+  const pivot = config.focus ? vector(config.focus) : bounds.getCenter(vec(0, 0, 0));
+  let fitBounds = bounds;
+  if (config.focus) {
+    // A whole-case vessel can extend far beyond the segment under the probe.
+    const diameter = (config.focusRadius ?? 44) * 2;
+    const localBounds = new THREE.Box3().setFromCenterAndSize(pivot, vec(diameter, diameter, diameter));
+    localBounds.intersect(bounds);
+    if (!localBounds.isEmpty()) fitBounds = localBounds;
+  }
+  const probe = transducer(probeMeshes, dimensions);
+  const sector = sectorGeometry(dimensions);
   const view = viewport(canvas, {
-    target: center.clone().lerp(reference.position, .35).add(vec(-8, 2, 48)),
-    direction: vec(.57, .94, .22), up: vec(-.63, .04, .78).normalize(), span: 219,
-    showOrientation: true,
+    pivot,
+    presets: cameraPresets(config.organ, pivot, fitBounds, transforms, probe, sector),
+    shadowTarget: transforms[Math.min(12, transforms.length - 1)].position,
   });
   const torso = solid(meshes.torso, '#be9885');
   torso.material.roughness = .95;
   torso.renderOrder = 4;
   torso.receiveShadow = true;
-  const probe = transducer(meshes, dimensions);
+  // At partial opacity composite only the nearest outward-facing skin layer,
+  // after anatomical structures and the scan field have rendered.
+  const torsoDepth = new THREE.Mesh(meshes.torso, new THREE.MeshBasicMaterial({
+    transparent: true, colorWrite: false, depthWrite: true,
+  }));
+  torsoDepth.renderOrder = 3.5;
   probe.traverse((object) => { if (object.isMesh) object.castShadow = true; });
   const cable = solid(new THREE.BufferGeometry(), '#4c5657');
-  const gallbladder = solid(meshes.gallbladder, '#3fbf9e');
-  const liver = solid(meshes.liver, '#ad6155', .58);
-  const ribs = solid(meshes.ribs, '#dacaad', .78);
-  liver.renderOrder = 1;
-  ribs.renderOrder = 2;
-  const sector = sectorGeometry(dimensions);
   const internal = new THREE.Group();
-  internal.add(gallbladder, liver, ribs, sector);
-  view.scene.add(torso, probe, cable, internal);
+  for (const [index, part] of config.parts.entries()) {
+    const mesh = solid(meshes[part.id], part.color, part.opacity);
+    mesh.renderOrder = (index + 1) / (config.parts.length + 1) * 2;
+    internal.add(mesh);
+  }
+  internal.add(sector);
+  view.scene.add(torso, torsoDepth, probe, cable, internal);
   const last = transforms.length - 1;
   let selected = -1;
-  let orbitCenter = 'sector';
-
-  function updatePivot(reveal = false) {
-    const midpoint = vec(0, 0, -dimensions.sectorDepthMm / (2 * dimensions.voxelMm));
-    const choices = {
-      sector: midpoint.applyQuaternion(probe.quaternion).add(probe.position),
-      contact: probe.position,
-      organ: center,
-    };
-    view.setPivot(choices[orbitCenter], reveal);
-  }
-
-  function setOrbitCenter(mode) {
-    if (!['sector', 'contact', 'organ'].includes(mode) || mode === orbitCenter) return;
-    orbitCenter = mode;
-    updatePivot(true);
-  }
 
   function setFrame(index) {
     const frame = THREE.MathUtils.clamp(index, 0, last);
@@ -403,7 +446,6 @@ export async function createSweepScene({ canvas, frames }) {
     probe.quaternion.copy(transforms[lo].orientation).slerp(transforms[hi].orientation, mix);
     sector.position.copy(probe.position);
     sector.quaternion.copy(probe.quaternion);
-    updatePivot();
 
     const outward = vec(0, 0, 1).applyQuaternion(probe.quaternion);
     const end = probe.position.clone().addScaledVector(outward, 60);
@@ -423,6 +465,7 @@ export async function createSweepScene({ canvas, frames }) {
     const opacity = THREE.MathUtils.clamp(value, 0, 1);
     const transparent = opacity < 1;
     torso.visible = opacity > 0;
+    torsoDepth.visible = torso.visible && transparent;
     // The opaque endpoint represents the external view. The modeled field can
     // extend beyond the sampled body, so hide the entire internal layer here.
     internal.visible = transparent;
@@ -437,5 +480,5 @@ export async function createSweepScene({ canvas, frames }) {
 
   setTorsoOpacity(.32);
   setFrame(0);
-  return { setFrame, setTorsoOpacity, setOrbitCenter, resetView: view.reset, dispose: view.dispose };
+  return { setFrame, setTorsoOpacity, setViewPreset: view.setViewPreset, resetView: view.reset, dispose: view.dispose };
 }

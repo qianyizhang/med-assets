@@ -1,12 +1,13 @@
 # Ultrasound Anatomy gallery
 
-Build interactive ultrasound sweeps and linked asset review across Abdomen, abdominal aortic aneurysm, thyroid, breast and pregnancy. The [use-case brief](../../docs/gallery/use-cases/ultrasound-anatomy.md) owns audience, outcomes and product decisions. The named screening contexts and asset gaps are recorded there.
+Build interactive sweeps across Abdomen, abdominal aortic aneurysm, thyroid, breast and pregnancy. The [tour specification](../../docs/gallery/use-cases/ultrasound-anatomy.md) owns the settled interaction, abdomen coverage, acceptance and remaining decisions.
 
-| Stage | Evidence and decision |
+| Stage | Outcome |
 | --- | --- |
-| Fixed gallbladder stop | Local Gallery at `9cf0e1f`. The [lesson package](../../lessons/ultrasound-anatomy/README.md) owns the fixed pose and replay. The schematic probe and synthetic wall triggered the sweep study. |
-| Playable design study | The [gallbladder prototype](../../experiments/ultrasound-sweep/README.md) combines the probe, fitted patient exterior and internal imaging sector in one orbitable scene. Review the opacity range and the two image comparisons at the long- and short-axis keyframes. |
-| Specification and implementation | After design selection, write the implementation spec, delegate most building to Sol, and retain final integration and review with the campaign owner. |
-| Expansion | Identify comparable keyframes and their reference images across the scoped tours. Compare the full set before tuning simulated scan appearance. |
+| Fixed gallbladder stop | Local Gallery at `9cf0e1f`. The [lesson package](../../lessons/ultrasound-anatomy/README.md) owns the original fixed pose and replay. |
+| Interaction and torso study | Iterations established one orbitable torso, probe and scan plane, opacity control, an anatomy overlay, a patterned sweep timeline and paired acquired references. The final pivot trial at `d1dfd85` led to organ-centered orbit. |
+| Abdomen tour | The [local prototype](../../experiments/ultrasound-sweep/README.md) implements nine named sweeps and four 3D camera presets. Sol builds the main implementation. The campaign owner selects sources, reviews keyframe images, steers fixes and verifies the integrated tour. |
+| Next joint decision | Walk the completed abdomen set with the owner, then design the ultrasound asset-management and display experience together. |
+| Later topics | Scope AAA, Thyroid, Breast and Pregnancy against their own anatomy, reference images and acquisition requirements. Revisit rendering fidelity using the acquired comparison set. |
 
-The current frontier is review of the redesigned sweep and the set of comparable views. Exercises are deferred. Probe technique and sonographic fidelity still need independent review. The short-axis comparison has noncommercial terms. A published Gallery selection needs a suitable rights decision for its destination.
+The source-specific terms apply independently to each acquired reference. Public release and clinical qualification remain open.
