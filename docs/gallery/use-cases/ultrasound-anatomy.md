@@ -1,6 +1,6 @@
 # Ultrasound Anatomy
 
-**Status.** The local candidate has a first Abdomen stop and a linked asset review. The other four tours are planned.
+**Status.** The Gallery candidate has a fixed Abdomen stop and linked asset review. The [gallbladder sweep study](../../../experiments/ultrasound-sweep/README.md) adds two playable interaction prototypes. The other four tours are planned in the [campaign](../../../records/campaigns/ultrasound-gallery.md).
 
 ## Purpose and outcomes
 
@@ -8,7 +8,7 @@
 
 **Asset review.** An author can see what a tour uses, identify the part or prop that limits its teaching value and open the exact asset or review to work on it. Organize by tour and stop, then by anatomy, body context, props and derived views as relevant. Explain each item's role in the view. Use the existing Asset Library for revision and download identity, and Compare or the owning review for findings. Link between a tour stop and its asset breakdown with the stop preserved on return.
 
-Use linked pages. The collection opens either the tour or its asset review, and each stop links straight to the relevant part. Start with authored probe poses per stop. A later lesson can add free probe movement when finding the view by moving the probe is itself a learner task.
+Use linked pages. The collection opens either the tour or its asset review, and each stop links straight to the relevant part. Use an authored sweep between teaching keyframes. The learner can play, pause, scrub and identify the organ. Drive the pictured probe, section and simulated scan from the same pose. The same ordered poses should support a later video export.
 
 Use **Ultrasound Anatomy** as the collection name. The topics have different exam purposes. Use *screening* for a specifically named context such as abdominal aortic aneurysm (AAA) screening. The page teaches spatial relationships. Any synthetic grayscale image is identified as an illustration. [AIUM abdominal aorta practice parameter](https://onlinelibrary.wiley.com/doi/10.1002/jum.70167) · [USPSTF breast guidance](https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/breast-cancer-screening) · [USPSTF thyroid guidance](https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/thyroid-cancer-screening)
 
@@ -28,7 +28,7 @@ The initial inventory used med-assets `e51891b`. Local s1233 masks shared a spat
 
 | Topic | Available starting point | What the next level needs |
 | --- | --- | --- |
-| Abdomen | Same-case s1233 liver, gallbladder and right kidney. Sampled liver–gallbladder and liver–kidney mesh cuts produced closed contours. [Workshop anatomy](../../../body/anatomy-workshop-r1/README.md) · [Digestive assembly](../../../assemblies/workshop-s1233/README.md) | Choose one named plane and review the visible landmarks and their grayscale appearance. |
+| Abdomen | Same-case s1233 liver, gallbladder and right kidney. Sampled liver–gallbladder and liver–kidney mesh cuts produced closed contours. [Workshop anatomy](../../../body/anatomy-workshop-r1/README.md) · [Digestive assembly](../../../assemblies/workshop-s1233/README.md) | The Gallery stop uses one fixed axial plane. The study samples long- and short-axis views. Review their probe placement, visible landmarks and grayscale appearance. |
 | Abdominal aortic aneurysm | The s1233 aorta, inferior vena cava and L3 appear on common axial slices. The retained iliac artery labels stop short of the aorta label. [Vascular sources](../../../assemblies/workshop-s1233/README.md) | Author and review the infrarenal aneurysm, wall and lumen to teach a measurement. Review the bifurcation before depicting it as continuous. |
 | Thyroid | The s1233 thyroid, trachea and paired carotids appear on common axial slices. The separate s0189 asset supports exterior orientation. [Same-case assembly](../../../assemblies/endocrine-locator/r02/README.md) · [s0189 exterior](../../../models/thyroid_ct_s0189/exports/illustrative-exterior-r02/README.md) | Review the isthmus, superficial tissue and intended probe view. |
 | Breast | The editable regional plate shows fat, lobules and ducts. The HRA breast pair provides gross exterior and posterior context. [Breast plate](../../../body/2d-v4/whole-body-anatomy-v4-spatial/regions/breast.svg) · [HRA breast pair](../../../models/breasts_hra/exports/teaching-economy-r01/README.md) | Review a section through skin, fat, glandular tissue and chest wall before building a paired grayscale view. Give any lesion example its own source and review. |
@@ -36,6 +36,7 @@ The initial inventory used med-assets `e51891b`. Local s1233 masks shared a spat
 
 ## Decisions and progression
 
-1. Walk the first stop with a learner. Record where the locator, tissue boundary, wording or evidence prevents finding the target and explaining its relationship.
-2. Review the fixed scan field against a suitable ultrasound reference, including the gallbladder wall and superficial field. Improve the probe representation or source registration if the current locator fails to orient the learner.
-3. Repeat the learner action and asset-review handoff after each material change. Use the result to decide which topic to add next and which views need new sources.
+1. Compare direct probe control with guided stops on the gallbladder sweep. The learner finds the window, follows the long axis, turns to the short axis and identifies the organ in both views. Select the preferred interaction after walking both variants.
+2. At each teaching keyframe, compare the simulated image with an attributed acquired ultrasound from the corresponding view. The [reference study](../../../experiments/ultrasound-sweep/research/README.md) records source identity, terms, changes, visible differences and case limits. Generated concepts can assist visual exploration. Acquired scans supply the independent appearance comparison.
+3. Organize the asset review by tour, stop and keyframe, then by patient and probe, internal anatomy, simulation and reference. Lead with the image from the selected pose and its specific deficiency. Keep shared model revisions with their existing Library owners. The first Gallery candidate still has flat part tabs.
+4. After interaction selection, draft the full campaign specification. Delegate the main implementation to Sol, with the campaign owner handling integration, review, steering, fixes and polish. Verify the learner action, return to the same keyframe, and later tour selection against the accepted prototype.

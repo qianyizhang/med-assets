@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Gallbladder sweep · Ultrasound Anatomy</title>
+    <link rel="stylesheet" href="study.css" />
+    <script defer src="sweep.js"></script>
+    <script defer src="study.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="bar">
+        <span class="brand">Anatomy Gallery</span><span class="divider">/</span> Ultrasound Anatomy
+        <nav aria-label="Study pages">
+          <button id="tourTab" aria-pressed="true">Tour</button
+          ><button id="assetTab" aria-pressed="false">Keyframe assets</button>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="mast">
+        <div>
+          <p class="eyebrow">Abdomen ultrasound</p>
+          <h1>Gallbladder sweep</h1>
+        </div>
+        <label class="mode" for="variant"
+          >Interaction design<select id="variant">
+            <option value="probe">A · Probe control</option>
+            <option value="guide">B · Guided stops</option>
+          </select></label
+        >
+      </div>
+      <div id="tour">
+        <p id="instruction"></p>
+        <div class="steps" id="steps" aria-label="Sweep stops"></div>
+        <div id="stage">
+          <figure class="panel" id="posePanel">
+            <figcaption><span>Probe position</span><small>Right upper abdomen</small></figcaption>
+            <div id="drag" class="view bodyview">
+              <img id="pose" alt="3D transducer in contact with the right upper abdomen." draggable="false" />
+              <div class="locator">
+                <img
+                  src="media/locator.webp"
+                  alt="Anterior body atlas with the right upper abdominal region marked."
+                /><i></i>
+              </div>
+              <span class="gesture" id="gripHint">↔ Drag to sweep</span>
+            </div>
+          </figure>
+          <figure class="panel">
+            <figcaption>
+              <span id="scanTitle">Simulated scan</span><small id="orientation">Curved array</small>
+            </figcaption>
+            <div class="view" id="scanArea">
+              <img id="scan" alt="Simulated scan at the selected probe pose." draggable="false" /><button
+                id="identify"
+                hidden
+                aria-label="Point to the gallbladder in the simulated scan"
+              ></button>
+            </div>
+          </figure>
+          <figure class="panel" id="refPanel" hidden>
+            <figcaption><span>Acquired scan</span><small>Different case</small></figcaption>
+            <div class="view"><img id="ref" alt="" /></div>
+          </figure>
+        </div>
+        <div class="transport">
+          <button class="primary" id="play">Play sweep</button
+          ><label for="position" class="sr">Sweep position</label
+          ><input id="position" type="range" min="0" max="48" step="1" value="12" /><output
+            id="readout"
+            for="position"
+          ></output>
+        </div>
+        <div class="tools">
+          <button id="section" aria-pressed="false">Reveal anatomy</button
+          ><button id="compare" aria-pressed="false">Compare real scan</button
+          ><button id="test" aria-pressed="false">Identify gallbladder</button>
+        </div>
+        <p id="feedback" role="status"></p>
+        <div id="choices" hidden>
+          <span>Keyboard answer · choose a marked region</span> <button data-choice="0">Region A</button>
+          <button data-choice="1">Region B</button>
+        </div>
+        <p id="legend" hidden>
+          Teal · gallbladder &nbsp; Ochre · liver &nbsp; Blue · sampled portal and splenic vein label
+        </p>
+        <p id="referenceNote" hidden></p>
+      </div>
+      <section id="assets" hidden>
+        <p class="eyebrow">Asset review</p>
+        <h2 id="assetTitle"></h2>
+        <p id="assetIntro"></p>
+        <div class="tools" id="keyframes">
+          <label for="assetFrame">Teaching keyframe</label
+          ><select id="assetFrame">
+            <option value="-1">Current transition</option>
+            <option value="12">Long axis</option>
+            <option value="48">Short axis</option>
+          </select>
+        </div>
+        <div id="assetControls" class="tools"></div>
+        <div class="assetLayout">
+          <div id="assetEvidence"></div>
+          <div>
+            <h3 id="assetName"></h3>
+            <p id="assetFinding"></p>
+            <p id="binding"></p>
+            <a id="assetSource" target="_blank" rel="noreferrer">Open source ↗</a>
+          </div>
+        </div>
+        <button id="return">Return to this pose</button>
+      </section>
+      <footer>
+        Illustrative sweep · TotalSegmentator s1233
+        <details>
+          <summary>Sources and image credits</summary>
+          <p>
+            CT-derived torso and sections adapted from
+            <a href="https://zenodo.org/records/10047263"
+              >Jakob Wasserthal and TotalSegmentator contributors, University Hospital Basel</a
+            >
+            (CC BY 4.0). The transducer, cutaway window and tissue appearance are authored. Regional locator
+            cropped from the BodyParts3D skin model review, © DBCLS,
+            <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html">CC BY 4.0</a>.
+          </p>
+          <p>
+            Long axis · resized figure 2 from
+            <a href="https://doi.org/10.3390/life15060941">Lucius and colleagues, Life (2025)</a>, C. L.’s
+            collection, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Short axis ·
+            still at 1.2 s from “Normal Gallbladder, Short Axis,” Kathryn Pade, MD, Rady Children’s Hospital
+            San Diego, <a href="https://www.thepocusatlas.com/pedsbiliary">The POCUS Atlas</a>,
+            <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>. The latter is an
+            adolescent case. Comparisons illustrate shape across cases.
+          </p>
+        </details>
+      </footer>
+    </main>
+  </body>
+</html>
