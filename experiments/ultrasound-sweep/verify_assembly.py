@@ -105,8 +105,25 @@ def verify(source):
                 wrong_field = {**json.loads(receipt.read_text()), 'fieldWidthMm': -1}
                 cases.extend([
                     (receipt, json.dumps(wrong_field).encode(), 'configured linear field', False),
-                    (right / 'delivery.json', None, 'Missing thyroid delivery inventory', False),
+                    (right / 'delivery.json', None, 'Missing linear sweep delivery inventory', False),
                     (research / 'acquired/thyroid-isthmus.webp', b'invalid', 'Unexpected acquired image identity', False),
+                ])
+            breast = staging / 'sweeps/breast'
+            if breast.exists():
+                tour = next(tour for tour in tours if tour['id'] == 'breast')
+                assert tour['anatomySource']['url'] and tour['simulationNote']
+                breast.rename(work / 'breast')
+                previous_dir = work / 'without-breast'
+                assemble_tours.assemble(staging, previous_dir)
+                previous = javascript_value(previous_dir / 'abdomen-tours.js', 'abdomenTours')
+                assert previous == [tour for tour in tours if tour['id'] != 'breast']
+                (work / 'breast').rename(breast)
+                receipt = breast / 'verification.json'
+                wrong_source = {**json.loads(receipt.read_text()), 'femaleSkinSha256': '0' * 64}
+                cases.extend([
+                    (receipt, json.dumps(wrong_source).encode(), 'current breast atlas inputs', False),
+                    (breast / 'delivery.json', None, 'Missing linear sweep delivery inventory', False),
+                    (research / 'acquired/breast-48.webp', b'invalid', 'Unexpected acquired image identity', False),
                 ])
             for path, bad, expected, reseal in cases:
                 original = path.read_bytes()

@@ -1,0 +1,44 @@
+{
+  "breast-12": {
+    "path": "references/breast-12.webp",
+    "title": "Normal breast layers over the chest wall",
+    "label": "Breast layers over the chest wall",
+    "credit": "Geeta Shah and Bijal Jankharia, Fig. 2",
+    "url": "https://doi.org/10.4103/0971-3026.63045",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "reason": "Follow the labeled layers from skin to chest-wall muscle.",
+    "note": "Acquired grayscale image labeled by the authors. Labels 1–5 mark skin, subcutaneous fat, fibroglandular tissue, retromammary fat and pectoralis-region muscle. C marks Cooper’s ligaments. The source does not specify the scan plane, breast side, clock-face position, depth, age or lactation status. Converted the complete figure to lossless WebP without resizing or changing the labels.",
+    "sourceMedia": "https://pmc-oa-opendata.s3.amazonaws.com/PMC2890934.1/IJRI-20-98-g002.jpg",
+    "sourceMetadata": "https://pmc-oa-opendata.s3.amazonaws.com/PMC2890934.1/PMC2890934.1.xml",
+    "transform": {
+      "encoding": "lossless WebP"
+    },
+    "sourceSha256": "664562fb5ffcc3e605f6d54ac54ad8d8b9f2862460838a03dd35701c6345b865",
+    "sha256": "a39437cb5794aa9cfedf539573eb7e48e163f942f870dc174a5251ba30523e75"
+  },
+  "breast-48": {
+    "path": "references/breast-48.webp",
+    "title": "Normal nipple and duct in longitudinal view",
+    "label": "Nipple and duct, longitudinal",
+    "credit": "Angelica Chiorean et al., Fig. 1B",
+    "url": "https://doi.org/10.3348/kjr.2019.0831",
+    "license": "CC BY-NC 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
+    "reason": "The source arrow points along a visible duct at the nipple.",
+    "note": "Acquired longitudinal grayscale section through the normal nipple. This reference is tightly framed around the nipple and visible duct, with little surrounding tissue. The source does not specify the breast side, clock-face position, depth, age or lactation status. Single panel cropped from the published figure and converted to lossless WebP without resizing, retaining the source arrow and panel letter. Noncommercial reuse only.",
+    "sourceMedia": "https://pmc-oa-opendata.s3.amazonaws.com/PMC7369201.1/kjr-21-955-g001.jpg",
+    "sourceMetadata": "https://pmc-oa-opendata.s3.amazonaws.com/PMC7369201.1/PMC7369201.1.xml",
+    "transform": {
+      "crop": [
+        379,
+        0,
+        756,
+        196
+      ],
+      "encoding": "lossless WebP"
+    },
+    "sourceSha256": "f79856934e69f804296f77dadccb724538a28a16a36007c254d79f7a57523054",
+    "sha256": "cf5b86d34c51b6b47b5c20aa228e6e5bfab15bb4e398e3072ab3e051a3f76285"
+  }
+}

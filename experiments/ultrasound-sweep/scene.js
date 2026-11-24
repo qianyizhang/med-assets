@@ -559,13 +559,24 @@ export async function createSweepScene({ canvas, frames, config, onViewPresetCha
   probe.traverse((object) => { if (object.isMesh) object.castShadow = true; });
   const cable = solid(new THREE.BufferGeometry(), '#4c5657');
   const internal = new THREE.Group();
+  const surface = new THREE.Group();
   for (const [index, part] of config.parts.entries()) {
     const mesh = solid(meshes[part.id], part.color, part.opacity);
-    mesh.renderOrder = (index + 1) / (config.parts.length + 1) * 2;
-    internal.add(mesh);
+    if (config.surfaceParts?.includes(part.id)) {
+      mesh.material.transparent = true;
+      mesh.material.depthWrite = false;
+      mesh.material.polygonOffset = true;
+      mesh.material.polygonOffsetFactor = -1;
+      mesh.material.polygonOffsetUnits = -1;
+      mesh.renderOrder = torso.renderOrder + 1 + index / config.parts.length;
+      surface.add(mesh);
+    } else {
+      mesh.renderOrder = (index + 1) / (config.parts.length + 1) * 2;
+      internal.add(mesh);
+    }
   }
   internal.add(sector);
-  view.scene.add(torso, torsoDepth, probe, cable, internal);
+  view.scene.add(torso, torsoDepth, probe, cable, internal, surface);
   const last = transforms.length - 1;
   let selected = -1;
 
@@ -605,6 +616,8 @@ export async function createSweepScene({ canvas, frames, config, onViewPresetCha
     const opacity = THREE.MathUtils.clamp(value, 0, 1);
     const transparent = opacity < 1;
     torso.visible = opacity > 0;
+    surface.visible = torso.visible;
+    for (const patch of surface.children) patch.material.opacity = opacity;
     torsoDepth.visible = torso.visible && transparent;
     // The opaque endpoint represents the external view. The modeled field can
     // extend beyond the sampled body, so hide the entire internal layer here.

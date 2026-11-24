@@ -115,6 +115,8 @@ try {
     region: tour.bodyRegion ?? 'Abdomen',
     probeType: tour.probeType,
     fieldShape: tour.fieldShape,
+    additionalSources: (tour.additionalAnatomySources ?? []).map((source) => source.url),
+    referenceContext: tour.referenceContext ?? 'Different case',
     depth: tour.sectorDepthMm ?? 133,
     initialFrame: tour.initialFrame ?? tour.keyframes[0].frame,
     anatomySource: tour.anatomySource ?? {
@@ -161,20 +163,19 @@ try {
     assert.deepEqual(await page.locator('#sceneLegend li').allTextContents(), [field, ...tour.parts]);
     const probeLabel = tour.probeType === 'linear' ? 'High-frequency linear array' : 'Curved array';
     assert.equal(await page.locator('#scanDetail').textContent(), probeLabel + ' · ' + tour.depth / 10 + ' cm depth');
-    if (tour.region === 'Neck') {
+    if (tour.probeType === 'linear') {
       const skinOpacity = page.getByRole('slider', { name: 'Skin opacity' });
       assert.equal(await skinOpacity.inputValue(), '32');
       assert.match(await canvas.getAttribute('aria-label'), /rectangular imaging field.*patient orientation/);
       const defaultView = await screenshot();
-      if (tour.keys.length !== 3) await capture(tour.id + '-oblique-1021x1197');
       await preset('coronal').click();
-      assert.notDeepEqual(await screenshot(), defaultView, 'The neck coronal preset should differ from default oblique.');
+      assert.notDeepEqual(await screenshot(), defaultView, 'Coronal and oblique views should have distinct projections.');
       await preset('oblique').click();
-      assert.deepEqual(await screenshot(), defaultView, 'Reapplying the neck oblique preset should restore the default projection.');
-      if (captureFolder && tour.id === 'thyroid-right') {
+      assert.deepEqual(await screenshot(), defaultView, 'Reapplying the oblique preset should restore the default projection.');
+      if (captureFolder && (tour.id === 'thyroid-right' || tour.id === 'breast')) {
         await skinOpacity.fill('100');
         await page.locator('#scenePanel figcaption > span').click();
-        await capture('thyroid-right-skin-100-1021x1197');
+        await capture(tour.id + '-skin-100-1021x1197');
         await skinOpacity.fill('32');
       }
     }
@@ -187,7 +188,8 @@ try {
         && document.querySelector('#ref')?.src === reference, { scan: expectedScan, reference: expectedReference });
       assert.equal(await page.locator('#readout').textContent(), key.label);
       assert.ok((await page.locator('#referenceNote').textContent()).includes(key.referenceLabel));
-      assert.equal(await page.locator('#referenceDepth').textContent(), key.depthLabel ? 'Different case · ' + key.depthLabel : 'Different case');
+      assert.equal(await page.locator('#referenceDepth').textContent(), [tour.referenceContext, key.depthLabel].filter(Boolean).join(' · '));
+      if (tour.id === 'breast') await capture('breast-' + key.frame + '-1021x1197');
       if (tour.region === 'Neck' && tour.keys.length === 3) {
         if (key.frame === 0 && tour.id === 'thyroid-right') await capture('thyroid-midline-1021x1197');
         if (key.frame === 12) await capture(tour.id + '-transverse-1021x1197');
@@ -238,11 +240,15 @@ try {
     const sources = () => page.locator('#assetSources a').evaluateAll((links) => links.map((link) => link.href));
     assert.deepEqual(await sources(), [
       ...(tour.usesAtlas ? ['https://dbarchive.biosciencedbc.jp/en/bodyparts3d/desc.html'] : []),
-      tour.anatomySource.url,
+      tour.anatomySource.url, ...tour.additionalSources,
     ]);
     await page.locator('[data-asset="simulation"]').click();
     await page.waitForFunction(() => document.querySelector('#assetEvidence img')?.src.includes('/scan-'));
-    assert.deepEqual(await sources(), [tour.anatomySource.url]);
+    assert.deepEqual(await sources(), [tour.anatomySource.url, ...tour.additionalSources]);
+    if (tour.id === 'breast') {
+      assert.doesNotMatch(await page.locator('#assetFinding').innerText(), /CT-derived|from the CT/i);
+      assert.doesNotMatch(await page.locator('#anatomySource').textContent(), /TotalSegmentator|CT-derived/i);
+    }
     await page.locator('[data-asset="acquired"]').click();
     const selected = tour.keys.at(-1);
     await page.waitForFunction((src) => document.querySelector('#assetEvidence img')?.src === src,

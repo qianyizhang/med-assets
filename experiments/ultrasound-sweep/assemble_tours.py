@@ -6,8 +6,10 @@ import re
 import shutil
 import tempfile
 
-from build_abdomen import pose_recipe_sha256, read_tracks, section_palette_sha256
+import build_abdomen
+import build_breast
 import build_thyroid
+from breast_anatomy import FEMALE_SKIN_SHA, MAMMARY_SHA
 from delivery import sha256, sweep_files, validate_image, validate_mesh, verify_inventory
 from geometry import KEYFRAMES, SECTOR_DEPTH_MM, SECTOR_HALF_ANGLE_DEG, LENS_RADIUS_MM, VOXEL_MM
 from prepare_scenes import read_vendor, shared_geometry
@@ -44,13 +46,12 @@ GALLBLADDER_REFERENCES = {
 }
 
 
-def reference_sources(include_thyroid):
+def reference_sources(regional_sources):
     refs = dict(GALLBLADDER_REFERENCES)
     files = {}
     landmarks = set()
     sources = ['hepatopancreatic.json', 'renal-splenic.json', 'great-vessels.json', 'normal-landmarks.json']
-    if include_thyroid:
-        sources.append('thyroid.json')
+    sources.extend(regional_sources)
     for source in sources:
         group = json.loads((RESEARCH / source).read_text())
         if source == 'normal-landmarks.json':
@@ -72,37 +73,40 @@ def reference_sources(include_thyroid):
     return refs, files, landmarks
 
 
-def verify_track(root, track, stops):
+def verify_track(root, track, stops, builder):
     slug = track['id']
     case = track.get('case', 's1233')
     linear = track.get('probeType') == 'linear'
     receipt = json.loads((root / 'verification.json').read_text())
-    recipe = 'build_thyroid.py' if linear else 'build_abdomen.py'
-    expected_pose = build_thyroid.pose_recipe_sha256(slug) if linear else pose_recipe_sha256(slug)
+    recipe = Path(builder.__file__).name
+    if builder is build_breast and (receipt.get('mammaryAtlasSha256') != MAMMARY_SHA
+                                    or receipt.get('femaleSkinSha256') != FEMALE_SKIN_SHA):
+        raise ValueError(f'Rebuild {slug} for the current breast atlas inputs.')
+    expected_pose = builder.pose_recipe_sha256(slug)
     if (track.get('requirePoseReceipt', False) or 'poseRecipeSha256' in receipt) and (
             receipt.get('poseRecipeSha256') != expected_pose):
-        raise ValueError(f'Rebuild {slug} with {recipe} --track {slug} for the current pose recipe.')
-    expected_palette = section_palette_sha256(track)
+        raise ValueError(f'Rebuild {slug} with {recipe} for the current pose recipe.')
+    expected_palette = build_abdomen.section_palette_sha256(track)
     if (track.get('requirePaletteReceipt', False) or 'sectionPaletteSha256' in receipt) and (
             receipt.get('sectionPaletteSha256') != expected_palette):
-        raise ValueError(f'Rebuild {slug} with {recipe} --track {slug} for the current section palette.')
+        raise ValueError(f'Rebuild {slug} with {recipe} for the current section palette.')
     if linear:
         if not (root / 'delivery.json').is_file():
-            raise ValueError(f'Missing thyroid delivery inventory: {slug}')
+            raise ValueError(f'Missing linear sweep delivery inventory: {slug}')
         if (receipt.get('fieldWidthMm') != track['fieldWidthMm'] or receipt.get('probeType') != 'linear'
                 or receipt.get('fieldShape') != 'rectangle'):
             raise ValueError(f'Rebuild {slug} for the configured linear field.')
     elif receipt['lensRadiusMm'] != LENS_RADIUS_MM or receipt['sectorHalfAngleDeg'] != SECTOR_HALF_ANGLE_DEG:
         raise ValueError(f'Rebuild {slug} for the configured curved field.')
     if (receipt['exterior'] != track['exterior'] or receipt['sectorDepthMm'] != track['sectorDepthMm']
-            or receipt['case'] != case or receipt['voxelMm'] != VOXEL_MM
+            or receipt['case'] != case or receipt['voxelMm'] != track.get('voxelMm', VOXEL_MM)
             or set(receipt['frames']) != {str(stop['frame']) for stop in stops}):
         raise ValueError(f'Rebuild {slug} for the configured exterior, depth, case and keyframes.')
 
 
 def configured_tours(output, refs, files, landmark_refs, tracks):
     tours, identities, used_references = [], {}, set()
-    for track in tracks:
+    for track, builder in tracks:
         tour = track.copy()
         slug = tour['id']
         if not re.fullmatch(r'[a-z0-9][a-z0-9-]*', slug) or any(item['id'] == slug for item in tours):
@@ -120,9 +124,8 @@ def configured_tours(output, refs, files, landmark_refs, tracks):
         tour['overlayParts'] = [parts[key] for key in tour['overlayParts']]
         tour['assetRoot'] = root
         tour['title'] += ' sweep'
-        linear = tour.get('probeType') == 'linear'
         case = tour.get('case', 's1233')
-        if linear:
+        if builder is build_thyroid:
             tour['anatomySource'] = {
                 'label': f'TotalSegmentator {case} anatomy', 'url': 'https://zenodo.org/records/10047263',
                 'license': 'CC BY 4.0', 'licenseUrl': 'https://creativecommons.org/licenses/by/4.0/',
@@ -156,7 +159,7 @@ def configured_tours(output, refs, files, landmark_refs, tracks):
         if slug == 'gallbladder':
             inventory += [ref['path'] for ref in GALLBLADDER_REFERENCES.values()]
         else:
-            verify_track(output / root, track, stops)
+            verify_track(output / root, track, stops, builder)
             tour.pop('requirePoseReceipt', None)
             tour.pop('requirePaletteReceipt', None)
         verify_inventory(output / root, inventory)
@@ -188,15 +191,17 @@ def write_catalogue(destination, refs, tours):
 def assemble(output, delivery=None):
     if delivery is not None and delivery.exists():
         raise ValueError(f'Choose a fresh delivery directory: {delivery}')
-    tracks = [GALLBLADDER, *read_tracks()]
-    thyroid_tracks = build_thyroid.read_thyroid_tracks()
-    include_thyroid = any((output / 'sweeps' / track['id']).exists() for track in thyroid_tracks)
-    if include_thyroid:
-        missing = [t['id'] for t in thyroid_tracks if not (output / 'sweeps' / t['id']).is_dir()]
-        if missing:
-            raise ValueError(f'Incomplete thyroid study. Build missing sweeps: {", ".join(missing)}')
-        tracks.extend(thyroid_tracks)
-    refs, files, landmarks = reference_sources(include_thyroid)
+    tracks = [(track, build_abdomen) for track in [GALLBLADDER, *build_abdomen.read_tracks()]]
+    regional_sources = []
+    for region, builder, group in [('thyroid', build_thyroid, build_thyroid.read_thyroid_tracks()),
+                                   ('breast', build_breast, build_breast.read_breast_tracks())]:
+        if any((output / 'sweeps' / track['id']).exists() for track in group):
+            missing = [track['id'] for track in group if not (output / 'sweeps' / track['id']).is_dir()]
+            if missing:
+                raise ValueError(f'Incomplete {region} study. Build missing sweeps: {", ".join(missing)}')
+            tracks.extend((track, builder) for track in group)
+            regional_sources.append(region + '.json')
+    refs, files, landmarks = reference_sources(regional_sources)
     for path, expected in shared_geometry().items():
         if (output / path).read_bytes() != expected:
             raise ValueError(f'Stale shared probe geometry: {path}')

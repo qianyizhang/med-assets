@@ -28,7 +28,7 @@ const nearestKeyframe = (frame) => keyframes.reduce((nearest, candidate) =>
   Math.abs(candidate.frame - frame) < Math.abs(nearest.frame - frame) ? candidate : nearest);
 const referenceById = (id) => typeof abdomenReferences === 'undefined' ? null : abdomenReferences[id];
 const acquiredFor = (keyframe) => referenceById(keyframe.referenceId);
-const usesAtlas = (tour) => (tour.exterior ?? (tour.id === 'gallbladder' ? 'fitted-atlas' : 'case-ct')) === 'fitted-atlas';
+const usesBodyParts3D = (tour) => (tour.exterior ?? (tour.id === 'gallbladder' ? 'fitted-atlas' : 'case-ct')) === 'fitted-atlas';
 const referenceLabel = (keyframe) => keyframe.referenceLabel ?? acquiredFor(keyframe)?.label ?? keyframe.label;
 const referenceNote = (frame, keyframe) => {
   const label = referenceLabel(keyframe);
@@ -132,7 +132,7 @@ function renderFrame(frame, scenePosition = frame) {
     on('section', state.section);
     showImage('scanArea', 'scan', scan, $('scanTitle').textContent + ' at frame ' + frame + '.', 'Scan unavailable for this frame.');
     showImage('referenceArea', 'ref', reference, acquired?.title ?? 'Acquired ultrasound.', 'Clinical reference unavailable.');
-    $('referenceDepth').textContent = acquired?.depthLabel ? 'Different case · ' + acquired.depthLabel : 'Different case';
+    $('referenceDepth').textContent = [selectedTour.referenceContext ?? 'Different case', acquired?.depthLabel].filter(Boolean).join(' · ');
     $('referenceNote').textContent = acquired ? referenceNote(frame, keyframe) : 'Reference unavailable';
     state.shownFrame = frame;
   };
@@ -299,16 +299,17 @@ $('assetFrame').onchange = (event) => selectFrame(Number(event.currentTarget.val
 
 function describeAsset(frame, group) {
   const source = anatomySource();
-  const caseLink = [source.shortLabel ?? source.label, source.url];
+  const anatomyLink = [source.shortLabel ?? source.label, source.url];
+  const additionalLinks = (selectedTour.additionalAnatomySources ?? []).map((item) => [item.shortLabel ?? item.label, item.url]);
   if (group === 'anatomy') {
     const partNames = selectedTour.parts.map((part) => part.label).join(', ');
     const region = selectedTour.region ?? selectedTour.title;
     return {
       binding: region + ' · ' + partNames,
       note: selectedTour.sourceNote ?? '',
-      sources: usesAtlas(selectedTour)
-        ? [['BodyParts3D exterior', atlasSource], caseLink]
-        : [caseLink],
+      sources: usesBodyParts3D(selectedTour)
+        ? [['BodyParts3D exterior', atlasSource], anatomyLink, ...additionalLinks]
+        : [anatomyLink, ...additionalLinks],
     };
   }
   if (group === 'simulation') {
@@ -316,8 +317,8 @@ function describeAsset(frame, group) {
       path: imageFile('scan', frame),
       alt: 'Simulated scan at frame ' + frame,
       binding: 'Frame ' + frame + ' of 0–' + last + ' · ' + (selectedTour.sectorDepthMm ?? 133) / 10 + ' cm modeled depth',
-      note: 'Illustrative ultrasound derived from the CT anatomy.',
-      sources: [caseLink],
+      note: selectedTour.simulationNote ?? 'Illustrative ultrasound derived from the CT anatomy.',
+      sources: [anatomyLink, ...additionalLinks],
     };
   }
   const keyframe = nearestKeyframe(frame);
@@ -527,20 +528,18 @@ function appendReferenceCredit(parent, reference, includeLicense = true) {
 }
 
 function configureSources() {
-  const source = anatomySource();
   const anatomy = $('anatomySource');
-  anatomy.append('The CT-derived anatomy is adapted from ');
-  if (source.url) addSourceLink(anatomy, source.label, source.url);
-  else anatomy.append(source.label);
-  if (source.license) {
-    anatomy.append(' (');
-    if (source.licenseUrl) addSourceLink(anatomy, source.license, source.licenseUrl);
-    else anatomy.append(source.license);
-    anatomy.append(')');
-  }
+  anatomy.append('Anatomy source · ');
+  const sources = [anatomySource(), ...(selectedTour.additionalAnatomySources ?? [])];
+  sources.forEach((source, index) => {
+    if (index) anatomy.append(' · ');
+    const credit = document.createElement('span');
+    appendReferenceCredit(credit, { ...source, credit: source.label });
+    anatomy.append(credit);
+  });
   anatomy.append('. The transducer and tissue appearance are authored.');
   anatomy.hidden = false;
-  $('atlasSource').hidden = !usesAtlas(selectedTour);
+  $('atlasSource').hidden = !usesBodyParts3D(selectedTour);
   if (selectedTour.bodyRegion === 'Neck') $('atlasFitScope').textContent = 'the BodyParts3D adult skin model';
   $('tourSourceNote').textContent = selectedTour.sourceNote ?? '';
   $('tourSourceNote').hidden = !selectedTour.sourceNote;
@@ -622,9 +621,9 @@ async function startTour() {
   configureTimeline();
   const probeLabel = isLinear() ? 'High-frequency linear array' : 'Curved array';
   $('scanDetail').textContent = probeLabel + ' · ' + (selectedTour.sectorDepthMm ?? 133) / 10 + ' cm depth';
-  if (selectedTour.bodyRegion === 'Neck') {
+  if (isLinear()) {
     $('surfaceOpacityLabel').textContent = 'Skin opacity';
-    $('sceneCanvas').setAttribute('aria-label', 'Linear probe, rectangular imaging field, neck and internal anatomy with patient orientation');
+    $('sceneCanvas').setAttribute('aria-label', `Linear probe, rectangular imaging field, ${selectedTour.region.toLowerCase()} and internal anatomy with patient orientation`);
   }
   configureLegend($('sceneLegend'), [{ label: fieldLabel(), color: '#84b5d1' }, ...selectedTour.parts]);
   configureLegend($('legend'), selectedTour.overlayParts ?? selectedTour.parts);
