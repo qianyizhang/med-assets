@@ -11,8 +11,9 @@ from scipy import ndimage as nd
 
 from axilla_anatomy import MARKER_ANGLE, START_ROTATION_DEG, WINDOW_XZ, load_anatomy
 from breast_anatomy import FEMALE_SKIN
+from breast_compression import contact_rows, sample_contact_plate, smoothstep
 from build_abdomen import measure_landmark, overlay, section_palette, section_palette_sha256
-from build_breast import exposed_skin, first_profile, grid_axes, section_mask
+from build_breast import exposed_skin, footprint_hits, grid_axes, seat_contact_face, section_mask
 from build_study import fine_scatter
 from delivery import sha256, sweep_files, write_manifest
 from fit_abdomen import outer_contact_offsets
@@ -22,9 +23,7 @@ from prepare_scenes import mesh_bytes
 HERE = Path(__file__).resolve().parent
 CASE = 'hra-right-axilla-teaching'
 STOP_ROTATION_DEG = 90
-# Lens face superellipse from the shared linear-probe profile in scene.js.
-LENS_HALF_DEPTH_MM = 6.5
-LENS_ROUNDNESS = .35
+PORTRAIT_DEPTH_MM = 21.5
 
 
 def read_axilla_tracks():
@@ -42,7 +41,7 @@ def render_recipe_sha256(sweep_id):
     """Bind delivery to the anatomy, section sampler and scatter recipe."""
     if sweep_id != 'axilla':
         raise ValueError(f'Unknown axilla sweep: {sweep_id}')
-    names = ('axilla_anatomy.py', 'build_axilla.py', 'build_breast.py', 'build_study.py')
+    names = ('axilla_anatomy.py', 'build_axilla.py', 'build_breast.py', 'breast_compression.py', 'build_study.py')
     recipe = {name: sha256((HERE / name).read_bytes()) for name in names}
     return sha256(json.dumps(recipe, sort_keys=True, separators=(',', ':')).encode())
 
@@ -57,21 +56,44 @@ def frames_from_windows(anatomy):
                'degrees': round(float(degrees - START_ROTATION_DEG), 1)}
 
 
-def lens_rim_offsets(torso, frames, width_mm):
-    angles = np.linspace(0, 2 * np.pi, 32, endpoint=False)
-    x, y = np.cos(angles), np.sin(angles)
-    lateral = np.sign(x) * np.abs(x)**LENS_ROUNDNESS * width_mm / 2
-    elevational = np.sign(y) * np.abs(y)**LENS_ROUNDNESS * LENS_HALF_DEPTH_MM
-    contacts, widths, beams = (np.asarray([pose[name] for pose in frames]) for name in ('contact', 'width', 'beam'))
-    elevational_axes = np.cross(beams, widths)
-    rim = contacts[:, None] + (lateral[None, :, None] * widths[:, None]
-                              + elevational[None, :, None] * elevational_axes[:, None]) / VOXEL_MM
-    return outer_contact_offsets(*torso, rim.reshape(-1, 3), np.repeat(beams, len(angles), axis=0))
+def seat_frame(torso, frame, width_mm):
+    seated = seat_contact_face(torso, frame, width_mm, preserve_plane=True)
+    rig = seated['contactRig']
+    rig['featherMm'] = 8
+    lateral = np.linspace(-width_mm / 2, width_mm / 2, 33)
+    elevation = np.linspace(-rig['faceElevationMm'] / 2, rig['faceElevationMm'] / 2, 17)
+    hits = footprint_hits(torso, seated, lateral, elevation)
+    # Advance to the deepest checked native point. Seating pushes skin inward.
+    advance = hits.max() + .01
+    seated['contact'] = (np.asarray(seated['contact']) + np.asarray(seated['beam']) * advance / VOXEL_MM).tolist()
+    rig['surfaceMm'] = (np.asarray(rig['surfaceMm']) - advance).round(5).tolist()
+    vertices, faces = torso
+    contact, width, beam = (np.asarray(seated[key]) for key in ('contact', 'width', 'beam'))
+    basis = np.stack((width, np.cross(beam, width), beam))
+    x, y, z = np.einsum('ij,kj->ki', basis, (vertices - contact)*VOXEL_MM).T
+    shift = (deformed_skin_depth(rig, x, y, z) - z) / VOXEL_MM
+    rendered_vertices = vertices + shift[:, None] * beam
+    deformed_hits = footprint_hits((rendered_vertices, faces), seated, lateral, elevation)
+    return seated, hits - advance, deformed_hits
+
+
+def deformed_skin_depth(rig, lateral, elevation, native):
+    x, y = np.broadcast_arrays(lateral, elevation)
+    half_x, half_y = rig['faceWidthMm'] / 2, rig['faceElevationMm'] / 2
+    grid_x = np.clip((x + half_x) / (2 * half_x), 0, 1) * (len(rig['lateralMm']) - 1)
+    grid_y = np.clip((y + half_y) / (2 * half_y), 0, 1) * (len(rig['elevationMm']) - 1)
+    surface = nd.map_coordinates(np.asarray(rig['surfaceMm']), (grid_y, grid_x), order=1)
+    ux = (np.abs(x) - half_x) / rig['featherMm']
+    uy = (np.abs(y) - half_y) / rig['featherMm']
+    footprint = (1 - smoothstep(ux)) * (1 - smoothstep(uy))
+    depth_weight = 1 - smoothstep((native - surface) / rig['settleDepthMm'])
+    return native - surface * footprint * depth_weight
 
 
 def approach_clearance(torso, frames, width_mm):
     """Measure the shared linear housing and proximal cable against the skin."""
-    contact = np.asarray(frames[0]['contact'])
+    contacts = np.asarray([f['contact'] for f in frames])
+    contact = contacts[0]
     beam = np.asarray(frames[0]['beam'])
     widths = np.array([frame['width'] for frame in frames])
     elevation = np.cross(beam, widths)
@@ -86,11 +108,13 @@ def approach_clearance(torso, frames, width_mm):
                 (84, 2.8, 2.8, 1), (102, 1.65, 1.65, 1)]
     angles = np.arange(16) * np.pi / 8
     x, y = np.cos(angles), np.sin(angles)
-    sample_shell = []
+    sample_shell, lateral_mm, elevation_mm = [], [], []
     for outward, lateral, thickness, exponent in profiles:
         u = lateral * np.sign(x) * np.abs(x)**exponent
         v = thickness * np.sign(y) * np.abs(y)**exponent
-        sample_shell.append(contact + (widths[:, None] * u[None, :, None]
+        lateral_mm.append(u)
+        elevation_mm.append(v)
+        sample_shell.append(contacts[:, None] + (widths[:, None] * u[None, :, None]
                             + elevation[:, None] * v[None, :, None] - beam * outward) / VOXEL_MM)
     samples = np.concatenate(sample_shell, axis=1).reshape(-1, 3)
     vertices, faces = torso
@@ -102,8 +126,11 @@ def approach_clearance(torso, frames, width_mm):
     radius = np.linalg.norm(radial - center[:, None], axis=2).max(axis=1)
     region = np.linalg.norm(center, axis=1) - radius <= (half + 14) / VOXEL_MM
     hits = outer_contact_offsets(vertices, faces[region], samples, np.broadcast_to(beam, samples.shape))
-    return {'minimumHousingClearanceMm': round(float(hits.min()), 3),
-            'minimumProximalCableClearanceMm': round(float(hits.reshape(len(frames), len(profiles), -1)[:, -2:].min()), 3),
+    depths = np.array(profiles)[:, 0, None]
+    clearances = np.stack([depths + deformed_skin_depth(frame['contactRig'], lateral_mm, elevation_mm, native - depths)
+                           for frame, native in zip(frames, hits.reshape(len(frames), len(profiles), -1), strict=True)])
+    return {'minimumHousingClearanceMm': round(float(clearances[:, :-2].min()), 3),
+            'minimumProximalCableClearanceMm': round(float(clearances[:, -2:].min()), 3),
             'samplesPerFrame': len(profiles) * len(angles)}
 
 
@@ -147,7 +174,8 @@ def brightness(labels, xyz, grid, skin, inside, anatomy):
          + 14 * (1 - superficial) * deep_planes) * inside
     b = b * (1 - muscle) + muscle * (36 + 46 * fine + 49 * fiber_texture + 23 * broad)
     b = b * (1 - cortex) + cortex * (25 + 34 * fine + 15 * broad)
-    b = b * (1 - hilum) + hilum * (118 + 72 * fine + 36 * broad + 18*septa)
+    hilar_strands = np.clip(np.cos(2.4*(down + .10*along - .18*across) + 2.5*broad), 0, 1)**4
+    b = b * (1 - hilum) + hilum * (108 + 69 * fine + 37 * broad + 21*hilar_strands)
     b = b * (1 - vessel) + vessel * (8 + 16 * fine)
     b += (np.abs(np.gradient(cortex, axis=0)) * (59 + 28*broad)
           + np.abs(np.gradient(muscle, axis=0)) * (118 + 19*fine)
@@ -172,11 +200,17 @@ def validate_frame(frame_index, labels, inside, gray, grid):
     if cortex.sum() < 200 or hilum.sum() < 200 or np.any(node & ~inside) or np.any(hilum & ~node):
         raise ValueError(f'Frame {frame_index} misses the enclosed node and hilum')
     vessels = [labels[key] for key in ('axillary_vein', 'axillary_artery')]
-    if any(vessel.sum() < 40 or np.any(vessel & ~inside) or np.any(vessel & node) for vessel in vessels):
-        raise ValueError(f'Frame {frame_index} misses separate deep regional vessels')
+    if (np.any(vessels[0] & vessels[1])
+            or any(np.any(vessel & ~inside) or np.any(vessel & node) for vessel in vessels)):
+        raise ValueError(f'Frame {frame_index} does not show separate regional structures')
+    if frame_index == KEYFRAMES[0] and sum(vessel.sum() for vessel in vessels) > .06 * node.sum():
+        raise ValueError('Long-axis portrait includes too much of the regional vessels')
+    if frame_index == KEYFRAMES[1] and any(vessel.sum() < 40 for vessel in vessels):
+        raise ValueError('Short-axis regional field misses one of the vessels')
     node_front = depth[np.where(node)[0]].min()
+    node_back = depth[np.where(node)[0]].max()
     for vessel in vessels:
-        if depth[np.where(vessel)[0]].min() < node_front + 5:
+        if vessel.any() and depth[np.where(vessel)[0]].min() < node_front + 5:
             raise ValueError(f'Frame {frame_index} loses the depth order from node to axillary vessels')
     contrast = np.median(gray[hilum]) - np.median(gray[cortex])
     if contrast < 65:
@@ -193,23 +227,48 @@ def validate_frame(frame_index, labels, inside, gray, grid):
     sample = depth[1] - depth[0]
     superficial = np.count_nonzero(cortex_depth < hilum_center[0]) * sample
     deep = np.count_nonzero(cortex_depth > hilum_center[-1]) * sample
-    if not (.6 < superficial < 2.6 and .6 < deep < 2.6):
-        raise ValueError(f'Frame {frame_index} does not show a thin cortex either side of the hilum')
+    if not (.44 < superficial < 2.6 and .44 < deep < 2.6):
+        raise ValueError(f'Frame {frame_index} does not show a thin cortex either side of the hilum '
+                         f'({superficial:.2f}, {deep:.2f} mm)')
+    vessel_centroids = []
+    for vessel in vessels:
+        rows, cols = np.nonzero(vessel)
+        center = [round(float(lateral[cols].mean()), 2), round(float(depth[rows].mean()), 2)] if len(rows) else None
+        vessel_centroids.append(center)
     return {'outerSpanMm': [round(major, 2), round(minor, 2)],
+            'nodeAnteriorPosteriorDepthMm': [round(float(node_front), 2), round(float(node_back), 2)],
+            'vesselPixels': [int(vessel.sum()) for vessel in vessels],
             'centralSuperficialCortexMm': round(superficial, 2), 'centralDeepCortexMm': round(deep, 2),
+            'vesselCentersLateralDepthMm': dict(zip(('axillary_vein', 'axillary_artery'), vessel_centroids, strict=True)),
             'medianHilumCortexGrayDifference': float(contrast)}
 
 
+def acquisition_grid(track, imaging_depth_mm):
+    grid = grid_axes({**track, 'sectorDepthMm': imaging_depth_mm})
+    lateral, depth, field = grid
+    pitch = depth[1] - depth[0]
+    pad = int(np.ceil(10 / pitch))
+    native_depth = depth[0] + np.arange(-pad, len(depth) + pad) * pitch
+    native_field = np.broadcast_to(abs(lateral) <= track['fieldWidthMm'] / 2,
+                                   (len(native_depth), len(lateral)))
+    return grid, (lateral, native_depth, native_field)
+
+
+def imaging_depth(index, regional_depth_mm):
+    slide = smoothstep((index - KEYFRAMES[0]) / (KEYFRAMES[1] - KEYFRAMES[0]))
+    return round(float(PORTRAIT_DEPTH_MM + slide * (regional_depth_mm - PORTRAIT_DEPTH_MM)), 3)
+
+
 def build(track, output, anatomy):
-    grid = grid_axes(track)
-    frames = list(frames_from_windows(anatomy))
-    offsets, profile = first_profile(anatomy.meshes['torso'], frames, track['fieldWidthMm'])
-    rim = lens_rim_offsets(anatomy.meshes['torso'], frames, track['fieldWidthMm'])
-    approach = approach_clearance(anatomy.meshes['torso'], frames, track['fieldWidthMm'])
-    max_contact = float(np.abs(offsets[:, offsets.shape[1] // 2]).max())
-    extremes = min(offsets.min(), rim.min()), max(offsets.max(), rim.max())
-    if max_contact > .35 or extremes[0] < -3 or extremes[1] > 3:
-        raise ValueError(f'Axilla footprint fit exceeds limits: {extremes[0]:+.2f} to {extremes[1]:+.2f} mm')
+    torso = anatomy.meshes['torso']
+    fitted = [seat_frame(torso, frame, track['fieldWidthMm']) for frame in frames_from_windows(anatomy)]
+    frames, offsets, corrected = zip(*fitted, strict=True)
+    offsets, corrected = np.asarray(offsets), np.asarray(corrected)
+    approach = approach_clearance(torso, frames, track['fieldWidthMm'])
+    max_contact = float(np.abs(corrected).max())
+    if max_contact > .38 or offsets.min() < -6 or offsets.max() > 0:
+        raise ValueError(f'Axilla footprint fit exceeds limits: {max_contact:.2f} mm post-seat, '
+                         f'{offsets.min():+.2f} to {offsets.max():+.2f} mm native.')
     if approach['minimumHousingClearanceMm'] < 0:
         raise ValueError(f'Axilla approach intersects exterior: {approach}')
     parts = [part['id'] for part in track['parts']]
@@ -221,12 +280,26 @@ def build(track, output, anatomy):
         (scenes / f'{name}.mesh').write_bytes(mesh_bytes(*anatomy.meshes[name]))
     evidence = {}
     for index, frame in enumerate(frames):
-        labels, xyz, skin, inside = sampled_section(anatomy, frame, grid)
-        gray = brightness(labels, xyz, grid, skin, inside, anatomy)
+        frame['imagingDepthMm'] = imaging_depth(index, track['sectorDepthMm'])
+        grid, native_grid = acquisition_grid(track, frame['imagingDepthMm'])
+        lateral, depth, field = grid
+        _, native_depth, _ = native_grid
+        labels, xyz, skin, inside = sampled_section(anatomy, frame, native_grid)
+        gray = brightness(labels, xyz, native_grid, skin, inside, anatomy)
+        rows = contact_rows(frame['contactRig'], lateral, depth)
+        gray = sample_contact_plate(gray, native_depth, rows, order=1, field=field)
+        labels = {name: sample_contact_plate(mask, native_depth, rows, order=0, field=field).astype(bool)
+                  for name, mask in labels.items()}
+        inside = sample_contact_plate(inside, native_depth, rows, order=0, field=field).astype(bool)
+        sampled_skin = sample_contact_plate(skin, native_depth, rows, order=0, field=field)
+        per_column = np.any(sampled_skin & (depth[:, None] < 1.8), axis=0)
+        if (per_column & field.any(0)).sum() < .94 * field.any(0).sum():
+            raise ValueError(f'Frame {index} misses flat acoustic contact across the active aperture.')
         morphology = validate_frame(index, labels, inside, gray, grid)
         labels['axillary_node'] &= ~labels['fatty_hilum']
         if index in KEYFRAMES:
-            evidence[str(index)] = {**morphology,
+            evidence[str(index)] = {**morphology, 'imagingDepthMm': frame['imagingDepthMm'],
+                                    'samplePitchMm': round(float(depth[1] - depth[0]), 8),
                                     **{name: measure_landmark(labels[name], gray) for name in parts}}
         Image.fromarray(gray).save(media / f'scan-{index:02}.webp', quality=91)
         Image.fromarray(overlay(gray, labels, palette)).save(media / f'section-{index:02}.webp', quality=88)
@@ -235,10 +308,12 @@ def build(track, output, anatomy):
         **anatomy.receipt,
         'case': CASE, 'probeType': 'linear', 'fieldShape': 'rectangle', 'voxelMm': VOXEL_MM,
         'fieldWidthMm': track['fieldWidthMm'], 'sectorDepthMm': track['sectorDepthMm'],
-        'samplePitchMm': round(float(grid[1][1] - grid[1][0]), 8), 'exterior': track['exterior'],
-        'surfaceMaxOuterContactErrorMm': round(max_contact, 4), 'apertureOffsetsMm': profile,
-        'lensRimFirstHitMm': {'samplesPerFrame': rim.size // len(frames),
-                              'min': round(float(rim.min()), 3), 'max': round(float(rim.max()), 3)},
+        'imagingDepthMmRange': [PORTRAIT_DEPTH_MM, track['sectorDepthMm']], 'exterior': track['exterior'],
+        'surfaceMaxOuterContactErrorMm': round(max_contact, 4),
+        'contactFit': {'samplesPerFrame': offsets.size // len(frames),
+                       'nativeMinSignedFirstHitMm': round(float(offsets.min()), 4),
+                       'nativeMaxSignedFirstHitMm': round(float(offsets.max()), 4),
+                       'seatedMaxAbsFirstHitMm': round(max_contact, 4)},
         'approachClearance': approach,
         'angleOriginFrame': 0, 'framesChecked': len(frames),
         'poseRecipeSha256': pose_recipe_sha256(track['id']), 'sectionPaletteSha256': section_palette_sha256(track),
@@ -246,7 +321,7 @@ def build(track, output, anatomy):
         'frames': evidence,
     }, indent=2) + '\n')
     write_manifest(output, sweep_files(['torso', *parts]))
-    print(f'Axilla: {len(frames)} poses checked, footprint first-hit offsets {extremes[0]:+.2f} to {extremes[1]:+.2f} mm')
+    print(f'Axilla: {len(frames)} poses checked, seated footprint residual {max_contact:.3f} mm')
 
 
 def main():

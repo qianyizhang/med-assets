@@ -9,6 +9,7 @@ from scipy.spatial.transform import Rotation
 from breast_anatomy import (
     AnteriorSurface, FEMALE_SKIN, FEMALE_SKIN_SHA, FEMALE_SKIN_URL, mesh_for, select_faces,
 )
+from breast_compression import refine_contact_skin
 from build_abdomen import axes
 from display_body import atlas
 from fit_abdomen import mesh_graph, ramp
@@ -49,7 +50,7 @@ def shell(rings, first, last):
     return points, faces if volume > 0 else faces[:, ::-1]
 
 
-def oval(center, basis, radii, notch_mm=0):
+def oval(center, basis, radii, notch_mm=0, bow_mm=0):
     theta = np.linspace(0, np.pi, 33)[1:-1, None]
     phi = np.linspace(0, 2 * np.pi, 64, endpoint=False)[None, :]
     a, b, c = np.array(radii) / VOXEL_MM
@@ -58,6 +59,7 @@ def oval(center, basis, radii, notch_mm=0):
     w = c * np.sin(theta) * np.sin(phi)
     # A slight shallow indentation on the hilar side mimics the reniform outline.
     w -= notch_mm / VOXEL_MM * np.exp(-((u + a * .12) / (a * .43))**2) * np.maximum(np.sin(phi), 0)**8
+    w -= bow_mm / VOXEL_MM * (1 - (u / a)**2)
     v *= 1 - .14 * u / a
     w += .09 * u * (1 - (u / a)**2)
     surface = center + np.stack((u, v, w), axis=-1) @ basis.T
@@ -122,17 +124,18 @@ def load_anatomy(skin_path=FEMALE_SKIN):
     x_slope = (skin.contact(x + .4, z)[1] - skin.contact(x - .4, z)[1]) / .8
     z_slope = (skin.contact(x, z + .4)[1] - skin.contact(x, z - .4)[1]) / .8
     basis = axes([-x_slope, 1, -z_slope], [np.cos(MARKER_ANGLE), 0, np.sin(MARKER_ANGLE)])
-    torso = expose_axilla(skin_points, skin_faces, contact)
+    torso = refine_contact_skin(*expose_axilla(skin_points, skin_faces, contact), contact)
     long_axis, cross_axis, beam = basis.T
     node = contact + NODE_DEPTH_MM / VOXEL_MM * beam
-    muscle_center = contact + (46 * beam + 16 * cross_axis) / VOXEL_MM
+    muscle_center = contact + (41 * beam + 15 * cross_axis) / VOXEL_MM
     muscle_basis = np.column_stack((long_axis, cross_axis, beam))
     meshes = {
         'torso': torso,
-        'axillary_node': oval(node, basis, NODE_RADII_MM, notch_mm=.97),
-        'fatty_hilum': oval(node + .35 / VOXEL_MM * beam, basis, HILUM_RADII_MM, notch_mm=.38),
-        'axillary_vein': vessel(contact, basis, (-1.8, 28.5), 42, (4.5, 2.7), -5),
-        'axillary_artery': vessel(contact, basis, (2.4, 37.5), 45, (3.1, 3.1), 8),
+        'axillary_node': oval(node, basis, NODE_RADII_MM, notch_mm=1.12, bow_mm=.40),
+        'fatty_hilum': oval(node + (.35 * beam + .34 * long_axis) / VOXEL_MM,
+                           basis, HILUM_RADII_MM, notch_mm=.52, bow_mm=.40),
+        'axillary_vein': vessel(contact, basis, (-3.4, 26.0), 42, (4.5, 2.7), -6),
+        'axillary_artery': vessel(contact, basis, (3.4, 31.8), 45, (3.65, 2.9), 0),
         'axillary_muscle': oval(muscle_center, muscle_basis, (50, 20, 7)),
     }
     return AxillaAnatomy(meshes, contact, basis, node, {

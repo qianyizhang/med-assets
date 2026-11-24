@@ -157,6 +157,13 @@ try {
     await ready();
     assert.equal(await page.locator('#tourTitle').textContent(), tour.title);
     assert.equal(await page.locator('#position').inputValue(), String(tour.initialFrame));
+    if (tour.region === 'Breast') {
+      assert.ok(await page.evaluate(() => sweep.every(({ contactRig }) =>
+        contactRig && contactRig.surfaceMm.length === contactRig.elevationMm.length
+        && contactRig.surfaceMm.every((row) => row.length === contactRig.lateralMm.length)
+        && contactRig.lateralMm.length >= 17 && contactRig.elevationMm.length >= 9)),
+      tour.id + ' must register the contact field at every pose.');
+    }
     const routeNav = page.getByRole('navigation', { name: 'Breast scan routes' });
     const regional = catalogue.filter((candidate) => candidate.region === 'Breast');
     assert.equal(await routeNav.isVisible(), tour.region === 'Breast' && regional.length > 1);
@@ -187,7 +194,13 @@ try {
     const field = tour.fieldShape === 'rectangle' ? 'Imaging field' : 'Imaging sector';
     assert.deepEqual(await page.locator('#sceneLegend li').allTextContents(), [field, ...tour.parts]);
     const probeLabel = tour.probeType === 'linear' ? 'High-frequency linear array' : 'Curved array';
-    assert.equal(await page.locator('#scanDetail').textContent(), probeLabel + ' · ' + tour.depth / 10 + ' cm depth');
+    const poseDepths = await page.evaluate(() => sweep.map(({ imagingDepthMm }) => imagingDepthMm ?? null));
+    const depthText = (frame) => probeLabel + ' · ' + Number(((poseDepths[frame] ?? tour.depth) / 10).toFixed(2)) + ' cm depth';
+    assert.equal(await page.locator('#scanDetail').textContent(), depthText(tour.initialFrame));
+    if (tour.id === 'axilla') {
+      assert.ok(poseDepths.every(Number.isFinite) && poseDepths[12] < poseDepths[48]);
+      assert.notEqual(depthText(12), depthText(48));
+    }
     if (tour.probeType === 'linear') {
       const skinOpacity = page.getByRole('slider', { name: 'Skin opacity' });
       assert.equal(await skinOpacity.inputValue(), '32');
@@ -212,6 +225,7 @@ try {
       await page.waitForFunction(({ scan, reference }) => document.querySelector('#scan')?.src === scan
         && document.querySelector('#ref')?.src === reference, { scan: expectedScan, reference: expectedReference });
       assert.equal(await page.locator('#readout').textContent(), key.label);
+      assert.equal(await page.locator('#scanDetail').textContent(), depthText(key.frame));
       assert.ok((await page.locator('#referenceNote').textContent()).includes(key.referenceLabel));
       assert.equal(await page.locator('#referenceDepth').textContent(), [tour.referenceContext, key.depthLabel].filter(Boolean).join(' · '));
       if (tour.region === 'Breast') await capture(tour.id + '-frame-' + key.frame + '-1021', true);
@@ -325,6 +339,29 @@ try {
   await ready();
   assert.equal(await sweepPicker.inputValue(), catalogue.at(-1).id);
 
+  const axilla = catalogue.find((tour) => tour.id === 'axilla');
+  if (axilla) {
+    const axillaUrl = new URL(url);
+    axillaUrl.searchParams.set('sweep', axilla.id);
+    await page.goto(axillaUrl.href);
+    await ready();
+    assert.equal(await page.locator('#position').inputValue(), '12');
+    const shallow = await screenshot();
+    const poseScript = new URL(axilla.assetRoot + 'sweep.js', page.url()).href;
+    await page.route(poseScript, async (route) => {
+      const response = await route.fetch();
+      const source = (await response.text()).trim();
+      const frames = JSON.parse(source.slice('const sweep = '.length, -1));
+      frames[12].imagingDepthMm = frames[48].imagingDepthMm;
+      await route.fulfill({ response, body: 'const sweep = ' + JSON.stringify(frames) + ';' });
+    });
+    await page.reload();
+    await ready();
+    assert.equal(await page.locator('#position').inputValue(), '12');
+    assert.notDeepEqual(await screenshot(), shallow, 'Changing only the modeled depth must change the rendered field.');
+    await page.unroute(poseScript);
+  }
+
   const steered = catalogue.find((tour) => tour.steering);
   if (steered) {
     const startURL = new URL(url);
@@ -343,6 +380,7 @@ try {
       steered.assetRoot + 'media/' + prefix + '-' + String(frame).padStart(2, '0') + '.webp', page.url(),
     ).href;
     const waitScan = (src) => page.waitForFunction((path) => document.querySelector('#scan')?.src === path, src);
+    const registered = await page.evaluate(() => Boolean(sweep[0].contactRig));
     const currentIndices = async () => Promise.all(range.map(async (slider) => Number(await slider.inputValue())));
     const panelPositions = () => page.locator('#steering, #scanArea, #referenceArea').evaluateAll((nodes) =>
       nodes.map((node) => node.getBoundingClientRect().top + scrollY));
@@ -418,7 +456,7 @@ try {
     assert.equal(await preset('oblique').getAttribute('aria-pressed'), 'true', 'Probe drag should not orbit the camera.');
 
     if (steered.compressionMm) {
-      const pressure = page.getByRole('button', { name: 'Gentle compression' });
+      const pressure = page.getByRole('button', { name: 'Firmer pressure' });
       const key = steered.keys.at(-1);
       await page.locator('#ticks button').last().click();
       await waitScan(scanFor(key.frame));
@@ -426,8 +464,8 @@ try {
       const unpressedView = await screenshot();
       await pressure.click();
       await waitScan(scanFor(key.frame, 'press-scan'));
-      assert.notDeepEqual(await screenshot(), unpressedView, 'Gentle compression should change the 3D geometry.');
-      await capture(steered.id + '-gentle-compression-1021', true);
+      assert.notDeepEqual(await screenshot(), unpressedView, 'Firmer pressure should change the 3D geometry.');
+      await capture(steered.id + '-firmer-pressure-1021', true);
       assert.equal(await pressure.getAttribute('aria-pressed'), 'true');
       assert.equal(await position.inputValue(), String(key.frame));
       assert.equal(await page.locator('#ref').evaluate((img) => img.src), comparison);
@@ -446,9 +484,66 @@ try {
       assert.equal(await pressure.getAttribute('aria-pressed'), 'true');
       assert.equal(await position.inputValue(), String(key.frame));
       await waitScan(scanFor(key.frame, 'press-scan'));
-      await pressure.click();
-      await waitScan(scanFor(key.frame));
-      assert.deepEqual(await screenshot(), unpressedView, 'Releasing pressure should restore the original 3D pose.');
+
+      if (registered) {
+        for (const pressed of [true, false]) {
+          const prefix = pressed ? 'press-scan' : 'scan';
+          const minimumSample = key.frame - 12;
+          await position.fill(String(minimumSample - 3));
+          await waitScan(scanFor(minimumSample - 3, prefix));
+          const sample = await page.evaluate((minimumFrame) => new Promise((resolve, reject) => {
+            const range = document.querySelector('#position');
+            const playback = document.querySelector('#play');
+            const scanArea = document.querySelector('#scanArea');
+            const observer = new MutationObserver(() => {
+              const frame = range.valueAsNumber;
+              if (frame < minimumFrame) return;
+              observer.disconnect();
+              clearTimeout(timeout);
+              if (playback.textContent === 'Pause') playback.click();
+              resolve({ frame, src: scanArea.querySelector('img')?.src });
+            });
+            const timeout = setTimeout(() => {
+              observer.disconnect();
+              reject(new Error('Playback did not reach the sampled contact frame.'));
+            }, 7000);
+            observer.observe(scanArea, { childList: true, subtree: true, attributes: true });
+            playback.click();
+          }), minimumSample);
+          assert.ok(sample.frame < key.frame, 'Playback should show an intermediate contact pose.');
+          assert.equal(sample.src, scanFor(sample.frame, prefix));
+          const played = await screenshot();
+          await position.fill(String(sample.frame - 1));
+          await waitScan(scanFor(sample.frame - 1, prefix));
+          await position.fill(String(sample.frame));
+          await waitScan(sample.src);
+          assert.deepEqual(await screenshot(), played, 'Playback must render the same registered geometry as scrubbing to the baked frame.');
+          if (pressed) {
+            await pressure.click();
+            await waitScan(scanFor(sample.frame));
+          }
+        }
+        await position.fill(String(key.frame));
+        await waitScan(scanFor(key.frame));
+        assert.deepEqual(await screenshot(), unpressedView, 'Releasing registered pressure should restore the seated pose.');
+
+        const skin = page.getByRole('slider', { name: 'Skin opacity' });
+        await skin.fill('100');
+        const seatedSkin = await screenshot();
+        await capture(steered.id + '-seated-skin-100-1021', true);
+        await pressure.click();
+        await waitScan(scanFor(key.frame, 'press-scan'));
+        assert.notDeepEqual(await screenshot(), seatedSkin, 'Pressure must also alter the opaque skin.');
+        await capture(steered.id + '-pressed-skin-100-1021', true);
+        await pressure.click();
+        await waitScan(scanFor(key.frame));
+        assert.deepEqual(await screenshot(), seatedSkin, 'The opaque skin should return to the seated pose.');
+        await skin.fill('32');
+      } else {
+        await pressure.click();
+        await waitScan(scanFor(key.frame));
+        assert.deepEqual(await screenshot(), unpressedView, 'Releasing pressure should restore the original 3D pose.');
+      }
 
       const missingPress = scanFor(key.frame, 'press-scan');
       await page.route(missingPress, (route) => route.abort());

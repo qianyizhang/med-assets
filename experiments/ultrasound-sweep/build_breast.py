@@ -13,7 +13,7 @@ from skimage.draw import polygon
 
 from build_abdomen import axes, measure_landmark, overlay, section_palette, section_palette_sha256
 from build_study import fine_scatter
-from breast_compression import SETTLE_DEPTH_MM, compress_plates
+from breast_compression import SETTLE_DEPTH_MM, contact_rows, sample_contact_plate
 from delivery import sha256, sweep_files, write_manifest
 from fit_abdomen import outer_contact_offsets
 from geometry import FRAME_COUNT, KEYFRAMES, RASTER_SIZE, VOXEL_MM
@@ -43,10 +43,10 @@ SURVEY_PASSES = (
     {'label': 'Mid-breast outward pass', 'firstFrame': 25, 'lastFrame': 35},
     {'label': 'Lower inward pass', 'firstFrame': 37, 'lastFrame': 48},
 )
-ACCEPTED_RADIAL = ((62.2353, 263.0027), (-.05451787, .99803226, -.03097420), (.99840205, .05494759, .01319522))
-SLIDE_MM = (0, 11, 22.15)
-SLIDE_DIRECTION = (0.9952, -0.09786)  # Medial toward the native nipple center in RAS XZ.
-BASELINE_YAW_CHANGE = .085  # Align the zero-tilt face to the curvature along the slide.
+ACCEPTED_RADIAL = ((81.27735, 262.46073), (.373, .923, -.092), (-.85321734, .38036839, .35684739))
+SLIDE_MM = (0, 3.35, 6.68)
+SLIDE_DIRECTION = (-.97641177, -.21591676)  # From the lateral-duct window toward nipple center in RAS XZ.
+BASELINE_YAW_CHANGE = -.10  # Align the zero-tilt face to the curvature along the slide.
 ROTATE_DEG = (0, 20.5, 41, 61.5, 82)
 HEEL_TOE_DEG = (-4, 0, 8)
 SNAKE = ((0, 0), (0, 1), (0, 2), (1, 2), (1, 1), (1, 0), (2, 0), (2, 1), (2, 2))
@@ -97,16 +97,16 @@ def pose_recipe_sha256(sweep_id):
         steering, motions = steering_recipe()
         recipe = {'anchor': ACCEPTED_RADIAL, 'slideDirectionXZ': SLIDE_DIRECTION,
                   'steering': steering, 'positions': motions, 'baselineYawChange': BASELINE_YAW_CHANGE,
-                  'surface': 'mammary skin and gel standoff'}
+                  'surface': 'seated native mammary surface'}
     else:
         raise ValueError(f'Unknown breast sweep: {sweep_id}')
-    return sha256(json.dumps({**recipe, 'angleOriginFrame': 0}, separators=(',', ':')).encode())
+    return sha256(json.dumps({**recipe, 'angleOriginFrame': 0, 'contactRigVersion': 1}, separators=(',', ':')).encode())
 
 
 def render_recipe_sha256(sweep_id):
     """Bind delivery to the source anatomy and route-specific render recipe."""
-    route = {'breast': 'breast_layers.py', 'breast-subareolar': 'breast_compression.py'}
-    names = ('build_breast.py', 'breast_anatomy.py', route[sweep_id])
+    route = {'breast': 'breast_layers.py', 'breast-subareolar': 'breast_nipple.py'}
+    names = ('build_breast.py', 'breast_anatomy.py', 'breast_compression.py', 'breast_echo.py', route[sweep_id])
     recipe = {name: sha256((HERE / name).read_bytes()) for name in names}
     return sha256(json.dumps(recipe, sort_keys=True, separators=(',', ':')).encode())
 
@@ -188,17 +188,6 @@ def orthogonal_sections(mesh, contact, width, beam, lateral, depth):
             bounded_fill(segments[..., ::-1], depth, lateral).T)
 
 
-def first_profile(mesh, frames, width_mm):
-    contacts, beams, widths = (np.array([frame[key] for frame in frames]) for key in ('contact', 'beam', 'width'))
-    lateral = np.linspace(-width_mm / 2, width_mm / 2, 17)
-    rays = contacts[:, None] + widths[:, None] * lateral[None, :, None] / VOXEL_MM
-    offsets = outer_contact_offsets(*mesh, rays.reshape(-1, 3), np.repeat(beams, len(lateral), axis=0))
-    offsets = offsets.reshape(-1, len(lateral))
-    return offsets, {'lateralMm': lateral.tolist(),
-                     'minSignedFirstHitMm': offsets.min(0).round(3).tolist(),
-                     'maxSignedFirstHitMm': offsets.max(0).round(3).tolist()}
-
-
 def frame_at(anatomy, site, width, beam):
     contact = anatomy.contact(*site)
     adjust = outer_contact_offsets(*anatomy.meshes['torso'], [contact], [beam])[0]
@@ -208,43 +197,68 @@ def frame_at(anatomy, site, width, beam):
     return {'contact': contact.tolist(), 'width': width.tolist(), 'beam': beam.tolist()}
 
 
-def seat_survey_face(anatomy, frame, width_mm):
-    """Balance the rigid array on the curved atlas without changing its section plane."""
-    contact, width, beam = (np.asarray(frame[key]) for key in ('contact', 'width', 'beam'))
-    section_normal = np.cross(width, beam)
-    samples = np.linspace(-width_mm / 2, width_mm / 2, 17)
-
-    def fit_score(w, b):
-        origins = contact + samples[:, None] * w / VOXEL_MM
-        offsets = outer_contact_offsets(*anatomy.meshes['torso'], origins, np.broadcast_to(b, origins.shape))
-        return max(0, -offsets.min() - 2) * 10 + max(0, offsets.max() - 14)
-
-    initial = fit_score(width, beam)
-    if initial == 0:
-        return frame
-    best = (initial, width, beam)
-    for angle in (-10, -6, -3, 3, 6, 10):
-        w, b = Rotation.from_rotvec(section_normal * np.deg2rad(angle)).apply([width, beam])
-        score = fit_score(w, b) + abs(angle) * .12
-        if score < best[0]:
-            best = (score, w, b)
-    _, width, beam = best
-    return frame_at(anatomy, contact[[0, 2]], width, beam)
-
-
 def nipple_exterior(anatomy):
     from breast_anatomy import concatenate
 
     return concatenate([anatomy.meshes[name] for name in ('torso', 'areola', 'nipple')])
 
 
-def seat_nipple_face(exterior, frame, width_mm):
-    """Allow gel to couple a rigid array to the projecting native nipple."""
+def footprint_hits(exterior, frame, lateral, elevation):
+    """Measure the native 2D probe aperture against the exact triangles."""
     c, w, b = (np.asarray(frame[key]) for key in ('contact', 'width', 'beam'))
-    origins = c + np.linspace(-width_mm / 2, width_mm / 2, 89)[:, None] * w / VOXEL_MM
-    offsets = outer_contact_offsets(*exterior, origins, np.broadcast_to(b, origins.shape))
-    lift = max(0, .65 - offsets.min())
-    return {**frame, 'contact': (c - b * lift / VOXEL_MM).tolist(), 'gelLiftMm': round(float(lift), 4)}
+    elev = np.cross(b, w)
+    vertices, faces = exterior
+    local = np.einsum('ij,kj->ik', vertices - c, np.stack([w, elev, b])) * VOXEL_MM
+    triangles = local[faces]
+    lower = triangles.min(1)
+    upper = triangles.max(1)
+    inside = (lower[:, 0] <= lateral[-1] + 1e-8) & (upper[:, 0] >= lateral[0] - 1e-8)
+    triangles, lower, upper = triangles[inside], lower[inside], upper[inside]
+    a, b, c = triangles.transpose(1, 0, 2)
+    u, v = b - a, c - a
+    det = u[:, 0] * v[:, 1] - u[:, 1] * v[:, 0]
+    hits = []
+    for row in elevation:
+        keep = (lower[:, 1] <= row + 1e-8) & (upper[:, 1] >= row - 1e-8) & (abs(det) > 1e-10)
+        sx = (lateral[:, None] - a[keep, 0])
+        sy = (row - a[keep, 1])
+        weight_u = (sx * v[keep, 1] - sy * v[keep, 0]) / det[keep]
+        weight_v = (sy * u[keep, 0] - sx * u[keep, 1]) / det[keep]
+        on_triangle = (weight_u >= -1e-8) & (weight_v >= -1e-8) & (weight_u + weight_v <= 1 + 1e-8)
+        depth = a[keep, 2] + weight_u * u[keep, 2] + weight_v * v[keep, 2]
+        hits.append(np.min(depth, axis=1, where=on_triangle, initial=np.inf))
+    hits = np.asarray(hits)
+    if not np.isfinite(hits).all():
+        raise ValueError('Incoming probe aperture misses the modeled exterior')
+    return hits
+
+
+def seat_contact_face(exterior, frame, width_mm, *, preserve_plane, neutral_heel_deg=None):
+    fine = neutral_heel_deg is not None
+    lateral = np.linspace(-width_mm / 2, width_mm / 2, 97 if fine else 81)
+    elevation = np.linspace(-5, 5, 33 if fine else 29)
+    w, b = (np.asarray(frame[key]) for key in ('width', 'beam'))
+    section_normal = np.cross(w, b)
+    if not preserve_plane or neutral_heel_deg is not None:
+        # For a steering cell, fit the heel-neutral face first. Every specified
+        # heel rotation then remains relative to that same fitted base.
+        w0, b0 = Rotation.from_rotvec(-section_normal * np.deg2rad(neutral_heel_deg or 0)).apply([w, b])
+        native = footprint_hits(exterior, {**frame, 'width': w0, 'beam': b0}, lateral, elevation)
+        slope = np.mean(np.sum(native * lateral, axis=1)) / np.sum(lateral**2)
+        tilt = np.clip(np.arctan(slope), -.18, .18)
+        w, b = Rotation.from_rotvec(section_normal * tilt).apply([w, b])
+        frame = {**frame, 'width': w.tolist(), 'beam': b.tolist()}
+    native = footprint_hits(exterior, frame, lateral, elevation)
+    # A compressive contact can fill a small interpolation gap with coupling
+    # gel, but this plane never attracts tissue from below the face.
+    advance = float(native.max())
+    origin = np.asarray(frame['contact']) + b * advance / VOXEL_MM
+    residual = native - advance
+    return {**frame, 'contact': origin.tolist(), 'contactRig': {
+        'lateralMm': lateral.tolist(), 'elevationMm': elevation.tolist(),
+        'surfaceMm': residual.round(5).tolist(), 'settleDepthMm': SETTLE_DEPTH_MM,
+        'faceWidthMm': width_mm, 'faceElevationMm': 10, 'featherMm': 14,
+    }}
 
 
 def frames_from_windows(anatomy, sweep_id='breast', field_width_mm=52):
@@ -262,21 +276,19 @@ def frames_from_windows(anatomy, sweep_id='breast', field_width_mm=52):
             neutral = np.asarray(outward) + [BASELINE_YAW_CHANGE * slide / SLIDE_MM[-1], 0, 0]
             base_width, _, base_beam = axes(neutral, marker).T
             width = Rotation.from_rotvec(-base_beam * np.deg2rad(rotate)).apply(base_width)
-            rock = Rotation.from_rotvec(np.cross(width, base_beam) * np.deg2rad(heel))
+            rock = Rotation.from_rotvec(np.cross(width, base_beam) * np.deg2rad(-heel))
             width, beam = rock.apply([width, base_beam])
             basis = np.column_stack((width, np.cross(beam, width), beam))
             poses.append((np.asarray(site) + np.asarray(SLIDE_DIRECTION) * slide / VOXEL_MM,
                           Rotation.from_matrix(basis)))
     frames = []
-    exterior = nipple_exterior(anatomy) if sweep_id == 'breast-subareolar' else None
-    for site, rotation in poses:
+    exterior = nipple_exterior(anatomy)
+    for index, (site, rotation) in enumerate(poses):
         width, _, beam = rotation.as_matrix().T
         frame = frame_at(anatomy, site, width, beam)
-        if sweep_id == 'breast':
-            frame = seat_survey_face(anatomy, frame, field_width_mm)
-        if exterior is not None:
-            frame = seat_nipple_face(exterior, frame, field_width_mm)
-        frames.append(frame)
+        focused = sweep_id == 'breast-subareolar'
+        frames.append(seat_contact_face(exterior, frame, field_width_mm, preserve_plane=focused,
+                                        neutral_heel_deg=-motions[index][2] if focused else None))
     bases = []
     for frame in frames:
         w, b = (np.asarray(frame[key]) for key in ('width', 'beam'))
@@ -307,7 +319,7 @@ def sampled_section(anatomy, frame, grid):
     return labels, xyz
 
 
-def brightness(labels, xyz, grid, skin, inside, stromal_support):
+def brightness(labels, xyz, grid, skin, inside, stromal_support, *, focused=False):
     _, depth, field = grid
     fat = nd.gaussian_filter(labels['breast_fat'].astype('f'), .8)
     glands = nd.gaussian_filter(labels['mammary_lobes'].astype('f'), .7)
@@ -336,14 +348,17 @@ def brightness(labels, xyz, grid, skin, inside, stromal_support):
     b = (40 + 14*broad + 64*fine) * np.clip(inside - tissue, 0, 1)
     b += (43 + 16*broad + 67*fine) * (fat + .93 * deep_fat)
     b += (44 + 15*broad + 63*fine) * glands
-    b += (66 + 20*broad + 71*fine) * zone
+    b += (91 + 23*broad + 65*fine) * zone
     b += (30 + 10*broad + 50*fine) * retro
     b += (48 + 11*broad + 44*fine) * pectoral
     b += (37 + 9*broad + 39*fine) * wall
     b += (34 + 32*fine) * nipple
     # The modeled stromal return is continuous through the lobe neighborhood.
     # Mesh-only labels are kept exact and do not grow to match this acoustic cue.
-    b += (78 + 27*fine + 29*broad) * local_stroma + 36 * ligament
+    if 'fibroglandular_zone' in labels:
+        b += (27 + 17*fine + 14*broad) * local_stroma + 24 * ligament
+    else:
+        b += (78 + 27*fine + 29*broad) * local_stroma + 36 * ligament
     b = b * (1 - .94 * ducts) + ducts * (5 + 7*fine)
     interfaces = (np.abs(np.gradient(stroma + zone * .4 + retro, axis=0)) * 59
                   + np.abs(np.gradient(pectoral, axis=0)) * 145
@@ -352,20 +367,27 @@ def brightness(labels, xyz, grid, skin, inside, stromal_support):
     # Muscular striation is an illustrative 3D texture on the authored wall.
     striation = np.clip(np.sin((.64 * xyz[1] + .069 * xyz[0] + .055 * xyz[2]) * 2.4) + .18*broad, 0, 1)
     if 'fibroglandular_zone' in labels:
+        from breast_echo import septal_echo
+
         x, y, z = xyz
-        # These stationary acoustic patterns model thin septal reflections and
-        # fascia-parallel muscle texture, without adding structural labels.
+        septa = septal_echo(xyz, broad)
+        fat_support = np.maximum(fat, deep_fat)
+        b *= 1 - .34 * fat_support - .24 * pectoral
+        b += (108 * fat**1.3 + 69 * deep_fat**1.3 + 53 * zone) * septa
         perturbation = fine_scatter(xyz * .047 + np.array([.26, .72, .38])[:, None, None])
-        septal_phase = .69 * y + .068 * x - .112 * z + 2.1 * perturbation
-        septa = np.exp(-(np.sin(septal_phase) / .22) ** 2)
-        coherence = .32 + .68 * np.clip(.55 + .85 * broad, 0, 1)
-        b += np.maximum(fat, deep_fat) * septa * coherence * 24
         fascia = -10.8 - .0011 * x**2 - .0006 * (z - 256)**2
         bundle = np.clip(np.sin((y - fascia) * 3.3 + .4 * perturbation) + .27, 0, 1)
-        b += pectoral * bundle * (24 + 10 * broad)
+        b += pectoral * bundle * (38 + 13 * broad)
+        interfaces += 60 * np.abs(np.gradient(pectoral, axis=0))
     else:
         b += pectoral * striation * 13
-    shadow = np.exp(-nd.gaussian_filter(np.cumsum(nipple, axis=0).astype('f'), (1.5, 1.3)) * .016)
+    if focused:
+        from breast_nipple import nipple_echo, nipple_shadow
+
+        b, interfaces = nipple_echo(b, interfaces, labels, fine, broad, depth, xyz)
+        shadow = nipple_shadow(nipple, depth)
+    else:
+        shadow = np.exp(-nd.gaussian_filter(np.cumsum(nipple, axis=0).astype('f'), (1.5, 1.3)) * .016)
     gray = (b + interfaces + 144 * nd.gaussian_filter(skin.astype('f'), (.55, .85))) * shadow * np.exp(-np.maximum(depth, 0)[:, None] / 280)
     return np.where(field, np.clip(gray, 0, 240), 0).astype('u1')
 
@@ -409,7 +431,7 @@ def radial_evidence(labels, gray, lateral, depth):
         extent, directions = np.linalg.eigh(np.cov(coordinates.T))
         span_mm = float(np.ptp(np.einsum('ij,j->i', coordinates, directions[:, -1])))
         elongation = float(np.sqrt(extent[1] / max(extent[0], 1e-4)))
-        if elongation >= 2.2 and span_mm >= 20:
+        if elongation >= 1.8 and span_mm >= 4:
             candidates.append((span_mm, label, elongation, clearance))
     if not candidates:
         raise ValueError('Radial section misses an elongated modeled duct near the nipple')
@@ -446,15 +468,14 @@ def layer_evidence(labels, skin, gray, depth, *, require_order=True):
             'skinSectionPixels': int(skin.sum()), 'layerSectionPixels': area}
 
 
-def coverage_evidence(anatomy, frames, offsets, width_mm, frame_layers):
+def coverage_evidence(anatomy, frames, frame_layers):
     # Project the physical aperture's skin-entry ribbon. This does not estimate
     # skin pressure, diagnostic coverage, or tissue hidden behind each plane.
     contacts, widths, beams = (np.array([frame[key] for frame in frames]) for key in ('contact', 'width', 'beam'))
-    along = np.cross(widths, beams)
-    lateral = np.linspace(-width_mm / 2, width_mm / 2, offsets.shape[1])
-    surface = contacts[:, None, :] * VOXEL_MM + lateral[None, :, None] * widths[:, None, :]
-    surface += offsets[:, :, None] * beams[:, None, :]
-    xz = surface[..., [0, 2]]
+    along = np.cross(beams, widths)
+    rig = frames[0]['contactRig']
+    lateral = np.array([-1, 1]) * rig['faceWidthMm'] / 2
+    xz = (contacts[:, None, :] * VOXEL_MM + lateral[None, :, None] * widths[:, None, :])[..., [0, 2]]
     vertices, faces = anatomy.meshes['breast_fat']
     right = (vertices[faces, 0] > 0).all(axis=1)
     native = vertices[faces[right]][..., [0, 2]] * VOXEL_MM
@@ -473,7 +494,7 @@ def coverage_evidence(anatomy, frames, offsets, width_mm, frame_layers):
         first, last = (description[key] for key in ('firstFrame', 'lastFrame'))
         ribbon = np.zeros(shape, dtype=bool)
         for i in range(first, last + 1):
-            elevational = along[i, [0, 2]] * 6.5
+            elevational = along[i, [0, 2]] * rig['faceElevationMm'] / 2
             for a, b in zip(xz[i, :-1], xz[i, 1:], strict=True):
                 points = (np.stack((a - elevational, b - elevational, b + elevational, a + elevational)) - origin) / pitch
                 rr, cc = polygon(points[:, 0], points[:, 1], ribbon.shape)
@@ -506,7 +527,7 @@ def coverage_evidence(anatomy, frames, offsets, width_mm, frame_layers):
         area = int(np.count_nonzero(footprint & mask))
         if area:
             portions[label] = round(float(np.count_nonzero(inside & mask) / area), 3)
-    return {'meaning': 'Front-on XZ projection of modeled beam entry, including a 13 mm physical aperture height. '
+    return {'meaning': 'Front-on XZ projection of modeled beam entry, with the seated 10 mm physical aperture height. '
                        'Relative areas use the source right HRA fat silhouette and do not measure tissue or exam coverage.',
             'passes': passes, 'adjacentPassOverlapMm2': adjacent,
             'projectedUnionMm2': round(union * pitch ** 2, 1),
@@ -517,18 +538,18 @@ def coverage_evidence(anatomy, frames, offsets, width_mm, frame_layers):
             'observedFractionByRegion': portions}
 
 
-def render_frame(anatomy, frame, grid):
+def render_frame(anatomy, frame, grid, *, focused=False):
     lateral, depth, field = grid
     labels, xyz = sampled_section(anatomy, frame, grid)
     c, w, b = (np.asarray(frame[key]) for key in ('contact', 'width', 'beam'))
-    exterior = nipple_exterior(anatomy) if 'gelLiftMm' in frame else anatomy.meshes['torso']
+    exterior = nipple_exterior(anatomy)
     skin, inside = exposed_skin(exterior, c, w, b, lateral, depth, field)
     normal = np.cross(w, b)
     support = labels['mammary_lobes'].astype('f') * .48
     for millimetres in (-2.2, 2.2):
         neighbor = c + normal * millimetres / VOXEL_MM
         support += .26 * section_mask(anatomy.meshes['mammary_lobes'], neighbor, w, b, lateral, depth) * field
-    gray = brightness(labels, xyz, grid, skin, inside, support)
+    gray = brightness(labels, xyz, grid, skin, inside, support, focused=focused)
     return gray, labels, skin, inside
 
 
@@ -538,32 +559,68 @@ def build(track, output, anatomy):
     sweep_id = track['id']
     frames = list(frames_from_windows(anatomy, sweep_id, track['fieldWidthMm']))
     focused = sweep_id == 'breast-subareolar'
-    exterior = nipple_exterior(anatomy) if focused else anatomy.meshes['torso']
-    offsets, profile = first_profile(exterior, frames, track['fieldWidthMm'])
-    if focused:
-        if offsets.min() < -.3 or offsets.min(axis=1).max() > 2:
-            raise ValueError('Nipple gel footprint overlaps tissue or clears all contact rays')
-        origin_mesh = anatomy.meshes['torso']
-        seated = [{**frame, 'contact': (np.asarray(frame['contact']) + np.asarray(frame['beam']) *
-                   frame['gelLiftMm'] / VOXEL_MM).tolist()} for frame in frames]
-        center_offsets, _ = first_profile(origin_mesh, seated, track['fieldWidthMm'])
-    else:
-        center_offsets = offsets
-    max_contact = float(np.max(np.abs(center_offsets[:, center_offsets.shape[1] // 2])))
-    if max_contact > .5 or offsets.min() < -4:
-        raise ValueError(f'Breast probe fit exceeds the limit (central {max_contact:.2f} mm; '
-                         f'max edge overlap {-offsets.min():.2f} mm)')
+    exterior = nipple_exterior(anatomy)
+    signed = np.array([frame['contactRig']['surfaceMm'] for frame in frames])
+    residuals = []
+    for frame in frames:
+        rig = frame['contactRig']
+        x = np.asarray(rig['lateralMm'])
+        y = np.asarray(rig['elevationMm'])
+        mid_x = (x[:-1] + x[1:]) / 2
+        mid_y = (y[:-1] + y[1:]) / 2
+        predicted = (np.asarray(rig['surfaceMm'])[:-1, :-1] + np.asarray(rig['surfaceMm'])[1:, :-1]
+                     + np.asarray(rig['surfaceMm'])[:-1, 1:] + np.asarray(rig['surfaceMm'])[1:, 1:]) / 4
+        residuals.append(footprint_hits(exterior, frame, mid_x, mid_y) - predicted)
+    residuals = np.asarray(residuals)
+    max_contact = float(np.max(np.abs(residuals)))
+    pressure = track.get('compressionMm', 0)
+    minimum_axial_jacobian = 1 - 1.5 * (pressure - signed.min()) / SETTLE_DEPTH_MM
+    if minimum_axial_jacobian <= 0.12 or max_contact > 1 or residuals.max() > .5:
+        raise ValueError(f'Contact fit exceeds bounded deformation: residual {max_contact:.2f} mm, '
+                         f'gap {residuals.max():.2f} mm; native offsets {signed.min():.2f} to {signed.max():.2f} mm')
+    pitch = depth[1] - depth[0]
+    pad = int(np.ceil(18 / pitch))
+    native_depth = depth[0] + np.arange(-pad, len(depth) + pad) * pitch
+    native_field = np.broadcast_to(abs(lateral) <= track['fieldWidthMm'] / 2,
+                                   (len(native_depth), len(lateral)))
+    native_grid = lateral, native_depth, native_field
     parts = [part['id'] for part in track['parts']]
     palette = section_palette(track)
     media, scenes = output / 'media', output / 'scenes'
     media.mkdir()
     scenes.mkdir()
+    from breast_compression import refine_contact_skin
+
+    contacts = np.asarray([frame['contact'] for frame in frames])
+    center = contacts.mean(axis=0)
+    radius = float(np.linalg.norm(contacts - center, axis=1).max()) + 29
+    refined = {'torso', 'nipple', 'areola'}
     for name in ['torso', *parts]:
-        (scenes / f'{name}.mesh').write_bytes(mesh_bytes(*anatomy.meshes[name]))
+        mesh = anatomy.meshes[name]
+        if name in refined:
+            mesh = refine_contact_skin(*mesh, center, radius=radius)
+        (scenes / f'{name}.mesh').write_bytes(mesh_bytes(*mesh))
     evidence, frame_layers, pressure_names = {}, {}, []
     compression_mm = track.get('compressionMm')
+    acoustic_counts = []
     for i, frame in enumerate(frames):
-        gray, labels, skin, inside = render_frame(anatomy, frame, grid)
+        native = render_frame(anatomy, frame, native_grid, focused=focused)
+
+        def resample(pressure=0):
+            rows = contact_rows(frame['contactRig'], lateral, depth, pressure=pressure)
+            active = field & (depth[:, None] <= track['sectorDepthMm'] - pressure)
+            gray, masks, skin, inside = native
+            def sample(image, order=0):
+                return sample_contact_plate(image, native_depth, rows, order=order, field=active)
+            return (sample(gray, 1), {name: sample(mask).astype(bool) for name, mask in masks.items()},
+                    sample(skin).astype(bool), sample(inside).astype(bool))
+
+        gray, labels, skin, inside = resample()
+        acoustic_counts.append({
+            'liveFieldPixels': int(np.count_nonzero(inside)),
+            'visibleEchoPixels': int(np.count_nonzero(gray)),
+            'surfacePixels': int(np.count_nonzero(skin)),
+        })
         c, w, b = (np.asarray(frame[key]) for key in ('contact', 'width', 'beam'))
         if not skin.any() or labels['breast_fat'].sum() < 500:
             raise ValueError(f'Frame {i} misses the modeled breast')
@@ -571,6 +628,7 @@ def build(track, output, anatomy):
             frame_layers[i] = layer_evidence(labels, skin, gray, depth, require_order=i in KEYFRAMES)
         if i in KEYFRAMES:
             receipt = {name: measure_landmark(labels[name], gray) for name in parts}
+            receipt.update(acoustic_counts[-1])
             receipt['sourceLigamentPixels'] = int(labels['suspensory_ligaments'].sum())
             receipt['backgroundContinuationPixels'] = int(np.count_nonzero(
                 inside & ~np.logical_or.reduce([labels[name] for name in parts])))
@@ -588,9 +646,9 @@ def build(track, output, anatomy):
                                             'visibleDepthMm': round(depth_mm, 2),
                                             'lateralCenterMm': round(float(lateral[columns].mean()), 2)}
             else:
-                along, across = orthogonal_sections(anatomy.meshes['lactiferous_ducts'], c, w, b, lateral, depth)
-                overlap = int(np.count_nonzero(along & across & field))
-                union = int(np.count_nonzero((along | across) & field))
+                along, across = orthogonal_sections(anatomy.meshes['lactiferous_ducts'], c, w, b, lateral, native_depth)
+                overlap = int(np.count_nonzero(along & across & native_field))
+                union = int(np.count_nonzero((along | across) & native_field))
                 agreement = overlap / union if union else 0
                 if agreement < .98:
                     raise ValueError(f'Radial duct cross-section fill agreement is only {agreement:.1%}')
@@ -603,23 +661,27 @@ def build(track, output, anatomy):
         Image.fromarray(gray).save(media / f'scan-{i:02}.webp', quality=91)
         Image.fromarray(section).save(media / f'section-{i:02}.webp', quality=88)
         if compression_mm:
-            pressed_scan, pressed_section = compress_plates(
-                gray, section, depth, field, compression_mm=compression_mm, depth_mm=track['sectorDepthMm'])
+            pressed_scan, pressed_labels, _, _ = resample(compression_mm)
+            pressed_section = overlay(pressed_scan, pressed_labels, palette)
             for kind, plate, quality in (('scan', pressed_scan, 91), ('section', pressed_section, 88)):
                 name = f'press-{kind}-{i:02}.webp'
                 Image.fromarray(plate).save(media / name, quality=quality)
                 pressure_names.append(f'media/{name}')
     (output / 'sweep.js').write_text('const sweep = ' + json.dumps(frames, separators=(',', ':')) + ';\n')
-    tour_evidence = ({'coverage': coverage_evidence(anatomy, frames, offsets, track['fieldWidthMm'], frame_layers)}
+    tour_evidence = ({'coverage': coverage_evidence(anatomy, frames, frame_layers)}
                      if sweep_id == 'breast' else {'steering': track['steering']})
-    if focused:
-        tour_evidence['gelStandoff'] = {
-            'method': 'First surface is the anterior union of the native skin, nipple and areola. '
-                      'An illustrative gel layer fills clearance between the rigid probe and this surface.',
-            'maxLiftFromNativeSkinMm': max(frame['gelLiftMm'] for frame in frames),
-            'keyframeLiftMm': {str(i): frames[i]['gelLiftMm'] for i in KEYFRAMES},
-            'maxNearestRayClearanceMm': round(float(offsets.min(axis=1).max()), 3),
-        }
+    tour_evidence['contactRig'] = {
+        'faceWidthMm': track['fieldWidthMm'], 'faceElevationMm': 10,
+        'settleDepthMm': SETTLE_DEPTH_MM, 'featherMm': frames[0]['contactRig']['featherMm'],
+        'nativeDepthMinMm': round(float(signed.min()), 3),
+        'nativeDepthMaxMm': round(float(signed.max()), 3),
+        'contactResidualMinMm': round(float(residuals.min()), 3),
+        'contactResidualMaxMm': round(float(residuals.max()), 3),
+        'contactResidualP95Mm': round(float(np.quantile(abs(residuals), .95)), 3),
+        'independentRaysPerFrame': int(residuals[0].size),
+        'minimumAxialJacobian': round(float(minimum_axial_jacobian), 3),
+        'minimumLiveFieldPixels': min(count['liveFieldPixels'] for count in acoustic_counts),
+    }
     if compression_mm:
         tour_evidence.update(compressionMm=compression_mm, compressionSettleDepthMm=SETTLE_DEPTH_MM)
     (output / 'verification.json').write_text(json.dumps({
@@ -629,7 +691,7 @@ def build(track, output, anatomy):
         'fieldWidthMm': track['fieldWidthMm'], 'sectorDepthMm': track['sectorDepthMm'],
         'samplePitchMm': round(float(depth[1]-depth[0]), 8), 'exterior': track['exterior'],
         'surfaceMaxOuterContactErrorMm': round(max_contact, 3),
-        'apertureOffsetsMm': profile, 'angleOriginFrame': 0,
+        'angleOriginFrame': 0,
         'poseRecipeSha256': pose_recipe_sha256(track['id']), 'sectionPaletteSha256': section_palette_sha256(track),
         'renderRecipeSha256': render_recipe_sha256(sweep_id),
         'frames': evidence,
@@ -641,7 +703,7 @@ def build(track, output, anatomy):
 def main():
     from dataclasses import replace
     from breast_anatomy import FEMALE_SKIN, load_anatomy
-    from breast_layers import layered_stroma, survey_fat_layers
+    from breast_layers import layered_stroma, survey_fat_layers, survey_supine_profile
 
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('sweeps_dir', type=Path)
@@ -666,6 +728,11 @@ def main():
                 'Native gland meshes and tissue labels remain separate.'),
                 'surveyFatContinuity': ('Modeled right deep fat continues off the pectoral margins within the HRA skin. '
                                         'The thin retromammary compartment remains at the modeled muscle fascia.')})
+            model = survey_supine_profile(model)
+        else:
+            from breast_nipple import focused_anatomy
+
+            model = focused_anatomy(anatomy)
         with tempfile.TemporaryDirectory(dir=args.sweeps_dir) as stage:
             output = Path(stage) / track['id']
             output.mkdir()

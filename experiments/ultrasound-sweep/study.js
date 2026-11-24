@@ -40,6 +40,7 @@ const on = (id, value) => $(id).setAttribute('aria-pressed', String(value));
 const state = {
   frame: 0,
   shownFrame: null,
+  shownCompressed: false,
   section: false,
   compressed: false,
   assets: false,
@@ -127,11 +128,11 @@ function renderFrame(frame, scenePosition = frame) {
   const reference = prepare(acquired?.path);
   const commit = () => {
     if (request !== state.viewRequest) return;
-    state.scene?.setFrame(scenePosition, compressed);
+    state.scene?.setFrame(poses[frame].contactRig ? frame : scenePosition, compressed);
     steering?.sync(frame);
     drawReadout(frame);
     $('scanTitle').textContent = state.section ? 'Anatomical section' : 'Simulated scan';
-    $('scanDetail').textContent = scanDetail();
+    $('scanDetail').textContent = scanDetail(frame);
     $('scanDetail').hidden = state.section;
     $('legend').hidden = !state.section;
     on('section', state.section);
@@ -140,6 +141,7 @@ function renderFrame(frame, scenePosition = frame) {
     $('referenceDepth').textContent = [selectedTour.referenceContext ?? 'Different case', acquired?.depthLabel].filter(Boolean).join(' · ');
     $('referenceNote').textContent = acquired ? referenceNote(frame, keyframe) : 'Reference unavailable';
     state.shownFrame = frame;
+    state.shownCompressed = compressed;
   };
   if (scan.finished && reference.finished) commit();
   else {
@@ -158,7 +160,7 @@ function pause() {
   if (!state.playback) return;
   cancelAnimationFrame(state.playback.request);
   state.playback = null;
-  state.scene?.setFrame(state.frame, state.compressed);
+  if (state.shownFrame !== null) state.scene?.setFrame(state.shownFrame, state.shownCompressed);
   updatePlay();
 }
 
@@ -175,7 +177,7 @@ function play() {
     const position = Math.min(last, playback.origin + (now - playback.started) / frameDuration);
     const frame = Math.round(position);
     if (frame !== state.frame) renderFrame(frame, position);
-    else if (state.shownFrame === frame) state.scene?.setFrame(position, state.compressed);
+    else if (!poses[frame].contactRig && state.shownFrame === frame) state.scene?.setFrame(position, state.shownCompressed);
     if (position === last) pause();
     else playback.request = requestAnimationFrame(advance);
   }
@@ -213,7 +215,7 @@ async function startScene() {
     const { createSweepScene } = await import('./scene.js');
     canvas.hidden = false;
     state.scene = await createSweepScene({ canvas, frames: poses, config: selectedTour, onViewPresetChange: showCameraPreset, onProbeDrag: steering?.drag });
-    state.scene.setFrame(state.shownFrame ?? state.frame, state.compressed);
+    state.scene.setFrame(state.shownFrame ?? state.frame, state.shownCompressed);
     if (selectedTour.showRoute) $('showRoute').disabled = false;
     updateTorsoOpacity();
     status.hidden = true;
@@ -322,7 +324,7 @@ function describeAsset(frame, group) {
     return {
       path: imageFile('scan', frame),
       alt: 'Simulated scan at frame ' + frame,
-      binding: 'Frame ' + frame + ' of 0–' + last + ' · ' + Number(scanDepth().toFixed(2)) + ' cm modeled depth' + (state.compressed ? ' · Gentle compression' : ''),
+      binding: 'Frame ' + frame + ' of 0–' + last + ' · ' + Number(scanDepth(frame).toFixed(2)) + ' cm modeled depth' + (state.compressed ? ' · Firmer pressure' : ''),
       note: selectedTour.simulationNote ?? 'Illustrative ultrasound derived from the CT anatomy.',
       sources: [anatomyLink, ...additionalLinks],
     };
@@ -474,12 +476,13 @@ relatedAnatomy.addEventListener('toggle', () => {
   }
 });
 
-function scanDepth() {
-  return ((selectedTour.sectorDepthMm ?? 133) - (state.compressed ? selectedTour.compressionMm : 0)) / 10;
+function scanDepth(frame) {
+  const depth = poses[frame]?.imagingDepthMm ?? selectedTour.sectorDepthMm ?? 133;
+  return (depth - (state.compressed ? selectedTour.compressionMm : 0)) / 10;
 }
 
-function scanDetail() {
-  return (isLinear() ? 'High-frequency linear array' : 'Curved array') + ' · ' + Number(scanDepth().toFixed(2)) + ' cm depth';
+function scanDetail(frame) {
+  return (isLinear() ? 'High-frequency linear array' : 'Curved array') + ' · ' + Number(scanDepth(frame).toFixed(2)) + ' cm depth';
 }
 
 function configureBreastRoutes(tours) {
@@ -677,7 +680,7 @@ async function startTour() {
     $('compression').hidden = !selectedTour.compressionMm;
   }
   $('showRoute').hidden = !selectedTour.showRoute;
-  $('scanDetail').textContent = scanDetail();
+  $('scanDetail').textContent = scanDetail(initialTourFrame());
   if (isLinear()) {
     $('surfaceOpacityLabel').textContent = 'Skin opacity';
     $('sceneCanvas').setAttribute('aria-label', `Linear probe, rectangular imaging field, ${selectedTour.region.toLowerCase()} and internal anatomy with patient orientation`);

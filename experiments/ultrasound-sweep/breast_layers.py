@@ -23,8 +23,8 @@ def layered_stroma(anatomy):
     vertices, faces = anatomy.meshes['mammary_lobes']
     right = (vertices[faces, 0] > 0).all(axis=1)
     vertices_used = vertices[np.unique(faces[right])]
-    xy_min = vertices_used[:, [0, 2]].min(0) - 6
-    xy_max = vertices_used[:, [0, 2]].max(0) + 6
+    xy_min = vertices_used[:, [0, 2]].min(0) - 10
+    xy_max = vertices_used[:, [0, 2]].max(0) + 10
     pitch = 1.5
     x, z = np.meshgrid(np.arange(xy_min[0], xy_max[0] + pitch, pitch),
                        np.arange(xy_min[1], xy_max[1] + pitch, pitch), indexing='ij')
@@ -32,13 +32,15 @@ def layered_stroma(anatomy):
     fat = organ_heights(anatomy.meshes['breast_fat'], x, z)
     supported = np.isfinite(lobes[..., 0])
     distance, nearest = nd.distance_transform_edt(~supported, sampling=pitch, return_indices=True)
-    expanded = nd.binary_fill_holes(nd.binary_closing(supported, iterations=2))
-    permitted = (distance < 6) & (expanded | (distance < 3.5)) & np.isfinite(fat[..., 0])
-    depth = nd.gaussian_filter(lobes[tuple(nearest)].mean(axis=-1), 1.6)
+    expanded = nd.binary_fill_holes(nd.binary_closing(supported, iterations=4))
+    permitted = (distance < 10) & (expanded | (distance < 7)) & np.isfinite(fat[..., 0])
+    observed = nd.gaussian_filter(lobes[tuple(nearest)].mean(axis=-1), 3.1)
+    mid_fat = nd.gaussian_filter(np.nan_to_num(fat.mean(axis=-1), nan=0), 1.35)
+    depth = .35 * observed + .65 * mid_fat - 4.0
     spread = nd.gaussian_filter(np.ptp(lobes[tuple(nearest)], axis=-1), 1.35)
-    taper = np.clip(1 - distance / 6, .15, 1)
-    half = (1.9 + .45 * spread) * (.62 + .38 * taper)
-    front_y = np.minimum(depth + half, fat[..., 1] - 2.6)
+    taper = np.clip(1 - distance / 10, .15, 1)
+    half = (6.0 + .37 * spread) * (.62 + .38 * taper)
+    front_y = np.minimum(depth + half, fat[..., 1] - 9.0)
     back_y = np.maximum(depth - half, fat[..., 0] + 1.0)
     present = permitted & (front_y > back_y + .45)
     included = grid_triangles(x.shape, present)
@@ -98,3 +100,24 @@ def survey_fat_layers(anatomy):
         return concatenate((right_mesh, left))
 
     return retain_left(right_deep, 'deep_fat'), retain_left(right_retro, 'retromammary_fat')
+
+
+def survey_supine_profile(anatomy):
+    """Reduce anterior breast projection relative to fixed modeled fascia."""
+    from dataclasses import replace
+    from breast_anatomy import wall_front
+
+    meshes = {}
+    for name, (vertices, faces) in anatomy.meshes.items():
+        x, y, z = vertices.T
+        fascia = wall_front(-15, x, z)
+        regional = np.exp(-((x - 76) / 64) ** 6 - ((z - 290) / 76) ** 6)
+        depth = np.maximum(y - fascia, 0)
+        moved = vertices.copy()
+        moved[:, 1] = y - .38 * regional * depth
+        meshes[name] = moved, faces
+    return replace(anatomy, meshes=meshes, exterior=AnteriorSurface(*meshes['torso']),
+                   receipt={**anatomy.receipt, 'surveySupineProfile': (
+                       'Illustrative regional anterior projection reduction, up to 38% relative to the modeled '
+                       'pectoral fascia. All breast surfaces and tissue meshes share this smoothly tapered '
+                       'anteroposterior coordinate transform; the fascia is fixed.')})

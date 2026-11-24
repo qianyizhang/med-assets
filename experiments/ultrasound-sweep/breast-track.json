@@ -13,7 +13,7 @@
       "nipple"
     ],
     "anatomySource": {
-      "label": "Heidi Schlehlein · HRA right mammary gland",
+      "label": "Heidi Schlehlein \u00b7 HRA right mammary gland",
       "shortLabel": "HRA breast atlas",
       "url": "https://doi.org/10.48539/HBM989.SNHP.535",
       "license": "CC BY 4.0",
@@ -24,13 +24,13 @@
     "referenceContext": "",
     "additionalAnatomySources": [
       {
-        "label": "Heidi Schlehlein · HRA left mammary gland",
+        "label": "Heidi Schlehlein \u00b7 HRA left mammary gland",
         "url": "https://doi.org/10.48539/HBM378.VWZG.633",
         "license": "CC BY 4.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
       },
       {
-        "label": "Kristen Browne and Heidi Schlehlein · HRA female skin v1.3",
+        "label": "Kristen Browne and Heidi Schlehlein \u00b7 HRA female skin v1.3",
         "url": "https://doi.org/10.48539/HBM466.LKPQ.876",
         "license": "CC BY 4.0",
         "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
@@ -110,7 +110,7 @@
         "Lower layer view"
       ],
       "sourceNote": "The HRA atlas supplies the exterior, fat and lobules. A modeled mantle around the retained lobules represents mixed fibroglandular tissue, and modeled deep fat leads to the retromammary layer and pectoralis.",
-      "simulationNote": "The illustrative echoes follow the atlas and modeled tissue layers. Four overlapping passes cover part of the right breast model.",
+      "simulationNote": "The shared model reduces breast projection over the chest wall to illustrate a supine profile. The probe flattens the surface and displaces shallow tissue in the scan and 3D view.",
       "overlayParts": [
         "fibroglandular_zone",
         "chest_wall",
@@ -134,8 +134,8 @@
         "breast-12",
         "breast-layers-48"
       ],
-      "sectorDepthMm": 110,
-      "fieldWidthMm": 52,
+      "sectorDepthMm": 76,
+      "fieldWidthMm": 38,
       "routeLabel": "Layer survey"
     },
     {
@@ -153,8 +153,8 @@
         "Across the nipple",
         "Along a subareolar duct"
       ],
-      "sourceNote": "The HRA atlases supply the breast tissues and ducts. The focused surface combines the separate skin and mammary nipple meshes; modeled deep fat continues to the retromammary layer over the illustrative pectoralis.",
-      "simulationNote": "A modeled gel standoff couples the flat probe to the curved nipple and skin. Tilt and rotation change the sampled plane; pressure is a separate illustration.",
+      "sourceNote": "The HRA atlases supply the skin, breast tissues, and ducts. A shallow modeled nipple base closes the native exterior to show the compressed nipple body.",
+      "simulationNote": "The probe locally flattens the atlas surface and displaces shallow tissue in both the scan and 3D view. The pressure control adds 3 mm of modeled probe travel.",
       "overlayParts": [
         "chest_wall",
         "pectoralis",
@@ -169,7 +169,7 @@
         "breast-subareolar-12",
         "breast-48"
       ],
-      "fieldWidthMm": 44,
+      "fieldWidthMm": 32,
       "compressionMm": 3,
       "routeLabel": "Nipple and ducts",
       "phases": [
@@ -182,7 +182,7 @@
           "label": "Turn toward the duct"
         }
       ],
-      "sectorDepthMm": 55
+      "sectorDepthMm": 26
     }
   ]
 }

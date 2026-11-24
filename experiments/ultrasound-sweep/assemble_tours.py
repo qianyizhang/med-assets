@@ -8,13 +8,14 @@ import re
 import shutil
 import tempfile
 
+import numpy as np
 import build_abdomen
 import build_axilla
 import build_breast
 import build_thyroid
 from breast_anatomy import FEMALE_SKIN_SHA, MAMMARY_SHA
 from breast_compression import SETTLE_DEPTH_MM
-from delivery import sha256, sweep_files, validate_image, validate_mesh, verify_inventory
+from delivery import read_poses, sha256, sweep_files, validate_image, validate_mesh, verify_inventory
 from geometry import FRAME_COUNT, KEYFRAMES, SECTOR_DEPTH_MM, SECTOR_HALF_ANGLE_DEG, LENS_RADIUS_MM, VOXEL_MM
 from prepare_scenes import read_vendor, shared_geometry
 
@@ -77,6 +78,36 @@ def reference_sources(regional_sources):
     return refs, files, landmarks
 
 
+def verify_contact_fields(root, track):
+    """Every frame must seat the same lens and preserve tissue depth order."""
+    frames = read_poses(root / 'sweep.js')
+    geometry = None
+    for index, frame in enumerate(frames):
+        if track['id'] == 'axilla' and frame.get('imagingDepthMm') != build_axilla.imaging_depth(index, track['sectorDepthMm']):
+            raise ValueError(f'Invalid axillary imaging depth at frame {index}')
+        try:
+            rig = frame['contactRig']
+            width, height = rig['faceWidthMm'], rig['faceElevationMm']
+            settle, feather = rig['settleDepthMm'], rig['featherMm']
+            x, y = rig['lateralMm'], rig['elevationMm']
+            shape = (x, y, width, height, settle, feather)
+            field = np.asarray(rig['surfaceMm'], dtype=float)
+            valid = (width == track['fieldWidthMm'] and min(height, settle, feather) > 0
+                     and all(math.isfinite(v) for v in (height, settle, feather))
+                     and all(len(axis) >= 3 and len(axis) % 2 and
+                             np.allclose(axis, np.linspace(-span/2, span/2, len(axis)), atol=1e-5)
+                             for axis, span in ((x, width), (y, height)))
+                     and field.shape == (len(y), len(x)) and np.isfinite(field).all()
+                     and field.max() <= .5
+                     and (track.get('compressionMm', 0) - field.min()) * 1.5 < settle
+                     and (geometry is None or geometry == shape))
+        except (TypeError, ValueError, KeyError):
+            valid = False
+        if not valid:
+            raise ValueError(f'Invalid seated contact field at frame {index} in {root.name}')
+        geometry = shape
+
+
 def verify_track(root, track, stops, builder):
     slug = track['id']
     case = track.get('case', 's1233')
@@ -85,6 +116,8 @@ def verify_track(root, track, stops, builder):
     recipe = Path(builder.__file__).name
     if builder in (build_breast, build_axilla) and receipt.get('renderRecipeSha256') != builder.render_recipe_sha256(slug):
         raise ValueError(f'Rebuild {slug} with the current tissue rendering recipe.')
+    if builder in (build_breast, build_axilla):
+        verify_contact_fields(root, track)
     if 'steering' in track:
         steering = track['steering']
         axes = steering['axes']

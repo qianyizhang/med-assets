@@ -134,7 +134,15 @@ def verify(source):
                 receipt = breast / 'verification.json'
                 wrong_source = {**json.loads(receipt.read_text()), 'femaleSkinSha256': '0' * 64}
                 wrong_render = {**json.loads(receipt.read_text()), 'renderRecipeSha256': '0' * 64}
+                missing_rig = read_poses(focused / 'sweep.js')
+                del missing_rig[12]['contactRig']
+                folded_rig = read_poses(focused / 'sweep.js')
+                folded_rig[48]['contactRig']['surfaceMm'][0][0] = -100
                 cases.extend([
+                    (focused / 'sweep.js', f'const sweep = {json.dumps(missing_rig)};'.encode(),
+                     'Invalid seated contact field at frame 12', False),
+                    (focused / 'sweep.js', f'const sweep = {json.dumps(folded_rig)};'.encode(),
+                     'Invalid seated contact field at frame 48', False),
                     (receipt, json.dumps(wrong_render).encode(), 'current tissue rendering recipe', False),
                     (steering_receipt, json.dumps(wrong_pressure).encode(), 'configured steering and compression', False),
                     (focused / 'media/press-scan-48.webp', None, 'Missing sweep input', False),
@@ -143,6 +151,11 @@ def verify(source):
                     (research / 'acquired/breast-48.webp', b'invalid', 'Unexpected acquired image identity', False),
                 ])
             if (staging / 'sweeps/axilla').exists():
+                pose_file = staging / 'sweeps/axilla/sweep.js'
+                wrong_depth = read_poses(pose_file)
+                wrong_depth[12]['imagingDepthMm'] = -1
+                cases.append((pose_file, f'const sweep = {json.dumps(wrong_depth)};'.encode(),
+                              'Invalid axillary imaging depth at frame 12', False))
                 receipt = staging / 'sweeps/axilla/verification.json'
                 wrong_skin = {**json.loads(receipt.read_text()), 'femaleSkinSha256': '0' * 64}
                 cases.append((receipt, json.dumps(wrong_skin).encode(), 'current axillary exterior', False))

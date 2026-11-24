@@ -424,12 +424,13 @@ function linearCasing(profile, voxelMm) {
   return geometry;
 }
 
-function linearTransducer({ voxelMm, fieldWidthMm }) {
+function linearTransducer({ voxelMm, fieldWidthMm }, contactRig) {
   const group = new THREE.Group();
   const half = fieldWidthMm / 2;
   const grip = half * .45;
+  const faceThickness = contactRig ? contactRig.faceElevationMm / 2 : 6.5;
   const lens = linearCasing([
-    [0, half, 6.5, .35],
+    [contactRig ? .8 : 0, half, faceThickness, .35],
     [1.2, half, 7.8, .38],
     [3.4, half + .5, 8.5, .4],
   ], voxelMm);
@@ -453,6 +454,11 @@ function linearTransducer({ voxelMm, fieldWidthMm }) {
   const pip = new THREE.SphereGeometry(1.5 / voxelMm, 20, 12);
   pip.translate((half - 8) / voxelMm, -10 / voxelMm, 8.5 / voxelMm);
   group.add(solid(lens, '#172f33'), solid(housing, '#e4ece7'), solid(relief, '#273235'), solid(pip, '#31b5a2'));
+  if (contactRig) {
+    const contactFace = new THREE.BoxGeometry(fieldWidthMm / voxelMm, contactRig.faceElevationMm / voxelMm, .8 / voxelMm);
+    contactFace.translate(0, 0, .4 / voxelMm);
+    group.add(solid(contactFace, '#172f33'));
+  }
   return group;
 }
 
@@ -465,7 +471,43 @@ function transformForFrame(frame) {
   return { position, orientation: new THREE.Quaternion().setFromRotationMatrix(basis) };
 }
 
-function breastCompression(materials, dimensions) {
+function readContactRig(frames, dimensions) {
+  const first = frames[0].contactRig;
+  if (!first && frames.every(({ contactRig }) => contactRig === undefined)) return null;
+  if (!first) throw new Error('The initial pose lacks a registered contact field.');
+  const { lateralMm, elevationMm, faceWidthMm, faceElevationMm, featherMm, settleDepthMm } = first;
+  const axes = [lateralMm, elevationMm];
+  const same = (a, b) => Math.abs(a - b) < 1e-5;
+  if (axes.some((axis) => !Array.isArray(axis) || axis.length < 2 ||
+      axis.some((value, i) => !Number.isFinite(value) || !same(value, axis[0] + i * (axis[1] - axis[0]))) ||
+      axis[1] <= axis[0]) || !same(faceWidthMm, dimensions.fieldWidthMm) ||
+      ![faceWidthMm, faceElevationMm, featherMm, settleDepthMm].every((value) => Number.isFinite(value) && value > 0) ||
+      !same(lateralMm[0], -faceWidthMm / 2) || !same(lateralMm.at(-1), faceWidthMm / 2) ||
+      !same(elevationMm[0], -faceElevationMm / 2) || !same(elevationMm.at(-1), faceElevationMm / 2)) {
+    throw new Error('The registered contact field has invalid grid coordinates.');
+  }
+  const samples = frames.map(({ contactRig: pose }) => {
+    if (!pose || axes.some((axis, i) => {
+      const actual = i === 0 ? pose.lateralMm : pose.elevationMm;
+      return actual?.length !== axis.length || axis.some((value, j) => !same(value, actual[j]));
+    }) || ['faceWidthMm', 'faceElevationMm', 'featherMm', 'settleDepthMm'].some((key) => !same(pose[key], first[key])) ||
+      pose.surfaceMm?.length !== elevationMm.length ||
+      pose.surfaceMm.some((row) => row?.length !== lateralMm.length || !row.every(Number.isFinite))) {
+      throw new Error('A pose lacks the shared contact footprint or surface samples.');
+    }
+    return Float32Array.from(pose.surfaceMm.flat());
+  });
+  const size = new THREE.Vector2(lateralMm.length, elevationMm.length);
+  const texture = new THREE.DataTexture(samples[0].slice(), size.x, size.y, THREE.RedFormat, THREE.FloatType);
+  texture.needsUpdate = true;
+  return {
+    texture, samples, size, faceElevationMm, featherMm, settleDepthMm,
+    start: new THREE.Vector2(lateralMm[0], elevationMm[0]),
+    step: new THREE.Vector2(lateralMm[1] - lateralMm[0], elevationMm[1] - elevationMm[0]),
+  };
+}
+
+function breastCompression(materials, dimensions, rig) {
   const uniforms = {
     pressMm: { value: 0 },
     pressOrigin: { value: vec(0, 0, 0) },
@@ -474,37 +516,97 @@ function breastCompression(materials, dimensions) {
     pressElevation: { value: vec(0, 0, 0) },
     pressVoxelMm: { value: dimensions.voxelMm },
     pressHalfWidthMm: { value: dimensions.fieldWidthMm / 2 },
-    pressSettleMm: { value: dimensions.pressSettleMm },
+    pressSettleMm: { value: rig?.settleDepthMm ?? dimensions.pressSettleMm },
   };
+  if (rig) Object.assign(uniforms, {
+    pressSkin: { value: rig.texture },
+    pressGridSize: { value: rig.size },
+    pressGridStart: { value: rig.start },
+    pressGridStep: { value: rig.step },
+    pressHalfElevationMm: { value: rig.faceElevationMm / 2 },
+    pressFeatherMm: { value: rig.featherMm },
+  });
+  const registeredField = rig ? `
+    uniform sampler2D pressSkin;
+    uniform vec2 pressGridSize, pressGridStart, pressGridStep;
+    uniform float pressHalfElevationMm, pressFeatherMm;
+
+    float pressSkinAt(vec2 xy) {
+      // DataTexture uses nearest sampling, so bilinear interpolation is explicit
+      // and does not depend on float-linear texture support.
+      vec2 grid = clamp((xy - pressGridStart) / pressGridStep, vec2(0.0), pressGridSize - 1.0);
+      vec2 low = floor(grid);
+      vec2 high = min(low + 1.0, pressGridSize - 1.0);
+      vec2 t = grid - low;
+      float a = texture2D(pressSkin, (low + .5) / pressGridSize).r;
+      float b = texture2D(pressSkin, (vec2(high.x, low.y) + .5) / pressGridSize).r;
+      float c = texture2D(pressSkin, (vec2(low.x, high.y) + .5) / pressGridSize).r;
+      float d = texture2D(pressSkin, (high + .5) / pressGridSize).r;
+      return mix(mix(a, b, t.x), mix(c, d, t.x), t.y);
+    }
+
+    float pressDisplacement(vec3 p) {
+      vec2 halfFace = vec2(pressHalfWidthMm, pressHalfElevationMm);
+      if (any(greaterThanEqual(abs(p.xy), halfFace + pressFeatherMm))) return 0.0;
+      vec2 feather = 1.0 - smoothstep(halfFace, halfFace + pressFeatherMm, abs(p.xy));
+      float skin = pressSkinAt(p.xy);
+      float shallow = 1.0 - smoothstep(0.0, pressSettleMm, max(0.0, p.z - skin));
+      return max(pressMm - skin, 0.0) * feather.x * feather.y * shallow;
+    }
+  ` : `
+    float pressDisplacement(vec3 p) {
+      if (pressMm == 0.0) return 0.0;
+      float shallow = smoothstep(-9.0, -3.0, p.z) * (1.0 - smoothstep(0.0, pressSettleMm, p.z));
+      float across = 1.0 - smoothstep(pressHalfWidthMm, pressHalfWidthMm + 10.0, abs(p.x));
+      float offPlane = 1.0 - smoothstep(6.5, 18.0, abs(p.y));
+      return pressMm * shallow * across * offPlane;
+    }
+  `;
   for (const material of materials) {
     material.onBeforeCompile = (shader) => {
       Object.assign(shader.uniforms, uniforms);
-      // The central plane matches breast_compression.py. The extra tapers keep
-      // off-plane tissue and the surrounding skin outside the face undisturbed.
       shader.vertexShader = `
         uniform float pressMm, pressVoxelMm, pressHalfWidthMm, pressSettleMm;
         uniform vec3 pressOrigin, pressBeam, pressWidth, pressElevation;
-      ` + shader.vertexShader.replace('#include <begin_vertex>', `
-        #include <begin_vertex>
-        if (pressMm > 0.0) {
+
+        vec3 pressCoordinates(vec3 position) {
           vec3 offsetMm = (position - pressOrigin) * pressVoxelMm;
-          float depthMm = dot(offsetMm, pressBeam);
-          float lateralMm = abs(dot(offsetMm, pressWidth));
-          float elevationMm = abs(dot(offsetMm, pressElevation));
-          float shallow = smoothstep(-9.0, -3.0, depthMm) * (1.0 - smoothstep(0.0, pressSettleMm, depthMm));
-          float across = 1.0 - smoothstep(pressHalfWidthMm, pressHalfWidthMm + 10.0, lateralMm);
-          float offPlane = 1.0 - smoothstep(6.5, 18.0, elevationMm);
-          transformed += pressBeam * (pressMm / pressVoxelMm * shallow * across * offPlane);
+          return vec3(dot(offsetMm, pressWidth), dot(offsetMm, pressElevation), dot(offsetMm, pressBeam));
         }
+      ` + registeredField + shader.vertexShader.replace('#include <begin_vertex>', `
+        #include <begin_vertex>
+        transformed += pressBeam * (pressDisplacement(pressCoordinates(position)) / pressVoxelMm);
       `);
+      if (material.isMeshStandardMaterial) {
+        shader.vertexShader = shader.vertexShader.replace('#include <beginnormal_vertex>', `
+          #include <beginnormal_vertex>
+          vec3 localMm = pressCoordinates(position);
+          const float sampleMm = 0.2;
+          // The map is a beam-axis displacement. Its Jacobian's cofactor
+          // carries the original surface normal through the deformation.
+          float initialDisplacement = pressDisplacement(localMm);
+          vec3 derivative = (vec3(
+            pressDisplacement(localMm + vec3(sampleMm, 0.0, 0.0)),
+            pressDisplacement(localMm + vec3(0.0, sampleMm, 0.0)),
+            pressDisplacement(localMm + vec3(0.0, 0.0, sampleMm))
+          ) - initialDisplacement) / sampleMm;
+          vec3 gradient = pressWidth * derivative.x + pressElevation * derivative.y + pressBeam * derivative.z;
+          objectNormal = normalize((1.0 + derivative.z) * objectNormal - gradient * dot(pressBeam, objectNormal));
+        `);
+      }
     };
+    material.customProgramCacheKey = () => 'breast-contact-' + (rig ? 'registered' : 'unregistered');
   }
-  return (amount, contact, orientation) => {
+  return (frame, amount, contact, orientation) => {
+    if (rig) {
+      rig.texture.image.data.set(rig.samples[frame]);
+      rig.texture.needsUpdate = true;
+    }
     uniforms.pressMm.value = amount;
     uniforms.pressOrigin.value.copy(contact);
     uniforms.pressBeam.value.set(0, 0, -1).applyQuaternion(orientation);
     uniforms.pressWidth.value.set(1, 0, 0).applyQuaternion(orientation);
-    uniforms.pressElevation.value.set(0, 1, 0).applyQuaternion(orientation);
+    uniforms.pressElevation.value.set(0, -1, 0).applyQuaternion(orientation);
   };
 }
 
@@ -675,11 +777,17 @@ export async function createSweepScene({ canvas, frames, config, onViewPresetCha
   if (linear && !(rectangular && Number.isFinite(dimensions.fieldWidthMm) && dimensions.fieldWidthMm > 0)) {
     throw new Error('The linear probe requires a rectangular field with a positive width.');
   }
+  const contactRig = readContactRig(frames, dimensions);
+  const settleMm = contactRig?.settleDepthMm ?? dimensions.pressSettleMm;
   const pressureMm = config.compressionMm ?? 0;
   if (pressureMm && !(linear && Number.isFinite(pressureMm) && pressureMm > 0 &&
-      Number.isFinite(dimensions.pressSettleMm) &&
-      pressureMm < Math.min(2 * dimensions.pressSettleMm / 3, dimensions.sectorDepthMm))) {
+      Number.isFinite(settleMm) && pressureMm < Math.min(2 * settleMm / 3, dimensions.sectorDepthMm))) {
     throw new Error('Probe compression requires a valid linear imaging depth.');
+  }
+  const depths = frames.map(({ imagingDepthMm }) => imagingDepthMm ?? dimensions.sectorDepthMm);
+  if (depths.some((depth) => !Number.isFinite(depth) || depth <= pressureMm || depth > dimensions.sectorDepthMm) ||
+      (!rectangular && depths.some((depth) => depth !== dimensions.sectorDepthMm))) {
+    throw new Error('The sweep has an invalid imaging depth.');
   }
   const meshes = Object.fromEntries(names.map((name, index) => [name, geometries[index]]));
   const transforms = frames.map(transformForFrame);
@@ -694,7 +802,7 @@ export async function createSweepScene({ canvas, frames, config, onViewPresetCha
     if (!localBounds.isEmpty()) fitBounds = localBounds;
   }
   const probe = linear
-    ? linearTransducer(dimensions)
+    ? linearTransducer(dimensions, contactRig)
     : curvedTransducer(Object.fromEntries(probeNames.map((name, index) => [name, probeGeometries[index]])), dimensions);
   const sector = rectangular ? rectangleGeometry(dimensions) : sectorGeometry(dimensions);
   let framing;
@@ -714,6 +822,9 @@ export async function createSweepScene({ canvas, frames, config, onViewPresetCha
   // after anatomical structures and the scan field have rendered.
   const torsoDepth = new THREE.Mesh(meshes.torso, new THREE.MeshBasicMaterial({
     transparent: true, colorWrite: false, depthWrite: true,
+    // The color and depth passes use different shader paths. Bias the
+    // prepass slightly back to avoid self-rejection from rounding.
+    polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1,
   }));
   torsoDepth.renderOrder = 3.5;
   const view = viewport(canvas, {
@@ -744,10 +855,10 @@ export async function createSweepScene({ canvas, frames, config, onViewPresetCha
       internal.add(mesh);
     }
   }
-  const deform = pressureMm ? breastCompression([
+  const deform = pressureMm || contactRig ? breastCompression([
     torso.material, torsoDepth.material, ...internal.children.map((part) => part.material),
     ...surface.children.map((part) => part.material),
-  ], dimensions) : null;
+  ], dimensions, contactRig) : null;
   internal.add(sector);
   view.scene.add(torso, torsoDepth, probe, cable, internal, surface);
   const route = config.showRoute && linear ? surveyRoute(transforms, dimensions) : null;
@@ -758,7 +869,7 @@ export async function createSweepScene({ canvas, frames, config, onViewPresetCha
   let pressed = 0;
 
   function setFrame(index, compressed = false) {
-    const frame = THREE.MathUtils.clamp(index, 0, last);
+    const frame = THREE.MathUtils.clamp(contactRig ? Math.round(index) : index, 0, last);
     const amount = compressed ? pressureMm : 0;
     if (!Number.isFinite(frame) || (frame === selected && amount === pressed)) return;
     selected = frame;
@@ -769,12 +880,13 @@ export async function createSweepScene({ canvas, frames, config, onViewPresetCha
     probe.position.copy(transforms[lo].position).lerp(transforms[hi].position, mix);
     probe.quaternion.copy(transforms[lo].orientation).slerp(transforms[hi].orientation, mix);
     const outward = vec(0, 0, 1).applyQuaternion(probe.quaternion);
-    deform?.(pressed, probe.position, probe.quaternion);
+    deform?.(frame, pressed, probe.position, probe.quaternion);
     route?.setFrame(frame, probe.position, probe.quaternion);
     probe.position.addScaledVector(outward, -pressed / dimensions.voxelMm);
     sector.position.copy(probe.position);
     sector.quaternion.copy(probe.quaternion);
-    sector.scale.z = (dimensions.sectorDepthMm - pressed) / dimensions.sectorDepthMm;
+    const imagingDepth = THREE.MathUtils.lerp(depths[lo], depths[hi], mix);
+    sector.scale.z = (imagingDepth - pressed) / dimensions.sectorDepthMm;
 
     const cableScale = linear ? 1 / dimensions.voxelMm : 1;
     const end = probe.position.clone().addScaledVector(outward, linear ? 84 * cableScale : 60);
@@ -824,5 +936,11 @@ export async function createSweepScene({ canvas, frames, config, onViewPresetCha
 
   setTorsoOpacity(.32);
   setFrame(0);
-  return { setFrame, setTorsoOpacity, setRouteVisible, setViewPreset: view.setViewPreset, resetView: view.reset, dispose: view.dispose };
+  return {
+    setFrame, setTorsoOpacity, setRouteVisible, setViewPreset: view.setViewPreset, resetView: view.reset,
+    dispose() {
+      view.dispose();
+      contactRig?.texture.dispose();
+    },
+  };
 }
