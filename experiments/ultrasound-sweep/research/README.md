@@ -1,8 +1,8 @@
-# Abdomen acquired reference study
+# Ultrasound reference studies
 
 Use the acquired image for each reference keyframe to judge the shape of the lumen, brightness and definition of the wall, surrounding tissue, and depth. The acquisition lead-in and intermediate rotations are modeled transitions. The control names the closest endpoint when a reference stays on screen during a transition.
 
-## Reference inventory
+## Abdomen reference inventory
 
 The [hepatopancreatic record](hepatopancreatic.json) covers liver, portal vein and pancreas. Four cropped panels from Figure 1 show the labeled liver and pancreas views. Two POCUS Atlas stills show the main portal vein along and across its course. The record pins original and exported hashes, crop coordinates, attribution, and transformations. WebP derivatives use Pillow 11.3.0, quality 94 and method 6. [Okaniwa et al., abdominal ultrasound manual](https://doi.org/10.1007/s10396-022-01272-w) · [POCUS Atlas biliary collection](https://www.thepocusatlas.com/hepatobiliary)
 
@@ -32,3 +32,9 @@ Four additional panels from the same published figure fill specific gaps in the 
 The [build recipe](../build_study.py) verifies the original image identities, CT, same-case labels, and grid. The extra [rib hashes](rib-pins.json) are from the s1233 source receipt. The CT and segmentation source is [TotalSegmentator v2.0.1](https://zenodo.org/records/10047263), Jakob Wasserthal, contributors and University Hospital Basel, CC BY 4.0. The earlier fixed-camera prototype used a small regional locator from the anterior view of the [reviewed BodyParts3D skin export](../../../models/skin/exports/teaching-economy-r01/README.md), © DBCLS, [CC BY 4.0](https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html). That historical inset indicated the region on a separate adult atlas. The live study uses the [full-resolution BodyParts3D exterior](../../../models/skin/exports/bp3d-envelope-r01/README.md) and [atlas skeleton](../../../models/skeleton/exports/teaching-economy-r01/README.md), under the same DBCLS terms. Right ribs 6–10 supply the atlas-to-case fit. The fitted contact window follows the CT skin. The flank sweeps stage the atlas arm to expose the side of the abdomen. The internal organs, probe track and sector use the s1233 frame.
 
 The different cases support visual comparisons. Specialist review of probe technique, ultrasound appearance and use for teaching is open. The experiment provides no disease examples or quantitative measurement task.
+
+## Thyroid
+
+The [thyroid record](thyroid.json) binds each reference to its original PDF, page, panel, pixel crop, license and exported image hash. Choi’s Figure 1 shows the right lobe in transverse and longitudinal planes (A and B), the isthmus in transverse (C), and the left lobe in transverse and longitudinal planes (D and E). Each crop includes its original depth scale and probe orientation diagram. Panel B retains the published color Doppler. [Primary figure, page 3](https://clinicalultrasound.org/upload/pdf/cu-8-1-7.pdf#page=3) · [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/)
+
+The two modeled sweeps use s1127, whose thyroid label forms a continuous bridge. Compare the lobe outline, relative vessel position and tracheal boundary at each stop. The modeled field extends to 7.8 cm. The acquired panels show the gland at a shallower depth in a field of about 3 cm. The CT-derived model and the ultrasound subject have different skin contours and tissue depths. Its grayscale images illustrate anatomy without a Doppler calculation.

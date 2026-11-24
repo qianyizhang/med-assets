@@ -7,7 +7,7 @@ import shutil
 import tempfile
 
 import assemble_tours
-from delivery import sha256
+from delivery import read_poses, sha256
 
 
 def javascript_value(path, variable):
@@ -51,7 +51,8 @@ def verify(source):
                     data = (destination / row['path']).read_bytes()
                     if 'sha256' in row:
                         assert sha256(data) == row['sha256']
-                assert [key['frame'] for key in tour['keyframes']] == [12, 48]
+                expected = [0, 12, 48] if tour['id'].startswith('thyroid-') else [12, 48]
+                assert [key['frame'] for key in tour['keyframes']] == expected
             assert len(projected) < sum(1 + len(tour['parts']) for tour in tours)
             assert not (destination / 'torso.npz').exists()
             assert not (destination / 'sweeps/aorta/delivery.json').exists()
@@ -81,6 +82,32 @@ def verify(source):
                 (research / 'acquired/extrahepatic-duct.webp', b'invalid acquired comparison',
                  'Unexpected acquired image identity', False),
             ]
+            right = staging / 'sweeps/thyroid-right'
+            if right.exists():
+                left = staging / 'sweeps/thyroid-left'
+                thyroid = [tour for tour in tours if tour['id'] in ('thyroid-left', 'thyroid-right')]
+                assert len(thyroid) == 2
+                assert all(tour['initialFrame'] == 12 and tour['keyframes'][0]['referenceId'] == 'thyroid-isthmus'
+                           for tour in thyroid)
+                assert read_poses(right / 'sweep.js')[0] == read_poses(left / 'sweep.js')[0]
+                for filename in ('scan-00.webp', 'section-00.webp'):
+                    assert (right / 'media' / filename).read_bytes() == (left / 'media' / filename).read_bytes()
+                left.rename(work / 'left')
+                reject(staging, broken, 'Incomplete thyroid study')
+                right.rename(work / 'right')
+                abdomen = work / 'abdomen'
+                assemble_tours.assemble(staging, abdomen)
+                previous = javascript_value(abdomen / 'abdomen-tours.js', 'abdomenTours')
+                assert previous == [tour for tour in tours if tour['id'] not in ('thyroid-left', 'thyroid-right')]
+                (work / 'left').rename(left)
+                (work / 'right').rename(right)
+                receipt = right / 'verification.json'
+                wrong_field = {**json.loads(receipt.read_text()), 'fieldWidthMm': -1}
+                cases.extend([
+                    (receipt, json.dumps(wrong_field).encode(), 'configured linear field', False),
+                    (right / 'delivery.json', None, 'Missing thyroid delivery inventory', False),
+                    (research / 'acquired/thyroid-isthmus.webp', b'invalid', 'Unexpected acquired image identity', False),
+                ])
             for path, bad, expected, reseal in cases:
                 original = path.read_bytes()
                 if bad is None:

@@ -2,7 +2,6 @@
 
 const $ = (id) => document.getElementById(id);
 const frameDuration = 110;
-const ctSource = 'https://zenodo.org/records/10047263';
 const atlasSource = 'https://dbarchive.biosciencedbc.jp/en/bodyparts3d/desc.html';
 const cameraPresets = [['oblique', 'Oblique'], ['axial', 'Axial'], ['coronal', 'Coronal'], ['sagittal', 'Sagittal']];
 const unavailableImage = { image: null, finished: true, pending: Promise.resolve() };
@@ -11,6 +10,18 @@ let poses;
 let last;
 let keyframes;
 let phases;
+function anatomySource() {
+  const caseId = selectedTour.case ?? 's1233';
+  return selectedTour.anatomySource ?? {
+    label: 'TotalSegmentator ' + caseId + ', Jakob Wasserthal and colleagues',
+    shortLabel: 'TotalSegmentator ' + caseId + ' anatomy',
+    url: 'https://zenodo.org/records/10047263',
+    license: 'CC BY 4.0',
+    licenseUrl: 'https://creativecommons.org/licenses/by/4.0/',
+  };
+}
+const isLinear = () => selectedTour.probeType === 'linear';
+const fieldLabel = () => selectedTour.fieldShape === 'rectangle' ? 'Imaging field' : 'Imaging sector';
 const imageFile = (kind, frame) =>
   selectedTour.assetRoot + 'media/' + kind + '-' + String(frame).padStart(2, '0') + '.webp';
 const nearestKeyframe = (frame) => keyframes.reduce((nearest, candidate) =>
@@ -121,6 +132,7 @@ function renderFrame(frame, scenePosition = frame) {
     on('section', state.section);
     showImage('scanArea', 'scan', scan, $('scanTitle').textContent + ' at frame ' + frame + '.', 'Scan unavailable for this frame.');
     showImage('referenceArea', 'ref', reference, acquired?.title ?? 'Acquired ultrasound.', 'Clinical reference unavailable.');
+    $('referenceDepth').textContent = acquired?.depthLabel ? 'Different case · ' + acquired.depthLabel : 'Different case';
     $('referenceNote').textContent = acquired ? referenceNote(frame, keyframe) : 'Reference unavailable';
     state.shownFrame = frame;
   };
@@ -286,6 +298,8 @@ $('assetFrame').options[0].disabled = true;
 $('assetFrame').onchange = (event) => selectFrame(Number(event.currentTarget.value));
 
 function describeAsset(frame, group) {
+  const source = anatomySource();
+  const caseLink = [source.shortLabel ?? source.label, source.url];
   if (group === 'anatomy') {
     const partNames = selectedTour.parts.map((part) => part.label).join(', ');
     const region = selectedTour.region ?? selectedTour.title;
@@ -293,8 +307,8 @@ function describeAsset(frame, group) {
       binding: region + ' · ' + partNames,
       note: selectedTour.sourceNote ?? '',
       sources: usesAtlas(selectedTour)
-        ? [['BodyParts3D exterior', atlasSource], ['TotalSegmentator s1233 anatomy', ctSource]]
-        : [['TotalSegmentator s1233 anatomy', ctSource]],
+        ? [['BodyParts3D exterior', atlasSource], caseLink]
+        : [caseLink],
     };
   }
   if (group === 'simulation') {
@@ -303,7 +317,7 @@ function describeAsset(frame, group) {
       alt: 'Simulated scan at frame ' + frame,
       binding: 'Frame ' + frame + ' of 0–' + last + ' · ' + (selectedTour.sectorDepthMm ?? 133) / 10 + ' cm modeled depth',
       note: 'Illustrative ultrasound derived from the CT anatomy.',
-      sources: [['TotalSegmentator s1233 anatomy', ctSource]],
+      sources: [caseLink],
     };
   }
   const keyframe = nearestKeyframe(frame);
@@ -347,7 +361,8 @@ function drawAssets() {
   if (asset.reference) appendReferenceCredit(sources, asset.reference);
   asset.sources?.forEach(([label, href], i) => {
     if (i) sources.append(' · ');
-    addSourceLink(sources, label, href);
+    if (href) addSourceLink(sources, label, href);
+    else if (label) sources.append(label);
   });
   sources.hidden = !sources.childNodes.length;
   for (const button of $('assetControls').children) {
@@ -453,6 +468,11 @@ relatedAnatomy.addEventListener('toggle', () => {
 });
 
 function configureTimeline() {
+  const ticks = $('ticks');
+  if (keyframes.length === 3 && keyframes[0].frame === 0 && keyframes[2].frame === last) {
+    ticks.classList.add('with-start-keyframe');
+    ticks.style.setProperty('--start-tick-gap', keyframes[1].frame / last * 100 + '%');
+  }
   $('position').max = last;
   $('position').disabled = false;
   const split = phases[1]?.frame / last || 0;
@@ -470,12 +490,12 @@ function configureTimeline() {
     button.className = 'tick';
     button.id = index === 0 ? 'longTick' : index === keyframes.length - 1 ? 'shortTick' : 'tick-' + keyframe.frame;
     button.dataset.frame = keyframe.frame;
-    button.textContent = keyframe.label;
+    button.textContent = keyframe.tickLabel ?? keyframe.label;
     button.setAttribute('aria-label', keyframe.label + ' reference keyframe');
     button.style.setProperty('--tick-point', (keyframe.frame / last) * 100 + '%');
     if (keyframe.frame === 0 || keyframe.frame === last) button.classList.add('edge');
     button.onclick = () => selectFrame(keyframe.frame);
-    $('ticks').append(button);
+    ticks.append(button);
     $('assetFrame').add(new Option(keyframe.label, keyframe.frame));
   });
 }
@@ -507,7 +527,21 @@ function appendReferenceCredit(parent, reference, includeLicense = true) {
 }
 
 function configureSources() {
+  const source = anatomySource();
+  const anatomy = $('anatomySource');
+  anatomy.append('The CT-derived anatomy is adapted from ');
+  if (source.url) addSourceLink(anatomy, source.label, source.url);
+  else anatomy.append(source.label);
+  if (source.license) {
+    anatomy.append(' (');
+    if (source.licenseUrl) addSourceLink(anatomy, source.license, source.licenseUrl);
+    else anatomy.append(source.license);
+    anatomy.append(')');
+  }
+  anatomy.append('. The transducer and tissue appearance are authored.');
+  anatomy.hidden = false;
   $('atlasSource').hidden = !usesAtlas(selectedTour);
+  if (selectedTour.bodyRegion === 'Neck') $('atlasFitScope').textContent = 'the BodyParts3D adult skin model';
   $('tourSourceNote').textContent = selectedTour.sourceNote ?? '';
   $('tourSourceNote').hidden = !selectedTour.sourceNote;
   const comparisonIds = new Set(keyframes.map((key) => key.referenceId));
@@ -534,8 +568,10 @@ function loadPoses(assetRoot) {
   });
 }
 
-function legacyInitialFrame() {
-  return selectedTour.id === 'gallbladder' && location.hash === '#guided' ? 0 : keyframes[0].frame;
+function initialTourFrame() {
+  if (selectedTour.id === 'gallbladder' && location.hash === '#guided') return 0;
+  const frame = selectedTour.initialFrame;
+  return Number.isInteger(frame) && frame >= 0 && frame <= last ? frame : keyframes[0].frame;
 }
 
 async function startTour() {
@@ -550,7 +586,17 @@ async function startTour() {
     history.replaceState(null, '', currentURL);
   }
   const picker = $('sweepPicker');
-  for (const tour of tours) picker.add(new Option(tour.title, tour.id));
+  const regions = new Map();
+  for (const tour of tours) {
+    const region = tour.bodyRegion ?? 'Abdomen';
+    if (!regions.has(region)) {
+      const group = document.createElement('optgroup');
+      group.label = region;
+      regions.set(region, group);
+      picker.append(group);
+    }
+    regions.get(region).append(new Option(tour.title, tour.id));
+  }
   picker.value = selectedTour.id;
   picker.disabled = false;
   picker.onchange = () => {
@@ -569,14 +615,22 @@ async function startTour() {
   last = poses.length - 1;
   keyframes = selectedTour.keyframes.filter((key) => key.frame >= 0 && key.frame <= last).sort((a, b) => a.frame - b.frame);
   if (!keyframes.length) throw new Error('Reference keyframes unavailable.');
-  phases = selectedTour.phases ?? [{ frame: 0, label: 'Find window' }, { frame: keyframes[0].frame, label: 'Rotate probe' }];
+  phases = selectedTour.phases ?? [
+    { frame: 0, label: 'Find window' },
+    { frame: keyframes.find(({ frame }) => frame > 0)?.frame ?? last, label: 'Rotate probe' },
+  ];
   configureTimeline();
-  $('scanDetail').textContent = 'Curved array · ' + (selectedTour.sectorDepthMm ?? 133) / 10 + ' cm depth';
-  configureLegend($('sceneLegend'), [{ label: 'Imaging sector', color: '#84b5d1' }, ...selectedTour.parts]);
+  const probeLabel = isLinear() ? 'High-frequency linear array' : 'Curved array';
+  $('scanDetail').textContent = probeLabel + ' · ' + (selectedTour.sectorDepthMm ?? 133) / 10 + ' cm depth';
+  if (selectedTour.bodyRegion === 'Neck') {
+    $('surfaceOpacityLabel').textContent = 'Skin opacity';
+    $('sceneCanvas').setAttribute('aria-label', 'Linear probe, rectangular imaging field, neck and internal anatomy with patient orientation');
+  }
+  configureLegend($('sceneLegend'), [{ label: fieldLabel(), color: '#84b5d1' }, ...selectedTour.parts]);
   configureLegend($('legend'), selectedTour.overlayParts ?? selectedTour.parts);
   configureRelatedPlates();
   configureSources();
-  state.frame = legacyInitialFrame();
+  state.frame = initialTourFrame();
   drawReadout(state.frame);
   const currentKeyframe = nearestKeyframe(state.frame);
   $('referenceNote').textContent = acquiredFor(currentKeyframe) ? referenceNote(state.frame, currentKeyframe) : 'Reference unavailable';
@@ -598,7 +652,7 @@ window.addEventListener('hashchange', () => {
   if (selectedTour?.id === 'gallbladder' && keyframes &&
       (location.hash === '#probe' || location.hash === '#guided')) {
     showAssets(false);
-    selectFrame(legacyInitialFrame());
+    selectFrame(initialTourFrame());
   }
 });
 

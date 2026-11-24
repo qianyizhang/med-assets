@@ -274,6 +274,21 @@ function solid(geometry, color, opacity = 1) {
   }));
 }
 
+function imagingWireframe(border, grid) {
+  const group = new THREE.Group();
+  for (const [points, opacity] of [[border, .98], [grid, .46]]) {
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute('position', new THREE.Float32BufferAttribute(points, 3));
+    const material = new THREE.LineBasicMaterial({
+      color: '#8ad8f8', transparent: true, opacity, depthWrite: false, toneMapped: false,
+    });
+    const lines = new THREE.LineSegments(geometry, material);
+    lines.renderOrder = 3;
+    group.add(lines);
+  }
+  return group;
+}
+
 function sectorGeometry({ voxelMm, lensRadiusMm, sectorDepthMm, sectorHalfAngleDeg }) {
   const angle = THREE.MathUtils.degToRad(sectorHalfAngleDeg);
   const radii = [lensRadiusMm, ...[.25, .5, .75].map((fraction) => lensRadiusMm + sectorDepthMm * fraction),
@@ -294,27 +309,103 @@ function sectorGeometry({ voxelMm, lensRadiusMm, sectorDepthMm, sectorHalfAngleD
     const lines = Math.abs(i) === 3 ? border : grid;
     lines.push(...point(radii[0], angle * i / 3), ...point(radii.at(-1), angle * i / 3));
   }
-  const group = new THREE.Group();
-  for (const [points, opacity] of [[border, .98], [grid, .46]]) {
-    const geometry = new THREE.BufferGeometry();
-    geometry.setAttribute('position', new THREE.Float32BufferAttribute(points, 3));
-    const material = new THREE.LineBasicMaterial({
-      color: '#8ad8f8', transparent: true, opacity, depthWrite: false, toneMapped: false,
-    });
-    const lines = new THREE.LineSegments(geometry, material);
-    lines.renderOrder = 3;
-    group.add(lines);
-  }
-  return group;
+  return imagingWireframe(border, grid);
 }
 
-function transducer(meshes, dimensions) {
+function rectangleGeometry({ voxelMm, fieldWidthMm, sectorDepthMm }) {
+  const halfWidth = fieldWidthMm / voxelMm / 2;
+  const depth = sectorDepthMm / voxelMm;
+  const frontLeft = [-halfWidth, 0, 0];
+  const frontRight = [halfWidth, 0, 0];
+  const backLeft = [-halfWidth, 0, -depth];
+  const backRight = [halfWidth, 0, -depth];
+  const border = [...frontLeft, ...frontRight, ...frontRight, ...backRight, ...backRight, ...backLeft, ...backLeft, ...frontLeft];
+  const grid = [];
+  for (let i = 1; i < 6; i++) {
+    const x = halfWidth * (i / 3 - 1);
+    grid.push(x, 0, 0, x, 0, -depth);
+  }
+  for (let i = 1; i < 4; i++) {
+    const z = -depth * i / 4;
+    grid.push(-halfWidth, 0, z, halfWidth, 0, z);
+  }
+  return imagingWireframe(border, grid);
+}
+
+function curvedTransducer(meshes, dimensions) {
   const group = new THREE.Group();
   group.add(solid(meshes.lens, '#172f33'), solid(meshes.housing, '#e4ece7'), solid(meshes.relief, '#172f33'));
   const pip = solid(new THREE.SphereGeometry(1, 24, 12), '#31b5a2');
   pip.position.fromArray(dimensions.pipPosition);
   pip.scale.fromArray(dimensions.pipScale);
   group.add(pip);
+  return group;
+}
+
+function linearCasing(profile, voxelMm) {
+  const segments = 32;
+  const vertices = [];
+  const indices = [];
+  for (const [z, halfWidth, halfThickness, roundness] of profile) {
+    for (let i = 0; i < segments; i++) {
+      const angle = i / segments * Math.PI * 2;
+      const x = Math.cos(angle);
+      const y = Math.sin(angle);
+      vertices.push(
+        Math.sign(x) * Math.abs(x) ** roundness * halfWidth / voxelMm,
+        Math.sign(y) * Math.abs(y) ** roundness * halfThickness / voxelMm,
+        z / voxelMm,
+      );
+    }
+  }
+  const top = (profile.length - 1) * segments;
+  const bottomCenter = top + segments;
+  const topCenter = bottomCenter + 1;
+  vertices.push(0, 0, profile[0][0] / voxelMm, 0, 0, profile.at(-1)[0] / voxelMm);
+  for (let i = 0; i < segments; i++) {
+    const next = (i + 1) % segments;
+    indices.push(bottomCenter, next, i, topCenter, top + i, top + next);
+    for (let ring = 0; ring < top; ring += segments) {
+      const above = ring + segments;
+      indices.push(ring + i, ring + next, above + i, ring + next, above + next, above + i);
+    }
+  }
+  const geometry = new THREE.BufferGeometry();
+  geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+  geometry.setIndex(indices);
+  geometry.computeVertexNormals();
+  return geometry;
+}
+
+function linearTransducer({ voxelMm, fieldWidthMm }) {
+  const group = new THREE.Group();
+  const half = fieldWidthMm / 2;
+  const grip = half * .45;
+  const lens = linearCasing([
+    [0, half, 6.5, .35],
+    [1.2, half, 7.8, .38],
+    [3.4, half + .5, 8.5, .4],
+  ], voxelMm);
+  const housing = linearCasing([
+    [3.2, half + .6, 8.3, .4],
+    [5.6, half + 1, 10.7, .45],
+    [11, half + .8, 12.0, .47],
+    [18, half * .91, 12.8, .52],
+    [26, half * .72, 13, .61],
+    [35, grip + 1.5, 13.4, .78],
+    [42, grip, 13.5, .87],
+    [56, grip, 13.2, .87],
+    [66, grip - 1.1, 11.8, .91],
+    [72, grip - 3, 9.7, .93],
+    [75, 7.0, 7.7, .95],
+    [76, 5.0, 5.5, 1],
+  ], voxelMm);
+  const relief = new THREE.CylinderGeometry(2.8 / voxelMm, 4.7 / voxelMm, 9 / voxelMm, 20);
+  relief.rotateX(Math.PI / 2);
+  relief.translate(0, 0, 79.5 / voxelMm);
+  const pip = new THREE.SphereGeometry(1.5 / voxelMm, 20, 12);
+  pip.translate((half - 8) / voxelMm, -10 / voxelMm, 8.5 / voxelMm);
+  group.add(solid(lens, '#172f33'), solid(housing, '#e4ece7'), solid(relief, '#273235'), solid(pip, '#31b5a2'));
   return group;
 }
 
@@ -333,9 +424,24 @@ function boundsCorners(bounds) {
     [min.z, max.z].map((z) => vec(x, y, z))));
 }
 
-function cameraPresets(organ, pivot, fitBounds, transforms, probe, sector) {
+function neckFraming(pivot, bodyBounds, voxelMm) {
+  const contextBounds = bodyBounds.clone();
+  // Keep superior and inferior case context, and focus laterally on the probed side.
+  const width = 66 / voxelMm;
+  contextBounds.min.x = Math.max(contextBounds.min.x, pivot.x - width);
+  contextBounds.max.x = Math.min(contextBounds.max.x, pivot.x + width);
+  contextBounds.min.y = Math.max(contextBounds.min.y, pivot.y - 42 / voxelMm);
+  contextBounds.min.z = Math.max(contextBounds.min.z, pivot.z - 72 / voxelMm);
+  contextBounds.max.z = Math.min(contextBounds.max.z, pivot.z + 96 / voxelMm);
+  const side = pivot.x < bodyBounds.getCenter(vec(0, 0, 0)).x ? -1 : 1;
+  return { contextBounds, padding: 5 / voxelMm, direction: vec(.92 * side, .94, .43) };
+}
+
+function cameraPresets(organ, pivot, fitBounds, transforms, probe, sector, framing = {}) {
+  const { contextBounds, padding = 8 } = framing;
   const keyframe = transforms[Math.min(12, transforms.length - 1)];
   const points = boundsCorners(fitBounds);
+  if (contextBounds) points.push(...boundsCorners(contextBounds));
   const probeCorners = boundsCorners(new THREE.Box3().setFromObject(probe));
   const fieldOutline = sector.children[0].geometry.getAttribute('position');
   const localPoints = [
@@ -366,15 +472,15 @@ function cameraPresets(organ, pivot, fitBounds, transforms, probe, sector) {
       .addScaledVector(up, (min.y + max.y) / 2 - pivot.dot(up));
     return {
       target, direction, up,
-      halfWidth: (max.x - min.x) * .58 + 8,
-      halfHeight: (max.y - min.y) * .58 + 8,
+      halfWidth: (max.x - min.x) * .58 + padding,
+      halfHeight: (max.y - min.y) * .58 + padding,
     };
   }
 
   const outward = vec(0, 0, 1).applyQuaternion(keyframe.orientation);
   const normal = vec(0, 1, 0).applyQuaternion(keyframe.orientation);
   // Use the side of the plane that leaves the probe on the near side of the target.
-  const viewDirection = outward.clone().addScaledVector(normal, normal.y >= 0 ? .7 : -.7);
+  const viewDirection = framing.direction ?? outward.clone().addScaledVector(normal, normal.y >= 0 ? .7 : -.7);
   return {
     oblique: organ === 'gallbladder' ? {
       target: pivot.clone().lerp(keyframe.position, .35).add(vec(-8, 2, 48)),
@@ -397,16 +503,25 @@ export async function createSweepScene({ canvas, frames, config, onViewPresetCha
   }
   const assetRoot = new URL(config.assetRoot, document.baseURI);
   const names = ['torso', ...config.parts.map(({ id }) => id)];
+  const linear = config.probeType === 'linear';
   const probeNames = ['lens', 'housing', 'relief'];
   const [commonDimensions, geometries, probeGeometries] = await Promise.all([
     readAsset('scenes/geometry.json', 'json'),
     Promise.all(names.map((name) => loadMesh(name, config.meshPaths?.[name]
       ?? new URL(`scenes/${name}.mesh`, assetRoot)))),
-    Promise.all(probeNames.map((name) => loadMesh(name))),
+    linear ? [] : Promise.all(probeNames.map((name) => loadMesh(name))),
   ]);
-  const dimensions = { ...commonDimensions, sectorDepthMm: config.sectorDepthMm ?? commonDimensions.sectorDepthMm };
+  const dimensions = {
+    ...commonDimensions,
+    voxelMm: config.voxelMm ?? commonDimensions.voxelMm,
+    sectorDepthMm: config.sectorDepthMm ?? commonDimensions.sectorDepthMm,
+    fieldWidthMm: config.fieldWidthMm,
+  };
+  const rectangular = config.fieldShape === 'rectangle';
+  if (linear && !(rectangular && Number.isFinite(dimensions.fieldWidthMm) && dimensions.fieldWidthMm > 0)) {
+    throw new Error('The linear probe requires a rectangular field with a positive width.');
+  }
   const meshes = Object.fromEntries(names.map((name, index) => [name, geometries[index]]));
-  const probeMeshes = Object.fromEntries(probeNames.map((name, index) => [name, probeGeometries[index]]));
   const transforms = frames.map(transformForFrame);
   const bounds = meshes[config.organ].boundingBox;
   const pivot = config.focus ? vector(config.focus) : bounds.getCenter(vec(0, 0, 0));
@@ -418,11 +533,16 @@ export async function createSweepScene({ canvas, frames, config, onViewPresetCha
     localBounds.intersect(bounds);
     if (!localBounds.isEmpty()) fitBounds = localBounds;
   }
-  const probe = transducer(probeMeshes, dimensions);
-  const sector = sectorGeometry(dimensions);
+  const probe = linear
+    ? linearTransducer(dimensions)
+    : curvedTransducer(Object.fromEntries(probeNames.map((name, index) => [name, probeGeometries[index]])), dimensions);
+  const sector = rectangular ? rectangleGeometry(dimensions) : sectorGeometry(dimensions);
+  const framing = config.bodyRegion === 'Neck'
+    ? neckFraming(pivot, meshes.torso.boundingBox, dimensions.voxelMm)
+    : undefined;
   const view = viewport(canvas, {
     pivot,
-    presets: cameraPresets(config.organ, pivot, fitBounds, transforms, probe, sector),
+    presets: cameraPresets(config.organ, pivot, fitBounds, transforms, probe, sector, framing),
     shadowTarget: transforms[Math.min(12, transforms.length - 1)].position,
     onViewPresetChange,
   });
@@ -462,15 +582,21 @@ export async function createSweepScene({ canvas, frames, config, onViewPresetCha
     sector.quaternion.copy(probe.quaternion);
 
     const outward = vec(0, 0, 1).applyQuaternion(probe.quaternion);
-    const end = probe.position.clone().addScaledVector(outward, 60);
-    const path = new THREE.CatmullRomCurve3([
+    const cableScale = linear ? 1 / dimensions.voxelMm : 1;
+    const end = probe.position.clone().addScaledVector(outward, linear ? 84 * cableScale : 60);
+    const path = new THREE.CatmullRomCurve3(linear ? [
+      end,
+      end.clone().addScaledVector(outward, 18 * cableScale),
+      end.clone().addScaledVector(vec(-35, 26, -13), cableScale),
+      end.clone().addScaledVector(vec(-81, 20, -43), cableScale),
+    ] : [
       end,
       end.clone().addScaledVector(outward, 13),
       end.clone().add(vec(-35, 13, -24)),
       end.clone().add(vec(-55, -7, -105)),
     ]);
     cable.geometry.dispose();
-    cable.geometry = new THREE.TubeGeometry(path, 24, 1.55, 8, false);
+    cable.geometry = new THREE.TubeGeometry(path, 24, (linear ? 1.65 : 1.55) * cableScale, 8, false);
     view.invalidate();
   }
 

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Abdomen ultrasound</title>
+    <title>Ultrasound anatomy</title>
     <link rel="stylesheet" href="study.css" />
     <script defer src="abdomen-tours.js"></script>
     <script defer src="references.js"></script>
@@ -13,7 +13,7 @@
     <header class="mast">
       <div class="bar">
         <div class="tourHeading">
-          <h1 id="tourTitle">Abdomen ultrasound</h1>
+          <h1 id="tourTitle">Ultrasound anatomy</h1>
           <label class="sweepPickerLabel" for="sweepPicker">
             <span>Sweep</span>
             <select id="sweepPicker" disabled></select>
@@ -61,7 +61,7 @@
             <div class="panelFoot sceneFoot">
               <ul id="sceneLegend" class="legend" aria-label="3D scene"></ul>
               <div class="opacityControl">
-                <label for="torsoOpacity">Torso opacity</label>
+                <label for="torsoOpacity" id="surfaceOpacityLabel">Torso opacity</label>
                 <input id="torsoOpacity" type="range" min="0" max="100" step="1" value="32" aria-valuetext="32%" disabled />
                 <output id="torsoOpacityValue" for="torsoOpacity" aria-live="off">32%</output>
               </div>
@@ -77,13 +77,13 @@
               <p class="mediaStatus" id="scanStatus">Loading scan…</p>
             </div>
             <div class="panelFoot">
-              <span id="scanDetail">Curved array</span>
+              <span id="scanDetail"></span>
               <ul class="legend" id="legend" aria-label="Section anatomy" hidden></ul>
             </div>
           </figure>
 
           <figure class="panel" id="refPanel">
-            <figcaption><span>Acquired ultrasound</span><small>Different case</small></figcaption>
+            <figcaption><span>Acquired ultrasound</span><small id="referenceDepth">Different case</small></figcaption>
             <div class="view rasterView" id="referenceArea" aria-busy="true">
               <p class="mediaStatus" id="refStatus">Loading comparison…</p>
             </div>
@@ -122,13 +122,9 @@
       <footer>
         <details>
           <summary>Sources</summary>
-          <p>
-            The CT-derived anatomy is adapted from
-            <a href="https://zenodo.org/records/10047263">TotalSegmentator s1233, Jakob Wasserthal and colleagues</a>
-            (CC BY 4.0). The transducer and tissue appearance are authored.
-          </p>
+          <p id="anatomySource" hidden></p>
           <p id="atlasSource" hidden>
-            This tour’s exterior is fitted from the BodyParts3D adult skin and rib models,
+            This tour’s exterior is fitted from <span id="atlasFitScope">the BodyParts3D adult skin and rib models</span>,
             © The Database Center for Life Science (DBCLS),
             <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html">CC BY 4.0</a>.
             The fit is anchored to the CT surface near this tour’s probe contact.

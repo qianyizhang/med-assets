@@ -32,12 +32,12 @@ def checked(path, sha):
     return data
 
 
-def volume(path, sha, dtype):
+def volume(path, sha, dtype, shape=SHAPE, ras_mm_from_voxel=AFFINE):
     raw = gzip.decompress(checked(path, sha))
     affine = np.array(struct.unpack_from('<12f', raw, 280)).reshape(3, 4)
-    if struct.unpack_from('<3h', raw, 42) != SHAPE or not np.array_equal(affine, AFFINE[:3]):
+    if struct.unpack_from('<3h', raw, 42) != shape or not np.array_equal(affine, ras_mm_from_voxel[:3]):
         raise ValueError(f'Unexpected grid: {path.name}')
-    return np.frombuffer(raw, dtype, offset=int(struct.unpack_from('<f', raw, 108)[0])).reshape(SHAPE, order='F')
+    return np.frombuffer(raw, dtype, offset=int(struct.unpack_from('<f', raw, 108)[0])).reshape(shape, order='F')
 
 
 def unit(vector):

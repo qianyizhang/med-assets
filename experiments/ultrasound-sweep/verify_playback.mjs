@@ -112,31 +112,72 @@ try {
     id: tour.id,
     title: tour.title,
     assetRoot: tour.assetRoot,
+    region: tour.bodyRegion ?? 'Abdomen',
+    probeType: tour.probeType,
+    fieldShape: tour.fieldShape,
+    depth: tour.sectorDepthMm ?? 133,
+    initialFrame: tour.initialFrame ?? tour.keyframes[0].frame,
+    anatomySource: tour.anatomySource ?? {
+      label: 'TotalSegmentator ' + (tour.case ?? 's1233') + ', Jakob Wasserthal and colleagues',
+      url: 'https://zenodo.org/records/10047263',
+    },
     usesAtlas: tour.exterior ? tour.exterior === 'fitted-atlas' : tour.id === 'gallbladder',
     parts: tour.parts.map((part) => part.label),
     landmarks: (tour.landmarks ?? []).map((id) => ({ id, ...abdomenReferences[id] })),
     keys: tour.keyframes.map((key) => {
       const reference = abdomenReferences[key.referenceId];
       return { frame: key.frame, label: key.label, referenceId: key.referenceId, path: reference.path, url: reference.url,
-        referenceLabel: key.referenceLabel ?? reference.label ?? key.label };
+        referenceLabel: key.referenceLabel ?? reference.label ?? key.label, depthLabel: reference.depthLabel };
     }),
   })));
   assert.ok(catalogue.length > 1, 'The tour picker should include the abdomen sweeps.');
+  const thyroidTours = catalogue.filter((tour) => tour.region === 'Neck' && tour.keys.length === 3);
+  if (thyroidTours.length > 1) {
+    assert.equal(new Set(thyroidTours.map((tour) => tour.keys[0].referenceId)).size, 1,
+      'Both thyroid tours should share the acquired midline reference.');
+  }
   const sweepPicker = page.getByRole('combobox', { name: 'Sweep' });
-  assert.deepEqual(await sweepPicker.locator('option').evaluateAll((nodes) => nodes.map(node => node.value)),
-    catalogue.map((tour) => tour.id));
+  const expectedRegions = new Map();
+  for (const tour of catalogue) {
+    if (!expectedRegions.has(tour.region)) expectedRegions.set(tour.region, []);
+    expectedRegions.get(tour.region).push(tour.id);
+  }
+  assert.deepEqual(await sweepPicker.locator('optgroup').evaluateAll((groups) =>
+    groups.map((group) => [group.label, [...group.children].map((option) => option.value)])), [...expectedRegions]);
 
   for (const tour of catalogue) {
     await sweepPicker.selectOption(tour.id);
     await page.waitForURL((value) => value.searchParams.get('sweep') === tour.id);
     await ready();
     assert.equal(await page.locator('#tourTitle').textContent(), tour.title);
+    assert.equal(await page.locator('#position').inputValue(), String(tour.initialFrame));
     if (captureFolder && tour.id === 'kidney-left') {
       await preset('coronal').click();
       await capture('left-kidney-coronal-1021x1197');
     }
     assert.equal(await page.locator('#atlasSource').evaluate((node) => node.hidden), !tour.usesAtlas);
-    assert.deepEqual(await page.locator('#sceneLegend li').allTextContents(), ['Imaging sector', ...tour.parts]);
+    assert.ok((await page.locator('#anatomySource').textContent()).includes(tour.anatomySource.label));
+    const field = tour.fieldShape === 'rectangle' ? 'Imaging field' : 'Imaging sector';
+    assert.deepEqual(await page.locator('#sceneLegend li').allTextContents(), [field, ...tour.parts]);
+    const probeLabel = tour.probeType === 'linear' ? 'High-frequency linear array' : 'Curved array';
+    assert.equal(await page.locator('#scanDetail').textContent(), probeLabel + ' · ' + tour.depth / 10 + ' cm depth');
+    if (tour.region === 'Neck') {
+      const skinOpacity = page.getByRole('slider', { name: 'Skin opacity' });
+      assert.equal(await skinOpacity.inputValue(), '32');
+      assert.match(await canvas.getAttribute('aria-label'), /rectangular imaging field.*patient orientation/);
+      const defaultView = await screenshot();
+      if (tour.keys.length !== 3) await capture(tour.id + '-oblique-1021x1197');
+      await preset('coronal').click();
+      assert.notDeepEqual(await screenshot(), defaultView, 'The neck coronal preset should differ from default oblique.');
+      await preset('oblique').click();
+      assert.deepEqual(await screenshot(), defaultView, 'Reapplying the neck oblique preset should restore the default projection.');
+      if (captureFolder && tour.id === 'thyroid-right') {
+        await skinOpacity.fill('100');
+        await page.locator('#scenePanel figcaption > span').click();
+        await capture('thyroid-right-skin-100-1021x1197');
+        await skinOpacity.fill('32');
+      }
+    }
     for (let i = 0; i < tour.keys.length; i += 1) {
       const key = tour.keys[i];
       await page.locator('#ticks button').nth(i).click();
@@ -146,18 +187,48 @@ try {
         && document.querySelector('#ref')?.src === reference, { scan: expectedScan, reference: expectedReference });
       assert.equal(await page.locator('#readout').textContent(), key.label);
       assert.ok((await page.locator('#referenceNote').textContent()).includes(key.referenceLabel));
+      assert.equal(await page.locator('#referenceDepth').textContent(), key.depthLabel ? 'Different case · ' + key.depthLabel : 'Different case');
+      if (tour.region === 'Neck' && tour.keys.length === 3) {
+        if (key.frame === 0 && tour.id === 'thyroid-right') await capture('thyroid-midline-1021x1197');
+        if (key.frame === 12) await capture(tour.id + '-transverse-1021x1197');
+        if (key.frame === 48) await capture(tour.id + '-longitudinal-1021x1197');
+      }
     }
-    if (tour.keys.length === 2 && tour.keys[1].frame - tour.keys[0].frame > 1) {
-      const [first, last] = tour.keys;
-      const position = page.getByRole('slider', { name: 'Sweep position' });
+    const position = page.getByRole('slider', { name: 'Sweep position' });
+    for (let i = 1; i < tour.keys.length; i += 1) {
+      const first = tour.keys[i - 1];
+      const last = tour.keys[i];
+      if (last.frame - first.frame <= 2) continue;
       for (const [frame, key] of [[first.frame + 1, first], [last.frame - 1, last]]) {
         await position.fill(String(frame));
         await page.waitForFunction(({ frame, label }) => document.querySelector('#scan')?.src.endsWith('scan-' + String(frame).padStart(2, '0') + '.webp')
           && document.querySelector('#referenceNote').textContent === 'Nearest reference · ' + label,
         { frame, label: key.referenceLabel });
       }
-      await page.locator('#shortTick').click();
     }
+    if (tour.region === 'Neck' && tour.keys.length === 3) {
+      assert.deepEqual(tour.keys.map((key) => key.frame), [0, 12, 48]);
+      assert.equal(tour.initialFrame, 12);
+      const ticks = page.locator('#ticks button');
+      const assertTickLayout = async () => {
+        const bounds = await ticks.evaluateAll((nodes) => nodes.map((node) => {
+          const { left, right, width, bottom } = node.getBoundingClientRect();
+          return { left, right, width, bottom, rowBottom: node.parentElement.getBoundingClientRect().bottom };
+        }));
+        assert.ok(bounds.every((rect, i) => !i || rect.left >= bounds[i - 1].right));
+        assert.ok(bounds.every(({ width, bottom, rowBottom }) => width >= 36 && bottom <= rowBottom),
+          'Each tick label should remain inside its own readable button.');
+      };
+      await assertTickLayout();
+      await page.setViewportSize({ width: 390, height: 844 });
+      await assertTickLayout();
+      for (let i = 0; i < tour.keys.length; i += 1) {
+        await ticks.nth(i).click();
+        assert.equal(await position.inputValue(), String(tour.keys[i].frame));
+      }
+      await page.setViewportSize({ width: 1021, height: 1197 });
+    }
+    await page.locator('#ticks button').last().click();
     await page.locator('#section').click();
     await page.waitForFunction(() => document.querySelector('#scan')?.src.includes('/section-'));
     await page.locator('#assetTab').click();
@@ -167,11 +238,11 @@ try {
     const sources = () => page.locator('#assetSources a').evaluateAll((links) => links.map((link) => link.href));
     assert.deepEqual(await sources(), [
       ...(tour.usesAtlas ? ['https://dbarchive.biosciencedbc.jp/en/bodyparts3d/desc.html'] : []),
-      'https://zenodo.org/records/10047263',
+      tour.anatomySource.url,
     ]);
     await page.locator('[data-asset="simulation"]').click();
     await page.waitForFunction(() => document.querySelector('#assetEvidence img')?.src.includes('/scan-'));
-    assert.deepEqual(await sources(), ['https://zenodo.org/records/10047263']);
+    assert.deepEqual(await sources(), [tour.anatomySource.url]);
     await page.locator('[data-asset="acquired"]').click();
     const selected = tour.keys.at(-1);
     await page.waitForFunction((src) => document.querySelector('#assetEvidence img')?.src === src,
@@ -200,8 +271,20 @@ try {
         await capture('liver-related-anatomy-1021', true);
       }
     }
+    let returnFrame = tour.keys.at(-1).frame;
+    if (tour.region === 'Neck' && tour.keys.length === 3) {
+      const midline = tour.keys[0];
+      returnFrame = midline.frame;
+      await page.locator('#assetFrame').selectOption(String(returnFrame));
+      await page.waitForFunction((src) => document.querySelector('#assetEvidence img')?.src === src,
+        new URL(midline.path, page.url()).href);
+      if (await related.isVisible()) {
+        const extras = await related.locator('figure img').evaluateAll((images) => images.map((image) => image.src));
+        assert.ok(!extras.includes(new URL(midline.path, page.url()).href), 'A primary midline reference should not repeat in Related anatomy.');
+      }
+    }
     await page.locator('#return').click();
-    assert.equal(await page.locator('#position').inputValue(), String(tour.keys.at(-1).frame));
+    assert.equal(await page.locator('#position').inputValue(), String(returnFrame));
   }
 
   await page.goBack();

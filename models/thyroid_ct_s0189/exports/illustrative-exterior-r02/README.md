@@ -10,7 +10,7 @@ The support mask selects rear-facing vertices of the mid-to-lower band and pins 
 
 The [TAQ-011 comparison and evidence](../../../../reviews/teaching-assessments/refinement-form/README.md) record the matched views and independent reimport. The [r02 assessment](../../../../reviews/teaching-assessments/refinement-form/campaign-assessments.json) binds the unchanged bridge task to this export and the actual teaching plate. The [r01 owner record](../../illustrative-exterior-r01/README.md) explains the earlier treatment and the limits of the retained label surface. This reconstruction shows a case-specific exterior with no registered tracheal context, verified internal anatomy, or verified clinical use.
 
-Credit Jakob Wasserthal and TotalSegmentator contributors, University Hospital Basel, [TotalSegmentator v2.0.1](https://zenodo.org/records/10047263). Retain the [source attribution](../../illustrative-exterior-r01/ATTRIBUTION.md) and [CC BY 4.0 terms](../../illustrative-exterior-r01/CC-BY-4.0.txt) when reusing the model or views. The additional r02 modification is localized fairing of the rear-band presentation.
+Credit Jakob Wasserthal and TotalSegmentator contributors, University Hospital Basel, [TotalSegmentator v2.0.1](https://zenodo.org/records/10047292). Retain the [source attribution](../../illustrative-exterior-r01/ATTRIBUTION.md) and [CC BY 4.0 terms](../../illustrative-exterior-r01/CC-BY-4.0.txt) when reusing the model or views. The additional r02 modification is localized fairing of the rear-band presentation.
 
 ## Rebuild
 

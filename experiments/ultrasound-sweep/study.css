@@ -195,6 +195,16 @@ main { padding: 12px 0 24px; }
 .tick.edge[data-frame="0"]::before { left: 0; }
 .tick.edge:not([data-frame="0"]) { transform: translateX(-100%); padding-inline-end: 0; }
 .tick.edge:not([data-frame="0"])::before { left: auto; right: 0; }
+.ticks.with-start-keyframe { height: 42px; }
+.with-start-keyframe .tick { inline-size: max-content; white-space: normal; overflow-wrap: anywhere; }
+.with-start-keyframe .tick[data-frame='0'] { max-inline-size: calc(var(--start-tick-gap) - 4px); text-align: start; }
+.with-start-keyframe .tick:not(.edge) {
+  transform: none;
+  max-inline-size: calc(68% - var(--start-tick-gap) - 4px);
+  text-align: start;
+}
+.with-start-keyframe .tick:not(.edge)::before { left: 0; }
+.with-start-keyframe .tick.edge:not([data-frame='0']) { max-inline-size: 32%; text-align: end; }
 .tick[aria-current='true'] { text-decoration: underline; text-underline-offset: 0.25em; font-weight: 700; }
 
 .legend {
@@ -355,5 +365,7 @@ a { color: var(--teal); }
   .current { align-items: center; }
   #readout { display: grid; align-items: center; min-height: 2.4em; line-height: 1.2; white-space: normal; }
   .ticks { height: 38px; }
+  .ticks.with-start-keyframe { height: 56px; }
+  .with-start-keyframe .tick { min-height: 36px; }
   .tick { max-inline-size: 44%; font-size: 12px; line-height: 1.2; white-space: normal; }
 }

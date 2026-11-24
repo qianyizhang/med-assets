@@ -1,0 +1,86 @@
+{
+  "structures": {
+    "trachea": {
+      "label": "Trachea",
+      "color": "#83b8bd",
+      "opacity": 0.72
+    },
+    "common_carotid_artery_right": {
+      "label": "Right common carotid artery",
+      "color": "#e26071",
+      "opacity": 0.89
+    },
+    "common_carotid_artery_left": {
+      "label": "Left common carotid artery",
+      "color": "#b16aca",
+      "opacity": 0.89
+    },
+    "thyroid_gland": {
+      "label": "Thyroid gland",
+      "color": "#d9a26b",
+      "opacity": 0.83
+    }
+  },
+  "common": {
+    "organ": "thyroid_gland",
+    "overlayParts": [
+      "trachea",
+      "common_carotid_artery_right",
+      "common_carotid_artery_left",
+      "thyroid_gland"
+    ],
+    "bodyRegion": "Neck",
+    "case": "s1127",
+    "exterior": "fitted-atlas",
+    "focusRadius": 25,
+    "probeType": "linear",
+    "fieldShape": "rectangle",
+    "fieldWidthMm": 44,
+    "sectorDepthMm": 78,
+    "voxelMm": 1.5,
+    "phaseLabels": [
+      "Slide to the lobe",
+      "Rotate to longitudinal"
+    ],
+    "requirePoseReceipt": true,
+    "requirePaletteReceipt": true,
+    "parts": [
+      "trachea",
+      "common_carotid_artery_right",
+      "common_carotid_artery_left",
+      "thyroid_gland"
+    ],
+    "entryReference": {
+      "frame": 0,
+      "label": "Isthmus",
+      "referenceId": "thyroid-isthmus"
+    },
+    "keyframeLabels": [
+      "Transverse",
+      "Longitudinal"
+    ],
+    "sourceNote": "The BodyParts3D head and shoulders are fitted at the s1127 CT probe contact, with clearance possible at the flat probe edges over curved skin. The CT supplies the thyroid, trachea and carotids and places the gland deeper than in the acquired comparisons."
+  },
+  "sweeps": [
+    {
+      "id": "thyroid-right",
+      "title": "Right thyroid",
+      "region": "Right anterior neck",
+      "focus": [
+        140,
+        131,
+        386
+      ]
+    },
+    {
+      "id": "thyroid-left",
+      "title": "Left thyroid",
+      "region": "Left anterior neck",
+      "focus": [
+        123,
+        131,
+        385
+      ]
+    }
+  ]
+}
