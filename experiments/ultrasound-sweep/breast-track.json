@@ -1,124 +1,188 @@
 {
-  "id": "breast",
-  "title": "Right breast",
-  "organ": "mammary_lobes",
-  "bodyRegion": "Breast",
-  "region": "Right breast",
-  "case": "hra-breast-right",
-  "exterior": "hra-breast",
-  "probeType": "linear",
-  "fieldShape": "rectangle",
-  "fieldWidthMm": 62,
-  "sectorDepthMm": 97,
-  "voxelMm": 1.5,
-  "focus": [
-    76,
-    23,
-    278
-  ],
-  "focusRadius": 45,
-  "keyframeLabels": [
-    "Peripheral layers",
-    "Subareolar radial"
-  ],
-  "phaseLabels": [
-    "Find the chest-wall layers",
-    "Slide and angle toward the nipple"
-  ],
-  "parts": [
-    {
-      "id": "chest_wall",
-      "label": "Chest-wall context",
-      "color": "#9a9598",
-      "opacity": 0.34
+  "common": {
+    "bodyRegion": "Breast",
+    "case": "hra-breast-right",
+    "exterior": "hra-breast",
+    "probeType": "linear",
+    "fieldShape": "rectangle",
+    "fieldWidthMm": 62,
+    "sectorDepthMm": 97,
+    "voxelMm": 1.5,
+    "surfaceParts": [
+      "areola",
+      "nipple"
+    ],
+    "anatomySource": {
+      "label": "Heidi Schlehlein · HRA right mammary gland",
+      "shortLabel": "HRA breast atlas",
+      "url": "https://doi.org/10.48539/HBM989.SNHP.535",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
     },
-    {
-      "id": "pectoralis",
-      "label": "Pectoralis",
-      "color": "#b98b86",
-      "opacity": 0.44
-    },
-    {
-      "id": "deep_fat",
-      "label": "Modeled deep fat",
-      "color": "#d5b87c",
-      "opacity": 0.48
-    },
-    {
-      "id": "retromammary_fat",
-      "label": "Retromammary fat",
-      "color": "#c7a37b",
-      "opacity": 0.7
-    },
-    {
-      "id": "breast_fat",
-      "label": "Breast fat",
-      "color": "#e5ce8b",
-      "opacity": 0.36
-    },
-    {
-      "id": "mammary_lobes",
-      "label": "Fibroglandular tissue",
-      "color": "#ce8273",
-      "opacity": 0.82
-    },
-    {
-      "id": "lactiferous_ducts",
-      "label": "Modeled ducts",
-      "color": "#67c1be",
-      "opacity": 0.88
-    },
-    {
-      "id": "areola",
-      "label": "Areola",
-      "color": "#ac7868",
-      "opacity": 0.92
-    },
-    {
-      "id": "nipple",
-      "label": "Nipple",
-      "color": "#a57567",
-      "opacity": 0.93
-    }
-  ],
-  "overlayParts": [
-    "chest_wall",
-    "pectoralis",
-    "deep_fat",
-    "retromammary_fat",
-    "breast_fat",
-    "mammary_lobes",
-    "lactiferous_ducts",
-    "nipple"
-  ],
-  "surfaceParts": [
-    "areola",
-    "nipple"
-  ],
-  "anatomySource": {
-    "label": "Heidi Schlehlein · HRA right mammary gland",
-    "shortLabel": "HRA breast atlas",
-    "url": "https://doi.org/10.48539/HBM989.SNHP.535",
-    "license": "CC BY 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+    "requirePoseReceipt": true,
+    "requirePaletteReceipt": true,
+    "referenceContext": "",
+    "additionalAnatomySources": [
+      {
+        "label": "Heidi Schlehlein · HRA left mammary gland",
+        "url": "https://doi.org/10.48539/HBM378.VWZG.633",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      {
+        "label": "Kristen Browne and Heidi Schlehlein · HRA female skin v1.3",
+        "url": "https://doi.org/10.48539/HBM466.LKPQ.876",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    ],
+    "parts": [
+      {
+        "id": "chest_wall",
+        "label": "Chest-wall context",
+        "color": "#9a9598",
+        "opacity": 0.34
+      },
+      {
+        "id": "pectoralis",
+        "label": "Pectoralis",
+        "color": "#b98b86",
+        "opacity": 0.44
+      },
+      {
+        "id": "deep_fat",
+        "label": "Modeled deep fat",
+        "color": "#d5b87c",
+        "opacity": 0.48
+      },
+      {
+        "id": "retromammary_fat",
+        "label": "Retromammary fat",
+        "color": "#c7a37b",
+        "opacity": 0.7
+      },
+      {
+        "id": "breast_fat",
+        "label": "Breast fat",
+        "color": "#e5ce8b",
+        "opacity": 0.36
+      },
+      {
+        "id": "mammary_lobes",
+        "label": "Fibroglandular tissue",
+        "color": "#ce8273",
+        "opacity": 0.82
+      },
+      {
+        "id": "lactiferous_ducts",
+        "label": "Modeled ducts",
+        "color": "#67c1be",
+        "opacity": 0.88
+      },
+      {
+        "id": "areola",
+        "label": "Areola",
+        "color": "#ac7868",
+        "opacity": 0.92
+      },
+      {
+        "id": "nipple",
+        "label": "Nipple",
+        "color": "#a57567",
+        "opacity": 0.93
+      }
+    ]
   },
-  "sourceNote": "The HRA atlases supply the exterior, nipple, breast fat, lobes and ducts. The model continues the deep fat to a thin retromammary layer over an illustrative pectoralis and chest wall.",
-  "simulationNote": "Brightness is illustrative, including the acoustic background between atlas structures. The acquired scans show comparable landmarks from different angles.",
-  "requirePoseReceipt": true,
-  "requirePaletteReceipt": true,
-  "referenceContext": "",
-  "additionalAnatomySources": [
+  "sweeps": [
     {
-      "label": "Heidi Schlehlein · HRA left mammary gland",
-      "url": "https://doi.org/10.48539/HBM378.VWZG.633",
-      "license": "CC BY 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      "id": "breast",
+      "title": "Right breast layers",
+      "region": "Medial and lateral right breast",
+      "organ": "fibroglandular_zone",
+      "focus": [
+        77,
+        22,
+        300
+      ],
+      "focusRadius": 42,
+      "keyframeLabels": [
+        "Upper layer view",
+        "Lower layer view"
+      ],
+      "sourceNote": "The HRA atlas supplies the exterior, fat and lobules. A modeled mantle around the retained lobules represents mixed fibroglandular tissue, and modeled deep fat leads to the retromammary layer and pectoralis.",
+      "simulationNote": "The illustrative echoes follow the atlas and modeled tissue layers. Four overlapping passes cover part of the right breast model.",
+      "overlayParts": [
+        "fibroglandular_zone",
+        "chest_wall",
+        "pectoralis",
+        "deep_fat",
+        "retromammary_fat",
+        "breast_fat",
+        "mammary_lobes",
+        "lactiferous_ducts",
+        "nipple"
+      ],
+      "extraParts": [
+        {
+          "id": "fibroglandular_zone",
+          "label": "Modeled fibroglandular zone",
+          "color": "#c6a16f",
+          "opacity": 0.45
+        }
+      ],
+      "keyframeReferenceIds": [
+        "breast-12",
+        "breast-layers-48"
+      ],
+      "sectorDepthMm": 110,
+      "fieldWidthMm": 52,
+      "routeLabel": "Layer survey"
     },
     {
-      "label": "Kristen Browne and Heidi Schlehlein · HRA female skin v1.3",
-      "url": "https://doi.org/10.48539/HBM466.LKPQ.876",
-      "license": "CC BY 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      "id": "breast-subareolar",
+      "title": "Nipple and ducts",
+      "region": "Right nipple and adjacent ducts",
+      "organ": "lactiferous_ducts",
+      "focus": [
+        75,
+        49,
+        262
+      ],
+      "focusRadius": 34,
+      "keyframeLabels": [
+        "Across the nipple",
+        "Along a subareolar duct"
+      ],
+      "sourceNote": "The HRA atlases supply the breast tissues and ducts. The focused surface combines the separate skin and mammary nipple meshes; modeled deep fat continues to the retromammary layer over the illustrative pectoralis.",
+      "simulationNote": "A modeled gel standoff couples the flat probe to the curved nipple and skin. Tilt and rotation change the sampled plane; pressure is a separate illustration.",
+      "overlayParts": [
+        "chest_wall",
+        "pectoralis",
+        "deep_fat",
+        "retromammary_fat",
+        "breast_fat",
+        "mammary_lobes",
+        "lactiferous_ducts",
+        "nipple"
+      ],
+      "keyframeReferenceIds": [
+        "breast-subareolar-12",
+        "breast-48"
+      ],
+      "fieldWidthMm": 44,
+      "compressionMm": 3,
+      "routeLabel": "Nipple and ducts",
+      "phases": [
+        {
+          "frame": 0,
+          "label": "Explore across the nipple"
+        },
+        {
+          "frame": 13,
+          "label": "Turn toward the duct"
+        }
+      ],
+      "sectorDepthMm": 55
     }
   ]
 }

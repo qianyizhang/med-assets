@@ -40,5 +40,53 @@
     },
     "sourceSha256": "f79856934e69f804296f77dadccb724538a28a16a36007c254d79f7a57523054",
     "sha256": "cf5b86d34c51b6b47b5c20aa228e6e5bfab15bb4e398e3072ab3e051a3f76285"
+  },
+  "breast-layers-48": {
+    "path": "references/breast-layers-48.webp",
+    "title": "Normal breast layers in a mid-transverse scan",
+    "label": "Breast layers, mid-transverse",
+    "credit": "Sudheer Gokhale, Fig. 1",
+    "url": "https://doi.org/10.4103/0971-3026.54878",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "reason": "The bright glandular band is surrounded by darker fat.",
+    "note": "The author labels this as a normal mid-transverse breast scan. The published field shows a bright fibroglandular band surrounded by fat. Side, clock-face position, depth, age, and lactation status are unreported. The left ultrasound field was cropped from the published figure at native resolution and converted to lossless WebP. Visible source markings are retained.",
+    "sourceMedia": "https://pmc-oa-opendata.s3.amazonaws.com/PMC2766883.1/IJRI-19-242-g001.jpg",
+    "sourceMetadata": "https://pmc-oa-opendata.s3.amazonaws.com/PMC2766883.1/PMC2766883.1.xml",
+    "transform": {
+      "crop": [
+        0,
+        0,
+        322,
+        341
+      ],
+      "encoding": "lossless WebP"
+    },
+    "sourceSha256": "6c08fae6417c47966d87b58fe45478824e18985e61d28ca2a42e2ba956aea409",
+    "sha256": "3f580d292a86b6083fe134e5c68acfa1f5a854f799bc3d75b2bfb9e44ad59f54"
+  },
+  "breast-subareolar-12": {
+    "path": "references/breast-subareolar-12.webp",
+    "title": "Normal nipple in axial view",
+    "label": "Nipple, axial",
+    "credit": "Angelica Chiorean et al., Fig. 1A",
+    "url": "https://doi.org/10.3348/kjr.2019.0831",
+    "license": "CC BY-NC 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
+    "reason": "The normal nipple is shown in cross-section.",
+    "note": "The source identifies this grayscale panel as the normal nipple in the axial plane. Its companion panel 1B shows the nipple longitudinally with a visible duct. Same-subject pairing, laterality, clock-face position, transducer tilt, depth, age, and lactation status are unreported. Single panel cropped at native resolution and converted to lossless WebP with the source panel letter retained. Noncommercial reuse only.",
+    "sourceMedia": "https://pmc-oa-opendata.s3.amazonaws.com/PMC7369201.1/kjr-21-955-g001.jpg",
+    "sourceMetadata": "https://pmc-oa-opendata.s3.amazonaws.com/PMC7369201.1/PMC7369201.1.xml",
+    "transform": {
+      "crop": [
+        0,
+        0,
+        377,
+        196
+      ],
+      "encoding": "lossless WebP"
+    },
+    "sourceSha256": "f79856934e69f804296f77dadccb724538a28a16a36007c254d79f7a57523054",
+    "sha256": "9b6e3d081ee11f447a4012ace21e2edbca57e2e56e9ede3f538a89bf783a9af0"
   }
 }

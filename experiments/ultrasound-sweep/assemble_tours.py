@@ -1,17 +1,21 @@
 """Assemble the inspected ultrasound sweeps and their acquired references for a local gallery."""
 import argparse
 import json
+from itertools import product
+import math
 from pathlib import Path
 import re
 import shutil
 import tempfile
 
 import build_abdomen
+import build_axilla
 import build_breast
 import build_thyroid
 from breast_anatomy import FEMALE_SKIN_SHA, MAMMARY_SHA
+from breast_compression import SETTLE_DEPTH_MM
 from delivery import sha256, sweep_files, validate_image, validate_mesh, verify_inventory
-from geometry import KEYFRAMES, SECTOR_DEPTH_MM, SECTOR_HALF_ANGLE_DEG, LENS_RADIUS_MM, VOXEL_MM
+from geometry import FRAME_COUNT, KEYFRAMES, SECTOR_DEPTH_MM, SECTOR_HALF_ANGLE_DEG, LENS_RADIUS_MM, VOXEL_MM
 from prepare_scenes import read_vendor, shared_geometry
 
 HERE = Path(__file__).resolve().parent
@@ -79,9 +83,28 @@ def verify_track(root, track, stops, builder):
     linear = track.get('probeType') == 'linear'
     receipt = json.loads((root / 'verification.json').read_text())
     recipe = Path(builder.__file__).name
+    if builder in (build_breast, build_axilla) and receipt.get('renderRecipeSha256') != builder.render_recipe_sha256(slug):
+        raise ValueError(f'Rebuild {slug} with the current tissue rendering recipe.')
+    if 'steering' in track:
+        steering = track['steering']
+        axes = steering['axes']
+        cells = steering['cells']
+        values = [axis['values'] for axis in axes]
+        if (len(values) != 3 or any(len(v) < 2 or not all(map(math.isfinite, v))
+                                      or list(v) != sorted(set(v)) for v in values)
+                or {tuple(cell['indices']) for cell in cells} != set(product(*(range(len(v)) for v in values)))
+                or len(cells) != math.prod(map(len, values))
+                or len({cell['frame'] for cell in cells}) != len(cells)
+                or any(cell['frame'] not in range(FRAME_COUNT) for cell in cells)
+                or json.dumps(steering, sort_keys=True) != json.dumps(receipt.get('steering'), sort_keys=True)
+                or receipt.get('compressionMm') != track.get('compressionMm')
+                or receipt.get('compressionSettleDepthMm') != SETTLE_DEPTH_MM):
+            raise ValueError(f'Rebuild {slug} for the configured steering and compression.')
     if builder is build_breast and (receipt.get('mammaryAtlasSha256') != MAMMARY_SHA
                                     or receipt.get('femaleSkinSha256') != FEMALE_SKIN_SHA):
         raise ValueError(f'Rebuild {slug} for the current breast atlas inputs.')
+    if builder is build_axilla and receipt.get('femaleSkinSha256') != FEMALE_SKIN_SHA:
+        raise ValueError(f'Rebuild {slug} for the current axillary exterior.')
     expected_pose = builder.pose_recipe_sha256(slug)
     if (track.get('requirePoseReceipt', False) or 'poseRecipeSha256' in receipt) and (
             receipt.get('poseRecipeSha256') != expected_pose):
@@ -135,8 +158,9 @@ def configured_tours(output, refs, files, landmark_refs, tracks):
             if tour.get('exterior') == 'fitted-atlas' else
             f'External body surface and internal structures sampled from the same {case} CT.'
         ))
-        stops = [dict(frame=frame, label=label, referenceId=f'{slug}-{frame}')
-                 for frame, label in zip(KEYFRAMES, tour.pop('keyframeLabels'), strict=True)]
+        ref_ids = tour.pop('keyframeReferenceIds', [f'{slug}-{frame}' for frame in KEYFRAMES])
+        stops = [dict(frame=frame, label=label, referenceId=ref_id)
+                 for frame, label, ref_id in zip(KEYFRAMES, tour.pop('keyframeLabels'), ref_ids, strict=True)]
         if entry := tour.pop('entryReference', None):
             if entry['frame'] != 0:
                 raise ValueError(f'Entry comparison must start at frame zero: {slug}')
@@ -148,14 +172,19 @@ def configured_tours(output, refs, files, landmark_refs, tracks):
             if ref_id not in refs or ref_id in landmark_refs:
                 raise ValueError(f'Missing acquired comparison: {ref_id}')
             used_references.add(ref_id)
-        tour['phases'] = [dict(frame=frame, label=label) for frame, label in
-                          zip((0, KEYFRAMES[0]), tour.pop('phaseLabels'), strict=True)]
+        if 'phases' not in tour:
+            tour['phases'] = [dict(frame=frame, label=label) for frame, label in
+                              zip((0, KEYFRAMES[0]), tour.pop('phaseLabels'), strict=True)]
         landmarks = tour.setdefault('landmarks', [])
         if not isinstance(landmarks, list) or len(set(landmarks)) != len(landmarks) or set(landmarks) - landmark_refs:
             raise ValueError(f'Invalid supporting landmark reference: {slug}')
         used_references.update(landmarks)
 
         inventory = sweep_files(mesh_names)
+        if tour.get('compressionMm'):
+            tour['compressionSettleDepthMm'] = SETTLE_DEPTH_MM
+            inventory.extend(f'media/press-{kind}-{frame:02}.webp'
+                             for kind in ('scan', 'section') for frame in range(FRAME_COUNT))
         if slug == 'gallbladder':
             inventory += [ref['path'] for ref in GALLBLADDER_REFERENCES.values()]
         else:
@@ -184,7 +213,7 @@ def configured_tours(output, refs, files, landmark_refs, tracks):
 def write_catalogue(destination, refs, tours):
     for name, variable, content in [('references.js', 'abdomenReferences', refs), ('abdomen-tours.js', 'abdomenTours', tours)]:
         (destination / name).write_text(f'const {variable} = ' + json.dumps(content, ensure_ascii=False, indent=2) + ';\n')
-    for name in ('index.html', 'study.css', 'study.js', 'scene.js'):
+    for name in ('index.html', 'study.css', 'study.js', 'scene.js', 'probe-steering.js'):
         shutil.copyfile(HERE / name, destination / name)
 
 
@@ -194,7 +223,8 @@ def assemble(output, delivery=None):
     tracks = [(track, build_abdomen) for track in [GALLBLADDER, *build_abdomen.read_tracks()]]
     regional_sources = []
     for region, builder, group in [('thyroid', build_thyroid, build_thyroid.read_thyroid_tracks()),
-                                   ('breast', build_breast, build_breast.read_breast_tracks())]:
+                                   ('breast', build_breast, build_breast.read_breast_tracks()),
+                                   ('axilla', build_axilla, build_axilla.read_axilla_tracks())]:
         if any((output / 'sweeps' / track['id']).exists() for track in group):
             missing = [track['id'] for track in group if not (output / 'sweeps' / track['id']).is_dir()]
             if missing:

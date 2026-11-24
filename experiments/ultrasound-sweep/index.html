@@ -28,6 +28,7 @@
     <main>
       <p id="tourStatus" role="status" hidden></p>
       <section id="tour" aria-labelledby="tourTitle" hidden>
+        <nav id="breastRoutes" class="routeNav" aria-label="Breast scan routes" hidden></nav>
         <div class="transport">
           <div class="transportTop">
             <button class="primary" id="play" disabled>Play sweep</button>
@@ -49,6 +50,7 @@
           <figure class="panel" id="scenePanel">
             <figcaption>
               <span>Probe and scan plane</span>
+              <button type="button" id="showRoute" class="viewButton" aria-pressed="true" hidden disabled>Scan path</button>
               <fieldset id="cameraPresets" class="cameraTools" disabled>
                 <legend class="sr">Camera views</legend>
               </fieldset>
@@ -58,6 +60,10 @@
               <p class="mediaStatus" id="sceneStatus">Loading 3D view…</p>
               <span class="orbitHelp" id="sceneHelp" hidden>Drag or use arrow keys to orbit · ± to zoom</span>
             </div>
+            <fieldset id="steering" class="steering" hidden>
+              <legend class="sr">Probe steering</legend>
+              <button id="compression" type="button" class="viewButton" aria-pressed="false" hidden>Gentle compression</button>
+            </fieldset>
             <div class="panelFoot sceneFoot">
               <ul id="sceneLegend" class="legend" aria-label="3D scene"></ul>
               <div class="opacityControl">

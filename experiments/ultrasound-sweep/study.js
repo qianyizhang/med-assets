@@ -10,6 +10,7 @@ let poses;
 let last;
 let keyframes;
 let phases;
+let steering;
 function anatomySource() {
   const caseId = selectedTour.case ?? 's1233';
   return selectedTour.anatomySource ?? {
@@ -23,8 +24,8 @@ function anatomySource() {
 const isLinear = () => selectedTour.probeType === 'linear';
 const fieldLabel = () => selectedTour.fieldShape === 'rectangle' ? 'Imaging field' : 'Imaging sector';
 const imageFile = (kind, frame) =>
-  selectedTour.assetRoot + 'media/' + kind + '-' + String(frame).padStart(2, '0') + '.webp';
-const nearestKeyframe = (frame) => keyframes.reduce((nearest, candidate) =>
+  selectedTour.assetRoot + 'media/' + (state.compressed ? 'press-' : '') + kind + '-' + String(frame).padStart(2, '0') + '.webp';
+const nearestKeyframe = (frame) => steering?.referenceFor(frame, keyframes) ?? keyframes.reduce((nearest, candidate) =>
   Math.abs(candidate.frame - frame) < Math.abs(nearest.frame - frame) ? candidate : nearest);
 const referenceById = (id) => typeof abdomenReferences === 'undefined' ? null : abdomenReferences[id];
 const acquiredFor = (keyframe) => referenceById(keyframe.referenceId);
@@ -40,6 +41,7 @@ const state = {
   frame: 0,
   shownFrame: null,
   section: false,
+  compressed: false,
   assets: false,
   group: 'anatomy',
   ready: false,
@@ -101,7 +103,7 @@ function phaseName(frame) {
 
 function drawReadout(frame) {
   const name = phaseName(frame);
-  const angle = Math.round(poses[frame].degrees) + '°';
+  const angle = (steering ? Number(steering.rotationAt(frame).toFixed(1)) : Math.round(poses[frame].degrees)) + '°';
   $('position').value = frame;
   $('position').setAttribute('aria-valuetext', name + ', ' + angle + ', frame ' + frame + ' of ' + last);
   $('readout').textContent = name;
@@ -117,6 +119,7 @@ function renderFrame(frame, scenePosition = frame) {
   state.frame = frame;
   updatePlay();
   const request = ++state.viewRequest;
+  const compressed = state.compressed;
   const kind = state.section ? 'section' : 'scan';
   const scan = prepare(imageFile(kind, frame));
   const keyframe = nearestKeyframe(frame);
@@ -124,9 +127,11 @@ function renderFrame(frame, scenePosition = frame) {
   const reference = prepare(acquired?.path);
   const commit = () => {
     if (request !== state.viewRequest) return;
-    state.scene?.setFrame(scenePosition);
+    state.scene?.setFrame(scenePosition, compressed);
+    steering?.sync(frame);
     drawReadout(frame);
     $('scanTitle').textContent = state.section ? 'Anatomical section' : 'Simulated scan';
+    $('scanDetail').textContent = scanDetail();
     $('scanDetail').hidden = state.section;
     $('legend').hidden = !state.section;
     on('section', state.section);
@@ -153,7 +158,7 @@ function pause() {
   if (!state.playback) return;
   cancelAnimationFrame(state.playback.request);
   state.playback = null;
-  state.scene?.setFrame(state.frame);
+  state.scene?.setFrame(state.frame, state.compressed);
   updatePlay();
 }
 
@@ -170,7 +175,7 @@ function play() {
     const position = Math.min(last, playback.origin + (now - playback.started) / frameDuration);
     const frame = Math.round(position);
     if (frame !== state.frame) renderFrame(frame, position);
-    else state.scene?.setFrame(position);
+    else if (state.shownFrame === frame) state.scene?.setFrame(position, state.compressed);
     if (position === last) pause();
     else playback.request = requestAnimationFrame(advance);
   }
@@ -207,8 +212,9 @@ async function startScene() {
   try {
     const { createSweepScene } = await import('./scene.js');
     canvas.hidden = false;
-    state.scene = await createSweepScene({ canvas, frames: poses, config: selectedTour, onViewPresetChange: showCameraPreset });
-    state.scene.setFrame(state.shownFrame ?? state.frame);
+    state.scene = await createSweepScene({ canvas, frames: poses, config: selectedTour, onViewPresetChange: showCameraPreset, onProbeDrag: steering?.drag });
+    state.scene.setFrame(state.shownFrame ?? state.frame, state.compressed);
+    if (selectedTour.showRoute) $('showRoute').disabled = false;
     updateTorsoOpacity();
     status.hidden = true;
     $('sceneHelp').hidden = false;
@@ -316,7 +322,7 @@ function describeAsset(frame, group) {
     return {
       path: imageFile('scan', frame),
       alt: 'Simulated scan at frame ' + frame,
-      binding: 'Frame ' + frame + ' of 0–' + last + ' · ' + (selectedTour.sectorDepthMm ?? 133) / 10 + ' cm modeled depth',
+      binding: 'Frame ' + frame + ' of 0–' + last + ' · ' + Number(scanDepth().toFixed(2)) + ' cm modeled depth' + (state.compressed ? ' · Gentle compression' : ''),
       note: selectedTour.simulationNote ?? 'Illustrative ultrasound derived from the CT anatomy.',
       sources: [anatomyLink, ...additionalLinks],
     };
@@ -468,6 +474,44 @@ relatedAnatomy.addEventListener('toggle', () => {
   }
 });
 
+function scanDepth() {
+  return ((selectedTour.sectorDepthMm ?? 133) - (state.compressed ? selectedTour.compressionMm : 0)) / 10;
+}
+
+function scanDetail() {
+  return (isLinear() ? 'High-frequency linear array' : 'Curved array') + ' · ' + Number(scanDepth().toFixed(2)) + ' cm depth';
+}
+
+function configureBreastRoutes(tours) {
+  if (selectedTour.bodyRegion !== 'Breast') return;
+  const regionTours = tours.filter((tour) => tour.bodyRegion === 'Breast');
+  if (regionTours.length < 2) return;
+  const nav = $('breastRoutes');
+  for (const tour of regionTours) {
+    const url = new URL(location.href);
+    url.searchParams.set('sweep', tour.id);
+    url.hash = '';
+    const link = document.createElement('a');
+    link.href = url.href;
+    link.textContent = tour.routeLabel ?? tour.title;
+    if (tour.id === selectedTour.id) link.setAttribute('aria-current', 'page');
+    nav.append(link);
+  }
+  nav.hidden = false;
+}
+
+$('showRoute').onclick = () => {
+  const visible = $('showRoute').getAttribute('aria-pressed') !== 'true';
+  on('showRoute', visible);
+  state.scene?.setRouteVisible(visible);
+};
+
+$('compression').onclick = () => {
+  state.compressed = !state.compressed;
+  on('compression', state.compressed);
+  selectFrame(state.frame);
+};
+
 function configureTimeline() {
   const ticks = $('ticks');
   if (keyframes.length === 3 && keyframes[0].frame === 0 && keyframes[2].frame === last) {
@@ -476,10 +520,15 @@ function configureTimeline() {
   }
   $('position').max = last;
   $('position').disabled = false;
-  const split = phases[1]?.frame / last || 0;
-  const timeline = $('position').parentElement;
-  timeline.style.setProperty('--first-phase', split * 100 + '%');
-  timeline.style.setProperty('--phase-thumb-offset', (0.5 - split) * 18 + 'px');
+  const phaseLengths = phases.map((phase, i) => (phases[i + 1]?.frame ?? last) - phase.frame);
+  $('phases').style.gridTemplateColumns = phaseLengths.map(n => 'minmax(0,' + n + 'fr)').join(' ');
+  const stops = phases.map((phase, i) => {
+    const start = phase.frame / last;
+    const end = (phase.frame + phaseLengths[i]) / last;
+    const point = (fraction) => 'calc(' + (fraction * 100) + '% + ' + ((.5 - fraction) * 18) + 'px)';
+    return (i % 2 ? 'var(--turn)' : 'transparent') + ' ' + point(start) + ' ' + point(end);
+  });
+  $('position').style.setProperty('--phase-track', 'linear-gradient(to right,' + stops.join(',') + '), var(--hatch)');
   for (const phase of phases) {
     const item = document.createElement('li');
     item.textContent = phase.label;
@@ -619,8 +668,16 @@ async function startTour() {
     { frame: keyframes.find(({ frame }) => frame > 0)?.frame ?? last, label: 'Rotate probe' },
   ];
   configureTimeline();
-  const probeLabel = isLinear() ? 'High-frequency linear array' : 'Curved array';
-  $('scanDetail').textContent = probeLabel + ' · ' + (selectedTour.sectorDepthMm ?? 133) / 10 + ' cm depth';
+  configureBreastRoutes(tours);
+  if (selectedTour.steering) {
+    const { probeSteering } = await import('./probe-steering.js');
+    steering = probeSteering(selectedTour.steering, $('steering'), selectFrame, pause);
+    $('sceneHelp').textContent = 'Drag the probe to slide or rock · Drag the body to orbit';
+    $('sceneHelp').classList.add('steerHelp');
+    $('compression').hidden = !selectedTour.compressionMm;
+  }
+  $('showRoute').hidden = !selectedTour.showRoute;
+  $('scanDetail').textContent = scanDetail();
   if (isLinear()) {
     $('surfaceOpacityLabel').textContent = 'Skin opacity';
     $('sceneCanvas').setAttribute('aria-label', `Linear probe, rectangular imaging field, ${selectedTour.region.toLowerCase()} and internal anatomy with patient orientation`);

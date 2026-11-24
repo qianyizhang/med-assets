@@ -1,5 +1,6 @@
 // Exercise the actual playback controls at the viewport where the readout shifted.
 import assert from 'node:assert/strict';
+import { createHash } from 'node:crypto';
 import { mkdir } from 'node:fs/promises';
 import { join } from 'node:path';
 
@@ -118,6 +119,9 @@ try {
     additionalSources: (tour.additionalAnatomySources ?? []).map((source) => source.url),
     referenceContext: tour.referenceContext ?? 'Different case',
     depth: tour.sectorDepthMm ?? 133,
+    showRoute: tour.showRoute ?? false,
+    steering: tour.steering,
+    compressionMm: tour.compressionMm,
     initialFrame: tour.initialFrame ?? tour.keyframes[0].frame,
     anatomySource: tour.anatomySource ?? {
       label: 'TotalSegmentator ' + (tour.case ?? 's1233') + ', Jakob Wasserthal and colleagues',
@@ -153,6 +157,27 @@ try {
     await ready();
     assert.equal(await page.locator('#tourTitle').textContent(), tour.title);
     assert.equal(await page.locator('#position').inputValue(), String(tour.initialFrame));
+    const routeNav = page.getByRole('navigation', { name: 'Breast scan routes' });
+    const regional = catalogue.filter((candidate) => candidate.region === 'Breast');
+    assert.equal(await routeNav.isVisible(), tour.region === 'Breast' && regional.length > 1);
+    if (await routeNav.isVisible()) {
+      assert.deepEqual(await routeNav.getByRole('link').evaluateAll((links) =>
+        links.map((link) => new URL(link.href).searchParams.get('sweep'))), regional.map((candidate) => candidate.id));
+      assert.equal(await routeNav.locator('a[aria-current="page"]').count(), 1);
+      assert.equal(new URL(await routeNav.locator('a[aria-current="page"]').getAttribute('href')).searchParams.get('sweep'), tour.id);
+    }
+    const pathControl = page.getByRole('button', { name: 'Scan path' });
+    assert.equal(await pathControl.isVisible(), tour.showRoute);
+    if (tour.showRoute) {
+      assert.equal(await pathControl.getAttribute('aria-pressed'), 'true');
+      const visible = await screenshot();
+      await pathControl.click();
+      assert.equal(await pathControl.getAttribute('aria-pressed'), 'false');
+      assert.notDeepEqual(await screenshot(), visible, 'Toggling the scan path should change the rendered canvas.');
+      await pathControl.click();
+      assert.deepEqual(await screenshot(), visible);
+      if (tour.region === 'Breast') await capture(tour.id + '-scan-path-1021', true);
+    }
     if (captureFolder && tour.id === 'kidney-left') {
       await preset('coronal').click();
       await capture('left-kidney-coronal-1021x1197');
@@ -172,10 +197,10 @@ try {
       assert.notDeepEqual(await screenshot(), defaultView, 'Coronal and oblique views should have distinct projections.');
       await preset('oblique').click();
       assert.deepEqual(await screenshot(), defaultView, 'Reapplying the oblique preset should restore the default projection.');
-      if (captureFolder && (tour.id === 'thyroid-right' || tour.id === 'breast')) {
+      if (captureFolder && (tour.id === 'thyroid-right' || tour.region === 'Breast')) {
         await skinOpacity.fill('100');
         await page.locator('#scenePanel figcaption > span').click();
-        await capture(tour.id + '-skin-100-1021x1197');
+        await capture(tour.id + '-skin-100-1021', tour.region === 'Breast');
         await skinOpacity.fill('32');
       }
     }
@@ -189,7 +214,7 @@ try {
       assert.equal(await page.locator('#readout').textContent(), key.label);
       assert.ok((await page.locator('#referenceNote').textContent()).includes(key.referenceLabel));
       assert.equal(await page.locator('#referenceDepth').textContent(), [tour.referenceContext, key.depthLabel].filter(Boolean).join(' · '));
-      if (tour.id === 'breast') await capture('breast-' + key.frame + '-1021x1197');
+      if (tour.region === 'Breast') await capture(tour.id + '-frame-' + key.frame + '-1021', true);
       if (tour.region === 'Neck' && tour.keys.length === 3) {
         if (key.frame === 0 && tour.id === 'thyroid-right') await capture('thyroid-midline-1021x1197');
         if (key.frame === 12) await capture(tour.id + '-transverse-1021x1197');
@@ -197,7 +222,7 @@ try {
       }
     }
     const position = page.getByRole('slider', { name: 'Sweep position' });
-    for (let i = 1; i < tour.keys.length; i += 1) {
+    for (let i = 1; !tour.steering && i < tour.keys.length; i += 1) {
       const first = tour.keys[i - 1];
       const last = tour.keys[i];
       if (last.frame - first.frame <= 2) continue;
@@ -299,6 +324,155 @@ try {
   await page.goForward();
   await ready();
   assert.equal(await sweepPicker.inputValue(), catalogue.at(-1).id);
+
+  const steered = catalogue.find((tour) => tour.steering);
+  if (steered) {
+    const startURL = new URL(url);
+    startURL.searchParams.set('sweep', steered.id);
+    await page.goto(startURL.href);
+    await ready();
+    const { axes, cells } = steered.steering;
+    const range = axes.map(({ label }) => page.getByRole('slider', { name: label, exact: true }));
+    const expectedCount = axes.reduce((count, axis) => count * axis.values.length, 1);
+    assert.deepEqual(axes.map((axis) => axis.values.length), [3, 5, 3]);
+    assert.equal(cells.length, expectedCount);
+    assert.equal(new Set(cells.map((cell) => cell.indices.join('/'))).size, expectedCount);
+    assert.equal(new Set(cells.map((cell) => cell.frame)).size, expectedCount);
+    const position = page.getByRole('slider', { name: 'Sweep position' });
+    const scanFor = (frame, prefix = 'scan') => new URL(
+      steered.assetRoot + 'media/' + prefix + '-' + String(frame).padStart(2, '0') + '.webp', page.url(),
+    ).href;
+    const waitScan = (src) => page.waitForFunction((path) => document.querySelector('#scan')?.src === path, src);
+    const currentIndices = async () => Promise.all(range.map(async (slider) => Number(await slider.inputValue())));
+    const panelPositions = () => page.locator('#steering, #scanArea, #referenceArea').evaluateAll((nodes) =>
+      nodes.map((node) => node.getBoundingClientRect().top + scrollY));
+    const fixedPositions = await panelPositions();
+    const renderedCells = new Set();
+    for (const cell of cells) {
+      const previous = await currentIndices();
+      for (let axis = 0; axis < range.length; axis += 1) {
+        if (previous[axis] !== cell.indices[axis]) await range[axis].fill(String(cell.indices[axis]));
+      }
+      await waitScan(scanFor(cell.frame));
+      assert.equal(await position.inputValue(), String(cell.frame));
+      assert.deepEqual(await currentIndices(), cell.indices);
+      (await panelPositions()).forEach((top, i) => {
+        assert.ok(Math.abs(top - fixedPositions[i]) < 1, 'Steering values should not shift the scan panels.');
+      });
+      const digest = createHash('sha256').update(await screenshot()).digest('hex');
+      assert.ok(!renderedCells.has(digest), 'Distinct steering poses should render distinct geometry.');
+      renderedCells.add(digest);
+      for (let axis = 0; axis < range.length; axis += 1) {
+        const value = Number(axes[axis].values[cell.indices[axis]].toFixed(1));
+        const unit = axes[axis].unit;
+        assert.equal(await range[axis].getAttribute('aria-valuetext'), value + (unit === '°' ? unit : ' ' + unit));
+      }
+    }
+
+    await preset('oblique').click();
+    const rendered = await screenshot();
+    const candidatePixels = await page.evaluate(async (png) => {
+      const input = new Image();
+      input.src = 'data:image/png;base64,' + png;
+      await input.decode();
+      const copy = document.createElement('canvas');
+      copy.width = input.naturalWidth;
+      copy.height = input.naturalHeight;
+      const ctx = copy.getContext('2d');
+      ctx.drawImage(input, 0, 0);
+      const { width, height } = copy;
+      const { data } = ctx.getImageData(0, 0, width, height);
+      const candidates = [];
+      for (let y = Math.round(height * .22); y < height * .78; y += 8) {
+        for (let x = Math.round(width * .21); x < width * .79; x += 8) {
+          const i = (y * width + x) * 4;
+          const [r, g, b] = data.slice(i, i + 3);
+          if (r > 148 && g > 155 && b > 150 && Math.max(r, g, b) - Math.min(r, g, b) < 36) {
+            candidates.push({ x: x / width, y: y / height, brightness: r + g + b });
+          }
+        }
+      }
+      return candidates.sort((a, b) => b.brightness - a.brightness).slice(0, 40);
+    }, rendered.toString('base64'));
+    const canvasRect = await canvas.boundingBox();
+    let hit;
+    for (const pixel of candidatePixels) {
+      const x = canvasRect.x + pixel.x * canvasRect.width;
+      const y = canvasRect.y + pixel.y * canvasRect.height;
+      await page.mouse.move(x, y);
+      if ((await canvas.evaluate(node => getComputedStyle(node).cursor)) === 'move') {
+        hit = { x, y };
+        break;
+      }
+    }
+    assert.ok(hit, 'The visible probe should expose a direct-drag affordance.');
+    const beforeDrag = await currentIndices();
+    const lateralDirection = beforeDrag[0] === 0 ? 1 : -1;
+    const verticalDirection = beforeDrag[2] === 0 ? -1 : 1;
+    await page.mouse.down();
+    await page.mouse.move(hit.x + 35 * lateralDirection, hit.y + 28 * verticalDirection, { steps: 4 });
+    await page.mouse.up();
+    const destination = cells.find((cell) => cell.indices[0] === beforeDrag[0] + lateralDirection
+      && cell.indices[1] === beforeDrag[1] && cell.indices[2] === beforeDrag[2] - verticalDirection);
+    await waitScan(scanFor(destination.frame));
+    assert.equal(await preset('oblique').getAttribute('aria-pressed'), 'true', 'Probe drag should not orbit the camera.');
+
+    if (steered.compressionMm) {
+      const pressure = page.getByRole('button', { name: 'Gentle compression' });
+      const key = steered.keys.at(-1);
+      await page.locator('#ticks button').last().click();
+      await waitScan(scanFor(key.frame));
+      const comparison = new URL(key.path, page.url()).href;
+      const unpressedView = await screenshot();
+      await pressure.click();
+      await waitScan(scanFor(key.frame, 'press-scan'));
+      assert.notDeepEqual(await screenshot(), unpressedView, 'Gentle compression should change the 3D geometry.');
+      await capture(steered.id + '-gentle-compression-1021', true);
+      assert.equal(await pressure.getAttribute('aria-pressed'), 'true');
+      assert.equal(await position.inputValue(), String(key.frame));
+      assert.equal(await page.locator('#ref').evaluate((img) => img.src), comparison);
+      assert.ok((await page.locator('#scanDetail').textContent()).includes(
+        Number(((steered.depth - steered.compressionMm) / 10).toFixed(2)) + ' cm depth',
+      ));
+      await page.locator('#section').click();
+      await waitScan(scanFor(key.frame, 'press-section'));
+      await page.locator('#section').click();
+      await waitScan(scanFor(key.frame, 'press-scan'));
+      await page.locator('#assetTab').click();
+      await page.locator('[data-asset="simulation"]').click();
+      await page.waitForFunction((path) => document.querySelector('#assetEvidence img')?.src === path,
+        scanFor(key.frame, 'press-scan'));
+      await page.locator('#return').click();
+      assert.equal(await pressure.getAttribute('aria-pressed'), 'true');
+      assert.equal(await position.inputValue(), String(key.frame));
+      await waitScan(scanFor(key.frame, 'press-scan'));
+      await pressure.click();
+      await waitScan(scanFor(key.frame));
+      assert.deepEqual(await screenshot(), unpressedView, 'Releasing pressure should restore the original 3D pose.');
+
+      const missingPress = scanFor(key.frame, 'press-scan');
+      await page.route(missingPress, (route) => route.abort());
+      await page.reload();
+      await ready();
+      await page.locator('#ticks button').last().click();
+      await waitScan(scanFor(key.frame));
+      await pressure.click();
+      await page.getByText('Scan unavailable for this frame.').waitFor();
+      assert.equal(await page.locator('#ref').evaluate((img) => img.src), comparison);
+      await pressure.click();
+      await waitScan(scanFor(key.frame));
+      await page.unroute(missingPress);
+    }
+    const nextRoute = catalogue.find((tour) => tour.region === 'Breast' && tour.id !== steered.id);
+    if (nextRoute) {
+      const links = page.getByRole('navigation', { name: 'Breast scan routes' }).getByRole('link');
+      const hrefs = await links.evaluateAll((nodes) => nodes.map((node) => node.href));
+      await links.nth(hrefs.findIndex((href) => new URL(href).searchParams.get('sweep') === nextRoute.id)).click();
+      await page.waitForURL((location) => location.searchParams.get('sweep') === nextRoute.id);
+      await ready();
+      assert.equal(await sweepPicker.inputValue(), nextRoute.id);
+    }
+  }
 
   const gallbladder = catalogue.find((tour) => tour.id === 'gallbladder');
   await page.goto(new URL('#guided', url).href);

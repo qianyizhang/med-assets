@@ -112,19 +112,41 @@ def verify(source):
             if breast.exists():
                 tour = next(tour for tour in tours if tour['id'] == 'breast')
                 assert tour['anatomySource']['url'] and tour['simulationNote']
+                focused = staging / 'sweeps/breast-subareolar'
+                focused.rename(work / 'focused')
+                reject(staging, broken, 'Incomplete breast study')
                 breast.rename(work / 'breast')
                 previous_dir = work / 'without-breast'
                 assemble_tours.assemble(staging, previous_dir)
                 previous = javascript_value(previous_dir / 'abdomen-tours.js', 'abdomenTours')
-                assert previous == [tour for tour in tours if tour['id'] != 'breast']
+                others = [tour for tour in tours if tour['id'] not in ('breast', 'breast-subareolar')]
+                def without_mesh_paths(items):
+                    return [{key: val for key, val in item.items() if key != 'meshPaths'} for item in items]
+                assert without_mesh_paths(previous) == without_mesh_paths(others)
+                for tour in previous:
+                    for part, path in tour.get('meshPaths', {}).items():
+                        raw = staging / tour['assetRoot'] / 'scenes' / (part + '.mesh')
+                        assert raw.read_bytes() == (previous_dir / path).read_bytes()
                 (work / 'breast').rename(breast)
+                (work / 'focused').rename(focused)
+                steering_receipt = focused / 'verification.json'
+                wrong_pressure = {**json.loads(steering_receipt.read_text()), 'compressionMm': 0}
                 receipt = breast / 'verification.json'
                 wrong_source = {**json.loads(receipt.read_text()), 'femaleSkinSha256': '0' * 64}
+                wrong_render = {**json.loads(receipt.read_text()), 'renderRecipeSha256': '0' * 64}
                 cases.extend([
+                    (receipt, json.dumps(wrong_render).encode(), 'current tissue rendering recipe', False),
+                    (steering_receipt, json.dumps(wrong_pressure).encode(), 'configured steering and compression', False),
+                    (focused / 'media/press-scan-48.webp', None, 'Missing sweep input', False),
                     (receipt, json.dumps(wrong_source).encode(), 'current breast atlas inputs', False),
                     (breast / 'delivery.json', None, 'Missing linear sweep delivery inventory', False),
                     (research / 'acquired/breast-48.webp', b'invalid', 'Unexpected acquired image identity', False),
                 ])
+            if (staging / 'sweeps/axilla').exists():
+                receipt = staging / 'sweeps/axilla/verification.json'
+                wrong_skin = {**json.loads(receipt.read_text()), 'femaleSkinSha256': '0' * 64}
+                cases.append((receipt, json.dumps(wrong_skin).encode(), 'current axillary exterior', False))
+                cases.append((research / 'acquired/axilla-48.webp', b'invalid', 'Unexpected acquired image identity', False))
             for path, bad, expected, reseal in cases:
                 original = path.read_bytes()
                 if bad is None:

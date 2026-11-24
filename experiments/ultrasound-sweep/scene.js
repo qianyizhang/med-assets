@@ -2,6 +2,7 @@ import * as THREE from './vendor/build/three.module.js';
 
 const vec = (x, y, z) => new THREE.Vector3(x, y, z);
 const vector = (xyz) => new THREE.Vector3().fromArray(xyz);
+const DEFAULT_PRESS_SETTLE_MM = 30;
 
 async function readAsset(path, format) {
   const response = await fetch(new URL(path, import.meta.url));
@@ -95,7 +96,7 @@ function orientationMarker() {
   };
 }
 
-function viewport(canvas, { pivot, presets, shadowTarget, onViewPresetChange }) {
+function viewport(canvas, { pivot, presets, shadowTarget, onViewPresetChange, probe, torso, onProbeDrag }) {
   const context = canvas.getContext('webgl2', { alpha: false, antialias: true });
   if (!context) throw new Error('This browser could not start WebGL 2 for the orbitable views.');
   const renderer = new THREE.WebGLRenderer({ canvas, context });
@@ -131,6 +132,7 @@ function viewport(canvas, { pivot, presets, shadowTarget, onViewPresetChange }) 
   let previousHeight = 0;
   const events = new AbortController();
   const marker = orientationMarker();
+  const raycaster = onProbeDrag ? new THREE.Raycaster() : null;
 
   function render() {
     pending = 0;
@@ -212,20 +214,65 @@ function viewport(canvas, { pivot, presets, shadowTarget, onViewPresetChange }) 
     canvas.addEventListener(type, handler, { ...options, signal: events.signal });
   }
 
+  function hitsProbe(event) {
+    if (!raycaster) return false;
+    const bounds = canvas.getBoundingClientRect();
+    if (!bounds.width || !bounds.height) return false;
+    const cursor = new THREE.Vector2(
+      (event.clientX - bounds.left) / bounds.width * 2 - 1,
+      1 - (event.clientY - bounds.top) / bounds.height * 2,
+    );
+    camera.updateMatrixWorld();
+    probe.updateWorldMatrix(true, true);
+    raycaster.setFromCamera(cursor, camera);
+    const [hit] = raycaster.intersectObject(probe, true);
+    if (!hit) return false;
+    if (!torso.visible) return true;
+    const [skin] = raycaster.intersectObject(torso, false);
+    return !skin || hit.distance < skin.distance;
+  }
+
+  function finishPointer(event, useLastPosition = false) {
+    if (pointer?.id !== event.pointerId) return;
+    const gesture = pointer;
+    pointer = null;
+    if (gesture.steering) {
+      const x = useLastPosition ? gesture.x : event.clientX;
+      const y = useLastPosition ? gesture.y : event.clientY;
+      onProbeDrag({ phase: 'end', dx: x - gesture.startX, dy: y - gesture.startY });
+    }
+    canvas.style.cursor = !useLastPosition && event.pointerType === 'mouse' && hitsProbe(event) ? 'move' : '';
+  }
+
   listen('webglcontextrestored', invalidate);
   listen('pointerdown', (event) => {
     if (!event.isPrimary || event.button !== 0) return;
-    pointer = { id: event.pointerId, x: event.clientX, y: event.clientY };
+    const steering = hitsProbe(event) && onProbeDrag({ phase: 'start', dx: 0, dy: 0 }) !== false;
+    pointer = { id: event.pointerId, x: event.clientX, y: event.clientY,
+      startX: event.clientX, startY: event.clientY, steering };
     canvas.setPointerCapture(pointer.id);
+    if (steering) canvas.style.cursor = 'move';
   });
   listen('pointermove', (event) => {
-    if (pointer?.id !== event.pointerId) return;
-    const scale = Math.PI / Math.max(1, canvas.clientHeight);
-    orbit(-(event.clientX - pointer.x) * scale, -(event.clientY - pointer.y) * scale);
+    if (pointer?.id !== event.pointerId) {
+      if (!pointer && raycaster && event.pointerType === 'mouse') {
+        canvas.style.cursor = hitsProbe(event) ? 'move' : '';
+      }
+      return;
+    }
+    if (pointer.steering) {
+      onProbeDrag({ phase: 'move', dx: event.clientX - pointer.startX, dy: event.clientY - pointer.startY });
+    } else {
+      const scale = Math.PI / Math.max(1, canvas.clientHeight);
+      orbit(-(event.clientX - pointer.x) * scale, -(event.clientY - pointer.y) * scale);
+    }
     pointer.x = event.clientX;
     pointer.y = event.clientY;
   });
-  listen('lostpointercapture', () => { pointer = null; });
+  listen('pointerup', finishPointer);
+  listen('pointercancel', (event) => finishPointer(event, true));
+  listen('lostpointercapture', (event) => finishPointer(event, true));
+  listen('pointerleave', () => { if (!pointer) canvas.style.cursor = ''; });
   listen('wheel', (event) => {
     event.preventDefault();
     const step = event.deltaMode === WheelEvent.DOM_DELTA_LINE ? .075 : .0015;
@@ -418,6 +465,104 @@ function transformForFrame(frame) {
   return { position, orientation: new THREE.Quaternion().setFromRotationMatrix(basis) };
 }
 
+function breastCompression(materials, dimensions) {
+  const uniforms = {
+    pressMm: { value: 0 },
+    pressOrigin: { value: vec(0, 0, 0) },
+    pressBeam: { value: vec(0, 0, 0) },
+    pressWidth: { value: vec(0, 0, 0) },
+    pressElevation: { value: vec(0, 0, 0) },
+    pressVoxelMm: { value: dimensions.voxelMm },
+    pressHalfWidthMm: { value: dimensions.fieldWidthMm / 2 },
+    pressSettleMm: { value: dimensions.pressSettleMm },
+  };
+  for (const material of materials) {
+    material.onBeforeCompile = (shader) => {
+      Object.assign(shader.uniforms, uniforms);
+      // The central plane matches breast_compression.py. The extra tapers keep
+      // off-plane tissue and the surrounding skin outside the face undisturbed.
+      shader.vertexShader = `
+        uniform float pressMm, pressVoxelMm, pressHalfWidthMm, pressSettleMm;
+        uniform vec3 pressOrigin, pressBeam, pressWidth, pressElevation;
+      ` + shader.vertexShader.replace('#include <begin_vertex>', `
+        #include <begin_vertex>
+        if (pressMm > 0.0) {
+          vec3 offsetMm = (position - pressOrigin) * pressVoxelMm;
+          float depthMm = dot(offsetMm, pressBeam);
+          float lateralMm = abs(dot(offsetMm, pressWidth));
+          float elevationMm = abs(dot(offsetMm, pressElevation));
+          float shallow = smoothstep(-9.0, -3.0, depthMm) * (1.0 - smoothstep(0.0, pressSettleMm, depthMm));
+          float across = 1.0 - smoothstep(pressHalfWidthMm, pressHalfWidthMm + 10.0, lateralMm);
+          float offPlane = 1.0 - smoothstep(6.5, 18.0, elevationMm);
+          transformed += pressBeam * (pressMm / pressVoxelMm * shallow * across * offPlane);
+        }
+      `);
+    };
+  }
+  return (amount, contact, orientation) => {
+    uniforms.pressMm.value = amount;
+    uniforms.pressOrigin.value.copy(contact);
+    uniforms.pressBeam.value.set(0, 0, -1).applyQuaternion(orientation);
+    uniforms.pressWidth.value.set(1, 0, 0).applyQuaternion(orientation);
+    uniforms.pressElevation.value.set(0, 1, 0).applyQuaternion(orientation);
+  };
+}
+
+function surveyRoute(transforms, dimensions) {
+  const { voxelMm, fieldWidthMm } = dimensions;
+  const lift = 1 / voxelMm;
+  const points = transforms.map(({ position, orientation }) =>
+    position.clone().addScaledVector(vec(0, 0, 1).applyQuaternion(orientation), lift));
+  const group = new THREE.Group();
+  const unvisited = new THREE.Line(new THREE.BufferGeometry().setFromPoints(points), new THREE.LineDashedMaterial({
+    color: '#d6dfd8', transparent: true, opacity: .58, depthWrite: false,
+    dashSize: 3 / voxelMm, gapSize: 2 / voxelMm,
+  }));
+  unvisited.computeLineDistances();
+  const unvisitedPositions = unvisited.geometry.getAttribute('position');
+  const unvisitedDistances = unvisited.geometry.getAttribute('lineDistance');
+  const allDistances = unvisitedDistances.array.slice();
+  const visitedGeometry = new THREE.BufferGeometry().setFromPoints(points);
+  const visited = new THREE.Line(visitedGeometry, new THREE.LineBasicMaterial({
+    color: '#eff3df', transparent: true, opacity: .95, depthWrite: false,
+  }));
+  const visitedPositions = visitedGeometry.getAttribute('position');
+  const allPositions = visitedPositions.array.slice();
+  const half = fieldWidthMm / 2 / voxelMm;
+  const edge = 7 / voxelMm;
+  const outline = new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints([
+    vec(-half, -edge, 0), vec(half, -edge, 0), vec(half, edge, 0), vec(-half, edge, 0),
+  ]), new THREE.LineBasicMaterial({ color: '#eadfbe', transparent: true, opacity: .68, depthWrite: false }));
+  unvisited.renderOrder = 5;
+  visited.renderOrder = 6;
+  outline.renderOrder = 6;
+  group.add(unvisited, visited, outline);
+
+  return {
+    group,
+    setFrame(frame, contact, orientation) {
+      const lo = Math.floor(frame);
+      const hi = Math.ceil(frame);
+      visitedPositions.array.set(allPositions);
+      unvisitedPositions.array.set(allPositions);
+      unvisitedDistances.array.set(allDistances);
+      if (lo !== hi) {
+        const partial = points[lo].clone().lerp(points[hi], frame - lo);
+        visitedPositions.setXYZ(hi, partial.x, partial.y, partial.z);
+        unvisitedPositions.setXYZ(lo, partial.x, partial.y, partial.z);
+        unvisitedDistances.setX(lo, THREE.MathUtils.lerp(allDistances[lo], allDistances[hi], frame - lo));
+      }
+      visitedPositions.needsUpdate = true;
+      unvisitedPositions.needsUpdate = true;
+      unvisitedDistances.needsUpdate = true;
+      visitedGeometry.setDrawRange(0, hi + 1);
+      unvisited.geometry.setDrawRange(lo, points.length - lo);
+      outline.position.copy(contact).addScaledVector(vec(0, 0, 1).applyQuaternion(orientation), lift);
+      outline.quaternion.copy(orientation);
+    },
+  };
+}
+
 function boundsCorners(bounds) {
   const { min, max } = bounds;
   return [min.x, max.x].flatMap((x) => [min.y, max.y].flatMap((y) =>
@@ -435,6 +580,14 @@ function neckFraming(pivot, bodyBounds, voxelMm) {
   contextBounds.max.z = Math.min(contextBounds.max.z, pivot.z + 96 / voxelMm);
   const side = pivot.x < bodyBounds.getCenter(vec(0, 0, 0)).x ? -1 : 1;
   return { contextBounds, padding: 5 / voxelMm, direction: vec(.92 * side, .94, .43) };
+}
+
+function axillaFraming(pivot, voxelMm) {
+  const contextBounds = new THREE.Box3(
+    pivot.clone().addScaledVector(vec(-60, -27, -65), 1 / voxelMm),
+    pivot.clone().addScaledVector(vec(77, 30, 71), 1 / voxelMm),
+  );
+  return { contextBounds, padding: 10 / voxelMm, direction: vec(.95, .1, .22) };
 }
 
 function cameraPresets(organ, pivot, fitBounds, transforms, probe, sector, framing = {}) {
@@ -496,7 +649,7 @@ function cameraPresets(organ, pivot, fitBounds, transforms, probe, sector, frami
   };
 }
 
-export async function createSweepScene({ canvas, frames, config, onViewPresetChange }) {
+export async function createSweepScene({ canvas, frames, config, onViewPresetChange, onProbeDrag }) {
   if (!frames?.length) throw new Error('The sweep has no probe poses.');
   if (!config?.parts?.some(({ id }) => id === config.organ)) {
     throw new Error('The sweep has no configured target mesh.');
@@ -516,10 +669,17 @@ export async function createSweepScene({ canvas, frames, config, onViewPresetCha
     voxelMm: config.voxelMm ?? commonDimensions.voxelMm,
     sectorDepthMm: config.sectorDepthMm ?? commonDimensions.sectorDepthMm,
     fieldWidthMm: config.fieldWidthMm,
+    pressSettleMm: config.compressionSettleDepthMm ?? DEFAULT_PRESS_SETTLE_MM,
   };
   const rectangular = config.fieldShape === 'rectangle';
   if (linear && !(rectangular && Number.isFinite(dimensions.fieldWidthMm) && dimensions.fieldWidthMm > 0)) {
     throw new Error('The linear probe requires a rectangular field with a positive width.');
+  }
+  const pressureMm = config.compressionMm ?? 0;
+  if (pressureMm && !(linear && Number.isFinite(pressureMm) && pressureMm > 0 &&
+      Number.isFinite(dimensions.pressSettleMm) &&
+      pressureMm < Math.min(2 * dimensions.pressSettleMm / 3, dimensions.sectorDepthMm))) {
+    throw new Error('Probe compression requires a valid linear imaging depth.');
   }
   const meshes = Object.fromEntries(names.map((name, index) => [name, geometries[index]]));
   const transforms = frames.map(transformForFrame);
@@ -537,15 +697,15 @@ export async function createSweepScene({ canvas, frames, config, onViewPresetCha
     ? linearTransducer(dimensions)
     : curvedTransducer(Object.fromEntries(probeNames.map((name, index) => [name, probeGeometries[index]])), dimensions);
   const sector = rectangular ? rectangleGeometry(dimensions) : sectorGeometry(dimensions);
-  const framing = config.bodyRegion === 'Neck'
-    ? neckFraming(pivot, meshes.torso.boundingBox, dimensions.voxelMm)
-    : undefined;
-  const view = viewport(canvas, {
-    pivot,
-    presets: cameraPresets(config.organ, pivot, fitBounds, transforms, probe, sector, framing),
-    shadowTarget: transforms[Math.min(12, transforms.length - 1)].position,
-    onViewPresetChange,
-  });
+  let framing;
+  if (config.bodyRegion === 'Neck') {
+    framing = neckFraming(pivot, meshes.torso.boundingBox, dimensions.voxelMm);
+  } else if (config.organ === 'axillary_node') {
+    framing = axillaFraming(pivot, dimensions.voxelMm);
+  } else if (config.steering) {
+    // The lateral and superior tilt reveals the field in both nipple reference planes.
+    framing = { direction: vec(.57, .92, .55) };
+  }
   const torso = solid(meshes.torso, '#be9885');
   torso.material.roughness = .95;
   torso.renderOrder = 4;
@@ -556,6 +716,15 @@ export async function createSweepScene({ canvas, frames, config, onViewPresetCha
     transparent: true, colorWrite: false, depthWrite: true,
   }));
   torsoDepth.renderOrder = 3.5;
+  const view = viewport(canvas, {
+    pivot,
+    presets: cameraPresets(config.organ, pivot, fitBounds, transforms, probe, sector, framing),
+    shadowTarget: transforms[Math.min(12, transforms.length - 1)].position,
+    onViewPresetChange,
+    probe,
+    torso,
+    onProbeDrag,
+  });
   probe.traverse((object) => { if (object.isMesh) object.castShadow = true; });
   const cable = solid(new THREE.BufferGeometry(), '#4c5657');
   const internal = new THREE.Group();
@@ -575,24 +744,38 @@ export async function createSweepScene({ canvas, frames, config, onViewPresetCha
       internal.add(mesh);
     }
   }
+  const deform = pressureMm ? breastCompression([
+    torso.material, torsoDepth.material, ...internal.children.map((part) => part.material),
+    ...surface.children.map((part) => part.material),
+  ], dimensions) : null;
   internal.add(sector);
   view.scene.add(torso, torsoDepth, probe, cable, internal, surface);
+  const route = config.showRoute && linear ? surveyRoute(transforms, dimensions) : null;
+  if (route) view.scene.add(route.group);
+  let routeVisible = Boolean(route);
   const last = transforms.length - 1;
   let selected = -1;
+  let pressed = 0;
 
-  function setFrame(index) {
+  function setFrame(index, compressed = false) {
     const frame = THREE.MathUtils.clamp(index, 0, last);
-    if (!Number.isFinite(frame) || frame === selected) return;
+    const amount = compressed ? pressureMm : 0;
+    if (!Number.isFinite(frame) || (frame === selected && amount === pressed)) return;
     selected = frame;
+    pressed = amount;
     const lo = Math.floor(frame);
     const hi = Math.ceil(frame);
     const mix = frame - lo;
     probe.position.copy(transforms[lo].position).lerp(transforms[hi].position, mix);
     probe.quaternion.copy(transforms[lo].orientation).slerp(transforms[hi].orientation, mix);
+    const outward = vec(0, 0, 1).applyQuaternion(probe.quaternion);
+    deform?.(pressed, probe.position, probe.quaternion);
+    route?.setFrame(frame, probe.position, probe.quaternion);
+    probe.position.addScaledVector(outward, -pressed / dimensions.voxelMm);
     sector.position.copy(probe.position);
     sector.quaternion.copy(probe.quaternion);
+    sector.scale.z = (dimensions.sectorDepthMm - pressed) / dimensions.sectorDepthMm;
 
-    const outward = vec(0, 0, 1).applyQuaternion(probe.quaternion);
     const cableScale = linear ? 1 / dimensions.voxelMm : 1;
     const end = probe.position.clone().addScaledVector(outward, linear ? 84 * cableScale : 60);
     const path = new THREE.CatmullRomCurve3(linear ? [
@@ -616,6 +799,7 @@ export async function createSweepScene({ canvas, frames, config, onViewPresetCha
     const opacity = THREE.MathUtils.clamp(value, 0, 1);
     const transparent = opacity < 1;
     torso.visible = opacity > 0;
+    if (route) route.group.visible = routeVisible && torso.visible;
     surface.visible = torso.visible;
     for (const patch of surface.children) patch.material.opacity = opacity;
     torsoDepth.visible = torso.visible && transparent;
@@ -631,7 +815,14 @@ export async function createSweepScene({ canvas, frames, config, onViewPresetCha
     view.invalidate();
   }
 
+  function setRouteVisible(value) {
+    if (!route) return;
+    routeVisible = Boolean(value);
+    route.group.visible = routeVisible && torso.visible;
+    view.invalidate();
+  }
+
   setTorsoOpacity(.32);
   setFrame(0);
-  return { setFrame, setTorsoOpacity, setViewPreset: view.setViewPreset, resetView: view.reset, dispose: view.dispose };
+  return { setFrame, setTorsoOpacity, setRouteVisible, setViewPreset: view.setViewPreset, resetView: view.reset, dispose: view.dispose };
 }

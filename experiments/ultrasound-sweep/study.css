@@ -161,10 +161,6 @@ main { padding: 12px 0 24px; }
   --turn: #637076;
 }
 
-#position {
-  --track-split: calc(var(--first-phase) + var(--phase-thumb-offset));
-  --phase-track: linear-gradient(to right, transparent var(--track-split), var(--turn) var(--track-split)), var(--hatch);
-}
 .ticks { position: relative; height: 29px; margin-inline: calc(var(--thumb-size) / 2); }
 
 .tick {
@@ -218,7 +214,6 @@ main { padding: 12px 0 24px; }
 
 .phases {
   display: grid;
-  grid-template-columns: var(--first-phase) minmax(0, 1fr);
   margin: 4px calc(var(--thumb-size) / 2) -4px;
   padding: 0;
   list-style: none;
@@ -257,6 +252,17 @@ main { padding: 12px 0 24px; }
 .cameraTools { display: flex; align-items: center; gap: 4px; border: 0; margin: 0; padding: 0; min-inline-size: 0; }
 .cameraTools button { min-height: 32px; }
 .sceneFoot { justify-content: space-between; flex-wrap: wrap; padding-block: 5px; }
+.routeNav { align-items: baseline; margin-bottom: 10px; gap: 4px 14px; }
+.routeNav a { color: var(--quiet); padding: 5px 0; text-decoration: none; font-size: 14px; }
+.routeNav a[aria-current="page"] { color: var(--ink); font-weight: 650; border-bottom: 2px solid currentColor; }
+.routeNav a:hover { text-decoration: underline; }
+.steering { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 18px; padding: 9px 12px;
+  margin: 0; border: 0; border-bottom: 1px solid #42534f; color: var(--screen-text); }
+.steering label { flex: 1 1 153px; display: grid; grid-template-columns: auto minmax(44px, 1fr) 6.5ch;
+  gap: 6px; align-items: center; font-size: 13px; }
+.steering input { width: 100%; accent-color: #80c8b9; }
+.steering output { text-align: end; white-space: nowrap; font-variant-numeric: tabular-nums; }
+#showRoute { margin-inline-end: auto; margin-inline-start: 8px; }
 .legend li { color: color-mix(in srgb, var(--part-color, var(--screen-quiet)), white 32%); }
 .opacityControl { display: flex; flex-wrap: wrap; align-items: center; column-gap: 8px; }
 .opacityControl input { inline-size: clamp(86px, 13vw, 160px); min-height: 26px; accent-color: #80c8b9; cursor: pointer; }
@@ -316,7 +322,7 @@ main { padding: 12px 0 24px; }
   pointer-events: none;
 }
 
-.sceneView canvas:focus-visible ~ .orbitHelp { opacity: 1; }
+.sceneView canvas:focus-visible ~ .orbitHelp, .steerHelp { opacity: 1; }
 
 .mediaStatus {
   color: var(--screen-quiet);

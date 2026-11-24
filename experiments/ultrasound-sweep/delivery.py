@@ -81,4 +81,4 @@ def verify_inventory(root, names):
         if name == 'sweep.js':
             read_poses(path)
         elif name.endswith('.webp'):
-            validate_image(path, sweep_frame=Path(name).name.startswith(('scan-', 'section-')))
+            validate_image(path, sweep_frame=Path(name).name.removeprefix('press-').startswith(('scan-', 'section-')))

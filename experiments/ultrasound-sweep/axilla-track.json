@@ -1,0 +1,39 @@
+{
+  "id": "axilla",
+  "title": "Right axilla",
+  "routeLabel": "Axillary nodes",
+  "organ": "axillary_node",
+  "bodyRegion": "Breast",
+  "region": "Right anterior axillary fold",
+  "case": "hra-right-axilla-teaching",
+  "exterior": "hra-female-axilla",
+  "probeType": "linear",
+  "fieldShape": "rectangle",
+  "fieldWidthMm": 32,
+  "sectorDepthMm": 49,
+  "voxelMm": 1.5,
+  "focus": [104.2698, -27.6034, 349.8719],
+  "focusRadius": 34,
+  "keyframeLabels": ["Node long axis", "Node short axis"],
+  "phaseLabels": ["Find the long-axis hilum", "Rotate through the center to the short axis"],
+  "parts": [
+    {"id": "axillary_muscle", "label": "Deep muscular plane", "color": "#b28c82", "opacity": 0.34},
+    {"id": "axillary_artery", "label": "Axillary artery", "color": "#ce7779", "opacity": 0.82},
+    {"id": "axillary_vein", "label": "Axillary vein", "color": "#658dac", "opacity": 0.82},
+    {"id": "axillary_node", "label": "Lymph node cortex", "color": "#ab80ad", "opacity": 0.46},
+    {"id": "fatty_hilum", "label": "Fatty hilum", "color": "#efd59d", "opacity": 0.88}
+  ],
+  "overlayParts": ["axillary_muscle", "axillary_artery", "axillary_vein", "axillary_node", "fatty_hilum"],
+  "anatomySource": {
+    "label": "Kristen Browne and Heidi Schlehlein · HRA female skin v1.3",
+    "shortLabel": "HRA female exterior",
+    "url": "https://doi.org/10.48539/HBM466.LKPQ.876",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+  },
+  "sourceNote": "The HRA skin supplies the chest and shoulder. The right arm is posed outward to expose the axilla, with the native probe-contact skin preserved. The node, hilum and neighboring soft tissues and vessels are illustrative anatomy in the right anterior fold.",
+  "simulationNote": "A bright fatty hilum and a thin darker cortex appear in both planes. This B-mode model illustrates how rotation changes the shape of one node.",
+  "requirePoseReceipt": true,
+  "requirePaletteReceipt": true,
+  "referenceContext": ""
+}
