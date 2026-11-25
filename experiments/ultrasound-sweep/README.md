@@ -4,7 +4,33 @@ Open the [local tour](http://127.0.0.1:8874/index.html) for abdomen, thyroid, ca
 
 Choose [Full exams](http://127.0.0.1:8874/exams/index.html) to play an entire visit, scrub its acquisitions and return from an impression to the measured frame. [Worked cases](http://127.0.0.1:8874/cases/index.html) contains companion plates and acquired examples. [Case packages and verification](cases/README.md)
 
-Scrub the timeline, play the sweep, or jump directly to a named reference tick. **Anatomy overlay** identifies the tissue intersected by that plane, using CT labels, atlas surfaces or the pregnancy model’s tissue boundaries. Each acquired image retains its own subject, scale and orientation. Differences in plane, level and crop are identified on the card or in Sources. **Keyframe assets** groups the current frame into 3D anatomy, simulated scan and acquired ultrasound. Open **Related anatomy** on a supported sweep for additional acquired views and their credits. Returning to the tour preserves the selected frame. Its management and display design are reserved for joint review after the abdomen walkthrough. [Full tour specification](../../docs/gallery/use-cases/ultrasound-anatomy.md) · [Reference records](research/README.md)
+Scrub the timeline, play the sweep, or jump directly to a named reference tick. **Anatomy overlay** identifies the tissue intersected by that plane, using CT labels, atlas surfaces or the pregnancy model’s tissue boundaries. Each acquired image retains its own subject, scale and orientation. Differences in plane, level and crop are identified on the card or in Sources. **Keyframe assets** groups the current frame into 3D anatomy, simulated scan and acquired ultrasound. Open **Related anatomy** on a supported sweep for additional acquired views and their credits. Returning to the tour preserves the selected frame. This inspector supplies the detail behind the collection-wide [Motion and B-mode rendering reviews](../../docs/gallery/use-cases/ultrasound-anatomy.md#development-review). [Full tour specification](../../docs/gallery/use-cases/ultrasound-anatomy.md) · [Reference records](research/README.md)
+
+## Teaching and Development
+
+Open **Abdominal orientation** for a three-chapter tour of the s1233 liver, portal vein and gallbladder. Each chapter embeds the [standalone sweep](index.html). **Play tour** carries playback through the chapters. Open a saved view or scrub to a frame, then use **Open standalone sweep** to inspect the same acquisition. The other [full exams](cases/README.md) retain their existing family-specific players.
+
+Open **Development reviews** for two collection views. **Motion** plays a short, fixed-camera clip for each sweep with its probe, imaging field and B-mode together. **B-mode rendering** groups named frames by sweep and pairs the full simulated image with its acquired comparison. Filter by region or select a sweep to inspect larger pairs. Open a keyframe to see its exact pose. The separate cardiac and duplex exam players have their own acquisition and review packages.
+
+### Review a renderer change
+
+1. Assemble and serve the baseline study using [Replay](#replay). Freeze its current comparison frames with the [batch helper](development/compare_renders.py). Pass `--region Abdomen` for a regional batch or omit the selection to capture every catalogued keyframe.
+2. Use the owning sweep builder to regenerate the affected scans and assemble the candidate in a fresh directory. Compare it with the saved baseline. The helper checks the acquisition pose, field, labeled section, render dimensions and acquired reference before publishing a batch to the candidate's Development page.
+3. Open **B-mode rendering → Renders → Before and after**. Inspect the previous and candidate render beside the same acquired frame, then open the sweep if the difference might be due to placement. Record the named frames and visible changes behind the decision. Retain decisive evidence under the [repository retention policy](../../docs/WORKFLOW.md#retention).
+
+```sh
+python experiments/ultrasound-sweep/development/compare_renders.py snapshot "$BASELINE_STUDY" "$BASELINE_FRAMES"
+python experiments/ultrasound-sweep/development/compare_renders.py compare "$BASELINE_FRAMES" "$CANDIDATE_STUDY" \
+  --label-before "Previous render" --label-after "Candidate render"
+```
+
+Generate Motion clips for a served build with [the capture script](capture_motion.mjs). It uses Playwright, Chrome and ffmpeg. Give it the served entry URL and that same build's clip directory. Append sweep IDs to refresh only those clips. Each five-second clip samples the sweep from first to last pose. Regenerate affected clips after a pose or renderer change. The video and poster files are local review outputs.
+
+```sh
+node experiments/ultrasound-sweep/capture_motion.mjs "$STUDY_URL" "$CANDIDATE_STUDY/development/clips"
+node experiments/ultrasound-sweep/verify_development.mjs "$STUDY_URL"
+node experiments/ultrasound-sweep/composed-tour/verify-tour.mjs "$STUDY_URL"
+```
 
 ## Cardiac echo
 

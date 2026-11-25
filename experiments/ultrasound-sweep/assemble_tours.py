@@ -353,6 +353,13 @@ def write_catalogue(destination, refs, tours, survey=None):
         (destination / name).write_text(f'const {variable} = ' + json.dumps(content, ensure_ascii=False, indent=2) + ';\n')
     for name in ('index.html', 'study.css', 'study.js', 'study-picker.js', 'scene.js', 'probe-steering.js'):
         shutil.copyfile(HERE / name, destination / name)
+    for folder, names in (
+        ('development', ('index.html', 'review.css', 'review.js', 'comparison.js')),
+        ('composed-tour', ('index.html', 'tour.css', 'tour.js')),
+    ):
+        (destination / folder).mkdir(exist_ok=True)
+        for name in names:
+            shutil.copyfile(HERE / folder / name, destination / folder / name)
     copy_cardiac_study(HERE / 'cardiac', destination)
     write_case_library(destination, tours, refs)
 

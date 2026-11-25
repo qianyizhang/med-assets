@@ -1,12 +1,22 @@
 # Ultrasound Anatomy · Tour specification
 
-The local sweeps and cardiac cycle study let visitors explore ultrasound anatomy. Visitors can follow a probe through an authored sweep, inspect the corresponding section, and compare a modeled image with a named acquired view from another case. The collection calls for linked Teaching and Development pages. Use the abdomen set to work out how an author moves from a selected keyframe to the anatomy, caveats and evidence behind it. [Use Cases requirements](README.md) · [Local tour and replay](../../../experiments/ultrasound-sweep/README.md) · [Campaign](../../../records/campaigns/ultrasound-gallery.md)
+The local sweeps and cardiac cycle study let visitors explore ultrasound anatomy. Visitors can follow a probe through an authored sweep, inspect the corresponding section, and compare a modeled image with a named acquired view from another case. The collection calls for linked Teaching and Development pages. Teaching offers standalone sweeps and composed exam tours. Development gives authors collection-wide Motion and B-mode rendering views, with a direct path to the sweep and keyframe behind each observation. [Use Cases requirements](README.md) · [Local tour and replay](../../../experiments/ultrasound-sweep/README.md) · [Campaign](../../../records/campaigns/ultrasound-gallery.md)
 
 ## Audience and outcome
 
 A visitor familiar with basic anatomy should be able to connect the probe footprint, imaging field, intersected structures, and projected image. At a reference keyframe they can point out the relationship and inspect differences in shape, depth or landmarks across cases. The aortic survey displays a calculated model span. The bilateral carotid exam adds free calipers, sampled flow measurements and reconstruction from a recorded sweep. Adult cardiac echo includes measurements on the beating model and illustrative Doppler exercises. Narration remains a possible later use.
 
 Current topics cover abdominal anatomy, abdominal aortic screening, thyroid, common carotid, breast, pregnancy and adult cardiac echo. Name the exam purpose for each topic. Abdomen provides a general anatomy exploration. Reserve screening claims for specifically supported contexts such as abdominal aortic aneurysm (AAA) screening. [AIUM abdominal aorta practice parameter](https://onlinelibrary.wiley.com/doi/10.1002/jum.70167) · [USPSTF thyroid guidance](https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/thyroid-cancer-screening)
+
+## Sweeps and exam tours
+
+A **sweep** is the smallest independently playable teaching activity. Its case anatomy, probe track and imaging field determine the pose, intersected section and B-mode frames. A **keyframe** names a view worth stopping on. The same sweep can teach a single movement or run as one chapter of an **exam tour**.
+
+An exam tour owns the case, chapter order, referral, reading, curves and impression. Each acquisition chapter selects a sweep, the applicable case parameters and its evidence frames. The tour embeds the sweep’s pose view and B-mode output together and can give them a different layout. A case-specific change to anatomy or probe position feeds both views. An SVG can supply a waveform, diagram or annotation alongside the acquisition.
+
+For a shared sweep, reopen a tour chapter’s evidence frame in the standalone player. With identical inputs, the probe pose, anatomical section and B-mode image should agree. Scrubbing or replaying the chapter should advance the same frames in both places. Retain existing coverage, and identify chapters that need a new sweep or case variant before migrating their findings and measurements.
+
+The current [exam player](../../../experiments/ultrasound-sweep/exams/player.js) calls each case family’s scan and pose functions. It already supports sequencing and report links. The [Abdominal orientation tour](../../../experiments/ultrasound-sweep/composed-tour/index.html) demonstrates shared playback across the liver, portal vein and gallbladder on s1233. The remaining full-exam chapters still need to be mapped to reusable sweeps or case variants. The [standalone sweep player](../../../experiments/ultrasound-sweep/study.js) is the reference for the synchronized views.
 
 ## Scan scenarios
 
@@ -151,9 +161,22 @@ The sweep record identifies the source CT or atlas, spatial axes, selected tissu
 
 Accept a sweep after replay from pinned inputs, verifying the target inside the imaging field and the named endpoint relationships, inspecting the simulated/section/acquired views together, and exercising the direct route, orbit, presets, opacity, play/pause, source and error paths. Independent clinical review is required for claims about scanning technique or sonographic fidelity. The acquired set is the baseline for later appearance work.
 
+## Development review
+
+In the standalone study, Development opens on the sweep collection so a reviewer can spot an outlier before opening an individual frame. See [batch replay and verification](../../../experiments/ultrasound-sweep/README.md#review-a-renderer-change).
+
+| View | Review unit | What the reviewer sees |
+| --- | --- | --- |
+| Motion | One short, replayable clip per sweep | The probe on the patient, imaging field and synchronized B-mode through the movement. Use a stable camera for a review pass so a camera orbit cannot disguise a jump or loss of contact. Link to the sweep for interactive inspection. |
+| B-mode rendering | One row per named comparison keyframe, grouped by sweep | The synthetic B-mode beside the identified acquired frame, with view name, case or plane differences and source credit. Show missing pairs explicitly. Open the exact sweep frame to inspect its anatomy and pose. |
+
+For a renderer change, regenerate the selected comparison set in one batch. Keep the case, pose, reference image, crop and display scale fixed across runs. Put the previous and candidate render beside the same acquired reference. Record which rows improved, regressed or remain uncertain and what changed visually, such as tissue texture, boundary contrast or depth-dependent brightness. Flag changes in anatomy or acquisition separately so a pose change cannot receive credit as a rendering improvement. Cross-case images support comparison of visible features. Pixel alignment and measured anatomical agreement require matched acquisitions.
+
+Keep the identities and decisive images needed to reproduce a finding. Retire superseded trial clips and render batches under the [retention policy](../../WORKFLOW.md#retention).
+
 ## Asset display and integration
 
-The current review groups a keyframe into 3D anatomy, simulated scan, and acquired ultrasound. The visitor can orbit the combined probe and sector, inspect the origin of either image, open related anatomy where available, and return to the same frame. The [Asset Library](../asset-library.md) identifies independently reusable anatomy, props and generators by revision. Sweep-specific placements, simulated frames and acquired comparisons stay with the keyframe and retain their source and rights. The abdomen review will guide which defects and close-ups the Development page should show and how authors will edit those entries.
+The current review groups a keyframe into 3D anatomy, simulated scan, and acquired ultrasound. The visitor can orbit the combined probe and sector, inspect the origin of either image, open related anatomy where available, and return to the same frame. The [Asset Library](../asset-library.md) identifies independently reusable anatomy, props and generators by revision. Sweep-specific placements, simulated frames and acquired comparisons stay with the keyframe and retain their source and rights. Use the abdomen keyframes as the first batch for reviewing render changes. The exact-frame inspector supplies the close-ups and source detail behind the collection views.
 
 The earlier [fixed gallbladder stop](../../../lessons/ultrasound-anatomy/README.md) is still the built-in Anatomy Gallery candidate. The local sweep study is the tour under review. Public site integration, transport admission, and publication are later delivery decisions. The Echodemo project and the repository’s cardiac section package supply precedents for synchronized geometry and images. [Echodemo development notes](https://github.com/douyang/echodemo/blob/main/DEVELOPMENT.md) · [Cardiac imaging package](../../../heart/synthetic-imaging/beating-heart/imaging/README.md)
 

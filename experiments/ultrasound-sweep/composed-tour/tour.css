@@ -1,0 +1,45 @@
+.bar { min-height: 54px; }
+.bar > nav { margin-inline-start: -10px; }
+.introduction { padding-block: 20px; }
+.introduction p { margin-top: 12px; max-width: 65ch; color: var(--quiet); }
+.chapters { border-bottom: 1px solid var(--line); }
+.chapters a {
+  padding: 8px 12px;
+  border-bottom: 3px solid transparent;
+  text-decoration: none;
+  font-weight: 650;
+}
+.chapters a[aria-current] { background: #e3eee7; border-color: var(--teal); color: var(--ink); }
+.chapters a:hover { text-decoration: underline; }
+#playTour { margin-inline-start: auto; margin-bottom: 4px; min-inline-size: 8rem; background: var(--teal); color: #fff; }
+.chapter {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(15rem, 1fr);
+  gap: 16px 32px;
+  padding-block: 18px;
+  align-items: start;
+}
+.chapter p { margin-top: 6px; max-width: 67ch; color: var(--quiet); }
+.evidence { display: grid; justify-items: start; gap: 4px; padding-inline-start: 14px; border-inline-start: 2px solid var(--line); }
+.evidence h3 { font-size: 14px; }
+.evidence a { font-size: 14px; padding-block: 3px; text-underline-offset: 3px; }
+.evidence a[aria-current] { font-weight: 700; }
+#player:empty { display: none; }
+#player { overflow: hidden; border-radius: 9px; border: 1px solid var(--line); }
+#player iframe { display: block; width: 100%; height: 740px; border: 0; }
+.chapterControls { align-items: center; column-gap: 16px; margin-block: 14px 24px; }
+.chapterControls a { padding-block: 7px; text-underline-offset: 3px; }
+.chapterControls .advance {
+  margin-inline-start: auto;
+  padding-inline: 14px;
+  border-radius: 6px;
+  background: var(--teal);
+  color: #fff;
+  font-weight: 650;
+}
+.reading { border-top: 1px solid var(--line); padding-block: 16px; }
+.reading p { margin-top: 8px; max-width: 80ch; color: var(--quiet); }
+@media (max-width: 660px) {
+  .chapter { grid-template-columns: 1fr; }
+  .chapterControls .advance { margin-inline-start: 0; }
+}

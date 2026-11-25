@@ -4,7 +4,9 @@ import { createHash } from 'node:crypto';
 import { mkdir } from 'node:fs/promises';
 import { join } from 'node:path';
 
-const url = process.argv[2] ?? 'http://127.0.0.1:8874';
+const entry = new URL(process.argv[2] ?? 'http://127.0.0.1:8874/');
+if (entry.pathname.endsWith('/')) entry.pathname += 'index.html';
+const url = entry.href;
 const captureFolder = process.env.ABDOMEN_TOUR_QA_DIR;
 const { chromium } = await import(process.env.MODEL_SURVEY_PLAYWRIGHT_MODULE || 'playwright');
 const browser = await chromium.launch({

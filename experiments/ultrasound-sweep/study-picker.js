@@ -32,6 +32,8 @@ function configureStudyPicker(picker, tours, selected, root) {
     }
     const url = selected === cardiacId ? new URL('index.html', root) : new URL(location.href);
     url.searchParams.set('sweep', picker.value);
+    url.searchParams.delete('frame');
+    url.searchParams.delete('view');
     url.hash = '';
     location.assign(url);
   };

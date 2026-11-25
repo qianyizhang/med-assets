@@ -30,7 +30,7 @@ For example, Teaching can open the Abdomen gallbladder stop at the selected gray
 
 ## Shared lesson requirements
 
-Give a substantial teaching experience its own page or collection. Fold smaller lessons into a relevant stop when they answer the same question. For duplicate presentations and published links, follow the [retention policy](../../WORKFLOW.md#retention).
+A teaching experience can cover a single action or compose several actions into a longer sequence. For example, an ultrasound sweep teaches one probe movement and can also play as a chapter of an exam tour. Give a substantial teaching experience its own page or collection. Fold smaller lessons into a relevant stop when they answer the same question. For duplicate presentations and published links, follow the [retention policy](../../WORKFLOW.md#retention).
 
 Move from the overall assembly to an asset or part when those scales answer the lesson question. At each stop, identify the target, its neighbors and deliberate changes in color, visibility or scale. Use continuous zoom where the detail has a known position and scale in the overview. For separately sourced details, show a regional locator and then a labeled view with its own frame and scale. Mark unknown scale explicitly.
 

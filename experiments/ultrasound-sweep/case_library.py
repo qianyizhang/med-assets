@@ -223,6 +223,8 @@ def write_case_library(destination, tours, refs, root=ROOT):
     (target / 'index.html').write_text(document('Worked ultrasound cases', 'Worked cases',
         body.replace('<div class="catalog">', '<p><a href="../exams/index.html">Browse full exam tours</a></p><div class="catalog">')))
     exam_body = ('<h1>Full ultrasound exams</h1><p class="intro">Choose a referral, follow the probe through the exam '
-                 'and replay the acquisition behind each finding.</p><p><a href="../cases/index.html">Worked casebook</a></p>'
+                 'and replay the acquisition behind each finding.</p>'
+                 '<p><a href="../composed-tour/">Abdominal orientation tour</a> · '
+                 '<a href="../cases/index.html">Worked casebook</a></p>'
                  + '<div class="catalog">' + ''.join(cards) + '</div>')
     write_exam_tours(destination, root, grouped, FAMILIES, document('Full ultrasound exams', 'Full exams', exam_body), evidence)

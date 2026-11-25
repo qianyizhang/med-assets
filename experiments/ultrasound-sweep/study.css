@@ -426,3 +426,22 @@ a { color: var(--teal); }
 }
 
 .caseLink { align-self: center; padding: 6px 10px; color: var(--teal); font-size: 14px; text-underline-offset: 3px; }
+
+.embeddedSweep .bar, .embeddedSweep main { width: calc(100% - 24px); }
+.embeddedSweep .bar { min-height: 0; }
+.embeddedSweep h1 { font-size: 22px; }
+.embeddedSweep .sweepPickerLabel, .embeddedSweep .mast .caseLink { display: none; }
+@media (min-width: 760px) {
+  .embeddedSweep #scenePanel { grid-column: auto; }
+  .embeddedSweep #stage .view {
+    inline-size: 100%;
+    block-size: clamp(240px, 27vw, 320px);
+    min-block-size: 0;
+  }
+}
+@media (760px <= width < 1120px) {
+  .embeddedSweep #refPanel { grid-column: 1 / -1; }
+}
+@media (min-width: 1120px) {
+  .embeddedSweep #stage { grid-template-columns: minmax(0, 1.22fr) repeat(2, minmax(0, 1fr)); }
+}

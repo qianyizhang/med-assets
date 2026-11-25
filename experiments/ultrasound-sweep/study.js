@@ -1,6 +1,9 @@
 'use strict';
 
 const $ = (id) => document.getElementById(id);
+const launch = new URLSearchParams(location.search);
+const embedded = launch.get('embed') === '1';
+document.documentElement.classList.toggle('embeddedSweep', embedded);
 const frameDuration = 110;
 const atlasSource = 'https://dbarchive.biosciencedbc.jp/en/bodyparts3d/desc.html';
 const cameraPresets = [['oblique', 'Oblique'], ['axial', 'Axial'], ['coronal', 'Coronal'], ['sagittal', 'Sagittal']];
@@ -189,6 +192,7 @@ function renderFrame(frame, scenePosition = frame) {
     $('comparisonFinding').hidden = !finding;
     state.shownFrame = frame;
     state.shownCompressed = compressed;
+    notifyParent('frame', frame);
   };
   if (full.finished && (!enlarged || enlarged.finished) && reference.finished) commit();
   else {
@@ -203,12 +207,17 @@ function updatePlay() {
   $('play').textContent = state.playback ? 'Pause' : state.frame === last ? 'Replay sweep' : 'Play sweep';
 }
 
-function pause() {
+function notifyParent(status, frame) {
+  if (embedded) parent.postMessage({ type: 'sweep-status', status, frame }, location.origin);
+}
+
+function pause(status = 'paused') {
   if (!state.playback) return;
   cancelAnimationFrame(state.playback.request);
   state.playback = null;
   if (state.shownFrame !== null) state.scene?.setFrame(state.shownFrame, state.shownCompressed);
   updatePlay();
+  if (status) notifyParent(status);
 }
 
 function play() {
@@ -225,11 +234,22 @@ function play() {
     const frame = Math.round(position);
     if (frame !== state.frame) renderFrame(frame, position);
     else if (!poses[frame].contactRig && state.shownFrame === frame) state.scene?.setFrame(position, state.shownCompressed);
-    if (position === last) pause();
+    if (position === last) pause('ended');
     else playback.request = requestAnimationFrame(advance);
   }
   playback.request = requestAnimationFrame(advance);
   updatePlay();
+}
+
+if (embedded) {
+  window.addEventListener('message', ({ source, origin, data }) => {
+    if (source !== parent || origin !== location.origin || data?.type !== 'sweep-transport') return;
+    if (data.command === 'play' && state.ready && !state.playback) {
+      if (state.assets) showAssets(false);
+      play();
+    }
+    if (data.command === 'pause') pause(null);
+  });
 }
 
 function selectFrame(frame) {
@@ -543,7 +563,7 @@ function configureSiblingRoutes(tours) {
   const nav = $('siblingRoutes');
   nav.setAttribute('aria-label', group + ' scan routes');
   for (const tour of regionTours) {
-    const url = new URL(location.href);
+    const url = new URL('index.html', location.href);
     url.searchParams.set('sweep', tour.id);
     url.hash = '';
     const link = document.createElement('a');
@@ -584,7 +604,7 @@ function pregnancyNavigation(tours) {
     stages.get(age).push(tour);
   }
   const links = (tour, parent) => {
-    const target = new URL(location.href);
+    const target = new URL('index.html', location.href);
     target.searchParams.set('sweep', tour.id);
     target.hash = '';
     const link = document.createElement('a');
@@ -736,6 +756,8 @@ function loadPoses(assetRoot) {
 }
 
 function initialTourFrame() {
+  const value = launch.get('frame');
+  if (value !== null && /^\d+$/.test(value) && Number(value) <= last) return Number(value);
   if (selectedTour.id === 'gallbladder' && location.hash === '#guided') return 0;
   const frame = selectedTour.initialFrame;
   return Number.isInteger(frame) && frame >= 0 && frame <= last ? frame : keyframes[0].frame;
@@ -757,8 +779,10 @@ async function startTour() {
     full.href = 'exams/index.html#aaa';
     full.textContent = 'Full AAA exams';
   }
-  pregnancyNavigation(tours);
-  configureStudyPicker($('sweepPicker'), tours, selectedTour.id, new URL('.', location.href));
+  if (!embedded) {
+    pregnancyNavigation(tours);
+    configureStudyPicker($('sweepPicker'), tours, selectedTour.id, new URL('.', location.href));
+  }
   window.addEventListener('pageshow', updateTorsoOpacity);
   $('tourTitle').textContent = selectedTour.title;
   document.title = selectedTour.title + ' · Ultrasound Anatomy';
@@ -772,7 +796,7 @@ async function startTour() {
   ];
   configureTimeline();
   $('apToggle').hidden = !selectedTour.showApSpan;
-  configureSiblingRoutes(tours);
+  if (!embedded) configureSiblingRoutes(tours);
   if (selectedTour.steering) {
     const { probeSteering } = await import('./probe-steering.js');
     steering = probeSteering(selectedTour.steering, $('steering'), selectFrame, pause);
@@ -801,12 +825,14 @@ async function startTour() {
   $('assetTab').disabled = false;
   $('tourTab').disabled = false;
   renderFrame(state.frame);
+  if (launch.get('view') === 'assets') showAssets(true);
   const sceneReady = startScene();
   await prepareSequence('scan', state.frame);
   for (const key of keyframes) await prepare(acquiredFor(key)?.path).pending;
   state.ready = true;
   updatePlay();
   await sceneReady;
+  notifyParent('ready');
   prepareSequence('section', state.frame);
 }
 
@@ -819,6 +845,7 @@ window.addEventListener('hashchange', () => {
 });
 
 startTour().catch((error) => {
+  notifyParent('error');
   $('tourStatus').textContent = 'This sweep is unavailable. Select another sweep if available.';
   $('tourStatus').hidden = false;
   console.warn('Ultrasound sweep unavailable.', error);

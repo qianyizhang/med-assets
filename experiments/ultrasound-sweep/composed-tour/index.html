@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Abdominal orientation · Ultrasound Anatomy</title>
+    <link rel="stylesheet" href="../study.css" />
+    <link rel="stylesheet" href="tour.css" />
+    <script defer src="tour.js"></script>
+  </head>
+  <body>
+    <header class="mast">
+      <div class="bar">
+        <nav aria-label="Ultrasound studies">
+          <a class="caseLink" href="../index.html">All sweeps</a>
+          <a class="caseLink" href="../exams/index.html">Full exams</a>
+          <a class="caseLink" href="../cases/index.html">Worked cases</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="introduction">
+        <h1>Abdominal orientation</h1>
+        <p>Follow three right upper abdominal windows on the same CT anatomy. Watch the probe and the simulated scan together, then use the saved frames to compare what the plane cuts.</p>
+      </div>
+      <nav class="chapters" aria-label="Tour chapters">
+        <a href="?chapter=liver" data-chapter="liver">1. Liver</a>
+        <a href="?chapter=portal-vein" data-chapter="portal-vein">2. Portal vein</a>
+        <a href="?chapter=gallbladder" data-chapter="gallbladder">3. Gallbladder</a>
+        <button type="button" id="playTour" disabled>Play tour</button>
+      </nav>
+      <p id="tourProgress" class="sr" role="status"></p>
+
+      <section class="chapter" id="liver" aria-labelledby="liver-title" hidden>
+        <div>
+          <h2 id="liver-title">Find the hepatic window</h2>
+          <p>Start below the right costal margin. Play the sweep and follow the plane medially from a portal branch toward the inferior vena cava (IVC). At each saved frame, turn on Anatomy overlay to see which vessel the plane intersects.</p>
+        </div>
+        <div class="evidence">
+          <h3>Evidence frames</h3>
+          <a href="?chapter=liver&amp;frame=12">12 · Oblique portal view</a>
+          <a href="?chapter=liver&amp;frame=48">48 · Liver and IVC</a>
+        </div>
+      </section>
+
+      <section class="chapter" id="portal-vein" aria-labelledby="portal-title" hidden>
+        <div>
+          <h2 id="portal-title">Follow the main portal vein</h2>
+          <p>Find the plane along the main portal vein, then follow it into cross-section as the probe rotates. Compare how much of the vessel’s course the plane captures at the two stops.</p>
+        </div>
+        <div class="evidence">
+          <h3>Evidence frames</h3>
+          <a href="?chapter=portal-vein&amp;frame=12">12 · Main portal vein long axis</a>
+          <a href="?chapter=portal-vein&amp;frame=48">48 · Main portal vein short axis</a>
+        </div>
+      </section>
+
+      <section class="chapter" id="gallbladder" aria-labelledby="gallbladder-title" hidden>
+        <div>
+          <h2 id="gallbladder-title">Rotate through the gallbladder</h2>
+          <p>In the long-axis stop, trace the lumen along the length of the gallbladder. Watch the probe rotate into a shorter cross-section. Use the plane in the 3D view to explain why the outline changes.</p>
+        </div>
+        <div class="evidence">
+          <h3>Evidence frames</h3>
+          <a href="?chapter=gallbladder&amp;frame=12">12 · Gallbladder long axis</a>
+          <a href="?chapter=gallbladder&amp;frame=48">48 · Gallbladder short axis</a>
+        </div>
+      </section>
+
+      <div id="player"></div>
+      <noscript><p>The sweep player requires JavaScript.</p></noscript>
+
+      <nav class="chapterControls" aria-label="Chapter controls" hidden>
+        <a id="restart">Restart chapter</a>
+        <a id="openSweep">Open standalone sweep</a>
+        <a id="advance" class="advance"></a>
+      </nav>
+
+      <aside class="reading" aria-labelledby="reading-title">
+        <h2 id="reading-title">Reading the views</h2>
+        <p>The three trajectories share the TotalSegmentator s1233 CT anatomy. Each starts from its own probe placement. The BodyParts3D exterior is illustrative and fitted at the modeled contact window.</p>
+        <p>The simulated scans show where the plane intersects tissue, with illustrative echo brightness. The acquired comparisons show separate subjects and may differ in plane, level or crop. Open <strong>Keyframe assets</strong> for the individual scan and anatomical evidence, and <strong>Sources</strong> for the comparison notes and credits.</p>
+        <p><a href="../exams/index.html">Explore the full exams</a></p>
+      </aside>
+    </main>
+  </body>
+</html>

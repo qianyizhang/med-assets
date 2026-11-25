@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Development · Ultrasound Anatomy</title>
+  <link rel="stylesheet" href="review.css">
+  <script defer src="../abdomen-tours.js"></script>
+  <script defer src="../references.js"></script>
+  <script defer src="comparison.js"></script>
+  <script defer src="review.js"></script>
+</head>
+<body>
+  <header class="masthead">
+    <div class="wrap masthead-inner">
+      <a href="../index.html">Ultrasound Anatomy</a>
+      <span>Development</span>
+    </div>
+  </header>
+  <main class="wrap">
+    <header class="intro">
+      <h1>Ultrasound sweep review</h1>
+      <nav aria-label="Development views">
+        <a id="motion-link" href="?view=motion">Motion</a>
+        <a id="bmode-link" href="?view=bmode">B-mode rendering</a>
+      </nav>
+    </header>
+    <div id="filters" class="filters" hidden>
+      <label>Region <select id="region"></select></label>
+      <label>Sweep <select id="sweep"></select></label>
+      <label id="batch-filter" hidden>Renders <select id="batch">
+        <option value="current">Current</option>
+        <option value="batch">Before and after</option>
+      </select></label>
+      <output id="count" role="status"></output>
+    </div>
+    <p id="context" class="context"></p>
+    <div id="collection">
+      <noscript>JavaScript is required to read the assembled sweep catalogue.</noscript>
+    </div>
+  </main>
+</body>
+</html>

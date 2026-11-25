@@ -65,7 +65,7 @@ the knee at 20° of flexion.
 | B-mode rendering | Formation of a grayscale ultrasound image from modeled tissues in the imaging field. Brightness represents modeled echo strength. |
 | Simulated B-mode frame | One grayscale image rendered for a specific case, probe pose and instant. |
 | Labeled tissue overlay | A map of the tissues in the anatomical section, aligned to the corresponding pixels of the simulated B-mode frame. |
-| Tour | A teaching sequence that groups related sweeps. A full exam tour follows one case from referral through acquisitions to an impression. |
+| Tour | A teaching sequence that groups related sweeps. An **exam tour** follows one case from referral through acquisitions to an impression. Each acquisition chapter selects a sweep and the case parameters for that visit. |
 | Sweep | An ordered movement through probe poses. A **keyframe** identifies a named view in the sweep. A phase describes a portion of the movement, such as finding the acoustic window or rotating the probe. |
 | Reference keyframe | A named pose in a sweep with a corresponding acquired ultrasound for comparison. A reference from another case illustrates the view and retains its own scale and anatomy. |
 
