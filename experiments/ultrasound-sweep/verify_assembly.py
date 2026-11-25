@@ -38,12 +38,17 @@ def verify_subset(staging, destination, expected):
             assert (staging / raw).read_bytes() == (destination / packed).read_bytes()
 
 
-def verify(source):
+def verify(source, aaa_acquisitions=None):
     with tempfile.TemporaryDirectory() as work:
         work = Path(work)
         staging = work / 'staging'
         destination = work / 'delivery'
         shutil.copytree(source, staging)
+        bundle = staging / 'aaa-acquisitions'
+        if aaa_acquisitions is not None:
+            if bundle.exists():
+                shutil.rmtree(bundle)
+            shutil.copytree(aaa_acquisitions, bundle)
         cardiac = work / 'cardiac-input'
         shutil.copytree(assemble_tours.HERE / 'cardiac', cardiac)
         reference = json.loads((cardiac / 'acquisition.json').read_text())
@@ -298,6 +303,17 @@ def verify(source):
                     (survey / 'sweep.js', f'const sweep = {json.dumps(bad_span)};'.encode(), 'Invalid modeled AP span', False),
                     (research / 'acquired/aortic-screening-30.webp', b'invalid comparison', 'Unexpected acquired image identity', False),
                 ])
+            if bundle.exists():
+                seal = bundle / 'verification.json'
+                data = json.loads(seal.read_text())
+                wrong_torso = {**data['sharedAssets'], 'torso': '0' * 64}
+                cases.extend([
+                    (seal, None, 'Missing registered AAA acquisition receipt', False),
+                    (seal, json.dumps({**data, 'recipeSha256': '0' * 64}).encode(), 'current case and rendering recipes', False),
+                    (seal, json.dumps({**data, 'sharedAssets': wrong_torso}).encode(), 'selected normal aortic anatomy', False),
+                    (bundle / 'assets/aaa-positive/sac-maximum/scan-14.webp', b'wrong image',
+                     'AAA acquisition identity mismatch', False),
+                ])
             for path, bad, expected, reseal in cases:
                 original = path.read_bytes()
                 if bad is None:
@@ -318,4 +334,6 @@ def verify(source):
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('source', type=Path, help='Fully generated staging tree using current builders')
-    verify(parser.parse_args().source)
+    parser.add_argument('--aaa-acquisitions', type=Path, help='Verify with a separately prepared registered AAA bundle')
+    args = parser.parse_args()
+    verify(args.source, args.aaa_acquisitions)

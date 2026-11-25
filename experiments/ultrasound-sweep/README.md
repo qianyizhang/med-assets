@@ -8,7 +8,7 @@ Scrub the timeline, play the sweep, or jump directly to a named reference tick. 
 
 ## Teaching and Development
 
-Open **Abdominal orientation** for a three-chapter tour of the s1233 liver, portal vein and gallbladder. Each chapter embeds the [standalone sweep](index.html). **Play tour** carries playback through the chapters. Open a saved view or scrub to a frame, then use **Open standalone sweep** to inspect the same acquisition. [Tours → AAA screening](http://127.0.0.1:8874/tours/aaa/index.html) uses the same tour controls for three cases. Play the negative screen, follow the positive case through diagnostic views, or replay the limited window and repeat attempt in the indeterminate case. The report links open the exact vascular sweep and frame. Existing `exams/aaa-*.html` bookmarks preserve the case, chapter and frame. Other [exam families](cases/README.md) retain their existing players.
+Open **Abdominal orientation** for a three-chapter tour of the s1233 liver, portal vein and gallbladder. Each chapter embeds the [standalone sweep](index.html). **Play tour** carries playback through the chapters. Open a saved view or scrub to a frame, then use **Open standalone sweep** to inspect the same acquisition. [Tours → AAA screening](http://127.0.0.1:8874/tours/aaa/index.html) uses the same tour controls for three cases. Play the negative screen, follow the positive case through diagnostic views, or replay the limited window and repeat attempt in the indeterminate case. In the complete build, all three cases use the normal aortic sweep’s fitted torso, curved probe and sector. The same pose determines the 3D field and the simulated B-mode frame. A source CT supplies surrounding tissue after the native vessels are removed locally. The authored vessels supply case-specific wall, lumen, thrombus and calipers. The report links open the exact vascular sweep and frame. Existing `exams/aaa-*.html` bookmarks preserve the case, chapter and frame. Other [exam families](cases/README.md) retain their existing players.
 
 Open **Development reviews** for two collection views. **Motion** plays a short, fixed-camera clip for each sweep with its probe, imaging field and B-mode together. **B-mode rendering** groups named frames by sweep and pairs the full simulated image with its acquired comparison. Filter by region or select a sweep to inspect larger pairs. Open a keyframe to see its exact pose. The separate cardiac and duplex exam players have their own acquisition and review packages.
 
@@ -45,6 +45,7 @@ python experiments/ultrasound-sweep/build_study.py "$S1233_CASE" "$LONG_AXIS_PNG
 python experiments/ultrasound-sweep/prepare_scenes.py "$STUDY_OUTPUT" --vendor-dir lessons/one-breath/.local/vendor
 python experiments/ultrasound-sweep/build_abdomen.py "$S1233_CASE" "$STUDY_OUTPUT/sweeps"
 python experiments/ultrasound-sweep/build_aortic_screening.py "$S1233_CASE" "$STUDY_OUTPUT/sweeps"
+python experiments/ultrasound-sweep/aaa_acquisition.py "$S1233_CASE" "$STUDY_OUTPUT" "$STUDY_OUTPUT/aaa-acquisitions"
 python experiments/ultrasound-sweep/build_thyroid.py "$S1127_CASE" "$STUDY_OUTPUT/sweeps"
 python experiments/ultrasound-sweep/build_carotid.py "$S1127_CASE" "$STUDY_OUTPUT/sweeps"
 python experiments/ultrasound-sweep/build_breast.py "$STUDY_OUTPUT/sweeps" --skin "$HRA_SKIN"
@@ -56,6 +57,8 @@ python experiments/ultrasound-sweep/build_gestational.py "$STUDY_OUTPUT/sweeps"
 python experiments/ultrasound-sweep/assemble_tours.py "$STUDY_OUTPUT"
 python -m http.server 8874 --bind 127.0.0.1 --directory "$STUDY_OUTPUT"
 ```
+
+The [AAA acquisition recipe](aaa_acquisition.py) needs the same pinned s1233 source as the normal aortic builder. Use a fresh bundle directory. Assembly picks up `$STUDY_OUTPUT/aaa-acquisitions` or accepts another verified copy with `--aaa-acquisitions PATH`. The bundle binds the case recipe, native meshes, per-chapter poses and render files. A smaller build that omits it retains modeled B-mode and identifies the unavailable shared-torso view. The complete build keeps B-mode playable if the 3D view cannot load.
 
 For the original nine abdominal sweeps, omit the aortic screening and other regional builders. The two thyroid lobes, the two carotid sides, the two breast routes and each pregnancy builder’s routes are assembled as complete sets. For the combined carotid exam, build the [registered atlas acquisition](carotid-survey/README.md#replay) in the same staging tree before assembly. Both assembly modes include cardiac echo and require its [hydrated LFS inputs](cardiac/README.md#local-replay).
 

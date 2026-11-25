@@ -68,7 +68,7 @@ def shell(title: str, content: str, *, case: bool = False) -> str:
 '''
 
 
-def index_page(cases: dict, normal_sweep: bool) -> str:
+def index_page(cases: dict, normal_sweep: bool, shared_aaa: bool) -> str:
     cards = []
     for index, (case_id, (title, image)) in enumerate(CASES.items()):
         summary = escape(cases[case_id]['summary'])
@@ -81,10 +81,13 @@ def index_page(cases: dict, normal_sweep: bool) -> str:
         <p>{summary}</p>
       </div>
     </article>''')
+    context = ('Compare the original CT-based sweep with these case variants. They share its fitted torso, '
+               'probe and tissue context. The vessel geometry and measurements belong to each case.'
+               if shared_aaa else 'Inspect the s1233 CT anatomy and its acquired comparisons.')
     related = f'''
   <aside class="ct-note" aria-labelledby="ct-title">
     <h2 id="ct-title">CT-based normal aortic sweep</h2>
-    <p>Inspect the separate same-case CT anatomy and its acquired comparisons. The modeled screening tours use authored wall boundaries and measurements.</p>
+    <p>{context}</p>
     {link(CT_SWEEP, 'Open the CT-based sweep')}
   </aside>''' if normal_sweep else ''
     return shell('AAA screening', f'''
@@ -126,7 +129,7 @@ def chapter_sections(case_id: str, chapters: list) -> tuple[str, str, str]:
     return ''.join(buttons), ''.join(panels), ''.join(report)
 
 
-def case_page(record: dict, chapters: list) -> str:
+def case_page(record: dict, chapters: list, shared_aaa: bool) -> str:
     case_id = record['id']
     title = CASES[case_id][0]
     tabs, panels, report = chapter_sections(case_id, chapters)
@@ -136,6 +139,9 @@ def case_page(record: dict, chapters: list) -> str:
     if case_id == 'aaa-positive':
         chapter = next(chapter for chapter in chapters if chapter['id'] == DIAGNOSTIC_START)
         continuation = link(chapter_url(chapter, anchor='#exam'), 'Diagnostic continuation')
+    placement_note = ''
+    if shared_aaa and case_id == 'aaa-positive':
+        placement_note = '<p>The modeled aneurysm sits slightly anterior to the native CT artery to clear the spine. Its cross-sectional dimensions are preserved.</p>'
     return shell(title, f'''
   <header class="aaa-intro aaa-case-intro">
     <h1>{escape(title)}</h1>
@@ -168,13 +174,13 @@ def case_page(record: dict, chapters: list) -> str:
     <h3 id="evidence">Acquisition evidence</h3>
     <ol id="reportEvidence">{report}</ol>
     <h3>Limits</h3>
-    <p>{escape(record['limitations'])}</p>
+    <p>{escape(record['limitations'])}</p>{placement_note}
     <p>{link(worked_url, 'Read worked views and comparisons')}</p>
   </section>
 ''', case=True)
 
 
-def write_aaa_tours(destination: Path, records: list, evidence: dict) -> None:
+def write_aaa_tours(destination: Path, records: list, evidence: dict, *, shared_aaa=False) -> None:
     cases = {record['id']: record for record in records}
     if cases.keys() != CASES.keys() or any(not evidence.get(key) for key in CASES):
         raise ValueError('AAA tours require the three worked cases and their acquisition evidence.')
@@ -184,7 +190,7 @@ def write_aaa_tours(destination: Path, records: list, evidence: dict) -> None:
     for name in ('tours.css', 'sweep.html', 'sweep.css', 'sweep.js'):
         shutil.copyfile(source / name, target / name)
     normal_sweep = (destination / 'sweeps/aortic-screening/sweep.js').is_file()
-    (target / 'index.html').write_text(index_page(cases, normal_sweep), encoding='utf-8')
+    (target / 'index.html').write_text(index_page(cases, normal_sweep, shared_aaa), encoding='utf-8')
     for case_id, record in cases.items():
-        (target / (case_id + '.html')).write_text(case_page(record, evidence[case_id]), encoding='utf-8')
-        (target / (case_id + '.json')).write_text(json.dumps(record, ensure_ascii=False) + '\n', encoding='utf-8')
+        (target / (case_id + '.html')).write_text(case_page(record, evidence[case_id], shared_aaa), encoding='utf-8')
+        (target / (case_id + '.json')).write_text(json.dumps(record | {'sharedSweepAvailable': shared_aaa}, ensure_ascii=False) + '\n', encoding='utf-8')

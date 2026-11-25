@@ -342,7 +342,7 @@ def configured_tours(output, refs, files, landmark_refs, tracks):
     return tours
 
 
-def write_catalogue(destination, refs, tours, survey=None):
+def write_catalogue(destination, refs, tours, survey=None, aaa_acquisitions=None):
     if survey is not None:
         study = destination / STUDY
         study.mkdir(exist_ok=True)
@@ -361,7 +361,7 @@ def write_catalogue(destination, refs, tours, survey=None):
         for name in names:
             shutil.copyfile(HERE / folder / name, destination / folder / name)
     copy_cardiac_study(HERE / 'cardiac', destination)
-    write_case_library(destination, tours, refs)
+    write_case_library(destination, tours, refs, aaa_acquisitions=aaa_acquisitions)
 
 
 def copy_cardiac_study(source, destination):
@@ -408,7 +408,11 @@ def copy_cardiac_study(source, destination):
             (images / name).write_bytes(z.read(name))
 
 
-def assemble(output, delivery=None):
+def assemble(output, delivery=None, *, aaa_acquisitions=None):
+    if aaa_acquisitions is None and (output / 'aaa-acquisitions').exists():
+        aaa_acquisitions = output / 'aaa-acquisitions'
+    if aaa_acquisitions is not None and not (aaa_acquisitions / 'verification.json').is_file():
+        raise ValueError(f'Missing registered AAA acquisition receipt: {aaa_acquisitions}')
     if delivery is not None and delivery.exists():
         raise ValueError(f'Choose a fresh delivery directory: {delivery}')
     tracks = [(track, build_abdomen) for track in [GALLBLADDER, *build_abdomen.read_tracks()]]
@@ -447,7 +451,7 @@ def assemble(output, delivery=None):
                 if dest != source:
                     dest.parent.mkdir(parents=True, exist_ok=True)
                     shutil.copyfile(source, dest)
-        write_catalogue(output, refs, tours, survey)
+        write_catalogue(output, refs, tours, survey, aaa_acquisitions)
     else:
         delivery.parent.mkdir(parents=True, exist_ok=True)
         with tempfile.TemporaryDirectory(dir=delivery.parent) as stage_dir:
@@ -456,7 +460,7 @@ def assemble(output, delivery=None):
                 dest = stage / path
                 dest.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copyfile(source, dest)
-            write_catalogue(stage, refs, tours, survey)
+            write_catalogue(stage, refs, tours, survey, aaa_acquisitions)
             stage.rename(delivery)
     print(f'Assembled {len(tours)} sweeps with {len(refs)} reference bindings.')
 
@@ -465,5 +469,6 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('output', type=Path, help='Staging tree with generated sweeps and prepared gallbladder scene')
     parser.add_argument('--delivery', type=Path, help='Write a fresh serving tree without duplicate mesh files')
+    parser.add_argument('--aaa-acquisitions', type=Path, help='Prepared AAA acquisition bundle; defaults to STAGING/aaa-acquisitions when present')
     args = parser.parse_args()
-    assemble(args.output, args.delivery)
+    assemble(args.output, args.delivery, aaa_acquisitions=args.aaa_acquisitions)

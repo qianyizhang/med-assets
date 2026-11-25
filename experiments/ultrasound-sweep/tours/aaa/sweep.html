@@ -30,26 +30,45 @@
             </div>
             <output id="frameNumber" for="position"></output>
           </div>
-          <label class="sr" for="position">Sweep position</label>
-          <input type="range" id="position" min="0" step="1" value="0" />
+          <div class="timeline">
+            <label class="sr" for="position">Sweep position</label>
+            <input type="range" id="position" min="0" step="1" value="0" />
+          </div>
         </div>
         <div class="sweepPanels">
           <figure class="panel">
-            <figcaption>Probe and scan plane</figcaption>
-            <canvas id="sceneCanvas" width="400" height="300" aria-label="Modeled probe, anatomy and scan plane"></canvas>
-            <div class="panelFoot orbitControl">
-              <label for="orbit">Orbit</label>
-              <input type="range" id="orbit" min="-90" max="90" value="0" />
-              <output id="yaw" for="orbit">0°</output>
-              <button type="button" class="viewButton" id="resetView">Reset view</button>
+            <figcaption>
+              <span>Probe and scan plane</span>
+              <fieldset class="cameraTools" id="cameraPresets" disabled>
+                <legend class="sr">Camera views</legend>
+              </fieldset>
+            </figcaption>
+            <div class="view sceneView">
+              <canvas id="sceneCanvas" aria-label="Modeled probe, anatomy and scan plane" aria-describedby="sceneHelp" tabindex="0" hidden></canvas>
+              <p class="mediaStatus" id="sceneStatus">Loading 3D view…</p>
+              <span class="orbitHelp" id="sceneHelp" hidden>Drag or use arrow keys to orbit · ± to zoom</span>
+            </div>
+            <div class="panelFoot sceneFoot">
+              <ul id="sceneLegend" class="legend" aria-label="3D anatomy"></ul>
+              <div class="opacityControl">
+                <label for="torsoOpacity">Torso opacity</label>
+                <input id="torsoOpacity" type="range" min="0" max="100" value="32" disabled />
+                <output id="torsoOpacityValue" for="torsoOpacity">32%</output>
+              </div>
             </div>
           </figure>
           <figure class="panel">
             <figcaption>
-              <span>Modeled ultrasound</span>
-              <button class="viewButton" type="button" id="section" aria-pressed="false">Anatomy overlay</button>
+              <span id="scanTitle">Simulated scan</span>
+              <div class="scanTools">
+                <button class="viewButton" type="button" id="colorFlow" aria-pressed="false" disabled hidden>Modeled color flow</button>
+                <button class="viewButton" type="button" id="section" aria-pressed="false">Anatomy overlay</button>
+              </div>
             </figcaption>
-            <canvas id="scanCanvas" width="800" height="440" aria-label="Modeled acquisition and available calipers"></canvas>
+            <div class="view rasterView">
+              <canvas id="scanCanvas" width="500" height="350" aria-label="Modeled acquisition and available calipers" hidden></canvas>
+              <p class="mediaStatus" id="scanStatus">Loading scan…</p>
+            </div>
             <div class="panelFoot">
               <output id="measurement" for="position"></output>
               <ul id="legend" class="legend" aria-label="Tissue overlay legend" hidden></ul>
@@ -57,6 +76,15 @@
           </figure>
         </div>
         <p id="observation" hidden></p>
+        <details id="anatomySources" hidden>
+          <summary>Anatomy sources</summary>
+          <p>The torso is fitted from BodyParts3D, © The Database Center for Life Science (DBCLS).
+            <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html">BodyParts3D license</a>.</p>
+          <p>Tissue context and vertebrae come from the s1233 CT by Jakob Wasserthal and colleagues.
+            The case vessels and simulated echoes are modeled.
+            <a href="https://zenodo.org/records/10047263">TotalSegmentator dataset</a> ·
+            <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
+        </details>
       </section>
       <noscript><p>The modeled sweep requires JavaScript.</p></noscript>
     </main>

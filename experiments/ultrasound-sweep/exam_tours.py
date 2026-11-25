@@ -73,7 +73,7 @@ location.replace(target.href);</script>
 <p><a href="{escape(target)}">Open the ultrasound tour</a></p></html>'''
 
 
-def write_exam_tours(destination, root, grouped, families, catalog, evidence):
+def write_exam_tours(destination, root, grouped, families, catalog, evidence, shared_aaa=False):
     exams = destination / 'exams'
     exams.mkdir(exist_ok=True)
     for filename in ('player.js', 'exam.css'):
@@ -86,7 +86,7 @@ def write_exam_tours(destination, root, grouped, families, catalog, evidence):
         for module in modules:
             shutil.copyfile(module, destination / 'cases' / owner / module.name)
         if family == 'aaa':
-            write_aaa_tours(destination, records, evidence)
+            write_aaa_tours(destination, records, evidence, shared_aaa=shared_aaa)
             for record in records:
                 old = exams / (record['id'] + '.html')
                 old.write_text(legacy_handoff('../' + tour_path(record)))

@@ -86,7 +86,7 @@ Four supporting acquired views show the extrahepatic bile duct, a hepatic vein b
 
 ## AAA screening tours
 
-Open [AAA screening](http://127.0.0.1:8874/tours/aaa/index.html) for the negative, positive and indeterminate exam tours. The positive case continues into diagnostic characterization. The indeterminate case keeps the unsuccessful anterior window and the lateral repeat, with measurements withheld where the wall is obscured. Each impression links to the acquisition frame that supports it. The [worked vascular cases](../../../experiments/ultrasound-sweep/cases/vascular/README.md) provide the source material, illustrations and separate acquired evidence.
+Open [AAA screening](http://127.0.0.1:8874/tours/aaa/index.html) for the negative, positive and indeterminate exam tours. All three cases reuse the normal aortic sweep’s fitted torso, curved transducer and 3D camera controls. A registered case vessel model supplies the wall and lumen in the scene and the synchronized CT-backed B-mode section. At the positive maximum, the calipers span the modeled outer wall including the thrombus. The positive case continues into diagnostic characterization. The indeterminate case keeps the unsuccessful anterior window and the lateral repeat, with measurements withheld where the wall is obscured. Each impression links to the acquisition frame that supports it. The [worked vascular cases](../../../experiments/ultrasound-sweep/cases/vascular/README.md) provide the source material, illustrations and separate acquired evidence.
 
 ## Normal aortic screening survey
 

@@ -179,10 +179,15 @@ def family_section(family, records, *, tours=False):
     return f'<section class="family" id="{family}"><h2>{escape(FAMILIES[family][0])}</h2><ul>{"".join(rows)}</ul></section>'
 
 
-def write_case_library(destination, tours, refs, root=ROOT):
+def write_case_library(destination, tours, refs, root=ROOT, *, aaa_acquisitions=None):
     grouped = load_cases(root)
     findings = finding_comparisons(root, grouped)
     evidence = evidence_index(root, grouped, FAMILIES)
+    if aaa_acquisitions is not None:
+        from aaa_delivery import install_acquisitions
+        normal = next((tour for tour in tours if tour['id'] == 'aortic-screening'), None)
+        install_acquisitions(aaa_acquisitions, destination, normal,
+                             {case['id']: evidence[case['id']] for case in grouped['aaa']})
     target = destination / 'cases'
     target.mkdir(exist_ok=True)
     shutil.copyfile(root / 'cases.css', target / 'cases.css')
@@ -242,4 +247,4 @@ def write_case_library(destination, tours, refs, root=ROOT):
                   '<p>Explore the liver, portal vein and gallbladder on one CT anatomy.</p></section></div>'
                   '<h2>Other exam tours</h2><div class="catalog">' + ''.join(tour_groups) + '</div>')
     write_exam_tours(destination, root, grouped, FAMILIES,
-                     document('Ultrasound tours', 'Tours', tours_body), evidence)
+                     document('Ultrasound tours', 'Tours', tours_body), evidence, aaa_acquisitions is not None)
