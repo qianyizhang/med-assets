@@ -288,6 +288,7 @@ class CaseBuilder:
         if reference_ids:
             view["referenceIds"] = list(reference_ids)
         case["views"].append(view)
+        return view
 
 
 def aaa_cases(builder):
@@ -342,9 +343,16 @@ def aaa_cases(builder):
     builder.view(positive, "stations", "Aortic survey through the infrarenal neck", aorta_end_on(positive_levels),
                  "Relate the adjacent nondilated levels to the dilated infrarenal segment saved separately.",
                  "24 mm suprarenal · 21 mm proximal infrarenal · 22 mm distal neck")
-    builder.view(positive, "sac", "Largest sac section · transverse", aorta_end_on([("Infrarenal sac", max_ap, max_width)], thrombus=True),
+    maximum_section = builder.view(positive, "sac", "Largest sac section · transverse", aorta_end_on([("Infrarenal sac", max_ap, max_width)], thrombus=True),
                  "The perpendicular section locates the widest transverse sac. Both calipers reach the outer wall and include the thrombus, which is also visible in Häggström’s linked acquired comparison.",
                  f"{max_ap} mm AP × {max_width} mm transverse, outer to outer")
+    maximum_section["illustration"] = {
+        "file": "aaa-transverse-cutaway.webp",
+        "sha256": "ea6dc59a629232ffcde37226f1cb28754f71526a0272710a1b36241ecf6c80cb",
+        "title": "Inside the aneurysm sac",
+        "alt": "Cross-section of the modeled aneurysm with a thin outer wall, an open anterior lumen and a posterior crescent of mural thrombus.",
+        "caption": "AI-generated anatomical illustration, anterior at the top. The crescent of thrombus sits behind the open lumen. Replay the transverse scan and turn on Tissue overlay to see why both calipers reach the outer wall. In the separate acquired image below, the thrombus lies above the lumen on screen.",
+    }
     builder.view(positive, "long", "Long axis · extent and lumen",
                  aorta_long([24, 21, max_ap - 8, max_ap, 22, 18], right_mm, left_mm),
                  "Align the long axis with the residual channel and relate the fusiform shape to the renal level and bifurcation. The color fill denotes the patent channel inside mural thrombus.",

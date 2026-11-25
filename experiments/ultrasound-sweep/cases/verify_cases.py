@@ -59,6 +59,16 @@ def verify_rejections():
         reject(lambda cases: cases[0]['views'][0].update(image='missing.svg'), 'invalid case image')
         reject(lambda cases: cases[0].update(sources=[]), 'Missing worked case evidence')
         data.write_text(original)
+        cutaway = source / 'vascular/aaa-transverse-cutaway.webp'
+        original_cutaway = cutaway.read_bytes()
+        cutaway.write_bytes(original_cutaway[:100])
+        try:
+            load_cases(source)
+        except ValueError as exc:
+            assert 'Invalid case illustration' in str(exc), exc
+        else:
+            raise AssertionError('A damaged illustration passed assembly validation')
+        cutaway.write_bytes(original_cutaway)
         groups = load_cases(source)
         shutil.copytree(ROOT / 'acquired', source / 'acquired')
         manifest = source / 'acquired/references.json'

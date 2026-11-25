@@ -57,6 +57,13 @@ def load_cases(root):
                         or not path.is_relative_to(folder.resolve()) or not path.is_file()
                         or path.suffix not in {'.svg', '.webp', '.png'}):
                     raise ValueError(f'Missing or invalid case image: {key}/{view["image"]}')
+                if 'illustration' in view:
+                    art = view['illustration']
+                    file = art['file']
+                    asset = (folder / file).resolve()
+                    if (not re.fullmatch(r'[a-z0-9-]+\.webp', file) or not asset.is_relative_to(folder.resolve())
+                            or not asset.is_file() or sha256(asset.read_bytes()).hexdigest() != art['sha256']):
+                        raise ValueError(f'Invalid case illustration: {key}/{file}')
             for source in case['sources']:
                 if urlsplit(source['url']).scheme not in {'https', 'http'}:
                     raise ValueError(f'Invalid clinical source: {key}')
@@ -132,12 +139,18 @@ def case_page(case, related, owner, tour_link, finding, refs, evidence):
         views.append(f'''<figure id="{anchor}"><a class="plate" href="{image}" aria-label="Open full-size image · {escape(view['title'])}">
 <img src="{image}" {loading} alt="{escape(view['title'])}"></a><figcaption>
 <h3>{escape(view['title'])}</h3>{paragraph(view['caption'])}<div class="measure">{measurement}</div>{replay}</figcaption></figure>{examples}''')
+        if 'illustration' in view:
+            art = view['illustration']
+            src = escape(f"{owner}/{art['file']}")
+            views.append(f'''<figure id="{anchor}-illustration"><a class="plate" href="{src}" aria-label="Open full-size illustration">
+<img src="{src}" loading="lazy" alt="{escape(art['alt'])}"></a><figcaption>
+<h3>{escape(art['title'])}</h3>{paragraph(art['caption'])}{replay}</figcaption></figure>''')
         if finding and Path(view['image']).name == finding['afterView']:
             views.append(acquired_comparison(finding, 'Acquired finding from a separate examination.', 'finding'))
     finding_link = link('#finding', 'Acquired finding') if finding else ''
     sources = ''.join(f"<li>{link(s['url'], s['title'])}</li>" for s in case['sources'])
     others = ''.join(f"<li>{link(c['id'] + '.html', c['title'])}</li>" for c in related if c['id'] != case['id'])
-    navigation = f'''<div class="jump"><details><summary>Views in this case ({len(views)})</summary>
+    navigation = f'''<div class="jump"><details><summary>Views in this case ({len(contents)})</summary>
 <ol>{''.join(contents)}</ol></details>{finding_link}{link('#impression', 'Impression')}{link('#sources', 'Sources')}</div>'''
     body = f'''<p class="category">{escape(name)} · {KINDS[case['kind']]}</p><h1>{escape(case['title'])}</h1>
 <p class="referral"><strong>Referral</strong> {escape(case['indication'])}</p>{paragraph(case['summary'])}
@@ -190,6 +203,9 @@ def write_case_library(destination, tours, refs, root=ROOT):
                 path = target / relative
                 path.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copyfile(root / relative, path)
+                if 'illustration' in view:
+                    art = Path(owner, view['illustration']['file'])
+                    shutil.copyfile(root / art, target / art)
             page = case_page(case, records, owner, tour_link, findings.get(case['id']), refs, evidence[case['id']])
             (target / (case['id'] + '.html')).write_text(page)
         rows = ''.join(f"<li><span>{KINDS[row['kind']]}</span>{link(row['id'] + '.html', row['title'])}</li>" for row in records)
