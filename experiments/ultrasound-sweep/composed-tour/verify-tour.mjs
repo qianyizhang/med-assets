@@ -3,7 +3,7 @@ import { createHash } from 'node:crypto';
 import { mkdir } from 'node:fs/promises';
 import { join } from 'node:path';
 import {
-  absoluteFrame, checkTimeline, installTourClock, playTourToEnd, seekTour, waitForTourFrame,
+  checkTimeline, installTourClock, playTourToEnd, seekTour, waitForTourFrame,
 } from './verify-timeline.mjs';
 
 const base = new URL(process.argv[2] ?? 'http://127.0.0.1:8874/');
@@ -16,7 +16,11 @@ const browser = await chromium.launch({
   args: ['--enable-unsafe-swiftshader'],
 });
 
-const abdomen = [['liver', 'liver', 0, 48], ['portal-vein', 'portal-vein', 0, 48], ['gallbladder', 'gallbladder', 0, 48]];
+const abdomen = [
+  ['locate', 'liver', 12, 19],
+  ['follow', 'liver', 20, 30],
+  ['confirm', 'liver', 31, 48],
+];
 const thyroid = [
   ['right-transverse', 'thyroid-right', 0, 12],
   ['right-longitudinal', 'thyroid-right', 13, 48],
@@ -56,56 +60,71 @@ async function captureTimeline(page, name) {
 }
 
 async function checkAbdomen(page, standalone) {
-  await page.goto(new URL('composed-tour/index.html', base).href);
+  const route = new URL('composed-tour/', base);
+  await page.goto(new URL('tours/index.html', base).href);
+  await page.getByRole('link', { name: 'Three landmarks in the liver window' }).click();
   const total = await checkTimeline(page, abdomen);
-  assert.equal(total, 147);
   const player = page.frameLocator('#player iframe');
-  assert.ok(await player.locator('#assetTab').isHidden(), 'Standalone keyframe asset tab leaked into the tour');
-  const canvas = player.locator('#sceneCanvas');
+  await waitForScan(player, 12);
+  assert.ok(await player.locator('#refPanel').isHidden());
+  assert.ok(await player.locator('#assetTab').isHidden());
+  const pinned = await page.locator('.pinImage img').evaluate((img) => img.currentSrc);
+  assert.equal(pinned, await player.locator('#scan').evaluate((img) => img.currentSrc));
+  const openingPose = await poseHash(player.locator('#sceneCanvas'));
+  await page.locator('#player iframe').evaluate((iframe) => { iframe.dataset.witness = 'starting window'; });
 
-  for (const [chapter, sweep] of abdomen) {
-    await page.locator('.chapters [data-chapter="' + chapter + '"]').click();
-    await waitForTourFrame(page, absoluteFrame(abdomen, chapter, 0));
-    await waitForScan(player, 0);
-    await page.locator('#' + chapter).waitFor();
-    const firstPose = await poseHash(canvas);
-    await seekTour(page, absoluteFrame(abdomen, chapter, 48));
-    await waitForScan(player, 48);
-    const lastPose = await poseHash(canvas);
-    assert.notEqual(firstPose, lastPose, chapter + ' probe scene did not move with the source sweep');
-
-    const evidence = page.locator('#' + chapter + ' .evidence a').filter({ hasText: /^12/ });
-    await evidence.click();
-    await waitForTourFrame(page, absoluteFrame(abdomen, chapter, 12));
-    assert.equal(await evidence.getAttribute('aria-current'), 'true');
-    await waitForScan(player, 12);
-    const scan = await player.locator('#scan').getAttribute('src');
-    const label = await player.locator('#readout').textContent();
-    assert.equal(await player.locator('#referenceDepth').textContent(), 'Different case');
-    const standaloneURL = new URL(await page.locator('#openSweep').getAttribute('href'));
-    assert.equal(standaloneURL.searchParams.get('sweep'), sweep);
-    assert.equal(standaloneURL.searchParams.get('frame'), '12');
-    assert.equal(standaloneURL.searchParams.has('embed'), false);
-    await standalone.goto(standaloneURL.href);
-    await waitForScan(standalone, 12);
-    await standalone.getByRole('button', { name: 'Play sweep', exact: true }).waitFor();
-    assert.equal(await standalone.locator('#scan').getAttribute('src'), scan);
-    assert.equal(await standalone.locator('#readout').textContent(), label);
-
-    await standalone.locator('#assetTab').click();
-    assert.equal(await standalone.locator('#assetFrame').inputValue(), '12');
-    await standalone.locator('#return').click();
-    await waitForScan(standalone, 12);
+  for (const [letter, sweep] of [['A', 'gallbladder'], ['B', 'portal-vein'], ['C', 'ivc']]) {
+    const pin = page.getByRole('button', { name: 'Identify landmark ' + letter });
+    await pin.focus();
+    await pin.press('Enter');
+    assert.equal(await pin.getAttribute('aria-pressed'), 'true');
+    const answer = page.locator('.answer:visible');
+    assert.equal(await answer.getAttribute('id'), 'answer-' + letter);
+    for (const [i, frame] of [12, 48].entries()) {
+      const link = answer.locator('a').nth(i);
+      const url = new URL(await link.getAttribute('href'), page.url());
+      assert.equal(url.searchParams.get('sweep'), sweep);
+      await standalone.goto(url.href);
+      await waitForScan(standalone, frame);
+      assert.equal(await link.locator('img').evaluate((img) => img.currentSrc),
+        await standalone.locator('#scan').evaluate((img) => img.currentSrc));
+      assert.ok(await standalone.locator('#refPanel').isVisible());
+    }
   }
 
   await page.bringToFront();
-  await seekTour(page, 0);
   assert.equal(await playTourToEnd(page, abdomen), total);
-  await seekTour(page, absoluteFrame(abdomen, 'portal-vein', 12));
-  await waitForScan(player, 12);
-  await captureTimeline(page, 'abdominal-orientation-timeline');
+  await page.getByRole('link', { name: 'Check the final plane' }).click();
+  await page.getByRole('link', { name: 'Final plane', exact: true }).click();
+  await waitForTourFrame(page, total - 1);
+  await waitForScan(player, 48);
+  assert.equal(await page.locator('#player iframe').getAttribute('data-witness'), 'starting window');
+  assert.equal(await page.locator('.pinImage img').evaluate((img) => img.currentSrc), pinned);
+  assert.notEqual(await poseHash(player.locator('#sceneCanvas')), openingPose);
+  assert.equal(await page.locator('.answer:visible').getAttribute('id'), 'answer-C');
+  const finalSource = new URL(await page.locator('#openSweep').getAttribute('href'));
+  assert.equal(finalSource.searchParams.get('sweep'), 'liver');
+  assert.equal(finalSource.searchParams.get('frame'), '48');
+  await captureTimeline(page, 'abdominal-liver-window');
+
   await page.setViewportSize({ width: 1021, height: 980 });
   await checkPanelBounds(player);
+  assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
+  await page.goto(new URL('?chapter=gallbladder&frame=48', route).href);
+  await waitForScan(player, 12);
+  await page.locator('#previousView a').click();
+  await waitForScan(page, 48);
+  assert.equal(new URL(page.url()).searchParams.get('sweep'), 'gallbladder');
+  await page.goto(new URL('?chapter=liver&frame=48', route).href);
+  await waitForTourFrame(page, total - 1);
+  await waitForScan(player, 48);
+  await page.route('**/sweeps/liver/media/scan-12.webp', (request) => request.abort());
+  await page.goto(new URL('?chapter=confirm&frame=48', route).href);
+  await page.locator('.missingPlane').waitFor();
+  await waitForScan(player, 48);
+  await page.getByRole('button', { name: 'Identify landmark B' }).click();
+  await page.locator('#answer-B').waitFor();
+  await page.unroute('**/sweeps/liver/media/scan-12.webp');
 
   await standalone.goto(new URL('index.html?sweep=portal-vein&frame=48&view=assets', base).href);
   await standalone.locator('#assets').waitFor();
@@ -114,7 +133,7 @@ async function checkAbdomen(page, standalone) {
   await waitForScan(standalone, 48);
   await standalone.goto(new URL('index.html?sweep=portal-vein&frame=999', base).href);
   await waitForScan(standalone, 12);
-  console.log('Abdominal orientation · 3 sections · 147 committed frames, probe motion and standalone evidence passed.');
+  console.log('Liver window · continuous motion, pinned plane, three landmark identifications and six targeted evidence links passed.');
 }
 
 async function checkThyroid(page, standalone) {

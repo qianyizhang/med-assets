@@ -446,3 +446,10 @@ a { color: var(--teal); }
 @media (min-width: 1120px) {
   .embeddedSweep #stage { grid-template-columns: minmax(0, 1.22fr) repeat(2, minmax(0, 1fr)); }
 }
+
+.probeScanLayout #refPanel, .probeScanLayout #comparisonFinding { display: none; }
+@media (min-width: 540px) {
+  .probeScanLayout #stage { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); }
+  .probeScanLayout #scenePanel { grid-column: auto; }
+  .probeScanLayout #stage .view { min-block-size: 0; inline-size: 100%; block-size: clamp(210px, 32vw, 320px); }
+}

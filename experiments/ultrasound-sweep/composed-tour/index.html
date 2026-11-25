@@ -3,9 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Abdominal orientation · Ultrasound Anatomy</title>
+    <title>Three landmarks in the liver window · Ultrasound Anatomy</title>
     <link rel="stylesheet" href="../study.css" />
     <link rel="stylesheet" href="tour.css" />
+    <link rel="stylesheet" href="liver-window.css" />
+    <script defer src="liver-window.js"></script>
     <script defer src="tour.js"></script>
   </head>
   <body>
@@ -20,8 +22,9 @@
     </header>
     <main>
       <div class="introduction">
-        <h1>Abdominal orientation</h1>
-        <p>Follow three right upper abdominal windows on the same CT anatomy. Watch the probe and the simulated scan together, then use the saved frames to compare what the plane cuts.</p>
+        <h1>Three landmarks in the liver window</h1>
+        <p>Look for three dark spaces in the starting image. As you sweep medially, which one leaves the plane, and which opens into a long vessel?</p>
+        <p id="previousView" hidden><a></a></p>
       </div>
       <div class="tourTimeline">
         <div class="tourTransport">
@@ -29,60 +32,68 @@
           <output id="tourFrameNumber" for="tourPosition" aria-live="off"></output>
         </div>
         <div class="timelineTrack">
-          <input id="tourPosition" type="range" min="0" max="146" step="1" value="0" aria-label="Tour position" disabled>
+          <input id="tourPosition" type="range" min="0" max="36" step="1" value="0" aria-label="Tour position" disabled>
           <nav class="chapters" aria-label="Jump to section" style="--section-count:3">
-            <a href="?chapter=liver" data-chapter="liver" data-sweep="liver" data-start="0" data-end="48" data-label="Liver" style="--marker-position:0%"><span>Liver</span></a>
-            <a href="?chapter=portal-vein" data-chapter="portal-vein" data-sweep="portal-vein" data-start="0" data-end="48" data-label="Portal vein" style="--marker-position:33.5616%"><span>Portal vein</span></a>
-            <a href="?chapter=gallbladder" data-chapter="gallbladder" data-sweep="gallbladder" data-start="0" data-end="48" data-label="Gallbladder" style="--marker-position:67.1233%"><span>Gallbladder</span></a>
+            <a href="?chapter=locate" data-chapter="locate" data-sweep="liver" data-start="12" data-end="19" data-label="Find three spaces" style="--marker-position:0.0000%"><span>Find three spaces</span></a>
+            <a href="?chapter=follow" data-chapter="follow" data-sweep="liver" data-start="20" data-end="30" data-label="Follow the vessels" style="--marker-position:22.2222%"><span>Follow the vessels</span></a>
+            <a href="?chapter=confirm" data-chapter="confirm" data-sweep="liver" data-start="31" data-end="48" data-label="Check the final plane" style="--marker-position:52.7778%"><span>Check the final plane</span></a>
           </nav>
         </div>
       </div>
       <p id="tourProgress" class="sr" role="status"></p>
-
-      <section class="chapter" id="liver" aria-labelledby="liver-title" hidden>
-        <div>
-          <h2 id="liver-title">Find the hepatic window</h2>
-          <p>Start below the right costal margin. Follow the plane medially from a portal branch toward the inferior vena cava (IVC). At each saved frame, turn on Anatomy overlay to see which vessel the plane intersects.</p>
-        </div>
-        <div class="evidence">
-          <a href="?chapter=liver&amp;frame=12">12 · Oblique portal view</a>
-          <a href="?chapter=liver&amp;frame=48">48 · Liver and IVC</a>
-        </div>
+      <section class="chapter" id="locate" hidden>
+        <div><h2>Start in the oblique liver window</h2><p>Find A, B and C on the moving scan using the pinned image. Watch the shallow pocket narrow as the probe starts to move.</p></div>
+        <div class="evidence"><a href="?chapter=locate&amp;frame=12">Starting plane</a></div>
       </section>
-
-      <section class="chapter" id="portal-vein" aria-labelledby="portal-title" hidden>
-        <div>
-          <h2 id="portal-title">Follow the main portal vein</h2>
-          <p>Find the plane along the main portal vein, then follow it into cross-section as the probe rotates. Compare how much of the vessel’s course the plane captures at the two stops.</p>
-        </div>
-        <div class="evidence">
-          <a href="?chapter=portal-vein&amp;frame=12">12 · Main portal vein long axis</a>
-          <a href="?chapter=portal-vein&amp;frame=48">48 · Main portal vein short axis</a>
-        </div>
+      <section class="chapter" id="follow" hidden>
+        <div><h2>Keep your bearings as the plane moves</h2><p>A has slipped out of the image. Use its original depth to check where you looked. Follow the two deeper dark spaces as their outlines change.</p></div>
+        <div class="evidence"><a href="?chapter=follow&amp;frame=20">View after A leaves the plane</a></div>
       </section>
-
-      <section class="chapter" id="gallbladder" aria-labelledby="gallbladder-title" hidden>
-        <div>
-          <h2 id="gallbladder-title">Rotate through the gallbladder</h2>
-          <p>In the long-axis stop, trace the lumen along the length of the gallbladder. Watch the probe rotate into a shorter cross-section. Use the plane in the 3D view to explain why the outline changes.</p>
-        </div>
-        <div class="evidence">
-          <a href="?chapter=gallbladder&amp;frame=12">12 · Gallbladder long axis</a>
-          <a href="?chapter=gallbladder&amp;frame=48">48 · Gallbladder short axis</a>
-        </div>
+      <section class="chapter" id="confirm" hidden>
+        <div><h2>Identify the deep vessel</h2><p>Compare the final scan with C in the starting plane. Which vessel now runs along the bottom of the field? Select C to check, then compare its dedicated long- and short-axis views.</p></div>
+        <div class="evidence"><a href="?chapter=confirm&amp;frame=48">Final plane</a></div>
       </section>
-
-      <div id="player"></div>
-      <noscript><p>The sweep player requires JavaScript.</p></noscript>
-
+      <div class="windowStudy">
+        <div id="player" data-embed-layout="probe-scan" data-frame-ms="180"></div>
+        <aside class="landmarks" aria-labelledby="pin-title">
+          <h2 id="pin-title">Pinned starting plane</h2>
+          <p id="pin-instruction">Choose a marker to check its identity.</p>
+          <div class="pinImage">
+            <img src="../sweeps/liver/media/scan-12.webp" width="500" height="350" alt="Oblique liver scan at the start of the tour. A is shallow, B is within the liver, and C is deepest." />
+            <button class="pin" type="button" style="left:35.20%;top:27.43%" aria-label="Identify landmark A" aria-pressed="false" aria-controls="answer-A">A</button>
+            <button class="pin" type="button" style="left:54.20%;top:68.57%" aria-label="Identify landmark B" aria-pressed="false" aria-controls="answer-B">B</button>
+            <button class="pin" type="button" style="left:54.00%;top:92.00%" aria-label="Identify landmark C" aria-pressed="false" aria-controls="answer-C">C</button>
+          </div>
+          <div aria-live="polite">
+            <section class="answer" id="answer-A" hidden>
+              <h3>A · Gallbladder</h3><p>The shallow pocket lies against the liver. It narrows and drops out as the plane moves medially.</p>
+              <div class="planes" aria-label="Gallbladder in a separate targeted sweep">
+                <a href="../index.html?sweep=gallbladder&amp;frame=12" aria-label="Gallbladder, long axis, open standalone sweep"><img width="500" height="350" src="../media/scan-12.webp" alt="" />Long axis</a>
+                <a href="../index.html?sweep=gallbladder&amp;frame=48" aria-label="Gallbladder, short axis, open standalone sweep"><img width="500" height="350" src="../media/scan-48.webp" alt="" />Short axis</a>
+              </div>
+            </section>
+            <section class="answer" id="answer-B" hidden>
+              <h3>B · Portal vein</h3><p>This portal branch is surrounded by liver at the start. Compare it with the main portal vein in the dedicated views below.</p>
+              <div class="planes" aria-label="Portal vein in a separate targeted sweep">
+                <a href="../index.html?sweep=portal-vein&amp;frame=12" aria-label="Portal vein, long axis, open standalone sweep"><img width="500" height="350" src="../sweeps/portal-vein/media/scan-12.webp" alt="" />Long axis</a>
+                <a href="../index.html?sweep=portal-vein&amp;frame=48" aria-label="Portal vein, short axis, open standalone sweep"><img width="500" height="350" src="../sweeps/portal-vein/media/scan-48.webp" alt="" />Short axis</a>
+              </div>
+            </section>
+            <section class="answer" id="answer-C" hidden>
+              <h3>C · Inferior vena cava</h3><p>The deepest of the three spaces is the cava. The medial plane cuts along more of its course, giving it the long outline in the final image.</p>
+              <div class="planes" aria-label="Inferior vena cava in a separate targeted sweep">
+                <a href="../index.html?sweep=ivc&amp;frame=12" aria-label="Inferior vena cava, long axis, open standalone sweep"><img width="500" height="350" src="../sweeps/ivc/media/scan-12.webp" alt="" />Long axis</a>
+                <a href="../index.html?sweep=ivc&amp;frame=48" aria-label="Inferior vena cava, short axis, open standalone sweep"><img width="500" height="350" src="../sweeps/ivc/media/scan-48.webp" alt="" />Short axis</a>
+              </div>
+            </section>
+          </div>
+        </aside>
+      </div>
+      <noscript><p>Enable JavaScript to follow the probe and identify the landmarks.</p></noscript>
       <p class="standaloneLink"><a id="openSweep">Open standalone sweep</a></p>
-
-      <aside class="reading" aria-labelledby="reading-title">
-        <h2 id="reading-title">Reading the views</h2>
-        <p>The three trajectories share the TotalSegmentator s1233 CT anatomy. Each starts from its own probe placement. The BodyParts3D exterior is illustrative and fitted at the modeled contact window.</p>
-        <p>The simulated scans show where the plane intersects tissue, with illustrative echo brightness. The acquired comparisons show separate subjects and may differ in plane, level or crop. Open <strong>Keyframe assets</strong> for the individual scan and anatomical evidence, and <strong>Sources</strong> for the comparison notes and credits.</p>
-        <p><a href="../tours/index.html">Explore all tours</a></p>
-      </aside>
+      <details class="reading"><summary>About these images</summary>
+        <p>All views come from the same s1233 CT anatomy. The pinned image is the opening B-mode frame of the live liver sweep. Each landmark’s long- and short-axis views come from a separate probe placement on the same case. Open either image to inspect its probe pose, anatomy overlay and acquired comparison.</p>
+      </details>
     </main>
   </body>
 </html>

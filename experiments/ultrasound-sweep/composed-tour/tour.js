@@ -126,6 +126,7 @@ function mount(section) {
   const url = standalone(section, target);
   url.searchParams.set('embed', '1');
   url.searchParams.set('transport', 'tour');
+  if (container.dataset.embedLayout) url.searchParams.set('layout', container.dataset.embedLayout);
   viewer.src = url.href;
   viewer.addEventListener('load', () => {
     if (viewer !== player) return;

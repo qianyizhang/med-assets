@@ -6,6 +6,7 @@ const embedded = launch.get('embed') === '1';
 const tourControlled = embedded && launch.get('transport') === 'tour';
 document.documentElement.classList.toggle('embeddedSweep', embedded);
 document.documentElement.classList.toggle('tourControlled', tourControlled);
+document.documentElement.classList.toggle('probeScanLayout', tourControlled && launch.get('layout') === 'probe-scan');
 let tourSeek;
 const frameDuration = 110;
 const atlasSource = 'https://dbarchive.biosciencedbc.jp/en/bodyparts3d/desc.html';

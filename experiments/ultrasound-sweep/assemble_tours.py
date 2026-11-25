@@ -355,7 +355,7 @@ def write_catalogue(destination, refs, tours, survey=None, aaa_acquisitions=None
         shutil.copyfile(HERE / name, destination / name)
     for folder, names in (
         ('development', ('index.html', 'review.css', 'review.js', 'comparison.js')),
-        ('composed-tour', ('index.html', 'tour.css', 'tour.js')),
+        ('composed-tour', ('index.html', 'tour.css', 'tour.js', 'liver-window.css', 'liver-window.js')),
     ):
         (destination / folder).mkdir(exist_ok=True)
         for name in names:

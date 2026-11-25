@@ -248,8 +248,8 @@ def write_case_library(destination, tours, refs, root=ROOT, *, aaa_acquisitions=
                   '<div class="catalog"><section class="family" id="aaa">'
                   '<h2><a href="aaa/index.html">AAA screening</a></h2>'
                   '<p>Follow a negative, positive or indeterminate case from referral to impression.</p></section>'
-                  '<section class="family"><h2><a href="../composed-tour/">Abdominal orientation</a></h2>'
-                  '<p>Explore the liver, portal vein and gallbladder on one CT anatomy.</p></section>' + thyroid_entry + '</div>'
+                  '<section class="family"><h2><a href="../composed-tour/">Three landmarks in the liver window</a></h2>'
+                  '<p>Follow the gallbladder, a portal branch and the cava through one moving scan.</p></section>' + thyroid_entry + '</div>'
                   '<h2>Other exam tours</h2><div class="catalog">' + ''.join(tour_groups) + '</div>')
     write_exam_tours(destination, root, grouped, FAMILIES,
                      document('Ultrasound tours', 'Tours', tours_body), evidence, aaa_acquisitions is not None)
