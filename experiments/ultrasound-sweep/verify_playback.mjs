@@ -307,6 +307,7 @@ try {
           assert.equal(await page.locator('#ref').evaluate(img => img.src), new URL(key.path, page.url()).href);
           await page.locator('#section').click();
           await page.waitForFunction(() => document.querySelector('#scan')?.src.includes('/detail-scan-'));
+          if (isCarotid(tour)) await capture(filename + '-magnified-gray', true);
           await page.locator('#scanZoom').click();
           await page.waitForFunction(() => document.querySelector('#scan')?.src.includes('/media/scan-'));
           assert.deepEqual(await screenshot(), fullField, 'Returning to the full field should remove the magnification outline.');
