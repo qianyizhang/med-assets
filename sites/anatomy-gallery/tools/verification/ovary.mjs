@@ -68,7 +68,7 @@ export async function checkOvaryLesson(page, dest, dir, delivery) {
     if (new URL(request.url()).pathname === url(sourceDisplay)) sourceRequests.push(request.url());
   };
   page.on('request', trackSource);
-  await go('use-cases');
+  await go('use-cases/lessons');
   await page.getByRole('link', { name: 'Regional locators →', exact: true }).press('Enter');
   await page.getByRole('link', { name: ovaryLocator.name + ' →', exact: true }).press('Enter');
   assert.equal(where(), '#/' + regional);
@@ -97,6 +97,11 @@ export async function checkOvaryLesson(page, dest, dir, delivery) {
   await picker.selectOption(ovaryPickupDetail);
   await question.waitFor();
   assert.equal(where(), '#/' + pickup);
+  assert.equal(await picker.inputValue(), ovaryPickupDetail);
+  await page.getByRole('link', { name: 'Development', exact: true }).press('Enter');
+  assert.equal(where(), '#/' + pickup + '&view=development');
+  await page.getByRole('link', { name: 'Teaching', exact: true }).press('Enter');
+  await question.waitFor();
   assert.equal(await picker.inputValue(), ovaryPickupDetail);
   await checkSequence();
   await page.screenshot({ path: dir + 'ovary-reproductive.png', fullPage: true });

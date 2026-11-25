@@ -15,7 +15,7 @@ export async function checkCardiacScenes({ browser, base, capture }) {
   const context = await browser.newContext();
   const page = await context.newPage();
   const search = page.getByRole('searchbox', { name: 'Search assets' });
-  await page.goto(base + '/');
+  await page.goto(url('library'));
   await search.fill('Cardiac opaque exteriors');
   await page.getByRole('button', { name: 'Search', exact: true }).click();
   const result = page.getByRole('link', { name: /Cardiac opaque exteriors/ });

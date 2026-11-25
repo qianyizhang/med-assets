@@ -1,5 +1,5 @@
 import React from 'react';
-import { lessonPath, comparePath, libraryPath, portrait, salivary } from './catalog.js';
+import { lessonPath, comparePath, libraryPath, salivary } from './catalog.js';
 import { adrenalLesson } from './adrenal-study.js';
 import { baseView } from './presets.js';
 import { Scene } from './Scene.jsx';
@@ -10,6 +10,7 @@ import { SkeletalLessonLink } from './SkeletalLesson.jsx';
 import { dentalLayersPath, heartSlicePath, oneBreathPath } from './SpecialistStills.jsx';
 import { ultrasoundCollection } from './ultrasound-data.js';
 
+import './use-cases.css';
 import checks from './teaching-inputs/use-case-checks.json';
 
 export function UseCases({ localPreview }) {
@@ -18,81 +19,71 @@ export function UseCases({ localPreview }) {
       <Heading title="Use Cases">
         Follow a teaching question from a regional view to the structure that answers it.
       </Heading>
+      <section className="ga-collection-link">
+        <Link to="use-cases/systems">Body Systems →</Link>
+        <p>Orient in one of eleven system assemblies, then inspect a detail or follow a relationship.</p>
+      </section>
+      <section className="ga-collection-link">
+        <Link to={salivary.lesson + '/location'}>Head &amp; Neck →</Link>
+        <p>Find the major salivary glands and follow the supported parotid duct course.</p>
+        <div className="ga-related">
+          <Link className="ga-collection-related" to={oralSpacesPath}>Oral spaces · <span lang="zh">口腔空间关系</span> →</Link>
+        </div>
+      </section>
+      <section className="ga-collection-link">
+        <Link to="use-cases/airway">Airway Review →</Link>
+        <p>Follow nasal airspace, the open trachea and the bronchial junction.</p>
+      </section>
+      {localPreview && <div className="ga-collection-link">
+        <Link to={ultrasoundCollection}>Ultrasound Anatomy →</Link>
+        <p>Use the probe location and matching section to identify anatomy in a synthetic scan.</p>
+      </div>}
+      <div className="ga-related">
+        <Link to="use-cases/lessons">Lessons →</Link>
+        <Link to="archive">Experiments &amp; Archive →</Link>
+      </div>
       {localPreview && <details>
         <summary>Teaching checks · {checks.filter((c) => c.status === 'passed').length} passed · {checks.filter((c) => c.status === 'blocked').length} blocked</summary>
         {Array.from(new Set(checks.map((c) => c.collection)), (collection) => <section key={collection}>
-          <h3>{collection}</h3>
+          <h2>{collection}</h2>
           <ul>{checks.filter((c) => c.collection === collection).map((c) => <li key={c.route}>
             <Link to={c.route}>{c.action}</Link>{' · '}{c.status}. {c.observation}
           </li>)}</ul>
         </section>)}
         <Link to="use-cases/systems">Review the eleven Body Systems checks →</Link>
       </details>}
-      <div className="ga-collection-link">
-        <Link to="use-cases/systems">Body Systems →</Link>
-        <p>Eleven systems in paired views, from whole assemblies to named parts.</p>
-        <Link to="use-cases/right-arm/elbow">Practice the right elbow and shoulder →</Link>
-      </div>
-      <div className="ga-collection-link">
-        <Link to={salivary.lesson + '/location'}>Head &amp; Neck →</Link>
-        <p>Find the major salivary glands and follow the supported parotid duct course.</p>
-      </div>
-      <div className="ga-collection-link">
-        <Link to={oralSpacesPath}>Oral spaces · <span lang="zh">口腔空间关系</span> →</Link>
-        <p>Use the teeth and gingiva to locate the vestibule and oral cavity proper.</p>
-      </div>
-      <div className="ga-collection-link">
-        <Link to="use-cases/airway">Airway Review →</Link>
-        <p>Follow nasal airspace, the open trachea and the bronchial junction.</p>
-      </div>
-      <div className="ga-collection-link">
-        <Link to={oneBreathPath}>One Breath · <span lang="zh">一次呼吸</span> →</Link>
-        <p>Read the original storyboard from breathing mechanics to gas exchange.</p>
-      </div>
-      <div className="ga-collection-link">
-        <Link to={heartSlicePath}>Read the same heart slice three ways →</Link>
-        <p>Compare three synthetic displays of the same cardiac plane.</p>
-      </div>
-      {localPreview && <div className="ga-collection-link">
-        <Link to={ultrasoundCollection}>Ultrasound Anatomy →</Link>
-        <p>Use the probe location and matching section to identify anatomy in a synthetic scan.</p>
-      </div>}
-      <div className="ga-collection-link">
-        <Link to={regionalPath}>Regional locators →</Link>
-        <p>Locate aortic arch branches, the pulmonary vein, the brainstem source cut and the tubal end.</p>
-      </div>
-      <section className="ga-collection-link">
+    </>
+  );
+}
+
+export function LessonsIndex() {
+  return (
+    <>
+      <Link to="use-cases">← Use Cases</Link>
+      <Heading title="Lessons">Practise a single anatomy task or trace a named pathway.</Heading>
+      <section>
+        <h2>Locate structures</h2>
+        <ul className="ga-lesson-links">
+          <li><Link to={regionalPath}>Regional locators →</Link></li>
+          <li><SkeletalLessonLink /></li>
+          <li><Link to={lessonPath + '/' + adrenalLesson.stops[0].id}>{adrenalLesson.title} →</Link></li>
+          <li><Link to="use-cases/right-arm/elbow">Practice the right elbow and shoulder →</Link></li>
+          <li><Link to="use-cases/dental-arch">Dental arch identification · <span lang="zh">牙列辨认</span> →</Link></li>
+          <li><Link to={oralSpacesPath}>Oral spaces · <span lang="zh">口腔空间关系</span> →</Link></li>
+        </ul>
+      </section>
+      <section>
+        <h2>Follow sequences and compare views</h2>
+        <ul className="ga-lesson-links">
+          <li><Link to={oneBreathPath}>One Breath · <span lang="zh">一次呼吸</span> →</Link></li>
+          <li><Link to={heartSlicePath}>Read the same heart slice three ways →</Link></li>
+          <li><Link to={dentalLayersPath}>Reveal the layers of a prepared incisor →</Link></li>
+        </ul>
+      </section>
+      <section>
         <h2>Pathway diagrams</h2>
         <div className="ga-related"><PathwayLinks /></div>
       </section>
-      <div className="ga-collection-link">
-        <SkeletalLessonLink />
-        <p>Locate the second costal cartilages and the L3–L4 disc among their neighboring bones.</p>
-      </div>
-      <div className="ga-collection-link">
-        <Link to="use-cases/dental-arch">Dental arch identification · <span lang="zh">牙列辨认</span> →</Link>
-        <p>Choose a crown or an FDI label to identify the tooth, its arch and the patient’s side.</p>
-      </div>
-      <div className="ga-collection-link">
-        <Link to={dentalLayersPath}>Reveal the layers of a prepared incisor →</Link>
-        <p>Compare the source pose with isolated layers of the prepared FDI 31 specimen.</p>
-      </div>
-      <div className="ga-hero">
-        <div className="ga-hero-copy">
-          <Label>Endocrine system · s1233</Label>
-          <h2>{adrenalLesson.title}</h2>
-          <p>Find each gland above its kidney, then follow the curved lower rim of the right gland.</p>
-          <Link className="ga-primary" to={lessonPath + '/' + adrenalLesson.stops[0].id}>
-            Begin lesson <span aria-hidden="true">→</span>
-          </Link>
-        </div>
-        <div className="ga-hero-plate">
-          <img src={portrait('updated-iso')} alt="Paired adrenal glands above the kidneys" />
-        </div>
-      </div>
-      <div className="ga-related">
-        <Link to="archive">Experiments &amp; Archive →</Link>
-      </div>
     </>
   );
 }
@@ -104,7 +95,7 @@ export function Lesson({ stop }) {
   const next = adrenalLesson.stops[index + 1];
   return (
     <>
-      <Link to="use-cases">← Use Cases</Link>
+      <Link to="use-cases/lessons">← Lessons</Link>
       <Heading title={adrenalLesson.title}>Endocrine system · Regional localization</Heading>
       <nav className="ga-tabs" aria-label="Lesson stops">
         {adrenalLesson.stops.map(({ id, label }, i) => (

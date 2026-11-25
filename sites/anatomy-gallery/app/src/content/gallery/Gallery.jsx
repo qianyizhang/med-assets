@@ -1,7 +1,7 @@
 import { teachingReview, candidate, rows } from './selected-library.js';
 import React, { useEffect, useRef, useState } from 'react';
 import {
-  route, libraryId, studyId, reviewId, bodyPartsAdrenal, comparePath, bodyPartsReviewPath,
+  route, libraryId, studyId, reviewId, bodyPartsAdrenal, comparePath, bodyPartsReviewPath, assetUrl, byPath, portrait,
   adrenalCandidateBookmark, adrenalStudyBookmark, salivary, airway, staticReviews,
 } from './catalog.js';
 import { adrenalLesson, adrenalLibrary } from './adrenal-study.js';
@@ -11,7 +11,7 @@ import { componentPermalinkId, componentPermalinkShortId, readComponentPermalink
 import { Library, Revision, CollectionEntry } from './Library.jsx';
 import { libraryAliases, selectExactExport } from './library-view.js';
 import { firstForkPath } from './local-models.js';
-import { UseCases, Lesson } from './UseCases.jsx';
+import { UseCases, LessonsIndex, Lesson } from './UseCases.jsx';
 import { Planning, surveyCoverageId } from './Planning.jsx';
 import { ArmLessons } from './ArmLessons.jsx';
 import { Systems } from './Systems.jsx';
@@ -38,7 +38,7 @@ import { AirwayLesson, AirwayReview, FirstForkLesson } from './Airway.jsx';
 import { StaticReview } from './StaticReviews.jsx';
 import { Stage } from './Stage.jsx';
 import { Rubric } from './Rubric.jsx';
-import { Link, Missing } from './GalleryUI.jsx';
+import { Heading, Link, Missing } from './GalleryUI.jsx';
 import './gallery.css';
 
 const compareBookmarks = new Map([
@@ -61,7 +61,7 @@ function currentRoute() {
     componentPermalinkShortId(location, surveyCoverageId),
     componentPermalinkId(location, surveyCoverageId),
   ].includes(link.id)) return '/archive/planning/coverage';
-  return '/library';
+  return '/';
 }
 
 function useRoute() {
@@ -74,10 +74,32 @@ function useRoute() {
   return url;
 }
 
-function Header({ surface, id }) {
+function GalleryHome() {
+  return <>
+    <Heading title="Anatomy Gallery" />
+    <nav className="ga-entrances" aria-label="Explore the Gallery">
+      <Link to="library" aria-labelledby="ga-home-library">
+        <img src={portrait('updated-iso')} alt="" />
+        <div>
+          <h2 id="ga-home-library">Asset Library</h2>
+          <p>Find an anatomical asset, inspect its parts and choose a revision to reuse.</p>
+        </div>
+      </Link>
+      <Link to="use-cases" aria-labelledby="ga-home-use-cases">
+        <img src={assetUrl(byPath.get('lessons/body-systems/display/digestive-s1233-assembly-iso.webp'))} alt="" />
+        <div>
+          <h2 id="ga-home-use-cases">Use Cases</h2>
+          <p>Explore Body Systems, follow a lesson or revisit a teaching experiment.</p>
+        </div>
+      </Link>
+    </nav>
+  </>;
+}
+
+function Header({ surface }) {
   return (
     <header className="ga-bar">
-      <Link to="library" className="ga-brand">
+      <Link to="" className="ga-brand" aria-current={surface === 'home' ? 'page' : undefined}>
         Anatomy Gallery
       </Link>
       <nav aria-label="Gallery">
@@ -86,17 +108,9 @@ function Header({ surface, id }) {
         </Link>
         <Link
           to="use-cases"
-          aria-current={
-            ['use-cases', 'archive'].includes(surface) && id !== 'systems' ? 'page' : undefined
-          }
+          aria-current={['use-cases', 'archive'].includes(surface) ? 'page' : undefined}
         >
           Use Cases
-        </Link>
-        <Link
-          to="use-cases/systems"
-          aria-current={surface === 'use-cases' && id === 'systems' ? 'page' : undefined}
-        >
-          Body Systems
         </Link>
         <details className="ga-tools" key={surface}>
           <summary>Tools</summary>
@@ -118,10 +132,11 @@ export function Gallery() {
   const { snapshot } = useDataApp();
   const raw = useRoute();
   const [path, query = ''] = raw.split('?'),
-    [surface, id, revision, ...extra] = (path.replace(/^\//, '') || 'library').split('/');
+    [surface, id, revision, ...extra] = (path.replace(/^\//, '') || 'home').split('/');
   const pickup = surface === 'use-cases' && id === 'systems' && revision === 'reproductive' &&
     new URLSearchParams(query).get('detail') === ovaryPickupDetail;
-  const focusPath = pickup ? path + '?' + ovaryPickupDetail : path;
+  const development = surface === 'use-cases' && id === 'systems' && new URLSearchParams(query).get('view') === 'development';
+  const focusPath = [path, pickup && ovaryPickupDetail, development && 'development'].filter(Boolean).join('?');
   const titleRef = useRef(null),
     lastPath = useRef(focusPath);
   useEffect(() => {
@@ -144,7 +159,9 @@ export function Gallery() {
   if (path.startsWith('/') && !extra.length) {
     const airwayReview = airway.find((record) => record.id === id);
     const staticReview = staticReviews.find((record) => record.id === id);
-    if (surface === 'library') {
+    if (path === '/') page = <GalleryHome />;
+    else if (path === '/use-cases/lessons') page = <LessonsIndex />;
+    else if (surface === 'library') {
       const canonical = Object.hasOwn(libraryAliases, id) ? libraryAliases[id] : id;
       const row = rows.find((entry) => entry.id === canonical || entry.aliases?.includes(canonical));
       const home = row?.lessons?.find((entry) => entry.family === id) ?? row?.recommended;
@@ -208,7 +225,7 @@ export function Gallery() {
   }
   return (
     <article className="report-content ga-gallery">
-      <Header surface={surface} id={id} />
+      <Header surface={surface} />
       <div className="ga-content" ref={titleRef} tabIndex="-1">
         {page}
       </div>

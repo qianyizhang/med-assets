@@ -4,7 +4,9 @@ A learner can orient in a body system, find the structure that answers a questio
 
 ## Collection and views
 
-The direct Body Systems shortcut opens the eleven systems under Use Cases at `/#/use-cases/systems`. Each system card gives a representative view, the assembly's placement status and its teaching question or function. **System assembly** opens first. **Asset detail** selects a named relationship or view, with a direct `?detail=` bookmark. Keep return navigation to the collection, assembly or originating detail as appropriate. [Route contract](../routes-and-api.md#page-links)
+The Body Systems link on Use Cases opens the eleven systems at `/#/use-cases/systems`. Each system card gives a representative view, the assembly's placement status and its teaching question or function. **System assembly** opens first. **Asset detail** selects a named relationship or view, with a direct `?detail=` bookmark. Keep return navigation to the collection, assembly or originating detail as appropriate. [Route contract](../routes-and-api.md#page-links)
+
+In the candidate Gallery, each system opens in **Teaching**. Use **Development** to inspect its required teaching check, scope limits, sources and available asset links. Switching views preserves the assembly or exact detail, including the shared ovary lesson. A Development bookmark adds `view=development` to the same address.
 
 Serve reviewed paired plates in the ordinary Gallery. Each pair gives the complementary angles needed for the question, with named views, a color legend and a scale or placement note where needed. Keep scope limits beside the teaching material. An independently sourced or enlarged detail has its own frame and scale. A source-frame assembly can still have incomplete coverage or joins. Keep illustrative layout, authored routes and same-case placement explicit. Link to the related Library category and to an exact revision when a stop depends on it. [Gallery presentation audit](../../../sites/body-systems-survey/README.md#gallery-presentation-audit)
 

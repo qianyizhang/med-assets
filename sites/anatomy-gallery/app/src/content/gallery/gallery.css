@@ -86,6 +86,44 @@
 .ga-heading {
   margin: 18px 0 25px;
 }
+.ga-entrances {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 20px;
+}
+.ga-entrances a {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  border: 1px solid var(--ga-line);
+  border-radius: 12px;
+  overflow: hidden;
+  color: var(--ga-ink);
+  text-decoration: none;
+}
+.ga-entrances img {
+  width: 100%;
+  height: clamp(170px, 19vw, 220px);
+  object-fit: contain;
+  background: light-dark(#f3f2ef, #393a40);
+}
+.ga-entrances div {
+  padding: 22px;
+  border-top: 1px solid var(--ga-line);
+}
+.ga-entrances h2 {
+  font: 500 32px/1.12 Georgia, serif;
+}
+.ga-entrances p {
+  color: var(--ga-muted);
+  margin: 6px 0 0;
+}
+.ga-entrances a:hover {
+  border-color: var(--ga-accent);
+  text-decoration: none;
+}
+.ga-entrances a:hover h2 {
+  text-decoration: underline;
+}
 .ga-gallery h1,
 .ga-gallery h2,
 .ga-gallery h3 {

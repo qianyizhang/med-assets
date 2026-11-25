@@ -32,7 +32,7 @@ export async function checkBronchialScenes({ browser, base, capture }) {
     assert.ok(await page.getByLabel('Material', { exact: true }).isEnabled());
   };
   await page.goto(base + '/');
-  await page.getByRole('link', { name: 'Use Cases', exact: true }).click();
+  await page.getByRole('navigation', { name: 'Explore the Gallery' }).getByRole('link', { name: 'Use Cases' }).click();
   await page.getByRole('link', { name: 'Airway Review' }).click();
   const stop = page.getByRole('link', { name: /Trace the first bronchial fork/ });
   assert.equal(await stop.getAttribute('href'), '#/' + firstForkPath);

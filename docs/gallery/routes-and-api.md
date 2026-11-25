@@ -12,9 +12,11 @@ Open the fragment on the Site root, for example `/#/library/s1233-adrenal/r05`. 
 
 | Address on this Site | Visitor action and owner |
 | --- | --- |
+| `/`, `/#/` | The candidate opens the Gallery landing page with Asset Library and Use Cases. The brand link returns here. The recorded public release opens the Library. |
+| `/#/use-cases/lessons` | The candidate indexes shorter lessons and pathway diagrams. Each entry opens its existing teaching address. |
 | `/#/library` | Browse the Asset Library. Fragment parameters preserve `q`, `system`, `purpose`, `kind`, `state`, `rating=rated\|unrated`, `layout=list\|tree\|cards` and `sort=name\|name-desc\|rating-high\|rating-low\|most-files\|fewest-files`. Example: `/#/library?rating=rated&sort=rating-high`. |
 | `/#/library/s1233-adrenal/r05` | Open the exact revision. Its package owns the bytes and its dated assessment owns the score. The existing survey IDs still open the family or package. Use the revision history to choose a specific export. |
-| `/#/use-cases/systems`, `/#/use-cases/systems/<system-id>` | Open the Body Systems collection or a system assembly. The optional fragment parameter `detail` selects a teaching detail. Reproductive `reproductive-female-left-pickup` opens the shared ovary lesson in the system sequence. |
+| `/#/use-cases/systems`, `/#/use-cases/systems/<system-id>` | Open the Body Systems collection or a system assembly. The optional fragment parameter `detail` selects a teaching detail. In the candidate, `view=development` opens the selected system’s check, limits and sources. Teaching returns to the same assembly or detail. Reproductive `reproductive-female-left-pickup` opens the shared ovary lesson in the system sequence. |
 | `/#/use-cases/adrenal-localization/region`, `…/right-gland` | Open the authored regional or isolated lesson stop. Each pins s1233 r05. |
 | `/#/use-cases/head-and-neck/location`, `…/duct-course` | Locate the three major gland pairs and trace the supported parotid surface course. The duct stop links the excluded submandibular course to Compare. |
 | `/#/use-cases/right-arm/elbow`, `…/shoulder` | In the candidate build, locate the elbow nerve or shoulder cuff against shared bones. The base route opens the elbow stop. Each question has unlabelled layers and an optional labelled answer. |

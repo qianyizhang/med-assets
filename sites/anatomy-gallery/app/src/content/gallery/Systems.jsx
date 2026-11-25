@@ -9,6 +9,7 @@ import { PathwayLinks } from './Pathways.jsx';
 import { pelvicTasks } from './pelvic-tasks.js';
 import { OvaryTubalLesson, RegionalLinks } from './Teaching.jsx';
 import { ovaryPickupDetail } from './teaching-data.js';
+import ovaryLesson from './teaching-inputs/ovary-tubal-context/lesson.json';
 import { SkeletalLessonLink } from './SkeletalLesson.jsx';
 import { heartSlicePath, oneBreathPath } from './SpecialistStills.jsx';
 
@@ -48,6 +49,24 @@ function Plate({ plate }) {
   );
 }
 
+function SystemSources({ system, pelvicTask }) {
+  return (
+    <>
+      {pelvicTask && <p>
+        Pelvic model and lesson images derive from HRA United Female v1.10 by Kristen Browne and Heidi Schlehlein.
+        {' '}<a href={sourceRoot + pelvicTask.attribution}>Original attribution and CC BY 4.0 terms</a>.
+      </p>}
+      <ul>
+        {system.sources.map(([title, path, pinnedPath = path]) => (
+          <li key={path}>
+            <a href={sourceRoot + pinnedPath}>{title}</a>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+}
+
 export function Systems({ id, query, localPreview }) {
   if (!id)
     return (
@@ -75,10 +94,52 @@ export function Systems({ id, query, localPreview }) {
   if (!system) return <Missing />;
   const address = root + '/' + id;
   const details = system.plates.filter((p) => p.kind === 'detail');
-  const selected = new URLSearchParams(query).get('detail');
+  const params = new URLSearchParams(query);
+  const selected = params.get('detail');
+  const development = localPreview && params.get('view') === 'development';
   const plate = selected && details.find((p) => p.id === selected);
   const pelvicTask = Object.hasOwn(pelvicTasks, selected) ? pelvicTasks[selected] : null;
   if (selected && !plate) return <Missing />;
+  const isOvary = selected === ovaryPickupDetail;
+  const teachingHref = plate ? address + '?detail=' + encodeURIComponent(plate.id) : address;
+  const developmentHref = teachingHref + (plate ? '&' : '?') + 'view=development';
+  const views = localPreview && (
+    <nav className="ga-tabs" aria-label="Body Systems views">
+      <Link to={teachingHref} aria-current={!development ? 'page' : undefined}>Teaching</Link>
+      <Link to={developmentHref} aria-current={development ? 'page' : undefined}>Development</Link>
+    </nav>
+  );
+  const relatedAssets = 'library?system=' + encodeURIComponent(anatomy[id] || system.name);
+  const reviewedDetail = address + '?detail=' + system.check.detail;
+  if (development) return (
+    <>
+      <Link to={root}>← Body Systems</Link>
+      <Heading title={system.name + ' Development'}>{plate ? plate.title : 'System assembly'} · {system.status}</Heading>
+      {views}
+      <h2>Required teaching check · {system.check.status}</h2>
+      <p>{system.check.action}</p>
+      <p>{system.check.observation}</p>
+      <Link to={reviewedDetail}>Open the reviewed detail →</Link>
+      <h2>Scope and limits</h2>
+      <p>{system.limit}</p>
+      {plate?.scale && <p>{plate.scale}</p>}
+      {isOvary && <p>{ovaryLesson.localization.limit}</p>}
+      {pelvicTask && <p>{pelvicTask.limit}</p>}
+      <h2>Sources and attribution</h2>
+      <SystemSources system={system} pelvicTask={pelvicTask} />
+      <div className="ga-related">
+        {isOvary && (
+          <>
+            <Link to="library/ovaries/teaching-ovoid-r02">Open teaching ovoid r02 in Asset Library →</Link>
+            <Link to="library/ovaries/hra-ovary-tubal-r01">Open the HRA r01 source in Asset Library →</Link>
+          </>
+        )}
+        {pelvicTask && <Link to={pelvicTask.exactLibrary}>Open this export in Asset Library →</Link>}
+        {id === 'skeletal' && <SkeletalLessonLink detail={selected} />}
+        <Link to={relatedAssets}>Browse related assets →</Link>
+      </div>
+    </>
+  );
   const teachingScale = (
     <nav className="ga-tabs" aria-label="Teaching scale">
       <Link to={address} aria-current={!plate ? 'page' : undefined}>
@@ -107,10 +168,11 @@ export function Systems({ id, query, localPreview }) {
       </select>
     </label>
   );
-  if (selected === ovaryPickupDetail) return (
+  if (isOvary) return (
     <>
       <Link to={address}>← Reproductive</Link>
       <OvaryTubalLesson>
+        {views}
         {teachingScale}
         {detailPicker}
       </OvaryTubalLesson>
@@ -125,6 +187,7 @@ export function Systems({ id, query, localPreview }) {
     <>
       <Link to={root}>← Body Systems</Link>
       <Heading title={system.name}>{system.function}</Heading>
+      {views}
       {teachingScale}
       {!pelvicTask && <p>{plate ? system.detail : system.overview}</p>}
       {plate ? (
@@ -168,7 +231,7 @@ export function Systems({ id, query, localPreview }) {
         <summary>Required teaching check · {system.check.status}</summary>
         <p>{system.check.action}</p>
         <p>{system.check.observation}</p>
-        <Link to={address + '?detail=' + system.check.detail}>Open the reviewed detail →</Link>
+        <Link to={reviewedDetail}>Open the reviewed detail →</Link>
       </details>}
       <h2>Scope and limits</h2>
       <p>{system.limit}</p>
@@ -192,23 +255,13 @@ export function Systems({ id, query, localPreview }) {
           <Link to="use-cases/right-arm/elbow">Locate the ulnar nerve at the right elbow →</Link>}
         {['skeletal', 'muscular'].includes(id) &&
           <Link to="use-cases/right-arm/shoulder">Compare the shoulder capsule and rotator cuff →</Link>}
-        <Link to={'library?system=' + encodeURIComponent(anatomy[id] || system.name)}>
+        <Link to={relatedAssets}>
           Browse related assets →
         </Link>
       </div>
       <details>
         <summary>Sources and attribution</summary>
-        {pelvicTask && <p>
-          Pelvic model and lesson images derive from HRA United Female v1.10 by Kristen Browne and Heidi Schlehlein.
-          {' '}<a href={sourceRoot + pelvicTask.attribution}>Original attribution and CC BY 4.0 terms</a>.
-        </p>}
-        <ul>
-          {system.sources.map(([title, path, pinnedPath = path]) => (
-            <li key={path}>
-              <a href={sourceRoot + pinnedPath}>{title}</a>
-            </li>
-          ))}
-        </ul>
+        <SystemSources system={system} pelvicTask={pelvicTask} />
       </details>
     </>
   );

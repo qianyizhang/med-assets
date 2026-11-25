@@ -25,8 +25,8 @@ export async function checkBalancedDownload(page) {
 }
 
 
-export async function checkSurveyBookmarks(page, origin, shortId) {
-  const library = page.getByRole('heading', { name: 'Asset Library', exact: true });
+export async function checkSurveyBookmarks(page, origin, shortId, homeTitle) {
+  const home = page.getByRole('heading', { name: homeTitle, exact: true, level: 1 });
   const survey = page.getByRole('navigation', { name: 'Planning sections' });
   const target = page.locator(`[data-component-id="${coverage}"][data-permalink-target="true"]`);
   const checkTarget = async () => {
@@ -34,7 +34,7 @@ export async function checkSurveyBookmarks(page, origin, shortId) {
     await page.waitForFunction((element) => element === document.activeElement, await target.elementHandle());
   };
   await page.goto(origin);
-  await library.waitFor();
+  await home.waitFor();
 
   for (const id of [coverage, origin === publicOrigin ? publishedShortId : shortId(origin, coverage)]) {
     const url = origin + bookmark(id);
@@ -44,7 +44,7 @@ export async function checkSurveyBookmarks(page, origin, shortId) {
     assert.equal((await page.reload()).status(), 200);
     await checkTarget();
     await page.getByRole('link', { name: /Anatomy Gallery/ }).click();
-    await library.waitFor();
+    await home.waitFor();
     assert.equal(new URL(page.url()).pathname, '/');
     await page.goBack();
     await survey.waitFor();
@@ -52,13 +52,13 @@ export async function checkSurveyBookmarks(page, origin, shortId) {
     assert.equal(new URL(page.url()).pathname, bookmark(id));
   }
 
-  for (const [fragment, heading, action] of [
-    ['family-adrenals', 'Adrenal pair · BodyParts3D', 'Review this version'],
-    ['swirendo_fdi31', 'FDI31 · prepared specimen', 'Download Balanced GLB'],
+  for (const [fragment, catalogueId, action] of [
+    ['family-adrenals', 'adrenals', 'Review this version'],
+    ['swirendo_fdi31', 'swirendo_fdi31', 'Download Balanced GLB'],
   ]) {
     const url = new URL('/?view=1#' + fragment, origin);
-    const family = page.locator('.ga-content').filter({ has: page.getByText('Catalogue ID', { exact: true }) })
-      .getByRole('heading', { name: heading, exact: true });
+    const family = page.locator('.ga-facts dt').filter({ hasText: /^Catalogue ID$/ })
+      .locator('+ dd').filter({ hasText: new RegExp('^' + catalogueId + '$') });
     await page.goto(url.href);
     await family.waitFor();
     await page.reload();
@@ -76,7 +76,7 @@ export async function checkSurveyBookmarks(page, origin, shortId) {
     }
     assert.equal(new URL(page.url()).hash, url.hash);
     await page.getByRole('link', { name: 'Anatomy Gallery', exact: true }).click();
-    await library.waitFor();
+    await home.waitFor();
     await page.goBack();
     await family.waitFor();
     assert.equal(new URL(page.url()).hash, url.hash);
@@ -87,6 +87,8 @@ export async function checkSurveyBookmarks(page, origin, shortId) {
 // on the browser's request URL. HTML and the Balanced GLB use exact local bytes.
 if (import.meta.main) {
   const project = path.resolve(process.argv[2]);
+  const { candidate } = JSON.parse(await readFile(path.join(project, 'src/content/gallery/selected-library.json'), 'utf8'));
+  const homeTitle = candidate ? 'Anatomy Gallery' : 'Asset Library';
   const { default: worker } = await import(pathToFileURL(path.join(project, 'dist/server/index.js')));
   const { componentPermalinkShortId } = await import(pathToFileURL(path.join(project, 'src/chart-permalink.js')));
   const read = (name) => readFile(path.join(project, '.data-app-assets', name));
@@ -140,12 +142,12 @@ if (import.meta.main) {
       });
     });
     for (const origin of [publicOrigin, testOrigin]) {
-      await checkSurveyBookmarks(page, origin, componentPermalinkShortId);
+      await checkSurveyBookmarks(page, origin, componentPermalinkShortId, homeTitle);
     }
     await page.goto(testOrigin + bookmark(publishedShortId));
-    await page.getByRole('heading', { name: 'Asset Library', exact: true }).waitFor();
+    await page.getByRole('heading', { name: homeTitle, exact: true, level: 1 }).waitFor();
     assert.equal(await page.getByRole('navigation', { name: 'Planning sections' }).count(), 0);
-    console.log('PASS authored and origin-specific Survey bookmarks, focus and reload, Back, Library homepage, family links and exact FDI31 download, and wrong-origin rejection.');
+    console.log('PASS authored and origin-specific Survey bookmarks, focus and reload, Back, Gallery home, family links and exact FDI31 download, and wrong-origin rejection.');
   } finally {
     await browser.close();
   }

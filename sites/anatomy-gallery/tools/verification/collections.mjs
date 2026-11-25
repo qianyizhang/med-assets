@@ -84,6 +84,9 @@ async function checkTeaching(page, dest, dir, delivery) {
   await cutawayLink.click();
   await heading(oralSpaces.en.question).waitFor();
   await page.getByRole('link', { name: '← Use Cases', exact: true }).click();
+  await page.getByRole('link', { name: 'Lessons →', exact: true }).press('Enter');
+  await heading('Lessons').waitFor();
+  await page.screenshot({ path: dir + 'teaching-lessons.png' });
   await page.getByRole('link', { name: 'Regional locators →' }).click();
   await heading('Regional locators').waitFor();
   await page.screenshot({ path: dir + 'regional-locators.png' });
@@ -145,6 +148,7 @@ async function checkAuthoring(browser, page, base, dir) {
   const sceneReady = (view) => view.locator('.ga-canvas:not([hidden]) canvas').waitFor();
 
   await page.goto(base);
+  await page.locator('.ga-content').getByRole('link', { name: 'Asset Library', exact: true }).click();
   await page.getByRole('searchbox').fill('adrenal');
   await page.getByRole('button', { name: 'Search', exact: true }).click();
   await page.getByRole('heading', { name: adrenalLibrary.label, exact: true }).click();
@@ -263,6 +267,11 @@ async function checkAuthoring(browser, page, base, dir) {
 
 async function checkCollections(p, dest, repo, dir) {
   await p.goto(dest + '/#/');
+  await p.getByRole('heading', { name: 'Anatomy Gallery', exact: true }).waitFor();
+  await p.getByRole('navigation', { name: 'Explore the Gallery' }).locator('img')
+    .evaluateAll((images) => Promise.all(images.map((image) => image.decode())));
+  await p.screenshot({ path: dir + 'gallery-home.png' });
+  await p.locator('.ga-content').getByRole('link', { name: 'Asset Library', exact: true }).press('Enter');
   await p.getByRole('heading', { name: 'Asset Library', exact: true }).waitFor();
   assert.equal(await p.title(), 'Anatomy Gallery');
   await p.screenshot({ path: dir + 'library.png' });
@@ -347,7 +356,8 @@ async function checkCollections(p, dest, repo, dir) {
     await p.goto(dest + '/#/library?q=' + family);
     await p.locator('a[href="#/library/' + family + '/' + revision + '"]').waitFor();
   }
-  await p.getByRole('link', { name: 'Body Systems', exact: true }).click();
+  await p.getByRole('link', { name: 'Use Cases', exact: true }).click();
+  await p.locator('.ga-content').getByRole('link', { name: 'Body Systems →', exact: true }).click();
   await p.locator('.ga-system-card').first().waitFor();
   assert.equal(await p.locator('.ga-system-card').count(), 11);
   await p.waitForFunction(() =>
@@ -363,6 +373,12 @@ async function checkCollections(p, dest, repo, dir) {
     await p.getByRole('link', { name: /Asset detail \(/ }).click();
     const detail = p.getByLabel('Detail view');
     await detail.selectOption({ index: 1 });
+    const teachingUrl = p.url();
+    await p.getByRole('link', { name: 'Development', exact: true }).press('Enter');
+    await p.getByRole('heading', { name: /Required teaching check/ }).waitFor();
+    await p.reload();
+    await p.getByRole('link', { name: 'Teaching', exact: true }).press('Enter');
+    assert.equal(p.url(), teachingUrl);
     await p.reload();
     await p.waitForFunction(
       () =>

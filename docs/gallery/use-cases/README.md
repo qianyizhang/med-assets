@@ -2,7 +2,7 @@
 
 A learner can answer an anatomy question by following a sequence of authored views. Each collection owns the question, the order of views and the action a learner should be able to complete.
 
-This table links the current collection briefs. Body Systems is established in the Gallery. Ultrasound Anatomy is active in the local candidate, where the first Abdomen stop already links the tour and its asset review. The page organization below is the target for both collections.
+This table links the current collection briefs. Body Systems is established in the Gallery. Ultrasound Anatomy is active in the local candidate, where the first Abdomen stop already links the tour and its asset review. The candidate has a Lessons index and linked Teaching and Development views within each body system. The same paired-page organization is the target for Ultrasound Anatomy.
 
 | Collection | What the learner does |
 | --- | --- |

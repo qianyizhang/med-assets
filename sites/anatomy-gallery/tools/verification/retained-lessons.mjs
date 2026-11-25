@@ -23,7 +23,7 @@ export async function checkPathways(page, dest, dir, delivery) {
   };
   const testis = JSON.parse(await readFile(new URL(
     'reviews/testis_pathway/2026-10-29-r02/readability.json', repo), 'utf8'));
-  await go('use-cases');
+  await go('use-cases/lessons');
   for (const [id, lesson] of Object.entries(pathways)) {
     if (id === 'lymph-collecting-routes') continue;
     const testisSvg = id === 'testis-pathway';
@@ -89,7 +89,7 @@ export async function checkPathways(page, dest, dir, delivery) {
     }
     await page.getByRole('link', { name: /返回人体系统/ }).click();
     assert.equal(new URL(page.url()).hash, '#/' + detailPath);
-    await go('use-cases');
+    await go('use-cases/lessons');
   }
   await page.route('**/assets/**', (request) => request.fulfill({ status: 503 }));
   await go(pathwayPath('testis-pathway', 'en'));
@@ -119,7 +119,7 @@ export async function checkLymph(page, dest, dir) {
   const decode = () => plate.evaluate((image) => image.decode());
   const discover = () => page.getByRole('link', { name: /Lymph collecting routes ·/ }).press('Enter');
 
-  await page.goto(dest + '/#/use-cases');
+  await page.goto(dest + '/#/use-cases/lessons');
   await discover();
   await decode();
   assert.equal(new URL(page.url()).hash, '#/' + pathwayPath(id));
@@ -236,7 +236,7 @@ export async function checkSkeletal(page, dest, dir, delivery) {
     assert.equal(hash(bytes), file.sha256, file.name);
   }
 
-  await go('use-cases');
+  await go('use-cases/lessons');
   await discover.press('Enter');
   await heading(skeletalStops[0].title).waitFor();
   await go(skeletalSystem);
@@ -352,7 +352,7 @@ export async function checkDentalArch(page, dest, dir, delivery) {
     assert.equal(await radio(fdi).getAttribute('aria-checked'), 'true');
     assert.equal(await radio(fdi).getAttribute('tabindex'), '0');
   };
-  await page.goto(dest + '/#/use-cases');
+  await page.goto(dest + '/#/use-cases/lessons');
   await page.getByRole('link', { name: /Dental arch identification/ }).press('Enter');
   await page.getByRole('heading', { name: 'Name the tooth', exact: true }).waitFor();
   await radio('11').waitFor();

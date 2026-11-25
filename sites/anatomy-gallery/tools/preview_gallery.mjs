@@ -164,4 +164,4 @@ const server = http.createServer(async (req, res) => {
     res.writeHead(500).end();
   }
 }).listen(port, '127.0.0.1', () =>
-  console.log('Gallery preview: http://127.0.0.1:' + server.address().port + '/#/library'));
+  console.log('Gallery preview: http://127.0.0.1:' + server.address().port + '/'));

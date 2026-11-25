@@ -97,8 +97,8 @@ export async function checkSpecialistStills(page, base, dir) {
       'Read the same heart slice three ways', 'Cardiovascular', [heart]],
     ['use-cases/systems/respiratory', 'use-cases/one-breath',
       'One Breath · 一次呼吸', 'Respiratory', [breath]],
-    ['use-cases', 'use-cases/dental-layers',
-      'Reveal the layers of a prepared incisor', 'Use Cases',
+    ['use-cases/lessons', 'use-cases/dental-layers',
+      'Reveal the layers of a prepared incisor', 'Lessons',
       ['lessons/dental-layer-controls/media/control-review-sheet.jpg']],
     ['archive', 'archive/dental-shot-studies',
       'Dental shot studies', 'Experiments & Archive',
@@ -142,7 +142,7 @@ export async function checkSpecialistStills(page, base, dir) {
     await heading(returnTitle).waitFor();
   }
 
-  await page.goto(place('use-cases'));
+  await page.goto(place('use-cases/lessons'));
   for (const route of ['use-cases/heart-slice', 'use-cases/one-breath']) {
     await linkTo(route).waitFor();
     await linkTo(route).press('Enter');
@@ -159,7 +159,7 @@ export async function checkSpecialistStills(page, base, dir) {
     await page.reload();
     if (route.endsWith('/one-breath')) await storyboard.click();
     await page.waitForFunction((selector) => document.querySelector(selector)?.naturalWidth > 0, originalImages);
-    await page.goto(place('use-cases'));
+    await page.goto(place('use-cases/lessons'));
   }
   await linkTo('use-cases/dental-layers').click();
   await page.getByRole('link', { name: /Balanced specimen download/ }).click();

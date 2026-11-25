@@ -1,6 +1,6 @@
 # Gallery product requirements
 
-Anatomy Gallery brings the maintained public views of med-assets into one Site. Its landing page should offer two ways in. Asset Library helps visitors choose something to reuse, and Use Cases shows what they can teach with it. A visitor should be able to move from either entrance to the exact asset revision, teaching stop and supporting review without knowing how the repository stores or delivers them. The current Site opens directly on Asset Library. [Implemented routes](routes-and-api.md#page-links)
+Anatomy Gallery brings the maintained public views of med-assets into one Site. Its landing page should offer two ways in. Asset Library helps visitors choose something to reuse, and Use Cases shows what they can teach with it. A visitor should be able to move from either entrance to the exact asset revision, teaching stop and supporting review without knowing how the repository stores or delivers them. The candidate opens on the Gallery landing page. The recorded public release opens directly on Asset Library. [Implemented routes](routes-and-api.md#page-links)
 
 | Surface PRD | Visitor’s question | Record it owns |
 | --- | --- | --- |

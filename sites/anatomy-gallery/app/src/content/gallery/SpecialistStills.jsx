@@ -96,7 +96,7 @@ export function OneBreath() {
 export function DentalLayers() {
   return (
     <>
-      <Link to="use-cases">← Use Cases</Link>
+      <Link to="use-cases/lessons">← Lessons</Link>
       <Heading title={dentalLayerSheet.title}>FDI 31 · Dental layer controls</Heading>
       <p>Compare the source pose with enamel, dentin and bone isolated in a fixed view.</p>
       <div className="ga-pair ga-source-evidence ga-source-evidence-stacked">

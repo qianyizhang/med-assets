@@ -22,7 +22,7 @@ The exact BodyParts3D review opens in Compare and links back to the same Library
 
 Use **Asset Library** and **Use Cases** as the main navigation entries. Place **Compare revisions** beside the revision selector and **Open in 3D Stage** beside the view it opens. Give Compare and 3D Stage direct URLs and list both under **Tools** for visitors starting a new session.
 
-Keep the gallery controls neutral, with graphite text, cool-gray surfaces and indigo for selection. Reserve anatomical display colors for structures. In a legend, use the structure name as the label and give it the matching hue with readable contrast. Use position, pattern and text to distinguish phases of a sequence. A direct Body Systems shortcut opens its collection within Use Cases.
+Keep the gallery controls neutral, with graphite text, cool-gray surfaces and indigo for selection. Reserve anatomical display colors for structures. In a legend, use the structure name as the label and give it the matching hue with readable contrast. Use position, pattern and text to distinguish phases of a sequence. Use Cases opens with a link to the Body Systems collection.
 
 Carry the selected name, source and revision across a handoff. Keep the originating selection available through the return link. Use a common part name and laterality label across images, legends and controls. Keep colors consistent within a teaching sequence and explain a palette change at the view where it happens.
 
