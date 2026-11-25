@@ -44,6 +44,27 @@ def verify(source):
         staging = work / 'staging'
         destination = work / 'delivery'
         shutil.copytree(source, staging)
+        cardiac = work / 'cardiac-input'
+        shutil.copytree(assemble_tours.HERE / 'cardiac', cardiac)
+        reference = json.loads((cardiac / 'acquisition.json').read_text())
+        cases = [
+            (reference['file'], 'Unexpected acquired cardiac cine identity'),
+            ('reference/plax.webp', 'Unexpected acquired cardiac cine identity: plax'),
+            ('reference/bse-table1.zip', 'Unexpected published echo panel archive'),
+            ('torso/skin.raw', 'Unexpected cardiac torso geometry: skin'),
+        ]
+        for name, message in cases:
+            path = cardiac / name
+            original = path.read_bytes()
+            path.write_bytes(b'wrong input')
+            try:
+                assemble_tours.copy_cardiac_study(cardiac, work / 'invalid-cardiac')
+            except ValueError as exc:
+                assert message in str(exc)
+            else:
+                raise AssertionError(f'Corrupt cardiac input entered the delivery: {name}')
+            assert not (work / 'invalid-cardiac').exists()
+            path.write_bytes(original)
         research = work / 'research'
         shutil.copytree(assemble_tours.RESEARCH, research)
         original_research = assemble_tours.RESEARCH

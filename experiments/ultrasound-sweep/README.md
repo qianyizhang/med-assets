@@ -4,7 +4,9 @@ Open the [local tour](http://127.0.0.1:8874/index.html) for abdomen, thyroid, ca
 
 Scrub the timeline, play the sweep, or jump directly to a named reference tick. **Anatomy overlay** identifies the tissue intersected by that plane, using CT labels, atlas surfaces or the pregnancy model’s tissue boundaries. Each acquired image retains its own subject, scale and orientation. Differences in plane, level and crop are identified on the card or in Sources. **Keyframe assets** groups the current frame into 3D anatomy, simulated scan and acquired ultrasound. Open **Related anatomy** on a supported sweep for additional acquired views and their credits. Returning to the tour preserves the selected frame. Its management and display design are reserved for joint review after the abdomen walkthrough. [Full tour specification](../../docs/gallery/use-cases/ultrasound-anatomy.md) · [Reference records](research/README.md)
 
-For the combined carotid exam, generate the [registered atlas acquisition](carotid-survey/README.md#replay) in the same staging tree before assembly.
+## Cardiac echo
+
+The **Heart → Adult echocardiography** study covers 17 views from four transthoracic windows. Inspect the probe on the torso, freeze the beat for calipers or compare Doppler practice with a published acquisition. [Replay and review](cardiac/README.md)
 
 ## Replay
 
@@ -22,11 +24,14 @@ python experiments/ultrasound-sweep/build_axilla.py "$STUDY_OUTPUT/sweeps" --ski
 python experiments/ultrasound-sweep/build_early_pregnancy.py "$STUDY_OUTPUT/sweeps"
 python experiments/ultrasound-sweep/build_pregnancy.py "$STUDY_OUTPUT/sweeps"
 python experiments/ultrasound-sweep/build_gestational.py "$STUDY_OUTPUT/sweeps"
+# Optional: generate the bilateral carotid duplex acquisition here before assembly.
 python experiments/ultrasound-sweep/assemble_tours.py "$STUDY_OUTPUT"
 python -m http.server 8874 --bind 127.0.0.1 --directory "$STUDY_OUTPUT"
 ```
 
-For the original nine abdominal sweeps, omit the aortic screening and other regional builders. The two thyroid lobes, the two carotid sides, the two breast routes and each pregnancy builder’s routes are assembled as complete sets. For a compact serving directory, run `python experiments/ultrasound-sweep/assemble_tours.py "$STUDY_OUTPUT" --delivery "$TOUR_OUTPUT"` and serve `$TOUR_OUTPUT`. Choose a fresh destination. The compact build includes one copy of each byte-identical mesh, every distinct torso fit, and the runtime images. Keep the generated receipts and source inputs with the staging tree for replay.
+For the original nine abdominal sweeps, omit the aortic screening and other regional builders. The two thyroid lobes, the two carotid sides, the two breast routes and each pregnancy builder’s routes are assembled as complete sets. For the combined carotid exam, build the [registered atlas acquisition](carotid-survey/README.md#replay) in the same staging tree before assembly. Both assembly modes include cardiac echo and require its [hydrated LFS inputs](cardiac/README.md#local-replay).
+
+For a compact serving directory, run `python experiments/ultrasound-sweep/assemble_tours.py "$STUDY_OUTPUT" --delivery "$TOUR_OUTPUT"` and serve `$TOUR_OUTPUT`. Choose a fresh destination. The compact build includes one copy of each byte-identical sweep mesh, every distinct torso fit, and the runtime images. Keep the generated receipts and source inputs with the staging tree for replay.
 
 Open [the local study](http://127.0.0.1:8874/index.html). The scene preparation step checks the repository's pinned Three.js runtime and license. Omit `--vendor-dir` to retrieve those bytes if a staged copy is unavailable. WebGL 2 renders the spatial view. The scan timeline and image comparisons also work when it cannot load.
 

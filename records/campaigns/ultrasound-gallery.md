@@ -1,6 +1,6 @@
 # Ultrasound Anatomy gallery
 
-Build interactive sweeps across the abdomen, abdominal aorta, thyroid, common carotids, breast and pregnancy. The [tour specification](../../docs/gallery/use-cases/ultrasound-anatomy.md) owns the settled interaction, abdomen, thyroid, carotid, breast and pregnancy coverage, acceptance and remaining decisions.
+Build interactive sweeps across the abdomen, abdominal aorta, thyroid, common carotids, breast and pregnancy, alongside adult cardiac echo. The [tour specification](../../docs/gallery/use-cases/ultrasound-anatomy.md) owns the shared controls, study coverage, acceptance and remaining decisions.
 
 | Stage | Outcome |
 | --- | --- |
@@ -13,7 +13,7 @@ Build interactive sweeps across the abdomen, abdominal aorta, thyroid, common ca
 | Pregnancy tour | Eleven local sweeps span the early embryo, 11–14-week profile and placenta, mid-trimester organ survey, and third-trimester presentation, growth planes and cord sampling. Named stops pair synchronized models with licensed acquisitions. [Pregnancy scope](../../docs/gallery/use-cases/ultrasound-anatomy.md#pregnancy-coverage) |
 | Normal aortic screening | The proximal, mid and distal transverse windows share a moving probe, a case-derived aorta and vena cava, and an optional anterior–posterior mask span. [Aortic survey scope](../../docs/gallery/use-cases/ultrasound-anatomy.md#normal-aortic-screening-survey) |
 | Common carotid anatomy | The combined bilateral duplex exam adds branch and flow stations, manual calipers, gated velocity measurements and tracked lumen and grayscale reconstruction. The original CT orientation sweeps retain their separate acquired comparisons. [Carotid scope](../../docs/gallery/use-cases/ultrasound-anatomy.md#common-carotid-coverage) |
-| Cardiac echo | The separate [apical four-chamber prototype](http://127.0.0.1:8886/cardiac/) pairs a modeled beat with acquired cine. Probe rotation and cardiac phase are independent. Its first reviewed build is on `codex/cardiac-echo` at `1637fda`. |
+| Cardiac echo | The adult study links 17 probe positions to one beating heart, a registered torso, measurement and Doppler exercises, nine acquired cines and the BSE reference panels. [Replay and evidence](../../experiments/ultrasound-sweep/cardiac/README.md) |
 | Next joint decision | Walk the completed abdomen set with the owner, then design the ultrasound asset-management and display experience together. |
 | Later topics | Add or adapt assets for scans that reveal an abnormal finding in a separate milestone. An aneurysm-positive example still requires its own reviewed anatomy and acquired references. Revisit rendering fidelity using the acquired comparison set. |
 
