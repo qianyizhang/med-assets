@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 338" font-family="system-ui,sans-serif" fill="#adb6c1" role="img" aria-label="Pancreatic window · bowel gas">
+<defs>
+  <clipPath id="field"><path d="M266 62Q334 42 402 62L608 272Q334 350 60 272Z"/></clipPath>
+  <linearGradient id="gain" x2="0" y2="1"><stop stop-color="#777774"/><stop offset=".55" stop-color="#454642"/><stop offset="1" stop-color="#202020"/></linearGradient>
+  <filter id="speckle" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency=".39 .67" numOctaves="2" seed="37"/><feColorMatrix type="saturate" values="0"/></filter>
+</defs>
+<rect width="680" height="338" fill="#10151c"/>
+<text x="30" y="29" font-size="12" fill="#dce6ec">MODELED SECTION</text><text x="650" y="29" text-anchor="end" font-size="12">Curvilinear section</text>
+<g clip-path="url(#field)"><rect x="50" y="50" width="570" height="265" fill="url(#gain)"/>
+<path d="M227 163Q277 141 318 151Q363 164 428 155L451 172Q414 193 370 187Q332 181 303 179Q270 186 227 181Z" fill="#9b9a8c" stroke="#9a9992" stroke-width="1.4"/><ellipse cx="356" cy="192" rx="59" ry="11" fill="#191c1c" stroke="#a5a39a" stroke-width="1.4"/><path d="M184 126Q227 120 266 146Q303 172 341 166Q390 143 449 171L523 305H112Z" fill="#181b1c" stroke="none" stroke-width="1.4"/><path d="M180 109Q233 103 273 130Q302 153 341 147Q387 128 436 157L449 171Q390 143 341 166Q303 172 266 146Q227 120 180 126Z" fill="#dfdcd2" stroke="#eee9d9" stroke-width="1.4"/>
+<rect x="50" y="50" width="570" height="265" filter="url(#speckle)" opacity=".25" style="mix-blend-mode:soft-light"/>
+</g><path d="M266 62Q334 42 402 62L608 272Q334 350 60 272Z" fill="none" stroke="#52636b"/>
+<text x="633" y="59" font-size="10">mm</text><path d="M624 102h8" stroke="#adb6c1"/><text x="639" y="106" font-size="11">20</text><path d="M624 142h8" stroke="#adb6c1"/><text x="639" y="146" font-size="11">40</text><path d="M624 182h8" stroke="#adb6c1"/><text x="639" y="186" font-size="11">60</text><path d="M624 222h8" stroke="#adb6c1"/><text x="639" y="226" font-size="11">80</text><path d="M624 262h8" stroke="#adb6c1"/><text x="639" y="266" font-size="11">100</text><path d="M624 302h8" stroke="#adb6c1"/><text x="639" y="306" font-size="11">120</text><path d="M280 156L128 104" stroke="#68e3ca" opacity=".8"/><circle cx="280" cy="156" r="2.5" fill="#68e3ca"/><text x="132" y="108" font-size="12" fill="#a3f5e2" stroke="#131820" stroke-width="4" paint-order="stroke">Gas interface</text><path d="M347 193L370 235" stroke="#68e3ca" opacity=".8"/><circle cx="347" cy="193" r="2.5" fill="#68e3ca"/><text x="374" y="239" font-size="12" fill="#a3f5e2" stroke="#131820" stroke-width="4" paint-order="stroke">Obscured target</text>
+</svg>

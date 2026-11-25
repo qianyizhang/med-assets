@@ -20,7 +20,7 @@ function ringCut(phase, id, name) {
   const rings = geometry.heartFrame(phase).chambers[name].lumen;
   return ringIntersections(name.endsWith('V') ? rings.at(-1) : rings[0], plane);
 }
-function chamberTrace(phase, id, name) {
+export function chamberTrace(phase, id, name) {
   const poly = geometry.measurementContour(phase, id, name);
   const annulus = ringCut(phase, id, name);
   if (!poly?.length || annulus.length < 2) return null;

@@ -1,5 +1,5 @@
 import {chamberColor, contourPath, linePath, sectorPath} from './heart-echo.js';
-import {probePlane} from './heart-poses.js';
+import {CARDIAC_VIEWS, probePlane} from './heart-poses.js';
 
 const DEGREE = Math.PI / 180;
 const KEY_LIGHT = [-0.45, -0.62, 0.64];
@@ -34,7 +34,7 @@ function projection(width, height, yaw, pitch, plane) {
   const cp = Math.cos(pitch * DEGREE);
   // Open each window at an oblique view of its neutral fan. Probe rotation
   // moves the live fan through the heart while the observer stays fixed.
-  const neutral = probePlane(0, plane.id);
+  const neutral = Object.hasOwn(CARDIAC_VIEWS, plane.id) ? probePlane(0, plane.id) : plane;
   const focus = neutral.world(0, plane.depth * 0.55, -4);
   const zoom = Math.min(width / (plane.depth * 1.27 + 18), height / (plane.depth + 83));
   const cameraRight = neutral.right.map((value, axis) => value * cy - neutral.normal[axis] * sy);

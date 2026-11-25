@@ -752,6 +752,11 @@ async function startTour() {
     currentURL.searchParams.delete('sweep');
     history.replaceState(null, '', currentURL);
   }
+  const full = document.querySelector('a[href="exams/index.html"]');
+  if (full && selectedTour.id === 'aortic-screening') {
+    full.href = 'exams/index.html#aaa';
+    full.textContent = 'Full AAA exams';
+  }
   pregnancyNavigation(tours);
   configureStudyPicker($('sweepPicker'), tours, selectedTour.id, new URL('.', location.href));
   window.addEventListener('pageshow', updateTorsoOpacity);

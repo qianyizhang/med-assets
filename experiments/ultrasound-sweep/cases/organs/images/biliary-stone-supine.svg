@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 338" font-family="system-ui,sans-serif" fill="#adb6c1" role="img" aria-label="Gallbladder · supine">
+<defs>
+  <clipPath id="field"><path d="M266 62Q334 42 402 62L608 272Q334 350 60 272Z"/></clipPath>
+  <linearGradient id="gain" x2="0" y2="1"><stop stop-color="#777774"/><stop offset=".55" stop-color="#454642"/><stop offset="1" stop-color="#202020"/></linearGradient>
+  <filter id="speckle" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency=".39 .67" numOctaves="2" seed="37"/><feColorMatrix type="saturate" values="0"/></filter>
+</defs>
+<rect width="680" height="338" fill="#10151c"/>
+<text x="30" y="29" font-size="12" fill="#dce6ec">MODELED SECTION</text><text x="650" y="29" text-anchor="end" font-size="12">Curvilinear section</text>
+<g clip-path="url(#field)"><rect x="50" y="50" width="570" height="265" fill="url(#gain)"/>
+<path d="M98 141Q187 79 272 66Q371 54 481 108Q530 145 545 184Q493 253 291 268Q162 252 98 198Z" fill="#797a75" stroke="#9a9992" stroke-width="1.4"/><path d="M220 162Q235 146 279 158Q325 180 377 173Q397 168 411 184Q381 199 352 197Q281 203 228 185Q214 178 220 162Z" fill="#101111" stroke="#dbdcd5" stroke-width="3"/><path d="M351 187L369 187L383 287H351Z" fill="#131415" stroke="none" stroke-width="1.4"/><path d="M351 187Q360 174 369 187" fill="#fef9e3" stroke="#fef9e3" stroke-width="2"/>
+<rect x="50" y="50" width="570" height="265" filter="url(#speckle)" opacity=".25" style="mix-blend-mode:soft-light"/>
+</g><path d="M266 62Q334 42 402 62L608 272Q334 350 60 272Z" fill="none" stroke="#52636b"/>
+<text x="633" y="59" font-size="10">mm</text><path d="M624 122h8" stroke="#adb6c1"/><text x="639" y="126" font-size="11">20</text><path d="M624 182h8" stroke="#adb6c1"/><text x="639" y="186" font-size="11">40</text><path d="M624 242h8" stroke="#adb6c1"/><text x="639" y="246" font-size="11">60</text><path d="M260 151L260 157" stroke="#facd71" stroke-dasharray="4 4"/><path d="M256 151h8 M260 147v8" stroke="#facd71" stroke-width="1.5"/><path d="M256 157h8 M260 153v8" stroke="#facd71" stroke-width="1.5"/><path d="M318 176L351 118" stroke="#68e3ca" opacity=".8"/><circle cx="318" cy="176" r="2.5" fill="#68e3ca"/><text x="355" y="122" font-size="12" fill="#a3f5e2" stroke="#131820" stroke-width="4" paint-order="stroke">Gallbladder lumen</text><path d="M286 116L218 93" stroke="#68e3ca" opacity=".8"/><circle cx="286" cy="116" r="2.5" fill="#68e3ca"/><text x="222" y="97" font-size="12" fill="#a3f5e2" stroke="#131820" stroke-width="4" paint-order="stroke">Liver</text><path d="M360 190L415 235" stroke="#68e3ca" opacity=".8"/><circle cx="360" cy="190" r="2.5" fill="#68e3ca"/><text x="419" y="239" font-size="12" fill="#a3f5e2" stroke="#131820" stroke-width="4" paint-order="stroke">Dependent stone + shadow</text>
+</svg>

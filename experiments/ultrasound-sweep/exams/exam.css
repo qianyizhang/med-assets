@@ -1,0 +1,166 @@
+[hidden] {
+  display: none !important;
+}
+.transport,
+.timeline {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+button,
+select,
+input {
+  font: inherit;
+}
+button,
+select {
+  border: 1px solid #869d92;
+  border-radius: 5px;
+  background: #fff;
+  color: #183c35;
+  padding: 6px 10px;
+  min-height: 38px;
+}
+button {
+  cursor: pointer;
+}
+#play {
+  color: white;
+  background: #165b52;
+  min-width: 130px;
+}
+.transport label {
+  flex: 1;
+}
+select {
+  max-width: min(100%, 40rem);
+}
+.monitors {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 16px;
+  margin-block: 16px;
+}
+.monitors figure {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background: #101c22;
+  color: #f0f4f1;
+  padding: 0;
+  border: none;
+  gap: 0;
+  overflow: hidden;
+}
+.monitors figcaption {
+  padding: 10px 14px;
+  background: #203230;
+}
+.monitors h2 {
+  font: 600 1rem/1.35 system-ui;
+}
+canvas {
+  display: block;
+  width: 100%;
+  margin: auto;
+  object-fit: contain;
+}
+.timeline input {
+  flex: 1;
+  min-width: 200px;
+  accent-color: #165b52;
+}
+#position {
+  font-variant-numeric: tabular-nums;
+}
+#value {
+  margin-left: 12px;
+  font-weight: 600;
+}
+#observed {
+  margin-block: 1rem;
+}
+#evidence {
+  padding-left: 1.5rem;
+}
+#evidence li {
+  margin: 0.7rem 0;
+}
+.report {
+  margin-top: 2rem;
+}
+@media (max-width: 760px) {
+  .monitors {
+    grid-template-columns: 1fr;
+  }
+  .monitors figure + figure canvas {
+    max-height: 190px;
+  }
+  .transport label {
+    flex-basis: 100%;
+  }
+}
+.monitors figcaption {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.monitors button {
+  font-size: 0.86rem;
+  min-height: 30px;
+  padding: 3px 8px;
+}
+#overlay[aria-pressed='true'] {
+  background: #bfebda;
+  border-color: #88bea7;
+}
+.orbit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 7px 10px;
+  background: #203230;
+}
+.orbit input {
+  min-width: 40px;
+  width: 42%;
+  accent-color: #9bd9c3;
+}
+#yaw {
+  min-width: 3ch;
+  font-variant-numeric: tabular-nums;
+}
+#legend {
+  display: flex;
+  gap: 0.3rem 1rem;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0.2rem 0 0.8rem;
+}
+#legend li {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.86rem;
+}
+#legend i {
+  display: inline-block;
+  border: 1px solid #586965;
+  border-radius: 2px;
+  width: 13px;
+  height: 13px;
+}
+
+#observationCue {
+  display: block;
+  color: #49635c;
+  font-size: 0.86rem;
+}
+#legend li {
+  margin-block: 0;
+}

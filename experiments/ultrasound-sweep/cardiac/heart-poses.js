@@ -74,7 +74,10 @@ const cross = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a
 
 export function probePlane(tilt, viewId = 'a4c') {
   const id = Object.hasOwn(CARDIAC_VIEWS, viewId) ? viewId : 'a4c';
-  const {origin, target, right: rightHint, depth, halfAngle = 36} = CARDIAC_VIEWS[id];
+  return directedPlane(tilt, id, CARDIAC_VIEWS[id]);
+}
+
+export function directedPlane(tilt, id, {origin, target, right: rightHint, depth, halfAngle = 36}) {
   const down = norm(target.map((value, axis) => value - origin[axis]));
   const candidate = norm(rightHint.map((value, axis) => value - dot(rightHint, down) * down[axis]));
   const front = cross(candidate, down);

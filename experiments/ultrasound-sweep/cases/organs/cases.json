@@ -1,0 +1,761 @@
+[
+  {
+    "id": "abdomen-survey",
+    "family": "abdomen",
+    "kind": "normal",
+    "title": "Comprehensive abdominal survey",
+    "indication": "Intermittent nonspecific upper abdominal discomfort. Assess abdominal organs, biliary tract and major vessels.",
+    "summary": "The visit samples the liver, gallbladder, extrahepatic duct, pancreas, spleen, both kidneys, aorta and IVC. Save the measurements and resolve blind spots from alternate windows.",
+    "views": [
+      {
+        "title": "Right hepatic lobe and portal branches",
+        "image": "images/abd-liver.svg",
+        "caption": "Sweep both lobes in long and transverse planes. Document the right lobe span and portal branches. In the modeled color and spectral sample, main portal flow is hepatopetal.",
+        "measurement": "Craniocaudal span 144.3 mm",
+        "referenceIds": [
+          "liver-12"
+        ]
+      },
+      {
+        "title": "Left hepatic lobe · subxiphoid window",
+        "image": "images/abd-left-liver.svg",
+        "caption": "Sweep the thin lateral tip and medial segment. The echogenic-walled left portal branch helps orient the section.",
+        "referenceIds": [
+          "liver-12"
+        ]
+      },
+      {
+        "title": "Main portal vein · color and spectral sample",
+        "image": "images/abd-portal-doppler.svg",
+        "caption": "Confirm the direction of flow relative to the liver and the probe. The trace shows continuous hepatopetal flow in this modeled position.",
+        "referenceIds": [
+          "portal-vein-12"
+        ]
+      },
+      {
+        "title": "Hepatic vein · color and spectral sample",
+        "image": "images/abd-hepatic-vein-doppler.svg",
+        "caption": "Trace the hepatic vein into the IVC. The illustrative spectral trace depicts pulsatile, predominantly outflow phasicity with a brief reversal near the baseline.",
+        "referenceIds": [
+          "hepatic-vein"
+        ]
+      },
+      {
+        "title": "Gallbladder · long axis",
+        "image": "images/abd-gb.svg",
+        "caption": "Trace the dependent wall, neck and fundus. In the modeled visit, probe pressure does not elicit focal tenderness.",
+        "measurement": "Anterior wall 2 mm",
+        "referenceIds": [
+          "gallbladder-12"
+        ]
+      },
+      {
+        "title": "Gallbladder neck · short axis",
+        "image": "images/abd-gb-short.svg",
+        "caption": "Fan from neck to fundus and use a left lateral repeat to look for dependent material. The lumen remains anechoic and the wall remains thin.",
+        "referenceIds": [
+          "gallbladder-48"
+        ]
+      },
+      {
+        "title": "Porta hepatis and extrahepatic duct",
+        "image": "images/abd-cbd.svg",
+        "caption": "Follow the duct along the portal vein. The duct walls are sampled inner edge to inner edge. In the modeled color check, flow fills the portal vein while the duct remains unfilled.",
+        "measurement": "Duct lumen 4 mm",
+        "referenceIds": [
+          "extrahepatic-duct"
+        ]
+      },
+      {
+        "title": "Pancreatic head and body",
+        "image": "images/abd-pancreas.svg",
+        "caption": "Pan across head, uncinate region and body with the splenic vein along the posterior body as a landmark.",
+        "referenceIds": [
+          "pancreas-12",
+          "pancreas-48"
+        ]
+      },
+      {
+        "title": "Pancreatic tail through the splenic window",
+        "image": "images/abd-tail.svg",
+        "caption": "From the splenic window, follow the pancreatic tail toward the hilum.",
+        "referenceIds": [
+          "pancreatic-tail"
+        ]
+      },
+      {
+        "title": "Spleen · long axis",
+        "image": "images/abd-spleen.svg",
+        "caption": "Use the left posterior intercostal window. Sweep from pole to pole and through the hilum, then rotate to record the short axis.",
+        "measurement": "Maximal span 113.9 mm",
+        "referenceIds": [
+          "spleen-12"
+        ]
+      },
+      {
+        "title": "Right kidney · long axis",
+        "image": "images/abd-right-kidney.svg",
+        "caption": "Cortex surrounds a bright central sinus without visible collecting-system dilatation.",
+        "measurement": "Pole-to-pole 107 mm",
+        "referenceIds": [
+          "kidney-right-12"
+        ]
+      },
+      {
+        "title": "Right kidney · short axis",
+        "image": "images/abd-right-kidney-trans.svg",
+        "caption": "Cortex surrounds a bright central sinus without visible collecting-system dilatation.",
+        "referenceIds": [
+          "kidney-right-48"
+        ]
+      },
+      {
+        "title": "Left kidney · long axis",
+        "image": "images/abd-left-kidney.svg",
+        "caption": "Cortex surrounds a bright central sinus without visible collecting-system dilatation.",
+        "measurement": "Pole-to-pole 113 mm",
+        "referenceIds": [
+          "kidney-left-12"
+        ]
+      },
+      {
+        "title": "Left kidney · short axis",
+        "image": "images/abd-left-kidney-trans.svg",
+        "caption": "Cortex surrounds a bright central sinus without visible collecting-system dilatation.",
+        "referenceIds": [
+          "kidney-left-48"
+        ]
+      },
+      {
+        "title": "Abdominal aorta and IVC · transverse",
+        "image": "images/abd-vessels.svg",
+        "caption": "Trace the abdominal aorta in short and long axes. The depicted AP measurement is from the widest modeled segment. Scan the IVC through its hepatic segment and inspect patency.",
+        "measurement": "Aorta outer-wall AP 18 mm",
+        "referenceIds": [
+          "aorta-48"
+        ]
+      }
+    ],
+    "impression": "No sonographic explanation for the reported discomfort in the modeled survey. No gallstones, ductal dilatation, hydronephrosis or focal abnormality in the documented organs.",
+    "limitations": "Fictional visit. Measurements come from the modeled sections. Sections illustrate acquisition checkpoints. Grayscale and color are authored. The spectral figures are direction-of-flow illustrations.",
+    "sources": [
+      {
+        "title": "AIUM · Abdomen or retroperitoneum practice parameter",
+        "url": "https://doi.org/10.1002/jum.70430"
+      },
+      {
+        "title": "Acquired normal hepatobiliary and pancreatic landmarks · Okaniwa et al., Fig. 1",
+        "url": "https://doi.org/10.1007/s10396-022-01272-w"
+      },
+      {
+        "title": "Acquired right and left kidneys · Yadav et al., Figs. 4–6",
+        "url": "https://www.mdpi.com/2075-4418/15/24/3208"
+      },
+      {
+        "title": "Acquired long-axis spleen · Demissie et al., Fig. 1",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8642847/#Fig1"
+      }
+    ]
+  },
+  {
+    "id": "abdomen-biliary-stone",
+    "family": "abdomen",
+    "kind": "abnormal",
+    "title": "Focused biliary exam · mobile stone",
+    "indication": "Episodic postprandial right upper quadrant pain. Look for a gallstone and evidence of complication.",
+    "summary": "At the first stop, an echogenic focus lies against the dependent wall and casts a shadow. Roll the patient onto the left side and rescan. The focus has shifted within the lumen and the wall remains thin.",
+    "views": [
+      {
+        "title": "Gallbladder · supine",
+        "image": "images/biliary-stone-supine.svg",
+        "caption": "A bright dependent focus casts a clean posterior shadow. Inspect the surrounding fluid and anterior wall.",
+        "measurement": "Anterior wall 2 mm",
+        "referenceIds": [
+          "gallbladder-12"
+        ]
+      },
+      {
+        "title": "Gallbladder · left lateral decubitus repeat",
+        "image": "images/biliary-stone-roll.svg",
+        "caption": "The echogenic focus has shifted away from the neck and still casts a shadow. Focal probe tenderness is absent in this visit.",
+        "measurement": "Anterior wall 2 mm"
+      },
+      {
+        "title": "Porta hepatis and extrahepatic duct",
+        "image": "images/abd-cbd.svg",
+        "caption": "Follow the duct along the portal vein. The duct walls are sampled inner edge to inner edge. In the modeled color check, flow fills the portal vein while the duct remains unfilled.",
+        "measurement": "Duct lumen 4 mm",
+        "referenceIds": [
+          "extrahepatic-duct"
+        ]
+      }
+    ],
+    "impression": "Mobile cholelithiasis. No wall thickening, pericholecystic fluid, focal sonographic Murphy sign or duct dilatation in the modeled exam.",
+    "limitations": "Fictional visit. Measurements come from the modeled sections. Position and stone displacement are authored snapshots. The duct sample is proximal. The distal duct is only partly visible.",
+    "sources": [
+      {
+        "title": "AIUM · Abdomen or retroperitoneum practice parameter",
+        "url": "https://doi.org/10.1002/jum.70430"
+      },
+      {
+        "title": "Acquired nonimpacted cholelithiasis clip · Bowra et al., The POCUS Atlas",
+        "url": "https://images.squarespace-cdn.com/content/v1/58118909e3df282037abfad7/1501699786061-K06INXJGQ9IPQB3MRVKG/ezgif.com-gif-maker.gif"
+      },
+      {
+        "title": "Acquired normal hepatobiliary and pancreatic landmarks · Okaniwa et al., Fig. 1",
+        "url": "https://doi.org/10.1007/s10396-022-01272-w"
+      }
+    ]
+  },
+  {
+    "id": "abdomen-renal-obstruction",
+    "family": "abdomen",
+    "kind": "abnormal",
+    "title": "Focused renal and bladder exam · right hydronephrosis",
+    "indication": "Acute right flank pain. Assess the kidneys and bladder for evidence of urinary tract obstruction.",
+    "summary": "Survey both kidneys in orthogonal planes. The right collecting system remains dilated on the postvoid recheck. The bladder is sufficiently filled for the prevoid survey.",
+    "views": [
+      {
+        "title": "Right kidney · long axis",
+        "image": "images/renal-right-hydro.svg",
+        "caption": "Branching fluid separates the bright sinus echoes in the pelvis and calyces.",
+        "measurement": "Pole-to-pole 112 mm",
+        "referenceIds": [
+          "kidney-right-12"
+        ]
+      },
+      {
+        "title": "Right kidney · short axis",
+        "image": "images/renal-right-hydro-trans.svg",
+        "caption": "Branching fluid separates the bright sinus echoes in the pelvis and calyces.",
+        "referenceIds": [
+          "kidney-right-48"
+        ]
+      },
+      {
+        "title": "Left kidney · long axis",
+        "image": "images/abd-left-kidney.svg",
+        "caption": "Cortex surrounds a bright central sinus without visible collecting-system dilatation.",
+        "measurement": "Pole-to-pole 113 mm",
+        "referenceIds": [
+          "kidney-left-12"
+        ]
+      },
+      {
+        "title": "Left kidney · short axis",
+        "image": "images/abd-left-kidney-trans.svg",
+        "caption": "Cortex surrounds a bright central sinus without visible collecting-system dilatation.",
+        "referenceIds": [
+          "kidney-left-48"
+        ]
+      },
+      {
+        "title": "Urinary bladder · transverse",
+        "image": "images/renal-bladder.svg",
+        "caption": "Survey the distended bladder in transverse and sagittal planes and inspect both UVJs. No distal stone or UVJ mass is demonstrated in the modeled views."
+      },
+      {
+        "title": "Urinary bladder · sagittal",
+        "image": "images/renal-bladder-sagittal.svg",
+        "caption": "Confirm bladder configuration in the orthogonal plane and inspect the posterior wall. In this modeled visit, the right-sided collecting-system dilatation remains after voiding."
+      },
+      {
+        "title": "Right kidney · long axis postvoid",
+        "image": "images/renal-right-postvoid.svg",
+        "caption": "Branching fluid separates the bright sinus echoes in the pelvis and calyces. After voiding, the right collecting system remains dilated, with the same appearance as on the prevoid section.",
+        "measurement": "Pole-to-pole 112 mm"
+      }
+    ],
+    "impression": "Right hydronephrosis with preserved cortical thickness. No obstructing calculus is visualized. The level and cause of the dilatation are undetermined.",
+    "limitations": "Fictional visit. Measurements come from the modeled sections. The ureter cannot be traced throughout. The prevoid and postvoid views preserve right renal geometry to depict the persistent finding.",
+    "sources": [
+      {
+        "title": "AIUM · Abdomen or retroperitoneum practice parameter",
+        "url": "https://doi.org/10.1002/jum.70430"
+      },
+      {
+        "title": "Acquired right and left kidneys · Yadav et al., Figs. 4–6",
+        "url": "https://www.mdpi.com/2075-4418/15/24/3208"
+      },
+      {
+        "title": "Acquired moderate hydronephrosis clip · The POCUS Atlas",
+        "url": "https://images.squarespace-cdn.com/content/v1/58118909e3df282037abfad7/1729635897189-M2B64Q14PMXSLFQDU7P0/image-asset.gif"
+      }
+    ]
+  },
+  {
+    "id": "abdomen-limited-pancreas",
+    "family": "abdomen",
+    "kind": "limited",
+    "title": "Abdominal survey · pancreas obscured",
+    "indication": "Epigastric discomfort. Assess the abdominal organs with attention to the pancreas.",
+    "summary": "The initial epigastric view shows the pancreatic head. Bowel gas obscures the body and tail despite deep inspiration and a left lateral repeat. Complete and report the visible liver, gallbladder, ducts, spleen, kidneys and vessels separately.",
+    "views": [
+      {
+        "title": "Pancreatic window · bowel gas",
+        "image": "images/abd-pancreas-limited.svg",
+        "caption": "The bright gas interface casts obscuring artifact over the body and tail. Left lateral positioning and deep inspiration improve the near field but fail to recover the target."
+      },
+      {
+        "title": "Right hepatic lobe and portal branches",
+        "image": "images/abd-liver.svg",
+        "caption": "Sweep both lobes in long and transverse planes. Document the right lobe span and portal branches. In the modeled color and spectral sample, main portal flow is hepatopetal.",
+        "measurement": "Craniocaudal span 144.3 mm",
+        "referenceIds": [
+          "liver-12"
+        ]
+      },
+      {
+        "title": "Gallbladder · long axis",
+        "image": "images/abd-gb.svg",
+        "caption": "Trace the dependent wall, neck and fundus. In the modeled visit, probe pressure does not elicit focal tenderness.",
+        "measurement": "Anterior wall 2 mm",
+        "referenceIds": [
+          "gallbladder-12"
+        ]
+      },
+      {
+        "title": "Porta hepatis and extrahepatic duct",
+        "image": "images/abd-cbd.svg",
+        "caption": "Follow the duct along the portal vein. The duct walls are sampled inner edge to inner edge. In the modeled color check, flow fills the portal vein while the duct remains unfilled.",
+        "measurement": "Duct lumen 4 mm",
+        "referenceIds": [
+          "extrahepatic-duct"
+        ]
+      },
+      {
+        "title": "Spleen · long axis",
+        "image": "images/abd-spleen.svg",
+        "caption": "Use the left posterior intercostal window. Sweep from pole to pole and through the hilum, then rotate to record the short axis.",
+        "measurement": "Maximal span 113.9 mm",
+        "referenceIds": [
+          "spleen-12"
+        ]
+      },
+      {
+        "title": "Right kidney · long axis",
+        "image": "images/abd-right-kidney.svg",
+        "caption": "Cortex surrounds a bright central sinus without visible collecting-system dilatation.",
+        "measurement": "Pole-to-pole 107 mm",
+        "referenceIds": [
+          "kidney-right-12"
+        ]
+      },
+      {
+        "title": "Left kidney · long axis",
+        "image": "images/abd-left-kidney.svg",
+        "caption": "Cortex surrounds a bright central sinus without visible collecting-system dilatation.",
+        "measurement": "Pole-to-pole 113 mm",
+        "referenceIds": [
+          "kidney-left-12"
+        ]
+      },
+      {
+        "title": "Abdominal aorta and IVC · transverse",
+        "image": "images/abd-vessels.svg",
+        "caption": "Trace the abdominal aorta in short and long axes. The depicted AP measurement is from the widest modeled segment. Scan the IVC through its hepatic segment and inspect patency.",
+        "measurement": "Aorta outer-wall AP 18 mm",
+        "referenceIds": [
+          "aorta-48"
+        ]
+      }
+    ],
+    "impression": "Limited pancreatic assessment. The visualized head is unremarkable. The body and tail remain obscured. The remaining documented organs show no modeled explanation for symptoms.",
+    "limitations": "Fictional visit. Measurements come from the modeled sections. The obscuration is drawn. The limited target has no dimensions or negative finding assigned.",
+    "sources": [
+      {
+        "title": "AIUM · Abdomen or retroperitoneum practice parameter",
+        "url": "https://doi.org/10.1002/jum.70430"
+      },
+      {
+        "title": "Acquired normal hepatobiliary and pancreatic landmarks · Okaniwa et al., Fig. 1",
+        "url": "https://doi.org/10.1007/s10396-022-01272-w"
+      }
+    ]
+  },
+  {
+    "id": "thyroid-normal",
+    "family": "thyroid",
+    "kind": "normal",
+    "title": "Thyroid survey · no focal lesion",
+    "indication": "Suspected enlargement on examination. Evaluate gland size, parenchyma and the relevant cervical nodes.",
+    "summary": "Measure right and left lobes in transverse and longitudinal views and the isthmus in transverse. Survey the central and lateral neck on both sides.",
+    "views": [
+      {
+        "title": "Both lobes and the isthmus · transverse",
+        "image": "images/thyroid-axial.svg",
+        "caption": "Sweep transversely from upper to lower poles. Record each lobe's AP and transverse dimensions and the midline isthmus AP thickness.",
+        "measurement": "Right W 20.7 mm · Right AP 15 mm · Left W 19 mm · Left AP 14 mm · Isthmus AP 3 mm",
+        "referenceIds": [
+          "thyroid-isthmus"
+        ]
+      },
+      {
+        "title": "Right lobe · longitudinal",
+        "image": "images/thyroid-right-long.svg",
+        "caption": "Sweep medially and laterally. The maximal longitudinal section includes both poles and closes the three-dimensional lobe record.",
+        "measurement": "Lobe length 48 mm",
+        "referenceIds": [
+          "thyroid-right-48"
+        ]
+      },
+      {
+        "title": "Left lobe · longitudinal",
+        "image": "images/thyroid-left-long.svg",
+        "caption": "Sweep medially and laterally. The maximal longitudinal section includes both poles and closes the three-dimensional lobe record.",
+        "measurement": "Lobe length 44 mm",
+        "referenceIds": [
+          "thyroid-left-48"
+        ]
+      },
+      {
+        "title": "Cervical node survey · representative lateral level III",
+        "image": "images/thyroid-node.svg",
+        "caption": "Scan the central and lateral compartments bilaterally. This lateral node retains an elongated shape and echogenic fatty hilum. No suspicious node is seen on the completed modeled survey.",
+        "measurement": "Short axis 5 mm"
+      }
+    ],
+    "impression": "Homogeneous thyroid without enlargement or a discrete nodule. No suspicious cervical node in the modeled survey.",
+    "limitations": "Fictional visit. Measurements come from the modeled sections. Representative frames show middle and maximal planes. Pole sweeps are recorded in the captions.",
+    "sources": [
+      {
+        "title": "AIUM · Extracranial head and neck practice parameter",
+        "url": "https://www.aium.org/docs/default-source/resources/guidelines/extracranial_head_neck.pdf"
+      },
+      {
+        "title": "Acquired normal lobes and isthmus · Choi, Fig. 1",
+        "url": "https://clinicalultrasound.org/upload/pdf/cu-8-1-7.pdf#page=3"
+      }
+    ]
+  },
+  {
+    "id": "thyroid-nodule",
+    "family": "thyroid",
+    "kind": "abnormal",
+    "title": "Right thyroid nodule · TR5",
+    "indication": "Incidental right thyroid nodule on cross-sectional imaging. Characterize the lesion and relevant cervical nodes.",
+    "summary": "Survey both lobes and the isthmus, then acquire orthogonal dedicated views of the index lesion in the right mid lobe. The transverse plane establishes its taller-than-wide shape. Document the cervical compartments.",
+    "views": [
+      {
+        "title": "Superior transverse overview · above the right nodule",
+        "image": "images/thyroid-axial-superior.svg",
+        "caption": "This plane lies superior to the index nodule. Continue caudally through the right mid lobe to the dedicated lesion views.",
+        "measurement": "Right W 20.7 mm · Right AP 15 mm · Left W 19 mm · Left AP 14 mm · Isthmus AP 3 mm"
+      },
+      {
+        "title": "Right lobe · longitudinal",
+        "image": "images/thyroid-right-long-nodule.svg",
+        "caption": "Sweep medially and laterally. The maximal longitudinal section includes both poles and closes the three-dimensional lobe record.",
+        "measurement": "Lobe length 48 mm"
+      },
+      {
+        "title": "Left lobe · longitudinal",
+        "image": "images/thyroid-left-long.svg",
+        "caption": "Sweep medially and laterally. The maximal longitudinal section includes both poles and closes the three-dimensional lobe record.",
+        "measurement": "Lobe length 44 mm",
+        "referenceIds": [
+          "thyroid-left-48"
+        ]
+      },
+      {
+        "title": "Right mid-lobe nodule · transverse",
+        "image": "images/thyroid-nodule-trans.svg",
+        "caption": "Solid (2), hypoechoic relative to thyroid (2), AP greater than width (3), smooth margin (0), and no echogenic foci (0). The strap muscle is darker than the nodule.",
+        "measurement": "Width 8 mm · AP 11 mm"
+      },
+      {
+        "title": "Right mid-lobe nodule · longitudinal",
+        "image": "images/thyroid-nodule-long.svg",
+        "caption": "Record maximum craniocaudal extent in the right mid lobe.",
+        "measurement": "Length 14 mm"
+      },
+      {
+        "title": "Cervical node survey · representative lateral level III",
+        "image": "images/thyroid-node.svg",
+        "caption": "Scan the central and lateral compartments bilaterally. This lateral node retains an elongated shape and echogenic fatty hilum. No suspicious node is seen on the completed modeled survey.",
+        "measurement": "Short axis 5 mm"
+      }
+    ],
+    "impression": "Right mid-lobe nodule, 14 × 8 × 11 mm (longitudinal × transverse × AP). ACR TI-RADS 5, 7 points. The 14 mm maximum dimension meets the ACR size criterion for FNA. No suspicious cervical node in the modeled survey.",
+    "limitations": "Fictional visit. Measurements come from the modeled sections. The transverse gland overview is superior to the nodule. Feature scoring and measurements come from the dedicated lesion sections.",
+    "sources": [
+      {
+        "title": "AIUM · Extracranial head and neck practice parameter",
+        "url": "https://www.aium.org/docs/default-source/resources/guidelines/extracranial_head_neck.pdf"
+      },
+      {
+        "title": "ACR · TI-RADS assessment system",
+        "url": "https://www.acr.org/clinical-resources/clinical-tools-and-reference/reporting-and-data-systems/ti-rads"
+      },
+      {
+        "title": "Acquired solid hypoechoic taller-than-wide nodule · Pires et al., Fig. 9",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8864691/#f9"
+      }
+    ]
+  },
+  {
+    "id": "thyroid-limited",
+    "family": "thyroid",
+    "kind": "limited",
+    "title": "Thyroid survey · left inferior pole hidden",
+    "indication": "Outside imaging describes a possible left inferior-pole nodule. Evaluate its location and morphology.",
+    "summary": "Use high-frequency transverse and longitudinal views. A mid-gland frame and the right long axis are obtainable. Repeat the left lower-pole view with gentle extension and a lower angled approach.",
+    "views": [
+      {
+        "title": "Both lobes and the isthmus · transverse",
+        "image": "images/thyroid-axial.svg",
+        "caption": "Sweep transversely from upper to lower poles. Record each lobe's AP and transverse dimensions and the midline isthmus AP thickness.",
+        "measurement": "Right W 20.7 mm · Right AP 15 mm · Left W 19 mm · Left AP 14 mm · Isthmus AP 3 mm",
+        "referenceIds": [
+          "thyroid-isthmus"
+        ]
+      },
+      {
+        "title": "Right lobe · longitudinal",
+        "image": "images/thyroid-right-long.svg",
+        "caption": "Sweep medially and laterally. The maximal longitudinal section includes both poles and closes the three-dimensional lobe record.",
+        "measurement": "Lobe length 48 mm",
+        "referenceIds": [
+          "thyroid-right-48"
+        ]
+      },
+      {
+        "title": "Left lobe · longitudinal reattempt",
+        "image": "images/thyroid-long-limited.svg",
+        "caption": "With gentle extension and an angled suprasternal approach, the lower pole remains hidden by a clavicular shadow. Full length is unrecordable."
+      },
+      {
+        "title": "Cervical node survey · representative lateral level III",
+        "image": "images/thyroid-node.svg",
+        "caption": "Scan the central and lateral compartments bilaterally. This lateral node retains an elongated shape and echogenic fatty hilum. No suspicious node is seen on the completed modeled survey.",
+        "measurement": "Short axis 5 mm"
+      }
+    ],
+    "impression": "Left inferior pole obscured on both attempts. The reported target cannot be characterized. Left lobe length and a TI-RADS score for the reported target remain unassigned.",
+    "limitations": "Fictional visit. Measurements come from the modeled sections. Measurements on the transverse frame refer to the visible mid gland only.",
+    "sources": [
+      {
+        "title": "AIUM · Extracranial head and neck practice parameter",
+        "url": "https://www.aium.org/docs/default-source/resources/guidelines/extracranial_head_neck.pdf"
+      },
+      {
+        "title": "ACR · TI-RADS assessment system",
+        "url": "https://www.acr.org/clinical-resources/clinical-tools-and-reference/reporting-and-data-systems/ti-rads"
+      },
+      {
+        "title": "Acquired normal lobes and isthmus · Choi, Fig. 1",
+        "url": "https://clinicalultrasound.org/upload/pdf/cu-8-1-7.pdf#page=3"
+      }
+    ]
+  },
+  {
+    "id": "breast-supplemental-screening",
+    "family": "breast",
+    "kind": "normal",
+    "title": "Bilateral supplemental screening",
+    "indication": "Asymptomatic patient with heterogeneously dense breasts and negative screening mammography. Supplemental handheld ultrasound selected for this modeled visit.",
+    "summary": "Cover both breasts with overlapping upper, central and lower bands. Work across each band from medial edge to lateral edge and depth from skin to pectoral fascia. Include both nipples, inframammary folds and axillary tails.",
+    "views": [
+      {
+        "title": "Bilateral whole-breast coverage plan",
+        "image": "images/breast-screen-map.svg",
+        "caption": "Each line marks a probe pass. Overlap adjacent footprints and work to the peripheral margins, extending the superior passes to the axillary tails. The saved sections below show one depth checkpoint from each band."
+      },
+      {
+        "title": "Right breast · upper breast and axillary tail",
+        "image": "images/breast-screen-right-0.svg",
+        "caption": "Representative frame from overlapping medial-to-lateral passes. Track each band from skin to chest wall, including the full medial and lateral margins. Extend the upper pass through the axillary tail."
+      },
+      {
+        "title": "Right breast · central breast and nipple",
+        "image": "images/breast-screen-right-1.svg",
+        "caption": "Representative frame from overlapping medial-to-lateral passes. Track each band from skin to chest wall, including the full medial and lateral margins. Angle through the nipple shadow from both directions.",
+        "referenceIds": [
+          "breast-12",
+          "breast-subareolar-12"
+        ]
+      },
+      {
+        "title": "Right breast · lower breast and inframammary fold",
+        "image": "images/breast-screen-right-2.svg",
+        "caption": "Representative frame from overlapping medial-to-lateral passes. Track each band from skin to chest wall, including the full medial and lateral margins. Continue to the inframammary fold and overlap the adjacent band."
+      },
+      {
+        "title": "Left breast · upper breast and axillary tail",
+        "image": "images/breast-screen-left-0.svg",
+        "caption": "Representative frame from overlapping medial-to-lateral passes. Track each band from skin to chest wall, including the full medial and lateral margins. Extend the upper pass through the axillary tail."
+      },
+      {
+        "title": "Left breast · central breast and nipple",
+        "image": "images/breast-screen-left-1.svg",
+        "caption": "Representative frame from overlapping medial-to-lateral passes. Track each band from skin to chest wall, including the full medial and lateral margins. Angle through the nipple shadow from both directions."
+      },
+      {
+        "title": "Left breast · lower breast and inframammary fold",
+        "image": "images/breast-screen-left-2.svg",
+        "caption": "Representative frame from overlapping medial-to-lateral passes. Track each band from skin to chest wall, including the full medial and lateral margins. Continue to the inframammary fold and overlap the adjacent band."
+      }
+    ],
+    "impression": "BI-RADS 1. No suspicious finding on the modeled bilateral supplemental ultrasound survey.",
+    "limitations": "Fictional visit. Measurements come from the modeled sections. One authored section represents each band. This visit does not model population screening performance.",
+    "sources": [
+      {
+        "title": "ACR · Supplemental screening based on breast density",
+        "url": "https://acsearch.acr.org/docs/3158166/Narrative/"
+      },
+      {
+        "title": "ACR · Whole-breast supplemental ultrasound screening",
+        "url": "https://gravitas.acr.org/PPTS/GetDocumentView?docId=61"
+      },
+      {
+        "title": "ACR · Breast ultrasound reporting and BI-RADS assessment",
+        "url": "https://accreditationsupport.acr.org/support/solutions/articles/11000067043-reporting-breast-ultrasound"
+      },
+      {
+        "title": "Acquired normal breast layers · Shah and Jankharia, Fig. 2",
+        "url": "https://doi.org/10.4103/0971-3026.63045"
+      },
+      {
+        "title": "Acquired nipple and duct landmarks · Chiorean et al., Fig. 1",
+        "url": "https://doi.org/10.3348/kjr.2019.0831"
+      }
+    ]
+  },
+  {
+    "id": "breast-retroareolar-cyst",
+    "family": "breast",
+    "kind": "abnormal",
+    "title": "Targeted breast exam · retroareolar simple cyst",
+    "indication": "Palpable tender left retroareolar lump at 12 o’clock. Clarify its mammographic correlate.",
+    "summary": "Center the finding at 12 o’clock, 1 cm from the nipple. Angle through the near field to separate the lesion from the nipple and duct. Save orthogonal radial and antiradial sections and record three dimensions.",
+    "views": [
+      {
+        "title": "Left 12 o’clock, 1 cm from nipple · radial",
+        "image": "images/breast-cyst-radial.svg",
+        "caption": "The same circumscribed, anechoic oval lesion is visible in the orthogonal plane. Posterior enhancement and absence of internal echoes support a simple cyst.",
+        "measurement": "Length 12 mm · AP 8 mm",
+        "referenceIds": [
+          "breast-48"
+        ]
+      },
+      {
+        "title": "Left 12 o’clock, 1 cm from nipple · antiradial",
+        "image": "images/breast-cyst-anti.svg",
+        "caption": "The same circumscribed, anechoic oval lesion is visible in the orthogonal plane. Posterior enhancement and absence of internal echoes support a simple cyst.",
+        "measurement": "Width 10 mm"
+      }
+    ],
+    "impression": "BI-RADS 2. A 12 × 10 × 8 mm simple cyst corresponds to the palpable and mammographic finding.",
+    "limitations": "Fictional visit. Measurements come from the modeled sections. The mammographic correlation and absence of internal color flow are assumed visit findings. The displayed sections are grayscale.",
+    "sources": [
+      {
+        "title": "ACR · Diagnostic breast ultrasound practice parameter",
+        "url": "https://gravitas.acr.org/PPTS/GetDocumentView?docId=124"
+      },
+      {
+        "title": "ACR · Breast ultrasound reporting and BI-RADS assessment",
+        "url": "https://accreditationsupport.acr.org/support/solutions/articles/11000067043-reporting-breast-ultrasound"
+      },
+      {
+        "title": "Acquired nipple and duct landmarks · Chiorean et al., Fig. 1",
+        "url": "https://doi.org/10.3348/kjr.2019.0831"
+      },
+      {
+        "title": "Acquired retroareolar simple cyst · Ferré et al., Fig. 9a",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5295772/#f9"
+      }
+    ]
+  },
+  {
+    "id": "breast-axillary-node",
+    "family": "breast",
+    "kind": "abnormal",
+    "title": "Targeted axillary exam · abnormal node",
+    "indication": "New palpable right axillary lump without an evident infectious or recent vaccination explanation. Diagnostic mammography shows no suspicious breast lesion.",
+    "summary": "Locate the palpable level I node in long and short axes and measure the thickest cortex perpendicular to its surface. Compare the left axillary morphology and inspect the ipsilateral axillary tail.",
+    "views": [
+      {
+        "title": "Right level I axilla · long axis",
+        "image": "images/axillary-node-long.svg",
+        "caption": "The palpable right level I node is oval with a retained but displaced hilum and focal eccentric cortical thickening. The modeled color overlay shows hilar and peripheral flow when the node is sampled.",
+        "measurement": "Cortex 4.4 mm · Length 28 mm",
+        "referenceIds": [
+          "axilla-12"
+        ]
+      },
+      {
+        "title": "Right level I axilla · short axis",
+        "image": "images/axillary-node-short.svg",
+        "caption": "The palpable right level I node is oval with a retained but displaced hilum and focal eccentric cortical thickening. The modeled color overlay shows hilar and peripheral flow when the node is sampled.",
+        "measurement": "Cortex 3.8 mm · Short axis 9.2 mm"
+      },
+      {
+        "title": "Left level I axilla · long axis",
+        "image": "images/axillary-node-opposite.svg",
+        "caption": "A contralateral morphology comparison in the visit shows a thin cortex and preserved fatty hilum.",
+        "measurement": "Cortex 2.8 mm"
+      },
+      {
+        "title": "Right breast · upper breast and axillary tail",
+        "image": "images/axillary-tail-diagnostic.svg",
+        "caption": "Representative frame from overlapping medial-to-lateral passes. Track each band from skin to chest wall, including the full medial and lateral margins. Extend the upper pass through the axillary tail."
+      }
+    ],
+    "impression": "BI-RADS 4. Unexplained unilateral right axillary node with focal cortical thickening and retained hilum. Tissue sampling is recommended in this modeled diagnostic report.",
+    "limitations": "Fictional visit. Measurements come from the modeled sections. The flow overlay is illustrative and etiology remains undetermined. The breast workup and clinical history are visit assumptions.",
+    "sources": [
+      {
+        "title": "ACR · Breast ultrasound reporting and BI-RADS assessment",
+        "url": "https://accreditationsupport.acr.org/support/solutions/articles/11000067043-reporting-breast-ultrasound"
+      },
+      {
+        "title": "ACR · Imaging of the axilla",
+        "url": "https://acsearch.acr.org/docs/3158165/Narrative/"
+      },
+      {
+        "title": "Acquired normal and abnormal nodes · Chang et al., NAUTILUS protocol, Fig. 1",
+        "url": "https://doi.org/10.4048/jbc.2021.24.e47"
+      }
+    ]
+  },
+  {
+    "id": "breast-limited",
+    "family": "breast",
+    "kind": "limited",
+    "title": "Targeted breast exam · incomplete retroareolar views",
+    "indication": "Focal left retroareolar pain. The visit ends before a complete targeted assessment can be obtained.",
+    "summary": "Document the adjacent tissue and attempt to recover the shadowed area with altered angle, gel and light compression. The patient leaves because of pain before orthogonal documentation of the symptomatic site.",
+    "views": [
+      {
+        "title": "Left breast · central breast and nipple",
+        "image": "images/breast-limited-adjacent.svg",
+        "caption": "Representative frame from overlapping medial-to-lateral passes. Track each band from skin to chest wall, including the full medial and lateral margins. Angle through the nipple shadow from both directions."
+      },
+      {
+        "title": "Left retroareolar window · incomplete",
+        "image": "images/breast-retro-limited.svg",
+        "caption": "Angle around the nipple, add gel and repeat with light peripheral compression. Pain stops the reattempt before the shadowed zone can be assessed in both planes."
+      }
+    ],
+    "impression": "BI-RADS 0. Incomplete evaluation of the symptomatic retroareolar region. Complete targeted imaging to assign a final assessment.",
+    "limitations": "Fictional visit. Measurements come from the modeled sections. There is no measured lesion or presumed negative result for the obscured region.",
+    "sources": [
+      {
+        "title": "ACR · Diagnostic breast ultrasound practice parameter",
+        "url": "https://gravitas.acr.org/PPTS/GetDocumentView?docId=124"
+      },
+      {
+        "title": "ACR · Breast ultrasound reporting and BI-RADS assessment",
+        "url": "https://accreditationsupport.acr.org/support/solutions/articles/11000067043-reporting-breast-ultrasound"
+      },
+      {
+        "title": "Acquired nipple and duct landmarks · Chiorean et al., Fig. 1",
+        "url": "https://doi.org/10.3348/kjr.2019.0831"
+      },
+      {
+        "title": "Acquired retroareolar simple cyst · Ferré et al., Fig. 9a",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5295772/#f9"
+      }
+    ]
+  }
+]

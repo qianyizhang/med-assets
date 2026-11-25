@@ -1,0 +1,355 @@
+[
+  {
+    "id": "aaa-negative",
+    "family": "aaa",
+    "title": "AAA screening · negative",
+    "indication": "One-time AAA screening in an asymptomatic 68-year-old man with a smoking history",
+    "kind": "normal",
+    "summary": "Follow one aorta from just below the diaphragm through the iliac split. Save the largest outer-to-outer AP span.",
+    "views": [
+      {
+        "title": "Proximal, mid and distal transverse levels",
+        "image": "aaa-negative-stations.svg",
+        "caption": "Follow the aorta anterior to the vertebral body. The marked AP spans run from external anterior wall to external posterior wall.",
+        "measurement": "24 mm proximal · 19 mm mid · 17 mm distal",
+        "referenceIds": [
+          "aortic-screening-12",
+          "aortic-screening-30",
+          "aortic-screening-48"
+        ]
+      },
+      {
+        "title": "Aortic bifurcation and proximal common iliacs",
+        "image": "aaa-negative-split.svg",
+        "caption": "Follow the single distal lumen into both common iliac arteries. The two circles represent perpendicular proximal iliac sections, drawn at their branch locations as a composite.",
+        "measurement": "Right 11 mm · left 10 mm, outer to outer"
+      }
+    ],
+    "impression": "Negative screen. Suprarenal aorta visualized without dilation. Largest measured AP diameter 24 mm. The infrarenal segment and bifurcation are seen throughout.",
+    "limitations": "Original teaching schematic using authored wall boundaries and caliber. No acquired pixels or sonographer validation. The AP sizes are rounded starting points from the existing normal atlas sweep, which measured the CT segmentation boundary. These schematics use new illustrative wall contours and iliac geometry.",
+    "sources": [
+      {
+        "title": "AIUM adult abdominal aorta practice parameter, 2025 revision",
+        "url": "https://doi.org/10.1002/jum.70167"
+      }
+    ]
+  },
+  {
+    "id": "aaa-indeterminate",
+    "family": "aaa",
+    "title": "AAA screening · indeterminate",
+    "indication": "One-time AAA screening in an asymptomatic 68-year-old man with a smoking history",
+    "kind": "limited",
+    "summary": "The initial anterior sweep loses the distal infrarenal aorta behind bowel gas. Review the alternate window and document what remains unseen.",
+    "views": [
+      {
+        "title": "Visible proximal and mid aorta",
+        "image": "aaa-indeterminate-visible.svg",
+        "caption": "The proximal and mid aortic walls are visible. These spans cover only those levels.",
+        "measurement": "24 mm proximal · 19 mm mid",
+        "referenceIds": [
+          "aortic-screening-12",
+          "aortic-screening-30"
+        ]
+      },
+      {
+        "title": "Anterior window · distal aorta obscured",
+        "image": "aaa-indeterminate-anterior.svg",
+        "caption": "Bowel gas interrupts the distal window. The defining landmarks for a wall-to-wall measurement cannot be resolved."
+      },
+      {
+        "title": "Repeat from a left lateral window",
+        "image": "aaa-indeterminate-retry.svg",
+        "caption": "The repeat uses a lateral approach after repositioning. The infrarenal end and split remain obscured, so no maximum for the complete aorta is saved."
+      }
+    ],
+    "impression": "Indeterminate screen. Suprarenal aorta seen without dilation. The visualized mid aorta is 19 mm AP, but the distal infrarenal aorta and bifurcation remain unevaluable.",
+    "limitations": "Original teaching schematic using authored wall boundaries and caliber. No acquired pixels or sonographer validation. Distal outer-wall measurements and the full aortic maximum are withheld. The limited windows illustrate the decision to request completion of screening under the local pathway.",
+    "sources": [
+      {
+        "title": "AIUM adult abdominal aorta practice parameter, 2025 revision",
+        "url": "https://doi.org/10.1002/jum.70167"
+      }
+    ]
+  },
+  {
+    "id": "aaa-positive",
+    "family": "aaa",
+    "title": "AAA screening · positive with diagnostic views",
+    "indication": "One-time AAA screening in an asymptomatic 68-year-old man with a smoking history",
+    "kind": "abnormal",
+    "summary": "The screening sweep finds distal enlargement. In the same modeled case, the diagnostic acquisition documents the sac shape, flow channel, renal relationship and both iliacs.",
+    "views": [
+      {
+        "title": "Aortic survey through the infrarenal neck",
+        "image": "aaa-positive-stations.svg",
+        "caption": "Relate the adjacent nondilated levels to the dilated infrarenal segment saved separately.",
+        "measurement": "24 mm suprarenal · 21 mm proximal infrarenal · 22 mm distal neck"
+      },
+      {
+        "title": "Largest sac section · transverse",
+        "image": "aaa-positive-sac.svg",
+        "caption": "The perpendicular section locates the widest transverse sac. Both calipers reach the outer wall and include the thrombus, which is also visible in Häggström’s linked acquired comparison.",
+        "measurement": "43 mm AP × 46 mm transverse, outer to outer"
+      },
+      {
+        "title": "Long axis · extent and lumen",
+        "image": "aaa-positive-long.svg",
+        "caption": "Align the long axis with the residual channel and relate the fusiform shape to the renal level and bifurcation. The color fill denotes the patent channel inside mural thrombus.",
+        "measurement": "43 mm AP, outer to outer in long axis"
+      },
+      {
+        "title": "Bifurcation and iliac cross-sections",
+        "image": "aaa-positive-split.svg",
+        "caption": "The sac ends proximal to the split. The two perpendicular sections show the widest imaged portions of the proximal common iliac arteries.",
+        "measurement": "Right 13 mm · left 12 mm, outer to outer"
+      },
+      {
+        "title": "Longitudinal proximal common iliacs",
+        "image": "aaa-positive-iliacs.svg",
+        "caption": "Confirm continuity of each proximal common iliac in long axis. Only the proximal iliac segments are characterized.",
+        "measurement": "Right 13 mm · left 12 mm, outer to outer"
+      }
+    ],
+    "impression": "Positive screen. Fusiform infrarenal AAA measuring up to 43 mm AP × 46 mm transverse, with eccentric mural thrombus and a patent residual lumen. The sac ends above the bifurcation. Suprarenal aorta and proximal common iliacs are visualized without dilation.",
+    "limitations": "Original teaching schematic using authored wall boundaries and caliber. No acquired pixels or sonographer validation. The linked acquired mural-thrombus image is a separate patient and supplies no case measurements. No prior study is modeled, so interval growth is unknown.",
+    "sources": [
+      {
+        "title": "AIUM adult abdominal aorta practice parameter, 2025 revision",
+        "url": "https://doi.org/10.1002/jum.70167"
+      },
+      {
+        "title": "Acquired comparison: AAA with mural thrombus, Mikael Häggström, CC0. Separate patient.",
+        "url": "https://commons.wikimedia.org/w/index.php?title=File:Ultrasonography_of_abdominal_aortic_aneurysm_with_mural_thrombus.jpg&oldid=1264972910"
+      }
+    ]
+  },
+  {
+    "id": "carotid-normal",
+    "family": "carotid",
+    "title": "Bilateral carotid duplex · normal",
+    "indication": "Evaluate a cervical bruit for extracranial carotid stenosis",
+    "kind": "normal",
+    "summary": "Document both sides, from carotid grayscale and color through angle-corrected carotid and vertebral waveforms.",
+    "views": [
+      {
+        "title": "Right carotid long-axis grayscale",
+        "image": "carotid-normal-right-gray.svg",
+        "caption": "Identify the CCA, bulb and bifurcation, then trace the ICA toward the distal window."
+      },
+      {
+        "title": "Right carotid transverse sweep",
+        "image": "carotid-normal-right-short.svg",
+        "caption": "Trace the common trunk into both branches and inspect the proximal ICA lumen in cross-section."
+      },
+      {
+        "title": "Right carotid color survey",
+        "image": "carotid-normal-right-color.svg",
+        "caption": "Follow color fill through the CCA, bifurcation and visible ICA. The schematic color denotes a flowing channel."
+      },
+      {
+        "title": "Right carotid spectral record",
+        "image": "carotid-normal-right-spectra.svg",
+        "caption": "Review separate angle-corrected pulsed-wave (PW) Doppler samples from the CCA, ICA, ECA and vertebral artery. The vertebral sample is antegrade, with positive velocities on this display.",
+        "measurement": "Each available panel saves angle, PSV and EDV.",
+        "referenceIds": [
+          "carotid-cca-spectral",
+          "carotid-ica"
+        ]
+      },
+      {
+        "title": "Left carotid long-axis grayscale",
+        "image": "carotid-normal-left-gray.svg",
+        "caption": "Identify the CCA, bulb and bifurcation, then trace the ICA toward the distal window."
+      },
+      {
+        "title": "Left carotid transverse sweep",
+        "image": "carotid-normal-left-short.svg",
+        "caption": "Trace the common trunk into both branches and inspect the proximal ICA lumen in cross-section.",
+        "referenceIds": [
+          "carotid-bifurcation"
+        ]
+      },
+      {
+        "title": "Left carotid color survey",
+        "image": "carotid-normal-left-color.svg",
+        "caption": "Follow color fill through the CCA, bifurcation and visible ICA. The schematic color denotes a flowing channel."
+      },
+      {
+        "title": "Left carotid spectral record",
+        "image": "carotid-normal-left-spectra.svg",
+        "caption": "Review separate angle-corrected pulsed-wave (PW) Doppler samples from the CCA, ICA, ECA and vertebral artery. The vertebral sample is antegrade, with positive velocities on this display.",
+        "measurement": "Each available panel saves angle, PSV and EDV."
+      }
+    ],
+    "impression": "No plaque or Doppler evidence of ICA stenosis on either side. ICA/CCA PSV ratios are 1.17 right and 1.21 left. Both vertebral arteries show antegrade flow.",
+    "limitations": "Original teaching schematics with authored flow and spectra. The velocity traces are scaled to the displayed values. No acquired pixels, scanner measurements or sonographer validation. The modeled windows stop at the accessible cervical segments.",
+    "sources": [
+      {
+        "title": "IAC vascular testing standards, extracranial cerebrovascular documentation",
+        "url": "https://intersocietal.org/wp-content/uploads/2026/08/IACVascularTestingStandardsAug2026.pdf#page=24"
+      },
+      {
+        "title": "IAC modified SRU criteria for ICA stenosis",
+        "url": "https://intersocietal.org/wp-content/uploads/2023/11/IAC-Updated-Recommendations-for-Carotid-Stenosis-Interpretation-Criteria_11.1.23.pdf"
+      }
+    ]
+  },
+  {
+    "id": "carotid-limited",
+    "family": "carotid",
+    "title": "Bilateral carotid duplex · limited",
+    "indication": "Evaluate a left cervical bruit for extracranial carotid stenosis",
+    "kind": "limited",
+    "summary": "The distal left ICA passes deep behind the mandible. Save the visualized segments, then document the alternate attempt.",
+    "views": [
+      {
+        "title": "Right carotid long-axis grayscale",
+        "image": "carotid-limited-right-gray.svg",
+        "caption": "Identify the CCA, bulb and bifurcation, then trace the ICA toward the distal window."
+      },
+      {
+        "title": "Right carotid transverse sweep",
+        "image": "carotid-limited-right-short.svg",
+        "caption": "Trace the common trunk into both branches and inspect the proximal ICA lumen in cross-section."
+      },
+      {
+        "title": "Right carotid color survey",
+        "image": "carotid-limited-right-color.svg",
+        "caption": "Follow color fill through the CCA, bifurcation and visible ICA. The schematic color denotes a flowing channel."
+      },
+      {
+        "title": "Right carotid spectral record",
+        "image": "carotid-limited-right-spectra.svg",
+        "caption": "Review separate angle-corrected pulsed-wave (PW) Doppler samples from the CCA, ICA, ECA and vertebral artery. The vertebral sample is antegrade, with positive velocities on this display.",
+        "measurement": "Each available panel saves angle, PSV and EDV.",
+        "referenceIds": [
+          "carotid-cca-spectral",
+          "carotid-ica"
+        ]
+      },
+      {
+        "title": "Left carotid long-axis grayscale",
+        "image": "carotid-limited-left-gray.svg",
+        "caption": "Identify the CCA, bulb, bifurcation and proximal ICA. The distal ICA passes beyond the available window."
+      },
+      {
+        "title": "Left carotid transverse sweep",
+        "image": "carotid-limited-left-short.svg",
+        "caption": "Trace the common trunk into both branches and inspect the proximal ICA lumen in cross-section.",
+        "referenceIds": [
+          "carotid-bifurcation"
+        ]
+      },
+      {
+        "title": "Left carotid color survey",
+        "image": "carotid-limited-left-color.svg",
+        "caption": "The color fill illustrates patent CCA, ECA and visible proximal ICA flow. Repositioning is needed to attempt the distal ICA."
+      },
+      {
+        "title": "Left carotid spectral record",
+        "image": "carotid-limited-left-spectra.svg",
+        "caption": "Review separate angle-corrected pulsed-wave (PW) Doppler samples from the CCA, ICA, ECA and vertebral artery. The distal ICA window was lost and has no recorded velocity.",
+        "measurement": "Each available panel saves angle, PSV and EDV."
+      },
+      {
+        "title": "Distal left ICA · alternate window",
+        "image": "carotid-limited-retry.svg",
+        "caption": "Reduce neck rotation and move to a posterolateral window. The vessel still cannot be reliably followed or sampled at an appropriate correction angle."
+      }
+    ],
+    "impression": "Limited left ICA assessment. No focal plaque or velocity elevation in the imaged proximal left ICA. The distal left ICA is ungraded because its wall and a reproducible spectral envelope remain unobtainable. No plaque or Doppler evidence of stenosis in the right ICA.",
+    "limitations": "Original teaching schematics with authored flow and spectra. The velocity traces are scaled to the displayed values. No acquired pixels, scanner measurements or sonographer validation. A complete left ICA/CCA PSV ratio is withheld because the true highest ICA PSV could have been outside the visualized window.",
+    "sources": [
+      {
+        "title": "IAC vascular testing standards, extracranial cerebrovascular documentation",
+        "url": "https://intersocietal.org/wp-content/uploads/2026/08/IACVascularTestingStandardsAug2026.pdf#page=24"
+      },
+      {
+        "title": "IAC modified SRU criteria for ICA stenosis",
+        "url": "https://intersocietal.org/wp-content/uploads/2023/11/IAC-Updated-Recommendations-for-Carotid-Stenosis-Interpretation-Criteria_11.1.23.pdf"
+      }
+    ]
+  },
+  {
+    "id": "carotid-plaque",
+    "family": "carotid",
+    "title": "Bilateral carotid duplex · right ICA stenosis",
+    "indication": "Assess the extracranial carotids after transient right monocular visual loss",
+    "kind": "abnormal",
+    "summary": "Localize eccentric proximal right ICA plaque. Compare the spectra before, at and downstream of the narrowing, then integrate both sides.",
+    "views": [
+      {
+        "title": "Right carotid grayscale · longitudinal",
+        "image": "carotid-plaque-right-gray.svg",
+        "caption": "Follow the narrowing from the bifurcation into the proximal right ICA. As in Li et al. Figure 1A, look for eccentric plaque along the wall and a residual flow channel."
+      },
+      {
+        "title": "Right proximal ICA · transverse plaque",
+        "image": "carotid-plaque-right-short.svg",
+        "caption": "The asymmetric plaque occupies one side of the vessel. Estimate diameter reduction from the residual lumen relative to the unaffected distal ICA shown at the same scale.",
+        "measurement": "2.7 mm residual / 6.1 mm distal reference · about 56% reduction"
+      },
+      {
+        "title": "Right proximal ICA · color and spectral gates",
+        "image": "carotid-plaque-right-color.svg",
+        "caption": "The narrowed color channel localizes the jet. As in Li et al. Figure 1B, place the gate in the narrowed flow stream for spectral confirmation. The numbered gates are before (1), at (2) and just beyond (3) the narrowing."
+      },
+      {
+        "title": "Right ICA · prejet, jet and postjet spectra",
+        "image": "carotid-plaque-right-triplet.svg",
+        "caption": "The sample at the narrowing gives the highest PSV. The immediately downstream spectrum has lower PSV with persistent broadening.",
+        "measurement": "Before 94/27 · jet 207/67 · just beyond 122/39 cm/s PSV/EDV"
+      },
+      {
+        "title": "Right carotid spectral record",
+        "image": "carotid-plaque-right-spectra.svg",
+        "caption": "Compare the jet with the right distal CCA reference and the more distant distal ICA. The antegrade vertebral artery has a separate window.",
+        "measurement": "Right ICA/CCA PSV ratio 207/72 = 2.88",
+        "referenceIds": [
+          "carotid-cca-spectral"
+        ]
+      },
+      {
+        "title": "Left carotid long-axis grayscale",
+        "image": "carotid-plaque-left-gray.svg",
+        "caption": "Identify the CCA, bulb and bifurcation, then trace the ICA toward the distal window."
+      },
+      {
+        "title": "Left carotid transverse sweep",
+        "image": "carotid-plaque-left-short.svg",
+        "caption": "Trace the common trunk into both branches and inspect the proximal ICA lumen in cross-section.",
+        "referenceIds": [
+          "carotid-bifurcation"
+        ]
+      },
+      {
+        "title": "Left carotid color survey",
+        "image": "carotid-plaque-left-color.svg",
+        "caption": "Follow color fill through the CCA, bifurcation and visible ICA. The schematic color denotes a flowing channel."
+      },
+      {
+        "title": "Left carotid spectral record",
+        "image": "carotid-plaque-left-spectra.svg",
+        "caption": "Review separate angle-corrected pulsed-wave (PW) Doppler samples from the CCA, ICA, ECA and vertebral artery. The vertebral sample is antegrade, with positive velocities on this display.",
+        "measurement": "Each available panel saves angle, PSV and EDV."
+      }
+    ],
+    "impression": "Right proximal ICA stenosis in the 50–69% category by modified IAC criteria. The paired short-axis sections show about 56% diameter reduction. The jet reaches 207 cm/s PSV, 67 cm/s EDV and an ICA/CCA PSV ratio of 2.88. No plaque or Doppler evidence of left ICA stenosis. Vertebral flow is antegrade bilaterally.",
+    "limitations": "Original teaching schematics with authored flow and spectra. The velocity traces are scaled to the displayed values. No acquired pixels, scanner measurements or sonographer validation. The cited Li et al. panels show an independently acquired higher-grade lesion in another patient. They supply no case velocities or stenosis grade.",
+    "sources": [
+      {
+        "title": "IAC vascular testing standards, extracranial cerebrovascular documentation",
+        "url": "https://intersocietal.org/wp-content/uploads/2026/08/IACVascularTestingStandardsAug2026.pdf#page=24"
+      },
+      {
+        "title": "IAC modified SRU criteria for ICA stenosis",
+        "url": "https://intersocietal.org/wp-content/uploads/2023/11/IAC-Updated-Recommendations-for-Carotid-Stenosis-Interpretation-Criteria_11.1.23.pdf"
+      },
+      {
+        "title": "Li et al., Figure 1A–B: acquired right proximal ICA plaque and Doppler. Separate patient.",
+        "url": "https://cdn.amegroups.cn/journals/amepc/files/journals/2/articles/61527/public/61527-PB6-2943-R2.pdf#page=3"
+      }
+    ]
+  }
+]

@@ -1,0 +1,832 @@
+[
+  {
+    "id": "pregnancy-early-normal",
+    "family": "pregnancy-early",
+    "title": "Intrauterine pregnancy with cardiac activity",
+    "indication": "Pain or spotting in early pregnancy · location and cardiac activity",
+    "kind": "normal",
+    "summary": "Modeled teaching case. Stable patient with spotting and uncertain dates. Start with transabdominal orientation, then use the transvaginal approach to resolve early structures.",
+    "views": [
+      {
+        "title": "Locate the sac",
+        "image": "views/early-normal-01.svg",
+        "caption": "Follow the uterine cavity through the cervix. The closer transvaginal section resolves the yolk sac and embryo.",
+        "measurement": "CRL 10 mm → 8.052 × √10 + 23.73 ≈ 49 days (7 wk 0 d).",
+        "referenceIds": [
+          "pregnancy-early-sac",
+          "pregnancy-early-crl"
+        ]
+      },
+      {
+        "title": "Document cardiac activity",
+        "image": "views/early-normal-02.svg",
+        "caption": "Place the M-mode line through the embryonic cardiac region. Count cycles between matching phases of the sampled motion trace.",
+        "measurement": "3 cycles in 1.25 s × 60 = 144 bpm.",
+        "referenceIds": [
+          "pregnancy-early-cardiac"
+        ]
+      },
+      {
+        "title": "Check adnexa and cul-de-sac",
+        "image": "views/early-normal-03.svg",
+        "caption": "Sweep both ovaries and adjacent tubes. No discrete mass in either adnexa and no pelvic free fluid are depicted."
+      }
+    ],
+    "impression": "Single intrauterine pregnancy, measured CRL dates to 7 wk 0 d with embryonic cardiac activity.",
+    "limitations": "All measurements derive from authored geometry or temporal samples. Adnexal and pelvic views are simplified.",
+    "sources": [
+      {
+        "title": "SRU first-trimester lexicon",
+        "url": "https://doi.org/10.1148/radiol.240122"
+      },
+      {
+        "title": "Acquired comparison · Murugan et al., Fig. 7A/D/E",
+        "url": "https://www.e-ultrasonography.org/journal/view.php?doi=10.14366/usg.19043#f7-usg-19043"
+      },
+      {
+        "title": "Robinson and Fleming · CRL dating equation",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/1182090/"
+      }
+    ]
+  },
+  {
+    "id": "pregnancy-early-abnormal",
+    "family": "pregnancy-early",
+    "title": "Tubal ectopic pregnancy",
+    "indication": "Pain or spotting in early pregnancy · location and cardiac activity",
+    "kind": "abnormal",
+    "summary": "Modeled teaching case. Stable patient with unilateral pain and a positive pregnancy test. Transabdominal imaging shows no intrauterine sac, so the exam proceeds transvaginally.",
+    "views": [
+      {
+        "title": "Sweep uterine cavity",
+        "image": "views/early-abnormal-01.svg",
+        "caption": "The cavity is empty on the transvaginal longitudinal section. An empty uterus alone does not localize the pregnancy."
+      },
+      {
+        "title": "Localize the right adnexal sac",
+        "image": "views/early-abnormal-02.svg",
+        "caption": "Sweep through the ovary and the separate right adnexal sac. A yolk sac within the extraovarian sac establishes an ectopic pregnancy. Document cul-de-sac fluid.",
+        "measurement": "Right extraovarian sac 18 mm across its outer boundary in this section. CRL and rate are unassigned."
+      }
+    ],
+    "impression": "Definite right tubal ectopic pregnancy in this modeled presentation. Communicate promptly to the treating team.",
+    "limitations": "The diagram illustrates a yolk sac separate from the ovary. It does not encode hemodynamic status.",
+    "sources": [
+      {
+        "title": "SRU first-trimester lexicon",
+        "url": "https://doi.org/10.1148/radiol.240122"
+      },
+      {
+        "title": "Acquired comparison · Murugan et al., Fig. 7A/D/E",
+        "url": "https://www.e-ultrasonography.org/journal/view.php?doi=10.14366/usg.19043#f7-usg-19043"
+      },
+      {
+        "title": "Acquired ectopic comparisons · SRU lexicon, Fig. 8 and sliding-sign cine",
+        "url": "https://doi.org/10.1148/radiol.240122"
+      }
+    ]
+  },
+  {
+    "id": "pregnancy-early-limited",
+    "family": "pregnancy-early",
+    "title": "Pregnancy of unknown location",
+    "indication": "Pain or spotting in early pregnancy · location and cardiac activity",
+    "kind": "limited",
+    "summary": "Modeled teaching case. Stable patient with spotting and a positive pregnancy test. Both transabdominal and transvaginal approaches are attempted.",
+    "views": [
+      {
+        "title": "Check cavity and adnexa",
+        "image": "views/early-limited-01.svg",
+        "caption": "Transvaginal imaging shows no probable or definite intrauterine pregnancy. The left adnexal sweep reveals no mass."
+      },
+      {
+        "title": "Repeat right adnexal view",
+        "image": "views/early-limited-02.svg",
+        "caption": "Re-angle after changing bladder filling and use gentle probe pressure. Bowel shadow still hides part of the right adnexa. No probable or definite extrauterine gestation is identified in the visible field.",
+        "measurement": "No established sac or embryo for dating or rate measurement."
+      }
+    ],
+    "impression": "Pregnancy of unknown location with limited right adnexal assessment. Arrange clinical follow-up with serial hCG and repeat transvaginal imaging per the treating team.",
+    "limitations": "Both an early intrauterine pregnancy and ectopic pregnancy remain possible. The right adnexa is incompletely observed. This descriptive PUL impression requires follow-up because exclusion of ectopic pregnancy is incomplete.",
+    "sources": [
+      {
+        "title": "SRU first-trimester lexicon",
+        "url": "https://doi.org/10.1148/radiol.240122"
+      },
+      {
+        "title": "Acquired comparison · Murugan et al., Fig. 7A/D/E",
+        "url": "https://www.e-ultrasonography.org/journal/view.php?doi=10.14366/usg.19043#f7-usg-19043"
+      }
+    ]
+  },
+  {
+    "id": "pregnancy-first-normal",
+    "family": "pregnancy-first",
+    "title": "Singleton with a measurable nuchal profile",
+    "indication": "Routine 11–14-week scan · dates, plurality and early anatomy",
+    "kind": "normal",
+    "summary": "Modeled teaching case. Routine first-trimester visit with one fetus.",
+    "views": [
+      {
+        "title": "Count fetuses and date by CRL",
+        "image": "views/first-normal-01.svg",
+        "caption": "Survey the uterus for fetal number and position, then align the fetal midsagittal plane in neutral posture. Measure crown to rump without including limbs.",
+        "measurement": "One fetus, CRL 60 mm. Using the BMUS curve, 8.052 × √(1.037 × 60) + 23.73 rounds to 87 days (12 wk 3 d).",
+        "referenceIds": [
+          "pregnancy-fetus-12"
+        ]
+      },
+      {
+        "title": "Magnify the nuchal region",
+        "image": "views/first-normal-02.svg",
+        "caption": "Distinguish amnion from skin. In a neutral midsagittal profile, caliper the inner borders at the widest clear space.",
+        "measurement": "CRL 60 mm; NT 1.5 mm.",
+        "referenceIds": [
+          "pregnancy-nuchal"
+        ]
+      },
+      {
+        "title": "Record cardiac activity and basic anatomy",
+        "image": "views/first-normal-03.svg",
+        "caption": "Use the cardiac motion line for a time sample. Rotate to axial head and abdominal planes to check the calvarium, midline and choroid plexuses, left-sided stomach and abdominal wall.",
+        "measurement": "3 cycles in 1.20 s × 60 = 150 bpm.",
+        "referenceIds": [
+          "pregnancy-fetus-48"
+        ]
+      },
+      {
+        "title": "Survey fetal outline and maternal landmarks",
+        "image": "views/first-normal-04.svg",
+        "caption": "Confirm the facial profile, four limbs, longitudinal spine and abdominal wall. Save the placental location and cervix relationship.",
+        "referenceIds": [
+          "pregnancy-fetus-12",
+          "pregnancy-placenta-12"
+        ]
+      }
+    ],
+    "impression": "Single fetus dated by CRL to 12 wk 3 d with cardiac activity and NT 1.5 mm. No major finding in the modeled early anatomy views.",
+    "limitations": "Early anatomy coverage is schematic. A later anatomy survey remains part of routine care.",
+    "sources": [
+      {
+        "title": "ISUOG 11–14-week scan",
+        "url": "https://doi.org/10.1002/uog.26106"
+      },
+      {
+        "title": "Acquired comparison · Moroder, nuchal profile at 13 wk 3 d",
+        "url": "https://commons.wikimedia.org/wiki/File:Nuchal_translucency_Dr._Wolfgang_Moroder.jpg"
+      },
+      {
+        "title": "BMUS · fetal measurement and corrected CRL dating curve",
+        "url": "https://www.bmus.org/static/uploads/resources/Aug_2009_Fetal_Measurements_D3NApK5.pdf"
+      }
+    ]
+  },
+  {
+    "id": "pregnancy-first-abnormal",
+    "family": "pregnancy-first",
+    "title": "Increased nuchal translucency",
+    "indication": "Routine 11–14-week scan · dates, plurality and early anatomy",
+    "kind": "abnormal",
+    "summary": "Modeled teaching case. Routine first-trimester visit with one fetus.",
+    "views": [
+      {
+        "title": "Count fetuses and date by CRL",
+        "image": "views/first-abnormal-01.svg",
+        "caption": "Survey the uterus for fetal number and position, then align the fetal midsagittal plane in neutral posture. Measure crown to rump without including limbs.",
+        "measurement": "One fetus, CRL 62 mm. Using the BMUS curve, 8.052 × √(1.037 × 62) + 23.73 rounds to 88 days (12 wk 4 d).",
+        "referenceIds": [
+          "pregnancy-fetus-12"
+        ]
+      },
+      {
+        "title": "Magnify the nuchal region",
+        "image": "views/first-abnormal-02.svg",
+        "caption": "Distinguish amnion from skin. In a neutral midsagittal profile, caliper the inner borders at the widest clear space.",
+        "measurement": "CRL 62 mm; NT 4.5 mm.",
+        "referenceIds": [
+          "pregnancy-nuchal"
+        ]
+      },
+      {
+        "title": "Record cardiac activity and basic anatomy",
+        "image": "views/first-abnormal-03.svg",
+        "caption": "Use the cardiac motion line for a time sample. Rotate to axial head and abdominal planes to check the calvarium, midline and choroid plexuses, left-sided stomach and abdominal wall.",
+        "measurement": "3 cycles in 1.20 s × 60 = 150 bpm.",
+        "referenceIds": [
+          "pregnancy-fetus-48"
+        ]
+      },
+      {
+        "title": "Survey fetal outline and maternal landmarks",
+        "image": "views/first-abnormal-04.svg",
+        "caption": "Confirm the facial profile, four limbs, longitudinal spine and abdominal wall. Save the placental location and cervix relationship.",
+        "referenceIds": [
+          "pregnancy-fetus-12",
+          "pregnancy-placenta-12"
+        ]
+      }
+    ],
+    "impression": "Single fetus dated by CRL to 12 wk 4 d with cardiac activity and increased NT of 4.5 mm. Refer for specialist counseling and assessment.",
+    "limitations": "An increased NT is a risk marker. No genetic diagnosis or complete structural assessment is encoded.",
+    "sources": [
+      {
+        "title": "ISUOG 11–14-week scan",
+        "url": "https://doi.org/10.1002/uog.26106"
+      },
+      {
+        "title": "Acquired comparison · Moroder, nuchal profile at 13 wk 3 d",
+        "url": "https://commons.wikimedia.org/wiki/File:Nuchal_translucency_Dr._Wolfgang_Moroder.jpg"
+      },
+      {
+        "title": "BMUS · fetal measurement and corrected CRL dating curve",
+        "url": "https://www.bmus.org/static/uploads/resources/Aug_2009_Fetal_Measurements_D3NApK5.pdf"
+      },
+      {
+        "title": "Acquired increased NT example · case report, Fig. 1",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3671815/"
+      }
+    ]
+  },
+  {
+    "id": "pregnancy-first-limited",
+    "family": "pregnancy-first",
+    "title": "Unobtainable nuchal measurement",
+    "indication": "Routine 11–14-week scan · dates, plurality and early anatomy",
+    "kind": "limited",
+    "summary": "Modeled teaching case. Routine first-trimester visit with one fetus.",
+    "views": [
+      {
+        "title": "Count fetuses and date by CRL",
+        "image": "views/first-limited-01.svg",
+        "caption": "Survey the uterus for fetal number and position, then align the fetal midsagittal plane in neutral posture. Measure crown to rump without including limbs.",
+        "measurement": "One fetus, CRL 59 mm. Using the BMUS curve, 8.052 × √(1.037 × 59) + 23.73 rounds to 87 days (12 wk 3 d).",
+        "referenceIds": [
+          "pregnancy-fetus-12"
+        ]
+      },
+      {
+        "title": "Attempt and repeat nuchal plane",
+        "image": "views/first-limited-02.svg",
+        "caption": "Wait for movement and rescan after maternal position change. The repeat remains oblique, with the amnion close to the posterior neck. Defer NT and arrange a repeat within the sampling window.",
+        "measurement": "NT unavailable. CRL comes from a separate acceptable acquisition.",
+        "referenceIds": [
+          "pregnancy-nuchal"
+        ]
+      },
+      {
+        "title": "Record cardiac activity and basic anatomy",
+        "image": "views/first-limited-03.svg",
+        "caption": "Use the cardiac motion line for a time sample. Rotate to axial head and abdominal planes to check the calvarium, midline and choroid plexuses, left-sided stomach and abdominal wall.",
+        "measurement": "3 cycles in 1.20 s × 60 = 150 bpm.",
+        "referenceIds": [
+          "pregnancy-fetus-48"
+        ]
+      },
+      {
+        "title": "Survey fetal outline and maternal landmarks",
+        "image": "views/first-limited-04.svg",
+        "caption": "Confirm the facial profile, four limbs, longitudinal spine and abdominal wall. Save the placental location and cervix relationship.",
+        "referenceIds": [
+          "pregnancy-fetus-12",
+          "pregnancy-placenta-12"
+        ]
+      }
+    ],
+    "impression": "Single fetus dated by CRL to 12 wk 3 d with cardiac activity. NT assessment incomplete.",
+    "limitations": "Fetal position and poorly separated amnion prevent a reliable NT measurement. The acquired image demonstrates an obtainable plane in a separate pregnancy.",
+    "sources": [
+      {
+        "title": "ISUOG 11–14-week scan",
+        "url": "https://doi.org/10.1002/uog.26106"
+      },
+      {
+        "title": "Acquired comparison · Moroder, nuchal profile at 13 wk 3 d",
+        "url": "https://commons.wikimedia.org/wiki/File:Nuchal_translucency_Dr._Wolfgang_Moroder.jpg"
+      },
+      {
+        "title": "BMUS · fetal measurement and corrected CRL dating curve",
+        "url": "https://www.bmus.org/static/uploads/resources/Aug_2009_Fetal_Measurements_D3NApK5.pdf"
+      }
+    ]
+  },
+  {
+    "id": "pregnancy-mid-normal",
+    "family": "pregnancy-mid",
+    "title": "Routine anatomy survey with documented views",
+    "indication": "Routine mid-trimester scan · fetal anatomy and biometry",
+    "kind": "normal",
+    "summary": "Modeled teaching case. Anatomic survey at 20 weeks by prior dating.",
+    "views": [
+      {
+        "title": "Record heart rate and biometry",
+        "image": "views/mid-normal-01.svg",
+        "caption": "At 20 weeks by prior dating, record cardiac activity and fetal number. Measure BPD and HC at the transthalamic plane, AC at stomach and portal sinus, and the ossified femoral diaphysis.",
+        "measurement": "Singleton. BPD 47 mm; HC 178 mm; AC 153 mm; FL 33 mm. 3 cycles / 1.25 s = 144 bpm.",
+        "referenceIds": [
+          "pregnancy-mid-brain-20",
+          "pregnancy-mid-abdomen-10",
+          "pregnancy-mid-spine-limbs-24"
+        ]
+      },
+      {
+        "title": "Survey head and face",
+        "image": "views/mid-normal-02.svg",
+        "caption": "Sweep from transventricular to posterior fossa. Save orbits, coronal upper lip and profile as distinct planes.",
+        "referenceIds": [
+          "pregnancy-mid-brain-12",
+          "pregnancy-mid-brain-28",
+          "pregnancy-mid-brain-38",
+          "pregnancy-mid-brain-48",
+          "pregnancy-mid-brain-20"
+        ]
+      },
+      {
+        "title": "Sweep thorax and heart",
+        "image": "views/mid-normal-03.svg",
+        "caption": "Document cardiac situs, four chambers, both outflow tracts and three-vessel planes. Inspect lungs and the diaphragm.",
+        "referenceIds": [
+          "pregnancy-mid-heart-8",
+          "pregnancy-mid-heart-22",
+          "pregnancy-mid-heart-35",
+          "pregnancy-mid-heart-42",
+          "pregnancy-mid-heart-48"
+        ]
+      },
+      {
+        "title": "Assess abdomen and umbilical insertion",
+        "image": "views/mid-normal-04.svg",
+        "caption": "Confirm stomach position, both kidneys and bladder, then track the cord to its insertion at the fetal abdominal wall.",
+        "referenceIds": [
+          "pregnancy-mid-abdomen-10",
+          "pregnancy-mid-abdomen-24",
+          "pregnancy-mid-abdomen-36",
+          "pregnancy-mid-abdomen-48"
+        ]
+      },
+      {
+        "title": "Survey spine and extremities",
+        "image": "views/mid-normal-05.svg",
+        "caption": "Trace the spine longitudinally and through transverse levels, then document left and right arms and legs, hands and feet.",
+        "referenceIds": [
+          "pregnancy-mid-spine-limbs-10",
+          "pregnancy-mid-spine-limbs-24",
+          "pregnancy-mid-spine-limbs-36",
+          "pregnancy-mid-spine-limbs-48"
+        ]
+      },
+      {
+        "title": "Document placenta, cervix and fluid",
+        "image": "views/mid-normal-06.svg",
+        "caption": "Identify placental position and its relation to the internal cervical os. Assess fluid and check the placental cord insertion.",
+        "measurement": "Deepest vertical pocket 4.5 cm in selected cord-free window.",
+        "referenceIds": [
+          "pregnancy-related-placenta-cervix",
+          "pregnancy-mid-placenta-48"
+        ]
+      }
+    ],
+    "impression": "Singleton with cardiac activity and biometry concordant with prior dates in this example. No major finding among the modeled anatomy views.",
+    "limitations": "Only representative sections are illustrated. Segments and subtle malformations that depend on full cine sweeps remain outside schematic fidelity.",
+    "sources": [
+      {
+        "title": "ISUOG routine mid-trimester fetal scan",
+        "url": "https://doi.org/10.1002/uog.24888"
+      },
+      {
+        "title": "Acquired comparison · mid-trimester standard planes, Fig. 1",
+        "url": "https://link.springer.com/article/10.1007/s00404-022-06569-2/figures/1"
+      },
+      {
+        "title": "ISUOG fetal cardiac screening",
+        "url": "https://doi.org/10.1002/uog.26224"
+      }
+    ]
+  },
+  {
+    "id": "pregnancy-mid-abnormal",
+    "family": "pregnancy-mid",
+    "title": "Midline abdominal wall defect",
+    "indication": "Routine mid-trimester scan · fetal anatomy and biometry",
+    "kind": "abnormal",
+    "summary": "Modeled teaching case. Anatomic survey at 20 weeks by prior dating.",
+    "views": [
+      {
+        "title": "Record heart rate and biometry",
+        "image": "views/mid-abnormal-01.svg",
+        "caption": "At 20 weeks by prior dating, record cardiac activity and fetal number. Measure BPD and HC at the transthalamic plane, AC at stomach and portal sinus, and the ossified femoral diaphysis.",
+        "measurement": "Singleton. BPD 46 mm; HC 173 mm; AC 146 mm; FL 32 mm. 3 cycles / 1.25 s = 144 bpm.",
+        "referenceIds": [
+          "pregnancy-mid-brain-20",
+          "pregnancy-mid-abdomen-10",
+          "pregnancy-mid-spine-limbs-24"
+        ]
+      },
+      {
+        "title": "Survey head and face",
+        "image": "views/mid-abnormal-02.svg",
+        "caption": "Sweep from transventricular to posterior fossa. Save orbits, coronal upper lip and profile as distinct planes.",
+        "referenceIds": [
+          "pregnancy-mid-brain-12",
+          "pregnancy-mid-brain-28",
+          "pregnancy-mid-brain-38",
+          "pregnancy-mid-brain-48",
+          "pregnancy-mid-brain-20"
+        ]
+      },
+      {
+        "title": "Sweep thorax and heart",
+        "image": "views/mid-abnormal-03.svg",
+        "caption": "Document cardiac situs, four chambers, both outflow tracts and three-vessel planes. Inspect lungs and the diaphragm.",
+        "referenceIds": [
+          "pregnancy-mid-heart-8",
+          "pregnancy-mid-heart-22",
+          "pregnancy-mid-heart-35",
+          "pregnancy-mid-heart-42",
+          "pregnancy-mid-heart-48"
+        ]
+      },
+      {
+        "title": "Assess abdomen and umbilical insertion",
+        "image": "views/mid-abnormal-04.svg",
+        "caption": "Confirm stomach position, both kidneys and bladder, then track the cord to its insertion at the fetal abdominal wall.",
+        "measurement": "Anterior midline defect 15 mm at its neck.",
+        "referenceIds": [
+          "pregnancy-mid-abdomen-10",
+          "pregnancy-mid-abdomen-24",
+          "pregnancy-mid-abdomen-36"
+        ]
+      },
+      {
+        "title": "Confirm the wall finding in another plane",
+        "image": "views/mid-abnormal-05.svg",
+        "caption": "Use the sagittal plane to verify the membrane-covered herniation and the apex of the sac as the site of umbilical cord attachment."
+      },
+      {
+        "title": "Survey spine and extremities",
+        "image": "views/mid-abnormal-06.svg",
+        "caption": "Trace the spine longitudinally and through transverse levels, then document left and right arms and legs, hands and feet.",
+        "referenceIds": [
+          "pregnancy-mid-spine-limbs-10",
+          "pregnancy-mid-spine-limbs-24",
+          "pregnancy-mid-spine-limbs-36",
+          "pregnancy-mid-spine-limbs-48"
+        ]
+      },
+      {
+        "title": "Document placenta, cervix and fluid",
+        "image": "views/mid-abnormal-07.svg",
+        "caption": "Identify placental position and its relation to the internal cervical os. Assess fluid and check the placental cord insertion.",
+        "measurement": "Deepest vertical pocket 4.5 cm in selected cord-free window.",
+        "referenceIds": [
+          "pregnancy-related-placenta-cervix",
+          "pregnancy-mid-placenta-48"
+        ]
+      }
+    ],
+    "impression": "Midline membrane-covered abdominal wall defect with a cord inserting into the sac, consistent with omphalocele. Refer for detailed fetal assessment.",
+    "limitations": "The schematic illustrates attachment and the neck of the defect. Associated malformations and genetic conditions require additional assessment.",
+    "sources": [
+      {
+        "title": "ISUOG routine mid-trimester fetal scan",
+        "url": "https://doi.org/10.1002/uog.24888"
+      },
+      {
+        "title": "Acquired comparison · mid-trimester standard planes, Fig. 1",
+        "url": "https://link.springer.com/article/10.1007/s00404-022-06569-2/figures/1"
+      },
+      {
+        "title": "ISUOG fetal cardiac screening",
+        "url": "https://doi.org/10.1002/uog.26224"
+      },
+      {
+        "title": "Acquired omphalocele · true defect and cord attachment, Fig. 1",
+        "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12323075/"
+      }
+    ]
+  },
+  {
+    "id": "pregnancy-mid-limited",
+    "family": "pregnancy-mid",
+    "title": "Cardiac outflow views remain incomplete",
+    "indication": "Routine mid-trimester scan · fetal anatomy and biometry",
+    "kind": "limited",
+    "summary": "Modeled teaching case. Anatomic survey at 20 weeks by prior dating.",
+    "views": [
+      {
+        "title": "Record heart rate and biometry",
+        "image": "views/mid-limited-01.svg",
+        "caption": "At 20 weeks by prior dating, record cardiac activity and fetal number. Measure BPD and HC at the transthalamic plane, AC at stomach and portal sinus, and the ossified femoral diaphysis.",
+        "measurement": "Singleton. BPD 48 mm; HC 180 mm; AC 156 mm; FL 34 mm. 3 cycles / 1.25 s = 144 bpm.",
+        "referenceIds": [
+          "pregnancy-mid-brain-20",
+          "pregnancy-mid-abdomen-10",
+          "pregnancy-mid-spine-limbs-24"
+        ]
+      },
+      {
+        "title": "Survey head and face",
+        "image": "views/mid-limited-02.svg",
+        "caption": "Sweep from transventricular to posterior fossa. Save orbits, coronal upper lip and profile as distinct planes.",
+        "referenceIds": [
+          "pregnancy-mid-brain-12",
+          "pregnancy-mid-brain-28",
+          "pregnancy-mid-brain-38",
+          "pregnancy-mid-brain-48",
+          "pregnancy-mid-brain-20"
+        ]
+      },
+      {
+        "title": "Sweep thorax and heart",
+        "image": "views/mid-limited-03.svg",
+        "caption": "Document cardiac situs, four chambers, both outflow tracts and three-vessel planes. Inspect lungs and the diaphragm.",
+        "referenceIds": [
+          "pregnancy-mid-heart-8",
+          "pregnancy-mid-heart-22",
+          "pregnancy-mid-heart-35",
+          "pregnancy-mid-heart-42",
+          "pregnancy-mid-heart-48"
+        ]
+      },
+      {
+        "title": "Repeat cardiac sweep",
+        "image": "views/mid-limited-04.svg",
+        "caption": "Repeat after maternal repositioning and a lateral approach. Persistent spine shadow leaves the outflows and three-vessel views incomplete. The independent acquired images show the views needed at targeted completion.",
+        "referenceIds": [
+          "pregnancy-mid-heart-22",
+          "pregnancy-mid-heart-35",
+          "pregnancy-mid-heart-42",
+          "pregnancy-mid-heart-48"
+        ]
+      },
+      {
+        "title": "Assess abdomen and umbilical insertion",
+        "image": "views/mid-limited-05.svg",
+        "caption": "Confirm stomach position, both kidneys and bladder, then track the cord to its insertion at the fetal abdominal wall.",
+        "referenceIds": [
+          "pregnancy-mid-abdomen-10",
+          "pregnancy-mid-abdomen-24",
+          "pregnancy-mid-abdomen-36",
+          "pregnancy-mid-abdomen-48"
+        ]
+      },
+      {
+        "title": "Survey spine and extremities",
+        "image": "views/mid-limited-06.svg",
+        "caption": "Trace the spine longitudinally and through transverse levels, then document left and right arms and legs, hands and feet.",
+        "referenceIds": [
+          "pregnancy-mid-spine-limbs-10",
+          "pregnancy-mid-spine-limbs-24",
+          "pregnancy-mid-spine-limbs-36",
+          "pregnancy-mid-spine-limbs-48"
+        ]
+      },
+      {
+        "title": "Document placenta, cervix and fluid",
+        "image": "views/mid-limited-07.svg",
+        "caption": "Identify placental position and its relation to the internal cervical os. Assess fluid and check the placental cord insertion.",
+        "measurement": "Deepest vertical pocket 4.5 cm in selected cord-free window.",
+        "referenceIds": [
+          "pregnancy-related-placenta-cervix",
+          "pregnancy-mid-placenta-48"
+        ]
+      }
+    ],
+    "impression": "Modeled anatomy survey incomplete for cardiac outflow tracts and three-vessel views. Other depicted anatomy has no major finding.",
+    "limitations": "The four-chamber image does not resolve the outflow tracts or great-vessel relationships.",
+    "sources": [
+      {
+        "title": "ISUOG routine mid-trimester fetal scan",
+        "url": "https://doi.org/10.1002/uog.24888"
+      },
+      {
+        "title": "Acquired comparison · mid-trimester standard planes, Fig. 1",
+        "url": "https://link.springer.com/article/10.1007/s00404-022-06569-2/figures/1"
+      },
+      {
+        "title": "ISUOG fetal cardiac screening",
+        "url": "https://doi.org/10.1002/uog.26224"
+      }
+    ]
+  },
+  {
+    "id": "pregnancy-late-normal",
+    "family": "pregnancy-late",
+    "title": "Interval growth with forward diastolic flow",
+    "indication": "Fundal height lag · interval growth, fluid and umbilical artery Doppler",
+    "kind": "normal",
+    "summary": "Modeled teaching case. Singleton visit at 32 weeks by established dating. The referral asks whether interval growth is appropriate.",
+    "views": [
+      {
+        "title": "Confirm lie and assess fluid",
+        "image": "views/late-normal-01.svg",
+        "caption": "The head is near the lower uterine segment. Locate the placenta, then seek the deepest cord-free vertical pocket with the probe perpendicular to the floor.",
+        "measurement": "DVP 4.6 cm.",
+        "referenceIds": [
+          "pregnancy-late-presentation-12",
+          "pregnancy-late-presentation-48"
+        ]
+      },
+      {
+        "title": "Acquire fetal biometry",
+        "image": "views/late-normal-02.svg",
+        "caption": "Save the transthalamic outer head ellipse, the abdominal skin-line ellipse at stomach and portal sinus, and the complete visible femur diaphysis.",
+        "measurement": "HC 292 mm; AC 284 mm; FL 63 mm.",
+        "referenceIds": [
+          "pregnancy-late-biometry-12",
+          "pregnancy-late-biometry-30",
+          "pregnancy-late-biometry-48"
+        ]
+      },
+      {
+        "title": "Calculate estimated weight and compare",
+        "image": "views/late-normal-03.svg",
+        "caption": "Convert lengths to centimetres. Use log₁₀(EFW g) = 1.326 + 0.0107 × HC + 0.0438 × AC + 0.158 × FL − 0.00326 × AC × FL. At 32 wk the result is between the 10th and 90th percentile reference values (1621–2285 g) on Hadlock.",
+        "measurement": "Prior 1190 g at 28 wk → current 1970 g at 32 wk (change +780 g over 4 wk)."
+      },
+      {
+        "title": "Sample umbilical artery flow",
+        "image": "views/late-normal-04.svg",
+        "caption": "Select a free loop with color guidance. Keep the beam aligned to flow, use a low wall filter and save four similar pulses during fetal quiescence.",
+        "measurement": "PSV 42 cm/s; EDV 16 cm/s. S/D = 42 ÷ 16 = 2.62.",
+        "referenceIds": [
+          "pregnancy-late-cord-48"
+        ]
+      }
+    ],
+    "impression": "Interval growth with EFW 1970 g at 32 wk and fluid pocket 4.6 cm. Umbilical artery flow remains forward in diastole.",
+    "limitations": "Two simulated visits demonstrate comparison. The chart shows reference positions at the two sampled weeks.",
+    "sources": [
+      {
+        "title": "ISUOG third-trimester scan",
+        "url": "https://doi.org/10.1002/uog.27538"
+      },
+      {
+        "title": "Acquired comparison · ISUOG third-trimester deepest vertical pocket, Fig. 15",
+        "url": "https://doi.org/10.1002/uog.27538"
+      },
+      {
+        "title": "Hadlock et al. · HC/AC/FL weight model",
+        "url": "https://doi.org/10.1016/0002-9378(85)90298-4"
+      },
+      {
+        "title": "Hadlock et al. 1991 · sonographic weight centiles, Table 1",
+        "url": "https://obgyn.utoronto.ca/sites/default/files/Hadlock%20Growth%20Chart-Radiology-1991.pdf"
+      },
+      {
+        "title": "ISUOG obstetric Doppler technique",
+        "url": "https://doi.org/10.1002/uog.23698"
+      },
+      {
+        "title": "Acquired comparison · umbilical artery spectra, Fig. 6",
+        "url": "https://pubs.rsna.org/doi/full/10.1148/rg.2019180152"
+      }
+    ]
+  },
+  {
+    "id": "pregnancy-late-abnormal",
+    "family": "pregnancy-late",
+    "title": "Fetal growth restriction with absent end-diastolic flow",
+    "indication": "Fundal height lag · interval growth, fluid and umbilical artery Doppler",
+    "kind": "abnormal",
+    "summary": "Modeled teaching case. Singleton visit at 32 weeks by established dating. The referral asks whether interval growth is appropriate.",
+    "views": [
+      {
+        "title": "Confirm lie and assess fluid",
+        "image": "views/late-abnormal-01.svg",
+        "caption": "The head is near the lower uterine segment. Locate the placenta, then seek the deepest cord-free vertical pocket with the probe perpendicular to the floor.",
+        "measurement": "DVP 1.7 cm.",
+        "referenceIds": [
+          "pregnancy-late-presentation-12",
+          "pregnancy-late-presentation-48"
+        ]
+      },
+      {
+        "title": "Acquire fetal biometry",
+        "image": "views/late-abnormal-02.svg",
+        "caption": "Save the transthalamic outer head ellipse, the abdominal skin-line ellipse at stomach and portal sinus, and the complete visible femur diaphysis.",
+        "measurement": "HC 279 mm; AC 239 mm; FL 55 mm.",
+        "referenceIds": [
+          "pregnancy-late-biometry-12",
+          "pregnancy-late-biometry-30",
+          "pregnancy-late-biometry-48"
+        ]
+      },
+      {
+        "title": "Calculate estimated weight and compare",
+        "image": "views/late-abnormal-03.svg",
+        "caption": "Convert lengths to centimetres. Use log₁₀(EFW g) = 1.326 + 0.0107 × HC + 0.0438 × AC + 0.158 × FL − 0.00326 × AC × FL. At 32 wk the result is below the 3rd percentile (1465 g) on Hadlock.",
+        "measurement": "Prior 1130 g at 28 wk → current 1294 g at 32 wk (change +164 g over 4 wk)."
+      },
+      {
+        "title": "Sample umbilical artery flow",
+        "image": "views/late-abnormal-04.svg",
+        "caption": "Select a free loop with color guidance. Keep the beam aligned to flow, use a low wall filter and save four similar pulses during fetal quiescence. Repeat at a second free-loop site and check the baseline before reporting absent end-diastolic flow. The separate acquired comparison shows forward diastolic flow.",
+        "measurement": "PSV 44 cm/s; EDV 0 cm/s. S/D undefined because EDV is zero.",
+        "referenceIds": [
+          "pregnancy-late-cord-48"
+        ]
+      }
+    ],
+    "impression": "Growth restriction at 32 wk (EFW 1294 g, below the 3rd percentile) with a 1.7-cm fluid pocket and persistent absent umbilical artery end-diastolic flow. Communicate promptly for specialist assessment.",
+    "limitations": "The repeat spectrum demonstrates the pattern with simulated signal. Other fetal surveillance findings and management are outside this acquisition.",
+    "sources": [
+      {
+        "title": "ISUOG third-trimester scan",
+        "url": "https://doi.org/10.1002/uog.27538"
+      },
+      {
+        "title": "Acquired comparison · ISUOG third-trimester deepest vertical pocket, Fig. 15",
+        "url": "https://doi.org/10.1002/uog.27538"
+      },
+      {
+        "title": "Hadlock et al. · HC/AC/FL weight model",
+        "url": "https://doi.org/10.1016/0002-9378(85)90298-4"
+      },
+      {
+        "title": "Hadlock et al. 1991 · sonographic weight centiles, Table 1",
+        "url": "https://obgyn.utoronto.ca/sites/default/files/Hadlock%20Growth%20Chart-Radiology-1991.pdf"
+      },
+      {
+        "title": "ISUOG obstetric Doppler technique",
+        "url": "https://doi.org/10.1002/uog.23698"
+      },
+      {
+        "title": "ISUOG small-for-gestational-age fetus and growth restriction",
+        "url": "https://doi.org/10.1002/uog.22134"
+      },
+      {
+        "title": "Acquired comparison · umbilical artery spectra, Fig. 6",
+        "url": "https://pubs.rsna.org/doi/full/10.1148/rg.2019180152"
+      }
+    ]
+  },
+  {
+    "id": "pregnancy-late-limited",
+    "family": "pregnancy-late",
+    "title": "Growth and fluid assessment incomplete",
+    "indication": "Fundal height lag · interval growth, fluid and umbilical artery Doppler",
+    "kind": "limited",
+    "summary": "Modeled teaching case. Singleton visit at 32 weeks by established dating. The referral asks whether interval growth is appropriate.",
+    "views": [
+      {
+        "title": "Confirm lie and assess fluid",
+        "image": "views/late-limited-01.svg",
+        "caption": "The head is near the lower uterine segment. Locate the placenta, then seek the deepest cord-free vertical pocket with the probe perpendicular to the floor.",
+        "measurement": "DVP unavailable after lateral repositioning.",
+        "referenceIds": [
+          "pregnancy-late-presentation-12",
+          "pregnancy-late-presentation-48"
+        ]
+      },
+      {
+        "title": "Record usable biometry",
+        "image": "views/late-limited-02.svg",
+        "caption": "Save HC and FL. Posterior shadow removes part of the abdominal circumference. Repeat from a lateral window, retaining the limited view in the record.",
+        "measurement": "HC 286 mm; FL 61 mm. AC and EFW unavailable.",
+        "referenceIds": [
+          "pregnancy-late-biometry-12",
+          "pregnancy-late-biometry-48"
+        ]
+      },
+      {
+        "title": "Compare with previous scan",
+        "image": "views/late-limited-03.svg",
+        "caption": "Prior weight can be retrieved, but today lacks a complete biometric set. Keep existing dating and defer the interval assessment.",
+        "measurement": "Prior EFW 1205 g at 28 wk; no current EFW."
+      },
+      {
+        "title": "Attempt clinically indicated Doppler",
+        "image": "views/late-limited-04.svg",
+        "caption": "Re-angle to a second free cord loop. Motion and poor alignment obscure the diastolic envelope in both samples. The independent acquired image illustrates a clearly resolved envelope.",
+        "measurement": "UA ratio unavailable. End-diastolic flow remains unclassified.",
+        "referenceIds": [
+          "pregnancy-late-cord-48"
+        ]
+      }
+    ],
+    "impression": "The current exam does not resolve interval growth, fluid or placental resistance. Document limitations and arrange targeted follow-up.",
+    "limitations": "Shadow and motion prevent a valid AC, fluid pocket and waveform in this modeled visit.",
+    "sources": [
+      {
+        "title": "ISUOG third-trimester scan",
+        "url": "https://doi.org/10.1002/uog.27538"
+      },
+      {
+        "title": "Acquired comparison · ISUOG third-trimester deepest vertical pocket, Fig. 15",
+        "url": "https://doi.org/10.1002/uog.27538"
+      },
+      {
+        "title": "Hadlock et al. · HC/AC/FL weight model",
+        "url": "https://doi.org/10.1016/0002-9378(85)90298-4"
+      },
+      {
+        "title": "Hadlock et al. 1991 · sonographic weight centiles, Table 1",
+        "url": "https://obgyn.utoronto.ca/sites/default/files/Hadlock%20Growth%20Chart-Radiology-1991.pdf"
+      },
+      {
+        "title": "ISUOG obstetric Doppler technique",
+        "url": "https://doi.org/10.1002/uog.23698"
+      }
+    ]
+  }
+]

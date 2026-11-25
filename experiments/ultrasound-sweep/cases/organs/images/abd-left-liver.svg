@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 338" font-family="system-ui,sans-serif" fill="#adb6c1" role="img" aria-label="Left hepatic lobe · subxiphoid window">
+<defs>
+  <clipPath id="field"><path d="M266 62Q334 42 402 62L608 272Q334 350 60 272Z"/></clipPath>
+  <linearGradient id="gain" x2="0" y2="1"><stop stop-color="#777774"/><stop offset=".55" stop-color="#454642"/><stop offset="1" stop-color="#202020"/></linearGradient>
+  <filter id="speckle" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency=".39 .67" numOctaves="2" seed="37"/><feColorMatrix type="saturate" values="0"/></filter>
+</defs>
+<rect width="680" height="338" fill="#10151c"/>
+<text x="30" y="29" font-size="12" fill="#dce6ec">MODELED SECTION</text><text x="650" y="29" text-anchor="end" font-size="12">Curvilinear section</text>
+<g clip-path="url(#field)"><rect x="50" y="50" width="570" height="265" fill="url(#gain)"/>
+<path d="M118 220Q225 76 416 102L512 168Q444 206 350 214Q215 238 118 220Z" fill="#838479" stroke="#9a9992" stroke-width="1.4"/><path d="M218 192Q294 169 346 172L424 149L434 158L349 186Q279 182 218 205Z" fill="#2c3028" stroke="#e0dbca" stroke-width="1.4"/>
+<rect x="50" y="50" width="570" height="265" filter="url(#speckle)" opacity=".25" style="mix-blend-mode:soft-light"/>
+</g><path d="M266 62Q334 42 402 62L608 272Q334 350 60 272Z" fill="none" stroke="#52636b"/>
+<text x="633" y="59" font-size="10">mm</text><path d="M624 102h8" stroke="#adb6c1"/><text x="639" y="106" font-size="11">20</text><path d="M624 142h8" stroke="#adb6c1"/><text x="639" y="146" font-size="11">40</text><path d="M624 182h8" stroke="#adb6c1"/><text x="639" y="186" font-size="11">60</text><path d="M624 222h8" stroke="#adb6c1"/><text x="639" y="226" font-size="11">80</text><path d="M624 262h8" stroke="#adb6c1"/><text x="639" y="266" font-size="11">100</text><path d="M624 302h8" stroke="#adb6c1"/><text x="639" y="306" font-size="11">120</text><path d="M261 147L164 121" stroke="#68e3ca" opacity=".8"/><circle cx="261" cy="147" r="2.5" fill="#68e3ca"/><text x="168" y="125" font-size="12" fill="#a3f5e2" stroke="#131820" stroke-width="4" paint-order="stroke">Left lobe</text><path d="M345 178L371 233" stroke="#68e3ca" opacity=".8"/><circle cx="345" cy="178" r="2.5" fill="#68e3ca"/><text x="375" y="237" font-size="12" fill="#a3f5e2" stroke="#131820" stroke-width="4" paint-order="stroke">Left portal branch</text>
+</svg>

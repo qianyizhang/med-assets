@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 338" font-family="system-ui,sans-serif" fill="#adb6c1" role="img" aria-label="Pancreatic tail through the splenic window">
+<defs>
+  <clipPath id="field"><path d="M266 62Q334 42 402 62L608 272Q334 350 60 272Z"/></clipPath>
+  <linearGradient id="gain" x2="0" y2="1"><stop stop-color="#777774"/><stop offset=".55" stop-color="#454642"/><stop offset="1" stop-color="#202020"/></linearGradient>
+  <filter id="speckle" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency=".39 .67" numOctaves="2" seed="37"/><feColorMatrix type="saturate" values="0"/></filter>
+</defs>
+<rect width="680" height="338" fill="#10151c"/>
+<text x="30" y="29" font-size="12" fill="#dce6ec">MODELED SECTION</text><text x="650" y="29" text-anchor="end" font-size="12">Curvilinear section</text>
+<g clip-path="url(#field)"><rect x="50" y="50" width="570" height="265" fill="url(#gain)"/>
+<path d="M183 207Q219 107 320 119Q377 116 403 148Q371 205 278 224Q221 235 183 207Z" fill="#888880" stroke="#9a9992" stroke-width="1.4"/><path d="M331 183Q368 181 414 158L431 155L438 175Q403 196 341 203Z" fill="#beb8a5" stroke="#9a9992" stroke-width="1.4"/>
+<rect x="50" y="50" width="570" height="265" filter="url(#speckle)" opacity=".25" style="mix-blend-mode:soft-light"/>
+</g><path d="M266 62Q334 42 402 62L608 272Q334 350 60 272Z" fill="none" stroke="#52636b"/>
+<text x="633" y="59" font-size="10">mm</text><path d="M624 102h8" stroke="#adb6c1"/><text x="639" y="106" font-size="11">20</text><path d="M624 142h8" stroke="#adb6c1"/><text x="639" y="146" font-size="11">40</text><path d="M624 182h8" stroke="#adb6c1"/><text x="639" y="186" font-size="11">60</text><path d="M624 222h8" stroke="#adb6c1"/><text x="639" y="226" font-size="11">80</text><path d="M624 262h8" stroke="#adb6c1"/><text x="639" y="266" font-size="11">100</text><path d="M624 302h8" stroke="#adb6c1"/><text x="639" y="306" font-size="11">120</text><path d="M256 168L176 117" stroke="#68e3ca" opacity=".8"/><circle cx="256" cy="168" r="2.5" fill="#68e3ca"/><text x="180" y="121" font-size="12" fill="#a3f5e2" stroke="#131820" stroke-width="4" paint-order="stroke">Spleen</text><path d="M383 185L402 125" stroke="#68e3ca" opacity=".8"/><circle cx="383" cy="185" r="2.5" fill="#68e3ca"/><text x="406" y="129" font-size="12" fill="#a3f5e2" stroke="#131820" stroke-width="4" paint-order="stroke">Pancreatic tail</text>
+</svg>

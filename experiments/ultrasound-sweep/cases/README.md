@@ -1,0 +1,40 @@
+# Worked ultrasound cases
+
+[Play full exams](http://127.0.0.1:8874/exams/index.html) or [open the casebook](http://127.0.0.1:8874/cases/index.html) from the local ultrasound study. Select an exam family and a referral. The player follows a single modeled visit through its ordered chapters. Play the whole exam, select a chapter, scrub with the exam position slider or select a measurement or observation to restore its evidence frame. **Tissue overlay** labels the sampled tissue in the B-mode frame. **Orbit** rotates the modeled anatomy, probe and field together while preserving the scan. The casebook collects the corresponding labeled plates and source images. Use **Views in this case** to jump to a particular acquisition and **Acquired comparisons** to inspect independently sourced clinical images. A limited visit shows what the repeat attempt resolved and what the report must leave open.
+
+| Package | Material |
+| --- | --- |
+| [Vascular](vascular/README.md) | Negative, positive and indeterminate AAA screens, diagnostic aneurysm characterization, and bilateral carotid duplex with focal stenosis and limited visualization. |
+| [Abdominal and superficial organs](organs/README.md) | Abdominal survey, biliary and urinary tract exams, thyroid and nodules, bilateral breast screening, and targeted retroareolar and axillary findings. |
+| [Pregnancy](pregnancy/README.md) | Early location and dating, the 11–14-week scan, mid-trimester anatomy and third-trimester interval growth. Each stage has its own independent cases. |
+| [Adult echo](echo/build.mjs) | A normal baseline, a high-gradient aortic stenosis case with two CW Doppler windows, and an incomplete jet envelope. The LV volumes and RV area change use the same chamber contours as the interactive echo study. Velocities are prescribed. The mean gradient integrates the squared velocity across ejection. |
+
+The material implements the [ten scenarios in the completion survey](../../../docs/gallery/use-cases/ultrasound-anatomy.md#next-batch) as playable visits with accompanying illustrated records. A plate can model a wall boundary, sample gate, fetal pose or acquisition limitation. Acquired images belong to separate exams and carry their original credit and terms. The four pregnancy stages reuse the underlying anatomy volumes. The adult heart uses the same beating geometry and registered windows as the standalone echo study. Abdominal, superficial-organ and vascular visits use case-specific modeled anatomy. Case Doppler signals are illustrative. The separate sweep and duplex atlas routes retain their original scope. Sonographer review of clinical coverage, anatomy and fidelity is pending.
+
+## Replay and review
+
+Run the [usual tour assembly](../README.md#replay) with the desired regional sweeps and hydrated echo and case-comparison media. It writes the player routes under `exams/` and reading pages under `cases/`. Direct case links and the reading sequence also work with JavaScript disabled. A partial assembly includes the case pages and only offers locally available sweep comparisons.
+
+From the repository root, run:
+
+```sh
+python3.12 experiments/ultrasound-sweep/cases/verify_cases.py
+python3.12 experiments/ultrasound-sweep/verify_assembly.py "$STUDY_OUTPUT"
+node experiments/ultrasound-sweep/exams/verify-browser.mjs http://127.0.0.1:8874/ "$EXAM_CAPTURES"
+node experiments/ultrasound-sweep/cases/verify-browser.mjs http://127.0.0.1:8874/ "$REVIEW_CAPTURES"
+```
+
+Use the same Python environment and Playwright configuration as the sweep package. The replay check covers the case records and diagrams. The browser check opens every case from the assembled family index, decodes its illustrations and checks the study entry points and laptop layout. Its optional capture directory receives the catalogue, selected worked cases and plate contact sheets.
+
+The full-exam browser check advances every sampled frame across every chapter through the player controls. It verifies scrubbing, report links, repeatable evidence frames and the boundary between replaying one chapter and playing the whole exam. The package records document geometry, calibration and known fidelity limits. [Acquired finding sources and original-media replay](acquired/README.md)
+
+## Editable anatomy and B-mode assets
+
+| Family | Geometry, acquisition and inspection |
+| --- | --- |
+| Aorta and carotids | [Vessel centerlines, walls, lumens, thrombus and plaque](vascular/playable-model.js) · [probe paths, tissue sampling, spectra and locator](vascular/playable.js) |
+| Abdomen, thyroid and breast | [Abdominal anatomy](organs/playable-abdomen.js) · [neck and breast anatomy](organs/playable-neck-breast.js) · [physical planes and caliper intersections](organs/playable-geometry.js) · [B-mode, overlay and locator](organs/playable-render.js) |
+| Pregnancy | [Stage volume recipe](pregnancy/build_playable.py) · [case-specific anatomy](pregnancy/playable-model.js) · [acquisition planes and measurements](pregnancy/playable-chapters.js) · [B-mode, labels and time traces](pregnancy/playable.js) |
+| Adult echo | [Beating heart geometry](../cardiac/heart-geometry.js) · [cardiac section intersections](../cardiac/heart-slice.js) · [B-mode renderer](../cardiac/heart-echo.js) · [case-specific valve, calipers, spectra and 3D view](echo/playable.js) |
+
+The source assets use physical coordinates. At a saved observation, the player applies the same case, plane and time to the tissue rendering and calipers. The 3D camera can orbit independently. Chapter links in the reading pages and numeric links in the exam report point to exact saved acquisitions. The companion SVGs can be reproduced from their family recipes.

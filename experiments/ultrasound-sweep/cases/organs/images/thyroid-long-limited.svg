@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 338" font-family="system-ui,sans-serif" fill="#adb6c1" role="img" aria-label="Left lobe · longitudinal reattempt">
+<defs>
+  <clipPath id="field"><path d="M78 62H590V305H78Z"/></clipPath>
+  <linearGradient id="gain" x2="0" y2="1"><stop stop-color="#777774"/><stop offset=".55" stop-color="#454642"/><stop offset="1" stop-color="#202020"/></linearGradient>
+  <filter id="speckle" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB"><feTurbulence type="fractalNoise" baseFrequency=".39 .67" numOctaves="2" seed="37"/><feColorMatrix type="saturate" values="0"/></filter>
+</defs>
+<rect width="680" height="338" fill="#10151c"/>
+<text x="30" y="29" font-size="12" fill="#dce6ec">MODELED SECTION</text><text x="650" y="29" text-anchor="end" font-size="12">Longitudinal · cranial at screen left</text>
+<g clip-path="url(#field)"><rect x="50" y="50" width="570" height="265" fill="url(#gain)"/>
+<ellipse cx="334" cy="155" rx="132" ry="42" fill="#84867e" stroke="#a5a39a" stroke-width="1.4"/><path d="M120 101Q335 77 550 101L552 114Q336 94 119 114Z" fill="#434842" stroke="#9a9992" stroke-width="1.4"/><path d="M384 93L405 91L485 305H385Z" fill="#12161a" stroke="none" stroke-width="1.4"/><path d="M383 93L406 91" fill="none" stroke="#f4ecda" stroke-width="5"/>
+<rect x="50" y="50" width="570" height="265" filter="url(#speckle)" opacity=".25" style="mix-blend-mode:soft-light"/>
+</g><path d="M78 62H590V305H78Z" fill="none" stroke="#52636b"/>
+<text x="633" y="59" font-size="10">mm</text><path d="M624 92h8" stroke="#adb6c1"/><text x="639" y="96" font-size="11">5</text><path d="M624 122h8" stroke="#adb6c1"/><text x="639" y="126" font-size="11">10</text><path d="M624 152h8" stroke="#adb6c1"/><text x="639" y="156" font-size="11">15</text><path d="M624 182h8" stroke="#adb6c1"/><text x="639" y="186" font-size="11">20</text><path d="M624 212h8" stroke="#adb6c1"/><text x="639" y="216" font-size="11">25</text><path d="M624 242h8" stroke="#adb6c1"/><text x="639" y="246" font-size="11">30</text><path d="M624 272h8" stroke="#adb6c1"/><text x="639" y="276" font-size="11">35</text><path d="M420 222L429 237" stroke="#68e3ca" opacity=".8"/><circle cx="420" cy="222" r="2.5" fill="#68e3ca"/><text x="433" y="241" font-size="12" fill="#a3f5e2" stroke="#131820" stroke-width="4" paint-order="stroke">Clavicular shadow</text><path d="M251 156L171 210" stroke="#68e3ca" opacity=".8"/><circle cx="251" cy="156" r="2.5" fill="#68e3ca"/><text x="175" y="214" font-size="12" fill="#a3f5e2" stroke="#131820" stroke-width="4" paint-order="stroke">Visible lobe</text>
+</svg>

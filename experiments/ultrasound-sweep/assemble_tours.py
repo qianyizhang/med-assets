@@ -21,6 +21,7 @@ import build_pregnancy
 import build_thyroid
 from breast_anatomy import FEMALE_SKIN_SHA, MAMMARY_SHA
 from breast_compression import SETTLE_DEPTH_MM
+from case_library import write_case_library
 from delivery import detail_files, read_poses, sha256, sweep_files, validate_image, validate_mesh, verify_inventory
 from geometry import FRAME_COUNT, KEYFRAMES, RASTER_SIZE, SECTOR_DEPTH_MM, SECTOR_HALF_ANGLE_DEG, LENS_RADIUS_MM, VOXEL_MM
 from prepare_scenes import read_vendor, shared_geometry
@@ -353,6 +354,7 @@ def write_catalogue(destination, refs, tours, survey=None):
     for name in ('index.html', 'study.css', 'study.js', 'study-picker.js', 'scene.js', 'probe-steering.js'):
         shutil.copyfile(HERE / name, destination / name)
     copy_cardiac_study(HERE / 'cardiac', destination)
+    write_case_library(destination, tours, refs)
 
 
 def copy_cardiac_study(source, destination):

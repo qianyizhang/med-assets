@@ -58,6 +58,9 @@ the knee at 20° of flexion.
 | Imaging field | The part of the scan plane sampled by the probe. In the thyroid tour a linear array samples parallel lines across a rectangle of specified width and depth. |
 | Imaging sector | A fan-shaped imaging field produced by a curved or phased array. Its opening angle and depth determine how much of the slice appears in the image. |
 | Anatomical section | The anatomy intersected by the scan plane. Labels identify structures in that slice. |
+| B-mode rendering | Formation of a grayscale ultrasound image from modeled tissues in the imaging field. Brightness represents modeled echo strength. |
+| Simulated B-mode frame | One grayscale image rendered for a specific case, probe pose and instant. |
+| Labeled tissue overlay | A map of the tissues in the anatomical section, aligned to the corresponding pixels of the simulated B-mode frame. |
 | Sweep | An ordered movement through probe poses. A phase describes a portion of the movement, such as finding the acoustic window or rotating the probe. |
 | Reference keyframe | A named pose in a sweep with a corresponding acquired ultrasound for comparison. A reference from another case illustrates the view and retains its own scale and anatomy. |
 

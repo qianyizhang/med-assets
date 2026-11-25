@@ -1,0 +1,209 @@
+[
+  {
+    "id": "echo-normal",
+    "family": "echo",
+    "kind": "normal",
+    "title": "A baseline adult echocardiogram",
+    "indication": "Characterize chamber size, systolic function and valve flow in an adult with a soft murmur.",
+    "summary": "The paired apical sections come from one modeled heartbeat. The Doppler panels show the separately prescribed flow for this worked visit.",
+    "views": [
+      {
+        "title": "Left ventricular contraction",
+        "image": "biplane.svg",
+        "caption": "The endocardium moves inward and the base moves toward the apex between these two frames. The paired two-chamber view supplies the second diameter for each volume disk.",
+        "referenceIds": [
+          "bse-44",
+          "bse-45"
+        ]
+      },
+      {
+        "title": "Biplane volumes and atrial size",
+        "image": "axes.svg",
+        "caption": "Twenty pairs of disk widths across the apical four- and two-chamber contours yield the end-diastolic and end-systolic LV volumes. Atrial size is assessed at ventricular end systole.",
+        "measurement": "LV 118 → 50 mL · EF 58%. LA volume 41 mL · RA area 20.3 cm².",
+        "referenceIds": [
+          "bse-42",
+          "bse-48"
+        ]
+      },
+      {
+        "title": "Right ventricular function",
+        "image": "right-heart.svg",
+        "caption": "Trace the RV endocardial area in the same RV-focused plane at end diastole and end systole.",
+        "measurement": "RV fractional area change 54%.",
+        "referenceIds": [
+          "bse-65",
+          "bse-66"
+        ]
+      },
+      {
+        "title": "Mitral and tricuspid inflow",
+        "image": "filling.svg",
+        "caption": "The first peak is early diastolic filling. The smaller late peak accompanies atrial contraction. Separate septal and lateral annular samples in the echo study illustrate relaxation.",
+        "measurement": "Mitral E/A 79/54 cm/s · E/A ratio 1.46. Tricuspid E/A 57/38 cm/s.",
+        "referenceIds": [
+          "bse-51",
+          "bse-88"
+        ]
+      },
+      {
+        "title": "From root to arch",
+        "image": "great-vessels.svg",
+        "caption": "Follow the outlet through the root in parasternal long axis. The suprasternal cut provides a second window on the arch and descending thoracic segment.",
+        "referenceIds": [
+          "bse-19",
+          "bse-85"
+        ]
+      },
+      {
+        "title": "Aortic outflow",
+        "image": "outflow.svg",
+        "caption": "Sample proximal outflow with PW and the valve jet with CW. Both traces have a complete systolic envelope.",
+        "measurement": "LVOT peak 1.02 m/s · aortic peak 1.31 m/s · mean aortic gradient 3.7 mmHg.",
+        "referenceIds": [
+          "bse-55",
+          "bse-56"
+        ]
+      },
+      {
+        "title": "Pulmonary and tricuspid valves",
+        "image": "right-flow.svg",
+        "caption": "The pulmonary outflow and small tricuspid regurgitant jet appear on the same velocity scale. The TR envelope supplies the RV–RA systolic difference.",
+        "measurement": "Pulmonary peak 0.96 m/s · TR peak 2.20 m/s · RV–RA difference 19 mmHg.",
+        "referenceIds": [
+          "bse-28"
+        ]
+      },
+      {
+        "title": "Systemic venous return",
+        "image": "ivc.svg",
+        "caption": "The subcostal longitudinal detail follows the same IVC site across breathing. Calipers span the lumen perpendicular to its walls.",
+        "measurement": "17 mm at end expiration → 7 mm on inspiration · 59% collapse.",
+        "referenceIds": [
+          "bse-82"
+        ]
+      },
+      {
+        "title": "Pericardial space",
+        "image": "pericardium.svg",
+        "caption": "Inspect around the ventricles from subcostal and parasternal windows. The detail models apposed pericardial layers without a fluid stripe.",
+        "referenceIds": [
+          "bse-1"
+        ]
+      }
+    ],
+    "impression": "Preserved modeled LV and RV systolic function (EF 58%, RV area change 54%). No significant outflow obstruction in the displayed spectra. No pericardial effusion in the worked survey.",
+    "limitations": "Sections are cuts through authored anatomy. Flow, respiratory IVC change and the pericardial detail are prescribed illustrations. The companion 17-window exam supplies parasternal, apical, subcostal and suprasternal acquisition context.",
+    "sources": [
+      {
+        "title": "ASE comprehensive adult TTE acquisition protocol",
+        "url": "https://www.asecho.org/guideline/comprehensive-tte-in-adults/"
+      },
+      {
+        "title": "Robinson et al. · acquired examples by window, Table 1",
+        "url": "https://doi.org/10.1530/ERP-20-0026"
+      },
+      {
+        "title": "ASE standard adult echo report",
+        "url": "https://www.asecho.org/guideline/guidelines-for-the-standardization-of-adult-echocardiography-reporting/"
+      }
+    ]
+  },
+  {
+    "id": "echo-aortic-stenosis",
+    "family": "echo",
+    "kind": "abnormal",
+    "title": "Aortic stenosis across two Doppler windows",
+    "indication": "Characterize a systolic ejection murmur in an adult with exertional dyspnea.",
+    "summary": "In this case the jet is directed toward the right parasternal window. Compare the recorded velocities before integrating the valve, gradient and effective area.",
+    "views": [
+      {
+        "title": "Valve morphology",
+        "image": "valve-opening.svg",
+        "caption": "Inspect the reduced central opening and thickened cusp edges in systole. The mobile-cusp example at left provides an orientation comparison.",
+        "referenceIds": [
+          "bse-16"
+        ]
+      },
+      {
+        "title": "LVOT diameter and flow",
+        "image": "lvot-gate.svg",
+        "caption": "Place an inner-edge diameter at cusp insertion and sample just proximal to the acceleration zone. Both enter the continuity calculation.",
+        "measurement": "LVOT diameter 2.10 cm · VTI 18.8 cm.",
+        "referenceIds": [
+          "bse-18",
+          "bse-56"
+        ]
+      },
+      {
+        "title": "Compare continuous-wave windows",
+        "image": "as-windows.svg",
+        "caption": "The apical beam samples a lower component of the same jet. The dense right parasternal envelope is complete and reaches a higher peak. The mean gradient averages 4v² over ejection.",
+        "measurement": "Apical 3.59 m/s · right parasternal 4.54 m/s · mean gradient 45 mmHg."
+      }
+    ],
+    "impression": "Severe high-gradient aortic stenosis in this modeled visit. The best aligned window yields Vmax 4.54 m/s and mean gradient 45 mmHg. LVOT VTI 18.8 cm ÷ valve VTI 109.4 cm gives a dimensionless ratio of 0.17. Multiplying this ratio by the LVOT area, π × (2.10 cm / 2)², gives an effective valve area of 0.59 cm².",
+    "limitations": "The valve detail and smooth Doppler envelopes are authored. The comparison in Figure 5 is a separate acquired exam. The schematic valve opening and effective flow area represent different measurements.",
+    "sources": [
+      {
+        "title": "Ring et al. · acquired multiwindow Doppler, Figure 5 E–F; compare the higher right parasternal envelope in a separate case",
+        "url": "https://doi.org/10.1530/ERP-20-0035"
+      },
+      {
+        "title": "ASE comprehensive adult TTE acquisition protocol",
+        "url": "https://www.asecho.org/guideline/comprehensive-tte-in-adults/"
+      },
+      {
+        "title": "Robinson et al. · acquired examples by window, Table 1",
+        "url": "https://doi.org/10.1530/ERP-20-0026"
+      },
+      {
+        "title": "ASE standard adult echo report",
+        "url": "https://www.asecho.org/guideline/guidelines-for-the-standardization-of-adult-echocardiography-reporting/"
+      }
+    ]
+  },
+  {
+    "id": "echo-limited",
+    "family": "echo",
+    "kind": "limited",
+    "title": "A murmur with an incomplete jet envelope",
+    "indication": "Assess suspected valve obstruction when acoustic access is poor.",
+    "summary": "Valve motion raises suspicion, but the spectral signal drops out near peak ejection. A repeat from the right parasternal window also loses the jet.",
+    "views": [
+      {
+        "title": "Restricted cusp motion",
+        "image": "valve-opening.svg",
+        "caption": "The right-hand valve schematic establishes a structural reason to interrogate the outflow. Morphology alone cannot grade the obstruction.",
+        "referenceIds": [
+          "bse-16"
+        ]
+      },
+      {
+        "title": "Apical acquisition and repeat",
+        "image": "limited-cw.svg",
+        "caption": "Both attempted alignments have a gap through the expected peak. The visible shoulders cannot supply a valid peak, mean gradient or valve VTI."
+      }
+    ],
+    "impression": "Restricted aortic valve opening. Hemodynamic severity is indeterminate. No reportable maximum velocity, mean gradient or continuity valve area from these acquisitions.",
+    "limitations": "Further diagnostic imaging would be needed to answer the referral. The missing range is deliberately omitted in both illustrations.",
+    "sources": [
+      {
+        "title": "Ring et al. · acquired multiwindow Doppler, Figure 5 E–F; compare the higher right parasternal envelope in a separate case",
+        "url": "https://doi.org/10.1530/ERP-20-0035"
+      },
+      {
+        "title": "ASE comprehensive adult TTE acquisition protocol",
+        "url": "https://www.asecho.org/guideline/comprehensive-tte-in-adults/"
+      },
+      {
+        "title": "Robinson et al. · acquired examples by window, Table 1",
+        "url": "https://doi.org/10.1530/ERP-20-0026"
+      },
+      {
+        "title": "ASE standard adult echo report",
+        "url": "https://www.asecho.org/guideline/guidelines-for-the-standardization-of-adult-echocardiography-reporting/"
+      }
+    ]
+  }
+]

@@ -73,6 +73,15 @@ def verify(source):
             assemble_tours.assemble(staging, destination)
             tours = javascript_value(destination / 'abdomen-tours.js', 'abdomenTours')
             references = javascript_value(destination / 'references.js', 'abdomenReferences')
+            # All declared per-view comparison IDs resolve in the complete delivered study.
+            if len(tours) == 28 and (destination / 'carotid-survey/protocol.json').is_file():
+                from case_library import ROOT, load_cases
+                echo = json.loads((assemble_tours.HERE / 'cardiac/reference/sources.json').read_text())
+                sources = set(references) | {f'bse-{p["number"]}' for v in echo['panels'].values() for p in v}
+                for family in load_cases(ROOT).values():
+                    for record in family:
+                        bound = {rid for v in record['views'] for rid in v.get('referenceIds', [])}
+                        assert not bound - sources, (record['id'], bound - sources)
             projected = set()
             for tour in tours:
                 for part in ['torso', *(part['id'] for part in tour['parts'])]:

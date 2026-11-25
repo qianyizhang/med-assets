@@ -7,6 +7,7 @@ const CM = 10;
 const RIGHT_HEART = {fill: 'rgba(45,196,207,0.18)', edge: '#81e1eb'};
 const LEFT_HEART = {fill: 'rgba(242,117,107,0.19)', edge: '#ffb1a2'};
 const STRUCTURES = {
+  'right-parasternal': ['Ao', 'LVOT', 'RVOT', 'LA'],
   plax: ['LV', 'RVOT', 'LA', 'Ao'], 'psax-av': ['Ao', 'RA', 'RVOT', 'PA'],
   'psax-mv': ['LV', 'RV'], 'psax-papillary': ['LV', 'RV'], 'psax-apical': ['LV', 'RV'],
   a4c: ['LV', 'RV', 'LA', 'RA'], a5c: ['LV', 'RV', 'LA', 'RA', 'LVOT'],
@@ -257,7 +258,7 @@ function annotation(ink, plane, slice, {scale, tip, center: origin}, overlay) {
     if (labeled) ink.fillText(`${radius / CM}`, x - 4.5, y - 2.6);
   }
   ink.restore();
-  if (!overlay) return;
+  if (!overlay) return [];
   ink.save();
   ink.translate(origin, tip);
   ink.scale(scale, scale);
@@ -294,6 +295,7 @@ function annotation(ink, plane, slice, {scale, tip, center: origin}, overlay) {
     ink.fillText(name === 'DescAo' || name === 'Arch' ? 'Ao' : name, x, y);
   }
   ink.restore();
+  return labels.map(({name, color}) => ({label: name, color: color.edge}));
 }
 
 export function createEchoRenderer() {
@@ -332,12 +334,13 @@ export function createEchoRenderer() {
       image.data[pixel + 2] = lit;
     }
     picture.ink.putImageData(image, 0, 0);
-    annotation(picture.ink, plane, slice, calibration, overlay);
+    const labels = annotation(picture.ink, plane, slice, calibration, overlay);
     ink.fillStyle = '#000';
     ink.fillRect(0, 0, width, height);
     const fit = Math.min(width / RASTER_WIDTH, height / RASTER_HEIGHT);
     const displayWidth = RASTER_WIDTH * fit;
     const displayHeight = RASTER_HEIGHT * fit;
     ink.drawImage(picture.canvas, (width - displayWidth) / 2, (height - displayHeight) / 2, displayWidth, displayHeight);
+    return labels;
   };
 }
