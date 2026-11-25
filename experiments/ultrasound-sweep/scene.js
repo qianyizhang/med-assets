@@ -19,7 +19,7 @@ async function readAsset(path, format) {
   }
 }
 
-async function loadMesh(name, path = `scenes/${name}.mesh`) {
+export async function loadMesh(name, path = `scenes/${name}.mesh`) {
   const data = await readAsset(path, 'arrayBuffer');
   const header = new DataView(data);
   if (header.byteLength < 8) throw new Error(`Incomplete mesh: ${name}`);
