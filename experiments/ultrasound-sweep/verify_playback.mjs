@@ -126,6 +126,7 @@ try {
     id: tour.id,
     title: tour.title,
     assetRoot: tour.assetRoot,
+    combinedExam: tour.combinedExam,
     region: tour.bodyRegion ?? 'Abdomen',
     stage: tour.pregnancyStage,
     probeType: tour.probeType,
@@ -163,6 +164,9 @@ try {
   for (const tour of catalogue) {
     const label = tour.stage ? 'Pregnancy · ' + tour.stage.age : tour.region;
     if (!expectedRegions.has(label)) expectedRegions.set(label, []);
+    if (tour.combinedExam && !expectedRegions.get(label).includes(tour.combinedExam.path)) {
+      expectedRegions.get(label).push(tour.combinedExam.path);
+    }
     expectedRegions.get(label).push(tour.id);
   }
   assert.deepEqual(await sweepPicker.locator('optgroup').evaluateAll((groups) =>
@@ -247,8 +251,12 @@ try {
       assert.ok(Math.abs(axes[0][2]) < .5 && Math.abs(axes[1][2]) > .8,
         'The transverse width should run laterally and the longitudinal width should follow the head–foot axis.');
       const siblings = page.getByRole('navigation', { name: 'Common carotid scan routes' });
-      assert.deepEqual(new Set(await siblings.getByRole('link').evaluateAll((links) =>
+      assert.deepEqual(new Set(await siblings.locator('a[href*="sweep="]').evaluateAll((links) =>
         links.map((link) => new URL(link.href).searchParams.get('sweep')))), new Set(['carotid-left', 'carotid-right']));
+      if (tour.combinedExam) {
+        const link = siblings.getByRole('link', { name: tour.combinedExam.title });
+        assert.equal(new URL(await link.getAttribute('href')).searchParams.get('side'), tour.id.split('-')[1]);
+      }
       assert.equal(await siblings.locator('[aria-current="page"]').getAttribute('href'), page.url());
     }
     const poseDepths = await page.evaluate(() => sweep.map(({ imagingDepthMm }) => imagingDepthMm ?? null));
@@ -440,6 +448,15 @@ try {
     await page.goBack();
     await ready();
     assert.equal(await sweepPicker.inputValue(), 'carotid-right');
+    const exam = catalogue.find(isCarotid).combinedExam;
+    if (exam) {
+      await sweepPicker.selectOption(exam.path);
+      await page.waitForURL((location) => location.pathname.endsWith('/' + exam.path));
+      await page.locator('#exam').waitFor();
+      await page.goBack();
+      await ready();
+      assert.equal(await sweepPicker.inputValue(), 'carotid-right');
+    }
   }
 
   const axilla = catalogue.find((tour) => tour.id === 'axilla');

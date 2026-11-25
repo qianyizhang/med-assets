@@ -552,6 +552,14 @@ function configureSiblingRoutes(tours) {
     if (tour.id === selectedTour.id) link.setAttribute('aria-current', 'page');
     nav.append(link);
   }
+  if (selectedTour.combinedExam) {
+    const link = document.createElement('a');
+    const url = new URL(selectedTour.combinedExam.path, location.href);
+    url.searchParams.set('side', selectedTour.routeLabel.toLowerCase());
+    link.href = url.href;
+    link.textContent = selectedTour.combinedExam.title;
+    nav.append(link);
+  }
   nav.hidden = false;
 }
 
@@ -747,6 +755,7 @@ async function startTour() {
   pregnancyNavigation(tours);
   const picker = $('sweepPicker');
   const regions = new Map();
+  const exams = new Set();
   for (const tour of tours) {
     const region = tour.pregnancyStage ? 'Pregnancy · ' + tour.pregnancyStage.age : tour.bodyRegion ?? 'Abdomen';
     if (!regions.has(region)) {
@@ -755,11 +764,20 @@ async function startTour() {
       regions.set(region, group);
       picker.append(group);
     }
+    if (tour.combinedExam && !exams.has(tour.combinedExam.path)) {
+      const exam = tour.combinedExam;
+      exams.add(exam.path);
+      regions.get(region).append(new Option(exam.title, exam.path));
+    }
     regions.get(region).append(new Option(tour.title, tour.id));
   }
   picker.value = selectedTour.id;
   picker.disabled = false;
   picker.onchange = () => {
+    if (exams.has(picker.value)) {
+      location.assign(new URL(picker.value, location.href));
+      return;
+    }
     const url = new URL(location.href);
     url.searchParams.set('sweep', picker.value);
     url.hash = '';

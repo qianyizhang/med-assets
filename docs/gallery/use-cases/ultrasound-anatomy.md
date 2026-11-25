@@ -4,7 +4,7 @@ The local abdomen, thyroid, carotid, breast and pregnancy tours are the referenc
 
 ## Audience and outcome
 
-A visitor familiar with basic anatomy should be able to connect the probe footprint, imaging field, intersected structures, and projected image. At a reference keyframe they can point out the relationship and inspect differences in shape, depth or landmarks across cases. The current tour supports exploration. The aortic survey displays a calculated model span. Free caliper placement, exercises, assessment, disease classification and narration remain possible later uses.
+A visitor familiar with basic anatomy should be able to connect the probe footprint, imaging field, intersected structures, and projected image. At a reference keyframe they can point out the relationship and inspect differences in shape, depth or landmarks across cases. The current tour supports exploration. The aortic survey displays a calculated model span. The bilateral carotid exam adds free calipers, sampled flow measurements and reconstruction from a recorded sweep. Exercises, disease classification and narration remain possible later uses.
 
 Current topics cover abdominal anatomy, abdominal aortic screening, thyroid, common carotid, breast and pregnancy. Name the exam purpose for each topic. Abdomen provides a general anatomy exploration. Reserve screening claims for specifically supported contexts such as abdominal aortic aneurysm (AAA) screening. [AIUM abdominal aorta practice parameter](https://onlinelibrary.wiley.com/doi/10.1002/jum.70167) · [USPSTF thyroid guidance](https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/thyroid-cancer-screening)
 
@@ -14,7 +14,7 @@ Current topics cover abdominal anatomy, abdominal aortic screening, thyroid, com
 | --- | --- |
 | Select a sweep | A direct, reloadable route for the named organ and side. The sweep opens at its designated comparison with the corresponding pose and images. The previous gallbladder entry still opens the gallbladder sweep. |
 | Orbit the patient | One orbitable scene containing patient exterior, probe, wireframe imaging field, and internal structures. The selected organ or regional vessel segment is the pivot. Changing frame or torso opacity preserves camera orientation. [Spatial terms](../../../GLOSSARY.md#ultrasound-acquisition) |
-| Select a camera view | Oblique, axial, coronal and sagittal presets orient the **3D camera**. Reselecting a preset restores its framing after manual orbit. The sweep timeline continues to own the sampled ultrasound plane. Clinical multiplanar reconstructions would require separate image reslicing and are outside these camera presets. |
+| Select a camera view | Oblique, axial, coronal and sagittal presets orient the **3D camera**. Reselecting a preset restores its framing after manual orbit. The sweep timeline continues to own the sampled ultrasound plane. The carotid exam has a separate volume viewer for reslicing its recorded B-mode stack. |
 | Adjust torso opacity | Move continuously from an external contact view to isolated probe and internal geometry. Retain the value across playback, reference ticks, camera presets and a round trip through the current asset review. |
 | Play or scrub | One ordered pose sequence drives probe, field, section and simulated scan. Support pause, replay, keyboard scrubbing, patterned phase spans, and labeled reference ticks. Decode images before switching them. Keep control bounds stable as the readout changes. |
 | Inspect a reference | Show simulated and acquired images side by side. The anatomy overlay uses named structure labels in matching hues. At intermediate frames, name the nearest acquired reference. If a reference uses a different level, window, or crop, label the comparison honestly. |
@@ -60,6 +60,19 @@ The s1127 thyroid mask spans both lobes and their connecting bridge. Its gland l
 The [right](http://127.0.0.1:8874/index.html?sweep=carotid-right) and [left](http://127.0.0.1:8874/index.html?sweep=carotid-left) routes explore the common carotid trunk in grayscale. At **Transverse**, find the dark arterial cross-section. As the probe rotates, watch the lumen lengthen until both walls are visible at **Longitudinal**. The magnified section shows the same sampled plane at a smaller field of view.
 
 The arteries come from the matched s1127 CT masks. A contrast-visible segment of the right internal jugular vein was traced on 34 consecutive CT slices cranial to the right brachiocephalic confluence. Each side has its own artery and probe poses. Only the right jugular has a verified vein trace in this study. The acquired transverse panel shows a carotid beside the jugular vein and leaves its side unspecified. The acquired longitudinal image shows a right common carotid and also provides a shape comparison for the left tour. Its wall markings belong to the published study. This is an orientation study of the common trunk. Duplex assessment adds flow imaging and further vessel segments. [Reference records](../../../experiments/ultrasound-sweep/research/carotid.json) · [AIUM extracranial cerebrovascular practice parameter](https://doi.org/10.1002/jum.15877)
+
+### Bilateral carotid duplex exam
+
+The [combined exam](http://127.0.0.1:8874/carotid-survey/) follows a normal-anatomy teaching protocol on both sides of one Z-Anatomy atlas. Select **Bilateral carotid exam** in the Neck picker or open it from either common-carotid sweep. The earlier CT views remain available for comparison with another anatomy source.
+
+| Acquisition | What the visitor can examine or record |
+| --- | --- |
+| Tracked transverse sweep | Follow the accessible common carotid through its bifurcation and into its internal and external branches. The 3D view shows the probe, imaging field and recorded sections in the same anatomical coordinates. |
+| Named stations on each side | Proximal and distal common carotid, bulb and bifurcation, proximal/mid/distal internal carotid, external carotid, vertebral and subclavian. The latter two are separate flow windows. |
+| B-mode, color and pulsed-wave Doppler | Place two image calipers in millimetres. Sample a modeled waveform with a registered gate and angle correction. The record retains peak systolic and end-diastolic velocities. The same-side ratio uses the highest measured internal carotid PSV and distal common carotid PSV. |
+| Stitched anatomy | Recording adjacent transverse sections builds a surface. Completing a side makes its reconstructed B-mode volume available for linked transverse, coronal and sagittal reslicing. PLY exports the lumen surface. NRRD exports the grayscale voxels, orientation, spacing and field limits. |
+
+The atlas supplies vessel geometry, skin and neighboring tissues. Tracked binary lumen contours supply the surface reconstruction. Stored grayscale scan pixels separately supply the B-mode volume. Adjacent sections support interpolation within their observed fields. The imaged cervical lengths end before the intrathoracic origins and skull base. The waveforms are illustrative. The acquired comparisons have their own subjects, directions and instrument settings. Independent sonographer review remains open. [Acquisition and replay](../../../experiments/ultrasound-sweep/carotid-survey/README.md) · [IAC extracranial documentation, §1.7B](https://intersocietal.org/wp-content/uploads/2026/08/IACVascularTestingStandardsAug2026.pdf#page=24)
 
 ## Breast coverage
 

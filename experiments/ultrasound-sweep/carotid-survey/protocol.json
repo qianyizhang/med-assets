@@ -1,0 +1,488 @@
+{
+  "version": 1,
+  "scope": "Representative normal bilateral extracranial carotid duplex teaching survey. Simulated velocity samples are illustrative and have no diagnostic classification.",
+  "protocolSources": [
+    {
+      "title": "IAC Vascular Testing Standards & Guidelines, 2026, §1B",
+      "url": "https://intersocietal.org/programs/vascular-testing/standards/"
+    },
+    {
+      "title": "AIUM extracranial cerebrovascular practice parameter, 2026 revision",
+      "url": "https://doi.org/10.1002/jum.70476"
+    },
+    {
+      "title": "SVM and SVU waveform interpretation consensus, 2020",
+      "url": "https://doi.org/10.1177/1358863X20937665"
+    }
+  ],
+  "stations": [
+    {
+      "id": "right-cca-prox",
+      "side": "right",
+      "segment": "cca-prox",
+      "order": 0,
+      "label": "Proximal CCA",
+      "referenceIds": [
+        "carotid-cca-spectral",
+        "carotid-transverse",
+        "carotid-longitudinal"
+      ],
+      "description": "Accessible lower common carotid trunk above the clavicle.",
+      "velocityScale": 1.03,
+      "physiologicalDirection": "Cranially directed",
+      "waveformProfile": "cca"
+    },
+    {
+      "id": "right-cca-dist",
+      "side": "right",
+      "segment": "cca-dist",
+      "order": 1,
+      "label": "Distal CCA",
+      "referenceIds": [
+        "carotid-cca-spectral",
+        "carotid-transverse",
+        "carotid-longitudinal"
+      ],
+      "description": "Straight segment proximal to the bulb. The PSV is the ipsilateral ratio denominator.",
+      "velocityScale": 0.89,
+      "physiologicalDirection": "Cranially directed",
+      "waveformProfile": "cca"
+    },
+    {
+      "id": "right-bulb",
+      "side": "right",
+      "segment": "bulb",
+      "order": 2,
+      "label": "Bulb and bifurcation",
+      "referenceIds": [
+        "carotid-bifurcation",
+        "carotid-bifurcation-color"
+      ],
+      "description": "Find the widening and branch split. This modeled station is for anatomy and color context; use the separate artery gates for spectral measurements."
+    },
+    {
+      "id": "right-ica-prox",
+      "side": "right",
+      "segment": "ica-prox",
+      "order": 3,
+      "label": "Proximal ICA",
+      "referenceIds": [
+        "carotid-ica"
+      ],
+      "description": "First accessible internal carotid segment beyond the bulb.",
+      "velocityScale": 1.0,
+      "physiologicalDirection": "Cranially directed",
+      "waveformProfile": "ica"
+    },
+    {
+      "id": "right-ica-mid",
+      "side": "right",
+      "segment": "ica-mid",
+      "order": 4,
+      "label": "Mid ICA",
+      "referenceIds": [
+        "carotid-ica"
+      ],
+      "description": "Representative accessible middle cervical internal carotid segment.",
+      "velocityScale": 0.9,
+      "physiologicalDirection": "Cranially directed",
+      "waveformProfile": "ica"
+    },
+    {
+      "id": "right-ica-dist",
+      "side": "right",
+      "segment": "ica-dist",
+      "order": 5,
+      "label": "Distal ICA",
+      "referenceIds": [
+        "carotid-ica"
+      ],
+      "description": "Most cranial accessible cervical internal carotid segment in the supplied anatomy.",
+      "velocityScale": 0.84,
+      "physiologicalDirection": "Cranially directed",
+      "waveformProfile": "ica"
+    },
+    {
+      "id": "right-eca",
+      "side": "right",
+      "segment": "eca",
+      "order": 6,
+      "label": "Proximal ECA",
+      "referenceIds": [
+        "carotid-eca"
+      ],
+      "description": "External carotid trunk beyond the flow divider; expect reduced forward flow in diastole.",
+      "velocityScale": 0.91,
+      "physiologicalDirection": "Cranially directed",
+      "waveformProfile": "eca"
+    },
+    {
+      "id": "right-vertebral",
+      "side": "right",
+      "segment": "vertebral",
+      "order": 7,
+      "label": "Vertebral artery",
+      "referenceIds": [
+        "carotid-vertebral"
+      ],
+      "description": "Verify cranially directed arterial flow at an accessible cervical site.",
+      "velocityScale": 1.0,
+      "physiologicalDirection": "Cranially directed",
+      "waveformProfile": "vertebral"
+    },
+    {
+      "id": "right-subclavian",
+      "side": "right",
+      "segment": "subclavian",
+      "order": 8,
+      "label": "Subclavian artery",
+      "referenceIds": [
+        "carotid-subclavian"
+      ],
+      "description": "Conditional supraclavicular station. The resting arm waveform is multiphasic; antegrade flow travels toward the arm.",
+      "velocityScale": 1.0,
+      "physiologicalDirection": "Toward the arm",
+      "waveformProfile": "subclavian"
+    },
+    {
+      "id": "left-cca-prox",
+      "side": "left",
+      "segment": "cca-prox",
+      "order": 0,
+      "label": "Proximal CCA",
+      "referenceIds": [
+        "carotid-cca-spectral",
+        "carotid-transverse",
+        "carotid-longitudinal"
+      ],
+      "description": "Accessible lower common carotid trunk above the clavicle.",
+      "velocityScale": 0.9888,
+      "physiologicalDirection": "Cranially directed",
+      "waveformProfile": "cca"
+    },
+    {
+      "id": "left-cca-dist",
+      "side": "left",
+      "segment": "cca-dist",
+      "order": 1,
+      "label": "Distal CCA",
+      "referenceIds": [
+        "carotid-cca-spectral",
+        "carotid-transverse",
+        "carotid-longitudinal"
+      ],
+      "description": "Straight segment proximal to the bulb. The PSV is the ipsilateral ratio denominator.",
+      "velocityScale": 0.8544,
+      "physiologicalDirection": "Cranially directed",
+      "waveformProfile": "cca"
+    },
+    {
+      "id": "left-bulb",
+      "side": "left",
+      "segment": "bulb",
+      "order": 2,
+      "label": "Bulb and bifurcation",
+      "referenceIds": [
+        "carotid-bifurcation",
+        "carotid-bifurcation-color"
+      ],
+      "description": "Find the widening and branch split. This modeled station is for anatomy and color context; use the separate artery gates for spectral measurements."
+    },
+    {
+      "id": "left-ica-prox",
+      "side": "left",
+      "segment": "ica-prox",
+      "order": 3,
+      "label": "Proximal ICA",
+      "referenceIds": [
+        "carotid-ica"
+      ],
+      "description": "First accessible internal carotid segment beyond the bulb.",
+      "velocityScale": 0.96,
+      "physiologicalDirection": "Cranially directed",
+      "waveformProfile": "ica"
+    },
+    {
+      "id": "left-ica-mid",
+      "side": "left",
+      "segment": "ica-mid",
+      "order": 4,
+      "label": "Mid ICA",
+      "referenceIds": [
+        "carotid-ica"
+      ],
+      "description": "Representative accessible middle cervical internal carotid segment.",
+      "velocityScale": 0.864,
+      "physiologicalDirection": "Cranially directed",
+      "waveformProfile": "ica"
+    },
+    {
+      "id": "left-ica-dist",
+      "side": "left",
+      "segment": "ica-dist",
+      "order": 5,
+      "label": "Distal ICA",
+      "referenceIds": [
+        "carotid-ica"
+      ],
+      "description": "Most cranial accessible cervical internal carotid segment in the supplied anatomy.",
+      "velocityScale": 0.8064,
+      "physiologicalDirection": "Cranially directed",
+      "waveformProfile": "ica"
+    },
+    {
+      "id": "left-eca",
+      "side": "left",
+      "segment": "eca",
+      "order": 6,
+      "label": "Proximal ECA",
+      "referenceIds": [
+        "carotid-eca"
+      ],
+      "description": "External carotid trunk beyond the flow divider; expect reduced forward flow in diastole.",
+      "velocityScale": 0.8736,
+      "physiologicalDirection": "Cranially directed",
+      "waveformProfile": "eca"
+    },
+    {
+      "id": "left-vertebral",
+      "side": "left",
+      "segment": "vertebral",
+      "order": 7,
+      "label": "Vertebral artery",
+      "referenceIds": [
+        "carotid-vertebral"
+      ],
+      "description": "Verify cranially directed arterial flow at an accessible cervical site.",
+      "velocityScale": 0.96,
+      "physiologicalDirection": "Cranially directed",
+      "waveformProfile": "vertebral"
+    },
+    {
+      "id": "left-subclavian",
+      "side": "left",
+      "segment": "subclavian",
+      "order": 8,
+      "label": "Subclavian artery",
+      "referenceIds": [
+        "carotid-subclavian"
+      ],
+      "description": "Conditional supraclavicular station. The resting arm waveform is multiphasic; antegrade flow travels toward the arm.",
+      "velocityScale": 0.96,
+      "physiologicalDirection": "Toward the arm",
+      "waveformProfile": "subclavian"
+    }
+  ],
+  "waveformProfiles": {
+    "cca": [
+      [
+        0,
+        18
+      ],
+      [
+        0.07,
+        23
+      ],
+      [
+        0.153,
+        80
+      ],
+      [
+        0.24,
+        58
+      ],
+      [
+        0.32,
+        45
+      ],
+      [
+        0.38,
+        36
+      ],
+      [
+        0.47,
+        44
+      ],
+      [
+        0.63,
+        30
+      ],
+      [
+        0.81,
+        23
+      ],
+      [
+        1,
+        18
+      ]
+    ],
+    "ica": [
+      [
+        0,
+        26
+      ],
+      [
+        0.082,
+        33
+      ],
+      [
+        0.165,
+        83
+      ],
+      [
+        0.27,
+        62
+      ],
+      [
+        0.36,
+        47
+      ],
+      [
+        0.45,
+        45
+      ],
+      [
+        0.55,
+        49
+      ],
+      [
+        0.69,
+        35
+      ],
+      [
+        0.86,
+        30
+      ],
+      [
+        1,
+        26
+      ]
+    ],
+    "eca": [
+      [
+        0,
+        9
+      ],
+      [
+        0.074,
+        17
+      ],
+      [
+        0.145,
+        84
+      ],
+      [
+        0.222,
+        43
+      ],
+      [
+        0.305,
+        15
+      ],
+      [
+        0.375,
+        6
+      ],
+      [
+        0.48,
+        14
+      ],
+      [
+        0.69,
+        11
+      ],
+      [
+        0.84,
+        9
+      ],
+      [
+        1,
+        9
+      ]
+    ],
+    "vertebral": [
+      [
+        0,
+        18
+      ],
+      [
+        0.1,
+        20
+      ],
+      [
+        0.2,
+        48
+      ],
+      [
+        0.31,
+        41
+      ],
+      [
+        0.43,
+        32
+      ],
+      [
+        0.53,
+        34
+      ],
+      [
+        0.69,
+        25
+      ],
+      [
+        0.85,
+        20
+      ],
+      [
+        1,
+        18
+      ]
+    ],
+    "subclavian": [
+      [
+        0,
+        2
+      ],
+      [
+        0.067,
+        10
+      ],
+      [
+        0.144,
+        96
+      ],
+      [
+        0.22,
+        36
+      ],
+      [
+        0.3,
+        5
+      ],
+      [
+        0.38,
+        -18
+      ],
+      [
+        0.49,
+        0
+      ],
+      [
+        0.55,
+        14
+      ],
+      [
+        0.66,
+        8
+      ],
+      [
+        0.8,
+        4
+      ],
+      [
+        1,
+        2
+      ]
+    ]
+  }
+}

@@ -107,6 +107,33 @@ def verify(source):
                 (research / 'acquired/extrahepatic-duct.webp', b'invalid acquired comparison',
                  'Unexpected acquired image identity', False),
             ]
+            acquisition = staging / 'carotid-survey/data'
+            if acquisition.exists():
+                protocol = json.loads((destination / 'carotid-survey/protocol.json').read_text())
+                assert len(protocol['stations']) == 18 and len(protocol['datasetId']) == 64
+                geometry = json.loads((acquisition / 'protocol-geometry.json').read_text())
+                geometry_path = acquisition / 'protocol-geometry.json'
+                seal = acquisition / 'delivery.json'
+                good_geometry, good_seal = geometry_path.read_bytes(), seal.read_bytes()
+                try:
+                    stale = {**geometry, 'acquisitionRecipeSha256': '0' * 64}
+                    geometry_path.write_text(json.dumps(stale))
+                    seal.write_text(json.dumps({**json.loads(good_seal), 'protocol-geometry.json': sha256(geometry_path.read_bytes())}))
+                    reject(staging, broken, 'Rebuild the carotid survey')
+                finally:
+                    geometry_path.write_bytes(good_geometry)
+                    seal.write_bytes(good_seal)
+                sources = json.loads((assemble_tours.HERE / 'carotid-survey/sources.json').read_text())
+                for key, binding in sources.items():
+                    assert references[key] == binding
+                    assert sha256((destination / binding['path']).read_bytes()) == binding['sha256']
+                for side in ('right', 'left'):
+                    first_scan = geometry['tracking'][side][0]['path']
+                    volume = geometry['volumes'][side]['path']
+                    assert (destination / 'carotid-survey/data' / volume).is_file()
+                    cases.append((acquisition / first_scan, None, 'Carotid survey acquisition identity mismatch', False))
+                cases.append((acquisition / 'delivery.json', None, 'Incomplete carotid survey acquisition', False))
+                cases.append((acquisition / volume, b'broken volume', 'Carotid survey acquisition identity mismatch', False))
             right = staging / 'sweeps/thyroid-right'
             if right.exists():
                 left = staging / 'sweeps/thyroid-left'

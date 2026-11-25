@@ -47,6 +47,8 @@ The two modeled sweeps use s1127, whose thyroid label forms a continuous bridge.
 
 ## Common carotid artery
 
+The [duplex comparison records](../carotid-survey/sources.json) add acquired bifurcation B-mode and color images and common carotid, internal carotid, external carotid, vertebral and subclavian spectra. The same reference can appear on both modeled sides. Each record identifies the published side, plane, transformation and license.
+
 Both modeled sides share the [carotid references](carotid.json). The transverse panel shows the carotid artery beside a lateral internal jugular vein in a healthy volunteer study. Its published panel does not identify the side or exact level. The longitudinal image shows the right common carotid trunk about 2 cm proximal to the bifurcation and retains the study's wall-interface markings. The images are independent acquisitions. The left sweep uses the right-side longitudinal image as a qualitative comparison. The transverse crop retains CC BY-NC-SA 4.0 and the longitudinal figure retains CC BY 4.0. [Solanki et al., Figure 2b](https://doi.org/10.4103/sja.SJA_309_18) · [Rydén Ahlgren et al., Figure 1](https://doi.org/10.14814/phy2.15580)
 
 ## Breast

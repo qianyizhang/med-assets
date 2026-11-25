@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bilateral carotid exam · Ultrasound anatomy</title>
+  <link rel="stylesheet" href="../study.css">
+  <link rel="stylesheet" href="survey.css">
+  <script defer src="../references.js"></script>
+  <script type="module" src="survey.js"></script>
+</head>
+<body class="exam">
+  <header class="mast">
+    <div class="bar">
+      <h1>Bilateral carotid exam</h1>
+      <a id="sweepsLink" class="galleryLink" href="../index.html?sweep=carotid-right">Ultrasound sweeps</a>
+    </div>
+  </header>
+  <main>
+    <p id="loading" role="status">Loading exam…</p>
+    <section id="exam" aria-label="Carotid exam" hidden>
+      <div class="examControls">
+        <div class="controlRow">
+          <div class="controlGroup" role="group" aria-label="Side">
+            <button type="button" data-side="right" aria-pressed="true">Right</button>
+            <button type="button" data-side="left" aria-pressed="false">Left</button>
+          </div>
+          <label class="stationLabel">Segment
+            <select id="station"></select>
+          </label>
+          <label class="trackLabel" for="track">Transverse tracking
+            <input type="range" id="track" min="0" max="0" value="0">
+            <output id="trackReadout" for="track"></output>
+          </label>
+          <button id="playExam" class="examPlay" aria-pressed="false">Play exam</button>
+        </div>
+        <p id="examPhase" role="status" hidden></p>
+      </div>
+      <div class="workspace">
+        <div class="acquisition">
+          <figure class="examPanel scanPanel" aria-labelledby="scanHeading">
+            <header class="panelHeader">
+              <h2 id="scanHeading">Acquisition</h2>
+              <div class="modeGroup" role="group" aria-label="Imaging mode">
+                <button type="button" data-mode="transverse" aria-pressed="true">Transverse</button>
+                <button type="button" data-mode="longitudinal" aria-pressed="false">Long axis</button>
+                <button type="button" data-mode="color" aria-pressed="false">Color</button>
+                <button type="button" data-mode="spectral" aria-pressed="false">Spectral</button>
+              </div>
+            </header>
+            <div id="display" class="scanViewport" aria-busy="true">
+              <div id="scanPlane" hidden>
+                <img id="scan" alt="">
+                <canvas id="color" aria-hidden="true" hidden></canvas>
+                <canvas id="branches" aria-hidden="true" hidden></canvas>
+                <svg id="annotations" aria-hidden="true" focusable="false"></svg>
+              </div>
+              <p id="scanStatus" role="status">Loading scan…</p>
+              <span id="orientation" class="scanOrientation" hidden></span>
+              <div id="velocityKey" class="velocityKey" aria-label="Doppler color scale" hidden><span>Toward</span><i></i><span>Away</span></div>
+            </div>
+            <div class="scanFooter">
+              <span id="scanContext"></span>
+              <button id="calipers" aria-pressed="false">Calipers</button>
+              <button id="showBranches" aria-pressed="false" hidden>Show branches</button>
+              <button id="recordTracking" aria-pressed="false">Record while tracking</button>
+              <button id="acquireStack" aria-pressed="false">Acquire stack</button>
+              <button id="capture">Capture image</button>
+            </div>
+            <div id="caliperTools" class="examTools" hidden>
+              <div class="caliperRow" role="group" aria-label="Caliper placement">
+                <label>Point <select id="caliperPoint"><option value="0">A</option><option value="1">B</option></select></label>
+                <label>Across <input id="caliperX" type="range" min="0" max="100" value="50"></label>
+                <label>Depth <input id="caliperY" type="range" min="0" max="100" value="50"></label>
+                <output id="caliperDistance" for="caliperX caliperY"></output>
+                <button id="saveDistance" disabled>Save distance</button>
+              </div>
+            </div>
+            <div id="dopplerTools" class="examTools" hidden>
+              <div class="controlRow">
+                <label id="gateControl" for="gate">Sample gate <input id="gate" type="range"></label>
+                <label id="angleControl" for="angle">Angle correction <input id="angle" type="range" min="0" max="70" step="1" value="60"></label>
+                <output id="angleValue" for="angle">60°</output>
+                <label for="scale">PRF <select id="scale"></select></label>
+                <label id="phaseControl" for="phase" hidden>Cardiac cycle <input id="phase" type="range" min="0" max="100" value="16"></label>
+              </div>
+              <p id="dopplerStatus" role="status"></p>
+              <div id="spectralPanel" hidden>
+                <canvas id="spectrum" role="img" aria-label="Modeled spectral Doppler waveform"></canvas>
+                <div class="spectrumFooter">
+                  <output id="velocityReadout"></output>
+                  <button id="saveWaveform" disabled>Save waveform</button>
+                </div>
+              </div>
+            </div>
+          </figure>
+          <section class="examPanel measurementPanel" aria-labelledby="recordTitle">
+            <header class="panelHeader"><h2 id="recordTitle">Measurement record</h2></header>
+            <p id="emptyRecord">Saved distances and waveforms appear here.</p>
+            <p id="ratios" hidden></p>
+            <div class="tableWrap" id="recordTable" tabindex="0" role="region" aria-label="Saved measurements" hidden>
+              <table>
+                <thead><tr><th scope="col">Side</th><th scope="col">Segment</th><th scope="col">Measurement</th><th scope="col">Value</th><th scope="col">Acquisition</th></tr></thead>
+                <tbody id="records"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
+        <aside class="examAside" aria-label="Exam context">
+          <section class="examPanel reconstruction" aria-labelledby="reconstructionTitle">
+            <header class="panelHeader">
+              <h2 id="reconstructionTitle">Reconstruction</h2>
+              <button id="exportMesh" disabled>Export PLY</button>
+            </header>
+            <div id="cameraViews" class="controlGroup cameraViews" role="group" aria-label="Reconstruction camera">
+              <button data-camera="oblique" aria-pressed="true">Oblique</button>
+              <button data-camera="axial" aria-pressed="false">Axial</button>
+              <button data-camera="coronal" aria-pressed="false">Coronal</button>
+              <button data-camera="sagittal" aria-pressed="false">Sagittal</button>
+            </div>
+            <div class="reconstructionViewport">
+              <canvas id="reconstruction" tabindex="0" aria-label="Orbitable carotid reconstruction. Arrow keys orbit and Home resets."></canvas>
+              <p id="reconstructionStatus" role="status">Loading reconstruction…</p>
+            </div>
+            <p class="meshKey"><span>Captured samples</span><span>Remaining trace</span></p>
+            <label class="skinOpacity" for="skinOpacity">Skin opacity <input id="skinOpacity" type="range" min="0" max="100" value="32"><output id="skinValue" for="skinOpacity">32%</output></label>
+            <p id="reconstructionSummary" class="contextLine"></p>
+            <p class="contextLine volumeLink"><a id="openVolume" hidden>Open stitched volume</a><span id="volumeHint">Acquire the selected side’s full stack to open the stitched volume.</span></p>
+          </section>
+          <details class="referenceDisclosure" id="comparison" open hidden>
+            <summary>Acquired comparison</summary>
+            <div id="comparisonContent"></div>
+          </details>
+          <section class="examPanel progressPanel" aria-labelledby="progressTitle">
+            <header class="panelHeader">
+              <h2 id="progressTitle">Exam progress</h2>
+              <output id="progressText" aria-live="polite"></output>
+            </header>
+            <progress id="progress" value="0" max="1" aria-labelledby="progressTitle"></progress>
+            <div id="coverage"></div>
+          </section>
+        </aside>
+      </div>
+      <details class="referenceDisclosure">
+        <summary>Sources</summary>
+        <div id="sources"></div>
+      </details>
+    </section>
+    <p id="announcement" class="visuallyHidden" role="status"></p>
+  </main>
+</body>
+</html>

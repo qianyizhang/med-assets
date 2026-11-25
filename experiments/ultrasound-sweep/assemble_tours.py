@@ -23,6 +23,7 @@ from breast_compression import SETTLE_DEPTH_MM
 from delivery import detail_files, read_poses, sha256, sweep_files, validate_image, validate_mesh, verify_inventory
 from geometry import FRAME_COUNT, KEYFRAMES, RASTER_SIZE, SECTOR_DEPTH_MM, SECTOR_HALF_ANGLE_DEG, LENS_RADIUS_MM, VOXEL_MM
 from prepare_scenes import read_vendor, shared_geometry
+from survey_delivery import STUDY, survey_files
 
 HERE = Path(__file__).resolve().parent
 RESEARCH = HERE / 'research'
@@ -339,7 +340,10 @@ def configured_tours(output, refs, files, landmark_refs, tracks):
     return tours
 
 
-def write_catalogue(destination, refs, tours):
+def write_catalogue(destination, refs, tours, survey=None):
+    if survey is not None:
+        (destination / STUDY).mkdir(exist_ok=True)
+        (destination / STUDY / 'protocol.json').write_text(json.dumps(survey, indent=2) + '\n')
     for name, variable, content in [('references.js', 'abdomenReferences', refs), ('abdomen-tours.js', 'abdomenTours', tours)]:
         (destination / name).write_text(f'const {variable} = ' + json.dumps(content, ensure_ascii=False, indent=2) + ';\n')
     for name in ('index.html', 'study.css', 'study.js', 'scene.js', 'probe-steering.js'):
@@ -373,13 +377,19 @@ def assemble(output, delivery=None):
     for path in read_vendor(output / 'vendor'):
         files[path] = output / path
     tours = configured_tours(output, refs, files, landmarks, tracks)
+    survey = survey_files(output, refs, files)
+    if survey is not None:
+        for tour in tours:
+            if tour['id'] in ('carotid-right', 'carotid-left'):
+                tour['combinedExam'] = {'title': 'Bilateral carotid exam', 'path': STUDY + '/'}
     if delivery is None:
         for path, source in files.items():
-            if path.startswith('references/'):
+            if path.startswith(('references/', STUDY + '/')):
                 dest = output / path
-                dest.parent.mkdir(exist_ok=True)
-                shutil.copyfile(source, dest)
-        write_catalogue(output, refs, tours)
+                if dest != source:
+                    dest.parent.mkdir(parents=True, exist_ok=True)
+                    shutil.copyfile(source, dest)
+        write_catalogue(output, refs, tours, survey)
     else:
         delivery.parent.mkdir(parents=True, exist_ok=True)
         with tempfile.TemporaryDirectory(dir=delivery.parent) as stage_dir:
@@ -388,7 +398,7 @@ def assemble(output, delivery=None):
                 dest = stage / path
                 dest.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copyfile(source, dest)
-            write_catalogue(stage, refs, tours)
+            write_catalogue(stage, refs, tours, survey)
             stage.rename(delivery)
     print(f'Assembled {len(tours)} sweeps with {len(refs)} reference bindings.')
 

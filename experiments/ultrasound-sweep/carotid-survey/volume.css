@@ -1,0 +1,13 @@
+.volumeBar, .planeHead, .planeAxis { display:flex; align-items:center; justify-content:space-between; gap:.8rem; }
+.volumeBar { margin:.4rem 0 1rem; flex-wrap:wrap; }
+.volumeBar a, .mast a { color:var(--ink,#183a37); text-underline-offset:.22em; }
+.planes { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr)); gap:.8rem; }
+.volumePlane { margin:0; overflow:hidden; border-radius:.5rem; border:1px solid #b9c9c4; background:#162b2a; color:#f0f5f2; }
+.planeHead, .planeAxis { padding:.65rem .75rem; }
+.planeHead strong { font-size:1rem; }
+.planeHead span, .planeAxis output { font-size:.81rem; color:#d2dfda; }
+.volumePlane canvas { display:block; width:100%; aspect-ratio:1; background:#0d1919; cursor:crosshair; touch-action:manipulation; }
+.planeAxis input { min-width:0; flex:1; accent-color:#b2d8c5; }
+.planeAxis output { min-width:6em; text-align:right; font-variant-numeric:tabular-nums; }
+.volumeHelp { margin:.9rem 0 1.4rem; color:#405752; }
+details p { max-width:65em; line-height:1.55; }

@@ -1,0 +1,234 @@
+{
+  "carotid-bifurcation": {
+    "path": "carotid-survey/media/carotid-bifurcation.webp",
+    "title": "Left bifurcation in grayscale",
+    "label": "Left carotid bifurcation · B-mode",
+    "credit": "Mateus Rodrigues Alessi et al., Jornal Vascular Brasileiro (2025), Figure 4",
+    "url": "https://doi.org/10.1590/1677-5449.202401112",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "note": "B-mode example of the two branches beside the bifurcation. Original left internal and external carotid labels retained. A separate case used for qualitative comparison on both modeled sides. Cropped to the panel below the original banner, converted losslessly at native scale and orientation.",
+    "plane": "transverse",
+    "laterality": "left",
+    "sourceMedia": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12020742.1/jvb-24-e20240111-g04-en.jpg",
+    "sourceMetadata": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12020742.1/PMC12020742.1.xml",
+    "sourceSha256": "769fa8d6a223d02e0c7e0535481f85cb184ec0cffcbdc7162d58dbdb08c4af9b",
+    "sha256": "4d9a5c4fa4f01fe1897ecdea1534fcffec84a7f5e8d709ce1d0618f914eae2da",
+    "transform": {
+      "crop": [
+        0,
+        32,
+        658,
+        501
+      ],
+      "sourceDimensions": [
+        658,
+        501
+      ],
+      "exportDimensions": [
+        658,
+        469
+      ],
+      "encoding": "lossless WebP",
+      "orientation": "native"
+    }
+  },
+  "carotid-bifurcation-color": {
+    "path": "carotid-survey/media/carotid-bifurcation-color.webp",
+    "title": "Left bifurcation with color flow",
+    "label": "Left carotid branches · Color Doppler",
+    "credit": "Mateus Rodrigues Alessi et al., Jornal Vascular Brasileiro (2025), Figure 3",
+    "url": "https://doi.org/10.1590/1677-5449.202401112",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "note": "Acquired transverse view of the left internal and external carotid arteries and the jugular vein. Colors encode the source scanner’s beam-relative Doppler shift. A separate case used for qualitative comparison on both modeled sides. Cropped to the panel below the original banner, converted losslessly at native scale and orientation.",
+    "plane": "transverse",
+    "laterality": "left",
+    "sourceMedia": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12020742.1/jvb-24-e20240111-g03-en.jpg",
+    "sourceMetadata": "https://pmc-oa-opendata.s3.amazonaws.com/PMC12020742.1/PMC12020742.1.xml",
+    "sourceSha256": "c01434a69c2b00be94e6600bdbe056e369ddf60ebc8b86f99a0e60d019e5b06a",
+    "sha256": "783d35e23c1e3e7381e731a583d108e219b08fb272500ba77bed39ed5db1a60f",
+    "transform": {
+      "crop": [
+        0,
+        44,
+        796,
+        598
+      ],
+      "sourceDimensions": [
+        796,
+        598
+      ],
+      "exportDimensions": [
+        796,
+        554
+      ],
+      "encoding": "lossless WebP",
+      "orientation": "native"
+    }
+  },
+  "carotid-ica": {
+    "path": "carotid-survey/media/carotid-ica.webp",
+    "title": "Right internal carotid spectral waveform",
+    "label": "Right ICA · Spectral Doppler",
+    "credit": "Whal Lee, Ultrasonography (2014), Figure 1A",
+    "url": "https://doi.org/10.14366/usg.13018",
+    "license": "CC BY-NC 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc/3.0/",
+    "note": "Shows persistent forward diastolic flow. Exact segment is unreported. Compare the trace shape and use the source baseline and color scale to orient it. A separate case used for qualitative comparison on both modeled sides. Cropped to the panel below the original banner, converted losslessly at native scale and orientation.",
+    "plane": "longitudinal",
+    "laterality": "right",
+    "sourceMedia": "https://pmc-oa-opendata.s3.amazonaws.com/PMC4058969.1/usg-33-1-11-4f1.jpg",
+    "sourceMetadata": "https://pmc-oa-opendata.s3.amazonaws.com/PMC4058969.1/PMC4058969.1.xml",
+    "sourceSha256": "3460ab97cc966946073cdb2c88434fc4053e3fceea67bd3e0887fb83bd63b86a",
+    "sha256": "607d55c17fd613af7a48adb0a0e2ad5bcf812b93c9e222c2e4d9431766a722fd",
+    "transform": {
+      "crop": [
+        5,
+        22,
+        315,
+        253
+      ],
+      "sourceDimensions": [
+        651,
+        273
+      ],
+      "exportDimensions": [
+        310,
+        231
+      ],
+      "encoding": "lossless WebP",
+      "orientation": "native"
+    }
+  },
+  "carotid-eca": {
+    "path": "carotid-survey/media/carotid-eca.webp",
+    "title": "External carotid spectral waveform",
+    "label": "ECA · Spectral Doppler",
+    "credit": "Whal Lee, Ultrasonography (2014), Figure 1B",
+    "url": "https://doi.org/10.14366/usg.13018",
+    "license": "CC BY-NC 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc/3.0/",
+    "note": "Compare the higher-resistance ECA waveform in the source S portion. The W beats include temporal tapping and have additional spikes. Exact segment and side are unreported. A separate case used for qualitative comparison on both modeled sides. Cropped to the panel below the original banner, converted losslessly at native scale and orientation.",
+    "plane": "longitudinal",
+    "laterality": "unreported",
+    "sourceMedia": "https://pmc-oa-opendata.s3.amazonaws.com/PMC4058969.1/usg-33-1-11-4f1.jpg",
+    "sourceMetadata": "https://pmc-oa-opendata.s3.amazonaws.com/PMC4058969.1/PMC4058969.1.xml",
+    "sourceSha256": "3460ab97cc966946073cdb2c88434fc4053e3fceea67bd3e0887fb83bd63b86a",
+    "sha256": "8ca805a4449eb577f65dacd955f0ec8c77daa4fd90a430ea03124b3b89b8a644",
+    "transform": {
+      "crop": [
+        331,
+        22,
+        645,
+        253
+      ],
+      "sourceDimensions": [
+        651,
+        273
+      ],
+      "exportDimensions": [
+        314,
+        231
+      ],
+      "encoding": "lossless WebP",
+      "orientation": "native"
+    }
+  },
+  "carotid-vertebral": {
+    "path": "carotid-survey/media/carotid-vertebral.webp",
+    "title": "Right vertebral artery spectral waveform",
+    "label": "Right vertebral artery · Spectral Doppler",
+    "credit": "Whal Lee, Ultrasonography (2014), Figure 6",
+    "url": "https://doi.org/10.14366/usg.13018",
+    "license": "CC BY-NC 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc/3.0/",
+    "note": "Compare sustained forward diastolic flow and the opposite color directions in adjacent artery and vein. Exact cervical level is unreported. A separate case used for qualitative comparison on both modeled sides. Cropped to the panel below the original banner, converted losslessly at native scale and orientation.",
+    "plane": "longitudinal",
+    "laterality": "right",
+    "sourceMedia": "https://pmc-oa-opendata.s3.amazonaws.com/PMC4058969.1/usg-33-1-11-4f6.jpg",
+    "sourceMetadata": "https://pmc-oa-opendata.s3.amazonaws.com/PMC4058969.1/PMC4058969.1.xml",
+    "sourceSha256": "54860bb45ecaf9d3ce9eb19b21b53468b2f5793976de0bdd81a363e75fb541da",
+    "sha256": "a63975cd75e892bbc72be4470946da1dc111728b0abece2a5da511d41ed4c006",
+    "transform": {
+      "crop": [
+        8,
+        22,
+        524,
+        397
+      ],
+      "sourceDimensions": [
+        540,
+        403
+      ],
+      "exportDimensions": [
+        516,
+        375
+      ],
+      "encoding": "lossless WebP",
+      "orientation": "native"
+    }
+  },
+  "carotid-subclavian": {
+    "path": "carotid-survey/media/carotid-subclavian.webp",
+    "title": "Normal triphasic subclavian spectral waveform",
+    "label": "Subclavian artery · Triphasic waveform",
+    "credit": "Lily Bishop and Matthew Bartlett, JRSM Cardiovascular Disease (2021), Figure 2, panel 1",
+    "url": "https://doi.org/10.1177/20480040211006571",
+    "license": "CC BY-NC 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
+    "note": "Pulsed Doppler waveform from a healthy-volunteer study of the mid-to-distal subclavian artery in a longitudinal infraclavicular view. Panel 1 shows the published normal triphasic pattern. Side and specific arm position are unreported for this panel. The selected panel has no calibrated velocity scale or anatomical inset. It compares waveform shape with the simulated supraclavicular station. Single panel cropped and converted losslessly at native scale and orientation. Noncommercial reuse.",
+    "plane": "longitudinal",
+    "laterality": "unreported",
+    "sourceMedia": "https://pmc-oa-opendata.s3.amazonaws.com/PMC8020236.1/10.1177_20480040211006571-fig2.jpg",
+    "sourceMetadata": "https://pmc-oa-opendata.s3.amazonaws.com/PMC8020236.1/PMC8020236.1.xml",
+    "sourceSha256": "5cb727ed897f79c3d0d728946a32fb7c3f1dd6d916fbbf9dd6b035d0cfa5a43b",
+    "sha256": "aa4aa9235e1a20f889333e36d3038b60610277fc1f34d6af08b1e2bd064f8fc2",
+    "transform": {
+      "crop": [
+        3,
+        3,
+        248,
+        279
+      ],
+      "sourceDimensions": [
+        773,
+        1268
+      ],
+      "exportDimensions": [
+        245,
+        276
+      ],
+      "encoding": "lossless WebP",
+      "orientation": "native"
+    }
+  },
+  "carotid-cca-spectral": {
+    "path": "carotid-survey/media/carotid-cca-spectral.webp",
+    "title": "Right distal common carotid artery pulsed Doppler",
+    "label": "Right distal CCA · Spectral Doppler",
+    "credit": "Arbin Thapaliya, Alec Sithole, Michael Welsh and Gaston Dana, Ultrasound Physics and its Application in Medicine, Figure 10-36",
+    "url": "https://pressbooks.palni.org/ultrasoundphysicsanditsapplicationinmedicine/chapter/vascular-sonography/",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "note": "Acquired distal right common carotid artery in the sagittal plane. The scanner records a brief systolic peak and sustained diastolic flow, with its original angle line, color legend, axis inversion and velocity measurements. This independent case illustrates waveform shape on both sides. It is an exact-level comparison for the distal station and a regional comparison for the proximal station. Lossless WebP conversion without crop, resize or flip.",
+    "plane": "longitudinal",
+    "laterality": "right",
+    "sourceMedia": "https://pressbooks.palni.org/ultrasoundphysicsanditsapplicationinmedicine/wp-content/uploads/sites/65/2024/01/image54.jpg",
+    "sourceMetadata": "https://pressbooks.palni.org/ultrasoundphysicsanditsapplicationinmedicine/chapter/vascular-sonography/",
+    "sourceSha256": "ee8f1d69d5aab4442a18e50e389150581aafcd90420bdc02631f78de685e3d8b",
+    "sha256": "b6aebbaa56251da5f287051bdaeb7916ca1c6a084a33cd4e7ea9cbff7d581fe0",
+    "transform": {
+      "sourceDimensions": [
+        2048,
+        1536
+      ],
+      "exportDimensions": [
+        2048,
+        1536
+      ],
+      "encoding": "lossless WebP",
+      "orientation": "native"
+    }
+  }
+}
