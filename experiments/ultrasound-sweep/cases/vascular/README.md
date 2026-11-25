@@ -1,6 +1,6 @@
 # Worked vascular ultrasound cases
 
-Compare three AAA screening outcomes and three bilateral carotid duplex outcomes. Each visit has its own ordered stationary images, saved measurements, impression and acquisition limitations. The positive AAA visit continues into a diagnostic characterization of the same modeled aneurysm. The limited visits record both the initial window and an alternate attempt. The schematics preserve anatomy and relative measurement relationships for the worked examples. The existing [CT aortic sweep](../../README.md) and [tracked duplex atlas](../../carotid-survey/README.md) remain the anatomy and acquisition interaction packages.
+Open [Tours → AAA screening](http://127.0.0.1:8874/tours/aaa/index.html) to compare the three screening outcomes. This package also contains three bilateral carotid duplex cases. Each visit has its own ordered stationary images, saved measurements, impression and acquisition limitations. The positive AAA visit continues into a diagnostic characterization of the same modeled aneurysm. The limited visits record both the initial window and an alternate attempt. The schematics preserve anatomy and relative measurement relationships for the worked examples. The existing [CT aortic sweep](../../README.md) and [tracked duplex atlas](../../carotid-survey/README.md) remain the anatomy and acquisition interaction packages.
 
 ## Sources and boundaries
 
@@ -11,7 +11,7 @@ The linked acquired comparisons have their own instrumentation, settings and sev
 
 ### Generated cutaway
 
-The positive AAA visit pairs its maximum section with an [ImageGen anatomical cutaway](aaa-transverse-cutaway.webp). The reference was the transverse overlay at frame 15 of the sac-maximum chapter in revision `140e352`. The generation brief called for an anterior residual lumen, a posterior crescent of mural thrombus and three labeled boundaries. The selected image preserves that relationship. Its perspective and tissue textures are illustrative. Read the calibrated dimensions from the [saved exam frame](http://127.0.0.1:8874/exams/aaa-positive.html?chapter=sac-maximum&frame=14#exam). The independently acquired comparison shows a different distribution of thrombus in another patient.
+The positive AAA visit pairs its maximum section with an [ImageGen anatomical cutaway](aaa-transverse-cutaway.webp). The reference was the transverse overlay at frame 15 of the sac-maximum chapter in revision `140e352`. The generation brief called for an anterior residual lumen, a posterior crescent of mural thrombus and three labeled boundaries. The selected image preserves that relationship. Its perspective and tissue textures are illustrative. Read the calibrated dimensions from the [saved exam frame](http://127.0.0.1:8874/tours/aaa/aaa-positive.html?chapter=sac-maximum&frame=14#exam). The independently acquired comparison shows a different distribution of thrombus in another patient.
 
 The retained WebP is the delivery master. Its case record pins the exact bytes for assembly. The case builder regenerates the calibrated SVGs and rebinds the retained illustration.
 

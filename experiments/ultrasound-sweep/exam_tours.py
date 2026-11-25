@@ -6,6 +6,8 @@ import shutil
 import subprocess
 from urllib.parse import urlencode
 
+from aaa_tours import write_aaa_tours
+
 
 def evidence_index(root, groups, families):
     visits = [{'owner': families[family][1], 'record': record} for family, records in groups.items() for record in records]
@@ -14,9 +16,14 @@ def evidence_index(root, groups, families):
     return json.loads(result.stdout)
 
 
-def evidence_url(key, chapter):
+def tour_path(record):
+    folder = 'tours/aaa' if record['family'] == 'aaa' else 'exams'
+    return f"{folder}/{record['id']}.html"
+
+
+def evidence_url(page, chapter):
     query = urlencode({'chapter': chapter['id'], 'frame': chapter['evidenceFrame']})
-    return f'{key}.html?{query}#exam'
+    return f'{page}?{query}#exam'
 
 
 def exam_page(record, owner, family_title, evidence):
@@ -25,14 +32,14 @@ def exam_page(record, owner, family_title, evidence):
     data = json.dumps(record, ensure_ascii=False).replace('<', r'\u003c')
     rows = []
     for chapter in evidence:
-        href = escape(evidence_url(key, chapter))
+        href = escape(evidence_url(key + '.html', chapter))
         finding = escape(chapter.get('measurement') or chapter['observation'])
         rows.append(f'<li><strong>{escape(chapter["title"])}</strong><br><a href="{href}">{finding}</a></li>')
     return f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{title} · Full ultrasound exam</title><link rel="stylesheet" href="../cases/cases.css">
 <link rel="stylesheet" href="exam.css"><script type="module" src="player.js"></script></head>
-<body><header><nav aria-label="Breadcrumb"><a href="../index.html">Ultrasound anatomy</a> / <a href="index.html#{record['family']}">Full exams</a></nav></header>
+<body><header><nav aria-label="Breadcrumb"><a href="../index.html">Ultrasound anatomy</a> / <a href="../tours/index.html#{record['family']}">Tours</a></nav></header>
 <main data-owner="{owner}"><p class="category">{escape(family_title)} · Modeled exam</p><h1>{title}</h1>
 <p class="referral"><strong>Referral</strong> {escape(record['indication'])}</p>
 <p><a href="../cases/{key}.html">Worked views and acquired comparisons</a> · <a href="#impression">Exam impression</a></p>
@@ -51,6 +58,21 @@ def exam_page(record, owner, family_title, evidence):
 '''
 
 
+def legacy_handoff(target, *, index=False):
+    # The old address can identify a specific measurement by chapter, frame and fragment.
+    dest = json.dumps(target)
+    resolve = f"new URL({dest}, location.href)"
+    if index:
+        resolve = f"location.hash === '#aaa' ? new URL('../tours/aaa/index.html', location.href) : {resolve}"
+    keep_hash = "if (location.hash !== '#aaa') " if index else ""
+    return f'''<!doctype html><html lang="en"><meta charset="utf-8"><title>Ultrasound tours</title>
+<script>const target = {resolve};
+target.search = location.search;
+{keep_hash}target.hash = location.hash;
+location.replace(target.href);</script>
+<p><a href="{escape(target)}">Open the ultrasound tour</a></p></html>'''
+
+
 def write_exam_tours(destination, root, grouped, families, catalog, evidence):
     exams = destination / 'exams'
     exams.mkdir(exist_ok=True)
@@ -63,6 +85,13 @@ def write_exam_tours(destination, root, grouped, families, catalog, evidence):
             raise ValueError(f'Missing acquisition module: {owner}')
         for module in modules:
             shutil.copyfile(module, destination / 'cases' / owner / module.name)
+        if family == 'aaa':
+            write_aaa_tours(destination, records, evidence)
+            for record in records:
+                old = exams / (record['id'] + '.html')
+                old.write_text(legacy_handoff('../' + tour_path(record)))
+            continue
         for row in records:
             (exams / (row['id'] + '.html')).write_text(exam_page(row, owner, name, evidence[row['id']]))
-    (exams / 'index.html').write_text(catalog)
+    (destination / 'tours' / 'index.html').write_text(catalog)
+    (exams / 'index.html').write_text(legacy_handoff('../tours/index.html', index=True))

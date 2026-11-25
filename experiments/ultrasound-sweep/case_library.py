@@ -7,7 +7,7 @@ import re
 import shutil
 from urllib.parse import urlsplit
 
-from exam_tours import evidence_index, evidence_url, write_exam_tours
+from exam_tours import evidence_index, evidence_url, tour_path, write_exam_tours
 
 ROOT = Path(__file__).with_name('cases')
 FAMILIES = {
@@ -119,15 +119,16 @@ def acquired_comparison(ref, description, anchor=None):
 def case_page(case, related, owner, tour_link, finding, refs, evidence):
     family = case['family']
     name = FAMILIES[family][0]
+    case_tour = '../' + tour_path(case)
     views = []
     contents = []
     for index, view in enumerate(case['views']):
         anchor = f'view-{index + 1}'
         bindings = [c for c in evidence if c['viewImage'] == view['image']]
-        links = [link('../exams/' + evidence_url(case['id'], c), c['title']) for c in bindings]
+        links = [link(evidence_url(case_tour, c), c['title']) for c in bindings]
         replay = ('<details class="replays"><summary>Replay acquisitions</summary><ul>' +
                   ''.join('<li>' + item + '</li>' for item in links) + '</ul></details>') if len(links) > 1 else (
-                      link('../exams/' + evidence_url(case['id'], bindings[0]), 'Replay acquisition'))
+                      link(evidence_url(case_tour, bindings[0]), 'Replay acquisition'))
         contents.append(f"<li>{link('#' + anchor, view['title'])}</li>")
         image = escape(f"{owner}/{view['image']}", quote=True)
         loading = 'loading="lazy"' if index else ''
@@ -148,7 +149,7 @@ def case_page(case, related, owner, tour_link, finding, refs, evidence):
                 chapter = next((c for c in bindings if c['id'] == art['chapterId']), None)
                 if chapter is None:
                     raise ValueError(f"Unbound illustration acquisition: {case['id']}/{art['chapterId']}")
-                art_replay = link('../exams/' + evidence_url(case['id'], chapter), 'Replay acquisition')
+                art_replay = link(evidence_url(case_tour, chapter), 'Replay acquisition')
             download = f'<p><a href="{src}" download>Download editable SVG</a></p>' if src.endswith('.svg') else ''
             views.append(f'''<figure id="{anchor}-illustration"><a class="plate" href="{src}" aria-label="Open full-size illustration">
 <img src="{src}" loading="lazy" alt="{escape(art['alt'])}"></a><figcaption>
@@ -162,12 +163,20 @@ def case_page(case, related, owner, tour_link, finding, refs, evidence):
 <ol>{''.join(contents)}</ol></details>{finding_link}{link('#impression', 'Impression')}{link('#sources', 'Sources')}</div>'''
     body = f'''<p class="category">{escape(name)} · {KINDS[case['kind']]}</p><h1>{escape(case['title'])}</h1>
 <p class="referral"><strong>Referral</strong> {escape(case['indication'])}</p>{paragraph(case['summary'])}
-<p class="playLink">{link('../exams/' + case['id'] + '.html', 'Open full exam tour')}</p>
+<p class="playLink">{link(case_tour, 'Open exam tour' if family == 'aaa' else 'Open full exam tour')}</p>
 {navigation}<section class="views" aria-label="Worked views">{''.join(views)}</section>
 <section class="report" id="impression"><h2>Impression</h2>{paragraph(case['impression'])}<h3>Limits</h3>{paragraph(case['limitations'])}</section>
 <section id="sources"><h2>Sources</h2><ul>{sources}</ul>{tour_link}</section>
 <nav class="related" aria-label="More in this family"><h2>Other {escape(name.lower())} cases</h2><ul>{others}</ul></nav>'''
     return document(case['title'], link('index.html#' + family, 'Worked cases'), body)
+
+
+def family_section(family, records, *, tours=False):
+    rows = []
+    for record in records:
+        href = '../' + tour_path(record) if tours else record['id'] + '.html'
+        rows.append(f"<li><span>{KINDS[record['kind']]}</span>{link(href, record['title'])}</li>")
+    return f'<section class="family" id="{family}"><h2>{escape(FAMILIES[family][0])}</h2><ul>{"".join(rows)}</ul></section>'
 
 
 def write_case_library(destination, tours, refs, root=ROOT):
@@ -196,6 +205,7 @@ def write_case_library(destination, tours, refs, root=ROOT):
                 'note': 'Original published panel, reproduced unchanged from Table 1.'}
     available = {tour['id'] for tour in tours}
     cards = []
+    tour_groups = []
     for family, (name, owner, sweep) in FAMILIES.items():
         records = sorted(grouped[family], key=lambda row: list(KINDS).index(row['kind']))
         tour_link = ''
@@ -217,14 +227,19 @@ def write_case_library(destination, tours, refs, root=ROOT):
                     shutil.copyfile(root / art, target / art)
             page = case_page(case, records, owner, tour_link, findings.get(case['id']), refs, evidence[case['id']])
             (target / (case['id'] + '.html')).write_text(page)
-        rows = ''.join(f"<li><span>{KINDS[row['kind']]}</span>{link(row['id'] + '.html', row['title'])}</li>" for row in records)
-        cards.append(f'<section class="family" id="{family}"><h2>{escape(name)}</h2><ul>{rows}</ul></section>')
-    body = f'''<h1>Worked ultrasound cases</h1><p class="intro">Follow a referral through the imaging views, measurements and impression of a modeled exam.</p><div class="catalog">{''.join(cards)}</div>'''
-    (target / 'index.html').write_text(document('Worked ultrasound cases', 'Worked cases',
-        body.replace('<div class="catalog">', '<p><a href="../exams/index.html">Browse full exam tours</a></p><div class="catalog">')))
-    exam_body = ('<h1>Full ultrasound exams</h1><p class="intro">Choose a referral, follow the probe through the exam '
-                 'and replay the acquisition behind each finding.</p>'
-                 '<p><a href="../composed-tour/">Abdominal orientation tour</a> · '
-                 '<a href="../cases/index.html">Worked casebook</a></p>'
-                 + '<div class="catalog">' + ''.join(cards) + '</div>')
-    write_exam_tours(destination, root, grouped, FAMILIES, document('Full ultrasound exams', 'Full exams', exam_body), evidence)
+        cards.append(family_section(family, records))
+        if family != 'aaa':
+            tour_groups.append(family_section(family, records, tours=True))
+    body = ('<h1>Worked ultrasound cases</h1><p class="intro">Follow a referral through the imaging views, '
+            'measurements and impression of a modeled exam.</p><p><a href="../tours/index.html">Browse tours</a></p>'
+            '<div class="catalog">' + ''.join(cards) + '</div>')
+    (target / 'index.html').write_text(document('Worked ultrasound cases', 'Worked cases', body))
+    tours_body = ('<h1>Ultrasound tours</h1>'
+                  '<div class="catalog"><section class="family" id="aaa">'
+                  '<h2><a href="aaa/index.html">AAA screening</a></h2>'
+                  '<p>Follow a negative, positive or indeterminate case from referral to impression.</p></section>'
+                  '<section class="family"><h2><a href="../composed-tour/">Abdominal orientation</a></h2>'
+                  '<p>Explore the liver, portal vein and gallbladder on one CT anatomy.</p></section></div>'
+                  '<h2>Other exam tours</h2><div class="catalog">' + ''.join(tour_groups) + '</div>')
+    write_exam_tours(destination, root, grouped, FAMILIES,
+                     document('Ultrasound tours', 'Tours', tours_body), evidence)

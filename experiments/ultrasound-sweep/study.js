@@ -774,10 +774,10 @@ async function startTour() {
     currentURL.searchParams.delete('sweep');
     history.replaceState(null, '', currentURL);
   }
-  const full = document.querySelector('a[href="exams/index.html"]');
+  const full = document.querySelector('a[href="tours/index.html"]');
   if (full && selectedTour.id === 'aortic-screening') {
-    full.href = 'exams/index.html#aaa';
-    full.textContent = 'Full AAA exams';
+    full.href = 'tours/aaa/index.html';
+    full.textContent = 'AAA screening tours';
   }
   if (!embedded) {
     pregnancyNavigation(tours);

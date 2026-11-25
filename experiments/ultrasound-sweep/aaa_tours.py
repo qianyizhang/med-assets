@@ -1,0 +1,190 @@
+"""Assemble the three modeled AAA screening tours from worked records and playback evidence."""
+from html import escape
+import json
+from pathlib import Path
+import shutil
+from urllib.parse import urlencode
+
+CASES = {
+    'aaa-negative': ('Negative screen', 'aaa-negative-stations.svg'),
+    'aaa-positive': ('Positive screen with diagnostic views', 'aaa-positive-sac.svg'),
+    'aaa-indeterminate': ('Indeterminate screen', 'aaa-indeterminate-anterior.svg'),
+}
+CHAPTER_LABELS = {
+    'proximal-aorta': 'Proximal',
+    'mid-aorta': 'Mid aorta',
+    'distal-aorta': 'Distal aorta',
+    'iliac-bifurcation': 'Bifurcation',
+    'right-iliac-short': 'Right iliac transverse',
+    'left-iliac-short': 'Left iliac transverse',
+    'sac-maximum': 'Sac transverse',
+    'sac-long-axis': 'Sac long axis',
+    'right-iliac-long': 'Right iliac long axis',
+    'left-iliac-long': 'Left iliac long axis',
+    'anterior-distal-attempt': 'Anterior attempt',
+    'lateral-distal-repeat': 'Lateral repeat',
+}
+DIAGNOSTIC_START = 'sac-long-axis'
+CT_SWEEP = '../../index.html?sweep=aortic-screening'
+
+
+def link(url: str, title: str) -> str:
+    return f'<a href="{escape(url, quote=True)}">{escape(title)}</a>'
+
+
+def chapter_url(chapter: dict, *, frame: bool = False, anchor: str = '') -> str:
+    query = {'chapter': chapter['id']}
+    if frame:
+        query['frame'] = str(chapter['evidenceFrame'])
+    return '?' + urlencode(query) + anchor
+
+
+def shell(title: str, content: str, *, case: bool = False) -> str:
+    script = '<script defer src="../../composed-tour/tour.js"></script>' if case else ''
+    screening = link('index.html', 'AAA screening') if case else '<span aria-current="page">AAA screening</span>'
+    return f'''<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{escape(title)} · Ultrasound Anatomy</title>
+  <link rel="stylesheet" href="../../study.css">
+  <link rel="stylesheet" href="../../composed-tour/tour.css">
+  <link rel="stylesheet" href="tours.css">
+  {script}
+</head>
+<body class="aaa">
+  <header class="mast">
+    <div class="bar">
+      <nav class="aaa-breadcrumb" aria-label="Breadcrumb">
+        {link('../../index.html', 'Ultrasound Anatomy')} <span aria-hidden="true">/</span>
+        {link('../index.html', 'Tours')} <span aria-hidden="true">/</span> {screening}
+      </nav>
+    </div>
+  </header>
+  <main>{content}</main>
+</body>
+</html>
+'''
+
+
+def index_page(cases: dict, normal_sweep: bool) -> str:
+    cards = []
+    for index, (case_id, (title, image)) in enumerate(CASES.items()):
+        summary = escape(cases[case_id]['summary'])
+        priority = 'fetchpriority="high"' if index == 0 else ''
+        cards.append(f'''
+    <article class="scenario">
+      <img src="../../cases/vascular/{image}" alt="" width="800" height="420" {priority}>
+      <div>
+        <h2>{link(case_id + '.html', title)}</h2>
+        <p>{summary}</p>
+      </div>
+    </article>''')
+    related = f'''
+  <aside class="ct-note" aria-labelledby="ct-title">
+    <h2 id="ct-title">CT-based normal aortic sweep</h2>
+    <p>Inspect the separate same-case CT anatomy and its acquired comparisons. The modeled screening tours use authored wall boundaries and measurements.</p>
+    {link(CT_SWEEP, 'Open the CT-based sweep')}
+  </aside>''' if normal_sweep else ''
+    return shell('AAA screening', f'''
+  <header class="aaa-intro">
+    <h1>AAA screening</h1>
+    <p>Follow the probe from referral to impression in three modeled screening cases.</p>
+  </header>
+  <div class="scenario-grid">{''.join(cards)}
+  </div>{related}''')
+
+
+def chapter_sections(case_id: str, chapters: list) -> tuple[str, str, str]:
+    buttons = []
+    panels = []
+    report = []
+    diagnostic = False
+    for index, chapter in enumerate(chapters, 1):
+        chapter_id = chapter['id']
+        key = escape(chapter_id, quote=True)
+        title = escape(chapter['title'])
+        cue = escape(chapter['observation'])
+        measurement = chapter.get('measurement')
+        short_label = escape(CHAPTER_LABELS.get(chapter_id, chapter['title']))
+        phase_start = case_id == 'aaa-positive' and chapter_id == DIAGNOSTIC_START
+        diagnostic = diagnostic or phase_start
+        phase = ' class="phase-start"' if phase_start else ''
+        chapter_href = escape(chapter_url(chapter))
+        buttons.append(f'<a href="{chapter_href}" data-chapter="{key}"{phase}>{index}. {short_label}</a>')
+        saved_frame = link(chapter_url(chapter, frame=True), 'Show saved frame')
+        value = f'<p class="chapter-value">{escape(measurement)}</p>' if measurement else ''
+        phase_name = '<p class="phase-name">Diagnostic continuation</p>' if diagnostic else ''
+        panels.append(f'''
+    <section class="chapter" id="{key}" aria-labelledby="{key}-title" hidden>
+      <div>{phase_name}<h2 id="{key}-title">{title}</h2><p>{cue}</p></div>
+      <div class="evidence">{saved_frame}{value}</div>
+    </section>''')
+        report_link = link(chapter_url(chapter, frame=True, anchor='#exam'), chapter['title'])
+        report.append(f'<li>{report_link}{f" · {escape(measurement)}" if measurement else ""}</li>')
+    return ''.join(buttons), ''.join(panels), ''.join(report)
+
+
+def case_page(record: dict, chapters: list) -> str:
+    case_id = record['id']
+    title = CASES[case_id][0]
+    tabs, panels, report = chapter_sections(case_id, chapters)
+    worked_url = f'../../cases/{case_id}.html'
+    worked = link(worked_url, 'Worked case')
+    continuation = ''
+    if case_id == 'aaa-positive':
+        chapter = next(chapter for chapter in chapters if chapter['id'] == DIAGNOSTIC_START)
+        continuation = link(chapter_url(chapter, anchor='#exam'), 'Diagnostic continuation')
+    return shell(title, f'''
+  <header class="aaa-intro aaa-case-intro">
+    <h1>{escape(title)}</h1>
+    <p>{escape(record['summary'])}</p>
+    <p class="referral" id="referral"><strong>Referral</strong> {escape(record['indication'])}</p>
+    <nav class="case-jumps" aria-label="Case material">
+      {link('#impression', 'Impression and report')} {worked} {continuation}
+    </nav>
+  </header>
+
+  <section id="exam" aria-label="Acquisition">
+    <nav class="chapters" aria-label="Acquisition chapters">
+      {tabs}
+      <button type="button" id="playTour" disabled>Play tour</button>
+    </nav>
+    <p id="tourProgress" class="sr" role="status"></p>
+    {panels}
+    <div id="player" data-sweep-url="sweep.html?case={case_id}" data-sweep-chapter-param="chapter"></div>
+    <noscript><p>The sweep player requires JavaScript. Open the {worked} for the saved views.</p></noscript>
+    <nav class="chapterControls" aria-label="Chapter controls" hidden>
+      <a id="restart">Restart chapter</a>
+      <a id="openSweep">Open standalone sweep</a>
+      <a id="advance" class="advance"></a>
+    </nav>
+  </section>
+
+  <section class="aaa-report" id="impression">
+    <h2>Impression</h2>
+    <p>{escape(record['impression'])}</p>
+    <h3 id="evidence">Acquisition evidence</h3>
+    <ol id="reportEvidence">{report}</ol>
+    <h3>Limits</h3>
+    <p>{escape(record['limitations'])}</p>
+    <p>{link(worked_url, 'Read worked views and comparisons')}</p>
+  </section>
+''', case=True)
+
+
+def write_aaa_tours(destination: Path, records: list, evidence: dict) -> None:
+    cases = {record['id']: record for record in records}
+    if cases.keys() != CASES.keys() or any(not evidence.get(key) for key in CASES):
+        raise ValueError('AAA tours require the three worked cases and their acquisition evidence.')
+    target = destination / 'tours/aaa'
+    target.mkdir(parents=True, exist_ok=True)
+    source = Path(__file__).with_name('tours') / 'aaa'
+    for name in ('tours.css', 'sweep.html', 'sweep.css', 'sweep.js'):
+        shutil.copyfile(source / name, target / name)
+    normal_sweep = (destination / 'sweeps/aortic-screening/sweep.js').is_file()
+    (target / 'index.html').write_text(index_page(cases, normal_sweep), encoding='utf-8')
+    for case_id, record in cases.items():
+        (target / (case_id + '.html')).write_text(case_page(record, evidence[case_id]), encoding='utf-8')
+        (target / (case_id + '.json')).write_text(json.dumps(record, ensure_ascii=False) + '\n', encoding='utf-8')

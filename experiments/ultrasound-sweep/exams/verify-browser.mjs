@@ -45,10 +45,12 @@ try {
   let ids = process.argv.slice(4);
   if (!ids.length) {
     await page.goto(new URL('index.html', root).href);
-    await page.getByRole('link', { name: 'Full exams', exact: true }).click({ force: true });
+    await page.getByRole('link', { name: 'Tours', exact: true }).click({ force: true });
     ids = await page
-      .locator('.family a')
-      .evaluateAll((nodes) => nodes.map((n) => n.getAttribute('href').replace('.html', '')));
+      .locator('a[href*="/exams/"]')
+      .evaluateAll((nodes) => [...new Set(nodes.map((node) => new URL(node.href).pathname.match(/\/exams\/([^/]+)\.html$/)?.[1])
+        .filter((id) => id && id !== 'index' && !id.startsWith('aaa-')))]);
+    assert.ok(ids.length, 'No existing exams were linked from Tours');
   }
   let chapters = 0,
     frames = 0;
@@ -133,17 +135,6 @@ try {
         el('overlay').click();
         if (el('overlay').getAttribute('aria-pressed') !== 'true' || el('legend').hidden)
           throw Error('Missing tissue legend: ' + c.id);
-        if (record.id === 'aaa-positive' && c.id === 'sac-maximum') {
-          const legend = el('legend').textContent.toLowerCase();
-          for (const tissue of ['wall', 'thrombus', 'lumen'])
-            if (!legend.includes(tissue)) throw Error('Incomplete AAA overlay: ' + legend);
-          if (equivalent(pixels('scan'), expected)) throw Error('AAA tissue overlay produced no change');
-          const marked = pixels('scan');
-          scrub(start + c.evidenceFrame - 1);
-          el('observationLink').click();
-          if (!equivalent(pixels('scan'), marked) || Number(seek.value) !== start + c.evidenceFrame)
-            throw Error('Observation lost AAA registered calipers');
-        }
         el('overlay').click();
         if (!equivalent(pixels('scan'), expected)) throw Error('B-mode not restored: ' + c.id);
         const evidence = el('evidence').querySelectorAll('a')[i];
@@ -180,7 +171,7 @@ try {
       const form = page.locator('#chapter');
       const options = await form.locator('option').allTextContents();
       const preferred = options.findIndex((s) =>
-        /sweep the aneurysm in transverse|maximum sac|jet at|right parasternal|nodule.*transverse|opening.*sac|mural thrombus|absent.*diastol|omphalocele|ectopic|renal pelvis|cyst.*radial/i.test(
+        /jet at|right parasternal|nodule.*transverse|opening.*sac|absent.*diastol|omphalocele|ectopic|renal pelvis|cyst.*radial/i.test(
           s,
         ),
       );
@@ -188,7 +179,7 @@ try {
       await page.locator('#keyframe').dispatchEvent('click');
       await page.evaluate(() => window.scrollTo(0, 0));
       await page.screenshot({ path: join(captures, id + '.jpg') });
-      if (['aaa-positive', 'thyroid-nodule', 'pregnancy-early-abnormal', 'echo-aortic-stenosis'].includes(id)) {
+      if (['thyroid-nodule', 'pregnancy-early-abnormal', 'echo-aortic-stenosis'].includes(id)) {
         await page.locator('#overlay').dispatchEvent('click');
         await page.locator('#orbit').fill('35');
         await page.screenshot({
@@ -200,7 +191,7 @@ try {
   }
   assert.deepEqual(errors, []);
   const real = await browser.newPage({ viewport: { width: 1024, height: 768 } });
-  await real.goto(new URL('exams/aaa-positive.html', root).href);
+  await real.goto(new URL('exams/echo-normal.html', root).href);
   await real.locator('#play').click();
   await real.waitForFunction(() => document.querySelector('#seek').valueAsNumber > 1);
   await real.locator('#play').click();

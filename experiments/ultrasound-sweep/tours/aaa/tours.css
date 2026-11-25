@@ -1,0 +1,49 @@
+.aaa .bar { min-height: 50px; }
+.aaa-breadcrumb { align-items: center; gap: .65rem; font-size: .9rem; }
+.aaa-breadcrumb a, .aaa main a { text-underline-offset: .2em; }
+.aaa-breadcrumb span { color: var(--quiet); }
+.aaa main { padding-block: 0 3rem; }
+.aaa-intro { padding-block: clamp(1.4rem, 4vw, 3rem) 1.4rem; }
+.aaa-intro p { max-width: 78ch; margin-top: .55rem; color: var(--quiet); }
+.aaa-case-intro { padding-block: 1rem .7rem; }
+.aaa-case-intro h1 { font-size: clamp(30px, 4vw, 42px); }
+.case-jumps { gap: .35rem 1rem; margin-top: .55rem; font-size: .9rem; }
+.scenario-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); gap: 1rem; }
+.scenario {
+  overflow: clip;
+  border: 1px solid var(--line);
+  border-radius: .7rem;
+  background: #fcfdf9;
+}
+.scenario > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 17 / 10;
+  object-fit: contain;
+  background: #10171b;
+}
+.scenario > div { padding: 1rem; }
+.scenario h2 { font-size: clamp(1.35rem, 2.5vw, 1.75rem); }
+.scenario p { color: var(--quiet); margin-top: .55rem; }
+.ct-note { margin-top: 1.65rem; border-top: 1px solid var(--line); padding-top: 1rem; }
+.ct-note h2 { font-size: 1.4rem; }
+.ct-note p, .ct-note a { margin-top: .4rem; }
+.ct-note a { display: inline-block; }
+.aaa .chapters { gap: .18rem .2rem; align-items: center; }
+.aaa .chapters a { padding: .38rem .52rem; font-size: .875rem; }
+.aaa .chapters .phase-start { border-inline-start: 2px solid var(--line); padding-inline-start: .8rem; }
+.aaa #playTour { margin-bottom: 0; }
+.aaa .chapter { grid-template-columns: minmax(0, 1fr) auto; padding-block: .65rem; }
+.aaa .chapter h2 { font: 650 1.12rem/1.25 system-ui, sans-serif; letter-spacing: 0; }
+.aaa .chapter p { margin-top: .25rem; }
+.aaa .chapter .phase-name { font-size: .82rem; font-weight: 650; color: var(--teal); margin: 0 0 .15rem; }
+.aaa .evidence { min-width: 11rem; }
+.aaa .chapter p.chapter-value { font-size: .87rem; font-weight: 650; }
+.aaa-report { border-top: 1px solid var(--line); padding-top: 1rem; max-width: 85ch; }
+.aaa-report p, .aaa-report h3 { margin-top: .6rem; }
+.aaa-report ol { padding-inline-start: 1.4rem; }
+.aaa-report li + li { margin-top: .3rem; }
+@media (max-width: 620px) {
+  .aaa .chapter { grid-template-columns: 1fr; gap: .5rem; }
+}

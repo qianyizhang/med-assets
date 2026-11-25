@@ -1,0 +1,17 @@
+#caseTitle { font-size: clamp(24px, 3vw, 38px); }
+#chapterTitle { margin-block: 4px 14px; }
+#status { margin-block: 12px; }
+.sweepActions { display: flex; gap: 8px; flex-wrap: wrap; }
+.sweepPanels { display: grid; grid-template-columns: minmax(0, 11fr) minmax(0, 15fr); gap: 12px; }
+.sweepPanels figure { display: flex; flex-direction: column; overflow: hidden; }
+.sweepPanels canvas { display: block; width: 100%; height: auto; }
+.sweepPanels figcaption { min-height: 42px; flex-wrap: wrap; }
+.sweepPanels .panelFoot { flex-wrap: wrap; padding-block: 6px; }
+.sweepPanels #measurement { min-height: 1.5em; }
+.orbitControl input { inline-size: min(40%, 150px); accent-color: #80c8b9; }
+.orbitControl output { min-width: 4ch; }
+#observation { margin-top: 12px; max-width: 75ch; color: var(--quiet); }
+.embeddedSweep #chapterTitle, .embeddedSweep #observation { display: none; }
+@media (max-width: 650px) {
+  .sweepPanels { grid-template-columns: minmax(0, 1fr); }
+}

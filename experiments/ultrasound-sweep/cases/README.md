@@ -1,6 +1,6 @@
 # Worked ultrasound cases
 
-[Play full exams](http://127.0.0.1:8874/exams/index.html) or [open the casebook](http://127.0.0.1:8874/cases/index.html) from the local ultrasound study. Select an exam family and a referral. The player follows a single modeled visit through its ordered chapters. Play the whole exam, select a chapter, scrub with the exam position slider or select a measurement or observation to restore its evidence frame. **Tissue overlay** labels the sampled tissue in the B-mode frame. **Orbit** rotates the modeled anatomy, probe and field together while preserving the scan. The casebook collects the corresponding labeled plates and source images. Use **Views in this case** to jump to a particular acquisition and **Acquired comparisons** to inspect independently sourced clinical images. A limited visit shows what the repeat attempt resolved and what the report must leave open.
+[Browse tours](http://127.0.0.1:8874/tours/index.html) or [open the casebook](http://127.0.0.1:8874/cases/index.html) from the local ultrasound study. Select an exam family and a referral. The player follows a single modeled visit through its ordered chapters. Play the whole exam, select a chapter, scrub with the exam position slider or select a measurement or observation to restore its evidence frame. **Tissue overlay** labels the sampled tissue in the B-mode frame. **Orbit** rotates the modeled anatomy, probe and field together while preserving the scan. The casebook collects the corresponding labeled plates and source images. Use **Views in this case** to jump to a particular acquisition and **Acquired comparisons** to inspect independently sourced clinical images. A limited visit shows what the repeat attempt resolved and what the report must leave open.
 
 | Package | Material |
 | --- | --- |
@@ -20,13 +20,14 @@ From the repository root, run:
 ```sh
 python3.12 experiments/ultrasound-sweep/cases/verify_cases.py
 python3.12 experiments/ultrasound-sweep/verify_assembly.py "$STUDY_OUTPUT"
+node experiments/ultrasound-sweep/tours/aaa/verify-tours.mjs http://127.0.0.1:8874/ "$AAA_CAPTURES"
 node experiments/ultrasound-sweep/exams/verify-browser.mjs http://127.0.0.1:8874/ "$EXAM_CAPTURES"
 node experiments/ultrasound-sweep/cases/verify-browser.mjs http://127.0.0.1:8874/ "$REVIEW_CAPTURES"
 ```
 
 Use the same Python environment and Playwright configuration as the sweep package. The replay check covers the case records and diagrams. The browser check opens every case from the assembled family index, decodes its illustrations and checks the study entry points and laptop layout. Its optional capture directory receives the catalogue, selected worked cases and plate contact sheets.
 
-The full-exam browser check advances every sampled frame across every chapter through the player controls. It verifies scrubbing, report links, repeatable evidence frames and the boundary between replaying one chapter and playing the whole exam. The package records document geometry, calibration and known fidelity limits. [Acquired finding sources and original-media replay](acquired/README.md)
+The AAA check exercises the composed tours, their standalone sweeps, finding links and legacy bookmarks. The other full-exam browser check advances every sampled frame across every chapter through the player controls. It verifies scrubbing, report links, repeatable evidence frames and the boundary between replaying one chapter and playing the whole exam. The package records document geometry, calibration and known fidelity limits. [Acquired finding sources and original-media replay](acquired/README.md)
 
 ## Editable anatomy and B-mode assets
 

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>AAA modeled sweep · Ultrasound anatomy</title>
+    <link rel="stylesheet" href="../../study.css" />
+    <link rel="stylesheet" href="sweep.css" />
+    <script type="module" src="sweep.js"></script>
+  </head>
+  <body>
+    <header class="mast">
+      <div class="bar">
+        <h1 id="caseTitle">AAA modeled sweep</h1>
+        <nav id="sweepLinks" aria-label="Case links" hidden>
+          <a class="caseLink" id="tourLink">Case tour</a>
+          <a class="caseLink" id="caseLink">Worked case</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <p id="status" role="status">Loading acquisition…</p>
+      <section id="exam" aria-labelledby="chapterTitle" hidden>
+        <h2 id="chapterTitle"></h2>
+        <div class="transport">
+          <div class="transportTop">
+            <div class="sweepActions">
+              <button class="primary" type="button" id="play">Play sweep</button>
+              <button type="button" id="evidence">Show evidence frame</button>
+            </div>
+            <output id="frameNumber" for="position"></output>
+          </div>
+          <label class="sr" for="position">Sweep position</label>
+          <input type="range" id="position" min="0" step="1" value="0" />
+        </div>
+        <div class="sweepPanels">
+          <figure class="panel">
+            <figcaption>Probe and scan plane</figcaption>
+            <canvas id="sceneCanvas" width="400" height="300" aria-label="Modeled probe, anatomy and scan plane"></canvas>
+            <div class="panelFoot orbitControl">
+              <label for="orbit">Orbit</label>
+              <input type="range" id="orbit" min="-90" max="90" value="0" />
+              <output id="yaw" for="orbit">0°</output>
+              <button type="button" class="viewButton" id="resetView">Reset view</button>
+            </div>
+          </figure>
+          <figure class="panel">
+            <figcaption>
+              <span>Modeled ultrasound</span>
+              <button class="viewButton" type="button" id="section" aria-pressed="false">Anatomy overlay</button>
+            </figcaption>
+            <canvas id="scanCanvas" width="800" height="440" aria-label="Modeled acquisition and available calipers"></canvas>
+            <div class="panelFoot">
+              <output id="measurement" for="position"></output>
+              <ul id="legend" class="legend" aria-label="Tissue overlay legend" hidden></ul>
+            </div>
+          </figure>
+        </div>
+        <p id="observation" hidden></p>
+      </section>
+      <noscript><p>The modeled sweep requires JavaScript.</p></noscript>
+    </main>
+  </body>
+</html>

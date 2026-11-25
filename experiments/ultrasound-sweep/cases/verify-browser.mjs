@@ -41,6 +41,12 @@ try {
       assert(width > 0, src);
       plates.set(src, title);
     }
+    const caseName = new URL(url).pathname.split('/').pop();
+    if (caseName.startsWith('aaa-')) {
+      const open = page.getByRole('link', { name: 'Open exam tour', exact: true });
+      assert.equal(new URL(await open.getAttribute('href'), page.url()).pathname,
+        new URL('tours/aaa/' + caseName, root).pathname);
+    }
     const panels = page.locator('details.paired');
     if (await panels.count()) {
       await panels.first().locator('summary').click();
