@@ -680,7 +680,7 @@ function boundsCorners(bounds) {
     [min.z, max.z].map((z) => vec(x, y, z))));
 }
 
-function neckFraming(pivot, bodyBounds, voxelMm) {
+function neckFraming(pivot, bodyBounds, voxelMm, obliqueDirection) {
   const contextBounds = bodyBounds.clone();
   // Keep superior and inferior case context, and focus laterally on the probed side.
   const width = 66 / voxelMm;
@@ -690,7 +690,8 @@ function neckFraming(pivot, bodyBounds, voxelMm) {
   contextBounds.min.z = Math.max(contextBounds.min.z, pivot.z - 72 / voxelMm);
   contextBounds.max.z = Math.min(contextBounds.max.z, pivot.z + 96 / voxelMm);
   const side = pivot.x < bodyBounds.getCenter(vec(0, 0, 0)).x ? -1 : 1;
-  return { contextBounds, padding: 5 / voxelMm, direction: vec(.92 * side, .94, .43) };
+  const direction = obliqueDirection ? vector(obliqueDirection) : vec(.92 * side, .94, .43);
+  return { contextBounds, padding: 5 / voxelMm, direction };
 }
 
 function axillaFraming(pivot, voxelMm) {
@@ -847,7 +848,7 @@ export async function createSweepScene({ canvas, frames, config, onViewPresetCha
   }
   let framing;
   if (config.bodyRegion === 'Neck') {
-    framing = neckFraming(pivot, meshes.torso.boundingBox, dimensions.voxelMm);
+    framing = neckFraming(pivot, meshes.torso.boundingBox, dimensions.voxelMm, config.obliqueDirection);
   } else if (config.organ === 'axillary_node') {
     framing = axillaFraming(pivot, dimensions.voxelMm);
   } else if (config.steering) {

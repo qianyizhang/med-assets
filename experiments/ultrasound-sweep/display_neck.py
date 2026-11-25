@@ -143,7 +143,7 @@ def conform_neck(vertices, faces, shell, contacts):
     return result
 
 
-def fitted_neck(case, shell, contacts, beams, *, shape, affine):
+def fitted_neck(case, shell, contacts, beams, *, shape, affine, conformer=conform_neck):
     """Return the display-only atlas mesh and its registration/contact receipt."""
     template, observed = paired_landmarks(case, shape, affine)
     transform, landmarks = registration(template, observed)
@@ -153,7 +153,7 @@ def fitted_neck(case, shell, contacts, beams, *, shape, affine):
     faces = primitive_stream(doc, binary, primitive['indices']).reshape(-1, 3)
     vertices, faces = crop_bust(vertices, faces)
     vertices, faces = refine(transform(smooth_atlas(vertices, faces) * 1000), faces)
-    vertices = conform_neck(vertices, faces, shell, contacts)
+    vertices = conformer(vertices, faces, shell, contacts)
     error = max_outer_error(vertices, faces, contacts, beams)
     return vertices, faces, {
         'atlasSkinSha256': SKIN_SHA,

@@ -25,6 +25,19 @@ def reject(source, target, expected):
     assert not target.exists(), f'Assembly published an incomplete delivery: {target}'
 
 
+def verify_subset(staging, destination, expected):
+    """A removed study may change which surviving tour owns a shared mesh."""
+    actual = javascript_value(destination / 'abdomen-tours.js', 'abdomenTours')
+    def metadata(tours):
+        return [{key: val for key, val in tour.items() if key != 'meshPaths'} for tour in tours]
+    assert metadata(actual) == metadata(expected)
+    for tour in actual:
+        for part in ['torso', *(part['id'] for part in tour['parts'])]:
+            raw = Path(tour['assetRoot']) / 'scenes' / (part + '.mesh')
+            packed = tour.get('meshPaths', {}).get(part, raw)
+            assert (staging / raw).read_bytes() == (destination / packed).read_bytes()
+
+
 def verify(source):
     with tempfile.TemporaryDirectory() as work:
         work = Path(work)
@@ -119,8 +132,7 @@ def verify(source):
                 right.rename(work / 'right')
                 abdomen = work / 'abdomen'
                 assemble_tours.assemble(staging, abdomen)
-                previous = javascript_value(abdomen / 'abdomen-tours.js', 'abdomenTours')
-                assert previous == [tour for tour in tours if tour['id'] not in ('thyroid-left', 'thyroid-right')]
+                verify_subset(staging, abdomen, [tour for tour in tours if tour['id'] not in ('thyroid-left', 'thyroid-right')])
                 (work / 'left').rename(left)
                 (work / 'right').rename(right)
                 receipt = right / 'verification.json'
@@ -129,6 +141,20 @@ def verify(source):
                     (receipt, json.dumps(wrong_field).encode(), 'configured linear field', False),
                     (right / 'delivery.json', None, 'Missing linear sweep delivery inventory', False),
                     (research / 'acquired/thyroid-isthmus.webp', b'invalid', 'Unexpected acquired image identity', False),
+                ])
+            carotid = staging / 'sweeps/carotid-right'
+            if carotid.exists():
+                carotid.rename(work / 'carotid-right')
+                reject(staging, broken, 'Incomplete carotid study')
+                (work / 'carotid-right').rename(carotid)
+                receipt = carotid / 'verification.json'
+                original = json.loads(receipt.read_text())
+                bad_roi = {**original['detailBoundsMm'], '48': [-100, 2, 20, 15]}
+                cases.extend([
+                    (receipt, json.dumps({**original, 'modelRecipeSha256': '0' * 64}).encode(), 'current carotid anatomy', False),
+                    (receipt, json.dumps({**original, 'detailBoundsMm': bad_roi}).encode(), 'Invalid linear detail bounds', False),
+                    (carotid / 'media/detail-scan-48.webp', None, 'Missing sweep input', False),
+                    (research / 'acquired/carotid-transverse.webp', b'invalid comparison', 'Unexpected acquired image identity', False),
                 ])
             breast = staging / 'sweeps/breast'
             if breast.exists():
@@ -140,15 +166,7 @@ def verify(source):
                 breast.rename(work / 'breast')
                 previous_dir = work / 'without-breast'
                 assemble_tours.assemble(staging, previous_dir)
-                previous = javascript_value(previous_dir / 'abdomen-tours.js', 'abdomenTours')
-                others = [tour for tour in tours if tour['id'] not in ('breast', 'breast-subareolar')]
-                def without_mesh_paths(items):
-                    return [{key: val for key, val in item.items() if key != 'meshPaths'} for item in items]
-                assert without_mesh_paths(previous) == without_mesh_paths(others)
-                for tour in previous:
-                    for part, path in tour.get('meshPaths', {}).items():
-                        raw = staging / tour['assetRoot'] / 'scenes' / (part + '.mesh')
-                        assert raw.read_bytes() == (previous_dir / path).read_bytes()
+                verify_subset(staging, previous_dir, [tour for tour in tours if tour['id'] not in ('breast', 'breast-subareolar')])
                 (work / 'breast').rename(breast)
                 (work / 'focused').rename(focused)
                 steering_receipt = focused / 'verification.json'
