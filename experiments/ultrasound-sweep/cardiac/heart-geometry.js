@@ -1,5 +1,11 @@
 // Original, illustrative A4C geometry in nominal millimeters. +x is patient left,
-// +y is depth from the apex-side probe, and +z is the near side of the spatial view.
+// +y is depth from the apex-side probe, and +z is posterior.
+import {outletValves, heartVessels} from './heart-vessels.js';
+import {probePlane} from './heart-poses.js';
+import {heartSection, largestContour} from './heart-slice.js';
+
+export {CARDIAC_VIEWS, probePlane} from './heart-poses.js';
+export {heartSection} from './heart-slice.js';
 // Each row is [depth, right-patient edge, left-patient edge, z center, z radius].
 const HEART_PROFILES = {
   LV: {
@@ -74,6 +80,9 @@ const TRICUSPID_OPEN = [
   [0.86, 0.51], [0.935, 0.77], [0.975, 0.38], [1, 0],
 ];
 
+const AORTIC_OPEN = [[0, 0], [0.055, 0], [0.096, 1], [0.25, 0.91], [0.35, 0], [1, 0]];
+const PULMONARY_OPEN = [[0, 0], [0.055, 0], [0.105, 1], [0.26, 0.91], [0.35, 0], [1, 0]];
+
 export const CARDIAC_STAGES = Object.freeze([
   {start: 0, key: 'isovolumetric-contraction', label: 'Isovolumetric contraction'},
   {start: 0.055, key: 'ejection', label: 'Ventricular ejection'},
@@ -86,9 +95,6 @@ export const CARDIAC_STAGES = Object.freeze([
 const RING_SIZE = 44;
 const PROFILE_SUBDIVISIONS = 3;
 const FULL_TURN = 2 * Math.PI;
-const DEGREE = Math.PI / 180;
-const HALF_ANGLE = 36 * DEGREE;
-const DEPTH = 158;
 const ringAngles = Array.from({length: RING_SIZE}, (_, index) => {
   const angle = index * FULL_TURN / RING_SIZE;
   return [Math.cos(angle), Math.sin(angle)];
@@ -128,6 +134,8 @@ export function cardiacMotion(value) {
     reservoir: curve(RESERVOIR, phase),
     mitralOpen: curve(MITRAL_OPEN, phase),
     tricuspidOpen: curve(TRICUSPID_OPEN, phase),
+    aorticOpen: curve(AORTIC_OPEN, phase),
+    pulmonaryOpen: curve(PULMONARY_OPEN, phase),
   };
 }
 
@@ -203,18 +211,23 @@ function deformAtrium([depth, left, right, z, radius], source, ventricle, annulu
     radius + (1 - t) * radiusShift + 2.7 * expanded];
 }
 
-function surfaceRing(row, shape) {
+function rvCrescent(depth, half, sin) {
+  const wrap = clamp((112 - depth) / 36, 0, 1);
+  return half * (0.17 * sin * sin - 0.37 * sin + 1.42 * wrap * Math.min(0, sin) ** 2);
+}
+
+function surfaceRing(row, shape, lateralLift = 0) {
   const [depth, left, right, z, radius] = row;
   const middle = (left + right) / 2;
   const half = (right - left) / 2;
   return ringAngles.map(([cos, sin]) => {
     // The RV is skewed anteriorly off-axis, while its septal border bends toward the LV.
-    const crescent = shape === 'RV' ? half * (0.17 * sin * sin - 0.37 * sin) : 0;
-    return [middle + half * cos + crescent, depth, z + radius * sin];
+    const crescent = shape === 'RV' ? rvCrescent(depth, half, sin) : 0;
+    return [middle + half * cos + crescent, depth - lateralLift * (1 - cos) * 0.5, z + radius * sin];
   });
 }
 
-function leafletPair(ring, open, isMitral) {
+function leafletPair(ring, open, isMitral, lateralLift) {
   const [depth, left, right, z, radius] = ring;
   const half = (right - left) / 2;
   const center = (left + right) / 2;
@@ -229,14 +242,15 @@ function leafletPair(ring, open, isMitral) {
         const rise = Math.cos(angle);
         const sin = Math.sin(angle);
         const width = half * rise;
-        const crescent = isMitral ? 0 : half * (0.17 * sin * sin - 0.37 * sin);
+        const crescent = isMitral ? 0 : rvCrescent(depth, half, sin);
         const hinge = center + side * width + crescent;
         const closedX = mix(center + crescent, coaptation + crescent, rise);
         const tipX = mix(closedX, hinge - side * width * 0.21, open);
         const excursion = open * (side < 0 ? 11.2 : 8.4);
         const camber = Math.sin(Math.PI * flow) * rise * (0.8 + open);
-        points.push([mix(hinge, tipX, flow),
-          depth - (3.3 + excursion) * flow * rise - camber,
+        const x = mix(hinge, tipX, flow);
+        const pull = lateralLift * (1 - (x - center - crescent) / half) * 0.5;
+        points.push([x, depth - (3.3 + excursion) * flow * rise - camber - pull,
           z + radius * sin]);
       }
       rows.push(points);
@@ -245,19 +259,20 @@ function leafletPair(ring, open, isMitral) {
   });
 }
 
-function myocardiumDetails(rows, ventricle) {
+function myocardiumDetails(rows, ventricle, posterior = false) {
   const isLeft = ventricle === 'LV';
-  const reference = rows[Math.floor((isLeft ? 0.74 : 0.64) * rows.length)];
+  const reference = rows[Math.floor((isLeft ? (posterior ? 0.64 : 0.66) : 0.64) * rows.length)];
   const [depth, left, right, z] = reference;
-  const tip = isLeft ? right - 7 : mix(left, right, 0.57);
-  const outer = isLeft ? right : left - 0.5;
-  const width = isLeft ? 2.1 : 3.3;
-  const length = isLeft ? 7.7 : 10.8;
+  const tip = isLeft ? right - (posterior ? 23 : 11) : mix(left, right, 0.57);
+  const outer = isLeft ? right - (posterior ? 9 : 0) : left - 0.5;
+  const width = isLeft ? 3 : 3.3;
+  const length = isLeft ? 17 : 10.8;
+  const center = z + (posterior ? 16 : 1);
   const rowsOfMuscle = loftRows([
-    [depth - length * 0.66, outer, outer, z + 2.5, 0],
-    [depth - length * 0.32, mix(outer, tip, 0.37) - width, mix(outer, tip, 0.37) + width, z + 2.4, 2.5],
-    [depth, tip - width, tip + width, z + 3.3, 3.2],
-    [depth + length * 0.34, tip, tip, z + 2.4, 0],
+    [depth - length * 0.66, outer, outer, center + 2.5, 0],
+    [depth - length * 0.32, mix(outer, tip, 0.37) - width, mix(outer, tip, 0.37) + width, center + 2.4, 4],
+    [depth, tip - width, tip + width, center + 3.3, 4.5],
+    [depth + length * 0.34, tip, tip, center + 2.4, 0],
   ]);
   return {name: ventricle, material: 'muscle', rings: rowsOfMuscle.map((row) => surfaceRing(row))};
 }
@@ -275,106 +290,30 @@ export function heartFrame(phase) {
     const referenceRing = v.lumen.at(-1);
     const activeRing = ventricularLumen.at(-1);
     const annulus = activeRing.map((value, index) => value - referenceRing[index]);
+    // Tricuspid free-wall descent exceeds septal excursion. Apply the same
+    // deformation at both sides of the junction and at the leaflet attachment.
+    const lateralLift = ventricle === 'RV' ? 4.3 * motion.contraction : 0;
+    const pull = ([depth]) => lateralLift * Math.exp(-(((depth - activeRing[0]) / 23) ** 2));
+    const ring = (row, shape) => surfaceRing(row, shape, pull(row));
     chambers[ventricle] = {
       name: ventricle,
-      wall: v.wall.map((row) => surfaceRing(deformVentricle(row, v.wall, v, 'wall', motion), ventricle)),
-      lumen: ventricularLumen.map((row) => surfaceRing(row, ventricle)),
+      wall: v.wall.map((row) => ring(deformVentricle(row, v.wall, v, 'wall', motion), ventricle)),
+      lumen: ventricularLumen.map((row) => ring(row, ventricle)),
     };
     chambers[atrium] = {
       name: atrium,
-      wall: a.wall.map((row) => surfaceRing(deformAtrium(row, a.wall, v, annulus, motion), atrium)),
-      lumen: a.lumen.map((row) => surfaceRing(deformAtrium(row, a.lumen, v, annulus, motion), ventricle)),
+      wall: a.wall.map((row) => ring(deformAtrium(row, a.wall, v, annulus, motion), atrium)),
+      lumen: a.lumen.map((row) => ring(deformAtrium(row, a.lumen, v, annulus, motion), ventricle)),
     };
-    details.push(...leafletPair(activeRing, open, ventricle === 'LV'));
+    details.push(...leafletPair(activeRing, open, ventricle === 'LV', lateralLift));
     details.push(myocardiumDetails(ventricularLumen, ventricle));
+    if (ventricle === 'LV') details.push(myocardiumDetails(ventricularLumen, ventricle, true));
   }
-  return {chambers, details, motion};
+  details.push(...outletValves(motion));
+  return {chambers, vessels: heartVessels(motion), details, motion};
 }
 
-export function probePlane(tilt) {
-  const angle = tilt * DEGREE;
-  const cos = Math.cos(angle);
-  const sin = Math.sin(angle);
-  return {
-    tilt,
-    halfAngle: HALF_ANGLE,
-    depth: DEPTH,
-    distance: ([x, , z]) => z * cos - x * sin,
-    section: ([x, y, z]) => [x * cos + z * sin, y],
-    world: (u, y, offset = 0) => [u * cos - offset * sin, y, u * sin + offset * cos],
-  };
-}
-
-function interval(ring, plane) {
-  const hits = [];
-  for (let step = 0; step < ring.length; step += 1) {
-    const a = ring[step];
-    const b = ring[(step + 1) % ring.length];
-    const da = plane.distance(a);
-    const db = plane.distance(b);
-    if (da === 0) hits.push(plane.section(a)[0]);
-    if (da * db < 0) {
-      const f = da / (da - db);
-      hits.push(mix(plane.section(a)[0], plane.section(b)[0], f));
-    }
-  }
-  return hits.length ? [ring[0][1], Math.min(...hits), Math.max(...hits)] : null;
-}
-
-function sectionRows(rings, plane) {
-  const rows = [];
-  let previousRing = null;
-  let previousCut = null;
-  for (const ring of rings) {
-    const cut = interval(ring, plane);
-    // For an oblique cut, locate where the loft meets/leaves the plane between rings.
-    if (previousRing && !!cut !== !!previousCut) {
-      let start = 0;
-      let stop = 1;
-      for (let step = 0; step < 7; step += 1) {
-        const f = (start + stop) / 2;
-        const inBetween = ring.map((point, index) => point.map((n, axis) => mix(previousRing[index][axis], n, f)));
-        if (!!interval(inBetween, plane) === !!previousCut) start = f;
-        else stop = f;
-      }
-      const fraction = previousCut ? start : stop;
-      const tangent = ring.map((point, index) => point.map((n, axis) => mix(previousRing[index][axis], n, fraction)));
-      const tip = interval(tangent, plane);
-      if (tip && (!cut || Math.abs(tip[0] - cut[0]) > 0.0001)
-        && (!previousCut || Math.abs(tip[0] - previousCut[0]) > 0.0001)) rows.push(tip);
-    }
-    if (cut) rows.push(cut);
-    previousRing = ring;
-    previousCut = cut;
-  }
-  return rows;
-}
-
-function leafCut(rings, plane) {
-  const points = [];
-  for (const ring of rings) {
-    for (let index = 0; index < ring.length - 1; index += 1) {
-      const a = ring[index];
-      const b = ring[index + 1];
-      const da = plane.distance(a);
-      const db = plane.distance(b);
-      if (da === 0) points.push(plane.section(a));
-      if (da * db < 0) {
-        const f = da / (da - db);
-        points.push(plane.section(a.map((n, axis) => mix(n, b[axis], f))));
-      }
-    }
-  }
-  return points;
-}
-
-export function heartSection(frame, plane) {
-  const chambers = Object.fromEntries(Object.entries(frame.chambers).map(([name, chamber]) => [name, {
-    wall: sectionRows(chamber.wall, plane), lumen: sectionRows(chamber.lumen, plane),
-  }]));
-  const valveCuts = frame.details.filter(({material}) => material === 'leaflet')
-    .map(({name, rings}) => ({name, points: leafCut(rings, plane)}));
-  const muscleCuts = frame.details.filter(({material}) => material === 'muscle')
-    .map(({rings}) => sectionRows(rings, plane));
-  return {chambers, valveCuts, muscleCuts};
+export function measurementContour(phase, viewId, chamber, tilt = 0) {
+  const section = heartSection(heartFrame(phase), probePlane(tilt, viewId));
+  return largestContour(section.chambers[chamber]?.lumen ?? []);
 }

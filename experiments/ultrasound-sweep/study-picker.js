@@ -14,12 +14,12 @@ function configureStudyPicker(picker, tours, selected, root) {
     const region = tour.pregnancyStage ? 'Pregnancy · ' + tour.pregnancyStage.age : tour.bodyRegion ?? 'Abdomen';
     option(region, tour.title, tour.id);
   }
-  option('Heart', 'Apical four chamber', 'cardiac-a4c');
+  option('Heart', 'Adult echocardiography', 'cardiac-a4c');
   picker.value = selected;
   picker.disabled = false;
   picker.onchange = () => {
     const cardiac = picker.value === 'cardiac-a4c';
-    const url = new URL(cardiac ? 'cardiac/' : 'index.html', root);
+    const url = new URL(cardiac ? 'cardiac/?view=plax' : 'index.html', root);
     if (!cardiac) url.searchParams.set('sweep', picker.value);
     location.assign(url);
   };

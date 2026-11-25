@@ -123,4 +123,4 @@ The initial inventory used med-assets `e51891b`. Local s1233 masks shared a spat
 
 ## Cardiac cycle
 
-The apical four-chamber study fixes the probe during a beat. Its independent plane rotation samples the same moving heart seen in the spatial view. Compare model and acquired cine at end diastole, end systole and early filling. The reference keeps its recorded plane. [Replay, licensed acquisition and landmark review](../../../experiments/ultrasound-sweep/cardiac/README.md)
+The adult study covers 17 views from parasternal, apical, subcostal and suprasternal windows. The default spatial pane shows the probe seated on an orbitable torso. Close-up and chest landmarks reveal the contact and beam, while the heart section shows the sampled tissues. Plane rotation and cardiac phase are independent. Open Doppler and measurements for view-specific exercises, or inspect licensed acquired cines, stills and spectra. Each recorded reference keeps its original plane. [Replay, licensed acquisition and landmark review](../../../experiments/ultrasound-sweep/cardiac/README.md)

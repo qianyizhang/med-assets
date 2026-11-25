@@ -96,4 +96,4 @@ The anatomy builders check fluid space after accounting for the fetus and other 
 
 ## Adult cardiac echo
 
-The [cardiac acquisition record](../cardiac/acquisition.json) identifies the normal apical four-chamber cine, its license and the frame transformation. The [matched-phase review](../cardiac/README.md) identifies the three comparison landmarks and limits.
+The [apical four-chamber record](../cardiac/acquisition.json) and [additional cardiac reference records](../cardiac/reference/sources.json) bind nine acquired cines and 88 published teaching panels to their files and reuse terms. Eight cines follow visually matched landmarks. The suprasternal cine plays on its original clock. Published Doppler spectra, calipers and strain images retain their source cases and markings. [Comparisons and replay](../cardiac/README.md)

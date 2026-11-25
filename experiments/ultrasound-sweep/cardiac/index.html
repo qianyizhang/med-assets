@@ -3,9 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Apical four chamber · Ultrasound anatomy</title>
+  <title>Adult echocardiography · Ultrasound anatomy</title>
   <link rel="stylesheet" href="../study.css">
   <link rel="stylesheet" href="echo.css">
+  <link rel="stylesheet" href="measure/measure.css">
   <script defer src="../abdomen-tours.js"></script>
   <script defer src="../study-picker.js"></script>
   <script type="module" src="echo.js"></script>
@@ -16,22 +17,28 @@
   <label class="sweepPickerLabel">Study <select id="study" disabled><option value="cardiac-a4c">Apical four chamber</option></select></label>
 </div></header>
 <main class="echo">
-  <div class="title"><h1>Apical four chamber</h1><p>Normal adult · Transthoracic echo</p></div>
+  <div class="title"><h1>Adult echocardiography</h1>
+    <nav class="window-nav" aria-label="Exam windows"><label for="window">View</label>
+      <select id="window" aria-label="Cardiac view"></select>
+      <span id="view-number"></span><button id="previous" aria-label="Previous view">←</button><button id="next" aria-label="Next view">→</button>
+    </nav></div>
+  <p id="read-view"></p>
   <p id="error" role="status" hidden></p>
   <div class="images">
     <figure>
       <figcaption><h2>Simulated B-mode</h2><button id="overlay" type="button" aria-pressed="false">Anatomy overlay</button></figcaption>
-      <div class="screen"><canvas id="section" width="600" height="460" aria-label="Modeled ultrasound section through the four chambers"></canvas></div>
-      <div class="image-foot"><label for="tilt">Plane rotation</label><input id="tilt" type="range" min="-28" max="28" value="0"><output for="tilt" id="degrees">0°</output><button id="reset" type="button" title="Restore the apical four-chamber plane">Reset</button></div>
+      <div class="screen"><canvas id="section" width="600" height="460" aria-label="Modeled ultrasound section of the selected window"></canvas></div>
+      <div class="image-foot"><label for="tilt">Plane rotation</label><input id="tilt" type="range" min="-28" max="28" value="0"><output for="tilt" id="degrees">0°</output><button id="reset" type="button" title="Restore this window’s neutral plane">Reset</button></div>
     </figure>
     <figure>
       <figcaption class="mode" aria-label="Comparison view">
-        <button id="model" aria-pressed="true">Probe &amp; plane</button><button id="cine" aria-pressed="false">Acquired cine</button>
+        <button id="pose" aria-pressed="true">Torso pose</button><button id="model" aria-pressed="false">Heart section</button><button id="cine" aria-pressed="false">Acquired examples</button>
       </figcaption>
-      <div class="screen" id="orbit-view"><canvas id="scene" width="600" height="460" tabindex="0" aria-label="Orbit the heart and apical probe" aria-describedby="orbit-help"></canvas></div>
-      <div class="screen" id="reference-view" hidden><canvas id="reference" width="520" height="400" aria-label="Acquired four-chamber echocardiogram, matched by phase"></canvas><p role="status" id="ref-status" hidden></p></div>
-      <div class="image-foot" id="orbit-help">Drag or use arrow keys to orbit · Home to reset</div>
-      <div class="image-foot" id="ref-help" hidden>Different case · Recorded apical plane</div>
+      <div class="screen" id="torso-view"><canvas id="torso" tabindex="0" aria-label="Orbit the torso and probe" aria-describedby="pose-note orbit-keys"></canvas><p id="torso-status" role="status">Loading torso…</p></div>
+      <div class="screen" id="orbit-view" hidden><canvas id="scene" width="600" height="460" tabindex="0" aria-label="Orbit the heart and apical probe" aria-describedby="orbit-keys"></canvas></div>
+      <div class="screen" id="reference-view" hidden><canvas id="reference" width="520" height="400" aria-label="Phase-matched echocardiogram" hidden></canvas><img id="ref-still" hidden alt=""><video id="ref-video" aria-label="Recorded echocardiogram at original speed" controls playsinline muted loop hidden></video><p role="status" id="ref-status" hidden></p></div>
+      <div class="image-foot" id="orbit-help"><span id="pose-note"></span><span id="torso-tools"><button id="close-pose" aria-pressed="false">Close-up</button> <button id="chest" aria-pressed="true">Chest landmarks</button></span><span id="orbit-keys">Drag or use arrow keys to orbit · Home to reset</span></div>
+      <div class="image-foot" id="ref-help" hidden><label for="ref-select">Example</label><select id="ref-select"></select><small id="ref-description"></small><small id="credit"></small></div>
     </figure>
   </div>
   <section class="cycle" aria-label="Cardiac cycle">
@@ -40,11 +47,11 @@
     <div class="cycle-links"><div id="stops" aria-label="Cycle landmarks"><button data-phase="0">End diastole</button><button data-phase="350">End systole</button><button data-phase="520">Early filling</button></div><label class="flow"><input type="checkbox" id="flow">Flow timing</label></div>
     <p id="flow-note" hidden></p>
   </section>
-  <details><summary>Reading this view &amp; sources</summary>
-    <p>The left ventricle forms the apex on screen right. The right ventricle sits on screen left, with its tricuspid attachment closer to the apex. In the overlay, LV and RV mark ventricles, LA and RA mark atria.</p>
-    <p>Pause at end diastole and end systole. Compare the left ventricular cavity and the distance from apex to valve plane. At early filling, look for the mitral leaflets separating. The outflow valves lie outside this section.</p>
-    <p id="credit"></p>
-    <p>The model and B-mode texture are illustrative. Phase links align visible landmarks across cases. Rotation changes only the modeled plane. Flow timing describes expected forward flow qualitatively. This view provides no velocity, pressure or Doppler measurements.</p>
+  <div id="measureWorkbench"></div>
+  <details id="sources"><summary>Sources &amp; scope</summary>
+    <p>Geometry, grayscale echoes and practice signals are illustrative. Acquired examples come from independent examinations. Only the source image carries that examination’s measurements.</p>
+    <p>Torso skin and chest landmarks are adapted from BodyParts3D © The Database Center for Life Science (DBCLS). The teal probe marker corresponds to screen right. The teaching heart is registered to the chest landmarks. <a href="https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html">Source</a> · <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a></p>
+    <p>Acquired cines by I.A.C. van der Bilt, MD, CardioNetworks / ECHOpedia. Phase-matched cines retain full frames resized and tiled under CC BY-SA 3.0. The arch clip retains recorded timing. The unchanged published exam panels are from Robinson et al., © 2021 the authors, CC BY-NC-ND 4.0. <a href="https://doi.org/10.1530/ERP-20-0026">BSE minimum dataset</a> · <a href="https://www.asecho.org/wp-content/uploads/2019/01/2019_Comprehensive-TTE.pdf">ASE adult examination guide</a></p>
   </details>
   <noscript><p>Enable JavaScript to play and rotate the study.</p></noscript>
 </main>

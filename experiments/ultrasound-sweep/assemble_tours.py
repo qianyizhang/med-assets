@@ -7,6 +7,7 @@ from pathlib import Path
 import re
 import shutil
 import tempfile
+import zipfile
 
 import numpy as np
 import build_abdomen
@@ -351,11 +352,44 @@ def copy_cardiac_study(source, destination):
     reference = json.loads((source / 'acquisition.json').read_text())
     if sha256((source / reference['file']).read_bytes()) != reference['sha256']:
         raise ValueError('Unexpected acquired cardiac cine identity')
+    records = json.loads((source / 'reference/sources.json').read_text())
+    geometry = json.loads((source / 'torso/geometry.json').read_text())
+    runtime = ['index.html', 'echo.css', 'echo.js', 'reading.js', 'references.js', 'acquisition.json',
+               'CC-BY-SA-3.0.txt', reference['file'], 'reference/sources.json', 'reference/CC-BY-NC-ND-4.0.txt',
+               'torso/registration.js', 'torso/torso-view.js', 'measure/measure.css']
+    runtime.extend(f'heart-{module}.js' for module in (
+        'echo', 'geometry', 'poses', 'scene', 'slice', 'vessels', 'view'))
+    runtime.extend(f'measure/{module}.js' for module in (
+        'calculations', 'color-section', 'protocol', 'sections', 'signal-view', 'strain', 'workbench'))
+    for key in ('skin', 'bones', 'cartilage'):
+        name = f'torso/{key}.raw'
+        if sha256((source / name).read_bytes()) != geometry[key]['sha256']:
+            raise ValueError(f'Unexpected cardiac torso geometry: {key}')
+        runtime.append(name)
+    for view, cine in records['cine'].items():
+        if not re.fullmatch(r'[a-z0-9-]+\.(?:webp|webm)', cine['file']):
+            raise ValueError(f'Invalid cardiac reference path: {view}')
+        name = 'reference/' + cine['file']
+        if sha256((source / name).read_bytes()) != cine['sha256']:
+            raise ValueError(f'Unexpected acquired cardiac cine identity: {view}')
+        runtime.append(name)
+    archive = source / 'reference/bse-table1.zip'
+    if sha256(archive.read_bytes()) != records['bse']['sha256']:
+        raise ValueError('Unexpected published echo panel archive')
+    numbers = sorted(panel['number'] for items in records['panels'].values() for panel in items)
+    if numbers != list(range(1, 89)):
+        raise ValueError('Incomplete published echo panel inventory')
     target = destination / 'cardiac'
-    target.mkdir(exist_ok=True)
-    for name in ('index.html', 'echo.css', 'echo.js', 'acquisition.json', 'CC-BY-SA-3.0.txt', reference['file'],
-                 'heart-geometry.js', 'heart-scene.js', 'heart-echo.js', 'heart-view.js'):
-        shutil.copyfile(source / name, target / name)
+    for name in runtime:
+        dest = target / name
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(source / name, dest)
+    images = target / 'reference/bse'
+    images.mkdir(exist_ok=True)
+    with zipfile.ZipFile(archive) as z:
+        for number in numbers:
+            name = f'ERP-20-0026inf{number}.jpg'
+            (images / name).write_bytes(z.read(name))
 
 
 def assemble(output, delivery=None):

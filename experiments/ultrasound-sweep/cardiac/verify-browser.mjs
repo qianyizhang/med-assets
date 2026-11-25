@@ -4,7 +4,7 @@ import {createHash} from 'node:crypto';
 import {mkdir} from 'node:fs/promises';
 import {join} from 'node:path';
 const {chromium} = await import(process.env.MODEL_SURVEY_PLAYWRIGHT_MODULE || 'playwright');
-const root = process.argv[2] || 'http://127.0.0.1:8886/';
+const root = process.argv[2] || 'http://127.0.0.1:8887/';
 const folder = process.argv[3];
 if (folder) await mkdir(folder, {recursive: true});
 const browser = await chromium.launch({executablePath: process.env.MODEL_SURVEY_BROWSER,
@@ -20,7 +20,10 @@ try {
   const fillRange = (id, value) => by(id).fill(String(value));
   await page.goto(root);
   await by('sweepPicker').selectOption('cardiac-a4c');
-  await page.waitForURL('**/cardiac/');
+  await page.waitForURL('**/cardiac/?view=plax');
+  await page.waitForFunction(() => document.querySelector('#torso-status').hidden);
+  assert.equal(await by('pose').getAttribute('aria-pressed'), 'true');
+  await by('window').selectOption('a4c');
   await page.waitForFunction(() => !document.querySelector('#play').disabled);
   assert.equal(await by('play').textContent(), 'Play beat');
   assert.equal(await by('phase').inputValue(), '0');
@@ -32,6 +35,7 @@ try {
     }
     await click('End diastole');
   }
+  await click('Heart section');
   const ed = await pixels('section'), sceneED = await pixels('scene');
   await click('End systole');
   assert.notEqual(await pixels('section'), ed);
@@ -39,11 +43,12 @@ try {
   assert.equal(await by('tilt').inputValue(), '0');
   await click('End diastole');
   assert.equal(await pixels('section'), ed);
+  const beforeOrbit = await pixels('scene');
   await by('scene').press('ArrowRight');
-  assert.notEqual(await pixels('scene'), sceneED);
+  assert.notEqual(await pixels('scene'), beforeOrbit);
   assert.equal(await pixels('section'), ed);
   await by('scene').press('Home');
-  assert.equal(await pixels('scene'), sceneED);
+  assert.equal(await pixels('scene'), beforeOrbit);
   await fillRange('tilt', 20);
   assert.equal(await by('phase').inputValue(), '0');
   assert.notEqual(await pixels('section'), ed);
@@ -54,7 +59,7 @@ try {
   assert.notEqual(await pixels('section'), ed);
   await capture('apical-overlay');
   await click('Anatomy overlay');
-  await click('Acquired cine');
+  await click('Acquired examples');
   await page.waitForFunction(() => document.querySelector('#reference').dataset.frame === '2');
   const referenceED = await pixels('reference');
   for (const [label, frame, name] of [
@@ -74,7 +79,7 @@ try {
   await by('flow').check();
   assert.match(await by('flow-note').textContent(), /reopen/);
   await fillRange('phase', 200);
-  assert.match(await by('flow-note').textContent(), /outflow/);
+  assert.match(await by('flow-note').textContent(), /aortic and pulmonary/);
   await fillRange('phase', 1000);
   assert.equal(await by('reference').getAttribute('data-frame'), '2');
   await click('Play beat');
@@ -101,20 +106,20 @@ try {
   await page.waitForFunction(() => document.querySelector('#play').textContent === 'Pause beat');
   await click('Pause beat');
   await page.route('**/acquired-a4c.webp', route => route.abort());
-  await click('Acquired cine');
-  await page.getByText(/Acquired cine unavailable/).waitFor();
+  await click('Acquired examples');
+  await page.getByText(/Acquired example unavailable/).waitFor();
   await click('Early filling');
   assert.equal(await by('phase').inputValue(), '520');
   await page.unroute('**/acquired-a4c.webp');
-  await click('Probe & plane');
-  await click('Acquired cine');
+  await click('Heart section');
+  await click('Acquired examples');
   await page.waitForFunction(() => document.querySelector('#reference').dataset.frame === '26');
   await page.setViewportSize({width: 640, height: 800});
   assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth));
   await page.route('**/heart-geometry.js', route => route.abort());
   await page.reload();
   await page.getByText(/Heart model unavailable/).waitFor();
-  await click('Acquired cine');
+  await click('Acquired examples');
   await click('End systole');
   await page.waitForFunction(() => document.querySelector('#reference').dataset.frame === '18');
   assert.equal(await by('study').isEnabled(), true);

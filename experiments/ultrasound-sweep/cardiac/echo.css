@@ -41,3 +41,25 @@ a { color: var(--teal); text-underline-offset: 3px; }
   .title { margin: 8px 0 16px; }
   .bar { gap: 6px; }
 }
+.title { justify-content: space-between; }
+.window-nav { display: flex; align-items: center; gap: 6px; }
+.window-nav label { color: var(--quiet); font-size: 14px; margin-right: 3px; }
+.window-nav select { max-width: min(62vw, 22em); }
+.window-nav button { min-width: 34px; }
+#torso { cursor: grab; touch-action: none; }
+#torso:active { cursor: grabbing; }
+#torso:focus-visible { outline-offset: -4px; }
+#torso-status { position: absolute; color: white; padding: 12px; }
+#orbit-keys { color: var(--quiet); font-size: 12px; }
+#orbit-help { gap: 2px 13px; }
+#ref-still, #ref-video { display: block; width: 100%; height: clamp(245px,35vw,406px); object-fit: contain; }
+#ref-help { gap: 3px 9px; }
+#ref-help select { min-width: 0; max-width: 78%; min-height: 30px; font-size: 13px; }
+#ref-help small { display: block; flex-basis: 100%; }
+#credit { font-size: 11px; }
+#torso-tools { margin-left: auto; white-space: nowrap; }
+#orbit-keys { flex-basis: 100%; }
+#torso-tools button { font-size: 12px; min-height: 28px; }
+#view-number { color: var(--quiet); min-width: 5ch; text-align: center; font-size: 13px; font-variant-numeric: tabular-nums; }
+.echo .title { margin-bottom: 5px; }
+#read-view { margin: 0 0 16px; color: var(--quiet); font-size: 14px; }

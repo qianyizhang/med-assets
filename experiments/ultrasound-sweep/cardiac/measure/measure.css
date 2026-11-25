@@ -1,0 +1,118 @@
+.echo .mw {
+  color: var(--ink);
+  border-top: 1px solid var(--line);
+  margin-top: 10px;
+  font-size: 15px;
+}
+.mw > summary {
+  font-weight: 650;
+  padding: 5px 0;
+}
+.mw-inside {
+  padding: 8px 0 12px;
+  max-width: 790px;
+}
+.mw-checks,
+.mw-actions,
+.mw-switch,
+.mw-settings,
+.mw-links,
+.mw-values,
+.mw-task {
+  display: flex;
+  align-items: center;
+  gap: 8px 15px;
+  flex-wrap: wrap;
+}
+.mw-task {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.mw-task select,
+.mw-actions select {
+  max-width: 100%;
+}
+.mw-panel .mw-guide {
+  color: var(--ink);
+  margin: 8px 0;
+}
+.mw-plot,
+.mw-chart canvas {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+  background: #0e1a20;
+}
+.mw-calipers {
+  max-width: 660px;
+  cursor: crosshair;
+}
+.mw-chart {
+  position: relative;
+}
+.mw-chart canvas {
+  cursor: crosshair;
+}
+.mw-cursor {
+  position: absolute;
+  top: 10%;
+  bottom: 16%;
+  width: 2px;
+  background: #ffe4b5;
+  pointer-events: none;
+}
+.mw-switch,
+.mw-actions {
+  margin: 7px 0;
+}
+.mw-values {
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+  font-weight: 650;
+  margin: 8px 0 3px;
+  gap: 4px 20px;
+}
+.mw-settings {
+  margin: 8px 0;
+}
+.mw-settings label,
+.mw-slider {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.mw-settings input[type='range'],
+.mw-slider input {
+  width: 100px;
+}
+.mw-switch input[type='number'] {
+  width: 5em;
+  padding: 4px;
+}
+.echo .mw-panel details,
+.echo .mw-method {
+  font-size: 14px;
+  padding: 4px 0;
+}
+.mw-panel p.mw-explain,
+.mw-source {
+  font-size: 13px;
+  color: var(--quiet);
+}
+.mw-links a {
+  font-size: 14px;
+}
+
+.mw-at-cursor,
+.mw-interval-result {
+  color: var(--quiet);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+.mw-interval input {
+  width: 5em;
+}
+.mw-color {
+  max-width: 650px;
+}

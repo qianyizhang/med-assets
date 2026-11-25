@@ -28,15 +28,16 @@ export function createHeartView({scene, section}) {
   let cut;
   let previousPhase;
   return {
-    render({phase = 0, tilt = 0, overlay = false, yaw = 31, pitch = -14} = {}) {
+    render({phase = 0, tilt = 0, overlay = false, yaw = 31, pitch = -14, viewId = 'a4c'} = {}) {
       const phaseChanged = phase !== previousPhase;
-      const planeChanged = tilt !== plane?.tilt;
+      const planeChanged = (tilt !== plane?.tilt || viewId !== plane?.id);
       if (phaseChanged) frame = heartFrame(phase);
-      if (planeChanged) plane = probePlane(tilt);
+      if (planeChanged) plane = probePlane(tilt, viewId);
       if (phaseChanged || planeChanged) cut = heartSection(frame, plane);
       previousPhase = phase;
       sceneViewport((ink, width, height) => renderScene(ink, width, height, frame, plane, cut, overlay, yaw, pitch));
       sectionViewport((ink, width, height) => renderEcho(ink, width, height, plane, cut, frame.motion, overlay));
+      return frame;
     },
   };
 }

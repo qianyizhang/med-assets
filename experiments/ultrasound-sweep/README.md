@@ -6,7 +6,7 @@ Scrub the timeline, play the sweep, or jump directly to a named reference tick. 
 
 ## Cardiac echo
 
-The **Heart → Apical four chamber** study introduces an independent cardiac-phase control. Hold the apical probe still during a complete beat or rotate its plane at a fixed phase. [Replay and cine review](cardiac/README.md)
+The **Heart → Adult echocardiography** study covers 17 views from four transthoracic windows. Inspect the probe on the torso, freeze the beat for calipers or compare Doppler practice with a published acquisition. [Replay and review](cardiac/README.md)
 
 ## Replay
 

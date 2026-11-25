@@ -1,14 +1,24 @@
 // B-mode styling is illustrative. The tissue/blood interfaces come from heartSection.
-const RASTER_WIDTH = 396;
-const RASTER_HEIGHT = 322;
-const TIP = 9;
-const CENTER = RASTER_WIDTH / 2;
+import {largestContour, polygonArea} from './heart-slice.js';
+import {BMODE_RASTER, bmodeCalibration} from './heart-poses.js';
+
+const {width: RASTER_WIDTH, height: RASTER_HEIGHT} = BMODE_RASTER;
 const CM = 10;
 const RIGHT_HEART = {fill: 'rgba(45,196,207,0.18)', edge: '#81e1eb'};
 const LEFT_HEART = {fill: 'rgba(242,117,107,0.19)', edge: '#ffb1a2'};
+const STRUCTURES = {
+  plax: ['LV', 'RVOT', 'LA', 'Ao'], 'psax-av': ['Ao', 'RA', 'RVOT', 'PA'],
+  'psax-mv': ['LV', 'RV'], 'psax-papillary': ['LV', 'RV'], 'psax-apical': ['LV', 'RV'],
+  a4c: ['LV', 'RV', 'LA', 'RA'], a5c: ['LV', 'RV', 'LA', 'RA', 'LVOT'],
+  a2c: ['LV', 'LA'], a3c: ['LV', 'LA', 'LVOT', 'Ao'],
+  'rv-focused': ['LV', 'RV', 'LA', 'RA'], 'rv-inflow': ['RV', 'RA'],
+  'rv-outflow': ['RVOT', 'PA'], 'subcostal-4c': ['LV', 'RV', 'LA', 'RA'],
+  'subcostal-ivc': ['IVC', 'RA'], 'subcostal-aorta': ['DescAo'], 'subcostal-sax': ['RVOT', 'PA', 'LV'],
+  'suprasternal-arch': ['Arch'],
+};
 
 export function chamberColor(name) {
-  return name[0] === 'R' ? RIGHT_HEART : LEFT_HEART;
+  return name.startsWith('R') || ['PA', 'IVC', 'SVC'].includes(name) ? RIGHT_HEART : LEFT_HEART;
 }
 
 export function sectorPath({halfAngle, depth}, near = 0) {
@@ -22,13 +32,9 @@ export function sectorPath({halfAngle, depth}, near = 0) {
   return path;
 }
 
-export function contourPath(rows) {
-  const path = new Path2D();
-  if (!rows.length) return path;
-  path.moveTo(rows[0][1], rows[0][0]);
-  for (const [depth, left] of rows) path.lineTo(left, depth);
-  for (let index = rows.length - 1; index >= 0; index -= 1) path.lineTo(rows[index][2], rows[index][0]);
-  path.closePath();
+export function contourPath(points) {
+  const path = linePath(points);
+  if (points.length) path.closePath();
   return path;
 }
 
@@ -37,12 +43,6 @@ export function linePath(points) {
   if (points.length) path.moveTo(...points[0]);
   for (let index = 1; index < points.length; index += 1) path.lineTo(...points[index]);
   return path;
-}
-
-export function pairedLumen(chambers, ventricle, atrium) {
-  const v = chambers[ventricle].lumen;
-  const a = chambers[atrium].lumen;
-  return v.length && a.length && Math.abs(v.at(-1)[0] - a[0][0]) < 0.001 ? [v.concat(a.slice(1))] : [v, a];
 }
 
 function makeSurface(width, height, options) {
@@ -75,7 +75,7 @@ function randomField(width, height, seed) {
   };
 }
 
-function buildSpeckle(plane, scale) {
+function buildSpeckle(plane, {scale, tip, center}) {
   const seed = 182467;
   const fine = randomField(153, 143, seed);
   const middle = randomField(178, 194, seed + 451);
@@ -87,8 +87,8 @@ function buildSpeckle(plane, scale) {
   for (let viewY = 0; viewY < RASTER_HEIGHT; viewY += 1) {
     for (let viewX = 0; viewX < RASTER_WIDTH; viewX += 1) {
       const index = viewY * RASTER_WIDTH + viewX;
-      const x = (viewX - CENTER) / scale;
-      const y = (viewY - TIP) / scale;
+      const x = (viewX - center) / scale;
+      const y = (viewY - tip) / scale;
       const radius = Math.hypot(x, y);
       const angle = Math.atan2(x, y);
       if (y < 0 || radius < 5 || radius > plane.depth || Math.abs(angle) > plane.halfAngle) continue;
@@ -105,7 +105,7 @@ function buildSpeckle(plane, scale) {
       const field = 22 * Math.exp(-((radius - 149 - x * 0.09) ** 2) / 100 - ((x + 21) ** 2) / 3500);
       tissue[index] = Math.round(11 * broadSample + 6 * midSample + fascia + field);
       gain[index] = edgeLoss * depthLoss * lateralGain * dropout;
-      const lateralLoss = 0.65 * Math.exp(-((x - 39) ** 2) / 770 - ((y - 74) ** 2) / 1600);
+      const lateralLoss = (plane.id.startsWith('a') || plane.id === 'rv-focused' ? 0.65 : 0.29) * Math.exp(-((x - 39) ** 2) / 770 - ((y - 74) ** 2) / 1600);
       const nearLoss = 0.44 * Math.exp(-((y - 24) ** 2) / 395);
       interfaceGain[index] = (1 - lateralLoss) * (1 - nearLoss) * (0.71 + 0.52 * broadSample);
       pattern[index] = 0.23 + fineSample * 0.38 + midSample ** 2 * 0.96 + broadSample ** 2 * 1.20;
@@ -114,39 +114,49 @@ function buildSpeckle(plane, scale) {
   return {pattern, tissue, gain, interfaceGain};
 }
 
-function visibleExterior(chambers, owner, x, y) {
-  for (const [name, chest] of Object.entries(chambers)) {
-    if (name === owner) continue;
-    const rows = chest.wall;
-    for (let index = 1; index < rows.length; index += 1) {
-      const [depth, left, right] = rows[index];
-      if (y > depth) continue;
-      const [before, previousLeft, previousRight] = rows[index - 1];
-      if (y < before) break;
-      const f = (y - before) / (depth - before);
-      if (x > previousLeft + (left - previousLeft) * f && x < previousRight + (right - previousRight) * f) return false;
-      break;
-    }
-  }
-  return true;
+function boundsOf(points) {
+  return points.reduce(([left, top, right, bottom], [x, y]) => [
+    Math.min(left, x), Math.min(top, y), Math.max(right, x), Math.max(bottom, y),
+  ], [Infinity, Infinity, -Infinity, -Infinity]);
 }
 
-function echoEdges(ink, rows, width, brightness, accept) {
+function inside(points, x, y) {
+  let inPath = false;
+  for (let i = 0, j = points.length - 1; i < points.length; j = i, i += 1) {
+    const a = points[i], b = points[j];
+    if ((a[1] > y) !== (b[1] > y) && x < a[0] + (b[0] - a[0]) * ((y - a[1]) / (b[1] - a[1]))) inPath = !inPath;
+  }
+  return inPath;
+}
+
+function paintLoops(ink, contours, width, brightness) {
+  const display = contours.map(points => ({points, bounds: boundsOf(points)}));
   const paths = Array.from({length: 5}, () => new Path2D());
-  for (let side = 1; side < 3; side += 1) {
-    for (let index = 1; index < rows.length; index += 1) {
-      const [y, x] = [rows[index][0], rows[index][side]];
-      const [priorY, priorX] = [rows[index - 1][0], rows[index - 1][side]];
+  for (const contour of display) {
+    const {points} = contour;
+    const neighbors = display.filter(other => {
+      const a = contour.bounds, b = other.bounds;
+      return other !== contour && a[0] <= b[2] + 0.3 && a[2] + 0.3 >= b[0]
+        && a[1] <= b[3] + 0.3 && a[3] + 0.3 >= b[1];
+    });
+    for (let index = 1; index < points.length; index += 1) {
+      const [x, y] = points[index];
+      const [priorX, priorY] = points[index - 1];
       const mx = (x + priorX) * 0.5;
       const my = (y + priorY) * 0.5;
-      if (!accept(mx, my)) continue;
       const dx = x - priorX;
       const dy = y - priorY;
-      const length = Math.hypot(dx, dy) * Math.hypot(mx, my);
-      if (length < 0.0001) continue;
+      const length = Math.hypot(dx, dy);
+      if (length < 0.0001 || my < 0) continue;
+      const nx = dy * 0.24 / length;
+      const ny = -dx * 0.24 / length;
+      const adjoining = neighbors.some(({points: other, bounds: [left, top, right, bottom]}) =>
+        mx >= left - 0.3 && mx <= right + 0.3 && my >= top - 0.3 && my <= bottom + 0.3
+        && (inside(other, mx + nx, my + ny) || inside(other, mx - nx, my - ny)));
+      if (adjoining) continue;
       const shiver = Math.sin(mx * 0.54 + my * 0.32) * Math.cos(my * 0.32) * 0.40;
-      const incidence = Math.abs(dx * my - dy * mx) / length;
-      const bin = Math.min(paths.length - 1, Math.max(0, Math.round((incidence * 0.78 + shiver) * 4)));
+      const incidence = Math.abs(dx * my - dy * mx) / (length * Math.max(1, Math.hypot(mx, my)));
+      const bin = Math.min(paths.length - 1, Math.max(0, Math.round((incidence * 0.74 + shiver) * 4)));
       paths[bin].moveTo(priorX, priorY);
       paths[bin].lineTo(x, y);
     }
@@ -158,31 +168,26 @@ function echoEdges(ink, rows, width, brightness, accept) {
   }
 }
 
-function paintReflectors(ink, plane, slice, scale) {
+function paintReflectors(ink, plane, slice, {scale, tip, center}) {
   ink.setTransform(1, 0, 0, 1, 0, 0);
   ink.fillStyle = '#111';
   ink.fillRect(0, 0, RASTER_WIDTH, RASTER_HEIGHT);
   ink.save();
-  ink.setTransform(scale, 0, 0, scale, CENTER, TIP);
+  ink.setTransform(scale, 0, 0, scale, center, tip);
   ink.clip(sectorPath(plane, 5));
   const {chambers, valveCuts, muscleCuts} = slice;
+  const walls = Object.values(chambers).flatMap(region => region.wall);
+  const lumens = Object.values(chambers).flatMap(region => region.lumen);
   ink.lineCap = 'round';
   ink.lineJoin = 'round';
-  for (const {wall} of Object.values(chambers)) {
-    ink.fillStyle = '#414141';
-    ink.fill(contourPath(wall));
-  }
-  for (const [name, {wall}] of Object.entries(chambers)) {
-    echoEdges(ink, wall, 1.35, 65, (x, y) => visibleExterior(chambers, name, x, y));
-  }
-  const lumens = pairedLumen(chambers, 'LV', 'LA').concat(pairedLumen(chambers, 'RV', 'RA'));
-  for (const lumen of lumens) {
-    ink.fillStyle = '#0a0a0a';
-    ink.fill(contourPath(lumen));
-  }
-  for (const lumen of lumens) echoEdges(ink, lumen, 0.93, 58, () => true);
-  for (const rows of muscleCuts) {
-    const path = contourPath(rows);
+  ink.fillStyle = '#414141';
+  for (const wall of walls) ink.fill(contourPath(wall));
+  paintLoops(ink, walls, 1.35, 65);
+  ink.fillStyle = '#0a0a0a';
+  for (const lumen of lumens) ink.fill(contourPath(lumen));
+  paintLoops(ink, lumens, 0.93, 58);
+  for (const outline of muscleCuts) {
+    const path = contourPath(outline);
     ink.fillStyle = '#434343';
     ink.fill(path);
     ink.strokeStyle = '#696969';
@@ -191,19 +196,45 @@ function paintReflectors(ink, plane, slice, scale) {
   }
   for (const {name, points} of valveCuts) {
     const path = linePath(points);
-    ink.strokeStyle = name === 'MV' ? '#7a7a7a' : '#585858';
+    ink.strokeStyle = ['MV', 'AV'].includes(name) ? '#7a7a7a' : '#585858';
     ink.lineWidth = 2.5;
     ink.stroke(path);
-    ink.strokeStyle = name === 'MV' ? '#c4c4c4' : '#9c9c9c';
+    ink.strokeStyle = ['MV', 'AV'].includes(name) ? '#c4c4c4' : '#9c9c9c';
     ink.lineWidth = 1.10;
     ink.stroke(path);
   }
   ink.restore();
 }
 
-function annotation(ink, plane, slice, scale, overlay) {
+function poolCenter(points, plane) {
+  // Segment midpoints crossing sampled image rows give a stable in-sector label anchor.
+  let best = null;
+  let visibleArea = 0;
+  const [, low, , high] = boundsOf(points);
+  const widthScale = Math.tan(plane.halfAngle);
+  for (let y = Math.max(5, low + 3); y < Math.min(plane.depth, high - 3); y += 2) {
+    const hits = [];
+    for (let index = 1; index < points.length; index += 1) {
+      const [x0, y0] = points[index - 1], [x1, y1] = points[index];
+      if ((y0 < y) === (y1 < y)) continue;
+      hits.push(x0 + (x1 - x0) * (y - y0) / (y1 - y0));
+    }
+    if (hits.length < 2) continue;
+    hits.sort((a, b) => a - b);
+    const edge = Math.min(y * widthScale, Math.sqrt(plane.depth ** 2 - y ** 2)) - 3;
+    for (let index = 0; index + 1 < hits.length; index += 2) {
+      const left = Math.max(hits[index], -edge), right = Math.min(hits[index + 1], edge);
+      visibleArea += Math.max(0, right - left) * 2;
+      const score = right - left - Math.abs(y - (low + high) / 2) * 0.45;
+      if (right - left > 7 && (!best || score > best.score)) best = {x: (left + right) / 2, y, score};
+    }
+  }
+  return visibleArea >= 60 ? best : null;
+}
+
+function annotation(ink, plane, slice, {scale, tip, center: origin}, overlay) {
   ink.save();
-  ink.translate(CENTER, TIP);
+  ink.translate(origin, tip);
   ink.scale(scale, scale);
   ink.lineWidth = 0.38;
   ink.lineCap = 'round';
@@ -228,30 +259,39 @@ function annotation(ink, plane, slice, scale, overlay) {
   ink.restore();
   if (!overlay) return;
   ink.save();
-  ink.translate(CENTER, TIP);
+  ink.translate(origin, tip);
   ink.scale(scale, scale);
   ink.clip(sectorPath(plane, 5));
   ink.font = '600 6.1px system-ui';
   ink.textAlign = 'center';
   ink.textBaseline = 'middle';
   ink.lineJoin = 'round';
-  for (const [name, {lumen}] of Object.entries(slice.chambers)) {
-    if (lumen.length < 3) continue;
-    const path = contourPath(lumen);
+  const labels = [];
+  for (const name of STRUCTURES[plane.id] ?? []) {
+    const lumen = slice.chambers[name].lumen;
+    const main = largestContour(lumen);
+    if (polygonArea(main) < 40) continue;
+    const center = poolCenter(main, plane);
+    if (!center) continue;
     const color = chamberColor(name);
     ink.fillStyle = color.fill;
-    ink.fill(path);
-    ink.lineWidth = 0.53;
     ink.strokeStyle = color.edge;
-    ink.stroke(path);
-    const [y, left, right] = lumen[Math.round((lumen.length - 1) * (name[1] === 'V' ? 0.62 : 0.49))];
-    if (right - left < 11) continue;
-    const x = (left + right) / 2;
+    ink.lineWidth = 0.53;
+    for (const outline of lumen) {
+      const path = contourPath(outline);
+      ink.fill(path);
+      ink.stroke(path);
+    }
+    if (labels.every(({x, y}) => Math.hypot(x - center.x, y - center.y) > 10)) {
+      labels.push({name, color, ...center});
+    }
+  }
+  for (const {name, color, x, y} of labels) {
     ink.strokeStyle = 'rgba(8,11,13,0.82)';
     ink.lineWidth = 1.65;
     ink.strokeText(name, x, y);
     ink.fillStyle = color.edge;
-    ink.fillText(name, x, y);
+    ink.fillText(name === 'DescAo' || name === 'Arch' ? 'Ao' : name, x, y);
   }
   ink.restore();
 }
@@ -262,10 +302,14 @@ export function createEchoRenderer() {
   const image = picture.ink.createImageData(RASTER_WIDTH, RASTER_HEIGHT);
   for (let index = 3; index < image.data.length; index += 4) image.data[index] = 255;
   let speckle;
+  let viewId;
   return function renderEcho(ink, width, height, plane, slice, motion, overlay) {
-    const scale = (RASTER_HEIGHT - TIP - 9) / plane.depth;
-    speckle ??= buildSpeckle(plane, scale);
-    paintReflectors(mask.ink, plane, slice, scale);
+    const calibration = bmodeCalibration(plane);
+    if (viewId !== plane.id) {
+      speckle = buildSpeckle(plane, calibration);
+      viewId = plane.id;
+    }
+    paintReflectors(mask.ink, plane, slice, calibration);
     const reflector = mask.ink.getImageData(0, 0, RASTER_WIDTH, RASTER_HEIGHT).data;
     const {gain, tissue, pattern, interfaceGain} = speckle;
     const drift = motion.contraction * 3;
@@ -288,7 +332,7 @@ export function createEchoRenderer() {
       image.data[pixel + 2] = lit;
     }
     picture.ink.putImageData(image, 0, 0);
-    annotation(picture.ink, plane, slice, scale, overlay);
+    annotation(picture.ink, plane, slice, calibration, overlay);
     ink.fillStyle = '#000';
     ink.fillRect(0, 0, width, height);
     const fit = Math.min(width / RASTER_WIDTH, height / RASTER_HEIGHT);
