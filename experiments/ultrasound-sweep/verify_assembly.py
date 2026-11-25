@@ -112,6 +112,10 @@ def verify(source):
                 protocol = json.loads((destination / 'carotid-survey/protocol.json').read_text())
                 assert len(protocol['stations']) == 18 and len(protocol['datasetId']) == 64
                 geometry = json.loads((acquisition / 'protocol-geometry.json').read_text())
+                display = destination / 'carotid-survey' / protocol['displaySkinPath']
+                assert sha256(display.read_bytes()) == '9e49f67e9cfc534053181f71a65bc1b816c9158fdd568b3f4f5818ef477267f3'
+                original_skin = geometry['context']['skinPath']
+                assert (destination / 'carotid-survey/data' / original_skin).read_bytes() == (acquisition / original_skin).read_bytes()
                 geometry_path = acquisition / 'protocol-geometry.json'
                 seal = acquisition / 'delivery.json'
                 good_geometry, good_seal = geometry_path.read_bytes(), seal.read_bytes()

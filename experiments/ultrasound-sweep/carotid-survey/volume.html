@@ -11,10 +11,12 @@
 <main>
   <p role="status" id="status">Loading recorded sections…</p>
   <div id="viewer" hidden>
-    <div class="volumeBar"><span id="acquisition"></span><label>Field <select id="field"><option value="detail">Around the artery</option><option value="full">Whole volume</option></select></label><a id="download" download>Download volume · NRRD</a></div>
+    <div class="volumeBar"><span id="acquisition"></span><label>Field <select id="field"><option value="detail">Around the artery</option><option value="full">Whole volume</option></select></label><button type="button" id="compare" aria-pressed="false">Compare lumen</button><a id="download" download>Download volume · NRRD</a></div>
+    <div id="comparisonKey" class="comparisonKey" hidden><span>Stitched lumen</span><span>Teaching-model boundary</span><output id="visibility"></output></div>
+    <p role="status" id="compareStatus" hidden></p>
     <div class="planes" id="planes"></div>
     <p class="volumeHelp">Select a point to follow it across all three planes. Hatching marks space outside the recorded field.</p>
-    <details><summary>Volume source</summary><p>The grayscale voxels come from the recorded simulated B-mode images and their calibrated probe poses. Each voxel samples a recorded section or the space between adjacent sections. The NRRD uses right–anterior–superior coordinates in millimetres and stores unobserved voxels as −1.</p><p>Adapted from Z-Anatomy and BodyParts3D (Database Center for Life Science). <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></details>
+    <details><summary>Volume source</summary><p>The grayscale voxels come from the recorded simulated B-mode images and their calibrated probe poses. Each voxel samples a recorded section or the space between adjacent sections. The NRRD uses right–anterior–superior coordinates in millimetres and stores unobserved voxels as −1.</p><p>The teaching model separates the two overlapping atlas branches at the fork. Its lumen provides the comparison used above. The original atlas, teaching model and stitched surface are shown at the same scale in the <a href="review/source-vs-stitch.webp">source comparison</a>.</p><p>Adapted from Z-Anatomy and BodyParts3D (Database Center for Life Science). <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a></p></details>
   </div>
 </main>
 </body>

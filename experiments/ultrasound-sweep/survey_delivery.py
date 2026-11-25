@@ -5,11 +5,13 @@ from pathlib import Path
 import re
 
 from delivery import sha256, validate_image
+from skin_display import exterior_mesh
 
 STUDY = 'carotid-survey'
 SOURCE = Path(__file__).parent / STUDY
 RUNTIME = ('index.html', 'survey.css', 'survey.js', 'survey-visuals.js', 'duplex.js',
-           'volume.html', 'volume.css', 'volume.js')
+           'volume.html', 'volume.css', 'volume.js', 'volume-contours.js', 'caliper-record.js',
+           'review/source-vs-stitch.webp', 'review/distal-cca-measurements.webp')
 
 
 def acquisition_recipe_sha256(source):
@@ -86,4 +88,5 @@ def survey_files(stage, gallery_references, files):
     # acquisition or velocity model changes.
     protocol['datasetId'] = sha256(seal.read_bytes() + (SOURCE / 'protocol.json').read_bytes()
                                    + (SOURCE / 'duplex.js').read_bytes())
-    return protocol
+    protocol['displaySkinPath'] = 'skin-display.mesh'
+    return protocol, exterior_mesh((folder / geometry['context']['skinPath']).read_bytes())

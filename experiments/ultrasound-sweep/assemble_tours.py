@@ -342,8 +342,11 @@ def configured_tours(output, refs, files, landmark_refs, tracks):
 
 def write_catalogue(destination, refs, tours, survey=None):
     if survey is not None:
-        (destination / STUDY).mkdir(exist_ok=True)
-        (destination / STUDY / 'protocol.json').write_text(json.dumps(survey, indent=2) + '\n')
+        study = destination / STUDY
+        study.mkdir(exist_ok=True)
+        protocol, skin = survey
+        (study / protocol['displaySkinPath']).write_bytes(skin)
+        (study / 'protocol.json').write_text(json.dumps(protocol, indent=2) + '\n')
     for name, variable, content in [('references.js', 'abdomenReferences', refs), ('abdomen-tours.js', 'abdomenTours', tours)]:
         (destination / name).write_text(f'const {variable} = ' + json.dumps(content, ensure_ascii=False, indent=2) + ';\n')
     for name in ('index.html', 'study.css', 'study.js', 'scene.js', 'probe-steering.js'):

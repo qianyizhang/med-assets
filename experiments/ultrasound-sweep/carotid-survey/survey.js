@@ -1,5 +1,6 @@
 import { colorVelocityAt, duplexSample, duplexStations, icaCcaRatio, registeredAcquisition } from './duplex.js';
 import { createReconstruction, showSpectrum } from './survey-visuals.js';
+import { distalCcaCalipers } from './caliper-record.js';
 
 const $ = (id) => document.getElementById(id);
 const sides = ['right', 'left'];
@@ -13,10 +14,10 @@ const svgNS = 'http://www.w3.org/2000/svg';
 const modeName = { transverse: 'Transverse', longitudinal: 'Long axis', color: 'Color Doppler', spectral: 'Spectral Doppler' };
 const state = {
   side: 'right', station: null, mode: 'transverse', track: 0, tracking: false, request: 0,
-  desiredReference: null, shownReference: null, pendingReference: null,
+  desiredReference: null, shownReference: null, pendingReference: null, reviewSpan: null,
   view: null, geometry: null, captured: new Set(), samples: new Set(), records: new Map(),
   distances: [null, null], calipers: false, branches: false, branchLabels: [], branchRequest: 0,
-  recording: false, angle: null, reconstruction: null,
+  recording: false, angle: null, manualPrf: '6500', reconstruction: null,
   spectrum: null, coverage: new Map(), captureView: null, stackRun: null, examRun: null, examIndex: 0,
 };
 let protocol;
@@ -84,7 +85,10 @@ function requestedView() {
 }
 
 function changeStation(station, keepExam = false) {
-  if (!keepExam) stopExam();
+  if (!keepExam) {
+    stopExam();
+    $('scale').value = state.manualPrf;
+  }
   stopStack();
   state.side = station.side;
   state.station = station;
@@ -142,13 +146,19 @@ function setExamPhase(text) {
 
 function stopExam() {
   if (!state.examRun) return;
-  const { manualPrf, phase } = state.examRun;
+  const { phase } = state.examRun;
   state.examRun = null;
-  $('scale').value = manualPrf;
   setPressed($('playExam'), false);
   $('playExam').textContent = 'Resume exam';
   setExamPhase('Paused · ' + phase);
-  updateDoppler();
+}
+
+function examDwell(step, index, steps) {
+  if (Number.isInteger(step.track)) return Number.isInteger(steps[index + 1]?.track) ? 53 : 1100;
+  if (step.mode === 'spectral') return 2700;
+  if (step.station.segment === 'cca-dist' && step.mode === 'longitudinal') return 3300;
+  if (step.station.segment === 'bulb') return 2050;
+  return step.mode === 'color' ? 1450 : 950;
 }
 
 function examSteps() {
@@ -163,7 +173,7 @@ async function playExam() {
   stopStack();
   const steps = examSteps();
   if (state.examIndex >= steps.length) state.examIndex = 0;
-  const run = { manualPrf: $('scale').value, phase: '' };
+  const run = { phase: '' };
   state.examRun = run;
   setPressed($('playExam'), true);
   $('playExam').textContent = 'Pause exam';
@@ -182,7 +192,7 @@ async function playExam() {
       await selectTracking(step.track);
     } else {
       state.mode = step.mode;
-      if (step.mode === 'spectral') $('scale').value = '6500';
+      if (step.mode === 'spectral' || step.mode === 'color') $('scale').value = '6500';
       await changeStation(step.station, true);
     }
     if (state.examRun !== run) return;
@@ -195,14 +205,24 @@ async function playExam() {
     } else if (!$('capture').disabled) {
       recordCapture(true);
       $('capture').textContent = 'Image captured';
+      if (step.station?.segment === 'cca-dist' && step.mode === 'longitudinal') {
+        const view = step.station.views.longitudinal;
+        const span = state.view?.path === view.path && distalCcaCalipers(step.station, view);
+        if (span) {
+          state.reviewSpan = span;
+          $('reviewSpan').textContent = 'Model-placed wall span · ' + span.record.value;
+          $('reviewSpan').hidden = false;
+          redrawAnnotations();
+          addRecord(step.station.id + '/wall-span', span.record);
+        }
+      }
     }
+    const dwell = examDwell(step, state.examIndex, steps);
     state.examIndex += 1;
-    await new Promise((resolve) => setTimeout(resolve, tracking ? 53 : 490));
+    await new Promise((resolve) => setTimeout(resolve, dwell));
   }
   if (state.examRun !== run) return;
   state.examRun = null;
-  $('scale').value = run.manualPrf;
-  updateDoppler();
   setPressed($('playExam'), false);
   $('playExam').textContent = 'Replay exam';
   const remaining = steps.filter((step) => Number.isInteger(step.track)
@@ -213,6 +233,8 @@ async function playExam() {
 
 function resetMeasurement() {
   state.distances = [null, null];
+  state.reviewSpan = null;
+  $('reviewSpan').hidden = true;
   $('caliperPoint').value = '0';
   state.angle = null;
   $('gate').value = '0';
@@ -387,10 +409,10 @@ function chosenAcquisition() {
     prfHz: Number($('scale').value) });
 }
 
-function drawGate(acquisition, spectral) {
+function gatePlacement(spectral) {
   const view = state.view;
   const gate = gateForMode(state.station, state.mode);
-  if (!view || !gate?.centerPx || !acquisition) return;
+  if (!view || !gate?.centerPx) return null;
   const [gx, gy] = gate.centerPx;
   const [fx, fy] = [dot(gate.flowDirection, view.width), dot(gate.flowDirection, view.beam)];
   const flowScale = Math.hypot(fx, fy) || 1;
@@ -399,9 +421,18 @@ function drawGate(acquisition, spectral) {
   const offset = spectral ? Number($('gate').value) / 100 * gate.diameterMm / (2 * view.mmPerPx) : 0;
   const x = gx - fy / flowScale * offset;
   const y = gy + fx / flowScale * offset;
-  const axialPx = acquisition.gate.lengthMm / (2 * view.mmPerPx);
+  const originY = gate.steeredOriginPx?.[1] ?? gy - by * 31 / beamScale;
+  const originX = x + (originY - y) * bx / by;
+  const outside = !Number.isFinite(originX) || originX < 0 || originX >= view.widthPx;
+  return { x, y, fx, fy, bx, by, beamScale, originX, originY, outside };
+}
+
+function drawGate(acquisition, spectral) {
+  const placement = gatePlacement(spectral);
+  if (!acquisition || !placement || placement.outside) return;
+  const { x, y, fx, fy, bx, by, beamScale, originX, originY } = placement;
+  const axialPx = acquisition.gate.lengthMm / (2 * state.view.mmPerPx);
   const dx = bx * axialPx / beamScale, dy = by * axialPx / beamScale;
-  const [originX, originY] = gate.steeredOriginPx ?? [x - bx * 31 / beamScale, y - by * 31 / beamScale];
   line(originX, originY, x + bx * 12 / beamScale, y + by * 12 / beamScale, spectral ? '#e9e9d3' : '#92aa9f', 1);
   if (!spectral) return;
   const flowSign = bx * fx + by * fy >= 0 ? 1 : -1;
@@ -419,6 +450,14 @@ function redrawAnnotations() {
   $('annotations').replaceChildren();
   if (state.view) $('annotations').setAttribute('viewBox', '0 0 ' + state.view.widthPx + ' ' + state.view.heightPx);
   updateCalipers();
+  if (state.reviewSpan) {
+    const [a, b] = state.reviewSpan.points;
+    const dx = b[0] - a[0], dy = b[1] - a[1];
+    const length = Math.hypot(dx, dy) || 1;
+    const u = -dy * 5 / length, v = dx * 5 / length;
+    line(...a, ...b, '#ffdf9d', 1.5);
+    for (const [x, y] of [a, b]) line(x - u, y - v, x + u, y + v, '#ffdf9d', 2);
+  }
   if (['color', 'spectral'].includes(state.mode) && state.view) drawGate(chosenAcquisition(), state.mode === 'spectral');
   for (const label of state.branchLabels) {
     annotation('text', { x: label.x, y: label.y, fill: label.color, stroke: '#102021',
@@ -596,6 +635,10 @@ function updateDoppler() {
       : 'Modeled axial flow · Color scale shows direction relative to probe') : 'Registered color data unavailable.';
     return;
   }
+  if (gatePlacement(true)?.outside) {
+    $('dopplerStatus').textContent = 'The shifted beam starts outside the probe aperture.';
+    return;
+  }
   const sample = duplexSample(state.station, acquisition);
   state.spectrum = sample;
   if (sample.power) {
@@ -609,9 +652,11 @@ function updateDoppler() {
     $('spectrum').setAttribute('aria-label', 'Modeled spectral Doppler waveform. ' + values);
     $('saveWaveform').disabled = false;
   }
+  const correction = Number.isFinite(sample.actualAngleDeg) && Math.abs(sample.actualAngleDeg - sample.angleDeg) >= 1
+    ? ' · Correction ' + Math.round(sample.angleDeg) + '°' : '';
   $('dopplerStatus').textContent = sample.status === 'aliased'
     ? 'Aliasing at this PRF. Increase PRF to measure velocities.'
-    : sample.reason ?? 'Modeled flow ' + sample.beamDirection + ' the probe · Beam angle ' + Math.round(sample.actualAngleDeg) + '°';
+    : sample.reason ?? 'Modeled flow ' + sample.beamDirection + ' the probe · Beam angle ' + Math.round(sample.actualAngleDeg) + '°' + correction;
 }
 
 function appendLink(parent, title, url) {
@@ -623,17 +668,36 @@ function appendLink(parent, title, url) {
 }
 
 async function renderReference() {
-  const ids = state.station.referenceIds ?? [];
+  const tracking = state.mode === 'transverse' && state.tracking;
+  const segment = tracking ? trackFrames()[state.track].segment : null;
+  const ids = tracking ? [segment === 'branches' ? 'carotid-bifurcation' : 'carotid-transverse'] : state.station.referenceIds ?? [];
+  $('referenceMeasures').hidden = state.station.id !== 'right-cca-dist' || !['longitudinal', 'spectral'].includes(state.mode);
   const candidates = ids.map(reference).filter(Boolean);
   const kind = (item) => /color doppler/i.test(item.label ?? '') ? 'color'
     : /spectral|waveform/i.test(item.label ?? '') ? 'spectral' : item.plane;
   const row = candidates.find((item) => kind(item) === state.mode) ?? candidates[0];
   state.desiredReference = row;
-  $('comparison').hidden = !row;
+  const describe = (entry) => {
+    if (state.mode === 'transverse' && state.tracking) return trackFrames()[state.track].segment === 'branches'
+      ? 'Left bifurcation · Transverse reference' : 'Common carotid · Transverse reference · Side unreported';
+    const label = modeName[kind(entry)] ?? 'Reference view';
+    return kind(entry) === state.mode ? label : 'Related view · ' + label;
+  };
   const content = $('comparisonContent');
-  if (!row || !$('comparison').open || row === state.shownReference || row === state.pendingReference?.row) return;
+  if (!row) {
+    content.replaceChildren();
+    state.shownReference = null;
+    $('referenceView').textContent = 'No acquired view for this station.';
+    return;
+  }
+  if (row === state.shownReference) {
+    $('referenceView').textContent = describe(row);
+    return;
+  }
+  if (!$('comparison').open || row === state.pendingReference?.row) return;
   const request = { row };
   state.pendingReference = request;
+  $('referenceView').textContent = 'Loading acquired view…';
   content.setAttribute('aria-busy', 'true');
   const img = await resource(row.path, true);
   if (state.pendingReference !== request) return;
@@ -641,6 +705,7 @@ async function renderReference() {
   content.setAttribute('aria-busy', 'false');
   if (state.desiredReference !== row || !$('comparison').open) return;
   state.shownReference = row;
+  $('referenceView').textContent = describe(row);
   content.replaceChildren();
   if (img) {
     const copy = img.cloneNode();
@@ -697,7 +762,7 @@ async function render() {
   $('track').disabled = mode !== 'transverse';
   $('display').setAttribute('aria-busy', 'true');
   updateProgress();
-  renderReference();
+  const referenceReady = renderReference();
   const image = view?.path ? await resource(view.path) : null;
   const targetMask = view?.dopplerMaskPath ?? station.forkEvidence?.arterialMaskPaths?.longitudinal?.cca;
   const maskPath = targetMask ?? view?.lumenMaskPath;
@@ -725,6 +790,7 @@ async function render() {
   updateDoppler();
   if (mode === 'color' && $('color').hidden) $('capture').disabled = true;
   updateReconstruction();
+  if (state.examRun && !track) await Promise.race([referenceReady, new Promise((resolve) => setTimeout(resolve, 650))]);
 }
 
 function addRecord(id, record) {
@@ -744,6 +810,7 @@ function recordWaveform(overwrite = true) {
   addRecord(recordId, { side, segment, label, type: 'Modeled waveform',
     value: 'PSV ' + psvCmS.toFixed(1) + ' · EDV ' + edvCmS.toFixed(1) + ' cm/s',
     acquisition: Math.round(sample.angleDeg) + '° correction · ' + Number($('scale').value) / 1000 + ' kHz PRF',
+    beamAngleDeg: sample.actualAngleDeg, correctionAngleDeg: sample.angleDeg, prfHz: Number($('scale').value),
     measurements: sample.measurements });
   recordCapture(true);
   return true;
@@ -753,6 +820,7 @@ function renderRecords() {
   const records = [...state.records.values()];
   $('emptyRecord').hidden = records.length > 0;
   $('recordTable').hidden = !records.length;
+  const scrollTop = $('recordTable').scrollTop;
   $('records').replaceChildren();
   for (const record of records) {
     const row = document.createElement('tr');
@@ -763,6 +831,7 @@ function renderRecords() {
     }
     $('records').append(row);
   }
+  $('recordTable').scrollTop = scrollTop;
   const ratios = sides.map((side) => ({ side, measurement: icaCcaRatio(records, side) })).filter(({ measurement }) => measurement);
   $('ratios').hidden = !ratios.length;
   $('ratios').textContent = ratios.map(({ side, measurement }) => sideName(side) + ' ICA/CCA PSV ratio ' + measurement.ratio.toFixed(2)).join(' · ');
@@ -781,7 +850,10 @@ function attachControls() {
     if (state.mode !== 'transverse') state.recording = false;
     setPressed($('recordTracking'), state.recording);
     state.distances = [null, null];
+    state.reviewSpan = null;
     $('caliperPoint').value = '0';
+    $('reviewSpan').hidden = true;
+    $('scale').value = state.manualPrf;
     render();
   }; });
   $('station').onchange = () => changeStation(stations.find((station) => station.id === $('station').value));
@@ -808,6 +880,8 @@ function attachControls() {
   };
   $('calipers').onclick = () => {
     stopExam();
+    state.reviewSpan = null;
+    $('reviewSpan').hidden = true;
     state.calipers = !state.calipers;
     redrawAnnotations();
   };
@@ -838,9 +912,9 @@ function attachControls() {
     if (!view || !a || !b) return;
     const length = Math.hypot(a[0] - b[0], a[1] - b[1]) * view.mmPerPx;
     const { id, side, segment, label } = state.station;
-    const frame = state.mode === 'transverse' ? trackFrames()[state.track].id : state.mode;
-    addRecord(id + '/' + frame + '/distance', { side, segment, label: state.captureView?.track ? 'Transverse stack' : label, type: 'B-mode distance',
-      value: length.toFixed(1) + ' mm', acquisition: modeName[state.mode], endpointsPx: [a, b], frame });
+    const frame = state.captureView?.track?.id ?? view.path;
+    addRecord(id + '/' + frame + '/distance', { side, segment, label: state.captureView?.track ? 'Transverse stack' : label, type: 'Manual B-mode distance',
+      value: length.toFixed(1) + ' mm', acquisition: modeName[state.mode], endpointsPx: [a, b], imagePath: view.path, frame, lengthMm: length });
   };
   $('angle').oninput = () => {
     stopExam();
@@ -849,9 +923,8 @@ function attachControls() {
     redrawAnnotations();
   };
   for (const id of ['gate', 'scale', 'phase']) $(id).oninput = () => {
-    const value = $(id).value;
     stopExam();
-    $(id).value = value;
+    if (id === 'scale') state.manualPrf = $('scale').value;
     updateDoppler();
     redrawAnnotations();
   };
@@ -914,6 +987,14 @@ async function boot() {
     const limit = (Math.ceil(Math.max(...shifts) * 10) / 10).toFixed(1);
     note.textContent = 'The atlas’s proximal branch tubes overlap, so each was shifted by up to ' + limit + ' mm to separate them in this teaching model.';
     $('sources').append(note);
+  }
+  for (const [title, url] of [
+    ['Measured distal CCA comparison', './review/distal-cca-measurements.webp'],
+    ['Stitched lumen against original and teaching atlas', './review/source-vs-stitch.webp'],
+  ]) {
+    const evidence = document.createElement('p');
+    appendLink(evidence, title, url);
+    $('sources').append(evidence);
   }
   attachControls();
   createCoverage();

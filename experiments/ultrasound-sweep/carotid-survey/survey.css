@@ -1,6 +1,9 @@
 .exam [hidden] { display: none !important; }
 .exam main { padding-block-start: 16px; }
 .exam h2 { font: 650 14px/1.3 system-ui, sans-serif; letter-spacing: normal; }
+.acquisitionHeading { display: grid; gap: 2px; }
+.acquisitionHeading span { color: var(--screen-quiet); font-size: 11px; }
+.reviewSpan { padding: 0 10px 8px; color: #ffdf9d; font-size: 13px; }
 .galleryLink, .exam a { color: var(--teal); text-underline-offset: .2em; }
 .examControls, .referenceDisclosure {
   border: 1px solid var(--line);
@@ -99,5 +102,9 @@
 .referenceDisclosure img { display: block; max-width: min(100%, 360px); max-height: 270px; margin: 8px 0; }
 .referenceDisclosure p + p { margin-top: 6px; }
 #comparisonContent details { margin-top: 6px; font-size: 12px; }
+#comparison .referenceCase { margin-inline-start: 8px; color: var(--quiet); font-size: 12px; font-weight: 400; }
+#comparisonContent img { width: 100%; max-width: none; height: 208px; aspect-ratio: auto; object-fit: contain; background: #0c1515; }
+#comparisonContent > p { min-height: 2.8em; }
+#comparison .comparisonView { display: block; min-height: 1.45em; margin-top: 3px; color: var(--quiet); font-size: 12px; }
 .visuallyHidden { position: absolute; inline-size: 1px; block-size: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 @media (max-width: 760px) { .workspace { grid-template-columns: 1fr; } }

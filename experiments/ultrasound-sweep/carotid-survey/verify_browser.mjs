@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
-import { mkdir, readFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { join } from 'node:path';
 
 const address = new URL(process.argv[2] ?? 'http://127.0.0.1:8874/carotid-survey/');
@@ -75,6 +75,10 @@ try {
   assert.equal(await page.locator('#caliperDistance').textContent(), expectedMm);
   await page.getByRole('button', { name: 'Save distance' }).click();
   assert.match(await page.locator('#records').textContent(), new RegExp(expectedMm.replace('.', '\\.')));
+  const manual = await page.evaluate(() => JSON.parse(sessionStorage.getItem('ultrasound-carotid-exam-v1')).records[0][1]);
+  assert.equal(manual.frame, initial.views.transverse.path);
+  assert.equal(manual.imagePath, initial.views.transverse.path);
+  assert.equal(manual.type, 'Manual B-mode distance');
   await capture('left-calipers', true);
   await page.getByRole('button', { name: 'Calipers', exact: true }).click();
   await captureImage.click();
@@ -97,6 +101,7 @@ try {
   if (spectralReference) {
     await page.waitForFunction((target) => document.querySelector('#comparison img')?.src === target,
       new URL('../' + spectralReference, address).href);
+    assert.equal(await page.locator('#referenceView').textContent(), 'Spectral Doppler');
   }
   const expected = await page.evaluate(async ({ id, gate }) => {
     const { duplexStations, duplexSample, registeredAcquisition } = await import('./duplex.js');
@@ -111,6 +116,18 @@ try {
   await page.getByRole('button', { name: 'Save waveform' }).click();
   assert.ok((await page.locator('#records').textContent()).includes(velocities));
   await capture('left-spectral', true);
+  const beam = () => page.locator('#annotations line').first().evaluate((line) => {
+    const coordinate = (name) => Number(line.getAttribute(name));
+    const dx = coordinate('x2') - coordinate('x1');
+    const dy = coordinate('y2') - coordinate('y1');
+    return Math.atan2(dy, dx);
+  });
+  const originalBeam = await beam();
+  const beamOrigin = () => page.locator('#annotations line').first().getAttribute('y1').then(Number);
+  assert.equal(await beamOrigin(), doppler.gate.steeredOriginPx[1]);
+  await page.locator('#gate').fill('20');
+  assert.ok(Math.abs(await beam() - originalBeam) < .03, 'Moving the gate should retain the beam angle.');
+  assert.equal(await beamOrigin(), doppler.gate.steeredOriginPx[1], 'The parallel ray should still start at the probe face.');
   await page.locator('#gate').fill('100');
   await page.getByText('Keep the Doppler gate inside the lumen.').waitFor();
   assert.equal(await page.getByRole('button', { name: 'Save waveform' }).isDisabled(), true);
@@ -127,11 +144,19 @@ try {
   assert.ok(first > 0);
   await slider.fill(String(first));
   await waitImage(tracked[first].path);
+  await page.getByText('Common carotid · Transverse reference · Side unreported', { exact: true }).waitFor();
+  assert.match(await page.locator('#comparison img').getAttribute('src'), /carotid-transverse\.webp$/);
   await captureImage.click();
   await slider.fill(String(first + 1));
   await waitImage(tracked[first + 1].path);
   await captureImage.click();
   assert.match(await page.locator('#reconstructionSummary').textContent(), /Right 2\//);
+  const branch = tracked.findIndex((frame) => frame.segment === 'branches');
+  assert.ok(branch > first);
+  await slider.fill(String(branch));
+  await waitImage(tracked[branch].path);
+  await page.getByText('Left bifurcation · Transverse reference', { exact: true }).waitFor();
+  assert.match(await page.locator('#comparison img').getAttribute('src'), /carotid-bifurcation\.webp$/);
   assert.equal(await page.locator('#openVolume').isVisible(), false);
   const [download] = await Promise.all([
     page.waitForEvent('download'), page.getByRole('button', { name: 'Export PLY' }).click(),
@@ -256,13 +281,32 @@ try {
       }
     }
   }
+  await page.evaluate(() => {
+    const phase = document.querySelector('#examPhase');
+    window.examTiming = [];
+    new MutationObserver(() => {
+      examTiming.push([phase.textContent, performance.now()]);
+    }).observe(phase, { subtree: true, childList: true, characterData: true });
+  });
   await page.getByRole('button', { name: 'Play exam', exact: true }).click();
   await page.getByText('Right · Transverse stack', { exact: true }).waitFor();
   await page.getByRole('button', { name: 'Pause exam' }).click();
   await page.getByText(/Paused · Right · Transverse stack/).waitFor();
   assert.equal(await page.getByRole('button', { name: 'Resume exam' }).getAttribute('aria-pressed'), 'false');
   await page.getByRole('button', { name: 'Resume exam' }).click();
-  await page.getByRole('button', { name: 'Replay exam' }).waitFor({ timeout: 120000 });
+  const review = page.locator('#reviewSpan');
+  await page.getByText('Model-placed wall span · 7.8 mm', { exact: true }).waitFor({ timeout: 45000 });
+  await page.getByRole('button', { name: 'Pause exam' }).click();
+  const pausedScan = await page.locator('#scan').evaluate((image) => image.src);
+  assert.equal(pausedScan, new URL('data/' + protocol.stations.find((station) => station.id === 'right-cca-dist').views.longitudinal.path, address).href);
+  assert.ok(await review.isVisible());
+  assert.equal(await page.getByRole('link', { name: 'Compare measured values' }).getAttribute('href'), './review/distal-cca-measurements.webp');
+  await capture('right-paused-wall-caliper', true);
+  assert.equal(await page.locator('#scan').evaluate((image) => image.src), pausedScan);
+  await page.getByRole('button', { name: 'Resume exam' }).click();
+  await page.getByText('Model-placed wall span · 7.7 mm', { exact: true }).waitFor({ timeout: 110000 });
+  await capture('left-wall-caliper', true);
+  await page.getByRole('button', { name: 'Replay exam' }).waitFor({ timeout: 110000 });
   const completed = await page.locator('#reconstructionSummary').textContent();
   assert.ok(completed.includes('Right ' + protocol.tracking.right.length + '/' + protocol.tracking.right.length));
   assert.ok(completed.includes('Left ' + protocol.tracking.left.length + '/' + protocol.tracking.left.length));
@@ -273,6 +317,27 @@ try {
   assert.equal(await page.locator('#openVolume').isVisible(), true);
   assert.match(await page.locator('#ratios').textContent(), /Right ICA\/CCA PSV ratio \d+\.\d+ · Left ICA\/CCA PSV ratio \d+\.\d+/);
   assert.ok((await page.locator('#records').textContent()).includes(expectedMm), 'Playback should retain a manually saved caliper.');
+  const saved = await page.evaluate(() => Object.fromEntries(JSON.parse(sessionStorage.getItem('ultrasound-carotid-exam-v1')).records));
+  for (const side of ['right', 'left']) {
+    const id = side + '-cca-dist';
+    const record = saved[id + '/wall-span'];
+    const view = protocol.stations.find((station) => station.id === id).views.longitudinal;
+    assert.equal(record.frame, view.path);
+    assert.equal(record.value, side === 'right' ? '7.8 mm' : '7.7 mm');
+    const [[ax, ay], [bx, by]] = record.endpointsPx;
+    assert.ok(Math.abs(Math.hypot(bx - ax, by - ay) * view.mmPerPx - record.lengthMm) < 1e-8);
+    assert.ok(saved[id + '/spectral'].beamAngleDeg >= 0);
+  }
+  const timing = await page.evaluate(() => examTiming);
+  for (const [phase, minimum] of [
+    ['Right · Distal CCA · Spectral Doppler', 2600],
+    ['Left · Distal CCA · Long axis', 3200],
+    ['Left · Bulb and bifurcation · Long axis', 1950],
+  ]) {
+    const index = timing.findIndex(([name]) => name === phase);
+    assert.ok(index >= 0 && timing[index + 1][1] - timing[index][1] >= minimum, phase + ' should remain readable during playback.');
+  }
+  if (output) await writeFile(join(output, 'playback-timing.json'), JSON.stringify(timing, null, 2) + '\n');
   await capture('completed-bilateral-exam', true);
   assert.deepEqual(errors, []);
   console.log('Calibrated calipers, waveform measurements, color, captured PLY, bilateral playback, route and media recovery passed.');

@@ -138,12 +138,15 @@ export function duplexSample(station, acquisition) {
       const offset = gate.radiusFraction + radialHalfSpan * (2 * fraction - 1);
       const speed = modelVelocity(station, phase, Math.abs(offset)) * axial;
       const samplingWidthHz = 1.1 * binStep * hertzPerCmS * correction;
-      const shiftHz = speed * hertzPerCmS - Math.sign(speed) * samplingWidthHz * (scatter % 4) * .75;
+      const shiftHz = Math.sign(speed) *
+        Math.max(0, Math.abs(speed) * hertzPerCmS - samplingWidthHz * (scatter % 4) * .75);
       if (Math.abs(shiftHz) < 23) continue;
-      const bin = Math.round((fold(shiftHz, prfHz) / (hertzPerCmS * correction) + nyquistCmS) / binStep);
+      const displayedShift = fold(shiftHz, prfHz);
+      const bin = Math.round((displayedShift / (hertzPerCmS * correction) + nyquistCmS) / binStep);
       const weight = .30 + .54 * Math.sin(Math.PI * fraction);
       for (let delta = -2; delta <= 2; delta += 1) {
         const k = Math.max(0, Math.min(SPECTRAL_BINS - 1, bin + delta));
+        if (velocityBinsCmS[k] * displayedShift <= 0) continue;
         const signal = weight * Math.exp(-delta * delta / 2);
         row[k] = 1 - (1 - row[k]) * (1 - signal);
       }

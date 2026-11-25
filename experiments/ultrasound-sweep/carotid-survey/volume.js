@@ -1,3 +1,5 @@
+import { loadSurfaces, sectionLayer } from './volume-contours.js';
+
 const side = new URLSearchParams(location.search).get('side') === 'left' ? 'left' : 'right';
 const byId = (id) => document.getElementById(id);
 const definitions = [
@@ -27,7 +29,7 @@ async function loadVolume(info) {
   return values;
 }
 
-function createPlane(definition, info, values, cursor, focalPoint, redraw) {
+function createPlane(definition, info, values, cursor, focalPoint, comparison, redraw) {
   const {name, axes: [u, v, depth], labels} = definition;
   const [nx, ny] = info.size;
   const strides = [1, nx, nx * ny];
@@ -50,6 +52,8 @@ function createPlane(definition, info, values, cursor, focalPoint, redraw) {
   const pixels = layer.createImageData(width, height);
   let previous = -1;
   let rect;
+  let overlay;
+  let overlaySlice = -1;
   function draw() {
     const d = cursor[depth];
     slider.value = d;
@@ -80,6 +84,13 @@ function createPlane(definition, info, values, cursor, focalPoint, redraw) {
     rect = {x:length / 2 - cx * w, y:length / 2 - cy * h, w, h};
     ctx.fillStyle = '#0d1919'; ctx.fillRect(0, 0, length, length);
     ctx.drawImage(layers,rect.x,rect.y,w,h);
+    if (comparison.visible && comparison.surfaces) {
+      if (d !== overlaySlice) {
+        overlay = sectionLayer(comparison.surfaces, info, definition.axes, d);
+        overlaySlice = d;
+      }
+      ctx.drawImage(overlay, rect.x, rect.y, w, h);
+    }
     const x = rect.x + (width - cursor[u] - .5) / width * w;
     const y = rect.y + (height - cursor[v] - .5) / height * h;
     ctx.strokeStyle = '#aed9c7'; ctx.lineWidth = Math.max(1, length / 450);
@@ -110,7 +121,40 @@ async function start() {
   const cursor = info.focusMm.map((x,i) => Math.max(0, Math.min(info.size[i]-1, Math.round((x-info.originMm[i])/info.spacingMm[i]))));
   const focalPoint = [...cursor];
   const panels = [];
-  const redraw = () => panels.forEach((draw) => draw());
+  const comparison = {visible:false, surfaces:null};
+  const frames = geometry.tracking[side];
+  const redraw = () => {
+    if (byId('field').value === 'detail') {
+      cursor.forEach((step, axis) => {
+        const allowance = (axis === 2 ? 92 : 52) * .4 / info.spacingMm[axis];
+        const delta = step - focalPoint[axis];
+        if (Math.abs(delta) > allowance) focalPoint[axis] = step - Math.sign(delta) * allowance;
+      });
+    }
+    if (comparison.visible) {
+      const z = info.originMm[2] + info.spacingMm[2]*cursor[2];
+      const nearest = frames.reduce((a,b) => Math.abs(a.contact[2]-z) <= Math.abs(b.contact[2]-z) ? a : b);
+      byId('visibility').textContent = 'Nearest recorded transverse section · ' +
+        Math.round(nearest.observedSourceFraction*100) + '% of modeled lumen visible';
+    }
+    panels.forEach(draw => draw());
+  };
+  byId('compare').onclick = async () => {
+    const button = byId('compare');
+    const message = byId('compareStatus');
+    button.disabled = true;
+    message.hidden = true;
+    try {
+      comparison.surfaces ??= await loadSurfaces(geometry.reconstructions[side]);
+      comparison.visible = !comparison.visible;
+      button.setAttribute('aria-pressed', String(comparison.visible));
+      byId('comparisonKey').hidden = !comparison.visible;
+      redraw();
+    } catch {
+      message.hidden = false;
+      message.textContent = 'Comparison unavailable. Select Compare lumen to retry.';
+    } finally { button.disabled = false; }
+  };
   byId('acquisition').textContent = info.planes + ' tracked transverse sections · ' +
     ((info.size[2]-1)*info.spacingMm[2]).toFixed(0) + ' mm acquired length';
   byId('download').href = 'data/' + info.path;
@@ -119,7 +163,7 @@ async function start() {
     focalPoint.splice(0, 3, ...cursor);
     redraw();
   };
-  for (const d of definitions) panels.push(createPlane(d, info, values, cursor, focalPoint, redraw));
+  for (const d of definitions) panels.push(createPlane(d, info, values, cursor, focalPoint, comparison, redraw));
   new ResizeObserver(redraw).observe(byId('planes'));
   redraw();
 }

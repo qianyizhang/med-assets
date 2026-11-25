@@ -52,6 +52,12 @@ assert.equal(peak.measurements.edvCmS, peak.envelopeCmS.at(-1));
 assert(measurements('ica-prox').edvCmS > measurements('eca').edvCmS);
 assert(measurements('vertebral').edvCmS > measurements('eca').edvCmS);
 assert(sample('subclavian').envelopeCmS.some((velocity) => velocity < -10));
+const subclavian = sample('subclavian');
+assert(subclavian.power.at(-1).some((signal) => signal > 0));
+assert(subclavian.power.at(-1).every((signal, index) =>
+  subclavian.velocityBinsCmS[index] > 0 || signal === 0));
+assert(subclavian.power.some((row) => row.some((signal, index) =>
+  subclavian.velocityBinsCmS[index] < 0 && signal > 0)));
 assert.equal(sample('bulb').status, 'unavailable');
 assert(!sample('bulb').measurements);
 assert.equal(sample('ica-prox', { prfHz: 1000 }).status, 'aliased');

@@ -365,14 +365,24 @@ export async function createReconstruction(canvas, protocol, onPreset) {
     canonicalMeshes.set(side, mesh);
     scene.add(mesh);
   });
+  async function displaySkin() {
+    if (protocol.displaySkinPath) {
+      try {
+        return await meshGeometry(new URL(protocol.displaySkinPath, document.baseURI));
+      } catch {
+        // The sealed acquisition also carries the original contact surface.
+      }
+    }
+    return meshGeometry(protocol.context.skinPath);
+  }
   if (protocol.context?.skinPath) {
-    completeAssets.push(meshGeometry(protocol.context.skinPath).then((geometry) => {
+    completeAssets.push(displaySkin().then((geometry) => {
       skinDepth = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({
-        transparent: true, colorWrite: false, depthWrite: true,
+        side: THREE.DoubleSide, transparent: true, colorWrite: false, depthWrite: true,
         polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1,
       }));
       skinDepth.renderOrder = 3;
-      skin = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: '#be9885',
+      skin = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: '#be9885', side: THREE.DoubleSide,
         transparent: true, opacity: .32, depthWrite: false, roughness: .95 }));
       skin.renderOrder = 4;
       scene.add(skinDepth, skin);

@@ -34,13 +34,13 @@
           </label>
           <button id="playExam" class="examPlay" aria-pressed="false">Play exam</button>
         </div>
-        <p id="examPhase" role="status" hidden></p>
+        <p id="examPhase" role="status">Right stack and stations, then left.</p>
       </div>
       <div class="workspace">
         <div class="acquisition">
           <figure class="examPanel scanPanel" aria-labelledby="scanHeading">
             <header class="panelHeader">
-              <h2 id="scanHeading">Acquisition</h2>
+              <div class="acquisitionHeading"><h2 id="scanHeading">Acquisition</h2><span>Modeled scan</span></div>
               <div class="modeGroup" role="group" aria-label="Imaging mode">
                 <button type="button" data-mode="transverse" aria-pressed="true">Transverse</button>
                 <button type="button" data-mode="longitudinal" aria-pressed="false">Long axis</button>
@@ -67,6 +67,7 @@
               <button id="acquireStack" aria-pressed="false">Acquire stack</button>
               <button id="capture">Capture image</button>
             </div>
+            <p id="reviewSpan" class="reviewSpan" hidden></p>
             <div id="caliperTools" class="examTools" hidden>
               <div class="caliperRow" role="group" aria-label="Caliper placement">
                 <label>Point <select id="caliperPoint"><option value="0">A</option><option value="1">B</option></select></label>
@@ -95,7 +96,7 @@
             </div>
           </figure>
           <section class="examPanel measurementPanel" aria-labelledby="recordTitle">
-            <header class="panelHeader"><h2 id="recordTitle">Measurement record</h2></header>
+            <header class="panelHeader"><h2 id="recordTitle">Modeled measurements</h2></header>
             <p id="emptyRecord">Saved distances and waveforms appear here.</p>
             <p id="ratios" hidden></p>
             <div class="tableWrap" id="recordTable" tabindex="0" role="region" aria-label="Saved measurements" hidden>
@@ -127,9 +128,11 @@
             <p id="reconstructionSummary" class="contextLine"></p>
             <p class="contextLine volumeLink"><a id="openVolume" hidden>Open stitched volume</a><span id="volumeHint">Acquire the selected side’s full stack to open the stitched volume.</span></p>
           </section>
-          <details class="referenceDisclosure" id="comparison" open hidden>
-            <summary>Acquired comparison</summary>
+          <details class="referenceDisclosure" id="comparison" open>
+            <summary>Acquired comparison <span class="referenceCase">Different case</span></summary>
+            <p id="referenceView" class="comparisonView"></p>
             <div id="comparisonContent"></div>
+            <p id="referenceMeasures" hidden><a href="./review/distal-cca-measurements.webp">Compare measured values</a></p>
           </details>
           <section class="examPanel progressPanel" aria-labelledby="progressTitle">
             <header class="panelHeader">

@@ -11,3 +11,12 @@
 .planeAxis output { min-width:6em; text-align:right; font-variant-numeric:tabular-nums; }
 .volumeHelp { margin:.9rem 0 1.4rem; color:#405752; }
 details p { max-width:65em; line-height:1.55; }
+
+.comparisonKey { display:flex; flex-wrap:wrap; align-items:center; gap:.5rem 1rem; margin:.5rem 0 1rem; }
+.comparisonKey span { display:inline-flex; align-items:center; gap:.4rem; font-weight:600; }
+.comparisonKey span::before { content:''; width:.9rem; height:.65rem; }
+.comparisonKey span:first-child::before { background:#6590b5; }
+.comparisonKey span:nth-child(2)::before { border:2px solid #b4762d; border-radius:50%; }
+.comparisonKey output { font-size:.9rem; }
+.comparisonKey[hidden] { display:none; }
+#compare[aria-pressed="true"] { background:#24574f; color:#fff; }
