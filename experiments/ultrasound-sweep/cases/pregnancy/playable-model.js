@@ -2,6 +2,7 @@ import * as early from './playable-volume-early.js';
 import * as first from './playable-volume-first.js';
 import * as mid from './playable-volume-mid.js';
 import * as late from './playable-volume-late.js';
+import { buildOmphalocele } from './playable-omphalocele-model.js';
 
 const volumes = { early, first, mid, late };
 const decoded = new Map();
@@ -65,6 +66,7 @@ export const softNames = [
   'NT space', 'posterior skin', 'amnion fold', 'abdominal skin', 'calvarial contour', 'ossified shaft',
   'abdominal wall defect', 'sac contents', 'sac membrane', 'nearest fluid', 'maternal interface',
   'forearm / lower-leg bones', 'model heart', 'first stomach',
+  'sac space',
 ];
 
 function perimeter(a, b) {
@@ -109,9 +111,10 @@ export function landmarks(stage, kind) {
   const fluid = model.fluid ? mean(...model.fluid) : [32, -9, 41];
   // In local space the maternal AP axis is the world Y row of the rotation.
   const vertical = model.axes[1];
+  const omphalocele = stage === 'mid' && kind === 'abnormal' ? buildOmphalocele(model.cord) : undefined;
   return { shape, head, abdomen, hcAxes, acAxes, femur, fluid, vertical,
     limbs: model.limbs, cervix: model.cervix, placentalCord: model.placentalCord,
-    placenta: model.placenta, cord: model.cord };
+    placenta: model.placenta, cord: model.cord, omphalocele };
 }
 
 function inside(x, y, z, centre, radii) {
@@ -129,8 +132,13 @@ export function sampler(stage, kind, l) {
   const ids = Object.fromEntries([...names, ...softNames].map((name, i) => [name, i + 1]));
   const voxel = (i,j,k) =>
     i>=0 && i<nx && j>=0 && j<ny && k>=0 && k<nz ? bytes[(k*ny+j)*nx+i] : 0;
-  const raw = (x,y,z) => voxel(Math.round((x-origin[0])/spacing),
-    Math.round((y-origin[1])/spacing),Math.round((z-origin[2])/spacing));
+  const raw = (x,y,z) => {
+    const tissue = voxel(Math.round((x-origin[0])/spacing),
+      Math.round((y-origin[1])/spacing),Math.round((z-origin[2])/spacing));
+    // The case-specific model supplies the proximal cord for the abnormal visit.
+    if (l.omphalocele && tissue===ids.cord && z<29.5 && y>17) return ids.amniotic_cavity;
+    return tissue;
+  };
   const interpolated = (x,y,z,tones) => {
     const px=(x-origin[0])/spacing,py=(y-origin[1])/spacing,pz=(z-origin[2])/spacing;
     const i = Math.floor(px),j = Math.floor(py),k = Math.floor(pz);
@@ -191,22 +199,8 @@ export function sampler(stage, kind, l) {
     if (Math.abs(u) <= f.length/2
       && (x-f.centre[0]-u*f.direction[0])**2+(y-f.centre[1]-u*f.direction[1])**2
       +(z-f.centre[2]-u*f.direction[2])**2 < (stage==='late'?4.2:2.6)**2) return ids['ossified shaft'];
-    if (stage === 'mid' && kind === 'abnormal') {
-      // An open neck at the skin line joins the intra-abdominal contents
-      // and the sac. The boundary at the measurement plane is 15 mm wide.
-      const neck = (x/7.5)**2+((z-11.5)/5)**2;
-      if (y>=17.5 && y<=23.5 && neck<1.15) {
-        return neck<.88 ? ids['abdominal wall defect'] : ids['sac membrane'];
-      }
-      if (inside(x,y,z,[0,27,11.5],[9.7,10,8.4])) {
-        if (!inside(x,y,z,[0,27,11.5],[8.7,9,7.45])) return ids['sac membrane'];
-        if (inside(x,y,z,[2.7,31,10.2],[3.4,3.7,2.3]) || inside(x,y,z,[-2.3,27.5,14],[3.0,3.4,2.2])) {
-          return ids['sac contents'];
-        }
-        return ids['abdominal wall defect'];
-      }
-      if (distanceToTube(x,y,z,[0,36.5,12.1],l.cord[4]) < 3.25**2) return ids.cord;
-    }
+    const lesion = l.omphalocele?.tissue(x,y,z);
+    if (lesion) return ids[lesion];
     const [hx, hy, hz] = l.head;
     const [ax, ay, az] = l.abdomen;
     const [hrx, hry] = l.hcAxes;

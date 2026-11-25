@@ -288,19 +288,22 @@ export function chapters(record) {
       'Sweep across both renal outlines and their collecting systems.', { labels:['kidneys','renal_pelves'] });
     chapter('bladder','Bladder and adjacent umbilical arteries',[0,5.4,-12.5],AXIAL,72,
       'Trace the fetal bladder and vessels beside it in the pelvis.', { labels:['fetal_bladder','umbilical_arteries'] });
-    const defect = [0,25.5,11.5];
-    chapter('insertion','Fetal abdominal cord insertion',kind==='abnormal'?defect:[0,23.8,11.6],AXIAL,65,
-      kind==='abnormal'?'Sweep through the neck of a membrane-covered sac at the midline wall. Bowel echoes are visible within the sac.'
+    const defect = l.omphalocele;
+    const defectLabels = ['cord','sac contents','sac membrane','abdominal wall defect'];
+    chapter('insertion','Fetal abdominal cord insertion',defect?.target??[0,23.8,11.6],AXIAL,65,
+      defect?'Sweep through the neck of a membrane-covered sac at the midline wall. Follow the bowel echoes into the sac.'
         :'Trace the cord through the intact anterior abdominal wall.', {
-        labels:kind==='abnormal'?['sac membrane','sac contents','cord']:['cord','fetus'],
-        measure:kind==='abnormal'?length(add(defect,[-7.5,-6.5,0]),add(defect,[7.5,-6.5,0]),'15 mm wall neck'):undefined,
-        measurement:kind==='abnormal'?source.measurement:undefined,
+        labels:defect?defectLabels:['cord','fetus'],
+        focus:defect?'omphalocele':undefined,
+        sweep:defect?14:undefined,
+        measure:defect?length(...defect.neck,`${Math.hypot(...sub(...defect.neck)).toFixed(0)} mm wall neck`):undefined,
+        measurement:defect?source.measurement:undefined,
       });
-    if (kind==='abnormal') {
+    if (defect) {
       views('Confirm the wall finding in another plane');
-      chapter('omphalocele-sagittal','Sagittal confirmation of cord insertion',defect,SAGITTAL,71,
+      chapter('omphalocele-sagittal','Sagittal confirmation of cord insertion',defect.target,SAGITTAL,71,
         'The membrane-covered sac remains contiguous with the ventral defect. The cord leads into the sac apex in the orthogonal sweep.', {
-          labels:['sac membrane','sac contents','cord'], sweep:13,
+          labels:defectLabels, focus:'omphalocele', sweep:10,
         });
     }
     views('Survey spine and extremities');

@@ -2,6 +2,7 @@ export { chapters } from './playable-chapters.js';
 import {
   add, cross, dot, landmarks, mul, patientEnvelope, probeContact, sampler, sub, unit, volumeFor,
 } from './playable-model.js';
+import { drawOmphalocele, drawOmphaloceleLegend } from './playable-omphalocele-view.js';
 
 const paper = '#e3ecef';
 const muted = '#aac1cb';
@@ -25,7 +26,7 @@ const baseNames = {
   'ectopic yolk sac': 215, 'cul-de-sac fluid': 9, 'NT space': 10,
   'posterior skin': 223, 'amnion fold': 183, 'abdominal skin': 215,
   'calvarial contour': 219, 'ossified shaft': 229, 'abdominal wall defect': 18,
-  'sac contents': 130, 'sac membrane': 196, 'nearest fluid': 10, 'maternal interface': 210,
+  'sac contents': 125, 'sac membrane': 177, 'sac space': 25, 'nearest fluid': 10, 'maternal interface': 210,
   'forearm / lower-leg bones': 218, 'model heart': 36, 'first stomach': 12,
 };
 const labelNames = {
@@ -35,6 +36,7 @@ const labelNames = {
   gestational_rim:'Gestational sac rim', 'first stomach':'Stomach', cardiac_region:'Cardiac interface',
   'tubal sac':'Tubal sac fluid', 'tubal wall':'Tubal sac rim', 'ectopic yolk sac':'Ectopic yolk-sac rim',
   'nearest fluid':'Amniotic fluid pocket', 'model heart':'Fetal heart', 'maternal interface':'Fluid pocket boundary',
+  'sac contents':'Herniated bowel',
 };
 const cap = name => {
   const t=labelNames[name] ?? name.replaceAll('_',' ');
@@ -50,7 +52,7 @@ const anatomyColors = {
   amniotic_fluid:'#67b7e7', amniotic_cavity:'#67b7e7',
   'tubal sac':'#70adf0', 'tubal wall':'#ef9c78', 'ectopic yolk sac':'#d7e572',
   'NT space':'#60cce8', 'posterior skin':'#f2af74', 'amnion fold':'#bda1eb',
-  'abdominal wall defect':'#82b1e8', 'sac contents':'#e2dd79', 'sac membrane':'#f698af',
+  'abdominal wall defect':'#82b1e8', 'sac contents':'#e2dd79', 'sac membrane':'#f698af', 'sac space':'#789cb7',
   'nearest fluid':'#5bc7e2', 'maternal interface':'#e5d67b', 'calvarial contour':'#eedb82',
   right_atrium:'#6eaafa', left_atrium:'#a9db72', right_ventricle:'#5bdeca', left_ventricle:'#efab75',
   aortic_outflow:'#f38d97', pulmonary_outflow:'#6de3ca', trachea:'#d8df7e', superior_vena_cava:'#b9a0f2',
@@ -506,6 +508,27 @@ export function pose(ctx,chapter,frame,_record,{yaw=0}={}) {
   ctx.fillStyle='#071821';
   ctx.fillRect(0,0,400,300);
   const plane=planeAt(chapter,frame);
+  if (chapter.focus === 'omphalocele') {
+    drawOmphalocele(ctx,caseModel(chapter).l.omphalocele,plane,yaw);
+    text(ctx,'Abdominal wall cutaway',16,28,paper,'bold 16px system-ui,sans-serif');
+    drawOmphaloceleLegend(ctx);
+    ctx.fillStyle='#11222c';
+    ctx.fillRect(284,11,105,99);
+    text(ctx,'Probe overview',294,27,marker,'12px system-ui,sans-serif');
+    ctx.save();
+    ctx.translate(265,22);
+    ctx.scale(.36,.36);
+    drawLocator(ctx,chapter,plane,yaw);
+    ctx.restore();
+    return;
+  }
+  drawLocator(ctx,chapter,plane,yaw);
+  text(ctx,chapter.vaginal?'Vaginal approach':'External probe',16,28,marker,'bold 14px system-ui,sans-serif');
+  text(ctx,'Fetal / adnexal anatomy',16,258,'#83c8cb','14px system-ui,sans-serif');
+  text(ctx,'Imaging plane and sample crop',16,279,'#b0c6eb','14px system-ui,sans-serif');
+}
+
+function drawLocator(ctx,chapter,plane,yaw) {
   const project=locatorProject(chapter.stage,yaw);
   const shell=projectedShell(chapter.stage,project);
   ctx.strokeStyle='#49606a';
@@ -533,7 +556,4 @@ export function pose(ctx,chapter,frame,_record,{yaw=0}={}) {
   const footprint=mul(width,chapter.vaginal?8:13);
   stroke(ctx,project(sub(contact,footprint)),project(add(contact,footprint)),marker,5);
   dotAt(ctx,...centreBeam,3,teal);
-  text(ctx,chapter.vaginal?'Vaginal approach':'External probe',16,28,marker,'bold 14px system-ui,sans-serif');
-  text(ctx,'Fetal / adnexal anatomy',16,258,'#83c8cb','14px system-ui,sans-serif');
-  text(ctx,'Imaging plane and sample crop',16,279,'#b0c6eb','14px system-ui,sans-serif');
 }

@@ -82,8 +82,37 @@ for (const tag of ['lvot','rvot','3vv','3vt']) {
   assert.ok(first.shadow && repeat.shadow);
   assert.notDeepEqual(planeAt(first,8).contact,planeAt(repeat,8).contact);
 }
+const midAnatomy=landmarks('mid','abnormal');
+const defect=midAnatomy.omphalocele;
+const omphalocele=sampler('mid','abnormal',midAnatomy);
+const neck=find(midAbnormal,'insertion').measure;
+assert.deepEqual([neck.a,neck.b],defect.neck);
+assert.equal(neck.label,'15 mm wall neck');
+close(Math.hypot(...sub(neck.a,neck.b)),15);
+for (const [x,y,z] of defect.neck) {
+  assert.equal(omphalocele.scan(x*.99,y-.25,z),omphalocele.ids['abdominal wall defect']);
+  assert.equal(omphalocele.scan(x*1.01,y-.25,z),omphalocele.ids['abdominal skin']);
+}
+assert.equal(omphalocele.scan(...defect.apex),omphalocele.ids.cord);
+assert.ok(defect.cord.points.every(p=>omphalocele.scan(...p)===omphalocele.ids.cord));
+assert.ok(defect.bowel.points.every(p=>omphalocele.scan(...p)===omphalocele.ids['sac contents']));
+for (const height of [.12,.4,.68,.88]) {
+  for (const angle of [0,Math.PI/2,Math.PI,3*Math.PI/2]) {
+    const [x,y,z]=defect.membranePoint(height,angle);
+    const insetZ=defect.apex[2]+(z-defect.apex[2])*.975;
+    assert.equal(omphalocele.scan(x*.975,y,insetZ),omphalocele.ids['sac membrane']);
+  }
+}
 for (const tag of ['insertion','omphalocele-sagittal']) {
-  assert.ok(viewTissues(find(midAbnormal,tag)).has('sac membrane'));
+  const chapter=find(midAbnormal,tag);
+  assert.equal(chapter.focus,'omphalocele');
+  for (const frame of [6,7,8,9,10]) {
+    const raster=sampleRaster(chapter,frame);
+    const anchors=landmarkAnchors(chapter,raster);
+    const keyTissues=['sac membrane','sac contents','cord','abdominal wall defect'];
+    assert.deepEqual(new Set(anchors.map(anchor=>anchor.name)),new Set(keyTissues));
+    for (const {name,x,y} of anchors) assert.equal(raster.labels[y*raster.columns+x],omphalocele.ids[name]);
+  }
 }
 assert.ok(!viewTissues(find(midNormal,'insertion')).has('sac membrane'));
 assert.ok(viewTissues(find(midNormal,'mid-cervix')).has('cervical_canal'));
@@ -174,9 +203,19 @@ function fakeCanvas() {
   };
   for (const method of [
     'fillRect','fillText','beginPath','moveTo','lineTo','arc','ellipse','fill',
-    'stroke','save','restore','closePath','drawImage',
+    'stroke','save','restore','closePath','drawImage','translate','scale','setLineDash',
   ]) context[method]=(...args)=>calls.push([method,...(method==='drawImage'?args.slice(1):args)]);
   return {context,calls};
+}
+for (const tag of ['insertion','omphalocele-sagittal']) {
+  const chapter=find(midAbnormal,tag);
+  const front=fakeCanvas(), rotated=fakeCanvas(), adjacent=fakeCanvas();
+  pose(front.context,chapter,8,null);
+  pose(rotated.context,chapter,8,null,{yaw:Math.PI/4});
+  pose(adjacent.context,chapter,9,null);
+  assert.ok(front.calls.some(([method,label])=>method==='fillText'&&label==='Covering membrane'));
+  assert.notDeepEqual(front.calls,rotated.calls);
+  assert.notDeepEqual(front.calls,adjacent.calls);
 }
 for (const chapter of [tubal,normalNT,find(midNormal,'four-chamber'),find(lateAbnormal,'ua-repeat')]) {
   const gray=fakeCanvas(),tinted=fakeCanvas();
