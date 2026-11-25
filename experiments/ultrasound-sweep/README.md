@@ -4,6 +4,10 @@ Open the [local tour](http://127.0.0.1:8874/index.html) for abdomen, thyroid, br
 
 Scrub the timeline, play the sweep, or jump directly to a named reference tick. **Anatomy overlay** identifies the tissue intersected by that plane, using CT labels, atlas surfaces or the pregnancy model’s tissue boundaries. Each acquired image retains its own subject, scale and orientation. Differences in plane, level and crop are identified on the card or in Sources. **Keyframe assets** groups the current frame into 3D anatomy, simulated scan and acquired ultrasound. Open **Related anatomy** on a supported sweep for additional acquired views and their credits. Returning to the tour preserves the selected frame. Its management and display design are reserved for joint review after the abdomen walkthrough. [Full tour specification](../../docs/gallery/use-cases/ultrasound-anatomy.md) · [Reference records](research/README.md)
 
+## Cardiac echo
+
+The **Heart → Apical four chamber** study introduces an independent cardiac-phase control. Hold the apical probe still during a complete beat or rotate its plane at a fixed phase. [Replay and cine review](cardiac/README.md)
+
 ## Replay
 
 Use Python 3.12 with NumPy 2.2.6, SciPy 1.16.1, scikit-image 0.25.2 and Pillow 11.3.0. Retrieve the public TotalSegmentator v2.0.1 cases s1233 (abdomen) and s1127 (thyroid), the two original gallbladder images linked in the reference study, and the hydrated LFS inputs for the atlas meshes and the other [acquired comparisons](research/acquired/). For breast, hydrate the [mammary atlas](../../models/breasts_hra/exports/teaching-economy-r01/README.md) and download the [female skin GLB](https://cdn.humanatlas.io/digital-objects/ref-organ/skin-female/v1.3/assets/3d-vh-f-skin.glb). Set `HRA_SKIN` to the downloaded file. The builder verifies the identities of both models. Run from the repository root with a fresh output directory.

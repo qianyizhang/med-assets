@@ -31,6 +31,16 @@ def verify(source):
         staging = work / 'staging'
         destination = work / 'delivery'
         shutil.copytree(source, staging)
+        cardiac = work / 'cardiac-input'
+        shutil.copytree(assemble_tours.HERE / 'cardiac', cardiac)
+        reference = json.loads((cardiac / 'acquisition.json').read_text())
+        (cardiac / reference['file']).write_bytes(b'wrong cine')
+        try:
+            assemble_tours.copy_cardiac_study(cardiac, work / 'invalid-cardiac')
+        except ValueError as exc:
+            assert 'Unexpected acquired cardiac cine identity' in str(exc)
+        else:
+            raise AssertionError('Corrupt cardiac cine entered the delivery')
         research = work / 'research'
         shutil.copytree(assemble_tours.RESEARCH, research)
         original_research = assemble_tours.RESEARCH

@@ -745,30 +745,8 @@ async function startTour() {
     history.replaceState(null, '', currentURL);
   }
   pregnancyNavigation(tours);
-  const picker = $('sweepPicker');
-  const regions = new Map();
-  for (const tour of tours) {
-    const region = tour.pregnancyStage ? 'Pregnancy · ' + tour.pregnancyStage.age : tour.bodyRegion ?? 'Abdomen';
-    if (!regions.has(region)) {
-      const group = document.createElement('optgroup');
-      group.label = region;
-      regions.set(region, group);
-      picker.append(group);
-    }
-    regions.get(region).append(new Option(tour.title, tour.id));
-  }
-  picker.value = selectedTour.id;
-  picker.disabled = false;
-  picker.onchange = () => {
-    const url = new URL(location.href);
-    url.searchParams.set('sweep', picker.value);
-    url.hash = '';
-    location.assign(url);
-  };
-  window.addEventListener('pageshow', () => {
-    picker.value = selectedTour.id;
-    updateTorsoOpacity();
-  });
+  configureStudyPicker($('sweepPicker'), tours, selectedTour.id, new URL('.', location.href));
+  window.addEventListener('pageshow', updateTorsoOpacity);
   $('tourTitle').textContent = selectedTour.title;
   document.title = selectedTour.title + ' · Ultrasound Anatomy';
   poses = await loadPoses(selectedTour.assetRoot);

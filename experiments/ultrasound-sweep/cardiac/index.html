@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Apical four chamber · Ultrasound anatomy</title>
+  <link rel="stylesheet" href="../study.css">
+  <link rel="stylesheet" href="echo.css">
+  <script defer src="../abdomen-tours.js"></script>
+  <script defer src="../study-picker.js"></script>
+  <script type="module" src="echo.js"></script>
+</head>
+<body>
+<header class="mast"><div class="bar">
+  <nav aria-label="Breadcrumb"><a href="../index.html">Ultrasound anatomy</a><span aria-hidden="true">/</span><span>Cardiac echo</span></nav>
+  <label class="sweepPickerLabel">Study <select id="study" disabled><option value="cardiac-a4c">Apical four chamber</option></select></label>
+</div></header>
+<main class="echo">
+  <div class="title"><h1>Apical four chamber</h1><p>Normal adult · Transthoracic echo</p></div>
+  <p id="error" role="status" hidden></p>
+  <div class="images">
+    <figure>
+      <figcaption><h2>Simulated B-mode</h2><button id="overlay" type="button" aria-pressed="false">Anatomy overlay</button></figcaption>
+      <div class="screen"><canvas id="section" width="600" height="460" aria-label="Modeled ultrasound section through the four chambers"></canvas></div>
+      <div class="image-foot"><label for="tilt">Plane rotation</label><input id="tilt" type="range" min="-28" max="28" value="0"><output for="tilt" id="degrees">0°</output><button id="reset" type="button" title="Restore the apical four-chamber plane">Reset</button></div>
+    </figure>
+    <figure>
+      <figcaption class="mode" aria-label="Comparison view">
+        <button id="model" aria-pressed="true">Probe &amp; plane</button><button id="cine" aria-pressed="false">Acquired cine</button>
+      </figcaption>
+      <div class="screen" id="orbit-view"><canvas id="scene" width="600" height="460" tabindex="0" aria-label="Orbit the heart and apical probe" aria-describedby="orbit-help"></canvas></div>
+      <div class="screen" id="reference-view" hidden><canvas id="reference" width="520" height="400" aria-label="Acquired four-chamber echocardiogram, matched by phase"></canvas><p role="status" id="ref-status" hidden></p></div>
+      <div class="image-foot" id="orbit-help">Drag or use arrow keys to orbit · Home to reset</div>
+      <div class="image-foot" id="ref-help" hidden>Different case · Recorded apical plane</div>
+    </figure>
+  </div>
+  <section class="cycle" aria-label="Cardiac cycle">
+    <div class="cycle-bar"><button id="play" class="primary" disabled>Play beat</button><label for="phase">Cardiac phase</label><output id="phase-name" for="phase">End diastole</output></div>
+    <input id="phase" aria-label="Cardiac phase" type="range" min="0" max="1000" step="1" value="0">
+    <div class="cycle-links"><div id="stops" aria-label="Cycle landmarks"><button data-phase="0">End diastole</button><button data-phase="350">End systole</button><button data-phase="520">Early filling</button></div><label class="flow"><input type="checkbox" id="flow">Flow timing</label></div>
+    <p id="flow-note" hidden></p>
+  </section>
+  <details><summary>Reading this view &amp; sources</summary>
+    <p>The left ventricle forms the apex on screen right. The right ventricle sits on screen left, with its tricuspid attachment closer to the apex. In the overlay, LV and RV mark ventricles, LA and RA mark atria.</p>
+    <p>Pause at end diastole and end systole. Compare the left ventricular cavity and the distance from apex to valve plane. At early filling, look for the mitral leaflets separating. The outflow valves lie outside this section.</p>
+    <p id="credit"></p>
+    <p>The model and B-mode texture are illustrative. Phase links align visible landmarks across cases. Rotation changes only the modeled plane. Flow timing describes expected forward flow qualitatively. This view provides no velocity, pressure or Doppler measurements.</p>
+  </details>
+  <noscript><p>Enable JavaScript to play and rotate the study.</p></noscript>
+</main>
+</body></html>

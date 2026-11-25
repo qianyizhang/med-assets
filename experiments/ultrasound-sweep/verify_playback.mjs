@@ -156,13 +156,14 @@ try {
     assert.equal(new Set(thyroidTours.map((tour) => tour.keys[0].referenceId)).size, 1,
       'Both thyroid tours should share the acquired midline reference.');
   }
-  const sweepPicker = page.getByRole('combobox', { name: 'Sweep' });
+  const sweepPicker = page.getByRole('combobox', { name: 'Study' });
   const expectedRegions = new Map();
   for (const tour of catalogue) {
     const label = tour.stage ? 'Pregnancy · ' + tour.stage.age : tour.region;
     if (!expectedRegions.has(label)) expectedRegions.set(label, []);
     expectedRegions.get(label).push(tour.id);
   }
+  expectedRegions.set('Heart', ['cardiac-a4c']);
   assert.deepEqual(await sweepPicker.locator('optgroup').evaluateAll((groups) =>
     groups.map((group) => [group.label, [...group.children].map((option) => option.value)])), [...expectedRegions]);
 

@@ -324,8 +324,20 @@ def configured_tours(output, refs, files, landmark_refs, tracks):
 def write_catalogue(destination, refs, tours):
     for name, variable, content in [('references.js', 'abdomenReferences', refs), ('abdomen-tours.js', 'abdomenTours', tours)]:
         (destination / name).write_text(f'const {variable} = ' + json.dumps(content, ensure_ascii=False, indent=2) + ';\n')
-    for name in ('index.html', 'study.css', 'study.js', 'scene.js', 'probe-steering.js'):
+    for name in ('index.html', 'study.css', 'study.js', 'study-picker.js', 'scene.js', 'probe-steering.js'):
         shutil.copyfile(HERE / name, destination / name)
+    copy_cardiac_study(HERE / 'cardiac', destination)
+
+
+def copy_cardiac_study(source, destination):
+    reference = json.loads((source / 'acquisition.json').read_text())
+    if sha256((source / reference['file']).read_bytes()) != reference['sha256']:
+        raise ValueError('Unexpected acquired cardiac cine identity')
+    target = destination / 'cardiac'
+    target.mkdir(exist_ok=True)
+    for name in ('index.html', 'echo.css', 'echo.js', 'acquisition.json', 'CC-BY-SA-3.0.txt', reference['file'],
+                 'heart-geometry.js', 'heart-scene.js', 'heart-echo.js', 'heart-view.js'):
+        shutil.copyfile(source / name, target / name)
 
 
 def assemble(output, delivery=None):
