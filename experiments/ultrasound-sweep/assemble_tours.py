@@ -13,6 +13,7 @@ import build_abdomen
 import build_aortic_screening
 import build_axilla
 import build_breast
+import build_carotid
 import build_early_pregnancy
 import build_gestational
 import build_pregnancy
@@ -146,7 +147,12 @@ def verify_track(root, track, stops, builder):
         verify_ap_spans(root, receipt)
     if builder in (build_breast, build_axilla) and receipt.get('renderRecipeSha256') != builder.render_recipe_sha256(slug):
         raise ValueError(f'Rebuild {slug} with the current tissue rendering recipe.')
-    if builder in (build_breast, build_axilla):
+    if builder is build_carotid and (
+            receipt.get('modelRecipeSha256') != builder.model_recipe_sha256()
+            or receipt.get('ctSha256') != builder.CT_SHA or receipt.get('maskSha256') != builder.PINS
+            or receipt.get('obstructionMaskSha256') != builder.OBSTRUCTION_PINS):
+        raise ValueError(f'Rebuild {slug} for the current carotid anatomy and sampler.')
+    if builder in (build_breast, build_axilla, build_carotid):
         verify_contact_fields(root, track)
     if 'steering' in track:
         steering = track['steering']
@@ -249,7 +255,7 @@ def configured_tours(output, refs, files, landmark_refs, tracks):
         tour['assetRoot'] = root
         tour['title'] += ' sweep'
         case = tour.get('case', 's1233')
-        if builder is build_thyroid:
+        if builder in (build_thyroid, build_carotid):
             tour['anatomySource'] = {
                 'label': f'TotalSegmentator {case} anatomy', 'url': 'https://zenodo.org/records/10047263',
                 'license': 'CC BY 4.0', 'licenseUrl': 'https://creativecommons.org/licenses/by/4.0/',
@@ -275,14 +281,26 @@ def configured_tours(output, refs, files, landmark_refs, tracks):
 
         if detail_frames := tour.pop('detailFrames', []):
             receipt = json.loads((output / root / 'verification.json').read_text())
-            rois = receipt['detailRois']
-            if set(map(str, detail_frames)) != set(rois) or set(detail_frames) - {stop['frame'] for stop in stops}:
+            linear = tour.get('fieldShape') == 'rectangle'
+            regions = receipt.get('detailBoundsMm' if linear else 'detailRois', {})
+            if set(map(str, detail_frames)) != set(regions) or set(detail_frames) - {stop['frame'] for stop in stops}:
                 raise ValueError(f'Unexpected magnified keyframes: {slug}')
             for stop in stops:
                 if stop['frame'] in detail_frames:
-                    stop['detail'] = {'roi': rois[str(stop['frame'])]}
+                    region = regions[str(stop['frame'])]
+                    if linear:
+                        bounds = np.asarray(region, dtype=float)
+                        half = tour['fieldWidthMm'] / 2
+                        if bounds.shape != (4,) or not np.isfinite(bounds).all():
+                            raise ValueError(f'Invalid linear detail bounds: {slug}')
+                        x0, y0, x1, y1 = bounds
+                        if not (-half <= x0 < x1 <= half and 0 <= y0 < y1 <= tour['sectorDepthMm']):
+                            raise ValueError(f'Invalid linear detail bounds: {slug}')
+                        stop['detail'] = {'boundsMm': region}
+                    else:
+                        stop['detail'] = {'roi': region}
         for stop in stops:
-            if 'detail' in stop:
+            if 'roi' in stop.get('detail', {}):
                 grid = build_abdomen.ImagingGrid(tour['sectorDepthMm'], stop['detail']['roi'])
                 half_pixel = (grid.x[0, 1] - grid.x[0, 0]) / 2
                 stop['detail']['boundsMm'] = [round(float(bound), 4) for bound in
@@ -334,6 +352,7 @@ def assemble(output, delivery=None):
     tracks = [(track, build_abdomen) for track in [GALLBLADDER, *build_abdomen.read_tracks()]]
     regional_sources = []
     for region, builder, group in [('thyroid', build_thyroid, build_thyroid.read_thyroid_tracks()),
+                                   ('carotid', build_carotid, build_carotid.read_tracks()),
                                    ('breast', build_breast, build_breast.read_breast_tracks()),
                                    ('axilla', build_axilla, build_axilla.read_axilla_tracks()),
                                    ('early-pregnancy', build_early_pregnancy, build_early_pregnancy.read_tracks()),

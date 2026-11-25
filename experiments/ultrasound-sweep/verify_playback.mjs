@@ -151,7 +151,9 @@ try {
     }),
   })));
   assert.ok(catalogue.length > 1, 'The tour picker should include the abdomen sweeps.');
-  const thyroidTours = catalogue.filter((tour) => tour.region === 'Neck' && tour.keys.length === 3);
+  const isThyroid = (tour) => tour.id.startsWith('thyroid-');
+  const isCarotid = (tour) => tour.id.startsWith('carotid-');
+  const thyroidTours = catalogue.filter(isThyroid);
   if (thyroidTours.length > 1) {
     assert.equal(new Set(thyroidTours.map((tour) => tour.keys[0].referenceId)).size, 1,
       'Both thyroid tours should share the acquired midline reference.');
@@ -233,6 +235,22 @@ try {
     const field = tour.fieldShape === 'rectangle' ? 'Imaging field' : 'Imaging sector';
     assert.deepEqual(await page.locator('#sceneLegend li').allTextContents(), [field, ...tour.parts]);
     const probeLabel = tour.probeType === 'linear' ? 'High-frequency linear array' : 'Curved array';
+    if (isCarotid(tour)) {
+      assert.equal(tour.region, 'Neck');
+      assert.equal(tour.probeType, 'linear');
+      assert.equal(tour.fieldShape, 'rectangle');
+      assert.equal(tour.initialFrame, 12);
+      assert.deepEqual(tour.keys.map(({ frame }) => frame), [12, 48]);
+      assert.match(tour.keys[0].label, /transverse/i);
+      assert.match(tour.keys[1].label, /longitudinal/i);
+      const axes = await page.evaluate(() => [sweep[12].width, sweep[48].width]);
+      assert.ok(Math.abs(axes[0][2]) < .5 && Math.abs(axes[1][2]) > .8,
+        'The transverse width should run laterally and the longitudinal width should follow the head–foot axis.');
+      const siblings = page.getByRole('navigation', { name: 'Common carotid scan routes' });
+      assert.deepEqual(new Set(await siblings.getByRole('link').evaluateAll((links) =>
+        links.map((link) => new URL(link.href).searchParams.get('sweep')))), new Set(['carotid-left', 'carotid-right']));
+      assert.equal(await siblings.locator('[aria-current="page"]').getAttribute('href'), page.url());
+    }
     const poseDepths = await page.evaluate(() => sweep.map(({ imagingDepthMm }) => imagingDepthMm ?? null));
     const depthText = (frame) => probeLabel + ' · ' + Number(((poseDepths[frame] ?? tour.depth) / 10).toFixed(2)) + ' cm depth';
     assert.equal(await page.locator('#scanDetail').textContent(), depthText(tour.initialFrame));
@@ -249,7 +267,7 @@ try {
       assert.notDeepEqual(await screenshot(), defaultView, 'Coronal and oblique views should have distinct projections.');
       await preset('oblique').click();
       assert.deepEqual(await screenshot(), defaultView, 'Reapplying the oblique preset should restore the default projection.');
-      if (captureFolder && (tour.id === 'thyroid-right' || tour.region === 'Breast')) {
+      if (captureFolder && (tour.id === 'thyroid-right' || tour.region === 'Breast' || isCarotid(tour))) {
         await skinOpacity.fill('100');
         await page.locator('#scenePanel figcaption > span').click();
         await capture(tour.id + '-skin-100-1021', tour.region === 'Breast');
@@ -273,17 +291,18 @@ try {
       assert.ok((await page.locator('#referenceNote').textContent()).includes(key.referenceLabel));
       assert.equal(await page.locator('#referenceDepth').textContent(), [tour.referenceContext, key.depthLabel].filter(Boolean).join(' · '));
       if (tour.region === 'Breast') await capture(tour.id + '-frame-' + key.frame + '-1021', true);
-      if (tour.region === 'Pregnancy') {
-        await capture(tour.id + '-' + key.frame);
+      if (tour.region === 'Pregnancy' || isCarotid(tour)) {
+        const filename = tour.id + '-' + key.frame;
+        await capture(filename, isCarotid(tour));
         await page.locator('#section').click();
         await page.waitForFunction(() => document.querySelector('#scan')?.src.includes('/section-'));
-        await capture(tour.id + '-' + key.frame + '-section');
+        await capture(filename + '-section', isCarotid(tour));
         if (key.detail) {
           const fullField = await screenshot();
           await page.locator('#scanZoom').click();
           await page.waitForFunction(() => document.querySelector('#scan')?.src.includes('/detail-section-'));
           assert.notDeepEqual(await screenshot(), fullField, 'Magnification should outline its physical bounds in the 3D field.');
-          await capture(tour.id + '-' + key.frame + '-magnified');
+          await capture(filename + '-magnified', isCarotid(tour));
           assert.equal(await page.locator('#position').inputValue(), String(key.frame));
           assert.equal(await page.locator('#ref').evaluate(img => img.src), new URL(key.path, page.url()).href);
           await page.locator('#section').click();
@@ -295,7 +314,7 @@ try {
         }
         await page.locator('#section').click();
       }
-      if (tour.region === 'Neck' && tour.keys.length === 3) {
+      if (isThyroid(tour)) {
         if (key.frame === 0 && tour.id === 'thyroid-right') await capture('thyroid-midline-1021x1197');
         if (key.frame === 12) await capture(tour.id + '-transverse-1021x1197');
         if (key.frame === 48) await capture(tour.id + '-longitudinal-1021x1197');
@@ -313,9 +332,11 @@ try {
         { frame, label: key.referenceLabel });
       }
     }
-    if (tour.region === 'Neck' && tour.keys.length === 3) {
+    if (isThyroid(tour)) {
       assert.deepEqual(tour.keys.map((key) => key.frame), [0, 12, 48]);
       assert.equal(tour.initialFrame, 12);
+    }
+    if (isThyroid(tour) || isCarotid(tour)) {
       const ticks = page.locator('#ticks button');
       const assertTickLayout = async () => {
         const bounds = await ticks.evaluateAll((nodes) => nodes.map((node) => {
@@ -383,7 +404,7 @@ try {
       }
     }
     let returnFrame = tour.keys.at(-1).frame;
-    if (tour.region === 'Neck' && tour.keys.length === 3) {
+    if (isThyroid(tour)) {
       const midline = tour.keys[0];
       returnFrame = midline.frame;
       await page.locator('#assetFrame').selectOption(String(returnFrame));
@@ -404,6 +425,21 @@ try {
   await page.goForward();
   await ready();
   assert.equal(await sweepPicker.inputValue(), catalogue.at(-1).id);
+
+  if (catalogue.some(isCarotid)) {
+    const right = new URL(url);
+    right.searchParams.set('sweep', 'carotid-right');
+    await page.goto(right.href);
+    await ready();
+    const links = page.getByRole('navigation', { name: 'Common carotid scan routes' });
+    await links.getByRole('link', { name: 'Left', exact: true }).click();
+    await page.waitForURL((location) => location.searchParams.get('sweep') === 'carotid-left');
+    await ready();
+    assert.equal(await sweepPicker.inputValue(), 'carotid-left');
+    await page.goBack();
+    await ready();
+    assert.equal(await sweepPicker.inputValue(), 'carotid-right');
+  }
 
   const axilla = catalogue.find((tour) => tour.id === 'axilla');
   if (axilla) {

@@ -1,0 +1,67 @@
+{
+  "carotid-transverse": {
+    "path": "references/carotid-transverse.webp",
+    "title": "Transverse common carotid artery and internal jugular vein",
+    "label": "Carotid and jugular vein in cross-section",
+    "depthLabel": "Side unreported",
+    "credit": "Sohan L. Solanki et al., Saudi Journal of Anaesthesia (2018), Figure 2b",
+    "url": "https://doi.org/10.4103/sja.SJA_309_18",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "reason": "The acquired panel shows the round carotid artery beside the larger, lateral jugular vein.",
+    "note": "Acquired transverse grayscale from a healthy volunteer study. The authors label the carotid artery and internal jugular vein. This panel’s side and exact neck level are unreported. Shared as a qualitative comparison on both modeled sides. Cropped to panel b without resizing or flipping. Noncommercial reuse under the same license.",
+    "plane": "transverse",
+    "laterality": "unreported",
+    "sourceMedia": "https://pmc-oa-opendata.s3.amazonaws.com/PMC6180703.1/SJA-12-578-g002.jpg",
+    "sourceMetadata": "https://pmc-oa-opendata.s3.amazonaws.com/PMC6180703.1/PMC6180703.1.xml",
+    "sourceSha256": "65baaf0a44b28e655032f1c256ef984f0e52283a22d425450057968b99a90a28",
+    "sha256": "2ca6dcbbba4736c942f2e1ce5eeb9f360a0195dfc51fdbe4c667099645e44f3b",
+    "transform": {
+      "sourceDimensions": [
+        539,
+        422
+      ],
+      "exportDimensions": [
+        272,
+        204
+      ],
+      "encoding": "lossless WebP",
+      "orientation": "native",
+      "crop": [
+        267,
+        0,
+        539,
+        204
+      ]
+    }
+  },
+  "carotid-longitudinal": {
+    "path": "references/carotid-longitudinal.webp",
+    "title": "Longitudinal right common carotid artery",
+    "label": "Right common carotid in long axis",
+    "credit": "Åsa Rydén Ahlgren, Tobias Erlöv and Magnus Cinthio, Physiological Reports (2023), Figure 1",
+    "url": "https://doi.org/10.14814/phy2.15580",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "reason": "Compare the elongated lumen and parallel interfaces of the common carotid trunk.",
+    "note": "Acquired right common carotid artery in a healthy volunteer study, about 2 cm proximal to the bifurcation. The published wall-interface markers are retained. Tight field around the vessel wall. Used as a qualitative long-axis reference for both routes, including the modeled left side. Converted without resizing or flipping.",
+    "plane": "longitudinal",
+    "laterality": "right",
+    "sourceMedia": "https://pmc-oa-opendata.s3.amazonaws.com/PMC9879728.1/PHY2-11-e15580-g005.jpg",
+    "sourceMetadata": "https://pmc-oa-opendata.s3.amazonaws.com/PMC9879728.1/PMC9879728.1.xml",
+    "sourceSha256": "523d33b379ea441769acf50df59730707362d1b81141f0b6e43862f7f9055abf",
+    "sha256": "4380aa98efd55a382960054f4aa56ef207471de82496a8c0404db38701dafdc3",
+    "transform": {
+      "sourceDimensions": [
+        662,
+        523
+      ],
+      "exportDimensions": [
+        662,
+        523
+      ],
+      "encoding": "lossless WebP",
+      "orientation": "native"
+    }
+  }
+}

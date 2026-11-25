@@ -1,12 +1,12 @@
 # Ultrasound Anatomy · Tour specification
 
-The local Abdomen, Thyroid, Breast and Pregnancy tours are the reference implementation for exploring ultrasound anatomy. Visitors can follow a probe through an authored sweep, inspect the corresponding section, and compare a modeled image with a named acquired view from another case. The collector and author-facing asset display will be designed jointly after reviewing the abdomen set. [Local tour and replay](../../../experiments/ultrasound-sweep/README.md) · [Campaign](../../../records/campaigns/ultrasound-gallery.md)
+The local abdomen, thyroid, carotid, breast and pregnancy tours are the reference implementation for exploring ultrasound anatomy. Visitors can follow a probe through an authored sweep, inspect the corresponding section, and compare a modeled image with a named acquired view from another case. The collector and author-facing asset display will be designed jointly after reviewing the abdomen set. [Local tour and replay](../../../experiments/ultrasound-sweep/README.md) · [Campaign](../../../records/campaigns/ultrasound-gallery.md)
 
 ## Audience and outcome
 
 A visitor familiar with basic anatomy should be able to connect the probe footprint, imaging field, intersected structures, and projected image. At a reference keyframe they can point out the relationship and inspect differences in shape, depth or landmarks across cases. The current tour supports exploration. The aortic survey displays a calculated model span. Free caliper placement, exercises, assessment, disease classification and narration remain possible later uses.
 
-The five collection topics are Abdomen, abdominal aortic aneurysm (AAA), Thyroid, Breast and Pregnancy. Name the exam purpose for each topic. Abdomen provides a general anatomy exploration. Reserve screening claims for specifically supported contexts such as AAA. [AIUM abdominal aorta practice parameter](https://onlinelibrary.wiley.com/doi/10.1002/jum.70167) · [USPSTF thyroid guidance](https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/thyroid-cancer-screening)
+Current topics cover abdominal anatomy, abdominal aortic screening, thyroid, common carotid, breast and pregnancy. Name the exam purpose for each topic. Abdomen provides a general anatomy exploration. Reserve screening claims for specifically supported contexts such as abdominal aortic aneurysm (AAA) screening. [AIUM abdominal aorta practice parameter](https://onlinelibrary.wiley.com/doi/10.1002/jum.70167) · [USPSTF thyroid guidance](https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/thyroid-cancer-screening)
 
 ## Tour contract
 
@@ -54,6 +54,12 @@ The [right lobe](http://127.0.0.1:8874/index.html?sweep=thyroid-right) and [left
 The trachea provides medial context and the paired common carotids provide lateral context. The **Isthmus** tick on either sweep opens the same midline pose and acquired view of the tissue bridge over the trachea. Playing from that tick moves the probe from the midline to the selected lobe before the rotation. The four lobe comparisons preserve the published side and plane. The right longitudinal reference includes color Doppler. The simulation shows grayscale anatomy. [Choi, standard thyroid images, Figure 1](https://clinicalultrasound.org/upload/pdf/cu-8-1-7.pdf#page=3)
 
 The s1127 thyroid mask spans both lobes and their connecting bridge. Its gland lies deeper than the acquired examples. The tours demonstrate orientation and relationships in one model. Clinical acquisition requires additional levels, longitudinal positions and review of other neck structures. [AIUM head and neck practice parameter](https://www.aium.org/docs/default-source/resources/guidelines/extracranial_head_neck.pdf)
+
+## Common carotid coverage
+
+The [right](http://127.0.0.1:8874/index.html?sweep=carotid-right) and [left](http://127.0.0.1:8874/index.html?sweep=carotid-left) routes explore the common carotid trunk in grayscale. At **Transverse**, find the dark arterial cross-section. As the probe rotates, watch the lumen lengthen until both walls are visible at **Longitudinal**. The magnified section shows the same sampled plane at a smaller field of view.
+
+The arteries come from the matched s1127 CT masks. A contrast-visible segment of the right internal jugular vein was traced on 34 consecutive CT slices cranial to the right brachiocephalic confluence. Each side has its own artery and probe poses. Only the right jugular has a verified vein trace in this study. The acquired transverse panel shows a carotid beside the jugular vein and leaves its side unspecified. The acquired longitudinal image shows a right common carotid and also provides a shape comparison for the left tour. Its wall markings belong to the published study. This is an orientation study of the common trunk. Duplex assessment adds flow imaging and further vessel segments. [Reference records](../../../experiments/ultrasound-sweep/research/carotid.json) · [AIUM extracranial cerebrovascular practice parameter](https://doi.org/10.1002/jum.15877)
 
 ## Breast coverage
 

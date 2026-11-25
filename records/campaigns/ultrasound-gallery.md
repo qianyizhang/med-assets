@@ -1,6 +1,6 @@
 # Ultrasound Anatomy gallery
 
-Build interactive sweeps across Abdomen, abdominal aortic aneurysm, thyroid, breast and pregnancy. The [tour specification](../../docs/gallery/use-cases/ultrasound-anatomy.md) owns the settled interaction, abdomen, thyroid, breast and pregnancy coverage, acceptance and remaining decisions.
+Build interactive sweeps across the abdomen, abdominal aorta, thyroid, common carotids, breast and pregnancy. The [tour specification](../../docs/gallery/use-cases/ultrasound-anatomy.md) owns the settled interaction, abdomen, thyroid, carotid, breast and pregnancy coverage, acceptance and remaining decisions.
 
 | Stage | Outcome |
 | --- | --- |
@@ -12,6 +12,8 @@ Build interactive sweeps across Abdomen, abdominal aortic aneurysm, thyroid, bre
 | Breast tour | Three normal-anatomy routes cover a four-pass right breast survey, independently steerable nipple and duct views, and rotation through a right axillary node. A surface-sampled contact model drives the tissue deformation in the 3D view and scan sections. Six acquired images supply structural comparisons. [Breast scope](../../docs/gallery/use-cases/ultrasound-anatomy.md#breast-coverage) |
 | Pregnancy tour | Eleven local sweeps span the early embryo, 11–14-week profile and placenta, mid-trimester organ survey, and third-trimester presentation, growth planes and cord sampling. Named stops pair synchronized models with licensed acquisitions. [Pregnancy scope](../../docs/gallery/use-cases/ultrasound-anatomy.md#pregnancy-coverage) |
 | Normal aortic screening | The proximal, mid and distal transverse windows share a moving probe, a case-derived aorta and vena cava, and an optional anterior–posterior mask span. [Aortic survey scope](../../docs/gallery/use-cases/ultrasound-anatomy.md#normal-aortic-screening-survey) |
+| Common carotid anatomy | The bilateral grayscale tours follow a common carotid from transverse to longitudinal. The right tour also shows the adjacent jugular vein traced from the source CT. [Carotid scope](../../docs/gallery/use-cases/ultrasound-anatomy.md#common-carotid-coverage) |
+| Cardiac echo | The separate [apical four-chamber prototype](http://127.0.0.1:8886/cardiac/) pairs a modeled beat with acquired cine. Probe rotation and cardiac phase are independent. Its first reviewed build is on `codex/cardiac-echo` at `1637fda`. |
 | Next joint decision | Walk the completed abdomen set with the owner, then design the ultrasound asset-management and display experience together. |
 | Later topics | Add or adapt assets for scans that reveal an abnormal finding in a separate milestone. An aneurysm-positive example still requires its own reviewed anatomy and acquired references. Revisit rendering fidelity using the acquired comparison set. |
 
