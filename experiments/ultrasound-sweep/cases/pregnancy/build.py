@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+from hashlib import sha256
 from html import escape
 from math import cos, pi, sin, sqrt
 from pathlib import Path
@@ -477,6 +478,16 @@ def case(stage, kind, title, summary, views, impression, limitations, *sources):
     return stage, kind, title, summary, views, impression, limitations, sources
 
 
+OMPHALOCELE_ILLUSTRATION = {
+    "file": "omphalocele-transverse-cutaway.svg",
+    "chapterId": "insertion",
+    "sha256": "dacaf62df2cbdc0e1a10c841c9b3b720d2038318bb2c053f0bd3515bd2b328eb",
+    "title": "Bowel and cord attachment in omphalocele",
+    "alt": "Transverse fetal abdominal diagram showing bowel passing through a midline wall opening into a membrane-covered sac, with the umbilical cord attached to the sac apex.",
+    "caption": "ImageGen illustration traced to editable vectors. Anterior is at the right in the drawing and at the top in the scan. On the modeled replay, turn on Tissue overlay and follow the membrane from the wall opening to the cord attachment. Dahal et al., Figure 1B, marks bowel herniation in a separate twin pregnancy.",
+}
+
+
 def early_cases():
     mm = 10
     age = crl_age(mm)
@@ -615,7 +626,10 @@ def mid_cases():
                  ("RV outflow", heart("RVOT", kind == "limited")),
                  ("Three vessels", heart("3VV", kind == "limited")),
                  ("Three vessels and trachea", heart("3VT", kind == "limited"))),
-            view("Assess abdomen and umbilical insertion", "Confirm stomach position, both kidneys and bladder, then track the cord to its insertion at the fetal abdominal wall.",
+            view("Assess abdomen and umbilical insertion",
+                 "Confirm stomach position, both kidneys and bladder. At the anterior midline opening, trace bowel into the membrane-covered sac and follow the cord to the sac apex."
+                 if kind == "abnormal" else
+                 "Confirm stomach position, both kidneys and bladder, then track the cord to its insertion at the fetal abdominal wall.",
                  ("Both kidneys", landmarks([(103, 90, 29, 16, "Right kidney", 12, 36),
                                                (205, 90, 29, 16, "Left kidney", 213, 38)])),
                  ("Pelvis", landmarks([(152, 87, 31, 23, "Bladder", 210, 130)])),
@@ -646,8 +660,10 @@ def mid_cases():
                                   + pointer("Cord into sac", 205, 27, 277, 91))))
             impression = "Midline membrane-covered abdominal wall defect with a cord inserting into the sac, consistent with omphalocele. Refer for detailed fetal assessment."
             limit = "The schematic illustrates attachment and the neck of the defect. Associated malformations and genetic conditions require additional assessment."
-            extras = (("Acquired omphalocele · true defect and cord attachment, Fig. 1",
-                       "https://pmc.ncbi.nlm.nih.gov/articles/PMC12323075/"),)
+            extras = (("Dahal et al. · acquired bowel herniation, Fig. 1B",
+                       "https://pmc.ncbi.nlm.nih.gov/articles/PMC12323075/"),
+                      ("Som and Naik · acquired cord attachment at the sac apex, Fig. 2",
+                       "https://pubmed.ncbi.nlm.nih.gov/27408166/#figures"),)
         elif kind == "limited":
             views.insert(3, view("Repeat cardiac sweep",
                                  "Repeat after maternal repositioning and a lateral approach. Persistent spine shadow leaves the outflows and three-vessel views incomplete. The independent acquired images show the views needed at targeted completion.",
@@ -759,7 +775,11 @@ def late_cases():
 
 
 def build():
-    outputs = {}
+    illustration = Path(__file__).with_name(OMPHALOCELE_ILLUSTRATION["file"])
+    illustration_bytes = illustration.read_bytes()
+    if sha256(illustration_bytes).hexdigest() != OMPHALOCELE_ILLUSTRATION["sha256"]:
+        raise ValueError(f"Unexpected bytes for retained case illustration: {illustration.name}")
+    outputs = {illustration.name: illustration_bytes.decode("utf-8")}
     payload = []
     for stage, kind, title, summary, views, impression, limits, sources in (
         early_cases() + first_cases() + mid_cases() + late_cases()
@@ -775,6 +795,8 @@ def build():
             refs = REFERENCE_EXCEPTIONS.get((kind, view_title), VIEW_REFERENCES.get(view_title))
             if refs:
                 row["referenceIds"] = list(refs)
+            if identifier == "pregnancy-mid-abnormal" and view_title == "Assess abdomen and umbilical insertion":
+                row["illustration"] = OMPHALOCELE_ILLUSTRATION
             case_views.append(row)
         payload.append({
             "id": identifier, "family": f"pregnancy-{stage}", "title": title,
@@ -803,7 +825,7 @@ def main():
         extra = {path.relative_to(args.output).as_posix() for path in (args.output / "views").glob("*.svg")} - outputs.keys()
         if mismatches or extra:
             parser.exit(1, f"Replay mismatch: {', '.join(mismatches + sorted(extra))}\n")
-        print(f"Verified {len(outputs) - 1} schematic images and cases.json")
+        print(f"Verified {len(outputs) - 2} schematic images, the retained illustration and cases.json")
         return
     for relative, contents in outputs.items():
         destination = args.output / relative

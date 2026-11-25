@@ -9,7 +9,15 @@ Open the scenario library from the ultrasound tour and select Early pregnancy, 1
 | Mid-trimester anatomy | Membrane-covered abdominal wall defect with cord insertion into the sac | Repeat cardiac outflow and three-vessel planes still obscured |
 | Third-trimester growth | Low estimated weight, small fluid pocket and persistent absent end-diastolic flow | Abdominal circumference, fluid pocket and Doppler envelope remain unreliably seen |
 
-[Case records](cases.json) link clinical protocols and acquired comparison figures. The acquired figures depict separate visits and retain their own measurements and rights. The SVGs are original illustrative sections. Image contrast, anatomy outlines, acoustic shadow, calipers and time traces are authored. Modeled values support the worked calculations for early CRL dating and the BMUS-corrected Robinson–Fleming curve at 11–14 weeks, cardiac cycle rate and Hadlock fetal weight. The separate Hadlock 1991 weight standard provides the plotted 28- and 32-week reference values.
+[Case records](cases.json) link clinical protocols and acquired comparison figures. The acquired figures depict separate visits and retain their own measurements and rights. The exam schematics use authored contrast, anatomy outlines, acoustic shadow, calipers and time traces. Modeled values support the worked calculations for early CRL dating and the BMUS-corrected Robinson–Fleming curve at 11–14 weeks, cardiac cycle rate and Hadlock fetal weight. The separate Hadlock 1991 weight standard provides the plotted 28- and 32-week reference values.
+
+## Omphalocele illustration
+
+The mid-trimester finding pairs the fetal abdominal cord insertion with an [editable SVG](omphalocele-transverse-cutaway.svg). Follow the bowel through the midline defect, then trace the covering membrane to the cord attachment at the sac apex. Compare the transverse `insertion` and `omphalocele-sagittal` chapters with the tissue overlay at evidence frame index 8. Read the 15 mm modeled neck measurement from the transverse acquisition.
+
+The built-in ImageGen tool used the [transverse](views/mid-abnormal-04.svg) and [sagittal](views/mid-abnormal-05.svg) case schematics as references. The generated PNG was traced into separately editable anatomical paths and labeled with SVG text. The trace removes an artificial line across the open neck. The drawing simplifies proportions and bowel geometry. The acquired comparison is a different twin pregnancy. Figure 1B marks bowel herniation in one fetus. [Dahal et al., 2025](https://link.springer.com/article/10.1186/s13256-025-05449-y#Fig1)
+
+The [original ImageGen PNG](omphalocele-source/imagegen-original.png), [generation prompt](omphalocele-source/imagegen-prompt.txt) and [vector tracing recipe](omphalocele-source/trace.py) are retained together. To reproduce the initial editable artwork with OpenCV and NumPy, run `python3 trace.py imagegen-original.png /tmp/omphalocele.svg` from the source directory. The download on the worked case page contains the individual anatomy paths, leader lines and text labels.
 
 ## Replay and verification
 
@@ -20,7 +28,7 @@ python3.12 experiments/ultrasound-sweep/cases/pregnancy/build.py --output /tmp/p
 python3.12 experiments/ultrasound-sweep/cases/pregnancy/build.py --check
 ```
 
-The byte check covers the case records and 51 images. The payload was checked for 12 unique case IDs, all three outcomes for each stage, parseable SVG, matching time labels and rates, and separate source links for modeled measurements and acquired comparisons. The anatomy diagrams and procedural sketches require sonographer review for clinical coverage and fidelity.
+The byte check covers the case records, 51 generated schematics and the retained illustration. The payload was checked for 12 unique case IDs, all three outcomes for each stage, parseable SVG, matching time labels and rates, and separate source links for modeled measurements and acquired comparisons. The anatomy diagrams and procedural sketches require sonographer review for clinical coverage and fidelity.
 
 ## Playable exams
 

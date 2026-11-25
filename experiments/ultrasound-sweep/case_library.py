@@ -59,9 +59,10 @@ def load_cases(root):
                     raise ValueError(f'Missing or invalid case image: {key}/{view["image"]}')
                 if 'illustration' in view:
                     art = view['illustration']
-                    file = art['file']
+                    file = Path(art['file'])
                     asset = (folder / file).resolve()
-                    if (not re.fullmatch(r'[a-z0-9-]+\.webp', file) or not asset.is_relative_to(folder.resolve())
+                    if (file.is_absolute() or '..' in file.parts or file.suffix not in {'.webp', '.svg'}
+                            or not asset.is_relative_to(folder.resolve())
                             or not asset.is_file() or sha256(asset.read_bytes()).hexdigest() != art['sha256']):
                         raise ValueError(f'Invalid case illustration: {key}/{file}')
             for source in case['sources']:
@@ -142,9 +143,16 @@ def case_page(case, related, owner, tour_link, finding, refs, evidence):
         if 'illustration' in view:
             art = view['illustration']
             src = escape(f"{owner}/{art['file']}")
+            art_replay = replay
+            if 'chapterId' in art:
+                chapter = next((c for c in bindings if c['id'] == art['chapterId']), None)
+                if chapter is None:
+                    raise ValueError(f"Unbound illustration acquisition: {case['id']}/{art['chapterId']}")
+                art_replay = link('../exams/' + evidence_url(case['id'], chapter), 'Replay acquisition')
+            download = f'<p><a href="{src}" download>Download editable SVG</a></p>' if src.endswith('.svg') else ''
             views.append(f'''<figure id="{anchor}-illustration"><a class="plate" href="{src}" aria-label="Open full-size illustration">
 <img src="{src}" loading="lazy" alt="{escape(art['alt'])}"></a><figcaption>
-<h3>{escape(art['title'])}</h3>{paragraph(art['caption'])}{replay}</figcaption></figure>''')
+<h3>{escape(art['title'])}</h3>{paragraph(art['caption'])}{art_replay}{download}</figcaption></figure>''')
         if finding and Path(view['image']).name == finding['afterView']:
             views.append(acquired_comparison(finding, 'Acquired finding from a separate examination.', 'finding'))
     finding_link = link('#finding', 'Acquired finding') if finding else ''
@@ -205,6 +213,7 @@ def write_case_library(destination, tours, refs, root=ROOT):
                 shutil.copyfile(root / relative, path)
                 if 'illustration' in view:
                     art = Path(owner, view['illustration']['file'])
+                    (target / art).parent.mkdir(parents=True, exist_ok=True)
                     shutil.copyfile(root / art, target / art)
             page = case_page(case, records, owner, tour_link, findings.get(case['id']), refs, evidence[case['id']])
             (target / (case['id'] + '.html')).write_text(page)

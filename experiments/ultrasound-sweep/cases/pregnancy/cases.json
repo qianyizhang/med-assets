@@ -448,13 +448,21 @@
       {
         "title": "Assess abdomen and umbilical insertion",
         "image": "views/mid-abnormal-04.svg",
-        "caption": "Confirm stomach position, both kidneys and bladder, then track the cord to its insertion at the fetal abdominal wall.",
+        "caption": "Confirm stomach position, both kidneys and bladder. At the anterior midline opening, trace bowel into the membrane-covered sac and follow the cord to the sac apex.",
         "measurement": "Anterior midline defect 15 mm at its neck.",
         "referenceIds": [
           "pregnancy-mid-abdomen-10",
           "pregnancy-mid-abdomen-24",
           "pregnancy-mid-abdomen-36"
-        ]
+        ],
+        "illustration": {
+          "file": "omphalocele-transverse-cutaway.svg",
+          "chapterId": "insertion",
+          "sha256": "dacaf62df2cbdc0e1a10c841c9b3b720d2038318bb2c053f0bd3515bd2b328eb",
+          "title": "Bowel and cord attachment in omphalocele",
+          "alt": "Transverse fetal abdominal diagram showing bowel passing through a midline wall opening into a membrane-covered sac, with the umbilical cord attached to the sac apex.",
+          "caption": "ImageGen illustration traced to editable vectors. Anterior is at the right in the drawing and at the top in the scan. On the modeled replay, turn on Tissue overlay and follow the membrane from the wall opening to the cord attachment. Dahal et al., Figure 1B, marks bowel herniation in a separate twin pregnancy."
+        }
       },
       {
         "title": "Confirm the wall finding in another plane",
@@ -499,8 +507,12 @@
         "url": "https://doi.org/10.1002/uog.26224"
       },
       {
-        "title": "Acquired omphalocele · true defect and cord attachment, Fig. 1",
+        "title": "Dahal et al. · acquired bowel herniation, Fig. 1B",
         "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12323075/"
+      },
+      {
+        "title": "Som and Naik · acquired cord attachment at the sac apex, Fig. 2",
+        "url": "https://pubmed.ncbi.nlm.nih.gov/27408166/#figures"
       }
     ]
   },
