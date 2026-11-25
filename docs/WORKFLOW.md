@@ -36,6 +36,14 @@
 
 The [artifact module](../lib/med_assets/artifacts.py) owns path checks and file identity. Metadata checks can use an LFS pointer. Delivery and restore verify the actual bytes. [Display derivatives](../sources/display-derivatives.json) bind an output to its source, recipe and expected identity.
 
+### Asset releases
+
+Give new releases of a reusable asset a semantic version (`MAJOR.MINOR.PATCH`) within its lineage. Keep development revision IDs such as `r05`. The package identifies which exact revision and exports a release contains. Existing revision links and review bindings continue to identify those inputs.
+
+Choose the increment by what a consumer must change. A coordinate-frame change that forces a scene to reposition the asset is **major**. Adding an optional shape key while existing controls still work is **minor**. Correcting a surface defect while preserving placement, named parts and controls is a **patch**. Lessons and assessments pin the revision and export they used, even across compatible releases.
+
+Prioritize recovery of the current maintained release, including its editable inputs, replay instructions, attribution and exact exports needed by consumers. A major release is a useful point to select a rollback version. Keep older versions for a named use under [retention](#retention), including a lesson pinned to a patch release. A backup counts as recoverable after a verified restore. [Artifact backup procedure](../transport/README.md#artifact-backups)
+
 ## Asset admission
 
 | Decision | Evidence in the issue or owning package |
@@ -149,7 +157,7 @@ The repository is in beta. Prefer a small, verified iteration that migrates curr
 
 - **Keep** · Canonical editable inputs and current exports, licenses, source identities, replay, current decisions and exact evidence for active claims or defects. Keep unique recovery material independently of Git history. [Cold collection archives](../transport/README.md#restore-an-archived-collection) retain infrequently replayed inputs outside the normal checkout. Follow the [artifact backup policy](../transport/README.md#artifact-backups).
 - **Derived files** · Keep the canonical input and a reproducible recipe. Generate display and delivery variants during assembly. Track a derivative when it supplies unique review evidence or a named consumer or recovery need requires the file. When a consumer requires exact bytes, verify them on replay or migrate the consumer to its reviewed replacement. Check live delivery before retiring an address used outside the repository.
-- **Scratch** · Fresh ignored `.artifacts/<outcome>/` directories. Keep one reproducible working bundle per meaningful outcome with revision, result, limits, consumers and retention. Bind unique evidence supporting an active claim to a tracked record or a verified archive identity and restore command. Move accepted decisions and remaining defects to their owners.
+- **Scratch** · Use ignored `.artifacts/<outcome>/` directories for comparison sessions, trial renders and working close-ups. Where an outcome merits a working bundle, keep one with its revision, result, limits, consumers and retention. Routine trials can expire without backup. Move accepted decisions and remaining defects to their owners, and bind the decisive evidence for an active claim or defect to a tracked record or verified archive. Tests exercise maintained behavior and explicitly selected fixtures. A trial’s appearance in a Development index creates no test or backup obligation.
 - **Retire** · Check imports, discovery, packaging, links, public URLs and symlink targets. Repair readers and narrow claims that lose evidence. Retire spent output after recording its outcome. Review temporary bundles after 30 days. Extensions need an active use and next review date.
 
 Run `python3.12 tools/verify.py retained PATH [PATH ...]` from the repository root

@@ -1,13 +1,13 @@
 # Gallery product requirements
 
-Anatomy Gallery brings the maintained public views of med-assets into one Site. A learner can find a model, see it used in a lesson, examine a change and reopen the exact 3D view behind a Stage-exported poster. An author can build those presentations from the same revision while giving each one its own camera, selection and purpose.
+Anatomy Gallery brings the maintained public views of med-assets into one Site. Its landing page should offer two ways in. Asset Library helps visitors choose something to reuse, and Use Cases shows what they can teach with it. A visitor should be able to move from either entrance to the exact asset revision, teaching stop and supporting review without knowing how the repository stores or delivers them. The current Site opens directly on Asset Library. [Implemented routes](routes-and-api.md#page-links)
 
 | Surface PRD | Visitor’s question | Record it owns |
 | --- | --- | --- |
-| [Asset Library](asset-library.md) | Which model and revision can I use? | Discoverable lineage and its revision page |
-| [Use Cases](use-cases/README.md) | What can these structures explain together? | Teaching sequence and its views |
-| [Compare](compare.md) | What changed, and does it matter? | Comparison session and saved review |
-| [3D Stage](3d-stage.md) | How do I compose, share or export this view? | Versioned preset and its exported image |
+| [Asset Library](asset-library.md) | Which asset and revision can I reuse? | Curated index and asset pages |
+| [Use Cases](use-cases/README.md) | What does this teach, and what needs work? | Collections, teaching sequences and their Development views |
+| [Compare](compare.md) · Tool | What changed, and does it matter? | Comparison session and saved review |
+| [3D Stage](3d-stage.md) · Tool | How do I compose, share or export this view? | Versioned preset and its exported image |
 
 The [gallery-wide design guide](design.md) owns navigation, view choice and presentation across these surfaces. Asset packages own their exports and credits. Reviews own evidence and decisions. Each surface links back to the identified record.
 
@@ -17,13 +17,13 @@ Use the [glossary](../../GLOSSARY.md#gallery-and-surfaces) for canonical names. 
 
 Publish all public gallery experiences on the existing Site as [Anatomy Gallery](../../sites/anatomy-gallery/README.md). Model Survey remains the name of the dated catalogue. Asset Library and Use Cases are the two main entrances. Compare and 3D Stage open from the relevant asset, review or lesson stop and from Tools. Retained external tools have an explicit disposition in the collection ledger. Each Gallery experience has its own address on this Site and completes its visitor task there. Old addresses can continue serving bookmarks and exact evidence.
 
-Every publicly listable 3D asset is discoverable in Asset Library, including assets first encountered inside an assembly, lesson or review. Every public interactive 3D showcase uses the shared 3D scene presentation owned by 3D Stage. A visitor can inspect the scene in context or open the same preset in Stage. A lesson or saved review retains control of its narrative, sequence and evidence.
+Asset Library should make every publicly listable, independently reusable asset discoverable, including those first encountered inside an assembly, lesson or review. The [Library requirements](asset-library.md) define what gets its own page. Every public interactive 3D showcase uses the shared 3D scene presentation owned by 3D Stage. A visitor can inspect the scene in context or open the same preset in Stage. A lesson or saved review retains control of its narrative, sequence and evidence.
 
 Follow the [display image policy](design.md#display-images) and the [storage and delivery policy](../../transport/README.md) when adding or migrating a surface.
 
 ## Author a Gallery entry
 
-Start with the asset package's exact export and a visitor question. The package owns the model and credit. The review owns the finding, evidence and limits. Use the [review promotion workflow](../guides/teaching-assessments.md) for an accepted task and the [Gallery release inputs](asset-library.md#making-a-release-selection) for its package and resources. Keep existing route IDs when updating an entry. Adding a candidate resource and admitting a public download are separate decisions. Use the maintained s1233 adrenal study as a [working example](../../sites/anatomy-gallery/app/src/content/gallery/adrenal-study.js). Its Library record, lesson stops, comparison inputs and Stage version all run in the ordinary Gallery.
+Start with an exact asset revision and a visitor question. The package owns the asset, exports and credits. The review owns the finding, evidence and limits. Use the [review promotion workflow](../guides/teaching-assessments.md) for an accepted task and the [Gallery release inputs](asset-library.md#making-a-release-selection) for its package and resources. Keep existing route IDs when updating an entry. Adding a candidate resource and admitting a public download are separate decisions. Use the maintained s1233 adrenal study as a [working example](../../sites/anatomy-gallery/app/src/content/gallery/adrenal-study.js). Its Library record, lesson stops, comparison inputs and Stage version all run in the ordinary Gallery.
 
 | Surface | Minimal scaffold | Add it to the ordinary Gallery |
 | --- | --- | --- |

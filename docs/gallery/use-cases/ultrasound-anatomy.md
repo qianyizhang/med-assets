@@ -1,6 +1,6 @@
 # Ultrasound Anatomy · Tour specification
 
-The local sweeps and cardiac cycle study let visitors explore ultrasound anatomy. Visitors can follow a probe through an authored sweep, inspect the corresponding section, and compare a modeled image with a named acquired view from another case. The collector and author-facing asset display will be designed jointly after reviewing the abdomen set. [Local tour and replay](../../../experiments/ultrasound-sweep/README.md) · [Campaign](../../../records/campaigns/ultrasound-gallery.md)
+The local sweeps and cardiac cycle study let visitors explore ultrasound anatomy. Visitors can follow a probe through an authored sweep, inspect the corresponding section, and compare a modeled image with a named acquired view from another case. The collection calls for linked Teaching and Development pages. Use the abdomen set to work out how an author moves from a selected keyframe to the anatomy, caveats and evidence behind it. [Use Cases requirements](README.md) · [Local tour and replay](../../../experiments/ultrasound-sweep/README.md) · [Campaign](../../../records/campaigns/ultrasound-gallery.md)
 
 ## Audience and outcome
 
@@ -153,7 +153,7 @@ Accept a sweep after replay from pinned inputs, verifying the target inside the 
 
 ## Asset display and integration
 
-The current review groups a keyframe into 3D anatomy, simulated scan, and acquired ultrasound. The visitor can orbit the combined probe and sector, inspect the origin of either image, open related anatomy where available, and return to the same frame. The abdominal set now gives us concrete material to review together: shared models and props, sweep-specific placements, image pairs, revisions, rights, and defects. The asset hierarchy, display and editing workflow remain open for that session. The broader [Asset Library](../asset-library.md) owns revision and download identity.
+The current review groups a keyframe into 3D anatomy, simulated scan, and acquired ultrasound. The visitor can orbit the combined probe and sector, inspect the origin of either image, open related anatomy where available, and return to the same frame. The [Asset Library](../asset-library.md) identifies independently reusable anatomy, props and generators by revision. Sweep-specific placements, simulated frames and acquired comparisons stay with the keyframe and retain their source and rights. The abdomen review will guide which defects and close-ups the Development page should show and how authors will edit those entries.
 
 The earlier [fixed gallbladder stop](../../../lessons/ultrasound-anatomy/README.md) is still the built-in Anatomy Gallery candidate. The local sweep study is the tour under review. Public site integration, transport admission, and publication are later delivery decisions. The Echodemo project and the repository’s cardiac section package supply precedents for synchronized geometry and images. [Echodemo development notes](https://github.com/douyang/echodemo/blob/main/DEVELOPMENT.md) · [Cardiac imaging package](../../../heart/synthetic-imaging/beating-heart/imaging/README.md)
 

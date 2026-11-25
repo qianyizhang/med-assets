@@ -1,28 +1,41 @@
 # Asset Library PRD
 
-**Outcome.** A visitor picking a reusable model can distinguish sources, select a revision and see what evidence supports using it. One entry represents one model lineage. Revisions share its history. A common anatomical name makes two lineages discoverable together.
-
-The [maintained family list](maintained-models.md) identifies each editable lineage and its selected teaching files. The Library continues to serve exact consumer revisions.
+**Outcome.** A visitor can find a reusable asset, choose an exact revision and see what it contains, where it is used and what evidence supports reusing it. The Asset Library is the index. Each independently reusable asset lineage has one asset page with its revision history, parts, uses and exports.
 
 ## What the visitor sees
 
-Index public 3D assets across model, atlas, assembly, lesson and review packages. A lineage can be found by name, anatomy or the use case that features it. Include prior revisions that still serve a lesson, consumer or review under the [beta retention policy](../WORKFLOW.md#retention). Trace a selected scene object to its exact asset revision when it is independently reusable. A mesh that exists only as part of a larger export links to that export with its part selected. List known public entries with unavailable exports or missing ratings and show their actual state.
+List every publicly listable reusable asset, including assets encountered in assemblies, lessons or reviews. A name, anatomy or use can connect several independently sourced lineages in the index. A new export, language, format, pose or review stays with the lineage when it shares the maintained asset. Give a component its own page when it has independent reuse and a maintained identity. A part available only within a parent revision opens the parent asset page at the exact revision and selects the part. Keep known public entries visible with their actual export availability and review status.
+
+Use kind, authoring method and export format as separate filters in the Library. On the asset page, describe them for the selected revision.
+
+| Information | What it tells the visitor |
+| --- | --- |
+| Kind | What is reusable, such as an anatomical model, assembly, diagram, rig or generator. An editable rig or generator may be a part of an asset or independently reusable. |
+| Method | How the asset was made, such as source tracing, scan-derived segmentation, manual illustration or procedural generation. |
+| Format | How a specific export is delivered, such as GLB, BLEND, SVG or PNG. Show the recorded file identity and availability for each export. |
+| Parts | Named structures or components and which exports contain them. Indicate what is selectable, separately available or visible only as context. |
+| Capabilities | What visitors or authors can do with the revision or export, such as isolate a structure, play motion, edit labels, pose a rig or generate scan views. State the applicable inputs and limits. |
+| Uses | Lessons, assemblies, Stage presets and saved reviews that use the revision. Link to the precise stop, view or finding where one exists. |
+
+The [Testis pathway](../../diagrams/testis_pathway/README.md) is a reusable diagram. Its English and Chinese SVGs belong to the same revision. The r01 PNGs are additional formats of the r01 diagram. The [breathing assembly](../../body/breathing/README.md) contains lung and diaphragm parts. Its Blender shape keys are controls for animating those parts. The [ultrasound sweep builder](../../experiments/ultrasound-sweep/README.md#replay) illustrates a generator that samples reference anatomy using prescribed probe tracks. Individual probe poses, simulated frames and overlays belong with their sweep and keyframe. Acquired comparisons carry their separate source and rights.
+
+**Current scope.** The implemented Library focuses on 3D lineages and exact model deliveries. Image-led lessons and simulation tours already have their own routes in the [route guide](routes-and-api.md#page-links). Indexing eligible diagrams, generators and rigs as reusable assets is a product requirement. Public listing and export availability depend on the asset's rights and release admission.
 
 The asset maintainer explicitly selects which revision carries **Recommended** for a lineage. A review score is evidence the maintainer can use in that decision. The lineage opens on the recommended revision. If a newer candidate exists, show its version and status beside the selector. Until a recommendation exists, open the latest revision with its actual review status. A link to a specific revision always opens that revision.
 
-- An identifying portrait bound to the selected revision, its source, version, attributes, rights, available export and principal limitation. Distinguish the date the asset changed, the date its preview was rendered and the date someone last reviewed it.
-- The revision’s quality profile and a **Rating rubric** link beside it, including in the empty state. The dedicated product URL is `/rubric`; its content owner is the [canonical rubric](../guides/asset-quality.md). A saved assessment identifies the rubric revision used.
-- Exact-version reviews, related lessons and the 3D preset behind the portrait. Preserve revision selection when returning from these destinations.
+- A representative preview bound to the selected revision, with source, version, attributes, rights, available exports and principal limitation. Distinguish the date the asset changed, the date its preview was rendered and the date someone last reviewed it.
+- For an export in the maintained 3D teaching assessment scope, show its exact-task quality profile and a **Rating rubric** link beside it, including in the empty state. The dedicated product URL is `/rubric`; its content owner is the [canonical rubric](../guides/asset-quality.md). A saved assessment identifies the rubric revision used.
+- Exact-version reviews, related lessons and the 3D preset behind the preview when available. Preserve revision selection when returning from these destinations.
 
 ## Making a release selection
 
-Declare package membership and stable revision routes in the [Library package declarations](../../sites/anatomy-gallery/app/src/content/gallery/library-packages.json). A newly selected teaching export in an existing family can supply its named route through the accepted assessment. The [retained edition routes](../../sites/anatomy-gallery/app/src/content/gallery/library-editions.json) preserve current bookmarks for accepted assessments that predate named routes. A family with one maintained revision uses that revision as its candidate recommendation. The [Library recommendations](../../sites/anatomy-gallery/app/src/content/gallery/library-recommendations.json) record editorial choices across families with multiple maintained revisions. The [maintained selections](maintained-selections.json) bind each export and task to its accepted assessment. The [teaching register](maintained-models.md) is generated from those selections.
+Follow the [asset release policy](../WORKFLOW.md#asset-releases) for versioning and recoverable releases. The current 3D Library declares package membership and stable revision routes in its [package declarations](../../sites/anatomy-gallery/app/src/content/gallery/library-packages.json). A newly selected teaching export in an existing family can supply its named route through the accepted assessment. The [retained edition routes](../../sites/anatomy-gallery/app/src/content/gallery/library-editions.json) preserve current bookmarks for accepted assessments that predate named routes. A family with one maintained revision uses that revision as its candidate recommendation. The [Library recommendations](../../sites/anatomy-gallery/app/src/content/gallery/library-recommendations.json) record editorial choices across families with multiple maintained revisions. The [maintained selections](maintained-selections.json) bind each export and task to its accepted assessment. The [teaching register](maintained-models.md) is generated from those selections.
 
 Assembly binds each revision’s downloads, attribution, evidence and per-export assessments. A multi-file Library link uses the file digest to open its assessment, with the export path as a second identifier when two filenames share the same bytes.
 
 ## Review coverage
 
-Use the [maintained family register](maintained-models.md) to count progress on the selected teaching assets. Count a demonstrated shared model once. Include every selected lesson export in coverage, with its learner task, exact file identity and four independent scores. A source edit must propagate to both lesson exports in a disposable rebuild before grouping their family. An editable assembly used as a whole counts as one selection. If a Gallery default or published delivery differs from the maintained starting file, identify both revisions.
+Use the [maintained family register](maintained-models.md) to count progress on selected 3D teaching assets. The scoring register covers only those selections. Count a demonstrated shared model once. Include every selected lesson export in coverage, with its learner task, exact file identity and four independent scores. A source edit must propagate to both lesson exports in a disposable rebuild before grouping their family. An editable assembly used as a whole counts as one selection. If a Gallery default or published delivery differs from the maintained starting file, identify both revisions.
 
 Report fully rated, partially rated and unrated counts. Full coverage for one starting file requires all four axes for the declared task. A partial assessment identifies the missing axes. A missing assessment keeps the file visible in the denominator. The [teaching-asset rubric](../guides/asset-quality.md) owns the score meanings and evidence requirements.
 

@@ -8,13 +8,17 @@ Shared terms for the public gallery and the anatomical relationships it presents
 
 | Canonical term | Meaning |
 | --- | --- |
-| Asset Library | Surface for finding an asset lineage, selecting a revision and inspecting its metadata, rating, uses and exports. |
+| Asset | An independently reusable work, such as a model, assembly, diagram or generator. Several use cases can use the same asset. |
+| Asset Library | The Gallery’s curated index of publicly listable, reusable assets. An **asset page** brings together one asset’s revisions, parts, capabilities, uses and available exports. |
 | Use Cases | Surface for authored teaching experiences. A **use case** answers a learner’s question. A **collection** groups related use cases. A **lesson stop** is one step within a use case. |
+| Teaching | The learner’s view of a use case, such as a system assembly, diagram or ultrasound sweep presented for a particular question. |
+| Development | The author’s view of the same use case. It connects a stop or keyframe to the exact assets and parts involved, open questions and evidence for decisions. |
 | Experiments & Archive | Collection within Use Cases for retained public experiments and historical teaching material. An entry identifies its purpose, status and limitations. |
-| Compare | Surface for inspecting differences and reading a **saved review**, a dated finding tied to its inputs and evidence. A **comparison session** is an exploration that can lead to a saved review. |
-| 3D Stage | Surface for composing, inspecting, saving and exporting a 3D scene. |
-| Asset lineage | A reusable model or assembly with a shared source and revision history. A family groups related lineages for discovery. |
-| Asset revision | An identified version within a lineage. An **export** is a particular downloadable representation of that revision. **Recommended** identifies the revision selected by its maintainer. |
+| Compare | Gallery tool for inspecting differences. A **comparison session** explores a question. A **saved review** records a dated finding with its exact inputs, decisive evidence and limits. |
+| 3D Stage | Gallery tool for composing, inspecting, saving and exporting a 3D scene. |
+| Asset lineage | The source and revision history of one asset. A family groups related lineages for discovery. |
+| Asset revision | An identified iteration within a lineage. An **export** is a specific representation of that revision. **Recommended** identifies the revision selected by its maintainer. |
+| Asset release | A revision issued for consumers of the asset. Its semantic version describes compatibility with earlier releases of that asset. |
 | Teaching assessment | Four scores for a named learner task on an exact export. An exemption keeps the observed score and records its permitted use and reopening condition. |
 | Collection teaching check | An action reviewed in its delivered lesson view or scene. The collection reports which required actions pass and which remain blocked. |
 | 3D scene | One or more asset revisions composed for interactive display, including their placement, visible parts and appearance. |
@@ -61,7 +65,8 @@ the knee at 20° of flexion.
 | B-mode rendering | Formation of a grayscale ultrasound image from modeled tissues in the imaging field. Brightness represents modeled echo strength. |
 | Simulated B-mode frame | One grayscale image rendered for a specific case, probe pose and instant. |
 | Labeled tissue overlay | A map of the tissues in the anatomical section, aligned to the corresponding pixels of the simulated B-mode frame. |
-| Sweep | An ordered movement through probe poses. A phase describes a portion of the movement, such as finding the acoustic window or rotating the probe. |
+| Tour | A teaching sequence that groups related sweeps. A full exam tour follows one case from referral through acquisitions to an impression. |
+| Sweep | An ordered movement through probe poses. A **keyframe** identifies a named view in the sweep. A phase describes a portion of the movement, such as finding the acoustic window or rotating the probe. |
 | Reference keyframe | A named pose in a sweep with a corresponding acquired ultrasound for comparison. A reference from another case illustrates the view and retains its own scale and anatomy. |
 
 ## Gallery presentation
