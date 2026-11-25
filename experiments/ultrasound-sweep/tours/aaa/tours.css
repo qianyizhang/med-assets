@@ -30,10 +30,6 @@
 .ct-note h2 { font-size: 1.4rem; }
 .ct-note p, .ct-note a { margin-top: .4rem; }
 .ct-note a { display: inline-block; }
-.aaa .chapters { gap: .18rem .2rem; align-items: center; }
-.aaa .chapters a { padding: .38rem .52rem; font-size: .875rem; }
-.aaa .chapters .phase-start { border-inline-start: 2px solid var(--line); padding-inline-start: .8rem; }
-.aaa #playTour { margin-bottom: 0; }
 .aaa .chapter { grid-template-columns: minmax(0, 1fr) auto; padding-block: .65rem; }
 .aaa .chapter h2 { font: 650 1.12rem/1.25 system-ui, sans-serif; letter-spacing: 0; }
 .aaa .chapter p { margin-top: .25rem; }

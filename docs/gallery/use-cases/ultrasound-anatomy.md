@@ -10,9 +10,9 @@ Current topics cover abdominal anatomy, abdominal aortic screening, thyroid, com
 
 ## Sweeps and exam tours
 
-A **sweep** is the smallest independently playable teaching activity. Its case anatomy, probe track and imaging field determine the pose, intersected section and B-mode frames. A **keyframe** names a view worth stopping on. The same sweep can teach a single movement or run as one chapter of an **exam tour**.
+A **sweep** is the smallest independently playable teaching activity. Its case anatomy, probe track and imaging field determine the pose, intersected section and B-mode frames. A **keyframe** names a view worth stopping on. A **tour** composes frame ranges from these sweeps on one timeline. Several named sections can teach different movements within the same sweep.
 
-An exam tour owns the case, chapter order, referral, reading, curves and impression. Each acquisition chapter selects a sweep, the applicable case parameters and its evidence frames. The tour embeds the sweep’s pose view and B-mode output together and can give them a different layout. A case-specific change to anatomy or probe position feeds both views. An SVG can supply a waveform, diagram or annotation alongside the acquisition.
+An exam tour owns the case, section order, referral, reading, curves and impression. Each acquisition section selects a sweep, a source-frame interval, the applicable case parameters and its evidence frames. Learners can play or scrub across section boundaries. Consecutive sections of one sweep keep the same viewer and camera. A section that starts at another probe position should explain the repositioning. The tour embeds the sweep’s pose view and B-mode output together and can give them a different layout. A case-specific change to anatomy or probe position feeds both views. An SVG can supply a waveform, diagram or annotation alongside the acquisition.
 
 For a shared sweep, reopen a tour chapter’s evidence frame in the standalone player. With identical inputs, the probe pose, anatomical section and B-mode image should agree. Scrubbing or replaying the chapter should advance the same frames in both places. Retain existing coverage, and identify chapters that need a new sweep or case variant before migrating their findings and measurements.
 
@@ -20,7 +20,7 @@ The Tours index groups teaching sequences by purpose. AAA screening is one scena
 
 ## Scan scenarios
 
-A **full exam tour** follows one case from its referral through an ordered sequence of scan acquisitions to its impression. Short sweeps serve as chapters. Visitors can play the full exam, pause and scrub a sweep, jump to a chapter, and replay the view that supports a finding. The audit at `a4c9877` found visit-level gaps across the 28 sweeps and two standalone exams. The [Tours index](http://127.0.0.1:8874/tours/index.html) links to each visit’s acquisitions and evidence-linked report. The [worked casebook](http://127.0.0.1:8874/cases/index.html) supplies companion illustrations, measurements and acquired comparisons for the ten scenarios below. Playable acquisition coverage remains open wherever a required view exists only as a plate or description.
+A **full exam tour** follows one case from its referral through an ordered sequence of scan acquisitions to its impression. Visitors can play the full sequence, scrub to a frame, jump to a section, and replay the view that supports a finding. The audit at `a4c9877` found visit-level gaps across the 28 sweeps and two standalone exams. The [Tours index](http://127.0.0.1:8874/tours/index.html) links to each visit’s acquisitions and evidence-linked report. The [worked casebook](http://127.0.0.1:8874/cases/index.html) supplies companion illustrations, measurements and acquired comparisons for the ten scenarios below. Playable acquisition coverage remains open wherever a required view exists only as a plate or description.
 
 ### Next batch
 
@@ -97,6 +97,8 @@ The [screening survey](http://127.0.0.1:8874/index.html?sweep=aortic-screening) 
 This survey illustrates the sweep and measurement landmarks in one CT case. Clinical screening requires additional views, wall identification and acquisition-specific measurements. The model calipers describe the segmentation boundary. The original clinical calipers and annotations belong to the published cases. [Acquired sources and limitations](../../../experiments/ultrasound-sweep/research/aortic-screening.json) · [AIUM adult abdominal aorta practice parameter](https://doi.org/10.1002/jum.70167)
 
 ## Thyroid coverage
+
+The [Bilateral thyroid orientation tour](http://127.0.0.1:8874/tours/thyroid-orientation/index.html) teaches four movements on one timeline. Slide from the isthmus toward the right lobe, then rotate in place. The tour returns to the midline for the slide and rotation on the left. On each side the two sections use consecutive frames of one lobe sweep.
 
 The [right lobe](http://127.0.0.1:8874/index.html?sweep=thyroid-right) and [left lobe](http://127.0.0.1:8874/index.html?sweep=thyroid-left) each open in transverse section. Rotate toward the longitudinal stop to follow the lobe along its length. A high-frequency linear probe has a flat footprint. Its rectangular field uses parallel scan lines. The transverse image places patient right on screen left and the longitudinal view places cranial on screen left.
 

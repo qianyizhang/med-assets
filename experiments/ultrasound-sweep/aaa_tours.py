@@ -5,6 +5,8 @@ from pathlib import Path
 import shutil
 from urllib.parse import urlencode
 
+from tour_timeline import timeline_controls
+
 CASES = {
     'aaa-negative': ('Negative screen', 'aaa-negative-stations.svg'),
     'aaa-positive': ('Positive screen with diagnostic views', 'aaa-positive-sac.svg'),
@@ -99,23 +101,27 @@ def index_page(cases: dict, normal_sweep: bool, shared_aaa: bool) -> str:
   </div>{related}''')
 
 
-def chapter_sections(case_id: str, chapters: list) -> tuple[str, str, str]:
-    buttons = []
+def chapter_sections(case_id: str, chapters: list) -> tuple[list[dict], str, str]:
+    sections = []
     panels = []
     report = []
     diagnostic = False
-    for index, chapter in enumerate(chapters, 1):
+    for chapter in chapters:
         chapter_id = chapter['id']
         key = escape(chapter_id, quote=True)
         title = escape(chapter['title'])
         cue = escape(chapter['observation'])
         measurement = chapter.get('measurement')
-        short_label = escape(CHAPTER_LABELS.get(chapter_id, chapter['title']))
         phase_start = case_id == 'aaa-positive' and chapter_id == DIAGNOSTIC_START
         diagnostic = diagnostic or phase_start
-        phase = ' class="phase-start"' if phase_start else ''
-        chapter_href = escape(chapter_url(chapter))
-        buttons.append(f'<a href="{chapter_href}" data-chapter="{key}"{phase}>{index}. {short_label}</a>')
+        sections.append({
+            'id': chapter_id,
+            'sweep': chapter_id,
+            'label': CHAPTER_LABELS.get(chapter_id, chapter['title']),
+            'start': 0,
+            'end': chapter['frames'] - 1,
+            'phaseStart': phase_start,
+        })
         saved_frame = link(chapter_url(chapter, frame=True), 'Show saved frame')
         value = f'<p class="chapter-value">{escape(measurement)}</p>' if measurement else ''
         phase_name = '<p class="phase-name">Diagnostic continuation</p>' if diagnostic else ''
@@ -126,13 +132,13 @@ def chapter_sections(case_id: str, chapters: list) -> tuple[str, str, str]:
     </section>''')
         report_link = link(chapter_url(chapter, frame=True, anchor='#exam'), chapter['title'])
         report.append(f'<li>{report_link}{f" · {escape(measurement)}" if measurement else ""}</li>')
-    return ''.join(buttons), ''.join(panels), ''.join(report)
+    return sections, ''.join(panels), ''.join(report)
 
 
 def case_page(record: dict, chapters: list, shared_aaa: bool) -> str:
     case_id = record['id']
     title = CASES[case_id][0]
-    tabs, panels, report = chapter_sections(case_id, chapters)
+    sections, panels, report = chapter_sections(case_id, chapters)
     worked_url = f'../../cases/{case_id}.html'
     worked = link(worked_url, 'Worked case')
     continuation = ''
@@ -153,19 +159,12 @@ def case_page(record: dict, chapters: list, shared_aaa: bool) -> str:
   </header>
 
   <section id="exam" aria-label="Acquisition">
-    <nav class="chapters" aria-label="Acquisition chapters">
-      {tabs}
-      <button type="button" id="playTour" disabled>Play tour</button>
-    </nav>
+    {timeline_controls(sections)}
     <p id="tourProgress" class="sr" role="status"></p>
     {panels}
     <div id="player" data-sweep-url="sweep.html?case={case_id}" data-sweep-chapter-param="chapter"></div>
     <noscript><p>The sweep player requires JavaScript. Open the {worked} for the saved views.</p></noscript>
-    <nav class="chapterControls" aria-label="Chapter controls" hidden>
-      <a id="restart">Restart chapter</a>
-      <a id="openSweep">Open standalone sweep</a>
-      <a id="advance" class="advance"></a>
-    </nav>
+    <p class="standaloneLink"><a id="openSweep">Open standalone sweep</a></p>
   </section>
 
   <section class="aaa-report" id="impression">

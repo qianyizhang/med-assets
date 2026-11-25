@@ -3,7 +3,10 @@
 const $ = (id) => document.getElementById(id);
 const launch = new URLSearchParams(location.search);
 const embedded = launch.get('embed') === '1';
+const tourControlled = embedded && launch.get('transport') === 'tour';
 document.documentElement.classList.toggle('embeddedSweep', embedded);
+document.documentElement.classList.toggle('tourControlled', tourControlled);
+let tourSeek;
 const frameDuration = 110;
 const atlasSource = 'https://dbarchive.biosciencedbc.jp/en/bodyparts3d/desc.html';
 const cameraPresets = [['oblique', 'Oblique'], ['axial', 'Axial'], ['coronal', 'Coronal'], ['sagittal', 'Sagittal']];
@@ -192,7 +195,9 @@ function renderFrame(frame, scenePosition = frame) {
     $('comparisonFinding').hidden = !finding;
     state.shownFrame = frame;
     state.shownCompressed = compressed;
-    notifyParent('frame', frame);
+    const acknowledged = tourSeek?.frame === frame ? tourSeek.request : undefined;
+    if (acknowledged !== undefined) tourSeek = null;
+    notifyParent('frame', frame, acknowledged);
   };
   if (full.finished && (!enlarged || enlarged.finished) && reference.finished) commit();
   else {
@@ -207,8 +212,8 @@ function updatePlay() {
   $('play').textContent = state.playback ? 'Pause' : state.frame === last ? 'Replay sweep' : 'Play sweep';
 }
 
-function notifyParent(status, frame) {
-  if (embedded) parent.postMessage({ type: 'sweep-status', status, frame }, location.origin);
+function notifyParent(status, frame, request) {
+  if (embedded) parent.postMessage({ type: 'sweep-status', status, frame, request }, location.origin);
 }
 
 function pause(status = 'paused') {
@@ -244,6 +249,13 @@ function play() {
 if (embedded) {
   window.addEventListener('message', ({ source, origin, data }) => {
     if (source !== parent || origin !== location.origin || data?.type !== 'sweep-transport') return;
+    if (tourControlled) {
+      if (data.command !== 'seek' || !state.ready || !Number.isInteger(data.frame) ||
+          data.frame < 0 || data.frame > last || !Number.isInteger(data.request)) return;
+      tourSeek = { frame: data.frame, request: data.request };
+      selectFrame(data.frame);
+      return;
+    }
     if (data.command === 'play' && state.ready && !state.playback) {
       if (state.assets) showAssets(false);
       play();
@@ -374,7 +386,7 @@ $('assetTab').onclick = () => showAssets(true);
 $('tourTab').onclick = () => showAssets(false);
 $('return').onclick = () => {
   showAssets(false);
-  $('position').focus();
+  (tourControlled ? ($('sceneCanvas').hidden ? $('section') : $('sceneCanvas')) : $('position')).focus();
 };
 $('assetFrame').options[0].disabled = true;
 $('assetFrame').onchange = (event) => selectFrame(Number(event.currentTarget.value));

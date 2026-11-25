@@ -4,6 +4,7 @@ import { getAcquisition, measure } from '../../cases/vascular/playable-model.js'
 const byId = (id) => document.getElementById(id);
 const params = new URLSearchParams(location.search);
 const embedded = params.get('embed') === '1';
+const tourControlled = embedded && params.get('transport') === 'tour';
 const playButton = byId('play');
 const position = byId('position');
 const scanCanvas = byId('scanCanvas');
@@ -26,11 +27,12 @@ let ready = false;
 
 if (embedded) {
   document.documentElement.classList.add('embeddedSweep');
+  document.documentElement.classList.toggle('tourControlled', tourControlled);
   document.querySelector('.mast').hidden = true;
 }
 
-function notify(status) {
-  if (embedded) parent.postMessage({ type: 'sweep-status', status, frame }, location.origin);
+function notify(status, request) {
+  if (embedded) parent.postMessage({ type: 'sweep-status', status, frame, request }, location.origin);
 }
 
 function updatePlay() {
@@ -103,7 +105,7 @@ function drawCalipers(calipers) {
   scan.restore();
 }
 
-function draw(next) {
+function draw(next, request) {
   const overlay = mode === 'section';
   const color = mode === 'color';
   const { image } = prepare(mode, next);
@@ -151,7 +153,7 @@ function draw(next) {
   byId('frameNumber').textContent = `${frame} / ${chapter.frames - 1}`;
   byId('observation').hidden = frame !== chapter.evidenceFrame;
   syncLinks();
-  notify('frame');
+  notify('frame', request);
 }
 
 function setCameraPreset(active) {
@@ -248,10 +250,10 @@ function play() {
   updatePlay();
 }
 
-function seek(target) {
+function seek(target, request) {
   if (!ready) return;
   stop('paused');
-  draw(target);
+  draw(target, request);
   updatePlay();
   if (!embedded) {
     const url = new URL(location.href);
@@ -280,6 +282,12 @@ document.addEventListener('visibilitychange', () => {
 if (embedded) {
   window.addEventListener('message', ({ source, origin, data }) => {
     if (source !== parent || origin !== location.origin || data?.type !== 'sweep-transport') return;
+    if (tourControlled) {
+      if (data.command === 'seek' && ready && Number.isInteger(data.frame) &&
+          data.frame >= 0 && data.frame < chapter.frames && Number.isInteger(data.request))
+        seek(data.frame, data.request);
+      return;
+    }
     if (data.command === 'play') play();
     if (data.command === 'pause') stop();
   });

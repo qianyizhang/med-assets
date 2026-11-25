@@ -66,7 +66,7 @@ the knee at 20° of flexion.
 | Simulated B-mode frame | One grayscale image rendered for a specific case, probe pose and instant. |
 | Labeled tissue overlay | A map of the tissues in the anatomical section, aligned to the corresponding pixels of the simulated B-mode frame. |
 | Scenario | A teaching context such as AAA screening. A **case** is one modeled visit within that context, with its own anatomy, referral, findings and limits. |
-| Tour | A teaching sequence that groups related sweeps. An **exam tour** follows one case from referral through acquisitions to an impression. Each acquisition chapter selects a sweep and the case parameters for that visit. |
+| Tour | A teaching sequence with one timeline. Each named section uses a frame range from a sweep with the case parameters for that visit. Several sections can use the same sweep. An **exam tour** follows one case from referral through acquisitions to an impression. |
 | Sweep | An ordered movement through probe poses. A **keyframe** identifies a named view in the sweep. A phase describes a portion of the movement, such as finding the acoustic window or rotating the probe. |
 | Reference keyframe | A named pose in a sweep with a corresponding acquired ultrasound for comparison. A reference from another case illustrates the view and retains its own scale and anatomy. |
 

@@ -177,6 +177,9 @@ def verify(source, aaa_acquisitions=None):
             if right.exists():
                 left = staging / 'sweeps/thyroid-left'
                 thyroid = [tour for tour in tours if tour['id'] in ('thyroid-left', 'thyroid-right')]
+                thyroid_route = Path('tours/thyroid-orientation/index.html')
+                assert (destination / thyroid_route).is_file()
+                assert 'thyroid-orientation/index.html' in (destination / 'tours/index.html').read_text()
                 assert len(thyroid) == 2
                 assert all(tour['initialFrame'] == 12 and tour['keyframes'][0]['referenceId'] == 'thyroid-isthmus'
                            for tour in thyroid)
@@ -189,6 +192,8 @@ def verify(source, aaa_acquisitions=None):
                 abdomen = work / 'abdomen'
                 assemble_tours.assemble(staging, abdomen)
                 verify_subset(staging, abdomen, [tour for tour in tours if tour['id'] not in ('thyroid-left', 'thyroid-right')])
+                assert not (abdomen / thyroid_route).exists()
+                assert 'thyroid-orientation/index.html' not in (abdomen / 'tours/index.html').read_text()
                 (work / 'left').rename(left)
                 (work / 'right').rename(right)
                 receipt = right / 'verification.json'

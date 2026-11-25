@@ -8,6 +8,7 @@ import shutil
 from urllib.parse import urlsplit
 
 from exam_tours import evidence_index, evidence_url, tour_path, write_exam_tours
+from thyroid_tour import write_thyroid_tour
 
 ROOT = Path(__file__).with_name('cases')
 FAMILIES = {
@@ -239,12 +240,16 @@ def write_case_library(destination, tours, refs, root=ROOT, *, aaa_acquisitions=
             'measurements and impression of a modeled exam.</p><p><a href="../tours/index.html">Browse tours</a></p>'
             '<div class="catalog">' + ''.join(cards) + '</div>')
     (target / 'index.html').write_text(document('Worked ultrasound cases', 'Worked cases', body))
+    thyroid_entry = ''
+    if write_thyroid_tour(destination, tours):
+        thyroid_entry = ('<section class="family"><h2><a href="thyroid-orientation/index.html">Bilateral thyroid orientation</a></h2>'
+                         '<p>Slide from the isthmus to each lobe and rotate from transverse to longitudinal.</p></section>')
     tours_body = ('<h1>Ultrasound tours</h1>'
                   '<div class="catalog"><section class="family" id="aaa">'
                   '<h2><a href="aaa/index.html">AAA screening</a></h2>'
                   '<p>Follow a negative, positive or indeterminate case from referral to impression.</p></section>'
                   '<section class="family"><h2><a href="../composed-tour/">Abdominal orientation</a></h2>'
-                  '<p>Explore the liver, portal vein and gallbladder on one CT anatomy.</p></section></div>'
+                  '<p>Explore the liver, portal vein and gallbladder on one CT anatomy.</p></section>' + thyroid_entry + '</div>'
                   '<h2>Other exam tours</h2><div class="catalog">' + ''.join(tour_groups) + '</div>')
     write_exam_tours(destination, root, grouped, FAMILIES,
                      document('Ultrasound tours', 'Tours', tours_body), evidence, aaa_acquisitions is not None)

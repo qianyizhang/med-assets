@@ -431,6 +431,7 @@ a { color: var(--teal); }
 .embeddedSweep .bar { min-height: 0; }
 .embeddedSweep h1 { font-size: 22px; }
 .embeddedSweep .sweepPickerLabel, .embeddedSweep .mast .caseLink { display: none; }
+.tourControlled .transport, .tourControlled .mast nav { display: none; }
 @media (min-width: 760px) {
   .embeddedSweep #scenePanel { grid-column: auto; }
   .embeddedSweep #stage .view {

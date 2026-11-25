@@ -3,6 +3,9 @@
 import assert from 'node:assert/strict';
 import { mkdir } from 'node:fs/promises';
 import { join } from 'node:path';
+import {
+  absoluteFrame, checkTimeline, installTourClock, playTourToEnd, seekTour, waitForTourFrame,
+} from '../../composed-tour/verify-timeline.mjs';
 
 const root = new URL(process.argv[2] || 'http://127.0.0.1:8874/');
 const captures = process.argv[3];
@@ -51,21 +54,8 @@ async function setup() {
       if (type === 'webgl2') return original.call(this, type, { ...options, preserveDrawingBuffer: true });
       return original.call(this, type, options);
     };
-    const requests = new Map();
-    let id = 0;
-    let time = performance.now();
-    window.requestAnimationFrame = (render) => {
-      requests.set(++id, render);
-      return id;
-    };
-    window.cancelAnimationFrame = (id) => requests.delete(id);
-    window.stepSweep = () => {
-      time = Math.max(performance.now(), time) + 201;
-      const callbacks = [...requests.values()];
-      requests.clear();
-      for (const render of callbacks) render(time);
-    };
   });
+  await installTourClock(page);
   return page;
 }
 
@@ -75,6 +65,7 @@ async function embedded(page, id, chapter) {
     if (!child?.location.href.startsWith(location.origin)) return false;
     const url = new URL(child.location.href);
     return url.pathname.endsWith('/tours/aaa/sweep.html') && url.searchParams.get('embed') === '1' &&
+      url.searchParams.get('transport') === 'tour' &&
       url.searchParams.get('case') === id && url.searchParams.get('chapter') === chapter &&
       child.document.querySelector('#exam')?.hidden === false;
   }, { id, chapter }, { polling: 25 });
@@ -101,11 +92,22 @@ async function sceneReady(surface) {
 
 async function setParitySize(surface) {
   // Match the WebGL viewport for pixel comparison independent of outer gutters.
-  await surface.addStyleTag({ content: '#sceneCanvas { width: 440px !important; height: 300px !important; }' });
+  const style = await surface.addStyleTag({ content: '#sceneCanvas { width: 440px !important; height: 300px !important; }' });
+  await style.evaluate((element) => { element.dataset.parityViewport = ''; });
   await surface.waitForFunction(() => {
     window.stepSweep();
     const gl = document.querySelector('#sceneCanvas').getContext('webgl2');
     return gl?.drawingBufferWidth === 440 && gl.drawingBufferHeight === 300;
+  }, null, { polling: 25 });
+}
+
+async function restoreNativeViewport(surface) {
+  await surface.evaluate(() => document.querySelector('style[data-parity-viewport]')?.remove());
+  await surface.waitForFunction(() => {
+    window.stepSweep();
+    const canvas = document.querySelector('#sceneCanvas');
+    const gl = canvas.getContext('webgl2');
+    return gl?.drawingBufferWidth === canvas.clientWidth && gl.drawingBufferHeight === canvas.clientHeight;
   }, null, { polling: 25 });
 }
 
@@ -224,16 +226,26 @@ async function scanMatchesDeliveredFrame(surface, id, chapter, frame) {
   assert.ok(difference < 1.5, id + '/' + chapter + ' did not display scan frame ' + frame + ' (mean delta ' + difference + ')');
 }
 
-async function checkRenderedChapter(surface, id, chapter) {
+async function checkRenderedChapter(page, surface, segments, id, chapter) {
+  const seekFrame = async (frame) => {
+    await seekTour(page, absoluteFrame(segments, chapter, frame));
+    await expectFrame(surface, frame);
+  };
+  const showEvidence = async () => {
+    await page.locator('#' + chapter + ' .evidence a').click();
+    await waitForTourFrame(page, absoluteFrame(segments, chapter, evidenceFrame));
+    await expectFrame(surface, evidenceFrame);
+  };
+
   assert.equal(await surface.locator('#position').getAttribute('max'), String(frameCount - 1));
-  await evidence(surface);
+  await showEvidence();
   const scan = await scanPixels(surface);
   const pose = await scenePixels(surface);
-  await seek(surface, 0);
+  await seekFrame(0);
   assert.ok(!matches(await scanPixels(surface), scan), 'Static scan ' + id + '/' + chapter);
-  await seek(surface, frameCount - 1);
+  await seekFrame(frameCount - 1);
   assert.ok(!matches(await scenePixels(surface), pose), 'Static probe ' + id + '/' + chapter);
-  await evidence(surface);
+  await showEvidence();
   assert.ok(matches(await scanPixels(surface), scan), 'Scan did not return to evidence');
   assert.ok(matches(await scenePixels(surface), pose), 'Probe did not return to evidence');
 
@@ -295,17 +307,17 @@ async function checkRenderedChapter(surface, id, chapter) {
     assert.match(legend, /lumen/i);
     const marked = await scanPixels(surface);
     assert.ok(!matches(marked, scan), 'Tissue overlay left the sac raster unchanged');
-    await seek(surface, evidenceFrame - 1);
+    await seekFrame(evidenceFrame - 1);
     assert.doesNotMatch(await surface.locator('#measurement').textContent(), /43 mm AP\s*×\s*46 mm transverse/);
-    await evidence(surface);
+    await showEvidence();
     assert.ok(matches(await scanPixels(surface), marked), 'Sac calipers did not return with evidence');
   }
   if (limited) {
     for (const frame of [0, evidenceFrame, frameCount - 1]) {
-      await seek(surface, frame);
+      await seekFrame(frame);
       assert.doesNotMatch(await surface.locator('#measurement').textContent(), /\d\s*mm/);
     }
-    await evidence(surface);
+    await showEvidence();
   }
   await overlay(surface, false);
   assert.ok(matches(await scanPixels(surface), scan), 'B-mode was not restored');
@@ -418,6 +430,7 @@ try {
   };
   const caseFrames = [];
   for (const [id, chapters] of Object.entries(expected)) {
+    const segments = chapters.map((chapter) => [chapter, chapter, 0, frameCount - 1]);
     const poseManifest = await page.request.get(target('tours/aaa/' + id + '.scene.json').href);
     assert.ok(poseManifest.ok());
     const configurations = await poseManifest.json();
@@ -438,14 +451,15 @@ try {
     await page.waitForURL((url) => url.pathname === direct(chapters[1], 9).pathname);
     assert.deepEqual(locationKey(new URL(page.url())), locationKey(direct(chapters[1], 9)), 'Legacy route lost the acquired frame');
     let child = await embedded(page, id, chapters[1]);
-    assert.equal(await child.locator('#position').inputValue(), '9');
-    assert.deepEqual(await page.locator('.chapters a[data-chapter]').evaluateAll((links) =>
-      links.map((link) => link.dataset.chapter)), chapters);
+    await waitForTourFrame(page, absoluteFrame(segments, chapters[1], 9));
+    await expectFrame(child, 9);
+    assert.equal(await checkTimeline(page, segments), chapters.length * frameCount);
     assert.equal(await page.locator('#reportEvidence a').count(), chapters.length);
     if (id === 'aaa-positive') {
       await page.getByRole('link', { name: 'Diagnostic continuation', exact: true }).click();
+      await waitForTourFrame(page, absoluteFrame(segments, 'sac-long-axis', 0));
       child = await embedded(page, id, 'sac-long-axis');
-      assert.equal(await child.locator('#position').inputValue(), '0');
+      await expectFrame(child, 0);
     }
 
     await page.locator('.case-jumps').getByRole('link', { name: 'Worked case', exact: true }).click();
@@ -459,16 +473,19 @@ try {
     assert.equal(reportDestination.searchParams.get('frame'), String(evidenceFrame));
     await reportLink.click();
     assert.deepEqual(locationKey(new URL(page.url())), locationKey(reportDestination));
-    child = await embedded(page, id, reportDestination.searchParams.get('chapter'));
-    assert.equal(await child.locator('#position').inputValue(), String(evidenceFrame));
+    const destinationChapter = reportDestination.searchParams.get('chapter');
+    await waitForTourFrame(page, absoluteFrame(segments, destinationChapter, evidenceFrame));
+    child = await embedded(page, id, destinationChapter);
+    await expectFrame(child, evidenceFrame);
 
     const retryPoses = [];
     for (const chapter of chapters) {
       await page.locator('.chapters a[data-chapter="' + chapter + '"]').click();
+      await waitForTourFrame(page, absoluteFrame(segments, chapter, 0));
       child = await embedded(page, id, chapter);
-      assert.equal(await child.locator('#position').inputValue(), '0');
+      await expectFrame(child, 0);
       await setParitySize(child);
-      const { scan, pose } = await checkRenderedChapter(child, id, chapter);
+      const { scan, pose } = await checkRenderedChapter(page, child, segments, id, chapter);
       if (chapter === representative[id]) {
         await scanMatchesDeliveredFrame(child, id, chapter, evidenceFrame);
         caseFrames.push({ scan, pose });
@@ -484,13 +501,21 @@ try {
         locationKey(direct(chapter, evidenceFrame)));
       assert.ok(matches(await scanPixels(standalone), scan), 'Standalone scan differs from embedded ' + chapter);
       assert.ok(matches(await scenePixels(standalone), pose), 'Standalone pose differs from embedded ' + chapter);
-      if (chapter === chapters[0]) await checkStandaloneTransport(standalone);
+      if (chapter === chapters[0]) {
+        await seek(standalone, 3);
+        await evidence(standalone);
+        await checkStandaloneTransport(standalone);
+      }
 
       const report = page.locator('#reportEvidence a').nth(chapters.indexOf(chapter));
       assert.deepEqual(locationKey(new URL(await report.getAttribute('href'), page.url())), locationKey(direct(chapter, evidenceFrame)));
       await report.click();
+      await waitForTourFrame(page, absoluteFrame(segments, chapter, evidenceFrame));
       child = await embedded(page, id, chapter);
-      assert.equal(await child.locator('#position').inputValue(), String(evidenceFrame));
+      await expectFrame(child, evidenceFrame);
+      if (captures && (chapter === 'sac-long-axis' || chapter === representative[id])) {
+        await restoreNativeViewport(child);
+      }
       if (captures && chapter === 'sac-long-axis') {
         await child.locator('#colorFlow').click();
         await child.locator('#sceneCanvas').evaluate(() => window.stepSweep());
@@ -501,6 +526,8 @@ try {
         const panels = child.locator('.sweepPanels');
         await panels.screenshot({ path: join(captures, id + '-shared-torso.png') });
         if (chapter === 'sac-maximum') {
+          await page.locator('#tourPosition').evaluate((slider) => slider.scrollIntoView({ block: 'center' }));
+          await page.screenshot({ path: join(captures, id + '-timeline.png') });
           await overlay(child, true);
           await panels.screenshot({ path: join(captures, id + '-overlay.png') });
         }
@@ -509,20 +536,8 @@ try {
     if (retryPoses.length) assert.ok(!matches(...retryPoses), 'Lateral retry repeated the anterior pose');
 
     await page.bringToFront();
-    await page.locator('.chapters a[data-chapter="' + chapters[0] + '"]').click();
-    await page.locator('#playTour').click();
-    for (const chapter of chapters) {
-      child = await embedded(page, id, chapter);
-      await child.waitForFunction(() => document.querySelector('#play').textContent.trim() === 'Pause',
-        null, { polling: 25 });
-      const displayed = await advanceFrames(child, frameCount);
-      assert.deepEqual(displayed, Array.from({ length: frameCount }, (_, i) => i), 'Tour skipped a frame in ' + chapter);
-      totalFrames += displayed.length;
-    }
-    await page.getByRole('button', { name: 'Replay tour', exact: true }).waitFor();
-    await page.getByRole('button', { name: 'Replay tour', exact: true }).click();
-    child = await embedded(page, id, chapters[0]);
-    assert.equal(await child.locator('#position').inputValue(), '0');
+    await seekTour(page, 0);
+    totalFrames += await playTourToEnd(page, segments);
     for (const width of [1024, 1280]) {
       await page.setViewportSize({ width, height: 940 });
       assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), 'Tour overflows at ' + width);
