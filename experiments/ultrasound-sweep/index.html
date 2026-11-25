@@ -29,6 +29,10 @@
       <p id="tourStatus" role="status" hidden></p>
       <section id="tour" aria-labelledby="tourTitle" hidden>
         <nav id="breastRoutes" class="routeNav" aria-label="Breast scan routes" hidden></nav>
+        <div id="pregnancyNavigation" hidden>
+          <nav id="pregnancyStages" aria-label="Pregnancy stages"></nav>
+          <nav id="pregnancyRoutes" aria-label="Sweeps in this stage"></nav>
+        </div>
         <div class="transport">
           <div class="transportTop">
             <button class="primary" id="play" disabled>Play sweep</button>
@@ -77,7 +81,10 @@
           <figure class="panel" id="scanPanel">
             <figcaption>
               <span id="scanTitle">Simulated scan</span>
-              <button id="section" class="viewButton" aria-pressed="false">Anatomy overlay</button>
+              <div class="scanTools">
+                <button id="scanZoom" class="viewButton" title="Magnify this section and outline it in the 3D field" aria-pressed="false" hidden>Magnify section</button>
+                <button id="section" class="viewButton" aria-pressed="false">Anatomy overlay</button>
+              </div>
             </figcaption>
             <div class="view rasterView" id="scanArea" aria-busy="true">
               <p class="mediaStatus" id="scanStatus">Loading scan…</p>
@@ -96,6 +103,7 @@
             <div class="panelFoot" id="referenceNote"></div>
           </figure>
         </div>
+        <p id="comparisonFinding" hidden></p>
       </section>
 
       <section id="assets" aria-labelledby="assetTitle" hidden>

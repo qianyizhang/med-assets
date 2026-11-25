@@ -167,11 +167,22 @@ def mesh_from_mask(mask, z_bounds=None):
 class ImagingGrid:
     """Map the same convex sector to a raster and to radial propagation paths."""
 
-    def __init__(self, depth_mm):
+    def __init__(self, depth_mm, roi=None):
         pitch = max(.41, depth_mm / (H - 21))
         row, col = np.mgrid[:H, :W]
-        self.x = (col - W / 2) * pitch
-        self.y = (row - 12) * pitch
+        origin_x, origin_y = W / 2, 12
+        if roi is not None:
+            left, top, right, bottom = roi
+            scale = (right - left) / W
+            if (not 0 <= left < right <= W or not 0 <= top < bottom <= H
+                    or not np.isclose(scale, (bottom - top) / H)):
+                raise ValueError(f'Detail crop must fit the field with equal pixel spacing: {roi}')
+            # Map pixel centers through the crop; bounds are full-raster pixel edges.
+            origin_x = (origin_x + .5 - left) / scale - .5
+            origin_y = (origin_y + .5 - top) / scale - .5
+            pitch *= scale
+        self.x = (col - origin_x) * pitch
+        self.y = (row - origin_y) * pitch
         self.depth = np.hypot(self.x, self.y + LENS_RADIUS_MM) - LENS_RADIUS_MM
         self.angle = np.arctan2(self.x, self.y + LENS_RADIUS_MM)
         half_angle = np.deg2rad(SECTOR_HALF_ANGLE_DEG)
@@ -181,7 +192,7 @@ class ImagingGrid:
         radius = LENS_RADIUS_MM + np.arange(0, depth_mm + .5, .5)[:, None]
         self.polar_x = radius * np.sin(theta)
         self.polar_y = radius * np.cos(theta) - LENS_RADIUS_MM
-        self.to_polar = np.stack((self.polar_y / pitch + 12, self.polar_x / pitch + W / 2))
+        self.to_polar = np.stack((self.polar_y / pitch + origin_y, self.polar_x / pitch + origin_x))
         self.to_image = np.stack((self.depth / .5, (self.angle + half_angle) / (2 * half_angle) * 300))
 
     @staticmethod

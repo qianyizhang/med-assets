@@ -805,6 +805,30 @@ export async function createSweepScene({ canvas, frames, config, onViewPresetCha
     ? linearTransducer(dimensions, contactRig)
     : curvedTransducer(Object.fromEntries(probeNames.map((name, index) => [name, probeGeometries[index]])), dimensions);
   const sector = rectangular ? rectangleGeometry(dimensions) : sectorGeometry(dimensions);
+  let detailOutline;
+  if (config.keyframes?.some((key) => key.detail)) {
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute('position', new THREE.BufferAttribute(new Float32Array(12), 3));
+    detailOutline = new THREE.LineLoop(geometry, new THREE.LineBasicMaterial({
+      color: '#ffe698', transparent: true, opacity: .98, depthTest: false, depthWrite: false, toneMapped: false,
+    }));
+    detailOutline.visible = false;
+    detailOutline.frustumCulled = false;
+    detailOutline.renderOrder = 3;
+    sector.add(detailOutline);
+  }
+  function setMagnifiedBounds(bounds) {
+    if (!detailOutline) return;
+    detailOutline.visible = Boolean(bounds);
+    if (bounds) {
+      const [left, near, right, far] = bounds;
+      const vertices = detailOutline.geometry.attributes.position;
+      [[left, near], [right, near], [right, far], [left, far]].forEach(([x, depth], i) =>
+        vertices.setXYZ(i, x / dimensions.voxelMm, 0, -depth / dimensions.voxelMm));
+      vertices.needsUpdate = true;
+    }
+    view.invalidate();
+  }
   let framing;
   if (config.bodyRegion === 'Neck') {
     framing = neckFraming(pivot, meshes.torso.boundingBox, dimensions.voxelMm);
@@ -813,6 +837,8 @@ export async function createSweepScene({ canvas, frames, config, onViewPresetCha
   } else if (config.steering) {
     // The lateral and superior tilt reveals the field in both nipple reference planes.
     framing = { direction: vec(.57, .92, .55) };
+  } else if (config.obliqueDirection) {
+    framing = { direction: vector(config.obliqueDirection) };
   }
   const torso = solid(meshes.torso, '#be9885');
   torso.material.roughness = .95;
@@ -937,7 +963,7 @@ export async function createSweepScene({ canvas, frames, config, onViewPresetCha
   setTorsoOpacity(.32);
   setFrame(0);
   return {
-    setFrame, setTorsoOpacity, setRouteVisible, setViewPreset: view.setViewPreset, resetView: view.reset,
+    setFrame, setTorsoOpacity, setRouteVisible, setMagnifiedBounds, setViewPreset: view.setViewPreset, resetView: view.reset,
     dispose() {
       view.dispose();
       contactRig?.texture.dispose();

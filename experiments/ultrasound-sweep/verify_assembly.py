@@ -51,8 +51,17 @@ def verify(source):
                     data = (destination / row['path']).read_bytes()
                     if 'sha256' in row:
                         assert sha256(data) == row['sha256']
-                expected = [0, 12, 48] if tour['id'].startswith('thyroid-') else [12, 48]
-                assert [key['frame'] for key in tour['keyframes']] == expected
+                frames = [key['frame'] for key in tour['keyframes']]
+                if tour.get('pregnancyStage'):
+                    receipt = json.loads((staging / tour['assetRoot'] / 'verification.json').read_text())
+                    assert frames == sorted(int(frame) for frame in receipt['frames'])
+                    assert tour['pregnancyStage']['focus']
+                    for path in assemble_tours.detail_files(tour['keyframes']):
+                        assert (destination / tour['assetRoot'] / path).read_bytes() == (
+                            staging / tour['assetRoot'] / path).read_bytes()
+                else:
+                    expected = [0, 12, 48] if tour['id'].startswith('thyroid-') else [12, 48]
+                    assert frames == expected
             assert len(projected) < sum(1 + len(tour['parts']) for tour in tours)
             assert not (destination / 'torso.npz').exists()
             assert not (destination / 'sweeps/aorta/delivery.json').exists()
@@ -160,6 +169,41 @@ def verify(source):
                 wrong_skin = {**json.loads(receipt.read_text()), 'femaleSkinSha256': '0' * 64}
                 cases.append((receipt, json.dumps(wrong_skin).encode(), 'current axillary exterior', False))
                 cases.append((research / 'acquired/axilla-48.webp', b'invalid', 'Unexpected acquired image identity', False))
+            maternal = staging / 'sweeps/pregnancy-placenta'
+            fetal = staging / 'sweeps/pregnancy-fetus'
+            if maternal.exists():
+                fetal.rename(work / 'fetal')
+                reject(staging, broken, 'Incomplete pregnancy study')
+                maternal.rename(work / 'maternal')
+                legacy = work / 'without-pregnancy'
+                assemble_tours.assemble(staging, legacy)
+                previous = javascript_value(legacy / 'abdomen-tours.js', 'abdomenTours')
+                assert previous == [tour for tour in tours if tour['id'] not in ('pregnancy-fetus', 'pregnancy-placenta')]
+                (work / 'fetal').rename(fetal)
+                (work / 'maternal').rename(maternal)
+                receipt = maternal / 'verification.json'
+                stale_anatomy = {**json.loads(receipt.read_text()), 'pregnancyRecipeSha256': '0' * 64}
+                cases.extend([
+                    (receipt, json.dumps(stale_anatomy).encode(), 'current pregnancy anatomy', False),
+                    (fetal / 'delivery.json', None, 'Missing pregnancy sweep delivery inventory', False),
+                    (research / 'acquired/pregnancy-placenta-12.webp', b'invalid',
+                     'Unexpected acquired image identity', False),
+                ])
+            advanced = staging / 'sweeps/pregnancy-mid-heart'
+            if advanced.exists():
+                advanced.rename(work / 'heart')
+                reject(staging, broken, 'Incomplete gestational study')
+                (work / 'heart').rename(advanced)
+                receipt = advanced / 'verification.json'
+                stale_model = {**json.loads(receipt.read_text()), 'modelRecipeSha256': '0' * 64}
+                cases.append((receipt, json.dumps(stale_model).encode(), 'current pregnancy anatomy', False))
+            early = staging / 'sweeps/pregnancy-early'
+            if early.exists():
+                cases.extend([
+                    (early / 'media/detail-scan-29.webp', None, 'Missing sweep input', False),
+                    (early / 'media/detail-section-29.webp', (early / 'media/detail-section-48.webp').read_bytes(),
+                     'Sweep delivery identity mismatch', False),
+                ])
             for path, bad, expected, reseal in cases:
                 original = path.read_bytes()
                 if bad is None:

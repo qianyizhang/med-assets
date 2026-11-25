@@ -1,0 +1,88 @@
+{
+  "shared": {
+    "case": "authored-pregnancy-12-weeks",
+    "bodyRegion": "Pregnancy",
+    "pregnancyStage": "first",
+    "region": "Lower abdomen · about 12 weeks",
+    "exterior": "authored-lower-abdomen",
+    "probeType": "curved",
+    "fieldShape": "sector",
+    "sectorDepthMm": 134,
+    "voxelMm": 1.5,
+    "obliqueDirection": [-0.85, 0.97, 0.67],
+    "referenceContext": "Acquired comparison",
+    "parts": [
+      {"id": "uterus", "label": "Uterine wall and cervix", "color": "#c28c9e", "opacity": 0.22},
+      {"id": "amniotic_fluid", "label": "Amniotic cavity", "color": "#8bc8d2", "opacity": 0.09},
+      {"id": "maternal_bladder", "label": "Maternal bladder", "color": "#e5c279", "opacity": 0.45},
+      {"id": "placenta", "label": "Posterior placenta", "color": "#bf6476", "opacity": 0.94},
+      {"id": "umbilical_cord", "label": "Umbilical cord", "color": "#a89be4", "opacity": 0.88},
+      {"id": "fetus", "label": "Fetus", "color": "#efa88b", "opacity": 1},
+      {"id": "nasal_bone", "label": "Nasal bone", "color": "#f6cc76", "opacity": 0.9},
+      {"id": "nuchal_space", "label": "Nuchal fluid space", "color": "#67d2b1", "opacity": 0.8},
+      {"id": "fetal_bladder", "label": "Fetal bladder", "color": "#ffe0a0", "opacity": 0.7},
+      {"id": "spinal_echoes", "label": "Developing spine", "color": "#f1d2b2", "opacity": 0.68},
+      {"id": "calvarium", "label": "Calvarium", "color": "#b6d3fa", "opacity": 0.67},
+      {"id": "falx", "label": "Falx", "color": "#7ca8e5", "opacity": 0.28},
+      {"id": "choroid_plexus", "label": "Choroid plexuses", "color": "#d6ed9f", "opacity": 0.84}
+    ],
+    "anatomySource": {
+      "label": "Edward Andrew Springhall et al. · Sonographic anatomy at 11–14 weeks",
+      "shortLabel": "Published 11–14-week anatomy",
+      "url": "https://doi.org/10.1002/ajum.12109"
+    },
+    "additionalAnatomySources": [
+      {
+        "label": "ISUOG · 11–14-week ultrasound scan",
+        "url": "https://doi.org/10.1002/uog.26106"
+      }
+    ],
+    "sourceNote": "The maternal and fetal anatomy is an original teaching model of a singleton at about 12 weeks, informed by published first-trimester views. The model uses an anteverted uterus and one posterior placental location.",
+    "simulationNote": "The curved probe samples the modeled tissues in the 3D view. Brightness illustrates tissue boundaries and fluid; this model supports anatomical orientation.",
+    "requirePoseReceipt": true,
+    "requirePaletteReceipt": true
+  },
+  "sweeps": [
+    {
+      "id": "pregnancy-placenta",
+      "title": "Posterior placenta",
+      "organ": "placenta",
+      "sectorDepthMm": 145,
+      "keyframeLabels": ["Posterior placenta", "Transverse placenta"],
+      "phaseLabels": ["Find the uterus", "Slide and rotate across the placenta"],
+      "overlayParts": ["uterus", "amniotic_fluid", "maternal_bladder", "placenta", "umbilical_cord", "fetus"],
+      "windows": [
+        {"skinSiteMm": [-11, -23], "outward": [-0.16, 1, 0.10], "marker": [0.05, 0, 1]},
+        {"skinSiteMm": [0, -16], "outward": [0, 1, 0.06], "marker": [0, 0, 1]},
+        {"skinSiteMm": [20, 9], "outward": [0.08, 1, 0], "marker": [1, 0, 0]}
+      ],
+      "landmarkMinimums": [
+        {"uterus": 450, "amniotic_fluid": 1000, "maternal_bladder": 100, "placenta": 650, "fetus": 750},
+        {"uterus": 450, "amniotic_fluid": 1000, "placenta": 900, "umbilical_cord": 25}
+      ]
+    },
+    {
+      "id": "pregnancy-fetus",
+      "title": "Fetal profile and head",
+      "organ": "fetus",
+      "initialFrame": 12,
+      "stops": [
+        {"frame": 0, "label": "Nuchal profile", "referenceId": "pregnancy-nuchal", "detail": {"roi": [154, 150, 324, 269]}},
+        {"frame": 12, "label": "Midsagittal profile", "referenceId": "pregnancy-fetus-12", "detail": {"roi": [140, 144, 360, 298]}},
+        {"frame": 48, "label": "Axial head", "referenceId": "pregnancy-fetus-48", "detail": {"roi": [188, 169, 318, 260]}}
+      ],
+      "phaseLabels": ["Follow the profile", "Slide and turn toward the head"],
+      "overlayParts": ["uterus", "amniotic_fluid", "placenta", "umbilical_cord", "fetus", "fetal_bladder", "nuchal_space", "nasal_bone", "spinal_echoes", "calvarium", "falx", "choroid_plexus"],
+      "windows": [
+        {"skinSiteMm": [0, 26], "outward": [0, 1, 0.08], "marker": [0, 0, 1]},
+        {"skinSiteMm": [0, 15], "outward": [0, 1, -0.02], "marker": [0, 0, 1]},
+        {"skinSiteMm": [0, 35.4], "outward": [0, 1, 0], "marker": [1, 0, 0]}
+      ],
+      "landmarkMinimums": [
+        {"fetus": 1200, "nuchal_space": 38, "nasal_bone": 7},
+        {"fetus": 1200, "fetal_bladder": 45, "spinal_echoes": 5},
+        {"fetus": 700, "calvarium": 55, "falx": 12, "choroid_plexus": 45}
+      ]
+    }
+  ]
+}

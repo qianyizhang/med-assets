@@ -114,6 +114,7 @@ try {
     title: tour.title,
     assetRoot: tour.assetRoot,
     region: tour.bodyRegion ?? 'Abdomen',
+    stage: tour.pregnancyStage,
     probeType: tour.probeType,
     fieldShape: tour.fieldShape,
     additionalSources: (tour.additionalAnatomySources ?? []).map((source) => source.url),
@@ -132,7 +133,7 @@ try {
     landmarks: (tour.landmarks ?? []).map((id) => ({ id, ...abdomenReferences[id] })),
     keys: tour.keyframes.map((key) => {
       const reference = abdomenReferences[key.referenceId];
-      return { frame: key.frame, label: key.label, referenceId: key.referenceId, path: reference.path, url: reference.url,
+      return { frame: key.frame, detail: key.detail, label: key.label, referenceId: key.referenceId, path: reference.path, url: reference.url,
         referenceLabel: key.referenceLabel ?? reference.label ?? key.label, depthLabel: reference.depthLabel };
     }),
   })));
@@ -145,11 +146,20 @@ try {
   const sweepPicker = page.getByRole('combobox', { name: 'Sweep' });
   const expectedRegions = new Map();
   for (const tour of catalogue) {
-    if (!expectedRegions.has(tour.region)) expectedRegions.set(tour.region, []);
-    expectedRegions.get(tour.region).push(tour.id);
+    const label = tour.stage ? 'Pregnancy · ' + tour.stage.age : tour.region;
+    if (!expectedRegions.has(label)) expectedRegions.set(label, []);
+    expectedRegions.get(label).push(tour.id);
   }
   assert.deepEqual(await sweepPicker.locator('optgroup').evaluateAll((groups) =>
     groups.map((group) => [group.label, [...group.children].map((option) => option.value)])), [...expectedRegions]);
+
+  async function assertSeparatedTicks() {
+    const bounds = await page.locator('#ticks button').evaluateAll(nodes => nodes.map(node => {
+      const rect = node.getBoundingClientRect();
+      return [rect.left, rect.right];
+    }));
+    assert.ok(bounds.every(([left], i) => !i || bounds[i-1][1] <= left + 1), 'Reference buttons overlap');
+  }
 
   for (const tour of catalogue) {
     await sweepPicker.selectOption(tour.id);
@@ -184,6 +194,22 @@ try {
       await pathControl.click();
       assert.deepEqual(await screenshot(), visible);
       if (tour.region === 'Breast') await capture(tour.id + '-scan-path-1021', true);
+    }
+    assert.equal(await page.locator('#pregnancyNavigation').isVisible(), Boolean(tour.stage));
+    if (tour.stage) {
+      await assertSeparatedTicks();
+      await page.setViewportSize({width: 390, height: 844});
+      await assertSeparatedTicks();
+      await page.setViewportSize({width: 1021, height: 1197});
+      const ages = [...new Set(catalogue.filter(item => item.stage).map(item => item.stage.age))];
+      assert.deepEqual(await page.locator('#pregnancyStages strong').allTextContents(), ages);
+      assert.equal(await page.locator('#pregnancyStages [aria-current] strong').textContent(), tour.stage.age);
+      const siblings = catalogue.filter(item => item.stage?.age === tour.stage.age);
+      if (siblings.length > 1) {
+        assert.equal(await page.locator('#pregnancyRoutes [aria-current]').getAttribute('href'), page.url());
+        assert.deepEqual(await page.locator('#pregnancyRoutes a').evaluateAll(links =>
+          links.map(link => new URL(link.href).searchParams.get('sweep'))), siblings.map(item => item.id));
+      }
     }
     if (captureFolder && tour.id === 'kidney-left') {
       await preset('coronal').click();
@@ -223,12 +249,39 @@ try {
       const expectedScan = new URL(tour.assetRoot + 'media/scan-' + String(key.frame).padStart(2, '0') + '.webp', page.url()).href;
       const expectedReference = new URL(key.path, page.url()).href;
       await page.waitForFunction(({ scan, reference }) => document.querySelector('#scan')?.src === scan
-        && document.querySelector('#ref')?.src === reference, { scan: expectedScan, reference: expectedReference });
+        && document.querySelector('#ref')?.src === reference, { scan: expectedScan, reference: expectedReference })
+        .catch(async (cause) => {
+          const actual = await page.locator('#scanArea, #referenceArea').evaluateAll((areas) =>
+            areas.map((area) => area.querySelector('img')?.src ?? area.textContent.trim()));
+          throw new Error(tour.id + ' frame ' + key.frame + ' did not load the expected scan and reference. ' + actual.join(' | '), { cause });
+        });
       assert.equal(await page.locator('#readout').textContent(), key.label);
       assert.equal(await page.locator('#scanDetail').textContent(), depthText(key.frame));
       assert.ok((await page.locator('#referenceNote').textContent()).includes(key.referenceLabel));
       assert.equal(await page.locator('#referenceDepth').textContent(), [tour.referenceContext, key.depthLabel].filter(Boolean).join(' · '));
       if (tour.region === 'Breast') await capture(tour.id + '-frame-' + key.frame + '-1021', true);
+      if (tour.region === 'Pregnancy') {
+        await capture(tour.id + '-' + key.frame);
+        await page.locator('#section').click();
+        await page.waitForFunction(() => document.querySelector('#scan')?.src.includes('/section-'));
+        await capture(tour.id + '-' + key.frame + '-section');
+        if (key.detail) {
+          const fullField = await screenshot();
+          await page.locator('#scanZoom').click();
+          await page.waitForFunction(() => document.querySelector('#scan')?.src.includes('/detail-section-'));
+          assert.notDeepEqual(await screenshot(), fullField, 'Magnification should outline its physical bounds in the 3D field.');
+          await capture(tour.id + '-' + key.frame + '-magnified');
+          assert.equal(await page.locator('#position').inputValue(), String(key.frame));
+          assert.equal(await page.locator('#ref').evaluate(img => img.src), new URL(key.path, page.url()).href);
+          await page.locator('#section').click();
+          await page.waitForFunction(() => document.querySelector('#scan')?.src.includes('/detail-scan-'));
+          await page.locator('#scanZoom').click();
+          await page.waitForFunction(() => document.querySelector('#scan')?.src.includes('/media/scan-'));
+          assert.deepEqual(await screenshot(), fullField, 'Returning to the full field should remove the magnification outline.');
+          await page.locator('#section').click();
+        }
+        await page.locator('#section').click();
+      }
       if (tour.region === 'Neck' && tour.keys.length === 3) {
         if (key.frame === 0 && tour.id === 'thyroid-right') await capture('thyroid-midline-1021x1197');
         if (key.frame === 12) await capture(tour.id + '-transverse-1021x1197');
@@ -284,7 +337,7 @@ try {
     await page.locator('[data-asset="simulation"]').click();
     await page.waitForFunction(() => document.querySelector('#assetEvidence img')?.src.includes('/scan-'));
     assert.deepEqual(await sources(), [tour.anatomySource.url, ...tour.additionalSources]);
-    if (tour.id === 'breast') {
+    if (tour.id === 'breast' || tour.region === 'Pregnancy') {
       assert.doesNotMatch(await page.locator('#assetFinding').innerText(), /CT-derived|from the CT/i);
       assert.doesNotMatch(await page.locator('#anatomySource').textContent(), /TotalSegmentator|CT-derived/i);
     }
