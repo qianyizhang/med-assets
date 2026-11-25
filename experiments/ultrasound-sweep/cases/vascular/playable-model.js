@@ -51,29 +51,40 @@ function tube(name, x, y, rx, ry, wall, color = 1, lumen = {}) {
   };
 }
 
+function aorticTrunk(positive, z) {
+  const ap = positive ? profile(z, [[3, 24], [55, 21], [77, 24], [sacPeak, 43], [145, 22], [165, 18]])
+    : profile(z, [[3, 24], [60, 19], [142, 17], [165, 16]]);
+  const width = positive ? profile(z, [[3, 25], [55, 22], [77, 25], [sacPeak, 46], [145, 23], [165, 19]])
+    : profile(z, [[3, 23], [60, 19], [142, 17], [165, 17]]);
+  const thrombus = positive ? profile(z, [[77, 0], [sacPeak, 1], [145, 0]]) : 0;
+  return tube('Aorta', 0, 47, width / 2, ap / 2, 1, 1, {
+    mural: thrombus > .001 ? 'Mural thrombus' : undefined,
+    dx: thrombus * 1.8, dy: thrombus * -4.9,
+    rx: width / 2 - 1 - thrombus * 4.7,
+    ry: ap / 2 - 1 - thrombus * 7.5,
+  });
+}
+
 function abdominalTubes(record, z) {
   const positive = record.kind === 'abnormal';
   const aorta = [];
-  if (z <= split + 2) {
-    const ap = positive ? profile(z, [[3, 24], [55, 21], [77, 24], [sacPeak, 43], [145, 22], [165, 18]])
-      : profile(z, [[3, 24], [60, 19], [142, 17], [165, 16]]);
-    const width = positive ? profile(z, [[3, 25], [55, 22], [77, 25], [sacPeak, 46], [145, 23], [165, 19]])
-      : profile(z, [[3, 23], [60, 19], [142, 17], [165, 17]]);
-    const taper = 1 - .58 * smooth((z - 160) / 12);
-    const thrombus = positive ? profile(z, [[77, 0], [sacPeak, 1], [145, 0]]) : 0;
-    aorta.push(tube('Aorta', 0, 47, width * taper / 2, ap * taper / 2, 1, 1, {
-      mural: thrombus > .001 ? 'Mural thrombus' : undefined,
-      dx: thrombus * 1.8, dy: thrombus * -4.9,
-      rx: width * taper / 2 - 1 - thrombus * 4.7,
-      ry: ap * taper / 2 - 1 - thrombus * 7.5,
-    }));
-  }
-  if (z >= split - 11) {
-    for (const [sign, name, diameter] of [[-1, 'Right common iliac', positive ? 13 : 11],
-      [1, 'Left common iliac', positive ? 12 : 10]]) {
-      const separation = lerp(2.1, 18, smooth((z - (split - 11)) / 31));
-      const rise = 2 * smooth((z - split) / 26);
-      aorta.push(tube(name, sign * separation, 47 + rise, diameter / 2, diameter / 2, .75));
+  const forkStart = split - 14;
+  const trunk = aorticTrunk(positive, z);
+  if (z <= forkStart) aorta.push(trunk);
+  else {
+    // The two lobes start coincident with the same artery and diverge continuously.
+    // The union changes from a single opening to two, with no central tube ending at the fork.
+    const opening = smooth((z - forkStart) / 33);
+    const separation = lerp(0, 18, opening);
+    const depth = trunk.y + 2 * smooth((z - split) / 26);
+    const lobes = [[-1, 'Right common iliac', positive ? 13 : 11],
+      [1, 'Left common iliac', positive ? 12 : 10]].map(([sign, name, diameter]) => {
+      return tube(name, sign * separation, depth, lerp(trunk.rx, diameter / 2, opening),
+        lerp(trunk.ry, diameter / 2, opening), lerp(trunk.wall, .75, opening));
+    });
+    const lumenConnected = 2 * separation <= lobes[0].lrx + lobes[1].lrx;
+    for (const lobe of lobes) {
+      aorta.push(lumenConnected ? {...lobe, name: 'Aorta'} : lobe);
     }
   }
   if (z < 144) aorta.push(tube('IVC', -31, 49, 8, 5.5, .6, -1));
@@ -109,6 +120,31 @@ function carotidTubes(record, side, z) {
 
 export function tubesAt(record, side, z) {
   return record.family === 'aaa' ? abdominalTubes(record, z) : carotidTubes(record, side, z);
+}
+
+export function ellipseFactor(x, y, cx, cy, rx, ry) {
+  return ((x - cx) / rx) ** 2 + ((y - cy) / ry) ** 2;
+}
+
+function isMural(vessel, outerFactor) {
+  return vessel.mural && outerFactor <= (1 - vessel.wall / Math.max(vessel.rx, vessel.ry)) ** 2;
+}
+
+export function classifyTissue(x, y, tubes) {
+  let region = 'tissue';
+  let vessel;
+  for (const candidate of tubes) {
+    if (Math.abs(x - candidate.x) > candidate.rx || Math.abs(y - candidate.y) > candidate.ry) continue;
+    const outer = ellipseFactor(x, y, candidate.x, candidate.y, candidate.rx, candidate.ry);
+    if (outer > 1) continue;
+    if (ellipseFactor(x, y, candidate.lx, candidate.ly, candidate.lrx, candidate.lry) <= 1) {
+      return {region: 'lumen', vessel: candidate};
+    }
+    if (!isMural(candidate, outer)) region = 'wall';
+    else if (region !== 'wall') region = 'mural';
+    vessel = candidate;
+  }
+  return {region, vessel};
 }
 
 export function getTube(record, side, z, name) {
