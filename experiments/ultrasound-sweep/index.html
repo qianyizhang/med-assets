@@ -28,7 +28,7 @@
     <main>
       <p id="tourStatus" role="status" hidden></p>
       <section id="tour" aria-labelledby="tourTitle" hidden>
-        <nav id="breastRoutes" class="routeNav" aria-label="Breast scan routes" hidden></nav>
+        <nav id="siblingRoutes" class="routeNav" hidden></nav>
         <div id="pregnancyNavigation" hidden>
           <nav id="pregnancyStages" aria-label="Pregnancy stages"></nav>
           <nav id="pregnancyRoutes" aria-label="Sweeps in this stage"></nav>
@@ -82,15 +82,20 @@
             <figcaption>
               <span id="scanTitle">Simulated scan</span>
               <div class="scanTools">
+                <button id="apToggle" class="viewButton" title="Show the anterior–posterior span of the modeled aortic contour" aria-pressed="false" aria-controls="apMarks apReadout" hidden>AP span</button>
                 <button id="scanZoom" class="viewButton" title="Magnify this section and outline it in the 3D field" aria-pressed="false" hidden>Magnify section</button>
                 <button id="section" class="viewButton" aria-pressed="false">Anatomy overlay</button>
               </div>
             </figcaption>
             <div class="view rasterView" id="scanArea" aria-busy="true">
               <p class="mediaStatus" id="scanStatus">Loading scan…</p>
+              <div id="apMarks" class="rasterAnnotation" aria-hidden="true" hidden>
+                <svg viewBox="0 0 500 350"><path id="apChord"/><path id="apEnds"/></svg>
+              </div>
             </div>
             <div class="panelFoot">
               <span id="scanDetail"></span>
+              <output id="apReadout" for="apToggle position" hidden></output>
               <ul class="legend" id="legend" aria-label="Section anatomy" hidden></ul>
             </div>
           </figure>

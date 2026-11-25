@@ -5,9 +5,18 @@ const vector = (xyz) => new THREE.Vector3().fromArray(xyz);
 const DEFAULT_PRESS_SETTLE_MM = 30;
 
 async function readAsset(path, format) {
-  const response = await fetch(new URL(path, import.meta.url));
-  if (!response.ok) throw new Error(`Could not load ${path} (HTTP ${response.status}).`);
-  return response[format]();
+  const url = new URL(path, import.meta.url);
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    try {
+      const response = await fetch(url);
+      if (attempt === 0 && response.status === 503) continue;
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      return await response[format]();
+    } catch (cause) {
+      if (attempt === 0 && cause instanceof TypeError) continue;
+      throw new Error(`Could not load ${url.href}. ${cause.message}`, { cause });
+    }
+  }
 }
 
 async function loadMesh(name, path = `scenes/${name}.mesh`) {
@@ -760,12 +769,19 @@ export async function createSweepScene({ canvas, frames, config, onViewPresetCha
   const names = ['torso', ...config.parts.map(({ id }) => id)];
   const linear = config.probeType === 'linear';
   const probeNames = ['lens', 'housing', 'relief'];
-  const [commonDimensions, geometries, probeGeometries] = await Promise.all([
-    readAsset('scenes/geometry.json', 'json'),
-    Promise.all(names.map((name) => loadMesh(name, config.meshPaths?.[name]
-      ?? new URL(`scenes/${name}.mesh`, assetRoot)))),
-    linear ? [] : Promise.all(probeNames.map((name) => loadMesh(name))),
-  ]);
+  const requests = [
+    () => readAsset('scenes/geometry.json', 'json'),
+    ...names.map((name) => () => loadMesh(name, config.meshPaths?.[name]
+      ?? new URL(`scenes/${name}.mesh`, assetRoot))),
+    ...(linear ? [] : probeNames.map((name) => () => loadMesh(name))),
+  ];
+  const received = [];
+  for (let start = 0; start < requests.length; start += 4) {
+    received.push(...await Promise.all(requests.slice(start, start + 4).map((request) => request())));
+  }
+  const [commonDimensions, ...packedMeshes] = received;
+  const geometries = packedMeshes.slice(0, names.length);
+  const probeGeometries = packedMeshes.slice(names.length);
   const dimensions = {
     ...commonDimensions,
     voxelMm: config.voxelMm ?? commonDimensions.voxelMm,

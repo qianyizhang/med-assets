@@ -10,6 +10,12 @@ The [renal and splenic records](renal-splenic.json) preserve side and axis, whil
 
 The modeled spleen rotates at one left posterior contact. The section spans about 88 mm along the organ’s dominant axis at the long-axis stop and 16 mm at the short-axis stop. These distances describe the sampled CT mask. The acquired transverse image specifically shows the hilum.
 
+## Abdominal aortic screening
+
+The [aortic screening record](aortic-screening.json) pairs the proximal, mid and distal stops with Figures 1–3 from the same publication. The three transverse sonograms keep their original depth scales, calipers and annotations. The proximal image identifies the celiac trunk. The mid image shows the superior mesenteric artery, with its relation to the renal origins unspecified. The distal image shows one aortic lumen and leaves the bifurcation outside the frame. The publication does not establish a shared participant. [Bryczkowski et al.](https://doi.org/10.7759/cureus.33822)
+
+The AIUM practice parameter uses the celiac and renal levels and the iliac bifurcation to define coverage. For transverse diameter, the image plane is perpendicular to the vessel axis and measurements span the outer walls. The published examples retain their native calipers with no verified wall convention. The modeled survey illustrates anatomical coverage. [AIUM 2025 practice parameter](https://doi.org/10.1002/jum.70167)
+
 ## Supporting normal anatomy
 
 Four additional panels from the same published figure fill specific gaps in the endpoint comparisons. Open **Keyframe assets → Related anatomy** on a listed sweep. Each panel comes from a separate acquisition and is displayed once per sweep. The [landmark record](normal-landmarks.json) binds each crop in original pixels to the source and exported file hashes. [Published Figure 1 and section key](https://pmc.ncbi.nlm.nih.gov/articles/PMC9868003/figure/Fig1/)
@@ -31,7 +37,7 @@ Four additional panels from the same published figure fill specific gaps in the 
 
 The [build recipe](../build_study.py) verifies the original image identities, CT, same-case labels, and grid. The extra [rib hashes](rib-pins.json) are from the s1233 source receipt. The CT and segmentation source is [TotalSegmentator v2.0.1](https://zenodo.org/records/10047263), Jakob Wasserthal, contributors and University Hospital Basel, CC BY 4.0. The earlier fixed-camera prototype used a small regional locator from the anterior view of the [reviewed BodyParts3D skin export](../../../models/skin/exports/teaching-economy-r01/README.md), © DBCLS, [CC BY 4.0](https://dbarchive.biosciencedbc.jp/en/bodyparts3d/lic.html). That historical inset indicated the region on a separate adult atlas. The live study uses the [full-resolution BodyParts3D exterior](../../../models/skin/exports/bp3d-envelope-r01/README.md) and [atlas skeleton](../../../models/skeleton/exports/teaching-economy-r01/README.md), under the same DBCLS terms. Right ribs 6–10 supply the atlas-to-case fit. The fitted contact window follows the CT skin. The flank sweeps stage the atlas arm to expose the side of the abdomen. The internal organs, probe track and sector use the s1233 frame.
 
-The different cases support visual comparisons. Specialist review of probe technique, ultrasound appearance and use for teaching is open. The experiment provides no disease examples or quantitative measurement task.
+The different cases support visual comparisons. Specialist review of probe technique, ultrasound appearance and use for teaching is open. The original gallbladder study illustrates normal anatomy. The later aortic survey adds a calibrated span of the segmented vessel.
 
 ## Thyroid
 

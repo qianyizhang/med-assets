@@ -59,6 +59,9 @@ def verify(source):
                     for path in assemble_tours.detail_files(tour['keyframes']):
                         assert (destination / tour['assetRoot'] / path).read_bytes() == (
                             staging / tour['assetRoot'] / path).read_bytes()
+                elif tour['id'] == 'aortic-screening':
+                    assert frames == [12, 30, 48]
+                    assert tour['showApSpan'] and len({key['referenceId'] for key in tour['keyframes']}) == 3
                 else:
                     expected = [0, 12, 48] if tour['id'].startswith('thyroid-') else [12, 48]
                     assert frames == expected
@@ -203,6 +206,18 @@ def verify(source):
                     (early / 'media/detail-scan-29.webp', None, 'Missing sweep input', False),
                     (early / 'media/detail-section-29.webp', (early / 'media/detail-section-48.webp').read_bytes(),
                      'Sweep delivery identity mismatch', False),
+                ])
+            survey = staging / 'sweeps/aortic-screening'
+            if survey.exists():
+                receipt = survey / 'verification.json'
+                original = json.loads(receipt.read_text())
+                bad_span = read_poses(survey / 'sweep.js')
+                bad_span[30]['apSpan']['millimetres'] += 4
+                cases.extend([
+                    (receipt, json.dumps({**original, 'modelRecipeSha256': '0' * 64}).encode(), 'current aortic survey anatomy', False),
+                    (receipt, json.dumps({**original, 'rasterPitchMm': -1}).encode(), 'Invalid aortic raster calibration', False),
+                    (survey / 'sweep.js', f'const sweep = {json.dumps(bad_span)};'.encode(), 'Invalid modeled AP span', False),
+                    (research / 'acquired/aortic-screening-30.webp', b'invalid comparison', 'Unexpected acquired image identity', False),
                 ])
             for path, bad, expected, reseal in cases:
                 original = path.read_bytes()

@@ -16,10 +16,23 @@ const browser = await chromium.launch({
 try {
   const page = await browser.newPage({ viewport: { width: 1021, height: 1197 } });
   const errors = [];
+  const sceneWarnings = [];
   page.on('pageerror', (error) => errors.push(error.message));
+  page.on('console', (message) => {
+    if (message.type() === 'warning') sceneWarnings.push(message.text());
+  });
   await page.goto(url);
-  const ready = () => page.waitForFunction(() =>
-    document.querySelector('#cameraPresets')?.disabled === false && document.querySelector('#play')?.disabled === false);
+  const ready = async () => {
+    try {
+      await page.waitForFunction(() =>
+        document.querySelector('#cameraPresets')?.disabled === false && document.querySelector('#play')?.disabled === false);
+    } catch (cause) {
+      const status = await page.locator('#tourStatus, #sceneStatus, #play').evaluateAll((nodes) =>
+        nodes.map((node) => [node.textContent.trim(), node.hidden, node.disabled]));
+      throw new Error('Viewer did not become ready at ' + page.url() + '. ' + JSON.stringify(status)
+        + ' Warnings ' + sceneWarnings.slice(-5).join(' | '), { cause });
+    }
+  };
   await ready();
   const canvas = page.locator('#sceneCanvas');
   const screenshot = async () => {
@@ -415,6 +428,134 @@ try {
     await page.unroute(poseScript);
   }
 
+  const screening = catalogue.find((tour) => tour.id === 'aortic-screening');
+  if (screening) {
+    const screeningUrl = new URL(url);
+    screeningUrl.searchParams.set('sweep', screening.id);
+    await page.goto(screeningUrl.href);
+    await ready();
+    assert.deepEqual(screening.keys.map(({ frame }) => frame), [12, 30, 48]);
+    assert.equal(screening.initialFrame, 12);
+    const spans = await page.evaluate(() => sweep.map(({ apSpan }) => apSpan));
+    assert.ok(spans.every((span) => span?.millimetres > 0 && span.endpointsPx.length === 2));
+    const ap = page.getByRole('button', { name: 'AP span' });
+    const marks = page.locator('#apMarks');
+    const readout = page.locator('#apReadout');
+    const position = page.locator('#position');
+    const section = page.locator('#section');
+    const media = (frame, kind = 'scan') => new URL(
+      screening.assetRoot + 'media/' + kind + '-' + String(frame).padStart(2, '0') + '.webp', screeningUrl,
+    ).href;
+    const waitFrame = (frame, kind) => page.waitForFunction((src) => document.querySelector('#scan')?.src === src, media(frame, kind));
+    async function assertMarks(frame) {
+      const { endpointsPx: [[x1, y1], [x2, y2]], millimetres } = spans[frame];
+      assert.equal(await ap.getAttribute('aria-pressed'), 'true');
+      assert.ok(await marks.isVisible());
+      assert.ok(await readout.isVisible());
+      assert.equal(await readout.textContent(), 'Modeled AP span · ' + millimetres.toFixed(1) + ' mm');
+      assert.equal(await page.locator('#apChord').getAttribute('d'), `M ${x1} ${y1} L ${x2} ${y2}`);
+      const caps = (await page.locator('#apEnds').getAttribute('d')).match(/-?\d+(?:\.\d+)?/g).map(Number);
+      assert.equal(caps.length, 8);
+      for (const [index, [x, y]] of spans[frame].endpointsPx.entries()) {
+        const [a, b, c, d] = caps.slice(index * 4, index * 4 + 4);
+        assert.ok(Math.abs((a + c) / 2 - x) < .001 && Math.abs((b + d) / 2 - y) < .001);
+        assert.ok(Math.abs(Math.hypot(a - c, b - d) - 10) < .001);
+      }
+      assert.ok(await marks.evaluate((wrapper) => {
+        const svg = wrapper.querySelector('svg');
+        const image = document.querySelector('#scan');
+        const rect = image.getBoundingClientRect();
+        const scale = Math.min(rect.width / image.naturalWidth, rect.height / image.naturalHeight);
+        const matrix = svg.getScreenCTM();
+        return image.naturalWidth === 500 && image.naturalHeight === 350
+          && Math.abs(matrix.a - scale) < .001 && Math.abs(matrix.d - scale) < .001
+          && Math.abs(matrix.e - rect.left - (rect.width - 500 * scale) / 2) < 1
+          && Math.abs(matrix.f - rect.top - (rect.height - 350 * scale) / 2) < 1;
+      }), 'Calipers should share the displayed image coordinates, including letterboxing.');
+    }
+    assert.equal(await ap.getAttribute('aria-pressed'), 'false');
+    assert.equal(await marks.isVisible(), false);
+    assert.equal(await readout.isVisible(), false);
+    await capture('aortic-screening-unmarked-1021x1197', true);
+    await ap.click();
+    await assertMarks(screening.initialFrame);
+    for (const [index, { frame }] of screening.keys.entries()) {
+      await page.locator('#ticks button').nth(index).click();
+      await waitFrame(frame);
+      await assertMarks(frame);
+    }
+    await position.fill('29');
+    await waitFrame(29);
+    await assertMarks(29);
+    await page.setViewportSize({ width: 390, height: 844 });
+    await assertMarks(29);
+    await page.setViewportSize({ width: 1021, height: 1197 });
+    await page.locator('#ticks button').nth(1).click();
+    await section.click();
+    await waitFrame(30, 'section');
+    await assertMarks(30);
+    await capture('aortic-screening-marked-section-1021x1197', true);
+    await page.locator('#assetTab').click();
+    await page.locator('#return').click();
+    await waitFrame(30, 'section');
+    await assertMarks(30);
+
+    let releaseInitial;
+    const heldInitial = new Promise((resolve) => { releaseInitial = resolve; });
+    let release;
+    const held = new Promise((resolve) => { release = resolve; });
+    await page.route(media(screening.initialFrame), async (route) => {
+      await heldInitial;
+      await route.continue();
+    });
+    await page.route(media(30), async (route) => {
+      await held;
+      await route.continue();
+    });
+    await page.route(media(48), (route) => route.abort());
+    try {
+      await page.reload({ waitUntil: 'domcontentloaded' });
+      await ap.click();
+      assert.equal(await marks.isVisible(), false);
+      assert.equal(await readout.isVisible(), false);
+      releaseInitial();
+      await waitFrame(screening.initialFrame);
+      await assertMarks(screening.initialFrame);
+      await page.locator('#ticks button').nth(1).click();
+      await page.waitForFunction(() => document.querySelector('#scanArea').getAttribute('aria-busy') === 'true');
+      await assertMarks(screening.initialFrame);
+      release();
+      await waitFrame(30);
+      await assertMarks(30);
+      await page.locator('#ticks button').last().click();
+      await page.getByText('Scan unavailable for this frame.').waitFor();
+      assert.equal(await marks.isVisible(), false);
+      assert.equal(await readout.isVisible(), false);
+      assert.equal(await ap.getAttribute('aria-pressed'), 'true');
+      await page.locator('#ticks button').nth(1).click();
+      await waitFrame(30);
+      await assertMarks(30);
+    } finally {
+      releaseInitial();
+      release();
+      await page.unroute(media(screening.initialFrame));
+      await page.unroute(media(30));
+      await page.unroute(media(48));
+    }
+    const aortaNav = page.getByRole('navigation', { name: 'Abdominal aorta scan routes' });
+    const aortaLinks = aortaNav.getByRole('link');
+    const destinations = await aortaLinks.evaluateAll((nodes) => nodes.map((link) => new URL(link.href).searchParams.get('sweep')));
+    assert.deepEqual(new Set(destinations), new Set(['aorta', screening.id]));
+    await aortaLinks.nth(destinations.indexOf('aorta')).click();
+    await page.waitForURL((location) => location.searchParams.get('sweep') === 'aorta');
+    await ready();
+    assert.equal(await ap.isVisible(), false);
+    await page.goBack();
+    await ready();
+    assert.equal(await sweepPicker.inputValue(), screening.id);
+    assert.ok(await ap.isVisible());
+  }
+
   const steered = catalogue.find((tour) => tour.steering);
   if (steered) {
     const startURL = new URL(url);
@@ -732,6 +873,31 @@ try {
   await sweepPicker.selectOption(other.id);
   await page.getByText('This sweep is unavailable.').waitFor();
   await sweepPicker.selectOption('gallbladder');
+  await ready();
+
+  const torsoPath = await page.evaluate(() => {
+    const tour = abdomenTours.find(({ id }) => id === 'gallbladder');
+    return new URL(tour.meshPaths?.torso ?? tour.assetRoot + 'scenes/torso.mesh', location.href).href;
+  });
+  for (const failure of [null, 503, 404]) {
+    let attempts = 0;
+    await page.route(torsoPath, (route) => {
+      attempts += 1;
+      if (failure !== 404 && attempts > 1) return route.continue();
+      return failure === null ? route.abort('connectionreset') : route.fulfill({ status: failure });
+    });
+    await page.reload();
+    if (failure === 404) {
+      await page.getByText('3D probe and scan plane unavailable.').waitFor();
+      assert.equal(await canvas.isVisible(), false);
+      assert.equal(attempts, 1, 'Permanent missing geometry should reach the fallback without retrying.');
+    } else {
+      await ready();
+      assert.equal(attempts, 2, 'A transient geometry request should recover with one retry.');
+    }
+    await page.unroute(torsoPath);
+  }
+  await page.reload();
   await ready();
   await page.setViewportSize({ width: 390, height: 844 });
   assert.ok(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth),

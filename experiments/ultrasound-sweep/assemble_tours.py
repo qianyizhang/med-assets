@@ -10,6 +10,7 @@ import tempfile
 
 import numpy as np
 import build_abdomen
+import build_aortic_screening
 import build_axilla
 import build_breast
 import build_early_pregnancy
@@ -19,7 +20,7 @@ import build_thyroid
 from breast_anatomy import FEMALE_SKIN_SHA, MAMMARY_SHA
 from breast_compression import SETTLE_DEPTH_MM
 from delivery import detail_files, read_poses, sha256, sweep_files, validate_image, validate_mesh, verify_inventory
-from geometry import FRAME_COUNT, KEYFRAMES, SECTOR_DEPTH_MM, SECTOR_HALF_ANGLE_DEG, LENS_RADIUS_MM, VOXEL_MM
+from geometry import FRAME_COUNT, KEYFRAMES, RASTER_SIZE, SECTOR_DEPTH_MM, SECTOR_HALF_ANGLE_DEG, LENS_RADIUS_MM, VOXEL_MM
 from prepare_scenes import read_vendor, shared_geometry
 
 HERE = Path(__file__).resolve().parent
@@ -113,12 +114,36 @@ def verify_contact_fields(root, track):
         geometry = shape
 
 
+def verify_ap_spans(root, receipt):
+    """Calipers and readout must describe the same physical chord in the saved raster."""
+    pitch = np.asarray(receipt.get('rasterPitchMm'), dtype=float)
+    if pitch.shape not in ((), (2,)) or not np.isfinite(pitch).all() or (pitch <= 0).any():
+        raise ValueError(f'Invalid aortic raster calibration: {root.name}')
+    for i, frame in enumerate(read_poses(root / 'sweep.js')):
+        span = frame.get('apSpan')
+        if not isinstance(span, dict):
+            raise ValueError(f'Missing modeled AP span at frame {i}')
+        ends = np.asarray(span.get('endpointsPx'), dtype=float)
+        mm = span.get('millimetres')
+        if (ends.shape != (2, 2) or not np.isfinite(ends).all()
+                or (ends < 0).any() or (ends >= RASTER_SIZE).any()
+                or not isinstance(mm, (float, int)) or not math.isfinite(mm) or mm <= 0
+                or abs(np.linalg.norm((ends[1] - ends[0]) * pitch) - mm) > .05):
+            raise ValueError(f'Invalid modeled AP span at frame {i}')
+
+
 def verify_track(root, track, stops, builder):
     slug = track['id']
     case = track.get('case', 's1233')
     linear = track.get('probeType') == 'linear'
     receipt = json.loads((root / 'verification.json').read_text())
     recipe = Path(builder.__file__).name
+    if builder is build_aortic_screening:
+        if (not (root / 'delivery.json').is_file()
+                or receipt.get('modelRecipeSha256') != builder.model_recipe_sha256()
+                or receipt.get('ctSha256') != builder.CT_SHA or receipt.get('maskSha256') != builder.PINS):
+            raise ValueError(f'Rebuild {slug} for the current aortic survey anatomy and sampler.')
+        verify_ap_spans(root, receipt)
     if builder in (build_breast, build_axilla) and receipt.get('renderRecipeSha256') != builder.render_recipe_sha256(slug):
         raise ValueError(f'Rebuild {slug} with the current tissue rendering recipe.')
     if builder in (build_breast, build_axilla):
@@ -313,7 +338,8 @@ def assemble(output, delivery=None):
                                    ('axilla', build_axilla, build_axilla.read_axilla_tracks()),
                                    ('early-pregnancy', build_early_pregnancy, build_early_pregnancy.read_tracks()),
                                    ('pregnancy', build_pregnancy, build_pregnancy.read_pregnancy_tracks()),
-                                   ('gestational', build_gestational, build_gestational.read_tracks())]:
+                                   ('gestational', build_gestational, build_gestational.read_tracks()),
+                                   ('aortic-screening', build_aortic_screening, build_aortic_screening.read_tracks())]:
         if any((output / 'sweeps' / track['id']).exists() for track in group):
             missing = [track['id'] for track in group if not (output / 'sweeps' / track['id']).is_dir()]
             if missing:

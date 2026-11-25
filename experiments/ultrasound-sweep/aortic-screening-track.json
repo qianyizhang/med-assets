@@ -1,0 +1,38 @@
+{
+  "id": "aortic-screening",
+  "title": "Aortic screening",
+  "organ": "aorta",
+  "bodyRegion": "Abdomen",
+  "routeGroup": "Abdominal aorta",
+  "routeLabel": "Screening survey",
+  "region": "Anterior abdominal midline",
+  "case": "s1233",
+  "exterior": "fitted-atlas",
+  "sectorDepthMm": 218,
+  "focus": [135, 135, 188],
+  "focusRadius": 63,
+  "showApSpan": true,
+  "requirePoseReceipt": true,
+  "requirePaletteReceipt": true,
+  "referenceContext": "",
+  "sourceNote": "The s1233 CT and same-case arterial, caval and vertebral masks supply the internal anatomy. An illustrative BodyParts3D exterior is rib-registered and conformed around the measured anterior probe path. The displayed AP span crosses the segmented artery in the modeled section.",
+  "simulationNote": "This CT-derived teaching example shows the scanning sequence. The mask span is not a clinical outer-wall measurement or a screening finding.",
+  "stops": [
+    {"frame": 12, "label": "Proximal aorta", "referenceId": "aortic-screening-12"},
+    {"frame": 30, "label": "Mid aorta", "referenceId": "aortic-screening-30"},
+    {"frame": 48, "label": "Above iliac bifurcation", "referenceId": "aortic-screening-48"}
+  ],
+  "phases": [
+    {"frame": 0, "label": "Find proximal window"},
+    {"frame": 12, "label": "Sweep toward mid aorta"},
+    {"frame": 30, "label": "Approach iliac bifurcation"}
+  ],
+  "parts": [
+    {"id": "aorta", "label": "Aorta", "color": "#cb6251", "opacity": 1},
+    {"id": "inferior_vena_cava", "label": "Inferior vena cava", "color": "#789dc4", "opacity": 0.7},
+    {"id": "iliac_artery_left", "label": "Left iliac artery", "color": "#ce7866", "opacity": 0.8},
+    {"id": "iliac_artery_right", "label": "Right iliac artery", "color": "#ce7866", "opacity": 0.8},
+    {"id": "vertebrae", "label": "Thoracolumbar vertebrae", "color": "#c5b58d", "opacity": 0.48}
+  ],
+  "overlayParts": ["aorta", "inferior_vena_cava", "vertebrae"]
+}

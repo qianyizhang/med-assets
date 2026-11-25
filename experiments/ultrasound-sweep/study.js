@@ -71,8 +71,8 @@ function prepare(path) {
 
 async function prepareSequence(kind, start) {
   const paths = poses.map((_, i) => imageFile(kind, (start + i) % poses.length));
-  for (let offset = 0; offset < paths.length; offset += 4) {
-    await Promise.all(paths.slice(offset, offset + 4).map((path) => prepare(path).pending));
+  for (let offset = 0; offset < paths.length; offset += 2) {
+    await Promise.all(paths.slice(offset, offset + 2).map((path) => prepare(path).pending));
   }
 }
 
@@ -102,6 +102,27 @@ function phaseName(frame) {
   return keyframes.find((key) => key.frame === frame)?.label ??
     phases.findLast((phase) => phase.frame <= frame)?.label ?? '';
 }
+
+function drawApSpan(frame, hasScan) {
+  if (!selectedTour.showApSpan) return;
+  const span = poses[frame]?.apSpan;
+  const visible = hasScan && span && $('apToggle').getAttribute('aria-pressed') === 'true';
+  $('apMarks').hidden = !visible;
+  $('apReadout').hidden = !visible;
+  if (!visible) return;
+  const [[x1, y1], [x2, y2]] = span.endpointsPx;
+  const distance = Math.hypot(x2 - x1, y2 - y1);
+  const dx = 5 * (y2 - y1) / distance;
+  const dy = 5 * (x1 - x2) / distance;
+  $('apChord').setAttribute('d', `M ${x1} ${y1} L ${x2} ${y2}`);
+  $('apEnds').setAttribute('d', span.endpointsPx.map(([x,y]) => `M ${x-dx} ${y-dy} L ${x+dx} ${y+dy}`).join(' '));
+  $('apReadout').textContent = 'Modeled AP span · ' + span.millimetres.toFixed(1) + ' mm';
+}
+
+$('apToggle').onclick = () => {
+  on('apToggle', $('apToggle').getAttribute('aria-pressed') !== 'true');
+  drawApSpan(state.shownFrame, Boolean($('scan')));
+};
 
 function drawReadout(frame) {
   const name = phaseName(frame);
@@ -159,6 +180,7 @@ function renderFrame(frame, scenePosition = frame) {
     $('legend').hidden = !state.section;
     on('section', state.section);
     showImage('scanArea', 'scan', state.magnified ? enlarged : full, $('scanTitle').textContent + ' at frame ' + frame + '.', 'Scan unavailable for this frame.');
+    drawApSpan(frame, Boolean(full.image) && !state.magnified);
     showImage('referenceArea', 'ref', reference, acquired?.title ?? 'Acquired ultrasound.', 'Clinical reference unavailable.');
     $('referenceDepth').textContent = [selectedTour.referenceContext ?? 'Different case', acquired?.depthLabel].filter(Boolean).join(' · ');
     $('referenceNote').textContent = acquired ? referenceNote(frame, keyframe) : 'Reference unavailable';
@@ -513,11 +535,13 @@ function scanDepth(frame) {
   return (depth - (state.compressed ? selectedTour.compressionMm : 0)) / 10;
 }
 
-function configureBreastRoutes(tours) {
-  if (selectedTour.bodyRegion !== 'Breast') return;
-  const regionTours = tours.filter((tour) => tour.bodyRegion === 'Breast');
+function configureSiblingRoutes(tours) {
+  const group = selectedTour.routeGroup;
+  if (!group) return;
+  const regionTours = tours.filter((tour) => tour.routeGroup === group);
   if (regionTours.length < 2) return;
-  const nav = $('breastRoutes');
+  const nav = $('siblingRoutes');
+  nav.setAttribute('aria-label', group + ' scan routes');
   for (const tour of regionTours) {
     const url = new URL(location.href);
     url.searchParams.set('sweep', tour.id);
@@ -756,7 +780,8 @@ async function startTour() {
     { frame: keyframes.find(({ frame }) => frame > 0)?.frame ?? last, label: 'Rotate probe' },
   ];
   configureTimeline();
-  configureBreastRoutes(tours);
+  $('apToggle').hidden = !selectedTour.showApSpan;
+  configureSiblingRoutes(tours);
   if (selectedTour.steering) {
     const { probeSteering } = await import('./probe-steering.js');
     steering = probeSteering(selectedTour.steering, $('steering'), selectFrame, pause);
@@ -785,13 +810,12 @@ async function startTour() {
   $('assetTab').disabled = false;
   $('tourTab').disabled = false;
   renderFrame(state.frame);
-  startScene();
-  await Promise.all([
-    prepareSequence('scan', state.frame),
-    ...keyframes.map((key) => prepare(acquiredFor(key)?.path).pending),
-  ]);
+  const sceneReady = startScene();
+  await prepareSequence('scan', state.frame);
+  for (const key of keyframes) await prepare(acquiredFor(key)?.path).pending;
   state.ready = true;
   updatePlay();
+  await sceneReady;
   prepareSequence('section', state.frame);
 }
 

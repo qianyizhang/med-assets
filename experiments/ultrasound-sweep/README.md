@@ -12,6 +12,7 @@ Use Python 3.12 with NumPy 2.2.6, SciPy 1.16.1, scikit-image 0.25.2 and Pillow 1
 python experiments/ultrasound-sweep/build_study.py "$S1233_CASE" "$LONG_AXIS_PNG" "$SHORT_AXIS_GIF" "$STUDY_OUTPUT"
 python experiments/ultrasound-sweep/prepare_scenes.py "$STUDY_OUTPUT" --vendor-dir lessons/one-breath/.local/vendor
 python experiments/ultrasound-sweep/build_abdomen.py "$S1233_CASE" "$STUDY_OUTPUT/sweeps"
+python experiments/ultrasound-sweep/build_aortic_screening.py "$S1233_CASE" "$STUDY_OUTPUT/sweeps"
 python experiments/ultrasound-sweep/build_thyroid.py "$S1127_CASE" "$STUDY_OUTPUT/sweeps"
 python experiments/ultrasound-sweep/build_breast.py "$STUDY_OUTPUT/sweeps" --skin "$HRA_SKIN"
 python experiments/ultrasound-sweep/build_axilla.py "$STUDY_OUTPUT/sweeps" --skin "$HRA_SKIN"
@@ -22,11 +23,13 @@ python experiments/ultrasound-sweep/assemble_tours.py "$STUDY_OUTPUT"
 python -m http.server 8874 --bind 127.0.0.1 --directory "$STUDY_OUTPUT"
 ```
 
-For an abdomen-only replay, omit the regional builders. The two thyroid lobes, the two breast routes and each pregnancy builder’s routes are assembled as complete sets. For a compact serving directory, run `python experiments/ultrasound-sweep/assemble_tours.py "$STUDY_OUTPUT" --delivery "$TOUR_OUTPUT"` and serve `$TOUR_OUTPUT`. Choose a fresh destination. The compact build includes one copy of each byte-identical mesh, every distinct torso fit, and the runtime images. Keep the generated receipts and source inputs with the staging tree for replay.
+For the original nine abdominal sweeps, omit the aortic screening and other regional builders. The two thyroid lobes, the two breast routes and each pregnancy builder’s routes are assembled as complete sets. For a compact serving directory, run `python experiments/ultrasound-sweep/assemble_tours.py "$STUDY_OUTPUT" --delivery "$TOUR_OUTPUT"` and serve `$TOUR_OUTPUT`. Choose a fresh destination. The compact build includes one copy of each byte-identical mesh, every distinct torso fit, and the runtime images. Keep the generated receipts and source inputs with the staging tree for replay.
 
 Open [the local study](http://127.0.0.1:8874/index.html). The scene preparation step checks the repository's pinned Three.js runtime and license. Omit `--vendor-dir` to retrieve those bytes if a staged copy is unavailable. WebGL 2 renders the spatial view. The scan timeline and image comparisons also work when it cannot load.
 
 The abdomen builders sample 49 planes per sweep on the s1233 grid (1.5 mm per voxel, RAS axes). The contact is where the central ray meets the patient surface. The 3D sector and image sampler share its contact, direction and depth. The [track data](abdomen-tracks.json) identifies the target, context, section palette, camera focus, depth and named keyframes. The gallbladder retains its original paired render. Each additional sweep has a verification receipt alongside its generated frames. The projections and overlay share the structure palette. Rebuild a sweep after changing its pose or section colors. The catalogue assembler verifies the acquired derivatives against their hashes and checks the input inventory before writing its tour and reference indexes.
+
+The [normal aortic survey](http://127.0.0.1:8874/index.html?sweep=aortic-screening) takes probe contacts from the s1233 CT and samples the same-case aortic and caval masks, iliac arteries and vertebrae. A rib-registered BodyParts3D torso conforms to those probe contacts. Its three transverse stops follow the artery along its local centerline. **AP span** projects the native segmented contour’s anterior–posterior extent onto the scan and its anatomy overlay. Run `python experiments/ultrasound-sweep/verify_aortic_screening.py "$S1233_CASE" "$STUDY_OUTPUT/sweeps/aortic-screening"` to verify physical calibration, contour intersections and probe contact. [Coverage and interpretation](../../docs/gallery/use-cases/ultrasound-anatomy.md#normal-aortic-screening-survey)
 
 The [thyroid builder](build_thyroid.py) samples the [two lobe tracks](thyroid-tracks.json) on the s1127 RAS grid. Its linear probe samples a rectangle with equal horizontal and vertical pixel spacing. The [fitted head and shoulders](display_neck.py) use the BodyParts3D exterior registered to s1127 cervical, thoracic and rib landmarks. The contact patch follows the case skin. A rigid footprint’s center and edges meet the curved skin at different depths. Each receipt records that difference and the anatomy present at the reference stops. [Thyroid acquisitions](research/README.md#thyroid)
 
