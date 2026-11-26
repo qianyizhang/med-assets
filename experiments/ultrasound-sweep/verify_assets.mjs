@@ -108,8 +108,8 @@ async function verifyWorkspace(context) {
   page.setDefaultTimeout(45000);
   const errors = [];
   page.on('pageerror', (error) => errors.push(error.message));
-  const asset = 'case:biliary-model';
-  const use = 'case/abdomen-biliary-stone/biliary-stone-supine/Gallbladder%20wall/1';
+  const asset = 'case:breast-tissue';
+  const use = 'case/breast-retroareolar-cyst/breast-cyst-anti/Anechoic%20simple%20cyst/1';
   const checkboxes = () => page.locator('#visibility-list input[type=checkbox]');
   const mode = (value) => page.locator('#workspace-mode button[data-mode=' + value + ']');
   const pixels = () => page.locator('#mesh').screenshot({ animations: 'disabled' });
@@ -139,71 +139,74 @@ async function verifyWorkspace(context) {
   await negative.check();
   assert.equal(await aaaGroup.evaluate((input) => input.indeterminate), false);
   assert.equal(await page.locator('#tour-count').innerText(), '18 of 18 selected');
+  await page.locator('#region').selectOption('breast');
+  await page.locator('#all-tours').uncheck();
+  await (await selectionCheckbox(page, 'breast-retroareolar-cyst')).check();
   await assetCard(page, asset).click();
   await ready(page);
   assert.ok(await page.locator('#asset-shelf').isVisible(), 'Selecting an asset hid the shelf.');
-  assert.match(await page.locator('#asset-title').innerText(), /Biliary model/);
+  assert.match(await page.locator('#asset-title').innerText(), /Breast tissue model/);
   assert.equal(await mode('asset').getAttribute('aria-pressed'), 'true');
-  assert.match(await page.locator('#acquisition').inputValue(), /^case\/abdomen-biliary-stone\//);
+  assert.match(await page.locator('#acquisition').inputValue(), /^case\/breast-retroareolar-cyst\//);
   assert.equal(await page.locator('#geometry-checks').isHidden(), true);
   assert.equal(await page.locator('#mesh-file').isHidden(), true);
-  assert.equal(await checkboxes().count(), 3);
+  assert.ok(await checkboxes().count() > 3);
   const parts = page.locator('#visibility-list');
-  for (const name of ['Gallbladder wall', 'Gallbladder lumen', 'Mobile calculus']) {
+  for (const name of ['Fibroglandular tissue', 'Retromammary fat', 'Anechoic simple cyst']) {
     assert.ok(await parts.getByRole('checkbox', { name, exact: false }).isChecked(), name + ' was missing from the assembled asset');
   }
   const side = page.getByRole('button', { name: 'Side', exact: true });
   await side.click();
   await repaint(page);
   const withParts = await pixels();
-  const wall = parts.getByRole('checkbox', { name: /Gallbladder wall/ });
-  await wall.uncheck();
+  const gland = parts.getByRole('checkbox', { name: /^Fibroglandular tissue$/ });
+  await gland.uncheck();
   await repaint(page);
   assert.notDeepEqual(await pixels(), withParts, 'Part visibility did not change the rendered geometry.');
   assert.equal(await side.getAttribute('aria-pressed'), 'true', 'Toggling a part changed the asset camera.');
-  await wall.check();
+  await gland.check();
   await repaint(page);
   assert.deepEqual(await pixels(), withParts, 'Restoring the part did not restore the same assembled preview.');
   await page.getByRole('button', { name: 'Oblique', exact: true }).click();
   await page.locator('.workspace').evaluate((workspace) => workspace.scrollIntoView({ block: 'start' }));
   await repaint(page);
-  await capture(page, 'asset-workspace-1239');
+  await capture(page, 'retained-multipart-asset-1239');
   await mode('scene').click();
   await ready(page);
   assert.equal(await mode('scene').getAttribute('aria-pressed'), 'true');
   assert.ok(await page.locator('#asset-shelf').isVisible());
   assert.equal(await page.locator('#mesh').count(), 1);
-  assert.ok(await checkboxes().count() > 3, 'Scene mode did not expose adjacent assets.');
-  const biliary = parts.getByRole('checkbox', { name: /Biliary model/ });
-  assert.ok(await biliary.isChecked());
+  assert.ok(await checkboxes().count() > 1, 'Scene mode did not expose adjacent assets.');
+  const breast = parts.getByRole('checkbox', { name: /Breast tissue model/ });
+  assert.ok(await breast.isChecked());
   const sceneSide = page.getByRole('button', { name: 'Side', exact: true });
   await sceneSide.click();
   await repaint(page);
   const withAsset = await pixels();
   assert.notDeepEqual(withAsset, withParts, 'Asset and Scene mode displayed the same geometry.');
-  await biliary.uncheck();
+  await breast.uncheck();
   await repaint(page);
   assert.notDeepEqual(await pixels(), withAsset, 'Scene visibility did not change the rendered geometry.');
   assert.equal(await sceneSide.getAttribute('aria-pressed'), 'true', 'Toggling an asset changed the scene camera.');
-  await biliary.check();
+  await breast.check();
   await repaint(page);
   assert.deepEqual(await pixels(), withAsset);
   await page.getByRole('button', { name: 'Oblique', exact: true }).click();
   await page.locator('.workspace').evaluate((workspace) => workspace.scrollIntoView({ block: 'start' }));
   await repaint(page);
-  await capture(page, 'scene-workspace-1239');
+  await capture(page, 'retained-multipart-scene-1239');
   await mode('asset').click();
   assert.equal(await mode('asset').getAttribute('aria-pressed'), 'true');
-  const roll = 'case/abdomen-biliary-stone/biliary-stone-roll';
-  await page.locator('#acquisition').selectOption(roll);
-  await ready(page, roll);
-  assert.equal(new URL(await page.locator('#route').getAttribute('href')).searchParams.get('chapter'), 'biliary-stone-roll');
+  const antiradial = 'case/breast-retroareolar-cyst/breast-cyst-anti';
+  await page.locator('#acquisition').selectOption(antiradial);
+  await ready(page, antiradial);
+  assert.equal(new URL(await page.locator('#route').getAttribute('href')).searchParams.get('chapter'), 'breast-cyst-anti');
   await page.goto(useURL(use));
   await ready(page, use);
-  assert.match(await page.locator('#route').getAttribute('href'), /abdomen-biliary-stone\.html.*chapter=biliary-stone-supine/);
+  assert.match(await page.locator('#route').getAttribute('href'), /breast-retroareolar-cyst\.html.*chapter=breast-cyst-anti/);
   assert.ok(await page.locator('#asset-shelf').isVisible());
   assert.ok(await page.locator('#geometry-checks').isVisible(), 'Exact use did not restore isolated geometry checks.');
-  await page.locator('#evidence').getByText('Unrated', { exact: true }).first().waitFor();
+  await page.locator('#evidence').getByRole('heading', { name: 'Assessment', exact: true }).waitFor();
 
   for (const [row, acquisition, route] of [
     ['sweep/gallbladder//gallbladder/1', 'sweep/gallbladder', { sweep: 'gallbladder' }],
@@ -220,6 +223,193 @@ async function verifyWorkspace(context) {
   }
   assert.deepEqual(errors, []);
   await page.close();
+}
+
+async function assertNoProxy(page) {
+  assert.ok(await page.locator('#mesh').isHidden(), 'A missing requirement unexpectedly rendered geometry.');
+  assert.equal(await page.locator('#mesh').getAttribute('data-ready'), null);
+  assert.equal(await page.locator('#visibility-list input[type=checkbox]:visible').count(), 0);
+  assert.ok(await page.locator('#mesh-file').isHidden(), 'A missing requirement exposed a geometry source.');
+  assert.ok(await page.locator('#evidence').isHidden(), 'A missing requirement exposed an anatomy rating.');
+}
+
+async function verifyAbdominalWorkspace(context, entries) {
+  const page = await context.newPage({ viewport: annotatedViewport });
+  page.setDefaultTimeout(45000);
+  const errors = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  await page.goto(url.href);
+  await indexed(page);
+  const sources = await page.evaluate(async (cases) => {
+    const { sweepRows, caseRows, rowID } = await import('./assets-data.js');
+    const rows = await Promise.all(cases.map(caseRows));
+    return {
+      cases: rows.flat().map((row) => ({ ...row, key: rowID(row) })),
+      sweeps: (await sweepRows()).map((row) => ({ ...row, key: rowID(row) })),
+    };
+  }, entries.filter(({ family }) => family === 'abdomen'));
+  const available = sources.cases.filter((row) => row.source !== 'requirement');
+  const requirements = sources.cases.filter((row) => row.source === 'requirement');
+  assert.ok(available.length && requirements.length);
+  assert.ok(available.every((row) => row.donor && row.mesh && row.meshDigest), 'An abdominal geometry row lacks an exact donor.');
+  assert.ok(requirements.every((row) => !row.mesh && !row.meshDigest), 'Requirement was assigned surrogate geometry.');
+
+  assert.ok(available.some((row) => row.donor.source === 'gallery' && row.chapter === 'bladder-uvj'));
+
+  const standalone = sources.sweeps.find((row) => row.case === 'gallbladder' && row.part === 'gallbladder');
+  assert.ok(standalone, 'Standalone gallbladder donor is unavailable.');
+  const biliary = available.find((row) => row.case === 'abdomen-biliary-stone' &&
+    row.chapter === 'biliary-stone-supine' && row.mesh === standalone.mesh);
+  assert.ok(biliary, 'Supine biliary tour did not reuse the standalone gallbladder.');
+  assert.equal(biliary.meshDigest, standalone.meshDigest);
+  assert.equal(biliary.variantId, standalone.variantId);
+  assert.equal(biliary.assetId, standalone.assetId);
+  assert.equal(sha(await meshBytes(page.request, biliary.mesh)),
+    '6509c00826a818036d690192e98cb2f8e14aeb8786f9c699b2c8d5fb95ea1de9');
+
+  const calculus = requirements.find((row) => row.case === biliary.case && row.chapter === biliary.chapter &&
+    /calculus/i.test(row.partLabel ?? row.label));
+  assert.equal(calculus?.status, 'rebuild');
+  const wall = requirements.find((row) => row.case === biliary.case && row.chapter === biliary.chapter &&
+    /gallbladder wall/i.test(row.partLabel ?? row.label));
+  const lumen = requirements.find((row) => row.case === biliary.case && row.chapter === biliary.chapter &&
+    /gallbladder lumen/i.test(row.partLabel ?? row.label));
+  assert.equal(wall?.status, 'missing');
+  assert.equal(lumen?.status, 'missing');
+  assert.ok(requirements.every((row) => !/calculus/i.test(row.partLabel ?? row.label) || row.case === biliary.case),
+    'The calculus requirement leaked into a different tour.');
+
+  await page.locator('#region').selectOption('abdomen');
+  await page.locator('#all-tours').uncheck();
+  const tour = await selectionCheckbox(page, biliary.case);
+  await tour.check();
+  assert.equal(await page.locator('#tour-count').innerText(), '1 of 18 selected');
+  const mode = (value) => page.locator('#workspace-mode button[data-mode=' + value + ']');
+  const gapCard = assetCard(page, calculus.assetId);
+  const donorCard = assetCard(page, biliary.assetId);
+  await donorCard.click();
+  await ready(page);
+  const expected = [biliary.source, biliary.case, biliary.chapter].join('/') + '@' + biliary.sourceSpace;
+  await page.locator('#acquisition').selectOption(expected);
+  await ready(page, expected);
+  assert.match(await page.locator('#selection-context').innerText(), /registration.*unavailable/i);
+  const donor = page.locator('#donor-source a');
+  assert.equal(new URL(await donor.getAttribute('href'), url).searchParams.get('sweep'), 'gallbladder');
+  const checkboxes = page.locator('#visibility-list input[type=checkbox]');
+  assert.equal(await checkboxes.count(), 1);
+  for (const label of ['Gallbladder wall', 'Gallbladder lumen']) {
+    assert.match(await page.locator('#requirements').innerText(), new RegExp('Missing part · ' + label));
+  }
+  assert.equal(await donorCard.getAttribute('data-requirement'), 'missing');
+  await page.locator('.workspace').evaluate((element) => element.scrollIntoView({ block: 'start' }));
+  await repaint(page);
+  await capture(page, 'biliary-donor-1239');
+
+  await mode('scene').click();
+  await ready(page, expected);
+  assert.match(await page.locator('#selection-context').innerText(), /source geometry.*registration.*unavailable/i);
+  assert.doesNotMatch(await page.locator('#visibility-list').innerText(), /calculus|gallbladder wall|gallbladder lumen/i);
+  await repaint(page);
+  await capture(page, 'biliary-source-scene-1239');
+
+  await page.goto(useURL(biliary.key));
+  await ready(page, biliary.key);
+  await indexed(page);
+  assert.equal(new URL(await page.locator('#mesh-file').getAttribute('href'), url).pathname,
+    new URL(standalone.mesh, url).pathname);
+  assert.equal(new URL(await donor.getAttribute('href'), url).searchParams.get('sweep'), 'gallbladder');
+
+  await page.locator('#region').selectOption('abdomen');
+  await page.locator('#all-tours').uncheck();
+  await (await selectionCheckbox(page, biliary.case)).check();
+  await page.locator('#availability').selectOption('gaps');
+  const unavailable = calculus;
+  assert.ok(!available.some((item) => item.assetId === unavailable.assetId), 'The calculus requirement has substitute geometry.');
+  const unavailableCard = assetCard(page, unavailable.assetId);
+  assert.ok(await unavailableCard.locator('.requirement-placeholder').isVisible());
+  assert.equal(await unavailableCard.locator('img').count(), 0);
+  await unavailableCard.click();
+  await assertNoProxy(page);
+  await mode('scene').click();
+  await assertNoProxy(page);
+  assert.match(await page.locator('#requirements').innerText(), /Rebuild required|Missing part/);
+  assert.ok(await page.locator('#requirements a[href*="abdomen-biliary-stone"]').first().isVisible());
+  assert.match(await gapCard.innerText(), /Rebuild required/);
+  await page.locator('.workspace').evaluate((element) => element.scrollIntoView({ block: 'start' }));
+  await capture(page, 'biliary-missing-1239');
+
+  const part = page.locator('#asset-parts details[data-part="mobile-calculus"] a[data-variant]').first();
+  await reveal(part);
+  await part.click();
+  await assertNoProxy(page);
+  await page.reload();
+  await indexed(page);
+  assert.ok(await page.locator('#requirements').isVisible());
+  await assertNoProxy(page);
+
+  await page.goto(useURL('case/abdomen-biliary-stone/biliary-stone-supine/Mobile%20calculus/1'));
+  await indexed(page);
+  await assertNoProxy(page);
+  assert.match(await page.locator('#selection-context').innerText(), /Rebuild required/i);
+  await capture(page, 'biliary-old-bookmark-1239');
+
+  await page.locator('#region').selectOption('abdomen');
+  await page.locator('#all-tours').uncheck();
+  const other = requirements.find((row) => row.part === 'bowel-gas-and-shadow');
+  await (await selectionCheckbox(page, other.case)).check();
+  await page.locator('#availability').selectOption('gaps');
+  assert.equal(await gapCard.count(), 0, 'The calculus appeared with the biliary tour excluded.');
+  assert.match(await assetCard(page, other.assetId).innerText(), /Rebuild required/);
+  await (await selectionCheckbox(page, biliary.case)).check();
+  await gapCard.waitFor();
+  assert.equal(await page.locator('#tour-count').innerText(), '2 of 18 selected');
+  await page.locator('#all-tours').check();
+  assert.equal(await page.locator('#tour-count').innerText(), '18 of 18 selected');
+  await gapCard.waitFor();
+  await page.locator('#availability').selectOption('geometry');
+  assert.equal(await gapCard.count(), 0, 'Geometry-only shelf exposed a calculus requirement.');
+  const diaphragm = available.find((row) => row.part === 'diaphragm' && row.chapter === 'abd-liver');
+  const bladder = available.find((row) => row.part === 'left-ureteral-orifice' && row.chapter === 'bladder-uvj');
+  const duct = available.find((row) => row.part === 'common-bile-duct' && row.chapter === 'abd-cbd');
+  const ductLiver = available.find((row) => row.part === 'liver' && row.case === duct?.case && row.chapter === 'abd-cbd');
+  const liver = available.find((row) => row.part === 'liver' && row.case === diaphragm?.case && row.chapter === diaphragm?.chapter);
+  assert.ok(diaphragm && bladder && liver && duct && ductLiver);
+  for (const [row, space, credit, excluded] of [
+    [diaphragm, 'z-anatomy-diaphragm', /Z-Anatomy/, /Hepatobiliary anatomy|Body envelope/i],
+    [bladder, 'hra-female-pelvic-base', /Human Reference Atlas/, /renal anatomy|body envelope/i],
+    [liver, 'ct-s1233', null, /diaphragm|bladder base/i],
+    [duct, duct.sourceSpace, /Human Reference Atlas/, /hepatobiliary anatomy · s1233|body envelope/i],
+    [ductLiver, 'ct-s1233', null, /hepatobiliary tree|bile duct · hra/i],
+  ]) {
+    assert.equal(row.sourceSpace, space);
+    if (credit) assert.notEqual(space, 'ct-s1233');
+    await page.goto(useURL(row.key));
+    await ready(page, row.key);
+    if (credit) {
+      assert.match(await page.locator('#donor-source').innerText(), credit);
+      assert.match(await page.locator('#donor-source a').last().getAttribute('href'), /ATTRIBUTION\.md$/);
+      assert.equal(row.meshDigest, shapeDigest(await meshBytes(page.request, row.mesh), 1));
+    }
+    await mode('scene').click();
+    const key = [row.source, row.case, row.chapter].join('/') + '@' + space;
+    await ready(page, key);
+    assert.doesNotMatch(await page.locator('#visibility-list').innerText(), excluded,
+      'The source inspector combined incompatible coordinate spaces.');
+    if (row === bladder || row === diaphragm) {
+      await indexed(page);
+      await page.locator('.workspace').evaluate((element) => element.scrollIntoView({ block: 'start' }));
+      await repaint(page);
+      await capture(page, row.part === 'diaphragm' ? 'diaphragm-gallery-source-1239' : 'bladder-hra-source-1239');
+    }
+  }
+  await page.route(new URL(standalone.mesh, url).href, (route) => route.fulfill({ status: 404 }));
+  const missingDonor = ['requirement', biliary.case, biliary.chapter, 'gallbladder', '1'].join('/');
+  await page.goto(useURL(missingDonor));
+  await indexed(page);
+  await assertNoProxy(page);
+  assert.match(await page.locator('#requirements').innerText(), /Missing part · gallbladder/i);
+  await page.close();
+  assert.deepEqual(errors, []);
 }
 
 try {
@@ -239,6 +429,7 @@ try {
 
   console.log(await page.locator('#inventory-status').textContent());
   await verifyWorkspace(browser);
+  await verifyAbdominalWorkspace(browser, manifest.cases);
   const sharedSpine = await page.evaluate(async () => {
     const { sweepRows, aaaRows } = await import('./assets-data.js');
     const normal = (await sweepRows()).find((row) => row.case === 'aortic-screening' && row.part === 'vertebrae');

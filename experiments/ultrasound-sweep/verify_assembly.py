@@ -7,6 +7,7 @@ import shutil
 import tempfile
 
 import assemble_tours
+from abdomen_gallery_sources import write_gallery_donors
 from delivery import read_poses, sha256
 from asset_qualification import validate_reviews
 
@@ -74,6 +75,19 @@ def verify(source, aaa_acquisitions=None):
     with tempfile.TemporaryDirectory() as work:
         work = Path(work)
         verify_review_failures(work)
+        source_root = work / 'gallery-inputs'
+        bladder = source_root / 'models/bladder/exports/pelvic-base-r01/bladder-pelvic-base.glb'
+        bladder.parent.mkdir(parents=True)
+        bladder.write_text('version https://git-lfs.github.com/spec/v1\n')
+        write_gallery_donors(work, source_root)
+        assert json.loads((work / 'development/abdomen-gallery-donors.json').read_text()) == []
+        bladder.write_bytes(b'corrupt donor')
+        try:
+            write_gallery_donors(work, source_root)
+        except ValueError as exc:
+            assert 'Unexpected atlas input' in str(exc)
+        else:
+            raise AssertionError('Workbench accepted a donor with an unexpected digest')
         staging = work / 'staging'
         destination = work / 'delivery'
         shutil.copytree(source, staging)

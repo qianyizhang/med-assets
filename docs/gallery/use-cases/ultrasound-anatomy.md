@@ -189,7 +189,11 @@ Browse the [asset qualification workbench](http://127.0.0.1:8874/development/ass
 
 The BodyParts3D body envelope, HRA female exterior and authored maternal exterior have separate origins. The three AAA cases reference the normal aortic sweep’s torso file. The bilateral thyroid sweeps share one neck fit; the bilateral carotid sweeps share another. The workbench identifies a shape variant from its indexed vertices at physical scale and orientation, to a micrometre, independent of placement. The source asset, part and geometry together determine reuse. A **sweep exemplar** retains its own subject, scale and revision.
 
-The inventory includes every discovered use. **Unrated** means no current assessment covers that part and teaching task. Opening another use of the same shape can reveal a review for a different task. Only a retained assessment with an explicit matching binding supplies the score.
+The four **Abdominal tours** contribute chapter requirements to the workbench. Their retired procedural surfaces are excluded from qualification. Available parts point to the original sweep mesh or a named Gallery surface. Inspect each reference in its own source frame. A chapter link identifies the teaching use that needs it.
+
+Choose **Rebuilds and missing parts** under **Availability** to see the remaining work. **Rebuild required** marks an asset whose necessary anatomy has no suitable geometry. **Missing part** identifies the individual structure or case state still needed, including gaps within a partly reusable asset. An existing whole-organ surface can support orientation while its wall, lumen or abnormal state still needs a source.
+
+For available geometry, **Unrated** means no current assessment covers that part and teaching task. Opening another use of the same shape can reveal a review for a different task. Only a retained assessment with an explicit matching binding supplies the score.
 
 A **qualification review** names one learner task and binds its evidence to the part and geometry revision. Use the [canonical four-axis rubric](../../guides/asset-quality.md). The high-bar target for this review is **4/4 on each axis**. A matched before/after pair uses a fixed camera, scale, lighting, material and crop. Inspect the corresponding scan and protected landmark after any surface change. Keep rejected lighter trials or close-ups when they explain the choice. Retain unrated axes and below-target results in the workbench so the coverage is visible.
 

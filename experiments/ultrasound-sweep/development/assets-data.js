@@ -1,6 +1,7 @@
 import * as THREE from '../vendor/build/three.module.js';
 import { loadMesh } from '../scene.js';
 import { classifyAsset, geometryDigest, regionFor, regions } from './assets-identity.js';
+import { abdomenReferenceNotice, abdomenRequirements, missingDonor } from './assets-abdomen.js';
 
 export const axes = [
   ['fidelity', 'Fidelity to evidence'], ['form', 'Form and surface'],
@@ -10,9 +11,11 @@ const study = new URL('../', location.href);
 export const studyURL = (path) => new URL(path.replace(/^\.\.\//, ''), study).href;
 export { regions };
 let teachingTours = [];
+let sweepInventory;
 
 export function setTeachingTours(tours = []) {
   teachingTours = tours;
+  sweepInventory = undefined;
 }
 
 export async function read(url, type = 'json') {
@@ -51,10 +54,15 @@ export function meshParts(model) {
   });
 }
 
-export async function caseModel(entry, chapterId) {
+async function caseRecord(entry) {
   const url = studyURL(entry.url);
-  const record = entry.record ?? await read(url.replace(/\.html(?:[?#].*)?$/, '-sweep.html'), 'text').then((html) =>
+  return entry.record ?? await read(url.replace(/\.html(?:[?#].*)?$/, '-sweep.html'), 'text').then((html) =>
     JSON.parse(new DOMParser().parseFromString(html, 'text/html').querySelector('#record').textContent));
+}
+
+export async function caseModel(entry, chapterId) {
+  if (entry.family === 'abdomen') throw Error('This workbench uses original abdomen reference anatomy.');
+  const record = await caseRecord(entry);
   const modules = new URL('cases/' + entry.owner + '/', study);
   const [{ chapters }, { createCaseModel }] = await Promise.all([
     import(new URL('playable.js', modules)), import(new URL('playable-scene.js', modules)),
@@ -177,12 +185,17 @@ async function fileParts(source, entry, config, base, chapter) {
   }));
 }
 
-export async function sweepRows() {
+async function buildSweepInventory() {
   if (typeof abdomenTours === 'undefined') throw Error('Sweep catalogue unavailable.');
   const sweeps = await Promise.all(abdomenTours.map((sweep) => fileParts('sweep', {
     ...sweep, family: sweep.bodyRegion ?? 'Abdomen', url: 'index.html?sweep=' + sweep.id,
   }, sweep, study)));
   return sweeps.flat();
+}
+
+export function sweepRows() {
+  sweepInventory ??= buildSweepInventory();
+  return sweepInventory;
 }
 
 export async function aaaRows() {
@@ -199,6 +212,7 @@ export async function aaaRows() {
 }
 
 export async function caseRows(entry) {
+  if (entry.family === 'abdomen') return abdomenRows(entry);
   const { sections, model } = await caseModel(entry);
   try {
     const rows = sections.flatMap((chapter) => {
@@ -214,11 +228,55 @@ export async function caseRows(entry) {
   }
 }
 
+let galleryInventory;
+function galleryRows() {
+  galleryInventory ??= read(new URL('development/abdomen-gallery-donors.json', study)).then((rows) =>
+    Promise.all(rows.map(async (row) => {
+      const mesh = studyURL(row.mesh);
+      let meshDigest;
+      let identityIssue;
+      try {
+        meshDigest = await fileDigest(mesh, row.scale);
+      } catch (error) {
+        identityIssue = error.message;
+      }
+      const variantId = meshDigest ? [row.assetId, row.partId, meshDigest].join('/') : undefined;
+      return { ...row, mesh, meshDigest, identityIssue, variantId, binding: variantId };
+    }))).catch(() => []);
+  return galleryInventory;
+}
+
+async function abdomenRows(entry) {
+  if (!entry.chapters?.length) throw Error('The abdomen case has no delivered chapter list.');
+  const [sweeps, gallery] = await Promise.all([sweepRows().catch(() => []), galleryRows()]);
+  const original = new Map(sweeps.map((row) => [row.case + '/' + row.part, row]));
+  const extra = new Map(gallery.map((row) => [row.part, row]));
+  return entry.chapters.flatMap((chapter) => abdomenRequirements(chapter.id).map((reference) => {
+    const part = reference.source === 'gallery' ? extra.get(reference.part)
+      : reference.source === 'sweep' ? original.get(reference.key + '/' + reference.part) : undefined;
+    if (!part?.meshDigest) {
+      const detail = reference.status ? reference : missingDonor(reference,
+        part?.identityIssue ?? 'The original source mesh is unavailable in this build.', part);
+      return { ...rowBase('requirement', entry, chapter), ...detail,
+        partId: detail.part, partLabel: detail.label, occurrence: 1 };
+    }
+    // Packed s1233 organ sweeps share their source coordinates. No transform
+    // is applied into the authored case patient or the recorded scan.
+    const sourceSpace = part.sourceSpace ?? 'ct-s1233';
+    const donor = { source: part.source, case: part.case, part: part.part, chapter: part.chapter,
+      occurrence: part.occurrence, url: part.url, label: part.title ?? part.label, sourceSpace };
+    return { ...part, ...rowBase('case', entry, chapter), donor, sourceSpace, legacyParts: reference.legacyParts,
+      referenceScope: reference.referenceScope,
+      sourceNotice: abdomenReferenceNotice };
+  }));
+}
+
 export function rowID(row) {
   return [row.source, row.case, row.chapter ?? '', row.part, row.occurrence ?? 1].map(encodeURIComponent).join('/');
 }
 
 export async function isolatedMesh(row, entries) {
+  if (row.source === 'requirement') throw Error(row.missingReason);
   if (row.mesh) {
     const geometry = await loadMesh(row.part, row.mesh);
     geometry.scale(row.scale, row.scale, row.scale);

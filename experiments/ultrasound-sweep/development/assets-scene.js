@@ -3,7 +3,7 @@ import { loadMesh } from '../scene.js';
 import { caseModel, dispose, meshParts } from './assets-data.js';
 
 export function acquisitionKey(row) {
-  return JSON.stringify([row.source, row.case, row.chapter ?? '', row.frame ?? null]);
+  return JSON.stringify([row.source, row.case, row.chapter ?? '', row.frame ?? null, row.sourceSpace ?? null]);
 }
 
 async function packagedScene(rows) {
@@ -85,6 +85,7 @@ async function modeledScene(selected, rows, entry) {
 // Keep each original node in its parent hierarchy. A scene, an asset and one
 // part can therefore share the same camera and acquisition-space coordinates.
 export async function acquireScene(selected, inventory, entries) {
+  if (selected.source === 'requirement') throw Error(selected.missingReason);
   const key = acquisitionKey(selected);
   const rows = [...(inventory instanceof Map ? inventory.values() : inventory)]
     .filter((row) => acquisitionKey(row) === key);
@@ -97,5 +98,5 @@ export async function acquireScene(selected, inventory, entries) {
     throw Error(result.issues.join(' · ') || 'The acquisition has no available parts.');
   }
   result.object.updateMatrixWorld(true);
-  return { ...result, key };
+  return { ...result, key, sourceNotice: selected.sourceNotice };
 }

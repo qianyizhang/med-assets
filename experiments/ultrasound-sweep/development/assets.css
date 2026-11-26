@@ -111,7 +111,7 @@ figure img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: conta
 #evidence figure { scroll-margin-block-start: 6rem; }
 #part-uses { margin: .65rem 0; }
 #part-uses[open] ul { max-height: 12rem; overflow-y: auto; margin-block: .4rem; }
-#filters { grid-template-columns: minmax(185px, 1.6fr) minmax(150px, .85fr) minmax(190px, 1fr) auto; }
+#filters { grid-template-columns: minmax(125px, .65fr) minmax(160px, 1.2fr) minmax(150px, .8fr) minmax(155px, 1fr) auto; }
 #tours { grid-column: 1 / -1; min-width: 0; padding: .4rem .65rem .6rem; border: 1px solid var(--line); border-radius: .4rem; }
 #tours legend { padding-inline: .3rem; font-weight: 700; }
 .tour-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .45rem; padding-bottom: .35rem; }
@@ -166,3 +166,15 @@ figure img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: conta
   #visibility-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   #selection { scroll-margin-top: .75rem; font-size: 1.45rem; }
 }
+
+.requirement-label { display: block; color: #7b3a19; font-weight: 700; }
+.specimen.requirement-placeholder { background: #f4e9dd; color: #7b3a19; font-weight: 700; text-align: center; padding: .4rem; }
+.specimen-shelf [data-requirement~="rebuild"] .requirement-placeholder { background: #674634; color: #fff; }
+.specimen-shelf [data-requirement~="missing"] .requirement-placeholder { border: 2px dashed #aa8564; background: #fffcf6; }
+#requirements { margin-block: .6rem .8rem; }
+#requirements ul { list-style: none; padding: 0; margin: .4rem 0; }
+#requirements li { border-block-start: 1px solid var(--line); padding: .4rem 0; }
+#requirements li p { color: var(--quiet); margin: .12rem 0 .3rem; }
+#requirements li li { border-block-start: 0; padding-block: .12rem; }
+#requirements details { margin-top: .3rem; }
+.source-credit { color: var(--quiet); font-size: .9rem; }
