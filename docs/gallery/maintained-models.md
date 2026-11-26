@@ -1,14 +1,18 @@
-# Maintained 3D model families
+<a id="maintained-3d-model-families"></a>
 
-Generated from the [exact family, export and task selections](maintained-selections.json).
+# Teaching register
 
-Each row identifies one maintained family. A shared editable model can supply several selected teaching exports, each assessed for its own lesson. Each multi-model Blender entry opens an editable assembly for its stated task. Use the [Library](asset-library.md) for exact revisions, component meshes, alternatives, credits and evidence. The [current review coverage](../../records/campaigns/teaching-asset-review/current-coverage.md) links these selections to their exact assessments and outstanding evidence needs.
+This register covers selected 3D assets and is generated from the [exact export and task selections](maintained-selections.json). Each row represents one register entry in its collection and may list several selected exports. A shared entry can appear in more than one collection.
+
+The [scorecard](../../records/campaigns/teaching-asset-review/current-coverage.md) reports register IDs and export–task pairs separately. See the [counting rules](asset-library.md#review-coverage) for the scope of these counts and the evidence required for an asset inventory.
+
+Each multi-model Blender entry opens an editable assembly for its stated task. Use the [Library](asset-library.md) for exact asset revisions, component meshes, alternatives, credits and evidence.
 
 Each selection serves the learner task recorded in the scorecard. Source studies, editable masters and alternate views remain available through revision history. The [exemption recheck](../../records/campaigns/teaching-exemption-recheck.md) identifies local default changes, their before/after evidence and exceptions. Existing published routes retain their original deliveries.
 
 ## Body & support
 
-| Family | Starting file |
+| Register entry | Selected export |
 | --- | --- |
 | 3D Anatomy Workshop | [Anatomy_Workshop_compact.blend](../../body/anatomy-workshop-r1/Anatomy_Workshop_compact.blend) |
 | Adipose pads | [selected-source-pads.glb](../../models/adipose-context/r01/selected-source-pads.glb) |
@@ -16,7 +20,7 @@ Each selection serves the learner task recorded in the scorecard. Source studies
 
 ## Cardiovascular
 
-| Family | Starting file |
+| Register entry | Selected export |
 | --- | --- |
 | Aorta · s1233 | [aorta.glb](../../models/aorta/exports/metadata-cleanup-r01/aorta.glb) |
 | Aortic tree · Z | [aortic_tree_z_source_frame.glb](../../models/aortic_tree_z/exports/teaching-economy-r01/aortic_tree_z_source_frame.glb) |
@@ -27,7 +31,7 @@ Each selection serves the learner task recorded in the scorecard. Source studies
 
 ## Digestive
 
-| Family | Starting file |
+| Register entry | Selected export |
 | --- | --- |
 | Esophageal wall | [esophagus-wall-cutaway-r01.glb](../../models/esophagus_wall/exports/authored-cutaway-r01/esophagus-wall-cutaway-r01.glb) |
 | Gallbladder | [gallbladder.glb](../../models/gallbladder/exports/metadata-cleanup-r01/gallbladder.glb) |
@@ -39,7 +43,7 @@ Each selection serves the learner task recorded in the scorecard. Source studies
 
 ## Endocrine
 
-| Family | Starting file |
+| Register entry | Selected export |
 | --- | --- |
 | Adrenal pair | [atlas-profiles.glb](../../models/adrenals/exports/atlas-locator-r02/atlas-profiles.glb) |
 | Adrenal regional study · s1233 | [s1233-adrenals-regional.glb](../../assemblies/endocrine-locator/adrenal-study-r05/s1233-adrenals-regional.glb) |
@@ -51,7 +55,7 @@ Each selection serves the learner task recorded in the scorecard. Source studies
 
 ## Lymphatic & tissue
 
-| Family | Starting file |
+| Register entry | Selected export |
 | --- | --- |
 | Blood-cell forms | [blood-cell-authored-study-r05.glb](../../models/blood_cell_study/exports/teaching-economy-r01/blood-cell-authored-study-r05.glb) |
 | Lymph collecting routes | [route-diagram.glb](../../models/lymph-collecting-routes/source-trace-r02/route-diagram.glb) |
@@ -61,7 +65,7 @@ Each selection serves the learner task recorded in the scorecard. Source studies
 
 ## Musculoskeletal
 
-| Family | Starting file |
+| Register entry | Selected export |
 | --- | --- |
 | Bone / trabecula comparison | [illustrative-container-r03.glb](../../assemblies/marrow-comparison/2026-10-23/illustrative-container-r03.glb) |
 | Bone-marrow cutaway | [marrow_cutaway.glb](../../models/bone_marrow/exports/teaching-economy-r01/marrow_cutaway.glb) |
@@ -78,7 +82,7 @@ Each selection serves the learner task recorded in the scorecard. Source studies
 
 ## Nervous & senses
 
-| Family | Starting file |
+| Register entry | Selected export |
 | --- | --- |
 | Auricles / pinnae | [ears_z.glb](../../models/ears_z/exports/teaching-economy-r01/ears_z.glb) |
 | Brain | [brain-source-frame.glb](../../models/brain/exports/teaching-economy-r02/brain-source-frame.glb) |
@@ -91,7 +95,7 @@ Each selection serves the learner task recorded in the scorecard. Source studies
 
 ## Oral & dental
 
-| Family | Starting file |
+| Register entry | Selected export |
 | --- | --- |
 | Adult teeth & gingiva | [teeth_gums.glb](../../models/teeth_gums/exports/r02/teeth_gums.glb) |
 | FDI31 · prepared specimen | [FDI31-balanced.glb](../../models/swirendo_fdi31/exports/balanced-20261028/FDI31-balanced.glb) |
@@ -103,7 +107,7 @@ Each selection serves the learner task recorded in the scorecard. Source studies
 
 ## Reproductive
 
-| Family | Starting file |
+| Register entry | Selected export |
 | --- | --- |
 | Breast pair | [breasts_hra_native_frame.glb](../../models/breasts_hra/exports/teaching-economy-r01/breasts_hra_native_frame.glb) |
 | Full-term placenta | [placenta_full_term.glb](../../models/placenta/exports/teaching-economy-r01/placenta_full_term.glb) |
@@ -116,7 +120,7 @@ Each selection serves the learner task recorded in the scorecard. Source studies
 
 ## Respiratory
 
-| Family | Starting file |
+| Register entry | Selected export |
 | --- | --- |
 | Breathing collection | [Breathing_Dome.blend](../../body/breathing/exports/dome-motion-r01/Breathing_Dome.blend) |
 | Bronchial tree · first fork | [bronchial-first-fork.glb](../../models/bronchial_tree/exports/first-fork-fairing-r15/bronchial-first-fork.glb) |
@@ -131,13 +135,13 @@ Each selection serves the learner task recorded in the scorecard. Source studies
 
 ## Skin
 
-| Family | Starting file |
+| Register entry | Selected export |
 | --- | --- |
 | Nail unit surface | [nail.glb](../../models/skin/nail-study-r02/nail.glb) |
 
 ## Urinary
 
-| Family | Starting file |
+| Register entry | Selected export |
 | --- | --- |
 | Bladder · [HRA female pelvis](../../assemblies/hra-female-pelvis/README.md) | [bladder-pelvic-base.glb](../../models/bladder/exports/pelvic-base-r01/bladder-pelvic-base.glb) |
 | Left kidney | [kidney_left.glb](../../models/kidney_left/exports/teaching-economy-r01/kidney_left.glb) |

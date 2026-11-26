@@ -1,5 +1,5 @@
 ---
-description: Resolve or substantiate all 25 remaining low axes across 20 maintained families.
+description: Resolve or substantiate all 25 remaining low axes across 20 selected register entries.
 scope: teaching asset quality
 status: stable
 last_update: 2026-11-22

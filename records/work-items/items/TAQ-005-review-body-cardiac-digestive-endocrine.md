@@ -34,7 +34,7 @@ Capture paired reimport views where current evidence is missing. A generic overv
 
 ## Related revisions
 
-These related assets support different views or tasks and add no maintained-family count.
+These related assets support different views or tasks and add no entries to the teaching register.
 
 | File | Identity | Use |
 | --- | --- | --- |

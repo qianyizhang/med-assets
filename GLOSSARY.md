@@ -4,24 +4,28 @@ Shared terms for the public gallery and the anatomical relationships it presents
 
 ## Gallery and surfaces
 
-**Anatomy Gallery** is the unified public teaching-asset Site. **Surface** is a destination within it. **Model Survey** is the dated catalogue imported by Anatomy Gallery and retained in its archive.
+**Anatomy Gallery** is the unified public teaching-asset Site. A **Gallery destination**, also called a **surface**, is a place within it. **Model Survey** is the dated catalogue imported by Anatomy Gallery and retained in its archive.
 
 | Canonical term | Meaning |
 | --- | --- |
 | Asset | An independently reusable work, such as a model, assembly, diagram or generator. Several use cases can use the same asset. |
 | Asset Library | The Gallery’s curated index of publicly listable, reusable assets. An **asset page** brings together one asset’s revisions, parts, capabilities, uses and available exports. |
-| Use Cases | Surface for authored teaching experiences. A **use case** answers a learner’s question. A **collection** groups related use cases. A **lesson stop** is one step within a use case. |
+| Use Cases | Gallery destination for authored teaching experiences. A **use case** is a learner question addressed by an authored experience. A **collection** groups related use cases. A **lesson stop** is one step within a use case. |
 | Teaching | The learner’s view of a use case, such as a system assembly, diagram or ultrasound sweep presented for a particular question. |
 | Development | The author’s view of the same use case. It connects a stop or keyframe to the exact assets and parts involved, open questions and evidence for decisions. |
 | Experiments & Archive | Collection within Use Cases for retained public experiments and historical teaching material. An entry identifies its purpose, status and limitations. |
 | Compare | Gallery tool for inspecting differences. A **comparison session** explores a question. A **saved review** records a dated finding with its exact inputs, decisive evidence and limits. |
 | 3D Stage | Gallery tool for composing, inspecting, saving and exporting a 3D scene. |
-| Asset lineage | The source and revision history of one asset. A family groups related lineages for discovery. |
+| Asset lineage | The source and revision history of one asset. |
+| Family | A grouping of related asset lineages for discovery. |
 | Named part | A selectable structure within an asset lineage, identified by its source name or a documented mapping. The same structure in a different subject can require another geometry binding. |
 | Geometry variant | A particular shape of a part at physical scale, including a fit to a subject or pose. One revision can supply several variants. |
-| Delivered mesh file | A payload containing indexed geometry. Its byte hash identifies the file. One file can serve many teaching uses. |
-| Teaching use | A binding of an asset or part to a named task, such as an acquisition chapter and its evidence frame. The binding records provenance and the scope of any assessment. |
-| Asset revision | An identified iteration within a lineage. An **export** is a specific representation of that revision. **Recommended** identifies the revision selected by its maintainer. |
+| Delivered mesh file | A payload containing indexed geometry. One file can serve many teaching uses. |
+| Byte hash | A digest that identifies the exact contents of a file. |
+| Loadable package | A file or group of files requested together by the viewer. |
+| Teaching use | A binding of an exact asset revision or named part to a use case or lesson stop. The binding records provenance and the scope of any assessment. |
+| Asset revision | An identified iteration within an asset lineage. Use **asset revision** where an older label says **edition** for the same iteration. **Recommended** identifies the revision selected by its maintainer. |
+| Export | A specific representation of an asset revision. |
 | Asset release | A revision issued for consumers of the asset. Its semantic version describes compatibility with earlier releases of that asset. |
 | Teaching assessment | Four scores for a named learner task on an exact export. An exemption keeps the observed score and records its permitted use and reopening condition. |
 | Collection teaching check | An action reviewed in its delivered lesson view or scene. The collection reports which required actions pass and which remain blocked. |
@@ -30,6 +34,18 @@ Shared terms for the public gallery and the anatomical relationships it presents
 | Poster | A still image representing a view. A Stage-exported poster identifies the scene preset that produced it. |
 
 ## Anatomy and spatial alignment
+
+**Source subject**
+
+The person, specimen, atlas reference or synthetic anatomy represented by an input.
+
+**Specimen**
+
+A physical anatomical sample represented by an input.
+
+**Anatomical surface**
+
+A represented boundary of an anatomical structure.
 
 **Anatomical frame**
 

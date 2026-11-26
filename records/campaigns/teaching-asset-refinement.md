@@ -14,7 +14,7 @@ Sol-high owns the three refinement batches. The campaign lead owns the rubric, i
 
 ## Final review
 
-The lead reviewer inspected all 46 original/proposed pairs and accepted nine score changes on the original exact exports. Eight readability scores rose from 2 to 3. The vaginal exterior's form score rose from 2 to 3 after matched isolation and a neutral opposite view exposed its contour. Two independently assessed local recommendations now open on newer exports. At the close of this round the maintained register had **34 at target, 44 below target and one partial**. The [next review](teaching-asset-target.md) owns the current decisions. Register totals count the selected file for each family. The local-scene alternatives below remain separately identified.
+The lead reviewer inspected all 46 original/proposed pairs and accepted nine score changes on the original exact exports. Eight readability scores rose from 2 to 3. The vaginal exterior's form score rose from 2 to 3 after matched isolation and a neutral opposite view exposed its contour. Two independently assessed local recommendations now open on newer exports. At the close of this round the maintained register had **34 at target, 44 below target and one partial**. The [next review](teaching-asset-target.md) owns the current decisions. In that snapshot, the reported totals count selected files. The local-scene alternatives below remain separately identified.
 
 | Decision | What the review established |
 | --- | --- |

@@ -22,7 +22,7 @@ def main():
     writer.add_argument("--reviewed-sha256", help="Exact reviewed row pin when review selection is ambiguous")
     writer.add_argument("--disposition", choices=("maintained", "alternative"), required=True)
     writer.add_argument("--replaces", help="Exact maintained export replaced within this collection and family")
-    writer.add_argument("--new-family-label", help="Label for the first maintained export of a new family")
+    writer.add_argument("--new-family-label", help="Label for a new register entry")
     writer.add_argument("--apply", action="store_true", help="Apply the plan locally after a dry run")
     writer.add_argument("--expect-state", help="planSha256 from the reviewed dry run")
     commands.add_parser("recover", help="Complete an interrupted local promotion")
@@ -41,7 +41,7 @@ def main():
             print("Recovered teaching promotion." if recover(repo) else "No teaching promotion to recover.")
         elif args.check:
             count = validate_current(repo)
-            print(f"Validated {count} accepted teaching assessments, the maintained register and scorecard.")
+            print(f"Validated {count} accepted teaching assessments, the teaching register and scorecard.")
         else:
             current = CurrentTeaching(repo)
             sys.stdout.write(render_register(current.selections))

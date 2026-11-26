@@ -1,11 +1,12 @@
 # Maintained teaching asset scorecard
 
-The total counts each shared family once across collections. Coverage and target counts apply to the selected files. Each file has its own learner task and four scores.
+The total counts distinct register IDs under the existing `families` key across collections. Coverage and target counts apply to selected export–task pairs. See the [counting rules](../../../docs/gallery/asset-library.md#review-coverage) for the scope of both counts.
+
 Use the [rubric](../../../docs/guides/asset-quality.md) for the anchors and the [exemption recheck](../teaching-exemption-recheck.md) for the current before/after decisions and owned follow-ups.
 
 Run `python3.12 records/campaigns/teaching-asset-review/coverage.py --audit --baseline a6f4b3c` for every identity, historical alternate, evidence gap and register change.
 
-| Collection | Families | At target | Exemption | Open | Full | Partial | Unrated | Selected files |
+| Collection | Register IDs | At target | Exemption | Open | Full | Partial | Unrated | Export–task pairs |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Body & support | 3 | 3 | 0 | 0 | 3 | 0 | 0 | 3 |
 | Cardiovascular | 6 | 7 | 0 | 0 | 7 | 0 | 0 | 7 |
@@ -21,7 +22,7 @@ Run `python3.12 records/campaigns/teaching-asset-review/coverage.py --audit --ba
 | Urinary | 4 | 4 | 0 | 0 | 4 | 0 | 0 | 4 |
 | **Total** | 77 | 75 | 6 | 0 | 81 | 0 | 0 | 81 |
 
-| Collection | Starting file | Fidelity | Form | Readability | Economy | Target | Review |
+| Collection | Selected export | Fidelity | Form | Readability | Economy | Target | Review |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Body & support | [3D Anatomy Workshop](../../../body/anatomy-workshop-r1/Anatomy_Workshop_compact.blend) | 3 | 3 | 3 | 3 | At target | [Evidence](../../../reviews/teaching-assessments/reopen-paired/decisions.json) |
 | Body & support | [Adipose pads](../../../models/adipose-context/r01/selected-source-pads.glb) | 4 | 3 | 4 | 3 | At target | [Evidence](../../../reviews/teaching-assessments/2026-11-22-body-cardiovascular-digestive-endocrine/campaign-assessments.json) |

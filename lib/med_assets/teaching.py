@@ -13,6 +13,7 @@ from .artifacts import HEX64, repo_file, source_path, unique_keys
 from .derivatives import AssessmentIdentities
 
 REGISTER = "docs/gallery/maintained-models.md"
+REGISTER_TABLE_HEADER = "| Register entry | Selected export |"
 SCORECARD = "records/campaigns/teaching-asset-review/current-coverage.md"
 PROMOTION_JOURNAL = "reviews/teaching-assessments/.promotion.json"
 SELECTIONS = "docs/gallery/maintained-selections.json"
@@ -335,9 +336,11 @@ def validate_current(repo):
 
 def render_register(current):
     lines = [
-        "# Maintained 3D model families", "",
-        "Generated from the [exact family, export and task selections](maintained-selections.json).", "",
-        "Each row identifies one maintained family. A shared editable model can supply several selected teaching exports, each assessed for its own lesson. Each multi-model Blender entry opens an editable assembly for its stated task. Use the [Library](asset-library.md) for exact revisions, component meshes, alternatives, credits and evidence. The [current review coverage](../../records/campaigns/teaching-asset-review/current-coverage.md) links these selections to their exact assessments and outstanding evidence needs.", "",
+        '<a id="maintained-3d-model-families"></a>', "",
+        "# Teaching register", "",
+        "This register covers selected 3D assets and is generated from the [exact export and task selections](maintained-selections.json). Each row represents one register entry in its collection and may list several selected exports. A shared entry can appear in more than one collection.", "",
+        "The [scorecard](../../records/campaigns/teaching-asset-review/current-coverage.md) reports register IDs and export–task pairs separately. See the [counting rules](asset-library.md#review-coverage) for the scope of these counts and the evidence required for an asset inventory.", "",
+        "Each multi-model Blender entry opens an editable assembly for its stated task. Use the [Library](asset-library.md) for exact asset revisions, component meshes, alternatives, credits and evidence.", "",
         "Each selection serves the learner task recorded in the scorecard. Source studies, editable masters and alternate views remain available through revision history. The [exemption recheck](../../records/campaigns/teaching-exemption-recheck.md) identifies local default changes, their before/after evidence and exceptions. Existing published routes retain their original deliveries.", "",
     ]
     groups = {}
@@ -350,7 +353,7 @@ def render_register(current):
         exports = row.setdefault((selection.family_id, label), [])
         exports.append(f"[{Path(selection.path).name}](../../{selection.path})")
     for collection, rows in groups.items():
-        lines.extend([f"## {markdown_label(collection)}", "", "| Family | Starting file |", "| --- | --- |"])
+        lines.extend([f"## {markdown_label(collection)}", "", REGISTER_TABLE_HEADER, "| --- | --- |"])
         lines.extend(f"| {label} | {'<br>'.join(exports)} |" for (_, label), exports in rows.items())
         lines.append("")
     return "\n".join(lines)
@@ -380,8 +383,8 @@ STATES = ("Full", "Partial", "Unrated")
 def render_scorecard(current):
     rows = []
     counts = defaultdict(Counter)
-    families = defaultdict(set)
-    family_exports = Counter((item.collection, item.family_id) for item in current.selections.values())
+    entry_ids = defaultdict(set)
+    entry_exports = Counter((item.collection, item.family_id) for item in current.selections.values())
     for selection, assessment in current.selected():
         row = assessment.row
         scores = [axis["score"] for axis in row["axes"]]
@@ -390,10 +393,10 @@ def render_scorecard(current):
         target = "At target" if all(score is not None and score >= 3 for score in scores) else (
             "Exemption" if row.get("target", {}).get("exemptions") else "Open")
         collection = selection.collection
-        counts[collection].update({target: 1, coverage: 1, "Selected files": 1})
-        families[collection].add(selection.family_id)
+        counts[collection].update({target: 1, coverage: 1, "Export–task pairs": 1})
+        entry_ids[collection].add(selection.family_id)
         label = selection.label
-        if family_exports[collection, selection.family_id] > 1:
+        if entry_exports[collection, selection.family_id] > 1:
             label += f" · {Path(selection.path).stem}"
         if selection.shared_owner:
             label = f"{selection.family} · {label}"
@@ -401,21 +404,21 @@ def render_scorecard(current):
                      *("—" if score is None else score for score in scores),
                      target, link("Evidence", assessment.owner.relative_to(current.repo).as_posix())))
 
-    families["**Total**"] = set().union(*families.values())
+    entry_ids["**Total**"] = set().union(*entry_ids.values())
     counts["**Total**"] = sum(counts.values(), Counter())
     lines = [
         "# Maintained teaching asset scorecard", "",
-        "The total counts each shared family once across collections. Coverage and target counts apply to the selected files. Each file has its own learner task and four scores.",
+        "The total counts distinct register IDs under the existing `families` key across collections. Coverage and target counts apply to selected export–task pairs. See the [counting rules](../../../docs/gallery/asset-library.md#review-coverage) for the scope of both counts.", "",
         "Use the [rubric](../../../docs/guides/asset-quality.md) for the anchors and the "
         "[exemption recheck](../teaching-exemption-recheck.md) for the current before/after decisions and owned follow-ups.", "",
         "Run `python3.12 records/campaigns/teaching-asset-review/coverage.py --audit --baseline a6f4b3c` for every identity, "
         "historical alternate, evidence gap and register change.", "",
     ]
-    count_columns = ("At target", "Exemption", "Open", *STATES, "Selected files")
-    lines += table(("Collection", "Families", *count_columns), (
+    count_columns = ("At target", "Exemption", "Open", *STATES, "Export–task pairs")
+    lines += table(("Collection", "Register IDs", *count_columns), (
         (markdown_label(collection) if collection != "**Total**" else collection,
-         len(families[collection]), *(count[column] for column in count_columns))
+         len(entry_ids[collection]), *(count[column] for column in count_columns))
         for collection, count in counts.items()
     ))
-    lines += table(("Collection", "Starting file", "Fidelity", "Form", "Readability", "Economy", "Target", "Review"), rows)
+    lines += table(("Collection", "Selected export", "Fidelity", "Form", "Readability", "Economy", "Target", "Review"), rows)
     return "\n".join(lines)

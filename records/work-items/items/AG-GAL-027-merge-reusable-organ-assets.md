@@ -18,7 +18,7 @@ depends_on: AG-GAL-026
 
 ## Pilot and rollout
 
-1. Review the [maintained families](../../../docs/gallery/maintained-models.md) against the consolidated lesson tasks. Start candidate selection with the cardiac models. Identify two existing lessons that share a structure and require different selections. Confirm their source, anatomical frame, units, laterality, license and any required motion or attachments. If cardiac sources cannot support the claimed fit, choose another evidenced pair. Keep unregistered specimens or source alternatives distinct and labeled within the organ package.
+1. Review the [Teaching register](../../../docs/gallery/maintained-models.md) against the consolidated lesson tasks. Start candidate selection with the cardiac models. Identify two existing lessons that share a structure and require different selections. Confirm their source, anatomical frame, units, laterality, license and any required motion or attachments. If cardiac sources cannot support the claimed fit, choose another evidenced pair. Keep unregistered specimens or source alternatives distinct and labeled within the organ package.
 2. Give the shared geometry one editable source or reproducible assembly recipe. Declare each lesson's parts, view and optional motion using existing package conventions. Rebuild both exports from that source. Demonstrate in a disposable replay that a change to a shared structure reaches both exports and that each keeps its intended selection.
 3. Inspect each lesson before and after at the same camera, scale and, where applicable, motion phase. Exercise both in the ordinary Gallery. Verify protected landmarks, selection and motion controls, exact downloads, and behavior when an export is missing or wrong. Record each export's size and assess its exact bytes for its own learner task. Verify the full model by clean reimport. [Asset and assembly requirements](../../../docs/WORKFLOW.md#asset-admission)
 4. Apply the proven approach to other compatible overlaps found in the review. For each remaining candidate, record the concrete reason to preserve it separately, such as a different specimen or a task-specific rig. Success requires two working lessons from one organ model in the pilot.
@@ -30,7 +30,7 @@ Move current lessons, recipes, tests, credits and docs to the selected owner. De
 
 ## Accepted local selections
 
-The [overlap audit](../../campaigns/organ-and-lesson-overlaps.md) records each learner action, anatomical fit and retention decision. The initial register had 79 families and 79 files. It now has 77 distinct families and 80 selected teaching files. Two demonstrated mergers reduce the family count. Adding the tracheal cutaway brings its independently assessed lesson into coverage. Of the 80 files, 74 meet target on all four axes and six retain previously documented form exemptions. [Exact scorecard](../../campaigns/teaching-asset-review/current-coverage.md)
+The [overlap audit](../../campaigns/organ-and-lesson-overlaps.md) records each learner action, anatomical fit and retention decision. The initial register had 79 entries and 79 files. At this checkpoint it had 77 distinct register IDs and 80 selected export–task pairs. Two demonstrated mergers reduced the ID count. Adding the tracheal cutaway brings its independently assessed lesson into coverage. Of the 80 files, 74 meet target on all four axes and six retain previously documented form exemptions. [Exact scorecard](../../campaigns/teaching-asset-review/current-coverage.md)
 
 | Model | Lead review and result |
 | --- | --- |

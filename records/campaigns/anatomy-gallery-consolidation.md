@@ -30,7 +30,7 @@ The November 22 rollout is complete. The [authoring scaffold](../../docs/gallery
 
 The [cleanup ledger](../work-items/items/AG-GAL-017-local-and-remote-storage-cleanup.md) records the retired local artifacts and measured storage changes. The original Head & Neck and Airway files still serve pinned downloads, and each live Site retains its independent rollback point. Host shutdown, history rewrites and deletion of a last source copy remain outside this rollout.
 
-The [compact source publication](../work-items/items/AG-GAL-017-local-and-remote-storage-cleanup.md#compact-source-publication) records the maintained model families, cold archives and history recovery.
+The [compact source publication](../work-items/items/AG-GAL-017-local-and-remote-storage-cleanup.md#compact-source-publication) records the teaching register at that checkpoint, cold archives and history recovery.
 
 ## Work
 

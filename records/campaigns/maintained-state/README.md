@@ -22,7 +22,7 @@ Accepted in `fcbee7a` and retested with the integrated tree. Eight end-to-end No
 
 ### MS-003 — Direct maintained selections
 
-At `7392cf5`, all 130 effective assessments matched the previous resolver, including attribution, observations, witnesses and exemptions. Both generated views passed their drift checks. The 81 maintained files retain 75 at target and six exemptions across 77 families and 12 collections. Fixtures reject stale pins, ambiguous alternatives, missing evidence and wrong source identities. A display-label edit preserves family identity. A second assessment on the same export resolves by explicitly selected task.
+At `7392cf5`, all 130 effective assessments matched the previous resolver, including attribution, observations, witnesses and exemptions. Both generated views passed their drift checks. The 81 selected export–task pairs retain 75 at target and six exemptions across 77 register IDs and 12 collections. Fixtures reject stale pins, ambiguous alternatives, missing evidence and wrong source identities. A display-label edit preserves family identity. A second assessment on the same export resolves by explicitly selected task.
 
 ### MS-004 — Gallery release builds
 

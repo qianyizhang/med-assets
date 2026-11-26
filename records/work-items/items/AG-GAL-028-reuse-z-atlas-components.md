@@ -47,7 +47,7 @@ The starting revision was `3db3f60`. Both recipes verify the same SHA-256 for th
 
 [Arm measurements and teaching plates](../../../reviews/teaching-assessments/2026-11-23-z-right-arm-replay/README.md) · [Salivary measurements and matched views](../../../reviews/teaching-assessments/2026-11-23-salivary-shared-source/README.md) · [Scorecard](../../campaigns/teaching-asset-review/current-coverage.md)
 
-The lead replayed the source edit through all seven exports, inspected the matched camera views, and opened the individual downloads through their ordinary Library links and the 3D Stage. A 0.1 mm humeral edit reached all four arm selections. A 1 mm right-parotid edit reached all three salivary selections. Restoring the original input reproduced the reviewed deliveries. The six new files and the byte-identical cuff all meet the teaching target. Across the Gallery, 75 of 81 selected files meet target across all four axes; six existing form exemptions remain. There are 77 distinct maintained families.
+The lead replayed the source edit through all seven exports, inspected the matched camera views, and opened the individual downloads through their ordinary Library links and the 3D Stage. A 0.1 mm humeral edit reached all four arm selections. A 1 mm right-parotid edit reached all three salivary selections. Restoring the original input reproduced the reviewed deliveries. The six new files and the byte-identical cuff all meet the teaching target. Across the Gallery, 75 of 81 selected export–task pairs meet target across all four axes; six existing form exemptions remain. The [Teaching register](../../../docs/gallery/maintained-models.md) recorded 77 IDs at this checkpoint.
 
 ## Beta cleanup
 

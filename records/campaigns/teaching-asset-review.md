@@ -8,13 +8,13 @@ document_class: coordination
 
 # Teaching asset review campaign
 
-For each maintained family, answer two questions. What can a learner identify, distinguish or trace using the selected export? Which change, if any, would help them do it?
+For each selected export and learner task, answer two questions. What can a learner identify, distinguish or trace using the selected export? Which change, if any, would help them do it?
 
 ## Scope and evidence
 
-Start with the [maintained family register](../../docs/gallery/maintained-models.md). At baseline `a6f4b3c` it selects 79 files across 12 groups, including two editable assemblies. The [discovery audit](../work-items/items/AG-GAL-018-reconcile-library-revisions.md#reconciled-library) established which older public files could be found in the Library. Use that audit for provenance. Reconcile subsequent changes against the register and the current Library.
+Start with the [Teaching register](../../docs/gallery/maintained-models.md). At baseline `a6f4b3c` it selects 79 files across 12 groups, including two editable assemblies. The [discovery audit](../work-items/items/AG-GAL-018-reconcile-library-revisions.md#reconciled-library) established which older public files could be found in the Library. Use that audit for provenance. Reconcile subsequent changes against the register and the current Library.
 
-Count each family once against its starting file. Identify any other export needed for a distinct teaching task, including a published revision still in use. Show those assessments separately so alternate files cannot inflate family coverage. If the selected file is an assembly, assess the assembly in the interaction or view the task requires.
+Follow the [coverage counting rules](../../docs/gallery/asset-library.md#review-coverage). Include each selected export and its task. Identify any other export needed for a distinct task, including a published asset revision still in use, and report alternative assessments separately. If the selected file is an assembly, assess the assembly in the interaction or view the task requires.
 
 Use the [quality rubric](../../docs/guides/asset-quality.md) for scores and attribution. The review belongs to an exact export and task. The coverage report points to its evidence and names the next action. Keep the original evidence accessible when an improvement introduces a new revision. A candidate becomes Recommended through the [maintainer decision](../../docs/gallery/asset-library.md).
 
@@ -25,7 +25,7 @@ Use the [quality rubric](../../docs/guides/asset-quality.md) for scores and attr
 | [TAQ-001 · Establish coverage](../work-items/items/TAQ-001-establish-review-coverage.md) | A reproducible view of the current 79 starting files with full, partial and missing assessments. |
 | [TAQ-002 · Review Respiratory](../work-items/items/TAQ-002-review-respiratory.md) | A task, assessment decision and evidence for each of the ten Respiratory starting files. |
 | [TAQ-003 · Test a Respiratory improvement](../work-items/items/TAQ-003-test-respiratory-improvement.md) | A matched comparison for one supported improvement or the evidence for keeping the existing assets. |
-| [TAQ-004 · Review the remaining collections](../work-items/items/TAQ-004-review-remaining-collections.md) | Collection-sized review and improvement batches for the other 69 families. |
+| [TAQ-004 · Review the remaining collections](../work-items/items/TAQ-004-review-remaining-collections.md) | Collection-sized review and improvement batches for the other 69 starting files in the baseline. |
 
 Close when every starting file has an attributable assessment or a specific evidence gap, and each prioritized finding has a verified resolution, a documented keep decision or an owned follow-up. Record coverage, actual improvements and unresolved limitations separately. Reconcile additions and replacements since the baseline explicitly.
 

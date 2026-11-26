@@ -12,7 +12,7 @@ from typing import NamedTuple
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "lib"))
 from med_assets.artifacts import install_verified_bytes, verify_payload
-from med_assets.teaching import CurrentTeaching, assessment_digest
+from med_assets.teaching import REGISTER_TABLE_HEADER, CurrentTeaching, assessment_digest
 
 
 class Selection(NamedTuple):
@@ -29,7 +29,7 @@ def register_selections(raw):
     for line in raw.splitlines():
         if line.startswith("## "):
             collection = unescape(line[3:].strip())
-        if not line.startswith("|") or line in ("| Family | Starting file |", "| --- | --- |"):
+        if not line.startswith("|") or line in (REGISTER_TABLE_HEADER, "| Family | Starting file |", "| --- | --- |"):
             continue
         cells = line.split("|")
         if len(cells) != 4 or cells[0] or cells[-1] or not collection:
