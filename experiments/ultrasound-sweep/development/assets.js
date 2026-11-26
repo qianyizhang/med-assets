@@ -1,6 +1,6 @@
 import * as THREE from '../vendor/build/three.module.js';
 import { viewport } from '../scene.js';
-import { aaaRows, axes, assessmentScore, bufferBytes, caseRows, dispose, isolatedMesh, meshTopology, read, rowID, sweepRows } from './assets-data.js';
+import { aaaRows, axes, assessmentScore, bufferBytes, caseRows, dispose, isolatedMesh, meshTopology, read, rowID, setTeachingTours, sweepRows } from './assets-data.js';
 
 const $ = (id) => document.getElementById(id);
 const make = (tag, text, className) => {
@@ -12,6 +12,7 @@ const make = (tag, text, className) => {
 const entries = new Map();
 const inventory = new Map();
 const uses = new Map();
+const assets = new Map();
 const reviews = new Map();
 const uniqueReviews = new Map();
 const failures = [];
@@ -20,6 +21,10 @@ let index = 0;
 let selection;
 let matches = [];
 let current;
+let openAsset;
+let region = '';
+let tourSelection = null;
+let tourKey = '';
 let linkedSelection = false;
 let selectedRequest = 0;
 let viewer;
@@ -31,13 +36,14 @@ const thumbnailCache = new Map();
 const waitingThumbnails = [];
 let makingThumbnail = false;
 
-const filters = ['query', 'source', 'family', 'assessment', 'expand-uses'];
-const familyLabels = {
-  aaa: 'AAA screening', abdomen: 'Abdomen and urinary tract', breast: 'Breast and axilla',
-  carotid: 'Carotid duplex', thyroid: 'Thyroid and cervical nodes', echo: 'Adult echocardiography',
-  'pregnancy-early': 'Early pregnancy', 'pregnancy-first': '11–14-week scan',
-  'pregnancy-mid': 'Mid-trimester anatomy', 'pregnancy-late': 'Third-trimester growth',
-};
+const filters = ['query', 'assessment'];
+const assetFragment = (id) => 'asset/' + encodeURIComponent(id);
+const regionOf = (row) => row.region ?? row.family;
+const toursOf = (row) => row.teachingSelections ?? [{ id: row.case, label: row.title, url: row.url }];
+const assetOf = (row) => row.assetId ?? row.source + '/' + row.case;
+const partOf = (row) => row.partId ?? row.part;
+const bindingOf = (row) => row.variantId ?? row.binding;
+const byText = (left, right) => left.localeCompare(right, undefined, { numeric: true });
 const frameKey = (row) => [row.source, row.case, row.chapter, row.part].join('/');
 const counts = new Map();
 const assessed = (record) => axes.some(([axis]) => assessmentScore(record, axis) !== null);
@@ -61,16 +67,18 @@ function linked(row) {
   return reviews.get(rowID(row)) ?? (unique ? uniqueReviews.get(frameKey(row)) : undefined) ??
     reviews.get(rowID(caseScope)) ?? (unique ? uniqueReviews.get(frameKey(caseScope)) : undefined);
 }
-const group = (row) => row.source + '/' + row.family;
-
 function recordRows(rows) {
   for (const row of rows) {
     const key = rowID(row);
     if (inventory.has(key)) continue;
     inventory.set(key, row);
     row.binding ??= [row.source, row.case, row.part, row.mesh, row.scale].join('/');
-    if (!uses.has(row.binding)) uses.set(row.binding, []);
-    uses.get(row.binding).push(row);
+    const binding = bindingOf(row);
+    if (!uses.has(binding)) uses.set(binding, []);
+    uses.get(binding).push(row);
+    const asset = assetOf(row);
+    if (!assets.has(asset)) assets.set(asset, []);
+    assets.get(asset).push(row);
     const identity = frameKey(row);
     counts.set(identity, (counts.get(identity) ?? 0) + 1);
   }
@@ -86,50 +94,128 @@ function rateLabel(record) {
 
 function status() {
   const matched = matches.length.toLocaleString();
+  const scopedAssets = new Set();
+  const scopedVariants = new Set();
+  let scopedUses = 0;
   const reviewedParts = new Set();
   const qualifiedParts = new Set();
   let reviewedUses = 0;
   let qualifiedUses = 0;
   for (const row of inventory.values()) {
+    if (!inScope(row)) continue;
+    scopedAssets.add(assetOf(row));
+    scopedVariants.add(bindingOf(row));
+    scopedUses++;
     const record = linked(row);
     if (assessed(record)) {
-      reviewedParts.add(row.binding);
+      reviewedParts.add(bindingOf(row));
       reviewedUses++;
     }
     if (qualified(record)) {
-      qualifiedParts.add(row.binding);
+      qualifiedParts.add(bindingOf(row));
       qualifiedUses++;
     }
   }
-  const coverage = uses.size.toLocaleString() + ' isolated parts across ' + inventory.size.toLocaleString() + ' acquisition uses';
-  const reviews = reviewedParts.size.toLocaleString() + ' assessed parts (' + reviewedUses.toLocaleString() + ' uses)';
-  const qualification = qualifiedParts.size.toLocaleString() + ' qualified parts (' + qualifiedUses.toLocaleString() + ' uses)';
+  const coverage = scopedAssets.size.toLocaleString() + ' assets in scope · ' + scopedVariants.size.toLocaleString() + ' geometry variants · ' + scopedUses.toLocaleString() + ' part uses';
+  const reviews = reviewedParts.size.toLocaleString() + ' assessed variants (' + reviewedUses.toLocaleString() + ' uses)';
+  const qualification = qualifiedParts.size.toLocaleString() + ' qualified variants (' + qualifiedUses.toLocaleString() + ' uses)';
   const pending = remaining + Number(pendingAAA);
-  $('inventory-status').textContent = [matched + ' matching', coverage, reviews, qualification].join(' · ') +
+  $('inventory-status').textContent = [matched + ' matching assets', coverage, reviews, qualification].join(' · ') +
     (pending ? ' · indexing ' + pending + ' sources' : '');
   $('issues').hidden = failures.length === 0;
   $('issues').querySelector('ul').replaceChildren(...failures.map((failure) => make('li', failure)));
 }
 
-function organized(rows) {
-  const first = rows.filter((row) => linked(row));
-  const buckets = new Map();
+function inScope(row) {
+  return (!region || regionOf(row) === region) &&
+    (tourSelection === null || toursOf(row).some(({ id }) => tourSelection.has(id)));
+}
+
+function filterState() {
+  const url = new URL(location.href);
+  if (region) url.searchParams.set('region', region);
+  else url.searchParams.delete('region');
+  url.searchParams.delete('tour');
+  if (tourSelection !== null) {
+    if (!tourSelection.size) url.searchParams.append('tour', '');
+    else for (const id of [...tourSelection].sort()) url.searchParams.append('tour', id);
+  }
+  for (const [param, id] of [['q', 'query'], ['assessment', 'assessment']]) {
+    if ($(id).value) url.searchParams.set(param, $(id).value);
+    else url.searchParams.delete(param);
+  }
+  return url;
+}
+
+function restoreFilters() {
+  const params = new URL(location.href).searchParams;
+  region = params.get('region') ?? '';
+  tourSelection = params.has('tour') ? new Set(params.getAll('tour').filter(Boolean)) : null;
+  $('query').value = params.get('q') ?? '';
+  $('assessment').value = params.get('assessment') ?? '';
+}
+
+function setFilters() {
+  const url = filterState();
+  if (url.href !== location.href) history.replaceState(null, '', url);
+}
+
+function renderScope() {
+  const regions = new Map();
+  const tours = new Map();
+  for (const row of inventory.values()) {
+    const key = regionOf(row);
+    regions.set(key, row.regionLabel ?? key);
+    if (!region || key === region) for (const tour of toursOf(row)) tours.set(tour.id, tour);
+  }
+  if (region && !regions.has(region)) regions.set(region, region);
+  const choices = [...regions].sort((a, b) => byText(a[1], b[1]));
+  const regionInput = $('region');
+  if (regionInput.dataset.options !== JSON.stringify(choices)) {
+    regionInput.dataset.options = JSON.stringify(choices);
+    regionInput.replaceChildren(new Option('All body regions', ''), ...choices.map(([id, text]) => new Option(text, id)));
+  }
+  regionInput.value = region;
+  const tourList = [...tours.values()].sort((a, b) => byText(a.label, b.label));
+  const selected = tourList.filter(({ id }) => tourSelection === null || tourSelection.has(id)).length;
+  $('all-tours').checked = tourList.length > 0 && selected === tourList.length;
+  $('all-tours').indeterminate = selected > 0 && selected < tourList.length;
+  $('all-tours').disabled = !tourList.length;
+  $('tour-count').textContent = tourList.length ? selected + ' of ' + tourList.length + ' selected' : 'No tours available';
+  const next = JSON.stringify(tourList.map(({ id, label }) => [id, label]));
+  if (next !== tourKey) {
+    tourKey = next;
+    const focused = $('tour-choices').contains(document.activeElement) ? document.activeElement.value : null;
+    $('tour-choices').replaceChildren(...tourList.map(({ id, label }) => {
+      const field = make('label', undefined, 'tour-choice');
+      const checkbox = make('input');
+      checkbox.type = 'checkbox';
+      checkbox.name = 'tour';
+      checkbox.value = id;
+      field.append(checkbox, make('span', label));
+      return field;
+    }));
+    if (focused) [...$('tour-choices').querySelectorAll('input')].find((input) => input.value === focused)?.focus();
+  }
+  for (const input of $('tour-choices').querySelectorAll('input')) {
+    input.checked = tourSelection === null || tourSelection.has(input.value);
+  }
+}
+
+function grouped(rows, key) {
+  const groups = new Map();
   for (const row of rows) {
-    if (linked(row)) continue;
-    const category = group(row);
-    if (!buckets.has(category)) buckets.set(category, []);
-    buckets.get(category).push(row);
+    const id = key(row);
+    if (!groups.has(id)) groups.set(id, []);
+    groups.get(id).push(row);
   }
-  const lists = [...buckets.values()];
-  for (const list of lists) {
-    const context = (row) => /exterior|skin|torso|unnamed/i.test(row.label) ? 1 : 0;
-    list.sort((left, right) => context(left) - context(right));
-  }
-  const longest = Math.max(0, ...lists.map((list) => list.length));
-  for (let i = 0; i < longest; i++) {
-    for (const list of lists) if (list[i]) first.push(list[i]);
-  }
-  return first;
+  return groups;
+}
+
+function representative(rows) {
+  return rows.find((row) => rowID(row) === selection) ??
+    rows.find((row) => assessed(linked(row)) && !/exterior|skin|torso/i.test(row.label)) ??
+    rows.find((row) => !/exterior|skin|torso|unnamed/i.test(row.label)) ?? rows[0];
 }
 
 function thumbnailImage(geometry) {
@@ -203,94 +289,180 @@ const thumbnailObserver = new IntersectionObserver((items) => {
 }, { rootMargin: '120px' });
 let shownRows = '';
 
-function rowsView(showPageWith) {
-  const query = $('query').value.trim().toLowerCase();
-  const candidates = [...inventory.values()].filter((row) => {
-    const grade = linked(row);
-    const rating = $('assessment').value;
-    return (!$('source').value || row.source === $('source').value) &&
-      (!$('family').value || row.family === $('family').value) &&
-      (!query || query.split(/\s+/).every((token) => [row.label, row.title, row.chapterTitle, row.case].join(' ').toLowerCase().includes(token))) &&
-      matchesAssessment(grade, rating);
-  });
-  if ($('expand-uses').checked) {
-    matches = organized(candidates);
+function specimen(row) {
+  const tile = make('span', undefined, 'specimen');
+  tile.dataset.part = rowID(row);
+  const record = linked(row);
+  const candidate = !record?.prior && record?.comparison?.candidate;
+  if (candidate) {
+    const image = make('img');
+    image.alt = '';
+    image.loading = 'lazy';
+    image.src = candidate;
+    image.addEventListener('error', () => {
+      image.remove();
+      thumbnailObserver.observe(tile);
+    });
+    tile.append(image);
   } else {
-    const unique = new Map();
-    const preferred = selection ?? location.hash.slice(1);
-    for (const row of candidates) {
-      const previous = unique.get(row.binding);
-      if (!previous || rowID(row) === preferred ||
-          (rowID(previous) !== preferred && !linked(previous) && linked(row))) unique.set(row.binding, row);
-    }
-    matches = organized([...unique.values()]);
+    thumbnailObserver.observe(tile);
   }
+  return tile;
+}
+
+function partsView(rows) {
+  const parts = grouped(rows, partOf);
+  const currentPart = current && partOf(current);
+  const panel = $('asset-parts');
+  const previouslyOpen = new Set(panel.dataset.asset === openAsset
+    ? [...panel.querySelectorAll('details[open]')].map((detail) => detail.dataset.part) : []);
+  panel.dataset.asset = openAsset;
+  const focus = panel.contains(document.activeElement) ? document.activeElement.getAttribute('href') : null;
+  const signature = [openAsset, selection, ...rows.map((row) => rowID(row) + rateLabel(linked(row)))].join('|');
+  if (panel.dataset.signature === signature) return;
+  panel.dataset.signature = signature;
+  panel.replaceChildren(...[...parts].map(([id, partRows], partIndex) => {
+    const details = make('details', undefined, 'part-group');
+    const variants = grouped(partRows, bindingOf);
+    const title = partRows[0].partLabel ?? partRows[0].label;
+    details.dataset.part = id;
+    details.open = id === currentPart || previouslyOpen.has(id) || (!currentPart && !previouslyOpen.size && partIndex === 0);
+    const summary = make('summary', title);
+    summary.append(make('small', variants.size + (variants.size === 1 ? ' variant' : ' variants')));
+    const list = make('ul', undefined, 'variant-list');
+    for (const [binding, phaseRows] of variants) {
+      const row = representative(phaseRows);
+      const item = make('li');
+      const link = make('a');
+      const key = rowID(row);
+      link.href = '#' + key;
+      link.dataset.variant = binding;
+      if (key === selection) link.setAttribute('aria-current', 'true');
+      link.append(make('strong', row.chapterTitle || row.title), make('small', [
+        row.chapterTitle && row.title, rateLabel(linked(row)),
+        phaseRows.length > 1 ? phaseRows.length + ' acquisition uses' : '',
+      ].filter(Boolean).join(' · ')));
+      item.append(link);
+      list.append(item);
+    }
+    details.append(summary, list);
+    return details;
+  }));
+  if (focus) [...panel.querySelectorAll('a')].find((link) => link.getAttribute('href') === focus)?.focus({ preventScroll: true });
+}
+
+function useView() {
+  if (!current) return;
+  const list = (uses.get(bindingOf(current)) ?? []).filter((use) => assetOf(use) === openAsset && partOf(use) === partOf(current) && inScope(use));
+  $('part-uses').hidden = list.length < 2;
+  $('part-uses').querySelector('summary').textContent = list.length + ' acquisition uses in scope';
+  const focus = $('part-uses').contains(document.activeElement) ? document.activeElement.getAttribute('href') : null;
+  const section = $('part-uses').querySelector('ul');
+  const signature = [selection, ...list.map((row) => rowID(row) + rateLabel(linked(row)))].join('|');
+  if (section.dataset.signature === signature) return;
+  section.dataset.signature = signature;
+  section.replaceChildren(...list.map((use) => {
+    const item = make('li');
+    const link = make('a', use.chapterTitle || use.title);
+    link.href = '#' + rowID(use);
+    if (rowID(use) === selection) link.setAttribute('aria-current', 'true');
+    item.append(link, make('small', [use.chapterTitle && use.title, rateLabel(linked(use))].filter(Boolean).join(' · ')));
+    return item;
+  }));
+  if (focus) [...section.querySelectorAll('a')].find((link) => link.getAttribute('href') === focus)?.focus({ preventScroll: true });
+}
+
+function rowMatches(row, query, rating) {
+  return inScope(row) && matchesAssessment(linked(row), rating) && query.every((token) =>
+    [row.assetLabel, row.partLabel, row.label, row.title, row.chapterTitle, row.case,
+      ...toursOf(row).map(({ label }) => label)].join(' ').toLowerCase().includes(token));
+}
+
+const searchTerms = () => $('query').value.trim().toLowerCase().split(/\s+/).filter(Boolean);
+
+function rowsView() {
+  const query = searchTerms();
+  const rating = $('assessment').value;
+  const candidates = [...inventory.values()].filter((row) => rowMatches(row, query, rating));
+  const groups = grouped(candidates, assetOf);
+  matches = [...groups].sort((left, right) =>
+    Number(right[1].some((row) => assessed(linked(row)))) - Number(left[1].some((row) => assessed(linked(row)))) ||
+    byText(left[1][0].assetLabel ?? left[1][0].title, right[1][0].assetLabel ?? right[1][0].title));
   const total = Math.max(1, Math.ceil(matches.length / pageSize));
-  const selectedIndex = showPageWith ? matches.findIndex((row) => rowID(row) === showPageWith) : -1;
-  index = selectedIndex >= 0 ? Math.floor(selectedIndex / pageSize) : Math.min(index, total - 1);
+  index = Math.min(index, total - 1);
   const visible = matches.slice(pageSize * index, pageSize * (index + 1));
-  const signature = [selection, ...visible.map((row) => rowID(row) + rateLabel(linked(row)))].join('|');
+  const signature = visible.map(([id, rows]) => id + rowID(representative(rows)) + '/' + rows.length).join('|');
   if (signature !== shownRows) {
     shownRows = signature;
-    const rows = visible.map((row) => {
+    const focus = $('rows').contains(document.activeElement) ? document.activeElement.dataset.asset : null;
+    $('rows').replaceChildren(...visible.map(([id, rows]) => {
+      const row = representative(rows);
       const tile = make('li');
-      const key = rowID(row);
-      const part = make('a');
-      part.href = '#' + key;
-      part.ariaLabel = [row.label, row.title, row.chapterTitle, rateLabel(linked(row))].filter(Boolean).join(' · ');
-      if (key === selection) part.setAttribute('aria-current', 'true');
-      const specimen = make('span', undefined, 'specimen');
-      specimen.dataset.part = key;
-      const record = linked(row);
-      const candidate = !record?.prior && record?.comparison?.candidate;
-      if (candidate) {
-        const image = make('img');
-        image.alt = '';
-        image.loading = 'lazy';
-        image.src = candidate;
-        image.addEventListener('error', () => {
-          image.remove();
-          thumbnailObserver.observe(specimen);
-        });
-        specimen.append(image);
-      } else {
-        thumbnailObserver.observe(specimen);
-      }
-      const grade = make('small', rateLabel(linked(row)), assessed(linked(row)) ? 'rated' : 'unrated');
-      part.append(specimen, make('strong', row.label), grade);
-      tile.append(part);
+      const anchor = make('a');
+      anchor.dataset.asset = id;
+      anchor.href = '#' + assetFragment(id);
+      const parts = new Set(rows.map(partOf)).size;
+      anchor.append(specimen(row), make('strong', row.assetLabel ?? row.title),
+        make('small', parts + (parts === 1 ? ' part' : ' parts')));
+      tile.append(anchor);
       return tile;
-    });
-    const focused = $('rows').contains(document.activeElement) ? document.activeElement.hash : null;
-    $('rows').replaceChildren(...rows);
-    if (focused) [...$('rows').querySelectorAll('a')].find((link) => link.hash === focused)?.focus({ preventScroll: true });
+    }));
+    if (focus) [...$('rows').querySelectorAll('a')].find((anchor) => anchor.dataset.asset === focus)?.focus({ preventScroll: true });
   }
-  $('empty').hidden = matches.length > 0 || remaining > 0 || pendingAAA;
-  $('pagination').hidden = total < 2;
+  $('asset-shelf').hidden = Boolean(openAsset);
+  $('asset-detail').hidden = !openAsset;
+  $('pagination').hidden = Boolean(openAsset) || total < 2;
   $('previous').disabled = index === 0;
   $('next').disabled = index + 1 === total;
   $('page').textContent = (index + 1) + ' / ' + total;
+  $('empty').hidden = Boolean(openAsset) || matches.length > 0 || remaining > 0 || pendingAAA;
+  if (openAsset) {
+    const all = assets.get(openAsset) ?? [];
+    const rows = groups.get(openAsset) ?? [];
+    const revisions = [...new Set(rows.map(row => row.assetRevision).filter(Boolean))];
+    $('asset-title').textContent = all[0]?.assetLabel ?? all[0]?.title ?? 'Asset unavailable';
+    $('asset-summary').textContent = rows.length ? rows.length + ' acquisition uses match the current filters.'
+      : 'No acquisition uses match the current filters.';
+    $('asset-source').hidden = !revisions.length;
+    $('asset-source').textContent = 'Source revision · ' + revisions.join(', ');
+    partsView(rows);
+    useView();
+  }
   status();
 }
 
+function clearPart() {
+  ++selectedRequest;
+  selection = current = undefined;
+  delete $('mesh').dataset.ready;
+  $('selection').textContent = 'Select a part';
+  $('selection-context').textContent = 'Choose an asset, then select a part variant to inspect its mesh and assessment.';
+  $('preview').hidden = $('evidence').hidden = $('part-uses').hidden = true;
+}
+
 function refresh() {
-  const family = $('family');
-  const value = family.value;
-  const names = [...new Set([...inventory.values()].map((row) => row.family))].sort();
-  if (names.join() !== [...family.options].slice(1).map((option) => option.value).join()) {
-    family.replaceChildren(new Option('All families', ''), ...names.map((name) => new Option(familyLabels[name] ?? name, name)));
-    family.value = value || '';
-  }
-  rowsView();
   const deep = location.hash.slice(1);
-  if (deep && selection !== deep && inventory.has(deep)) {
+  renderScope();
+  if (deep.startsWith('asset/')) {
+    if (selection) clearPart();
+    try {
+      openAsset = decodeURIComponent(deep.slice(6));
+    } catch {
+      openAsset = undefined;
+    }
+  } else if (deep && inventory.has(deep) && selection !== deep) {
     showPart(deep, true);
-  } else if (deep && !remaining && !pendingAAA && !inventory.has(deep)) {
+    return;
+  } else if (!deep) {
+    openAsset = undefined;
+    if (selection) clearPart();
+  } else if (!remaining && !pendingAAA && !inventory.has(deep)) {
+    openAsset = undefined;
+    clearPart();
     $('selection').textContent = 'Part unavailable';
     $('selection-context').textContent = 'This link does not resolve to a part in the current inventory.';
-    $('preview').hidden = true;
-    $('evidence').hidden = true;
   }
+  rowsView();
 }
 
 function evidenceImage(set, name, label) {
@@ -317,7 +489,16 @@ function evidenceView(row) {
   const rubric = make('a', 'Scoring rubric');
   rubric.href = 'asset-rubric.md';
   section.append(make('p', rateLabel(record), 'rating'), rubric);
-  if (!record) return;
+  if (!record) {
+    section.append(make('p', 'No review is recorded for this part and teaching use. Geometry checks alone do not assign a rubric score.', 'muted'));
+    const reviewed = (uses.get(bindingOf(row)) ?? []).find((use) => assessed(linked(use)));
+    if (reviewed) {
+      const other = make('a', 'Review of the same geometry in ' + (reviewed.chapterTitle || reviewed.title));
+      other.href = '#' + rowID(reviewed);
+      section.append(other);
+    }
+    return;
+  }
   const task = make('p', record.task);
   const by = [record.reviewer, record.reviewedOn, record.revision].filter(Boolean).join(' · ');
   section.append(task, make('p', by, 'muted'));
@@ -406,12 +587,15 @@ function mount(geometry) {
 
 function coordinateSelection(row) {
   const grade = linked(row);
-  $('query').value = '';
-  $('source').value = row.source;
-  $('family').value = row.family;
-  if (!$('assessment').value || !matchesAssessment(grade, $('assessment').value)) {
-    $('assessment').value = assessed(grade) ? 'assessed' : 'unrated';
+  const rowRegion = regionOf(row);
+  if (region && region !== rowRegion) region = rowRegion;
+  if (tourSelection !== null && !toursOf(row).some(({ id }) => tourSelection.has(id))) {
+    tourSelection = new Set(toursOf(row).slice(0, 1).map(({ id }) => id));
   }
+  if ($('query').value) $('query').value = '';
+  if ($('assessment').value && !matchesAssessment(grade, $('assessment').value)) $('assessment').value = '';
+  renderScope();
+  setFilters();
 }
 
 function selectionEvidence(row) {
@@ -425,6 +609,7 @@ async function showPart(key, fromLink = false) {
   if (fromLink) coordinateSelection(row);
   linkedSelection = fromLink;
   current = row;
+  openAsset = assetOf(row);
   selection = key;
   const request = ++selectedRequest;
   $('selection').textContent = row.label;
@@ -445,22 +630,25 @@ async function showPart(key, fromLink = false) {
     route.hash = 'exam';
   }
   $('route').href = route.href;
+  const composed = row.source === 'sweep' ? toursOf(row).filter((tour) =>
+    !tour.id.startsWith('sweep:') && (tourSelection === null || tourSelection.has(tour.id))) : [];
+  const teaching = $('composed-uses');
+  teaching.hidden = !composed.length;
+  teaching.replaceChildren();
+  if (composed.length) {
+    teaching.append('Also used in ');
+    for (const [index, tour] of composed.entries()) {
+      const link = make('a', tour.label);
+      link.href = tour.url;
+      if (index) teaching.append(', ');
+      teaching.append(link);
+    }
+  }
   $('mesh-file').hidden = false;
   $('mesh-file').textContent = row.mesh ? 'Open source mesh' : 'Open geometry recipe';
   $('mesh-file').href = row.mesh ?? '../cases/' + entries.get(row.case).owner + '/playable-scene.js';
   selectionEvidence(row);
-  const list = uses.get(row.binding);
-  $('part-uses').hidden = list.length < 2;
-  $('part-uses').querySelector('summary').textContent = list.length + ' acquisition uses';
-  $('part-uses').querySelector('ul').replaceChildren(...list.map((use) => {
-    const item = make('li');
-    const link = make('a', use.chapterTitle || use.title);
-    link.href = '#' + rowID(use);
-    if (rowID(use) === key) link.setAttribute('aria-current', 'true');
-    item.append(link);
-    return item;
-  }));
-  rowsView(key);
+  rowsView();
   let geometry;
   try {
     geometry = await isolatedMesh(row, entries);
@@ -505,46 +693,103 @@ $('topology').onclick = () => {
   }, 0);
 };
 
+function filtersChanged() {
+  index = 0;
+  renderScope();
+  const url = filterState();
+  const query = searchTerms();
+  const rating = $('assessment').value;
+  if (openAsset && !(assets.get(openAsset) ?? []).some((row) => rowMatches(row, query, rating))) {
+    openAsset = undefined;
+    clearPart();
+    url.hash = '';
+  } else if (current && !rowMatches(current, query, rating)) {
+    clearPart();
+    url.hash = assetFragment(openAsset);
+  }
+  if (url.href !== location.href) history.replaceState(null, '', url);
+  rowsView();
+}
+
 $('filters').onsubmit = (event) => event.preventDefault();
-for (const id of filters) $(id).addEventListener('input', () => { index = 0; rowsView(); });
-$('filters').onreset = () => setTimeout(() => { index = 0; rowsView(); }, 0);
+for (const id of filters) $(id).addEventListener('input', filtersChanged);
+$('region').onchange = () => {
+  region = $('region').value;
+  tourSelection = null;
+  filtersChanged();
+};
+$('all-tours').onchange = () => {
+  tourSelection = $('all-tours').checked ? null : new Set();
+  filtersChanged();
+};
+$('tour-choices').onchange = () => {
+  const inputs = [...$('tour-choices').querySelectorAll('input')];
+  const selected = inputs.filter((input) => input.checked).map((input) => input.value);
+  tourSelection = selected.length === inputs.length ? null : new Set(selected);
+  filtersChanged();
+};
+$('filters').onreset = () => setTimeout(() => {
+  region = '';
+  tourSelection = null;
+  filtersChanged();
+}, 0);
 $('previous').onclick = () => { index--; rowsView(); };
 $('next').onclick = () => { index++; rowsView(); };
-window.addEventListener('hashchange', () => {
-  if (!location.hash) {
-    ++selectedRequest;
-    selection = current = undefined;
-    $('selection').textContent = 'Select a part';
-    $('preview').hidden = $('evidence').hidden = $('part-uses').hidden = true;
-  }
+window.addEventListener('popstate', () => {
+  restoreFilters();
   refresh();
 });
-$('rows').addEventListener('click', (event) => {
+window.addEventListener('hashchange', refresh);
+function activateLink(event) {
   const link = event.target.closest('a');
-  if (!link || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+  if (!link || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
+  if (!link.getAttribute('href')?.startsWith('#')) return;
   event.preventDefault();
   const key = link.hash.slice(1);
-  if (location.hash !== link.hash) history.pushState(null, '', link.hash);
-  showPart(key);
-});
+  if (location.hash !== link.hash) {
+    const url = filterState();
+    url.hash = key;
+    history.pushState(null, '', url);
+  }
+  if (key && !key.startsWith('asset/')) {
+    const row = inventory.get(key);
+    if (row) showPart(key, !rowMatches(row, searchTerms(), $('assessment').value));
+  } else {
+    const from = openAsset;
+    refresh();
+    if (key) $('asset-title').focus();
+    else [...$('rows').querySelectorAll('[data-asset]')].find((anchor) => anchor.dataset.asset === from)?.focus();
+  }
+}
+for (const id of ['rows', 'asset-detail', 'part-uses']) $(id).addEventListener('click', activateLink);
 
 async function start() {
+  restoreFilters();
   remaining = 1;
+  let manifest;
   try {
-    recordRows(sweepRows());
+    manifest = await read('asset-inventory.json');
   } catch (cause) {
-    failures.push('Original sweeps · ' + cause.message);
+    failures.push('Case inventory · ' + cause.message);
+    manifest = { cases: [], teachingTours: [] };
   }
-  refresh();
-  const aaa = aaaRows().then(({ rows, issues }) => {
-    pendingAAA = false;
-    recordRows(rows);
-    failures.push(...issues.map((issue) => 'AAA · ' + issue));
+  setTeachingTours(manifest.teachingTours ?? []);
+  manifest.cases.filter(({ family }) => family !== 'aaa').forEach((entry) => entries.set(entry.id, entry));
+  remaining = entries.size + 1;
+  const originals = Promise.resolve().then(sweepRows).then(recordRows).catch((cause) => {
+    failures.push('Original sweeps · ' + cause.message);
+  }).finally(() => {
+    remaining--;
     refresh();
   });
-  const manifest = await read('asset-inventory.json');
-  manifest.cases.filter(({ family }) => family !== 'aaa').forEach((entry) => entries.set(entry.id, entry));
-  remaining = entries.size;
+  const aaa = aaaRows().then(({ rows, issues }) => {
+    recordRows(rows);
+    failures.push(...issues.map((issue) => 'AAA · ' + issue));
+  }).finally(() => {
+    pendingAAA = false;
+    refresh();
+  });
+  refresh();
   await Promise.allSettled((manifest.reviews ?? []).map(async (path) => {
     try {
       const { records, recipeHash, rubricHash } = await read(path);
@@ -565,7 +810,7 @@ async function start() {
   if (current) {
     if (linkedSelection) coordinateSelection(current);
     selectionEvidence(current);
-    rowsView(selection);
+    rowsView();
   }
   const requested = inventory.has(location.hash.slice(1)) ? undefined : location.hash.slice(1).split('/')[1];
   const reviewedCases = new Set([...reviews.values(), ...uniqueReviews.values()].map((record) => record.case));
@@ -583,7 +828,7 @@ async function start() {
     refresh();
     await new Promise((resolve) => setTimeout(resolve, 0));
   }
-  await aaa;
+  await Promise.allSettled([originals, aaa]);
   refresh();
   if (current) selectionEvidence(current);
 }

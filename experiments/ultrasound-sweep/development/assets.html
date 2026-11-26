@@ -14,25 +14,39 @@
     <header class="intro"><h1>Anatomy asset qualification</h1><p>Inspect the meshes shown in ultrasound sweeps and case acquisitions, and compare reviewed parts with their baseline.</p></header>
     <search>
       <form id="filters" action="assets.html">
+        <label>Body region <select id="region" name="region"><option value="">All body regions</option></select></label>
         <label>Find a part or acquisition <input id="query" name="q" type="search" placeholder="e.g. thyroid or aortic wall"></label>
-        <label>Source <select id="source" name="source"><option value="">All sources</option><option value="case">Modeled case tours</option><option value="aaa">Registered AAA</option><option value="sweep">Original sweeps</option></select></label>
-        <label>Family <select id="family" name="family"><option value="">All families</option></select></label>
         <label>Assessment <select id="assessment" name="assessment"><option value="">All assessments</option><option value="assessed">Assessed</option><option value="qualified">Qualified · 4 on every axis</option><option value="below">Below target</option><option value="exemplar">Exemplars</option><option value="unrated">Unrated</option></select></label>
-        <button id="clear" type="reset">Clear</button>
-        <label class="expand-uses"><input id="expand-uses" name="uses" type="checkbox"> Show every acquisition use</label>
+        <button id="clear" type="reset">Clear filters</button>
+        <fieldset id="tours">
+          <legend>Tours and standalone sweeps</legend>
+          <div class="tour-toolbar"><label class="tour-choice"><input id="all-tours" type="checkbox" checked> All in this region</label><span id="tour-count"></span></div>
+          <div id="tour-choices"></div>
+        </fieldset>
       </form>
     </search>
     <p id="inventory-status" role="status">Loading inventory…</p>
     <div class="workspace">
-      <section aria-label="Anatomical parts" class="catalog">
-        <ul id="rows" class="specimen-shelf"></ul>
-        <p id="empty" hidden>No anatomical parts match these filters.</p>
+      <section aria-label="Anatomical assets" class="catalog">
+        <section id="asset-shelf" aria-labelledby="asset-shelf-title">
+          <h2 id="asset-shelf-title" class="catalog-heading">Assets</h2>
+          <ul id="rows" class="specimen-shelf"></ul>
+        </section>
+        <section id="asset-detail" aria-labelledby="asset-title" hidden>
+          <nav aria-label="Asset navigation"><a id="back-to-assets" href="#">All assets</a></nav>
+          <h2 id="asset-title" tabindex="-1"></h2>
+          <p id="asset-summary"></p>
+          <p id="asset-source" hidden></p>
+          <h3>Parts</h3>
+          <div id="asset-parts"></div>
+        </section>
+        <p id="empty" hidden>No assets match these filters.</p>
         <nav id="pagination" aria-label="Inventory pages" hidden><button id="previous" type="button">Previous</button><span id="page"></span><button id="next" type="button">Next</button></nav>
       </section>
       <aside id="inspector" aria-labelledby="selection">
         <header class="selection-heading">
           <h2 id="selection">Select a part</h2>
-          <p id="selection-context">Choose a specimen to isolate its mesh and open its assessment.</p>
+          <p id="selection-context">Choose an asset, then select a part variant to inspect its mesh and assessment.</p>
         </header>
         <div id="preview" hidden>
           <div class="controls" id="views" aria-label="Mesh view"></div>
@@ -46,6 +60,7 @@
             <p id="geometry-topology" role="status"></p>
           </section>
           <div class="link-row"><a id="route">Open acquisition</a><a id="mesh-file" hidden>Open source mesh</a></div>
+          <p id="composed-uses" hidden></p>
         </div>
         <details id="part-uses" hidden><summary>Acquisition uses</summary><ul></ul></details>
         <section id="evidence" aria-label="Assessment evidence" hidden></section>

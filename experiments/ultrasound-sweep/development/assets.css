@@ -104,3 +104,29 @@ figure img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: conta
 .expand-uses input { min-height: 1rem; min-width: 1rem; }
 #part-uses { margin: .65rem 0; }
 #part-uses[open] ul { max-height: 12rem; overflow-y: auto; margin-block: .4rem; }
+#filters { grid-template-columns: minmax(185px, 1.6fr) minmax(150px, .85fr) minmax(190px, 1fr) auto; }
+#tours { grid-column: 1 / -1; min-width: 0; padding: .4rem .65rem .6rem; border: 1px solid var(--line); border-radius: .4rem; }
+#tours legend { padding-inline: .3rem; font-weight: 700; }
+.tour-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .45rem; padding-bottom: .35rem; }
+#tour-count { color: var(--quiet); font-size: .86rem; }
+#tour-choices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .3rem .65rem; max-height: 8rem; overflow: auto; }
+.tour-choice { display: flex; gap: .42rem; align-items: baseline; font-weight: 450; cursor: pointer; }
+.tour-choice input { min-height: 1rem; min-width: 1rem; margin: .28rem 0 0; accent-color: var(--teal); }
+.tour-choice span { overflow-wrap: anywhere; }
+.catalog-heading { margin: .85rem .9rem 0; font-size: 1.35rem; }
+#asset-detail { padding: 1rem; }
+#asset-detail nav { margin-bottom: .7rem; }
+#asset-detail h2 { margin-bottom: .45rem; }
+#asset-summary { color: var(--quiet); }
+#asset-source { display: inline-block; margin-bottom: .5rem; }
+.part-group { margin-bottom: .5rem; border: 1px solid var(--line); border-radius: .4rem; }
+.part-group summary { cursor: pointer; padding: .5rem .65rem; font-weight: 700; }
+.part-group summary small { margin-inline-start: .5rem; color: var(--quiet); font-weight: 450; }
+.variant-list { list-style: none; margin: 0; padding: 0 .45rem .45rem; }
+.variant-list a { display: block; padding: .45rem .55rem; border-radius: .35rem; }
+.variant-list a[aria-current="true"] { background-color: #dcece3; }
+.variant-list small, #part-uses li small { display: block; color: var(--quiet); text-decoration: none; }
+@media (max-width: 820px) {
+  #filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #tour-choices { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}

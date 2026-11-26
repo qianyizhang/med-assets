@@ -1,5 +1,6 @@
 import * as THREE from '../vendor/build/three.module.js';
 import { loadMesh } from '../scene.js';
+import { classifyAsset, geometryDigest, regionFor, regions } from './assets-identity.js';
 
 export const axes = [
   ['fidelity', 'Fidelity to evidence'], ['form', 'Form and surface'],
@@ -7,6 +8,12 @@ export const axes = [
 ];
 const study = new URL('../', location.href);
 export const studyURL = (path) => new URL(path.replace(/^\.\.\//, ''), study).href;
+export { regions };
+let teachingTours = [];
+
+export function setTeachingTours(tours = []) {
+  teachingTours = tours;
+}
 
 export async function read(url, type = 'json') {
   const response = await fetch(url);
@@ -24,13 +31,14 @@ export function dispose(object) {
   materials.forEach((material) => material.dispose());
 }
 
-function childMeshes(node, skin, parent = '', path = '') {
+function childMeshes(node, skin, parent = '', path = '', inSkin = false) {
   if (!node.visible) return [];
+  const exterior = node === skin || inSkin;
   const context = node.name || parent;
-  if (!node.isMesh) return node.children.flatMap((child, i) => childMeshes(child, skin, context, path + '/' + i));
-  if (!node.geometry?.attributes?.position || node.material?.isMeshBasicMaterial) return [];
-  const name = node.name || (node === skin ? 'Patient exterior' : '');
-  return [{ node, path, name, label: name || (context ? context + ' · mesh ' : 'Unnamed anatomical mesh ') + path.slice(1),
+  if (!node.isMesh) return node.children.flatMap((child, i) => childMeshes(child, skin, context, path + '/' + i, exterior));
+  if (!node.geometry?.attributes?.position?.count || node.material?.isMeshBasicMaterial) return [];
+  const name = node.name || (exterior ? 'Patient exterior' : '');
+  return [{ node, path, name, skin: exterior, label: name || (context ? context + ' · mesh ' : 'Unnamed anatomical mesh ') + path.slice(1),
     triangles: Math.floor((node.geometry.index?.count ?? node.geometry.attributes.position.count) / 3) }];
 }
 
@@ -56,33 +64,129 @@ export async function caseModel(entry, chapterId) {
 }
 
 function rowBase(source, entry, chapter = {}) {
+  const relevant = teachingTours.filter((tour) => source === 'sweep' ? tour.sweepIds?.includes(entry.id)
+    : (tour.caseId ?? tour.id) === entry.id);
+  const region = relevant[0]?.region ?? regionFor(entry.family);
+  const teachingSelections = relevant.map((tour) => {
+    const url = new URL(studyURL(tour.url));
+    const section = tour.sections?.find(({ sweep }) => sweep === entry.id);
+    if (section) {
+      url.searchParams.set('chapter', section.id);
+      url.searchParams.set('frame', section.start);
+    }
+    return { id: tour.id, label: tour.title, url: url.href };
+  });
+  if (source === 'sweep' || !teachingSelections.length) {
+    teachingSelections.push({ id: source === 'sweep' ? 'sweep:' + entry.id : entry.id, label: entry.title, url: studyURL(entry.url) });
+  }
   return { source, case: entry.id, family: entry.family, title: entry.title, chapter: chapter.id ?? '',
-    chapterTitle: chapter.title ?? '', url: studyURL(entry.url), frame: chapter.evidenceFrame };
+    chapterTitle: chapter.title ?? '', url: studyURL(entry.url), frame: chapter.evidenceFrame,
+    region, regionLabel: regions[region], teachingSelections };
 }
 
-function fileParts(source, entry, config, base, chapter) {
+const packedDigests = new Map();
+
+function fileDigest(url, scale) {
+  const key = url + '\n' + scale;
+  if (!packedDigests.has(key)) {
+    const pending = read(url, 'arrayBuffer').then((bytes) => {
+      const view = new DataView(bytes);
+      const count = view.getUint32(0, true), faces = view.getUint32(4, true);
+      const start = 8 + count * 12;
+      if (!count || !faces || start + faces * 12 !== bytes.byteLength) throw Error('Invalid mesh structure.');
+      return geometryDigest(count,
+        (vertex, axis) => Math.fround(view.getFloat32(8 + (vertex * 3 + axis) * 4, true) * scale),
+        faces * 3, (i) => view.getUint32(start + i * 4, true));
+    });
+    packedDigests.set(key, pending.catch((error) => {
+      packedDigests.delete(key);
+      throw error;
+    }));
+  }
+  return packedDigests.get(key);
+}
+
+const geometryCache = new WeakMap();
+
+function liveDigest(node) {
+  const geometry = node.geometry;
+  const { position } = geometry.attributes;
+  const index = geometry.index;
+  const m = node.matrixWorld.elements;
+  const linear = [m[0], m[4], m[8], m[1], m[5], m[9], m[2], m[6], m[10]];
+  const key = [position.version ?? position.data?.version, index?.version, ...linear].join('/');
+  if (!geometryCache.has(geometry)) geometryCache.set(geometry, { position, index, uses: new Map() });
+  let cache = geometryCache.get(geometry);
+  if (cache.position !== position || cache.index !== index) {
+    cache = { position, index, uses: new Map() };
+    geometryCache.set(geometry, cache);
+  }
+  if (!cache.uses.has(key)) {
+    cache.uses.set(key, geometryDigest(position.count,
+      (vertex, axis) => position.getComponent(vertex, axis),
+      index?.count ?? position.count, (i) => index?.getX(i) ?? i, linear));
+  }
+  return cache.uses.get(key);
+}
+
+// Registered tours can point straight to an original sweep's part. Resolve that
+// declared reference before assigning a case-model identity to the geometry.
+let sweepSources;
+function sweepSource(mesh, part) {
+  if (!sweepSources) {
+    sweepSources = new Map();
+    for (const config of typeof abdomenTours === 'undefined' ? [] : abdomenTours) {
+      for (const id of ['torso', ...config.parts.map(({id}) => id)]) {
+        const path = config.meshPaths?.[id] ?? new URL('scenes/' + id + '.mesh', new URL(config.assetRoot, study));
+        sweepSources.set(new URL(path, study).href + '#' + id, config);
+      }
+    }
+  }
+  return sweepSources.get(mesh + '#' + part);
+}
+
+async function bind(row, skin, config, digest) {
+  const donor = row.source === 'aaa' && sweepSource(row.mesh, row.part);
+  const identity = donor
+    ? classifyAsset({ ...row, source: 'sweep', region: regionFor(donor.bodyRegion), family: donor.bodyRegion }, skin, donor)
+    : classifyAsset(row, skin, config);
+  let meshDigest = null;
+  let identityIssue;
+  try {
+    meshDigest = await digest;
+  } catch (error) {
+    identityIssue = error.message;
+  }
+  const variantId = [identity.assetId, identity.partId, meshDigest ?? ('unavailable/' + rowID(row))].join('/');
+  return { ...row, ...identity, meshDigest, identityIssue, variantId, binding: variantId };
+}
+
+async function fileParts(source, entry, config, base, chapter) {
   const items = [{ id: 'torso', label: 'Patient exterior' }, ...config.parts];
-  return items.map(({ id, label, color }) => ({
-    ...rowBase(source, entry, chapter), part: id, label, occurrence: 1, color,
-    mesh: new URL(config.meshPaths?.[id] ?? new URL('scenes/' + id + '.mesh', new URL(config.assetRoot, base)), base).href,
-    scale: config.voxelMm ?? 1.5,
+  return Promise.all(items.map(({ id, label, color }) => {
+    const mesh = new URL(config.meshPaths?.[id] ?? new URL('scenes/' + id + '.mesh', new URL(config.assetRoot, base)), base).href;
+    const scale = config.voxelMm ?? 1.5;
+    return bind({ ...rowBase(source, entry, chapter), part: id, label, occurrence: 1, color, mesh, scale },
+      id === 'torso', config, fileDigest(mesh, scale));
   }));
 }
 
-export function sweepRows() {
+export async function sweepRows() {
   if (typeof abdomenTours === 'undefined') throw Error('Sweep catalogue unavailable.');
-  return abdomenTours.flatMap((sweep) => fileParts('sweep', {
+  const sweeps = await Promise.all(abdomenTours.map((sweep) => fileParts('sweep', {
     ...sweep, family: sweep.bodyRegion ?? 'Abdomen', url: 'index.html?sweep=' + sweep.id,
-  }, sweep, study));
+  }, sweep, study)));
+  return sweeps.flat();
 }
 
 export async function aaaRows() {
   const base = new URL('tours/aaa/', study);
   const records = await Promise.allSettled(['aaa-negative', 'aaa-positive', 'aaa-indeterminate'].map(async (id) => {
     const [scene, record] = await Promise.all([read(new URL(id + '.scene.json', base)), read(new URL(id + '.json', base))]);
-    return Object.entries(scene).flatMap(([chapter, { config }]) => fileParts('aaa', {
+    const parts = await Promise.all(Object.entries(scene).map(([chapter, { config }]) => fileParts('aaa', {
       id, family: 'aaa', title: record.title, url: 'tours/aaa/' + id + '.html',
-    }, config, base, { id: chapter, title: chapter.replaceAll('-', ' '), evidenceFrame: 14 }));
+    }, config, base, { id: chapter, title: chapter.replaceAll('-', ' '), evidenceFrame: 14 })));
+    return parts.flat();
   }));
   return { rows: records.flatMap((entry) => entry.status === 'fulfilled' ? entry.value : []),
     issues: records.filter((entry) => entry.status === 'rejected').map(({ reason }) => reason.message) };
@@ -91,19 +195,13 @@ export async function aaaRows() {
 export async function caseRows(entry) {
   const { sections, model } = await caseModel(entry);
   try {
-    return sections.flatMap((chapter) => {
+    const rows = sections.flatMap((chapter) => {
       model.update(chapter, chapter.evidenceFrame);
       model.anatomy.updateMatrixWorld(true);
-      return meshParts(model).map(({ node, ...part }) => {
-        const { geometry } = node;
-        const { position } = geometry.attributes;
-        const binding = [
-          entry.id, part.path, part.part, geometry.id, position.uuid ?? '', position.version,
-          geometry.index?.version ?? '', ...node.matrixWorld.elements,
-        ].join('/');
-        return { ...rowBase('case', entry, chapter), ...part, binding, color: node.material?.color?.getStyle() };
-      });
+      return meshParts(model).map(({ node, skin, ...part }) =>
+        bind({ ...rowBase('case', entry, chapter), ...part, color: node.material?.color?.getStyle() }, skin, undefined, liveDigest(node)));
     });
+    return await Promise.all(rows);
   } finally {
     if (model.dispose) model.dispose();
     else dispose(model.anatomy);
