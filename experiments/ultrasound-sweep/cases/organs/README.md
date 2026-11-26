@@ -29,6 +29,8 @@ The [acquisition module](playable.js) exposes ordered chapters and tissue sectio
 
 Run `node experiments/ultrasound-sweep/cases/organs/test-playable.mjs` to check changing section and locator geometry, exact evidence-frame measurements, replay links and representative repeat outcomes. Every record view resolves to a playable chapter. The local Chrome spot check decoded seven representative canvas pairs and compared scan and locator pixels across frames.
 
+The breast gland and tail use footprints and anterior/posterior depth samples from the original gland mesh. The B-mode section and the 3D surface share the calibrated depth envelope. The retromammary fat sits immediately anterior to the pectoral fascia. See the [matched breast assessments](../../development/asset-reviews/organs/reviews.json).
+
 The bilateral supplemental screening traverses use 1 mm steps across each band. The geometry check covers the modeled gland, fat and axillary tail down to their posterior extents. This is a check of the authored case geometry.
 
 The anatomy overlay follows the same tissue contours, field boundaries, layer order and acoustic shadow as the B-mode image. Its legend lists tissue sampled within the visible field. The same calibrated endpoints remain visible at each evidence frame. Orbiting reprojects the modeled ellipsoids, probe footprint and imaging plane together around the patient’s longitudinal axis. The scan and measurements stay on the selected acquisition frame.

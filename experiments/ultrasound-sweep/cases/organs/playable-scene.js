@@ -1,7 +1,7 @@
 import * as THREE from '../../vendor/build/three.module.js';
 import {abdominalChapters,abdominalVolume} from './playable-abdomen.js';
 import {breastChapters,breastVolume,thyroidChapters,thyroidVolume} from './playable-neck-breast.js';
-import {cut,plane} from './playable-geometry.js';
+import {clipSectionEdge,cut,depthSpan,footprintScale,plane,sectionContour} from './playable-geometry.js';
 import {fitCaseSkin} from './playable-scene-skin.js';
 
 // Native voxel anchors place each modeled midline and scan region on the delivered exterior.
@@ -40,8 +40,32 @@ function beamOf(chapter,frame,family) {
   };
 }
 
+export function profileGeometry(shape, segments=36, rings=24) {
+  const geometry=new THREE.SphereGeometry(1,segments,rings);
+  const points=geometry.getAttribute('position');
+  for (let i=0; i<points.count; i++) {
+    const u=-points.getX(i), v=points.getZ(i);
+    const scale=footprintScale(shape,u,v);
+    const [front,back]=depthSpan(shape,u*scale,v*scale);
+    // Preserve the x/z contour. Interpolate from anterior to posterior
+    // using the original sphere side; both sides join at zero depth span.
+    const envelope=Math.sqrt(Math.max(0,1-u*u-v*v));
+    const side=envelope<1e-5 ? .5 : Math.max(0,Math.min(1,(1-points.getY(i)/envelope)/2));
+    points.setXYZ(i,-u*scale*shape.radii[0],shape.center[1]-(front+(back-front)*side),v*scale*shape.radii[2]);
+  }
+  points.needsUpdate=true;
+  geometry.computeVertexNormals();
+  return geometry;
+}
+
 function style(shape) {
   const id=shape.id;
+  if (id==='Anechoic simple cyst') return ['#6aa899',.92];
+  if (id.includes('axillary cortex')) return ['#dcaa65',.66];
+  if (id.includes('Fibroglandular')) return ['#bc879f',.53];
+  if (id==='Retromammary fat') return ['#d5b47e',.42];
+  if (id==='Pectoral fascia') return ['#dad0c1',.38];
+  if (id==='Chest wall') return ['#9c7d80',.32];
   if (/gas|calculus|clavicle|vertebral|diaphragm|septum|fascia/i.test(id)) return ['#dac8a0',.64];
   if (/cyst|nodule|cortex|pelvis|calyx|duct|node/i.test(id)) return ['#e4a760',.88];
   if (/hilum/i.test(id)) return ['#eccc8b',.72];
@@ -55,6 +79,61 @@ function style(shape) {
   return ['#b2a594',.47];
 }
 
+
+const sectionColors={
+  'Fibroglandular tissue':'#ffd1ef',
+  'Retromammary fat':'#f8c27a',
+  'Pectoral fascia':'#f1f5fa',
+};
+
+function screeningContours() {
+  const group=new THREE.Group();
+  const lines=new Map(Object.entries(sectionColors).map(([name,color])=>{
+    const geometry=new THREE.BufferGeometry();
+    const buffer=new THREE.Float32BufferAttribute(new Float32Array(2*2*82*3),3);
+    geometry.setAttribute('position',buffer.setUsage(THREE.DynamicDrawUsage));
+    const line=new THREE.LineSegments(geometry,new THREE.LineBasicMaterial({color,transparent:true,depthTest:false,depthWrite:false}));
+    line.frustumCulled=false;
+    line.renderOrder=8;
+    group.add(line);
+    return [name,line];
+  }));
+  function update(chapter,frame,pose,volume) {
+    group.visible=Boolean(chapter.layerLabels);
+    if (!group.visible) return;
+    const sample=plane(chapter,frame);
+    for (const [name,line] of lines) {
+      const positions=line.geometry.getAttribute('position');
+      let used=0;
+      for (const shape of volume) {
+        if (shape.id!==name) continue;
+        const section=cut(shape,sample);
+        if (!section) continue;
+        const contour=sectionContour(section);
+        for (const [i,a] of contour.entries()) {
+          const segment=clipSectionEdge(a,contour[(i+1)%contour.length],pose.fieldWidth/2,pose.depth);
+          if (!segment) continue;
+          for (const [lateral,depth] of segment) {
+            const point=[0,depth,0];
+            point[sample.axis]=sample.center+lateral;
+            point[sample.normal]=sample.level;
+            positions.setXYZ(used++,...ras(point));
+          }
+        }
+      }
+      positions.needsUpdate=true;
+      line.geometry.setDrawRange(0,used);
+    }
+  }
+  function dispose() {
+    for (const line of lines.values()) {
+      line.geometry.dispose();
+      line.material.dispose();
+    }
+  }
+  return {group,update,dispose};
+}
+
 export async function createCaseModel(record,initialChapter) {
   const recipe=recipes[record.family];
   const paths=recipe.chapters(record).map(c=>[0,c.frames-1].map(frame=>{
@@ -66,28 +145,46 @@ export async function createCaseModel(record,initialChapter) {
   const anatomy=new THREE.Group();
   const tissues=new THREE.Group();
   anatomy.add(skin,tissues);
+  const contours=record.id==='breast-supplemental-screening' ? screeningContours() : null;
+  if (contours) anatomy.add(contours.group);
   const unit=new THREE.SphereGeometry(1,36,24);
   const materials=new Map();
-  let active;
+  const profiled=new Map();
+  let active,volume;
   function update(chapter,frame) {
     if (active!==chapter) {
       active=chapter;
       tissues.clear();
-      for (const shape of recipe.volume(record,chapter)) {
+      volume=recipe.volume(record,chapter);
+      for (const shape of volume) {
         if (/^skin$/i.test(shape.id)) continue;
         const [color,opacity]=style(shape);
         const key=color+opacity;
         if (!materials.has(key)) materials.set(key,new THREE.MeshStandardMaterial({
           color,opacity,transparent:opacity<1,depthWrite:opacity>=1,roughness:.84,
         }));
-        const tissue=new THREE.Mesh(unit,materials.get(key));
+        let geometry=unit;
+        if (shape.depthProfile) {
+          const signature=[shape.depthProfile,shape.footprint,Math.sign(shape.center[0]),...shape.radii].join(':');
+          if (!profiled.has(signature)) {
+            // Keep the small node's analytic notch in a lighter 24×16 shell.
+            const node=shape.depthProfile==='axillary-cortex';
+            // Align the gland's azimuth topology with its 48 measured silhouette samples.
+            const segments=node ? 24 : ['lobular','tail-region'].includes(shape.footprint) ? 48 : 36;
+            profiled.set(signature,profileGeometry(shape,segments,node ? 16 : 24));
+          }
+          geometry=profiled.get(signature);
+        }
+        const tissue=new THREE.Mesh(geometry,materials.get(key));
         tissue.name=shape.id;
         tissue.position.fromArray(ras(shape.center));
-        tissue.scale.fromArray(shape.radii);
+        if (geometry===unit) tissue.scale.fromArray(shape.radii);
         tissues.add(tissue);
       }
     }
-    return beamOf(chapter,frame,record.family);
+    const pose=beamOf(chapter,frame,record.family);
+    contours?.update(chapter,frame,pose,volume);
+    return pose;
   }
   update(initialChapter,initialChapter.evidenceFrame);
   function legend(chapter) {
@@ -95,21 +192,24 @@ export async function createCaseModel(record,initialChapter) {
     const visible=recipe.volume(record,chapter).filter(shape=>{
       const section=cut(shape,slice);
       return section && Math.abs(section.x)<section.w+40 && section.y-section.h<chapter.depth
-        && !/skin|nipple|fascia|septum|wall|lumen|shadow/i.test(shape.id);
+        && !/skin|nipple|septum|lumen|shadow/i.test(shape.id);
     });
     const scored=visible.map(shape=>{
       const measure=chapter.marks?.some(mark=>mark.id===shape.id || mark.inner===shape.id);
       const finding=/cyst|nodule|calculus|dilated|cortex|bowel gas/i.test(shape.id);
       const dx=shape.center[slice.axis]-slice.center;
-      return {shape,score:(measure ? -100 : 0)+(finding ? -80 : 0)+Math.abs(dx)};
+      return {shape,score:(measure ? -100 : 0)+(finding ? -80 : 0)
+        +(chapter.layerLabels?.includes(shape.id) ? -70 : 0)+Math.abs(dx)};
     }).sort((a,b)=>a.score-b.score);
-    return [...new Map(scored.map(({shape})=>[shape.id,{label:shape.label ?? shape.id,color:style(shape)[0]}])).values()]
+    return [...new Map(scored.map(({shape})=>[shape.id,{label:shape.label ?? shape.id,color:(chapter.layerLabels && sectionColors[shape.id]) ?? style(shape)[0]}])).values()]
       .slice(0,5);
   }
   function dispose() {
     skin.geometry.dispose();
     skin.material.dispose();
     unit.dispose();
+    contours?.dispose();
+    for (const geometry of profiled.values()) geometry.dispose();
     for (const material of materials.values()) material.dispose();
   }
   return {anatomy,skin,radius:recipe.radius,update,legend,dispose};

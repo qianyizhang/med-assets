@@ -8,6 +8,7 @@ import tempfile
 
 import assemble_tours
 from delivery import read_poses, sha256
+from asset_qualification import validate_reviews
 
 
 def javascript_value(path, variable):
@@ -23,6 +24,37 @@ def reject(source, target, expected):
     else:
         raise AssertionError(f'Assembly accepted {expected}')
     assert not target.exists(), f'Assembly published an incomplete delivery: {target}'
+
+
+def verify_review_failures(work):
+    package = work / 'development/asset-reviews/test'
+    package.mkdir(parents=True)
+    image = package / 'paired.webp'
+    image.write_bytes(b'illustrative fixture')
+    record = dict(case='test', part='rim', revision='sample', task='Trace the opening', rubric='fixture',
+                  reviewer='test', reviewedOn='test', scores={'form': 3}, scoreEvidence={'form': 'Visible rim'},
+                  comparison={'candidate': 'asset-reviews/test/paired.webp'})
+    data = dict(version=1, records=[record], evidenceSha256={image.name: sha256(image.read_bytes())})
+    path = package / 'reviews.json'
+    path.write_text(json.dumps(data))
+    validate_reviews(path)
+
+    def must_fail(reason):
+        path.write_text(json.dumps(data))
+        try:
+            validate_reviews(path)
+        except ValueError as error:
+            assert reason in str(error), error
+        else:
+            raise AssertionError('Accepted invalid review: ' + reason)
+
+    record['scores']['form'] = 5
+    must_fail('score')
+    record['scores']['form'] = 3
+    image.write_bytes(b'changed witness')
+    must_fail('identity mismatch')
+    record['comparison']['candidate'] = 'asset-reviews/test/missing.webp'
+    must_fail('Missing or unbound')
 
 
 def verify_subset(staging, destination, expected):
@@ -41,6 +73,7 @@ def verify_subset(staging, destination, expected):
 def verify(source, aaa_acquisitions=None):
     with tempfile.TemporaryDirectory() as work:
         work = Path(work)
+        verify_review_failures(work)
         staging = work / 'staging'
         destination = work / 'delivery'
         shutil.copytree(source, staging)

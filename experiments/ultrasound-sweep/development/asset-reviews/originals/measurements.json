@@ -1,0 +1,233 @@
+[
+  {
+    "case": "gallbladder",
+    "part": "gallbladder",
+    "subject": "s1233",
+    "meshPath": "./scenes/gallbladder.mesh",
+    "sourceHash": "c5dd1e8886ed87d29dac8225acbac49dfc308c0ead9116690c818e49b1addcc7",
+    "meshSha256": "6509c00826a818036d690192e98cb2f8e14aeb8786f9c699b2c8d5fb95ea1de9",
+    "originalFaces": 8400,
+    "faces": 2136,
+    "bytes": 38480,
+    "lightFaces": 528,
+    "lightBytes": 9536,
+    "toLabel": [
+      0.76,
+      1.18
+    ],
+    "fromLabel": [
+      1.09,
+      2.59
+    ],
+    "lightFromLabel": [
+      2.19,
+      4.18
+    ],
+    "poleErrors": [
+      0.25,
+      2.299999952316284
+    ],
+    "lightPoleErrors": [
+      1.1699999570846558,
+      3.549999952316284
+    ]
+  },
+  {
+    "case": "liver",
+    "part": "liver",
+    "subject": "s1233",
+    "meshPath": "sweeps/liver/scenes/liver.mesh",
+    "sourceHash": "0e37697cde4bf2f6042fa89d338cfbe71d85b4b44e42801840be5612c4785980",
+    "meshSha256": "27862cad9d34d1d7a7b86a1ce8d92014f5d7db534788c45cb4ef9fd1cce20089",
+    "originalFaces": 124816,
+    "faces": 123204,
+    "bytes": 2217704,
+    "lightFaces": 7604,
+    "lightBytes": 136880,
+    "toLabel": [
+      0.58,
+      1.51
+    ],
+    "fromLabel": [
+      0.66,
+      3.24
+    ],
+    "lightFromLabel": [
+      2.07,
+      13.38
+    ],
+    "poleErrors": [
+      0.0,
+      0.0
+    ],
+    "lightPoleErrors": [
+      1.1699999570846558,
+      1.1699999570846558
+    ]
+  },
+  {
+    "case": "pancreas",
+    "part": "pancreas",
+    "subject": "s1233",
+    "meshPath": "sweeps/pancreas/scenes/pancreas.mesh",
+    "sourceHash": "9f11083652d059e85514d419c90124911953dbbce2018ccc549eaa2c73b0968b",
+    "meshSha256": "7ba31afffdffbed4d60c5834ab86f3eefb6f784261b519b8bb2f093103a40045",
+    "originalFaces": 17920,
+    "faces": 16620,
+    "bytes": 299240,
+    "lightFaces": 956,
+    "lightBytes": 17240,
+    "toLabel": [
+      0.66,
+      1.54
+    ],
+    "fromLabel": [
+      0.89,
+      5.06
+    ],
+    "lightFromLabel": [
+      2.97,
+      8.29
+    ],
+    "poleErrors": [
+      0.0,
+      0.07000000029802322
+    ],
+    "lightPoleErrors": [
+      1.0399999618530273,
+      0.7300000190734863
+    ]
+  },
+  {
+    "case": "spleen",
+    "part": "spleen",
+    "subject": "s1233",
+    "meshPath": "sweeps/spleen/scenes/spleen.mesh",
+    "sourceHash": "760eb489a2f6821ce25e7565e4d73709cab5a1ef0af6537d193b2ce036213573",
+    "meshSha256": "6c5ecf67f894ceb581bfc4a64be704cb6bd0b1c3ab8d588bbebe47e0396a99c9",
+    "originalFaces": 19360,
+    "faces": 19232,
+    "bytes": 346208,
+    "lightFaces": 1180,
+    "lightBytes": 21272,
+    "toLabel": [
+      0.59,
+      1.25
+    ],
+    "fromLabel": [
+      0.65,
+      1.65
+    ],
+    "lightFromLabel": [
+      2.04,
+      4.07
+    ],
+    "poleErrors": [
+      0.0,
+      0.0
+    ],
+    "lightPoleErrors": [
+      1.1699999570846558,
+      0.6600000262260437
+    ]
+  },
+  {
+    "case": "kidney-left",
+    "part": "kidney_left",
+    "subject": "s1233",
+    "meshPath": "sweeps/spleen/scenes/kidney_left.mesh",
+    "sourceHash": "e0c7e53f00a20cedbe3e13d687ffc6d5e03a33824d4e4c7124f25335179b794e",
+    "meshSha256": "c863c681ee3b6ea9ce42944292c205a097eceeb46d28c6cdaeaf7c6650b0eb69",
+    "originalFaces": 26072,
+    "faces": 25752,
+    "bytes": 463568,
+    "lightFaces": 1568,
+    "lightBytes": 28256,
+    "toLabel": [
+      0.58,
+      1.5
+    ],
+    "fromLabel": [
+      0.66,
+      1.93
+    ],
+    "lightFromLabel": [
+      2.09,
+      3.99
+    ],
+    "poleErrors": [
+      0.0,
+      0.0
+    ],
+    "lightPoleErrors": [
+      1.1699999570846558,
+      1.100000023841858
+    ]
+  },
+  {
+    "case": "kidney-right",
+    "part": "kidney_right",
+    "subject": "s1233",
+    "meshPath": "sweeps/kidney-right/scenes/kidney_right.mesh",
+    "sourceHash": "8ca7e6696b90cb1e7e39b14e5c8f7e92c59b9344bff8fd368009751335abc8b5",
+    "meshSha256": "58d9a1d89b0fadbb6f2601e665d946b36bd44fc4e6cdc9ec1eb11b7ec0ffc833",
+    "originalFaces": 23400,
+    "faces": 23156,
+    "bytes": 416840,
+    "lightFaces": 1392,
+    "lightBytes": 25088,
+    "toLabel": [
+      0.58,
+      1.11
+    ],
+    "fromLabel": [
+      0.65,
+      1.49
+    ],
+    "lightFromLabel": [
+      2.06,
+      3.75
+    ],
+    "poleErrors": [
+      0.0,
+      0.0
+    ],
+    "lightPoleErrors": [
+      1.0399999618530273,
+      1.2400000095367432
+    ]
+  },
+  {
+    "case": "thyroid-right",
+    "part": "thyroid_gland",
+    "subject": "s1127",
+    "meshPath": "sweeps/thyroid-right/scenes/thyroid_gland.mesh",
+    "sourceHash": "90e46bd16d3395fab1bad27506a05211ca7e17660380e69ff90e456a61ca5fc0",
+    "meshSha256": "73207b41254e7baff0bfaee4c0d65e0cb1533832b0dd476921994d13d7d89f25",
+    "originalFaces": 6476,
+    "faces": 6248,
+    "bytes": 112496,
+    "lightFaces": 336,
+    "lightBytes": 6080,
+    "toLabel": [
+      0.48,
+      1.06
+    ],
+    "fromLabel": [
+      0.6,
+      1.46
+    ],
+    "lightFromLabel": [
+      3.11,
+      5.34
+    ],
+    "poleErrors": [
+      0.7699999809265137,
+      0.28999999165534973
+    ],
+    "lightPoleErrors": [
+      2.2300000190734863,
+      0.9800000190734863
+    ]
+  }
+]

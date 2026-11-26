@@ -9,6 +9,7 @@ const radians = THREE.MathUtils.degToRad;
 const material = (color, options = {}) => new THREE.MeshStandardMaterial({
   color, roughness: .64, ...options,
 });
+export const valveColors = { AV: '#ffc063', PV: '#c9dc9d' };
 export const chamberColors = {LV: '#a2554b', RV: '#865057', LA: '#be7369', RA: '#8e6578'};
 const smooth = THREE.MathUtils.smoothstep;
 
@@ -34,11 +35,11 @@ function surfaceOpacity(geometry, contact, reveal) {
   color.needsUpdate = true;
 }
 
-function shellMesh(rings, ink) {
+function shellMesh(rings, ink, periodic) {
   const rows = rings.length, cols = rings[0].length;
   const idx = [];
   for (let r = 1; r < rows; r++) {
-    for (let c = 0; c < cols; c++) {
+    for (let c = 0; c < cols - Number(!periodic); c++) {
       const a = (r - 1) * cols + c, b = (r - 1) * cols + (c + 1) % cols;
       idx.push(a, b, b+cols, a, b+cols, a+cols);
     }
@@ -70,10 +71,11 @@ export function createRegisteredHeart(patient, initial = heartFrame(0)) {
   group.matrixAutoUpdate = false;
   patient.add(group);
   const shells = new Map();
-  function drawShell(key, rings, color) {
+  function drawShell(key, rings, color, periodic = true) {
     const current = shells.get(key);
     if (!current) {
-      const mesh = shellMesh(rings, material(color, {side: THREE.DoubleSide}));
+      const mesh = shellMesh(rings, material(color, {side: THREE.DoubleSide}), periodic);
+      mesh.name = key;
       shells.set(key, {mesh, rings});
       group.add(mesh);
     } else if (current.rings !== rings) {
@@ -91,6 +93,15 @@ export function createRegisteredHeart(patient, initial = heartFrame(0)) {
       if (name === 'LVOT' || name === 'RVOT') continue;
       const venous = ['IVC', 'SVC', 'PA', 'RPA'].includes(name);
       vessel.wall.forEach((rings, index) => drawShell(name + '/' + index, rings, venous ? '#627c91' : '#aa6760'));
+    }
+
+    const ordinal = { AV: 0, PV: 0 };
+    for (const { name, material, rings } of frame.details) {
+      if (material !== 'leaflet' || !Object.hasOwn(ordinal, name)) continue;
+      const valve = name === 'AV' ? 'Aortic' : 'Pulmonary';
+      // These sampled patches have free boundaries. Wrapping the row would
+      // create an artificial strip between the two commissures.
+      drawShell(`${valve} valve cusp ${++ordinal[name]}`, rings, valveColors[name], false);
     }
   }
   update(initial);

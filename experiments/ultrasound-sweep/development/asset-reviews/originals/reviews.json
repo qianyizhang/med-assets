@@ -1,0 +1,366 @@
+{
+  "version": 1,
+  "rubricHash": "a38e552869511cd5bceacaa5ea4456f4d0530e58e7dce2bc6855587a98b0e684",
+  "records": [
+    {
+      "source": "sweep",
+      "case": "gallbladder",
+      "part": "gallbladder",
+      "meshSha256": "6509c00826a818036d690192e98cb2f8e14aeb8786f9c699b2c8d5fb95ea1de9",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "revision": "6509c00826a818036d690192e98cb2f8e14aeb8786f9c699b2c8d5fb95ea1de9",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Identify the broad body and trace the narrowing labeled end in two planes.",
+      "scores": {
+        "fidelity": 3,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Pinned s1233 label to delivered surface: 95th percentile 1.09 mm, maximum 2.59 mm between sampled surfaces. Superior/inferior pole shifts 2.30/0.25 mm. A separate local measurement at the most fragile internal landmark is pending.",
+        "form": "The body is distinct, but the narrower polar tip shortens against the label surface.",
+        "readability": "The body and indentation can be located in oblique and reverse views. The terminal tip is incomplete.",
+        "economy": "Same case and coordinate grid: delivered 2,136 triangles (38,480 bytes); lighter trial 528 (9,536 bytes). The worst sampled label-to-surface distance changes from 2.59 to 4.18 mm. Superior pole error of the lighter trial is 3.55 mm."
+      },
+      "note": "Original sweep reference. The comparison uses the same physical coordinates and framing in each column. The source is a segmentation from this CT case.",
+      "comparison": {
+        "candidate": "asset-reviews/originals/gallbladder-native-oblique.webp",
+        "candidateLabel": "Delivered sweep",
+        "original": "asset-reviews/originals/gallbladder-label-oblique.webp",
+        "originalLabel": "Pinned label surface",
+        "views": [
+          {
+            "label": "Reverse view \u00b7 grayscale",
+            "candidate": "asset-reviews/originals/gallbladder-native-reverse.webp",
+            "candidateLabel": "Delivered sweep",
+            "original": "asset-reviews/originals/gallbladder-label-reverse.webp",
+            "originalLabel": "Pinned label surface"
+          },
+          {
+            "label": "Lighter mesh trial",
+            "baseline": "asset-reviews/originals/gallbladder-native-reverse.webp",
+            "baselineLabel": "Delivered sweep",
+            "candidate": "asset-reviews/originals/gallbladder-trial-reverse.webp",
+            "candidateLabel": "Lighter trial"
+          }
+        ]
+      }
+    },
+    {
+      "source": "sweep",
+      "case": "liver",
+      "part": "liver",
+      "meshSha256": "27862cad9d34d1d7a7b86a1ce8d92014f5d7db534788c45cb4ef9fd1cce20089",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "revision": "27862cad9d34d1d7a7b86a1ce8d92014f5d7db534788c45cb4ef9fd1cce20089",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Identify the broad right lobe and narrower left extension in the whole-organ view.",
+      "scores": {
+        "fidelity": 3,
+        "form": 3,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Pinned s1233 label to delivered surface: 95th percentile 0.66 mm, maximum 3.24 mm between sampled surfaces. Superior/inferior pole shifts 0.00/0.00 mm. A separate local measurement at the most fragile internal landmark is pending.",
+        "form": "The lobe transition and inferior cleft match the source. Mild terracing remains on the dome.",
+        "readability": "The unequal lobes and inferior cleft remain recognizable after rotation and desaturation.",
+        "economy": "Same case and coordinate grid: delivered 123,204 triangles (2,217,704 bytes); lighter trial 7,604 (136,880 bytes). The worst sampled label-to-surface distance changes from 3.24 to 13.38 mm. Superior pole error of the lighter trial is 1.17 mm."
+      },
+      "note": "Original sweep reference. The comparison uses the same physical coordinates and framing in each column. The source is a segmentation from this CT case.",
+      "comparison": {
+        "candidate": "asset-reviews/originals/liver-native-oblique.webp",
+        "candidateLabel": "Delivered sweep",
+        "original": "asset-reviews/originals/liver-label-oblique.webp",
+        "originalLabel": "Pinned label surface",
+        "views": [
+          {
+            "label": "Reverse view \u00b7 grayscale",
+            "candidate": "asset-reviews/originals/liver-native-reverse.webp",
+            "candidateLabel": "Delivered sweep",
+            "original": "asset-reviews/originals/liver-label-reverse.webp",
+            "originalLabel": "Pinned label surface"
+          },
+          {
+            "label": "Lighter mesh trial",
+            "baseline": "asset-reviews/originals/liver-native-reverse.webp",
+            "baselineLabel": "Delivered sweep",
+            "candidate": "asset-reviews/originals/liver-trial-reverse.webp",
+            "candidateLabel": "Lighter trial"
+          }
+        ]
+      }
+    },
+    {
+      "source": "sweep",
+      "case": "pancreas",
+      "part": "pancreas",
+      "meshSha256": "7ba31afffdffbed4d60c5834ab86f3eefb6f784261b519b8bb2f093103a40045",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "revision": "7ba31afffdffbed4d60c5834ab86f3eefb6f784261b519b8bb2f093103a40045",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Follow the modeled gland from its broad head through the body toward the tail.",
+      "scores": {
+        "fidelity": 3,
+        "form": 2,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Pinned s1233 label to delivered surface: 95th percentile 0.89 mm, maximum 5.06 mm between sampled surfaces. Superior/inferior pole shifts 0.07/0.00 mm. A separate local measurement at the most fragile internal landmark is pending.",
+        "form": "Pits and ridges compete with the external contour. The raw source is coarsely delineated near the tail.",
+        "readability": "The head-to-tail course is traceable, but the irregular tail needs its source next to it.",
+        "economy": "Same case and coordinate grid: delivered 16,620 triangles (299,240 bytes); lighter trial 956 (17,240 bytes). The worst sampled label-to-surface distance changes from 5.06 to 8.29 mm. Superior pole error of the lighter trial is 0.73 mm."
+      },
+      "note": "Original sweep reference. The comparison uses the same physical coordinates and framing in each column. The source is a segmentation from this CT case.",
+      "comparison": {
+        "candidate": "asset-reviews/originals/pancreas-native-oblique.webp",
+        "candidateLabel": "Delivered sweep",
+        "original": "asset-reviews/originals/pancreas-label-oblique.webp",
+        "originalLabel": "Pinned label surface",
+        "views": [
+          {
+            "label": "Reverse view \u00b7 grayscale",
+            "candidate": "asset-reviews/originals/pancreas-native-reverse.webp",
+            "candidateLabel": "Delivered sweep",
+            "original": "asset-reviews/originals/pancreas-label-reverse.webp",
+            "originalLabel": "Pinned label surface"
+          },
+          {
+            "label": "Lighter mesh trial",
+            "baseline": "asset-reviews/originals/pancreas-native-reverse.webp",
+            "baselineLabel": "Delivered sweep",
+            "candidate": "asset-reviews/originals/pancreas-trial-reverse.webp",
+            "candidateLabel": "Lighter trial"
+          }
+        ]
+      }
+    },
+    {
+      "source": "sweep",
+      "case": "spleen",
+      "part": "spleen",
+      "meshSha256": "6c5ecf67f894ceb581bfc4a64be704cb6bd0b1c3ab8d588bbebe47e0396a99c9",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "revision": "6c5ecf67f894ceb581bfc4a64be704cb6bd0b1c3ab8d588bbebe47e0396a99c9",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Identify the medial indentation and convex lateral face of the spleen.",
+      "scores": {
+        "fidelity": 3,
+        "form": 2,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Pinned s1233 label to delivered surface: 95th percentile 0.65 mm, maximum 1.65 mm between sampled surfaces. Superior/inferior pole shifts 0.00/0.00 mm. A separate local measurement at the most fragile internal landmark is pending.",
+        "form": "The medial contour is recognizable, but stair steps dominate the reverse highlight.",
+        "readability": "The indentation is visible from the front; the reverse side confirms its convex outer face in grayscale.",
+        "economy": "Same case and coordinate grid: delivered 19,232 triangles (346,208 bytes); lighter trial 1,180 (21,272 bytes). The worst sampled label-to-surface distance changes from 1.65 to 4.07 mm. Superior pole error of the lighter trial is 0.66 mm."
+      },
+      "note": "Original sweep reference. The comparison uses the same physical coordinates and framing in each column. The source is a segmentation from this CT case.",
+      "comparison": {
+        "candidate": "asset-reviews/originals/spleen-native-oblique.webp",
+        "candidateLabel": "Delivered sweep",
+        "original": "asset-reviews/originals/spleen-label-oblique.webp",
+        "originalLabel": "Pinned label surface",
+        "views": [
+          {
+            "label": "Reverse view \u00b7 grayscale",
+            "candidate": "asset-reviews/originals/spleen-native-reverse.webp",
+            "candidateLabel": "Delivered sweep",
+            "original": "asset-reviews/originals/spleen-label-reverse.webp",
+            "originalLabel": "Pinned label surface"
+          },
+          {
+            "label": "Lighter mesh trial",
+            "baseline": "asset-reviews/originals/spleen-native-reverse.webp",
+            "baselineLabel": "Delivered sweep",
+            "candidate": "asset-reviews/originals/spleen-trial-reverse.webp",
+            "candidateLabel": "Lighter trial"
+          }
+        ]
+      }
+    },
+    {
+      "source": "sweep",
+      "case": "kidney-left",
+      "part": "kidney_left",
+      "meshSha256": "c863c681ee3b6ea9ce42944292c205a097eceeb46d28c6cdaeaf7c6650b0eb69",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "revision": "c863c681ee3b6ea9ce42944292c205a097eceeb46d28c6cdaeaf7c6650b0eb69",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Find the medial hilar depression between the superior and inferior renal poles.",
+      "scores": {
+        "fidelity": 3,
+        "form": 3,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Pinned s1233 label to delivered surface: 95th percentile 0.66 mm, maximum 1.93 mm between sampled surfaces. Superior/inferior pole shifts 0.00/0.00 mm. A separate local measurement at the most fragile internal landmark is pending.",
+        "form": "The hilum matches the source contour, with shallow residual rings on the convex surface.",
+        "readability": "The front exposes the hilar depression and the reverse view confirms the two poles in grayscale.",
+        "economy": "Same case and coordinate grid: delivered 25,752 triangles (463,568 bytes); lighter trial 1,568 (28,256 bytes). The worst sampled label-to-surface distance changes from 1.93 to 3.99 mm. Superior pole error of the lighter trial is 1.10 mm."
+      },
+      "note": "Original sweep reference. The comparison uses the same physical coordinates and framing in each column. The source is a segmentation from this CT case.",
+      "comparison": {
+        "candidate": "asset-reviews/originals/kidney_left-native-oblique.webp",
+        "candidateLabel": "Delivered sweep",
+        "original": "asset-reviews/originals/kidney_left-label-oblique.webp",
+        "originalLabel": "Pinned label surface",
+        "views": [
+          {
+            "label": "Reverse view \u00b7 grayscale",
+            "candidate": "asset-reviews/originals/kidney_left-native-reverse.webp",
+            "candidateLabel": "Delivered sweep",
+            "original": "asset-reviews/originals/kidney_left-label-reverse.webp",
+            "originalLabel": "Pinned label surface"
+          },
+          {
+            "label": "Lighter mesh trial",
+            "baseline": "asset-reviews/originals/kidney_left-native-reverse.webp",
+            "baselineLabel": "Delivered sweep",
+            "candidate": "asset-reviews/originals/kidney_left-trial-reverse.webp",
+            "candidateLabel": "Lighter trial"
+          }
+        ]
+      }
+    },
+    {
+      "source": "sweep",
+      "case": "kidney-right",
+      "part": "kidney_right",
+      "meshSha256": "58d9a1d89b0fadbb6f2601e665d946b36bd44fc4e6cdc9ec1eb11b7ec0ffc833",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "revision": "58d9a1d89b0fadbb6f2601e665d946b36bd44fc4e6cdc9ec1eb11b7ec0ffc833",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Find the medial hilar depression between the superior and inferior renal poles.",
+      "scores": {
+        "fidelity": 3,
+        "form": 3,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Pinned s1233 label to delivered surface: 95th percentile 0.65 mm, maximum 1.49 mm between sampled surfaces. Superior/inferior pole shifts 0.00/0.00 mm. A separate local measurement at the most fragile internal landmark is pending.",
+        "form": "The depression is visible on rotation and survives the label comparison; voxel ridges remain at a pole.",
+        "readability": "Rotating the isolated kidney reveals the hilar depression and distinguishes it from the opposite convex surface.",
+        "economy": "Same case and coordinate grid: delivered 23,156 triangles (416,840 bytes); lighter trial 1,392 (25,088 bytes). The worst sampled label-to-surface distance changes from 1.49 to 3.75 mm. Superior pole error of the lighter trial is 1.24 mm."
+      },
+      "note": "Original sweep reference. The comparison uses the same physical coordinates and framing in each column. The source is a segmentation from this CT case.",
+      "comparison": {
+        "candidate": "asset-reviews/originals/kidney_right-native-oblique.webp",
+        "candidateLabel": "Delivered sweep",
+        "original": "asset-reviews/originals/kidney_right-label-oblique.webp",
+        "originalLabel": "Pinned label surface",
+        "views": [
+          {
+            "label": "Reverse view \u00b7 grayscale",
+            "candidate": "asset-reviews/originals/kidney_right-native-reverse.webp",
+            "candidateLabel": "Delivered sweep",
+            "original": "asset-reviews/originals/kidney_right-label-reverse.webp",
+            "originalLabel": "Pinned label surface"
+          },
+          {
+            "label": "Lighter mesh trial",
+            "baseline": "asset-reviews/originals/kidney_right-native-reverse.webp",
+            "baselineLabel": "Delivered sweep",
+            "candidate": "asset-reviews/originals/kidney_right-trial-reverse.webp",
+            "candidateLabel": "Lighter trial"
+          }
+        ]
+      }
+    },
+    {
+      "source": "sweep",
+      "case": "thyroid-right",
+      "part": "thyroid_gland",
+      "meshSha256": "73207b41254e7baff0bfaee4c0d65e0cb1533832b0dd476921994d13d7d89f25",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "revision": "73207b41254e7baff0bfaee4c0d65e0cb1533832b0dd476921994d13d7d89f25",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Follow the tissue bridge between the left and right thyroid lobes.",
+      "scores": {
+        "fidelity": 4,
+        "form": 4,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Five registered sagittal sections span the narrow bridge between the two lobe area maxima. Worst bidirectional in-plane contour error was 0.99 mm. At the narrowest section the AP span measured 11.58 mm against 12.00 mm in the label.",
+        "form": "The oblique and reverse view retain the lobe-to-isthmus transition; the smoothed poles differ slightly from the segmentation.",
+        "readability": "Both lobes and their connecting bridge can be followed in the neutral and reverse grayscale views.",
+        "economy": "Same case and coordinate grid: delivered 6,248 triangles (112,496 bytes); lighter trial 336 (6,080 bytes). The worst sampled label-to-surface distance changes from 1.46 to 5.34 mm. Superior pole error of the lighter trial is 0.98 mm. At the protected bridge the lighter trial reached 3.71 mm of local contour error vs 0.99 mm delivered."
+      },
+      "note": "Original sweep reference. The comparison uses the same physical coordinates and framing in each column. The source is a segmentation from this CT case.",
+      "comparison": {
+        "candidate": "asset-reviews/originals/thyroid_gland-native-oblique.webp",
+        "candidateLabel": "Delivered sweep",
+        "original": "asset-reviews/originals/thyroid_gland-label-oblique.webp",
+        "originalLabel": "Pinned label surface",
+        "views": [
+          {
+            "label": "Reverse view \u00b7 grayscale",
+            "candidate": "asset-reviews/originals/thyroid_gland-native-reverse.webp",
+            "candidateLabel": "Delivered sweep",
+            "original": "asset-reviews/originals/thyroid_gland-label-reverse.webp",
+            "originalLabel": "Pinned label surface"
+          },
+          {
+            "label": "Lighter mesh trial",
+            "baseline": "asset-reviews/originals/thyroid_gland-native-reverse.webp",
+            "baselineLabel": "Delivered sweep",
+            "candidate": "asset-reviews/originals/thyroid_gland-trial-reverse.webp",
+            "candidateLabel": "Lighter trial"
+          }
+        ]
+      },
+      "exemplar": true
+    }
+  ],
+  "evidenceSha256": {
+    "gallbladder-label-oblique.webp": "a907845ffea35c8b772ee9bd22cebf543207b303175cf9d82540f5fd317c105b",
+    "gallbladder-label-reverse.webp": "2bf85afa0b96ca5c4bce8b58e0d4588d201b267edd9f06be8e542479dc2fdf7c",
+    "gallbladder-native-oblique.webp": "f378ea2a75d7132b1b7b7a01585aeffef93d09df556d2e749e1e369235a784d7",
+    "gallbladder-native-reverse.webp": "b81397c79c4ad30e95ccb8c52221d94b6785555eb74700c331e43d09390ec32e",
+    "gallbladder-trial-reverse.webp": "1e2b2f6d4c67c6d10a5cb0ba4c21f75d301ec53b107542ef2639c86d29ad618e",
+    "kidney_left-label-oblique.webp": "09f2c25a0cb4be2f7c2f2eb2d1dc86ba39e72a51ff33fcb0e11d4e93dec5b862",
+    "kidney_left-label-reverse.webp": "1bd0e97406937517c7b39ba0a3fdcba8fbaf486f80b085c24417f7be0e3b3e80",
+    "kidney_left-native-oblique.webp": "22ad3f23eb41a1f4b697d6f6acd36c52491157488141654cbcaa30fba07a881b",
+    "kidney_left-native-reverse.webp": "8eda082c7d6506f627eebadc7e58401f90a4cea3f5fb1ae38ca2fc0ec410dffa",
+    "kidney_left-trial-reverse.webp": "e9799834e1f8005df6bf8839563f6fea562b85604d92232607e9c403a038aaf1",
+    "kidney_right-label-oblique.webp": "6222ec77713666e24fdbf10e1873be29b655ae3de0fd7b63ed78793adc624e15",
+    "kidney_right-label-reverse.webp": "132894128c180087a58f5b5aa4a0805841936de7f9a5fa5b6f1bf37415d4c7e4",
+    "kidney_right-native-oblique.webp": "bf5ffdb7435b0f13c71c9f7d0e338c31bfa19adb0b0074d2fa62d10e80681896",
+    "kidney_right-native-reverse.webp": "abeb61b4b1234bbb97b97bfeccb37c6439de3fb7322d7ea3d095e49b59dec59d",
+    "kidney_right-trial-reverse.webp": "8315bbd45b9ffa6cd40ea44717a62f802f5c361eace01012b829e6b35e38d1be",
+    "liver-label-oblique.webp": "fb196ae76a3c4a160a45335c137452fed3205198a1837d8d2d4f6af1dad8d94e",
+    "liver-label-reverse.webp": "e8d7b718a0903e6318bae5b4ee8514b6edc0b9851975b7f4b933b611dfc9ffcc",
+    "liver-native-oblique.webp": "004c09e7171508f70c9c6de08e6d887191be95c162f13bbbb6510180e3db3b5c",
+    "liver-native-reverse.webp": "b2ddf5e335c17a6c87d46bc6df1d34ebbc07ffe5b6f733ddd4dc6ab3cd2d61d2",
+    "liver-trial-reverse.webp": "6cfee6d5fb4f313e2cf663d24f432d8a47d582e00ff6338e9328841bb9cebe32",
+    "pancreas-label-oblique.webp": "5fb728090cd0cd25db493999936fb8c9de5ec72d4c799838c854245260504bdc",
+    "pancreas-label-reverse.webp": "f00bd6ca983b66f87eccf992b5c49a4cb3169b35ec9ade3c4160a289a9d069cc",
+    "pancreas-native-oblique.webp": "e9fcdcbaf750ee638a1250a0499ddbfa58fd3a300c8bf5642de90709c839934b",
+    "pancreas-native-reverse.webp": "3abd4f0532fc1246b0d28fb406630480ba636f5578f29db480651ea6228ce912",
+    "pancreas-trial-reverse.webp": "83488547dc7eb982c75b4c9b43fd20d3e96442654b79655ab8cb55fcb93eb400",
+    "spleen-label-oblique.webp": "300e7b2c3aeeb847d252753dbc1ee63cb87917239e23d4a85b2fad1c3aa80728",
+    "spleen-label-reverse.webp": "86a2aaa16c642f716da60b26a2e02cae70030a99f5509cf6b341928012328d83",
+    "spleen-native-oblique.webp": "0caa9fb40c1bdcb18f887aa5e85bd9acbb28b2fa8a7f3085774e800f8a42e8ad",
+    "spleen-native-reverse.webp": "3e141d3e0f91414298ddf6b211c2f5b6d0649606d50db5a494407b519da9a989",
+    "spleen-trial-reverse.webp": "f0b70030f2c3b3f2f2ac56031953cf0b21ca2ead58b1d3e87033088c754474a8",
+    "thyroid_gland-label-oblique.webp": "ba5f1bc91ac3ddfd3e082a6e27fe028132584ddff33ee440771c35384383e7d9",
+    "thyroid_gland-label-reverse.webp": "dea139e8d280fb6f10b62abb792e2080c1b27f9ad53b209dfae05fb290276966",
+    "thyroid_gland-native-oblique.webp": "aa999e3fa81f3af796ed1048bccc4748b7c6327045cbd39bb320b4162e49433a",
+    "thyroid_gland-native-reverse.webp": "71ce9c21e70b4be506003031191fb7d0d9dcaa7b8ac3ba54dc15a97aa7fb50e6",
+    "thyroid_gland-trial-reverse.webp": "4fb53ab902ab09be4df776b77c611e663e8500ca8e39ba2174b30cfbc083106e"
+  }
+}

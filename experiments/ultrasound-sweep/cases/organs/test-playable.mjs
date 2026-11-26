@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {chapters, pose, render} from './playable.js';
-import {cut, endpoints, plane} from './playable-geometry.js';
+import {clipSectionEdge, cut, depthSpan, endpoints, footprintScale, plane} from './playable-geometry.js';
 import {abdominalVolume} from './playable-abdomen.js';
 import {breastVolume, thyroidVolume} from './playable-neck-breast.js';
 
@@ -107,6 +107,28 @@ const breast=cases['breast-axillary-node'];
 const nodeLong=select(breast.id,'axillary-node-long');
 const nodeShort=select(breast.id,'axillary-node-short');
 assert.deepEqual(breastVolume(breast,nodeLong),breastVolume(breast,nodeShort));
+const cortex=shape(breast,nodeShort,'Right axillary cortex');
+const flat={...cortex,depthProfile:undefined};
+const notch=depthSpan(cortex,.55,-.12);
+const smooth=depthSpan(flat,.55,-.12);
+assert.equal(notch[0],smooth[0]);
+assert.ok(smooth[1]-notch[1]>.4 && smooth[1]-notch[1]<1.12);
+assert.deepEqual(depthSpan(cortex,0,0),depthSpan(flat,0,0));
+assert.deepEqual(endpoints(breastVolume(breast,nodeShort),plane(nodeShort,nodeShort.evidenceFrame),nodeShort.marks[0]),
+  [[0,17.4],[0,21.2]]);
+const wall=shape(breast,nodeShort,'Chest wall');
+assert.equal(breastVolume(breast,nodeShort).filter(item=>item.id===wall.id).length,1);
+const midline=cut(wall,{center:0,level:0,axis:2,normal:0});
+assert.ok(midline.spanAt(0)[1]>midline.spanAt(0)[0]);
+const fascia=shape(breast,nodeShort,'Pectoral fascia');
+const retro=shape(breast,nodeShort,'Retromammary fat');
+for(const [x,z] of [[0,0],[-.4,.2],[.4,-.4]]) {
+  const posterior=depthSpan(retro,x,z);
+  assert.equal(posterior[1],depthSpan(fascia,x,z)[0]);
+  assert.ok(posterior[1]>posterior[0]);
+}
+
+
 
 const pancreaticLimit=cases['abdomen-limited-pancreas'];
 for(const key of ['abd-pancreas-limited','pancreas-retry']) {
@@ -135,14 +157,47 @@ for(const key of ['breast-retro-limited','breast-retro-limited-repeat']) {
 // including the lateral tissue that extends beyond the main breast center.
 const screening=cases['breast-supplemental-screening'];
 const bands=chapters(screening).filter(ch=>ch.id!=='breast-screen-map');
+const nippleLevel=bands.find(ch=>ch.id==='breast-screen-right-1');
+assert.deepEqual(clipSectionEdge([-10,3],[10,3],5,6),[[-5,3],[5,3]]);
+assert.deepEqual(clipSectionEdge([0,-4],[0,8],5,6),[[0,0],[0,6]]);
+assert.equal(clipSectionEdge([6,1],[6,5],5,6),null);
+
+const scanDrawing=drawing(ctx=>render(ctx,nippleLevel,nippleLevel.evidenceFrame,screening));
+for(const name of nippleLevel.layerLabels) assert.ok(scanDrawing.includes(name));
+const gland=shape(screening,nippleLevel,'Fibroglandular tissue');
+const tail=shape(screening,nippleLevel,'Fibroglandular tail');
+const span=(s,x,z)=>{
+  const u=(x-s.center[0])/s.radii[0],v=(z-s.center[2])/s.radii[2];
+  return Math.hypot(u,v)<footprintScale(s,u,v) ? depthSpan(s,u,v) : null;
+};
+let sharedColumns=0;
+for(let x=-100;x<=-55;x++) for(let z=5;z<=60;z++) {
+  const a=span(gland,x,z),b=span(tail,x,z);
+  if(a&&b&&a[0]<b[1]&&b[0]<a[1]) sharedColumns++;
+}
+assert.ok(sharedColumns>500,'The upper outer extension must connect to the same modeled gland.');
+const deepFat=shape(screening,nippleLevel,'Retromammary fat');
+for (const modeled of [gland,tail]) for(let x=-112;x<=-10;x++) for(let z=-56;z<=60;z++) {
+  const tissueSpan=span(modeled,x,z);
+  if(!tissueSpan) continue;
+  assert.ok(tissueSpan[0]<=tissueSpan[1]);
+  const fatSpan=span(deepFat,x,z);
+  if(fatSpan) assert.ok(tissueSpan[1]<=fatSpan[0]-.1499);
+}
+
+
 const fields=bands.flatMap(ch=>Array.from({length:ch.frames},(_,i)=>({...plane(ch,i),half:ch.aperture/2,depth:ch.depth})));
 for(const tissue of breastVolume(screening,bands[0]).filter(s=>['Fibroglandular tail','Fibroglandular tissue','Subcutaneous fat'].includes(s.id))){
-  const [cx,cy,cz]=tissue.center,[rx,ry,rz]=tissue.radii;
-  for(let x=Math.ceil(cx-rx);x<=cx+rx;x++){
-    const factor=Math.sqrt(Math.max(0,1-((x-cx)/rx)**2));
-    const planes=fields.filter(p=>Math.abs(p.level-x)<1e-6 && cy+ry<=p.depth);
-    for(let z=Math.ceil(cz-rz*factor);z<=cz+rz*factor;z++)
-      assert(planes.some(p=>Math.abs(z-p.center)<=p.half),`Uncovered modeled ${tissue.id} at ${x}, ${z} mm`);
+  const [cx]=tissue.center,[rx]=tissue.radii;
+  for(let x=Math.floor(cx-1.4*rx);x<=cx+1.4*rx;x++){
+    const bounds=cut(tissue,{axis:2,normal:0,center:0,level:x});
+    if (!bounds) continue;
+    const planes=fields.filter(p=>Math.abs(p.level-x)<1e-6);
+    for(let z=Math.ceil(bounds.x-bounds.w);z<=bounds.x+bounds.w;z++){
+      const deep=bounds.spanAt?.(z)[1] ?? bounds.y+bounds.h;
+      assert(planes.some(p=>Math.abs(z-p.center)<=p.half && deep<=p.depth),
+        `Uncovered modeled ${tissue.id} at ${x}, ${z} mm`);
+    }
   }
 }
 

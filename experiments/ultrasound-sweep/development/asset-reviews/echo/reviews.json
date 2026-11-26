@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "records": [
+    {
+      "source": "case",
+      "case": "echo-aortic-stenosis",
+      "chapter": "psax-av-section",
+      "part": "Aortic valve cusp 1",
+      "baseline": "0d943e4",
+      "revision": "0d943e4 with registered echo cusp surface export",
+      "reviewer": "Codex agent review",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Trace the free edge between its two commissural ends, then confirm in reverse and at closure that the leaflet is an open sheet.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "All three independent patches preserve the authored vertices with under 0.000004 mm component error and 48 boundary edges each. No triangle bridges the commissural sides. Cusp 1 moves by up to 2.28 mm from closed to the saved restricted opening. The saved modeled scan has identical decoded pixels before and after.",
+        "form": "Both the broad neutral highlight and the reverse view show a coherent thin, bowed leaflet with two distinct ends. The source is modeled and no matched acquired leaflet surface supports the anatomical finish.",
+        "readability": "The two commissural ends and intervening free edge are traceable in the neutral restricted view. The reverse view resolves the depth and the grayscale view retains the outline. The matched closed pose confirms a change in edge position.",
+        "economy": "The retained export uses 216 triangles in one selectable patch. A 54-triangle trial reduced triangles by 75% but moved the free edge by up to 0.50 mm and visibly flattened its curve at the same magnification."
+      },
+      "beforeScores": {
+        "fidelity": 0,
+        "form": 0,
+        "readability": 0
+      },
+      "beforeEvidence": {
+        "fidelity": "The baseline registered heart exported chamber and vessel meshes but omitted all three modeled aortic cusps.",
+        "form": "The leaflet surface was absent from the 3D model.",
+        "readability": "The modeled scan depicted the restricted aperture, while the 3D viewer gave the learner no leaflet to isolate or orbit."
+      },
+      "note": "This qualification covers a modeled leaflet, not a patient-specific surface. Cusp numbers follow the source patch order without assigning clinical coronary sinus identities. The comparison holds the local camera and scale fixed across isolated oblique images.",
+      "links": [
+        {
+          "label": "Measurements and scan identity",
+          "href": "asset-reviews/echo/measurements.json"
+        },
+        {
+          "label": "Source cardiac short-axis study",
+          "href": "../cardiac/?view=psax-av"
+        }
+      ],
+      "comparison": {
+        "label": "Neutral oblique at the saved short-axis frame",
+        "baseline": "asset-reviews/echo/isolated-before.webp",
+        "baselineLabel": "Baseline \u00b7 cusp absent",
+        "candidate": "asset-reviews/echo/candidate-oblique.webp",
+        "candidateLabel": "Restricted cusp",
+        "original": "asset-reviews/echo/original-oblique.webp",
+        "originalLabel": "Source cardiac model \u00b7 normal opening",
+        "views": [
+          {
+            "label": "Reverse lighting and monochrome silhouette",
+            "baseline": "asset-reviews/echo/candidate-reverse.webp",
+            "baselineLabel": "Reverse",
+            "candidate": "asset-reviews/echo/candidate-gray.webp",
+            "candidateLabel": "Grayscale"
+          },
+          {
+            "label": "Matched acquisition phases",
+            "baseline": "asset-reviews/echo/candidate-closed.webp",
+            "baselineLabel": "Closed \u00b7 frame 0",
+            "candidate": "asset-reviews/echo/candidate-oblique.webp",
+            "candidateLabel": "Restricted opening \u00b7 frame 24"
+          },
+          {
+            "label": "Lighter trial at the same scale",
+            "baseline": "asset-reviews/echo/candidate-oblique.webp",
+            "baselineLabel": "Retained \u00b7 216 triangles",
+            "candidate": "asset-reviews/echo/lighter-trial.webp",
+            "candidateLabel": "Trial \u00b7 54 triangles"
+          },
+          {
+            "label": "Probe and scan in context",
+            "baseline": "asset-reviews/echo/context-before.webp",
+            "candidate": "asset-reviews/echo/context-after.webp"
+          }
+        ]
+      }
+    }
+  ],
+  "recipeHash": "80f5885a9577c09534edc72958c58941e6da5c419de85dc430fa0e3a3ff0bf95",
+  "evidenceSha256": {
+    "candidate-closed.webp": "cfdfbfb554d4a737ecc1d4a9393dd16770185eb6c2a58f4047939df606a34c78",
+    "candidate-gray.webp": "8a0741a28721cd246272bfd5631c6fc6360f50e9e9a6c392208a49c67a33463f",
+    "candidate-oblique.webp": "cf0891c8d0db584f0f47f12d9d021c6569eb01d701768c374ded4e021669cac8",
+    "candidate-reverse.webp": "5e83cff42d5d3bc7ece61ac726083ff96e55968b85091ff8cc5fe5123ecc19e7",
+    "context-after.webp": "21148ddc1f5862412e0ae081f6b41fcc79dc6415b5c73deb9f16c02d879150ab",
+    "context-before.webp": "f6620a6ca04ceb3b976403f36f3cf064710b746b6afbf843251f38f45fa52fc3",
+    "isolated-before.webp": "b46e7d37aff57f291a99df356a46745d0a008c2a805e9c34e226b57ee9e17a61",
+    "lighter-trial.webp": "19e428c90e29eaadd5f09648ef7b4f80619b0a4ba97e48bbc405e486066f0b66",
+    "original-oblique.webp": "9049ee36195e8f004d3bb87e3e5f838cb06cacfe77671f51ca04b5d958b1adcf"
+  },
+  "rubricHash": "a38e552869511cd5bceacaa5ea4456f4d0530e58e7dce2bc6855587a98b0e684"
+}

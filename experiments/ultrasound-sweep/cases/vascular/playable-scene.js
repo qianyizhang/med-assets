@@ -18,16 +18,33 @@ function pose(record,chapter,frame) {
   };
 }
 
-function loft(rings, side) {
+function loft(rings, side, annular=false) {
   const n=rings[0].length;
   const vertices=rings.flatMap(ring=>ring.flatMap(point=>ras(side,point)));
   const indices=[];
-  for (let row=0;row+1<rings.length;row++) for (let j=0;j<n;j++) {
-    const a=row*n+j,b=row*n+(j+1)%n,c=a+n,d=b+n;
-    indices.push(a,c,b,b,c,d);
+  const copyRing = (row) => {
+    const first=vertices.length/3;
+    for (const point of rings[row]) vertices.push(...ras(side,point));
+    return first;
+  };
+  const connect = (row,next) => {
+    // The terminal cut is flat. Split its vertex normals from the longitudinal
+    // wall so reducing straight runs cannot round over the displayed cut edge.
+    const endFace=rings[row][0][2]===rings[next][0][2];
+    const lower=endFace ? copyRing(row) : row*n;
+    const upper=endFace ? copyRing(next) : next*n;
+    for (let j=0;j<n;j++) {
+      const k=(j+1)%n;
+      indices.push(lower+j,lower+k,upper+j,lower+k,upper+k,upper+j);
+    }
+  };
+  for (let row=0;row+1<rings.length;row++) connect(row,row+1);
+  if (annular) {
+    connect(rings.length-1,0);
+  } else {
+    const bottom=copyRing(0), top=copyRing(rings.length-1);
+    for (let j=1;j<n-1;j++) indices.push(bottom,bottom+j+1,bottom+j,top,top+j,top+j+1);
   }
-  const last=(rings.length-1)*n;
-  for (let j=1;j<n-1;j++) indices.push(0,j,j+1,last,last+j+1,last+j);
   const geometry=new THREE.BufferGeometry();
   geometry.setAttribute('position',new THREE.Float32BufferAttribute(vertices,3));
   geometry.setIndex(indices);
@@ -39,6 +56,36 @@ function tubeRing({z,tube},inside=false) {
   const {x,y,rx,ry,lx,ly,lrx,lry}=tube;
   const [cx,cy,a,b]=inside ? [lx,ly,lrx,lry] : [x,y,rx,ry];
   return radial((cos,sin)=>[cx+a*cos,cy+b*sin,z]);
+}
+// Bound the sampled outer and lumen contours together. A straight segment
+// needs only its end rings; the bulb and eccentric stenosis retain extra rings.
+function retainedSections(samples, tolerance=.025) {
+  const keep=new Set([0,samples.length-1]);
+  function split(start,end) {
+    const a=samples[start], b=samples[end];
+    let worst=tolerance, at;
+    for (let i=start+1;i<end;i++) {
+      const actual=samples[i], t=(actual.z-a.z)/(b.z-a.z);
+      const delta=(key)=>actual.tube[key]-(a.tube[key]+(b.tube[key]-a.tube[key])*t);
+      const outer=Math.hypot(delta('x'),delta('y'))+Math.max(Math.abs(delta('rx')),Math.abs(delta('ry')));
+      const lumen=Math.hypot(delta('lx'),delta('ly'))+Math.max(Math.abs(delta('lrx')),Math.abs(delta('lry')));
+      if (Math.max(outer,lumen)>worst) { worst=Math.max(outer,lumen); at=i; }
+    }
+    if (at===undefined) return;
+    keep.add(at);
+    split(start,at);
+    split(at,end);
+  }
+  split(0,samples.length-1);
+  return samples.filter((_,i)=>keep.has(i));
+}
+
+function wallInterior(sample) {
+  if (!sample.tube.mural) return tubeRing(sample,true);
+  // The tissue classifier places eccentric plaque between this wall and the blood pool.
+  const {tube,z}=sample;
+  const scale=1-tube.wall/Math.max(tube.rx,tube.ry);
+  return radial((cos,sin)=>[tube.x+tube.rx*scale*cos,tube.y+tube.ry*scale*sin,z]);
 }
 function radial(point) {
   return Array.from({length:40},(_,seg)=>{
@@ -70,12 +117,7 @@ function plaqueGeometry(samples,side) {
   const inner=outlines.map(([,ring])=>ring);
   // Join the outer and residual-lumen contours at both ends without placing
   // a cap across the visible lumen.
-  const rings=[...outer,...inner.reverse(),outer[0]];
-  const geometry=loft(rings,side);
-  const indices=geometry.index.array.slice(0,(rings.length-1)*40*6);
-  geometry.setIndex(new THREE.BufferAttribute(indices,1));
-  geometry.computeVertexNormals();
-  return geometry;
+  return loft([...outer,...inner.reverse()],side,true);
 }
 
 function mesh(geometry,name,color,opacity) {
@@ -97,9 +139,11 @@ function vessels(record,side) {
   }
   for (const [id,samples] of tubes) {
     const venous=id==='IJV';
-    group.add(mesh(loft(samples.map(sample=>tubeRing(sample)),side),
+    const sections=retainedSections(samples);
+    const shell=[...sections.map(sample=>tubeRing(sample)),...sections.map(wallInterior).reverse()];
+    group.add(mesh(loft(shell,side,true),
       side+' '+id,venous ? '#6498b0' : '#c96659',venous ? .54 : .46));
-    group.add(mesh(loft(samples.map(sample=>tubeRing(sample,true)),side),
+    group.add(mesh(loft(sections.map(sample=>tubeRing(sample,true)),side),
       side+' '+id+' lumen',venous ? '#2d617e' : '#9a463d',.72));
     const plaque=samples.filter(({tube})=>tube.mural);
     if (plaque.length>1) group.add(mesh(plaqueGeometry(plaque,side),'Carotid plaque','#e8c175',.95));

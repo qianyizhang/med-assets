@@ -1,0 +1,1436 @@
+{
+  "version": 1,
+  "records": [
+    {
+      "source": "case",
+      "case": "breast-axillary-node",
+      "chapter": "axillary-node-short",
+      "part": "Right axillary cortex",
+      "baseline": "0d943e4",
+      "revision": "20d819725801a9cb20d0715337cc81933b94030ee395cadf494ebfb21b5a2aae",
+      "reviewer": "Codex agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Locate the cortical outline around the retained fatty hilum and confirm its AP span at the saved short-axis frame.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "All saved endpoint coordinates equal baseline, including the 9.2 mm AP span, 28 mm long axis and the 3.8 and 4.4 mm cortical chords. The off-axis notch starts on the posterior side and leaves the measured anterior wall intact.",
+        "form": "Chang Figure 1C supports a continuous elongated cortex and a visible eccentric thickening. The model retains a smooth oval perimeter and a displaced hilar region, but its modest hilar-side indentation does not reproduce the source\u2019s pronounced focal outer bulge.",
+        "readability": "The live view locates the node at the high axillary window. The slice confirms cortex and hilum. The neutral reverse view distinguishes the shallow indentation at isolation scale.",
+        "economy": "The 720-triangle shell replaces 1,656 baseline triangles. A denser 1,656-triangle profile lowered maximum sampled error from 0.14 to 0.07 mm, without improving the observed calibrated cortex landmark."
+      },
+      "note": "The original sweep is a separate authored normal-node example. The candidate is the modeled abnormal visit and keeps its own native case dimensions.",
+      "comparison": {
+        "label": "Isolated, matched mm scale and neutral oblique light",
+        "baseline": "asset-reviews/organs/node-baseline-oblique.webp",
+        "candidate": "asset-reviews/organs/node-candidate-oblique.webp",
+        "original": "asset-reviews/organs/node-original-oblique.webp",
+        "views": [
+          {
+            "label": "Matched reverse light",
+            "baseline": "asset-reviews/organs/node-baseline-reverse.webp",
+            "candidate": "asset-reviews/organs/node-candidate-reverse.webp",
+            "original": "asset-reviews/organs/node-original-reverse.webp"
+          },
+          {
+            "label": "Neutral grayscale matched angle",
+            "baseline": "asset-reviews/organs/node-baseline-gray.webp",
+            "candidate": "asset-reviews/organs/node-candidate-gray.webp",
+            "original": "asset-reviews/organs/node-original-gray.webp"
+          },
+          {
+            "label": "Denser tessellation comparison",
+            "baseline": "asset-reviews/organs/node-candidate-oblique.webp",
+            "candidate": "asset-reviews/organs/node-light-oblique.webp"
+          },
+          {
+            "label": "Normal tour at the same saved frame",
+            "baseline": "asset-reviews/organs/live-node-baseline.webp",
+            "candidate": "asset-reviews/organs/live-node-candidate.webp"
+          },
+          {
+            "label": "Acquired comparison \u00b7 published panel 1C",
+            "candidate": "asset-reviews/organs/node-acquired-comparison.webp",
+            "source": {
+              "title": "Axillary lymph node morphology \u00b7 Figure 1",
+              "credit": "Jung Min Chang et al. \u00b7 Korean Breast Cancer Society",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8724375/#F1",
+              "license": "CC BY-NC 4.0",
+              "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
+              "sha256": "2db89270a13a972ef44818c236f4964e39bb8f8b078391ffe791e3832d2ea748",
+              "panel": "1C",
+              "relationship": "Separate acquired subject and independent scale"
+            }
+          }
+        ]
+      },
+      "beforeScores": {
+        "form": 2,
+        "economy": 3
+      },
+      "beforeEvidence": {
+        "form": "The baseline has a regular ovoid silhouette with no cortical indentation.",
+        "economy": "The inherited 1,656-triangle sphere was used for the small cortex."
+      },
+      "geometrySha256": "713b7506564f07c427eda22b32048ebc616f2a14054cafcea056d1138e4b1329"
+    },
+    {
+      "source": "case",
+      "case": "breast-supplemental-screening",
+      "chapter": "breast-screen-right-1",
+      "part": "Fibroglandular tissue",
+      "baseline": "0d943e4",
+      "revision": "20d819725801a9cb20d0715337cc81933b94030ee395cadf494ebfb21b5a2aae",
+      "reviewer": "Codex agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Follow the right gland between superficial fat and fascia during the nipple-level covering pass.",
+      "scores": {
+        "fidelity": 4,
+        "form": 4,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The same scan and 3D bounds use 48 traced radii and 477 directly bracketed upper/lower source samples. The modeled gland stays anterior to retromammary fat, within the tested screen coverage, and all eight saved breast caliper endpoints are unchanged.",
+        "form": "Matched reverse and grayscale close-ups show the lobular relief over the body and along the major folds. Both anterior and posterior bounds follow the pinned right mantle intersection data, calibrated to the case depth.",
+        "readability": "On the saved screening frame, the marked plane traces the sampled gland, retromammary fat and fascia. The sagittal grayscale view helps separate the stacked boundaries. In the default oblique, the probe housing and field grid still obscure part of the gland edge, so readability stays at 3/4.",
+        "economy": "2,208 display triangles. Maximum sampled deviation from the dense case surface is 0.66 mm. The 720-triangle trial shows 2.42 mm maximum deviation."
+      },
+      "note": "The original derives from the retained right HRA mammary-lobe footprint. Case depth and dimensions remain illustrative. Left and right case lobes use the same source outline with laterality mirrored.",
+      "comparison": {
+        "label": "Isolated, matched mm scale and neutral oblique light",
+        "baseline": "asset-reviews/organs/gland-baseline-oblique.webp",
+        "candidate": "asset-reviews/organs/gland-candidate-oblique.webp",
+        "original": "asset-reviews/organs/gland-original-oblique.webp",
+        "views": [
+          {
+            "label": "Matched reverse light",
+            "baseline": "asset-reviews/organs/gland-baseline-reverse.webp",
+            "candidate": "asset-reviews/organs/gland-candidate-reverse.webp",
+            "original": "asset-reviews/organs/gland-original-reverse.webp"
+          },
+          {
+            "label": "Neutral grayscale matched angle",
+            "baseline": "asset-reviews/organs/gland-baseline-gray.webp",
+            "candidate": "asset-reviews/organs/gland-candidate-gray.webp",
+            "original": "asset-reviews/organs/gland-original-gray.webp"
+          },
+          {
+            "label": "Lighter tessellation trial",
+            "baseline": "asset-reviews/organs/gland-candidate-oblique.webp",
+            "candidate": "asset-reviews/organs/gland-light-oblique.webp"
+          },
+          {
+            "label": "Default plane view \u00b7 same frame and camera, before and after contours",
+            "baseline": "asset-reviews/organs/plane-preplane-oblique.webp",
+            "candidate": "asset-reviews/organs/plane-candidate-oblique.webp"
+          },
+          {
+            "label": "Sagittal plane view \u00b7 matched grayscale",
+            "baseline": "asset-reviews/organs/plane-preplane-sagittal.webp",
+            "candidate": "asset-reviews/organs/plane-candidate-sagittal.webp"
+          }
+        ]
+      },
+      "occurrence": 1,
+      "beforeScores": {
+        "form": 2,
+        "readability": 2
+      },
+      "beforeEvidence": {
+        "form": "Matched front and grayscale show a smooth oval disk instead of a lobular boundary.",
+        "readability": "The uniform disk silhouette closely repeats the surrounding fat envelope."
+      },
+      "geometrySha256": "330f371e57f5a5f8e314098a877b3ddb0f7f4ad7794f263dab9b94ab9c1ba7ee"
+    },
+    {
+      "source": "case",
+      "case": "breast-supplemental-screening",
+      "chapter": "breast-screen-right-1",
+      "part": "Pectoral fascia",
+      "baseline": "0d943e4",
+      "revision": "20d819725801a9cb20d0715337cc81933b94030ee395cadf494ebfb21b5a2aae",
+      "reviewer": "Codex agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Identify the tapered posterior layer and orient its surface with the chest wall.",
+      "scores": {
+        "fidelity": 3,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The right pectoralis outline controls the modeled fascia footprint. Exact pointwise evaluation shares its anterior surface with the retromammary layer across the scan and mesh.",
+        "form": "The taper shows in the anterior comparison and grayscale. The pectoral source is a muscle-layer approximation to the fascial plane and its surface relief is not reproduced.",
+        "readability": "At the same nipple-level screening frame and native scan scale, separate grayscale callouts identify the thin fat band and the brighter fascia under it. The isolated grayscale view confirms the layer outlines without altering the physical spacing.",
+        "economy": "The displayed 1,656-triangle shape has 0.66 mm maximum sampled error. The 720-triangle trial had 0.53 mm maximum and is retained as comparison evidence."
+      },
+      "note": "The standalone source models pectoralis in the HRA frame. The candidate is an illustrative fascia layer, which remains a different tissue representation.",
+      "comparison": {
+        "label": "Isolated, matched mm scale and neutral oblique light",
+        "baseline": "asset-reviews/organs/fascia-baseline-oblique.webp",
+        "candidate": "asset-reviews/organs/fascia-candidate-oblique.webp",
+        "original": "asset-reviews/organs/fascia-original-oblique.webp",
+        "views": [
+          {
+            "label": "Matched reverse light",
+            "baseline": "asset-reviews/organs/fascia-baseline-reverse.webp",
+            "candidate": "asset-reviews/organs/fascia-candidate-reverse.webp",
+            "original": "asset-reviews/organs/fascia-original-reverse.webp"
+          },
+          {
+            "label": "Neutral grayscale matched angle",
+            "baseline": "asset-reviews/organs/fascia-baseline-gray.webp",
+            "candidate": "asset-reviews/organs/fascia-candidate-gray.webp",
+            "original": "asset-reviews/organs/fascia-original-gray.webp"
+          },
+          {
+            "label": "Lighter tessellation trial",
+            "baseline": "asset-reviews/organs/fascia-candidate-oblique.webp",
+            "candidate": "asset-reviews/organs/fascia-light-oblique.webp"
+          },
+          {
+            "label": "Live scan \u00b7 unchanged field and scale",
+            "baseline": "asset-reviews/organs/scan-layers-baseline.webp",
+            "candidate": "asset-reviews/organs/scan-layers-candidate.webp"
+          }
+        ]
+      },
+      "occurrence": 1,
+      "geometrySha256": "274826eb689a70d49fb81127558f2912a1ff609118ec9516ecc6aa05ccdc17ff"
+    },
+    {
+      "source": "case",
+      "case": "breast-supplemental-screening",
+      "chapter": "breast-screen-right-1",
+      "part": "Retromammary fat",
+      "baseline": "0d943e4",
+      "revision": "20d819725801a9cb20d0715337cc81933b94030ee395cadf494ebfb21b5a2aae",
+      "reviewer": "Codex agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Locate the shallow fat plane immediately anterior to pectoral fascia in the sampled posterior breast.",
+      "scores": {
+        "fidelity": 3,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The posterior fat boundary equals the anterior fascia boundary at every normalized sampled position by construction. The thin layer is 1.4 mm centrally and tapers at its edges.",
+        "form": "The isolated layer shows a thin plate in oblique and grayscale. Native fat has a more irregular footprint and separate closed edge details.",
+        "readability": "At the same nipple-level screening frame and native scan scale, separate grayscale callouts identify the thin fat band and the brighter fascia under it. The isolated grayscale view confirms the layer outlines without altering the physical spacing.",
+        "economy": "The displayed 1,656-triangle shape has 0.60 mm maximum sampled error. The 720-triangle trial had 0.70 mm maximum and is retained as comparison evidence."
+      },
+      "note": "This modeled retromammary plane uses the shared fascial boundary. The baseline has no separate retromammary part.",
+      "comparison": {
+        "label": "Isolated, matched mm scale and neutral oblique light",
+        "baseline": "asset-reviews/organs/retro-baseline-oblique.webp",
+        "candidate": "asset-reviews/organs/retro-candidate-oblique.webp",
+        "original": "asset-reviews/organs/retro-original-oblique.webp",
+        "views": [
+          {
+            "label": "Matched reverse light",
+            "baseline": "asset-reviews/organs/retro-baseline-reverse.webp",
+            "candidate": "asset-reviews/organs/retro-candidate-reverse.webp",
+            "original": "asset-reviews/organs/retro-original-reverse.webp"
+          },
+          {
+            "label": "Neutral grayscale matched angle",
+            "baseline": "asset-reviews/organs/retro-baseline-gray.webp",
+            "candidate": "asset-reviews/organs/retro-candidate-gray.webp",
+            "original": "asset-reviews/organs/retro-original-gray.webp"
+          },
+          {
+            "label": "Lighter tessellation trial",
+            "baseline": "asset-reviews/organs/retro-candidate-oblique.webp",
+            "candidate": "asset-reviews/organs/retro-light-oblique.webp"
+          },
+          {
+            "label": "Live scan \u00b7 unchanged field and scale",
+            "baseline": "asset-reviews/organs/scan-layers-baseline.webp",
+            "candidate": "asset-reviews/organs/scan-layers-candidate.webp"
+          }
+        ]
+      },
+      "occurrence": 1,
+      "beforeScores": {
+        "fidelity": 0,
+        "form": 0,
+        "readability": 0
+      },
+      "beforeEvidence": {
+        "fidelity": "There is no separate retromammary layer.",
+        "form": "There is no surface to isolate.",
+        "readability": "The layer has no marker or independent silhouette."
+      },
+      "geometrySha256": "f7073706b84cdf8997f024f11d92854431d5b16389ceb7aee0ac728a60871190"
+    },
+    {
+      "source": "case",
+      "case": "breast-supplemental-screening",
+      "chapter": "breast-screen-right-1",
+      "part": "Chest wall",
+      "baseline": "0d943e4",
+      "revision": "20d819725801a9cb20d0715337cc81933b94030ee395cadf494ebfb21b5a2aae",
+      "reviewer": "Codex agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Trace the continuous posterior support layer from the right breast toward the sternum.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The continuous x/z outline comes from 48 traced samples of the standalone chest wall. The model independently retains positive layer thickness at the sternum in the scan and mesh.",
+        "form": "The joined silhouette removes the two spherical-disc outlines and follows the broader source plate. Small thoracic landmarks are outside the modeled layer.",
+        "readability": "Both reverse and grayscale isolate the uninterrupted posterior plate. At the live sweep angle it remains behind fascia and gland.",
+        "economy": "The displayed 1,656-triangle shape has 0.59 mm maximum sampled error. The 720-triangle trial had 1.18 mm maximum and is retained as comparison evidence."
+      },
+      "note": "The baseline comparison shows both prior chest-wall pieces together at the same physical scale. The standalone mesh and candidate use their own authored case sizes.",
+      "comparison": {
+        "label": "Isolated, matched mm scale and neutral oblique light",
+        "baseline": "asset-reviews/organs/wall-baseline-oblique.webp",
+        "candidate": "asset-reviews/organs/wall-candidate-oblique.webp",
+        "original": "asset-reviews/organs/wall-original-oblique.webp",
+        "views": [
+          {
+            "label": "Matched reverse light",
+            "baseline": "asset-reviews/organs/wall-baseline-reverse.webp",
+            "candidate": "asset-reviews/organs/wall-candidate-reverse.webp",
+            "original": "asset-reviews/organs/wall-original-reverse.webp"
+          },
+          {
+            "label": "Neutral grayscale matched angle",
+            "baseline": "asset-reviews/organs/wall-baseline-gray.webp",
+            "candidate": "asset-reviews/organs/wall-candidate-gray.webp",
+            "original": "asset-reviews/organs/wall-original-gray.webp"
+          },
+          {
+            "label": "Lighter tessellation trial",
+            "baseline": "asset-reviews/organs/wall-candidate-oblique.webp",
+            "candidate": "asset-reviews/organs/wall-light-oblique.webp"
+          }
+        ]
+      },
+      "beforeScores": {
+        "form": 2,
+        "readability": 2
+      },
+      "beforeEvidence": {
+        "form": "The baseline shows two separate round plates meeting at the middle.",
+        "readability": "The medial seam can look like a separation in the chest wall."
+      },
+      "geometrySha256": "c8a44a921d8cee8ceb63739d4356c626db1ec3bc6064058d963e7f35194993d0"
+    },
+    {
+      "source": "case",
+      "case": "breast-supplemental-screening",
+      "chapter": "breast-screen-right-0",
+      "part": "Fibroglandular tail",
+      "baseline": "0d943e4",
+      "revision": "20d819725801a9cb20d0715337cc81933b94030ee395cadf494ebfb21b5a2aae",
+      "reviewer": "Codex agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Follow the upper outer gland margin toward the axillary sweep footprint.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The tail uses 48 measured radii and 479 directly bracketed upper/lower source samples from the upper outer gland region. Case sections confirm overlap with the parent gland and stay inside the verified sweep coverage.",
+        "form": "Oblique and reverse images show the taper, lobular relief, and irregular lateral edge of the upper outer source region. The modeled crop has editorial medial and inferior edges. No separately delineated native tail is available.",
+        "readability": "The scan keeps the gland and tail at their established depths. Isolation and reverse confirm the tapered extension, but a separately delineated native tail has no source witness.",
+        "economy": "2,208 display triangles. Maximum sampled deviation from the dense case surface is 0.41 mm. The 720-triangle trial shows 1.41 mm maximum deviation."
+      },
+      "note": "This source comparison is the upper outer subregion of the standalone right gland mantle rather than an independently segmented native tail. The source region\u2019s medial and inferior crop edges are editorial.",
+      "comparison": {
+        "label": "Isolated, matched mm scale and neutral oblique light",
+        "baseline": "asset-reviews/organs/tail-baseline-oblique.webp",
+        "candidate": "asset-reviews/organs/tail-candidate-oblique.webp",
+        "original": "asset-reviews/organs/tail-original-oblique.webp",
+        "views": [
+          {
+            "label": "Matched reverse light",
+            "baseline": "asset-reviews/organs/tail-baseline-reverse.webp",
+            "candidate": "asset-reviews/organs/tail-candidate-reverse.webp",
+            "original": "asset-reviews/organs/tail-original-reverse.webp"
+          },
+          {
+            "label": "Neutral grayscale matched angle",
+            "baseline": "asset-reviews/organs/tail-baseline-gray.webp",
+            "candidate": "asset-reviews/organs/tail-candidate-gray.webp",
+            "original": "asset-reviews/organs/tail-original-gray.webp"
+          },
+          {
+            "label": "Lighter tessellation trial",
+            "baseline": "asset-reviews/organs/tail-candidate-oblique.webp",
+            "candidate": "asset-reviews/organs/tail-light-oblique.webp"
+          }
+        ]
+      },
+      "occurrence": 1,
+      "geometrySha256": "64eca2a56a8598e9e013f303a7a98c5ca3072e90fbef56ecf58f58e3bcf1d1d5"
+    },
+    {
+      "source": "case",
+      "case": "breast-retroareolar-cyst",
+      "chapter": "breast-cyst-anti",
+      "part": "Anechoic simple cyst",
+      "baseline": "0d943e4",
+      "revision": "20d819725801a9cb20d0715337cc81933b94030ee395cadf494ebfb21b5a2aae",
+      "reviewer": "Codex agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Locate the small retroareolar lesion in its antiradial plane and confirm it in the radial view.",
+      "scores": {
+        "fidelity": 4,
+        "form": 4,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The measurement coordinates are identical to the baseline. The 10 mm antiradial diameter and the 12 \u00d7 8 mm radial dimensions remain in their original planes and positions.",
+        "form": "The smooth, circumscribed oval in Ferr\u00e9 Figure 9A supports the case contour. The candidate keeps the rounded boundary in neutral and reverse light and in grayscale. The entire modeled lumen stays dark, with enhancement beginning at the posterior wall.",
+        "readability": "The candidate lesion uses a distinct muted teal in the viewer. The antiradial scan still shows the posterior enhancement and measured lumen, with the orthogonal radial evidence linked in the tour.",
+        "economy": "The displayed 1,656-triangle shape has 0.03 mm maximum sampled error. The 720-triangle trial had 0.07 mm maximum and is retained as comparison evidence."
+      },
+      "note": "Ferr\u00e9 and colleagues Figure 9A is a separate acquired right-breast lesion. The modeled left-breast contour has case-defined measurements. The source and model are shown at independent scales.",
+      "comparison": {
+        "label": "Isolated, matched mm scale and neutral oblique light",
+        "baseline": "asset-reviews/organs/cyst-baseline-oblique.webp",
+        "candidate": "asset-reviews/organs/cyst-candidate-oblique.webp",
+        "views": [
+          {
+            "label": "Matched reverse light",
+            "baseline": "asset-reviews/organs/cyst-baseline-reverse.webp",
+            "candidate": "asset-reviews/organs/cyst-candidate-reverse.webp"
+          },
+          {
+            "label": "Neutral grayscale matched angle",
+            "baseline": "asset-reviews/organs/cyst-baseline-gray.webp",
+            "candidate": "asset-reviews/organs/cyst-candidate-gray.webp"
+          },
+          {
+            "label": "Lighter tessellation trial",
+            "baseline": "asset-reviews/organs/cyst-candidate-oblique.webp",
+            "candidate": "asset-reviews/organs/cyst-light-oblique.webp"
+          },
+          {
+            "label": "Normal tour at the same saved frame",
+            "baseline": "asset-reviews/organs/live-cyst-baseline.webp",
+            "candidate": "asset-reviews/organs/live-cyst-candidate.webp"
+          },
+          {
+            "label": "Acquired comparison \u00b7 published panel 9A",
+            "candidate": "asset-reviews/organs/cyst-acquired-comparison.webp",
+            "source": {
+              "title": "Simple cyst behind the right nipple \u00b7 Figure 9A",
+              "credit": "Romuald Ferr\u00e9, Martine Par\u00e9, Lisa Smith, M\u00e9lanie Th\u00e9riault, Ann Aldis, Ellen Kao and Benoit Mesurolle",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5295772/#cancers-09-00001-f009",
+              "license": "CC BY 4.0",
+              "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+              "sha256": "be8b810faef08a5d3aeaefe73289ae3462a7aa96566ca8ca8f54d26e78f32083",
+              "panel": "9A",
+              "relationship": "Separate acquired subject and independent scale"
+            }
+          }
+        ]
+      },
+      "geometrySha256": "4011f331269e0fe70dfc0e0f25b0209f926401718ca09c133b88b07e51e8c265"
+    },
+    {
+      "source": "case",
+      "case": "breast-axillary-node",
+      "chapter": "axillary-node-long",
+      "part": "Right axillary cortex",
+      "baseline": "0d943e4",
+      "revision": "20d819725801a9cb20d0715337cc81933b94030ee395cadf494ebfb21b5a2aae",
+      "reviewer": "Codex agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Confirm the isolated right axillary cortex geometry in this acquisition.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Exact authored shape linked to the reviewed surface and calipers. All saved endpoint coordinates equal baseline, including the 9.2 mm AP span, 28 mm long axis and the 3.8 and 4.4 mm cortical chords. The off-axis notch starts on the posterior side and leaves the measured anterior wall intact.",
+        "form": "The reverse view shows a small hilar-side indentation. The original axillary model has a stronger and more localized notch, so this candidate retains an intentionally simplified posterior contour.",
+        "economy": "The 720-triangle shell replaces 1,656 baseline triangles. A denser 1,656-triangle profile lowered maximum sampled error from 0.14 to 0.07 mm, without improving the observed calibrated cortex landmark."
+      },
+      "note": "Exact authored shape of the reviewed breast-axillary-node / axillary-node-short part. Teaching readability in this acquisition remains unrated.",
+      "geometrySha256": "713b7506564f07c427eda22b32048ebc616f2a14054cafcea056d1138e4b1329",
+      "occurrence": 1,
+      "reusedShape": {
+        "case": "breast-axillary-node",
+        "chapter": "axillary-node-short",
+        "part": "Right axillary cortex",
+        "geometrySha256": "713b7506564f07c427eda22b32048ebc616f2a14054cafcea056d1138e4b1329",
+        "relationship": "Exact authored shape"
+      },
+      "comparison": {
+        "label": "Isolated, matched mm scale and neutral oblique light",
+        "baseline": "asset-reviews/organs/node-baseline-oblique.webp",
+        "candidate": "asset-reviews/organs/node-candidate-oblique.webp",
+        "original": "asset-reviews/organs/node-original-oblique.webp",
+        "views": [
+          {
+            "label": "Matched reverse light",
+            "baseline": "asset-reviews/organs/node-baseline-reverse.webp",
+            "candidate": "asset-reviews/organs/node-candidate-reverse.webp",
+            "original": "asset-reviews/organs/node-original-reverse.webp"
+          },
+          {
+            "label": "Neutral grayscale matched angle",
+            "baseline": "asset-reviews/organs/node-baseline-gray.webp",
+            "candidate": "asset-reviews/organs/node-candidate-gray.webp",
+            "original": "asset-reviews/organs/node-original-gray.webp"
+          },
+          {
+            "label": "Denser tessellation comparison",
+            "baseline": "asset-reviews/organs/node-candidate-oblique.webp",
+            "candidate": "asset-reviews/organs/node-light-oblique.webp"
+          }
+        ]
+      }
+    },
+    {
+      "source": "case",
+      "case": "breast-supplemental-screening",
+      "chapter": "breast-screen-map",
+      "part": "Fibroglandular tissue",
+      "baseline": "0d943e4",
+      "revision": "20d819725801a9cb20d0715337cc81933b94030ee395cadf494ebfb21b5a2aae",
+      "reviewer": "Codex agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Confirm the isolated fibroglandular tissue geometry in this acquisition.",
+      "scores": {
+        "fidelity": 4,
+        "form": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Exact authored shape linked to the reviewed surface and calipers. The surface and scan share 48 source-traced angular radii. The coverage check follows every full millimetre of gland width and all sampled depths. The independent cyst calipers remain fixed.",
+        "form": "Matched reverse and grayscale close-ups show the lobular relief over the body and along the major folds. Both anterior and posterior bounds follow the pinned right mantle intersection data, calibrated to the case depth.",
+        "economy": "2,208 display triangles. Maximum sampled deviation from the dense case surface is 0.66 mm. The 720-triangle trial shows 2.42 mm maximum deviation."
+      },
+      "note": "Exact authored shape of the reviewed breast-supplemental-screening / breast-screen-right-1 part. Teaching readability in this acquisition remains unrated.",
+      "occurrence": 1,
+      "geometrySha256": "330f371e57f5a5f8e314098a877b3ddb0f7f4ad7794f263dab9b94ab9c1ba7ee",
+      "reusedShape": {
+        "case": "breast-supplemental-screening",
+        "chapter": "breast-screen-right-1",
+        "part": "Fibroglandular tissue",
+        "geometrySha256": "330f371e57f5a5f8e314098a877b3ddb0f7f4ad7794f263dab9b94ab9c1ba7ee",
+        "relationship": "Exact authored shape"
+      },
+      "comparison": {
+        "label": "Isolated, matched mm scale and neutral oblique light",
+        "baseline": "asset-reviews/organs/gland-baseline-oblique.webp",
+        "candidate": "asset-reviews/organs/gland-candidate-oblique.webp",
+        "original": "asset-reviews/organs/gland-original-oblique.webp",
+        "views": [
+          {
+            "label": "Matched reverse light",
+            "baseline": "asset-reviews/organs/gland-baseline-reverse.webp",
+            "candidate": "asset-reviews/organs/gland-candidate-reverse.webp",
+            "original": "asset-reviews/organs/gland-original-reverse.webp"
+          },
+          {
+            "label": "Neutral grayscale matched angle",
+            "baseline": "asset-reviews/organs/gland-baseline-gray.webp",
+            "candidate": "asset-reviews/organs/gland-candidate-gray.webp",
+            "original": "asset-reviews/organs/gland-original-gray.webp"
+          },
+          {
+            "label": "Lighter tessellation trial",
+            "baseline": "asset-reviews/organs/gland-candidate-oblique.webp",
+            "candidate": "asset-reviews/organs/gland-light-oblique.webp"
+          }
+        ]
+      },
+      "additionalUses": [
+        {
+          "case": "breast-supplemental-screening",
+          "chapter": "breast-screen-right-0"
+        },
+        {
+          "case": "breast-supplemental-screening",
+          "chapter": "breast-screen-right-2"
+        },
+        {
+          "case": "breast-axillary-node",
+          "chapter": "axillary-tail-diagnostic"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "breast-supplemental-screening",
+      "chapter": "breast-screen-left-0",
+      "part": "Fibroglandular tissue",
+      "baseline": "0d943e4",
+      "revision": "20d819725801a9cb20d0715337cc81933b94030ee395cadf494ebfb21b5a2aae",
+      "reviewer": "Codex agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Confirm the mirrored isolated fibroglandular tissue geometry in this acquisition.",
+      "scores": {
+        "fidelity": 3,
+        "form": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Modeled reflection linked to the reviewed surface and calipers. The surface and scan share 48 source-traced angular radii. The coverage check follows every full millimetre of gland width and all sampled depths. The independent cyst calipers remain fixed.",
+        "form": "Matched reverse and grayscale close-ups show the lobular relief over the body and along the major folds. Both anterior and posterior bounds follow the pinned right mantle intersection data, calibrated to the case depth.",
+        "economy": "2,208 display triangles. Maximum sampled deviation from the dense case surface is 0.66 mm. The 720-triangle trial shows 2.42 mm maximum deviation."
+      },
+      "note": "Modeled reflection of the reviewed breast-supplemental-screening / breast-screen-right-1 part. Teaching readability in this acquisition remains unrated.",
+      "occurrence": 2,
+      "geometrySha256": "045345d755ee6b3037c9a890c16616876cebf3c7d2c63f81dbe9dd19ea20be62",
+      "reusedShape": {
+        "case": "breast-supplemental-screening",
+        "chapter": "breast-screen-right-1",
+        "part": "Fibroglandular tissue",
+        "geometrySha256": "330f371e57f5a5f8e314098a877b3ddb0f7f4ad7794f263dab9b94ab9c1ba7ee",
+        "relationship": "Modeled reflection"
+      },
+      "comparison": {
+        "label": "Isolated, matched mm scale and neutral oblique light",
+        "baseline": "asset-reviews/organs/gland-baseline-oblique.webp",
+        "candidate": "asset-reviews/organs/gland-candidate-oblique.webp",
+        "original": "asset-reviews/organs/gland-original-oblique.webp",
+        "views": [
+          {
+            "label": "Matched reverse light",
+            "baseline": "asset-reviews/organs/gland-baseline-reverse.webp",
+            "candidate": "asset-reviews/organs/gland-candidate-reverse.webp",
+            "original": "asset-reviews/organs/gland-original-reverse.webp"
+          },
+          {
+            "label": "Neutral grayscale matched angle",
+            "baseline": "asset-reviews/organs/gland-baseline-gray.webp",
+            "candidate": "asset-reviews/organs/gland-candidate-gray.webp",
+            "original": "asset-reviews/organs/gland-original-gray.webp"
+          },
+          {
+            "label": "Lighter tessellation trial",
+            "baseline": "asset-reviews/organs/gland-candidate-oblique.webp",
+            "candidate": "asset-reviews/organs/gland-light-oblique.webp"
+          }
+        ]
+      },
+      "additionalUses": [
+        {
+          "case": "breast-supplemental-screening",
+          "chapter": "breast-screen-left-1"
+        },
+        {
+          "case": "breast-supplemental-screening",
+          "chapter": "breast-screen-left-2"
+        },
+        {
+          "case": "breast-retroareolar-cyst",
+          "chapter": "breast-cyst-radial"
+        },
+        {
+          "case": "breast-retroareolar-cyst",
+          "chapter": "breast-cyst-anti"
+        },
+        {
+          "case": "breast-limited",
+          "chapter": "breast-limited-adjacent"
+        },
+        {
+          "case": "breast-limited",
+          "chapter": "breast-retro-limited"
+        },
+        {
+          "case": "breast-limited",
+          "chapter": "breast-retro-limited-repeat"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "breast-supplemental-screening",
+      "chapter": "breast-screen-map",
+      "part": "Pectoral fascia",
+      "baseline": "0d943e4",
+      "revision": "20d819725801a9cb20d0715337cc81933b94030ee395cadf494ebfb21b5a2aae",
+      "reviewer": "Codex agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Confirm the isolated pectoral fascia geometry in this acquisition.",
+      "scores": {
+        "fidelity": 3,
+        "form": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Exact authored shape linked to the reviewed surface and calipers. The right pectoralis outline controls the modeled fascia footprint. Exact pointwise evaluation shares its anterior surface with the retromammary layer across the scan and mesh.",
+        "form": "The taper shows in the anterior comparison and grayscale. The pectoral source is a muscle-layer approximation to the fascial plane and its surface relief is not reproduced.",
+        "economy": "The displayed 1,656-triangle shape has 0.66 mm maximum sampled error. The 720-triangle trial had 0.53 mm maximum and is retained as comparison evidence."
+      },
+      "note": "Exact authored shape of the reviewed breast-supplemental-screening / breast-screen-right-1 part. Teaching readability in this acquisition remains unrated.",
+      "occurrence": 1,
+      "geometrySha256": "274826eb689a70d49fb81127558f2912a1ff609118ec9516ecc6aa05ccdc17ff",
+      "reusedShape": {
+        "case": "breast-supplemental-screening",
+        "chapter": "breast-screen-right-1",
+        "part": "Pectoral fascia",
+        "geometrySha256": "274826eb689a70d49fb81127558f2912a1ff609118ec9516ecc6aa05ccdc17ff",
+        "relationship": "Exact authored shape"
+      },
+      "comparison": {
+        "label": "Isolated, matched mm scale and neutral oblique light",
+        "baseline": "asset-reviews/organs/fascia-baseline-oblique.webp",
+        "candidate": "asset-reviews/organs/fascia-candidate-oblique.webp",
+        "original": "asset-reviews/organs/fascia-original-oblique.webp",
+        "views": [
+          {
+            "label": "Matched reverse light",
+            "baseline": "asset-reviews/organs/fascia-baseline-reverse.webp",
+            "candidate": "asset-reviews/organs/fascia-candidate-reverse.webp",
+            "original": "asset-reviews/organs/fascia-original-reverse.webp"
+          },
+          {
+            "label": "Neutral grayscale matched angle",
+            "baseline": "asset-reviews/organs/fascia-baseline-gray.webp",
+            "candidate": "asset-reviews/organs/fascia-candidate-gray.webp",
+            "original": "asset-reviews/organs/fascia-original-gray.webp"
+          },
+          {
+            "label": "Lighter tessellation trial",
+            "baseline": "asset-reviews/organs/fascia-candidate-oblique.webp",
+            "candidate": "asset-reviews/organs/fascia-light-oblique.webp"
+          }
+        ]
+      },
+      "additionalUses": [
+        {
+          "case": "breast-supplemental-screening",
+          "chapter": "breast-screen-right-0"
+        },
+        {
+          "case": "breast-supplemental-screening",
+          "chapter": "breast-screen-right-2"
+        },
+        {
+          "case": "breast-axillary-node",
+          "chapter": "axillary-node-short"
+        },
+        {
+          "case": "breast-axillary-node",
+          "chapter": "axillary-tail-diagnostic"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "breast-supplemental-screening",
+      "chapter": "breast-screen-left-0",
+      "part": "Pectoral fascia",
+      "baseline": "0d943e4",
+      "revision": "20d819725801a9cb20d0715337cc81933b94030ee395cadf494ebfb21b5a2aae",
+      "reviewer": "Codex agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Confirm the mirrored isolated pectoral fascia geometry in this acquisition.",
+      "scores": {
+        "fidelity": 3,
+        "form": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Modeled reflection linked to the reviewed surface and calipers. The right pectoralis outline controls the modeled fascia footprint. Exact pointwise evaluation shares its anterior surface with the retromammary layer across the scan and mesh.",
+        "form": "The taper shows in the anterior comparison and grayscale. The pectoral source is a muscle-layer approximation to the fascial plane and its surface relief is not reproduced.",
+        "economy": "The displayed 1,656-triangle shape has 0.66 mm maximum sampled error. The 720-triangle trial had 0.53 mm maximum and is retained as comparison evidence."
+      },
+      "note": "Modeled reflection of the reviewed breast-supplemental-screening / breast-screen-right-1 part. Teaching readability in this acquisition remains unrated.",
+      "occurrence": 2,
+      "geometrySha256": "f120ef58a406a105436ea424df27802606d159d02f62ee4c588ee31cdaea632c",
+      "reusedShape": {
+        "case": "breast-supplemental-screening",
+        "chapter": "breast-screen-right-1",
+        "part": "Pectoral fascia",
+        "geometrySha256": "274826eb689a70d49fb81127558f2912a1ff609118ec9516ecc6aa05ccdc17ff",
+        "relationship": "Modeled reflection"
+      },
+      "comparison": {
+        "label": "Isolated, matched mm scale and neutral oblique light",
+        "baseline": "asset-reviews/organs/fascia-baseline-oblique.webp",
+        "candidate": "asset-reviews/organs/fascia-candidate-oblique.webp",
+        "original": "asset-reviews/organs/fascia-original-oblique.webp",
+        "views": [
+          {
+            "label": "Matched reverse light",
+            "baseline": "asset-reviews/organs/fascia-baseline-reverse.webp",
+            "candidate": "asset-reviews/organs/fascia-candidate-reverse.webp",
+            "original": "asset-reviews/organs/fascia-original-reverse.webp"
+          },
+          {
+            "label": "Neutral grayscale matched angle",
+            "baseline": "asset-reviews/organs/fascia-baseline-gray.webp",
+            "candidate": "asset-reviews/organs/fascia-candidate-gray.webp",
+            "original": "asset-reviews/organs/fascia-original-gray.webp"
+          },
+          {
+            "label": "Lighter tessellation trial",
+            "baseline": "asset-reviews/organs/fascia-candidate-oblique.webp",
+            "candidate": "asset-reviews/organs/fascia-light-oblique.webp"
+          }
+        ]
+      },
+      "additionalUses": [
+        {
+          "case": "breast-supplemental-screening",
+          "chapter": "breast-screen-left-1"
+        },
+        {
+          "case": "breast-supplemental-screening",
+          "chapter": "breast-screen-left-2"
+        },
+        {
+          "case": "breast-retroareolar-cyst",
+          "chapter": "breast-cyst-radial"
+        },
+        {
+          "case": "breast-retroareolar-cyst",
+          "chapter": "breast-cyst-anti"
+        },
+        {
+          "case": "breast-limited",
+          "chapter": "breast-limited-adjacent"
+        },
+        {
+          "case": "breast-limited",
+          "chapter": "breast-retro-limited"
+        },
+        {
+          "case": "breast-limited",
+          "chapter": "breast-retro-limited-repeat"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "breast-supplemental-screening",
+      "chapter": "breast-screen-map",
+      "part": "Retromammary fat",
+      "baseline": "0d943e4",
+      "revision": "20d819725801a9cb20d0715337cc81933b94030ee395cadf494ebfb21b5a2aae",
+      "reviewer": "Codex agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Confirm the isolated retromammary fat geometry in this acquisition.",
+      "scores": {
+        "fidelity": 3,
+        "form": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Exact authored shape linked to the reviewed surface and calipers. The posterior fat boundary equals the anterior fascia boundary at every normalized sampled position by construction. The thin layer is 1.4 mm centrally and tapers at its edges.",
+        "form": "The isolated layer shows a thin plate in oblique and grayscale. Native fat has a more irregular footprint and separate closed edge details.",
+        "economy": "The displayed 1,656-triangle shape has 0.60 mm maximum sampled error. The 720-triangle trial had 0.70 mm maximum and is retained as comparison evidence."
+      },
+      "note": "Exact authored shape of the reviewed breast-supplemental-screening / breast-screen-right-1 part. Teaching readability in this acquisition remains unrated.",
+      "occurrence": 1,
+      "geometrySha256": "f7073706b84cdf8997f024f11d92854431d5b16389ceb7aee0ac728a60871190",
+      "reusedShape": {
+        "case": "breast-supplemental-screening",
+        "chapter": "breast-screen-right-1",
+        "part": "Retromammary fat",
+        "geometrySha256": "f7073706b84cdf8997f024f11d92854431d5b16389ceb7aee0ac728a60871190",
+        "relationship": "Exact authored shape"
+      },
+      "comparison": {
+        "label": "Isolated, matched mm scale and neutral oblique light",
+        "baseline": "asset-reviews/organs/retro-baseline-oblique.webp",
+        "candidate": "asset-reviews/organs/retro-candidate-oblique.webp",
+        "original": "asset-reviews/organs/retro-original-oblique.webp",
+        "views": [
+          {
+            "label": "Matched reverse light",
+            "baseline": "asset-reviews/organs/retro-baseline-reverse.webp",
+            "candidate": "asset-reviews/organs/retro-candidate-reverse.webp",
+            "original": "asset-reviews/organs/retro-original-reverse.webp"
+          },
+          {
+            "label": "Neutral grayscale matched angle",
+            "baseline": "asset-reviews/organs/retro-baseline-gray.webp",
+            "candidate": "asset-reviews/organs/retro-candidate-gray.webp",
+            "original": "asset-reviews/organs/retro-original-gray.webp"
+          },
+          {
+            "label": "Lighter tessellation trial",
+            "baseline": "asset-reviews/organs/retro-candidate-oblique.webp",
+            "candidate": "asset-reviews/organs/retro-light-oblique.webp"
+          }
+        ]
+      },
+      "additionalUses": [
+        {
+          "case": "breast-supplemental-screening",
+          "chapter": "breast-screen-right-0"
+        },
+        {
+          "case": "breast-supplemental-screening",
+          "chapter": "breast-screen-right-2"
+        },
+        {
+          "case": "breast-axillary-node",
+          "chapter": "axillary-node-short"
+        },
+        {
+          "case": "breast-axillary-node",
+          "chapter": "axillary-tail-diagnostic"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "breast-supplemental-screening",
+      "chapter": "breast-screen-left-0",
+      "part": "Retromammary fat",
+      "baseline": "0d943e4",
+      "revision": "20d819725801a9cb20d0715337cc81933b94030ee395cadf494ebfb21b5a2aae",
+      "reviewer": "Codex agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Confirm the mirrored isolated retromammary fat geometry in this acquisition.",
+      "scores": {
+        "fidelity": 3,
+        "form": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Modeled reflection linked to the reviewed surface and calipers. The posterior fat boundary equals the anterior fascia boundary at every normalized sampled position by construction. The thin layer is 1.4 mm centrally and tapers at its edges.",
+        "form": "The isolated layer shows a thin plate in oblique and grayscale. Native fat has a more irregular footprint and separate closed edge details.",
+        "economy": "The displayed 1,656-triangle shape has 0.60 mm maximum sampled error. The 720-triangle trial had 0.70 mm maximum and is retained as comparison evidence."
+      },
+      "note": "Modeled reflection of the reviewed breast-supplemental-screening / breast-screen-right-1 part. Teaching readability in this acquisition remains unrated.",
+      "occurrence": 2,
+      "geometrySha256": "a874c457033391a97c878a270fd108d5ff5cca990cf2b0c89a9e27d11ca9852b",
+      "reusedShape": {
+        "case": "breast-supplemental-screening",
+        "chapter": "breast-screen-right-1",
+        "part": "Retromammary fat",
+        "geometrySha256": "f7073706b84cdf8997f024f11d92854431d5b16389ceb7aee0ac728a60871190",
+        "relationship": "Modeled reflection"
+      },
+      "comparison": {
+        "label": "Isolated, matched mm scale and neutral oblique light",
+        "baseline": "asset-reviews/organs/retro-baseline-oblique.webp",
+        "candidate": "asset-reviews/organs/retro-candidate-oblique.webp",
+        "original": "asset-reviews/organs/retro-original-oblique.webp",
+        "views": [
+          {
+            "label": "Matched reverse light",
+            "baseline": "asset-reviews/organs/retro-baseline-reverse.webp",
+            "candidate": "asset-reviews/organs/retro-candidate-reverse.webp",
+            "original": "asset-reviews/organs/retro-original-reverse.webp"
+          },
+          {
+            "label": "Neutral grayscale matched angle",
+            "baseline": "asset-reviews/organs/retro-baseline-gray.webp",
+            "candidate": "asset-reviews/organs/retro-candidate-gray.webp",
+            "original": "asset-reviews/organs/retro-original-gray.webp"
+          },
+          {
+            "label": "Lighter tessellation trial",
+            "baseline": "asset-reviews/organs/retro-candidate-oblique.webp",
+            "candidate": "asset-reviews/organs/retro-light-oblique.webp"
+          }
+        ]
+      },
+      "additionalUses": [
+        {
+          "case": "breast-supplemental-screening",
+          "chapter": "breast-screen-left-1"
+        },
+        {
+          "case": "breast-supplemental-screening",
+          "chapter": "breast-screen-left-2"
+        },
+        {
+          "case": "breast-retroareolar-cyst",
+          "chapter": "breast-cyst-radial"
+        },
+        {
+          "case": "breast-retroareolar-cyst",
+          "chapter": "breast-cyst-anti"
+        },
+        {
+          "case": "breast-limited",
+          "chapter": "breast-limited-adjacent"
+        },
+        {
+          "case": "breast-limited",
+          "chapter": "breast-retro-limited"
+        },
+        {
+          "case": "breast-limited",
+          "chapter": "breast-retro-limited-repeat"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "breast-supplemental-screening",
+      "chapter": "breast-screen-map",
+      "part": "Chest wall",
+      "baseline": "0d943e4",
+      "revision": "20d819725801a9cb20d0715337cc81933b94030ee395cadf494ebfb21b5a2aae",
+      "reviewer": "Codex agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Confirm the isolated chest wall geometry in this acquisition.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Exact authored shape linked to the reviewed surface and calipers. The continuous x/z outline comes from 48 traced samples of the standalone chest wall. The model independently retains positive layer thickness at the sternum in the scan and mesh.",
+        "form": "The joined silhouette removes the two spherical-disc outlines and follows the broader source plate. Small thoracic landmarks are outside the modeled layer.",
+        "economy": "The displayed 1,656-triangle shape has 0.59 mm maximum sampled error. The 720-triangle trial had 1.18 mm maximum and is retained as comparison evidence."
+      },
+      "note": "Exact authored shape of the reviewed breast-supplemental-screening / breast-screen-right-1 part. Teaching readability in this acquisition remains unrated.",
+      "geometrySha256": "c8a44a921d8cee8ceb63739d4356c626db1ec3bc6064058d963e7f35194993d0",
+      "occurrence": 1,
+      "reusedShape": {
+        "case": "breast-supplemental-screening",
+        "chapter": "breast-screen-right-1",
+        "part": "Chest wall",
+        "geometrySha256": "c8a44a921d8cee8ceb63739d4356c626db1ec3bc6064058d963e7f35194993d0",
+        "relationship": "Exact authored shape"
+      },
+      "comparison": {
+        "label": "Isolated, matched mm scale and neutral oblique light",
+        "baseline": "asset-reviews/organs/wall-baseline-oblique.webp",
+        "candidate": "asset-reviews/organs/wall-candidate-oblique.webp",
+        "original": "asset-reviews/organs/wall-original-oblique.webp",
+        "views": [
+          {
+            "label": "Matched reverse light",
+            "baseline": "asset-reviews/organs/wall-baseline-reverse.webp",
+            "candidate": "asset-reviews/organs/wall-candidate-reverse.webp",
+            "original": "asset-reviews/organs/wall-original-reverse.webp"
+          },
+          {
+            "label": "Neutral grayscale matched angle",
+            "baseline": "asset-reviews/organs/wall-baseline-gray.webp",
+            "candidate": "asset-reviews/organs/wall-candidate-gray.webp",
+            "original": "asset-reviews/organs/wall-original-gray.webp"
+          },
+          {
+            "label": "Lighter tessellation trial",
+            "baseline": "asset-reviews/organs/wall-candidate-oblique.webp",
+            "candidate": "asset-reviews/organs/wall-light-oblique.webp"
+          }
+        ]
+      },
+      "additionalUses": [
+        {
+          "case": "breast-supplemental-screening",
+          "chapter": "breast-screen-right-0"
+        },
+        {
+          "case": "breast-supplemental-screening",
+          "chapter": "breast-screen-right-2"
+        },
+        {
+          "case": "breast-supplemental-screening",
+          "chapter": "breast-screen-left-0"
+        },
+        {
+          "case": "breast-supplemental-screening",
+          "chapter": "breast-screen-left-1"
+        },
+        {
+          "case": "breast-supplemental-screening",
+          "chapter": "breast-screen-left-2"
+        },
+        {
+          "case": "breast-retroareolar-cyst",
+          "chapter": "breast-cyst-radial"
+        },
+        {
+          "case": "breast-retroareolar-cyst",
+          "chapter": "breast-cyst-anti"
+        },
+        {
+          "case": "breast-axillary-node",
+          "chapter": "axillary-tail-diagnostic"
+        },
+        {
+          "case": "breast-limited",
+          "chapter": "breast-limited-adjacent"
+        },
+        {
+          "case": "breast-limited",
+          "chapter": "breast-retro-limited"
+        },
+        {
+          "case": "breast-limited",
+          "chapter": "breast-retro-limited-repeat"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "breast-retroareolar-cyst",
+      "chapter": "breast-cyst-anti",
+      "part": "Fibroglandular tail",
+      "baseline": "0d943e4",
+      "revision": "20d819725801a9cb20d0715337cc81933b94030ee395cadf494ebfb21b5a2aae",
+      "reviewer": "Codex agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Confirm the mirrored isolated fibroglandular tail geometry in this acquisition.",
+      "scores": {
+        "fidelity": 3,
+        "form": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Modeled reflection linked to the reviewed surface and calipers. The tail uses 48 measured radii from the upper outer region of the standalone gland, replayed from the original mesh. The case model overlaps the parent gland\u2019s depth interval in 1,092 sampled columns and stays inside the verified coverage bands.",
+        "form": "Oblique and reverse images preserve the upper outer taper and irregular lateral profile. The rectified medial and inferior edges are editorial, with the medial edge buried inside the parent gland during playback.",
+        "economy": "2,208 display triangles. Maximum sampled deviation from the dense case surface is 0.41 mm. The 720-triangle trial shows 1.41 mm maximum deviation."
+      },
+      "note": "Modeled reflection of the reviewed breast-supplemental-screening / breast-screen-right-0 part. Teaching readability in this acquisition remains unrated.",
+      "occurrence": 2,
+      "geometrySha256": "a484e11f129c9704135e551281623a4a3bf6ebf7a5e3b60c4ebdbb0b6b528f1c",
+      "reusedShape": {
+        "case": "breast-supplemental-screening",
+        "chapter": "breast-screen-right-0",
+        "part": "Fibroglandular tail",
+        "geometrySha256": "64eca2a56a8598e9e013f303a7a98c5ca3072e90fbef56ecf58f58e3bcf1d1d5",
+        "relationship": "Modeled reflection"
+      },
+      "comparison": {
+        "label": "Isolated, matched mm scale and neutral oblique light",
+        "baseline": "asset-reviews/organs/tail-baseline-oblique.webp",
+        "candidate": "asset-reviews/organs/tail-candidate-oblique.webp",
+        "original": "asset-reviews/organs/tail-original-oblique.webp",
+        "views": [
+          {
+            "label": "Matched reverse light",
+            "baseline": "asset-reviews/organs/tail-baseline-reverse.webp",
+            "candidate": "asset-reviews/organs/tail-candidate-reverse.webp",
+            "original": "asset-reviews/organs/tail-original-reverse.webp"
+          },
+          {
+            "label": "Neutral grayscale matched angle",
+            "baseline": "asset-reviews/organs/tail-baseline-gray.webp",
+            "candidate": "asset-reviews/organs/tail-candidate-gray.webp",
+            "original": "asset-reviews/organs/tail-original-gray.webp"
+          },
+          {
+            "label": "Lighter tessellation trial",
+            "baseline": "asset-reviews/organs/tail-candidate-oblique.webp",
+            "candidate": "asset-reviews/organs/tail-light-oblique.webp"
+          }
+        ]
+      },
+      "additionalUses": [
+        {
+          "case": "breast-limited",
+          "chapter": "breast-limited-adjacent"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "breast-axillary-node",
+      "chapter": "axillary-node-short",
+      "part": "Fibroglandular tail",
+      "baseline": "0d943e4",
+      "revision": "20d819725801a9cb20d0715337cc81933b94030ee395cadf494ebfb21b5a2aae",
+      "reviewer": "Codex agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Confirm the isolated fibroglandular tail geometry in this acquisition.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Exact authored shape linked to the reviewed surface and calipers. The tail uses 48 measured radii from the upper outer region of the standalone gland, replayed from the original mesh. The case model overlaps the parent gland\u2019s depth interval in 1,092 sampled columns and stays inside the verified coverage bands.",
+        "form": "Oblique and reverse images preserve the upper outer taper and irregular lateral profile. The rectified medial and inferior edges are editorial, with the medial edge buried inside the parent gland during playback.",
+        "economy": "2,208 display triangles. Maximum sampled deviation from the dense case surface is 0.41 mm. The 720-triangle trial shows 1.41 mm maximum deviation."
+      },
+      "note": "Exact authored shape of the reviewed breast-supplemental-screening / breast-screen-right-0 part. Teaching readability in this acquisition remains unrated.",
+      "occurrence": 1,
+      "geometrySha256": "64eca2a56a8598e9e013f303a7a98c5ca3072e90fbef56ecf58f58e3bcf1d1d5",
+      "reusedShape": {
+        "case": "breast-supplemental-screening",
+        "chapter": "breast-screen-right-0",
+        "part": "Fibroglandular tail",
+        "geometrySha256": "64eca2a56a8598e9e013f303a7a98c5ca3072e90fbef56ecf58f58e3bcf1d1d5",
+        "relationship": "Exact authored shape"
+      },
+      "comparison": {
+        "label": "Isolated, matched mm scale and neutral oblique light",
+        "baseline": "asset-reviews/organs/tail-baseline-oblique.webp",
+        "candidate": "asset-reviews/organs/tail-candidate-oblique.webp",
+        "original": "asset-reviews/organs/tail-original-oblique.webp",
+        "views": [
+          {
+            "label": "Matched reverse light",
+            "baseline": "asset-reviews/organs/tail-baseline-reverse.webp",
+            "candidate": "asset-reviews/organs/tail-candidate-reverse.webp",
+            "original": "asset-reviews/organs/tail-original-reverse.webp"
+          },
+          {
+            "label": "Neutral grayscale matched angle",
+            "baseline": "asset-reviews/organs/tail-baseline-gray.webp",
+            "candidate": "asset-reviews/organs/tail-candidate-gray.webp",
+            "original": "asset-reviews/organs/tail-original-gray.webp"
+          },
+          {
+            "label": "Lighter tessellation trial",
+            "baseline": "asset-reviews/organs/tail-candidate-oblique.webp",
+            "candidate": "asset-reviews/organs/tail-light-oblique.webp"
+          }
+        ]
+      },
+      "additionalUses": [
+        {
+          "case": "breast-axillary-node",
+          "chapter": "axillary-tail-diagnostic"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "breast-retroareolar-cyst",
+      "chapter": "breast-cyst-radial",
+      "part": "Anechoic simple cyst",
+      "baseline": "0d943e4",
+      "revision": "20d819725801a9cb20d0715337cc81933b94030ee395cadf494ebfb21b5a2aae",
+      "reviewer": "Codex agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Confirm the isolated anechoic simple cyst geometry in this acquisition.",
+      "scores": {
+        "fidelity": 4,
+        "form": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Exact authored shape linked to the reviewed surface and calipers. The measurement coordinates are identical to the baseline. The 10 mm antiradial diameter and the 12 \u00d7 8 mm radial dimensions remain in their original planes and positions.",
+        "form": "The smooth, circumscribed oval in Ferr\u00e9 Figure 9A supports the case contour. The candidate keeps the rounded boundary in neutral and reverse light and in grayscale. The entire modeled lumen stays dark, with enhancement beginning at the posterior wall.",
+        "economy": "The displayed 1,656-triangle shape has 0.03 mm maximum sampled error. The 720-triangle trial had 0.07 mm maximum and is retained as comparison evidence."
+      },
+      "note": "Exact authored shape of the reviewed breast-retroareolar-cyst / breast-cyst-anti part. Teaching readability in this acquisition remains unrated.",
+      "geometrySha256": "4011f331269e0fe70dfc0e0f25b0209f926401718ca09c133b88b07e51e8c265",
+      "occurrence": 1,
+      "reusedShape": {
+        "case": "breast-retroareolar-cyst",
+        "chapter": "breast-cyst-anti",
+        "part": "Anechoic simple cyst",
+        "geometrySha256": "4011f331269e0fe70dfc0e0f25b0209f926401718ca09c133b88b07e51e8c265",
+        "relationship": "Exact authored shape"
+      },
+      "comparison": {
+        "label": "Isolated, matched mm scale and neutral oblique light",
+        "baseline": "asset-reviews/organs/cyst-baseline-oblique.webp",
+        "candidate": "asset-reviews/organs/cyst-candidate-oblique.webp",
+        "views": [
+          {
+            "label": "Matched reverse light",
+            "baseline": "asset-reviews/organs/cyst-baseline-reverse.webp",
+            "candidate": "asset-reviews/organs/cyst-candidate-reverse.webp"
+          },
+          {
+            "label": "Neutral grayscale matched angle",
+            "baseline": "asset-reviews/organs/cyst-baseline-gray.webp",
+            "candidate": "asset-reviews/organs/cyst-candidate-gray.webp"
+          },
+          {
+            "label": "Lighter tessellation trial",
+            "baseline": "asset-reviews/organs/cyst-candidate-oblique.webp",
+            "candidate": "asset-reviews/organs/cyst-light-oblique.webp"
+          }
+        ]
+      }
+    },
+    {
+      "source": "case",
+      "case": "breast-axillary-node",
+      "chapter": "axillary-node-opposite",
+      "part": "Left axillary cortex",
+      "revision": "20d819725801a9cb20d0715337cc81933b94030ee395cadf494ebfb21b5a2aae",
+      "baseline": "0d943e4",
+      "reviewer": "Codex agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "geometrySha256": "fd3173457f260fa702f2409b1eb89e96be99d625c4dd747738fc0e69081dbd1f",
+      "task": "Distinguish the elongated opposite axillary node and thin cortex from the displaced hilum and thick cortex on the modeled right.",
+      "scores": {
+        "fidelity": 4,
+        "form": 4,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The opposite case has a 26 mm outer long axis, 9.2 mm AP outer dimension and 2.8 mm saved cortical chord. The caliper endpoints are unchanged. It uses independent case geometry from the 28 mm right node.",
+        "form": "Chang Figure 1B supports the elongated, smoothly outlined normal oval and central echogenic hilum. The oval boundary is continuous in the neutral and reverse captures, and the acquired and modeled sections preserve the same nested cortex\u2013hilum relation.",
+        "readability": "The default longitudinal grayscale scan labels the outer cortex and retained central fatty hilum and shows the saved 2.8 mm caliper. The alternate view shows the boundary from behind.",
+        "economy": "The 720-triangle profile uses 56.5% fewer triangles than the 1,656-triangle baseline. Maximum sampled deviation is 0.14 mm, versus 0.06 mm in the denser trial."
+      },
+      "note": "The acquired reference is a separate normal example at its own scale. The 2.8 mm caliper and 26 mm outer length are from this authored left node.",
+      "comparison": {
+        "label": "Isolated neutral oblique",
+        "baseline": "asset-reviews/organs/opposite-baseline-oblique.webp",
+        "candidate": "asset-reviews/organs/opposite-candidate-oblique.webp",
+        "original": "asset-reviews/organs/opposite-original-oblique.webp",
+        "views": [
+          {
+            "label": "Matched reverse light",
+            "baseline": "asset-reviews/organs/opposite-baseline-reverse.webp",
+            "candidate": "asset-reviews/organs/opposite-candidate-reverse.webp",
+            "original": "asset-reviews/organs/opposite-original-reverse.webp"
+          },
+          {
+            "label": "Matched grayscale",
+            "baseline": "asset-reviews/organs/opposite-baseline-gray.webp",
+            "candidate": "asset-reviews/organs/opposite-candidate-gray.webp",
+            "original": "asset-reviews/organs/opposite-original-gray.webp"
+          },
+          {
+            "label": "Denser tessellation trial",
+            "baseline": "asset-reviews/organs/opposite-candidate-oblique.webp",
+            "candidate": "asset-reviews/organs/opposite-light-oblique.webp"
+          },
+          {
+            "label": "Acquired comparison \u00b7 published panel 1B",
+            "candidate": "asset-reviews/organs/opposite-acquired-comparison.webp",
+            "source": {
+              "title": "Axillary lymph node morphology \u00b7 Figure 1",
+              "credit": "Jung Min Chang et al. \u00b7 Korean Breast Cancer Society",
+              "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8724375/#F1",
+              "license": "CC BY-NC 4.0",
+              "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
+              "sha256": "2db89270a13a972ef44818c236f4964e39bb8f8b078391ffe791e3832d2ea748",
+              "panel": "1B",
+              "relationship": "Separate acquired subject and independent scale"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "recipeHash": "ede5364aace853336fb39de5d501f7e85ffb64429addaa9b382418926b1e523b",
+  "evidenceSha256": {
+    "cyst-acquired-comparison.webp": "a4b479d53ad4e7155937e92ec256242968ad0c1dbdf3c947a6d822c4a8863627",
+    "cyst-baseline-gray.webp": "f4079b0372f361e1a9255a4e1b1b17b6699956669f1d4f23aac0c60c143a1b70",
+    "cyst-baseline-oblique.webp": "1cf92fca6aa5c9f30859ea1bca6b8b2ec16c78fa863f13ed0323d51e4f14e4a3",
+    "cyst-baseline-reverse.webp": "d819f13e27b38f008ac905f031d1265ce3d5579cc3d516d8fcef888f2e505fd3",
+    "cyst-candidate-gray.webp": "f4079b0372f361e1a9255a4e1b1b17b6699956669f1d4f23aac0c60c143a1b70",
+    "cyst-candidate-oblique.webp": "1cf92fca6aa5c9f30859ea1bca6b8b2ec16c78fa863f13ed0323d51e4f14e4a3",
+    "cyst-candidate-reverse.webp": "d819f13e27b38f008ac905f031d1265ce3d5579cc3d516d8fcef888f2e505fd3",
+    "cyst-light-oblique.webp": "b0c2fe47e6efb974a36c856bf622e0ab212da6245e18c5fbe1dd3978aacf8831",
+    "fascia-baseline-gray.webp": "6f13abc5ec03bef5757549a4e4ceaa634fbb505f6080a186b41e0bdefcf25333",
+    "fascia-baseline-oblique.webp": "765f9db182b27bcc518cc1064773ece9b293f2f603edf66028d3b05310140c6e",
+    "fascia-baseline-reverse.webp": "d6f93fc99d596c12985f7a83ae939c3189a59a0f6c686823a16c9218bf2fe6f9",
+    "fascia-candidate-gray.webp": "fea6272360ee5cdb28f87a599290b68a67894e198e54a5b1efbacff1d42a7c82",
+    "fascia-candidate-oblique.webp": "06218965961c7baf82ce0627bace18768504173251203dc02f4a125955d1c197",
+    "fascia-candidate-reverse.webp": "fabdeda8c1ab53c55f1627cb59eb247f1cf955e69c150cd3049af5c70ae55ffa",
+    "fascia-light-oblique.webp": "17a1747bd9695fb9e07096a250cadbcdcbd403d76ab2c1eedd0c9e13b15a9d38",
+    "fascia-original-gray.webp": "0fae633b6a76207cf8157b627887d919d51a2b49fd3166327511861e6050730e",
+    "fascia-original-oblique.webp": "f9b5b3ef6b2f3c33e70baba069017bd1f47d5c6d007e4fc4a86d83ee649f4411",
+    "fascia-original-reverse.webp": "0ca9c9e057b429301d270526b6f5e1445a0eab9f6f2dc0464c4617103f2e57fc",
+    "gland-baseline-gray.webp": "a64dc4546ffc4b990618bd5678854016f506b0a4672e5bce15b2b8f4c4fba8e3",
+    "gland-baseline-oblique.webp": "fa40c7c57171dac851bac5ee72833e899d0a686cd3804333491e8c5fe07578dd",
+    "gland-baseline-reverse.webp": "3657767538411cff2142217cc7e1cfc8b6586e257405f3633172dce3c0b6464b",
+    "gland-candidate-gray.webp": "c9bfe65518a23f3ed200dbd70ca726c7d33dde8050432dd5b24c95bcf8a97fad",
+    "gland-candidate-oblique.webp": "b9157b313f673c1bb0c87e2583d9706a72d8795b02c7f35e80c9f6ad2486f944",
+    "gland-candidate-reverse.webp": "006f84f4157eeae87d752f72b10cbb59f0489790d7787449aaff0a8a4fe3906f",
+    "gland-light-oblique.webp": "5a2e9b6769856c0a17d69c465baad44cbb731bbced70012ae967de43d34a0c1f",
+    "gland-original-gray.webp": "ebee31863c888213e1a885390c0a30d1590b8eb355e2a3990708a655b048c3c2",
+    "gland-original-oblique.webp": "6c5052aaf445df6363c7810203ce9fad20ecd700a55bd91efd1077f24f6604f9",
+    "gland-original-reverse.webp": "13f6eda68e53a800f15a00197cfebcc66d793b9311fe32be0861fe5439e4a1e5",
+    "live-cyst-baseline.webp": "2097517f39ecc1ddcd5bde922450522f997194010ce4a40b8b6e560036cb7c84",
+    "live-cyst-candidate.webp": "e7935ec541d9c6d66d5d402ee2b2094490990aca63223305a27ade0b1069158a",
+    "live-node-baseline.webp": "d57323427d7892c97cf577a2c165fa3ba7c1c9eb05bc34d0f157d8b2ce649bf7",
+    "live-node-candidate.webp": "8b884adb49911ebcc745cb440117afe15241b809d883fc4a05a1a1105d35fd35",
+    "node-acquired-comparison.webp": "76eede48ee25eb8bde269a806addfe2f41a0ff5ef51ad1c080afafb600d7dcc7",
+    "node-baseline-gray.webp": "739d6abf54219d8d03646b94698bcbf46c0ded69133069470499677f97cb8d2c",
+    "node-baseline-oblique.webp": "3f6b260af496e8a9f12539801758be5d3732106b33ca8cde8487e48c80151f83",
+    "node-baseline-reverse.webp": "c20eece8ea8cc63b7b01eaf1c897135e22bd904b0db7ff74e6b649af8a10ac2c",
+    "node-candidate-gray.webp": "dc42555544eca75533fe32ab59759cd5b5e9d46be8688b533d43d433c9db6fd8",
+    "node-candidate-oblique.webp": "fa05edea7c39dceae063344563a23d7e003b060ad123200d64748952891bec70",
+    "node-candidate-reverse.webp": "c21c9fd77039e3f7f3db72efbc9f6be0eb33498a35b3dfe0e0d7f0d912640296",
+    "node-light-oblique.webp": "c5cbb4f2683c40fd9fcf94504f13bdcfe9f9548df6b229d92229504608046f14",
+    "node-original-gray.webp": "517292c0ad979f07d8bcf24bff19b81c7104d22e5bde50251daab00a2e1d96b4",
+    "node-original-oblique.webp": "9862ede943ec4a1799eb74a4340d0a3c595eb60824ae6cf0ac3f14ccc297e618",
+    "node-original-reverse.webp": "05693528255f220e3f9d5fecef4774515bdee1511e532ddd15e3149e32a100d5",
+    "opposite-acquired-comparison.webp": "7a8a2b64bb65f3c8119eb20d1f4744537cf87868472a360d0a29baed964c7175",
+    "opposite-baseline-gray.webp": "bc8f0cfa0417709a26ddcbe0823ee6d97ef77fd0d9526f793d5b144e69cbe9ab",
+    "opposite-baseline-oblique.webp": "ae90d86c3a17b6ee97c659721156b4173c5d464f7d849b0bcd0cf3a073a33734",
+    "opposite-baseline-reverse.webp": "a10ce2393243885e26da1a92d6431fdc73894db8faf5a5977047e56a634df5d4",
+    "opposite-candidate-gray.webp": "d28b1e011b1ada78e5aec459b37daece90f5acdb8ba0ead4755dd712c299c122",
+    "opposite-candidate-oblique.webp": "485e7421ca7852ef799b80a4f5cfcb3d735f267313eca618d9b5a4f85d69271d",
+    "opposite-candidate-reverse.webp": "b9e3a12c97d7780d65254d2d85b6181561836221a465cb896a62dfce3e7b0e39",
+    "opposite-light-oblique.webp": "dad925930a3ed4cbcd10598875c6c202d4e4f2f09555228c0778797433c0ddba",
+    "opposite-original-gray.webp": "a96c766db4118af700eb016d625bc805f65f588c15ae25a661659f313ccebd12",
+    "opposite-original-oblique.webp": "e8677b27b1972cdf3ac83ce1d03a5065e66e07722c0ddca203a26add221989f1",
+    "opposite-original-reverse.webp": "d0a0a35e4a2cb9fc4507d13c3cf34b8fb29cee53c9d38f37174e7ad77dff193b",
+    "plane-candidate-oblique.webp": "369a5251d2d6d1500e18832618b5e8e40c37e2eee380da5f9d4b81ef5522c15b",
+    "plane-candidate-sagittal.webp": "2699a76f9b599564bcb9624ccf381f653175b57995a5b533163b662c1a818df2",
+    "plane-preplane-oblique.webp": "5c473af391490b823a5e48df1c2e4f31dc271109724e961ba02c1e663d88949e",
+    "plane-preplane-sagittal.webp": "d7dc77abac890892aaf07ea6c14df9e7067cff68195dccf5d5975143f705acab",
+    "retro-baseline-gray.webp": "518ec2dc68465b4fd873202238a6541fbddafa76165927f3814e09fee4cf23c4",
+    "retro-baseline-oblique.webp": "518ec2dc68465b4fd873202238a6541fbddafa76165927f3814e09fee4cf23c4",
+    "retro-baseline-reverse.webp": "518ec2dc68465b4fd873202238a6541fbddafa76165927f3814e09fee4cf23c4",
+    "retro-candidate-gray.webp": "9ff0a9278b7619d185833f675b6efe3d42f2047dd2285ae4d130459a73e3a739",
+    "retro-candidate-oblique.webp": "509b0002d2317f4215f1157702d3bb41e613020efe3400a16279cade4ee2bf58",
+    "retro-candidate-reverse.webp": "9869fa54dfa3b60bfcd586e70bbfb8f2e5acc9930e1428528e2b0c1e3085f604",
+    "retro-light-oblique.webp": "4c14a7f39ae76449a598a46f94549b06597470bfe33b6cdd15f7989f131e6a40",
+    "retro-original-gray.webp": "6b26b7d21ad6daedea99e88470ab8b3d50fe0bde8327df4740b2427acd98369d",
+    "retro-original-oblique.webp": "4489851d6345d304f47a60df35a16793c70dbe2a4df35b4f39e99bff40e52677",
+    "retro-original-reverse.webp": "81250ac57a53368f737504f316518c851e1cb5c567e72e2418e93ffd64c2ac76",
+    "scan-layers-baseline.webp": "18bc9a8921cd172c720870bafebfcc7fccd1235b8eb99e478cd31b6ec3d0104e",
+    "scan-layers-candidate.webp": "5512d89928198f970d06f977d391c899041e27ae38ad12d12d356f78fe1e6974",
+    "tail-baseline-gray.webp": "cde082ad096a5cd170eff0dc72fd80bb0ebe6f730d1055a0044a3e69f3c6b8c4",
+    "tail-baseline-oblique.webp": "116e5ff3531c9c0e2279b092ca167e873b12797b6127f98385a8a481503c42d9",
+    "tail-baseline-reverse.webp": "a511a745608de7d0d013b9540301c00081e80c29ec6c812cbbfa783d37ec5011",
+    "tail-candidate-gray.webp": "120d5dfc568c09f69579e3a31dd3a5ecfbe5ff70fb537055d81d248b4505894e",
+    "tail-candidate-oblique.webp": "01bf0d8d73b9f0b73b7287133f218798e57bcd68e4b30178a60f468219fd5dd5",
+    "tail-candidate-reverse.webp": "84379b8c188d4c88ad25ab1f367a90be198a31782e63ccf11b6d6f9fe562dfc5",
+    "tail-light-oblique.webp": "f7eae82c52d1716fec83b47c2340bdb004eb2ee061f86c4a0819558c4d96e92a",
+    "tail-original-gray.webp": "c98be2d0ec740a52aae2e9ddfbe2e84cdf98140b86f314ddf1573a150d546ca7",
+    "tail-original-oblique.webp": "ee461f24daea6c79b9c69bd4cdfe892e96a226af09d5784dae95470511af034e",
+    "tail-original-reverse.webp": "0cf484b2d2dd4c8b7bbe88edbc2e8ab159fa2d559d85fd1e91475060ce6096e9",
+    "wall-baseline-gray.webp": "f7e56f4254225f68816d77ef5dcd1025d3be6bceb05aaefcf6def8f82bce6e7e",
+    "wall-baseline-oblique.webp": "653f2b2853f9ccd6dc789de4278a3df5aeba65861c0c572c623edaacbd66178d",
+    "wall-baseline-reverse.webp": "fae0e1da23f7e88b64039bea477697308ffdf9a20b2ccbb970ab632f56ce353d",
+    "wall-candidate-gray.webp": "a74421ee40d04bed38f8ac49329d15fee36ca4cf555b5845763afc3ed7efb544",
+    "wall-candidate-oblique.webp": "3b88b942f84c419075224d43b44b6968b1b11b677bff2b209ccaa0e74e675b4a",
+    "wall-candidate-reverse.webp": "5b6ae1e8fb4274578370448b5d083923029ebc5b9cfe534da6d8566b87256398",
+    "wall-light-oblique.webp": "3343beeac01b6e490585a4db625e30fda2a787fd11899e49e35010b4a3fef66e",
+    "wall-original-gray.webp": "03c482df587bcbf178d9a74320c084e19e2cebe36b41e3f3e45a5d08d7a05069",
+    "wall-original-oblique.webp": "ff9bf1c3f20a0e52539428228950c24002a3581528b435b0900017c964054779",
+    "wall-original-reverse.webp": "22c61f771e732ba3f0512e3182b5ef64a9dfc1a78dc5362a99e46db6a96e9693"
+  },
+  "rubricHash": "a38e552869511cd5bceacaa5ea4456f4d0530e58e7dce2bc6855587a98b0e684"
+}

@@ -22,6 +22,7 @@ python3.12 experiments/ultrasound-sweep/cases/verify_cases.py
 python3.12 experiments/ultrasound-sweep/verify_assembly.py "$STUDY_OUTPUT"
 node experiments/ultrasound-sweep/tours/aaa/verify-tours.mjs http://127.0.0.1:8874/ "$AAA_CAPTURES"
 node experiments/ultrasound-sweep/tours/verify-case-geometry.mjs "$STUDY_DELIVERY"
+node experiments/ultrasound-sweep/cases/vascular/verify-surfaces.mjs "$STUDY_DELIVERY"
 node experiments/ultrasound-sweep/tours/verify-case-tours.mjs http://127.0.0.1:8874/ "$EXAM_CAPTURES"
 node experiments/ultrasound-sweep/cases/verify-browser.mjs http://127.0.0.1:8874/ "$REVIEW_CAPTURES"
 ```

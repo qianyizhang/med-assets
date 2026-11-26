@@ -7,6 +7,7 @@ import re
 import shutil
 from urllib.parse import urlsplit
 
+from asset_qualification import write_asset_inventory
 from exam_tours import evidence_index, evidence_url, tour_path, write_exam_tours
 from thyroid_tour import write_thyroid_tour
 
@@ -254,3 +255,4 @@ def write_case_library(destination, tours, refs, root=ROOT, *, aaa_acquisitions=
                   + ''.join(tour_groups) + '</div>')
     write_exam_tours(destination, root, grouped, FAMILIES,
                      document('Ultrasound tours', 'Tours', tours_body), evidence, aaa_acquisitions is not None)
+    write_asset_inventory(destination, grouped, FAMILIES, evidence, tours)

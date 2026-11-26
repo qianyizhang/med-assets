@@ -1,4 +1,4 @@
-import {cut, endpoints, plane} from './playable-geometry.js';
+import {cut, endpoints, plane, sectionContour} from './playable-geometry.js';
 
 const W = 800;
 const H = 440;
@@ -23,6 +23,8 @@ const namedColors = {
   'Gallbladder lumen':'#89d7c0',
   'Fibroglandular tissue':'#d2a5ee',
   'Chest wall':'#81a8cb',
+  'Retromammary fat':'#eab274',
+  'Pectoral fascia':'#d6e3ed',
 };
 
 function tissueColor(id) {
@@ -47,6 +49,11 @@ function inAcousticField(x,y,chapter,sc) {
 }
 
 function contains(section,x,y) {
+  if (section.spanAt) {
+    if (Math.abs(x-section.x)>section.w) return false;
+    const [front,back]=section.spanAt(x);
+    return y>=front&&y<=back;
+  }
   return ((x-section.x)/section.w)**2 + ((y-section.y)/section.h)**2 <= 1;
 }
 
@@ -63,7 +70,7 @@ function visibleSections(shapes,chapter,sc) {
     const {section,shape}=entry;
     const other=shapes.slice(index+1);
     const point = (x,y) => {
-      if (!inAcousticField(x,y,chapter,sc) || other.some(({section: layer})=>contains(layer,x,y))
+      if (!contains(section,x,y) || !inAcousticField(x,y,chapter,sc) || other.some(({section: layer})=>contains(layer,x,y))
           || shapes.some(blocker=>blocker!==entry && inDeepShadow(x,y,blocker,chapter))) return null;
       return {shape,section,x,y,color:tissueColor(shape.id)};
     };
@@ -96,6 +103,20 @@ function ellipse(ctx,x,y,rx,ry) {
   ctx.beginPath();
   ctx.ellipse(x,y,rx,ry,0,0,Math.PI*2);
 }
+function sectionPath(ctx,section,sc) {
+  const {x,y,w,h,spanAt}=section;
+  if (!spanAt) {
+    ellipse(ctx,sc.x(x),sc.y(y),sc.scale*w,sc.scale*h);
+    return;
+  }
+  ctx.beginPath();
+  for (const [i,[lateral,depth]] of sectionContour(section).entries()) {
+    if (i===0) ctx.moveTo(sc.x(lateral),sc.y(depth));
+    else ctx.lineTo(sc.x(lateral),sc.y(depth));
+  }
+  ctx.closePath();
+}
+
 function layout(chapter) {
   const height = chapter.spectral ? 242 : 365;
   const scale = height/chapter.depth;
@@ -137,7 +158,8 @@ function acousticField(ctx, chapter, sc) {
 }
 
 function shadow(ctx, section, sc, strength, enhance=false) {
-  const cx = sc.x(section.x), y = sc.y(section.y), half = sc.scale*section.w;
+  const cx = sc.x(section.x), half = sc.scale*section.w;
+  const y = sc.y(enhance ? (section.spanAt?.(section.x)[1] ?? section.y+section.h) : section.y);
   const spread = enhance ? half : half*1.32;
   const deep = TOP+sc.height;
   // Attenuation is applied after all tissue, so it removes information in deeper structures.
@@ -194,7 +216,8 @@ function callouts(ctx, visible, sc, chapter, overlay) {
     const {shape,section} = item;
     return Number(chapter.marks?.some(mark=>mark.id===shape.id) || false)*90 +
       Number(Boolean(shape.shadow>.7 || shape.enhance || /nodule|calculus|dilated/.test(shape.id.toLowerCase())))*60 +
-      Number(chapter.colorIds?.includes(shape.id) || false)*45 -
+      Number(chapter.colorIds?.includes(shape.id) || false)*45 +
+      Number(chapter.layerLabels?.includes(shape.id) || false)*88 -
       Math.abs(section.x) - Math.abs(section.y-chapter.target[1])*.2;
   };
   const chosen = [...visible].sort((first, second)=>priority(second)-priority(first))
@@ -259,11 +282,10 @@ export function drawSection(ctx, chapter, frame, model, overlay=false) {
   ctx.clip();
   background(ctx,chapter,sc);
   for (const {shape,section} of shapes) {
-    const {x,y,w,h} = section;
     const gray = shape.shade;
     const color=tissueColor(shape.id);
     ctx.fillStyle=overlay ? tint(gray,color) : `rgb(${gray},${gray},${Math.max(0,gray-4)})`;
-    ellipse(ctx,sc.x(x),sc.y(y),sc.scale*w,sc.scale*h);
+    sectionPath(ctx,section,sc);
     ctx.fill();
     if (gray>30) {
       ctx.strokeStyle=overlay ? color : 'rgba(228,229,211,.28)';

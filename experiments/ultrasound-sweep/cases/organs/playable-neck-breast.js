@@ -65,12 +65,14 @@ const node = [-112,22,55];
 const otherNode = [112,22,55];
 
 function normalBreast(x) {
+  const deepFat = tissue('Retromammary fat', [x,32,0], [58,1.5,72], 76,
+    {depthProfile:'retromammary-fat',footprint:'pectoral'});
   return [
-    tissue('Chest wall', [x,38,0], [58,7,74], 82),
-    tissue('Pectoral fascia', [x,32,0], [58,1.5,72], 188),
+    tissue('Pectoral fascia', [x,32,0], [58,1.5,72], 188, {depthProfile:'pectoral-fascia',footprint:'pectoral'}),
+    deepFat,
     tissue('Subcutaneous fat', [x,11,0], [49,8,59], 73),
-    tissue('Fibroglandular tissue', [x,20,0], [45,10,53], 130),
-    tissue('Fibroglandular tail', [x*1.58,18,34], [26,6,29], 125),
+    tissue('Fibroglandular tissue', [x,20,0], [45,10,53], 130, {depthProfile:'fibroglandular',footprint:'lobular',posteriorLimit:deepFat}),
+    tissue('Fibroglandular tail', [x*1.58,18,34], [26,6,29], 125, {depthProfile:'fibroglandular',footprint:'tail-region',posteriorLimit:deepFat}),
     tissue('Echogenic septum', [x*.89,13,12], [25,1,42], 179),
     tissue('Skin', [x,2,0], [54,1.25,64], 183),
     tissue('Normal duct', [x,12,6], [2,2,13], 48),
@@ -84,6 +86,7 @@ export function breastVolume(record, chapter) {
   const incomplete = focus === 'breast-limited';
   const rightAbnormal = focus === 'breast-axillary-node';
   return [
+    tissue('Chest wall', [0,38,0], [111,7,74], 82, {depthProfile:'chest-wall',footprint:'thoracic'}),
     ...normalBreast(rightX), ...normalBreast(leftX),
     tissue('Right nipple', [rightX,2,0], [4,1.5,5], 208, {shadow:.39}),
     tissue('Left nipple', [leftX,2,0], [incomplete ? 10 : 4,1.5,incomplete ? 9 : 5], 208,
@@ -93,10 +96,10 @@ export function breastVolume(record, chapter) {
       : []),
     tissue('Right axillary vessel', [x-10,y+10,z], [4,3,21], 19),
     tissue('Left axillary vessel', [lx+10,ly+10,lz], [4,3,21], 19),
-    tissue('Right axillary cortex', node, [5.5,4.6,rightAbnormal ? 14 : 10], 77),
+    tissue('Right axillary cortex', node, [5.5,4.6,rightAbnormal ? 14 : 10], 77, {depthProfile:'axillary-cortex'}),
     tissue('Right fatty hilum', [x,rightAbnormal ? y+.9 : y+.1,z], [3.8,rightAbnormal ? 1.7 : 1.9,rightAbnormal ? 6.2 : 8.2], 168,
       {flow:'hilum'}),
-    tissue('Left axillary cortex', otherNode, [5.5,4.6,13], 77),
+    tissue('Left axillary cortex', otherNode, [5.5,4.6,13], 77, {depthProfile:'axillary-cortex'}),
     tissue('Left fatty hilum', [lx,ly+.1,lz], [3.9,1.9,9], 171,{flow:'hilum'}),
     ...(rightAbnormal ? [tissue('Right peripheral flow', [x+2.75,y-1.7,z], [1.2,1.1,8], 92,{flow:'peripheral'})] : []),
   ];
@@ -118,6 +121,7 @@ export function breastChapters(record) {
         [index ? leftX : rightX,21,band],
         {axis:2, sweep:index ? [-60,60] : [60,-60], frames:121, aperture:80,
           position:'Supine oblique · arm raised',
+          layerLabels:['Retromammary fat','Pectoral fascia'],
           observation:`Translate from the medial to lateral edge of the ${side} breast. ${number === 0
             ? 'Continue across the upper lateral tissue toward the axillary tail.'
             : number === 1

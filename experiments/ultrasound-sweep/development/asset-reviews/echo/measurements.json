@@ -1,0 +1,42 @@
+{
+  "before": {
+    "scanHash": "2efed9a2ff33f0331d5af2d100aee2528f9a11cd75bf676669eadfc9d223bded",
+    "count": 0
+  },
+  "after": {
+    "scanHash": "2efed9a2ff33f0331d5af2d100aee2528f9a11cd75bf676669eadfc9d223bded",
+    "count": 3,
+    "metrics": [
+      {
+        "name": "Aortic valve cusp 1",
+        "vertices": 133,
+        "triangles": 216,
+        "boundaryEdges": 48,
+        "nonmanifoldEdges": 0,
+        "sourceErrorMm": 0.0000038093766647762095
+      },
+      {
+        "name": "Aortic valve cusp 2",
+        "vertices": 133,
+        "triangles": 216,
+        "boundaryEdges": 48,
+        "nonmanifoldEdges": 0,
+        "sourceErrorMm": 0.000003814021155790215
+      },
+      {
+        "name": "Aortic valve cusp 3",
+        "vertices": 133,
+        "triangles": 216,
+        "boundaryEdges": 48,
+        "nonmanifoldEdges": 0,
+        "sourceErrorMm": 0.000003806768575032038
+      }
+    ],
+    "motionMm": 2.2823213356060177,
+    "closedErrorMm": 0.0000038139438203188547,
+    "phase": 0.2,
+    "lighterTriangles": 54,
+    "maxDeviationMm": 0.4969141262754268,
+    "maxFreeEdgeDeviationMm": 0.4969141262754268
+  }
+}

@@ -1,0 +1,1263 @@
+{
+  "version": 1,
+  "records": [
+    {
+      "source": "case",
+      "case": "pregnancy-mid-normal",
+      "baseline": "0d943e4",
+      "revision": "0d943e4 with pregnancy surface refinements; exact source hashes in expanded-measurements.json",
+      "reviewer": "Codex agent review",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "chapter": "mid-overview",
+      "part": "Fetal surface",
+      "exemplar": true,
+      "task": "Trace the head and all four distal limb regions in the isolated mid-trimester exterior and confirm the depth relationships from behind.",
+      "scores": {
+        "fidelity": 4,
+        "form": 4,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "One closed component keeps the original stage triangle connectivity. Four 3 mm hand and foot patches have zero matched displacement. The calibrated head and abdomen bands shift the sampled native exterior locally (5.36 mm maximum sampled comparison).",
+        "form": "The original stage surface restores the scalp and trunk finish, facial landmarks, and recognizable distal shapes under neutral and reverse lighting.",
+        "readability": "The head, trunk, and all four limbs can be located in the oblique view. Reverse confirms near and far limb separation. Grayscale retains the same outline and depth cues.",
+        "economy": "A 12,492-triangle trial saved 82% of GPU attribute bytes but introduced 129 open and 174 nonmanifold edges. Retained the closed 71,152-triangle stage mesh already shared with the original sweep."
+      },
+      "note": "This is an interpreted stage-matched case exterior. Scale changes blend around the calibrated head and abdomen. It keeps the source outline, facial features, and closed native topology. The definition of the B-mode sample and calipers stays with the case model.",
+      "comparison": {
+        "label": "Matched neutral oblique",
+        "baseline": "asset-reviews/pregnancy/fetus-before-oblique.webp",
+        "candidate": "asset-reviews/pregnancy/fetus-after-oblique.webp",
+        "original": "asset-reviews/pregnancy/fetus-original-oblique.webp",
+        "views": [
+          {
+            "label": "Reverse view, changed light",
+            "baseline": "asset-reviews/pregnancy/fetus-before-reverse.webp",
+            "candidate": "asset-reviews/pregnancy/fetus-after-reverse.webp",
+            "original": "asset-reviews/pregnancy/fetus-original-reverse.webp"
+          },
+          {
+            "label": "Grayscale",
+            "baseline": "asset-reviews/pregnancy/fetus-before-gray.webp",
+            "candidate": "asset-reviews/pregnancy/fetus-after-gray.webp",
+            "original": "asset-reviews/pregnancy/fetus-original-gray.webp"
+          },
+          {
+            "label": "Lighter trial (rejected)",
+            "baseline": "asset-reviews/pregnancy/fetus-after-oblique.webp",
+            "candidate": "asset-reviews/pregnancy/fetus-light-oblique.webp"
+          },
+          {
+            "label": "Live fluid chapter, evidence frame 8",
+            "baseline": "asset-reviews/pregnancy/live-fluid-before.webp",
+            "candidate": "asset-reviews/pregnancy/live-fluid-after.webp",
+            "original": "asset-reviews/pregnancy/native-stage.webp"
+          }
+        ]
+      },
+      "beforeScores": {
+        "form": 2,
+        "readability": 3
+      },
+      "beforeEvidence": {
+        "form": "Neutral and reverse close-ups show stepped scalp and torso ridges. The frozen mesh has six components and 26 nonmanifold edges.",
+        "readability": "Head, trunk and limb outlines remain recognizable in the matched grayscale view, with sampled texture competing with small features."
+      }
+    },
+    {
+      "source": "case",
+      "case": "pregnancy-early-normal",
+      "chapter": "tv-location",
+      "part": "Fetal surface",
+      "baseline": "0d943e4",
+      "revision": "0d943e4 with pregnancy surface refinements; exact source hashes in expanded-measurements.json",
+      "reviewer": "Codex agent review",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Trace the crown, ventral curl and rump of the intrauterine embryo in the location chapter.",
+      "scores": {
+        "fidelity": 4,
+        "form": 4,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Original closed stage surface at the authored 10 mm crown\u2013rump extent.",
+        "form": "The source curvature and separated profile lobes remain visible under neutral and reverse lighting.",
+        "readability": "The oblique and reverse outlines and the live localization show both ends of the embryo.",
+        "economy": "The lighter trial uses 58 triangles, with 0 open and 4 nonmanifold edges. Matched close-up changes reach 33.0 pixels. Keep the qualified 31,064-triangle surface."
+      },
+      "note": "",
+      "comparison": {
+        "label": "Oblique",
+        "baseline": "asset-reviews/pregnancy/early-embryo-before-oblique.webp",
+        "candidate": "asset-reviews/pregnancy/early-embryo-after-oblique.webp",
+        "original": "asset-reviews/pregnancy/early-embryo-original-oblique.webp",
+        "views": [
+          {
+            "label": "Reverse",
+            "baseline": "asset-reviews/pregnancy/early-embryo-before-reverse.webp",
+            "candidate": "asset-reviews/pregnancy/early-embryo-after-reverse.webp",
+            "original": "asset-reviews/pregnancy/early-embryo-original-reverse.webp"
+          },
+          {
+            "label": "Gray",
+            "baseline": "asset-reviews/pregnancy/early-embryo-before-gray.webp",
+            "candidate": "asset-reviews/pregnancy/early-embryo-after-gray.webp",
+            "original": "asset-reviews/pregnancy/early-embryo-original-gray.webp"
+          },
+          {
+            "label": "Lighter trial, rejected",
+            "baseline": "asset-reviews/pregnancy/early-embryo-after-oblique.webp",
+            "candidate": "asset-reviews/pregnancy/early-embryo-light-oblique.webp"
+          },
+          {
+            "label": "Matched live case",
+            "baseline": "asset-reviews/pregnancy/early-embryo-live-before.webp",
+            "candidate": "asset-reviews/pregnancy/early-embryo-live-after.webp"
+          }
+        ]
+      },
+      "beforeScores": {
+        "form": 2
+      },
+      "beforeEvidence": {
+        "form": "The coarse isolated envelope makes the crown and ventral curl angular beside the authored stage profile."
+      }
+    },
+    {
+      "source": "case",
+      "case": "pregnancy-early-abnormal",
+      "chapter": "tubal-measure",
+      "part": "Yolk sac",
+      "baseline": "0d943e4",
+      "revision": "0d943e4 with pregnancy surface refinements; exact source hashes in expanded-measurements.json",
+      "reviewer": "Codex agent review",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Locate the ectopic yolk-sac rim inside the tubal sac and identify the hollow center in the evidence section.",
+      "scores": {
+        "fidelity": 4,
+        "form": 4,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Two closed concentric shells use the sampler\u2019s exact 2.45 mm outer and 1.55 mm inner radii.",
+        "form": "The round outer surface and internal shell replace the false holes in the voxel shell.",
+        "readability": "The matched 3D overview locates the extraovarian target. The B-mode section shows the cavity inside the rim.",
+        "economy": "The lighter trial uses 31 triangles, with 0 open and 8 nonmanifold edges. Matched close-up changes reach 57.1 pixels. Keep the qualified 1,144-triangle surface."
+      },
+      "note": "The modeled case source governs this part. An independent same-finding anatomical reference was unavailable.",
+      "comparison": {
+        "label": "Oblique",
+        "baseline": "asset-reviews/pregnancy/early-ectopic-before-oblique.webp",
+        "candidate": "asset-reviews/pregnancy/early-ectopic-after-oblique.webp",
+        "views": [
+          {
+            "label": "Reverse",
+            "baseline": "asset-reviews/pregnancy/early-ectopic-before-reverse.webp",
+            "candidate": "asset-reviews/pregnancy/early-ectopic-after-reverse.webp"
+          },
+          {
+            "label": "Gray",
+            "baseline": "asset-reviews/pregnancy/early-ectopic-before-gray.webp",
+            "candidate": "asset-reviews/pregnancy/early-ectopic-after-gray.webp"
+          },
+          {
+            "label": "Lighter trial, rejected",
+            "baseline": "asset-reviews/pregnancy/early-ectopic-after-oblique.webp",
+            "candidate": "asset-reviews/pregnancy/early-ectopic-light-oblique.webp"
+          },
+          {
+            "label": "Matched live case",
+            "baseline": "asset-reviews/pregnancy/early-ectopic-live-before.webp",
+            "candidate": "asset-reviews/pregnancy/early-ectopic-live-after.webp"
+          }
+        ]
+      },
+      "beforeScores": {
+        "form": 1,
+        "readability": 2
+      },
+      "beforeEvidence": {
+        "form": "Several large holes in the outer rim dominate the isolated shell and make it look perforated.",
+        "readability": "The live evidence section identifies the yolk-sac center. The perforated isolated rim supplies an ambiguous outer boundary."
+      }
+    },
+    {
+      "source": "case",
+      "case": "pregnancy-first-normal",
+      "chapter": "plurality",
+      "part": "Fetal surface",
+      "baseline": "0d943e4",
+      "revision": "0d943e4 with pregnancy surface refinements; exact source hashes in expanded-measurements.json",
+      "reviewer": "Codex agent review",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Follow the head, curled trunk and distal limbs of the fetus at the plurality overview.",
+      "scores": {
+        "fidelity": 4,
+        "form": 4,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The authored stage surface keeps its connectivity and follows the case\u2019s 60/63 longitudinal scale.",
+        "form": "The stage surface recovers the profile and limb transitions in the opposite view.",
+        "readability": "The head and limbs remain distinct in the oblique, reverse and grayscale views.",
+        "economy": "The lighter trial uses 2,483 triangles, with 14 open and 21 nonmanifold edges. Matched close-up changes reach 6.0 pixels. Keep the qualified 111,600-triangle surface."
+      },
+      "note": "",
+      "comparison": {
+        "label": "Oblique",
+        "baseline": "asset-reviews/pregnancy/first-fetus-before-oblique.webp",
+        "candidate": "asset-reviews/pregnancy/first-fetus-after-oblique.webp",
+        "original": "asset-reviews/pregnancy/first-fetus-original-oblique.webp",
+        "views": [
+          {
+            "label": "Reverse",
+            "baseline": "asset-reviews/pregnancy/first-fetus-before-reverse.webp",
+            "candidate": "asset-reviews/pregnancy/first-fetus-after-reverse.webp",
+            "original": "asset-reviews/pregnancy/first-fetus-original-reverse.webp"
+          },
+          {
+            "label": "Gray",
+            "baseline": "asset-reviews/pregnancy/first-fetus-before-gray.webp",
+            "candidate": "asset-reviews/pregnancy/first-fetus-after-gray.webp",
+            "original": "asset-reviews/pregnancy/first-fetus-original-gray.webp"
+          },
+          {
+            "label": "Lighter trial, rejected",
+            "baseline": "asset-reviews/pregnancy/first-fetus-after-oblique.webp",
+            "candidate": "asset-reviews/pregnancy/first-fetus-light-oblique.webp"
+          },
+          {
+            "label": "Matched live case",
+            "baseline": "asset-reviews/pregnancy/first-fetus-live-before.webp",
+            "candidate": "asset-reviews/pregnancy/first-fetus-live-after.webp"
+          }
+        ]
+      },
+      "beforeScores": {
+        "form": 2
+      },
+      "beforeEvidence": {
+        "form": "The head and trunk show visible terracing in both neutral views. Fine profile detail is indistinct beside the stage reference."
+      }
+    },
+    {
+      "source": "case",
+      "case": "pregnancy-first-abnormal",
+      "chapter": "nt",
+      "part": "Fetal surface",
+      "baseline": "0d943e4",
+      "revision": "0d943e4 with pregnancy surface refinements; exact source hashes in expanded-measurements.json",
+      "reviewer": "Codex agent review",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Locate the posterior neck on the first-trimester fetus and relate it to the NT acquisition.",
+      "scores": {
+        "fidelity": 3,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The case-specific posterior skin and nuchal-space neighborhood retain their sampled geometry.",
+        "form": "Residual lattice texture remains around the interpreted scalp and torso.",
+        "readability": "The paired NT section supplies the posterior neck measurement and orientation. The 3D surface alone leaves its fine boundaries ambiguous.",
+        "economy": "The lighter trial uses 2,262 triangles, with 42 open and 35 nonmanifold edges. Matched close-up changes reach 6.1 pixels. Keep the qualified 12,612-triangle surface."
+      },
+      "note": "The modeled case source governs this part. An independent same-finding anatomical reference was unavailable.",
+      "comparison": {
+        "label": "Oblique",
+        "baseline": "asset-reviews/pregnancy/first-nt-fetus-before-oblique.webp",
+        "candidate": "asset-reviews/pregnancy/first-nt-fetus-after-oblique.webp",
+        "views": [
+          {
+            "label": "Reverse",
+            "baseline": "asset-reviews/pregnancy/first-nt-fetus-before-reverse.webp",
+            "candidate": "asset-reviews/pregnancy/first-nt-fetus-after-reverse.webp"
+          },
+          {
+            "label": "Gray",
+            "baseline": "asset-reviews/pregnancy/first-nt-fetus-before-gray.webp",
+            "candidate": "asset-reviews/pregnancy/first-nt-fetus-after-gray.webp"
+          },
+          {
+            "label": "Lighter trial, rejected",
+            "baseline": "asset-reviews/pregnancy/first-nt-fetus-after-oblique.webp",
+            "candidate": "asset-reviews/pregnancy/first-nt-fetus-light-oblique.webp"
+          },
+          {
+            "label": "Matched live case",
+            "baseline": "asset-reviews/pregnancy/first-nt-fetus-live-before.webp",
+            "candidate": "asset-reviews/pregnancy/first-nt-fetus-live-after.webp"
+          }
+        ]
+      },
+      "beforeScores": {
+        "form": 2
+      },
+      "beforeEvidence": {
+        "form": "The reverse view exposes coarse patches around the scalp and torso of the increased-NT fetus."
+      }
+    },
+    {
+      "source": "case",
+      "case": "pregnancy-mid-abnormal",
+      "chapter": "insertion",
+      "part": "Fetal surface",
+      "baseline": "0d943e4",
+      "revision": "0d943e4 with pregnancy surface refinements; exact source hashes in expanded-measurements.json",
+      "reviewer": "Codex agent review",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Locate the ventral defect on the fetal exterior and distinguish the surrounding wall from the protruding sac.",
+      "scores": {
+        "fidelity": 3,
+        "form": 2,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The fairing excludes the defect and follows the case tissue envelope where the original unaffected stage cannot substitute.",
+        "form": "The protected ventral patch keeps visible sampling ridges. Full-surface remodeling would require a registered abnormal reference.",
+        "readability": "The separate membrane and cord guide the teaching action in the paired scan and 3D view.",
+        "economy": "The lighter trial uses 11,114 triangles, with 112 open and 128 nonmanifold edges. Matched close-up changes reach 2.0 pixels. Keep the qualified 26,160-triangle surface."
+      },
+      "note": "The native stage comparison is the unaffected model and supplies context for the altered case.",
+      "comparison": {
+        "label": "Oblique",
+        "baseline": "asset-reviews/pregnancy/mid-wall-fetus-before-oblique.webp",
+        "candidate": "asset-reviews/pregnancy/mid-wall-fetus-after-oblique.webp",
+        "original": "asset-reviews/pregnancy/mid-wall-fetus-original-oblique.webp",
+        "views": [
+          {
+            "label": "Reverse",
+            "baseline": "asset-reviews/pregnancy/mid-wall-fetus-before-reverse.webp",
+            "candidate": "asset-reviews/pregnancy/mid-wall-fetus-after-reverse.webp",
+            "original": "asset-reviews/pregnancy/mid-wall-fetus-original-reverse.webp"
+          },
+          {
+            "label": "Gray",
+            "baseline": "asset-reviews/pregnancy/mid-wall-fetus-before-gray.webp",
+            "candidate": "asset-reviews/pregnancy/mid-wall-fetus-after-gray.webp",
+            "original": "asset-reviews/pregnancy/mid-wall-fetus-original-gray.webp"
+          },
+          {
+            "label": "Lighter trial, rejected",
+            "baseline": "asset-reviews/pregnancy/mid-wall-fetus-after-oblique.webp",
+            "candidate": "asset-reviews/pregnancy/mid-wall-fetus-light-oblique.webp"
+          },
+          {
+            "label": "Matched live case",
+            "baseline": "asset-reviews/pregnancy/mid-wall-fetus-live-before.webp",
+            "candidate": "asset-reviews/pregnancy/mid-wall-fetus-live-after.webp"
+          }
+        ]
+      },
+      "beforeScores": {
+        "form": 2
+      },
+      "beforeEvidence": {
+        "form": "Ridges remain on the sampled torso near the case-specific wall defect in the matched close-up."
+      }
+    },
+    {
+      "source": "case",
+      "case": "pregnancy-mid-abnormal",
+      "chapter": "insertion",
+      "part": "Omphalocele membrane",
+      "baseline": "0d943e4",
+      "revision": "0d943e4 with pregnancy surface refinements; exact source hashes in expanded-measurements.json",
+      "reviewer": "Codex agent review",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Follow the membrane from the open wall neck to the apex and identify the cord attachment.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 4,
+        "economy": 3
+      },
+      "scoreEvidence": {
+        "fidelity": "The analytic mesh has one welded apex and a 40-edge intentional open neck from the case geometry.",
+        "form": "The membrane reads under both angles. The author\u2019s case geometry supplies the shape, with independent abnormal anatomy still unreviewed.",
+        "readability": "Apex and base are distinguishable in reverse and neutral views and are confirmed by the live section.",
+        "economy": "Welding the apex removed 40 degenerate triangles while preserving the case neck. The further reduction did not yield a comparable render."
+      },
+      "note": "The modeled case source governs this part. An independent same-finding anatomical reference was unavailable.",
+      "comparison": {
+        "label": "Oblique",
+        "baseline": "asset-reviews/pregnancy/mid-wall-membrane-before-oblique.webp",
+        "candidate": "asset-reviews/pregnancy/mid-wall-membrane-after-oblique.webp",
+        "views": [
+          {
+            "label": "Reverse",
+            "baseline": "asset-reviews/pregnancy/mid-wall-membrane-before-reverse.webp",
+            "candidate": "asset-reviews/pregnancy/mid-wall-membrane-after-reverse.webp"
+          },
+          {
+            "label": "Gray",
+            "baseline": "asset-reviews/pregnancy/mid-wall-membrane-before-gray.webp",
+            "candidate": "asset-reviews/pregnancy/mid-wall-membrane-after-gray.webp"
+          },
+          {
+            "label": "Matched abnormal wall context",
+            "baseline": "asset-reviews/pregnancy/mid-wall-fetus-live-before.webp",
+            "candidate": "asset-reviews/pregnancy/mid-wall-fetus-live-after.webp"
+          }
+        ]
+      },
+      "beforeScores": {
+        "form": 3
+      },
+      "beforeEvidence": {
+        "form": "The membrane reads as a smooth dome with a visible neck from the reverse view. The mesh repeats coincident vertices at the apex."
+      }
+    },
+    {
+      "source": "case",
+      "case": "pregnancy-late-normal",
+      "chapter": "presentation",
+      "part": "Fetal surface",
+      "baseline": "0d943e4",
+      "revision": "0d943e4 with pregnancy surface refinements; exact source hashes in expanded-measurements.json",
+      "reviewer": "Codex agent review",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Locate the head and limbs in the late-stage presentation, then trace the body outline.",
+      "scores": {
+        "fidelity": 4,
+        "form": 4,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Stage topology and distal geometry remain intact. Case head and abdominal radii are blended locally through their measured levels.",
+        "form": "The calibrated stage exterior retains the source silhouette and profile in both views.",
+        "readability": "Grayscale and reverse views retain the same limb and trunk distinctions.",
+        "economy": "The lighter trial uses 27,163 triangles, with 116 open and 171 nonmanifold edges. Matched close-up changes reach 1.4 pixels. Keep the qualified 88,088-triangle surface."
+      },
+      "note": "",
+      "comparison": {
+        "label": "Oblique",
+        "baseline": "asset-reviews/pregnancy/late-fetus-before-oblique.webp",
+        "candidate": "asset-reviews/pregnancy/late-fetus-after-oblique.webp",
+        "original": "asset-reviews/pregnancy/late-fetus-original-oblique.webp",
+        "views": [
+          {
+            "label": "Reverse",
+            "baseline": "asset-reviews/pregnancy/late-fetus-before-reverse.webp",
+            "candidate": "asset-reviews/pregnancy/late-fetus-after-reverse.webp",
+            "original": "asset-reviews/pregnancy/late-fetus-original-reverse.webp"
+          },
+          {
+            "label": "Gray",
+            "baseline": "asset-reviews/pregnancy/late-fetus-before-gray.webp",
+            "candidate": "asset-reviews/pregnancy/late-fetus-after-gray.webp",
+            "original": "asset-reviews/pregnancy/late-fetus-original-gray.webp"
+          },
+          {
+            "label": "Lighter trial, rejected",
+            "baseline": "asset-reviews/pregnancy/late-fetus-after-oblique.webp",
+            "candidate": "asset-reviews/pregnancy/late-fetus-light-oblique.webp"
+          }
+        ]
+      },
+      "beforeScores": {
+        "form": 2
+      },
+      "beforeEvidence": {
+        "form": "The late fetal body has strong lattice ridges across the scalp and the trunk, even though both remain identifiable."
+      }
+    },
+    {
+      "source": "case",
+      "case": "pregnancy-late-abnormal",
+      "chapter": "presentation",
+      "part": "Fetal surface",
+      "baseline": "0d943e4",
+      "revision": "0d943e4 with pregnancy surface refinements; exact source hashes in expanded-measurements.json",
+      "reviewer": "Codex agent review",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Follow the outline in the growth case and identify the calibrated smaller trunk relative to the head.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Case-specific head and abdomen radii remain in the measured levels. The revised blend extends into the nearby torso while preserving distal landmarks.",
+        "form": "The broad blend removes the hard waist bands. Shape beyond the calibrated sections is an interpretation of the stage reference.",
+        "readability": "The smaller modeled abdomen remains legible in grayscale and against the original stage.",
+        "economy": "The lighter trial uses 26,206 triangles, with 111 open and 160 nonmanifold edges. Matched close-up changes reach 2.0 pixels. Keep the qualified 88,088-triangle surface."
+      },
+      "note": "",
+      "comparison": {
+        "label": "Oblique",
+        "baseline": "asset-reviews/pregnancy/late-growth-fetus-before-oblique.webp",
+        "candidate": "asset-reviews/pregnancy/late-growth-fetus-after-oblique.webp",
+        "original": "asset-reviews/pregnancy/late-growth-fetus-original-oblique.webp",
+        "views": [
+          {
+            "label": "Reverse",
+            "baseline": "asset-reviews/pregnancy/late-growth-fetus-before-reverse.webp",
+            "candidate": "asset-reviews/pregnancy/late-growth-fetus-after-reverse.webp",
+            "original": "asset-reviews/pregnancy/late-growth-fetus-original-reverse.webp"
+          },
+          {
+            "label": "Gray",
+            "baseline": "asset-reviews/pregnancy/late-growth-fetus-before-gray.webp",
+            "candidate": "asset-reviews/pregnancy/late-growth-fetus-after-gray.webp",
+            "original": "asset-reviews/pregnancy/late-growth-fetus-original-gray.webp"
+          },
+          {
+            "label": "Lighter trial, rejected",
+            "baseline": "asset-reviews/pregnancy/late-growth-fetus-after-oblique.webp",
+            "candidate": "asset-reviews/pregnancy/late-growth-fetus-light-oblique.webp"
+          },
+          {
+            "label": "Matched live case",
+            "baseline": "asset-reviews/pregnancy/late-growth-fetus-live-before.webp",
+            "candidate": "asset-reviews/pregnancy/late-growth-fetus-live-after.webp"
+          }
+        ]
+      },
+      "beforeScores": {
+        "form": 2
+      },
+      "beforeEvidence": {
+        "form": "Pronounced transverse terracing masks the intended smooth outline of the smaller abdomen."
+      }
+    },
+    {
+      "source": "case",
+      "case": "pregnancy-first-normal",
+      "chapter": "first-placenta",
+      "part": "Placenta",
+      "baseline": "0d943e4",
+      "revision": "0d943e4 with pregnancy surface refinements; exact source hashes in expanded-measurements.json",
+      "reviewer": "Codex agent review",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Locate the placental surface and identify its concave side in the first-trimester view.",
+      "scores": {
+        "fidelity": 4,
+        "form": 4,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The isolated part matches the authored first-stage placenta positions and triangle indices exactly.",
+        "form": "Concavity and rim are readable without the terraced shading of the label-derived surface.",
+        "readability": "The two isolated angles and native reference establish which side is concave.",
+        "economy": "The lighter trial uses 2,617 triangles, with 7 open and 14 nonmanifold edges. Matched close-up changes reach 2.0 pixels. Keep the qualified 49,636-triangle surface."
+      },
+      "note": "Stage-specific identical native geometry is reviewed once; repeated case instances have the same verified position and index SHA-256.",
+      "comparison": {
+        "label": "Oblique",
+        "baseline": "asset-reviews/pregnancy/first-placenta-before-oblique.webp",
+        "candidate": "asset-reviews/pregnancy/first-placenta-after-oblique.webp",
+        "original": "asset-reviews/pregnancy/first-placenta-original-oblique.webp",
+        "views": [
+          {
+            "label": "Reverse",
+            "baseline": "asset-reviews/pregnancy/first-placenta-before-reverse.webp",
+            "candidate": "asset-reviews/pregnancy/first-placenta-after-reverse.webp",
+            "original": "asset-reviews/pregnancy/first-placenta-original-reverse.webp"
+          },
+          {
+            "label": "Gray",
+            "baseline": "asset-reviews/pregnancy/first-placenta-before-gray.webp",
+            "candidate": "asset-reviews/pregnancy/first-placenta-after-gray.webp",
+            "original": "asset-reviews/pregnancy/first-placenta-original-gray.webp"
+          },
+          {
+            "label": "Lighter trial, rejected",
+            "baseline": "asset-reviews/pregnancy/first-placenta-after-oblique.webp",
+            "candidate": "asset-reviews/pregnancy/first-placenta-light-oblique.webp"
+          }
+        ]
+      },
+      "beforeScores": {
+        "form": 2
+      },
+      "beforeEvidence": {
+        "form": "The concave surface and rim are visible, with closely spaced ridges across the face that dominate the highlight."
+      }
+    },
+    {
+      "source": "case",
+      "case": "pregnancy-mid-normal",
+      "chapter": "mid-placenta",
+      "part": "Placenta",
+      "baseline": "0d943e4",
+      "revision": "0d943e4 with pregnancy surface refinements; exact source hashes in expanded-measurements.json",
+      "reviewer": "Codex agent review",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Trace the placental edge in the mid-trimester scene and confirm its taper from the reverse side.",
+      "scores": {
+        "fidelity": 4,
+        "form": 4,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The mid-stage placental surface uses the authored stage positions and triangle indices exactly.",
+        "form": "The broad rim and tapered edge match the same native source under both lighting directions.",
+        "readability": "The mid-stage evidence scene and isolated reverse angle distinguish the disc and thin edge.",
+        "economy": "The lighter trial uses 4,012 triangles, with 7 open and 24 nonmanifold edges. Matched close-up changes reach 9.8 pixels. Keep the qualified 10,784-triangle surface."
+      },
+      "note": "Stage-specific identical native geometry is reviewed once; repeated case instances have the same verified position and index SHA-256.",
+      "comparison": {
+        "label": "Oblique",
+        "baseline": "asset-reviews/pregnancy/mid-placenta-before-oblique.webp",
+        "candidate": "asset-reviews/pregnancy/mid-placenta-after-oblique.webp",
+        "original": "asset-reviews/pregnancy/mid-placenta-original-oblique.webp",
+        "views": [
+          {
+            "label": "Reverse",
+            "baseline": "asset-reviews/pregnancy/mid-placenta-before-reverse.webp",
+            "candidate": "asset-reviews/pregnancy/mid-placenta-after-reverse.webp",
+            "original": "asset-reviews/pregnancy/mid-placenta-original-reverse.webp"
+          },
+          {
+            "label": "Gray",
+            "baseline": "asset-reviews/pregnancy/mid-placenta-before-gray.webp",
+            "candidate": "asset-reviews/pregnancy/mid-placenta-after-gray.webp",
+            "original": "asset-reviews/pregnancy/mid-placenta-original-gray.webp"
+          },
+          {
+            "label": "Lighter trial, rejected",
+            "baseline": "asset-reviews/pregnancy/mid-placenta-after-oblique.webp",
+            "candidate": "asset-reviews/pregnancy/mid-placenta-light-oblique.webp"
+          },
+          {
+            "label": "Matched live case",
+            "baseline": "asset-reviews/pregnancy/mid-placenta-live-before.webp",
+            "candidate": "asset-reviews/pregnancy/mid-placenta-live-after.webp"
+          }
+        ]
+      },
+      "beforeScores": {
+        "form": 2
+      },
+      "beforeEvidence": {
+        "form": "Layered ridges compete with the thin edge of the sampled placental surface."
+      }
+    },
+    {
+      "source": "case",
+      "case": "pregnancy-late-normal",
+      "chapter": "late-placenta",
+      "part": "Placenta",
+      "baseline": "0d943e4",
+      "revision": "0d943e4 with pregnancy surface refinements; exact source hashes in expanded-measurements.json",
+      "reviewer": "Codex agent review",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Find the placental disc in the late-stage view and distinguish its flat and curved faces.",
+      "scores": {
+        "fidelity": 4,
+        "form": 4,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The complete late-stage disc matches the original stage positions and indices exactly.",
+        "form": "The broad placental shape and reverse finish match the source, with an uninterrupted rim.",
+        "readability": "The two neutral angles and grayscale preserve the outline and relative face curvature.",
+        "economy": "The lighter trial uses 4,560 triangles, with 0 open and 0 nonmanifold edges. Matched close-up changes reach 2.2 pixels. Keep the qualified 11,688-triangle surface."
+      },
+      "note": "Stage-specific identical native geometry is reviewed once; repeated case instances have the same verified position and index SHA-256.",
+      "comparison": {
+        "label": "Oblique",
+        "baseline": "asset-reviews/pregnancy/late-placenta-before-oblique.webp",
+        "candidate": "asset-reviews/pregnancy/late-placenta-after-oblique.webp",
+        "original": "asset-reviews/pregnancy/late-placenta-original-oblique.webp",
+        "views": [
+          {
+            "label": "Reverse",
+            "baseline": "asset-reviews/pregnancy/late-placenta-before-reverse.webp",
+            "candidate": "asset-reviews/pregnancy/late-placenta-after-reverse.webp",
+            "original": "asset-reviews/pregnancy/late-placenta-original-reverse.webp"
+          },
+          {
+            "label": "Gray",
+            "baseline": "asset-reviews/pregnancy/late-placenta-before-gray.webp",
+            "candidate": "asset-reviews/pregnancy/late-placenta-after-gray.webp",
+            "original": "asset-reviews/pregnancy/late-placenta-original-gray.webp"
+          },
+          {
+            "label": "Lighter trial, rejected",
+            "baseline": "asset-reviews/pregnancy/late-placenta-after-oblique.webp",
+            "candidate": "asset-reviews/pregnancy/late-placenta-light-oblique.webp"
+          }
+        ]
+      },
+      "beforeScores": {
+        "form": 2
+      },
+      "beforeEvidence": {
+        "form": "Rings around the disc create false relief across a broad surface that is smoother on the authored stage reference."
+      }
+    },
+    {
+      "source": "case",
+      "case": "pregnancy-first-normal",
+      "chapter": "first-cord",
+      "part": "Umbilical cord",
+      "baseline": "0d943e4",
+      "revision": "0d943e4 with pregnancy surface refinements; exact source hashes in expanded-measurements.json",
+      "reviewer": "Codex agent review",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Follow the fetal-to-placental cord segment and identify both ends in the oblique and reverse views.",
+      "scores": {
+        "fidelity": 4,
+        "form": 4,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The native first-stage cord is position- and index-identical to the standalone reference.",
+        "form": "The thin uninterrupted route follows the original curvature and end taper.",
+        "readability": "Both ends can be distinguished in silhouette and traced through the whole isolated view.",
+        "economy": "The lighter trial uses 237 triangles, with 6 open and 7 nonmanifold edges. Matched close-up changes reach 11.7 pixels. Keep the qualified 6,708-triangle surface."
+      },
+      "note": "Stage-specific identical native geometry is reviewed once; repeated case instances have the same verified position and index SHA-256.",
+      "comparison": {
+        "label": "Oblique",
+        "baseline": "asset-reviews/pregnancy/first-cord-before-oblique.webp",
+        "candidate": "asset-reviews/pregnancy/first-cord-after-oblique.webp",
+        "original": "asset-reviews/pregnancy/first-cord-original-oblique.webp",
+        "views": [
+          {
+            "label": "Reverse",
+            "baseline": "asset-reviews/pregnancy/first-cord-before-reverse.webp",
+            "candidate": "asset-reviews/pregnancy/first-cord-after-reverse.webp",
+            "original": "asset-reviews/pregnancy/first-cord-original-reverse.webp"
+          },
+          {
+            "label": "Gray",
+            "baseline": "asset-reviews/pregnancy/first-cord-before-gray.webp",
+            "candidate": "asset-reviews/pregnancy/first-cord-after-gray.webp",
+            "original": "asset-reviews/pregnancy/first-cord-original-gray.webp"
+          },
+          {
+            "label": "Lighter trial, rejected",
+            "baseline": "asset-reviews/pregnancy/first-cord-after-oblique.webp",
+            "candidate": "asset-reviews/pregnancy/first-cord-light-oblique.webp"
+          }
+        ]
+      },
+      "beforeScores": {
+        "form": 2
+      },
+      "beforeEvidence": {
+        "form": "The route can be followed, but its sampled edges appear beaded in the isolated view."
+      }
+    },
+    {
+      "source": "case",
+      "case": "pregnancy-mid-normal",
+      "chapter": "placental-insertion",
+      "part": "Umbilical cord",
+      "baseline": "0d943e4",
+      "revision": "0d943e4 with pregnancy surface refinements; exact source hashes in expanded-measurements.json",
+      "reviewer": "Codex agent review",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Trace the uninterrupted umbilical cord through its curve and distinguish the two endpoints.",
+      "scores": {
+        "fidelity": 4,
+        "form": 4,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The mid-stage cord is position- and index-identical to the native model, including both endpoints.",
+        "form": "The native curve replaces the discrete disconnected islands of the sampled envelope.",
+        "readability": "The two endpoints and underside remain distinguishable in grayscale and reverse.",
+        "economy": "The lighter trial uses 1,206 triangles, with 7 open and 6 nonmanifold edges. Matched close-up changes reach 3.2 pixels. Keep the qualified 12,420-triangle surface."
+      },
+      "note": "Stage-specific identical native geometry is reviewed once; repeated case instances have the same verified position and index SHA-256.",
+      "comparison": {
+        "label": "Oblique",
+        "baseline": "asset-reviews/pregnancy/mid-cord-before-oblique.webp",
+        "candidate": "asset-reviews/pregnancy/mid-cord-after-oblique.webp",
+        "original": "asset-reviews/pregnancy/mid-cord-original-oblique.webp",
+        "views": [
+          {
+            "label": "Reverse",
+            "baseline": "asset-reviews/pregnancy/mid-cord-before-reverse.webp",
+            "candidate": "asset-reviews/pregnancy/mid-cord-after-reverse.webp",
+            "original": "asset-reviews/pregnancy/mid-cord-original-reverse.webp"
+          },
+          {
+            "label": "Gray",
+            "baseline": "asset-reviews/pregnancy/mid-cord-before-gray.webp",
+            "candidate": "asset-reviews/pregnancy/mid-cord-after-gray.webp",
+            "original": "asset-reviews/pregnancy/mid-cord-original-gray.webp"
+          },
+          {
+            "label": "Lighter trial, rejected",
+            "baseline": "asset-reviews/pregnancy/mid-cord-after-oblique.webp",
+            "candidate": "asset-reviews/pregnancy/mid-cord-light-oblique.webp"
+          },
+          {
+            "label": "Matched live case",
+            "baseline": "asset-reviews/pregnancy/mid-cord-live-before.webp",
+            "candidate": "asset-reviews/pregnancy/mid-cord-live-after.webp"
+          }
+        ]
+      },
+      "beforeScores": {
+        "form": 1,
+        "fidelity": 1
+      },
+      "beforeEvidence": {
+        "form": "The original bend is split into large disconnected pieces with smaller islands around it.",
+        "fidelity": "The isolated surface loses continuity along the authored native cord curve visible in the registered stage reference."
+      }
+    },
+    {
+      "source": "case",
+      "case": "pregnancy-mid-abnormal",
+      "chapter": "insertion",
+      "part": "Umbilical cord",
+      "baseline": "0d943e4",
+      "revision": "0d943e4 with pregnancy surface refinements; exact source hashes in expanded-measurements.json",
+      "reviewer": "Codex agent review",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Trace the abnormal cord continuously from the sac apex to the placental continuation.",
+      "scores": {
+        "fidelity": 4,
+        "form": 4,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The connected tube follows the exact authored apex-to-native path and native placental tail. It blends through their original 2.4 mm and 3.65 mm radii.",
+        "form": "The positive case has a continuous route in both angles and preserves the apex attachment.",
+        "readability": "The trace follows the modified path from the marked apex in the paired case view.",
+        "economy": "The lighter trial uses 1,003 triangles, with 17 open and 42 nonmanifold edges. Matched close-up changes reach 3.2 pixels. Keep the qualified 5,376-triangle surface."
+      },
+      "note": "The native stage comparison is the unaffected model and supplies context for the altered case.",
+      "comparison": {
+        "label": "Oblique",
+        "baseline": "asset-reviews/pregnancy/mid-wall-cord-before-oblique.webp",
+        "candidate": "asset-reviews/pregnancy/mid-wall-cord-after-oblique.webp",
+        "original": "asset-reviews/pregnancy/mid-wall-cord-original-oblique.webp",
+        "views": [
+          {
+            "label": "Reverse",
+            "baseline": "asset-reviews/pregnancy/mid-wall-cord-before-reverse.webp",
+            "candidate": "asset-reviews/pregnancy/mid-wall-cord-after-reverse.webp",
+            "original": "asset-reviews/pregnancy/mid-wall-cord-original-reverse.webp"
+          },
+          {
+            "label": "Gray",
+            "baseline": "asset-reviews/pregnancy/mid-wall-cord-before-gray.webp",
+            "candidate": "asset-reviews/pregnancy/mid-wall-cord-after-gray.webp",
+            "original": "asset-reviews/pregnancy/mid-wall-cord-original-gray.webp"
+          },
+          {
+            "label": "Lighter trial, rejected",
+            "baseline": "asset-reviews/pregnancy/mid-wall-cord-after-oblique.webp",
+            "candidate": "asset-reviews/pregnancy/mid-wall-cord-light-oblique.webp"
+          },
+          {
+            "label": "Matched abnormal wall context",
+            "baseline": "asset-reviews/pregnancy/mid-wall-fetus-live-before.webp",
+            "candidate": "asset-reviews/pregnancy/mid-wall-fetus-live-after.webp"
+          }
+        ]
+      },
+      "beforeScores": {
+        "form": 1,
+        "readability": 1
+      },
+      "beforeEvidence": {
+        "form": "The altered route appears as separated visible segments, breaking the trace from the sac toward the placenta.",
+        "readability": "Neither isolated angle supplies an unbroken trace from the altered sac apex to the placental continuation."
+      }
+    },
+    {
+      "source": "case",
+      "case": "pregnancy-late-normal",
+      "chapter": "ua",
+      "part": "Umbilical cord",
+      "baseline": "0d943e4",
+      "revision": "0d943e4 with pregnancy surface refinements; exact source hashes in expanded-measurements.json",
+      "reviewer": "Codex agent review",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Find the free loop and trace it through its turn without following stray vascular fragments.",
+      "scores": {
+        "fidelity": 4,
+        "form": 4,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Native late-stage cord positions and triangle indices are exact.",
+        "form": "The turn is continuous under neutral and reverse light, with a recognizable original taper.",
+        "readability": "The free loop and route remain visible in the paired acquisition and grayscale.",
+        "economy": "The lighter trial uses 1,116 triangles, with 0 open and 0 nonmanifold edges. Matched close-up changes reach 2.2 pixels. Keep the qualified 11,640-triangle surface."
+      },
+      "note": "Stage-specific identical native geometry is reviewed once; repeated case instances have the same verified position and index SHA-256.",
+      "comparison": {
+        "label": "Oblique",
+        "baseline": "asset-reviews/pregnancy/late-cord-before-oblique.webp",
+        "candidate": "asset-reviews/pregnancy/late-cord-after-oblique.webp",
+        "original": "asset-reviews/pregnancy/late-cord-original-oblique.webp",
+        "views": [
+          {
+            "label": "Reverse",
+            "baseline": "asset-reviews/pregnancy/late-cord-before-reverse.webp",
+            "candidate": "asset-reviews/pregnancy/late-cord-after-reverse.webp",
+            "original": "asset-reviews/pregnancy/late-cord-original-reverse.webp"
+          },
+          {
+            "label": "Gray",
+            "baseline": "asset-reviews/pregnancy/late-cord-before-gray.webp",
+            "candidate": "asset-reviews/pregnancy/late-cord-after-gray.webp",
+            "original": "asset-reviews/pregnancy/late-cord-original-gray.webp"
+          },
+          {
+            "label": "Lighter trial, rejected",
+            "baseline": "asset-reviews/pregnancy/late-cord-after-oblique.webp",
+            "candidate": "asset-reviews/pregnancy/late-cord-light-oblique.webp"
+          },
+          {
+            "label": "Matched live case",
+            "baseline": "asset-reviews/pregnancy/late-cord-live-before.webp",
+            "candidate": "asset-reviews/pregnancy/late-cord-live-after.webp"
+          }
+        ]
+      },
+      "beforeScores": {
+        "form": 1,
+        "fidelity": 1
+      },
+      "beforeEvidence": {
+        "form": "Long thin fragments sit beside the principal curve and compete with the free loop in the isolated view.",
+        "fidelity": "The original registered stage supplies a single continuous curved route. The baseline silhouette includes conflicting disconnected fragments."
+      }
+    },
+    {
+      "source": "case",
+      "case": "pregnancy-mid-normal",
+      "chapter": "fluid",
+      "part": "Fluid pocket",
+      "baseline": "0d943e4",
+      "revision": "0d943e4 with pregnancy surface refinements; exact source hashes in expanded-measurements.json",
+      "reviewer": "Codex agent review",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Locate the modeled fluid pocket and follow both saved 4.5 cm caliper endpoints in the live 3D and evidence scan.",
+      "scores": {
+        "fidelity": 4,
+        "form": 4,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "The verified analytic surface reaches both exact case endpoints. Independent neighboring rays disagree by at most 0.331 mm with no missing or extra crossings.",
+        "form": "The closed smooth ellipsoid matches independently sampled case-label boundary rays and reads under reverse light.",
+        "readability": "The live gold endpoints meet the visible pocket at the saved frame. The scan and isolated grayscale support the same localization.",
+        "economy": "The 1,216-triangle candidate replaces 1,872 sampled triangles. The 678-triangle trial shifts both endpoints by 0.264 mm and other boundary crossings by up to 2.079 mm."
+      },
+      "note": "The modeled case source governs this part. An independent same-finding anatomical reference was unavailable.",
+      "comparison": {
+        "label": "Oblique",
+        "baseline": "asset-reviews/pregnancy/fluid-before-oblique.webp",
+        "candidate": "asset-reviews/pregnancy/fluid-after-oblique.webp",
+        "views": [
+          {
+            "label": "Reverse",
+            "baseline": "asset-reviews/pregnancy/fluid-before-reverse.webp",
+            "candidate": "asset-reviews/pregnancy/fluid-after-reverse.webp"
+          },
+          {
+            "label": "Gray",
+            "baseline": "asset-reviews/pregnancy/fluid-before-gray.webp",
+            "candidate": "asset-reviews/pregnancy/fluid-after-gray.webp"
+          },
+          {
+            "label": "Lighter trial, rejected",
+            "baseline": "asset-reviews/pregnancy/fluid-after-oblique.webp",
+            "candidate": "asset-reviews/pregnancy/fluid-light-oblique.webp"
+          },
+          {
+            "label": "Matched live case",
+            "baseline": "asset-reviews/pregnancy/fluid-live-before.webp",
+            "candidate": "asset-reviews/pregnancy/fluid-live-after.webp"
+          }
+        ]
+      },
+      "beforeScores": {
+        "form": 2,
+        "fidelity": 2,
+        "readability": 3
+      },
+      "beforeEvidence": {
+        "form": "The pocket has a recognizable outline, with stair-stepped ridges interrupting the highlight in neutral and reverse views.",
+        "fidelity": "The center ray reaches within 0.377 mm of the modeled endpoints, but neighboring source-label rays miss four crossings and differ by up to 3.088 mm.",
+        "readability": "The saved 4.5 cm endpoints can be followed in the live evidence pair. The neutral isolation retains visible sampling steps."
+      }
+    },
+    {
+      "source": "case",
+      "case": "pregnancy-mid-normal",
+      "chapter": "fluid",
+      "part": "Fluid pocket boundary",
+      "baseline": "0d943e4",
+      "revision": "0d943e4 with pregnancy surface refinements; exact source hashes in expanded-measurements.json",
+      "reviewer": "Codex agent review",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md",
+      "task": "Inspect the thin modeled tissue interface around the fluid and compare its continuity in the isolated views.",
+      "scores": {
+        "form": 2,
+        "readability": 3,
+        "economy": 3
+      },
+      "scoreEvidence": {
+        "form": "The denser sampled boundary still has perforated regions and nonmanifold contacts. Its continuity is unsuitable for an anatomically definitive isolated rendering.",
+        "readability": "The exact live section supplies the relevant sheet boundaries. The isolated mesh remains context for the fluid volume.",
+        "economy": "The 1,363-triangle trial introduces additional open interfaces and obscures the modeled rim. The original enclosure remains explicitly provisional."
+      },
+      "note": "The modeled case source governs this part. An independent same-finding anatomical reference was unavailable. Keep this low-form context with the linked section. Reopen close-up qualification when a registered joint surface can preserve the existing source boundary and adjacent labels.",
+      "comparison": {
+        "label": "Oblique",
+        "baseline": "asset-reviews/pregnancy/fluid-boundary-before-oblique.webp",
+        "candidate": "asset-reviews/pregnancy/fluid-boundary-after-oblique.webp",
+        "views": [
+          {
+            "label": "Reverse",
+            "baseline": "asset-reviews/pregnancy/fluid-boundary-before-reverse.webp",
+            "candidate": "asset-reviews/pregnancy/fluid-boundary-after-reverse.webp"
+          },
+          {
+            "label": "Gray",
+            "baseline": "asset-reviews/pregnancy/fluid-boundary-before-gray.webp",
+            "candidate": "asset-reviews/pregnancy/fluid-boundary-after-gray.webp"
+          },
+          {
+            "label": "Lighter trial, rejected",
+            "baseline": "asset-reviews/pregnancy/fluid-boundary-after-oblique.webp",
+            "candidate": "asset-reviews/pregnancy/fluid-boundary-light-oblique.webp"
+          }
+        ]
+      },
+      "beforeScores": {
+        "form": 1
+      },
+      "beforeEvidence": {
+        "form": "Coarse perforations dominate the isolated interface and leave its enclosure difficult to follow."
+      }
+    }
+  ],
+  "evidenceSha256": {
+    "early-ectopic-after-gray.webp": "2addbcaffd11f35e0ba079ba075163f9be4c0e4651329e4834c3315496fcc39c",
+    "early-ectopic-after-oblique.webp": "d77e080264b99c07bdf0f56374b40692603402d794265ef0b2c83ac3fd082d94",
+    "early-ectopic-after-reverse.webp": "605c47241f5930a40ded7ebbeceb698c812e14251c29af4b4b3c1b9683cddd4a",
+    "early-ectopic-before-gray.webp": "71b89f2edff74fb8848b5c809fd4cfa52f46e74b169573577362062362be1bbf",
+    "early-ectopic-before-oblique.webp": "76cafe2b4d5560463bdad6e8ebe66ccd6ee0c8dfe2460ce1f94c70d80cd3583b",
+    "early-ectopic-before-reverse.webp": "4f253e5416c9c91f2f9a425bdeb8f2f66d311454c9024eb780ae7183e4ab5436",
+    "early-ectopic-light-oblique.webp": "e24a59d58860eee5db6f3f9407618cf479db86043b82c301c88836251b6c3156",
+    "early-ectopic-live-after.webp": "575c784f3a83f209ed7b22cd3db9ba58c07e6b8c4c9af752110737e517e17176",
+    "early-ectopic-live-before.webp": "a1ffb60671f0e2e3b59226ab410bee7380c8e43ccd6f367d1b0550f5cec63d03",
+    "early-embryo-after-gray.webp": "10d4f91181ffb8d252d76ef0b7311f80ddfbfb82ed634ecd90c447b9a9e1bd89",
+    "early-embryo-after-oblique.webp": "87c8c83278bc63e37598f0df9a3a27b647715a1f4ee75aa3bdd5ad7b9b88f0d2",
+    "early-embryo-after-reverse.webp": "6f10d6a9001b0a7959fcc5b7df53745ecd5fbfb097f90ad3985a3c89fee65cd5",
+    "early-embryo-before-gray.webp": "c3c6910e9ca0ad03c4db03dfc41b2c72e3eeb9cbf39a2074aee5af2e6db6206c",
+    "early-embryo-before-oblique.webp": "4359d2ca73b335b108126f4301e45a55324421c380c9073fe9be69ad440e3558",
+    "early-embryo-before-reverse.webp": "4c03d4b3d71b3a1611cd57d3af19a66374d944f9802267654668ab31cc5826f7",
+    "early-embryo-light-oblique.webp": "293c26c4346526839a942ac9078dd4f53cda4297116545b5b9e62cb6609111e1",
+    "early-embryo-live-after.webp": "9f98a5d9b3991d5eeee3cbb29dbabc0b79502ec92684918ede3545125d46d2e5",
+    "early-embryo-live-before.webp": "05f45029de09d045d8aa3bb62062fbdea435e9ba16ce88d0e32b774d8424e9a7",
+    "early-embryo-original-gray.webp": "0f5ef0b12ba71b272d91a1200c56e0fd93d112db5c8c961c68633126280877a4",
+    "early-embryo-original-oblique.webp": "37a2d645c8bfbe1251025101b4d835a52a0e707ff0e760670712baa93ad1024d",
+    "early-embryo-original-reverse.webp": "82d2d2706f84af50f7be962cc85ea4c4398028000d4d91fd2e0121c33790cfe0",
+    "fetus-after-gray.webp": "9fd9653f6c61d059cb46068ef29b2f64f8aa4342744337ac63444d2ef7ee92df",
+    "fetus-after-oblique.webp": "d05b85b6703e873802372095036ef147b6d469e4b8b3de725adbea5b63d8cc24",
+    "fetus-after-reverse.webp": "d4f9c7844f8947347dbcba16c1a2ec024e1e1ad808644d09aff329e7f530a26b",
+    "fetus-before-gray.webp": "d0611198e1705cac199a9ccdbe537ff9af0c9dc215b734f024407e6497711c01",
+    "fetus-before-oblique.webp": "f52cd05c983d1e63993390009a26f57f9f412365fec70d0cdfc1e23b7afc4d18",
+    "fetus-before-reverse.webp": "c7ec26086b08782d3d19ea0a50c0c61d12ee9720deb10beb980fd4338795ecca",
+    "fetus-light-oblique.webp": "53a767a5e7d7c0b4db71ac4b7eaca4bbbc656dc7c0bb49e1d9c9f13f07aa22ec",
+    "fetus-original-gray.webp": "9e3daaf42dc437dd2424a2194a8b5242bf79cdd6039ea5eb036b2f763ce12158",
+    "fetus-original-oblique.webp": "22e4b10c5cf4d4f58a370038645f3ced2573629588a62afd6a9664bf73f63333",
+    "fetus-original-reverse.webp": "334817fdf8e9a68661398234ea3ef131d3945e4de41dd81a07fe490e5746e400",
+    "first-cord-after-gray.webp": "9e43fa8a72eaab9c5c8190dd317bafc7b8e8c65495fcf8b43a19bfe2dce24491",
+    "first-cord-after-oblique.webp": "bf2cbae17536df83dddaef311b8811e6fa1d945c1906bd1862bee48b38e826a3",
+    "first-cord-after-reverse.webp": "a11a044c9c9494097638442bbbc9dc751e780251b016319f703aa3d552559e2b",
+    "first-cord-before-gray.webp": "5d549060aa483d8e44268746811f82c98e7b2fd7284c9b57837fbe746c6de5d6",
+    "first-cord-before-oblique.webp": "2762237c33e8342a004cb7880e97db9213f2e065c83db9973b6e80578d1d5800",
+    "first-cord-before-reverse.webp": "d91a55fd8a74b9ef78a2bca67aec8b038ea69437b38ba7b3da89eb1c94b9ffc5",
+    "first-cord-light-oblique.webp": "5cdb2e90e770b85004bf46a42c7ce885b2f57025dbd6d389a3d800c67b563096",
+    "first-cord-original-gray.webp": "9e43fa8a72eaab9c5c8190dd317bafc7b8e8c65495fcf8b43a19bfe2dce24491",
+    "first-cord-original-oblique.webp": "bf2cbae17536df83dddaef311b8811e6fa1d945c1906bd1862bee48b38e826a3",
+    "first-cord-original-reverse.webp": "a11a044c9c9494097638442bbbc9dc751e780251b016319f703aa3d552559e2b",
+    "first-fetus-after-gray.webp": "e4fc646fa3850ae4ca7a44375893010802eb3910e71f65aef4f91a47234c4f47",
+    "first-fetus-after-oblique.webp": "0c00cd49909fad2dbf231640d6b9517c684edbe2e525f5d74eedc86abb0fd0d7",
+    "first-fetus-after-reverse.webp": "59f8d40742fa5e0d3cbb7a3ab0fbde47339f63adede353c5162599fe921fd8bb",
+    "first-fetus-before-gray.webp": "c5b6f57018d5e446abbe2657bf21b6f56cdb6208506c1fb0e9eb43691ad1a720",
+    "first-fetus-before-oblique.webp": "654271d2977eb1491cdad20022eeeb8dbdb460ead290dd1706c9f83f20927d70",
+    "first-fetus-before-reverse.webp": "3a10ff9d7df4f27677d91fe6a5fa6a5ca4ee4dc2b80817e96a6cb8f82cc56db0",
+    "first-fetus-light-oblique.webp": "bb43ed76e3b1745a9bd7d7e22846c69959011f933c327447982552e489aab325",
+    "first-fetus-live-after.webp": "e817af81c1526b0956a9ad442e69ef368303cf3294d3cd6ba6f92f25157110d9",
+    "first-fetus-live-before.webp": "b1517aa7c6c8d8178aff4e11f261a3714ff388aed28ae3c16b43ce841f131336",
+    "first-fetus-original-gray.webp": "664dce946c9e92a69b9a1b7a221f1151418428bd17b6ae4429a41d5342fd5293",
+    "first-fetus-original-oblique.webp": "854f231f321e465a6a8322fa6e26612ea780d9f58417ebe2083a83e51374e837",
+    "first-fetus-original-reverse.webp": "9bf50a93c611627e80be3fdbe160175a172474c1acf16e790437700ad22905b5",
+    "first-nt-fetus-after-gray.webp": "0f1a03905e72ca53a5f1dfeb8b51e2e982588a215d1a070438cd698a418811b9",
+    "first-nt-fetus-after-oblique.webp": "a2c3ef5054da3e4f64fa7c4f96629a2a045ef44a0c1e7457be3f3b9b1a1ae2b8",
+    "first-nt-fetus-after-reverse.webp": "e37a336fb2206f974e0674c151f82f92236624c26f846fa96ad3ef665355cb45",
+    "first-nt-fetus-before-gray.webp": "84947c57bd992d1ddb4367d5862371af27f07261e83b018e2c9995c0c3430be8",
+    "first-nt-fetus-before-oblique.webp": "487381a72251e259caba61ce1dc854d0d4dd44469b1edbb52ec74960e5587018",
+    "first-nt-fetus-before-reverse.webp": "a0ec69d501dcd97655213efbed3ae322fa1e9d447df1039414d6bc6c5b51cf27",
+    "first-nt-fetus-light-oblique.webp": "b4ad8a29d80d3303d9c8ee7f517d7e594d36bfe1f27cb54b03472c29647117fe",
+    "first-nt-fetus-live-after.webp": "0e5056e5e302d970f71a36ce8aad1a0b552b0c71d512412f992504ce0be278b4",
+    "first-nt-fetus-live-before.webp": "d418e2fbf19add7acebc903fda41ce9672f882a4854599376375142570429e91",
+    "first-placenta-after-gray.webp": "791d1d5de417f03eb00ab41ffb18e0db17b37a4d35cd56d8b3c3949d87c53bfd",
+    "first-placenta-after-oblique.webp": "8987181372ab40e4a10c719a0741f5d8b71c78fe7893d9e68308c378fc23929c",
+    "first-placenta-after-reverse.webp": "91f5b09db3d977ed6a5147305a1a4dd433f4a10a80a07d10c2ea7111ba89f126",
+    "first-placenta-before-gray.webp": "79bcf708fc3cefa593849d70e81a122e70c8ada404868551cecfb24816c845a9",
+    "first-placenta-before-oblique.webp": "587ba5961198fd1c21eabdbd6ccb3458446ca89a05317b2ca1dc02248df07a95",
+    "first-placenta-before-reverse.webp": "e50c529c7f53f00f5bb37f4a9efd15e50dffa026a8cf95b104a44eb991bcd932",
+    "first-placenta-light-oblique.webp": "41cc38c0f2dbdc908fe6cb7ae3c633509f1fd8af68773e9093b2e72e64d8e644",
+    "first-placenta-original-gray.webp": "791d1d5de417f03eb00ab41ffb18e0db17b37a4d35cd56d8b3c3949d87c53bfd",
+    "first-placenta-original-oblique.webp": "8987181372ab40e4a10c719a0741f5d8b71c78fe7893d9e68308c378fc23929c",
+    "first-placenta-original-reverse.webp": "91f5b09db3d977ed6a5147305a1a4dd433f4a10a80a07d10c2ea7111ba89f126",
+    "fluid-after-gray.webp": "5a5b08218a6f34f6b70fbc4add3cf64feaadae1579223e7b08c9b63762d84293",
+    "fluid-after-oblique.webp": "9a9397cbb6e04fc8c03c0b5a3a0f0869d51c29798b360d6d31a31e09c024e1ec",
+    "fluid-after-reverse.webp": "22ea9d43ee7f3a35a829c2c24a0b39f8aef2bae6122654b60781f0f89f635d1a",
+    "fluid-before-gray.webp": "4b0073eab31d1608681e6e9ca191f14989875b6de4d40c7e685a5c7eaee4d9a1",
+    "fluid-before-oblique.webp": "3265f4c3eaaa426bf6f705faf886707809468b176e648900eee6fb67c5f209f8",
+    "fluid-before-reverse.webp": "912088b7c5ad7addd67aa6d4f557641bc3ac07eb1dcb7f9b84837bb99050dadf",
+    "fluid-boundary-after-gray.webp": "0957b2d8666e644ff2a5c7caf50607234c3ac5cab5b88b52ad4de99fbcf147d4",
+    "fluid-boundary-after-oblique.webp": "a71b05462fb4557654057f91c7b971cee094eea77394873158ba6873694ce261",
+    "fluid-boundary-after-reverse.webp": "53e26b31604c9065d4e86c3827e38adca50d87433ce537ba764aaf47574ce643",
+    "fluid-boundary-before-gray.webp": "7c4e7a7c5cb97de9eaa36da3fd23d419534c85a5874ec5deec0f54a2b4e8da6f",
+    "fluid-boundary-before-oblique.webp": "d4564144e045a059f58d02abac4ad85edee34906dde9690f170c717387266fff",
+    "fluid-boundary-before-reverse.webp": "fec5a9be2616bd0967ca977df6c3386df9034349cce2fb2f7432f52cbd29ec80",
+    "fluid-boundary-light-oblique.webp": "c50f213d0bc461353a39cf7ba4e8a81db26e89367a3c313e1706ece5b268ad2b",
+    "fluid-light-oblique.webp": "80fd57bb905b389cbe0165b736febc00c8375798aa75a93e44da7b30f1cac395",
+    "fluid-live-after.webp": "c69f67356232b9640a7e2222d89190015045a3843af44c62cdc513dd48ffa2dc",
+    "fluid-live-before.webp": "e7759f474005f79f5680cdadd72350b552e1ea925eb0832dcf7d777909f173fe",
+    "late-cord-after-gray.webp": "85e3a8b03b5b97f8edece2b6bd77cc7d90c94c985097139a0ee0d52a8b013596",
+    "late-cord-after-oblique.webp": "21582793b8300a50166bfb32b36b80211c2d53140eb41a4b57797d9992494b6a",
+    "late-cord-after-reverse.webp": "359d490632b7c4a64d7729156ec6375bdf903668968073681e04883f6a1d1ca1",
+    "late-cord-before-gray.webp": "d5ab602497359a0983a69192e9c9dc9f13c15644816fa9d59832d2b1d7418682",
+    "late-cord-before-oblique.webp": "64cb96e59de92ecc02c50177d7ebca156c37fc799f18c9e6c3fe7e1cc5999948",
+    "late-cord-before-reverse.webp": "a25be41727839c36138004eafaa157d3640d3be0e499314f085e3fbab64f76bc",
+    "late-cord-light-oblique.webp": "20600a2b93db8b6efd15f371187155125dca8a54e27ae6797bbf00d3f79a002b",
+    "late-cord-live-after.webp": "7d2c37f8395209e5b14e1e58e39c525ae0ffe89d1e5d99130d07268bccc02118",
+    "late-cord-live-before.webp": "6108f3f7cef5a1364e66a3e2fcb54838799b5009d20d409ef161caba62ea6f47",
+    "late-cord-original-gray.webp": "85e3a8b03b5b97f8edece2b6bd77cc7d90c94c985097139a0ee0d52a8b013596",
+    "late-cord-original-oblique.webp": "21582793b8300a50166bfb32b36b80211c2d53140eb41a4b57797d9992494b6a",
+    "late-cord-original-reverse.webp": "359d490632b7c4a64d7729156ec6375bdf903668968073681e04883f6a1d1ca1",
+    "late-fetus-after-gray.webp": "b682401533fa084bb9b5ff90325f2cb0828759a0a51b6e8f3a8dbcae73aacf2e",
+    "late-fetus-after-oblique.webp": "c14c0917984230580aa9cfd81f27d0a8c8e30412207c21b249c68f00a46833ce",
+    "late-fetus-after-reverse.webp": "ffa7b339dbb02529e59696389dcf91e08de6ff060587d9dfc280c9d5210d996e",
+    "late-fetus-before-gray.webp": "275b95422b37997653f34d2b1814799f1478d5a50fc5fd3f049952287fd28eb1",
+    "late-fetus-before-oblique.webp": "cdf3e06fc4b3756a34a2e16ffcdd0943f5bf04cb359ccd2eee3e923f329f751f",
+    "late-fetus-before-reverse.webp": "13f711968df78bd58c30ae926e3310b2d1ca705e09dab557f5f15fdf89dd925b",
+    "late-fetus-light-oblique.webp": "78143407b7687122f27b1279218520a58b43fbfe1251b308ac46099cc993ee13",
+    "late-fetus-original-gray.webp": "900dc012731aac0563280ed37211dcc4edce1e781fad3822a75d0d9ea11b692a",
+    "late-fetus-original-oblique.webp": "12a40db61190c0bcdf1ae559b8c2b5739d69624631fa99c830da204a075fda87",
+    "late-fetus-original-reverse.webp": "7f1b6f786e252694ae2903d7f816a5a74a838e9998c9dee6638951e004cc5924",
+    "late-growth-fetus-after-gray.webp": "2d74ca35e4b40404baf972ce59da70bf4b33917a704ff4e747e09c4758f02ce0",
+    "late-growth-fetus-after-oblique.webp": "9f72a1f6549839b7182ec6b465dd233aa8b26edc0ec50727a38a684110cc4e30",
+    "late-growth-fetus-after-reverse.webp": "fddcf2f75a1cef10885ee90ef50dd54b3a0deaad1678ac07cca09a55d7db8cf0",
+    "late-growth-fetus-before-gray.webp": "161ce9634c2bb51d180638d57f9eeec62f9bb85da8ed00411a6acbfaf96b0356",
+    "late-growth-fetus-before-oblique.webp": "717e00922544865b62e028bc33d2ec7dbc2256340c7498ca5bc3a3c22b4220bf",
+    "late-growth-fetus-before-reverse.webp": "007ae84ce8134432ae65a69d4b0cf1bdbb171b6a169b0fd33da4cebd8c2b7d49",
+    "late-growth-fetus-light-oblique.webp": "94fdac08a1b8edebc8d46c80dc7eb895bdcf97f55a977e0c7fc4ed6f2292c6d7",
+    "late-growth-fetus-live-after.webp": "42fd6a6d96036e23e9ebb8ce742fc2fc3f8fde15d5e5fe22d4171209ea042aed",
+    "late-growth-fetus-live-before.webp": "72fe1cb9e6aa0514308db6bc0c8e35882c048a4f3db644aff0d81f7c650d9503",
+    "late-growth-fetus-original-gray.webp": "3650c9ac72104377cd58ea20521e8f6142164699ae4786b2958f1a7b53a7fb07",
+    "late-growth-fetus-original-oblique.webp": "2d19a6cd62c3282521c3f370b8beac70a6949b1fd9d977cf3a43030fa9e37869",
+    "late-growth-fetus-original-reverse.webp": "1c47e7855cb8e1f957c1e8b1546fd1cbd76f743e662b5731874cbf8f4fb1c420",
+    "late-placenta-after-gray.webp": "e4c32a6c4cb4679ca2bae0ab34c4767825e639cfe62d2dabba27dd3610e7f73d",
+    "late-placenta-after-oblique.webp": "4f4c94c164c6ba16849fb0c4c04b80129894455b32abce5bba3de37211381ec1",
+    "late-placenta-after-reverse.webp": "57d4197c880d302753aeb56cdf5c114e6ae9990fabf1655402ac1782d66db52c",
+    "late-placenta-before-gray.webp": "591d97ca164241ba2e287596a52cc817034c625f15bf66a52de7bd4c8bff3671",
+    "late-placenta-before-oblique.webp": "34e159c915b07d3418d884d4672f9d08523ead50bb1ee158de6e05793d362783",
+    "late-placenta-before-reverse.webp": "4c48b70da0ede3006c16b2ff59cb20f923fbf7e303aec3ab038a7be2328a3b4d",
+    "late-placenta-light-oblique.webp": "0ba39f4b94b56563d5c088349fa3c679e5d0b0a57eebc8d7ce954445d38d7f1a",
+    "late-placenta-original-gray.webp": "e4c32a6c4cb4679ca2bae0ab34c4767825e639cfe62d2dabba27dd3610e7f73d",
+    "late-placenta-original-oblique.webp": "4f4c94c164c6ba16849fb0c4c04b80129894455b32abce5bba3de37211381ec1",
+    "late-placenta-original-reverse.webp": "57d4197c880d302753aeb56cdf5c114e6ae9990fabf1655402ac1782d66db52c",
+    "live-fluid-after.webp": "c69f67356232b9640a7e2222d89190015045a3843af44c62cdc513dd48ffa2dc",
+    "live-fluid-before.webp": "e7759f474005f79f5680cdadd72350b552e1ea925eb0832dcf7d777909f173fe",
+    "mid-cord-after-gray.webp": "75e47715d1aafcd1e313ba3b61add3d60b45e7bc9d0246d11541499028c13893",
+    "mid-cord-after-oblique.webp": "2b6d704c177ffa1ed119c3156ccc589e96de93a0b764271bfa911f0f037d0352",
+    "mid-cord-after-reverse.webp": "6aa98d621b818633eb2e3b9d9fa656905cdea48cf6a7f1ed915ad1e468501458",
+    "mid-cord-before-gray.webp": "bca86d758df09104677a6fa37d4f1d045bcf9cd8433ea263b854166b831bd785",
+    "mid-cord-before-oblique.webp": "4d3f81bd73c8b3a2aec8ae20d6460fa2805a365947a3fce2fb173e7a47d44e4e",
+    "mid-cord-before-reverse.webp": "469a52e05863bb58f9965462e2faee61222fa57f7b8b7265b19bac4add8b005f",
+    "mid-cord-light-oblique.webp": "5d2bb38b31573237cf2fb6f05021c72037f6e4fcc2747e69e3ff623bb45228cf",
+    "mid-cord-live-after.webp": "22b0b0d1311721f6c4e3e8dd083b62ac927f1c0bdd294112d2adf24a218dd225",
+    "mid-cord-live-before.webp": "cb95699dda7547aa951990c15f0ba902ec51002e7fae759d786b94dfb8098213",
+    "mid-cord-original-gray.webp": "75e47715d1aafcd1e313ba3b61add3d60b45e7bc9d0246d11541499028c13893",
+    "mid-cord-original-oblique.webp": "2b6d704c177ffa1ed119c3156ccc589e96de93a0b764271bfa911f0f037d0352",
+    "mid-cord-original-reverse.webp": "6aa98d621b818633eb2e3b9d9fa656905cdea48cf6a7f1ed915ad1e468501458",
+    "mid-placenta-after-gray.webp": "2d3672386f11a347e214a1637342b5f1eb212f3979dd33f8403943b6a3f5dd63",
+    "mid-placenta-after-oblique.webp": "abc6fc4c060213acf45acbe43bbfcdc7df9a38808240d3c4016fbea3b13f1323",
+    "mid-placenta-after-reverse.webp": "45323a7de43c913a5ed0e4f6f4a7699f363af3cd6694bcc443c3bf5e8c10c565",
+    "mid-placenta-before-gray.webp": "8f18282f6b63db391943f0e6b8c35787de89dabbcfebbee587e1763d30ba5dec",
+    "mid-placenta-before-oblique.webp": "4a9f16f4b15e1285661f1e6b7ca3438854438a6b3278c8d5a09b8d13a437271b",
+    "mid-placenta-before-reverse.webp": "686e84d40374abf4231791d0721027449b6d37612ed0bd145fd6484378d92020",
+    "mid-placenta-light-oblique.webp": "2ff5b47115917e03660df2c85a4b35f7a542cd1760f175e5668ea216d7c77b2c",
+    "mid-placenta-live-after.webp": "0d610a1ca4832cfaa5c1903b2f59407f93c18ceb1b177f3dd137d86658a62864",
+    "mid-placenta-live-before.webp": "9b2db572b3c7a989b99793235fdf5274e011ed606581aa74c4d373eb3dbf8ce5",
+    "mid-placenta-original-gray.webp": "2d3672386f11a347e214a1637342b5f1eb212f3979dd33f8403943b6a3f5dd63",
+    "mid-placenta-original-oblique.webp": "abc6fc4c060213acf45acbe43bbfcdc7df9a38808240d3c4016fbea3b13f1323",
+    "mid-placenta-original-reverse.webp": "45323a7de43c913a5ed0e4f6f4a7699f363af3cd6694bcc443c3bf5e8c10c565",
+    "mid-wall-cord-after-gray.webp": "021f72fcc8f0d87a82dc65e3d5a5e7bd22d7473f7dc277cfed871c426c7cc942",
+    "mid-wall-cord-after-oblique.webp": "11f7f038c6784512514f9e47dbd428d86469389a79c9f6f725bd13acc9aa5e8b",
+    "mid-wall-cord-after-reverse.webp": "54153a7e451b13d226e873f6ba75b95e61b745fcdb677a58a16cf6fceaff2c25",
+    "mid-wall-cord-before-gray.webp": "6de0536496a36917589c466ae96eb7b7e0a1459624806838cb42144b667ca40f",
+    "mid-wall-cord-before-oblique.webp": "aab1212b4de26d027da35d2a1884ae595c83782a56d4eddf035a7ca72ca76886",
+    "mid-wall-cord-before-reverse.webp": "faec10f0c72a3a42b576fc24fc2937068d57111c37bb7272fb529544f8171cd6",
+    "mid-wall-cord-light-oblique.webp": "54d203886f7a443c25119f1de665123639544b322d3ea3f9630f4fde0c1bc70f",
+    "mid-wall-cord-original-gray.webp": "94fd3f8d629bad6cee1d9dff66cb5a148bc5eb93dcfa56f45b904e0f8e488587",
+    "mid-wall-cord-original-oblique.webp": "cbb6b440c02490b36a46aa362ef7d1e4815d1253f37b799b4aa3e7fdb7530784",
+    "mid-wall-cord-original-reverse.webp": "ce191dfcc7bfd5793272175c7292016591fe45c22224f134409646e8091e7167",
+    "mid-wall-fetus-after-gray.webp": "3529dbafe9fe218c9aa21836db17d3e8a3e5736d1657c69de6146f13e0b3deeb",
+    "mid-wall-fetus-after-oblique.webp": "ce42f5f383df9cc9a8a8238cdaaf1998f898154751e478dd2bcc1de39a5876bb",
+    "mid-wall-fetus-after-reverse.webp": "03e1915405b3101b38251f9158deb341a73228fc6c9943c58da5ed8cb2e5f2f3",
+    "mid-wall-fetus-before-gray.webp": "8ef87fda4081fcabf773048944873660cdde9949a221ec441eb873ee4c76fd34",
+    "mid-wall-fetus-before-oblique.webp": "f6dd3f1c4a9b427f9f6bb3252874c0e92a052bd9af3e8894aa3769ca79be81e6",
+    "mid-wall-fetus-before-reverse.webp": "9d9d0edb8f874cdc72aeec38162eb0b0fd2cff0b8351dcdc673a530d42094840",
+    "mid-wall-fetus-light-oblique.webp": "e8408016155ac3a79019f705d05202d37ed43fbf1918530d19795054e60056aa",
+    "mid-wall-fetus-live-after.webp": "b293d150415854eb703e50dc841c0419c2fbc230c47466c3bad142553cd5572a",
+    "mid-wall-fetus-live-before.webp": "3f371ecaf70c9e977f7130b468a54e4993db939e15ce140bb4daa535e82f9895",
+    "mid-wall-fetus-original-gray.webp": "585ecaaa0857741b94a367e4679e1d0d208797dc0cf7904ca00bb07d12aeedbc",
+    "mid-wall-fetus-original-oblique.webp": "41917f23278d8c1dee1f10e00e7b6c5ca1f10227a4f61e0bb109d7e53da110f3",
+    "mid-wall-fetus-original-reverse.webp": "e330b24c263b003a0877f73f74bbf146516eaa917dbf6c57fa8f140c0c75232c",
+    "mid-wall-membrane-after-gray.webp": "9f897a104e8d49183b16499a147524f77a3e211929ffcfb4a7806540b1483f29",
+    "mid-wall-membrane-after-oblique.webp": "12ad1d5a1ce697101e2c5979b566d00944dfbbcf434ccb4c9ba6fbe0af82ebf9",
+    "mid-wall-membrane-after-reverse.webp": "b879dec6dbb7fab316e45e0700591fd9ae9420d9528de531734b295adfe46749",
+    "mid-wall-membrane-before-gray.webp": "1f81254edac8b11736e433e28a41240de34ddfc034540d9fb266fad0256c56bb",
+    "mid-wall-membrane-before-oblique.webp": "2f174bfe45283e497e6cbd95f60877f3a34d79ef85b5f29c2137c83be6e993cb",
+    "mid-wall-membrane-before-reverse.webp": "f15a89cd299d974e88462f437f5b882205f6811d57a7f420b8f4abca6a775941",
+    "native-stage.webp": "e594e2a2288a4aab3d5007391b40c682aad41d69acec2b4b1da39852dd918d9e"
+  },
+  "rubricHash": "a38e552869511cd5bceacaa5ea4456f4d0530e58e7dce2bc6855587a98b0e684",
+  "recipeHash": "3fa1dab5dc0076db1ee3e854f8f3f710c3ea0c1ccadde9ce2bc98032d8e073d7"
+}

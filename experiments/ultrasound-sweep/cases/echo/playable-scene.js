@@ -1,6 +1,6 @@
 import * as THREE from '../../vendor/build/three.module.js';
 import { bodyDirection, bodyPoint } from '../../cardiac/torso/registration.js';
-import { chamberColors, createRegisteredHeart, loadTorsoParts } from '../../cardiac/torso/torso-view.js';
+import { chamberColors, valveColors, createRegisteredHeart, loadTorsoParts } from '../../cardiac/torso/torso-view.js';
 import { sample } from './playable.js';
 
 // The fitted torso assets use +left, +cranial, +anterior. The common case
@@ -12,6 +12,8 @@ const legend = [
   { label: 'Right ventricle', color: chamberColors.RV },
   { label: 'Left atrium', color: chamberColors.LA },
   { label: 'Left ventricle', color: chamberColors.LV },
+  { label: 'Aortic valve cusps', color: valveColors.AV },
+  { label: 'Pulmonary valve cusps', color: valveColors.PV },
 ];
 const toRAS = ([left, cranial, anterior]) => [-left, anterior, cranial];
 const mesh = (geometry, color, options) => new THREE.Mesh(geometry,
@@ -27,7 +29,12 @@ export async function createCaseModel(record, chapter) {
   patient.matrixAutoUpdate = false;
   anatomy.add(patient);
   const skin = mesh(skinGeometry, '#c3977c', { transparent: true, depthWrite: false });
-  patient.add(skin, mesh(bones, ribs), mesh(cartilage, '#b8b19b'));
+  const ribCage = mesh(bones, ribs);
+  const costalCartilage = mesh(cartilage, '#b8b19b');
+  skin.name = 'Chest exterior';
+  ribCage.name = 'Rib cage';
+  costalCartilage.name = 'Costal cartilage';
+  patient.add(skin, ribCage, costalCartilage);
   const cardiac = createRegisteredHeart(patient, sample(chapter, chapter.evidenceFrame, record).frame);
 
   return {

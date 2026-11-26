@@ -1,0 +1,506 @@
+{
+  "matchedMeshes": {
+    "node-baseline": {
+      "bbox": [
+        11,
+        9.200000762939453,
+        28
+      ],
+      "triangles": 1656
+    },
+    "node-candidate": {
+      "bbox": [
+        11,
+        9.200000762939453,
+        28
+      ],
+      "triangles": 720
+    },
+    "node-original": {
+      "bbox": [
+        8.474276542663574,
+        8.955341339111328,
+        18.800004959106445
+      ],
+      "triangles": 3968
+    },
+    "node-light": {
+      "bbox": [
+        11,
+        9.199999809265137,
+        28
+      ],
+      "triangles": 1656
+    },
+    "gland-baseline": {
+      "bbox": [
+        90,
+        20,
+        106
+      ],
+      "triangles": 1656
+    },
+    "gland-candidate": {
+      "bbox": [
+        86.88116836547852,
+        20.40000057220459,
+        104.37747573852539
+      ],
+      "triangles": 2208
+    },
+    "gland-original": {
+      "bbox": [
+        85.5,
+        38.81889343261719,
+        126.0000228881836
+      ],
+      "triangles": 6448
+    },
+    "gland-light": {
+      "bbox": [
+        86.88116455078125,
+        20.399999618530273,
+        104.37436294555664
+      ],
+      "triangles": 720
+    },
+    "fascia-baseline": {
+      "bbox": [
+        116,
+        3,
+        144
+      ],
+      "triangles": 1656
+    },
+    "fascia-candidate": {
+      "bbox": [
+        115.90613555908203,
+        5.448341369628906,
+        142.44568634033203
+      ],
+      "triangles": 1656
+    },
+    "fascia-original": {
+      "bbox": [
+        138,
+        21.53938102722168,
+        211.470703125
+      ],
+      "triangles": 10580
+    },
+    "fascia-light": {
+      "bbox": [
+        115.23455810546875,
+        5.445920944213867,
+        141.73172760009766
+      ],
+      "triangles": 720
+    },
+    "retro-baseline": {
+      "bbox": null,
+      "triangles": 0
+    },
+    "retro-candidate": {
+      "bbox": [
+        115.90613555908203,
+        6.362485885620117,
+        142.44568634033203
+      ],
+      "triangles": 1656
+    },
+    "retro-original": {
+      "bbox": [
+        111.375,
+        22.461700439453125,
+        164.02500915527344
+      ],
+      "triangles": 13092
+    },
+    "retro-light": {
+      "bbox": [
+        115.23455810546875,
+        6.362487077713013,
+        141.73172760009766
+      ],
+      "triangles": 720
+    },
+    "tail-baseline": {
+      "bbox": [
+        51.999996185302734,
+        12,
+        58
+      ],
+      "triangles": 1656
+    },
+    "tail-candidate": {
+      "bbox": [
+        51.88069534301758,
+        12.239998817443848,
+        57.535675048828125
+      ],
+      "triangles": 2208
+    },
+    "tail-original": {
+      "bbox": [
+        51.75,
+        34.02416229248047,
+        76.5
+      ],
+      "triangles": 2383
+    },
+    "tail-light": {
+      "bbox": [
+        51.84773826599121,
+        12.239999771118164,
+        56.53878211975098
+      ],
+      "triangles": 720
+    },
+    "cyst-baseline": {
+      "bbox": [
+        10,
+        8,
+        12
+      ],
+      "triangles": 1656
+    },
+    "cyst-candidate": {
+      "bbox": [
+        10,
+        8,
+        12
+      ],
+      "triangles": 1656
+    },
+    "cyst-light": {
+      "bbox": [
+        10,
+        8,
+        12
+      ],
+      "triangles": 720
+    },
+    "wall-baseline": {
+      "bbox": [
+        222,
+        14,
+        148
+      ],
+      "triangles": 3312
+    },
+    "wall-candidate": {
+      "bbox": [
+        221.9333953857422,
+        14.184932708740234,
+        147.95559692382812
+      ],
+      "triangles": 1656
+    },
+    "wall-original": {
+      "bbox": [
+        276,
+        17.09131622314453,
+        261
+      ],
+      "triangles": 5184
+    },
+    "wall-light": {
+      "bbox": [
+        221.9333953857422,
+        14.176974296569824,
+        147.95559692382812
+      ],
+      "triangles": 720
+    },
+    "opposite-baseline": {
+      "bbox": [
+        11,
+        9.200000762939453,
+        26
+      ],
+      "triangles": 1656
+    },
+    "opposite-candidate": {
+      "bbox": [
+        11,
+        9.200000762939453,
+        26
+      ],
+      "triangles": 720
+    },
+    "opposite-original": {
+      "bbox": [
+        8.474276542663574,
+        8.955341339111328,
+        18.800004959106445
+      ],
+      "triangles": 3968
+    },
+    "opposite-light": {
+      "bbox": [
+        11,
+        9.199999809265137,
+        26
+      ],
+      "triangles": 1656
+    }
+  },
+  "sampledTessellationError": {
+    "opposite": {
+      "candidateVsDense": {
+        "samples": 480,
+        "p95Mm": 0.093,
+        "maxMm": 0.136
+      },
+      "alternateVsDense": {
+        "samples": 1104,
+        "p95Mm": 0.039,
+        "maxMm": 0.061
+      }
+    },
+    "node": {
+      "candidateVsDense": {
+        "samples": 480,
+        "p95Mm": 0.095,
+        "maxMm": 0.145
+      },
+      "alternateVsDense": {
+        "samples": 1104,
+        "p95Mm": 0.039,
+        "maxMm": 0.066
+      }
+    },
+    "gland": {
+      "candidateVsDense": {
+        "samples": 1472,
+        "p95Mm": 0.371,
+        "maxMm": 0.663
+      },
+      "alternateVsDense": {
+        "samples": 480,
+        "p95Mm": 1.235,
+        "maxMm": 2.42
+      }
+    },
+    "fascia": {
+      "candidateVsDense": {
+        "samples": 1104,
+        "p95Mm": 0.128,
+        "maxMm": 0.661
+      },
+      "alternateVsDense": {
+        "samples": 480,
+        "p95Mm": 0.234,
+        "maxMm": 0.533
+      }
+    },
+    "retro": {
+      "candidateVsDense": {
+        "samples": 1104,
+        "p95Mm": 0.132,
+        "maxMm": 0.6
+      },
+      "alternateVsDense": {
+        "samples": 480,
+        "p95Mm": 0.23,
+        "maxMm": 0.697
+      }
+    },
+    "tail": {
+      "candidateVsDense": {
+        "samples": 1472,
+        "p95Mm": 0.151,
+        "maxMm": 0.41
+      },
+      "alternateVsDense": {
+        "samples": 480,
+        "p95Mm": 0.547,
+        "maxMm": 1.414
+      }
+    },
+    "cyst": {
+      "candidateVsDense": {
+        "samples": 1104,
+        "p95Mm": 0.026,
+        "maxMm": 0.03
+      },
+      "alternateVsDense": {
+        "samples": 480,
+        "p95Mm": 0.06,
+        "maxMm": 0.068
+      }
+    },
+    "wall": {
+      "candidateVsDense": {
+        "samples": 1104,
+        "p95Mm": 0.284,
+        "maxMm": 0.588
+      },
+      "alternateVsDense": {
+        "samples": 480,
+        "p95Mm": 0.747,
+        "maxMm": 1.183
+      }
+    }
+  },
+  "protectedCaseCaliperEndpointsMm": {
+    "breast-cyst-radial": [
+      [
+        [
+          -6,
+          18
+        ],
+        [
+          6,
+          18
+        ]
+      ],
+      [
+        [
+          0,
+          14
+        ],
+        [
+          0,
+          22
+        ]
+      ]
+    ],
+    "breast-cyst-anti": [
+      [
+        [
+          -5,
+          18
+        ],
+        [
+          5,
+          18
+        ]
+      ]
+    ],
+    "axillary-node-long": [
+      [
+        [
+          5.63,
+          17.78835
+        ],
+        [
+          5.63,
+          22.18799
+        ]
+      ],
+      [
+        [
+          -14,
+          22
+        ],
+        [
+          14,
+          22
+        ]
+      ]
+    ],
+    "axillary-node-short": [
+      [
+        [
+          0,
+          17.4
+        ],
+        [
+          0,
+          21.2
+        ]
+      ],
+      [
+        [
+          0,
+          17.4
+        ],
+        [
+          0,
+          26.6
+        ]
+      ]
+    ],
+    "axillary-node-opposite": [
+      [
+        [
+          0,
+          17.4
+        ],
+        [
+          0,
+          20.2
+        ]
+      ]
+    ]
+  },
+  "sourceModulesSha256": {
+    "playable-abdomen.js": "fe64b6fd89c863a1f86f3ab7ecd44d57b411a1ae3d3a216409dd593ee1b2cc13",
+    "playable-breast-profiles.js": "191cb5edbc2490e860116ea892ae71e688b14ade23e94c5277b4953de663e529",
+    "playable-geometry.js": "7b1c911e040595ec2f90d408ae4ca71e0c98fc6b671edadc2737436bee5488eb",
+    "playable-neck-breast.js": "487eee2a6d1bb9cb8ddca2251791d484ef5084196815c8754b215b817412d7f3",
+    "playable-render.js": "12d4e9a5125e0e7ca1b3f1941a41cbed2a0907c9a977d2bc370f1494caf3fc3b",
+    "playable-scene-skin.js": "5114244ddbfa8db5c66a02ac34aaba7c97cb4fd7116e44b45191db88783bbc17",
+    "playable-scene.js": "2c60c50c3f8883acfc364f6236a94d99b351507cf4f8e8d1e52eed1cd889c081",
+    "playable.js": "0fed49ed35e898acdde90fc604ba946dcdeb55a868da44bcffb6ff8c65762c3f"
+  },
+  "baselineCommit": "0d943e4",
+  "method": "Matched orthographic views at unchanged physical scale. Mesh error is sampled point-to-triangle distance from edge midpoints and triangle centers to the 120\u00d780 case profile. Native reference anatomy is an independently sized source comparator. Right pectoralis serves as the fascia shape reference.",
+  "fixtureCameras": {
+    "oblique": [
+      170,
+      420,
+      140
+    ],
+    "reverse": [
+      -130,
+      -420,
+      140
+    ],
+    "gray": [
+      250,
+      90,
+      110
+    ],
+    "up": [
+      0,
+      0,
+      1
+    ]
+  },
+  "nativeAnteriorPosteriorSamples": {
+    "gland": [
+      477,
+      480
+    ],
+    "tail": [
+      479,
+      480
+    ]
+  },
+  "posteriorGlandSeparationFromRetromammaryMm": 0.15,
+  "oppositeNodeMm": {
+    "outerWidth": 11,
+    "outerDepth": 9.2,
+    "outerLength": 26,
+    "corticalChord": 2.8,
+    "hilumDimensions": [
+      7.8,
+      3.8,
+      18
+    ]
+  },
+  "screeningContourWitness": {
+    "case": "breast-supplemental-screening",
+    "chapter": "breast-screen-right-1",
+    "frame": 60,
+    "checkedPlaneVertices": 2536,
+    "checkedPoses": 18,
+    "scanPixelsUnchanged": true,
+    "views": [
+      "default oblique",
+      "sagittal grayscale"
+    ]
+  }
+}

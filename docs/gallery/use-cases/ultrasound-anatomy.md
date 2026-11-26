@@ -183,10 +183,15 @@ Accept a sweep after replay from pinned inputs, verifying the target inside the 
 
 ## Development review
 
+Use the [asset qualification workbench](http://127.0.0.1:8874/development/assets.html) to inspect a part outside the assembled scene. The **part inventory** groups repeated uses of the same geometry and retains the case and acquisition links. A **sweep exemplar** is a separate comparison surface. Its subject, coordinate scale and revision belong to that sweep.
+
+A **qualification review** names one learner task and binds its evidence to the part and geometry revision. Use the [canonical four-axis rubric](../../guides/asset-quality.md). The high-bar target for this review is **4/4 on each axis**. A matched before/after pair uses a fixed camera, scale, lighting, material and crop. Inspect the corresponding scan and protected landmark after any surface change. Keep rejected lighter trials or close-ups when they explain the choice. Retain unrated axes and below-target results in the workbench so the coverage is visible.
+
 In the standalone study, Development opens on the sweep collection so a reviewer can spot an outlier before opening an individual frame. See [batch replay and verification](../../../experiments/ultrasound-sweep/README.md#review-a-renderer-change).
 
 | View | Review unit | What the reviewer sees |
 | --- | --- | --- |
+| Asset qualification | One isolated anatomical part with its acquisition uses | Compare the reviewed baseline and candidate at matched scale. Inspect the relevant source surface and see which rubric axes still need evidence. |
 | Motion | One short, replayable clip per sweep | The probe on the patient, imaging field and synchronized B-mode through the movement. Use a stable camera for a review pass so a camera orbit cannot disguise a jump or loss of contact. Link to the sweep for interactive inspection. |
 | B-mode rendering | One row per named comparison keyframe, grouped by sweep | The synthetic B-mode beside the identified acquired frame, with view name, case or plane differences and source credit. Show missing pairs explicitly. Open the exact sweep frame to inspect its anatomy and pose. |
 

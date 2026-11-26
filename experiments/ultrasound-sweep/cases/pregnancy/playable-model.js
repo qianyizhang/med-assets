@@ -5,6 +5,12 @@ import * as late from './playable-volume-late.js';
 import { buildOmphalocele } from './playable-omphalocele-model.js';
 
 const volumes = { early, first, mid, late };
+export const ectopicYolk = { centre: [57, -13, -3], outer: 2.45, inner: 1.55 };
+export const fluidPocketRadius = 11;
+export const nativeBiometryAxes = {
+  mid: { head: [22.6, 28.1], abdomen: [22.8, 22.2] },
+  late: { head: [40.8, 53.2], abdomen: [44, 44.5] },
+};
 const decoded = new Map();
 export const add = (a, b) => a.map((n, i) => n + b[i]);
 export const sub = (a, b) => a.map((n, i) => n - b[i]);
@@ -130,6 +136,7 @@ export function sampler(stage, kind, l) {
   const v = volumeFor(stage);
   const { origin, spacing, names, bytes, size: [nx, ny, nz] } = v;
   const ids = Object.fromEntries([...names, ...softNames].map((name, i) => [name, i + 1]));
+  const native = nativeBiometryAxes[stage];
   const voxel = (i,j,k) =>
     i>=0 && i<nx && j>=0 && j<ny && k>=0 && k<nz ? bytes[(k*ny+j)*nx+i] : 0;
   const raw = (x,y,z) => {
@@ -152,8 +159,9 @@ export function sampler(stage, kind, l) {
   const earlySample = (x, y, z) => {
     if (kind === 'abnormal' && inside(x,y,z,l.ectopic,[9,7,7.5])) {
       if (inside(x,y,z,l.ectopic,[6.5,5.2,5.5])) {
-        const yolk = [57,-13,-3];
-        if (!inside(x,y,z,yolk,[2.45,2.45,2.45]) || inside(x,y,z,yolk,[1.55,1.55,1.55])) {
+        const [a, b, c] = ectopicYolk.centre;
+        const radiusSquared = (x - a)**2 + (y - b)**2 + (z - c)**2;
+        if (radiusSquared >= ectopicYolk.outer**2 || radiusSquared < ectopicYolk.inner**2) {
           return ids['tubal sac'];
         }
         return ids['ectopic yolk sac'];
@@ -208,8 +216,7 @@ export function sampler(stage, kind, l) {
     if (Math.abs(z-hz)<8 && Math.abs(x)<hrx+7 && Math.abs(y-hy)<hry+7) {
       const factor = Math.sqrt(1-((z-hz)/29)**2);
       const d = Math.hypot(x/hrx,(y-hy)/hry);
-      const nativeX = stage === 'late' ? 40.8 : 22.6;
-      const nativeY = stage === 'late' ? 53.2 : 28.1;
+      const [nativeX, nativeY] = native.head;
       const sampled = raw(x*nativeX/hrx,hy+(y-hy)*nativeY/hry,z);
       if (Math.abs(d-factor)<.032) return ids['calvarial contour'];
       if (d < factor) return sampled || ids.fetus;
@@ -217,8 +224,7 @@ export function sampler(stage, kind, l) {
     }
     if (Math.abs(z-az)<6 && Math.abs(x)<arx+5 && Math.abs(y-ay)<ary+5) {
       const d = Math.hypot(x/arx,(y-ay)/ary);
-      const nativeX = stage==='late'?44:22.8;
-      const nativeY = stage==='late'?44.5:22.2;
+      const [nativeX, nativeY] = native.abdomen;
       const sampled = raw(x*nativeX/arx,ay+(y-ay)*nativeY/ary,z);
       if (Math.abs(d-1)<.025) return ids['abdominal skin'];
       if (d < 1) return sampled || ids.fetus;
@@ -227,8 +233,8 @@ export function sampler(stage, kind, l) {
     const pocket = [x-l.fluid[0],y-l.fluid[1],z-l.fluid[2]];
     const along = pocket[0]*l.vertical[0]+pocket[1]*l.vertical[1]+pocket[2]*l.vertical[2];
     const radial = pocket[0]**2+pocket[1]**2+pocket[2]**2-along**2;
-    if (radial<11**2 && Math.abs(along)<l.shape.dvp/2+5) {
-      if ((along/(l.shape.dvp/2))**2+radial/11**2<1) return ids['nearest fluid'];
+    if (radial<fluidPocketRadius**2 && Math.abs(along)<l.shape.dvp/2+5) {
+      if ((along/(l.shape.dvp/2))**2+radial/fluidPocketRadius**2<1) return ids['nearest fluid'];
       if ((along/(l.shape.dvp/2+1.4))**2+radial/12**2<1.05) return ids['maternal interface'];
     }
     if (stage === 'mid' && Math.abs(x)>15 && y>15 && y<39 && z>-43 && z<49) {

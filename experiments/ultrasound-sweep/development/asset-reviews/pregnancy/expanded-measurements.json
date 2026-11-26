@@ -1,0 +1,1413 @@
+{
+  "scope": "Median, p95, max. Surface distances in mm. Outlines in pixels at 672 \u00d7 480. Finite samples at vertices, edge midpoints, and face centroids.",
+  "assets": {
+    "early-embryo": {
+      "before": {
+        "vertices": 109,
+        "triangles": 216,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 1
+      },
+      "after": {
+        "vertices": 15534,
+        "triangles": 31064,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 0
+      },
+      "original": {
+        "vertices": 15534,
+        "triangles": 31064,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 0
+      },
+      "light": {
+        "vertices": 30,
+        "triangles": 58,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 4
+      },
+      "baselineCandidateDistance": [
+        [
+          0.234,
+          0.827,
+          1.303
+        ],
+        [
+          0.362,
+          0.882,
+          1.13
+        ]
+      ],
+      "originalCandidateDistance": [
+        [
+          0.049,
+          0.283,
+          0.35
+        ],
+        [
+          0.044,
+          0.262,
+          0.35
+        ]
+      ],
+      "originalTriangleOrderIdentical": true,
+      "originalPositionsIdentical": false,
+      "candidateLightDistance": [
+        [
+          0.574,
+          1.024,
+          1.307
+        ],
+        [
+          0.353,
+          1.064,
+          1.371
+        ]
+      ],
+      "lightOutline": {
+        "aToB": [
+          15.556,
+          31.385,
+          33.0
+        ],
+        "bToA": [
+          14.265,
+          31.057,
+          33.0
+        ]
+      }
+    },
+    "early-ectopic": {
+      "before": {
+        "vertices": 80,
+        "triangles": 192,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 24
+      },
+      "after": {
+        "vertices": 576,
+        "triangles": 1144,
+        "componentCount": 2,
+        "openEdges": 0,
+        "nonManifoldEdges": 0
+      },
+      "light": {
+        "vertices": 15,
+        "triangles": 31,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 8
+      },
+      "baselineCandidateDistance": [
+        [
+          0.201,
+          0.416,
+          0.453
+        ],
+        [
+          0.268,
+          0.474,
+          0.645
+        ]
+      ],
+      "candidateLightDistance": [
+        [
+          0.517,
+          1.147,
+          1.408
+        ],
+        [
+          0.215,
+          0.675,
+          0.791
+        ]
+      ],
+      "lightOutline": {
+        "aToB": [
+          37.947,
+          55.444,
+          56.436
+        ],
+        "bToA": [
+          38.626,
+          55.627,
+          57.14
+        ]
+      }
+    },
+    "first-fetus": {
+      "before": {
+        "vertices": 6080,
+        "triangles": 12168,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 10
+      },
+      "after": {
+        "vertices": 55802,
+        "triangles": 111600,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 0
+      },
+      "original": {
+        "vertices": 55802,
+        "triangles": 111600,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 0
+      },
+      "light": {
+        "vertices": 1239,
+        "triangles": 2483,
+        "componentCount": 1,
+        "openEdges": 14,
+        "nonManifoldEdges": 21
+      },
+      "baselineCandidateDistance": [
+        [
+          0.179,
+          0.521,
+          2.311
+        ],
+        [
+          0.264,
+          0.53,
+          1.78
+        ]
+      ],
+      "originalCandidateDistance": [
+        [
+          0.323,
+          1.669,
+          2.355
+        ],
+        [
+          0.302,
+          1.462,
+          2.355
+        ]
+      ],
+      "originalTriangleOrderIdentical": true,
+      "originalPositionsIdentical": false,
+      "candidateLightDistance": [
+        [
+          0.431,
+          0.762,
+          1.313
+        ],
+        [
+          0.13,
+          0.49,
+          1.259
+        ]
+      ],
+      "lightOutline": {
+        "aToB": [
+          1.0,
+          3.0,
+          6.0
+        ],
+        "bToA": [
+          1.0,
+          2.828,
+          5.099
+        ]
+      }
+    },
+    "first-nt-fetus": {
+      "before": {
+        "vertices": 6295,
+        "triangles": 12612,
+        "componentCount": 2,
+        "openEdges": 0,
+        "nonManifoldEdges": 25
+      },
+      "after": {
+        "vertices": 6295,
+        "triangles": 12612,
+        "componentCount": 2,
+        "openEdges": 0,
+        "nonManifoldEdges": 25
+      },
+      "light": {
+        "vertices": 1136,
+        "triangles": 2262,
+        "componentCount": 2,
+        "openEdges": 42,
+        "nonManifoldEdges": 35
+      },
+      "baselineCandidateDistance": [
+        [
+          0.081,
+          0.232,
+          0.37
+        ],
+        [
+          0.081,
+          0.231,
+          0.366
+        ]
+      ],
+      "candidateLightDistance": [
+        [
+          0.458,
+          0.798,
+          1.625
+        ],
+        [
+          0.234,
+          0.511,
+          1.285
+        ]
+      ],
+      "lightOutline": {
+        "aToB": [
+          1.0,
+          3.606,
+          6.083
+        ],
+        "bToA": [
+          1.0,
+          3.0,
+          6.0
+        ]
+      }
+    },
+    "mid-wall-fetus": {
+      "before": {
+        "vertices": 13077,
+        "triangles": 26160,
+        "componentCount": 7,
+        "openEdges": 0,
+        "nonManifoldEdges": 25
+      },
+      "after": {
+        "vertices": 13077,
+        "triangles": 26160,
+        "componentCount": 7,
+        "openEdges": 0,
+        "nonManifoldEdges": 25
+      },
+      "original": {
+        "vertices": 35578,
+        "triangles": 71152,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 0
+      },
+      "light": {
+        "vertices": 5577,
+        "triangles": 11114,
+        "componentCount": 22,
+        "openEdges": 112,
+        "nonManifoldEdges": 128
+      },
+      "baselineCandidateDistance": [
+        [
+          0.155,
+          0.4,
+          0.633
+        ],
+        [
+          0.155,
+          0.392,
+          0.631
+        ]
+      ],
+      "originalCandidateDistance": [
+        [
+          0.508,
+          1.529,
+          8.86
+        ],
+        [
+          0.451,
+          2.866,
+          20.891
+        ]
+      ],
+      "originalTriangleOrderIdentical": false,
+      "originalPositionsIdentical": false,
+      "candidateLightDistance": [
+        [
+          0.43,
+          0.771,
+          1.7
+        ],
+        [
+          0.279,
+          0.515,
+          1.153
+        ]
+      ],
+      "lightOutline": {
+        "aToB": [
+          0.0,
+          1.0,
+          1.414
+        ],
+        "bToA": [
+          0.0,
+          1.0,
+          2.0
+        ]
+      }
+    },
+    "mid-wall-membrane": {
+      "before": {
+        "vertices": 840,
+        "triangles": 1600,
+        "componentCount": 1,
+        "openEdges": 80,
+        "nonManifoldEdges": 0
+      },
+      "after": {
+        "vertices": 801,
+        "triangles": 1560,
+        "componentCount": 1,
+        "openEdges": 40,
+        "nonManifoldEdges": 0
+      },
+      "baselineCandidateDistance": [
+        [
+          0.0,
+          0.0,
+          0.579
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ]
+    },
+    "late-fetus": {
+      "before": {
+        "vertices": 18999,
+        "triangles": 38208,
+        "componentCount": 5,
+        "openEdges": 0,
+        "nonManifoldEdges": 103
+      },
+      "after": {
+        "vertices": 44046,
+        "triangles": 88088,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 0
+      },
+      "original": {
+        "vertices": 44046,
+        "triangles": 88088,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 0
+      },
+      "light": {
+        "vertices": 13552,
+        "triangles": 27163,
+        "componentCount": 1,
+        "openEdges": 116,
+        "nonManifoldEdges": 171
+      },
+      "baselineCandidateDistance": [
+        [
+          0.694,
+          6.034,
+          41.918
+        ],
+        [
+          0.708,
+          1.844,
+          8.073
+        ]
+      ],
+      "originalCandidateDistance": [
+        [
+          0.001,
+          1.231,
+          2.02
+        ],
+        [
+          0.001,
+          1.242,
+          2.02
+        ]
+      ],
+      "originalTriangleOrderIdentical": true,
+      "originalPositionsIdentical": false,
+      "candidateLightDistance": [
+        [
+          0.421,
+          0.78,
+          1.473
+        ],
+        [
+          0.244,
+          0.48,
+          1.213
+        ]
+      ],
+      "lightOutline": {
+        "aToB": [
+          0.0,
+          1.0,
+          1.414
+        ],
+        "bToA": [
+          0.0,
+          1.0,
+          1.414
+        ]
+      }
+    },
+    "late-growth-fetus": {
+      "before": {
+        "vertices": 18681,
+        "triangles": 37608,
+        "componentCount": 8,
+        "openEdges": 0,
+        "nonManifoldEdges": 146
+      },
+      "after": {
+        "vertices": 44046,
+        "triangles": 88088,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 0
+      },
+      "original": {
+        "vertices": 44046,
+        "triangles": 88088,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 0
+      },
+      "light": {
+        "vertices": 13076,
+        "triangles": 26206,
+        "componentCount": 1,
+        "openEdges": 111,
+        "nonManifoldEdges": 160
+      },
+      "baselineCandidateDistance": [
+        [
+          0.929,
+          6.941,
+          34.951
+        ],
+        [
+          0.872,
+          5.453,
+          8.244
+        ]
+      ],
+      "originalCandidateDistance": [
+        [
+          0.008,
+          5.642,
+          7.108
+        ],
+        [
+          0.008,
+          5.616,
+          7.108
+        ]
+      ],
+      "originalTriangleOrderIdentical": true,
+      "originalPositionsIdentical": false,
+      "candidateLightDistance": [
+        [
+          0.42,
+          0.783,
+          1.473
+        ],
+        [
+          0.239,
+          0.472,
+          1.213
+        ]
+      ],
+      "lightOutline": {
+        "aToB": [
+          0.0,
+          1.0,
+          2.0
+        ],
+        "bToA": [
+          0.0,
+          1.0,
+          1.414
+        ]
+      }
+    },
+    "first-placenta": {
+      "before": {
+        "vertices": 6739,
+        "triangles": 13484,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 5
+      },
+      "after": {
+        "vertices": 24820,
+        "triangles": 49636,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 0
+      },
+      "original": {
+        "vertices": 24820,
+        "triangles": 49636,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 0
+      },
+      "light": {
+        "vertices": 1306,
+        "triangles": 2617,
+        "componentCount": 1,
+        "openEdges": 7,
+        "nonManifoldEdges": 14
+      },
+      "baselineCandidateDistance": [
+        [
+          0.201,
+          0.515,
+          4.831
+        ],
+        [
+          0.262,
+          0.522,
+          1.456
+        ]
+      ],
+      "originalCandidateDistance": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "originalTriangleOrderIdentical": true,
+      "originalPositionsIdentical": true,
+      "candidateLightDistance": [
+        [
+          0.416,
+          0.739,
+          1.198
+        ],
+        [
+          0.118,
+          0.268,
+          0.856
+        ]
+      ],
+      "lightOutline": {
+        "aToB": [
+          1.0,
+          1.0,
+          2.0
+        ],
+        "bToA": [
+          1.0,
+          1.0,
+          2.0
+        ]
+      }
+    },
+    "mid-placenta": {
+      "before": {
+        "vertices": 4705,
+        "triangles": 9444,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 19
+      },
+      "after": {
+        "vertices": 5386,
+        "triangles": 10784,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 0
+      },
+      "original": {
+        "vertices": 5386,
+        "triangles": 10784,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 0
+      },
+      "light": {
+        "vertices": 1996,
+        "triangles": 4012,
+        "componentCount": 2,
+        "openEdges": 7,
+        "nonManifoldEdges": 24
+      },
+      "baselineCandidateDistance": [
+        [
+          0.524,
+          1.145,
+          7.804
+        ],
+        [
+          0.509,
+          1.092,
+          4.319
+        ]
+      ],
+      "originalCandidateDistance": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "originalTriangleOrderIdentical": true,
+      "originalPositionsIdentical": true,
+      "candidateLightDistance": [
+        [
+          0.41,
+          0.771,
+          1.552
+        ],
+        [
+          0.256,
+          0.547,
+          1.258
+        ]
+      ],
+      "lightOutline": {
+        "aToB": [
+          1.0,
+          2.236,
+          4.0
+        ],
+        "bToA": [
+          1.0,
+          3.0,
+          9.849
+        ]
+      }
+    },
+    "late-placenta": {
+      "before": {
+        "vertices": 2950,
+        "triangles": 5900,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 2
+      },
+      "after": {
+        "vertices": 5846,
+        "triangles": 11688,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 0
+      },
+      "original": {
+        "vertices": 5846,
+        "triangles": 11688,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 0
+      },
+      "light": {
+        "vertices": 2282,
+        "triangles": 4560,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 0
+      },
+      "baselineCandidateDistance": [
+        [
+          0.734,
+          3.07,
+          9.216
+        ],
+        [
+          0.775,
+          1.677,
+          5.407
+        ]
+      ],
+      "originalCandidateDistance": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "originalTriangleOrderIdentical": true,
+      "originalPositionsIdentical": true,
+      "candidateLightDistance": [
+        [
+          0.413,
+          0.743,
+          1.169
+        ],
+        [
+          0.255,
+          0.529,
+          0.847
+        ]
+      ],
+      "lightOutline": {
+        "aToB": [
+          0.0,
+          1.414,
+          2.236
+        ],
+        "bToA": [
+          0.0,
+          1.414,
+          2.236
+        ]
+      }
+    },
+    "first-cord": {
+      "before": {
+        "vertices": 562,
+        "triangles": 1120,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 0
+      },
+      "after": {
+        "vertices": 3356,
+        "triangles": 6708,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 0
+      },
+      "original": {
+        "vertices": 3356,
+        "triangles": 6708,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 0
+      },
+      "light": {
+        "vertices": 120,
+        "triangles": 237,
+        "componentCount": 1,
+        "openEdges": 6,
+        "nonManifoldEdges": 7
+      },
+      "baselineCandidateDistance": [
+        [
+          0.272,
+          0.61,
+          1.053
+        ],
+        [
+          0.348,
+          0.667,
+          1.146
+        ]
+      ],
+      "originalCandidateDistance": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "originalTriangleOrderIdentical": true,
+      "originalPositionsIdentical": true,
+      "candidateLightDistance": [
+        [
+          0.583,
+          1.028,
+          1.374
+        ],
+        [
+          0.355,
+          1.038,
+          1.633
+        ]
+      ],
+      "lightOutline": {
+        "aToB": [
+          3.0,
+          8.0,
+          10.05
+        ],
+        "bToA": [
+          3.0,
+          8.108,
+          11.705
+        ]
+      }
+    },
+    "mid-cord": {
+      "before": {
+        "vertices": 1366,
+        "triangles": 2720,
+        "componentCount": 5,
+        "openEdges": 0,
+        "nonManifoldEdges": 11
+      },
+      "after": {
+        "vertices": 6212,
+        "triangles": 12420,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 0
+      },
+      "original": {
+        "vertices": 6212,
+        "triangles": 12420,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 0
+      },
+      "light": {
+        "vertices": 605,
+        "triangles": 1206,
+        "componentCount": 1,
+        "openEdges": 7,
+        "nonManifoldEdges": 6
+      },
+      "baselineCandidateDistance": [
+        [
+          0.627,
+          27.168,
+          38.569
+        ],
+        [
+          0.612,
+          7.621,
+          11.96
+        ]
+      ],
+      "originalCandidateDistance": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "originalTriangleOrderIdentical": true,
+      "originalPositionsIdentical": true,
+      "candidateLightDistance": [
+        [
+          0.475,
+          0.785,
+          1.138
+        ],
+        [
+          0.233,
+          0.51,
+          0.968
+        ]
+      ],
+      "lightOutline": {
+        "aToB": [
+          1.0,
+          1.414,
+          2.828
+        ],
+        "bToA": [
+          1.0,
+          1.414,
+          3.162
+        ]
+      }
+    },
+    "mid-wall-cord": {
+      "before": {
+        "vertices": 1260,
+        "triangles": 2496,
+        "componentCount": 7,
+        "openEdges": 0,
+        "nonManifoldEdges": 8
+      },
+      "after": {
+        "vertices": 2690,
+        "triangles": 5376,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 0
+      },
+      "original": {
+        "vertices": 6212,
+        "triangles": 12420,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 0
+      },
+      "light": {
+        "vertices": 488,
+        "triangles": 1003,
+        "componentCount": 1,
+        "openEdges": 17,
+        "nonManifoldEdges": 42
+      },
+      "baselineCandidateDistance": [
+        [
+          0.661,
+          41.104,
+          51.398
+        ],
+        [
+          0.559,
+          7.474,
+          11.878
+        ]
+      ],
+      "originalCandidateDistance": [
+        [
+          0.764,
+          14.123,
+          19.226
+        ],
+        [
+          0.881,
+          13.05,
+          15.914
+        ]
+      ],
+      "originalTriangleOrderIdentical": false,
+      "originalPositionsIdentical": false,
+      "candidateLightDistance": [
+        [
+          0.488,
+          0.816,
+          1.516
+        ],
+        [
+          0.29,
+          0.621,
+          1.051
+        ]
+      ],
+      "lightOutline": {
+        "aToB": [
+          1.0,
+          2.0,
+          3.162
+        ],
+        "bToA": [
+          1.0,
+          2.0,
+          3.0
+        ]
+      }
+    },
+    "late-cord": {
+      "before": {
+        "vertices": 1347,
+        "triangles": 2712,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 13
+      },
+      "after": {
+        "vertices": 5822,
+        "triangles": 11640,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 0
+      },
+      "original": {
+        "vertices": 5822,
+        "triangles": 11640,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 0
+      },
+      "light": {
+        "vertices": 560,
+        "triangles": 1116,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 0
+      },
+      "baselineCandidateDistance": [
+        [
+          8.991,
+          43.435,
+          47.648
+        ],
+        [
+          0.724,
+          1.808,
+          3.135
+        ]
+      ],
+      "originalCandidateDistance": [
+        [
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "originalTriangleOrderIdentical": true,
+      "originalPositionsIdentical": true,
+      "candidateLightDistance": [
+        [
+          0.454,
+          0.766,
+          1.113
+        ],
+        [
+          0.203,
+          0.402,
+          0.635
+        ]
+      ],
+      "lightOutline": {
+        "aToB": [
+          1.0,
+          1.0,
+          2.236
+        ],
+        "bToA": [
+          1.0,
+          1.0,
+          2.236
+        ]
+      }
+    },
+    "fluid": {
+      "before": {
+        "vertices": 938,
+        "triangles": 1872,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 0
+      },
+      "after": {
+        "vertices": 610,
+        "triangles": 1216,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 0
+      },
+      "light": {
+        "vertices": 341,
+        "triangles": 678,
+        "componentCount": 1,
+        "openEdges": 0,
+        "nonManifoldEdges": 0
+      },
+      "baselineCandidateDistance": [
+        [
+          0.466,
+          0.809,
+          1.177
+        ],
+        [
+          0.389,
+          0.645,
+          0.945
+        ]
+      ],
+      "candidateLightDistance": [
+        [
+          0.381,
+          0.711,
+          1.065
+        ],
+        [
+          0.097,
+          0.532,
+          0.609
+        ]
+      ],
+      "lightOutline": {
+        "aToB": [
+          0.0,
+          1.414,
+          2.0
+        ],
+        "bToA": [
+          0.0,
+          1.414,
+          2.0
+        ]
+      }
+    },
+    "fluid-boundary": {
+      "before": {
+        "vertices": 1105,
+        "triangles": 2596,
+        "componentCount": 2,
+        "openEdges": 0,
+        "nonManifoldEdges": 201
+      },
+      "after": {
+        "vertices": 7606,
+        "triangles": 15592,
+        "componentCount": 2,
+        "openEdges": 0,
+        "nonManifoldEdges": 148
+      },
+      "light": {
+        "vertices": 559,
+        "triangles": 1363,
+        "componentCount": 14,
+        "openEdges": 75,
+        "nonManifoldEdges": 282
+      },
+      "baselineCandidateDistance": [
+        [
+          0.351,
+          0.765,
+          2.043
+        ],
+        [
+          0.525,
+          2.432,
+          5.668
+        ]
+      ],
+      "candidateLightDistance": [
+        [
+          0.566,
+          0.971,
+          1.592
+        ],
+        [
+          0.319,
+          0.706,
+          0.959
+        ]
+      ],
+      "lightOutline": {
+        "aToB": [
+          2.236,
+          5.0,
+          8.944
+        ],
+        "bToA": [
+          2.0,
+          5.0,
+          6.708
+        ]
+      }
+    }
+  },
+  "candidateSourceSha256": {
+    "playable-scene.js": "ca2a777e0a620e169fc35d0b99c3c03e7c8225a251837600cb33817b754bac85",
+    "playable-model.js": "b7b1e8cf728ab23a6eb3632f15fb6e898cbd539c88c7627ceedb939e29c35576",
+    "playable-surface-refinement.js": "ea0325fae4e0c367b3e60d7a12d459ac4c60bcc95c70c00894184443bfc71e60"
+  },
+  "pocketRayComparison": {
+    "before": {
+      "sourceScanRayGridPitchMm": 2,
+      "sourceRaySamplePitchMm": 0.05,
+      "sourceModelSpacingMm": 1.35,
+      "dvpMm": 45,
+      "centerRayIntersectionsMm": [
+        -22.87656238215484,
+        22.676563976910067
+      ],
+      "endpointErrorsMm": [
+        0.377,
+        0.177
+      ],
+      "pairedEndpointErrorP95Mm": 1.812,
+      "pairedEndpointErrorMaxMm": 3.088,
+      "missingRays": 4,
+      "extraRays": 0,
+      "largestErrorXZ": [
+        -6,
+        -8
+      ],
+      "surfaceTriangles": 1872
+    },
+    "after": {
+      "sourceScanRayGridPitchMm": 2,
+      "sourceRaySamplePitchMm": 0.05,
+      "sourceModelSpacingMm": 1.35,
+      "dvpMm": 45,
+      "centerRayIntersectionsMm": [
+        -22.499999664801038,
+        22.499999664801617
+      ],
+      "endpointErrorsMm": [
+        0.0,
+        0.0
+      ],
+      "pairedEndpointErrorP95Mm": 0.331,
+      "pairedEndpointErrorMaxMm": 0.331,
+      "missingRays": 0,
+      "extraRays": 0,
+      "largestErrorXZ": [
+        10,
+        -4
+      ],
+      "surfaceTriangles": 1216
+    },
+    "light": {
+      "sourceScanRayGridPitchMm": 2,
+      "sourceRaySamplePitchMm": 0.05,
+      "sourceModelSpacingMm": 1.35,
+      "dvpMm": 45,
+      "centerRayIntersectionsMm": [
+        -22.23617876410401,
+        22.23618011514277
+      ],
+      "endpointErrorsMm": [
+        0.264,
+        0.264
+      ],
+      "pairedEndpointErrorP95Mm": 0.63,
+      "pairedEndpointErrorMaxMm": 2.079,
+      "missingRays": 0,
+      "extraRays": 0,
+      "largestErrorXZ": [
+        10,
+        -4
+      ],
+      "surfaceTriangles": 678
+    }
+  },
+  "casesWithPixelIdenticalEvidenceOverlay": {
+    "early-normal#tv-location": {
+      "evidenceFrame": 8,
+      "bModeOverlaySha256": "b0fb88b18b7a60cd7af2fcf8c34f067dc7463bab86cf642ca736e500323ff871"
+    },
+    "early-abnormal#tubal-measure": {
+      "evidenceFrame": 8,
+      "bModeOverlaySha256": "8363c827fd12ee0efe5b0e3dcb3584d6a97bbab5277780ee6199b0ce229be68d"
+    },
+    "first-normal#plurality": {
+      "evidenceFrame": 8,
+      "bModeOverlaySha256": "c9c64f6f9a5a8d321ec3179219357f4c77957a8ba040de73e99e842eee81a537"
+    },
+    "first-abnormal#nt": {
+      "evidenceFrame": 8,
+      "bModeOverlaySha256": "55b5b1fdeca33d2fca2f05604d0ffa0fd466e1721bef2f82fdd3cd53d0d902f5"
+    },
+    "mid-abnormal#insertion": {
+      "evidenceFrame": 8,
+      "bModeOverlaySha256": "cb07dc96af547ba1ec2213e0fcf784c9761821cd54d21e244f8f5e1e23f3284f"
+    },
+    "late-normal#presentation": {
+      "evidenceFrame": 8,
+      "bModeOverlaySha256": "e9ee92fb6f3f0983ce877044a4cb75e284a09b5f3dae50d813e8e7ba4ce920c1"
+    },
+    "late-abnormal#presentation": {
+      "evidenceFrame": 8,
+      "bModeOverlaySha256": "8f3361fe2223d01cc87252493f943157f3bb9a2e7982ac864e493d53c73a051d"
+    },
+    "first-normal#first-placenta": {
+      "evidenceFrame": 8,
+      "bModeOverlaySha256": "0089c737e14b4c65c586cae0ba5c035ecaf8a93f8eb637ee1d935ed8f798e670"
+    },
+    "mid-normal#mid-placenta": {
+      "evidenceFrame": 8,
+      "bModeOverlaySha256": "fedc52ddd4e8ccffd4f92994a95bcf8bfaf3b865ca2f72b15df50c7d293866b1"
+    },
+    "late-normal#late-placenta": {
+      "evidenceFrame": 8,
+      "bModeOverlaySha256": "182e0de9daf8f649423fda6c31a795004ba655fce763ee840949717863d471cf"
+    },
+    "first-normal#first-cord": {
+      "evidenceFrame": 8,
+      "bModeOverlaySha256": "064a241c91905a83aab7ac036fafc0d5f6062c5a86825ce2e328c982d034cae5"
+    },
+    "mid-normal#placental-insertion": {
+      "evidenceFrame": 8,
+      "bModeOverlaySha256": "6a412b6fac14894b0bc0a19dddbb93ccb208a8b9901099e4d28d310ee122febd"
+    },
+    "late-normal#ua": {
+      "evidenceFrame": 42,
+      "bModeOverlaySha256": "d1ab832981f176084cd45128396b8f5959b9c6795303fa384f29a9550022b3ac"
+    },
+    "mid-normal#fluid": {
+      "evidenceFrame": 8,
+      "bModeOverlaySha256": "b678f1db508d2d2c4293914bac3d7b2eabac29dd9d0cadd83f8691170849d3ab"
+    }
+  },
+  "stageSharedGeometrySha256": {
+    "pregnancy-early-normal": {},
+    "pregnancy-early-abnormal": {},
+    "pregnancy-early-limited": {},
+    "pregnancy-first-normal": {
+      "Placenta": "a72ddca482b3bdb2a79ffc511db0f0c33af823d46c43f427dfe0b4899acf891a",
+      "Umbilical cord": "491839453150ccfb7314124766c54aa93f4a00aa931614a6ee133cfdc8db00fa"
+    },
+    "pregnancy-first-abnormal": {
+      "Placenta": "a72ddca482b3bdb2a79ffc511db0f0c33af823d46c43f427dfe0b4899acf891a",
+      "Umbilical cord": "491839453150ccfb7314124766c54aa93f4a00aa931614a6ee133cfdc8db00fa"
+    },
+    "pregnancy-first-limited": {
+      "Placenta": "a72ddca482b3bdb2a79ffc511db0f0c33af823d46c43f427dfe0b4899acf891a",
+      "Umbilical cord": "491839453150ccfb7314124766c54aa93f4a00aa931614a6ee133cfdc8db00fa"
+    },
+    "pregnancy-mid-normal": {
+      "Placenta": "815833d898138dcab779d09e877004d5422ed4e2ccafb384861534ed4317c2bb",
+      "Umbilical cord": "be15b7eb6d8fc3535337f29e1ac91783d3869b837715aec741394ad9bb136248"
+    },
+    "pregnancy-mid-abnormal": {
+      "Placenta": "815833d898138dcab779d09e877004d5422ed4e2ccafb384861534ed4317c2bb"
+    },
+    "pregnancy-mid-limited": {
+      "Placenta": "815833d898138dcab779d09e877004d5422ed4e2ccafb384861534ed4317c2bb",
+      "Umbilical cord": "be15b7eb6d8fc3535337f29e1ac91783d3869b837715aec741394ad9bb136248"
+    },
+    "pregnancy-late-normal": {
+      "Placenta": "1c139886c0c034d8b5c0ef095e4ab659f0c3ccb502dce9de1b941ae136ef983f",
+      "Umbilical cord": "273110faa9e7d092b0bbcca3143496892975ab15d418ede60fa2c995b52cd2cb"
+    },
+    "pregnancy-late-abnormal": {
+      "Placenta": "1c139886c0c034d8b5c0ef095e4ab659f0c3ccb502dce9de1b941ae136ef983f",
+      "Umbilical cord": "273110faa9e7d092b0bbcca3143496892975ab15d418ede60fa2c995b52cd2cb"
+    },
+    "pregnancy-late-limited": {
+      "Placenta": "1c139886c0c034d8b5c0ef095e4ab659f0c3ccb502dce9de1b941ae136ef983f",
+      "Umbilical cord": "273110faa9e7d092b0bbcca3143496892975ab15d418ede60fa2c995b52cd2cb"
+    }
+  },
+  "protectedLandmarkChecks": {
+    "wallDefectCordApexErrorMm": 0.0,
+    "wallDefectCordPlacentalEndpointErrorMm": 0.0,
+    "membraneApexErrorMm": 0.0,
+    "ectopicYolkInnerAndOuterRadiusMm": [
+      1.55,
+      2.45
+    ],
+    "earlyEmbryoLongitudinalExtentMm": 10.0
+  }
+}

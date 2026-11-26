@@ -1,0 +1,165 @@
+{
+  "meshes": {
+    "fetus-before": {
+      "vertices": 13262,
+      "triangles": 26532,
+      "meshAttributeBytes": 477480,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 26,
+      "connectedComponents": 6,
+      "largestComponentVertices": 13150
+    },
+    "fetus-after": {
+      "vertices": 35578,
+      "triangles": 71152,
+      "meshAttributeBytes": 1280784,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0,
+      "connectedComponents": 1,
+      "largestComponentVertices": 35578
+    },
+    "fetus-original": {
+      "vertices": 35578,
+      "triangles": 71152,
+      "meshAttributeBytes": 1280784,
+      "boundaryEdges": 0,
+      "nonManifoldEdges": 0,
+      "connectedComponents": 1,
+      "largestComponentVertices": 35578
+    },
+    "fetus-light": {
+      "vertices": 6222,
+      "triangles": 12492,
+      "meshAttributeBytes": 224280,
+      "boundaryEdges": 129,
+      "nonManifoldEdges": 174,
+      "connectedComponents": 1,
+      "largestComponentVertices": 6222
+    }
+  },
+  "distances": {
+    "fetus-before vs fetus-after": {
+      "aToB": {
+        "median": 0.506,
+        "p95": 3.475,
+        "max": 22.938
+      },
+      "bToA": {
+        "median": 0.541,
+        "p95": 2.343,
+        "max": 8.831
+      }
+    },
+    "fetus-original vs fetus-after": {
+      "aToB": {
+        "median": 0.0,
+        "p95": 2.684,
+        "max": 5.345
+      },
+      "bToA": {
+        "median": 0.0,
+        "p95": 2.923,
+        "max": 5.363
+      }
+    },
+    "fetus-after vs fetus-light": {
+      "aToB": {
+        "median": 0.424,
+        "p95": 0.767,
+        "max": 1.387
+      },
+      "bToA": {
+        "median": 0.203,
+        "p95": 0.373,
+        "max": 1.025
+      }
+    }
+  },
+  "silhouettes": {
+    "fetus-before vs fetus-after": {
+      "outlineAPixels": {
+        "median": 1.0,
+        "p95": 3.162,
+        "max": 13.892
+      },
+      "outlineBPixels": {
+        "median": 1.0,
+        "p95": 3.0,
+        "max": 9.487
+      },
+      "maskAgreement": 0.96796
+    },
+    "fetus-original vs fetus-after": {
+      "outlineAPixels": {
+        "median": 0.0,
+        "p95": 2.0,
+        "max": 3.606
+      },
+      "outlineBPixels": {
+        "median": 0.0,
+        "p95": 2.0,
+        "max": 3.0
+      },
+      "maskAgreement": 0.9863
+    },
+    "fetus-after vs fetus-light": {
+      "outlineAPixels": {
+        "median": 0.0,
+        "p95": 1.0,
+        "max": 1.414
+      },
+      "outlineBPixels": {
+        "median": 0.0,
+        "p95": 1.0,
+        "max": 2.0
+      },
+      "maskAgreement": 0.99467
+    }
+  },
+  "protectedDistalLandmarks": {
+    "first hand": {
+      "sourceVertexNearestLandmarkMm": 4.765,
+      "sourcePatchRadiusMm": 3,
+      "vertexCount": 28,
+      "matchedVertexShiftMm": {
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      }
+    },
+    "second hand": {
+      "sourceVertexNearestLandmarkMm": 4.763,
+      "sourcePatchRadiusMm": 3,
+      "vertexCount": 32,
+      "matchedVertexShiftMm": {
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      }
+    },
+    "first foot": {
+      "sourceVertexNearestLandmarkMm": 6.968,
+      "sourcePatchRadiusMm": 3,
+      "vertexCount": 31,
+      "matchedVertexShiftMm": {
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      }
+    },
+    "second foot": {
+      "sourceVertexNearestLandmarkMm": 6.965,
+      "sourcePatchRadiusMm": 3,
+      "vertexCount": 29,
+      "matchedVertexShiftMm": {
+        "median": 0.0,
+        "p95": 0.0,
+        "max": 0.0
+      }
+    }
+  },
+  "nativeTopologyPreserved": true,
+  "baseline": "0d943e4",
+  "sourceFetalMeshSha256": "efffb19b4a6014134ec7f37ea7327c857f2bc9c9053af0ae86e39edd8eab8134",
+  "scope": "Mid-normal fetal exterior. Expanded review and current source identities are in expanded-measurements.json."
+}

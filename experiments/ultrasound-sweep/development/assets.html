@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anatomy asset qualification · Ultrasound Anatomy</title>
+  <link rel="stylesheet" href="assets.css">
+  <script defer src="../abdomen-tours.js"></script>
+  <script type="module" src="assets.js"></script>
+</head>
+<body>
+  <header class="top"><nav aria-label="Breadcrumb"><a href="../index.html">Ultrasound anatomy</a><a href="./">Development</a></nav></header>
+  <main>
+    <header class="intro"><h1>Anatomy asset qualification</h1><p>Inspect the meshes shown in ultrasound sweeps and case acquisitions, and compare reviewed parts with their baseline.</p></header>
+    <search>
+      <form id="filters" action="assets.html">
+        <label>Find a part or acquisition <input id="query" name="q" type="search" placeholder="e.g. thyroid or aortic wall"></label>
+        <label>Source <select id="source" name="source"><option value="">All sources</option><option value="case">Modeled case tours</option><option value="aaa">Registered AAA</option><option value="sweep">Original sweeps</option></select></label>
+        <label>Family <select id="family" name="family"><option value="">All families</option></select></label>
+        <label>Assessment <select id="assessment" name="assessment"><option value="">All assessments</option><option value="assessed">Assessed</option><option value="qualified">Qualified · 4 on every axis</option><option value="below">Below target</option><option value="exemplar">Exemplars</option><option value="unrated">Unrated</option></select></label>
+        <button id="clear" type="reset">Clear</button>
+        <label class="expand-uses"><input id="expand-uses" name="uses" type="checkbox"> Show every acquisition use</label>
+      </form>
+    </search>
+    <p id="inventory-status" role="status">Loading inventory…</p>
+    <div class="workspace">
+      <section aria-label="Anatomical parts" class="catalog">
+        <ul id="rows" class="specimen-shelf"></ul>
+        <p id="empty" hidden>No anatomical parts match these filters.</p>
+        <nav id="pagination" aria-label="Inventory pages" hidden><button id="previous" type="button">Previous</button><span id="page"></span><button id="next" type="button">Next</button></nav>
+      </section>
+      <aside id="inspector" aria-labelledby="selection">
+        <header class="selection-heading">
+          <h2 id="selection">Select a part</h2>
+          <p id="selection-context">Choose a specimen to isolate its mesh and open its assessment.</p>
+        </header>
+        <div id="preview" hidden>
+          <div class="controls" id="views" aria-label="Mesh view"></div>
+          <canvas id="mesh" tabindex="0" aria-label="Isolated anatomical mesh" aria-describedby="mesh-help"></canvas>
+          <p id="mesh-help">Drag or use arrow keys to orbit. Use + and − to zoom.</p>
+          <p id="mesh-status" role="status"></p>
+          <section id="geometry-checks" aria-labelledby="geometry-title" hidden>
+            <h3 id="geometry-title">Geometry checks</h3>
+            <p id="geometry-buffers"></p>
+            <button id="topology" type="button">Check topology</button>
+            <p id="geometry-topology" role="status"></p>
+          </section>
+          <div class="link-row"><a id="route">Open acquisition</a><a id="mesh-file" hidden>Open source mesh</a></div>
+        </div>
+        <details id="part-uses" hidden><summary>Acquisition uses</summary><ul></ul></details>
+        <section id="evidence" aria-label="Assessment evidence" hidden></section>
+      </aside>
+    </div>
+    <details id="issues" hidden><summary>Unavailable inventory inputs</summary><ul></ul></details>
+  </main>
+</body>
+</html>

@@ -1,0 +1,1644 @@
+{
+  "version": 1,
+  "records": [
+    {
+      "source": "case",
+      "case": "carotid-normal",
+      "part": "Right CCA",
+      "baseline": "0d943e4",
+      "revision": "ad9adf7767ee1a66a80a569c886c67c7dbe3ceb5d8042cb4e84183a90175e8e9",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Locate the cut rim of the Right CCA wall and trace its open blood channel in two views.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.037 mm at z=58.8 mm. An independent axial ray passed the distal rim.",
+        "form": "The neutral oblique and reverse views show the caliber and the cut face. The separate acquired-case sweep has a more irregular course.",
+        "readability": "The gray end detail exposes the opening. The oblique and reverse views confirm that the rim bounds the wall rather than a solid plug.",
+        "economy": "6,476 \u2192 1,760 triangles; position, normal and index buffers 116,616 \u2192 35,520 bytes. At the widest affected ring a 20-side contour would move the 40-side midpoint inward by 0.059 mm."
+      },
+      "beforeScores": {
+        "fidelity": 1,
+        "form": 2,
+        "readability": 1,
+        "economy": 2
+      },
+      "beforeEvidence": {
+        "fidelity": "An axial ray struck the flat disk sealing the cut, although the authored blood channel is patent.",
+        "form": "Neutral close-up shows a disk over the exposed end; the rim cannot be followed.",
+        "readability": "The grayscale end view obscures the path into the vessel wall.",
+        "economy": "The baseline spends 6,476 triangles on uniformly spaced stations, including straight runs."
+      },
+      "note": "Authored case geometry. A cut end is an editorial section plane. The original sweep is another subject, independently framed.",
+      "exemplar": false,
+      "comparison": {
+        "baseline": "asset-reviews/vascular/26f74a882023aa.webp",
+        "candidate": "asset-reviews/vascular/5acd036d97de45.webp",
+        "views": [
+          {
+            "label": "Whole segment \u00b7 matched oblique view",
+            "baseline": "asset-reviews/vascular/d9be8cdbc177cf.webp",
+            "candidate": "asset-reviews/vascular/c7fe7f725c1e38.webp",
+            "original": "asset-reviews/vascular/77f797c9457f4e.webp"
+          },
+          {
+            "label": "Reverse \u00b7 neutral light",
+            "baseline": "asset-reviews/vascular/7af95335bff4c5.webp",
+            "candidate": "asset-reviews/vascular/9be47923839338.webp"
+          }
+        ]
+      },
+      "additionalUses": [
+        {
+          "case": "carotid-limited"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "carotid-normal",
+      "part": "Right CCA lumen",
+      "baseline": "0d943e4",
+      "revision": "5efb420a9d764f8c9f3ab631d0961f878edbc78dfb79b08e911f259b61cf7eeb",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Identify the course and caliber of the Right CCA blood pool at the case window.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.036 mm at z=58.8 mm.",
+        "form": "The neutral oblique and reverse views show the caliber and the cut face. The separate acquired-case sweep has a more irregular course.",
+        "readability": "The gray body remains traceable in both orientations; identifying its anatomical territory also requires its named case context.",
+        "economy": "6,476 \u2192 876 triangles; position, normal and index buffers 116,616 \u2192 17,736 bytes. At the widest affected ring a 20-side contour would move the 40-side midpoint inward by 0.052 mm."
+      },
+      "beforeScores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 2
+      },
+      "beforeEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.036 mm at z=58.8 mm.",
+        "form": "The neutral oblique and reverse views show the caliber and the cut face. The separate acquired-case sweep has a more irregular course.",
+        "readability": "The gray body remains traceable in both orientations; identifying its anatomical territory also requires its named case context.",
+        "economy": "The baseline spends 6,476 triangles on uniformly spaced stations, including straight runs."
+      },
+      "note": "Authored case geometry. A cut end is an editorial section plane. The original sweep is another subject, independently framed.",
+      "exemplar": false,
+      "comparison": {
+        "baseline": "asset-reviews/vascular/9f4707733c65f1.webp",
+        "candidate": "asset-reviews/vascular/dc25dec3a3dca4.webp",
+        "views": [
+          {
+            "label": "Whole segment \u00b7 matched oblique view",
+            "baseline": "asset-reviews/vascular/3602df31e69ac1.webp",
+            "candidate": "asset-reviews/vascular/f5b30b698f3742.webp",
+            "original": "asset-reviews/vascular/77f797c9457f4e.webp"
+          },
+          {
+            "label": "Reverse \u00b7 neutral light",
+            "baseline": "asset-reviews/vascular/2c28bef2d0bf4f.webp",
+            "candidate": "asset-reviews/vascular/3ed4e0652fc73e.webp"
+          }
+        ]
+      },
+      "additionalUses": [
+        {
+          "case": "carotid-plaque"
+        },
+        {
+          "case": "carotid-limited"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "carotid-normal",
+      "part": "Right IJV",
+      "baseline": "0d943e4",
+      "revision": "3f4edf4c452a061f2268002cae97b6add69a02ee8d1a8ec2ac12f8b01a824413",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Locate the cut rim of the Right IJV wall and trace its open blood channel in two views.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.013 mm at z=5.2 mm. An independent axial ray passed the distal rim.",
+        "form": "The neutral oblique and reverse views show the caliber and the cut face. The separate acquired-case sweep has a more irregular course.",
+        "readability": "The gray end detail exposes the opening. The oblique and reverse views confirm that the rim bounds the wall rather than a solid plug.",
+        "economy": "10,156 \u2192 320 triangles; position, normal and index buffers 182,856 \u2192 9,600 bytes. At the widest affected ring a 20-side contour would move the 40-side midpoint inward by 0.050 mm."
+      },
+      "beforeScores": {
+        "fidelity": 1,
+        "form": 2,
+        "readability": 1,
+        "economy": 2
+      },
+      "beforeEvidence": {
+        "fidelity": "An axial ray struck the flat disk sealing the cut, although the authored blood channel is patent.",
+        "form": "Neutral close-up shows a disk over the exposed end; the rim cannot be followed.",
+        "readability": "The grayscale end view obscures the path into the vessel wall.",
+        "economy": "The baseline spends 10,156 triangles on uniformly spaced stations, including straight runs."
+      },
+      "note": "Authored case geometry. A cut end is an editorial section plane. The original sweep is another subject, independently framed.",
+      "exemplar": false,
+      "comparison": {
+        "baseline": "asset-reviews/vascular/24e708dfecf32a.webp",
+        "candidate": "asset-reviews/vascular/e17edf710e00df.webp",
+        "views": [
+          {
+            "label": "Whole segment \u00b7 matched oblique view",
+            "baseline": "asset-reviews/vascular/f74d71232142fe.webp",
+            "candidate": "asset-reviews/vascular/e35807b586b96c.webp",
+            "original": "asset-reviews/vascular/552d2f82c14863.webp"
+          },
+          {
+            "label": "Reverse \u00b7 neutral light",
+            "baseline": "asset-reviews/vascular/b704f576dff06b.webp",
+            "candidate": "asset-reviews/vascular/8d768c80626a31.webp"
+          }
+        ]
+      },
+      "additionalUses": [
+        {
+          "case": "carotid-plaque"
+        },
+        {
+          "case": "carotid-limited"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "carotid-normal",
+      "part": "Right IJV lumen",
+      "baseline": "0d943e4",
+      "revision": "9e498ac1d34f0042cd8b98c1c32ae218559d6b0c59e5dbe051bc53bb4a7e6c54",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Identify the course and caliber of the Right IJV blood pool at the case window.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.011 mm at z=2.6 mm.",
+        "form": "The neutral oblique and reverse views show the caliber and the cut face. The separate acquired-case sweep has a more irregular course.",
+        "readability": "The gray body remains traceable in both orientations; identifying its anatomical territory also requires its named case context.",
+        "economy": "10,156 \u2192 156 triangles; position, normal and index buffers 182,856 \u2192 4,776 bytes. At the widest affected ring a 20-side contour would move the 40-side midpoint inward by 0.045 mm."
+      },
+      "beforeScores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 2
+      },
+      "beforeEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.011 mm at z=2.6 mm.",
+        "form": "The neutral oblique and reverse views show the caliber and the cut face. The separate acquired-case sweep has a more irregular course.",
+        "readability": "The gray body remains traceable in both orientations; identifying its anatomical territory also requires its named case context.",
+        "economy": "The baseline spends 10,156 triangles on uniformly spaced stations, including straight runs."
+      },
+      "note": "Authored case geometry. A cut end is an editorial section plane. The original sweep is another subject, independently framed.",
+      "exemplar": false,
+      "comparison": {
+        "baseline": "asset-reviews/vascular/2fdf0101651598.webp",
+        "candidate": "asset-reviews/vascular/6c2e49d16d4922.webp",
+        "views": [
+          {
+            "label": "Whole segment \u00b7 matched oblique view",
+            "baseline": "asset-reviews/vascular/bf816ae53081a8.webp",
+            "candidate": "asset-reviews/vascular/9a14ef1136bca2.webp",
+            "original": "asset-reviews/vascular/552d2f82c14863.webp"
+          },
+          {
+            "label": "Reverse \u00b7 neutral light",
+            "baseline": "asset-reviews/vascular/a2678fda538afc.webp",
+            "candidate": "asset-reviews/vascular/1406d08c422669.webp"
+          }
+        ]
+      },
+      "additionalUses": [
+        {
+          "case": "carotid-plaque"
+        },
+        {
+          "case": "carotid-limited"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "carotid-normal",
+      "part": "Right VA",
+      "baseline": "0d943e4",
+      "revision": "06a84a9eeb49b7dc76bba51ef9d7b57534b0411d062f77167e797745af3c47dd",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Locate the cut rim of the Right VA wall and trace its open blood channel in two views.",
+      "scores": {
+        "fidelity": 4,
+        "form": 2,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.006 mm at z=6.2 mm. An independent axial ray passed the distal rim.",
+        "form": "The observed outline is a straight tube at this scale. Its transverse dimensions model the case but the longitudinal contour lacks anatomical variation.",
+        "readability": "The gray end detail exposes the opening. The oblique and reverse views confirm that the rim bounds the wall rather than a solid plug.",
+        "economy": "14,156 \u2192 320 triangles; position, normal and index buffers 254,856 \u2192 9,600 bytes. At the widest affected ring a 20-side contour would move the 40-side midpoint inward by 0.023 mm."
+      },
+      "beforeScores": {
+        "fidelity": 1,
+        "form": 2,
+        "readability": 1,
+        "economy": 2
+      },
+      "beforeEvidence": {
+        "fidelity": "An axial ray struck the flat disk sealing the cut, although the authored blood channel is patent.",
+        "form": "Neutral close-up shows a disk over the exposed end; the rim cannot be followed.",
+        "readability": "The grayscale end view obscures the path into the vessel wall.",
+        "economy": "The baseline spends 14,156 triangles on uniformly spaced stations, including straight runs."
+      },
+      "note": "Authored case geometry. A cut end is an editorial section plane.",
+      "exemplar": false,
+      "comparison": {
+        "baseline": "asset-reviews/vascular/afcdc86dcf8896.webp",
+        "candidate": "asset-reviews/vascular/47469d82e94c02.webp",
+        "views": [
+          {
+            "label": "Whole segment \u00b7 matched oblique view",
+            "baseline": "asset-reviews/vascular/63c78369095189.webp",
+            "candidate": "asset-reviews/vascular/4e2c36ee46bf53.webp"
+          },
+          {
+            "label": "Reverse \u00b7 neutral light",
+            "baseline": "asset-reviews/vascular/c38ba4546e9ad7.webp",
+            "candidate": "asset-reviews/vascular/6cbd7f2d83250f.webp"
+          }
+        ]
+      },
+      "additionalUses": [
+        {
+          "case": "carotid-plaque"
+        },
+        {
+          "case": "carotid-limited"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "carotid-normal",
+      "part": "Right VA lumen",
+      "baseline": "0d943e4",
+      "revision": "722d1c331d799c1db87381d4b2ec2cc76dcda4fa5d1b6d27bc2266ea14f32853",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Identify the course and caliber of the Right VA blood pool at the case window.",
+      "scores": {
+        "fidelity": 4,
+        "form": 2,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.005 mm at z=7.4 mm.",
+        "form": "The observed outline is a straight tube at this scale. Its transverse dimensions model the case but the longitudinal contour lacks anatomical variation.",
+        "readability": "The gray body remains traceable in both orientations; identifying its anatomical territory also requires its named case context.",
+        "economy": "14,156 \u2192 156 triangles; position, normal and index buffers 254,856 \u2192 4,776 bytes. At the widest affected ring a 20-side contour would move the 40-side midpoint inward by 0.018 mm."
+      },
+      "beforeScores": {
+        "fidelity": 4,
+        "form": 2,
+        "readability": 3,
+        "economy": 2
+      },
+      "beforeEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.005 mm at z=7.4 mm.",
+        "form": "The observed outline is a straight tube at this scale. Its transverse dimensions model the case but the longitudinal contour lacks anatomical variation.",
+        "readability": "The gray body remains traceable in both orientations; identifying its anatomical territory also requires its named case context.",
+        "economy": "The baseline spends 14,156 triangles on uniformly spaced stations, including straight runs."
+      },
+      "note": "Authored case geometry. A cut end is an editorial section plane.",
+      "exemplar": false,
+      "comparison": {
+        "baseline": "asset-reviews/vascular/73d14f3f896bec.webp",
+        "candidate": "asset-reviews/vascular/1a322cd93a1990.webp",
+        "views": [
+          {
+            "label": "Whole segment \u00b7 matched oblique view",
+            "baseline": "asset-reviews/vascular/ada73a9facfd75.webp",
+            "candidate": "asset-reviews/vascular/510aaa913e6ffb.webp"
+          },
+          {
+            "label": "Reverse \u00b7 neutral light",
+            "baseline": "asset-reviews/vascular/c4b5be2f939e16.webp",
+            "candidate": "asset-reviews/vascular/09f45e1934a91d.webp"
+          }
+        ]
+      },
+      "additionalUses": [
+        {
+          "case": "carotid-plaque"
+        },
+        {
+          "case": "carotid-limited"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "carotid-normal",
+      "part": "Right ICA",
+      "baseline": "0d943e4",
+      "revision": "afba2ed9154771a8edc405594c2ea4978eae335d1eae656fe0b0c290b91d4c25",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Locate the cut rim of the Right ICA wall and trace its open blood channel in two views.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.035 mm at z=80.5 mm. An independent axial ray passed the distal rim.",
+        "form": "The changing outline and taper are visible in neutral light; a matched anatomical surface for this specific segment is missing.",
+        "readability": "The gray end detail exposes the opening. The oblique and reverse views confirm that the rim bounds the wall rather than a solid plug.",
+        "economy": "8,396 \u2192 2,720 triangles; position, normal and index buffers 151,176 \u2192 52,800 bytes. At the widest affected ring a 20-side contour would move the 40-side midpoint inward by 0.050 mm."
+      },
+      "beforeScores": {
+        "fidelity": 1,
+        "form": 2,
+        "readability": 1,
+        "economy": 2
+      },
+      "beforeEvidence": {
+        "fidelity": "An axial ray struck the flat disk sealing the cut, although the authored blood channel is patent.",
+        "form": "Neutral close-up shows a disk over the exposed end; the rim cannot be followed.",
+        "readability": "The grayscale end view obscures the path into the vessel wall.",
+        "economy": "The baseline spends 8,396 triangles on uniformly spaced stations, including straight runs."
+      },
+      "note": "Authored case geometry. A cut end is an editorial section plane.",
+      "exemplar": false,
+      "comparison": {
+        "baseline": "asset-reviews/vascular/7b0aa36d668e64.webp",
+        "candidate": "asset-reviews/vascular/9311d8516391f8.webp",
+        "views": [
+          {
+            "label": "Whole segment \u00b7 matched oblique view",
+            "baseline": "asset-reviews/vascular/f4734ef8f6396e.webp",
+            "candidate": "asset-reviews/vascular/b12e5dce438e41.webp"
+          },
+          {
+            "label": "Reverse \u00b7 neutral light",
+            "baseline": "asset-reviews/vascular/1ebe73191f1b2a.webp",
+            "candidate": "asset-reviews/vascular/229768f794ff8a.webp"
+          }
+        ]
+      },
+      "additionalUses": [
+        {
+          "case": "carotid-limited"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "carotid-normal",
+      "part": "Right ICA lumen",
+      "baseline": "0d943e4",
+      "revision": "4d4154cbc1158fef5cb4a07b287d14178bd771ad490429119178d73c3e65f73a",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Identify the course and caliber of the Right ICA blood pool at the case window.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.033 mm at z=80.5 mm.",
+        "form": "The changing outline and taper are visible in neutral light; a matched anatomical surface for this specific segment is missing.",
+        "readability": "The gray body remains traceable in both orientations; identifying its anatomical territory also requires its named case context.",
+        "economy": "8,396 \u2192 1,356 triangles; position, normal and index buffers 151,176 \u2192 26,376 bytes. At the widest affected ring a 20-side contour would move the 40-side midpoint inward by 0.044 mm."
+      },
+      "beforeScores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 2
+      },
+      "beforeEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.033 mm at z=80.5 mm.",
+        "form": "The changing outline and taper are visible in neutral light; a matched anatomical surface for this specific segment is missing.",
+        "readability": "The gray body remains traceable in both orientations; identifying its anatomical territory also requires its named case context.",
+        "economy": "The baseline spends 8,396 triangles on uniformly spaced stations, including straight runs."
+      },
+      "note": "Authored case geometry. A cut end is an editorial section plane.",
+      "exemplar": false,
+      "comparison": {
+        "baseline": "asset-reviews/vascular/c6f9f0a23cb79a.webp",
+        "candidate": "asset-reviews/vascular/2949516155da16.webp",
+        "views": [
+          {
+            "label": "Whole segment \u00b7 matched oblique view",
+            "baseline": "asset-reviews/vascular/f568d600766695.webp",
+            "candidate": "asset-reviews/vascular/b7b5d70d49aaa7.webp"
+          },
+          {
+            "label": "Reverse \u00b7 neutral light",
+            "baseline": "asset-reviews/vascular/35a760c8d58696.webp",
+            "candidate": "asset-reviews/vascular/43bd327b7287dc.webp"
+          }
+        ]
+      },
+      "additionalUses": [
+        {
+          "case": "carotid-limited"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "carotid-normal",
+      "part": "Right ECA",
+      "baseline": "0d943e4",
+      "revision": "81cb4df8f5f8fb5f34c51813b7fa4f3825d55bf9d56c627b45971b6111ccba4e",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Locate the cut rim of the Right ECA wall and trace its open blood channel in two views.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.031 mm at z=68.4 mm. An independent axial ray passed the distal rim.",
+        "form": "The changing outline and taper are visible in neutral light; a matched anatomical surface for this specific segment is missing.",
+        "readability": "The gray end detail exposes the opening. The oblique and reverse views confirm that the rim bounds the wall rather than a solid plug.",
+        "economy": "8,396 \u2192 2,560 triangles; position, normal and index buffers 151,176 \u2192 49,920 bytes. At the widest affected ring a 20-side contour would move the 40-side midpoint inward by 0.031 mm."
+      },
+      "beforeScores": {
+        "fidelity": 1,
+        "form": 2,
+        "readability": 1,
+        "economy": 2
+      },
+      "beforeEvidence": {
+        "fidelity": "An axial ray struck the flat disk sealing the cut, although the authored blood channel is patent.",
+        "form": "Neutral close-up shows a disk over the exposed end; the rim cannot be followed.",
+        "readability": "The grayscale end view obscures the path into the vessel wall.",
+        "economy": "The baseline spends 8,396 triangles on uniformly spaced stations, including straight runs."
+      },
+      "note": "Authored case geometry. A cut end is an editorial section plane.",
+      "exemplar": false,
+      "comparison": {
+        "baseline": "asset-reviews/vascular/76de44a8cc9e75.webp",
+        "candidate": "asset-reviews/vascular/bca6ab904733d4.webp",
+        "views": [
+          {
+            "label": "Whole segment \u00b7 matched oblique view",
+            "baseline": "asset-reviews/vascular/333214d7b6f575.webp",
+            "candidate": "asset-reviews/vascular/f42e6868877762.webp"
+          },
+          {
+            "label": "Reverse \u00b7 neutral light",
+            "baseline": "asset-reviews/vascular/add48dc4715272.webp",
+            "candidate": "asset-reviews/vascular/70fefb23520e9a.webp"
+          }
+        ]
+      },
+      "additionalUses": [
+        {
+          "case": "carotid-plaque"
+        },
+        {
+          "case": "carotid-limited"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "carotid-normal",
+      "part": "Right ECA lumen",
+      "baseline": "0d943e4",
+      "revision": "0ba80032cc92e1cc745dff1d0170e5f3ec5ba003310579c0440a6fa074fb4b7a",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Identify the course and caliber of the Right ECA blood pool at the case window.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.030 mm at z=68.4 mm.",
+        "form": "The changing outline and taper are visible in neutral light; a matched anatomical surface for this specific segment is missing.",
+        "readability": "The gray body remains traceable in both orientations; identifying its anatomical territory also requires its named case context.",
+        "economy": "8,396 \u2192 1,276 triangles; position, normal and index buffers 151,176 \u2192 24,936 bytes. At the widest affected ring a 20-side contour would move the 40-side midpoint inward by 0.026 mm."
+      },
+      "beforeScores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 2
+      },
+      "beforeEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.030 mm at z=68.4 mm.",
+        "form": "The changing outline and taper are visible in neutral light; a matched anatomical surface for this specific segment is missing.",
+        "readability": "The gray body remains traceable in both orientations; identifying its anatomical territory also requires its named case context.",
+        "economy": "The baseline spends 8,396 triangles on uniformly spaced stations, including straight runs."
+      },
+      "note": "Authored case geometry. A cut end is an editorial section plane.",
+      "exemplar": false,
+      "comparison": {
+        "baseline": "asset-reviews/vascular/4fcb83511f72df.webp",
+        "candidate": "asset-reviews/vascular/ca335bbea95b58.webp",
+        "views": [
+          {
+            "label": "Whole segment \u00b7 matched oblique view",
+            "baseline": "asset-reviews/vascular/71eb6c0bd94dc6.webp",
+            "candidate": "asset-reviews/vascular/22d86e434a8678.webp"
+          },
+          {
+            "label": "Reverse \u00b7 neutral light",
+            "baseline": "asset-reviews/vascular/8345034edd67a2.webp",
+            "candidate": "asset-reviews/vascular/2b5626f19c5b90.webp"
+          }
+        ]
+      },
+      "additionalUses": [
+        {
+          "case": "carotid-plaque"
+        },
+        {
+          "case": "carotid-limited"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "carotid-normal",
+      "part": "Left CCA",
+      "baseline": "0d943e4",
+      "revision": "13bee99576cbe126cf7b3d899ded6a8e09bde00ee73b70e7da86531c94ed3782",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Locate the cut rim of the Left CCA wall and trace its open blood channel in two views.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.037 mm at z=58.8 mm. An independent axial ray passed the distal rim.",
+        "form": "The neutral oblique and reverse views show the caliber and the cut face. The separate acquired-case sweep has a more irregular course.",
+        "readability": "The gray end detail exposes the opening. The oblique and reverse views confirm that the rim bounds the wall rather than a solid plug.",
+        "economy": "6,476 \u2192 1,760 triangles; position, normal and index buffers 116,616 \u2192 35,520 bytes. At the widest affected ring a 20-side contour would move the 40-side midpoint inward by 0.059 mm."
+      },
+      "beforeScores": {
+        "fidelity": 1,
+        "form": 2,
+        "readability": 1,
+        "economy": 2
+      },
+      "beforeEvidence": {
+        "fidelity": "An axial ray struck the flat disk sealing the cut, although the authored blood channel is patent.",
+        "form": "Neutral close-up shows a disk over the exposed end; the rim cannot be followed.",
+        "readability": "The grayscale end view obscures the path into the vessel wall.",
+        "economy": "The baseline spends 6,476 triangles on uniformly spaced stations, including straight runs."
+      },
+      "note": "Authored case geometry. A cut end is an editorial section plane. The original sweep is another subject, independently framed.",
+      "exemplar": false,
+      "comparison": {
+        "baseline": "asset-reviews/vascular/26f74a882023aa.webp",
+        "candidate": "asset-reviews/vascular/5acd036d97de45.webp",
+        "views": [
+          {
+            "label": "Whole segment \u00b7 matched oblique view",
+            "baseline": "asset-reviews/vascular/d9be8cdbc177cf.webp",
+            "candidate": "asset-reviews/vascular/c7fe7f725c1e38.webp",
+            "original": "asset-reviews/vascular/8364f3988d14c5.webp"
+          },
+          {
+            "label": "Reverse \u00b7 neutral light",
+            "baseline": "asset-reviews/vascular/7af95335bff4c5.webp",
+            "candidate": "asset-reviews/vascular/9be47923839338.webp"
+          }
+        ]
+      },
+      "additionalUses": [
+        {
+          "case": "carotid-plaque"
+        },
+        {
+          "case": "carotid-limited"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "carotid-normal",
+      "part": "Left CCA lumen",
+      "baseline": "0d943e4",
+      "revision": "0730e2519d1c69bbf1da9ec73f52794965d2e0a9f5d597469b23c90a0819b6ba",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Identify the course and caliber of the Left CCA blood pool at the case window.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.036 mm at z=58.8 mm.",
+        "form": "The neutral oblique and reverse views show the caliber and the cut face. The separate acquired-case sweep has a more irregular course.",
+        "readability": "The gray body remains traceable in both orientations; identifying its anatomical territory also requires its named case context.",
+        "economy": "6,476 \u2192 876 triangles; position, normal and index buffers 116,616 \u2192 17,736 bytes. At the widest affected ring a 20-side contour would move the 40-side midpoint inward by 0.052 mm."
+      },
+      "beforeScores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 2
+      },
+      "beforeEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.036 mm at z=58.8 mm.",
+        "form": "The neutral oblique and reverse views show the caliber and the cut face. The separate acquired-case sweep has a more irregular course.",
+        "readability": "The gray body remains traceable in both orientations; identifying its anatomical territory also requires its named case context.",
+        "economy": "The baseline spends 6,476 triangles on uniformly spaced stations, including straight runs."
+      },
+      "note": "Authored case geometry. A cut end is an editorial section plane. The original sweep is another subject, independently framed.",
+      "exemplar": false,
+      "comparison": {
+        "baseline": "asset-reviews/vascular/9f4707733c65f1.webp",
+        "candidate": "asset-reviews/vascular/dc25dec3a3dca4.webp",
+        "views": [
+          {
+            "label": "Whole segment \u00b7 matched oblique view",
+            "baseline": "asset-reviews/vascular/3602df31e69ac1.webp",
+            "candidate": "asset-reviews/vascular/f5b30b698f3742.webp",
+            "original": "asset-reviews/vascular/8364f3988d14c5.webp"
+          },
+          {
+            "label": "Reverse \u00b7 neutral light",
+            "baseline": "asset-reviews/vascular/2c28bef2d0bf4f.webp",
+            "candidate": "asset-reviews/vascular/3ed4e0652fc73e.webp"
+          }
+        ]
+      },
+      "additionalUses": [
+        {
+          "case": "carotid-plaque"
+        },
+        {
+          "case": "carotid-limited"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "carotid-normal",
+      "part": "Left IJV",
+      "baseline": "0d943e4",
+      "revision": "e23dcccfa2e292bf92b6ffa82a0df9397155e83cd80d98b4c7aa2a6242ae7e90",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Locate the cut rim of the Left IJV wall and trace its open blood channel in two views.",
+      "scores": {
+        "fidelity": 4,
+        "form": 2,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.013 mm at z=5.2 mm. An independent axial ray passed the distal rim.",
+        "form": "The observed outline is a straight tube at this scale. Its transverse dimensions model the case but the longitudinal contour lacks anatomical variation.",
+        "readability": "The gray end detail exposes the opening. The oblique and reverse views confirm that the rim bounds the wall rather than a solid plug.",
+        "economy": "10,156 \u2192 320 triangles; position, normal and index buffers 182,856 \u2192 9,600 bytes. At the widest affected ring a 20-side contour would move the 40-side midpoint inward by 0.050 mm."
+      },
+      "beforeScores": {
+        "fidelity": 1,
+        "form": 2,
+        "readability": 1,
+        "economy": 2
+      },
+      "beforeEvidence": {
+        "fidelity": "An axial ray struck the flat disk sealing the cut, although the authored blood channel is patent.",
+        "form": "Neutral close-up shows a disk over the exposed end; the rim cannot be followed.",
+        "readability": "The grayscale end view obscures the path into the vessel wall.",
+        "economy": "The baseline spends 10,156 triangles on uniformly spaced stations, including straight runs."
+      },
+      "note": "Authored case geometry. A cut end is an editorial section plane.",
+      "exemplar": false,
+      "comparison": {
+        "baseline": "asset-reviews/vascular/24e708dfecf32a.webp",
+        "candidate": "asset-reviews/vascular/e17edf710e00df.webp",
+        "views": [
+          {
+            "label": "Whole segment \u00b7 matched oblique view",
+            "baseline": "asset-reviews/vascular/f74d71232142fe.webp",
+            "candidate": "asset-reviews/vascular/e35807b586b96c.webp"
+          },
+          {
+            "label": "Reverse \u00b7 neutral light",
+            "baseline": "asset-reviews/vascular/b704f576dff06b.webp",
+            "candidate": "asset-reviews/vascular/8d768c80626a31.webp"
+          }
+        ]
+      },
+      "additionalUses": [
+        {
+          "case": "carotid-plaque"
+        },
+        {
+          "case": "carotid-limited"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "carotid-normal",
+      "part": "Left IJV lumen",
+      "baseline": "0d943e4",
+      "revision": "2e9d3f1a6ec74cd599acfa28a2942f924a45794e6c32ca6b3f0561cd7f1609b7",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Identify the course and caliber of the Left IJV blood pool at the case window.",
+      "scores": {
+        "fidelity": 4,
+        "form": 2,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.011 mm at z=2.6 mm.",
+        "form": "The observed outline is a straight tube at this scale. Its transverse dimensions model the case but the longitudinal contour lacks anatomical variation.",
+        "readability": "The gray body remains traceable in both orientations; identifying its anatomical territory also requires its named case context.",
+        "economy": "10,156 \u2192 156 triangles; position, normal and index buffers 182,856 \u2192 4,776 bytes. At the widest affected ring a 20-side contour would move the 40-side midpoint inward by 0.045 mm."
+      },
+      "beforeScores": {
+        "fidelity": 4,
+        "form": 2,
+        "readability": 3,
+        "economy": 2
+      },
+      "beforeEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.011 mm at z=2.6 mm.",
+        "form": "The observed outline is a straight tube at this scale. Its transverse dimensions model the case but the longitudinal contour lacks anatomical variation.",
+        "readability": "The gray body remains traceable in both orientations; identifying its anatomical territory also requires its named case context.",
+        "economy": "The baseline spends 10,156 triangles on uniformly spaced stations, including straight runs."
+      },
+      "note": "Authored case geometry. A cut end is an editorial section plane.",
+      "exemplar": false,
+      "comparison": {
+        "baseline": "asset-reviews/vascular/2fdf0101651598.webp",
+        "candidate": "asset-reviews/vascular/6c2e49d16d4922.webp",
+        "views": [
+          {
+            "label": "Whole segment \u00b7 matched oblique view",
+            "baseline": "asset-reviews/vascular/bf816ae53081a8.webp",
+            "candidate": "asset-reviews/vascular/9a14ef1136bca2.webp"
+          },
+          {
+            "label": "Reverse \u00b7 neutral light",
+            "baseline": "asset-reviews/vascular/a2678fda538afc.webp",
+            "candidate": "asset-reviews/vascular/1406d08c422669.webp"
+          }
+        ]
+      },
+      "additionalUses": [
+        {
+          "case": "carotid-plaque"
+        },
+        {
+          "case": "carotid-limited"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "carotid-normal",
+      "part": "Left VA",
+      "baseline": "0d943e4",
+      "revision": "dcf2a230c942e3b28b3ac3c2c11a205310e2e6981da79a2549b89f6564bf2f5e",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Locate the cut rim of the Left VA wall and trace its open blood channel in two views.",
+      "scores": {
+        "fidelity": 4,
+        "form": 2,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.006 mm at z=6.2 mm. An independent axial ray passed the distal rim.",
+        "form": "The observed outline is a straight tube at this scale. Its transverse dimensions model the case but the longitudinal contour lacks anatomical variation.",
+        "readability": "The gray end detail exposes the opening. The oblique and reverse views confirm that the rim bounds the wall rather than a solid plug.",
+        "economy": "14,156 \u2192 320 triangles; position, normal and index buffers 254,856 \u2192 9,600 bytes. At the widest affected ring a 20-side contour would move the 40-side midpoint inward by 0.023 mm."
+      },
+      "beforeScores": {
+        "fidelity": 1,
+        "form": 2,
+        "readability": 1,
+        "economy": 2
+      },
+      "beforeEvidence": {
+        "fidelity": "An axial ray struck the flat disk sealing the cut, although the authored blood channel is patent.",
+        "form": "Neutral close-up shows a disk over the exposed end; the rim cannot be followed.",
+        "readability": "The grayscale end view obscures the path into the vessel wall.",
+        "economy": "The baseline spends 14,156 triangles on uniformly spaced stations, including straight runs."
+      },
+      "note": "Authored case geometry. A cut end is an editorial section plane.",
+      "exemplar": false,
+      "comparison": {
+        "baseline": "asset-reviews/vascular/afcdc86dcf8896.webp",
+        "candidate": "asset-reviews/vascular/47469d82e94c02.webp",
+        "views": [
+          {
+            "label": "Whole segment \u00b7 matched oblique view",
+            "baseline": "asset-reviews/vascular/63c78369095189.webp",
+            "candidate": "asset-reviews/vascular/4e2c36ee46bf53.webp"
+          },
+          {
+            "label": "Reverse \u00b7 neutral light",
+            "baseline": "asset-reviews/vascular/c38ba4546e9ad7.webp",
+            "candidate": "asset-reviews/vascular/6cbd7f2d83250f.webp"
+          }
+        ]
+      },
+      "additionalUses": [
+        {
+          "case": "carotid-plaque"
+        },
+        {
+          "case": "carotid-limited"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "carotid-normal",
+      "part": "Left VA lumen",
+      "baseline": "0d943e4",
+      "revision": "8da3b934bca1585c465bb287e37fb24eeb12290ff2e0134027f7b2efe91c086a",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Identify the course and caliber of the Left VA blood pool at the case window.",
+      "scores": {
+        "fidelity": 4,
+        "form": 2,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.005 mm at z=7.4 mm.",
+        "form": "The observed outline is a straight tube at this scale. Its transverse dimensions model the case but the longitudinal contour lacks anatomical variation.",
+        "readability": "The gray body remains traceable in both orientations; identifying its anatomical territory also requires its named case context.",
+        "economy": "14,156 \u2192 156 triangles; position, normal and index buffers 254,856 \u2192 4,776 bytes. At the widest affected ring a 20-side contour would move the 40-side midpoint inward by 0.018 mm."
+      },
+      "beforeScores": {
+        "fidelity": 4,
+        "form": 2,
+        "readability": 3,
+        "economy": 2
+      },
+      "beforeEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.005 mm at z=7.4 mm.",
+        "form": "The observed outline is a straight tube at this scale. Its transverse dimensions model the case but the longitudinal contour lacks anatomical variation.",
+        "readability": "The gray body remains traceable in both orientations; identifying its anatomical territory also requires its named case context.",
+        "economy": "The baseline spends 14,156 triangles on uniformly spaced stations, including straight runs."
+      },
+      "note": "Authored case geometry. A cut end is an editorial section plane.",
+      "exemplar": false,
+      "comparison": {
+        "baseline": "asset-reviews/vascular/73d14f3f896bec.webp",
+        "candidate": "asset-reviews/vascular/1a322cd93a1990.webp",
+        "views": [
+          {
+            "label": "Whole segment \u00b7 matched oblique view",
+            "baseline": "asset-reviews/vascular/ada73a9facfd75.webp",
+            "candidate": "asset-reviews/vascular/510aaa913e6ffb.webp"
+          },
+          {
+            "label": "Reverse \u00b7 neutral light",
+            "baseline": "asset-reviews/vascular/c4b5be2f939e16.webp",
+            "candidate": "asset-reviews/vascular/09f45e1934a91d.webp"
+          }
+        ]
+      },
+      "additionalUses": [
+        {
+          "case": "carotid-plaque"
+        },
+        {
+          "case": "carotid-limited"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "carotid-normal",
+      "part": "Left ICA",
+      "baseline": "0d943e4",
+      "revision": "272db35efca233190ed82217c3f7f8d5e991576c279bc57092ee62d5240499d9",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Locate the cut rim of the Left ICA wall and trace its open blood channel in two views.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.035 mm at z=80.5 mm. An independent axial ray passed the distal rim.",
+        "form": "The changing outline and taper are visible in neutral light; a matched anatomical surface for this specific segment is missing.",
+        "readability": "The gray end detail exposes the opening. The oblique and reverse views confirm that the rim bounds the wall rather than a solid plug.",
+        "economy": "8,396 \u2192 2,720 triangles; position, normal and index buffers 151,176 \u2192 52,800 bytes. At the widest affected ring a 20-side contour would move the 40-side midpoint inward by 0.050 mm."
+      },
+      "beforeScores": {
+        "fidelity": 1,
+        "form": 2,
+        "readability": 1,
+        "economy": 2
+      },
+      "beforeEvidence": {
+        "fidelity": "An axial ray struck the flat disk sealing the cut, although the authored blood channel is patent.",
+        "form": "Neutral close-up shows a disk over the exposed end; the rim cannot be followed.",
+        "readability": "The grayscale end view obscures the path into the vessel wall.",
+        "economy": "The baseline spends 8,396 triangles on uniformly spaced stations, including straight runs."
+      },
+      "note": "Authored case geometry. A cut end is an editorial section plane.",
+      "exemplar": false,
+      "comparison": {
+        "baseline": "asset-reviews/vascular/7b0aa36d668e64.webp",
+        "candidate": "asset-reviews/vascular/9311d8516391f8.webp",
+        "views": [
+          {
+            "label": "Whole segment \u00b7 matched oblique view",
+            "baseline": "asset-reviews/vascular/513ec027367eb4.webp",
+            "candidate": "asset-reviews/vascular/f66fc59ed6913e.webp"
+          },
+          {
+            "label": "Reverse \u00b7 neutral light",
+            "baseline": "asset-reviews/vascular/d16904229f9e26.webp",
+            "candidate": "asset-reviews/vascular/ce50dd6424270b.webp"
+          }
+        ]
+      },
+      "additionalUses": [
+        {
+          "case": "carotid-plaque"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "carotid-normal",
+      "part": "Left ICA lumen",
+      "baseline": "0d943e4",
+      "revision": "415839f32d4284e1bb82dde3948762bfa17b787a696ad62ca9677adfdb99af63",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Identify the course and caliber of the Left ICA blood pool at the case window.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.033 mm at z=80.5 mm.",
+        "form": "The changing outline and taper are visible in neutral light; a matched anatomical surface for this specific segment is missing.",
+        "readability": "The gray body remains traceable in both orientations; identifying its anatomical territory also requires its named case context.",
+        "economy": "8,396 \u2192 1,356 triangles; position, normal and index buffers 151,176 \u2192 26,376 bytes. At the widest affected ring a 20-side contour would move the 40-side midpoint inward by 0.044 mm."
+      },
+      "beforeScores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 2
+      },
+      "beforeEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.033 mm at z=80.5 mm.",
+        "form": "The changing outline and taper are visible in neutral light; a matched anatomical surface for this specific segment is missing.",
+        "readability": "The gray body remains traceable in both orientations; identifying its anatomical territory also requires its named case context.",
+        "economy": "The baseline spends 8,396 triangles on uniformly spaced stations, including straight runs."
+      },
+      "note": "Authored case geometry. A cut end is an editorial section plane.",
+      "exemplar": false,
+      "comparison": {
+        "baseline": "asset-reviews/vascular/c6f9f0a23cb79a.webp",
+        "candidate": "asset-reviews/vascular/2949516155da16.webp",
+        "views": [
+          {
+            "label": "Whole segment \u00b7 matched oblique view",
+            "baseline": "asset-reviews/vascular/75c0e7e11dfe22.webp",
+            "candidate": "asset-reviews/vascular/b880247521c1dc.webp"
+          },
+          {
+            "label": "Reverse \u00b7 neutral light",
+            "baseline": "asset-reviews/vascular/7f7f047639f980.webp",
+            "candidate": "asset-reviews/vascular/3a3815231b53b1.webp"
+          }
+        ]
+      },
+      "additionalUses": [
+        {
+          "case": "carotid-plaque"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "carotid-normal",
+      "part": "Left ECA",
+      "baseline": "0d943e4",
+      "revision": "23144a59b39a0e646bda5434538f9bebb66502a0cadb681a7ec993c4cd12695e",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Locate the cut rim of the Left ECA wall and trace its open blood channel in two views.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.031 mm at z=68.4 mm. An independent axial ray passed the distal rim.",
+        "form": "The changing outline and taper are visible in neutral light; a matched anatomical surface for this specific segment is missing.",
+        "readability": "The gray end detail exposes the opening. The oblique and reverse views confirm that the rim bounds the wall rather than a solid plug.",
+        "economy": "8,396 \u2192 2,560 triangles; position, normal and index buffers 151,176 \u2192 49,920 bytes. At the widest affected ring a 20-side contour would move the 40-side midpoint inward by 0.031 mm."
+      },
+      "beforeScores": {
+        "fidelity": 1,
+        "form": 2,
+        "readability": 1,
+        "economy": 2
+      },
+      "beforeEvidence": {
+        "fidelity": "An axial ray struck the flat disk sealing the cut, although the authored blood channel is patent.",
+        "form": "Neutral close-up shows a disk over the exposed end; the rim cannot be followed.",
+        "readability": "The grayscale end view obscures the path into the vessel wall.",
+        "economy": "The baseline spends 8,396 triangles on uniformly spaced stations, including straight runs."
+      },
+      "note": "Authored case geometry. A cut end is an editorial section plane.",
+      "exemplar": false,
+      "comparison": {
+        "baseline": "asset-reviews/vascular/76de44a8cc9e75.webp",
+        "candidate": "asset-reviews/vascular/c7b49fe30a63e3.webp",
+        "views": [
+          {
+            "label": "Whole segment \u00b7 matched oblique view",
+            "baseline": "asset-reviews/vascular/362317a675e6be.webp",
+            "candidate": "asset-reviews/vascular/e3b2c5190ed012.webp"
+          },
+          {
+            "label": "Reverse \u00b7 neutral light",
+            "baseline": "asset-reviews/vascular/b02fe55c235251.webp",
+            "candidate": "asset-reviews/vascular/455ccf009166a7.webp"
+          }
+        ]
+      },
+      "additionalUses": [
+        {
+          "case": "carotid-plaque"
+        },
+        {
+          "case": "carotid-limited"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "carotid-normal",
+      "part": "Left ECA lumen",
+      "baseline": "0d943e4",
+      "revision": "23aea00c8f168fe522aaa3e02b0afadf358714a105be87108ce8195bd34abdbe",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Identify the course and caliber of the Left ECA blood pool at the case window.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.030 mm at z=68.4 mm.",
+        "form": "The changing outline and taper are visible in neutral light; a matched anatomical surface for this specific segment is missing.",
+        "readability": "The gray body remains traceable in both orientations; identifying its anatomical territory also requires its named case context.",
+        "economy": "8,396 \u2192 1,276 triangles; position, normal and index buffers 151,176 \u2192 24,936 bytes. At the widest affected ring a 20-side contour would move the 40-side midpoint inward by 0.026 mm."
+      },
+      "beforeScores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 2
+      },
+      "beforeEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.030 mm at z=68.4 mm.",
+        "form": "The changing outline and taper are visible in neutral light; a matched anatomical surface for this specific segment is missing.",
+        "readability": "The gray body remains traceable in both orientations; identifying its anatomical territory also requires its named case context.",
+        "economy": "The baseline spends 8,396 triangles on uniformly spaced stations, including straight runs."
+      },
+      "note": "Authored case geometry. A cut end is an editorial section plane.",
+      "exemplar": false,
+      "comparison": {
+        "baseline": "asset-reviews/vascular/4fcb83511f72df.webp",
+        "candidate": "asset-reviews/vascular/f44158e687ed49.webp",
+        "views": [
+          {
+            "label": "Whole segment \u00b7 matched oblique view",
+            "baseline": "asset-reviews/vascular/cd97b023ae4007.webp",
+            "candidate": "asset-reviews/vascular/2ef8581e162ead.webp"
+          },
+          {
+            "label": "Reverse \u00b7 neutral light",
+            "baseline": "asset-reviews/vascular/b6a81adaaa5059.webp",
+            "candidate": "asset-reviews/vascular/aa32f0c0f7261c.webp"
+          }
+        ]
+      },
+      "additionalUses": [
+        {
+          "case": "carotid-plaque"
+        },
+        {
+          "case": "carotid-limited"
+        }
+      ]
+    },
+    {
+      "source": "case",
+      "case": "carotid-plaque",
+      "part": "Right CCA",
+      "baseline": "0d943e4",
+      "revision": "ad9adf7767ee1a66a80a569c886c67c7dbe3ceb5d8042cb4e84183a90175e8e9",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Locate the cut rim of the Right CCA wall and trace its open blood channel in two views.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.037 mm at z=58.8 mm. An independent axial ray passed the distal rim.",
+        "form": "The neutral oblique and reverse views show the caliber and the cut face. The separate acquired-case sweep has a more irregular course.",
+        "readability": "The gray end detail exposes the opening. The oblique and reverse views confirm that the rim bounds the wall rather than a solid plug.",
+        "economy": "6,476 \u2192 1,760 triangles; position, normal and index buffers 116,616 \u2192 35,520 bytes. At the widest affected ring a 20-side contour would move the 40-side midpoint inward by 0.059 mm."
+      },
+      "beforeScores": {
+        "fidelity": 1,
+        "form": 2,
+        "readability": 1,
+        "economy": 2
+      },
+      "beforeEvidence": {
+        "fidelity": "An axial ray struck the flat disk sealing the cut, although the authored blood channel is patent.",
+        "form": "Neutral close-up shows a disk over the exposed end; the rim cannot be followed.",
+        "readability": "The grayscale end view obscures the path into the vessel wall.",
+        "economy": "The baseline spends 6,476 triangles on uniformly spaced stations, including straight runs."
+      },
+      "note": "Authored case geometry. A cut end is an editorial section plane. The original sweep is another subject, independently framed.",
+      "exemplar": true,
+      "comparison": {
+        "baseline": "asset-reviews/vascular/26f74a882023aa.webp",
+        "candidate": "asset-reviews/vascular/5acd036d97de45.webp",
+        "views": [
+          {
+            "label": "Whole segment \u00b7 matched oblique view",
+            "baseline": "asset-reviews/vascular/d9be8cdbc177cf.webp",
+            "candidate": "asset-reviews/vascular/c7fe7f725c1e38.webp",
+            "original": "asset-reviews/vascular/77f797c9457f4e.webp"
+          },
+          {
+            "label": "Reverse \u00b7 neutral light",
+            "baseline": "asset-reviews/vascular/7af95335bff4c5.webp",
+            "candidate": "asset-reviews/vascular/9be47923839338.webp"
+          }
+        ]
+      }
+    },
+    {
+      "source": "case",
+      "case": "carotid-plaque",
+      "part": "Right ICA",
+      "baseline": "0d943e4",
+      "revision": "e19021b808414a47e2bed4fad0fa38b971b95146bf72b0df781c1ecdf3da8431",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Locate the cut rim of the Right ICA wall and trace its open blood channel in two views.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.034 mm at z=62.1 mm. An independent axial ray passed the distal rim.",
+        "form": "The changing outline and taper are visible in neutral light; a matched anatomical surface for this specific segment is missing.",
+        "readability": "The gray end detail exposes the opening. The oblique and reverse views confirm that the rim bounds the wall rather than a solid plug.",
+        "economy": "8,396 \u2192 5,280 triangles; position, normal and index buffers 151,176 \u2192 98,880 bytes. At the widest affected ring a 20-side contour would move the 40-side midpoint inward by 0.050 mm."
+      },
+      "beforeScores": {
+        "fidelity": 1,
+        "form": 2,
+        "readability": 1,
+        "economy": 2
+      },
+      "beforeEvidence": {
+        "fidelity": "An axial ray struck the flat disk sealing the cut, although the authored blood channel is patent.",
+        "form": "Neutral close-up shows a disk over the exposed end; the rim cannot be followed.",
+        "readability": "The grayscale end view obscures the path into the vessel wall.",
+        "economy": "The baseline spends 8,396 triangles on uniformly spaced stations, including straight runs."
+      },
+      "note": "Authored case geometry. A cut end is an editorial section plane.",
+      "exemplar": false,
+      "comparison": {
+        "baseline": "asset-reviews/vascular/7b0aa36d668e64.webp",
+        "candidate": "asset-reviews/vascular/4c5606da9265d5.webp",
+        "views": [
+          {
+            "label": "Whole segment \u00b7 matched oblique view",
+            "baseline": "asset-reviews/vascular/f4734ef8f6396e.webp",
+            "candidate": "asset-reviews/vascular/8ed30ed64e68b9.webp"
+          },
+          {
+            "label": "Reverse \u00b7 neutral light",
+            "baseline": "asset-reviews/vascular/1ebe73191f1b2a.webp",
+            "candidate": "asset-reviews/vascular/cef22dab553334.webp"
+          }
+        ]
+      }
+    },
+    {
+      "source": "case",
+      "case": "carotid-plaque",
+      "part": "Right ICA lumen",
+      "baseline": "0d943e4",
+      "revision": "3c70ae1ce404e4bc7db17b4c5e7014347a81bddac1b1a5f89a92784893b30f7c",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Identify the course and caliber of the Right ICA blood pool at the case window.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.032 mm at z=62.1 mm.",
+        "form": "The changing outline and taper are visible in neutral light; a matched anatomical surface for this specific segment is missing.",
+        "readability": "The gray body remains traceable in both orientations; identifying its anatomical territory also requires its named case context.",
+        "economy": "8,396 \u2192 2,636 triangles; position, normal and index buffers 151,176 \u2192 49,416 bytes. At the widest affected ring a 20-side contour would move the 40-side midpoint inward by 0.043 mm."
+      },
+      "beforeScores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 2
+      },
+      "beforeEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.032 mm at z=62.1 mm.",
+        "form": "The changing outline and taper are visible in neutral light; a matched anatomical surface for this specific segment is missing.",
+        "readability": "The gray body remains traceable in both orientations; identifying its anatomical territory also requires its named case context.",
+        "economy": "The baseline spends 8,396 triangles on uniformly spaced stations, including straight runs."
+      },
+      "note": "Authored case geometry. A cut end is an editorial section plane.",
+      "exemplar": false,
+      "comparison": {
+        "baseline": "asset-reviews/vascular/c6f9f0a23cb79a.webp",
+        "candidate": "asset-reviews/vascular/645f5546ed4e78.webp",
+        "views": [
+          {
+            "label": "Whole segment \u00b7 matched oblique view",
+            "baseline": "asset-reviews/vascular/9b9171206af9de.webp",
+            "candidate": "asset-reviews/vascular/d3b2826546e16c.webp"
+          },
+          {
+            "label": "Reverse \u00b7 neutral light",
+            "baseline": "asset-reviews/vascular/053abe5b3f49a8.webp",
+            "candidate": "asset-reviews/vascular/ebcf221ea5810d.webp"
+          }
+        ]
+      }
+    },
+    {
+      "source": "case",
+      "case": "carotid-plaque",
+      "part": "Carotid plaque",
+      "baseline": "0d943e4",
+      "revision": "b70c7c34b3ed1aab7cf454413726e7f52a0381c6a37be069d726c34f94872fd9",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Isolate the eccentric plaque and distinguish its inner boundary from the residual blood pool.",
+      "scores": {
+        "fidelity": 3,
+        "form": 2,
+        "readability": 2,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Plaque surfaces use the case wall and eccentric lumen contours. Independent 3D deviation analysis of the plaque tips is pending.",
+        "form": "The residual-channel face is visible. The isolated patch appears sleeve-like at overview and its thin edges are difficult to trace.",
+        "readability": "The adjacent wall and residual lumen are needed to interpret the isolated shell.",
+        "economy": "The 40-side inner plaque contour preserves the eccentric lumen. A 20-side angular trial deviates by up to 0.089 mm at a chord midpoint. The delivered plaque occupies 101,760 geometry bytes."
+      },
+      "beforeScores": {
+        "fidelity": 3,
+        "form": 2,
+        "readability": 2,
+        "economy": 3
+      },
+      "beforeEvidence": {
+        "fidelity": "Plaque surfaces use the case wall and eccentric lumen contours. Independent 3D deviation analysis of the plaque tips is pending.",
+        "form": "The residual-channel face is visible. The isolated patch appears sleeve-like at overview and its thin edges are difficult to trace.",
+        "readability": "The adjacent wall and residual lumen are needed to interpret the isolated shell.",
+        "economy": "5,440 triangles. The current lighter angular trial documents the vulnerable inner contour."
+      },
+      "note": "Authored case geometry. A cut end is an editorial section plane.",
+      "exemplar": false,
+      "comparison": {
+        "baseline": "asset-reviews/vascular/f64d4b74b9d0ff.webp",
+        "candidate": "asset-reviews/vascular/cf534d42cf7fd2.webp",
+        "views": [
+          {
+            "label": "Whole segment \u00b7 matched oblique view",
+            "baseline": "asset-reviews/vascular/5bcb5052e3f579.webp",
+            "candidate": "asset-reviews/vascular/b092664f5b64e1.webp"
+          },
+          {
+            "label": "Reverse \u00b7 neutral light",
+            "baseline": "asset-reviews/vascular/629409b0e50357.webp",
+            "candidate": "asset-reviews/vascular/9ca23971617964.webp"
+          }
+        ]
+      }
+    },
+    {
+      "source": "case",
+      "case": "carotid-limited",
+      "part": "Left ICA",
+      "baseline": "0d943e4",
+      "revision": "1fd553d8f303fcd441f044235ed43239d854b2dcba89546b4ee89857791ffdb8",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Locate the cut rim of the Left ICA wall and trace its open blood channel in two views.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 4,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.036 mm at z=107.5 mm. An independent axial ray passed the distal rim.",
+        "form": "The changing outline and taper are visible in neutral light; a matched anatomical surface for this specific segment is missing.",
+        "readability": "The gray end detail exposes the opening. The oblique and reverse views confirm that the rim bounds the wall rather than a solid plug.",
+        "economy": "8,396 \u2192 4,800 triangles; position, normal and index buffers 151,176 \u2192 90,240 bytes. At the widest affected ring a 20-side contour would move the 40-side midpoint inward by 0.050 mm."
+      },
+      "beforeScores": {
+        "fidelity": 1,
+        "form": 2,
+        "readability": 1,
+        "economy": 2
+      },
+      "beforeEvidence": {
+        "fidelity": "An axial ray struck the flat disk sealing the cut, although the authored blood channel is patent.",
+        "form": "Neutral close-up shows a disk over the exposed end; the rim cannot be followed.",
+        "readability": "The grayscale end view obscures the path into the vessel wall.",
+        "economy": "The baseline spends 8,396 triangles on uniformly spaced stations, including straight runs."
+      },
+      "note": "Authored case geometry. A cut end is an editorial section plane.",
+      "exemplar": false,
+      "comparison": {
+        "baseline": "asset-reviews/vascular/7b0aa36d668e64.webp",
+        "candidate": "asset-reviews/vascular/4812b11e4ef60f.webp",
+        "views": [
+          {
+            "label": "Whole segment \u00b7 matched oblique view",
+            "baseline": "asset-reviews/vascular/a95ab6d1258d1d.webp",
+            "candidate": "asset-reviews/vascular/0787234d49fa2c.webp"
+          },
+          {
+            "label": "Reverse \u00b7 neutral light",
+            "baseline": "asset-reviews/vascular/883ca285d56aea.webp",
+            "candidate": "asset-reviews/vascular/7dd5d4696f335b.webp"
+          }
+        ]
+      }
+    },
+    {
+      "source": "case",
+      "case": "carotid-limited",
+      "part": "Left ICA lumen",
+      "baseline": "0d943e4",
+      "revision": "8c3d0bc6c3e0f0de59f8b5fdbaed51bb53e5f227cf22114a9a9122bd964778b5",
+      "reviewer": "Codex \u00b7 agent assessment",
+      "reviewedOn": "2026-11-26",
+      "rubric": "docs/guides/asset-quality.md @ 964ad706",
+      "task": "Identify the course and caliber of the Left ICA blood pool at the case window.",
+      "scores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 4
+      },
+      "scoreEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.035 mm at z=107.5 mm.",
+        "form": "The changing outline and taper are visible in neutral light; a matched anatomical surface for this specific segment is missing.",
+        "readability": "The gray body remains traceable in both orientations; identifying its anatomical territory also requires its named case context.",
+        "economy": "8,396 \u2192 2,396 triangles; position, normal and index buffers 151,176 \u2192 45,096 bytes. At the widest affected ring a 20-side contour would move the 40-side midpoint inward by 0.044 mm."
+      },
+      "beforeScores": {
+        "fidelity": 4,
+        "form": 3,
+        "readability": 3,
+        "economy": 2
+      },
+      "beforeEvidence": {
+        "fidelity": "Case-space contours were sampled every 0.2 mm, including edge midpoints. Worst discrepancy from the authored section was 0.035 mm at z=107.5 mm.",
+        "form": "The changing outline and taper are visible in neutral light; a matched anatomical surface for this specific segment is missing.",
+        "readability": "The gray body remains traceable in both orientations; identifying its anatomical territory also requires its named case context.",
+        "economy": "The baseline spends 8,396 triangles on uniformly spaced stations, including straight runs."
+      },
+      "note": "Authored case geometry. A cut end is an editorial section plane.",
+      "exemplar": false,
+      "comparison": {
+        "baseline": "asset-reviews/vascular/c6f9f0a23cb79a.webp",
+        "candidate": "asset-reviews/vascular/97ddd0a7b6b28a.webp",
+        "views": [
+          {
+            "label": "Whole segment \u00b7 matched oblique view",
+            "baseline": "asset-reviews/vascular/0c349d5049f16c.webp",
+            "candidate": "asset-reviews/vascular/679206d02030f1.webp"
+          },
+          {
+            "label": "Reverse \u00b7 neutral light",
+            "baseline": "asset-reviews/vascular/aca323529bfcbe.webp",
+            "candidate": "asset-reviews/vascular/0618684dd9ad13.webp"
+          }
+        ]
+      }
+    }
+  ],
+  "recipeHash": "ea9f8b85b729df62a86399606821ca961cec3190ee475411738575097bb9fb8f",
+  "evidenceSha256": {
+    "053abe5b3f49a8.webp": "053abe5b3f49a888061fcd701e807e12ce8c8baf4f96487d7b4a42ad4f4d82c0",
+    "0618684dd9ad13.webp": "0618684dd9ad1337ec1021cf70bd9a6315828baa93606a32b9627590a0ec9077",
+    "0787234d49fa2c.webp": "0787234d49fa2c7ce642a6b3d35aeb3b4c659fded81a4bc2ee51956335aa9a02",
+    "09f45e1934a91d.webp": "09f45e1934a91d77c1a245a435c74825b8eb4f694a31683de94305912708714a",
+    "0c349d5049f16c.webp": "0c349d5049f16c4effa4128ff88768d1cb51e04fb22466001aa5af0499fcb70f",
+    "1406d08c422669.webp": "1406d08c42266994f1481149e1f5ee81bc313e67775b00f39966faf0b32dd1b5",
+    "1a322cd93a1990.webp": "1a322cd93a199093050258f1d5639d5045308168483d95276f78ce0df2b7e2c2",
+    "1ebe73191f1b2a.webp": "1ebe73191f1b2a614b1a885b7dce9f565fbf7f5e5a1ac50aa2e0d6d5b1917902",
+    "229768f794ff8a.webp": "229768f794ff8a99a6222ea5be6e2cb79964a622c4327edf95d666751ed781f4",
+    "22d86e434a8678.webp": "22d86e434a86783e5190e5443266f57b9b95c454698d7903c3db01ffbf66989d",
+    "24e708dfecf32a.webp": "24e708dfecf32a6b4e5be26b894e38c88585efe6ba3181de09cae72bcb6917f6",
+    "26f74a882023aa.webp": "26f74a882023aa8845d577edc96ffc58361e388ac994903e952c987794f24b98",
+    "2949516155da16.webp": "2949516155da166a0c370d7e566367ac276aacaaa543a5d714563cc2bcab0ab1",
+    "2b5626f19c5b90.webp": "2b5626f19c5b900eee75a922f5b3193f17c818620a56b4d8e7c6417c81cf6d43",
+    "2c28bef2d0bf4f.webp": "2c28bef2d0bf4f39a7a3174c01192ab928fb2a951707e5c571050bfb61ef03c7",
+    "2ef8581e162ead.webp": "2ef8581e162eadf5de85a96e0e5430dc9d3ae7b82bb8eefca7c179e174d95f9e",
+    "2fdf0101651598.webp": "2fdf01016515983d3e9d9dc93c46c2a14ab5923533b8c55ee303de36a3b757de",
+    "333214d7b6f575.webp": "333214d7b6f575b61a7825f9570870325d4a56c8b47426f09c5a5efe37f8dd59",
+    "35a760c8d58696.webp": "35a760c8d586960fe3a14aa6be75d9c74a22325a4d8ae4ee6ece899abbdfadfb",
+    "3602df31e69ac1.webp": "3602df31e69ac17455a00e7f00dc838323e989df519c5674c711aab088c23357",
+    "362317a675e6be.webp": "362317a675e6bee316eaf1d3413d39e5641e47e50eb28b31aecb8beceb787031",
+    "3a3815231b53b1.webp": "3a3815231b53b17287ece5daad34db7f8aeffa42f33798db2654674aad87ce40",
+    "3ed4e0652fc73e.webp": "3ed4e0652fc73e953e5a368959f309115bb9d3e3485948a2df69c0de5aa5cc94",
+    "43bd327b7287dc.webp": "43bd327b7287dc4d771a0d14034a378864191eae4848b816acbf4a6ed588b0dd",
+    "455ccf009166a7.webp": "455ccf009166a783969d0b09c59ea68e7be1446afbe6c74ed711ed2aac7750c5",
+    "47469d82e94c02.webp": "47469d82e94c029c3666a0c47655a930697925bd05f458e3a3163881b26fb44d",
+    "4812b11e4ef60f.webp": "4812b11e4ef60f083aea9a54614010047d5b959c7b0ff85f6bf8f8f28828c8fb",
+    "4c5606da9265d5.webp": "4c5606da9265d5b03b7fb58622cc1706f165600df46fec2e5eb661b6d7f0ccf4",
+    "4e2c36ee46bf53.webp": "4e2c36ee46bf53c9e1e6576e20eea27344e55a45bcffa96215fd4ffd634923bc",
+    "4fcb83511f72df.webp": "4fcb83511f72df6f9bd499845b432b0ad7a3b965533c68803a1bf4f441acc18d",
+    "510aaa913e6ffb.webp": "510aaa913e6ffb78450ed16cfe80fd6bd47152773bbef7ce170c7deb7e4f3bf1",
+    "513ec027367eb4.webp": "513ec027367eb4c4caeb0df2f24f9070fd915dd6e27555f55738ea5657bbfef5",
+    "552d2f82c14863.webp": "552d2f82c14863f9a90c4ae55ae1e04b15d5804135062b832ddac156e5a0a7ce",
+    "5acd036d97de45.webp": "5acd036d97de45e887b9069a832d2910b3d6bfb28150efaf20ed318e6d942166",
+    "5bcb5052e3f579.webp": "5bcb5052e3f5794dd59753ec85e30b42e79264633988b07f01cf54a8ea0463ca",
+    "629409b0e50357.webp": "629409b0e50357b127a55f5b37a677586d67cb14863a1b12bbe2cb088c1411d8",
+    "63c78369095189.webp": "63c783690951899833da2cc344ce3632b871ebea99a56a00ed42fc4725debe40",
+    "645f5546ed4e78.webp": "645f5546ed4e7889a5d9aa88ef5f7dede90e5fbc3f03f8d53dc8dd5f320a4417",
+    "679206d02030f1.webp": "679206d02030f1ccc1d69457a427915d20309195e3c6510b5f8ab8e2ee232a23",
+    "6c2e49d16d4922.webp": "6c2e49d16d49228d42862e1e9452456c3ebffe0b1e7795a96fd54e1d7e5f8058",
+    "6cbd7f2d83250f.webp": "6cbd7f2d83250fbaf322cd01b183f8d255b2fe64cfae939d4e7f0e93beed6cec",
+    "70fefb23520e9a.webp": "70fefb23520e9adef95eafa9c948348f6b2d07ad8a35e14326e506f62f51b7c4",
+    "71eb6c0bd94dc6.webp": "71eb6c0bd94dc65bf7d0caac2bcb94802d34a3018f231aad6cc9666efbaac2f8",
+    "73d14f3f896bec.webp": "73d14f3f896becaa8c78246ac2bb30fe83d0643125c8f8e2ee93809f23b3dd38",
+    "75c0e7e11dfe22.webp": "75c0e7e11dfe225ccc5ed6235c1a6b4ffd1d4a14563315d12c3767b8b6de9fbe",
+    "76de44a8cc9e75.webp": "76de44a8cc9e75fd22d928401c66a4831ff5b9089f2ab62f98bc097991b681d5",
+    "77f797c9457f4e.webp": "77f797c9457f4e25ba52189ef99556ab250e6d0a0f969e550c16ea5e3cf2ccfd",
+    "7af95335bff4c5.webp": "7af95335bff4c5efea62f29c5f788906490e972c4bd9ba944eb418ab6ecc8c34",
+    "7b0aa36d668e64.webp": "7b0aa36d668e6413e39f63ea80b1e4d033b8f88e800f80a787c517579a770010",
+    "7dd5d4696f335b.webp": "7dd5d4696f335bea3ef84968f01a905baacf6b876d64c45eeb99f7754929baa5",
+    "7f7f047639f980.webp": "7f7f047639f9807192c5c465457794a197aae8c9b5774af5a4bbea16ba6f1cbc",
+    "8345034edd67a2.webp": "8345034edd67a2bbc59bf741b2c99b0d3b85e709a9bcfe5ac377e422cff33c74",
+    "8364f3988d14c5.webp": "8364f3988d14c5b1111bf548e07495e347c34368c0328141db52d61e88efd504",
+    "883ca285d56aea.webp": "883ca285d56aeaa76f64901d28107dd36957c12352675ddb44428d75708ca50e",
+    "8d768c80626a31.webp": "8d768c80626a31d7d1c3f281d5aacea0377d6694262c6c48f1da7a25a176cc1a",
+    "8ed30ed64e68b9.webp": "8ed30ed64e68b999ffe488bea98826213f2c413e16be849686153c1b56b2b6c8",
+    "9311d8516391f8.webp": "9311d8516391f8c323f2c0c8cf2ee18c19c45be9b250eb8e8feb732f38a4ed36",
+    "97ddd0a7b6b28a.webp": "97ddd0a7b6b28ad174f82a771cc01e9935880d16fd589229d331b544932eca58",
+    "9a14ef1136bca2.webp": "9a14ef1136bca294af32647e6bf8fb5ac6cfafb2d0fc5bf7a64b0075617d26bd",
+    "9b9171206af9de.webp": "9b9171206af9de8dc48b280f8216dc35fad7ee1e52be1fb05719db32414c9fc3",
+    "9be47923839338.webp": "9be4792383933828634dafe8048245f6131f6284b6b67393c55ae5c1b6e9878d",
+    "9ca23971617964.webp": "9ca23971617964842bc2d546f9b120b6d78d4922b01b101b4e31ed9e414c4075",
+    "9f4707733c65f1.webp": "9f4707733c65f115ad514f96469932fd54f5d6221959fec776c34c7b93f4ce4d",
+    "a2678fda538afc.webp": "a2678fda538afc3817f31cd0fc090fe85c3e39cdcd4dc2872e7a603d74823642",
+    "a95ab6d1258d1d.webp": "a95ab6d1258d1dfdbd02fa3095f552fdf1a1aa1cb0ca7b4e3af87c40bd828bf6",
+    "aa32f0c0f7261c.webp": "aa32f0c0f7261ce48fe393f8f22b045dcdb3a8fdcd2b24867eb5de52e4441342",
+    "aca323529bfcbe.webp": "aca323529bfcbe120609913e639637c79851c8e06d4af912766f0682b2d48c7f",
+    "ada73a9facfd75.webp": "ada73a9facfd7515a3feef33d7a019630f364ce288233412bd6a5c07fcee8be9",
+    "add48dc4715272.webp": "add48dc4715272c1144636b166f8b2d29bd7c09e62eccb3502da0cd3a9615a3d",
+    "afcdc86dcf8896.webp": "afcdc86dcf8896657504bceb67ae2a2fc7ba42ec78c810b4c5cbb49af389ffff",
+    "b02fe55c235251.webp": "b02fe55c235251de820d723ac8b1636a4ffbd3e2b9af4c1841163b850089d3de",
+    "b092664f5b64e1.webp": "b092664f5b64e1ac2a96eea56d6a5402caca467f45ffe3cc5cd3aede9e5db1e9",
+    "b12e5dce438e41.webp": "b12e5dce438e419ac7e9f4f4ba95c16618721eedf571449c545cfed774866213",
+    "b6a81adaaa5059.webp": "b6a81adaaa5059dfea5625d91104adaeb529f9577d41b9691f5323b784e8c9e1",
+    "b704f576dff06b.webp": "b704f576dff06b18eb52e58b699493e71154bf6bae29f8372a1e79cd0caacf85",
+    "b7b5d70d49aaa7.webp": "b7b5d70d49aaa74f7db05f78dcbbce5764126037faf437888e504f6eb47c04bd",
+    "b880247521c1dc.webp": "b880247521c1dc318add75307a3453167efef65fedf89d30131dbe7114ddbf5a",
+    "bca6ab904733d4.webp": "bca6ab904733d48f83dd292b6ef892a7a50a25715182c5b5c322d57d22a7ce4e",
+    "bf816ae53081a8.webp": "bf816ae53081a8866d532ec67fd24478eb249c8547420d068ba09d903b7afb96",
+    "c38ba4546e9ad7.webp": "c38ba4546e9ad78d30cc08c7c1add95a0d0ad502ae6975933247ebcc72e04884",
+    "c4b5be2f939e16.webp": "c4b5be2f939e16b13aa244c68a55b00acceed64a1c140a3fce127f2961f07de2",
+    "c6f9f0a23cb79a.webp": "c6f9f0a23cb79af8cb7bf168b85c2dbce994563364c1412fb17edd9f29175ab3",
+    "c7b49fe30a63e3.webp": "c7b49fe30a63e3c9f05f26772e048ad4770104c122539a07e56fe78094ccbe77",
+    "c7fe7f725c1e38.webp": "c7fe7f725c1e38e4d0ca96ad72cbc3e7d978fef04e1d3cc0a88812f478966cfb",
+    "ca335bbea95b58.webp": "ca335bbea95b586a113f8679c3b469381929b89fe7e9b62f511b5bddcaae8698",
+    "cd97b023ae4007.webp": "cd97b023ae4007d00d794de7463aaf8543081546559df8b6c8505d3b6a93e4e1",
+    "ce50dd6424270b.webp": "ce50dd6424270bdfc9f3d27980101b5a0ff8be43702a5df8ca5f7dd00190bede",
+    "cef22dab553334.webp": "cef22dab553334cee1a0a030b6b1f3c1f219ca60f742f9f7e51da5c21e036464",
+    "cf534d42cf7fd2.webp": "cf534d42cf7fd2e49465d42f8b0260c76a0686cc8e69c5cb1c0e525a1a927178",
+    "d16904229f9e26.webp": "d16904229f9e268b04210c775cd6a938b6caa9a427e421344a65fda39abf45af",
+    "d3b2826546e16c.webp": "d3b2826546e16c35a297cc69bd0e7208cb6df704c46dbae01b84959ebeb6c324",
+    "d9be8cdbc177cf.webp": "d9be8cdbc177cf6a051267c1c33708b009558d359faeca5d112f0a8f6310121e",
+    "dc25dec3a3dca4.webp": "dc25dec3a3dca491a4e919cc090e478d62af68ebbca06517aca214e8748a681f",
+    "e17edf710e00df.webp": "e17edf710e00dfcab819d40204fcc25e361b959d98a42ec9773b6f8252152173",
+    "e35807b586b96c.webp": "e35807b586b96c87a2739efa3d738b18a394870bd4f9b8a168d77cb476729f4b",
+    "e3b2c5190ed012.webp": "e3b2c5190ed0125eafdf3ac31bd67a15433a5eb60674f2155a8b5d975d43b489",
+    "ebcf221ea5810d.webp": "ebcf221ea5810d395fb8f0f2a9e2050c3e845d94f3efaab0f6fea03091cb8c33",
+    "f42e6868877762.webp": "f42e68688777626781cbe6181ea0968b188e0b55acf9a5b4fb4c8993e7dd6c90",
+    "f44158e687ed49.webp": "f44158e687ed49d33e326e84e980251cd411f4325f3e97287c250b3c38d9e4f5",
+    "f4734ef8f6396e.webp": "f4734ef8f6396e6562ef6bfb76beff4966ae3a56b29a966cef80894163bcf879",
+    "f568d600766695.webp": "f568d600766695a63827de2bfed5bc2ec7dd6014884517fb2df4139b15bfd9f2",
+    "f5b30b698f3742.webp": "f5b30b698f374283c4b828626b1a2a6929ea23a32d3581576356874cad905fa5",
+    "f64d4b74b9d0ff.webp": "f64d4b74b9d0ff5d07eb3bf6c2c2fecd43113567ab9928d8073eff61a5a67fc7",
+    "f66fc59ed6913e.webp": "f66fc59ed6913e20e8201c14c361ccd325acae3ad7c8ba3379ddcfc819695027",
+    "f74d71232142fe.webp": "f74d71232142feb2e23be6cb207727236a0e1ebaf948d688e77d751975f2b7af"
+  },
+  "rubricHash": "a38e552869511cd5bceacaa5ea4456f4d0530e58e7dce2bc6855587a98b0e684"
+}
