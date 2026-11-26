@@ -301,15 +301,16 @@ function annotation(ink, plane, slice, {scale, tip, center: origin}, overlay) {
 export function createEchoRenderer() {
   const mask = makeSurface(RASTER_WIDTH, RASTER_HEIGHT, {willReadFrequently: true, alpha: false});
   const picture = makeSurface(RASTER_WIDTH, RASTER_HEIGHT, {alpha: false});
-  const image = picture.ink.createImageData(RASTER_WIDTH, RASTER_HEIGHT);
-  for (let index = 3; index < image.data.length; index += 4) image.data[index] = 255;
-  let speckle;
-  let viewId;
+  let image, speckle, previousPlane;
   return function renderEcho(ink, width, height, plane, slice, motion, overlay) {
     const calibration = bmodeCalibration(plane);
-    if (viewId !== plane.id) {
+    if (!previousPlane || previousPlane.id !== plane.id || previousPlane.depth !== plane.depth ||
+        previousPlane.halfAngle !== plane.halfAngle) {
       speckle = buildSpeckle(plane, calibration);
-      viewId = plane.id;
+      // A new sector can exclude pixels that contained echoes in the last view.
+      image = picture.ink.createImageData(RASTER_WIDTH, RASTER_HEIGHT);
+      for (let index = 3; index < image.data.length; index += 4) image.data[index] = 255;
+      previousPlane = plane;
     }
     paintReflectors(mask.ink, plane, slice, calibration);
     const reflector = mask.ink.getImageData(0, 0, RASTER_WIDTH, RASTER_HEIGHT).data;

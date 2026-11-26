@@ -1,24 +1,24 @@
 """Assemble the playable visit pages and their adjacent worked material."""
 import json
 from html import escape
-from pathlib import Path
 import shutil
 import subprocess
 from urllib.parse import urlencode
 
 from aaa_tours import write_aaa_tours
+from exam_sweep import sweep_page
+from tour_timeline import timeline_controls
 
 
 def evidence_index(root, groups, families):
     visits = [{'owner': families[family][1], 'record': record} for family, records in groups.items() for record in records]
-    result = subprocess.run(['node', str(root.parent / 'exams/evidence.mjs')], input=json.dumps(visits),
+    result = subprocess.run(['node', str(root.parent / 'tours/case-evidence.mjs')], input=json.dumps(visits),
                             capture_output=True, text=True, check=True)
     return json.loads(result.stdout)
 
 
 def tour_path(record):
-    folder = 'tours/aaa' if record['family'] == 'aaa' else 'exams'
-    return f"{folder}/{record['id']}.html"
+    return f"tours/{record['family']}/{record['id']}.html"
 
 
 def evidence_url(page, chapter):
@@ -26,35 +26,45 @@ def evidence_url(page, chapter):
     return f'{page}?{query}#exam'
 
 
-def exam_page(record, owner, family_title, evidence):
+def exam_page(record, family_title, chapters):
     key = record['id']
     title = escape(record['title'])
-    data = json.dumps(record, ensure_ascii=False).replace('<', r'\u003c')
-    rows = []
-    for chapter in evidence:
+    panels = []
+    findings = []
+    sections = []
+    for chapter in chapters:
+        chapter_id = chapter['id']
+        heading = escape(chapter['title'])
+        observation = escape(chapter['observation'])
+        frame = chapter['evidenceFrame']
         href = escape(evidence_url(key + '.html', chapter))
-        finding = escape(chapter.get('measurement') or chapter['observation'])
-        rows.append(f'<li><strong>{escape(chapter["title"])}</strong><br><a href="{href}">{finding}</a></li>')
+        measure = escape(chapter.get('measurement') or '')
+        sections.append(dict(id=chapter_id, sweep=chapter_id, label=chapter['title'],
+                             start=0, end=chapter['frames'] - 1))
+        panels.append(f'''<section class="chapter" id="{escape(chapter_id)}" hidden
+          data-view-image="{escape(chapter['viewImage'])}" data-evidence-frame="{frame}">
+          <div><h2>{heading}</h2><p>{observation}</p></div>
+          <div class="evidence"><a href="{href}">Show saved frame</a></div></section>''')
+        findings.append(f'<li><a href="{href}">{heading}</a> · {measure or observation}</li>')
     return f'''<!doctype html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>{title} · Full ultrasound exam</title><link rel="stylesheet" href="../cases/cases.css">
-<link rel="stylesheet" href="exam.css"><script type="module" src="player.js"></script></head>
-<body><header><nav aria-label="Breadcrumb"><a href="../index.html">Ultrasound anatomy</a> / <a href="../tours/index.html#{record['family']}">Tours</a></nav></header>
-<main data-owner="{owner}"><p class="category">{escape(family_title)} · Modeled exam</p><h1>{title}</h1>
-<p class="referral"><strong>Referral</strong> {escape(record['indication'])}</p>
-<p><a href="../cases/{key}.html">Worked views and acquired comparisons</a> · <a href="#impression">Exam impression</a></p>
-<p id="status" role="status">Loading acquisitions…</p><noscript>Enable JavaScript to play the acquisitions.</noscript>
-<section id="exam" aria-label="Playable acquisitions" hidden>
-<div class="transport"><button type="button" id="play">Play full exam</button>
-<label>Chapter <select id="chapter"></select></label><button type="button" id="replay">Replay chapter</button></div>
-<div class="monitors"><figure><figcaption><h2 id="view"></h2><button type="button" id="overlay" aria-pressed="false">Tissue overlay</button></figcaption>
-<canvas id="scan" width="800" height="440" aria-label="Modeled ultrasound acquisition"></canvas></figure>
-<figure><figcaption><h2>3D anatomy and probe</h2></figcaption><canvas id="pose" width="400" height="300" aria-label="Probe position and anatomy at the current frame"></canvas><label class="orbit">Orbit <input id="orbit" type="range" min="-90" max="90" value="0" aria-label="Orbit 3D anatomy"><output id="yaw">0°</output><button type="button" id="resetView">Reset</button></label></figure></div><ul id="legend" aria-label="Tissue overlay legend" hidden></ul>
-<label class="timeline"><span>Exam position</span><input id="seek" type="range" min="0" step="1" value="0"><output id="position" for="seek"></output></label>
-<p id="finished" role="status" hidden>Exam complete. <a href="#impression">Read the impression</a></p><p id="observed"><span id="observationCue"></span> <a id="observationLink" href="#exam"></a></p><button type="button" id="keyframe">Show evidence frame</button><output id="value"></output>
-</section><section class="report" id="impression"><h2>Impression</h2><p>{escape(record['impression'])}</p>
-<h3>Acquisition evidence</h3><ol id="evidence">{"".join(rows)}</ol><h3>Limits</h3><p>{escape(record['limitations'])}</p></section>
-<script id="record" type="application/json">{data}</script></main></body></html>
+<title>{title} · Ultrasound tour</title><link rel="stylesheet" href="../../study.css">
+<link rel="stylesheet" href="../../composed-tour/tour.css"><script defer src="../../composed-tour/tour.js"></script></head>
+<body><header class="mast"><div class="bar"><nav aria-label="Breadcrumb">
+<a class="caseLink" href="../../index.html">Ultrasound anatomy</a>
+<a class="caseLink" href="../index.html#{record['family']}">Tours</a>
+<span>{escape(family_title)}</span></nav></div></header>
+<main><header class="introduction"><h1>{title}</h1><p><strong>Referral</strong> {escape(record['indication'])}</p>
+<p><a href="../../cases/{key}.html">Worked views and acquired comparisons</a> · <a href="#impression">Impression and report</a></p></header>
+<section id="exam" aria-label="Acquisitions">{timeline_controls(sections, acquisition_picker=True)}
+<p id="tourProgress" class="sr" role="status"></p>{''.join(panels)}
+<div id="player" data-sweep-url="{key}-sweep.html" data-sweep-chapter-param="chapter" data-case-player></div>
+<noscript><p>Enable JavaScript to play the acquisitions. The <a href="../../cases/{key}.html">worked case</a> includes the saved views.</p></noscript>
+<p class="standaloneLink"><a id="openSweep">Open standalone sweep</a></p></section>
+<section class="reading" id="impression"><h2>Impression</h2><p>{escape(record['impression'])}</p>
+<h3 id="evidence">Acquisition evidence</h3><ol id="reportEvidence">{''.join(findings)}</ol>
+<h3>Limits</h3><p>{escape(record['limitations'])}</p></section>
+</main></body></html>
 '''
 
 
@@ -76,8 +86,10 @@ location.replace(target.href);</script>
 def write_exam_tours(destination, root, grouped, families, catalog, evidence, shared_aaa=False):
     exams = destination / 'exams'
     exams.mkdir(exist_ok=True)
-    for filename in ('player.js', 'exam.css'):
-        shutil.copyfile(root.parent / 'exams' / filename, exams / filename)
+    tours = destination / 'tours'
+    tours.mkdir(exist_ok=True)
+    for filename in ('case-sweep.js', 'case-sweep.css'):
+        shutil.copyfile(root.parent / 'tours' / filename, tours / filename)
     for family, records in grouped.items():
         name, owner, _ = families[family]
         modules = sorted((root / owner).glob('playable*.js'))
@@ -87,11 +99,15 @@ def write_exam_tours(destination, root, grouped, families, catalog, evidence, sh
             shutil.copyfile(module, destination / 'cases' / owner / module.name)
         if family == 'aaa':
             write_aaa_tours(destination, records, evidence, shared_aaa=shared_aaa)
+        else:
+            family_dir = tours / family
+            family_dir.mkdir(exist_ok=True)
             for record in records:
-                old = exams / (record['id'] + '.html')
-                old.write_text(legacy_handoff('../' + tour_path(record)))
-            continue
-        for row in records:
-            (exams / (row['id'] + '.html')).write_text(exam_page(row, owner, name, evidence[row['id']]))
-    (destination / 'tours' / 'index.html').write_text(catalog)
+                key = record['id']
+                (family_dir / (key + '.html')).write_text(exam_page(record, name, evidence[key]))
+                (family_dir / (key + '-sweep.html')).write_text(sweep_page(record, owner, name))
+        for record in records:
+            old = exams / (record['id'] + '.html')
+            old.write_text(legacy_handoff('../' + tour_path(record)))
+    (tours / 'index.html').write_text(catalog)
     (exams / 'index.html').write_text(legacy_handoff('../tours/index.html', index=True))

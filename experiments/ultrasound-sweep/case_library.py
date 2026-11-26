@@ -164,7 +164,7 @@ def case_page(case, related, owner, tour_link, finding, refs, evidence):
 <ol>{''.join(contents)}</ol></details>{finding_link}{link('#impression', 'Impression')}{link('#sources', 'Sources')}</div>'''
     body = f'''<p class="category">{escape(name)} · {KINDS[case['kind']]}</p><h1>{escape(case['title'])}</h1>
 <p class="referral"><strong>Referral</strong> {escape(case['indication'])}</p>{paragraph(case['summary'])}
-<p class="playLink">{link(case_tour, 'Open exam tour' if family == 'aaa' else 'Open full exam tour')}</p>
+<p class="playLink">{link(case_tour, 'Open exam tour')}</p>
 {navigation}<section class="views" aria-label="Worked views">{''.join(views)}</section>
 <section class="report" id="impression"><h2>Impression</h2>{paragraph(case['impression'])}<h3>Limits</h3>{paragraph(case['limitations'])}</section>
 <section id="sources"><h2>Sources</h2><ul>{sources}</ul>{tour_link}</section>
@@ -245,11 +245,12 @@ def write_case_library(destination, tours, refs, root=ROOT, *, aaa_acquisitions=
         thyroid_entry = ('<section class="family"><h2><a href="thyroid-orientation/index.html">Bilateral thyroid orientation</a></h2>'
                          '<p>Slide from the isthmus to each lobe and rotate from transverse to longitudinal.</p></section>')
     tours_body = ('<h1>Ultrasound tours</h1>'
-                  '<div class="catalog"><section class="family" id="aaa">'
-                  '<h2><a href="aaa/index.html">AAA screening</a></h2>'
-                  '<p>Follow a negative, positive or indeterminate case from referral to impression.</p></section>'
+                  '<h2>Orientation tours</h2><div class="catalog">'
                   '<section class="family"><h2><a href="../composed-tour/">Three landmarks in the liver window</a></h2>'
                   '<p>Follow the gallbladder, a portal branch and the cava through one moving scan.</p></section>' + thyroid_entry + '</div>'
-                  '<h2>Other exam tours</h2><div class="catalog">' + ''.join(tour_groups) + '</div>')
+                  '<h2>Exam tours by scenario</h2><div class="catalog"><section class="family" id="aaa">'
+                  '<h2><a href="aaa/index.html">AAA screening</a></h2>'
+                  '<p>Follow a negative, positive or indeterminate case from referral to impression.</p></section>'
+                  + ''.join(tour_groups) + '</div>')
     write_exam_tours(destination, root, grouped, FAMILIES,
                      document('Ultrasound tours', 'Tours', tours_body), evidence, aaa_acquisitions is not None)

@@ -109,3 +109,15 @@
   #playTour { width: auto; min-width: 7rem; }
   .chapter { grid-template-columns: 1fr; }
 }
+
+.caseTimeline .chapters { min-height: .8rem; }
+.caseTimeline .chapters a {
+  width: min(1.5rem, calc(100% / var(--section-count)));
+  height: .9rem;
+  min-height: 0;
+  padding: 0;
+  align-content: start;
+}
+.caseTimeline .chapters a span { position: absolute; clip-path: inset(50%); width: 1px; height: 1px; overflow: hidden; }
+.acquisitionPicker { display: flex; align-items: center; gap: .65rem; padding-block: .35rem .55rem; font-size: .9rem; }
+.acquisitionPicker select { min-width: 0; max-width: 100%; }

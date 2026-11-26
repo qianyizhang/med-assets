@@ -30,11 +30,8 @@ button {
   background: #165b52;
   min-width: 130px;
 }
-.transport label {
-  flex: 1;
-}
-select {
-  max-width: min(100%, 40rem);
+.timeline {
+  flex: 1 1 100%;
 }
 .monitors {
   display: grid;
@@ -57,7 +54,7 @@ select {
   padding: 10px 14px;
   background: #203230;
 }
-.monitors h2 {
+.monitors h3 {
   font: 600 1rem/1.35 system-ui;
 }
 canvas {
@@ -71,24 +68,14 @@ canvas {
   min-width: 200px;
   accent-color: #165b52;
 }
-#position {
+#frameNumber {
   font-variant-numeric: tabular-nums;
 }
 #value {
-  margin-left: 12px;
   font-weight: 600;
 }
 #observed {
   margin-block: 1rem;
-}
-#evidence {
-  padding-left: 1.5rem;
-}
-#evidence li {
-  margin: 0.7rem 0;
-}
-.report {
-  margin-top: 2rem;
 }
 @media (max-width: 760px) {
   .monitors {
@@ -96,9 +83,6 @@ canvas {
   }
   .monitors figure + figure canvas {
     max-height: 190px;
-  }
-  .transport label {
-    flex-basis: 100%;
   }
 }
 .monitors figcaption {
@@ -156,11 +140,20 @@ canvas {
   height: 13px;
 }
 
-#observationCue {
-  display: block;
-  color: #49635c;
-  font-size: 0.86rem;
-}
 #legend li {
   margin-block: 0;
+}
+
+.embeddedSweep .sweep-header,
+.embeddedSweep .standalone,
+.embeddedSweep #view,
+.tourControlled .transport {
+  display: none;
+}
+.embeddedSweep main {
+  width: calc(100% - 24px);
+  padding-block: 0 12px;
+}
+.embeddedSweep .monitors {
+  margin-block: 12px;
 }

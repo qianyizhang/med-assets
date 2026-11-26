@@ -18,11 +18,12 @@ try {
   await visit('index.html');
   await page.getByRole('link', { name: 'Worked cases', exact: true }).click();
   assert.equal(await page.locator('.family').count(), 10);
-  const cases = await page.locator('.family a').evaluateAll((links) => links.map((a) => a.href));
-  assert.equal(new Set(cases).size, cases.length);
+  const cases = await page.locator('.family a').evaluateAll((links) =>
+    links.map((a) => ({ url: a.href, family: a.closest('.family').id })));
+  assert.equal(new Set(cases.map(({ url }) => url)).size, cases.length);
   if (captures) await page.screenshot({ path: join(captures, 'catalog.png') });
   const plates = new Map();
-  for (const url of cases) {
+  for (const { url, family } of cases) {
     await visit(url);
     const title = await page.locator('h1').innerText();
     assert(await page.locator('section.report').innerText());
@@ -42,10 +43,18 @@ try {
       plates.set(src, title);
     }
     const caseName = new URL(url).pathname.split('/').pop();
-    if (caseName.startsWith('aaa-')) {
-      const open = page.getByRole('link', { name: 'Open exam tour', exact: true });
-      assert.equal(new URL(await open.getAttribute('href'), page.url()).pathname,
-        new URL('tours/aaa/' + caseName, root).pathname);
+    const destination = new URL('tours/' + family + '/' + caseName, root);
+    const open = page.getByRole('link', { name: 'Open exam tour', exact: true });
+    assert.equal(new URL(await open.getAttribute('href'), page.url()).href, destination.href);
+    const evidence = await page.locator('a[href*="/tours/"][href*="chapter="]').evaluateAll((links) =>
+      links.map((link) => link.href));
+    assert.ok(evidence.length, title + ' has no tour evidence links');
+    for (const href of evidence) {
+      const link = new URL(href);
+      assert.equal(link.pathname, destination.pathname);
+      assert.ok(link.searchParams.get('chapter'));
+      assert.match(link.searchParams.get('frame') ?? '', /^\d+$/);
+      assert.equal(link.hash, '#exam');
     }
     const panels = page.locator('details.paired');
     if (await panels.count()) {

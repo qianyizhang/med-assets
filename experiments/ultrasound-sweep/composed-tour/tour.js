@@ -3,6 +3,8 @@
 const container = document.getElementById('player');
 const transport = document.getElementById('playTour');
 const timeline = document.getElementById('tourPosition');
+const sectionPicker = document.getElementById('tourSection');
+const casePlayer = container.hasAttribute('data-case-player');
 const frameNumber = document.getElementById('tourFrameNumber');
 const progress = document.getElementById('tourProgress');
 const openSweep = document.getElementById('openSweep');
@@ -55,8 +57,16 @@ function sectionAt(index) {
 }
 
 function positionFromURL(url) {
-  const section = sections.find(({ id }) => id === url.searchParams.get('chapter')) ?? sections[0];
+  const chapter = url.searchParams.get('chapter');
+  const view = !chapter && url.searchParams.get('view');
+  const section = sections.find(({ id, content }) => id === chapter || (view && content.dataset.viewImage === view)) ?? sections[0];
   const value = url.searchParams.get('frame');
+  if (casePlayer) {
+    const fallback = view ? Number(section.content.dataset.evidenceFrame) : section.start;
+    const parsed = Number.parseInt(value, 10);
+    const frame = Number.isFinite(parsed) ? Math.max(section.start, Math.min(section.end, parsed)) : fallback;
+    return section.offset + frame - section.start;
+  }
   const frame = Number(value);
   return /^\d+$/.test(value ?? '') && frame >= section.start && frame <= section.end
     ? section.offset + frame - section.start : section.offset;
@@ -105,6 +115,7 @@ function activate(section) {
     active.content.hidden = true;
   }
   active = section;
+  if (sectionPicker) sectionPicker.value = section.id;
   active.link.setAttribute('aria-current', 'step');
   active.content.hidden = false;
   progress.textContent = section.label;
@@ -148,7 +159,7 @@ function requestFrame() {
   if (!ready || pending?.index === target || (!pending && displayed === target)) return;
   const frame = sourceFrame(active, target);
   pending = { id: ++requestId, index: target, frame };
-  player.contentWindow.postMessage({ type: 'sweep-transport', command: 'seek', frame, request: pending.id }, location.origin);
+  player.contentWindow.postMessage({ type: 'sweep-transport', command: 'seek', sweep: active.sweep, frame, request: pending.id }, location.origin);
 }
 
 function seek(index) {
@@ -156,7 +167,7 @@ function seek(index) {
   target = Math.max(0, Math.min(last, index));
   const section = sectionAt(target);
   activate(section);
-  if (section.sweep !== mountedSweep) mount(section);
+  if (!mountedSweep || (!casePlayer && section.sweep !== mountedSweep)) mount(section);
   if (displayed !== target) {
     container.setAttribute('aria-busy', 'true');
   }
@@ -211,6 +222,10 @@ transport.addEventListener('click', () => {
   }
   animation = requestAnimationFrame(tick);
   updateTransport();
+});
+
+sectionPicker?.addEventListener('change', () => {
+  sections.find(({ id }) => id === sectionPicker.value).link.click();
 });
 
 timeline.addEventListener('input', () => {

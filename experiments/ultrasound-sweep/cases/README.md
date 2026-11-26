@@ -13,7 +13,7 @@ The material implements the [ten scenarios in the completion survey](../../../do
 
 ## Replay and review
 
-Run the [usual tour assembly](../README.md#replay) with the desired regional sweeps and hydrated echo and case-comparison media. It writes the player routes under `exams/` and reading pages under `cases/`. Direct case links and the reading sequence also work with JavaScript disabled. A partial assembly includes the case pages and only offers locally available sweep comparisons.
+Run the [usual tour assembly](../README.md#replay) with the desired regional sweeps and hydrated echo and case-comparison media. It writes each visit under `tours/<family>/` and its worked reading page under `cases/`. The shared timeline runs across the visit’s acquisitions. A report link seeks to its saved frame, and **Open standalone sweep** opens that acquisition at the displayed frame. The former `exams/` addresses forward saved bookmarks. Direct case links and the reading sequence also work with JavaScript disabled. A partial assembly includes the case pages and only offers locally available sweep comparisons.
 
 From the repository root, run:
 
@@ -21,13 +21,13 @@ From the repository root, run:
 python3.12 experiments/ultrasound-sweep/cases/verify_cases.py
 python3.12 experiments/ultrasound-sweep/verify_assembly.py "$STUDY_OUTPUT"
 node experiments/ultrasound-sweep/tours/aaa/verify-tours.mjs http://127.0.0.1:8874/ "$AAA_CAPTURES"
-node experiments/ultrasound-sweep/exams/verify-browser.mjs http://127.0.0.1:8874/ "$EXAM_CAPTURES"
+node experiments/ultrasound-sweep/tours/verify-case-tours.mjs http://127.0.0.1:8874/ "$EXAM_CAPTURES"
 node experiments/ultrasound-sweep/cases/verify-browser.mjs http://127.0.0.1:8874/ "$REVIEW_CAPTURES"
 ```
 
 Use the same Python environment and Playwright configuration as the sweep package. The replay check covers the case records and diagrams. The browser check opens every case from the assembled family index, decodes its illustrations and checks the study entry points and laptop layout. Its optional capture directory receives the catalogue, selected worked cases and plate contact sheets.
 
-The AAA check exercises the composed tours, their standalone sweeps, finding links and legacy bookmarks. The other full-exam browser check advances every sampled frame across every chapter through the player controls. It verifies scrubbing, report links, repeatable evidence frames and the boundary between replaying one chapter and playing the whole exam. The package records document geometry, calibration and known fidelity limits. [Acquired finding sources and original-media replay](acquired/README.md)
+The AAA check exercises the composed tours, their standalone sweeps, finding links and legacy bookmarks. The case tour browser check advances every sampled frame on the shared timeline. It follows saved evidence into the standalone sweeps, verifies that changing sections preserves orbit and overlay settings, and exercises older exam bookmarks. The package records document geometry, calibration and known fidelity limits. [Acquired finding sources and original-media replay](acquired/README.md)
 
 ## Editable anatomy and B-mode assets
 
