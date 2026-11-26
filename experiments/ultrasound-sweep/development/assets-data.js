@@ -74,10 +74,13 @@ function rowBase(source, entry, chapter = {}) {
       url.searchParams.set('chapter', section.id);
       url.searchParams.set('frame', section.start);
     }
-    return { id: tour.id, label: tour.title, url: url.href };
+    return { id: tour.id, label: tour.title, url: url.href, kind: tour.sweepIds ? 'orientation' : 'case',
+      ...(tour.sweepIds ? {} : { family: entry.family }) };
   });
   if (source === 'sweep' || !teachingSelections.length) {
-    teachingSelections.push({ id: source === 'sweep' ? 'sweep:' + entry.id : entry.id, label: entry.title, url: studyURL(entry.url) });
+    const kind = source === 'sweep' ? 'sweep' : 'case';
+    teachingSelections.push({ id: source === 'sweep' ? 'sweep:' + entry.id : entry.id, label: entry.title,
+      url: studyURL(entry.url), kind, ...(kind === 'case' ? { family: entry.family } : {}) });
   }
   return { source, case: entry.id, family: entry.family, title: entry.title, chapter: chapter.id ?? '',
     chapterTitle: chapter.title ?? '', url: studyURL(entry.url), frame: chapter.evidenceFrame,
@@ -162,11 +165,14 @@ async function bind(row, skin, config, digest) {
 }
 
 async function fileParts(source, entry, config, base, chapter) {
-  const items = [{ id: 'torso', label: 'Patient exterior' }, ...config.parts];
-  return Promise.all(items.map(({ id, label, color }) => {
+  const items = [{ id: 'torso', label: 'Patient exterior', color: '#be9885', opacity: .32 }, ...config.parts];
+  return Promise.all(items.map(({ id, label, color, opacity }, order) => {
     const mesh = new URL(config.meshPaths?.[id] ?? new URL('scenes/' + id + '.mesh', new URL(config.assetRoot, base)), base).href;
     const scale = config.voxelMm ?? 1.5;
-    return bind({ ...rowBase(source, entry, chapter), part: id, label, occurrence: 1, color, mesh, scale },
+    const surfacePart = Boolean(config.surfaceParts?.includes(id));
+    const renderOrder = id === 'torso' ? 4 : surfacePart ? 5 + (order - 1) / config.parts.length : order / items.length * 2;
+    return bind({ ...rowBase(source, entry, chapter), part: id, label, occurrence: 1, color, mesh, scale, renderOrder,
+      surfacePart, opacity: surfacePart ? .32 : opacity ?? 1, skin: id === 'torso' },
       id === 'torso', config, fileDigest(mesh, scale));
   }));
 }
@@ -199,7 +205,7 @@ export async function caseRows(entry) {
       model.update(chapter, chapter.evidenceFrame);
       model.anatomy.updateMatrixWorld(true);
       return meshParts(model).map(({ node, skin, ...part }) =>
-        bind({ ...rowBase('case', entry, chapter), ...part, color: node.material?.color?.getStyle() }, skin, undefined, liveDigest(node)));
+        bind({ ...rowBase('case', entry, chapter), ...part, skin, color: node.material?.color?.getStyle() }, skin, undefined, liveDigest(node)));
     });
     return await Promise.all(rows);
   } finally {

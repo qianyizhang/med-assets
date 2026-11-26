@@ -2,6 +2,9 @@ import * as THREE from '../vendor/build/three.module.js';
 import { viewport } from '../scene.js';
 import { aaaRows, axes, assessmentScore, bufferBytes, caseRows, dispose, isolatedMesh, meshTopology, read, rowID, setTeachingTours, sweepRows } from './assets-data.js';
 
+import { acquireScene } from './assets-scene.js';
+import { renderTourChooser } from './assets-tour-chooser.js';
+
 const $ = (id) => document.getElementById(id);
 const make = (tag, text, className) => {
   const node = document.createElement(tag);
@@ -24,7 +27,13 @@ let current;
 let openAsset;
 let region = '';
 let tourSelection = null;
-let tourKey = '';
+let mode = 'asset';
+let acquisition = '';
+let sceneRequest = 0;
+let desiredScene = '';
+let loadedScene;
+const hiddenElements = new Map();
+const acquisitionKey = (row) => [row.source, row.case, row.chapter].filter(Boolean).join('/');
 let linkedSelection = false;
 let selectedRequest = 0;
 let viewer;
@@ -144,12 +153,18 @@ function filterState() {
     if ($(id).value) url.searchParams.set(param, $(id).value);
     else url.searchParams.delete(param);
   }
+  if (mode === 'scene') url.searchParams.set('view', mode);
+  else url.searchParams.delete('view');
+  if (acquisition) url.searchParams.set('acquisition', acquisition);
+  else url.searchParams.delete('acquisition');
   return url;
 }
 
 function restoreFilters() {
   const params = new URL(location.href).searchParams;
   region = params.get('region') ?? '';
+  mode = params.get('view') === 'scene' ? 'scene' : 'asset';
+  acquisition = params.get('acquisition') ?? '';
   tourSelection = params.has('tour') ? new Set(params.getAll('tour').filter(Boolean)) : null;
   $('query').value = params.get('q') ?? '';
   $('assessment').value = params.get('assessment') ?? '';
@@ -166,7 +181,7 @@ function renderScope() {
   for (const row of inventory.values()) {
     const key = regionOf(row);
     regions.set(key, row.regionLabel ?? key);
-    if (!region || key === region) for (const tour of toursOf(row)) tours.set(tour.id, tour);
+    if (!region || key === region) for (const tour of toursOf(row)) tours.set(tour.id, { region: key, ...tour });
   }
   if (region && !regions.has(region)) regions.set(region, region);
   const choices = [...regions].sort((a, b) => byText(a[1], b[1]));
@@ -182,24 +197,10 @@ function renderScope() {
   $('all-tours').indeterminate = selected > 0 && selected < tourList.length;
   $('all-tours').disabled = !tourList.length;
   $('tour-count').textContent = tourList.length ? selected + ' of ' + tourList.length + ' selected' : 'No tours available';
-  const next = JSON.stringify(tourList.map(({ id, label }) => [id, label]));
-  if (next !== tourKey) {
-    tourKey = next;
-    const focused = $('tour-choices').contains(document.activeElement) ? document.activeElement.value : null;
-    $('tour-choices').replaceChildren(...tourList.map(({ id, label }) => {
-      const field = make('label', undefined, 'tour-choice');
-      const checkbox = make('input');
-      checkbox.type = 'checkbox';
-      checkbox.name = 'tour';
-      checkbox.value = id;
-      field.append(checkbox, make('span', label));
-      return field;
-    }));
-    if (focused) [...$('tour-choices').querySelectorAll('input')].find((input) => input.value === focused)?.focus();
-  }
-  for (const input of $('tour-choices').querySelectorAll('input')) {
-    input.checked = tourSelection === null || tourSelection.has(input.value);
-  }
+  renderTourChooser($('tour-choices'), tourList, tourSelection, (next) => {
+    tourSelection = next;
+    filtersChanged();
+  });
 }
 
 function grouped(rows, key) {
@@ -409,25 +410,38 @@ function rowsView() {
     }));
     if (focus) [...$('rows').querySelectorAll('a')].find((anchor) => anchor.dataset.asset === focus)?.focus({ preventScroll: true });
   }
-  $('asset-shelf').hidden = Boolean(openAsset);
-  $('asset-detail').hidden = !openAsset;
-  $('pagination').hidden = Boolean(openAsset) || total < 2;
+  for (const link of $('rows').querySelectorAll('[data-asset]')) {
+    if (link.dataset.asset === openAsset) link.setAttribute('aria-current', 'true');
+    else link.removeAttribute('aria-current');
+  }
+  $('asset-detail').hidden = !openAsset || !assets.has(openAsset);
+  $('pagination').hidden = total < 2;
   $('previous').disabled = index === 0;
   $('next').disabled = index + 1 === total;
   $('page').textContent = (index + 1) + ' / ' + total;
-  $('empty').hidden = Boolean(openAsset) || matches.length > 0 || remaining > 0 || pendingAAA;
+  $('empty').hidden = matches.length > 0 || remaining > 0 || pendingAAA;
   if (openAsset) {
     const all = assets.get(openAsset) ?? [];
     const rows = groups.get(openAsset) ?? [];
     const revisions = [...new Set(rows.map(row => row.assetRevision).filter(Boolean))];
-    $('asset-title').textContent = all[0]?.assetLabel ?? all[0]?.title ?? 'Asset unavailable';
-    $('asset-summary').textContent = rows.length ? rows.length + ' acquisition uses match the current filters.'
-      : 'No acquisition uses match the current filters.';
+    const title = all[0]?.assetLabel ?? all[0]?.title ?? 'Asset unavailable';
+    $('asset-title').textContent = mode === 'scene' ? 'Selected asset · ' + title : title;
+    $('asset-title').classList.toggle('visually-hidden', mode === 'asset' && !current);
+    const acquisitions = new Set(rows.map(acquisitionKey)).size;
+    const parts = new Set(rows.map(partOf)).size;
+    $('asset-summary').textContent = rows.length
+      ? parts + (parts === 1 ? ' part' : ' parts') + ' across ' +
+        acquisitions + (acquisitions === 1 ? ' acquisition in scope.' : ' acquisitions in scope.')
+      : 'No acquisitions in scope.';
     $('asset-source').hidden = !revisions.length;
     $('asset-source').textContent = 'Source revision · ' + revisions.join(', ');
     partsView(rows);
     useView();
   }
+  for (const button of $('workspace-mode').querySelectorAll('button')) {
+    button.setAttribute('aria-pressed', String(button.dataset.mode === mode));
+  }
+  if (!current) assembledView(candidates);
   status();
 }
 
@@ -435,8 +449,8 @@ function clearPart() {
   ++selectedRequest;
   selection = current = undefined;
   delete $('mesh').dataset.ready;
-  $('selection').textContent = 'Select a part';
-  $('selection-context').textContent = 'Choose an asset, then select a part variant to inspect its mesh and assessment.';
+  $('selection').textContent = 'Select an asset';
+  $('selection-context').textContent = 'Choose an asset from the shelf.';
   $('preview').hidden = $('evidence').hidden = $('part-uses').hidden = true;
 }
 
@@ -459,8 +473,10 @@ function refresh() {
   } else if (!remaining && !pendingAAA && !inventory.has(deep)) {
     openAsset = undefined;
     clearPart();
+    rowsView();
     $('selection').textContent = 'Part unavailable';
     $('selection-context').textContent = 'This link does not resolve to a part in the current inventory.';
+    return;
   }
   rowsView();
 }
@@ -553,9 +569,20 @@ for (const [i, [label]] of directions.entries()) {
   $('views').append(button);
 }
 
-function mount(geometry) {
-  geometry.computeBoundingBox();
-  const { boundingBox: bounds } = geometry;
+function releasePortrait() {
+  if (!portrait) return;
+  viewer.scene.remove(portrait);
+  if (loadedScene) {
+    loadedScene.dispose();
+    loadedScene = undefined;
+  } else {
+    dispose(portrait);
+  }
+  portrait = undefined;
+  viewer.invalidate();
+}
+
+function mount(object, bounds = new THREE.Box3().setFromObject(object)) {
   if (bounds.isEmpty()) throw Error('This mesh has empty bounds.');
   const size = bounds.getSize(v(0, 0, 0));
   // Normalize only the viewport transform. Geometry checks use native millimetres.
@@ -570,13 +597,9 @@ function mount(geometry) {
       for (const button of $('views').children) button.setAttribute('aria-pressed', String(button.dataset.camera === name));
     } });
   }
-  if (portrait) {
-    viewer.scene.remove(portrait);
-    dispose(portrait);
-  }
-  portrait = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({
-    color: '#ded3bc', roughness: .72, side: THREE.DoubleSide,
-  }));
+  releasePortrait();
+  portrait = new THREE.Group();
+  portrait.add(object);
   portrait.scale.setScalar(scale);
   portrait.position.copy(center).multiplyScalar(-scale);
   viewer.scene.add(portrait);
@@ -584,6 +607,151 @@ function mount(geometry) {
   viewer.setViewPreset('oblique');
   return size.toArray().map((value) => value.toFixed(1)).join(' × ') + ' mm';
 }
+
+function resetAssembled() {
+  sceneRequest++;
+  desiredScene = '';
+  $('acquisition-field').hidden = $('visibility').hidden = true;
+  delete $('preview').dataset.assembled;
+}
+
+function acquisitionLabel(row) {
+  return row.chapterTitle ? row.title + ' · ' + row.chapterTitle : row.title;
+}
+
+function visibilityView(model, key) {
+  const groupBy = mode === 'scene' ? assetOf : partOf;
+  const groups = new Map();
+  for (const part of model.parts) {
+    const id = groupBy(part.row);
+    if (!groups.has(id)) groups.set(id, []);
+    groups.get(id).push(part);
+  }
+  const hidden = hiddenElements.get(key) ?? new Set();
+  hiddenElements.set(key, hidden);
+  const fields = [...groups].map(([id, parts]) => {
+    const { row } = parts[0];
+    const text = mode === 'scene' ? row.assetLabel ?? row.title : row.partLabel ?? row.label;
+    const label = make('label', undefined, 'tour-choice');
+    const input = make('input');
+    input.type = 'checkbox';
+    input.value = id;
+    input.checked = !hidden.has(id);
+    for (const { object } of parts) object.visible = input.checked;
+    input.onchange = () => {
+      if (input.checked) hidden.delete(id);
+      else hidden.add(id);
+      for (const { object } of parts) object.visible = input.checked;
+      viewer.invalidate();
+    };
+    label.append(input, make('span', text));
+    return label;
+  }).sort((left, right) => byText(left.textContent, right.textContent));
+  $('visibility-title').textContent = mode === 'scene' ? 'Visible assets' : 'Visible parts';
+  $('visibility-list').replaceChildren(...fields);
+  $('visibility').hidden = !fields.length;
+  viewer.invalidate();
+}
+
+function assembledView(candidates) {
+  const scoped = openAsset ? candidates.filter((row) => assetOf(row) === openAsset) : mode === 'scene' ? candidates : [];
+  if (!scoped.length) {
+    resetAssembled();
+    releasePortrait();
+    delete $('mesh').dataset.ready;
+    $('preview').hidden = true;
+    $('selection').textContent = openAsset && !remaining && !pendingAAA ? 'Asset unavailable' : 'Select an asset';
+    $('selection-context').textContent = openAsset && !remaining && !pendingAAA
+      ? 'This asset has no acquisitions in the current scope.'
+      : 'Choose an asset from the shelf.';
+    return;
+  }
+  const relevant = openAsset ? (assets.get(openAsset) ?? []).filter(inScope) : scoped;
+  const available = new Set(scoped.map(acquisitionKey));
+  const groups = [...grouped(relevant, acquisitionKey)].filter(([key]) => available.has(key));
+  groups.sort(([, left], [, right]) =>
+    new Set(right.map(partOf)).size - new Set(left.map(partOf)).size ||
+    (left[0].case === right[0].case ? 0 : byText(acquisitionLabel(left[0]), acquisitionLabel(right[0]))));
+  const [key, rows] = groups.find(([id]) => id === acquisition) ?? groups[0];
+  const row = rows[0];
+  $('acquisition-field').hidden = false;
+  const select = $('acquisition');
+  const signature = groups.map(([id]) => id).join('|');
+  if (select.dataset.options !== signature) {
+    select.dataset.options = signature;
+    select.replaceChildren(...groups.map(([id, [item]]) => new Option(acquisitionLabel(item), id)));
+  }
+  select.value = key;
+  $('selection').textContent = mode === 'scene' ? 'Acquisition scene' : row.assetLabel ?? row.title;
+  $('selection-context').textContent = '';
+  const sceneKey = [mode, mode === 'asset' ? openAsset : '', key].join('|');
+  if (desiredScene === sceneKey) return;
+  desiredScene = sceneKey;
+  showAssembly(row, sceneKey, key);
+}
+
+async function showAssembly(row, sceneKey, key) {
+  const request = ++sceneRequest;
+  const viewMode = mode;
+  const asset = openAsset;
+  releasePortrait();
+  $('visibility').hidden = $('geometry-checks').hidden = $('mesh-file').hidden = $('composed-uses').hidden = true;
+  $('preview').hidden = false;
+  $('preview').dataset.assembled = '';
+  delete $('mesh').dataset.ready;
+  $('mesh-status').textContent = 'Loading acquisition geometry…';
+  const route = new URL(row.url);
+  if (row.chapter) {
+    route.searchParams.set('chapter', row.chapter);
+    route.searchParams.set('frame', row.frame);
+    route.hash = 'exam';
+  }
+  $('route').href = route.href;
+  let model;
+  try {
+    model = await acquireScene(row, inventory, entries);
+    if (request !== sceneRequest) { model.dispose(); return; }
+    const visibleParts = model.parts.filter(({ row: part }) => viewMode === 'scene' || assetOf(part) === asset);
+    if (!visibleParts.length) throw Error('No components were loaded for this asset.');
+    const visible = new Set(visibleParts);
+    for (const part of model.parts) part.object.visible = visible.has(part);
+    if (viewMode === 'asset') for (const helper of model.helpers) helper.visible = false;
+    model.object.updateMatrixWorld(true);
+    const bounds = new THREE.Box3();
+    for (const { object } of visibleParts) bounds.expandByObject(object);
+    $('mesh').hidden = $('views').hidden = $('mesh-help').hidden = false;
+    mount(model.object, bounds);
+    loadedScene = model;
+    visibilityView({ parts: visibleParts }, sceneKey);
+    $('mesh').dataset.ready = key;
+    $('mesh-status').textContent = model.issues.length ? 'Some components are unavailable. ' + model.issues.join(' · ') : '';
+  } catch (cause) {
+    if (model && loadedScene !== model) model.dispose();
+    if (request !== sceneRequest) return;
+    releasePortrait();
+    $('mesh').hidden = $('views').hidden = $('mesh-help').hidden = true;
+    $('mesh-status').textContent = 'Acquisition geometry unavailable. The acquisition link remains available.';
+    console.warn(cause);
+  }
+}
+
+$('workspace-mode').onclick = (event) => {
+  const button = event.target.closest('button[data-mode]');
+  if (!button || (mode === button.dataset.mode && !current)) return;
+  if (current) acquisition = acquisitionKey(current);
+  else if (!$('acquisition-field').hidden) acquisition = $('acquisition').value;
+  mode = button.dataset.mode;
+  const url = filterState();
+  if (current) url.hash = assetFragment(openAsset);
+  history.pushState(null, '', url);
+  refresh();
+};
+
+$('acquisition').onchange = () => {
+  acquisition = $('acquisition').value;
+  history.pushState(null, '', filterState());
+  rowsView();
+};
 
 function coordinateSelection(row) {
   const grade = linked(row);
@@ -607,6 +775,9 @@ async function showPart(key, fromLink = false) {
   const row = inventory.get(key);
   if (!row) return;
   if (fromLink) coordinateSelection(row);
+  resetAssembled();
+  releasePortrait();
+  $('variants').open = true;
   linkedSelection = fromLink;
   current = row;
   openAsset = assetOf(row);
@@ -659,7 +830,10 @@ async function showPart(key, fromLink = false) {
     $('mesh').hidden = false;
     $('views').hidden = false;
     $('mesh-help').hidden = false;
-    const size = mount(geometry);
+    const mesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({
+      color: '#ded3bc', roughness: .72, side: THREE.DoubleSide,
+    }));
+    const size = mount(mesh);
     const triangles = Math.floor((geometry.index?.count ?? geometry.attributes.position.count) / 3);
     $('mesh').dataset.ready = key;
     $('mesh-status').textContent = 'Bounds · ' + size;
@@ -679,7 +853,8 @@ async function showPart(key, fromLink = false) {
 
 $('topology').onclick = () => {
   const request = selectedRequest;
-  const geometry = portrait.geometry;
+  const geometry = portrait?.children[0]?.geometry;
+  if (!geometry) return;
   $('topology').disabled = true;
   $('geometry-topology').textContent = 'Checking topology…';
   setTimeout(() => {
@@ -722,12 +897,6 @@ $('all-tours').onchange = () => {
   tourSelection = $('all-tours').checked ? null : new Set();
   filtersChanged();
 };
-$('tour-choices').onchange = () => {
-  const inputs = [...$('tour-choices').querySelectorAll('input')];
-  const selected = inputs.filter((input) => input.checked).map((input) => input.value);
-  tourSelection = selected.length === inputs.length ? null : new Set(selected);
-  filtersChanged();
-};
 $('filters').onreset = () => setTimeout(() => {
   region = '';
   tourSelection = null;
@@ -746,7 +915,17 @@ function activateLink(event) {
   if (!link.getAttribute('href')?.startsWith('#')) return;
   event.preventDefault();
   const key = link.hash.slice(1);
-  if (location.hash !== link.hash) {
+  const fromScene = mode === 'scene';
+  if (link.dataset.asset) {
+    const candidate = $('acquisition').value;
+    const sharesAcquisition = (assets.get(link.dataset.asset) ?? []).some((row) =>
+      inScope(row) && acquisitionKey(row) === candidate);
+    if (fromScene || link.dataset.asset !== openAsset) acquisition = fromScene && sharesAcquisition ? candidate : '';
+    mode = 'asset';
+  } else if (!key) {
+    acquisition = '';
+  }
+  if (location.hash !== link.hash || (link.dataset.asset && fromScene)) {
     const url = filterState();
     url.hash = key;
     history.pushState(null, '', url);
@@ -757,7 +936,12 @@ function activateLink(event) {
   } else {
     const from = openAsset;
     refresh();
-    if (key) $('asset-title').focus();
+    if (key) {
+      $('inspector').scrollTop = 0;
+      const target = $('selection');
+      const { top, bottom } = target.getBoundingClientRect();
+      target.focus({ preventScroll: top >= 0 && bottom <= window.innerHeight });
+    }
     else [...$('rows').querySelectorAll('[data-asset]')].find((anchor) => anchor.dataset.asset === from)?.focus();
   }
 }

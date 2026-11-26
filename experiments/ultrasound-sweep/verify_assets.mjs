@@ -12,6 +12,7 @@ const browser = await chromium.launch({
   executablePath: process.env.MODEL_SURVEY_BROWSER, chromiumSandbox: true, args: ['--enable-unsafe-swiftshader'],
 });
 const viewport = { width: 1360, height: 960 };
+const annotatedViewport = { width: 1239, height: 741 };
 
 const ready = (page, key) => page.waitForFunction((expected) => {
   const shown = document.querySelector('#mesh').dataset.ready;
@@ -36,9 +37,18 @@ function variant(page, key) {
   return page.locator('#asset-parts a[data-variant][href=' + JSON.stringify('#' + key) + ']');
 }
 
+async function reveal(locator) {
+  await locator.waitFor({ state: 'attached' });
+  await locator.evaluate((element) => {
+    for (let group = element.closest('details'); group; group = group.parentElement.closest('details')) {
+      group.open = true;
+    }
+  });
+}
+
 async function openVariant(page, key) {
   const link = variant(page, key);
-  await link.evaluate((element) => { element.closest('details').open = true; });
+  await reveal(link);
   await link.click();
   await ready(page, key);
 }
@@ -49,7 +59,7 @@ async function capture(page, name) {
 
 async function selectionCheckbox(page, selection) {
   const input = page.locator('#tours input[name=tour][value=' + JSON.stringify(selection) + ']');
-  await input.waitFor();
+  await reveal(input);
   return input;
 }
 
@@ -83,19 +93,152 @@ function shapeDigest(bytes, scale) {
   return sha(normalized);
 }
 
+async function assertChooserBreadth(page) {
+  const counts = await page.locator('#tour-choices, #tour-choices .tour-group-children')
+    .evaluateAll((groups) => groups.map((group) => group.children.length));
+  assert.ok(counts.length > 1 && counts.every((count) => count <= 7), JSON.stringify(counts));
+}
+
+async function repaint(page) {
+  await page.evaluate(() => new Promise((done) => requestAnimationFrame(() => requestAnimationFrame(done))));
+}
+
+async function verifyWorkspace(context) {
+  const page = await context.newPage({ viewport: annotatedViewport });
+  page.setDefaultTimeout(45000);
+  const errors = [];
+  page.on('pageerror', (error) => errors.push(error.message));
+  const asset = 'case:biliary-model';
+  const use = 'case/abdomen-biliary-stone/biliary-stone-supine/Gallbladder%20wall/1';
+  const checkboxes = () => page.locator('#visibility-list input[type=checkbox]');
+  const mode = (value) => page.locator('#workspace-mode button[data-mode=' + value + ']');
+  const pixels = () => page.locator('#mesh').screenshot({ animations: 'disabled' });
+  await page.goto(url.href);
+  await indexed(page);
+  await assertChooserBreadth(page);
+  await page.locator('#region').selectOption('abdomen');
+  await assertChooserBreadth(page);
+  const branches = page.locator('#tour-choices > .tour-group > details > summary');
+  assert.deepEqual((await branches.allTextContents()).map((label) => label.trim()), [
+    'AAA screening 3', 'Abdominal tours 4', 'Orientation tours 1', 'Standalone sweeps 10',
+  ]);
+  assert.equal(await page.locator('#tour-choices input[name=tour]').count(), 18);
+  assert.equal(await page.locator('#tour-count').innerText(), '18 of 18 selected');
+  await capture(page, 'abdomen-tour-chooser-1239');
+  const aaaGroup = page.getByRole('checkbox', { name: 'Select all in AAA screening', exact: true });
+  const aaaLeaves = page.locator('#tours input[name=tour][value^=aaa-]');
+  await aaaGroup.uncheck();
+  assert.equal(await aaaLeaves.and(page.locator(':checked')).count(), 0);
+  assert.equal(await page.locator('#tour-count').innerText(), '15 of 18 selected');
+  await aaaGroup.check();
+  assert.equal(await aaaLeaves.and(page.locator(':checked')).count(), 3);
+  const negative = await selectionCheckbox(page, 'aaa-negative');
+  await negative.uncheck();
+  assert.equal(await aaaGroup.evaluate((input) => input.indeterminate), true);
+  assert.equal(await aaaLeaves.and(page.locator(':checked')).count(), 2);
+  await negative.check();
+  assert.equal(await aaaGroup.evaluate((input) => input.indeterminate), false);
+  assert.equal(await page.locator('#tour-count').innerText(), '18 of 18 selected');
+  await assetCard(page, asset).click();
+  await ready(page);
+  assert.ok(await page.locator('#asset-shelf').isVisible(), 'Selecting an asset hid the shelf.');
+  assert.match(await page.locator('#asset-title').innerText(), /Biliary model/);
+  assert.equal(await mode('asset').getAttribute('aria-pressed'), 'true');
+  assert.match(await page.locator('#acquisition').inputValue(), /^case\/abdomen-biliary-stone\//);
+  assert.equal(await page.locator('#geometry-checks').isHidden(), true);
+  assert.equal(await page.locator('#mesh-file').isHidden(), true);
+  assert.equal(await checkboxes().count(), 3);
+  const parts = page.locator('#visibility-list');
+  for (const name of ['Gallbladder wall', 'Gallbladder lumen', 'Mobile calculus']) {
+    assert.ok(await parts.getByRole('checkbox', { name, exact: false }).isChecked(), name + ' was missing from the assembled asset');
+  }
+  const side = page.getByRole('button', { name: 'Side', exact: true });
+  await side.click();
+  await repaint(page);
+  const withParts = await pixels();
+  const wall = parts.getByRole('checkbox', { name: /Gallbladder wall/ });
+  await wall.uncheck();
+  await repaint(page);
+  assert.notDeepEqual(await pixels(), withParts, 'Part visibility did not change the rendered geometry.');
+  assert.equal(await side.getAttribute('aria-pressed'), 'true', 'Toggling a part changed the asset camera.');
+  await wall.check();
+  await repaint(page);
+  assert.deepEqual(await pixels(), withParts, 'Restoring the part did not restore the same assembled preview.');
+  await page.getByRole('button', { name: 'Oblique', exact: true }).click();
+  await page.locator('.workspace').evaluate((workspace) => workspace.scrollIntoView({ block: 'start' }));
+  await repaint(page);
+  await capture(page, 'asset-workspace-1239');
+  await mode('scene').click();
+  await ready(page);
+  assert.equal(await mode('scene').getAttribute('aria-pressed'), 'true');
+  assert.ok(await page.locator('#asset-shelf').isVisible());
+  assert.equal(await page.locator('#mesh').count(), 1);
+  assert.ok(await checkboxes().count() > 3, 'Scene mode did not expose adjacent assets.');
+  const biliary = parts.getByRole('checkbox', { name: /Biliary model/ });
+  assert.ok(await biliary.isChecked());
+  const sceneSide = page.getByRole('button', { name: 'Side', exact: true });
+  await sceneSide.click();
+  await repaint(page);
+  const withAsset = await pixels();
+  assert.notDeepEqual(withAsset, withParts, 'Asset and Scene mode displayed the same geometry.');
+  await biliary.uncheck();
+  await repaint(page);
+  assert.notDeepEqual(await pixels(), withAsset, 'Scene visibility did not change the rendered geometry.');
+  assert.equal(await sceneSide.getAttribute('aria-pressed'), 'true', 'Toggling an asset changed the scene camera.');
+  await biliary.check();
+  await repaint(page);
+  assert.deepEqual(await pixels(), withAsset);
+  await page.getByRole('button', { name: 'Oblique', exact: true }).click();
+  await page.locator('.workspace').evaluate((workspace) => workspace.scrollIntoView({ block: 'start' }));
+  await repaint(page);
+  await capture(page, 'scene-workspace-1239');
+  await mode('asset').click();
+  assert.equal(await mode('asset').getAttribute('aria-pressed'), 'true');
+  const roll = 'case/abdomen-biliary-stone/biliary-stone-roll';
+  await page.locator('#acquisition').selectOption(roll);
+  await ready(page, roll);
+  assert.equal(new URL(await page.locator('#route').getAttribute('href')).searchParams.get('chapter'), 'biliary-stone-roll');
+  await page.goto(useURL(use));
+  await ready(page, use);
+  assert.match(await page.locator('#route').getAttribute('href'), /abdomen-biliary-stone\.html.*chapter=biliary-stone-supine/);
+  assert.ok(await page.locator('#asset-shelf').isVisible());
+  assert.ok(await page.locator('#geometry-checks').isVisible(), 'Exact use did not restore isolated geometry checks.');
+  await page.locator('#evidence').getByText('Unrated', { exact: true }).first().waitFor();
+
+  for (const [row, acquisition, route] of [
+    ['sweep/gallbladder//gallbladder/1', 'sweep/gallbladder', { sweep: 'gallbladder' }],
+    ['aaa/aaa-negative/proximal-aorta/wall/1', 'aaa/aaa-negative/proximal-aorta', { chapter: 'proximal-aorta', frame: '14' }],
+  ]) {
+    await page.goto(useURL(row));
+    await ready(page, row);
+    await mode('scene').click();
+    await ready(page, acquisition);
+    assert.ok(await checkboxes().count() > 1, acquisition + ' did not load scene assets.');
+    const href = new URL(await page.locator('#route').getAttribute('href'));
+    for (const [name, value] of Object.entries(route)) assert.equal(href.searchParams.get(name), value);
+    assert.equal(await page.locator('#geometry-checks').isHidden(), true);
+  }
+  assert.deepEqual(errors, []);
+  await page.close();
+}
+
 try {
   if (output) await mkdir(output, { recursive: true });
   const page = await browser.newPage({ viewport });
   page.setDefaultTimeout(45000);
   const errors = [];
   page.on('pageerror', (error) => errors.push(error.message));
+  const failedRequests = [];
+  page.on('requestfailed', (request) => failedRequests.push(request.failure()?.errorText + ' ' + request.url()));
   await page.goto(url.href);
   const manifest = await (await page.request.get(new URL('asset-inventory.json', url).href)).json();
   await page.locator('#rows a[data-asset]').first().waitFor();
   await indexed(page);
-  assert.equal(await page.locator('#issues li').count(), 0, await page.locator('#issues').textContent());
+  assert.equal(await page.locator('#issues li').count(), 0,
+    [await page.locator('#issues').textContent(), ...failedRequests.slice(-10)].join('\n'));
 
   console.log(await page.locator('#inventory-status').textContent());
+  await verifyWorkspace(browser);
   const sharedSpine = await page.evaluate(async () => {
     const { sweepRows, aaaRows } = await import('./assets-data.js');
     const normal = (await sweepRows()).find((row) => row.case === 'aortic-screening' && row.part === 'vertebrae');
@@ -136,6 +279,7 @@ try {
   assert.notEqual(right.variantId, carotid.variantId);
   await page.locator('#region').selectOption(right.region);
   const all = page.locator('#all-tours');
+  const sweeps = page.getByRole('checkbox', { name: 'Select all in Standalone sweeps', exact: true });
   await all.uncheck();
   const first = await selectionCheckbox(page, directTeachingSelection(right));
   const second = await selectionCheckbox(page, directTeachingSelection(left));
@@ -144,11 +288,14 @@ try {
   await composed.check();
   await assetCard(page, right.assetId).click();
   assert.equal(await page.locator('#asset-parts a[data-variant]').count(), 1);
-  assert.match(await page.locator('#asset-summary').innerText(), /2 acquisition uses/);
-  await page.locator('#back-to-assets').click();
+  assert.match(await page.locator('#asset-summary').innerText(), /1 part across 2 acquisitions/);
+  assert.ok(await page.locator('#asset-shelf').isVisible());
+  await reveal(composed);
   await composed.uncheck();
+  await reveal(first);
   await first.check();
   assert.equal(await page.locator('#tours input[name=tour]:checked').count(), 1);
+  assert.equal(await sweeps.evaluate((control) => control.indeterminate), true);
   await assetCard(page, right.assetId).click();
   await page.locator('#asset-detail').waitFor();
   assert.equal(await page.locator('#asset-parts a[data-variant]').count(), 1);
@@ -160,6 +307,7 @@ try {
   await side.click();
   assert.equal(await side.getAttribute('aria-pressed'), 'true');
 
+  await reveal(second);
   await second.check();
   assert.equal(await page.locator('#tours input[name=tour]:checked').count(), 2);
   assert.equal(await page.locator('#asset-parts a[data-variant]').count(), 1,
@@ -175,6 +323,7 @@ try {
   await indexed(page);
   await page.goBack();
   await ready(page, right.key);
+  await reveal(third);
   await third.check();
   assert.equal(await page.locator('#asset-parts a[data-variant]').count(), 2,
     'A separately fitted carotid exterior must remain its own variant.');
@@ -183,8 +332,8 @@ try {
   await capture(page, 'asset-fitted-variants');
   await all.check();
   assert.equal(await all.isChecked(), true);
+  assert.ok(await sweeps.isChecked());
   assert.ok(await page.locator('#tours input[name=tour]:checked').count() > 3);
-  await page.locator('#back-to-assets').click();
   await assetCard(page, right.assetId).waitFor();
   assert.equal(await page.locator('#region').inputValue(), right.region);
   assert.ok(await all.isChecked(), 'Returning to the hierarchy lost the all-tours scope.');
@@ -247,7 +396,6 @@ try {
   await fixture.goto(useURL(gallbladder));
   await ready(fixture, gallbladder);
   await fixture.locator('#evidence').getByText('16/16', { exact: true }).first().waitFor();
-  await fixture.locator('#back-to-assets').click();
   await fixture.locator('#assessment').selectOption('qualified');
   await indexed(fixture);
   assert.equal(await fixture.locator('#rows a[data-asset]').count(), 1);
@@ -257,6 +405,11 @@ try {
   await fixture.goto(useURL(gallbladder));
   await fixture.reload();
   await fixture.getByText('Isolated mesh unavailable.', { exact: false }).waitFor();
+  assert.ok(await fixture.locator('#route').isVisible());
+  await fixture.locator('#workspace-mode [data-mode=scene]').click();
+  await ready(fixture, 'sweep/gallbladder');
+  assert.match(await fixture.locator('#mesh-status').innerText(), /Some components are unavailable.*Gallbladder/s);
+  assert.ok(await fixture.locator('#visibility-list input[type=checkbox]').count() > 0);
   assert.ok(await fixture.locator('#route').isVisible());
 
   const topology = await browser.newPage({ viewport });

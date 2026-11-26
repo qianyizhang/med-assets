@@ -11,7 +11,7 @@
 <body>
   <header class="top"><nav aria-label="Breadcrumb"><a href="../index.html">Ultrasound anatomy</a><a href="./">Development</a></nav></header>
   <main>
-    <header class="intro"><h1>Anatomy asset qualification</h1><p>Inspect the meshes shown in ultrasound sweeps and case acquisitions, and compare reviewed parts with their baseline.</p></header>
+    <header class="intro"><h1>Anatomy asset qualification</h1></header>
     <search>
       <form id="filters" action="assets.html">
         <label>Body region <select id="region" name="region"><option value="">All body regions</option></select></label>
@@ -32,25 +32,28 @@
           <h2 id="asset-shelf-title" class="catalog-heading">Assets</h2>
           <ul id="rows" class="specimen-shelf"></ul>
         </section>
-        <section id="asset-detail" aria-labelledby="asset-title" hidden>
-          <nav aria-label="Asset navigation"><a id="back-to-assets" href="#">All assets</a></nav>
-          <h2 id="asset-title" tabindex="-1"></h2>
-          <p id="asset-summary"></p>
-          <p id="asset-source" hidden></p>
-          <h3>Parts</h3>
-          <div id="asset-parts"></div>
-        </section>
         <p id="empty" hidden>No assets match these filters.</p>
         <nav id="pagination" aria-label="Inventory pages" hidden><button id="previous" type="button">Previous</button><span id="page"></span><button id="next" type="button">Next</button></nav>
       </section>
       <aside id="inspector" aria-labelledby="selection">
         <header class="selection-heading">
-          <h2 id="selection">Select a part</h2>
-          <p id="selection-context">Choose an asset, then select a part variant to inspect its mesh and assessment.</p>
+          <div id="workspace-mode" class="controls" role="group" aria-label="View mode">
+            <button type="button" data-mode="asset" aria-pressed="true">Asset</button>
+            <button type="button" data-mode="scene" aria-pressed="false">Scene</button>
+          </div>
+          <h2 id="selection" tabindex="-1">Select an asset</h2>
+          <p id="selection-context">Choose an asset from the shelf.</p>
+          <label id="acquisition-field" hidden>Acquisition <select id="acquisition"></select></label>
         </header>
         <div id="preview" hidden>
           <div class="controls" id="views" aria-label="Mesh view"></div>
-          <canvas id="mesh" tabindex="0" aria-label="Isolated anatomical mesh" aria-describedby="mesh-help"></canvas>
+          <div class="viewport-layout">
+            <canvas id="mesh" tabindex="0" aria-label="Anatomy viewport" aria-describedby="mesh-help"></canvas>
+            <fieldset id="visibility" hidden>
+              <legend id="visibility-title">Visible parts</legend>
+              <div id="visibility-list"></div>
+            </fieldset>
+          </div>
           <p id="mesh-help">Drag or use arrow keys to orbit. Use + and − to zoom.</p>
           <p id="mesh-status" role="status"></p>
           <section id="geometry-checks" aria-labelledby="geometry-title" hidden>
@@ -62,6 +65,13 @@
           <div class="link-row"><a id="route">Open acquisition</a><a id="mesh-file" hidden>Open source mesh</a></div>
           <p id="composed-uses" hidden></p>
         </div>
+        <section id="asset-detail" aria-labelledby="asset-title" hidden>
+          <h3 id="asset-title"></h3>
+          <p id="asset-summary"></p>
+          <p id="asset-source" hidden></p>
+          <details id="variants"><summary>Part variants and assessments</summary><div id="asset-parts"></div></details>
+          <nav aria-label="Asset navigation"><a id="back-to-assets" href="#">Clear selection</a></nav>
+        </section>
         <details id="part-uses" hidden><summary>Acquisition uses</summary><ul></ul></details>
         <section id="evidence" aria-label="Assessment evidence" hidden></section>
       </aside>

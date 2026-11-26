@@ -183,7 +183,9 @@ Accept a sweep after replay from pinned inputs, verifying the target inside the 
 
 ## Development review
 
-Browse the [asset qualification workbench](http://127.0.0.1:8874/development/assets.html) by **body region → tours and standalone sweeps → assets → parts**. Select one, several or all teaching sequences in a region. An orientation tour includes the sweeps on its timeline. Each source asset gets one shelf card in the selection. Open its parts to compare fitted shapes and follow an acquisition use back to its exact frame.
+Browse the [asset qualification workbench](http://127.0.0.1:8874/development/assets.html) by **body region → tours and standalone sweeps → assets → parts**. Select a tour family, an individual tour or any combination. An orientation tour includes the sweeps on its timeline. Each source asset gets one card on the shelf. Selecting a card opens the assembled asset beside the shelf, with a visibility control for each part in the displayed acquisition.
+
+**Scene** shows the surrounding anatomy from that same acquisition. Toggle whole assets here, or return to **Asset** to toggle individual parts. Both views preserve the placement of the meshes in the source scene. Use the acquisition picker to compare another case or chapter. A part’s variants and assessments link to the corresponding evidence and teaching frame.
 
 The BodyParts3D body envelope, HRA female exterior and authored maternal exterior have separate origins. The three AAA cases reference the normal aortic sweep’s torso file. The bilateral thyroid sweeps share one neck fit; the bilateral carotid sweeps share another. The workbench identifies a shape variant from its indexed vertices at physical scale and orientation, to a micrometre, independent of placement. The source asset, part and geometry together determine reuse. A **sweep exemplar** retains its own subject, scale and revision.
 
