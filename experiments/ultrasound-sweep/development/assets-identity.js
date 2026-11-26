@@ -2,7 +2,7 @@
 // exact delivered geometry separately from the case/chapter which uses it.
 const atlas = { id: 'library/skin', label: 'Body envelope · BodyParts3D', revision: 'bp3d-envelope-r01' };
 const skeletalAtlas = {
-  id: 'atlas:skeleton', label: 'Skeletal atlas · BodyParts3D', revision: 'teaching-economy-r01',
+  id: 'library/skeleton', label: 'Skeletal atlas · BodyParts3D', revision: 'teaching-economy-r01',
 };
 const hra = { id: 'hra:3d-vh-f:skin', label: 'Female exterior · Human Reference Atlas' };
 const maternal = { id: 'pregnancy:maternal-exterior', label: 'Maternal exterior models' };
@@ -61,9 +61,12 @@ function modeledAsset(row) {
 function sweepAsset(row, config) {
   if (row.region === 'pregnancy' || row.region === 'heart') return modeledAsset(row);
   if (row.region === 'breast') {
-    return /axillar|lymph/.test(row.part)
-      ? ['sweep:hra:axillary-anatomy', 'HRA-based axillary anatomy']
-      : ['sweep:hra:breast-tissue', 'HRA-based breast tissue'];
+    if (['breast_fat', 'mammary_lobes', 'lactiferous_ducts', 'areola', 'nipple', 'suspensory_ligaments'].includes(row.part)) {
+      return ['library/breasts_hra', 'Mammary anatomy · HRA'];
+    }
+    return row.case === 'axilla'
+      ? ['sweep:hra:axillary-anatomy', 'Axillary teaching anatomy']
+      : ['sweep:hra:breast-tissue', 'Breast teaching layers'];
   }
   const part = row.part.toLowerCase();
   const subject = config.case ?? 's1233';
@@ -93,7 +96,7 @@ export function classifyAsset(row, skin, config) {
   partId = aliases[partId] ?? partId;
   return {
     assetId, assetLabel,
-    assetRevision: assetId === skeletalAtlas.id ? skeletalAtlas.revision : undefined,
+    assetRevision: assetId === skeletalAtlas.id || assetId === 'library/breasts_hra' ? 'teaching-economy-r01' : undefined,
     partId: partId + (wall ? '-wall' : ''),
     partLabel: row.label + (wall ? ' wall' : ''),
   };

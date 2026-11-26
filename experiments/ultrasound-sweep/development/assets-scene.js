@@ -60,7 +60,7 @@ async function modeledScene(selected, rows, entry) {
     for (const { node, path, part, occurrence } of meshParts(model)) {
       const row = indexed.get(path);
       if (!row || row.part !== part || row.occurrence !== occurrence) {
-        issues.push('Unbound acquisition part · ' + part);
+        if (selected.referenceKind !== 'retained') issues.push('Unbound acquisition part · ' + part);
         continue;
       }
       parts.push({ row, object: node });

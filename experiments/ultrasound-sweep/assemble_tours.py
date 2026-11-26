@@ -10,7 +10,7 @@ import tempfile
 import zipfile
 
 import numpy as np
-from abdomen_gallery_sources import write_gallery_donors
+from gallery_reference_sources import write_gallery_donors
 import build_abdomen
 import build_aortic_screening
 import build_axilla
@@ -357,12 +357,14 @@ def write_catalogue(destination, refs, tours, survey=None, aaa_acquisitions=None
     for folder, names in (
         ('development', ('index.html', 'review.css', 'review.js', 'comparison.js', 'assets.html', 'assets.css',
                          'assets.js', 'assets-data.js', 'assets-identity.js', 'assets-scene.js', 'assets-tour-chooser.js',
-                         'assets-abdomen.js')),
+                         'assets-abdomen.js', 'assets-exams.js', 'assets-provenance.js', 'assets-illustrations.js')),
         ('composed-tour', ('index.html', 'tour.css', 'tour.js', 'liver-window.css', 'liver-window.js')),
     ):
         (destination / folder).mkdir(exist_ok=True)
         for name in names:
             shutil.copyfile(HERE / folder / name, destination / folder / name)
+    shutil.copytree(HERE / 'development/illustrations', destination / 'development/illustrations',
+                    ignore=shutil.ignore_patterns('*.md'))
     write_gallery_donors(destination)
     copy_cardiac_study(HERE / 'cardiac', destination)
     write_case_library(destination, tours, refs, aaa_acquisitions=aaa_acquisitions)

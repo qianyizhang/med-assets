@@ -17,6 +17,10 @@ Shared terms for the public gallery and the anatomical relationships it presents
 | Compare | Gallery tool for inspecting differences. A **comparison session** explores a question. A **saved review** records a dated finding with its exact inputs, decisive evidence and limits. |
 | 3D Stage | Gallery tool for composing, inspecting, saving and exporting a 3D scene. |
 | Asset lineage | The source and revision history of one asset. A family groups related lineages for discovery. |
+| Named part | A selectable structure within an asset lineage, identified by its source name or a documented mapping. The same structure in a different subject can require another geometry binding. |
+| Geometry variant | A particular shape of a part at physical scale, including a fit to a subject or pose. One revision can supply several variants. |
+| Delivered mesh file | A payload containing indexed geometry. Its byte hash identifies the file. One file can serve many teaching uses. |
+| Teaching use | A binding of an asset or part to a named task, such as an acquisition chapter and its evidence frame. The binding records provenance and the scope of any assessment. |
 | Asset revision | An identified iteration within a lineage. An **export** is a specific representation of that revision. **Recommended** identifies the revision selected by its maintainer. |
 | Asset release | A revision issued for consumers of the asset. Its semantic version describes compatibility with earlier releases of that asset. |
 | Teaching assessment | Four scores for a named learner task on an exact export. An exemption keeps the observed score and records its permitted use and reopening condition. |

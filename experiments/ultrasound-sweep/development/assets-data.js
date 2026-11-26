@@ -3,6 +3,8 @@ import { loadMesh } from '../scene.js';
 import { classifyAsset, geometryDigest, regionFor, regions } from './assets-identity.js';
 import { abdomenReferenceNotice, abdomenRequirements, missingDonor } from './assets-abdomen.js';
 
+import { examRequirements, selectsRetained } from './assets-exams.js';
+
 export const axes = [
   ['fidelity', 'Fidelity to evidence'], ['form', 'Form and surface'],
   ['readability', 'Teaching readability'], ['economy', 'Mesh economy'],
@@ -169,7 +171,13 @@ async function bind(row, skin, config, digest) {
     identityIssue = error.message;
   }
   const variantId = [identity.assetId, identity.partId, meshDigest ?? ('unavailable/' + rowID(row))].join('/');
-  return { ...row, ...identity, meshDigest, identityIssue, variantId, binding: variantId };
+  const original = donor && {
+    source: 'sweep', case: donor.id, part: row.part, chapter: '', occurrence: 1,
+    url: studyURL('index.html?sweep=' + donor.id), label: donor.title, assetId: identity.assetId, assetRevision: identity.assetRevision,
+    sourceSpace: donor.case ?? 's1233', meshDigest, registration: 'registered-exact',
+  };
+  return { ...row, ...identity, meshDigest, identityIssue, variantId, binding: variantId,
+    ...(original ? { donor: original } : {}) };
 }
 
 async function fileParts(source, entry, config, base, chapter) {
@@ -180,7 +188,8 @@ async function fileParts(source, entry, config, base, chapter) {
     const surfacePart = Boolean(config.surfaceParts?.includes(id));
     const renderOrder = id === 'torso' ? 4 : surfacePart ? 5 + (order - 1) / config.parts.length : order / items.length * 2;
     return bind({ ...rowBase(source, entry, chapter), part: id, label, occurrence: 1, color, mesh, scale, renderOrder,
-      surfacePart, opacity: surfacePart ? .32 : opacity ?? 1, skin: id === 'torso' },
+      surfacePart, opacity: surfacePart ? .32 : opacity ?? 1, skin: id === 'torso',
+      ...(source === 'sweep' ? { sourceSpace: config.case ?? 's1233' } : {}) },
       id === 'torso', config, fileDigest(mesh, scale));
   }));
 }
@@ -200,12 +209,17 @@ export function sweepRows() {
 
 export async function aaaRows() {
   const base = new URL('tours/aaa/', study);
+  const { chapters } = await import('../cases/vascular/playable.js');
   const records = await Promise.allSettled(['aaa-negative', 'aaa-positive', 'aaa-indeterminate'].map(async (id) => {
-    const [scene, record] = await Promise.all([read(new URL(id + '.scene.json', base)), read(new URL(id + '.json', base))]);
-    const parts = await Promise.all(Object.entries(scene).map(([chapter, { config }]) => fileParts('aaa', {
-      id, family: 'aaa', title: record.title, url: 'tours/aaa/' + id + '.html',
-    }, config, base, { id: chapter, title: chapter.replaceAll('-', ' '), evidenceFrame: 14 })));
-    return parts.flat();
+    const record = await read(new URL(id + '.json', base));
+    const entry = { id, family: 'aaa', title: record.title, url: 'tours/aaa/' + id + '.html',
+      chapters: chapters(record) };
+    const scene = await read(new URL(id + '.scene.json', base)).catch(() => ({}));
+    const packed = await Promise.all(entry.chapters.map(async (chapter) => {
+      const item = scene[chapter.id];
+      return item ? fileParts('aaa', entry, item.config, base, chapter) : [];
+    }));
+    return reconcileRows(entry, packed.flat());
   }));
   return { rows: records.flatMap((entry) => entry.status === 'fulfilled' ? entry.value : []),
     issues: records.filter((entry) => entry.status === 'rejected').map(({ reason }) => reason.message) };
@@ -213,24 +227,87 @@ export async function aaaRows() {
 
 export async function caseRows(entry) {
   if (entry.family === 'abdomen') return abdomenRows(entry);
-  const { sections, model } = await caseModel(entry);
+  const references = new Map(entry.chapters.map((chapter) => [chapter.id, examRequirements(entry, chapter)]));
+  if (![...references.values()].some((items) => items.some((item) => item.source === 'retained'))) {
+    return reconcileRows(entry, [], references);
+  }
+  const loaded = await caseModel(entry).catch((error) => ({ error }));
+  if (loaded.error) return reconcileRows(entry, [], references, loaded.error.message);
+  const { sections, model } = loaded;
   try {
     const rows = sections.flatMap((chapter) => {
+      const items = references.get(chapter.id) ?? [];
+      if (!items.some((item) => item.source === 'retained')) return [];
       model.update(chapter, chapter.evidenceFrame);
       model.anatomy.updateMatrixWorld(true);
-      return meshParts(model).map(({ node, skin, ...part }) =>
-        bind({ ...rowBase('case', entry, chapter), ...part, skin, color: node.material?.color?.getStyle() }, skin, undefined, liveDigest(node)));
+      return meshParts(model).filter(({ part }) => items.some((item) => selectsRetained(item, part)))
+        .map(({ node, skin, ...part }) =>
+          bind({ ...rowBase('case', entry, chapter), ...part, skin, color: node.material?.color?.getStyle() },
+            skin, undefined, liveDigest(node)));
     });
-    return await Promise.all(rows);
+    return reconcileRows(entry, await Promise.all(rows), references);
   } finally {
     if (model.dispose) model.dispose();
     else dispose(model.anatomy);
   }
 }
 
+function gapRow(entry, chapter, detail) {
+  const assetId = detail.assetId?.replace(/^(library\/[^/]+)\/.+$/, '$1');
+  return { ...rowBase('requirement', entry, chapter), ...detail, assetId,
+    partId: detail.partId ?? detail.part, partLabel: detail.partLabel ?? detail.label, occurrence: 1 };
+}
+
+function referenceRow(entry, chapter, reference, part) {
+  const sourceSpace = part.sourceSpace ?? part.assetId.split(':').slice(0, 2).join(':');
+  const donor = {
+    source: part.source, case: part.case, part: part.part, chapter: part.chapter, occurrence: part.occurrence,
+    url: part.url, label: part.title ?? part.label, sourceSpace, assetId: part.assetId, assetRevision: part.assetRevision,
+    sourceNode: part.sourceNode, sourceSha256: part.sourceSha256, meshDigest: part.meshDigest,
+  };
+  return { ...part, ...rowBase('case', entry, chapter), donor, sourceSpace, legacyParts: reference.legacyParts,
+    referenceScope: reference.referenceScope,
+    sourceNotice: entry.family === 'abdomen' ? abdomenReferenceNotice :
+      'Independent source anatomy in its original coordinates. This reference is separate from the worked acquisition.' };
+}
+
+function unavailableRetained(entry, chapter, part, issue) {
+  const identity = classifyAsset({ ...rowBase(entry.family === 'aaa' ? 'aaa' : 'case', entry, chapter),
+    part, label: part }, false);
+  return gapRow(entry, chapter, { ...identity, status: 'missing', part, label: identity.partLabel,
+    missingReason: issue ?? 'This named surface is unavailable in the delivered case model.' });
+}
+
+async function reconcileRows(entry, retainedRows, references, retainedIssue) {
+  const [sweeps, gallery] = await Promise.all([sweepRows().catch(() => []), galleryRows()]);
+  const original = new Map(sweeps.map((row) => [row.case + '/' + row.part, row]));
+  const extra = new Map(gallery.map((row) => [row.part, row]));
+  const rows = entry.chapters.flatMap((chapter) => {
+    const items = references?.get(chapter.id) ?? examRequirements(entry, chapter);
+    const acquisitionNotes = items.filter((reference) => reference.source === 'acquisition-note');
+    return items.filter((reference) => reference.source !== 'acquisition-note').flatMap((reference) => {
+      if (reference.source === 'retained') {
+        const matches = retainedRows.filter((row) => row.chapter === chapter.id && row.meshDigest
+          && selectsRetained(reference, row.part));
+        const bound = matches.map((row) => ({ ...row, referenceKind: 'retained',
+          sourceSpace: 'worked:' + entry.id, referenceScope: reference.referenceScope, sourceNotice: reference.referenceScope }));
+        const present = new Set(matches.map(({ part }) => part));
+        const missing = Array.isArray(reference.parts) ? reference.parts.filter((part) => !present.has(part))
+          : matches.length ? [] : [chapter.title];
+        return [...bound, ...missing.map((part) => unavailableRetained(entry, chapter, part, retainedIssue))];
+      }
+      const part = reference.source === 'gallery' ? extra.get(reference.part) : original.get(reference.key + '/' + reference.part);
+      if (!part?.meshDigest) return gapRow(entry, chapter, reference.status ? reference : missingDonor(reference,
+        part?.identityIssue ?? 'The specified reference mesh is unavailable in this build.', part));
+      return referenceRow(entry, chapter, reference, part);
+    }).map((row) => acquisitionNotes.length ? { ...row, acquisitionNotes } : row);
+  });
+  return [...new Map(rows.map((row) => [rowID(row), row])).values()];
+}
+
 let galleryInventory;
 function galleryRows() {
-  galleryInventory ??= read(new URL('development/abdomen-gallery-donors.json', study)).then((rows) =>
+  galleryInventory ??= read(new URL('development/gallery-donors.json', study)).then((rows) =>
     Promise.all(rows.map(async (row) => {
       const mesh = studyURL(row.mesh);
       let meshDigest;
@@ -240,35 +317,17 @@ function galleryRows() {
       } catch (error) {
         identityIssue = error.message;
       }
-      const variantId = meshDigest ? [row.assetId, row.partId, meshDigest].join('/') : undefined;
-      return { ...row, mesh, meshDigest, identityIssue, variantId, binding: variantId };
+      const assetId = row.assetId.replace(/^(library\/[^/]+)\/.+$/, '$1');
+      const variantId = meshDigest ? [assetId, row.partId, meshDigest].join('/') : undefined;
+      return { ...row, assetId, mesh, meshDigest, identityIssue, variantId, binding: variantId };
     }))).catch(() => []);
   return galleryInventory;
 }
 
 async function abdomenRows(entry) {
   if (!entry.chapters?.length) throw Error('The abdomen case has no delivered chapter list.');
-  const [sweeps, gallery] = await Promise.all([sweepRows().catch(() => []), galleryRows()]);
-  const original = new Map(sweeps.map((row) => [row.case + '/' + row.part, row]));
-  const extra = new Map(gallery.map((row) => [row.part, row]));
-  return entry.chapters.flatMap((chapter) => abdomenRequirements(chapter.id).map((reference) => {
-    const part = reference.source === 'gallery' ? extra.get(reference.part)
-      : reference.source === 'sweep' ? original.get(reference.key + '/' + reference.part) : undefined;
-    if (!part?.meshDigest) {
-      const detail = reference.status ? reference : missingDonor(reference,
-        part?.identityIssue ?? 'The original source mesh is unavailable in this build.', part);
-      return { ...rowBase('requirement', entry, chapter), ...detail,
-        partId: detail.part, partLabel: detail.label, occurrence: 1 };
-    }
-    // Packed s1233 organ sweeps share their source coordinates. No transform
-    // is applied into the authored case patient or the recorded scan.
-    const sourceSpace = part.sourceSpace ?? 'ct-s1233';
-    const donor = { source: part.source, case: part.case, part: part.part, chapter: part.chapter,
-      occurrence: part.occurrence, url: part.url, label: part.title ?? part.label, sourceSpace };
-    return { ...part, ...rowBase('case', entry, chapter), donor, sourceSpace, legacyParts: reference.legacyParts,
-      referenceScope: reference.referenceScope,
-      sourceNotice: abdomenReferenceNotice };
-  }));
+  const references = new Map(entry.chapters.map((chapter) => [chapter.id, abdomenRequirements(chapter.id)]));
+  return reconcileRows(entry, [], references);
 }
 
 export function rowID(row) {

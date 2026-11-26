@@ -18,6 +18,7 @@
         <label>Find a part or acquisition <input id="query" name="q" type="search" placeholder="e.g. thyroid or aortic wall"></label>
         <label>Assessment <select id="assessment" name="assessment"><option value="">All assessments</option><option value="assessed">Assessed</option><option value="qualified">Qualified · 4 on every axis</option><option value="below">Below target</option><option value="exemplar">Exemplars</option><option value="unrated">Unrated</option></select></label>
         <label>Availability <select id="availability" name="availability"><option value="">All assets and requirements</option><option value="gaps">Rebuilds and missing parts</option><option value="geometry">Geometry available</option></select></label>
+        <label>Geometry use <select id="reuse" name="reuse"><option value="">All bindings</option><option value="repeated">Repeated bindings</option></select></label>
         <button id="clear" type="reset">Clear filters</button>
         <fieldset id="tours">
           <legend>Tours and standalone sweeps</legend>
@@ -26,6 +27,19 @@
         </fieldset>
       </form>
     </search>
+    <details id="coverage"><summary>Study coverage</summary><div id="coverage-content">Loading coverage…</div></details>
+    <details id="coverage-bindings">
+      <summary>Browse geometry bindings</summary>
+      <div class="binding-table-scroll">
+        <table>
+          <caption>Geometry bindings in the current filters</caption>
+          <thead><tr><th scope="col">Part</th><th scope="col">Source and revision</th><th scope="col">Binding kind</th><th scope="col">Acquisitions</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <nav id="binding-pagination" aria-label="Binding pages" hidden><button id="binding-previous" type="button">Previous</button><span id="binding-page"></span><button id="binding-next" type="button">Next</button></nav>
+    </details>
+    <p id="binding-filter" hidden></p>
     <p id="inventory-status" role="status">Loading inventory…</p>
     <div class="workspace">
       <section aria-label="Anatomical assets" class="catalog">
@@ -49,7 +63,16 @@
         <div id="preview" hidden>
           <div class="controls" id="views" aria-label="Mesh view"></div>
           <div class="viewport-layout">
-            <canvas id="mesh" tabindex="0" aria-label="Anatomy viewport" aria-describedby="mesh-help"></canvas>
+            <figure class="live-geometry">
+              <figcaption id="context-caption" hidden>Live source mesh</figcaption>
+              <canvas id="mesh" tabindex="0" aria-label="Anatomy viewport" aria-describedby="mesh-help"></canvas>
+            </figure>
+            <figure id="requirement-art" hidden>
+              <figcaption><strong>AI context illustration</strong></figcaption>
+              <img id="requirement-art-image" alt="" aria-describedby="requirement-art-caption">
+              <p id="requirement-art-error" hidden>Context illustration unavailable.</p>
+              <p id="requirement-art-caption"></p>
+            </figure>
             <fieldset id="visibility" hidden>
               <legend id="visibility-title">Visible parts</legend>
               <div id="visibility-list"></div>
@@ -64,6 +87,8 @@
             <p id="geometry-topology" role="status"></p>
           </section>
           <div class="link-row"><a id="route">Open acquisition</a><a id="mesh-file" hidden>Open source mesh</a></div>
+          <p id="acquisition-notes" hidden></p>
+          <p id="context-source" hidden></p>
           <p id="donor-source" hidden></p>
           <p id="composed-uses" hidden></p>
         </div>
@@ -79,6 +104,7 @@
           <nav aria-label="Asset navigation"><a id="back-to-assets" href="#">Clear selection</a></nav>
         </section>
         <details id="part-uses" hidden><summary>Acquisition uses</summary><ul></ul></details>
+        <details id="binding-provenance" hidden><summary>Geometry provenance and uses</summary><div></div></details>
         <section id="evidence" aria-label="Assessment evidence" hidden></section>
       </aside>
     </div>

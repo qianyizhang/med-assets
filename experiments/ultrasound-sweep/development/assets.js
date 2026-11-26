@@ -3,6 +3,8 @@ import { viewport } from '../scene.js';
 import { aaaRows, axes, assessmentScore, bufferBytes, caseRows, dispose, isolatedMesh, meshTopology, read, rowID, setTeachingTours, sweepRows } from './assets-data.js';
 
 import { acquireScene } from './assets-scene.js';
+import { illustrationFor } from './assets-illustrations.js';
+import { bindingProvenance, setProvenanceInventory } from './assets-provenance.js';
 import { renderTourChooser } from './assets-tour-chooser.js';
 
 const $ = (id) => document.getElementById(id);
@@ -15,6 +17,7 @@ const make = (tag, text, className) => {
 const entries = new Map();
 const inventory = new Map();
 const retiredUses = new Map();
+const galleryAssetAliases = new Map([['atlas:skeleton', 'library/skeleton']]);
 const retiredAssets = new Set([
   'case:hepatic-model', 'case:renal-model', 'case:biliary-model', 'case:pancreas-model', 'case:abdominal-context',
 ]);
@@ -29,6 +32,9 @@ let selection;
 let matches = [];
 let current;
 let openAsset;
+let bindingFilter = '';
+let bindingPage = 0;
+let activeCoverage = '';
 let region = '';
 let tourSelection = null;
 let mode = 'asset';
@@ -38,7 +44,8 @@ let desiredScene = '';
 let loadedScene;
 const hiddenElements = new Map();
 const acquisitionKey = (row) => [row.source, row.case, row.chapter].filter(Boolean).join('/');
-const viewKey = (row) => row.sourceSpace ? acquisitionKey(row) + '@' + row.sourceSpace : acquisitionKey(row);
+const independentReference = (row) => Boolean(row.donor && row.donor.registration !== 'registered-exact');
+const viewKey = (row) => independentReference(row) && row.sourceSpace ? acquisitionKey(row) + '@' + row.sourceSpace : acquisitionKey(row);
 function acquisitionURL(row) {
   const url = new URL(row.url);
   if (row.chapter) {
@@ -59,7 +66,7 @@ const thumbnailCache = new Map();
 const waitingThumbnails = [];
 let makingThumbnail = false;
 
-const filters = ['query', 'assessment', 'availability'];
+const filters = ['query', 'assessment', 'availability', 'reuse'];
 const requirementLabel = (row) => row.source === 'requirement' ? ({ rebuild: 'Rebuild required', missing: 'Missing part' })[row.status] : undefined;
 const displayStatus = (row) => requirementLabel(row) ?? rateLabel(linked(row));
 const assetFragment = (id) => 'asset/' + encodeURIComponent(id);
@@ -87,7 +94,7 @@ function matchesAssessment(record, rating) {
   }
 }
 function linked(row) {
-  if (requirementLabel(row) || row.donor) return undefined;
+  if (requirementLabel(row) || independentReference(row)) return undefined;
   const caseScope = { ...row, chapter: '' };
   const unique = counts.get(frameKey(row)) === 1;
   return reviews.get(rowID(row)) ?? (unique ? uniqueReviews.get(frameKey(row)) : undefined) ??
@@ -107,6 +114,9 @@ function recordRows(rows) {
     if (!uses.has(binding)) uses.set(binding, []);
     uses.get(binding).push(row);
     const asset = assetOf(row);
+    if (row.donor?.source === 'gallery' && row.assetRevision && !asset.endsWith('/' + row.assetRevision)) {
+      galleryAssetAliases.set(asset + '/' + row.assetRevision, asset);
+    }
     if (!assets.has(asset)) assets.set(asset, []);
     assets.get(asset).push(row);
     const identity = frameKey(row);
@@ -176,10 +186,12 @@ function filterState() {
     if (!tourSelection.size) url.searchParams.append('tour', '');
     else for (const id of [...tourSelection].sort()) url.searchParams.append('tour', id);
   }
-  for (const [param, id] of [['q', 'query'], ['assessment', 'assessment'], ['availability', 'availability']]) {
+  for (const [param, id] of [['q', 'query'], ['assessment', 'assessment'], ['availability', 'availability'], ['reuse', 'reuse']]) {
     if ($(id).value) url.searchParams.set(param, $(id).value);
     else url.searchParams.delete(param);
   }
+  if (bindingFilter) url.searchParams.set('binding', bindingFilter);
+  else url.searchParams.delete('binding');
   if (mode === 'scene') url.searchParams.set('view', mode);
   else url.searchParams.delete('view');
   if (acquisition) url.searchParams.set('acquisition', acquisition);
@@ -196,6 +208,8 @@ function restoreFilters() {
   $('query').value = params.get('q') ?? '';
   $('assessment').value = params.get('assessment') ?? '';
   $('availability').value = params.get('availability') ?? '';
+  $('reuse').value = params.get('reuse') ?? '';
+  bindingFilter = params.get('binding') ?? '';
 }
 
 function setFilters() {
@@ -327,6 +341,19 @@ function specimen(row) {
   if (requirementLabel(row)) {
     tile.classList.add('requirement-placeholder');
     tile.textContent = requirementLabel(row);
+    const art = illustrationFor(row);
+    if (art && row.status === 'rebuild') {
+      const image = make('img');
+      image.alt = '';
+      image.loading = 'lazy';
+      image.src = art.src;
+      image.addEventListener('error', () => {
+        tile.classList.remove('requirement-illustrated');
+        tile.textContent = requirementLabel(row);
+      }, { once: true });
+      tile.classList.add('requirement-illustrated');
+      tile.replaceChildren(image, make('span', 'AI illustration', 'art-badge'));
+    }
     return tile;
   }
   const record = linked(row);
@@ -358,7 +385,9 @@ function requirementsView(rows) {
   list.replaceChildren(...distinct.map((uses) => {
     const row = uses[0];
     const item = make('li');
-    const title = make('strong', 'Missing part · ' + (row.partLabel ?? row.label), 'requirement-label');
+    const title = make('a', 'Missing part · ' + (row.partLabel ?? row.label), 'requirement-label');
+    title.href = '#' + rowID(row);
+    title.dataset.requirementUse = '';
     const reason = [...new Set(uses.map((use) => use.missingReason).filter(Boolean))].join(' ');
     const notes = make('p', reason);
     notes.hidden = !reason;
@@ -453,7 +482,8 @@ function useView() {
 function rowMatches(row, query, rating) {
   const gap = requirementLabel(row);
   const availability = $('availability').value;
-  return inScope(row) && (gap ? !rating && availability !== 'geometry' : availability !== 'gaps' && matchesAssessment(linked(row), rating)) &&
+  return inScope(row) && (!bindingFilter || bindingOf(row) === bindingFilter) &&
+    (!$('reuse').value || (!gap && (uses.get(bindingOf(row))?.length ?? 0) > 1)) && (gap ? !rating && availability !== 'geometry' : availability !== 'gaps' && matchesAssessment(linked(row), rating)) &&
     query.every((token) => [row.assetLabel, row.partLabel, row.label, row.title, row.chapterTitle, row.case, gap,
       ...toursOf(row).map(({ label }) => label)].join(' ').toLowerCase().includes(token));
 }
@@ -493,7 +523,8 @@ function rowsView() {
         parts && parts + (parts === 1 ? ' part' : ' parts'),
         requirements && requirements + (requirements === 1 ? ' requirement' : ' requirements'),
       ].filter(Boolean).join(' · ')));
-      const statuses = [...new Set(rows.map(requirementLabel).filter((status) => status && status !== requirementLabel(row)))];
+      const statuses = [...new Set(rows.map(requirementLabel).filter((status) =>
+        status && (status !== requirementLabel(row) || (row.status === 'rebuild' && illustrationFor(row)))))];
       if (statuses.length) anchor.append(make('small', statuses.join(' · '), 'requirement-label'));
       const requirementTypes = [...new Set(rows.filter(requirementLabel).map((row) => row.status))];
       if (requirementTypes.length) anchor.dataset.requirement = requirementTypes.join(' ');
@@ -539,6 +570,19 @@ function rowsView() {
     button.setAttribute('aria-pressed', String(button.dataset.mode === mode));
   }
   if (!current) assembledView(candidates);
+  const filter = $('binding-filter');
+  filter.hidden = !bindingFilter;
+  if (bindingFilter) {
+    const sample = uses.get(bindingFilter)?.[0];
+    const reset = filterState();
+    reset.searchParams.delete('binding');
+    reset.hash = '';
+    const clear = make('a', 'Clear binding filter');
+    clear.href = reset.href;
+    filter.replaceChildren('Binding · ' + (sample?.partLabel ?? sample?.label ?? 'Unavailable') + ' · ', clear);
+  }
+  provenanceView(current);
+  bindingCatalog(candidates);
   status();
 }
 
@@ -555,10 +599,26 @@ function refresh() {
   const hash = location.hash.slice(1);
   const deep = retiredUses.get(hash) ?? hash;
   renderScope();
+  if (hash === 'coverage' || hash === 'coverage-bindings') {
+    const panel = $(hash);
+    if (activeCoverage !== hash) panel.open = true;
+    openAsset = undefined;
+    if (selection) clearPart();
+    rowsView();
+    if (activeCoverage !== hash) {
+      activeCoverage = hash;
+      requestAnimationFrame(() => {
+        if (location.hash === '#' + hash) panel.scrollIntoView({ block: 'start' });
+      });
+    }
+    return;
+  }
+  activeCoverage = '';
   if (deep.startsWith('asset/')) {
     if (selection) clearPart();
     try {
-      openAsset = decodeURIComponent(deep.slice(6));
+      const asset = decodeURIComponent(deep.slice(6));
+      openAsset = galleryAssetAliases.get(asset) ?? asset;
     } catch {
       openAsset = undefined;
     }
@@ -577,11 +637,189 @@ function refresh() {
       row.case === original[1] && (row.donor || requirementLabel(row)));
     $('selection').textContent = retired ? 'Retired geometry' : 'Part unavailable';
     $('selection-context').textContent = retired
-      ? 'This bookmark points to geometry retired from the abdominal tour. Choose an available source asset or tour requirement from the shelf.'
+      ? 'This bookmark points to geometry retired from this tour. Choose an available source asset or tour requirement from the shelf.'
       : 'This link does not resolve to a part in the current inventory.';
     return;
   }
   rowsView();
+}
+
+function scopeLink(tour) {
+  const url = new URL('assets.html', location.href);
+  url.searchParams.set('tour', tour);
+  return url.href;
+}
+
+function coverageView(manifest) {
+  const panel = $('coverage');
+  const content = $('coverage-content');
+  const cases = manifest.cases ?? [];
+  const sweepFiles = manifest.sweepHashes ?? {};
+  const sweeps = Object.keys(sweepFiles).sort(byText);
+  const references = Object.values(sweepFiles).flatMap((files) => Object.values(files)).filter(Boolean);
+  const distinctFiles = new Set(references).size;
+  const chapters = cases.reduce((count, entry) => count + (entry.chapters?.length ?? 0), 0);
+  panel.querySelector('summary').textContent =
+    'Study coverage · ' + cases.length + ' case tours · ' + chapters + ' chapters · ' + sweeps.length + ' standalone sweeps';
+  content.replaceChildren();
+  const families = grouped(cases, (entry) => entry.family ?? '');
+  const caseTitle = make('h3', 'Case tours');
+  content.append(caseTitle);
+  for (const [family, entries] of families) {
+    const section = make('details');
+    const title = { aaa: 'AAA screening', echo: 'Echocardiography' }[family] ??
+      family[0]?.toUpperCase() + family.slice(1).replaceAll('-', ' ');
+    section.append(make('summary', title + ' · ' + entries.length));
+    for (const entry of entries) {
+      const tour = make('details');
+      tour.append(make('summary', entry.title + ' · ' + entry.chapters.length + ' chapters'));
+      const browse = make('a', 'Browse tour assets');
+      browse.href = scopeLink(entry.id);
+      tour.append(browse);
+      const list = make('ul');
+      for (const chapter of entry.chapters) {
+        const item = make('li');
+        const link = make('a', chapter.title);
+        link.href = acquisitionURL({ ...chapter, url: new URL('../' + entry.url, location.href), chapter: chapter.id, frame: chapter.evidenceFrame });
+        item.append(link); list.append(item);
+      }
+      tour.append(list); section.append(tour);
+    }
+    content.append(section);
+  }
+  const standalone = make('details');
+  standalone.append(make('summary', 'Standalone sweeps · ' + sweeps.length));
+  standalone.append(make('p', references.length + ' sweep mesh references point to ' +
+    distinctFiles + ' distinct files by SHA-256.'));
+  const list = make('ul');
+  for (const sweep of sweeps) {
+    const item = make('li');
+    const link = make('a', (typeof abdomenTours !== 'undefined' && abdomenTours.find(({ id }) => id === sweep)?.title) || sweep.replaceAll('-', ' '));
+    const url = new URL('../index.html', location.href);
+    url.searchParams.set('sweep', sweep);
+    link.href = url.href;
+    const browse = make('a', 'Browse assets');
+    browse.href = scopeLink('sweep:' + sweep);
+    item.append(link, ' · ', browse); list.append(item);
+  }
+  standalone.append(list); content.append(standalone);
+}
+
+function bindingCatalog(candidates) {
+  const panel = $('coverage-bindings');
+  if (!panel.open) return;
+  const available = [...grouped(candidates.filter((row) => !requirementLabel(row)), bindingOf).values()]
+    .sort(([a], [b]) => byText(a.assetLabel ?? a.title, b.assetLabel ?? b.title) || byText(a.partLabel ?? a.label, b.partLabel ?? b.label));
+  const pages = Math.max(1, Math.ceil(available.length / 28));
+  bindingPage = Math.min(bindingPage, pages - 1);
+  const page = available.slice(bindingPage * 28, (bindingPage + 1) * 28);
+  const body = panel.querySelector('tbody');
+  const signature = page.map((rows) => rowID(rows[0]) + '/' + rows.length).join('|');
+  if (body.dataset.signature !== signature) {
+    body.dataset.signature = signature;
+    body.replaceChildren(...page.map((rows) => {
+      const row = rows.find((candidate) => !candidate.donor) ?? rows[0];
+      const provenance = bindingProvenance(row);
+      const item = make('tr');
+      const detail = make('td');
+      const link = make('a', row.partLabel ?? row.label);
+      link.href = '#' + rowID(row);
+      detail.append(link, make('small', row.assetLabel ?? row.title));
+      const source = make('td', provenance.source ?? 'Unavailable');
+      if (provenance.revision) source.append(make('small', provenance.revision));
+      const count = new Set(rows.map(acquisitionKey)).size;
+      const kinds = [...new Set(rows.map(use => bindingProvenance(use).label))];
+      item.append(detail, source, make('td', kinds.join(' · ')), make('td', count));
+      return item;
+    }));
+    if (!page.length) {
+      const item = make('tr');
+      const message = make('td', 'No geometry bindings match these filters.');
+      message.colSpan = 4;
+      item.append(message); body.append(item);
+    }
+  }
+  $('binding-pagination').hidden = pages <= 1;
+  $('binding-page').textContent = (bindingPage + 1) + ' / ' + pages;
+  $('binding-previous').disabled = bindingPage === 0;
+  $('binding-next').disabled = bindingPage + 1 === pages;
+}
+
+$('coverage-bindings').ontoggle = () => rowsView();
+$('binding-previous').onclick = () => { bindingPage--; rowsView(); };
+$('binding-next').onclick = () => { bindingPage++; rowsView(); };
+
+function provenanceView(row) {
+  const panel = $('binding-provenance');
+  panel.hidden = !row || Boolean(requirementLabel(row));
+  if (panel.hidden) return;
+  const binding = bindingOf(row);
+  const matched = uses.get(binding) ?? [];
+  const content = panel.querySelector('div');
+  const signature = [rowID(row), ...matched.map(rowID)].join('|');
+  if (content.dataset.signature === signature) return;
+  content.dataset.signature = signature;
+  content.replaceChildren();
+  const provenance = bindingProvenance(row);
+  const facts = make('dl');
+  const add = (label, value, url) => {
+    if (!value) return;
+    const term = make('dd', url ? undefined : value);
+    if (url) {
+      const link = make('a', value);
+      link.href = url;
+      term.append(link);
+    }
+    facts.append(make('dt', label), term);
+  };
+  add('Binding kind', provenance.label ?? provenance.kind);
+  add('Geometry source', provenance.source, provenance.url);
+  add('Source revision', provenance.revision);
+  if (row.mesh) add('Delivered mesh file', new URL(row.mesh, location.href).pathname.split('/').pop(), row.mesh);
+  if (row.meshDigest) add('Fitted geometry', row.meshDigest);
+  add('Evidence', provenance.evidence);
+  if (provenance.origin) {
+    add('Original binding kind', provenance.origin.label ?? provenance.origin.kind);
+    add('Original source', provenance.origin.source, provenance.origin.url);
+    add('Original revision', provenance.origin.revision);
+  }
+  content.append(facts);
+  const filter = make('a', 'Browse this binding');
+  const url = new URL('assets.html', location.href);
+  url.searchParams.set('binding', binding);
+  filter.href = url.href;
+  content.append(filter);
+  const groupedUses = grouped(matched, (use) => use.source + '/' + use.case);
+  const at = make('h4', 'Uses of this binding');
+  content.append(at);
+  for (const group of groupedUses.values()) {
+    const use = group[0];
+    const detail = make('details');
+    const acquisitions = new Map(group.map((candidate) => [acquisitionKey(candidate), candidate]));
+    detail.append(make('summary', use.title + ' · ' + acquisitions.size +
+      (acquisitions.size === 1 ? ' acquisition' : ' acquisitions')));
+    const list = make('ul');
+    for (const candidate of acquisitions.values()) {
+      const item = make('li');
+      const link = make('a', candidate.chapterTitle || candidate.title);
+      link.href = acquisitionURL(candidate);
+      const inspect = make('a', 'Inspect use');
+      inspect.href = '#' + rowID(candidate);
+      item.append(link, ' · ', inspect);
+      const useProvenance = bindingProvenance(candidate);
+      if (useProvenance.kind !== provenance.kind && useProvenance.label) item.append(' · ' + useProvenance.label);
+      list.append(item);
+      if (candidate.source === 'sweep') {
+        for (const tour of toursOf(candidate).filter(({ kind }) => kind === 'orientation')) {
+          const orientation = make('li');
+          const link = make('a', tour.label);
+          link.href = tour.url;
+          orientation.append(link); list.append(orientation);
+        }
+      }
+    }
+    detail.append(list); content.append(detail);
+  }
 }
 
 function evidenceImage(set, name, label) {
@@ -711,16 +949,103 @@ function mount(object, bounds = new THREE.Box3().setFromObject(object)) {
   return size.toArray().map((value) => value.toFixed(1)).join(' × ') + ' mm';
 }
 
+function resetRequirementContext() {
+  delete $('preview').dataset.requirementContext;
+  delete $('mesh').dataset.contextReady;
+  $('mesh').setAttribute('aria-label', 'Anatomy viewport');
+  $('requirement-art').hidden = $('context-caption').hidden = $('context-source').hidden = true;
+}
+
+function showAcquisitionLink(row, text = 'Open acquisition') {
+  const route = $('route');
+  route.href = acquisitionURL(row);
+  route.textContent = text;
+  const notes = $('acquisition-notes');
+  const labels = [...new Set(row.acquisitionNotes?.map(({ label }) => label) ?? [])];
+  notes.hidden = !labels.length;
+  notes.textContent = labels.length ? 'On the acquisition · ' + labels.join(' · ') : '';
+}
+
+function showIllustration(row, layout = 'art') {
+  const art = illustrationFor(row);
+  if (!art) return false;
+  $('preview').hidden = false;
+  $('preview').dataset.requirementContext = layout;
+  $('context-caption').hidden = layout === 'art';
+  $('mesh').hidden = $('views').hidden = $('mesh-help').hidden = true;
+  $('geometry-checks').hidden = $('mesh-file').hidden = $('composed-uses').hidden = $('donor-source').hidden = true;
+  showAcquisitionLink(row, 'Open requirement acquisition');
+  $('requirement-art').hidden = false;
+  $('requirement-art-caption').textContent = art.caption ?? '';
+  const image = $('requirement-art-image');
+  if (image.getAttribute('src') !== art.src) {
+    image.hidden = true;
+    $('requirement-art-error').hidden = true;
+    image.alt = art.alt;
+    image.src = art.src;
+  }
+  return true;
+}
+
+$('requirement-art-image').onload = () => {
+  $('requirement-art-image').hidden = false;
+  $('requirement-art-error').hidden = true;
+};
+$('requirement-art-image').onerror = () => {
+  $('requirement-art-image').hidden = true;
+  $('requirement-art-error').hidden = false;
+};
+
+async function showGapContext(row, request) {
+  const donor = row.part === 'gallbladder-wall' && [...inventory.values()].find((candidate) =>
+    candidate.case === row.case && candidate.chapter === row.chapter &&
+    candidate.donor?.source === 'sweep' && candidate.donor.case === 'gallbladder' &&
+    candidate.donor.part === 'gallbladder' && candidate.mesh && candidate.meshDigest);
+  if (!showIllustration(row, donor ? 'paired' : 'art')) return;
+  $('mesh-status').textContent = donor ? 'Loading the original gallbladder mesh…' : '';
+  if (!donor) return;
+  const origin = inventory.get(rowID(donor.donor));
+  const source = $('context-source');
+  source.hidden = false;
+  const link = make('a', 'Inspect original gallbladder mesh');
+  link.href = origin ? '#' + rowID(origin) : donor.donor.url;
+  source.replaceChildren(link);
+  if (origin) {
+    const sweep = make('a', 'Original sweep');
+    sweep.href = donor.donor.url;
+    source.append(' · ', sweep);
+  }
+  $('context-caption').textContent = 'Live source mesh · whole gallbladder';
+  let geometry;
+  try {
+    geometry = await isolatedMesh(origin ?? donor, entries);
+    if (request !== selectedRequest || current !== row) { geometry.dispose(); return; }
+    $('mesh').hidden = $('views').hidden = $('mesh-help').hidden = false;
+    $('mesh').setAttribute('aria-label', 'Live whole-gallbladder source mesh');
+    const material = new THREE.MeshStandardMaterial({ color: donor.color ?? '#ded3bc', roughness: .72, side: THREE.DoubleSide });
+    mount(new THREE.Mesh(geometry, material));
+    $('mesh').dataset.contextReady = rowID(origin ?? donor);
+    $('mesh-status').textContent = 'The source mesh shows the whole organ. The wall is missing as independent geometry. The illustration labels its location.';
+  } catch (cause) {
+    geometry?.dispose();
+    if (request !== selectedRequest || current !== row) return;
+    $('mesh').hidden = $('views').hidden = $('mesh-help').hidden = true;
+    $('mesh-status').textContent = 'Original source mesh unavailable.';
+    console.warn(cause);
+  }
+}
+
 function resetAssembled() {
   sceneRequest++;
   desiredScene = '';
   $('acquisition-field').hidden = $('visibility').hidden = true;
   delete $('preview').dataset.assembled;
+  resetRequirementContext();
 }
 
 function acquisitionLabel(row) {
   const title = row.chapterTitle ? row.title + ' · ' + row.chapterTitle : row.title;
-  return row.donor ? title + ' · ' + (row.donor.label ?? 'Source geometry') : title;
+  return independentReference(row) ? title + ' · ' + (row.donor?.label ?? 'Source geometry') : title;
 }
 
 function donorLink(row, parts = [row]) {
@@ -794,7 +1119,11 @@ function assembledView(candidates) {
       : 'Choose an asset from the shelf.';
     if (gaps.length) {
       $('selection').textContent = gaps[0].assetLabel;
-      $('selection-context').textContent = 'Geometry is unavailable for these tour requirements.';
+      $('selection-context').textContent = gaps.some((row) => row.status === 'rebuild')
+        ? 'Rebuild required · Geometry is unavailable for these tour requirements.'
+        : 'Geometry is unavailable for these tour requirements.';
+      const illustrated = gaps.find((row) => row.status === 'rebuild' && illustrationFor(row));
+      if (illustrated && showIllustration(illustrated)) $('mesh-status').textContent = '';
     } else if (!remaining && !pendingAAA && retiredUses.size && retiredAssets.has(openAsset) && !assets.has(openAsset)) {
       $('selection').textContent = 'Retired geometry';
       $('selection-context').textContent = 'This bookmark points to a retired abdominal model. Choose an available source asset or tour requirement from the shelf.';
@@ -820,9 +1149,9 @@ function assembledView(candidates) {
   }
   select.value = key;
   $('selection').textContent = mode === 'scene'
-    ? row.donor ? 'Source geometry' : 'Acquisition scene'
+    ? independentReference(row) ? 'Source geometry' : 'Acquisition scene'
     : row.assetLabel ?? row.title;
-  $('selection-context').textContent = row.donor ? 'Source geometry · registration to this tour is unavailable.' : '';
+  $('selection-context').textContent = independentReference(row) ? 'Source geometry · registration to this tour is unavailable.' : '';
   const sceneKey = [mode, mode === 'asset' ? openAsset : '', key].join('|');
   if (desiredScene === sceneKey) return;
   desiredScene = sceneKey;
@@ -833,6 +1162,7 @@ async function showAssembly(row, sceneKey, key) {
   const request = ++sceneRequest;
   const viewMode = mode;
   const asset = openAsset;
+  resetRequirementContext();
   releasePortrait();
   $('visibility').hidden = $('geometry-checks').hidden = $('mesh-file').hidden = $('composed-uses').hidden = true;
   $('preview').hidden = false;
@@ -840,7 +1170,7 @@ async function showAssembly(row, sceneKey, key) {
   delete $('mesh').dataset.ready;
   $('mesh-status').textContent = 'Loading acquisition geometry…';
   donorLink(row);
-  $('route').href = acquisitionURL(row);
+  showAcquisitionLink(row);
   let model;
   try {
     model = await acquireScene(row, inventory, entries);
@@ -859,8 +1189,7 @@ async function showAssembly(row, sceneKey, key) {
     visibilityView({ parts: visibleParts }, sceneKey);
     if (row.donor) donorLink(row, visibleParts.map(({ row }) => row));
     $('mesh').dataset.ready = key;
-    $('mesh-status').textContent = [model.sourceNotice ?? (row.donor
-      ? 'Source geometry in its original coordinates. Registration to the selected tour is unavailable.' : ''),
+    $('mesh-status').textContent = [model.sourceNotice ?? row.sourceNotice,
       model.issues.length ? 'Some components are unavailable. ' + model.issues.join(' · ') : ''].filter(Boolean).join(' ');
   } catch (cause) {
     if (model && loadedScene !== model) model.dispose();
@@ -898,6 +1227,8 @@ function coordinateSelection(row) {
     tourSelection = new Set(toursOf(row).slice(0, 1).map(({ id }) => id));
   }
   if ($('query').value) $('query').value = '';
+  if (bindingFilter !== bindingOf(row)) bindingFilter = '';
+  if ($('reuse').value && (uses.get(bindingOf(row))?.length ?? 0) < 2) $('reuse').value = '';
   if (requirementLabel(row)) $('assessment').value = '';
   if (($('availability').value === 'gaps' && !requirementLabel(row)) ||
       ($('availability').value === 'geometry' && requirementLabel(row))) $('availability').value = '';
@@ -934,6 +1265,7 @@ async function showPart(key, fromLink = false) {
     delete $('mesh').dataset.ready;
     selectionEvidence(row);
     rowsView();
+    showGapContext(row, request);
     return;
   }
   $('preview').hidden = false;
@@ -946,7 +1278,7 @@ async function showPart(key, fromLink = false) {
   $('geometry-checks').hidden = true;
   $('geometry-topology').textContent = '';
   $('topology').disabled = false;
-  $('route').href = acquisitionURL(row);
+  showAcquisitionLink(row);
   const composed = row.source === 'sweep' ? toursOf(row).filter((tour) =>
     !tour.id.startsWith('sweep:') && (tourSelection === null || tourSelection.has(tour.id))) : [];
   const teaching = $('composed-uses');
@@ -982,8 +1314,8 @@ async function showPart(key, fromLink = false) {
     const size = mount(mesh);
     const triangles = Math.floor((geometry.index?.count ?? geometry.attributes.position.count) / 3);
     $('mesh').dataset.ready = key;
-    $('mesh-status').textContent = 'Bounds · ' + size + (row.donor
-      ? ' · Coordinates from the geometry source.' : '');
+    $('mesh-status').textContent = 'Bounds · ' + size + (independentReference(row)
+      ? ' · Coordinates from the geometry source.' : row.referenceScope ? ' · ' + row.referenceScope : '');
     $('geometry-buffers').textContent = triangles.toLocaleString() + ' triangles · ' +
       bufferBytes(geometry).toLocaleString() + ' geometry buffer bytes';
     $('geometry-checks').hidden = false;
@@ -1016,7 +1348,7 @@ $('topology').onclick = () => {
 };
 
 function filtersChanged() {
-  index = 0;
+  index = bindingPage = 0;
   if ($('availability').value === 'gaps') $('assessment').value = '';
   renderScope();
   const url = filterState();
@@ -1048,6 +1380,7 @@ $('all-tours').onchange = () => {
 $('filters').onreset = () => setTimeout(() => {
   region = '';
   tourSelection = null;
+  bindingFilter = '';
   filtersChanged();
 }, 0);
 $('previous').onclick = () => { index--; rowsView(); };
@@ -1057,6 +1390,13 @@ window.addEventListener('popstate', () => {
   refresh();
 });
 window.addEventListener('hashchange', refresh);
+function focusInspector() {
+  $('inspector').scrollTop = 0;
+  const target = $('selection');
+  const { top, bottom } = target.getBoundingClientRect();
+  target.focus({ preventScroll: top >= 0 && bottom <= window.innerHeight });
+}
+
 function activateLink(event) {
   const link = event.target.closest('a');
   if (!link || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey || event.button !== 0) return;
@@ -1080,20 +1420,18 @@ function activateLink(event) {
   }
   if (key && !key.startsWith('asset/')) {
     const row = inventory.get(key);
-    if (row) showPart(key, !rowMatches(row, searchTerms(), $('assessment').value));
+    if (row) {
+      showPart(key, !rowMatches(row, searchTerms(), $('assessment').value));
+      focusInspector();
+    }
   } else {
     const from = openAsset;
     refresh();
-    if (key) {
-      $('inspector').scrollTop = 0;
-      const target = $('selection');
-      const { top, bottom } = target.getBoundingClientRect();
-      target.focus({ preventScroll: top >= 0 && bottom <= window.innerHeight });
-    }
+    if (key) focusInspector();
     else [...$('rows').querySelectorAll('[data-asset]')].find((anchor) => anchor.dataset.asset === from)?.focus();
   }
 }
-for (const id of ['rows', 'asset-detail', 'part-uses']) $(id).addEventListener('click', activateLink);
+for (const id of ['rows', 'asset-detail', 'part-uses', 'requirements', 'context-source', 'binding-provenance', 'coverage-bindings']) $(id).addEventListener('click', activateLink);
 
 async function start() {
   restoreFilters();
@@ -1105,6 +1443,8 @@ async function start() {
     failures.push('Case inventory · ' + cause.message);
     manifest = { cases: [], teachingTours: [] };
   }
+  coverageView(manifest);
+  setProvenanceInventory(manifest);
   setTeachingTours(manifest.teachingTours ?? []);
   manifest.cases.filter(({ family }) => family !== 'aaa').forEach((entry) => entries.set(entry.id, entry));
   remaining = entries.size + 1;
