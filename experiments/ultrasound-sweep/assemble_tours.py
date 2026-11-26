@@ -351,7 +351,7 @@ def write_catalogue(destination, refs, tours, survey=None, aaa_acquisitions=None
         (study / 'protocol.json').write_text(json.dumps(protocol, indent=2) + '\n')
     for name, variable, content in [('references.js', 'abdomenReferences', refs), ('abdomen-tours.js', 'abdomenTours', tours)]:
         (destination / name).write_text(f'const {variable} = ' + json.dumps(content, ensure_ascii=False, indent=2) + ';\n')
-    for name in ('index.html', 'study.css', 'study.js', 'study-picker.js', 'scene.js', 'probe-steering.js'):
+    for name in ('index.html', 'study.css', 'study.js', 'study-picker.js', 'scene.js', 'case-scene.js', 'probe-steering.js'):
         shutil.copyfile(HERE / name, destination / name)
     for folder, names in (
         ('development', ('index.html', 'review.css', 'review.js', 'comparison.js')),

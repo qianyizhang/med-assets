@@ -110,11 +110,16 @@ function obscured(chapter,plane,x,y,z) {
     Math.abs(lateral) < (h.width+Math.max(0,along)*.19);
 }
 
+export function rasterParameters(chapter) {
+  const spanX = chapter.span;
+  const spanY = chapter.signal || chapter.chart ? spanX*.77 : spanX*.68;
+  return { spanX, spanY, halfAperture: 13, tangent: .83 };
+}
+
 export function sampleRaster(chapter,frame,columns=280,rows=160) {
   const source = caseModel(chapter);
   const plane = planeAt(chapter,frame);
-  const spanX = chapter.span;
-  const spanY = chapter.signal || chapter.chart ? spanX*.77 : spanX*.68;
+  const { spanX, spanY, halfAperture, tangent } = rasterParameters(chapter);
   const stepX = spanX/columns,stepY = spanY/rows;
   const smooth = chapter.id==='first-cord';
   const { target, beam, width } = plane;
@@ -139,7 +144,7 @@ export function sampleRaster(chapter,frame,columns=280,rows=160) {
       const dx=x-plane.contact[0],dy=y-plane.contact[1],dz=z-plane.contact[2];
       const depth=dx*beam[0]+dy*beam[1]+dz*beam[2];
       const across=dx*width[0]+dy*width[1]+dz*width[2];
-      const sector=depth>=0 && Math.abs(across)<13+depth*.83;
+      const sector=depth>=0 && Math.abs(across)<halfAperture+depth*tangent;
       if (!sector) continue;
       const shadowed = obscured(chapter,plane,x,y,z);
       if (shadowed) tissue=0;

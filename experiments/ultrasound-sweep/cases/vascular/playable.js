@@ -177,8 +177,11 @@ function planeAxes(acq, slope) {
   };
 }
 
-function samplePoint(acquisition, offset, depth, slope) {
-  const axes = planeAxes(acquisition, slope);
+export function acquisitionPlane(record, chapter, acquisition) {
+  return planeAxes(acquisition, planeSlope(record, chapter, acquisition));
+}
+
+function samplePoint(acquisition, offset, depth, axes) {
   return {
     z: acquisition.z + offset * axes.horizontal.z,
     x: acquisition.anchorX + offset * axes.horizontal.x + depth * axes.depth.x,
@@ -196,7 +199,7 @@ function scanViewport(record, chapter, acq) {
   const h = Math.ceil(pxPerMm * acq.depth / 2) * 2;
   const x = bounds.x + Math.floor((bounds.w - w) / 2);
   const y = bounds.y + Math.floor((bounds.h - h) / 2);
-  return {x, y, w, h, centerX: x + w / 2, pxPerMm, axes: planeAxes(acq, planeSlope(record, chapter, acq))};
+  return {x, y, w, h, centerX: x + w / 2, pxPerMm, axes: acquisitionPlane(record, chapter, acq)};
 }
 
 function project(acq, rect, z, x, y) {
@@ -503,14 +506,14 @@ function sectionRing(ctx, vessel, z, project3d) {
   ctx.stroke();
 }
 
-function longCutaway(ctx, record, chapter, acq, slope, project3d) {
+function longCutaway(ctx, record, chapter, acq, axes, project3d) {
   const target = chapter.target;
   if (!target) return;
   for (const inner of [false, true]) {
     const color = inner ? '#68d9c4' : '#efac78';
     const lines = [null, null];
     for (let u = -acq.width / 2; u <= acq.width / 2; u += 1) {
-      const {x, z} = samplePoint(acq, u, 0, slope);
+      const {x, z} = samplePoint(acq, u, 0, axes);
       const at = getTube(record, chapter.side, z, target);
       const dx = at && (x - (inner ? at.lx : at.x)) / (inner ? at.lrx : at.rx);
       if (!at || Math.abs(dx) >= 1 || (chapter.blind === 'high-ica' && z >= 108)) {
@@ -534,15 +537,15 @@ export function pose(ctx, chapter, frame, record, {yaw = 0} = {}) {
   const camera = abdomen ? aorticCamera(yaw) : null;
   const {length, project3d} = abdomen ? {length: aorticLength, project3d: (x, y, z) => camera.project(x, y, z).slice(0, 2)}
     : carotidLocatorTransform(yaw);
-  const slope = planeSlope(record, chapter, acq);
+  const axes = acquisitionPlane(record, chapter, acq);
   ctx.fillStyle = anatomyBackground;
   ctx.fillRect(0, 0, 400, 300);
-  if (abdomen) drawAorticAnatomy(ctx, record, acq, planeAxes(acq, slope), camera);
+  if (abdomen) drawAorticAnatomy(ctx, record, acq, axes, camera);
   text(ctx, 'PROBE AND IMAGING PLANE', 21, 27, 13, muted);
   text(ctx, abdomen ? 'Cranial → Caudal' : `${chapter.side} neck · proximal → distal`, 21, 51);
   const half = acq.width / 2;
   const field = [[-half, 0], [half, 0], [half, acq.depth], [-half, acq.depth]].map(([u, v]) => {
-    const point = samplePoint(acq, u, v, slope);
+    const point = samplePoint(acq, u, v, axes);
     return project3d(point.x, point.y, point.z);
   });
   ctx.save();
@@ -573,7 +576,7 @@ export function pose(ctx, chapter, frame, record, {yaw = 0} = {}) {
   ctx.closePath();
   ctx.fill();
   ctx.stroke();
-  if (!abdomen && !acq.blind && acq.long) longCutaway(ctx, record, chapter, acq, slope, project3d);
+  if (!abdomen && !acq.blind && acq.long) longCutaway(ctx, record, chapter, acq, axes, project3d);
   if (!abdomen && !acq.blind && !acq.long) {
     const tubes = tubesAt(record, chapter.side, acq.z);
     for (const vessel of tubes) {
@@ -581,7 +584,7 @@ export function pose(ctx, chapter, frame, record, {yaw = 0} = {}) {
     }
   }
   const probe = [-9, 9].map(u => {
-    const point = samplePoint(acq, u, 0, slope);
+    const point = samplePoint(acq, u, 0, axes);
     return project3d(point.x, point.y, point.z);
   });
   ctx.lineCap = 'round';

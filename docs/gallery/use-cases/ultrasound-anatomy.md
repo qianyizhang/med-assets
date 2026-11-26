@@ -53,6 +53,20 @@ SVG teaching plates accompany the playable acquisitions. ImageGen references may
 
 The batch covers the Gallery's existing exam families. Additional families such as non-obstetric pelvic, venous, lung, trauma and musculoskeletal ultrasound need separate scenarios. [AIUM practice parameters](https://www.aium.org/resources/practice-parameters)
 
+## 3D modeling standard for sweeps and tours
+
+A learner should be able to point to the probe’s contact, follow its imaging plane into the patient and identify the structure responsible for the current B-mode finding. This applies to a sweep opened independently, the same sweep inside a tour, and a case-specific acquisition.
+
+| What the model must show | How to build and review it |
+| --- | --- |
+| A recognizable patient and case anatomy | Use a fitted, attributed patient exterior with enough regional anatomy to orient the learner. Use the case’s own masks, meshes or procedural tissue model for the scanned structures. Preserve side, gestational stage, pathology and the spatial relationships used to make measurements. An exterior borrowed from an atlas is a fitted display surface. Record its source and fit separately from the acquisition anatomy. |
+| The physical probe and its field | Seat the appropriate curved, linear, phased-array or endocavitary probe at the authored external or internal contact. Transform the footprint, image-width direction and beam together. Show the sampled field at its physical depth and width or sector angle. Outline a magnified or cropped raster within that plane. |
+| One acquisition frame | Derive the pose, tissue section, B-mode and any saved measurement from the same case, coordinate transform and frame. Apply case changes to the geometry that both views use. Draw a caliper at its saved frame and in its acquisition plane. A tour selects sweep intervals and evidence frames. It uses the same scene when that acquisition opens independently. |
+| A readable 3D view | Include a shaded exterior, internal surfaces, a physical transducer, orientation axes and an identifiable field in one orbitable scene. The default oblique view should expose both contact and anatomy. Camera presets, orbit, zoom and skin opacity are inspection controls. They preserve the sampled plane and B-mode frame. Diagrams, waveforms and acquired images can sit alongside the scene. |
+| Checks at a real finding | Open a saved finding from the report, compare it with the standalone frame, then scrub to a neighboring frame. Inspect a second camera angle, vary opacity to check contact and look for a floating or buried footprint, and check the visible tissue against the B-mode overlay. When a 3D asset is missing, name the unavailable view and keep the scan and report usable. |
+
+The regular sweeps and registered AAA cases use the [sweep scene](../../../experiments/ultrasound-sweep/scene.js). The [case scene](../../../experiments/ultrasound-sweep/case-scene.js) shares its camera and probe geometry and takes the case-specific surfaces and frame transform from the family acquisition module. The specialized echo and duplex studies also expose their registered acquisition geometry. These models illustrate authored teaching cases. Clinical fidelity and independent sonographer review are tracked with each family.
+
 ## Tour contract
 
 | Surface or action | What the visitor gets |

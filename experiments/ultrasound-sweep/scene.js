@@ -4,7 +4,7 @@ const vec = (x, y, z) => new THREE.Vector3(x, y, z);
 const vector = (xyz) => new THREE.Vector3().fromArray(xyz);
 const DEFAULT_PRESS_SETTLE_MM = 30;
 
-async function readAsset(path, format) {
+export async function readAsset(path, format) {
   const url = new URL(path, import.meta.url);
   for (let attempt = 0; attempt < 2; attempt += 1) {
     try {
@@ -105,7 +105,7 @@ function orientationMarker() {
   };
 }
 
-function viewport(canvas, { pivot, presets, shadowTarget, onViewPresetChange, probe, torso, onProbeDrag }) {
+export function viewport(canvas, { pivot, presets, shadowTarget, onViewPresetChange, probe, torso, onProbeDrag }) {
   const context = canvas.getContext('webgl2', { alpha: false, antialias: true });
   if (!context) throw new Error('This browser could not start WebGL 2 for the orbitable views.');
   const renderer = new THREE.WebGLRenderer({ canvas, context });
@@ -309,6 +309,22 @@ function viewport(canvas, { pivot, presets, shadowTarget, onViewPresetChange, pr
 
   return {
     scene, invalidate, reset, setViewPreset,
+    reframe(nextPivot, nextPresets) {
+      const next = nextPresets[presetName];
+      key.position.copy(nextPivot).add(vec(-150, 340, 220));
+      key.target.position.copy(nextPivot);
+      if (activePreset) {
+        camera.up.copy(next.up);
+        camera.position.copy(next.target).addScaledVector(next.direction, 650);
+        camera.lookAt(next.target);
+      } else {
+        camera.position.add(nextPivot.clone().sub(pivot));
+      }
+      pivot.copy(nextPivot);
+      presets = nextPresets;
+      preset = next;
+      invalidate();
+    },
     dispose() {
       resize.disconnect();
       cancelAnimationFrame(pending);
@@ -330,7 +346,7 @@ function solid(geometry, color, opacity = 1) {
   }));
 }
 
-function imagingWireframe(border, grid) {
+export function imagingWireframe(border, grid) {
   const group = new THREE.Group();
   for (const [points, opacity] of [[border, .98], [grid, .46]]) {
     const geometry = new THREE.BufferGeometry();
@@ -345,7 +361,7 @@ function imagingWireframe(border, grid) {
   return group;
 }
 
-function sectorGeometry({ voxelMm, lensRadiusMm, sectorDepthMm, sectorHalfAngleDeg }) {
+export function sectorGeometry({ voxelMm, lensRadiusMm, sectorDepthMm, sectorHalfAngleDeg }) {
   const angle = THREE.MathUtils.degToRad(sectorHalfAngleDeg);
   const radii = [lensRadiusMm, ...[.25, .5, .75].map((fraction) => lensRadiusMm + sectorDepthMm * fraction),
     lensRadiusMm + sectorDepthMm];
@@ -368,7 +384,7 @@ function sectorGeometry({ voxelMm, lensRadiusMm, sectorDepthMm, sectorHalfAngleD
   return imagingWireframe(border, grid);
 }
 
-function rectangleGeometry({ voxelMm, fieldWidthMm, sectorDepthMm }) {
+export function rectangleGeometry({ voxelMm, fieldWidthMm, sectorDepthMm }) {
   const halfWidth = fieldWidthMm / voxelMm / 2;
   const depth = sectorDepthMm / voxelMm;
   const frontLeft = [-halfWidth, 0, 0];
@@ -388,7 +404,7 @@ function rectangleGeometry({ voxelMm, fieldWidthMm, sectorDepthMm }) {
   return imagingWireframe(border, grid);
 }
 
-function curvedTransducer(meshes, dimensions) {
+export function curvedTransducer(meshes, dimensions) {
   const group = new THREE.Group();
   group.add(solid(meshes.lens, '#172f33'), solid(meshes.housing, '#e4ece7'), solid(meshes.relief, '#172f33'));
   const pip = solid(new THREE.SphereGeometry(1, 24, 12), '#31b5a2');
@@ -398,7 +414,7 @@ function curvedTransducer(meshes, dimensions) {
   return group;
 }
 
-function linearCasing(profile, voxelMm) {
+export function linearCasing(profile, voxelMm) {
   const segments = 32;
   const vertices = [];
   const indices = [];
@@ -433,7 +449,7 @@ function linearCasing(profile, voxelMm) {
   return geometry;
 }
 
-function linearTransducer({ voxelMm, fieldWidthMm }, contactRig) {
+export function linearTransducer({ voxelMm, fieldWidthMm }, contactRig) {
   const group = new THREE.Group();
   const half = fieldWidthMm / 2;
   const grip = half * .45;
@@ -471,7 +487,7 @@ function linearTransducer({ voxelMm, fieldWidthMm }, contactRig) {
   return group;
 }
 
-function transformForFrame(frame) {
+export function transformForFrame(frame) {
   const position = vector(frame.contact);
   const width = vector(frame.width).normalize();
   const outward = vector(frame.beam).negate().normalize();

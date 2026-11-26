@@ -9,7 +9,7 @@ const radians = THREE.MathUtils.degToRad;
 const material = (color, options = {}) => new THREE.MeshStandardMaterial({
   color, roughness: .64, ...options,
 });
-const anatomyColors = {LV: '#a2554b', RV: '#865057', LA: '#be7369', RA: '#8e6578'};
+export const chamberColors = {LV: '#a2554b', RV: '#865057', LA: '#be7369', RA: '#8e6578'};
 const smooth = THREE.MathUtils.smoothstep;
 
 function surfaceOpacity(geometry, contact, reveal) {
@@ -62,7 +62,7 @@ function updateShell(mesh, rings) {
   mesh.geometry.computeVertexNormals();
 }
 
-function heart(patient) {
+export function createRegisteredHeart(patient, initial = heartFrame(0)) {
   const group = new THREE.Group();
   // Use one registration for all tissue, arteries and the acoustic rig.
   group.matrix.makeBasis(...heartAxes.map(vector));
@@ -70,29 +70,34 @@ function heart(patient) {
   group.matrixAutoUpdate = false;
   patient.add(group);
   const shells = new Map();
-  function update(frame) {
-    for (const [name, chamber] of Object.entries(frame.chambers)) {
-      if (shells.has(name)) updateShell(shells.get(name), chamber.wall);
-      else {
-        const mesh = shellMesh(chamber.wall, material(anatomyColors[name], {side: THREE.DoubleSide}));
-        shells.set(name, mesh);
-        group.add(mesh);
-      }
+  function drawShell(key, rings, color) {
+    const current = shells.get(key);
+    if (!current) {
+      const mesh = shellMesh(rings, material(color, {side: THREE.DoubleSide}));
+      shells.set(key, {mesh, rings});
+      group.add(mesh);
+    } else if (current.rings !== rings) {
+      updateShell(current.mesh, rings);
+      current.rings = rings;
     }
   }
-  const initial = heartFrame(0);
-  update(initial);
-  for (const [name, vessel] of Object.entries(initial.vessels)) {
-    // The inlet/outlet trunks provide directional context at torso scale.
-    if (name === 'LVOT' || name === 'RVOT') continue;
-    const venous = ['IVC','SVC','PA','RPA'].includes(name);
-    const ink = material(venous ? '#627c91' : '#aa6760', {side: THREE.DoubleSide});
-    for (const ring of vessel.wall) group.add(shellMesh(ring, ink));
+
+  function update(frame) {
+    for (const [name, chamber] of Object.entries(frame.chambers)) {
+      drawShell(name, chamber.wall, chamberColors[name]);
+    }
+    for (const [name, vessel] of Object.entries(frame.vessels)) {
+      // The inlet/outlet trunks provide directional context at torso scale.
+      if (name === 'LVOT' || name === 'RVOT') continue;
+      const venous = ['IVC', 'SVC', 'PA', 'RPA'].includes(name);
+      vessel.wall.forEach((rings, index) => drawShell(name + '/' + index, rings, venous ? '#627c91' : '#aa6760'));
+    }
   }
+  update(initial);
   return {group, update};
 }
 
-function transducer() {
+export function phasedTransducer() {
   // A small phased-array head with the orientation mark on image-right. Local
   // +Y points from the lens toward the hand; the central beam is its opposite.
   const group = new THREE.Group();
@@ -146,7 +151,7 @@ function transducer() {
 }
 
 function scanRig(patient) {
-  const probe = transducer();
+  const probe = phasedTransducer();
   const fan = new THREE.Group();
   patient.add(probe,fan);
   let drawn;
@@ -208,9 +213,13 @@ function sideLabel(text, x) {
   return label;
 }
 
+export function loadTorsoParts() {
+  return Promise.all(['skin', 'bones', 'cartilage'].map(name =>
+    loadMesh(name, new URL(name + '.raw', import.meta.url))));
+}
+
 export async function createTorsoView(canvas) {
-  const parts = await Promise.all(['skin','bones','cartilage'].map(name =>
-    loadMesh(name, new URL(name+'.raw', import.meta.url))));
+  const parts = await loadTorsoParts();
   const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:false, powerPreference:'low-power'});
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
   renderer.setClearColor('#15262a');
@@ -244,7 +253,7 @@ export async function createTorsoView(canvas) {
   patient.add(skinDepth,skin,bone,cartilage);
   const sides = [sideLabel('Patient R',-169), sideLabel('Patient L',169)];
   patient.add(...sides);
-  const cardiac = heart(patient), rig = scanRig(patient);
+  const cardiac = createRegisteredHeart(patient), rig = scanRig(patient);
   // A rigid left-side roll illustrates positioning relative to the exam couch;
   // source anatomy retains its native shape in either posture.
   const couch = new THREE.Mesh(new THREE.PlaneGeometry(590,1010),material('#344b50'));

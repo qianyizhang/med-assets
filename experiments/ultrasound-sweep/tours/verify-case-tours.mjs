@@ -24,7 +24,7 @@ for (const packageName of ['vascular', 'organs', 'pregnancy', 'echo']) {
 for (const id of selected) assert.ok(expected.has(id), 'Unknown non-AAA case ' + id);
 
 const { chromium } = await import(process.env.MODEL_SURVEY_PLAYWRIGHT_MODULE || 'playwright');
-const browser = await chromium.launch({ executablePath: process.env.MODEL_SURVEY_BROWSER, chromiumSandbox: true });
+const browser = await chromium.launch({ executablePath: process.env.MODEL_SURVEY_BROWSER, chromiumSandbox: true, args: ['--enable-unsafe-swiftshader'] });
 const url = (path) => new URL(path, base);
 const tourPath = ({ family, id }) => 'tours/' + family + '/' + id + '.html';
 const sweepPath = ({ family, id }) => 'tours/' + family + '/' + id + '-sweep.html';
@@ -49,7 +49,9 @@ async function setup({ timed = true } = {}) {
   await page.addInitScript(() => {
     const context = HTMLCanvasElement.prototype.getContext;
     HTMLCanvasElement.prototype.getContext = function (type, options) {
-      return context.call(this, type, type === '2d' ? { ...options, willReadFrequently: true } : options);
+      if (type === '2d') return context.call(this, type, { ...options, willReadFrequently: true });
+      if (type === 'webgl2' || type === 'webgl') return context.call(this, type, { ...options, preserveDrawingBuffer: true });
+      return context.call(this, type, options);
     };
   });
   if (timed) await installTourClock(page);
@@ -65,11 +67,92 @@ async function pixels(surface, selector) {
   return Buffer.from(data, 'base64');
 }
 
-function equivalent(left, right) {
-  if (left.length !== right.length) return false;
+function meanChannelDifference(left, right) {
+  if (left.length !== right.length) return Infinity;
   let sum = 0;
   for (let i = 0; i < left.length; i++) sum += Math.abs(left[i] - right[i]);
-  return sum / left.length < 0.02;
+  return sum / left.length;
+}
+
+function equivalent(left, right) {
+  return meanChannelDifference(left, right) < 0.02;
+}
+
+const preset = (surface, camera) => surface.locator('#posePresets [data-camera="' + camera + '"]');
+
+async function poseViewport(surface, fixed) {
+  const pose = surface.locator('canvas#pose[data-scene-ready]');
+  await pose.waitFor();
+  await pose.evaluate((canvas, sized) => {
+    if (sized) {
+      canvas.style.width = '440px';
+      canvas.style.height = '300px';
+    } else {
+      canvas.style.removeProperty('width');
+      canvas.style.removeProperty('height');
+    }
+  }, fixed);
+  const deadline = Date.now() + 10000;
+  do {
+    const sized = await pose.evaluate((canvas) => {
+      canvas.ownerDocument.defaultView.stepSweep();
+      const gl = canvas.getContext('webgl2');
+      return gl && gl.drawingBufferWidth === canvas.clientWidth && gl.drawingBufferHeight === canvas.clientHeight;
+    });
+    if (sized) return;
+    await new Promise((resolve) => setTimeout(resolve, 25));
+  } while (Date.now() < deadline);
+  throw Error('WebGL did not draw at the current case viewport size');
+}
+
+async function posePixels(surface) {
+  const result = await surface.locator('canvas#pose[data-scene-ready]').evaluate((canvas) => {
+    canvas.ownerDocument.defaultView.stepSweep();
+    const gl = canvas.getContext('webgl2');
+    if (!gl || gl.isContextLost() || gl.drawingBufferWidth !== 440 || gl.drawingBufferHeight !== 300) {
+      throw Error('Expected a live 440 × 300 case pose renderer');
+    }
+    const pixels = new Uint8Array(440 * 300 * 4);
+    gl.readPixels(0, 0, 440, 300, gl.RGBA, gl.UNSIGNED_BYTE, pixels);
+    const sample = [];
+    for (let y = 0; y < 300; y += 3) {
+      for (let x = 0; x < 440; x += 3) {
+        const i = 4 * (y * 440 + x);
+        sample.push(pixels[i], pixels[i + 1], pixels[i + 2]);
+      }
+    }
+    if (new Set(sample).size < 12) throw Error('Pose renderer drew no visible anatomy');
+    return Uint8Array.from(sample).toBase64();
+  });
+  return Buffer.from(result, 'base64');
+}
+
+async function checkPoseControls(surface, scan) {
+  await poseViewport(surface, true);
+  await preset(surface, 'oblique').click();
+  const initial = await posePixels(surface);
+  const views = [initial];
+  for (const camera of ['axial', 'coronal', 'sagittal']) {
+    await preset(surface, camera).click();
+    assert.equal(await preset(surface, camera).getAttribute('aria-pressed'), 'true');
+    const view = await posePixels(surface);
+    assert.ok(views.every((previous) => !equivalent(view, previous)), camera + ' did not change the view');
+    views.push(view);
+  }
+  await preset(surface, 'oblique').click();
+  await surface.locator('#pose').press('ArrowLeft');
+  assert.ok(!equivalent(await posePixels(surface), initial), 'Keyboard orbit did not change the pose');
+  await preset(surface, 'oblique').click();
+  assert.ok(equivalent(await posePixels(surface), initial), 'Oblique did not reset the orbit');
+
+  const opacity = surface.locator('#skinOpacity');
+  const original = await opacity.inputValue();
+  await opacity.fill(original === '100' ? '0' : '100');
+  assert.ok(!equivalent(await posePixels(surface), initial), 'Skin opacity did not change the pose image');
+  await opacity.fill(original);
+  assert.ok(equivalent(await posePixels(surface), initial), 'Restoring skin opacity did not restore the pose');
+  assert.ok(equivalent(await pixels(surface, '#scan'), scan), 'Pose controls changed the scan');
+  return initial;
 }
 
 async function expectSource(surface, frame) {
@@ -92,7 +175,6 @@ async function checkChapter(page, child, segments, chapter) {
   assert.equal((await child.locator('#value').textContent()).trim(), measurement || 'Saved evidence frame');
 
   const scan = await pixels(child, '#scan');
-  const pose = await pixels(child, '#pose');
   let varying = false;
   for (const sample of new Set([(evidenceFrame + frames - 1) % frames, 0, frames - 1, Math.floor(frames / 3)])) {
     await go(sample);
@@ -104,19 +186,13 @@ async function checkChapter(page, child, segments, chapter) {
   assert.ok(varying, 'Static acquisition ' + id);
   await go(evidenceFrame);
   assert.ok(equivalent(await pixels(child, '#scan'), scan), 'Scan did not return to evidence ' + id);
-  assert.ok(equivalent(await pixels(child, '#pose'), pose), 'Pose did not return to evidence ' + id);
-  await child.locator('#orbit').fill('57');
-  assert.ok(equivalent(await pixels(child, '#scan'), scan), 'Orbit changed the scan ' + id);
-  assert.ok(!equivalent(await pixels(child, '#pose'), pose), 'Orbit did not change the pose ' + id);
-  await child.locator('#resetView').dispatchEvent('click');
-  assert.ok(equivalent(await pixels(child, '#pose'), pose), 'Reset did not restore the pose ' + id);
   const overlay = child.locator('#overlay');
   await overlay.dispatchEvent('click');
   assert.equal(await overlay.getAttribute('aria-pressed'), 'true');
   assert.ok(await child.locator('#legend').isVisible(), 'Missing tissue legend ' + id);
   await overlay.dispatchEvent('click');
   assert.ok(equivalent(await pixels(child, '#scan'), scan), 'B-mode did not return after overlay ' + id);
-  return { scan, pose };
+  return scan;
 }
 
 async function playCaseToEnd(page, segments) {
@@ -173,17 +249,23 @@ async function checkAcquisitionSwitch(page, child, segments, chapters) {
   await waitForTourFrame(page, absoluteFrame(segments, first.id, 0));
   const viewer = page.locator('#player iframe');
   await viewer.evaluate((node) => { node.dataset.acquisitionWitness = 'retained'; });
-  await child.locator('#orbit').fill('35');
+  await child.locator('canvas#pose[data-scene-ready]').waitFor();
+  const opacity = child.locator('#skinOpacity');
+  const original = await opacity.inputValue();
+  await opacity.fill('70');
+  await preset(child, 'coronal').click();
   const overlay = child.locator('#overlay');
   await overlay.dispatchEvent('click');
   await select.selectOption(second.id);
   await waitForTourFrame(page, absoluteFrame(segments, second.id, 0));
   assert.equal(await viewer.getAttribute('data-acquisition-witness'), 'retained', 'Case player remounted across acquisitions');
   assert.equal(await child.locator('#view').textContent(), second.title);
-  assert.equal(await child.locator('#orbit').inputValue(), '35', 'Orbit reset when changing acquisition');
+  assert.equal(await opacity.inputValue(), '70', 'Skin opacity reset when changing acquisition');
+  assert.equal(await preset(child, 'coronal').getAttribute('aria-pressed'), 'true', 'Preset reset when changing acquisition');
   assert.equal(await overlay.getAttribute('aria-pressed'), 'true', 'Overlay reset when changing acquisition');
   await overlay.dispatchEvent('click');
-  await child.locator('#resetView').dispatchEvent('click');
+  await opacity.fill(original);
+  await preset(child, 'oblique').click();
 }
 
 async function verifyStandalone(page, expectedURL, chapter, reference) {
@@ -193,7 +275,9 @@ async function verifyStandalone(page, expectedURL, chapter, reference) {
   assert.equal(await position.getAttribute('max'), String(chapter.frames - 1));
   await expectSource(page, chapter.evidenceFrame);
   assert.ok(equivalent(await pixels(page, '#scan'), reference.scan), 'Standalone scan differs from embedded');
-  assert.ok(equivalent(await pixels(page, '#pose'), reference.pose), 'Standalone pose differs from embedded');
+  await poseViewport(page, true);
+  const poseDelta = meanChannelDifference(await posePixels(page), reference.pose);
+  assert.ok(poseDelta < 0.02, 'Standalone pose differs from embedded (mean channel delta ' + poseDelta.toFixed(4) + ')');
   await position.fill('0');
   await page.locator('#keyframe').click();
   await expectSource(page, chapter.evidenceFrame);
@@ -212,6 +296,38 @@ async function verifyStandalone(page, expectedURL, chapter, reference) {
   }, chapter.frames);
   await expectSource(page, chapter.frames - 1);
   assert.equal(new URL(page.url()).searchParams.get('chapter'), chapter.id, 'Standalone playback left its section');
+}
+
+async function checkPoseUnavailable(record, webglDisabled) {
+  const page = await setup({ timed: false });
+  try {
+    if (webglDisabled) {
+      await page.addInitScript(() => {
+        const context = HTMLCanvasElement.prototype.getContext;
+        HTMLCanvasElement.prototype.getContext = function (type, options) {
+          return ['webgl', 'webgl2', 'experimental-webgl'].includes(type) ? null : context.call(this, type, options);
+        };
+      });
+    } else {
+      await page.route('**/cases/echo/playable-scene.js', (route) =>
+        route.fulfill({ status: 404, body: 'Missing pose adapter fixture' }));
+    }
+    await page.goto(url(tourPath(record)).href);
+    await waitForTourFrame(page, 0);
+    const player = page.frameLocator('#player iframe');
+    const status = player.locator('#poseStatus');
+    await status.waitFor();
+    assert.match(await status.textContent(), /unavailable|could not/i);
+    assert.equal(await player.locator('canvas#pose[data-scene-ready]').count(), 0);
+    assert.ok(await player.locator('#scan').isVisible());
+    const initial = await pixels(player, '#scan');
+    await seekTour(page, 3);
+    await expectSource(player, 3);
+    assert.ok(!equivalent(await pixels(player, '#scan'), initial), 'Scan stalled when the pose was unavailable');
+    assert.ok(await page.getByRole('heading', { name: 'Impression', exact: true }).isVisible());
+  } finally {
+    await page.close();
+  }
 }
 
 try {
@@ -262,7 +378,7 @@ try {
         await expectSource(child, 0);
         assert.equal(await page.locator('.chapters [aria-current="step"]').getAttribute('data-chapter'), chapter.id);
         assert.equal(await child.locator('#view').textContent(), chapter.title);
-        const reference = await checkChapter(page, child, segments, chapter);
+        const scan = await checkChapter(page, child, segments, chapter);
 
         const link = report.nth(index);
         const saved = linkedFrame(tourPath(record), chapter.id, chapter.evidenceFrame, '#exam');
@@ -274,12 +390,14 @@ try {
         await link.click();
         await waitForTourFrame(page, absoluteFrame(segments, chapter.id, chapter.evidenceFrame));
         assert.deepEqual(locationKey(page.url()), locationKey(saved));
-        assert.ok(equivalent(await pixels(child, '#scan'), reference.scan), 'Report link changed the saved scan ' + chapter.id);
+        assert.ok(equivalent(await pixels(child, '#scan'), scan), 'Report link changed the saved scan ' + chapter.id);
 
         if (chapter === sample) {
           const sweep = linkedFrame(sweepPath(record), chapter.id, chapter.evidenceFrame);
           assert.deepEqual(locationKey(await page.locator('#openSweep').getAttribute('href')), locationKey(sweep));
-          await verifyStandalone(standalone, sweep, chapter, reference);
+          const pose = await checkPoseControls(child, scan);
+          await verifyStandalone(standalone, sweep, chapter, { scan, pose });
+          await poseViewport(child, false);
           if (captures) {
             await page.bringToFront();
             await page.locator('#tourPosition').evaluate((slider) => slider.scrollIntoView({ block: 'center' }));
@@ -335,6 +453,8 @@ try {
   assert.ok(await real.getByRole('heading', { name: 'Impression', exact: true }).isVisible());
   await real.getByRole('link', { name: 'Worked views and acquired comparisons', exact: true }).click();
   await real.waitForSelector('section.report');
+  await checkPoseUnavailable(echo, false);
+  await checkPoseUnavailable(echo, true);
   console.log(ids.length + ' canonical exam tours, ' + chaptersChecked + ' sections, ' + framesChecked + ' committed frames passed.');
 } finally {
   await browser.close();

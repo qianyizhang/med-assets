@@ -3,10 +3,10 @@ const params = new URLSearchParams(location.search);
 const embedded = params.get('embed') === '1';
 const tourControlled = embedded && params.get('transport') === 'tour';
 const scan = byId('scan').getContext('2d');
-const locator = byId('pose').getContext('2d');
+const poseCanvas = byId('pose');
 const seek = byId('position');
 const play = byId('play');
-const orbit = byId('orbit');
+const skinOpacity = byId('skinOpacity');
 const overlayButton = byId('overlay');
 const status = byId('status');
 let record;
@@ -17,7 +17,9 @@ let current = 0;
 let animation = 0;
 let lastTime = 0;
 let overlay = false;
-let yaw = 0;
+let scene;
+let sceneLoading = false;
+let legendChapter;
 let previousLegend = '';
 let ready = false;
 
@@ -69,18 +71,22 @@ function syncLinks() {
 }
 
 function show(frame, request) {
-  for (const [context, render] of [[scan, acquisition.render], [locator, acquisition.pose]]) {
-    context.save();
-    try {
-      context.fillStyle = '#101c22';
-      context.fillRect(0, 0, context.canvas.width, context.canvas.height);
-      const entries = render(context, chapter, frame, record, { overlay, yaw });
-      if (context === scan) updateLegend(entries);
-    } finally {
-      context.restore();
-    }
+  scan.save();
+  try {
+    scan.fillStyle = '#101c22';
+    scan.fillRect(0, 0, scan.canvas.width, scan.canvas.height);
+    updateLegend(acquisition.render(scan, chapter, frame, record, { overlay }));
+  } finally {
+    scan.restore();
   }
   current = frame;
+  if (scene) {
+    try {
+      drawPose();
+    } catch (error) {
+      poseUnavailable(error);
+    }
+  }
   const saved = frame === chapter.evidenceFrame;
   seek.value = frame;
   seek.setAttribute('aria-valuetext', chapter.title + ', frame ' + frame + ' of ' + (chapter.frames - 1));
@@ -158,14 +164,66 @@ overlayButton.onclick = () => {
   overlayButton.setAttribute('aria-pressed', String(overlay));
   render(current);
 };
-orbit.oninput = () => {
-  yaw = orbit.valueAsNumber * Math.PI / 180;
-  byId('yaw').value = orbit.value + '°';
-  render(current);
+function cameraSelected(name) {
+  for (const button of byId('posePresets').querySelectorAll('button')) {
+    button.setAttribute('aria-pressed', String(button.dataset.camera === name));
+  }
+}
+
+function drawPose() {
+  scene.setFrame(chapter, current);
+  if (legendChapter === chapter) return;
+  const entries = [{ label: 'Imaging field', color: '#8ad8f8' }, ...scene.legend(chapter)];
+  byId('poseLegend').replaceChildren(...entries.map(({ label, color }) => {
+    const item = document.createElement('li');
+    item.textContent = label;
+    item.style.setProperty('--tissue', color);
+    return item;
+  }));
+  legendChapter = chapter;
+}
+
+function poseUnavailable(error) {
+  scene?.dispose();
+  scene = null;
+  legendChapter = null;
+  byId('poseLegend').replaceChildren();
+  delete poseCanvas.dataset.sceneReady;
+  byId('poseStatus').textContent = '3D view unavailable. ' + error.message;
+  byId('poseFeedback').hidden = false;
+  byId('retryPose').hidden = false;
+}
+
+async function loadPose() {
+  if (sceneLoading) return;
+  sceneLoading = true;
+  byId('poseStatus').textContent = 'Loading case anatomy…';
+  byId('retryPose').hidden = true;
+  try {
+    const owner = document.querySelector('main').dataset.owner;
+    const [{ createCaseScene }, { createCaseModel }] = await Promise.all([
+      import('../case-scene.js'), import('../cases/' + owner + '/playable-scene.js'),
+    ]);
+    const model = await createCaseModel(record, chapter);
+    scene = await createCaseScene(poseCanvas, model, chapter, cameraSelected);
+    drawPose();
+    scene.setSkinOpacity(skinOpacity.valueAsNumber / 100);
+    poseCanvas.dataset.sceneReady = '';
+    byId('poseFeedback').hidden = true;
+  } catch (error) {
+    poseUnavailable(error);
+  } finally {
+    sceneLoading = false;
+  }
+}
+byId('retryPose').onclick = loadPose;
+byId('posePresets').onclick = (event) => {
+  const name = event.target.closest('button')?.dataset.camera;
+  if (name) scene?.setViewPreset(name);
 };
-byId('resetView').onclick = () => {
-  orbit.value = 0;
-  orbit.oninput();
+skinOpacity.oninput = () => {
+  scene?.setSkinOpacity(skinOpacity.valueAsNumber / 100);
+  byId('skinValue').value = skinOpacity.value + '%';
 };
 document.addEventListener('visibilitychange', () => {
   if (document.hidden) stop('paused');
@@ -218,6 +276,7 @@ try {
   byId('exam').hidden = false;
   status.hidden = true;
   notify('ready');
+  loadPose();
 } catch (error) {
   failed(error);
 }

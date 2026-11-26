@@ -17,6 +17,7 @@ def sweep_page(record, owner, family_title):
   <title>{title} · Modeled ultrasound sweep</title>
   <link rel="stylesheet" href="../../cases/cases.css">
   <link rel="stylesheet" href="../case-sweep.css">
+  <script src="../../abdomen-tours.js"></script>
   <script type="module" src="../case-sweep.js"></script>
 </head>
 <body>
@@ -40,17 +41,25 @@ def sweep_page(record, owner, family_title):
         </div>
       </div>
       <div class="monitors">
+        <figure class="posePanel">
+          <figcaption><h3>Probe and scan plane</h3><div id="posePresets" aria-label="Camera view">
+            <button data-camera="oblique" aria-pressed="true">Oblique</button>
+            <button data-camera="axial" aria-pressed="false">Axial</button>
+            <button data-camera="coronal" aria-pressed="false">Coronal</button>
+            <button data-camera="sagittal" aria-pressed="false">Sagittal</button>
+          </div></figcaption>
+          <div class="poseViewport">
+            <canvas id="pose" tabindex="0" aria-label="3D patient, probe and imaging field. Use the arrow keys to orbit and plus or minus to zoom."></canvas>
+            <div id="poseFeedback" role="status"><span id="poseStatus">Loading case anatomy…</span> <button id="retryPose" hidden>Retry 3D view</button></div>
+          </div>
+          <ul id="poseLegend" aria-label="3D anatomy"></ul>
+          <div class="orbit"><label for="skinOpacity">Skin opacity</label>
+            <input id="skinOpacity" type="range" min="0" max="100" step="1" value="32"><output id="skinValue" for="skinOpacity">32%</output>
+          </div>
+        </figure>
         <figure>
           <figcaption><h3>Modeled ultrasound</h3><button type="button" id="overlay" aria-pressed="false">Tissue overlay</button></figcaption>
           <canvas id="scan" width="800" height="440" aria-label="Modeled ultrasound acquisition"></canvas>
-        </figure>
-        <figure>
-          <figcaption><h3>3D anatomy and probe</h3></figcaption>
-          <canvas id="pose" width="400" height="300" aria-label="Probe position and anatomy at the current frame"></canvas>
-          <div class="orbit">
-            <label for="orbit">Orbit</label><input id="orbit" type="range" min="-90" max="90" value="0" aria-label="Orbit 3D anatomy">
-            <output id="yaw" for="orbit">0°</output><button type="button" id="resetView">Reset</button>
-          </div>
         </figure>
       </div>
       <ul id="legend" aria-label="Tissue overlay legend" hidden></ul>

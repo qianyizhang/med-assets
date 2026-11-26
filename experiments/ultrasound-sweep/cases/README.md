@@ -21,20 +21,23 @@ From the repository root, run:
 python3.12 experiments/ultrasound-sweep/cases/verify_cases.py
 python3.12 experiments/ultrasound-sweep/verify_assembly.py "$STUDY_OUTPUT"
 node experiments/ultrasound-sweep/tours/aaa/verify-tours.mjs http://127.0.0.1:8874/ "$AAA_CAPTURES"
+node experiments/ultrasound-sweep/tours/verify-case-geometry.mjs "$STUDY_DELIVERY"
 node experiments/ultrasound-sweep/tours/verify-case-tours.mjs http://127.0.0.1:8874/ "$EXAM_CAPTURES"
 node experiments/ultrasound-sweep/cases/verify-browser.mjs http://127.0.0.1:8874/ "$REVIEW_CAPTURES"
 ```
 
-Use the same Python environment and Playwright configuration as the sweep package. The replay check covers the case records and diagrams. The browser check opens every case from the assembled family index, decodes its illustrations and checks the study entry points and laptop layout. Its optional capture directory receives the catalogue, selected worked cases and plate contact sheets.
+Set `STUDY_DELIVERY` to the complete assembled study directory. The geometry check inspects scan axes, crop registration and sampled external probe contacts against the delivered meshes. The cardiac package supplies its own chest-contact check. Use the same Python environment and Playwright configuration as the sweep package. The replay check covers the case records and diagrams. The browser check opens every case from the assembled family index, decodes its illustrations and checks the study entry points and laptop layout. Its optional capture directory receives the catalogue, selected worked cases and plate contact sheets.
 
 The AAA check exercises the composed tours, their standalone sweeps, finding links and legacy bookmarks. The case tour browser check advances every sampled frame on the shared timeline. It follows saved evidence into the standalone sweeps, verifies that changing sections preserves orbit and overlay settings, and exercises older exam bookmarks. The package records document geometry, calibration and known fidelity limits. [Acquired finding sources and original-media replay](acquired/README.md)
 
 ## Editable anatomy and B-mode assets
 
+The family scene adapters provide case geometry in patient coordinates to the [shared case scene](../case-scene.js). The [3D modeling standard](../../../docs/gallery/use-cases/ultrasound-anatomy.md#3d-modeling-standard-for-sweeps-and-tours) defines the relationship to standalone sweeps and the checks at a saved finding.
+
 | Family | Geometry, acquisition and inspection |
 | --- | --- |
-| Aorta and carotids | [Vessel centerlines, walls, lumens, thrombus and plaque](vascular/playable-model.js) · [probe paths, tissue sampling, spectra and locator](vascular/playable.js) |
-| Abdomen, thyroid and breast | [Abdominal anatomy](organs/playable-abdomen.js) · [neck and breast anatomy](organs/playable-neck-breast.js) · [physical planes and caliper intersections](organs/playable-geometry.js) · [B-mode, overlay and locator](organs/playable-render.js) |
+| Aorta and carotids | [Vessel centerlines, walls, lumens, thrombus and plaque](vascular/playable-model.js) · [probe paths, tissue sampling and spectra](vascular/playable.js) |
+| Abdomen, thyroid and breast | [Abdominal anatomy](organs/playable-abdomen.js) · [neck and breast anatomy](organs/playable-neck-breast.js) · [physical planes and caliper intersections](organs/playable-geometry.js) · [B-mode and overlay](organs/playable-render.js) |
 | Pregnancy | [Stage volume recipe](pregnancy/build_playable.py) · [case-specific anatomy](pregnancy/playable-model.js) · [acquisition planes and measurements](pregnancy/playable-chapters.js) · [B-mode, labels and time traces](pregnancy/playable.js) |
 | Adult echo | [Beating heart geometry](../cardiac/heart-geometry.js) · [cardiac section intersections](../cardiac/heart-slice.js) · [B-mode renderer](../cardiac/heart-echo.js) · [case-specific valve, calipers, spectra and 3D view](echo/playable.js) |
 

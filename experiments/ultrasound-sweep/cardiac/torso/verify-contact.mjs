@@ -58,3 +58,26 @@ for (const [id,view] of Object.entries(CARDIAC_VIEWS)) {
   }
 }
 console.log(`${Object.keys(CARDIAC_VIEWS).length} skin contacts and central rays passed; maximum anterior skin discrepancy ${maxContact.toFixed(3)} mm.`);
+
+// The modeled case itineraries include a right-parasternal Doppler window
+// beyond the regional viewer's stock windows. Validate the actual case
+// acquisition's contact, particularly the alternate view.
+const visits = JSON.parse(await readFile(new URL('../../cases/echo/cases.json', import.meta.url)));
+const {chapters, sample} = await import('../../cases/echo/playable.js');
+const caseContacts = new Map();
+for (const visit of visits) {
+  for (const acquisition of chapters(visit)) {
+    const {plane} = sample(acquisition, acquisition.evidenceFrame, visit);
+    caseContacts.set(plane.id, bodyPoint(plane.origin));
+  }
+}
+assert.ok(caseContacts.has('right-parasternal'));
+let caseResidual = 0;
+for (const [id, contact] of caseContacts) {
+  const front = [contact[0], contact[1], 450];
+  const surfaceZ = front[2] - firstHit(front, [0, 0, -1], skin);
+  const residual = Math.abs(surfaceZ - contact[2]);
+  caseResidual = Math.max(caseResidual, residual);
+  assert.ok(residual < 1, `${id}: case lens misses torso skin by ${residual} mm`);
+}
+console.log(`${caseContacts.size} modeled case contacts passed; maximum skin discrepancy ${caseResidual.toFixed(3)} mm.`);

@@ -35,7 +35,7 @@ button {
 }
 .monitors {
   display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: 16px;
   margin-block: 16px;
 }
@@ -81,9 +81,7 @@ canvas {
   .monitors {
     grid-template-columns: 1fr;
   }
-  .monitors figure + figure canvas {
-    max-height: 190px;
-  }
+
 }
 .monitors figcaption {
   min-height: 48px;
@@ -114,7 +112,7 @@ canvas {
   width: 42%;
   accent-color: #9bd9c3;
 }
-#yaw {
+#skinValue {
   min-width: 3ch;
   font-variant-numeric: tabular-nums;
 }
@@ -157,3 +155,16 @@ canvas {
 .embeddedSweep .monitors {
   margin-block: 12px;
 }
+
+.poseViewport { position: relative; flex: 1; min-height: 265px; }
+.poseViewport canvas { position: absolute; inset: 0; width: 100%; height: 100%; cursor: grab; touch-action: none; }
+.poseViewport canvas:active { cursor: grabbing; }
+.poseViewport canvas:focus-visible { outline: 3px solid #efb35c; outline-offset: -3px; }
+#poseFeedback { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; gap: .5rem; background: #142224; }
+#posePresets { display: flex; flex-wrap: wrap; gap: .25rem; }
+#posePresets button[aria-pressed="true"] { background: #cbebe2; }
+.posePanel figcaption { flex-wrap: wrap; }
+
+#poseLegend { margin: 0; padding: .4rem .75rem; display: flex; flex-wrap: wrap; gap: .2rem .65rem; list-style: none; }
+#poseLegend li { margin: 0; color: #ecf1ee; font-size: .76rem; }
+#poseLegend li::before { display: inline-block; content: ""; background: var(--tissue); width: .6rem; height: .6rem; border-radius: 50%; margin-right: .25rem; }
