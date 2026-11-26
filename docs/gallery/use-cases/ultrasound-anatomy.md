@@ -2,6 +2,8 @@
 
 The local sweeps and cardiac cycle study let visitors explore ultrasound anatomy. Visitors can follow a probe through an authored sweep, inspect the corresponding section, and compare a modeled image with a named acquired view from another case. The collection calls for linked Teaching and Development pages. Teaching offers standalone sweeps and composed exam tours. Development gives authors collection-wide Motion and B-mode rendering views, with a direct path to the sweep and keyframe behind each observation. [Use Cases requirements](README.md) · [Local tour and replay](../../../experiments/ultrasound-sweep/README.md) · [Campaign](../../../records/campaigns/ultrasound-gallery.md)
 
+For new or changed acquisitions, start with the [3D modeling standard](#3d-modeling-standard-for-sweeps-and-tours). For an exam tour, also apply [exam acceptance](#acceptance).
+
 ## Audience and outcome
 
 A visitor familiar with basic anatomy should be able to connect the probe footprint, imaging field, intersected structures, and projected image. At a reference keyframe they can point out the relationship and inspect differences in shape, depth or landmarks across cases. The aortic survey displays a calculated model span. The bilateral carotid exam adds free calipers, sampled flow measurements and reconstruction from a recorded sweep. Adult cardiac echo includes measurements on the beating model and illustrative Doppler exercises. Narration remains a possible later use.
@@ -20,13 +22,13 @@ The Tours index groups teaching sequences by purpose. AAA screening is one scena
 
 ## Scan scenarios
 
-A **full exam tour** follows one case from its referral through an ordered sequence of scan acquisitions to its impression. Visitors can play the full sequence, scrub to a frame, jump to a section, and replay the view that supports a finding. The audit at `a4c9877` found visit-level gaps across the 28 sweeps and two standalone exams. The [Tours index](http://127.0.0.1:8874/tours/index.html) links to each visit’s acquisitions and evidence-linked report. The [worked casebook](http://127.0.0.1:8874/cases/index.html) supplies companion illustrations, measurements and acquired comparisons for the ten scenarios below. Playable acquisition coverage remains open wherever a required view exists only as a plate or description.
+A **full exam tour** follows one case from its referral through an ordered sequence of scan acquisitions to its impression. Visitors can play the full sequence, scrub to a frame, jump to a section, and replay the view that supports a finding. The [Tours index](http://127.0.0.1:8874/tours/index.html) links to local playable visits for all ten surveyed scenarios. The [worked casebook](http://127.0.0.1:8874/cases/index.html) supplies companion illustrations, measurements and acquired comparisons. Check each visit against the coverage below and its [case package](../../../experiments/ultrasound-sweep/cases/README.md). Clinical coverage and fidelity remain open for sonographer review.
 
-### Next batch
+### Exam coverage survey
 
-The survey identified the material below. The linked coverage sections describe the underlying sweeps. The [case packages](../../../experiments/ultrasound-sweep/cases/README.md) supply the worked visits and review scope.
+The survey at `a4c9877` identified gaps in the standalone sweeps and exams. Use the resulting checklist to review modeled coverage in the full visits. Each package records its delivered views and limits.
 
-| Scenario | Material identified by the survey |
+| Scenario | Coverage to verify |
 | --- | --- |
 | [Abdominal survey and focused exams](#abdomen-coverage) | Complete liver, biliary, pancreatic, splenic, renal, aortic and IVC coverage. Add organ and duct measurements, positional reassessment and Doppler where indicated, and bladder views for a complete urinary-tract exam. [AIUM abdomen](https://doi.org/10.1002/jum.70430) |
 | [AAA screening and diagnostic evaluation](#normal-aortic-screening-survey) | Follow the aorta through the bifurcation and save the largest clinical diameter. Exercise negative, positive and indeterminate screening results. Add longitudinal and iliac views and aneurysm characterization for diagnostic evaluation. [AIUM abdominal aorta](https://doi.org/10.1002/jum.70167) |
@@ -41,29 +43,36 @@ The survey identified the material below. The linked coverage sections describe 
 
 ### Acceptance
 
-The primary assets are the case’s 3D anatomy and its B-mode renderer. For each acquisition, the case, probe pose and time determine one anatomical section. Use that section and its physical calibration for the simulated B-mode frame, the labeled tissue overlay and image calipers. During scrubbing, keep the overlay registered to the grayscale image. Bind each teaching observation to the frame or interval where its finding is visible. Selecting the observation must restore that acquisition. [Ultrasound terms](../../../GLOSSARY.md#ultrasound-acquisition)
+Apply the [3D modeling standard](#3d-modeling-standard-for-sweeps-and-tours) to each acquisition before assessing the assembled visit.
 
-For the positive AAA case, scrub from the nondilated neck through the enlarging sac and onward to the bifurcation. At the largest section, toggle the overlay and check that the outer wall, mural thrombus and residual lumen align with their grayscale boundaries. Select the maximum diameter in the report and verify that it restores the same section with outer-wall calipers.
-
-SVG teaching plates accompany the playable acquisitions. ImageGen references may guide creation and visual review, including testing label placement, framing and whether a finding reads clearly. Identify generated references as such. Check anatomical fidelity against the source geometry and independently acquired ultrasound, and verify measurements against calibrated case data.
-
-1. Map each required acquisition and each conditional acquisition triggered by the referral or finding to a playable chapter in the local study. Reuse existing sweeps where their anatomy, laterality and case agree. Build or repair the anatomy, probe path and scan frames for missing views. For example, the AAA screening tour continues through the bifurcation. In the positive case, scrubbing through the aneurysm must reveal the sac and the section used to measure its maximum diameter.
-2. Review the normal, abnormal and technically limited pathways for each scenario through full-exam playback. In each visit, follow the same case across positions, planes and indicated Doppler samples. Show the repeat attempt and residual blind spot when a required view is unobtainable. Keep independent acquired examples labeled with their provenance.
-3. From the final impression, trace each reported finding and measurement to its labeled case frame, clip or waveform. Verify that the visitor can jump to and replay that acquisition. Withhold measurements unsupported by a limited acquisition. Guided demonstration is sufficient throughout. Quizzes and learner assessment are deferred. Sonographer review of clinical coverage and fidelity remains open. [AIUM documentation](https://www.aium.org/docs/default-source/resources/guidelines/documentation.pdf)
+1. Map each required and indication-triggered acquisition to a playable chapter. Record gaps where the anatomy or acquisition is missing or still in draft. A companion plate can explain a gap.
+2. Review the normal, abnormal and technically limited pathways for each scenario through full-exam playback. In each visit, follow the same case across positions, planes and indicated Doppler samples. Show the repeat attempt and residual blind spot when a required view is unobtainable.
+3. From the final impression, trace each reported finding and measurement to its labeled case frame, clip or waveform. Verify that the visitor can jump to and replay that acquisition. Withhold measurements unsupported by the available acquisition. In the positive AAA visit, for example, scrub from the neck through the sac to the bifurcation. At the largest section, check the outer wall, thrombus and lumen against the grayscale boundaries, then verify that the report restores that same section with outer-wall calipers. Quizzes and learner assessment are deferred. [AIUM documentation](https://www.aium.org/docs/default-source/resources/guidelines/documentation.pdf)
 
 The batch covers the Gallery's existing exam families. Additional families such as non-obstetric pelvic, venous, lung, trauma and musculoskeletal ultrasound need separate scenarios. [AIUM practice parameters](https://www.aium.org/resources/practice-parameters)
 
 ## 3D modeling standard for sweeps and tours
 
-A learner should be able to point to the probe’s contact, follow its imaging plane into the patient and identify the structure responsible for the current B-mode finding. This applies to a sweep opened independently, the same sweep inside a tour, and a case-specific acquisition.
+A learner should be able to point to the probe’s contact, follow its imaging plane into the patient and identify the structure responsible for the current B-mode finding. The primary assets for a modeled acquisition are the case’s 3D anatomy and its B-mode renderer. The same standard applies to standalone sweeps and tour chapters.
+
+### Choose and build the anatomy
+
+1. **Reuse the acquisition where it fits.** Start with the closest sweep and its pinned assets. Record the learner task, case, side, target, and the protected landmarks and relationships visible in the scan. Reuse the sweep when these agree. If the chapter needs a different case, pathology, or plane, record where the closest source falls short and which anatomy, acquisition, or fit must change. For a batch of similar chapters, inspect a representative acquisition in the delivered player before replicating the approach. [Asset admission](../../WORKFLOW.md#asset-admission)
+2. **Reuse or adapt the anatomy before authoring a replacement.** Keep the compatible baseline anatomy and isolate the case-specific changes where practical. Use same-case sources for structures whose relative position matters, or document registration and its limits. Record the source and fit of a borrowed exterior separately. A fitted exterior supplies patient orientation and contact. Its provenance does not establish the fidelity of the internal anatomy.
+3. **Use procedural geometry where there is evidence for the intended task.** A new or simplified model needs an editable recipe and a suitable anatomical reference. Label inferred construction and state its limits. Approximate shapes, point samples and companion plates can support development or a bounded teaching purpose. If they leave a required landmark, boundary or measured relationship unsubstantiated, keep the acquisition in draft or show the specific gap and withhold the unsupported finding or measurement. Label generated visual references. Check anatomy against source evidence and sonographic appearance against independently acquired ultrasound.
 
 | What the model must show | How to build and review it |
 | --- | --- |
-| A recognizable patient and case anatomy | Use a fitted, attributed patient exterior with enough regional anatomy to orient the learner. Use the case’s own masks, meshes or procedural tissue model for the scanned structures. Preserve side, gestational stage, pathology and the spatial relationships used to make measurements. An exterior borrowed from an atlas is a fitted display surface. Record its source and fit separately from the acquisition anatomy. |
+| A recognizable patient and case anatomy | Use a fitted, attributed exterior and internal surfaces that preserve the relevant side, stage, pathology and spatial relationships. Check the task-critical shape in the assembled scene and the labeled scan plane. |
 | The physical probe and its field | Seat the appropriate curved, linear, phased-array or endocavitary probe at the authored external or internal contact. Transform the footprint, image-width direction and beam together. Show the sampled field at its physical depth and width or sector angle. Outline a magnified or cropped raster within that plane. |
-| One acquisition frame | Derive the pose, tissue section, B-mode and any saved measurement from the same case, coordinate transform and frame. Apply case changes to the geometry that both views use. Draw a caliper at its saved frame and in its acquisition plane. A tour selects sweep intervals and evidence frames. It uses the same scene when that acquisition opens independently. |
+| One acquisition frame | For simulated B-mode, use the same case, transform and time for the 3D scene and calibrated section. Derive the grayscale image, tissue overlay and calipers from that section. Keep the overlay registered during playback. Apply case changes to the geometry that both views use. Draw a caliper at its saved frame in its acquisition plane. A recorded acquisition retains its own tracked frames and calibration. |
 | A readable 3D view | Include a shaded exterior, internal surfaces, a physical transducer, orientation axes and an identifiable field in one orbitable scene. The default oblique view should expose both contact and anatomy. Camera presets, orbit, zoom and skin opacity are inspection controls. They preserve the sampled plane and B-mode frame. Diagrams, waveforms and acquired images can sit alongside the scene. |
-| Checks at a real finding | Open a saved finding from the report, compare it with the standalone frame, then scrub to a neighboring frame. Inspect a second camera angle, vary opacity to check contact and look for a floating or buried footprint, and check the visible tissue against the B-mode overlay. When a 3D asset is missing, name the unavailable view and keep the scan and report usable. |
+
+### Record and review the acquisition
+
+- **Pin the source and recipe.** Record the subject and anatomy revisions or case recipe, selected parts, spatial axes, transforms and units, probe poses, field dimensions, section palette, orbit target and keyframe names and frame numbers. For acquired comparisons, retain the author, source, reuse terms, edits and case differences. Cross-case references support visual comparison. Claims of pixel alignment or measured anatomical agreement need matched acquisitions. [Source records](../../../experiments/ultrasound-sweep/research/README.md)
+- **Review anatomy and acquisition together.** Replay the pinned inputs. For new or changed task-critical anatomy, retain a representative scene, the corresponding B-mode and overlay, the source comparison, and the result of checking the protected structure or measured boundary in its scan plane at teaching scale. Use a matched baseline when replacing geometry. Inspect a second angle, check the actual probe contact at the authored windows, and ensure the target and named endpoint relationships are visible. Verify that a saved finding reopens the same pose, scan and calipers in both players, then scrub a neighboring frame. Exercise the relevant direct route, inspection controls, playback, sources and missing-media paths.
+- **Record each review result.** Use [Development review](#development-review) for asset qualification, motion and rendering evidence. Playback and geometry checks establish the behavior they exercise. The anatomy assessment establishes fitness for the named task. Independent clinical review is required for claims about scanning technique or sonographic fidelity.
 
 The regular sweeps and registered AAA cases use the [sweep scene](../../../experiments/ultrasound-sweep/scene.js). The [case scene](../../../experiments/ultrasound-sweep/case-scene.js) shares its camera and probe geometry and takes the case-specific surfaces and frame transform from the family acquisition module. The specialized echo and duplex studies also expose their registered acquisition geometry. These models illustrate authored teaching cases. Clinical fidelity and independent sonographer review are tracked with each family.
 
@@ -175,12 +184,6 @@ The curved probe, skin contact, 3D field, grayscale raster and tissue overlay us
 
 The objective is orientation to principal normal singleton scan sequences. Each model has a fixed fetal pose. Dating, nuchal thickness, growth velocity, estimated weight, fluid indices and vascular resistance require clinical acquisitions and interpretation. Static models do not establish viability or generate measured flow. Multiple gestation and indication-specific pathology are separate topics. The sequence is organized around the published [early-pregnancy lexicon](https://doi.org/10.1148/radiol.240122), [11–14-week examination](https://doi.org/10.1002/uog.26106), [mid-trimester anatomy survey](https://doi.org/10.1002/uog.24888) and [third-trimester examination](https://doi.org/10.1002/uog.27538).
 
-## Content, assembly and acceptance
-
-The sweep record identifies the source CT or atlas, spatial axes, selected tissues, unit conversion, ordered probe poses, imaging field shape and physical dimensions, section palette, orbit target, keyframe labels, frame numbers and reference identities. Use the same pose for 3D and raster sampling. Verify actual contact at each authored window. Give an atlas-derived display exterior, sampled patient envelope and any other illustrative placement explicit provenance. Store each acquired image’s author, source, reuse terms, editing history and case differences with the image record. The ordered sequence is the source for a future video export. [Sweep recipes](../../../experiments/ultrasound-sweep/README.md) · [Source and replay policy](../../WORKFLOW.md)
-
-Accept a sweep after replay from pinned inputs, verifying the target inside the imaging field and the named endpoint relationships, inspecting the simulated/section/acquired views together, and exercising the direct route, orbit, presets, opacity, play/pause, source and error paths. Independent clinical review is required for claims about scanning technique or sonographic fidelity. The acquired set is the baseline for later appearance work.
-
 ## Development review
 
 Browse the [asset qualification workbench](http://127.0.0.1:8874/development/assets.html) by **body region → tours and standalone sweeps → assets → parts**. Select a tour family, an individual tour or any combination. An orientation tour includes the sweeps on its timeline. Each source asset gets one card on the shelf. Selecting a card opens the assembled asset beside the shelf, with a visibility control for each part in the displayed acquisition.
@@ -207,7 +210,7 @@ Choose **Rebuilds and missing parts** under **Availability** to see the remainin
 
 For available geometry, **Unrated** means no current assessment covers that part and teaching task. Opening another use of the same shape can reveal a review for a different task. Only a retained assessment with an explicit matching binding supplies the score.
 
-A **qualification review** names one learner task and binds its evidence to the part and geometry revision. Use the [canonical four-axis rubric](../../guides/asset-quality.md). The high-bar target for this review is **4/4 on each axis**. A matched before/after pair uses a fixed camera, scale, lighting, material and crop. Inspect the corresponding scan and protected landmark after any surface change. Keep rejected lighter trials or close-ups when they explain the choice. Retain unrated axes and below-target results in the workbench so the coverage is visible.
+A **qualification review** names one learner task and binds its evidence to the part and geometry revision. Use the [canonical four-axis rubric](../../guides/asset-quality.md). The ultrasound workbench uses **Qualified** for **4/4 on each axis**. Retain unrated and below-target results so the coverage is visible. An inventory entry, a fitted exterior, or a qualified part for a different task carries no qualification for the current acquisition.
 
 In the standalone study, Development opens on the sweep collection so a reviewer can spot an outlier before opening an individual frame. See [batch replay and verification](../../../experiments/ultrasound-sweep/README.md#review-a-renderer-change).
 
@@ -217,19 +220,19 @@ In the standalone study, Development opens on the sweep collection so a reviewer
 | Motion | One short, replayable clip per sweep | The probe on the patient, imaging field and synchronized B-mode through the movement. Use a stable camera for a review pass so a camera orbit cannot disguise a jump or loss of contact. Link to the sweep for interactive inspection. |
 | B-mode rendering | One row per named comparison keyframe, grouped by sweep | The synthetic B-mode beside the identified acquired frame, with view name, case or plane differences and source credit. Show missing pairs explicitly. Open the exact sweep frame to inspect its anatomy and pose. |
 
-For a renderer change, regenerate the selected comparison set in one batch. Keep the case, pose, reference image, crop and display scale fixed across runs. Put the previous and candidate render beside the same acquired reference. Record which rows improved, regressed or remain uncertain and what changed visually, such as tissue texture, boundary contrast or depth-dependent brightness. Flag changes in anatomy or acquisition separately so a pose change cannot receive credit as a rendering improvement. Cross-case images support comparison of visible features. Pixel alignment and measured anatomical agreement require matched acquisitions.
+For a renderer change, use the [batch comparison procedure](../../../experiments/ultrasound-sweep/README.md#review-a-renderer-change) to hold the case, pose, field, reference, crop and scale fixed. Report anatomy or acquisition changes with their own evidence.
 
 Keep the identities and decisive images needed to reproduce a finding. Retire superseded trial clips and render batches under the [retention policy](../../WORKFLOW.md#retention).
 
 ## Asset display and integration
 
-The current review groups a keyframe into 3D anatomy, simulated scan, and acquired ultrasound. The visitor can orbit the combined probe and sector, inspect the origin of either image, open related anatomy where available, and return to the same frame. The [Asset Library](../asset-library.md) identifies independently reusable anatomy, props and generators by revision. Sweep-specific placements, simulated frames and acquired comparisons stay with the keyframe and retain their source and rights. Use the abdomen keyframes as the first batch for reviewing render changes. The exact-frame inspector supplies the close-ups and source detail behind the collection views.
+The exact-frame inspector links the assembled scene, simulated scan and acquired comparison. The [Asset Library](../asset-library.md) indexes reusable anatomy, props and generators by revision. Sweep-specific placements and media stay with the keyframe.
 
 The earlier [fixed gallbladder stop](../../../lessons/ultrasound-anatomy/README.md) is still the built-in Anatomy Gallery candidate. The local sweep study is the tour under review. Public site integration, transport admission, and publication are later delivery decisions. The Echodemo project and the repository’s cardiac section package supply precedents for synchronized geometry and images. [Echodemo development notes](https://github.com/douyang/echodemo/blob/main/DEVELOPMENT.md) · [Cardiac imaging package](../../../heart/synthetic-imaging/beating-heart/imaging/README.md)
 
-## Starting assets and open gaps
+## Starting assets and standalone sweep limits
 
-The initial inventory used med-assets `e51891b`. Local s1233 masks shared a spatial header, and sampled axial sections confirmed the coverage described below. The nine abdomen sweeps now have paired image review. Independent sonographic assessment remains open.
+Use these source leads when choosing anatomy. The initial inventory used med-assets `e51891b`. The source limits below apply to the named standalone study or input. The [worked case packages](../../../experiments/ultrasound-sweep/cases/README.md) record the geometry and limits of the full visits.
 
 | Topic | Available starting point | What the next level needs |
 | --- | --- | --- |

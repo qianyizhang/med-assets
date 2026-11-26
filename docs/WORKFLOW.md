@@ -60,6 +60,7 @@ Prioritize recovery of the current maintained release, including its editable in
 | Diagram or lesson | Required relationship visible in the diagram or learner action demonstrated in the running lesson. |
 
 - **Delivery evidence** · Link the admission decision, evidence, applicable checks and scoped review results in the handoff or PR.
+- **Ultrasound acquisitions** · Use the [sweep and tour modeling standard](gallery/use-cases/ultrasound-anatomy.md#3d-modeling-standard-for-sweeps-and-tours) when choosing or changing scan anatomy. It defines the acquisition-specific evidence to use with the shared rubric.
 - **Authorization** · Deletion, publication and merge require their own authority.
 
 ## Blender workflow

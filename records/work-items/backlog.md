@@ -2,7 +2,7 @@
 description: Discover and triage cross-session med-assets work.
 scope: backlog
 status: stable
-last_update: 2026-11-23
+last_update: 2026-11-25
 document_class: coordination
 ---
 
@@ -31,6 +31,7 @@ The [exemption review](../campaigns/teaching-exemption-recheck.md) owns the six 
 
 ## Shared Gallery lessons and models
 
+- [AG-GAL-032 · Bring ultrasound tours and assets into Gallery discovery](items/AG-GAL-032-ultrasound-asset-discovery.md) covers body-region tours, exact reusable model revisions and keyframe comparisons.
 - [AG-GAL-026 · Consolidate overlapping lessons](items/AG-GAL-026-consolidate-overlapping-lessons.md) records the bilingual ovary sequence and shared respiratory route.
 - [AG-GAL-027 · Merge reusable organ assets](items/AG-GAL-027-merge-reusable-organ-assets.md) records the Cardiac Atlas pilot, tracheal shell and pelvic selections, including their exact exports and learner checks.
 - [AG-GAL-028 · Reuse Z atlas components](items/AG-GAL-028-reuse-z-atlas-components.md) records the reviewed shared right-arm and salivary selections.
@@ -38,6 +39,12 @@ The [exemption review](../campaigns/teaching-exemption-recheck.md) owns the six 
 ## Part-based lessons
 
 The [right arm](items/AG-GAL-029-right-arm-part-lessons.md), [Head & Neck](items/AG-GAL-030-salivary-part-lessons.md) and [female pelvis](items/AG-GAL-031-pelvic-part-lessons.md) each use two point-and-reveal tasks with the existing teaching exports.
+
+## Cleanup alongside migrations
+
+When a move exposes a deprecated shim, duplicate viewer or superseded build, record its path and disposition in the owning work item's ledger. Retire it in that slice when its readers and recovery are accounted for. If it stays, note who still needs it or what would allow retirement. The teaching and collection milestones keep their place in the campaign. [Retention policy](../../docs/WORKFLOW.md#retention)
+
+- Review old Gallery preview builds when replacing a walkthrough. Compare their consumers and unique build or recovery inputs before pruning directories with identical rendered HTML.
 
 ## Deferred follow-up
 

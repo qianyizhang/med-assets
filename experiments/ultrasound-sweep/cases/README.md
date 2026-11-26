@@ -9,7 +9,7 @@
 | [Pregnancy](pregnancy/README.md) | Early location and dating, the 11–14-week scan, mid-trimester anatomy and third-trimester interval growth. Each stage has its own independent cases. |
 | [Adult echo](echo/build.mjs) | A normal baseline, a high-gradient aortic stenosis case with two CW Doppler windows, and an incomplete jet envelope. The LV volumes and RV area change use the same chamber contours as the interactive echo study. Velocities are prescribed. The mean gradient integrates the squared velocity across ejection. |
 
-The material implements the [ten scenarios in the completion survey](../../../docs/gallery/use-cases/ultrasound-anatomy.md#next-batch) as playable visits with accompanying illustrated records. A plate can model a wall boundary, sample gate, fetal pose or acquisition limitation. Acquired images belong to separate exams and carry their original credit and terms. The four pregnancy stages reuse the underlying anatomy volumes. The adult heart uses the same beating geometry and registered windows as the standalone echo study. Abdominal, superficial-organ and vascular visits use case-specific modeled anatomy. Case Doppler signals are illustrative. The separate sweep and duplex atlas routes retain their original scope. Sonographer review of clinical coverage, anatomy and fidelity is pending.
+The [ten surveyed scenarios](../../../docs/gallery/use-cases/ultrasound-anatomy.md#exam-coverage-survey) have local playable visits with accompanying illustrated records. The four pregnancy stages reuse the underlying anatomy volumes. The adult heart uses the same beating geometry and registered windows as the standalone echo study. The abdominal, superficial-organ and vascular packages document their case-specific models. Case Doppler signals are illustrative. Sonographer review of clinical coverage, anatomy and fidelity is pending.
 
 ## Replay and review
 
@@ -42,4 +42,4 @@ The family scene adapters provide case geometry in patient coordinates to the [s
 | Pregnancy | [Stage volume recipe](pregnancy/build_playable.py) · [case-specific anatomy](pregnancy/playable-model.js) · [acquisition planes and measurements](pregnancy/playable-chapters.js) · [B-mode, labels and time traces](pregnancy/playable.js) |
 | Adult echo | [Beating heart geometry](../cardiac/heart-geometry.js) · [cardiac section intersections](../cardiac/heart-slice.js) · [B-mode renderer](../cardiac/heart-echo.js) · [case-specific valve, calipers, spectra and 3D view](echo/playable.js) |
 
-The source assets use physical coordinates. At a saved observation, the player applies the same case, plane and time to the tissue rendering and calipers. The 3D camera can orbit independently. Chapter links in the reading pages and numeric links in the exam report point to exact saved acquisitions. The companion SVGs can be reproduced from their family recipes.
+The companion SVGs can be reproduced from their family recipes.
