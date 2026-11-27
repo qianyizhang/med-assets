@@ -1,0 +1,273 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:hra:vagina",
+  "title": "Female HRA cervicovaginal exterior context",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/vagina_hra",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:hra:united-female-v1-10-vagina",
+      "title": "HRA United Female v1.10",
+      "sourceType": "external HRA GLB",
+      "subject": "HRA United Female v1.10 reference atlas",
+      "url": "https://cdn.humanatlas.io/digital-objects/ref-organ/united-female/v1.10/assets/3d-vh-f-united.glb",
+      "doi": "https://doi.org/10.48539/HBM637.DWBM.744",
+      "sha256": "95f0c3d2f918582608692ca1139e8bdb18c147a16470e9ee9af8b276bd77c422",
+      "bytes": 374505632,
+      "license": "CC-BY-4.0",
+      "evidence": [
+        {
+          "path": "models/vagina_hra/provenance/context-r02/migration-2026-10-24/external-source.json",
+          "sha256": "5a3b3b03504960808619bd4df62911a6f516379c582ede22710dd30387526263"
+        },
+        {
+          "path": "models/vagina_hra/provenance/context-r02/migration-2026-10-24/ATTRIBUTION.md",
+          "sha256": "b75014a10c54044066f509f1109a92e425e273d1ddc60bbe2f845bc88983b8d7"
+        }
+      ]
+    },
+    {
+      "sourceId": "source:hra:vagina-r02-style",
+      "title": "Reviewed r02 pelvic style and display normals",
+      "sourceType": "atlas-derived GLB",
+      "subject": "HRA United Female v1.10 reference atlas",
+      "path": "models/vagina_hra/exports/context-r02/vagina_hra_same_atlas_context_r02.glb",
+      "sha256": "c649de4db766ba00020315029c922de1d018061c1a34bd95c850a05255ab3037",
+      "bytes": 2718584,
+      "license": "CC-BY-4.0",
+      "evidence": [
+        {
+          "path": "models/vagina_hra/provenance/context-r02/migration-2026-10-24/README.md",
+          "sha256": "5ffdb3216a155ad2b941df609ff9090be0f9eb442b581b095c24b4127c0d8677"
+        },
+        {
+          "path": "models/vagina_hra/provenance/context-r02/migration-2026-10-24/ATTRIBUTION.md",
+          "sha256": "b75014a10c54044066f509f1109a92e425e273d1ddc60bbe2f845bc88983b8d7"
+        }
+      ]
+    },
+    {
+      "sourceId": "source:hra:female-pelvis-shared-geometry",
+      "title": "Shared female HRA pelvic geometry",
+      "sourceType": "atlas-derived GLB",
+      "subject": "HRA United Female v1.10 reference atlas",
+      "path": "models/bladder/exports/hra-female-context-r03/bladder_hra_female_context_r03.glb",
+      "sha256": "91f04d1c831a61944da116184f389461517587c90c91fd94e199fba1619aa6b9",
+      "bytes": 2449600,
+      "license": "CC-BY-4.0",
+      "evidence": [
+        {
+          "path": "assemblies/hra-female-pelvis/README.md",
+          "sha256": "6d60894d97424f1e38e215c869a235530a875f0ec63beb6ebd270e052227cc76"
+        },
+        {
+          "path": "assemblies/hra-female-pelvis/bladder-selection.json",
+          "sha256": "eb820afb84ef68df8cff5f1100c72efaceed3268acd412c37f19289f04e82650"
+        },
+        {
+          "path": "models/bladder/ATTRIBUTION.md",
+          "sha256": "2f62047aef78f66d8f974d3b3cfbc66d95476b3b2a3b6a342d7ba5f0e3426e8a"
+        }
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "uterus-body",
+      "label": "Uterine body",
+      "selectors": [
+        "VH_F_body_of_uterus"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "cervix",
+      "label": "Cervix",
+      "selectors": [
+        "VH_F_cervix"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "internal-os",
+      "label": "Internal cervical os",
+      "selectors": [
+        "VH_F_internal_cervical_os"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "external-os",
+      "label": "External cervical os",
+      "selectors": [
+        "VH_F_external_cervical_os"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "vagina",
+      "label": "Vaginal exterior",
+      "selectors": [
+        "VH_F_vagina"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "rectum",
+      "label": "Rectum",
+      "selectors": [
+        "VH_F_rectum"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "cervicovaginal-junction",
+      "label": "Cervicovaginal junction",
+      "selectors": [
+        "VH_F_cervicovaginal_junction"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "bladder-dome",
+      "label": "Bladder dome",
+      "selectors": [
+        "VH_F_fundus_of_urinary_bladder_dome"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "bladder-base",
+      "label": "Bladder base",
+      "selectors": [
+        "VH_F_fundus_of_urinary_bladder_base"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "bladder-neck",
+      "label": "Bladder-neck smooth muscle",
+      "selectors": [
+        "VH_F_urinary_bladder_neck_smooth_muscle"
+      ],
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "context-r02",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "reviews/vagina_hra/2026-10-24-thyroid-vagina-bounded-migration/bounded-record.json",
+        "sha256": "6945b29c8fb61489d81fa3b22bfeb61b31efa5c6231467e1c617c0cf644fb6b8"
+      },
+      "sourceIds": [
+        "source:hra:united-female-v1-10-vagina"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/vagina_hra/provenance/context-r02/migration-2026-10-24/README.md"
+      },
+      "partIds": [
+        "uterus-body",
+        "cervix",
+        "internal-os",
+        "external-os",
+        "vagina",
+        "rectum",
+        "cervicovaginal-junction",
+        "bladder-dome",
+        "bladder-base",
+        "bladder-neck"
+      ],
+      "exports": [
+        {
+          "id": "reference",
+          "path": "models/vagina_hra/exports/context-r02/vagina_hra_same_atlas_context_r02.glb",
+          "sha256": "c649de4db766ba00020315029c922de1d018061c1a34bd95c850a05255ab3037",
+          "bytes": 2718584,
+          "format": "glb",
+          "role": "reference-mesh",
+          "triangles": 138419,
+          "partIds": [
+            "uterus-body",
+            "cervix",
+            "internal-os",
+            "external-os",
+            "vagina",
+            "rectum",
+            "cervicovaginal-junction",
+            "bladder-dome",
+            "bladder-base",
+            "bladder-neck"
+          ]
+        }
+      ],
+      "qualifications": []
+    },
+    {
+      "revisionId": "teaching-context-r03",
+      "status": "provisional",
+      "recipe": "recipes/teaching-context-r03/build.py",
+      "recipeEvidence": {
+        "path": "assemblies/hra-female-pelvis/README.md",
+        "sha256": "6d60894d97424f1e38e215c869a235530a875f0ec63beb6ebd270e052227cc76"
+      },
+      "sourceIds": [
+        "source:hra:female-pelvis-shared-geometry",
+        "source:hra:vagina-r02-style"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/vagina_hra/exports/teaching-context-r03/README.md"
+      },
+      "partIds": [
+        "cervix",
+        "vagina",
+        "rectum",
+        "cervicovaginal-junction",
+        "bladder-dome",
+        "bladder-base",
+        "bladder-neck"
+      ],
+      "exports": [
+        {
+          "id": "teaching",
+          "path": "models/vagina_hra/exports/teaching-context-r03/vagina_teaching_context.glb",
+          "sha256": "9147a3872fdceae2d351cd6ca069befbb82be880b770d9ef111b647ee001cd5d",
+          "bytes": 1055764,
+          "format": "glb",
+          "role": "teaching-mesh",
+          "triangles": 57166,
+          "partIds": [
+            "cervix",
+            "vagina",
+            "rectum",
+            "cervicovaginal-junction",
+            "bladder-dome",
+            "bladder-base",
+            "bladder-neck"
+          ]
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Portable reconstruction of the 23-mesh r02 from the external HRA source remains unverified.",
+    "The native frame supports these exterior relationships. Cross-atlas registration, lumen continuity and mucosal detail remain unverified."
+  ]
+}

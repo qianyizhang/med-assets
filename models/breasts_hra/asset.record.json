@@ -1,0 +1,240 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:hra:breasts",
+  "title": "Female HRA mammary pair",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/breasts_hra",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:hra:mammary-pair-v1-0",
+      "title": "HRA female mammary pair with illustrative materials",
+      "sourceType": "atlas-derived GLB",
+      "subject": "HRA female mammary reference pair v1.0",
+      "path": "models/breasts_hra/exports/source-candidate-02/breasts_hra_native_frame.glb",
+      "bytes": 37499672,
+      "sha256": "905865c4382fb109d14fca74c8ffe809e190f44e9d3086144c3d1d7c3be53964",
+      "license": "CC-BY-4.0",
+      "evidence": [
+        {
+          "path": "models/breasts_hra/exports/source-candidate-02/ATTRIBUTION.md",
+          "sha256": "e1304350686ca33a751e8539965e9fca9003b580ee5916d7ba80af3d2045bf26"
+        },
+        {
+          "path": "sources/datasets/breasts_hra-bounded/external-source-map.json",
+          "sha256": "2348403c61a89e8991c6b19f7d56080510aa9cacd55011478c80df4406b52877"
+        }
+      ],
+      "limitations": [
+        "Sculpted atlas tissue shapes support gross orientation. Original component openings and nonmanifold areas remain."
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "breast-left-lobes",
+      "label": "Source left mammary lobes",
+      "selectors": [
+        "VH_F_mammary_lobes_L"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "breast-left-ducts",
+      "label": "Source left lactiferous ducts",
+      "selectors": [
+        "VH_F_main_lactiferous_ducts_L"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "breast-left-fat",
+      "label": "Source left breast fat",
+      "selectors": [
+        "VH_F_fat_L"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "breast-left-areola",
+      "label": "Source left areola",
+      "selectors": [
+        "VH_F_areola_L"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "breast-left-nipple",
+      "label": "Source left nipple",
+      "selectors": [
+        "VH_F_nipple_L"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "breast-left-areolar-tubercles",
+      "label": "Source left areolar tubercles",
+      "selectors": [
+        "VH_F_areolar_tubercles_L"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "breast-left-sinuses",
+      "label": "Source left lactiferous sinuses",
+      "selectors": [
+        "VH_F_main_lactiferous_sinuses_L"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "breast-left-suspensory-ligaments",
+      "label": "Source left suspensory ligaments",
+      "selectors": [
+        "VH_F_suspensory_ligaments_L"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "breast-right-lobes",
+      "label": "Source right mammary lobes",
+      "selectors": [
+        "VH_F_mammary_lobes_R"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "breast-right-ducts",
+      "label": "Source right lactiferous ducts",
+      "selectors": [
+        "VH_F_main_lactiferous_ducts_R"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "breast-right-fat",
+      "label": "Source right breast fat",
+      "selectors": [
+        "VH_F_fat_R"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "breast-right-areola",
+      "label": "Source right areola",
+      "selectors": [
+        "VH_F_areola_R"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "breast-right-nipple",
+      "label": "Source right nipple",
+      "selectors": [
+        "VH_F_nipple_R"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "breast-right-areolar-tubercles",
+      "label": "Source right areolar tubercles",
+      "selectors": [
+        "VH_F_areolar_tubercles_R"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "breast-right-sinuses",
+      "label": "Source right lactiferous sinuses",
+      "selectors": [
+        "VH_F_main_lactiferous_sinuses_R"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "breast-right-suspensory-ligaments",
+      "label": "Source right suspensory ligaments",
+      "selectors": [
+        "VH_F_suspensory_ligaments_R"
+      ],
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "teaching-economy-r01",
+      "status": "provisional",
+      "recipe": "recipes/teaching-economy-r01.json",
+      "recipeEvidence": {
+        "path": "models/breasts_hra/exports/source-candidate-02/README.md",
+        "sha256": "6c9a8aeca4125f2229db1d9fafc98c7c5aab2162edb3d391a5daf3a51def5ab1"
+      },
+      "sourceIds": [
+        "source:hra:mammary-pair-v1-0"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/breasts_hra/exports/teaching-economy-r01/README.md"
+      },
+      "partIds": [
+        "breast-left-lobes",
+        "breast-left-ducts",
+        "breast-left-fat",
+        "breast-left-areola",
+        "breast-left-nipple",
+        "breast-left-areolar-tubercles",
+        "breast-left-sinuses",
+        "breast-left-suspensory-ligaments",
+        "breast-right-lobes",
+        "breast-right-ducts",
+        "breast-right-fat",
+        "breast-right-areola",
+        "breast-right-nipple",
+        "breast-right-areolar-tubercles",
+        "breast-right-sinuses",
+        "breast-right-suspensory-ligaments"
+      ],
+      "exports": [
+        {
+          "id": "reference",
+          "path": "models/breasts_hra/exports/teaching-economy-r01/breasts_hra_native_frame.glb",
+          "sha256": "2a7d6d05e06fa8d86adffdf0fd324389cf23ac736b3b659f7c227b96e499fe51",
+          "bytes": 32567624,
+          "format": "glb",
+          "role": "teaching-mesh",
+          "triangles": 691668,
+          "partIds": [
+            "breast-left-lobes",
+            "breast-left-ducts",
+            "breast-left-fat",
+            "breast-left-areola",
+            "breast-left-nipple",
+            "breast-left-areolar-tubercles",
+            "breast-left-sinuses",
+            "breast-left-suspensory-ligaments",
+            "breast-right-lobes",
+            "breast-right-ducts",
+            "breast-right-fat",
+            "breast-right-areola",
+            "breast-right-nipple",
+            "breast-right-areolar-tubercles",
+            "breast-right-sinuses",
+            "breast-right-suspensory-ligaments"
+          ]
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The historical source-candidate-02 pipeline depends on external inputs and has no portable replay claim.",
+    "Higher-zoom isolated sublayers and cross-source registration remain unverified."
+  ]
+}

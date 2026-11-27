@@ -1,0 +1,317 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:hra:ovaries",
+  "title": "Female HRA ovaries and tubal ends",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/ovaries",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:hra:ovary-female-left",
+      "title": "HRA ovary female left",
+      "sourceType": "external HRA GLB",
+      "subject": "HRA female reference atlas",
+      "sha256": "defd5cdc4b053b4e92193c5864bab2abae1807864ffde8bde7a7cb57f4736609",
+      "bytes": 9000,
+      "url": "https://raw.githubusercontent.com/hubmapconsortium/hra-kg/29888dcc5f32dae28c7a07c41171c822275360c3/digital-objects/ref-organ/ovary-female-left/v1.3/raw/3d-vh-f-ovary-l.glb",
+      "license": "CC-BY-4.0",
+      "evidence": [
+        {
+          "path": "sources/datasets/hra/ovary-tubal-context/source-manifest.json",
+          "sha256": "b8b051630796e03378b9aba42453ec95a87b4eab4cc968a06846742ad30a3934"
+        },
+        {
+          "path": "sources/datasets/hra/ovary-tubal-context/ATTRIBUTION.md",
+          "sha256": "a87db1d8094e1621d82a2be08465a08dac13db4c00d52173b59a28f644b3ac49"
+        }
+      ]
+    },
+    {
+      "sourceId": "source:hra:ovary-female-right",
+      "title": "HRA ovary female right",
+      "sourceType": "external HRA GLB",
+      "subject": "HRA female reference atlas",
+      "sha256": "381df741bf3d2511716e68db3ff70d94c0eda770d28a503af2d9fcb7b65113f8",
+      "bytes": 8756,
+      "url": "https://raw.githubusercontent.com/hubmapconsortium/hra-kg/29888dcc5f32dae28c7a07c41171c822275360c3/digital-objects/ref-organ/ovary-female-right/v1.3/raw/3d-vh-f-ovary-r.glb",
+      "license": "CC-BY-4.0",
+      "evidence": [
+        {
+          "path": "sources/datasets/hra/ovary-tubal-context/source-manifest.json",
+          "sha256": "b8b051630796e03378b9aba42453ec95a87b4eab4cc968a06846742ad30a3934"
+        },
+        {
+          "path": "sources/datasets/hra/ovary-tubal-context/ATTRIBUTION.md",
+          "sha256": "a87db1d8094e1621d82a2be08465a08dac13db4c00d52173b59a28f644b3ac49"
+        }
+      ]
+    },
+    {
+      "sourceId": "source:hra:fallopian-tube-female-left",
+      "title": "HRA fallopian tube female left",
+      "sourceType": "external HRA GLB",
+      "subject": "HRA female reference atlas",
+      "sha256": "34817c498e038b599b338f8a35e6c1b3cbda576255c4f2ecca6d9efdebac6c15",
+      "bytes": 336732,
+      "url": "https://raw.githubusercontent.com/hubmapconsortium/hra-kg/29888dcc5f32dae28c7a07c41171c822275360c3/digital-objects/ref-organ/fallopian-tube-female-left/v1.2/raw/3d-vh-f-fallopian-tube-l.glb",
+      "license": "CC-BY-4.0",
+      "evidence": [
+        {
+          "path": "sources/datasets/hra/ovary-tubal-context/source-manifest.json",
+          "sha256": "b8b051630796e03378b9aba42453ec95a87b4eab4cc968a06846742ad30a3934"
+        },
+        {
+          "path": "sources/datasets/hra/ovary-tubal-context/ATTRIBUTION.md",
+          "sha256": "a87db1d8094e1621d82a2be08465a08dac13db4c00d52173b59a28f644b3ac49"
+        }
+      ]
+    },
+    {
+      "sourceId": "source:hra:fallopian-tube-female-right",
+      "title": "HRA fallopian tube female right",
+      "sourceType": "external HRA GLB",
+      "subject": "HRA female reference atlas",
+      "sha256": "eec911de07307d1a27cfe27c939e3f3562590e5c419e27decaf3b1d7b13ab038",
+      "bytes": 327504,
+      "url": "https://raw.githubusercontent.com/hubmapconsortium/hra-kg/29888dcc5f32dae28c7a07c41171c822275360c3/digital-objects/ref-organ/fallopian-tube-female-right/v1.2/raw/3d-vh-f-fallopian-tube-r.glb",
+      "license": "CC-BY-4.0",
+      "evidence": [
+        {
+          "path": "sources/datasets/hra/ovary-tubal-context/source-manifest.json",
+          "sha256": "b8b051630796e03378b9aba42453ec95a87b4eab4cc968a06846742ad30a3934"
+        },
+        {
+          "path": "sources/datasets/hra/ovary-tubal-context/ATTRIBUTION.md",
+          "sha256": "a87db1d8094e1621d82a2be08465a08dac13db4c00d52173b59a28f644b3ac49"
+        }
+      ]
+    },
+    {
+      "sourceId": "source:hra:ovary-tubal-native-assembly",
+      "title": "Combined original HRA ovary/tube subset",
+      "sourceType": "atlas-derived GLB",
+      "subject": "HRA female reference atlas",
+      "path": "models/ovaries/exports/hra-ovary-tubal-r01/ovary-tubal-context.glb",
+      "sha256": "465a44b18df91ece95a236372a8cbe3e1a0de0207525955290e6b0fa519195d1",
+      "bytes": 681552,
+      "license": "CC-BY-4.0",
+      "evidence": [
+        {
+          "path": "models/ovaries/exports/hra-ovary-tubal-r01/ovary-tubal-context.build.json",
+          "sha256": "4a71302a3fb27c7519e67585406b6df29be2ed55bd886605d4d8fcc50fa3666c"
+        },
+        {
+          "path": "sources/datasets/hra/ovary-tubal-context/ATTRIBUTION.md",
+          "sha256": "a87db1d8094e1621d82a2be08465a08dac13db4c00d52173b59a28f644b3ac49"
+        }
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "ovary-left",
+      "label": "Source left ovary",
+      "selectors": [
+        "VH_F_left_ovary"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "uterine-tube-left",
+      "label": "Source left tubal ampulla",
+      "selectors": [
+        "VH_F_ampulla_of_uterine_tube_L"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "infundibulum-left",
+      "label": "Source left tubal infundibulum",
+      "selectors": [
+        "VH_F_uterine_tube_infundibulum_L"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "fimbriae-left",
+      "label": "Source left fimbriae",
+      "selectors": [
+        "VH_F_fibria_of_uterine_tube_L"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "tubal-isthmus-left",
+      "label": "Source left tubal isthmus",
+      "selectors": [
+        "VH_F_isthmus_of_fallopian_tube_L"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "ovary-right",
+      "label": "Source right ovary",
+      "selectors": [
+        "VH_F_right_ovary"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "uterine-tube-right",
+      "label": "Source right tubal ampulla",
+      "selectors": [
+        "VH_F_ampulla_of_uterine_tube_R"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "infundibulum-right",
+      "label": "Source right tubal infundibulum",
+      "selectors": [
+        "VH_F_uterine_tube_infundibulum_R"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "fimbriae-right",
+      "label": "Source right fimbriae",
+      "selectors": [
+        "VH_F_fibria_of_uterine_tube_R"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "tubal-isthmus-right",
+      "label": "Source right tubal isthmus",
+      "selectors": [
+        "VH_F_isthmus_of_fallopian_tube_R"
+      ],
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "hra-ovary-tubal-r01",
+      "status": "provisional",
+      "recipe": "recipes/tubal-context/build.py",
+      "recipeEvidence": {
+        "path": "models/ovaries/exports/hra-ovary-tubal-r01/ovary-tubal-context.build.json",
+        "sha256": "4a71302a3fb27c7519e67585406b6df29be2ed55bd886605d4d8fcc50fa3666c"
+      },
+      "sourceIds": [
+        "source:hra:ovary-female-left",
+        "source:hra:ovary-female-right",
+        "source:hra:fallopian-tube-female-left",
+        "source:hra:fallopian-tube-female-right"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "sources/datasets/hra/ovary-tubal-context/frame-evidence.json"
+      },
+      "partIds": [
+        "ovary-left",
+        "uterine-tube-left",
+        "infundibulum-left",
+        "fimbriae-left",
+        "tubal-isthmus-left",
+        "ovary-right",
+        "uterine-tube-right",
+        "infundibulum-right",
+        "fimbriae-right",
+        "tubal-isthmus-right"
+      ],
+      "exports": [
+        {
+          "id": "reference",
+          "path": "models/ovaries/exports/hra-ovary-tubal-r01/ovary-tubal-context.glb",
+          "sha256": "465a44b18df91ece95a236372a8cbe3e1a0de0207525955290e6b0fa519195d1",
+          "bytes": 681552,
+          "format": "glb",
+          "role": "reference-mesh",
+          "triangles": 36885,
+          "partIds": [
+            "ovary-left",
+            "uterine-tube-left",
+            "infundibulum-left",
+            "fimbriae-left",
+            "tubal-isthmus-left",
+            "ovary-right",
+            "uterine-tube-right",
+            "infundibulum-right",
+            "fimbriae-right",
+            "tubal-isthmus-right"
+          ]
+        }
+      ],
+      "qualifications": []
+    },
+    {
+      "revisionId": "teaching-ovoid-r02",
+      "status": "provisional",
+      "recipe": "recipes/teaching-ovoid-r02/build.py",
+      "recipeEvidence": {
+        "path": "models/ovaries/exports/teaching-ovoid-r02/README.md",
+        "sha256": "d49921bc8c6e80157c010d7c373132031906ecc71ccdce412f5428f4a2997478"
+      },
+      "sourceIds": [
+        "source:hra:ovary-tubal-native-assembly"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "sources/datasets/hra/ovary-tubal-context/frame-evidence.json"
+      },
+      "partIds": [
+        "ovary-left",
+        "uterine-tube-left",
+        "infundibulum-left",
+        "fimbriae-left",
+        "tubal-isthmus-left",
+        "ovary-right",
+        "uterine-tube-right",
+        "infundibulum-right",
+        "fimbriae-right",
+        "tubal-isthmus-right"
+      ],
+      "exports": [
+        {
+          "id": "teaching",
+          "path": "models/ovaries/exports/teaching-ovoid-r02/ovary-tubal-teaching.glb",
+          "sha256": "a12171dbb34190eff127a2a4dd743a31db1db9b51f7f801780225be3b3d3ae61",
+          "bytes": 726976,
+          "format": "glb",
+          "role": "teaching-mesh",
+          "triangles": 39387,
+          "partIds": [
+            "ovary-left",
+            "uterine-tube-left",
+            "infundibulum-left",
+            "fimbriae-left",
+            "tubal-isthmus-left",
+            "ovary-right",
+            "uterine-tube-right",
+            "infundibulum-right",
+            "fimbriae-right",
+            "tubal-isthmus-right"
+          ]
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The four pinned upstream GLBs are external to this checkout. Replaying the combined native edition requires those original bytes.",
+    "L/R are source labels. Patient orientation, tissue attachment and lumen continuity remain unverified. The r02 ovarian exteriors are interpreted."
+  ]
+}

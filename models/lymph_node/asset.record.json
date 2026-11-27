@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:hra:lymph-node",
+  "title": "Single HRA lymph node",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/lymph_node",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:hra:lymph-node-male-v1-2",
+      "title": "Unchanged HRA male lymph-node v1.2 GLB",
+      "sourceType": "atlas-derived GLB",
+      "subject": "HRA male lymph-node reference atlas",
+      "path": "models/lymph_node/exports/hra-v1.2/NIH_M_Lymph_Node.glb",
+      "sha256": "7b047002cbb1dc06f37baa441783390d76cdb444b6144d6caa623923707953fd",
+      "bytes": 7413900,
+      "license": "CC-BY-4.0",
+      "evidence": [
+        {
+          "path": "sources/datasets/hra/lymph-node-v1.2/source.json",
+          "sha256": "9f50a3b5490ebd43dedfc60bbbf6fe22daca33c2a7c938833f7962e12522adeb"
+        },
+        {
+          "path": "models/lymph_node/ATTRIBUTION.md",
+          "sha256": "e94d341373dde0fafef080b0e0238c6ded4d27c8b838bb643c9cff038c71295c"
+        }
+      ]
+    },
+    {
+      "sourceId": "source:hra:lymph-node-four-tissue-selection",
+      "title": "Four source-native lymph-node tissue meshes",
+      "sourceType": "atlas-derived GLB",
+      "subject": "HRA male lymph-node reference atlas",
+      "path": "models/lymph_node/exports/hra-tissue-layers-r01/lymph-node-tissue-layers.glb",
+      "sha256": "bf4ffa85c96459f2666949196915244697f3f5e33ebf485482c8223ba1fcb23e",
+      "bytes": 2984704,
+      "license": "CC-BY-4.0",
+      "evidence": [
+        {
+          "path": "models/lymph_node/recipes/tissue_layers_r01/selection.json",
+          "sha256": "a9d35c329cb1c4899bf9b9a46f1e4e20d0cf91e6e804fbbf0dd1f755d7f11d08"
+        },
+        {
+          "path": "models/lymph_node/ATTRIBUTION.md",
+          "sha256": "e94d341373dde0fafef080b0e0238c6ded4d27c8b838bb643c9cff038c71295c"
+        }
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "lymph-node-capsule",
+      "label": "Lymph node capsule",
+      "selectors": [
+        "Yao_capsule_of_lymph_node"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "lymph-node-paracortex",
+      "label": "Paracortex",
+      "selectors": [
+        "Yao_paracortex"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "lymph-node-medulla",
+      "label": "Medulla",
+      "selectors": [
+        "Yao_medulla_of_lymph_node"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "lymph-node-follicles",
+      "label": "Follicles",
+      "selectors": [
+        "Yao_follicles"
+      ],
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "tissue-color-pack-r02",
+      "status": "provisional",
+      "recipe": "recipes/tissue-color-pack-r02.json",
+      "sourceIds": [
+        "source:hra:lymph-node-four-tissue-selection"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/lymph_node/exports/tissue-color-pack-r02/README.md"
+      },
+      "partIds": [
+        "lymph-node-capsule",
+        "lymph-node-paracortex",
+        "lymph-node-medulla",
+        "lymph-node-follicles"
+      ],
+      "exports": [
+        {
+          "id": "reference",
+          "path": "models/lymph_node/exports/tissue-color-pack-r02/lymph-node.glb",
+          "bytes": 2297224,
+          "sha256": "d0b8ac731f187c10e1c7f23a15d6f4ec285b7727cc98bf9feed26fb97e5ee692",
+          "format": "glb",
+          "role": "teaching-mesh",
+          "triangles": 114498,
+          "partIds": [
+            "lymph-node-capsule",
+            "lymph-node-paracortex",
+            "lymph-node-medulla",
+            "lymph-node-follicles"
+          ]
+        }
+      ],
+      "qualifications": []
+    },
+    {
+      "revisionId": "hra-tissue-layers-r01",
+      "status": "provisional",
+      "recipe": "recipes/tissue_layers_r01/build.py",
+      "recipeEvidence": {
+        "path": "reviews/teaching-assessments/2026-11-22-lymph-node-tissue-layers/README.md",
+        "sha256": "4191f99768b7f08323ae29b27e91041960fa087670d447d1ea3aa5ecaa302b9a"
+      },
+      "sourceIds": [
+        "source:hra:lymph-node-male-v1-2"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/lymph_node/exports/hra-tissue-layers-r01/README.md"
+      },
+      "partIds": [
+        "lymph-node-capsule",
+        "lymph-node-paracortex",
+        "lymph-node-medulla",
+        "lymph-node-follicles"
+      ],
+      "exports": [
+        {
+          "id": "teaching",
+          "path": "models/lymph_node/exports/hra-tissue-layers-r01/lymph-node-tissue-layers.glb",
+          "sha256": "bf4ffa85c96459f2666949196915244697f3f5e33ebf485482c8223ba1fcb23e",
+          "bytes": 2984704,
+          "format": "glb",
+          "role": "teaching-mesh",
+          "triangles": 114498,
+          "partIds": [
+            "lymph-node-capsule",
+            "lymph-node-paracortex",
+            "lymph-node-medulla",
+            "lymph-node-follicles"
+          ]
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Generic tissue regions have no case-specific registration for cervical or axillary placement.",
+    "Medullary relief, capsule aperture, histological identity and physiological flow remain unverified. The conflicting vessel label in the complete HRA source remains unresolved."
+  ]
+}
