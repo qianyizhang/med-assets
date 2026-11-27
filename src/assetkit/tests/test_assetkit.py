@@ -1,4 +1,4 @@
-"""Self-contained test suite for AssetKit."""
+"""Self-contained unit test suite for AssetKit's 6 bounded contexts."""
 
 from __future__ import annotations
 
@@ -12,12 +12,15 @@ from pathlib import Path
 from assetkit import (
     Asset,
     AssetKitError,
+    AssetRegistry,
     BudgetPolicy,
-    Catalog,
+    BuildSpec,
     Concept,
     ConceptEdge,
     ConceptGraph,
     Consumer,
+    CurationStore,
+    DeliveryGraph,
     Export,
     Part,
     Pin,
@@ -26,12 +29,12 @@ from assetkit import (
     Review,
     Revision,
     Selection,
-    analyze_economy,
-    check_artifact,
-    impact,
-    inspect_glb,
-    load_catalog,
-    resolve,
+    Workspace,
+    inspect_mesh,
+    plan_build,
+    run_build,
+    sync_manifest,
+    verify,
 )
 
 
@@ -52,8 +55,22 @@ def _make_minimal_glb(node_name: str = "LiverMesh", triangles: int = 2) -> bytes
     return header + chunk_header + json_bytes
 
 
+class _FakeRunner:
+    def __init__(self, payload: bytes) -> None:
+        self.payload = payload
+        self.commands: list[tuple[str, ...]] = []
+
+    def run(self, repo: Path, spec: BuildSpec) -> tuple[int, str, str]:
+        self.commands.append(spec.command)
+        for out in spec.expected_outputs:
+            target = repo / out
+            target.parent.mkdir(parents=True, exist_ok=True)
+            target.write_bytes(self.payload)
+        return 0, "built ok", ""
+
+
 class AssetKitTests(unittest.TestCase):
-    def test_polyhierarchical_concept_graph_and_cycle_rejection(self) -> None:
+    def test_vocab_polyhierarchy_and_cycle_rejection(self) -> None:
         graph = ConceptGraph(
             concepts=(
                 Concept("skeletal-system", "Skeletal system"),
@@ -73,20 +90,20 @@ class AssetKitTests(unittest.TestCase):
         )
         graph.validate()
         self.assertEqual(graph.ancestors("L3-vertebra"), {"vertebral-column", "skeletal-system"})
-        self.assertEqual(graph.descendants("skeletal-system"), {"vertebral-column", "L3-vertebra"})
+        self.assertEqual(
+            graph.expand(("skeletal-system",)),
+            {"skeletal-system", "vertebral-column", "L3-vertebra"},
+        )
+        self.assertEqual(len(graph.related("bone-marrow", "produces")), 1)
 
         cyclic = ConceptGraph(
             concepts=(Concept("a", "A"), Concept("b", "B")),
-            edges=(
-                ConceptEdge("a", "part_of", "b"),
-                ConceptEdge("b", "part_of", "a"),
-            ),
+            edges=(ConceptEdge("a", "part_of", "b"), ConceptEdge("b", "part_of", "a")),
         )
         with self.assertRaisesRegex(AssetKitError, "Cycle"):
             cyclic.validate()
 
-    def test_hybrid_asset_per_part_provenance_and_foreign_overlay(self) -> None:
-        """One liver asset can combine s1233 native anatomy with a foreign illustrative lesion."""
+    def test_hybrid_registry_delivery_bundle_and_resolution(self) -> None:
         liver = Asset(
             id="liver-s1233",
             title="Liver (s1233 + pathology layers)",
@@ -138,9 +155,7 @@ class AssetKitTests(unittest.TestCase):
                                         source="authored-pathology-v1",
                                         subject="synthetic",
                                         registration="illustrative",
-                                        limits=(
-                                            "Illustrative mass placement for ultrasound teaching",
-                                        ),
+                                        limits=("Illustrative mass placement for ultrasound",),
                                     ),
                                 ),
                             ),
@@ -149,13 +164,12 @@ class AssetKitTests(unittest.TestCase):
                 ),
             ),
         )
-        catalog = Catalog(
-            repository="/tmp/repo",
-            concepts=ConceptGraph(
-                concepts=(Concept("liver", "Liver"), Concept("focal-lesion", "Focal lesion")),
-            ),
-            assets=(liver,),
-            consumers=(
+        vocab = ConceptGraph(
+            concepts=(Concept("liver", "Liver"), Concept("focal-lesion", "Focal lesion"))
+        )
+        registry = AssetRegistry((liver,))
+        delivery = DeliveryGraph(
+            (
                 Consumer(
                     id="us:abdomen:focal-lesion",
                     title="Abdominal focal lesion sweep",
@@ -175,6 +189,13 @@ class AssetKitTests(unittest.TestCase):
                             "satisfied",
                             ("focal-lesion",),
                             variant="focal-lesion",
+                        ),
+                        Requirement(
+                            "req-caval",
+                            "Hepatic vein IVC junction",
+                            "open-gap",
+                            ("hepatic-vein",),
+                            subject="s1233",
                         ),
                     ),
                     pins=(
@@ -196,16 +217,27 @@ class AssetKitTests(unittest.TestCase):
                         ),
                     ),
                 ),
-            ),
+            )
         )
-        self.assertEqual(catalog.validate(), [])
-        resolved = resolve(catalog, "us:abdomen:focal-lesion", "req-lesion")
+        curation = CurationStore()
+        self.assertEqual(registry.validate(vocab), [])
+        self.assertEqual(delivery.validate(registry), [])
+
+        bundle = delivery.bundle_for("us:abdomen:focal-lesion", registry)
+        self.assertEqual(len(bundle.items), 2)
+        self.assertEqual(bundle.total_bytes, 380_000)
+        self.assertEqual(len(bundle.open_gaps), 1)
+        self.assertEqual(len(delivery.open_gaps("us:")), 1)
+
+        resolved = delivery.resolve(
+            "us:abdomen:focal-lesion", registry, vocab, curation, "req-lesion"
+        )
         cand = resolved["requirements"][0]["conceptCandidates"][0]
         self.assertEqual(cand["registration"], "illustrative")
         self.assertEqual(cand["subject"], "synthetic")
         self.assertFalse(cand["qualified"])
 
-    def test_economy_detects_bloat_low_utilization_and_load_fanout(self) -> None:
+    def test_delivery_economy_detects_bloat_and_low_utilization(self) -> None:
         bloated = Asset(
             id="liver-monolith",
             title="Liver Monolith",
@@ -233,16 +265,19 @@ class AssetKitTests(unittest.TestCase):
                 ),
             ),
         )
-        overview_consumer = Consumer(
-            id="body-systems:liver-overview",
-            title="Body Systems Liver Overview",
-            kind="lesson-stop",
-            owner_path="lessons/body-systems/consumer.json",
-            pins=(Pin("liver-monolith", "r01", "everything", parts=("outer",)),),
+        registry = AssetRegistry((bloated,))
+        delivery = DeliveryGraph(
+            (
+                Consumer(
+                    id="body-systems:liver-overview",
+                    title="Body Systems Liver Overview",
+                    kind="lesson-stop",
+                    owner_path="lessons/body-systems/consumer.json",
+                    pins=(Pin("liver-monolith", "r01", "everything", parts=("outer",)),),
+                ),
+            )
         )
-        catalog = Catalog(repository="/tmp/repo", assets=(bloated,), consumers=(overview_consumer,))
-        report = analyze_economy(catalog, BudgetPolicy())
-
+        report = delivery.economy(registry, BudgetPolicy())
         m = report.consumer_metrics[0]
         self.assertEqual(m.loads, 1)
         self.assertEqual(m.part_utilization, 0.25)
@@ -253,93 +288,81 @@ class AssetKitTests(unittest.TestCase):
         self.assertIn("split-export", actions)
         self.assertIn("over-budget", actions)
 
-    def test_native_workspace_multi_asset_dir_glb_and_lfs(self) -> None:
+    def test_build_runner_and_sync_manifest_end_to_end(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            # 1 directory ("models/joints") declaring 2 independent assets
-            (root / "models/joints/exports").mkdir(parents=True)
-            glb_bytes = _make_minimal_glb("Humerus.r", triangles=12)
-            glb_sha = hashlib.sha256(glb_bytes).hexdigest()
-            (root / "models/joints/exports/elbow.glb").write_bytes(glb_bytes)
-
-            knee_sha = "a" * 64
-            (root / "models/joints/exports/knee.glb").write_bytes(
-                f"version https://git-lfs.github.com/spec/v1\noid sha256:{knee_sha}\nsize 4096\n".encode()
-            )
-            (root / "models/joints/assets.json").write_text(
+            (root / "models/liver/recipes").mkdir(parents=True)
+            (root / "models/liver/recipes/build.py").write_text("import bpy\n", encoding="utf-8")
+            (root / "models/liver/assets.json").write_text(
                 json.dumps(
                     {
                         "schemaVersion": 1,
                         "assets": [
                             {
-                                "id": "elbow",
-                                "title": "Elbow",
+                                "id": "liver",
+                                "title": "Liver",
                                 "kind": "model",
                                 "revisions": [
                                     {
-                                        "id": "r02",
-                                        "status": "active",
+                                        "id": "r03",
+                                        "status": "provisional",
+                                        "recipe": "recipes/build.py",
                                         "exports": [
-                                            {
-                                                "id": "mesh",
-                                                "path": "exports/elbow.glb",
-                                                "sha256": glb_sha,
-                                                "bytes": len(glb_bytes),
-                                                "parts": [
-                                                    {"id": "humerus", "selector": "Humerus.r"}
-                                                ],
-                                            }
+                                            {"id": "mesh", "path": "exports/r03/liver.glb"}
                                         ],
                                     }
                                 ],
-                            },
-                            {
-                                "id": "knee",
-                                "title": "Knee",
-                                "kind": "model",
-                                "revisions": [
-                                    {
-                                        "id": "r01",
-                                        "status": "active",
-                                        "exports": [
-                                            {
-                                                "id": "mesh",
-                                                "path": "exports/knee.glb",
-                                                "sha256": knee_sha,
-                                                "bytes": 4096,
-                                            }
-                                        ],
-                                    }
-                                ],
-                            },
+                            }
                         ],
                     }
                 ),
                 encoding="utf-8",
             )
+            ws = Workspace.load(root, include_legacy_adapters=False)
+            spec = plan_build(root, ws.registry, "liver", "r03")
+            self.assertEqual(spec.command[0], "blender")
 
-            stats = inspect_glb(root / "models/joints/exports/elbow.glb")
-            self.assertIsNotNone(stats)
+            # Dry-run defaults to planned without running subprocess
+            dry = run_build(root, spec, apply=False)
+            self.assertEqual(dry.status, "planned")
+
+            # Execute via fake runner seam and verify rebuilt GLB
+            glb_bytes = _make_minimal_glb("Liver_Outer", triangles=16)
+            runner = _FakeRunner(glb_bytes)
+            built = run_build(root, spec, apply=True, runner=runner)
+            self.assertEqual(built.status, "built")
+            self.assertEqual(built.verified_outputs[0]["triangles"], 16)
+
+            # Sync manifest updates sha256, bytes, and triangles
+            diff = sync_manifest(root, "models/liver/assets.json", apply=True)
+            self.assertTrue(diff.applied)
+            self.assertEqual(len(diff.updated_exports), 1)
+            reloaded = Workspace.load(root, include_legacy_adapters=False)
+            exp = reloaded.registry.assets[0].revisions[0].exports[0]
+            self.assertEqual(exp.sha256, hashlib.sha256(glb_bytes).hexdigest())
+            self.assertEqual(exp.triangles, 16)
+            self.assertEqual(exp.storage_status, "verified")
+
+    def test_blobs_lfs_glb_and_curation_projections(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / "models/joints/exports").mkdir(parents=True)
+            glb_bytes = _make_minimal_glb("Humerus.r", triangles=12)
+            (root / "models/joints/exports/elbow.glb").write_bytes(glb_bytes)
+            knee_sha = "a" * 64
+            (root / "models/joints/exports/knee.glb").write_bytes(
+                f"version https://git-lfs.github.com/spec/v1\noid sha256:{knee_sha}\nsize 4096\n".encode()
+            )
+            stats = inspect_mesh(root, "models/joints/exports/elbow.glb")
             assert stats is not None
             self.assertEqual(stats.triangles, 12)
-            self.assertEqual(stats.node_triangles["Humerus.r"], 12)
+            self.assertEqual(
+                verify(root, "models/joints/exports/knee.glb", knee_sha, 4096).status,
+                "pointer-match",
+            )
 
-            lfs_chk = check_artifact(root, "models/joints/exports/knee.glb", knee_sha, 4096)
-            self.assertEqual(lfs_chk.status, "pointer-match")
-
-            cat = load_catalog(root, include_legacy_adapters=False, inspect_glbs=True)
-            self.assertEqual(cat.validate(), [])
-            self.assertEqual(len(cat.assets), 2)
-            elbow = next(a for a in cat.assets if a.id == "elbow")
-            self.assertEqual(elbow.revisions[0].exports[0].triangles, 12)
-            self.assertEqual(elbow.revisions[0].exports[0].parts[0].triangles, 12)
-            knee = next(a for a in cat.assets if a.id == "knee")
-            self.assertEqual(knee.revisions[0].exports[0].storage_status, "pointer-match")
-
-    def test_impact_traces_consumers_reviews_and_selections(self) -> None:
-        cat = Catalog(
-            repository="/tmp/repo",
-            assets=(
+        registry = AssetRegistry(
+            (
                 Asset(
                     id="liver",
                     title="Liver",
@@ -353,8 +376,10 @@ class AssetKitTests(unittest.TestCase):
                         ),
                     ),
                 ),
-            ),
-            consumers=(
+            )
+        )
+        delivery = DeliveryGraph(
+            (
                 Consumer(
                     id="lesson:digestive",
                     title="Digestive",
@@ -362,7 +387,9 @@ class AssetKitTests(unittest.TestCase):
                     owner_path="lessons/digestive/consumer.json",
                     pins=(Pin("liver", "r02", "mesh"),),
                 ),
-            ),
+            )
+        )
+        curation = CurationStore(
             reviews=(
                 Review(
                     "rev-1",
@@ -375,14 +402,22 @@ class AssetKitTests(unittest.TestCase):
             ),
             selections=(
                 Selection(
-                    "sel-1", "teaching-default", "models/liver/liver.glb", "docs/selections.json"
+                    "sel-1",
+                    "teaching-default",
+                    "models/liver/liver.glb",
+                    "docs/selections.json",
                 ),
             ),
         )
-        res = impact(cat, "liver")
-        self.assertEqual(len(res["consumers"]), 1)
-        self.assertEqual(len(res["reviews"]), 1)
-        self.assertEqual(len(res["selections"]), 1)
+        imp = delivery.impact("liver", registry, curation)
+        self.assertEqual(len(imp["consumers"]), 1)
+        self.assertEqual(len(imp["reviews"]), 1)
+        self.assertEqual(len(imp["selections"]), 1)
+
+        gallery = curation.compile_gallery(registry, delivery)
+        self.assertTrue(gallery["assets"][0]["revisions"][0]["exports"][0]["qualified"])
+        r2_items = curation.plan_r2_sync(registry, delivery)
+        self.assertEqual([i["path"] for i in r2_items], ["models/liver/liver.glb"])
 
 
 if __name__ == "__main__":

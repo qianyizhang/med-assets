@@ -1,4 +1,4 @@
-"""Safe repository path checks, LFS/hydrated artifact checks, and GLB inspection."""
+"""Foundation context: safe repository paths, LFS/hydrated blob verification, and GLB inspection."""
 
 from __future__ import annotations
 
@@ -9,13 +9,13 @@ import struct
 from dataclasses import dataclass
 from pathlib import Path, PurePosixPath
 
-from .model import AssetKitError
+from .errors import AssetKitError
 
 HEX64 = re.compile(r"^[0-9a-f]{64}$")
 LFS_HEADER = b"version https://git-lfs.github.com/spec/"
 
 
-def normalize_repo_path(value: str) -> str:
+def normalize_path(value: str) -> str:
     """Normalize and validate a relative POSIX path inside a repository."""
     if not isinstance(value, str) or not value.strip():
         raise AssetKitError("Repository path must be a non-empty string")
@@ -30,7 +30,7 @@ def normalize_repo_path(value: str) -> str:
 
 def safe_path(repo: Path, rel_path: str) -> Path:
     """Resolve a repository-relative path while rejecting symlinks and escapes."""
-    norm = normalize_repo_path(rel_path)
+    norm = normalize_path(rel_path)
     root = repo.resolve()
     target = root / PurePosixPath(norm)
     try:
@@ -43,8 +43,7 @@ def safe_path(repo: Path, rel_path: str) -> Path:
     return target
 
 
-def parse_lfs_pointer(prefix: bytes) -> tuple[str, int]:
-    """Parse a Git LFS v1 pointer into (sha256, size_bytes)."""
+def _parse_lfs_pointer(prefix: bytes) -> tuple[str, int]:
     text = prefix.decode("utf-8", errors="strict")
     oid: str | None = None
     size: int | None = None
@@ -59,7 +58,9 @@ def parse_lfs_pointer(prefix: bytes) -> tuple[str, int]:
 
 
 @dataclass(frozen=True)
-class ArtifactCheck:
+class BlobRef:
+    """Observational identity of a file on disk (hydrated bytes vs. Git LFS pointer)."""
+
     path: str
     status: (
         str  # verified | pointer-match | hydrated | pointer | missing | mismatch | invalid-pointer
@@ -68,31 +69,31 @@ class ArtifactCheck:
     bytes: int | None
 
 
-def check_artifact(
+def verify(
     repo: Path,
     rel_path: str,
     expected_sha256: str | None = None,
     expected_bytes: int | None = None,
-) -> ArtifactCheck:
-    """Inspect a file without claiming an LFS pointer is hydrated content."""
-    norm = normalize_repo_path(rel_path)
+) -> BlobRef:
+    """Inspect a file without ever claiming an LFS pointer is hydrated content."""
+    norm = normalize_path(rel_path)
     target = safe_path(repo, norm)
     if not target.is_file():
-        return ArtifactCheck(norm, "missing", None, None)
+        return BlobRef(norm, "missing", None, None)
 
     with target.open("rb") as stream:
         prefix = stream.read(1025)
         if prefix.startswith(LFS_HEADER):
             try:
-                digest, size = parse_lfs_pointer(prefix)
+                digest, size = _parse_lfs_pointer(prefix)
             except ValueError:
-                return ArtifactCheck(norm, "invalid-pointer", None, None)
+                return BlobRef(norm, "invalid-pointer", None, None)
             if expected_sha256 is not None or expected_bytes is not None:
                 ok = (expected_sha256 is None or digest == expected_sha256) and (
                     expected_bytes is None or size == expected_bytes
                 )
-                return ArtifactCheck(norm, "pointer-match" if ok else "mismatch", digest, size)
-            return ArtifactCheck(norm, "pointer", digest, size)
+                return BlobRef(norm, "pointer-match" if ok else "mismatch", digest, size)
+            return BlobRef(norm, "pointer", digest, size)
 
         stream.seek(0)
         size = target.stat().st_size
@@ -101,33 +102,33 @@ def check_artifact(
             ok = (expected_sha256 is None or digest == expected_sha256) and (
                 expected_bytes is None or size == expected_bytes
             )
-            return ArtifactCheck(norm, "verified" if ok else "mismatch", digest, size)
-        return ArtifactCheck(norm, "hydrated", digest, size)
+            return BlobRef(norm, "verified" if ok else "mismatch", digest, size)
+        return BlobRef(norm, "hydrated", digest, size)
 
 
 @dataclass(frozen=True)
-class GlbStats:
+class MeshStats:
+    """Geometry summary extracted from a hydrated GLB v2 binary."""
+
     bytes: int
     triangles: int
     node_names: tuple[str, ...]
     node_triangles: dict[str, int]
 
 
-def inspect_glb(path: Path) -> GlbStats | None:
-    """Read GLB v2 JSON chunk using stdlib only to extract triangle and node stats.
-
-    Returns None for LFS pointers, missing files, or non-GLB binaries.
-    """
-    if not path.is_file():
+def inspect_mesh(repo: Path, rel_path: str) -> MeshStats | None:
+    """Read GLB v2 JSON chunk via stdlib only. Returns None for pointers or non-GLB files."""
+    target = safe_path(repo, rel_path)
+    if not target.is_file():
         return None
-    size = path.stat().st_size
+    size = target.stat().st_size
     if size < 20:
         return None
-    with path.open("rb") as stream:
+    with target.open("rb") as stream:
         header = stream.read(20)
         if header.startswith(LFS_HEADER):
             return None
-        magic, version, _length, chunk_len, chunk_type = struct.unpack("<4sIIIs"[:-1] + "I", header)
+        magic, version, _length, chunk_len, chunk_type = struct.unpack("<4sIIII", header)
         if magic != b"glTF" or version != 2 or chunk_type != 0x4E4F534A:
             return None
         raw_json = stream.read(chunk_len)
@@ -174,7 +175,7 @@ def inspect_glb(path: Path) -> GlbStats | None:
     if total_tris == 0 and meshes:
         total_tris = sum(mesh_tris(i) for i in range(len(meshes)))
 
-    return GlbStats(
+    return MeshStats(
         bytes=size,
         triangles=total_tris,
         node_names=tuple(node_names),
