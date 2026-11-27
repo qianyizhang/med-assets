@@ -128,7 +128,9 @@ def apply_backfill_plan(repo:Path,plan_path:Path):
         candidate=packages_by_path.get(package_path)
         if candidate is None: raise GovernanceError(f"Package disappeared after planning: {package_path}")
         if candidate.candidate_id!=proposal.get("candidateId"):
-            raise GovernanceError(f"Package candidate identity changed: {package_path}")
+            existing_record=json.loads((repo/package_path/"asset.record.json").read_text(encoding="utf-8")) if candidate.record_path else {}
+            if existing_record.get("assetId")!=proposal.get("assetId"):
+                raise GovernanceError(f"Package candidate identity changed: {package_path}")
         if list(candidate.exports)!=proposal.get("exports") or list(candidate.manifests)!=proposal.get("manifests"):
             raise GovernanceError(f"Package export or manifest inventory changed: {package_path}")
         if [asdict(x) for x in candidate.artifacts]!=proposal.get("artifacts"):
