@@ -32,7 +32,7 @@ def _details(catalog, package_id, part_id=None, export_path=None, consumer_id=No
                     "geometryDigest":export.get("sha256"),
                     "geometryBytes":export.get("bytes"),
                     "sourceIds":revision.get("sourceIds", []),
-                    "sources":[x for x in sources if x.get("sourceId") in revision.get("sourceIds", record.get("sourceIds", []))],
+                    "sources":(sources if revision.get("sourceIds") is None else [x for x in sources if x.get("sourceId") in revision.get("sourceIds", [])]),
                     "frameEvidence":{k:part.get(k) for k in ("frame","sourceFrame","transformId","registration","registrationEvidence") if k in part},
                     "qualificationStatus":"qualified" if revision.get("qualifications") else "unqualified",
                     "qualifications":revision.get("qualifications", []),
