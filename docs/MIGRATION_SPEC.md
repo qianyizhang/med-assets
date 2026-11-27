@@ -31,6 +31,10 @@ The [design](../src/assetkit/DESIGN.md#decisions) owns the architecture. The [la
 
 **Sync.** Extend `assetkit sync` to the canonical record before package authors use it. Plan against the exact record and input identities. An initial registration may fill absent identity fields from verified evidence. An identical repeat must produce no changes. Apply rechecks preconditions and writes the complete record atomically. Reject a stale plan, conflicting existing digest or size, missing payload, or inconsistent duplicate export declaration with the record untouched. Changed geometry needs a new reviewed revision. A matching LFS pointer can corroborate a pinned digest and size in offline CI. Mesh statistics and selector checks require hydrated bytes. [Package change safeguards](../src/assetkit/DESIGN.md#safeguards-for-package-changes)
 
+## Local execution
+
+Integrate on `asset-governance-v1`. A package PR in this specification corresponds to a separately reviewable local commit during this migration. Workers own assigned files; the lead reviews, verifies, and integrates. A passing gate must be present on that branch before dependent packages start. After Wave 0, integrate two or three ultrasound packages and exercise their shared reader before assigning the rest of Wave 1. The existing teaching registers retain the HRA selection and assessment. The HRA package owns the selected teaching export and its pinned rebuild input; the older metadata-cleanup export awaits lineage evidence.
+
 ## Wave 0 baseline
 
 Local checkout on 2026-11-28, commit `1b135799`. Merge status and complete s1233 playback acceptance are unverified here.
