@@ -12,7 +12,7 @@ The governance library is a repository-native read model and controlled migratio
 - Gallery owns public selection, routes, rendering and release membership.
 - Transport owns upload admission, transfer and readback.
 
-The generated catalog is a projection, never an edit surface.
+The generated catalog is a projection, never an edit surface. Existing package-manifest declarations are imported with their owning manifest and exact artifact path. The reader distinguishes verified hydrated bytes, a matching Git LFS pointer, missing payloads and identity mismatches; it does not claim a pointer is hydrated content.
 
 ## Domain model
 
@@ -72,7 +72,7 @@ Every decision defaults to \`defer\`. Review granularity and ownership. For an a
 python tools/asset_governance.py backfill apply --plan .artifacts/asset-backfill.plan.json
 \`\`\`
 
-Applied records are provisional. The tool never invents sources, concepts, part selectors, revisions, qualification or consumer bindings. It pins the plan to source hashes and refuses stale input. Existing records are never overwritten.
+Applied records are provisional. The tool never invents sources, concepts, part selectors, revisions, qualification or consumer bindings. It pins the plan to source hashes, manifests and export identities and refuses stale input. Reapplying an identical plan is idempotent; conflicting existing records are rejected.
 
 Hydration is scoped and dry-run by default:
 

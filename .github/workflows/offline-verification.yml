@@ -37,6 +37,10 @@ jobs:
               domains[row["domain"]] = domains.get(row["domain"], 0) + 1
           assert counts["packageCandidates"] > 0, counts
           assert domains.get("body-systems") == 11, domains
-          assert domains.get("ultrasound-anatomy", 0) >= 200, domains
+          assert counts["ultrasoundCases"] == 32, counts
+          assert counts["ultrasoundCaseViews"] == 163, counts
+          assert counts["ultrasoundSweeps"] == 16, counts
+          assert domains.get("ultrasound-anatomy", 0) >= 211, domains
+          assert counts["artifactMismatches"] == 0, counts
           print(json.dumps({"counts": counts, "consumerDomains": domains}, indent=2))
           PY
