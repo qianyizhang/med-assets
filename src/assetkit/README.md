@@ -54,5 +54,5 @@ uv run assetkit compile --target r2
 ## Running Tests
 
 ```sh
-uv run python -m unittest discover -s src/assetkit/tests -v
+uv run pytest
 ```

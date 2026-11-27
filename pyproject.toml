@@ -18,6 +18,7 @@ assetkit = "assetkit.cli:main"
 [dependency-groups]
 dev = [
   "pre-commit>=4.0",
+  "pytest>=9.2.0",
   "ruff>=0.9",
   "ty>=0.0.112",
 ]
@@ -49,3 +50,7 @@ indent-style = "space"
 [tool.ty.environment]
 python-version = "3.12"
 root = ["./src", "./lib"]
+
+[tool.pytest.ini_options]
+testpaths = ["src/assetkit/tests"]
+addopts = "-v"
