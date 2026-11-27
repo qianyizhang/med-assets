@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:s1233:right-lung-display",
+  "title": "s1233 right lung lobes",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/lung_right",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:workshop:right-lung-breathing-r1",
+      "title": "Exact Workshop right lung morph source",
+      "subject": "Workshop s1233 frame",
+      "sourceType": "retained source or source receipt",
+      "license": "Jakob Wasserthal and TotalSegmentator contributors, University Hospital Basel. TotalSegmentator v2.0.1, CC BY 4.0. Retain the Apache-2.0 label-source notice.",
+      "path": "body/breathing/lung_right_breathing.glb",
+      "sha256": "450f49c0733697d3d05f16c4a1f24a28b1ae5f9b09b77f3bf470a00a4386e9b4",
+      "bytes": 2653988,
+      "evidence": [
+        {
+          "path": "body/breathing/animation-manifest.json",
+          "sha256": "79e105f7b003ff3d9e8c727c620f907aace641f394833d82419285af09ca768f"
+        },
+        {
+          "path": "body/anatomy-workshop-r1/docs/licenses/NOTICE.md",
+          "sha256": "87372df39878e0c73903675edc21875fa712a90b22f497ffb55d50a29f210a94"
+        },
+        {
+          "path": "reviews/lung_right/2026-10-23-metadata-cleanup-r01/verification.json",
+          "sha256": "da0460ed9e32bf6db7eab3dc001a59a651cad33f370fe3a3abc957d96f1bfe27"
+        }
+      ],
+      "limitations": []
+    }
+  ],
+  "parts": [
+    {
+      "partId": "right-upper-lobe",
+      "label": "Right upper lobe",
+      "selectors": [
+        "Lung Upper Lobe Right | source surface"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/body-3d-delivery/manifest.json",
+      "registration": "native"
+    },
+    {
+      "partId": "right-middle-lobe",
+      "label": "Right middle lobe",
+      "selectors": [
+        "Lung Middle Lobe Right | source surface"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/body-3d-delivery/manifest.json",
+      "registration": "native"
+    },
+    {
+      "partId": "right-lower-lobe",
+      "label": "Right lower lobe",
+      "selectors": [
+        "Lung Lower Lobe Right | source surface"
+      ],
+      "sourcePath": "body/anatomy-workshop-r1/body-3d-delivery/manifest.json",
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "metadata-cleanup-r01",
+      "status": "provisional",
+      "sourceIds": [
+        "source:workshop:right-lung-breathing-r1"
+      ],
+      "recipeEvidence": {
+        "path": "models/lung_right/recipes/metadata/approved-patch.json",
+        "sha256": "bc4bd8dcafaaa5a1aa49a9c47740139ff116261bb69b308bfdff8f2e8d452d18"
+      },
+      "frame": {
+        "convention": "glb-y-up-m",
+        "evidence": "body/anatomy-workshop-r1/body-3d-delivery/manifest.json",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ]
+      },
+      "partIds": [
+        "right-upper-lobe",
+        "right-middle-lobe",
+        "right-lower-lobe"
+      ],
+      "exports": [
+        {
+          "id": "teaching",
+          "path": "models/lung_right/exports/metadata-cleanup-r01/lung_right.glb",
+          "sha256": "3f8476ddd9d04448f4c1f63e85408860d7957f099e87170e8099efe635c16a78",
+          "bytes": 2653664,
+          "format": "glb",
+          "partIds": [
+            "right-upper-lobe",
+            "right-middle-lobe",
+            "right-lower-lobe"
+          ],
+          "triangles": 36000
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The stored Workshop frame is preserved. Recognizing the lobes does not validate the authored breathing motion."
+  ]
+}

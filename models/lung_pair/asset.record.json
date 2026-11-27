@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:hra:female-lung-pair",
+  "title": "HRA female paired lung segments",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/lung_pair",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:hra:female-lung-v1-3",
+      "title": "Pinned provider source and bounded paired lung provenance",
+      "subject": "HRA female lung pair v1.3",
+      "sourceType": "retained source or source receipt",
+      "license": "Kristen Browne and Heidi Schlehlein, Human Reference Atlas, CC BY 4.0. Retain the package attribution.",
+      "path": "sources/datasets/hra/lung-female-v1.3/bounded-migration-2026-10-24/external-source-map.json",
+      "sha256": "41397e75e83b63b018f21396ef3f16f0df023f16b4e567460d723a0ed08a5c7e",
+      "bytes": 23530,
+      "evidence": [
+        {
+          "path": "models/lung_pair/exports/hra-female-normals-r02/README.md",
+          "sha256": "618c6a2bc75ca8e37e0f3cbc0556c9ef9a07c13f0c852c04c460852b47d1a3b4"
+        },
+        {
+          "path": "sources/datasets/hra/lung-female-v1.3/bounded-migration-2026-10-24/ATTRIBUTION.md",
+          "sha256": "fb688ebeed9e9fea7035a309516574082c80be16c347bbd8defcd9f793eabbd5"
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "sourceId": "source:recipe:teaching-economy-r01",
+      "title": "Exact retained edition source",
+      "subject": "HRA female lung pair v1.3",
+      "sourceType": "retained source or source receipt",
+      "license": "Kristen Browne and Heidi Schlehlein, Human Reference Atlas, CC BY 4.0. Retain the package attribution.",
+      "path": "models/lung_pair/exports/hra-female-normals-r02/lung_female_hra_normals_r02.glb",
+      "bytes": 23253972,
+      "sha256": "966a4c225be028e616f6f813e8d4232582995a82b8121a42257c1be53087cb19",
+      "evidence": [
+        {
+          "path": "models/lung_pair/exports/teaching-economy-r01/README.md",
+          "sha256": "fb701b8393b6fdec84d10952b70e7170c0bd560a7134e14e1aaa06a368ffb66f"
+        }
+      ],
+      "limitations": []
+    }
+  ],
+  "parts": [
+    {
+      "partId": "left-hilar-surfaces",
+      "label": "Source-named left hilar surfaces",
+      "selectors": [
+        "VH_F_hilum_L",
+        "VH_F_hilum_upper_L",
+        "VH_F_hilum_lower_L"
+      ],
+      "sourcePath": "models/lung_pair/exports/hra-female-normals-r02/README.md",
+      "registration": "native"
+    },
+    {
+      "partId": "right-hilar-surfaces",
+      "label": "Source-named right hilar surfaces",
+      "selectors": [
+        "VH_F_hilum_R",
+        "VH_F_hilum_lower_R",
+        "VH_F_hilum_middle_R",
+        "VH_F_hilum_upper_R"
+      ],
+      "sourcePath": "models/lung_pair/exports/hra-female-normals-r02/README.md",
+      "registration": "native"
+    },
+    {
+      "partId": "left-segments",
+      "label": "Left atlas segments and lingula",
+      "selectors": [
+        "VH_F_lingula_superior_bronchopulmonary_segment",
+        "VH_F_left_anterior_bronchopulmonary_segment",
+        "VH_F_left_apical_bronchopulmonary_segment",
+        "VH_F_left_posterior_bronchopulmonary_segment",
+        "VH_F_lingula_inferior_bronchopulmonary_segment",
+        "VH_F_left_superior_bronchopulmonary_segment",
+        "VH_F_left_posterior_basal_bronchopulmonary_segment",
+        "VH_F_left_anterior_basal_bronchopulmonary_segment",
+        "VH_F_left_lateral_basal_bronchopulmonary_segment",
+        "VH_F_left_medial_basal_bronchopulmonary_segment"
+      ],
+      "sourcePath": "models/lung_pair/exports/hra-female-normals-r02/README.md",
+      "registration": "native"
+    },
+    {
+      "partId": "right-segments",
+      "label": "Right atlas segments",
+      "selectors": [
+        "VH_F_right_medial_basal_bronchopulmonary_segment",
+        "VH_F_right_posterior_basal_bronchopulmonary_segment",
+        "VH_F_right_anterior_basal_bronchopulmonary_segment",
+        "VH_F_right_lateral_basal_bronchopulmonary_segment",
+        "VH_F_right_superior_bronchopulmonary_segment",
+        "VH_F_right_medial_bronchopulmonary_segment",
+        "VH_F_right_lateral_bronchopulmonary_segmennt",
+        "VH_F_right_anterior_bronchopulmonary_segm",
+        "VH_F_right_apical_bronchopulmonary_segment",
+        "VH_F_right_posterior_bronchopulmonary_segment"
+      ],
+      "sourcePath": "models/lung_pair/exports/hra-female-normals-r02/README.md",
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "teaching-economy-r01",
+      "status": "provisional",
+      "recipe": "recipes/teaching-economy-r01.json",
+      "sourceIds": [
+        "source:recipe:teaching-economy-r01"
+      ],
+      "recipeEvidence": {
+        "path": "models/lung_pair/exports/teaching-economy-r01/README.md",
+        "sha256": "fb701b8393b6fdec84d10952b70e7170c0bd560a7134e14e1aaa06a368ffb66f"
+      },
+      "frame": {
+        "convention": "glb-y-up-m",
+        "evidence": "models/lung_pair/exports/hra-female-normals-r02/README.md",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ]
+      },
+      "partIds": [
+        "left-hilar-surfaces",
+        "right-hilar-surfaces",
+        "left-segments",
+        "right-segments"
+      ],
+      "exports": [
+        {
+          "id": "teaching",
+          "path": "models/lung_pair/exports/teaching-economy-r01/lung_female_hra_normals_r02.glb",
+          "sha256": "5c56e323c09547b7d3333f2ff222cb165d322e9cac48aa0200733132129abf78",
+          "bytes": 724960,
+          "format": "glb",
+          "partIds": [
+            "left-hilar-surfaces",
+            "right-hilar-surfaces",
+            "left-segments",
+            "right-segments"
+          ],
+          "triangles": 36764
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Native source scope includes open annotation boundaries and supplied intrapulmonary context. No whole-body registration, breathing or clinical validation."
+  ]
+}
