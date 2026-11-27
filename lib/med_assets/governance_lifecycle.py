@@ -2,7 +2,8 @@
 from __future__ import annotations
 import hashlib, json
 from pathlib import Path
-from .governance import GovernanceError, build_catalog, impact, owner_path
+from .governance import GovernanceError, impact, owner_path
+from .governance_ultrasound import build_catalog
 from .governance_migration import _atomic
 
 ACTIONS = {"refine", "assess", "qualify", "adopt", "promote", "deprecate", "retire", "archive"}
