@@ -1052,7 +1052,10 @@ def impact(catalog:Catalog,identity:str):
                   for match in binding.get("matches",[]) if isinstance(match,dict)]
         matched=[path for path in paths if isinstance(path,str) and
             (path==package_path or path.startswith(package_path+"/"))]
-        part_ids=set(evidence.get("parts",[])) if isinstance(evidence.get("parts"),list) else set()
+        raw_parts=evidence.get("parts",[])
+        part_ids={value if isinstance(value,str) else value.get("partId")
+            for value in raw_parts if isinstance(raw_parts,list) and
+            (isinstance(value,str) or isinstance(value,dict) and isinstance(value.get("partId"),str))}
         matched_parts=[candidate.part_id for package in catalog.packages
             if package.path==package_path for candidate in package.parts if candidate.part_id in part_ids]
         if matched or matched_parts:
