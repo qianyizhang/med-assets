@@ -196,12 +196,12 @@ def ultrasound_consumers(repo:Path):
     if root.is_dir():
         for path in sorted(root.glob("*/reviews.json")):
             doc=read_json(path)
-            for row in doc.get("records",[]):
+            for index,row in enumerate(doc.get("records",[])):
                 case,part,task=(row.get(k) for k in ("case","part","task"))
                 if not all(isinstance(v,str) and v.strip() for v in (case,part,task)):
                     raise GovernanceError(f"Incomplete ultrasound review: {rel(repo,path)}")
                 revision=row.get("revision","unknown"); chapter=row.get("chapter","")
-                identity=f"ultrasound:assessment:{case}:{part}:{chapter}:{sha(task.encode())[:10]}"
+                identity=f"ultrasound:assessment:{Path(rel(repo,path)).parent.name}:{case}:{part}:{chapter}:{index+1}:{sha(task.encode())[:10]}"
                 result.append(Consumer(identity,"ultrasound-anatomy","part-assessment",f"{case} · {part}",task,
                     "assessed-provisional",rel(repo,path),{"chapter":chapter,"reviewedOn":row.get("reviewedOn"),
                     "scores":row.get("scores",{}),"revision":revision,"source":row.get("source")}))
