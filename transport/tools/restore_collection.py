@@ -9,11 +9,11 @@ from urllib.parse import urlencode
 from urllib.request import HTTPRedirectHandler, Request, build_opener
 from zipfile import ZipFile
 
-ROOT = Path(__file__).resolve().parents[2]
-sys.path.insert(0, str(ROOT / 'lib'))
 from med_assets.artifacts import (
     HEX64, install_verified_bytes, repo_file, source_path, unique_keys, verify_bytes, verify_payload,
 )
+
+ROOT = Path(__file__).resolve().parents[2]
 
 CATALOG = ROOT / "transport/collection-archives.json"
 ENDPOINT = "https://r2-object-library.landy123007.chatgpt.site/download"

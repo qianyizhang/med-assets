@@ -18,13 +18,15 @@ Open the [live Gallery](https://med-assets-model-survey.landy123007.chatgpt.site
 
 ## Local checkout
 
-Use Git LFS, Python 3.12 and Node.js 24 for the commands below. The first check runs on LFS pointers.
+Use Git LFS, `uv` (defaulting to Python 3.12 via `.python-version`) and Node.js 24 for the commands below. The first check runs on LFS pointers.
 
 ```sh
 git lfs install
 GIT_LFS_SKIP_SMUDGE=1 git clone https://github.com/qianyizhang/med-assets.git
 cd med-assets
-python3.12 tools/verify.py offline
+uv sync
+uv run pre-commit install
+uv run python tools/verify.py offline
 ```
 
 - **Payloads** · [Public downloads and Git/LFS recovery](transport/README.md).

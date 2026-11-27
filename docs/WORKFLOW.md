@@ -91,13 +91,14 @@ The default setup includes the MCP server and Blender add-on. The tested pair is
 
 ## Verification
 
-**Runtime** · Python 3.11+, Git and Node.js 24. Run without Python `-O`.
+**Runtime** · `uv` with Python 3.12 (pinned in `.python-version` and `pyproject.toml`), Git and Node.js 24. Run `uv sync` and `uv run pre-commit install` in a fresh checkout; invoke repository commands through `uv run` (without Python `-O`) instead of adding `sys.path.insert` shims.
 
 | When | Gate | Acceptance |
 | --- | --- | --- |
-| Every change | `python3.12 tools/verify.py offline` | Offline regressions, portable Gallery tests, the maintained recipe graph, all accepted teaching tasks and their generated views, import references, LFS identities, transport manifests and selected foundation records. Runs in a shallow LFS-pointer checkout. |
-| Broad changes with hydrated LFS | `python3.12 tools/verify.py payload-integrity` | Offline gate plus all indexed LFS bytes, foundation evidence bindings and selected package checks. Unresolved pointers fail. |
-| UFF dental changes | `python3.12 tools/verify.py dental` | Separate suite including the actual pinned GLB hash. Use an isolated environment with [UFF requirements](../models/dental_specimens/uff_tomo1b/recipes/requirements-uff.txt). Missing dependencies leave coverage unavailable. |
+| Every change | `uv run python tools/verify.py offline` | Offline regressions, portable Gallery tests, the maintained recipe graph, all accepted teaching tasks and their generated views, import references, LFS identities, transport manifests and selected foundation records. Runs in a shallow LFS-pointer checkout. |
+| Python style & lint | `uv run pre-commit run` (`ruff` + hygiene hooks) | Enforces formatting, imports, and lint rules defined in `pyproject.toml` and `.pre-commit-config.yaml`. |
+| Broad changes with hydrated LFS | `uv run python tools/verify.py payload-integrity` | Offline gate plus all indexed LFS bytes, foundation evidence bindings and selected package checks. Unresolved pointers fail. |
+| UFF dental changes | `uv run python tools/verify.py dental` | Separate suite including the actual pinned GLB hash. Use an isolated environment with [UFF requirements](../models/dental_specimens/uff_tomo1b/recipes/requirements-uff.txt). Missing dependencies leave coverage unavailable. |
 | Dental film production changes | [Film replay checks](../experiments/dental-video-treatments/REPLAY.md) | The ordinary gate pins the retained films, captions and credits. Run the package replay suite explicitly for renderer or production changes. |
 | Changed recipes, consumers or recovery | Owning recipe and stable entry points | Representative source → export → clean reimport, consumer behavior and changed failure paths. Major refactors and releases need full applicable checks. |
 

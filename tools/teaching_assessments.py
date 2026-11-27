@@ -8,11 +8,10 @@ import sys
 from pathlib import Path
 from typing import NamedTuple
 
-
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "lib"))
 from med_assets.artifacts import install_verified_bytes, verify_payload
 from med_assets.teaching import REGISTER_TABLE_HEADER, CurrentTeaching, assessment_digest
+
+ROOT = Path(__file__).resolve().parents[1]
 
 
 class Selection(NamedTuple):

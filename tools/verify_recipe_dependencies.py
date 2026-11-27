@@ -3,12 +3,12 @@
 
 import ast
 import json
-from pathlib import Path, PurePosixPath
 import sys
+from pathlib import Path, PurePosixPath
+
+from med_assets.artifacts import declared_identity, repo_file
 
 ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "lib"))
-from med_assets.artifacts import declared_identity, repo_file
 
 FORBIDDEN = {"reviews", "experiments", "sites"}
 REPOSITORY_ROOTS = {"assemblies", "body", "heart", "lessons", "lib", "models", "sources", "tools"}

@@ -2,13 +2,13 @@
 """Validate, render and promote local accepted teaching assessments."""
 import argparse
 import json
-from pathlib import Path
 import sys
+from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.insert(0, str(ROOT / "lib"))
 from med_assets.teaching import CurrentTeaching, render_register, validate_current
 from med_assets.teaching_promotion import Promotion, promote, recover
+
+ROOT = Path(__file__).resolve().parents[1]
 
 
 def main():
