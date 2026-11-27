@@ -52,7 +52,7 @@ class LifecycleTests(unittest.TestCase):
             record=json.loads(record_path.read_text())
             issue="No exact source selector."
             record["unresolved"]=[issue]
-            record_path.write_text(json.dumps(record,indent=2)+"\\n")
+            record_path.write_text(json.dumps(record,indent=2)+"\n")
             plan=self.plan_apply(root,"refine",{"resolveUnresolved":[issue],
                 "addUnresolved":["Rights review pending"]})
             apply_lifecycle_plan(root,plan)
