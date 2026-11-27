@@ -1,6 +1,6 @@
 # AssetKit
 
-**AssetKit** is a standalone, zero-dependency Python 3.12 library and CLI for medical teaching asset management, structured as **6 DDD bounded contexts**.
+**AssetKit** is a standalone Python 3.12 library (stdlib-only domain core + Typer CLI) for medical teaching asset management, structured as **6 DDD bounded contexts**.
 
 It is designed around three goals:
 1. **Maintain fewer assets** by separating authoring lineages from runtime delivery payloads.

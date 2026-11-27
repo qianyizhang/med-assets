@@ -419,6 +419,22 @@ class AssetKitTests(unittest.TestCase):
         r2_items = curation.plan_r2_sync(registry, delivery)
         self.assertEqual([i["path"] for i in r2_items], ["models/liver/liver.glb"])
 
+    def test_typer_cli_pilot_validate_and_error_exit(self) -> None:
+        from typer.testing import CliRunner
+
+        from assetkit.cli import app
+
+        pilot = Path(__file__).resolve().parents[1] / "pilot"
+        runner = CliRunner()
+        res = runner.invoke(app, ["--repo", str(pilot), "--native-only", "validate"])
+        self.assertEqual(res.exit_code, 0, res.output)
+        payload = json.loads(res.output)
+        self.assertEqual(payload["status"], "ok")
+        self.assertEqual(payload["counts"]["assets"], 2)
+
+        bad = runner.invoke(app, ["--repo", str(pilot), "--native-only", "bundle", "nonexistent"])
+        self.assertEqual(bad.exit_code, 2)
+
 
 if __name__ == "__main__":
     unittest.main()

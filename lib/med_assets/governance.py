@@ -1853,8 +1853,8 @@ def resolve(catalog: Catalog, identity: str, part_id: str | None = None):
             if consumer.get("kind") == "accepted-assessment"
             else evidence.get("assetPins", [])
         )
-        exact = []
-        near = []
+        exact: list[dict[str, Any]] = []
+        near: list[dict[str, Any]] = []
         for pin in pins:
             export_path = pin.get("path")
             if not isinstance(export_path, str):
@@ -1935,8 +1935,8 @@ def resolve(catalog: Catalog, identity: str, part_id: str | None = None):
     }
     eligible_states = {"ready", "source-derived", "declared-component", "supported", "source-input"}
     for requested in required:
-        exact = []
-        near = []
+        exact: list[dict[str, Any]] = []
+        near: list[dict[str, Any]] = []
         incompatible = []
         for package in catalog.packages:
             for candidate in package.parts:

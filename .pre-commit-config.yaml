@@ -13,6 +13,12 @@ repos:
         language: system
         types: [python]
         files: ^(src/assetkit|lib/med_assets/(domain|governance.*)\.py|tools/asset_governance\.py|tests/test_asset_governance\.py)
+      - id: ty
+        name: ty (type check)
+        entry: uv run ty check
+        language: system
+        types: [python]
+        files: ^(src/assetkit|lib/med_assets/(domain|governance.*)\.py|tools/asset_governance\.py)
       - id: check-json
         name: check json
         entry: >-
