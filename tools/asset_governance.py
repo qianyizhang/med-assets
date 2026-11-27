@@ -6,6 +6,7 @@ ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/"lib"))
 from med_assets.governance import GovernanceError,build_catalog,find,show,impact,resolve
 from med_assets.governance_migration import apply_backfill_plan,hydrate_lfs,write_backfill_plan
 from med_assets.governance_lifecycle import ACTIONS,apply_lifecycle_plan,create_lifecycle_plan
+from med_assets.governance_resolution import resolve_detailed
 
 def emit(value): print(json.dumps(value,ensure_ascii=False,indent=2))
 def main():
@@ -29,7 +30,7 @@ def main():
         elif args.command=="find": emit(find(build_catalog(repo),args.query,args.domain))
         elif args.command=="show": emit(show(build_catalog(repo),args.identity))
         elif args.command=="impact": emit(impact(build_catalog(repo),args.identity))
-        elif args.command=="resolve": emit(resolve(build_catalog(repo),args.consumer_id,args.part))
+        elif args.command=="resolve": emit(resolve_detailed(build_catalog(repo),args.consumer_id,args.part))
         elif args.command=="backfill" and args.action=="plan":
             output=args.output if args.output.is_absolute() else repo/args.output;plan=write_backfill_plan(repo,output)
             emit({"status":"planned","output":output.relative_to(repo).as_posix(),"proposals":len(plan["proposals"]),
