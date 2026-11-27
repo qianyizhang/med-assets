@@ -98,7 +98,7 @@ def _record_document(proposal:dict[str,Any],asset_id:str):
     return {"schemaVersion":1,"assetId":asset_id,"title":proposal["title"],"kind":proposal["kind"],
       "status":"provisional","owner":owner,"concepts":[],"sources":list(sources_by_key.values()),
       "parts":list(parts_by_id.values()),"revisions":[],"artifacts":artifacts,"exports":exports,"uses":[],
-      "unresolved":list(dict.fromkeys(unresolved))}
+      "retirement":None,"unresolved":list(dict.fromkeys(unresolved))}
 
 def apply_backfill_plan(repo:Path,plan_path:Path):
     repo=repo.resolve();plan=json.loads(plan_path.read_text(encoding="utf-8"))

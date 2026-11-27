@@ -107,7 +107,7 @@ def _record_status(repo:Path,package:Path):
     if not path.exists(): return "unregistered",("No package-owned asset.record.json",)
     data=read_json(path)
     required={"schemaVersion","assetId","title","kind","status","owner","concepts","sources",
-      "parts","revisions","artifacts","exports","uses","unresolved"}
+      "parts","revisions","artifacts","exports","uses","retirement","unresolved"}
     if set(data)!=required or data.get("schemaVersion")!=1:
         raise GovernanceError(f"Invalid asset record: {rel(repo,path)}")
     if data["status"] not in {"provisional","active","deprecated","retired"}:
@@ -117,6 +117,8 @@ def _record_status(repo:Path,package:Path):
     for field in ("concepts","sources","parts","revisions","artifacts","exports","uses","unresolved"):
         if not isinstance(data[field],list):
             raise GovernanceError(f"Expected array {field}: {rel(repo,path)}")
+    if data["retirement"] is not None and not isinstance(data["retirement"],dict):
+        raise GovernanceError(f"Invalid retirement record: {rel(repo,path)}")
     part_ids=[row.get("partId") for row in data["parts"] if isinstance(row,dict)]
     if len(part_ids)!=len(data["parts"]) or len(part_ids)!=len(set(part_ids)):
         raise GovernanceError(f"Invalid or duplicate part IDs: {rel(repo,path)}")
@@ -574,7 +576,10 @@ def _ultrasound_reference_consumers(repo:Path):
         document=read_json(path)
         if not isinstance(document,dict): raise GovernanceError(f"Invalid research reference index: {source}")
         for reference_id,record in document.items():
-            if not isinstance(record,dict): raise GovernanceError(f"Invalid reference row: {source}:{reference_id}")
+            # Research indexes also carry scalar dataset-wide license/notes keys.
+            # Only rows with a source or media identity are reference records.
+            if not isinstance(record,dict) or not any(key in record for key in ("path","sourceMedia","url","sha256","sourceSha256")):
+                continue
             relative=record.get("path")
             asset_path=rel(repo,path.parent/PurePosixPath(source_path(relative))) if isinstance(relative,str) else None
             add(reference_id,Path(filename).stem,record.get("title",record.get("label",reference_id)),
@@ -839,6 +844,7 @@ def lesson_consumers(repo:Path):
             "lesson-recorded",owner,{"question":document.get("question"),
             "questionZh":document.get("questionZh"),"assetPins":asset_pins,
             "displayPins":display_pins,"reviewPaths":list(dict.fromkeys(review_paths)),
+            "assetBindings":document.get("assetBindings",{}),
             "sourcePaths":source_paths,"unresolvedPaths":list(dict.fromkeys(unresolved))}))
     return tuple(result)
 
@@ -902,6 +908,37 @@ def resolve(catalog:Catalog,identity:str,part_id:str|None=None):
                 item={"packageId":package.candidate_id,"packagePath":package.path,
                     "sourceReference":source_name,"relationship":"explicit-package-source-reference"}
                 if item not in referenced_packages: referenced_packages.append(item)
+    if consumer.get("kind")=="structured-lesson" and evidence.get("assetBindings"):
+        bindings=evidence["assetBindings"]
+        if not isinstance(bindings,dict): raise GovernanceError("Lesson assetBindings must be an object")
+        resolved_bindings=[]
+        for binding_id,binding in bindings.items():
+            if not isinstance(binding,dict): raise GovernanceError(f"Invalid lesson binding: {binding_id}")
+            asset_id,revision_id,export_path=(binding.get(k) for k in ("assetId","revisionId","exportPath"))
+            part_ids=binding.get("partIds",[])
+            package=next((x for x in catalog.packages if x.candidate_id==asset_id),None)
+            if package is None or not package.record_path:
+                resolved_bindings.append({"bindingId":binding_id,"status":"asset-record-missing"});continue
+            record=read_json(owner_path(Path(catalog.repository),package.record_path))
+            revision=next((x for x in record["revisions"] if x.get("revisionId")==revision_id),None)
+            if revision is None:
+                resolved_bindings.append({"bindingId":binding_id,"status":"revision-missing","assetId":asset_id});continue
+            revision_exports={x.get("path"):x for x in revision.get("exports",[]) if isinstance(x,dict)}
+            export=revision_exports.get(export_path)
+            known_parts={x.get("partId") for x in record["parts"] if isinstance(x,dict)}
+            valid_parts=isinstance(part_ids,list) and set(part_ids)<=known_parts and set(part_ids)<=set(revision.get("partIds",[]))
+            if not export or not valid_parts:
+                status="export-or-part-not-in-revision"
+            elif revision.get("status")=="active" and binding.get("status")=="qualified":
+                status="qualified-binding"
+            else:
+                status="provisional-binding"
+            resolved_bindings.append({"bindingId":binding_id,"status":status,"assetId":asset_id,
+                "revisionId":revision_id,"export":export,"partIds":part_ids,
+                "qualifications":revision.get("qualifications",[])})
+        return {"consumer":consumer,"status":"lesson-bindings-resolved",
+            "bindings":resolved_bindings,"relatedReferences":related_references,
+            "referencedPackages":referenced_packages}
     if consumer.get("kind") in {"accepted-assessment","structured-lesson"}:
         pins=([evidence.get("export",{})] if consumer.get("kind")=="accepted-assessment"
             else evidence.get("assetPins",[]))
@@ -1008,6 +1045,7 @@ def impact(catalog:Catalog,identity:str):
         evidence=consumer.evidence
         paths=list(evidence.get("sourcePaths",[]))+list(evidence.get("framePaths",[]))+list(evidence.get("artifactPaths",[]))
         paths += [row.get("path") for row in evidence.get("assetPins",[]) if isinstance(row,dict)]
+        paths += [row.get("exportPath") for row in evidence.get("assetBindings",{}).values() if isinstance(row,dict)]
         paths += [row.get("path") for row in evidence.get("artifactPins",[]) if isinstance(row,dict)]
         if isinstance(evidence.get("export"),dict): paths.append(evidence["export"].get("path"))
         paths += [match.get("assetPath") for binding in evidence.get("referenceBindings",[])
