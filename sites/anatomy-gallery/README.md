@@ -132,6 +132,35 @@ preview checks the cache at request time, so a restored file becomes available
 on reload. The tracked WebPs preserve the reviewed pixels. Public cutover of
 these exact routes needs a separate delivery decision.
 
+## Candidate Library admission
+
+The candidate compiler checks each listed 3D file and its family, revision and
+recommendation routes against [Library admission](library-admission.json).
+Package records own native exports. The maintained register and accepted
+assessment store still own selection and review evidence. The admission records
+why retained history, replay sources, frozen deliveries, external dental tools and
+unavailable originals keep their routes. AssetKit `impact` uses the native
+admissions to find candidate Library readers. The catalog pins carry zero
+runtime bundle weight.
+
+After updating a package, selection or Library route, use the current compiler
+to plan the admission refresh. Run from the repository root with Node 24, uv
+and the hydrated teaching evidence used by candidate assembly.
+
+```sh
+proposal=$(mktemp)
+uv run --offline python sites/anatomy-gallery/tools/framework.py --plan-library-admission > "$proposal" &&
+  diff -u sites/anatomy-gallery/library-admission.json "$proposal"
+```
+
+Review the native refs, identities and reader changes, then put the reviewed
+JSON in `library-admission.json` and run the normal candidate bootstrap. The plan
+derives routes and byte pins from the compiler and package records. For a newly
+listed file retained outside native scope, add its path with a `disposition`
+containing its kind, owning evidence path and reason before rerunning the plan.
+Remove its disposition when retiring the last route or admitting a native export
+for the file. The planner writes only its proposal to standard output.
+
 ## Publish
 
 | Goal | Acceptance |

@@ -31,6 +31,8 @@ The asset maintainer explicitly selects which revision carries **Recommended** f
 
 Follow the [asset release policy](../WORKFLOW.md#asset-releases) for versioning and recoverable releases. The current 3D Library declares package membership and stable revision routes in its [package declarations](../../sites/anatomy-gallery/app/src/content/gallery/library-packages.json). A newly selected teaching export in an existing asset lineage can supply its named route through the accepted assessment. The [retained asset revision routes](../../sites/anatomy-gallery/app/src/content/gallery/library-editions.json) preserve current bookmarks for accepted assessments that predate named routes. A Library entry with one maintained revision uses that revision as its candidate recommendation. The [Library recommendations](../../sites/anatomy-gallery/app/src/content/gallery/library-recommendations.json) record editorial choices where several maintained revisions are available. The [maintained selections](maintained-selections.json) bind each export and task to its accepted assessment. They generate the [Teaching register](maintained-models.md).
 
+When the package, recommendation or route changes, [refresh the candidate Library admission](../../sites/anatomy-gallery/README.md#candidate-library-admission). The compiler checks each maintained export against its native owner and the teaching register. AssetKit can then trace an export to each Library route where learners can find it.
+
 Assembly binds each revision’s downloads, attribution, evidence and per-export assessments. A multi-file Library link uses the file digest to open its assessment, with the export path as a second identifier when two filenames share the same bytes.
 
 ## Review coverage

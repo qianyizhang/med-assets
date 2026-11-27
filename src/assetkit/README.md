@@ -55,6 +55,8 @@ uv run assetkit compile --target r2
 
 A bundle preserves one item per use, including its transform. Totals count each pinned export once. Check each item’s storage status and digest before runtime use. The R2 projection lists demand. The transport owner controls upload admission.
 
+Gallery Library entries and recipe inputs appear in `impact`. A candidate Library route can list several downloads without loading any of them. The [Gallery release guide](../../docs/gallery/asset-library.md#making-a-release-selection) describes how to update those bindings.
+
 Default queries include directory-discovered files with status `legacy-candidate`. An exact governed export path resolves through its owner record. Use `--native-only` for acceptance of a governed dependency.
 
 ## Register a package

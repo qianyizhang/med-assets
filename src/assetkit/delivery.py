@@ -71,7 +71,7 @@ class Pin(AssetModel):
     registration: str = "unknown"
     transform: tuple[float, ...] | None = None
     limits: tuple[str, ...] = ()
-    stage: Literal["recipe"] | None = None
+    stage: Literal["recipe", "catalog"] | None = None
     record: str | None = None
 
     def validate_invariants(self, consumer_id: str) -> None:
@@ -286,6 +286,7 @@ class DeliveryGraph:
         registry: AssetRegistry | None = None,
     ) -> DeliveryGraph:
         from .body_systems import DISPLAY_INDEX, REPLAY_BINDINGS
+        from .gallery import ADMISSION, CANDIDATE_READER
 
         root = repo.resolve()
         consumers = _load_native_consumers(root)
@@ -321,6 +322,8 @@ class DeliveryGraph:
             )
         if (root / DISPLAY_INDEX).is_file() or (root / REPLAY_BINDINGS).is_file():
             consumers.extend(_body_systems_consumers(root, registry))
+        if (root / ADMISSION).is_file() or (root / CANDIDATE_READER).is_file():
+            consumers.extend(_gallery_consumers(root, registry))
         if include_legacy_adapters:
             consumers.extend(_project_legacy_consumers(root, existing_ids))
         return cls(consumers=tuple(consumers))
@@ -948,6 +951,33 @@ def _body_systems_consumers(repo: Path, registry: AssetRegistry | None) -> Itera
                     record=action.ref.record,
                 ),
             ),
+        )
+
+
+def _gallery_consumers(repo: Path, registry: AssetRegistry | None) -> Iterable[Consumer]:
+    from .gallery import ADMISSION, read_library_admission
+
+    pins_by_route: dict[str, list[Pin]] = {}
+    for row in read_library_admission(repo, registry).paths.values():
+        if row.ref is None:
+            continue
+        pin = Pin(
+            asset_id=row.ref.asset,
+            revision_id=row.ref.revision,
+            export_id=row.ref.export,
+            sha256=row.sha256,
+            stage="catalog",
+            record=row.ref.record,
+        )
+        for route in sorted({reader.route for reader in row.readers}):
+            pins_by_route.setdefault(route, []).append(pin)
+    for route, pins in sorted(pins_by_route.items()):
+        yield Consumer(
+            id=f"gallery:candidate:{route}",
+            title=f"Anatomy Gallery · {route}",
+            kind="site",
+            owner_path=ADMISSION,
+            pins=tuple(pins),
         )
 
 

@@ -290,8 +290,7 @@ def prepare_gallery(site: Path, inputs: Path, target: Path, *, offline=True):
     (target / 'body-systems.json').write_text(json.dumps(systems, ensure_ascii=False))
     prepare_display_images(repo, deliveries, offline=offline)
     teaching = target / 'teaching-inputs'
-    teaching.mkdir()
-    prepare_teaching_assessments(repo, index, teaching)
+    prepare_library_inputs(repo, index, teaching)
     prepare_ovary_lesson(repo, teaching)
     ultrasound_pose = repo / 'lessons/ultrasound-anatomy/abdomen-gallbladder.json'
     locator = json.loads(ultrasound_pose.read_text())['locator']
@@ -325,6 +324,11 @@ def prepare_gallery(site: Path, inputs: Path, target: Path, *, offline=True):
     }
     for original, name in dental_stills.items():
         shutil.copyfile(repo / original, teaching / name)
+
+
+def prepare_library_inputs(repo, index, teaching):
+    teaching.mkdir()
+    prepare_teaching_assessments(repo, index, teaching)
     prepare_archive_films(repo, teaching)
 
 

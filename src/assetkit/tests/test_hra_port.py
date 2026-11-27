@@ -138,7 +138,13 @@ def test_owned_selection_round_trip_and_s1233_placement_rejection() -> None:
     assert impact.found
     assert impact.matched_assets == (ASSET,)
     assert impact.matched_export_paths == (EXPORT,)
-    assert not impact.consumers
+    (gallery,) = impact.consumers
+    assert gallery.consumer_id == "gallery:candidate:library/liver/teaching-economy-r02"
+    assert gallery.owner_path == "sites/anatomy-gallery/library-admission.json"
+    (pin,) = gallery.pins
+    assert (pin.asset_id, pin.revision_id, pin.export_id) == (ASSET, "r02", "teaching-economy")
+    assert (pin.record, pin.sha256, pin.stage) == (RECORD, DIGEST, "catalog")
+    assert not ws.bundle(gallery.consumer_id).items
     assert not impact.adoptions
     assert not impact.qualifications
     (indexed_selection,) = impact.selections
