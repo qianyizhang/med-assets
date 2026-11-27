@@ -18,6 +18,7 @@ from .registry import AssetRegistry, Export, RecordExportRef
 
 DISPLAY_INDEX = "lessons/body-systems/display/index.json"
 REPLAY_BINDINGS = "lessons/body-systems/display/replay-bindings.json"
+PELVIC_EXPORTS = "lessons/body-systems/pelvic-exports.json"
 PELVIC_LAYERS = "sites/anatomy-gallery/app/src/content/gallery/pelvic-lesson-layers.json"
 COLLECTIONS = "transport/collection-archives.json"
 SURVEY_JOBS = "sites/body-systems-survey/jobs.json"
@@ -276,9 +277,11 @@ def read_body_systems(
         raise AssetKitError("Body Systems replay bindings include unused sources")
     _check_recipe_owners(repo, bindings, sources)
 
-    actions = {
-        key: PelvicAction.model_validate(value) for key, value in _json(repo, PELVIC_LAYERS).items()
-    }
+    layers = _json(repo, PELVIC_LAYERS)
+    exports = _json(repo, PELVIC_EXPORTS)
+    if exports.keys() != layers.keys():
+        raise AssetKitError("Body Systems pelvic export pins differ from the Gallery actions")
+    actions = {key: PelvicAction(**layers[key], **pin) for key, pin in exports.items()}
     if registry is None:
         registry = AssetRegistry.load_records(
             repo,

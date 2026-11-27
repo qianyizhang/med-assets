@@ -904,7 +904,7 @@ def _recipe_consumer(
 
 
 def _body_systems_consumers(repo: Path, registry: AssetRegistry | None) -> Iterable[Consumer]:
-    from .body_systems import PELVIC_LAYERS, REPLAY_BINDINGS, read_body_systems
+    from .body_systems import PELVIC_EXPORTS, REPLAY_BINDINGS, read_body_systems
 
     replay, actions = read_body_systems(repo, registry)
     sources = {source.path: source for source in replay.inputs}
@@ -936,7 +936,7 @@ def _body_systems_consumers(repo: Path, registry: AssetRegistry | None) -> Itera
             id=action.consumer_id,
             title=f"Body Systems · {action.id} 3D layers",
             kind="lesson-stop",
-            owner_path=PELVIC_LAYERS,
+            owner_path=PELVIC_EXPORTS,
             pins=(
                 Pin(
                     asset_id=action.ref.asset,

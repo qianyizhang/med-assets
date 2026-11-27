@@ -63,7 +63,7 @@ def test_body_systems_freezes_the_plate_sources_and_indexes_only_exact_readers(
         for target in expected:
             assert consumer in {reader.consumer_id for reader in ws.impact(target).consumers}
 
-    assert actual[VAS].owner_path == actual[CERVIX].owner_path == systems.PELVIC_LAYERS
+    assert actual[VAS].owner_path == actual[CERVIX].owner_path == systems.PELVIC_EXPORTS
     (bladder,) = actual[VAS].runtime_pins
     assert (bladder.asset_id, bladder.revision_id, bladder.export_id) == (
         "anatomy:hra:bladder",
@@ -108,6 +108,7 @@ def test_body_systems_freezes_the_plate_sources_and_indexes_only_exact_readers(
         ("switched-view", "differs from its render receipt"),
         ("switched-original", "native replay pin differs from its receipt"),
         ("wrong-archive", "archived input differs from its owning review"),
+        ("missing-pelvic-pin", "export pins differ from the Gallery actions"),
         ("wrong-pelvic-revision", "differs from its selected assessment"),
         ("wrong-pelvic-part", "Unknown Body Systems pelvic selectors"),
         ("wrong-pelvic-stop", "Unknown Body Systems pelvic detail"),
@@ -119,6 +120,8 @@ def test_body_systems_rejects_false_reader_bindings(
     actual = systems._json
     replay = json.loads((REPO / systems.REPLAY_BINDINGS).read_text())
     layers = json.loads((REPO / systems.PELVIC_LAYERS).read_text())
+    exports = json.loads((REPO / systems.PELVIC_EXPORTS).read_text())
+    pin = exports["reproductive-female-context"]
     layer = layers["reproductive-female-context"]
     if mutation == "missing-plate":
         replay["plates"].pop()
@@ -138,16 +141,20 @@ def test_body_systems_rejects_false_reader_bindings(
         replay["inputs"] = [
             row for row in replay["inputs"] if "urinary-junctions.glb" not in row["path"]
         ]
+    elif mutation == "missing-pelvic-pin":
+        del exports["reproductive-female-context"]
     elif mutation == "wrong-pelvic-revision":
-        layer["ref"].update(revision="context-r02", export="reference")
+        pin["ref"].update(revision="context-r02", export="reference")
     elif mutation == "wrong-pelvic-part":
         layer["layers"][1]["nodes"].append("VH_F_sacrum")
     elif mutation == "wrong-pelvic-stop":
-        layer["system"] = "urinary"
+        pin["system"] = "urinary"
 
     def read(repo, path):
         if path == systems.REPLAY_BINDINGS:
             return replay
+        if path == systems.PELVIC_EXPORTS:
+            return exports
         if path == systems.PELVIC_LAYERS:
             return layers
         return actual(repo, path)

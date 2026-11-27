@@ -14,7 +14,7 @@ The exporter validates the selected PNGs against the survey plans and receipts. 
 
 Seven tracked source GLBs have exact AssetKit recipe pins. The twelve archived meshes keep their teaching-media member identities. The two optional s1233 compositions keep their original Workshop recipe, build receipt and mask audit identities. The ordinary Gallery verifies the tracked bindings and WebP delivery without restoring survey inputs. Restore dated replay through the [teaching archive](../../sites/body-systems-survey/README.md#restore-the-media) and the [optional Workshop build](../../assemblies/workshop-s1233/README.md).
 
-The optional 3D actions for Left vesical and Female context use the [pelvic layer config](../../sites/anatomy-gallery/app/src/content/gallery/pelvic-lesson-layers.json). Their native pins follow the selected assessments, actual rendered-layer selectors and source frame. The ordinary plate stays available independently. Use `assetkit impact` with the exact export key to trace the live and recipe uses. Recipe pins carry no runtime load.
+The optional 3D actions for Left vesical and Female context use the [pelvic layer config](../../sites/anatomy-gallery/app/src/content/gallery/pelvic-lesson-layers.json). Their [native export pins](pelvic-exports.json) follow the selected assessments, actual rendered-layer selectors and source frame. The ordinary plate stays available independently. Use `assetkit impact` with the exact export key to trace the live and recipe uses. Recipe pins carry no runtime load.
 
 Check the replay bindings against local survey receipts with:
 
