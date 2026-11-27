@@ -109,7 +109,9 @@ def body_system_consumers(repo:Path):
 def _javascript_calls(source:str):
     """Yield function calls with balanced delimiters; ignore strings and comments."""
     pattern=re.compile(r"\b(gap|rebuild|missingPart)\s*\(")
+    consumed_end=0
     for match in pattern.finditer(source):
+        if match.start()<consumed_end: continue
         start=match.end(); depth=1; quote=None; escaped=False; line_comment=False; block_comment=False; i=start
         while i<len(source) and depth:
             char=source[i]; nxt=source[i+1] if i+1<len(source) else ""
@@ -148,6 +150,7 @@ def _javascript_calls(source:str):
                 except UnicodeDecodeError: return value[1:-1]
             return None
         strings=[literal(arg) for arg in args]
+        consumed_end=i
         yield match.group(1),args,strings,source.count("\n",0,match.start())+1
 
 def ultrasound_gap_requirements(repo:Path):
