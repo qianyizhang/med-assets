@@ -18,7 +18,7 @@ class GovernanceTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             root=Path(directory);self.fixture(root);catalog=build_catalog(root)
             self.assertEqual(len(catalog.packages),2);self.assertEqual(next(x for x in catalog.packages if x.path=="models/liver").record_status,"unregistered")
-            self.assertEqual(len(catalog.consumers),2);self.assertEqual(find(catalog,"liver")["packages"][0]["path"],"models/liver")
+            self.assertEqual(len(catalog.consumers),3);self.assertEqual(find(catalog,"liver")["packages"][0]["path"],"models/liver")
             self.assertEqual(show(catalog,"body-systems:digestive:digestive-liver")["domain"],"body-systems")
     def test_backfill_requires_explicit_approval_and_starts_provisional(self):
         with tempfile.TemporaryDirectory() as directory:

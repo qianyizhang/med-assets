@@ -193,7 +193,7 @@ def ultrasound_consumers(repo:Path):
             match=SCENARIO.match(line)
             if match:
                 label,anchor,action=match.groups()
-                result.append(Consumer("ultrasound:scenario:"+anchor,"ultrasound-anatomy","scenario-brief",
+                result.append(Consumer("ultrasound:scenario:"+anchor+":"+sha(label.casefold().encode())[:10],"ultrasound-anatomy","scenario-brief",
                     label,action.strip(),"briefed-not-qualified",US_BRIEF,{"anchor":anchor}))
     root=owner_path(repo,US_REVIEWS)
     if root.is_dir():
