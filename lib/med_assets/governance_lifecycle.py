@@ -74,6 +74,18 @@ def _validate(record: dict) -> None:
     if len(uses) != len(set(uses)):
         raise GovernanceError("Teaching-use IDs must be unique")
 
+def _affected_consumers(catalog, record: dict) -> list:
+    rows = list(impact(catalog, record["assetId"]).get("knownConsumers", []))
+    by_id = {row.get("consumerId"): row for row in rows}
+    for use in record.get("uses", []):
+        consumer_id = use.get("consumerId")
+        if consumer_id:
+            row = by_id.setdefault(consumer_id, {"consumerId":consumer_id,"domain":"governance-use",
+                "kind":"revision-pinned-adoption","title":consumer_id,"matchedPaths":[],"matchedParts":[]})
+            row["matchedPaths"] = list(dict.fromkeys([*row.get("matchedPaths", []), use.get("exportPath")]))
+            row["matchedParts"] = list(dict.fromkeys([*row.get("matchedParts", []), *use.get("partIds", [])]))
+    return sorted(by_id.values(), key=lambda row: row["consumerId"])
+
 def _mutate(repo: Path, record: dict, action: str, payload: dict, catalog) -> dict:
     out = json.loads(json.dumps(record))
     if action == "refine":
@@ -136,7 +148,7 @@ def _mutate(repo: Path, record: dict, action: str, payload: dict, catalog) -> di
     elif action == "deprecate":
         out["status"] = "deprecated"
     elif action == "retire":
-        readers = {x["consumerId"] for x in impact(catalog, out["assetId"]).get("knownConsumers", [])}
+        readers = {x["consumerId"] for x in _affected_consumers(catalog, out)}
         dispositions = payload.get("readerDisposition")
         if not payload.get("reason") or not payload.get("recordedAt") or not isinstance(dispositions, dict) or set(dispositions) != readers:
             raise GovernanceError("Retirement requires reason, date and disposition for every indexed reader")
@@ -172,7 +184,7 @@ def create_lifecycle_plan(repo: Path, asset_id: str, action: str, payload_path: 
         "assetId":asset_id,"recordPath":package.record_path,"sourceHashes":catalog.source_hashes,
         "expectedRecordSha256":_sha(before_bytes),"afterRecordSha256":_sha(after_bytes),
         "before":before,"after":after,"payload":payload,
-        "affectedConsumers":impact(catalog, asset_id).get("knownConsumers",[]),
+        "affectedConsumers":_affected_consumers(catalog, before),
         "requiredChecks":["record-schema","source-preconditions","consumer-impact","idempotent-apply"],
         "physicalDeletion":False,"publication":False}
 
