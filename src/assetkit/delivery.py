@@ -3,13 +3,16 @@
 from __future__ import annotations
 
 import json
-from dataclasses import asdict, dataclass
+from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
+from typing import Any, Literal
 
-from .curation import CurationStore
+from pydantic import Field, computed_field
+
+from .curation import Adoption, CurationStore, Qualification, Review, Selection
 from .errors import AssetKitError
-from .registry import REGISTRATION_STATES, SKIP_DIRS, AssetRegistry
+from .models import AssetModel
+from .registry import REGISTRATION_STATES, SKIP_DIRS, AssetRegistry, Part
 from .vocab import ConceptGraph
 
 CONSUMER_KINDS = frozenset(
@@ -26,8 +29,7 @@ CONSUMER_KINDS = frozenset(
 REQUIREMENT_STATUSES = frozenset({"satisfied", "provisional", "open-gap", "rebuild-required"})
 
 
-@dataclass(frozen=True)
-class Requirement:
+class Requirement(AssetModel):
     """Machine-readable statement of what a Consumer needs."""
 
     id: str
@@ -39,7 +41,7 @@ class Requirement:
     subject: str | None = None
     capabilities: tuple[str, ...] = ()
 
-    def validate(self, consumer_id: str) -> None:
+    def validate_invariants(self, consumer_id: str) -> None:
         if not self.id.strip():
             raise AssetKitError(f"Requirement requires non-empty id in '{consumer_id}'")
         if self.status not in REQUIREMENT_STATUSES:
@@ -48,8 +50,7 @@ class Requirement:
             )
 
 
-@dataclass(frozen=True)
-class Pin:
+class Pin(AssetModel):
     """Explicit Consumer dependency on an exact Asset Export / Parts."""
 
     asset_id: str
@@ -62,7 +63,7 @@ class Pin:
     transform: tuple[float, ...] | None = None
     limits: tuple[str, ...] = ()
 
-    def validate(self, consumer_id: str) -> None:
+    def validate_invariants(self, consumer_id: str) -> None:
         if not self.asset_id.strip() or not self.revision_id.strip() or not self.export_id.strip():
             raise AssetKitError(f"Incomplete pin in consumer '{consumer_id}': {self}")
         if self.registration not in REGISTRATION_STATES:
@@ -73,8 +74,7 @@ class Pin:
             raise AssetKitError(f"Pin transform must have 16 values in '{consumer_id}'")
 
 
-@dataclass(frozen=True)
-class Consumer:
+class Consumer(AssetModel):
     """An authored teaching experience or delivery surface."""
 
     id: str
@@ -85,7 +85,7 @@ class Consumer:
     pins: tuple[Pin, ...] = ()
     local_files: tuple[str, ...] = ()
 
-    def validate(self) -> None:
+    def validate_invariants(self) -> None:
         if not self.id.strip() or not self.owner_path.strip():
             raise AssetKitError(f"Consumer requires non-empty id and owner_path: {self}")
         if self.kind not in CONSUMER_KINDS:
@@ -95,17 +95,16 @@ class Consumer:
             if req.id in req_ids:
                 raise AssetKitError(f"Duplicate requirement '{req.id}' in '{self.id}'")
             req_ids.add(req.id)
-            req.validate(self.id)
+            req.validate_invariants(self.id)
         for pin in self.pins:
-            pin.validate(self.id)
+            pin.validate_invariants(self.id)
             if pin.requirement_id is not None and pin.requirement_id not in req_ids:
                 raise AssetKitError(
                     f"Pin references unknown requirement '{pin.requirement_id}' in '{self.id}'"
                 )
 
 
-@dataclass(frozen=True)
-class BudgetPolicy:
+class BudgetPolicy(AssetModel):
     """Soft and hard caps governing delivery economy."""
 
     export_bytes_soft: int = 1_500_000
@@ -119,65 +118,141 @@ class BudgetPolicy:
     min_utilization: float = 0.35
 
 
-@dataclass(frozen=True)
-class UseCaseMetrics:
+class UseCaseMetrics(AssetModel):
     consumer_id: str
     title: str
     loads: int
     total_bytes: int
     total_triangles: int
-    part_utilization: float | None
-    byte_utilization: float | None
-    open_gaps: int
-    budget_flags: tuple[str, ...]
+    part_utilization: float | None = None
+    byte_utilization: float | None = None
+    open_gaps: int = 0
+    budget_flags: tuple[str, ...] = ()
 
 
-@dataclass(frozen=True)
-class Recommendation:
-    action: str  # split-export | merge-bundle | over-budget
+class Recommendation(AssetModel):
+    action: Literal["split-export", "merge-bundle", "over-budget"]
     target: str
-    severity: str  # warn | hard
+    severity: Literal["warn", "hard"]
     reason: str
-    metrics: dict[str, Any]
+    metrics: dict[str, Any] = Field(default_factory=dict)
 
 
-@dataclass(frozen=True)
-class EconomyReport:
+class EconomySummary(AssetModel):
+    consumers_evaluated: int
+    assets_reused: int
+    recommendations: int
+    hard_violations: int
+
+
+class EconomyReport(AssetModel):
     policy: BudgetPolicy
     consumer_metrics: tuple[UseCaseMetrics, ...]
     asset_reuse: dict[str, int]
     export_reuse: dict[str, int]
     recommendations: tuple[Recommendation, ...]
 
-    def to_dict(self) -> dict[str, Any]:
-        return {
-            "policy": asdict(self.policy),
-            "summary": {
-                "consumersEvaluated": len(self.consumer_metrics),
-                "assetsReused": sum(1 for v in self.asset_reuse.values() if v > 1),
-                "recommendations": len(self.recommendations),
-                "hardViolations": sum(1 for r in self.recommendations if r.severity == "hard"),
-            },
-            "consumerMetrics": [asdict(m) for m in self.consumer_metrics],
-            "assetReuse": dict(sorted(self.asset_reuse.items())),
-            "exportReuse": dict(sorted(self.export_reuse.items())),
-            "recommendations": [asdict(r) for r in self.recommendations],
-        }
+    @computed_field
+    @property
+    def summary(self) -> EconomySummary:
+        return EconomySummary(
+            consumers_evaluated=len(self.consumer_metrics),
+            assets_reused=sum(1 for v in self.asset_reuse.values() if v > 1),
+            recommendations=len(self.recommendations),
+            hard_violations=sum(1 for r in self.recommendations if r.severity == "hard"),
+        )
 
 
-@dataclass(frozen=True)
-class RuntimeBundle:
+class OpenGap(AssetModel):
+    consumer_id: str | None = None
+    consumer_title: str | None = None
+    requirement_id: str
+    status: str
+    description: str
+    concepts: tuple[str, ...] = ()
+    parts: tuple[str, ...] = ()
+    subject: str | None = None
+
+
+class BundleItem(AssetModel):
+    asset_id: str
+    revision_id: str
+    export_id: str
+    path: str
+    format: str
+    variant: str
+    sha256: str | None = None
+    bytes: int | None = None
+    triangles: int | None = None
+    storage_status: str
+    registration: str = "unknown"
+    transform: tuple[float, ...] | None = None
+    license: str | None = None
+    subject: str | None = None
+    limits: tuple[str, ...] = ()
+    parts: tuple[Part, ...] = ()
+
+
+class RuntimeBundle(AssetModel):
     """Resolved load list for a Consumer (exact files, parts, provenance, and limits)."""
 
     consumer_id: str
     title: str
-    items: tuple[dict[str, Any], ...]
+    items: tuple[BundleItem, ...]
     total_bytes: int
     total_triangles: int
-    open_gaps: tuple[dict[str, Any], ...]
+    open_gaps: tuple[OpenGap, ...] = ()
 
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
+
+class AffectedConsumer(AssetModel):
+    consumer_id: str
+    title: str
+    kind: str
+    pins: tuple[Pin, ...]
+
+
+class ImpactResult(AssetModel):
+    target: str
+    found: bool
+    status: Literal["ok", "unknown-target"]
+    matched_assets: tuple[str, ...] = ()
+    matched_export_paths: tuple[str, ...] = ()
+    consumers: tuple[AffectedConsumer, ...] = ()
+    adoptions: tuple[Adoption, ...] = ()
+    reviews: tuple[Review, ...] = ()
+    qualifications: tuple[Qualification, ...] = ()
+    selections: tuple[Selection, ...] = ()
+
+
+class ResolveCandidate(AssetModel):
+    asset_id: str
+    revision_id: str
+    export_id: str
+    export_path: str
+    part_id: str | None = None
+    label: str
+    variant: str
+    subject: str | None = None
+    registration: str = "unknown"
+    review_statuses: tuple[str, ...] = ()
+    qualification_decisions: tuple[str, ...] = ()
+    adoption_statuses: tuple[str, ...] = ()
+    qualified: bool = False
+    match_basis: str | None = None
+    note: str | None = None
+
+
+class RequirementResolution(AssetModel):
+    requirement_id: str
+    status: Literal["exact-candidate", "concept-candidate", "foreign-subject-only", "unmatched"]
+    exact_candidates: tuple[ResolveCandidate, ...] = ()
+    concept_candidates: tuple[ResolveCandidate, ...] = ()
+    foreign_subject_candidates: tuple[ResolveCandidate, ...] = ()
+
+
+class ResolveResult(AssetModel):
+    consumer_id: str
+    requirements: tuple[RequirementResolution, ...]
 
 
 @dataclass(frozen=True)
@@ -193,7 +268,7 @@ class DeliveryGraph:
         if include_legacy_adapters:
             existing_ids = {c.id for c in consumers}
             consumers.extend(_project_legacy_consumers(root, existing_ids))
-        return cls(tuple(consumers))
+        return cls(consumers=tuple(consumers))
 
     def get(self, consumer_id: str) -> Consumer | None:
         return next((c for c in self.consumers if c.id == consumer_id), None)
@@ -205,7 +280,7 @@ class DeliveryGraph:
             if consumer.id in seen:
                 raise AssetKitError(f"Duplicate consumer id '{consumer.id}'")
             seen.add(consumer.id)
-            consumer.validate()
+            consumer.validate_invariants()
             for pin in consumer.pins:
                 resolved = registry.resolve_export(pin.asset_id, pin.revision_id, pin.export_id)
                 if resolved is None:
@@ -236,9 +311,10 @@ class DeliveryGraph:
         consumer = self.get(consumer_id)
         if consumer is None:
             raise AssetKitError(f"Unknown consumer '{consumer_id}'")
-        items: list[dict[str, Any]] = []
+        items: list[BundleItem] = []
         total_bytes = 0
         total_tris = 0
+        counted: set[tuple[str, str, str]] = set()
         for pin in consumer.pins:
             resolved = registry.resolve_export(pin.asset_id, pin.revision_id, pin.export_id)
             if resolved is None:
@@ -247,38 +323,43 @@ class DeliveryGraph:
                     f"{pin.asset_id}@{pin.revision_id}:{pin.export_id}"
                 )
             asset, rev, exp = resolved
-            if exp.bytes is not None:
-                total_bytes += exp.bytes
-            if exp.triangles is not None:
-                total_tris += exp.triangles
-            selected_parts = [asdict(p) for p in exp.parts if not pin.parts or p.id in pin.parts]
+            if pin.sha256 and pin.sha256 != exp.sha256:
+                raise AssetKitError(f"Pin sha256 mismatch for {consumer_id} -> {exp.path}")
+            if set(pin.parts) - {p.id for p in exp.parts}:
+                raise AssetKitError(f"Pin requests unknown parts for {consumer_id} -> {exp.path}")
+            key = (asset.id, rev.id, exp.id)
+            if key not in counted:
+                counted.add(key)
+                total_bytes += exp.bytes or 0
+                total_tris += exp.triangles or 0
+            selected_parts = tuple(p for p in exp.parts if not pin.parts or p.id in pin.parts)
             items.append(
-                {
-                    "assetId": asset.id,
-                    "revisionId": rev.id,
-                    "exportId": exp.id,
-                    "path": exp.path,
-                    "format": exp.format,
-                    "variant": exp.variant,
-                    "sha256": exp.sha256,
-                    "bytes": exp.bytes,
-                    "triangles": exp.triangles,
-                    "storageStatus": exp.storage_status,
-                    "registration": pin.registration,
-                    "transform": list(pin.transform) if pin.transform else None,
-                    "license": rev.provenance.license,
-                    "subject": rev.provenance.subject,
-                    "limits": list(pin.limits or rev.provenance.limits),
-                    "parts": selected_parts,
-                }
+                BundleItem(
+                    asset_id=asset.id,
+                    revision_id=rev.id,
+                    export_id=exp.id,
+                    path=exp.path,
+                    format=exp.format,
+                    variant=exp.variant,
+                    sha256=exp.sha256,
+                    bytes=exp.bytes,
+                    triangles=exp.triangles,
+                    storage_status=exp.storage_status,
+                    registration=pin.registration,
+                    transform=pin.transform,
+                    license=rev.provenance.license,
+                    subject=rev.provenance.subject,
+                    limits=pin.limits or rev.provenance.limits,
+                    parts=selected_parts,
+                )
             )
         gaps = tuple(
-            {
-                "id": r.id,
-                "description": r.description,
-                "status": r.status,
-                "concepts": list(r.concepts),
-            }
+            OpenGap(
+                requirement_id=r.id,
+                description=r.description,
+                status=r.status,
+                concepts=r.concepts,
+            )
             for r in consumer.requirements
             if r.status in {"open-gap", "rebuild-required"}
         )
@@ -291,24 +372,24 @@ class DeliveryGraph:
             open_gaps=gaps,
         )
 
-    def open_gaps(self, prefix: str | None = None) -> list[dict[str, Any]]:
-        gaps: list[dict[str, Any]] = []
+    def open_gaps(self, prefix: str | None = None) -> list[OpenGap]:
+        gaps: list[OpenGap] = []
         for consumer in self.consumers:
             if prefix and not consumer.id.startswith(prefix):
                 continue
             for req in consumer.requirements:
                 if req.status in {"open-gap", "rebuild-required"}:
                     gaps.append(
-                        {
-                            "consumerId": consumer.id,
-                            "consumerTitle": consumer.title,
-                            "requirementId": req.id,
-                            "status": req.status,
-                            "description": req.description,
-                            "concepts": list(req.concepts),
-                            "parts": list(req.parts),
-                            "subject": req.subject,
-                        }
+                        OpenGap(
+                            consumer_id=consumer.id,
+                            consumer_title=consumer.title,
+                            requirement_id=req.id,
+                            status=req.status,
+                            description=req.description,
+                            concepts=req.concepts,
+                            parts=req.parts,
+                            subject=req.subject,
+                        )
                     )
         return gaps
 
@@ -376,8 +457,11 @@ class DeliveryGraph:
 
         for consumer in self.consumers:
             loaded_keys: dict[tuple[str, str, str], set[str]] = {}
+            whole_exports = set()
             for pin in consumer.pins:
                 key = (pin.asset_id, pin.revision_id, pin.export_id)
+                if not pin.parts:
+                    whole_exports.add(key)
                 loaded_keys.setdefault(key, set()).update(pin.parts)
                 asset_reuse.setdefault(pin.asset_id, set()).add(consumer.id)
                 export_reuse.setdefault(
@@ -389,35 +473,40 @@ class DeliveryGraph:
             used_parts_count = 0
             total_parts_count = 0
             used_part_bytes = 0
-            measurable_part_bytes = 0
+            complete_weights = True
 
             for (aid, rid, eid), used_parts in loaded_keys.items():
                 resolved = registry.resolve_export(aid, rid, eid)
                 if resolved is None:
+                    complete_weights = False
                     continue
                 _, _, exp = resolved
                 if exp.bytes is not None:
                     total_bytes += exp.bytes
                 if exp.triangles is not None:
                     total_tris += exp.triangles
-                if exp.parts:
-                    total_parts_count += len(exp.parts)
-                    if not used_parts:
-                        used_parts_count += len(exp.parts)
-                    else:
-                        matched = [p for p in exp.parts if p.id in used_parts]
-                        used_parts_count += len(matched)
-                        if all(p.bytes is not None for p in exp.parts):
-                            measurable_part_bytes += sum(p.bytes or 0 for p in exp.parts)
-                            used_part_bytes += sum(p.bytes or 0 for p in matched)
+                total_parts_count += len(exp.parts)
+                if (aid, rid, eid) in whole_exports:
+                    used_parts_count += len(exp.parts)
+                    used_part_bytes += exp.bytes or 0
+                    complete_weights &= exp.bytes is not None
+                else:
+                    selected = [p for p in exp.parts if p.id in used_parts]
+                    used_parts_count += len(selected)
+                    complete_weights &= (
+                        exp.bytes is not None
+                        and len(selected) == len(used_parts)
+                        and all(p.bytes is not None for p in selected)
+                    )
+                    used_part_bytes += sum(p.bytes or 0 for p in selected)
 
             loads = len(loaded_keys)
             part_util = (
                 round(used_parts_count / total_parts_count, 4) if total_parts_count > 0 else None
             )
             byte_util = (
-                round(used_part_bytes / measurable_part_bytes, 4)
-                if measurable_part_bytes > 0
+                round(used_part_bytes / total_bytes, 4)
+                if complete_weights and total_bytes > 0 and used_part_bytes <= total_bytes
                 else None
             )
             open_gaps = sum(
@@ -506,42 +595,43 @@ class DeliveryGraph:
             recommendations=tuple(recs),
         )
 
-    def impact(
-        self, target: str, registry: AssetRegistry, curation: CurationStore
-    ) -> dict[str, Any]:
+    def impact(self, target: str, registry: AssetRegistry, curation: CurationStore) -> ImpactResult:
         matched_assets, matched_paths = registry.match_target(target)
         if not matched_assets and not matched_paths:
-            matched_paths.add(target)
+            return ImpactResult(target=target, found=False, status="unknown-target")
 
-        affected_consumers = [
-            {
-                "consumerId": c.id,
-                "title": c.title,
-                "kind": c.kind,
-                "pins": [
-                    asdict(p)
-                    for p in c.pins
-                    if p.asset_id in matched_assets
-                    or f"{p.asset_id}@{p.revision_id}:{p.export_id}" == target
-                ],
-            }
-            for c in self.consumers
-            if any(
-                p.asset_id in matched_assets
-                or f"{p.asset_id}@{p.revision_id}:{p.export_id}" == target
-                for p in c.pins
-            )
-        ]
-        return {
-            "target": target,
-            "matchedAssets": sorted(matched_assets),
-            "matchedExportPaths": sorted(matched_paths),
-            "consumers": affected_consumers,
-            "reviews": [asdict(r) for r in curation.reviews_for(matched_paths, matched_assets)],
-            "selections": [
-                asdict(s) for s in curation.selections_for(matched_paths, matched_assets)
-            ],
+        whole_assets = {a.id for a in registry.assets if target in {a.id, a.owner_dir}}
+        export_keys = {
+            (asset.id, rev.id, exp.id)
+            for asset, rev, exp in registry.iter_exports()
+            if target == exp.path or target == f"{asset.id}@{rev.id}:{exp.id}"
         }
+        affected_consumers = []
+        for consumer in self.consumers:
+            pins = tuple(
+                pin
+                for pin in consumer.pins
+                if pin.asset_id in whole_assets
+                or (pin.asset_id, pin.revision_id, pin.export_id) in export_keys
+            )
+            if pins:
+                affected_consumers.append(
+                    AffectedConsumer(
+                        consumer_id=consumer.id, title=consumer.title, kind=consumer.kind, pins=pins
+                    )
+                )
+        return ImpactResult(
+            target=target,
+            found=True,
+            status="ok",
+            matched_assets=tuple(sorted(matched_assets)),
+            matched_export_paths=tuple(sorted(matched_paths)),
+            consumers=tuple(affected_consumers),
+            adoptions=curation.adoptions_for(matched_paths, whole_assets),
+            reviews=curation.reviews_for(matched_paths, whole_assets),
+            qualifications=curation.qualifications_for(matched_paths, whole_assets),
+            selections=curation.selections_for(matched_paths, whole_assets),
+        )
 
     def resolve(
         self,
@@ -550,7 +640,7 @@ class DeliveryGraph:
         vocab: ConceptGraph,
         curation: CurationStore,
         requirement_id: str | None = None,
-    ) -> dict[str, Any]:
+    ) -> ResolveResult:
         consumer = self.get(consumer_id)
         if consumer is None:
             raise AssetKitError(f"Unknown consumer: {consumer_id}")
@@ -562,17 +652,24 @@ class DeliveryGraph:
         if requirement_id is not None and not reqs:
             raise AssetKitError(f"Unknown requirement '{requirement_id}' on '{consumer_id}'")
 
-        results = []
+        results: list[RequirementResolution] = []
         for req in reqs:
             expanded = vocab.expand(req.concepts)
-            exact_candidates = []
-            concept_candidates = []
-            foreign_subject = []
+            exact_candidates: list[ResolveCandidate] = []
+            concept_candidates: list[ResolveCandidate] = []
+            foreign_subject: list[ResolveCandidate] = []
 
             for asset, rev, exp in registry.iter_exports():
                 if req.variant and exp.variant != req.variant:
                     continue
-                qual = curation.qualification_for(exp.path, exp.sha256)
+                exp_qual = curation.qualification_for(
+                    exp.path,
+                    exp.sha256,
+                    asset_id=asset.id,
+                    revision_id=rev.id,
+                    consumer_id=consumer.id,
+                    task_id=req.id,
+                )
                 for part in exp.parts:
                     prov = part.provenance or rev.provenance
                     tokens = {part.id, *part.selectors}
@@ -580,59 +677,112 @@ class DeliveryGraph:
                     concept_hit = bool(expanded and (set(part.concepts) & expanded))
                     if not selector_hit and not concept_hit:
                         continue
-                    cand = {
-                        "assetId": asset.id,
-                        "revisionId": rev.id,
-                        "exportId": exp.id,
-                        "exportPath": exp.path,
-                        "partId": part.id,
-                        "label": part.label,
-                        "variant": exp.variant,
-                        "subject": prov.subject,
-                        "registration": prov.registration,
-                        "reviewStatuses": list(qual.statuses),
-                        "qualified": qual.qualified,
-                    }
+                    part_qual = curation.qualification_for(
+                        exp.path,
+                        exp.sha256,
+                        part_id=part.id,
+                        consumer_id=consumer.id,
+                        task_id=req.id,
+                        asset_id=asset.id,
+                        revision_id=rev.id,
+                    )
                     if req.subject and prov.subject and prov.subject != req.subject:
-                        cand["note"] = (
-                            f"Foreign subject '{prov.subject}' != required '{req.subject}'; "
-                            "requires explicit registration/illustrative pin if reused."
+                        foreign_subject.append(
+                            ResolveCandidate(
+                                asset_id=asset.id,
+                                revision_id=rev.id,
+                                export_id=exp.id,
+                                export_path=exp.path,
+                                part_id=part.id,
+                                label=part.label,
+                                variant=exp.variant,
+                                subject=prov.subject,
+                                registration=prov.registration,
+                                review_statuses=part_qual.statuses,
+                                qualification_decisions=part_qual.qualification_decisions,
+                                adoption_statuses=part_qual.adoption_statuses,
+                                qualified=part_qual.qualified,
+                                note=(
+                                    f"Foreign subject '{prov.subject}' != required '{req.subject}'; "
+                                    "requires explicit registration/illustrative pin if reused."
+                                ),
+                            )
                         )
-                        foreign_subject.append(cand)
                     elif selector_hit and (not req.subject or prov.subject == req.subject):
-                        cand["matchBasis"] = "exact-selector"
-                        exact_candidates.append(cand)
-                    else:
-                        cand["matchBasis"] = (
-                            "concept-hierarchy" if concept_hit else "selector-unverified-subject"
+                        exact_candidates.append(
+                            ResolveCandidate(
+                                asset_id=asset.id,
+                                revision_id=rev.id,
+                                export_id=exp.id,
+                                export_path=exp.path,
+                                part_id=part.id,
+                                label=part.label,
+                                variant=exp.variant,
+                                subject=prov.subject,
+                                registration=prov.registration,
+                                review_statuses=part_qual.statuses,
+                                qualification_decisions=part_qual.qualification_decisions,
+                                adoption_statuses=part_qual.adoption_statuses,
+                                qualified=part_qual.qualified,
+                                match_basis="exact-selector",
+                            )
                         )
-                        concept_candidates.append(cand)
+                    else:
+                        concept_candidates.append(
+                            ResolveCandidate(
+                                asset_id=asset.id,
+                                revision_id=rev.id,
+                                export_id=exp.id,
+                                export_path=exp.path,
+                                part_id=part.id,
+                                label=part.label,
+                                variant=exp.variant,
+                                subject=prov.subject,
+                                registration=prov.registration,
+                                review_statuses=part_qual.statuses,
+                                qualification_decisions=part_qual.qualification_decisions,
+                                adoption_statuses=part_qual.adoption_statuses,
+                                qualified=part_qual.qualified,
+                                match_basis=(
+                                    "concept-hierarchy"
+                                    if concept_hit
+                                    else "selector-unverified-subject"
+                                ),
+                            )
+                        )
 
                 if expanded and (set(asset.concepts) & expanded):
                     prov = rev.provenance
-                    cand = {
-                        "assetId": asset.id,
-                        "revisionId": rev.id,
-                        "exportId": exp.id,
-                        "exportPath": exp.path,
-                        "partId": None,
-                        "label": asset.title,
-                        "variant": exp.variant,
-                        "subject": prov.subject,
-                        "registration": prov.registration,
-                        "reviewStatuses": list(qual.statuses),
-                        "qualified": qual.qualified,
-                        "matchBasis": "asset-concept",
-                    }
-                    if req.subject and prov.subject and prov.subject != req.subject:
-                        cand["note"] = (
+                    is_foreign = bool(req.subject and prov.subject and prov.subject != req.subject)
+                    cand = ResolveCandidate(
+                        asset_id=asset.id,
+                        revision_id=rev.id,
+                        export_id=exp.id,
+                        export_path=exp.path,
+                        part_id=None,
+                        label=asset.title,
+                        variant=exp.variant,
+                        subject=prov.subject,
+                        registration=prov.registration,
+                        review_statuses=exp_qual.statuses,
+                        qualification_decisions=exp_qual.qualification_decisions,
+                        adoption_statuses=exp_qual.adoption_statuses,
+                        qualified=exp_qual.qualified,
+                        match_basis="asset-concept",
+                        note=(
                             f"Foreign subject '{prov.subject}' != required '{req.subject}'."
-                        )
+                            if is_foreign
+                            else None
+                        ),
+                    )
+                    if is_foreign:
                         foreign_subject.append(cand)
                     else:
                         concept_candidates.append(cand)
 
-            status = (
+            status: Literal[
+                "exact-candidate", "concept-candidate", "foreign-subject-only", "unmatched"
+            ] = (
                 "exact-candidate"
                 if exact_candidates
                 else "concept-candidate"
@@ -642,15 +792,15 @@ class DeliveryGraph:
                 else "unmatched"
             )
             results.append(
-                {
-                    "requirementId": req.id,
-                    "status": status,
-                    "exactCandidates": exact_candidates,
-                    "conceptCandidates": concept_candidates,
-                    "foreignSubjectCandidates": foreign_subject,
-                }
+                RequirementResolution(
+                    requirement_id=req.id,
+                    status=status,
+                    exact_candidates=tuple(exact_candidates),
+                    concept_candidates=tuple(concept_candidates),
+                    foreign_subject_candidates=tuple(foreign_subject),
+                )
             )
-        return {"consumerId": consumer.id, "requirements": results}
+        return ResolveResult(consumer_id=consumer.id, requirements=tuple(results))
 
     def counts(self) -> dict[str, int]:
         return {
@@ -666,7 +816,7 @@ class DeliveryGraph:
         }
 
     def to_dict(self) -> list[dict[str, Any]]:
-        return [asdict(c) for c in self.consumers]
+        return [c.to_dict() for c in self.consumers]
 
 
 def _read_json(path: Path) -> Any:

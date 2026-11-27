@@ -45,19 +45,28 @@ AssetKit resolves this tension through **DDD bounded contexts** built as **deep 
 | --- | --- | --- | --- | --- |
 | `assetkit.blobs` | Foundation / Storage Truth | `BlobRef`, `MeshStats` | `normalize_path`, `verify`, `inspect_mesh` | Symlink/path-escape guards, Git LFS pointer vs. hydrated SHA-256 streaming, stdlib GLB v2 decoding. |
 | `assetkit.vocab` | Semantic Vocabulary | `ConceptGraph`, `Concept`, `ConceptEdge` | `load`, `validate`, `expand`, `ancestors`, `descendants`, `related` | Polyhierarchical DAG cycle checks, multi-parent zoom traversal, cross-system functional edges. |
-| `assetkit.registry` | Authoring & Supply | `AssetRegistry`, `Asset`, `Revision`, `Export`, `Part`, `Provenance` | `load`, `validate`, `get`, `resolve_export`, `match_target` | 1-to-N package→asset mapping, multi-export atlases, per-part hybrid/foreign provenance, legacy manifest adapters. |
+| `assetkit.registry` | Authoring & Supply | `AssetRegistry`, `Asset`, `Revision`, `Export`, `Part`, `Provenance`, `SpatialFrame` | `load`, `validate`, `get`, `resolve_export`, `match_target` | 1-to-N package→asset mapping, `asset.record.json` & `assets.json` loading, multi-export atlases, per-part provenance & spatial frames. |
 | `assetkit.build` | Recipe Execution & Sync | `BuildSpec`, `BuildResult`, `BuildRunner`, `SyncDiff` | `plan_build`, `run_build`, `sync_manifest` | Python vs. headless Blender recipe dispatch behind a swappable `BuildRunner` seam, dry-run planning, hash/triangle manifest refresh. |
-| `assetkit.delivery` | Demand & Packaging | `DeliveryGraph`, `Consumer`, `Requirement`, `Pin`, `RuntimeBundle`, `BudgetPolicy`, `EconomyReport` | `load`, `validate`, `bundle_for`, `resolve`, `open_gaps`, `economy`, `impact` | Pin hash verification, runtime load bundling, utilization/budget math, merge/split/overlay heuristics, legacy consumer adapters. |
-| `assetkit.curation` | Evidence & Release | `CurationStore`, `Review`, `Selection`, `QualificationStatus` | `load`, `validate`, `qualification_for`, `compile_gallery`, `plan_r2_sync` | Exact-hash qualification bindings, separating *reviewed* vs. *selected* vs. *shipped*, downstream Gallery & R2 compilation. |
+| `assetkit.delivery` | Demand & Packaging | `DeliveryGraph`, `Consumer`, `Requirement`, `Pin`, `RuntimeBundle`, `BudgetPolicy`, `EconomyReport`, `ImpactResult`, `ResolveResult` | `load`, `validate`, `bundle_for`, `resolve`, `open_gaps`, `economy`, `impact` | Pin hash verification, runtime load bundling, utilization/budget math, merge/split/overlay heuristics, legacy consumer adapters. |
+| `assetkit.curation` | Evidence & Release | `CurationStore`, `Review`, `Qualification`, `Adoption`, `Selection`, `QualificationStatus`, `GalleryProjection` | `load`, `validate`, `qualification_for`, `compile_gallery`, `plan_r2_sync` | Exact-digest assessment/qualification/adoption separation, *reviewed* vs. *qualified* vs. *selected* vs. *shipped*, downstream Gallery & R2 projections. |
 
 ---
 
 ## 3. Core Concepts & Invariants
 
 1. **`Concept` (`assetkit.vocab`):** Polyhierarchical DAG created on demand at any zoom level (`skeletal-system` → `vertebral-column` → `L3-vertebra` → `bone-marrow` → `blood-cell`). Hierarchical edges (`part_of`, `is_a`) are acyclic; cross-cutting edges (`located_in`, `produces`, `participates_in`, `supplied_by`, `drains_to`) connect across systems. Completely decoupled from Asset granularity.
-2. **`Asset` & `Revision` (`assetkit.registry`):** Authoring unit (`model | assembly | diagram | rig | generator | detail`), **not** 1:1 with directories or source subjects. Hybrids and foreign-lineage details are first-class via per-part `Provenance` and `registration` (`native | registered | fitted | illustrative | synthetic | unknown`).
+2. **`Asset` & `Revision` (`assetkit.registry`):** Authoring unit (`model | assembly | diagram | rig | generator | detail`), **not** 1:1 with directories or source subjects. Hybrids and foreign-lineage details are first-class via per-part `Provenance`, composed `SpatialFrame`, and `registration` (`native | registered | fitted | illustrative | synthetic | unknown`).
 3. **`Consumer` (`assetkit.delivery`):** Authored teaching experience or surface owning machine-readable `Requirements` (including `open-gap` / `rebuild-required`) and exact `Pins` (`asset@rev:export`, `parts`, `sha256`, `registration`, optional `transform`).
-4. **`Review` & `Selection` (`assetkit.curation`):** `Review` is immutable dated evidence bound to an exact export hash; `Selection` is an explicit editorial/release choice. Qualification is never inferred from anatomical naming or part-selector matching.
+4. **`Review`, `Qualification`, `Adoption` & `Selection` (`assetkit.curation`):** `Review` is immutable dated assessment evidence bound to an exact non-null export `sha256`; `Qualification` is an explicit task/scope approval decision (never inferred from an accepted assessment, missing digest, or anatomical naming); `Adoption` records an owner-declared consumer use (`provisional` until qualified); `Selection` is an explicit editorial/release choice.
+
+The Gallery export flag summarizes exact-digest decisions across uses. Resolution filters those decisions to the requested task, consumer and part. Revision-only decisions remain visible in the asset record. The R2 projection inventories demand for the transport owner.
+
+### Modeling & Serialization Rules (`assetkit.models`)
+
+- **Use `AssetModel` (Pydantic v2 `BaseModel`)** with `frozen=True`, `alias_generator=to_camel`, `populate_by_name=True`, and `extra="forbid"` for serialized records and query results. Workspace and the in-memory stores compose those records.
+- **No ad-hoc `dict[str, Any]` builders in queries or projections:** `show`, `find`, `impact`, `resolve`, `bundle`, `compile_gallery`, and `plan_r2_sync` return typed `AssetModel`s (or discriminated unions like `ShowAssetResult | ShowConsumerResult | UnknownTargetResult`).
+- **Decompose optional field bags into composed value objects:** attach cohesive sub-models (e.g., `Provenance.spatial: SpatialFrame | None`) instead of flattening 10+ `| None` fields onto one struct, and serialize via `to_dict()` / `to_json()` (`exclude_none=True`) so JSON output omits unset fields.
+- **Expose cross-module queries on `Workspace`:** callers use `ws.show()`, `ws.find()`, `ws.impact()`, `ws.resolve()`, `ws.bundle()`, `ws.economy()`, `ws.compile_gallery()`, and `ws.plan_r2_sync()`, while individual submodules remain directly testable.
 
 ---
 

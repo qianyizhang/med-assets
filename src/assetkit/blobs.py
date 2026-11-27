@@ -6,13 +6,24 @@ import hashlib
 import json
 import re
 import struct
-from dataclasses import dataclass
 from pathlib import Path, PurePosixPath
+from typing import Literal
 
 from .errors import AssetKitError
+from .models import AssetModel
 
 HEX64 = re.compile(r"^[0-9a-f]{64}$")
 LFS_HEADER = b"version https://git-lfs.github.com/spec/"
+
+BlobStatus = Literal[
+    "verified",
+    "pointer-match",
+    "hydrated",
+    "pointer",
+    "missing",
+    "mismatch",
+    "invalid-pointer",
+]
 
 
 def normalize_path(value: str) -> str:
@@ -57,16 +68,13 @@ def _parse_lfs_pointer(prefix: bytes) -> tuple[str, int]:
     return oid, size
 
 
-@dataclass(frozen=True)
-class BlobRef:
+class BlobRef(AssetModel):
     """Observational identity of a file on disk (hydrated bytes vs. Git LFS pointer)."""
 
     path: str
-    status: (
-        str  # verified | pointer-match | hydrated | pointer | missing | mismatch | invalid-pointer
-    )
-    sha256: str | None
-    bytes: int | None
+    status: BlobStatus
+    sha256: str | None = None
+    bytes: int | None = None
 
 
 def verify(
@@ -79,7 +87,7 @@ def verify(
     norm = normalize_path(rel_path)
     target = safe_path(repo, norm)
     if not target.is_file():
-        return BlobRef(norm, "missing", None, None)
+        return BlobRef(path=norm, status="missing")
 
     with target.open("rb") as stream:
         prefix = stream.read(1025)
@@ -87,13 +95,18 @@ def verify(
             try:
                 digest, size = _parse_lfs_pointer(prefix)
             except ValueError:
-                return BlobRef(norm, "invalid-pointer", None, None)
+                return BlobRef(path=norm, status="invalid-pointer")
             if expected_sha256 is not None or expected_bytes is not None:
                 ok = (expected_sha256 is None or digest == expected_sha256) and (
                     expected_bytes is None or size == expected_bytes
                 )
-                return BlobRef(norm, "pointer-match" if ok else "mismatch", digest, size)
-            return BlobRef(norm, "pointer", digest, size)
+                return BlobRef(
+                    path=norm,
+                    status="pointer-match" if ok else "mismatch",
+                    sha256=digest,
+                    bytes=size,
+                )
+            return BlobRef(path=norm, status="pointer", sha256=digest, bytes=size)
 
         stream.seek(0)
         size = target.stat().st_size
@@ -102,12 +115,16 @@ def verify(
             ok = (expected_sha256 is None or digest == expected_sha256) and (
                 expected_bytes is None or size == expected_bytes
             )
-            return BlobRef(norm, "verified" if ok else "mismatch", digest, size)
-        return BlobRef(norm, "hydrated", digest, size)
+            return BlobRef(
+                path=norm,
+                status="verified" if ok else "mismatch",
+                sha256=digest,
+                bytes=size,
+            )
+        return BlobRef(path=norm, status="hydrated", sha256=digest, bytes=size)
 
 
-@dataclass(frozen=True)
-class MeshStats:
+class MeshStats(AssetModel):
     """Geometry summary extracted from a hydrated GLB v2 binary."""
 
     bytes: int

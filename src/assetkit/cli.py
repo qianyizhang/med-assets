@@ -9,8 +9,8 @@ from typing import Annotated, Any, Literal
 
 import typer
 
-from . import Workspace
-from .build import plan_build, run_build, sync_manifest
+from . import AssetModel, Workspace
+from .build import BuildResult, plan_build, run_build, sync_manifest
 from .errors import AssetKitError
 
 app = typer.Typer(
@@ -36,6 +36,9 @@ class _State:
 
 
 def _emit(payload: Any) -> None:
+    if isinstance(payload, AssetModel):
+        typer.echo(payload.to_json(indent=2))
+        return
     typer.echo(json.dumps(payload, ensure_ascii=False, indent=2))
 
 
@@ -45,7 +48,10 @@ def _state(ctx: typer.Context) -> _State:
 
 def _run(fn) -> None:
     try:
-        _emit(fn())
+        result = fn()
+        _emit(result)
+        if isinstance(result, BuildResult) and result.status == "failed":
+            raise typer.Exit(code=1)
     except (AssetKitError, OSError, ValueError, KeyError, TypeError) as exc:
         typer.echo(f"assetkit: {exc}", err=True)
         raise typer.Exit(code=2) from exc
@@ -84,14 +90,27 @@ def validate(ctx: typer.Context) -> None:
 
 
 @app.command()
+def find(
+    ctx: typer.Context,
+    query: Annotated[str, typer.Argument(help="Search query across assets, parts, and consumers")],
+) -> None:
+    """Discover assets, parts, and consumers matching a query."""
+    _run(lambda: _state(ctx).load().find(query))
+
+
+@app.command()
+def show(
+    ctx: typer.Context,
+    target: Annotated[str, typer.Argument(help="Asset ID, export key, path, or consumer ID")],
+) -> None:
+    """Inspect a maintained asset or consumer with its exports, assessments, and decisions."""
+    _run(lambda: _state(ctx).load().show(target))
+
+
+@app.command()
 def economy(ctx: typer.Context) -> None:
     """Compute reuse, load counts, part/byte utilization, and budget advice."""
-
-    def _op() -> dict[str, Any]:
-        ws = _state(ctx).load()
-        return ws.delivery.economy(ws.registry).to_dict()
-
-    _run(_op)
+    _run(lambda: _state(ctx).load().economy())
 
 
 @app.command()
@@ -100,12 +119,7 @@ def impact(
     target: Annotated[str, typer.Argument(help="Asset ID, export key, or repo-relative path")],
 ) -> None:
     """Trace consumers, reviews, and selections affected by a target."""
-
-    def _op() -> dict[str, Any]:
-        ws = _state(ctx).load()
-        return ws.delivery.impact(target, ws.registry, ws.curation)
-
-    _run(_op)
+    _run(lambda: _state(ctx).load().impact(target))
 
 
 @app.command()
@@ -115,12 +129,7 @@ def resolve(
     req: Annotated[str | None, typer.Option("--req", help="Specific requirement ID")] = None,
 ) -> None:
     """Resolve candidate assets/parts for a consumer's requirements."""
-
-    def _op() -> dict[str, Any]:
-        ws = _state(ctx).load()
-        return ws.delivery.resolve(consumer_id, ws.registry, ws.vocab, ws.curation, req)
-
-    _run(_op)
+    _run(lambda: _state(ctx).load().resolve(consumer_id, req))
 
 
 @app.command()
@@ -128,13 +137,8 @@ def bundle(
     ctx: typer.Context,
     consumer_id: Annotated[str, typer.Argument(help="Consumer ID")],
 ) -> None:
-    """Resolve the exact runtime load bundle for a consumer."""
-
-    def _op() -> dict[str, Any]:
-        ws = _state(ctx).load()
-        return ws.delivery.bundle_for(consumer_id, ws.registry).to_dict()
-
-    _run(_op)
+    """Plan a consumer load and report the storage status of each export."""
+    _run(lambda: _state(ctx).load().bundle(consumer_id))
 
 
 @app.command()
@@ -146,7 +150,7 @@ def gaps(
 
     def _op() -> dict[str, Any]:
         ws = _state(ctx).load()
-        return {"openGaps": ws.delivery.open_gaps(prefix)}
+        return {"openGaps": [g.to_dict() for g in ws.delivery.open_gaps(prefix)]}
 
     _run(_op)
 
@@ -162,10 +166,10 @@ def build(
 ) -> None:
     """Plan or execute an Asset Revision recipe."""
 
-    def _op() -> dict[str, Any]:
+    def _op() -> Any:
         ws = _state(ctx).load()
         spec = plan_build(ws.repository, ws.registry, asset_id, revision_id)
-        return run_build(ws.repository, spec, apply=apply).to_dict()
+        return run_build(ws.repository, spec, apply=apply)
 
     _run(_op)
 
@@ -178,9 +182,9 @@ def sync(
 ) -> None:
     """Refresh sha256, bytes, and GLB stats in an assets.json manifest."""
 
-    def _op() -> dict[str, Any]:
+    def _op() -> Any:
         ws = _state(ctx).load()
-        return sync_manifest(ws.repository, manifest, apply=apply).to_dict()
+        return sync_manifest(ws.repository, manifest, apply=apply)
 
     _run(_op)
 
@@ -194,11 +198,11 @@ def compile_target(
 ) -> None:
     """Compile downstream projections (gallery index or r2 sync plan)."""
 
-    def _op() -> dict[str, Any]:
+    def _op() -> Any:
         ws = _state(ctx).load()
         if target == "gallery":
-            return ws.curation.compile_gallery(ws.registry, ws.delivery)
-        return {"items": ws.curation.plan_r2_sync(ws.registry, ws.delivery)}
+            return ws.compile_gallery()
+        return {"items": [item.to_dict() for item in ws.plan_r2_sync()]}
 
     _run(_op)
 

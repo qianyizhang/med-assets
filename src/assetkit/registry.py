@@ -3,12 +3,15 @@
 from __future__ import annotations
 
 import json
-from dataclasses import asdict, dataclass, field
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
+from pydantic import Field
+
 from .blobs import inspect_mesh, normalize_path, verify
 from .errors import AssetKitError
+from .models import AssetModel
 from .vocab import ConceptGraph
 
 ASSET_KINDS = frozenset({"model", "assembly", "diagram", "rig", "generator", "detail"})
@@ -20,30 +23,42 @@ SKIP_DIRS = frozenset({".git", ".artifacts", "node_modules", "__pycache__", ".ve
 MODEL_EXTS = frozenset({".glb", ".gltf", ".blend", ".svg", ".obj", ".stl"})
 
 
-@dataclass(frozen=True)
-class Provenance:
+class SpatialFrame(AssetModel):
+    """Coordinate system, units, axes, and source-to-export transform metadata."""
+
+    units: str | None = None
+    axes: tuple[str, ...] = ()
+    laterality: str | None = None
+    source_frame: str | None = None
+    frame: str | None = None
+    transform: tuple[float, ...] | None = None
+    transform_evidence: str | None = None
+
+    def validate_invariants(self, context: str) -> None:
+        if self.transform is not None and len(self.transform) != 16:
+            raise AssetKitError(f"Transform matrix must have 16 values in {context}")
+
+
+class Provenance(AssetModel):
     """Source, subject, spatial frame, and registration honesty record."""
 
     source: str | None = None
     subject: str | None = None
     license: str | None = None
-    units: str | None = None
-    axes: tuple[str, ...] = ()
-    laterality: str | None = None
     registration: str = "unknown"
-    transform: tuple[float, ...] | None = None
+    registration_note: str | None = None
+    spatial: SpatialFrame | None = None
     derived_from: str | None = None
     limits: tuple[str, ...] = ()
 
-    def validate(self, context: str) -> None:
+    def validate_invariants(self, context: str) -> None:
         if self.registration not in REGISTRATION_STATES:
             raise AssetKitError(f"Invalid registration '{self.registration}' in {context}")
-        if self.transform is not None and len(self.transform) != 16:
-            raise AssetKitError(f"Transform matrix must have 16 values in {context}")
+        if self.spatial is not None:
+            self.spatial.validate_invariants(context)
 
 
-@dataclass(frozen=True)
-class Part:
+class Part(AssetModel):
     """An addressable sub-structure inside an Export."""
 
     id: str
@@ -57,7 +72,7 @@ class Part:
     triangles: int | None = None
     provenance: Provenance | None = None
 
-    def validate(self, context: str) -> None:
+    def validate_invariants(self, context: str) -> None:
         if not self.id.strip():
             raise AssetKitError(f"Part requires non-empty id in {context}")
         if self.selectable and self.context_only:
@@ -69,11 +84,10 @@ class Part:
         if self.triangles is not None and self.triangles < 0:
             raise AssetKitError(f"Negative triangles on part '{self.id}' in {context}")
         if self.provenance is not None:
-            self.provenance.validate(f"{context}:part:{self.id}")
+            self.provenance.validate_invariants(f"{context}:part:{self.id}")
 
 
-@dataclass(frozen=True)
-class Export:
+class Export(AssetModel):
     """A concrete deliverable payload produced by a Revision."""
 
     id: str
@@ -87,7 +101,7 @@ class Export:
     storage_status: str = "unverified"
     parts: tuple[Part, ...] = ()
 
-    def validate(self, context: str) -> None:
+    def validate_invariants(self, context: str) -> None:
         if not self.id.strip() or not self.path.strip():
             raise AssetKitError(f"Export requires non-empty id and path in {context}")
         if self.bytes is not None and self.bytes < 0:
@@ -99,36 +113,34 @@ class Export:
             if part.id in seen:
                 raise AssetKitError(f"Duplicate part id '{part.id}' in {context}:{self.id}")
             seen.add(part.id)
-            part.validate(f"{context}:{self.id}")
+            part.validate_invariants(f"{context}:{self.id}")
 
 
-@dataclass(frozen=True)
-class Revision:
+class Revision(AssetModel):
     """An immutable iteration of an Asset."""
 
     id: str
     status: str = "provisional"
     recipe: str | None = None
-    provenance: Provenance = field(default_factory=Provenance)
+    provenance: Provenance = Field(default_factory=Provenance)
     capabilities: tuple[str, ...] = ()
     exports: tuple[Export, ...] = ()
 
-    def validate(self, asset_id: str) -> None:
+    def validate_invariants(self, asset_id: str) -> None:
         if not self.id.strip():
             raise AssetKitError(f"Revision requires non-empty id in asset '{asset_id}'")
         if self.status not in REVISION_STATUSES:
             raise AssetKitError(f"Invalid revision status '{self.status}' in {asset_id}@{self.id}")
-        self.provenance.validate(f"{asset_id}@{self.id}")
+        self.provenance.validate_invariants(f"{asset_id}@{self.id}")
         seen: set[str] = set()
         for exp in self.exports:
             if exp.id in seen:
                 raise AssetKitError(f"Duplicate export id '{exp.id}' in {asset_id}@{self.id}")
             seen.add(exp.id)
-            exp.validate(f"{asset_id}@{self.id}")
+            exp.validate_invariants(f"{asset_id}@{self.id}")
 
 
-@dataclass(frozen=True)
-class Asset:
+class Asset(AssetModel):
     """An independently maintained reusable work (authoring unit)."""
 
     id: str
@@ -139,8 +151,9 @@ class Asset:
     concepts: tuple[str, ...] = ()
     revisions: tuple[Revision, ...] = ()
     source_manifest: str | None = None
+    unresolved: tuple[str, ...] = ()
 
-    def validate(self) -> None:
+    def validate_invariants(self) -> None:
         if not self.id.strip() or not self.owner_dir.strip():
             raise AssetKitError(f"Asset requires non-empty id and owner_dir: {self}")
         if self.kind not in ASSET_KINDS:
@@ -150,7 +163,7 @@ class Asset:
             if rev.id in seen:
                 raise AssetKitError(f"Duplicate revision '{rev.id}' on asset '{self.id}'")
             seen.add(rev.id)
-            rev.validate(self.id)
+            rev.validate_invariants(self.id)
 
 
 @dataclass(frozen=True)
@@ -169,8 +182,12 @@ class AssetRegistry:
     ) -> AssetRegistry:
         root = repo.resolve()
         assets, covered_dirs = _load_native_assets(root, inspect_glbs=inspect_glbs)
+        existing_ids = {a.id for a in assets}
+        record_assets = _load_asset_records(
+            root, covered_dirs, existing_ids, inspect_glbs=inspect_glbs
+        )
+        assets.extend(record_assets)
         if include_legacy_adapters:
-            existing_ids = {a.id for a in assets}
             atlas = _project_body_atlas(root, covered_dirs, inspect_glbs=inspect_glbs)
             for item in atlas:
                 existing_ids.add(item.id)
@@ -180,7 +197,7 @@ class AssetRegistry:
                     root, covered_dirs, existing_ids, inspect_glbs=inspect_glbs
                 )
             )
-        return cls(tuple(assets))
+        return cls(assets=tuple(assets))
 
     def validate(self, vocab: ConceptGraph | None = None) -> list[str]:
         warnings: list[str] = []
@@ -190,7 +207,7 @@ class AssetRegistry:
             if asset.id in seen:
                 raise AssetKitError(f"Duplicate asset id '{asset.id}'")
             seen.add(asset.id)
-            asset.validate()
+            asset.validate_invariants()
             if known_concepts:
                 for cid in asset.concepts:
                     if cid not in known_concepts:
@@ -246,7 +263,7 @@ class AssetRegistry:
         }
 
     def to_dict(self) -> list[dict[str, Any]]:
-        return [asdict(a) for a in self.assets]
+        return [a.to_dict() for a in self.assets]
 
 
 def _read_json(path: Path) -> Any:
@@ -260,19 +277,50 @@ def _rel(repo: Path, path: Path) -> str:
     return path.resolve().relative_to(repo.resolve()).as_posix()
 
 
+def _build_spatial(
+    *,
+    units: str | None = None,
+    axes: tuple[str, ...] = (),
+    laterality: str | None = None,
+    source_frame: str | None = None,
+    frame: str | None = None,
+    transform: tuple[float, ...] | None = None,
+    transform_evidence: str | None = None,
+) -> SpatialFrame | None:
+    if not any((units, axes, laterality, source_frame, frame, transform, transform_evidence)):
+        return None
+    return SpatialFrame(
+        units=units,
+        axes=axes,
+        laterality=laterality,
+        source_frame=source_frame,
+        frame=frame,
+        transform=transform,
+        transform_evidence=transform_evidence,
+    )
+
+
 def _parse_provenance(data: dict[str, Any] | None) -> Provenance:
     if not data:
         return Provenance()
-    transform = data.get("transform")
+    frame = data.get("spatial") or data
+    transform = frame.get("transform")
+    spatial = _build_spatial(
+        units=frame.get("units"),
+        axes=tuple(frame.get("axes", ())),
+        laterality=frame.get("laterality"),
+        source_frame=frame.get("sourceFrame") or frame.get("source_frame"),
+        frame=frame.get("frame"),
+        transform=tuple(float(v) for v in transform) if transform is not None else None,
+        transform_evidence=frame.get("transformEvidence") or frame.get("transform_evidence"),
+    )
     return Provenance(
         source=data.get("source"),
         subject=data.get("subject"),
         license=data.get("license"),
-        units=data.get("units"),
-        axes=tuple(data.get("axes", ())),
-        laterality=data.get("laterality"),
         registration=data.get("registration", "unknown"),
-        transform=tuple(float(v) for v in transform) if transform is not None else None,
+        registration_note=data.get("registrationNote") or data.get("registration_note"),
+        spatial=spatial,
         derived_from=data.get("derivedFrom") or data.get("derived_from"),
         limits=tuple(data.get("limits", ())),
     )
@@ -384,6 +432,182 @@ def _load_native_assets(repo: Path, *, inspect_glbs: bool) -> tuple[list[Asset],
     return assets, covered_dirs
 
 
+def _load_asset_records(
+    repo: Path,
+    covered_dirs: set[str],
+    existing_ids: set[str],
+    *,
+    inspect_glbs: bool,
+) -> list[Asset]:
+    """Read package-owned asset.record.json declarations without synthesizing directory IDs."""
+    assets: list[Asset] = []
+    for record_path in sorted(repo.rglob("asset.record.json")):
+        if any(part in SKIP_DIRS for part in record_path.relative_to(repo).parts):
+            continue
+        owner_dir = _rel(repo, record_path.parent)
+        doc = _read_json(record_path)
+        if not isinstance(doc, dict) or not doc.get("assetId"):
+            continue
+        asset_id = str(doc["assetId"])
+        if asset_id in existing_ids:
+            raise AssetKitError(f"Duplicate asset id {asset_id!r} in {record_path}")
+        covered_dirs.add(owner_dir)
+        existing_ids.add(asset_id)
+
+        raw_kind = str(doc.get("kind", "model"))
+        kind = raw_kind if raw_kind in ASSET_KINDS else "model"
+
+        concepts = tuple(
+            str(c["conceptId"])
+            for c in doc.get("concepts", [])
+            if isinstance(c, dict) and c.get("conceptId")
+        )
+        sources_by_id: dict[str, dict[str, Any]] = {
+            str(s["sourceId"]): s
+            for s in doc.get("sources", [])
+            if isinstance(s, dict) and s.get("sourceId")
+        }
+        parts_by_id: dict[str, dict[str, Any]] = {
+            str(p["partId"]): p
+            for p in doc.get("parts", [])
+            if isinstance(p, dict) and p.get("partId")
+        }
+
+        revisions: list[Revision] = []
+        for rev_row in doc.get("revisions", []):
+            if not isinstance(rev_row, dict) or not rev_row.get("revisionId"):
+                continue
+            rev_id = str(rev_row["revisionId"])
+            rev_status = str(rev_row.get("status", "provisional"))
+            if rev_status not in REVISION_STATUSES:
+                rev_status = "provisional"
+
+            src_ids = [str(s) for s in rev_row.get("sourceIds", []) if isinstance(s, str)]
+            primary_src = sources_by_id.get(src_ids[0]) if src_ids else None
+            limits: list[str] = []
+            for sid in src_ids:
+                src = sources_by_id.get(sid)
+                if src:
+                    limits.extend(str(x) for x in src.get("limitations", []) if isinstance(x, str))
+
+            rev_prov = Provenance(
+                source=(
+                    primary_src.get("path") or primary_src.get("title")
+                    if primary_src is not None
+                    else None
+                ),
+                registration="unknown",
+                limits=tuple(limits),
+            )
+
+            exports: list[Export] = []
+            seen_eids: set[str] = set()
+            for exp_row in rev_row.get("exports", []):
+                if not isinstance(exp_row, dict) or not exp_row.get("path"):
+                    continue
+                exp_path = normalize_path(str(exp_row["path"]))
+                base_eid = str(exp_row.get("id") or Path(exp_path).stem)
+                eid = base_eid if base_eid not in seen_eids else exp_path
+                seen_eids.add(eid)
+                chk = verify(repo, exp_path, exp_row.get("sha256"), exp_row.get("bytes"))
+                tris = exp_row.get("triangles")
+                node_tris: dict[str, int] = {}
+                if (
+                    inspect_glbs
+                    and exp_path.endswith(".glb")
+                    and chk.status in {"verified", "hydrated"}
+                ):
+                    stats = inspect_mesh(repo, exp_path)
+                    if stats is not None:
+                        tris = tris if tris is not None else stats.triangles
+                        node_tris = stats.node_triangles
+
+                exp_parts: list[Part] = []
+                for pid in exp_row.get("partIds", []):
+                    prow = parts_by_id.get(str(pid))
+                    if prow is None:
+                        continue
+                    selectors = tuple(
+                        str(s) for s in prow.get("selectors", []) if isinstance(s, str)
+                    )
+                    part_tris = None
+                    if node_tris:
+                        for sel in selectors:
+                            if sel in node_tris:
+                                part_tris = node_tris[sel]
+                                break
+                    raw_reg = prow.get("registration")
+                    reg_state = raw_reg if raw_reg in REGISTRATION_STATES else "unknown"
+                    reg_note = (
+                        str(raw_reg)
+                        if isinstance(raw_reg, str) and raw_reg not in REGISTRATION_STATES
+                        else None
+                    )
+                    exp_parts.append(
+                        Part(
+                            id=str(prow["partId"]),
+                            label=str(prow.get("label", prow["partId"])),
+                            selectors=selectors,
+                            concepts=tuple(
+                                str(c) for c in prow.get("conceptIds", []) if isinstance(c, str)
+                            ),
+                            triangles=part_tris,
+                            provenance=Provenance(
+                                source=prow.get("sourcePath"),
+                                registration=reg_state,
+                                registration_note=reg_note,
+                                spatial=_build_spatial(
+                                    source_frame=prow.get("sourceFrame"),
+                                    frame=prow.get("frame"),
+                                    transform_evidence=prow.get("transformEvidence"),
+                                ),
+                            ),
+                        )
+                    )
+
+                exports.append(
+                    Export(
+                        id=eid,
+                        path=exp_path,
+                        format=str(
+                            exp_row.get("format") or Path(exp_path).suffix.lstrip(".") or "bin"
+                        ),
+                        role=str(exp_row.get("role", "teaching-mesh")),
+                        variant=str(exp_row.get("variant", "normal")),
+                        sha256=exp_row.get("sha256") or chk.sha256,
+                        bytes=exp_row.get("bytes")
+                        if exp_row.get("bytes") is not None
+                        else chk.bytes,
+                        triangles=tris,
+                        storage_status=chk.status,
+                        parts=tuple(exp_parts),
+                    )
+                )
+
+            revisions.append(
+                Revision(
+                    id=rev_id,
+                    status=rev_status,
+                    provenance=rev_prov,
+                    exports=tuple(exports),
+                )
+            )
+
+        assets.append(
+            Asset(
+                id=asset_id,
+                title=str(doc.get("title", asset_id)),
+                kind=kind,
+                owner_dir=owner_dir,
+                concepts=concepts,
+                revisions=tuple(revisions),
+                source_manifest=_rel(repo, record_path),
+                unresolved=tuple(str(u) for u in doc.get("unresolved", []) if isinstance(u, str)),
+            )
+        )
+    return assets
+
+
 def _project_body_atlas(repo: Path, covered_dirs: set[str], *, inspect_glbs: bool) -> list[Asset]:
     manifest = repo / "body/anatomy-workshop-r1/body-3d-delivery/manifest.json"
     if not manifest.is_file() or "body/anatomy-workshop-r1" in covered_dirs:
@@ -407,13 +631,13 @@ def _project_body_atlas(repo: Path, covered_dirs: set[str], *, inspect_glbs: boo
             stats = inspect_mesh(repo, rel_path)
             if stats is not None:
                 tris = stats.triangles
+        item_spatial = _build_spatial(units=coords.get("units"), transform=flat_matrix)
         item_prov = Provenance(
             source=item.get("provenance"),
             subject=item.get("sourceCase"),
             license=item.get("license"),
-            units=coords.get("units"),
             registration="native" if item.get("sourceCase") else "unknown",
-            transform=flat_matrix,
+            spatial=item_spatial,
         )
         organ_ids = tuple(x for x in item.get("organIds", []) if isinstance(x, str))
         parts: list[Part] = [
@@ -449,9 +673,8 @@ def _project_body_atlas(repo: Path, covered_dirs: set[str], *, inspect_glbs: boo
                         source=item.get("provenance"),
                         subject=item.get("sourceCase"),
                         license=item.get("license"),
-                        units=coords.get("units"),
                         registration="native" if derivation == "source-derived" else "illustrative",
-                        transform=flat_matrix,
+                        spatial=item_spatial,
                     ),
                 )
             )
@@ -483,9 +706,8 @@ def _project_body_atlas(repo: Path, covered_dirs: set[str], *, inspect_glbs: boo
                     status="active",
                     provenance=Provenance(
                         subject="s1233",
-                        units=coords.get("units"),
                         registration="native",
-                        transform=flat_matrix,
+                        spatial=_build_spatial(units=coords.get("units"), transform=flat_matrix),
                     ),
                     capabilities=("isolate-parts",),
                     exports=tuple(exports),

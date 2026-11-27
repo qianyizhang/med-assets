@@ -5,12 +5,14 @@ from __future__ import annotations
 import hashlib
 import json
 import struct
+import sys
 from pathlib import Path
 
 import pytest
 from typer.testing import CliRunner
 
 from assetkit import (
+    Adoption,
     Asset,
     AssetKitError,
     AssetRegistry,
@@ -26,10 +28,13 @@ from assetkit import (
     Part,
     Pin,
     Provenance,
+    Qualification,
     Requirement,
     Review,
     Revision,
     Selection,
+    ShowAssetResult,
+    UnknownTargetResult,
     Workspace,
     inspect_mesh,
     plan_build,
@@ -73,19 +78,21 @@ class _FakeRunner:
 def test_vocab_polyhierarchy_and_cycle_rejection() -> None:
     graph = ConceptGraph(
         concepts=(
-            Concept("skeletal-system", "Skeletal system"),
-            Concept("vertebral-column", "Vertebral column"),
-            Concept("L3-vertebra", "L3 vertebra"),
-            Concept("bone-marrow", "Bone marrow"),
-            Concept("blood-cell", "Blood cell"),
-            Concept("immune-response", "Immune response"),
+            Concept(id="skeletal-system", label="Skeletal system"),
+            Concept(id="vertebral-column", label="Vertebral column"),
+            Concept(id="L3-vertebra", label="L3 vertebra"),
+            Concept(id="bone-marrow", label="Bone marrow"),
+            Concept(id="blood-cell", label="Blood cell"),
+            Concept(id="immune-response", label="Immune response"),
         ),
         edges=(
-            ConceptEdge("vertebral-column", "part_of", "skeletal-system"),
-            ConceptEdge("L3-vertebra", "part_of", "vertebral-column"),
-            ConceptEdge("bone-marrow", "located_in", "L3-vertebra"),
-            ConceptEdge("bone-marrow", "produces", "blood-cell"),
-            ConceptEdge("bone-marrow", "participates_in", "immune-response"),
+            ConceptEdge(subject="vertebral-column", predicate="part_of", object="skeletal-system"),
+            ConceptEdge(subject="L3-vertebra", predicate="part_of", object="vertebral-column"),
+            ConceptEdge(subject="bone-marrow", predicate="located_in", object="L3-vertebra"),
+            ConceptEdge(subject="bone-marrow", predicate="produces", object="blood-cell"),
+            ConceptEdge(
+                subject="bone-marrow", predicate="participates_in", object="immune-response"
+            ),
         ),
     )
     graph.validate()
@@ -98,8 +105,11 @@ def test_vocab_polyhierarchy_and_cycle_rejection() -> None:
     assert len(graph.related("bone-marrow", "produces")) == 1
 
     cyclic = ConceptGraph(
-        concepts=(Concept("a", "A"), Concept("b", "B")),
-        edges=(ConceptEdge("a", "part_of", "b"), ConceptEdge("b", "part_of", "a")),
+        concepts=(Concept(id="a", label="A"), Concept(id="b", label="B")),
+        edges=(
+            ConceptEdge(subject="a", predicate="part_of", object="b"),
+            ConceptEdge(subject="b", predicate="part_of", object="a"),
+        ),
     )
     with pytest.raises(AssetKitError, match="Cycle"):
         cyclic.validate()
@@ -131,10 +141,10 @@ def test_hybrid_registry_delivery_bundle_and_resolution() -> None:
                         triangles=12_000,
                         parts=(
                             Part(
-                                "outer-surface",
-                                "Liver exterior",
-                                ("liver",),
-                                ("liver",),
+                                id="outer-surface",
+                                label="Liver exterior",
+                                selectors=("liver",),
+                                concepts=("liver",),
                                 bytes=300_000,
                             ),
                         ),
@@ -148,10 +158,10 @@ def test_hybrid_registry_delivery_bundle_and_resolution() -> None:
                         triangles=2_500,
                         parts=(
                             Part(
-                                "focal-lesion",
-                                "Hyperechoic focal lesion",
-                                ("focal-lesion",),
-                                ("focal-lesion",),
+                                id="focal-lesion",
+                                label="Hyperechoic focal lesion",
+                                selectors=("focal-lesion",),
+                                concepts=("focal-lesion",),
                                 bytes=80_000,
                                 provenance=Provenance(
                                     source="authored-pathology-v1",
@@ -167,11 +177,14 @@ def test_hybrid_registry_delivery_bundle_and_resolution() -> None:
         ),
     )
     vocab = ConceptGraph(
-        concepts=(Concept("liver", "Liver"), Concept("focal-lesion", "Focal lesion"))
+        concepts=(
+            Concept(id="liver", label="Liver"),
+            Concept(id="focal-lesion", label="Focal lesion"),
+        )
     )
-    registry = AssetRegistry((liver,))
+    registry = AssetRegistry(assets=(liver,))
     delivery = DeliveryGraph(
-        (
+        consumers=(
             Consumer(
                 id="us:abdomen:focal-lesion",
                 title="Abdominal focal lesion sweep",
@@ -179,38 +192,42 @@ def test_hybrid_registry_delivery_bundle_and_resolution() -> None:
                 owner_path="experiments/ultrasound-sweep/consumer.json",
                 requirements=(
                     Requirement(
-                        "req-liver", "Liver parenchyma", "satisfied", ("liver",), subject="s1233"
+                        id="req-liver",
+                        description="Liver parenchyma",
+                        status="satisfied",
+                        concepts=("liver",),
+                        subject="s1233",
                     ),
                     Requirement(
-                        "req-lesion",
-                        "Focal lesion overlay",
-                        "satisfied",
-                        ("focal-lesion",),
+                        id="req-lesion",
+                        description="Focal lesion overlay",
+                        status="satisfied",
+                        concepts=("focal-lesion",),
                         variant="focal-lesion",
                     ),
                     Requirement(
-                        "req-caval",
-                        "Hepatic vein IVC junction",
-                        "open-gap",
-                        ("hepatic-vein",),
+                        id="req-caval",
+                        description="Hepatic vein IVC junction",
+                        status="open-gap",
+                        concepts=("hepatic-vein",),
                         subject="s1233",
                     ),
                 ),
                 pins=(
                     Pin(
-                        "liver-s1233",
-                        "r03",
-                        "surface",
-                        "req-liver",
-                        ("outer-surface",),
+                        asset_id="liver-s1233",
+                        revision_id="r03",
+                        export_id="surface",
+                        requirement_id="req-liver",
+                        parts=("outer-surface",),
                         registration="native",
                     ),
                     Pin(
-                        "liver-s1233",
-                        "r03",
-                        "lesion-overlay",
-                        "req-lesion",
-                        ("focal-lesion",),
+                        asset_id="liver-s1233",
+                        revision_id="r03",
+                        export_id="lesion-overlay",
+                        requirement_id="req-lesion",
+                        parts=("focal-lesion",),
                         registration="illustrative",
                     ),
                 ),
@@ -228,10 +245,10 @@ def test_hybrid_registry_delivery_bundle_and_resolution() -> None:
     assert len(delivery.open_gaps("us:")) == 1
 
     resolved = delivery.resolve("us:abdomen:focal-lesion", registry, vocab, curation, "req-lesion")
-    cand = resolved["requirements"][0]["conceptCandidates"][0]
-    assert cand["registration"] == "illustrative"
-    assert cand["subject"] == "synthetic"
-    assert cand["qualified"] is False
+    cand = resolved.requirements[0].concept_candidates[0]
+    assert cand.registration == "illustrative"
+    assert cand.subject == "synthetic"
+    assert cand.qualified is False
 
 
 def test_delivery_economy_detects_bloat_and_low_utilization() -> None:
@@ -252,25 +269,32 @@ def test_delivery_economy_detects_bloat_and_low_utilization() -> None:
                         bytes=5_000_000,
                         triangles=180_000,
                         parts=(
-                            Part("outer", "Outer", bytes=500_000),
-                            Part("portal", "Portal", bytes=1_500_000),
-                            Part("hepatic", "Hepatic", bytes=1_500_000),
-                            Part("biliary", "Biliary", bytes=1_500_000),
+                            Part(id="outer", label="Outer", bytes=500_000),
+                            Part(id="portal", label="Portal", bytes=1_500_000),
+                            Part(id="hepatic", label="Hepatic", bytes=1_500_000),
+                            Part(id="biliary", label="Biliary", bytes=1_500_000),
                         ),
                     ),
                 ),
             ),
         ),
     )
-    registry = AssetRegistry((bloated,))
+    registry = AssetRegistry(assets=(bloated,))
     delivery = DeliveryGraph(
-        (
+        consumers=(
             Consumer(
                 id="body-systems:liver-overview",
                 title="Body Systems Liver Overview",
                 kind="lesson-stop",
                 owner_path="lessons/body-systems/consumer.json",
-                pins=(Pin("liver-monolith", "r01", "everything", parts=("outer",)),),
+                pins=(
+                    Pin(
+                        asset_id="liver-monolith",
+                        revision_id="r01",
+                        export_id="everything",
+                        parts=("outer",),
+                    ),
+                ),
             ),
         )
     )
@@ -322,7 +346,15 @@ def test_build_runner_and_sync_manifest_end_to_end(tmp_path: Path) -> None:
     runner = _FakeRunner(glb_bytes)
     built = run_build(tmp_path, spec, apply=True, runner=runner)
     assert built.status == "built"
-    assert built.verified_outputs[0]["triangles"] == 16
+    assert built.verified_outputs[0].triangles == 16
+
+    # A recipe may exit normally without writing the declared output.
+    no_output = spec.model_copy(
+        update={"command": (sys.executable, "-c", "pass"), "expected_outputs": ("missing.glb",)}
+    )
+    incomplete = run_build(tmp_path, no_output, apply=True)
+    assert incomplete.status == "failed"
+    assert incomplete.verified_outputs[0].status == "missing"
 
     diff = sync_manifest(tmp_path, "models/liver/assets.json", apply=True)
     assert diff.applied is True
@@ -350,8 +382,9 @@ def test_blobs_lfs_glb_and_curation_projections(tmp_path: Path) -> None:
         "pointer-match"
     )
 
+    liver_sha = "b" * 64
     registry = AssetRegistry(
-        (
+        assets=(
             Asset(
                 id="liver",
                 title="Liver",
@@ -361,52 +394,170 @@ def test_blobs_lfs_glb_and_curation_projections(tmp_path: Path) -> None:
                     Revision(
                         id="r02",
                         status="active",
-                        exports=(Export("mesh", "models/liver/liver.glb", "glb"),),
+                        exports=(
+                            Export(
+                                id="mesh",
+                                path="models/liver/liver.glb",
+                                format="glb",
+                                sha256=liver_sha,
+                            ),
+                        ),
                     ),
                 ),
             ),
         )
     )
     delivery = DeliveryGraph(
-        (
+        consumers=(
             Consumer(
                 id="lesson:digestive",
                 title="Digestive",
                 kind="lesson-stop",
                 owner_path="lessons/digestive/consumer.json",
-                pins=(Pin("liver", "r02", "mesh"),),
+                pins=(Pin(asset_id="liver", revision_id="r02", export_id="mesh"),),
             ),
         )
     )
-    curation = CurationStore(
+    review_only = CurationStore(
         reviews=(
             Review(
-                "rev-1",
-                "models/liver/liver.glb",
-                "t1",
-                "Locate liver",
-                "accepted",
-                "reviews/r1.json",
+                id="rev-1",
+                export_path="models/liver/liver.glb",
+                task_id="t1",
+                task="Locate liver",
+                status="accepted",
+                owner_path="reviews/r1.json",
+                sha256=liver_sha,
             ),
         ),
         selections=(
             Selection(
-                "sel-1",
-                "teaching-default",
-                "models/liver/liver.glb",
-                "docs/selections.json",
+                id="sel-1",
+                kind="teaching-default",
+                export_path="models/liver/liver.glb",
+                owner_path="docs/selections.json",
+            ),
+        ),
+    )
+    # Missing digest never matches; accepted assessment alone is evidence, not qualification.
+    assert review_only.qualification_for("models/liver/liver.glb", None).statuses == ()
+    assert review_only.qualification_for("models/liver/liver.glb", liver_sha).statuses == (
+        "accepted",
+    )
+    assert review_only.qualification_for("models/liver/liver.glb", liver_sha).qualified is False
+
+    curation = CurationStore(
+        reviews=review_only.reviews,
+        selections=review_only.selections,
+        qualifications=(
+            Qualification(
+                id="qual-1",
+                asset_id="liver",
+                revision_id="r02",
+                scope="task",
+                decision="qualified",
+                owner_path="models/liver/asset.record.json",
+                export_path="models/liver/liver.glb",
+                sha256=liver_sha,
+                task_id="t1",
             ),
         ),
     )
     imp = delivery.impact("liver", registry, curation)
-    assert len(imp["consumers"]) == 1
-    assert len(imp["reviews"]) == 1
-    assert len(imp["selections"]) == 1
+    assert imp.found is True
+    assert len(imp.consumers) == 1
+    assert len(imp.reviews) == 1
+    assert len(imp.qualifications) == 1
+    assert len(imp.selections) == 1
 
     gallery = curation.compile_gallery(registry, delivery)
-    assert gallery["assets"][0]["revisions"][0]["exports"][0]["qualified"] is True
+    exp_out = gallery.assets[0].revisions[0].exports[0]
+    assert exp_out.qualified is True
+    assert exp_out.review_statuses == ("accepted",)
+    assert exp_out.qualification_decisions == ("qualified",)
     r2_items = curation.plan_r2_sync(registry, delivery)
-    assert [i["path"] for i in r2_items] == ["models/liver/liver.glb"]
+    assert [i.path for i in r2_items] == ["models/liver/liver.glb"]
+
+
+def test_cardiac_atlas_parity_and_unknown_target() -> None:
+    repo = Path(__file__).resolve().parents[3]
+    ws = Workspace.load(repo)
+
+    # show(), impact(), and compile_gallery() agree on owner-declared Cardiac Atlas identity.
+    shown = ws.show("anatomy:heart:cardiac-atlas")
+    assert isinstance(shown, ShowAssetResult)
+    assert shown.found is True
+    assert shown.asset.id == "anatomy:heart:cardiac-atlas"
+    assert shown.asset.source_manifest == "heart/Cardiac_Atlas_Animated/asset.record.json"
+    assert len(shown.revisions) == 1
+    rev = shown.revisions[0]
+    assert rev.id == "shared-source-r01"
+    assert rev.status == "provisional"
+    # Unset None fields are omitted from serialized dicts (no null noise).
+    assert "recipe" not in rev.to_dict()
+    assert "spatial" not in rev.provenance.to_dict()
+
+    export_paths = {e.path for e in rev.exports}
+    assert export_paths == {
+        "heart/Cardiac_Atlas_Animated/exports/shared-source-r01/cardiac-static-ed.glb",
+        "heart/Cardiac_Atlas_Animated/exports/shared-source-r01/ventricular-wall-motion.glb",
+    }
+    for exp in rev.exports:
+        assert exp.qualification.qualified is False
+        assert exp.qualification.statuses == ("accepted",)
+        assert exp.qualification.adoption_statuses == ("provisional",)
+        assert exp.parts[0].provenance is not None
+        assert exp.parts[0].provenance.spatial is not None
+        assert exp.parts[0].provenance.spatial.source_frame == (
+            "Cardiac_Atlas_Animated_Source.blend/native"
+        )
+
+    assert len(shown.tasks) == 2
+    for task in shown.tasks:
+        assert task.adoption_status == "provisional"
+        assert task.qualified is False
+        assert len(task.assessments) == 1
+        assert task.assessments[0].status == "accepted"
+
+    for task in shown.tasks:
+        effect = ws.impact(task.export_path)
+        assert [use.use_id for use in effect.adoptions] == [task.use_id]
+        assert {r.export_path for r in effect.reviews} == {task.export_path}
+
+    imp = ws.impact("anatomy:heart:cardiac-atlas")
+    assert imp.found is True
+    assert imp.matched_assets == ("anatomy:heart:cardiac-atlas",)
+    assert set(imp.matched_export_paths) == export_paths
+    assert len(imp.adoptions) == 2
+    assert len(imp.reviews) == 2
+    assert len(imp.selections) == 2
+    assert {s.review_id for s in imp.selections} == {r.id for r in imp.reviews}
+
+    gallery = ws.compile_gallery()
+    cardiac_entries = [a for a in gallery.assets if a.owner_dir == "heart/Cardiac_Atlas_Animated"]
+    assert len(cardiac_entries) == 1
+    assert cardiac_entries[0].id == "anatomy:heart:cardiac-atlas"
+    gallery_exports = cardiac_entries[0].revisions[0].exports
+    assert {e.path for e in gallery_exports} == export_paths
+    assert all(e.qualified is False for e in gallery_exports)
+    assert all(e.review_statuses == ("accepted",) for e in gallery_exports)
+    assert all(e.adoption_statuses == ("provisional",) for e in gallery_exports)
+
+    found = ws.find("cardiac-atlas")
+    assert any(a.id == "anatomy:heart:cardiac-atlas" for a in found.assets)
+
+    # Unknown target returns explicit unknown-target result.
+    unknown_show = ws.show("anatomy:heart:does-not-exist")
+    assert isinstance(unknown_show, UnknownTargetResult)
+    assert unknown_show.to_dict() == {
+        "target": "anatomy:heart:does-not-exist",
+        "found": False,
+        "status": "unknown-target",
+    }
+    unknown_imp = ws.impact("anatomy:heart:does-not-exist")
+    assert unknown_imp.found is False
+    assert unknown_imp.status == "unknown-target"
+    assert unknown_imp.matched_export_paths == ()
 
 
 def test_typer_cli_pilot_validate_and_error_exit() -> None:
@@ -418,5 +569,116 @@ def test_typer_cli_pilot_validate_and_error_exit() -> None:
     assert payload["status"] == "ok"
     assert payload["counts"]["assets"] == 2
 
+    shown = runner.invoke(app, ["--repo", str(pilot), "--native-only", "show", "liver-s1233"])
+    assert shown.exit_code == 0, shown.output
+    assert json.loads(shown.output)["found"] is True
+
+    found = runner.invoke(app, ["--repo", str(pilot), "--native-only", "find", "liver"])
+    assert found.exit_code == 0, found.output
+    assert len(json.loads(found.output)["assets"]) >= 1
+
     bad = runner.invoke(app, ["--repo", str(pilot), "--native-only", "bundle", "nonexistent"])
     assert bad.exit_code == 2
+
+
+def test_qualification_is_bound_to_digest_owner_and_use() -> None:
+    path, digest = "shared.glb", "a" * 64
+    use = Adoption(
+        use_id="a",
+        consumer_id="lesson-a",
+        asset_id="heart",
+        revision_id="r1",
+        export_path=path,
+        owner_path="record",
+        status="qualified",
+        sha256=digest,
+        requirement_ids=("locate",),
+        part_ids=("arch",),
+    )
+    decision = Qualification(
+        id="q",
+        asset_id="heart",
+        revision_id="r1",
+        owner_path="record",
+        scope="teaching",
+        decision="qualified",
+        export_path=path,
+        sha256=digest,
+        use_id="a",
+        part_ids=("arch",),
+    )
+    curation = CurationStore(qualifications=(decision,), adoptions=(use,))
+
+    def check(store, consumer="lesson-a", **updates):
+        args = dict(
+            asset_id="heart",
+            revision_id="r1",
+            task_id="locate",
+            part_id="arch",
+            consumer_id=consumer,
+        )
+        return store.qualification_for(path, digest, **(args | updates)).qualified
+
+    assert check(curation)
+    assert not check(curation, consumer="lesson-b")
+    assert not check(curation, revision_id="r2")
+    assert not check(curation, task_id="animate")
+    assert not check(curation, part_id="wall")
+    absent = CurationStore(
+        qualifications=(decision.model_copy(update={"sha256": None}),), adoptions=(use,)
+    )
+    assert not check(absent)
+
+
+def test_economy_and_bundle_agree_on_repeated_export() -> None:
+    ws = Workspace.load(
+        Path(__file__).resolve().parents[1] / "pilot", include_legacy_adapters=False
+    )
+    sweep = next(c for c in ws.delivery.consumers if c.kind == "ultrasound-sweep")
+    vessels = sweep.pins[1]
+    graph = DeliveryGraph(
+        consumers=(
+            sweep.model_copy(
+                update={
+                    "pins": (
+                        vessels.model_copy(update={"parts": ()}),
+                        vessels.model_copy(update={"parts": ("portal-vein",)}),
+                    )
+                }
+            ),
+        )
+    )
+    bundle = graph.bundle_for(sweep.id, ws.registry)
+    economy = graph.economy(ws.registry)
+    metric = economy.consumer_metrics[0]
+    assert bundle.total_bytes == metric.total_bytes == 680000
+    assert metric.loads == 1
+    assert metric.byte_utilization == metric.part_utilization == 1
+    assert json.loads(economy.to_json()) == economy.to_dict()
+
+
+def test_build_cli_returns_failure_receipt(tmp_path: Path) -> None:
+    manifest = {
+        "assets": [
+            {
+                "id": "demo",
+                "revisions": [
+                    {
+                        "id": "r1",
+                        "recipe": "build.py",
+                        "exports": [{"id": "mesh", "path": "mesh.glb"}],
+                    }
+                ],
+            }
+        ]
+    }
+    (tmp_path / "assets.json").write_text(json.dumps(manifest))
+    recipe = tmp_path / "build.py"
+    runner = CliRunner()
+    for code in (0, 3):
+        recipe.write_text(f"raise SystemExit({code})")
+        result = runner.invoke(app, ["--repo", str(tmp_path), "build", "demo", "r1", "--apply"])
+        assert result.exit_code == 1
+        receipt = json.loads(result.output)
+        assert receipt["status"] == "failed"
+        assert receipt["returncode"] == code

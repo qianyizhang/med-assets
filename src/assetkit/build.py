@@ -5,17 +5,16 @@ from __future__ import annotations
 import json
 import subprocess
 import sys
-from dataclasses import asdict, dataclass
 from pathlib import Path
-from typing import Any, Protocol
+from typing import Any, Literal, Protocol
 
-from .blobs import inspect_mesh, normalize_path, safe_path, verify
+from .blobs import BlobStatus, inspect_mesh, normalize_path, safe_path, verify
 from .errors import AssetKitError
+from .models import AssetModel
 from .registry import AssetRegistry
 
 
-@dataclass(frozen=True)
-class BuildSpec:
+class BuildSpec(AssetModel):
     """Deterministic build plan for an Asset Revision's recipe."""
 
     asset_id: str
@@ -26,31 +25,43 @@ class BuildSpec:
     expected_outputs: tuple[str, ...]
 
 
-@dataclass(frozen=True)
-class BuildResult:
+class VerifiedOutput(AssetModel):
+    """Post-build verification result for a single expected output."""
+
+    path: str
+    status: BlobStatus
+    sha256: str | None = None
+    bytes: int | None = None
+    triangles: int | None = None
+
+
+class BuildResult(AssetModel):
     """Outcome of executing (or planning) a BuildSpec."""
 
     spec: BuildSpec
-    status: str  # planned | built | failed
+    status: Literal["planned", "built", "failed"]
     returncode: int = 0
     stdout: str = ""
     stderr: str = ""
-    verified_outputs: tuple[dict[str, Any], ...] = ()
-
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
+    verified_outputs: tuple[VerifiedOutput, ...] = ()
 
 
-@dataclass(frozen=True)
-class SyncDiff:
+class SyncExportChange(AssetModel):
+    """Before/after field changes observed for one export during manifest sync."""
+
+    asset_id: str | None = None
+    revision_id: str | None = None
+    export_id: str | None = None
+    path: str
+    changes: dict[str, dict[str, Any]]
+
+
+class SyncDiff(AssetModel):
     """Observed changes between an assets.json manifest and rebuilt artifacts on disk."""
 
     manifest_path: str
-    updated_exports: tuple[dict[str, Any], ...]
+    updated_exports: tuple[SyncExportChange, ...]
     applied: bool
-
-    def to_dict(self) -> dict[str, Any]:
-        return asdict(self)
 
 
 class BuildRunner(Protocol):
@@ -103,7 +114,7 @@ def plan_build(
     if recipe_rel.endswith(".py"):
         text = recipe_file.read_text(encoding="utf-8", errors="ignore")
         if "import bpy" in text or "from bpy" in text:
-            cmd = (blender_bin, "--background", "--python", recipe_rel)
+            cmd = (blender_bin, "--background", "--python-exit-code", "1", "--python", recipe_rel)
         else:
             cmd = (sys.executable, recipe_rel)
     else:
@@ -134,22 +145,22 @@ def run_build(
     if code != 0:
         return BuildResult(spec=spec, status="failed", returncode=code, stdout=out, stderr=err)
 
-    verified = []
+    verified: list[VerifiedOutput] = []
     for path in spec.expected_outputs:
         chk = verify(repo, path)
         stats = inspect_mesh(repo, path) if path.endswith(".glb") else None
         verified.append(
-            {
-                "path": chk.path,
-                "status": chk.status,
-                "sha256": chk.sha256,
-                "bytes": chk.bytes,
-                "triangles": stats.triangles if stats is not None else None,
-            }
+            VerifiedOutput(
+                path=chk.path,
+                status=chk.status,
+                sha256=chk.sha256,
+                bytes=chk.bytes,
+                triangles=stats.triangles if stats is not None else None,
+            )
         )
     return BuildResult(
         spec=spec,
-        status="built",
+        status="built" if all(output.status == "hydrated" for output in verified) else "failed",
         returncode=0,
         stdout=out,
         stderr=err,
@@ -166,7 +177,7 @@ def sync_manifest(repo: Path, manifest_rel_path: str, *, apply: bool = False) ->
     doc = json.loads(manifest.read_text(encoding="utf-8"))
     owner_dir = manifest.parent.resolve().relative_to(repo.resolve()).as_posix()
 
-    updates: list[dict[str, Any]] = []
+    updates: list[SyncExportChange] = []
     for asset in doc.get("assets", []):
         for rev in asset.get("revisions", []):
             for exp in rev.get("exports", []):
@@ -184,7 +195,7 @@ def sync_manifest(repo: Path, manifest_rel_path: str, *, apply: bool = False) ->
                     if full_rel.endswith(".glb") and chk.status in {"hydrated", "verified"}
                     else None
                 )
-                changes: dict[str, Any] = {}
+                changes: dict[str, dict[str, Any]] = {}
                 if chk.sha256 and exp.get("sha256") != chk.sha256:
                     changes["sha256"] = {"before": exp.get("sha256"), "after": chk.sha256}
                     exp["sha256"] = chk.sha256
@@ -199,13 +210,13 @@ def sync_manifest(repo: Path, manifest_rel_path: str, *, apply: bool = False) ->
                     exp["triangles"] = stats.triangles
                 if changes:
                     updates.append(
-                        {
-                            "assetId": asset.get("id"),
-                            "revisionId": rev.get("id"),
-                            "exportId": exp.get("id"),
-                            "path": full_rel,
-                            "changes": changes,
-                        }
+                        SyncExportChange(
+                            asset_id=asset.get("id"),
+                            revision_id=rev.get("id"),
+                            export_id=exp.get("id"),
+                            path=full_rel,
+                            changes=changes,
+                        )
                     )
 
     if apply and updates:

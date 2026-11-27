@@ -3,11 +3,12 @@
 from __future__ import annotations
 
 import json
-from dataclasses import asdict, dataclass
+from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
 from .errors import AssetKitError
+from .models import AssetModel
 
 HIERARCHICAL_EDGES = frozenset({"part_of", "is_a"})
 EDGE_TYPES = frozenset(
@@ -27,15 +28,13 @@ EDGE_TYPES = frozenset(
 )
 
 
-@dataclass(frozen=True)
-class Concept:
+class Concept(AssetModel):
     id: str
     label: str
     aliases: tuple[str, ...] = ()
 
 
-@dataclass(frozen=True)
-class ConceptEdge:
+class ConceptEdge(AssetModel):
     subject: str
     predicate: str
     object: str
@@ -78,7 +77,7 @@ class ConceptGraph:
                         evidence=row.get("evidence"),
                     )
                 )
-        return cls(tuple(concepts), tuple(edges))
+        return cls(concepts=tuple(concepts), edges=tuple(edges))
 
     @property
     def ids(self) -> set[str]:
@@ -171,6 +170,6 @@ class ConceptGraph:
 
     def to_dict(self) -> dict[str, Any]:
         return {
-            "nodes": [asdict(c) for c in self.concepts],
-            "edges": [asdict(e) for e in self.edges],
+            "nodes": [c.to_dict() for c in self.concepts],
+            "edges": [e.to_dict() for e in self.edges],
         }

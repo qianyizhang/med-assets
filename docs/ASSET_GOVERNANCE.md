@@ -18,7 +18,7 @@ The generated catalog is a projection, never an edit surface. Existing package-m
 
 The target model comprises Asset, Revision, Artifact, NamedPart, GeometryVariant, Concept, typed ConceptRelation, SourceSubject, FrameTransform, Composition, LoadablePackage, UseCase, Requirement, TeachingUse, Assessment, Qualification, Adoption and Release.
 
-Concepts form a typed polyhierarchical graph. \`part_of\` and \`is_a\` are hierarchical relations; functional and spatial relations remain typed edges. Concepts and assets are many-to-many. Sources and assets are many-to-many. A selectable component is not automatically an independent asset. A composition may remain consumer-owned or become a maintained composite asset.
+Concepts form a typed polyhierarchical graph. `part_of` and `is_a` are hierarchical relations; functional and spatial relations remain typed edges. Concepts and assets are many-to-many. Sources and assets are many-to-many. A selectable component is not automatically an independent asset. A composition may remain consumer-owned or become a maintained composite asset.
 
 ## Priority consumers
 
@@ -55,9 +55,9 @@ The package adapter imports explicit part selectors from existing source records
 Use `resolve` to compare a consumer's declared part IDs with those exact selectors:
 
 ```sh
-python tools/asset_governance.py resolve ultrasound:sweep:abdomen-tracks:liver
-python tools/asset_governance.py resolve ultrasound:sweep:thyroid-tracks:thyroid-right
-python tools/asset_governance.py resolve ultrasound:sweep:abdomen-tracks:liver --part liver
+uv run python tools/asset_governance.py resolve ultrasound:sweep:abdomen-tracks:liver
+uv run python tools/asset_governance.py resolve ultrasound:sweep:thyroid-tracks:thyroid-right
+uv run python tools/asset_governance.py resolve ultrasound:sweep:abdomen-tracks:liver --part liver
 ```
 
 An exact selector plus exact source-case match produces an **exact binding candidate**, not a qualified teaching asset. Anatomical suitability, spatial registration, license compatibility, learner-task evidence and runtime behavior remain separate gates. Unknown source frames, missing selectors and conflicting candidates remain visible.
@@ -66,14 +66,14 @@ An exact selector plus exact source-case match produces an **exact binding candi
 
 Run from the repository root:
 
-\`\`\`sh
-python tools/asset_governance.py scan
-python tools/asset_governance.py find "hepatic vein" --domain ultrasound-anatomy
-python tools/asset_governance.py find "left vesical" --domain body-systems
-python tools/asset_governance.py show body-systems:digestive:digestive-s1233-route
-python tools/asset_governance.py resolve ultrasound:sweep:abdomen-tracks:liver
-python tools/asset_governance.py impact package:models/liver
-\`\`\`
+```sh
+uv run python tools/asset_governance.py scan
+uv run python tools/asset_governance.py find "hepatic vein" --domain ultrasound-anatomy
+uv run python tools/asset_governance.py find "left vesical" --domain body-systems
+uv run python tools/asset_governance.py show body-systems:digestive:digestive-s1233-route
+uv run python tools/asset_governance.py resolve ultrasound:sweep:abdomen-tracks:liver
+uv run python tools/asset_governance.py impact package:models/liver
+```
 
 Outputs are deterministic JSON. A package candidate is not a confirmed asset lineage.
 
@@ -81,24 +81,24 @@ Outputs are deterministic JSON. A package candidate is not a confirmed asset lin
 
 Create a proposal:
 
-\`\`\`sh
-python tools/asset_governance.py backfill plan --output .artifacts/asset-backfill.plan.json
-\`\`\`
+```sh
+uv run python tools/asset_governance.py backfill plan --output .artifacts/asset-backfill.plan.json
+```
 
-Every decision defaults to \`defer\`. Review granularity and ownership. For an accepted proposal, set \`decision\` to \`accept\` and supply a stable unique \`assetId\`. Then apply:
+Every decision defaults to `defer`. Review granularity and ownership. For an accepted proposal, set `decision` to `accept` and supply a stable unique `assetId`. Then apply:
 
-\`\`\`sh
-python tools/asset_governance.py backfill apply --plan .artifacts/asset-backfill.plan.json
-\`\`\`
+```sh
+uv run python tools/asset_governance.py backfill apply --plan .artifacts/asset-backfill.plan.json
+```
 
 Applied records are provisional. The tool never invents sources, concepts, part selectors, revisions, qualification or consumer bindings. It pins the plan to source hashes, manifests and export identities and refuses stale input. Reapplying an identical plan is idempotent; conflicting existing records are rejected.
 
 Hydration is scoped and dry-run by default:
 
-\`\`\`sh
-python tools/asset_governance.py hydrate models/liver/exports/teaching-economy-r02/liver.glb
-python tools/asset_governance.py hydrate models/liver/exports/teaching-economy-r02/liver.glb --apply
-\`\`\`
+```sh
+uv run python tools/asset_governance.py hydrate models/liver/exports/teaching-economy-r02/liver.glb
+uv run python tools/asset_governance.py hydrate models/liver/exports/teaching-economy-r02/liver.glb --apply
+```
 
 The command delegates transfer to Git LFS and checks that requested paths no longer contain pointer text. Exact payload identity remains governed by the existing artifact and transport contracts.
 
@@ -110,13 +110,13 @@ The first API is read-only: scan, find, show, resolve and impact. Resolution dis
 
 ## Verification
 
-The library uses Python 3.11+ standard-library dataclasses, strict repository-path checks and JSON contracts. It adds no database, service, runtime package dependency or second source of truth. Run its focused suite through unittest discovery, or run the repository's full offline gate:
+The library uses the repository’s Python 3.12 environment, standard-library dataclasses, strict repository-path checks and JSON contracts. It adds no database, service, runtime package dependency or second source of truth. Run its focused suite through unittest discovery, or run the repository's full offline gate:
 
-\`\`\`sh
-PYTHONPATH=lib python -m unittest discover -s tests -p 'test_asset_governance.py'
-python tools/asset_governance.py scan >/tmp/asset-catalog.json
-python tools/verify.py offline
-\`\`\`
+```sh
+uv run python -m unittest discover -s tests -p 'test_asset_governance.py'
+uv run python tools/asset_governance.py scan >/tmp/asset-catalog.json
+uv run python tools/verify.py offline
+```
 
 The catalog is not a completeness claim. Unresolved owners, requirements, registrations, rights and readers remain visible.
 
@@ -126,8 +126,8 @@ The catalog is not a completeness claim. Unresolved owners, requirements, regist
 Lifecycle mutations edit only the owning package's asset.record.json. They never modify the catalog, move geometry, delete LFS objects, upload, publish Gallery routes or alter consumer content. Every mutation follows inspectable plan then explicit apply:
 
 ```sh
-python tools/asset_governance.py lifecycle plan --action qualify --asset anatomy:liver:hra --payload .artifacts/qualification.json
-python tools/asset_governance.py lifecycle apply --plan .artifacts/asset-lifecycle.plan.json
+uv run python tools/asset_governance.py lifecycle plan --action qualify --asset anatomy:liver:hra --payload .artifacts/qualification.json
+uv run python tools/asset_governance.py lifecycle apply --plan .artifacts/asset-lifecycle.plan.json
 ```
 
 Supported actions: refine (append owner-reviewed concepts, sources, parts or revisions), assess (record revision-scoped assessment), qualify (record scoped reviewer decision and evidence), adopt (pin consumer, revision, export digest/size, parts and requirements; always starts provisional), promote (requires qualification, no unresolved record issues, concepts, sources, parts and verified export bytes), deprecate, retire and archive. Retirement requires a disposition for every indexed reader. Archive is metadata-only and blocked while a reader remains frozen. Neither action deletes bytes.

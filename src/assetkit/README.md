@@ -1,6 +1,6 @@
 # AssetKit
 
-**AssetKit** is a standalone Python 3.12 library (stdlib-only domain core + Typer CLI) for medical teaching asset management, structured as **6 DDD bounded contexts**.
+**AssetKit** is a standalone Python 3.12 library (Pydantic v2 domain models + Typer CLI) for medical teaching asset management, structured as **6 DDD bounded contexts**.
 
 It is designed around three goals:
 1. **Maintain fewer assets** by separating authoring lineages from runtime delivery payloads.
@@ -14,8 +14,12 @@ See [DESIGN.md](DESIGN.md) for the DDD submodule architecture, invariants, econo
 Sync the `uv` environment (`uv sync`) and run from the repository root:
 
 ```sh
-# Validate invariants across all bounded contexts
+# Check index structure and declared relationships
 uv run assetkit validate
+
+# Discover and inspect maintained assets, parts, assessments, and decisions
+uv run assetkit find cardiac-atlas
+uv run assetkit show anatomy:heart:cardiac-atlas
 
 # Compute reuse, load fan-out, part/byte utilization, and merge/split advice
 uv run assetkit economy
@@ -26,7 +30,7 @@ uv run assetkit impact liver
 # Resolve candidate assets/parts for a consumer's requirements
 uv run assetkit resolve ultrasound:sweep:abdomen-tracks:liver
 
-# Resolve exact runtime load bundle or list open anatomy gaps
+# Plan declared loads and inspect storage status, or list indexed anatomy gaps
 uv run assetkit bundle <consumer-id>
 uv run assetkit gaps --prefix ultrasound:
 
@@ -34,10 +38,12 @@ uv run assetkit gaps --prefix ultrasound:
 uv run assetkit build <asset-id> <revision-id> [--apply]
 uv run assetkit sync <package>/assets.json [--apply]
 
-# Compile downstream Gallery or R2 projections
+# Inspect Gallery entries or R2 demand from selections and consumer pins
 uv run assetkit compile --target gallery
 uv run assetkit compile --target r2
 ```
+
+A bundle preserves one item per use, including its transform. Totals count each pinned export once. Check each item’s storage status and digest before runtime use. The R2 projection lists demand. The transport owner controls upload admission.
 
 ## Submodules (Bounded Contexts)
 

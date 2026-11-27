@@ -7,14 +7,14 @@
 
 ## 1. Target State After Porting Existing Artifacts
 
-Porting the current repository (~86 discovered asset directories, 194 runtime exports totaling ~579 MB, 13 lessons, 32 ultrasound cases / 16 sweeps, 133 teaching assessments, and 81 selections) into AssetKit organizes the repository into **two primary declarative sets** (plus immutable reviews and curated selections):
+Porting the current repository (~86 discovered asset directories, 194 runtime exports totaling ~579 MB, 13 lessons, 32 ultrasound cases / 16 sweeps, 130 maintained teaching assessments, and 81 selections) into AssetKit organizes the repository into **two primary declarative sets** (plus immutable reviews and curated selections):
 
 | Layer | Estimated Scale After Porting | Owned On Disk | Submodule Owner |
 | --- | --- | --- | --- |
 | **Maintained Assets** | **~80–90 Assets** across ~65–70 package directories; **~160 Revisions**; **~220–260 Exports** (~500–600 addressable **Parts**) | `<package>/assets.json` (1 file per package directory, declaring `1..N` Assets) | `assetkit.registry` + `assetkit.build` |
 | **Shared Concepts** | **~150–250 Concepts** + typed DAG edges (`part_of`, `is_a`, `located_in`, `produces`, `participates_in`, `drains_to`, etc.) | `sources/concepts.json` (1 compact shared file; terms added on demand) | `assetkit.vocab` |
 | **Consumers** | **~70–80 Consumers**: 11 Body Systems stops, 12 other lessons, 16 ultrasound sweeps, 32 ultrasound exam cases, 3 published sites | `<consumer>/consumer.json` (co-located with each lesson, tour family, or site) | `assetkit.delivery` |
-| **Reviews** | **~130–200 Reviews** (133 teaching assessments + ~71 ultrasound part reviews) | `reviews/` (existing immutable dated JSON files) | `assetkit.curation` |
+| **Reviews** | **~130–200 Reviews** (130 maintained teaching assessments + ~71 ultrasound part reviews) | `reviews/` (existing immutable dated JSON files) | `assetkit.curation` |
 | **Selections** | **~80–100 Selections** (81 teaching defaults + recommended revisions + R2 admissions) | `docs/gallery/maintained-selections.json` + recommendations | `assetkit.curation` |
 
 ### Key Structural Shifts From Today
@@ -144,21 +144,23 @@ Porting the current repository (~86 discovered asset directories, 194 runtime ex
 | **Validate everything** | `Workspace.load(repo).validate()` | `uv run assetkit validate` |
 | **Plan / run recipe rebuild** | `build.plan_build(...)` → `build.run_build(..., apply=True)` | `uv run assetkit build <asset> <rev> [--apply]` |
 | **Refresh hashes & GLB stats** | `build.sync_manifest(repo, path, apply=True)` | `uv run assetkit sync <pkg>/assets.json [--apply]` |
-| **Delivery economy scorecard** | `ws.delivery.economy(ws.registry, policy)` | `uv run assetkit economy` |
-| **Impact before edit/retire** | `ws.delivery.impact(target, ws.registry, ws.curation)` | `uv run assetkit impact <id\|path>` |
-| **Candidate resolution** | `ws.delivery.resolve(cid, ws.registry, ws.vocab, ws.curation)` | `uv run assetkit resolve <consumer> [--req <id>]` |
-| **Runtime load bundle** | `ws.delivery.bundle_for(cid, ws.registry)` | `uv run assetkit bundle <consumer>` |
+| **Delivery economy scorecard** | `ws.economy(policy)` | `uv run assetkit economy` |
+| **Impact before edit/retire** | `ws.impact(target)` | `uv run assetkit impact <id\|path>` |
+| **Candidate resolution** | `ws.resolve(cid)` | `uv run assetkit resolve <consumer> [--req <id>]` |
+| **Declared load bundle** | `ws.bundle(cid)` | `uv run assetkit bundle <consumer>` |
 | **Open anatomy gap backlog** | `ws.delivery.open_gaps(prefix)` | `uv run assetkit gaps [--prefix ultrasound:]` |
-| **Compile Gallery / R2 plan** | `ws.curation.compile_gallery(...)` / `plan_r2_sync(...)` | `uv run assetkit compile --target gallery\|r2` |
+| **Compile Gallery / R2 plan** | `ws.compile_gallery()` / `ws.plan_r2_sync()` | `uv run assetkit compile --target gallery\|r2` |
 
 ---
 
-## 4. End-to-End Walkthrough: Ultrasound Anatomy
+## 4. Target ultrasound workflow
+
+These examples describe the planned integration. The [liver pilot](pilot/README.md) exercises manifest queries with declared weights.
 
 1. **Audit & Gap Tracking:** Each ultrasound sweep/case declares `requirements` and `pins` in `consumer.json`. `uv run assetkit resolve ultrasound:sweep:abdomen-tracks:liver` matches `liver` and `gallbladder` to `s1233-body-delivery@r1` (`registration: native`, `qualified: false`) while surfacing `portal_vein_and_splenic_vein` and `inferior_vena_cava` as `unmatched`. `uv run assetkit gaps --prefix ultrasound:` produces the exact build backlog.
 2. **Extending With Pathology / Foreign Details:** Keep **1 `liver-s1233` Asset**. Express **Fatty Liver** via B-mode material parameters (`variant: "fatty"`). Express **Focal Liver Lesion** via a lightweight additive `focal-lesion` overlay Export (`~75 KB`, `registration: illustrative`, foreign/synthetic provenance)—or a standalone `detail` Asset attached via a Consumer Pin transform. Overview stops still download only `liver-surface.glb` (~320 KB, 100% utilization).
 3. **Refining & Rebuilding (`r02` → `r03`):** Run `uv run assetkit build liver-s1233 r03 --apply` → `uv run assetkit sync models/liver/assets.json --apply` → `uv run assetkit economy` (verifies size/triangle caps & utilization) → `uv run assetkit impact liver-s1233` (shows exact affected sweeps, tours, reviews, and selections) → record a dated `Review` bound to `r03`'s `sha256` → advance consumer `pins` and `Selection`.
-4. **Runtime Consumption:** Ultrasound tour builders (`build_abdomen.py`, `assemble_tours.py`) call `ws.delivery.bundle_for(consumer_id, ws.registry)` to receive exact verified file paths, selected parts, transforms, licenses, and limits—eliminating hardcoded asset paths.
+4. **Runtime Consumption:** Tour builders can use `ws.bundle(consumer_id)` for declared paths, selected parts, transforms, licenses, and limits. Integration requires verifying payload identity and availability before loading.
 
 ---
 
