@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:hra:kidney-right",
+  "title": "Female HRA right kidney",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/kidney_right",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:hra-kidney-female-right-v1-3:matte-r02",
+      "title": "Female HRA right kidney v1.3 matte source",
+      "sourceType": "atlas-derived GLB",
+      "subject": "HRA female right kidney v1.3 reference organ",
+      "path": "models/kidney_right/exports/hra-female-v1.3-r02/kidney_right.glb",
+      "bytes": 1403576,
+      "sha256": "977d0a283de7071a2e8aaeb8900c5a6dc8d0ba770eb458e996dc66cc249c0b56",
+      "license": "Kristen Browne and Heidi Schlehlein, HRA, CC BY 4.0.",
+      "evidence": [
+        {
+          "path": "models/kidney_right/ATTRIBUTION.md",
+          "sha256": "98f9a3a88b3be20ce29a075243b5cdbbb8dd4e7c373aca11c59a3a3fe4e72a7f"
+        },
+        {
+          "path": "sources/datasets/hra/kidney-female-right-v1.3/metadata.json",
+          "sha256": "75dcd85769f32ad3b4115965d3a212366cdcdc78deb39bfaec1f3ff6c2e538c4"
+        },
+        {
+          "path": "sources/datasets/hra/kidney-female-right-v1.3/provenance.json",
+          "sha256": "3176dabd95d5346a75f6241da80d0c653104030a7c97ee681a2b74c639c63033"
+        },
+        {
+          "path": "reviews/kidney_right/2026-10-23-hra-female-v1.3-r02/record.json",
+          "sha256": "9b6b5874a8508f494910f180a59dfb8a945a100611d14423e7057a92b68062bf"
+        },
+        {
+          "path": "assemblies/kidney-pair/recipes/README.md",
+          "sha256": "4993ce0300d57bc4ca848e80d845b9a4f2b714c7c0f6fad04d71cebbc8a8abcf"
+        }
+      ],
+      "limitations": [
+        "The source exterior is organ-local. Renal pelvis, calyces, ureter and vasculature are absent."
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "kidney-right-cortex",
+      "label": "Right outer renal cortex",
+      "selectors": [
+        "VH_F_outer_cortex_of_kidney_R"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "kidney-right-hilum",
+      "label": "Right renal hilum",
+      "selectors": [
+        "VH_F_hilum_of_kidney_R"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "kidney-right-capsule",
+      "label": "Right renal capsule",
+      "selectors": [
+        "VH_F_kidney_capsule_R"
+      ],
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "teaching-economy-r01",
+      "status": "provisional",
+      "recipe": "recipes/teaching-economy-r01.json",
+      "recipeEvidence": {
+        "path": "models/kidney_right/exports/teaching-economy-r01/README.md",
+        "sha256": "a77711200360a837d407e1e5c7b3ed9d54cca88ad8d47397dd27e576193eff3e"
+      },
+      "sourceIds": [
+        "source:hra-kidney-female-right-v1-3:matte-r02"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "reviews/kidney_right/2026-10-23-hra-female-v1.3-r02/record.json"
+      },
+      "partIds": [
+        "kidney-right-cortex",
+        "kidney-right-hilum",
+        "kidney-right-capsule"
+      ],
+      "exports": [
+        {
+          "id": "reference",
+          "path": "models/kidney_right/exports/teaching-economy-r01/kidney_right.glb",
+          "bytes": 526464,
+          "sha256": "fdddbde55104ab9af2b5ebafea7e52692dad7f94aad85d93a2237cbdd371e3eb",
+          "format": "glb",
+          "triangles": 28682,
+          "partIds": [
+            "kidney-right-cortex",
+            "kidney-right-hilum",
+            "kidney-right-capsule"
+          ]
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Placement in the body or across cases is unverified. The edition supports only native-frame exterior and hilar reference."
+  ]
+}

@@ -1,0 +1,243 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:hra:pancreas",
+  "title": "Female HRA pancreas and context",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/pancreas",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:hra-united-female-v1-10:atlas",
+      "title": "HRA United Female v1.10 reference organ set",
+      "sourceType": "external atlas GLB",
+      "subject": "HRA United Female v1.10 atlas",
+      "url": "https://cdn.humanatlas.io/digital-objects/ref-organ/united-female/v1.10/assets/3d-vh-f-united.glb",
+      "doi": "https://doi.org/10.48539/HBM637.DWBM.744",
+      "sha256": "95f0c3d2f918582608692ca1139e8bdb18c147a16470e9ee9af8b276bd77c422",
+      "bytes": 374505632,
+      "license": "Kristen Browne and Heidi Schlehlein, HRA, CC BY 4.0.",
+      "evidence": [
+        {
+          "path": "models/pancreas/ATTRIBUTION.md",
+          "sha256": "547a19d36dd67793fc4c6f075ef8e8e1aa9b57f25e1e0cdd856a4ae18126e4e5"
+        },
+        {
+          "path": "sources/datasets/hra/united-female-v1.10/external-source.json",
+          "sha256": "b6b8f7c3ef3f8e1452428ff60f2669c8ab3a649c520fa956a34bbed21d0c8efd"
+        },
+        {
+          "path": "reviews/pancreas/hra-female-context-r04/bounded-record.json",
+          "sha256": "d106d8c5c3c63866181b24e89b0fb9c54041648782a059d6641b80415d2c713f"
+        },
+        {
+          "path": "assemblies/bladder-pancreas/recipes/recipe/replay-verification.json",
+          "sha256": "a8a0a7076d606a12947114d79823acd00e2decf7655e75c9afcfaccf69fa136c"
+        }
+      ],
+      "limitations": [
+        "The original reference retains open patches, slivers, degenerate faces and protected zero or near-zero normals."
+      ]
+    },
+    {
+      "sourceId": "source:hra-united-female-v1-10:pancreas-context-r04",
+      "title": "HRA female pancreas with anatomically named context",
+      "sourceType": "atlas-derived GLB",
+      "subject": "HRA United Female v1.10 atlas",
+      "path": "models/pancreas/exports/hra-female-context-r04/pancreas_hra_female_context_r04.glb",
+      "sha256": "aa15f9248027c248886a9cf8d4f5f401b2753176c800851f648b03d88d97ebed",
+      "bytes": 1373872,
+      "license": "Kristen Browne and Heidi Schlehlein, HRA, CC BY 4.0.",
+      "evidence": [
+        {
+          "path": "models/pancreas/ATTRIBUTION.md",
+          "sha256": "547a19d36dd67793fc4c6f075ef8e8e1aa9b57f25e1e0cdd856a4ae18126e4e5"
+        },
+        {
+          "path": "reviews/teaching-assessments/reopen-regional/trials.py",
+          "sha256": "6ad960fa1e1907d5b2c080c7327447763f9cb70f2033891bd916aa6ece7be814"
+        },
+        {
+          "path": "reviews/teaching-assessments/reopen-regional/measurements.json",
+          "sha256": "3ebadea4ddb141d198b05b84faeb382f3ed7cf06eff830b758eaf9f6d488c604"
+        }
+      ],
+      "limitations": [
+        "The derived enclosure interprets gross form for head-to-tail localization. The intact regional meshes and external duct surfaces remain in r04."
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "pancreas-head",
+      "label": "Pancreatic head",
+      "selectors": [
+        "VH_F_head_of_pancreas"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "pancreas-uncinate",
+      "label": "Uncinate process",
+      "selectors": [
+        "VH_F_ucinate_process1"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "pancreas-body",
+      "label": "Pancreatic body",
+      "selectors": [
+        "VH_F_body_of_pancreas"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "pancreas-tail",
+      "label": "Pancreatic tail",
+      "selectors": [
+        "VH_F_tail_of_pancreas"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "splenic-hilum",
+      "label": "Splenic hilum",
+      "selectors": [
+        "VH_F_hilum_of_spleen"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "common-bile-duct",
+      "label": "Common bile duct surface",
+      "selectors": [
+        "VH_F_common_bile_duct"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "pancreas-neck",
+      "label": "Pancreatic neck",
+      "selectors": [
+        "VH_F_neck_of_pancreas"
+      ],
+      "registration": "native"
+    },
+    {
+      "partId": "gross-envelope",
+      "label": "Interpreted gross pancreatic envelope",
+      "selectors": [
+        "Pancreatic gross envelope (interpreted)"
+      ],
+      "registration": "illustrative"
+    },
+    {
+      "partId": "duodenal-context",
+      "label": "Retained duodenal bend",
+      "selectors": [
+        "VH_F_duodenum_superior",
+        "VH_F_duodenum_descending",
+        "VH_F_duodenum_horizontal",
+        "VH_F_duodenum_ascending"
+      ],
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "hra-female-context-r04",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "assemblies/bladder-pancreas/recipes/recipe/README.md",
+        "sha256": "0c5ba1b13478998f1245a569de673a303a3d58e750118d8a6d3b16c2d5bd99b5"
+      },
+      "sourceIds": [
+        "source:hra-united-female-v1-10:atlas"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "reviews/pancreas/hra-female-context-r04/bounded-record.json"
+      },
+      "partIds": [
+        "pancreas-head",
+        "pancreas-uncinate",
+        "pancreas-body",
+        "pancreas-tail",
+        "splenic-hilum",
+        "common-bile-duct",
+        "pancreas-neck"
+      ],
+      "exports": [
+        {
+          "id": "reference",
+          "path": "models/pancreas/exports/hra-female-context-r04/pancreas_hra_female_context_r04.glb",
+          "sha256": "aa15f9248027c248886a9cf8d4f5f401b2753176c800851f648b03d88d97ebed",
+          "bytes": 1373872,
+          "format": "glb",
+          "triangles": 38598,
+          "partIds": [
+            "pancreas-head",
+            "pancreas-uncinate",
+            "pancreas-body",
+            "pancreas-tail",
+            "splenic-hilum",
+            "common-bile-duct",
+            "pancreas-neck"
+          ]
+        }
+      ],
+      "qualifications": []
+    },
+    {
+      "revisionId": "gross-locator-r05",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/pancreas/exports/gross-locator-r05/README.md",
+        "sha256": "3ffcf456695364c3f1b9725ed66b5f2e1c514aaa18548a9165993944355fcab4"
+      },
+      "sourceIds": [
+        "source:hra-united-female-v1-10:pancreas-context-r04"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "reviews/teaching-assessments/reopen-regional/README.md"
+      },
+      "partIds": [
+        "gross-envelope",
+        "duodenal-context",
+        "splenic-hilum"
+      ],
+      "exports": [
+        {
+          "id": "teaching",
+          "path": "models/pancreas/exports/gross-locator-r05/gross-locator.glb",
+          "sha256": "ac79b7138619462dbeaf28dda592aa93fc770d53d49eecbc125074594971667b",
+          "bytes": 596044,
+          "format": "glb",
+          "triangles": 28588,
+          "partIds": [
+            "gross-envelope",
+            "duodenal-context",
+            "splenic-hilum"
+          ]
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Cross-atlas placement, duct patency and flow are unverified. R05 supports gross localization in the r04 atlas space."
+  ]
+}
