@@ -3,7 +3,8 @@
 Four exact official exports supply a coarse bilateral ovary–tubal-end subset:
 ovaries v1.3 and fallopian tubes v1.2, each source-labelled left/right. The
 [manifest](source-manifest.json) pins all 14 acquired files by repository commit,
-URL, size, SHA-256 and Git blob SHA-1. This checkout retains source-specific metadata, crosswalks and attribution. For a fresh source replay, provide the four upstream GLBs at the manifest paths and verify their listed identities. See [credits and license](ATTRIBUTION.md).
+URL, size, SHA-256 and Git blob SHA-1. Original bytes and source-specific metadata,
+crosswalks and attribution are retained. See [credits and license](ATTRIBUTION.md).
 
 The ten mesh leaves explicitly identify `#VHFemaleOrgans` in both native GLB
 extras and the pinned female mapping v1.10. Source names, labels and ontology
