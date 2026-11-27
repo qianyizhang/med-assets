@@ -119,3 +119,19 @@ python tools/verify.py offline
 \`\`\`
 
 The catalog is not a completeness claim. Unresolved owners, requirements, registrations, rights and readers remain visible.
+
+
+## Controlled lifecycle operations
+
+Lifecycle mutations edit only the owning package's asset.record.json. They never modify the catalog, move geometry, delete LFS objects, upload, publish Gallery routes or alter consumer content. Every mutation follows inspectable plan then explicit apply:
+
+```sh
+python tools/asset_governance.py lifecycle plan --action qualify --asset anatomy:liver:hra --payload .artifacts/qualification.json
+python tools/asset_governance.py lifecycle apply --plan .artifacts/asset-lifecycle.plan.json
+```
+
+Supported actions: refine (append owner-reviewed concepts, sources, parts or revisions), assess (record revision-scoped assessment), qualify (record scoped reviewer decision and evidence), adopt (pin consumer, revision, export digest/size, parts and requirements; always starts provisional), promote (requires qualification, no unresolved record issues, concepts, sources, parts and verified export bytes), deprecate, retire and archive. Retirement requires a disposition for every indexed reader. Archive is metadata-only and blocked while a reader remains frozen. Neither action deletes bytes.
+
+Plans carry complete before/after records, source hashes, expected record digest, affected consumers and required checks. Apply rejects stale source/target state, recomputes the action from its payload, verifies the after-state digest and is idempotent. An empty impact report covers only currently indexed adapters, not unknown external readers. Regenerate plans after conflicts; do not hand-edit their after-state.
+
+Payloads are JSON objects. Refine uses {"set":{"concepts":[],"sources":[],"parts":[],"revisions":[]}}. Qualification uses {"revisionId":"r01","qualification":{"qualificationId":"q01","scope":"anatomy-and-runtime","reviewer":"reviewer-id","assessedAt":"2026-11-27","decision":"qualified","evidence":["reviews/asset/review.json"]}}. Adoption uses {"use":{"useId":"consumer:asset","consumerId":"lesson:example","revisionId":"r01","exportPath":"models/asset/asset.glb","sha256":"<64-hex-digest>","bytes":123,"partIds":["part-id"],"requirementIds":["requirement-id"]}}. These are contract examples, not approval of any repository asset mapping.
