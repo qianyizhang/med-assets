@@ -1,0 +1,224 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:s0189:thyroid",
+  "title": "s0189 thyroid source and illustrative exteriors",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/thyroid_ct_s0189",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:thyroid-ct-s0189:source-candidate-02",
+      "title": "TotalSegmentator v2.0.1 case s0189 source and replay for source-candidate-02",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "TotalSegmentator v2.0.1 case s0189",
+      "license": "CC BY 4.0. Retain the TotalSegmentator data and label-source notices.",
+      "evidence": [
+        {
+          "path": "models/thyroid_ct_s0189/provenance/source-candidate-02/migration-2026-10-24/README.md",
+          "sha256": "bd67799a6485999307a2074645a4135a735e4666fd407de2f5c22fa41be4ef5d"
+        },
+        {
+          "path": "models/thyroid_ct_s0189/provenance/source-candidate-02/migration-2026-10-24/ATTRIBUTION.md",
+          "sha256": "5d4cd4a1332d8bd25b9a3065b1b7d5c9dc5baad9709717a5bfe0186fa35e4df1"
+        }
+      ]
+    },
+    {
+      "sourceId": "source:thyroid-ct-s0189:illustrative-exterior-r01",
+      "title": "TotalSegmentator v2.0.1 case s0189, illustrated source and replay for illustrative-exterior-r01",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "TotalSegmentator v2.0.1 case s0189, illustrated",
+      "license": "CC BY 4.0. Retain the TotalSegmentator data and label-source notices.",
+      "evidence": [
+        {
+          "path": "models/thyroid_ct_s0189/illustrative-exterior-r01/README.md",
+          "sha256": "10fa32e28403dab237eef27f0ca000bfb1b40bba61616478c4d0a31091e80970"
+        },
+        {
+          "path": "models/thyroid_ct_s0189/illustrative-exterior-r01/ATTRIBUTION.md",
+          "sha256": "7917a0a06d51ca4b15f16fd10ad7f6cd0308bf42092a5c15210e4fd38f562b64"
+        }
+      ],
+      "path": "models/thyroid_ct_s0189/exports/source-candidate-02/thyroid_ct_s0189_source_frame.glb",
+      "sha256": "4add07e2efed2d67efb1d4ba225a109fe448043c79182e3d2e1a96e671534883",
+      "bytes": 151580
+    },
+    {
+      "sourceId": "source:thyroid-ct-s0189:illustrative-exterior-r02-input-1",
+      "title": "TotalSegmentator v2.0.1 case s0189, illustrated source and replay for illustrative-exterior-r02",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "TotalSegmentator v2.0.1 case s0189, illustrated",
+      "license": "CC BY 4.0. Retain the TotalSegmentator data and label-source notices.",
+      "evidence": [
+        {
+          "path": "models/thyroid_ct_s0189/exports/illustrative-exterior-r02/README.md",
+          "sha256": "e270dc35504256d671dd8b97e7f31cb2e41d9832b3dbdc765dc7799f1131ecea"
+        },
+        {
+          "path": "models/thyroid_ct_s0189/illustrative-exterior-r01/ATTRIBUTION.md",
+          "sha256": "7917a0a06d51ca4b15f16fd10ad7f6cd0308bf42092a5c15210e4fd38f562b64"
+        }
+      ],
+      "path": "models/thyroid_ct_s0189/exports/illustrative-exterior-r01/thyroid-illustrative-exterior.glb",
+      "sha256": "4c2dee513f713fd8d649e7d1928ba3859ce1d25e81468e707b65a5fbeeee216a",
+      "bytes": 152124
+    },
+    {
+      "sourceId": "source:thyroid-ct-s0189:illustrative-exterior-r02-input-2",
+      "title": "TotalSegmentator v2.0.1 case s0189, illustrated source and replay for illustrative-exterior-r02",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "TotalSegmentator v2.0.1 case s0189, illustrated",
+      "license": "CC BY 4.0. Retain the TotalSegmentator data and label-source notices.",
+      "evidence": [
+        {
+          "path": "models/thyroid_ct_s0189/exports/illustrative-exterior-r02/README.md",
+          "sha256": "e270dc35504256d671dd8b97e7f31cb2e41d9832b3dbdc765dc7799f1131ecea"
+        },
+        {
+          "path": "models/thyroid_ct_s0189/illustrative-exterior-r01/ATTRIBUTION.md",
+          "sha256": "7917a0a06d51ca4b15f16fd10ad7f6cd0308bf42092a5c15210e4fd38f562b64"
+        }
+      ],
+      "path": "models/thyroid_ct_s0189/exports/source-candidate-02/thyroid_ct_s0189_source_frame.glb",
+      "sha256": "4add07e2efed2d67efb1d4ba225a109fe448043c79182e3d2e1a96e671534883",
+      "bytes": 151580
+    }
+  ],
+  "parts": [
+    {
+      "partId": "thyroid-gland-native-ras-m-thyroid-gland-label",
+      "label": "thyroid_gland_native_RAS_m thyroid gland label",
+      "selectors": [
+        "thyroid_gland_native_RAS_m thyroid gland label"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "s0189-thyroid-illustrative-ridge-reduction",
+      "label": "s0189 thyroid — illustrative ridge reduction",
+      "selectors": [
+        "s0189 thyroid — illustrative ridge reduction"
+      ],
+      "registration": "unknown"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "source-candidate-02",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/thyroid_ct_s0189/provenance/source-candidate-02/migration-2026-10-24/README.md",
+        "sha256": "bd67799a6485999307a2074645a4135a735e4666fd407de2f5c22fa41be4ef5d"
+      },
+      "sourceIds": [
+        "source:thyroid-ct-s0189:source-candidate-02"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/thyroid_ct_s0189/provenance/source-candidate-02/migration-2026-10-24/README.md"
+      },
+      "exports": [
+        {
+          "id": "source-surface",
+          "path": "models/thyroid_ct_s0189/exports/source-candidate-02/thyroid_ct_s0189_source_frame.glb",
+          "sha256": "4add07e2efed2d67efb1d4ba225a109fe448043c79182e3d2e1a96e671534883",
+          "bytes": 151580,
+          "triangles": 8340,
+          "format": "glb",
+          "partIds": [
+            "thyroid-gland-native-ras-m-thyroid-gland-label"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "thyroid-gland-native-ras-m-thyroid-gland-label"
+      ]
+    },
+    {
+      "revisionId": "illustrative-exterior-r01",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/thyroid_ct_s0189/illustrative-exterior-r01/README.md",
+        "sha256": "10fa32e28403dab237eef27f0ca000bfb1b40bba61616478c4d0a31091e80970"
+      },
+      "sourceIds": [
+        "source:thyroid-ct-s0189:illustrative-exterior-r01"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/thyroid_ct_s0189/illustrative-exterior-r01/README.md"
+      },
+      "exports": [
+        {
+          "id": "exterior",
+          "path": "models/thyroid_ct_s0189/exports/illustrative-exterior-r01/thyroid-illustrative-exterior.glb",
+          "sha256": "4c2dee513f713fd8d649e7d1928ba3859ce1d25e81468e707b65a5fbeeee216a",
+          "bytes": 152124,
+          "triangles": 8340,
+          "format": "glb",
+          "partIds": [
+            "s0189-thyroid-illustrative-ridge-reduction"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "s0189-thyroid-illustrative-ridge-reduction"
+      ]
+    },
+    {
+      "revisionId": "illustrative-exterior-r02",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/thyroid_ct_s0189/exports/illustrative-exterior-r02/README.md",
+        "sha256": "e270dc35504256d671dd8b97e7f31cb2e41d9832b3dbdc765dc7799f1131ecea"
+      },
+      "sourceIds": [
+        "source:thyroid-ct-s0189:illustrative-exterior-r02-input-1",
+        "source:thyroid-ct-s0189:illustrative-exterior-r02-input-2"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/thyroid_ct_s0189/exports/illustrative-exterior-r02/README.md"
+      },
+      "exports": [
+        {
+          "id": "exterior",
+          "path": "models/thyroid_ct_s0189/exports/illustrative-exterior-r02/thyroid-illustrative-exterior.glb",
+          "sha256": "6bc4f4da8bc91a058da8f9c78fca8618e3ace90580cac499adf48981bc18608e",
+          "bytes": 152288,
+          "triangles": 8340,
+          "format": "glb",
+          "partIds": [
+            "s0189-thyroid-illustrative-ridge-reduction"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "s0189-thyroid-illustrative-ridge-reduction"
+      ]
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Source and presentation derivatives have separate identities. The retained label's metre conversion follows the published 1.5 mm convention. This study is distinct from the s1127 scan sweep."
+  ]
+}

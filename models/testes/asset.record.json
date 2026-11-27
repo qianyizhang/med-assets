@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:z-anatomy:testicular-region",
+  "title": "Testis and epididymis regions",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/testes",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:testes:z-native-epididymis-r01",
+      "title": "Z-Anatomy native bilateral testicular region source and replay for z-native-epididymis-r01",
+      "sourceType": "recipe source or retained provenance",
+      "subject": "Z-Anatomy native bilateral testicular region",
+      "license": "CC BY-SA 4.0, with Z-Anatomy and inherited BodyParts3D attribution as recorded.",
+      "evidence": [
+        {
+          "path": "models/testes/exports/z-native-epididymis-r01/README.md",
+          "sha256": "c412eb17d34cd3ce8c0fe16bbdbc80708d20261877ce5171bb51f07de340d92d"
+        },
+        {
+          "path": "sources/datasets/z-anatomy/testicular-region/ATTRIBUTION.md",
+          "sha256": "e816402c7290efef63288ca940be53a56b99b6a94bf376a3f6f91c279703c596"
+        },
+        {
+          "path": "sources/datasets/z-anatomy/testicular-region/provenance.json",
+          "sha256": "de287ed0e658ed9509b348c66e4e89defc51c9294ed9cf3def93073cdcab5b3d"
+        }
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "partId": "testis-r-native-study",
+      "label": "Testis.r native study",
+      "selectors": [
+        "Testis.r native study"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "testis-l-native-study",
+      "label": "Testis.l native study",
+      "selectors": [
+        "Testis.l native study"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "epididymis-r-native-study",
+      "label": "Epididymis.r native study",
+      "selectors": [
+        "Epididymis.r native study"
+      ],
+      "registration": "unknown"
+    },
+    {
+      "partId": "epididymis-l-native-study",
+      "label": "Epididymis.l native study",
+      "selectors": [
+        "Epididymis.l native study"
+      ],
+      "registration": "unknown"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "z-native-epididymis-r01",
+      "status": "provisional",
+      "recipeEvidence": {
+        "path": "models/testes/exports/z-native-epididymis-r01/README.md",
+        "sha256": "c412eb17d34cd3ce8c0fe16bbdbc80708d20261877ce5171bb51f07de340d92d"
+      },
+      "sourceIds": [
+        "source:testes:z-native-epididymis-r01"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ],
+        "evidence": "models/testes/exports/z-native-epididymis-r01/README.md"
+      },
+      "exports": [
+        {
+          "id": "regional",
+          "path": "models/testes/exports/z-native-epididymis-r01/testicular-region.glb",
+          "sha256": "e35457062c7bba79d938700beab7de851c75fa8dbbbbc76872d47290f2833d0d",
+          "bytes": 220184,
+          "triangles": 14304,
+          "format": "glb",
+          "partIds": [
+            "testis-r-native-study",
+            "testis-l-native-study",
+            "epididymis-r-native-study",
+            "epididymis-l-native-study"
+          ]
+        }
+      ],
+      "qualifications": [],
+      "partIds": [
+        "epididymis-l-native-study",
+        "epididymis-r-native-study",
+        "testis-l-native-study",
+        "testis-r-native-study"
+      ]
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Four native exterior groups support relative landmark orientation. Internal anatomy and flow are outside the teaching evidence."
+  ]
+}
