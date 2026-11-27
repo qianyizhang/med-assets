@@ -722,6 +722,8 @@ def test_liver_sweep_indexes_the_governed_export_and_checks_its_grid() -> None:
         {key: source[key] for key in ("case", "shape", "rasMmFromVoxel")}
     )
     export = ws.registry.require_voxel_export(ref, grid)
+    assert export.frame is not None and export.frame.convention == "voxel-index"
+    assert export.frame.units == "voxel"
     assert export.storage_status in {"verified", "pointer-match"}
     assert plan_build(repo, ws.registry, ref.asset, ref.revision).expected_outputs == (export.path,)
 

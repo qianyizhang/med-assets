@@ -28,6 +28,11 @@
       "revisionId": "r01",
       "status": "provisional",
       "recipe": "rebuild.py",
+      "frame": {
+        "convention": "voxel-index",
+        "units": "voxel",
+        "evidence": "assemblies/workshop-s1233/inputs.json"
+      },
       "sourceIds": [
         "source:totalsegmentator-v2.0.1:s1233:liver"
       ],
