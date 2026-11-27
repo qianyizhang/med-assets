@@ -97,6 +97,7 @@ The default setup includes the MCP server and Blender add-on. The tested pair is
 | --- | --- | --- |
 | Every change | `uv run python tools/verify.py offline` | Offline regressions, portable Gallery tests, the maintained recipe graph, all accepted teaching tasks and their generated views, import references, LFS identities, transport manifests and selected foundation records. Runs in a shallow LFS-pointer checkout. |
 | Python style, lint & types | `uv run pre-commit run` (`ruff` + `ty` + hygiene hooks) | Enforces formatting, imports, lint, and static type checks defined in `pyproject.toml` and `.pre-commit-config.yaml`. |
+| Focused Python tests | `uv run pytest [path]` | Fast local test runner for `pytest` and `unittest` suites (full offline CI still uses `tools/verify.py offline`). |
 | Broad changes with hydrated LFS | `uv run python tools/verify.py payload-integrity` | Offline gate plus all indexed LFS bytes, foundation evidence bindings and selected package checks. Unresolved pointers fail. |
 | UFF dental changes | `uv run python tools/verify.py dental` | Separate suite including the actual pinned GLB hash. Use an isolated environment with [UFF requirements](../models/dental_specimens/uff_tomo1b/recipes/requirements-uff.txt). Missing dependencies leave coverage unavailable. |
 | Dental film production changes | [Film replay checks](../experiments/dental-video-treatments/REPLAY.md) | The ordinary gate pins the retained films, captions and credits. Run the package replay suite explicitly for renderer or production changes. |
