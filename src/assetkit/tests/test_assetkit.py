@@ -492,9 +492,13 @@ def test_cardiac_atlas_parity_and_unknown_target() -> None:
     assert shown.found is True
     assert shown.asset.id == "anatomy:heart:cardiac-atlas"
     assert shown.asset.source_manifest == "heart/Cardiac_Atlas_Animated/asset.record.json"
-    assert len(shown.revisions) == 1
-    rev = shown.revisions[0]
-    assert rev.id == "shared-source-r01"
+    assert {revision.id for revision in shown.revisions} == {
+        "shared-source-r01",
+        "portable-motion-r01",
+        "wall-motion-r01",
+        "native-r01",
+    }
+    rev = next(revision for revision in shown.revisions if revision.id == "shared-source-r01")
     assert rev.status == "provisional"
     # Unset None fields are omitted from serialized dicts (no null noise).
     assert "recipe" not in rev.to_dict()
@@ -535,11 +539,18 @@ def test_cardiac_atlas_parity_and_unknown_target() -> None:
     imp = ws.impact("anatomy:heart:cardiac-atlas")
     assert imp.found is True
     assert imp.matched_assets == ("anatomy:heart:cardiac-atlas",)
-    assert set(imp.matched_export_paths) == export_paths
+    assert set(imp.matched_export_paths) == export_paths | {
+        "heart/Cardiac_Atlas_Animated/Cardiac_Atlas_Animated_Source.blend",
+        "heart/Cardiac_Atlas_Animated/Heart_Clinical_Animated.glb",
+        "heart/Cardiac_Atlas_Animated/Heart_Cutaway_Animated.glb",
+        "heart/Cardiac_Atlas_Animated/Heart_Tissue_Animated.glb",
+        "heart/Cardiac_Atlas_Animated/exports/wall-motion-r01/ventricular-wall-motion.glb",
+    }
     assert len(imp.adoptions) == 2
-    assert len(imp.reviews) == 2
+    shared_reviews = [review for review in imp.reviews if review.export_path in export_paths]
+    assert len(shared_reviews) == 2
     assert len(imp.selections) == 2
-    assert {s.review_id for s in imp.selections} == {r.id for r in imp.reviews}
+    assert {s.review_id for s in imp.selections} == {r.id for r in shared_reviews}
 
     gallery = ws.compile_gallery()
     cardiac_entries = [a for a in gallery.assets if a.owner_dir == "heart/Cardiac_Atlas_Animated"]
@@ -550,7 +561,11 @@ def test_cardiac_atlas_parity_and_unknown_target() -> None:
         for entry in cardiac_entries
         if entry not in canonical_entries
     )
-    gallery_exports = canonical_entries[0].revisions[0].exports
+    gallery_exports = next(
+        revision.exports
+        for revision in canonical_entries[0].revisions
+        if revision.id == "shared-source-r01"
+    )
     assert {e.path for e in gallery_exports} == export_paths
     assert all(e.qualified is False for e in gallery_exports)
     assert all(e.review_statuses == ("accepted",) for e in gallery_exports)

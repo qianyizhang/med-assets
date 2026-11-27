@@ -52,10 +52,52 @@
         {
           "path": "heart/Cardiac_Atlas_Animated/exports/shared-source-r01/README.md",
           "sha256": "85a34d5215d8a8224c3ff2b256494a9d94a8ddde1c7ebc77a2b8acf69bf7f0fb"
+        },
+        {
+          "path": "heart/Cardiac_Atlas_Animated/README.md",
+          "sha256": "5665bc9d10f643a31fbaa30e2f9b3ad81b3fcdf9a3cfda17a1a27de352535de0"
+        },
+        {
+          "path": "heart/Cardiac_Atlas_Animated/GLB_VALIDATION.json",
+          "sha256": "d8b7eaaa7848499927e97dadfbb8d94cf72d754a46839ffe075d349ada034370"
+        },
+        {
+          "path": "heart/Cardiac_Atlas_Animated/BLENDER_ROUNDTRIP_QA.json",
+          "sha256": "d0782067d0a885edc96aa8f191ab3aea660a9e4a1fd77b0eefde1d649ad7dc25"
+        },
+        {
+          "path": "heart/Cardiac_Atlas_Animated/recipes/shared-source-r01/build.py",
+          "sha256": "55768cd387eb0e83d8bf8179e7a8f3130f89ae2179c4974097083558d26c9fdb"
         }
       ],
       "limitations": [
-        "Procedural educational idealization; not patient-specific, diagnostic, biomechanical or clinically validated."
+        "Procedural educational idealization; not patient-specific, diagnostic, biomechanical or clinically validated.",
+        "Native coordinate values are Blender units with a scene scale of 0.025 metres per unit."
+      ],
+      "license": "Project-authored analytic Cardiac Atlas. No separate public reuse license is declared.",
+      "subject": "Procedural Cardiac Atlas animated rig"
+    },
+    {
+      "sourceId": "source:cardiac-atlas:original-clinical-motion",
+      "title": "Original Cardiac Atlas clinical animation",
+      "sourceType": "retained project-authored input",
+      "subject": "Procedural Cardiac Atlas animated rig",
+      "path": "heart/Cardiac_Atlas_Animated/Heart_Clinical_Animated.glb",
+      "sha256": "6912d439271c3525230a90fe403d586000e6a66ab37f82bf0419604181e52263",
+      "bytes": 8180224,
+      "license": "Project-authored analytic Cardiac Atlas. No separate public reuse license is declared.",
+      "evidence": [
+        {
+          "path": "heart/Cardiac_Atlas_Animated/README.md",
+          "sha256": "5665bc9d10f643a31fbaa30e2f9b3ad81b3fcdf9a3cfda17a1a27de352535de0"
+        },
+        {
+          "path": "heart/Cardiac_Atlas_Animated/GLB_VALIDATION.json",
+          "sha256": "d8b7eaaa7848499927e97dadfbb8d94cf72d754a46839ffe075d349ada034370"
+        }
+      ],
+      "limitations": [
+        "One authored 0.8-second loop. Measured motion and physiology are outside scope."
       ]
     }
   ],
@@ -154,6 +196,33 @@
         "path": "heart/Cardiac_Atlas_Animated/exports/shared-source-r01/README.md",
         "sha256": "85a34d5215d8a8224c3ff2b256494a9d94a8ddde1c7ebc77a2b8acf69bf7f0fb"
       }
+    },
+    {
+      "partId": "right-ventricular-wall",
+      "label": "Right ventricular wall",
+      "selectors": [
+        "RV | complete wall"
+      ],
+      "sourcePath": "heart/Cardiac_Atlas_Animated/README.md",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "mitral-annulus",
+      "label": "Mitral valve annulus",
+      "selectors": [
+        "Mitral valve | annulus"
+      ],
+      "sourcePath": "heart/Cardiac_Atlas_Animated/README.md",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "tricuspid-annulus",
+      "label": "Tricuspid valve annulus",
+      "selectors": [
+        "Tricuspid valve | annulus"
+      ],
+      "sourcePath": "heart/Cardiac_Atlas_Animated/README.md",
+      "registration": "illustrative"
     }
   ],
   "revisions": [
@@ -181,7 +250,9 @@
             "pulmonary-trunk",
             "left-pulmonary-artery",
             "right-pulmonary-artery"
-          ]
+          ],
+          "id": "cardiac-static-ed",
+          "triangles": 222336
         },
         {
           "path": "heart/Cardiac_Atlas_Animated/exports/shared-source-r01/ventricular-wall-motion.glb",
@@ -191,14 +262,199 @@
           "partIds": [
             "aorta",
             "left-ventricular-wall"
-          ]
+          ],
+          "id": "ventricular-wall-motion",
+          "triangles": 30646
         }
       ],
       "qualifications": [],
       "recipeEvidence": {
         "path": "heart/Cardiac_Atlas_Animated/exports/shared-source-r01/README.md",
         "sha256": "85a34d5215d8a8224c3ff2b256494a9d94a8ddde1c7ebc77a2b8acf69bf7f0fb"
+      },
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up",
+          "+X patient left",
+          "+Y superior",
+          "+Z anterior"
+        ],
+        "evidence": "heart/Cardiac_Atlas_Animated/exports/shared-source-r01/README.md"
       }
+    },
+    {
+      "revisionId": "portable-motion-r01",
+      "sourceIds": [
+        "source:cardiac-atlas:procedural-r01"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up",
+          "+X patient left",
+          "+Y superior",
+          "+Z anterior"
+        ],
+        "evidence": "heart/Cardiac_Atlas_Animated/README.md"
+      },
+      "recipeEvidence": {
+        "path": "heart/Cardiac_Atlas_Animated/README.md",
+        "sha256": "5665bc9d10f643a31fbaa30e2f9b3ad81b3fcdf9a3cfda17a1a27de352535de0"
+      },
+      "exports": [
+        {
+          "id": "clinical",
+          "path": "heart/Cardiac_Atlas_Animated/Heart_Clinical_Animated.glb",
+          "sha256": "6912d439271c3525230a90fe403d586000e6a66ab37f82bf0419604181e52263",
+          "bytes": 8180224,
+          "format": "glb",
+          "role": "teaching-mesh",
+          "triangles": 222336,
+          "partIds": [
+            "aorta",
+            "pulmonary-trunk",
+            "left-pulmonary-artery",
+            "right-pulmonary-artery",
+            "left-ventricular-wall",
+            "right-ventricular-wall",
+            "mitral-annulus",
+            "tricuspid-annulus"
+          ]
+        },
+        {
+          "id": "cutaway",
+          "path": "heart/Cardiac_Atlas_Animated/Heart_Cutaway_Animated.glb",
+          "sha256": "98523f91fd04e2a801b8024a3f36039675832a2d2e1d163c6f053d849be4902f",
+          "bytes": 5543020,
+          "format": "glb",
+          "role": "teaching-mesh",
+          "triangles": 156936,
+          "partIds": [
+            "aorta",
+            "pulmonary-trunk",
+            "left-pulmonary-artery",
+            "right-pulmonary-artery",
+            "mitral-annulus",
+            "tricuspid-annulus"
+          ]
+        },
+        {
+          "id": "tissue",
+          "path": "heart/Cardiac_Atlas_Animated/Heart_Tissue_Animated.glb",
+          "sha256": "b167fddf2ede85db82306b37d7455db51148c0f81b386e7c4d2e7edf01f52cb1",
+          "bytes": 14657880,
+          "format": "glb",
+          "role": "teaching-mesh",
+          "triangles": 222336,
+          "partIds": [
+            "aorta",
+            "pulmonary-trunk",
+            "left-pulmonary-artery",
+            "right-pulmonary-artery",
+            "left-ventricular-wall",
+            "right-ventricular-wall",
+            "mitral-annulus",
+            "tricuspid-annulus"
+          ]
+        }
+      ],
+      "partIds": [
+        "aorta",
+        "pulmonary-trunk",
+        "left-pulmonary-artery",
+        "right-pulmonary-artery",
+        "left-ventricular-wall",
+        "right-ventricular-wall",
+        "mitral-annulus",
+        "tricuspid-annulus"
+      ],
+      "status": "provisional",
+      "qualifications": []
+    },
+    {
+      "revisionId": "wall-motion-r01",
+      "recipe": "recipes/wall-motion-r01.json",
+      "sourceIds": [
+        "source:cardiac-atlas:original-clinical-motion"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up",
+          "+X patient left",
+          "+Y superior",
+          "+Z anterior"
+        ],
+        "evidence": "heart/Cardiac_Atlas_Animated/README.md"
+      },
+      "recipeEvidence": {
+        "path": "heart/Cardiac_Atlas_Animated/exports/wall-motion-r01/README.md",
+        "sha256": "49d5ce644295c17643fc7cd61ac7b735b68251a50c9cae9c29a67097b9c9ccef"
+      },
+      "exports": [
+        {
+          "id": "ventricular-wall-motion",
+          "path": "heart/Cardiac_Atlas_Animated/exports/wall-motion-r01/ventricular-wall-motion.glb",
+          "sha256": "a57fc0eec4cb8d26dfc50ff0db9360fea346a12096236b64f9d4492695c72905",
+          "bytes": 1158724,
+          "format": "glb",
+          "role": "teaching-mesh",
+          "triangles": 30646,
+          "partIds": [
+            "aorta",
+            "left-ventricular-wall"
+          ]
+        }
+      ],
+      "partIds": [
+        "aorta",
+        "left-ventricular-wall"
+      ],
+      "status": "provisional",
+      "qualifications": []
+    },
+    {
+      "revisionId": "native-r01",
+      "sourceIds": [
+        "source:cardiac-atlas:procedural-r01"
+      ],
+      "frame": {
+        "convention": "blender-z-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Z-up",
+          "+X patient left",
+          "+Y posterior",
+          "+Z superior"
+        ],
+        "evidence": "heart/Cardiac_Atlas/docs/README.md"
+      },
+      "recipeEvidence": {
+        "path": "heart/Cardiac_Atlas_Animated/README.md",
+        "sha256": "5665bc9d10f643a31fbaa30e2f9b3ad81b3fcdf9a3cfda17a1a27de352535de0"
+      },
+      "exports": [
+        {
+          "id": "editable",
+          "path": "heart/Cardiac_Atlas_Animated/Cardiac_Atlas_Animated_Source.blend",
+          "sha256": "6c8051cc269c9ca8af392ac58f19e22c24cde678b4c95159f5e3a6a19c20d01b",
+          "bytes": 42393708,
+          "format": "blend",
+          "role": "editable-master",
+          "partIds": []
+        }
+      ],
+      "partIds": [],
+      "status": "provisional",
+      "qualifications": []
     }
   ],
   "artifacts": [
@@ -287,7 +543,7 @@
   "unresolved": [
     "Source license and attribution are not explicit in the package evidence; owner confirmation is required before publication.",
     "Concept identifiers are provisional local IDs; canonical ontology mapping remains pending.",
-    "Only shared-source-r01 exports are assigned to this revision; other package exports remain unbound pending variant and source review.",
+    "The unrelated unavailable fitted animation remains unbound. Original portable exports, the earlier exact wall selection, and the editable rig have separate revisions.",
     "No task-specific qualification has been approved; both adopted teaching uses remain provisional."
   ]
 }

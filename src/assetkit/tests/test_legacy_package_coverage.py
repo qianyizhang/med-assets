@@ -70,13 +70,19 @@ def test_retained_anatomy_paths_remain_discoverable_alongside_native_owners():
         "models/liver/exports/hra-female-v1.10-r02/liver.glb",
         "models/skin/exports/teaching-economy-r01/skin_source_frame.glb",
         "models/skin/nail-study-r02/nail.glb",
-        "models/skeleton/exports/source-candidate-03/skeleton_source_frame.glb",
     }
     for path in retained:
         view = workspace.show(path)
         assert isinstance(view, ShowAssetResult)
         assert view.asset.status == "legacy-candidate"
         assert workspace.impact(path).matched_export_paths == (path,)
+
+    original_skeleton = "models/skeleton/exports/source-candidate-03/skeleton_source_frame.glb"
+    skeleton_view = workspace.show(original_skeleton)
+    assert isinstance(skeleton_view, ShowAssetResult)
+    assert skeleton_view.asset.source_manifest == "models/skeleton/asset.record.json"
+    skeleton_impact = workspace.impact("anatomy:bp3d:skeleton@source-candidate-03:skeleton")
+    assert skeleton_impact.matched_export_paths == (original_skeleton,)
 
     selected = {selection.export_path: selection for selection in workspace.curation.selections}
     r2_paths = {item.path for item in workspace.plan_r2_sync()}

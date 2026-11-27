@@ -1,0 +1,532 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:heart:cardiac-atlas-static",
+  "title": "Original Cardiac Atlas static suite",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "heart/Cardiac_Atlas",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:cardiac-atlas:original-static-ed",
+      "title": "Original Cardiac Atlas native scene",
+      "sourceType": "retained project-authored input",
+      "subject": "Original procedural Cardiac Atlas",
+      "path": "heart/Cardiac_Atlas/Cardiac_Atlas.blend",
+      "sha256": "9655499d29c8498de84c172c2e160d329950ecedf06bee86c2668e0f42b9c837",
+      "bytes": 42381432,
+      "license": "Project-authored analytic Cardiac Atlas. No separate public reuse license is declared.",
+      "evidence": [
+        {
+          "path": "heart/Cardiac_Atlas/docs/README.md",
+          "sha256": "6fd10b99941ac566542ae66a4e5d875ccfa5b7a17aa27bb840e53922865d74e0"
+        },
+        {
+          "path": "heart/Cardiac_Atlas/exports/EXPORT_CONTRACT.json",
+          "sha256": "a1e5fbeb979ea12c2f63d468a4afa406858836afafec3497fca327c100558db0"
+        }
+      ],
+      "limitations": [
+        "Native coordinate values are Blender units. Scene scale is 0.025 metres per Blender unit.",
+        "The origin belongs to the procedural model."
+      ]
+    },
+    {
+      "sourceId": "source:cardiac-atlas:geometry-construction",
+      "title": "Procedural Cardiac Atlas builder",
+      "sourceType": "retained project-authored input",
+      "subject": "Original procedural Cardiac Atlas",
+      "path": "heart/Cardiac_Atlas/build_heart.py",
+      "sha256": "e9dca8fc3895c549ab815354342a6df6e372a38d36ef3613643e59e4d8c3358f",
+      "bytes": 41119,
+      "license": "Project-authored analytic Cardiac Atlas. No separate public reuse license is declared.",
+      "evidence": [
+        {
+          "path": "heart/Cardiac_Atlas/geometry_spec.json",
+          "sha256": "afc22e617868f1e16a15319949de1adae9fca7e3afe667efa747f8c279cd5143"
+        },
+        {
+          "path": "heart/Cardiac_Atlas/docs/README.md",
+          "sha256": "6fd10b99941ac566542ae66a4e5d875ccfa5b7a17aa27bb840e53922865d74e0"
+        }
+      ],
+      "limitations": []
+    },
+    {
+      "sourceId": "source:cardiac-atlas:clinical-full-ed",
+      "title": "Original clinical full ED GLB",
+      "sourceType": "retained project-authored input",
+      "subject": "Original procedural Cardiac Atlas",
+      "path": "heart/Cardiac_Atlas/exports/Cardiac_Atlas_Clinical_Full_ED.glb",
+      "sha256": "32802a9a36963c2f8935f632f28ba3602d1ce004919e5e203ff87bbdcb52fa2f",
+      "bytes": 4864488,
+      "license": "Project-authored analytic Cardiac Atlas. No separate public reuse license is declared.",
+      "evidence": [
+        {
+          "path": "heart/Cardiac_Atlas/exports/EXPORT_CONTRACT.json",
+          "sha256": "a1e5fbeb979ea12c2f63d468a4afa406858836afafec3497fca327c100558db0"
+        }
+      ],
+      "limitations": []
+    }
+  ],
+  "parts": [
+    {
+      "partId": "aorta",
+      "label": "Aortic root to descending aorta",
+      "selectors": [
+        "Aorta | root, ascending, arch and descending"
+      ],
+      "sourcePath": "heart/Cardiac_Atlas/docs/README.md",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "pulmonary-trunk",
+      "label": "Pulmonary trunk",
+      "selectors": [
+        "Pulmonary trunk"
+      ],
+      "sourcePath": "heart/Cardiac_Atlas/docs/README.md",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "left-pulmonary-artery",
+      "label": "Left pulmonary artery",
+      "selectors": [
+        "Left pulmonary artery"
+      ],
+      "sourcePath": "heart/Cardiac_Atlas/docs/README.md",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "right-pulmonary-artery",
+      "label": "Right pulmonary artery",
+      "selectors": [
+        "Right pulmonary artery"
+      ],
+      "sourcePath": "heart/Cardiac_Atlas/docs/README.md",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "left-ventricular-wall",
+      "label": "Left ventricular wall",
+      "selectors": [
+        "LV | complete wall"
+      ],
+      "sourcePath": "heart/Cardiac_Atlas/docs/README.md",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "right-ventricular-wall",
+      "label": "Right ventricular wall",
+      "selectors": [
+        "RV | complete wall"
+      ],
+      "sourcePath": "heart/Cardiac_Atlas/docs/README.md",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "aortic-annulus",
+      "label": "Aortic valve annulus",
+      "selectors": [
+        "Aortic valve | annulus"
+      ],
+      "sourcePath": "heart/Cardiac_Atlas/docs/README.md",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "mitral-annulus",
+      "label": "Mitral valve annulus",
+      "selectors": [
+        "Mitral valve | annulus"
+      ],
+      "sourcePath": "heart/Cardiac_Atlas/docs/README.md",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "tricuspid-annulus",
+      "label": "Tricuspid valve annulus",
+      "selectors": [
+        "Tricuspid valve | annulus"
+      ],
+      "sourcePath": "heart/Cardiac_Atlas/docs/README.md",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "pulmonary-annulus",
+      "label": "Pulmonary valve annulus",
+      "selectors": [
+        "Pulmonary valve | annulus"
+      ],
+      "sourcePath": "heart/Cardiac_Atlas/docs/README.md",
+      "registration": "illustrative"
+    },
+    {
+      "partId": "baked-wall-study",
+      "label": "Four chamber walls with baked materials",
+      "selectors": [
+        "TEXTURE STUDY • four-chamber walls • 2K baked atlas"
+      ],
+      "sourcePath": "heart/Cardiac_Atlas/docs/README.md",
+      "registration": "illustrative"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "static-ed-r01",
+      "status": "provisional",
+      "sourceIds": [
+        "source:cardiac-atlas:original-static-ed"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up",
+          "+X patient left",
+          "+Y superior",
+          "+Z anterior"
+        ],
+        "evidence": "heart/Cardiac_Atlas/exports/EXPORT_CONTRACT.json"
+      },
+      "recipeEvidence": {
+        "path": "heart/Cardiac_Atlas/docs/README.md",
+        "sha256": "6fd10b99941ac566542ae66a4e5d875ccfa5b7a17aa27bb840e53922865d74e0"
+      },
+      "exports": [
+        {
+          "id": "clinical-full",
+          "path": "heart/Cardiac_Atlas/exports/Cardiac_Atlas_Clinical_Full_ED.glb",
+          "sha256": "32802a9a36963c2f8935f632f28ba3602d1ce004919e5e203ff87bbdcb52fa2f",
+          "bytes": 4864488,
+          "format": "glb",
+          "role": "teaching-mesh",
+          "triangles": 222336,
+          "partIds": [
+            "aorta",
+            "pulmonary-trunk",
+            "left-pulmonary-artery",
+            "right-pulmonary-artery",
+            "left-ventricular-wall",
+            "right-ventricular-wall",
+            "aortic-annulus",
+            "mitral-annulus",
+            "tricuspid-annulus",
+            "pulmonary-annulus"
+          ]
+        },
+        {
+          "id": "clinical-cutaway",
+          "path": "heart/Cardiac_Atlas/exports/Cardiac_Atlas_Clinical_Cutaway_ED.glb",
+          "sha256": "ca35a510737041d538a43cb24f494a1463605bf6b9bd511a01abf52c15bed12a",
+          "bytes": 3778568,
+          "format": "glb",
+          "role": "teaching-mesh",
+          "triangles": 156936,
+          "partIds": [
+            "aorta",
+            "pulmonary-trunk",
+            "left-pulmonary-artery",
+            "right-pulmonary-artery",
+            "aortic-annulus",
+            "mitral-annulus",
+            "tricuspid-annulus",
+            "pulmonary-annulus"
+          ]
+        },
+        {
+          "id": "wall-pbr",
+          "path": "heart/Cardiac_Atlas/exports/Cardiac_Walls_Baked_PBR_ED.glb",
+          "sha256": "b157375af19ff503580b67004d5b9c342266beb68f249ef86ecbc47061b4d945",
+          "bytes": 8642164,
+          "format": "glb",
+          "role": "teaching-mesh",
+          "triangles": 92214,
+          "partIds": [
+            "baked-wall-study"
+          ]
+        }
+      ],
+      "partIds": [
+        "aorta",
+        "pulmonary-trunk",
+        "left-pulmonary-artery",
+        "right-pulmonary-artery",
+        "left-ventricular-wall",
+        "right-ventricular-wall",
+        "aortic-annulus",
+        "mitral-annulus",
+        "tricuspid-annulus",
+        "pulmonary-annulus",
+        "baked-wall-study"
+      ],
+      "qualifications": []
+    },
+    {
+      "revisionId": "native-r01",
+      "status": "provisional",
+      "sourceIds": [
+        "source:cardiac-atlas:geometry-construction"
+      ],
+      "frame": {
+        "convention": "blender-z-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Z-up",
+          "+X patient left",
+          "+Y posterior",
+          "+Z superior"
+        ],
+        "evidence": "heart/Cardiac_Atlas/docs/README.md"
+      },
+      "recipeEvidence": {
+        "path": "heart/Cardiac_Atlas/docs/README.md",
+        "sha256": "6fd10b99941ac566542ae66a4e5d875ccfa5b7a17aa27bb840e53922865d74e0"
+      },
+      "exports": [
+        {
+          "id": "editable",
+          "path": "heart/Cardiac_Atlas/Cardiac_Atlas.blend",
+          "sha256": "9655499d29c8498de84c172c2e160d329950ecedf06bee86c2668e0f42b9c837",
+          "bytes": 42381432,
+          "format": "blend",
+          "role": "editable-master",
+          "partIds": []
+        }
+      ],
+      "partIds": [],
+      "qualifications": []
+    },
+    {
+      "revisionId": "teaching-economy-r01",
+      "status": "provisional",
+      "recipe": "recipes/teaching-economy-r01.json",
+      "sourceIds": [
+        "source:cardiac-atlas:clinical-full-ed"
+      ],
+      "frame": {
+        "convention": "glb-y-up-m",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up",
+          "+X patient left",
+          "+Y superior",
+          "+Z anterior"
+        ],
+        "evidence": "heart/Cardiac_Atlas/exports/EXPORT_CONTRACT.json"
+      },
+      "recipeEvidence": {
+        "path": "heart/Cardiac_Atlas/exports/teaching-economy-r01/README.md",
+        "sha256": "c4a444b060ca6371842c844cd31e993cfa7a433d4ac33da9412db45f0f513ccc"
+      },
+      "exports": [
+        {
+          "id": "clinical-full",
+          "path": "heart/Cardiac_Atlas/exports/teaching-economy-r01/Cardiac_Atlas_Clinical_Full_ED.glb",
+          "sha256": "342e445b8d460458d322a7e5db875d462867b1e7f99043c711bce73c34c9a813",
+          "bytes": 4248224,
+          "format": "glb",
+          "role": "teaching-mesh",
+          "triangles": 181922,
+          "partIds": [
+            "aorta",
+            "pulmonary-trunk",
+            "left-pulmonary-artery",
+            "right-pulmonary-artery",
+            "left-ventricular-wall",
+            "right-ventricular-wall",
+            "aortic-annulus",
+            "mitral-annulus",
+            "tricuspid-annulus",
+            "pulmonary-annulus"
+          ]
+        }
+      ],
+      "partIds": [
+        "aorta",
+        "pulmonary-trunk",
+        "left-pulmonary-artery",
+        "right-pulmonary-artery",
+        "left-ventricular-wall",
+        "right-ventricular-wall",
+        "aortic-annulus",
+        "mitral-annulus",
+        "tricuspid-annulus",
+        "pulmonary-annulus"
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Patient registration and clinical claims are outside this procedural atlas's scope.",
+    "The original native scene uses a scale of 0.025 metres per Blender unit. The glTF world coordinates include the documented scene-root metre conversion.",
+    "The frozen RAS-millimetre STL assets retain their own coordinate contract and original Gallery deliveries. They are retained artifacts without native export keys.",
+    "A separate public reuse license remains unresolved."
+  ],
+  "artifacts": [
+    {
+      "path": "heart/Cardiac_Atlas/exports/STL_RAS_mm/bloodpool_LA.stl",
+      "sha256": "cf5275f235a0c8dd95c9c9ea47d810b107c99cf8ca30553a3083400370d523bd",
+      "bytes": 566484,
+      "role": "frozen-reference-stl",
+      "coordinates": {
+        "units": "mm",
+        "axes": [
+          "+X right",
+          "+Y anterior",
+          "+Z superior"
+        ],
+        "phase": "end-diastole",
+        "evidence": "heart/Cardiac_Atlas/exports/EXPORT_CONTRACT.json"
+      }
+    },
+    {
+      "path": "heart/Cardiac_Atlas/exports/STL_RAS_mm/bloodpool_LV.stl",
+      "sha256": "ca6c06345a8c31f26bc836227fe72fbbeca27cd81de5a64d7a2eb9d1734c1cf9",
+      "bytes": 566484,
+      "role": "frozen-reference-stl",
+      "coordinates": {
+        "units": "mm",
+        "axes": [
+          "+X right",
+          "+Y anterior",
+          "+Z superior"
+        ],
+        "phase": "end-diastole",
+        "evidence": "heart/Cardiac_Atlas/exports/EXPORT_CONTRACT.json"
+      }
+    },
+    {
+      "path": "heart/Cardiac_Atlas/exports/STL_RAS_mm/bloodpool_RA.stl",
+      "sha256": "66e74244006b7710e047918857350f203c61e083d8264bb3c577d24a33e0f483",
+      "bytes": 566484,
+      "role": "frozen-reference-stl",
+      "coordinates": {
+        "units": "mm",
+        "axes": [
+          "+X right",
+          "+Y anterior",
+          "+Z superior"
+        ],
+        "phase": "end-diastole",
+        "evidence": "heart/Cardiac_Atlas/exports/EXPORT_CONTRACT.json"
+      }
+    },
+    {
+      "path": "heart/Cardiac_Atlas/exports/STL_RAS_mm/bloodpool_RV.stl",
+      "sha256": "ccf619776d4ccf36a5264ff3d2a5cfa63364f282a9b291c51c77c51b0bcc6e27",
+      "bytes": 566484,
+      "role": "frozen-reference-stl",
+      "coordinates": {
+        "units": "mm",
+        "axes": [
+          "+X right",
+          "+Y anterior",
+          "+Z superior"
+        ],
+        "phase": "end-diastole",
+        "evidence": "heart/Cardiac_Atlas/exports/EXPORT_CONTRACT.json"
+      }
+    },
+    {
+      "path": "heart/Cardiac_Atlas/exports/STL_RAS_mm/interatrial_septum.stl",
+      "sha256": "4c627f3a666df8e78783c9feed1607c38fd33ba49d78f65e1634cb23b9722476",
+      "bytes": 92084,
+      "role": "frozen-reference-stl",
+      "coordinates": {
+        "units": "mm",
+        "axes": [
+          "+X right",
+          "+Y anterior",
+          "+Z superior"
+        ],
+        "phase": "end-diastole",
+        "evidence": "heart/Cardiac_Atlas/exports/EXPORT_CONTRACT.json"
+      }
+    },
+    {
+      "path": "heart/Cardiac_Atlas/exports/STL_RAS_mm/interventricular_septum.stl",
+      "sha256": "865e4c50bc5813c9e7f9f7ad9a8c08c23a7e2d2c0155a798a201c07f1f3a5a4d",
+      "bytes": 440884,
+      "role": "frozen-reference-stl",
+      "coordinates": {
+        "units": "mm",
+        "axes": [
+          "+X right",
+          "+Y anterior",
+          "+Z superior"
+        ],
+        "phase": "end-diastole",
+        "evidence": "heart/Cardiac_Atlas/exports/EXPORT_CONTRACT.json"
+      }
+    },
+    {
+      "path": "heart/Cardiac_Atlas/exports/STL_RAS_mm/wall_LA.stl",
+      "sha256": "4dafb92b3f535147bd98de3210e7c5ac73d5bc8bbd618a030bfadc2deea65e62",
+      "bytes": 1132884,
+      "role": "frozen-reference-stl",
+      "coordinates": {
+        "units": "mm",
+        "axes": [
+          "+X right",
+          "+Y anterior",
+          "+Z superior"
+        ],
+        "phase": "end-diastole",
+        "evidence": "heart/Cardiac_Atlas/exports/EXPORT_CONTRACT.json"
+      }
+    },
+    {
+      "path": "heart/Cardiac_Atlas/exports/STL_RAS_mm/wall_LV.stl",
+      "sha256": "c84b508c15618d54cc7ba34c307cfdd96b9d52852bc43a28d73e08b20a2fbe73",
+      "bytes": 1212384,
+      "role": "frozen-reference-stl",
+      "coordinates": {
+        "units": "mm",
+        "axes": [
+          "+X right",
+          "+Y anterior",
+          "+Z superior"
+        ],
+        "phase": "end-diastole",
+        "evidence": "heart/Cardiac_Atlas/exports/EXPORT_CONTRACT.json"
+      }
+    },
+    {
+      "path": "heart/Cardiac_Atlas/exports/STL_RAS_mm/wall_RA.stl",
+      "sha256": "d093e91752b4a30eff920e9a29101e460ee8f2a9f0600dc5a6af3f5b4c5defd5",
+      "bytes": 1132884,
+      "role": "frozen-reference-stl",
+      "coordinates": {
+        "units": "mm",
+        "axes": [
+          "+X right",
+          "+Y anterior",
+          "+Z superior"
+        ],
+        "phase": "end-diastole",
+        "evidence": "heart/Cardiac_Atlas/exports/EXPORT_CONTRACT.json"
+      }
+    },
+    {
+      "path": "heart/Cardiac_Atlas/exports/STL_RAS_mm/wall_RV.stl",
+      "sha256": "571a03206ccd1d08bda4848afdfd19882ddff361b33f3682c0b2cdcc32b4bac0",
+      "bytes": 1132884,
+      "role": "frozen-reference-stl",
+      "coordinates": {
+        "units": "mm",
+        "axes": [
+          "+X right",
+          "+Y anterior",
+          "+Z superior"
+        ],
+        "phase": "end-diastole",
+        "evidence": "heart/Cardiac_Atlas/exports/EXPORT_CONTRACT.json"
+      }
+    }
+  ]
+}
