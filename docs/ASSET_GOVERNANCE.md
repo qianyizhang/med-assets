@@ -38,7 +38,7 @@ A modeled hepatic-vein teaching surface does not satisfy the separately register
 
 ### Body Systems
 
-The eleven reviewed stops are first-class requirements: skeletal, muscular, respiratory, urinary, cardiovascular, digestive, nervous, endocrine, lymphatic, reproductive and integumentary. Preserve action, observation, review status and exact detail identifier. Do not infer asset adoption from anatomical naming alone. Linked One Breath, cardiac imaging, right-arm, skeletal, pelvic and pathway lessons remain distinct consumers with their own pins and evidence.
+The eleven reviewed stops, eleven system assemblies and every indexed detail plate are first-class consumers: skeletal, muscular, respiratory, urinary, cardiovascular, digestive, nervous, endocrine, lymphatic, reproductive and integumentary. Preserve action, observation, review status, exact detail identifier, paired display frames, legends, source references and scope limits. An assembly ID may intentionally be reused by its overview detail; identity includes the plate kind. Do not infer asset adoption from anatomical naming alone. Linked One Breath, cardiac imaging, right-arm, skeletal, pelvic and pathway lessons remain distinct consumers with their own pins and evidence.
 
 ### Accepted teaching assessments
 
@@ -106,7 +106,7 @@ Backfill does not move files, change URLs, delete LFS objects, upload, publish o
 
 ## Lifecycle and change safety
 
-The first API is read-only: scan, find, show and impact. Subsequent mutations use a shared plan/apply protocol containing intent, schema version, source hashes, expected target states, before/after pins, affected consumers, required checks and unresolved conflicts. Apply re-reads preconditions, rejects stale plans and is idempotent. Teaching promotion retains its existing journal and recovery. No second writable catalog is introduced.
+The first API is read-only: scan, find, show, resolve and impact. Resolution distinguishes exact export identity, exact part-selector candidates, explicit package-source references, acquired-reference links and unresolved relationships. A part candidate is not anatomical, spatial-registration, rights or teaching qualification. Subsequent mutations use a shared plan/apply protocol containing intent, schema version, source hashes, expected target states, before/after pins, affected consumers, required checks and unresolved conflicts. Apply re-reads preconditions, rejects stale plans and is idempotent. Teaching promotion retains its existing journal and recovery. No second writable catalog is introduced.
 
 ## Verification
 

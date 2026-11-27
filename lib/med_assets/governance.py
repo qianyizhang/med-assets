@@ -96,6 +96,9 @@ class Catalog:
             "bodySystemAssemblies":sum(x.domain=="body-systems" and x.kind=="system-assembly" for x in self.consumers),
             "bodySystemPlates":sum(x.domain=="body-systems" and x.kind=="display-plate" for x in self.consumers),
             "ultrasoundGeometryRequirements":sum(x.domain=="ultrasound-anatomy" and x.kind=="geometry-requirement" for x in self.consumers),
+            "ultrasoundReferences":sum(x.domain=="ultrasound-anatomy" and x.kind in {"acquired-reference","embedded-reference","cine-reference","acquired-case-reference"} for x in self.consumers),
+            "ultrasoundReferenceRequirements":sum(x.domain=="ultrasound-anatomy" and x.kind=="reference-requirement" for x in self.consumers),
+            "ultrasoundUnresolvedReferenceBindings":sum(len(x.evidence.get("unresolvedReferenceIds",[])) for x in self.consumers),
             "teachingAssessments":sum(x.domain=="teaching-assessments" for x in self.consumers)}}
 
 def _record_status(repo:Path,package:Path):
@@ -519,8 +522,111 @@ def ultrasound_gap_requirements(repo:Path):
                 label,reason,status,filename,extra))
     return result
 
-def _ultrasound_case_consumers(repo:Path):
+def _ultrasound_reference_consumers(repo:Path):
+    """Index acquired references by their authored IDs; never infer from image captions."""
+    result=[]; reference_index={}; acquired_index={}
+    research_files=(
+      "aortic-screening.json","axilla.json","breast.json","carotid.json","early-pregnancy.json",
+      "gestational.json","great-vessels-sources.json","great-vessels.json","hepatopancreatic.json",
+      "normal-landmarks.json","pregnancy.json","renal-splenic.json","rib-pins.json","thyroid.json")
+    def add(reference_id,scope,title,record,source_path,asset_path=None,archive_path=None,kind="acquired-reference"):
+        if not isinstance(record,dict): raise GovernanceError(f"Invalid ultrasound reference record: {reference_id}")
+        asset_available=False; verification="not-local"
+        check_path=asset_path or archive_path
+        if check_path:
+            target=owner_path(repo,check_path)
+            asset_available=target.is_file()
+            expected=record.get("sha256")
+            if asset_available and isinstance(expected,str) and HEX64.fullmatch(expected):
+                try:
+                    actual_digest,actual_size=declared_identity(repo,check_path)
+                    verification="verified" if actual_digest==expected else "mismatch"
+                    with target.open("rb") as stream:
+                        if stream.read(80).startswith(b"version https://git-lfs.github.com/spec/"):
+                            verification="pointer-match" if actual_digest==expected else "mismatch"
+                except (OSError,ValueError): verification="unavailable"
+            elif asset_available: verification="present-unverified"
+            else: verification="missing"
+        identity=f"ultrasound:reference:{scope}:{reference_id}"
+        evidence={"referenceId":reference_id,"referenceScope":scope,"referenceKind":kind,
+            "assetPath":asset_path,"assetAvailable":asset_available,"verification":verification,
+            "archivePath":archive_path,"sha256":record.get("sha256"),
+            "sourceSha256":record.get("sourceSha256"),"license":record.get("license"),
+            "licenseUrl":record.get("licenseUrl"),"credit":record.get("credit"),
+            "sourceMedia":record.get("sourceMedia"),"url":record.get("url"),
+            "transform":record.get("transform"),"plane":record.get("plane"),
+            "laterality":record.get("laterality"),"note":record.get("note"),
+            "sourcePaths":[source_path],"artifactPaths":[x for x in (asset_path,archive_path) if x]}
+        status="reference-"+verification
+        consumer=Consumer(identity,"ultrasound-anatomy",kind,title or reference_id,
+            record.get("reason",record.get("note","")),status,source_path,evidence)
+        result.append(consumer)
+        reference_index.setdefault(reference_id,[]).append({
+            "consumerId":identity,"title":title or reference_id,"scope":scope,
+            "assetPath":asset_path,"verification":verification,"license":record.get("license"),
+            "sourceSha256":record.get("sourceSha256"),"sha256":record.get("sha256"),
+            "url":record.get("url"),"sourceMedia":record.get("sourceMedia")})
+    for filename in research_files:
+        source=f"experiments/ultrasound-sweep/research/{filename}"
+        path=owner_path(repo,source)
+        if not path.is_file(): continue
+        document=read_json(path)
+        if not isinstance(document,dict): raise GovernanceError(f"Invalid research reference index: {source}")
+        for reference_id,record in document.items():
+            if not isinstance(record,dict): raise GovernanceError(f"Invalid reference row: {source}:{reference_id}")
+            relative=record.get("path")
+            asset_path=rel(repo,path.parent/PurePosixPath(source_path(relative))) if isinstance(relative,str) else None
+            add(reference_id,Path(filename).stem,record.get("title",record.get("label",reference_id)),
+                record,source,asset_path)
+    carotid_source="experiments/ultrasound-sweep/carotid-survey/sources.json"
+    carotid_path=owner_path(repo,carotid_source)
+    if carotid_path.is_file():
+        for reference_id,record in read_json(carotid_path).items():
+            relative=record.get("path")
+            asset_path=rel(repo,repo/"experiments/ultrasound-sweep"/PurePosixPath(source_path(relative))) if isinstance(relative,str) else None
+            add(reference_id,"carotid-survey",record.get("title",reference_id),record,carotid_source,asset_path)
+    cardiac_source="experiments/ultrasound-sweep/cardiac/reference/sources.json"
+    cardiac_path=owner_path(repo,cardiac_source)
+    if cardiac_path.is_file():
+        cardiac=read_json(cardiac_path)
+        bse=cardiac.get("bse",{})
+        archive_name=bse.get("archive")
+        archive_path=rel(repo,cardiac_path.parent/PurePosixPath(source_path(archive_name))) if isinstance(archive_name,str) else None
+        for group,rows in cardiac.get("panels",{}).items():
+            for row in rows:
+                number=row.get("number")
+                if type(number) is not int: continue
+                reference_id=f"bse-{number}"
+                record={**bse,"title":row.get("label",reference_id),"group":group,"panelNumber":number}
+                add(reference_id,"cardiac-bse",row.get("label",reference_id),record,cardiac_source,
+                    archive_path=archive_path,kind="embedded-reference")
+        for reference_id,record in cardiac.get("cine",{}).items():
+            file_name=record.get("file")
+            asset_path=rel(repo,cardiac_path.parent/PurePosixPath(source_path(file_name))) if isinstance(file_name,str) else None
+            add("cine-"+reference_id,"cardiac-cine",record.get("title",reference_id),record,
+                cardiac_source,asset_path,kind="cine-reference")
+    acquisition_source="experiments/ultrasound-sweep/cardiac/acquisition.json"
+    acquisition_path=owner_path(repo,acquisition_source)
+    if acquisition_path.is_file():
+        record=read_json(acquisition_path)
+        file_name=record.get("file")
+        asset_path=rel(repo,acquisition_path.parent/PurePosixPath(source_path(file_name))) if isinstance(file_name,str) else None
+        add("cardiac-a4c","cardiac-acquisition",record.get("title","A4C normal"),record,
+            acquisition_source,asset_path,kind="cine-reference")
+    acquired_source="experiments/ultrasound-sweep/cases/acquired/references.json"
+    acquired_path=owner_path(repo,acquired_source)
+    if acquired_path.is_file():
+        for case_id,record in read_json(acquired_path).items():
+            file_name=record.get("path")
+            asset_path=rel(repo,acquired_path.parent/PurePosixPath(source_path(file_name))) if isinstance(file_name,str) else None
+            add(case_id,"acquired-cases",record.get("title",case_id),record,acquired_source,
+                asset_path,kind="acquired-case-reference")
+            acquired_index[case_id]=reference_index[case_id][-1]
+    return tuple(result),reference_index,acquired_index
+
+def _ultrasound_case_consumers(repo:Path,reference_index=None,acquired_index=None):
     result=[]
+    reference_index=reference_index or {}; acquired_index=acquired_index or {}
     files=("experiments/ultrasound-sweep/cases/organs/cases.json",
       "experiments/ultrasound-sweep/cases/pregnancy/cases.json",
       "experiments/ultrasound-sweep/cases/vascular/cases.json",
@@ -536,11 +642,13 @@ def _ultrasound_case_consumers(repo:Path):
             case_id,family,title=(case.get(k) for k in ("id","family","title"))
             if not all(isinstance(v,str) and v.strip() for v in (case_id,family,title)):
                 raise GovernanceError(f"Incomplete ultrasound case: {filename}")
+            acquired=acquired_index.get(case_id)
             result.append(Consumer(f"ultrasound:case:{family_source}:{case_id}","ultrasound-anatomy",
                 "modeled-case",title,case.get("summary",case.get("indication","")),
                 "case-authored-provisional",filename,{"family":family,"kind":case.get("kind"),
                 "indication":case.get("indication"),"limitations":case.get("limitations"),
-                "impression":case.get("impression")}))
+                "impression":case.get("impression"),
+                "acquiredReference":acquired,"referenceIds":[x for view in case.get("views",[]) for x in view.get("referenceIds",[])]}))
             views=case.get("views",[])
             if not isinstance(views,list): raise GovernanceError(f"Invalid views for case {case_id}")
             for index,view in enumerate(views):
@@ -548,11 +656,21 @@ def _ultrasound_case_consumers(repo:Path):
                 view_title=view.get("title")
                 if not isinstance(view_title,str) or not view_title.strip():
                     raise GovernanceError(f"Incomplete case view: {case_id} in {filename}")
+                ids=list(dict.fromkeys(x for x in view.get("referenceIds",[]) if isinstance(x,str)))
+                bindings=[]
+                for reference_id in ids:
+                    matches=reference_index.get(reference_id,[])
+                    bindings.append({"referenceId":reference_id,
+                        "status":"resolved" if len(matches)==1 else "ambiguous" if matches else "missing",
+                        "matches":matches})
                 result.append(Consumer(f"ultrasound:case-view:{family_source}:{case_id}:{index+1}",
                     "ultrasound-anatomy","acquisition-chapter",f"{title} · {view_title}",
                     view.get("caption",""),"case-view-provisional",filename,
                     {"caseId":case_id,"family":family,"index":index,"image":view.get("image"),
-                     "measurement":view.get("measurement"),"referenceIds":view.get("referenceIds",[])}))
+                     "measurement":view.get("measurement"),"referenceIds":ids,
+                     "referenceBindings":bindings,
+                     "referenceRequirementCount":len(ids),
+                     "unresolvedReferenceIds":[x["referenceId"] for x in bindings if x["status"]!="resolved"]}))
     return result
 
 def _ultrasound_track_consumers(repo:Path):
@@ -599,7 +717,21 @@ def ultrasound_consumers(repo:Path):
                 result.append(Consumer("ultrasound:scenario:"+anchor+":"+sha(label.casefold().encode())[:10],
                     "ultrasound-anatomy","scenario-brief",label,action.strip(),
                     "briefed-not-qualified",US_BRIEF,{"anchor":anchor}))
-    result.extend(_ultrasound_case_consumers(repo))
+    reference_consumers,reference_index,acquired_index=_ultrasound_reference_consumers(repo)
+    result.extend(reference_consumers)
+    case_consumers=_ultrasound_case_consumers(repo,reference_index,acquired_index)
+    result.extend(case_consumers)
+    unresolved={}
+    for consumer in case_consumers:
+        if consumer.kind!="acquisition-chapter": continue
+        for reference_id in consumer.evidence.get("unresolvedReferenceIds",[]):
+            unresolved.setdefault(reference_id,[]).append(consumer.consumer_id)
+    for reference_id,consumers in sorted(unresolved.items()):
+        result.append(Consumer("ultrasound:reference-requirement:"+reference_id,
+            "ultrasound-anatomy","reference-requirement",reference_id,
+            "Case views refer to this reference ID, but no unambiguous source record resolves it.",
+            "missing-reference-record",case_consumers[0].source_path if case_consumers else US_BRIEF,
+            {"referenceId":reference_id,"consumerIds":consumers}))
     result.extend(_ultrasound_track_consumers(repo))
     result.extend(ultrasound_gap_requirements(repo))
     root=owner_path(repo,US_REVIEWS)
@@ -672,7 +804,7 @@ def build_catalog(repo:Path):
     for item in consumers:
         path=owner_path(repo,item.source_path)
         hashes[item.source_path]=sha(path.read_bytes()) if path.is_file() else "missing"
-        for source_name in (*item.evidence.get("sourcePaths",[]),*item.evidence.get("framePaths",[])):
+        for source_name in (*item.evidence.get("sourcePaths",[]),*item.evidence.get("framePaths",[]),*item.evidence.get("artifactPaths",[])):
             source=owner_path(repo,source_name)
             hashes[source_name]=sha(source.read_bytes()) if source.is_file() else "missing"
         for pin in item.evidence.get("artifactPins",[]):
@@ -697,7 +829,8 @@ def find(catalog:Catalog,query:str,domain:str|None=None):
         if all(term in hay for term in terms): packages.append(asdict(item))
     for item in catalog.consumers:
         if domain and item.domain!=domain: continue
-        hay=" ".join((item.consumer_id,item.domain,item.title,item.action,item.source_path)).casefold()
+        evidence_text=json.dumps(item.evidence,ensure_ascii=False,sort_keys=True)
+        hay=" ".join((item.consumer_id,item.domain,item.title,item.action,item.source_path,evidence_text)).casefold()
         if all(term in hay for term in terms): consumers.append(asdict(item))
     return {"query":query,"packages":packages,"consumers":consumers}
 
@@ -709,11 +842,40 @@ def show(catalog:Catalog,identity:str):
     raise GovernanceError(f"Unknown identity: {identity}")
 
 def resolve(catalog:Catalog,identity:str,part_id:str|None=None):
-    """Resolve explicit consumer part tokens without anatomical-name inference."""
+    """Resolve explicit consumer pins; keep part, source, frame and qualification claims separate."""
     consumer=show(catalog,identity)
     if consumer["type"]!="consumer-requirement":
         raise GovernanceError("Resolve requires a consumer identity, not a package identity")
     evidence=consumer.get("evidence",{})
+    related_references=evidence.get("referenceBindings",[])
+    if evidence.get("acquiredReference"):
+        related_references=[*related_references,{"referenceId":evidence["acquiredReference"].get("consumerId"),
+            "status":"resolved","matches":[evidence["acquiredReference"]]}]
+    referenced_packages=[]
+    for source_name in evidence.get("sourcePaths",[]):
+        for package in catalog.packages:
+            if source_name==package.path or source_name.startswith(package.path+"/"):
+                item={"packageId":package.candidate_id,"packagePath":package.path,
+                    "sourceReference":source_name,"relationship":"explicit-package-source-reference"}
+                if item not in referenced_packages: referenced_packages.append(item)
+    if consumer.get("kind")=="accepted-assessment":
+        export=evidence.get("export",{})
+        exact=[];near=[]
+        for package in catalog.packages:
+            if export.get("path") not in package.exports: continue
+            try:
+                digest,size=declared_identity(Path(catalog.repository),export["path"])
+                match=(digest==export.get("sha256") and size==export.get("bytes"))
+                item={"packageId":package.candidate_id,"packagePath":package.path,
+                    "exportPath":export["path"],"sha256":digest,"bytes":size,
+                    "status":"exact-export-candidate" if match else "export-identity-mismatch"}
+                (exact if match else near).append(item)
+            except (OSError,ValueError) as error:
+                near.append({"packageId":package.candidate_id,"packagePath":package.path,
+                    "exportPath":export.get("path"),"status":"export-identity-unavailable","reason":str(error)})
+        return {"consumer":consumer,"status":"exact-export-candidate" if exact else "export-unresolved",
+            "exactExportCandidates":exact,"nearMatches":near,"relatedReferences":related_references,
+            "qualification":"teaching assessment is evidence for its pinned task; asset lineage, part scope, frame registration and rights remain separately evaluated."}
     declared=evidence.get("parts",[])
     if part_id is not None:
         required=[part_id]
@@ -723,7 +885,8 @@ def resolve(catalog:Catalog,identity:str,part_id:str|None=None):
         required=[]
     if not required:
         return {"consumer":consumer,"status":"no-exact-part-contract",
-          "reason":"This consumer does not declare machine-readable part selectors; no binding is inferred from prose."}
+          "referencedPackages":referenced_packages,"relatedReferences":related_references,
+          "reason":"This consumer does not declare machine-readable part selectors; no binding is inferred from prose, source labels or image similarity."}
     case=evidence.get("case")
     results=[]
     mesh_types={"glb-component","glb-node","blender-object","stl","glb-source-node","glb-node-set"}
@@ -780,7 +943,7 @@ def resolve(catalog:Catalog,identity:str,part_id:str|None=None):
           "qualification":"not-established",
           "note":"An exact selector and source-case match is a candidate binding, not anatomical, registration, rights or teaching qualification."})
     return {"consumer":consumer,"sourceCase":case,"status":"resolved-candidates",
-      "parts":results}
+      "referencedPackages":referenced_packages,"relatedReferences":related_references,"parts":results}
 
 def impact(catalog:Catalog,identity:str):
     target=show(catalog,identity)

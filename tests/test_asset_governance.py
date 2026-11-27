@@ -1,6 +1,6 @@
 import hashlib,json,tempfile,unittest
 from pathlib import Path
-from med_assets.governance import GovernanceError,build_catalog,find,show,resolve,ultrasound_gap_requirements
+from med_assets.governance import Catalog,Consumer,GovernanceError,build_catalog,find,show,resolve,ultrasound_gap_requirements
 from med_assets.governance_migration import apply_backfill_plan,create_backfill_plan,hydrate_lfs
 from med_assets.domain import Concept,ConceptRelation,GovernanceGraph,RelationType
 
@@ -14,7 +14,7 @@ class GovernanceTests(unittest.TestCase):
         (root/"lessons/body-systems/display").mkdir(parents=True)
         (root/"lessons/body-systems/display/index.json").write_text(json.dumps([
           {"id":"digestive","name":"Digestive","function":"Locate digestive organs.","detail":"Find the liver.",
-           "limit":"External localization only.","sources":[],
+           "limit":"External localization only.","sources":[["Liver package","models/liver/README.md"]],
            "plates":[{"id":"digestive-liver","kind":"assembly","title":"Digestive assembly","frames":[],"legend":[]},
                      {"id":"digestive-liver","kind":"detail","title":"Liver detail","frames":[],"legend":[]}]}]))
         (root/"docs/gallery/use-cases").mkdir(parents=True)
@@ -23,11 +23,21 @@ class GovernanceTests(unittest.TestCase):
         (root/"experiments/ultrasound-sweep/cases/organs").mkdir(parents=True)
         (root/"experiments/ultrasound-sweep/cases/organs/cases.json").write_text(json.dumps([
           {"id":"abdomen-survey","family":"abdomen","title":"Abdominal survey","summary":"Survey the abdomen.",
-           "views":[{"title":"Liver","caption":"Locate liver."},{"title":"Portal vein","caption":"Trace portal vein."}]}]))
+           "views":[{"title":"Liver","caption":"Locate liver.","referenceIds":["hepatic-vein","missing-vessel"]},{"title":"Portal vein","caption":"Trace portal vein."}]}]))
         (root/"experiments/ultrasound-sweep").mkdir(parents=True,exist_ok=True)
         (root/"experiments/ultrasound-sweep/abdomen-tracks.json").write_text(json.dumps({
           "common":{"case":"s1233"},
           "sweeps":[{"id":"liver","title":"Liver sweep","parts":["liver"],"landmarks":["hepatic-vein"]}]}))
+        research=root/"experiments/ultrasound-sweep/research"
+        (research/"references").mkdir(parents=True)
+        reference_payload=b"acquired hepatic vein reference"
+        (research/"references/hepatic-vein.webp").write_bytes(reference_payload)
+        (research/"normal-landmarks.json").write_text(json.dumps({"hepatic-vein":{
+          "path":"references/hepatic-vein.webp","title":"Hepatic vein below the diaphragm",
+          "license":"CC BY 4.0","licenseUrl":"https://creativecommons.org/licenses/by/4.0/",
+          "sha256":hashlib.sha256(reference_payload).hexdigest(),
+          "sourceSha256":"a"*64,"sourceMedia":"https://example.invalid/source.jpg",
+          "note":"Separate acquired subject; qualitative reference only."}}))
         delivery=root/"body/anatomy-workshop-r1/body-3d-delivery"
         delivery.mkdir(parents=True)
         (root/"body/anatomy-workshop-r1/README.md").write_text("# Anatomy Workshop\\n")
@@ -55,6 +65,13 @@ class GovernanceTests(unittest.TestCase):
             self.assertEqual(show(catalog,"body-systems:plate:digestive:digestive-liver")["type"],"consumer-requirement")
             self.assertEqual(show(catalog,"ultrasound:case-view:organs:abdomen-survey:2")["title"],"Abdominal survey · Portal vein")
             self.assertEqual(show(catalog,"ultrasound:sweep:abdomen-tracks:liver")["domain"],"ultrasound-anatomy")
+            reference=show(catalog,"ultrasound:reference:normal-landmarks:hepatic-vein")
+            self.assertEqual(reference["evidence"]["verification"],"verified")
+            chapter=show(catalog,"ultrasound:case-view:organs:abdomen-survey:1")
+            self.assertEqual([x["status"] for x in chapter["evidence"]["referenceBindings"]],["resolved","missing"])
+            self.assertEqual(show(catalog,"ultrasound:reference-requirement:missing-vessel")["kind"],"reference-requirement")
+            self.assertEqual(len(resolve(catalog,"ultrasound:case-view:organs:abdomen-survey:1")["relatedReferences"]),2)
+            self.assertTrue(find(catalog,"missing-vessel")["consumers"])
             resolved=resolve(catalog,"ultrasound:sweep:abdomen-tracks:liver")
             self.assertEqual(resolved["parts"][0]["status"],"exact-binding-candidate")
             self.assertEqual(resolved["parts"][0]["exactCandidates"][0]["partId"],"liver")
@@ -77,6 +94,21 @@ class GovernanceTests(unittest.TestCase):
                 {export["path"] for export in record["exports"]})
             self.assertTrue(record["unresolved"])
             self.assertEqual(apply_backfill_plan(root,path),[])
+    def test_resolver_uses_explicit_package_sources_and_exact_assessment_exports(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root=Path(directory);self.fixture(root);catalog=build_catalog(root)
+            body=resolve(catalog,"body-systems:digestive:digestive-liver")
+            self.assertEqual(body["referencedPackages"][0]["packagePath"],"models/liver")
+            payload=(root/"models/liver/liver.glb").read_bytes()
+            export={"path":"models/liver/liver.glb","sha256":hashlib.sha256(payload).hexdigest(),"bytes":len(payload)}
+            assessment=Consumer("teaching-assessment:fixture","teaching-assessments","accepted-assessment",
+                "Fixture · liver","Locate the liver.","accepted","reviews/fixture.json",
+                {"export":export,"artifactPins":[export]})
+            catalog=Catalog(catalog.repository,catalog.packages,(assessment,),catalog.source_hashes)
+            resolved=resolve(catalog,"teaching-assessment:fixture")
+            self.assertEqual(resolved["status"],"exact-export-candidate")
+            self.assertEqual(resolved["exactExportCandidates"][0]["exportPath"],"models/liver/liver.glb")
+
     def test_ultrasound_geometry_gaps_are_parsed_without_nested_helper_duplicates(self):
         with tempfile.TemporaryDirectory() as directory:
             root=Path(directory)
