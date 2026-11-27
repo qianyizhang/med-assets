@@ -103,7 +103,7 @@ def _affected_consumers(catalog, record: dict) -> list:
 def _mutate(repo: Path, record: dict, action: str, payload: dict, catalog) -> dict:
     out = json.loads(json.dumps(record))
     if action == "refine":
-        fields = {"concepts":"conceptId", "sources":"sourceId", "parts":"partId", "revisions":"revisionId"}
+        fields = {"concepts":"conceptId", "sources":"sourceId", "parts":"partId", "revisions":"revisionId", "artifacts":"artifactId"}
         changes = payload.get("set", {})
         if not isinstance(changes, dict) or set(changes)-set(fields):
             raise GovernanceError("refine set accepts concepts/sources/parts/revisions arrays")
@@ -111,6 +111,14 @@ def _mutate(repo: Path, record: dict, action: str, payload: dict, catalog) -> di
             if field in changes:
                 if not isinstance(changes[field], list): raise GovernanceError(f"{field} must be an array")
                 for row in changes[field]: _append(out[field], row, key, field)
+        remove_exports = payload.get("removeExports", [])
+        if not isinstance(remove_exports, list):
+            raise GovernanceError("removeExports must be an array of exact export paths")
+        for export_path in remove_exports:
+            matches = [row for row in out["exports"] if row.get("path") == export_path]
+            if len(matches) != 1:
+                raise GovernanceError(f"Expected exactly one existing export to remove: {export_path}")
+            out["exports"].remove(matches[0])
         resolved = payload.get("resolveUnresolved", [])
         added = payload.get("addUnresolved", [])
         if not isinstance(resolved, list) or not isinstance(added, list):
@@ -124,7 +132,7 @@ def _mutate(repo: Path, record: dict, action: str, payload: dict, catalog) -> di
                 raise GovernanceError("New unresolved issues must be non-empty strings")
             if issue not in out["unresolved"]:
                 out["unresolved"].append(issue)
-        if not changes and not resolved and not added:
+        if not changes and not remove_exports and not resolved and not added:
             raise GovernanceError("refine requires a metadata change or an explicit unresolved disposition")
     elif action in {"assess", "qualify"}:
         key = "assessment" if action == "assess" else "qualification"
