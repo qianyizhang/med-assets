@@ -138,3 +138,12 @@ Payloads are JSON objects. Refine uses {"set":{"concepts":[],"sources":[],"parts
 
 
 The resolver also joins exact candidates to package-owned records when present. Its output exposes revision IDs/status, export path/digest/size, part membership, source declarations, recorded frame/transform fields, revision qualifications and consumer-specific adoption pins. Missing records remain explicit. An exact path/selector is still only a candidate; a qualified result requires a matching maintained revision and scoped evidence. Registration and rights compatibility are never inferred from a path or label.
+
+
+## First reviewed migration pilot: Cardiac Atlas
+
+The first package-owned backfill is `heart/Cardiac_Atlas_Animated/asset.record.json`, with asset identity `anatomy:heart:cardiac-atlas`. It follows the explicit shared-source statement in the Heart assets owner README and the `shared-source-r01` delivery README: one editable Blender source owns the static great-vessel teaching export and the focused ventricular-wall-motion export. It is one maintained lineage, not one asset per mesh/node or export.
+
+The provisional record contains five exact named parts and their GLB node selectors: aorta, pulmonary trunk, left pulmonary artery, right pulmonary artery, and complete left ventricular wall. It pins two revision exports by SHA-256 and byte size. The source and export coordinate frames are recorded separately: native Blender +X patient left / +Y posterior / +Z superior at 25 mm per Blender unit; GLB +X patient left / +Y superior / +Z anterior with the documented 0.025 metre root conversion. This is a source-to-export relationship, not patient registration.
+
+Two existing selected teaching assessments are adopted as provisional uses: distinguish the pulmonary trunk from the aortic arch, and distinguish ventricular contour change from rigid shift. Their exact consumer IDs, revision, export digests, parts and requirement IDs are pinned. The accepted assessments are not silently promoted to qualification. The asset and both uses remain provisional because no separate task-specific qualification has been approved. Source license/attribution and canonical ontology mappings remain unresolved. The other package exports, including the full animated presentations and earlier wall-motion export, are not assigned to this revision until their source/variant relationships are reviewed. The documented schematic vessel-junction gap and the non-clinical educational scope remain explicit limits.
