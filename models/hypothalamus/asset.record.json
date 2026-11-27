@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:bp3d:hypothalamus",
+  "title": "BodyParts3D hypothalamus envelope pair",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/hypothalamus",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:bp3d:hypothalamus-members",
+      "title": "BP3D native hypothalamus OBJ member bindings",
+      "subject": "BodyParts3D 4.0 atlas",
+      "sourceType": "retained source or source receipt",
+      "license": "BodyParts3D © Database Center for Life Science, CC BY 4.0 for the source. Retain the historical CC BY-SA 2.1 Japan OBJ notices.",
+      "path": "sources/datasets/bp3d-4.0-glands/external-source-members.json",
+      "sha256": "50ca363bd42284dcf727932c7596469aad7551bbacf9b266e5d5289bf90380f7",
+      "bytes": 4449,
+      "evidence": [
+        {
+          "path": "models/hypothalamus/README.md",
+          "sha256": "ec581ccc7ba9d99d40fbf936f2b2d67f84f5b882620c7dbf38f5148665f7f76b"
+        },
+        {
+          "path": "models/hypothalamus/ATTRIBUTION.md",
+          "sha256": "9e7dcb5d7527406343f5aca723da50258279b0ee7a106d55444895ce9ae4717e"
+        }
+      ],
+      "limitations": []
+    }
+  ],
+  "parts": [
+    {
+      "partId": "hypothalamic-envelopes",
+      "label": "Paired source hypothalamic envelopes",
+      "selectors": [
+        "FJ1760 hypothalamus",
+        "FJ1808 hypothalamus"
+      ],
+      "sourcePath": "models/hypothalamus/README.md",
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "source-candidate-01",
+      "status": "provisional",
+      "sourceIds": [
+        "source:bp3d:hypothalamus-members"
+      ],
+      "recipeEvidence": {
+        "path": "models/hypothalamus/README.md",
+        "sha256": "ec581ccc7ba9d99d40fbf936f2b2d67f84f5b882620c7dbf38f5148665f7f76b"
+      },
+      "frame": {
+        "convention": "glb-y-up-m",
+        "evidence": "models/hypothalamus/README.md",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ]
+      },
+      "partIds": [
+        "hypothalamic-envelopes"
+      ],
+      "exports": [
+        {
+          "id": "teaching",
+          "path": "models/hypothalamus/exports/source-candidate-01/hypothalamus_source_frame.glb",
+          "sha256": "b6d73d6b5a33006391a743c650ccc06b65b9b9afaaaebbcf1d05102d4399274c",
+          "bytes": 75720,
+          "format": "glb",
+          "partIds": [
+            "hypothalamic-envelopes"
+          ],
+          "triangles": 4078
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "The third ventricle and pituitary are relative view context. No nucleus labels, tissue subdivision or exact portable source rebuild."
+  ]
+}

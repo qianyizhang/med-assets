@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:z-anatomy:right-knee",
+  "title": "Right knee static regional structures",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/joints/knee",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:z-anatomy:knee-study",
+      "title": "Z-Anatomy Right knee static regional structures source binding",
+      "subject": "Z-Anatomy right-sided reference atlas",
+      "sourceType": "retained source or source receipt",
+      "license": "Z-Anatomy, CC BY-SA 4.0. Retain historical BodyParts3D / DBCLS CC BY-SA 2.1 Japan credit.",
+      "path": "sources/datasets/z-anatomy/joint-regional-studies/external-source-map.json",
+      "sha256": "d8f2b2b86c47a1920d3a1abaff1479c93ee57441d2983bc35ac52b4f864510b2",
+      "bytes": 2675,
+      "evidence": [
+        {
+          "path": "models/joints/exports/z-knee-r01/README.md",
+          "sha256": "43cd94200820c4b319e84127dcd7a8ee7d651923fabaf620dccf75cabf0145e0"
+        },
+        {
+          "path": "sources/datasets/z-anatomy/joint-regional-studies/REPLAY-BOUNDARY.md",
+          "sha256": "535951712fcfc87b33685d3318fad4f06df7ee903ae1e523651e775e4d570a19"
+        }
+      ],
+      "limitations": []
+    }
+  ],
+  "parts": [
+    {
+      "partId": "knee-capsule",
+      "label": "Right knee capsule",
+      "selectors": [
+        "Articular capsule of knee joint.r candidate"
+      ],
+      "sourcePath": "sources/datasets/z-anatomy/joint-regional-studies/camera-contract.json",
+      "registration": "native"
+    },
+    {
+      "partId": "cruciate-ligaments",
+      "label": "Anterior and posterior cruciate ligaments",
+      "selectors": [
+        "Anterior cruciate ligament.r candidate",
+        "Posterior cruciate ligament.r candidate"
+      ],
+      "sourcePath": "sources/datasets/z-anatomy/joint-regional-studies/camera-contract.json",
+      "registration": "native"
+    },
+    {
+      "partId": "menisci",
+      "label": "Medial and lateral menisci",
+      "selectors": [
+        "Lateral meniscus.r candidate",
+        "Medial meniscus.r candidate"
+      ],
+      "sourcePath": "sources/datasets/z-anatomy/joint-regional-studies/camera-contract.json",
+      "registration": "native"
+    },
+    {
+      "partId": "knee-bones",
+      "label": "Femur, tibia, fibula and patella",
+      "selectors": [
+        "Femur.r candidate",
+        "Tibia.r candidate",
+        "Fibula.r candidate",
+        "Patella.r candidate"
+      ],
+      "sourcePath": "sources/datasets/z-anatomy/joint-regional-studies/camera-contract.json",
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "z-knee-r01",
+      "status": "provisional",
+      "sourceIds": [
+        "source:z-anatomy:knee-study"
+      ],
+      "recipeEvidence": {
+        "path": "sources/datasets/z-anatomy/joint-regional-studies/REPLAY-BOUNDARY.md",
+        "sha256": "535951712fcfc87b33685d3318fad4f06df7ee903ae1e523651e775e4d570a19"
+      },
+      "frame": {
+        "convention": "glb-y-up-m",
+        "evidence": "sources/datasets/z-anatomy/joint-regional-studies/camera-contract.json",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ]
+      },
+      "partIds": [
+        "knee-capsule",
+        "cruciate-ligaments",
+        "menisci",
+        "knee-bones"
+      ],
+      "exports": [
+        {
+          "id": "teaching",
+          "path": "models/joints/exports/z-knee-r01/knee_z_native.glb",
+          "sha256": "6dcc793e4132e62e4962e504bef0d595bb2e7d3a31881137244f31eadbb53aad",
+          "bytes": 365864,
+          "format": "glb",
+          "partIds": [
+            "knee-capsule",
+            "cruciate-ligaments",
+            "menisci",
+            "knee-bones"
+          ],
+          "triangles": 18672
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Open capsule and source ACL topology warnings remain. No independent cartilage, attachment or motion validation. Fresh exact source replay remains unverified."
+  ]
+}

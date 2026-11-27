@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:z-anatomy:right-shoulder",
+  "title": "Right shoulder capsule and labrum",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/joints/shoulder",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:z-anatomy:shoulder-study",
+      "title": "Z-Anatomy Right shoulder capsule and labrum source binding",
+      "subject": "Z-Anatomy right-sided reference atlas",
+      "sourceType": "retained source or source receipt",
+      "license": "Z-Anatomy, CC BY-SA 4.0. Retain historical BodyParts3D / DBCLS CC BY-SA 2.1 Japan credit.",
+      "path": "sources/datasets/z-anatomy/joint-regional-studies/external-source-map.json",
+      "sha256": "d8f2b2b86c47a1920d3a1abaff1479c93ee57441d2983bc35ac52b4f864510b2",
+      "bytes": 2675,
+      "evidence": [
+        {
+          "path": "models/joints/exports/z-shoulder-r02/README.md",
+          "sha256": "c3219a746a770a957b53e9adec248579fba8d59b932bfa7e80b49b1116b61db0"
+        },
+        {
+          "path": "models/joints/recipes/z-right-arm/README.md",
+          "sha256": "cec52a91d0b12100746426b2694eb59a315cd29f8333dd87902ab4d5ab2e3b7f"
+        }
+      ],
+      "limitations": []
+    }
+  ],
+  "parts": [
+    {
+      "partId": "shoulder-capsule",
+      "label": "Glenohumeral capsule",
+      "selectors": [
+        "Articular capsule of glenohumeral joint.r candidate"
+      ],
+      "sourcePath": "sources/datasets/z-anatomy/joint-regional-studies/camera-contract.json",
+      "registration": "native"
+    },
+    {
+      "partId": "glenoid-labrum",
+      "label": "Glenoid labrum",
+      "selectors": [
+        "Glenoid labrum.r candidate"
+      ],
+      "sourcePath": "sources/datasets/z-anatomy/joint-regional-studies/camera-contract.json",
+      "registration": "native"
+    },
+    {
+      "partId": "shoulder-ligaments",
+      "label": "Selected glenohumeral and neighboring ligaments",
+      "selectors": [
+        "Coracohumeral ligament.r candidate",
+        "Inferior glenohumeral ligament.r candidate",
+        "Middle glenohumeral ligament.r candidate",
+        "Superior glenohumeral ligament.r candidate",
+        "Transverse humeral ligament.r candidate"
+      ],
+      "sourcePath": "sources/datasets/z-anatomy/joint-regional-studies/camera-contract.json",
+      "registration": "native"
+    },
+    {
+      "partId": "shoulder-bones",
+      "label": "Humerus, scapula and clavicle",
+      "selectors": [
+        "Humerus.r candidate",
+        "Scapula.r candidate",
+        "Clavicle.r candidate"
+      ],
+      "sourcePath": "sources/datasets/z-anatomy/joint-regional-studies/camera-contract.json",
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "z-shoulder-r02",
+      "status": "provisional",
+      "sourceIds": [
+        "source:z-anatomy:shoulder-study"
+      ],
+      "recipeEvidence": {
+        "path": "models/joints/recipes/z-right-arm/README.md",
+        "sha256": "cec52a91d0b12100746426b2694eb59a315cd29f8333dd87902ab4d5ab2e3b7f"
+      },
+      "frame": {
+        "convention": "glb-y-up-m",
+        "evidence": "sources/datasets/z-anatomy/joint-regional-studies/camera-contract.json",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ]
+      },
+      "partIds": [
+        "shoulder-capsule",
+        "glenoid-labrum",
+        "shoulder-ligaments",
+        "shoulder-bones"
+      ],
+      "exports": [
+        {
+          "id": "teaching",
+          "path": "models/joints/exports/z-shoulder-r02/shoulder_z_native.glb",
+          "sha256": "f2d746dfafb7b74bdcf91561a26c8806dc4e4fd05887c9c1d95fafd92a3ab09a",
+          "bytes": 671712,
+          "format": "glb",
+          "partIds": [
+            "shoulder-capsule",
+            "glenoid-labrum",
+            "shoulder-ligaments",
+            "shoulder-bones"
+          ],
+          "triangles": 36700
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Native source pose and schematic materials. Two source tessellation faces have zero area."
+  ]
+}

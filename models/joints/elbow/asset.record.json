@@ -1,0 +1,113 @@
+{
+  "schemaVersion": 1,
+  "assetId": "anatomy:z-anatomy:right-elbow",
+  "title": "Right elbow capsule and ligaments",
+  "kind": "model",
+  "status": "provisional",
+  "owner": "models/joints/elbow",
+  "concepts": [],
+  "sources": [
+    {
+      "sourceId": "source:z-anatomy:elbow-study",
+      "title": "Z-Anatomy Right elbow capsule and ligaments source binding",
+      "subject": "Z-Anatomy right-sided reference atlas",
+      "sourceType": "retained source or source receipt",
+      "license": "Z-Anatomy, CC BY-SA 4.0. Retain historical BodyParts3D / DBCLS CC BY-SA 2.1 Japan credit.",
+      "path": "sources/datasets/z-anatomy/joint-regional-studies/external-source-map.json",
+      "sha256": "d8f2b2b86c47a1920d3a1abaff1479c93ee57441d2983bc35ac52b4f864510b2",
+      "bytes": 2675,
+      "evidence": [
+        {
+          "path": "models/joints/exports/z-elbow-r02/README.md",
+          "sha256": "8810ffbbb44055c57da7e9b608fc7c494a153b47a34a493ff2c759577e958250"
+        },
+        {
+          "path": "models/joints/recipes/z-right-arm/README.md",
+          "sha256": "cec52a91d0b12100746426b2694eb59a315cd29f8333dd87902ab4d5ab2e3b7f"
+        }
+      ],
+      "limitations": []
+    }
+  ],
+  "parts": [
+    {
+      "partId": "elbow-capsule",
+      "label": "Right elbow articular capsule",
+      "selectors": [
+        "Articular capsule of elbow joint.r candidate"
+      ],
+      "sourcePath": "sources/datasets/z-anatomy/joint-regional-studies/camera-contract.json",
+      "registration": "native"
+    },
+    {
+      "partId": "elbow-ligaments",
+      "label": "Selected annular, quadrate and collateral ligaments",
+      "selectors": [
+        "Annular ligament of radius.r candidate",
+        "Quadrate ligament.r candidate",
+        "Radial collateral ligament.r candidate",
+        "Ulnar collateral ligament.r candidate"
+      ],
+      "sourcePath": "sources/datasets/z-anatomy/joint-regional-studies/camera-contract.json",
+      "registration": "native"
+    },
+    {
+      "partId": "elbow-bones",
+      "label": "Humerus, radius and ulna",
+      "selectors": [
+        "Humerus.r candidate",
+        "Ulna.r candidate",
+        "Radius.r candidate"
+      ],
+      "sourcePath": "sources/datasets/z-anatomy/joint-regional-studies/camera-contract.json",
+      "registration": "native"
+    }
+  ],
+  "revisions": [
+    {
+      "revisionId": "z-elbow-r02",
+      "status": "provisional",
+      "sourceIds": [
+        "source:z-anatomy:elbow-study"
+      ],
+      "recipeEvidence": {
+        "path": "models/joints/recipes/z-right-arm/README.md",
+        "sha256": "cec52a91d0b12100746426b2694eb59a315cd29f8333dd87902ab4d5ab2e3b7f"
+      },
+      "frame": {
+        "convention": "glb-y-up-m",
+        "evidence": "sources/datasets/z-anatomy/joint-regional-studies/camera-contract.json",
+        "units": "m",
+        "axes": [
+          "right-handed",
+          "Y-up"
+        ]
+      },
+      "partIds": [
+        "elbow-capsule",
+        "elbow-ligaments",
+        "elbow-bones"
+      ],
+      "exports": [
+        {
+          "id": "teaching",
+          "path": "models/joints/exports/z-elbow-r02/elbow_z_native.glb",
+          "sha256": "d4d209057d331f2154e33941c68fc1030fe86ac47f281c974360a887cfc3eab9",
+          "bytes": 158752,
+          "format": "glb",
+          "partIds": [
+            "elbow-capsule",
+            "elbow-ligaments",
+            "elbow-bones"
+          ],
+          "triangles": 8332
+        }
+      ],
+      "qualifications": []
+    }
+  ],
+  "uses": [],
+  "unresolved": [
+    "Static source pose; tendons, muscles, bursae and separate articular cartilage are outside scope."
+  ]
+}
