@@ -4,7 +4,7 @@ from dataclasses import asdict, dataclass
 import hashlib, json, re
 from pathlib import Path, PurePosixPath
 from typing import Any
-from .artifacts import HEX64, parse_pointer, source_path, unique_keys
+from .artifacts import HEX64, declared_identity, parse_pointer, source_path, unique_keys
 from .teaching import CurrentTeaching
 
 SCHEMA_VERSION=1
@@ -92,7 +92,10 @@ class Catalog:
             "ultrasoundCases":sum(x.kind=="modeled-case" for x in self.consumers),
             "ultrasoundCaseViews":sum(x.kind=="acquisition-chapter" for x in self.consumers),
             "ultrasoundSweeps":sum(x.kind=="standalone-sweep" for x in self.consumers),
-            "bodySystemStops":sum(x.domain=="body-systems" for x in self.consumers),
+            "bodySystemStops":sum(x.domain=="body-systems" and x.kind=="reviewed-stop" for x in self.consumers),
+            "bodySystemAssemblies":sum(x.domain=="body-systems" and x.kind=="system-assembly" for x in self.consumers),
+            "bodySystemPlates":sum(x.domain=="body-systems" and x.kind=="display-plate" for x in self.consumers),
+            "ultrasoundGeometryRequirements":sum(x.domain=="ultrasound-anatomy" and x.kind=="geometry-requirement" for x in self.consumers),
             "teachingAssessments":sum(x.domain=="teaching-assessments" for x in self.consumers)}}
 
 def _record_status(repo:Path,package:Path):
@@ -153,8 +156,18 @@ def _package_parts(repo:Path,package:Path):
     def add(part_id,label,selectors,source,geometry_type,status,**kwargs):
         if not isinstance(part_id,str) or not part_id.strip(): return
         if not isinstance(label,str) or not label.strip(): label=str(part_id)
-        normalized=tuple(dict.fromkeys(x for x in selectors if isinstance(x,str) and x.strip()))
-        parts.append(PackagePart(part_id,label,normalized,rel(repo,source),geometry_type,status,
+        normalized=[]
+        for selector in selectors:
+            if not isinstance(selector,str) or not selector.strip(): continue
+            selected=selector
+            try:
+                candidate_path=source.parent/PurePosixPath(selector)
+                if candidate_path.exists() and candidate_path.resolve()==candidate_path:
+                    selected=rel(repo,candidate_path)
+            except (OSError,ValueError):
+                pass
+            if selected not in normalized: normalized.append(selected)
+        parts.append(PackagePart(part_id,label,tuple(normalized),rel(repo,source),geometry_type,status,
             kwargs.get("source_case"),kwargs.get("source_frame"),kwargs.get("parent_part_id"),
             tuple(kwargs.get("aliases",())),kwargs.get("license"),kwargs.get("derivation"),
             kwargs.get("attributes",{})))
@@ -291,20 +304,101 @@ def scan_packages(repo:Path):
     return tuple(result)
 
 def body_system_consumers(repo:Path):
-    path=owner_path(repo,BODY_STOPS)
-    if not path.is_file(): return ()
-    data=read_json(path); stops=data.get("stops")
+    stop_path=owner_path(repo,BODY_STOPS)
+    if not stop_path.is_file(): return ()
+    stop_document=read_json(stop_path)
+    stops=stop_document.get("stops")
     if not isinstance(stops,list): raise GovernanceError(f"Invalid Body Systems stops: {BODY_STOPS}")
-    result=[]; seen=set()
+    display_path=owner_path(repo,"lessons/body-systems/display/index.json")
+    systems=read_json(display_path) if display_path.is_file() else []
+    if not isinstance(systems,list): raise GovernanceError("Invalid Body Systems display index")
+    by_system={}
+    for system in systems:
+        if not isinstance(system,dict): raise GovernanceError("Invalid Body Systems display system")
+        system_id=system.get("id")
+        if not isinstance(system_id,str) or not system_id.strip() or system_id in by_system:
+            raise GovernanceError(f"Invalid or duplicate Body Systems display identity: {system_id}")
+        by_system[system_id]=system
+    result=[]; seen=set(); plates={}
+    def paths_from_sources(rows):
+        paths=[]
+        for row in rows if isinstance(rows,list) else []:
+            if not isinstance(row,list): continue
+            for candidate in row[1:]:
+                if isinstance(candidate,str) and not candidate.startswith(("https://","http://")):
+                    try: normalized=source_path(candidate)
+                    except ValueError: continue
+                    paths.append(normalized)
+        return list(dict.fromkeys(paths))
+    def frame_records(plate,owner):
+        frames=plate.get("frames",[])
+        if not isinstance(frames,list): raise GovernanceError(f"Invalid display frames: {owner}")
+        result=[]
+        for frame in frames:
+            if not isinstance(frame,dict): raise GovernanceError(f"Invalid display frame: {owner}")
+            frame_path=frame.get("path")
+            if not isinstance(frame_path,str): raise GovernanceError(f"Display frame has no path: {owner}")
+            frame_path=source_path(frame_path)
+            digest=frame.get("sourceSha256")
+            if digest is not None and (not isinstance(digest,str) or not HEX64.fullmatch(digest)):
+                raise GovernanceError(f"Invalid display source digest: {frame_path}")
+            result.append({"path":frame_path,"angle":frame.get("angle"),
+                "sourceSha256":digest,"available":owner_path(repo,frame_path).is_file()})
+        return result
+    for system_id,system in by_system.items():
+        plates_for_system=system.get("plates",[])
+        if not isinstance(plates_for_system,list): raise GovernanceError(f"Invalid plate list: {system_id}")
+        plate_map={}
+        for plate in plates_for_system:
+            if not isinstance(plate,dict): raise GovernanceError(f"Invalid plate in {system_id}")
+            plate_id=plate.get("id")
+            if not isinstance(plate_id,str) or not plate_id.strip() or plate_id in plate_map:
+                raise GovernanceError(f"Invalid or duplicate plate identity in {system_id}: {plate_id}")
+            plate_map[plate_id]=plate
+        plates[system_id]=plate_map
+        source_paths=paths_from_sources(system.get("sources",[]))
+        assembly=next((p for p in plates_for_system if p.get("kind")=="assembly"),None)
+        if assembly:
+            frames=frame_records(assembly,system_id)
+            result.append(Consumer(f"body-systems:assembly:{system_id}","body-systems","system-assembly",
+                assembly.get("title",system.get("name",system_id)),
+                system.get("function",system.get("detail","")),
+                "assembly-described", "lessons/body-systems/display/index.json",
+                {"systemId":system_id,"function":system.get("function"),"detail":system.get("detail"),
+                 "limits":system.get("limit"),"status":system.get("status"),"overview":system.get("overview"),
+                 "frames":frames,"framePaths":[x["path"] for x in frames],
+                 "sourcePaths":source_paths,"legend":assembly.get("legend",[]),"scale":assembly.get("scale")}))
+        for plate in plates_for_system:
+            frames=frame_records(plate,system_id)
+            plate_id=plate["id"]
+            result.append(Consumer(f"body-systems:plate:{system_id}:{plate_id}","body-systems","display-plate",
+                f"{system.get('name',system_id)} · {plate.get('title',plate_id)}",
+                system.get("detail",system.get("function","")),"plate-described",
+                "lessons/body-systems/display/index.json",
+                {"systemId":system_id,"plateId":plate_id,"plateKind":plate.get("kind"),
+                 "frames":frames,"framePaths":[x["path"] for x in frames],
+                 "sourcePaths":source_paths,"legend":plate.get("legend",[]),"scale":plate.get("scale"),
+                 "limit":system.get("limit")}))
     for row in stops:
+        if not isinstance(row,dict): raise GovernanceError(f"Invalid Body Systems stop: {BODY_STOPS}")
         system,detail,action,observation,status=(row.get(k) for k in ("system","detail","action","observation","status"))
         if not all(isinstance(v,str) and v.strip() for v in (system,detail,action,observation,status)):
             raise GovernanceError(f"Incomplete Body Systems stop: {BODY_STOPS}")
         identity=f"body-systems:{system}:{detail}"
         if identity in seen: raise GovernanceError(f"Duplicate consumer: {identity}")
         seen.add(identity)
+        plate=plates.get(system,{}).get(detail)
+        display_status="exact-display-detail" if plate else "unmapped-display-detail"
+        frames=frame_records(plate,system) if plate else []
+        system_row=by_system.get(system,{})
         result.append(Consumer(identity,"body-systems","reviewed-stop",f"{system.title()} · {detail}",action,
-            "reviewed-"+status,BODY_STOPS,{"observation":observation,"reviewer":data.get("reviewer"),"date":data.get("date")}))
+            "reviewed-"+status,BODY_STOPS,
+            {"observation":observation,"reviewer":stop_document.get("reviewer"),"date":stop_document.get("date"),
+             "detailId":detail,"displayStatus":display_status,
+             "displayPlate":plate.get("title") if plate else None,
+             "displayFrames":frames,"framePaths":[x["path"] for x in frames],
+             "sourcePaths":paths_from_sources(system_row.get("sources",[])),
+             "scopeLimit":system_row.get("limit")}))
     return tuple(result)
 
 def _javascript_calls(source:str):
@@ -551,10 +645,11 @@ def build_catalog(repo:Path):
     repo=repo.resolve(); packages=scan_packages(repo)
     consumers=body_system_consumers(repo)+ultrasound_consumers(repo)+teaching_consumers(repo); hashes={}
     for item in consumers:
-        path=owner_path(repo,item.source_path); hashes[item.source_path]=sha(path.read_bytes())
-        for source_name in item.evidence.get("sourcePaths",[]):
+        path=owner_path(repo,item.source_path)
+        hashes[item.source_path]=sha(path.read_bytes()) if path.is_file() else "missing"
+        for source_name in (*item.evidence.get("sourcePaths",[]),*item.evidence.get("framePaths",[])):
             source=owner_path(repo,source_name)
-            hashes[source_name]=sha(source.read_bytes())
+            hashes[source_name]=sha(source.read_bytes()) if source.is_file() else "missing"
         for pin in item.evidence.get("artifactPins",[]):
             hashes["artifact:"+pin["path"]]=f"{pin['sha256']}:{pin.get('bytes',0)}"
     for item in packages:
@@ -614,13 +709,28 @@ def resolve(catalog:Catalog,identity:str,part_id:str|None=None):
             for candidate in package.parts:
                 tokens={candidate.part_id,*candidate.aliases,*candidate.selectors}
                 if requested not in tokens: continue
+                artifact_identities=[]
+                for selector in candidate.selectors:
+                    if selector not in package.exports: continue
+                    try:
+                        digest,size=declared_identity(Path(catalog.repository),selector)
+                        target=owner_path(Path(catalog.repository),selector)
+                        with target.open("rb") as stream: prefix=stream.read(80)
+                        basis="lfs-pointer" if prefix.startswith(b"version https://git-lfs.github.com/spec/") else "local-bytes"
+                        artifact_identities.append({"path":selector,"sha256":digest,"bytes":size,"identityBasis":basis})
+                    except (OSError,ValueError) as error:
+                        artifact_identities.append({"path":selector,"verification":"unavailable","reason":str(error)})
                 item={"packageId":package.candidate_id,"packagePath":package.path,
                   "partId":candidate.part_id,"label":candidate.label,
                   "selectors":list(candidate.selectors),"sourcePath":candidate.source_path,
                   "geometryType":candidate.geometry_type,"status":candidate.status,
                   "sourceCase":candidate.source_case,"sourceFrame":candidate.source_frame,
                   "derivation":candidate.derivation,"license":candidate.license,
-                  "parentPartId":candidate.parent_part_id,"attributes":candidate.attributes}
+                  "parentPartId":candidate.parent_part_id,"attributes":candidate.attributes,
+                  "artifactIdentities":artifact_identities,
+                  "rightsStatus":"declared" if candidate.license else "unresolved",
+                  "registrationStatus":"not-established",
+                  "spatialStatus":"same-source-case-frame-unverified-transform" if case and candidate.source_case==case else "unverified"}
                 if case and candidate.source_case and candidate.source_case!=case:
                     item["reason"]="Different source case"
                     incompatible.append(item);continue

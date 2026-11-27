@@ -1,6 +1,6 @@
 import hashlib,json,tempfile,unittest
 from pathlib import Path
-from med_assets.governance import GovernanceError,build_catalog,find,show,ultrasound_gap_requirements
+from med_assets.governance import GovernanceError,build_catalog,find,show,resolve,ultrasound_gap_requirements
 from med_assets.governance_migration import apply_backfill_plan,create_backfill_plan,hydrate_lfs
 from med_assets.domain import Concept,ConceptRelation,GovernanceGraph,RelationType
 
@@ -11,6 +11,12 @@ class GovernanceTests(unittest.TestCase):
         (root/"lessons/body-systems").mkdir(parents=True)
         (root/"lessons/body-systems/reviewed-stops.json").write_text(json.dumps({"reviewer":"reviewer","date":"2026-11-22",
           "stops":[{"system":"digestive","detail":"digestive-liver","action":"Locate liver.","observation":"Visible.","status":"passed"}]}))
+        (root/"lessons/body-systems/display").mkdir(parents=True)
+        (root/"lessons/body-systems/display/index.json").write_text(json.dumps([
+          {"id":"digestive","name":"Digestive","function":"Locate digestive organs.","detail":"Find the liver.",
+           "limit":"External localization only.","sources":[],
+           "plates":[{"id":"digestive-assembly","kind":"assembly","title":"Digestive assembly","frames":[],"legend":[]},
+                     {"id":"digestive-liver","kind":"detail","title":"Liver detail","frames":[],"legend":[]}]}]))
         (root/"docs/gallery/use-cases").mkdir(parents=True)
         (root/"docs/gallery/use-cases/ultrasound-anatomy.md").write_text(
           "# Ultrasound\n| Scenario | Coverage |\n| --- | --- |\n| [Abdominal survey](#abdomen) | Locate liver and biliary anatomy. |\n| [AAA screening](#abdomen) | Follow the aorta through the bifurcation. |\n")
@@ -35,9 +41,13 @@ class GovernanceTests(unittest.TestCase):
     def test_scan_keeps_package_and_consumers_separate(self):
         with tempfile.TemporaryDirectory() as directory:
             root=Path(directory);self.fixture(root);catalog=build_catalog(root)
-            self.assertEqual(len(catalog.packages),2);self.assertEqual(next(x for x in catalog.packages if x.path=="models/liver").record_status,"unregistered")
-            self.assertEqual(len(catalog.consumers),7);self.assertEqual(find(catalog,"liver")["packages"][0]["path"],"models/liver")
+            self.assertEqual(len(catalog.packages),3);self.assertEqual(next(x for x in catalog.packages if x.path=="models/liver").record_status,"unregistered")
+            self.assertEqual(len([x for x in catalog.consumers if x.domain=='body-systems']),4);self.assertEqual(find(catalog,"liver")["packages"][0]["path"],"models/liver")
             self.assertEqual(show(catalog,"body-systems:digestive:digestive-liver")["domain"],"body-systems")
+            stop=show(catalog,"body-systems:digestive:digestive-liver")
+            self.assertEqual(stop["evidence"]["displayStatus"],"exact-display-detail")
+            self.assertEqual(show(catalog,"body-systems:assembly:digestive")["type"],"consumer-requirement")
+            self.assertEqual(show(catalog,"body-systems:plate:digestive:digestive-liver")["type"],"consumer-requirement")
             self.assertEqual(show(catalog,"ultrasound:case-view:organs:abdomen-survey:2")["title"],"Abdominal survey · Portal vein")
             self.assertEqual(show(catalog,"ultrasound:sweep:abdomen-tracks:liver")["domain"],"ultrasound-anatomy")
             resolved=resolve(catalog,"ultrasound:sweep:abdomen-tracks:liver")
