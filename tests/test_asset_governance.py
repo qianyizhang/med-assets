@@ -59,7 +59,9 @@ class GovernanceTests(unittest.TestCase):
             payload=b"hydrated model bytes";digest=hashlib.sha256(payload).hexdigest()
             (root/"models/liver/liver.glb").write_bytes(payload)
             remote=b"remote LFS payload";remote_digest=hashlib.sha256(remote).hexdigest()
-            pointer=(f"version https://git-lfs.github.com/spec/v1\\noid sha256:{remote_digest}\\nsize {len(remote)}\\n").encode()
+            pointer=(b"version https://git-lfs.github.com/spec/v1\\n"
+                + b"oid sha256:"+remote_digest.encode()+b"\\nsize "
+                + str(len(remote)).encode()+b"\\n")
             (root/"models/liver/remote.glb").write_bytes(pointer)
             (root/"models/liver/package-manifest.json").write_text(json.dumps([
                 {"file":"liver.glb","bytes":len(payload),"sha256":digest},

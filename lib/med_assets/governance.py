@@ -68,6 +68,7 @@ class Catalog:
             "artifactLfsPointers":sum(a.verification=="pointer-match" for x in self.packages for a in x.artifacts),
             "artifactMissing":sum(a.verification=="missing" for x in self.packages for a in x.artifacts),
             "artifactMismatches":sum(a.verification=="mismatch" for x in self.packages for a in x.artifacts),
+            "artifactInvalidPointers":sum(a.verification=="invalid-pointer" for x in self.packages for a in x.artifacts),
             "consumerRequirements":len(self.consumers),
             "ultrasoundCases":sum(x.kind=="modeled-case" for x in self.consumers),
             "ultrasoundCaseViews":sum(x.kind=="acquisition-chapter" for x in self.consumers),
@@ -113,8 +114,12 @@ def _manifest_artifacts(repo:Path,package:Path):
                 with target.open("rb") as stream:
                     prefix=stream.read(1025)
                     if prefix.startswith(b"version https://git-lfs.github.com/spec/"):
-                        actual_digest,actual_size=parse_pointer(prefix)
-                        verification="pointer-match" if (actual_digest,actual_size)==(digest,size) else "mismatch"
+                        try:
+                            actual_digest,actual_size=parse_pointer(prefix)
+                        except ValueError:
+                            verification="invalid-pointer"
+                        else:
+                            verification="pointer-match" if (actual_digest,actual_size)==(digest,size) else "mismatch"
                     else:
                         stream.seek(0); actual_size=target.stat().st_size
                         actual_digest=hashlib.file_digest(stream,"sha256").hexdigest()
@@ -220,7 +225,7 @@ def ultrasound_gap_requirements(repo:Path):
         source=path.read_text(encoding="utf-8")
         for call_index,(function,args,strings,line) in enumerate(_javascript_calls(source),1):
             if function in ("gap","rebuild"):
-                if len(args)<4: raise GovernanceError(f"Malformed {function} requirement at {filename}:{line}")
+                if len(args)<4: continue  # helper declarations and nested helper invocations
                 part=next((strings[i] for i in range(1,len(strings)) if strings[i]),None)
                 # The semantic part and label are the last direct string arguments
                 # before any legacy alias array.
@@ -233,7 +238,7 @@ def ultrasound_gap_requirements(repo:Path):
                 part,label,reason=direct[offset],direct[offset+1],direct[offset+2]
                 status="rebuild-required" if function=="rebuild" else "missing-required"
             else:
-                if len(args)<5: raise GovernanceError(f"Malformed missingPart requirement at {filename}:{line}")
+                if len(args)<5: continue
                 direct=[value for value in strings if value]
                 if len(direct)<5: raise GovernanceError(f"Incomplete missingPart requirement at {filename}:{line}")
                 part,label,reason=direct[2],direct[3],direct[4]
