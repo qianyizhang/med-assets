@@ -9,6 +9,35 @@ import sys
 import tempfile
 from pathlib import Path
 
+LFS_HEADER = b"version https://git-lfs.github.com/spec/v1\n"
+
+
+def _is_matching_lfs_pointer(data: bytes, digest: str, size: int) -> bool:
+    if not data.startswith(LFS_HEADER):
+        return False
+    fields: dict[str, str] = {}
+    for line in data.decode("utf-8", errors="ignore").splitlines():
+        if " " in line:
+            key, value = line.split(" ", 1)
+            fields[key.strip()] = value.strip()
+    return fields.get("oid") == f"sha256:{digest}" and fields.get("size") == str(size)
+
+
+def place_verified_output(candidate: Path, destination: Path, raw: bytes, digest: str) -> None:
+    """Install verified bytes at destination, replacing only a matching LFS pointer."""
+    try:
+        os.link(candidate, destination)
+    except FileExistsError:
+        existing = destination.read_bytes()
+        if existing == raw:
+            return
+        if _is_matching_lfs_pointer(existing, digest, len(raw)):
+            os.replace(candidate, destination)
+            return
+        raise ValueError(
+            f"Existing output differs: {destination}. Choose --output in a fresh directory."
+        ) from None
+
 
 def main() -> None:
     owner = Path(__file__).resolve().parent
@@ -36,13 +65,9 @@ def main() -> None:
         if len(raw) != export["bytes"] or digest != export["sha256"]:
             parser.exit(1, f"Liver replay differs from r01: SHA-256 {digest}, {len(raw)} bytes\n")
         try:
-            os.link(candidate, args.output)
-        except FileExistsError:
-            if args.output.read_bytes() != raw:
-                parser.exit(
-                    1,
-                    f"Existing output differs: {args.output}. Choose --output in a fresh directory.\n",
-                )
+            place_verified_output(candidate, args.output, raw, digest)
+        except ValueError as exc:
+            parser.exit(1, f"{exc}\n")
     print(f"Verified r01 liver surface: {digest}, {len(raw)} bytes")
 
 

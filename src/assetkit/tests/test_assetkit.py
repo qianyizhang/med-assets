@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import importlib.util
 import json
 import struct
 import sys
@@ -714,9 +715,92 @@ def test_liver_sweep_indexes_the_governed_export_and_checks_its_grid() -> None:
         "experiments/ultrasound-sweep/abdomen-tracks.json"
     ]
     assert not impact.adoptions
+
+    native_ws = Workspace.load(repo, include_legacy_adapters=False)
+    native_impact = native_ws.impact(f"{ref.asset}@{ref.revision}:{ref.export}")
+    assert [use.owner_path for use in native_impact.consumers] == [
+        "experiments/ultrasound-sweep/abdomen-tracks.json"
+    ]
+    resolved = native_ws.registry.resolve_export(ref.asset, ref.revision, ref.export)
+    assert resolved is not None
+    assert resolved[1].provenance.license == "CC BY 4.0; retain the Workshop label-source notices"
+    assert resolved[1].provenance.registration == "native"
+
+    no_grid_registry = AssetRegistry(
+        assets=(
+            Asset(
+                id="demo:no-grid",
+                title="No Grid",
+                kind="model",
+                owner_dir="models/demo",
+                revisions=(
+                    Revision(
+                        id="r01",
+                        exports=(Export(id="mesh", path="models/demo/mesh.glb", format="glb"),),
+                    ),
+                ),
+            ),
+        )
+    )
+    with pytest.raises(AssetKitError, match="Missing voxel grid"):
+        no_grid_registry.require_voxel_export(
+            ExportRef(asset="demo:no-grid", revision="r01", export="mesh"), grid
+        )
+
     assert ws.registry.get("lungLeft") is None
     with pytest.raises(AssetKitError, match="Expected an AssetKit assets.json"):
         sync_manifest(repo, "lessons/one-breath/assets.json")
+
+
+def test_liver_rebuild_replaces_matching_lfs_pointer_and_rejects_drift(tmp_path: Path) -> None:
+    repo = Path(__file__).resolve().parents[3]
+    spec = importlib.util.spec_from_file_location(
+        "liver_s1233_rebuild", repo / "models/liver_s1233/rebuild.py"
+    )
+    assert spec is not None and spec.loader is not None
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+
+    raw = b"rebuilt liver mesh bytes"
+    digest = hashlib.sha256(raw).hexdigest()
+
+    # Fresh destination receives exact bytes.
+    cand1 = tmp_path / "cand1.mesh"
+    cand1.write_bytes(raw)
+    dest = tmp_path / "liver.mesh"
+    module.place_verified_output(cand1, dest, raw, digest)
+    assert dest.read_bytes() == raw
+
+    # Identical hydrated destination succeeds idempotently.
+    cand2 = tmp_path / "cand2.mesh"
+    cand2.write_bytes(raw)
+    module.place_verified_output(cand2, dest, raw, digest)
+    assert dest.read_bytes() == raw
+
+    # Matching LFS pointer is replaced in-place with hydrated bytes.
+    dest.write_text(
+        f"version https://git-lfs.github.com/spec/v1\noid sha256:{digest}\nsize {len(raw)}\n"
+    )
+    cand3 = tmp_path / "cand3.mesh"
+    cand3.write_bytes(raw)
+    module.place_verified_output(cand3, dest, raw, digest)
+    assert dest.read_bytes() == raw
+
+    # Mismatched LFS pointer or differing bytes are rejected without clobbering.
+    bad_pointer = (
+        f"version https://git-lfs.github.com/spec/v1\noid sha256:{'0' * 64}\nsize {len(raw)}\n"
+    )
+    dest.write_text(bad_pointer)
+    cand4 = tmp_path / "cand4.mesh"
+    cand4.write_bytes(raw)
+    with pytest.raises(ValueError, match="Existing output differs"):
+        module.place_verified_output(cand4, dest, raw, digest)
+    assert dest.read_text() == bad_pointer
+
+    dest.write_bytes(b"other content")
+    with pytest.raises(ValueError, match="Existing output differs"):
+        module.place_verified_output(cand4, dest, raw, digest)
+    assert dest.read_bytes() == b"other content"
 
 
 def test_read_verified_rejects_missing_lfs_and_changed_bytes(tmp_path: Path) -> None:

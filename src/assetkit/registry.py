@@ -533,13 +533,30 @@ def _load_asset_records(
                 if src:
                     limits.extend(str(x) for x in src.get("limitations", []) if isinstance(x, str))
 
+            rev_part_regs = {
+                parts_by_id[str(pid)].get("registration")
+                for pid in rev_row.get("partIds", [])
+                if str(pid) in parts_by_id
+            }
+            valid_regs = {r for r in rev_part_regs if r in REGISTRATION_STATES}
+            rev_reg = (
+                next(iter(valid_regs))
+                if len(rev_part_regs) == 1 and len(valid_regs) == 1
+                else "unknown"
+            )
+
             rev_prov = Provenance(
                 source=(
                     primary_src.get("path") or primary_src.get("title")
                     if primary_src is not None
                     else None
                 ),
-                registration="unknown",
+                license=(
+                    str(primary_src["license"])
+                    if primary_src is not None and primary_src.get("license")
+                    else None
+                ),
+                registration=rev_reg,
                 limits=tuple(limits),
             )
 

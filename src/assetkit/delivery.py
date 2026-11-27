@@ -266,8 +266,9 @@ class DeliveryGraph:
     def load(cls, repo: Path, *, include_legacy_adapters: bool = True) -> DeliveryGraph:
         root = repo.resolve()
         consumers = _load_native_consumers(root)
+        existing_ids = {c.id for c in consumers}
+        consumers.extend(_load_ultrasound_sweep_consumers(root, existing_ids, pinned_only=True))
         if include_legacy_adapters:
-            existing_ids = {c.id for c in consumers}
             consumers.extend(_project_legacy_consumers(root, existing_ids))
         return cls(consumers=tuple(consumers))
 
@@ -909,51 +910,63 @@ def _project_legacy_consumers(repo: Path, existing_ids: set[str]) -> list[Consum
                 )
             )
 
+    consumers.extend(_load_ultrasound_sweep_consumers(repo, existing_ids, pinned_only=False))
+    return consumers
+
+
+def _load_ultrasound_sweep_consumers(
+    repo: Path, existing_ids: set[str], *, pinned_only: bool
+) -> list[Consumer]:
+    consumers: list[Consumer] = []
     us_dir = repo / "experiments/ultrasound-sweep"
-    if us_dir.is_dir():
-        for track_file in sorted(us_dir.glob("*-track*.json")):
-            doc = _read_json(track_file)
-            common = doc.get("common", {})
-            owner = track_file.resolve().relative_to(repo).as_posix()
-            for sweep in doc.get("sweeps", []):
-                if not isinstance(sweep, dict) or not sweep.get("id"):
-                    continue
-                cid = f"ultrasound:sweep:{track_file.stem}:{sweep['id']}"
-                if cid in existing_ids:
-                    continue
-                existing_ids.add(cid)
-                case = sweep.get("case", common.get("case"))
-                parts = tuple(
-                    p for p in sweep.get("parts", common.get("parts", [])) if isinstance(p, str)
+    if not us_dir.is_dir():
+        return consumers
+    for track_file in sorted(us_dir.glob("*-track*.json")):
+        doc = _read_json(track_file)
+        common = doc.get("common", {})
+        owner = track_file.resolve().relative_to(repo).as_posix()
+        for sweep in doc.get("sweeps", []):
+            if not isinstance(sweep, dict) or not sweep.get("id"):
+                continue
+            scene_assets = sweep.get("sceneAssets", {})
+            if pinned_only and not scene_assets:
+                continue
+            cid = f"ultrasound:sweep:{track_file.stem}:{sweep['id']}"
+            if cid in existing_ids:
+                continue
+            existing_ids.add(cid)
+            case = sweep.get("case", common.get("case"))
+            parts = tuple(
+                p for p in sweep.get("parts", common.get("parts", [])) if isinstance(p, str)
+            )
+            reqs = tuple(
+                Requirement(
+                    id=f"part:{p}",
+                    description=f"Ultrasound sweep anatomy part '{p}'",
+                    status="provisional",
+                    parts=(p,),
+                    subject=case,
                 )
-                reqs = tuple(
-                    Requirement(
-                        id=f"part:{p}",
-                        description=f"Ultrasound sweep anatomy part '{p}'",
-                        status="provisional",
-                        parts=(p,),
-                        subject=case,
-                    )
-                    for p in parts
+                for p in parts
+            )
+            pins = tuple(
+                Pin(
+                    asset_id=ref.asset,
+                    revision_id=ref.revision,
+                    export_id=ref.export,
+                    requirement_id=f"part:{part}",
                 )
-                pins = tuple(
-                    Pin(
-                        asset_id=ref.asset,
-                        revision_id=ref.revision,
-                        export_id=ref.export,
-                        requirement_id=f"part:{part}",
-                    )
-                    for part, raw in sweep.get("sceneAssets", {}).items()
-                    for ref in (ExportRef.model_validate(raw),)
+                for part, raw in scene_assets.items()
+                for ref in (ExportRef.model_validate(raw),)
+            )
+            consumers.append(
+                Consumer(
+                    id=cid,
+                    title=sweep.get("title", sweep["id"]),
+                    kind="ultrasound-sweep",
+                    owner_path=owner,
+                    requirements=reqs,
+                    pins=pins,
                 )
-                consumers.append(
-                    Consumer(
-                        id=cid,
-                        title=sweep.get("title", sweep["id"]),
-                        kind="ultrasound-sweep",
-                        owner_path=owner,
-                        requirements=reqs,
-                        pins=pins,
-                    )
-                )
+            )
     return consumers
