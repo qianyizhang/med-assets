@@ -3,7 +3,8 @@
 import argparse,json,sys
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/"lib"))
-from med_assets.governance import GovernanceError,build_catalog,find,show,impact,resolve
+from med_assets.governance import GovernanceError,find,show,impact,resolve
+from med_assets.governance_ultrasound import build_catalog
 from med_assets.governance_migration import apply_backfill_plan,hydrate_lfs,write_backfill_plan
 from med_assets.governance_lifecycle import ACTIONS,apply_lifecycle_plan,create_lifecycle_plan
 from med_assets.governance_resolution import resolve_detailed
