@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Any
+from typing import Any, Literal
 
 from pydantic import Field, FiniteFloat, PositiveInt
 
@@ -43,6 +43,21 @@ class VoxelGrid(AssetModel):
         tuple[FiniteFloat, FiniteFloat, FiniteFloat, FiniteFloat],
         tuple[FiniteFloat, FiniteFloat, FiniteFloat, FiniteFloat],
     ]
+
+
+FrameConvention = Literal[
+    "glb-y-up-m", "voxel-index", "blender-z-up-m", "tool-probe-m", "unverified-frame"
+]
+
+
+class CoordinateFrame(AssetModel):
+    """Convention of stored coordinates, with independent documentation of placement."""
+
+    convention: FrameConvention
+    units: str | None = None
+    axes: tuple[str, ...] = ()
+    evidence: str | None = None
+    unresolved: str | None = None
 
 
 class SpatialFrame(AssetModel):
@@ -123,6 +138,7 @@ class Export(AssetModel):
     storage_status: str = "unverified"
     parts: tuple[Part, ...] = ()
     voxel_grid: VoxelGrid | None = None
+    frame: CoordinateFrame | None = None
 
     def validate_invariants(self, context: str) -> None:
         if not self.id.strip() or not self.path.strip():
@@ -148,6 +164,7 @@ class Revision(AssetModel):
     provenance: Provenance = Field(default_factory=Provenance)
     capabilities: tuple[str, ...] = ()
     exports: tuple[Export, ...] = ()
+    frame: CoordinateFrame | None = None
 
     def validate_invariants(self, asset_id: str) -> None:
         if not self.id.strip():
@@ -175,6 +192,7 @@ class Asset(AssetModel):
     revisions: tuple[Revision, ...] = ()
     source_manifest: str | None = None
     unresolved: tuple[str, ...] = ()
+    status: str | None = None
 
     def validate_invariants(self) -> None:
         if not self.id.strip() or not self.owner_dir.strip():
@@ -261,6 +279,8 @@ class AssetRegistry:
         if resolved is None:
             raise AssetKitError(f"Unknown scene export: {key}")
         export = resolved[2]
+        if export.frame is not None and export.frame.convention != "voxel-index":
+            raise AssetKitError(f"Incompatible coordinate convention for voxel placement: {key}")
         if export.voxel_grid is None:
             raise AssetKitError(f"Missing voxel grid for {key}")
         if export.voxel_grid != grid:
@@ -551,6 +571,7 @@ def _load_asset_records(
                     if primary_src is not None
                     else None
                 ),
+                subject=primary_src.get("subject") if primary_src is not None else None,
                 license=(
                     str(primary_src["license"])
                     if primary_src is not None and primary_src.get("license")
@@ -561,6 +582,7 @@ def _load_asset_records(
             )
 
             exports: list[Export] = []
+            rev_frame = rev_row.get("frame")
             seen_eids: set[str] = set()
             for exp_row in rev_row.get("exports", []):
                 if not isinstance(exp_row, dict) or not exp_row.get("path"):
@@ -642,6 +664,9 @@ def _load_asset_records(
                         voxel_grid=VoxelGrid.model_validate(exp_row["voxelGrid"])
                         if "voxelGrid" in exp_row
                         else None,
+                        frame=CoordinateFrame.model_validate(frame)
+                        if isinstance(frame := exp_row.get("frame", rev_frame), dict)
+                        else None,
                     )
                 )
 
@@ -652,6 +677,9 @@ def _load_asset_records(
                     recipe=rev_row.get("recipe"),
                     provenance=rev_prov,
                     exports=tuple(exports),
+                    frame=CoordinateFrame.model_validate(rev_frame)
+                    if isinstance(rev_frame, dict)
+                    else None,
                 )
             )
 
@@ -665,6 +693,7 @@ def _load_asset_records(
                 revisions=tuple(revisions),
                 source_manifest=_rel(repo, record_path),
                 unresolved=tuple(str(u) for u in doc.get("unresolved", []) if isinstance(u, str)),
+                status=doc.get("status"),
             )
         )
     return assets

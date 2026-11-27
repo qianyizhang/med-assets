@@ -12,6 +12,8 @@ import typer
 from . import AssetModel, Workspace
 from .build import BuildResult, plan_build, run_build, sync_manifest
 from .errors import AssetKitError
+from .records import PortExpectation, check_port
+from .registry import ExportRef
 
 app = typer.Typer(
     name="assetkit",
@@ -178,14 +180,54 @@ def build(
 @app.command()
 def sync(
     ctx: typer.Context,
-    manifest: Annotated[str, typer.Argument(help="Repo-relative path to assets.json")],
-    apply: Annotated[bool, typer.Option("--apply", help="Write changes to manifest")] = False,
+    manifest: Annotated[str, typer.Argument(help="Repo-relative path to asset.record.json")],
+    apply: Annotated[
+        bool, typer.Option("--apply", help="Write the planned record changes")
+    ] = False,
+    expect_plan: Annotated[
+        str | None, typer.Option("--expect-plan", help="Require the token from a reviewed dry run")
+    ] = None,
 ) -> None:
-    """Refresh sha256, bytes, and GLB stats in an assets.json manifest."""
+    """Plan or apply package record synchronization."""
+
+    _run(lambda: sync_manifest(_state(ctx).repo, manifest, apply=apply, expect_plan=expect_plan))
+
+
+@app.command("check-port")
+def check_port_command(
+    ctx: typer.Context,
+    target: Annotated[str, typer.Argument(help="Exact asset@revision:export key")],
+    record: Annotated[str, typer.Option("--record", help="Expected canonical owner record")],
+    path: Annotated[str, typer.Option("--path", help="Independently pinned payload path")],
+    sha256: Annotated[str, typer.Option("--sha256", help="Independently pinned SHA-256")],
+    size: Annotated[int, typer.Option("--bytes", help="Independently pinned byte count")],
+    triangles: Annotated[
+        int | None, typer.Option("--triangles", help="Independently expected triangle count")
+    ] = None,
+    selector: Annotated[
+        list[str] | None, typer.Option("--selector", help="Required selector (repeatable)")
+    ] = None,
+    allow_lfs_pointer: Annotated[
+        bool, typer.Option("--allow-lfs-pointer", help="Permit offline identity-only verification")
+    ] = False,
+) -> None:
+    """Require native ownership, exact registered identity, and a verified payload."""
 
     def _op() -> Any:
-        ws = _state(ctx).load()
-        return sync_manifest(ws.repository, manifest, apply=apply)
+        asset, at, revision_export = target.partition("@")
+        revision, colon, export = revision_export.partition(":")
+        if not (asset and at and revision and colon and export):
+            raise AssetKitError(f"Expected an exact asset@revision:export key: {target}")
+        expected = PortExpectation(
+            ref=ExportRef(asset=asset, revision=revision, export=export),
+            record=record,
+            path=path,
+            sha256=sha256,
+            bytes=size,
+            triangles=triangles,
+            selectors=tuple(selector or ()),
+        )
+        return check_port(_state(ctx).repo, expected, allow_lfs_pointer=allow_lfs_pointer)
 
     _run(_op)
 

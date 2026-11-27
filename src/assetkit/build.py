@@ -2,16 +2,24 @@
 
 from __future__ import annotations
 
+import fcntl
+import hashlib
 import json
+import os
+import stat
 import subprocess
 import sys
 from pathlib import Path
+from tempfile import NamedTemporaryFile
 from typing import Any, Literal, Protocol
 
-from .blobs import BlobStatus, inspect_mesh, normalize_path, safe_path, verify
+from .blobs import BlobRef, BlobStatus, MeshStats, inspect_mesh, normalize_path, safe_path, verify
+from .delivery import ImpactResult
 from .errors import AssetKitError
 from .models import AssetModel
+from .records import AssetRecord, export_mesh, load_record
 from .registry import MANIFEST_VERSION, AssetRegistry
+from .workspace import Workspace
 
 
 class BuildSpec(AssetModel):
@@ -57,11 +65,15 @@ class SyncExportChange(AssetModel):
 
 
 class SyncDiff(AssetModel):
-    """Observed changes between an assets.json manifest and rebuilt artifacts on disk."""
+    """Observed changes and the preconditions for a canonical record sync."""
 
     manifest_path: str
     updated_exports: tuple[SyncExportChange, ...]
     applied: bool
+    record_sha256: str | None = None
+    inputs: tuple[BlobRef, ...] = ()
+    affected_readers: tuple[ImpactResult, ...] = ()
+    plan_token: str | None = None
 
 
 class BuildRunner(Protocol):
@@ -168,8 +180,146 @@ def run_build(
     )
 
 
-def sync_manifest(repo: Path, manifest_rel_path: str, *, apply: bool = False) -> SyncDiff:
-    """Refresh sha256, bytes, and GLB triangle counts in a native assets.json from disk."""
+def _sync_payload(record: AssetRecord) -> bytes:
+    return (json.dumps(record.doc, ensure_ascii=False, indent=2) + "\n").encode()
+
+
+def _sync_precondition(record: AssetRecord, raw: bytes) -> str:
+    token = hashlib.sha256(record.path.encode() + b"\0" + raw)
+    for identity in record.inputs:
+        observation = (
+            identity.path,
+            identity.sha256,
+            identity.bytes,
+            identity.status in {"hydrated", "verified"},
+        )
+        token.update(b"\0" + json.dumps(observation, ensure_ascii=False).encode())
+    return token.hexdigest()
+
+
+def _record_sync(repo: Path, record: AssetRecord) -> SyncDiff:
+    observed = {identity.path: identity for identity in reversed(record.inputs)}
+    changes: list[SyncExportChange] = []
+    meshes: dict[str, MeshStats | None] = {}
+    for export in record.exports:
+        blob = observed[export.path]
+        if blob.status == "pointer-match" and not {"sha256", "bytes"} <= export.row.keys():
+            raise AssetKitError(
+                f"Hydrated bytes required for initial identity registration: {export.path}"
+            )
+        if export.path not in meshes:
+            meshes[export.path] = export_mesh(repo, blob)
+        mesh = meshes[export.path]
+        fields: dict[str, str | int | None] = {"sha256": blob.sha256, "bytes": blob.bytes}
+        if mesh is not None:
+            if "triangles" in export.row and export.row["triangles"] != mesh.triangles:
+                raise AssetKitError(f"Conflicting triangle count for {export.path}")
+            if export.revision_id is not None:
+                fields["triangles"] = mesh.triangles
+        updates: dict[str, dict[str, Any]] = {}
+        for field, value in fields.items():
+            if field not in export.row:
+                updates[field] = {"before": None, "after": value}
+                export.row[field] = value
+        if updates:
+            changes.append(
+                SyncExportChange(
+                    asset_id=record.doc["assetId"],
+                    revision_id=export.revision_id,
+                    export_id=export.export_id,
+                    path=export.path,
+                    changes=updates,
+                )
+            )
+
+    readers: tuple[ImpactResult, ...] = ()
+    if changes:
+        ws = Workspace.load(repo)
+        paths = dict.fromkeys(change.path for change in changes)
+        readers = tuple(ws.impact(path) for path in paths)
+    before = _sync_precondition(record, record.raw)
+    after = _sync_precondition(record, _sync_payload(record)) if changes else before
+    return SyncDiff(
+        manifest_path=record.path,
+        updated_exports=tuple(changes),
+        applied=False,
+        record_sha256=hashlib.sha256(record.raw).hexdigest(),
+        inputs=record.inputs,
+        affected_readers=readers,
+        plan_token=f"{before}.{after}",
+    )
+
+
+def plan_record_sync(repo: Path, record_path: str) -> SyncDiff:
+    """Observe the exact current record and inputs and preview any missing metadata."""
+    return _record_sync(repo, load_record(repo, record_path, strict=False))
+
+
+def apply_record_sync(repo: Path, record_path: str, plan_token: str) -> SyncDiff:
+    """Apply a previously planned update, serializing writers in the owner directory."""
+    destination = safe_path(repo, record_path)
+    # The directory inode survives record replacement and needs no persistent lock file.
+    directory = os.open(destination.parent, os.O_RDONLY | os.O_DIRECTORY)
+    staged: Path | None = None
+    try:
+        fcntl.flock(directory, fcntl.LOCK_EX)
+        try:
+            record = load_record(repo, record_path, strict=False)
+            current = _record_sync(repo, record)
+        except (AssetKitError, OSError, ValueError) as exc:
+            raise AssetKitError(f"Stale sync plan for {record_path}: {exc}") from exc
+        if not current.updated_exports:
+            before, separator, after = plan_token.partition(".")
+            if separator and len(before) == 64 and after == _sync_precondition(record, record.raw):
+                return current
+        if current.plan_token != plan_token:
+            raise AssetKitError(f"Stale sync plan for {record_path}")
+        with NamedTemporaryFile(dir=destination.parent, delete=False) as stream:
+            staged = Path(stream.name)
+            stream.write(_sync_payload(record))
+            os.fchmod(stream.fileno(), stat.S_IMODE(destination.stat().st_mode))
+            stream.flush()
+            os.fsync(stream.fileno())
+        # Recheck after preparation so a failed update leaves the original untouched.
+        try:
+            latest = load_record(repo, record_path, strict=False)
+        except (AssetKitError, OSError, ValueError) as exc:
+            raise AssetKitError(f"Stale sync plan for {record_path}: {exc}") from exc
+        if latest.raw != record.raw or latest.inputs != record.inputs:
+            raise AssetKitError(f"Stale sync plan for {record_path}")
+        os.replace(staged, destination)
+        return current.model_copy(update={"applied": True})
+    finally:
+        if staged is not None:
+            staged.unlink(missing_ok=True)
+        os.close(directory)
+
+
+def sync_manifest(
+    repo: Path,
+    manifest_rel_path: str,
+    *,
+    apply: bool = False,
+    expect_plan: str | None = None,
+) -> SyncDiff:
+    """Sync a canonical package record or the supported assets.json metadata fixture."""
+    if Path(manifest_rel_path).name == "asset.record.json":
+        if expect_plan is not None:
+            if not apply:
+                raise AssetKitError("A sync plan token requires --apply")
+            return apply_record_sync(repo, manifest_rel_path, expect_plan)
+        plan = plan_record_sync(repo, manifest_rel_path)
+        if apply:
+            assert plan.plan_token is not None
+            return apply_record_sync(repo, manifest_rel_path, plan.plan_token)
+        return plan
+    if expect_plan is not None:
+        raise AssetKitError("Sync plan tokens are available for asset.record.json")
+    return _sync_legacy_manifest(repo, manifest_rel_path, apply=apply)
+
+
+def _sync_legacy_manifest(repo: Path, manifest_rel_path: str, *, apply: bool) -> SyncDiff:
+    """Refresh the historic metadata fixture's hashes and GLB stats."""
     norm = normalize_path(manifest_rel_path)
     manifest = safe_path(repo, norm)
     if not manifest.is_file():

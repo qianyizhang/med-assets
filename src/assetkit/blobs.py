@@ -3,11 +3,15 @@
 from __future__ import annotations
 
 import hashlib
+import io
 import json
+import os
 import re
 import struct
 from pathlib import Path, PurePosixPath
-from typing import Literal
+from typing import BinaryIO, Literal
+
+from med_assets.artifacts import parse_pointer
 
 from .errors import AssetKitError
 from .models import AssetModel
@@ -54,20 +58,6 @@ def safe_path(repo: Path, rel_path: str) -> Path:
     return target
 
 
-def _parse_lfs_pointer(prefix: bytes) -> tuple[str, int]:
-    text = prefix.decode("utf-8", errors="strict")
-    oid: str | None = None
-    size: int | None = None
-    for line in text.splitlines():
-        if line.startswith("oid sha256:"):
-            oid = line.split("oid sha256:", 1)[1].strip()
-        elif line.startswith("size "):
-            size = int(line.split("size ", 1)[1].strip())
-    if oid is None or size is None or not HEX64.fullmatch(oid) or size < 0:
-        raise ValueError("Invalid Git LFS pointer")
-    return oid, size
-
-
 class BlobRef(AssetModel):
     """Observational identity of a file on disk (hydrated bytes vs. Git LFS pointer)."""
 
@@ -107,7 +97,7 @@ def verify(
         prefix = stream.read(1025)
         if prefix.startswith(LFS_HEADER):
             try:
-                digest, size = _parse_lfs_pointer(prefix)
+                digest, size = parse_pointer(prefix)
             except ValueError:
                 return BlobRef(path=norm, status="invalid-pointer")
             if expected_sha256 is not None or expected_bytes is not None:
@@ -123,7 +113,7 @@ def verify(
             return BlobRef(path=norm, status="pointer", sha256=digest, bytes=size)
 
         stream.seek(0)
-        size = target.stat().st_size
+        size = os.fstat(stream.fileno()).st_size
         digest = hashlib.file_digest(stream, "sha256").hexdigest()
         if expected_sha256 is not None or expected_bytes is not None:
             ok = (expected_sha256 is None or digest == expected_sha256) and (
@@ -152,20 +142,36 @@ def inspect_mesh(repo: Path, rel_path: str) -> MeshStats | None:
     target = safe_path(repo, rel_path)
     if not target.is_file():
         return None
-    size = target.stat().st_size
+    with target.open("rb") as stream:
+        return _inspect_mesh(stream, os.fstat(stream.fileno()).st_size)
+
+
+def inspect_mesh_bytes(data: bytes) -> MeshStats | None:
+    """Inspect the same hydrated bytes that a caller verified."""
+    return _inspect_mesh(io.BytesIO(data), len(data))
+
+
+def _inspect_mesh(stream: BinaryIO, size: int) -> MeshStats | None:
     if size < 20:
         return None
-    with target.open("rb") as stream:
-        header = stream.read(20)
-        if header.startswith(LFS_HEADER):
-            return None
-        magic, version, _length, chunk_len, chunk_type = struct.unpack("<4sIIII", header)
-        if magic != b"glTF" or version != 2 or chunk_type != 0x4E4F534A:
-            return None
-        raw_json = stream.read(chunk_len)
+    header = stream.read(20)
+    if len(header) != 20 or header.startswith(LFS_HEADER):
+        return None
+    magic, version, length, chunk_len, chunk_type = struct.unpack("<4sIIII", header)
+    if (
+        magic != b"glTF"
+        or version != 2
+        or length != size
+        or chunk_type != 0x4E4F534A
+        or chunk_len > size - 20
+    ):
+        return None
+    raw_json = stream.read(chunk_len)
     try:
         doc = json.loads(raw_json.decode("utf-8"))
     except (UnicodeDecodeError, json.JSONDecodeError):
+        return None
+    if not isinstance(doc, dict):
         return None
 
     accessors = doc.get("accessors", [])
@@ -195,12 +201,14 @@ def inspect_mesh(repo: Path, rel_path: str) -> MeshStats | None:
     node_names: list[str] = []
     node_tris: dict[str, int] = {}
     total_tris = 0
-    for idx, node in enumerate(nodes):
-        name = node.get("name") or f"node_{idx}"
-        node_names.append(name)
+    for node in nodes:
+        name = node.get("name")
+        if isinstance(name, str) and name:
+            node_names.append(name)
         if "mesh" in node:
             tris = mesh_tris(int(node["mesh"]))
-            node_tris[name] = node_tris.get(name, 0) + tris
+            if isinstance(name, str) and name:
+                node_tris[name] = node_tris.get(name, 0) + tris
             total_tris += tris
 
     if total_tris == 0 and meshes:

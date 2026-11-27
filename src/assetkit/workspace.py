@@ -26,7 +26,7 @@ from .delivery import (
 )
 from .errors import AssetKitError
 from .models import AssetModel
-from .registry import AssetRegistry, Part, Provenance, VoxelGrid
+from .registry import AssetRegistry, CoordinateFrame, Part, Provenance, VoxelGrid
 from .vocab import ConceptGraph
 
 
@@ -72,6 +72,7 @@ class AssetHeader(AssetModel):
     families: tuple[str, ...] = ()
     concepts: tuple[str, ...] = ()
     unresolved: tuple[str, ...] = ()
+    status: str | None = None
 
 
 class ShowExportView(AssetModel):
@@ -86,6 +87,7 @@ class ShowExportView(AssetModel):
     storage_status: str
     parts: tuple[Part, ...] = ()
     voxel_grid: VoxelGrid | None = None
+    frame: CoordinateFrame | None = None
     qualification: QualificationStatus
 
 
@@ -96,6 +98,7 @@ class ShowRevisionView(AssetModel):
     provenance: Provenance
     capabilities: tuple[str, ...] = ()
     exports: tuple[ShowExportView, ...] = ()
+    frame: CoordinateFrame | None = None
 
 
 class TaskAdoptionView(AssetModel):
@@ -303,6 +306,7 @@ class Workspace:
                                 storage_status=exp.storage_status,
                                 parts=exp.parts,
                                 voxel_grid=exp.voxel_grid,
+                                frame=exp.frame,
                                 qualification=qual,
                             )
                         )
@@ -314,6 +318,7 @@ class Workspace:
                             provenance=rev.provenance,
                             capabilities=rev.capabilities,
                             exports=tuple(exports_out),
+                            frame=rev.frame,
                         )
                     )
 
@@ -358,6 +363,7 @@ class Workspace:
                         families=asset.families,
                         concepts=asset.concepts,
                         unresolved=asset.unresolved,
+                        status=asset.status,
                     ),
                     revisions=tuple(revisions_out),
                     tasks=tuple(tasks_out),

@@ -37,9 +37,16 @@ uv run assetkit resolve ultrasound:sweep:abdomen-tracks:liver
 uv run assetkit bundle <consumer-id>
 uv run assetkit gaps --prefix ultrasound:
 
-# Plan/execute a revision recipe or sync manifest hashes/GLB stats from disk
+# Plan or execute a Python revision entry point
 uv run assetkit build <asset-id> <revision-id> [--apply]
-uv run assetkit sync <package>/assets.json [--apply]
+
+# Preview missing identity fields and affected readers before changing the record
+uv run assetkit sync <package>/asset.record.json
+uv run assetkit sync <package>/asset.record.json --apply --expect-plan <planToken>
+
+# Compare a native export to an independent recipe, assignment, or release pin
+uv run assetkit check-port <asset-id>@<revision-id>:<export-id> \
+  --record <package>/asset.record.json --path <payload> --sha256 <digest> --bytes <count>
 
 # Inspect Gallery entries or R2 demand from selections and consumer pins
 uv run assetkit compile --target gallery
@@ -48,7 +55,14 @@ uv run assetkit compile --target r2
 
 A bundle preserves one item per use, including its transform. Totals count each pinned export once. Check each item’s storage status and digest before runtime use. The R2 projection lists demand. The transport owner controls upload admission.
 
-Review edits to package-owned `asset.record.json` files as ordinary repository changes. See the [package change safeguards](DESIGN.md#safeguards-for-package-changes) for evidence, qualification, and retirement. For hydration and archived recovery, use the [transport workflow](../../transport/README.md).
+## Register a package
+
+1. Write the owner record with explicit IDs, source references, and stored coordinate conventions. A revision frame may also apply to its exports. Give an export its own frame when storage uses a different convention. Declare known axes and units in `frame`, link its evidence, and keep patient or source identity separate. An `unverified-frame` names the matching issue from the record's `unresolved` list. Use the [batch contract](../../docs/MIGRATION_SPEC.md#record-contract) for the allowed conventions and placement rules.
+2. Preview `sync` and review the changes, input fingerprints, and affected readers. Apply using the returned `planToken` or the Python functions `plan_record_sync()` and `apply_record_sync()`. Identical token reuse preserves the installed bytes. Sync rejects changes to a pinned export, the reviewed record, or its observed inputs. The metadata fixture still supports its `assets.json` sync command.
+3. Run `check-port` with an expected identity from the package assignment or an existing owner pin. Supply repeatable `--selector` flags and `--triangles` for independent expectations when available. The command requires an exact native owner and verifies every declared selector on the selected hydrated export. `--allow-lfs-pointer` permits a match on both pinned SHA-256 and size in offline CI. A pointer receipt omits mesh statistics. The Python API is `check_port(repo, PortExpectation(...))`.
+4. Follow the package's replay instructions and reader acceptance. The generic `build` command runs Python entry points, including those that require Blender. An owner-defined JSON recipe uses the package's documented command, as in the [HRA liver rebuild](../../models/liver/exports/teaching-economy-r02/README.md#rebuild). AssetKit verifies the maintained portable recipe's declared source and output pins against the record and local artifacts.
+
+Use the [package change safeguards](DESIGN.md#safeguards-for-package-changes) for evidence, qualification, and retirement. For hydration and archived recovery, use the [transport workflow](../../transport/README.md).
 
 ## Submodules (Bounded Contexts)
 
@@ -57,7 +71,8 @@ Review edits to package-owned `asset.record.json` files as ordinary repository c
 | `assetkit.blobs` | Foundation | Safe repository path checks, Git LFS pointer vs. hydrated byte verification, and stdlib GLB v2 mesh stats. |
 | `assetkit.vocab` | Semantic | Polyhierarchical `ConceptGraph` DAG decoupled from asset granularity. |
 | `assetkit.registry` | Supply / Authoring | `AssetRegistry`, `Asset → Revision → Export → Part` aggregates, per-part `Provenance`/`Registration`. |
-| `assetkit.build` | Build & Sync Seam | Recipe `BuildSpec`/`BuildRunner` execution seam (Python & headless Blender) and `sync_manifest()`. |
+| `assetkit.build` | Build and sync | Python recipe planning and execution, canonical sync planning, and atomic apply. |
+| `assetkit.records` | Package admission | Canonical identity, declared source and output pins, coordinate frames, and native port acceptance. |
 | `assetkit.delivery` | Demand & Packaging | `DeliveryGraph`, `Consumer` requirements & pins, `bundle_for()`, `resolve()`, `open_gaps()`, `economy()`, `impact()`. |
 | `assetkit.curation` | Evidence & Release | `CurationStore`, immutable `Review`s, editorial `Selection`s, `compile_gallery()`, `plan_r2_sync()`. |
 | `assetkit.cli` | Interface | Thin deterministic JSON CLI over `Workspace`. |
