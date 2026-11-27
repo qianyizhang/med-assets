@@ -1,0 +1,340 @@
+{
+  "schemaVersion": 1,
+  "donors": [
+    {
+      "slot": "breasts_hra",
+      "edition": "teaching-economy-r01",
+      "ref": {
+        "record": "models/breasts_hra/asset.record.json",
+        "asset": "anatomy:hra:breasts",
+        "revision": "teaching-economy-r01",
+        "export": "reference"
+      },
+      "label": "Mammary anatomy · HRA",
+      "space": "hra-mammary-native",
+      "credit": "Heidi Schlehlein · Human Reference Atlas · CC BY 4.0",
+      "attribution": "models/breasts_hra/exports/source-candidate-02/ATTRIBUTION.md",
+      "nodes": {
+        "VH_F_mammary_lobes_L": [
+          "breast-left-lobes",
+          "Left mammary lobes"
+        ],
+        "VH_F_main_lactiferous_ducts_L": [
+          "breast-left-ducts",
+          "Left lactiferous ducts"
+        ],
+        "VH_F_fat_L": [
+          "breast-left-fat",
+          "Left breast fat"
+        ],
+        "VH_F_areola_L": [
+          "breast-left-areola",
+          "Left areola"
+        ],
+        "VH_F_nipple_L": [
+          "breast-left-nipple",
+          "Left nipple"
+        ]
+      }
+    },
+    {
+      "slot": "vagina_hra",
+      "edition": "context-r02",
+      "ref": {
+        "record": "models/vagina_hra/asset.record.json",
+        "asset": "anatomy:hra:vagina",
+        "revision": "context-r02",
+        "export": "reference"
+      },
+      "label": "Female pelvic reference · HRA",
+      "space": "hra-pelvis-native",
+      "credit": "Kristen Browne and Heidi Schlehlein · Human Reference Atlas · CC BY 4.0",
+      "attribution": "models/vagina_hra/provenance/context-r02/migration-2026-10-24/ATTRIBUTION.md",
+      "guide": "models/vagina_hra/provenance/context-r02/migration-2026-10-24/README.md",
+      "nodes": {
+        "VH_F_body_of_uterus": [
+          "uterus-body",
+          "Uterine body"
+        ],
+        "VH_F_cervix": [
+          "cervix",
+          "Cervix"
+        ],
+        "VH_F_internal_cervical_os": [
+          "internal-os",
+          "Internal cervical os"
+        ],
+        "VH_F_external_cervical_os": [
+          "external-os",
+          "External cervical os"
+        ],
+        "VH_F_vagina": [
+          "vagina",
+          "Vagina"
+        ],
+        "VH_F_rectum": [
+          "rectum",
+          "Rectum"
+        ]
+      }
+    },
+    {
+      "slot": "ovaries",
+      "edition": "hra-ovary-tubal-r01",
+      "ref": {
+        "record": "models/ovaries/asset.record.json",
+        "asset": "anatomy:hra:ovaries",
+        "revision": "hra-ovary-tubal-r01",
+        "export": "reference"
+      },
+      "label": "Ovary and tubal landmarks · HRA",
+      "space": "hra-ovary-tubal-native",
+      "credit": "Kristen Browne and Heidi Schlehlein · Human Reference Atlas · CC BY 4.0",
+      "attribution": "sources/datasets/hra/ovary-tubal-context/ATTRIBUTION.md",
+      "nodes": {
+        "VH_F_left_ovary": [
+          "ovary-left",
+          "Left ovary"
+        ],
+        "VH_F_right_ovary": [
+          "ovary-right",
+          "Right ovary"
+        ],
+        "VH_F_ampulla_of_uterine_tube_L": [
+          "uterine-tube-left",
+          "Left tubal ampulla"
+        ],
+        "VH_F_ampulla_of_uterine_tube_R": [
+          "uterine-tube-right",
+          "Right tubal ampulla"
+        ]
+      }
+    },
+    {
+      "slot": "placenta",
+      "edition": "hra-v1.1-r02",
+      "ref": {
+        "record": "models/placenta/asset.record.json",
+        "asset": "anatomy:hra:placenta",
+        "revision": "hra-v1-1-r02",
+        "export": "reference"
+      },
+      "label": "Full-term placenta and cord · HRA",
+      "space": "hra-term-placenta-native",
+      "credit": "Heidi Schlehlein · Human Reference Atlas · CC BY 4.0",
+      "attribution": "models/placenta/ATTRIBUTION.md",
+      "guide": "models/placenta/README.md",
+      "nodes": {
+        "VH_F_umbilical_artery_1": [
+          "umbilical-artery-1",
+          "First umbilical artery"
+        ],
+        "VH_F_umbilical_artery_2": [
+          "umbilical-artery-2",
+          "Second umbilical artery"
+        ],
+        "VH_F_umbilical_vein": [
+          "term-umbilical-vein",
+          "Umbilical vein"
+        ],
+        "VH_F_umbilical_cord": [
+          "term-cord",
+          "Umbilical cord surface"
+        ],
+        "VH_F_basal_plate": [
+          "basal-plate",
+          "Basal plate"
+        ],
+        "VH_F_chorionic_plate": [
+          "chorionic-plate",
+          "Chorionic plate"
+        ]
+      }
+    },
+    {
+      "slot": "lymph_node",
+      "edition": "tissue-color-pack-r02",
+      "ref": {
+        "record": "models/lymph_node/asset.record.json",
+        "asset": "anatomy:hra:lymph-node",
+        "revision": "tissue-color-pack-r02",
+        "export": "reference"
+      },
+      "label": "Lymph node layers · HRA",
+      "space": "hra-lymph-node-native",
+      "credit": "Kristen Browne and Heidi Schlehlein · Human Reference Atlas · CC BY 4.0",
+      "attribution": "models/lymph_node/ATTRIBUTION.md",
+      "nodes": {
+        "Yao_capsule_of_lymph_node": [
+          "lymph-node-capsule",
+          "Lymph node capsule"
+        ],
+        "Yao_paracortex": [
+          "lymph-node-paracortex",
+          "Paracortex"
+        ],
+        "Yao_medulla_of_lymph_node": [
+          "lymph-node-medulla",
+          "Lymph node medulla"
+        ]
+      }
+    },
+    {
+      "slot": "bladder",
+      "edition": "pelvic-base-r01",
+      "ref": {
+        "record": "models/bladder/asset.record.json",
+        "asset": "anatomy:hra:bladder",
+        "revision": "pelvic-base-r01",
+        "export": "reference"
+      },
+      "label": "Bladder base and ureteral entries · HRA",
+      "space": "hra-female-pelvic-base",
+      "credit": "Kristen Browne and Heidi Schlehlein · Human Reference Atlas · CC BY 4.0",
+      "attribution": "models/bladder/ATTRIBUTION.md",
+      "nodes": {
+        "VH_F_right_ureter": [
+          "right-ureter",
+          "Right ureter"
+        ],
+        "VH_F_left_ureter": [
+          "left-ureter",
+          "Left ureter"
+        ],
+        "VH_F_fundus_of_urinary_bladder_dome": [
+          "dome",
+          "Bladder dome"
+        ],
+        "VH_F_urinary_bladder_neck_smooth_muscle": [
+          "neck",
+          "Bladder neck"
+        ],
+        "VH_F_fundus_of_urinary_bladder_base": [
+          "base",
+          "Bladder base"
+        ],
+        "VH_F_trigone_of_urinary_bladder": [
+          "trigone",
+          "Trigone"
+        ],
+        "VH_F_ureteral_orifice_R": [
+          "right-ureteral-orifice",
+          "Right ureteral orifice"
+        ],
+        "VH_F_ureteral_orifice_L": [
+          "left-ureteral-orifice",
+          "Left ureteral orifice"
+        ]
+      }
+    },
+    {
+      "slot": "pancreas",
+      "edition": "hra-female-context-r04",
+      "ref": {
+        "record": "models/pancreas/asset.record.json",
+        "asset": "anatomy:hra:pancreas",
+        "revision": "hra-female-context-r04",
+        "export": "reference"
+      },
+      "label": "Pancreas and adjacent anatomy · HRA",
+      "space": "hra-pancreas-context",
+      "credit": "Kristen Browne and Heidi Schlehlein · Human Reference Atlas · CC BY 4.0",
+      "attribution": "models/pancreas/ATTRIBUTION.md",
+      "guide": "models/pancreas/README.md",
+      "nodes": {
+        "VH_F_head_of_pancreas": [
+          "pancreas-head",
+          "Pancreatic head"
+        ],
+        "VH_F_ucinate_process1": [
+          "pancreas-uncinate",
+          "Uncinate process"
+        ],
+        "VH_F_body_of_pancreas": [
+          "pancreas-body",
+          "Pancreatic body"
+        ],
+        "VH_F_tail_of_pancreas": [
+          "pancreas-tail",
+          "Pancreatic tail"
+        ],
+        "VH_F_hilum_of_spleen": [
+          "splenic-hilum",
+          "Splenic hilum"
+        ],
+        "VH_F_common_bile_duct": [
+          "common-bile-duct",
+          "Common bile duct surface"
+        ]
+      }
+    },
+    {
+      "slot": "kidney_left",
+      "edition": "teaching-economy-r01",
+      "ref": {
+        "record": "models/kidney_left/asset.record.json",
+        "asset": "anatomy:hra:kidney-left",
+        "revision": "teaching-economy-r01",
+        "export": "reference"
+      },
+      "label": "Left renal landmarks · HRA",
+      "space": "hra-kidney_left-v1.3",
+      "credit": "Kristen Browne and Heidi Schlehlein · Human Reference Atlas · CC BY 4.0",
+      "attribution": "models/kidney_left/ATTRIBUTION.md",
+      "nodes": {
+        "VH_F_outer_cortex_of_kidney_L": [
+          "kidney-left-cortex",
+          "Left outer renal cortex"
+        ],
+        "VH_F_hilum_of_kidney_L": [
+          "kidney-left-hilum",
+          "Left renal hilum"
+        ]
+      }
+    },
+    {
+      "slot": "kidney_right",
+      "edition": "teaching-economy-r01",
+      "ref": {
+        "record": "models/kidney_right/asset.record.json",
+        "asset": "anatomy:hra:kidney-right",
+        "revision": "teaching-economy-r01",
+        "export": "reference"
+      },
+      "label": "Right renal landmarks · HRA",
+      "space": "hra-kidney_right-v1.3",
+      "credit": "Kristen Browne and Heidi Schlehlein · Human Reference Atlas · CC BY 4.0",
+      "attribution": "models/kidney_right/ATTRIBUTION.md",
+      "nodes": {
+        "VH_F_outer_cortex_of_kidney_R": [
+          "kidney-right-cortex",
+          "Right outer renal cortex"
+        ],
+        "VH_F_hilum_of_kidney_R": [
+          "kidney-right-hilum",
+          "Right renal hilum"
+        ]
+      }
+    },
+    {
+      "slot": "diaphragm",
+      "edition": "normal-pack-r02",
+      "ref": {
+        "record": "models/diaphragm/asset.record.json",
+        "asset": "anatomy:z-anatomy:diaphragm",
+        "revision": "normal-pack-r02",
+        "export": "reference"
+      },
+      "label": "Diaphragm · Z-Anatomy",
+      "space": "z-anatomy-diaphragm",
+      "credit": "Z-Anatomy, Kousaku Okubo, Gauthier Kervyn, Marcin Zielinski and BodyParts3D/DBCLS · CC BY-SA 4.0 and CC BY-SA 2.1 JP",
+      "attribution": "models/diaphragm/exports/z-native-static-r01/ATTRIBUTION.md",
+      "nodes": {
+        "Diaphragm": [
+          "diaphragm",
+          "Diaphragm"
+        ]
+      }
+    }
+  ]
+}

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+from collections.abc import Iterable
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Literal
@@ -14,8 +15,13 @@ from .curation import Adoption, CurationStore, Qualification, Review, Selection
 from .discovery import manifests
 from .errors import AssetKitError
 from .models import AssetModel
-from .registry import REGISTRATION_STATES, AssetRegistry, ExportRef, Part
-from .ultrasound import EXTERIOR_ATLAS_CONFIG, read_exterior_atlas
+from .registry import REGISTRATION_STATES, AssetRegistry, ExportRef, Part, RecordExportRef
+from .ultrasound import (
+    EXTERIOR_ATLAS_CONFIG,
+    GALLERY_REFERENCE_CONFIG,
+    read_exterior_atlas,
+    read_gallery_references,
+)
 from .vocab import ConceptGraph
 
 CONSUMER_KINDS = frozenset(
@@ -280,20 +286,28 @@ class DeliveryGraph:
         if (root / EXTERIOR_ATLAS_CONFIG).is_file():
             atlas = read_exterior_atlas(root)
             consumers.append(
-                Consumer(
-                    id="ultrasound:recipe:exterior-atlas",
-                    title="BodyParts3D exterior recipe inputs",
-                    kind="other",
-                    owner_path=EXTERIOR_ATLAS_CONFIG,
-                    pins=tuple(
-                        Pin(
-                            asset_id=ref.asset,
-                            revision_id=ref.revision,
-                            export_id=ref.export,
-                            stage="recipe",
-                            record=ref.record,
-                        )
-                        for ref in atlas.inputs()
+                _recipe_consumer(
+                    "ultrasound:recipe:exterior-atlas",
+                    "BodyParts3D exterior recipe inputs",
+                    EXTERIOR_ATLAS_CONFIG,
+                    atlas.inputs(),
+                )
+            )
+        if (root / GALLERY_REFERENCE_CONFIG).is_file():
+            references = read_gallery_references(root)
+            consumers.extend(
+                (
+                    _recipe_consumer(
+                        "ultrasound:recipe:gallery-reference-assets",
+                        "Ultrasound workbench Gallery reference recipe",
+                        GALLERY_REFERENCE_CONFIG,
+                        (donor.ref for donor in references.donors),
+                    ),
+                    _recipe_consumer(
+                        "ultrasound:recipe:breast-acquisition",
+                        "Breast and nipple sweep acquisition recipe",
+                        GALLERY_REFERENCE_CONFIG,
+                        (references.mammary().ref,),
                     ),
                 )
             )
@@ -856,6 +870,27 @@ class DeliveryGraph:
 
     def to_dict(self) -> list[dict[str, Any]]:
         return [c.to_dict() for c in self.consumers]
+
+
+def _recipe_consumer(
+    consumer_id: str, title: str, owner: str, refs: Iterable[RecordExportRef]
+) -> Consumer:
+    return Consumer(
+        id=consumer_id,
+        title=title,
+        kind="other",
+        owner_path=owner,
+        pins=tuple(
+            Pin(
+                asset_id=ref.asset,
+                revision_id=ref.revision,
+                export_id=ref.export,
+                stage="recipe",
+                record=ref.record,
+            )
+            for ref in refs
+        ),
+    )
 
 
 def _read_json(path: Path) -> Any:

@@ -9,10 +9,9 @@ from scipy.interpolate import PchipInterpolator
 from scipy.spatial import cKDTree
 
 from display_body import ROOT, atlas, primitive_stream, ras_from_gltf
+from gallery_reference_sources import load_reference, mammary_reference
 from geometry import VOXEL_MM
 
-MAMMARY = 'models/breasts_hra/exports/teaching-economy-r01/breasts_hra_native_frame.glb'
-MAMMARY_SHA = '2a7d6d05e06fa8d86adffdf0fd324389cf23ac736b3b659f7c227b96e499fe51'
 FEMALE_SKIN = ROOT / '.artifacts/breast-tour/source/3d-vh-f-skin.glb'
 FEMALE_SKIN_URL = 'https://cdn.humanatlas.io/digital-objects/ref-organ/skin-female/v1.3/assets/3d-vh-f-skin.glb'
 FEMALE_SKIN_SHA = '0fc377c7a2e7e9644b81d318feda9d0b2c5a38f39bd14e74966f8b6364eb0a78'
@@ -261,7 +260,13 @@ class BreastAnatomy:
 
 
 def load_anatomy(skin_path=FEMALE_SKIN):
-    source, binary = atlas(MAMMARY, MAMMARY_SHA)
+    native_nodes = tuple(
+        f'VH_F_{name}_{side}'
+        for name in (*TISSUES.values(), 'areolar_tubercles')
+        for side in ('R', 'L')
+    )
+    mammary = mammary_reference(required_nodes=native_nodes)
+    source, binary = load_reference(ROOT, mammary, native_nodes)
     female, skin_data = atlas(Path(skin_path), FEMALE_SKIN_SHA)
     body, faces = mesh_for(female, skin_data, 'VH_F_skin')
     # The cut lies well below the chest framing. Retain the neck, shoulders and
@@ -284,7 +289,7 @@ def load_anatomy(skin_path=FEMALE_SKIN):
     beds = [fat_bed_layers(mesh_for(source, binary, f'VH_F_fat_{side}')) for side in ('R', 'L')]
     meshes['deep_fat'], meshes['retromammary_fat'] = map(concatenate, zip(*beds, strict=True))
     return BreastAnatomy(meshes, {
-        'mammaryAtlasSha256': MAMMARY_SHA,
+        'mammaryAtlasSha256': mammary.sha256,
         'femaleSkinSha256': FEMALE_SKIN_SHA,
         'femaleSkinSource': FEMALE_SKIN_URL,
         'femaleSkinDoi': 'https://doi.org/10.48539/HBM466.LKPQ.876',

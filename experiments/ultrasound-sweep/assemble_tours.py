@@ -10,7 +10,7 @@ import tempfile
 import zipfile
 
 import numpy as np
-from gallery_reference_sources import write_gallery_donors
+from gallery_reference_sources import mammary_reference, write_gallery_donors
 import build_abdomen
 import build_aortic_screening
 import build_axilla
@@ -20,7 +20,7 @@ import build_early_pregnancy
 import build_gestational
 import build_pregnancy
 import build_thyroid
-from breast_anatomy import FEMALE_SKIN_SHA, MAMMARY_SHA
+from breast_anatomy import FEMALE_SKIN_SHA
 from breast_compression import SETTLE_DEPTH_MM
 from case_library import write_case_library
 from delivery import detail_files, read_poses, sha256, sweep_files, validate_image, validate_mesh, verify_inventory
@@ -161,7 +161,7 @@ def verify_track(root, track, stops, builder, atlas_digests):
                 or receipt.get('compressionMm') != track.get('compressionMm')
                 or receipt.get('compressionSettleDepthMm') != SETTLE_DEPTH_MM):
             raise ValueError(f'Rebuild {slug} for the configured steering and compression.')
-    if builder is build_breast and (receipt.get('mammaryAtlasSha256') != MAMMARY_SHA
+    if builder is build_breast and (receipt.get('mammaryAtlasSha256') != mammary_reference().sha256
                                     or receipt.get('femaleSkinSha256') != FEMALE_SKIN_SHA):
         raise ValueError(f'Rebuild {slug} for the current breast atlas inputs.')
     if builder is build_axilla and receipt.get('femaleSkinSha256') != FEMALE_SKIN_SHA:

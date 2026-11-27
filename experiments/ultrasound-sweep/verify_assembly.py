@@ -6,6 +6,9 @@ from pathlib import Path
 import shutil
 import tempfile
 
+from assetkit import AssetKitError, AssetRegistry
+from assetkit.ultrasound import GALLERY_REFERENCE_CONFIG, read_gallery_references
+
 import assemble_tours
 from gallery_reference_sources import write_gallery_donors
 from delivery import read_poses, sha256
@@ -76,16 +79,33 @@ def verify(source, aaa_acquisitions=None):
         work = Path(work)
         verify_review_failures(work)
         source_root = work / 'gallery-inputs'
-        bladder = source_root / 'models/bladder/exports/pelvic-base-r01/bladder-pelvic-base.glb'
+        repo = assemble_tours.HERE.parents[1]
+        donor = next(donor for donor in read_gallery_references(repo).donors if donor.slot == 'bladder')
+        _, _, export = AssetRegistry.load_records(repo, (donor.ref.record,)).require_record_export(donor.ref)
+        config = source_root / GALLERY_REFERENCE_CONFIG
+        config.parent.mkdir(parents=True)
+        config.write_text(json.dumps({'schemaVersion': 1, 'donors': [donor.to_dict()]}))
+        record = source_root / donor.ref.record
+        record.parent.mkdir(parents=True)
+        shutil.copyfile(repo / donor.ref.record, record)
+        bladder = source_root / export.path
         bladder.parent.mkdir(parents=True)
-        bladder.write_text('version https://git-lfs.github.com/spec/v1\n')
+        pointer = f'version https://git-lfs.github.com/spec/v1\noid sha256:{export.sha256}\nsize {export.bytes}\n'
+        bladder.write_text(pointer)
         write_gallery_donors(work, source_root)
         assert json.loads((work / 'development/gallery-donors.json').read_text()) == []
+        bladder.write_text(pointer.replace(export.sha256, 'a' * 64))
+        try:
+            write_gallery_donors(work, source_root)
+        except AssetKitError as exc:
+            assert 'Gallery donor pointer identity mismatch' in str(exc)
+        else:
+            raise AssertionError('Workbench skipped a pointer with an unexpected digest')
         bladder.write_bytes(b'corrupt donor')
         try:
             write_gallery_donors(work, source_root)
-        except ValueError as exc:
-            assert 'Unexpected atlas input' in str(exc)
+        except AssetKitError as exc:
+            assert 'Export size or SHA-256 mismatch' in str(exc)
         else:
             raise AssertionError('Workbench accepted a donor with an unexpected digest')
         staging = work / 'staging'
