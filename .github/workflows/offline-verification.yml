@@ -30,6 +30,7 @@ jobs:
           python3 tools/asset_governance.py scan > "$RUNNER_TEMP/asset-governance-catalog.json"
           python3 - "$RUNNER_TEMP/asset-governance-catalog.json" <<'PY'
           import json, sys
+          from pathlib import Path
           catalog = json.load(open(sys.argv[1]))
           counts = catalog["counts"]
           domains = {}
@@ -49,6 +50,18 @@ jobs:
           assert counts["ultrasoundReferenceRequirements"] >= 1, counts
           assert counts["structuredLessons"] == 1, counts
           assert counts["teachingAssessments"] == 130, counts
+          assert counts["provisionalRecords"] >= 1, counts
           assert domains.get("ultrasound-anatomy", 0) >= 211, domains
-          print(json.dumps({"counts": counts, "consumerDomains": domains}, indent=2))
+          cardiac = json.loads(Path("heart/Cardiac_Atlas_Animated/asset.record.json").read_text())
+          assert cardiac["assetId"] == "anatomy:heart:cardiac-atlas", cardiac
+          assert cardiac["status"] == "provisional", cardiac
+          assert len(cardiac["parts"]) == 5, cardiac
+          assert len(cardiac["revisions"]) == 1, cardiac
+          assert cardiac["revisions"][0]["revisionId"] == "shared-source-r01", cardiac
+          assert len(cardiac["revisions"][0]["exports"]) == 2, cardiac
+          assert len(cardiac["uses"]) == 2 and all(use["status"] == "provisional" for use in cardiac["uses"]), cardiac
+          print(json.dumps({"counts": counts, "consumerDomains": domains,
+                            "cardiacPilot": {"assetId": cardiac["assetId"], "status": cardiac["status"],
+                              "parts": len(cardiac["parts"]), "revision": cardiac["revisions"][0]["revisionId"],
+                              "exports": len(cardiac["revisions"][0]["exports"]), "provisionalUses": len(cardiac["uses"])}}, indent=2))
           PY
