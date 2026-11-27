@@ -52,12 +52,16 @@ class LifecycleTests(unittest.TestCase):
             record=json.loads(record_path.read_text())
             issue="No exact source selector."
             record["unresolved"]=[issue]
+            record["exports"]=[{"path":"models/fixture/source.blend","sha256":"a"*64,"bytes":12}]
             record_path.write_text(json.dumps(record,indent=2)+"\n")
-            plan=self.plan_apply(root,"refine",{"resolveUnresolved":[issue],
+            plan=self.plan_apply(root,"refine",{"set":{"artifacts":[{"artifactId":"source:fixture","path":"models/fixture/source.blend","role":"editable-source"}]},
+                "removeExports":["models/fixture/source.blend"],"resolveUnresolved":[issue],
                 "addUnresolved":["Rights review pending"]})
             apply_lifecycle_plan(root,plan)
             updated=json.loads(record_path.read_text())
             self.assertEqual(updated["unresolved"],["Rights review pending"])
+            self.assertEqual(updated["exports"],[])
+            self.assertEqual(updated["artifacts"][0]["artifactId"],"source:fixture")
 
     def test_qualify_promote_and_idempotent_apply(self):
         with tempfile.TemporaryDirectory() as tmp:
