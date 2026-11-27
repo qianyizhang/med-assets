@@ -5,6 +5,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT/"lib"))
 from med_assets.governance import GovernanceError,build_catalog,find,show,impact,resolve
 from med_assets.governance_migration import apply_backfill_plan,hydrate_lfs,write_backfill_plan
+from med_assets.governance_lifecycle import ACTIONS,apply_lifecycle_plan,create_lifecycle_plan
 
 def emit(value): print(json.dumps(value,ensure_ascii=False,indent=2))
 def main():
@@ -19,6 +20,9 @@ def main():
     backfill=commands.add_parser("backfill");backfill.add_argument("action",choices=("plan","apply"))
     backfill.add_argument("--output",type=Path,default=Path(".artifacts/asset-backfill.plan.json"));backfill.add_argument("--plan",type=Path)
     hydrate=commands.add_parser("hydrate");hydrate.add_argument("paths",nargs="+");hydrate.add_argument("--apply",action="store_true")
+    lifecycle=commands.add_parser("lifecycle");actions=lifecycle.add_subparsers(dest="lifecycle_action",required=True)
+    plan=actions.add_parser("plan");plan.add_argument("--action",choices=sorted(ACTIONS),required=True);plan.add_argument("--asset",required=True);plan.add_argument("--payload",type=Path,required=True);plan.add_argument("--output",type=Path,default=Path(".artifacts/asset-lifecycle.plan.json"))
+    apply=actions.add_parser("apply");apply.add_argument("--plan",type=Path,required=True)
     args=parser.parse_args();repo=args.repo.resolve()
     try:
         if args.command=="scan": emit(build_catalog(repo).to_dict())
@@ -35,6 +39,15 @@ def main():
             path=args.plan if args.plan.is_absolute() else repo/args.plan
             emit({"status":"applied","records":apply_backfill_plan(repo,path)})
         elif args.command=="hydrate": emit(hydrate_lfs(repo,args.paths,args.apply))
+        elif args.command=="lifecycle" and args.lifecycle_action=="plan":
+            payload=args.payload if args.payload.is_absolute() else repo/args.payload
+            output=args.output if args.output.is_absolute() else repo/args.output
+            plan=create_lifecycle_plan(repo,args.asset,args.action,payload)
+            output.parent.mkdir(parents=True,exist_ok=True);output.write_text(json.dumps(plan,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+            emit({"status":"planned","action":args.action,"assetId":args.asset,"output":output.relative_to(repo).as_posix(),"affectedConsumers":len(plan["affectedConsumers"]),"requiredChecks":plan["requiredChecks"]})
+        elif args.command=="lifecycle" and args.lifecycle_action=="apply":
+            path=args.plan if args.plan.is_absolute() else repo/args.plan
+            emit(apply_lifecycle_plan(repo,path))
         return 0
     except (GovernanceError,OSError,ValueError,KeyError,TypeError) as exc:
         print(f"asset-governance: {exc}",file=sys.stderr);return 2
