@@ -209,7 +209,12 @@ def ultrasound_consumers(repo:Path):
                     "assessed-provisional",rel(repo,path),{"chapter":chapter,"reviewedOn":row.get("reviewedOn"),
                     "scores":row.get("scores",{}),"revision":revision,"source":row.get("source")}))
     ids=[x.consumer_id for x in result]
-    if len(ids)!=len(set(ids)): raise GovernanceError("Duplicate ultrasound consumer identity")
+    if len(ids)!=len(set(ids)):
+        seen=set(); duplicates=[]
+        for identity in ids:
+            if identity in seen: duplicates.append(identity)
+            seen.add(identity)
+        raise GovernanceError("Duplicate ultrasound consumer identity: "+", ".join(duplicates[:20]))
     return tuple(result)
 
 def build_catalog(repo:Path):
