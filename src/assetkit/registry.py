@@ -10,6 +10,7 @@ from typing import Any, Literal
 from pydantic import Field, FiniteFloat, PositiveInt
 
 from .blobs import inspect_mesh, normalize_path, verify
+from .discovery import SKIP_DIRS, manifests
 from .errors import AssetKitError
 from .models import AssetModel
 from .vocab import ConceptGraph
@@ -19,7 +20,6 @@ REVISION_STATUSES = frozenset({"provisional", "active", "deprecated", "retired"}
 REGISTRATION_STATES = frozenset(
     {"native", "registered", "fitted", "illustrative", "synthetic", "unknown"}
 )
-SKIP_DIRS = frozenset({".git", ".artifacts", "node_modules", "__pycache__", ".venv", "src"})
 MODEL_EXTS = frozenset({".glb", ".gltf", ".blend", ".svg", ".obj", ".stl"})
 MANIFEST_VERSION = 1
 
@@ -388,9 +388,7 @@ def _parse_provenance(data: dict[str, Any] | None) -> Provenance:
 def _load_native_assets(repo: Path, *, inspect_glbs: bool) -> tuple[list[Asset], set[str]]:
     assets: list[Asset] = []
     covered_dirs: set[str] = set()
-    for manifest in sorted(repo.rglob("assets.json")):
-        if any(part in SKIP_DIRS for part in manifest.relative_to(repo).parts):
-            continue
+    for manifest in manifests(repo, "assets.json"):
         doc = _read_json(manifest)
         if not isinstance(doc, dict) or doc.get("schemaVersion") != MANIFEST_VERSION:
             continue
@@ -504,9 +502,7 @@ def _load_asset_records(
 ) -> list[Asset]:
     """Read package-owned asset.record.json declarations without synthesizing directory IDs."""
     assets: list[Asset] = []
-    for record_path in sorted(repo.rglob("asset.record.json")):
-        if any(part in SKIP_DIRS for part in record_path.relative_to(repo).parts):
-            continue
+    for record_path in manifests(repo, "asset.record.json"):
         owner_dir = _rel(repo, record_path.parent)
         doc = _read_json(record_path)
         if not isinstance(doc, dict) or not doc.get("assetId"):

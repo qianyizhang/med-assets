@@ -10,9 +10,10 @@ from typing import Any, Literal
 from pydantic import Field, computed_field
 
 from .curation import Adoption, CurationStore, Qualification, Review, Selection
+from .discovery import manifests
 from .errors import AssetKitError
 from .models import AssetModel
-from .registry import REGISTRATION_STATES, SKIP_DIRS, AssetRegistry, ExportRef, Part
+from .registry import REGISTRATION_STATES, AssetRegistry, ExportRef, Part
 from .vocab import ConceptGraph
 
 CONSUMER_KINDS = frozenset(
@@ -834,9 +835,7 @@ def _read_json(path: Path) -> Any:
 
 def _load_native_consumers(repo: Path) -> list[Consumer]:
     consumers: list[Consumer] = []
-    for manifest in sorted(repo.rglob("consumer.json")):
-        if any(part in SKIP_DIRS for part in manifest.relative_to(repo).parts):
-            continue
+    for manifest in manifests(repo, "consumer.json"):
         owner_path = manifest.resolve().relative_to(repo).as_posix()
         doc = _read_json(manifest)
         for row in doc.get("consumers", []):

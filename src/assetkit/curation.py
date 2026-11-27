@@ -10,9 +10,9 @@ from typing import TYPE_CHECKING, Any
 from pydantic import Field
 
 from .blobs import HEX64
+from .discovery import manifests
 from .errors import AssetKitError
 from .models import AssetModel
-from .registry import SKIP_DIRS
 
 if TYPE_CHECKING:
     from .delivery import DeliveryGraph
@@ -471,9 +471,7 @@ def _read_json(path: Path) -> Any:
 def _load_record_curation(repo: Path) -> tuple[list[Qualification], list[Adoption]]:
     qualifications: list[Qualification] = []
     adoptions: list[Adoption] = []
-    for record_path in sorted(repo.rglob("asset.record.json")):
-        if any(part in SKIP_DIRS for part in record_path.relative_to(repo).parts):
-            continue
+    for record_path in manifests(repo, "asset.record.json"):
         doc = _read_json(record_path)
         if not isinstance(doc, dict) or not doc.get("assetId"):
             continue
