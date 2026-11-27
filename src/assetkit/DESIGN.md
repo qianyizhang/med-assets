@@ -16,6 +16,13 @@ One maintained revision can produce several exports for different viewers. Split
 
 Keep source identity, frame, units, laterality, derivation, and reuse rights with the package. Multi-source assemblies can carry part-level provenance and explicit transforms. An illustrative placement and a spatial registration support different claims. Resolve candidates using their recorded selector and frame evidence. Keep an observation about exact bytes separate from a decision that those bytes are suitable for a named use. Record decisions when there is a claim to support.
 
+## Safeguards for package changes
+
+- **Register from evidence.** Give a maintained lineage a stable identity in its owning package. Start newly registered lineages and adoptions as provisional. Keep unknown sources, rights, frames, selectors, and uses explicit. A folder, matching name, or exact selector can help locate a candidate. Qualification requires its own decision.
+- **Verify the scope of each decision.** An adoption pins the consumer, revision, export identity, and any required parts. Qualify a named task or scope using evidence bound to the exact export and relevant parts or use. Check hydrated evidence against its recorded digest. Keep an accepted assessment, a qualification decision, an adoption, and a Gallery selection independently visible. The [Cardiac Atlas](../../heart/Cardiac_Atlas_Animated/asset.record.json) records two accepted teaching assessments with provisional adoptions and links to their retained evidence.
+- **Review before applying.** Show the owning record, intent, before and after pins, affected readers, and required checks. Preserve existing revision and evidence bindings when introducing a changed export. For any future automated writer, pin the expected current record and input identities, recheck them before an atomic write, reject stale or conflicting changes, and make reapplying an identical change safe.
+- **Trace retirement through the owners.** Use [the retention check](../../docs/WORKFLOW.md#retention) to identify indexed readers, then check external and dynamic references where applicable. Record a disposition for each known reader and verify any required recovery copy. Gallery controls public selections and routes. Transport controls transfer, admission, and recovery.
+
 ## Decisions
 
 The records below capture the agreed design direction. The PRD tracks implementation and pilot acceptance. Each decision can move as a standalone ADR.

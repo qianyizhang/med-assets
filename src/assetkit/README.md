@@ -48,6 +48,8 @@ uv run assetkit compile --target r2
 
 A bundle preserves one item per use, including its transform. Totals count each pinned export once. Check each item’s storage status and digest before runtime use. The R2 projection lists demand. The transport owner controls upload admission.
 
+Review edits to package-owned `asset.record.json` files as ordinary repository changes. See the [package change safeguards](DESIGN.md#safeguards-for-package-changes) for evidence, qualification, and retirement. For hydration and archived recovery, use the [transport workflow](../../transport/README.md).
+
 ## Submodules (Bounded Contexts)
 
 | Submodule | Context | Responsibility |
