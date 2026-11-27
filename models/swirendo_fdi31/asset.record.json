@@ -104,5 +104,26 @@
   "unresolved": [
     "The displayed tissues share the specimen frame. An anatomical patient-axis mapping remains unspecified.",
     "Source segmentation islands, boundary truncation and open interfaces remain. The detailed and master editions belong to the external delivery and source receipts."
+  ],
+  "artifacts": [
+    {
+      "path": "reviews/swirendo_fdi31/2026-10-27-interface-locked/media/A_1_31_T2_SEG_na__layered.glb",
+      "sha256": "c0884a6bcc8fc6175dd97a99f50e53334024b4eb5e033063c7602358f6da1014",
+      "bytes": 26524356,
+      "role": "frozen-gallery-review-candidate",
+      "evidence": [
+        {
+          "path": "reviews/swirendo_fdi31/2026-10-27-interface-locked/evidence-index.json",
+          "sha256": "6c6244b4d95e78804e28e90a76c53217e7d991cb1b57db76882893cbe95904cd"
+        },
+        {
+          "path": "reviews/swirendo_fdi31/2026-10-27-interface-locked/README.md",
+          "sha256": "d221958436caba20ef7f5962cc817edb32c8894a82edcd8e9b4bd8a9b40fb7f2"
+        }
+      ],
+      "limitations": [
+        "Original FDI31 T2 specimen frame in metres. The research candidate remains available through its historical Library review with no quality-status promotion."
+      ]
+    }
   ]
 }
