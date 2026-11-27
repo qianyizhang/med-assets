@@ -91,13 +91,28 @@ def _mutate(repo: Path, record: dict, action: str, payload: dict, catalog) -> di
     out = json.loads(json.dumps(record))
     if action == "refine":
         fields = {"concepts":"conceptId", "sources":"sourceId", "parts":"partId", "revisions":"revisionId"}
-        changes = payload.get("set")
-        if not isinstance(changes, dict) or not changes or set(changes)-set(fields):
-            raise GovernanceError("refine requires set with concepts/sources/parts/revisions arrays")
+        changes = payload.get("set", {})
+        if not isinstance(changes, dict) or set(changes)-set(fields):
+            raise GovernanceError("refine set accepts concepts/sources/parts/revisions arrays")
         for field, key in fields.items():
             if field in changes:
                 if not isinstance(changes[field], list): raise GovernanceError(f"{field} must be an array")
                 for row in changes[field]: _append(out[field], row, key, field)
+        resolved = payload.get("resolveUnresolved", [])
+        added = payload.get("addUnresolved", [])
+        if not isinstance(resolved, list) or not isinstance(added, list):
+            raise GovernanceError("resolveUnresolved and addUnresolved must be arrays")
+        for issue in resolved:
+            if issue not in out["unresolved"]:
+                raise GovernanceError(f"Cannot resolve an issue not present in the record: {issue}")
+            out["unresolved"].remove(issue)
+        for issue in added:
+            if not isinstance(issue, str) or not issue.strip():
+                raise GovernanceError("New unresolved issues must be non-empty strings")
+            if issue not in out["unresolved"]:
+                out["unresolved"].append(issue)
+        if not changes and not resolved and not added:
+            raise GovernanceError("refine requires a metadata change or an explicit unresolved disposition")
     elif action in {"assess", "qualify"}:
         key = "assessment" if action == "assess" else "qualification"
         row = payload.get(key)
