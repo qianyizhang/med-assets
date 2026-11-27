@@ -13,7 +13,7 @@ class GovernanceTests(unittest.TestCase):
           "stops":[{"system":"digestive","detail":"digestive-liver","action":"Locate liver.","observation":"Visible.","status":"passed"}]}))
         (root/"docs/gallery/use-cases").mkdir(parents=True)
         (root/"docs/gallery/use-cases/ultrasound-anatomy.md").write_text(
-          "# Ultrasound\n| Scenario | Coverage |\n| --- | --- |\n| [Abdominal survey](#abdomen) | Locate liver and biliary anatomy. |\n")
+          "# Ultrasound\n| Scenario | Coverage |\n| --- | --- |\n| [Abdominal survey](#abdomen) | Locate liver and biliary anatomy. |\n| [AAA screening](#abdomen) | Follow the aorta through the bifurcation. |\n")
     def test_scan_keeps_package_and_consumers_separate(self):
         with tempfile.TemporaryDirectory() as directory:
             root=Path(directory);self.fixture(root);catalog=build_catalog(root)
