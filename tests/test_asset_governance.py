@@ -1,6 +1,6 @@
 import hashlib,json,tempfile,unittest
 from pathlib import Path
-from med_assets.governance import Catalog,Consumer,GovernanceError,build_catalog,find,show,resolve,ultrasound_gap_requirements
+from med_assets.governance import Catalog,Consumer,GovernanceError,build_catalog,find,show,resolve,impact,ultrasound_gap_requirements
 from med_assets.governance_migration import apply_backfill_plan,create_backfill_plan,hydrate_lfs
 from med_assets.domain import Concept,ConceptRelation,GovernanceGraph,RelationType
 
@@ -8,6 +8,11 @@ class GovernanceTests(unittest.TestCase):
     def fixture(self,root):
         (root/"models/liver").mkdir(parents=True);(root/"models/liver/README.md").write_text("# Liver\n")
         (root/"models/liver/liver.glb").write_bytes(b"glb")
+        (root/"lessons/ovary-tubal-context").mkdir(parents=True)
+        (root/"lessons/ovary-tubal-context/lesson.json").write_text(json.dumps({
+          "question":"Where is the liver?","localization":{"export":"models/liver/liver.glb",
+            "plate":{"path":"lessons/body-systems/display/liver.webp"}},
+          "source":{"model":"models/liver/liver.glb"}}))
         (root/"lessons/body-systems").mkdir(parents=True)
         (root/"lessons/body-systems/reviewed-stops.json").write_text(json.dumps({"reviewer":"reviewer","date":"2026-11-22",
           "stops":[{"system":"digestive","detail":"digestive-liver","action":"Locate liver.","observation":"Visible.","status":"passed"}]}))
@@ -72,6 +77,13 @@ class GovernanceTests(unittest.TestCase):
             self.assertEqual(show(catalog,"ultrasound:reference-requirement:missing-vessel")["kind"],"reference-requirement")
             self.assertEqual(len(resolve(catalog,"ultrasound:case-view:organs:abdomen-survey:1")["relatedReferences"]),2)
             self.assertTrue(find(catalog,"missing-vessel")["consumers"])
+            lesson=show(catalog,"lesson:ovary-tubal-context")
+            self.assertEqual(lesson["kind"],"structured-lesson")
+            lesson_resolution=resolve(catalog,"lesson:ovary-tubal-context")
+            self.assertEqual(lesson_resolution["status"],"path-pinned-export-candidate")
+            self.assertEqual(lesson_resolution["exactExportCandidates"][0]["exportPath"],"models/liver/liver.glb")
+            impact_report=impact(catalog,"package:models/liver")
+            self.assertTrue(any(row["consumerId"]=="lesson:ovary-tubal-context" for row in impact_report["knownConsumers"]))
             resolved=resolve(catalog,"ultrasound:sweep:abdomen-tracks:liver")
             self.assertEqual(resolved["parts"][0]["status"],"exact-binding-candidate")
             self.assertEqual(resolved["parts"][0]["exactCandidates"][0]["partId"],"liver")

@@ -46,7 +46,7 @@ The library also imports all 130 currently accepted teaching assessments, includ
 
 ### Other consumers
 
-Other lessons, diagrams, experiments and historical studies are indexed as package candidates. They receive no bespoke adapter until a concrete query or migration requires one.
+Structured `lessons/*/lesson.json` files are indexed as consumer-owned records. Their exact export/model paths, display plates, reviews and attribution references remain distinct pins. Path-only lesson pins resolve to current package exports but are not promoted to immutable revision pins. Other lessons, diagrams, experiments and historical studies remain lightweight package candidates until a concrete query or migration requires a richer adapter.
 
 ## Exact part discovery and resolution
 

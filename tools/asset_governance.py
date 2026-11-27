@@ -11,7 +11,7 @@ def main():
     parser=argparse.ArgumentParser(description=__doc__);parser.add_argument("--repo",type=Path,default=ROOT)
     commands=parser.add_subparsers(dest="command",required=True)
     commands.add_parser("scan",help="Build a disposable catalog")
-    query=commands.add_parser("find");query.add_argument("query");query.add_argument("--domain",choices=("ultrasound-anatomy","body-systems","teaching-assessments"))
+    query=commands.add_parser("find");query.add_argument("query");query.add_argument("--domain",choices=("ultrasound-anatomy","body-systems","teaching-assessments","lessons"))
     inspect=commands.add_parser("show");inspect.add_argument("identity")
     affected=commands.add_parser("impact");affected.add_argument("identity")
     resolver=commands.add_parser("resolve",help="Resolve explicit consumer part selectors to package-owned candidates")

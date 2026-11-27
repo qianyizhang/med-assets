@@ -99,7 +99,8 @@ class Catalog:
             "ultrasoundReferences":sum(x.domain=="ultrasound-anatomy" and x.kind in {"acquired-reference","embedded-reference","cine-reference","acquired-case-reference"} for x in self.consumers),
             "ultrasoundReferenceRequirements":sum(x.domain=="ultrasound-anatomy" and x.kind=="reference-requirement" for x in self.consumers),
             "ultrasoundUnresolvedReferenceBindings":sum(len(x.evidence.get("unresolvedReferenceIds",[])) for x in self.consumers),
-            "teachingAssessments":sum(x.domain=="teaching-assessments" for x in self.consumers)}}
+            "teachingAssessments":sum(x.domain=="teaching-assessments" for x in self.consumers),
+            "structuredLessons":sum(x.kind=="structured-lesson" for x in self.consumers)}}
 
 def _record_status(repo:Path,package:Path):
     path=package/RECORD
@@ -798,9 +799,52 @@ def teaching_consumers(repo:Path):
         ))
     return tuple(result)
 
+def lesson_consumers(repo:Path):
+    """Read lightweight structured lesson manifests as consumer-owned pins."""
+    result=[]
+    for lesson_path in sorted((repo/"lessons").rglob("lesson.json")):
+        if lesson_path.is_symlink() or lesson_path.resolve()!=lesson_path:
+            raise GovernanceError(f"Linked lesson manifest: {rel(repo,lesson_path)}")
+        document=read_json(lesson_path); owner=rel(repo,lesson_path)
+        source_paths=[]; asset_pins=[]; display_pins=[]; review_paths=[]; unresolved=[]
+        def walk(value,pointer=()):
+            if isinstance(value,dict):
+                for key,child in value.items(): walk(child,(*pointer,str(key)))
+            elif isinstance(value,list):
+                for index,child in enumerate(value): walk(child,(*pointer,str(index)))
+            elif isinstance(value,str) and value and not value.startswith(("https://","http://","mailto:")):
+                try: normalized=source_path(value)
+                except ValueError: return
+                if not normalized.startswith(("models/","assemblies/","body/","heart/","lessons/","reviews/","sources/")):
+                    return
+                source_paths.append(normalized)
+                path=owner_path(repo,normalized)
+                if not path.is_file(): unresolved.append(normalized)
+                suffix=Path(normalized).suffix.lower()
+                key=pointer[-1] if pointer else ""
+                pointer_text="/" + "/".join(part.replace("~","~0").replace("/","~1") for part in pointer)
+                if suffix in {".glb",".gltf",".blend",".obj",".stl",".fbx"} and key in {"export","model","asset","artifact"}:
+                    asset_pins.append({"path":normalized,"role":key,"jsonPointer":pointer_text})
+                elif suffix in {".png",".webp",".jpg",".jpeg",".svg"}:
+                    display_pins.append({"path":normalized,"role":key,"jsonPointer":pointer_text})
+                if normalized.startswith("reviews/"): review_paths.append(normalized)
+        walk(document)
+        source_paths=list(dict.fromkeys(source_paths))
+        asset_pins=list({(x["path"],x["role"],x["jsonPointer"]):x for x in asset_pins}.values())
+        display_pins=list({(x["path"],x["role"],x["jsonPointer"]):x for x in display_pins}.values())
+        identity="lesson:"+lesson_path.parent.relative_to(repo/"lessons").as_posix()
+        title=document.get("title",document.get("question",lesson_path.parent.name.replace("-"," ").title()))
+        action=document.get("question",document.get("questionZh",""))
+        result.append(Consumer(identity,"lessons","structured-lesson",str(title),str(action),
+            "lesson-recorded",owner,{"question":document.get("question"),
+            "questionZh":document.get("questionZh"),"assetPins":asset_pins,
+            "displayPins":display_pins,"reviewPaths":list(dict.fromkeys(review_paths)),
+            "sourcePaths":source_paths,"unresolvedPaths":list(dict.fromkeys(unresolved))}))
+    return tuple(result)
+
 def build_catalog(repo:Path):
     repo=repo.resolve(); packages=scan_packages(repo)
-    consumers=body_system_consumers(repo)+ultrasound_consumers(repo)+teaching_consumers(repo); hashes={}
+    consumers=body_system_consumers(repo)+ultrasound_consumers(repo)+teaching_consumers(repo)+lesson_consumers(repo); hashes={}
     for item in consumers:
         path=owner_path(repo,item.source_path)
         hashes[item.source_path]=sha(path.read_bytes()) if path.is_file() else "missing"
@@ -858,24 +902,33 @@ def resolve(catalog:Catalog,identity:str,part_id:str|None=None):
                 item={"packageId":package.candidate_id,"packagePath":package.path,
                     "sourceReference":source_name,"relationship":"explicit-package-source-reference"}
                 if item not in referenced_packages: referenced_packages.append(item)
-    if consumer.get("kind")=="accepted-assessment":
-        export=evidence.get("export",{})
+    if consumer.get("kind") in {"accepted-assessment","structured-lesson"}:
+        pins=([evidence.get("export",{})] if consumer.get("kind")=="accepted-assessment"
+            else evidence.get("assetPins",[]))
         exact=[];near=[]
-        for package in catalog.packages:
-            if export.get("path") not in package.exports: continue
-            try:
-                digest,size=declared_identity(Path(catalog.repository),export["path"])
-                match=(digest==export.get("sha256") and size==export.get("bytes"))
-                item={"packageId":package.candidate_id,"packagePath":package.path,
-                    "exportPath":export["path"],"sha256":digest,"bytes":size,
-                    "status":"exact-export-candidate" if match else "export-identity-mismatch"}
-                (exact if match else near).append(item)
-            except (OSError,ValueError) as error:
-                near.append({"packageId":package.candidate_id,"packagePath":package.path,
-                    "exportPath":export.get("path"),"status":"export-identity-unavailable","reason":str(error)})
-        return {"consumer":consumer,"status":"exact-export-candidate" if exact else "export-unresolved",
-            "exactExportCandidates":exact,"nearMatches":near,"relatedReferences":related_references,
-            "qualification":"teaching assessment is evidence for its pinned task; asset lineage, part scope, frame registration and rights remain separately evaluated."}
+        for pin in pins:
+            export_path=pin.get("path")
+            if not isinstance(export_path,str): continue
+            for package in catalog.packages:
+                if export_path not in package.exports: continue
+                try:
+                    digest,size=declared_identity(Path(catalog.repository),export_path)
+                    expected_digest=pin.get("sha256"); expected_size=pin.get("bytes")
+                    identity_match=(expected_digest is None or digest==expected_digest) and (expected_size is None or size==expected_size)
+                    item={"packageId":package.candidate_id,"packagePath":package.path,
+                        "exportPath":export_path,"role":pin.get("role","export"),
+                        "sha256":digest,"bytes":size,
+                        "identityBasis":"exact-digest-and-size" if expected_digest and expected_size is not None else "current-path-identity-only",
+                        "status":"exact-export-candidate" if identity_match else "export-identity-mismatch"}
+                    (exact if identity_match else near).append(item)
+                except (OSError,ValueError) as error:
+                    near.append({"packageId":package.candidate_id,"packagePath":package.path,
+                        "exportPath":export_path,"status":"export-identity-unavailable","reason":str(error)})
+        exact_status="exact-export-candidate" if consumer.get("kind")=="accepted-assessment" else "path-pinned-export-candidate"
+        return {"consumer":consumer,"status":exact_status if exact else "export-unresolved",
+            "exactExportCandidates":exact,"nearMatches":near,"referencedPackages":referenced_packages,
+            "relatedReferences":related_references,
+            "qualification":"The consumer's exact path is resolved. A path-only pin is not an immutable revision pin; anatomy, frame registration, rights and teaching qualification remain separately evaluated."}
     declared=evidence.get("parts",[])
     if part_id is not None:
         required=[part_id]
@@ -947,8 +1000,29 @@ def resolve(catalog:Catalog,identity:str,part_id:str|None=None):
 
 def impact(catalog:Catalog,identity:str):
     target=show(catalog,identity)
-    if target["type"]=="consumer-requirement": return {"target":target,"knownConsumers":[target]}
-    return {"target":target,"knownConsumers":[],"limitations":[
+    if target["type"]=="consumer-requirement":
+        return {"target":target,"resolution":resolve(catalog,identity),
+            "limitations":["Only consumers represented by the current repository adapters are visible."]}
+    package_path=target["path"]; known=[]
+    for consumer in catalog.consumers:
+        evidence=consumer.evidence
+        paths=list(evidence.get("sourcePaths",[]))+list(evidence.get("framePaths",[]))+list(evidence.get("artifactPaths",[]))
+        paths += [row.get("path") for row in evidence.get("assetPins",[]) if isinstance(row,dict)]
+        paths += [row.get("path") for row in evidence.get("artifactPins",[]) if isinstance(row,dict)]
+        if isinstance(evidence.get("export"),dict): paths.append(evidence["export"].get("path"))
+        paths += [match.get("assetPath") for binding in evidence.get("referenceBindings",[])
+                  for match in binding.get("matches",[]) if isinstance(match,dict)]
+        matched=[path for path in paths if isinstance(path,str) and
+            (path==package_path or path.startswith(package_path+"/"))]
+        part_ids=set(evidence.get("parts",[])) if isinstance(evidence.get("parts"),list) else set()
+        matched_parts=[candidate.part_id for package in catalog.packages
+            if package.path==package_path for candidate in package.parts if candidate.part_id in part_ids]
+        if matched or matched_parts:
+            known.append({"consumerId":consumer.consumer_id,"domain":consumer.domain,
+                "kind":consumer.kind,"title":consumer.title,"matchedPaths":list(dict.fromkeys(matched)),
+                "matchedParts":list(dict.fromkeys(matched_parts))})
+    return {"target":target,"knownConsumers":known,"limitations":[
+      "Only consumers represented by the current repository adapters are visible.",
+      "An empty reverse-reference result does not prove that no external reader exists.",
       "Package discovery does not prove an independent asset lineage.",
-      "Consumer-to-asset bindings are not inferred from names or anatomical similarity.",
-      "Unknown external readers cannot be inferred from this checkout."]}
+      "No removal or retirement is authorized by this impact report."]}
