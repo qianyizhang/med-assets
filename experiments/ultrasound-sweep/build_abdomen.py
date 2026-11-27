@@ -164,6 +164,33 @@ def mesh_from_mask(mask, z_bounds=None):
     return mesh_bytes(vertices + lower - 1, faces[:, ::-1])
 
 
+def scene_assets(track, scene_directory=None):
+    """Read exact governed meshes, or verify their staged copies before assembly."""
+    references = track.get('sceneAssets', {})
+    if not references:
+        return {}
+
+    from assetkit.blobs import read_verified
+    from assetkit.registry import AssetRegistry, ExportRef, VoxelGrid
+
+    repo = HERE.parents[1]
+    registry = AssetRegistry.load(repo, include_legacy_adapters=False)
+    grid = VoxelGrid.model_validate({key: WORKSHOP[key] for key in ('case', 'shape', 'rasMmFromVoxel')})
+    slots = {entry['id'] for entry in track['parts']}
+    meshes = {}
+    for part, raw_ref in references.items():
+        if part not in slots:
+            raise ValueError(f'{track["id"]}: Unknown scene asset slot {part!r}')
+        export = registry.require_voxel_export(ExportRef.model_validate(raw_ref), grid)
+        if export.format != 'mesh' or export.sha256 is None or export.bytes is None:
+            raise ValueError(f'{track["id"]}: Expected an identity-pinned packed mesh for {part}')
+        if scene_directory is None:
+            meshes[part] = read_verified(repo, export.path, export.sha256, export.bytes)
+        else:
+            meshes[part] = read_verified(scene_directory, f'{part}.mesh', export.sha256, export.bytes)
+    return meshes
+
+
 class ImagingGrid:
     """Map the same convex sector to a raster and to radial propagation paths."""
 
@@ -339,7 +366,7 @@ def refresh_exteriors(tracks, sweeps_dir, shell, torso, source):
               f'{receipt["surfaceMaxOuterContactErrorMm"]:.3f} mm', flush=True)
 
 
-def build_track(track, output, shell, ct, masks, torso, source):
+def build_track(track, output, shell, ct, masks, torso, source, governed_meshes):
     sweep_id = track['id']
     grid = ImagingGrid(track['sectorDepthMm'])
     frames = list(poses(sweep_id, shell))
@@ -351,7 +378,8 @@ def build_track(track, output, shell, ct, masks, torso, source):
     for name, mask in masks.items():
         # Only the abdominal portions belong in these locators. CT sampling uses full masks.
         bounds = (140, 271) if name in {'aorta', 'inferior_vena_cava'} else None
-        (scenes / f'{name}.mesh').write_bytes(mesh_from_mask(mask, bounds))
+        raw = governed_meshes.get(name)
+        (scenes / f'{name}.mesh').write_bytes(mesh_from_mask(mask, bounds) if raw is None else raw)
     overlay_order = section_palette(track)
     sample_masks = {part['id']: masks[part['id']] for part in overlay_order}
     receipt = {}
@@ -393,16 +421,29 @@ def rib_names(sweep_id):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('case', type=Path)
-    parser.add_argument('sweeps_dir', type=Path)
+    parser.add_argument('sweeps_dir', type=Path, nargs='?')
+    parser.add_argument('--export-liver', type=Path, metavar='MESH',
+                        help='Build only the packed liver surface from the pinned mask')
     parser.add_argument('--track', choices=POSES, action='append')
     parser.add_argument('--refresh-exteriors', action='store_true',
                         help='Replace torso meshes and update exterior receipts for an existing sweep build.')
     args = parser.parse_args()
+    if args.export_liver is not None:
+        if args.sweeps_dir is not None or args.track or args.refresh_exteriors:
+            parser.error('--export-liver takes only the source case and output mesh')
+        mask = volume(args.case / 'segmentations/liver.nii.gz', PINS['liver'], 'u1')
+        raw = mesh_from_mask(mask)
+        with args.export_liver.open('xb') as stream:
+            stream.write(raw)
+        return
+    if args.sweeps_dir is None:
+        parser.error('sweeps_dir is required for a sweep build')
     tracks = [track for track in read_tracks()
               if args.track is None or track['id'] in args.track]
     for track in tracks:
         if not args.refresh_exteriors and (args.sweeps_dir / track['id']).exists():
             parser.error(f'Choose a fresh destination for {track["id"]}.')
+    scene_meshes = {} if args.refresh_exteriors else {track['id']: scene_assets(track) for track in tracks}
     args.sweeps_dir.mkdir(parents=True, exist_ok=True)
 
     ct = volume(args.case / 'ct.nii.gz', CT_SHA, '<i2')
@@ -428,7 +469,7 @@ def main():
         with tempfile.TemporaryDirectory(dir=args.sweeps_dir) as staging:
             output = Path(staging) / sweep_id
             output.mkdir()
-            build_track(track, output, shell, ct, track_masks, torso, source)
+            build_track(track, output, shell, ct, track_masks, torso, source, scene_meshes[sweep_id])
             os.rename(output, args.sweeps_dir / sweep_id)
 
 

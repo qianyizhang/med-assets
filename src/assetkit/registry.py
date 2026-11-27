@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-from pydantic import Field
+from pydantic import Field, FiniteFloat, PositiveInt
 
 from .blobs import inspect_mesh, normalize_path, verify
 from .errors import AssetKitError
@@ -21,6 +21,28 @@ REGISTRATION_STATES = frozenset(
 )
 SKIP_DIRS = frozenset({".git", ".artifacts", "node_modules", "__pycache__", ".venv", "src"})
 MODEL_EXTS = frozenset({".glb", ".gltf", ".blend", ".svg", ".obj", ".stl"})
+MANIFEST_VERSION = 1
+
+
+class ExportRef(AssetModel):
+    """An exact export identity declared by a downstream owner."""
+
+    asset: str
+    revision: str
+    export: str
+
+
+class VoxelGrid(AssetModel):
+    """Voxel-index coordinates with a case-bound affine into RAS millimetres."""
+
+    case: str
+    shape: tuple[PositiveInt, PositiveInt, PositiveInt]
+    ras_mm_from_voxel: tuple[
+        tuple[FiniteFloat, FiniteFloat, FiniteFloat, FiniteFloat],
+        tuple[FiniteFloat, FiniteFloat, FiniteFloat, FiniteFloat],
+        tuple[FiniteFloat, FiniteFloat, FiniteFloat, FiniteFloat],
+        tuple[FiniteFloat, FiniteFloat, FiniteFloat, FiniteFloat],
+    ]
 
 
 class SpatialFrame(AssetModel):
@@ -100,6 +122,7 @@ class Export(AssetModel):
     triangles: int | None = None
     storage_status: str = "unverified"
     parts: tuple[Part, ...] = ()
+    voxel_grid: VoxelGrid | None = None
 
     def validate_invariants(self, context: str) -> None:
         if not self.id.strip() or not self.path.strip():
@@ -231,6 +254,22 @@ class AssetRegistry:
             return None
         return (asset, rev, exp)
 
+    def require_voxel_export(self, ref: ExportRef, grid: VoxelGrid) -> Export:
+        """Resolve a pinned export that can be placed directly on the requested grid."""
+        key = f"{ref.asset}@{ref.revision}:{ref.export}"
+        resolved = self.resolve_export(ref.asset, ref.revision, ref.export)
+        if resolved is None:
+            raise AssetKitError(f"Unknown scene export: {key}")
+        export = resolved[2]
+        if export.voxel_grid is None:
+            raise AssetKitError(f"Missing voxel grid for {key}")
+        if export.voxel_grid != grid:
+            raise AssetKitError(
+                f"Incompatible voxel grid for {key}: expected {grid.to_dict()}, "
+                f"got {export.voxel_grid.to_dict()}"
+            )
+        return export
+
     def iter_exports(self) -> tuple[tuple[Asset, Revision, Export], ...]:
         return tuple(
             (asset, rev, exp)
@@ -332,10 +371,14 @@ def _load_native_assets(repo: Path, *, inspect_glbs: bool) -> tuple[list[Asset],
     for manifest in sorted(repo.rglob("assets.json")):
         if any(part in SKIP_DIRS for part in manifest.relative_to(repo).parts):
             continue
+        doc = _read_json(manifest)
+        if not isinstance(doc, dict) or doc.get("schemaVersion") != MANIFEST_VERSION:
+            continue
+        if not isinstance(doc.get("assets"), list):
+            raise AssetKitError(f"Expected an assets array in {manifest}")
         owner_dir = _rel(repo, manifest.parent)
         covered_dirs.add(owner_dir)
-        doc = _read_json(manifest)
-        for row in doc.get("assets", []):
+        for row in doc["assets"]:
             revs: list[Revision] = []
             for rev_row in row.get("revisions", []):
                 exports: list[Export] = []
@@ -574,13 +617,14 @@ def _load_asset_records(
                         ),
                         role=str(exp_row.get("role", "teaching-mesh")),
                         variant=str(exp_row.get("variant", "normal")),
-                        sha256=exp_row.get("sha256") or chk.sha256,
-                        bytes=exp_row.get("bytes")
-                        if exp_row.get("bytes") is not None
-                        else chk.bytes,
+                        sha256=exp_row.get("sha256"),
+                        bytes=exp_row.get("bytes"),
                         triangles=tris,
                         storage_status=chk.status,
                         parts=tuple(exp_parts),
+                        voxel_grid=VoxelGrid.model_validate(exp_row["voxelGrid"])
+                        if "voxelGrid" in exp_row
+                        else None,
                     )
                 )
 
@@ -588,6 +632,7 @@ def _load_asset_records(
                 Revision(
                     id=rev_id,
                     status=rev_status,
+                    recipe=rev_row.get("recipe"),
                     provenance=rev_prov,
                     exports=tuple(exports),
                 )

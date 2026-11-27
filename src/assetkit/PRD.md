@@ -4,10 +4,10 @@ Prove that a reusable 3D export can be rebuilt, verified, and loaded by an exist
 
 ## Liver sweep pilot
 
-Use the existing **Oblique portal view** at frame 12 of the liver sweep. A proposed AssetKit integration supplies the s1233 liver surface to the 3D scene. The sweep still computes the probe pose, simulated B-mode, and overlay from its acquisition inputs. The acquired panel shows an epigastric view alongside the modeled right subcostal view. [Liver track](../../experiments/ultrasound-sweep/abdomen-tracks.json) · [Acquisition recipe](../../experiments/ultrasound-sweep/build_abdomen.py) · [Acquired reference](../../experiments/ultrasound-sweep/research/hepatopancreatic.json)
+Use the existing **Oblique portal view** at frame 12 of the liver sweep. AssetKit supplies the s1233 liver surface to the 3D scene. The sweep still computes the probe pose, simulated B-mode, and overlay from its acquisition inputs. The acquired panel shows an epigastric view alongside the modeled right subcostal view. [Liver track](../../experiments/ultrasound-sweep/abdomen-tracks.json) · [Acquisition recipe](../../experiments/ultrasound-sweep/build_abdomen.py) · [Acquired reference](../../experiments/ultrasound-sweep/research/hepatopancreatic.json)
 
 ```text
-Proposed pilot handoff
+Pilot handoff
 
 AssetKit rebuilds and verifies one liver surface
                        │
@@ -32,9 +32,9 @@ Existing player opens “Oblique portal view” (frame 12)
 | Acquired WebP, credit and license | The source catalog owns acquisition media and its reuse terms. | Keep the catalog and the sweep's comparison choice. Surface the different imaging window in the existing viewer. |
 | Review and delivered bytes | AssetKit can trace evidence for the exact 3D export. | Keep frame and lesson evidence with the sweep. Use existing retention and release rules for any byte-pinned output. |
 
-### Proposed reference in the existing sweep config
+### Reference in the existing sweep config
 
-The example shows the fields added to the existing `liver` row in `abdomen-tracks.json`. The asset and revision IDs are proposed. The owning asset record supplies the export path, digest and frame. An existing delivery receipt captures the resolved digest for the frozen lesson build.
+The example shows the reference in the existing `liver` row in `abdomen-tracks.json`. The [owning asset record](../../models/liver_s1233/asset.record.json) supplies the export path, digest, and grid. The sweep compares the case, shape, and voxel-to-RAS-millimetres affine with its [pinned case inputs](../../assemblies/workshop-s1233/inputs.json). Its delivery receipt captures the resolved digest for the frozen lesson build.
 
 ```json
 {
@@ -49,7 +49,7 @@ The example shows the fields added to the existing `liver` row in `abdomen-track
 }
 ```
 
-The scene builder and AssetKit's read-only dependency index should consume that same reference. A downstream reader can request a subset of named parts when an export supports it. The staged 3D build supplies the verified file to the existing player. The acquisition pipeline continues to own `sweep.js`, `scan-12.webp`, `section-12.webp`, and the comparison link to `liver-12`.
+The scene builder and AssetKit's read-only dependency index consume that same reference. Assembly rechecks the staged mesh against the exact export. The acquisition pipeline continues to own `sweep.js`, `scan-12.webp`, `section-12.webp`, and the comparison link to `liver-12`.
 
 ### Acceptance checks for the integration
 
@@ -71,7 +71,7 @@ Use a local replay to compare against the current sweep. Record the tested revis
 | Discover and inspect 3D assets | `assetkit find` and `assetkit show` | Inspect the maintained identity, revision and selectors. |
 | Build and inspect an export | `assetkit build` and `assetkit sync` | Use package recipes. Verify the output identity and named dependencies before updating a maintained revision. |
 | Validate and assess delivery | `assetkit validate`, `assetkit bundle`, `assetkit economy` | Use declared plans for planning and check artifact identity at the actual 3D handoff. |
-| Trace dependencies | `assetkit impact` | Add the owning sweep reader and prove exact-export matching. |
+| Trace dependencies | `assetkit impact` | The owning sweep appears as a reader of the exact export. |
 | Inspect downstream projections | `assetkit compile --target gallery` or `--target r2` | Keep Gallery selection and transport admission with their current owners. |
 
 1. Follow the [existing pilot fixture](pilot/README.md) for metadata-only checks. It illustrates declared costs and anatomy gaps. The liver sweep above is the integration pilot with real bytes and an existing player.

@@ -77,6 +77,20 @@ class BlobRef(AssetModel):
     bytes: int | None = None
 
 
+def read_verified(repo: Path, rel_path: str, expected_sha256: str, expected_bytes: int) -> bytes:
+    """Return the same hydrated bytes that were checked against the expected identity."""
+    path = safe_path(repo, rel_path)
+    try:
+        data = path.read_bytes()
+    except FileNotFoundError as exc:
+        raise AssetKitError(f"Missing export bytes: {rel_path}") from exc
+    if data.startswith(LFS_HEADER):
+        raise AssetKitError(f"Export needs LFS hydration: {rel_path}")
+    if len(data) != expected_bytes or hashlib.sha256(data).hexdigest() != expected_sha256:
+        raise AssetKitError(f"Export size or SHA-256 mismatch: {rel_path}")
+    return data
+
+
 def verify(
     repo: Path,
     rel_path: str,

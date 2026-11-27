@@ -11,7 +11,7 @@ from typing import Any, Literal, Protocol
 from .blobs import BlobStatus, inspect_mesh, normalize_path, safe_path, verify
 from .errors import AssetKitError
 from .models import AssetModel
-from .registry import AssetRegistry
+from .registry import MANIFEST_VERSION, AssetRegistry
 
 
 class BuildSpec(AssetModel):
@@ -175,10 +175,16 @@ def sync_manifest(repo: Path, manifest_rel_path: str, *, apply: bool = False) ->
     if not manifest.is_file():
         raise AssetKitError(f"Manifest not found: {norm}")
     doc = json.loads(manifest.read_text(encoding="utf-8"))
+    if (
+        not isinstance(doc, dict)
+        or doc.get("schemaVersion") != MANIFEST_VERSION
+        or not isinstance(doc.get("assets"), list)
+    ):
+        raise AssetKitError(f"Expected an AssetKit assets.json manifest: {norm}")
     owner_dir = manifest.parent.resolve().relative_to(repo.resolve()).as_posix()
 
     updates: list[SyncExportChange] = []
-    for asset in doc.get("assets", []):
+    for asset in doc["assets"]:
         for rev in asset.get("revisions", []):
             for exp in rev.get("exports", []):
                 raw_path = exp["path"]

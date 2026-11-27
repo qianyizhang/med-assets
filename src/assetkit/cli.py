@@ -62,7 +62,8 @@ def configure(
     ctx: typer.Context,
     repo: Annotated[Path, typer.Option("--repo", help="Repository root path")] = Path("."),
     native_only: Annotated[
-        bool, typer.Option("--native-only", help="Read only native AssetKit manifests")
+        bool,
+        typer.Option("--native-only", help="Read explicit manifests and skip legacy discovery"),
     ] = False,
     inspect_glb: Annotated[
         bool, typer.Option("--inspect-glb", help="Inspect hydrated GLB headers for mesh stats")

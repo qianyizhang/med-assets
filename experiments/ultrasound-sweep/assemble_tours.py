@@ -325,6 +325,8 @@ def configured_tours(output, refs, files, landmark_refs, tracks):
                 for key in ('windows', 'landmarkMinimums', 'requireModelReceipt'):
                     tour.pop(key, None)
         verify_inventory(output / root, inventory)
+        if tour.pop('sceneAssets', None):
+            build_abdomen.scene_assets(track, output / root / 'scenes')
         for relative in inventory:
             path = root.removeprefix('./') + relative
             source = output / path

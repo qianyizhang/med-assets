@@ -48,6 +48,8 @@ The **Heart → Adult echocardiography** study covers 17 views from four transth
 
 ## Replay
 
+For the governed liver surface, install the repository package into the sweep's Python environment so the builder and assembler can read the AssetKit record. Hydrate `models/liver_s1233/exports/r01/liver.mesh` with Git LFS. The [exact rebuild](../../models/liver_s1233/README.md#rebuild-and-verify) can recover a missing export from the source mask. The builder checks the package's export digest and voxel grid before placing it in the scene. The acquisition still samples the pinned CT and masks.
+
 Use Python 3.12 with NumPy 2.2.6, SciPy 1.16.1, scikit-image 0.25.2 and Pillow 11.3.0. Retrieve the public TotalSegmentator v2.0.1 cases s1233 (abdomen) and s1127 (thyroid and common carotid), the two original gallbladder images linked in the reference study, and the hydrated LFS inputs for the atlas meshes and the other [acquired comparisons](research/acquired/). For breast, hydrate the [mammary atlas](../../models/breasts_hra/exports/teaching-economy-r01/README.md) and download the [female skin GLB](https://cdn.humanatlas.io/digital-objects/ref-organ/skin-female/v1.3/assets/3d-vh-f-skin.glb). Set `HRA_SKIN` to the downloaded file. The builder verifies the identities of both models. Run from the repository root with a fresh output directory.
 
 ```sh

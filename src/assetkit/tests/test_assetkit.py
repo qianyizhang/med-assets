@@ -42,7 +42,9 @@ from assetkit import (
     sync_manifest,
     verify,
 )
+from assetkit.blobs import read_verified
 from assetkit.cli import app
+from assetkit.registry import ExportRef, VoxelGrid
 
 
 def _make_minimal_glb(node_name: str = "LiverMesh", triangles: int = 2) -> bytes:
@@ -659,6 +661,7 @@ def test_economy_and_bundle_agree_on_repeated_export() -> None:
 
 def test_build_cli_returns_failure_receipt(tmp_path: Path) -> None:
     manifest = {
+        "schemaVersion": 1,
         "assets": [
             {
                 "id": "demo",
@@ -670,7 +673,7 @@ def test_build_cli_returns_failure_receipt(tmp_path: Path) -> None:
                     }
                 ],
             }
-        ]
+        ],
     }
     (tmp_path / "assets.json").write_text(json.dumps(manifest))
     recipe = tmp_path / "build.py"
@@ -682,3 +685,48 @@ def test_build_cli_returns_failure_receipt(tmp_path: Path) -> None:
         receipt = json.loads(result.output)
         assert receipt["status"] == "failed"
         assert receipt["returncode"] == code
+
+
+def test_liver_sweep_indexes_the_governed_export_and_checks_its_grid() -> None:
+    repo = Path(__file__).resolve().parents[3]
+    ws = Workspace.load(repo)
+    ref = ExportRef(asset="anatomy:s1233:liver-window", revision="r01", export="liver")
+    source = json.loads((repo / "assemblies/workshop-s1233/inputs.json").read_text())
+    grid = VoxelGrid.model_validate(
+        {key: source[key] for key in ("case", "shape", "rasMmFromVoxel")}
+    )
+    export = ws.registry.require_voxel_export(ref, grid)
+    assert export.storage_status in {"verified", "pointer-match"}
+    assert plan_build(repo, ws.registry, ref.asset, ref.revision).expected_outputs == (export.path,)
+
+    wrong_origin = grid.to_dict()
+    wrong_origin["rasMmFromVoxel"][0][3] += 1.5
+    with pytest.raises(AssetKitError, match="Incompatible voxel grid"):
+        ws.registry.require_voxel_export(ref, VoxelGrid.model_validate(wrong_origin))
+
+    impact = ws.impact(f"{ref.asset}@{ref.revision}:{ref.export}")
+    assert [use.owner_path for use in impact.consumers] == [
+        "experiments/ultrasound-sweep/abdomen-tracks.json"
+    ]
+    assert not impact.adoptions
+    assert ws.registry.get("lungLeft") is None
+    with pytest.raises(AssetKitError, match="Expected an AssetKit assets.json"):
+        sync_manifest(repo, "lessons/one-breath/assets.json")
+
+
+def test_read_verified_rejects_missing_lfs_and_changed_bytes(tmp_path: Path) -> None:
+    data = b"mesh payload"
+    digest = hashlib.sha256(data).hexdigest()
+    file = tmp_path / "liver.mesh"
+    with pytest.raises(AssetKitError, match="Missing export bytes"):
+        read_verified(tmp_path, file.name, digest, len(data))
+    file.write_text(
+        f"version https://git-lfs.github.com/spec/v1\noid sha256:{digest}\nsize {len(data)}\n"
+    )
+    with pytest.raises(AssetKitError, match="needs LFS hydration"):
+        read_verified(tmp_path, file.name, digest, len(data))
+    file.write_bytes(b"x" + data[1:])
+    with pytest.raises(AssetKitError, match="SHA-256 mismatch"):
+        read_verified(tmp_path, file.name, digest, len(data))
+    file.write_bytes(data)
+    assert read_verified(tmp_path, file.name, digest, len(data)) == data

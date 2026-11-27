@@ -12,7 +12,7 @@ from pydantic import Field, computed_field
 from .curation import Adoption, CurationStore, Qualification, Review, Selection
 from .errors import AssetKitError
 from .models import AssetModel
-from .registry import REGISTRATION_STATES, SKIP_DIRS, AssetRegistry, Part
+from .registry import REGISTRATION_STATES, SKIP_DIRS, AssetRegistry, ExportRef, Part
 from .vocab import ConceptGraph
 
 CONSUMER_KINDS = frozenset(
@@ -209,6 +209,7 @@ class AffectedConsumer(AssetModel):
     title: str
     kind: str
     pins: tuple[Pin, ...]
+    owner_path: str
 
 
 class ImpactResult(AssetModel):
@@ -617,7 +618,11 @@ class DeliveryGraph:
             if pins:
                 affected_consumers.append(
                     AffectedConsumer(
-                        consumer_id=consumer.id, title=consumer.title, kind=consumer.kind, pins=pins
+                        consumer_id=consumer.id,
+                        title=consumer.title,
+                        kind=consumer.kind,
+                        pins=pins,
+                        owner_path=consumer.owner_path,
                     )
                 )
         return ImpactResult(
@@ -931,6 +936,16 @@ def _project_legacy_consumers(repo: Path, existing_ids: set[str]) -> list[Consum
                     )
                     for p in parts
                 )
+                pins = tuple(
+                    Pin(
+                        asset_id=ref.asset,
+                        revision_id=ref.revision,
+                        export_id=ref.export,
+                        requirement_id=f"part:{part}",
+                    )
+                    for part, raw in sweep.get("sceneAssets", {}).items()
+                    for ref in (ExportRef.model_validate(raw),)
+                )
                 consumers.append(
                     Consumer(
                         id=cid,
@@ -938,6 +953,7 @@ def _project_legacy_consumers(repo: Path, existing_ids: set[str]) -> list[Consum
                         kind="ultrasound-sweep",
                         owner_path=owner,
                         requirements=reqs,
+                        pins=pins,
                     )
                 )
     return consumers

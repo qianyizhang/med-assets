@@ -32,6 +32,8 @@ Asset authors need to find who uses an export. A downstream consumer declares th
 
 An AssetKit reader can derive indexed uses from those declarations. Report unresolved inputs and coverage limits. A duplicate consumer manifest would make indexing uniform and add a second edit for every dependency change. A derived use records a dependency. Scoped qualification remains an independent decision. Existing consumer manifests can still be read during migration. The pilot adds its reference to the owning sweep config.
 
+The real pilot uses one package-owned `asset.record.json` for the revision and export. The metadata fixture keeps its versioned `assets.json`. Recognize the AssetKit schema at discovery so a lesson's similarly named inventory remains lesson-owned. For an export placed directly in a voxel scene, compare the export's case, grid shape, and affine into RAS millimetres with the builder's pinned input grid. Treat an absent or different grid as a failed handoff.
+
 ### Retain exact outputs for a named use
 
 Track canonical editable inputs, recipes, source and rights records, and the exports needed by maintained readers. Generate routine scan frames, overlays, previews, and delivery inventories in the owning build output. A published lesson, active review, or recovery obligation can require exact bytes. Keep those bytes through the existing delivery, evidence, or archive process and verify the identity on replay or restore.

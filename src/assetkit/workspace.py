@@ -26,7 +26,7 @@ from .delivery import (
 )
 from .errors import AssetKitError
 from .models import AssetModel
-from .registry import AssetRegistry, Part, Provenance
+from .registry import AssetRegistry, Part, Provenance, VoxelGrid
 from .vocab import ConceptGraph
 
 
@@ -85,6 +85,7 @@ class ShowExportView(AssetModel):
     triangles: int | None = None
     storage_status: str
     parts: tuple[Part, ...] = ()
+    voxel_grid: VoxelGrid | None = None
     qualification: QualificationStatus
 
 
@@ -301,6 +302,7 @@ class Workspace:
                                 triangles=exp.triangles,
                                 storage_status=exp.storage_status,
                                 parts=exp.parts,
+                                voxel_grid=exp.voxel_grid,
                                 qualification=qual,
                             )
                         )
