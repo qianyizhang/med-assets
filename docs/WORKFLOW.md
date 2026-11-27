@@ -22,7 +22,7 @@
 | [tools](../tools/) | Repository-wide commands, including the offline verifier. Package-specific parameters and replay stay with their owners. |
 | [transport](../transport/) | Content-addressed delivery, manifests and recovery policy. [Transport tools](../transport/tools/) hold fetch, upload, backup and restore implementations. Keep an old command path where an external consumer requires it. |
 
-- **Discovery** · Start at the asset directory, export README and linked review. Use directory discovery as the inventory.
+- **Discovery** · Use [AssetKit](../src/assetkit/README.md) to find reusable 3D assets, inspect package-owned revisions, and trace declared dependencies. Follow the export README and linked review for recipe and evidence details. Lesson and illustration owners maintain their own records.
 - **Variants** · Keep exports with a named use, replay dependency or unique evidence. Preserve snapshot layout where replay depends on it.
 
 ## Maintaining an asset
@@ -32,7 +32,7 @@
 | Rebuild an export or lesson plate | Start with the package README and its recipe. Keep the selected inputs, camera, tolerances and export identity there. Use the existing [portable](../tools/rebuild_asset.py) or [Blender](../tools/rebuild_mesh.py) rebuild command when it supports the operation. | Replay into a fresh directory. Compare exact output bytes or the package’s declared geometry, motion or pixel tolerances. The [dependency check](../tools/verify_recipe_dependencies.py) follows the maintained recipe inputs. |
 | Accept a reviewed teaching task | Put the observation and evidence with the exact export. Preview and apply the [promotion](guides/teaching-assessments.md) to select a starting file or retain an alternative. | `python3.12 tools/maintained_teaching.py --check` resolves every accepted export/task and compares the generated register and scorecard. |
 | Make the revision available in Gallery | Declare the package, revision route, rights and teaching evidence in the [Gallery release inputs](gallery/asset-library.md#making-a-release-selection). The compiler assembles the Library, studies and resources for the selected release. | [Build the local release](../sites/anatomy-gallery/README.md#restore-and-build-locally) and check its model, evidence and behavior. Public download and upload admission have their own [transport acceptance](../transport/README.md#upload-acceptance). |
-| Restore or retire a file | Check its known readers with `python3.12 tools/verify.py retained PATH`. For archived members, use the [collection restore command](../transport/README.md#restore-an-archived-collection). | Verify the restored bytes, or migrate the remaining readers and exercise them. The [retention policy](#retention) covers public URLs, source records and unique evidence. |
+| Restore or retire a file | Check its known readers with `uv run python tools/verify.py retained PATH`. For archived members, use the [collection restore command](../transport/README.md#restore-an-archived-collection). | Verify the restored bytes, or migrate the remaining readers and exercise them. The [retention policy](#retention) covers public URLs, source records and unique evidence. |
 
 The [artifact module](../lib/med_assets/artifacts.py) owns path checks and file identity. Metadata checks can use an LFS pointer. Delivery and restore verify the actual bytes. [Display derivatives](../sources/display-derivatives.json) bind an output to its source, recipe and expected identity.
 
@@ -97,7 +97,7 @@ The default setup includes the MCP server and Blender add-on. The tested pair is
 | --- | --- | --- |
 | Every change | `uv run python tools/verify.py offline` | Offline regressions, portable Gallery tests, the maintained recipe graph, all accepted teaching tasks and their generated views, import references, LFS identities, transport manifests and selected foundation records. Runs in a shallow LFS-pointer checkout. |
 | Python style, lint & types | `uv run pre-commit run` (`ruff` + `ty` + hygiene hooks) | Enforces formatting, imports, lint, and static type checks defined in `pyproject.toml` and `.pre-commit-config.yaml`. |
-| Focused Python tests | `uv run pytest [path]` | Fast local test runner for `pytest` and `unittest` suites (full offline CI still uses `tools/verify.py offline`). |
+| AssetKit tests | `uv run pytest src/assetkit/tests` | Offline CI runs these alongside the repository gate. Liver verifies the exact dependency, build plan and grid. Cardiac Atlas verifies linked exports, accepted assessments, and provisional adoptions. Both checks support LFS pointers. |
 | Broad changes with hydrated LFS | `uv run python tools/verify.py payload-integrity` | Offline gate plus all indexed LFS bytes, foundation evidence bindings and selected package checks. Unresolved pointers fail. |
 | UFF dental changes | `uv run python tools/verify.py dental` | Separate suite including the actual pinned GLB hash. Use an isolated environment with [UFF requirements](../models/dental_specimens/uff_tomo1b/recipes/requirements-uff.txt). Missing dependencies leave coverage unavailable. |
 | Dental film production changes | [Film replay checks](../experiments/dental-video-treatments/REPLAY.md) | The ordinary gate pins the retained films, captions and credits. Run the package replay suite explicitly for renderer or production changes. |
@@ -163,9 +163,10 @@ The repository is in beta. Prefer a small, verified iteration that migrates curr
 - **Scratch** · Use ignored `.artifacts/<outcome>/` directories for comparison sessions, trial renders and working close-ups. Where an outcome merits a working bundle, keep one with its revision, result, limits, consumers and retention. Routine trials can expire without backup. Move accepted decisions and remaining defects to their owners, and bind the decisive evidence for an active claim or defect to a tracked record or verified archive. Tests exercise maintained behavior and explicitly selected fixtures. A trial’s appearance in a Development index creates no test or backup obligation.
 - **Retire** · Check imports, discovery, packaging, links, public URLs and symlink targets. Repair readers and narrow claims that lose evidence. Retire spent output after recording its outcome. Review temporary bundles after 30 days. Extensions need an active use and next review date.
 
-Run `python3.12 tools/verify.py retained PATH [PATH ...]` from the repository root
-to trace exact repository-relative paths. The report checks accepted teaching and
-comparison evidence, delivery declarations, the known recipe graph, licenses,
+Run `uv run python tools/verify.py retained PATH [PATH ...]` from the repository root
+to trace exact repository-relative paths. The report includes AssetKit's indexed
+3D dependencies and adoptions, accepted teaching and comparison evidence,
+delivery declarations, the known recipe graph, licenses,
 open work items and recovery records. The recorded public index is checked when
 its commit is in local Git history. External consumers, dynamic lookups and
 current archive availability need separate evidence before retirement.

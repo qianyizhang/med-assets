@@ -43,25 +43,10 @@ GALLBLADDER = {
     'overlayParts': ['gallbladder', 'liver', 'portal_vein_and_splenic_vein'],
     'landmarks': ['extrahepatic-duct'],
 }
-GALLBLADDER_REFERENCES = {
-    'gallbladder-12': {
-        'path': 'media/acquired-long.webp', 'title': 'Gallbladder in long axis',
-        'credit': 'Claudia Lucius et al., Life (2025), figure 2', 'url': 'https://doi.org/10.3390/life15060941',
-        'license': 'CC BY 4.0', 'licenseUrl': 'https://creativecommons.org/licenses/by/4.0/',
-        'note': 'Claudia Lucius’s own collection. Complete still resized and converted to WebP.',
-    },
-    'gallbladder-48': {
-        'path': 'media/acquired-short.webp', 'title': 'Normal Gallbladder, Short Axis',
-        'credit': 'Kathryn Pade, MD, Rady Children’s Hospital San Diego · The POCUS Atlas',
-        'url': 'https://www.thepocusatlas.com/pedsbiliary', 'license': 'CC BY-NC 4.0',
-        'licenseUrl': 'https://creativecommons.org/licenses/by-nc/4.0/',
-        'note': 'Adolescent case. Full cine frame at 1.2 seconds converted to WebP.',
-    },
-}
 
 
 def reference_sources(regional_sources):
-    refs = dict(GALLBLADDER_REFERENCES)
+    refs = json.loads((RESEARCH / 'gallbladder.json').read_text())
     files = {}
     landmarks = set()
     sources = ['hepatopancreatic.json', 'renal-splenic.json', 'great-vessels.json', 'normal-landmarks.json']
@@ -316,7 +301,7 @@ def configured_tours(output, refs, files, landmark_refs, tracks):
             inventory.extend(f'media/press-{kind}-{frame:02}.webp'
                              for kind in ('scan', 'section') for frame in range(FRAME_COUNT))
         if slug == 'gallbladder':
-            inventory += [ref['path'] for ref in GALLBLADDER_REFERENCES.values()]
+            inventory += [refs[stop['referenceId']]['path'] for stop in stops]
         else:
             verify_track(output / root, track, stops, builder)
             tour.pop('requirePoseReceipt', None)

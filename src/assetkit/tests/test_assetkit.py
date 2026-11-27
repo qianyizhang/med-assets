@@ -504,7 +504,9 @@ def test_cardiac_atlas_parity_and_unknown_target() -> None:
         "heart/Cardiac_Atlas_Animated/exports/shared-source-r01/cardiac-static-ed.glb",
         "heart/Cardiac_Atlas_Animated/exports/shared-source-r01/ventricular-wall-motion.glb",
     }
+    assert len({part.id for exp in rev.exports for part in exp.parts}) == 5
     for exp in rev.exports:
+        assert exp.storage_status in {"verified", "pointer-match"}
         assert exp.qualification.qualified is False
         assert exp.qualification.statuses == ("accepted",)
         assert exp.qualification.adoption_statuses == ("provisional",)
@@ -515,7 +517,10 @@ def test_cardiac_atlas_parity_and_unknown_target() -> None:
         )
 
     assert len(shown.tasks) == 2
+    exports_by_path = {export.path: export for export in rev.exports}
+    assert {task.export_path for task in shown.tasks} == export_paths
     for task in shown.tasks:
+        assert task.sha256 == exports_by_path[task.export_path].sha256
         assert task.adoption_status == "provisional"
         assert task.qualified is False
         assert len(task.assessments) == 1

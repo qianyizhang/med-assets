@@ -14,6 +14,8 @@ class RetentionTest(unittest.TestCase):
 
     def test_report_follows_named_owners_and_keeps_unknown_paths_unresolved(self):
         result = self.query(
+            'models/liver_s1233/exports/r01/liver.mesh',
+            'heart/Cardiac_Atlas_Animated/exports/shared-source-r01/cardiac-static-ed.glb',
             'models/bronchial_tree/exports/first-fork-fairing-r15/bronchial-first-fork.glb',
             'models/bronchial_tree/recipes/first-fork-fairing-r15/build.py',
             'reviews/teaching-assessments/reopen-source/parathyroid-extents.webp',
@@ -24,7 +26,12 @@ class RetentionTest(unittest.TestCase):
             'unknown/retention-fixture.file',
         )
         self.assertEqual(result.returncode, 0, result.stderr)
-        for text in ('Accepted teaching task bronchial-tree-first-fork',
+        for text in ('models/liver_s1233/exports/r01/liver.mesh\n'
+                     '  AssetKit 3D dependency · ultrasound:sweep:abdomen-tracks:liver '
+                     '(experiments/ultrasound-sweep/abdomen-tracks.json)',
+                     'AssetKit adoption (provisional) · teaching-assessment:heart/Cardiac_Atlas_Animated/'
+                     'exports/shared-source-r01/cardiac-static-ed.glb:',
+                     'Accepted teaching task bronchial-tree-first-fork',
                      'Maintained selection · Bronchial tree',
                      'Candidate Gallery read declaration /assets/',
                      'Maintained recipe entry point',

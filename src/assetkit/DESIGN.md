@@ -1,6 +1,6 @@
 # AssetKit design
 
-AssetKit develops and prepares reusable 3D medical teaching assets for delivery. It helps an author rebuild a model from its source, retain its coordinate frame and evidence, and produce a small export that a viewer or lesson can pin. The [liver sweep pilot](PRD.md#liver-sweep-pilot) will exercise one handoff from a case-derived 3D export to the existing ultrasound player.
+AssetKit is the canonical interface for developing and inspecting reusable 3D medical teaching assets. It helps an author rebuild a model from its source, retain its coordinate frame and evidence, and produce a small export that a viewer or lesson can pin. The [liver sweep pilot](PRD.md#liver-sweep-pilot) exercises the handoff from a case-derived 3D export to the existing ultrasound player.
 
 ## Asset development and delivery
 

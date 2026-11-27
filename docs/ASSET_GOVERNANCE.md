@@ -1,6 +1,8 @@
-# Asset Governance
+# Legacy Asset Governance
 
-The governance library is a repository-native read model and controlled migration interface. It does not replace package-owned recipes, source/import records, review evidence, teaching promotion, Gallery release selection or transport.
+[AssetKit](../src/assetkit/README.md) is the canonical interface for reusable 3D asset development and inspection. Use its `find`, `show`, and `impact` commands for maintained asset records and declared 3D dependencies. `uv run python tools/verify.py retained PATH` includes those dependencies alongside other retention evidence.
+
+This guide records the legacy catalog's coverage and the still-available backfill, hydration, and lifecycle workflows. Their package-owned records and exact evidence remain part of the migration. CI verifies the Liver and Cardiac Atlas contracts through AssetKit and checks lesson coverage against its authored sources.
 
 ## Ownership
 
@@ -63,6 +65,8 @@ uv run python tools/asset_governance.py resolve ultrasound:sweep:abdomen-tracks:
 An exact selector plus exact source-case match produces an **exact binding candidate**, not a qualified teaching asset. Anatomical suitability, spatial registration, license compatibility, learner-task evidence and runtime behavior remain separate gates. Unknown source frames, missing selectors and conflicting candidates remain visible.
 
 ## CLI
+
+These examples replay the legacy catalog and its broader consumer inventory. See the [AssetKit quickstart](../src/assetkit/README.md#quickstart) for routine 3D queries.
 
 Run from the repository root:
 

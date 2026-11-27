@@ -1,6 +1,6 @@
 # AssetKit
 
-**AssetKit** is a Python 3.12 library and CLI for developing, reviewing, and delivering reusable 3D medical teaching assets.
+**AssetKit** is the repository's canonical Python 3.12 library and CLI for developing, reviewing, and delivering reusable 3D medical teaching assets.
 
 It is designed around three goals:
 1. **Maintain fewer assets** by separating authoring lineages from runtime delivery payloads.
@@ -25,7 +25,10 @@ uv run assetkit show anatomy:heart:cardiac-atlas
 uv run assetkit economy
 
 # Trace affected consumers, reviews, and selections for an asset, export, or path
-uv run assetkit impact liver
+uv run assetkit impact anatomy:s1233:liver-window@r01:liver
+
+# Inspect indexed AssetKit uses alongside evidence, recovery, and other retention records
+uv run python tools/verify.py retained models/liver_s1233/exports/r01/liver.mesh
 
 # Resolve candidate assets/parts for a consumer's requirements
 uv run assetkit resolve ultrasound:sweep:abdomen-tracks:liver
@@ -60,5 +63,5 @@ A bundle preserves one item per use, including its transform. Totals count each 
 ## Running Tests
 
 ```sh
-uv run pytest
+uv run pytest src/assetkit/tests
 ```

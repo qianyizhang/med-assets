@@ -4,7 +4,7 @@ This repository is in beta. We ship in small, verified iterations and retire sup
 
 - **Contents** · Editable 3D models, registered assemblies, 2D diagrams and runnable lessons.
 - **Use** · Education. See each package's source, license, review scope and limitations.
-- **Find** · [Asset and evidence owners](docs/WORKFLOW.md#ownership), [source studies](sources/).
+- **Find** · [AssetKit for reusable 3D assets](src/assetkit/README.md), [asset and evidence owners](docs/WORKFLOW.md#ownership), [source studies](sources/).
 - **Experiment** · [Dental films and offline replay](experiments/dental-image26/).
 - **Contribute** · [Repository instructions](AGENTS.md), [glossary](GLOSSARY.md), [teaching-asset rubric](docs/guides/asset-quality.md), [asset admission](docs/WORKFLOW.md#asset-admission), [verification](docs/WORKFLOW.md#verification), [decisions](docs/DECISIONS.md).
 - **Maintain an asset** · [Rebuild, promote, release or retire a file](docs/WORKFLOW.md#maintaining-an-asset).
@@ -27,6 +27,7 @@ cd med-assets
 uv sync
 uv run pre-commit install
 uv run python tools/verify.py offline
+uv run pytest src/assetkit/tests
 ```
 
 - **Payloads** · [Public downloads and Git/LFS recovery](transport/README.md).
