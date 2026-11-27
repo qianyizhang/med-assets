@@ -8,7 +8,7 @@ Source metadata/license: sources/datasets/hra/placenta-full-term-v1.1. Review/ga
 
 ## Reproduce without the native Blender scene
 
-After git lfs pull, from repository root:
+For the original material replay, supply the external GLB at the path below and verify its SHA-256 and byte count against the [upstream source pin](../../sources/datasets/hra/placenta-full-term-v1.1/source.json). The tracked r02 derivative can be hydrated from Git LFS. Run from the repository root.
 
 ```sh
 python models/placenta/recipes/rebuild_material_variant.py --source sources/datasets/hra/placenta-full-term-v1.1/3d-vh-f-placenta-full-term.glb --output /tmp/placenta-rebuild.glb --audit /tmp/placenta-material-audit.json
