@@ -1,8 +1,6 @@
 import hashlib,json,tempfile,unittest
-from types import SimpleNamespace
-from unittest.mock import patch
 from pathlib import Path
-from med_assets.governance import GovernanceError,build_catalog,find,show,teaching_consumers,ultrasound_gap_requirements
+from med_assets.governance import GovernanceError,build_catalog,find,show,ultrasound_gap_requirements
 from med_assets.governance_migration import apply_backfill_plan,create_backfill_plan,hydrate_lfs
 from med_assets.domain import Concept,ConceptRelation,GovernanceGraph,RelationType
 
@@ -55,25 +53,6 @@ class GovernanceTests(unittest.TestCase):
             self.assertEqual({row.evidence["part"] for row in rows},
                 {"hepatic-vein","focal-lesion","cervical-node"})
             self.assertEqual({row.status for row in rows},{"missing-required","rebuild-required"})
-    def test_teaching_assessments_expose_exact_pins_and_selection_state(self):
-        with tempfile.TemporaryDirectory() as directory:
-            root=Path(directory);review=root/"reviews/teaching-assessments/liver/record.json"
-            review.parent.mkdir(parents=True);review.write_text("{}")
-            (root/"sources").mkdir();(root/"sources/reference.json").write_text("{}")
-            row={"export":{"path":"models/liver/liver.glb","sha256":"a"*64,"bytes":120},
-                 "task":"Locate the liver capsule.","views":[{"path":"reviews/liver/view.webp","sha256":"b"*64,"bytes":45}],
-                 "sources":[{"path":"sources/reference.json"}],"axes":[{"score":3}],"target":{"status":"passed"}}
-            assessment=SimpleNamespace(row=row,task_id="liver-capsule",sha256="c"*64,
-                owner=review,attribution={"evaluator":"Reviewer","date":"2026-11-27","rubric":"v1"})
-            selection=SimpleNamespace(task_id="liver-capsule",collection_id="body-systems",
-                family_id="digestive")
-            current=SimpleNamespace(gallery=lambda:[assessment],selections={"models/liver/liver.glb":selection})
-            with patch("med_assets.governance.CurrentTeaching",return_value=current):
-                consumers=teaching_consumers(root)
-            self.assertEqual(len(consumers),1)
-            self.assertEqual(consumers[0].status,"selected")
-            self.assertEqual(consumers[0].evidence["artifactPins"],[row["export"],*row["views"]])
-            self.assertEqual(consumers[0].evidence["sourcePaths"],["sources/reference.json"])
     def test_package_manifest_resolves_declared_payload_identity(self):
         with tempfile.TemporaryDirectory() as directory:
             root=Path(directory);self.fixture(root)

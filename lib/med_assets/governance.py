@@ -361,6 +361,8 @@ def ultrasound_consumers(repo:Path):
 
 def teaching_consumers(repo:Path):
     """Expose exact accepted teaching assessments and maintained selections."""
+    if not (repo/"reviews/teaching-assessments").is_dir():
+        return ()
     current=CurrentTeaching(repo)
     result=[]
     for assessment in current.gallery():
