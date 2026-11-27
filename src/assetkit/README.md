@@ -1,13 +1,13 @@
 # AssetKit
 
-**AssetKit** is a standalone Python 3.12 library (Pydantic v2 domain models + Typer CLI) for medical teaching asset management, structured as **6 DDD bounded contexts**.
+**AssetKit** is a Python 3.12 library and CLI for developing, reviewing, and delivering reusable 3D medical teaching assets.
 
 It is designed around three goals:
 1. **Maintain fewer assets** by separating authoring lineages from runtime delivery payloads.
-2. **Cover all teaching use cases** across arbitrary anatomical scales (whole body → system → organ → vessel → tissue/cell) and modalities (3D meshes, assemblies, 2D diagrams, rigs, procedural generators).
+2. **Support 3D work at different scales**, from whole-body assemblies to a single structure, with stable parts and explicit coordinate frames.
 3. **Maximize reuse without payload bloat** through measurable delivery economy (load count, part/byte utilization, and soft/hard size caps).
 
-See [DESIGN.md](DESIGN.md) for the DDD submodule architecture, invariants, economy rules, and trade-offs, and [PRD.md](PRD.md) for the post-port estimate, APIs, and Ultrasound Anatomy workflows.
+See [DESIGN.md](DESIGN.md) for ownership, delivery rules, and architectural decisions. The [PRD](PRD.md#liver-sweep-pilot) specifies the liver sweep pilot and its acceptance checks. The quickstart below describes the current CLI, including support for existing consumer records.
 
 ## Quickstart
 
